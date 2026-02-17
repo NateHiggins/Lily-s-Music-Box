@@ -1,0 +1,115 @@
+[gd_scene load_steps=2 format=3 uid="uid://hub"]
+
+[ext_resource type="Script" path="res://scripts/hub.gd" id="1"]
+
+[node name="Hub" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 500.0
+offset_bottom = 70.0
+text = "Lily's Music Box — Conservatory"
+
+[node name="RewireLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 20.0
+offset_top = 80.0
+offset_right = 520.0
+offset_bottom = 110.0
+
+[node name="ChimeLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 20.0
+offset_top = 115.0
+offset_right = 520.0
+offset_bottom = 170.0
+autowrap_mode = 3
+
+[node name="MapGraph" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 20.0
+offset_top = 180.0
+offset_right = 220.0
+offset_bottom = 280.0
+
+[node name="StartRun" type="Button" parent="."]
+offset_left = 280.0
+offset_top = 200.0
+offset_right = 500.0
+offset_bottom = 250.0
+text = "Start Run"
+
+[node name="CustomizeAvatar" type="Button" parent="."]
+offset_left = 280.0
+offset_top = 260.0
+offset_right = 500.0
+offset_bottom = 310.0
+text = "Customize Avatar"
+
+[node name="ViewDeaths" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 300.0
+offset_right = 250.0
+offset_bottom = 330.0
+text = "Recent Deaths"
+
+[node name="DeathsList" type="ItemList" parent="."]
+unique_name_in_owner = true
+offset_left = 20.0
+offset_top = 335.0
+offset_right = 520.0
+offset_bottom = 520.0
+
+[node name="CustomizePanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 40.0
+offset_top = 120.0
+offset_right = 500.0
+offset_bottom = 760.0
+
+[node name="VBox" type="VBoxContainer" parent="CustomizePanel"]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 440.0
+offset_bottom = 620.0
+
+[node name="HairStyle" type="OptionButton" parent="CustomizePanel/VBox"]
+unique_name_in_owner = true
+item_count = 3
+
+[node name="HairGradient" type="OptionButton" parent="CustomizePanel/VBox"]
+unique_name_in_owner = true
+item_count = 3
+
+[node name="Aura" type="OptionButton" parent="CustomizePanel/VBox"]
+unique_name_in_owner = true
+item_count = 3
+
+[node name="Face" type="OptionButton" parent="CustomizePanel/VBox"]
+unique_name_in_owner = true
+item_count = 2
+
+[node name="Outfit" type="OptionButton" parent="CustomizePanel/VBox"]
+unique_name_in_owner = true
+item_count = 3
+
+[node name="CloseCustomize" type="Button" parent="CustomizePanel/VBox"]
+text = "Done"
+
+[connection signal="pressed" from="StartRun" to="." method="_on_start_run_pressed"]
+[connection signal="pressed" from="CustomizeAvatar" to="." method="_on_customize_avatar_pressed"]
+[connection signal="pressed" from="CustomizePanel/VBox/CloseCustomize" to="." method="_on_close_customize_pressed"]
+[connection signal="item_selected" from="CustomizePanel/VBox/HairStyle" to="." method="_on_setting_changed" binds= ["hair_style"]]
+[connection signal="item_selected" from="CustomizePanel/VBox/HairGradient" to="." method="_on_setting_changed" binds= ["hair_gradient"]]
+[connection signal="item_selected" from="CustomizePanel/VBox/Aura" to="." method="_on_setting_changed" binds= ["aura_particles"]]
+[connection signal="item_selected" from="CustomizePanel/VBox/Face" to="." method="_on_setting_changed" binds= ["face_option"]]
+[connection signal="item_selected" from="CustomizePanel/VBox/Outfit" to="." method="_on_setting_changed" binds= ["outfit"]]

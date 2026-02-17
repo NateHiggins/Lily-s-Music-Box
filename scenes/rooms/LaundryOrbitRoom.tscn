@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/rooms/laundry_orbit_room.gd" id="1"]
+[node name="LaundryOrbitRoom" type="Node2D"]
+script = ExtResource("1")
