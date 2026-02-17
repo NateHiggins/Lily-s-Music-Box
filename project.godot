@@ -1,0 +1,23 @@
+; Engine configuration file.
+config_version=5
+
+[application]
+config/name="Lily's Music Box (Mobile Edition)"
+run/main_scene="res://scenes/Hub.tscn"
+config/features=PackedStringArray("4.2")
+
+[autoload]
+ServerAPI="*res://scripts/server_api.gd"
+DeathRemnantStore="*res://scripts/death_remnant_store.gd"
+MansionStateStore="*res://scripts/mansion_state_store.gd"
+ProfileStore="*res://scripts/profile_store.gd"
+
+[display]
+window/size/viewport_width=540
+window/size/viewport_height=960
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
+[rendering]
+renderer/rendering_method="mobile"
+textures/canvas_textures/default_texture_filter=0
