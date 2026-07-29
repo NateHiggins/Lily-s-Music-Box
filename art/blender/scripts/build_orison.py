@@ -271,6 +271,11 @@ def build():
                 x_end = xs + d * n * tread
                 ramp.add_ramp(xs, part["z0"], x_end, part["z0"] + n * rise,
                               part["y0"], part["y1"])
+                if "rail_y" in part:  # handrail at 0.91 m over the nosings
+                    ry = part["rail_y"]
+                    vis.add_ramp(xs, part["z0"] + 0.86, x_end,
+                                 part["z0"] + n * rise + 0.86,
+                                 ry - 0.03, ry + 0.03, 0.08)
                 pair.append(part)
                 if part.get("exit"):  # top infill from last step to well edge
                     top_z = part["z0"] + n * rise
