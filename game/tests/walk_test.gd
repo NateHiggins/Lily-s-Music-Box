@@ -95,12 +95,15 @@ func _vertical_slice_checks() -> void:
 	# bathroom wall physically separates main room from the service band
 	var space := get_viewport().world_3d.direct_space_state
 	var p := PhysicsRayQueryParameters3D.create(
-			Vector3(-9.0, 10.9, -3.0), Vector3(-5.6, 10.9, -3.0))
+			Vector3(-9.0, 10.9, -5.5), Vector3(-5.6, 10.9, -5.5))
 	var hit := space.intersect_ray(p)
 	_check(not hit.is_empty() and hit.position.x < -7.5,
 			"4B bath wall present (hit x=%.2f)" %
 			(hit.position.x if hit else 99.0))
 	_check(_floor_below(Vector3(-12.8, 11.2, -8.0)), "4B alcove has a slab")
+	# per-stack archetypes present across the building
+	for rid2 in ["F02_A_BED", "F03_C_BED2", "F05_D_OFFICE", "F02_WSTOR"]:
+		_check(ids.has(rid2), "%s in layout" % rid2)
 
 	# hero toaster: full mechanical cycle latch -> coils -> pop
 	var toaster: ToasterProp = root.get_node_or_null("F04_B_TOASTER_01")

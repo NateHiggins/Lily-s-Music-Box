@@ -153,7 +153,7 @@
    "id": "F01_A_RADIATOR_01",
    "pos": [
     -13.35,
-    -4.855,
+    -5.05,
     0.35
    ],
    "room": "1A",
@@ -174,7 +174,7 @@
    "id": "F01_D_RADIATOR_01",
    "pos": [
     13.35,
-    -4.855,
+    -5.325,
     0.35
    ],
    "room": "1D",
@@ -195,7 +195,7 @@
    "id": "F02_A_RADIATOR_01",
    "pos": [
     -13.35,
-    -4.855,
+    -5.05,
     3.55
    ],
    "room": "2A",
@@ -213,10 +213,50 @@
    ]
   },
   {
+   "id": "F02_A_MONITOR_01",
+   "pos": [
+    -12.55,
+    -5.55,
+    3.96
+   ],
+   "room": "2A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_A_LAMP_01",
+   "pos": [
+    -12.85,
+    -5.45,
+    3.96
+   ],
+   "room": "2A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "F02_B_RADIATOR_01",
    "pos": [
     -13.35,
-    4.855,
+    6.16,
     3.55
    ],
    "room": "2B",
@@ -237,7 +277,7 @@
    "id": "F02_C_RADIATOR_01",
    "pos": [
     13.35,
-    4.855,
+    4.385,
     3.55
    ],
    "room": "2C",
@@ -255,10 +295,70 @@
    ]
   },
   {
+   "id": "F02_C_SPEAKER_01",
+   "pos": [
+    13.05,
+    5.985,
+    3.2
+   ],
+   "room": "2C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_C_SPEAKER_02",
+   "pos": [
+    13.05,
+    2.185,
+    3.2
+   ],
+   "room": "2C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_C_MONITOR_01",
+   "pos": [
+    9.18,
+    4.085,
+    3.96
+   ],
+   "room": "2C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "F02_D_RADIATOR_01",
    "pos": [
     13.35,
-    -4.855,
+    -5.325,
     3.55
    ],
    "room": "2D",
@@ -292,6 +392,11 @@
    "damping": 0.22,
    "infection_receptivity": 0.55,
    "connections": [
+    "F02_A_MONITOR_01",
+    "F02_A_LAMP_01",
+    "F02_C_SPEAKER_01",
+    "F02_C_SPEAKER_02",
+    "F02_C_MONITOR_01",
     "B1_ELECTRICAL_HUB",
     "F02_CORRLIGHT_N",
     "F03_CORRLIGHT_S"
@@ -321,7 +426,7 @@
    "id": "F03_A_RADIATOR_01",
    "pos": [
     -13.35,
-    -4.855,
+    -5.05,
     6.75
    ],
    "room": "3A",
@@ -342,7 +447,7 @@
    "id": "F03_B_RADIATOR_01",
    "pos": [
     -13.35,
-    4.855,
+    6.16,
     6.75
    ],
    "room": "3B",
@@ -360,10 +465,30 @@
    ]
   },
   {
+   "id": "F03_B_LAMP_01",
+   "pos": [
+    -12.65,
+    6.67,
+    7.3
+   ],
+   "room": "3B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "F03_C_RADIATOR_01",
    "pos": [
     13.35,
-    4.855,
+    4.385,
     6.75
    ],
    "room": "3C",
@@ -384,7 +509,7 @@
    "id": "F03_D_RADIATOR_01",
    "pos": [
     13.35,
-    -4.855,
+    -5.325,
     6.75
    ],
    "room": "3D",
@@ -399,6 +524,46 @@
    "connections": [
     "F02_D_RADIATOR_01",
     "F04_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F03_D_SPEAKER_01",
+   "pos": [
+    11.38,
+    -4.125,
+    6.4
+   ],
+   "room": "3D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_D_SPEAKER_02",
+   "pos": [
+    11.38,
+    -6.525,
+    6.4
+   ],
+   "room": "3D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
    ]
   },
   {
@@ -418,6 +583,9 @@
    "damping": 0.22,
    "infection_receptivity": 0.55,
    "connections": [
+    "F03_B_LAMP_01",
+    "F03_D_SPEAKER_01",
+    "F03_D_SPEAKER_02",
     "F02_CORRLIGHT_S",
     "F03_CORRLIGHT_N",
     "F04_CORRLIGHT_S"
@@ -447,7 +615,7 @@
    "id": "F04_A_RADIATOR_01",
    "pos": [
     -13.35,
-    -4.855,
+    -5.05,
     9.95
    ],
    "room": "4A",
@@ -467,7 +635,7 @@
   {
    "id": "F04_B_RADIATOR_01",
    "pos": [
-    -9.58,
+    -8.55,
     9.35,
     9.95
    ],
@@ -489,8 +657,8 @@
   {
    "id": "F04_B_LAMP_01",
    "pos": [
-    -8.05,
-    3.35,
+    -8.15,
+    6.0,
     10.36
    ],
    "room": "4B",
@@ -509,8 +677,8 @@
   {
    "id": "F04_B_MONITOR_01",
    "pos": [
-    -7.95,
-    2.85,
+    -8.05,
+    5.5,
     10.36
    ],
    "room": "4B",
@@ -529,8 +697,8 @@
   {
    "id": "F04_B_TOASTER_01",
    "pos": [
-    -5.85,
-    8.35,
+    -9.7,
+    9.3,
     10.5
    ],
    "room": "4B",
@@ -549,8 +717,8 @@
   {
    "id": "F04_B_FRIDGE_01",
    "pos": [
-    -6.05,
-    9.25,
+    -8.3,
+    9.2,
     9.6
    ],
    "room": "4B",
@@ -569,8 +737,8 @@
   {
    "id": "F04_B_BOXFAN_01",
    "pos": [
-    -12.95,
-    1.05,
+    -13.2,
+    3.4,
     9.85
    ],
    "room": "4B",
@@ -590,7 +758,7 @@
    "id": "F04_B_DOOR_ANOMALY",
    "pos": [
     -7.2,
-    4.38,
+    6.99,
     10.6
    ],
    "room": "4B",
@@ -610,7 +778,7 @@
    "id": "F04_C_RADIATOR_01",
    "pos": [
     13.35,
-    4.855,
+    4.385,
     9.95
    ],
    "room": "4C",
@@ -631,7 +799,7 @@
    "id": "F04_D_RADIATOR_01",
    "pos": [
     13.35,
-    -4.855,
+    -5.325,
     9.95
    ],
    "room": "4D",
@@ -699,7 +867,7 @@
    "id": "F05_A_RADIATOR_01",
    "pos": [
     -13.35,
-    -4.855,
+    -5.05,
     13.15
    ],
    "room": "5A",
@@ -717,10 +885,30 @@
    ]
   },
   {
+   "id": "F05_A_LAMP_01",
+   "pos": [
+    -8.98,
+    -5.05,
+    13.63
+   ],
+   "room": "5A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "F05_B_RADIATOR_01",
    "pos": [
     -13.35,
-    4.855,
+    6.16,
     13.15
    ],
    "room": "5B",
@@ -741,7 +929,7 @@
    "id": "F05_C_RADIATOR_01",
    "pos": [
     13.35,
-    4.855,
+    4.385,
     13.15
    ],
    "room": "5C",
@@ -762,7 +950,7 @@
    "id": "F05_D_RADIATOR_01",
    "pos": [
     13.35,
-    -4.855,
+    -5.325,
     13.15
    ],
    "room": "5D",
@@ -796,6 +984,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.55,
    "connections": [
+    "F05_A_LAMP_01",
     "F04_CORRLIGHT_S",
     "F05_CORRLIGHT_N",
     "F06_CORRLIGHT_S"
@@ -825,7 +1014,7 @@
    "id": "F06_A_RADIATOR_01",
    "pos": [
     -13.35,
-    -4.855,
+    -5.05,
     16.35
    ],
    "room": "6A",
@@ -842,10 +1031,90 @@
    ]
   },
   {
+   "id": "F06_A_MONITOR_01",
+   "pos": [
+    -12.85,
+    -6.05,
+    16.78
+   ],
+   "room": "6A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_A_MONITOR_02",
+   "pos": [
+    -12.85,
+    -5.05,
+    16.78
+   ],
+   "room": "6A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_A_MONITOR_03",
+   "pos": [
+    -12.85,
+    -4.05,
+    16.78
+   ],
+   "room": "6A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_A_BOXFAN_01",
+   "pos": [
+    -6.71,
+    -8.65,
+    16.25
+   ],
+   "room": "6A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "F06_B_RADIATOR_01",
    "pos": [
     -13.35,
-    4.855,
+    6.16,
     16.35
    ],
    "room": "6B",
@@ -865,7 +1134,7 @@
    "id": "F06_C_RADIATOR_01",
    "pos": [
     13.35,
-    4.855,
+    4.385,
     16.35
    ],
    "room": "6C",
@@ -885,7 +1154,7 @@
    "id": "F06_D_RADIATOR_01",
    "pos": [
     13.35,
-    -4.855,
+    -5.325,
     16.35
    ],
    "room": "6D",
@@ -918,6 +1187,10 @@
    "damping": 0.22,
    "infection_receptivity": 0.55,
    "connections": [
+    "F06_A_MONITOR_01",
+    "F06_A_MONITOR_02",
+    "F06_A_MONITOR_03",
+    "F06_A_BOXFAN_01",
     "F05_CORRLIGHT_S",
     "F06_CORRLIGHT_N"
    ]

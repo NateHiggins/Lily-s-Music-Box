@@ -24,12 +24,14 @@ const SHOTS := [
 	 "look": Vector3(2, 19.4, -4), "overlay": false},
 	{"name": "b_08_acoustic_graph", "pos": Vector3(26, 14, 26),
 	 "look": Vector3(0, 7, 0), "overlay": true},
-	{"name": "b_09_4b_workstation", "pos": Vector3(-9.9, 11.15, -1.4),
-	 "look": Vector3(-7.9, 10.45, -3.1), "overlay": false},
-	{"name": "b_10_4b_kitchen", "pos": Vector3(-7.6, 11.15, -6.6),
-	 "look": Vector3(-5.7, 10.45, -8.5), "overlay": false},
-	{"name": "b_11_4b_door_anomaly", "pos": Vector3(-9.6, 11.1, -3.2),
-	 "look": Vector3(-7.2, 10.7, -4.4), "overlay": false, "infection": 1.0},
+	{"name": "b_09_4b_workstation", "pos": Vector3(-10.2, 11.15, -3.8),
+	 "look": Vector3(-8.0, 10.45, -5.6), "overlay": false},
+	{"name": "b_10_4b_kitchen", "pos": Vector3(-9.6, 11.15, -7.0),
+	 "look": Vector3(-9.7, 10.45, -9.3), "overlay": false},
+	{"name": "b_11_4b_door_anomaly", "pos": Vector3(-9.5, 11.1, -5.4),
+	 "look": Vector3(-7.2, 10.7, -7.0), "overlay": false, "infection": 1.0},
+	{"name": "b_15_6a_sacha", "pos": Vector3(-10.3, 17.5, 3.4),
+	 "look": Vector3(-12.9, 17.2, 5.1), "overlay": false, "infection": 0.6},
 ]
 
 
@@ -72,12 +74,12 @@ func _run() -> void:
 	ci.press_capture()
 	ci.press_route()
 	await _until_ci(func(): return ci.stage == CallInterface.Stage.RESPONSE, 25.0)
-	await _grab(Vector3(-8.6, 11.15, -2.2), Vector3(-7.9, 10.6, -3.0),
+	await _grab(Vector3(-9.0, 11.15, -4.8), Vector3(-8.0, 10.6, -5.6),
 			"b_12_call_response_window")
 	ci.press_respond("complete")
 	await get_tree().create_timer(4.0).timeout
 	ci.leave()
-	await _grab(Vector3(-9.4, 11.0, -3.0), Vector3(-7.2, 10.6, -4.5),
+	await _grab(Vector3(-9.5, 11.0, -5.5), Vector3(-7.2, 10.6, -7.0),
 			"b_13_door_anomaly_manifest")
 	# through the seam: Room 0
 	var anomaly = root.get_node_or_null("F04_B_DOOR_ANOMALY")
