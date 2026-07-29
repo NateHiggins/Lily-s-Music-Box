@@ -1,0 +1,14 @@
+{
+  "id": "appliances/galvanized_metal",
+  "kind": "surface",
+  "source": "art/textures/source_library/appliances/galvanized_metal.png",
+  "meters_per_tile": 0.8,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "edge_error_horizontal": 0.02478,
+  "edge_error_vertical": 0.02179
+}

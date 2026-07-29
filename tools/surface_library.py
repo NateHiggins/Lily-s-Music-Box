@@ -7,7 +7,7 @@ import argparse
 import json
 from pathlib import Path
 
-from PIL import Image, ImageEnhance, ImageOps
+from PIL import Image, ImageChops, ImageEnhance, ImageOps, ImageStat
 
 import material_textures as mt
 
@@ -67,8 +67,11 @@ def process(asset_id: str) -> None:
     if spec["kind"] == "overlay":
         # AI supplies placement/shape; runtime supplies color and blend mode.
         gray = ImageOps.grayscale(plate)
-        mask = ImageOps.autocontrast(gray, cutoff=1)
-        mask = ImageEnhance.Contrast(mask).enhance(1.25)
+        median = int(ImageStat.Stat(gray).median[0])
+        background = Image.new("L", gray.size, median)
+        mask = ImageChops.difference(gray, background)
+        mask = ImageOps.autocontrast(mask, cutoff=2)
+        mask = ImageEnhance.Contrast(mask).enhance(1.4)
         mask.save(output / "mask.png", optimize=True)
         mt.tile_preview(mask.convert("RGB")).save(
             output / "preview_2x2.png", optimize=True

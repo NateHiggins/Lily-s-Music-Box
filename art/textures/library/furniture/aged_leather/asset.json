@@ -1,0 +1,14 @@
+{
+  "id": "furniture/aged_leather",
+  "kind": "surface",
+  "source": "art/textures/source_library/furniture/aged_leather.png",
+  "meters_per_tile": 0.8,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "edge_error_horizontal": 0.032,
+  "edge_error_vertical": 0.04205
+}

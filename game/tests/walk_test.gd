@@ -39,6 +39,19 @@ func _both_radiators_reached() -> bool:
 	return _riser_delta_ms() > -99999
 
 
+## Smallest positive gap from any a-arrival to the next b-arrival: pairs
+## the same emission across two paths regardless of sampling phase.
+func _paired_gap_ms(a_id: String, b_id: String) -> int:
+	var a: Array = _arrivals.get(a_id, [])
+	var b: Array = _arrivals.get(b_id, [])
+	var best := 999999
+	for ta in a:
+		for tb in b:
+			if tb >= ta and tb - ta < best:
+				best = tb - ta
+	return best if best < 999999 else -1
+
+
 func _ready() -> void:
 	root = load("res://scenes/building/orison_root.tscn").instantiate()
 	add_child(root)
@@ -72,7 +85,7 @@ func _run() -> void:
 	# --- south corridor -> elevator hall -> atrium deck -> up the west
 	# flight to the north landing -> east flight onto the F02 deck
 	var pl: PlayerController = root.player
-	pl.global_position = Vector3(-1.2, 0.15, 8.5)  # south corridor
+	pl.global_position = Vector3(0.0, 0.15, 7.6)  # lobby, past the vestibule
 	pl.velocity = Vector3.ZERO
 	await _goto(pl, Vector2(-1.2, 5.0), 5.0)    # through the hall arch
 	await _goto(pl, Vector2(-0.5, 2.6), 4.0)    # court arch, onto the deck
@@ -150,6 +163,10 @@ func _vertical_slice_checks() -> void:
 	# per-stack archetypes present across the building
 	for rid2 in ["F02_A_BED", "F03_C_BED2", "F05_D_OFFICE", "F02_WSTOR"]:
 		_check(ids.has(rid2), "%s in layout" % rid2)
+	# lobby program + vestibule from the polish pass
+	for rid3 in ["F01_VESTIBULE", "F01_OFFICE", "F01_PACKAGE",
+			"F01_RESTROOM"]:
+		_check(ids.has(rid3), "%s in layout" % rid3)
 	await _door_checks()
 
 
@@ -219,6 +236,31 @@ func _door_checks() -> void:
 		_check(toaster.state == toaster.PState.IDLE,
 				"toaster returned to IDLE")
 
+	# 4B detail: kettle boils and its whistle can be taken off; the wall
+	# clock's tick drifts toward the conductor's tempo under infection
+	var kettle: KettleProp = root.get_node_or_null("F04_B_KETTLE_01")
+	_check(kettle != null, "kettle on the 4B counter")
+	if kettle:
+		Conductor.infection = 0.1  # below quantize threshold: boil is honest
+		kettle.heat_time = 1.0
+		kettle.interact(null)
+		var okk: bool = await _until(func(): return kettle.state == kettle.PState.COMPLETING, 8.0)
+		_check(okk, "kettle reaches the whistle")
+		kettle.interact(null)
+		_check(kettle.cycles_completed == 1 and kettle.state == kettle.PState.IDLE,
+				"kettle switched off cleanly")
+	var clock: ClockProp = root.get_node_or_null("F04_B_CLOCK_01")
+	_check(clock != null, "wall clock hung in 4B")
+	if clock:
+		Conductor.infection = 1.0
+		Conductor.bpm = 100.0
+		await get_tree().create_timer(3.0).timeout
+		_check(clock.interval < 0.98,
+				"clock tick drifting toward the building's tempo (%.2f s)"
+				% clock.interval)
+		Conductor.bpm = 72.0
+		Conductor.infection = 0.15
+
 	# networked propagation: same event reaches F05 later than F02 on H-B
 	Conductor.propagation_mode = "network"
 	Conductor.origin_node = "B1_BOILER_01"
@@ -233,6 +275,15 @@ func _door_checks() -> void:
 				"motif sweeps up riser H-B (F05 %d ms after F02)" % dt)
 	else:
 		_check(false, "propagation reached B-stack radiators")
+	# the flue is the fast path: the chimney breast on F05 must sound
+	# BEFORE the same floor's radiator for the same emission
+	_check(not AcousticGraphData.neighbors("F05_FLUE").is_empty(),
+			"flue column connected")
+	_check(not AcousticGraphData.neighbors("F04_PORCH_DECK").is_empty(),
+			"porch deck coupled to the structure")
+	var race := _paired_gap_ms("F05_FLUE_BREAST", "F05_B_RADIATOR_01")
+	_check(race > 20 and race < 500,
+			"flue beats the riser to F05 (radiator %d ms later)" % race)
 
 	# the impossible door manifests only at severe infection
 	var anomaly: DoorAnomalyProp = root.get_node_or_null("F04_B_DOOR_ANOMALY")

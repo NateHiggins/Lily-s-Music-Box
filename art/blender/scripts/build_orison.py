@@ -795,7 +795,8 @@ def subtract_rect(rects, hole):
     return out
 
 
-def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None):
+def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
+               stone_buf=None):
     """Wall run with openings, thickness centered on the a->b line.
     Door openings get jamb/head trim; windows get a frame, sill lip and a
     collidable glass pane. Detail pass (unless details=False): baseboards
@@ -823,6 +824,8 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None):
 
     details = w.get("details", True) and h > 2.0 and trim_buf is not None
     wains = w.get("wainscot", False) and wains_buf is not None
+    is_brick = w["mat"] in ("face_brick", "common_brick", "brick",
+                            "concrete")
 
     def detail_seg(d0, d1):
         """Baseboard/cornice/wainscot on a stretch of wall between doors."""
@@ -851,20 +854,30 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None):
             detail_seg(d_cursor, d0)      # skirting stops at door reveals
             d_cursor = d1
         if trim_buf is not None:
+            surround = stone_buf if (is_brick and stone_buf is not None)                     else trim_buf
             ft = t + 0.04
             if o["type"] == "door":
-                box(trim_buf, d0, d0 + 0.05, 0.0, top, ft)
-                box(trim_buf, d1 - 0.05, d1, 0.0, top, ft)
-                box(trim_buf, d0, d1, top, top + 0.06, ft)
+                box(surround, d0, d0 + 0.05, 0.0, top, ft)
+                box(surround, d1 - 0.05, d1, 0.0, top, ft)
+                box(surround, d0, d1, top, top + 0.06, ft)
             else:
-                box(trim_buf, d0, d0 + 0.06, o["sill"], top, ft)
-                box(trim_buf, d1 - 0.06, d1, o["sill"], top, ft)
-                box(trim_buf, d0, d1, top - 0.06, top, ft)
-                box(trim_buf, max(d0 - 0.04, 0.0), min(d1 + 0.04, length),
+                box(surround, d0, d0 + 0.06, o["sill"], top, ft)
+                box(surround, d1 - 0.06, d1, o["sill"], top, ft)
+                box(surround, d0, d1, top - 0.06, top, ft)
+                # projecting sill (limestone on masonry)
+                box(surround, max(d0 - 0.04, 0.0), min(d1 + 0.04, length),
                     o["sill"] - 0.04, o["sill"] + 0.02, t + 0.10)
+                if is_brick:  # soldier-course lintel proud of the face
+                    box(buf, d0 - 0.02, d1 + 0.02, top + 0.06,
+                        min(top + 0.26, h), t + 0.05)
                 if glass_buf is not None:
                     box(glass_buf, d0 + 0.05, d1 - 0.05, o["sill"] + 0.05,
                         top - 0.05, 0.02)
+                    # 1-over-1 double-hung meeting rail
+                    box(surround, d0 + 0.04, d1 - 0.04,
+                        o["sill"] + (top - o["sill"]) * 0.5 - 0.02,
+                        o["sill"] + (top - o["sill"]) * 0.5 + 0.02,
+                        t + 0.05)
         cursor = d1
     if cursor < length:
         seg_box(cursor, length, 0.0, h)
@@ -991,10 +1004,6 @@ def build_facade_details(buf):
     cor.add_box((-14.12, 9.70, zc), (14.12, 10.12, zc + 0.38))
     cor.add_box((-14.12, -10.12, zc), (-13.70, 10.12, zc + 0.38))
     cor.add_box((13.70, -10.12, zc), (14.12, 10.12, zc + 0.38))
-    por = buf("F01", "portal", "concrete")
-    por.add_box((-1.05, -10.04, 0.0), (-0.70, -9.80, 2.60))
-    por.add_box((0.70, -10.04, 0.0), (1.05, -9.80, 2.60))
-    por.add_box((-1.15, -10.08, 2.60), (1.15, -9.78, 3.05))
     # skylight cap over the atrium monitor: glass on steel ribs
     sky = buf("ROOF", "skylight-col", "glassish")
     sky.add_box((-3.40, -3.40, 21.77), (3.40, 3.40, 21.81))
@@ -1041,6 +1050,10 @@ def build():
         root_col.children.link(col)
         floor_cols[fid] = col
         for s in fl["slabs"]:
+            # inset slightly so flush facades hide the slab edge
+            r_ = s["rect"]
+            s = dict(s, rect=[r_[0] + 0.03, r_[1] + 0.03, r_[2] - 0.03,
+                              r_[3] - 0.03])
             rects = [tuple(s["rect"])]
             for hole in s["holes"]:
                 rects = subtract_rect(rects, tuple(hole))
@@ -1049,11 +1062,14 @@ def build():
                     (x0, y0, s["z_top"] - s["t"]), (x1, y1, s["z_top"]))
         for w in fl["walls"]:
             cat = {"brick": "walls_brick-col",
+                   "face_brick": "walls_fbrick-col",
+                   "common_brick": "walls_cbrick-col",
                    "concrete": "walls_conc-col"}.get(w["mat"], "walls-col")
             build_wall(buf(fid, cat, w["mat"]), w,
                        buf(fid, "trim", "trim"),
                        buf(fid, "glazing-col", "glassish"),
-                       buf(fid, "wainscot", "wainscot"))
+                       buf(fid, "wainscot", "wainscot"),
+                       buf(fid, "stone_trim-col", "limestone"))
         for r in fl["rooms"]:
             build_floor_overlay(buf, fid, fl, r)
         for fu in fl.get("furniture", []):

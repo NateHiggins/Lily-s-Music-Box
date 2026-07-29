@@ -27,6 +27,13 @@ const PROP_SCRIPTS := {
 	"boxfan": preload("res://scripts/props/boxfan_prop.gd"),
 	"door_anomaly": preload("res://scripts/props/door_anomaly_prop.gd"),
 	"speaker": preload("res://scripts/props/speaker_prop.gd"),
+	"flue_breast": preload("res://scripts/props/flue_breast_prop.gd"),
+	"porch_deck": preload("res://scripts/props/porch_deck_prop.gd"),
+	"kettle": preload("res://scripts/props/kettle_prop.gd"),
+	"wall_clock": preload("res://scripts/props/clock_prop.gd"),
+	"smoke_detector": preload("res://scripts/props/smoke_detector_prop.gd"),
+	"exhaust_fan": preload("res://scripts/props/exhaust_fan_prop.gd"),
+	"ceiling_light": preload("res://scripts/props/ceiling_light_prop.gd"),
 }
 
 var layout: Dictionary = {}
@@ -59,7 +66,7 @@ func _ready() -> void:
 	elevator.setup(layout["elevator"])
 	player = PlayerController.new()
 	add_child(player)
-	player.global_position = GameBoot.b2g([0.0, -8.3, 0.1])  # lobby
+	player.global_position = GameBoot.b2g([0.0, -9.0, 0.1])  # vestibule
 	walkthrough = ArchitecturalWalkthrough.new()
 	add_child(walkthrough)
 	walkthrough.setup(self)

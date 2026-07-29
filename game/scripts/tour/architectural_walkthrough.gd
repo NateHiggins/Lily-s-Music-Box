@@ -217,9 +217,10 @@ func _build_path() -> void:
 			"ORISON APARTMENTS — street elevation", 2.6)
 	_wp(0, -12.0, 1.72, [0, -9.65, 2.1], "the street entry", 1.0)
 	_wp(0, -9.1, e.F01)
-	_wp(0.6, -8.4, e.F01, [-2.0, -7.4, 1.3],
+	_wp(0.3, -8.6, e.F01, null, "the draft vestibule", 0.9)
+	_wp(0.9, -7.9, e.F01, [-2.0, -7.4, 1.3],
 			"LOBBY — mail wall, bench, the atrium beyond", 1.8)
-	_wp(2.6, -8.7, e.F01, [4.4, -9.5, 1.1], "22 mailboxes, six floors", 1.4)
+	_wp(2.6, -8.5, e.F01, [4.4, -9.5, 1.1], "22 mailboxes, six floors", 1.4)
 	_wp(-1.2, -8.5, e.F01, [-1.2, -5.0, 2.6], "", 0.6)
 	_wp(-1.2, -5.2, e.F01, [0, -3.2, 2.4],
 			"the elevator hall — every floor meets the atrium here", 1.4)

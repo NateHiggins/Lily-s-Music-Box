@@ -10,8 +10,8 @@ var _dir := ""
 const SHOTS := [
 	{"name": "b_01_exterior_street", "pos": Vector3(16, 12, 34),
 	 "look": Vector3(0, 8, 0), "overlay": false},
-	{"name": "b_02_lobby", "pos": Vector3(-2.5, 1.72, 8.6),
-	 "look": Vector3(2.2, 1.2, 5.2), "overlay": false},
+	{"name": "b_02_lobby", "pos": Vector3(-0.4, 1.72, 9.1),
+	 "look": Vector3(3.6, 1.25, 6.6), "overlay": false},
 	{"name": "b_03_corridor_f04", "pos": Vector3(4.3, 11.25, 7.6),
 	 "look": Vector3(4.3, 10.8, -6.0), "overlay": false},
 	{"name": "b_04_apartment_4b", "pos": Vector3(-8.1, 11.25, -3.2),

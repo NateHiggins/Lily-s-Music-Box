@@ -1,0 +1,11 @@
+{
+  "id": "stains/soot_haze",
+  "kind": "overlay",
+  "source": "art/textures/source_library/stains/soot_haze.png",
+  "meters_per_tile": 1.5,
+  "maps": {
+    "mask": "mask.png"
+  },
+  "edge_error_horizontal": 0.07678,
+  "edge_error_vertical": 0.0712
+}
