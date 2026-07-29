@@ -12,6 +12,7 @@ const MOUSE_SENS := 0.0023
 
 var camera: Camera3D
 var flashlight: SpotLight3D
+var _prompt: Label
 var noclip := false
 var crouched := false
 ## True while seated at the support desk: movement and look are frozen and
@@ -44,6 +45,56 @@ func _ready() -> void:
 	flashlight.visible = false
 	camera.add_child(flashlight)
 	floor_snap_length = 0.4
+	_build_hud()
+
+
+func _build_hud() -> void:
+	var layer := CanvasLayer.new()
+	layer.layer = 7
+	add_child(layer)
+	var dot := ColorRect.new()
+	dot.size = Vector2(4, 4)
+	dot.position = Vector2(638, 358)
+	dot.color = Color(0.9, 0.92, 0.95, 0.55)
+	dot.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	layer.add_child(dot)
+	_prompt = Label.new()
+	_prompt.position = Vector2(560, 384)
+	_prompt.add_theme_font_size_override("font_size", 14)
+	_prompt.modulate = Color(0.85, 0.9, 0.92)
+	layer.add_child(_prompt)
+
+
+## What the crosshair is looking at, refreshed for the prompt line.
+func _update_prompt() -> void:
+	_prompt.text = ""
+	if call_locked or Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		return
+	var from := camera.global_position
+	var to := from + camera.global_transform.basis * Vector3(0, 0, -2.1)
+	var params := PhysicsRayQueryParameters3D.create(from, to)
+	params.collide_with_areas = true
+	params.exclude = [get_rid()]
+	var hit := get_world_3d().direct_space_state.intersect_ray(params)
+	if hit.is_empty():
+		return
+	if hit.collider is Area3D:
+		if hit.collider.has_meta("call_level"):
+			_prompt.text = "[E]  Call elevator"
+			return
+		if hit.collider.has_meta("cabin_panel"):
+			_prompt.text = "[E]  Select next floor"
+			return
+	var node: Node = hit.collider
+	while node:
+		if node.has_method("interact_prompt"):
+			_prompt.text = node.interact_prompt()
+			return
+		node = node.get_parent()
+
+
+func _process(_delta: float) -> void:
+	_update_prompt()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -101,7 +152,29 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 3.4
 	else:
 		velocity.y = minf(velocity.y, 0.0)
+	_try_step_up(delta)
 	move_and_slide()
+
+
+## Brief metric: 0.28 m max step height. If forward motion is blocked at
+## foot level but clear 0.30 m up, lift the capsule; floor snap settles it
+## onto the tread. This is what makes risers, thresholds and ramp lips
+## walkable without jumping.
+func _try_step_up(delta: float) -> void:
+	if not is_on_floor():
+		return
+	var motion := Vector3(velocity.x, 0, velocity.z) * delta
+	if motion.length() < 0.0005:
+		return
+	var probe := motion.normalized() * maxf(motion.length(), 0.06)
+	if not test_move(global_transform, probe):
+		return  # path clear at ground level
+	var lift := Vector3.UP * 0.30
+	if test_move(global_transform, lift):
+		return  # no headroom
+	if test_move(global_transform.translated(lift), probe):
+		return  # still blocked higher: a real wall
+	global_position.y += 0.30
 
 
 func _try_interact() -> void:

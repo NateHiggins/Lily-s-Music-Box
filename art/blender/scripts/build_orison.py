@@ -272,7 +272,7 @@ def build():
                 ramp.add_ramp(xs, part["z0"], x_end, part["z0"] + n * rise,
                               part["y0"], part["y1"])
                 pair.append(part)
-                if d > 0:  # top infill from last step to well edge
+                if part.get("exit"):  # top infill from last step to well edge
                     top_z = part["z0"] + n * rise
                     edge = wx1 if d > 0 else wx0
                     vis.add_box((min(x_end, edge), part["y0"], top_z - 0.18),

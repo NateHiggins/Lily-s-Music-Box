@@ -13,6 +13,28 @@ This repository currently holds three standalone prototypes:
 
 Each prototype has its own `project.godot` — in Godot's Project Manager use **Import** and select the `project.godot` inside the folder you want (`game/` for the 3D building, `audio_virus_prototype/` for the 2D call prototype, `legacy_mobile_mvp/` for the old MVP). The repository root is deliberately not a project.
 
+## Local-first workflow
+
+Primary work happens in your local clone; GitHub is the backup.
+
+```powershell
+# one-time setup (PowerShell, Windows)
+git clone https://github.com/NateHiggins/Lily-s-Music-Box.git C:\NewGamePlus
+cd C:\NewGamePlus
+```
+
+Work normally (Godot, Blender, editors) inside `C:\NewGamePlus`. Whenever
+you want a backup point:
+
+```powershell
+.\tools\backup.ps1                       # auto-timestamped backup commit + push
+.\tools\backup.ps1 "reworked the lobby"  # or with your own message
+```
+
+(macOS/Linux: `./tools/backup.sh`.) `main` is the source of truth; commit
+directly to it for solo local work. To regenerate the building after
+editing `art/data/gen_layout.py`, see [`art/README.md`](art/README.md).
+
 ---
 
 # Lily's Music Box (Mobile Edition) — Godot MVP

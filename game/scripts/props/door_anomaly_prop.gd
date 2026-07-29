@@ -53,6 +53,10 @@ func _build_visual() -> void:
 	add_child(area)
 
 
+func interact_prompt() -> String:
+	return "[E]  The seam is warm" if is_manifest() else ""
+
+
 func interact(player: Node) -> void:
 	if is_manifest() and room0:
 		room0.enter(player)
