@@ -148,10 +148,19 @@ each), expect zero failures, delete the probe (`street_probe.gd`,
 
 ## Then what
 
-The build brief's remaining threads, in rough priority:
-1. Fix the street-exit defect (above) — the exterior is otherwise done.
-2. Interior texture/material pass (everything is still flat-color PBR).
-3. Occluder/HLOD pass to replace the coarse floor-visibility streaming
-   in `building_root.gd`.
-4. More Case Network content wired to the in-world call desk
+The destination — a photoreal, fully dressed, fully explorable building —
+is specified in **`art/docs/photoreal_target.md`**, with an eight-phase
+roadmap and the invariants that hold across all of it. Read it before
+starting new work. In short:
+
+1. Fix the street-exit defect (above), then sweep for any other
+   unreachable space — the exterior is otherwise done.
+2. UVs + a real PBR material system replacing flat-color materials.
+3. Texture authoring (tiling sets, trim sheets), then aging as decals.
+4. Lighting: fixture photometrics, lightmap bake, light-leak pass.
+5. Dress the remaining 23 units and all commons to 4B's density.
+6. Performance: occluders, HLOD, prop LODs — replacing the coarse
+   floor-visibility stand-in in `building_root.gd`.
+7. Atmosphere and post.
+8. More Case Network content wired to the in-world call desk
    (`call_interface.gd` implements Case 01 end-to-end as the template).
