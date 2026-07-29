@@ -160,29 +160,41 @@ Next step, ready to run: `game/tests/street_probe.gd` already contains a
 raycast scan (down-rays every 0.2 m along x=0, z 8.6→12.8) that prints
 each surface height AND the colliding node's name — run
 `godot --headless --path game res://tests/StreetProbe.tscn` and read the
-`PROBE scan` lines to identify the collider. Two candidates are already **ruled out**: no furniture box in the
-layout crosses the doorway at that height (the only things there are the
-0.09 m limestone door step and the 0.01 m sidewalk), and the door leaf
-is parked outside over the stoop. So the obstruction is almost certainly
-emitted by `build_wall` rather than authored in the layout. Check, in
-order:
-- the **door surround jambs** (`box(surround, d0, d0 + 0.05, 0.0, top,
-  ft)` and its `d1` twin in `build_orison.py`): they run full height
-  inside the opening and narrow the 0.91 m clear width to 0.81 m against
-  a 0.76 m capsule. That's only 2.5 cm of side clearance, and the
-  `stone_trim-col` suffix gives them trimesh collision — a plausible
-  wedge even if it isn't the 0.388 m step;
-- whatever the player is actually standing on at y 0.388 — get its node
-  name from the `PROBE scan` lines, which print the collider for every
-  down-ray along the exit path;
-- the wall opening cut itself not clearing to floor level in the F01
-  street wall (inspect the door opening in the exported GLB).
+`PROBE scan` lines to identify the collider. **It is not geometry.** Three candidates are ruled out:
 
-One more possibility worth testing early: at y 0.388 the capsule (1.75 m)
-has only 1.74 m of headroom under a 2.13 m door head, so once the player
-is up on *anything* ~0.39 m tall in that opening they are wedged rather
-than merely slowed. Whatever the step turns out to be, removing it should
-resolve the check outright.
+- No layout furniture crosses the doorway at that height — the only
+  things in the threshold are the 0.09 m limestone door step and the
+  0.01 m sidewalk.
+- The leaf parks outside over the stoop; nearest approach to the player
+  capsule is 0.55 m, well clear of 0.38 + 0.022.
+- The exported collision mesh is clear. Reading `floor_01.glb`'s
+  POSITION accessors directly (glTF is Y-up, so filter in Godot space,
+  not Blender space — this is easy to get wrong and produces a
+  misleading empty result), **no vertex of any mesh lies strictly inside
+  the clear opening** (|x| ≤ 0.40) between ankle and waist height. The
+  door surround jambs sit at the opening edges, the skirting correctly
+  stops at both reveals, and the opening is cut to floor level.
+
+**The blocker is `_try_step_up()` in
+`game/scripts/player/player_controller.gd`.** It lifts the capsule a flat
+`0.30` whenever forward motion is blocked at foot level and there is
+headroom *at the current position*. It never checks headroom at the
+destination, never checks that the destination has floor support within
+step height, and lifts a fixed amount rather than only as much as the
+obstacle needs. The arithmetic explains the stall exactly: the player is
+walking the 0.09 m door step, gets lifted to ≈0.31–0.39, and at y 0.388 a
+1.75 m capsule tops out at 2.138 — eight millimetres above the 2.13 m
+door head. Wedged, not slowed, which is why velocity reads zero while the
+autopilot keeps driving.
+
+Fix in the controller, not the model: lift by the minimum the obstacle
+requires, re-test headroom and floor support *at the lifted position*,
+and roll the lift back if either fails. Note the doc comment above the
+function claims a 0.28 m maximum step while the body uses 0.30 — pick one
+and make the layout's `step_max` metadata agree.
+
+Take care: the stair-climb checks currently pass through this same code
+path, so re-run the full suite, not just the street-exit check.
 
 After the fix: re-run WalkTest on 4.5 **and** 4.7.1 (fresh `--import`
 each), expect zero failures, delete the probe (`street_probe.gd`,
