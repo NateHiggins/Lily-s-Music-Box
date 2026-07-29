@@ -89,8 +89,10 @@ def wall(a, b, t, h, z, openings=None, cat="walls", mat="plaster"):
             "openings": openings or [], "cat": cat, "mat": mat}
 
 
-def door(at, spec=DOOR_INT):
-    return {"type": "door", "at": at, "w": spec["w"], "h": spec["h"], "sill": 0.0}
+def door(at, spec=DOOR_INT, leaf="closed"):
+    """leaf: "closed" | "open" | "locked" | "none" (opening only)."""
+    return {"type": "door", "at": at, "w": spec["w"], "h": spec["h"],
+            "sill": 0.0, "leaf": leaf}
 
 
 def window(at, spec=WIN):
@@ -142,6 +144,9 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
         rooms.append({"id": prefix + "_BATH", "unit": unit,
                       "rect": [bth0, by + 0.06, bth1, by + 2.46],
                       "kind": "bathroom"})
+        bath_fixtures(furniture, unit, [bth0, by + 0.06, bth1, by + 2.46],
+                      "e" if not east else "w")
+        wardrobe(furniture, unit, x0 + 0.40, by - 0.95)
         rooms.append({"id": prefix + "_MAIN", "unit": unit,
                       "rect": [x0, by, x1, y1], "kind": "living"})
         _furn_box(furniture, unit + "_bed", x0 + 0.4, y0 + 0.4, 1.45, 2.05,
@@ -182,6 +187,9 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
         rooms.append({"id": prefix + "_BATH", "unit": unit,
                       "rect": [bth0, y0 + 0.30, bth1, y0 + 2.70],
                       "kind": "bathroom"})
+        bath_fixtures(furniture, unit, [bth0, y0 + 0.30, bth1, y0 + 2.70],
+                      "e" if not east else "w")
+        wardrobe(furniture, unit, ax - 0.78, ay + 0.20, False)
         rooms.append({"id": prefix + "_MAIN", "unit": unit,
                       "rect": [x0, y0, x1, ay], "kind": "living"})
         _furn_box(furniture, unit + "_bed", x0 + 0.35, y1 - 2.45, 1.4, 2.05,
@@ -206,6 +214,10 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
         rooms.append({"id": prefix + "_BATH", "unit": unit,
                       "rect": [bth0, by - 2.46, bth1, by - 0.06],
                       "kind": "bathroom"})
+        bath_fixtures(furniture, unit, [bth0, by - 2.46, bth1, by - 0.06],
+                      "e" if not east else "w")
+        wardrobe(furniture, unit, x0 + 0.40, by + 0.15)
+        wardrobe(furniture, unit + "b", xm + 0.40, by + 0.15)
         rooms.append({"id": prefix + "_MAIN", "unit": unit,
                       "rect": [x0, y0, x1, by], "kind": "living"})
         _furn_box(furniture, unit + "_bed1", x0 + 0.4, y1 - 2.45, 1.45,
@@ -227,6 +239,39 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
 def _furn_box(furniture, fid, x, y, w, d, z0, h, mat, _east):
     furniture.append({"id": fid, "rect": [x, y, x + w, y + d], "z0": z0,
                       "h": h, "mat": mat})
+
+
+
+
+def bath_fixtures(furniture, unit, rect, edge):
+    """Shower tray, toilet + tank, sink lined along one wall of the bath
+    (the wall opposite the door). edge: "e" | "w" | "n"."""
+    x0, y0, x1, y1 = rect
+
+    def item(off, w, d, h, tag, z0=0.0):
+        if edge == "e":
+            _furn_box(furniture, "%s_%s" % (unit, tag), x1 - d - 0.06,
+                      y0 + off, d, w, z0, h, "trim", False)
+        elif edge == "w":
+            _furn_box(furniture, "%s_%s" % (unit, tag), x0 + 0.06,
+                      y0 + off, d, w, z0, h, "trim", False)
+        else:  # "n"
+            _furn_box(furniture, "%s_%s" % (unit, tag), x0 + off,
+                      y1 - d - 0.06, w, d, z0, h, "trim", False)
+
+    item(0.08, 0.80, 0.80, 0.14, "shower")
+    item(0.98, 0.42, 0.66, 0.42, "toilet")
+    item(0.98, 0.42, 0.16, 0.78, "tank")
+    item(1.68, 0.45, 0.50, 0.85, "sink")
+
+
+def wardrobe(furniture, unit, x, y, along_x=True):
+    if along_x:
+        _furn_box(furniture, unit + "_wardrobe", x, y, 1.30, 0.62, 0.0,
+                  1.95, "trim", False)
+    else:
+        _furn_box(furniture, unit + "_wardrobe", x, y, 0.62, 1.30, 0.0,
+                  1.95, "trim", False)
 
 
 ## Resident-specific environmental identity (Section 16) and unit states,
@@ -349,6 +394,7 @@ def apartment_4b(z, walls, rooms, markers, furniture):
         {"id": "F04_B_ALCOVE", "unit": "4B",
          "rect": [x0, ay, ax, y1], "kind": "alcove"},
     ]
+    bath_fixtures(furniture, "4B", [bx, y0 + 1.85, x1, y0 + 4.25], "n")
     furniture += [
         {"id": "desk", "rect": [-8.45, 4.95, -7.87, 6.25], "z0": 0.72,
          "h": 0.04, "mat": "floor_oak"},
@@ -409,18 +455,19 @@ def ring_and_cores(floor_id, z, walls, entry_doors=True):
     # core south wall: front stair door + elevator opening
     south_openings = []
     if floor_id in FRONT["levels"]:
-        south_openings.append(door(abs(-0.05 - (-COURT)), DOOR_ENTRY))  # stair
+        south_openings.append(door(abs(-0.05 - (-COURT)), DOOR_ENTRY, "open"))  # stair
     if floor_id in ELEV["stops"]:
         south_openings.append({"type": "door", "at": abs(1.925 - (-COURT)),
-                               "w": ELEV["door_w"], "h": 2.10, "sill": 0.0})
+                               "w": ELEV["door_w"], "h": 2.10, "sill": 0.0,
+                               "leaf": "none"})
     walls.append(wall((-COURT, -CORE_Y1), (COURT, -CORE_Y1), CORR_T, h, z,
                       south_openings))
     walls.append(wall((-COURT, -CORE_Y0), (COURT, -CORE_Y0), CORR_T, h, z, []))
     # core north wall: service stair door; court access door on F01
-    north_openings = [door(abs(-0.55 - (-COURT)), DOOR_SERV)]
+    north_openings = [door(abs(-0.55 - (-COURT)), DOOR_SERV, "open")]
     walls.append(wall((-COURT, CORE_Y1), (COURT, CORE_Y1), CORR_T, h, z,
                       north_openings))
-    court_south = [door(COURT)] if floor_id == "F01" else []
+    court_south = [door(COURT, DOOR_INT, "open")] if floor_id == "F01" else []
     walls.append(wall((-COURT, CORE_Y0), (COURT, CORE_Y0), CORR_T, h, z, []))
     walls.append(wall((-COURT, -COURT), (COURT, -COURT), CORR_T, h, z, []))
     walls.append(wall((-COURT, COURT), (COURT, COURT), CORR_T, h, z, court_south))
@@ -439,10 +486,12 @@ def ring_and_cores(floor_id, z, walls, entry_doors=True):
                     ey = y0 + 3.40 + 2.94
                 else:
                     ey = y0 + 1.2
-                openings.append(door(abs(ey - (-Y_IN)), DOOR_ENTRY))
+                leaf = "locked" if (floor_id == "F06" and stack == "D") \
+                        else "closed"
+                openings.append(door(abs(ey - (-Y_IN)), DOOR_ENTRY, leaf))
         if sx < 0 and floor_id in ("F02", "F03", "F04", "F05", "F06"):
             # locked former-suite storage between A and B
-            openings.append(door(abs(1.11 - (-Y_IN)), DOOR_SERV))
+            openings.append(door(abs(1.11 - (-Y_IN)), DOOR_SERV, "locked"))
         walls.append(wall((sx * XCO, -Y_IN), (sx * XCO, Y_IN), CORR_T, h, z,
                           openings))
     # elevator shaft walls (west face + splits; south face is core wall)
@@ -525,7 +574,7 @@ def build_floor(floor_id):
         walls.append(wall((hx1, hy0), (hx1, hy1), CORR_T, 2.4, z, []))
         walls.append(wall((hx0, hy1), (hx1, hy1), CORR_T, 2.4, z, []))
         walls.append(wall((hx0, hy0), (hx1, hy0), CORR_T, 2.4, z,
-                          [door(abs(-0.55 - hx0), DOOR_SERV)]))
+                          [door(abs(-0.55 - hx0), DOOR_SERV, "open")]))
         ex0, ey0, ex1, ey1 = ELEV["shaft"]
         m = 0.45
         walls.append(wall((ex0 - m, ey0 - m), (ex0 - m, ey1 + m), CORR_T, 2.4, z,
@@ -535,7 +584,7 @@ def build_floor(floor_id):
         walls.append(wall((ex0 - m, ey1 + m), (ex1 + m, ey1 + m), CORR_T, 2.4, z,
                           [], mat="concrete"))
         walls.append(wall((ex0 - m, ey0 - m), (ex1 + m, ey0 - m), CORR_T, 2.4, z,
-                          [door(1.0, DOOR_SERV)], mat="concrete"))
+                          [door(1.0, DOOR_SERV, "open")], mat="concrete"))
         rooms.append({"id": "ROOF_OPEN", "rect": [-13.65, -9.65, 13.65, 9.65],
                       "kind": "roof"})
         markers.append({"kind": "watertank", "id": "ROOF_TANK",
@@ -553,7 +602,7 @@ def build_floor(floor_id):
             openings = []
             for stack in stacks:
                 x0, y0, x1, y1 = STACK_RECTS[stack]
-                openings.append(door(abs((y0 + y1) / 2 - (-Y_IN)), DOOR_SERV))
+                openings.append(door(abs((y0 + y1) / 2 - (-Y_IN)), DOOR_SERV, "open"))
             walls.append(wall((sx * XCO, -Y_IN), (sx * XCO, Y_IN), CORR_T,
                               WALL_H, z, openings))
         for stack, name in names.items():
@@ -609,6 +658,30 @@ def build_floor(floor_id):
                     "pos": [0.0, 8.3, z], "yaw_deg": 0, "network": "electrical"})
     return floor
 
+
+
+
+def collect_door_markers(fl):
+    """Every door opening with a leaf becomes a spawnable hinged door."""
+    n = 0
+    for w in fl["walls"]:
+        for o in w["openings"]:
+            if o.get("type") != "door" or o.get("leaf", "closed") == "none":
+                continue
+            ax, ay = w["a"]
+            bx_, by_ = w["b"]
+            horizontal = abs(by_ - ay) < 1e-6
+            start = min(ax, bx_) if horizontal else min(ay, by_)
+            cross = ay if horizontal else ax
+            hinge = start + o["at"] - o["w"] / 2.0
+            pos = [hinge, cross, w["z"]] if horizontal \
+                    else [cross, hinge, w["z"]]
+            n += 1
+            fl["markers"].append({
+                "kind": "door", "id": "%s_DOOR_%02d" % (fl["id"], n),
+                "pos": pos, "yaw_deg": 0 if horizontal else -90,
+                "w": o["w"], "h": o["h"],
+                "leaf": o.get("leaf", "closed")})
 
 # ---------------------------------------------------------------- stairs
 
@@ -813,6 +886,8 @@ MATERIAL_CATALOG = {
 def main():
     floors = [build_floor(f) for f in
               ("B1", "F01", "F02", "F03", "F04", "F05", "F06", "ROOF")]
+    for fl in floors:
+        collect_door_markers(fl)
     layout = {
         "meta": {"name": "Orison Apartments", "footprint": [28.0, 20.0],
                  "levels": LEVELS, "floor_to_floor": F2F,

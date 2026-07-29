@@ -134,8 +134,11 @@ def subtract_rect(rects, hole):
     return out
 
 
-def build_wall(buf, w):
-    """Wall run with openings, thickness centered on the a->b line."""
+def build_wall(buf, w, trim_buf=None, glass_buf=None):
+    """Wall run with openings, thickness centered on the a->b line.
+    Door openings get jamb/head trim; windows get a frame, sill lip and a
+    collidable glass pane (so openings stop being holes to fall through).
+    """
     ax, ay = w["a"]
     bx, by = w["b"]
     z, h, t = w["z"], w["h"], w["t"]
@@ -144,13 +147,16 @@ def build_wall(buf, w):
     start = min(ax, bx) if horizontal else min(ay, by)
     cross = ay if horizontal else ax
 
-    def seg_box(d0, d1, z0, z1):
+    def box(bf, d0, d1, z0, z1, tt):
         if horizontal:
-            buf.add_box((start + d0, cross - t / 2, z + z0),
-                        (start + d1, cross + t / 2, z + z1))
+            bf.add_box((start + d0, cross - tt / 2, z + z0),
+                       (start + d1, cross + tt / 2, z + z1))
         else:
-            buf.add_box((cross - t / 2, start + d0, z + z0),
-                        (cross + t / 2, start + d1, z + z1))
+            bf.add_box((cross - tt / 2, start + d0, z + z0),
+                       (cross + tt / 2, start + d1, z + z1))
+
+    def seg_box(d0, d1, z0, z1):
+        box(buf, d0, d1, z0, z1, t)
 
     openings = sorted(w["openings"], key=lambda o: o["at"])
     cursor = 0.0
@@ -164,6 +170,21 @@ def build_wall(buf, w):
             seg_box(d0, d1, top, h)
         if o["sill"] > 0.0:               # window sill wall
             seg_box(d0, d1, 0.0, o["sill"])
+        if trim_buf is not None:
+            ft = t + 0.04
+            if o["type"] == "door":
+                box(trim_buf, d0, d0 + 0.05, 0.0, top, ft)
+                box(trim_buf, d1 - 0.05, d1, 0.0, top, ft)
+                box(trim_buf, d0, d1, top, top + 0.06, ft)
+            else:
+                box(trim_buf, d0, d0 + 0.06, o["sill"], top, ft)
+                box(trim_buf, d1 - 0.06, d1, o["sill"], top, ft)
+                box(trim_buf, d0, d1, top - 0.06, top, ft)
+                box(trim_buf, max(d0 - 0.04, 0.0), min(d1 + 0.04, length),
+                    o["sill"] - 0.04, o["sill"] + 0.02, t + 0.10)
+                if glass_buf is not None:
+                    box(glass_buf, d0 + 0.05, d1 - 0.05, o["sill"] + 0.05,
+                        top - 0.05, 0.02)
         cursor = d1
     if cursor < length:
         seg_box(cursor, length, 0.0, h)
@@ -212,7 +233,9 @@ def build():
         for w in fl["walls"]:
             cat = {"brick": "walls_brick-col",
                    "concrete": "walls_conc-col"}.get(w["mat"], "walls-col")
-            build_wall(buf(fid, cat, w["mat"]), w)
+            build_wall(buf(fid, cat, w["mat"]), w,
+                       buf(fid, "trim", "trim"),
+                       buf(fid, "glazing-col", "glassish"))
         for fu in fl.get("furniture", []):
             r = fu["rect"]
             z0 = fl["z"] + fu.get("z0", 0.0)

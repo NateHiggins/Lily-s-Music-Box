@@ -11,15 +11,32 @@ var _failures := 0
 var _arrivals := {}
 
 
-func _record_arrival(node_id: String, _i: int, _a: float, _p: float,
+func _record_arrival(node_id: String, i: int, _a: float, _p: float,
 		_s: float) -> void:
+	if i != 0:
+		return  # compare like with like: only the motif's downbeat
 	if not _arrivals.has(node_id):
-		_arrivals[node_id] = Time.get_ticks_msec()
+		_arrivals[node_id] = []
+	_arrivals[node_id].append(Time.get_ticks_msec())
+
+
+## Same-loop delta: first F02 downbeat, then the next F05 downbeat at or
+## after it. Sampling mid-loop otherwise pairs arrivals from different
+## loops and produces a bogus negative delta.
+func _riser_delta_ms() -> int:
+	var a2: Array = _arrivals.get("F02_B_RADIATOR_01", [])
+	var a5: Array = _arrivals.get("F05_B_RADIATOR_01", [])
+	if a2.is_empty() or a5.is_empty():
+		return -99999
+	var t2: int = a2[0]
+	for t5 in a5:
+		if t5 >= t2:
+			return t5 - t2
+	return -99999
 
 
 func _both_radiators_reached() -> bool:
-	return _arrivals.has("F02_B_RADIATOR_01") \
-			and _arrivals.has("F05_B_RADIATOR_01")
+	return _riser_delta_ms() > -99999
 
 
 func _ready() -> void:
@@ -104,6 +121,44 @@ func _vertical_slice_checks() -> void:
 	# per-stack archetypes present across the building
 	for rid2 in ["F02_A_BED", "F03_C_BED2", "F05_D_OFFICE", "F02_WSTOR"]:
 		_check(ids.has(rid2), "%s in layout" % rid2)
+	await _door_checks()
+
+
+func _door_checks() -> void:
+	var doors: Array = []
+	var locked: DoorProp = null
+	var closed: DoorProp = null
+	for c in root.get_children():
+		if c is DoorProp:
+			doors.append(c)
+			if c.leaf_state == "locked" and locked == null:
+				locked = c
+			elif c.leaf_state == "closed" and closed == null:
+				closed = c
+	_check(doors.size() >= 80, "hinged doors spawned (%d)" % doors.size())
+	if closed:
+		closed.interact(null)
+		await get_tree().create_timer(0.8).timeout
+		_check(closed.open and absf(closed._body.rotation.y) > 1.0,
+				"door swings open on interact")
+		closed.interact(null)
+		await get_tree().create_timer(0.8).timeout
+		_check(not closed.open, "door closes and latches")
+	else:
+		_check(false, "found a closed door to test")
+	if locked:
+		locked.interact(null)
+		await get_tree().create_timer(0.4).timeout
+		_check(not locked.open and absf(locked._body.rotation.y) < 0.01,
+				"locked door rattles but holds")
+	else:
+		_check(false, "found a locked door to test")
+	# window glazing closes what used to be an open hole in the shell
+	var space := get_viewport().world_3d.direct_space_state
+	var p := PhysicsRayQueryParameters3D.create(
+			Vector3(-14.5, 11.2, 6.89), Vector3(-13.0, 11.2, 6.89))
+	_check(not space.intersect_ray(p).is_empty(),
+			"window glazing blocks the A-stack opening")
 
 	# hero toaster: full mechanical cycle latch -> coils -> pop
 	var toaster: ToasterProp = root.get_node_or_null("F04_B_TOASTER_01")
@@ -124,8 +179,9 @@ func _vertical_slice_checks() -> void:
 	await _until(_both_radiators_reached, 8.0)
 	AcousticGraphData.network_event.disconnect(_record_arrival)
 	if _both_radiators_reached():
-		var dt: int = _arrivals["F05_B_RADIATOR_01"] - _arrivals["F02_B_RADIATOR_01"]
-		_check(dt > 30, "motif sweeps up riser H-B (F05 %d ms after F02)" % dt)
+		var dt := _riser_delta_ms()
+		_check(dt > 30 and dt < 600,
+				"motif sweeps up riser H-B (F05 %d ms after F02)" % dt)
 	else:
 		_check(false, "propagation reached B-stack radiators")
 

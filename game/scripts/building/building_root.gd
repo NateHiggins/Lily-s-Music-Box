@@ -102,6 +102,18 @@ func _spawn_props() -> void:
 				add_child(desk)
 				desk.global_position = GameBoot.b2g(m["pos"])
 				continue
+			if m["kind"] == "door":
+				var door := DoorProp.new()
+				door.width = float(m["w"])
+				door.height = float(m["h"])
+				door.leaf_state = m["leaf"]
+				door.name = m["id"]
+				# transform BEFORE add_child: a sync_to_physics leaf keeps
+				# its global transform if the parent moves after entry
+				door.position = GameBoot.b2g(m["pos"])
+				door.rotation.y = deg_to_rad(-float(m.get("yaw_deg", 0)))
+				add_child(door)
+				continue
 			var script: GDScript = PROP_SCRIPTS.get(m["kind"])
 			if script == null:
 				continue
