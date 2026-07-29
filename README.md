@@ -1,3 +1,20 @@
+# Lily's Music Box
+
+This repository currently holds three standalone prototypes:
+
+- **`audio_virus_prototype/`** — *The Audio Virus*: an experiential audio-narrative
+  prototype where a rhythmic motif passes from a support caller into the player's
+  apartment (Godot 4.2+). See [`audio_virus_prototype/README.md`](audio_virus_prototype/README.md).
+- **`art/` + `game/`** — *Orison Apartments*: the full building as a first-person
+  3D environment — procedural Blender 4.5 pipeline (`art/`) feeding a Godot 4.5
+  project (`game/`) with the unseen-conductor prop system. See
+  [`art/README.md`](art/README.md) and [`game/README.md`](game/README.md).
+- **Repository root** — the earlier mobile-edition top-down MVP, documented below.
+
+Each Godot project has its own `project.godot`; import the folder you want.
+
+---
+
 # Lily's Music Box (Mobile Edition) — Godot MVP
 
 A mobile-first, portrait-oriented 2D top-down prototype focused on trap logic and persistent death remnants.

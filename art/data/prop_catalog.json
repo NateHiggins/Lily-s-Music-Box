@@ -1,0 +1,136 @@
+{
+ "radiator": {
+  "minimum_action_interval": 0.11,
+  "maximum_action_rate": 8,
+  "available_mechanical_events": [
+   "knock",
+   "tick",
+   "shudder"
+  ],
+  "preferred_subdivision": 1,
+  "timing_drift": 0.012,
+  "response_latency": 0.04,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.84
+ },
+ "lamp": {
+  "minimum_action_interval": 0.05,
+  "maximum_action_rate": 14,
+  "available_mechanical_events": [
+   "flicker",
+   "switch",
+   "filament"
+  ],
+  "preferred_subdivision": 2,
+  "timing_drift": 0.0,
+  "response_latency": 0.01,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.75
+ },
+ "corridor_light": {
+  "minimum_action_interval": 0.08,
+  "maximum_action_rate": 10,
+  "available_mechanical_events": [
+   "flicker",
+   "starter_buzz"
+  ],
+  "preferred_subdivision": 2,
+  "timing_drift": 0.02,
+  "response_latency": 0.02,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.55
+ },
+ "washer": {
+  "minimum_action_interval": 0.45,
+  "maximum_action_rate": 2,
+  "available_mechanical_events": [
+   "agitate",
+   "thump",
+   "drain"
+  ],
+  "preferred_subdivision": 0.5,
+  "timing_drift": 0.05,
+  "response_latency": 0.2,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.6
+ },
+ "boiler": {
+  "minimum_action_interval": 0.9,
+  "maximum_action_rate": 1,
+  "available_mechanical_events": [
+   "thud",
+   "pressure_hiss"
+  ],
+  "preferred_subdivision": 0.25,
+  "timing_drift": 0.08,
+  "response_latency": 0.35,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.5
+ },
+ "toaster": {
+  "minimum_action_interval": 0.35,
+  "maximum_action_rate": 3,
+  "available_mechanical_events": [
+   "latch",
+   "relay",
+   "pop",
+   "coil_pulse"
+  ],
+  "preferred_subdivision": 1,
+  "timing_drift": 0.0,
+  "response_latency": 0.08,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.7
+ },
+ "fridge": {
+  "minimum_action_interval": 1.2,
+  "maximum_action_rate": 1,
+  "available_mechanical_events": [
+   "compressor_click",
+   "hum_shift"
+  ],
+  "preferred_subdivision": 0.25,
+  "timing_drift": 0.06,
+  "response_latency": 0.3,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.55
+ },
+ "monitor": {
+  "minimum_action_interval": 0.06,
+  "maximum_action_rate": 12,
+  "available_mechanical_events": [
+   "flicker",
+   "scan_glitch"
+  ],
+  "preferred_subdivision": 2,
+  "timing_drift": 0.0,
+  "response_latency": 0.01,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.8
+ },
+ "boxfan": {
+  "minimum_action_interval": 0.5,
+  "maximum_action_rate": 2,
+  "available_mechanical_events": [
+   "speed_waver",
+   "cage_rattle"
+  ],
+  "preferred_subdivision": 0.5,
+  "timing_drift": 0.08,
+  "response_latency": 0.25,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.5
+ },
+ "door_anomaly": {
+  "minimum_action_interval": 0.1,
+  "maximum_action_rate": 8,
+  "available_mechanical_events": [
+   "seam_glow"
+  ],
+  "preferred_subdivision": 1,
+  "timing_drift": 0.0,
+  "response_latency": 0.0,
+  "normal_function_priority": 0.0,
+  "infection_receptivity": 1.0
+ }
+}

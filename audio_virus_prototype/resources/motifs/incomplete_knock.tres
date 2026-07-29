@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MotifDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/motif/motif_definition.gd" id="1_motif"]
+
+[resource]
+script = ExtResource("1_motif")
+id = "incomplete_knock"
+event_times = PackedFloat32Array(0.0, 0.22, 0.44, 0.92, 1.14)
+pitch_semitones = PackedFloat32Array(0.0, 3.0, 2.0, -2.0, 0.0)
+accents = PackedFloat32Array(1.0, 0.55, 0.55, 0.85, 1.0)
+missing_indices = PackedInt32Array(4)
+loop_duration = 1.9
+mutation_tolerance = 0.05
+tags = PackedStringArray("knock", "questioning", "incomplete", "inviting")

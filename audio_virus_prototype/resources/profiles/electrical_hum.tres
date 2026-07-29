@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="TranslationProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/motif/translation_profile.gd" id="1_profile"]
+
+[resource]
+script = ExtResource("1_profile")
+id = "electrical_hum"
+render_mode = 3
+timbre = "hum_loop"
+timing_drift = 0.0
+pitch_expression = 0.6
+pitch_instability = 0.1
+accent_accuracy = 0.8
+event_reliability = 1.0
+omit_missing_events = true
+partial_below_infection = 0.0
+partial_event_count = 2
+base_volume_db = -18.0
+bus = "Room"
+pan = -0.4
+notes = "Continuous mains drone. Cannot do percussion: rhythm becomes amplitude swells, pitch contour becomes slow frequency bends. Grows more obvious as infection increases."

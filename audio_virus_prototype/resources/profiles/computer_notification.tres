@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="TranslationProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/motif/translation_profile.gd" id="1_profile"]
+
+[resource]
+script = ExtResource("1_profile")
+id = "computer_notification"
+render_mode = 1
+timbre = "tone"
+timing_drift = 0.0
+pitch_expression = 1.0
+pitch_instability = 0.0
+accent_accuracy = 0.7
+omit_missing_events = true
+event_reliability = 1.0
+partial_below_infection = 0.75
+partial_event_count = 2
+base_volume_db = -12.0
+bus = "UI"
+pan = -0.2
+notes = "Clean digital tones with a machine-perfect pitch contour and zero drift. At low infection it only quotes the head of the motif (first two events)."
