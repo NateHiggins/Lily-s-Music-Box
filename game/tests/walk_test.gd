@@ -304,6 +304,34 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	ci.leave()
 	_check(not root.player.call_locked, "player released after leaving desk")
 
+	# out the front door: vestibule -> street door -> stoop -> sidewalk
+	var pl2: PlayerController = root.player
+	pl2.global_position = Vector3(0.0, 0.15, 9.0)  # in the vestibule
+	pl2.velocity = Vector3.ZERO
+	var street_door: DoorProp = null
+	for c2 in root.get_children():
+		if c2 is DoorProp and c2.global_position.z > 9.5 \
+				and absf(c2.global_position.x) < 1.0 \
+				and c2.global_position.y < 1.0:
+			street_door = c2
+	_check(street_door != null, "street door found")
+	if street_door:
+		if not street_door.open:
+			street_door.interact(null)
+			await get_tree().create_timer(0.8).timeout
+		await _goto(pl2, Vector2(0.0, 12.5), 6.0)
+		pl2.autopilot = Vector3.ZERO
+		_check(pl2.global_position.z > 11.0 and pl2.global_position.y < 1.5,
+				"walked out onto the sidewalk (z=%.1f)" % pl2.global_position.z)
+	_check(_floor_below(Vector3(0.0, 1.0, 12.5)), "sidewalk is solid")
+	_check(_floor_below(Vector3(0.0, 1.0, -11.5)), "rear alley is solid")
+	var cab: DoorProp = root.get_node_or_null("F04_CAB_UPPER_1")
+	_check(cab != null, "kitchen cabinet doors spawned")
+	if cab:
+		cab.interact(null)
+		await get_tree().create_timer(0.7).timeout
+		_check(cab.open, "cabinet door swings")
+
 	# Room 0: enter through the manifested seam, then let the room collapse
 	if anomaly and anomaly.room0:
 		var pl: PlayerController = root.player

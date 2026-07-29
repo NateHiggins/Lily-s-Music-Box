@@ -20,9 +20,16 @@ func _build_visual() -> void:
 		fin.mesh = box
 		fin.position = Vector3(-0.36 + i * 0.098, 0.36, 0.0)
 		var mat := StandardMaterial3D.new()
-		mat.albedo_color = Color(0.16, 0.16, 0.17)
-		mat.roughness = 0.46
-		mat.metallic = 0.2
+		# a century of repaints: roughly a third got the landlord's
+		# aluminum paint (which is why pre-war radiators run silver)
+		if hash(name) % 3 == 0:
+			mat.albedo_color = Color(0.62, 0.63, 0.65)
+			mat.roughness = 0.38
+			mat.metallic = 0.55
+		else:
+			mat.albedo_color = Color(0.16, 0.16, 0.17)
+			mat.roughness = 0.46
+			mat.metallic = 0.2
 		fin.material_override = mat
 		_body.add_child(fin)
 	var pipe := MeshInstance3D.new()

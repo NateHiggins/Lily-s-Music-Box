@@ -114,6 +114,7 @@ func _spawn_props() -> void:
 				door.width = float(m["w"])
 				door.height = float(m["h"])
 				door.leaf_state = m["leaf"]
+				door.swing_out = String(m.get("swing", "")) == "out"
 				door.name = m["id"]
 				# transform BEFORE add_child: a sync_to_physics leaf keeps
 				# its global transform if the parent moves after entry
@@ -157,5 +158,5 @@ func _update_floor_visibility() -> void:
 	var py := player.global_position.y
 	for fid in floor_nodes:
 		var z: float = layout["meta"]["levels"][fid]
-		floor_nodes[fid].visible = show_all_floors \
+		floor_nodes[fid].visible = show_all_floors or fid == "F01" \
 				or absf(py - z) < 4.9 or (fid == "ROOF" and py > 15.0)

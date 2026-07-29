@@ -134,7 +134,8 @@ def subtract_rect(rects, hole):
     return out
 
 
-def build_wall(buf, w, trim_buf=None, glass_buf=None, stone_buf=None):
+def build_wall(buf, w, trim_buf=None, glass_buf=None, stone_buf=None,
+               dado_buf=None, hw_buf=None):
     """Wall run with openings, thickness centered on the a->b line.
     Door openings get jamb/head trim; windows get a frame, sill and a
     collidable glass pane with a 1-over-1 meeting rail. Brick walls take
@@ -158,10 +159,26 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, stone_buf=None):
             bf.add_box((cross - tt / 2, start + d0, z + z0),
                        (cross + tt / 2, start + d1, z + z1))
 
+    def side_box(bf, d0, d1, z0, z1, side, depth=0.02):
+        c2 = cross + side * (t / 2 + depth / 2)
+        if horizontal:
+            bf.add_box((start + d0, c2 - depth / 2, z + z0),
+                       (start + d1, c2 + depth / 2, z + z1))
+        else:
+            bf.add_box((c2 - depth / 2, start + d0, z + z0),
+                       (c2 + depth / 2, start + d1, z + z1))
+
     def seg_box(d0, d1, z0, z1):
         box(buf, d0, d1, z0, z1, t)
-        if not is_brick and trim_buf is not None and z0 == 0.0 and z1 == h:
-            box(trim_buf, d0, d1, 0.0, 0.14, t + 0.036)  # baseboard
+        if trim_buf is not None and z0 == 0.0 and z1 == h:
+            if not is_brick:
+                box(trim_buf, d0, d1, 0.0, 0.14, t + 0.036)  # baseboard
+            elif w.get("in_side"):
+                # exterior walls are furred and plastered inside: the
+                # baseboard runs on the interior face only
+                side_box(trim_buf, d0, d1, 0.0, 0.14, w["in_side"], 0.03)
+            if dado_buf is not None and w.get("dado"):
+                box(dado_buf, d0, d1, 0.14, 1.20, t + 0.024)
 
     openings = sorted(w["openings"], key=lambda o: o["at"])
     cursor = 0.0
@@ -200,6 +217,11 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, stone_buf=None):
                     box(surround, d0 + 0.04, d1 - 0.04,
                         o["sill"] + (top - o["sill"]) * 0.5 - 0.02,
                         o["sill"] + (top - o["sill"]) * 0.5 + 0.02, t + 0.05)
+                    if hw_buf is not None:
+                        mid = (d0 + d1) / 2.0
+                        rail = o["sill"] + (top - o["sill"]) * 0.5
+                        box(hw_buf, mid - 0.025, mid + 0.025, rail + 0.02,
+                            rail + 0.05, t + 0.07)  # brass sash lock
         cursor = d1
     if cursor < length:
         seg_box(cursor, length, 0.0, h)
@@ -257,7 +279,9 @@ def build():
             build_wall(buf(fid, cat, w["mat"]), w,
                        buf(fid, "trim", "trim"),
                        buf(fid, "glazing-col", "glassish"),
-                       buf(fid, "stone_trim-col", "limestone"))
+                       buf(fid, "stone_trim-col", "limestone"),
+                       buf(fid, "dado", "paint_dado"),
+                       buf(fid, "hardware", "metal"))
         for fu in fl.get("furniture", []):
             r = fu["rect"]
             z0 = fl["z"] + fu.get("z0", 0.0)
