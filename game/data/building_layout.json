@@ -879,7 +879,8 @@
      "yaw_deg": 180,
      "network": "structural"
     }
-   ]
+   ],
+   "furniture": []
   },
   {
    "id": "F01",
@@ -1900,7 +1901,8 @@
      "riser": "H-D",
      "unit": "1D"
     }
-   ]
+   ],
+   "furniture": []
   },
   {
    "id": "F02",
@@ -3107,7 +3109,8 @@
      "yaw_deg": 0,
      "network": "electrical"
     }
-   ]
+   ],
+   "furniture": []
   },
   {
    "id": "F03",
@@ -4314,7 +4317,8 @@
      "yaw_deg": 0,
      "network": "electrical"
     }
-   ]
+   ],
+   "furniture": []
   },
   {
    "id": "F04",
@@ -5111,60 +5115,172 @@
     },
     {
      "a": [
+      -7.71,
+      0.66
+     ],
+     "b": [
+      -5.51,
+      0.66
+     ],
+     "t": 0.12,
+     "h": 3.02,
+     "z": 9.6,
+     "openings": [],
+     "cat": "walls",
+     "mat": "plaster"
+    },
+    {
+     "a": [
+      -7.71,
+      0.66
+     ],
+     "b": [
+      -7.71,
+      1.91
+     ],
+     "t": 0.12,
+     "h": 3.02,
+     "z": 9.6,
+     "openings": [
+      {
+       "type": "door",
+       "at": 0.62,
+       "w": 0.81,
+       "h": 2.03,
+       "sill": 0.0
+      }
+     ],
+     "cat": "walls",
+     "mat": "plaster"
+    },
+    {
+     "a": [
+      -7.71,
+      1.91
+     ],
+     "b": [
+      -5.51,
+      1.91
+     ],
+     "t": 0.12,
+     "h": 3.02,
+     "z": 9.6,
+     "openings": [
+      {
+       "type": "door",
+       "at": 1.1,
+       "w": 0.81,
+       "h": 2.03,
+       "sill": 0.0
+      }
+     ],
+     "cat": "walls",
+     "mat": "plaster"
+    },
+    {
+     "a": [
+      -7.71,
+      1.91
+     ],
+     "b": [
+      -7.71,
+      4.31
+     ],
+     "t": 0.12,
+     "h": 3.02,
+     "z": 9.6,
+     "openings": [],
+     "cat": "walls",
+     "mat": "plaster"
+    },
+    {
+     "a": [
+      -7.71,
+      4.31
+     ],
+     "b": [
+      -5.51,
+      4.31
+     ],
+     "t": 0.12,
+     "h": 3.02,
+     "z": 9.6,
+     "openings": [],
+     "cat": "walls",
+     "mat": "plaster"
+    },
+    {
+     "a": [
+      -6.66,
+      4.31
+     ],
+     "b": [
+      -6.66,
+      6.11
+     ],
+     "t": 0.12,
+     "h": 3.02,
+     "z": 9.6,
+     "openings": [
+      {
+       "type": "door",
+       "at": 0.9,
+       "w": 0.81,
+       "h": 2.03,
+       "sill": 0.0
+      }
+     ],
+     "cat": "walls",
+     "mat": "plaster"
+    },
+    {
+     "a": [
+      -6.66,
+      6.11
+     ],
+     "b": [
+      -5.51,
+      6.11
+     ],
+     "t": 0.12,
+     "h": 3.02,
+     "z": 9.6,
+     "openings": [],
+     "cat": "walls",
+     "mat": "plaster"
+    },
+    {
+     "a": [
+      -10.9,
+      6.5
+     ],
+     "b": [
+      -10.9,
+      9.65
+     ],
+     "t": 0.12,
+     "h": 3.02,
+     "z": 9.6,
+     "openings": [
+      {
+       "type": "door",
+       "at": 1.6,
+       "w": 1.2,
+       "h": 2.03,
+       "sill": 0.0
+      }
+     ],
+     "cat": "walls",
+     "mat": "plaster"
+    },
+    {
+     "a": [
       -13.65,
-      6.300000000000001
+      6.5
      ],
      "b": [
-      -5.51,
-      6.300000000000001
-     ],
-     "t": 0.12,
-     "h": 3.02,
-     "z": 9.6,
-     "openings": [
-      {
-       "type": "door",
-       "at": 7.390000000000001,
-       "w": 0.81,
-       "h": 2.03,
-       "sill": 0.0
-      }
-     ],
-     "cat": "walls",
-     "mat": "plaster"
-    },
-    {
-     "a": [
-      -7.71,
-      3.840000000000001
-     ],
-     "b": [
-      -7.71,
-      6.240000000000001
-     ],
-     "t": 0.12,
-     "h": 3.02,
-     "z": 9.6,
-     "openings": [
-      {
-       "type": "door",
-       "at": 1.2,
-       "w": 0.81,
-       "h": 2.03,
-       "sill": 0.0
-      }
-     ],
-     "cat": "walls",
-     "mat": "plaster"
-    },
-    {
-     "a": [
-      -7.71,
-      3.840000000000001
-     ],
-     "b": [
-      -5.51,
-      3.840000000000001
+      -12.45,
+      6.5
      ],
      "t": 0.12,
      "h": 3.02,
@@ -5337,37 +5453,70 @@
      "kind": "bathroom"
     },
     {
-     "id": "F04_B_MAIN",
+     "id": "F04_B_VESTIBULE",
      "unit": "4B",
      "rect": [
-      -13.65,
-      0.06,
+      -7.71,
+      0.66,
       -5.51,
-      6.300000000000001
+      1.91
      ],
-     "kind": "living"
-    },
-    {
-     "id": "F04_B_BED",
-     "unit": "4B",
-     "rect": [
-      -13.65,
-      6.300000000000001,
-      -5.51,
-      9.65
-     ],
-     "kind": "bedroom"
+     "kind": "vestibule"
     },
     {
      "id": "F04_B_BATH",
      "unit": "4B",
      "rect": [
       -7.71,
-      3.840000000000001,
+      1.91,
       -5.51,
-      6.240000000000001
+      4.31
      ],
      "kind": "bathroom"
+    },
+    {
+     "id": "F04_B_CLOSET",
+     "unit": "4B",
+     "rect": [
+      -6.66,
+      4.31,
+      -5.51,
+      6.11
+     ],
+     "kind": "closet"
+    },
+    {
+     "id": "F04_B_KITCHEN",
+     "unit": "4B",
+     "rect": [
+      -7.56,
+      6.11,
+      -5.51,
+      9.65
+     ],
+     "kind": "kitchen"
+    },
+    {
+     "id": "F04_B_MAIN",
+     "unit": "4B",
+     "rect": [
+      -13.65,
+      0.06,
+      -7.71,
+      6.5
+     ],
+     "kind": "living"
+    },
+    {
+     "id": "F04_B_ALCOVE",
+     "unit": "4B",
+     "rect": [
+      -13.65,
+      6.5,
+      -10.9,
+      9.65
+     ],
+     "kind": "alcove"
     },
     {
      "id": "F04_C_MAIN",
@@ -5463,38 +5612,87 @@
     {
      "kind": "radiator",
      "id": "F04_B_RADIATOR_01",
-     "pos": [
-      -13.35,
-      4.855,
-      9.6
-     ],
-     "yaw_deg": 90,
-     "network": "heating",
-     "riser": "H-B",
-     "unit": "4B"
-    },
-    {
-     "kind": "desk",
-     "id": "F04_B_DESK",
      "unit": "4B",
      "pos": [
-      -6.71,
-      6.855,
+      -9.58,
+      9.35,
       9.6
      ],
-     "yaw_deg": 0
+     "yaw_deg": 180,
+     "network": "heating",
+     "riser": "H-B"
     },
     {
      "kind": "lamp",
      "id": "F04_B_LAMP_01",
      "unit": "4B",
      "pos": [
-      -6.51,
-      7.255000000000001,
-      9.6
+      -8.05,
+      3.35,
+      10.36
      ],
      "yaw_deg": 0,
      "network": "electrical"
+    },
+    {
+     "kind": "monitor",
+     "id": "F04_B_MONITOR_01",
+     "unit": "4B",
+     "pos": [
+      -7.95,
+      2.85,
+      10.36
+     ],
+     "yaw_deg": -90,
+     "network": "electrical"
+    },
+    {
+     "kind": "toaster",
+     "id": "F04_B_TOASTER_01",
+     "unit": "4B",
+     "pos": [
+      -5.85,
+      8.35,
+      10.5
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
+    },
+    {
+     "kind": "fridge",
+     "id": "F04_B_FRIDGE_01",
+     "unit": "4B",
+     "pos": [
+      -6.05,
+      9.25,
+      9.6
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
+    },
+    {
+     "kind": "boxfan",
+     "id": "F04_B_BOXFAN_01",
+     "unit": "4B",
+     "pos": [
+      -12.95,
+      1.05,
+      9.85
+     ],
+     "yaw_deg": 45,
+     "network": "electrical"
+    },
+    {
+     "kind": "door_anomaly",
+     "id": "F04_B_DOOR_ANOMALY",
+     "unit": "4B",
+     "pos": [
+      -7.2,
+      4.38,
+      9.6
+     ],
+     "yaw_deg": 0,
+     "network": "structural"
     },
     {
      "kind": "radiator",
@@ -5543,6 +5741,80 @@
      ],
      "yaw_deg": 0,
      "network": "electrical"
+    }
+   ],
+   "furniture": [
+    {
+     "id": "desk",
+     "rect": [
+      -8.35,
+      2.3,
+      -7.77,
+      3.6
+     ],
+     "z0": 0.72,
+     "h": 0.04,
+     "mat": "floor_oak"
+    },
+    {
+     "id": "desk_legs",
+     "rect": [
+      -8.3,
+      2.35,
+      -8.25,
+      3.55
+     ],
+     "z0": 0.0,
+     "h": 0.72,
+     "mat": "metal"
+    },
+    {
+     "id": "chair",
+     "rect": [
+      -8.95,
+      2.7,
+      -8.5,
+      3.2
+     ],
+     "z0": 0.42,
+     "h": 0.06,
+     "mat": "trim"
+    },
+    {
+     "id": "bed",
+     "rect": [
+      -13.5,
+      6.75,
+      -12.15,
+      9.45
+     ],
+     "z0": 0.15,
+     "h": 0.32,
+     "mat": "trim"
+    },
+    {
+     "id": "kitchen_counter",
+     "rect": [
+      -6.11,
+      6.35,
+      -5.55,
+      8.85
+     ],
+     "z0": 0.0,
+     "h": 0.9,
+     "mat": "trim"
+    },
+    {
+     "id": "couch",
+     "rect": [
+      -12.95,
+      3.9,
+      -11.45,
+      4.65
+     ],
+     "z0": 0.12,
+     "h": 0.42,
+     "mat": "trim"
     }
    ]
   },
@@ -6751,7 +7023,8 @@
      "yaw_deg": 0,
      "network": "electrical"
     }
-   ]
+   ],
+   "furniture": []
   },
   {
    "id": "F06",
@@ -7958,7 +8231,8 @@
      "yaw_deg": 0,
      "network": "electrical"
     }
-   ]
+   ],
+   "furniture": []
   },
   {
    "id": "ROOF",
@@ -8292,7 +8566,8 @@
      ],
      "yaw_deg": 0
     }
-   ]
+   ],
+   "furniture": []
   }
  ],
  "stairs": [

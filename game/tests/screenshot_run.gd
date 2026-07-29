@@ -24,6 +24,12 @@ const SHOTS := [
 	 "look": Vector3(2, 19.4, -4), "overlay": false},
 	{"name": "b_08_acoustic_graph", "pos": Vector3(26, 14, 26),
 	 "look": Vector3(0, 7, 0), "overlay": true},
+	{"name": "b_09_4b_workstation", "pos": Vector3(-9.9, 11.15, -1.4),
+	 "look": Vector3(-7.9, 10.45, -3.1), "overlay": false},
+	{"name": "b_10_4b_kitchen", "pos": Vector3(-7.6, 11.15, -6.6),
+	 "look": Vector3(-5.7, 10.45, -8.5), "overlay": false},
+	{"name": "b_11_4b_door_anomaly", "pos": Vector3(-9.6, 11.1, -3.2),
+	 "look": Vector3(-7.2, 10.7, -4.4), "overlay": false, "infection": 1.0},
 ]
 
 
@@ -51,6 +57,9 @@ func _run() -> void:
 			c.environment.background_color = Color(0.05, 0.06, 0.10)
 	for shot in SHOTS:
 		AcousticGraphData.set_overlay_visible(shot.overlay, root)
+		if shot.has("infection"):
+			Conductor.infection = shot.infection
+			await get_tree().create_timer(3.0).timeout  # let the seam manifest
 		cam.global_position = shot.pos
 		cam.look_at(shot.look)
 		await get_tree().create_timer(0.5).timeout

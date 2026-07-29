@@ -27,6 +27,12 @@ var infection := 0.15:
 		infection = clampf(v, 0.0, 1.0)
 var timing_drift := 0.01
 
+## "network": motif events are injected at origin_node and travel the
+## acoustic graph with real per-node delays (props hear them via
+## AcousticGraphData.network_event). "global": legacy broadcast.
+var propagation_mode := "network"
+var origin_node := "B1_BOILER_01"
+
 var _beat_acc := 0.0
 var _beat_i := 0
 var _motif_t := 0.0
@@ -48,7 +54,11 @@ func _process(delta: float) -> void:
 	_motif_t += delta
 	while _motif_next < MOTIF.size() and _motif_t >= MOTIF[_motif_next].t * scale:
 		var ev: Dictionary = MOTIF[_motif_next]
-		motif_event.emit(_motif_next, ev.accent, ev.pitch)
+		if propagation_mode == "network":
+			AcousticGraphData.propagate(origin_node, _motif_next,
+					ev.accent, ev.pitch)
+		else:
+			motif_event.emit(_motif_next, ev.accent, ev.pitch)
 		_motif_next += 1
 	if not _gap_fired and _motif_t >= MOTIF_GAP_T * scale:
 		_gap_fired = true

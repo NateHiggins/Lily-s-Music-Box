@@ -8,6 +8,18 @@ extends Node
 
 var root: Node3D
 var _failures := 0
+var _arrivals := {}
+
+
+func _record_arrival(node_id: String, _i: int, _a: float, _p: float,
+		_s: float) -> void:
+	if not _arrivals.has(node_id):
+		_arrivals[node_id] = Time.get_ticks_msec()
+
+
+func _both_radiators_reached() -> bool:
+	return _arrivals.has("F02_B_RADIATOR_01") \
+			and _arrivals.has("F05_B_RADIATOR_01")
 
 
 func _ready() -> void:
@@ -64,9 +76,63 @@ func _run() -> void:
 	_check(not AcousticGraphData.neighbors("F04_B_RADIATOR_01").is_empty(),
 			"4B radiator connected to heating network")
 
+	await _vertical_slice_checks()
+
 	print("WALKTEST RESULT: %s" %
 			("PASS" if _failures == 0 else "FAIL (%d)" % _failures))
 	get_tree().quit(_failures)
+
+
+func _vertical_slice_checks() -> void:
+	# 4B detailed plan present in the shared model
+	var ids := {}
+	for fl in root.layout["floors"]:
+		for r in fl["rooms"]:
+			ids[r["id"]] = true
+	for rid in ["F04_B_VESTIBULE", "F04_B_BATH", "F04_B_CLOSET",
+			"F04_B_KITCHEN", "F04_B_ALCOVE"]:
+		_check(ids.has(rid), "%s in layout" % rid)
+	# bathroom wall physically separates main room from the service band
+	var space := get_viewport().world_3d.direct_space_state
+	var p := PhysicsRayQueryParameters3D.create(
+			Vector3(-9.0, 10.9, -3.0), Vector3(-5.6, 10.9, -3.0))
+	var hit := space.intersect_ray(p)
+	_check(not hit.is_empty() and hit.position.x < -7.5,
+			"4B bath wall present (hit x=%.2f)" %
+			(hit.position.x if hit else 99.0))
+	_check(_floor_below(Vector3(-12.8, 11.2, -8.0)), "4B alcove has a slab")
+
+	# hero toaster: full mechanical cycle latch -> coils -> pop
+	var toaster: ToasterProp = root.get_node_or_null("F04_B_TOASTER_01")
+	_check(toaster != null, "toaster spawned in 4B kitchen")
+	if toaster:
+		toaster.start_cycle()
+		await _until(func(): return toaster.cycles_completed >= 1, 12.0)
+		_check(toaster.cycles_completed >= 1, "toaster completed a full cycle")
+		_check(toaster.state == toaster.PState.IDLE,
+				"toaster returned to IDLE")
+
+	# networked propagation: same event reaches F05 later than F02 on H-B
+	Conductor.propagation_mode = "network"
+	Conductor.origin_node = "B1_BOILER_01"
+	Conductor.infection = 1.0
+	_arrivals.clear()
+	AcousticGraphData.network_event.connect(_record_arrival)
+	await _until(_both_radiators_reached, 8.0)
+	AcousticGraphData.network_event.disconnect(_record_arrival)
+	if _both_radiators_reached():
+		var dt: int = _arrivals["F05_B_RADIATOR_01"] - _arrivals["F02_B_RADIATOR_01"]
+		_check(dt > 30, "motif sweeps up riser H-B (F05 %d ms after F02)" % dt)
+	else:
+		_check(false, "propagation reached B-stack radiators")
+
+	# the impossible door manifests only at severe infection
+	var anomaly: DoorAnomalyProp = root.get_node_or_null("F04_B_DOOR_ANOMALY")
+	_check(anomaly != null, "door anomaly spawned")
+	if anomaly:
+		await get_tree().create_timer(2.5).timeout
+		_check(anomaly.is_manifest(), "door seam manifests at infection 1.0")
+	Conductor.infection = 0.15
 
 
 func _floor_below(from: Vector3) -> bool:

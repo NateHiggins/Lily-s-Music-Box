@@ -291,7 +291,11 @@
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.55,
-   "connections": []
+   "connections": [
+    "B1_ELECTRICAL_HUB",
+    "F02_CORRLIGHT_N",
+    "F03_CORRLIGHT_S"
+   ]
   },
   {
    "id": "F02_CORRLIGHT_N",
@@ -309,7 +313,9 @@
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.55,
-   "connections": []
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
   },
   {
    "id": "F03_A_RADIATOR_01",
@@ -411,7 +417,11 @@
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.55,
-   "connections": []
+   "connections": [
+    "F02_CORRLIGHT_S",
+    "F03_CORRLIGHT_N",
+    "F04_CORRLIGHT_S"
+   ]
   },
   {
    "id": "F03_CORRLIGHT_N",
@@ -429,7 +439,9 @@
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.55,
-   "connections": []
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
   },
   {
    "id": "F04_A_RADIATOR_01",
@@ -455,8 +467,8 @@
   {
    "id": "F04_B_RADIATOR_01",
    "pos": [
-    -13.35,
-    4.855,
+    -9.58,
+    9.35,
     9.95
    ],
    "room": "4B",
@@ -469,6 +481,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F04_B_DOOR_ANOMALY",
     "F03_B_RADIATOR_01",
     "F05_B_RADIATOR_01"
    ]
@@ -476,20 +489,122 @@
   {
    "id": "F04_B_LAMP_01",
    "pos": [
-    -6.51,
-    7.255,
-    9.6
+    -8.05,
+    3.35,
+    10.36
    ],
    "room": "4B",
    "network": "electrical",
    "frequency_band": [
-    80,
+    60,
     8000
    ],
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.75,
-   "connections": []
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_MONITOR_01",
+   "pos": [
+    -7.95,
+    2.85,
+    10.36
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_TOASTER_01",
+   "pos": [
+    -5.85,
+    8.35,
+    10.5
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_FRIDGE_01",
+   "pos": [
+    -6.05,
+    9.25,
+    9.6
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_BOXFAN_01",
+   "pos": [
+    -12.95,
+    1.05,
+    9.85
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_DOOR_ANOMALY",
+   "pos": [
+    -7.2,
+    4.38,
+    10.6
+   ],
+   "room": "4B",
+   "network": "structural",
+   "frequency_band": [
+    20,
+    200
+   ],
+   "delay_ms": 60,
+   "damping": 0.22,
+   "infection_receptivity": 0.95,
+   "connections": [
+    "F04_B_RADIATOR_01"
+   ]
   },
   {
    "id": "F04_C_RADIATOR_01",
@@ -549,7 +664,16 @@
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.55,
-   "connections": []
+   "connections": [
+    "F04_B_LAMP_01",
+    "F04_B_MONITOR_01",
+    "F04_B_TOASTER_01",
+    "F04_B_FRIDGE_01",
+    "F04_B_BOXFAN_01",
+    "F03_CORRLIGHT_S",
+    "F04_CORRLIGHT_N",
+    "F05_CORRLIGHT_S"
+   ]
   },
   {
    "id": "F04_CORRLIGHT_N",
@@ -567,7 +691,9 @@
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.55,
-   "connections": []
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
   },
   {
    "id": "F05_A_RADIATOR_01",
@@ -669,7 +795,11 @@
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.55,
-   "connections": []
+   "connections": [
+    "F04_CORRLIGHT_S",
+    "F05_CORRLIGHT_N",
+    "F06_CORRLIGHT_S"
+   ]
   },
   {
    "id": "F05_CORRLIGHT_N",
@@ -687,7 +817,9 @@
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.55,
-   "connections": []
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
   },
   {
    "id": "F06_A_RADIATOR_01",
@@ -785,7 +917,10 @@
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.55,
-   "connections": []
+   "connections": [
+    "F05_CORRLIGHT_S",
+    "F06_CORRLIGHT_N"
+   ]
   },
   {
    "id": "F06_CORRLIGHT_N",
@@ -803,7 +938,29 @@
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.55,
-   "connections": []
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "B1_ELECTRICAL_HUB",
+   "pos": [
+    10.0,
+    -5.0,
+    -2.4
+   ],
+   "room": "B1_ELECTRICAL",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 8,
+   "damping": 0.22,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
   }
  ]
 }

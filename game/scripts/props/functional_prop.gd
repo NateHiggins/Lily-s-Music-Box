@@ -9,6 +9,11 @@ extends Node3D
 enum PState { OFF, IDLE, STARTING, OPERATING, COMPLETING, FAULT, INFECTED }
 
 @export var prop_type := "radiator"
+
+## Acoustic-graph node this prop is bound to ("" = unbound; only reacts in
+## global broadcast mode). Set by building_root from the shared markers.
+var graph_node_id := ""
+
 var profile: Dictionary = {}
 var state: PState = PState.IDLE
 var rng := RandomNumberGenerator.new()
@@ -27,6 +32,7 @@ func _ready() -> void:
 		"minimum_action_interval": 0.2, "infection_receptivity": 0.5,
 		"response_latency": 0.05, "timing_drift": 0.02})
 	Conductor.motif_event.connect(_on_motif_event)
+	AcousticGraphData.network_event.connect(_on_network_event)
 	_build_visual()
 	_start_normal_function()
 
@@ -40,9 +46,21 @@ func _start_normal_function() -> void:
 
 
 func _on_motif_event(index: int, accent: float, pitch: float) -> void:
+	_receive(index, accent, pitch, 1.0)
+
+
+func _on_network_event(node_id: String, index: int, accent: float,
+		pitch: float, strength: float) -> void:
+	if node_id == graph_node_id and graph_node_id != "":
+		_receive(index, accent, pitch, strength)
+
+
+func _receive(index: int, accent: float, pitch: float, strength: float) -> void:
 	if state == PState.OFF or state == PState.FAULT:
 		return
-	var receptivity: float = profile.get("infection_receptivity", 0.5) * Conductor.infection
+	accent = accent * lerpf(0.55, 1.0, strength)  # distant arrivals soften
+	var receptivity: float = profile.get("infection_receptivity", 0.5) \
+			* Conductor.infection * strength
 	if rng.randf() > receptivity:
 		return
 	var now := Time.get_ticks_msec() / 1000.0

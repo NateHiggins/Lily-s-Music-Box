@@ -44,6 +44,25 @@ func _ready() -> void:
 	_slider("Infection", 0.0, 1.0, Conductor.infection,
 			func(v): Conductor.infection = v)
 
+	var networked := CheckBox.new()
+	networked.text = "Networked propagation (graph delays)"
+	networked.button_pressed = Conductor.propagation_mode == "network"
+	networked.toggled.connect(func(on):
+		Conductor.propagation_mode = "network" if on else "global")
+	_body.add_child(networked)
+	var origin_row := HBoxContainer.new()
+	var ol := Label.new()
+	ol.text = "Origin"
+	ol.add_theme_font_size_override("font_size", 10)
+	origin_row.add_child(ol)
+	for origin in ["B1_BOILER_01", "F04_B_RADIATOR_01", "F04_CORRLIGHT_S"]:
+		var ob := Button.new()
+		ob.text = origin.replace("_01", "").replace("_", " ").to_lower()
+		ob.add_theme_font_size_override("font_size", 9)
+		ob.pressed.connect(func(): Conductor.origin_node = origin)
+		origin_row.add_child(ob)
+	_body.add_child(origin_row)
+
 	var all_floors := CheckBox.new()
 	all_floors.text = "Show all floors"
 	all_floors.toggled.connect(func(on): root.show_all_floors = on)

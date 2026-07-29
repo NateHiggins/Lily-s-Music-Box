@@ -99,12 +99,16 @@ def rect_area(r):
 
 # ---------------------------------------------------------------- apartments
 
-def apartment(floor_id, stack, z, walls, rooms, markers):
+def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
     """Blockout archetype: bedroom partition + bathroom box near the entry.
 
     The corridor-side wall and entry door are emitted by the corridor
     builder; this adds interior partitions only. Mirrored for east stacks.
+    Apartment 4B (the player's) uses its own detailed plan instead.
     """
+    if floor_id == "F04" and stack == "B":
+        apartment_4b(z, walls, rooms, markers, furniture)
+        return
     unit = "%s%s" % (floor_id[-1].lstrip("0") or floor_id[-1], stack)
     x0, y0, x1, y1 = STACK_RECTS[stack]
     east = stack in ("C", "D")
@@ -153,13 +157,81 @@ def apartment(floor_id, stack, z, walls, rooms, markers):
     markers.append({"kind": "radiator", "id": "%s_%s_RADIATOR_01" % (floor_id, stack),
                     "pos": [rx, ry, z], "yaw_deg": 90 if not east else -90,
                     "network": "heating", "riser": "H-%s" % stack, "unit": unit})
-    if unit == "4B":  # player desk + lamp face the corridor utility wall
-        markers.append({"kind": "desk", "id": "F04_B_DESK", "unit": unit,
-                        "pos": [inner_x - 1.2 if not east else inner_x + 1.2,
-                                (y0 + y1) / 2 + 2.0, z], "yaw_deg": 0})
-        markers.append({"kind": "lamp", "id": "F04_B_LAMP_01", "unit": unit,
-                        "pos": [inner_x - 1.0, (y0 + y1) / 2 + 2.4, z],
-                        "yaw_deg": 0, "network": "electrical"})
+
+
+def apartment_4b(z, walls, rooms, markers, furniture):
+    """Player apartment to the brief's Section 4 plan: entry vestibule,
+    bathroom, closet, galley kitchen, main room, sleeping alcove. The
+    workstation faces the corridor utility wall; the radiator sits under
+    the rear window; the impossible-door marker lives between them.
+    """
+    x0, y0, x1, y1 = STACK_RECTS["B"]      # -13.65, 0.06, -5.51, 9.65
+    bx = -7.71                             # service band west face
+    # entry vestibule (1.25 x 2.20) around the corridor door at y = 1.26
+    walls.append(wall((bx, 0.66), (x1, 0.66), PART_T, WALL_H, z, []))
+    walls.append(wall((bx, 0.66), (bx, 1.91), PART_T, WALL_H, z, [door(0.62)]))
+    # bathroom (2.20 x 2.40) north of the vestibule
+    walls.append(wall((bx, 1.91), (x1, 1.91), PART_T, WALL_H, z, [door(1.10)]))
+    walls.append(wall((bx, 1.91), (bx, 4.31), PART_T, WALL_H, z, []))
+    walls.append(wall((bx, 4.31), (x1, 4.31), PART_T, WALL_H, z, []))
+    # closet (1.15 x 1.80) with sliding-door opening
+    walls.append(wall((-6.66, 4.31), (-6.66, 6.11), PART_T, WALL_H, z,
+                      [door(0.90)]))
+    walls.append(wall((-6.66, 6.11), (x1, 6.11), PART_T, WALL_H, z, []))
+    # sleeping alcove (2.75 x 3.15), open through a wide doorless gap
+    walls.append(wall((-10.90, 6.50), (-10.90, y1), PART_T, WALL_H, z,
+                      [{"type": "door", "at": 1.60, "w": 1.20, "h": 2.03,
+                        "sill": 0.0}]))
+    walls.append(wall((x0, 6.50), (-12.45, 6.50), PART_T, WALL_H, z, []))
+    rooms += [
+        {"id": "F04_B_VESTIBULE", "unit": "4B", "rect": [bx, 0.66, x1, 1.91],
+         "kind": "vestibule"},
+        {"id": "F04_B_BATH", "unit": "4B", "rect": [bx, 1.91, x1, 4.31],
+         "kind": "bathroom"},
+        {"id": "F04_B_CLOSET", "unit": "4B", "rect": [-6.66, 4.31, x1, 6.11],
+         "kind": "closet"},
+        {"id": "F04_B_KITCHEN", "unit": "4B", "rect": [-7.56, 6.11, x1, y1],
+         "kind": "kitchen"},
+        {"id": "F04_B_MAIN", "unit": "4B", "rect": [x0, y0, bx, 6.50],
+         "kind": "living"},
+        {"id": "F04_B_ALCOVE", "unit": "4B", "rect": [x0, 6.50, -10.90, y1],
+         "kind": "alcove"},
+    ]
+    furniture += [
+        {"id": "desk", "rect": [-8.35, 2.30, -7.77, 3.60], "z0": 0.72,
+         "h": 0.04, "mat": "floor_oak"},
+        {"id": "desk_legs", "rect": [-8.30, 2.35, -8.25, 3.55], "z0": 0.0,
+         "h": 0.72, "mat": "metal"},
+        {"id": "chair", "rect": [-8.95, 2.70, -8.50, 3.20], "z0": 0.42,
+         "h": 0.06, "mat": "trim"},
+        {"id": "bed", "rect": [-13.50, 6.75, -12.15, 9.45], "z0": 0.15,
+         "h": 0.32, "mat": "trim"},
+        {"id": "kitchen_counter", "rect": [-6.11, 6.35, -5.55, 8.85],
+         "z0": 0.0, "h": 0.90, "mat": "trim"},
+        {"id": "couch", "rect": [-12.95, 3.90, -11.45, 4.65], "z0": 0.12,
+         "h": 0.42, "mat": "trim"},
+    ]
+    markers += [
+        {"kind": "radiator", "id": "F04_B_RADIATOR_01", "unit": "4B",
+         "pos": [-9.58, 9.35, z], "yaw_deg": 180, "network": "heating",
+         "riser": "H-B"},
+        {"kind": "lamp", "id": "F04_B_LAMP_01", "unit": "4B",
+         "pos": [-8.05, 3.35, z + 0.76], "yaw_deg": 0,
+         "network": "electrical"},
+        {"kind": "monitor", "id": "F04_B_MONITOR_01", "unit": "4B",
+         "pos": [-7.95, 2.85, z + 0.76], "yaw_deg": -90,
+         "network": "electrical"},
+        {"kind": "toaster", "id": "F04_B_TOASTER_01", "unit": "4B",
+         "pos": [-5.85, 8.35, z + 0.90], "yaw_deg": 90,
+         "network": "electrical"},
+        {"kind": "fridge", "id": "F04_B_FRIDGE_01", "unit": "4B",
+         "pos": [-6.05, 9.25, z], "yaw_deg": 90, "network": "electrical"},
+        {"kind": "boxfan", "id": "F04_B_BOXFAN_01", "unit": "4B",
+         "pos": [-12.95, 1.05, z + 0.25], "yaw_deg": 45,
+         "network": "electrical"},
+        {"kind": "door_anomaly", "id": "F04_B_DOOR_ANOMALY", "unit": "4B",
+         "pos": [-7.20, 4.38, z], "yaw_deg": 0, "network": "structural"},
+    ]
 
 
 # ---------------------------------------------------------------- floors
@@ -263,14 +335,15 @@ def stair_holes(floor_id):
 
 def build_floor(floor_id):
     z = LEVELS[floor_id]
-    walls, rooms, markers = [], [], []
+    walls, rooms, markers, furniture = [], [], [], []
     holes = stair_holes(floor_id)
     if floor_id not in ("B1", "F01"):
         holes.append((-COURT - CORR_T, -COURT - CORR_T,
                       COURT + CORR_T, COURT + CORR_T))
     floor = {"id": floor_id, "z": z,
              "slabs": [slab(floor_id, z, holes)],
-             "walls": walls, "rooms": rooms, "markers": markers}
+             "walls": walls, "rooms": rooms, "markers": markers,
+             "furniture": furniture}
 
     if floor_id == "ROOF":
         # parapets + headhouse + elevator machine room
@@ -353,11 +426,11 @@ def build_floor(floor_id):
              "yaw_deg": 0},
         ]
         for stack in ("A", "D"):
-            apartment(floor_id, stack, z, walls, rooms, markers)
+            apartment(floor_id, stack, z, walls, rooms, markers, furniture)
         return floor
 
     for stack in ("A", "B", "C", "D"):
-        apartment(floor_id, stack, z, walls, rooms, markers)
+        apartment(floor_id, stack, z, walls, rooms, markers, furniture)
     rooms.append({"id": "%s_CORRIDOR" % floor_id,
                   "rect": [-XCO, -Y_IN, XCO, Y_IN], "kind": "corridor"})
     markers.append({"kind": "corridor_light", "id": "%s_CORRLIGHT_S" % floor_id,
@@ -454,12 +527,27 @@ def acoustic_graph(layout):
                 add(m["id"], m["pos"], "water", "B1_LAUNDRY", 0.6,
                     (40, 2000), 20)
                 edges.append((m["id"], "BASEMENT_HEADER_WEST"))
-            elif m["kind"] == "lamp":
+            elif m["kind"] in ("lamp", "monitor", "toaster", "fridge", "boxfan"):
                 add(m["id"], m["pos"], "electrical", m.get("unit", ""), 0.75,
-                    (80, 8000), 4)
+                    (60, 8000), 4)
+                edges.append((m["id"], "F04_CORRLIGHT_S"))
             elif m["kind"] == "corridor_light":
                 add(m["id"], [m["pos"][0], m["pos"][1], m["pos"][2] + 2.5],
                     "electrical", fl["id"], 0.55, (100, 9000), 4)
+            elif m["kind"] == "door_anomaly":
+                add(m["id"], [m["pos"][0], m["pos"][1], m["pos"][2] + 1.0],
+                    "structural", m.get("unit", ""), 0.95, (20, 200), 60)
+                edges.append((m["id"], "F04_B_RADIATOR_01"))
+    # electrical spine: hub in the basement switchgear room, corridor
+    # fixtures chained per floor and down the riser
+    add("B1_ELECTRICAL_HUB", [10.0, -5.0, -2.4], "electrical",
+        "B1_ELECTRICAL", 0.5, (60, 8000), 8)
+    prev_s = "B1_ELECTRICAL_HUB"
+    for fid in ("F02", "F03", "F04", "F05", "F06"):
+        s = "%s_CORRLIGHT_S" % fid
+        edges.append((s, prev_s))
+        edges.append((s, "%s_CORRLIGHT_N" % fid))
+        prev_s = s
     for riser, rads in by_riser.items():
         rads.sort(key=lambda m: m["pos"][2])
         header = ("BASEMENT_HEADER_WEST" if riser in ("H-A", "H-B")
@@ -507,6 +595,26 @@ PROP_CATALOG = {
                 "preferred_subdivision": 1, "timing_drift": 0.0,
                 "response_latency": 0.08, "normal_function_priority": 1.0,
                 "infection_receptivity": 0.7},
+    "fridge": {"minimum_action_interval": 1.2, "maximum_action_rate": 1,
+               "available_mechanical_events": ["compressor_click", "hum_shift"],
+               "preferred_subdivision": 0.25, "timing_drift": 0.06,
+               "response_latency": 0.30, "normal_function_priority": 1.0,
+               "infection_receptivity": 0.55},
+    "monitor": {"minimum_action_interval": 0.06, "maximum_action_rate": 12,
+                "available_mechanical_events": ["flicker", "scan_glitch"],
+                "preferred_subdivision": 2, "timing_drift": 0.0,
+                "response_latency": 0.01, "normal_function_priority": 1.0,
+                "infection_receptivity": 0.8},
+    "boxfan": {"minimum_action_interval": 0.5, "maximum_action_rate": 2,
+               "available_mechanical_events": ["speed_waver", "cage_rattle"],
+               "preferred_subdivision": 0.5, "timing_drift": 0.08,
+               "response_latency": 0.25, "normal_function_priority": 1.0,
+               "infection_receptivity": 0.5},
+    "door_anomaly": {"minimum_action_interval": 0.10, "maximum_action_rate": 8,
+                     "available_mechanical_events": ["seam_glow"],
+                     "preferred_subdivision": 1, "timing_drift": 0.0,
+                     "response_latency": 0.0, "normal_function_priority": 0.0,
+                     "infection_receptivity": 1.0},
 }
 
 MATERIAL_CATALOG = {

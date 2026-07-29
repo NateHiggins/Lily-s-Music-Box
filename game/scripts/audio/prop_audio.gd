@@ -26,6 +26,9 @@ static func _build(key: String) -> AudioStreamWAV:
 		"bell":
 			return _partials(1.2, [[880, 2.4, 1.0], [1758, 3.4, 0.5],
 					[2640, 5.0, 0.2]], 0.001)
+		"pop":
+			return _partials(0.22, [[210, 26, 1.0], [95, 16, 0.6],
+					[1400, 90, 0.35]], 0.004)
 		"hum_loop":
 			return _hum([50, 100, 150], [0.6, 0.35, 0.18], 2.0)
 		"buzz_loop":

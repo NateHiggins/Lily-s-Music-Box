@@ -213,6 +213,11 @@ def build():
             cat = {"brick": "walls_brick-col",
                    "concrete": "walls_conc-col"}.get(w["mat"], "walls-col")
             build_wall(buf(fid, cat, w["mat"]), w)
+        for fu in fl.get("furniture", []):
+            r = fu["rect"]
+            z0 = fl["z"] + fu.get("z0", 0.0)
+            buf(fid, "furniture-col", fu.get("mat", "trim")).add_box(
+                (r[0], r[1], z0), (r[2], r[3], z0 + fu["h"]))
         for m in fl["markers"]:
             e = bpy.data.objects.new("MK_%s" % m["id"], None)
             e.empty_display_size = 0.2

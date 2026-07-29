@@ -21,6 +21,11 @@ const PROP_SCRIPTS := {
 	"washer": preload("res://scripts/props/washer_prop.gd"),
 	"dryer": preload("res://scripts/props/washer_prop.gd"),
 	"boiler": preload("res://scripts/props/boiler_prop.gd"),
+	"toaster": preload("res://scripts/props/toaster_prop.gd"),
+	"fridge": preload("res://scripts/props/fridge_prop.gd"),
+	"monitor": preload("res://scripts/props/monitor_prop.gd"),
+	"boxfan": preload("res://scripts/props/boxfan_prop.gd"),
+	"door_anomaly": preload("res://scripts/props/door_anomaly_prop.gd"),
 }
 
 var layout: Dictionary = {}
@@ -88,6 +93,8 @@ func _spawn_props() -> void:
 			var prop: FunctionalProp = script.new()
 			prop.prop_type = m["kind"]
 			prop.name = m["id"]
+			if AcousticGraphData.nodes.has(m["id"]):
+				prop.graph_node_id = m["id"]  # bound to the shared graph
 			add_child(prop)
 			prop.global_position = GameBoot.b2g(m["pos"])
 			prop.rotation.y = deg_to_rad(-float(m.get("yaw_deg", 0)))

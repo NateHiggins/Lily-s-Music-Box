@@ -14,6 +14,23 @@ night.
 
 ## What is alive right now
 
+**Vertical slice (new):** apartment 4B is detailed to the brief's Section 4
+plan — entry vestibule, bathroom, closet, galley kitchen, main room,
+sleeping alcove, furniture — with its functional ensemble: the hero
+**toaster** (full latch → coil → relay → pop cycle with 46 mm lever travel
+and 4 mm overshoot; press E to run it; at infection > 0.4 its release
+quantizes to the conductor), fridge compressor, twin monitors, box fan,
+desk lamp, radiator under the rear window, and the **door anomaly** — a
+door-shaped seam that only manifests above 0.75 infection, between the
+workstation and the radiator.
+
+**Networked propagation (new):** motif events no longer broadcast — they
+are injected at an origin node (default: the basement boiler) and travel
+`acoustic_graph.json` with per-node delays and damping. A knock reaches
+Floor 5's radiator ~117 ms after Floor 2's; the sweep is audible if you
+stand in the stairwell. Debug panel: toggle networked/global, switch
+origin (boiler / 4B radiator / F04 corridor light).
+
 - All eight levels (basement → roof) walkable: ring corridors, front and
   service stairs (physically climbable, ramp colliders), the elevator
   (call it, ride it, B1–F6, arrival bell).
