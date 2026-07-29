@@ -69,16 +69,18 @@ func _run() -> void:
 	await get_tree().create_timer(2.0).timeout
 	_check(Conductor._beat_i > beat_before, "conductor clock is beating")
 
-	# --- physically climb the front stair F01 -> F02 with the real player
+	# --- walk in from the corridor THROUGH the stair door and climb to F02
 	var pl: PlayerController = root.player
-	pl.global_position = Vector3(0.4, 0.15, 6.0)
+	pl.global_position = Vector3(-2.7, 0.15, 7.6)  # south corridor, at door
 	pl.velocity = Vector3.ZERO
-	await _goto(pl, Vector2(-2.5, 5.9), 5.0)   # west up flight 1 to landing
-	await _goto(pl, Vector2(-2.5, 4.0), 3.0)   # across landing to flight 2
-	await _goto(pl, Vector2(1.6, 4.0), 6.0)    # east up flight 2 onto F02
+	await _goto(pl, Vector2(-2.7, 6.0), 4.0)   # through the door to the base
+	await _goto(pl, Vector2(0.7, 5.9), 6.0)    # east up flight 1 to landing
+	await _goto(pl, Vector2(0.7, 4.0), 3.0)    # across landing to flight 2
+	await _goto(pl, Vector2(-2.85, 4.0), 6.0)  # west up flight 2 onto F02
 	pl.autopilot = Vector3.ZERO
 	_check(pl.global_position.y > 2.9,
-			"front stair climbable (player at y=%.2f)" % pl.global_position.y)
+			"front stair entered from corridor and climbed (y=%.2f)"
+			% pl.global_position.y)
 
 	# --- elevator travel across full range
 	root.elevator.travel_to("F06")
@@ -159,6 +161,26 @@ func _door_checks() -> void:
 			Vector3(-14.5, 11.2, 6.89), Vector3(-13.0, 11.2, 6.89))
 	_check(not space.intersect_ray(p).is_empty(),
 			"window glazing blocks the A-stack opening")
+
+	# enter apartment 4B from the corridor through its real entry door
+	var pl: PlayerController = root.player
+	pl.global_position = Vector3(-4.7, 9.75, -3.87)  # west corridor at 4B
+	pl.velocity = Vector3.ZERO
+	var hinge := Vector3(-5.51, 9.6, -3.415)
+	var entry: DoorProp = null
+	for c in root.get_children():
+		if c is DoorProp and c.global_position.distance_to(hinge) < 0.8:
+			entry = c
+	_check(entry != null, "found 4B entry door from corridor")
+	if entry:
+		if not entry.open:
+			entry.interact(null)
+			await get_tree().create_timer(0.8).timeout
+		await _goto(pl, Vector2(-6.9, -3.87), 5.0)
+		pl.autopilot = Vector3.ZERO
+		_check(pl.global_position.x < -6.0 and pl.global_position.y < 10.2,
+				"walked through the doorway into 4B (x=%.2f)"
+				% pl.global_position.x)
 
 	# hero toaster: full mechanical cycle latch -> coils -> pop
 	var toaster: ToasterProp = root.get_node_or_null("F04_B_TOASTER_01")

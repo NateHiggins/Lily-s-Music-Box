@@ -455,7 +455,7 @@ def ring_and_cores(floor_id, z, walls, entry_doors=True):
     # core south wall: front stair door + elevator opening
     south_openings = []
     if floor_id in FRONT["levels"]:
-        south_openings.append(door(abs(-0.05 - (-COURT)), DOOR_ENTRY, "open"))  # stair
+        south_openings.append(door(abs(-2.70 - (-COURT)), DOOR_ENTRY, "open"))  # stair
     if floor_id in ELEV["stops"]:
         south_openings.append({"type": "door", "at": abs(1.925 - (-COURT)),
                                "w": ELEV["door_w"], "h": 2.10, "sill": 0.0,
@@ -464,7 +464,7 @@ def ring_and_cores(floor_id, z, walls, entry_doors=True):
                       south_openings))
     walls.append(wall((-COURT, -CORE_Y0), (COURT, -CORE_Y0), CORR_T, h, z, []))
     # core north wall: service stair door; court access door on F01
-    north_openings = [door(abs(-0.55 - (-COURT)), DOOR_SERV, "open")]
+    north_openings = [door(abs(-1.94 - (-COURT)), DOOR_SERV, "open")]
     walls.append(wall((-COURT, CORE_Y1), (COURT, CORE_Y1), CORR_T, h, z,
                       north_openings))
     court_south = [door(COURT, DOOR_INT, "open")] if floor_id == "F01" else []
@@ -574,7 +574,7 @@ def build_floor(floor_id):
         walls.append(wall((hx1, hy0), (hx1, hy1), CORR_T, 2.4, z, []))
         walls.append(wall((hx0, hy1), (hx1, hy1), CORR_T, 2.4, z, []))
         walls.append(wall((hx0, hy0), (hx1, hy0), CORR_T, 2.4, z,
-                          [door(abs(-0.55 - hx0), DOOR_SERV, "open")]))
+                          [door(abs(-1.94 - hx0), DOOR_SERV, "open")]))
         ex0, ey0, ex1, ey1 = ELEV["shaft"]
         m = 0.45
         walls.append(wall((ex0 - m, ey0 - m), (ex0 - m, ey1 + m), CORR_T, 2.4, z,
@@ -696,19 +696,22 @@ def stair_geometry(st):
         n1 = risers // 2 + risers % 2
         n2 = risers - n1
         land_w = st["width"]
-        run1 = (n1 - 1) * st["tread"]
-        # flight 1: south side, climbing west from the east end of the well
+        x_base = wx0 + 0.02
+        # flight 1: south side, climbing EAST from the west end — the entry
+        # door sits beside the base, so walking in meets the stair at floor
+        # level instead of under the rising run
         flights.append({"kind": "flight", "z0": z0, "rise": st["rise"],
-                       "tread": st["tread"], "n": n1, "dir": -1,
-                        "x_start": wx1 - 0.02, "y0": wy0, "y1": wy0 + st["width"]})
+                        "tread": st["tread"], "n": n1, "dir": 1,
+                        "x_start": x_base, "y0": wy0,
+                        "y1": wy0 + st["width"]})
         lz = z0 + n1 * st["rise"]
+        x_land = x_base + n1 * st["tread"]
         flights.append({"kind": "landing", "z": lz,
-                        "rect": [wx1 - 0.02 - run1 - st["tread"] - land_w, wy0,
-                                 wx1 - 0.02 - run1 - st["tread"], wy1]})
+                        "rect": [x_land, wy0, x_land + land_w, wy1]})
         flights.append({"kind": "flight", "z0": lz, "rise": st["rise"],
-                        "tread": st["tread"], "n": n2, "dir": 1,
-                        "x_start": wx1 - 0.02 - run1 - st["tread"],
-                        "y0": wy1 - st["width"], "y1": wy1})
+                        "tread": st["tread"], "n": n2, "dir": -1,
+                        "x_start": x_land, "y0": wy1 - st["width"],
+                        "y1": wy1, "exit": True})
     return {"id": st["id"], "well": list(st["well"]), "width": st["width"],
             "parts": flights}
 

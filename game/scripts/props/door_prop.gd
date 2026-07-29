@@ -54,6 +54,12 @@ func _ready() -> void:
 		_body.rotation.y = deg_to_rad(168)
 
 
+func interact_prompt() -> String:
+	if leaf_state == "locked":
+		return "[E]  Locked"
+	return "[E]  Close door" if open else "[E]  Open door"
+
+
 func interact(_player: Node) -> void:
 	if _moving:
 		return

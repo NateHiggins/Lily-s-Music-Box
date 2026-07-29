@@ -128,6 +128,10 @@ func enter(player: Node) -> void:
 	print("[ROOM0] entered")
 
 
+func interact_prompt() -> String:
+	return "[E]  Leave" if occupant != null else ""
+
+
 ## Exit door (interact) and forced ejection both come through here.
 func interact(player: Node) -> void:
 	if player == occupant:

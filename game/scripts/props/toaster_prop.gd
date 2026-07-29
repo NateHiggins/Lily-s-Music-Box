@@ -73,6 +73,10 @@ func _build_visual() -> void:
 	add_child(area)
 
 
+func interact_prompt() -> String:
+	return "[E]  Press the lever" if state == PState.IDLE else ""
+
+
 func interact(_player: Node) -> void:
 	start_cycle()
 

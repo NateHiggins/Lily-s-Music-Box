@@ -15,6 +15,10 @@ func _ready() -> void:
 	add_child(shape)
 
 
+func interact_prompt() -> String:
+	return "[E]  Sit at the support desk"
+
+
 func interact(player: Node) -> void:
 	if call_interface:
 		call_interface.enter(player)
