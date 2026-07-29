@@ -65,7 +65,8 @@
    "damping": 0.22,
    "infection_receptivity": 0.5,
    "connections": [
-    "BASEMENT_HEADER_EAST"
+    "BASEMENT_HEADER_EAST",
+    "B1_FLUE_BASE"
    ]
   },
   {
@@ -269,6 +270,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F02_PORCH_DECK",
     "BASEMENT_HEADER_WEST",
     "F03_B_RADIATOR_01"
    ]
@@ -376,6 +378,48 @@
    ]
   },
   {
+   "id": "F02_FLUE_BREAST",
+   "pos": [
+    10.0,
+    8.95,
+    3.2
+   ],
+   "room": "F02C",
+   "network": "flue",
+   "frequency_band": [
+    40,
+    1200
+   ],
+   "delay_ms": 15,
+   "damping": 0.08,
+   "infection_receptivity": 0.9,
+   "connections": [
+    "F02_FLUE"
+   ]
+  },
+  {
+   "id": "F02_PORCH_DECK",
+   "pos": [
+    -9.15,
+    10.7,
+    3.2
+   ],
+   "room": "F02",
+   "network": "structural",
+   "frequency_band": [
+    30,
+    900
+   ],
+   "delay_ms": 22,
+   "damping": 0.22,
+   "infection_receptivity": 0.7,
+   "connections": [
+    "F02_B_RADIATOR_01",
+    "PORCH_BASE",
+    "F03_PORCH_DECK"
+   ]
+  },
+  {
    "id": "F02_CORRLIGHT_S",
    "pos": [
     0.0,
@@ -460,6 +504,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F03_PORCH_DECK",
     "F02_B_RADIATOR_01",
     "F04_B_RADIATOR_01"
    ]
@@ -567,6 +612,48 @@
    ]
   },
   {
+   "id": "F03_FLUE_BREAST",
+   "pos": [
+    10.0,
+    8.95,
+    6.4
+   ],
+   "room": "F03C",
+   "network": "flue",
+   "frequency_band": [
+    40,
+    1200
+   ],
+   "delay_ms": 15,
+   "damping": 0.08,
+   "infection_receptivity": 0.9,
+   "connections": [
+    "F03_FLUE"
+   ]
+  },
+  {
+   "id": "F03_PORCH_DECK",
+   "pos": [
+    -9.15,
+    10.7,
+    6.4
+   ],
+   "room": "F03",
+   "network": "structural",
+   "frequency_band": [
+    30,
+    900
+   ],
+   "delay_ms": 22,
+   "damping": 0.22,
+   "infection_receptivity": 0.7,
+   "connections": [
+    "F03_B_RADIATOR_01",
+    "F02_PORCH_DECK",
+    "F04_PORCH_DECK"
+   ]
+  },
+  {
    "id": "F03_CORRLIGHT_S",
    "pos": [
     0.0,
@@ -650,6 +737,7 @@
    "infection_receptivity": 0.84,
    "connections": [
     "F04_B_DOOR_ANOMALY",
+    "F04_PORCH_DECK",
     "F03_B_RADIATOR_01",
     "F05_B_RADIATOR_01"
    ]
@@ -817,6 +905,48 @@
    ]
   },
   {
+   "id": "F04_FLUE_BREAST",
+   "pos": [
+    10.0,
+    8.95,
+    9.6
+   ],
+   "room": "F04C",
+   "network": "flue",
+   "frequency_band": [
+    40,
+    1200
+   ],
+   "delay_ms": 15,
+   "damping": 0.08,
+   "infection_receptivity": 0.9,
+   "connections": [
+    "F04_FLUE"
+   ]
+  },
+  {
+   "id": "F04_PORCH_DECK",
+   "pos": [
+    -9.15,
+    10.7,
+    9.6
+   ],
+   "room": "F04",
+   "network": "structural",
+   "frequency_band": [
+    30,
+    900
+   ],
+   "delay_ms": 22,
+   "damping": 0.22,
+   "infection_receptivity": 0.7,
+   "connections": [
+    "F04_B_RADIATOR_01",
+    "F03_PORCH_DECK",
+    "F05_PORCH_DECK"
+   ]
+  },
+  {
    "id": "F04_CORRLIGHT_S",
    "pos": [
     0.0,
@@ -921,6 +1051,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F05_PORCH_DECK",
     "F04_B_RADIATOR_01",
     "F06_B_RADIATOR_01"
    ]
@@ -965,6 +1096,48 @@
    "connections": [
     "F04_D_RADIATOR_01",
     "F06_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F05_FLUE_BREAST",
+   "pos": [
+    10.0,
+    8.95,
+    12.8
+   ],
+   "room": "F05C",
+   "network": "flue",
+   "frequency_band": [
+    40,
+    1200
+   ],
+   "delay_ms": 15,
+   "damping": 0.08,
+   "infection_receptivity": 0.9,
+   "connections": [
+    "F05_FLUE"
+   ]
+  },
+  {
+   "id": "F05_PORCH_DECK",
+   "pos": [
+    -9.15,
+    10.7,
+    12.8
+   ],
+   "room": "F05",
+   "network": "structural",
+   "frequency_band": [
+    30,
+    900
+   ],
+   "delay_ms": 22,
+   "damping": 0.22,
+   "infection_receptivity": 0.7,
+   "connections": [
+    "F05_B_RADIATOR_01",
+    "F04_PORCH_DECK",
+    "F06_PORCH_DECK"
    ]
   },
   {
@@ -1127,6 +1300,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F06_PORCH_DECK",
     "F05_B_RADIATOR_01"
    ]
   },
@@ -1168,6 +1342,47 @@
    "infection_receptivity": 0.84,
    "connections": [
     "F05_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F06_FLUE_BREAST",
+   "pos": [
+    10.0,
+    8.95,
+    16.0
+   ],
+   "room": "F06C",
+   "network": "flue",
+   "frequency_band": [
+    40,
+    1200
+   ],
+   "delay_ms": 15,
+   "damping": 0.08,
+   "infection_receptivity": 0.9,
+   "connections": [
+    "F06_FLUE"
+   ]
+  },
+  {
+   "id": "F06_PORCH_DECK",
+   "pos": [
+    -9.15,
+    10.7,
+    16.0
+   ],
+   "room": "F06",
+   "network": "structural",
+   "frequency_band": [
+    30,
+    900
+   ],
+   "delay_ms": 22,
+   "damping": 0.22,
+   "infection_receptivity": 0.7,
+   "connections": [
+    "F06_B_RADIATOR_01",
+    "F05_PORCH_DECK"
    ]
   },
   {
@@ -1213,6 +1428,198 @@
    "infection_receptivity": 0.55,
    "connections": [
     "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "B1_FLUE_BASE",
+   "pos": [
+    9.9,
+    9.375,
+    -1.9
+   ],
+   "room": "B1_BOILER",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 6,
+   "damping": 0.08,
+   "infection_receptivity": 0.6,
+   "connections": [
+    "B1_BOILER_01",
+    "F01_FLUE"
+   ]
+  },
+  {
+   "id": "ROOF_FLUE_TOP",
+   "pos": [
+    10.0,
+    9.375,
+    21.3
+   ],
+   "room": "ROOF",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 12,
+   "damping": 0.08,
+   "infection_receptivity": 0.8,
+   "connections": [
+    "F06_FLUE"
+   ]
+  },
+  {
+   "id": "F01_FLUE",
+   "pos": [
+    10.0,
+    9.375,
+    1.5
+   ],
+   "room": "F01",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 12,
+   "damping": 0.08,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "B1_FLUE_BASE",
+    "F02_FLUE"
+   ]
+  },
+  {
+   "id": "F02_FLUE",
+   "pos": [
+    10.0,
+    9.375,
+    4.7
+   ],
+   "room": "F02",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 12,
+   "damping": 0.08,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "F02_FLUE_BREAST",
+    "F01_FLUE",
+    "F03_FLUE"
+   ]
+  },
+  {
+   "id": "F03_FLUE",
+   "pos": [
+    10.0,
+    9.375,
+    7.9
+   ],
+   "room": "F03",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 12,
+   "damping": 0.08,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "F03_FLUE_BREAST",
+    "F02_FLUE",
+    "F04_FLUE"
+   ]
+  },
+  {
+   "id": "F04_FLUE",
+   "pos": [
+    10.0,
+    9.375,
+    11.1
+   ],
+   "room": "F04",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 12,
+   "damping": 0.08,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "F04_FLUE_BREAST",
+    "F03_FLUE",
+    "F05_FLUE"
+   ]
+  },
+  {
+   "id": "F05_FLUE",
+   "pos": [
+    10.0,
+    9.375,
+    14.3
+   ],
+   "room": "F05",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 12,
+   "damping": 0.08,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "F05_FLUE_BREAST",
+    "F04_FLUE",
+    "F06_FLUE"
+   ]
+  },
+  {
+   "id": "F06_FLUE",
+   "pos": [
+    10.0,
+    9.375,
+    17.5
+   ],
+   "room": "F06",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 12,
+   "damping": 0.08,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "F06_FLUE_BREAST",
+    "F05_FLUE",
+    "ROOF_FLUE_TOP"
+   ]
+  },
+  {
+   "id": "PORCH_BASE",
+   "pos": [
+    -9.15,
+    10.7,
+    0.2
+   ],
+   "room": "F01",
+   "network": "structural",
+   "frequency_band": [
+    30,
+    900
+   ],
+   "delay_ms": 15,
+   "damping": 0.22,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "F02_PORCH_DECK"
    ]
   },
   {

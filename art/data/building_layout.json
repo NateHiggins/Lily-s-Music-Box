@@ -4197,6 +4197,29 @@
      "unit": "2D"
     },
     {
+     "kind": "flue_breast",
+     "id": "F02_FLUE_BREAST",
+     "unit": "F02C",
+     "pos": [
+      10.0,
+      8.95,
+      3.2
+     ],
+     "yaw_deg": 180,
+     "network": "flue"
+    },
+    {
+     "kind": "porch_deck",
+     "id": "F02_PORCH_DECK",
+     "pos": [
+      -9.15,
+      10.7,
+      3.2
+     ],
+     "yaw_deg": 0,
+     "network": "structural"
+    },
+    {
      "kind": "corridor_light",
      "id": "F02_CORRLIGHT_S",
      "pos": [
@@ -6541,6 +6564,29 @@
      ],
      "yaw_deg": 180,
      "network": "electrical"
+    },
+    {
+     "kind": "flue_breast",
+     "id": "F03_FLUE_BREAST",
+     "unit": "F03C",
+     "pos": [
+      10.0,
+      8.95,
+      6.4
+     ],
+     "yaw_deg": 180,
+     "network": "flue"
+    },
+    {
+     "kind": "porch_deck",
+     "id": "F03_PORCH_DECK",
+     "pos": [
+      -9.15,
+      10.7,
+      6.4
+     ],
+     "yaw_deg": 0,
+     "network": "structural"
     },
     {
      "kind": "corridor_light",
@@ -9100,6 +9146,29 @@
      "unit": "4D"
     },
     {
+     "kind": "flue_breast",
+     "id": "F04_FLUE_BREAST",
+     "unit": "F04C",
+     "pos": [
+      10.0,
+      8.95,
+      9.6
+     ],
+     "yaw_deg": 180,
+     "network": "flue"
+    },
+    {
+     "kind": "porch_deck",
+     "id": "F04_PORCH_DECK",
+     "pos": [
+      -9.15,
+      10.7,
+      9.6
+     ],
+     "yaw_deg": 0,
+     "network": "structural"
+    },
+    {
      "kind": "corridor_light",
      "id": "F04_CORRLIGHT_S",
      "pos": [
@@ -11375,6 +11444,29 @@
      "network": "heating",
      "riser": "H-D",
      "unit": "5D"
+    },
+    {
+     "kind": "flue_breast",
+     "id": "F05_FLUE_BREAST",
+     "unit": "F05C",
+     "pos": [
+      10.0,
+      8.95,
+      12.8
+     ],
+     "yaw_deg": 180,
+     "network": "flue"
+    },
+    {
+     "kind": "porch_deck",
+     "id": "F05_PORCH_DECK",
+     "pos": [
+      -9.15,
+      10.7,
+      12.8
+     ],
+     "yaw_deg": 0,
+     "network": "structural"
     },
     {
      "kind": "corridor_light",
@@ -13674,6 +13766,29 @@
      "network": "heating",
      "riser": "H-D",
      "unit": "6D"
+    },
+    {
+     "kind": "flue_breast",
+     "id": "F06_FLUE_BREAST",
+     "unit": "F06C",
+     "pos": [
+      10.0,
+      8.95,
+      16.0
+     ],
+     "yaw_deg": 180,
+     "network": "flue"
+    },
+    {
+     "kind": "porch_deck",
+     "id": "F06_PORCH_DECK",
+     "pos": [
+      -9.15,
+      10.7,
+      16.0
+     ],
+     "yaw_deg": 0,
+     "network": "structural"
     },
     {
      "kind": "corridor_light",

@@ -27,6 +27,8 @@ const PROP_SCRIPTS := {
 	"boxfan": preload("res://scripts/props/boxfan_prop.gd"),
 	"door_anomaly": preload("res://scripts/props/door_anomaly_prop.gd"),
 	"speaker": preload("res://scripts/props/speaker_prop.gd"),
+	"flue_breast": preload("res://scripts/props/flue_breast_prop.gd"),
+	"porch_deck": preload("res://scripts/props/porch_deck_prop.gd"),
 }
 
 var layout: Dictionary = {}

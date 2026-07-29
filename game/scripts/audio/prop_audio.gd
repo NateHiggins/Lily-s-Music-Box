@@ -29,6 +29,8 @@ static func _build(key: String) -> AudioStreamWAV:
 		"pop":
 			return _partials(0.22, [[210, 26, 1.0], [95, 16, 0.6],
 					[1400, 90, 0.35]], 0.004)
+		"creak":
+			return _creak()
 		"breath":
 			return _breath()
 		"vocal":
@@ -95,6 +97,26 @@ static func _agitate() -> AudioStreamWAV:
 		s[i] = s[i] * w + s[n - fade + i] * (1.0 - w)
 	s.resize(n - fade)
 	return _pack(s, true)
+
+
+## Dry timber creak: a gliding squeal with grain noise.
+static func _creak() -> AudioStreamWAV:
+	var n := int(0.34 * RATE)
+	var s := PackedFloat32Array()
+	s.resize(n)
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 1927
+	var phase := 0.0
+	var lp := 0.0
+	for i in n:
+		var t := float(i) / RATE
+		var f := 320.0 * exp(-t * 2.0) + 140.0
+		phase += TAU * f / RATE
+		lp += 0.12 * (rng.randf_range(-1.0, 1.0) - lp)
+		var env := minf(t / 0.04, 1.0) * minf((0.34 - t) / 0.10, 1.0)
+		var grain := 0.6 + 0.4 * sin(TAU * 23.0 * t)
+		s[i] = env * (sin(phase) * grain + 0.25 * lp)
+	return _pack(s)
 
 
 ## One filtered exhalation — the caller's breathing carrying the motif.

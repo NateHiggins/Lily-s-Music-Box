@@ -55,7 +55,7 @@ func _ready() -> void:
 	ol.text = "Origin"
 	ol.add_theme_font_size_override("font_size", 10)
 	origin_row.add_child(ol)
-	for origin in ["B1_BOILER_01", "F04_B_RADIATOR_01", "F04_CORRLIGHT_S"]:
+	for origin in ["B1_BOILER_01", "F04_B_RADIATOR_01", "ROOF_FLUE_TOP"]:
 		var ob := Button.new()
 		ob.text = origin.replace("_01", "").replace("_", " ").to_lower()
 		ob.add_theme_font_size_override("font_size", 9)

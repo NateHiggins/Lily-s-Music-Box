@@ -759,6 +759,12 @@ def build_floor(floor_id):
               0.0, 1.1, "trim", False)
     rooms.append({"id": "%s_CORRIDOR" % floor_id,
                   "rect": [-XCO, -Y_IN, XCO, Y_IN], "kind": "corridor"})
+    markers.append({"kind": "flue_breast", "id": "%s_FLUE_BREAST" % floor_id,
+                    "unit": floor_id + "C",
+                    "pos": [10.0, 8.95, z], "yaw_deg": 180, "network": "flue"})
+    markers.append({"kind": "porch_deck", "id": "%s_PORCH_DECK" % floor_id,
+                    "pos": [-9.15, 10.70, z], "yaw_deg": 0,
+                    "network": "structural"})
     markers.append({"kind": "corridor_light", "id": "%s_CORRLIGHT_S" % floor_id,
                     "pos": [0.0, -8.3, z], "yaw_deg": 0, "network": "electrical"})
     markers.append({"kind": "corridor_light", "id": "%s_CORRLIGHT_N" % floor_id,
@@ -885,10 +891,11 @@ def acoustic_graph(layout):
     nodes, edges = [], []
 
     def add(nid, pos, network, room="", recv=0.7, band=(55, 850), delay=30):
+        damping = 0.08 if network == "flue" else 0.22
         nodes.append({"id": nid, "pos": [round(p, 3) for p in pos],
                       "room": room, "network": network,
                       "frequency_band": list(band), "delay_ms": delay,
-                      "damping": 0.22, "infection_receptivity": recv,
+                      "damping": damping, "infection_receptivity": recv,
                       "connections": []})
 
     add("BASEMENT_HEADER_WEST", [-5.85, 0.0, -2.3], "heating",
@@ -917,6 +924,16 @@ def acoustic_graph(layout):
                 edges.append((m["id"], "%s_CORRLIGHT_S" % fl["id"]))
                 if fl["id"] in ("B1", "F01"):
                     edges.append((m["id"], "B1_ELECTRICAL_HUB"))
+            elif m["kind"] == "flue_breast":
+                # chimney breast: the room-side face of the flue
+                add(m["id"], m["pos"], "flue", m.get("unit", ""), 0.9,
+                    (40, 1200), 15)
+                edges.append((m["id"], "%s_FLUE" % fl["id"]))
+            elif m["kind"] == "porch_deck":
+                # wood deck bolted to the rear wall: lossy, creaky path
+                add(m["id"], m["pos"], "structural", fl["id"], 0.7,
+                    (30, 900), 22)
+                edges.append((m["id"], "%s_B_RADIATOR_01" % fl["id"]))
             elif m["kind"] == "corridor_light":
                 add(m["id"], [m["pos"][0], m["pos"][1], m["pos"][2] + 2.5],
                     "electrical", fl["id"], 0.55, (100, 9000), 4)
@@ -924,6 +941,27 @@ def acoustic_graph(layout):
                 add(m["id"], [m["pos"][0], m["pos"][1], m["pos"][2] + 1.0],
                     "structural", m.get("unit", ""), 0.95, (20, 200), 60)
                 edges.append((m["id"], "F04_B_RADIATOR_01"))
+    # chimney flue: a masonry speaking tube from the boiler to the sky —
+    # fast, barely damped, six stories in ~70 ms
+    add("B1_FLUE_BASE", [9.9, 9.375, -1.9], "flue", "B1_BOILER", 0.6,
+        (30, 1500), 6)
+    add("ROOF_FLUE_TOP", [10.0, 9.375, 21.3], "flue", "ROOF", 0.8,
+        (30, 1500), 12)
+    edges.append(("B1_BOILER_01", "B1_FLUE_BASE"))
+    prev_f = "B1_FLUE_BASE"
+    for fid in ("F01", "F02", "F03", "F04", "F05", "F06"):
+        add("%s_FLUE" % fid, [10.0, 9.375, LEVELS[fid] + 1.5], "flue", fid,
+            0.5, (30, 1500), 12)
+        edges.append(("%s_FLUE" % fid, prev_f))
+        prev_f = "%s_FLUE" % fid
+    edges.append(("ROOF_FLUE_TOP", prev_f))
+    # porch structure: ground post base up the deck chain
+    add("PORCH_BASE", [-9.15, 10.70, 0.2], "structural", "F01", 0.5,
+        (30, 900), 15)
+    prev_p = "PORCH_BASE"
+    for fid in ("F02", "F03", "F04", "F05", "F06"):
+        edges.append(("%s_PORCH_DECK" % fid, prev_p))
+        prev_p = "%s_PORCH_DECK" % fid
     # electrical spine: hub in the basement switchgear room, corridor
     # fixtures chained per floor and down the riser
     add("B1_ELECTRICAL_HUB", [10.0, -5.0, -2.4], "electrical",
@@ -1001,6 +1039,16 @@ PROP_CATALOG = {
                 "preferred_subdivision": 1, "timing_drift": 0.01,
                 "response_latency": 0.03, "normal_function_priority": 1.0,
                 "infection_receptivity": 0.8},
+    "flue_breast": {"minimum_action_interval": 0.14, "maximum_action_rate": 7,
+                    "available_mechanical_events": ["flue_knock", "draft"],
+                    "preferred_subdivision": 1, "timing_drift": 0.008,
+                    "response_latency": 0.02, "normal_function_priority": 1.0,
+                    "infection_receptivity": 0.9},
+    "porch_deck": {"minimum_action_interval": 0.22, "maximum_action_rate": 4,
+                   "available_mechanical_events": ["creak", "board_knock"],
+                   "preferred_subdivision": 1, "timing_drift": 0.035,
+                   "response_latency": 0.06, "normal_function_priority": 1.0,
+                   "infection_receptivity": 0.7},
     "door_anomaly": {"minimum_action_interval": 0.10, "maximum_action_rate": 8,
                      "available_mechanical_events": ["seam_glow"],
                      "preferred_subdivision": 1, "timing_drift": 0.0,

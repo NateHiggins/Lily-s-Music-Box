@@ -39,6 +39,19 @@ func _both_radiators_reached() -> bool:
 	return _riser_delta_ms() > -99999
 
 
+## Smallest positive gap from any a-arrival to the next b-arrival: pairs
+## the same emission across two paths regardless of sampling phase.
+func _paired_gap_ms(a_id: String, b_id: String) -> int:
+	var a: Array = _arrivals.get(a_id, [])
+	var b: Array = _arrivals.get(b_id, [])
+	var best := 999999
+	for ta in a:
+		for tb in b:
+			if tb >= ta and tb - ta < best:
+				best = tb - ta
+	return best if best < 999999 else -1
+
+
 func _ready() -> void:
 	root = load("res://scenes/building/orison_root.tscn").instantiate()
 	add_child(root)
@@ -207,6 +220,15 @@ func _door_checks() -> void:
 				"motif sweeps up riser H-B (F05 %d ms after F02)" % dt)
 	else:
 		_check(false, "propagation reached B-stack radiators")
+	# the flue is the fast path: the chimney breast on F05 must sound
+	# BEFORE the same floor's radiator for the same emission
+	_check(not AcousticGraphData.neighbors("F05_FLUE").is_empty(),
+			"flue column connected")
+	_check(not AcousticGraphData.neighbors("F04_PORCH_DECK").is_empty(),
+			"porch deck coupled to the structure")
+	var race := _paired_gap_ms("F05_FLUE_BREAST", "F05_B_RADIATOR_01")
+	_check(race > 20 and race < 500,
+			"flue beats the riser to F05 (radiator %d ms later)" % race)
 
 	# the impossible door manifests only at severe infection
 	var anomaly: DoorAnomalyProp = root.get_node_or_null("F04_B_DOOR_ANOMALY")
