@@ -34,6 +34,14 @@ the three responses change real building state — Complete pushes
 infection to 0.85, which is what lets the door anomaly manifest in the
 wall. One outcome per case, latched. Esc steps away; the call continues.
 
+**Room 0 (new):** once the door anomaly is manifest, interact with the
+seam to step through into the hidden room — a pocket space held open by
+the building's infection, where the wall seams pulse with the motif
+directly (no translation profile: the room *is* the motif). Leave by the
+far seam, or let infection drop below 0.7 and the room collapses,
+ejecting you into a very slightly incorrect apartment: the conductor's
+tempo returns 0.8 BPM wrong, permanently.
+
 **Networked propagation (new):** motif events no longer broadcast — they
 are injected at an origin node (default: the basement boiler) and travel
 `acoustic_graph.json` with per-node delays and damping. A knock reaches

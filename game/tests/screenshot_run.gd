@@ -79,6 +79,13 @@ func _run() -> void:
 	ci.leave()
 	await _grab(Vector3(-9.4, 11.0, -3.0), Vector3(-7.2, 10.6, -4.5),
 			"b_13_door_anomaly_manifest")
+	# through the seam: Room 0
+	var anomaly = root.get_node_or_null("F04_B_DOOR_ANOMALY")
+	if anomaly and anomaly.room0:
+		anomaly.interact(root.player)
+		await get_tree().create_timer(0.9).timeout
+		await _grab(Vector3(-7.2, 91.6, -2.2), Vector3(-7.2, 91.0, -7.4),
+				"b_14_room0")
 	get_tree().quit(0)
 
 

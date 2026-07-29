@@ -170,6 +170,25 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 				"call: door anomaly manifests after Complete")
 	ci.leave()
 	_check(not root.player.call_locked, "player released after leaving desk")
+
+	# Room 0: enter through the manifested seam, then let the room collapse
+	if anomaly and anomaly.room0:
+		var pl: PlayerController = root.player
+		var before := pl.global_position
+		anomaly.interact(pl)
+		_check(pl.global_position.y > 50.0, "Room 0 entered through the seam")
+		_check(_floor_below(pl.global_position + Vector3(0, 1.0, 0)),
+				"Room 0 has a walkable floor")
+		var bpm_before: float = Conductor.bpm
+		Conductor.infection = 0.3  # the hum falters
+		await get_tree().create_timer(0.5).timeout
+		_check(pl.global_position.distance_to(before) < 2.0,
+				"collapse ejects occupant back to 4B")
+		_check(Conductor.bpm > bpm_before,
+				"ejection leaves the building's tempo slightly wrong")
+		Conductor.bpm = 72.0
+	else:
+		_check(false, "Room 0 reachable from anomaly")
 	Conductor.infection = 0.15
 	Conductor.origin_node = "B1_BOILER_01"
 

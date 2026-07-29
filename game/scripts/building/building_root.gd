@@ -56,6 +56,11 @@ func _ready() -> void:
 	player = PlayerController.new()
 	add_child(player)
 	player.global_position = GameBoot.b2g([0.0, -8.3, 0.1])  # lobby
+	var room0 := Room0.new()
+	add_child(room0)
+	var anomaly: DoorAnomalyProp = get_node_or_null("F04_B_DOOR_ANOMALY")
+	if anomaly:
+		anomaly.room0 = room0
 	call_interface = CallInterface.new()
 	add_child(call_interface)
 	var desk := DeskZone.new()

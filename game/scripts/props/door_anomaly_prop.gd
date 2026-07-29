@@ -8,6 +8,9 @@ extends FunctionalProp
 const W := 0.91
 const H := 2.13
 
+## Set by building_root: where this seam leads once it is manifest.
+var room0: Room0 = null
+
 var _mat: StandardMaterial3D
 var _edges: Node3D
 
@@ -40,6 +43,19 @@ func _build_visual() -> void:
 	knob.position = Vector3(W / 2 - 0.07, 0.96, 0.0)
 	knob.material_override = _mat
 	_edges.add_child(knob)
+	var area := Area3D.new()
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = Vector3(W, H, 0.3)
+	shape.shape = box
+	shape.position = Vector3(0, H / 2, 0)
+	area.add_child(shape)
+	add_child(area)
+
+
+func interact(player: Node) -> void:
+	if is_manifest() and room0:
+		room0.enter(player)
 
 
 func _start_normal_function() -> void:
