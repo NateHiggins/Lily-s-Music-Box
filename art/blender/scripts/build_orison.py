@@ -819,6 +819,15 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
             bf.add_box((cross - tt / 2, start + d0, z + z0),
                        (cross + tt / 2, start + d1, z + z1))
 
+    def side_box(bf, d0, d1, z0, z1, side, depth=0.02):
+        c2 = cross + side * (t / 2 + depth / 2)
+        if horizontal:
+            bf.add_box((start + d0, c2 - depth / 2, z + z0),
+                       (start + d1, c2 + depth / 2, z + z1))
+        else:
+            bf.add_box((c2 - depth / 2, start + d0, z + z0),
+                       (c2 + depth / 2, start + d1, z + z1))
+
     def seg_box(d0, d1, z0, z1):
         box(buf, d0, d1, z0, z1, t)
 
@@ -831,8 +840,14 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
         """Baseboard/cornice/wainscot on a stretch of wall between doors."""
         if d1 - d0 < 0.05 or not details:
             return
-        box(trim_buf, d0, d1, 0.0, 0.11, t + 0.036)
-        box(trim_buf, d0, d1, h - 0.07, h, t + 0.030)
+        if is_brick and w.get("in_side"):
+            # exterior masonry is furred and plastered on the inside only,
+            # so its baseboard and cornice run on the interior face
+            side_box(trim_buf, d0, d1, 0.0, 0.11, w["in_side"], 0.036)
+            side_box(trim_buf, d0, d1, h - 0.07, h, w["in_side"], 0.030)
+        else:
+            box(trim_buf, d0, d1, 0.0, 0.11, t + 0.036)
+            box(trim_buf, d0, d1, h - 0.07, h, t + 0.030)
         if wains:
             box(wains_buf, d0, d1, 0.11, 1.32, t + 0.022)
             box(trim_buf, d0, d1, 1.32, 1.36, t + 0.040)

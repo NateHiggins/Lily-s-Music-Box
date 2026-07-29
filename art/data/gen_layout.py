@@ -16,6 +16,7 @@ Origin = center of the ground-floor light court. Run: python3 gen_layout.py
 import json
 import math
 import os
+import random
 
 OUT_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -106,10 +107,15 @@ def arch(at, w, h=2.85):
             "leaf": "none"}
 
 
-def door(at, spec=DOOR_INT, leaf="closed"):
-    """leaf: "closed" | "open" | "locked" | "none" (opening only)."""
-    return {"type": "door", "at": at, "w": spec["w"], "h": spec["h"],
-            "sill": 0.0, "leaf": leaf}
+def door(at, spec=DOOR_INT, leaf="closed", swing=None):
+    """leaf: "closed" | "open" | "locked" | "none" (opening only).
+    swing: "out" reverses the hinge direction (egress doors swing with
+    the direction of travel, away from the space they serve)."""
+    o = {"type": "door", "at": at, "w": spec["w"], "h": spec["h"],
+         "sill": 0.0, "leaf": leaf}
+    if swing:
+        o["swing"] = swing
+    return o
 
 
 def window(at, spec=WIN):
@@ -490,8 +496,8 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
     if unit == "2D":      # sealed since 1927: nobody dresses a tomb
         return
     if unit == "3C":      # vacant, water-damaged: exposed framing, debris
-        for i in range(6):
-            _furn_box(f, "3C_stud%d" % i, x0 + 1.2 + i * 1.1, y1 - 3.35,
+        for i in range(4):
+            _furn_box(f, "3C_stud%d" % i, x0 + 2.4 + i * 1.1, y1 - 3.35,
                       0.08, 0.08, 0.0, WALL_H, "trim", False)
         _furn_box(f, "3C_debris", cx - 0.8, cy - 1.5, 1.6, 1.0, 0.0, 0.25,
                   "slab", False)
@@ -508,7 +514,8 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
                   0.05, "floor_oak", False)
         return
     if unit == "5D":      # fire-damaged: char, soot shadows on the walls
-        _furn_box(f, "5D_char1", cx - 1.0, cy, 1.2, 0.8, 0.0, 0.4, "slab", False)
+        _furn_box(f, "5D_char1", cx - 1.0, cy + 1.1, 1.2, 0.8, 0.0, 0.4,
+                  "slab", False)
         _furn_box(f, "5D_char2", x1 - 2.0, y0 + 1.2, 0.9, 0.6, 0.0, 0.3,
                   "slab", False)
         _furn_box(f, "5D_bedburn", ux(0.5, 2.0), y0 + 0.6, 2.0, 1.4, 0.0,
@@ -521,15 +528,15 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
                   0.5, "soot", False)
         return
     if unit == "6D":      # landlord storage: crate grid + racking
-        for i in range(8):
-            _furn_box(f, "6D_crate%d" % i, x0 + 0.6 + (i % 4) * 1.4,
-                      y0 + 1.0 + (i // 4) * 1.6, 1.0, 1.0,
+        for i in range(6):
+            _furn_box(f, "6D_crate%d" % i, x0 + 3.5 + (i % 3) * 1.4,
+                      y0 + 0.6 + (i // 3) * 1.6, 1.0, 1.0,
                       0.0, 0.9 + 0.4 * ((i * 7) % 3), "trim", False)
         shelf_unit(f, "6D_rack1", x0 + 0.5, y1 - 1.0, 1.6, True,
                    books=False, face="s")
         shelf_unit(f, "6D_rack2", x0 + 2.4, y1 - 1.0, 1.6, True,
                    books=False, face="s")
-        _furn_box(f, "6D_rolledrug", x0 + 0.5, y0 + 4.2, 2.2, 0.3, 0.0,
+        _furn_box(f, "6D_rolledrug", x0 + 0.5, y0 + 5.6, 2.2, 0.3, 0.0,
                   0.3, "rug_warm", False)
         return
 
@@ -641,7 +648,7 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
             shelf_unit(f, "3B_tools%d" % i, x1 - 4.0 + i * 1.15,
                        y1 - 0.45, 1.0, True, d=0.4, books=False, face="s")
         for i in range(4):
-            _furn_box(f, "3B_bin%d" % i, x1 - 3.9 + i * 0.5, y1 - 0.40,
+            _furn_box(f, "3B_bin%d" % i, x1 - 5.1 + i * 0.5, y1 - 0.40,
                       0.4, 0.28, 0.5 + (i % 2) * 0.46, 0.24,
                       ("metal", "fabric_cool")[i % 2], False)
         _furn_box(f, "3B_radio", x0 + 1.1, y0 + 3.45, 0.5, 0.35, 0.91,
@@ -649,11 +656,11 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
         chair_box(f, "3B_stool", x0 + 1.3, y0 + 2.6, "s")
         mk("lamp", 1, x0 + 1.0, y0 + 3.5, 0.95)
     elif unit == "3D":  # Rhea: vocal booth and aligned playback
-        _furn_box(f, "3D_booth_w", cx - 1.1, cy - 1.0, 0.1, 2.0, 0.0, 2.2,
+        _furn_box(f, "3D_booth_w", cx - 0.3, cy - 1.0, 0.1, 2.0, 0.0, 2.2,
                   "fabric_cool", False)
-        _furn_box(f, "3D_booth_n", cx - 1.1, cy + 1.0, 2.0, 0.1, 0.0, 2.2,
+        _furn_box(f, "3D_booth_n", cx - 0.3, cy + 1.0, 2.0, 0.1, 0.0, 2.2,
                   "fabric_cool", False)
-        _furn_box(f, "3D_boothfoam", cx - 1.0, cy - 0.9, 0.06, 1.8, 0.3,
+        _furn_box(f, "3D_boothfoam", cx - 0.2, cy - 0.9, 0.06, 1.8, 0.3,
                   1.6, "soot", False)
         _furn_box(f, "3D_mirror", x1 - 2.6, cy + 0.4, 0.05, 1.2, 0.2, 1.8,
                   "glassish", False)
@@ -787,6 +794,18 @@ def apartment_4b(z, walls, rooms, markers, furniture):
          "network": "structural"},
         {"kind": "desk_zone", "id": "F04_B_DESK_ZONE", "unit": "4B",
          "pos": [-8.80, 5.60, z], "yaw_deg": 0},
+        {"kind": "door", "id": "F04_CAB_LOWER_1", "pos": [-10.55, 9.05, 9.6],
+         "yaw_deg": 0, "w": 0.55, "h": 0.72, "leaf": "closed",
+         "cabinet": True},
+        {"kind": "door", "id": "F04_CAB_LOWER_2", "pos": [-9.95, 9.05, 9.6],
+         "yaw_deg": 0, "w": 0.55, "h": 0.72, "leaf": "closed",
+         "cabinet": True},
+        {"kind": "door", "id": "F04_CAB_UPPER_1",
+         "pos": [-10.55, 9.40, 9.6 + 1.50], "yaw_deg": 0, "w": 0.45,
+         "h": 0.70, "leaf": "closed", "cabinet": True},
+        {"kind": "door", "id": "F04_CAB_UPPER_2",
+         "pos": [-10.00, 9.40, 9.6 + 1.50], "yaw_deg": 0, "w": 0.45,
+         "h": 0.70, "leaf": "closed", "cabinet": True},
         {"kind": "kettle", "id": "F04_B_KETTLE_01", "unit": "4B",
          "pos": [-10.50, 9.30, z + 0.92], "yaw_deg": 0,
          "network": "electrical"},
@@ -918,6 +937,7 @@ def ring_and_cores(floor_id, z, walls, entry_doors=True):
     # corridor outer walls with apartment entry doors
     for sx, stacks in ((-1, ("A", "B")), (1, ("D", "C"))):
         openings = []
+        dado = True
         if entry_doors:
             for stack in stacks:
                 if floor_id == "F02" and stack == "D":
@@ -976,8 +996,9 @@ def exterior(floor_id, z, walls):
         ln = y1 - y0
         spec = WIN_B1 if floor_id == "B1" else WIN
         wo = [window(ln * 0.30, spec), window(ln * 0.70, spec)]
-        walls.append(wall((wx, y0), (wx, y1), t, h, z, wo,
-                          mat="common_brick"))
+        west_wall = wall((wx, y0), (wx, y1), t, h, z, wo, mat="common_brick")
+        west_wall["in_side"] = 1 if west else -1
+        walls.append(west_wall)
         street = stack in ("A", "D")
         eyl = -(10.0 - off) if street else (10.0 - off)
         end_openings = [window((x1 - x0) * 0.5,
@@ -986,13 +1007,17 @@ def exterior(floor_id, z, walls):
             # kitchen door onto the rear wooden porch (the Midwest second
             # egress since the 1906 two-exit rule)
             end_openings.append(door(abs(-8.30 - x0), DOOR_INT))
-        walls.append(wall((x0, eyl), (x1, eyl), t, h, z, end_openings,
-                          mat="face_brick" if street else "common_brick"))
+        end_wall = wall((x0, eyl), (x1, eyl), t, h, z, end_openings,
+                        mat="face_brick" if street else "common_brick")
+        end_wall["in_side"] = 1 if street else -1
+        walls.append(end_wall)
     # street / rear walls across the middle band (corridor ends)
     mid_spec = WIN_B1 if floor_id == "B1" else WIN
     s_open = [window(X_IN - 2.5, mid_spec), window(X_IN + 2.5, mid_spec)]
     if floor_id == "F01":
-        s_open.append(door(X_IN, DOOR_ENTRY))  # street entrance at x = 0
+        # street entrance at x = 0; the main egress door swings out over
+        # the stoop so it never sweeps whoever is in the draft vestibule
+        s_open.append(door(X_IN, DOOR_ENTRY, swing="out"))
     walls.append(wall((-X_IN, -(10.0 - off)), (X_IN, -(10.0 - off)), t, h,
                       z, s_open, mat="face_brick"))
     walls.append(wall((-X_IN, 10.0 - off), (X_IN, 10.0 - off), t, h, z,
@@ -1028,7 +1053,7 @@ def core_rooms(floor_id, z, rooms, furniture):
         _furn_box(furniture, "%s_meter%d" % (floor_id, i),
                   -3.12, 3.6 + i * 0.95, 0.14, 0.75, 1.0, 0.85, "metal",
                   False)
-    _furn_box(furniture, "%s_mop" % floor_id, -2.6, 6.35, 0.32, 0.32,
+    _furn_box(furniture, "%s_mop" % floor_id, -3.02, 7.30, 0.32, 0.32,
               0.0, 0.4, "ceramic", False)
 
 
@@ -1368,11 +1393,13 @@ def collect_door_markers(fl):
             pos = [hinge, cross, w["z"]] if horizontal \
                     else [cross, hinge, w["z"]]
             n += 1
-            fl["markers"].append({
-                "kind": "door", "id": "%s_DOOR_%02d" % (fl["id"], n),
-                "pos": pos, "yaw_deg": 0 if horizontal else -90,
-                "w": o["w"], "h": o["h"],
-                "leaf": o.get("leaf", "closed")})
+            m = {"kind": "door", "id": "%s_DOOR_%02d" % (fl["id"], n),
+                 "pos": pos, "yaw_deg": 0 if horizontal else -90,
+                 "w": o["w"], "h": o["h"],
+                 "leaf": o.get("leaf", "closed")}
+            if o.get("swing"):
+                m["swing"] = o["swing"]
+            fl["markers"].append(m)
             latch = start + o["at"] + o["w"] / 2.0 + 0.17
             if latch > length + start - 0.10:
                 latch = hinge - 0.17
@@ -1389,6 +1416,127 @@ def collect_door_markers(fl):
                     "id": "%s_SW_%02d_%d" % (fl["id"], n, yaw % 360),
                     "asm": "switch", "at": [round(sx_, 4), round(sy_, 4)],
                     "yaw": yaw, "z0": 1.12})
+
+
+
+## 1927 -> 2027: a century applied as visible layers. Seeded RNG keeps the
+## history deterministic - the same building every build.
+def aging_pass(floors):
+    rng = random.Random(1927)
+    for fl in floors:
+        fid = fl["id"]
+        furn = fl["furniture"]
+
+        def fb(bid, rect, z0, h, mat):
+            furn.append({"id": "age_" + bid, "rect": list(rect), "z0": z0,
+                         "h": h, "mat": mat})
+
+        if fid in ("F02", "F03", "F04", "F05", "F06"):
+            for i in range(3):
+                side = rng.choice(("w", "e", "n"))
+                c = rng.uniform(-8.0, 8.0)
+                w_ = rng.uniform(0.6, 1.6)
+                z0 = rng.uniform(0.3, 2.2)
+                if side == "w":
+                    fb("patch%s%d" % (fid, i), (-14.005, c, -13.995, c + w_),
+                       z0, rng.uniform(0.5, 1.2), "brick_patched")
+                elif side == "e":
+                    fb("patch%s%d" % (fid, i), (13.995, c, 14.005, c + w_),
+                       z0, rng.uniform(0.5, 1.2), "brick_patched")
+                else:
+                    fb("patch%s%d" % (fid, i), (c, 9.995, c + w_, 10.005),
+                       z0, rng.uniform(0.5, 1.2), "brick_patched")
+            fb("lane_s%s" % fid, (-4.9, -9.1, 4.9, -7.5), 0.013, 0.002,
+               "plaster_stained")
+            fb("lane_w%s" % fid, (-5.1, -6.9, -3.7, 6.9), 0.013, 0.002,
+               "plaster_stained")
+            px = rng.uniform(-4.0, 3.0)
+            fb("lino%s" % fid, (px, 7.1, px + 1.2, 8.9), 0.012, 0.003,
+               "linoleum")
+        if fid == "F05":
+            for k, wc in enumerate((-9.65 + 8.65 * 0.30, -9.65 + 8.65 * 0.70)):
+                fb("soot%d" % k, (14.0, wc - 0.8, 14.05, wc + 0.8),
+                   2.55, 0.75, "char")
+                fb("board%d" % k, (14.0, wc - 0.70, 14.06, wc + 0.70),
+                   0.80, 1.80, "plywood")
+            fb("char_ceiling", (9.0, -6.0, 12.0, -3.5), 2.95, 0.06, "char")
+        if fid == "F03":
+            wc = -0.88 + 10.53 * 0.70
+            fb("board3c", (14.0, wc - 0.70, 14.06, wc + 0.70), 0.80, 1.80,
+               "plywood")
+        if fid == "F04":
+            for j, (wx, wy) in enumerate(((-14.3, 4.76), (14.0, 2.28))):
+                fb("ac%d" % j, (wx, wy - 0.30, wx + 0.30, wy + 0.30), 0.95,
+                   0.42, "metal")
+                fb("acdrip%d" % j, (wx + (0.28 if wx < 0 else 0.0),
+                   wy - 0.05, wx + (0.30 if wx < 0 else 0.02), wy + 0.05),
+                   0.0, 0.95, "plaster_stained")
+        if fid == "ROOF":
+            for i in range(5):
+                px, py = rng.uniform(-12, 12), rng.uniform(-8, 8)
+                fb("tar%d" % i, (px, py, px + rng.uniform(0.8, 2.2),
+                   py + rng.uniform(0.6, 1.5)), 0.012, 0.004, "char")
+            fb("coping_repair", (2.0, -10.08, 4.6, -9.92), 1.10, 0.09,
+               "concrete")
+            fb("dish", (11.6, -8.8, 12.5, -8.7), 1.0, 0.9, "metal")
+            fb("dishpole", (12.0, -8.79, 12.08, -8.71), 0.0, 1.0, "metal")
+            for a in range(2):
+                fb("mast%d" % a, (-3.0 + a * 1.4, 8.9, -2.94 + a * 1.4,
+                   8.96), 0.0, 3.2 + a * 0.8, "metal")
+        if fid == "F01":
+            fb("damp_s1", (-13.9, -10.06, -1.55, -9.965), 0.45, 0.28,
+               "plaster_stained")
+            fb("damp_s2", (1.55, -10.06, 13.9, -9.965), 0.45, 0.28,
+               "plaster_stained")
+            for i, sx in enumerate((-11.0, 6.5)):
+                fb("streak%d" % i, (sx, -10.055, sx + 0.25, -9.97), 0.7,
+                   2.3, "plaster_stained")
+
+
+## The building's block: a crowded 2027 street on limited land. Sidewalk
+## and stoop out front, service alley behind serving the porches and coal
+## chute, tight gangways between the neighbors' party walls.
+def site_pass(fl):
+    furn = fl["furniture"]
+
+    def fb(bid, rect, z0, h, mat):
+        furn.append({"id": "site_" + bid, "rect": list(rect), "z0": z0,
+                     "h": h, "mat": mat})
+
+    fb("ground", (-20.0, -24.0, 20.0, 16.0), -0.30, 0.28, "asphalt")
+    fb("sidewalk", (-20.0, -14.6, 20.0, -10.0), -0.02, 0.03, "concrete")
+    fb("curb", (-20.0, -14.75, 20.0, -14.60), -0.02, 0.14, "concrete")
+    fb("alley", (-20.0, 10.0, 20.0, 13.4), -0.02, 0.015, "concrete")
+    for bid, rect, hgt in (("nbr_w", (-19.6, -12.0, -15.2, 12.0), 12.8),
+                           ("nbr_e", (15.2, -12.0, 19.6, 12.0), 12.8),
+                           ("nbr_s1", (-20.0, -24.0, -7.0, -18.2), 10.4),
+                           ("nbr_s2", (-5.6, -24.0, 6.4, -18.2), 15.8),
+                           ("nbr_s3", (7.8, -24.0, 20.0, -18.2), 8.6),
+                           ("garages", (-16.0, 13.4, 16.0, 16.0), 3.0)):
+        fb(bid, rect, 0.0, hgt, "common_brick")
+    for i in range(10):
+        x = -18.6 + (i % 5) * 1.9
+        fb("nwin_w%d" % i, (-15.19, -9.0 + (i % 5) * 3.7, -15.15,
+           -8.0 + (i % 5) * 3.7), 1.2 + (i // 5) * 3.4, 1.3, "glassish")
+        fb("nwin_e%d" % i, (15.15, -9.0 + (i % 5) * 3.7, 15.19,
+           -8.0 + (i % 5) * 3.7), 1.2 + (i // 5) * 3.4, 1.3, "glassish")
+        fb("nwin_s%d" % i, (x, -18.19, x + 0.9, -18.15),
+           1.5 + (i // 5) * 4.0, 1.4, "glassish")
+    for i, lx in enumerate((-9.0, 6.0)):
+        fb("lamp_pole%d" % i, (lx, -14.55, lx + 0.12, -14.43), 0.0, 4.6,
+           "metal")
+        fb("lamp_head%d" % i, (lx - 0.15, -14.7, lx + 0.27, -14.28), 4.6,
+           0.25, "metal")
+    fb("hydrant", (-3.4, -10.85, -3.05, -10.5), 0.0, 0.75, "metal")
+    fb("power_pole", (16.2, 11.0, 16.5, 11.3), 0.0, 8.5, "timber")
+    fb("power_line", (10.5, 11.05, 16.2, 11.12), 7.6, 0.05, "metal")
+    for i in range(3):
+        cx = -12.0 + i * 6.5
+        fb("car%d" % i, (cx, -16.9, cx + 4.4, -15.1), 0.28, 0.95, "metal")
+        fb("cartop%d" % i, (cx + 1.1, -16.7, cx + 3.3, -15.3), 1.23, 0.45,
+           "metal")
+    fb("bin1", (12.6, 10.3, 13.6, 11.1), 0.0, 1.1, "metal")
+    fb("bin2", (-13.9, 10.3, -12.9, 11.2), 0.0, 1.15, "metal")
 
 # ---------------------------------------------------------------- stairs
 
@@ -1473,8 +1621,8 @@ def _validate_furnishing(layout):
     for fl in layout["floors"]:
         for m in fl["markers"]:
             kinds[m["kind"]] = kinds.get(m["kind"], 0) + 1
-            if m["kind"] == "door":
-                doors += 1
+            if m["kind"] == "door" and not m.get("cabinet"):
+                doors += 1  # cabinet leaves are joinery, not doorways
             if m["kind"] == "radiator" and m.get("unit"):
                 unit_rad.add(m["unit"])
         for fu in fl.get("furniture", []):
@@ -1725,6 +1873,20 @@ PROP_CATALOG = {
 }
 
 MATERIAL_CATALOG = {
+    "face_brick": {"base_color": [0.38, 0.16, 0.12, 1.0], "roughness": 0.82},
+    "common_brick": {"base_color": [0.62, 0.42, 0.31, 1.0], "roughness": 0.88},
+    "limestone": {"base_color": [0.78, 0.75, 0.67, 1.0], "roughness": 0.6},
+    "timber": {"base_color": [0.43, 0.32, 0.22, 1.0], "roughness": 0.75},
+    "ceramic_tile": {"base_color": [0.85, 0.87, 0.86, 1.0], "roughness": 0.25},
+    "linoleum": {"base_color": [0.55, 0.50, 0.40, 1.0], "roughness": 0.5},
+    "paint_dado": {"base_color": [0.42, 0.45, 0.38, 1.0], "roughness": 0.55},
+    "plywood": {"base_color": [0.64, 0.54, 0.38, 1.0], "roughness": 0.8},
+    "char": {"base_color": [0.06, 0.055, 0.05, 1.0], "roughness": 0.95},
+    "brick_patched": {"base_color": [0.55, 0.35, 0.28, 1.0],
+                      "roughness": 0.85},
+    "plaster_stained": {"base_color": [0.46, 0.44, 0.39, 1.0],
+                        "roughness": 0.85},
+    "asphalt": {"base_color": [0.15, 0.15, 0.16, 1.0], "roughness": 0.95},
     "plaster": {"base_color": [0.62, 0.64, 0.58, 1.0], "roughness": 0.80},
     "brick": {"base_color": [0.42, 0.27, 0.22, 1.0], "roughness": 0.85},
     "concrete": {"base_color": [0.48, 0.48, 0.47, 1.0], "roughness": 0.75},
@@ -1778,6 +1940,8 @@ def main():
               ("B1", "F01", "F02", "F03", "F04", "F05", "F06", "ROOF")]
     for fl in floors:
         collect_door_markers(fl)
+    aging_pass(floors)
+    site_pass(floors[1])  # the block lives with F01
     layout = {
         "meta": {"name": "Orison Apartments", "footprint": [28.0, 20.0],
                  "levels": LEVELS, "floor_to_floor": F2F,
@@ -1793,6 +1957,41 @@ def main():
                      "door_w": ELEV["door_w"]},
     }
     problems = validate(layout)
+    for fl in layout["floors"]:
+        # only furniture in the door's vertical zone obstructs a swing:
+        # walkable surfaces (top <= 0.25, e.g. porch decks/thresholds) and
+        # overhead pieces (bottom >= 2.0) do not block
+        furn = [f for f in fl.get("furniture", [])
+                if f.get("rect") and f.get("z0", 0.0) < 2.0
+                and f.get("z0", 0.0) + f.get("h", 0.0) > 0.25]
+        for m in fl["markers"]:
+            if m["kind"] != "door" or m.get("leaf") == "none" \
+                    or m.get("cabinet"):
+                continue
+            w = m["w"]
+            px, py = m["pos"][0], m["pos"][1]
+            if m["yaw_deg"] == 0:      # door in a horizontal wall
+                squares = [(px, py, px + w, py + w),
+                           (px, py - w, px + w, py)]
+            else:                       # vertical wall
+                squares = [(px, py, px + w, py + w),
+                           (px - w, py, px, py + w)]
+            for fu in furn:
+                fr = fu["rect"]
+                # wall-hung and shallow (art, mirrors, panels): the leaf
+                # parks flat against the same plane, so it clears them
+                thin = (fr[3] - fr[1]) if m["yaw_deg"] == 0 else fr[2] - fr[0]
+                mid = (fr[1] + fr[3]) / 2.0 if m["yaw_deg"] == 0 \
+                        else (fr[0] + fr[2]) / 2.0
+                if thin <= 0.06 and abs(mid - py if m["yaw_deg"] == 0
+                                        else mid - px) <= 0.10:
+                    continue
+                for s in squares:
+                    if (s[0] < fr[2] - 0.02 and fr[0] < s[2] - 0.02 and
+                            s[1] < fr[3] - 0.02 and fr[1] < s[3] - 0.02):
+                        problems.append("door %s swing blocked by %s"
+                                        % (m["id"], fu["id"]))
+                        break
     if problems:
         for p in problems:
             print("VALIDATION:", p)

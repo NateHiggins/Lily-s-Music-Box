@@ -7,6 +7,9 @@ extends Node3D
 var width := 0.81
 var height := 2.03
 var leaf_state := "closed"  # "closed" | "open" | "locked"
+## Egress doors swing with the direction of travel (reversed hinge),
+## so the street door never sweeps whoever stands in the vestibule.
+var swing_out := false
 
 var open := false
 var _body: AnimatableBody3D
@@ -90,7 +93,7 @@ func _ready() -> void:
 	if leaf_state == "open":
 		# parked flat back against the wall so it never blocks a route
 		open = true
-		_body.rotation.y = deg_to_rad(168)
+		_body.rotation.y = deg_to_rad(-168 if swing_out else 168)
 
 
 func interact_prompt() -> String:
@@ -107,9 +110,10 @@ func interact(_player: Node) -> void:
 		return
 	_moving = true
 	open = not open
+	var swept := -100.0 if swing_out else 100.0
 	var tw := create_tween()
 	tw.tween_property(_body, "rotation:y",
-			deg_to_rad(100.0) if open else 0.0, 0.5) \
+			deg_to_rad(swept) if open else 0.0, 0.5) \
 			.set_trans(Tween.TRANS_SINE)
 	tw.tween_callback(_settled)
 
