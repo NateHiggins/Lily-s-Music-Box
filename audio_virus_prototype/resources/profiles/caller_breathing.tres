@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="TranslationProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/motif/translation_profile.gd" id="1_profile"]
+
+[resource]
+script = ExtResource("1_profile")
+id = "caller_breathing"
+render_mode = 2
+timbre = "breath"
+timing_drift = 0.035
+pitch_expression = 0.0
+pitch_instability = 0.0
+accent_accuracy = 0.3
+event_reliability = 0.95
+omit_missing_events = true
+partial_below_infection = 0.0
+partial_event_count = 2
+base_volume_db = -14.0
+bus = "Caller"
+pan = 0.0
+notes = "Soft filtered noise bursts inside the caller's room tone. A body that can only exhale: no pitch, weak accents, moderate drift. The final event is always omitted - she is the one asking."

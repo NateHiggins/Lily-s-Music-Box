@@ -1,3 +1,16 @@
+# Lily's Music Box
+
+This repository currently holds two standalone Godot prototypes:
+
+- **`audio_virus_prototype/`** — *The Audio Virus*: an experiential audio-narrative
+  prototype where a rhythmic motif passes from a support caller into the player's
+  apartment. See [`audio_virus_prototype/README.md`](audio_virus_prototype/README.md).
+- **Repository root** — the earlier mobile-edition top-down MVP, documented below.
+
+Each has its own `project.godot`; import the folder you want in Godot 4.2+.
+
+---
+
 # Lily's Music Box (Mobile Edition) — Godot MVP
 
 A mobile-first, portrait-oriented 2D top-down prototype focused on trap logic and persistent death remnants.

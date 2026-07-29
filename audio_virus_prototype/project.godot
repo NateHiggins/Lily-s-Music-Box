@@ -1,0 +1,21 @@
+; Engine configuration file.
+config_version=5
+
+[application]
+config/name="The Audio Virus — Prototype"
+run/main_scene="res://scenes/Main.tscn"
+config/features=PackedStringArray("4.2")
+
+[autoload]
+GameState="*res://scripts/autoload/game_state.gd"
+AudioEnv="*res://scripts/autoload/audio_env.gd"
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

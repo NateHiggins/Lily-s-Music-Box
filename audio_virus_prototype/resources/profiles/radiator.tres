@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="TranslationProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/motif/translation_profile.gd" id="1_profile"]
+
+[resource]
+script = ExtResource("1_profile")
+id = "radiator"
+render_mode = 0
+timbre = "knock"
+timing_drift = 0.012
+pitch_expression = 0.15
+pitch_instability = 0.3
+accent_accuracy = 1.0
+event_reliability = 1.0
+omit_missing_events = true
+partial_below_infection = 0.0
+partial_event_count = 2
+base_volume_db = -8.0
+bus = "Room"
+pan = 0.6
+notes = "Metallic synthesized impulses. Rhythm and accents are strong, pitch is barely there - a percussive body. Sits right of the room and transmits through it (Room bus reverb)."

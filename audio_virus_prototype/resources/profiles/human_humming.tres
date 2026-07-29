@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="TranslationProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/motif/translation_profile.gd" id="1_profile"]
+
+[resource]
+script = ExtResource("1_profile")
+id = "human_humming"
+render_mode = 1
+timbre = "vocal"
+timing_drift = 0.02
+pitch_expression = 1.0
+pitch_instability = 0.35
+accent_accuracy = 0.8
+event_reliability = 1.0
+omit_missing_events = false
+partial_below_infection = 0.0
+partial_event_count = 2
+base_volume_db = -10.0
+bus = "Room"
+pan = 0.0
+notes = "The player's own voice: accurate but unstable pitch, approximate rhythm. The only body allowed to voice the missing event (omit_missing_events = false)."
