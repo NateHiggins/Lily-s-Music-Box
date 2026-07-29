@@ -56,6 +56,7 @@ STACK_RECTS = {  # x0, y0, x1, y1  (interior faces)
     "D": (XAW, -Y_IN, X_IN, -1.00),      # southeast: 8.14 x 8.65 = 70.4
 }
 WSTOR_RECT = (-X_IN, -0.33, -XAW, 2.55)  # former-suite storage (west)
+CHIMNEY = (9.55, 9.10, 10.45, 9.65)      # coal-boiler flue, NE rear
 RISER_XY = {"A": (-5.85, -0.45), "B": (-5.85, 0.45),
             "C": (5.85, 0.45), "D": (5.85, -0.45)}
 
@@ -71,17 +72,31 @@ RESIDENTS = {
     "1A": "apartment", "1D": "apartment",
 }
 
-# Front stair (south core): 19 risers/floor, two flights + half landing.
-FRONT = {"id": "front", "well": (-3.05, -6.65, 0.65, -3.35), "width": 1.35,
-         "risers": 19, "rise": F2F / 19.0, "tread": 0.27,
+# Stairs are code-shaped dog-legs rising off a STAIR HALL (the 1927
+# parti): the corridor opens through an archway into the hall (x 0.55..
+# 3.25 of each core); each flight departs from and arrives onto a hall,
+# so every door/archway meets a full-depth floor landing (IBC 1011.6),
+# risers are 177.8 mm (max 178), treads 285 mm, and the half-landing is
+# as deep as the stair is wide. 18 equal risers per floor (the brief's
+# 19 x 171 mm cannot pair into equal flights within the core - noted).
+HALL_X = 0.55                    # hall / floor-landing west edge
+FRONT = {"id": "front", "width": 1.35, "rise": F2F / 18.0, "tread": 0.285,
+         "well": (-3.08, -6.70, HALL_X, -3.30),
+         "hole": (-3.25, -6.75, HALL_X, -3.25),
+         "strips": [(-6.70, -5.35), (-4.65, -3.30)],
          "levels": ["F01", "F02", "F03", "F04", "F05", "F06"]}
-# Service stair (north core): 18 risers/floor, basement to roof.
-SERVICE = {"id": "service", "well": (-2.40, 3.45, 1.30, 6.55), "width": 1.10,
-           "risers": 18, "rise": F2F / 18.0, "tread": 0.27,
-           "levels": ["B1", "F01", "F02", "F03", "F04", "F05", "F06", "ROOF"]}
-ELEV = {"shaft": (0.85, -6.75, 3.00, -4.55),  # 2.15 x 2.20
+SERVICE = {"id": "service", "width": 1.10, "rise": F2F / 18.0, "tread": 0.27,
+           "well": (-2.71, 3.30, HALL_X, 6.70),
+           "hole": (-3.25, 3.25, HALL_X, 6.75),
+           "strips": [(5.60, 6.70), (3.30, 4.40)],
+           "levels": ["B1", "F01", "F02", "F03", "F04", "F05", "F06",
+                      "ROOF"]}
+# Elevator moved out of the stair run: the shaft stands at the light-court
+# edge with its door opening onto the south stair hall - the visible cage.
+ELEV = {"shaft": (0.35, -3.25, 2.50, -1.05),  # 2.15 x 2.20
         "cabin": (1.55, 1.70), "door_w": 0.91,
         "stops": ["B1", "F01", "F02", "F03", "F04", "F05", "F06"]}
+ARCH = {"w": 1.35, "h": 2.20}
 
 
 def wall(a, b, t, h, z, openings=None, cat="walls", mat="plaster"):
@@ -130,7 +145,7 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
     if stack in ("A", "D"):
         # bedroom band at the street end
         by = y0 + 3.40
-        door_x = inner_x + (0.75 if east else -0.75)
+        door_x = bx + (0.55 if east else -0.55)  # clear of the bath band
         walls.append(wall((x0, by), (x1, by), PART_T, WALL_H, z,
                           [door(abs(door_x - x0))]))
         rooms.append({"id": prefix + "_BED", "unit": unit,
@@ -151,7 +166,8 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
                       "rect": [x0, by, x1, y1], "kind": "living"})
         _furn_box(furniture, unit + "_bed", x0 + 0.4, y0 + 0.4, 1.45, 2.05,
                   0.15, 0.32, "trim", east)
-        _furn_box(furniture, unit + "_counter", bth0 if east else bth0,
+        _furn_box(furniture, unit + "_counter",
+                  bth1 - 0.6 if east else bth0,
                   y1 - 2.6, 0.6, 2.2, 0.0, 0.9, "trim", False)
         _furn_box(furniture, unit + "_table", (x0 + x1) / 2 - 0.5, by + 1.2,
                   1.0, 1.0, 0.72, 0.04, "floor_oak", False)
@@ -189,12 +205,13 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
                       "kind": "bathroom"})
         bath_fixtures(furniture, unit, [bth0, y0 + 0.30, bth1, y0 + 2.70],
                       "e" if not east else "w")
-        wardrobe(furniture, unit, ax - 0.78, ay + 0.20, False)
+        wardrobe(furniture, unit, x0 + 0.35, ay + 0.25, False)
         rooms.append({"id": prefix + "_MAIN", "unit": unit,
                       "rect": [x0, y0, x1, ay], "kind": "living"})
-        _furn_box(furniture, unit + "_bed", x0 + 0.35, y1 - 2.45, 1.4, 2.05,
-                  0.15, 0.32, "trim", False)
-        _furn_box(furniture, unit + "_counter", bth0, y1 - 2.4, 0.6, 2.0,
+        _furn_box(furniture, unit + "_bed", x0 + 0.35, y1 - 2.45,
+                  1.2, 2.05, 0.15, 0.32, "trim", False)
+        _furn_box(furniture, unit + "_counter",
+                  bth1 - 0.6 if east else bth0, y1 - 2.4, 0.6, 2.0,
                   0.0, 0.9, "trim", False)
     else:  # C: two bedrooms across the rear
         by = y1 - 3.40
@@ -216,15 +233,16 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
                       "kind": "bathroom"})
         bath_fixtures(furniture, unit, [bth0, by - 2.46, bth1, by - 0.06],
                       "e" if not east else "w")
-        wardrobe(furniture, unit, x0 + 0.40, by + 0.15)
-        wardrobe(furniture, unit + "b", xm + 0.40, by + 0.15)
+        wardrobe(furniture, unit, xm - 0.75, by + 0.20, False)
+        wardrobe(furniture, unit + "b", xm + 0.15, by + 0.20, False)
         rooms.append({"id": prefix + "_MAIN", "unit": unit,
                       "rect": [x0, y0, x1, by], "kind": "living"})
         _furn_box(furniture, unit + "_bed1", x0 + 0.4, y1 - 2.45, 1.45,
                   2.05, 0.15, 0.32, "trim", False)
-        _furn_box(furniture, unit + "_bed2", xm + 0.4, y1 - 2.45, 1.45,
+        _furn_box(furniture, unit + "_bed2", xm + 0.95, y1 - 2.45, 1.45,
                   2.05, 0.15, 0.32, "trim", False)
-        _furn_box(furniture, unit + "_counter", bth0, y0 + 0.5, 0.6, 2.2,
+        _furn_box(furniture, unit + "_counter",
+                  bth1 - 0.6 if east else bth0, y0 + 0.5, 0.6, 2.2,
                   0.0, 0.9, "trim", False)
     rx = (x0 + 0.30) if not east else (x1 - 0.30)
     markers.append({"kind": "radiator",
@@ -307,12 +325,12 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
                   0.85, 0.06, "metal", False)
         for i in range(2):
             _furn_box(furniture, "3B_tools%d" % i, x0 + 0.4 + i * 1.3,
-                      y1 - 1.0, 1.0, 0.4, 0.0, 1.8, "metal", False)
+                      y0 + 0.35, 1.0, 0.4, 0.0, 1.8, "metal", False)
         mk("lamp", 1, x0 + 1.0, y0 + 4.0, 0.9)
     elif unit == "3D":  # Rhea: vocal booth and aligned playback
-        _furn_box(furniture, "3D_booth_w", cx - 1.1, cy - 1.0, 0.1, 2.0,
+        _furn_box(furniture, "3D_booth_w", cx + 0.5, cy - 1.0, 0.1, 2.0,
                   0.0, 2.2, "trim", False)
-        _furn_box(furniture, "3D_booth_n", cx - 1.1, cy + 1.0, 2.0, 0.1,
+        _furn_box(furniture, "3D_booth_n", cx + 0.5, cy + 1.0, 2.0, 0.1,
                   0.0, 2.2, "trim", False)
         _furn_box(furniture, "3D_mirror", x1 - 2.6 if stack in ("C", "D")
                   else x0 + 2.5, y0 + 1.0, 0.05, 1.2, 0.2, 1.8, "glassish",
@@ -320,7 +338,7 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
         mk("speaker", 1, cx + 1.8, cy + 1.2, 0.0, 180)
         mk("speaker", 2, cx + 1.8, cy - 1.2, 0.0, 180)
     elif unit == "5A":  # Nadia: plans over contradictory plans
-        _furn_box(furniture, "5A_plantable", cx - 1.0, cy - 0.6, 2.0, 1.2,
+        _furn_box(furniture, "5A_plantable", cx - 1.35, cy - 0.6, 2.0, 1.2,
                   0.78, 0.05, "floor_oak", False)
         _furn_box(furniture, "5A_planshelf", x0 + 0.4, y0 + 3.6, 1.6, 0.4,
                   0.0, 1.4, "trim", False)
@@ -332,20 +350,20 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
             mk("monitor", i + 1, x0 + 0.8, cy - 1.0 + i * 1.0, 0.78, -90)
         mk("boxfan", 1, x1 - 1.2, y0 + 1.0, 0.25, 135)
     elif unit == "3C":  # vacant, water-damaged: exposed framing, debris
-        for i in range(6):
-            _furn_box(furniture, "3C_stud%d" % i, x0 + 1.2 + i * 1.1,
-                      y1 - 3.35, 0.08, 0.08, 0.0, WALL_H, "trim", False)
+        for i, sx in enumerate([5.95, 8.00, 9.10, 10.20, 11.00, 13.00]):
+            _furn_box(furniture, "3C_stud%d" % i, sx, y1 - 3.42,
+                      0.08, 0.08, 0.0, WALL_H, "trim", False)
         _furn_box(furniture, "3C_debris", cx - 0.8, cy - 1.5, 1.6, 1.0,
                   0.0, 0.25, "slab", False)
     elif unit == "5D":  # fire-damaged: charred remnants
-        _furn_box(furniture, "5D_char1", cx - 1.0, cy, 1.2, 0.8, 0.0, 0.4,
+        _furn_box(furniture, "5D_char1", cx - 0.2, cy, 1.2, 0.8, 0.0, 0.4,
                   "slab", False)
         _furn_box(furniture, "5D_char2", x1 - 2.0, y0 + 1.2, 0.9, 0.6, 0.0,
                   0.3, "slab", False)
     elif unit == "6D":  # landlord storage: crate grid
         for i in range(8):
             _furn_box(furniture, "6D_crate%d" % i,
-                      x0 + 0.6 + (i % 4) * 1.4, y0 + 1.0 + (i // 4) * 1.6,
+                      x0 + 3.7 + (i % 3) * 1.5, y0 + 1.0 + (i // 3) * 1.6,
                       1.0, 1.0, 0.0, 0.9 + 0.4 * ((i * 7) % 3), "trim",
                       False)
 
@@ -402,7 +420,7 @@ def apartment_4b(z, walls, rooms, markers, furniture):
          "h": 0.72, "mat": "metal"},
         {"id": "chair", "rect": [-9.05, 5.35, -8.60, 5.85], "z0": 0.42,
          "h": 0.06, "mat": "trim"},
-        {"id": "bed", "rect": [-13.40, 6.90, -12.05, 9.50], "z0": 0.15,
+        {"id": "bed", "rect": [-13.40, 6.90, -12.15, 9.50], "z0": 0.15,
          "h": 0.32, "mat": "trim"},
         {"id": "kitchen_counter", "rect": [-10.70, 9.05, -8.85, 9.55],
          "z0": 0.0, "h": 0.90, "mat": "trim"},
@@ -441,10 +459,10 @@ def ring_and_cores(floor_id, z, walls, entry_doors=True):
     """Corridor ring, court walls, core walls, shaft walls for one level."""
     h = WALL_H
     # court walls (light shaft) with small court windows on E/W
-    walls.append(wall((-COURT, -COURT), (-COURT, COURT), CORR_T, h, z,
-                      [window(COURT, WIN_COURT)], mat="brick"))
-    walls.append(wall((COURT, -COURT), (COURT, COURT), CORR_T, h, z,
-                      [window(COURT, WIN_COURT)], mat="brick"))
+    walls.append(wall((-COURT, -COURT), (-COURT, COURT), CORR_T, F2F, z,
+                      [window(COURT, WIN_COURT)], mat="common_brick"))
+    walls.append(wall((COURT, -COURT), (COURT, COURT), CORR_T, F2F, z,
+                      [window(COURT, WIN_COURT)], mat="common_brick"))
     # corridor inner walls (x) run past court and cores
     walls.append(wall((-XCI, -YCN), (-XCI, YCN), CORR_T, h, z, [], mat="plaster"))
     walls.append(wall((XCI, -YCN), (XCI, YCN), CORR_T, h, z, [], mat="plaster"))
@@ -452,24 +470,32 @@ def ring_and_cores(floor_id, z, walls, entry_doors=True):
     for cy0, cy1 in ((-CORE_Y1, -CORE_Y0), (CORE_Y0, CORE_Y1)):
         walls.append(wall((-COURT, cy0), (-COURT, cy1), CORR_T, h, z, []))
         walls.append(wall((COURT, cy0), (COURT, cy1), CORR_T, h, z, []))
-    # core south wall: front stair door + elevator opening
+    # core south wall: archway from the corridor into the stair hall
     south_openings = []
     if floor_id in FRONT["levels"]:
-        south_openings.append(door(abs(-2.70 - (-COURT)), DOOR_ENTRY, "open"))  # stair
-    if floor_id in ELEV["stops"]:
-        south_openings.append({"type": "door", "at": abs(1.925 - (-COURT)),
-                               "w": ELEV["door_w"], "h": 2.10, "sill": 0.0,
+        south_openings.append({"type": "door", "at": abs(1.90 - (-COURT)),
+                               "w": ARCH["w"], "h": ARCH["h"], "sill": 0.0,
                                "leaf": "none"})
     walls.append(wall((-COURT, -CORE_Y1), (COURT, -CORE_Y1), CORR_T, h, z,
                       south_openings))
     walls.append(wall((-COURT, -CORE_Y0), (COURT, -CORE_Y0), CORR_T, h, z, []))
-    # core north wall: service stair door; court access door on F01
-    north_openings = [door(abs(-1.94 - (-COURT)), DOOR_SERV, "open")]
+    # core north wall: archway into the service stair hall
+    north_openings = []
+    if floor_id in SERVICE["levels"]:
+        north_openings.append({"type": "door", "at": abs(1.90 - (-COURT)),
+                               "w": ARCH["w"], "h": ARCH["h"], "sill": 0.0,
+                               "leaf": "none"})
     walls.append(wall((-COURT, CORE_Y1), (COURT, CORE_Y1), CORR_T, h, z,
                       north_openings))
     court_south = [door(COURT, DOOR_INT, "open")] if floor_id == "F01" else []
+    # court south wall carries the elevator door onto the south hall
+    css = []
+    if floor_id in ELEV["stops"]:
+        css.append({"type": "door", "at": abs(1.425 - (-COURT)),
+                    "w": ELEV["door_w"], "h": 2.10, "sill": 0.0,
+                    "leaf": "none"})
     walls.append(wall((-COURT, CORE_Y0), (COURT, CORE_Y0), CORR_T, h, z, []))
-    walls.append(wall((-COURT, -COURT), (COURT, -COURT), CORR_T, h, z, []))
+    walls.append(wall((-COURT, -COURT), (COURT, -COURT), CORR_T, h, z, css))
     walls.append(wall((-COURT, COURT), (COURT, COURT), CORR_T, h, z, court_south))
     # corridor outer walls with apartment entry doors
     for sx, stacks in ((-1, ("A", "B")), (1, ("D", "C"))):
@@ -484,6 +510,8 @@ def ring_and_cores(floor_id, z, walls, entry_doors=True):
                     ey = y1 - 1.2
                 elif stack == "D":
                     ey = y0 + 3.40 + 2.94
+                elif stack == "B" and floor_id != "F04":
+                    ey = y0 + 3.30  # clear of the generic-B bath block
                 else:
                     ey = y0 + 1.2
                 leaf = "locked" if (floor_id == "F06" and stack == "D") \
@@ -494,34 +522,51 @@ def ring_and_cores(floor_id, z, walls, entry_doors=True):
             openings.append(door(abs(1.11 - (-Y_IN)), DOOR_SERV, "locked"))
         walls.append(wall((sx * XCO, -Y_IN), (sx * XCO, Y_IN), CORR_T, h, z,
                           openings))
-    # elevator shaft walls (west face + splits; south face is core wall)
+    # elevator shaft walls at the court edge (south face = court wall,
+    # which carries the hall door)
     ex0, ey0, ex1, ey1 = ELEV["shaft"]
     walls.append(wall((ex0, ey0), (ex0, ey1), CORR_T, h, z, [], mat="concrete"))
     walls.append(wall((ex1, ey0), (ex1, ey1), CORR_T, h, z, [], mat="concrete"))
     walls.append(wall((ex0, ey1), (ex1, ey1), CORR_T, h, z, [], mat="concrete"))
 
 
+# Empirical masonry rule (1920s codes): ~12 in walls for the upper
+# stories, 16 in below; the outer face stays flush at the property plane
+# and the step happens inside.
+def ext_t(floor_id):
+    return {"B1": 0.41, "F01": 0.41, "F02": 0.35, "F03": 0.35}.get(floor_id, 0.30)
+
+
 def exterior(floor_id, z, walls):
-    h = WALL_H
+    h = F2F  # bearing walls run continuously past the joist/slab zone
+    t = ext_t(floor_id)
+    off = t / 2.0
     for stack, rect in STACK_RECTS.items():
         x0, y0, x1, y1 = rect
         west = stack in ("A", "B")
-        wx = -X_IN if west else X_IN
+        wx = -(14.0 - off) if west else (14.0 - off)
         ln = y1 - y0
-        walls_openings = [window(ln * 0.30), window(ln * 0.70)]
-        walls.append(wall((wx, y0), (wx, y1), EXT_T, h, z, walls_openings,
-                          mat="brick"))
-        ey = y0 if stack in ("A", "D") else y1
-        walls.append(wall((x0, ey), (x1, ey), EXT_T, h, z,
-                          [window((x1 - x0) * 0.5)], mat="brick"))
+        wo = [window(ln * 0.30), window(ln * 0.70)]
+        walls.append(wall((wx, y0), (wx, y1), t, h, z, wo,
+                          mat="common_brick"))
+        street = stack in ("A", "D")
+        eyl = -(10.0 - off) if street else (10.0 - off)
+        end_openings = [window((x1 - x0) * 0.5)]
+        if stack == "B" and floor_id in ("F02", "F03", "F04", "F05", "F06"):
+            # kitchen door onto the rear wooden porch (the Midwest second
+            # egress since the 1906 two-exit rule)
+            end_openings.append(door(abs(-8.30 - x0), DOOR_INT))
+        walls.append(wall((x0, eyl), (x1, eyl), t, h, z, end_openings,
+                          mat="face_brick" if street else "common_brick"))
     # street / rear walls across the middle band (corridor ends)
     s_open = [window(X_IN - 2.5), window(X_IN + 2.5)]
     if floor_id == "F01":
         s_open.append(door(X_IN, DOOR_ENTRY))  # street entrance at x = 0
-    walls.append(wall((-X_IN, -Y_IN), (X_IN, -Y_IN), EXT_T, h, z, s_open,
-                      mat="brick"))
-    walls.append(wall((-X_IN, Y_IN), (X_IN, Y_IN), EXT_T, h, z,
-                      [window(X_IN - 2.5), window(X_IN + 2.5)], mat="brick"))
+    walls.append(wall((-X_IN, -(10.0 - off)), (X_IN, -(10.0 - off)), t, h, z,
+                      s_open, mat="face_brick"))
+    walls.append(wall((-X_IN, 10.0 - off), (X_IN, 10.0 - off), t, h, z,
+                      [window(X_IN - 2.5), window(X_IN + 2.5)],
+                      mat="common_brick"))
 
 
 def split_walls(z, walls):
@@ -536,13 +581,21 @@ def slab(floor_id, z, holes):
             "holes": [list(h) for h in holes]}
 
 
+def chimney_block(floor_id, z, walls, h=None):
+    cx0, cy0, cx1, cy1 = CHIMNEY
+    walls.append(wall((cx0, (cy0 + cy1) / 2.0), (cx1, (cy0 + cy1) / 2.0),
+                      cy1 - cy0, h if h else WALL_H, z, [],
+                      mat="common_brick"))
+
+
 def stair_holes(floor_id):
     holes = []
+    if floor_id != "B1":
+        holes.append(CHIMNEY)
     if floor_id in FRONT["levels"][1:]:
-        holes.append(FRONT["well"])
-    idx = SERVICE["levels"]
-    if floor_id in idx[1:]:
-        holes.append(SERVICE["well"])
+        holes.append(FRONT["hole"])
+    if floor_id in SERVICE["levels"][1:]:
+        holes.append(SERVICE["hole"])
     if floor_id in ELEV["stops"][1:] or floor_id == "ROOF":
         holes.append(ELEV["shaft"])
     return holes
@@ -574,7 +627,7 @@ def build_floor(floor_id):
         walls.append(wall((hx1, hy0), (hx1, hy1), CORR_T, 2.4, z, []))
         walls.append(wall((hx0, hy1), (hx1, hy1), CORR_T, 2.4, z, []))
         walls.append(wall((hx0, hy0), (hx1, hy0), CORR_T, 2.4, z,
-                          [door(abs(-1.94 - hx0), DOOR_SERV, "open")]))
+                          [door(abs(1.35 - hx0), DOOR_SERV, "open")]))
         ex0, ey0, ex1, ey1 = ELEV["shaft"]
         m = 0.45
         walls.append(wall((ex0 - m, ey0 - m), (ex0 - m, ey1 + m), CORR_T, 2.4, z,
@@ -585,6 +638,21 @@ def build_floor(floor_id):
                           [], mat="concrete"))
         walls.append(wall((ex0 - m, ey0 - m), (ex1 + m, ey0 - m), CORR_T, 2.4, z,
                           [door(1.0, DOOR_SERV, "open")], mat="concrete"))
+        chimney_block(floor_id, z, walls, 2.2)
+        furniture.append({"id": "chimney_cap", "rect": [9.45, 9.00, 10.55,
+                          9.75], "z0": 2.2, "h": 0.15, "mat": "limestone"})
+        for rid, rect in (("s", (-14.10, -10.10, 14.10, -9.90)),
+                          ("n", (-14.10, 9.90, 14.10, 10.10)),
+                          ("w", (-14.10, -10.10, -13.90, 10.10)),
+                          ("e", (13.90, -10.10, 14.10, 10.10))):
+            furniture.append({"id": "coping_%s" % rid, "rect": list(rect),
+                              "z0": 1.10, "h": 0.08, "mat": "limestone"})
+        for i in range(3):  # corbelled cornice under the street parapet
+            furniture.append({"id": "cornice_%d" % i,
+                              "rect": [-14.04 - i * 0.03, -10.04 - i * 0.03,
+                                       14.04 + i * 0.03, -9.96],
+                              "z0": -0.55 + i * 0.15, "h": 0.13,
+                              "mat": "limestone" if i == 2 else "face_brick"})
         rooms.append({"id": "ROOF_OPEN", "rect": [-13.65, -9.65, 13.65, 9.65],
                       "kind": "roof"})
         markers.append({"kind": "watertank", "id": "ROOF_TANK",
@@ -608,6 +676,32 @@ def build_floor(floor_id):
         for stack, name in names.items():
             rooms.append({"id": "B1_%s" % name, "rect": list(STACK_RECTS[stack]),
                           "kind": name.lower()})
+        # visible structure: timber beam lines on brick piers carry F01
+        for sx in (-1, 1):
+            for by_ in (-4.8, 4.8):
+                bx0, bx1 = (5.71, 13.45) if sx > 0 else (-13.45, -5.71)
+                furniture.append({"id": "beam_%d_%d" % (sx, int(by_)),
+                                  "rect": [bx0, by_ - 0.15, bx1, by_ + 0.15],
+                                  "z0": 2.27, "h": 0.35, "mat": "timber"})
+                px = bx0 + 1.25
+                while px < bx1 - 0.3:
+                    furniture.append({"id": "pier_%d_%d_%d" % (sx, int(by_),
+                                      int(px * 10)),
+                                      "rect": [px, by_ - 0.19, px + 0.38,
+                                               by_ + 0.19],
+                                      "z0": 0.0, "h": 2.27,
+                                      "mat": "common_brick"})
+                    px += 2.7
+        # coal bin with alley chute, feeding the boiler
+        walls.append(wall((11.30, 0.30), (11.30, 2.70), PART_T, WALL_H, z,
+                          [door(1.2, DOOR_SERV, "open")]))
+        walls.append(wall((11.30, 0.30), (X_IN, 0.30), PART_T, WALL_H, z, []))
+        walls.append(wall((11.30, 2.70), (X_IN, 2.70), PART_T, WALL_H, z, []))
+        rooms.append({"id": "B1_COAL", "rect": [11.30, 0.30, X_IN, 2.70],
+                      "kind": "coal"})
+        furniture.append({"id": "coal_pile", "rect": [12.4, 0.6, 13.4, 2.4],
+                          "z0": 0.0, "h": 0.75, "mat": "slab"})
+        chimney_block(floor_id, z, walls)
         markers += [
             {"kind": "boiler", "id": "B1_BOILER_01", "pos": [10.0, 5.0, z],
              "yaw_deg": 0, "network": "heating"},
@@ -633,6 +727,12 @@ def build_floor(floor_id):
             {"id": "F01_COURTYARD", "rect": [-COURT, -COURT, COURT, COURT],
              "kind": "courtyard"},
         ]
+        for rid, rect in (("s1", (-14.10, -10.10, -0.70, -9.96)),
+                          ("s2", (0.70, -10.10, 14.10, -9.96)),
+                          ("w", (-14.10, -10.10, -13.96, 10.10)),
+                          ("e", (13.96, -10.10, 14.10, 10.10))):
+            furniture.append({"id": "water_table_%s" % rid, "rect": list(rect),
+                              "z0": 0.0, "h": 0.45, "mat": "limestone"})
         markers += [
             {"kind": "radiator", "id": "F01_LOBBY_RADIATOR_01",
              "pos": [-4.6, -9.3, z], "yaw_deg": 0, "network": "heating",
@@ -646,6 +746,13 @@ def build_floor(floor_id):
 
     for stack in ("A", "B", "C", "D"):
         apartment(floor_id, stack, z, walls, rooms, markers, furniture)
+    chimney_block(floor_id, z, walls)
+    porch(floor_id, z, furniture)
+    if floor_id == "F02":
+        # limestone belt course at the second-floor line, street facade
+        furniture.append({"id": "belt_course", "rect": [-14.08, -10.08,
+                          14.08, -9.97], "z0": -0.06, "h": 0.24,
+                          "mat": "limestone"})
     rooms.append({"id": "%s_WSTOR" % floor_id, "rect": list(WSTOR_RECT),
                   "kind": "storage"})
     _furn_box(furniture, "%s_stor_crates" % floor_id, -12.9, 0.2, 2.2, 1.4,
@@ -685,33 +792,63 @@ def collect_door_markers(fl):
 
 # ---------------------------------------------------------------- stairs
 
+# Rear wooden porch stack (the Midwest second egress): posts, decks with
+# railings at each floor, and steep period-accurate runs between decks.
+# The runs are physical but too steep for the step-up - as in life, you
+# take them seriously or not at all.
+def porch(floor_id, z, furniture):
+    if floor_id not in ("F02", "F03", "F04", "F05", "F06"):
+        return
+
+    def fb(fid, rect, z0, h, mat="timber"):
+        furniture.append({"id": fid, "rect": list(rect), "z0": z0, "h": h,
+                          "mat": mat})
+
+    fb("porch_deck", (-10.60, 10.05, -7.70, 11.35), -0.10, 0.14)
+    for rid, rect in (("n", (-10.60, 11.27, -7.70, 11.35)),
+                      ("w", (-10.60, 10.05, -10.52, 11.35)),
+                      ("e", (-7.78, 10.05, -7.70, 11.35))):
+        fb("porch_rail_%s_top" % rid, rect, 0.99, 0.08)
+        fb("porch_rail_%s_mid" % rid, rect, 0.50, 0.06)
+    for i in range(8):  # steep run down the facade to the deck below
+        fb("porch_step%d" % i, (-7.62 + i * 0.29, 10.15,
+                                -7.36 + i * 0.29, 11.15),
+           -0.10 - (i + 1) * 0.40, 0.12)
+    if floor_id == "F02":
+        for px in (-10.62, -7.72):
+            for py in (10.08, 11.24):
+                fb("porch_post_%d_%d" % (int(px * 10), int(py * 10)),
+                   (px, py, px + 0.12, py + 0.12), -3.30, 16.20)
+
+
 def stair_geometry(st):
-    """Explicit flights: two runs + half landing per level-to-level climb."""
+    """Dog-leg off the hall: flight 1 departs the hall edge climbing west,
+    half-landing (full depth, width >= stair width), flight 2 returns east
+    and arrives flush onto the next floor's hall slab."""
     flights = []
-    wx0, wy0, wx1, wy1 = st["well"]
     lvls = st["levels"]
+    s1, s2 = st["strips"]
+    inner1 = s1[1] if s1[1] <= s2[0] else s1[0]
+    inner2 = s2[0] if s1[1] <= s2[0] else s2[1]
     for i in range(len(lvls) - 1):
         z0, z1 = LEVELS[lvls[i]], LEVELS[lvls[i + 1]]
         risers = int(round((z1 - z0) / st["rise"]))
         n1 = risers // 2 + risers % 2
         n2 = risers - n1
-        land_w = st["width"]
-        x_base = wx0 + 0.02
-        # flight 1: south side, climbing EAST from the west end — the entry
-        # door sits beside the base, so walking in meets the stair at floor
-        # level instead of under the rising run
+        lx1 = HALL_X - n1 * st["tread"]
+        lx0 = lx1 - st["width"]
         flights.append({"kind": "flight", "z0": z0, "rise": st["rise"],
-                        "tread": st["tread"], "n": n1, "dir": 1,
-                        "x_start": x_base, "y0": wy0,
-                        "y1": wy0 + st["width"]})
+                        "tread": st["tread"], "n": n1, "dir": -1,
+                        "x_start": HALL_X, "y0": s1[0], "y1": s1[1],
+                        "rail_y": inner1})
         lz = z0 + n1 * st["rise"]
-        x_land = x_base + n1 * st["tread"]
         flights.append({"kind": "landing", "z": lz,
-                        "rect": [x_land, wy0, x_land + land_w, wy1]})
+                        "rect": [lx0, min(s1[0], s2[0]), lx1,
+                                 max(s1[1], s2[1])]})
         flights.append({"kind": "flight", "z0": lz, "rise": st["rise"],
-                        "tread": st["tread"], "n": n2, "dir": -1,
-                        "x_start": x_land, "y0": wy1 - st["width"],
-                        "y1": wy1, "exit": True})
+                        "tread": st["tread"], "n": n2, "dir": 1,
+                        "x_start": lx1, "y0": s2[0], "y1": s2[1],
+                        "rail_y": inner2})
     return {"id": st["id"], "well": list(st["well"]), "width": st["width"],
             "parts": flights}
 
@@ -872,6 +1009,10 @@ PROP_CATALOG = {
 }
 
 MATERIAL_CATALOG = {
+    "face_brick": {"base_color": [0.38, 0.16, 0.12, 1.0], "roughness": 0.82},
+    "common_brick": {"base_color": [0.62, 0.42, 0.31, 1.0], "roughness": 0.88},
+    "limestone": {"base_color": [0.78, 0.75, 0.67, 1.0], "roughness": 0.6},
+    "timber": {"base_color": [0.43, 0.32, 0.22, 1.0], "roughness": 0.75},
     "plaster": {"base_color": [0.62, 0.64, 0.58, 1.0], "roughness": 0.80},
     "brick": {"base_color": [0.42, 0.27, 0.22, 1.0], "roughness": 0.85},
     "concrete": {"base_color": [0.48, 0.48, 0.47, 1.0], "roughness": 0.75},
@@ -906,6 +1047,31 @@ def main():
                      "door_w": ELEV["door_w"]},
     }
     problems = validate(layout)
+    for fl in layout["floors"]:
+        # only furniture in the door's vertical zone obstructs a swing:
+        # walkable surfaces (top <= 0.25, e.g. porch decks/thresholds) and
+        # overhead pieces (bottom >= 2.0) do not block
+        furn = [f["rect"] for f in fl.get("furniture", [])
+                if f.get("z0", 0.0) < 2.0
+                and f.get("z0", 0.0) + f.get("h", 0.0) > 0.25]
+        for m in fl["markers"]:
+            if m["kind"] != "door" or m.get("leaf") == "none":
+                continue
+            w = m["w"]
+            px, py = m["pos"][0], m["pos"][1]
+            if m["yaw_deg"] == 0:      # door in a horizontal wall
+                squares = [(px, py, px + w, py + w),
+                           (px, py - w, px + w, py)]
+            else:                       # vertical wall
+                squares = [(px, py, px + w, py + w),
+                           (px - w, py, px, py + w)]
+            for fr in furn:
+                for s in squares:
+                    if (s[0] < fr[2] - 0.02 and fr[0] < s[2] - 0.02 and
+                            s[1] < fr[3] - 0.02 and fr[1] < s[3] - 0.02):
+                        problems.append("door %s swing blocked by furniture %s"
+                                        % (m["id"], fr))
+                        break
     if problems:
         for p in problems:
             print("VALIDATION:", p)

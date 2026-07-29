@@ -69,17 +69,18 @@ func _run() -> void:
 	await get_tree().create_timer(2.0).timeout
 	_check(Conductor._beat_i > beat_before, "conductor clock is beating")
 
-	# --- walk in from the corridor THROUGH the stair door and climb to F02
+	# --- corridor -> hall archway -> dog-leg stair -> F02 hall
 	var pl: PlayerController = root.player
-	pl.global_position = Vector3(-2.7, 0.15, 7.6)  # south corridor, at door
+	pl.global_position = Vector3(1.9, 0.15, 7.5)  # south corridor at arch
 	pl.velocity = Vector3.ZERO
-	await _goto(pl, Vector2(-2.7, 6.0), 4.0)   # through the door to the base
-	await _goto(pl, Vector2(0.7, 5.9), 6.0)    # east up flight 1 to landing
-	await _goto(pl, Vector2(0.7, 4.0), 3.0)    # across landing to flight 2
-	await _goto(pl, Vector2(-2.85, 4.0), 6.0)  # west up flight 2 onto F02
+	await _goto(pl, Vector2(1.9, 5.2), 4.0)    # through the arch, into hall
+	await _goto(pl, Vector2(0.2, 6.0), 3.0)    # to the flight-1 base
+	await _goto(pl, Vector2(-2.4, 6.0), 6.0)   # west up flight 1
+	await _goto(pl, Vector2(-2.4, 3.9), 3.0)   # across the half-landing
+	await _goto(pl, Vector2(1.5, 3.9), 6.0)    # east up flight 2 to F02 hall
 	pl.autopilot = Vector3.ZERO
 	_check(pl.global_position.y > 2.9,
-			"front stair entered from corridor and climbed (y=%.2f)"
+			"front stair: corridor -> hall -> climbed to F02 (y=%.2f)"
 			% pl.global_position.y)
 
 	# --- elevator travel across full range

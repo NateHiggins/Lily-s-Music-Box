@@ -134,11 +134,14 @@ def subtract_rect(rects, hole):
     return out
 
 
-def build_wall(buf, w, trim_buf=None, glass_buf=None):
+def build_wall(buf, w, trim_buf=None, glass_buf=None, stone_buf=None):
     """Wall run with openings, thickness centered on the a->b line.
-    Door openings get jamb/head trim; windows get a frame, sill lip and a
-    collidable glass pane (so openings stop being holes to fall through).
+    Door openings get jamb/head trim; windows get a frame, sill and a
+    collidable glass pane with a 1-over-1 meeting rail. Brick walls take
+    limestone surrounds and soldier-course lintels; plaster walls take
+    painted wood trim and 140 mm baseboards.
     """
+    is_brick = w["mat"] in ("face_brick", "common_brick", "brick", "concrete")
     ax, ay = w["a"]
     bx, by = w["b"]
     z, h, t = w["z"], w["h"], w["t"]
@@ -157,6 +160,8 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None):
 
     def seg_box(d0, d1, z0, z1):
         box(buf, d0, d1, z0, z1, t)
+        if not is_brick and trim_buf is not None and z0 == 0.0 and z1 == h:
+            box(trim_buf, d0, d1, 0.0, 0.14, t + 0.036)  # baseboard
 
     openings = sorted(w["openings"], key=lambda o: o["at"])
     cursor = 0.0
@@ -171,20 +176,30 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None):
         if o["sill"] > 0.0:               # window sill wall
             seg_box(d0, d1, 0.0, o["sill"])
         if trim_buf is not None:
+            surround = stone_buf if (is_brick and stone_buf is not None) \
+                    else trim_buf
             ft = t + 0.04
             if o["type"] == "door":
-                box(trim_buf, d0, d0 + 0.05, 0.0, top, ft)
-                box(trim_buf, d1 - 0.05, d1, 0.0, top, ft)
-                box(trim_buf, d0, d1, top, top + 0.06, ft)
+                box(surround, d0, d0 + 0.05, 0.0, top, ft)
+                box(surround, d1 - 0.05, d1, 0.0, top, ft)
+                box(surround, d0, d1, top, top + 0.06, ft)
             else:
-                box(trim_buf, d0, d0 + 0.06, o["sill"], top, ft)
-                box(trim_buf, d1 - 0.06, d1, o["sill"], top, ft)
-                box(trim_buf, d0, d1, top - 0.06, top, ft)
-                box(trim_buf, max(d0 - 0.04, 0.0), min(d1 + 0.04, length),
+                box(surround, d0, d0 + 0.06, o["sill"], top, ft)
+                box(surround, d1 - 0.06, d1, o["sill"], top, ft)
+                box(surround, d0, d1, top - 0.06, top, ft)
+                # projecting sill (limestone on masonry)
+                box(surround, max(d0 - 0.04, 0.0), min(d1 + 0.04, length),
                     o["sill"] - 0.04, o["sill"] + 0.02, t + 0.10)
+                if is_brick:  # soldier-course lintel proud of the face
+                    box(buf, d0 - 0.02, d1 + 0.02, top + 0.06, top + 0.26,
+                        t + 0.05)
                 if glass_buf is not None:
                     box(glass_buf, d0 + 0.05, d1 - 0.05, o["sill"] + 0.05,
                         top - 0.05, 0.02)
+                    # 1-over-1 double-hung meeting rail
+                    box(surround, d0 + 0.04, d1 - 0.04,
+                        o["sill"] + (top - o["sill"]) * 0.5 - 0.02,
+                        o["sill"] + (top - o["sill"]) * 0.5 + 0.02, t + 0.05)
         cursor = d1
     if cursor < length:
         seg_box(cursor, length, 0.0, h)
@@ -224,6 +239,10 @@ def build():
         root_col.children.link(col)
         floor_cols[fid] = col
         for s in fl["slabs"]:
+            # inset slightly so flush facades hide the slab edge
+            r = s["rect"]
+            s = dict(s, rect=[r[0] + 0.03, r[1] + 0.03, r[2] - 0.03,
+                              r[3] - 0.03])
             rects = [tuple(s["rect"])]
             for hole in s["holes"]:
                 rects = subtract_rect(rects, tuple(hole))
@@ -232,10 +251,13 @@ def build():
                     (x0, y0, s["z_top"] - s["t"]), (x1, y1, s["z_top"]))
         for w in fl["walls"]:
             cat = {"brick": "walls_brick-col",
+                   "face_brick": "walls_fbrick-col",
+                   "common_brick": "walls_cbrick-col",
                    "concrete": "walls_conc-col"}.get(w["mat"], "walls-col")
             build_wall(buf(fid, cat, w["mat"]), w,
                        buf(fid, "trim", "trim"),
-                       buf(fid, "glazing-col", "glassish"))
+                       buf(fid, "glazing-col", "glassish"),
+                       buf(fid, "stone_trim-col", "limestone"))
         for fu in fl.get("furniture", []):
             r = fu["rect"]
             z0 = fl["z"] + fu.get("z0", 0.0)
@@ -271,6 +293,11 @@ def build():
                 x_end = xs + d * n * tread
                 ramp.add_ramp(xs, part["z0"], x_end, part["z0"] + n * rise,
                               part["y0"], part["y1"])
+                if "rail_y" in part:  # handrail at 0.91 m over the nosings
+                    ry = part["rail_y"]
+                    vis.add_ramp(xs, part["z0"] + 0.86, x_end,
+                                 part["z0"] + n * rise + 0.86,
+                                 ry - 0.03, ry + 0.03, 0.08)
                 pair.append(part)
                 if part.get("exit"):  # top infill from last step to well edge
                     top_z = part["z0"] + n * rise
