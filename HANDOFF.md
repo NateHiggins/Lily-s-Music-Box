@@ -104,6 +104,36 @@ Merged in this pass ("century of aging + urban site + gap fixes"):
 - Two new screenshot views: `b_16_street_level`, `b_17_alley_porches`.
 - New walk-test checks: street exit, sidewalk/alley solidity, cabinets.
 
+Merged in from a parallel session at the same time — know these are
+recent and less exercised than the rest:
+- **Atrium stair refactor.** The stair core is now a switchback around an
+  open eye; `stair_geometry(ATRIUM)` emits each climb as
+  `[flight, landing, flight]` and `ArchitecturalWalkthrough`
+  (`game/scripts/tour/architectural_walkthrough.gd`) indexes on that
+  order, so don't reshuffle the parts.
+- **Parametric furnishing library.** Furniture entries now come in two
+  shapes: the original `{rect, z0, h, mat}` boxes and assembly anchors
+  `{asm: "<kind>", at: [x, y], yaw, z0}` expanded by `ASM` in
+  `build_orison.py`. Anything walking the furniture list must handle both
+  — the swing audit does this by skipping entries with no `rect`.
+- **Every doorway gets two molded light switches**, one per wall face at
+  the latch side, emitted in `collect_door_markers`. A validation check
+  asserts two switches per doorway; cabinet leaves are excluded from that
+  count, being joinery rather than doorways.
+- **`build_wall` detail refactor**: `details`/`wains` flags and a
+  `detail_seg()` that runs baseboard, cornice, and wainscot between door
+  reveals. Walls opt in with `wainscot=True`.
+- **Floor finishes moved to the Blender side** — `KIND_FLOOR` in
+  `build_orison.py`, keyed by room kind. The generator no longer emits
+  finish overlays.
+- **Generated texture sets** in `art/textures/generated/` (brick,
+  concrete, floor_oak, plaster, terrazzo, wainscot — albedo, normal,
+  roughness, height, plus previews and a contact sheet), with the
+  workflow in `art/textures/README.md`. These are **authored but not yet
+  wired into the game**: nothing in `game/` loads them, and materials are
+  still flat-color from `material_catalog.json`. Connecting them is the
+  first concrete step of roadmap phase 2.
+
 ## ⚠ The one open defect — START HERE
 
 `WalkTest` fails exactly one check: **"walked out onto the sidewalk"**.
@@ -130,17 +160,29 @@ Next step, ready to run: `game/tests/street_probe.gd` already contains a
 raycast scan (down-rays every 0.2 m along x=0, z 8.6→12.8) that prints
 each surface height AND the colliding node's name — run
 `godot --headless --path game res://tests/StreetProbe.tscn` and read the
-`PROBE scan` lines to identify the collider. Candidates to check in
+`PROBE scan` lines to identify the collider. Two candidates are already **ruled out**: no furniture box in the
+layout crosses the doorway at that height (the only things there are the
+0.09 m limestone door step and the 0.01 m sidewalk), and the door leaf
+is parked outside over the stoop. So the obstruction is almost certainly
+emitted by `build_wall` rather than authored in the layout. Check, in
 order:
-- the limestone **entrance surround / door-step geometry** emitted by
-  `build_wall` for brick-wall door openings in
-  `art/blender/scripts/build_orison.py` (a sill/threshold block may not
-  be suppressed for `sill: 0.0` doors);
-- an `aging_pass`/`site_pass` furniture box crossing x ±0.455 near
-  Blender y −9.6..−10.4 (grep `building_layout.json` for rects that
-  straddle x=0 in that band);
+- the **door surround jambs** (`box(surround, d0, d0 + 0.05, 0.0, top,
+  ft)` and its `d1` twin in `build_orison.py`): they run full height
+  inside the opening and narrow the 0.91 m clear width to 0.81 m against
+  a 0.76 m capsule. That's only 2.5 cm of side clearance, and the
+  `stone_trim-col` suffix gives them trimesh collision — a plausible
+  wedge even if it isn't the 0.388 m step;
+- whatever the player is actually standing on at y 0.388 — get its node
+  name from the `PROBE scan` lines, which print the collider for every
+  down-ray along the exit path;
 - the wall opening cut itself not clearing to floor level in the F01
-  street wall (check the door opening's boolean in the GLB).
+  street wall (inspect the door opening in the exported GLB).
+
+One more possibility worth testing early: at y 0.388 the capsule (1.75 m)
+has only 1.74 m of headroom under a 2.13 m door head, so once the player
+is up on *anything* ~0.39 m tall in that opening they are wedged rather
+than merely slowed. Whatever the step turns out to be, removing it should
+resolve the check outright.
 
 After the fix: re-run WalkTest on 4.5 **and** 4.7.1 (fresh `--import`
 each), expect zero failures, delete the probe (`street_probe.gd`,
