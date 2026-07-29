@@ -1,0 +1,809 @@
+{
+ "nodes": [
+  {
+   "id": "BASEMENT_HEADER_WEST",
+   "pos": [
+    -5.85,
+    0.0,
+    -2.3
+   ],
+   "room": "B1_LAUNDRY",
+   "network": "heating",
+   "frequency_band": [
+    30,
+    400
+   ],
+   "delay_ms": 12,
+   "damping": 0.22,
+   "infection_receptivity": 0.6,
+   "connections": [
+    "BASEMENT_HEADER_EAST",
+    "B1_WASHER_01",
+    "B1_WASHER_02",
+    "B1_DRYER_01",
+    "F01_LOBBY_RADIATOR_01",
+    "F02_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "BASEMENT_HEADER_EAST",
+   "pos": [
+    5.85,
+    0.0,
+    -2.3
+   ],
+   "room": "B1_BOILER",
+   "network": "heating",
+   "frequency_band": [
+    30,
+    400
+   ],
+   "delay_ms": 12,
+   "damping": 0.22,
+   "infection_receptivity": 0.6,
+   "connections": [
+    "B1_BOILER_01",
+    "BASEMENT_HEADER_WEST",
+    "F01_D_RADIATOR_01",
+    "F02_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "B1_BOILER_01",
+   "pos": [
+    10.0,
+    5.0,
+    -2.8
+   ],
+   "room": "B1_BOILER",
+   "network": "heating",
+   "frequency_band": [
+    25,
+    300
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "BASEMENT_HEADER_EAST"
+   ]
+  },
+  {
+   "id": "B1_WASHER_01",
+   "pos": [
+    -11.5,
+    4.0,
+    -2.8
+   ],
+   "room": "B1_LAUNDRY",
+   "network": "water",
+   "frequency_band": [
+    40,
+    2000
+   ],
+   "delay_ms": 20,
+   "damping": 0.22,
+   "infection_receptivity": 0.6,
+   "connections": [
+    "BASEMENT_HEADER_WEST"
+   ]
+  },
+  {
+   "id": "B1_WASHER_02",
+   "pos": [
+    -11.5,
+    5.2,
+    -2.8
+   ],
+   "room": "B1_LAUNDRY",
+   "network": "water",
+   "frequency_band": [
+    40,
+    2000
+   ],
+   "delay_ms": 20,
+   "damping": 0.22,
+   "infection_receptivity": 0.6,
+   "connections": [
+    "BASEMENT_HEADER_WEST"
+   ]
+  },
+  {
+   "id": "B1_DRYER_01",
+   "pos": [
+    -11.5,
+    7.0,
+    -2.8
+   ],
+   "room": "B1_LAUNDRY",
+   "network": "water",
+   "frequency_band": [
+    40,
+    2000
+   ],
+   "delay_ms": 20,
+   "damping": 0.22,
+   "infection_receptivity": 0.6,
+   "connections": [
+    "BASEMENT_HEADER_WEST"
+   ]
+  },
+  {
+   "id": "F01_LOBBY_RADIATOR_01",
+   "pos": [
+    -4.6,
+    -9.3,
+    0.35
+   ],
+   "room": "LOBBY",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "BASEMENT_HEADER_WEST",
+    "F01_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F01_A_RADIATOR_01",
+   "pos": [
+    -13.35,
+    -4.855,
+    0.35
+   ],
+   "room": "1A",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F01_LOBBY_RADIATOR_01",
+    "F02_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F01_D_RADIATOR_01",
+   "pos": [
+    13.35,
+    -4.855,
+    0.35
+   ],
+   "room": "1D",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "BASEMENT_HEADER_EAST",
+    "F02_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F02_A_RADIATOR_01",
+   "pos": [
+    -13.35,
+    -4.855,
+    3.55
+   ],
+   "room": "2A",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F01_A_RADIATOR_01",
+    "F03_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F02_B_RADIATOR_01",
+   "pos": [
+    -13.35,
+    4.855,
+    3.55
+   ],
+   "room": "2B",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "BASEMENT_HEADER_WEST",
+    "F03_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F02_C_RADIATOR_01",
+   "pos": [
+    13.35,
+    4.855,
+    3.55
+   ],
+   "room": "2C",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "BASEMENT_HEADER_EAST",
+    "F03_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F02_D_RADIATOR_01",
+   "pos": [
+    13.35,
+    -4.855,
+    3.55
+   ],
+   "room": "2D",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F01_D_RADIATOR_01",
+    "F03_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F02_CORRLIGHT_S",
+   "pos": [
+    0.0,
+    -8.3,
+    5.7
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": []
+  },
+  {
+   "id": "F02_CORRLIGHT_N",
+   "pos": [
+    0.0,
+    8.3,
+    5.7
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": []
+  },
+  {
+   "id": "F03_A_RADIATOR_01",
+   "pos": [
+    -13.35,
+    -4.855,
+    6.75
+   ],
+   "room": "3A",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F02_A_RADIATOR_01",
+    "F04_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F03_B_RADIATOR_01",
+   "pos": [
+    -13.35,
+    4.855,
+    6.75
+   ],
+   "room": "3B",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F02_B_RADIATOR_01",
+    "F04_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F03_C_RADIATOR_01",
+   "pos": [
+    13.35,
+    4.855,
+    6.75
+   ],
+   "room": "3C",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F02_C_RADIATOR_01",
+    "F04_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F03_D_RADIATOR_01",
+   "pos": [
+    13.35,
+    -4.855,
+    6.75
+   ],
+   "room": "3D",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F02_D_RADIATOR_01",
+    "F04_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F03_CORRLIGHT_S",
+   "pos": [
+    0.0,
+    -8.3,
+    8.9
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": []
+  },
+  {
+   "id": "F03_CORRLIGHT_N",
+   "pos": [
+    0.0,
+    8.3,
+    8.9
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": []
+  },
+  {
+   "id": "F04_A_RADIATOR_01",
+   "pos": [
+    -13.35,
+    -4.855,
+    9.95
+   ],
+   "room": "4A",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F03_A_RADIATOR_01",
+    "F05_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F04_B_RADIATOR_01",
+   "pos": [
+    -13.35,
+    4.855,
+    9.95
+   ],
+   "room": "4B",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F03_B_RADIATOR_01",
+    "F05_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F04_B_LAMP_01",
+   "pos": [
+    -6.51,
+    7.255,
+    9.6
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    80,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": []
+  },
+  {
+   "id": "F04_C_RADIATOR_01",
+   "pos": [
+    13.35,
+    4.855,
+    9.95
+   ],
+   "room": "4C",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F03_C_RADIATOR_01",
+    "F05_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F04_D_RADIATOR_01",
+   "pos": [
+    13.35,
+    -4.855,
+    9.95
+   ],
+   "room": "4D",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F03_D_RADIATOR_01",
+    "F05_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F04_CORRLIGHT_S",
+   "pos": [
+    0.0,
+    -8.3,
+    12.1
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": []
+  },
+  {
+   "id": "F04_CORRLIGHT_N",
+   "pos": [
+    0.0,
+    8.3,
+    12.1
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": []
+  },
+  {
+   "id": "F05_A_RADIATOR_01",
+   "pos": [
+    -13.35,
+    -4.855,
+    13.15
+   ],
+   "room": "5A",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F04_A_RADIATOR_01",
+    "F06_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F05_B_RADIATOR_01",
+   "pos": [
+    -13.35,
+    4.855,
+    13.15
+   ],
+   "room": "5B",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F04_B_RADIATOR_01",
+    "F06_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F05_C_RADIATOR_01",
+   "pos": [
+    13.35,
+    4.855,
+    13.15
+   ],
+   "room": "5C",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F04_C_RADIATOR_01",
+    "F06_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F05_D_RADIATOR_01",
+   "pos": [
+    13.35,
+    -4.855,
+    13.15
+   ],
+   "room": "5D",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F04_D_RADIATOR_01",
+    "F06_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F05_CORRLIGHT_S",
+   "pos": [
+    0.0,
+    -8.3,
+    15.3
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": []
+  },
+  {
+   "id": "F05_CORRLIGHT_N",
+   "pos": [
+    0.0,
+    8.3,
+    15.3
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": []
+  },
+  {
+   "id": "F06_A_RADIATOR_01",
+   "pos": [
+    -13.35,
+    -4.855,
+    16.35
+   ],
+   "room": "6A",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F05_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F06_B_RADIATOR_01",
+   "pos": [
+    -13.35,
+    4.855,
+    16.35
+   ],
+   "room": "6B",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F05_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F06_C_RADIATOR_01",
+   "pos": [
+    13.35,
+    4.855,
+    16.35
+   ],
+   "room": "6C",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F05_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F06_D_RADIATOR_01",
+   "pos": [
+    13.35,
+    -4.855,
+    16.35
+   ],
+   "room": "6D",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F05_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F06_CORRLIGHT_S",
+   "pos": [
+    0.0,
+    -8.3,
+    18.5
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": []
+  },
+  {
+   "id": "F06_CORRLIGHT_N",
+   "pos": [
+    0.0,
+    8.3,
+    18.5
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": []
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/building/building_root.gd" id="1_root"]
+
+[node name="OrisonRoot" type="Node3D"]
+script = ExtResource("1_root")
