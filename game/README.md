@@ -14,6 +14,20 @@ night.
 
 ## What is alive right now
 
+**Complete apartment set (new):** every unit is modeled to its stack
+archetype at the brief's real areas — A one-bedroom 74.9 m² (street), B
+studio with sleeping alcove 56.8 m² (rear), C two-bedroom 85.7 m² (rear),
+D one-bedroom + office 70.4 m² (street) — plus the locked "former suite"
+storage room the 1927 subdivision stranded between A and B on each floor.
+Unit states and resident identity are layered on: 2D is sealed (no
+doorway at all), 3C stands vacant with exposed studs and debris, 5D is
+fire-damaged, 6D is landlord crate storage, and the six hero apartments
+carry their residents — Mina's ordered caption station (2A), Juno's
+speaker-strewn studio (2C), Omar's workshop (3B), Rhea's vocal booth and
+aligned playback pair (3D), Nadia's plan table (5A), Sacha's three-monitor
+capture wall (6A). Speakers are a new conductor body: the cone thumps the
+motif pitched low.
+
 **Vertical slice (new):** apartment 4B is detailed to the brief's Section 4
 plan — entry vestibule, bathroom, closet, galley kitchen, main room,
 sleeping alcove, furniture — with its functional ensemble: the hero

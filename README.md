@@ -9,9 +9,9 @@ This repository currently holds three standalone prototypes:
   3D environment — procedural Blender 4.5 pipeline (`art/`) feeding a Godot 4.5
   project (`game/`) with the unseen-conductor prop system. See
   [`art/README.md`](art/README.md) and [`game/README.md`](game/README.md).
-- **Repository root** — the earlier mobile-edition top-down MVP, documented below.
+- **`legacy_mobile_mvp/`** — the earlier mobile-edition top-down MVP, documented below.
 
-Each Godot project has its own `project.godot`; import the folder you want.
+Each prototype has its own `project.godot` — in Godot's Project Manager use **Import** and select the `project.godot` inside the folder you want (`game/` for the 3D building, `audio_virus_prototype/` for the 2D call prototype, `legacy_mobile_mvp/` for the old MVP). The repository root is deliberately not a project.
 
 ---
 
@@ -24,7 +24,7 @@ A mobile-first, portrait-oriented 2D top-down prototype focused on trap logic an
 - No external assets required
 
 ## Run
-1. Open Godot and import this folder.
+1. Open Godot and import `legacy_mobile_mvp/project.godot`.
 2. Run the project (`F5`).
 3. The game starts in the **Conservatory Hub**.
 

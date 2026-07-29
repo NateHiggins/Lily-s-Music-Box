@@ -26,6 +26,7 @@ const PROP_SCRIPTS := {
 	"monitor": preload("res://scripts/props/monitor_prop.gd"),
 	"boxfan": preload("res://scripts/props/boxfan_prop.gd"),
 	"door_anomaly": preload("res://scripts/props/door_anomaly_prop.gd"),
+	"speaker": preload("res://scripts/props/speaker_prop.gd"),
 }
 
 var layout: Dictionary = {}
@@ -49,6 +50,8 @@ func _ready() -> void:
 		node.name = fid
 		add_child(node)
 		floor_nodes[fid] = node
+	call_interface = CallInterface.new()
+	add_child(call_interface)
 	_spawn_props()
 	elevator = OrisonElevator.new()
 	add_child(elevator)
@@ -61,12 +64,6 @@ func _ready() -> void:
 	var anomaly: DoorAnomalyProp = get_node_or_null("F04_B_DOOR_ANOMALY")
 	if anomaly:
 		anomaly.room0 = room0
-	call_interface = CallInterface.new()
-	add_child(call_interface)
-	var desk := DeskZone.new()
-	desk.call_interface = call_interface
-	add_child(desk)
-	desk.global_position = GameBoot.b2g([-8.6, 2.95, 9.6])
 	var debug := preload("res://scripts/ui/building_debug.gd").new()
 	var layer := CanvasLayer.new()
 	layer.layer = 10
@@ -99,6 +96,24 @@ func _spawn_props() -> void:
 	var count := 0
 	for fl in layout["floors"]:
 		for m in fl["markers"]:
+			if m["kind"] == "desk_zone":
+				var desk := DeskZone.new()
+				desk.call_interface = call_interface
+				add_child(desk)
+				desk.global_position = GameBoot.b2g(m["pos"])
+				continue
+			if m["kind"] == "door":
+				var door := DoorProp.new()
+				door.width = float(m["w"])
+				door.height = float(m["h"])
+				door.leaf_state = m["leaf"]
+				door.name = m["id"]
+				# transform BEFORE add_child: a sync_to_physics leaf keeps
+				# its global transform if the parent moves after entry
+				door.position = GameBoot.b2g(m["pos"])
+				door.rotation.y = deg_to_rad(-float(m.get("yaw_deg", 0)))
+				add_child(door)
+				continue
 			var script: GDScript = PROP_SCRIPTS.get(m["kind"])
 			if script == null:
 				continue

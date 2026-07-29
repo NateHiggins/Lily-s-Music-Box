@@ -76,9 +76,7 @@ Whole-building geometry: 46 meshes, ~15k triangles, ~850 KB of glTF.
 ## Known limitations (deliberate, blockout-stage)
 
 - Door/window openings are true holes with lintels/sills but no leaf,
-  frame or glass modules yet; apartments use one shared partition
-  archetype, so stack areas are uniform (~78 m²) rather than the brief's
-  52–86 m² spread. The A/B/C/D archetypes specialize in Milestone 2.
+  frame or glass modules yet.
 - `orison_asset_library.blend` (Geometry Nodes trim/pipe/blind assets)
   is not started; blockout boxes don't need it. The build script's
   MeshBuf layer is where those assets will plug in.
