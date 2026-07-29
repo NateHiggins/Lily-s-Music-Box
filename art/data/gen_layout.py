@@ -39,6 +39,7 @@ SPLIT = 0.06                    # half of A/B and C/D split partition
 LEVELS = {"B1": -2.80, "F01": 0.0, "F02": 3.2, "F03": 6.4, "F04": 9.6,
           "F05": 12.8, "F06": 16.0, "ROOF": 19.2}
 
+WIN_B1 = {"w": 0.80, "h": 0.50, "sill": 1.90}  # small areaway lights
 DOOR_ENTRY = {"w": 0.91, "h": 2.13}
 DOOR_INT = {"w": 0.81, "h": 2.03}
 DOOR_SERV = {"w": 0.96, "h": 2.10}
@@ -247,7 +248,7 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
     rx = (x0 + 0.30) if not east else (x1 - 0.30)
     markers.append({"kind": "radiator",
                     "id": "%s_%s_RADIATOR_01" % (floor_id, stack),
-                    "pos": [rx, (y0 + y1) / 2.0, z],
+                    "pos": [rx, y0 + (y1 - y0) * 0.30, z],
                     "yaw_deg": 90 if not east else -90,
                     "network": "heating", "riser": "H-%s" % stack,
                     "unit": unit})
@@ -450,7 +451,71 @@ def apartment_4b(z, walls, rooms, markers, furniture):
          "network": "structural"},
         {"kind": "desk_zone", "id": "F04_B_DESK_ZONE", "unit": "4B",
          "pos": [-8.80, 5.60, z], "yaw_deg": 0},
+        {"kind": "kettle", "id": "F04_B_KETTLE_01", "unit": "4B",
+         "pos": [-10.50, 9.30, z + 0.92], "yaw_deg": 0,
+         "network": "electrical"},
+        {"kind": "wall_clock", "id": "F04_B_CLOCK_01", "unit": "4B",
+         "pos": [-7.78, 4.60, z + 1.70], "yaw_deg": -90,
+         "network": "electrical"},
+        {"kind": "smoke_detector", "id": "F04_B_SMOKEDET_01", "unit": "4B",
+         "pos": [-9.50, 5.50, z + 2.62], "yaw_deg": 0,
+         "network": "electrical"},
+        {"kind": "exhaust_fan", "id": "F04_B_EXHFAN_01", "unit": "4B",
+         "pos": [-6.60, y0 + 3.00, z + 2.55], "yaw_deg": 0,
+         "network": "electrical"},
+        {"kind": "ceiling_light", "id": "F04_B_CEILLIGHT_01", "unit": "4B",
+         "pos": [-10.60, 4.60, z + 2.60], "yaw_deg": 0,
+         "network": "electrical"},
     ]
+    furnish_4b_detail(furniture, y0, y1, x0)
+
+
+## Section 4 "highest detail": the lived-in texture of the player's rooms.
+def furnish_4b_detail(furniture, y0, y1, x0):
+    def fb(fid, rect, z0, h, mat="trim"):
+        furniture.append({"id": "4B_" + fid, "rect": list(rect), "z0": z0,
+                          "h": h, "mat": mat})
+
+    # kitchen: uppers, sink rim + faucet, crockery
+    fb("uppers", (-10.70, 9.40, -8.85, 9.64), 1.50, 0.72)
+    fb("sink_rim", (-10.18, 9.12, -9.68, 9.50), 0.88, 0.05, "metal")
+    fb("faucet_riser", (-9.96, 9.46, -9.90, 9.52), 0.90, 0.28, "metal")
+    fb("faucet_spout", (-9.96, 9.30, -9.90, 9.50), 1.14, 0.04, "metal")
+    fb("mugs", (-9.62, 9.15, -9.40, 9.32), 0.90, 0.11)
+    fb("plates", (-9.30, 9.16, -9.06, 9.36), 0.90, 0.07)
+    # venetian blinds: two west windows + the rear window
+    for wi, wc in enumerate((y0 + (y1 - y0) * 0.30, y0 + (y1 - y0) * 0.70)):
+        for k in range(8):
+            fb("blindw%d_%d" % (wi, k),
+               (-13.58, wc - 0.65, -13.53, wc + 0.65),
+               0.92 + k * 0.11, 0.03)
+    for k in range(8):
+        fb("blindr_%d" % k, (-10.24, 9.52, -8.92, 9.57),
+           0.92 + k * 0.11, 0.03)
+    # main room: rug, bookshelf with rows, desk clutter, power strip
+    fb("rug", (-12.40, 3.40, -8.70, 6.00), 0.0, 0.015, "face_brick")
+    fb("bookshelf", (-11.20, 2.75, -9.70, 3.07), 0.0, 1.55)
+    for r, zr in enumerate((0.30, 0.76, 1.22)):
+        fb("books%d" % r, (-11.12, 2.79, -9.80, 3.03), zr, 0.26, "timber")
+    fb("keyboard", (-8.30, 5.35, -8.05, 5.75), 0.762, 0.02, "metal")
+    fb("mouse", (-8.02, 5.50, -7.96, 5.58), 0.762, 0.025, "metal")
+    fb("microphone", (-8.38, 5.95, -8.32, 6.01), 0.762, 0.16, "metal")
+    fb("headset_stand", (-8.40, 5.02, -8.30, 5.12), 0.762, 0.20)
+    fb("power_strip", (-7.92, 4.70, -7.78, 5.05), 0.0, 0.05, "metal")
+    # alcove: bed frame posts, headboard, nightstand
+    for px, py in ((-13.40, 6.92), (-12.21, 6.92), (-13.40, 9.42),
+                   (-12.21, 9.42)):
+        fb("bedpost_%d_%d" % (int(px * 10), int(py * 10)),
+           (px, py, px + 0.06, py + 0.06), 0.0, 0.52, "timber")
+    fb("headboard", (-13.40, 9.44, -12.15, 9.50), 0.15, 0.78, "timber")
+    fb("nightstand", (-12.05, 9.10, -11.68, 9.48), 0.0, 0.55)
+    # bathroom: shower riser + head, mirror over the sink
+    fb("shower_riser", (-7.52, y0 + 4.12, -7.46, y0 + 4.18), 0.14, 1.90,
+       "metal")
+    fb("shower_head", (-7.62, y0 + 3.98, -7.42, y0 + 4.18), 2.00, 0.05,
+       "metal")
+    fb("mirror", (-6.05, y0 + 4.17, -5.60, y0 + 4.21), 1.35, 0.60,
+       "glassish")
 
 
 # ---------------------------------------------------------------- floors
@@ -546,12 +611,14 @@ def exterior(floor_id, z, walls):
         west = stack in ("A", "B")
         wx = -(14.0 - off) if west else (14.0 - off)
         ln = y1 - y0
-        wo = [window(ln * 0.30), window(ln * 0.70)]
+        spec = WIN_B1 if floor_id == "B1" else WIN
+        wo = [window(ln * 0.30, spec), window(ln * 0.70, spec)]
         walls.append(wall((wx, y0), (wx, y1), t, h, z, wo,
                           mat="common_brick"))
         street = stack in ("A", "D")
         eyl = -(10.0 - off) if street else (10.0 - off)
-        end_openings = [window((x1 - x0) * 0.5)]
+        end_openings = [window((x1 - x0) * 0.5,
+                               WIN_B1 if floor_id == "B1" else WIN)]
         if stack == "B" and floor_id in ("F02", "F03", "F04", "F05", "F06"):
             # kitchen door onto the rear wooden porch (the Midwest second
             # egress since the 1906 two-exit rule)
@@ -559,13 +626,15 @@ def exterior(floor_id, z, walls):
         walls.append(wall((x0, eyl), (x1, eyl), t, h, z, end_openings,
                           mat="face_brick" if street else "common_brick"))
     # street / rear walls across the middle band (corridor ends)
-    s_open = [window(X_IN - 2.5), window(X_IN + 2.5)]
+    mid_spec = WIN_B1 if floor_id == "B1" else WIN
+    s_open = [window(X_IN - 2.5, mid_spec), window(X_IN + 2.5, mid_spec)]
     if floor_id == "F01":
         s_open.append(door(X_IN, DOOR_ENTRY))  # street entrance at x = 0
     walls.append(wall((-X_IN, -(10.0 - off)), (X_IN, -(10.0 - off)), t, h, z,
                       s_open, mat="face_brick"))
     walls.append(wall((-X_IN, 10.0 - off), (X_IN, 10.0 - off), t, h, z,
-                      [window(X_IN - 2.5), window(X_IN + 2.5)],
+                      [window(X_IN - 2.5, mid_spec),
+                       window(X_IN + 2.5, mid_spec)],
                       mat="common_brick"))
 
 
@@ -653,6 +722,24 @@ def build_floor(floor_id):
                                        14.04 + i * 0.03, -9.96],
                               "z0": -0.55 + i * 0.15, "h": 0.13,
                               "mat": "limestone" if i == 2 else "face_brick"})
+        for lx, ly in ((-9.2, 5.2), (-6.9, 5.2), (-9.2, 6.9), (-6.9, 6.9)):
+            furniture.append({"id": "tankleg_%d_%d" % (int(lx * 10),
+                              int(ly * 10)),
+                              "rect": [lx, ly, lx + 0.22, ly + 0.22],
+                              "z0": 0.0, "h": 1.6, "mat": "metal"})
+        furniture.append({"id": "watertank", "rect": [-9.45, 4.95, -6.65,
+                          7.15], "z0": 1.6, "h": 2.3, "mat": "timber"})
+        for i, (vx, vy) in enumerate(((-11.5, -6.0), (-4.0, 8.2),
+                                      (6.5, -7.5), (12.0, 3.0))):
+            furniture.append({"id": "vent%d" % i, "rect": [vx, vy, vx + 0.4,
+                              vy + 0.4], "z0": 0.0, "h": 0.9, "mat": "metal"})
+        for px_ in (-12.5, -7.5):
+            furniture.append({"id": "clothespost_%d" % int(px_),
+                              "rect": [px_, -8.6, px_ + 0.1, -8.5],
+                              "z0": 0.0, "h": 2.1, "mat": "metal"})
+        furniture.append({"id": "clothesline", "rect": [-12.45, -8.58,
+                          -7.45, -8.55], "z0": 1.95, "h": 0.02,
+                          "mat": "metal"})
         rooms.append({"id": "ROOF_OPEN", "rect": [-13.65, -9.65, 13.65, 9.65],
                       "kind": "roof"})
         markers.append({"kind": "watertank", "id": "ROOF_TANK",
@@ -720,13 +807,61 @@ def build_floor(floor_id):
         rooms += [
             {"id": "F01_LOBBY", "rect": [-5.33, -9.65, 5.33, -6.93],
              "kind": "lobby"},
-            {"id": "F01_COMMON_B", "rect": list(STACK_RECTS["B"]),
+            {"id": "F01_COMMON_B", "rect": [-11.90, 5.40, -5.51, Y_IN],
              "kind": "common"},
             {"id": "F01_STORAGE_C", "rect": list(STACK_RECTS["C"]),
              "kind": "storage"},
             {"id": "F01_COURTYARD", "rect": [-COURT, -COURT, COURT, COURT],
              "kind": "courtyard"},
         ]
+        # draft vestibule inside the street door
+        walls.append(wall((-1.40, -8.35), (1.40, -8.35), PART_T, WALL_H, z,
+                          [{"type": "door", "at": 1.40, "w": 1.35,
+                            "h": 2.20, "sill": 0.0, "leaf": "none"}]))
+        walls.append(wall((-1.40, -9.65), (-1.40, -8.35), PART_T, WALL_H,
+                          z, []))
+        walls.append(wall((1.40, -9.65), (1.40, -8.35), PART_T, WALL_H,
+                          z, []))
+        rooms.append({"id": "F01_VESTIBULE", "rect": [-1.40, -9.65, 1.40,
+                      -8.35], "kind": "lobby"})
+        # limestone entrance surround + step, street side
+        for fid_, rect, z0, hh in (
+                ("pilaster_w", (-1.35, -10.14, -1.05, -9.96), 0.0, 2.60),
+                ("pilaster_e", (1.05, -10.14, 1.35, -9.96), 0.0, 2.60),
+                ("entablature", (-1.50, -10.16, 1.50, -9.94), 2.60, 0.50),
+                ("door_step", (-1.20, -10.38, 1.20, -10.00), 0.0, 0.09)):
+            furniture.append({"id": "entry_" + fid_, "rect": list(rect),
+                              "z0": z0, "h": hh, "mat": "limestone"})
+        # brass mail wall + intercom on the lobby's north wall
+        for r_ in range(4):
+            for c_ in range(6):
+                furniture.append({"id": "mail_%d_%d" % (r_, c_),
+                                  "rect": [3.30 + c_ * 0.31, -6.92,
+                                           3.57 + c_ * 0.31, -6.86],
+                                  "z0": 0.85 + r_ * 0.38, "h": 0.34,
+                                  "mat": "metal"})
+        furniture.append({"id": "intercom", "rect": [2.85, -6.92, 3.10,
+                          -6.87], "z0": 1.25, "h": 0.42, "mat": "metal"})
+        # management office, package room, public restroom in the B wing
+        walls.append(wall((-13.65, 5.40), (-5.51, 5.40), PART_T, WALL_H, z,
+                          [door(2.2), door(6.4)]))
+        walls.append(wall((-9.88, 2.67), (-9.88, 5.40), PART_T, WALL_H,
+                          z, []))
+        walls.append(wall((-11.90, 5.40), (-11.90, 7.30), PART_T, WALL_H, z,
+                          [door(1.0)]))
+        walls.append(wall((-13.65, 7.30), (-11.90, 7.30), PART_T, WALL_H,
+                          z, []))
+        rooms += [
+            {"id": "F01_OFFICE", "rect": [-13.65, 2.67, -9.88, 5.40],
+             "kind": "office"},
+            {"id": "F01_PACKAGE", "rect": [-9.88, 2.67, -5.51, 5.40],
+             "kind": "storage"},
+            {"id": "F01_RESTROOM", "rect": [-13.65, 5.40, -11.90, 7.30],
+             "kind": "bathroom"},
+        ]
+        bath_fixtures(furniture, "F01WC", [-13.65, 5.40, -11.90, 7.30], "w")
+        furniture.append({"id": "office_desk", "rect": [-13.2, 3.1, -11.9,
+                          3.8], "z0": 0.72, "h": 0.05, "mat": "floor_oak"})
         for rid, rect in (("s1", (-14.10, -10.10, -0.70, -9.96)),
                           ("s2", (0.70, -10.10, 14.10, -9.96)),
                           ("w", (-14.10, -10.10, -13.96, 10.10)),
@@ -748,6 +883,10 @@ def build_floor(floor_id):
         apartment(floor_id, stack, z, walls, rooms, markers, furniture)
     chimney_block(floor_id, z, walls)
     porch(floor_id, z, furniture)
+    furniture.append({"id": "newel", "rect": [0.57, -5.44, 0.73, -5.28],
+                      "z0": 0.0, "h": 1.02, "mat": "timber"})
+    furniture.append({"id": "newel_cap", "rect": [0.54, -5.47, 0.76, -5.25],
+                      "z0": 1.02, "h": 0.09, "mat": "timber"})
     if floor_id == "F02":
         # limestone belt course at the second-floor line, street facade
         furniture.append({"id": "belt_course", "rect": [-14.08, -10.08,
@@ -759,6 +898,12 @@ def build_floor(floor_id):
               0.0, 1.1, "trim", False)
     rooms.append({"id": "%s_CORRIDOR" % floor_id,
                   "rect": [-XCO, -Y_IN, XCO, Y_IN], "kind": "corridor"})
+    markers.append({"kind": "flue_breast", "id": "%s_FLUE_BREAST" % floor_id,
+                    "unit": floor_id + "C",
+                    "pos": [10.0, 8.95, z], "yaw_deg": 180, "network": "flue"})
+    markers.append({"kind": "porch_deck", "id": "%s_PORCH_DECK" % floor_id,
+                    "pos": [-9.15, 10.70, z], "yaw_deg": 0,
+                    "network": "structural"})
     markers.append({"kind": "corridor_light", "id": "%s_CORRLIGHT_S" % floor_id,
                     "pos": [0.0, -8.3, z], "yaw_deg": 0, "network": "electrical"})
     markers.append({"kind": "corridor_light", "id": "%s_CORRLIGHT_N" % floor_id,
@@ -789,6 +934,41 @@ def collect_door_markers(fl):
                 "pos": pos, "yaw_deg": 0 if horizontal else -90,
                 "w": o["w"], "h": o["h"],
                 "leaf": o.get("leaf", "closed")})
+
+
+
+FINISH_BY_KIND = {"living": "floor_oak", "bedroom": "floor_oak",
+                  "alcove": "floor_oak", "office": "floor_oak",
+                  "vestibule": "floor_oak", "closet": "floor_oak",
+                  "common": "floor_oak", "bathroom": "ceramic_tile",
+                  "kitchen": "linoleum", "lobby": "terrazzo"}
+
+
+def floor_finishes(fl):
+    """Period finish overlays: oak strip in rooms, ceramic in baths,
+    linoleum in kitchens, terrazzo in every public space."""
+    if fl["id"] in ("B1", "ROOF"):
+        return
+    for r in fl["rooms"]:
+        mat = FINISH_BY_KIND.get(r["kind"])
+        if mat is None or r["kind"] == "corridor":
+            continue
+        x0, y0, x1, y1 = r["rect"]
+        fl["furniture"].append({"id": "fin_" + r["id"],
+                                "rect": [x0 + 0.02, y0 + 0.02, x1 - 0.02,
+                                         y1 - 0.02],
+                                "z0": 0.0, "h": 0.012, "mat": mat})
+    ring = [(-5.33, -Y_IN, 5.33, -6.93), (-5.33, 6.93, 5.33, Y_IN),
+            (-5.33, -6.93, -3.43, 6.93), (3.43, -6.93, 5.33, 6.93),
+            (HALL_X, -CORE_Y1, 3.25, -CORE_Y0),   # south stair hall
+            (HALL_X, CORE_Y0, 3.25, CORE_Y1)]     # service stair hall
+    for i, rect in enumerate(ring):
+        fl["furniture"].append({"id": "fin_ring%d" % i, "rect": list(rect),
+                                "z0": 0.0, "h": 0.012, "mat": "terrazzo"})
+    if fl["id"] == "F01":
+        fl["furniture"].append({"id": "fin_court",
+                                "rect": [-COURT, -COURT, COURT, COURT],
+                                "z0": 0.0, "h": 0.01, "mat": "concrete"})
 
 # ---------------------------------------------------------------- stairs
 
@@ -885,10 +1065,11 @@ def acoustic_graph(layout):
     nodes, edges = [], []
 
     def add(nid, pos, network, room="", recv=0.7, band=(55, 850), delay=30):
+        damping = 0.08 if network == "flue" else 0.22
         nodes.append({"id": nid, "pos": [round(p, 3) for p in pos],
                       "room": room, "network": network,
                       "frequency_band": list(band), "delay_ms": delay,
-                      "damping": 0.22, "infection_receptivity": recv,
+                      "damping": damping, "infection_receptivity": recv,
                       "connections": []})
 
     add("BASEMENT_HEADER_WEST", [-5.85, 0.0, -2.3], "heating",
@@ -911,12 +1092,24 @@ def acoustic_graph(layout):
                     (40, 2000), 20)
                 edges.append((m["id"], "BASEMENT_HEADER_WEST"))
             elif m["kind"] in ("lamp", "monitor", "toaster", "fridge",
-                               "boxfan", "speaker"):
+                               "boxfan", "speaker", "kettle", "wall_clock",
+                               "smoke_detector", "exhaust_fan",
+                               "ceiling_light"):
                 add(m["id"], m["pos"], "electrical", m.get("unit", ""), 0.75,
                     (60, 8000), 4)
                 edges.append((m["id"], "%s_CORRLIGHT_S" % fl["id"]))
                 if fl["id"] in ("B1", "F01"):
                     edges.append((m["id"], "B1_ELECTRICAL_HUB"))
+            elif m["kind"] == "flue_breast":
+                # chimney breast: the room-side face of the flue
+                add(m["id"], m["pos"], "flue", m.get("unit", ""), 0.9,
+                    (40, 1200), 15)
+                edges.append((m["id"], "%s_FLUE" % fl["id"]))
+            elif m["kind"] == "porch_deck":
+                # wood deck bolted to the rear wall: lossy, creaky path
+                add(m["id"], m["pos"], "structural", fl["id"], 0.7,
+                    (30, 900), 22)
+                edges.append((m["id"], "%s_B_RADIATOR_01" % fl["id"]))
             elif m["kind"] == "corridor_light":
                 add(m["id"], [m["pos"][0], m["pos"][1], m["pos"][2] + 2.5],
                     "electrical", fl["id"], 0.55, (100, 9000), 4)
@@ -924,6 +1117,27 @@ def acoustic_graph(layout):
                 add(m["id"], [m["pos"][0], m["pos"][1], m["pos"][2] + 1.0],
                     "structural", m.get("unit", ""), 0.95, (20, 200), 60)
                 edges.append((m["id"], "F04_B_RADIATOR_01"))
+    # chimney flue: a masonry speaking tube from the boiler to the sky —
+    # fast, barely damped, six stories in ~70 ms
+    add("B1_FLUE_BASE", [9.9, 9.375, -1.9], "flue", "B1_BOILER", 0.6,
+        (30, 1500), 6)
+    add("ROOF_FLUE_TOP", [10.0, 9.375, 21.3], "flue", "ROOF", 0.8,
+        (30, 1500), 12)
+    edges.append(("B1_BOILER_01", "B1_FLUE_BASE"))
+    prev_f = "B1_FLUE_BASE"
+    for fid in ("F01", "F02", "F03", "F04", "F05", "F06"):
+        add("%s_FLUE" % fid, [10.0, 9.375, LEVELS[fid] + 1.5], "flue", fid,
+            0.5, (30, 1500), 12)
+        edges.append(("%s_FLUE" % fid, prev_f))
+        prev_f = "%s_FLUE" % fid
+    edges.append(("ROOF_FLUE_TOP", prev_f))
+    # porch structure: ground post base up the deck chain
+    add("PORCH_BASE", [-9.15, 10.70, 0.2], "structural", "F01", 0.5,
+        (30, 900), 15)
+    prev_p = "PORCH_BASE"
+    for fid in ("F02", "F03", "F04", "F05", "F06"):
+        edges.append(("%s_PORCH_DECK" % fid, prev_p))
+        prev_p = "%s_PORCH_DECK" % fid
     # electrical spine: hub in the basement switchgear room, corridor
     # fixtures chained per floor and down the riser
     add("B1_ELECTRICAL_HUB", [10.0, -5.0, -2.4], "electrical",
@@ -1001,6 +1215,46 @@ PROP_CATALOG = {
                 "preferred_subdivision": 1, "timing_drift": 0.01,
                 "response_latency": 0.03, "normal_function_priority": 1.0,
                 "infection_receptivity": 0.8},
+    "kettle": {"minimum_action_interval": 0.4, "maximum_action_rate": 2,
+               "available_mechanical_events": ["element_tick", "whistle_on"],
+               "preferred_subdivision": 1, "timing_drift": 0.02,
+               "response_latency": 0.10, "normal_function_priority": 1.0,
+               "infection_receptivity": 0.65},
+    "wall_clock": {"minimum_action_interval": 0.45, "maximum_action_rate": 2,
+                   "available_mechanical_events": ["tick", "tempo_drift"],
+                   "preferred_subdivision": 1, "timing_drift": 0.0,
+                   "response_latency": 0.01, "normal_function_priority": 1.0,
+                   "infection_receptivity": 0.8},
+    "smoke_detector": {"minimum_action_interval": 4.0,
+                       "maximum_action_rate": 1,
+                       "available_mechanical_events": ["chirp"],
+                       "preferred_subdivision": 0.25, "timing_drift": 0.0,
+                       "response_latency": 0.02,
+                       "normal_function_priority": 1.0,
+                       "infection_receptivity": 0.45},
+    "exhaust_fan": {"minimum_action_interval": 0.4, "maximum_action_rate": 3,
+                    "available_mechanical_events": ["whir_waver"],
+                    "preferred_subdivision": 0.5, "timing_drift": 0.05,
+                    "response_latency": 0.15,
+                    "normal_function_priority": 1.0,
+                    "infection_receptivity": 0.5},
+    "ceiling_light": {"minimum_action_interval": 0.06,
+                      "maximum_action_rate": 12,
+                      "available_mechanical_events": ["filament_surge"],
+                      "preferred_subdivision": 2, "timing_drift": 0.0,
+                      "response_latency": 0.01,
+                      "normal_function_priority": 1.0,
+                      "infection_receptivity": 0.7},
+    "flue_breast": {"minimum_action_interval": 0.14, "maximum_action_rate": 7,
+                    "available_mechanical_events": ["flue_knock", "draft"],
+                    "preferred_subdivision": 1, "timing_drift": 0.008,
+                    "response_latency": 0.02, "normal_function_priority": 1.0,
+                    "infection_receptivity": 0.9},
+    "porch_deck": {"minimum_action_interval": 0.22, "maximum_action_rate": 4,
+                   "available_mechanical_events": ["creak", "board_knock"],
+                   "preferred_subdivision": 1, "timing_drift": 0.035,
+                   "response_latency": 0.06, "normal_function_priority": 1.0,
+                   "infection_receptivity": 0.7},
     "door_anomaly": {"minimum_action_interval": 0.10, "maximum_action_rate": 8,
                      "available_mechanical_events": ["seam_glow"],
                      "preferred_subdivision": 1, "timing_drift": 0.0,
@@ -1013,6 +1267,8 @@ MATERIAL_CATALOG = {
     "common_brick": {"base_color": [0.62, 0.42, 0.31, 1.0], "roughness": 0.88},
     "limestone": {"base_color": [0.78, 0.75, 0.67, 1.0], "roughness": 0.6},
     "timber": {"base_color": [0.43, 0.32, 0.22, 1.0], "roughness": 0.75},
+    "ceramic_tile": {"base_color": [0.85, 0.87, 0.86, 1.0], "roughness": 0.25},
+    "linoleum": {"base_color": [0.55, 0.50, 0.40, 1.0], "roughness": 0.5},
     "plaster": {"base_color": [0.62, 0.64, 0.58, 1.0], "roughness": 0.80},
     "brick": {"base_color": [0.42, 0.27, 0.22, 1.0], "roughness": 0.85},
     "concrete": {"base_color": [0.48, 0.48, 0.47, 1.0], "roughness": 0.75},
@@ -1032,6 +1288,7 @@ def main():
               ("B1", "F01", "F02", "F03", "F04", "F05", "F06", "ROOF")]
     for fl in floors:
         collect_door_markers(fl)
+        floor_finishes(fl)
     layout = {
         "meta": {"name": "Orison Apartments", "footprint": [28.0, 20.0],
                  "levels": LEVELS, "floor_to_floor": F2F,

@@ -134,6 +134,94 @@
   "normal_function_priority": 1.0,
   "infection_receptivity": 0.8
  },
+ "kettle": {
+  "minimum_action_interval": 0.4,
+  "maximum_action_rate": 2,
+  "available_mechanical_events": [
+   "element_tick",
+   "whistle_on"
+  ],
+  "preferred_subdivision": 1,
+  "timing_drift": 0.02,
+  "response_latency": 0.1,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.65
+ },
+ "wall_clock": {
+  "minimum_action_interval": 0.45,
+  "maximum_action_rate": 2,
+  "available_mechanical_events": [
+   "tick",
+   "tempo_drift"
+  ],
+  "preferred_subdivision": 1,
+  "timing_drift": 0.0,
+  "response_latency": 0.01,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.8
+ },
+ "smoke_detector": {
+  "minimum_action_interval": 4.0,
+  "maximum_action_rate": 1,
+  "available_mechanical_events": [
+   "chirp"
+  ],
+  "preferred_subdivision": 0.25,
+  "timing_drift": 0.0,
+  "response_latency": 0.02,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.45
+ },
+ "exhaust_fan": {
+  "minimum_action_interval": 0.4,
+  "maximum_action_rate": 3,
+  "available_mechanical_events": [
+   "whir_waver"
+  ],
+  "preferred_subdivision": 0.5,
+  "timing_drift": 0.05,
+  "response_latency": 0.15,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.5
+ },
+ "ceiling_light": {
+  "minimum_action_interval": 0.06,
+  "maximum_action_rate": 12,
+  "available_mechanical_events": [
+   "filament_surge"
+  ],
+  "preferred_subdivision": 2,
+  "timing_drift": 0.0,
+  "response_latency": 0.01,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.7
+ },
+ "flue_breast": {
+  "minimum_action_interval": 0.14,
+  "maximum_action_rate": 7,
+  "available_mechanical_events": [
+   "flue_knock",
+   "draft"
+  ],
+  "preferred_subdivision": 1,
+  "timing_drift": 0.008,
+  "response_latency": 0.02,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.9
+ },
+ "porch_deck": {
+  "minimum_action_interval": 0.22,
+  "maximum_action_rate": 4,
+  "available_mechanical_events": [
+   "creak",
+   "board_knock"
+  ],
+  "preferred_subdivision": 1,
+  "timing_drift": 0.035,
+  "response_latency": 0.06,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.7
+ },
  "door_anomaly": {
   "minimum_action_interval": 0.1,
   "maximum_action_rate": 8,
