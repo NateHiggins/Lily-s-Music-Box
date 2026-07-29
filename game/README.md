@@ -24,6 +24,16 @@ desk lamp, radiator under the rear window, and the **door anomaly** — a
 door-shaped seam that only manifests above 0.75 infection, between the
 workstation and the radiator.
 
+**Case 01 at the desk (new):** interact (E) with the 4B workstation chair
+to take Mara Chen's support call — a compact in-world port of the Audio
+Virus prototype loop. Her breathing rides the same conductor clock the
+building follows; isolating and capturing reveal the four-mark timeline
+with its empty fifth slot; routing the loop moves the conductor's origin
+to the desk so the building hears it through the electrical network; and
+the three responses change real building state — Complete pushes
+infection to 0.85, which is what lets the door anomaly manifest in the
+wall. One outcome per case, latched. Esc steps away; the call continues.
+
 **Networked propagation (new):** motif events no longer broadcast — they
 are injected at an origin node (default: the basement boiler) and travel
 `acoustic_graph.json` with per-node delays and damping. A knock reaches

@@ -29,6 +29,12 @@ static func _build(key: String) -> AudioStreamWAV:
 		"pop":
 			return _partials(0.22, [[210, 26, 1.0], [95, 16, 0.6],
 					[1400, 90, 0.35]], 0.004)
+		"breath":
+			return _breath()
+		"vocal":
+			return _vocal()
+		"murmur_loop":
+			return _murmur_loop()
 		"hum_loop":
 			return _hum([50, 100, 150], [0.6, 0.35, 0.18], 2.0)
 		"buzz_loop":
@@ -87,6 +93,70 @@ static func _agitate() -> AudioStreamWAV:
 	for i in fade:
 		var w := float(i) / fade
 		s[i] = s[i] * w + s[n - fade + i] * (1.0 - w)
+	s.resize(n - fade)
+	return _pack(s, true)
+
+
+## One filtered exhalation — the caller's breathing carrying the motif.
+static func _breath() -> AudioStreamWAV:
+	var n := int(0.22 * RATE)
+	var s := PackedFloat32Array()
+	s.resize(n)
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 4242
+	var lp := 0.0
+	var lp2 := 0.0
+	for i in n:
+		var t := float(i) / RATE
+		var w := rng.randf_range(-1.0, 1.0)
+		lp += 0.16 * (w - lp)
+		lp2 += 0.16 * (lp - lp2)
+		s[i] = lp2 * pow(sin(PI * t / 0.22), 1.6)
+	return _pack(s)
+
+
+## Placeholder hummed note (the player's voice answering the motif).
+static func _vocal() -> AudioStreamWAV:
+	var n := int(0.38 * RATE)
+	var s := PackedFloat32Array()
+	s.resize(n)
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 777
+	var phase := 0.0
+	var lp := 0.0
+	for i in n:
+		var t := float(i) / RATE
+		var f := 196.0 * pow(2.0, 0.25 * sin(TAU * 5.4 * t) / 12.0)
+		phase += TAU * f / RATE
+		lp += 0.08 * (rng.randf_range(-1.0, 1.0) - lp)
+		var env := minf(t / 0.05, 1.0) * minf((0.38 - t) / 0.12, 1.0)
+		s[i] = env * (sin(phase) + 0.25 * sin(2.0 * phase) + 0.35 * lp)
+	return _pack(s)
+
+
+## Speech-shaped band noise: the caller's wordless voice on a bad line.
+static func _murmur_loop() -> AudioStreamWAV:
+	var n := int(6.0 * RATE)
+	var s := PackedFloat32Array()
+	s.resize(n)
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 555
+	var hi := 0.0
+	var lo := 0.0
+	var env := 0.0
+	for i in n:
+		var t := float(i) / RATE
+		var w := rng.randf_range(-1.0, 1.0)
+		hi += 0.25 * (w - hi)
+		lo += 0.04 * (w - lo)
+		var syllab := maxf(0.0, sin(TAU * 2.7 * t) * sin(TAU * 0.9 * t + 0.6))
+		var gate := 1.0 if sin(TAU * 0.23 * t) > -0.35 else 0.0
+		env += 0.004 * (syllab * gate - env)
+		s[i] = (hi - lo) * env * 3.0
+	var fade := int(0.3 * RATE)
+	for i in fade:
+		var w2 := float(i) / fade
+		s[i] = s[i] * w2 + s[n - fade + i] * (1.0 - w2)
 	s.resize(n - fade)
 	return _pack(s, true)
 

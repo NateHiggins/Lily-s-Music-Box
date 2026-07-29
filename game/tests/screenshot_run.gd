@@ -60,12 +60,41 @@ func _run() -> void:
 		if shot.has("infection"):
 			Conductor.infection = shot.infection
 			await get_tree().create_timer(3.0).timeout  # let the seam manifest
-		cam.global_position = shot.pos
-		cam.look_at(shot.look)
-		await get_tree().create_timer(0.5).timeout
-		await RenderingServer.frame_post_draw
-		var img := get_viewport().get_texture().get_image()
-		var path := "%s/%s.png" % [_dir, shot.name]
-		img.save_png(path)
-		print("saved ", path)
+		await _grab(shot.pos, shot.look, shot.name)
+
+	# Case 01 at the desk: response window, then the manifested door
+	var ci: CallInterface = root.call_interface
+	ci.fast = true
+	ci.enter(root.player)
+	await _until_ci(func(): return not ci._isolate_btn.disabled, 15.0)
+	ci.press_isolate(true)
+	await _until_ci(func(): return not ci._capture_btn.disabled, 20.0)
+	ci.press_capture()
+	ci.press_route()
+	await _until_ci(func(): return ci.stage == CallInterface.Stage.RESPONSE, 25.0)
+	await _grab(Vector3(-8.6, 11.15, -2.2), Vector3(-7.9, 10.6, -3.0),
+			"b_12_call_response_window")
+	ci.press_respond("complete")
+	await get_tree().create_timer(4.0).timeout
+	ci.leave()
+	await _grab(Vector3(-9.4, 11.0, -3.0), Vector3(-7.2, 10.6, -4.5),
+			"b_13_door_anomaly_manifest")
 	get_tree().quit(0)
+
+
+func _grab(pos: Vector3, look: Vector3, shot_name: String) -> void:
+	cam.global_position = pos
+	cam.look_at(look)
+	await get_tree().create_timer(0.5).timeout
+	await RenderingServer.frame_post_draw
+	var img := get_viewport().get_texture().get_image()
+	var path := "%s/%s.png" % [_dir, shot_name]
+	img.save_png(path)
+	print("saved ", path)
+
+
+func _until_ci(cond: Callable, timeout: float) -> void:
+	var t := 0.0
+	while t < timeout and not cond.call():
+		await get_tree().create_timer(0.25).timeout
+		t += 0.25

@@ -31,6 +31,7 @@ const PROP_SCRIPTS := {
 var layout: Dictionary = {}
 var player: PlayerController
 var elevator: OrisonElevator
+var call_interface: CallInterface
 var floor_nodes: Dictionary = {}
 var show_all_floors := false
 
@@ -55,6 +56,12 @@ func _ready() -> void:
 	player = PlayerController.new()
 	add_child(player)
 	player.global_position = GameBoot.b2g([0.0, -8.3, 0.1])  # lobby
+	call_interface = CallInterface.new()
+	add_child(call_interface)
+	var desk := DeskZone.new()
+	desk.call_interface = call_interface
+	add_child(desk)
+	desk.global_position = GameBoot.b2g([-8.6, 2.95, 9.6])
 	var debug := preload("res://scripts/ui/building_debug.gd").new()
 	var layer := CanvasLayer.new()
 	layer.layer = 10

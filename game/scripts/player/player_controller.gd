@@ -14,6 +14,9 @@ var camera: Camera3D
 var flashlight: SpotLight3D
 var noclip := false
 var crouched := false
+## True while seated at the support desk: movement and look are frozen and
+## the mouse belongs to the call interface.
+var call_locked := false
 ## Test hook: when non-zero, drives movement instead of player input.
 var autopilot := Vector3.ZERO
 
@@ -44,6 +47,8 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if call_locked:
+		return
 	if event is InputEventMouseMotion \
 			and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * MOUSE_SENS)
@@ -73,6 +78,9 @@ func _set_crouched(on: bool) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if call_locked:
+		velocity = Vector3.ZERO
+		return
 	var wish := autopilot
 	if wish == Vector3.ZERO:
 		var input := Input.get_vector("move_left", "move_right",

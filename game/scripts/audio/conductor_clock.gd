@@ -9,6 +9,9 @@ signal beat(index: int)
 signal bar(index: int)
 signal motif_event(event_index: int, accent: float, pitch: float)
 signal motif_gap(event_index: int)  # the implied-but-absent fifth event
+## Always fires on the clock regardless of propagation mode — for UI and
+## phone-side audio that listen to the *idea*, not to a building node.
+signal motif_tick(event_index: int, accent: float, pitch: float)
 
 const REF_BPM := 72.0
 ## incomplete_knock: short - short - pause - long - (missing), at 72 BPM.
@@ -33,6 +36,30 @@ var timing_drift := 0.01
 var propagation_mode := "network"
 var origin_node := "B1_BOILER_01"
 
+## Live motif (starts as MOTIF; the Interrupt outcome warps it).
+var motif_events: Array = []
+var motif_mutations := 0
+
+
+func _ready() -> void:
+	for ev in MOTIF:
+		motif_events.append(ev.duplicate())
+
+
+## The idea survives, damaged: timings wander inside tolerance, one accent
+## inverts. Bodies keep interpreting whatever the motif has become.
+func mutate_motif() -> void:
+	motif_mutations += 1
+	var rng := RandomNumberGenerator.new()
+	rng.randomize()
+	for i in range(1, motif_events.size()):
+		motif_events[i].t = maxf(0.05, motif_events[i].t
+				+ rng.randf_range(-0.05, 0.05))
+	var j := rng.randi_range(1, motif_events.size() - 1)
+	motif_events[j].accent = clampf(1.0 - motif_events[j].accent * 0.6, 0.2, 1.0)
+	motif_events.sort_custom(func(a, b): return a.t < b.t)
+	print("[CONDUCTOR] motif mutated (x%d)" % motif_mutations)
+
 var _beat_acc := 0.0
 var _beat_i := 0
 var _motif_t := 0.0
@@ -52,8 +79,10 @@ func _process(delta: float) -> void:
 
 	var scale := REF_BPM / bpm
 	_motif_t += delta
-	while _motif_next < MOTIF.size() and _motif_t >= MOTIF[_motif_next].t * scale:
-		var ev: Dictionary = MOTIF[_motif_next]
+	while _motif_next < motif_events.size() \
+			and _motif_t >= motif_events[_motif_next].t * scale:
+		var ev: Dictionary = motif_events[_motif_next]
+		motif_tick.emit(_motif_next, ev.accent, ev.pitch)
 		if propagation_mode == "network":
 			AcousticGraphData.propagate(origin_node, _motif_next,
 					ev.accent, ev.pitch)

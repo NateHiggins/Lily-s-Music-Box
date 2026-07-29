@@ -134,6 +134,45 @@ func _vertical_slice_checks() -> void:
 		_check(anomaly.is_manifest(), "door seam manifests at infection 1.0")
 	Conductor.infection = 0.15
 
+	await _call_case_checks(anomaly)
+
+
+## Case 01 driven end-to-end through the in-building call interface.
+func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
+	var ci: CallInterface = root.call_interface
+	_check(ci != null, "call interface present")
+	if ci == null:
+		return
+	ci.fast = true
+	ci.enter(root.player)
+	_check(root.player.call_locked, "player locked to desk during call")
+	var ok: bool = await _until(func(): return not ci._isolate_btn.disabled, 15.0)
+	_check(ok, "call: isolate unlocks after dialogue")
+	ci.press_isolate(true)
+	_check(ci.stage == CallInterface.Stage.ISOLATION, "call: stage ISOLATION")
+	ok = await _until(func(): return not ci._capture_btn.disabled, 20.0)
+	_check(ok, "call: capture unlocks after hearing breathing")
+	ci.press_capture()
+	ci.press_route()
+	_check(Conductor.origin_node == "F04_B_MONITOR_01",
+			"call: routing moves conductor origin to the 4B desk")
+	ok = await _until(func(): return ci.stage == CallInterface.Stage.RESPONSE, 25.0)
+	_check(ok, "call: reaches RESPONSE")
+	ci.press_respond("complete")
+	_check(ci.outcome == "complete", "call: outcome latched")
+	ci.press_respond("interrupt")
+	_check(ci.outcome == "complete", "call: second response rejected")
+	ok = await _until(func(): return Conductor.infection >= 0.8, 15.0)
+	_check(ok, "call: Complete raises building infection to 0.85")
+	if anomaly:
+		await get_tree().create_timer(2.5).timeout
+		_check(anomaly.is_manifest(),
+				"call: door anomaly manifests after Complete")
+	ci.leave()
+	_check(not root.player.call_locked, "player released after leaving desk")
+	Conductor.infection = 0.15
+	Conductor.origin_node = "B1_BOILER_01"
+
 
 func _floor_below(from: Vector3) -> bool:
 	var params := PhysicsRayQueryParameters3D.create(from, from + Vector3(0, -2.2, 0))
