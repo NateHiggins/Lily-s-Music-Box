@@ -137,6 +137,10 @@ func _vertical_slice_checks() -> void:
 	# per-stack archetypes present across the building
 	for rid2 in ["F02_A_BED", "F03_C_BED2", "F05_D_OFFICE", "F02_WSTOR"]:
 		_check(ids.has(rid2), "%s in layout" % rid2)
+	# lobby program + vestibule from the polish pass
+	for rid3 in ["F01_VESTIBULE", "F01_OFFICE", "F01_PACKAGE",
+			"F01_RESTROOM"]:
+		_check(ids.has(rid3), "%s in layout" % rid3)
 	await _door_checks()
 
 
