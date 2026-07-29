@@ -82,18 +82,21 @@ func _run() -> void:
 	await get_tree().create_timer(2.0).timeout
 	_check(Conductor._beat_i > beat_before, "conductor clock is beating")
 
-	# --- corridor -> hall archway -> dog-leg stair -> F02 hall
+	# --- south corridor -> elevator hall -> atrium deck -> up the west
+	# flight to the north landing -> east flight onto the F02 deck
 	var pl: PlayerController = root.player
-	pl.global_position = Vector3(1.9, 0.15, 7.5)  # south corridor at arch
+	pl.global_position = Vector3(0.0, 0.15, 7.6)  # lobby, past the vestibule
 	pl.velocity = Vector3.ZERO
-	await _goto(pl, Vector2(1.9, 5.2), 4.0)    # through the arch, into hall
-	await _goto(pl, Vector2(0.2, 6.0), 3.0)    # to the flight-1 base
-	await _goto(pl, Vector2(-2.4, 6.0), 6.0)   # west up flight 1
-	await _goto(pl, Vector2(-2.4, 3.9), 3.0)   # across the half-landing
-	await _goto(pl, Vector2(1.5, 3.9), 6.0)    # east up flight 2 to F02 hall
+	await _goto(pl, Vector2(-1.2, 5.0), 5.0)    # through the hall arch
+	await _goto(pl, Vector2(-0.5, 2.6), 4.0)    # court arch, onto the deck
+	await _goto(pl, Vector2(-2.31, 2.4), 3.0)   # west flight foot
+	await _goto(pl, Vector2(-2.31, -2.31), 7.0) # up to the north landing
+	await _goto(pl, Vector2(2.31, -2.31), 4.0)  # across the landing
+	await _goto(pl, Vector2(2.31, 2.5), 7.0)    # east flight to F02 deck
+	await _goto(pl, Vector2(0.3, 5.0), 4.0)     # out into the F02 hall
 	pl.autopilot = Vector3.ZERO
 	_check(pl.global_position.y > 2.9,
-			"front stair: corridor -> hall -> climbed to F02 (y=%.2f)"
+			"atrium stair climbed corridor-to-corridor (y=%.2f)"
 			% pl.global_position.y)
 
 	# --- elevator travel across full range
@@ -110,10 +113,33 @@ func _run() -> void:
 			"4B radiator connected to heating network")
 
 	await _vertical_slice_checks()
+	await _walkthrough_checks()
 
 	print("WALKTEST RESULT: %s" %
 			("PASS" if _failures == 0 else "FAIL (%d)" % _failures))
 	get_tree().quit(_failures)
+
+
+## The architectural walkthrough builds its path from the layout, flies,
+## and hands control back cleanly.
+func _walkthrough_checks() -> void:
+	var wt: ArchitecturalWalkthrough = root.walkthrough
+	_check(wt != null, "walkthrough present")
+	if wt == null:
+		return
+	wt.start()
+	_check(wt._active, "walkthrough starts")
+	_check(wt._wps.size() > 60,
+			"walkthrough path built (%d waypoints)" % wt._wps.size())
+	_check(root.player.call_locked, "walkthrough locks the player")
+	var cam0: Vector3 = wt._cam.global_position
+	await get_tree().create_timer(4.5).timeout  # outlasts the first caption dwell
+	_check(wt._cam.global_position.distance_to(cam0) > 1.0,
+			"walkthrough camera is flying (%.1f m)"
+			% wt._cam.global_position.distance_to(cam0))
+	wt.stop()
+	_check(not root.player.call_locked and not wt._active,
+			"walkthrough hands control back")
 
 
 func _vertical_slice_checks() -> void:

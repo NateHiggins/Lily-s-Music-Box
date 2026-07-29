@@ -77,8 +77,13 @@ func _ready() -> void:
 	mute.text = "Mute"
 	mute.toggled.connect(func(on): AudioServer.set_bus_mute(0, on))
 	_body.add_child(mute)
+	var tour := Button.new()
+	tour.text = "Architectural walkthrough (T)"
+	tour.add_theme_font_size_override("font_size", 10)
+	tour.pressed.connect(func(): root.walkthrough.toggle())
+	_body.add_child(tour)
 	var hint := Label.new()
-	hint.text = "WASD move · Shift run · C crouch · E interact\nL flashlight · V noclip · Esc release mouse"
+	hint.text = "WASD move · Shift run · C crouch · E interact\nL flashlight · V noclip · T walkthrough · Esc release mouse"
 	hint.add_theme_font_size_override("font_size", 10)
 	hint.modulate = Color(0.7, 0.7, 0.75)
 	_body.add_child(hint)

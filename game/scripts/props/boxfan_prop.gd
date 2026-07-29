@@ -9,21 +9,44 @@ var _speed := 18.0
 
 
 func _build_visual() -> void:
-	make_box(Vector3(0.5, 0.5, 0.12), Vector3(0, 0.25, 0),
-			Color(0.25, 0.26, 0.28))
+	## Mid-century floor fan: ring shroud, four real blades on a hub,
+	## radial wire guard, cradle feet and a fat speed switch.
+	var steel := Color(0.55, 0.57, 0.58)
+	var ring := make_ring(0.225, 0.020, Vector3(0, 0.27, 0), steel,
+			0.30, 0.8)
+	ring.rotation_degrees = Vector3(90, 0, 0)
+	make_cyl(0.035, 0.055, 0.12, Vector3(0, 0.27, -0.05),
+			Color(0.30, 0.31, 0.33), 0.4, 0.5)           # motor can
 	_blades = MeshInstance3D.new()
-	var cyl := CylinderMesh.new()
-	cyl.top_radius = 0.19
-	cyl.bottom_radius = 0.19
-	cyl.height = 0.03
-	_blades.mesh = cyl
-	_blades.rotation_degrees = Vector3(90, 0, 0)
-	_blades.position = Vector3(0, 0.25, 0.04)
-	var mat := StandardMaterial3D.new()
-	mat.albedo_color = Color(0.5, 0.5, 0.52, 0.5)
-	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	_blades.material_override = mat
+	_blades.position = Vector3(0, 0.27, 0.02)
 	add_child(_blades)
+	for i in 4:
+		var blade := MeshInstance3D.new()
+		var bm := BoxMesh.new()
+		bm.size = Vector3(0.075, 0.185, 0.008)
+		blade.mesh = bm
+		blade.position = Vector3(0, 0.115, 0).rotated(Vector3.FORWARD,
+				TAU * i / 4.0)
+		blade.rotation_degrees = Vector3(0, 14, i * 90.0)
+		blade.material_override = _pmat(Color(0.72, 0.73, 0.70), 0.35, 0.6)
+		_blades.add_child(blade)
+	make_cyl(0.030, 0.030, 0.03, Vector3(0, 0.27, 0.045),
+			Color(0.62, 0.55, 0.30), 0.3, 0.7)           # hub nut
+	for i in 6:
+		var wire := MeshInstance3D.new()
+		var wm := BoxMesh.new()
+		wm.size = Vector3(0.44, 0.004, 0.004)
+		wire.mesh = wm
+		wire.position = Vector3(0, 0.27, 0.075)
+		wire.rotation_degrees = Vector3(0, 0, i * 30.0)
+		wire.material_override = _pmat(steel, 0.3, 0.7)
+		add_child(wire)
+	for fx in [-0.16, 0.16]:
+		make_cyl(0.014, 0.014, 0.24, Vector3(fx, 0.012, 0),
+				Color(0.30, 0.31, 0.33), 0.4, 0.5).rotation_degrees = \
+				Vector3(90, 0, 0)
+	make_box(Vector3(0.05, 0.035, 0.06), Vector3(0.10, 0.045, -0.10),
+			Color(0.16, 0.12, 0.10))                     # speed switch
 	_hum = make_emitter("buzz_loop", -24.0, true)
 	_hum.pitch_scale = 0.6
 

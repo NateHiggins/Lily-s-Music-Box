@@ -97,9 +97,47 @@ func make_box(size: Vector3, offset: Vector3, color: Color) -> MeshInstance3D:
 	box.size = size
 	mi.mesh = box
 	mi.position = offset
+	mi.material_override = _pmat(color)
+	add_child(mi)
+	return mi
+
+
+func _pmat(color: Color, rough := 0.6, metal := 0.0) -> StandardMaterial3D:
 	var mat := StandardMaterial3D.new()
 	mat.albedo_color = color
-	mat.roughness = 0.6
-	mi.material_override = mat
-	add_child(mi)
+	mat.roughness = rough
+	mat.metallic = metal
+	return mat
+
+
+## Vertical cylinder/cone (rotate the returned node for other axes).
+func make_cyl(r_top: float, r_bot: float, h: float, offset: Vector3,
+		color: Color, rough := 0.5, metal := 0.0,
+		parent: Node3D = null) -> MeshInstance3D:
+	var mi := MeshInstance3D.new()
+	var cyl := CylinderMesh.new()
+	cyl.top_radius = r_top
+	cyl.bottom_radius = r_bot
+	cyl.height = h
+	cyl.radial_segments = 14
+	mi.mesh = cyl
+	mi.position = offset
+	mi.material_override = _pmat(color, rough, metal)
+	(parent if parent else self).add_child(mi)
+	return mi
+
+
+## Torus ring lying in the XZ plane (rotate for portholes / fan shrouds).
+func make_ring(r: float, tube: float, offset: Vector3, color: Color,
+		rough := 0.4, metal := 0.0,
+		parent: Node3D = null) -> MeshInstance3D:
+	var mi := MeshInstance3D.new()
+	var t := TorusMesh.new()
+	t.inner_radius = maxf(0.001, r - tube)
+	t.outer_radius = r + tube
+	t.rings = 20
+	mi.mesh = t
+	mi.position = offset
+	mi.material_override = _pmat(color, rough, metal)
+	(parent if parent else self).add_child(mi)
 	return mi

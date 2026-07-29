@@ -154,7 +154,7 @@
    "id": "F01_A_RADIATOR_01",
    "pos": [
     -13.35,
-    -6.89,
+    -5.05,
     0.35
    ],
    "room": "1A",
@@ -175,7 +175,7 @@
    "id": "F01_D_RADIATOR_01",
    "pos": [
     13.35,
-    -7.055,
+    -5.325,
     0.35
    ],
    "room": "1D",
@@ -196,7 +196,7 @@
    "id": "F02_A_RADIATOR_01",
    "pos": [
     -13.35,
-    -6.89,
+    -5.05,
     3.55
    ],
    "room": "2A",
@@ -257,7 +257,7 @@
    "id": "F02_B_RADIATOR_01",
    "pos": [
     -13.35,
-    4.764,
+    6.16,
     3.55
    ],
    "room": "2B",
@@ -279,7 +279,7 @@
    "id": "F02_C_RADIATOR_01",
    "pos": [
     13.35,
-    2.279,
+    4.385,
     3.55
    ],
    "room": "2C",
@@ -360,7 +360,7 @@
    "id": "F02_D_RADIATOR_01",
    "pos": [
     13.35,
-    -7.055,
+    -5.325,
     3.55
    ],
    "room": "2D",
@@ -391,7 +391,7 @@
     1200
    ],
    "delay_ms": 15,
-   "damping": 0.08,
+   "damping": 0.22,
    "infection_receptivity": 0.9,
    "connections": [
     "F02_FLUE"
@@ -470,7 +470,7 @@
    "id": "F03_A_RADIATOR_01",
    "pos": [
     -13.35,
-    -6.89,
+    -5.05,
     6.75
    ],
    "room": "3A",
@@ -491,7 +491,7 @@
    "id": "F03_B_RADIATOR_01",
    "pos": [
     -13.35,
-    4.764,
+    6.16,
     6.75
    ],
    "room": "3B",
@@ -513,8 +513,8 @@
    "id": "F03_B_LAMP_01",
    "pos": [
     -12.65,
-    6.67,
-    7.3
+    6.17,
+    7.35
    ],
    "room": "3B",
    "network": "electrical",
@@ -533,7 +533,7 @@
    "id": "F03_C_RADIATOR_01",
    "pos": [
     13.35,
-    2.279,
+    4.385,
     6.75
    ],
    "room": "3C",
@@ -554,7 +554,7 @@
    "id": "F03_D_RADIATOR_01",
    "pos": [
     13.35,
-    -7.055,
+    -5.325,
     6.75
    ],
    "room": "3D",
@@ -625,7 +625,7 @@
     1200
    ],
    "delay_ms": 15,
-   "damping": 0.08,
+   "damping": 0.22,
    "infection_receptivity": 0.9,
    "connections": [
     "F03_FLUE"
@@ -702,7 +702,7 @@
    "id": "F04_A_RADIATOR_01",
    "pos": [
     -13.35,
-    -6.89,
+    -5.05,
     9.95
    ],
    "room": "4A",
@@ -966,7 +966,7 @@
    "id": "F04_C_RADIATOR_01",
    "pos": [
     13.35,
-    2.279,
+    4.385,
     9.95
    ],
    "room": "4C",
@@ -987,7 +987,7 @@
    "id": "F04_D_RADIATOR_01",
    "pos": [
     13.35,
-    -7.055,
+    -5.325,
     9.95
    ],
    "room": "4D",
@@ -1018,7 +1018,7 @@
     1200
    ],
    "delay_ms": 15,
-   "damping": 0.08,
+   "damping": 0.22,
    "infection_receptivity": 0.9,
    "connections": [
     "F04_FLUE"
@@ -1102,7 +1102,7 @@
    "id": "F05_A_RADIATOR_01",
    "pos": [
     -13.35,
-    -6.89,
+    -5.05,
     13.15
    ],
    "room": "5A",
@@ -1143,7 +1143,7 @@
    "id": "F05_B_RADIATOR_01",
    "pos": [
     -13.35,
-    4.764,
+    6.16,
     13.15
    ],
    "room": "5B",
@@ -1165,7 +1165,7 @@
    "id": "F05_C_RADIATOR_01",
    "pos": [
     13.35,
-    2.279,
+    4.385,
     13.15
    ],
    "room": "5C",
@@ -1186,7 +1186,7 @@
    "id": "F05_D_RADIATOR_01",
    "pos": [
     13.35,
-    -7.055,
+    -5.325,
     13.15
    ],
    "room": "5D",
@@ -1217,7 +1217,7 @@
     1200
    ],
    "delay_ms": 15,
-   "damping": 0.08,
+   "damping": 0.22,
    "infection_receptivity": 0.9,
    "connections": [
     "F05_FLUE"
@@ -1292,7 +1292,7 @@
    "id": "F06_A_RADIATOR_01",
    "pos": [
     -13.35,
-    -6.89,
+    -5.05,
     16.35
    ],
    "room": "6A",
@@ -1392,7 +1392,7 @@
    "id": "F06_B_RADIATOR_01",
    "pos": [
     -13.35,
-    4.764,
+    6.16,
     16.35
    ],
    "room": "6B",
@@ -1413,7 +1413,7 @@
    "id": "F06_C_RADIATOR_01",
    "pos": [
     13.35,
-    2.279,
+    4.385,
     16.35
    ],
    "room": "6C",
@@ -1433,7 +1433,7 @@
    "id": "F06_D_RADIATOR_01",
    "pos": [
     13.35,
-    -7.055,
+    -5.325,
     16.35
    ],
    "room": "6D",
@@ -1463,7 +1463,7 @@
     1200
    ],
    "delay_ms": 15,
-   "damping": 0.08,
+   "damping": 0.22,
    "infection_receptivity": 0.9,
    "connections": [
     "F06_FLUE"
@@ -1536,6 +1536,26 @@
    ]
   },
   {
+   "id": "B1_ELECTRICAL_HUB",
+   "pos": [
+    10.0,
+    -5.0,
+    -2.4
+   ],
+   "room": "B1_ELECTRICAL",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 8,
+   "damping": 0.22,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "B1_FLUE_BASE",
    "pos": [
     9.9,
@@ -1549,7 +1569,7 @@
     1500
    ],
    "delay_ms": 6,
-   "damping": 0.08,
+   "damping": 0.22,
    "infection_receptivity": 0.6,
    "connections": [
     "B1_BOILER_01",
@@ -1570,7 +1590,7 @@
     1500
    ],
    "delay_ms": 12,
-   "damping": 0.08,
+   "damping": 0.22,
    "infection_receptivity": 0.8,
    "connections": [
     "F06_FLUE"
@@ -1590,7 +1610,7 @@
     1500
    ],
    "delay_ms": 12,
-   "damping": 0.08,
+   "damping": 0.22,
    "infection_receptivity": 0.5,
    "connections": [
     "B1_FLUE_BASE",
@@ -1611,7 +1631,7 @@
     1500
    ],
    "delay_ms": 12,
-   "damping": 0.08,
+   "damping": 0.22,
    "infection_receptivity": 0.5,
    "connections": [
     "F02_FLUE_BREAST",
@@ -1633,7 +1653,7 @@
     1500
    ],
    "delay_ms": 12,
-   "damping": 0.08,
+   "damping": 0.22,
    "infection_receptivity": 0.5,
    "connections": [
     "F03_FLUE_BREAST",
@@ -1655,7 +1675,7 @@
     1500
    ],
    "delay_ms": 12,
-   "damping": 0.08,
+   "damping": 0.22,
    "infection_receptivity": 0.5,
    "connections": [
     "F04_FLUE_BREAST",
@@ -1677,7 +1697,7 @@
     1500
    ],
    "delay_ms": 12,
-   "damping": 0.08,
+   "damping": 0.22,
    "infection_receptivity": 0.5,
    "connections": [
     "F05_FLUE_BREAST",
@@ -1699,7 +1719,7 @@
     1500
    ],
    "delay_ms": 12,
-   "damping": 0.08,
+   "damping": 0.22,
    "infection_receptivity": 0.5,
    "connections": [
     "F06_FLUE_BREAST",
@@ -1725,26 +1745,6 @@
    "infection_receptivity": 0.5,
    "connections": [
     "F02_PORCH_DECK"
-   ]
-  },
-  {
-   "id": "B1_ELECTRICAL_HUB",
-   "pos": [
-    10.0,
-    -5.0,
-    -2.4
-   ],
-   "room": "B1_ELECTRICAL",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 8,
-   "damping": 0.22,
-   "infection_receptivity": 0.5,
-   "connections": [
-    "F02_CORRLIGHT_S"
    ]
   }
  ]
