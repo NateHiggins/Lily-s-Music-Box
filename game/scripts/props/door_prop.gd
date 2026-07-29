@@ -29,19 +29,58 @@ func _ready() -> void:
 	bm.size = box.size
 	mi.mesh = bm
 	mi.position = shape.position
-	var mat := StandardMaterial3D.new()
-	mat.albedo_color = Color(0.42, 0.34, 0.26) if width > 0.85 \
+	var leaf_col := Color(0.42, 0.34, 0.26) if width > 0.85 \
 			else Color(0.80, 0.78, 0.72)
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = leaf_col
 	mat.roughness = 0.5
 	mi.material_override = mat
 	_body.add_child(mi)
-	var knob := MeshInstance3D.new()
-	var sm := SphereMesh.new()
-	sm.radius = 0.022
-	sm.height = 0.044
-	knob.mesh = sm
-	knob.position = Vector3(width - 0.07, 0.96, 0.035)
-	_body.add_child(knob)
+	# stile-and-rail identity: two recessed panel fields per face
+	var pmat := StandardMaterial3D.new()
+	pmat.albedo_color = leaf_col.darkened(0.16)
+	pmat.roughness = 0.55
+	for side in [-1.0, 1.0]:
+		for pz in [[0.16, 0.88], [1.04, height - 0.18]]:
+			var panel := MeshInstance3D.new()
+			var pb := BoxMesh.new()
+			pb.size = Vector3(width - 0.22, pz[1] - pz[0], 0.012)
+			panel.mesh = pb
+			panel.position = Vector3(width / 2.0, (pz[0] + pz[1]) / 2.0,
+					side * 0.020)
+			panel.material_override = pmat
+			_body.add_child(panel)
+	# lever on a rosette over a keyhole escutcheon, both faces
+	var hw := StandardMaterial3D.new()
+	hw.albedo_color = Color(0.62, 0.55, 0.30)
+	hw.roughness = 0.28
+	hw.metallic = 0.85
+	for side in [-1.0, 1.0]:
+		var rosette := MeshInstance3D.new()
+		var rc := CylinderMesh.new()
+		rc.top_radius = 0.026
+		rc.bottom_radius = 0.026
+		rc.height = 0.012
+		rosette.mesh = rc
+		rosette.rotation_degrees = Vector3(90, 0, 0)
+		rosette.position = Vector3(width - 0.075, 0.96, side * 0.028)
+		rosette.material_override = hw
+		_body.add_child(rosette)
+		var lever := MeshInstance3D.new()
+		var lb := BoxMesh.new()
+		lb.size = Vector3(0.11, 0.016, 0.014)
+		lever.mesh = lb
+		lever.position = Vector3(width - 0.075 - 0.045, 0.955,
+				side * 0.043)
+		lever.material_override = hw
+		_body.add_child(lever)
+		var esc := MeshInstance3D.new()
+		var eb := BoxMesh.new()
+		eb.size = Vector3(0.022, 0.055, 0.008)
+		esc.mesh = eb
+		esc.position = Vector3(width - 0.075, 0.875, side * 0.026)
+		esc.material_override = hw
+		_body.add_child(esc)
 	_click = AudioStreamPlayer3D.new()
 	_click.stream = PropAudio.get_stream("tick")
 	_click.volume_db = -14.0

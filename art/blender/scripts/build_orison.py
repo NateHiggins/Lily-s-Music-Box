@@ -60,28 +60,152 @@ class MeshBuf:
                        (b, b + 1, b + 5, b + 4), (b + 1, b + 2, b + 6, b + 5),
                        (b + 2, b + 3, b + 7, b + 6), (b + 3, b, b + 4, b + 7)]
 
-    def add_ramp(self, x0, z0, x1, z1, y0, y1, thickness=0.08):
-        """Inclined slab along X between (x0,z0) and (x1,z1).
+    def add_ramp(self, x0, z0, x1, z1, y0, y1, thickness=0.08, axis="x"):
+        """Inclined slab between (a0,z0) and (a1,z1) along `axis`, spanning
+        (y0,y1) on the cross axis (named for the historical X case).
 
-        Canonicalized to ascending X with explicit outward winding: physics
-        treats a downward-wound "floor" as a wall, which silently blocks
-        characters climbing in one direction only.
+        Canonicalized to ascending run with explicit outward winding:
+        physics treats a downward-wound "floor" as a wall, which silently
+        blocks characters climbing in one direction only.
         """
         if x1 < x0:
             x0, x1 = x1, x0
             z0, z1 = z1, z0
+
+        def v(a, c, z):
+            return (a, c, z) if axis == "x" else (c, a, z)
+
         b = len(self.verts)
         self.verts += [
-            (x0, y0, z0), (x0, y1, z0), (x1, y1, z1), (x1, y0, z1),
-            (x0, y0, z0 - thickness), (x0, y1, z0 - thickness),
-            (x1, y1, z1 - thickness), (x1, y0, z1 - thickness)]
-        self.faces += [
-            (b, b + 3, b + 2, b + 1),          # top (+z)
-            (b + 4, b + 5, b + 6, b + 7),      # bottom (-z)
-            (b, b + 4, b + 7, b + 3),          # -y side
-            (b + 1, b + 2, b + 6, b + 5),      # +y side
-            (b, b + 1, b + 5, b + 4),          # low end (-x)
-            (b + 3, b + 7, b + 6, b + 2)]      # high end (+x)
+            v(x0, y0, z0), v(x0, y1, z0), v(x1, y1, z1), v(x1, y0, z1),
+            v(x0, y0, z0 - thickness), v(x0, y1, z0 - thickness),
+            v(x1, y1, z1 - thickness), v(x1, y0, z1 - thickness)]
+        if axis == "x":
+            self.faces += [
+                (b, b + 3, b + 2, b + 1),          # top (+z)
+                (b + 4, b + 5, b + 6, b + 7),      # bottom (-z)
+                (b, b + 4, b + 7, b + 3),          # -y side
+                (b + 1, b + 2, b + 6, b + 5),      # +y side
+                (b, b + 1, b + 5, b + 4),          # low end
+                (b + 3, b + 7, b + 6, b + 2)]      # high end
+        else:  # mirrored winding keeps the top face up when axes swap
+            self.faces += [
+                (b, b + 1, b + 2, b + 3),
+                (b + 7, b + 6, b + 5, b + 4),
+                (b + 3, b + 7, b + 4, b, ),
+                (b + 5, b + 6, b + 2, b + 1),
+                (b + 4, b + 5, b + 1, b),
+                (b + 2, b + 6, b + 7, b + 3)]
+
+    def add_hex(self, corners):
+        """Generic hexahedron: 8 corners, bottom ring CCW then top ring
+        (same order as add_box). Any proper rotation keeps the winding."""
+        b = len(self.verts)
+        self.verts += list(corners)
+        self.faces += [(b, b + 3, b + 2, b + 1), (b + 4, b + 5, b + 6, b + 7),
+                       (b, b + 1, b + 5, b + 4), (b + 1, b + 2, b + 6, b + 5),
+                       (b + 2, b + 3, b + 7, b + 6), (b + 3, b, b + 4, b + 7)]
+
+    def add_lathe(self, cx, cy, profile, n=14, sx=1.0, phase=0.0):
+        """Surface of revolution about the vertical axis through (cx, cy).
+        profile = [(radius, z), ...] bottom-up; radius 0 collapses to an
+        apex. sx squashes X for elliptical sections; phase rotates the
+        ring seam (useful with sx when the piece itself is rotated)."""
+        import math as _m
+        rings = []
+        for (r, z) in profile:
+            if r < 1e-5:
+                rings.append(len(self.verts))
+                self.verts.append((cx, cy, z))
+                continue
+            b = len(self.verts)
+            rings.append(b)
+            for i in range(n):
+                a = phase + 2.0 * _m.pi * i / n
+                self.verts.append((cx + _m.cos(a) * r * sx,
+                                   cy + _m.sin(a) * r, z))
+        for k in range(len(profile) - 1):
+            r0, r1 = profile[k][0] >= 1e-5, profile[k + 1][0] >= 1e-5
+            b0, b1 = rings[k], rings[k + 1]
+            for i in range(n):
+                j = (i + 1) % n
+                if r0 and r1:
+                    self.faces.append((b0 + i, b0 + j, b1 + j, b1 + i))
+                elif r0:            # collapse up to apex
+                    self.faces.append((b0 + i, b0 + j, b1))
+                elif r1:            # apex opening downward
+                    self.faces.append((b0, b1 + j, b1 + i))
+        if profile[0][0] >= 1e-5:   # bottom cap (faces down)
+            c = len(self.verts)
+            self.verts.append((cx, cy, profile[0][1]))
+            for i in range(n):
+                self.faces.append((c, rings[0] + (i + 1) % n, rings[0] + i))
+        if profile[-1][0] >= 1e-5:  # top cap (faces up)
+            c = len(self.verts)
+            self.verts.append((cx, cy, profile[-1][1]))
+            for i in range(n):
+                self.faces.append((c, rings[-1] + i, rings[-1] + (i + 1) % n))
+
+    def add_cyl(self, cx, cy, z0, z1, r0, r1=None, n=12, sx=1.0, phase=0.0):
+        self.add_lathe(cx, cy, [(r0, z0), (r0 if r1 is None else r1, z1)],
+                       n, sx, phase)
+
+    def add_tbox(self, p0, p1, w, t):
+        """Box along the 3D segment p0->p1 (width w, thickness t): legs at
+        any splay, braces, rails, curved runs by chaining segments."""
+        ax = (p1[0] - p0[0], p1[1] - p0[1], p1[2] - p0[2])
+        ln = max(1e-9, (ax[0] ** 2 + ax[1] ** 2 + ax[2] ** 2) ** 0.5)
+        a = (ax[0] / ln, ax[1] / ln, ax[2] / ln)
+        ref = (0.0, 0.0, 1.0) if abs(a[2]) < 0.985 else (1.0, 0.0, 0.0)
+        s = (ref[1] * a[2] - ref[2] * a[1], ref[2] * a[0] - ref[0] * a[2],
+             ref[0] * a[1] - ref[1] * a[0])
+        sl = max(1e-9, (s[0] ** 2 + s[1] ** 2 + s[2] ** 2) ** 0.5)
+        s = (s[0] / sl * w / 2, s[1] / sl * w / 2, s[2] / sl * w / 2)
+        u3 = (a[1] * s[2] - a[2] * s[1], a[2] * s[0] - a[0] * s[2],
+              a[0] * s[1] - a[1] * s[0])
+        ul = max(1e-9, (u3[0] ** 2 + u3[1] ** 2 + u3[2] ** 2) ** 0.5)
+        u = (u3[0] / ul * t / 2, u3[1] / ul * t / 2, u3[2] / ul * t / 2)
+        corners = []
+        for p in (p0, p1):
+            for (fs, fu) in ((-1, -1), (1, -1), (1, 1), (-1, 1)):
+                corners.append((p[0] + fs * s[0] + fu * u[0],
+                                p[1] + fs * s[1] + fu * u[1],
+                                p[2] + fs * s[2] + fu * u[2]))
+        self.add_hex(corners)
+
+    def add_tube(self, p0, p1, r, n=10):
+        """Cylinder along an arbitrary 3D segment: pipes, rails, rods."""
+        import math as _m
+        ax = (p1[0] - p0[0], p1[1] - p0[1], p1[2] - p0[2])
+        ln = max(1e-9, (ax[0] ** 2 + ax[1] ** 2 + ax[2] ** 2) ** 0.5)
+        a = (ax[0] / ln, ax[1] / ln, ax[2] / ln)
+        ref = (0.0, 0.0, 1.0) if abs(a[2]) < 0.985 else (1.0, 0.0, 0.0)
+        s = (ref[1] * a[2] - ref[2] * a[1], ref[2] * a[0] - ref[0] * a[2],
+             ref[0] * a[1] - ref[1] * a[0])
+        sl = max(1e-9, (s[0] ** 2 + s[1] ** 2 + s[2] ** 2) ** 0.5)
+        s = (s[0] / sl, s[1] / sl, s[2] / sl)
+        u = (a[1] * s[2] - a[2] * s[1], a[2] * s[0] - a[0] * s[2],
+             a[0] * s[1] - a[1] * s[0])
+        b0 = len(self.verts)
+        for p in (p0, p1):
+            for i in range(n):
+                t = 2.0 * _m.pi * i / n
+                self.verts.append((
+                    p[0] + (_m.cos(t) * s[0] + _m.sin(t) * u[0]) * r,
+                    p[1] + (_m.cos(t) * s[1] + _m.sin(t) * u[1]) * r,
+                    p[2] + (_m.cos(t) * s[2] + _m.sin(t) * u[2]) * r))
+        b1 = b0 + n
+        for i in range(n):
+            j = (i + 1) % n
+            self.faces.append((b0 + i, b0 + j, b1 + j, b1 + i))
+        c0 = len(self.verts)
+        self.verts.append(tuple(p0))
+        c1 = len(self.verts)
+        self.verts.append(tuple(p1))
+        for i in range(n):
+            j = (i + 1) % n
+            self.faces.append((c0, b0 + j, b0 + i))
+            self.faces.append((c1, b1 + i, b1 + j))
 
     def realize(self, collection):
         if not self.verts:
@@ -113,6 +237,543 @@ def get_material(key):
     return mat
 
 
+# ================================================================ assets
+# Parametric furnishing library. Every piece is an ORIGINAL design in the
+# spirit of an iconic typology (documented in art/docs/furniture_references
+# .md): bentwood cafe chairs, tulip-style pedestal tables, spool beds,
+# Frankfurt-kitchen cabinetry, rounded-shoulder 1950s refrigerators,
+# enamel ranges, bakelite toggle switches. Local space: origin at the
+# footprint center on the floor, front toward +Y; `yaw` rotates CCW.
+
+import math
+
+
+class Frame:
+    """Placement frame: local -> world, one visual buffer per material,
+    plus a coarse invisible collision hull per assembly."""
+
+    def __init__(self, get_buf, hull_buf, ox, oy, oz, yaw_deg):
+        self.g = get_buf
+        self.hb = hull_buf
+        self.o = (ox, oy, oz)
+        a = math.radians(yaw_deg)
+        self.c, self.s = math.cos(a), math.sin(a)
+        self.yaw = a
+
+    def pt(self, x, y, z):
+        return (self.o[0] + x * self.c - y * self.s,
+                self.o[1] + x * self.s + y * self.c, self.o[2] + z)
+
+    def box(self, mat, x0, y0, z0, x1, y1, z1):
+        cs = [self.pt(x0, y0, z0), self.pt(x1, y0, z0), self.pt(x1, y1, z0),
+              self.pt(x0, y1, z0), self.pt(x0, y0, z1), self.pt(x1, y0, z1),
+              self.pt(x1, y1, z1), self.pt(x0, y1, z1)]
+        self.g(mat).add_hex(cs)
+
+    def lathe(self, mat, cx, cy, profile, n=14, sx=1.0):
+        p = self.pt(cx, cy, 0.0)
+        prof = [(r, self.o[2] + z) for (r, z) in profile]
+        self.g(mat).add_lathe(p[0], p[1], prof, n, sx, self.yaw)
+
+    def cyl(self, mat, cx, cy, z0, z1, r0, r1=None, n=12, sx=1.0):
+        self.lathe(mat, cx, cy, [(r0, z0), (r0 if r1 is None else r1, z1)],
+                   n, sx)
+
+    def tube(self, mat, p0, p1, r, n=10):
+        self.g(mat).add_tube(self.pt(*p0), self.pt(*p1), r, n)
+
+    def tbox(self, mat, p0, p1, w, t):
+        self.g(mat).add_tbox(self.pt(*p0), self.pt(*p1), w, t)
+
+    def hull(self, x0, y0, z0, x1, y1, z1):
+        cs = [self.pt(x0, y0, z0), self.pt(x1, y0, z0), self.pt(x1, y1, z0),
+              self.pt(x0, y1, z0), self.pt(x0, y0, z1), self.pt(x1, y0, z1),
+              self.pt(x1, y1, z1), self.pt(x0, y1, z1)]
+        self.hb().add_hex(cs)
+
+
+def _jit(seed, k, lo, hi):
+    """Deterministic jitter from the piece's id string."""
+    h = (hash_str(seed) * 31 + k * 977) % 1000 / 999.0
+    return lo + (hi - lo) * h
+
+
+def hash_str(s):
+    h = 0
+    for ch in str(s):
+        h = (h * 131 + ord(ch)) % 100003
+    return h
+
+
+def asm_sofa(F, p):
+    L = p.get("L", 1.95)
+    d, mat = 0.88, p.get("mat", "fabric_warm")
+    leg = p.get("leg_mat", "wood_dark")
+    for lx in (-L / 2 + 0.10, L / 2 - 0.10):
+        for ly in (-d / 2 + 0.09, d / 2 - 0.09):
+            F.cyl(leg, lx, ly, 0.0, 0.15, 0.030, 0.019, 8)
+    F.box(mat, -L / 2 - 0.02, -d / 2, 0.15, L / 2 + 0.02, d / 2, 0.31)
+    nc = 2 if L > 1.4 else 1
+    cw = (L - 0.04 * (nc + 1)) / nc
+    for i in range(nc):
+        x0 = -L / 2 + 0.04 + i * (cw + 0.04)
+        F.box(mat, x0, -d / 2 + 0.16, 0.31, x0 + cw, d / 2 - 0.03, 0.455)
+        F.box(mat, x0 + 0.01, d / 2 - 0.055, 0.42, x0 + cw - 0.01,
+              d / 2 - 0.015, 0.47)          # piped front roll
+        F.box(mat, x0, -d / 2 + 0.10, 0.455, x0 + cw, -d / 2 + 0.30, 0.82)
+        F.box(mat, x0 + 0.015, -d / 2 + 0.08, 0.60, x0 + cw - 0.015,
+              -d / 2 + 0.115, 0.79)         # back piping line
+    for sx_ in (-1, 1):
+        F.box(mat, sx_ * L / 2 + (0.02 if sx_ > 0 else -0.18),
+              -d / 2, 0.15, sx_ * L / 2 + (0.18 if sx_ > 0 else -0.02),
+              d / 2, 0.62)
+    F.hull(-L / 2 - 0.18, -d / 2, 0.0, L / 2 + 0.18, d / 2, 0.8)
+
+
+def asm_chair(F, p):
+    """Viennese-cafe spirit: round seat, splayed legs, steamed hoop back."""
+    wood = p.get("mat", "wood_dark")
+    F.cyl(wood, 0, 0, 0.44, 0.478, 0.215, 0.215, 14)
+    F.lathe(wood, 0, 0, [(0.20, 0.415), (0.215, 0.44)], 14)  # seat rim
+    for fx, fy in ((-0.14, 0.12), (0.14, 0.12), (-0.14, -0.11),
+                   (0.14, -0.11)):
+        F.tbox(wood, (fx * 1.30, fy * 1.45, 0.0), (fx, fy, 0.44),
+               0.030, 0.030)
+    for s in (-1, 1):
+        F.tbox(wood, (s * 0.15, -0.155, 0.45), (s * 0.135, -0.205, 0.72),
+               0.028, 0.028)
+        F.tbox(wood, (s * 0.135, -0.205, 0.72), (s * 0.095, -0.225, 0.93),
+               0.026, 0.026)
+    F.tube(wood, (-0.095, -0.225, 0.93), (0.0, -0.245, 0.965), 0.015, 8)
+    F.tube(wood, (0.0, -0.245, 0.965), (0.095, -0.225, 0.93), 0.015, 8)
+    F.tube(wood, (-0.10, -0.205, 0.70), (0.0, -0.225, 0.725), 0.011, 8)
+    F.tube(wood, (0.0, -0.225, 0.725), (0.10, -0.205, 0.70), 0.011, 8)
+    F.hull(-0.22, -0.25, 0.0, 0.22, 0.22, 0.95)
+
+
+def asm_table_round(F, p):
+    """Pedestal-table spirit: one sculpted stem, no leg forest."""
+    top = p.get("mat", "floor_oak")
+    F.lathe("trim", 0, 0, [(0.27, 0.0), (0.24, 0.02), (0.075, 0.10),
+                           (0.042, 0.42), (0.05, 0.64), (0.11, 0.685)], 16)
+    F.lathe(top, 0, 0, [(0.50, 0.685), (0.55, 0.70), (0.55, 0.725),
+                        (0.50, 0.735), (0.001, 0.735)], 18)
+    F.hull(-0.55, -0.55, 0.0, 0.55, 0.55, 0.74)
+
+
+def asm_table_rect(F, p):
+    L, W = p.get("L", 1.20), p.get("W", 0.80)
+    wood = p.get("mat", "floor_oak")
+    F.box(wood, -L / 2, -W / 2, 0.70, L / 2, W / 2, 0.745)
+    F.box("wood_dark", -L / 2 + 0.07, -W / 2 + 0.07, 0.62, L / 2 - 0.07,
+          W / 2 - 0.07, 0.70)
+    for lx in (-L / 2 + 0.10, L / 2 - 0.10):
+        for ly in (-W / 2 + 0.10, W / 2 - 0.10):
+            F.lathe("wood_dark", lx, ly,
+                    [(0.034, 0.0), (0.026, 0.10), (0.040, 0.155),
+                     (0.024, 0.48), (0.032, 0.60), (0.038, 0.62)], 10)
+    F.hull(-L / 2, -W / 2, 0.0, L / 2, W / 2, 0.75)
+
+
+def asm_coffee(F, p):
+    """Biomorphic-studio spirit: elliptical glass over two keeled fins."""
+    F.tbox("wood_dark", (-0.30, -0.10, 0.0), (0.18, 0.13, 0.345),
+           0.30, 0.045)
+    F.tbox("wood_dark", (0.28, -0.07, 0.0), (-0.14, 0.15, 0.345),
+           0.26, 0.045)
+    F.cyl("glassish", 0, 0, 0.35, 0.365, 0.55, 0.55, 18, 0.62)
+    F.hull(-0.55, -0.36, 0.0, 0.55, 0.36, 0.37)
+
+
+def asm_nightstand(F, p):
+    wood = p.get("mat", "wood_dark")
+    F.box(wood, -0.225, -0.21, 0.12, 0.225, 0.21, 0.52)
+    F.box(wood, -0.20, 0.212, 0.30, 0.20, 0.225, 0.47)   # drawer face
+    F.cyl("brass", 0.0, 0.23, 0.385, 0.395, 0.016, 0.010, 8)
+    for lx, ly in ((-0.17, -0.15), (0.17, -0.15), (-0.17, 0.15),
+                   (0.17, 0.15)):
+        F.cyl(wood, lx, ly, 0.0, 0.12, 0.020, 0.014, 8)
+    F.hull(-0.23, -0.22, 0.0, 0.23, 0.23, 0.53)
+
+
+def asm_bed(F, p):
+    """Spool-bed spirit: turned posts, spindle head, deep bedding."""
+    W, L = p.get("W", 1.50), p.get("L", 2.05)
+    blanket = p.get("blanket", "fabric_warm")
+    post = [(0.034, 0.0), (0.026, 0.22), (0.042, 0.27), (0.028, 0.62),
+            (0.044, 0.70), (0.030, 0.86), (0.042, 0.92), (0.001, 0.99)]
+    foot = [(0.034, 0.0), (0.026, 0.20), (0.042, 0.25), (0.028, 0.44),
+            (0.040, 0.50), (0.001, 0.56)]
+    for sx_ in (-1, 1):
+        F.lathe("wood_dark", sx_ * (W / 2 - 0.05), -L / 2 + 0.05, post, 10)
+        F.lathe("wood_dark", sx_ * (W / 2 - 0.05), L / 2 - 0.05, foot, 10)
+        F.box("wood_dark", sx_ * (W / 2 - 0.03) - 0.012, -L / 2 + 0.05,
+              0.24, sx_ * (W / 2 - 0.03) + 0.012, L / 2 - 0.05, 0.33)
+    F.box("wood_dark", -W / 2 + 0.05, -L / 2 + 0.028, 0.78, W / 2 - 0.05,
+          -L / 2 + 0.072, 0.86)             # head rail
+    for i in range(5):
+        sxp = -W / 2 + 0.16 + i * (W - 0.32) / 4.0
+        F.cyl("wood_dark", sxp, -L / 2 + 0.05, 0.33, 0.78, 0.014, 0.014, 8)
+    F.box("wood_dark", -W / 2 + 0.05, L / 2 - 0.068, 0.40, W / 2 - 0.05,
+          L / 2 - 0.028, 0.47)              # foot rail
+    F.box("linen", -W / 2 + 0.06, -L / 2 + 0.08, 0.33, W / 2 - 0.06,
+          L / 2 - 0.08, 0.50)
+    F.box(blanket, -W / 2 + 0.035, -L / 2 + 0.68, 0.50, W / 2 - 0.035,
+          L / 2 - 0.045, 0.565)
+    F.box(blanket, -W / 2 + 0.035, -L / 2 + 0.68, 0.44, W / 2 - 0.035,
+          -L / 2 + 0.80, 0.575)             # folded turnback
+    for sx_ in (-1, 1):
+        F.lathe("paper", sx_ * 0.30, -L / 2 + 0.33,
+                [(0.001, 0.50), (0.19, 0.525), (0.21, 0.56), (0.14, 0.60),
+                 (0.001, 0.615)], 10, 1.55)
+    F.hull(-W / 2, -L / 2, 0.0, W / 2, L / 2, 0.9)
+
+
+def asm_wardrobe(F, p):
+    """Armoire spirit: plinth, framed doors, cornice, turned knobs."""
+    W, d = p.get("W", 1.30), 0.62
+    F.box("wood_dark", -W / 2, -d / 2, 0.0, W / 2, d / 2, 0.07)
+    F.box("wood_dark", -W / 2 + 0.02, -d / 2 + 0.02, 0.07, W / 2 - 0.02,
+          d / 2 - 0.03, 1.86)
+    F.box("wood_dark", -W / 2 - 0.03, -d / 2 - 0.01, 1.86, W / 2 + 0.03,
+          d / 2 + 0.03, 1.91)
+    F.box("wood_dark", -W / 2 - 0.015, -d / 2, 1.91, W / 2 + 0.015,
+          d / 2 + 0.015, 1.945)
+    for sx_ in (-1, 1):
+        x0 = 0.012 if sx_ > 0 else -W / 2 + 0.035
+        x1 = W / 2 - 0.035 if sx_ > 0 else -0.012
+        F.box("wood_dark", x0, d / 2 - 0.03, 0.10, x1, d / 2 - 0.005, 1.82)
+        F.box("floor_oak", x0 + 0.05, d / 2 - 0.012, 0.22, x1 - 0.05,
+              d / 2 + 0.002, 1.68)          # raised door panel
+        F.lathe("brass", sx_ * 0.075, d / 2 + 0.012,
+                [(0.006, 0.92), (0.016, 0.945), (0.010, 0.97)], 8)
+    F.hull(-W / 2 - 0.03, -d / 2, 0.0, W / 2 + 0.03, d / 2 + 0.03, 1.95)
+
+
+def asm_shelf(F, p):
+    """Wall-system spirit: slim steel ladders carrying oak boards."""
+    W, d, books = p.get("W", 1.10), 0.30, p.get("books", True)
+    h = p.get("H", 1.88)
+    for sx_ in (-1, 1):
+        for fy in (-d / 2 + 0.02, d / 2 - 0.02):
+            F.cyl("metal", sx_ * (W / 2 - 0.02), fy, 0.0, h, 0.013,
+                  0.013, 8)
+    boards = [0.06, 0.50, 0.94, 1.38, h - 0.06]
+    for bz in boards:
+        F.box("floor_oak", -W / 2, -d / 2, bz, W / 2, d / 2, bz + 0.032)
+    seed = p.get("id", "shelf")
+    for i, bz in enumerate(boards[:-1]):
+        if not books:
+            if i < 2:
+                F.box("trim", -W / 2 + 0.06, -d / 2 + 0.04, bz + 0.032,
+                      -W / 2 + 0.42, d / 2 - 0.04, bz + 0.26)
+                F.box("metal", W / 2 - 0.40, -d / 2 + 0.05, bz + 0.032,
+                      W / 2 - 0.06, d / 2 - 0.05, bz + 0.22)
+            continue
+        run = _jit(seed, i, 0.45, 0.8) * W
+        x = -W / 2 + 0.05
+        k = 0
+        while x + 0.05 < -W / 2 + run:
+            bw = _jit(seed, i * 7 + k, 0.025, 0.055)
+            bh = _jit(seed, i * 13 + k, 0.20, 0.31)
+            bm = ("paper", "fabric_cool", "fabric_warm", "rug_green",
+                  "wood_dark")[(i + k + len(seed)) % 5]
+            F.box(bm, x, -d / 2 + 0.05, bz + 0.032, x + bw, d / 2 - 0.06,
+                  bz + 0.032 + bh)
+            x += bw + 0.004
+            k += 1
+        F.tbox("paper", (x + 0.10, 0.0, bz + 0.032),
+               (x + 0.015, 0.0, bz + 0.30), 0.19, 0.03)  # the leaner
+    F.hull(-W / 2, -d / 2, 0.0, W / 2, d / 2, h)
+
+
+def asm_tv(F, p):
+    F.box("wood_dark", -0.625, -0.20, 0.30, 0.625, 0.20, 0.36)
+    F.box("wood_dark", -0.55, -0.17, 0.12, 0.55, 0.17, 0.15)
+    for lx, ly in ((-0.52, -0.14), (0.52, -0.14), (-0.52, 0.14),
+                   (0.52, 0.14)):
+        F.tbox("wood_dark", (lx * 1.12, ly * 1.3, 0.0), (lx, ly, 0.30),
+               0.026, 0.026)
+    F.box("screen", -0.52, -0.03, 0.42, 0.52, 0.015, 1.04)
+    F.box("soot", -0.46, 0.015, 0.48, 0.46, 0.05, 0.98)
+    F.tbox("metal", (0.0, -0.01, 0.36), (0.0, -0.01, 0.44), 0.16, 0.03)
+    F.hull(-0.63, -0.21, 0.0, 0.63, 0.21, 1.05)
+
+
+def asm_plant(F, p):
+    big = p.get("big", False)
+    s = 1.35 if big else 1.0
+    F.lathe("ceramic", 0, 0, [(0.10 * s, 0.0), (0.145 * s, 0.03),
+                              (0.17 * s, 0.30 * s), (0.15 * s, 0.335 * s)],
+            12)
+    F.cyl("soot", 0, 0, 0.30 * s, 0.315 * s, 0.145 * s, 0.145 * s, 10)
+    F.cyl("plant", 0, 0, 0.30 * s, 0.62 * s, 0.016, 0.012, 6)
+    seed = p.get("id", "plant")
+    for i, (r, z) in enumerate(((0.24, 0.62), (0.19, 0.80), (0.12, 0.94))):
+        F.lathe("plant", _jit(seed, i, -0.05, 0.05),
+                _jit(seed, i + 3, -0.05, 0.05),
+                [(0.001, z * s - 0.10 * s), (r * s, z * s),
+                 (0.001, z * s + 0.10 * s)], 8, _jit(seed, i + 6, 0.8, 1.2))
+    F.hull(-0.18 * s, -0.18 * s, 0.0, 0.18 * s, 0.18 * s, 0.95 * s)
+
+
+def asm_kitchen(F, p):
+    """Frankfurt-kitchen spirit: flat fronts, groove pulls, real sink."""
+    L = p.get("L", 2.5)
+    cw = L - 0.75
+    # carcass centered on the origin
+    F.box("soot", -cw / 2 + 0.02, -0.28, 0.0, -cw / 2 + cw - 0.02, 0.26, 0.07)
+    F.box("trim", -cw / 2, -0.30, 0.07, -cw / 2 + cw, 0.28, 0.86)
+    F.box("linen", -cw / 2 - 0.015, -0.315, 0.86, -cw / 2 + cw + 0.015,
+          0.315, 0.895)                     # counter overhang
+    F.box("linen", -cw / 2 - 0.015, -0.315, 0.895, -cw / 2 + cw + 0.015,
+          -0.27, 0.97)                      # backsplash lip
+    nd = max(2, int(cw / 0.45))
+    dw = (cw - 0.02 * (nd + 1)) / nd
+    for i in range(nd):
+        x0 = -cw / 2 + 0.02 + i * (dw + 0.02)
+        F.box("trim", x0, 0.281, 0.10, x0 + dw, 0.301, 0.80)
+        F.box("soot", x0 + 0.02, 0.283, 0.74, x0 + dw - 0.02, 0.303, 0.775)
+    sx0 = -cw / 2 + cw * 0.30
+    F.box("appliance", sx0 - 0.26, -0.24, 0.895, sx0 + 0.26, 0.16, 0.912)
+    F.box("soot", sx0 - 0.22, -0.20, 0.896, sx0 + 0.22, 0.12, 0.913)
+    F.tube("chrome", (sx0, -0.245, 0.912), (sx0, -0.245, 1.10), 0.014, 8)
+    F.tube("chrome", (sx0, -0.245, 1.10), (sx0, -0.05, 1.06), 0.013, 8)
+    for tx in (-0.12, 0.12):
+        F.tube("chrome", (sx0 + tx, -0.24, 0.912),
+               (sx0 + tx, -0.24, 0.965), 0.010, 8)
+        F.tube("chrome", (sx0 + tx - 0.03, -0.24, 0.965),
+               (sx0 + tx + 0.03, -0.24, 0.965), 0.008, 6)
+    F.box("trim", -cw / 2, -0.30, 1.46, -cw / 2 + cw, 0.05, 2.16)
+    for i in range(nd):
+        x0 = -cw / 2 + 0.02 + i * (dw + 0.02)
+        F.box("trim", x0, 0.051, 1.50, x0 + dw, 0.071, 2.12)
+        F.box("soot", x0 + 0.02, 0.053, 1.52, x0 + dw - 0.02, 0.073, 1.555)
+    F.hull(-cw / 2, -0.32, 0.0, -cw / 2 + cw, 0.32, 0.92)
+
+
+def asm_stove(F, p):
+    """1940s enamel-range spirit: clock panel, towel-rail door, knob row."""
+    F.box("enamel", -0.31, -0.30, 0.06, 0.31, 0.30, 0.86)
+    for fx, fy in ((-0.27, -0.26), (0.27, -0.26), (-0.27, 0.26),
+                   (0.27, 0.26)):
+        F.cyl("metal", fx, fy, 0.0, 0.06, 0.024, 0.030, 8)
+    F.box("appliance", -0.31, -0.30, 0.86, 0.31, 0.30, 0.895)
+    for bx, by in ((-0.15, -0.12), (0.15, -0.12), (-0.15, 0.14),
+                   (0.15, 0.14)):
+        F.cyl("soot", bx, by, 0.895, 0.905, 0.085, 0.085, 12)
+        F.lathe("metal", bx, by, [(0.088, 0.905), (0.095, 0.915),
+                                  (0.088, 0.92)], 12)
+    F.box("enamel", -0.31, 0.24, 0.895, 0.31, 0.30, 1.24)
+    F.cyl("appliance", 0.0, 0.268, 1.06, 1.075, 0.065, 0.065, 12)
+    F.lathe("brass", 0.0, 0.268, [(0.068, 1.055), (0.072, 1.075),
+                                  (0.065, 1.08)], 12)
+    for kx in (-0.24, -0.12, 0.0, 0.12, 0.24):
+        F.lathe("bakelite", kx, -0.315,
+                [(0.010, 0.80), (0.022, 0.82), (0.016, 0.835)], 8)
+    F.box("enamel", -0.27, -0.325, 0.18, 0.27, -0.30, 0.72)
+    F.box("soot", -0.19, -0.327, 0.42, 0.19, -0.315, 0.62)
+    F.tube("chrome", (-0.24, -0.36, 0.70), (0.24, -0.36, 0.70), 0.013, 8)
+    for hx in (-0.22, 0.22):
+        F.tbox("chrome", (hx, -0.325, 0.685), (hx, -0.36, 0.70),
+               0.022, 0.014)
+    F.hull(-0.31, -0.36, 0.0, 0.31, 0.30, 1.24)
+
+
+def asm_fridge50(F, p):
+    """Rounded-shoulder 1950s refrigerator spirit, latch and badge."""
+    F.box("soot", -0.30, -0.29, 0.0, 0.30, 0.29, 0.06)
+    F.box("appliance", -0.33, -0.32, 0.06, 0.33, 0.32, 1.52)
+    F.box("appliance", -0.315, -0.305, 1.52, 0.315, 0.305, 1.60)
+    F.box("appliance", -0.285, -0.275, 1.60, 0.285, 0.275, 1.66)
+    F.box("appliance", -0.23, -0.22, 1.66, 0.23, 0.22, 1.70)
+    F.box("appliance", -0.31, 0.321, 0.10, 0.31, 0.345, 1.50)
+    F.box("appliance", -0.28, 0.345, 0.14, 0.28, 0.357, 1.46)
+    F.tube("chrome", (0.24, 0.395, 0.72), (0.24, 0.395, 1.18), 0.016, 10)
+    for hz in (0.74, 1.16):
+        F.tbox("chrome", (0.24, 0.357, hz), (0.24, 0.40, hz), 0.03, 0.02)
+    F.box("chrome", 0.20, 0.35, 0.93, 0.28, 0.40, 0.99)
+    F.box("brass", -0.09, 0.357, 1.30, 0.09, 0.363, 1.36)
+    for hz in (0.22, 1.34):
+        F.cyl("chrome", -0.315, 0.335, hz, hz + 0.05, 0.018, 0.018, 8)
+    F.hull(-0.33, -0.32, 0.0, 0.33, 0.40, 1.70)
+
+
+def asm_desk(F, p):
+    """Mid-century writing desk: floating top, splayed legs, one drawer."""
+    L = p.get("L", 1.40)
+    wood, top = "wood_dark", p.get("mat", "floor_oak")
+    F.box(top, -L / 2, -0.325, 0.70, L / 2, 0.325, 0.735)
+    F.box(wood, -L / 2 + 0.06, -0.28, 0.585, L / 2 - 0.06, 0.28, 0.70)
+    F.box(wood, -L / 2 + 0.09, 0.281, 0.60, -0.02, 0.295, 0.685)
+    F.box("soot", -L / 2 + 0.13, 0.296, 0.635, -0.06, 0.30, 0.655)
+    for lx in (-L / 2 + 0.10, L / 2 - 0.10):
+        for ly, splay in ((-0.26, -1), (0.26, 1)):
+            F.tbox(wood, (lx * 1.10, ly + splay * 0.05, 0.0),
+                   (lx, ly, 0.585), 0.034, 0.034)
+        F.tbox(wood, (lx, -0.20, 0.16), (lx, 0.20, 0.16), 0.028, 0.028)
+    F.hull(-L / 2, -0.33, 0.0, L / 2, 0.33, 0.74)
+
+
+def asm_plantable(F, p):
+    """Drafting-room spirit: trestle table heaped with contradicting plans."""
+    F.box("floor_oak", -1.0, -0.6, 0.76, 1.0, 0.6, 0.80)
+    for tx in (-0.72, 0.72):
+        for ly in (-0.52, 0.52):
+            F.tbox("wood_dark", (tx + (0.14 if tx < 0 else -0.14),
+                                 ly * 0.45, 0.0), (tx, ly, 0.76),
+                   0.05, 0.05)
+        F.tbox("wood_dark", (tx, -0.52, 0.60), (tx, 0.52, 0.60),
+               0.045, 0.045)
+        F.tbox("wood_dark", (tx, 0.0, 0.0), (tx, 0.0, 0.60), 0.05, 0.05)
+    F.tbox("wood_dark", (-0.72, 0.0, 0.28), (0.72, 0.0, 0.28), 0.05, 0.04)
+    seed = p.get("id", "plans")
+    for i in range(6):
+        px = _jit(seed, i, -0.7, 0.45)
+        py = _jit(seed, i + 11, -0.4, 0.15)
+        F.box("paper", px, py, 0.80 + i * 0.0035,
+              px + _jit(seed, i + 5, 0.45, 0.75),
+              py + _jit(seed, i + 7, 0.3, 0.5), 0.803 + i * 0.0035)
+    F.tube("paper", (0.75, -0.45, 0.80), (0.75, -0.45, 0.83), 0.04, 8)
+    F.tube("paper", (0.82, -0.38, 0.80), (0.82, -0.38, 0.86), 0.035, 8)
+    F.hull(-1.0, -0.6, 0.0, 1.0, 0.6, 0.81)
+
+
+def asm_workbench(F, p):
+    """Machinist-bench spirit: angle-steel legs, butcher top, side vise."""
+    F.box("floor_oak", -1.1, -0.4, 0.85, 1.1, 0.4, 0.91)
+    for lx in (-1.0, 1.0):
+        for ly in (-0.32, 0.32):
+            F.tbox("metal", (lx, ly, 0.0), (lx, ly, 0.85), 0.05, 0.012)
+            F.tbox("metal", (lx + (0.012 if lx < 0 else -0.012), ly, 0.0),
+                   (lx + (0.012 if lx < 0 else -0.012), ly, 0.85),
+                   0.012, 0.05)
+    F.box("metal", -1.02, -0.34, 0.22, 1.02, 0.34, 0.25)
+    F.box("metal", -0.55, -0.36, 0.60, 0.05, 0.36, 0.82)
+    F.box("metal", -0.52, 0.361, 0.63, 0.02, 0.375, 0.79)
+    F.tube("metal", (-0.36, 0.39, 0.71), (-0.14, 0.39, 0.71), 0.010, 8)
+    F.box("metal", 0.92, 0.40, 0.78, 1.1, 0.56, 0.91)
+    F.tube("chrome", (1.01, 0.56, 0.845), (1.01, 0.64, 0.845), 0.014, 8)
+    F.tube("metal", (0.95, 0.64, 0.845), (1.07, 0.64, 0.845), 0.010, 8)
+    F.hull(-1.1, -0.4, 0.0, 1.1, 0.56, 0.92)
+
+
+def asm_toilet(F, p):
+    """Close-coupled porcelain: lathe bowl, seat, tank against the wall."""
+    F.lathe("porcelain", 0, 0.06, [(0.145, 0.0), (0.105, 0.05),
+                                   (0.125, 0.16), (0.19, 0.30),
+                                   (0.185, 0.40)], 12, 0.85)
+    F.lathe("porcelain", 0, 0.06, [(0.185, 0.40), (0.195, 0.415),
+                                   (0.17, 0.425)], 12, 0.85)
+    F.lathe("trim", 0, 0.06, [(0.17, 0.425), (0.178, 0.45),
+                              (0.001, 0.46)], 12, 0.85)
+    F.box("porcelain", -0.19, -0.34, 0.30, 0.19, -0.13, 0.72)
+    F.box("porcelain", -0.20, -0.35, 0.72, 0.20, -0.12, 0.77)
+    F.cyl("chrome", 0.0, -0.235, 0.77, 0.782, 0.028, 0.028, 10)
+    F.hull(-0.20, -0.35, 0.0, 0.20, 0.30, 0.78)
+
+
+def asm_sink_ped(F, p):
+    """Pedestal lavatory: flared basin on a slender column, cross taps."""
+    F.lathe("porcelain", 0, 0, [(0.10, 0.0), (0.065, 0.05), (0.052, 0.55),
+                                (0.08, 0.66)], 12)
+    F.lathe("porcelain", 0, 0.02, [(0.05, 0.66), (0.225, 0.76),
+                                   (0.245, 0.80), (0.215, 0.815),
+                                   (0.10, 0.79)], 14, 0.9)
+    F.tube("chrome", (0.0, -0.16, 0.815), (0.0, -0.16, 0.90), 0.011, 8)
+    F.tube("chrome", (0.0, -0.16, 0.90), (0.0, -0.045, 0.875), 0.010, 8)
+    for tx in (-0.09, 0.09):
+        F.tube("chrome", (tx, -0.17, 0.815), (tx, -0.17, 0.855), 0.009, 8)
+        F.tube("chrome", (tx - 0.028, -0.17, 0.855),
+               (tx + 0.028, -0.17, 0.855), 0.007, 6)
+        F.tube("chrome", (tx, -0.198, 0.855), (tx, -0.142, 0.855),
+               0.007, 6)
+    F.box("glassish", -0.22, -0.245, 1.05, 0.22, -0.235, 1.55)
+    F.box("trim", -0.24, -0.248, 1.03, 0.24, -0.232, 1.05)
+    F.box("trim", -0.24, -0.248, 1.55, 0.24, -0.232, 1.57)
+    F.hull(-0.24, -0.22, 0.0, 0.24, 0.22, 0.82)
+
+
+def asm_shower(F, p):
+    """Tray, half-drawn curtain on a chrome rail, wall head."""
+    F.box("porcelain", -0.40, -0.40, 0.0, 0.40, 0.40, 0.12)
+    F.box("soot", -0.34, -0.34, 0.045, 0.34, 0.34, 0.125)
+    F.tube("chrome", (-0.40, -0.40, 1.88), (0.40, -0.40, 1.88), 0.012, 8)
+    F.tube("chrome", (0.40, -0.40, 1.88), (0.40, 0.40, 1.88), 0.012, 8)
+    F.box("linen", -0.40, -0.415, 0.14, 0.05, -0.395, 1.87)
+    F.box("linen", 0.02, -0.408, 0.30, 0.10, -0.402, 1.87)
+    F.tube("chrome", (-0.28, 0.38, 1.70), (-0.16, 0.30, 1.78), 0.012, 8)
+    F.lathe("chrome", -0.16, 0.30, [(0.012, 1.70), (0.055, 1.76),
+                                    (0.06, 1.78)], 10)
+    F.lathe("chrome", -0.05, 0.36, [(0.03, 0.98), (0.038, 1.0),
+                                    (0.012, 1.02)], 8)
+    F.hull(-0.40, -0.40, 0.0, 0.40, 0.40, 0.13)
+
+
+def asm_switch(F, p):
+    """Bakelite toggle on a two-step molded plate; the smallest identity."""
+    F.box("trim", -0.044, 0.0, -0.066, 0.044, 0.007, 0.066)
+    F.box("trim", -0.030, 0.007, -0.048, 0.030, 0.0125, 0.048)
+    F.box("bakelite", -0.017, 0.0125, -0.028, 0.017, 0.016, 0.028)
+    F.tbox("bakelite", (0.0, 0.014, -0.004), (0.0, 0.034, 0.020),
+           0.011, 0.011)
+    for sz in (-0.054, 0.054):
+        F.box("chrome", -0.0035, 0.007, sz - 0.0035, 0.0035, 0.0095,
+              sz + 0.0035)
+
+
+def asm_pipe(F, p):
+    F.g(p.get("mat", "metal")).add_tube(tuple(p["p0"]), tuple(p["p1"]),
+                                        p.get("r", 0.045), 10)
+
+
+def asm_bench(F, p):
+    """Hall settle: slat seat, turned legs, spindle back."""
+    L = p.get("L", 1.5)
+    for i in range(3):
+        F.box("wood_dark", -L / 2, -0.20 + i * 0.145, 0.44, L / 2,
+              -0.085 + i * 0.145, 0.475)
+    for lx in (-L / 2 + 0.08, L / 2 - 0.08):
+        for ly in (-0.16, 0.16):
+            F.lathe("wood_dark", lx, ly, [(0.028, 0.0), (0.022, 0.14),
+                                          (0.034, 0.20), (0.024, 0.44)], 8)
+    F.box("wood_dark", -L / 2, -0.235, 0.86, L / 2, -0.19, 0.92)
+    for i in range(7):
+        sxp = -L / 2 + 0.10 + i * (L - 0.20) / 6.0
+        F.cyl("wood_dark", sxp, -0.21, 0.475, 0.86, 0.012, 0.012, 8)
+    F.hull(-L / 2, -0.24, 0.0, L / 2, 0.24, 0.93)
+
+
+def asm_mailbank(F, p):
+    """Brass pigeon bank: 4x5 doors, label slots, one hanging open."""
+    F.box("wood_dark", -0.80, -0.02, 0.30, 0.80, 0.13, 1.72)
+    for r in range(4):
+        for c in range(5):
+            x0 = -0.72 + c * 0.29
+            z0 = 0.42 + r * 0.30
+            F.box("brass", x0, 0.13, z0, x0 + 0.25, 0.145, z0 + 0.24)
+            F.box("paper", x0 + 0.05, 0.145, z0 + 0.145, x0 + 0.20,
+                  0.149, z0 + 0.185)
+            F.cyl("bakelite", x0 + 0.21, 0.152, z0 + 0.06, z0 + 0.075,
+                  0.012, 0.008, 6)
+    F.tbox("brass", (-0.72 + 2 * 0.29, 0.13, 0.42 + 0.30),
+           (-0.72 + 2 * 0.29 + 0.20, 0.28, 0.42 + 0.24), 0.24, 0.012)
+    F.hull(-0.80, -0.02, 0.30, 0.80, 0.16, 1.72)
+
+
+ASM = {
+    "sofa": asm_sofa, "chair": asm_chair, "table_round": asm_table_round,
+    "table_rect": asm_table_rect, "coffee": asm_coffee,
+    "nightstand": asm_nightstand, "bed": asm_bed, "wardrobe": asm_wardrobe,
+    "shelf": asm_shelf, "tv": asm_tv, "plant": asm_plant,
+    "kitchen": asm_kitchen, "stove": asm_stove, "fridge50": asm_fridge50,
+    "desk": asm_desk, "plantable": asm_plantable,
+    "workbench": asm_workbench, "toilet": asm_toilet,
+    "sink_ped": asm_sink_ped, "shower": asm_shower, "switch": asm_switch,
+    "pipe": asm_pipe, "bench": asm_bench, "mailbank": asm_mailbank,
+}
+
+
 def subtract_rect(rects, hole):
     """Axis-aligned rectangle subtraction (for slab holes)."""
     hx0, hy0, hx1, hy1 = hole
@@ -134,10 +795,12 @@ def subtract_rect(rects, hole):
     return out
 
 
-def build_wall(buf, w, trim_buf=None, glass_buf=None):
+def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None):
     """Wall run with openings, thickness centered on the a->b line.
     Door openings get jamb/head trim; windows get a frame, sill lip and a
-    collidable glass pane (so openings stop being holes to fall through).
+    collidable glass pane. Detail pass (unless details=False): baseboards
+    and a top cornice on both faces, plus a wainscot band with dado cap on
+    walls flagged wainscot (corridors, cores, stairwell).
     """
     ax, ay = w["a"]
     bx, by = w["b"]
@@ -158,8 +821,22 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None):
     def seg_box(d0, d1, z0, z1):
         box(buf, d0, d1, z0, z1, t)
 
+    details = w.get("details", True) and h > 2.0 and trim_buf is not None
+    wains = w.get("wainscot", False) and wains_buf is not None
+
+    def detail_seg(d0, d1):
+        """Baseboard/cornice/wainscot on a stretch of wall between doors."""
+        if d1 - d0 < 0.05 or not details:
+            return
+        box(trim_buf, d0, d1, 0.0, 0.11, t + 0.036)
+        box(trim_buf, d0, d1, h - 0.07, h, t + 0.030)
+        if wains:
+            box(wains_buf, d0, d1, 0.11, 1.32, t + 0.022)
+            box(trim_buf, d0, d1, 1.32, 1.36, t + 0.040)
+
     openings = sorted(w["openings"], key=lambda o: o["at"])
     cursor = 0.0
+    d_cursor = 0.0
     for o in openings:
         d0 = max(o["at"] - o["w"] / 2, 0.0)
         d1 = min(o["at"] + o["w"] / 2, length)
@@ -170,6 +847,9 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None):
             seg_box(d0, d1, top, h)
         if o["sill"] > 0.0:               # window sill wall
             seg_box(d0, d1, 0.0, o["sill"])
+        if o["type"] == "door" or o["sill"] <= 0.0:
+            detail_seg(d_cursor, d0)      # skirting stops at door reveals
+            d_cursor = d1
         if trim_buf is not None:
             ft = t + 0.04
             if o["type"] == "door":
@@ -188,6 +868,143 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None):
         cursor = d1
     if cursor < length:
         seg_box(cursor, length, 0.0, h)
+    detail_seg(d_cursor, length)
+
+
+# room kind -> floor finish overlay (material, thickness). Nested rooms
+# (bathrooms, D offices) get a slightly thicker overlay so surfaces stack
+# instead of z-fighting the host room's boards.
+KIND_FLOOR = {
+    "corridor": ("terrazzo", 0.012), "hall": ("terrazzo", 0.012),
+    "living": ("floor_oak", 0.012), "bedroom": ("floor_oak", 0.012),
+    "alcove": ("floor_oak", 0.012), "kitchen": ("floor_oak", 0.012),
+    "closet": ("floor_oak", 0.012), "vestibule": ("floor_oak", 0.012),
+    "common": ("floor_oak", 0.012),
+    "office": ("floor_oak", 0.016),
+    "bathroom": ("ceramic", 0.020),
+}
+
+
+def build_floor_overlay(buf, fid, fl, r):
+    spec = KIND_FLOOR.get(r["kind"])
+    if spec is None:
+        return
+    mat, th = spec
+    z = fl["z"]
+    rects = [tuple(r["rect"])]
+    if r["kind"] == "corridor":  # ring only: the whole core column is
+        rects = subtract_rect(rects, (-3.43, -6.93, 3.43, 6.93))
+        for hole in fl["slabs"][0]["holes"]:  # handled by its own rooms
+            rects = subtract_rect(rects, tuple(hole))
+    elif r["kind"] == "hall":    # keep clear of the elevator shaft pit
+        for hole in fl["slabs"][0]["holes"]:
+            rects = subtract_rect(rects, tuple(hole))
+    for (x0, y0, x1, y1) in rects:
+        buf(fid, "floors_%s" % mat, mat).add_box((x0, y0, z),
+                                                 (x1, y1, z + th))
+
+
+def _rail_line(buf, fid, gx0, gx1, yc, z):
+    """Level balustrade along X: handrail, newels, balusters + fall guard."""
+    rail = buf(fid, "stairs_rail", "handrail_wood")
+    bal = buf(fid, "stairs_bal", "baluster")
+    guard = buf(fid, "stairs_guard-colonly", "stair")
+    rail.add_box((gx0 - 0.06, yc - 0.045, z + 0.86),
+                 (gx1 + 0.06, yc + 0.045, z + 0.96))
+    rail.add_box((gx0 - 0.13, yc - 0.06, z), (gx0 - 0.02, yc + 0.06, z + 1.02))
+    rail.add_box((gx1 + 0.02, yc - 0.06, z), (gx1 + 0.13, yc + 0.06, z + 1.02))
+    k = max(4, int((gx1 - gx0) / 0.16))
+    for j in range(k):
+        xj = gx0 + (j + 0.5) * (gx1 - gx0) / k
+        bal.add_box((xj - 0.018, yc - 0.018, z), (xj + 0.018, yc + 0.018,
+                                                  z + 0.86))
+    guard.add_box((gx0 - 0.13, yc - 0.03, z), (gx1 + 0.13, yc + 0.03, z + 1.0))
+
+
+def _flight(buf, part):
+    """One dog-leg flight along Y: solid treads, walk ramp, raked
+    balustrade on the well side, wall rail on the other, fall guard."""
+    fid = floor_for_z(part["z0"] + 0.01)
+    vis = buf(fid, "stairs", "stair")
+    ramp = buf(fid, "stairs_ramp-colonly", "stair")
+    rail = buf(fid, "stairs_rail", "handrail_wood")
+    bal = buf(fid, "stairs_bal", "baluster")
+    guard = buf(fid, "stairs_guard-colonly", "stair")
+    n, rise, tread = part["n"], part["rise"], part["tread"]
+    s, d = part["start"], part["dir"]
+    b0, b1, z0 = part["b0"], part["b1"], part["z0"]
+    for i in range(1, n):
+        a0 = s + d * (i - 1) * tread
+        a1 = s + d * i * tread
+        vis.add_box((b0, min(a0, a1), z0), (b1, max(a0, a1), z0 + i * rise))
+    a_end = s + d * (n - 1) * tread
+    ramp.add_ramp(s, z0, a_end, z0 + n * rise, b0, b1, axis="y")
+    xr = b1 - 0.045 if part["rail_side"] == "hi" else b0 + 0.045
+    xw = b0 + 0.055 if part["rail_side"] == "hi" else b1 - 0.055
+    for i in range(1, n):
+        am = s + d * (i - 0.5) * tread
+        bal.add_box((xr - 0.02, am - 0.02, z0 + i * rise),
+                    (xr + 0.02, am + 0.02, z0 + i * rise + 0.84))
+    rail.add_ramp(s, z0 + 0.92, a_end, z0 + n * rise + 0.92,
+                  xr - 0.045, xr + 0.045, thickness=0.07, axis="y")
+    rail.add_ramp(s, z0 + 0.87, a_end, z0 + n * rise + 0.87,
+                  xw - 0.032, xw + 0.032, thickness=0.05, axis="y")
+    guard.add_ramp(s, z0 + 0.95, a_end, z0 + n * rise + 0.95,
+                   xr - 0.03, xr + 0.03, thickness=0.95, axis="y")
+    na = s + d * 0.02  # base newel; the landing/floor rails own the tops
+    rail.add_box((xr - 0.055, min(na, na + d * 0.11), z0),
+                 (xr + 0.055, max(na, na + d * 0.11), z0 + 1.04))
+
+
+def build_stair(buf, st):
+    for part in st["parts"]:
+        if part["kind"] == "flight":
+            _flight(buf, part)
+        elif part["kind"] == "landing":
+            # decks (floor-level arrivals) carry no guard fields; the
+            # per-level eye guard below covers their open edge
+            is_deck = "guard_span" not in part
+            fid = floor_for_z(part["z"] + (0.01 if is_deck else -0.5))
+            r = part["rect"]
+            for b in (buf(fid, "stairs", "stair"),
+                      buf(fid, "stairs_ramp-colonly", "stair")):
+                b.add_box((r[0], r[1], part["z"] - 0.18),
+                          (r[2], r[3], part["z"]))
+            if not is_deck:
+                gx0, gx1 = part["guard_span"]
+                yc = r[1] + 0.055 if part["guard_edge"] == "s" \
+                        else r[3] - 0.055
+                _rail_line(buf, fid, gx0, gx1, yc, part["z"])
+    # the open well's eye gets a guard at every floor it passes
+    inward = -1 if st["entry_side"] == "s" else 1
+    yc = st["entry_y"] + inward * 0.055
+    gx0, gx1 = st["gap_span"]
+    for name, z in st["levels"][1:]:
+        _rail_line(buf, name, gx0, gx1, yc, z)
+
+
+def build_facade_details(buf):
+    """Roof cornice band and the street entry portal."""
+    cor = buf("F06", "cornice", "concrete")
+    zc = 18.86
+    cor.add_box((-14.12, -10.12, zc), (14.12, -9.70, zc + 0.38))
+    cor.add_box((-14.12, 9.70, zc), (14.12, 10.12, zc + 0.38))
+    cor.add_box((-14.12, -10.12, zc), (-13.70, 10.12, zc + 0.38))
+    cor.add_box((13.70, -10.12, zc), (14.12, 10.12, zc + 0.38))
+    por = buf("F01", "portal", "concrete")
+    por.add_box((-1.05, -10.04, 0.0), (-0.70, -9.80, 2.60))
+    por.add_box((0.70, -10.04, 0.0), (1.05, -9.80, 2.60))
+    por.add_box((-1.15, -10.08, 2.60), (1.15, -9.78, 3.05))
+    # skylight cap over the atrium monitor: glass on steel ribs
+    sky = buf("ROOF", "skylight-col", "glassish")
+    sky.add_box((-3.40, -3.40, 21.77), (3.40, 3.40, 21.81))
+    rib = buf("ROOF", "skyribs", "metal")
+    for rx in (-2.2, 0.0, 2.2):
+        rib.add_box((rx - 0.035, -3.40, 21.73), (rx + 0.035, 3.40, 21.77))
+    rib.add_box((-3.46, -3.46, 21.70), (3.46, -3.34, 21.83))
+    rib.add_box((-3.46, 3.34, 21.70), (3.46, 3.46, 21.83))
+    rib.add_box((-3.46, -3.46, 21.70), (-3.34, 3.46, 21.83))
+    rib.add_box((3.34, -3.46, 21.70), (3.46, 3.46, 21.83))
 
 
 def floor_for_z(z):
@@ -235,11 +1052,28 @@ def build():
                    "concrete": "walls_conc-col"}.get(w["mat"], "walls-col")
             build_wall(buf(fid, cat, w["mat"]), w,
                        buf(fid, "trim", "trim"),
-                       buf(fid, "glazing-col", "glassish"))
+                       buf(fid, "glazing-col", "glassish"),
+                       buf(fid, "wainscot", "wainscot"))
+        for r in fl["rooms"]:
+            build_floor_overlay(buf, fid, fl, r)
         for fu in fl.get("furniture", []):
+            if "asm" in fu:
+                fn = ASM.get(fu["asm"])
+                if fn is None:
+                    continue
+                F = Frame(
+                    lambda m, _f=fid: buf(_f, "furnish_%s" % m, m),
+                    lambda _f=fid: buf(_f, "furniture_hull-colonly", "slab"),
+                    fu["at"][0], fu["at"][1],
+                    fl["z"] + fu.get("z0", 0.0), fu.get("yaw", 0))
+                fn(F, fu)
+                continue
             r = fu["rect"]
             z0 = fl["z"] + fu.get("z0", 0.0)
-            buf(fid, "furniture-col", fu.get("mat", "trim")).add_box(
+            fmat = fu.get("mat", "trim")
+            # one buffer per material: a shared buffer would weld every
+            # piece on the floor into the first item's material
+            buf(fid, "furniture_%s-col" % fmat, fmat).add_box(
                 (r[0], r[1], z0), (r[2], r[3], z0 + fu["h"]))
         for m in fl["markers"]:
             e = bpy.data.objects.new("MK_%s" % m["id"], None)
@@ -247,45 +1081,11 @@ def build():
             e.location = (m["pos"][0], m["pos"][1], m["pos"][2])
             col.objects.link(e)
 
-    # stairs: visible steps + invisible walk ramps, filed under lower floor
+    # stairs: dog-leg flights along Y with balustrades, handrails and
+    # invisible walk ramps / fall guards, filed under the lower floor
     for st in LAYOUT["stairs"]:
-        wx0, wy0, wx1, wy1 = st["well"]
-        pair = []
-        for part in st["parts"]:
-            if part["kind"] == "flight":
-                fid = floor_for_z(part["z0"] + 0.01)
-                vis = buf(fid, "stairs", "stair")
-                ramp = buf(fid, "stairs_ramp-colonly", "stair")
-                n, rise, tread = part["n"], part["rise"], part["tread"]
-                xs, d = part["x_start"], part["dir"]
-                for i in range(1, n + 1):
-                    x_lo = xs + d * i * tread
-                    x_hi = xs + d * (i - 1) * tread
-                    if d < 0:
-                        x_lo, x_hi = x_lo, x_hi
-                    else:
-                        x_lo, x_hi = x_hi, x_lo
-                    vis.add_box((min(x_lo, x_hi), part["y0"], part["z0"]),
-                                (max(x_lo, x_hi), part["y1"],
-                                 part["z0"] + i * rise))
-                x_end = xs + d * n * tread
-                ramp.add_ramp(xs, part["z0"], x_end, part["z0"] + n * rise,
-                              part["y0"], part["y1"])
-                pair.append(part)
-                if part.get("exit"):  # top infill from last step to well edge
-                    top_z = part["z0"] + n * rise
-                    edge = wx1 if d > 0 else wx0
-                    vis.add_box((min(x_end, edge), part["y0"], top_z - 0.18),
-                                (max(x_end, edge), part["y1"], top_z))
-                    ramp.add_box((min(x_end, edge), part["y0"], top_z - 0.18),
-                                 (max(x_end, edge), part["y1"], top_z))
-            elif part["kind"] == "landing":
-                fid = floor_for_z(part["z"] - 0.5)
-                r = part["rect"]
-                for b in (buf(fid, "stairs", "stair"),
-                          buf(fid, "stairs_ramp-colonly", "stair")):
-                    b.add_box((r[0], r[1], part["z"] - 0.18),
-                              (r[2], r[3], part["z"]))
+        build_stair(buf, st)
+    build_facade_details(buf)
 
     for (fid, cat), b in bufs.items():
         b.realize(floor_cols[fid])

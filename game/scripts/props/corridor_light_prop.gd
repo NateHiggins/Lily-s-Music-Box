@@ -8,7 +8,21 @@ var _base_energy := 1.6
 
 
 func _build_visual() -> void:
-	make_box(Vector3(1.1, 0.08, 0.18), Vector3(0, -0.05, 0), Color(0.8, 0.8, 0.78))
+	## Enamel batten fixture: channel spine, exposed tube on end caps,
+	## starter can and a hanging pull chain — corridor hardware with age.
+	make_box(Vector3(1.1, 0.06, 0.14), Vector3(0, -0.03, 0),
+			Color(0.80, 0.80, 0.78))
+	var tube := make_cyl(0.019, 0.019, 0.90, Vector3.ZERO,
+			Color(0.93, 0.95, 0.90), 0.2)
+	tube.position = Vector3(0, -0.085, 0)
+	tube.rotation_degrees = Vector3(0, 0, 90)
+	for ex in [-0.47, 0.47]:
+		make_box(Vector3(0.05, 0.075, 0.075), Vector3(ex, -0.075, 0),
+				Color(0.55, 0.56, 0.55))
+	make_cyl(0.016, 0.016, 0.05, Vector3(0.30, -0.045, 0.055),
+			Color(0.72, 0.72, 0.70), 0.4, 0.3)           # starter can
+	make_cyl(0.003, 0.003, 0.16, Vector3(-0.40, -0.16, 0.05),
+			Color(0.60, 0.60, 0.62), 0.3, 0.6)           # pull chain
 	_light = OmniLight3D.new()
 	_light.light_color = Color(0.9, 0.93, 0.86)
 	_light.light_energy = _base_energy

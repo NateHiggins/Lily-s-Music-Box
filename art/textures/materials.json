@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "defaults": {
+    "output_size": 1024,
+    "normal_strength": 2.0
+  },
+  "materials": {
+    "plaster": {
+      "enabled": true,
+      "meters_per_tile": 2.0,
+      "roughness": 0.8,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 18,
+      "prompt": "Aged 1920s apartment interior lime plaster, muted gray-green warm off-white, subtle hand-troweled mineral variation, restrained hairline wear and tiny age speckles.",
+      "avoid": "objects, corners, borders, large cracks, graffiti, stains, text, watermark, perspective, baked lighting"
+    },
+    "brick": {
+      "enabled": true,
+      "meters_per_tile": 2.4,
+      "roughness": 0.85,
+      "roughness_variation": 0.1,
+      "height_detail_radius": 10,
+      "prompt": "Aged dark red-brown structural brick with pale worn mortar, irregular prewar apartment basement masonry.",
+      "avoid": "perspective, dramatic damage, missing bricks, moss, text, watermark, baked lighting"
+    },
+    "concrete": {
+      "enabled": true,
+      "meters_per_tile": 2.0,
+      "roughness": 0.75,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 22,
+      "prompt": "Poured concrete with restrained aggregate, faint form variation, old apartment basement utility finish.",
+      "avoid": "formwork seams, large cracks, stains, objects, text, watermark, perspective, baked lighting"
+    },
+    "floor_oak": {
+      "enabled": true,
+      "meters_per_tile": 2.4,
+      "roughness": 0.55,
+      "roughness_variation": 0.1,
+      "height_detail_radius": 8,
+      "prompt": "Narrow-strip aged oak apartment flooring, warm medium brown, subtle wear, period-appropriate satin finish.",
+      "avoid": "perspective, room edges, furniture, large damage, text, watermark, baked reflections or lighting"
+    },
+    "terrazzo": {
+      "enabled": true,
+      "meters_per_tile": 1.5,
+      "roughness": 0.4,
+      "roughness_variation": 0.06,
+      "height_detail_radius": 5,
+      "prompt": "Historic warm-gray terrazzo with small muted cream, charcoal, and brown aggregate chips, understated apartment lobby finish.",
+      "avoid": "tile seams, borders, perspective, objects, text, watermark, baked reflections or lighting"
+    },
+    "wainscot": {
+      "enabled": true,
+      "meters_per_tile": 1.5,
+      "roughness": 0.55,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 16,
+      "prompt": "Aged painted plaster wainscot surface in muted institutional green, subtle roller texture and restrained age variation.",
+      "avoid": "panels, trim edges, peeling sheets, large scratches, text, watermark, perspective, baked lighting"
+    }
+  }
+}

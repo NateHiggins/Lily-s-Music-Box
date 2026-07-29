@@ -10,9 +10,74 @@ night.
 - **WASD** move · **Shift** run · **Space** jump · **C** crouch
 - **Mouse** look (click to capture, **Esc** to release)
 - **E** interact (elevator call buttons and cabin panel)
+- **T** architectural walkthrough (guided camera tour; Esc exits)
 - **L** flashlight · **V** noclip (debug) · **F1** debug panel
 
 ## What is alive right now
+
+**The atrium stair (new):** the whole light court is now one grand open
+switchback stair, basement to roof, wrapped around a 2.9 m square open
+eye — look up from the lobby deck and you see six storeys of balustrade
+and the skylight; look down from the roof and you see the lobby runner.
+Each climb is 20 risers (160 mm rise, 324 mm going): a wide west flight
+off the floor-level south deck, a full-width north landing at the half
+level, and an east flight arriving on the next deck. Every deck opens
+south through a court-wall archway into the elevator hall, so corridor ->
+hall -> atrium is the same move on every floor (basement included). The
+roof is genuinely accessible: the stair tops out inside a glazed monitor
+with a door onto the roof, capped by a steel-ribbed skylight. The old
+front and service core stairs are gone; their wells are solid slab again,
+the south core is the elevator hall, the north core is a per-floor
+utility room (trash chute, meter bank, mop sink) — and the slab slivers
+that used to show as gaps between floors on the upper stories are closed:
+every court opening is now flush with the wall faces.
+
+**Architectural walkthrough (new):** press **T** (or the debug-panel
+button) for a guided fly-camera tour — street elevation, lobby, up the
+atrium stair floor by floor, into every hero apartment, 4B room by room,
+out the roof monitor door, then the basement — with captions naming
+each space and resident. The path is computed from `building_layout.json`
+(the stair climbs use the real flight geometry), doors swing open ahead of
+the camera, and Esc hands control back at any time.
+
+**Surface detail pass (new):** every plastered wall now carries a
+baseboard and cornice; corridors, cores and the stairwell wear a
+dado-height wainscot band with cap rail (the reference stairwell's green);
+rooms get real floor finishes (terrazzo ring corridors and lobby, oak
+boards in apartments, ceramic in bathrooms); door reveals and window
+frames/sills/glazing as before; a cornice band crowns the facade, a portal
+surrounds the street entry, and the basement ceiling runs visible heating
+mains, risers and conduit.
+
+**Lived-in apartments (new):** every occupied unit is furnished as its
+resident's home — beds with mattress/blanket/pillow, sofas, dining sets,
+book-filled shelves, kitchens with counters/uppers/stove/fridge, rugs,
+plants and wall art, palette-varied per unit so no two households read the
+same. The heroes keep their signature clusters on top (Mina's caption
+station, Juno's amp-strewn studio, Omar's workshop, Rhea's booth, Nadia's
+plan table, Sacha's capture wall); 3C stays stripped to studs with
+buckets and sawhorses, 5D is charred with soot shadows, 6D is crate
+storage, and the lobby, community room, laundry and storage cages are
+dressed to match.
+
+**Parametric asset library (new):** every furniture piece and appliance is
+now an original detailed model in the spirit of an iconic typology — see
+`../art/docs/furniture_references.md` for the full design-reference table.
+Bentwood-style café chairs with steam-bent hoop backs, pedestal dining
+tables, spool beds with turned posts and spindles, armoires with raised
+panels and brass knobs, steel-ladder shelving with individual jittered
+books (one leaning per bay), Frankfurt-style flat-front kitchens with real
+sinks and cross taps, enamel ranges with clock panels and bakelite knobs,
+rounded-shoulder 1950s refrigerators with chrome pulls, porcelain pedestal
+sinks and close-coupled toilets, and **a molded bakelite toggle switch on
+both faces of all 94 doorways** (validated: switches = 2 × doors, every
+occupied unit's bed/kitchen/bath/dining completeness and kitchen-trio
+facing are asserted at generation time). The conductor props got the same
+treatment: four-column cast-iron radiators with brass valve wheels,
+porthole front-loader washers, articulated task lamps, batten fluorescents
+with starter cans and pull chains, studio monitors with real cones,
+ring-shroud floor fans, a riveted boiler with gauge and fire door, and
+stile-and-rail door leaves with brass levers on rosettes.
 
 **Complete apartment set (new):** every unit is modeled to its stack
 archetype at the brief's real areas — A one-bedroom 74.9 m² (street), B
@@ -63,9 +128,9 @@ Floor 5's radiator ~117 ms after Floor 2's; the sweep is audible if you
 stand in the stairwell. Debug panel: toggle networked/global, switch
 origin (boiler / 4B radiator / F04 corridor light).
 
-- All eight levels (basement → roof) walkable: ring corridors, front and
-  service stairs (physically climbable, ramp colliders), the elevator
-  (call it, ride it, B1–F6, arrival bell).
+- All eight levels (basement → roof) walkable: ring corridors, the atrium
+  stair (physically climbable, ramp colliders, fall-guarded eye), the
+  elevator (call it, ride it, B1–F6, arrival bell).
 - **The unseen conductor** (`Conductor` autoload): BPM clock + the
   `incomplete_knock` motif loop. It *requests* events; props translate
   them through mechanical profiles (`data/prop_catalog.json`) — action
@@ -87,19 +152,22 @@ origin (boiler / 4B radiator / F04 corridor light).
 
 ```bash
 godot --headless --path game --import                     # first time
-godot --headless --path game res://tests/WalkTest.tscn    # 18 checks
+godot --headless --path game res://tests/WalkTest.tscn    # 64 checks
 xvfb-run godot --path game res://tests/Screenshot.tscn    # doc renders
 ```
 
 WalkTest validates floor collision on every level, apartment slabs, prop
-spawning, the conductor clock, a *physical* stair climb F1→F2 by the real
-player capsule, elevator travel B1↔F6, and acoustic graph connectivity.
-Exit code = failure count.
+spawning, the conductor clock, a *physical* climb of the new dog-leg
+F1→F2 by the real player capsule, elevator travel B1↔F6, acoustic graph
+connectivity, the vertical slice, Case 01 end-to-end, Room 0, and the
+architectural walkthrough. Exit code = failure count.
 
-## Performance snapshot (blockout)
+## Performance snapshot (furnished)
 
-- Whole building: 46 meshes, ~15,060 triangles, ~850 KB glTF total
-  (per floor: B1 1.5k · F1 2.1k · F2–F5 2.3k · F6 2.0k · roof 0.4k tris)
+- Whole building: 325 meshes, ~225,500 triangles, ~12 MB glTF total —
+  still light for a full furnished building. Detailed furnishings render
+  without collision; each assembly carries one invisible coarse hull for
+  physics instead of trimesh furniture.
 - 38 audio emitters, all procedural `AudioStreamWAV` (mono 22 kHz),
   synthesized at startup; no audio files on disk
 - Coarse floor visibility keeps ≤3 floor scenes rendered while walking
@@ -112,6 +180,7 @@ scripts/building/                  assembly, elevator
 scripts/audio/                     conductor clock, acoustic graph, synth
 scripts/props/                     FunctionalProp base + radiator, lamp,
                                    corridor light, washer, boiler
+scripts/tour/                      architectural walkthrough (T)
 scripts/player/player_controller.gd
 data/*.json                        copied from art/data (single source)
 tests/                             WalkTest, Screenshot drivers
@@ -121,14 +190,17 @@ docs/screenshots/                  rendered from the real build
 ## Screenshots
 
 ![exterior](docs/screenshots/b_01_exterior_street.png)
+![lobby & grand stair](docs/screenshots/b_02_lobby.png)
+![the atrium stair](docs/screenshots/b_05_front_stair.png)
+![the atrium eye](docs/screenshots/b_18_atrium_eye.png)
+![half landing](docs/screenshots/b_16_stair_half_landing.png)
 ![corridor](docs/screenshots/b_03_corridor_f04.png)
+![2A living room](docs/screenshots/b_17_2a_mina_living.png)
 ![acoustic graph](docs/screenshots/b_08_acoustic_graph.png)
 
 ## Known limitations
 
 See `../art/README.md` — additionally: elevator has no doors/interlocks
-yet (open shaft-front cabin), apartment doors are open portals (no leaf
-props), night lighting is minimal (flashlight recommended indoors), and
-the conductor's motif is global rather than propagated per-network with
-the graph's delays (the graph is loaded and connected; delay-aware
-transmission is the next audio milestone).
+yet (open shaft-front cabin), and night lighting is minimal (flashlight
+recommended indoors; the walkthrough brightens nothing — it tours the
+building as it is).

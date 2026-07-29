@@ -7,8 +7,33 @@ var _thud: AudioStreamPlayer3D
 
 
 func _build_visual() -> void:
-	make_box(Vector3(1.6, 1.9, 1.6), Vector3(0, 0.95, 0), Color(0.35, 0.3, 0.28))
-	make_box(Vector3(0.2, 1.2, 0.2), Vector3(0.7, 2.4, 0), Color(0.3, 0.28, 0.27))
+	## Riveted vertical boiler: drum with band seams, domed crown, fire
+	## door with dogged latch, pressure gauge, relief pipe and flue.
+	var iron := Color(0.35, 0.30, 0.28)
+	make_cyl(0.80, 0.84, 1.9, Vector3(0, 0.95, 0), iron, 0.55, 0.3)
+	make_cyl(0.55, 0.80, 0.35, Vector3(0, 2.07, 0), iron, 0.55, 0.3)
+	for bz in [0.45, 1.05, 1.65]:
+		var band := make_ring(0.82, 0.018, Vector3(0, bz, 0),
+				Color(0.28, 0.24, 0.22), 0.5, 0.4)
+		band.rotation_degrees = Vector3(0, 0, 0)
+	var door := make_cyl(0.24, 0.24, 0.10, Vector3(0, 0.62, -0.80),
+			Color(0.24, 0.21, 0.19), 0.5, 0.4)
+	door.rotation_degrees = Vector3(90, 0, 0)
+	var dring := make_ring(0.27, 0.02, Vector3(0, 0.62, -0.78),
+			Color(0.22, 0.19, 0.17), 0.5, 0.4)
+	dring.rotation_degrees = Vector3(90, 0, 0)
+	make_cyl(0.012, 0.012, 0.30, Vector3(0.22, 0.62, -0.83),
+			Color(0.62, 0.55, 0.30), 0.35, 0.7).rotation_degrees = \
+			Vector3(0, 0, 90)                            # latch bar
+	var gauge := make_cyl(0.07, 0.07, 0.04, Vector3(0.45, 1.55, -0.72),
+			Color(0.9, 0.9, 0.86), 0.2)
+	gauge.rotation_degrees = Vector3(90, 0, 0)
+	var gring := make_ring(0.075, 0.012, Vector3(0.45, 1.55, -0.71),
+			Color(0.62, 0.55, 0.30), 0.3, 0.7)
+	gring.rotation_degrees = Vector3(90, 0, 0)
+	make_cyl(0.10, 0.10, 1.2, Vector3(0.55, 2.65, 0.30), iron, 0.5, 0.3)
+	make_cyl(0.045, 0.045, 0.9, Vector3(-0.55, 2.45, -0.25),
+			Color(0.30, 0.28, 0.27), 0.45, 0.4)          # relief pipe
 	var hum := make_emitter("hum_loop", -12.0, true)
 	hum.max_distance = 40.0
 	_thud = make_emitter("thud", -4.0)

@@ -11,28 +11,45 @@ var _shake := 0.0
 
 
 func _build_visual() -> void:
+	## Column cast-iron radiator: nine sections of four round columns
+	## between bulbous headers, on cabriole-ish feet, with a hand valve.
 	_body = Node3D.new()
 	add_child(_body)
-	for i in 8:
-		var fin := MeshInstance3D.new()
-		var box := BoxMesh.new()
-		box.size = Vector3(0.055, 0.60, 0.16)
-		fin.mesh = box
-		fin.position = Vector3(-0.36 + i * 0.098, 0.36, 0.0)
-		var mat := StandardMaterial3D.new()
-		mat.albedo_color = Color(0.16, 0.16, 0.17)
-		mat.roughness = 0.46
-		mat.metallic = 0.2
-		fin.material_override = mat
-		_body.add_child(fin)
-	var pipe := MeshInstance3D.new()
-	var cyl := CylinderMesh.new()
-	cyl.top_radius = 0.02
-	cyl.bottom_radius = 0.02
-	cyl.height = 0.7
-	pipe.mesh = cyl
-	pipe.position = Vector3(0.42, 0.35, 0.0)
-	_body.add_child(pipe)
+	var iron := Color(0.16, 0.16, 0.17)
+	for i in 9:
+		var sx := -0.36 + i * 0.09
+		for j in 4:
+			var col := make_cyl(0.021, 0.021, 0.50,
+					Vector3(sx, 0.36, -0.066 + j * 0.044), iron, 0.46,
+					0.2, _body)
+			col.scale = Vector3(1, 1, 0.8)
+	for hz in [0.095, 0.645]:  # top / bottom headers, one per section
+		for i in 9:
+			var hd := make_cyl(0.032, 0.032, 0.085,
+					Vector3(-0.36 + i * 0.09, hz, 0.0), iron, 0.42, 0.25,
+					_body)
+			hd.rotation_degrees = Vector3(0, 0, 90)
+			hd.scale = Vector3(1, 1, 2.6)
+	for fx in [-0.33, 0.33]:   # feet
+		var ft := MeshInstance3D.new()
+		var fb := BoxMesh.new()
+		fb.size = Vector3(0.10, 0.055, 0.14)
+		ft.mesh = fb
+		ft.position = Vector3(fx, 0.027, 0.0)
+		ft.material_override = _pmat(iron, 0.46, 0.2)
+		_body.add_child(ft)
+		make_cyl(0.030, 0.045, 0.045, Vector3(fx, 0.075, 0.0), iron,
+				0.46, 0.2, _body)
+	# supply pipe, elbow and the valve wheel
+	make_cyl(0.019, 0.019, 0.62, Vector3(0.44, 0.31, 0.0),
+			Color(0.30, 0.28, 0.26), 0.4, 0.4, _body)
+	make_cyl(0.030, 0.030, 0.05, Vector3(0.44, 0.635, 0.0),
+			Color(0.30, 0.28, 0.26), 0.4, 0.4, _body)
+	var wheel := make_ring(0.035, 0.009, Vector3(0.44, 0.70, 0.0),
+			Color(0.62, 0.55, 0.30), 0.35, 0.7, _body)
+	wheel.rotation_degrees = Vector3(0, 0, 0)
+	make_cyl(0.008, 0.008, 0.05, Vector3(0.44, 0.675, 0.0),
+			Color(0.62, 0.55, 0.30), 0.35, 0.7, _body)
 	_knock = make_emitter("knock", -6.0)
 	_tick = make_emitter("tick", -16.0)
 

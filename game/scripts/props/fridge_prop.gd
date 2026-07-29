@@ -9,12 +9,26 @@ var _running := true
 
 
 func _build_visual() -> void:
-	make_box(Vector3(0.72, 1.70, 0.70), Vector3(0, 0.85, 0),
-			Color(0.88, 0.87, 0.84))
-	make_box(Vector3(0.72, 0.02, 0.70), Vector3(0, 1.14, 0),
-			Color(0.6, 0.6, 0.58))  # door split
-	make_box(Vector3(0.03, 0.30, 0.04), Vector3(0.34, 1.35, 0.36),
-			Color(0.55, 0.55, 0.52))  # handle
+	## Rounded-shoulder 1950s refrigerator, matching the Blender library:
+	## stepped crown, proud door face, vertical chrome handle, latch, badge.
+	var body := Color(0.88, 0.87, 0.84)
+	make_box(Vector3(0.60, 0.06, 0.58), Vector3(0, 0.03, 0),
+			Color(0.09, 0.09, 0.09))                     # plinth
+	make_box(Vector3(0.66, 1.46, 0.64), Vector3(0, 0.79, 0), body)
+	make_box(Vector3(0.63, 0.08, 0.61), Vector3(0, 1.56, 0), body)
+	make_box(Vector3(0.57, 0.06, 0.55), Vector3(0, 1.63, 0), body)
+	make_box(Vector3(0.46, 0.04, 0.44), Vector3(0, 1.68, 0), body)
+	make_box(Vector3(0.62, 1.40, 0.024), Vector3(0, 0.80, 0.332), body)
+	make_box(Vector3(0.56, 1.32, 0.012), Vector3(0, 0.80, 0.351), body)
+	make_cyl(0.016, 0.016, 0.46, Vector3(0.24, 0.95, 0.395),
+			Color(0.80, 0.82, 0.85), 0.12, 1.0)          # chrome handle
+	for hz in [0.74, 1.16]:
+		make_box(Vector3(0.03, 0.02, 0.045), Vector3(0.24, hz, 0.375),
+				Color(0.80, 0.82, 0.85))
+	make_box(Vector3(0.08, 0.06, 0.05), Vector3(0.24, 0.96, 0.36),
+			Color(0.80, 0.82, 0.85))                     # latch body
+	make_box(Vector3(0.18, 0.06, 0.008), Vector3(0, 1.33, 0.358),
+			Color(0.62, 0.55, 0.30))                     # maker's badge
 	_hum = make_emitter("hum_loop", -22.0, true)
 	_click = make_emitter("tick", -12.0)
 

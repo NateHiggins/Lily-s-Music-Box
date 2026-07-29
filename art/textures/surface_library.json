@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "defaults": {
+    "output_size": 1024,
+    "normal_strength": 1.5
+  },
+  "assets": {
+    "stains/water_bloom": {
+      "kind": "overlay",
+      "meters_per_tile": 1.5,
+      "prompt": "Subtle irregular old water bloom and tide marks on a flat neutral plaster surface, sparse soft-edged mineral rings and downward traces.",
+      "avoid": "wall corners, plumbing, objects, dramatic flooding, mold colonies, text, watermark, perspective, directional lighting"
+    },
+    "stains/soot_haze": {
+      "kind": "overlay",
+      "meters_per_tile": 1.5,
+      "prompt": "Sparse smoky soot haze and soft carbon wisps on a flat neutral surface, restrained fire residue with varied density.",
+      "avoid": "flames, objects, handprints, wall corners, text, watermark, perspective, directional lighting"
+    },
+    "stains/grease_speckle": {
+      "kind": "overlay",
+      "meters_per_tile": 1.0,
+      "prompt": "Scattered subtle kitchen grease speckles and faint rubbed smudges on a flat neutral surface, low coverage and irregular distribution.",
+      "avoid": "food, insects, objects, wall corners, text, watermark, perspective, directional lighting"
+    },
+    "stains/rust_run": {
+      "kind": "overlay",
+      "meters_per_tile": 1.0,
+      "prompt": "Sparse narrow rust runs and oxidized pinprick blooms on a flat neutral surface, restrained old-building moisture marks.",
+      "avoid": "metal objects, large corrosion holes, wall corners, text, watermark, perspective, directional lighting"
+    },
+    "wear/chipped_paint": {
+      "kind": "overlay",
+      "meters_per_tile": 1.2,
+      "prompt": "Scattered small chips and feathered abrasions in old painted plaster, low coverage, plausible edge and contact wear.",
+      "avoid": "large peeling sheets, exposed brick, wall corners, objects, text, watermark, perspective, directional lighting"
+    },
+    "wear/scuff_marks": {
+      "kind": "overlay",
+      "meters_per_tile": 1.5,
+      "prompt": "Sparse low-contrast wall scuffs, rub marks, and short furniture-contact streaks on a flat neutral surface.",
+      "avoid": "footprints, handprints, writing, objects, corners, text, watermark, perspective, directional lighting"
+    },
+    "furniture/walnut": {
+      "kind": "surface",
+      "meters_per_tile": 1.2,
+      "roughness": 0.42,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 8,
+      "prompt": "Warm dark walnut furniture veneer, straight and gently figured grain, restrained mid-century satin finish.",
+      "avoid": "plank seams, furniture edges, knots larger than a coin, objects, text, watermark, perspective, baked lighting"
+    },
+    "furniture/upholstery_moss": {
+      "kind": "surface",
+      "meters_per_tile": 0.7,
+      "roughness": 0.9,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 4,
+      "prompt": "Tightly woven moss-green wool upholstery, subtle heathered fibers, durable vintage apartment furniture fabric.",
+      "avoid": "seams, folds, cushions, patterns, objects, text, watermark, perspective, baked lighting"
+    },
+    "furniture/upholstery_rust": {
+      "kind": "surface",
+      "meters_per_tile": 0.7,
+      "roughness": 0.9,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 4,
+      "prompt": "Tightly woven muted rust and ochre wool upholstery, subtle heathered fibers, worn but cared-for vintage fabric.",
+      "avoid": "seams, folds, cushions, patterns, objects, text, watermark, perspective, baked lighting"
+    },
+    "furniture/aged_leather": {
+      "kind": "surface",
+      "meters_per_tile": 0.8,
+      "roughness": 0.58,
+      "roughness_variation": 0.1,
+      "height_detail_radius": 5,
+      "prompt": "Aged cognac-brown furniture leather, fine natural grain, restrained cloudy patina and tiny creases.",
+      "avoid": "deep cracks, seams, buttons, cushions, objects, text, watermark, perspective, baked lighting"
+    },
+    "appliances/aged_enamel": {
+      "kind": "surface",
+      "meters_per_tile": 0.8,
+      "roughness": 0.2,
+      "roughness_variation": 0.04,
+      "height_detail_radius": 20,
+      "prompt": "Warm ivory vintage appliance enamel, very subtle orange-peel finish and restrained age variation.",
+      "avoid": "chips, rust, appliance edges, reflections, objects, text, watermark, perspective, baked lighting"
+    },
+    "appliances/brushed_steel": {
+      "kind": "surface",
+      "meters_per_tile": 0.8,
+      "roughness": 0.32,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 3,
+      "prompt": "Fine vertically brushed stainless steel appliance finish, neutral silver-gray, subtle manufacturing variation.",
+      "avoid": "reflections, fingerprints, dents, appliance edges, objects, text, watermark, perspective, baked lighting"
+    },
+    "appliances/bakelite": {
+      "kind": "surface",
+      "meters_per_tile": 0.45,
+      "roughness": 0.3,
+      "roughness_variation": 0.04,
+      "height_detail_radius": 18,
+      "prompt": "Dark brown-black vintage Bakelite surface, faint warm marbling and subtle molded finish.",
+      "avoid": "controls, switches, molded edges, reflections, objects, text, watermark, perspective, baked lighting"
+    },
+    "appliances/galvanized_metal": {
+      "kind": "surface",
+      "meters_per_tile": 0.8,
+      "roughness": 0.48,
+      "roughness_variation": 0.09,
+      "height_detail_radius": 6,
+      "prompt": "Aged galvanized sheet metal with fine crystalline spangle, muted zinc gray, restrained utility-appliance finish.",
+      "avoid": "rust, seams, bolts, reflections, objects, text, watermark, perspective, baked lighting"
+    }
+  }
+}

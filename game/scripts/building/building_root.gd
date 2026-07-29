@@ -33,6 +33,7 @@ var layout: Dictionary = {}
 var player: PlayerController
 var elevator: OrisonElevator
 var call_interface: CallInterface
+var walkthrough: ArchitecturalWalkthrough
 var floor_nodes: Dictionary = {}
 var show_all_floors := false
 
@@ -59,6 +60,9 @@ func _ready() -> void:
 	player = PlayerController.new()
 	add_child(player)
 	player.global_position = GameBoot.b2g([0.0, -8.3, 0.1])  # lobby
+	walkthrough = ArchitecturalWalkthrough.new()
+	add_child(walkthrough)
+	walkthrough.setup(self)
 	var room0 := Room0.new()
 	add_child(room0)
 	var anomaly: DoorAnomalyProp = get_node_or_null("F04_B_DOOR_ANOMALY")
