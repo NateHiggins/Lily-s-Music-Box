@@ -31,6 +31,8 @@ static func _build(key: String) -> AudioStreamWAV:
 					[1400, 90, 0.35]], 0.004)
 		"creak":
 			return _creak()
+		"whistle_loop":
+			return _whistle()
 		"breath":
 			return _breath()
 		"vocal":
@@ -96,6 +98,23 @@ static func _agitate() -> AudioStreamWAV:
 		var w := float(i) / fade
 		s[i] = s[i] * w + s[n - fade + i] * (1.0 - w)
 	s.resize(n - fade)
+	return _pack(s, true)
+
+
+## Kettle whistle: breathy near-pure tone with a slow wobble, loopable.
+static func _whistle() -> AudioStreamWAV:
+	var n := int(1.0 * RATE)
+	var s := PackedFloat32Array()
+	s.resize(n)
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 212
+	var lp := 0.0
+	for i in n:
+		var t := float(i) / RATE
+		var f := 1180.0 * (1.0 + 0.012 * sin(TAU * 3.0 * t))
+		lp += 0.3 * (rng.randf_range(-1.0, 1.0) - lp)
+		s[i] = sin(TAU * f * t) * 0.85 + 0.3 * sin(TAU * f * 2.0 * t) \
+				+ 0.18 * lp
 	return _pack(s, true)
 
 

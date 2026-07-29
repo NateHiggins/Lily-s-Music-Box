@@ -450,7 +450,71 @@ def apartment_4b(z, walls, rooms, markers, furniture):
          "network": "structural"},
         {"kind": "desk_zone", "id": "F04_B_DESK_ZONE", "unit": "4B",
          "pos": [-8.80, 5.60, z], "yaw_deg": 0},
+        {"kind": "kettle", "id": "F04_B_KETTLE_01", "unit": "4B",
+         "pos": [-10.50, 9.30, z + 0.92], "yaw_deg": 0,
+         "network": "electrical"},
+        {"kind": "wall_clock", "id": "F04_B_CLOCK_01", "unit": "4B",
+         "pos": [-7.78, 4.60, z + 1.70], "yaw_deg": -90,
+         "network": "electrical"},
+        {"kind": "smoke_detector", "id": "F04_B_SMOKEDET_01", "unit": "4B",
+         "pos": [-9.50, 5.50, z + 2.62], "yaw_deg": 0,
+         "network": "electrical"},
+        {"kind": "exhaust_fan", "id": "F04_B_EXHFAN_01", "unit": "4B",
+         "pos": [-6.60, y0 + 3.00, z + 2.55], "yaw_deg": 0,
+         "network": "electrical"},
+        {"kind": "ceiling_light", "id": "F04_B_CEILLIGHT_01", "unit": "4B",
+         "pos": [-10.60, 4.60, z + 2.60], "yaw_deg": 0,
+         "network": "electrical"},
     ]
+    furnish_4b_detail(furniture, y0, y1, x0)
+
+
+## Section 4 "highest detail": the lived-in texture of the player's rooms.
+def furnish_4b_detail(furniture, y0, y1, x0):
+    def fb(fid, rect, z0, h, mat="trim"):
+        furniture.append({"id": "4B_" + fid, "rect": list(rect), "z0": z0,
+                          "h": h, "mat": mat})
+
+    # kitchen: uppers, sink rim + faucet, crockery
+    fb("uppers", (-10.70, 9.40, -8.85, 9.64), 1.50, 0.72)
+    fb("sink_rim", (-10.18, 9.12, -9.68, 9.50), 0.88, 0.05, "metal")
+    fb("faucet_riser", (-9.96, 9.46, -9.90, 9.52), 0.90, 0.28, "metal")
+    fb("faucet_spout", (-9.96, 9.30, -9.90, 9.50), 1.14, 0.04, "metal")
+    fb("mugs", (-9.62, 9.15, -9.40, 9.32), 0.90, 0.11)
+    fb("plates", (-9.30, 9.16, -9.06, 9.36), 0.90, 0.07)
+    # venetian blinds: two west windows + the rear window
+    for wi, wc in enumerate((y0 + (y1 - y0) * 0.30, y0 + (y1 - y0) * 0.70)):
+        for k in range(8):
+            fb("blindw%d_%d" % (wi, k),
+               (-13.58, wc - 0.65, -13.53, wc + 0.65),
+               0.92 + k * 0.11, 0.03)
+    for k in range(8):
+        fb("blindr_%d" % k, (-10.24, 9.52, -8.92, 9.57),
+           0.92 + k * 0.11, 0.03)
+    # main room: rug, bookshelf with rows, desk clutter, power strip
+    fb("rug", (-12.40, 3.40, -8.70, 6.00), 0.0, 0.015, "face_brick")
+    fb("bookshelf", (-11.20, 2.75, -9.70, 3.07), 0.0, 1.55)
+    for r, zr in enumerate((0.30, 0.76, 1.22)):
+        fb("books%d" % r, (-11.12, 2.79, -9.80, 3.03), zr, 0.26, "timber")
+    fb("keyboard", (-8.30, 5.35, -8.05, 5.75), 0.762, 0.02, "metal")
+    fb("mouse", (-8.02, 5.50, -7.96, 5.58), 0.762, 0.025, "metal")
+    fb("microphone", (-8.38, 5.95, -8.32, 6.01), 0.762, 0.16, "metal")
+    fb("headset_stand", (-8.40, 5.02, -8.30, 5.12), 0.762, 0.20)
+    fb("power_strip", (-7.92, 4.70, -7.78, 5.05), 0.0, 0.05, "metal")
+    # alcove: bed frame posts, headboard, nightstand
+    for px, py in ((-13.40, 6.92), (-12.21, 6.92), (-13.40, 9.42),
+                   (-12.21, 9.42)):
+        fb("bedpost_%d_%d" % (int(px * 10), int(py * 10)),
+           (px, py, px + 0.06, py + 0.06), 0.0, 0.52, "timber")
+    fb("headboard", (-13.40, 9.44, -12.15, 9.50), 0.15, 0.78, "timber")
+    fb("nightstand", (-12.05, 9.10, -11.68, 9.48), 0.0, 0.55)
+    # bathroom: shower riser + head, mirror over the sink
+    fb("shower_riser", (-7.52, y0 + 4.12, -7.46, y0 + 4.18), 0.14, 1.90,
+       "metal")
+    fb("shower_head", (-7.62, y0 + 3.98, -7.42, y0 + 4.18), 2.00, 0.05,
+       "metal")
+    fb("mirror", (-6.05, y0 + 4.17, -5.60, y0 + 4.21), 1.35, 0.60,
+       "glassish")
 
 
 # ---------------------------------------------------------------- floors
@@ -918,7 +982,9 @@ def acoustic_graph(layout):
                     (40, 2000), 20)
                 edges.append((m["id"], "BASEMENT_HEADER_WEST"))
             elif m["kind"] in ("lamp", "monitor", "toaster", "fridge",
-                               "boxfan", "speaker"):
+                               "boxfan", "speaker", "kettle", "wall_clock",
+                               "smoke_detector", "exhaust_fan",
+                               "ceiling_light"):
                 add(m["id"], m["pos"], "electrical", m.get("unit", ""), 0.75,
                     (60, 8000), 4)
                 edges.append((m["id"], "%s_CORRLIGHT_S" % fl["id"]))
@@ -1039,6 +1105,36 @@ PROP_CATALOG = {
                 "preferred_subdivision": 1, "timing_drift": 0.01,
                 "response_latency": 0.03, "normal_function_priority": 1.0,
                 "infection_receptivity": 0.8},
+    "kettle": {"minimum_action_interval": 0.4, "maximum_action_rate": 2,
+               "available_mechanical_events": ["element_tick", "whistle_on"],
+               "preferred_subdivision": 1, "timing_drift": 0.02,
+               "response_latency": 0.10, "normal_function_priority": 1.0,
+               "infection_receptivity": 0.65},
+    "wall_clock": {"minimum_action_interval": 0.45, "maximum_action_rate": 2,
+                   "available_mechanical_events": ["tick", "tempo_drift"],
+                   "preferred_subdivision": 1, "timing_drift": 0.0,
+                   "response_latency": 0.01, "normal_function_priority": 1.0,
+                   "infection_receptivity": 0.8},
+    "smoke_detector": {"minimum_action_interval": 4.0,
+                       "maximum_action_rate": 1,
+                       "available_mechanical_events": ["chirp"],
+                       "preferred_subdivision": 0.25, "timing_drift": 0.0,
+                       "response_latency": 0.02,
+                       "normal_function_priority": 1.0,
+                       "infection_receptivity": 0.45},
+    "exhaust_fan": {"minimum_action_interval": 0.4, "maximum_action_rate": 3,
+                    "available_mechanical_events": ["whir_waver"],
+                    "preferred_subdivision": 0.5, "timing_drift": 0.05,
+                    "response_latency": 0.15,
+                    "normal_function_priority": 1.0,
+                    "infection_receptivity": 0.5},
+    "ceiling_light": {"minimum_action_interval": 0.06,
+                      "maximum_action_rate": 12,
+                      "available_mechanical_events": ["filament_surge"],
+                      "preferred_subdivision": 2, "timing_drift": 0.0,
+                      "response_latency": 0.01,
+                      "normal_function_priority": 1.0,
+                      "infection_receptivity": 0.7},
     "flue_breast": {"minimum_action_interval": 0.14, "maximum_action_rate": 7,
                     "available_mechanical_events": ["flue_knock", "draft"],
                     "preferred_subdivision": 1, "timing_drift": 0.008,

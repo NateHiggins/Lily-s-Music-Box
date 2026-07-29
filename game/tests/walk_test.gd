@@ -206,6 +206,31 @@ func _door_checks() -> void:
 		_check(toaster.state == toaster.PState.IDLE,
 				"toaster returned to IDLE")
 
+	# 4B detail: kettle boils and its whistle can be taken off; the wall
+	# clock's tick drifts toward the conductor's tempo under infection
+	var kettle: KettleProp = root.get_node_or_null("F04_B_KETTLE_01")
+	_check(kettle != null, "kettle on the 4B counter")
+	if kettle:
+		Conductor.infection = 0.1  # below quantize threshold: boil is honest
+		kettle.heat_time = 1.0
+		kettle.interact(null)
+		var okk: bool = await _until(func(): return kettle.state == kettle.PState.COMPLETING, 8.0)
+		_check(okk, "kettle reaches the whistle")
+		kettle.interact(null)
+		_check(kettle.cycles_completed == 1 and kettle.state == kettle.PState.IDLE,
+				"kettle switched off cleanly")
+	var clock: ClockProp = root.get_node_or_null("F04_B_CLOCK_01")
+	_check(clock != null, "wall clock hung in 4B")
+	if clock:
+		Conductor.infection = 1.0
+		Conductor.bpm = 100.0
+		await get_tree().create_timer(3.0).timeout
+		_check(clock.interval < 0.98,
+				"clock tick drifting toward the building's tempo (%.2f s)"
+				% clock.interval)
+		Conductor.bpm = 72.0
+		Conductor.infection = 0.15
+
 	# networked propagation: same event reaches F05 later than F02 on H-B
 	Conductor.propagation_mode = "network"
 	Conductor.origin_node = "B1_BOILER_01"

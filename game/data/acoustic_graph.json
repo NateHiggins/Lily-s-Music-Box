@@ -863,6 +863,106 @@
    ]
   },
   {
+   "id": "F04_B_KETTLE_01",
+   "pos": [
+    -10.5,
+    9.3,
+    10.52
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_CLOCK_01",
+   "pos": [
+    -7.78,
+    4.6,
+    11.3
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_SMOKEDET_01",
+   "pos": [
+    -9.5,
+    5.5,
+    12.22
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_EXHFAN_01",
+   "pos": [
+    -6.6,
+    5.67,
+    12.15
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_CEILLIGHT_01",
+   "pos": [
+    -10.6,
+    4.6,
+    12.2
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "F04_C_RADIATOR_01",
    "pos": [
     13.35,
@@ -968,6 +1068,11 @@
     "F04_B_TOASTER_01",
     "F04_B_FRIDGE_01",
     "F04_B_BOXFAN_01",
+    "F04_B_KETTLE_01",
+    "F04_B_CLOCK_01",
+    "F04_B_SMOKEDET_01",
+    "F04_B_EXHFAN_01",
+    "F04_B_CEILLIGHT_01",
     "F03_CORRLIGHT_S",
     "F04_CORRLIGHT_N",
     "F05_CORRLIGHT_S"
