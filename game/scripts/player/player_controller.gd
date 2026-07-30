@@ -20,6 +20,10 @@ var crouched := false
 var call_locked := false
 ## Test hook: when non-zero, drives movement instead of player input.
 var autopilot := Vector3.ZERO
+## Set while the on-screen touch HUD is driving. A phone has no pointer to
+## capture, so anything gated on MOUSE_MODE_CAPTURED has to consult this
+## instead or it simply never runs there.
+var touch_input := false
 
 var _shape: CollisionShape3D
 var _capsule: CapsuleShape3D
@@ -68,7 +72,8 @@ func _build_hud() -> void:
 ## What the crosshair is looking at, refreshed for the prompt line.
 func _update_prompt() -> void:
 	_prompt.text = ""
-	if call_locked or Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+	if call_locked or (not touch_input
+			and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED):
 		return
 	var from := camera.global_position
 	var to := from + camera.global_transform.basis * Vector3(0, 0, -2.1)
@@ -102,10 +107,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event is InputEventMouseMotion \
 			and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * MOUSE_SENS)
-		camera.rotate_x(-event.relative.y * MOUSE_SENS)
-		camera.rotation.x = clampf(camera.rotation.x, -1.45, 1.45)
-	elif event is InputEventMouseButton and event.pressed:
+		apply_look(event.relative)
+	elif event is InputEventMouseButton and event.pressed and not touch_input:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	elif event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -119,6 +122,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		_set_crouched(not crouched)
 	elif event.is_action_pressed("interact"):
 		_try_interact()
+
+
+## One look path for both a mouse and a dragged thumb, so the two can never
+## drift into different sensitivities or clamp differently.
+func apply_look(rel: Vector2) -> void:
+	if call_locked:
+		return
+	rotate_y(-rel.x * MOUSE_SENS)
+	camera.rotate_x(-rel.y * MOUSE_SENS)
+	camera.rotation.x = clampf(camera.rotation.x, -1.45, 1.45)
 
 
 func _set_crouched(on: bool) -> void:

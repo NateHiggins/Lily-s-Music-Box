@@ -12,6 +12,17 @@ night.
 - **E** interact (elevator call buttons and cabin panel)
 - **L** flashlight · **V** noclip · **F1** debug panel · **F2** intro
 
+**Touch:** a phone HUD auto-enables on mobile — a virtual stick under the
+left thumb (it appears wherever you press, so where your hand lands never
+matters), drag anywhere on the right to look, and a thumb cluster for
+interact, jump, run, crouch and the flashlight. Run and crouch latch
+rather than needing a held thumb. Movement and the buttons drive the same
+named actions the keyboard does, so there is one movement code path rather
+than two that can disagree. Tick **Touch controls** in the debug panel to
+drive it with a mouse on desktop.
+
+![touch HUD](docs/screenshots/b_28_touch_controls.png)
+
 ## What is alive right now
 
 **The atrium stair (new):** the whole light court is now one grand open
@@ -192,7 +203,7 @@ origin (boiler / 4B radiator / F04 corridor light).
 
 ```bash
 godot --headless --path game --import                       # first time
-godot --headless --path game res://tests/WalkTest.tscn      # 106 checks
+godot --headless --path game res://tests/WalkTest.tscn      # 117 checks
 godot --headless --path game res://tests/LightingAudit.tscn # per-room light
 godot --path game res://tests/Screenshot.tscn               # doc renders
 godot --path game --resolution 2560x1440 res://tests/Perf.tscn
@@ -344,6 +355,35 @@ docs/screenshots/                  rendered from the real build
 ![5A Nadia's plans](docs/screenshots/b_25_5a_nadia.png)
 ![6A Sacha's capture wall](docs/screenshots/b_15_6a_sacha.png)
 ![acoustic graph](docs/screenshots/b_08_acoustic_graph.png)
+
+## Android
+
+The project is renderer-ready — it runs on `gl_compatibility`, which is
+what mobile uses — and the touch HUD above is in and tested. An APK still
+needs three things, in this order.
+
+**Toolchain (not installed here).** Godot's Android export templates
+(~1 GB, `Editor > Manage Export Templates`) and an Android SDK with
+platform-tools, build-tools and a platform (~2-3 GB, easiest via Android
+Studio or `cmdline-tools`), pointed at from `Editor Settings > Export >
+Android`. JDK 17 is already present, which is usually the awkward one.
+Then an export preset and a debug keystore.
+
+**Weight — the real work.** The desktop build sits at 112-161 fps on an
+RTX 4080 at 1440p, which sounds like plenty of margin and is not: a phone
+GPU is a different class of machine, not a slower one. What has to change
+is already scoped in code — `LightRig` drops to one shadow caster and
+eight live lights on mobile (`SHADOW_N_MOBILE`, `ACTIVE_N_MOBILE`),
+because an omni's cube shadow costs six passes over the visible set and a
+tile-based GPU pays for that in bandwidth it does not have. Still open:
+the texture budget (~50 MB of shared sets plus a 13 MB 4K sky panorama —
+mobile wants compressed formats and smaller mips), and the atrium eye,
+which renders seven storeys at once and is the worst case by a wide
+margin.
+
+**Then measure.** `Perf.tscn` runs on-device the same as on desktop, and
+its numbers are the only ones worth trusting. Nothing above should be
+taken as "it will run" — it has never been on a phone.
 
 ## Known limitations
 

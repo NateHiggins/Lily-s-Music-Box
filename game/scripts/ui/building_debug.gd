@@ -85,6 +85,19 @@ func _ready() -> void:
 	seed.add_theme_font_size_override("font_size", 10)
 	seed.pressed.connect(func(): root.virus_director.toggle_intro())
 	_body.add_child(seed)
+	# Lets the phone HUD be driven and judged on a desktop, where a mouse
+	# drag stands in for a thumb — otherwise the only way to see whether the
+	# controls are reachable is to build an APK first.
+	var touch := CheckBox.new()
+	touch.text = "Touch controls (phone HUD)"
+	touch.button_pressed = root.touch.enabled if root and root.touch else false
+	touch.toggled.connect(func(on):
+		if root and root.touch:
+			root.touch.set_enabled(on)
+			root.player.touch_input = on
+			if on:
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE)
+	_body.add_child(touch)
 	var hint := Label.new()
 	hint.text = "WASD move · Shift run · C crouch · E interact\nL flashlight · V noclip · F2 intro · Esc release mouse"
 	hint.add_theme_font_size_override("font_size", 10)

@@ -133,7 +133,9 @@ func _run() -> void:
 	_check(lst.active_floor == "F01" and stray_floor == 0 and lst.off > 0,
 			"floor lighting: nothing off-storey is lit (%d lit, %d dark)" %
 			[lst.full, lst.off])
-	_check(lst.full == mini(eligible, root.light_rig.ACTIVE_N),
+	# Compare against the RESOLVED budgets, not the desktop constants: a
+	# mobile build deliberately runs a smaller working set and one caster.
+	_check(lst.full == mini(eligible, root.light_rig._active_budget),
 			"the working set is the nearest %d of %d eligible fixtures" %
 			[lst.full, eligible])
 	# Shadows are budgeted separately from light and far more tightly: an
@@ -141,7 +143,7 @@ func _run() -> void:
 	# six times. Casters are the nearest few of the lit set, never more.
 	_check(casting_unlit == 0,
 			"no unlit fixture wastes a shadow map (%d casters)" % lst.shadows)
-	_check(lst.shadows == mini(eligible, root.light_rig.SHADOW_N),
+	_check(lst.shadows == mini(eligible, root.light_rig._shadow_budget),
 			"shadow casters capped at the nearest %d" % lst.shadows)
 	# the complaint this rig exists to answer: a corridor lit end to end
 	_check(lit_circulation >= 4,
@@ -200,6 +202,61 @@ func _run() -> void:
 	# from inside you see its culled back face and the real night sky.
 	_check(one_sided, "window glows are single-sided (unseen from inside)")
 	_check(not casts, "window glows cast no shadows")
+
+	# --- touch controls: the phone HUD has to drive the same player the
+	# keyboard does, or the Android build is a slideshow you cannot steer
+	var tc: TouchControls = root.touch
+	_check(tc != null, "touch HUD present")
+	if tc:
+		tc.set_enabled(true)
+		root.player.touch_input = true
+		await get_tree().process_frame
+		var scr := Vector2(get_viewport().get_visible_rect().size)
+		# thumb lands in the left zone, then pushes forward (screen -Y)
+		var origin := Vector2(scr.x * 0.18, scr.y * 0.72)
+		tc._press(0, origin)
+		tc._drag(0, origin + Vector2(0, -scr.y * 0.20))
+		_check(Input.get_action_strength("move_forward") > 0.5,
+				"stick drives move_forward (%.2f)" %
+				Input.get_action_strength("move_forward"))
+		tc._drag(0, origin + Vector2(scr.x * 0.20, 0))
+		_check(Input.get_action_strength("move_right") > 0.5
+				and Input.get_action_strength("move_forward") == 0.0,
+				"stick steers right and releases forward")
+		tc._release(0)
+		_check(Input.get_action_strength("move_right") == 0.0
+				and Input.get_action_strength("move_left") == 0.0,
+				"lifting the thumb stops the player")
+		# a drag on the right half looks, and must not also walk
+		var before_yaw: float = root.player.rotation.y
+		tc._press(1, Vector2(scr.x * 0.75, scr.y * 0.5))
+		tc._drag(1, Vector2(scr.x * 0.75 + 120.0, scr.y * 0.5))
+		await get_tree().process_frame
+		_check(absf(root.player.rotation.y - before_yaw) > 0.05,
+				"right-side drag turns the camera")
+		_check(Input.get_action_strength("move_forward") == 0.0,
+				"looking does not also walk")
+		tc._release(1)
+		# the action cluster: momentary fires and releases, toggles latch
+		var e_btn: Dictionary = tc._buttons[0]
+		tc._press(2, e_btn["centre"])
+		_check(Input.is_action_pressed("interact"),
+				"interact button presses its action")
+		tc._release(2)
+		_check(not Input.is_action_pressed("interact"),
+				"interact releases with the finger")
+		var run_btn: Dictionary = tc._buttons[2]
+		tc._press(3, run_btn["centre"])
+		tc._release(3)
+		_check(Input.is_action_pressed("run"),
+				"run latches on (nobody holds a thumb down to jog)")
+		tc._press(3, run_btn["centre"])
+		tc._release(3)
+		_check(not Input.is_action_pressed("run"), "run latches off again")
+		tc.set_enabled(false)
+		root.player.touch_input = false
+		_check(Input.get_action_strength("move_forward") == 0.0,
+				"disabling the HUD releases everything it held")
 
 	# --- south corridor -> elevator hall -> atrium deck -> up the west
 	# flight to the north landing -> east flight onto the F02 deck

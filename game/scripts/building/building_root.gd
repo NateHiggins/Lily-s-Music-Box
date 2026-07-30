@@ -72,6 +72,7 @@ var virus_director: VirusSoundDirector
 var floor_nodes: Dictionary = {}
 var occluders: OrisonOccluders
 var window_glow: OrisonWindowGlow
+var touch: TouchControls
 var show_all_floors := false
 
 
@@ -116,6 +117,11 @@ func _ready() -> void:
 	var anomaly: DoorAnomalyProp = get_node_or_null("F04_B_DOOR_ANOMALY")
 	if anomaly:
 		anomaly.room0 = room0
+	touch = TouchControls.new()
+	touch.name = "TouchControls"
+	add_child(touch)
+	touch.look_delta.connect(player.apply_look)
+	player.touch_input = touch.enabled
 	var debug := preload("res://scripts/ui/building_debug.gd").new()
 	var layer := CanvasLayer.new()
 	layer.layer = 10

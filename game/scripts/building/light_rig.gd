@@ -34,6 +34,15 @@ const ACTIVE_N := 14
 ## balustrade shadows down the stair, furniture contact — and the rest
 ## contribute nothing an eye can find, so they light without casting.
 const SHADOW_N := 8
+## A tile-based mobile GPU pays for a cube shadow far more dearly than a
+## desktop one — six passes over the visible set, with the bandwidth of a
+## tiler behind them. Phones keep the nearest caster for contact shadows
+## and let the rest light without casting; the emissive envelopes, baked
+## contact quads and wall-base AO already carry most of the modelling.
+const SHADOW_N_MOBILE := 1
+## Fewer simultaneous lights too: the per-object cap is lower in practice
+## on mobile drivers, and every extra light is another shader permutation.
+const ACTIVE_N_MOBILE := 8
 ## Circulation fixtures beat room fixtures for the budget well before a tie.
 ## The dome at the far end of a corridor is worth more to someone walking it
 ## than a bedroom fixture 5 m away through a wall, so nav distances count for
@@ -50,6 +59,12 @@ const LEVELS := {
 
 var active_floor := "F01"
 var _accum := 0.0
+## Resolved once: OS.has_feature is a string lookup, not something to do
+## per fixture per tick.
+@onready var _active_budget: int = \
+		ACTIVE_N_MOBILE if OS.has_feature("mobile") else ACTIVE_N
+@onready var _shadow_budget: int = \
+		SHADOW_N_MOBILE if OS.has_feature("mobile") else SHADOW_N
 
 
 func _process(delta: float) -> void:
@@ -78,8 +93,9 @@ func _process(delta: float) -> void:
 			off.append(fixture)
 	eligible.sort_custom(func(a, b): return a[0] < b[0])
 	for i in range(eligible.size()):
-		var on := i < ACTIVE_N
-		eligible[i][1].set_budget(1.0 if on else 0.0, false, i < SHADOW_N)
+		var on := i < _active_budget
+		eligible[i][1].set_budget(1.0 if on else 0.0, false,
+				i < _shadow_budget)
 	for fixture in off:
 		fixture.set_budget(0.0, false, false)
 

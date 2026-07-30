@@ -29,6 +29,12 @@ AcousticGraphData="*res://scripts/audio/acoustic_graph.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[input_devices]
+
+; Lets a mouse drag stand in for a thumb so the phone HUD can be driven and
+; judged on a desktop. Harmless when the HUD is off: it ignores touch then.
+pointing/emulate_touch_from_mouse=true
+
 [rendering]
 
 occlusion_culling/use_occlusion_culling=true

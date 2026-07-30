@@ -73,6 +73,26 @@ func _ready() -> void:
 	_run()
 
 
+## The phone HUD is the one overlay worth documenting: it has to be judged
+## against the room behind it, not on a blank screen.
+func _shoot_touch_hud() -> void:
+	if root.touch == null:
+		return
+	root.touch.set_enabled(true)
+	root.touch.visible = true
+	if root.player:
+		root.player.global_position = Vector3(4.3, 11.25, 7.6)
+	cam.global_position = Vector3(4.3, 11.25, 7.6)
+	cam.look_at(Vector3(4.3, 10.8, -6.0))
+	for i in 20:
+		await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	get_viewport().get_texture().get_image().save_png(
+			"%s/b_28_touch_controls.png" % _dir)
+	print("saved %s/b_28_touch_controls.png" % _dir)
+	root.touch.set_enabled(false)
+
+
 func _run() -> void:
 	await get_tree().create_timer(0.8).timeout
 	root.show_all_floors = true
@@ -121,6 +141,7 @@ func _run() -> void:
 		await get_tree().create_timer(0.9).timeout
 		await _grab(Vector3(-7.2, 91.6, -2.2), Vector3(-7.2, 91.0, -7.4),
 				"b_14_room0")
+	await _shoot_touch_hud()
 	get_tree().quit(0)
 
 
