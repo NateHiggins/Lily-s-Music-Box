@@ -89,6 +89,21 @@ func _run() -> void:
 			fixtures += 1
 	_check(fixtures >= 100,
 			"light fixtures spawned across the building (%d)" % fixtures)
+	var residents := get_tree().get_nodes_in_group("resident_placeholders")
+	_check(residents.size() == 18,
+			"all resident NPC placeholders spawned (%d)" % residents.size())
+	# Placeholders land at the centre of each resident's main room, which is
+	# where the door-to-bedroom route runs. Solid ones block it, and the
+	# generator's movement audit — which authors those clearances — cannot
+	# see actors added in Godot. They stay walk-through until a person is
+	# placed by the same pass that proves the route.
+	var blocking := 0
+	for npc in residents:
+		for part in npc.get_children():
+			if part is StaticBody3D and part.collision_layer != 0:
+				blocking += 1
+	_check(blocking == 0,
+			"resident placeholders do not obstruct audited routes")
 	await get_tree().create_timer(1.2).timeout  # let the rig settle
 	var lst: Dictionary = root.light_rig.stats()
 	# The rig gates by storey and then spends a bounded working set on the
@@ -161,6 +176,30 @@ func _run() -> void:
 	_check(ProjectSettings.get_setting(
 			"rendering/occlusion_culling/use_occlusion_culling", false),
 			"occlusion culling is enabled for the project")
+
+	# --- night occupancy: the building has to read as lived in from the
+	# street, where the storey gate means at most one floor's fixtures burn
+	var glow := root.get_node_or_null("WindowGlow")
+	var glow_stats: Dictionary = glow.stats() if glow else {}
+	_check(int(glow_stats.get("lit", 0)) > 20,
+			"windows glow from outside at night (%d lit, %d dark)" %
+			[glow_stats.get("lit", 0), glow_stats.get("dark", 0)])
+	_check(int(glow_stats.get("dark", 0)) > 0,
+			"some windows stay dark (sealed 2D, burnt 5D, and sleepers)")
+	var one_sided := true
+	var casts := false
+	if glow:
+		for g in glow.get_children():
+			if g is MeshInstance3D:
+				var gm: StandardMaterial3D = g.material_override
+				if gm == null or gm.cull_mode != BaseMaterial3D.CULL_BACK:
+					one_sided = false
+				if g.cast_shadow != GeometryInstance3D.SHADOW_CASTING_SETTING_OFF:
+					casts = true
+	# Single-sided is what keeps the glow out of the room it belongs to:
+	# from inside you see its culled back face and the real night sky.
+	_check(one_sided, "window glows are single-sided (unseen from inside)")
+	_check(not casts, "window glows cast no shadows")
 
 	# --- south corridor -> elevator hall -> atrium deck -> up the west
 	# flight to the north landing -> east flight onto the F02 deck

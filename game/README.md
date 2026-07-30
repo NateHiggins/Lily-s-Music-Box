@@ -59,6 +59,18 @@ cab carries its own floor-button panel. Pressing a call runs the full
 sequence: doors close, the car travels (carrying anyone standing in it —
 WalkTest rides it 19.6 m), the arrival bell strikes, the doors reopen.
 
+**Occupied at night (new):** from the sidewalk the Orison used to read as
+derelict — lighting is gated to the storey you occupy, so five of its six
+floors were black holes in a brick wall. Every exterior window now carries
+an unshaded emissive quad just behind the glazing, single-sided and facing
+out: it reads from the street, costs one draw, lights nothing, and is
+invisible from inside (you see its culled back face and the real night
+beyond, blinds and all). What a window shows is read from the room behind
+it, so the building tells the truth about itself — 2D has been sealed
+since 1927 and 5D burned, so they stay black; vacant 3C and the landlord's
+crate store in 6D are unlit; kitchens run cooler than living rooms; and
+about a third of the rest are dark because it is the middle of the night.
+
 **Lighting that reads (new):** the rig gates fixtures by storey, then spends
 a bounded working set on the nearest ones, weighting circulation fixtures
 well above room fixtures. That second half matters because the GL
@@ -180,7 +192,7 @@ origin (boiler / 4B radiator / F04 corridor light).
 
 ```bash
 godot --headless --path game --import                       # first time
-godot --headless --path game res://tests/WalkTest.tscn      # 100 checks
+godot --headless --path game res://tests/WalkTest.tscn      # 106 checks
 godot --headless --path game res://tests/LightingAudit.tscn # per-room light
 godot --path game res://tests/Screenshot.tscn               # doc renders
 godot --path game --resolution 2560x1440 res://tests/Perf.tscn

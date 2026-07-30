@@ -183,7 +183,20 @@ Status markers reflect main as of 2026-07-30.
    step around animated bulb materials, billboarded halos and the
    deliberate cast_shadow=off — worth doing only if measurement says so.
 8. **Atmosphere and post.** PARTLY DONE (depth fog, glow, filmic
-   tonemap). Volumetrics, glass treatment and a fuller post chain open.
+   tonemap, night sky dome). "Emissive interiors visible from the street
+   at night" is now in: every exterior window carries an unshaded quad
+   just behind the glazing, single-sided and facing out, so it reads from
+   the sidewalk and is invisible from the room (you see its culled back
+   face and the real night beyond). It is deliberately NOT a light —
+   lighting is gated to one storey by the per-object cap, which is why
+   the building used to read derelict from outside. What each window
+   shows comes from the room behind it, so the building tells the truth:
+   2D sealed and 5D burnt stay black, vacant 3C and the 6D crate store
+   are unlit, kitchens run cooler than living rooms, and a third of the
+   rest are dark because people are asleep. Remaining: volumetrics are
+   not available on the Compatibility renderer at all, so the stairwell
+   and basement fog needs a different technique; glass still has no dirt
+   masks or per-window variation.
 
 ## Invariants that survive all of it
 

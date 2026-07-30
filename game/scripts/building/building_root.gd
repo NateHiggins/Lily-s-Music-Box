@@ -42,6 +42,26 @@ const PROP_SCRIPTS := {
 	"chandelier": preload("res://scripts/props/light_fixture_prop.gd"),
 	"eye_pendant": preload("res://scripts/props/light_fixture_prop.gd"),
 }
+const NPC_RESIDENTS := [
+	{"unit": "1A", "name": "Evelyn Marsh", "sprite": "evelyn_marsh"},
+	{"unit": "1D", "name": "Teresa Vale", "sprite": "teresa_vale"},
+	{"unit": "2A", "name": "Mina Vale", "sprite": "mina_vale"},
+	{"unit": "2B", "name": "Lena Ortiz", "sprite": "lena_ortiz"},
+	{"unit": "2C", "name": "Juno Kells", "sprite": "juno_kells"},
+	{"unit": "3A", "name": "Malcolm Reed", "sprite": "malcolm_reed"},
+	{"unit": "3B", "name": "Omar Bell", "sprite": "omar_bell"},
+	{"unit": "3D", "name": "Rhea Sato", "sprite": "rhea_sato"},
+	{"unit": "4A", "name": "Peter Wren", "sprite": "peter_wren"},
+	{"unit": "4C", "name": "Cam Ortiz", "sprite": "cam_ortiz", "slot": -1},
+	{"unit": "4C", "name": "Noel Price", "sprite": "noel_price", "slot": 1},
+	{"unit": "4D", "name": "Transient Guests", "sprite": "transient_guests"},
+	{"unit": "5A", "name": "Nadia Quell", "sprite": "nadia_quell"},
+	{"unit": "5B", "name": "Cal Dwyer", "sprite": "cal_dwyer"},
+	{"unit": "5C", "name": "Iris Bell", "sprite": "iris_bell"},
+	{"unit": "6A", "name": "Sacha Reed", "sprite": "sacha_reed"},
+	{"unit": "6B", "name": "Jonah Price", "sprite": "jonah_price"},
+	{"unit": "6C", "name": "Mae Kessler", "sprite": "mae_kessler"},
+]
 
 var layout: Dictionary = {}
 var player: PlayerController
@@ -51,6 +71,7 @@ var light_rig: LightRig
 var virus_director: VirusSoundDirector
 var floor_nodes: Dictionary = {}
 var occluders: OrisonOccluders
+var window_glow: OrisonWindowGlow
 var show_all_floors := false
 
 
@@ -71,9 +92,14 @@ func _ready() -> void:
 	occluders.name = "Occluders"
 	add_child(occluders)
 	var n_occ := occluders.build(layout)
+	window_glow = OrisonWindowGlow.new()
+	window_glow.name = "WindowGlow"
+	add_child(window_glow)
+	var n_lit := window_glow.build(layout)
 	call_interface = CallInterface.new()
 	add_child(call_interface)
 	_spawn_props()
+	_spawn_npc_placeholders()
 	light_rig = LightRig.new()
 	add_child(light_rig)
 	elevator = OrisonElevator.new()
@@ -97,7 +123,8 @@ func _ready() -> void:
 	layer.add_child(debug)
 	debug.setup(self)
 	print("[BUILDING] Orison assembled: %d floors, %d occluders, "
-			% [floor_nodes.size(), n_occ] + "player in lobby")
+			% [floor_nodes.size(), n_occ] +
+			"%d windows lit, player in lobby" % n_lit)
 
 
 func _build_environment() -> void:
@@ -315,6 +342,53 @@ func _spawn_props() -> void:
 			add_child(prop)
 			count += 1
 	print("[BUILDING] %d functional props spawned" % count)
+
+
+func _spawn_npc_placeholders() -> void:
+	var count := 0
+	for spec in NPC_RESIDENTS:
+		var unit: String = spec.unit
+		var floor_id := "F0" + unit.left(1)
+		var floor_data: Dictionary = {}
+		for candidate in layout["floors"]:
+			if candidate.id == floor_id:
+				floor_data = candidate
+				break
+		if floor_data.is_empty():
+			continue
+		var room: Dictionary = {}
+		for candidate in floor_data["rooms"]:
+			if candidate.get("unit", "") != unit:
+				continue
+			if candidate.get("kind", "") == "living" \
+					or str(candidate.id).ends_with("_MAIN"):
+				room = candidate
+				break
+		if room.is_empty():
+			# Studios without a MAIN tag still receive the largest unit room.
+			var best_area := -1.0
+			for candidate in floor_data["rooms"]:
+				if candidate.get("unit", "") != unit:
+					continue
+				var rect: Array = candidate.rect
+				var area := (float(rect[2]) - float(rect[0])) \
+						* (float(rect[3]) - float(rect[1]))
+				if area > best_area:
+					best_area = area
+					room = candidate
+		if room.is_empty():
+			continue
+		var rect: Array = room.rect
+		var slot: float = float(spec.get("slot", 0))
+		var x := lerpf(float(rect[0]), float(rect[2]), 0.52) + slot * 0.48
+		var y := lerpf(float(rect[1]), float(rect[3]), 0.58)
+		var npc := NPCPlaceholder.new()
+		npc.setup(spec.name, "res://assets/npcs/%s.png" % spec.sprite)
+		npc.position = GameBoot.b2g([x, y, float(floor_data.z) + 0.03])
+		var parent: Node = floor_nodes.get(floor_id, self)
+		parent.add_child(npc)
+		count += 1
+	print("[BUILDING] %d resident placeholders spawned" % count)
 
 
 func teleport_player(fid: String) -> void:
