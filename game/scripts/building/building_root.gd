@@ -121,6 +121,7 @@ func _build_environment() -> void:
 	we.environment = env
 	add_child(we)
 	_build_sky_dome(panorama)
+	_build_atrium_atmosphere()
 	var moon := DirectionalLight3D.new()
 	moon.name = "ExteriorMoon"
 	moon.light_color = Color(0.65, 0.7, 0.9)
@@ -174,6 +175,88 @@ void fragment() {
 	add_child(dome)
 
 
+## The atrium eye under its skylight earns the money atmosphere: a faked
+## volumetric shaft (additive gradient cone, no volumetrics on the
+## Compatibility backend), slow dust motes riding it, and a soft
+## vignette that pulls every frame toward the lens.
+func _build_atrium_atmosphere() -> void:
+	var shaft := MeshInstance3D.new()
+	shaft.name = "AtriumShaft"
+	var cone := CylinderMesh.new()
+	cone.top_radius = 1.9
+	cone.bottom_radius = 2.65
+	cone.height = 20.6
+	cone.radial_segments = 24
+	shaft.mesh = cone
+	var sm := StandardMaterial3D.new()
+	sm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	sm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	sm.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	sm.cull_mode = BaseMaterial3D.CULL_DISABLED
+	sm.no_depth_test = false
+	var grad := Gradient.new()
+	grad.offsets = PackedFloat32Array([0.0, 0.55, 1.0])
+	grad.colors = PackedColorArray([
+			Color(0.72, 0.78, 0.95, 0.0),
+			Color(0.72, 0.78, 0.95, 0.020),
+			Color(0.80, 0.85, 1.0, 0.055)])
+	var gt := GradientTexture2D.new()
+	gt.gradient = grad
+	gt.fill_from = Vector2(0.5, 1.0)   # bright toward the skylight
+	gt.fill_to = Vector2(0.5, 0.0)
+	sm.albedo_texture = gt
+	shaft.material_override = sm
+	shaft.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	shaft.position = Vector3(0.0, 10.4, 0.0)
+	add_child(shaft)
+	var dust := CPUParticles3D.new()
+	dust.name = "AtriumDust"
+	dust.amount = 110
+	dust.lifetime = 14.0
+	dust.preprocess = 14.0
+	dust.emission_shape = CPUParticles3D.EMISSION_SHAPE_BOX
+	dust.emission_box_extents = Vector3(2.4, 10.2, 2.4)
+	dust.gravity = Vector3(0, -0.015, 0)
+	dust.initial_velocity_min = 0.01
+	dust.initial_velocity_max = 0.06
+	dust.direction = Vector3(0, -1, 0)
+	dust.spread = 180.0
+	var dq := QuadMesh.new()
+	dq.size = Vector2(0.02, 0.02)
+	var dm := StandardMaterial3D.new()
+	dm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	dm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	dm.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	dm.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+	dm.albedo_color = Color(0.95, 0.92, 0.85, 0.30)
+	dq.material = dm
+	dust.mesh = dq
+	dust.position = Vector3(0.0, 10.4, 0.0)
+	add_child(dust)
+	var vg_layer := CanvasLayer.new()
+	vg_layer.layer = 6
+	add_child(vg_layer)
+	var vg := TextureRect.new()
+	vg.name = "Vignette"
+	vg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	vg.stretch_mode = TextureRect.STRETCH_SCALE
+	vg.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var vgrad := Gradient.new()
+	vgrad.offsets = PackedFloat32Array([0.0, 0.72, 1.0])
+	vgrad.colors = PackedColorArray([
+			Color(0, 0, 0, 0.0), Color(0, 0, 0, 0.0),
+			Color(0, 0, 0, 0.26)])
+	var vt := GradientTexture2D.new()
+	vt.gradient = vgrad
+	vt.fill = GradientTexture2D.FILL_RADIAL
+	vt.fill_from = Vector2(0.5, 0.5)
+	vt.fill_to = Vector2(0.5, 0.0)
+	vt.width = 512
+	vt.height = 512
+	vg.texture = vt
+	vg_layer.add_child(vg)
+
+
 func _spawn_props() -> void:
 	var count := 0
 	for fl in layout["floors"]:
@@ -203,6 +286,8 @@ func _spawn_props() -> void:
 			var prop: FunctionalProp = script.new()
 			prop.prop_type = m["kind"]
 			prop.name = m["id"]
+			if m.has("range") and prop is LightFixtureProp:
+				prop.range_clamp = float(m["range"])
 			if AcousticGraphData.nodes.has(m["id"]):
 				prop.graph_node_id = m["id"]  # bound to the shared graph
 			add_child(prop)

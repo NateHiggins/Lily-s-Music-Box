@@ -383,6 +383,8 @@ FX_TEX = {
     "fx_drip": "generated/fx/wear_drip.png",
     "fx_grease": "generated/fx/wear_grease.png",
     "fx_burn": "generated/fx/wear_burn.png",
+    "fx_patch": "generated/fx/age_patch.png",
+    "fx_damp": "generated/fx/age_damp.png",
 }
 
 
@@ -607,6 +609,8 @@ def asm_nightstand(F, p):
     F.box(wood, -0.225, -0.21, 0.12, 0.225, 0.21, 0.52)
     F.box(wood, -0.20, 0.212, 0.30, 0.20, 0.225, 0.47)   # drawer face
     F.cyl("brass", 0.0, 0.23, 0.385, 0.395, 0.016, 0.010, 8)
+    F.box("paper", -0.14, -0.10, 0.52, 0.02, 0.01, 0.555)   # bedside book
+    F.cyl("glassish", 0.10, 0.06, 0.52, 0.625, 0.035, 0.030, 8)
     for lx, ly in ((-0.17, -0.15), (0.17, -0.15), (-0.17, 0.15),
                    (0.17, 0.15)):
         F.cyl(wood, lx, ly, 0.0, 0.12, 0.020, 0.014, 8)

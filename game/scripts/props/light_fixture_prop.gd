@@ -39,6 +39,10 @@ var _target_scale := 1.0   # set by the LightRig
 var _bounce_on := false    # set by the LightRig
 var _surge := 0.0
 var _swing_node: Node3D
+## Per-room cap from the generator: pools die at their own walls
+## instead of bleeding through shadowless neighbors (the light-leak
+## pass, done as data).
+var range_clamp := 0.0
 
 
 func _build_visual() -> void:
@@ -88,7 +92,7 @@ func _build_visual() -> void:
 	light = OmniLight3D.new()
 	light.light_color = tone
 	light.light_energy = 0.0     # the rig fades it in
-	light.omni_range = RANGE.get(prop_type, 5.0)
+	light.omni_range = RANGE.get(prop_type, 5.0) 			if range_clamp <= 0.0 			else minf(RANGE.get(prop_type, 5.0), range_clamp)
 	light.omni_attenuation = 1.6  # near-physical pooling
 	light.omni_shadow_mode = OmniLight3D.SHADOW_CUBE
 	light.shadow_bias = 0.035
@@ -102,7 +106,7 @@ func _build_visual() -> void:
 	bounce = OmniLight3D.new()
 	bounce.light_color = Color(0.62, 0.47, 0.33)  # oak-bounce warmth
 	bounce.light_energy = 0.0
-	bounce.omni_range = RANGE.get(prop_type, 5.0) * 0.7
+	bounce.omni_range = light.omni_range * 0.7
 	bounce.omni_attenuation = 1.2
 	bounce.shadow_enabled = false
 	bounce.position = bulb_at + Vector3(0, -2.1, 0)

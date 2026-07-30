@@ -268,6 +268,18 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
         _asm(f, unit + "_wc", "toilet", x0 + 1.22, y1 - 0.41, 180)
         _asm(f, unit + "_sink", "sink_ped", x0 + 1.92, y1 - 0.30, 180)
         spos, syaw = [x0 + 1.92, y1 - 0.08], 0
+    tr = {"e": (x1 - 0.10, y0 + 0.62), "w": (x0 + 0.10, y0 + 0.62),
+          "n": (x0 + 0.62, y1 - 0.10)}[edge]
+    if edge in ("e", "w"):
+        _furn_box(f, unit + "_trail", tr[0] - 0.012, tr[1], 0.024, 0.62,
+                  1.05, 0.02, "chrome", False)
+        _furn_box(f, unit + "_towel", tr[0] - 0.03, tr[1] + 0.10, 0.05,
+                  0.38, 0.60, 0.44, "linen", False)
+    else:
+        _furn_box(f, unit + "_trail", tr[0], tr[1] - 0.012, 0.62, 0.024,
+                  1.05, 0.02, "chrome", False)
+        _furn_box(f, unit + "_towel", tr[0] + 0.10, tr[1] - 0.03, 0.38,
+                  0.05, 0.60, 0.44, "linen", False)
     if markers is not None:
         markers.append({"kind": "sconce_globe",
                         "id": "%s_LT_SCONCE" % unit,
@@ -417,18 +429,35 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n"):
     """Cabinetry run + range + fridge along the wall on `side` of the
     0.66-deep footprint whose min corner is (x, y)."""
     cw = max(0.95, L - 1.40)
+
+    def clutter(cx_, cy_, swap=False):
+        items = (((-cw * 0.32, 0.05), 0.22, 0.17, 0.11, "porcelain",
+                  "mugs"),
+                 ((-cw * 0.18, -0.10), 0.24, 0.20, 0.07, "porcelain",
+                  "plates"),
+                 ((cw * 0.34, 0.02), 0.32, 0.22, 0.02, "timber", "board"))
+        for (ox, oy), iw, id_, ih, mat_, tag in items:
+            if swap:
+                ox, oy = oy, ox
+                iw, id_ = id_, iw
+            f.append({"id": "%s_k%s" % (uid, tag),
+                      "rect": [cx_ + ox - iw / 2, cy_ + oy - id_ / 2,
+                               cx_ + ox + iw / 2, cy_ + oy + id_ / 2],
+                      "z0": 0.90, "h": ih, "mat": mat_})
     if along_x:
         yaw = FACE_YAW["s" if side == "n" else "n"]
         cy = y + 0.32
         _asm(f, uid, "kitchen", x + cw / 2, cy, yaw, L=cw + 0.75)
         _asm(f, uid + "_stove", "stove", x + cw + 0.33, cy, yaw)
         _asm(f, uid + "_fr", "fridge50", x + cw + 0.66 + 0.36, cy, yaw)
+        clutter(x + cw / 2, cy)
     else:
         yaw = FACE_YAW["e" if side == "w" else "w"]
         cx = x + 0.32
         _asm(f, uid, "kitchen", cx, y + cw / 2, yaw, L=cw + 0.75)
         _asm(f, uid + "_stove", "stove", cx, y + cw + 0.33, yaw)
         _asm(f, uid + "_fr", "fridge50", cx, y + cw + 0.66 + 0.36, yaw)
+        clutter(cx, y + cw / 2, True)
 
 
 def desk_set(f, uid, x, y, L=1.4, along_x=True, chair_side=1):
@@ -1447,6 +1476,7 @@ def light_fixture_markers(fl):
                 "kind": "flush_dome",
                 "id": "%s_CORRIDOR_DOME_%02d" % (fl["id"], i + 1),
                 "unit": fl["id"], "pos": [cx, cy, z + ceil - 0.02],
+                "range": 4.2,
                 "yaw_deg": 0, "network": "electrical"})
     for r in fl["rooms"]:
         fix = ROOM_FIXTURE.get(r["kind"])
@@ -1463,11 +1493,16 @@ def light_fixture_markers(fl):
             cx, cy = 0.0, 0.0   # the drop hangs dead-center in the eye
         if r["kind"] == "lobby" and r["id"] != "F01_LOBBY":
             continue
-        fl["markers"].append({
+        marker = {
             "kind": fix, "id": "%s_LT_%s" % (r["id"], fix.upper()),
             "unit": unit or fl["id"],
             "pos": [round(cx, 3), round(cy, 3), z + ceil],
-            "yaw_deg": 0, "network": "electrical"})
+            "yaw_deg": 0, "network": "electrical"}
+        if r["kind"] != "atrium":   # the eye is meant to throw far
+            rw, rd = x1 - x0, y1 - y0
+            marker["range"] = round((rw * rw + rd * rd) ** 0.5 / 2.0
+                                    + 0.9, 2)
+        fl["markers"].append(marker)
 
 
 def collect_door_markers(fl):
@@ -1531,13 +1566,13 @@ def aging_pass(floors):
                 z0 = rng.uniform(0.3, 2.2)
                 if side == "w":
                     fb("patch%s%d" % (fid, i), (-14.005, c, -13.995, c + w_),
-                       z0, rng.uniform(0.5, 1.2), "brick_patched")
+                       z0, rng.uniform(0.5, 1.2), "fx_patch")
                 elif side == "e":
                     fb("patch%s%d" % (fid, i), (13.995, c, 14.005, c + w_),
-                       z0, rng.uniform(0.5, 1.2), "brick_patched")
+                       z0, rng.uniform(0.5, 1.2), "fx_patch")
                 else:
                     fb("patch%s%d" % (fid, i), (c, 9.995, c + w_, 10.005),
-                       z0, rng.uniform(0.5, 1.2), "brick_patched")
+                       z0, rng.uniform(0.5, 1.2), "fx_patch")
             fb("lane_s%s" % fid, (-4.9, -9.1, 4.9, -7.5), 0.013, 0.002,
                "plaster_stained")
             fb("lane_w%s" % fid, (-5.1, -6.9, -3.7, 6.9), 0.013, 0.002,
@@ -1577,12 +1612,12 @@ def aging_pass(floors):
                    8.96), 0.0, 3.2 + a * 0.8, "metal")
         if fid == "F01":
             fb("damp_s1", (-13.9, -10.06, -1.55, -9.965), 0.45, 0.28,
-               "plaster_stained")
+               "fx_damp")
             fb("damp_s2", (1.55, -10.06, 13.9, -9.965), 0.45, 0.28,
-               "plaster_stained")
+               "fx_damp")
             for i, sx in enumerate((-11.0, 6.5)):
                 fb("streak%d" % i, (sx, -10.055, sx + 0.25, -9.97), 0.7,
-                   2.3, "plaster_stained")
+                   2.3, "fx_drip")
 
 
 ## The building's block: a crowded 2027 street on limited land. Sidewalk
@@ -2351,6 +2386,8 @@ MATERIAL_CATALOG = {
     "fx_drip": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
     "fx_grease": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
     "fx_burn": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
+    "fx_patch": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
+    "fx_damp": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
     # appliance & hardware finishes for the parametric asset library
     "chrome": {"base_color": [0.80, 0.82, 0.85, 1.0], "roughness": 0.12,
                "metallic": 1.0},
