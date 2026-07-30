@@ -80,18 +80,13 @@ func _ready() -> void:
 	mute.text = "Mute"
 	mute.toggled.connect(func(on): AudioServer.set_bus_mute(0, on))
 	_body.add_child(mute)
-	var tour := Button.new()
-	tour.text = "Elegant fly-through (T)"
-	tour.add_theme_font_size_override("font_size", 10)
-	tour.pressed.connect(func(): root.walkthrough.toggle())
-	_body.add_child(tour)
 	var seed := Button.new()
-	seed.text = "Viral seed lure → apartment 4B (F2)"
+	seed.text = "Play intro (F2)"
 	seed.add_theme_font_size_override("font_size", 10)
-	seed.pressed.connect(func(): root.virus_director.toggle_debug_lure())
+	seed.pressed.connect(func(): root.virus_director.toggle_intro())
 	_body.add_child(seed)
 	var hint := Label.new()
-	hint.text = "WASD move · Shift run · C crouch · E interact\nL flashlight · V noclip · T fly cam · F2 viral seed · Esc release mouse"
+	hint.text = "WASD move · Shift run · C crouch · E interact\nL flashlight · V noclip · F2 intro · Esc release mouse"
 	hint.add_theme_font_size_override("font_size", 10)
 	hint.modulate = Color(0.7, 0.7, 0.75)
 	_body.add_child(hint)
@@ -120,9 +115,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_panel"):
 		_body.visible = not _body.visible
 		get_viewport().set_input_as_handled()
-	elif event.is_action_pressed("viral_seed_debug") and root \
+	elif event.is_action_pressed("intro") and root \
 			and root.virus_director:
-		root.virus_director.toggle_debug_lure()
+		root.virus_director.toggle_intro()
 		get_viewport().set_input_as_handled()
 
 
@@ -133,7 +128,7 @@ func _process(_delta: float) -> void:
 	var seed_status := ""
 	if root.virus_director and root.virus_director.active:
 		var f: Dictionary = root.virus_director.current_features
-		seed_status = "\nseed %.1fs  low %.2f  mid %.2f  high %.2f" % [
+		seed_status = "\nintro %.1fs  low %.2f  mid %.2f  high %.2f" % [
 				root.virus_director._elapsed, float(f.get("low", 0.0)),
 				float(f.get("mid", 0.0)), float(f.get("high", 0.0))]
 	_status.text = ("pos (%.1f, %.1f, %.1f)  fps %d\n" +

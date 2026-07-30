@@ -5,6 +5,7 @@ extends FunctionalProp
 ## temperature slides toward the interface teal.
 
 var _screen_mats: Array[StandardMaterial3D] = []
+var _incoming_label: Label3D
 
 
 func _build_visual() -> void:
@@ -48,3 +49,24 @@ func _perform_synced_event(_index: int, accent: float, _pitch: float) -> void:
 			mat.emission = Color(0.34, 0.9, 0.83)  # the interface teal
 		create_tween().tween_property(mat, "emission_energy_multiplier",
 				0.7, 0.2)
+
+
+func show_incoming_call() -> void:
+	for mat in _screen_mats:
+		mat.emission = Color(0.12, 0.95, 0.78)
+		mat.emission_energy_multiplier = 1.6
+	if _incoming_label == null:
+		_incoming_label = Label3D.new()
+		_incoming_label.name = "IncomingCallAlert"
+		_incoming_label.text = "INCOMING CALL\nM. CHEN"
+		_incoming_label.font_size = 42
+		_incoming_label.pixel_size = 0.00145
+		_incoming_label.modulate = Color(0.78, 1.0, 0.92)
+		_incoming_label.outline_modulate = Color(0.01, 0.04, 0.035)
+		_incoming_label.outline_size = 8
+		_incoming_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		_incoming_label.position = Vector3(0.027, 0.24, 0.0)
+		_incoming_label.rotation.y = -PI / 2.0
+		_incoming_label.double_sided = true
+		add_child(_incoming_label)
+	_incoming_label.visible = true

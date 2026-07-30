@@ -328,6 +328,26 @@
       "size": 512,
       "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
       "avoid": "n/a (synthesized)"
+    },
+    "terracotta": {
+      "enabled": true,
+      "meters_per_tile": 0.5,
+      "roughness": 0.72,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 10,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "soil": {
+      "enabled": true,
+      "meters_per_tile": 0.4,
+      "roughness": 0.95,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 10,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
     }
   }
 }

@@ -82,7 +82,7 @@ func _run() -> void:
 	await get_tree().create_timer(2.0).timeout
 	_check(Conductor._beat_i > beat_before, "conductor clock is beating")
 
-	# --- lighting model: fixtures spawned, budget enforced by the rig
+	# --- lighting model: every fixture on the active floor is enabled
 	var fixtures := 0
 	for c2 in root.get_children():
 		if c2 is LightFixtureProp:
@@ -91,12 +91,39 @@ func _run() -> void:
 			"light fixtures spawned across the building (%d)" % fixtures)
 	await get_tree().create_timer(1.2).timeout  # let the rig settle
 	var lst: Dictionary = root.light_rig.stats()
-	_check(lst.full > 0 and lst.full <= LightRig.FULL_N,
-			"light budget: %d full pools (cap %d)" %
-			[lst.full, LightRig.FULL_N])
-	_check(lst.shadows == LightRig.SHADOW_N,
-			"shadow budget: %d nearby shadow maps (target %d)" %
-			[lst.shadows, LightRig.SHADOW_N])
+	# The rig gates by storey and then spends a bounded working set on the
+	# nearest fixtures, because GL compatibility caps lights PER OBJECT and
+	# each floor's walls are one merged mesh: enabling a whole storey hands
+	# that cap to an arbitrary subset and corridors go black mid-run.
+	var eligible := 0
+	var stray_floor := 0
+	var lit_unshadowed := 0
+	var lit_circulation := 0
+	for fixture in root.light_rig._controlled_lights():
+		var vertical: bool = root.light_rig._is_vertical(fixture)
+		if vertical or root.light_rig._fixture_floor(fixture) == "F01":
+			eligible += 1
+		var src: Light3D = fixture.light
+		var lit: bool = src != null and src.visible and src.light_energy > 0.05
+		if not lit:
+			continue
+		if not vertical and root.light_rig._fixture_floor(fixture) != "F01":
+			stray_floor += 1
+		if not src.shadow_enabled:
+			lit_unshadowed += 1
+		if "navigation_light" in fixture and fixture.navigation_light:
+			lit_circulation += 1
+	_check(lst.active_floor == "F01" and stray_floor == 0 and lst.off > 0,
+			"floor lighting: nothing off-storey is lit (%d lit, %d dark)" %
+			[lst.full, lst.off])
+	_check(lst.full == mini(eligible, root.light_rig.ACTIVE_N),
+			"the working set is the nearest %d of %d eligible fixtures" %
+			[lst.full, eligible])
+	_check(lit_unshadowed == 0,
+			"every lit fixture casts (%d shadow maps)" % lst.shadows)
+	# the complaint this rig exists to answer: a corridor lit end to end
+	_check(lit_circulation >= 4,
+			"circulation fixtures hold the budget (%d lit)" % lit_circulation)
 	var moon := root.get_node_or_null("ExteriorMoon") as DirectionalLight3D
 	_check(moon != null and moon.shadow_enabled,
 			"exterior moon casts directional shadows")
@@ -196,12 +223,38 @@ func _run() -> void:
 	root.show_all_floors = true
 
 	# --- elevator travel across full range
-	root.elevator.travel_to("F06")
-	await _until(func(): return not root.elevator.moving, 25.0)
-	_check(root.elevator.current == "F06", "elevator reached F06")
-	root.elevator.travel_to("B1")
-	await _until(func(): return not root.elevator.moving, 25.0)
-	_check(root.elevator.current == "B1", "elevator reached B1")
+	var ele: OrisonElevator = root.elevator
+	_check(ele._doors.size() == ele.stop_order.size(),
+			"every elevator stop has landing doors (%d)" % ele._doors.size())
+	_check(ele._doors[ele.current]["t"] > 0.99,
+			"the doors at the car's own landing stand open")
+	for lvl in ele.stop_order:
+		if lvl != ele.current:
+			_check(ele._doors[lvl]["t"] < 0.01,
+					"landing %s is closed off while the car is elsewhere" % lvl)
+			break
+	ele.travel_to("F06")
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	_check(ele._doors["F01"]["t"] < 1.0,
+			"doors start closing before the car leaves")
+	await _until(func(): return not ele.moving, 30.0)
+	_check(ele.current == "F06", "elevator reached F06")
+	_check(ele._doors["F06"]["t"] > 0.99, "doors reopen on arrival at F06")
+	_check(ele._doors["F01"]["t"] < 0.01,
+			"the landing it left is sealed behind it")
+	# a rider standing in the cab is carried, not left on the slab
+	var pl2: PlayerController = root.player
+	pl2.global_position = ele._cabin.global_position + Vector3(0, 0.9, 0)
+	pl2.velocity = Vector3.ZERO
+	await get_tree().physics_frame
+	var rode_from := pl2.global_position.y
+	ele.travel_to("B1")
+	await _until(func(): return not ele.moving, 30.0)
+	_check(ele.current == "B1", "elevator reached B1")
+	_check(pl2.global_position.y < rode_from - 12.0,
+			"a rider in the cab travels with it (%.1f m)" %
+			(rode_from - pl2.global_position.y))
 
 	_check(AcousticGraphData.nodes.size() >= 25,
 			"acoustic graph loaded (%d nodes)" % AcousticGraphData.nodes.size())
@@ -209,7 +262,6 @@ func _run() -> void:
 			"4B radiator connected to heating network")
 
 	await _vertical_slice_checks()
-	await _walkthrough_checks()
 
 	print("WALKTEST RESULT: %s" %
 			("PASS" if _failures == 0 else "FAIL (%d)" % _failures))
@@ -233,28 +285,6 @@ func _stop_audio(node: Node) -> void:
 		node.stream = null
 	for child in node.get_children(true):
 		_stop_audio(child)
-
-
-## The architectural walkthrough builds its path from the layout, flies,
-## and hands control back cleanly.
-func _walkthrough_checks() -> void:
-	var wt: ArchitecturalWalkthrough = root.walkthrough
-	_check(wt != null, "walkthrough present")
-	if wt == null:
-		return
-	wt.start()
-	_check(wt._active, "walkthrough starts")
-	_check(wt._wps.size() > 60,
-			"walkthrough path built (%d waypoints)" % wt._wps.size())
-	_check(root.player.call_locked, "walkthrough locks the player")
-	var cam0: Vector3 = wt._cam.global_position
-	await get_tree().create_timer(4.5).timeout  # outlasts the first caption dwell
-	_check(wt._cam.global_position.distance_to(cam0) > 1.0,
-			"walkthrough camera is flying (%.1f m)"
-			% wt._cam.global_position.distance_to(cam0))
-	wt.stop()
-	_check(not root.player.call_locked and not wt._active,
-			"walkthrough hands control back")
 
 
 func _vertical_slice_checks() -> void:

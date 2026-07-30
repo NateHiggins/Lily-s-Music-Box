@@ -253,18 +253,23 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
     when a markers list is supplied. edge: "e" | "w" | "n"."""
     x0, y0, x1, y1 = rect
     f = furniture
+    # Every fixture mounts with its back (local -Y) to the run wall. The
+    # shower also meets a second wall: `mirror` tells it which of its own
+    # X sides that corner is on, so tile and glass never swap places.
     if edge == "e":
         _asm(f, unit + "_shower", "shower", x1 - 0.46, y0 + 0.50, 90)
         _asm(f, unit + "_wc", "toilet", x1 - 0.41, y0 + 1.22, 90)
         _asm(f, unit + "_sink", "sink_ped", x1 - 0.30, y0 + 1.92, 90)
         spos, syaw = [x1 - 0.08, y0 + 1.92], -90
     elif edge == "w":
-        _asm(f, unit + "_shower", "shower", x0 + 0.46, y0 + 0.50, -90)
+        _asm(f, unit + "_shower", "shower", x0 + 0.46, y0 + 0.50, -90,
+             mirror=True)
         _asm(f, unit + "_wc", "toilet", x0 + 0.41, y0 + 1.22, -90)
         _asm(f, unit + "_sink", "sink_ped", x0 + 0.30, y0 + 1.92, -90)
         spos, syaw = [x0 + 0.08, y0 + 1.92], 90
     else:  # "n"
-        _asm(f, unit + "_shower", "shower", x0 + 0.50, y1 - 0.46, 180)
+        _asm(f, unit + "_shower", "shower", x0 + 0.50, y1 - 0.46, 180,
+             mirror=True)
         _asm(f, unit + "_wc", "toilet", x0 + 1.22, y1 - 0.41, 180)
         _asm(f, unit + "_sink", "sink_ped", x0 + 1.92, y1 - 0.30, 180)
         spos, syaw = [x0 + 1.92, y1 - 0.08], 0
@@ -435,11 +440,13 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n"):
     cw = max(0.95, L - 1.40)
 
     def clutter(cx_, cy_, swap=False):
-        items = (((-cw * 0.32, 0.05), 0.22, 0.17, 0.11, "porcelain",
+        # kept clear of the sink basin, which owns the counter's left
+        # third (cutout at carcass x = 0.30*cw-cw/2 +- 0.22)
+        items = (((cw * 0.06, 0.16), 0.22, 0.17, 0.11, "porcelain",
                   "mugs"),
-                 ((-cw * 0.18, -0.10), 0.24, 0.20, 0.07, "porcelain",
+                 ((cw * 0.08, -0.15), 0.24, 0.20, 0.07, "porcelain",
                   "plates"),
-                 ((cw * 0.34, 0.02), 0.32, 0.22, 0.02, "timber", "board"))
+                 ((cw * 0.36, 0.02), 0.28, 0.20, 0.02, "timber", "board"))
         for (ox, oy), iw, id_, ih, mat_, tag in items:
             if swap:
                 ox, oy = oy, ox
@@ -1112,9 +1119,20 @@ def apartment_4b(z, walls, rooms, markers, furniture):
          "h": 0.32, "mat": "trim"},
         {"id": "kitchen_counter", "rect": [-10.70, 9.05, -8.85, 9.55],
          "z0": 0.0, "h": 0.86, "mat": "trim"},
-        {"id": "kitchen_countertop", "rect": [-10.74, 9.01, -8.81, 9.59],
-         "z0": 0.86, "h": 0.045, "mat": "countertop"},
     ]
+    # countertop laid as four boards around the sink cutout, so the basin
+    # below is a real hole rather than a dark rectangle painted on
+    sb = (-10.18, 9.12, -9.68, 9.50)          # basin opening
+    for seg, rect in (
+            ("w", [-10.74, 9.01, sb[0], 9.59]),
+            ("e", [sb[2], 9.01, -8.81, 9.59]),
+            ("s", [sb[0], 9.01, sb[2], sb[1]]),
+            ("n", [sb[0], sb[3], sb[2], 9.59])):
+        furniture.append({"id": "kitchen_countertop_" + seg, "rect": rect,
+                          "z0": 0.86, "h": 0.045, "mat": "countertop"})
+    _asm(furniture, "4B_ksink", "sink_basin",
+         (sb[0] + sb[2]) / 2.0, (sb[1] + sb[3]) / 2.0, 180, z0=0.905,
+         W=sb[2] - sb[0], D=sb[3] - sb[1])
     # lived-in touches: the player's own residue
     sofa_set(furniture, "4B_couch", -12.80, 3.60, 1.50, True, True,
              "fabric_cool")
@@ -1190,11 +1208,10 @@ def furnish_4b_detail(furniture, y0, y1, x0):
                           "h": h, "mat": mat})
 
     fb("uppers", (-10.70, 9.40, -8.85, 9.64), 1.50, 0.72)
-    fb("sink_rim", (-10.18, 9.12, -9.68, 9.50), 0.88, 0.05, "metal")
-    fb("faucet_riser", (-9.96, 9.46, -9.90, 9.52), 0.90, 0.28, "metal")
-    fb("faucet_spout", (-9.96, 9.30, -9.90, 9.50), 1.14, 0.04, "metal")
-    fb("mugs", (-9.62, 9.15, -9.40, 9.32), 0.90, 0.11)
-    fb("plates", (-9.30, 9.16, -9.06, 9.36), 0.90, 0.07)
+    # the sink is a real basin assembly now (4B_ksink); the flat plate and
+    # its stick faucet that used to stand in for it are gone
+    fb("mugs", (-9.62, 9.15, -9.40, 9.32), 0.905, 0.11)
+    fb("plates", (-9.30, 9.16, -9.06, 9.36), 0.905, 0.07)
     for wi, wc in enumerate((y0 + (y1 - y0) * 0.30,
                              y0 + (y1 - y0) * 0.70)):
         blind_stack(furniture, "4B_blw%d" % wi, -13.58, wc - 0.67, False,
@@ -1215,12 +1232,9 @@ def furnish_4b_detail(furniture, y0, y1, x0):
            (px, py, px + 0.06, py + 0.06), 0.0, 0.52, "timber")
     fb("headboard", (-13.40, 9.44, -12.15, 9.50), 0.15, 0.78, "timber")
     fb("nightstand", (-12.05, 9.10, -11.68, 9.48), 0.0, 0.55)
-    fb("shower_riser", (-7.52, y0 + 4.12, -7.46, y0 + 4.18), 0.14, 1.90,
-       "metal")
-    fb("shower_head", (-7.62, y0 + 3.98, -7.42, y0 + 4.18), 2.00, 0.05,
-       "metal")
-    fb("mirror", (-6.05, y0 + 4.17, -5.60, y0 + 4.21), 1.35, 0.60,
-       "glassish")
+    # the bath's shower riser/head and mirror are part of the real shower
+    # and pedestal-sink assemblies bath_fixtures() places; the old stand-in
+    # boxes stood inside them
 
 
 ## Rear wooden porch stack (the Midwest second egress): posts, decks with
@@ -1784,7 +1798,9 @@ def light_fixture_markers(fl):
                 "kind": "flush_dome",
                 "id": "%s_CORRIDOR_DOME_%02d" % (fl["id"], i + 1),
                 "unit": fl["id"], "pos": [cx, cy, z + ceil - 0.02],
-                "range": 5.2, "energy": 0.88,
+                # domes sit 5.1 m apart: a 7.2 m throw overlaps its
+                # neighbours instead of leaving a black third between them
+                "range": 7.2, "energy": 1.3,
                 "navigation": True, "standby": 0.34,
                 "yaw_deg": 0, "network": "electrical"})
     for r in fl["rooms"]:
@@ -1794,14 +1810,14 @@ def light_fixture_markers(fl):
         unit = r.get("unit", "")
         if unit == "2D" or unit == "5D":
             continue
-        if r["id"] in ("F04_B_MAIN", "F01_LOBBY"):
+        if r["id"] in ("F04_B_MAIN",):
             continue
         x0, y0, x1, y1 = r["rect"]
         cx, cy = (x0 + x1) / 2.0, (y0 + y1) / 2.0
         if r["kind"] == "atrium":
             cx, cy = 0.0, 0.0   # the drop hangs dead-center in the eye
-        if r["kind"] == "lobby" and r["id"] != "F01_VESTIBULE":
-            continue
+        if r["kind"] == "lobby" and r["id"] != "F01_LOBBY":
+            continue  # one chandelier, in the lobby proper
         marker = {
             "kind": fix, "id": "%s_LT_%s" % (r["id"], fix.upper()),
             "unit": unit or fl["id"],
@@ -1810,7 +1826,11 @@ def light_fixture_markers(fl):
         if r["kind"] in ("hall", "corridor", "atrium", "lobby",
                          "vestibule", "utility"):
             marker["navigation"] = True
-            marker["standby"] = 0.26
+            # circulation standby: the atrium drops and the lobby
+            # chandelier spill hardest (they are the building's vertical
+            # and social hearts); halls and utility stay dimmer
+            marker["standby"] = {"atrium": 0.50, "lobby": 0.45,
+                                 "vestibule": 0.45}.get(r["kind"], 0.30)
         if r["kind"] != "atrium":   # the eye is meant to throw far
             rw, rd = x1 - x0, y1 - y0
             marker["range"] = round((rw * rw + rd * rd) ** 0.5 / 2.0
@@ -2812,6 +2832,9 @@ MATERIAL_CATALOG = {
     "enamel": {"base_color": [0.91, 0.89, 0.83, 1.0], "roughness": 0.18},
     "bakelite": {"base_color": [0.16, 0.12, 0.10, 1.0], "roughness": 0.30},
     "porcelain": {"base_color": [0.92, 0.93, 0.92, 1.0], "roughness": 0.14},
+    # planter clay and potting soil (plant realism pass)
+    "terracotta": {"base_color": [0.66, 0.38, 0.26, 1.0], "roughness": 0.72},
+    "soil": {"base_color": [0.20, 0.15, 0.11, 1.0], "roughness": 0.95},
 }
 
 

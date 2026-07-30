@@ -88,8 +88,8 @@ metallic always comes from `material_catalog.json`.
 
 ### Catalog -> texture set mapping
 
-`catalog_mapping.json` is the **single mapping authority**: every one of
-the 39 catalog materials appears in it, mapping to a set under
+`catalog_mapping.json` is the **single mapping authority**: every catalog
+material appears in it, mapping to a set under
 `generated/` or `library/`, or to `null` for the four intentionally
 shader-only materials (`glassish`, `screen`, `fx_ao`, `fx_shadow` — glass,
 emissive screens and the fake-GI decal quads). `build_orison.py` loads it

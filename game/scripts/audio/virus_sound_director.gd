@@ -1,8 +1,8 @@
 class_name VirusSoundDirector
 extends Node3D
 ## Plays the authored viral seed and translates its offline analysis into
-## deterministic building events. Debug lure mode stages the opening journey:
-## the sound stays just ahead while the director draws the player to 4B.
+## deterministic building events. Intro mode reverses a departure: outside,
+## through the lobby, up the lift, back into 4B, ending at the incoming call.
 
 const AUDIO := preload("res://assets/audio/viral_seed.ogg")
 const FEATURES := "res://data/viral_seed_features.json"
@@ -16,22 +16,40 @@ const BAND_ORIGINS := {
 const BAND_PITCH := {
 	"sub": -9.0, "low": -5.0, "mid": 0.0, "high": 5.0, "air": 10.0,
 }
-## Times and positions form a debug cinematic path from the front door,
-## through the lift, down floor four's corridor and into the player's room.
-const LURE_ROUTE := [
-	{"t": 0.0, "p": Vector3(0.0, 0.12, 9.0)},
-	{"t": 4.0, "p": Vector3(1.9, 0.12, 7.2)},
-	{"t": 7.0, "p": Vector3(1.9, 0.12, 5.65)},
-	{"t": 12.0, "p": Vector3(1.9, 9.72, 5.65)},
-	{"t": 15.0, "p": Vector3(0.0, 9.72, 4.3)},
-	{"t": 20.0, "p": Vector3(-4.9, 9.72, -3.85)},
-	{"t": 24.0, "p": Vector3(-6.45, 9.72, -3.9)},
-	{"t": 30.0, "p": Vector3(-10.2, 9.72, -4.8)},
+const INTRO_END := 30.35
+const INTRO_ROUTE := [
+	{"t": 0.0, "p": Vector3(0.0, 0.12, 17.2)},
+	{"t": 2.2, "p": Vector3(0.0, 0.12, 16.7)},
+	{"t": 5.4, "p": Vector3(0.0, 0.12, 12.1)},
+	{"t": 8.0, "p": Vector3(0.0, 0.12, 9.0)},
+	{"t": 10.6, "p": Vector3(1.9, 0.12, 7.0)},
+	{"t": 12.0, "p": Vector3(1.9, 0.12, 5.65)},
+	{"t": 17.0, "p": Vector3(1.9, 9.72, 5.65)},
+	{"t": 19.0, "p": Vector3(0.0, 9.72, 4.3)},
+	{"t": 23.0, "p": Vector3(-4.9, 9.72, -3.85)},
+	{"t": 26.0, "p": Vector3(-6.45, 9.72, -3.9)},
+	{"t": 28.4, "p": Vector3(-8.0, 9.72, -4.55)},
+	{"t": INTRO_END, "p": Vector3(-9.15, 9.72, -5.50)},
+]
+## Deliberate, smoothly interpolated attention: architecture first, then
+## nervous checks behind and beside the player, finally the desk display.
+const INTRO_LOOKS := [
+	{"t": 0.0, "p": Vector3(0.0, 5.8, 7.0)},
+	{"t": 3.0, "p": Vector3(0.0, 2.5, 9.5)},
+	{"t": 7.5, "p": Vector3(-2.7, 1.7, 7.2)},
+	{"t": 9.5, "p": Vector3(0.0, 5.8, 0.0)},
+	{"t": 11.5, "p": Vector3(1.9, 1.3, 5.2)},
+	{"t": 15.0, "p": Vector3(1.9, 10.8, 5.2)},
+	{"t": 19.5, "p": Vector3(-2.0, 10.5, 2.0)},
+	{"t": 22.0, "p": Vector3(0.0, 10.3, 4.3)},
+	{"t": 24.5, "p": Vector3(-6.6, 10.4, -4.0)},
+	{"t": 27.2, "p": Vector3(-7.2, 10.4, -7.0)},
+	{"t": INTRO_END, "p": Vector3(-8.05, 10.36, -5.50)},
 ]
 
 var building: Node3D
 var active := false
-var lure_active := false
+var intro_active := false
 var current_features: Dictionary = {}
 
 var _player: AudioStreamPlayer3D
@@ -42,6 +60,8 @@ var _event_cursor := 0
 var _elapsed := 0.0
 var _previous_infection := 0.15
 var _previous_noclip := false
+var _previous_call_locked := false
+var _camera_home := Vector3(0, 1.62, 0)
 
 
 func setup(root: Node3D) -> void:
@@ -66,24 +86,29 @@ func _ready() -> void:
 	add_child(_player)
 
 
-func start_seed(with_debug_lure := false) -> void:
+func start_seed(as_intro := false) -> void:
 	if active:
 		stop_seed()
 	active = true
-	lure_active = with_debug_lure
+	intro_active = as_intro
 	_elapsed = 0.0
 	_frame_cursor = 0
 	_event_cursor = 0
 	_previous_infection = Conductor.infection
 	Conductor.infection = maxf(Conductor.infection, 0.82)
-	if lure_active and building and building.player:
+	if intro_active and building and building.player:
 		_previous_noclip = building.player.noclip
+		_previous_call_locked = building.player.call_locked
 		building.player.noclip = true
+		building.player.call_locked = true
 		building.player.collision_layer = 0
 		building.player.collision_mask = 0
-		building.player.global_position = LURE_ROUTE[0].p
-	global_position = _sample_route(1.25) if lure_active \
+		building.player.global_position = INTRO_ROUTE[0].p
+		_camera_home = building.player.camera.position
+		building.player.camera.rotation = Vector3.ZERO
+	global_position = _sample_route(1.0) if intro_active \
 			else AcousticGraphData.node_pos("F04_B_MONITOR_01")
+	_player.volume_db = -14.0 if intro_active else -5.0
 	_player.play()
 	Conductor.viral_seed_state.emit(true)
 
@@ -94,17 +119,20 @@ func stop_seed() -> void:
 	active = false
 	_player.stop()
 	Conductor.infection = _previous_infection
-	if lure_active and building and building.player:
+	if intro_active and building and building.player:
 		building.player.noclip = _previous_noclip
+		building.player.call_locked = _previous_call_locked
 		building.player.collision_layer = 0 if _previous_noclip else 1
 		building.player.collision_mask = 0 if _previous_noclip else 1
 		building.player.velocity = Vector3.ZERO
-	lure_active = false
+		building.player.camera.position = _camera_home
+		building.player.camera.rotation = Vector3.ZERO
+	intro_active = false
 	current_features = {}
 	Conductor.viral_seed_state.emit(false)
 
 
-func toggle_debug_lure() -> void:
+func toggle_intro() -> void:
 	if active:
 		stop_seed()
 	else:
@@ -115,9 +143,10 @@ func _process(delta: float) -> void:
 	if not active:
 		return
 	_elapsed = _player.get_playback_position()
+	if intro_active and _elapsed >= INTRO_END:
+		_finish_intro()
+		return
 	if not _player.playing:
-		if lure_active and building and building.player:
-			building.player.global_position = LURE_ROUTE[-1].p
 		stop_seed()
 		return
 	while _frame_cursor + 1 < _frames.size() \
@@ -130,8 +159,8 @@ func _process(delta: float) -> void:
 			and float(_events[_event_cursor].time) <= _elapsed:
 		_transmit(_events[_event_cursor], _event_cursor)
 		_event_cursor += 1
-	if lure_active:
-		_guide_player(delta)
+	if intro_active:
+		_animate_intro(delta)
 
 
 func _transmit(event: Dictionary, index: int) -> void:
@@ -145,31 +174,69 @@ func _transmit(event: Dictionary, index: int) -> void:
 	AcousticGraphData.propagate(origin, index, strength, pitch)
 
 
-func _guide_player(delta: float) -> void:
+func _animate_intro(delta: float) -> void:
 	if building == null or building.player == null:
 		return
 	var player: PlayerController = building.player
 	var desired := _sample_route(_elapsed)
-	var beacon := _sample_route(minf(_elapsed + 1.25, 30.0))
-	global_position = beacon
-	## A critically soft pull leaves a trace of pursuit instead of reading
-	## as a teleport. Noclip is debug-only so the lift transition is testable.
+	var ahead := _sample_route(minf(_elapsed + 0.18, INTRO_END))
+	global_position = ahead
 	player.global_position = player.global_position.lerp(
-			desired, clampf(delta * 2.8, 0.0, 1.0))
+			desired, clampf(delta * 7.0, 0.0, 1.0))
 	player.velocity = Vector3.ZERO
-	var flat_target := Vector3(beacon.x, player.global_position.y, beacon.z)
-	if player.global_position.distance_squared_to(flat_target) > 0.05:
-		player.look_at(flat_target, Vector3.UP, true)
+	var look := _sample_look(_elapsed)
+	var direction := (look - player.camera.global_position).normalized()
+	var desired_yaw := atan2(-direction.x, -direction.z)
+	var desired_pitch := -atan2(direction.y,
+			Vector2(direction.x, direction.z).length())
+	player.rotation.y = lerp_angle(player.rotation.y, desired_yaw,
+			1.0 - exp(-delta * 3.2))
+	player.camera.rotation.x = lerp_angle(player.camera.rotation.x,
+			clampf(desired_pitch, -0.9, 0.8), 1.0 - exp(-delta * 3.8))
+	# Hurried but human: heel cadence and restrained lateral weight shift.
+	# The lift interval becomes almost still, retaining only nervous breath.
+	var walking := not (_elapsed >= 12.0 and _elapsed <= 17.0)
+	var cadence := 8.7 if walking else 1.5
+	var bob := sin(_elapsed * cadence) * (0.035 if walking else 0.008)
+	var sway := sin(_elapsed * cadence * 0.5) * (0.018 if walking else 0.004)
+	player.camera.position = _camera_home + Vector3(sway, bob, 0)
+	# The mix rises toward the desk, then is severed rather than faded.
+	_player.volume_db = lerpf(-14.0, -1.0,
+			pow(clampf(_elapsed / INTRO_END, 0.0, 1.0), 0.72))
+
+
+func _finish_intro() -> void:
+	if building and building.player:
+		building.player.global_position = INTRO_ROUTE[-1].p
+		var monitor: Node = building.get_node_or_null("F04_B_MONITOR_01")
+		if monitor and monitor.has_method("show_incoming_call"):
+			monitor.show_incoming_call()
+	# Hard cut: no score tail. Prop loops, pipes, lamps and room tone remain.
+	_player.stop()
+	stop_seed()
 
 
 func _sample_route(time: float) -> Vector3:
-	if time <= float(LURE_ROUTE[0].t):
-		return LURE_ROUTE[0].p
-	for index in range(1, LURE_ROUTE.size()):
-		var right: Dictionary = LURE_ROUTE[index]
+	if time <= float(INTRO_ROUTE[0].t):
+		return INTRO_ROUTE[0].p
+	for index in range(1, INTRO_ROUTE.size()):
+		var right: Dictionary = INTRO_ROUTE[index]
 		if time <= float(right.t):
-			var left: Dictionary = LURE_ROUTE[index - 1]
+			var left: Dictionary = INTRO_ROUTE[index - 1]
 			var weight := inverse_lerp(float(left.t), float(right.t), time)
 			weight = smoothstep(0.0, 1.0, weight)
 			return (left.p as Vector3).lerp(right.p, weight)
-	return LURE_ROUTE[-1].p
+	return INTRO_ROUTE[-1].p
+
+
+func _sample_look(time: float) -> Vector3:
+	if time <= float(INTRO_LOOKS[0].t):
+		return INTRO_LOOKS[0].p
+	for index in range(1, INTRO_LOOKS.size()):
+		var right: Dictionary = INTRO_LOOKS[index]
+		if time <= float(right.t):
+			var left: Dictionary = INTRO_LOOKS[index - 1]
+			var weight := smoothstep(0.0, 1.0,
+					inverse_lerp(float(left.t), float(right.t), time))
+			return (left.p as Vector3).lerp(right.p, weight)
+	return INTRO_LOOKS[-1].p

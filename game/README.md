@@ -10,8 +10,7 @@ night.
 - **WASD** move · **Shift** run · **Space** jump · **C** crouch
 - **Mouse** look (click to capture, **Esc** to release)
 - **E** interact (elevator call buttons and cabin panel)
-- **T** architectural walkthrough (guided camera tour; Esc exits)
-- **L** flashlight · **V** noclip (debug) · **F1** debug panel
+- **L** flashlight · **V** noclip · **F1** debug panel · **F2** intro
 
 ## What is alive right now
 
@@ -32,14 +31,6 @@ utility room (trash chute, meter bank, mop sink) — and the slab slivers
 that used to show as gaps between floors on the upper stories are closed:
 every court opening is now flush with the wall faces.
 
-**Architectural walkthrough (new):** press **T** (or the debug-panel
-button) for a guided fly-camera tour — street elevation, lobby, up the
-atrium stair floor by floor, into every hero apartment, 4B room by room,
-out the roof monitor door, then the basement — with captions naming
-each space and resident. The path is computed from `building_layout.json`
-(the stair climbs use the real flight geometry), doors swing open ahead of
-the camera, and Esc hands control back at any time.
-
 **Surface detail pass (new):** every plastered wall now carries a
 baseboard and cornice; corridors, cores and the stairwell wear a
 dado-height wainscot band with cap rail (the reference stairwell's green);
@@ -59,6 +50,27 @@ plan table, Sacha's capture wall); 3C stays stripped to studs with
 buckets and sawhorses, 5D is charred with soot shadows, 6D is crate
 storage, and the lobby, community room, laundry and storage cages are
 dressed to match.
+
+**The elevator works (new):** every landing has real center-parting steel
+doors with vision windows, and they are the shaft interlock — while the car
+is elsewhere its landing is sealed, so you cannot walk into an open well.
+Brass call plates with lit buttons are mounted beside each opening, and the
+cab carries its own floor-button panel. Pressing a call runs the full
+sequence: doors close, the car travels (carrying anyone standing in it —
+WalkTest rides it 19.6 m), the arrival bell strikes, the doors reopen.
+
+**Lighting that reads (new):** the rig gates fixtures by storey, then spends
+a bounded working set on the nearest ones, weighting circulation fixtures
+well above room fixtures. That second half matters because the GL
+compatibility renderer caps lights *per object* and each floor's walls are a
+single merged mesh — enabling a whole storey at once hands that cap to an
+arbitrary subset, which is what used to leave a lit corridor black halfway
+down. Corridor domes now throw their authored 7.2 m (an authored range
+raises a circulation fixture's throw instead of only capping it) so
+consecutive pools overlap to the far wall. The light court is exempt from
+the storey gate entirely: it is one open volume seven floors tall, so from
+the lobby deck you see — and are lit by — the pendants above you, and the
+balustrades cast down the whole shaft.
 
 **Personality density (new):** the six hero units are dressed down to
 the object level from a 20-piece clutter assembly library (amps,
@@ -172,15 +184,17 @@ godot --headless --path game res://tests/WalkTest.tscn    # 64 checks
 xvfb-run godot --path game res://tests/Screenshot.tscn    # doc renders
 ```
 
-### Viral seed director
+### Intro / viral seed director
 
 The debug panel now opens expanded. Press **F1** to collapse or reopen it,
-then press **Viral seed lure → apartment 4B**. **F2** starts or stops the
-same test directly, even if the panel is obscured. The 30.8-second test
-begins at the front door, keeps its
-positional emitter just ahead of the camera, carries the player through the
-lift transition, and finishes in 4B. Press the same button again to cancel.
-The panel reports the live low, mid, and high envelopes.
+then press **Play intro**. **F2** starts or stops it directly. The
+30.35-second opening reverses the player's departure: it starts outside
+looking back at Orison, hurries through the front door, crosses the lobby,
+rides the lift to floor four, checks the corridor and apartment furtively,
+and returns to the 4B workstation. The score builds throughout, cuts to
+absolute silence at the desk, and leaves the building's diegetic machinery
+audible beneath the monitor's **INCOMING CALL — M. CHEN** alert. The panel
+reports the live low, mid, and high envelopes.
 
 The seed is a reproducible mix of `Behind_The_Drywall.mp4` and
 `The_Adjacent_Logic.mp4`. Its checked-in 20 Hz feature timeline drives the
@@ -204,8 +218,8 @@ python art/audio/build_viral_seed.py `
 WalkTest validates floor collision on every level, apartment slabs, prop
 spawning, the conductor clock, a *physical* climb of the new dog-leg
 F1→F2 by the real player capsule, elevator travel B1↔F6, acoustic graph
-connectivity, the vertical slice, Case 01 end-to-end, Room 0, and the
-architectural walkthrough. Exit code = failure count.
+connectivity, the vertical slice, Case 01 end-to-end, and Room 0.
+Exit code = failure count.
 
 **The lighting model (new):** 112 period fixtures across seven original
 types — fabric drum pendants (living rooms), opal flush domes (bedrooms,
@@ -256,7 +270,6 @@ scripts/building/                  assembly, elevator
 scripts/audio/                     conductor clock, acoustic graph, synth
 scripts/props/                     FunctionalProp base + radiator, lamp,
                                    corridor light, washer, boiler
-scripts/tour/                      architectural walkthrough (T)
 scripts/player/player_controller.gd
 data/*.json                        copied from art/data (single source)
 tests/                             WalkTest, Screenshot drivers
@@ -273,13 +286,14 @@ docs/screenshots/                  rendered from the real build
 ![corridor](docs/screenshots/b_03_corridor_f04.png)
 ![2A living room](docs/screenshots/b_17_2a_mina_living.png)
 ![3B Omar's bench](docs/screenshots/b_23_3b_omar.png)
+![4B bathroom](docs/screenshots/b_26_4b_bath.png)
 ![5A Nadia's plans](docs/screenshots/b_25_5a_nadia.png)
 ![6A Sacha's capture wall](docs/screenshots/b_15_6a_sacha.png)
 ![acoustic graph](docs/screenshots/b_08_acoustic_graph.png)
 
 ## Known limitations
 
-See `../art/README.md` — additionally: elevator has no doors/interlocks
-yet (open shaft-front cabin), and night lighting is minimal (flashlight
-recommended indoors; the walkthrough brightens nothing — it tours the
-building as it is).
+See `../art/README.md` — additionally, night lighting is deliberately low
+(the flashlight is a real tool indoors), and the elevator is still a
+single-car system with no queue: a call while it is travelling is ignored
+rather than remembered.

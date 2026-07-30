@@ -205,6 +205,17 @@ def build_all(only=None):
     R["art"] = ImageChops.add(
         tint(fbm(((9, 50), (31, 35)), 45), (116, 96, 70), (168, 148, 116)),
         tint(weave(5, 25), (0, 0, 0), (26, 26, 24)), scale=2.0, offset=-12)
+    # unglazed flowerpot clay: warm iron oranges with faint throwing rings
+    R["terracotta"] = ImageChops.multiply(
+        tint(fbm(((7, 44), (23, 30), (61, 18)), 47),
+             (146, 78, 54), (192, 120, 86)),
+        tint(stripes(200, 88, noise(50, 5.0, 49), 0.93, 3.0),
+             (226, 226, 226), (255, 255, 255)))
+    # potting soil: near-black humus with bark flecks and dry crumbs
+    R["soil"] = ImageChops.add(
+        tint(fbm(((5, 70), (17, 50), (53, 30)), 51),
+             (36, 27, 19), (76, 60, 44)),
+        noise(48, 0.6, 53).convert("RGB"), scale=6.0, offset=-20)
 
     for name, img in R.items():
         if only and name not in only:

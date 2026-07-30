@@ -47,7 +47,6 @@ var layout: Dictionary = {}
 var player: PlayerController
 var elevator: OrisonElevator
 var call_interface: CallInterface
-var walkthrough: ArchitecturalWalkthrough
 var light_rig: LightRig
 var virus_director: VirusSoundDirector
 var floor_nodes: Dictionary = {}
@@ -81,9 +80,6 @@ func _ready() -> void:
 	virus_director = VirusSoundDirector.new()
 	add_child(virus_director)
 	virus_director.setup(self)
-	walkthrough = ArchitecturalWalkthrough.new()
-	add_child(walkthrough)
-	walkthrough.setup(self)
 	var room0 := Room0.new()
 	add_child(room0)
 	var anomaly: DoorAnomalyProp = get_node_or_null("F04_B_DOOR_ANOMALY")

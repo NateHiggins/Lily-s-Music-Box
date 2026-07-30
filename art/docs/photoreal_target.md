@@ -136,10 +136,16 @@ Status markers reflect main as of 2026-07-30.
    thin-box patches (facade brick patches, damp bases) to mask-driven
    decals for softer edges.
 5. **Lighting.** LARGELY DONE: 128 period fixtures across seven types,
-   LightRig distance budgeting (full/half/off + faux bounce + one real
-   shadow caster), baked contact shadows and wall-base AO, emissive
-   envelopes + halos, tuned fog/glow environment. Remaining: lightmap
-   bake / GI fallback and a light-leak pass are still open.
+   baked contact shadows and wall-base AO, emissive envelopes + halos,
+   tuned fog/glow environment. The LightRig now gates by storey and then
+   holds a bounded working set of the nearest fixtures, weighting
+   circulation above rooms — necessary because GL compatibility caps
+   lights per OBJECT and each floor's walls are one merged mesh, so
+   lighting a whole storey at once silently starves the corridor.
+   Circulation fixtures take their authored range as a throw rather than
+   only a cap, and the atrium is exempt from the storey gate since it is
+   one seven-storey volume. Remaining: lightmap bake / GI fallback, and
+   the light-leak pass (under-door and transom spill) is still open.
 6. **Dress the remaining twenty-three units and all commons to 4B's
    density.** DONE. Three layers land it: the shared close-detail layer
    (blinds, crockery, towels), a deterministic lived-in surface pass on

@@ -3,8 +3,9 @@ extends FunctionalProp
 ## The 4B desk lamp: warm pool of light over the workstation. Normal:
 ## steady. Synced: filament surges tracing motif accents.
 
-var _light: OmniLight3D
+var light: OmniLight3D
 var _base_energy := 1.1
+var _target_scale := 1.0
 
 
 func _build_visual() -> void:
@@ -30,12 +31,16 @@ func _build_visual() -> void:
 	retexture(self, [
 		[Color(0.15, 0.16, 0.14), "enamel", Color(0.34, 0.37, 0.32), 0.4],
 	])
-	_light = OmniLight3D.new()
-	_light.light_color = Color(1.0, 0.82, 0.55)  # ~2700 K
-	_light.light_energy = _base_energy
-	_light.omni_range = 4.5
-	_light.position = Vector3(0.07, 0.42, 0)
-	add_child(_light)
+	light = OmniLight3D.new()
+	light.light_color = Color(1.0, 0.82, 0.55)  # ~2700 K
+	light.light_energy = _base_energy
+	light.omni_range = 4.5
+	light.position = Vector3(0.07, 0.42, 0)
+	light.omni_shadow_mode = OmniLight3D.SHADOW_CUBE
+	light.shadow_bias = 0.012
+	light.shadow_normal_bias = 0.08
+	add_child(light)
+	add_to_group("floor_lights")
 
 
 func _start_normal_function() -> void:
@@ -43,5 +48,14 @@ func _start_normal_function() -> void:
 
 
 func _perform_synced_event(_index: int, accent: float, _pitch: float) -> void:
-	_light.light_energy = _base_energy * (1.0 + accent * 0.9)
-	create_tween().tween_property(_light, "light_energy", _base_energy, 0.25)
+	if _target_scale <= 0.0:
+		return
+	light.light_energy = _base_energy * (1.0 + accent * 0.9)
+	create_tween().tween_property(light, "light_energy", _base_energy, 0.25)
+
+
+func set_budget(scale: float, _with_bounce: bool, with_shadow: bool) -> void:
+	_target_scale = scale
+	light.visible = scale > 0.001
+	light.shadow_enabled = with_shadow
+	light.light_energy = _base_energy * scale

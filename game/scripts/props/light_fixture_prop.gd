@@ -3,8 +3,8 @@ extends FunctionalProp
 ## The building's period lighting family — seven original fixture types,
 ## one per room typology. Each is a conductor body (filament class: motif
 ## events surge the envelope, no audio of its own) and a client of the
-## LightRig, which spends the compatibility renderer's light budget on
-## the fixtures nearest the camera. Light QUALITY over quantity:
+## LightRig, which enables every fixture on the active floor and electrically
+## darkens the other storeys. Light QUALITY over quantity:
 ## tungsten-warm color ramps, inverse-square-ish falloff, an emissive
 ## envelope + additive halo so the source reads even when its OmniLight
 ## is budgeted away, and a low faux-bounce light the rig enables up close
@@ -39,9 +39,12 @@ var _target_scale := 1.0   # set by the LightRig
 var _bounce_on := false    # set by the LightRig
 var _surge := 0.0
 var _swing_node: Node3D
-## Per-room cap from the generator: pools die at their own walls
-## instead of bleeding through shadowless neighbors (the light-leak
-## pass, done as data).
+## Authored throw from the generator, fitted to the room the fixture hangs
+## in. For ROOM fixtures it is a cap: pools die at their own walls instead
+## of bleeding through shadowless neighbors (the light-leak pass, done as
+## data). For CIRCULATION fixtures it is the throw itself, cap included —
+## a corridor is longer than any single room, and clamping its domes to the
+## family default is what left corridors black between pools.
 var range_clamp := 0.0
 ## Room-character multiplier from the generator (Mina bright, Juno dim).
 var energy_scale := 1.0
@@ -102,9 +105,17 @@ func _build_visual() -> void:
 	light = OmniLight3D.new()
 	light.light_color = tone
 	light.light_energy = 0.0     # the rig fades it in
-	light.omni_range = RANGE.get(prop_type, 5.0) if range_clamp <= 0.0 \
-			else minf(RANGE.get(prop_type, 5.0), range_clamp)
-	light.omni_attenuation = 1.75 if navigation_light else 2.0
+	var family_range: float = RANGE.get(prop_type, 5.0)
+	if range_clamp <= 0.0:
+		light.omni_range = family_range
+	elif navigation_light:
+		light.omni_range = range_clamp
+	else:
+		light.omni_range = minf(family_range, range_clamp)
+	# Circulation fixtures fall off gently so consecutive pools overlap
+	# and a corridor reads to its far end; room fixtures keep the tighter
+	# inverse-square-ish curve that gives interiors their modelling.
+	light.omni_attenuation = 1.35 if navigation_light else 2.0
 	light.omni_shadow_mode = OmniLight3D.SHADOW_CUBE
 	# Tight contact shadows. The previous 0.42 normal bias pushed shadows
 	# so far off furniture and trim that they disappeared under ambient fill.
@@ -267,6 +278,8 @@ func set_budget(scale: float, with_bounce: bool, with_shadow: bool) -> void:
 		# per-object limit, so dormant fixtures must leave the render list.
 		light.visible = scale > 0.001
 		light.shadow_enabled = with_shadow
+	if _halo:
+		_halo.visible = scale > 0.001
 	if bounce:
 		bounce.visible = with_bounce and scale > 0.001
 
@@ -279,7 +292,8 @@ func _process(delta: float) -> void:
 	bounce.light_energy = lerpf(bounce.light_energy,
 			(_base_energy * 0.08 * _target_scale) if _bounce_on else 0.0,
 			delta * 4.0)
-	var envelope := 1.0 if prop_type == "flush_dome" else 1.6
+	var envelope := (1.0 if prop_type == "flush_dome" else 1.6) \
+			* _target_scale
 	_bulb_mat.emission_energy_multiplier = lerpf(
 			_bulb_mat.emission_energy_multiplier, envelope + _surge * 2.4,
 			delta * 8.0)

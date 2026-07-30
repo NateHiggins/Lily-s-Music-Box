@@ -56,6 +56,8 @@ const SHOTS := [
 	 "look": Vector3(11.2, 7.20, 5.4), "overlay": false},
 	{"name": "b_25_5a_nadia", "pos": Vector3(-6.9, 14.35, 1.7),
 	 "look": Vector3(-9.9, 13.60, 4.4), "overlay": false},
+	{"name": "b_26_4b_bath", "pos": Vector3(-6.10, 11.20, -5.10),
+	 "look": Vector3(-7.21, 10.85, -6.46), "overlay": false},
 ]
 
 

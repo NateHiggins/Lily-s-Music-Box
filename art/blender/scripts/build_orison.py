@@ -719,20 +719,39 @@ def asm_shelf(F, p):
                 F.box("metal", W / 2 - 0.40, -d / 2 + 0.05, bz + 0.032,
                       W / 2 - 0.06, d / 2 - 0.05, bz + 0.22)
             continue
-        run = _jit(seed, i, 0.45, 0.8) * W
-        x = -W / 2 + 0.05
+        # a lived-with shelf: runs start where the last hand left them,
+        # spines sit proud or pushed back, heights range from paperback
+        # to atlas, a pulled book leaves its gap, and some rows end in a
+        # flat stack instead of a leaner
+        run = _jit(seed, i, 0.40, 0.78) * W
+        x = -W / 2 + 0.05 + _jit(seed, i + 61, 0.0, 0.10) * W
         k = 0
         while x + 0.05 < -W / 2 + run:
-            bw = _jit(seed, i * 7 + k, 0.025, 0.055)
-            bh = _jit(seed, i * 13 + k, 0.20, 0.31)
+            if _jit(seed, i * 5 + k, 0.0, 1.0) > 0.87:
+                x += _jit(seed, i * 3 + k, 0.03, 0.09)   # the pulled book
+            bw = _jit(seed, i * 7 + k, 0.018, 0.062)
+            bh = _jit(seed, i * 13 + k, 0.15, 0.325)
+            push = _jit(seed, i * 19 + k, 0.0, 0.05)
             bm = ("book_burgundy", "book_green", "book_navy", "book_ochre",
                   "book_teal", "book_brown")[(i + k + len(seed)) % 6]
-            F.box(bm, x, -d / 2 + 0.05, bz + 0.032, x + bw, d / 2 - 0.06,
-                  bz + 0.032 + bh)
+            F.box(bm, x, -d / 2 + 0.05 + push, bz + 0.032, x + bw,
+                  d / 2 - 0.06 + push * 0.4, bz + 0.032 + bh)
             x += bw + 0.004
             k += 1
-        F.tbox("paper", (x + 0.10, 0.0, bz + 0.032),
-               (x + 0.015, 0.0, bz + 0.30), 0.19, 0.03)  # the leaner
+        if _jit(seed, i + 71, 0.0, 1.0) > 0.45 and x + 0.26 < W / 2:
+            fz = bz + 0.032
+            for f_ in range(2 + int(_jit(seed, i + 77, 0.0, 1.99))):
+                fw = _jit(seed, i * 23 + f_, 0.15, 0.21)
+                fh = _jit(seed, i * 29 + f_, 0.028, 0.042)
+                fo = _jit(seed, i * 33 + f_, -0.018, 0.018)
+                fm = ("book_navy", "book_brown", "book_teal",
+                      "book_burgundy")[(i + f_) % 4]
+                F.box(fm, x + 0.03 + fo, -d / 2 + 0.055, fz,
+                      x + 0.03 + fo + fw, d / 2 - 0.075, fz + fh)
+                fz += fh
+        else:
+            F.tbox("paper", (x + 0.10, 0.0, bz + 0.032),
+                   (x + 0.015, 0.0, bz + 0.30), 0.19, 0.03)  # the leaner
     F.hull(-W / 2, -d / 2, 0.0, W / 2, d / 2, h)
 
 
@@ -750,22 +769,54 @@ def asm_tv(F, p):
 
 
 def asm_plant(F, p):
+    """Potted ficus remade for close viewing: unglazed terracotta pot
+    with a thrown body, rolled rim and drip saucer, mounded potting
+    soil, and a real crown — arched woody canes each carrying its own
+    drooping elliptical leaves instead of three canopy blobs."""
     big = p.get("big", False)
     s = 1.35 if big else 1.0
-    F.lathe("ceramic", 0, 0, [(0.11 * s, 0.0), (0.16 * s, 0.025 * s),
-                              (0.18 * s, 0.27 * s), (0.205 * s, 0.31 * s),
-                              (0.205 * s, 0.35 * s), (0.17 * s, 0.35 * s)],
-            16)
-    F.cyl("ceramic", 0, 0, 0.0, 0.025 * s, 0.22 * s, 0.22 * s, 16)
-    F.cyl("soot", 0, 0, 0.335 * s, 0.350 * s, 0.165 * s, 0.165 * s, 14)
-    F.cyl("plant", 0, 0, 0.30 * s, 0.62 * s, 0.016, 0.012, 6)
     seed = p.get("id", "plant")
-    for i, (r, z) in enumerate(((0.24, 0.62), (0.19, 0.80), (0.12, 0.94))):
-        F.lathe("plant", _jit(seed, i, -0.05, 0.05),
-                _jit(seed, i + 3, -0.05, 0.05),
-                [(0.001, z * s - 0.10 * s), (r * s, z * s),
-                 (0.001, z * s + 0.10 * s)], 8, _jit(seed, i + 6, 0.8, 1.2))
-    F.hull(-0.18 * s, -0.18 * s, 0.0, 0.18 * s, 0.18 * s, 0.95 * s)
+    # drip saucer, thrown body, rolled rim lip
+    F.lathe("terracotta", 0, 0, [(0.150 * s, 0.0), (0.168 * s, 0.010 * s),
+                                 (0.158 * s, 0.032 * s)], 16)
+    F.lathe("terracotta", 0, 0, [(0.105 * s, 0.014 * s),
+                                 (0.148 * s, 0.055 * s),
+                                 (0.175 * s, 0.290 * s),
+                                 (0.178 * s, 0.302 * s)], 16)
+    F.lathe("terracotta", 0, 0, [(0.178 * s, 0.302 * s),
+                                 (0.196 * s, 0.314 * s),
+                                 (0.198 * s, 0.352 * s),
+                                 (0.180 * s, 0.360 * s),
+                                 (0.160 * s, 0.350 * s)], 16)
+    # potting soil mounded toward the stems, tucked under the rim
+    F.lathe("soil", 0, 0, [(0.160 * s, 0.335 * s), (0.118 * s, 0.360 * s),
+                           (0.045 * s, 0.374 * s), (0.001, 0.378 * s)], 14)
+    for i in range(4 if big else 3):
+        a = math.radians(_jit(seed, i, 0.0, 360.0))
+        lean = _jit(seed, i + 9, 0.10, 0.22) * s
+        top = _jit(seed, i + 17, 0.62, 0.92) * s
+        bx = 0.030 * s * math.cos(a)
+        by = 0.030 * s * math.sin(a)
+        tx, ty = lean * math.cos(a), lean * math.sin(a)
+        F.tube("timber", (bx, by, 0.355 * s),
+               (tx * 0.6, ty * 0.6, top * 0.62), 0.010 * s, 6)
+        F.tube("timber", (tx * 0.6, ty * 0.6, top * 0.62), (tx, ty, top),
+               0.008 * s, 6)
+        n_leaf = 6 if big else 5
+        for k in range(n_leaf):
+            t = 0.42 + 0.58 * (k / float(n_leaf - 1))
+            lx = tx * t + _jit(seed, i * 31 + k, -0.055, 0.055) * s
+            ly = ty * t + _jit(seed, i * 37 + k, -0.055, 0.055) * s
+            lz = top * 0.62 + (top - top * 0.62) * t \
+                - 0.025 * s * (k % 3) / 3.0
+            lr = _jit(seed, i * 41 + k, 0.055, 0.095) * s
+            # a leaf: flattened elliptical disk, tip drooping below the
+            # midrib so the silhouette breaks instead of ballooning
+            F.lathe("plant", lx, ly,
+                    [(0.001, lz - 0.012 * s), (lr, lz),
+                     (0.001, lz + 0.006 * s)], 7,
+                    _jit(seed, i * 43 + k, 0.42, 0.68))
+    F.hull(-0.20 * s, -0.20 * s, 0.0, 0.20 * s, 0.20 * s, 0.95 * s)
 
 
 def asm_kitchen(F, p):
@@ -775,9 +826,17 @@ def asm_kitchen(F, p):
     # carcass centered on the origin
     F.box("soot", -cw / 2 + 0.02, -0.28, 0.0, -cw / 2 + cw - 0.02, 0.26, 0.07)
     F.box("trim", -cw / 2, -0.30, 0.07, -cw / 2 + cw, 0.28, 0.86)
-    F.box("countertop", -cw / 2 - 0.015, -0.315, 0.86,
-          -cw / 2 + cw + 0.015,
-          0.315, 0.895)                     # counter overhang
+    # counter, segmented around a real sink cutout (no booleans in the
+    # box world: the hole is the four boards that don't cover it)
+    sx0 = -cw / 2 + cw * 0.30
+    bx0, bx1 = sx0 - 0.22, sx0 + 0.22      # basin cutout in x
+    by0, by1 = -0.20, 0.12                 # basin cutout in y
+    for cx0, cy0, cx1, cy1 in (
+            (-cw / 2 - 0.015, -0.315, bx0, 0.315),
+            (bx1, -0.315, cw / 2 + 0.015, 0.315),
+            (bx0, -0.315, bx1, by0),
+            (bx0, by1, bx1, 0.315)):
+        F.box("countertop", cx0, cy0, 0.86, cx1, cy1, 0.895)
     F.box("countertop", -cw / 2 - 0.015, -0.315, 0.895,
           -cw / 2 + cw + 0.015,
           -0.27, 0.97)                      # backsplash lip
@@ -787,14 +846,29 @@ def asm_kitchen(F, p):
         x0 = -cw / 2 + 0.02 + i * (dw + 0.02)
         F.box("trim", x0, 0.281, 0.10, x0 + dw, 0.301, 0.80)
         F.box("soot", x0 + 0.02, 0.283, 0.74, x0 + dw - 0.02, 0.303, 0.775)
-    sx0 = -cw / 2 + cw * 0.30
-    F.box("appliance", sx0 - 0.26, -0.24, 0.895, sx0 + 0.26, 0.16, 0.912)
-    F.box("soot", sx0 - 0.22, -0.20, 0.896, sx0 + 0.22, 0.12, 0.913)
-    F.tube("chrome", (sx0, -0.245, 0.912), (sx0, -0.245, 1.10), 0.014, 8)
+    # the basin itself: chrome rim lip over brushed-steel walls falling
+    # to a true bottom with a drain — a sink you can look down into
+    for rx0, ry0, rx1, ry1 in (
+            (bx0 - 0.018, by0 - 0.018, bx1 + 0.018, by0),
+            (bx0 - 0.018, by1, bx1 + 0.018, by1 + 0.018),
+            (bx0 - 0.018, by0, bx0, by1),
+            (bx1, by0, bx1 + 0.018, by1)):
+        F.box("chrome", rx0, ry0, 0.895, rx1, ry1, 0.906)
+    for wx0, wy0, wx1, wy1 in (
+            (bx0, by0, bx1, by0 + 0.012),
+            (bx0, by1 - 0.012, bx1, by1),
+            (bx0, by0, bx0 + 0.012, by1),
+            (bx1 - 0.012, by0, bx1, by1)):
+        F.box("metal", wx0, wy0, 0.70, wx1, wy1, 0.898)
+    F.box("metal", bx0, by0, 0.695, bx1, by1, 0.715)
+    F.cyl("soot", sx0, (by0 + by1) / 2.0, 0.715, 0.722, 0.030, 0.030, 10)
+    F.lathe("chrome", sx0, (by0 + by1) / 2.0,
+            [(0.030, 0.722), (0.040, 0.726), (0.032, 0.729)], 10)
+    F.tube("chrome", (sx0, -0.245, 0.895), (sx0, -0.245, 1.10), 0.014, 8)
     F.tube("chrome", (sx0, -0.245, 1.10), (sx0, -0.05, 1.06), 0.013, 8)
     for tx in (-0.12, 0.12):
-        F.tube("chrome", (sx0 + tx, -0.24, 0.912),
-               (sx0 + tx, -0.24, 0.965), 0.010, 8)
+        F.tube("chrome", (sx0 + tx, -0.24, 0.895),
+               (sx0 + tx, -0.24, 0.955), 0.010, 8)
         F.tube("chrome", (sx0 + tx - 0.03, -0.24, 0.965),
                (sx0 + tx + 0.03, -0.24, 0.965), 0.008, 6)
     F.box("trim", -cw / 2, -0.30, 1.46, -cw / 2 + cw, 0.05, 2.16)
@@ -824,12 +898,18 @@ def asm_stove(F, p):
     for kx in (-0.24, -0.12, 0.0, 0.12, 0.24):
         F.lathe("bakelite", kx, -0.315,
                 [(0.010, 0.80), (0.022, 0.82), (0.016, 0.835)], 8)
-    F.box("enamel", -0.295, -0.325, 0.15, 0.295, -0.30, 0.75)
-    F.box("soot", -0.23, -0.327, 0.36, 0.23, -0.315, 0.64)
-    F.tube("chrome", (-0.27, -0.36, 0.72), (0.27, -0.36, 0.72), 0.013, 8)
-    for hx in (-0.26, 0.26):
-        F.tbox("chrome", (hx, -0.325, 0.685), (hx, -0.36, 0.70),
-               0.022, 0.014)
+    # oven door at real range proportions: door sits between the broiler
+    # drawer and the burner deck, window high, towel rail at the top edge
+    F.box("enamel", -0.275, -0.322, 0.30, 0.275, -0.298, 0.72)
+    F.box("soot", -0.15, -0.328, 0.50, 0.15, -0.320, 0.64)      # window
+    F.tube("chrome", (-0.24, -0.356, 0.685), (0.24, -0.356, 0.685),
+           0.012, 8)
+    for hx in (-0.23, 0.23):
+        F.tbox("chrome", (hx, -0.322, 0.672), (hx, -0.356, 0.685),
+               0.020, 0.012)
+    # broiler drawer with a recessed pull
+    F.box("enamel", -0.275, -0.318, 0.115, 0.275, -0.300, 0.275)
+    F.box("soot", -0.10, -0.321, 0.175, 0.10, -0.316, 0.215)
     F.hull(-0.31, -0.36, 0.0, 0.31, 0.30, 1.24)
 
 
@@ -948,28 +1028,92 @@ def asm_sink_ped(F, p):
 
 
 def asm_shower(F, p):
-    """Tray, framed glass enclosure, correctly wall-mounted mixer and head."""
+    """Corner stall rebuilt for close-up. Local frame matches every other
+    bath fixture: the run wall is behind the piece at -Y (a toilet's tank
+    faces -Y for the same reason), and `mirror` says which X side the
+    corner's second wall is on. Ceramic-tiled back and corner walls,
+    chrome-channeled glass on the two open sides with a 0.38 m entry,
+    and plumbing mounted ON the tile: escutcheon mixer, riser, and a
+    head angled down at a standing user's crown."""
+    m = 1.0 if p.get("mirror") else -1.0    # corner-wall side sign
+
+    def bx(mat, x0, y0, z0, x1, y1, z1):
+        F.box(mat, min(x0, x1), min(y0, y1), z0, max(x0, x1),
+              max(y0, y1), z1)
     F.box("porcelain", -0.40, -0.40, 0.0, 0.40, 0.40, 0.12)
     F.box("soot", -0.34, -0.34, 0.045, 0.34, 0.34, 0.125)
-    # Front and return panels stop short of the entry, with chrome frames.
-    F.box("glassish", -0.40, -0.405, 0.12, 0.24, -0.392, 1.86)
-    F.box("glassish", 0.388, -0.40, 0.12, 0.402, 0.40, 1.86)
-    for x in (-0.40, 0.24):
-        F.tube("chrome", (x, -0.41, 0.12), (x, -0.41, 1.88), 0.010, 8)
-    for y in (-0.40, 0.40):
-        F.tube("chrome", (0.40, y, 0.12), (0.40, y, 1.88), 0.010, 8)
-    F.tube("chrome", (-0.40, -0.405, 1.88), (0.40, -0.405, 1.88), 0.012, 8)
-    F.tube("chrome", (0.40, -0.405, 1.88), (0.40, 0.40, 1.88), 0.012, 8)
-    # Plumbing is attached to the back wall (+Y), projecting into the stall.
-    F.tube("chrome", (0.0, 0.385, 0.96), (0.0, 0.385, 1.70), 0.012, 8)
-    F.tube("chrome", (0.0, 0.385, 1.70), (0.0, 0.27, 1.78), 0.012, 8)
-    F.lathe("chrome", 0.0, 0.24, [(0.012, 1.72), (0.060, 1.78),
-                                  (0.065, 1.80)], 12)
-    F.lathe("chrome", 0.0, 0.37, [(0.032, 0.96), (0.042, 0.99),
-                                  (0.012, 1.02)], 10)
-    F.tube("bakelite", (-0.06, 0.335, 0.99), (0.06, 0.335, 0.99),
-           0.010, 8)
+    # tiled surround: back wall (-Y) and the corner-side wall, capped
+    bx("ceramic", -0.43, -0.435, 0.0, 0.43, -0.405, 2.06)
+    bx("ceramic", m * 0.405, -0.43, 0.0, m * 0.435, 0.42, 2.06)
+    bx("trim", -0.435, -0.437, 2.06, 0.435, -0.402, 2.10)
+    bx("trim", m * 0.402, -0.437, 2.06, m * 0.437, 0.42, 2.10)
+    # glass: full panel down the open side, and a front panel returning
+    # from the corner wall, leaving the entry beside the open-side glass
+    bx("glassish", -m * 0.388, -0.40, 0.13, -m * 0.400, 0.30, 1.90)
+    bx("glassish", m * 0.40, 0.390, 0.13, m * 0.02, 0.402, 1.90)
+    # chrome channels: sill and head rails plus corner posts seat the
+    # panels instead of letting them float
+    bx("chrome", -m * 0.383, -0.40, 0.12, -m * 0.405, 0.30, 0.145)
+    bx("chrome", -m * 0.383, -0.40, 1.88, -m * 0.405, 0.30, 1.905)
+    bx("chrome", m * 0.40, 0.385, 0.12, m * 0.02, 0.407, 0.145)
+    bx("chrome", m * 0.40, 0.385, 1.88, m * 0.02, 0.407, 1.905)
+    F.tube("chrome", (-m * 0.394, -0.40, 0.12),
+           (-m * 0.394, -0.40, 1.90), 0.011, 8)
+    F.tube("chrome", (-m * 0.394, 0.30, 0.12),
+           (-m * 0.394, 0.30, 1.90), 0.011, 8)
+    F.tube("chrome", (m * 0.02, 0.396, 0.12), (m * 0.02, 0.396, 1.90),
+           0.011, 8)
+    # plumbing on the back tile: mixer escutcheon + lever, riser, arm,
+    # and the head pitched down-forward toward a 1.7 m user
+    bx("chrome", -0.07, -0.407, 0.98, 0.07, -0.392, 1.16)
+    F.tube("bakelite", (0.0, -0.392, 1.07), (0.0, -0.335, 1.02),
+           0.011, 8)
+    F.tube("chrome", (0.0, -0.393, 1.16), (0.0, -0.393, 1.94), 0.012, 8)
+    F.tube("chrome", (0.0, -0.393, 1.94), (0.0, -0.20, 1.87), 0.012, 8)
+    F.tube("chrome", (0.0, -0.20, 1.87), (0.0, -0.152, 1.785), 0.056, 12)
+    F.tube("soot", (0.0, -0.176, 1.827), (0.0, -0.146, 1.774), 0.050, 12)
     F.hull(-0.40, -0.40, 0.0, 0.40, 0.40, 0.13)
+
+
+def asm_sink_basin(F, p):
+    """Standalone undermount basin for hand-built counters (4B's galley).
+    Origin sits at the CENTER of the counter cutout, on the finished top
+    surface; the bowl hangs below and the mixer rises behind at +Y. The
+    counter itself must be laid as segments around the same opening —
+    there are no booleans in this box world, so the hole is the boards
+    that aren't there."""
+    W, D = p.get("W", 0.50), p.get("D", 0.38)
+    depth = p.get("depth", 0.19)
+    hw, hd = W / 2.0, D / 2.0
+    for rx0, ry0, rx1, ry1 in ((-hw - 0.018, -hd - 0.018, hw + 0.018, -hd),
+                               (-hw - 0.018, hd, hw + 0.018, hd + 0.018),
+                               (-hw - 0.018, -hd, -hw, hd),
+                               (hw, -hd, hw + 0.018, hd)):
+        F.box("chrome", rx0, ry0, 0.0, rx1, ry1, 0.011)
+    for wx0, wy0, wx1, wy1 in ((-hw, -hd, hw, -hd + 0.012),
+                               (-hw, hd - 0.012, hw, hd),
+                               (-hw, -hd, -hw + 0.012, hd),
+                               (hw - 0.012, -hd, hw, hd)):
+        F.box("metal", wx0, wy0, -depth, wx1, wy1, 0.003)
+    F.box("metal", -hw, -hd, -depth, hw, hd, -depth + 0.02)
+    F.cyl("soot", 0.0, 0.0, -depth + 0.02, -depth + 0.027, 0.030, 0.030, 10)
+    F.lathe("chrome", 0.0, 0.0, [(0.030, -depth + 0.027),
+                                 (0.040, -depth + 0.031),
+                                 (0.032, -depth + 0.034)], 10)
+    # mixer behind the bowl: riser, swan spout, two cross taps
+    by = hd + 0.055
+    F.lathe("chrome", 0.0, by, [(0.032, 0.0), (0.036, 0.012),
+                                (0.014, 0.020)], 10)
+    F.tube("chrome", (0.0, by, 0.012), (0.0, by, 0.235), 0.014, 8)
+    F.tube("chrome", (0.0, by, 0.235), (0.0, by - 0.085, 0.268), 0.013, 8)
+    F.tube("chrome", (0.0, by - 0.085, 0.268), (0.0, by - 0.145, 0.225),
+           0.012, 8)
+    for tx in (-0.105, 0.105):
+        F.tube("chrome", (tx, by, 0.010), (tx, by, 0.075), 0.010, 8)
+        F.tube("chrome", (tx - 0.030, by, 0.075), (tx + 0.030, by, 0.075),
+               0.007, 6)
+        F.tube("chrome", (tx, by - 0.030, 0.075), (tx, by + 0.030, 0.075),
+               0.007, 6)
 
 
 def asm_switch(F, p):
@@ -1374,6 +1518,7 @@ ASM = {
     "desk": asm_desk, "plantable": asm_plantable,
     "workbench": asm_workbench, "toilet": asm_toilet,
     "sink_ped": asm_sink_ped, "shower": asm_shower, "switch": asm_switch,
+    "sink_basin": asm_sink_basin,
     "pipe": asm_pipe, "bench": asm_bench, "mailbank": asm_mailbank,
     "amp": asm_amp, "guitar": asm_guitar, "pedalboard": asm_pedalboard,
     "micstand": asm_micstand, "reeldeck": asm_reeldeck,
