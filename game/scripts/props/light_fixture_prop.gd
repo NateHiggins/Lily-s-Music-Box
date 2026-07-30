@@ -94,7 +94,8 @@ func _build_visual() -> void:
 	light = OmniLight3D.new()
 	light.light_color = tone
 	light.light_energy = 0.0     # the rig fades it in
-	light.omni_range = RANGE.get(prop_type, 5.0) 			if range_clamp <= 0.0 			else minf(RANGE.get(prop_type, 5.0), range_clamp)
+	light.omni_range = RANGE.get(prop_type, 5.0) if range_clamp <= 0.0 \
+			else minf(RANGE.get(prop_type, 5.0), range_clamp)
 	light.omni_attenuation = 1.6  # near-physical pooling
 	light.omni_shadow_mode = OmniLight3D.SHADOW_CUBE
 	light.shadow_bias = 0.035
