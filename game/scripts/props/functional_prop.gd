@@ -119,6 +119,86 @@ func retexture(node: Node, table: Array) -> void:
 				return
 
 
+## Collapse a finished, STATIC sub-tree into one mesh per material.
+##
+## Props are modelled as a heap of primitives — a column radiator is nine
+## sections of four columns between bulbous headers, 62 MeshInstance3Ds
+## that never move relative to each other. Each one is its own draw, and
+## with shadow casters re-rendering the visible set per cube face the cost
+## multiplies. Baking them into a mesh per material keeps the silhouette
+## exactly and costs one draw per finish.
+##
+## Only ever call this on a sub-tree whose parts are fixed relative to
+## `under`. Anything the prop animates individually must live outside it
+## (or be named in `keep`) — a merged part no longer exists as a node.
+## Call AFTER retexture(), so parts that end up sharing a finish merge
+## into the same surface.
+func merge_static(under: Node3D, keep: Array = []) -> int:
+	var groups := {}          # material key -> {"mat":, "st": SurfaceTool}
+	var victims: Array = []
+	_gather_static(under, under, groups, victims, keep)
+	if victims.size() < 2:
+		return 0
+	for v in victims:
+		under.remove_child(v)
+		v.queue_free()
+	for key in groups:
+		var mi := MeshInstance3D.new()
+		mi.mesh = groups[key]["st"].commit()
+		mi.material_override = groups[key]["mat"]
+		mi.cast_shadow = groups[key]["shadow"]
+		under.add_child(mi)
+	return victims.size() - groups.size()
+
+
+func _gather_static(node: Node3D, root: Node3D, groups: Dictionary,
+		victims: Array, keep: Array) -> void:
+	for c in node.get_children():
+		if c in keep or not (c is Node3D):
+			continue
+		if c is MeshInstance3D and c.mesh != null \
+				and c.material_override is StandardMaterial3D:
+			var key := _material_key(c.material_override)
+			if not groups.has(key):
+				var st := SurfaceTool.new()
+				st.begin(Mesh.PRIMITIVE_TRIANGLES)
+				# Carry the source's shadow setting onto the merged mesh.
+				# Light fixtures switch casting OFF on purpose (a housing
+				# inside its own omni throws self-shadow spokes across the
+				# room); a merged mesh silently defaulting back to ON would
+				# reintroduce that with no visible cause.
+				groups[key] = {"mat": c.material_override, "st": st,
+						"shadow": c.cast_shadow}
+			var xf := _relative_xform(c, root)
+			for s in c.mesh.get_surface_count():
+				groups[key]["st"].append_from(c.mesh, s, xf)
+			victims.append(c)
+		else:
+			_gather_static(c, root, groups, victims, keep)
+
+
+## Transform of `node` in `root`'s space, computed without touching
+## global_transform so this works before the prop enters the tree.
+func _relative_xform(node: Node3D, root: Node3D) -> Transform3D:
+	var xf := Transform3D.IDENTITY
+	var n: Node3D = node
+	while n != null and n != root:
+		xf = n.transform * xf
+		n = n.get_parent() as Node3D
+	return xf
+
+
+## Group by what the material LOOKS like, not by object identity. Parts
+## built by _pmat() each get their own instance, so identity would put
+## every column in its own surface and merge nothing.
+func _material_key(m: StandardMaterial3D) -> String:
+	return "%s|%.3f|%.3f|%s|%s|%s" % [
+		m.albedo_color, m.roughness, m.metallic,
+		m.albedo_texture.get_rid() if m.albedo_texture else "-",
+		m.normal_texture.get_rid() if m.normal_texture else "-",
+		m.uv1_scale]
+
+
 ## Shared semantic texture material (see MatLib); tint multiplies maps.
 func smat(key: String, tint := Color.WHITE,
 		scale := 1.0) -> StandardMaterial3D:

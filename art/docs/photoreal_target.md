@@ -170,11 +170,18 @@ Status markers reflect main as of 2026-07-30.
    culling: 923 box occluders are generated at load from the same wall and
    slab data everything else reads, cut around every door and window so a
    sightline through an opening is never wrongly culled. At 1440p on an
-   RTX 4080 the worst station went 18.5 ms -> 9.9 ms and all six now pass
-   the 16.6 ms budget with 1.7x headroom. Remaining: that headroom still
-   needs to hold on genuinely mid-range hardware, and HLOD plus real prop
-   LODs are untouched — props are still many small MeshInstance3Ds each,
-   which is where the remaining object count lives.
+   RTX 4080 the worst station went 18.5 ms -> 9.9 ms. Then a census of
+   where the geometry actually lives found the column radiator was 62
+   MeshInstance3Ds — 23 props carrying 56% of ALL prop meshes — so
+   `FunctionalProp.merge_static()` bakes a fixed sub-tree down to one
+   mesh per finish (the radiator's knock shakes the whole body, so
+   nothing there moves independently). Scene meshes fell 3028 -> 1682
+   with primitive counts unchanged, and every station now runs 112-161
+   fps. Remaining: that headroom still needs proving on genuinely
+   mid-range hardware, and HLOD is untouched. The remaining prop meshes
+   are 4-7 each (light fixtures, mostly), where merging would have to
+   step around animated bulb materials, billboarded halos and the
+   deliberate cast_shadow=off — worth doing only if measurement says so.
 8. **Atmosphere and post.** PARTLY DONE (depth fog, glow, filmic
    tonemap). Volumetrics, glass treatment and a fuller post chain open.
 

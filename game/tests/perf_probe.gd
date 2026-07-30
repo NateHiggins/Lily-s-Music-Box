@@ -63,6 +63,7 @@ func _ready() -> void:
 		cam.look_at(s["look"])
 		for i in WARMUP:
 			await get_tree().process_frame
+	_report_mesh_census()
 	print("%-24s %7s %7s %9s %8s %7s" %
 			["station", "objs", "calls", "prims", "ms", "fps"])
 	for s in STATIONS:
@@ -71,6 +72,48 @@ func _ready() -> void:
 			["PASS" if over_budget == 0 else "FAIL", over_budget,
 			STATIONS.size(), FRAME_BUDGET_MS])
 	get_tree().quit(over_budget)
+
+
+## Where the object count actually lives. Optimizing the wrong half of
+## this is how a performance pass ends up costing effort for nothing.
+func _report_mesh_census() -> void:
+	var per_floor := 0
+	for fid in root.floor_nodes:
+		per_floor += _count_meshes(root.floor_nodes[fid])
+	var props := 0
+	var prop_nodes := 0
+	for c in root.get_children():
+		if c is FunctionalProp:
+			prop_nodes += 1
+			props += _count_meshes(c)
+	print("PERF census: %d floor meshes, %d prop meshes across %d props "
+			% [per_floor, props, prop_nodes] +
+			"(%.1f each), %d total" %
+			[float(props) / maxf(1.0, prop_nodes), per_floor + props])
+	var by_type := {}
+	for c in root.get_children():
+		if c is FunctionalProp:
+			var k: String = c.prop_type
+			if not by_type.has(k):
+				by_type[k] = [0, 0]
+			by_type[k][0] += 1
+			by_type[k][1] += _count_meshes(c)
+	var rows: Array = []
+	for k in by_type:
+		rows.append([by_type[k][1], k, by_type[k][0]])
+	rows.sort_custom(func(a, b): return a[0] > b[0])
+	for r in rows:
+		if r[0] < 40:
+			continue
+		print("   %-18s %4d props %6d meshes (%.1f each)" %
+				[r[1], r[2], r[0], float(r[0]) / maxf(1.0, r[2])])
+
+
+func _count_meshes(n: Node) -> int:
+	var total := 1 if n is MeshInstance3D else 0
+	for c in n.get_children():
+		total += _count_meshes(c)
+	return total
 
 
 func _measure(station: Dictionary) -> void:

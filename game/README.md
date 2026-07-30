@@ -180,7 +180,7 @@ origin (boiler / 4B radiator / F04 corridor light).
 
 ```bash
 godot --headless --path game --import                       # first time
-godot --headless --path game res://tests/WalkTest.tscn      # 99 checks
+godot --headless --path game res://tests/WalkTest.tscn      # 100 checks
 godot --headless --path game res://tests/LightingAudit.tscn # per-room light
 godot --path game res://tests/Screenshot.tscn               # doc renders
 godot --path game --resolution 2560x1440 res://tests/Perf.tscn
@@ -270,8 +270,9 @@ It parks the camera at six worst-case stations (the atrium eye sees seven
 storeys at once; the street sees the whole block) and reports objects,
 draw calls, primitives and frame time, failing any station over 16.6 ms —
 or any station that renders nothing, which is a broken run rather than a
-fast one. On an RTX 4080 at 1440p every station currently sits between
-101 and 138 fps.
+fast one. It also prints a census of where the geometry lives, because
+optimizing the wrong half of that is effort spent for nothing. On an RTX
+4080 at 1440p every station currently sits between 112 and 161 fps.
 
 Two things pay for that. Shadows are budgeted separately from light and
 much more tightly: an omni's shadow is a cube, so each caster re-renders
@@ -281,6 +282,15 @@ load from the same wall and slab data the geometry comes from, cut around
 every door and window — so the facade stops the renderer drawing four
 storeys of furniture behind it, without a doorway ever culling the room
 you can see through it.
+
+Props are modelled as heaps of primitives, and the census found one
+outlier: the column radiator was 62 separate meshes, so 23 of them
+carried over half of all prop geometry in the building.
+`FunctionalProp.merge_static()` bakes a fixed sub-tree into one mesh per
+finish — safe here because the knock shakes the radiator body as a unit,
+so nothing inside it moves independently. Scene meshes fell from 3028 to
+1682 with the triangle count unchanged. WalkTest guards it, since this
+kind of cost is invisible until something profiles it.
 
 ## Geometry snapshot (furnished)
 

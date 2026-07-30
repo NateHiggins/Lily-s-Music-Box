@@ -62,6 +62,9 @@ func _build_visual() -> void:
 		[Color(0.30, 0.28, 0.26), "metal", Color(0.52, 0.48, 0.44), 0.5],
 		[Color(0.62, 0.55, 0.30), "brass", Color.WHITE],
 	])
+	# Nothing here moves relative to anything else here — the knock shakes
+	# _body as a unit — so 62 primitives bake down to one mesh per finish.
+	merge_static(_body)
 	_knock = make_emitter("knock", -6.0)
 	_tick = make_emitter("tick", -16.0)
 

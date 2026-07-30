@@ -144,6 +144,20 @@ func _run() -> void:
 			if c3 is OccluderInstance3D and c3.occluder is BoxOccluder3D:
 				occ_boxes += 1
 	_check(occ_boxes > 500, "occluders built from wall data (%d)" % occ_boxes)
+	# Props are modelled as heaps of primitives; the column radiator alone
+	# was 62 MeshInstance3Ds, more than half of all prop geometry in the
+	# building. merge_static() bakes fixed sub-trees down to one mesh per
+	# finish — this guards the win, since the cost is invisible until
+	# something profiles it.
+	var rad_meshes := 0
+	var rad_props := 0
+	for c4 in root.get_children():
+		if c4 is RadiatorProp:
+			rad_props += 1
+			rad_meshes += _count_meshes(c4)
+	_check(rad_props > 0 and float(rad_meshes) / rad_props < 8.0,
+			"radiators stay merged (%.1f meshes each across %d)" %
+			[float(rad_meshes) / maxf(1.0, rad_props), rad_props])
 	_check(ProjectSettings.get_setting(
 			"rendering/occlusion_culling/use_occlusion_culling", false),
 			"occlusion culling is enabled for the project")
@@ -602,6 +616,13 @@ func _until(cond: Callable, timeout: float) -> bool:
 		await get_tree().create_timer(0.25).timeout
 		t += 0.25
 	return cond.call()
+
+
+func _count_meshes(n: Node) -> int:
+	var total := 1 if n is MeshInstance3D else 0
+	for c in n.get_children():
+		total += _count_meshes(c)
+	return total
 
 
 func _check(cond: bool, label: String) -> void:
