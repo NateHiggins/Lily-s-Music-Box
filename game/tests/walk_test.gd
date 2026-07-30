@@ -91,10 +91,12 @@ func _run() -> void:
 			"light fixtures spawned across the building (%d)" % fixtures)
 	await get_tree().create_timer(1.2).timeout  # let the rig settle
 	var lst: Dictionary = root.light_rig.stats()
-	_check(lst.full > 0 and lst.full <= 14,
-			"light budget: %d full pools (cap 14)" % lst.full)
-	_check(lst.shadows == 3,
-			"shadow budget: %d nearby shadow maps (target 3)" % lst.shadows)
+	_check(lst.full > 0 and lst.full <= LightRig.FULL_N,
+			"light budget: %d full pools (cap %d)" %
+			[lst.full, LightRig.FULL_N])
+	_check(lst.shadows == LightRig.SHADOW_N,
+			"shadow budget: %d nearby shadow maps (target %d)" %
+			[lst.shadows, LightRig.SHADOW_N])
 	var moon := root.get_node_or_null("ExteriorMoon") as DirectionalLight3D
 	_check(moon != null and moon.shadow_enabled,
 			"exterior moon casts directional shadows")
@@ -102,7 +104,7 @@ func _run() -> void:
 	# --- south corridor -> elevator hall -> atrium deck -> up the west
 	# flight to the north landing -> east flight onto the F02 deck
 	var pl: PlayerController = root.player
-	pl.global_position = Vector3(0.0, 0.15, 7.6)  # lobby, past the vestibule
+	pl.global_position = Vector3(0.0, 0.15, 7.6)  # inner lobby
 	pl.velocity = Vector3.ZERO
 	await _goto(pl, Vector2(-1.2, 5.0), 5.0)    # through the hall arch
 	await _goto(pl, Vector2(-0.5, 2.6), 4.0)    # court arch, onto the deck
@@ -276,9 +278,8 @@ func _vertical_slice_checks() -> void:
 	# per-stack archetypes present across the building
 	for rid2 in ["F02_A_BED", "F03_C_BED2", "F05_D_OFFICE", "F02_WSTOR"]:
 		_check(ids.has(rid2), "%s in layout" % rid2)
-	# lobby program + vestibule from the polish pass
-	for rid3 in ["F01_VESTIBULE", "F01_OFFICE", "F01_PACKAGE",
-			"F01_RESTROOM"]:
+	# lobby support program from the polish pass
+	for rid3 in ["F01_OFFICE", "F01_PACKAGE", "F01_RESTROOM"]:
 		_check(ids.has(rid3), "%s in layout" % rid3)
 	await _door_checks()
 
@@ -443,9 +444,9 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	ci.leave()
 	_check(not root.player.call_locked, "player released after leaving desk")
 
-	# out the front door: vestibule -> street door -> stoop -> sidewalk
+	# out the front door: lobby -> street door -> stoop -> sidewalk
 	var pl2: PlayerController = root.player
-	pl2.global_position = Vector3(0.0, 0.15, 9.0)  # in the vestibule
+	pl2.global_position = Vector3(0.0, 0.15, 9.0)  # inside the street door
 	pl2.velocity = Vector3.ZERO
 	var street_door: DoorProp = null
 	for c2 in root.get_children():

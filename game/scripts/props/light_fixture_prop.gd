@@ -20,12 +20,12 @@ const TONE := {  # warm tungsten family, per fixture type
 	"eye_pendant": Color(1.0, 0.84, 0.62),
 }
 const ENERGY := {
-	"pendant_shade": 2.1, "flush_dome": 1.5, "sconce_globe": 1.0,
+	"pendant_shade": 2.1, "flush_dome": 0.9, "sconce_globe": 0.75,
 	"kitchen_linear": 1.5, "cage_bulb": 1.5, "chandelier": 2.8,
 	"eye_pendant": 2.2,
 }
 const RANGE := {
-	"pendant_shade": 6.5, "flush_dome": 5.0, "sconce_globe": 3.5,
+	"pendant_shade": 6.5, "flush_dome": 5.5, "sconce_globe": 4.0,
 	"kitchen_linear": 4.5, "cage_bulb": 5.5, "chandelier": 9.0,
 	"eye_pendant": 7.5,
 }
@@ -45,6 +45,10 @@ var _swing_node: Node3D
 var range_clamp := 0.0
 ## Room-character multiplier from the generator (Mina bright, Juno dim).
 var energy_scale := 1.0
+## Minimum direct contribution when outside the nearby full-light budget.
+## Navigation fixtures receive a higher authored value from the light map.
+var standby_scale := 0.0
+var navigation_light := false
 
 
 func _build_visual() -> void:
@@ -65,6 +69,10 @@ func _build_visual() -> void:
 	_bulb_mat.emission = tone
 	_bulb_mat.emission_energy_multiplier = 1.6
 	for c in _swing_node.get_children():
+		if c is MeshInstance3D:
+			# The housing and diffuser surround the OmniLight. Including
+			# either in its cubemap creates giant self-shadow spokes.
+			c.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		if c is MeshInstance3D and c.name.begins_with("bulb"):
 			c.material_override = _bulb_mat
 	# additive halo billboard around the source
@@ -96,11 +104,13 @@ func _build_visual() -> void:
 	light.light_energy = 0.0     # the rig fades it in
 	light.omni_range = RANGE.get(prop_type, 5.0) if range_clamp <= 0.0 \
 			else minf(RANGE.get(prop_type, 5.0), range_clamp)
-	light.omni_attenuation = 1.6  # near-physical pooling
+	light.omni_attenuation = 1.75 if navigation_light else 2.0
 	light.omni_shadow_mode = OmniLight3D.SHADOW_CUBE
-	light.shadow_bias = 0.035
-	light.shadow_normal_bias = 0.42
-	light.shadow_opacity = 0.82
+	# Tight contact shadows. The previous 0.42 normal bias pushed shadows
+	# so far off furniture and trim that they disappeared under ambient fill.
+	light.shadow_bias = 0.012
+	light.shadow_normal_bias = 0.08
+	light.shadow_opacity = 1.0
 	light.light_size = 0.10 if prop_type in ["flush_dome", "kitchen_linear"] \
 			else 0.16
 	light.position = bulb_at
@@ -109,10 +119,12 @@ func _build_visual() -> void:
 	bounce = OmniLight3D.new()
 	bounce.light_color = Color(0.62, 0.47, 0.33)  # oak-bounce warmth
 	bounce.light_energy = 0.0
-	bounce.omni_range = light.omni_range * 0.7
-	bounce.omni_attenuation = 1.2
+	bounce.omni_range = light.omni_range
+	bounce.omni_attenuation = 1.35
 	bounce.shadow_enabled = false
-	bounce.position = bulb_at + Vector3(0, -2.1, 0)
+	# Keep this below the ceiling contact geometry. It is a deliberately
+	# restrained first-bounce approximation, not a second visible source.
+	bounce.position = bulb_at + Vector3(0, -1.0, 0)
 	add_child(bounce)
 	add_to_group("light_fixtures")
 
@@ -134,12 +146,27 @@ func _build_body(p: Node3D) -> Vector3:
 			b.name = "bulb"
 			return Vector3(0, -0.62, 0)
 		"flush_dome":
-			make_cyl(0.10, 0.10, 0.025, Vector3(0, -0.012, 0), brass,
+			# Period schoolhouse flush mount: stepped ceiling canopy, brass
+			# retaining ring, and a rounded opal bowl. The old cone read as
+			# a flat white marker once its emission bloomed.
+			make_cyl(0.115, 0.095, 0.030, Vector3(0, -0.015, 0), brass,
 					0.3, 0.7, p)
-			var d := make_cyl(0.02, 0.16, 0.14, Vector3(0, -0.095, 0),
-					opal, 0.25, 0.0, p)
+			make_cyl(0.135, 0.115, 0.040, Vector3(0, -0.050, 0), brass,
+					0.3, 0.75, p)
+			var rim := make_ring(0.142, 0.010, Vector3(0, -0.072, 0),
+					brass, 0.28, 0.75, p)
+			rim.rotation_degrees = Vector3(90, 0, 0)
+			var d := MeshInstance3D.new()
+			var bowl := SphereMesh.new()
+			bowl.radius = 0.165
+			bowl.height = 0.23
+			bowl.radial_segments = 24
+			bowl.rings = 12
+			d.mesh = bowl
+			d.position = Vector3(0, -0.145, 0)
 			d.name = "bulb_dome"
-			return Vector3(0, -0.12, 0)
+			p.add_child(d)
+			return Vector3(0, -0.15, 0)
 		"sconce_globe":
 			make_box(Vector3(0.09, 0.16, 0.025),
 					Vector3(0, 0, -0.012), brass).reparent(p)
@@ -182,24 +209,35 @@ func _build_body(p: Node3D) -> Vector3:
 					Color(0.3, 0.3, 0.32), 0.4, 0.6, p)
 			return Vector3(0, -0.50, 0)
 		"chandelier":
-			make_cyl(0.012, 0.012, 0.5, Vector3(0, -0.25, 0), brass,
+			# Compact 1920s vestibule fixture: chain, turned hub, six curved
+			# arms and downward opal shades kept above head clearance.
+			make_cyl(0.055, 0.075, 0.035, Vector3(0, -0.018, 0), brass,
 					0.3, 0.8, p)
-			make_cyl(0.05, 0.09, 0.16, Vector3(0, -0.56, 0), brass,
+			for link_i in range(5):
+				var link := make_ring(0.025, 0.004,
+						Vector3(0, -0.09 - link_i * 0.055, 0),
+						brass, 0.32, 0.8, p)
+				link.rotation_degrees = Vector3(90,
+						0 if link_i % 2 == 0 else 90, 0)
+			make_cyl(0.045, 0.085, 0.18, Vector3(0, -0.39, 0), brass,
 					0.3, 0.8, p)
+			make_ring(0.24, 0.012, Vector3(0, -0.47, 0), brass,
+					0.3, 0.8, p).rotation_degrees = Vector3(90, 0, 0)
 			for i in 6:
 				var a := TAU * i / 6.0
-				var arm_end := Vector3(cos(a) * 0.34, -0.52, sin(a) * 0.34)
-				var arm := make_cyl(0.008, 0.008, 0.36,
-						Vector3(cos(a) * 0.17, -0.56, sin(a) * 0.17),
-						brass, 0.3, 0.8, p)
-				arm.rotation_degrees = Vector3(
-						cos(a) * 75.0, 0, -sin(a) * 75.0)
-				make_cyl(0.022, 0.028, 0.05, arm_end + Vector3(0, 0.02, 0),
-						brass, 0.3, 0.8, p)
-				var c := make_cyl(0.014, 0.02, 0.07,
-						arm_end + Vector3(0, 0.08, 0), opal, 0.2, 0.0, p)
-				c.name = "bulb_%d" % i
-			return Vector3(0, -0.45, 0)
+				var inner := Vector3(cos(a) * 0.07, -0.45, sin(a) * 0.07)
+				var outer := Vector3(cos(a) * 0.29, -0.61, sin(a) * 0.29)
+				make_cyl(0.009, 0.009, inner.distance_to(outer),
+						(inner + outer) * 0.5, brass, 0.3, 0.8, p
+						).rotation_degrees = Vector3(
+								62.0 * cos(a), -rad_to_deg(a),
+								62.0 * sin(a))
+				make_cyl(0.032, 0.045, 0.07,
+						outer + Vector3(0, -0.035, 0), brass, 0.3, 0.8, p)
+				var shade := make_cyl(0.105, 0.055, 0.12,
+						outer + Vector3(0, -0.13, 0), opal, 0.22, 0.0, p)
+				shade.name = "bulb_shade_%d" % i
+			return Vector3(0, -0.58, 0)
 		_:  # eye_pendant: the long drop down the atrium
 			make_cyl(0.007, 0.007, 1.35, Vector3(0, -0.675, 0),
 					Color(0.12, 0.12, 0.12), 0.4, 0.0, p)
@@ -225,7 +263,12 @@ func set_budget(scale: float, with_bounce: bool, with_shadow: bool) -> void:
 	_target_scale = scale
 	_bounce_on = with_bounce
 	if light:
+		# Compatibility counts visible zero-energy lights against its
+		# per-object limit, so dormant fixtures must leave the render list.
+		light.visible = scale > 0.001
 		light.shadow_enabled = with_shadow
+	if bounce:
+		bounce.visible = with_bounce and scale > 0.001
 
 
 func _process(delta: float) -> void:
@@ -234,10 +277,11 @@ func _process(delta: float) -> void:
 	var want := _base_energy * _target_scale * (1.0 + _surge)
 	light.light_energy = lerpf(light.light_energy, want, delta * 6.0)
 	bounce.light_energy = lerpf(bounce.light_energy,
-			(_base_energy * 0.22 * _target_scale) if _bounce_on else 0.0,
+			(_base_energy * 0.08 * _target_scale) if _bounce_on else 0.0,
 			delta * 4.0)
+	var envelope := 1.0 if prop_type == "flush_dome" else 1.6
 	_bulb_mat.emission_energy_multiplier = lerpf(
-			_bulb_mat.emission_energy_multiplier, 1.6 + _surge * 2.4,
+			_bulb_mat.emission_energy_multiplier, envelope + _surge * 2.4,
 			delta * 8.0)
 	_surge = maxf(0.0, _surge - delta * 2.2)
 	if prop_type in ["cage_bulb", "eye_pendant"] and _surge > 0.01:

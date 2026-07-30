@@ -30,7 +30,32 @@ a replica; dimensions follow period ergonomic norms.
 | `plantable` | Architect's trestle drafting table | A-frame trestles, six overlapping plan sheets, rolled tubes |
 | `workbench` | Machinist's bench | Angle-steel legs, butcher-block top, drawer, side vise with bar handle |
 | `plant` | Terracotta-potted ficus | Lathe pot, soil disc, three jittered canopy lobes |
-| `pipe` | Exposed basement services | True cylinders: headers, mains, conduit, risers |
+| `pipe` | Exposed basement services | True cylinders: headers, mains, conduit, risers; `local: true` anchors a run to a marker (the per-floor radiator risers) |
+
+### Personality clutter (Phase 6 hero/resident pass)
+
+| Model (`asm`) | Typology / era referenced | Our variation |
+|---|---|---|
+| `amp` | 1960s valve combo amplifier | Vinyl cab, cloth grille, chrome knob row, brass pilot, bakelite strap handle; stacks (Juno runs a small head on a big cab) |
+| `guitar` | Electric solid-body / flat-top acoustic | Waisted two-slab body, tilted neck to a paddle head, single string line; leans back toward local −Y onto whatever is closest |
+| `pedalboard` | Home-built plywood stomp board | Four mismatched pedals (bakelite/enamel/steel/painted), chrome switches, patch leads |
+| `micstand` | Round-base studio mic stand | Cast base, tapering column, boom dropping a capsule toward +Y |
+| `reeldeck` | 1970s reel-to-reel deck | Twin platters with enamel hubs, head block, paper VU windows, knob row |
+| `headphones` | Cans on a turned wooden stand | Two-segment band, squashed-lathe cups, cable slumped to the surface |
+| `mug` | Diner china / enamel shop mug | Lathe body, two-segment tube handle; `mat` picks porcelain/ceramic/enamel |
+| `papers` | Loose worked-over paper stack | Per-sheet drift; `mess` widens it (Mina 0, Nadia 0.8) |
+| `bookpile` | Horizontal to-read pile | Jittered sizes, five cover materials; doubles as tape boxes and manuals |
+| `pinboard` | Cork noticeboard | Card grid squared (`neat`) or drifted layers fighting for space; mounts flush on the storey's true wall face |
+| `toolboard` | Shop pegboard | Wrench row by size, hammer, coiled cord on a nail |
+| `partstray` | Machinist sorting tray | Rimmed steel tray, 12-cell parts grid; optional opened chassis with socketed glass valves |
+| `jarrow` | Salvage jar row | Glass jars, bakelite lids, per-jar fill (screws/washers/fuses) |
+| `tripod` | Video camera on sticks | Three splayed legs, center column, body with front lens tube and rear screen |
+| `softbox` | Streamer's stand light | Tripod base, tall column, diffuser panel pitched down at the subject (+Y) |
+| `cablecoil` | Uncoiled-tomorrow instrument cable | Octagon tube loop, alternating lay, wandering tail |
+| `crate` | Slat shipping crate | Record collection filed edge-on (`records`) or a jumble under the lid line (`fill`) |
+| `radio` | 1930s table radio | Wood cab, cloth grille, paper dial with brass pointer, two bakelite knobs |
+| `sitemodel` | Architect's chipboard massing study | The Orison and its three neighbors on a plan sheet (Nadia is studying this building) |
+| `bottles` | Empties colonizing a surface | Lathe long-necks or drink cans (`cans`), one always fallen |
 
 ## Godot conductor props (procedural, in `game/scripts/props/`)
 

@@ -60,6 +60,22 @@ buckets and sawhorses, 5D is charred with soot shadows, 6D is crate
 storage, and the lobby, community room, laundry and storage cages are
 dressed to match.
 
+**Personality density (new):** the six hero units are dressed down to
+the object level from a 20-piece clutter assembly library (amps,
+guitars, pedalboard, mic stands, reel deck, headphones, pinboards,
+pegboard, parts trays with socketed valves, jar rows, camera tripod,
+softboxes, cable coils, record crates, table radio, massing model,
+papers, bookpiles, mugs, bottles) — Mina's cards are pinned in a
+squared grid, Nadia's overlap three deep over loose taped sheets, and
+her table carries a chipboard massing study of the Orison itself.
+Eleven named supporting residents (teacher, night nurse, seamstress,
+horticulturist, legal clerk, the Bell family, rental guests, radio
+collector, painter, insomniac writer, estate collector) get compact
+story clusters on their dining surfaces and wall piers, and every
+occupied unit gets a deterministic lived-in surface pass (mugs, papers,
+bookpiles on dining/coffee/desk tops). Wall boards mount flush on each
+storey's true masonry face and hang on the pier between the windows.
+
 **Parametric asset library (new):** every furniture piece and appliance is
 now an original detailed model in the spirit of an iconic typology — see
 `../art/docs/furniture_references.md` for the full design-reference table.
@@ -156,6 +172,35 @@ godot --headless --path game res://tests/WalkTest.tscn    # 64 checks
 xvfb-run godot --path game res://tests/Screenshot.tscn    # doc renders
 ```
 
+### Viral seed director
+
+The debug panel now opens expanded. Press **F1** to collapse or reopen it,
+then press **Viral seed lure → apartment 4B**. **F2** starts or stops the
+same test directly, even if the panel is obscured. The 30.8-second test
+begins at the front door, keeps its
+positional emitter just ahead of the camera, carries the player through the
+lift transition, and finishes in 4B. Press the same button again to cancel.
+The panel reports the live low, mid, and high envelopes.
+
+The seed is a reproducible mix of `Behind_The_Drywall.mp4` and
+`The_Adjacent_Logic.mp4`. Its checked-in 20 Hz feature timeline drives the
+building rather than relying on frame-dependent live FFT:
+
+- sub energy transmits from the basement boiler into structure;
+- low energy enters the 4B heating riser;
+- midrange attacks enter the fourth-floor lighting circuit;
+- high/air attacks enter monitors and speakers;
+- stereo imbalance slightly detunes propagated responses.
+
+Rebuild both the Ogg asset and feature map with:
+
+```powershell
+python art/audio/build_viral_seed.py `
+  C:\path\Behind_The_Drywall.mp4 C:\path\The_Adjacent_Logic.mp4 `
+  --audio-out game/assets/audio/viral_seed.ogg `
+  --features-out game/data/viral_seed_features.json
+```
+
 WalkTest validates floor collision on every level, apartment slabs, prop
 spawning, the conductor clock, a *physical* climb of the new dog-leg
 F1→F2 by the real player capsule, elevator travel B1↔F6, acoustic graph
@@ -227,6 +272,9 @@ docs/screenshots/                  rendered from the real build
 ![half landing](docs/screenshots/b_16_stair_half_landing.png)
 ![corridor](docs/screenshots/b_03_corridor_f04.png)
 ![2A living room](docs/screenshots/b_17_2a_mina_living.png)
+![3B Omar's bench](docs/screenshots/b_23_3b_omar.png)
+![5A Nadia's plans](docs/screenshots/b_25_5a_nadia.png)
+![6A Sacha's capture wall](docs/screenshots/b_15_6a_sacha.png)
 ![acoustic graph](docs/screenshots/b_08_acoustic_graph.png)
 
 ## Known limitations

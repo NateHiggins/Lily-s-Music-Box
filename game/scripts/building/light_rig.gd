@@ -1,5 +1,5 @@
 class_name LightRig
-extends Node
+extends Node3D
 ## The lighting model that sells the fixtures. The compatibility renderer
 ## can't ray-trace and hates dozens of live omnis, so the rig fakes the
 ## expensive parts and spends the cheap parts where the camera is:
@@ -18,17 +18,18 @@ extends Node
 ##   - hysteresis: fixtures lerp toward their budget target, so walking a
 ##     corridor reads as pools of light breathing in, never popping
 
-const FULL_N := 14
-const HALF_N := 10
-const BOUNCE_N := 6
-const SHADOW_N := 3
-const SHADOW_DISTANCE_SQ := 100.0
+const FULL_N := 8
+const HALF_N := 6
+const BOUNCE_N := 2
+# Every fixture that contributes direct light also casts. Compatibility
+# previously limited this to eight nearby fixtures, so a visible surface
+# lost its shadow merely because its source was farther down the corridor.
+const SHADOW_N := FULL_N + HALF_N
+const STANDBY_DISTANCE_SQ := 36.0
 const INTERVAL := 0.22
 
 var _accum := 0.0
 var _shadowed: Array[Node] = []
-
-
 func _process(delta: float) -> void:
 	_accum += delta
 	if _accum < INTERVAL:
@@ -41,33 +42,43 @@ func _process(delta: float) -> void:
 	var fixtures := get_tree().get_nodes_in_group("light_fixtures")
 	var ranked: Array = []
 	for f in fixtures:
-		ranked.append([f.global_position.distance_squared_to(eye), f])
+		var d2: float = f.global_position.distance_squared_to(eye)
+		# Circulation fixtures win ties against apartment lights behind walls.
+		var score: float = d2 * (0.55 if f.navigation_light else 1.0)
+		ranked.append([score, f])
 	ranked.sort_custom(func(a, b): return a[0] < b[0])
-	# Retain eligible incumbents for two extra rank slots. This hysteresis
-	# prevents a shadow map from flipping between adjacent corridor domes
-	# whenever the camera crosses their exact midpoint.
+	var nearest_navigation: Node = null
+	for entry in ranked:
+		if entry[1].navigation_light:
+			nearest_navigation = entry[1]
+			break
+	# Preserve active incumbents to keep ordering stable, then fill the set
+	# from every direct-light contributor. No world-distance cutoff: if a
+	# light can affect a visible surface, it owns a shadow map.
+	var active_count := mini(ranked.size(), FULL_N + HALF_N)
 	var chosen: Array[Node] = []
 	for old in _shadowed:
-		for i in range(mini(ranked.size(), FULL_N + 2)):
-			if ranked[i][1] == old and ranked[i][0] < SHADOW_DISTANCE_SQ:
+		for i in range(active_count):
+			if ranked[i][1] == old:
 				chosen.append(old)
 				break
 		if chosen.size() >= SHADOW_N:
 			break
-	for i in range(mini(ranked.size(), FULL_N)):
+	for i in range(active_count):
 		var candidate: Node = ranked[i][1]
-		if ranked[i][0] < SHADOW_DISTANCE_SQ and candidate not in chosen:
+		if candidate not in chosen:
 			chosen.append(candidate)
 		if chosen.size() >= SHADOW_N:
 			break
 	_shadowed = chosen
 	for i in range(ranked.size()):
 		var f: Node = ranked[i][1]
-		var scale := 0.0
+		var scale: float = f.standby_scale \
+				if ranked[i][0] < STANDBY_DISTANCE_SQ else 0.0
 		if i < FULL_N:
 			scale = 1.0
 		elif i < FULL_N + HALF_N:
-			scale = 0.4
+			scale = maxf(0.4, f.standby_scale)
 		f.set_budget(scale, i < BOUNCE_N, f in chosen)
 
 

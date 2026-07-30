@@ -42,6 +42,20 @@ const SHOTS := [
 	 "look": Vector3(-1.0, 7.0, 9.8), "overlay": false},
 	{"name": "b_17_alley_porches", "pos": Vector3(-6.5, 1.8, -12.6),
 	 "look": Vector3(-9.2, 8.0, -10.2), "overlay": false},
+	{"name": "b_19_1a_teacher", "pos": Vector3(-6.6, 1.55, 1.2),
+	 "look": Vector3(-8.55, 0.85, 3.10), "overlay": false},
+	{"name": "b_20_2b_seamstress", "pos": Vector3(-11.2, 4.75, -2.9),
+	 "look": Vector3(-8.25, 4.05, -3.82), "overlay": false},
+	{"name": "b_21_5c_painter", "pos": Vector3(11.2, 14.35, -4.4),
+	 "look": Vector3(8.50, 13.65, -2.22), "overlay": false},
+	{"name": "b_22_2c_juno", "pos": Vector3(9.2, 4.75, -2.6),
+	 "look": Vector3(12.9, 4.05, -4.9), "overlay": false, "infection": 0.6},
+	{"name": "b_23_3b_omar", "pos": Vector3(-9.6, 7.95, -3.9),
+	 "look": Vector3(-12.6, 7.30, -6.1), "overlay": false},
+	{"name": "b_24_3d_rhea", "pos": Vector3(8.2, 7.95, 2.9),
+	 "look": Vector3(11.2, 7.20, 5.4), "overlay": false},
+	{"name": "b_25_5a_nadia", "pos": Vector3(-6.9, 14.35, 1.7),
+	 "look": Vector3(-9.9, 13.60, 4.4), "overlay": false},
 ]
 
 
@@ -51,6 +65,9 @@ func _ready() -> void:
 		_dir = OS.get_user_data_dir()
 	root = load("res://scenes/building/orison_root.tscn").instantiate()
 	add_child(root)
+	for c in root.get_children():
+		if c is CanvasLayer:
+			c.visible = false  # doc stills are the building, not the HUD
 	_run()
 
 
@@ -62,17 +79,21 @@ func _run() -> void:
 	cam.fov = 72
 	add_child(cam)
 	cam.make_current()
-	# a light lift only: the fixture pools carry the stills now
-	for c in root.get_children():
-		if c is WorldEnvironment:
-			c.environment.ambient_light_energy = 0.55
-			c.environment.background_color = Color(0.05, 0.06, 0.10)
+	# Documentation must reflect playable exposure exactly; an old 0.55
+	# ambient override hid navigation failures and erased real shadows.
+	var only := OS.get_environment("SCREENSHOT_ONLY")
 	for shot in SHOTS:
+		if only != "" and shot.name != only:
+			continue
 		AcousticGraphData.set_overlay_visible(shot.overlay, root)
 		if shot.has("infection"):
 			Conductor.infection = shot.infection
 			await get_tree().create_timer(3.0).timeout  # let the seam manifest
 		await _grab(shot.pos, shot.look, shot.name)
+
+	if only != "":
+		get_tree().quit()
+		return
 
 	# Case 01 at the desk: response window, then the manifested door
 	var ci: CallInterface = root.call_interface
@@ -102,9 +123,30 @@ func _run() -> void:
 
 
 func _grab(pos: Vector3, look: Vector3, shot_name: String) -> void:
+	# The runtime light budget follows the player, so documentation cameras
+	# must move that focus too or remote floors are intentionally dormant.
+	if root.player:
+		root.player.global_position = pos
 	cam.global_position = pos
 	cam.look_at(look)
+	if OS.get_environment("SCREENSHOT_TEST_CAMERA_LIGHT") == "1":
+		var test_light := OmniLight3D.new()
+		test_light.light_energy = 10.0
+		test_light.omni_range = 12.0
+		test_light.shadow_enabled = false
+		cam.add_child(test_light)
 	await get_tree().create_timer(0.5).timeout
+	if OS.get_environment("SCREENSHOT_LIGHT_TELEMETRY") == "1":
+		print("[SHOT LIGHTS] ", root.light_rig.stats())
+		var nearby := get_tree().get_nodes_in_group("light_fixtures")
+		nearby.sort_custom(func(a, b):
+			return a.global_position.distance_squared_to(pos) \
+					< b.global_position.distance_squared_to(pos))
+		for fixture in nearby.slice(0, 6):
+			print("[SHOT LIGHT] %s d=%.2f energy=%.3f range=%.2f mask=%d shadow=%s" % [
+				fixture.name, fixture.global_position.distance_to(pos),
+				fixture.light.light_energy, fixture.light.omni_range,
+				fixture.light.light_cull_mask, fixture.light.shadow_enabled])
 	await RenderingServer.frame_post_draw
 	var img := get_viewport().get_texture().get_image()
 	var path := "%s/%s.png" % [_dir, shot_name]

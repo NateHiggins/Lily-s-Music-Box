@@ -4,7 +4,9 @@
 		"version":"2.0"
 	},
 	"extensionsUsed":[
-		"KHR_materials_specular"
+		"KHR_materials_transmission",
+		"KHR_materials_specular",
+		"KHR_materials_ior"
 	],
 	"scene":0,
 	"scenes":[
@@ -429,17 +431,26 @@
 			}
 		},
 		{
+			"alphaMode":"BLEND",
 			"doubleSided":true,
+			"extensions":{
+				"KHR_materials_transmission":{
+					"transmissionFactor":0.7200000286102295
+				},
+				"KHR_materials_ior":{
+					"ior":1.4600000381469727
+				}
+			},
 			"name":"M_glassish",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					0.3499999940395355,
-					0.44999998807907104,
-					0.5,
-					1
+					0.7200000286102295,
+					0.8399999737739563,
+					0.8799999952316284,
+					0.3199999928474426
 				],
 				"metallicFactor":0,
-				"roughnessFactor":0.11999999731779099
+				"roughnessFactor":0.07999999821186066
 			}
 		},
 		{

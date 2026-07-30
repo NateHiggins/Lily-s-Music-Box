@@ -268,8 +268,10 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
         _asm(f, unit + "_wc", "toilet", x0 + 1.22, y1 - 0.41, 180)
         _asm(f, unit + "_sink", "sink_ped", x0 + 1.92, y1 - 0.30, 180)
         spos, syaw = [x0 + 1.92, y1 - 0.08], 0
-    tr = {"e": (x1 - 0.10, y0 + 0.62), "w": (x0 + 0.10, y0 + 0.62),
-          "n": (x0 + 0.62, y1 - 0.10)}[edge]
+    # Towels live on the wall opposite the wet fixtures. The former rail
+    # shared the shower/toilet wall and visibly passed through both.
+    tr = {"e": (x0 + 0.10, y0 + 1.60), "w": (x1 - 0.10, y0 + 1.60),
+          "n": (x0 + 1.60, y0 + 0.10)}[edge]
     if edge in ("e", "w"):
         _furn_box(f, unit + "_trail", tr[0] - 0.012, tr[1], 0.024, 0.62,
                   1.05, 0.02, "chrome", False)
@@ -391,10 +393,11 @@ def shelf_unit(f, uid, x, y, w=1.1, along_x=True, d=0.30, h=1.85,
 
 def tv_set(f, uid, x, y, along_x=True, face="n"):
     """Media unit + panel on splayed dowels; (x, y) = min corner."""
+    yaw = (FACE_YAW[face] + 180) % 360
     if along_x:
-        _asm(f, uid, "tv", x + 0.625, y + 0.21, FACE_YAW[face])
+        _asm(f, uid, "tv", x + 0.625, y + 0.21, yaw)
     else:
-        _asm(f, uid, "tv", x + 0.21, y + 0.625, FACE_YAW[face])
+        _asm(f, uid, "tv", x + 0.21, y + 0.625, yaw)
 
 
 def plant_box(f, uid, x, y, big=False):
@@ -474,6 +477,45 @@ def desk_set(f, uid, x, y, L=1.4, along_x=True, chair_side=1):
         chair_box(f, uid + "_dkch",
                   x + (0.80 if chair_side > 0 else -0.55),
                   y + L / 2 - 0.22, "e" if chair_side > 0 else "w")
+
+
+def lived_in_surface_detail(f, unit, rooms, skip, ux, lcy):
+    """Small, placement-safe evidence of daily life on existing surfaces.
+
+    These props deliberately sit above dining, coffee and desk assemblies,
+    so they increase close-view density without narrowing circulation.
+    Their mix and rotation are deterministic per household.
+    """
+    seed = sum((i + 1) * ord(c) for i, c in enumerate(unit))
+    dx, dy, _ = rooms["dining_spot"]
+    _asm(f, unit + "_detail_dining_mug", "mug",
+         dx + (-0.16 if seed % 2 else 0.16), dy + 0.08,
+         (seed * 29) % 360, z0=0.75,
+         mat=("porcelain", "ceramic")[seed % 2])
+    _asm(f, unit + "_detail_dining_papers", "papers",
+         dx - 0.12, dy - 0.10, (seed * 17) % 18 - 9, z0=0.75,
+         n=3 + seed % 4, mess=0.15 + (seed % 5) * 0.12)
+
+    if "sofa" not in skip:
+        # coffee_table() receives the min corner of its footprint.
+        cx, cy = ux(1.55, 0.95) + 0.475, lcy - 0.55 + 0.275
+        _asm(f, unit + "_detail_coffee_books", "bookpile",
+             cx - 0.18, cy + 0.02, (seed * 11) % 24 - 12,
+             z0=0.37, n=2 + seed % 3)
+        _asm(f, unit + "_detail_coffee_mug", "mug",
+             cx + 0.20, cy - 0.06, (seed * 41) % 360, z0=0.37,
+             mat=("porcelain", "ceramic")[(seed // 2) % 2])
+
+    if "office" in rooms:
+        ox0, oy0, ox1, oy1 = rooms["office"]
+        # The standard office desk is vertical, centered at this point.
+        dcx, dcy = ox1 - 0.365, oy0 + 1.0
+        _asm(f, unit + "_detail_desk_papers", "papers",
+             dcx, dcy - 0.16, -90 + ((seed % 7) - 3), z0=0.74,
+             n=5 + seed % 4, mess=0.25 + (seed % 4) * 0.18)
+        _asm(f, unit + "_detail_desk_mug", "mug",
+             dcx - 0.16, dcy + 0.17, (seed * 31) % 360, z0=0.74,
+             mat=("porcelain", "ceramic")[(seed // 3) % 2])
 
 
 WIN_TOP = 2.55   # window head (sill 0.85 + h 1.70)
@@ -566,6 +608,96 @@ HERO_SKIP = {
     "6A": {"sofa", "rug", "tv", "plant"},
 }
 
+# Supporting residents. Hero units below already have bespoke full-room
+# installations; these identities give every other occupied apartment a
+# readable life through a compact signature cluster.
+RESIDENT_STORIES = {
+    "1A": ("Evelyn Marsh", "retired_teacher"),
+    "1D": ("Teresa Vale", "night_nurse"),
+    "2B": ("Lena Ortiz", "seamstress"),
+    "3A": ("Malcolm Reed", "horticulturist"),
+    "4A": ("Peter Wren", "legal_clerk"),
+    "4C": ("The Bell Family", "young_family"),
+    "4D": ("Transient Guests", "short_term_rental"),
+    "5B": ("Cal Dwyer", "radio_collector"),
+    "5C": ("Iris Bell", "painter"),
+    "6B": ("Jonah Price", "insomniac_writer"),
+    "6C": ("Mae Kessler", "estate_collector"),
+}
+
+
+def resident_story_detail(f, unit, story, rooms, ux, lcy, wface):
+    """A small, collision-safe narrative cluster on the dining surface and
+    exterior wall. Large furniture remains standardized; these are the
+    objects that explain who lives among it."""
+    dx, dy, _sides = rooms["dining_spot"]
+    tabletop = 0.77
+    east = unit[-1] in ("C", "D")
+    # Boards mount flush on the storey's true wall face (wall-hung
+    # flatware is exempt from the embedded-center audit, like the
+    # mail bank before it), centered on the pier BETWEEN the two side
+    # windows — the only stretch of that wall that is actually wall.
+    wall_x = wface + (-0.005 if east else 0.005)
+    wall_yaw = 90 if east else -90
+    sy0, sy1 = STACK_RECTS[unit[-1]][1], STACK_RECTS[unit[-1]][3]
+    pier_y = (sy0 + sy1) / 2.0
+
+    def prop(suffix, asm, ox, oy, yaw=0, z0=tabletop, **params):
+        _asm(f, "%s_story_%s" % (unit, suffix), asm,
+             dx + ox, dy + oy, yaw, z0=z0, **params)
+
+    if story == "retired_teacher":
+        prop("marked_books", "bookpile", -0.20, 0.02, n=7)
+        prop("lesson_notes", "papers", 0.16, -0.04, -7, n=10, mess=0.18)
+        prop("tea", "mug", 0.34, 0.14, 20, mat="porcelain")
+        _asm(f, unit + "_story_classboard", "pinboard", wall_x, pier_y,
+             wall_yaw, z0=1.20, W=1.05, H=0.72, cards=15, neat=True)
+    elif story == "night_nurse":
+        prop("meds", "bottles", -0.18, 0.04, n=7)
+        prop("rota", "papers", 0.15, -0.02, 4, n=6, mess=0.10)
+        prop("coffee", "mug", 0.35, 0.15, -15, mat="ceramic")
+    elif story == "seamstress":
+        prop("notions", "jarrow", -0.16, 0.04, n=5)
+        prop("patterns", "papers", 0.18, -0.03, 12, n=9, mess=0.48)
+        _asm(f, unit + "_story_patterns", "pinboard", wall_x, pier_y,
+             wall_yaw, z0=1.18, W=1.10, H=0.78, cards=18, neat=False)
+    elif story == "horticulturist":
+        prop("cuttings", "bottles", -0.18, 0.03, n=6)
+        prop("seed_jars", "jarrow", 0.20, -0.02, n=4)
+        plant_box(f, unit + "_story_specimen", ux(0.75, 0.60),
+                  lcy + 1.35, big=True)
+    elif story == "legal_clerk":
+        prop("casebooks", "bookpile", -0.21, 0.02, n=8)
+        prop("briefs", "papers", 0.17, -0.03, -3, n=12, mess=0.12)
+        _asm(f, unit + "_story_deadlines", "pinboard", wall_x, pier_y,
+             wall_yaw, z0=1.18, W=1.0, H=0.70, cards=16, neat=True)
+    elif story == "young_family":
+        prop("schoolbooks", "bookpile", -0.20, 0.04, n=5)
+        prop("drawings", "papers", 0.15, -0.05, 18, n=10, mess=0.70)
+        prop("breakfast_mug", "mug", 0.36, 0.13, mat="ceramic")
+        _asm(f, unit + "_story_familyboard", "pinboard", wall_x, pier_y,
+             wall_yaw, z0=1.12, W=1.15, H=0.82, cards=20, neat=False)
+    elif story == "short_term_rental":
+        prop("city_guides", "bookpile", -0.17, 0.02, n=3)
+        prop("empties", "bottles", 0.20, -0.02, n=4, cans=True)
+    elif story == "radio_collector":
+        prop("radio", "radio", -0.18, 0.0, 180)
+        prop("headphones", "headphones", 0.20, -0.01, 12)
+        prop("lead", "cablecoil", 0.37, 0.10, r=0.09)
+    elif story == "painter":
+        prop("solvents", "bottles", -0.19, 0.03, n=7)
+        prop("studies", "papers", 0.17, -0.04, -12, n=11, mess=0.78)
+        _asm(f, unit + "_story_colorboard", "pinboard", wall_x, pier_y,
+             wall_yaw, z0=1.16, W=1.10, H=0.80, cards=22, neat=False)
+    elif story == "insomniac_writer":
+        prop("draft", "papers", -0.14, -0.02, 8, n=14, mess=0.62)
+        prop("references", "bookpile", 0.22, 0.05, n=6)
+        prop("cold_coffee", "mug", 0.38, -0.12, mat="ceramic")
+    elif story == "estate_collector":
+        prop("oddments", "jarrow", -0.19, 0.03, n=5)
+        prop("catalogues", "bookpile", 0.15, -0.02, n=5)
+        prop("old_radio", "radio", 0.36, 0.10, -165)
+
 
 ## Resident-specific environmental identity (Section 16) and unit states.
 ## Every occupied unit now carries a full lived-in furniture set; heroes
@@ -577,6 +709,10 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
     W = abs(x1 - x0)
     f = furniture
     pal = _pal(unit)
+    # true interior face of the exterior side wall on THIS storey (the
+    # masonry steps thinner above F03, so the face drifts off the stack
+    # rect edge) — wall-hung dressing mounts flush against it
+    wface = (14.0 - ext_t(floor_id)) * (1 if east else -1)
 
     def ux(u, w=0.0):
         """x of a box of width w placed u meters off the exterior side wall."""
@@ -717,6 +853,10 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
     art_panel(f, unit + "_lart", ux(1.8, 0.9),
               ly1 - 0.075 if stack in ("A", "B") else ly0 + 0.04, 0.9, True)
     blinds_for_unit(f, unit, stack)
+    lived_in_surface_detail(f, unit, rooms, skip, ux, lcy)
+    if unit in RESIDENT_STORIES:
+        resident_story_detail(f, unit, RESIDENT_STORIES[unit][1],
+                              rooms, ux, lcy, wface)
 
     # ---- hero overlays: each resident's signature cluster + conductor bodies
     if unit == "2A":    # Mina: ordered caption station, quiet
@@ -728,23 +868,54 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
                   1.05, "metal", False)
         mk("monitor", 1, x0 + 1.1, cy - 0.5, 0.76, -90)
         mk("lamp", 1, x0 + 0.8, cy - 0.4, 0.76)
+        # the captioner's order: everything squared to the desk edge
+        _asm(f, "2A_pinboard", "pinboard", wface + 0.005, cy - 0.45, -90,
+             z0=1.05, W=0.95, cards=15, neat=True)
+        _asm(f, "2A_phones", "headphones", x0 + 2.32, cy - 0.35, -90,
+             z0=1.05)
+        _asm(f, "2A_papers", "papers", x0 + 0.62, cy - 0.30, 0,
+             z0=0.735, n=5)
+        _asm(f, "2A_mug", "mug", x0 + 1.32, cy - 0.60, 40, z0=0.735)
+        _asm(f, "2A_deck", "reeldeck", x0 + 1.72, cy - 0.42, 0, z0=0.735)
     elif unit == "2C":  # Juno: improvised studio, speakers everywhere
         _furn_box(f, "2C_bench", cx - 1.2, cy - 0.5, 2.4, 0.7, 0.72, 0.05,
                   "metal", False)
-        _furn_box(f, "2C_amp1", x1 - 1.1, cy + 0.6, 0.55, 0.45, 0.0, 0.55,
-                  "screen", False)
-        _furn_box(f, "2C_amp2", x1 - 1.1, cy + 0.6, 0.5, 0.4, 0.55, 0.45,
-                  "soot", False)
         _furn_box(f, "2C_cablerug", cx - 1.8, cy - 1.6, 3.4, 2.4, 0.013,
                   0.012, "soot", False)
-        _furn_box(f, "2C_crates", x1 - 1.3, y0 + 0.4, 0.9, 0.9, 0.0, 1.15,
-                  "trim", False)
+        # the rig: stacked combos, leaned guitars, pedals mid-cable-sprawl
+        _asm(f, "2C_amp1", "amp", x1 - 0.55, cy + 1.0, 90, W=0.62, H=0.54)
+        _asm(f, "2C_amp2", "amp", x1 - 0.55, cy + 1.0, 90, z0=0.57,
+             W=0.48, H=0.38)
+        _asm(f, "2C_guitar1", "guitar", x1 - 0.28, cy + 0.15, 100)
+        _asm(f, "2C_guitar2", "guitar", cx + 0.04, cy + 0.34, 8,
+             acoustic=True)
+        _asm(f, "2C_pedals", "pedalboard", x1 - 1.35, cy + 0.20, 90)
+        _asm(f, "2C_mic", "micstand", cx + 0.75, cy - 0.75, 160)
+        _asm(f, "2C_coil1", "cablecoil", x1 - 1.55, cy - 0.15, 40)
+        _asm(f, "2C_coil2", "cablecoil", cx - 0.5, cy - 2.0, 200, r=0.14)
+        # the record crates that used to be one trim box
+        _asm(f, "2C_crate1", "crate", x1 - 0.62, y0 + 0.55, 0,
+             records=True)
+        _asm(f, "2C_crate2", "crate", x1 - 0.60, y0 + 1.18, 12,
+             records=True)
+        _asm(f, "2C_crate3", "crate", x1 - 0.62, y0 + 0.55, 0, z0=0.34,
+             fill="soot")
+        _asm(f, "2C_bottles", "bottles", cx - 0.62, cy - 0.22, 0, z0=0.77)
+        _furn_box(f, "2C_pizza", cx + 0.45, cy - 0.42, 0.40, 0.40, 0.77,
+                  0.085, "trim", False)
+        art_panel(f, "2C_poster1", wface - 0.041, cy + 0.35, 0.7, False,
+                  z0=1.35, h=0.95, mat="paper")
+        art_panel(f, "2C_poster2", wface - 0.041, cy - 3.75, 0.55, False,
+                  z0=0.95, h=0.75, mat="paper")
+        art_panel(f, "2C_poster3", x1 - 0.10, y0 + 1.95, 0.6, False,
+                  z0=0.05, h=0.85, mat="paper")
         mk("speaker", 1, x1 - 0.6, cy + 1.6, 0.0, -90)
         mk("speaker", 2, x1 - 0.6, cy - 2.2, 0.0, -90)
         chair_box(f, "2C_benchstool", cx - 0.35, cy - 1.35, "s")
         mk("monitor", 1, cx - 0.4, cy - 0.3, 0.76, 180)
     elif unit == "3B":  # Omar: repair shop by category
-        _asm(f, "3B_workbench", "workbench", x0 + 1.5, y0 + 3.7, 180)
+        # bench cluster sits south of the alcove privacy stub at y1-3.15
+        _asm(f, "3B_workbench", "workbench", x0 + 1.5, y0 + 3.37, 180)
         for i in range(2):
             shelf_unit(f, "3B_tools%d" % i, x0 + 2.85 + i * 1.10,
                        y1 - 0.45, 1.0, True, d=0.4, books=False, face="s")
@@ -752,10 +923,25 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
             _furn_box(f, "3B_bin%d" % i, x0 + 2.95 + i * 0.5, y1 - 0.40,
                       0.4, 0.28, 0.5 + (i % 2) * 0.46, 0.24,
                       ("metal", "fabric_cool")[i % 2], False)
-        _furn_box(f, "3B_radio", x0 + 1.1, y0 + 3.45, 0.5, 0.35, 0.91,
-                  0.22, "wood_dark", False)
         chair_box(f, "3B_stool", x0 + 1.3, y0 + 2.6, "s")
         mk("lamp", 1, x0 + 1.0, y0 + 3.5, 0.95)
+        # the bench itself, sorted by category like the man sorts his life
+        _asm(f, "3B_radio", "radio", x0 + 1.35, y0 + 3.22, 180, z0=0.91)
+        _asm(f, "3B_toolboard", "toolboard", wface + 0.005, y0 + 3.27,
+             -90, z0=1.15, W=0.9, H=0.65)
+        _asm(f, "3B_tray1", "partstray", x0 + 2.0, y0 + 3.29, -8,
+             z0=0.91, chassis=True)
+        _asm(f, "3B_tray2", "partstray", x0 + 0.78, y0 + 3.37, 94,
+             z0=0.91)
+        _asm(f, "3B_jars", "jarrow", x0 + 1.62, y0 + 3.62, 0, z0=0.91,
+             n=5)
+        _asm(f, "3B_manuals", "bookpile", x0 + 0.58, y0 + 3.17, 25,
+             z0=0.91, n=4)
+        _asm(f, "3B_mug", "mug", x0 + 1.0, y0 + 3.39, 0, z0=0.91,
+             mat="enamel")
+        _asm(f, "3B_partscrate", "crate", x0 + 0.38, y0 + 0.30, 8,
+             fill="metal")
+        _asm(f, "3B_coil", "cablecoil", x0 + 2.72, y0 + 2.85, 70)
     elif unit == "3D":  # Rhea: vocal booth and aligned playback
         _furn_box(f, "3D_booth_w", cx + 0.4, cy - 1.0, 0.1, 2.0, 0.0, 2.2,
                   "fabric_cool", False)
@@ -765,38 +951,105 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
                   1.6, "soot", False)
         _furn_box(f, "3D_mirror", x1 - 2.6, cy + 0.4, 0.05, 1.2, 0.2, 1.8,
                   "glassish", False)
-        _furn_box(f, "3D_micstand", cx + 0.9, cy + 0.1, 0.06, 0.06, 0.0,
-                  1.55, "metal", False)
         shelf_unit(f, "3D_tapes", x1 - 0.42, -2.25, 1.2, False,
                    books=True, face="w")
         mk("speaker", 1, cx + 1.8, cy + 1.2, 0.0, 180)
         mk("speaker", 2, cx + 1.8, cy - 1.2, 0.0, 180)
+        # a real stand in the booth, playback console dead-center between
+        # the aligned pair, wedge foam checkering the booth's north panel
+        _asm(f, "3D_mic", "micstand", cx + 0.95, cy + 0.13, 180)
+        _asm(f, "3D_console", "table_rect", cx + 1.8, cy, 90, L=1.15,
+             W=0.5, mat="wood_dark")
+        _asm(f, "3D_deck", "reeldeck", cx + 1.8, cy + 0.08, -90,
+             z0=0.745)
+        _asm(f, "3D_phones", "headphones", cx + 1.82, cy - 0.42, -90,
+             z0=0.745)
+        _asm(f, "3D_mug", "mug", cx + 1.68, cy + 0.42, 0, z0=0.745)
+        _asm(f, "3D_lyrics", "papers", cx + 0.62, cy - 0.55, 24, n=8,
+             mess=0.5)
+        _asm(f, "3D_tapepile", "bookpile", cx + 1.8, cy - 0.82, 12, n=5)
+        for i in range(10):
+            _furn_box(f, "3D_foam%d" % i, cx + 0.52 + (i % 5) * 0.36,
+                      cy + 0.94 - 0.028 * ((i // 5) % 2), 0.30,
+                      0.05 + 0.028 * ((i // 5) % 2),
+                      0.62 + 0.34 * (i // 5), 0.30, "soot", False)
     elif unit == "5A":  # Nadia: plans over contradictory plans
         _asm(f, "5A_plantable", "plantable", cx, cy + 0.75)
         _furn_box(f, "5A_tuberack", x0 + 2.3, y0 + 3.65, 0.4, 0.4, 0.0,
                   1.1, "ceramic", False)
-        for i in range(3):
-            _furn_box(f, "5A_pin%d" % i, x0 + 0.02, y0 + 3.8 + i * 1.5,
-                      0.03, 1.2, 1.1, 1.0, "paper", False)
         shelf_unit(f, "5A_planshelf", x0 + 0.4, y0 + 3.55, 1.6, True,
                    h=1.4, face="n")
         chair_box(f, "5A_stool", cx + 0.7, cy + 1.55, "n")
         mk("lamp", 1, cx + 0.6, cy + 0.75, 0.83)
+        # plans over contradictory plans: two drifted boards, loose sheets
+        # taped between them, and a massing model of this very building
+        _asm(f, "5A_pins1", "pinboard", wface + 0.005, y0 + 4.45, -90,
+             z0=1.0, W=1.25, H=0.85, cards=18, neat=False)
+        _asm(f, "5A_pins2", "pinboard", wface + 0.005, y0 + 7.95, -90,
+             z0=1.15, W=1.05, H=0.70, cards=14, neat=False)
+        for i in range(4):
+            _furn_box(f, "5A_sheet%d" % i, wface + 0.006 + 0.004 * i,
+                      y0 + 5.00 + 0.10 * i, 0.004, 0.50 - 0.05 * i,
+                      1.00 + 0.06 * i, 0.72, "paper", False)
+        _asm(f, "5A_modtable", "table_rect", x0 + 1.60, y1 - 0.85, 0,
+             L=0.85, W=0.55, mat="wood_dark")
+        _asm(f, "5A_model", "sitemodel", x0 + 1.60, y1 - 0.85, -90,
+             z0=0.745)
+        _asm(f, "5A_papers1", "papers", cx - 0.5, cy + 0.55, 15,
+             z0=0.83, n=7, mess=0.8)
+        _asm(f, "5A_papers2", "papers", cx + 0.45, cy + 1.0, 170,
+             z0=0.83, n=5, mess=0.6)
+        _asm(f, "5A_mug1", "mug", cx + 0.78, cy + 0.48, 0, z0=0.83)
+        _asm(f, "5A_mug2", "mug", x0 + 2.50, y0 + 3.85, 0, z0=1.10,
+             mat="enamel")
+        _asm(f, "5A_floorstack", "bookpile", x0 + 2.35, y1 - 0.62, 5,
+             n=6)
+        for i, off in enumerate((0.30, 0.44, 0.23)):
+            _asm(f, "5A_roll%d" % i, "pipe", 0, 0,
+                 p0=[x0 + off, y1 - 0.32 - 0.06 * i, z + 0.02],
+                 p1=[x0 + 0.10, y1 - 0.16, z + 1.10 + 0.06 * i],
+                 r=0.032, mat="paper")
     elif unit == "6A":  # Sacha: capture wall, framed for camera
         _furn_box(f, "6A_deskwall", x0 + 0.4, cy - 1.2, 0.8, 2.6, 0.72,
                   0.05, "trim", False)
         _furn_box(f, "6A_dwlegs", x0 + 0.5, cy - 1.1, 0.6, 2.4, 0.0, 0.72,
                   "metal", False)
-        _furn_box(f, "6A_tripod", x0 + 2.3, cy, 0.12, 0.12, 0.0, 1.45,
-                  "metal", False)
-        _furn_box(f, "6A_rig", x0 + 2.24, cy - 0.06, 0.24, 0.24, 1.45,
-                  0.18, "screen", False)
         _furn_box(f, "6A_cablerun", x0 + 0.4, cy - 1.5, 2.0, 0.12, 0.013,
                   0.02, "soot", False)
         _furn_box(f, "6A_cot", x0 + 0.4, y1 - 2.5, 0.9, 2.0, 0.0, 0.35,
                   "fabric_cool", False)
+        # the capture kit: real camera on sticks, lights flanking the
+        # frame, wedge foam behind the desk, life squeezed to the edges
+        _asm(f, "6A_tripod", "tripod", x0 + 2.35, cy, 90)
+        _asm(f, "6A_soft1", "softbox", x0 + 2.0, cy - 0.85, 50)
+        _asm(f, "6A_soft2", "softbox", x0 + 2.0, cy + 1.05, 130)
+        _asm(f, "6A_phones", "headphones", x0 + 0.62, cy - 0.55, -90,
+             z0=0.77)
+        _asm(f, "6A_cans", "bottles", x0 + 0.60, cy + 0.85, 0, z0=0.77,
+             n=4, cans=True)
+        _asm(f, "6A_gearcrate", "crate", x0 + 0.45, cy + 1.85, 355,
+             fill="soot", W=0.50, D=0.40, H=0.36)
+        _asm(f, "6A_coil1", "cablecoil", x0 + 1.5, cy + 0.7, 30)
+        _asm(f, "6A_coil2", "cablecoil", x0 + 2.6, cy - 0.55, 240,
+             r=0.09)
+        for r_ in range(3):
+            for c_ in range(4):
+                _furn_box(f, "6A_foam%d" % (r_ * 4 + c_), wface + 0.008,
+                          cy - 1.15 + c_ * 0.60,
+                          0.045 + 0.025 * ((r_ + c_) % 2), 0.50,
+                          1.05 + 0.36 * r_, 0.30, "soot", False)
+        _furn_box(f, "6A_laundry1", x0 + 0.55, y1 - 2.30, 0.50, 0.60,
+                  0.35, 0.16, "fabric_cool", False)
+        _furn_box(f, "6A_laundry2", x0 + 0.72, y1 - 1.55, 0.35, 0.45,
+                  0.35, 0.10, "linen", False)
+        _furn_box(f, "6A_pillow", x0 + 0.48, y1 - 0.95, 0.66, 0.40,
+                  0.35, 0.12, "linen", False)
         for i in range(3):
             mk("monitor", i + 1, x0 + 0.8, cy - 1.0 + i * 1.0, 0.78, 0)
+        _asm(f, "6A_detail_capture_papers", "papers",
+             x0 + 0.78, cy + 0.55, 84, z0=0.78, n=8, mess=0.65)
+        _asm(f, "6A_detail_capture_mug", "mug",
+             x0 + 0.77, cy - 1.02, 210, z0=0.78, mat="ceramic")
         chair_box(f, "6A_deskchair", x0 + 1.55, cy - 0.25, "w")
         mk("boxfan", 1, x1 - 1.2, y0 + 1.0, 0.25, 135)
     elif unit == "4D":  # short-term rental: nobody actually lives here
@@ -855,16 +1108,17 @@ def apartment_4b(z, walls, rooms, markers, furniture):
          "h": 0.04, "mat": "floor_oak"},
         {"id": "desk_legs", "rect": [-8.40, 5.00, -8.35, 6.20], "z0": 0.0,
          "h": 0.72, "mat": "metal"},
-        {"id": "chair", "rect": [-9.05, 5.35, -8.60, 5.85], "z0": 0.42,
-         "h": 0.06, "mat": "trim"},
         {"id": "bed", "rect": [-13.40, 6.90, -12.05, 9.50], "z0": 0.15,
          "h": 0.32, "mat": "trim"},
         {"id": "kitchen_counter", "rect": [-10.70, 9.05, -8.85, 9.55],
-         "z0": 0.0, "h": 0.90, "mat": "trim"},
-        {"id": "couch", "rect": [-12.80, 3.60, -11.30, 4.35], "z0": 0.12,
-         "h": 0.42, "mat": "fabric_cool"},
+         "z0": 0.0, "h": 0.86, "mat": "trim"},
+        {"id": "kitchen_countertop", "rect": [-10.74, 9.01, -8.81, 9.59],
+         "z0": 0.86, "h": 0.045, "mat": "countertop"},
     ]
     # lived-in touches: the player's own residue
+    sofa_set(furniture, "4B_couch", -12.80, 3.60, 1.50, True, True,
+             "fabric_cool")
+    chair_box(furniture, "4B_desk_chair", -9.05, 5.35, "w")
     rug_box(furniture, "4B_deskrug", -9.35, 4.85, 1.15, 1.5, "rug_cool")
     shelf_unit(furniture, "4B_shelf", -13.40, 4.55, 1.1, False)
     art_panel(furniture, "4B_art", -12.55, 2.71, 0.7, True)
@@ -1377,16 +1631,6 @@ def build_floor(floor_id):
             {"kind": "mailboxes", "id": "F01_MAILWALL", "pos": [4.4, -9.3, z],
              "yaw_deg": 0},
         ]
-        # draft vestibule inside the street door
-        walls.append(wall((-1.40, -8.35), (1.40, -8.35), PART_T, WALL_H, z,
-                          [{"type": "door", "at": 1.40, "w": 1.35,
-                            "h": 2.20, "sill": 0.0, "leaf": "none"}]))
-        walls.append(wall((-1.40, -9.65), (-1.40, -8.35), PART_T, WALL_H,
-                          z, []))
-        walls.append(wall((1.40, -9.65), (1.40, -8.35), PART_T, WALL_H,
-                          z, []))
-        rooms.append({"id": "F01_VESTIBULE", "rect": [-1.40, -9.65, 1.40,
-                      -8.35], "kind": "lobby"})
         # limestone entrance surround + step, street side
         for fid_, rect, z0_, hh in (
                 ("pilaster_w", (-1.35, -10.14, -1.05, -9.96), 0.0, 2.60),
@@ -1433,7 +1677,7 @@ def build_floor(floor_id):
                        1.6, True, d=0.45, books=False, face="n")
         art_panel(furniture, "lobby_notice", 5.205, -8.85, 0.9, False,
                   z0=1.15, h=0.75, mat="paper")
-        plant_box(furniture, "lobby_plant", -1.75, -9.35, big=True)
+        plant_box(furniture, "lobby_plant", -2.35, -9.20, big=True)
         # community room (B stack) and building storage (C stack)
         _asm(furniture, "common_table", "table_rect", -9.2, 6.6, 0,
              L=2.6, W=1.0)
@@ -1540,7 +1784,8 @@ def light_fixture_markers(fl):
                 "kind": "flush_dome",
                 "id": "%s_CORRIDOR_DOME_%02d" % (fl["id"], i + 1),
                 "unit": fl["id"], "pos": [cx, cy, z + ceil - 0.02],
-                "range": 4.2, "energy": 0.9,
+                "range": 5.2, "energy": 0.88,
+                "navigation": True, "standby": 0.34,
                 "yaw_deg": 0, "network": "electrical"})
     for r in fl["rooms"]:
         fix = ROOM_FIXTURE.get(r["kind"])
@@ -1549,19 +1794,23 @@ def light_fixture_markers(fl):
         unit = r.get("unit", "")
         if unit == "2D" or unit == "5D":
             continue
-        if r["id"] in ("F04_B_MAIN", "F01_VESTIBULE"):
+        if r["id"] in ("F04_B_MAIN", "F01_LOBBY"):
             continue
         x0, y0, x1, y1 = r["rect"]
         cx, cy = (x0 + x1) / 2.0, (y0 + y1) / 2.0
         if r["kind"] == "atrium":
             cx, cy = 0.0, 0.0   # the drop hangs dead-center in the eye
-        if r["kind"] == "lobby" and r["id"] != "F01_LOBBY":
+        if r["kind"] == "lobby" and r["id"] != "F01_VESTIBULE":
             continue
         marker = {
             "kind": fix, "id": "%s_LT_%s" % (r["id"], fix.upper()),
             "unit": unit or fl["id"],
             "pos": [round(cx, 3), round(cy, 3), z + ceil],
             "yaw_deg": 0, "network": "electrical"}
+        if r["kind"] in ("hall", "corridor", "atrium", "lobby",
+                         "vestibule", "utility"):
+            marker["navigation"] = True
+            marker["standby"] = 0.26
         if r["kind"] != "atrium":   # the eye is meant to throw far
             rw, rd = x1 - x0, y1 - y0
             marker["range"] = round((rw * rw + rd * rd) ** 0.5 / 2.0
@@ -1614,6 +1863,24 @@ def collect_door_markers(fl):
                     "id": "%s_SW_%02d_%d" % (fl["id"], n, yaw % 360),
                     "asm": "switch", "at": [round(sx_, 4), round(sy_, 4)],
                     "yaw": yaw, "z0": 1.12})
+
+
+def radiator_pipe_pass(floors):
+    """Continue every heating riser from slab to ceiling."""
+    for fl in floors:
+        if fl["id"] == "ROOF":
+            continue
+        clear_h = 2.56 if fl["id"] == "B1" else 2.96
+        for m in fl["markers"]:
+            if m["kind"] != "radiator":
+                continue
+            fl["furniture"].append({
+                "id": m["id"] + "_continuous_supply",
+                "asm": "pipe", "at": [m["pos"][0], m["pos"][1]],
+                "yaw": m["yaw_deg"], "mat": "metal", "r": 0.022,
+                "local": True,
+                "p0": [0.44, 0.0, 0.0], "p1": [0.44, 0.0, clear_h]})
+
 
 def aging_pass(floors):
     rng = random.Random(1927)
@@ -1911,8 +2178,11 @@ def _validate_placement(layout):
                     problems.append("%s: prop %s centered inside wall"
                                     % (fl["id"], m["id"]))
         for fu in fl.get("furniture", []):
+            # wall-hung flatware (boards, like the mail bank and pedestal
+            # backsplash mirrors before them) is *meant* to hug the wall
             if "asm" not in fu or fu["asm"] in (
-                    "switch", "pipe", "sink_ped", "mailbank"):
+                    "switch", "pipe", "sink_ped", "mailbank",
+                    "pinboard", "toolboard"):
                 continue
             px, py = fu["at"]
             if any(point_in_wall(px, py, w) for w in fl["walls"]):
@@ -1934,6 +2204,11 @@ ASM_FOOT = {
     "workbench": (1.11, 0.49), "toilet": (0.21, 0.36),
     "sink_ped": (0.25, 0.25), "shower": (0.41, 0.42), "bench": (0.76, 0.25),
     "mailbank": (0.81, 0.10),
+    # floor-standing personality clutter (tabletop pieces are absent on
+    # purpose: they never block a route)
+    "amp": (0.31, 0.17), "guitar": (0.20, 0.17),
+    "pedalboard": (0.32, 0.18), "micstand": (0.15, 0.15),
+    "tripod": (0.32, 0.32), "softbox": (0.28, 0.28), "crate": (0.23, 0.20),
 }
 
 
@@ -2101,7 +2376,7 @@ def _validate_movement(layout):
 ## the kitchen trio must share one facing. Prop counts print as a report.
 def _validate_furnishing(layout):
     problems = []
-    unit_asm, unit_yaw, unit_rad = {}, {}, set()
+    unit_asm, unit_yaw, unit_rad, unit_detail, unit_story = {}, {}, set(), {}, {}
     doors, switches, kinds = 0, 0, {}
     for fl in layout["floors"]:
         for m in fl["markers"]:
@@ -2111,12 +2386,16 @@ def _validate_furnishing(layout):
             if m["kind"] == "radiator" and m.get("unit"):
                 unit_rad.add(m["unit"])
         for fu in fl.get("furniture", []):
+            unit = str(fu["id"]).split("_")[0]
+            if "_detail_" in str(fu["id"]):
+                unit_detail[unit] = unit_detail.get(unit, 0) + 1
+            if "_story_" in str(fu["id"]):
+                unit_story[unit] = unit_story.get(unit, 0) + 1
             if "asm" not in fu:
                 continue
             if fu["asm"] == "switch":
                 switches += 1
                 continue
-            unit = str(fu["id"]).split("_")[0]
             unit_asm.setdefault(unit, {})
             unit_asm[unit][fu["asm"]] = unit_asm[unit].get(fu["asm"], 0) + 1
             if fu["id"].endswith(("_k", "_k_stove", "_k_fr")):
@@ -2139,6 +2418,9 @@ def _validate_furnishing(layout):
                 if a.get(k, 0) < 1:
                     problems.append("4B missing %s" % k)
             continue
+        if unit_detail.get(unit, 0) < 4:
+            problems.append("%s lacks close surface detail (%d < 4)"
+                            % (unit, unit_detail.get(unit, 0)))
         for k, n in need.items():
             if a.get(k, 0) < n:
                 problems.append("%s missing %s (%d < %d)"
@@ -2149,6 +2431,10 @@ def _validate_furnishing(layout):
         if len(yaws) > 1:
             problems.append("%s kitchen trio facing disagrees %s"
                             % (unit, sorted(yaws)))
+    for unit in RESIDENT_STORIES:
+        if unit_story.get(unit, 0) < 2:
+            problems.append("%s lacks resident story props (%d < 2)"
+                            % (unit, unit_story.get(unit, 0)))
     n_asm = sum(sum(v.values()) for v in unit_asm.values()) + switches
     print("furnishing OK: %d assemblies (%d switches), %d door leaves, "
           "%d radiators" % (n_asm, switches, doors, kinds.get("radiator", 0)))
@@ -2259,6 +2545,40 @@ def acoustic_graph(layout):
             index[a]["connections"].append(b)
             index[b]["connections"].append(a)
     return {"nodes": nodes}
+
+
+def fixture_light_map(layout):
+    """Fixture-to-room coverage manifest for lighting QA and tuning."""
+    light_kinds = {"ceiling_light", "pendant_shade", "flush_dome",
+                   "sconce_globe", "kitchen_linear", "cage_bulb",
+                   "chandelier", "eye_pendant"}
+    fixtures = []
+    for fl in layout["floors"]:
+        for m in fl["markers"]:
+            if m["kind"] not in light_kinds:
+                continue
+            px, py, pz = m["pos"]
+            candidates = []
+            for r in fl["rooms"]:
+                x0, y0, x1, y1 = r["rect"]
+                if x0 - 0.08 <= px <= x1 + 0.08 and \
+                        y0 - 0.08 <= py <= y1 + 0.08:
+                    candidates.append(((x1 - x0) * (y1 - y0),
+                                       r["id"], r["kind"]))
+            candidates.sort()
+            room_id, room_kind = ("UNASSIGNED", "unknown") if not candidates \
+                    else (candidates[0][1], candidates[0][2])
+            if room_id == "UNASSIGNED" and m.get("navigation", False):
+                room_id, room_kind = fl["id"] + "_NAVIGATION", "corridor"
+            fixtures.append({
+                "id": m["id"], "floor": fl["id"], "kind": m["kind"],
+                "room": room_id, "room_kind": room_kind,
+                "position": [px, py, pz],
+                "range": m.get("range", 5.0),
+                "energy": m.get("energy", 1.0),
+                "navigation": bool(m.get("navigation", False)),
+                "standby": m.get("standby", 0.04)})
+    return {"fixture_count": len(fixtures), "fixtures": fixtures}
 
 
 PROP_CATALOG = {
@@ -2434,6 +2754,20 @@ MATERIAL_CATALOG = {
     "wood_dark": {"base_color": [0.28, 0.20, 0.14, 1.0], "roughness": 0.50},
     "linen": {"base_color": [0.86, 0.85, 0.81, 1.0], "roughness": 0.85},
     "paper": {"base_color": [0.90, 0.88, 0.82, 1.0], "roughness": 0.85},
+    "countertop": {"base_color": [0.78, 0.75, 0.64, 1.0],
+                   "roughness": 0.62},
+    "book_burgundy": {"base_color": [0.34, 0.10, 0.10, 1.0],
+                      "roughness": 0.72},
+    "book_green": {"base_color": [0.12, 0.24, 0.16, 1.0],
+                   "roughness": 0.72},
+    "book_navy": {"base_color": [0.10, 0.15, 0.25, 1.0],
+                  "roughness": 0.72},
+    "book_ochre": {"base_color": [0.58, 0.34, 0.08, 1.0],
+                   "roughness": 0.72},
+    "book_teal": {"base_color": [0.13, 0.31, 0.31, 1.0],
+                  "roughness": 0.72},
+    "book_brown": {"base_color": [0.28, 0.17, 0.10, 1.0],
+                   "roughness": 0.72},
     "fabric_warm": {"base_color": [0.56, 0.35, 0.27, 1.0], "roughness": 0.92},
     "fabric_cool": {"base_color": [0.36, 0.42, 0.51, 1.0], "roughness": 0.92},
     "fabric_green": {"base_color": [0.38, 0.46, 0.36, 1.0], "roughness": 0.92},
@@ -2491,6 +2825,7 @@ def main():
     for fl in floors:
         collect_door_markers(fl)
         light_fixture_markers(fl)
+    radiator_pipe_pass(floors)
     aging_pass(floors)
     site_pass(floors[1])  # the block lives with F01
     layout = {
@@ -2521,6 +2856,8 @@ def main():
         json.dump(PROP_CATALOG, f, indent=1)
     with open(os.path.join(OUT_DIR, "material_catalog.json"), "w") as f:
         json.dump(MATERIAL_CATALOG, f, indent=1)
+    with open(os.path.join(OUT_DIR, "fixture_light_map.json"), "w") as f:
+        json.dump(fixture_light_map(layout), f, indent=1)
 
     n_walls = sum(len(fl["walls"]) for fl in floors)
     n_marks = sum(len(fl["markers"]) for fl in floors)

@@ -49,6 +49,7 @@ var elevator: OrisonElevator
 var call_interface: CallInterface
 var walkthrough: ArchitecturalWalkthrough
 var light_rig: LightRig
+var virus_director: VirusSoundDirector
 var floor_nodes: Dictionary = {}
 var show_all_floors := false
 
@@ -75,8 +76,11 @@ func _ready() -> void:
 	add_child(elevator)
 	elevator.setup(layout["elevator"])
 	player = PlayerController.new()
+	player.position = GameBoot.b2g([0.0, -9.0, 0.1])  # vestibule
 	add_child(player)
-	player.global_position = GameBoot.b2g([0.0, -9.0, 0.1])  # vestibule
+	virus_director = VirusSoundDirector.new()
+	add_child(virus_director)
+	virus_director.setup(self)
 	walkthrough = ArchitecturalWalkthrough.new()
 	add_child(walkthrough)
 	walkthrough.setup(self)
@@ -103,12 +107,12 @@ func _build_environment() -> void:
 	var env := Environment.new()
 	var panorama := load(
 			"res://assets/building/textures/sky/" +
-			"orison_hyperreal_night_panorama_4k.png") as Texture2D
+			"orison_half_dome_night_4k.png") as Texture2D
 	env.background_mode = Environment.BG_COLOR
 	env.background_color = Color(0.015, 0.02, 0.035)
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	env.ambient_light_color = Color(0.30, 0.33, 0.44)
-	env.ambient_light_energy = 0.30
+	env.ambient_light_color = Color(0.18, 0.21, 0.28)
+	env.ambient_light_energy = 0.055
 	env.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	env.fog_enabled = true
 	env.fog_light_color = Color(0.05, 0.06, 0.10)
@@ -125,7 +129,7 @@ func _build_environment() -> void:
 	var moon := DirectionalLight3D.new()
 	moon.name = "ExteriorMoon"
 	moon.light_color = Color(0.65, 0.7, 0.9)
-	moon.light_energy = 0.35
+	moon.light_energy = 0.10
 	moon.rotation_degrees = Vector3(-38, 30, 0)
 	moon.shadow_enabled = true
 	moon.shadow_bias = 0.035
@@ -137,8 +141,9 @@ func _build_environment() -> void:
 
 func _build_sky_dome(panorama: Texture2D) -> void:
 	## PanoramaSkyMaterial is unreliable on the Compatibility backend used
-	## by this project. An inward-facing unlit sphere preserves the same
-	## equirectangular projection and leaves environment lighting separate.
+	## by this project. This camera-centered upper-hemisphere projection
+	## keeps the horizon stable from street to roof and never samples a
+	## lower hemisphere. Its quiet zenith band hides polar convergence.
 	var shader := Shader.new()
 	shader.code = """
 shader_type spatial;
@@ -146,17 +151,22 @@ render_mode unshaded, cull_front, depth_draw_never, fog_disabled,
 		shadows_disabled;
 uniform sampler2D panorama : source_color, filter_linear_mipmap,
 		repeat_enable;
-varying vec3 local_direction;
-void vertex() {
-	local_direction = VERTEX;
-}
 void fragment() {
-	vec3 direction = normalize(local_direction);
+	vec3 direction = normalize(
+			(INV_VIEW_MATRIX * vec4(-VIEW, 0.0)).xyz);
 	float u = atan(direction.z, direction.x) / (2.0 * PI) + 0.5;
-	// The square double-height source uses its midpoint as eye level:
-	// upper hemisphere is sky, lower hemisphere is the surrounding city.
-	float v = acos(clamp(direction.y, -1.0, 1.0)) / PI;
-	ALBEDO = texture(panorama, vec2(u, v)).rgb;
+	// Half-dome source: top edge is zenith; bottom edge is horizon.
+	// Views below the horizon hold on that final skyline texel instead of
+	// exposing the dome's lower half. Fade that edge into distance haze
+	// immediately so skyline pixels never stretch into vertical bars.
+	float elevation = asin(clamp(direction.y, 0.0, 1.0));
+	float v = 1.0 - elevation / (0.5 * PI);
+	vec3 color = texture(panorama, vec2(u, v)).rgb;
+	if (direction.y < 0.0) {
+		float haze = smoothstep(0.0, 0.025, -direction.y);
+		color = mix(color, vec3(0.018, 0.025, 0.040), haze);
+	}
+	ALBEDO = color;
 }
 """
 	var material := ShaderMaterial.new()
@@ -168,7 +178,7 @@ void fragment() {
 	sphere.radial_segments = 96
 	sphere.rings = 48
 	var dome := MeshInstance3D.new()
-	dome.name = "NightSkyDome"
+	dome.name = "NightSkyHalfDome"
 	dome.mesh = sphere
 	dome.material_override = material
 	dome.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
@@ -290,11 +300,18 @@ func _spawn_props() -> void:
 				prop.range_clamp = float(m["range"])
 			if m.has("energy") and prop is LightFixtureProp:
 				prop.energy_scale = float(m["energy"])
+			if m.has("standby"):
+				prop.set("standby_scale", float(m["standby"]))
+			if m.get("navigation", false):
+				prop.set("navigation_light", true)
 			if AcousticGraphData.nodes.has(m["id"]):
 				prop.graph_node_id = m["id"]  # bound to the shared graph
-			add_child(prop)
-			prop.global_position = GameBoot.b2g(m["pos"])
+			# Compatibility renderer light transforms must be authored before
+			# _ready() creates the Light3D children. Moving the prop afterward
+			# moved its mesh but left the rendered light pool at the origin.
+			prop.position = GameBoot.b2g(m["pos"])
 			prop.rotation.y = deg_to_rad(-float(m.get("yaw_deg", 0)))
+			add_child(prop)
 			count += 1
 	print("[BUILDING] %d functional props spawned" % count)
 

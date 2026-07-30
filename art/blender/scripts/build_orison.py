@@ -58,6 +58,8 @@ SHADER_ONLY = {k for k, v in CAT_TEX.items() if v is None}
 UV_MODE_BY_MAT = {
     "chrome": "vgrain", "metal": "vgrain",
     "art": "unit", "fx_ao": "unit", "fx_shadow": "unit",
+    "book_burgundy": "unit", "book_green": "unit", "book_navy": "unit",
+    "book_ochre": "unit", "book_teal": "unit", "book_brown": "unit",
 }
 VGRAIN = {k for k, m in UV_MODE_BY_MAT.items() if m == "vgrain"}
 
@@ -407,6 +409,21 @@ def get_material(key):
     bsdf.inputs["Base Color"].default_value = spec["base_color"]
     bsdf.inputs["Roughness"].default_value = spec.get("roughness", 0.7)
     bsdf.inputs["Metallic"].default_value = spec.get("metallic", 0.0)
+    if key == "glassish":
+        # Actual architectural glass: transmissive and lightly tinted,
+        # rather than the opaque blue-gray panel used by the blockout.
+        bsdf.inputs["Base Color"].default_value = (0.72, 0.84, 0.88, 1.0)
+        bsdf.inputs["Roughness"].default_value = 0.08
+        if "Transmission Weight" in bsdf.inputs:
+            bsdf.inputs["Transmission Weight"].default_value = 0.72
+        bsdf.inputs["IOR"].default_value = 1.46
+        bsdf.inputs["Alpha"].default_value = 0.32
+        if hasattr(mat, "surface_render_method"):
+            mat.surface_render_method = "DITHERED"
+        elif hasattr(mat, "blend_method"):
+            mat.blend_method = "BLEND"
+        if hasattr(mat, "use_transparency_overlap"):
+            mat.use_transparency_overlap = False
     if key in FX_TEX:
         # baked-GI decal: albedo alpha does all the work, no reflections
         img = _image(os.path.join(TEX_ROOT, *FX_TEX[key].split("/")),
@@ -546,6 +563,17 @@ def asm_sofa(F, p):
         F.box(mat, sx_ * L / 2 + (0.02 if sx_ > 0 else -0.18),
               -d / 2, 0.15, sx_ * L / 2 + (0.18 if sx_ > 0 else -0.02),
               d / 2, 0.62)
+    # Piping and stitch breaks keep the cushions from reading as boxes.
+    seam = "linen"
+    for i in range(nc):
+        x0 = -L / 2 + 0.04 + i * (cw + 0.04)
+        for sx_ in (x0 + 0.018, x0 + cw - 0.018):
+            F.tube(seam, (sx_, -d / 2 + 0.17, 0.458),
+                   (sx_, d / 2 - 0.04, 0.458), 0.006, 6)
+        for k in range(5):
+            sy = -d / 2 + 0.20 + k * (d - 0.28) / 4.0
+            F.box(seam, x0 + cw / 2 - 0.018, sy, 0.458,
+                  x0 + cw / 2 + 0.018, sy + 0.012, 0.463)
     F.hull(-L / 2 - 0.18, -d / 2, 0.0, L / 2 + 0.18, d / 2, 0.8)
 
 
@@ -697,8 +725,8 @@ def asm_shelf(F, p):
         while x + 0.05 < -W / 2 + run:
             bw = _jit(seed, i * 7 + k, 0.025, 0.055)
             bh = _jit(seed, i * 13 + k, 0.20, 0.31)
-            bm = ("paper", "fabric_cool", "fabric_warm", "rug_green",
-                  "wood_dark")[(i + k + len(seed)) % 5]
+            bm = ("book_burgundy", "book_green", "book_navy", "book_ochre",
+                  "book_teal", "book_brown")[(i + k + len(seed)) % 6]
             F.box(bm, x, -d / 2 + 0.05, bz + 0.032, x + bw, d / 2 - 0.06,
                   bz + 0.032 + bh)
             x += bw + 0.004
@@ -724,10 +752,12 @@ def asm_tv(F, p):
 def asm_plant(F, p):
     big = p.get("big", False)
     s = 1.35 if big else 1.0
-    F.lathe("ceramic", 0, 0, [(0.10 * s, 0.0), (0.145 * s, 0.03),
-                              (0.17 * s, 0.30 * s), (0.15 * s, 0.335 * s)],
-            12)
-    F.cyl("soot", 0, 0, 0.30 * s, 0.315 * s, 0.145 * s, 0.145 * s, 10)
+    F.lathe("ceramic", 0, 0, [(0.11 * s, 0.0), (0.16 * s, 0.025 * s),
+                              (0.18 * s, 0.27 * s), (0.205 * s, 0.31 * s),
+                              (0.205 * s, 0.35 * s), (0.17 * s, 0.35 * s)],
+            16)
+    F.cyl("ceramic", 0, 0, 0.0, 0.025 * s, 0.22 * s, 0.22 * s, 16)
+    F.cyl("soot", 0, 0, 0.335 * s, 0.350 * s, 0.165 * s, 0.165 * s, 14)
     F.cyl("plant", 0, 0, 0.30 * s, 0.62 * s, 0.016, 0.012, 6)
     seed = p.get("id", "plant")
     for i, (r, z) in enumerate(((0.24, 0.62), (0.19, 0.80), (0.12, 0.94))):
@@ -745,9 +775,11 @@ def asm_kitchen(F, p):
     # carcass centered on the origin
     F.box("soot", -cw / 2 + 0.02, -0.28, 0.0, -cw / 2 + cw - 0.02, 0.26, 0.07)
     F.box("trim", -cw / 2, -0.30, 0.07, -cw / 2 + cw, 0.28, 0.86)
-    F.box("linen", -cw / 2 - 0.015, -0.315, 0.86, -cw / 2 + cw + 0.015,
+    F.box("countertop", -cw / 2 - 0.015, -0.315, 0.86,
+          -cw / 2 + cw + 0.015,
           0.315, 0.895)                     # counter overhang
-    F.box("linen", -cw / 2 - 0.015, -0.315, 0.895, -cw / 2 + cw + 0.015,
+    F.box("countertop", -cw / 2 - 0.015, -0.315, 0.895,
+          -cw / 2 + cw + 0.015,
           -0.27, 0.97)                      # backsplash lip
     nd = max(2, int(cw / 0.45))
     dw = (cw - 0.02 * (nd + 1)) / nd
@@ -792,10 +824,10 @@ def asm_stove(F, p):
     for kx in (-0.24, -0.12, 0.0, 0.12, 0.24):
         F.lathe("bakelite", kx, -0.315,
                 [(0.010, 0.80), (0.022, 0.82), (0.016, 0.835)], 8)
-    F.box("enamel", -0.27, -0.325, 0.18, 0.27, -0.30, 0.72)
-    F.box("soot", -0.19, -0.327, 0.42, 0.19, -0.315, 0.62)
-    F.tube("chrome", (-0.24, -0.36, 0.70), (0.24, -0.36, 0.70), 0.013, 8)
-    for hx in (-0.22, 0.22):
+    F.box("enamel", -0.295, -0.325, 0.15, 0.295, -0.30, 0.75)
+    F.box("soot", -0.23, -0.327, 0.36, 0.23, -0.315, 0.64)
+    F.tube("chrome", (-0.27, -0.36, 0.72), (0.27, -0.36, 0.72), 0.013, 8)
+    for hx in (-0.26, 0.26):
         F.tbox("chrome", (hx, -0.325, 0.685), (hx, -0.36, 0.70),
                0.022, 0.014)
     F.hull(-0.31, -0.36, 0.0, 0.31, 0.30, 1.24)
@@ -916,18 +948,27 @@ def asm_sink_ped(F, p):
 
 
 def asm_shower(F, p):
-    """Tray, half-drawn curtain on a chrome rail, wall head."""
+    """Tray, framed glass enclosure, correctly wall-mounted mixer and head."""
     F.box("porcelain", -0.40, -0.40, 0.0, 0.40, 0.40, 0.12)
     F.box("soot", -0.34, -0.34, 0.045, 0.34, 0.34, 0.125)
-    F.tube("chrome", (-0.40, -0.40, 1.88), (0.40, -0.40, 1.88), 0.012, 8)
-    F.tube("chrome", (0.40, -0.40, 1.88), (0.40, 0.40, 1.88), 0.012, 8)
-    F.box("linen", -0.40, -0.415, 0.14, 0.05, -0.395, 1.87)
-    F.box("linen", 0.02, -0.408, 0.30, 0.10, -0.402, 1.87)
-    F.tube("chrome", (-0.28, 0.38, 1.70), (-0.16, 0.30, 1.78), 0.012, 8)
-    F.lathe("chrome", -0.16, 0.30, [(0.012, 1.70), (0.055, 1.76),
-                                    (0.06, 1.78)], 10)
-    F.lathe("chrome", -0.05, 0.36, [(0.03, 0.98), (0.038, 1.0),
-                                    (0.012, 1.02)], 8)
+    # Front and return panels stop short of the entry, with chrome frames.
+    F.box("glassish", -0.40, -0.405, 0.12, 0.24, -0.392, 1.86)
+    F.box("glassish", 0.388, -0.40, 0.12, 0.402, 0.40, 1.86)
+    for x in (-0.40, 0.24):
+        F.tube("chrome", (x, -0.41, 0.12), (x, -0.41, 1.88), 0.010, 8)
+    for y in (-0.40, 0.40):
+        F.tube("chrome", (0.40, y, 0.12), (0.40, y, 1.88), 0.010, 8)
+    F.tube("chrome", (-0.40, -0.405, 1.88), (0.40, -0.405, 1.88), 0.012, 8)
+    F.tube("chrome", (0.40, -0.405, 1.88), (0.40, 0.40, 1.88), 0.012, 8)
+    # Plumbing is attached to the back wall (+Y), projecting into the stall.
+    F.tube("chrome", (0.0, 0.385, 0.96), (0.0, 0.385, 1.70), 0.012, 8)
+    F.tube("chrome", (0.0, 0.385, 1.70), (0.0, 0.27, 1.78), 0.012, 8)
+    F.lathe("chrome", 0.0, 0.24, [(0.012, 1.72), (0.060, 1.78),
+                                  (0.065, 1.80)], 12)
+    F.lathe("chrome", 0.0, 0.37, [(0.032, 0.96), (0.042, 0.99),
+                                  (0.012, 1.02)], 10)
+    F.tube("bakelite", (-0.06, 0.335, 0.99), (0.06, 0.335, 0.99),
+           0.010, 8)
     F.hull(-0.40, -0.40, 0.0, 0.40, 0.40, 0.13)
 
 
@@ -944,8 +985,13 @@ def asm_switch(F, p):
 
 
 def asm_pipe(F, p):
-    F.g(p.get("mat", "metal")).add_tube(tuple(p["p0"]), tuple(p["p1"]),
-                                        p.get("r", 0.045), 10)
+    """Raw endpoints are world-space by default (the basement services
+    are authored that way); `local: true` routes them through the frame
+    so a run can anchor to a marker's position and yaw."""
+    a, b = tuple(p["p0"]), tuple(p["p1"])
+    if p.get("local"):
+        a, b = F.pt(*a), F.pt(*b)
+    F.g(p.get("mat", "metal")).add_tube(a, b, p.get("r", 0.045), 10)
 
 
 def asm_bench(F, p):
@@ -982,6 +1028,343 @@ def asm_mailbank(F, p):
     F.hull(-0.80, -0.02, 0.30, 0.80, 0.16, 1.72)
 
 
+# ---- resident personality clutter (Phase 6 hero pass). Small originals
+# in the same spirit-of-a-typology language: stage gear for Juno, bench
+# electronics for Omar, playback for Rhea, paperwork for Nadia, capture
+# kit for Sacha, tidy desk order for Mina. Tabletop pieces skip hull()
+# on purpose: no physics, no floor shadow quad floating mid-air.
+
+def asm_amp(F, p):
+    """Guitar combo amp: vinyl cab, cloth grille, knob row, pilot lamp."""
+    W, H, D = p.get("W", 0.56), p.get("H", 0.46), 0.27
+    F.box("soot", -W / 2, -D / 2, 0.02, W / 2, D / 2, H)
+    F.box("linen", -W / 2 + 0.035, D / 2 - 0.004, 0.05, W / 2 - 0.035,
+          D / 2 + 0.012, H - 0.115)
+    F.box("bakelite", -W / 2 + 0.03, D / 2 - 0.02, H - 0.105,
+          W / 2 - 0.03, D / 2 + 0.004, H - 0.03)
+    nk = max(3, int(W / 0.10))
+    for i in range(nk):
+        kx = -W / 2 + 0.07 + i * (W - 0.14) / (nk - 1)
+        F.tube("chrome", (kx, D / 2 + 0.004, H - 0.068),
+               (kx, D / 2 + 0.022, H - 0.068), 0.011, 6)
+    F.tube("brass", (W / 2 - 0.045, D / 2 + 0.004, H - 0.068),
+           (W / 2 - 0.045, D / 2 + 0.016, H - 0.068), 0.005, 6)
+    F.tbox("bakelite", (-0.09, 0.0, H + 0.015), (0.09, 0.0, H + 0.015),
+           0.035, 0.030)
+    for fx in (-W / 2 + 0.05, W / 2 - 0.05):
+        for fy in (-D / 2 + 0.05, D / 2 - 0.05):
+            F.cyl("bakelite", fx, fy, 0.0, 0.02, 0.020, 0.024, 6)
+    F.hull(-W / 2, -D / 2, 0.0, W / 2, D / 2, H + 0.03)
+
+
+def asm_guitar(F, p):
+    """Guitar leaning on whatever was closest: waisted slab body, long
+    neck to a paddle head, back tipped toward local -Y."""
+    body = "timber" if p.get("acoustic") else "enamel"
+    F.tbox(body, (0.0, -0.02, 0.03), (0.0, -0.10, 0.44), 0.32, 0.065)
+    F.tbox(body, (0.0, -0.035, 0.10), (0.0, -0.075, 0.31), 0.40, 0.060)
+    F.tbox("wood_dark", (0.0, -0.105, 0.46), (0.0, -0.175, 0.83),
+           0.048, 0.030)
+    F.tbox("wood_dark", (0.0, -0.178, 0.845), (0.0, -0.205, 0.985),
+           0.062, 0.024)
+    F.tube("chrome", (0.0, -0.052, 0.20), (0.0, -0.150, 0.72), 0.004, 4)
+    F.hull(-0.19, -0.16, 0.0, 0.19, 0.06, 0.48)
+
+
+def asm_pedalboard(F, p):
+    """Plywood pedalboard: four mismatched stomp pedals, patch leads."""
+    seed = p.get("id", "pb")
+    F.box("plywood", -0.30, -0.16, 0.0, 0.30, 0.16, 0.04)
+    for i, pm in enumerate(("bakelite", "enamel", "metal",
+                            "fabric_green")):
+        px = -0.225 + i * 0.15
+        py = _jit(seed, i, -0.055, 0.035)
+        F.box(pm, px - 0.052, py - 0.085, 0.04, px + 0.052, py + 0.085,
+              0.095)
+        F.cyl("chrome", px, py + 0.042, 0.095, 0.112, 0.013, 0.013, 6)
+        F.tube("bakelite", (px - 0.028, py - 0.055, 0.095),
+               (px - 0.028, py - 0.055, 0.112), 0.008, 6)
+    F.tube("soot", (-0.17, 0.10, 0.052), (-0.075, 0.13, 0.052), 0.006, 6)
+    F.tube("soot", (-0.075, 0.13, 0.052), (0.075, 0.115, 0.052), 0.006, 6)
+    F.hull(-0.30, -0.16, 0.0, 0.30, 0.16, 0.12)
+
+
+def asm_micstand(F, p):
+    """Round-base mic stand; the boom drops the capsule toward +Y."""
+    F.lathe("metal", 0, 0, [(0.135, 0.0), (0.11, 0.018), (0.02, 0.035),
+                            (0.013, 0.05)], 10)
+    F.cyl("metal", 0, 0, 0.05, 1.08, 0.011, 0.009, 8)
+    F.tube("metal", (0.0, 0.0, 1.08), (0.0, 0.30, 1.32), 0.008, 6)
+    F.tube("soot", (0.0, 0.30, 1.32), (0.0, 0.355, 1.278), 0.023, 8)
+    F.hull(-0.135, -0.135, 0.0, 0.135, 0.135, 0.30)
+
+
+def asm_reeldeck(F, p):
+    """Reel-to-reel playback deck: twin reels, head block, VU windows."""
+    F.box("metal", -0.24, -0.17, 0.0, 0.24, 0.17, 0.07)
+    F.box("bakelite", -0.235, -0.165, 0.07, 0.235, 0.165, 0.105)
+    for rx in (-0.115, 0.115):
+        F.cyl("soot", rx, 0.03, 0.105, 0.117, 0.10, 0.10, 14)
+        F.cyl("enamel", rx, 0.03, 0.117, 0.124, 0.03, 0.03, 8)
+    F.box("metal", -0.055, -0.135, 0.105, 0.055, -0.085, 0.135)
+    for vx in (-0.16, 0.16):
+        F.box("paper", vx - 0.028, -0.15, 0.106, vx + 0.028, -0.10, 0.110)
+    for kx in (-0.06, 0.0, 0.06):
+        F.tube("bakelite", (kx, -0.045, 0.105), (kx, -0.045, 0.122),
+               0.010, 6)
+
+
+def asm_headphones(F, p):
+    """Cans hung on a turned desk stand, cable slumped to the surface."""
+    F.lathe("wood_dark", 0, 0, [(0.065, 0.0), (0.05, 0.012),
+                                (0.012, 0.022), (0.009, 0.24),
+                                (0.02, 0.25), (0.001, 0.265)], 8)
+    F.tbox("soot", (-0.055, 0.0, 0.20), (0.0, 0.0, 0.262), 0.036, 0.012)
+    F.tbox("soot", (0.055, 0.0, 0.20), (0.0, 0.0, 0.262), 0.036, 0.012)
+    for s in (-1, 1):
+        F.lathe("soot", s * 0.062, 0.0,
+                [(0.012, 0.115), (0.04, 0.135), (0.044, 0.185),
+                 (0.022, 0.198)], 10)
+    F.tube("soot", (-0.062, 0.0, 0.115), (0.05, 0.09, 0.004), 0.004, 4)
+
+
+def asm_mug(F, p):
+    m = p.get("mat", "porcelain")
+    F.lathe(m, 0, 0, [(0.034, 0.0), (0.040, 0.008), (0.040, 0.092),
+                      (0.035, 0.10)], 10)
+    F.tube(m, (0.038, 0.0, 0.030), (0.062, 0.0, 0.052), 0.007, 6)
+    F.tube(m, (0.062, 0.0, 0.052), (0.040, 0.0, 0.078), 0.007, 6)
+
+
+def asm_papers(F, p):
+    """Loose paper stack; `mess` spreads the drift."""
+    seed, n = p.get("id", "pp"), p.get("n", 6)
+    mess = 1.0 + 3.0 * p.get("mess", 0.0)
+    for i in range(n):
+        ox = _jit(seed, i, -0.018, 0.018) * mess
+        oy = _jit(seed, i + 9, -0.014, 0.014) * mess
+        F.box("paper", -0.105 + ox, -0.148 + oy, i * 0.0075,
+              0.105 + ox, 0.148 + oy, i * 0.0075 + 0.005)
+
+
+def asm_bookpile(F, p):
+    """Horizontal pile of mismatched volumes (or tape boxes, or manuals)."""
+    seed, n = p.get("id", "bk"), p.get("n", 4)
+    mats = ("book_burgundy", "book_green", "book_navy", "book_ochre",
+            "book_teal", "book_brown")
+    z = 0.0
+    for i in range(n):
+        w = _jit(seed, i, 0.14, 0.19)
+        d = _jit(seed, i + 5, 0.21, 0.27)
+        h = _jit(seed, i + 11, 0.028, 0.048)
+        ox = _jit(seed, i + 17, -0.02, 0.02)
+        oy = _jit(seed, i + 23, -0.02, 0.02)
+        F.box(mats[(hash_str(seed) + i) % len(mats)],
+              ox - w / 2, oy - d / 2, z,
+              ox + w / 2, oy + d / 2, z + h)
+        z += h
+
+
+def asm_pinboard(F, p):
+    """Cork board on the wall: cards in a tidy grid, or drifted layers
+    of them fighting for space. Front faces +Y."""
+    W, H = p.get("W", 0.90), p.get("H", 0.60)
+    seed, neat = p.get("id", "pin"), p.get("neat", True)
+    F.box("wood_dark", -W / 2, 0.0, 0.0, W / 2, 0.016, H)
+    F.box("timber", -W / 2 + 0.03, 0.016, 0.03, W / 2 - 0.03, 0.026,
+          H - 0.03)
+    n = p.get("cards", 12)
+    cols = max(2, int(round(n / 3.0)))
+    for i in range(n):
+        if neat:
+            px = -W / 2 + 0.08 + (i % cols) * (W - 0.16) / (cols - 1)
+            pz = H - 0.10 - (i // cols) * 0.135
+            cw, ch = 0.037, 0.05
+        else:
+            px = _jit(seed, i, -W / 2 + 0.09, W / 2 - 0.09)
+            pz = _jit(seed, i + 31, 0.10, H - 0.10)
+            cw = _jit(seed, i + 57, 0.03, 0.075)
+            ch = _jit(seed, i + 71, 0.04, 0.09)
+        F.box("paper", px - cw, 0.026, pz - ch, px + cw,
+              0.028 + 0.002 * (i % 3), pz + ch)
+
+
+def asm_toolboard(F, p):
+    """Pegboard: wrench row by size, hammer, a coil of cord on a nail."""
+    W, H = p.get("W", 1.05), p.get("H", 0.70)
+    seed = p.get("id", "tb")
+    F.box("plywood", -W / 2, 0.0, 0.0, W / 2, 0.018, H)
+    for i in range(5):
+        tx = -W / 2 + 0.10 + i * (W - 0.55) / 4.0
+        L = _jit(seed, i, 0.15, 0.24)
+        F.box("metal", tx - 0.010, 0.018, H - 0.10 - L, tx + 0.010,
+              0.030, H - 0.10)
+        F.cyl("metal", tx, 0.024, H - 0.10 - L - 0.025, H - 0.10 - L,
+              0.018, 0.014, 6)
+    hx = W / 2 - 0.22
+    F.box("timber", hx - 0.012, 0.018, H - 0.38, hx + 0.012, 0.032,
+          H - 0.10)
+    F.box("metal", hx - 0.055, 0.014, H - 0.145, hx + 0.055, 0.040,
+          H - 0.095)
+    cx_ = W / 2 - 0.09
+    for k in range(6):
+        F.tube("soot", (cx_ + 0.055 * math.cos(k * 1.047), 0.030,
+                        H - 0.44 + 0.055 * math.sin(k * 1.047)),
+               (cx_ + 0.055 * math.cos((k + 1) * 1.047), 0.030,
+                H - 0.44 + 0.055 * math.sin((k + 1) * 1.047)), 0.009, 6)
+
+
+def asm_partstray(F, p):
+    """Sorting tray of small parts; optionally the opened chassis it
+    all came out of, valves still socketed."""
+    seed = p.get("id", "pt")
+    F.box("metal", -0.20, -0.14, 0.0, 0.20, 0.14, 0.012)
+    for s in (-1, 1):
+        F.box("metal", s * 0.20 - 0.006, -0.14, 0.0, s * 0.20 + 0.006,
+              0.14, 0.045)
+        F.box("metal", -0.20, s * 0.14 - 0.006, 0.0, 0.20,
+              s * 0.14 + 0.006, 0.045)
+    for i in range(12):
+        bx = -0.15 + (i % 4) * 0.10
+        by = -0.085 + (i // 4) * 0.085
+        pm = ("brass", "chrome", "bakelite", "metal")[
+            (hash_str(seed) + i) % 4]
+        F.box(pm, bx - 0.028, by - 0.024, 0.012, bx + 0.028, by + 0.024,
+              0.012 + _jit(seed, i, 0.012, 0.035))
+    if p.get("chassis"):
+        F.box("bakelite", 0.26, -0.12, 0.0, 0.52, 0.12, 0.05)
+        for i, tx in enumerate((0.32, 0.40, 0.47)):
+            F.cyl("glassish", tx, _jit(seed, i + 40, -0.06, 0.06), 0.05,
+                  0.115, 0.014, 0.012, 6)
+        F.cyl("brass", 0.34, 0.07, 0.05, 0.085, 0.022, 0.022, 8)
+
+
+def asm_jarrow(F, p):
+    """Salvage jars in a row: screws, washers, fuses, sorted by kind."""
+    seed, n = p.get("id", "jr"), p.get("n", 4)
+    for i in range(n):
+        jx = (i - (n - 1) / 2.0) * 0.115
+        fill = ("metal", "brass", "chrome", "bakelite")[
+            (hash_str(seed) + i) % 4]
+        F.box(fill, jx - 0.030, -0.030, 0.006, jx + 0.030, 0.030,
+              _jit(seed, i, 0.035, 0.10))
+        F.lathe("glassish", jx, 0, [(0.042, 0.0), (0.046, 0.01),
+                                    (0.046, 0.115), (0.038, 0.125)], 8)
+        F.lathe("bakelite", jx, 0, [(0.040, 0.125), (0.040, 0.148),
+                                    (0.001, 0.148)], 8)
+
+
+def asm_tripod(F, p):
+    """Camera on sticks: splayed legs, body, lens out the front line."""
+    h = p.get("H", 1.32)
+    for a in (90, 210, 330):
+        r = math.radians(a)
+        F.tbox("metal", (0.30 * math.cos(r), 0.30 * math.sin(r), 0.0),
+               (0.0, 0.0, h - 0.22), 0.026, 0.018)
+    F.cyl("metal", 0, 0, h - 0.26, h - 0.015, 0.020, 0.017, 8)
+    F.box("soot", -0.075, -0.10, h, 0.075, 0.095, h + 0.11)
+    F.tube("metal", (0.0, 0.095, h + 0.055), (0.0, 0.185, h + 0.055),
+           0.033, 10)
+    F.box("screen", -0.055, -0.102, h + 0.02, 0.055, -0.099, h + 0.09)
+    F.hull(-0.30, -0.30, 0.0, 0.30, 0.30, 0.60)
+
+
+def asm_softbox(F, p):
+    """Work light on a stand, diffuser panel pitched down at the subject
+    (subject toward +Y)."""
+    for a in (30, 150, 270):
+        r = math.radians(a)
+        F.tbox("metal", (0.26 * math.cos(r), 0.26 * math.sin(r), 0.0),
+               (0.0, 0.0, 0.55), 0.024, 0.016)
+    F.cyl("metal", 0, 0, 0.50, 1.52, 0.014, 0.012, 8)
+    F.tbox("soot", (0.0, -0.02, 1.66), (0.0, 0.17, 1.44), 0.46, 0.09)
+    F.tbox("linen", (0.0, 0.175, 1.437), (0.0, 0.215, 1.39), 0.42, 0.012)
+    F.hull(-0.26, -0.26, 0.0, 0.26, 0.26, 0.55)
+
+
+def asm_cablecoil(F, p):
+    """A coil of instrument cable nobody has put away, tail wandering."""
+    seed, r = p.get("id", "cc"), p.get("r", 0.11)
+    pts = [(r * math.cos(math.radians(a)), r * math.sin(math.radians(a)))
+           for a in range(0, 360, 45)]
+    for i in range(8):
+        xa, ya = pts[i]
+        xb, yb = pts[(i + 1) % 8]
+        F.tube("soot", (xa, ya, 0.014 + 0.010 * (i % 2)),
+               (xb, yb, 0.014 + 0.010 * ((i + 1) % 2)), 0.010, 6)
+    F.tube("soot", (r, 0.0, 0.012),
+           (r + _jit(seed, 1, 0.18, 0.30), _jit(seed, 2, -0.15, 0.15),
+            0.012), 0.008, 6)
+
+
+def asm_crate(F, p):
+    """Slat crate: a record collection filed edge-on, or a gear jumble."""
+    W, D, H = p.get("W", 0.42), p.get("D", 0.35), p.get("H", 0.33)
+    seed = p.get("id", "cr")
+    F.box("timber", -W / 2, -D / 2, 0.0, W / 2, D / 2, 0.02)
+    for s in (-1, 1):
+        F.box("timber", s * W / 2 - 0.011, -D / 2, 0.0,
+              s * W / 2 + 0.011, D / 2, H)
+    for s in (-1, 1):
+        for za, zb in ((0.03, 0.14), (0.19, H - 0.03)):
+            F.box("timber", -W / 2 + 0.011, s * D / 2 - 0.011, za,
+                  W / 2 - 0.011, s * D / 2 + 0.011, zb)
+    if p.get("records"):
+        n = int((W - 0.08) / 0.016)
+        for i in range(n):
+            rx = -W / 2 + 0.04 + i * 0.016
+            lean = _jit(seed, i, 0.0, 0.012)
+            F.box(("soot", "paper", "fabric_cool", "fabric_warm",
+                   "fabric_green")[(hash_str(seed) + i) % 5],
+                  rx, -D / 2 + 0.03 + lean, 0.02, rx + 0.011,
+                  D / 2 - 0.03 + lean, _jit(seed, i + 50, 0.27, 0.31))
+    else:
+        F.box(p.get("fill", "soot"), -W / 2 + 0.03, -D / 2 + 0.03, 0.02,
+              W / 2 - 0.03, D / 2 - 0.03, _jit(seed, 3, 0.15, H - 0.06))
+    F.hull(-W / 2, -D / 2, 0.0, W / 2, D / 2, H)
+
+
+def asm_radio(F, p):
+    """Bench radio: wood cab, cloth grille, dial strip, two knobs."""
+    F.box("wood_dark", -0.19, -0.11, 0.0, 0.19, 0.11, 0.28)
+    F.box("linen", -0.125, 0.105, 0.115, 0.125, 0.118, 0.245)
+    F.box("paper", -0.10, 0.105, 0.05, 0.10, 0.114, 0.085)
+    F.box("brass", -0.015, 0.114, 0.052, -0.011, 0.118, 0.083)
+    for kx in (-0.14, 0.14):
+        F.tube("bakelite", (kx, 0.11, 0.062), (kx, 0.132, 0.062),
+               0.015, 8)
+
+
+def asm_sitemodel(F, p):
+    """Chipboard massing study: the Orison and its three neighbors."""
+    F.box("plywood", -0.30, -0.22, 0.0, 0.30, 0.22, 0.012)
+    F.box("paper", -0.27, -0.19, 0.012, 0.08, 0.19, 0.018)
+    F.box("trim", -0.22, -0.13, 0.012, 0.0, 0.13, 0.20)
+    F.box("trim", -0.155, -0.045, 0.20, -0.065, 0.045, 0.225)
+    for bx, by, w_, d_, h_ in ((0.06, -0.16, 0.15, 0.10, 0.085),
+                               (0.10, -0.02, 0.13, 0.13, 0.125),
+                               (0.05, 0.13, 0.19, 0.06, 0.065)):
+        F.box("timber", bx, by, 0.012, bx + w_, by + d_, 0.012 + h_)
+
+
+def asm_bottles(F, p):
+    """Empties colonizing a flat surface; one has already fallen over.
+    cans=True swaps the long necks for short drink cans."""
+    seed, n = p.get("id", "bt"), p.get("n", 5)
+    m = "metal" if p.get("cans") else "glassish"
+    for i in range(n - 1):
+        bx = _jit(seed, i, -0.14, 0.14)
+        by = _jit(seed, i + 7, -0.09, 0.09)
+        if p.get("cans"):
+            F.cyl(m, bx, by, 0.0, 0.13, 0.032, 0.032, 8)
+        else:
+            h = _jit(seed, i + 13, 0.17, 0.26)
+            F.lathe(m, bx, by, [(0.031, 0.0), (0.033, h * 0.55),
+                                (0.013, h * 0.72), (0.012, h)], 8)
+    fx = _jit(seed, 30, -0.10, 0.10)
+    F.tube(m, (fx, 0.10, 0.030), (fx + 0.19, 0.16, 0.030), 0.030, 8)
+
+
 ASM = {
     "sofa": asm_sofa, "chair": asm_chair, "table_round": asm_table_round,
     "table_rect": asm_table_rect, "coffee": asm_coffee,
@@ -992,6 +1375,14 @@ ASM = {
     "workbench": asm_workbench, "toilet": asm_toilet,
     "sink_ped": asm_sink_ped, "shower": asm_shower, "switch": asm_switch,
     "pipe": asm_pipe, "bench": asm_bench, "mailbank": asm_mailbank,
+    "amp": asm_amp, "guitar": asm_guitar, "pedalboard": asm_pedalboard,
+    "micstand": asm_micstand, "reeldeck": asm_reeldeck,
+    "headphones": asm_headphones, "mug": asm_mug, "papers": asm_papers,
+    "bookpile": asm_bookpile, "pinboard": asm_pinboard,
+    "toolboard": asm_toolboard, "partstray": asm_partstray,
+    "jarrow": asm_jarrow, "tripod": asm_tripod, "softbox": asm_softbox,
+    "cablecoil": asm_cablecoil, "crate": asm_crate, "radio": asm_radio,
+    "sitemodel": asm_sitemodel, "bottles": asm_bottles,
 }
 
 

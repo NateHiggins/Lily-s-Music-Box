@@ -733,26 +733,6 @@
    ]
   },
   {
-   "id": "F01_LOBBY_LT_CHANDELIER",
-   "pos": [
-    0.0,
-    -8.29,
-    2.96
-   ],
-   "room": "F01",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "B1_ELECTRICAL_HUB"
-   ]
-  },
-  {
    "id": "F01_COMMON_B_LT_PENDANT_SHADE",
    "pos": [
     -8.705,
@@ -5067,7 +5047,6 @@
     "F01_CORRIDOR_DOME_06",
     "F01_CORRIDOR_DOME_07",
     "F01_CORRIDOR_DOME_08",
-    "F01_LOBBY_LT_CHANDELIER",
     "F01_COMMON_B_LT_PENDANT_SHADE",
     "F01_STORAGE_C_LT_CAGE_BULB",
     "F01_HALL_LT_FLUSH_DOME",

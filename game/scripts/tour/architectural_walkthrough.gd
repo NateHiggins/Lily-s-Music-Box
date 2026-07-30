@@ -1,15 +1,16 @@
 class_name ArchitecturalWalkthrough
 extends Node
-## Guided architectural walkthrough (T, or the debug-panel button): a
-## fly-camera tour of the whole building — street, lobby, the grand dog-leg
-## stair, every hero apartment, the roof and the basement — with captions.
-## The path is computed from building_layout.json (stair flights included),
-## so it stays true to the geometry it presents. Esc ends the tour.
+## An elegant fly-through: the camera follows the layout-authored safe
+## centerline, accelerates along long reveals, brakes for points of interest,
+## and banks smoothly through turns without shaking or snapping its gaze.
 
-const SPEED := 2.1
+const CRUISE_SPEED := 6.4
+const SHOWCASE_SPEED := 2.15
+const MAX_SPEED := 8.8
 const EYE := 1.62
-const LOOK_LERP := 3.0
-const FADE_TIME := 0.45
+const FADE_TIME := 0.10
+const LOOK_RESPONSE := 2.25
+const HEADING_RESPONSE := 4.0
 
 var root: Node3D
 var _wps: Array = []
@@ -22,6 +23,11 @@ var _fade: ColorRect
 var _caption: Label
 var _header: Label
 var _look_point := Vector3.ZERO
+var _flight_center := Vector3.ZERO
+var _last_heading := Vector3.FORWARD
+var _flight_time := 0.0
+var _flight_speed := 0.0
+var _bank := 0.0
 
 
 func setup(building_root: Node3D) -> void:
@@ -30,7 +36,7 @@ func setup(building_root: Node3D) -> void:
 
 func _ready() -> void:
 	_cam = Camera3D.new()
-	_cam.fov = 68.0
+	_cam.fov = 78.0
 	add_child(_cam)
 	var layer := CanvasLayer.new()
 	layer.layer = 9
@@ -54,7 +60,7 @@ func _ready() -> void:
 	_header.set_anchors_preset(Control.PRESET_TOP_WIDE)
 	_header.offset_top = 10.0
 	_header.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_header.text = "ARCHITECTURAL WALKTHROUGH  ·  Esc to exit"
+	_header.text = "ELEGANT FLY-THROUGH  ·  T or Esc to exit"
 	_header.add_theme_font_size_override("font_size", 12)
 	_header.modulate = Color(0.75, 0.78, 0.8, 0.9)
 	layer.add_child(_header)
@@ -81,10 +87,14 @@ func start() -> void:
 	_active = true
 	_dwell = 0.0
 	_fading = 0.0
+	_flight_time = 0.0
+	_flight_speed = 0.0
+	_bank = 0.0
 	root.show_all_floors = true
 	root.player.call_locked = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_cam.global_position = _wps[0]["p"]
+	_flight_center = _cam.global_position
 	_look_point = _wps[0].get("look", _wps[0]["p"] + Vector3(0, 0, -2))
 	_cam.look_at(_look_point)
 	_cam.make_current()
@@ -116,20 +126,14 @@ func _process(delta: float) -> void:
 	if not _active:
 		return
 	var wp: Dictionary = _wps[_i]
-	# look target eases toward the waypoint's interest point (or the path)
-	var desired: Vector3 = wp.get("look",
-			_wps[mini(_i + 1, _wps.size() - 1)]["p"])
-	if desired.distance_to(_cam.global_position) < 0.4:
-		desired = _look_point
-	_look_point = _look_point.lerp(desired, minf(1.0, LOOK_LERP * delta))
-	if _look_point.distance_to(_cam.global_position) > 0.05:
-		_cam.look_at(_look_point)
+	_flight_time += delta
 	if _fading > 0.0:  # teleport transition
 		_fading -= delta
 		_fade.color.a = clampf(1.0 - absf(_fading) / FADE_TIME, 0.0, 1.0) \
 				if _fading > 0.0 else _fade.color.a
 		if _fading <= 0.0:
-			_cam.global_position = wp["p"]
+			_flight_center = wp["p"]
+			_cam.global_position = _flight_center
 			_look_point = wp.get("look", wp["p"] + Vector3(0, 0, -2))
 			_arrive()
 		return
@@ -139,8 +143,8 @@ func _process(delta: float) -> void:
 		_dwell -= delta
 		return
 	var target: Vector3 = wp["p"]
-	var to_go := target - _cam.global_position
-	if to_go.length() < 0.06:
+	var to_go := target - _flight_center
+	if to_go.length() < 0.12:
 		if _i >= _wps.size() - 1:
 			stop()
 			return
@@ -150,7 +154,53 @@ func _process(delta: float) -> void:
 		else:
 			_arrive()
 		return
-	_cam.global_position += to_go.limit_length(SPEED * delta)
+	var heading := to_go.normalized()
+	var is_showcase := str(wp.get("cap", "")) != "" \
+			or float(wp.get("dwell", 0.0)) > 0.0
+	var desired_speed := SHOWCASE_SPEED if is_showcase else CRUISE_SPEED
+	# Long, unobstructed legs get the rollercoaster rush; authored feature
+	# points produce a long progressive brake rather than an abrupt stop.
+	if not is_showcase and to_go.length() > 7.0:
+		desired_speed = MAX_SPEED
+	if is_showcase:
+		desired_speed *= lerpf(0.38, 1.0,
+				smoothstep(0.0, 4.5, to_go.length()))
+	_flight_speed = move_toward(_flight_speed, desired_speed,
+			delta * (3.0 if desired_speed < _flight_speed else 2.0))
+	_flight_center += to_go.limit_length(maxf(0.35, _flight_speed) * delta)
+	# A slow breathing rise gives organic flight without displacing the
+	# camera sideways into door frames or walls.
+	var lift := sin(_flight_time * 1.35) * 0.035
+	_cam.global_position = _flight_center + Vector3.UP * lift
+	var next_index := mini(_i + 1, _wps.size() - 1)
+	var next_point: Vector3 = _wps[next_index]["p"]
+	var path_focus := _cam.global_position + heading * 3.2
+	var authored_focus: Vector3 = wp.get("look", path_focus)
+	# Begin examining the next feature before reaching it. The gaze remains
+	# continuous because the interest target itself is exponentially eased.
+	var interest_weight := 0.0
+	if wp.has("look"):
+		interest_weight = smoothstep(7.0, 1.2, to_go.length())
+	var desired_focus := path_focus.lerp(authored_focus, interest_weight)
+	if not wp.has("look") and next_index != _i and _wps[next_index].has("look"):
+		var preview_weight := smoothstep(8.0, 2.0,
+				_cam.global_position.distance_to(next_point)) * 0.35
+		desired_focus = desired_focus.lerp(
+				_wps[next_index]["look"], preview_weight)
+	var look_alpha := 1.0 - exp(-LOOK_RESPONSE * delta)
+	_look_point = _look_point.lerp(desired_focus, look_alpha)
+	if _look_point.distance_to(_cam.global_position) > 0.15:
+		_cam.look_at(_look_point)
+	var smooth_heading := _last_heading.lerp(heading,
+			1.0 - exp(-HEADING_RESPONSE * delta)).normalized()
+	var turn := _last_heading.cross(smooth_heading).y
+	var desired_bank := clampf(-turn * 5.2, -0.24, 0.24)
+	_bank = lerpf(_bank, desired_bank, 1.0 - exp(-3.2 * delta))
+	_cam.rotate_object_local(Vector3(0, 0, 1), _bank)
+	# Subtle widening on fast reveals sells speed without lens pumping.
+	_cam.fov = lerpf(_cam.fov, 76.0 + _flight_speed * 0.9,
+			1.0 - exp(-2.0 * delta))
+	_last_heading = smooth_heading
 
 
 ## On reaching (or being teleported to) waypoint _i: caption, dwell, doors.
@@ -160,7 +210,11 @@ func _arrive() -> void:
 	if cap != "":
 		_caption.text = cap
 		_caption.visible = true
-	_dwell = wp.get("dwell", 0.0)
+	else:
+		_caption.visible = false
+	# Feature pauses are short enough to preserve momentum, but long enough
+	# for the stable gaze to inspect the authored composition.
+	_dwell = minf(float(wp.get("dwell", 0.0)) * 0.42, 1.15)
 	# swing nearby doors open ahead of the camera
 	var probe: Vector3 = _wps[mini(_i + 1, _wps.size() - 1)]["p"]
 	for c in root.get_children():

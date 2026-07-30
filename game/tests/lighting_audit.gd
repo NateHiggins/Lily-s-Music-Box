@@ -31,13 +31,35 @@ func _ready() -> void:
 
 func _audit() -> void:
 	var fixtures := get_tree().get_nodes_in_group("light_fixtures")
+	var mapped: Variant = JSON.parse_string(FileAccess.get_file_as_string(
+			"res://data/fixture_light_map.json"))
+	_check(mapped is Dictionary and int(mapped.get("fixture_count", -1)) ==
+			fixtures.size(),
+			"fixture light map covers all %d spawned fixtures" % fixtures.size())
 	var incompatible_shadow_modes := 0
+	var weak_shadow_settings := 0
+	var invisible_fixtures := 0
+	var dead_navigation_fixtures := 0
 	for fixture in fixtures:
+		if fixture.light == null or not fixture.is_visible_in_tree():
+			invisible_fixtures += 1
+		if fixture.navigation_light and fixture.standby_scale < 0.20:
+			dead_navigation_fixtures += 1
 		if fixture.light and \
 				fixture.light.omni_shadow_mode != OmniLight3D.SHADOW_CUBE:
 			incompatible_shadow_modes += 1
+		if fixture.light and (fixture.light.shadow_opacity < 0.95 or
+				fixture.light.shadow_bias > 0.02 or
+				fixture.light.shadow_normal_bias > 0.12):
+			weak_shadow_settings += 1
 	_check(incompatible_shadow_modes == 0,
 			"all omni lights use Compatibility-safe cubemap shadows")
+	_check(weak_shadow_settings == 0,
+			"all omni lights use visible contact-shadow settings")
+	_check(invisible_fixtures == 0,
+			"every mapped fixture has a renderable in-scene light")
+	_check(dead_navigation_fixtures == 0,
+			"every navigation fixture has an authored standby contribution")
 	for fl in root.layout["floors"]:
 		var floor_id: String = fl["id"]
 		var floor_y: float = float(fl["z"])

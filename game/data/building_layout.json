@@ -1142,8 +1142,10 @@
       -5.1,
       -0.2599999999999998
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -1156,8 +1158,10 @@
       0.0,
       -0.2599999999999998
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -1170,8 +1174,10 @@
       5.1,
       -0.2599999999999998
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -1184,8 +1190,10 @@
       -5.1,
       -0.2599999999999998
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -1198,8 +1206,10 @@
       0.0,
       -0.2599999999999998
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -1212,8 +1222,10 @@
       5.1,
       -0.2599999999999998
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -1226,8 +1238,10 @@
       -8.25,
       -0.2599999999999998
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -1240,8 +1254,10 @@
       8.25,
       -0.2599999999999998
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -1312,6 +1328,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "range": 3.6,
      "energy": 1.0
     },
@@ -1326,6 +1344,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "energy": 1.0
     },
     {
@@ -1339,6 +1359,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "range": 4.59,
      "energy": 0.78
     },
@@ -3084,69 +3106,6 @@
     },
     {
      "a": [
-      -1.4,
-      -8.35
-     ],
-     "b": [
-      1.4,
-      -8.35
-     ],
-     "t": 0.12,
-     "h": 3.02,
-     "z": 0.0,
-     "openings": [
-      {
-       "type": "door",
-       "at": 1.4,
-       "w": 1.35,
-       "h": 2.2,
-       "sill": 0.0,
-       "leaf": "none"
-      }
-     ],
-     "cat": "walls",
-     "mat": "plaster",
-     "wainscot": false,
-     "details": true
-    },
-    {
-     "a": [
-      -1.4,
-      -9.65
-     ],
-     "b": [
-      -1.4,
-      -8.35
-     ],
-     "t": 0.12,
-     "h": 3.02,
-     "z": 0.0,
-     "openings": [],
-     "cat": "walls",
-     "mat": "plaster",
-     "wainscot": false,
-     "details": true
-    },
-    {
-     "a": [
-      1.4,
-      -9.65
-     ],
-     "b": [
-      1.4,
-      -8.35
-     ],
-     "t": 0.12,
-     "h": 3.02,
-     "z": 0.0,
-     "openings": [],
-     "cat": "walls",
-     "mat": "plaster",
-     "wainscot": false,
-     "details": true
-    },
-    {
-     "a": [
       -13.65,
       5.4
      ],
@@ -3493,16 +3452,6 @@
       6.75
      ],
      "kind": "utility"
-    },
-    {
-     "id": "F01_VESTIBULE",
-     "rect": [
-      -1.4,
-      -9.65,
-      1.4,
-      -8.35
-     ],
-     "kind": "lobby"
     },
     {
      "id": "F01_OFFICE",
@@ -3893,8 +3842,10 @@
       -5.1,
       2.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -3907,8 +3858,10 @@
       0.0,
       2.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -3921,8 +3874,10 @@
       5.1,
       2.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -3935,8 +3890,10 @@
       -5.1,
       2.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -3949,8 +3906,10 @@
       0.0,
       2.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -3963,8 +3922,10 @@
       5.1,
       2.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -3977,8 +3938,10 @@
       -8.25,
       2.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -3991,24 +3954,12 @@
       8.25,
       2.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
-    },
-    {
-     "kind": "chandelier",
-     "id": "F01_LOBBY_LT_CHANDELIER",
-     "unit": "F01",
-     "pos": [
-      0.0,
-      -8.29,
-      2.96
-     ],
-     "yaw_deg": 0,
-     "network": "electrical",
-     "range": 6.4,
-     "energy": 1.25
     },
     {
      "kind": "pendant_shade",
@@ -4049,6 +4000,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "range": 3.6,
      "energy": 1.0
     },
@@ -4063,6 +4016,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "energy": 1.0
     },
     {
@@ -4076,6 +4031,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "range": 4.59,
      "energy": 0.78
     },
@@ -4536,10 +4493,10 @@
     {
      "id": "F01WC_trail",
      "rect": [
-      -13.562000000000001,
-      6.0200000000000005,
-      -13.538000000000002,
-      6.640000000000001
+      -12.012,
+      7.0,
+      -11.988000000000001,
+      7.62
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -4548,10 +4505,10 @@
     {
      "id": "F01WC_towel",
      "rect": [
-      -13.58,
-      6.12,
-      -13.53,
-      6.5
+      -12.03,
+      7.1,
+      -11.979999999999999,
+      7.4799999999999995
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -4664,8 +4621,8 @@
      "id": "lobby_plant",
      "asm": "plant",
      "at": [
-      -1.57,
-      -9.17
+      -2.17,
+      -9.02
      ],
      "yaw": 302,
      "big": true
@@ -4973,10 +4930,10 @@
     {
      "id": "1A_trail",
      "rect": [
-      -5.621999999999999,
-      -5.57,
-      -5.597999999999999,
-      -4.95
+      -7.622,
+      -4.59,
+      -7.598,
+      -3.9699999999999998
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -4985,10 +4942,10 @@
     {
      "id": "1A_towel",
      "rect": [
-      -5.64,
-      -5.470000000000001,
-      -5.59,
-      -5.090000000000001
+      -7.640000000000001,
+      -4.49,
+      -7.590000000000001,
+      -4.11
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -5201,7 +5158,7 @@
       -10.34,
       -3.575
      ],
-     "yaw": 90
+     "yaw": 270
     },
     {
      "id": "1A_din_t",
@@ -6180,6 +6137,99 @@
      "mat": "trim"
     },
     {
+     "id": "1A_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      -8.71,
+      -3.02
+     ],
+     "yaw": 151,
+     "z0": 0.75,
+     "mat": "ceramic"
+    },
+    {
+     "id": "1A_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      -8.67,
+      -3.2
+     ],
+     "yaw": -8,
+     "z0": 0.75,
+     "n": 6,
+     "mess": 0.63
+    },
+    {
+     "id": "1A_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      -11.805,
+      -3.605
+     ],
+     "yaw": -11,
+     "z0": 0.37,
+     "n": 4
+    },
+    {
+     "id": "1A_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      -11.425,
+      -3.685
+     ],
+     "yaw": 139,
+     "z0": 0.37,
+     "mat": "ceramic"
+    },
+    {
+     "id": "1A_story_marked_books",
+     "asm": "bookpile",
+     "at": [
+      -8.75,
+      -3.08
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "n": 7
+    },
+    {
+     "id": "1A_story_lesson_notes",
+     "asm": "papers",
+     "at": [
+      -8.39,
+      -3.14
+     ],
+     "yaw": -7,
+     "z0": 0.77,
+     "n": 10,
+     "mess": 0.18
+    },
+    {
+     "id": "1A_story_tea",
+     "asm": "mug",
+     "at": [
+      -8.21,
+      -2.96
+     ],
+     "yaw": 20,
+     "z0": 0.77,
+     "mat": "porcelain"
+    },
+    {
+     "id": "1A_story_classboard",
+     "asm": "pinboard",
+     "at": [
+      -13.585,
+      -5.05
+     ],
+     "yaw": -90,
+     "z0": 1.2,
+     "W": 1.05,
+     "H": 0.72,
+     "cards": 15,
+     "neat": true
+    },
+    {
      "id": "1D_shower",
      "asm": "shower",
      "at": [
@@ -6209,10 +6259,10 @@
     {
      "id": "1D_trail",
      "rect": [
-      5.598,
-      -5.57,
-      5.622,
-      -4.95
+      7.598000000000001,
+      -4.59,
+      7.622000000000001,
+      -3.9699999999999998
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -6221,10 +6271,10 @@
     {
      "id": "1D_towel",
      "rect": [
-      5.579999999999999,
-      -5.470000000000001,
-      5.629999999999999,
-      -5.090000000000001
+      7.58,
+      -4.49,
+      7.63,
+      -4.11
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -6468,7 +6518,7 @@
       10.36,
       -3.85
      ],
-     "yaw": -90
+     "yaw": 90
     },
     {
      "id": "1D_din_t",
@@ -7119,6 +7169,108 @@
      "mat": "trim"
     },
     {
+     "id": "1D_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      11.35,
+      -2.27
+     ],
+     "yaw": 325,
+     "z0": 0.75,
+     "mat": "ceramic"
+    },
+    {
+     "id": "1D_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      11.39,
+      -2.45
+     ],
+     "yaw": 4,
+     "z0": 0.75,
+     "n": 4,
+     "mess": 0.15
+    },
+    {
+     "id": "1D_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      11.445,
+      -3.88
+     ],
+     "yaw": 7,
+     "z0": 0.37,
+     "n": 4
+    },
+    {
+     "id": "1D_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      11.825,
+      -3.96
+     ],
+     "yaw": 25,
+     "z0": 0.37,
+     "mat": "porcelain"
+    },
+    {
+     "id": "1D_detail_desk_papers",
+     "asm": "papers",
+     "at": [
+      7.345,
+      -2.0
+     ],
+     "yaw": -90,
+     "z0": 0.74,
+     "n": 6,
+     "mess": 0.43
+    },
+    {
+     "id": "1D_detail_desk_mug",
+     "asm": "mug",
+     "at": [
+      7.185,
+      -1.67
+     ],
+     "yaw": 335,
+     "z0": 0.74,
+     "mat": "ceramic"
+    },
+    {
+     "id": "1D_story_meds",
+     "asm": "bottles",
+     "at": [
+      11.33,
+      -2.31
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "n": 7
+    },
+    {
+     "id": "1D_story_rota",
+     "asm": "papers",
+     "at": [
+      11.66,
+      -2.37
+     ],
+     "yaw": 4,
+     "z0": 0.77,
+     "n": 6,
+     "mess": 0.1
+    },
+    {
+     "id": "1D_story_coffee",
+     "asm": "mug",
+     "at": [
+      11.86,
+      -2.2
+     ],
+     "yaw": -15,
+     "z0": 0.77,
+     "mat": "ceramic"
+    },
+    {
      "id": "F01_SW_01_180",
      "asm": "switch",
      "at": [
@@ -7397,6 +7549,72 @@
      ],
      "yaw": 0,
      "z0": 1.12
+    },
+    {
+     "id": "F01_LOBBY_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      -4.6,
+      -9.3
+     ],
+     "yaw": 0,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F01_A_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      -13.35,
+      -5.05
+     ],
+     "yaw": 90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F01_D_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      13.35,
+      -5.325
+     ],
+     "yaw": -90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
     },
     {
      "id": "age_damp_s1",
@@ -9906,8 +10124,10 @@
       -5.1,
       6.140000000000001
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -9920,8 +10140,10 @@
       0.0,
       6.140000000000001
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -9934,8 +10156,10 @@
       5.1,
       6.140000000000001
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -9948,8 +10172,10 @@
       -5.1,
       6.140000000000001
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -9962,8 +10188,10 @@
       0.0,
       6.140000000000001
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -9976,8 +10204,10 @@
       5.1,
       6.140000000000001
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -9990,8 +10220,10 @@
       -8.25,
       6.140000000000001
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -10004,8 +10236,10 @@
       8.25,
       6.140000000000001
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -10146,6 +10380,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "range": 3.6,
      "energy": 1.0
     },
@@ -10160,6 +10396,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "energy": 1.0
     },
     {
@@ -10173,6 +10411,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "range": 4.59,
      "energy": 0.78
     }
@@ -10328,10 +10568,10 @@
     {
      "id": "2A_trail",
      "rect": [
-      -5.621999999999999,
-      -5.57,
-      -5.597999999999999,
-      -4.95
+      -7.622,
+      -4.59,
+      -7.598,
+      -3.9699999999999998
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -10340,10 +10580,10 @@
     {
      "id": "2A_towel",
      "rect": [
-      -5.64,
-      -5.470000000000001,
-      -5.59,
-      -5.090000000000001
+      -7.640000000000001,
+      -4.49,
+      -7.590000000000001,
+      -4.11
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -10556,7 +10796,7 @@
       -10.34,
       -3.575
      ],
-     "yaw": 90
+     "yaw": 270
     },
     {
      "id": "2A_din_t",
@@ -11399,6 +11639,51 @@
      "mat": "trim"
     },
     {
+     "id": "2A_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      -8.39,
+      -3.02
+     ],
+     "yaw": 180,
+     "z0": 0.75,
+     "mat": "porcelain"
+    },
+    {
+     "id": "2A_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      -8.67,
+      -3.2
+     ],
+     "yaw": -9,
+     "z0": 0.75,
+     "n": 3,
+     "mess": 0.15
+    },
+    {
+     "id": "2A_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      -11.805,
+      -3.605
+     ],
+     "yaw": 0,
+     "z0": 0.37,
+     "n": 2
+    },
+    {
+     "id": "2A_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      -11.425,
+      -3.685
+     ],
+     "yaw": 180,
+     "z0": 0.37,
+     "mat": "porcelain"
+    },
+    {
      "id": "2A_desk",
      "asm": "desk",
      "at": [
@@ -11466,6 +11751,60 @@
      "mat": "metal"
     },
     {
+     "id": "2A_pinboard",
+     "asm": "pinboard",
+     "at": [
+      -13.645,
+      -5.5
+     ],
+     "yaw": -90,
+     "z0": 1.05,
+     "W": 0.95,
+     "cards": 15,
+     "neat": true
+    },
+    {
+     "id": "2A_phones",
+     "asm": "headphones",
+     "at": [
+      -11.33,
+      -5.4
+     ],
+     "yaw": -90,
+     "z0": 1.05
+    },
+    {
+     "id": "2A_papers",
+     "asm": "papers",
+     "at": [
+      -13.03,
+      -5.35
+     ],
+     "yaw": 0,
+     "z0": 0.735,
+     "n": 5
+    },
+    {
+     "id": "2A_mug",
+     "asm": "mug",
+     "at": [
+      -12.33,
+      -5.65
+     ],
+     "yaw": 40,
+     "z0": 0.735
+    },
+    {
+     "id": "2A_deck",
+     "asm": "reeldeck",
+     "at": [
+      -11.93,
+      -5.47
+     ],
+     "yaw": 0,
+     "z0": 0.735
+    },
+    {
      "id": "2B_shower",
      "asm": "shower",
      "at": [
@@ -11495,10 +11834,10 @@
     {
      "id": "2B_trail",
      "rect": [
-      -5.621999999999999,
-      3.59,
-      -5.597999999999999,
-      4.21
+      -7.622,
+      4.57,
+      -7.598,
+      5.19
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -11507,10 +11846,10 @@
     {
      "id": "2B_towel",
      "rect": [
-      -5.64,
-      3.69,
-      -5.59,
-      4.07
+      -7.640000000000001,
+      4.67,
+      -7.590000000000001,
+      5.05
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -11651,7 +11990,7 @@
       -10.34,
       4.36
      ],
-     "yaw": 90
+     "yaw": 270
     },
     {
      "id": "2B_din_t",
@@ -12390,6 +12729,88 @@
      "mat": "trim"
     },
     {
+     "id": "2B_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      -8.09,
+      3.9
+     ],
+     "yaw": 238,
+     "z0": 0.75,
+     "mat": "porcelain"
+    },
+    {
+     "id": "2B_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      -8.37,
+      3.72
+     ],
+     "yaw": 7,
+     "z0": 0.75,
+     "n": 5,
+     "mess": 0.39
+    },
+    {
+     "id": "2B_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      -11.805,
+      4.33
+     ],
+     "yaw": -2,
+     "z0": 0.37,
+     "n": 4
+    },
+    {
+     "id": "2B_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      -11.425,
+      4.25
+     ],
+     "yaw": 262,
+     "z0": 0.37,
+     "mat": "ceramic"
+    },
+    {
+     "id": "2B_story_notions",
+     "asm": "jarrow",
+     "at": [
+      -8.41,
+      3.86
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "n": 5
+    },
+    {
+     "id": "2B_story_patterns",
+     "asm": "papers",
+     "at": [
+      -8.07,
+      3.79
+     ],
+     "yaw": 12,
+     "z0": 0.77,
+     "n": 9,
+     "mess": 0.48
+    },
+    {
+     "id": "2B_story_patterns",
+     "asm": "pinboard",
+     "at": [
+      -13.645,
+      6.16
+     ],
+     "yaw": -90,
+     "z0": 1.18,
+     "W": 1.1,
+     "H": 0.78,
+     "cards": 18,
+     "neat": false
+    },
+    {
      "id": "2C_shower",
      "asm": "shower",
      "at": [
@@ -12419,10 +12840,10 @@
     {
      "id": "2C_trail",
      "rect": [
-      5.598,
-      4.41,
-      5.622,
-      5.03
+      7.598000000000001,
+      5.390000000000001,
+      7.622000000000001,
+      6.010000000000001
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -12431,10 +12852,10 @@
     {
      "id": "2C_towel",
      "rect": [
-      5.579999999999999,
-      4.51,
-      5.629999999999999,
-      4.89
+      7.58,
+      5.49,
+      7.63,
+      5.87
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -12738,7 +13159,7 @@
       10.36,
       2.46
      ],
-     "yaw": -90
+     "yaw": 90
     },
     {
      "id": "2C_din_t",
@@ -13389,6 +13810,51 @@
      "mat": "trim"
     },
     {
+     "id": "2C_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      8.67,
+      2.3
+     ],
+     "yaw": 296,
+     "z0": 0.75,
+     "mat": "porcelain"
+    },
+    {
+     "id": "2C_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      8.39,
+      2.12
+     ],
+     "yaw": 5,
+     "z0": 0.75,
+     "n": 3,
+     "mess": 0.63
+    },
+    {
+     "id": "2C_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      11.445,
+      2.43
+     ],
+     "yaw": -4,
+     "z0": 0.37,
+     "n": 3
+    },
+    {
+     "id": "2C_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      11.825,
+      2.35
+     ],
+     "yaw": 344,
+     "z0": 0.37,
+     "mat": "porcelain"
+    },
+    {
      "id": "2C_bench",
      "rect": [
       8.38,
@@ -13399,30 +13865,6 @@
      "z0": 0.72,
      "h": 0.05,
      "mat": "metal"
-    },
-    {
-     "id": "2C_amp1",
-     "rect": [
-      12.55,
-      4.984999999999999,
-      13.100000000000001,
-      5.435
-     ],
-     "z0": 0.0,
-     "h": 0.55,
-     "mat": "screen"
-    },
-    {
-     "id": "2C_amp2",
-     "rect": [
-      12.55,
-      4.984999999999999,
-      13.05,
-      5.385
-     ],
-     "z0": 0.55,
-     "h": 0.45,
-     "mat": "soot"
     },
     {
      "id": "2C_cablerug",
@@ -13437,16 +13879,316 @@
      "mat": "soot"
     },
     {
-     "id": "2C_crates",
-     "rect": [
-      12.35,
-      -0.48,
-      13.25,
-      0.42000000000000004
+     "id": "2C_amp1",
+     "asm": "amp",
+     "at": [
+      13.1,
+      5.385
      ],
-     "z0": 0.0,
-     "h": 1.15,
+     "yaw": 90,
+     "W": 0.62,
+     "H": 0.54
+    },
+    {
+     "id": "2C_amp2",
+     "asm": "amp",
+     "at": [
+      13.1,
+      5.385
+     ],
+     "yaw": 90,
+     "z0": 0.57,
+     "W": 0.48,
+     "H": 0.38
+    },
+    {
+     "id": "2C_guitar1",
+     "asm": "guitar",
+     "at": [
+      13.37,
+      4.535
+     ],
+     "yaw": 100
+    },
+    {
+     "id": "2C_guitar2",
+     "asm": "guitar",
+     "at": [
+      9.62,
+      4.725
+     ],
+     "yaw": 8,
+     "acoustic": true
+    },
+    {
+     "id": "2C_pedals",
+     "asm": "pedalboard",
+     "at": [
+      12.3,
+      4.585
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "2C_mic",
+     "asm": "micstand",
+     "at": [
+      10.33,
+      3.635
+     ],
+     "yaw": 160
+    },
+    {
+     "id": "2C_coil1",
+     "asm": "cablecoil",
+     "at": [
+      12.1,
+      4.235
+     ],
+     "yaw": 40
+    },
+    {
+     "id": "2C_coil2",
+     "asm": "cablecoil",
+     "at": [
+      9.08,
+      2.385
+     ],
+     "yaw": 200,
+     "r": 0.14
+    },
+    {
+     "id": "2C_crate1",
+     "asm": "crate",
+     "at": [
+      13.03,
+      -0.33
+     ],
+     "yaw": 0,
+     "records": true
+    },
+    {
+     "id": "2C_crate2",
+     "asm": "crate",
+     "at": [
+      13.05,
+      0.3
+     ],
+     "yaw": 12,
+     "records": true
+    },
+    {
+     "id": "2C_crate3",
+     "asm": "crate",
+     "at": [
+      13.03,
+      -0.33
+     ],
+     "yaw": 0,
+     "z0": 0.34,
+     "fill": "soot"
+    },
+    {
+     "id": "2C_bottles",
+     "asm": "bottles",
+     "at": [
+      8.96,
+      4.165
+     ],
+     "yaw": 0,
+     "z0": 0.77
+    },
+    {
+     "id": "2C_pizza",
+     "rect": [
+      10.03,
+      3.965,
+      10.43,
+      4.365
+     ],
+     "z0": 0.77,
+     "h": 0.085,
      "mat": "trim"
+    },
+    {
+     "id": "2C_poster1_art",
+     "rect": [
+      13.609,
+      4.734999999999999,
+      13.644,
+      5.435
+     ],
+     "z0": 1.35,
+     "h": 0.95,
+     "mat": "paper"
+    },
+    {
+     "id": "2C_poster1_artf",
+     "rect": [
+      13.609,
+      4.715,
+      13.654,
+      5.455
+     ],
+     "z0": 1.32,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_poster1_artf2",
+     "rect": [
+      13.609,
+      4.715,
+      13.654,
+      5.455
+     ],
+     "z0": 2.3,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_poster1_artfl",
+     "rect": [
+      13.609,
+      4.715,
+      13.654,
+      4.745
+     ],
+     "z0": 1.35,
+     "h": 0.95,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_poster1_artfr",
+     "rect": [
+      13.609,
+      5.425,
+      13.654,
+      5.455
+     ],
+     "z0": 1.35,
+     "h": 0.95,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_poster2_art",
+     "rect": [
+      13.609,
+      0.6349999999999998,
+      13.644,
+      1.1849999999999998
+     ],
+     "z0": 0.95,
+     "h": 0.75,
+     "mat": "paper"
+    },
+    {
+     "id": "2C_poster2_artf",
+     "rect": [
+      13.609,
+      0.6149999999999998,
+      13.654,
+      1.2049999999999998
+     ],
+     "z0": 0.9199999999999999,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_poster2_artf2",
+     "rect": [
+      13.609,
+      0.6149999999999998,
+      13.654,
+      1.2049999999999998
+     ],
+     "z0": 1.7,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_poster2_artfl",
+     "rect": [
+      13.609,
+      0.6149999999999998,
+      13.654,
+      0.6449999999999998
+     ],
+     "z0": 0.95,
+     "h": 0.75,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_poster2_artfr",
+     "rect": [
+      13.609,
+      1.1749999999999998,
+      13.654,
+      1.2049999999999998
+     ],
+     "z0": 0.95,
+     "h": 0.75,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_poster3_art",
+     "rect": [
+      13.55,
+      1.0699999999999998,
+      13.585,
+      1.67
+     ],
+     "z0": 0.05,
+     "h": 0.85,
+     "mat": "paper"
+    },
+    {
+     "id": "2C_poster3_artf",
+     "rect": [
+      13.55,
+      1.0499999999999998,
+      13.595,
+      1.69
+     ],
+     "z0": 0.020000000000000004,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_poster3_artf2",
+     "rect": [
+      13.55,
+      1.0499999999999998,
+      13.595,
+      1.69
+     ],
+     "z0": 0.9,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_poster3_artfl",
+     "rect": [
+      13.55,
+      1.0499999999999998,
+      13.595,
+      1.0799999999999998
+     ],
+     "z0": 0.05,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_poster3_artfr",
+     "rect": [
+      13.55,
+      1.66,
+      13.595,
+      1.69
+     ],
+     "z0": 0.05,
+     "h": 0.85,
+     "mat": "wood_dark"
     },
     {
      "id": "2C_benchstool",
@@ -13487,10 +14229,10 @@
     {
      "id": "2D_trail",
      "rect": [
-      5.598,
-      -5.57,
-      5.622,
-      -4.95
+      7.598000000000001,
+      -4.59,
+      7.622000000000001,
+      -3.9699999999999998
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -13499,10 +14241,10 @@
     {
      "id": "2D_towel",
      "rect": [
-      5.579999999999999,
-      -5.470000000000001,
-      5.629999999999999,
-      -5.090000000000001
+      7.58,
+      -4.49,
+      7.63,
+      -4.11
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -14127,6 +14869,94 @@
      ],
      "yaw": 0,
      "z0": 1.12
+    },
+    {
+     "id": "F02_A_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      -13.35,
+      -5.05
+     ],
+     "yaw": 90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F02_B_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      -13.35,
+      6.16
+     ],
+     "yaw": 90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F02_C_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      13.35,
+      4.385
+     ],
+     "yaw": -90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F02_D_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      13.35,
+      -5.325
+     ],
+     "yaw": -90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
     },
     {
      "id": "age_patchF020",
@@ -15971,8 +16801,10 @@
       -5.1,
       9.34
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -15985,8 +16817,10 @@
       0.0,
       9.34
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -15999,8 +16833,10 @@
       5.1,
       9.34
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -16013,8 +16849,10 @@
       -5.1,
       9.34
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -16027,8 +16865,10 @@
       0.0,
       9.34
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -16041,8 +16881,10 @@
       5.1,
       9.34
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -16055,8 +16897,10 @@
       -8.25,
       9.34
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -16069,8 +16913,10 @@
       8.25,
       9.34
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -16253,6 +17099,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "range": 3.6,
      "energy": 1.0
     },
@@ -16267,6 +17115,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "energy": 1.0
     },
     {
@@ -16280,6 +17130,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "range": 4.59,
      "energy": 0.78
     }
@@ -16435,10 +17287,10 @@
     {
      "id": "3A_trail",
      "rect": [
-      -5.621999999999999,
-      -5.57,
-      -5.597999999999999,
-      -4.95
+      -7.622,
+      -4.59,
+      -7.598,
+      -3.9699999999999998
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -16447,10 +17299,10 @@
     {
      "id": "3A_towel",
      "rect": [
-      -5.64,
-      -5.470000000000001,
-      -5.59,
-      -5.090000000000001
+      -7.640000000000001,
+      -4.49,
+      -7.590000000000001,
+      -4.11
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -16663,7 +17515,7 @@
       -10.34,
       -3.575
      ],
-     "yaw": 90
+     "yaw": 270
     },
     {
      "id": "3A_din_t",
@@ -17402,6 +18254,83 @@
      "mat": "trim"
     },
     {
+     "id": "3A_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      -8.71,
+      -3.02
+     ],
+     "yaw": 209,
+     "z0": 0.75,
+     "mat": "ceramic"
+    },
+    {
+     "id": "3A_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      -8.67,
+      -3.2
+     ],
+     "yaw": 8,
+     "z0": 0.75,
+     "n": 4,
+     "mess": 0.27
+    },
+    {
+     "id": "3A_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      -11.805,
+      -3.605
+     ],
+     "yaw": 11,
+     "z0": 0.37,
+     "n": 3
+    },
+    {
+     "id": "3A_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      -11.425,
+      -3.685
+     ],
+     "yaw": 221,
+     "z0": 0.37,
+     "mat": "porcelain"
+    },
+    {
+     "id": "3A_story_cuttings",
+     "asm": "bottles",
+     "at": [
+      -8.73,
+      -3.07
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "n": 6
+    },
+    {
+     "id": "3A_story_seed_jars",
+     "asm": "jarrow",
+     "at": [
+      -8.35,
+      -3.12
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "n": 4
+    },
+    {
+     "id": "3A_story_specimen",
+     "asm": "plant",
+     "at": [
+      -12.72,
+      -1.82
+     ],
+     "yaw": 155,
+     "big": true
+    },
+    {
      "id": "3B_shower",
      "asm": "shower",
      "at": [
@@ -17431,10 +18360,10 @@
     {
      "id": "3B_trail",
      "rect": [
-      -5.621999999999999,
-      3.59,
-      -5.597999999999999,
-      4.21
+      -7.622,
+      4.57,
+      -7.598,
+      5.19
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -17443,10 +18372,10 @@
     {
      "id": "3B_towel",
      "rect": [
-      -5.64,
-      3.69,
-      -5.59,
-      4.07
+      -7.640000000000001,
+      4.67,
+      -7.590000000000001,
+      5.05
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -17587,7 +18516,7 @@
       -10.34,
       4.36
      ],
-     "yaw": 90
+     "yaw": 270
     },
     {
      "id": "3B_din_t",
@@ -18238,11 +19167,56 @@
      "mat": "trim"
     },
     {
+     "id": "3B_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      -8.41,
+      3.9
+     ],
+     "yaw": 267,
+     "z0": 0.75,
+     "mat": "ceramic"
+    },
+    {
+     "id": "3B_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      -8.37,
+      3.72
+     ],
+     "yaw": 6,
+     "z0": 0.75,
+     "n": 6,
+     "mess": 0.51
+    },
+    {
+     "id": "3B_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      -11.805,
+      4.33
+     ],
+     "yaw": 9,
+     "z0": 0.37,
+     "n": 2
+    },
+    {
+     "id": "3B_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      -11.425,
+      4.25
+     ],
+     "yaw": 303,
+     "z0": 0.37,
+     "mat": "ceramic"
+    },
+    {
      "id": "3B_workbench",
      "asm": "workbench",
      "at": [
       -12.15,
-      6.37
+      6.04
      ],
      "yaw": 180
     },
@@ -18319,18 +19293,6 @@
      "mat": "fabric_cool"
     },
     {
-     "id": "3B_radio",
-     "rect": [
-      -12.55,
-      6.12,
-      -12.05,
-      6.47
-     ],
-     "z0": 0.91,
-     "h": 0.22,
-     "mat": "wood_dark"
-    },
-    {
      "id": "3B_stool",
      "asm": "chair",
      "at": [
@@ -18338,6 +19300,101 @@
       5.49
      ],
      "yaw": 0
+    },
+    {
+     "id": "3B_radio",
+     "asm": "radio",
+     "at": [
+      -12.3,
+      5.89
+     ],
+     "yaw": 180,
+     "z0": 0.91
+    },
+    {
+     "id": "3B_toolboard",
+     "asm": "toolboard",
+     "at": [
+      -13.645,
+      5.94
+     ],
+     "yaw": -90,
+     "z0": 1.15,
+     "W": 0.9,
+     "H": 0.65
+    },
+    {
+     "id": "3B_tray1",
+     "asm": "partstray",
+     "at": [
+      -11.65,
+      5.96
+     ],
+     "yaw": -8,
+     "z0": 0.91,
+     "chassis": true
+    },
+    {
+     "id": "3B_tray2",
+     "asm": "partstray",
+     "at": [
+      -12.87,
+      6.04
+     ],
+     "yaw": 94,
+     "z0": 0.91
+    },
+    {
+     "id": "3B_jars",
+     "asm": "jarrow",
+     "at": [
+      -12.03,
+      6.29
+     ],
+     "yaw": 0,
+     "z0": 0.91,
+     "n": 5
+    },
+    {
+     "id": "3B_manuals",
+     "asm": "bookpile",
+     "at": [
+      -13.07,
+      5.84
+     ],
+     "yaw": 25,
+     "z0": 0.91,
+     "n": 4
+    },
+    {
+     "id": "3B_mug",
+     "asm": "mug",
+     "at": [
+      -12.65,
+      6.06
+     ],
+     "yaw": 0,
+     "z0": 0.91,
+     "mat": "enamel"
+    },
+    {
+     "id": "3B_partscrate",
+     "asm": "crate",
+     "at": [
+      -13.27,
+      2.97
+     ],
+     "yaw": 8,
+     "fill": "metal"
+    },
+    {
+     "id": "3B_coil",
+     "asm": "cablecoil",
+     "at": [
+      -10.93,
+      5.52
+     ],
+     "yaw": 70
     },
     {
      "id": "3C_shower",
@@ -18369,10 +19426,10 @@
     {
      "id": "3C_trail",
      "rect": [
-      5.598,
-      4.41,
-      5.622,
-      5.03
+      7.598000000000001,
+      5.390000000000001,
+      7.622000000000001,
+      6.010000000000001
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -18381,10 +19438,10 @@
     {
      "id": "3C_towel",
      "rect": [
-      5.579999999999999,
-      4.51,
-      5.629999999999999,
-      4.89
+      7.58,
+      5.49,
+      7.63,
+      5.87
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -18588,10 +19645,10 @@
     {
      "id": "3D_trail",
      "rect": [
-      5.598,
-      -5.57,
-      5.622,
-      -4.95
+      7.598000000000001,
+      -4.59,
+      7.622000000000001,
+      -3.9699999999999998
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -18600,10 +19657,10 @@
     {
      "id": "3D_towel",
      "rect": [
-      5.579999999999999,
-      -5.470000000000001,
-      5.629999999999999,
-      -5.090000000000001
+      7.58,
+      -4.49,
+      7.63,
+      -4.11
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -19561,6 +20618,74 @@
      "mat": "trim"
     },
     {
+     "id": "3D_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      11.35,
+      -2.27
+     ],
+     "yaw": 23,
+     "z0": 0.75,
+     "mat": "ceramic"
+    },
+    {
+     "id": "3D_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      11.39,
+      -2.45
+     ],
+     "yaw": 2,
+     "z0": 0.75,
+     "n": 6,
+     "mess": 0.39
+    },
+    {
+     "id": "3D_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      11.445,
+      -3.88
+     ],
+     "yaw": 5,
+     "z0": 0.37,
+     "n": 3
+    },
+    {
+     "id": "3D_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      11.825,
+      -3.96
+     ],
+     "yaw": 107,
+     "z0": 0.37,
+     "mat": "ceramic"
+    },
+    {
+     "id": "3D_detail_desk_papers",
+     "asm": "papers",
+     "at": [
+      7.345,
+      -2.0
+     ],
+     "yaw": -88,
+     "z0": 0.74,
+     "n": 8,
+     "mess": 0.79
+    },
+    {
+     "id": "3D_detail_desk_mug",
+     "asm": "mug",
+     "at": [
+      7.185,
+      -1.67
+     ],
+     "yaw": 37,
+     "z0": 0.74,
+     "mat": "porcelain"
+    },
+    {
      "id": "3D_booth_w",
      "rect": [
       9.98,
@@ -19609,18 +20734,6 @@
      "mat": "glassish"
     },
     {
-     "id": "3D_micstand",
-     "rect": [
-      10.48,
-      -5.2250000000000005,
-      10.540000000000001,
-      -5.165000000000001
-     ],
-     "z0": 0.0,
-     "h": 1.55,
-     "mat": "metal"
-    },
-    {
      "id": "3D_tapes",
      "asm": "shelf",
      "at": [
@@ -19631,6 +20744,198 @@
      "W": 1.2,
      "H": 1.85,
      "books": true
+    },
+    {
+     "id": "3D_mic",
+     "asm": "micstand",
+     "at": [
+      10.53,
+      -5.195
+     ],
+     "yaw": 180
+    },
+    {
+     "id": "3D_console",
+     "asm": "table_rect",
+     "at": [
+      11.38,
+      -5.325
+     ],
+     "yaw": 90,
+     "L": 1.15,
+     "W": 0.5,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "3D_deck",
+     "asm": "reeldeck",
+     "at": [
+      11.38,
+      -5.245
+     ],
+     "yaw": -90,
+     "z0": 0.745
+    },
+    {
+     "id": "3D_phones",
+     "asm": "headphones",
+     "at": [
+      11.4,
+      -5.745
+     ],
+     "yaw": -90,
+     "z0": 0.745
+    },
+    {
+     "id": "3D_mug",
+     "asm": "mug",
+     "at": [
+      11.26,
+      -4.905
+     ],
+     "yaw": 0,
+     "z0": 0.745
+    },
+    {
+     "id": "3D_lyrics",
+     "asm": "papers",
+     "at": [
+      10.2,
+      -5.875
+     ],
+     "yaw": 24,
+     "n": 8,
+     "mess": 0.5
+    },
+    {
+     "id": "3D_tapepile",
+     "asm": "bookpile",
+     "at": [
+      11.38,
+      -6.145
+     ],
+     "yaw": 12,
+     "n": 5
+    },
+    {
+     "id": "3D_foam0",
+     "rect": [
+      10.1,
+      -4.385,
+      10.4,
+      -4.335
+     ],
+     "z0": 0.62,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "3D_foam1",
+     "rect": [
+      10.459999999999999,
+      -4.385,
+      10.76,
+      -4.335
+     ],
+     "z0": 0.62,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "3D_foam2",
+     "rect": [
+      10.82,
+      -4.385,
+      11.120000000000001,
+      -4.335
+     ],
+     "z0": 0.62,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "3D_foam3",
+     "rect": [
+      11.18,
+      -4.385,
+      11.48,
+      -4.335
+     ],
+     "z0": 0.62,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "3D_foam4",
+     "rect": [
+      11.54,
+      -4.385,
+      11.84,
+      -4.335
+     ],
+     "z0": 0.62,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "3D_foam5",
+     "rect": [
+      10.1,
+      -4.412999999999999,
+      10.4,
+      -4.334999999999999
+     ],
+     "z0": 0.96,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "3D_foam6",
+     "rect": [
+      10.459999999999999,
+      -4.412999999999999,
+      10.76,
+      -4.334999999999999
+     ],
+     "z0": 0.96,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "3D_foam7",
+     "rect": [
+      10.82,
+      -4.412999999999999,
+      11.120000000000001,
+      -4.334999999999999
+     ],
+     "z0": 0.96,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "3D_foam8",
+     "rect": [
+      11.18,
+      -4.412999999999999,
+      11.48,
+      -4.334999999999999
+     ],
+     "z0": 0.96,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "3D_foam9",
+     "rect": [
+      11.54,
+      -4.412999999999999,
+      11.84,
+      -4.334999999999999
+     ],
+     "z0": 0.96,
+     "h": 0.3,
+     "mat": "soot"
     },
     {
      "id": "F03_stor_crates",
@@ -20183,6 +21488,94 @@
      ],
      "yaw": 0,
      "z0": 1.12
+    },
+    {
+     "id": "F03_A_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      -13.35,
+      -5.05
+     ],
+     "yaw": 90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F03_B_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      -13.35,
+      6.16
+     ],
+     "yaw": 90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F03_C_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      13.35,
+      4.385
+     ],
+     "yaw": -90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F03_D_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      13.35,
+      -5.325
+     ],
+     "yaw": -90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
     },
     {
      "id": "age_patchF030",
@@ -22366,8 +23759,10 @@
       -5.1,
       12.54
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -22380,8 +23775,10 @@
       0.0,
       12.54
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -22394,8 +23791,10 @@
       5.1,
       12.54
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -22408,8 +23807,10 @@
       -5.1,
       12.54
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -22422,8 +23823,10 @@
       0.0,
       12.54
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -22436,8 +23839,10 @@
       5.1,
       12.54
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -22450,8 +23855,10 @@
       -8.25,
       12.54
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -22464,8 +23871,10 @@
       8.25,
       12.54
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -22634,6 +24043,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "range": 3.6,
      "energy": 1.0
     },
@@ -22648,6 +24059,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "energy": 1.0
     },
     {
@@ -22661,6 +24074,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "range": 4.59,
      "energy": 0.78
     }
@@ -22816,10 +24231,10 @@
     {
      "id": "4A_trail",
      "rect": [
-      -5.621999999999999,
-      -5.57,
-      -5.597999999999999,
-      -4.95
+      -7.622,
+      -4.59,
+      -7.598,
+      -3.9699999999999998
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -22828,10 +24243,10 @@
     {
      "id": "4A_towel",
      "rect": [
-      -5.64,
-      -5.470000000000001,
-      -5.59,
-      -5.090000000000001
+      -7.640000000000001,
+      -4.49,
+      -7.590000000000001,
+      -4.11
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -23044,7 +24459,7 @@
       -10.34,
       -3.575
      ],
-     "yaw": 90
+     "yaw": 270
     },
     {
      "id": "4A_din_t",
@@ -23695,6 +25110,88 @@
      "mat": "trim"
     },
     {
+     "id": "4A_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      -8.39,
+      -3.02
+     ],
+     "yaw": 238,
+     "z0": 0.75,
+     "mat": "porcelain"
+    },
+    {
+     "id": "4A_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      -8.67,
+      -3.2
+     ],
+     "yaw": 7,
+     "z0": 0.75,
+     "n": 5,
+     "mess": 0.39
+    },
+    {
+     "id": "4A_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      -11.805,
+      -3.605
+     ],
+     "yaw": -2,
+     "z0": 0.37,
+     "n": 4
+    },
+    {
+     "id": "4A_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      -11.425,
+      -3.685
+     ],
+     "yaw": 262,
+     "z0": 0.37,
+     "mat": "ceramic"
+    },
+    {
+     "id": "4A_story_casebooks",
+     "asm": "bookpile",
+     "at": [
+      -8.76,
+      -3.08
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "n": 8
+    },
+    {
+     "id": "4A_story_briefs",
+     "asm": "papers",
+     "at": [
+      -8.38,
+      -3.13
+     ],
+     "yaw": -3,
+     "z0": 0.77,
+     "n": 12,
+     "mess": 0.12
+    },
+    {
+     "id": "4A_story_deadlines",
+     "asm": "pinboard",
+     "at": [
+      -13.695,
+      -5.05
+     ],
+     "yaw": -90,
+     "z0": 1.18,
+     "W": 1.0,
+     "H": 0.7,
+     "cards": 16,
+     "neat": true
+    },
+    {
      "id": "4B_shower",
      "asm": "shower",
      "at": [
@@ -23724,10 +25221,10 @@
     {
      "id": "4B_trail",
      "rect": [
-      -7.09,
-      6.808000000000001,
-      -6.47,
-      6.832000000000001
+      -6.109999999999999,
+      4.608,
+      -5.489999999999999,
+      4.632
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -23736,10 +25233,10 @@
     {
      "id": "4B_towel",
      "rect": [
-      -6.99,
-      6.79,
-      -6.61,
-      6.84
+      -6.01,
+      4.589999999999999,
+      -5.63,
+      4.639999999999999
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -23770,18 +25267,6 @@
      "mat": "metal"
     },
     {
-     "id": "chair",
-     "rect": [
-      -9.05,
-      5.35,
-      -8.6,
-      5.85
-     ],
-     "z0": 0.42,
-     "h": 0.06,
-     "mat": "trim"
-    },
-    {
      "id": "bed",
      "rect": [
       -13.4,
@@ -23802,20 +25287,41 @@
       9.55
      ],
      "z0": 0.0,
-     "h": 0.9,
+     "h": 0.86,
      "mat": "trim"
     },
     {
-     "id": "couch",
+     "id": "kitchen_countertop",
      "rect": [
-      -12.8,
-      3.6,
-      -11.3,
-      4.35
+      -10.74,
+      9.01,
+      -8.81,
+      9.59
      ],
-     "z0": 0.12,
-     "h": 0.42,
-     "mat": "fabric_cool"
+     "z0": 0.86,
+     "h": 0.045,
+     "mat": "countertop"
+    },
+    {
+     "id": "4B_couch",
+     "asm": "sofa",
+     "at": [
+      -12.05,
+      4.025
+     ],
+     "yaw": 180,
+     "L": 1.5,
+     "mat": "fabric_cool",
+     "leg_mat": "wood_dark"
+    },
+    {
+     "id": "4B_desk_chair",
+     "asm": "chair",
+     "at": [
+      -8.83,
+      5.57
+     ],
+     "yaw": -90
     },
     {
      "id": "4B_deskrug_rug",
@@ -24999,10 +26505,10 @@
     {
      "id": "4C_trail",
      "rect": [
-      5.598,
-      4.41,
-      5.622,
-      5.03
+      7.598000000000001,
+      5.390000000000001,
+      7.622000000000001,
+      6.010000000000001
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -25011,10 +26517,10 @@
     {
      "id": "4C_towel",
      "rect": [
-      5.579999999999999,
-      4.51,
-      5.629999999999999,
-      4.89
+      7.58,
+      5.49,
+      7.63,
+      5.87
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -25330,7 +26836,7 @@
       10.36,
       2.46
      ],
-     "yaw": -90
+     "yaw": 90
     },
     {
      "id": "4C_din_t",
@@ -26053,6 +27559,99 @@
      "mat": "trim"
     },
     {
+     "id": "4C_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      8.67,
+      2.3
+     ],
+     "yaw": 354,
+     "z0": 0.75,
+     "mat": "porcelain"
+    },
+    {
+     "id": "4C_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      8.39,
+      2.12
+     ],
+     "yaw": 3,
+     "z0": 0.75,
+     "n": 5,
+     "mess": 0.27
+    },
+    {
+     "id": "4C_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      11.445,
+      2.43
+     ],
+     "yaw": -6,
+     "z0": 0.37,
+     "n": 2
+    },
+    {
+     "id": "4C_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      11.825,
+      2.35
+     ],
+     "yaw": 66,
+     "z0": 0.37,
+     "mat": "ceramic"
+    },
+    {
+     "id": "4C_story_schoolbooks",
+     "asm": "bookpile",
+     "at": [
+      8.31,
+      2.26
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "n": 5
+    },
+    {
+     "id": "4C_story_drawings",
+     "asm": "papers",
+     "at": [
+      8.66,
+      2.17
+     ],
+     "yaw": 18,
+     "z0": 0.77,
+     "n": 10,
+     "mess": 0.7
+    },
+    {
+     "id": "4C_story_breakfast_mug",
+     "asm": "mug",
+     "at": [
+      8.87,
+      2.35
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "mat": "ceramic"
+    },
+    {
+     "id": "4C_story_familyboard",
+     "asm": "pinboard",
+     "at": [
+      13.695,
+      4.385
+     ],
+     "yaw": 90,
+     "z0": 1.12,
+     "W": 1.15,
+     "H": 0.82,
+     "cards": 20,
+     "neat": false
+    },
+    {
      "id": "4D_shower",
      "asm": "shower",
      "at": [
@@ -26082,10 +27681,10 @@
     {
      "id": "4D_trail",
      "rect": [
-      5.598,
-      -5.57,
-      5.622,
-      -4.95
+      7.598000000000001,
+      -4.59,
+      7.622000000000001,
+      -3.9699999999999998
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -26094,10 +27693,10 @@
     {
      "id": "4D_towel",
      "rect": [
-      5.579999999999999,
-      -5.470000000000001,
-      5.629999999999999,
-      -5.090000000000001
+      7.58,
+      -4.49,
+      7.63,
+      -4.11
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -26341,7 +27940,7 @@
       10.36,
       -3.85
      ],
-     "yaw": -90
+     "yaw": 90
     },
     {
      "id": "4D_din_t",
@@ -27116,6 +28715,97 @@
      "mat": "trim"
     },
     {
+     "id": "4D_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      11.67,
+      -2.27
+     ],
+     "yaw": 52,
+     "z0": 0.75,
+     "mat": "porcelain"
+    },
+    {
+     "id": "4D_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      11.39,
+      -2.45
+     ],
+     "yaw": 1,
+     "z0": 0.75,
+     "n": 3,
+     "mess": 0.51
+    },
+    {
+     "id": "4D_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      11.445,
+      -3.88
+     ],
+     "yaw": -8,
+     "z0": 0.37,
+     "n": 4
+    },
+    {
+     "id": "4D_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      11.825,
+      -3.96
+     ],
+     "yaw": 148,
+     "z0": 0.37,
+     "mat": "porcelain"
+    },
+    {
+     "id": "4D_detail_desk_papers",
+     "asm": "papers",
+     "at": [
+      7.345,
+      -2.0
+     ],
+     "yaw": -87,
+     "z0": 0.74,
+     "n": 5,
+     "mess": 0.25
+    },
+    {
+     "id": "4D_detail_desk_mug",
+     "asm": "mug",
+     "at": [
+      7.185,
+      -1.67
+     ],
+     "yaw": 68,
+     "z0": 0.74,
+     "mat": "porcelain"
+    },
+    {
+     "id": "4D_story_city_guides",
+     "asm": "bookpile",
+     "at": [
+      11.34,
+      -2.33
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "n": 3
+    },
+    {
+     "id": "4D_story_empties",
+     "asm": "bottles",
+     "at": [
+      11.71,
+      -2.37
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "n": 4,
+     "cans": true
+    },
+    {
      "id": "F04_stor_crates",
      "rect": [
       -12.9,
@@ -27746,6 +29436,94 @@
      ],
      "yaw": 0,
      "z0": 1.12
+    },
+    {
+     "id": "F04_A_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      -13.35,
+      -5.05
+     ],
+     "yaw": 90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F04_B_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      -8.55,
+      9.35
+     ],
+     "yaw": 180,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F04_C_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      13.35,
+      4.385
+     ],
+     "yaw": -90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F04_D_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      13.35,
+      -5.325
+     ],
+     "yaw": -90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
     },
     {
      "id": "age_patchF040",
@@ -29640,8 +31418,10 @@
       -5.1,
       15.740000000000002
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -29654,8 +31434,10 @@
       0.0,
       15.740000000000002
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -29668,8 +31450,10 @@
       5.1,
       15.740000000000002
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -29682,8 +31466,10 @@
       -5.1,
       15.740000000000002
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -29696,8 +31482,10 @@
       0.0,
       15.740000000000002
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -29710,8 +31498,10 @@
       5.1,
       15.740000000000002
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -29724,8 +31514,10 @@
       -8.25,
       15.740000000000002
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -29738,8 +31530,10 @@
       8.25,
       15.740000000000002
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -29880,6 +31674,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "range": 3.6,
      "energy": 1.0
     },
@@ -29894,6 +31690,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "energy": 1.0
     },
     {
@@ -29907,6 +31705,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "range": 4.59,
      "energy": 0.78
     }
@@ -30062,10 +31862,10 @@
     {
      "id": "5A_trail",
      "rect": [
-      -5.621999999999999,
-      -5.57,
-      -5.597999999999999,
-      -4.95
+      -7.622,
+      -4.59,
+      -7.598,
+      -3.9699999999999998
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -30074,10 +31874,10 @@
     {
      "id": "5A_towel",
      "rect": [
-      -5.64,
-      -5.470000000000001,
-      -5.59,
-      -5.090000000000001
+      -7.640000000000001,
+      -4.49,
+      -7.590000000000001,
+      -4.11
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -30290,7 +32090,7 @@
       -10.34,
       -3.575
      ],
-     "yaw": 90
+     "yaw": 270
     },
     {
      "id": "5A_din_t",
@@ -31125,6 +32925,51 @@
      "mat": "trim"
     },
     {
+     "id": "5A_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      -8.71,
+      -3.02
+     ],
+     "yaw": 267,
+     "z0": 0.75,
+     "mat": "ceramic"
+    },
+    {
+     "id": "5A_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      -8.67,
+      -3.2
+     ],
+     "yaw": 6,
+     "z0": 0.75,
+     "n": 6,
+     "mess": 0.51
+    },
+    {
+     "id": "5A_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      -11.805,
+      -3.605
+     ],
+     "yaw": 9,
+     "z0": 0.37,
+     "n": 2
+    },
+    {
+     "id": "5A_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      -11.425,
+      -3.685
+     ],
+     "yaw": 303,
+     "z0": 0.37,
+     "mat": "ceramic"
+    },
+    {
      "id": "5A_plantable",
      "asm": "plantable",
      "at": [
@@ -31146,42 +32991,6 @@
      "mat": "ceramic"
     },
     {
-     "id": "5A_pin0",
-     "rect": [
-      -13.63,
-      -5.8500000000000005,
-      -13.600000000000001,
-      -4.65
-     ],
-     "z0": 1.1,
-     "h": 1.0,
-     "mat": "paper"
-    },
-    {
-     "id": "5A_pin1",
-     "rect": [
-      -13.63,
-      -4.3500000000000005,
-      -13.600000000000001,
-      -3.1500000000000004
-     ],
-     "z0": 1.1,
-     "h": 1.0,
-     "mat": "paper"
-    },
-    {
-     "id": "5A_pin2",
-     "rect": [
-      -13.63,
-      -2.8500000000000005,
-      -13.600000000000001,
-      -1.6500000000000006
-     ],
-     "z0": 1.1,
-     "h": 1.0,
-     "mat": "paper"
-    },
-    {
      "id": "5A_planshelf",
      "asm": "shelf",
      "at": [
@@ -31201,6 +33010,222 @@
       -3.28
      ],
      "yaw": 180
+    },
+    {
+     "id": "5A_pins1",
+     "asm": "pinboard",
+     "at": [
+      -13.695,
+      -5.2
+     ],
+     "yaw": -90,
+     "z0": 1.0,
+     "W": 1.25,
+     "H": 0.85,
+     "cards": 18,
+     "neat": false
+    },
+    {
+     "id": "5A_pins2",
+     "asm": "pinboard",
+     "at": [
+      -13.695,
+      -1.7
+     ],
+     "yaw": -90,
+     "z0": 1.15,
+     "W": 1.05,
+     "H": 0.7,
+     "cards": 14,
+     "neat": false
+    },
+    {
+     "id": "5A_sheet0",
+     "rect": [
+      -13.693999999999999,
+      -4.65,
+      -13.69,
+      -4.15
+     ],
+     "z0": 1.0,
+     "h": 0.72,
+     "mat": "paper"
+    },
+    {
+     "id": "5A_sheet1",
+     "rect": [
+      -13.69,
+      -4.550000000000001,
+      -13.686,
+      -4.1000000000000005
+     ],
+     "z0": 1.06,
+     "h": 0.72,
+     "mat": "paper"
+    },
+    {
+     "id": "5A_sheet2",
+     "rect": [
+      -13.686,
+      -4.45,
+      -13.682,
+      -4.05
+     ],
+     "z0": 1.12,
+     "h": 0.72,
+     "mat": "paper"
+    },
+    {
+     "id": "5A_sheet3",
+     "rect": [
+      -13.681999999999999,
+      -4.3500000000000005,
+      -13.677999999999999,
+      -4.000000000000001
+     ],
+     "z0": 1.18,
+     "h": 0.72,
+     "mat": "paper"
+    },
+    {
+     "id": "5A_modtable",
+     "asm": "table_rect",
+     "at": [
+      -12.05,
+      -1.3
+     ],
+     "yaw": 0,
+     "L": 0.85,
+     "W": 0.55,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "5A_model",
+     "asm": "sitemodel",
+     "at": [
+      -12.05,
+      -1.3
+     ],
+     "yaw": -90,
+     "z0": 0.745
+    },
+    {
+     "id": "5A_papers1",
+     "asm": "papers",
+     "at": [
+      -10.08,
+      -4.5
+     ],
+     "yaw": 15,
+     "z0": 0.83,
+     "n": 7,
+     "mess": 0.8
+    },
+    {
+     "id": "5A_papers2",
+     "asm": "papers",
+     "at": [
+      -9.13,
+      -4.05
+     ],
+     "yaw": 170,
+     "z0": 0.83,
+     "n": 5,
+     "mess": 0.6
+    },
+    {
+     "id": "5A_mug1",
+     "asm": "mug",
+     "at": [
+      -8.8,
+      -4.57
+     ],
+     "yaw": 0,
+     "z0": 0.83
+    },
+    {
+     "id": "5A_mug2",
+     "asm": "mug",
+     "at": [
+      -11.15,
+      -5.8
+     ],
+     "yaw": 0,
+     "z0": 1.1,
+     "mat": "enamel"
+    },
+    {
+     "id": "5A_floorstack",
+     "asm": "bookpile",
+     "at": [
+      -11.3,
+      -1.07
+     ],
+     "yaw": 5,
+     "n": 6
+    },
+    {
+     "id": "5A_roll0",
+     "asm": "pipe",
+     "at": [
+      0,
+      0
+     ],
+     "yaw": 0,
+     "p0": [
+      -13.35,
+      -0.77,
+      12.82
+     ],
+     "p1": [
+      -13.55,
+      -0.61,
+      13.9
+     ],
+     "r": 0.032,
+     "mat": "paper"
+    },
+    {
+     "id": "5A_roll1",
+     "asm": "pipe",
+     "at": [
+      0,
+      0
+     ],
+     "yaw": 0,
+     "p0": [
+      -13.21,
+      -0.8300000000000001,
+      12.82
+     ],
+     "p1": [
+      -13.55,
+      -0.61,
+      13.96
+     ],
+     "r": 0.032,
+     "mat": "paper"
+    },
+    {
+     "id": "5A_roll2",
+     "asm": "pipe",
+     "at": [
+      0,
+      0
+     ],
+     "yaw": 0,
+     "p0": [
+      -13.42,
+      -0.89,
+      12.82
+     ],
+     "p1": [
+      -13.55,
+      -0.61,
+      14.02
+     ],
+     "r": 0.032,
+     "mat": "paper"
     },
     {
      "id": "5B_shower",
@@ -31232,10 +33257,10 @@
     {
      "id": "5B_trail",
      "rect": [
-      -5.621999999999999,
-      3.59,
-      -5.597999999999999,
-      4.21
+      -7.622,
+      4.57,
+      -7.598,
+      5.19
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -31244,10 +33269,10 @@
     {
      "id": "5B_towel",
      "rect": [
-      -5.64,
-      3.69,
-      -5.59,
-      4.07
+      -7.640000000000001,
+      4.67,
+      -7.590000000000001,
+      5.05
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -31388,7 +33413,7 @@
       -10.34,
       4.36
      ],
-     "yaw": 90
+     "yaw": 270
     },
     {
      "id": "5B_din_t",
@@ -32111,6 +34136,82 @@
      "mat": "trim"
     },
     {
+     "id": "5B_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      -8.41,
+      3.9
+     ],
+     "yaw": 325,
+     "z0": 0.75,
+     "mat": "ceramic"
+    },
+    {
+     "id": "5B_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      -8.37,
+      3.72
+     ],
+     "yaw": 4,
+     "z0": 0.75,
+     "n": 4,
+     "mess": 0.15
+    },
+    {
+     "id": "5B_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      -11.805,
+      4.33
+     ],
+     "yaw": 7,
+     "z0": 0.37,
+     "n": 4
+    },
+    {
+     "id": "5B_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      -11.425,
+      4.25
+     ],
+     "yaw": 25,
+     "z0": 0.37,
+     "mat": "porcelain"
+    },
+    {
+     "id": "5B_story_radio",
+     "asm": "radio",
+     "at": [
+      -8.43,
+      3.82
+     ],
+     "yaw": 180,
+     "z0": 0.77
+    },
+    {
+     "id": "5B_story_headphones",
+     "asm": "headphones",
+     "at": [
+      -8.05,
+      3.81
+     ],
+     "yaw": 12,
+     "z0": 0.77
+    },
+    {
+     "id": "5B_story_lead",
+     "asm": "cablecoil",
+     "at": [
+      -7.88,
+      3.92
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "r": 0.09
+    },
+    {
      "id": "5C_shower",
      "asm": "shower",
      "at": [
@@ -32140,10 +34241,10 @@
     {
      "id": "5C_trail",
      "rect": [
-      5.598,
-      4.41,
-      5.622,
-      5.03
+      7.598000000000001,
+      5.390000000000001,
+      7.622000000000001,
+      6.010000000000001
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -32152,10 +34253,10 @@
     {
      "id": "5C_towel",
      "rect": [
-      5.579999999999999,
-      4.51,
-      5.629999999999999,
-      4.89
+      7.58,
+      5.49,
+      7.63,
+      5.87
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -32471,7 +34572,7 @@
       10.36,
       2.46
      ],
-     "yaw": -90
+     "yaw": 90
     },
     {
      "id": "5C_din_t",
@@ -33246,6 +35347,88 @@
      "mat": "trim"
     },
     {
+     "id": "5C_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      8.35,
+      2.3
+     ],
+     "yaw": 23,
+     "z0": 0.75,
+     "mat": "ceramic"
+    },
+    {
+     "id": "5C_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      8.39,
+      2.12
+     ],
+     "yaw": 2,
+     "z0": 0.75,
+     "n": 6,
+     "mess": 0.39
+    },
+    {
+     "id": "5C_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      11.445,
+      2.43
+     ],
+     "yaw": 5,
+     "z0": 0.37,
+     "n": 3
+    },
+    {
+     "id": "5C_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      11.825,
+      2.35
+     ],
+     "yaw": 107,
+     "z0": 0.37,
+     "mat": "ceramic"
+    },
+    {
+     "id": "5C_story_solvents",
+     "asm": "bottles",
+     "at": [
+      8.32,
+      2.25
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "n": 7
+    },
+    {
+     "id": "5C_story_studies",
+     "asm": "papers",
+     "at": [
+      8.68,
+      2.18
+     ],
+     "yaw": -12,
+     "z0": 0.77,
+     "n": 11,
+     "mess": 0.78
+    },
+    {
+     "id": "5C_story_colorboard",
+     "asm": "pinboard",
+     "at": [
+      13.695,
+      4.385
+     ],
+     "yaw": 90,
+     "z0": 1.16,
+     "W": 1.1,
+     "H": 0.8,
+     "cards": 22,
+     "neat": false
+    },
+    {
      "id": "5D_shower",
      "asm": "shower",
      "at": [
@@ -33275,10 +35458,10 @@
     {
      "id": "5D_trail",
      "rect": [
-      5.598,
-      -5.57,
-      5.622,
-      -4.95
+      7.598000000000001,
+      -4.59,
+      7.622000000000001,
+      -3.9699999999999998
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -33287,10 +35470,10 @@
     {
      "id": "5D_towel",
      "rect": [
-      5.579999999999999,
-      -5.470000000000001,
-      5.629999999999999,
-      -5.090000000000001
+      7.58,
+      -4.49,
+      7.63,
+      -4.11
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -33971,6 +36154,94 @@
      ],
      "yaw": 0,
      "z0": 1.12
+    },
+    {
+     "id": "F05_A_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      -13.35,
+      -5.05
+     ],
+     "yaw": 90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F05_B_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      -13.35,
+      6.16
+     ],
+     "yaw": 90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F05_C_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      13.35,
+      4.385
+     ],
+     "yaw": -90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F05_D_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      13.35,
+      -5.325
+     ],
+     "yaw": -90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
     },
     {
      "id": "age_patchF050",
@@ -35913,8 +38184,10 @@
       -5.1,
       18.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -35927,8 +38200,10 @@
       0.0,
       18.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -35941,8 +38216,10 @@
       5.1,
       18.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -35955,8 +38232,10 @@
       -5.1,
       18.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -35969,8 +38248,10 @@
       0.0,
       18.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -35983,8 +38264,10 @@
       5.1,
       18.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -35997,8 +38280,10 @@
       -8.25,
       18.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -36011,8 +38296,10 @@
       8.25,
       18.94
      ],
-     "range": 4.2,
-     "energy": 0.9,
+     "range": 5.2,
+     "energy": 0.88,
+     "navigation": true,
+     "standby": 0.34,
      "yaw_deg": 0,
      "network": "electrical"
     },
@@ -36195,6 +38482,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "range": 3.6,
      "energy": 1.0
     },
@@ -36209,6 +38498,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "energy": 1.0
     },
     {
@@ -36222,6 +38513,8 @@
      ],
      "yaw_deg": 0,
      "network": "electrical",
+     "navigation": true,
+     "standby": 0.26,
      "range": 4.59,
      "energy": 0.78
     }
@@ -36377,10 +38670,10 @@
     {
      "id": "6A_trail",
      "rect": [
-      -5.621999999999999,
-      -5.57,
-      -5.597999999999999,
-      -4.95
+      -7.622,
+      -4.59,
+      -7.598,
+      -3.9699999999999998
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -36389,10 +38682,10 @@
     {
      "id": "6A_towel",
      "rect": [
-      -5.64,
-      -5.470000000000001,
-      -5.59,
-      -5.090000000000001
+      -7.640000000000001,
+      -4.49,
+      -7.590000000000001,
+      -4.11
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -37276,6 +39569,29 @@
      "mat": "trim"
     },
     {
+     "id": "6A_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      -8.39,
+      -3.02
+     ],
+     "yaw": 296,
+     "z0": 0.75,
+     "mat": "porcelain"
+    },
+    {
+     "id": "6A_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      -8.67,
+      -3.2
+     ],
+     "yaw": 5,
+     "z0": 0.75,
+     "n": 3,
+     "mess": 0.63
+    },
+    {
      "id": "6A_deskwall",
      "rect": [
       -13.25,
@@ -37300,30 +39616,6 @@
      "mat": "metal"
     },
     {
-     "id": "6A_tripod",
-     "rect": [
-      -11.350000000000001,
-      -5.05,
-      -11.230000000000002,
-      -4.93
-     ],
-     "z0": 0.0,
-     "h": 1.45,
-     "mat": "metal"
-    },
-    {
-     "id": "6A_rig",
-     "rect": [
-      -11.41,
-      -5.109999999999999,
-      -11.17,
-      -4.869999999999999
-     ],
-     "z0": 1.45,
-     "h": 0.18,
-     "mat": "screen"
-    },
-    {
      "id": "6A_cablerun",
      "rect": [
       -13.25,
@@ -37346,6 +39638,290 @@
      "z0": 0.0,
      "h": 0.35,
      "mat": "fabric_cool"
+    },
+    {
+     "id": "6A_tripod",
+     "asm": "tripod",
+     "at": [
+      -11.3,
+      -5.05
+     ],
+     "yaw": 90
+    },
+    {
+     "id": "6A_soft1",
+     "asm": "softbox",
+     "at": [
+      -11.65,
+      -5.9
+     ],
+     "yaw": 50
+    },
+    {
+     "id": "6A_soft2",
+     "asm": "softbox",
+     "at": [
+      -11.65,
+      -4.0
+     ],
+     "yaw": 130
+    },
+    {
+     "id": "6A_phones",
+     "asm": "headphones",
+     "at": [
+      -13.03,
+      -5.6
+     ],
+     "yaw": -90,
+     "z0": 0.77
+    },
+    {
+     "id": "6A_cans",
+     "asm": "bottles",
+     "at": [
+      -13.05,
+      -4.2
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "n": 4,
+     "cans": true
+    },
+    {
+     "id": "6A_gearcrate",
+     "asm": "crate",
+     "at": [
+      -13.2,
+      -3.2
+     ],
+     "yaw": 355,
+     "fill": "soot",
+     "W": 0.5,
+     "D": 0.4,
+     "H": 0.36
+    },
+    {
+     "id": "6A_coil1",
+     "asm": "cablecoil",
+     "at": [
+      -12.15,
+      -4.35
+     ],
+     "yaw": 30
+    },
+    {
+     "id": "6A_coil2",
+     "asm": "cablecoil",
+     "at": [
+      -11.05,
+      -5.6
+     ],
+     "yaw": 240,
+     "r": 0.09
+    },
+    {
+     "id": "6A_foam0",
+     "rect": [
+      -13.692,
+      -6.199999999999999,
+      -13.647,
+      -5.699999999999999
+     ],
+     "z0": 1.05,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "6A_foam1",
+     "rect": [
+      -13.692,
+      -5.6,
+      -13.622,
+      -5.1
+     ],
+     "z0": 1.05,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "6A_foam2",
+     "rect": [
+      -13.692,
+      -4.999999999999999,
+      -13.647,
+      -4.499999999999999
+     ],
+     "z0": 1.05,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "6A_foam3",
+     "rect": [
+      -13.692,
+      -4.3999999999999995,
+      -13.622,
+      -3.8999999999999995
+     ],
+     "z0": 1.05,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "6A_foam4",
+     "rect": [
+      -13.692,
+      -6.199999999999999,
+      -13.622,
+      -5.699999999999999
+     ],
+     "z0": 1.4100000000000001,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "6A_foam5",
+     "rect": [
+      -13.692,
+      -5.6,
+      -13.647,
+      -5.1
+     ],
+     "z0": 1.4100000000000001,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "6A_foam6",
+     "rect": [
+      -13.692,
+      -4.999999999999999,
+      -13.622,
+      -4.499999999999999
+     ],
+     "z0": 1.4100000000000001,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "6A_foam7",
+     "rect": [
+      -13.692,
+      -4.3999999999999995,
+      -13.647,
+      -3.8999999999999995
+     ],
+     "z0": 1.4100000000000001,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "6A_foam8",
+     "rect": [
+      -13.692,
+      -6.199999999999999,
+      -13.647,
+      -5.699999999999999
+     ],
+     "z0": 1.77,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "6A_foam9",
+     "rect": [
+      -13.692,
+      -5.6,
+      -13.622,
+      -5.1
+     ],
+     "z0": 1.77,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "6A_foam10",
+     "rect": [
+      -13.692,
+      -4.999999999999999,
+      -13.647,
+      -4.499999999999999
+     ],
+     "z0": 1.77,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "6A_foam11",
+     "rect": [
+      -13.692,
+      -4.3999999999999995,
+      -13.622,
+      -3.8999999999999995
+     ],
+     "z0": 1.77,
+     "h": 0.3,
+     "mat": "soot"
+    },
+    {
+     "id": "6A_laundry1",
+     "rect": [
+      -13.1,
+      -2.75,
+      -12.6,
+      -2.15
+     ],
+     "z0": 0.35,
+     "h": 0.16,
+     "mat": "fabric_cool"
+    },
+    {
+     "id": "6A_laundry2",
+     "rect": [
+      -12.93,
+      -2.0,
+      -12.58,
+      -1.55
+     ],
+     "z0": 0.35,
+     "h": 0.1,
+     "mat": "linen"
+    },
+    {
+     "id": "6A_pillow",
+     "rect": [
+      -13.17,
+      -1.4,
+      -12.51,
+      -0.9999999999999999
+     ],
+     "z0": 0.35,
+     "h": 0.12,
+     "mat": "linen"
+    },
+    {
+     "id": "6A_detail_capture_papers",
+     "asm": "papers",
+     "at": [
+      -12.87,
+      -4.5
+     ],
+     "yaw": 84,
+     "z0": 0.78,
+     "n": 8,
+     "mess": 0.65
+    },
+    {
+     "id": "6A_detail_capture_mug",
+     "asm": "mug",
+     "at": [
+      -12.88,
+      -6.07
+     ],
+     "yaw": 210,
+     "z0": 0.78,
+     "mat": "ceramic"
     },
     {
      "id": "6A_deskchair",
@@ -37386,10 +39962,10 @@
     {
      "id": "6B_trail",
      "rect": [
-      -5.621999999999999,
-      3.59,
-      -5.597999999999999,
-      4.21
+      -7.622,
+      4.57,
+      -7.598,
+      5.19
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -37398,10 +39974,10 @@
     {
      "id": "6B_towel",
      "rect": [
-      -5.64,
-      3.69,
-      -5.59,
-      4.07
+      -7.640000000000001,
+      4.67,
+      -7.590000000000001,
+      5.05
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -37542,7 +40118,7 @@
       -10.34,
       4.36
      ],
-     "yaw": 90
+     "yaw": 270
     },
     {
      "id": "6B_din_t",
@@ -38317,6 +40893,85 @@
      "mat": "trim"
     },
     {
+     "id": "6B_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      -8.09,
+      3.9
+     ],
+     "yaw": 354,
+     "z0": 0.75,
+     "mat": "porcelain"
+    },
+    {
+     "id": "6B_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      -8.37,
+      3.72
+     ],
+     "yaw": 3,
+     "z0": 0.75,
+     "n": 5,
+     "mess": 0.27
+    },
+    {
+     "id": "6B_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      -11.805,
+      4.33
+     ],
+     "yaw": -6,
+     "z0": 0.37,
+     "n": 2
+    },
+    {
+     "id": "6B_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      -11.425,
+      4.25
+     ],
+     "yaw": 66,
+     "z0": 0.37,
+     "mat": "ceramic"
+    },
+    {
+     "id": "6B_story_draft",
+     "asm": "papers",
+     "at": [
+      -8.39,
+      3.8
+     ],
+     "yaw": 8,
+     "z0": 0.77,
+     "n": 14,
+     "mess": 0.62
+    },
+    {
+     "id": "6B_story_references",
+     "asm": "bookpile",
+     "at": [
+      -8.03,
+      3.87
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "n": 6
+    },
+    {
+     "id": "6B_story_cold_coffee",
+     "asm": "mug",
+     "at": [
+      -7.87,
+      3.7
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "mat": "ceramic"
+    },
+    {
      "id": "6C_shower",
      "asm": "shower",
      "at": [
@@ -38346,10 +41001,10 @@
     {
      "id": "6C_trail",
      "rect": [
-      5.598,
-      4.41,
-      5.622,
-      5.03
+      7.598000000000001,
+      5.390000000000001,
+      7.622000000000001,
+      6.010000000000001
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -38358,10 +41013,10 @@
     {
      "id": "6C_towel",
      "rect": [
-      5.579999999999999,
-      4.51,
-      5.629999999999999,
-      4.89
+      7.58,
+      5.49,
+      7.63,
+      5.87
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -38677,7 +41332,7 @@
       10.36,
       2.46
      ],
-     "yaw": -90
+     "yaw": 90
     },
     {
      "id": "6C_din_t",
@@ -39676,6 +42331,83 @@
      "mat": "trim"
     },
     {
+     "id": "6C_detail_dining_mug",
+     "asm": "mug",
+     "at": [
+      8.67,
+      2.3
+     ],
+     "yaw": 52,
+     "z0": 0.75,
+     "mat": "porcelain"
+    },
+    {
+     "id": "6C_detail_dining_papers",
+     "asm": "papers",
+     "at": [
+      8.39,
+      2.12
+     ],
+     "yaw": 1,
+     "z0": 0.75,
+     "n": 3,
+     "mess": 0.51
+    },
+    {
+     "id": "6C_detail_coffee_books",
+     "asm": "bookpile",
+     "at": [
+      11.445,
+      2.43
+     ],
+     "yaw": -8,
+     "z0": 0.37,
+     "n": 4
+    },
+    {
+     "id": "6C_detail_coffee_mug",
+     "asm": "mug",
+     "at": [
+      11.825,
+      2.35
+     ],
+     "yaw": 148,
+     "z0": 0.37,
+     "mat": "porcelain"
+    },
+    {
+     "id": "6C_story_oddments",
+     "asm": "jarrow",
+     "at": [
+      8.32,
+      2.25
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "n": 5
+    },
+    {
+     "id": "6C_story_catalogues",
+     "asm": "bookpile",
+     "at": [
+      8.66,
+      2.2
+     ],
+     "yaw": 0,
+     "z0": 0.77,
+     "n": 5
+    },
+    {
+     "id": "6C_story_old_radio",
+     "asm": "radio",
+     "at": [
+      8.87,
+      2.32
+     ],
+     "yaw": -165,
+     "z0": 0.77
+    },
+    {
      "id": "6D_shower",
      "asm": "shower",
      "at": [
@@ -39705,10 +42437,10 @@
     {
      "id": "6D_trail",
      "rect": [
-      5.598,
-      -5.57,
-      5.622,
-      -4.95
+      7.598000000000001,
+      -4.59,
+      7.622000000000001,
+      -3.9699999999999998
      ],
      "z0": 1.05,
      "h": 0.02,
@@ -39717,10 +42449,10 @@
     {
      "id": "6D_towel",
      "rect": [
-      5.579999999999999,
-      -5.470000000000001,
-      5.629999999999999,
-      -5.090000000000001
+      7.58,
+      -4.49,
+      7.63,
+      -4.11
      ],
      "z0": 0.6,
      "h": 0.44,
@@ -40449,6 +43181,94 @@
      ],
      "yaw": 0,
      "z0": 1.12
+    },
+    {
+     "id": "F06_A_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      -13.35,
+      -5.05
+     ],
+     "yaw": 90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F06_B_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      -13.35,
+      6.16
+     ],
+     "yaw": 90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F06_C_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      13.35,
+      4.385
+     ],
+     "yaw": -90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
+    },
+    {
+     "id": "F06_D_RADIATOR_01_continuous_supply",
+     "asm": "pipe",
+     "at": [
+      13.35,
+      -5.325
+     ],
+     "yaw": -90,
+     "mat": "metal",
+     "r": 0.022,
+     "local": true,
+     "p0": [
+      0.44,
+      0.0,
+      0.0
+     ],
+     "p1": [
+      0.44,
+      0.0,
+      2.96
+     ]
     },
     {
      "id": "age_patchF060",

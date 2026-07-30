@@ -141,9 +141,18 @@ Status markers reflect main as of 2026-07-30.
    envelopes + halos, tuned fog/glow environment. Remaining: lightmap
    bake / GI fallback and a light-leak pass are still open.
 6. **Dress the remaining twenty-three units and all commons to 4B's
-   density.** OPEN. Every unit is furnished (parametric library, per
-   resident) but only 4B carries benchmark close-detail (blinds,
-   crockery, desk clutter, bedding detail).
+   density.** DONE. Three layers land it: the shared close-detail layer
+   (blinds, crockery, towels), a deterministic lived-in surface pass on
+   every dining/coffee/desk top, and identity dressing — eleven named
+   supporting residents carry story clusters (`RESIDENT_STORIES`), and
+   the six heroes carry full personality installations (Mina's squared
+   caption desk, Juno's amp stack/guitars/record crates, Omar's
+   categorized bench with pegboard and parts trays, Rhea's booth with
+   playback console, Nadia's contradictory plan wall and massing model
+   of this very building, Sacha's tripod/softbox capture kit), all from
+   a 20-piece clutter assembly library (`furniture_references.md`).
+   Units that read dark (Juno, Rhea) do so by resident light character,
+   not neglect — revisit under phase 5's remaining lightmap work.
 7. **Performance.** OPEN. Floor-visibility streaming (now atrium-aware)
    is still the stand-in; occluders, HLOD, prop LODs not started.
 8. **Atmosphere and post.** PARTLY DONE (depth fog, glow, filmic
