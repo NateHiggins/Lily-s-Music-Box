@@ -39,6 +39,10 @@ pointing/emulate_touch_from_mouse=true
 
 occlusion_culling/use_occlusion_culling=true
 renderer/rendering_method="gl_compatibility"
+; Android will not export without it, and it is what the texture budget
+; wants anyway: mobile GPUs sample ETC2/ASTC natively instead of paying to
+; decompress. Costs a second import variant per texture on disk.
+textures/vram_compression/import_etc2_astc=true
 renderer/rendering_method.mobile="gl_compatibility"
 lights_and_shadows/positional_shadow/atlas_16_bits=false
 limits/opengl/max_lights_per_object=16

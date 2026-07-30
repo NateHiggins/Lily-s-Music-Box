@@ -358,32 +358,44 @@ docs/screenshots/                  rendered from the real build
 
 ## Android
 
-The project is renderer-ready — it runs on `gl_compatibility`, which is
-what mobile uses — and the touch HUD above is in and tested. An APK still
-needs three things, in this order.
+An APK builds. One command, about a minute:
 
-**Toolchain (not installed here).** Godot's Android export templates
-(~1 GB, `Editor > Manage Export Templates`) and an Android SDK with
-platform-tools, build-tools and a platform (~2-3 GB, easiest via Android
-Studio or `cmdline-tools`), pointed at from `Editor Settings > Export >
-Android`. JDK 17 is already present, which is usually the awkward one.
-Then an export preset and a debug keystore.
+```bash
+godot --headless --path game --export-debug "Android" build/android/orison.apk
+```
 
-**Weight — the real work.** The desktop build sits at 112-161 fps on an
-RTX 4080 at 1440p, which sounds like plenty of margin and is not: a phone
-GPU is a different class of machine, not a slower one. What has to change
-is already scoped in code — `LightRig` drops to one shadow caster and
-eight live lights on mobile (`SHADOW_N_MOBILE`, `ACTIVE_N_MOBILE`),
-because an omni's cube shadow costs six passes over the visible set and a
-tile-based GPU pays for that in bandwidth it does not have. Still open:
-the texture budget (~50 MB of shared sets plus a 13 MB 4K sky panorama —
-mobile wants compressed formats and smaller mips), and the atrium eye,
-which renders seven storeys at once and is the worst case by a wide
-margin.
+141.7 MB, `com.orison.apartments`, arm64-v8a, minSdk 24 / targetSdk 36,
+debug-signed and `apksigner`-verified. `export_presets.cfg` is committed;
+build output is gitignored.
 
-**Then measure.** `Perf.tscn` runs on-device the same as on desktop, and
-its numbers are the only ones worth trusting. Nothing above should be
-taken as "it will run" — it has never been on a phone.
+**Toolchain, if setting up a fresh machine.** Godot 4.7.1 export templates
+into `%APPDATA%/Godot/export_templates/4.7.1.stable/`, and an Android SDK
+with `platform-tools`, `build-tools;36.1.0` and `platforms;android-36` —
+those versions are not a guess, they are what `android_source.zip` inside
+the templates declares in its `config.gradle`. JDK 17. Then point
+`Editor Settings > Export > Android` at the SDK, the JDK and a debug
+keystore. Android also refuses to export unless
+`rendering/textures/vram_compression/import_etc2_astc` is on, which is in
+`project.godot` — it is what mobile wants anyway, since those GPUs sample
+ETC2/ASTC natively.
+
+**What the first build taught us.** The initial APK was 201 MB, and 59 MB
+of that was four 4K sky panoramas the game never loads — only
+`orison_half_dome_night_4k.png` is referenced, by a runtime string, which
+is also why Godot's dependency-based export filters cannot see it. They
+are excluded by name in the preset. If you add a sky texture and reference
+it dynamically, add it to the preset's `exclude_filter` allowlist logic or
+it will be excluded by pattern.
+
+**Not yet proven: whether it RUNS well.** It has never been on a phone.
+The desktop build sits at 112-161 fps on an RTX 4080 at 1440p, which
+sounds like margin and is not — a phone GPU is a different class of
+machine, not a slower one. `LightRig` already drops to one shadow caster
+and eight live lights on mobile (`SHADOW_N_MOBILE`, `ACTIVE_N_MOBILE`),
+because an omni's cube shadow costs six passes over the visible set.
+Still unmeasured: the atrium eye, which renders seven storeys at once and
+is the worst case by a wide margin. `Perf.tscn` runs on-device exactly as
+it does on desktop, and those numbers are the only ones worth trusting.
 
 ## Known limitations
 

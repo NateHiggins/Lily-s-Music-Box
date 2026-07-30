@@ -10,3 +10,9 @@ art/textures/_export/
 # of the work, not the work, and they are large.
 Recording*.mp4
 *.mp4
+
+# Export output. The APK is ~140 MB and is rebuilt from source in a minute.
+build/
+*.apk
+*.aab
+*.idsig
