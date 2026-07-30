@@ -5,3 +5,8 @@
 __pycache__/
 *.pyc
 art/textures/_export/
+
+# Screen recordings land in the repo root while working. They are capture
+# of the work, not the work, and they are large.
+Recording*.mp4
+*.mp4
