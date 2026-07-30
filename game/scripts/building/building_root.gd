@@ -226,12 +226,18 @@ func _physics_process(_delta: float) -> void:
 
 
 ## Coarse streaming: only the player's level and its vertical neighbors
-## render. Closed apartments culling properly is a later occluder pass.
+## render — EXCEPT in the atrium, where the open eye is a sightline
+## through every storey (lobby runner to skylight), so the whole stack
+## renders there. The zone spans the stair volume plus the elevator
+## hall, whose archway frames the same view. F01 stays always-on for
+## glimpses down through the court windows.
 func _update_floor_visibility() -> void:
 	if player == null:
 		return
-	var py := player.global_position.y
+	var p := player.global_position
+	var in_eye := absf(p.x) < 3.7 and p.z > -3.7 and p.z < 6.9
 	for fid in floor_nodes:
 		var z: float = layout["meta"]["levels"][fid]
-		floor_nodes[fid].visible = show_all_floors or fid == "F01" \
-				or absf(py - z) < 4.9 or (fid == "ROOF" and py > 15.0)
+		floor_nodes[fid].visible = show_all_floors or in_eye \
+				or fid == "F01" \
+				or absf(p.y - z) < 4.9 or (fid == "ROOF" and p.y > 15.0)

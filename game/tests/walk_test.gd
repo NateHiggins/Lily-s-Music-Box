@@ -156,6 +156,25 @@ func _run() -> void:
 			"2A bedroom reached through its own door (z=%.2f)"
 			% pl.global_position.z)
 
+	# --- atrium sightline: from a stair landing the open eye shows every
+	# storey, so the whole floor stack must render there
+	root.show_all_floors = false
+	pl.global_position = Vector3(0.0, 8.15, -2.31)  # F03 half landing
+	pl.velocity = Vector3.ZERO
+	await get_tree().create_timer(0.4).timeout
+	var hidden := []
+	for fid2 in root.floor_nodes:
+		if not root.floor_nodes[fid2].visible:
+			hidden.append(fid2)
+	_check(hidden.is_empty(),
+			"all floors render from the atrium eye (hidden: %s)" % [hidden])
+	pl.global_position = Vector3(4.3, 3.35, 0.0)  # corridor: streaming back
+	pl.velocity = Vector3.ZERO
+	await get_tree().create_timer(0.4).timeout
+	_check(not root.floor_nodes["F06"].visible,
+			"floor streaming resumes outside the eye")
+	root.show_all_floors = true
+
 	# --- elevator travel across full range
 	root.elevator.travel_to("F06")
 	await _until(func(): return not root.elevator.moving, 25.0)
