@@ -108,25 +108,46 @@ prototype's tone, no heavy DOF during gameplay.
 ## Roadmap
 
 Ordered so each phase is verifiable before the next depends on it.
+Status markers reflect main as of 2026-07-30.
 
-1. **Close the navigability gaps.** The known street-doorway blocker
-   (see `HANDOFF.md`), then a full sweep: every room reachable, proven
-   by physics walks in the test suite rather than by inspection.
-2. **UVs and the material system.** Emit world-consistent UVs from
-   `build_orison.py`; replace flat-color materials with a shared library
-   generated from an extended `material_catalog.json` (texture set paths,
-   tiling scale, texel density per material).
-3. **Texture authoring.** Build the tiling sets and trim sheets. Keep
-   the pipeline deterministic and the sources committed — procedurally
-   generated in Blender/Python is preferred over ad-hoc downloads so a
-   rebuild reproduces byte-identically.
-4. **Aging as masks and decals** driven by the existing seeded pass.
-5. **Lighting.** Fixture inventory with real photometrics, lightmap
-   bake, GI fallback, light-leak pass.
-6. **Dress the remaining twenty-three units and all commons.**
-7. **Performance.** Occluders, HLOD, prop LODs, streaming that replaces
-   the floor-visibility stand-in.
-8. **Atmosphere and post.** Glass, fog, volumetrics, post chain.
+1. **Close the navigability gaps.** DONE. The street-doorway blocker
+   (the B1 bearing wall's above-grade curb) is fixed; a generator-side
+   movement audit gates every build (door swings, L-route reachability
+   into every living area, circulation-space checks), and the test
+   suite physically walks the corridor ring, the relocated A/D bedroom
+   doors, the atrium climb corridor-to-corridor, the street exit to the
+   sidewalk, and the roof monitor door.
+2. **UVs and the material system.** DONE. `build_orison.py` emits
+   deterministic world-projected UVs (per polygon loop, TEXCOORD_0);
+   `art/textures/catalog_mapping.json` is the single mapping authority
+   with build-time validation; floors export GLTF_SEPARATE with one
+   shared, deterministically named texture directory; Godot props load
+   the same maps through `MatLib` (world triplanar at physical scale).
+3. **Texture authoring.** LARGELY DONE: 35 of 39 catalog materials are
+   texture-backed (generated sets + the curated library: face brick,
+   limestone, walnut, upholstery, enamel, brushed steel, porcelain,
+   ceramic tile...). glassish/screen/fx_* stay shader-only by design.
+   Remaining: replace the weaker synthesized sets with authored ones
+   where close-up scrutiny warrants (trim, some fabrics).
+4. **Aging as masks and decals.** PARTLY DONE: tile-global wear is
+   precomposited per material (compose_overlays.py) and spatial wear is
+   placed as decal quads (thresholds, traffic lanes, radiator drips,
+   range grease, the 5D burn). Remaining: convert the aging_pass's
+   thin-box patches (facade brick patches, damp bases) to mask-driven
+   decals for softer edges.
+5. **Lighting.** LARGELY DONE: 128 period fixtures across seven types,
+   LightRig distance budgeting (full/half/off + faux bounce + one real
+   shadow caster), baked contact shadows and wall-base AO, emissive
+   envelopes + halos, tuned fog/glow environment. Remaining: lightmap
+   bake / GI fallback and a light-leak pass are still open.
+6. **Dress the remaining twenty-three units and all commons to 4B's
+   density.** OPEN. Every unit is furnished (parametric library, per
+   resident) but only 4B carries benchmark close-detail (blinds,
+   crockery, desk clutter, bedding detail).
+7. **Performance.** OPEN. Floor-visibility streaming (now atrium-aware)
+   is still the stand-in; occluders, HLOD, prop LODs not started.
+8. **Atmosphere and post.** PARTLY DONE (depth fog, glow, filmic
+   tonemap). Volumetrics, glass treatment and a fuller post chain open.
 
 ## Invariants that survive all of it
 

@@ -104,47 +104,18 @@ Merged in this pass ("century of aging + urban site + gap fixes"):
 - Two new screenshot views: `b_16_street_level`, `b_17_alley_porches`.
 - New walk-test checks: street exit, sidewalk/alley solidity, cabinets.
 
-## ⚠ The one open defect — START HERE
+## Resolved: the street-exit defect (was the one open item)
 
-`WalkTest` fails exactly one check: **"walked out onto the sidewalk"**.
-The player cannot walk from the vestibule out the street door.
-
-Diagnosis so far (all numbers are Godot world coords; z+ = street):
-
-1. ~~Door sweep~~ **fixed**: the street door (`F01_DOOR_06`, hinge at
-   (−0.455, 0, 9.795), opening x −0.455..+0.455) used to swing into the
-   vestibule and shove the player into the corner pocket at
-   (−0.98, 8.78) against the west vestibule wall. The `swing: "out"`
-   plumbing fixed that — verified by probe: player is untouched at
-   (0, 9.0) after the door opens to −100°, leaf tip parks at
-   (−0.61, 10.69) over the stoop.
-2. **Remaining blocker, unidentified**: driving straight from (0, 9.0)
-   toward (0, 12.5), the player steps UP onto something and stalls at
-   (0.0, y=0.388, z=9.493) — front of capsule at z 9.87, i.e. inside
-   the wall band (F01 street wall spans z ≈ 9.59..10.0). Something
-   ~0.375 m tall sits in the threshold. It is NOT the limestone water
-   table (already split, gap x ±0.70 vs opening ±0.455) and NOT the
-   stoop step (outside, z 10.0..10.38, h 0.09, top well below).
-
-Next step, ready to run: `game/tests/street_probe.gd` already contains a
-raycast scan (down-rays every 0.2 m along x=0, z 8.6→12.8) that prints
-each surface height AND the colliding node's name — run
-`godot --headless --path game res://tests/StreetProbe.tscn` and read the
-`PROBE scan` lines to identify the collider. Candidates to check in
-order:
-- the limestone **entrance surround / door-step geometry** emitted by
-  `build_wall` for brick-wall door openings in
-  `art/blender/scripts/build_orison.py` (a sill/threshold block may not
-  be suppressed for `sill: 0.0` doors);
-- an `aging_pass`/`site_pass` furniture box crossing x ±0.455 near
-  Blender y −9.6..−10.4 (grep `building_layout.json` for rects that
-  straddle x=0 in that band);
-- the wall opening cut itself not clearing to floor level in the F01
-  street wall (check the door opening's boolean in the GLB).
-
-After the fix: re-run WalkTest on 4.5 **and** 4.7.1 (fresh `--import`
-each), expect zero failures, delete the probe (`street_probe.gd`,
-`StreetProbe.tscn`), re-render screenshots into `game/docs/screenshots/`.
+The "unidentified ~0.375 m blocker" in the entrance threshold was the
+**B1 bearing wall**: 1927-style walls run continuously past the joist
+zone, so the basement street wall topped out 0.4 m above the F01 slab —
+a solid curb across the doorway, hidden behind the (already fixed) door
+sweep. The wall now stops flush under the F01 slab on the street side
+(`exterior()` in `gen_layout.py`), with the limestone water table
+dressing the exposed base. Verified end-to-end: WalkTest walks the
+vestibule -> street door -> stoop -> sidewalk route, plus the corridor
+ring, the relocated A/D bedroom doors, the atrium climb, and the roof
+monitor door. The street probe has been deleted per plan.
 
 ## Then what
 

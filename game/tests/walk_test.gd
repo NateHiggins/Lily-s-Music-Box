@@ -475,6 +475,24 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 				"walked out onto the sidewalk (z=%.1f)" % pl2.global_position.z)
 	_check(_floor_below(Vector3(0.0, 1.0, 12.5)), "sidewalk is solid")
 	_check(_floor_below(Vector3(0.0, 1.0, -11.5)), "rear alley is solid")
+	# roof egress: the last exterior door — up from the F06 deck through
+	# the monitor door onto the open roof
+	pl2.global_position = Vector3(-0.5, 19.35, 2.6)  # roof-level deck
+	pl2.velocity = Vector3.ZERO
+	var roof_door: DoorProp = null
+	for c5 in root.get_children():
+		if c5 is DoorProp and c5.global_position.y > 19.0 				and absf(c5.global_position.z - 3.25) < 0.5:
+			roof_door = c5
+	_check(roof_door != null, "roof monitor door found")
+	if roof_door and not roof_door.open:
+		roof_door.interact(null)
+		await get_tree().create_timer(0.8).timeout
+	await _goto(pl2, Vector2(-0.85, 4.6), 6.0)
+	pl2.autopilot = Vector3.ZERO
+	_check(pl2.global_position.z > 3.8 and pl2.global_position.y > 19.0,
+			"walked out the monitor door onto the roof (z=%.1f)"
+			% pl2.global_position.z)
+
 	var cab: DoorProp = root.get_node_or_null("F04_CAB_UPPER_1")
 	_check(cab != null, "kitchen cabinet doors spawned")
 	if cab:
