@@ -34,15 +34,17 @@ const ACTIVE_N := 14
 ## balustrade shadows down the stair, furniture contact — and the rest
 ## contribute nothing an eye can find, so they light without casting.
 const SHADOW_N := 8
-## A tile-based mobile GPU pays for a cube shadow far more dearly than a
-## desktop one — six passes over the visible set, with the bandwidth of a
-## tiler behind them. Phones keep the nearest caster for contact shadows
-## and let the rest light without casting; the emissive envelopes, baked
-## contact quads and wall-base AO already carry most of the modelling.
-const SHADOW_N_MOBILE := 1
-## Fewer simultaneous lights too: the per-object cap is lower in practice
-## on mobile drivers, and every extra light is another shader permutation.
-const ACTIVE_N_MOBILE := 8
+## Mobile still pays more for a cube shadow than desktop does — six passes
+## over the visible set, on a tiler's bandwidth — so it runs a smaller
+## budget than the 8/14 above. The FIRST values here (1 caster, 8 lights)
+## were picked from that reasoning alone, with no device to check against,
+## and on real hardware the building read flat and half-lit: one caster is
+## not enough shadow to model a room, and eight lights leaves a corridor's
+## far pools dark. Raised, and made adjustable at runtime so the ceiling
+## comes from a measurement on the phone in your hand rather than from an
+## argument about tilers. Debug panel > Light budget / Shadow budget.
+const SHADOW_N_MOBILE := 4
+const ACTIVE_N_MOBILE := 12
 ## Circulation fixtures beat room fixtures for the budget well before a tie.
 ## The dome at the far end of a corridor is worth more to someone walking it
 ## than a bedroom fixture 5 m away through a wall, so nav distances count for
@@ -60,11 +62,17 @@ const LEVELS := {
 var active_floor := "F01"
 var _accum := 0.0
 ## Resolved once: OS.has_feature is a string lookup, not something to do
-## per fixture per tick.
+## per fixture per tick. Writable so the budget can be tuned on the device
+## it has to run on, with the frame counter visible next to it.
 @onready var _active_budget: int = \
 		ACTIVE_N_MOBILE if OS.has_feature("mobile") else ACTIVE_N
 @onready var _shadow_budget: int = \
 		SHADOW_N_MOBILE if OS.has_feature("mobile") else SHADOW_N
+
+
+func set_budgets(lights: int, shadows: int) -> void:
+	_active_budget = maxi(1, lights)
+	_shadow_budget = clampi(shadows, 0, _active_budget)
 
 
 func _process(delta: float) -> void:

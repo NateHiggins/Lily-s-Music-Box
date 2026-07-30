@@ -85,6 +85,17 @@ func _ready() -> void:
 	seed.add_theme_font_size_override("font_size", 10)
 	seed.pressed.connect(func(): root.virus_director.toggle_intro())
 	_body.add_child(seed)
+	# Tunable on the device that has to run it. The mobile light budget was
+	# originally set from reasoning about tile-based GPUs with no phone to
+	# check against, and it came out too dark. These two sliders sit next to
+	# the frame counter so the ceiling can be found by pushing them until
+	# the fps gives, instead of by argument.
+	_slider("Light budget", 1, 24, root.light_rig._active_budget,
+			func(v): root.light_rig.set_budgets(int(v),
+					root.light_rig._shadow_budget), 1.0)
+	_slider("Shadow budget", 0, 16, root.light_rig._shadow_budget,
+			func(v): root.light_rig.set_budgets(
+					root.light_rig._active_budget, int(v)), 1.0)
 	# Lets the phone HUD be driven and judged on a desktop, where a mouse
 	# drag stands in for a thumb — otherwise the only way to see whether the
 	# controls are reachable is to build an APK first.
@@ -106,7 +117,7 @@ func _ready() -> void:
 
 
 func _slider(label_text: String, lo: float, hi: float, initial: float,
-		on_change: Callable) -> void:
+		on_change: Callable, step := 0.01) -> void:
 	var row := HBoxContainer.new()
 	var l := Label.new()
 	l.text = label_text
@@ -116,7 +127,7 @@ func _slider(label_text: String, lo: float, hi: float, initial: float,
 	var s := HSlider.new()
 	s.min_value = lo
 	s.max_value = hi
-	s.step = 0.01
+	s.step = step
 	s.value = initial
 	s.custom_minimum_size.x = 150
 	s.value_changed.connect(on_change)

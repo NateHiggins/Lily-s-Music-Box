@@ -15,11 +15,14 @@ night.
 **Touch:** a phone HUD auto-enables on mobile — a virtual stick under the
 left thumb (it appears wherever you press, so where your hand lands never
 matters), drag anywhere on the right to look, and a thumb cluster for
-interact, jump, run, crouch and the flashlight. Run and crouch latch
-rather than needing a held thumb. Movement and the buttons drive the same
-named actions the keyboard does, so there is one movement code path rather
-than two that can disagree. Tick **Touch controls** in the debug panel to
-drive it with a mouse on desktop.
+interact, jump, run, crouch and the flashlight. **Run** latches, since it
+is the one held action and pinning a thumb down to jog is miserable;
+everything else is a tap that does what tapping the key does. Movement and
+the buttons drive the same named actions the keyboard does, and the player
+*polls* those actions rather than handling key events — an on-screen
+button sets an action's state without ever producing an InputEvent, so
+anything read from `_unhandled_input` is invisible to a thumb. Tick
+**Touch controls** in the debug panel to drive it with a mouse on desktop.
 
 ![touch HUD](docs/screenshots/b_28_touch_controls.png)
 
@@ -203,7 +206,7 @@ origin (boiler / 4B radiator / F04 corridor light).
 
 ```bash
 godot --headless --path game --import                       # first time
-godot --headless --path game res://tests/WalkTest.tscn      # 117 checks
+godot --headless --path game res://tests/WalkTest.tscn      # 123 checks
 godot --headless --path game res://tests/LightingAudit.tscn # per-room light
 godot --path game res://tests/Screenshot.tscn               # doc renders
 godot --path game --resolution 2560x1440 res://tests/Perf.tscn
@@ -386,6 +389,15 @@ is also why Godot's dependency-based export filters cannot see it. They
 are excluded by name in the preset. If you add a sky texture and reference
 it dynamically, add it to the preset's `exclude_filter` allowlist logic or
 it will be excluded by pattern.
+
+**Tuning the light budget on device.** The mobile budget starts at 12
+lights / 4 shadow casters against the desktop 14 / 8. The first values (8
+and 1) were reasoned about rather than measured and read flat and half-lit
+on real hardware — one caster is not enough shadow to model a room. The
+debug panel carries **Light budget** and **Shadow budget** sliders next to
+the frame counter, so the ceiling can be found by pushing them until the
+fps gives, on the phone in your hand. If you settle on values, move them
+into `SHADOW_N_MOBILE` / `ACTIVE_N_MOBILE` in `light_rig.gd`.
 
 **Not yet proven: whether it RUNS well.** It has never been on a phone.
 The desktop build sits at 112-161 fps on an RTX 4080 at 1440p, which

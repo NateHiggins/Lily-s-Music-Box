@@ -100,7 +100,13 @@ func _button(label: String, action: String, at: Vector2,
 			"centre": at, "radius": r, "finger": -1, "on": false}
 
 
-func _input(event: InputEvent) -> void:
+## Deliberately _unhandled_input, not _input. Godot offers a touch to
+## _input first, then to Controls, then to _unhandled_input — so handling
+## it early and marking it handled swallows every tap the UI needed. On a
+## phone that means the debug panel and the Case 01 call interface simply
+## do not respond, because the movement HUD ate their input. Taking what
+## the UI did not want is the correct end of that chain to sit at.
+func _unhandled_input(event: InputEvent) -> void:
 	if not enabled:
 		return
 	if event is InputEventScreenTouch:

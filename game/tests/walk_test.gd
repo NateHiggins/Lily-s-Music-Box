@@ -253,10 +253,31 @@ func _run() -> void:
 		tc._press(3, run_btn["centre"])
 		tc._release(3)
 		_check(not Input.is_action_pressed("run"), "run latches off again")
+		# The HUD must take only what the UI did not want. Handling touches
+		# in _input instead swallows every tap before Controls see it, and
+		# on a phone the debug panel and the call interface stop responding
+		# entirely — with nothing on screen to suggest why.
+		_check(not tc.has_method("_input"),
+				"the HUD sits on _unhandled_input, behind the UI")
 		tc.set_enabled(false)
 		root.player.touch_input = false
 		_check(Input.get_action_strength("move_forward") == 0.0,
 				"disabling the HUD releases everything it held")
+	# The mobile budget is adjustable at runtime because its first values
+	# were reasoned about rather than measured, and read too dark on a real
+	# device. Clamped so shadows can never exceed the lights that cast them.
+	var rig: LightRig = root.light_rig
+	var keep_a: int = rig._active_budget
+	var keep_s: int = rig._shadow_budget
+	rig.set_budgets(10, 99)
+	_check(rig._shadow_budget == 10,
+			"shadow budget cannot exceed the light budget (%d)"
+			% rig._shadow_budget)
+	rig.set_budgets(0, 0)
+	_check(rig._active_budget >= 1, "light budget never reaches zero")
+	rig.set_budgets(keep_a, keep_s)
+	_check(rig._active_budget == keep_a and rig._shadow_budget == keep_s,
+			"budgets restore")
 
 	# --- south corridor -> elevator hall -> atrium deck -> up the west
 	# flight to the north landing -> east flight onto the F02 deck
