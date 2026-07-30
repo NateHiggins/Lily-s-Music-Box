@@ -156,6 +156,22 @@ func _run() -> void:
 			"2A bedroom reached through its own door (z=%.2f)"
 			% pl.global_position.z)
 
+	# every fixture must hang from its own storey's ceiling — a fixture
+	# low over its floor means it punched through into the level above
+	var lvls2: Array = [-2.8, 0.0, 3.2, 6.4, 9.6, 12.8, 16.0, 19.2]
+	var low_fix := []
+	for f5 in get_tree().get_nodes_in_group("light_fixtures"):
+		var gy: float = f5.global_position.y
+		var own: float = lvls2[0]
+		for lz in lvls2:
+			if lz <= gy + 0.01:
+				own = lz
+		if gy - own < 1.8:
+			low_fix.append(f5.name)
+	_check(low_fix.is_empty(),
+			"all fixtures ceiling-mounted in their own storey (low: %s)"
+			% [low_fix])
+
 	# --- atrium sightline: from a stair landing the open eye shows every
 	# storey, so the whole floor stack must render there
 	root.show_all_floors = false

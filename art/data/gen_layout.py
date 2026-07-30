@@ -1429,8 +1429,12 @@ ROOM_FIXTURE = {
 
 def light_fixture_markers(fl):
     """Every room earns a period fixture at its ceiling. 4B's main room
-    keeps its bespoke ceiling_light; fire-gutted 5D hangs nothing."""
+    keeps its bespoke ceiling_light; fire-gutted 5D hangs nothing.
+    The basement storey is 2.8 m floor-to-floor (2.62 clear), so its
+    fixtures mount 0.4 m lower — at ITS ceiling, not inside the F01
+    slab (they used to poke through and stand on the hallway floors)."""
     z = fl["z"]
+    ceil = 2.56 if fl["id"] == "B1" else 2.96
     # Corridors need a legible pool at every turn, stair/elevator approach,
     # and long run.  The LightRig budgets nearby omnis while emissive fixture
     # bodies keep the complete rhythm visible at distance.
@@ -1442,7 +1446,7 @@ def light_fixture_markers(fl):
             fl["markers"].append({
                 "kind": "flush_dome",
                 "id": "%s_CORRIDOR_DOME_%02d" % (fl["id"], i + 1),
-                "unit": fl["id"], "pos": [cx, cy, z + 2.94],
+                "unit": fl["id"], "pos": [cx, cy, z + ceil - 0.02],
                 "yaw_deg": 0, "network": "electrical"})
     for r in fl["rooms"]:
         fix = ROOM_FIXTURE.get(r["kind"])
@@ -1462,7 +1466,7 @@ def light_fixture_markers(fl):
         fl["markers"].append({
             "kind": fix, "id": "%s_LT_%s" % (r["id"], fix.upper()),
             "unit": unit or fl["id"],
-            "pos": [round(cx, 3), round(cy, 3), z + 2.96],
+            "pos": [round(cx, 3), round(cy, 3), z + ceil],
             "yaw_deg": 0, "network": "electrical"})
 
 
@@ -1787,7 +1791,10 @@ def _validate_placement(layout):
             if kind == "corridor_light":
                 problems.append("%s: legacy floor-level corridor light %s"
                                 % (fl["id"], m["id"]))
-            if kind in ceiling_kinds and not z + 2.70 <= pz <= z + 3.08:
+            # B1 is a 2.8 m storey: its ceiling sits at +2.62, so its
+            # fixtures mount ~0.4 lower than the 3.2 m floors above
+            clo, chi = (2.40, 2.60) if fl["id"] == "B1" else (2.70, 3.08)
+            if kind in ceiling_kinds and not z + clo <= pz <= z + chi:
                 problems.append("%s: ceiling fixture %s at bad height %.2f"
                                 % (fl["id"], m["id"], pz - z))
             if kind == "electrical_junction" and pz < z + 2.6:
