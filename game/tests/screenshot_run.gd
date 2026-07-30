@@ -38,6 +38,10 @@ const SHOTS := [
 	 "look": Vector3(-7.2, 10.7, -7.0), "overlay": false, "infection": 1.0},
 	{"name": "b_15_6a_sacha", "pos": Vector3(-10.3, 17.5, 3.4),
 	 "look": Vector3(-12.9, 17.2, 5.1), "overlay": false, "infection": 0.6},
+	{"name": "b_16_street_level", "pos": Vector3(5.5, 1.7, 13.8),
+	 "look": Vector3(-1.0, 7.0, 9.8), "overlay": false},
+	{"name": "b_17_alley_porches", "pos": Vector3(-6.5, 1.8, -12.6),
+	 "look": Vector3(-9.2, 8.0, -10.2), "overlay": false},
 ]
 
 

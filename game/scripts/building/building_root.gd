@@ -101,6 +101,9 @@ func _build_environment() -> void:
 	## corridors and the atrium eye, soft glow so emissive envelopes and
 	## halos bloom the way bright sources do to a dark-adapted eye.
 	var env := Environment.new()
+	var panorama := load(
+			"res://assets/building/textures/sky/" +
+			"orison_hyperreal_night_panorama_4k.png") as Texture2D
 	env.background_mode = Environment.BG_COLOR
 	env.background_color = Color(0.015, 0.02, 0.035)
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
@@ -117,6 +120,7 @@ func _build_environment() -> void:
 	var we := WorldEnvironment.new()
 	we.environment = env
 	add_child(we)
+	_build_sky_dome(panorama)
 	var moon := DirectionalLight3D.new()
 	moon.name = "ExteriorMoon"
 	moon.light_color = Color(0.65, 0.7, 0.9)
@@ -128,6 +132,46 @@ func _build_environment() -> void:
 	moon.directional_shadow_max_distance = 48.0
 	moon.directional_shadow_fade_start = 0.80
 	add_child(moon)
+
+
+func _build_sky_dome(panorama: Texture2D) -> void:
+	## PanoramaSkyMaterial is unreliable on the Compatibility backend used
+	## by this project. An inward-facing unlit sphere preserves the same
+	## equirectangular projection and leaves environment lighting separate.
+	var shader := Shader.new()
+	shader.code = """
+shader_type spatial;
+render_mode unshaded, cull_front, depth_draw_never, fog_disabled,
+		shadows_disabled;
+uniform sampler2D panorama : source_color, filter_linear_mipmap,
+		repeat_enable;
+varying vec3 local_direction;
+void vertex() {
+	local_direction = VERTEX;
+}
+void fragment() {
+	vec3 direction = normalize(local_direction);
+	float u = atan(direction.z, direction.x) / (2.0 * PI) + 0.5;
+	// The square double-height source uses its midpoint as eye level:
+	// upper hemisphere is sky, lower hemisphere is the surrounding city.
+	float v = acos(clamp(direction.y, -1.0, 1.0)) / PI;
+	ALBEDO = texture(panorama, vec2(u, v)).rgb;
+}
+"""
+	var material := ShaderMaterial.new()
+	material.shader = shader
+	material.set_shader_parameter("panorama", panorama)
+	var sphere := SphereMesh.new()
+	sphere.radius = 120.0
+	sphere.height = 240.0
+	sphere.radial_segments = 96
+	sphere.rings = 48
+	var dome := MeshInstance3D.new()
+	dome.name = "NightSkyDome"
+	dome.mesh = sphere
+	dome.material_override = material
+	dome.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(dome)
 
 
 func _spawn_props() -> void:
@@ -145,6 +189,7 @@ func _spawn_props() -> void:
 				door.width = float(m["w"])
 				door.height = float(m["h"])
 				door.leaf_state = m["leaf"]
+				door.swing_out = String(m.get("swing", "")) == "out"
 				door.name = m["id"]
 				# transform BEFORE add_child: a sync_to_physics leaf keeps
 				# its global transform if the parent moves after entry
@@ -188,5 +233,5 @@ func _update_floor_visibility() -> void:
 	var py := player.global_position.y
 	for fid in floor_nodes:
 		var z: float = layout["meta"]["levels"][fid]
-		floor_nodes[fid].visible = show_all_floors \
+		floor_nodes[fid].visible = show_all_floors or fid == "F01" \
 				or absf(py - z) < 4.9 or (fid == "ROOF" and py > 15.0)
