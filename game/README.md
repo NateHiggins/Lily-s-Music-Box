@@ -90,6 +90,25 @@ towers on neighbouring roofs. Around 1,570 neighbour windows are lit as
 data — one unshaded quad each, no lights — clustered by floor and mostly
 dark, because a facade is not a switchboard.
 
+**After the storm (new):** it has just stopped raining hard. Light
+drizzle falls with a wind that gusts rather than blows steadily, and the
+leaves it brought down are still coming. The road and pavement are wet —
+darker and much smoother than dry, which is what makes a wet street read —
+with puddles pooled along the gutter where a crowned road sends its water,
+leaf litter drifted against the kerb and the building line, and what the
+wind took down still lying where it fell: a branch across the pavement, a
+bin on its side with its lid away from it, a folded-out umbrella in the
+gutter.
+
+Because the Compatibility renderer has no screen-space reflections, the
+wet does not reflect on its own — a dark smooth puddle is just a dark
+patch. So the reflections are *drawn*: an elongated additive smear under
+every lamp and every neon sign, stretched down the pavement the way a real
+reflection smears across ripples. One unlit quad per source, and it is
+what sells the whole effect. Volumetric fog is likewise unavailable there,
+so the drizzle is particles rather than a fog volume, re-centred on the
+player each frame and suppressed indoors.
+
 **Neon (new):** a projecting blade reading ORISON down the pavement in
 pink, and the ground-floor druggist's sign flat on the wall in cyan. Both
 are built from strokes of glass tube on a dark backing panel rather than a

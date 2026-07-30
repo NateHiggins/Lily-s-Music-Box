@@ -54,6 +54,11 @@ resident trust, required conversation insights, and a final integration act.
 - All distortion treatments are independently selectable in the F1 debug panel
   so they can be playtested for fear, readability, motion comfort, and case fit
   before becoming authored manifestations.
+- F4 Chaos Mode makes the distortion lab autonomous. It chooses weighted,
+  non-repeating map failures, blends into each phase, layers a low breathing
+  twitch over static distortions, accelerates in response to player movement,
+  and periodically offers deceptive moments of completely restored normality.
+  Disabling chaos immediately restores every captured canonical transform.
 - Debug controls for Mina's complete lifecycle.
 - Focused automated recurrence test.
 

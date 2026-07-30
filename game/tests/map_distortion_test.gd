@@ -24,6 +24,16 @@ func _ready() -> void:
 	lab.restore()
 	_check(mesh.global_transform.is_equal_approx(canonical),
 			"canonical map transform restores exactly")
+	lab.mode = "none"
+	var low_pick := lab._choose_chaos_mode(0.01)
+	var high_pick := lab._choose_chaos_mode(0.99)
+	_check(low_pick in MapDistortionLab.CHAOS_WEIGHTS,
+			"chaos scheduler selects a valid low-weight phase")
+	_check(high_pick in MapDistortionLab.CHAOS_WEIGHTS,
+			"chaos scheduler selects a valid high-weight phase")
+	lab.mode = "fractured"
+	_check(lab._choose_chaos_mode(0.90) != "fractured",
+			"chaos scheduler avoids repeating the current distortion")
 	print("MAP DISTORTION TEST: %s" %
 			("PASS" if failures == 0 else "FAIL (%d)" % failures))
 	get_tree().quit(failures)

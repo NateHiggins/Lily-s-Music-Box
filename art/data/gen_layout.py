@@ -2155,6 +2155,79 @@ def _city_windows(fb, lights, rng, bid, rect, hgt, storey=3.4):
                     "energy": round(rng.uniform(0.55, 1.5), 2)})
 
 
+## The storm has passed; the street is still wet and still covered in what
+## the wind took down. Everything here is flat geometry on the ground —
+## the moving part (drizzle, gusts, falling leaves) is particles in Godot,
+## because those have to follow the camera and these have to stay put.
+def storm_pass(fl):
+    furn = fl["furniture"]
+    rng = random.Random(1931)
+
+    def fb(bid, rect, z0, h, mat):
+        furn.append({"id": "storm_" + bid, "rect": list(rect), "z0": z0,
+                     "h": h, "mat": mat})
+
+    # Sheets of wet across the road and pavement, at slightly different
+    # heights so they never z-fight each other. Broken up rather than one
+    # even coat: water pools where the camber and the kerb put it.
+    for i in range(26):
+        wx = rng.uniform(-58.0, 58.0)
+        ww = rng.uniform(4.0, 13.0)
+        band = rng.choice([(-18.1, -14.7), (-14.55, -10.1),
+                           (-18.1, -14.7)])
+        wy0 = rng.uniform(band[0], band[1] - 1.2)
+        fb("wet%d" % i, (wx, wy0, wx + ww, wy0 + rng.uniform(1.0, 3.0)),
+           0.004, 0.002, "wet_asphalt")
+    # Puddles proper: the gutter line holds most of them, because that is
+    # where a crowned road sends its water.
+    for i in range(34):
+        gutter = rng.random() < 0.62
+        px = rng.uniform(-58.0, 58.0)
+        if gutter:
+            py = rng.uniform(-14.95, -14.45)
+            pw, pd = rng.uniform(1.4, 4.6), rng.uniform(0.5, 1.1)
+        else:
+            py = rng.uniform(-17.9, -10.4)
+            pw, pd = rng.uniform(0.8, 2.8), rng.uniform(0.5, 1.6)
+        if abs(px) < 2.6 and py > -13.6:
+            continue          # the stoop approach stays walkable and dry
+        fb("pud%d" % i, (px, py, px + pw, py + pd), 0.006, 0.002, "puddle")
+    # Leaf litter, heaviest against the kerb and the building line where
+    # the wind stacked it.
+    for i in range(150):
+        against_wall = rng.random() < 0.45
+        lx = rng.uniform(-58.0, 58.0)
+        ly = rng.uniform(-10.55, -10.05) if against_wall \
+            else rng.uniform(-17.8, -10.2)
+        s = rng.uniform(0.10, 0.22)
+        fb("leaf%d" % i, (lx, ly, lx + s, ly + s * rng.uniform(0.6, 1.0)),
+           0.010, 0.003, "leaf_fall")
+    # Drifts: where litter has actually piled, a leaf is a lump not a decal
+    for i in range(12):
+        dx = rng.uniform(-52.0, 52.0)
+        dy = rng.choice([-14.5, -10.35])
+        fb("drift%d" % i, (dx, dy, dx + rng.uniform(0.9, 2.4),
+           dy + rng.uniform(0.25, 0.5)), 0.008, rng.uniform(0.03, 0.07),
+           "leaf_fall")
+    # What the wind took down: a branch across the pavement, a bin over on
+    # its side with its lid away from it, and a folded-out umbrella in the
+    # gutter. Storm damage is specific or it reads as set dressing.
+    fb("branch", (-9.4, -12.9, -6.2, -12.66), 0.012, 0.10, "timber")
+    fb("branch_fork", (-7.6, -12.85, -6.9, -12.2), 0.012, 0.07, "timber")
+    fb("twig1", (11.2, -11.6, 12.1, -11.5), 0.010, 0.05, "timber")
+    fb("twig2", (-21.4, -13.2, -20.5, -13.05), 0.010, 0.05, "timber")
+    fb("bin_down", (18.6, -13.4, 19.7, -12.35), 0.0, 0.62, "metal")
+    fb("bin_lid", (20.3, -12.9, 20.95, -12.3), 0.008, 0.05, "metal")
+    fb("umbrella_canopy", (-16.8, -14.9, -15.7, -14.35), 0.01, 0.16,
+       "fabric_cool")
+    fb("umbrella_shaft", (-15.75, -14.66, -14.9, -14.6), 0.02, 0.03,
+       "metal")
+    # Wet still coming off the building: a dark run below each downpipe
+    for i, dx in enumerate((-13.4, 13.2)):
+        fb("downrun%d" % i, (dx, -10.5, dx + 0.5, -10.05), 0.005, 0.002,
+           "wet_asphalt")
+
+
 def street_lamp_markers(fl):
     """The lamps were geometry with nothing inside them, so the pavement
     they stand on was as black as the road. Sodium heads at 2000 K, which
@@ -3090,6 +3163,14 @@ MATERIAL_CATALOG = {
     # planter clay and potting soil (plant realism pass)
     "terracotta": {"base_color": [0.66, 0.38, 0.26, 1.0], "roughness": 0.72},
     "soil": {"base_color": [0.20, 0.15, 0.11, 1.0], "roughness": 0.95},
+    # after the storm: standing water is darker AND smoother than what it
+    # lies on, which is the whole reason a wet street reads as wet — it
+    # stops scattering and starts reflecting the lamps and the neon
+    "wet_asphalt": {"base_color": [0.09, 0.09, 0.10, 1.0],
+                    "roughness": 0.22},
+    "puddle": {"base_color": [0.04, 0.045, 0.055, 1.0], "roughness": 0.05,
+               "metallic": 0.35},
+    "leaf_fall": {"base_color": [0.42, 0.28, 0.13, 1.0], "roughness": 0.65},
 }
 
 
@@ -3106,6 +3187,7 @@ def main():
     radiator_pipe_pass(floors)
     aging_pass(floors)
     site_pass(floors[1])  # the block lives with F01
+    storm_pass(floors[1])
     street_lamp_markers(floors[1])
     layout = {
         "meta": {"name": "Orison Apartments", "footprint": [28.0, 20.0],

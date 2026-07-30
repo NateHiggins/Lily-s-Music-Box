@@ -8,6 +8,18 @@ const MODES := [
 	"none", "upside_down", "folded", "accordion", "dollhouse",
 	"fractured", "breathing"
 ]
+const CHAOS_WEIGHTS := {
+	"upside_down": 0.12, "folded": 0.20, "accordion": 0.18,
+	"dollhouse": 0.12, "fractured": 0.22, "breathing": 0.16,
+}
+const CHAOS_MESSAGES := [
+	"THE FLOOR HAS RECONSIDERED",
+	"COLLISION REMEMBERS ANOTHER BUILDING",
+	"PLEASE REMAIN GEOMETRIC",
+	"MAP REVISION IN PROGRESS",
+	"YOUR LOCATION HAS BEEN APPEALED",
+	"THIS HALLWAY IS TEMPORARILY METAPHORICAL",
+]
 
 var building: Node3D
 var mode := "none"
@@ -15,6 +27,13 @@ var _floor_id := ""
 var _canonical: Dictionary = {}
 var _pivot := Vector3.ZERO
 var _announcement: Label
+var chaos_enabled := false
+var _chaos_clock := 0.0
+var _chaos_duration := 2.5
+var _chaos_strength := 1.0
+var _chaos_target := 1.0
+var _chaos_phase := 0
+var _rng := RandomNumberGenerator.new()
 
 
 func setup(root: Node3D) -> void:
@@ -23,6 +42,7 @@ func setup(root: Node3D) -> void:
 
 func _ready() -> void:
 	add_to_group("map_distortion_lab")
+	_rng.randomize()
 	_build_announcement()
 
 
@@ -40,6 +60,8 @@ func _build_announcement() -> void:
 
 
 func cycle_mode() -> void:
+	if chaos_enabled:
+		set_chaos(false)
 	var next := (MODES.find(mode) + 1) % MODES.size()
 	set_mode(MODES[next])
 
@@ -52,6 +74,31 @@ func set_mode(next_mode: String) -> void:
 	if mode != "none":
 		_capture_active_floor()
 	_announce("MAP MEMORY: " + mode.replace("_", " ").to_upper())
+
+
+func toggle_chaos() -> void:
+	set_chaos(not chaos_enabled)
+
+
+func set_chaos(on: bool) -> void:
+	if chaos_enabled == on:
+		return
+	chaos_enabled = on
+	restore()
+	if on:
+		_chaos_clock = 0.0
+		_chaos_duration = 0.6
+		_chaos_strength = 0.0
+		_chaos_target = 1.0
+		_chaos_phase = 0
+		mode = "breathing"
+		_capture_active_floor()
+		_announce("CHAOS MODE: REALITY AUTOPILOT ENGAGED")
+	else:
+		mode = "none"
+		_chaos_strength = 1.0
+		_chaos_target = 1.0
+		_announce("CHAOS MODE: CANONICAL MAP RESTORED")
 
 
 func restore() -> void:
@@ -70,10 +117,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("distort_map"):
 		cycle_mode()
 		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("chaos_mode"):
+		toggle_chaos()
+		get_viewport().set_input_as_handled()
 
 
-func _process(_delta: float) -> void:
-	if mode == "none" or building == null or building.player == null:
+func _process(delta: float) -> void:
+	if building == null or building.player == null:
+		return
+	if chaos_enabled:
+		_update_chaos(delta)
+	if mode == "none":
 		return
 	var active := _active_floor_id()
 	if active != _floor_id:
@@ -83,11 +137,58 @@ func _process(_delta: float) -> void:
 	var time := Time.get_ticks_msec() / 1000.0
 	for mesh in _canonical:
 		if is_instance_valid(mesh):
-			mesh.global_transform = _distorted(
-					_canonical[mesh], mesh, time)
+			var canonical: Transform3D = _canonical[mesh]
+			var altered := _distorted(canonical, mesh, time)
+			mesh.global_transform = canonical.interpolate_with(
+					altered, _chaos_strength if chaos_enabled else 1.0)
 	if _announcement.modulate.a > 0.0:
 		_announcement.modulate.a = maxf(
 				0.0, _announcement.modulate.a - 0.008)
+
+
+func _update_chaos(delta: float) -> void:
+	_chaos_clock += delta
+	var player_speed: float = building.player.velocity.length()
+	var movement_pressure := clampf(player_speed / 4.6, 0.0, 1.0)
+	_chaos_target = 0.62 + movement_pressure * 0.38
+	_chaos_strength = move_toward(
+			_chaos_strength, _chaos_target, delta * 0.72)
+	if _chaos_clock < _chaos_duration:
+		return
+	_chaos_clock = 0.0
+	_chaos_phase += 1
+	# Every fifth phase offers a short, suspicious calm.
+	if _chaos_phase % 5 == 0:
+		_switch_chaos_map("none")
+		_chaos_duration = _rng.randf_range(0.65, 1.35)
+		_chaos_strength = 0.0
+		_announce("REALITY APPEARS NORMAL")
+		return
+	_switch_chaos_map(_choose_chaos_mode())
+	_chaos_duration = _rng.randf_range(1.8, 4.8) \
+			- movement_pressure * 0.8
+	_chaos_strength = 0.05
+	_announce(CHAOS_MESSAGES[_rng.randi_range(
+			0, CHAOS_MESSAGES.size() - 1)])
+
+
+func _choose_chaos_mode(sample := -1.0) -> String:
+	var roll: float = sample if sample >= 0.0 else _rng.randf()
+	var cursor := 0.0
+	for candidate in CHAOS_WEIGHTS:
+		cursor += float(CHAOS_WEIGHTS[candidate])
+		if roll <= cursor and candidate != mode:
+			return candidate
+	var alternatives := CHAOS_WEIGHTS.keys()
+	alternatives.erase(mode)
+	return alternatives[_rng.randi_range(0, alternatives.size() - 1)]
+
+
+func _switch_chaos_map(next_mode: String) -> void:
+	restore()
+	mode = next_mode
+	if mode != "none":
+		_capture_active_floor()
 
 
 func _capture_active_floor() -> void:
@@ -169,6 +270,13 @@ func _distorted(original: Transform3D, mesh: MeshInstance3D,
 					relative.z * (2.0 - pulse))
 			result.basis = original.basis.scaled(
 					Vector3(pulse, 1.0 / pulse, 2.0 - pulse))
+	if chaos_enabled and mode not in ["none", "breathing"]:
+		var chaos_phase := float(abs(hash(mesh.name)) % 31) * 0.11
+		var twitch := sin(time * 2.4 + chaos_phase) * 0.035
+		result.origin += relative.normalized() * twitch
+		result.basis = result.basis.scaled(Vector3(
+				1.0 + twitch, 1.0 - twitch * 0.6,
+				1.0 + twitch * 0.3))
 	return result
 
 

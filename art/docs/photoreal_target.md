@@ -202,7 +202,14 @@ Status markers reflect main as of 2026-07-30.
    light the pavement; and ~1,570 neighbour windows are lit as data rather
    than as lights. Neon on the street elevation (blade + tenant sign) is a
    conductor body that surges on the motif and drops letters at high
-   infection.
+   infection. Weather is in as an after-the-storm state: light gusting
+   wind, drizzle, falling leaves, wet road and pavement with gutter
+   puddles and storm debris. Volumetrics and SSR are both unavailable on
+   Compatibility, so the drizzle is particles and the wet REFLECTS by
+   drawing the reflection — an additive smear under each lamp and sign,
+   which is the technique that actually sells it. Neighbour windows now
+   carry sashes and mullions, batched into a handful of meshes rather than
+   one draw call each, so the detail cost less than the flat version did.
 
 ## Invariants that survive all of it
 

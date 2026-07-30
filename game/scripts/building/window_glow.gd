@@ -62,34 +62,111 @@ func build(layout: Dictionary) -> int:
 		# The neighbours get the same treatment from generator data. A dark
 		# city around a lit building reads as a film set with one dressed
 		# facade; these are what put the Orison inside somewhere.
-		for s in fl.get("site_lights", []):
-			_site_light(fl, s)
+		_site_lights(fl)
 	return _lit
 
 
-func _site_light(fl: Dictionary, s: Dictionary) -> void:
-	var p: Array = s["pos"]
-	var size: Array = s["size"]
-	var warm: bool = bool(s.get("warm", true))
-	var tone := Color(1.0, 0.82, 0.56) if warm else Color(0.74, 0.84, 0.96)
+## Neighbour windows, framed and BATCHED.
+##
+## The first version was one unshaded quad per window: 1,570 flat lit
+## rectangles, 1,570 draw calls, and no sash — which is fine at the far end
+## of a street and obviously wrong from across the road. Giving each one a
+## frame and a pair of mullions would have quadrupled that count.
+##
+## So they are welded instead. Every pane in an intensity bucket becomes
+## one mesh, and every frame bar in the whole city becomes another: the
+## detail arrives and the cost drops by two orders of magnitude at the same
+## time. Buckets exist only because emissive strength has to live on the
+## material, so windows that share a brightness can share a surface.
+const TONE_WARM := Color(1.0, 0.82, 0.56)
+const TONE_COOL := Color(0.74, 0.84, 0.96)
+const BUCKETS := 4          # intensity steps per tone
+const FRAME := 0.055        # sash and mullion thickness
+
+
+func _site_lights(fl: Dictionary) -> void:
+	var lights: Array = fl.get("site_lights", [])
+	if lights.is_empty():
+		return
+	var panes := {}                       # bucket key -> SurfaceTool
+	var bars := SurfaceTool.new()
+	bars.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var fz: float = float(fl["z"])
+	for s in lights:
+		var p: Array = s["pos"]
+		var size: Array = s["size"]
+		var w: float = float(size[0])
+		var h: float = float(size[1])
+		var energy: float = float(s.get("energy", 1.0))
+		var warm: bool = bool(s.get("warm", true))
+		# quantise so a few hundred windows collapse onto a few surfaces
+		var step: int = clampi(int(round(energy / 1.5 * BUCKETS)), 1, BUCKETS)
+		var key: String = "%s%d" % ["w" if warm else "c", step]
+		if not panes.has(key):
+			var st := SurfaceTool.new()
+			st.begin(Mesh.PRIMITIVE_TRIANGLES)
+			panes[key] = st
+		var xf := Transform3D(
+				Basis(Vector3.UP, deg_to_rad(-float(s.get("yaw", 0)))),
+				GameBoot.b2g([float(p[0]), float(p[1]), float(p[2]) + fz]))
+		_quad(panes[key], xf, 0.0, 0.0, w, h, 0.0)
+		# sash: a border and a cross, standing a few millimetres proud so
+		# they read against the pane instead of z-fighting it
+		var d := 0.012
+		_quad(bars, xf, 0.0, (h - FRAME) * 0.5, w, FRAME, d)
+		_quad(bars, xf, 0.0, -(h - FRAME) * 0.5, w, FRAME, d)
+		_quad(bars, xf, -(w - FRAME) * 0.5, 0.0, FRAME, h, d)
+		_quad(bars, xf, (w - FRAME) * 0.5, 0.0, FRAME, h, d)
+		_quad(bars, xf, 0.0, 0.0, w, FRAME * 0.8, d)
+		_quad(bars, xf, 0.0, 0.0, FRAME * 0.8, h, d)
+		_lit += 1
+	for key in panes:
+		var warm: bool = key.begins_with("w")
+		var step: int = int(key.substr(1))
+		var tone: Color = TONE_WARM if warm else TONE_COOL
+		var mat := StandardMaterial3D.new()
+		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		mat.albedo_color = tone
+		mat.emission_enabled = true
+		mat.emission = tone
+		mat.emission_energy_multiplier = float(step) / BUCKETS * 1.5
+		mat.cull_mode = BaseMaterial3D.CULL_BACK
+		_batch(panes[key], mat, "SitePanes_" + key)
+	var fm := StandardMaterial3D.new()
+	fm.albedo_color = Color(0.05, 0.05, 0.06)
+	fm.roughness = 0.85
+	fm.cull_mode = BaseMaterial3D.CULL_BACK
+	_batch(bars, fm, "SiteSashes")
+
+
+## One rectangle in the frame's local plane, offset out along its normal.
+func _quad(st: SurfaceTool, xf: Transform3D, cx: float, cy: float,
+		w: float, h: float, out: float) -> void:
+	var hw := w * 0.5
+	var hh := h * 0.5
+	var a := xf * Vector3(cx - hw, cy - hh, out)
+	var b := xf * Vector3(cx + hw, cy - hh, out)
+	var c := xf * Vector3(cx + hw, cy + hh, out)
+	var d := xf * Vector3(cx - hw, cy + hh, out)
+	var n := (xf.basis * Vector3.FORWARD).normalized() * -1.0
+	# Wound so the lit side faces OUT of the facade. Reversed, back-face
+	# culling swallows every pane and the city goes dark while still
+	# reporting the same number of lit windows.
+	for v in [a, c, b, a, d, c]:
+		st.set_normal(n)
+		st.add_vertex(v)
+
+
+func _batch(st: SurfaceTool, mat: StandardMaterial3D, node_name: String) -> void:
+	var mesh := st.commit()
+	if mesh == null or mesh.get_surface_count() == 0:
+		return
 	var mi := MeshInstance3D.new()
-	var quad := QuadMesh.new()
-	quad.size = Vector2(float(size[0]), float(size[1]))
-	mi.mesh = quad
-	var mat := StandardMaterial3D.new()
-	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	mat.albedo_color = tone
-	mat.emission_enabled = true
-	mat.emission = tone
-	mat.emission_energy_multiplier = float(s.get("energy", 1.0))
-	mat.cull_mode = BaseMaterial3D.CULL_BACK
+	mi.name = node_name
+	mi.mesh = mesh
 	mi.material_override = mat
 	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	mi.position = GameBoot.b2g([float(p[0]), float(p[1]),
-			float(p[2]) + float(fl["z"])])
-	mi.rotation.y = deg_to_rad(-float(s.get("yaw", 0)))
 	add_child(mi)
-	_lit += 1
 
 
 func _window(fl: Dictionary, rooms: Array, w: Dictionary,

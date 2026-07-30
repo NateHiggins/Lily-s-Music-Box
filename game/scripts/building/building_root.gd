@@ -75,6 +75,7 @@ var floor_nodes: Dictionary = {}
 var occluders: OrisonOccluders
 var window_glow: OrisonWindowGlow
 var touch: TouchControls
+var weather: WeatherFX
 var mina_manifestation: MinaCaptionManifestation
 var mina_gameplay: MinaCaseGameplay
 var objective_tracker: ObjectiveTracker
@@ -142,6 +143,11 @@ func _ready() -> void:
 	var anomaly: DoorAnomalyProp = get_node_or_null("F04_B_DOOR_ANOMALY")
 	if anomaly:
 		anomaly.room0 = room0
+	weather = WeatherFX.new()
+	weather.name = "WeatherFX"
+	weather.setup(player)
+	add_child(weather)
+	weather.build_reflections(layout)
 	touch = TouchControls.new()
 	touch.name = "TouchControls"
 	add_child(touch)
@@ -418,9 +424,18 @@ func _spawn_npc_placeholders() -> void:
 		var slot: float = float(spec.get("slot", 0))
 		var x := lerpf(float(rect[0]), float(rect[2]), 0.52) + slot * 0.48
 		var y := lerpf(float(rect[1]), float(rect[3]), 0.58)
-		var npc := NPCPlaceholder.new()
-		npc.setup(spec.name, "res://assets/npcs/%s.png" % spec.sprite,
-				spec.sprite, unit)
+		var npc: Node3D
+		if spec.sprite == "mina_vale":
+			var animated := AnimatedResident.new()
+			animated.setup(spec.name, spec.sprite, unit,
+					"res://assets/characters/mina/mina_vale_rigged.glb")
+			npc = animated
+		else:
+			var placeholder := NPCPlaceholder.new()
+			placeholder.setup(spec.name,
+					"res://assets/npcs/%s.png" % spec.sprite,
+					spec.sprite, unit)
+			npc = placeholder
 		npc.position = GameBoot.b2g([x, y, float(floor_data.z) + 0.03])
 		var parent: Node = floor_nodes.get(floor_id, self)
 		parent.add_child(npc)

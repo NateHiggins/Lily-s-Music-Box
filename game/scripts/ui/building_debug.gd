@@ -138,6 +138,12 @@ func _ready() -> void:
 	distortion_title.add_theme_font_size_override("font_size", 10)
 	distortion_title.modulate = Color(0.62, 0.82, 0.92)
 	_body.add_child(distortion_title)
+	var chaos := CheckBox.new()
+	chaos.text = "Chaos mode (F4)"
+	chaos.add_theme_font_size_override("font_size", 10)
+	chaos.toggled.connect(func(on):
+		root.map_distortion_lab.set_chaos(on))
+	_body.add_child(chaos)
 	var distortion_grid := GridContainer.new()
 	distortion_grid.columns = 4
 	_body.add_child(distortion_grid)
@@ -171,7 +177,7 @@ func _ready() -> void:
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE)
 	_body.add_child(touch)
 	var hint := Label.new()
-	hint.text = "WASD move · Shift run · C crouch · E interact\nL flashlight · V noclip · F2 intro · F3 distort map · Esc release mouse"
+	hint.text = "WASD move · Shift run · C crouch · E interact\nL flashlight · V noclip · F2 intro · F3 distort · F4 chaos · Esc release mouse"
 	hint.add_theme_font_size_override("font_size", 10)
 	hint.modulate = Color(0.7, 0.7, 0.75)
 	_body.add_child(hint)
