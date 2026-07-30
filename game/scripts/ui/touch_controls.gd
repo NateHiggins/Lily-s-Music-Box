@@ -78,12 +78,17 @@ func _layout() -> void:
 	var bottom := _screen.y - r * 1.6
 	# Thumb-reachable cluster: interact and jump where the thumb rests,
 	# the modal toggles stacked above them.
+	# Only RUN latches. It is the one HELD action — the player polls
+	# is_action_pressed for it — and pinning a thumb down to jog is
+	# miserable. Crouch and the flashlight are toggles the player flips on
+	# the press edge, so a plain tap does exactly what tapping the key
+	# does; latching those would take two taps to mean one.
 	_buttons = [
 		_button("E", "interact", Vector2(right, bottom), false),
 		_button("JUMP", "jump", Vector2(right - gap, bottom), false),
 		_button("RUN", "run", Vector2(right, bottom - gap), true),
-		_button("CROUCH", "crouch", Vector2(right - gap, bottom - gap), true),
-		_button("LAMP", "flashlight", Vector2(right, bottom - gap * 2.0), true),
+		_button("CROUCH", "crouch", Vector2(right - gap, bottom - gap), false),
+		_button("LAMP", "flashlight", Vector2(right, bottom - gap * 2.0), false),
 	]
 	_panel.queue_redraw()
 

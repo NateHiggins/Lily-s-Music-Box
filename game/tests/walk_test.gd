@@ -466,6 +466,50 @@ func _door_checks() -> void:
 		_check(not closed.open, "door closes and latches")
 	else:
 		_check(false, "found a closed door to test")
+
+	# --- E actually opens a door FROM THE PLAYER. Everything above calls
+	# interact() straight on the prop, which proves the door works and says
+	# nothing about whether a keypress reaches it. That gap hid a real bug:
+	# the on-screen button sets the action through Input.action_press(),
+	# which never manufactures an InputEvent, so an _unhandled_input
+	# handler is unreachable from a touchscreen and E did nothing on the
+	# phone build. This drives the same route a player's finger does.
+	var target: DoorProp = null
+	for c5 in root.get_children():
+		if c5 is DoorProp and c5.leaf_state == "closed" and not c5.open:
+			target = c5
+			break
+	if target:
+		var pl3: PlayerController = root.player
+		# stand square to the leaf, a pace back, eyes on the middle of it
+		var face: Vector3 = target.global_transform.basis * Vector3(0, 0, 1)
+		var mid: Vector3 = target.global_position \
+				+ target.global_transform.basis \
+				* Vector3(target.width * 0.5, target.height * 0.5, 0.0)
+		pl3.global_position = mid + face * 1.1 - Vector3(0, 1.62, 0)
+		pl3.velocity = Vector3.ZERO
+		await get_tree().physics_frame
+		pl3.camera.look_at(mid, Vector3.UP)
+		# The prompt is suppressed unless the pointer is captured, which
+		# never happens headlessly OR on a phone — so this checks the touch
+		# path, where touch_input is what unlocks it. Without that flag the
+		# phone build would never tell you an interaction exists.
+		pl3.touch_input = true
+		# _update_prompt runs inside _process, so the camera has to have
+		# been re-aimed for a full frame before the label means anything.
+		for _i in 3:
+			await get_tree().process_frame
+		_check(pl3._prompt.text.contains("[E]"),
+				"the door is under the crosshair (prompt: '%s')"
+				% pl3._prompt.text)
+		pl3.touch_input = false
+		Input.action_press("interact")
+		await get_tree().process_frame
+		Input.action_release("interact")
+		await get_tree().create_timer(0.9).timeout
+		_check(target.open, "pressing E opens the door the player faces")
+	else:
+		_check(false, "found a closed door to face")
 	if locked:
 		locked.interact(null)
 		await get_tree().create_timer(0.4).timeout

@@ -100,6 +100,25 @@ func _update_prompt() -> void:
 
 func _process(_delta: float) -> void:
 	_update_prompt()
+	if call_locked:
+		return
+	# POLLED, not event-driven. An on-screen button presses an action
+	# through Input.action_press(), which sets the action's state but never
+	# manufactures an InputEvent — so anything handled in _unhandled_input
+	# is unreachable from a touchscreen. Interact, the flashlight and
+	# crouch were all in that dead zone: the HUD button lit up and the
+	# game ignored it. Polling is the one path both a key and a thumb
+	# travel, exactly like movement already does.
+	if Input.is_action_just_pressed("interact"):
+		_try_interact()
+	if Input.is_action_just_pressed("flashlight"):
+		flashlight.visible = not flashlight.visible
+	if Input.is_action_just_pressed("noclip"):
+		noclip = not noclip
+		collision_layer = 0 if noclip else 1
+		collision_mask = 0 if noclip else 1
+	if Input.is_action_just_pressed("crouch"):
+		_set_crouched(not crouched)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -112,16 +131,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	elif event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	elif event.is_action_pressed("flashlight"):
-		flashlight.visible = not flashlight.visible
-	elif event.is_action_pressed("noclip"):
-		noclip = not noclip
-		collision_layer = 0 if noclip else 1
-		collision_mask = 0 if noclip else 1
-	elif event.is_action_pressed("crouch"):
-		_set_crouched(not crouched)
-	elif event.is_action_pressed("interact"):
-		_try_interact()
 
 
 ## One look path for both a mouse and a dragged thumb, so the two can never
