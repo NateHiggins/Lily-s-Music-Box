@@ -1644,6 +1644,23 @@ def build_floor(floor_id):
              "riser": "H-A", "unit": "LOBBY"},
             {"kind": "mailboxes", "id": "F01_MAILWALL", "pos": [4.4, -9.3, z],
              "yaw_deg": 0},
+            # Neon on the street elevation. The blade projects at right
+            # angles to the wall so it is legible coming DOWN the pavement
+            # rather than only from across the road, which is the whole
+            # point of a blade sign. It hangs off the pier east of the
+            # entrance, clear of the doorway and the water table.
+            # yaw 0 turns the lit face toward the street; 180 would read
+            # the lettering backwards through the lobby wall.
+            {"kind": "neon_sign", "id": "F01_NEON_BLADE",
+             "pos": [3.35, -10.42, z + 4.30], "yaw_deg": 0,
+             "text": "ORISON", "vertical": True, "network": "electrical",
+             "tint": [1.0, 0.32, 0.44]},
+            # ...and the ground-floor tenant's own sign, flat on the wall
+            # west of the door: a druggist's, because every block had one.
+            {"kind": "neon_sign", "id": "F01_NEON_TENANT",
+             "pos": [-6.4, -10.12, z + 3.15], "yaw_deg": 0,
+             "text": "DRUGS", "vertical": False, "network": "electrical",
+             "tint": [0.34, 0.86, 1.0]},
         ]
         # limestone entrance surround + step, street side
         for fid_, rect, z0_, hh in (
@@ -1977,47 +1994,266 @@ def aging_pass(floors):
 ## The building's block: a crowded 2027 street on limited land. Sidewalk
 ## and stoop out front, service alley behind serving the porches and coal
 ## chute, tight gangways between the neighbors' party walls.
+## Extent of the built block. The street used to stop at x = +-20 and the
+## vista ran straight out to open sky with the sky dome's distant city
+## sitting at the wrong elevation — the single loudest tell that this was a
+## set and not a city. The block now runs far enough that the sightline
+## dies in masonry long before it reaches the edge.
+SITE_X = 62.0
+SITE_S = -34.0     # far kerb line, south
+SITE_N = 24.0      # back of the alley blocks, north
+
+## Street-wall blocks: (id, rect, height). Heights step irregularly, since
+## a row of equal parapets reads as one extruded shape rather than as
+## separate buildings put up in different decades.
+CITY_BLOCKS = [
+    # north side (our side), running west from the Orison
+    ("nbr_w", (-19.6, -12.0, -15.2, 12.0), 12.8),
+    ("nw1", (-27.4, -14.2, -20.2, 11.0), 16.4),
+    ("nw2", (-36.0, -14.2, -28.0, 9.5), 10.9),
+    ("nw3", (-47.5, -14.2, -36.6, 12.0), 19.2),
+    ("nw4", (-58.0, -14.2, -48.1, 10.0), 13.6),
+    # north side, running east
+    ("nbr_e", (15.2, -12.0, 19.6, 12.0), 12.8),
+    ("ne1", (20.2, -14.2, 28.8, 11.5), 14.7),
+    ("ne2", (29.4, -14.2, 37.0, 9.0), 21.5),
+    ("ne3", (37.6, -14.2, 48.4, 12.0), 11.2),
+    ("ne4", (49.0, -14.2, 58.0, 10.5), 17.8),
+    # south side of the street, opposite
+    ("nbr_s1", (-20.0, -24.0, -7.0, -18.2), 10.4),
+    ("nbr_s2", (-5.6, -24.0, 6.4, -18.2), 15.8),
+    ("nbr_s3", (7.8, -24.0, 20.0, -18.2), 8.6),
+    ("sw1", (-33.0, -25.5, -20.6, -18.2), 14.2),
+    ("sw2", (-46.0, -24.0, -33.6, -18.2), 9.8),
+    ("sw3", (-58.0, -26.5, -46.6, -18.2), 18.5),
+    ("se1", (20.6, -24.0, 32.0, -18.2), 12.6),
+    ("se2", (32.6, -26.0, 44.5, -18.2), 20.4),
+    ("se3", (45.1, -24.0, 58.0, -18.2), 10.2),
+    # the vista stops: masses across both ends of the street, as if the
+    # road bends behind them. Without these you see sky down the pavement.
+    ("end_w", (-62.0, -26.0, -58.6, 14.0), 24.6),
+    ("end_e", (58.6, -26.0, 62.0, 14.0), 22.3),
+    # behind the alley
+    ("back_w", (-30.0, 16.6, -12.0, 23.0), 15.4),
+    ("back_e", (12.0, 16.6, 31.0, 23.0), 18.9),
+]
+
+## A second ring, further out and much taller. The street-wall row above
+## closes the view at pavement level, but the roof is walkable and the
+## upper floors have windows — from either you look straight over it into
+## the band of black between the block's edge and the sky dome's distant
+## city. These fill that band. They are never approached, so they are
+## single boxes with lit windows and nothing else.
+FAR_SKYLINE = [
+    ("far_nw", (-96.0, 30.0, -64.0, 58.0), 38.0),
+    ("far_n", (-26.0, 34.0, 14.0, 62.0), 44.0),
+    ("far_ne", (44.0, 28.0, 78.0, 56.0), 33.5),
+    ("far_e", (74.0, -18.0, 104.0, 16.0), 41.0),
+    ("far_se", (52.0, -68.0, 86.0, -40.0), 29.5),
+    ("far_s", (-18.0, -78.0, 22.0, -46.0), 46.5),
+    ("far_sw", (-88.0, -62.0, -54.0, -38.0), 31.0),
+    ("far_w", (-108.0, -20.0, -78.0, 18.0), 36.5),
+]
+
+
 def site_pass(fl):
+    """The block the Orison stands in. Everything here is scenery — it
+    exists to close sightlines and to make the building feel surrounded,
+    so it is deliberately cheap: boxes, and lit window rectangles that are
+    data rather than lights."""
     furn = fl["furniture"]
+    rng = random.Random(1927)
+    lights = []
 
     def fb(bid, rect, z0, h, mat):
         furn.append({"id": "site_" + bid, "rect": list(rect), "z0": z0,
                      "h": h, "mat": mat})
 
-    fb("ground", (-20.0, -24.0, 20.0, 16.0), -0.30, 0.28, "asphalt")
-    fb("sidewalk", (-20.0, -14.6, 20.0, -10.0), -0.02, 0.03, "concrete")
-    fb("curb", (-20.0, -14.75, 20.0, -14.60), -0.02, 0.14, "concrete")
+    fb("ground", (-112.0, -82.0, 108.0, 66.0), -0.30, 0.28, "asphalt")
+    fb("sidewalk", (-SITE_X, -14.6, SITE_X, -10.0), -0.02, 0.03, "concrete")
+    fb("sidewalk_s", (-SITE_X, -18.2, SITE_X, -17.4), -0.02, 0.03,
+       "concrete")
+    fb("curb", (-SITE_X, -14.75, SITE_X, -14.60), -0.02, 0.14, "concrete")
+    fb("curb_s", (-SITE_X, -17.55, SITE_X, -17.40), -0.02, 0.14, "concrete")
     fb("alley", (-20.0, 10.0, 20.0, 13.4), -0.02, 0.015, "concrete")
-    for bid, rect, hgt in (("nbr_w", (-19.6, -12.0, -15.2, 12.0), 12.8),
-                           ("nbr_e", (15.2, -12.0, 19.6, 12.0), 12.8),
-                           ("nbr_s1", (-20.0, -24.0, -7.0, -18.2), 10.4),
-                           ("nbr_s2", (-5.6, -24.0, 6.4, -18.2), 15.8),
-                           ("nbr_s3", (7.8, -24.0, 20.0, -18.2), 8.6),
-                           ("garages", (-16.0, 13.4, 16.0, 16.0), 3.0)):
+    fb("garages", (-16.0, 13.4, 16.0, 16.0), 0.0, 3.0, "common_brick")
+    # centre line, so the road reads as a road
+    for i in range(int(SITE_X * 2 / 3.0)):
+        cx = -SITE_X + i * 3.0
+        fb("centreline%d" % i, (cx, -16.05, cx + 1.6, -15.95), 0.0, 0.006,
+           "linen")
+
+    for bid, rect, hgt in CITY_BLOCKS:
         fb(bid, rect, 0.0, hgt, "common_brick")
-    for i in range(10):
-        x = -18.6 + (i % 5) * 1.9
-        fb("nwin_w%d" % i, (-15.19, -9.0 + (i % 5) * 3.7, -15.15,
-           -8.0 + (i % 5) * 3.7), 1.2 + (i // 5) * 3.4, 1.3, "glassish")
-        fb("nwin_e%d" % i, (15.15, -9.0 + (i % 5) * 3.7, 15.19,
-           -8.0 + (i % 5) * 3.7), 1.2 + (i // 5) * 3.4, 1.3, "glassish")
-        fb("nwin_s%d" % i, (x, -18.19, x + 0.9, -18.15),
-           1.5 + (i // 5) * 4.0, 1.4, "glassish")
-    for i, lx in enumerate((-9.0, 6.0)):
+        # a parapet lip catches the moon and stops every roof reading as a
+        # clean extrusion
+        x0, y0, x1, y1 = rect
+        fb(bid + "_cap", (x0 - 0.12, y0 - 0.12, x1 + 0.12, y1 + 0.12),
+           hgt, 0.34, "limestone")
+        _city_windows(fb, lights, rng, bid, rect, hgt)
+
+    for bid, rect, hgt in FAR_SKYLINE:
+        fb(bid, rect, 0.0, hgt, "common_brick")
+        fb(bid + "_cap", (rect[0] - 0.3, rect[1] - 0.3, rect[2] + 0.3,
+           rect[3] + 0.3), hgt, 0.7, "limestone")
+        _city_windows(fb, lights, rng, bid, rect, hgt, storey=3.8)
+
+    _street_furniture(fb, rng)
+    # water tower on a tall neighbour: the silhouette that says American
+    # city more economically than any amount of facade detail
+    for tid, (tx, ty), base in (("wt_e", (33.2, -21.4), 20.4),
+                                ("wt_w", (-41.5, 4.2), 19.2)):
+        for lx in (tx, tx + 2.6):
+            for ly in (ty, ty + 2.6):
+                fb("%s_leg_%d_%d" % (tid, int(lx * 10), int(ly * 10)),
+                   (lx, ly, lx + 0.18, ly + 0.18), base, 3.2, "timber")
+        fb(tid + "_tank", (tx - 0.5, ty - 0.5, tx + 3.3, ty + 3.3),
+           base + 3.2, 4.1, "timber")
+        fb(tid + "_roof", (tx - 0.8, ty - 0.8, tx + 3.6, ty + 3.6),
+           base + 7.3, 0.5, "metal")
+    fl["site_lights"] = lights
+
+
+## Lit windows on the neighbours, as DATA. Godot turns each into one
+## unshaded quad — the same trick the Orison's own windows use. Real lights
+## here would be dozens of omnis competing for the per-object cap the
+## LightRig exists to ration, to light rooms nobody can enter.
+def _city_windows(fb, lights, rng, bid, rect, hgt, storey=3.4):
+    x0, y0, x1, y1 = rect
+    # yaw turns the lit face OUT of its own wall. Godot applies
+    # rotation.y = -yaw, and a quad's face is +Z: south wall keeps 0, north
+    # needs 180. Having these two swapped pointed every street-facing
+    # window on the far pavement back into its own brickwork, which is
+    # exactly as dark as having placed none at all.
+    off = 0.06
+    for face, along0, along1, cross, yaw in (
+            ("s", x0, x1, y0 - off, 0), ("n", x0, x1, y1 + off, 180),
+            ("w", y0, y1, x0 - off, 90), ("e", y0, y1, x1 + off, -90)):
+        span = along1 - along0
+        n = int(span / 3.1)
+        if n < 1:
+            continue
+        for row in range(max(1, int((hgt - 2.2) / storey))):
+            z = 2.0 + row * storey
+            if z + 1.5 > hgt:
+                break
+            for i in range(n):
+                a = along0 + (i + 0.5) * span / n
+                horiz = face in ("s", "n")
+                px, py = (a, cross) if horiz else (cross, a)
+                # a facade is not a switchboard: most windows are dark, and
+                # the lit ones cluster because people share a floor
+                on = rng.random() < (0.46 if row % 2 == 0 else 0.30)
+                if not on:
+                    continue
+                lights.append({
+                    "pos": [round(px, 3), round(py, 3), round(z, 3)],
+                    # a touch under a real sash, since a flat lit rectangle
+                    # with no frame reads larger than the opening it stands for
+                    "size": [1.05, 1.35], "yaw": yaw,
+                    "warm": rng.random() < 0.78,
+                    "energy": round(rng.uniform(0.55, 1.5), 2)})
+
+
+def street_lamp_markers(fl):
+    """The lamps were geometry with nothing inside them, so the pavement
+    they stand on was as black as the road. Sodium heads at 2000 K, which
+    is the warmest thing in the exterior palette and reads instantly as
+    street rather than interior."""
+    for i in range(int(SITE_X * 2 / 11.0)):
+        lx = -SITE_X + 5.0 + i * 11.0
+        if abs(lx) < 3.0 or abs(lx) > 34.0:
+            continue      # clear of the stoop; distant ones stay scenery
+        fl["markers"].append({
+            "kind": "street_lamp", "id": "F01_STREETLAMP_%02d" % i,
+            "unit": "SITE", "pos": [lx + 0.06, -14.49, 4.55],
+            "yaw_deg": 0, "network": "electrical",
+            "range": 11.0, "energy": 1.15,
+            "navigation": True, "standby": 0.4})
+
+
+def _street_furniture(fb, rng):
+    # lamps down both pavements, spaced like real ones rather than
+    # bracketing the doorway
+    for i in range(int(SITE_X * 2 / 11.0)):
+        lx = -SITE_X + 5.0 + i * 11.0
+        if abs(lx) < 3.0:
+            continue          # keep the stoop approach clear
         fb("lamp_pole%d" % i, (lx, -14.55, lx + 0.12, -14.43), 0.0, 4.6,
            "metal")
         fb("lamp_head%d" % i, (lx - 0.15, -14.7, lx + 0.27, -14.28), 4.6,
            0.25, "metal")
     fb("hydrant", (-3.4, -10.85, -3.05, -10.5), 0.0, 0.75, "metal")
-    fb("power_pole", (16.2, 11.0, 16.5, 11.3), 0.0, 8.5, "timber")
-    fb("power_line", (10.5, 11.05, 16.2, 11.12), 7.6, 0.05, "metal")
+    fb("hydrant_cap", (-3.45, -10.9, -3.0, -10.45), 0.75, 0.12, "metal")
+    # traffic signal on the corner, mast arm over the road
+    fb("signal_pole", (17.4, -14.5, 17.62, -14.28), 0.0, 5.6, "metal")
+    fb("signal_arm", (13.0, -14.45, 17.4, -14.33), 5.3, 0.12, "metal")
+    fb("signal_head", (13.0, -14.62, 13.4, -14.16), 4.6, 0.85, "soot")
+    # mailbox, papers, a bench, a phone booth: the small municipal clutter
+    fb("mailbox", (7.6, -13.6, 8.35, -12.85), 0.0, 1.15, "metal")
     for i in range(3):
-        cx = -12.0 + i * 6.5
+        fb("newsbox%d" % i, (-8.6 + i * 0.62, -13.5, -8.1 + i * 0.62,
+           -12.95), 0.0, 1.05, "metal")
+    fb("bench_seat", (10.4, -13.5, 12.6, -12.9), 0.44, 0.07, "timber")
+    for bx in (10.5, 12.4):
+        fb("bench_leg%d" % int(bx), (bx, -13.45, bx + 0.1, -12.95), 0.0,
+           0.44, "metal")
+    fb("booth", (-12.4, -13.7, -11.5, -12.8), 0.0, 2.3, "metal")
+    fb("booth_glass", (-12.3, -13.6, -11.6, -12.9), 0.7, 1.35, "glassish")
+    # bus shelter across the road. The glazing needs its frame: a bare
+    # pane floats as a bright slab with nothing holding it up, which is
+    # exactly how it read the first time.
+    fb("shelter_roof", (2.0, -18.0, 6.4, -16.6), 2.45, 0.12, "metal")
+    for sx in (2.05, 6.25):
+        fb("shelter_post%d" % int(sx * 10), (sx, -17.98, sx + 0.1, -16.7),
+           0.0, 2.45, "metal")
+    fb("shelter_back", (2.15, -17.93, 6.25, -17.88), 0.45, 1.85,
+       "glassish")
+    fb("shelter_mullion", (4.1, -17.95, 4.2, -17.86), 0.45, 1.85, "metal")
+    fb("shelter_sill", (2.05, -17.98, 6.35, -17.85), 0.36, 0.09, "metal")
+    fb("shelter_head", (2.05, -17.98, 6.35, -17.85), 2.30, 0.11, "metal")
+    fb("shelter_bench", (2.4, -17.8, 6.0, -17.35), 0.42, 0.08, "timber")
+    # parked cars down both kerbs, with gaps where hydrants and the stoop are
+    for i in range(9):
+        cx = -26.0 + i * 6.6
+        if abs(cx + 2.2) < 5.5:
+            continue
         fb("car%d" % i, (cx, -16.9, cx + 4.4, -15.1), 0.28, 0.95, "metal")
         fb("cartop%d" % i, (cx + 1.1, -16.7, cx + 3.3, -15.3), 1.23, 0.45,
            "metal")
+        fb("carglass%d" % i, (cx + 1.15, -16.65, cx + 3.25, -15.35), 1.26,
+           0.38, "glassish")
+    for i in range(7):
+        cx = -21.0 + i * 7.4
+        # y0 < y1: an inverted rect makes a degenerate box, and the first
+        # version of this row silently produced nothing at all
+        fb("scar%d" % i, (cx, -18.9, cx + 4.3, -17.4), 0.28, 0.95, "metal")
+        fb("scartop%d" % i, (cx + 1.1, -18.7, cx + 3.2, -17.6), 1.23, 0.45,
+           "metal")
     fb("bin1", (12.6, 10.3, 13.6, 11.1), 0.0, 1.1, "metal")
     fb("bin2", (-13.9, 10.3, -12.9, 11.2), 0.0, 1.15, "metal")
+    fb("dumpster", (5.4, 10.4, 8.2, 11.9), 0.0, 1.35, "metal")
+    # power poles and spans, west to east behind the block
+    fb("power_pole", (16.2, 11.0, 16.5, 11.3), 0.0, 8.5, "timber")
+    fb("power_line", (10.5, 11.05, 16.2, 11.12), 7.6, 0.05, "metal")
+    for i, px in enumerate((-24.0, -2.0, 22.0, 44.0)):
+        fb("pole%d" % i, (px, -14.9, px + 0.28, -14.62), 0.0, 9.2,
+           "timber")
+        fb("crossarm%d" % i, (px - 1.1, -14.85, px + 1.4, -14.7), 8.2,
+           0.12, "timber")
+        if i:
+            fb("span%d" % i, (px - 22.0, -14.82, px, -14.76), 7.9, 0.05,
+               "metal")
+    # fire escapes on the two immediate neighbours, street side
+    for eid, ex in (("fe_w", -17.9), ("fe_e", 16.4)):
+        for lvl in range(4):
+            z = 3.2 + lvl * 3.2
+            fb("%s_deck%d" % (eid, lvl), (ex, -12.35, ex + 1.5, -11.05),
+               z, 0.08, "metal")
+            fb("%s_rail%d" % (eid, lvl), (ex, -11.15, ex + 1.5, -11.05),
+               z, 0.95, "metal")
+            fb("%s_stair%d" % (eid, lvl), (ex + 0.2, -12.3, ex + 1.0,
+               -11.2), z - 1.6, 1.6, "metal")
 
 
 # ---------------------------------------------------------------- stairs
@@ -2158,7 +2394,8 @@ def _validate_placement(layout):
     ceiling_kinds = {"pendant_shade", "flush_dome", "kitchen_linear",
                      "cage_bulb", "chandelier", "eye_pendant"}
     wall_kinds = {"door", "radiator", "sconce_globe", "exhaust_fan",
-                  "wall_clock", "flue_breast", "door_anomaly"}
+                  "wall_clock", "flue_breast", "door_anomaly",
+                  "neon_sign"}   # bolted to the facade, by definition
     floor_kinds = {"washer", "dryer", "boiler", "fridge", "boxfan",
                    "speaker", "toaster"}
 
@@ -2499,7 +2736,7 @@ def acoustic_graph(layout):
                                "ceiling_light", "pendant_shade",
                                "flush_dome", "sconce_globe",
                                "kitchen_linear", "cage_bulb", "chandelier",
-                               "eye_pendant"):
+                               "eye_pendant", "neon_sign"):
                 add(m["id"], m["pos"], "electrical", m.get("unit", ""), 0.75,
                     (60, 8000), 4)
                 edges.append((m["id"], "%s_CORRLIGHT_S" % fl["id"]))
@@ -2569,9 +2806,15 @@ def acoustic_graph(layout):
 
 def fixture_light_map(layout):
     """Fixture-to-room coverage manifest for lighting QA and tuning."""
-    light_kinds = {"ceiling_light", "pendant_shade", "flush_dome",
+    # Exactly the kinds that spawn a LightFixtureProp, because that is what
+    # the lighting audit counts this manifest against. "ceiling_light" is
+    # deliberately absent: 4B's bowl is a CeilingLightProp, which extends
+    # FunctionalProp directly and is not managed by the LightRig, so
+    # listing it here made the manifest claim one fixture more than the
+    # rig has ever had.
+    light_kinds = {"pendant_shade", "flush_dome",
                    "sconce_globe", "kitchen_linear", "cage_bulb",
-                   "chandelier", "eye_pendant"}
+                   "chandelier", "eye_pendant", "street_lamp"}
     fixtures = []
     for fl in layout["floors"]:
         for m in fl["markers"]:
@@ -2746,6 +2989,18 @@ PROP_CATALOG = {
                     "response_latency": 0.01,
                     "normal_function_priority": 1.0,
                     "infection_receptivity": 0.85},
+    # A neon transformer is slow to strike and slow to let go, so the sign
+    # lags the beat rather than snapping to it — and it is the most
+    # receptive thing on the building, because a tube that already
+    # flickers on its own is where a fault hides best.
+    "neon_sign": {"minimum_action_interval": 0.14,
+                  "maximum_action_rate": 7,
+                  "available_mechanical_events": ["tube_surge",
+                                                  "letter_dropout"],
+                  "preferred_subdivision": 1, "timing_drift": 0.04,
+                  "response_latency": 0.06,
+                  "normal_function_priority": 1.0,
+                  "infection_receptivity": 0.92},
     "door_anomaly": {"minimum_action_interval": 0.10, "maximum_action_rate": 8,
                      "available_mechanical_events": ["seam_glow"],
                      "preferred_subdivision": 1, "timing_drift": 0.0,
@@ -2851,6 +3106,7 @@ def main():
     radiator_pipe_pass(floors)
     aging_pass(floors)
     site_pass(floors[1])  # the block lives with F01
+    street_lamp_markers(floors[1])
     layout = {
         "meta": {"name": "Orison Apartments", "footprint": [28.0, 20.0],
                  "levels": LEVELS, "floor_to_floor": F2F,

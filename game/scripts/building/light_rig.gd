@@ -52,8 +52,12 @@ const ACTIVE_N_MOBILE := 12
 ## Room fixtures still win inside their own room, where they are metres away
 ## and the nearest corridor dome is not.
 const NAV_WEIGHT := 0.15
-## Fixture families that belong to a vertical shaft rather than a storey.
-const VERTICAL_FIXTURES := ["eye_pendant"]
+## Fixtures that belong to no single storey and so cannot be gated by one.
+## The atrium pendants hang in a seven-floor volume; the street lamps stand
+## outside the building altogether and are visible from every window on the
+## street elevation. Gating either by "its" floor switches off a light you
+## are plainly looking at.
+const VERTICAL_FIXTURES := ["eye_pendant", "street_lamp"]
 const LEVELS := {
 	"B1": -2.8, "F01": 0.0, "F02": 3.2, "F03": 6.4,
 	"F04": 9.6, "F05": 12.8, "F06": 16.0, "ROOF": 19.2,

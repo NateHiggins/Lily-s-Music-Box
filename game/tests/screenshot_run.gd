@@ -8,8 +8,10 @@ var cam: Camera3D
 var _dir := ""
 
 const SHOTS := [
-	{"name": "b_01_exterior_street", "pos": Vector3(16, 12, 34),
-	 "look": Vector3(0, 8, 0), "overlay": false},
+	# Raised and pulled back: the block now has buildings where this camera
+	# used to stand, and it was framing a neighbour's back wall.
+	{"name": "b_01_exterior_street", "pos": Vector3(21, 27, 41),
+	 "look": Vector3(-1, 9, 2), "overlay": false},
 	{"name": "b_02_lobby", "pos": Vector3(-0.4, 1.72, 9.1),
 	 "look": Vector3(3.6, 1.25, 6.6), "overlay": false},
 	{"name": "b_03_corridor_f04", "pos": Vector3(4.3, 11.25, 7.6),
@@ -58,6 +60,10 @@ const SHOTS := [
 	 "look": Vector3(-9.9, 13.60, 4.4), "overlay": false},
 	{"name": "b_26_4b_bath", "pos": Vector3(-6.10, 11.20, -5.10),
 	 "look": Vector3(-7.21, 10.85, -6.46), "overlay": false},
+	{"name": "b_29_street_east", "pos": Vector3(-1.0, 1.62, 12.2),
+	 "look": Vector3(19.0, 1.50, 12.6), "overlay": false},
+	{"name": "b_30_street_west", "pos": Vector3(1.0, 1.62, 12.2),
+	 "look": Vector3(-19.0, 1.50, 12.6), "overlay": false},
 ]
 
 

@@ -33,6 +33,7 @@ func _ready() -> void:
 		"response_latency": 0.05, "timing_drift": 0.02})
 	Conductor.motif_event.connect(_on_motif_event)
 	AcousticGraphData.network_event.connect(_on_network_event)
+	AcousticGraphData.reality_event.connect(_on_reality_event)
 	_build_visual()
 	_start_normal_function()
 
@@ -53,6 +54,28 @@ func _on_network_event(node_id: String, index: int, accent: float,
 		pitch: float, strength: float) -> void:
 	if node_id == graph_node_id and graph_node_id != "":
 		_receive(index, accent, pitch, strength)
+
+
+func _on_reality_event(_case_id: String, node_id: String, strength: float,
+		recurrence: int) -> void:
+	if node_id != graph_node_id or graph_node_id == "":
+		return
+	if state == PState.OFF or state == PState.FAULT:
+		return
+	var receptivity: float = float(
+			profile.get("infection_receptivity", 0.5))
+	if rng.randf() > clampf(strength * (0.8 + receptivity), 0.05, 1.0):
+		return
+	var now := Time.get_ticks_msec() / 1000.0
+	if now - _last_action < float(
+			profile.get("minimum_action_interval", 0.2)):
+		return
+	_last_action = now
+	# Existing objects express the wave through their own mechanism: lights
+	# dip, radiators knock, speakers thump, monitors flare. Recurrence raises
+	# pitch slightly so the building learns the resident's changed pattern.
+	_perform_synced_event(100 + recurrence,
+			clampf(strength, 0.15, 1.0), float(recurrence) * 1.5)
 
 
 func _receive(index: int, accent: float, pitch: float, strength: float) -> void:

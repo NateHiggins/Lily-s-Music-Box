@@ -196,7 +196,13 @@ Status markers reflect main as of 2026-07-30.
    rest are dark because people are asleep. Remaining: volumetrics are
    not available on the Compatibility renderer at all, so the stairwell
    and basement fog needs a different technique; glass still has no dirt
-   masks or per-window variation.
+   masks or per-window variation. The SITE is no longer the weak point it
+   was: the block runs to ±58 m with a taller ring beyond it, so no
+   sightline from the pavement or the roof reaches open sky; streetlamps
+   light the pavement; and ~1,570 neighbour windows are lit as data rather
+   than as lights. Neon on the street elevation (blade + tenant sign) is a
+   conductor body that surges on the motif and drops letters at high
+   infection.
 
 ## Invariants that survive all of it
 

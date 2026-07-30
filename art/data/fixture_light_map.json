@@ -1,5 +1,5 @@
 {
- "fixture_count": 169,
+ "fixture_count": 173,
  "fixtures": [
   {
    "id": "B1_CORRIDOR_DOME_01",
@@ -640,6 +640,86 @@
    "energy": 1.15,
    "navigation": false,
    "standby": 0.04
+  },
+  {
+   "id": "F01_STREETLAMP_03",
+   "floor": "F01",
+   "kind": "street_lamp",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -23.94,
+    -14.49,
+    4.55
+   ],
+   "range": 11.0,
+   "energy": 1.15,
+   "navigation": true,
+   "standby": 0.4
+  },
+  {
+   "id": "F01_STREETLAMP_04",
+   "floor": "F01",
+   "kind": "street_lamp",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -12.94,
+    -14.49,
+    4.55
+   ],
+   "range": 11.0,
+   "energy": 1.15,
+   "navigation": true,
+   "standby": 0.4
+  },
+  {
+   "id": "F01_STREETLAMP_06",
+   "floor": "F01",
+   "kind": "street_lamp",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    9.06,
+    -14.49,
+    4.55
+   ],
+   "range": 11.0,
+   "energy": 1.15,
+   "navigation": true,
+   "standby": 0.4
+  },
+  {
+   "id": "F01_STREETLAMP_07",
+   "floor": "F01",
+   "kind": "street_lamp",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    20.06,
+    -14.49,
+    4.55
+   ],
+   "range": 11.0,
+   "energy": 1.15,
+   "navigation": true,
+   "standby": 0.4
+  },
+  {
+   "id": "F01_STREETLAMP_08",
+   "floor": "F01",
+   "kind": "street_lamp",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    31.06,
+    -14.49,
+    4.55
+   ],
+   "range": 11.0,
+   "energy": 1.15,
+   "navigation": true,
+   "standby": 0.4
   },
   {
    "id": "2A_LT_SCONCE",
@@ -1486,22 +1566,6 @@
    ],
    "range": 5.0,
    "energy": 1.05,
-   "navigation": false,
-   "standby": 0.04
-  },
-  {
-   "id": "F04_B_CEILLIGHT_01",
-   "floor": "F04",
-   "kind": "ceiling_light",
-   "room": "F04_B_MAIN",
-   "room_kind": "living",
-   "position": [
-    -10.6,
-    4.6,
-    12.2
-   ],
-   "range": 5.0,
-   "energy": 1.0,
    "navigation": false,
    "standby": 0.04
   },

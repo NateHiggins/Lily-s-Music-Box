@@ -59,7 +59,37 @@ func build(layout: Dictionary) -> int:
 				if o.get("type", "") != "window":
 					continue
 				_window(fl, rooms, w, o)
+		# The neighbours get the same treatment from generator data. A dark
+		# city around a lit building reads as a film set with one dressed
+		# facade; these are what put the Orison inside somewhere.
+		for s in fl.get("site_lights", []):
+			_site_light(fl, s)
 	return _lit
+
+
+func _site_light(fl: Dictionary, s: Dictionary) -> void:
+	var p: Array = s["pos"]
+	var size: Array = s["size"]
+	var warm: bool = bool(s.get("warm", true))
+	var tone := Color(1.0, 0.82, 0.56) if warm else Color(0.74, 0.84, 0.96)
+	var mi := MeshInstance3D.new()
+	var quad := QuadMesh.new()
+	quad.size = Vector2(float(size[0]), float(size[1]))
+	mi.mesh = quad
+	var mat := StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.albedo_color = tone
+	mat.emission_enabled = true
+	mat.emission = tone
+	mat.emission_energy_multiplier = float(s.get("energy", 1.0))
+	mat.cull_mode = BaseMaterial3D.CULL_BACK
+	mi.material_override = mat
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	mi.position = GameBoot.b2g([float(p[0]), float(p[1]),
+			float(p[2]) + float(fl["z"])])
+	mi.rotation.y = deg_to_rad(-float(s.get("yaw", 0)))
+	add_child(mi)
+	_lit += 1
 
 
 func _window(fl: Dictionary, rooms: Array, w: Dictionary,

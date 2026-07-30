@@ -310,6 +310,19 @@
   "normal_function_priority": 1.0,
   "infection_receptivity": 0.85
  },
+ "neon_sign": {
+  "minimum_action_interval": 0.14,
+  "maximum_action_rate": 7,
+  "available_mechanical_events": [
+   "tube_surge",
+   "letter_dropout"
+  ],
+  "preferred_subdivision": 1,
+  "timing_drift": 0.04,
+  "response_latency": 0.06,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.92
+ },
  "door_anomaly": {
   "minimum_action_interval": 0.1,
   "maximum_action_rate": 8,

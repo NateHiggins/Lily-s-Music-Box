@@ -41,6 +41,8 @@ const PROP_SCRIPTS := {
 	"cage_bulb": preload("res://scripts/props/light_fixture_prop.gd"),
 	"chandelier": preload("res://scripts/props/light_fixture_prop.gd"),
 	"eye_pendant": preload("res://scripts/props/light_fixture_prop.gd"),
+	"neon_sign": preload("res://scripts/props/neon_sign_prop.gd"),
+	"street_lamp": preload("res://scripts/props/light_fixture_prop.gd"),
 }
 const NPC_RESIDENTS := [
 	{"unit": "1A", "name": "Evelyn Marsh", "sprite": "evelyn_marsh"},
@@ -73,6 +75,12 @@ var floor_nodes: Dictionary = {}
 var occluders: OrisonOccluders
 var window_glow: OrisonWindowGlow
 var touch: TouchControls
+var mina_manifestation: MinaCaptionManifestation
+var mina_gameplay: MinaCaseGameplay
+var objective_tracker: ObjectiveTracker
+var map_distortion_lab: MapDistortionLab
+var affected_prop_count := 0
+var reality_controllers: Dictionary = {}
 var show_all_floors := false
 
 
@@ -101,6 +109,23 @@ func _ready() -> void:
 	add_child(call_interface)
 	_spawn_props()
 	_spawn_npc_placeholders()
+	_spawn_reality_controllers()
+	_spawn_reality_affected_props()
+	objective_tracker = ObjectiveTracker.new()
+	objective_tracker.name = "ObjectiveTracker"
+	add_child(objective_tracker)
+	mina_manifestation = MinaCaptionManifestation.new()
+	mina_manifestation.name = "MinaCaptionManifestation"
+	mina_manifestation.setup(self)
+	add_child(mina_manifestation)
+	mina_gameplay = MinaCaseGameplay.new()
+	mina_gameplay.name = "MinaCaseGameplay"
+	mina_gameplay.setup(objective_tracker)
+	add_child(mina_gameplay)
+	map_distortion_lab = MapDistortionLab.new()
+	map_distortion_lab.name = "MapDistortionLab"
+	map_distortion_lab.setup(self)
+	add_child(map_distortion_lab)
 	light_rig = LightRig.new()
 	add_child(light_rig)
 	elevator = OrisonElevator.new()
@@ -123,11 +148,11 @@ func _ready() -> void:
 	touch.look_delta.connect(player.apply_look)
 	player.touch_input = touch.enabled
 	var debug := preload("res://scripts/ui/building_debug.gd").new()
+	debug.setup(self)
 	var layer := CanvasLayer.new()
 	layer.layer = 10
 	add_child(layer)
 	layer.add_child(debug)
-	debug.setup(self)
 	print("[BUILDING] Orison assembled: %d floors, %d occluders, "
 			% [floor_nodes.size(), n_occ] +
 			"%d windows lit, player in lobby" % n_lit)
@@ -338,6 +363,11 @@ func _spawn_props() -> void:
 				prop.set("standby_scale", float(m["standby"]))
 			if m.get("navigation", false):
 				prop.set("navigation_light", true)
+			if prop is NeonSignProp:
+				prop.sign_text = String(m.get("text", "ORISON"))
+				prop.vertical = bool(m.get("vertical", true))
+				var t: Array = m.get("tint", [1.0, 0.3, 0.42])
+				prop.tint = Color(float(t[0]), float(t[1]), float(t[2]))
 			if AcousticGraphData.nodes.has(m["id"]):
 				prop.graph_node_id = m["id"]  # bound to the shared graph
 			# Compatibility renderer light transforms must be authored before
@@ -389,12 +419,133 @@ func _spawn_npc_placeholders() -> void:
 		var x := lerpf(float(rect[0]), float(rect[2]), 0.52) + slot * 0.48
 		var y := lerpf(float(rect[1]), float(rect[3]), 0.58)
 		var npc := NPCPlaceholder.new()
-		npc.setup(spec.name, "res://assets/npcs/%s.png" % spec.sprite)
+		npc.setup(spec.name, "res://assets/npcs/%s.png" % spec.sprite,
+				spec.sprite, unit)
 		npc.position = GameBoot.b2g([x, y, float(floor_data.z) + 0.03])
 		var parent: Node = floor_nodes.get(floor_id, self)
 		parent.add_child(npc)
 		count += 1
 	print("[BUILDING] %d resident placeholders spawned" % count)
+
+
+func _spawn_reality_affected_props() -> void:
+	var file := FileAccess.open(
+			"res://data/reality_affected_props.json", FileAccess.READ)
+	if file == null:
+		push_warning("reality affected-prop catalog missing")
+		return
+	var catalog: Dictionary = JSON.parse_string(file.get_as_text())
+	affected_prop_count = 0
+	var catalog_ids := {}
+	for cluster in catalog.get("case_clusters", []):
+		var unit: String = cluster.unit
+		var floor_id := "F0" + unit.left(1)
+		var floor_data: Dictionary = {}
+		for candidate in layout["floors"]:
+			if candidate.id == floor_id:
+				floor_data = candidate
+				break
+		if floor_data.is_empty():
+			continue
+		var room: Dictionary = {}
+		for candidate in floor_data["rooms"]:
+			if candidate.get("unit", "") == unit \
+					and candidate.get("kind", "") == "living":
+				room = candidate
+				break
+		if room.is_empty():
+			for candidate in floor_data["rooms"]:
+				if candidate.get("unit", "") == unit \
+						and str(candidate.id).ends_with("_MAIN"):
+					room = candidate
+					break
+		if room.is_empty():
+			continue
+		var rect: Array = room.rect
+		for spec in cluster.props:
+			if catalog_ids.has(spec.id):
+				push_error("duplicate reality-affected prop id: " + spec.id)
+				continue
+			catalog_ids[spec.id] = true
+			var prop := RealityAffectedProp.new()
+			prop.setup(spec.id, spec.name, spec.kind, cluster.case_id)
+			var x := lerpf(float(rect[0]), float(rect[2]), float(spec.u))
+			var y := lerpf(float(rect[1]), float(rect[3]), float(spec.v))
+			var height := 0.80 if spec.get("surface", "floor") == "table" \
+					else 0.04
+			prop.position = GameBoot.b2g(
+					[x, y, float(floor_data.z) + height])
+			floor_nodes[floor_id].add_child(prop)
+			if reality_controllers.has(cluster.case_id):
+				reality_controllers[cluster.case_id].register_node(prop)
+			affected_prop_count += 1
+	for spec in catalog.get("shared_props", []):
+		if catalog_ids.has(spec.id):
+			push_error("duplicate reality-affected prop id: " + spec.id)
+			continue
+		catalog_ids[spec.id] = true
+		var prop := RealityAffectedProp.new()
+		prop.setup(spec.id, spec.name, spec.kind)
+		prop.position = GameBoot.b2g(spec.position)
+		var floor_id: String = spec.get("floor", "F01")
+		floor_nodes.get(floor_id, self).add_child(prop)
+		affected_prop_count += 1
+	var expected_count := int(catalog.get("expected_prop_count",
+			affected_prop_count))
+	if affected_prop_count != expected_count:
+		push_error("reality-affected prop placement mismatch: expected %d, placed %d"
+				% [expected_count, affected_prop_count])
+	print("[BUILDING] %d reality-affected props placed" %
+			affected_prop_count)
+
+
+func _spawn_reality_controllers() -> void:
+	for case_id in RealityCases.definitions:
+		var definition: Dictionary = RealityCases.definition(case_id)
+		var unit: String = definition.get("unit", "")
+		if unit.length() < 2:
+			continue
+		var floor_id := "F0" + unit.left(1)
+		var floor_data: Dictionary = {}
+		for candidate in layout["floors"]:
+			if candidate.id == floor_id:
+				floor_data = candidate
+				break
+		if floor_data.is_empty():
+			continue
+		var room: Dictionary = {}
+		for candidate in floor_data["rooms"]:
+			if candidate.get("unit", "") == unit \
+					and candidate.get("kind", "") == "living":
+				room = candidate
+				break
+		if room.is_empty():
+			for candidate in floor_data["rooms"]:
+				if candidate.get("unit", "") == unit \
+						and str(candidate.id).ends_with("_MAIN"):
+					room = candidate
+					break
+		if room.is_empty():
+			continue
+		var rect: Array = room.rect
+		var corner_a := GameBoot.b2g(
+				[float(rect[0]), float(rect[1]), float(floor_data.z)])
+		var corner_b := GameBoot.b2g(
+				[float(rect[2]), float(rect[3]), float(floor_data.z) + 3.0])
+		var bounds_min := Vector3(
+				minf(corner_a.x, corner_b.x),
+				minf(corner_a.y, corner_b.y),
+				minf(corner_a.z, corner_b.z))
+		var bounds_max := Vector3(
+				maxf(corner_a.x, corner_b.x),
+				maxf(corner_a.y, corner_b.y),
+				maxf(corner_a.z, corner_b.z))
+		var controller := ApartmentRealityController.new()
+		controller.setup(case_id, unit, bounds_min, bounds_max)
+		floor_nodes[floor_id].add_child(controller)
+		reality_controllers[case_id] = controller
+	print("[BUILDING] %d apartment reality controllers ready" %
+			reality_controllers.size())
 
 
 func teleport_player(fid: String) -> void:

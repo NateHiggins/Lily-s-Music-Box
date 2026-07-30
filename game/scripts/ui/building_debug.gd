@@ -85,6 +85,67 @@ func _ready() -> void:
 	seed.add_theme_font_size_override("font_size", 10)
 	seed.pressed.connect(func(): root.virus_director.toggle_intro())
 	_body.add_child(seed)
+	var case_title := Label.new()
+	case_title.text = "MINA CASE — recurrence scaffold"
+	case_title.add_theme_font_size_override("font_size", 10)
+	case_title.modulate = Color(0.65, 0.9, 0.82)
+	_body.add_child(case_title)
+	var case_row := GridContainer.new()
+	case_row.columns = 3
+	_body.add_child(case_row)
+	_case_button(case_row, "Open", func():
+		RealityCases.activate_case("mina_caption_crisis"))
+	_case_button(case_row, "Stabilize", func():
+		RealityCases.stabilize_case("mina_caption_crisis"))
+	_case_button(case_row, "Reopen", func():
+		RealityCases.reopen_case("mina_caption_crisis"))
+	_case_button(case_row, "Insight 1", func():
+		RealityCases.record_conversation("mina_caption_crisis",
+				"assumptions_are_not_facts"))
+	_case_button(case_row, "Insight 2", func():
+		RealityCases.record_conversation("mina_caption_crisis",
+				"silence_can_be_blank"))
+	_case_button(case_row, "Integrate", func():
+		RealityCases.resolve_case("mina_caption_crisis"))
+	_case_button(case_row, "Reset case", func():
+		RealityCases.debug_reset_case("mina_caption_crisis"))
+	var rule_title := Label.new()
+	rule_title.text = "REALITY RULE PROTOTYPES"
+	rule_title.add_theme_font_size_override("font_size", 10)
+	rule_title.modulate = Color(0.78, 0.68, 0.94)
+	_body.add_child(rule_title)
+	for prototype in [
+		["Mina labels", "mina_caption_crisis"],
+		["Peter topology", "peter_form_corridor"],
+		["Cam gravity", "cam_tilted_room"],
+	]:
+		var row := HBoxContainer.new()
+		_body.add_child(row)
+		var title := Label.new()
+		title.text = prototype[0]
+		title.custom_minimum_size.x = 82
+		title.add_theme_font_size_override("font_size", 9)
+		row.add_child(title)
+		var prototype_case: String = prototype[1]
+		_case_button(row, "On", func():
+			RealityCases.activate_case(prototype_case))
+		_case_button(row, "Fix", func():
+			RealityCases.stabilize_case(prototype_case))
+		_case_button(row, "Reset", func():
+			RealityCases.debug_reset_case(prototype_case))
+	var distortion_title := Label.new()
+	distortion_title.text = "MAP DISTORTION LAB — F3 cycles"
+	distortion_title.add_theme_font_size_override("font_size", 10)
+	distortion_title.modulate = Color(0.62, 0.82, 0.92)
+	_body.add_child(distortion_title)
+	var distortion_grid := GridContainer.new()
+	distortion_grid.columns = 4
+	_body.add_child(distortion_grid)
+	for distortion in MapDistortionLab.MODES:
+		var distortion_mode: String = distortion
+		_case_button(distortion_grid,
+				distortion_mode.replace("_", " ").capitalize(),
+				func(): root.map_distortion_lab.set_mode(distortion_mode))
 	# Tunable on the device that has to run it. The mobile light budget was
 	# originally set from reasoning about tile-based GPUs with no phone to
 	# check against, and it came out too dark. These two sliders sit next to
@@ -110,7 +171,7 @@ func _ready() -> void:
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE)
 	_body.add_child(touch)
 	var hint := Label.new()
-	hint.text = "WASD move · Shift run · C crouch · E interact\nL flashlight · V noclip · F2 intro · Esc release mouse"
+	hint.text = "WASD move · Shift run · C crouch · E interact\nL flashlight · V noclip · F2 intro · F3 distort map · Esc release mouse"
 	hint.add_theme_font_size_override("font_size", 10)
 	hint.modulate = Color(0.7, 0.7, 0.75)
 	_body.add_child(hint)
@@ -135,6 +196,14 @@ func _slider(label_text: String, lo: float, hi: float, initial: float,
 	_body.add_child(row)
 
 
+func _case_button(parent: Node, label_text: String, action: Callable) -> void:
+	var button := Button.new()
+	button.text = label_text
+	button.add_theme_font_size_override("font_size", 9)
+	button.pressed.connect(action)
+	parent.add_child(button)
+
+
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_panel"):
 		_body.visible = not _body.visible
@@ -155,7 +224,11 @@ func _process(_delta: float) -> void:
 		seed_status = "\nintro %.1fs  low %.2f  mid %.2f  high %.2f" % [
 				root.virus_director._elapsed, float(f.get("low", 0.0)),
 				float(f.get("mid", 0.0)), float(f.get("high", 0.0))]
+	var mina: Dictionary = RealityState.case_state("mina_caption_crisis")
+	var case_status := "\nMina %s · repairs %d · recurrences %d" % [
+			str(mina.get("stage", "unseen")), int(mina.get("repair_count", 0)),
+			int(mina.get("recurrence_count", 0))]
 	_status.text = ("pos (%.1f, %.1f, %.1f)  fps %d\n" +
-			"bpm %.0f  infection %.2f%s") \
+			"bpm %.0f  infection %.2f%s%s") \
 			% [p.x, p.y, p.z, Engine.get_frames_per_second(),
-			Conductor.bpm, Conductor.infection, seed_status]
+			Conductor.bpm, Conductor.infection, seed_status, case_status]

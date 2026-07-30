@@ -25,6 +25,8 @@ anything read from `_unhandled_input` is invisible to a thumb. Tick
 **Touch controls** in the debug panel to drive it with a mouse on desktop.
 
 ![touch HUD](docs/screenshots/b_28_touch_controls.png)
+![the block at night](docs/screenshots/b_01_exterior_street.png)
+![neon on the street elevation](docs/screenshots/b_16_street_level.png)
 
 ## What is alive right now
 
@@ -72,6 +74,30 @@ Brass call plates with lit buttons are mounted beside each opening, and the
 cab carries its own floor-button panel. Pressing a call runs the full
 sequence: doors close, the car travels (carrying anyone standing in it —
 WalkTest rides it 19.6 m), the arrival bell strikes, the doors reopen.
+
+**A city around it (new):** the block used to stop at ±20 m, so looking
+down the pavement your eye ran straight out to open sky with the sky
+dome's distant city sitting at the wrong elevation — the single loudest
+tell that this was a set. The street wall now runs to ±58 m with masses at
+irregular heights, closed at both ends as though the road bends behind
+them, and a second, taller ring further out fills the band you could
+otherwise see over from the roof. Sodium streetlamps actually light the
+pavement now (they were geometry with nothing inside them), the road has a
+centre line, and the block carries the clutter that makes a street read:
+fire escapes, a traffic signal, bus shelter, phone booth, mailbox, news
+boxes, parked cars down both kerbs, dumpsters, power spans and two water
+towers on neighbouring roofs. Around 1,570 neighbour windows are lit as
+data — one unshaded quad each, no lights — clustered by floor and mostly
+dark, because a facade is not a switchboard.
+
+**Neon (new):** a projecting blade reading ORISON down the pavement in
+pink, and the ground-floor druggist's sign flat on the wall in cyan. Both
+are built from strokes of glass tube on a dark backing panel rather than a
+lit billboard, which is what makes neon read as neon at a glancing angle.
+The sign is a conductor body and the most receptive object on the building
+(a tube with a failing transformer already stutters) — on the motif it
+surges, and above 0.55 infection it drops whole letters for a fraction of
+a second. Nobody has to be told that is wrong.
 
 **Occupied at night (new):** from the sidewalk the Orison used to read as
 derelict — lighting is gated to the storey you occupy, so five of its six

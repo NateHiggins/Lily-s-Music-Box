@@ -15,6 +15,10 @@ const NETWORK_COLORS := {
 ## audibly later than Floor 2.
 signal network_event(node_id: String, event_index: int, accent: float,
 		pitch: float, strength: float)
+## Case manifestations use the same physical transmission paths, but carry
+## narrative identity and recurrence instead of musical pitch.
+signal reality_event(case_id: String, node_id: String, strength: float,
+		recurrence: int)
 
 var nodes: Dictionary = {}  # id -> node dict
 var _overlay: MeshInstance3D
@@ -57,6 +61,23 @@ func _deliver(entry: Dictionary, event_index: int, accent: float,
 	if entry.delay > 0.0:
 		await get_tree().create_timer(entry.delay, false).timeout
 	network_event.emit(entry.id, event_index, accent, pitch, entry.strength)
+
+
+func propagate_reality(origin: String, case_id: String, intensity: float,
+		recurrence: int) -> void:
+	if not nodes.has(origin):
+		push_warning("reality origin missing from acoustic graph: %s" % origin)
+		return
+	for entry in _plan_for(origin):
+		_deliver_reality(entry, case_id, intensity, recurrence)
+
+
+func _deliver_reality(entry: Dictionary, case_id: String, intensity: float,
+		recurrence: int) -> void:
+	if entry.delay > 0.0:
+		await get_tree().create_timer(entry.delay, false).timeout
+	reality_event.emit(case_id, entry.id,
+			float(entry.strength) * intensity, recurrence)
 
 
 ## Dijkstra by accumulated delay; strength decays with each node's damping.

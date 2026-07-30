@@ -18,16 +18,19 @@ const TONE := {  # warm tungsten family, per fixture type
 	"cage_bulb": Color(1.0, 0.76, 0.50),
 	"chandelier": Color(1.0, 0.82, 0.58),
 	"eye_pendant": Color(1.0, 0.84, 0.62),
+	# Sodium: the warmest, most orange thing in the palette, and the one
+	# colour that reads as "outside at night" without any other cue.
+	"street_lamp": Color(1.0, 0.66, 0.28),
 }
 const ENERGY := {
 	"pendant_shade": 2.1, "flush_dome": 0.9, "sconce_globe": 0.75,
 	"kitchen_linear": 1.5, "cage_bulb": 1.5, "chandelier": 2.8,
-	"eye_pendant": 2.2,
+	"eye_pendant": 2.2, "street_lamp": 3.4,
 }
 const RANGE := {
 	"pendant_shade": 6.5, "flush_dome": 5.5, "sconce_globe": 4.0,
 	"kitchen_linear": 4.5, "cage_bulb": 5.5, "chandelier": 9.0,
-	"eye_pendant": 7.5,
+	"eye_pendant": 7.5, "street_lamp": 11.0,
 }
 
 var light: OmniLight3D
@@ -249,6 +252,20 @@ func _build_body(p: Node3D) -> Vector3:
 						outer + Vector3(0, -0.13, 0), opal, 0.22, 0.0, p)
 				shade.name = "bulb_shade_%d" % i
 			return Vector3(0, -0.58, 0)
+		"street_lamp":
+			# cobra head on its mast: the lamp body already exists as site
+			# geometry, so this is only the lit lens and its shroud
+			make_cyl(0.10, 0.16, 0.10, Vector3(0, 0.02, 0),
+					Color(0.3, 0.3, 0.32), 0.4, 0.6, p)
+			var lens := MeshInstance3D.new()
+			var ls := SphereMesh.new()
+			ls.radius = 0.13
+			ls.height = 0.16
+			lens.mesh = ls
+			lens.name = "bulb_lens"
+			lens.position = Vector3(0, -0.06, 0)
+			p.add_child(lens)
+			return Vector3(0, -0.08, 0)
 		_:  # eye_pendant: the long drop down the atrium
 			make_cyl(0.007, 0.007, 1.35, Vector3(0, -0.675, 0),
 					Color(0.12, 0.12, 0.12), 0.4, 0.0, p)

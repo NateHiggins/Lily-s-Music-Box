@@ -164,18 +164,33 @@ func _physics_process(delta: float) -> void:
 				- Input.get_action_strength("crouch")
 		global_position += (wish * 6.0 + Vector3.UP * up * 4.0) * delta
 		return
+	var gravity_direction := _reality_gravity()
+	up_direction = -gravity_direction
+	camera.rotation.z = lerpf(camera.rotation.z,
+			-gravity_direction.x * 0.42, minf(1.0, delta * 2.5))
 	var speed := CROUCH_SPEED if crouched \
 			else (RUN if Input.is_action_pressed("run") else WALK)
 	velocity.x = wish.x * speed
 	velocity.z = wish.z * speed
 	if not is_on_floor():
-		velocity.y -= GRAVITY * delta
+		velocity += gravity_direction * GRAVITY * delta
 	elif Input.is_action_just_pressed("jump"):
-		velocity.y = 3.4
+		velocity += -gravity_direction * 3.4
 	else:
-		velocity.y = minf(velocity.y, 0.0)
-	_try_step_up(delta)
+		var into_floor := velocity.dot(gravity_direction)
+		if into_floor > 0.0:
+			velocity -= gravity_direction * into_floor
+	if gravity_direction.dot(Vector3.DOWN) > 0.98:
+		_try_step_up(delta)
 	move_and_slide()
+
+
+func _reality_gravity() -> Vector3:
+	for controller in get_tree().get_nodes_in_group(
+			"apartment_reality_controllers"):
+		if controller.contains_point(global_position):
+			return controller.gravity_at(global_position)
+	return Vector3.DOWN
 
 
 ## Brief metric: 0.28 m max step height. If forward motion is blocked at

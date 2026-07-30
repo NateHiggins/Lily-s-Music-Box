@@ -9,6 +9,7 @@ const ACTIONS := {
 	"interact": KEY_E, "flashlight": KEY_L,
 	"noclip": KEY_V, "debug_panel": KEY_F1,
 	"intro": KEY_F2,
+	"distort_map": KEY_F3,
 }
 
 

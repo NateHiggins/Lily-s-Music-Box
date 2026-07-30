@@ -343,6 +343,11 @@ func _run() -> void:
 	var lvls2: Array = [-2.8, 0.0, 3.2, 6.4, 9.6, 12.8, 16.0, 19.2]
 	var low_fix := []
 	for f5 in get_tree().get_nodes_in_group("light_fixtures"):
+		# Street lamps stand on the pavement on a mast. They are the one
+		# fixture family with no ceiling to hang from, so "too low for its
+		# storey" means nothing for them.
+		if f5.prop_type == "street_lamp":
+			continue
 		var gy: float = f5.global_position.y
 		var own: float = lvls2[0]
 		for lz in lvls2:

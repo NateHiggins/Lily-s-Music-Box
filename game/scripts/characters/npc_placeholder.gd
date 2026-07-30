@@ -6,11 +6,18 @@ extends Node3D
 
 var display_name := ""
 var texture_path := ""
+var resident_id := ""
+var unit := ""
+var _nameplate: Label3D
 
 
-func setup(character_name: String, source_texture: String) -> void:
+func setup(character_name: String, source_texture: String,
+		character_id := "", apartment_unit := "") -> void:
 	display_name = character_name
 	texture_path = source_texture
+	resident_id = character_id if character_id != "" \
+			else character_name.to_snake_case()
+	unit = apartment_unit
 
 
 func _ready() -> void:
@@ -56,15 +63,52 @@ func _ready() -> void:
 	body.add_child(collision)
 	add_child(body)
 
-	var label := Label3D.new()
-	label.name = "Nameplate"
-	label.text = display_name
-	label.position.y = 1.88
-	label.font_size = 34
-	label.pixel_size = 0.002
-	label.modulate = Color(0.82, 0.84, 0.80, 0.72)
-	label.outline_modulate = Color(0.02, 0.025, 0.03, 0.9)
-	label.outline_size = 8
-	label.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
-	label.no_depth_test = false
-	add_child(label)
+	var interaction := Area3D.new()
+	interaction.name = "Interaction"
+	var interaction_shape := CollisionShape3D.new()
+	var interaction_capsule := CapsuleShape3D.new()
+	interaction_capsule.radius = 0.42
+	interaction_capsule.height = 1.72
+	interaction_shape.shape = interaction_capsule
+	interaction_shape.position.y = 0.86
+	interaction.add_child(interaction_shape)
+	add_child(interaction)
+
+	_nameplate = Label3D.new()
+	_nameplate.name = "Nameplate"
+	_nameplate.position.y = 1.88
+	_nameplate.font_size = 34
+	_nameplate.pixel_size = 0.002
+	_nameplate.modulate = Color(0.82, 0.84, 0.80, 0.72)
+	_nameplate.outline_modulate = Color(0.02, 0.025, 0.03, 0.9)
+	_nameplate.outline_size = 8
+	_nameplate.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
+	_nameplate.no_depth_test = false
+	add_child(_nameplate)
+	RealityCases.case_changed.connect(_on_case_changed)
+	_refresh_nameplate()
+
+
+func interact_prompt() -> String:
+	return "[E]  Speak with %s" % display_name
+
+
+func interact(_player: Node) -> void:
+	RealityCases.interact_with_resident(resident_id)
+
+
+func _on_case_changed(case_id: String, _state: Dictionary) -> void:
+	if RealityCases.case_for_resident(resident_id) == case_id:
+		_refresh_nameplate()
+
+
+func _refresh_nameplate() -> void:
+	var case_id := RealityCases.case_for_resident(resident_id)
+	var state: Dictionary = RealityState.case_state(case_id)
+	var stage: String = state.get("stage", "unseen")
+	var suffix := ""
+	if stage in ["active", "reopened", "integration_ready"]:
+		suffix = "\n[%s]" % stage.replace("_", " ").to_upper()
+	elif stage == "resolved":
+		suffix = "\n[STABLE]"
+	_nameplate.text = "%s · %s%s" % [display_name, unit, suffix]

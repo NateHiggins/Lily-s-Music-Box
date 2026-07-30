@@ -471,6 +471,46 @@
    ]
   },
   {
+   "id": "F01_NEON_BLADE",
+   "pos": [
+    3.35,
+    -10.42,
+    4.3
+   ],
+   "room": "",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_NEON_TENANT",
+   "pos": [
+    -6.4,
+    -10.12,
+    3.15
+   ],
+   "room": "",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
    "id": "F01WC_LT_SCONCE",
    "pos": [
     -13.57,
@@ -5056,6 +5096,8 @@
     "B1_ATRIUM_LT_EYE_PENDANT",
     "B1_UTILITY_LT_CAGE_BULB",
     "B1_COAL_LT_CAGE_BULB",
+    "F01_NEON_BLADE",
+    "F01_NEON_TENANT",
     "F01WC_LT_SCONCE",
     "1A_LT_SCONCE",
     "1D_LT_SCONCE",
