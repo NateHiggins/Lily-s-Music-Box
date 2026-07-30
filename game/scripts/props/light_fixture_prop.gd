@@ -43,10 +43,12 @@ var _swing_node: Node3D
 ## instead of bleeding through shadowless neighbors (the light-leak
 ## pass, done as data).
 var range_clamp := 0.0
+## Room-character multiplier from the generator (Mina bright, Juno dim).
+var energy_scale := 1.0
 
 
 func _build_visual() -> void:
-	_base_energy = ENERGY.get(prop_type, 1.5)
+	_base_energy = ENERGY.get(prop_type, 1.5) * energy_scale
 	var tone: Color = TONE.get(prop_type, Color(1.0, 0.84, 0.62))
 	_swing_node = Node3D.new()
 	add_child(_swing_node)

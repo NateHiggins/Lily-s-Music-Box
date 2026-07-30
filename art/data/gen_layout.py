@@ -284,7 +284,8 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
         markers.append({"kind": "sconce_globe",
                         "id": "%s_LT_SCONCE" % unit,
                         "unit": unit, "pos": [spos[0], spos[1], z + 1.92],
-                        "yaw_deg": syaw, "network": "electrical"})
+                        "yaw_deg": syaw, "network": "electrical",
+                        "energy": 1.05})
 
 
 def wardrobe(furniture, unit, x, y, along_x=True, face="n"):
@@ -475,6 +476,55 @@ def desk_set(f, uid, x, y, L=1.4, along_x=True, chair_side=1):
                   y + L / 2 - 0.22, "e" if chair_side > 0 else "w")
 
 
+WIN_TOP = 2.55   # window head (sill 0.85 + h 1.70)
+
+
+def blind_stack(f, uid, x, y, along_x, seed):
+    """One venetian blind: head rail at the window top, slats descending
+    to a per-window drop (someone half-raised theirs), each blind tilted
+    more or less open — thick slats at tight pitch read shut, thin slats
+    at open pitch let the night through."""
+    h = sum(ord(c) * 13 for c in seed)
+    drop = 0.35 + (h % 7) / 6.0 * 0.60          # 0.35..0.95 of the window
+    tilt = ((h // 7) % 5) / 4.0                 # 0 open .. 1 closed
+    pitch = 0.055 + 0.02 * tilt
+    slat_h = 0.010 + 0.024 * tilt
+    depth = 0.05 - 0.022 * tilt
+    n = int(1.70 * drop / pitch)
+    if along_x:
+        _furn_box(f, uid + "_head", x, y, 1.34, 0.06, WIN_TOP, 0.05,
+                  "trim", False)
+        for k in range(n):
+            _furn_box(f, "%s_s%d" % (uid, k), x + 0.02, y + 0.005, 1.30,
+                      depth, WIN_TOP - 0.06 - k * pitch, slat_h, "trim",
+                      False)
+        _furn_box(f, uid + "_rail", x + 0.02, y, 1.30, 0.05,
+                  WIN_TOP - 0.06 - n * pitch, 0.03, "trim", False)
+    else:
+        _furn_box(f, uid + "_head", x, y, 0.06, 1.34, WIN_TOP, 0.05,
+                  "trim", False)
+        for k in range(n):
+            _furn_box(f, "%s_s%d" % (uid, k), x + 0.005, y + 0.02, depth,
+                      1.30, WIN_TOP - 0.06 - k * pitch, slat_h, "trim",
+                      False)
+        _furn_box(f, uid + "_rail", x, y + 0.02, 0.05, 1.30,
+                  WIN_TOP - 0.06 - n * pitch, 0.03, "trim", False)
+
+
+def blinds_for_unit(f, unit, stack):
+    x0, y0, x1, y1 = STACK_RECTS[stack]
+    west = stack in ("A", "B")
+    wx = (x0 + 0.10) if west else (x1 - 0.15)
+    ln = y1 - y0
+    for wi, wc in enumerate((y0 + ln * 0.30, y0 + ln * 0.70)):
+        blind_stack(f, "%s_blw%d" % (unit, wi), wx, wc - 0.67, False,
+                    unit + str(wi))
+    street = stack in ("A", "D")
+    wy = (y0 + 0.10) if street else (y1 - 0.15)
+    blind_stack(f, unit + "_blr", (x0 + x1) / 2.0 - 0.67, wy, True,
+                unit + "r")
+
+
 ## Room geometry per stack archetype, mirrored from apartment(): the
 ## dressing pass reads the same envelope numbers the walls are built from.
 def _unit_rooms(stack):
@@ -484,7 +534,7 @@ def _unit_rooms(stack):
         return {"bedrooms": [[x0, y0, x1, by]],
                 "living": [x0, by, x1, y1],
                 "kitchen_spot": (x1 - 3.4, y1 - 0.64, 2.5, True, "n"),
-                "dining_spot": (x0 + 5.9, (by + y1) / 2 + 0.60, ("s", "e"))}
+                "dining_spot": (x0 + 5.1, (by + y1) / 2 + 0.25, ("s", "e"))}
     if stack == "B":
         ay = y1 - 3.15
         return {"alcove": [x0, ay, x0 + 2.75, y1],
@@ -503,7 +553,7 @@ def _unit_rooms(stack):
             "living": [x0, by, x1, -1.00],
             "office": [x0, by + 3.41, x0 + 2.2, y1],
             "kitchen_spot": (x0 + 2.6, -1.64, 2.5, True, "n"),
-            "dining_spot": (x0 + 5.6, -2.35, ("n", "e"))}
+            "dining_spot": (x0 + 6.0, -2.35, ("n", "e"))}
 
 
 ## Standard pieces each hero's signature cluster replaces (so the two
@@ -666,6 +716,7 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
                   ly0 + 0.45 if stack != "B" else ly1 - 1.55)
     art_panel(f, unit + "_lart", ux(1.8, 0.9),
               ly1 - 0.075 if stack in ("A", "B") else ly0 + 0.04, 0.9, True)
+    blinds_for_unit(f, unit, stack)
 
     # ---- hero overlays: each resident's signature cluster + conductor bodies
     if unit == "2A":    # Mina: ordered caption station, quiet
@@ -690,7 +741,8 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
                   "trim", False)
         mk("speaker", 1, x1 - 0.6, cy + 1.6, 0.0, -90)
         mk("speaker", 2, x1 - 0.6, cy - 2.2, 0.0, -90)
-        mk("monitor", 1, cx - 0.4, cy - 0.3, 0.76, -90)
+        chair_box(f, "2C_benchstool", cx - 0.35, cy - 1.35, "s")
+        mk("monitor", 1, cx - 0.4, cy - 0.3, 0.76, 180)
     elif unit == "3B":  # Omar: repair shop by category
         _asm(f, "3B_workbench", "workbench", x0 + 1.5, y0 + 3.7, 180)
         for i in range(2):
@@ -744,7 +796,8 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
         _furn_box(f, "6A_cot", x0 + 0.4, y1 - 2.5, 0.9, 2.0, 0.0, 0.35,
                   "fabric_cool", False)
         for i in range(3):
-            mk("monitor", i + 1, x0 + 0.8, cy - 1.0 + i * 1.0, 0.78, -90)
+            mk("monitor", i + 1, x0 + 0.8, cy - 1.0 + i * 1.0, 0.78, 0)
+        chair_box(f, "6A_deskchair", x0 + 1.55, cy - 0.25, "w")
         mk("boxfan", 1, x1 - 1.2, y0 + 1.0, 0.25, 135)
     elif unit == "4D":  # short-term rental: nobody actually lives here
         # strip the lived-in warmth back out: it stays, but reads staged
@@ -829,13 +882,13 @@ def apartment_4b(z, walls, rooms, markers, furniture):
          "pos": [-8.15, 6.00, z + 0.76], "yaw_deg": 0,
          "network": "electrical"},
         {"kind": "monitor", "id": "F04_B_MONITOR_01", "unit": "4B",
-         "pos": [-8.05, 5.50, z + 0.76], "yaw_deg": -90,
+         "pos": [-8.05, 5.50, z + 0.76], "yaw_deg": 180,
          "network": "electrical"},
         {"kind": "toaster", "id": "F04_B_TOASTER_01", "unit": "4B",
          "pos": [-9.70, 9.30, z + 0.90], "yaw_deg": 90,
          "network": "electrical"},
         {"kind": "fridge", "id": "F04_B_FRIDGE_01", "unit": "4B",
-         "pos": [-8.30, 9.20, z], "yaw_deg": 90, "network": "electrical"},
+         "pos": [-8.30, 9.20, z], "yaw_deg": 0, "network": "electrical"},
         {"kind": "boxfan", "id": "F04_B_BOXFAN_01", "unit": "4B",
          "pos": [-13.20, 3.40, z + 0.25], "yaw_deg": 45,
          "network": "electrical"},
@@ -888,14 +941,11 @@ def furnish_4b_detail(furniture, y0, y1, x0):
     fb("faucet_spout", (-9.96, 9.30, -9.90, 9.50), 1.14, 0.04, "metal")
     fb("mugs", (-9.62, 9.15, -9.40, 9.32), 0.90, 0.11)
     fb("plates", (-9.30, 9.16, -9.06, 9.36), 0.90, 0.07)
-    for wi, wc in enumerate((y0 + (y1 - y0) * 0.30, y0 + (y1 - y0) * 0.70)):
-        for k in range(8):
-            fb("blindw%d_%d" % (wi, k),
-               (-13.58, wc - 0.65, -13.53, wc + 0.65),
-               0.92 + k * 0.11, 0.03)
-    for k in range(8):
-        fb("blindr_%d" % k, (-10.24, 9.52, -8.92, 9.57),
-           0.92 + k * 0.11, 0.03)
+    for wi, wc in enumerate((y0 + (y1 - y0) * 0.30,
+                             y0 + (y1 - y0) * 0.70)):
+        blind_stack(furniture, "4B_blw%d" % wi, -13.58, wc - 0.67, False,
+                    "4B" + str(wi))
+    blind_stack(furniture, "4B_blr", -10.25, 9.52, True, "4Br")
     fb("rug", (-12.40, 3.40, -8.70, 6.00), 0.0, 0.015, "rug_warm")
     fb("bookshelf", (-11.20, 2.75, -9.70, 3.07), 0.0, 1.55)
     for r, zr in enumerate((0.30, 0.76, 1.22)):
@@ -1456,6 +1506,20 @@ ROOM_FIXTURE = {
 }
 
 
+ROOM_LIGHT = {
+    "living": 1.0, "bedroom": 0.85, "alcove": 0.78, "hall": 1.0,
+    "kitchen": 1.12, "office": 1.15, "common": 1.05, "lobby": 1.25,
+    "atrium": 1.0, "utility": 0.78, "storage": 0.7, "laundry": 0.85,
+    "boiler": 0.7, "electrical": 0.75, "storage_cages": 0.65,
+    "coal": 0.55,
+}
+# resident temperament: Mina keeps it bright and even, Juno lives in
+# amp-glow, Omar floods the bench, Rhea works by playback light, Nadia
+# burns task lighting, Sacha lives at monitor level
+UNIT_LIGHT = {"2A": 1.15, "2C": 0.68, "3B": 1.25, "3D": 0.65,
+              "5A": 1.20, "6A": 0.55, "4D": 1.0}
+
+
 def light_fixture_markers(fl):
     """Every room earns a period fixture at its ceiling. 4B's main room
     keeps its bespoke ceiling_light; fire-gutted 5D hangs nothing.
@@ -1476,7 +1540,7 @@ def light_fixture_markers(fl):
                 "kind": "flush_dome",
                 "id": "%s_CORRIDOR_DOME_%02d" % (fl["id"], i + 1),
                 "unit": fl["id"], "pos": [cx, cy, z + ceil - 0.02],
-                "range": 4.2,
+                "range": 4.2, "energy": 0.9,
                 "yaw_deg": 0, "network": "electrical"})
     for r in fl["rooms"]:
         fix = ROOM_FIXTURE.get(r["kind"])
@@ -1502,6 +1566,9 @@ def light_fixture_markers(fl):
             rw, rd = x1 - x0, y1 - y0
             marker["range"] = round((rw * rw + rd * rd) ** 0.5 / 2.0
                                     + 0.9, 2)
+        e_mult = UNIT_LIGHT.get(unit, 0.85 + (sum(ord(c) for c in unit)
+                                              % 6) * 0.05) if unit else 1.0
+        marker["energy"] = round(ROOM_LIGHT.get(r["kind"], 1.0) * e_mult, 2)
         fl["markers"].append(marker)
 
 
@@ -1938,6 +2005,23 @@ def _validate_movement(layout):
                         sw[3] - tol):
                     problems.append("%s: door %s swing blocked by %s"
                                     % (fl["id"], m["id"], oid))
+        # every refrigerator door needs standing room in front of it
+        for fu in fl.get("furniture", []):
+            if fu.get("asm") != "fridge50":
+                continue
+            import math as _m
+            a = _m.radians(fu.get("yaw", 0))
+            fx_, fy_ = -_m.sin(a), _m.cos(a)   # local +y (door) in world
+            bx0_ = fu["at"][0] + fx_ * 0.85 - 0.42
+            by0_ = fu["at"][1] + fy_ * 0.85 - 0.42
+            band = (bx0_, by0_, bx0_ + 0.84, by0_ + 0.84)
+            for oid, bb in obs:
+                if oid == fu["id"] or oid.startswith(fu["id"][:-3]):
+                    continue
+                if _hit(bb, band[0] + 0.06, band[1] + 0.06,
+                        band[2] - 0.06, band[3] - 0.06):
+                    problems.append("%s: fridge %s door blocked by %s"
+                                    % (fl["id"], fu["id"], oid))
         # path: unit entry -> living center, an L in either order must
         # be passable at capsule width (a person routes around a chair;
         # they should never have to climb the furniture)

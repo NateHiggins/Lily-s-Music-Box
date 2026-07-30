@@ -84,12 +84,14 @@ func _ready() -> void:
 		saddle.position = Vector3(width / 2.0, 0.009, 0.0)
 		saddle.material_override = kick_mat
 		add_child(saddle)
-	# stile-and-rail identity: two recessed panel fields per face
+	# stile-and-rail identity; cabinet leaves get a single field scaled
+	# to their own height instead of full-door panel positions
 	var pmat := StandardMaterial3D.new()
 	pmat.albedo_color = leaf_col.darkened(0.16)
 	pmat.roughness = 0.55
+	var fields := [[0.16, 0.88], [1.04, height - 0.18]] 			if height >= 1.2 else [[0.07, height - 0.07]]
 	for side in [-1.0, 1.0]:
-		for pz in [[0.16, 0.88], [1.04, height - 0.18]]:
+		for pz in fields:
 			var panel := MeshInstance3D.new()
 			var pb := BoxMesh.new()
 			pb.size = Vector3(width - 0.22, pz[1] - pz[0], 0.012)
@@ -98,11 +100,24 @@ func _ready() -> void:
 					side * 0.020)
 			panel.material_override = pmat
 			_body.add_child(panel)
-	# lever on a rosette over a keyhole escutcheon, both faces
+	# lever on a rosette over a keyhole escutcheon, both faces —
+	# cabinets get a single small knob at carcass scale instead
 	var hw := StandardMaterial3D.new()
 	hw.albedo_color = Color(0.62, 0.55, 0.30)
 	hw.roughness = 0.28
 	hw.metallic = 0.85
+	if height < 1.2:
+		var knob := MeshInstance3D.new()
+		var kc := CylinderMesh.new()
+		kc.top_radius = 0.014
+		kc.bottom_radius = 0.010
+		kc.height = 0.028
+		knob.mesh = kc
+		knob.rotation_degrees = Vector3(90, 0, 0)
+		knob.position = Vector3(width - 0.06, height * 0.55, 0.032)
+		knob.material_override = hw
+		_body.add_child(knob)
+		return
 	for side in [-1.0, 1.0]:
 		var rosette := MeshInstance3D.new()
 		var rc := CylinderMesh.new()

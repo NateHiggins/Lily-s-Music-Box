@@ -139,7 +139,9 @@ func _run() -> void:
 	pl.global_position = Vector3(-4.7, 3.35, 1.65)
 	pl.velocity = Vector3.ZERO
 	await _goto(pl, Vector2(-7.0, 1.65), 5.0)   # through 2A entry
-	await _goto(pl, Vector2(-8.8, 3.0), 5.0)    # living, past dining
+	await _goto(pl, Vector2(-9.8, 2.2), 5.0)    # west of the dining table
+	await _goto(pl, Vector2(-9.8, 5.2), 5.0)
+	await _goto(pl, Vector2(-8.5, 5.3), 4.0)    # clear of the door swing
 	var bed2a: DoorProp = null
 	for c4 in root.get_children():
 		if c4 is DoorProp and c4.global_position.distance_to(
@@ -149,7 +151,7 @@ func _run() -> void:
 	if bed2a and not bed2a.open:
 		bed2a.interact(null)
 		await get_tree().create_timer(0.7).timeout
-	await _goto(pl, Vector2(-8.8, 6.2), 4.0)    # through the doorway
+	await _goto(pl, Vector2(-8.62, 6.55), 4.0)  # east lane past the leaf
 	await _goto(pl, Vector2(-9.5, 7.9), 4.0)    # to the bedside
 	pl.autopilot = Vector3.ZERO
 	_check(pl.global_position.z > 6.8,

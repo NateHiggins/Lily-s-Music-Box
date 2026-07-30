@@ -288,6 +288,8 @@ func _spawn_props() -> void:
 			prop.name = m["id"]
 			if m.has("range") and prop is LightFixtureProp:
 				prop.range_clamp = float(m["range"])
+			if m.has("energy") and prop is LightFixtureProp:
+				prop.energy_scale = float(m["energy"])
 			if AcousticGraphData.nodes.has(m["id"]):
 				prop.graph_node_id = m["id"]  # bound to the shared graph
 			add_child(prop)
