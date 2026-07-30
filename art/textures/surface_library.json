@@ -112,6 +112,132 @@
       "height_detail_radius": 6,
       "prompt": "Aged galvanized sheet metal with fine crystalline spangle, muted zinc gray, restrained utility-appliance finish.",
       "avoid": "rust, seams, bolts, reflections, objects, text, watermark, perspective, baked lighting"
+    },
+    "architectural/painted_trim": {
+      "kind": "surface",
+      "meters_per_tile": 0.8,
+      "roughness": 0.45,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 14,
+      "prompt": "Warm off-white aged painted wood trim, faint brush texture and restrained old-paint variation.",
+      "avoid": "molding profile, edges, chips, wood grain, objects, text, watermark, perspective, baked lighting"
+    },
+    "architectural/worn_stair_stone": {
+      "kind": "surface",
+      "meters_per_tile": 1.2,
+      "roughness": 0.5,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 8,
+      "prompt": "Warm gray fine-grained worn stair stone, subtle mineral flecks and restrained foot-polished variation.",
+      "avoid": "stair edges, cracks, footprints, tiles, objects, text, watermark, perspective, baked lighting"
+    },
+    "architectural/ceramic_tile": {
+      "kind": "surface",
+      "meters_per_tile": 1.2,
+      "roughness": 0.22,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 6,
+      "prompt": "Small square pale gray-green glazed ceramic bathroom tiles with thin warm-gray grout, understated prewar apartment finish.",
+      "avoid": "perspective, room edges, broken tiles, objects, text, watermark, reflections, baked lighting"
+    },
+    "furniture/linen": {
+      "kind": "surface",
+      "meters_per_tile": 0.65,
+      "roughness": 0.85,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 4,
+      "prompt": "Natural warm ivory linen, fine slub weave and subtle undyed fiber variation.",
+      "avoid": "folds, seams, objects, patterns, text, watermark, perspective, baked lighting"
+    },
+    "furniture/aged_paper": {
+      "kind": "surface",
+      "meters_per_tile": 0.5,
+      "roughness": 0.85,
+      "roughness_variation": 0.06,
+      "height_detail_radius": 12,
+      "prompt": "Warm cream aged uncoated paper, subtle pulp fibers and restrained uneven tone.",
+      "avoid": "writing, printing, torn edges, folds, objects, text, watermark, perspective, baked lighting"
+    },
+    "furniture/upholstery_cool": {
+      "kind": "surface",
+      "meters_per_tile": 0.7,
+      "roughness": 0.9,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 4,
+      "prompt": "Tightly woven muted slate-blue wool upholstery, subtle heathered fibers, durable vintage apartment fabric.",
+      "avoid": "seams, folds, cushions, patterns, objects, text, watermark, perspective, baked lighting"
+    },
+    "furniture/rug_warm": {
+      "kind": "surface",
+      "meters_per_tile": 2.0,
+      "roughness": 0.95,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 4,
+      "prompt": "Low-pile muted brick-red and ochre vintage apartment rug with a restrained small-scale geometric weave.",
+      "avoid": "rug border, fringe, room, perspective, objects, text, watermark, baked lighting"
+    },
+    "furniture/rug_cool": {
+      "kind": "surface",
+      "meters_per_tile": 2.0,
+      "roughness": 0.95,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 4,
+      "prompt": "Low-pile muted navy, slate, and gray vintage apartment rug with a restrained small-scale geometric weave.",
+      "avoid": "rug border, fringe, room, perspective, objects, text, watermark, baked lighting"
+    },
+    "furniture/rug_green": {
+      "kind": "surface",
+      "meters_per_tile": 2.0,
+      "roughness": 0.95,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 4,
+      "prompt": "Low-pile muted moss and olive vintage apartment rug with a restrained small-scale geometric weave.",
+      "avoid": "rug border, fringe, room, perspective, objects, text, watermark, baked lighting"
+    },
+    "metals/aged_brass": {
+      "kind": "surface",
+      "meters_per_tile": 0.6,
+      "roughness": 0.3,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 8,
+      "prompt": "Aged warm brass sheet, subtle cloudy patina and fine handling variation, cared-for rather than corroded.",
+      "avoid": "reflections, hardware edges, fingerprints, green corrosion, objects, text, watermark, perspective, baked lighting"
+    },
+    "furniture/porcelain": {
+      "kind": "surface",
+      "meters_per_tile": 0.6,
+      "roughness": 0.14,
+      "roughness_variation": 0.03,
+      "height_detail_radius": 20,
+      "prompt": "Soft white vintage porcelain surface, extremely subtle warm speckle and fired glaze variation.",
+      "avoid": "cracks, crazing, object edges, reflections, objects, text, watermark, perspective, baked lighting"
+    },
+    "furniture/art_canvas": {
+      "kind": "surface",
+      "meters_per_tile": 0.8,
+      "roughness": 0.65,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 5,
+      "prompt": "Abstract muted modernist painted canvas in earth tones, layered geometric brush fields without a focal figure.",
+      "avoid": "frame, signature, text, recognizable subject, objects, watermark, perspective, baked lighting"
+    },
+    "organic/leaf_surface": {
+      "kind": "surface",
+      "meters_per_tile": 0.4,
+      "roughness": 0.78,
+      "roughness_variation": 0.06,
+      "height_detail_radius": 5,
+      "prompt": "Dense abstract houseplant leaf-green surface texture, overlapping subtle vein and chlorophyll variation without distinct leaf silhouettes.",
+      "avoid": "background gaps, pots, stems, individual cutout leaves, objects, text, watermark, perspective, baked lighting"
+    },
+    "damage/charred_surface": {
+      "kind": "surface",
+      "meters_per_tile": 1.2,
+      "roughness": 0.9,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 7,
+      "prompt": "Matte black and dark charcoal fire-charred plaster surface, subtle alligatoring and soot variation.",
+      "avoid": "flames, glowing embers, holes, exposed structure, objects, text, watermark, perspective, baked lighting"
     }
   }
 }

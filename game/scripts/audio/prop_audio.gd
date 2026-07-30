@@ -13,6 +13,12 @@ static func get_stream(key: String) -> AudioStreamWAV:
 	return _cache[key]
 
 
+## Tests and editor hot-reloads can explicitly release the synthesized bank
+## after all players have stopped. Runtime keeps the cache for the session.
+static func clear_cache() -> void:
+	_cache.clear()
+
+
 static func _build(key: String) -> AudioStreamWAV:
 	match key:
 		"knock":

@@ -5,14 +5,14 @@ extends Node3D
 ## streaming stand-in until real occluder/HLOD passes land).
 
 const FLOOR_SCENES := {
-	"B1": "res://assets/building/floor_b1.glb",
-	"F01": "res://assets/building/floor_01.glb",
-	"F02": "res://assets/building/floor_02.glb",
-	"F03": "res://assets/building/floor_03.glb",
-	"F04": "res://assets/building/floor_04.glb",
-	"F05": "res://assets/building/floor_05.glb",
-	"F06": "res://assets/building/floor_06.glb",
-	"ROOF": "res://assets/building/roof.glb",
+	"B1": "res://assets/building/floor_b1.gltf",
+	"F01": "res://assets/building/floor_01.gltf",
+	"F02": "res://assets/building/floor_02.gltf",
+	"F03": "res://assets/building/floor_03.gltf",
+	"F04": "res://assets/building/floor_04.gltf",
+	"F05": "res://assets/building/floor_05.gltf",
+	"F06": "res://assets/building/floor_06.gltf",
+	"ROOF": "res://assets/building/roof.gltf",
 }
 const PROP_SCRIPTS := {
 	"radiator": preload("res://scripts/props/radiator_prop.gd"),
@@ -34,6 +34,13 @@ const PROP_SCRIPTS := {
 	"smoke_detector": preload("res://scripts/props/smoke_detector_prop.gd"),
 	"exhaust_fan": preload("res://scripts/props/exhaust_fan_prop.gd"),
 	"ceiling_light": preload("res://scripts/props/ceiling_light_prop.gd"),
+	"pendant_shade": preload("res://scripts/props/light_fixture_prop.gd"),
+	"flush_dome": preload("res://scripts/props/light_fixture_prop.gd"),
+	"sconce_globe": preload("res://scripts/props/light_fixture_prop.gd"),
+	"kitchen_linear": preload("res://scripts/props/light_fixture_prop.gd"),
+	"cage_bulb": preload("res://scripts/props/light_fixture_prop.gd"),
+	"chandelier": preload("res://scripts/props/light_fixture_prop.gd"),
+	"eye_pendant": preload("res://scripts/props/light_fixture_prop.gd"),
 }
 
 var layout: Dictionary = {}
@@ -41,6 +48,7 @@ var player: PlayerController
 var elevator: OrisonElevator
 var call_interface: CallInterface
 var walkthrough: ArchitecturalWalkthrough
+var light_rig: LightRig
 var floor_nodes: Dictionary = {}
 var show_all_floors := false
 
@@ -61,6 +69,8 @@ func _ready() -> void:
 	call_interface = CallInterface.new()
 	add_child(call_interface)
 	_spawn_props()
+	light_rig = LightRig.new()
+	add_child(light_rig)
 	elevator = OrisonElevator.new()
 	add_child(elevator)
 	elevator.setup(layout["elevator"])
@@ -86,20 +96,37 @@ func _ready() -> void:
 
 
 func _build_environment() -> void:
+	## Tuned for the fixture pools: lower flat ambient so tungsten pools
+	## own the rooms, gentle depth fog for aerial perspective down long
+	## corridors and the atrium eye, soft glow so emissive envelopes and
+	## halos bloom the way bright sources do to a dark-adapted eye.
 	var env := Environment.new()
 	env.background_mode = Environment.BG_COLOR
 	env.background_color = Color(0.015, 0.02, 0.035)
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	env.ambient_light_color = Color(0.35, 0.38, 0.48)
-	env.ambient_light_energy = 0.45
+	env.ambient_light_color = Color(0.30, 0.33, 0.44)
+	env.ambient_light_energy = 0.30
 	env.tonemap_mode = Environment.TONE_MAPPER_FILMIC
+	env.fog_enabled = true
+	env.fog_light_color = Color(0.05, 0.06, 0.10)
+	env.fog_density = 0.010
+	env.glow_enabled = true
+	env.glow_intensity = 0.55
+	env.glow_bloom = 0.06
+	env.glow_hdr_threshold = 1.15
 	var we := WorldEnvironment.new()
 	we.environment = env
 	add_child(we)
 	var moon := DirectionalLight3D.new()
+	moon.name = "ExteriorMoon"
 	moon.light_color = Color(0.65, 0.7, 0.9)
 	moon.light_energy = 0.35
 	moon.rotation_degrees = Vector3(-38, 30, 0)
+	moon.shadow_enabled = true
+	moon.shadow_bias = 0.035
+	moon.shadow_normal_bias = 0.55
+	moon.directional_shadow_max_distance = 48.0
+	moon.directional_shadow_fade_start = 0.80
 	add_child(moon)
 
 

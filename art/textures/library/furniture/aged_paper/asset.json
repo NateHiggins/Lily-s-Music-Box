@@ -1,0 +1,14 @@
+{
+  "id": "furniture/aged_paper",
+  "kind": "surface",
+  "source": "art/textures/source_library/furniture/aged_paper.png",
+  "meters_per_tile": 0.5,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "edge_error_horizontal": 0.01581,
+  "edge_error_vertical": 0.01828
+}

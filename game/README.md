@@ -162,9 +162,40 @@ F1→F2 by the real player capsule, elevator travel B1↔F6, acoustic graph
 connectivity, the vertical slice, Case 01 end-to-end, Room 0, and the
 architectural walkthrough. Exit code = failure count.
 
+**The lighting model (new):** 112 period fixtures across seven original
+types — fabric drum pendants (living rooms), opal flush domes (bedrooms,
+halls), milk-glass sconces over every bathroom mirror, enamel kitchen
+linears, caged vapor-proof bulbs (basement/utility, they swing on motif
+accents), a six-arm brass chandelier in the lobby, and long-drop globe
+pendants down the atrium eye. Every fixture is a conductor body
+(filament class: motif events surge the envelope and sway the drops).
+Light quality is faked ray tracing on the compatibility renderer, by
+design: a LightRig spends the light budget on the 14 nearest fixtures
+(10 more at reduced energy, everything else keeps only its emissive
+envelope + additive halo so it still reads as ON), the nearest six gain
+a dim floor-tinted counter-light that fakes the first bounce, and the
+three nearest eligible fixtures cast sticky, Compatibility-safe cubemap
+shadows. Every fixture family participates, and a short distance cutoff
+prevents lights in adjacent rooms from stealing the shadow budget. The
+exterior moon casts tuned directional shadows, while the Blender build
+bakes the rest of the GI impression into geometry: radial contact-shadow
+quads under every furniture assembly and gradient AO strips along every
+wall/floor junction. Environment retuned to match — lower flat ambient,
+gentle depth fog, soft glow so bright sources bloom.
+
+**Textured (new):** every mesh now carries deterministic world-projected
+UVs and the full PBR texture pipeline — 24 texture sets (plaster, brick
+families, oak, terrazzo, wainscot green, walnut, upholstery, aged enamel,
+brushed steel, galvanized metal, bakelite and more) with albedo,
+roughness and tangent normals, plus pre-composited stain/wear passes
+(scuffed plaster, water-bloomed basement concrete, greasy appliance
+enamel, rust-run utility metal, chipped wainscot). Floors export as
+.gltf with one shared texture directory; see
+`../art/textures/README.md` for the mapping and how to add a material.
+
 ## Performance snapshot (furnished)
 
-- Whole building: 325 meshes, ~225,500 triangles, ~12 MB glTF total —
+- Whole building: 325 meshes, ~225,500 triangles, ~16 MB geometry + 50 MB shared textures —
   still light for a full furnished building. Detailed furnishings render
   without collision; each assembly carries one invisible coarse hull for
   physics instead of trimesh furniture.

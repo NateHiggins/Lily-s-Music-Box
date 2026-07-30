@@ -27,6 +27,9 @@ func _build_visual() -> void:
 	shade.rotation_degrees = Vector3(0, 0, 132)
 	make_cyl(0.020, 0.020, 0.012, Vector3(0.065, 0.445, 0),
 			Color(1.0, 0.9, 0.7), 0.2)                   # the bulb glow
+	retexture(self, [
+		[Color(0.15, 0.16, 0.14), "enamel", Color(0.34, 0.37, 0.32), 0.4],
+	])
 	_light = OmniLight3D.new()
 	_light.light_color = Color(1.0, 0.82, 0.55)  # ~2700 K
 	_light.light_energy = _base_energy

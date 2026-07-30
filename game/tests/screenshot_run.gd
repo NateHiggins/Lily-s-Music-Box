@@ -24,8 +24,8 @@ const SHOTS := [
 	 "look": Vector3(0.3, 21.5, 0.0), "overlay": false},
 	{"name": "b_17_2a_mina_living", "pos": Vector3(-6.8, 4.78, 1.4),
 	 "look": Vector3(-12.5, 3.9, 3.8), "overlay": false},
-	{"name": "b_06_laundry_b1", "pos": Vector3(-7.8, -1.2, -2.2),
-	 "look": Vector3(-11.5, -2.2, -5.4), "overlay": false},
+	{"name": "b_06_laundry_b1", "pos": Vector3(-8.7, -1.25, -3.7),
+	 "look": Vector3(-11.6, -2.1, -5.1), "overlay": false},
 	{"name": "b_07_roof", "pos": Vector3(-6, 21.4, 9.5),
 	 "look": Vector3(2, 19.4, -4), "overlay": false},
 	{"name": "b_08_acoustic_graph", "pos": Vector3(26, 14, 26),
@@ -58,10 +58,10 @@ func _run() -> void:
 	cam.fov = 72
 	add_child(cam)
 	cam.make_current()
-	# stills need more ambient light than gameplay
+	# a light lift only: the fixture pools carry the stills now
 	for c in root.get_children():
 		if c is WorldEnvironment:
-			c.environment.ambient_light_energy = 1.1
+			c.environment.ambient_light_energy = 0.55
 			c.environment.background_color = Color(0.05, 0.06, 0.10)
 	for shot in SHOTS:
 		AcousticGraphData.set_overlay_visible(shot.overlay, root)

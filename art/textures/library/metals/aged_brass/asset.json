@@ -1,0 +1,14 @@
+{
+  "id": "metals/aged_brass",
+  "kind": "surface",
+  "source": "art/textures/source_library/metals/aged_brass.png",
+  "meters_per_tile": 0.6,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "edge_error_horizontal": 0.01519,
+  "edge_error_vertical": 0.01983
+}

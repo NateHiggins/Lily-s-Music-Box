@@ -80,15 +80,7 @@
      "t": 0.18,
      "h": 3.02,
      "z": -2.8,
-     "openings": [
-      {
-       "type": "window",
-       "at": 3.25,
-       "w": 0.9,
-       "h": 1.15,
-       "sill": 1.0
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "brick",
      "wainscot": false,
@@ -106,15 +98,7 @@
      "t": 0.18,
      "h": 3.02,
      "z": -2.8,
-     "openings": [
-      {
-       "type": "window",
-       "at": 3.25,
-       "w": 0.9,
-       "h": 1.15,
-       "sill": 1.0
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "brick",
      "wainscot": false,
@@ -1148,9 +1132,321 @@
      "w": 0.96,
      "h": 2.1,
      "leaf": "open"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "B1_CORRIDOR_DOME_01",
+     "unit": "B1",
+     "pos": [
+      -4.35,
+      -5.1,
+      0.14000000000000012
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "B1_CORRIDOR_DOME_02",
+     "unit": "B1",
+     "pos": [
+      -4.35,
+      0.0,
+      0.14000000000000012
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "B1_CORRIDOR_DOME_03",
+     "unit": "B1",
+     "pos": [
+      -4.35,
+      5.1,
+      0.14000000000000012
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "B1_CORRIDOR_DOME_04",
+     "unit": "B1",
+     "pos": [
+      4.35,
+      -5.1,
+      0.14000000000000012
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "B1_CORRIDOR_DOME_05",
+     "unit": "B1",
+     "pos": [
+      4.35,
+      0.0,
+      0.14000000000000012
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "B1_CORRIDOR_DOME_06",
+     "unit": "B1",
+     "pos": [
+      4.35,
+      5.1,
+      0.14000000000000012
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "B1_CORRIDOR_DOME_07",
+     "unit": "B1",
+     "pos": [
+      0.0,
+      -8.25,
+      0.14000000000000012
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "B1_CORRIDOR_DOME_08",
+     "unit": "B1",
+     "pos": [
+      0.0,
+      8.25,
+      0.14000000000000012
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "B1_STORAGE_CAGES_LT_CAGE_BULB",
+     "unit": "B1",
+     "pos": [
+      -9.58,
+      -5.05,
+      0.16000000000000014
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "B1_LAUNDRY_LT_CAGE_BULB",
+     "unit": "B1",
+     "pos": [
+      -9.58,
+      6.16,
+      0.16000000000000014
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "B1_BOILER_LT_CAGE_BULB",
+     "unit": "B1",
+     "pos": [
+      9.58,
+      4.385,
+      0.16000000000000014
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "B1_ELECTRICAL_LT_CAGE_BULB",
+     "unit": "B1",
+     "pos": [
+      9.58,
+      -5.325,
+      0.16000000000000014
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "B1_HALL_LT_FLUSH_DOME",
+     "unit": "B1",
+     "pos": [
+      -1.2,
+      -5.0,
+      0.16000000000000014
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "eye_pendant",
+     "id": "B1_ATRIUM_LT_EYE_PENDANT",
+     "unit": "B1",
+     "pos": [
+      0.0,
+      0.0,
+      0.16000000000000014
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "B1_UTILITY_LT_CAGE_BULB",
+     "unit": "B1",
+     "pos": [
+      0.0,
+      5.0,
+      0.16000000000000014
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "B1_COAL_LT_CAGE_BULB",
+     "unit": "B1",
+     "pos": [
+      12.475,
+      1.5,
+      0.16000000000000014
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
     }
    ],
    "furniture": [
+    {
+     "id": "B1_stair_history_w_art",
+     "rect": [
+      -3.148,
+      -0.62,
+      -3.113,
+      0.62
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "paper"
+    },
+    {
+     "id": "B1_stair_history_w_artf",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      0.64
+     ],
+     "z0": 0.99,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "B1_stair_history_w_artf2",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      0.64
+     ],
+     "z0": 2.1,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "B1_stair_history_w_artfl",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      -0.61
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "B1_stair_history_w_artfr",
+     "rect": [
+      -3.148,
+      0.61,
+      -3.103,
+      0.64
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "B1_stair_history_e_art",
+     "rect": [
+      3.113,
+      -0.62,
+      3.148,
+      0.62
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "paper"
+    },
+    {
+     "id": "B1_stair_history_e_artf",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      0.64
+     ],
+     "z0": 0.99,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "B1_stair_history_e_artf2",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      0.64
+     ],
+     "z0": 2.1,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "B1_stair_history_e_artfl",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      -0.61
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "B1_stair_history_e_artfr",
+     "rect": [
+      3.113,
+      0.61,
+      3.158,
+      0.64
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
     {
      "id": "B1_chute",
      "asm": "pipe",
@@ -1222,10 +1518,10 @@
     {
      "id": "B1_mop",
      "rect": [
-      -2.6,
-      6.35,
-      -2.2800000000000002,
-      6.67
+      -3.08,
+      6.3,
+      -2.7600000000000002,
+      6.62
      ],
      "z0": 0.0,
      "h": 0.4,
@@ -2049,15 +2345,7 @@
      "t": 0.18,
      "h": 3.02,
      "z": 0.0,
-     "openings": [
-      {
-       "type": "window",
-       "at": 3.25,
-       "w": 0.9,
-       "h": 1.15,
-       "sill": 1.0
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "brick",
      "wainscot": false,
@@ -2075,15 +2363,7 @@
      "t": 0.18,
      "h": 3.02,
      "z": 0.0,
-     "openings": [
-      {
-       "type": "window",
-       "at": 3.25,
-       "w": 0.9,
-       "h": 1.15,
-       "sill": 1.0
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "brick",
      "wainscot": false,
@@ -2443,13 +2723,6 @@
      "openings": [
       {
        "type": "window",
-       "at": 2.7600000000000002,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
-      },
-      {
-       "type": "window",
        "at": 6.44,
        "w": 1.35,
        "h": 1.7,
@@ -2499,22 +2772,7 @@
      "t": 0.41,
      "h": 3.2,
      "z": 0.0,
-     "openings": [
-      {
-       "type": "window",
-       "at": 2.094,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
-      },
-      {
-       "type": "window",
-       "at": 4.886,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "common_brick",
      "wainscot": false,
@@ -2968,7 +3226,7 @@
      "openings": [
       {
        "type": "door",
-       "at": 7.390000000000001,
+       "at": 4.840000000000002,
        "w": 0.81,
        "h": 2.03,
        "sill": 0.0,
@@ -3040,7 +3298,7 @@
      "openings": [
       {
        "type": "door",
-       "at": 0.75,
+       "at": 3.299999999999999,
        "w": 0.81,
        "h": 2.03,
        "sill": 0.0,
@@ -3347,6 +3605,30 @@
      "yaw_deg": 0
     },
     {
+     "kind": "sconce_globe",
+     "id": "F01WC_LT_SCONCE",
+     "unit": "F01WC",
+     "pos": [
+      -13.57,
+      7.32,
+      1.92
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
+    },
+    {
+     "kind": "sconce_globe",
+     "id": "1A_LT_SCONCE",
+     "unit": "1A",
+     "pos": [
+      -5.59,
+      -4.2700000000000005,
+      1.92
+     ],
+     "yaw_deg": -90,
+     "network": "electrical"
+    },
+    {
      "kind": "radiator",
      "id": "F01_A_RADIATOR_01",
      "pos": [
@@ -3358,6 +3640,18 @@
      "network": "heating",
      "riser": "H-A",
      "unit": "1A"
+    },
+    {
+     "kind": "sconce_globe",
+     "id": "1D_LT_SCONCE",
+     "unit": "1D",
+     "pos": [
+      5.59,
+      -4.2700000000000005,
+      1.92
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
     },
     {
      "kind": "radiator",
@@ -3493,7 +3787,7 @@
      "kind": "door",
      "id": "F01_DOOR_10",
      "pos": [
-      -6.665,
+      -9.214999999999998,
       -6.25,
       0.0
      ],
@@ -3519,7 +3813,7 @@
      "kind": "door",
      "id": "F01_DOOR_12",
      "pos": [
-      5.8549999999999995,
+      8.405,
       -6.25,
       0.0
      ],
@@ -3553,9 +3847,381 @@
      "w": 0.81,
      "h": 2.03,
      "leaf": "closed"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F01_CORRIDOR_DOME_01",
+     "unit": "F01",
+     "pos": [
+      -4.35,
+      -5.1,
+      2.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F01_CORRIDOR_DOME_02",
+     "unit": "F01",
+     "pos": [
+      -4.35,
+      0.0,
+      2.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F01_CORRIDOR_DOME_03",
+     "unit": "F01",
+     "pos": [
+      -4.35,
+      5.1,
+      2.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F01_CORRIDOR_DOME_04",
+     "unit": "F01",
+     "pos": [
+      4.35,
+      -5.1,
+      2.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F01_CORRIDOR_DOME_05",
+     "unit": "F01",
+     "pos": [
+      4.35,
+      0.0,
+      2.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F01_CORRIDOR_DOME_06",
+     "unit": "F01",
+     "pos": [
+      4.35,
+      5.1,
+      2.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F01_CORRIDOR_DOME_07",
+     "unit": "F01",
+     "pos": [
+      0.0,
+      -8.25,
+      2.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F01_CORRIDOR_DOME_08",
+     "unit": "F01",
+     "pos": [
+      0.0,
+      8.25,
+      2.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "chandelier",
+     "id": "F01_LOBBY_LT_CHANDELIER",
+     "unit": "F01",
+     "pos": [
+      0.0,
+      -8.29,
+      2.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F01_COMMON_B_LT_PENDANT_SHADE",
+     "unit": "F01",
+     "pos": [
+      -8.705,
+      7.525,
+      2.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "F01_STORAGE_C_LT_CAGE_BULB",
+     "unit": "F01",
+     "pos": [
+      9.58,
+      4.385,
+      2.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F01_HALL_LT_FLUSH_DOME",
+     "unit": "F01",
+     "pos": [
+      -1.2,
+      -5.0,
+      2.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "eye_pendant",
+     "id": "F01_ATRIUM_LT_EYE_PENDANT",
+     "unit": "F01",
+     "pos": [
+      0.0,
+      0.0,
+      2.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "F01_UTILITY_LT_CAGE_BULB",
+     "unit": "F01",
+     "pos": [
+      0.0,
+      5.0,
+      2.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F01_OFFICE_LT_PENDANT_SHADE",
+     "unit": "F01",
+     "pos": [
+      -11.765,
+      4.035,
+      2.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "F01_PACKAGE_LT_CAGE_BULB",
+     "unit": "F01",
+     "pos": [
+      -7.695,
+      4.035,
+      2.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F01_A_BED_LT_FLUSH_DOME",
+     "unit": "1A",
+     "pos": [
+      -9.58,
+      -7.95,
+      2.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F01_A_MAIN_LT_PENDANT_SHADE",
+     "unit": "1A",
+     "pos": [
+      -9.58,
+      -3.35,
+      2.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F01_D_BED_LT_FLUSH_DOME",
+     "unit": "1D",
+     "pos": [
+      9.58,
+      -7.95,
+      2.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F01_D_MAIN_LT_PENDANT_SHADE",
+     "unit": "1D",
+     "pos": [
+      9.58,
+      -3.625,
+      2.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F01_D_OFFICE_LT_PENDANT_SHADE",
+     "unit": "1D",
+     "pos": [
+      6.61,
+      -1.92,
+      2.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
     }
    ],
    "furniture": [
+    {
+     "id": "F01_stair_history_w_art",
+     "rect": [
+      -3.148,
+      -0.62,
+      -3.113,
+      0.62
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "paper"
+    },
+    {
+     "id": "F01_stair_history_w_artf",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      0.64
+     ],
+     "z0": 0.99,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F01_stair_history_w_artf2",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      0.64
+     ],
+     "z0": 2.1,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F01_stair_history_w_artfl",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      -0.61
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F01_stair_history_w_artfr",
+     "rect": [
+      -3.148,
+      0.61,
+      -3.103,
+      0.64
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F01_stair_history_e_art",
+     "rect": [
+      3.113,
+      -0.62,
+      3.148,
+      0.62
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "paper"
+    },
+    {
+     "id": "F01_stair_history_e_artf",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      0.64
+     ],
+     "z0": 0.99,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F01_stair_history_e_artf2",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      0.64
+     ],
+     "z0": 2.1,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F01_stair_history_e_artfl",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      -0.61
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F01_stair_history_e_artfr",
+     "rect": [
+      3.113,
+      0.61,
+      3.158,
+      0.64
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
     {
      "id": "F01_chute",
      "asm": "pipe",
@@ -3627,10 +4293,10 @@
     {
      "id": "F01_mop",
      "rect": [
-      -2.6,
-      6.35,
-      -2.2800000000000002,
-      6.67
+      -3.08,
+      6.3,
+      -2.7600000000000002,
+      6.62
      ],
      "z0": 0.0,
      "h": 0.4,
@@ -3870,6 +4536,30 @@
      "mat": "wood_dark"
     },
     {
+     "id": "lobby_notice_artfl",
+     "rect": [
+      5.205,
+      -8.87,
+      5.25,
+      -8.84
+     ],
+     "z0": 1.15,
+     "h": 0.75,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "lobby_notice_artfr",
+     "rect": [
+      5.205,
+      -7.959999999999999,
+      5.25,
+      -7.929999999999999
+     ],
+     "z0": 1.15,
+     "h": 0.75,
+     "mat": "wood_dark"
+    },
+    {
      "id": "lobby_plant",
      "asm": "plant",
      "at": [
@@ -3990,6 +4680,30 @@
      ],
      "z0": 2.0,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "common_notice_artfl",
+     "rect": [
+      -9.52,
+      2.745,
+      -9.49,
+      2.79
+     ],
+     "z0": 1.1,
+     "h": 0.9,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "common_notice_artfr",
+     "rect": [
+      -8.31,
+      2.745,
+      -8.280000000000001,
+      2.79
+     ],
+     "z0": 1.1,
+     "h": 0.9,
      "mat": "wood_dark"
     },
     {
@@ -4144,7 +4858,7 @@
      "id": "1A_w0_wardrobe",
      "asm": "wardrobe",
      "at": [
-      -9.8,
+      -11.4,
       -6.74
      ],
      "yaw": 180,
@@ -4165,9 +4879,9 @@
     {
      "id": "1A_bart0_art",
      "rect": [
-      -8.75,
+      -11.65,
       -6.325,
-      -8.05,
+      -10.950000000000001,
       -6.29
      ],
      "z0": 1.3,
@@ -4177,9 +4891,9 @@
     {
      "id": "1A_bart0_artf",
      "rect": [
-      -8.77,
+      -11.67,
       -6.325,
-      -8.03,
+      -10.93,
       -6.28
      ],
      "z0": 1.27,
@@ -4189,13 +4903,37 @@
     {
      "id": "1A_bart0_artf2",
      "rect": [
-      -8.77,
+      -11.67,
       -6.325,
-      -8.03,
+      -10.93,
       -6.28
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "1A_bart0_artfl",
+     "rect": [
+      -11.67,
+      -6.325,
+      -11.64,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "1A_bart0_artfr",
+     "rect": [
+      -10.96,
+      -6.325,
+      -10.930000000000001,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -4272,8 +5010,8 @@
      "id": "1A_din_t",
      "asm": "table_rect",
      "at": [
-      -8.65,
-      -2.5
+      -7.75,
+      -2.75
      ],
      "yaw": 0,
      "L": 1.2,
@@ -4284,8 +5022,8 @@
      "id": "1A_din_dc1",
      "asm": "chair",
      "at": [
-      -8.98,
-      -3.28
+      -8.08,
+      -3.53
      ],
      "yaw": 0
     },
@@ -4293,26 +5031,8 @@
      "id": "1A_din_dc2",
      "asm": "chair",
      "at": [
-      -8.32,
-      -1.72
-     ],
-     "yaw": 180
-    },
-    {
-     "id": "1A_din_dc3",
-     "asm": "chair",
-     "at": [
-      -9.53,
-      -2.5
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "1A_din_dc4",
-     "asm": "chair",
-     "at": [
-      -7.77,
-      -2.5
+      -6.87,
+      -2.75
      ],
      "yaw": 90
     },
@@ -4372,6 +5092,30 @@
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "1A_lart_artfl",
+     "rect": [
+      -11.87,
+      -0.525,
+      -11.84,
+      -0.48000000000000004
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "1A_lart_artfr",
+     "rect": [
+      -10.959999999999999,
+      -0.525,
+      -10.93,
+      -0.48000000000000004
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -4481,6 +5225,30 @@
      "mat": "wood_dark"
     },
     {
+     "id": "1D_bart0_artfl",
+     "rect": [
+      6.890000000000001,
+      -6.325,
+      6.920000000000001,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "1D_bart0_artfr",
+     "rect": [
+      7.6000000000000005,
+      -6.325,
+      7.630000000000001,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
      "id": "1D_odesk",
      "asm": "desk",
      "at": [
@@ -4585,8 +5353,8 @@
      "id": "1D_din_t",
      "asm": "table_round",
      "at": [
-      10.11,
-      -2.7
+      11.11,
+      -2.35
      ],
      "yaw": 0,
      "mat": "wood_dark"
@@ -4595,35 +5363,17 @@
      "id": "1D_din_dc1",
      "asm": "chair",
      "at": [
-      9.78,
-      -3.48
+      11.44,
+      -1.57
      ],
-     "yaw": 0
+     "yaw": 180
     },
     {
      "id": "1D_din_dc2",
      "asm": "chair",
      "at": [
-      10.44,
-      -1.92
-     ],
-     "yaw": 180
-    },
-    {
-     "id": "1D_din_dc3",
-     "asm": "chair",
-     "at": [
-      9.23,
-      -2.7
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "1D_din_dc4",
-     "asm": "chair",
-     "at": [
-      10.99,
-      -2.7
+      11.99,
+      -2.35
      ],
      "yaw": 90
     },
@@ -4693,6 +5443,30 @@
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "1D_lart_artfl",
+     "rect": [
+      10.93,
+      -6.21,
+      10.959999999999999,
+      -6.165
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "1D_lart_artfr",
+     "rect": [
+      11.84,
+      -6.21,
+      11.87,
+      -6.165
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -4879,7 +5653,7 @@
      "id": "F01_SW_10_180",
      "asm": "switch",
      "at": [
-      -5.685,
+      -8.235,
       -6.312
      ],
      "yaw": 180,
@@ -4889,7 +5663,7 @@
      "id": "F01_SW_10_0",
      "asm": "switch",
      "at": [
-      -5.685,
+      -8.235,
       -6.188
      ],
      "yaw": 0,
@@ -4919,7 +5693,7 @@
      "id": "F01_SW_12_180",
      "asm": "switch",
      "at": [
-      6.835,
+      9.385,
       -6.312
      ],
      "yaw": 180,
@@ -4929,7 +5703,7 @@
      "id": "F01_SW_12_0",
      "asm": "switch",
      "at": [
-      6.835,
+      9.385,
       -6.188
      ],
      "yaw": 0,
@@ -5025,15 +5799,7 @@
      "t": 0.18,
      "h": 3.02,
      "z": 3.2,
-     "openings": [
-      {
-       "type": "window",
-       "at": 3.25,
-       "w": 0.9,
-       "h": 1.15,
-       "sill": 1.0
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "brick",
      "wainscot": false,
@@ -5051,15 +5817,7 @@
      "t": 0.18,
      "h": 3.02,
      "z": 3.2,
-     "openings": [
-      {
-       "type": "window",
-       "at": 3.25,
-       "w": 0.9,
-       "h": 1.15,
-       "sill": 1.0
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "brick",
      "wainscot": false,
@@ -5419,13 +6177,6 @@
      "openings": [
       {
        "type": "window",
-       "at": 2.7600000000000002,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
-      },
-      {
-       "type": "window",
        "at": 6.44,
        "w": 1.35,
        "h": 1.7,
@@ -5549,13 +6300,6 @@
        "w": 1.35,
        "h": 1.7,
        "sill": 0.85
-      },
-      {
-       "type": "window",
-       "at": 7.371,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
       }
      ],
      "cat": "walls",
@@ -5575,15 +6319,7 @@
      "t": 0.35,
      "h": 3.2,
      "z": 3.2,
-     "openings": [
-      {
-       "type": "window",
-       "at": 4.07,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "common_brick",
      "wainscot": false,
@@ -5783,7 +6519,7 @@
      "openings": [
       {
        "type": "door",
-       "at": 7.390000000000001,
+       "at": 4.840000000000002,
        "w": 0.81,
        "h": 2.03,
        "sill": 0.0,
@@ -6061,7 +6797,7 @@
      "openings": [
       {
        "type": "door",
-       "at": 0.75,
+       "at": 3.299999999999999,
        "w": 0.81,
        "h": 2.03,
        "sill": 0.0,
@@ -6401,6 +7137,18 @@
    ],
    "markers": [
     {
+     "kind": "sconce_globe",
+     "id": "2A_LT_SCONCE",
+     "unit": "2A",
+     "pos": [
+      -5.59,
+      -4.2700000000000005,
+      5.12
+     ],
+     "yaw_deg": -90,
+     "network": "electrical"
+    },
+    {
      "kind": "radiator",
      "id": "F02_A_RADIATOR_01",
      "pos": [
@@ -6438,6 +7186,18 @@
      "network": "electrical"
     },
     {
+     "kind": "sconce_globe",
+     "id": "2B_LT_SCONCE",
+     "unit": "2B",
+     "pos": [
+      -5.59,
+      4.89,
+      5.12
+     ],
+     "yaw_deg": -90,
+     "network": "electrical"
+    },
+    {
      "kind": "radiator",
      "id": "F02_B_RADIATOR_01",
      "pos": [
@@ -6449,6 +7209,18 @@
      "network": "heating",
      "riser": "H-B",
      "unit": "2B"
+    },
+    {
+     "kind": "sconce_globe",
+     "id": "2C_LT_SCONCE",
+     "unit": "2C",
+     "pos": [
+      5.59,
+      5.71,
+      5.12
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
     },
     {
      "kind": "radiator",
@@ -6500,6 +7272,18 @@
      "network": "electrical"
     },
     {
+     "kind": "sconce_globe",
+     "id": "2D_LT_SCONCE",
+     "unit": "2D",
+     "pos": [
+      5.59,
+      -4.2700000000000005,
+      5.12
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
+    },
+    {
      "kind": "radiator",
      "id": "F02_D_RADIATOR_01",
      "pos": [
@@ -6536,23 +7320,23 @@
      "network": "structural"
     },
     {
-     "kind": "corridor_light",
+     "kind": "electrical_junction",
      "id": "F02_CORRLIGHT_S",
      "pos": [
       0.0,
       -8.3,
-      3.2
+      5.95
      ],
      "yaw_deg": 0,
      "network": "electrical"
     },
     {
-     "kind": "corridor_light",
+     "kind": "electrical_junction",
      "id": "F02_CORRLIGHT_N",
      "pos": [
       0.0,
       8.3,
-      3.2
+      5.95
      ],
      "yaw_deg": 0,
      "network": "electrical"
@@ -6639,7 +7423,7 @@
      "kind": "door",
      "id": "F02_DOOR_07",
      "pos": [
-      -6.665,
+      -9.214999999999998,
       -6.25,
       3.2
      ],
@@ -6717,7 +7501,7 @@
      "kind": "door",
      "id": "F02_DOOR_13",
      "pos": [
-      5.8549999999999995,
+      8.405,
       -6.25,
       3.2
      ],
@@ -6751,9 +7535,369 @@
      "w": 0.81,
      "h": 2.03,
      "leaf": "closed"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F02_CORRIDOR_DOME_01",
+     "unit": "F02",
+     "pos": [
+      -4.35,
+      -5.1,
+      6.140000000000001
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F02_CORRIDOR_DOME_02",
+     "unit": "F02",
+     "pos": [
+      -4.35,
+      0.0,
+      6.140000000000001
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F02_CORRIDOR_DOME_03",
+     "unit": "F02",
+     "pos": [
+      -4.35,
+      5.1,
+      6.140000000000001
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F02_CORRIDOR_DOME_04",
+     "unit": "F02",
+     "pos": [
+      4.35,
+      -5.1,
+      6.140000000000001
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F02_CORRIDOR_DOME_05",
+     "unit": "F02",
+     "pos": [
+      4.35,
+      0.0,
+      6.140000000000001
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F02_CORRIDOR_DOME_06",
+     "unit": "F02",
+     "pos": [
+      4.35,
+      5.1,
+      6.140000000000001
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F02_CORRIDOR_DOME_07",
+     "unit": "F02",
+     "pos": [
+      0.0,
+      -8.25,
+      6.140000000000001
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F02_CORRIDOR_DOME_08",
+     "unit": "F02",
+     "pos": [
+      0.0,
+      8.25,
+      6.140000000000001
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F02_A_BED_LT_FLUSH_DOME",
+     "unit": "2A",
+     "pos": [
+      -9.58,
+      -7.95,
+      6.16
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F02_A_MAIN_LT_PENDANT_SHADE",
+     "unit": "2A",
+     "pos": [
+      -9.58,
+      -3.35,
+      6.16
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F02_B_ALCOVE_LT_FLUSH_DOME",
+     "unit": "2B",
+     "pos": [
+      -12.275,
+      8.075,
+      6.16
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "kitchen_linear",
+     "id": "F02_B_KITCHEN_LT_KITCHEN_LINEAR",
+     "unit": "2B",
+     "pos": [
+      -8.205,
+      8.075,
+      6.16
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F02_B_MAIN_LT_PENDANT_SHADE",
+     "unit": "2B",
+     "pos": [
+      -9.58,
+      4.585,
+      6.16
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F02_C_BED1_LT_FLUSH_DOME",
+     "unit": "2C",
+     "pos": [
+      7.545,
+      7.95,
+      6.16
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F02_C_BED2_LT_FLUSH_DOME",
+     "unit": "2C",
+     "pos": [
+      11.615,
+      7.95,
+      6.16
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F02_C_MAIN_LT_PENDANT_SHADE",
+     "unit": "2C",
+     "pos": [
+      9.58,
+      2.685,
+      6.16
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "F02_WSTOR_LT_CAGE_BULB",
+     "unit": "F02",
+     "pos": [
+      -9.58,
+      1.11,
+      6.16
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F02_HALL_LT_FLUSH_DOME",
+     "unit": "F02",
+     "pos": [
+      -1.2,
+      -5.0,
+      6.16
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "eye_pendant",
+     "id": "F02_ATRIUM_LT_EYE_PENDANT",
+     "unit": "F02",
+     "pos": [
+      0.0,
+      0.0,
+      6.16
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "F02_UTILITY_LT_CAGE_BULB",
+     "unit": "F02",
+     "pos": [
+      0.0,
+      5.0,
+      6.16
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
     }
    ],
    "furniture": [
+    {
+     "id": "F02_stair_history_w_art",
+     "rect": [
+      -3.148,
+      -0.62,
+      -3.113,
+      0.62
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "paper"
+    },
+    {
+     "id": "F02_stair_history_w_artf",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      0.64
+     ],
+     "z0": 0.99,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F02_stair_history_w_artf2",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      0.64
+     ],
+     "z0": 2.1,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F02_stair_history_w_artfl",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      -0.61
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F02_stair_history_w_artfr",
+     "rect": [
+      -3.148,
+      0.61,
+      -3.103,
+      0.64
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F02_stair_history_e_art",
+     "rect": [
+      3.113,
+      -0.62,
+      3.148,
+      0.62
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "paper"
+    },
+    {
+     "id": "F02_stair_history_e_artf",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      0.64
+     ],
+     "z0": 0.99,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F02_stair_history_e_artf2",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      0.64
+     ],
+     "z0": 2.1,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F02_stair_history_e_artfl",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      -0.61
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F02_stair_history_e_artfr",
+     "rect": [
+      3.113,
+      0.61,
+      3.158,
+      0.64
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
     {
      "id": "2A_shower",
      "asm": "shower",
@@ -6806,7 +7950,7 @@
      "id": "2A_w0_wardrobe",
      "asm": "wardrobe",
      "at": [
-      -9.8,
+      -11.4,
       -6.74
      ],
      "yaw": 180,
@@ -6827,9 +7971,9 @@
     {
      "id": "2A_bart0_art",
      "rect": [
-      -8.75,
+      -11.65,
       -6.325,
-      -8.05,
+      -10.950000000000001,
       -6.29
      ],
      "z0": 1.3,
@@ -6839,9 +7983,9 @@
     {
      "id": "2A_bart0_artf",
      "rect": [
-      -8.77,
+      -11.67,
       -6.325,
-      -8.03,
+      -10.93,
       -6.28
      ],
      "z0": 1.27,
@@ -6851,13 +7995,37 @@
     {
      "id": "2A_bart0_artf2",
      "rect": [
-      -8.77,
+      -11.67,
       -6.325,
-      -8.03,
+      -10.93,
       -6.28
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2A_bart0_artfl",
+     "rect": [
+      -11.67,
+      -6.325,
+      -11.64,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2A_bart0_artfr",
+     "rect": [
+      -10.96,
+      -6.325,
+      -10.930000000000001,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -6934,8 +8102,8 @@
      "id": "2A_din_t",
      "asm": "table_round",
      "at": [
-      -8.65,
-      -2.5
+      -7.75,
+      -2.75
      ],
      "yaw": 0,
      "mat": "wood_dark"
@@ -6944,8 +8112,8 @@
      "id": "2A_din_dc1",
      "asm": "chair",
      "at": [
-      -8.98,
-      -3.28
+      -8.08,
+      -3.53
      ],
      "yaw": 0
     },
@@ -6953,26 +8121,8 @@
      "id": "2A_din_dc2",
      "asm": "chair",
      "at": [
-      -8.32,
-      -1.72
-     ],
-     "yaw": 180
-    },
-    {
-     "id": "2A_din_dc3",
-     "asm": "chair",
-     "at": [
-      -9.53,
-      -2.5
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "2A_din_dc4",
-     "asm": "chair",
-     "at": [
-      -7.77,
-      -2.5
+      -6.87,
+      -2.75
      ],
      "yaw": 90
     },
@@ -6990,7 +8140,7 @@
      "id": "2A_plant2",
      "asm": "plant",
      "at": [
-      -8.37,
+      -7.07,
       -5.66
      ],
      "yaw": 79,
@@ -7030,6 +8180,30 @@
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2A_lart_artfl",
+     "rect": [
+      -11.87,
+      -0.525,
+      -11.84,
+      -0.48000000000000004
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2A_lart_artfr",
+     "rect": [
+      -10.959999999999999,
+      -0.525,
+      -10.93,
+      -0.48000000000000004
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -7231,7 +8405,7 @@
      "id": "2B_din_t",
      "asm": "table_rect",
      "at": [
-      -9.15,
+      -8.25,
       3.82
      ],
      "yaw": 0,
@@ -7243,7 +8417,7 @@
      "id": "2B_din_dc1",
      "asm": "chair",
      "at": [
-      -9.48,
+      -8.58,
       3.04
      ],
      "yaw": 0
@@ -7252,7 +8426,7 @@
      "id": "2B_din_dc2",
      "asm": "chair",
      "at": [
-      -8.82,
+      -7.92,
       4.6
      ],
      "yaw": 180
@@ -7316,6 +8490,30 @@
      "mat": "wood_dark"
     },
     {
+     "id": "2B_lart_artfl",
+     "rect": [
+      -11.87,
+      6.425,
+      -11.84,
+      6.47
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2B_lart_artfr",
+     "rect": [
+      -10.959999999999999,
+      6.425,
+      -10.93,
+      6.47
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
      "id": "2C_shower",
      "asm": "shower",
      "at": [
@@ -7367,7 +8565,7 @@
      "id": "2C_w0_wardrobe",
      "asm": "wardrobe",
      "at": [
-      6.51,
+      8.545,
       6.71
      ],
      "yaw": 0,
@@ -7388,9 +8586,9 @@
     {
      "id": "2C_bart0_art",
      "rect": [
-      7.195,
+      8.495,
       6.31,
-      7.8950000000000005,
+      9.194999999999999,
       6.345
      ],
      "z0": 1.3,
@@ -7400,9 +8598,9 @@
     {
      "id": "2C_bart0_artf",
      "rect": [
-      7.175000000000001,
+      8.475,
       6.31,
-      7.915000000000001,
+      9.215,
       6.3549999999999995
      ],
      "z0": 1.27,
@@ -7412,13 +8610,37 @@
     {
      "id": "2C_bart0_artf2",
      "rect": [
-      7.175000000000001,
+      8.475,
       6.31,
-      7.915000000000001,
+      9.215,
       6.3549999999999995
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_bart0_artfl",
+     "rect": [
+      8.475,
+      6.31,
+      8.504999999999999,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_bart0_artfr",
+     "rect": [
+      9.184999999999999,
+      6.31,
+      9.214999999999998,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -7446,7 +8668,7 @@
      "id": "2C_w1_wardrobe",
      "asm": "wardrobe",
      "at": [
-      10.58,
+      10.515,
       6.71
      ],
      "yaw": 0,
@@ -7467,9 +8689,9 @@
     {
      "id": "2C_bart1_art",
      "rect": [
-      11.265,
+      12.565,
       6.31,
-      11.965,
+      13.264999999999999,
       6.345
      ],
      "z0": 1.3,
@@ -7479,9 +8701,9 @@
     {
      "id": "2C_bart1_artf",
      "rect": [
-      11.245000000000001,
+      12.545,
       6.31,
-      11.985000000000001,
+      13.285,
       6.3549999999999995
      ],
      "z0": 1.27,
@@ -7491,13 +8713,37 @@
     {
      "id": "2C_bart1_artf2",
      "rect": [
-      11.245000000000001,
+      12.545,
       6.31,
-      11.985000000000001,
+      13.285,
       6.3549999999999995
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_bart1_artfl",
+     "rect": [
+      12.545,
+      6.31,
+      12.575,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_bart1_artfr",
+     "rect": [
+      13.254999999999999,
+      6.31,
+      13.284999999999998,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -7563,7 +8809,7 @@
      "asm": "table_round",
      "at": [
       8.51,
-      1.72
+      2.22
      ],
      "yaw": 0,
      "mat": "wood_dark"
@@ -7573,7 +8819,7 @@
      "asm": "chair",
      "at": [
       8.18,
-      0.94
+      1.44
      ],
      "yaw": 0
     },
@@ -7581,28 +8827,10 @@
      "id": "2C_din_dc2",
      "asm": "chair",
      "at": [
-      8.84,
-      2.5
-     ],
-     "yaw": 180
-    },
-    {
-     "id": "2C_din_dc3",
-     "asm": "chair",
-     "at": [
       7.63,
-      1.72
+      2.22
      ],
      "yaw": -90
-    },
-    {
-     "id": "2C_din_dc4",
-     "asm": "chair",
-     "at": [
-      9.39,
-      1.72
-     ],
-     "yaw": 90
     },
     {
      "id": "2C_shelf",
@@ -7670,6 +8898,30 @@
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_lart_artfl",
+     "rect": [
+      10.93,
+      -0.84,
+      10.959999999999999,
+      -0.7949999999999999
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "2C_lart_artfr",
+     "rect": [
+      11.84,
+      -0.84,
+      11.87,
+      -0.7949999999999999
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -7842,10 +9094,10 @@
     {
      "id": "F02_mop",
      "rect": [
-      -2.6,
-      6.35,
-      -2.2800000000000002,
-      6.67
+      -3.08,
+      6.3,
+      -2.7600000000000002,
+      6.62
      ],
      "z0": 0.0,
      "h": 0.4,
@@ -8203,7 +9455,7 @@
      "id": "F02_SW_07_180",
      "asm": "switch",
      "at": [
-      -5.685,
+      -8.235,
       -6.312
      ],
      "yaw": 180,
@@ -8213,7 +9465,7 @@
      "id": "F02_SW_07_0",
      "asm": "switch",
      "at": [
-      -5.685,
+      -8.235,
       -6.188
      ],
      "yaw": 0,
@@ -8323,7 +9575,7 @@
      "id": "F02_SW_13_180",
      "asm": "switch",
      "at": [
-      6.835,
+      9.385,
       -6.312
      ],
      "yaw": 180,
@@ -8333,7 +9585,7 @@
      "id": "F02_SW_13_0",
      "asm": "switch",
      "at": [
-      6.835,
+      9.385,
       -6.188
      ],
      "yaw": 0,
@@ -8429,15 +9681,7 @@
      "t": 0.18,
      "h": 3.02,
      "z": 6.4,
-     "openings": [
-      {
-       "type": "window",
-       "at": 3.25,
-       "w": 0.9,
-       "h": 1.15,
-       "sill": 1.0
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "brick",
      "wainscot": false,
@@ -8455,15 +9699,7 @@
      "t": 0.18,
      "h": 3.02,
      "z": 6.4,
-     "openings": [
-      {
-       "type": "window",
-       "at": 3.25,
-       "w": 0.9,
-       "h": 1.15,
-       "sill": 1.0
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "brick",
      "wainscot": false,
@@ -8831,13 +10067,6 @@
      "openings": [
       {
        "type": "window",
-       "at": 2.7600000000000002,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
-      },
-      {
-       "type": "window",
        "at": 6.44,
        "w": 1.35,
        "h": 1.7,
@@ -8961,13 +10190,6 @@
        "w": 1.35,
        "h": 1.7,
        "sill": 0.85
-      },
-      {
-       "type": "window",
-       "at": 7.371,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
       }
      ],
      "cat": "walls",
@@ -8987,15 +10209,7 @@
      "t": 0.35,
      "h": 3.2,
      "z": 6.4,
-     "openings": [
-      {
-       "type": "window",
-       "at": 4.07,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "common_brick",
      "wainscot": false,
@@ -9195,7 +10409,7 @@
      "openings": [
       {
        "type": "door",
-       "at": 7.390000000000001,
+       "at": 4.840000000000002,
        "w": 0.81,
        "h": 2.03,
        "sill": 0.0,
@@ -9379,7 +10593,7 @@
        "w": 0.81,
        "h": 2.03,
        "sill": 0.0,
-       "leaf": "closed"
+       "leaf": "none"
       },
       {
        "type": "door",
@@ -9387,7 +10601,7 @@
        "w": 0.81,
        "h": 2.03,
        "sill": 0.0,
-       "leaf": "closed"
+       "leaf": "none"
       }
      ],
      "cat": "walls",
@@ -9473,7 +10687,7 @@
      "openings": [
       {
        "type": "door",
-       "at": 0.75,
+       "at": 3.299999999999999,
        "w": 0.81,
        "h": 2.03,
        "sill": 0.0,
@@ -9813,6 +11027,18 @@
    ],
    "markers": [
     {
+     "kind": "sconce_globe",
+     "id": "3A_LT_SCONCE",
+     "unit": "3A",
+     "pos": [
+      -5.59,
+      -4.2700000000000005,
+      8.32
+     ],
+     "yaw_deg": -90,
+     "network": "electrical"
+    },
+    {
      "kind": "radiator",
      "id": "F03_A_RADIATOR_01",
      "pos": [
@@ -9824,6 +11050,18 @@
      "network": "heating",
      "riser": "H-A",
      "unit": "3A"
+    },
+    {
+     "kind": "sconce_globe",
+     "id": "3B_LT_SCONCE",
+     "unit": "3B",
+     "pos": [
+      -5.59,
+      4.89,
+      8.32
+     ],
+     "yaw_deg": -90,
+     "network": "electrical"
     },
     {
      "kind": "radiator",
@@ -9851,6 +11089,18 @@
      "network": "electrical"
     },
     {
+     "kind": "sconce_globe",
+     "id": "3C_LT_SCONCE",
+     "unit": "3C",
+     "pos": [
+      5.59,
+      5.71,
+      8.32
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
+    },
+    {
      "kind": "radiator",
      "id": "F03_C_RADIATOR_01",
      "pos": [
@@ -9862,6 +11112,18 @@
      "network": "heating",
      "riser": "H-C",
      "unit": "3C"
+    },
+    {
+     "kind": "sconce_globe",
+     "id": "3D_LT_SCONCE",
+     "unit": "3D",
+     "pos": [
+      5.59,
+      -4.2700000000000005,
+      8.32
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
     },
     {
      "kind": "radiator",
@@ -9924,23 +11186,23 @@
      "network": "structural"
     },
     {
-     "kind": "corridor_light",
+     "kind": "electrical_junction",
      "id": "F03_CORRLIGHT_S",
      "pos": [
       0.0,
       -8.3,
-      6.4
+      9.15
      ],
      "yaw_deg": 0,
      "network": "electrical"
     },
     {
-     "kind": "corridor_light",
+     "kind": "electrical_junction",
      "id": "F03_CORRLIGHT_N",
      "pos": [
       0.0,
       8.3,
-      6.4
+      9.15
      ],
      "yaw_deg": 0,
      "network": "electrical"
@@ -10040,7 +11302,7 @@
      "kind": "door",
      "id": "F03_DOOR_08",
      "pos": [
-      -6.665,
+      -9.214999999999998,
       -6.25,
       6.4
      ],
@@ -10079,11 +11341,11 @@
      "kind": "door",
      "id": "F03_DOOR_11",
      "pos": [
-      6.704999999999999,
-      6.25,
+      7.81,
+      4.585,
       6.4
      ],
-     "yaw_deg": 0,
+     "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
      "leaf": "closed"
@@ -10092,8 +11354,8 @@
      "kind": "door",
      "id": "F03_DOOR_12",
      "pos": [
-      11.645000000000001,
-      6.25,
+      8.405,
+      -6.25,
       6.4
      ],
      "yaw_deg": 0,
@@ -10106,7 +11368,7 @@
      "id": "F03_DOOR_13",
      "pos": [
       7.81,
-      4.585,
+      -5.3950000000000005,
       6.4
      ],
      "yaw_deg": -90,
@@ -10118,32 +11380,6 @@
      "kind": "door",
      "id": "F03_DOOR_14",
      "pos": [
-      5.8549999999999995,
-      -6.25,
-      6.4
-     ],
-     "yaw_deg": 0,
-     "w": 0.81,
-     "h": 2.03,
-     "leaf": "closed"
-    },
-    {
-     "kind": "door",
-     "id": "F03_DOOR_15",
-     "pos": [
-      7.81,
-      -5.3950000000000005,
-      6.4
-     ],
-     "yaw_deg": -90,
-     "w": 0.81,
-     "h": 2.03,
-     "leaf": "closed"
-    },
-    {
-     "kind": "door",
-     "id": "F03_DOOR_16",
-     "pos": [
       6.204999999999999,
       -2.84,
       6.4
@@ -10152,9 +11388,405 @@
      "w": 0.81,
      "h": 2.03,
      "leaf": "closed"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F03_CORRIDOR_DOME_01",
+     "unit": "F03",
+     "pos": [
+      -4.35,
+      -5.1,
+      9.34
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F03_CORRIDOR_DOME_02",
+     "unit": "F03",
+     "pos": [
+      -4.35,
+      0.0,
+      9.34
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F03_CORRIDOR_DOME_03",
+     "unit": "F03",
+     "pos": [
+      -4.35,
+      5.1,
+      9.34
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F03_CORRIDOR_DOME_04",
+     "unit": "F03",
+     "pos": [
+      4.35,
+      -5.1,
+      9.34
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F03_CORRIDOR_DOME_05",
+     "unit": "F03",
+     "pos": [
+      4.35,
+      0.0,
+      9.34
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F03_CORRIDOR_DOME_06",
+     "unit": "F03",
+     "pos": [
+      4.35,
+      5.1,
+      9.34
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F03_CORRIDOR_DOME_07",
+     "unit": "F03",
+     "pos": [
+      0.0,
+      -8.25,
+      9.34
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F03_CORRIDOR_DOME_08",
+     "unit": "F03",
+     "pos": [
+      0.0,
+      8.25,
+      9.34
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F03_A_BED_LT_FLUSH_DOME",
+     "unit": "3A",
+     "pos": [
+      -9.58,
+      -7.95,
+      9.36
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F03_A_MAIN_LT_PENDANT_SHADE",
+     "unit": "3A",
+     "pos": [
+      -9.58,
+      -3.35,
+      9.36
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F03_B_ALCOVE_LT_FLUSH_DOME",
+     "unit": "3B",
+     "pos": [
+      -12.275,
+      8.075,
+      9.36
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "kitchen_linear",
+     "id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+     "unit": "3B",
+     "pos": [
+      -8.205,
+      8.075,
+      9.36
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F03_B_MAIN_LT_PENDANT_SHADE",
+     "unit": "3B",
+     "pos": [
+      -9.58,
+      4.585,
+      9.36
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F03_C_BED1_LT_FLUSH_DOME",
+     "unit": "3C",
+     "pos": [
+      7.545,
+      7.95,
+      9.36
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F03_C_BED2_LT_FLUSH_DOME",
+     "unit": "3C",
+     "pos": [
+      11.615,
+      7.95,
+      9.36
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F03_C_MAIN_LT_PENDANT_SHADE",
+     "unit": "3C",
+     "pos": [
+      9.58,
+      2.685,
+      9.36
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F03_D_BED_LT_FLUSH_DOME",
+     "unit": "3D",
+     "pos": [
+      9.58,
+      -7.95,
+      9.36
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F03_D_MAIN_LT_PENDANT_SHADE",
+     "unit": "3D",
+     "pos": [
+      9.58,
+      -3.625,
+      9.36
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F03_D_OFFICE_LT_PENDANT_SHADE",
+     "unit": "3D",
+     "pos": [
+      6.61,
+      -1.92,
+      9.36
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "F03_WSTOR_LT_CAGE_BULB",
+     "unit": "F03",
+     "pos": [
+      -9.58,
+      1.11,
+      9.36
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F03_HALL_LT_FLUSH_DOME",
+     "unit": "F03",
+     "pos": [
+      -1.2,
+      -5.0,
+      9.36
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "eye_pendant",
+     "id": "F03_ATRIUM_LT_EYE_PENDANT",
+     "unit": "F03",
+     "pos": [
+      0.0,
+      0.0,
+      9.36
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "F03_UTILITY_LT_CAGE_BULB",
+     "unit": "F03",
+     "pos": [
+      0.0,
+      5.0,
+      9.36
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
     }
    ],
    "furniture": [
+    {
+     "id": "F03_stair_history_w_art",
+     "rect": [
+      -3.148,
+      -0.62,
+      -3.113,
+      0.62
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "paper"
+    },
+    {
+     "id": "F03_stair_history_w_artf",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      0.64
+     ],
+     "z0": 0.99,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F03_stair_history_w_artf2",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      0.64
+     ],
+     "z0": 2.1,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F03_stair_history_w_artfl",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      -0.61
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F03_stair_history_w_artfr",
+     "rect": [
+      -3.148,
+      0.61,
+      -3.103,
+      0.64
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F03_stair_history_e_art",
+     "rect": [
+      3.113,
+      -0.62,
+      3.148,
+      0.62
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "paper"
+    },
+    {
+     "id": "F03_stair_history_e_artf",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      0.64
+     ],
+     "z0": 0.99,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F03_stair_history_e_artf2",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      0.64
+     ],
+     "z0": 2.1,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F03_stair_history_e_artfl",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      -0.61
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F03_stair_history_e_artfr",
+     "rect": [
+      3.113,
+      0.61,
+      3.158,
+      0.64
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
     {
      "id": "3A_shower",
      "asm": "shower",
@@ -10207,7 +11839,7 @@
      "id": "3A_w0_wardrobe",
      "asm": "wardrobe",
      "at": [
-      -9.8,
+      -11.4,
       -6.74
      ],
      "yaw": 180,
@@ -10228,9 +11860,9 @@
     {
      "id": "3A_bart0_art",
      "rect": [
-      -8.75,
+      -11.65,
       -6.325,
-      -8.05,
+      -10.950000000000001,
       -6.29
      ],
      "z0": 1.3,
@@ -10240,9 +11872,9 @@
     {
      "id": "3A_bart0_artf",
      "rect": [
-      -8.77,
+      -11.67,
       -6.325,
-      -8.03,
+      -10.93,
       -6.28
      ],
      "z0": 1.27,
@@ -10252,13 +11884,37 @@
     {
      "id": "3A_bart0_artf2",
      "rect": [
-      -8.77,
+      -11.67,
       -6.325,
-      -8.03,
+      -10.93,
       -6.28
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "3A_bart0_artfl",
+     "rect": [
+      -11.67,
+      -6.325,
+      -11.64,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "3A_bart0_artfr",
+     "rect": [
+      -10.96,
+      -6.325,
+      -10.930000000000001,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -10335,8 +11991,8 @@
      "id": "3A_din_t",
      "asm": "table_rect",
      "at": [
-      -8.65,
-      -2.5
+      -7.75,
+      -2.75
      ],
      "yaw": 0,
      "L": 1.2,
@@ -10347,8 +12003,8 @@
      "id": "3A_din_dc1",
      "asm": "chair",
      "at": [
-      -8.98,
-      -3.28
+      -8.08,
+      -3.53
      ],
      "yaw": 0
     },
@@ -10356,26 +12012,8 @@
      "id": "3A_din_dc2",
      "asm": "chair",
      "at": [
-      -8.32,
-      -1.72
-     ],
-     "yaw": 180
-    },
-    {
-     "id": "3A_din_dc3",
-     "asm": "chair",
-     "at": [
-      -9.53,
-      -2.5
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "3A_din_dc4",
-     "asm": "chair",
-     "at": [
-      -7.77,
-      -2.5
+      -6.87,
+      -2.75
      ],
      "yaw": 90
     },
@@ -10435,6 +12073,30 @@
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "3A_lart_artfl",
+     "rect": [
+      -11.87,
+      -0.525,
+      -11.84,
+      -0.48000000000000004
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "3A_lart_artfr",
+     "rect": [
+      -10.959999999999999,
+      -0.525,
+      -10.93,
+      -0.48000000000000004
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -10569,7 +12231,7 @@
      "id": "3B_din_t",
      "asm": "table_round",
      "at": [
-      -9.15,
+      -8.25,
       3.82
      ],
      "yaw": 0,
@@ -10579,7 +12241,7 @@
      "id": "3B_din_dc1",
      "asm": "chair",
      "at": [
-      -9.48,
+      -8.58,
       3.04
      ],
      "yaw": 0
@@ -10588,7 +12250,7 @@
      "id": "3B_din_dc2",
      "asm": "chair",
      "at": [
-      -8.82,
+      -7.92,
       4.6
      ],
      "yaw": 180
@@ -10620,7 +12282,7 @@
      "asm": "plant",
      "at": [
       -8.37,
-      5.79
+      5.09
      ],
      "yaw": 185,
      "big": false
@@ -10662,6 +12324,30 @@
      "mat": "wood_dark"
     },
     {
+     "id": "3B_lart_artfl",
+     "rect": [
+      -11.87,
+      6.425,
+      -11.84,
+      6.47
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "3B_lart_artfr",
+     "rect": [
+      -10.959999999999999,
+      6.425,
+      -10.93,
+      6.47
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
      "id": "3B_workbench",
      "asm": "workbench",
      "at": [
@@ -10674,7 +12360,7 @@
      "id": "3B_tools0",
      "asm": "shelf",
      "at": [
-      -9.01,
+      -10.3,
       9.4
      ],
      "yaw": 180,
@@ -10686,7 +12372,7 @@
      "id": "3B_tools1",
      "asm": "shelf",
      "at": [
-      -7.86,
+      -9.2,
       9.4
      ],
      "yaw": 180,
@@ -10697,9 +12383,9 @@
     {
      "id": "3B_bin0",
      "rect": [
-      -9.41,
+      -10.7,
       9.25,
-      -9.01,
+      -10.299999999999999,
       9.53
      ],
      "z0": 0.5,
@@ -10709,9 +12395,9 @@
     {
      "id": "3B_bin1",
      "rect": [
-      -8.91,
+      -10.2,
       9.25,
-      -8.51,
+      -9.799999999999999,
       9.53
      ],
      "z0": 0.96,
@@ -10721,9 +12407,9 @@
     {
      "id": "3B_bin2",
      "rect": [
-      -8.41,
+      -9.7,
       9.25,
-      -8.01,
+      -9.299999999999999,
       9.53
      ],
      "z0": 0.5,
@@ -10733,9 +12419,9 @@
     {
      "id": "3B_bin3",
      "rect": [
-      -7.91,
+      -9.2,
       9.25,
-      -7.51,
+      -8.799999999999999,
       9.53
      ],
      "z0": 0.96,
@@ -11065,6 +12751,30 @@
      "mat": "wood_dark"
     },
     {
+     "id": "3D_bart0_artfl",
+     "rect": [
+      6.890000000000001,
+      -6.325,
+      6.920000000000001,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "3D_bart0_artfr",
+     "rect": [
+      7.6000000000000005,
+      -6.325,
+      7.630000000000001,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
      "id": "3D_odesk",
      "asm": "desk",
      "at": [
@@ -11160,8 +12870,8 @@
      "id": "3D_din_t",
      "asm": "table_round",
      "at": [
-      10.11,
-      -2.7
+      11.11,
+      -2.35
      ],
      "yaw": 0,
      "mat": "floor_oak"
@@ -11170,35 +12880,17 @@
      "id": "3D_din_dc1",
      "asm": "chair",
      "at": [
-      9.78,
-      -3.48
+      11.44,
+      -1.57
      ],
-     "yaw": 0
+     "yaw": 180
     },
     {
      "id": "3D_din_dc2",
      "asm": "chair",
      "at": [
-      10.44,
-      -1.92
-     ],
-     "yaw": 180
-    },
-    {
-     "id": "3D_din_dc3",
-     "asm": "chair",
-     "at": [
-      9.23,
-      -2.7
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "3D_din_dc4",
-     "asm": "chair",
-     "at": [
-      10.99,
-      -2.7
+      11.99,
+      -2.35
      ],
      "yaw": 90
     },
@@ -11271,11 +12963,35 @@
      "mat": "wood_dark"
     },
     {
+     "id": "3D_lart_artfl",
+     "rect": [
+      10.93,
+      -6.21,
+      10.959999999999999,
+      -6.165
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "3D_lart_artfr",
+     "rect": [
+      11.84,
+      -6.21,
+      11.87,
+      -6.165
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
      "id": "3D_booth_w",
      "rect": [
-      8.48,
+      9.98,
       -6.325,
-      8.58,
+      10.08,
       -4.325
      ],
      "z0": 0.0,
@@ -11285,9 +13001,9 @@
     {
      "id": "3D_booth_n",
      "rect": [
-      8.48,
+      9.98,
       -4.325,
-      10.48,
+      11.98,
       -4.2250000000000005
      ],
      "z0": 0.0,
@@ -11297,9 +13013,9 @@
     {
      "id": "3D_boothfoam",
      "rect": [
-      8.58,
+      10.08,
       -6.2250000000000005,
-      8.64,
+      10.14,
       -4.425000000000001
      ],
      "z0": 0.3,
@@ -11321,9 +13037,9 @@
     {
      "id": "3D_micstand",
      "rect": [
-      9.18,
+      10.48,
       -5.2250000000000005,
-      9.24,
+      10.540000000000001,
       -5.165000000000001
      ],
      "z0": 0.0,
@@ -11425,10 +13141,10 @@
     {
      "id": "F03_mop",
      "rect": [
-      -2.6,
-      6.35,
-      -2.2800000000000002,
-      6.67
+      -3.08,
+      6.3,
+      -2.7600000000000002,
+      6.62
      ],
      "z0": 0.0,
      "h": 0.4,
@@ -11758,7 +13474,7 @@
      "id": "F03_SW_08_180",
      "asm": "switch",
      "at": [
-      -5.685,
+      -8.235,
       -6.312
      ],
      "yaw": 180,
@@ -11768,7 +13484,7 @@
      "id": "F03_SW_08_0",
      "asm": "switch",
      "at": [
-      -5.685,
+      -8.235,
       -6.188
      ],
      "yaw": 0,
@@ -11815,31 +13531,31 @@
      "z0": 1.12
     },
     {
-     "id": "F03_SW_11_180",
+     "id": "F03_SW_11_90",
      "asm": "switch",
      "at": [
-      7.685,
-      6.188
+      7.748,
+      5.565
      ],
-     "yaw": 180,
+     "yaw": 90,
      "z0": 1.12
     },
     {
-     "id": "F03_SW_11_0",
+     "id": "F03_SW_11_270",
      "asm": "switch",
      "at": [
-      7.685,
-      6.312
+      7.872,
+      5.565
      ],
-     "yaw": 0,
+     "yaw": -90,
      "z0": 1.12
     },
     {
      "id": "F03_SW_12_180",
      "asm": "switch",
      "at": [
-      12.625,
-      6.188
+      9.385,
+      -6.312
      ],
      "yaw": 180,
      "z0": 1.12
@@ -11848,8 +13564,8 @@
      "id": "F03_SW_12_0",
      "asm": "switch",
      "at": [
-      12.625,
-      6.312
+      9.385,
+      -6.188
      ],
      "yaw": 0,
      "z0": 1.12
@@ -11859,7 +13575,7 @@
      "asm": "switch",
      "at": [
       7.748,
-      5.565
+      -4.415
      ],
      "yaw": 90,
      "z0": 1.12
@@ -11869,53 +13585,13 @@
      "asm": "switch",
      "at": [
       7.872,
-      5.565
+      -4.415
      ],
      "yaw": -90,
      "z0": 1.12
     },
     {
      "id": "F03_SW_14_180",
-     "asm": "switch",
-     "at": [
-      6.835,
-      -6.312
-     ],
-     "yaw": 180,
-     "z0": 1.12
-    },
-    {
-     "id": "F03_SW_14_0",
-     "asm": "switch",
-     "at": [
-      6.835,
-      -6.188
-     ],
-     "yaw": 0,
-     "z0": 1.12
-    },
-    {
-     "id": "F03_SW_15_90",
-     "asm": "switch",
-     "at": [
-      7.748,
-      -4.415
-     ],
-     "yaw": 90,
-     "z0": 1.12
-    },
-    {
-     "id": "F03_SW_15_270",
-     "asm": "switch",
-     "at": [
-      7.872,
-      -4.415
-     ],
-     "yaw": -90,
-     "z0": 1.12
-    },
-    {
-     "id": "F03_SW_16_180",
      "asm": "switch",
      "at": [
       7.185,
@@ -11925,7 +13601,7 @@
      "z0": 1.12
     },
     {
-     "id": "F03_SW_16_0",
+     "id": "F03_SW_14_0",
      "asm": "switch",
      "at": [
       7.185,
@@ -11984,15 +13660,7 @@
      "t": 0.18,
      "h": 3.02,
      "z": 9.6,
-     "openings": [
-      {
-       "type": "window",
-       "at": 3.25,
-       "w": 0.9,
-       "h": 1.15,
-       "sill": 1.0
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "brick",
      "wainscot": false,
@@ -12010,15 +13678,7 @@
      "t": 0.18,
      "h": 3.02,
      "z": 9.6,
-     "openings": [
-      {
-       "type": "window",
-       "at": 3.25,
-       "w": 0.9,
-       "h": 1.15,
-       "sill": 1.0
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "brick",
      "wainscot": false,
@@ -12386,13 +14046,6 @@
      "openings": [
       {
        "type": "window",
-       "at": 2.7600000000000002,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
-      },
-      {
-       "type": "window",
        "at": 6.44,
        "w": 1.35,
        "h": 1.7,
@@ -12516,13 +14169,6 @@
        "w": 1.35,
        "h": 1.7,
        "sill": 0.85
-      },
-      {
-       "type": "window",
-       "at": 7.371,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
       }
      ],
      "cat": "walls",
@@ -12542,15 +14188,7 @@
      "t": 0.3,
      "h": 3.2,
      "z": 9.6,
-     "openings": [
-      {
-       "type": "window",
-       "at": 4.07,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "common_brick",
      "wainscot": false,
@@ -12750,7 +14388,7 @@
      "openings": [
       {
        "type": "door",
-       "at": 7.390000000000001,
+       "at": 4.840000000000002,
        "w": 0.81,
        "h": 2.03,
        "sill": 0.0,
@@ -13118,7 +14756,7 @@
      "openings": [
       {
        "type": "door",
-       "at": 0.75,
+       "at": 3.299999999999999,
        "w": 0.81,
        "h": 2.03,
        "sill": 0.0,
@@ -13480,6 +15118,18 @@
    ],
    "markers": [
     {
+     "kind": "sconce_globe",
+     "id": "4A_LT_SCONCE",
+     "unit": "4A",
+     "pos": [
+      -5.59,
+      -4.2700000000000005,
+      11.52
+     ],
+     "yaw_deg": -90,
+     "network": "electrical"
+    },
+    {
      "kind": "radiator",
      "id": "F04_A_RADIATOR_01",
      "pos": [
@@ -13491,6 +15141,18 @@
      "network": "heating",
      "riser": "H-A",
      "unit": "4A"
+    },
+    {
+     "kind": "sconce_globe",
+     "id": "4B_LT_SCONCE",
+     "unit": "4B",
+     "pos": [
+      -5.79,
+      6.84,
+      11.52
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
     },
     {
      "kind": "radiator",
@@ -13649,6 +15311,18 @@
      "network": "electrical"
     },
     {
+     "kind": "sconce_globe",
+     "id": "4C_LT_SCONCE",
+     "unit": "4C",
+     "pos": [
+      5.59,
+      5.71,
+      11.52
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
+    },
+    {
      "kind": "radiator",
      "id": "F04_C_RADIATOR_01",
      "pos": [
@@ -13660,6 +15334,18 @@
      "network": "heating",
      "riser": "H-C",
      "unit": "4C"
+    },
+    {
+     "kind": "sconce_globe",
+     "id": "4D_LT_SCONCE",
+     "unit": "4D",
+     "pos": [
+      5.59,
+      -4.2700000000000005,
+      11.52
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
     },
     {
      "kind": "radiator",
@@ -13698,23 +15384,23 @@
      "network": "structural"
     },
     {
-     "kind": "corridor_light",
+     "kind": "electrical_junction",
      "id": "F04_CORRLIGHT_S",
      "pos": [
       0.0,
       -8.3,
-      9.6
+      12.35
      ],
      "yaw_deg": 0,
      "network": "electrical"
     },
     {
-     "kind": "corridor_light",
+     "kind": "electrical_junction",
      "id": "F04_CORRLIGHT_N",
      "pos": [
       0.0,
       8.3,
-      9.6
+      12.35
      ],
      "yaw_deg": 0,
      "network": "electrical"
@@ -13814,7 +15500,7 @@
      "kind": "door",
      "id": "F04_DOOR_08",
      "pos": [
-      -6.665,
+      -9.214999999999998,
       -6.25,
       9.6
      ],
@@ -13918,7 +15604,7 @@
      "kind": "door",
      "id": "F04_DOOR_16",
      "pos": [
-      5.8549999999999995,
+      8.405,
       -6.25,
       9.6
      ],
@@ -13952,9 +15638,393 @@
      "w": 0.81,
      "h": 2.03,
      "leaf": "closed"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F04_CORRIDOR_DOME_01",
+     "unit": "F04",
+     "pos": [
+      -4.35,
+      -5.1,
+      12.54
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F04_CORRIDOR_DOME_02",
+     "unit": "F04",
+     "pos": [
+      -4.35,
+      0.0,
+      12.54
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F04_CORRIDOR_DOME_03",
+     "unit": "F04",
+     "pos": [
+      -4.35,
+      5.1,
+      12.54
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F04_CORRIDOR_DOME_04",
+     "unit": "F04",
+     "pos": [
+      4.35,
+      -5.1,
+      12.54
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F04_CORRIDOR_DOME_05",
+     "unit": "F04",
+     "pos": [
+      4.35,
+      0.0,
+      12.54
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F04_CORRIDOR_DOME_06",
+     "unit": "F04",
+     "pos": [
+      4.35,
+      5.1,
+      12.54
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F04_CORRIDOR_DOME_07",
+     "unit": "F04",
+     "pos": [
+      0.0,
+      -8.25,
+      12.54
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F04_CORRIDOR_DOME_08",
+     "unit": "F04",
+     "pos": [
+      0.0,
+      8.25,
+      12.54
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F04_A_BED_LT_FLUSH_DOME",
+     "unit": "4A",
+     "pos": [
+      -9.58,
+      -7.95,
+      12.559999999999999
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F04_A_MAIN_LT_PENDANT_SHADE",
+     "unit": "4A",
+     "pos": [
+      -9.58,
+      -3.35,
+      12.559999999999999
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "kitchen_linear",
+     "id": "F04_B_KITCHEN_LT_KITCHEN_LINEAR",
+     "unit": "4B",
+     "pos": [
+      -9.305,
+      8.075,
+      12.559999999999999
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F04_B_ALCOVE_LT_FLUSH_DOME",
+     "unit": "4B",
+     "pos": [
+      -12.275,
+      8.075,
+      12.559999999999999
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F04_C_BED1_LT_FLUSH_DOME",
+     "unit": "4C",
+     "pos": [
+      7.545,
+      7.95,
+      12.559999999999999
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F04_C_BED2_LT_FLUSH_DOME",
+     "unit": "4C",
+     "pos": [
+      11.615,
+      7.95,
+      12.559999999999999
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F04_C_MAIN_LT_PENDANT_SHADE",
+     "unit": "4C",
+     "pos": [
+      9.58,
+      2.685,
+      12.559999999999999
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F04_D_BED_LT_FLUSH_DOME",
+     "unit": "4D",
+     "pos": [
+      9.58,
+      -7.95,
+      12.559999999999999
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F04_D_MAIN_LT_PENDANT_SHADE",
+     "unit": "4D",
+     "pos": [
+      9.58,
+      -3.625,
+      12.559999999999999
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F04_D_OFFICE_LT_PENDANT_SHADE",
+     "unit": "4D",
+     "pos": [
+      6.61,
+      -1.92,
+      12.559999999999999
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "F04_WSTOR_LT_CAGE_BULB",
+     "unit": "F04",
+     "pos": [
+      -9.58,
+      1.11,
+      12.559999999999999
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F04_HALL_LT_FLUSH_DOME",
+     "unit": "F04",
+     "pos": [
+      -1.2,
+      -5.0,
+      12.559999999999999
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "eye_pendant",
+     "id": "F04_ATRIUM_LT_EYE_PENDANT",
+     "unit": "F04",
+     "pos": [
+      0.0,
+      0.0,
+      12.559999999999999
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "F04_UTILITY_LT_CAGE_BULB",
+     "unit": "F04",
+     "pos": [
+      0.0,
+      5.0,
+      12.559999999999999
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
     }
    ],
    "furniture": [
+    {
+     "id": "F04_stair_history_w_art",
+     "rect": [
+      -3.148,
+      -0.62,
+      -3.113,
+      0.62
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "paper"
+    },
+    {
+     "id": "F04_stair_history_w_artf",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      0.64
+     ],
+     "z0": 0.99,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F04_stair_history_w_artf2",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      0.64
+     ],
+     "z0": 2.1,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F04_stair_history_w_artfl",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      -0.61
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F04_stair_history_w_artfr",
+     "rect": [
+      -3.148,
+      0.61,
+      -3.103,
+      0.64
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F04_stair_history_e_art",
+     "rect": [
+      3.113,
+      -0.62,
+      3.148,
+      0.62
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "paper"
+    },
+    {
+     "id": "F04_stair_history_e_artf",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      0.64
+     ],
+     "z0": 0.99,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F04_stair_history_e_artf2",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      0.64
+     ],
+     "z0": 2.1,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F04_stair_history_e_artfl",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      -0.61
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F04_stair_history_e_artfr",
+     "rect": [
+      3.113,
+      0.61,
+      3.158,
+      0.64
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
     {
      "id": "4A_shower",
      "asm": "shower",
@@ -14007,7 +16077,7 @@
      "id": "4A_w0_wardrobe",
      "asm": "wardrobe",
      "at": [
-      -9.8,
+      -11.4,
       -6.74
      ],
      "yaw": 180,
@@ -14028,9 +16098,9 @@
     {
      "id": "4A_bart0_art",
      "rect": [
-      -8.75,
+      -11.65,
       -6.325,
-      -8.05,
+      -10.950000000000001,
       -6.29
      ],
      "z0": 1.3,
@@ -14040,9 +16110,9 @@
     {
      "id": "4A_bart0_artf",
      "rect": [
-      -8.77,
+      -11.67,
       -6.325,
-      -8.03,
+      -10.93,
       -6.28
      ],
      "z0": 1.27,
@@ -14052,13 +16122,37 @@
     {
      "id": "4A_bart0_artf2",
      "rect": [
-      -8.77,
+      -11.67,
       -6.325,
-      -8.03,
+      -10.93,
       -6.28
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "4A_bart0_artfl",
+     "rect": [
+      -11.67,
+      -6.325,
+      -11.64,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "4A_bart0_artfr",
+     "rect": [
+      -10.96,
+      -6.325,
+      -10.930000000000001,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -14135,8 +16229,8 @@
      "id": "4A_din_t",
      "asm": "table_round",
      "at": [
-      -8.65,
-      -2.5
+      -7.75,
+      -2.75
      ],
      "yaw": 0,
      "mat": "wood_dark"
@@ -14145,8 +16239,8 @@
      "id": "4A_din_dc1",
      "asm": "chair",
      "at": [
-      -8.98,
-      -3.28
+      -8.08,
+      -3.53
      ],
      "yaw": 0
     },
@@ -14154,26 +16248,8 @@
      "id": "4A_din_dc2",
      "asm": "chair",
      "at": [
-      -8.32,
-      -1.72
-     ],
-     "yaw": 180
-    },
-    {
-     "id": "4A_din_dc3",
-     "asm": "chair",
-     "at": [
-      -9.53,
-      -2.5
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "4A_din_dc4",
-     "asm": "chair",
-     "at": [
-      -7.77,
-      -2.5
+      -6.87,
+      -2.75
      ],
      "yaw": 90
     },
@@ -14203,7 +16279,7 @@
      "id": "4A_plant2",
      "asm": "plant",
      "at": [
-      -8.37,
+      -7.07,
       -5.66
      ],
      "yaw": 185,
@@ -14243,6 +16319,30 @@
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "4A_lart_artfl",
+     "rect": [
+      -11.87,
+      -0.525,
+      -11.84,
+      -0.48000000000000004
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "4A_lart_artfr",
+     "rect": [
+      -10.959999999999999,
+      -0.525,
+      -10.93,
+      -0.48000000000000004
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -14402,6 +16502,30 @@
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "4B_art_artfl",
+     "rect": [
+      -12.57,
+      2.71,
+      -12.540000000000001,
+      2.755
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "4B_art_artfr",
+     "rect": [
+      -11.860000000000001,
+      2.71,
+      -11.830000000000002,
+      2.755
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -15080,7 +17204,7 @@
      "id": "4C_w0_wardrobe",
      "asm": "wardrobe",
      "at": [
-      6.51,
+      8.545,
       6.71
      ],
      "yaw": 0,
@@ -15101,9 +17225,9 @@
     {
      "id": "4C_bart0_art",
      "rect": [
-      7.195,
+      8.495,
       6.31,
-      7.8950000000000005,
+      9.194999999999999,
       6.345
      ],
      "z0": 1.3,
@@ -15113,9 +17237,9 @@
     {
      "id": "4C_bart0_artf",
      "rect": [
-      7.175000000000001,
+      8.475,
       6.31,
-      7.915000000000001,
+      9.215,
       6.3549999999999995
      ],
      "z0": 1.27,
@@ -15125,13 +17249,37 @@
     {
      "id": "4C_bart0_artf2",
      "rect": [
-      7.175000000000001,
+      8.475,
       6.31,
-      7.915000000000001,
+      9.215,
       6.3549999999999995
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "4C_bart0_artfl",
+     "rect": [
+      8.475,
+      6.31,
+      8.504999999999999,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "4C_bart0_artfr",
+     "rect": [
+      9.184999999999999,
+      6.31,
+      9.214999999999998,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -15159,7 +17307,7 @@
      "id": "4C_w1_wardrobe",
      "asm": "wardrobe",
      "at": [
-      10.58,
+      10.515,
       6.71
      ],
      "yaw": 0,
@@ -15180,9 +17328,9 @@
     {
      "id": "4C_bart1_art",
      "rect": [
-      11.265,
+      12.565,
       6.31,
-      11.965,
+      13.264999999999999,
       6.345
      ],
      "z0": 1.3,
@@ -15192,9 +17340,9 @@
     {
      "id": "4C_bart1_artf",
      "rect": [
-      11.245000000000001,
+      12.545,
       6.31,
-      11.985000000000001,
+      13.285,
       6.3549999999999995
      ],
      "z0": 1.27,
@@ -15204,13 +17352,37 @@
     {
      "id": "4C_bart1_artf2",
      "rect": [
-      11.245000000000001,
+      12.545,
       6.31,
-      11.985000000000001,
+      13.285,
       6.3549999999999995
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "4C_bart1_artfl",
+     "rect": [
+      12.545,
+      6.31,
+      12.575,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "4C_bart1_artfr",
+     "rect": [
+      13.254999999999999,
+      6.31,
+      13.284999999999998,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -15288,7 +17460,7 @@
      "asm": "table_round",
      "at": [
       8.51,
-      1.72
+      2.22
      ],
      "yaw": 0,
      "mat": "floor_oak"
@@ -15298,7 +17470,7 @@
      "asm": "chair",
      "at": [
       8.18,
-      0.94
+      1.44
      ],
      "yaw": 0
     },
@@ -15306,28 +17478,10 @@
      "id": "4C_din_dc2",
      "asm": "chair",
      "at": [
-      8.84,
-      2.5
-     ],
-     "yaw": 180
-    },
-    {
-     "id": "4C_din_dc3",
-     "asm": "chair",
-     "at": [
       7.63,
-      1.72
+      2.22
      ],
      "yaw": -90
-    },
-    {
-     "id": "4C_din_dc4",
-     "asm": "chair",
-     "at": [
-      9.39,
-      1.72
-     ],
-     "yaw": 90
     },
     {
      "id": "4C_shelf",
@@ -15395,6 +17549,30 @@
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "4C_lart_artfl",
+     "rect": [
+      10.93,
+      -0.84,
+      10.959999999999999,
+      -0.7949999999999999
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "4C_lart_artfr",
+     "rect": [
+      11.84,
+      -0.84,
+      11.87,
+      -0.7949999999999999
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -15504,6 +17682,30 @@
      "mat": "wood_dark"
     },
     {
+     "id": "4D_bart0_artfl",
+     "rect": [
+      6.890000000000001,
+      -6.325,
+      6.920000000000001,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "4D_bart0_artfr",
+     "rect": [
+      7.6000000000000005,
+      -6.325,
+      7.630000000000001,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
      "id": "4D_odesk",
      "asm": "desk",
      "at": [
@@ -15608,8 +17810,8 @@
      "id": "4D_din_t",
      "asm": "table_rect",
      "at": [
-      10.11,
-      -2.7
+      11.11,
+      -2.35
      ],
      "yaw": 0,
      "L": 1.2,
@@ -15620,35 +17822,17 @@
      "id": "4D_din_dc1",
      "asm": "chair",
      "at": [
-      9.78,
-      -3.48
+      11.44,
+      -1.57
      ],
-     "yaw": 0
+     "yaw": 180
     },
     {
      "id": "4D_din_dc2",
      "asm": "chair",
      "at": [
-      10.44,
-      -1.92
-     ],
-     "yaw": 180
-    },
-    {
-     "id": "4D_din_dc3",
-     "asm": "chair",
-     "at": [
-      9.23,
-      -2.7
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "4D_din_dc4",
-     "asm": "chair",
-     "at": [
-      10.99,
-      -2.7
+      11.99,
+      -2.35
      ],
      "yaw": 90
     },
@@ -15708,6 +17892,30 @@
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "4D_lart_artfl",
+     "rect": [
+      10.93,
+      -6.21,
+      10.959999999999999,
+      -6.165
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "4D_lart_artfr",
+     "rect": [
+      11.84,
+      -6.21,
+      11.87,
+      -6.165
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -15793,10 +18001,10 @@
     {
      "id": "F04_mop",
      "rect": [
-      -2.6,
-      6.35,
-      -2.2800000000000002,
-      6.67
+      -3.08,
+      6.3,
+      -2.7600000000000002,
+      6.62
      ],
      "z0": 0.0,
      "h": 0.4,
@@ -16126,7 +18334,7 @@
      "id": "F04_SW_08_180",
      "asm": "switch",
      "at": [
-      -5.685,
+      -8.235,
       -6.312
      ],
      "yaw": 180,
@@ -16136,7 +18344,7 @@
      "id": "F04_SW_08_0",
      "asm": "switch",
      "at": [
-      -5.685,
+      -8.235,
       -6.188
      ],
      "yaw": 0,
@@ -16286,7 +18494,7 @@
      "id": "F04_SW_16_180",
      "asm": "switch",
      "at": [
-      6.835,
+      9.385,
       -6.312
      ],
      "yaw": 180,
@@ -16296,7 +18504,7 @@
      "id": "F04_SW_16_0",
      "asm": "switch",
      "at": [
-      6.835,
+      9.385,
       -6.188
      ],
      "yaw": 0,
@@ -16392,15 +18600,7 @@
      "t": 0.18,
      "h": 3.02,
      "z": 12.8,
-     "openings": [
-      {
-       "type": "window",
-       "at": 3.25,
-       "w": 0.9,
-       "h": 1.15,
-       "sill": 1.0
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "brick",
      "wainscot": false,
@@ -16418,15 +18618,7 @@
      "t": 0.18,
      "h": 3.02,
      "z": 12.8,
-     "openings": [
-      {
-       "type": "window",
-       "at": 3.25,
-       "w": 0.9,
-       "h": 1.15,
-       "sill": 1.0
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "brick",
      "wainscot": false,
@@ -16794,13 +18986,6 @@
      "openings": [
       {
        "type": "window",
-       "at": 2.7600000000000002,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
-      },
-      {
-       "type": "window",
        "at": 6.44,
        "w": 1.35,
        "h": 1.7,
@@ -16924,13 +19109,6 @@
        "w": 1.35,
        "h": 1.7,
        "sill": 0.85
-      },
-      {
-       "type": "window",
-       "at": 7.371,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
       }
      ],
      "cat": "walls",
@@ -16950,15 +19128,7 @@
      "t": 0.3,
      "h": 3.2,
      "z": 12.8,
-     "openings": [
-      {
-       "type": "window",
-       "at": 4.07,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "common_brick",
      "wainscot": false,
@@ -17158,7 +19328,7 @@
      "openings": [
       {
        "type": "door",
-       "at": 7.390000000000001,
+       "at": 4.840000000000002,
        "w": 0.81,
        "h": 2.03,
        "sill": 0.0,
@@ -17436,7 +19606,7 @@
      "openings": [
       {
        "type": "door",
-       "at": 0.75,
+       "at": 3.299999999999999,
        "w": 0.81,
        "h": 2.03,
        "sill": 0.0,
@@ -17776,6 +19946,18 @@
    ],
    "markers": [
     {
+     "kind": "sconce_globe",
+     "id": "5A_LT_SCONCE",
+     "unit": "5A",
+     "pos": [
+      -5.59,
+      -4.2700000000000005,
+      14.72
+     ],
+     "yaw_deg": -90,
+     "network": "electrical"
+    },
+    {
      "kind": "radiator",
      "id": "F05_A_RADIATOR_01",
      "pos": [
@@ -17794,10 +19976,22 @@
      "unit": "5A",
      "pos": [
       -8.98,
-      -5.05,
+      -4.3,
       13.63
      ],
      "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "sconce_globe",
+     "id": "5B_LT_SCONCE",
+     "unit": "5B",
+     "pos": [
+      -5.59,
+      4.89,
+      14.72
+     ],
+     "yaw_deg": -90,
      "network": "electrical"
     },
     {
@@ -17814,6 +20008,18 @@
      "unit": "5B"
     },
     {
+     "kind": "sconce_globe",
+     "id": "5C_LT_SCONCE",
+     "unit": "5C",
+     "pos": [
+      5.59,
+      5.71,
+      14.72
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
+    },
+    {
      "kind": "radiator",
      "id": "F05_C_RADIATOR_01",
      "pos": [
@@ -17825,6 +20031,18 @@
      "network": "heating",
      "riser": "H-C",
      "unit": "5C"
+    },
+    {
+     "kind": "sconce_globe",
+     "id": "5D_LT_SCONCE",
+     "unit": "5D",
+     "pos": [
+      5.59,
+      -4.2700000000000005,
+      14.72
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
     },
     {
      "kind": "radiator",
@@ -17863,23 +20081,23 @@
      "network": "structural"
     },
     {
-     "kind": "corridor_light",
+     "kind": "electrical_junction",
      "id": "F05_CORRLIGHT_S",
      "pos": [
       0.0,
       -8.3,
-      12.8
+      15.55
      ],
      "yaw_deg": 0,
      "network": "electrical"
     },
     {
-     "kind": "corridor_light",
+     "kind": "electrical_junction",
      "id": "F05_CORRLIGHT_N",
      "pos": [
       0.0,
       8.3,
-      12.8
+      15.55
      ],
      "yaw_deg": 0,
      "network": "electrical"
@@ -17979,7 +20197,7 @@
      "kind": "door",
      "id": "F05_DOOR_08",
      "pos": [
-      -6.665,
+      -9.214999999999998,
       -6.25,
       12.8
      ],
@@ -18057,7 +20275,7 @@
      "kind": "door",
      "id": "F05_DOOR_14",
      "pos": [
-      5.8549999999999995,
+      8.405,
       -6.25,
       12.8
      ],
@@ -18091,9 +20309,369 @@
      "w": 0.81,
      "h": 2.03,
      "leaf": "closed"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F05_CORRIDOR_DOME_01",
+     "unit": "F05",
+     "pos": [
+      -4.35,
+      -5.1,
+      15.74
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F05_CORRIDOR_DOME_02",
+     "unit": "F05",
+     "pos": [
+      -4.35,
+      0.0,
+      15.74
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F05_CORRIDOR_DOME_03",
+     "unit": "F05",
+     "pos": [
+      -4.35,
+      5.1,
+      15.74
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F05_CORRIDOR_DOME_04",
+     "unit": "F05",
+     "pos": [
+      4.35,
+      -5.1,
+      15.74
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F05_CORRIDOR_DOME_05",
+     "unit": "F05",
+     "pos": [
+      4.35,
+      0.0,
+      15.74
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F05_CORRIDOR_DOME_06",
+     "unit": "F05",
+     "pos": [
+      4.35,
+      5.1,
+      15.74
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F05_CORRIDOR_DOME_07",
+     "unit": "F05",
+     "pos": [
+      0.0,
+      -8.25,
+      15.74
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F05_CORRIDOR_DOME_08",
+     "unit": "F05",
+     "pos": [
+      0.0,
+      8.25,
+      15.74
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F05_A_BED_LT_FLUSH_DOME",
+     "unit": "5A",
+     "pos": [
+      -9.58,
+      -7.95,
+      15.760000000000002
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F05_A_MAIN_LT_PENDANT_SHADE",
+     "unit": "5A",
+     "pos": [
+      -9.58,
+      -3.35,
+      15.760000000000002
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F05_B_ALCOVE_LT_FLUSH_DOME",
+     "unit": "5B",
+     "pos": [
+      -12.275,
+      8.075,
+      15.760000000000002
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "kitchen_linear",
+     "id": "F05_B_KITCHEN_LT_KITCHEN_LINEAR",
+     "unit": "5B",
+     "pos": [
+      -8.205,
+      8.075,
+      15.760000000000002
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F05_B_MAIN_LT_PENDANT_SHADE",
+     "unit": "5B",
+     "pos": [
+      -9.58,
+      4.585,
+      15.760000000000002
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F05_C_BED1_LT_FLUSH_DOME",
+     "unit": "5C",
+     "pos": [
+      7.545,
+      7.95,
+      15.760000000000002
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F05_C_BED2_LT_FLUSH_DOME",
+     "unit": "5C",
+     "pos": [
+      11.615,
+      7.95,
+      15.760000000000002
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F05_C_MAIN_LT_PENDANT_SHADE",
+     "unit": "5C",
+     "pos": [
+      9.58,
+      2.685,
+      15.760000000000002
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "F05_WSTOR_LT_CAGE_BULB",
+     "unit": "F05",
+     "pos": [
+      -9.58,
+      1.11,
+      15.760000000000002
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F05_HALL_LT_FLUSH_DOME",
+     "unit": "F05",
+     "pos": [
+      -1.2,
+      -5.0,
+      15.760000000000002
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "eye_pendant",
+     "id": "F05_ATRIUM_LT_EYE_PENDANT",
+     "unit": "F05",
+     "pos": [
+      0.0,
+      0.0,
+      15.760000000000002
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "F05_UTILITY_LT_CAGE_BULB",
+     "unit": "F05",
+     "pos": [
+      0.0,
+      5.0,
+      15.760000000000002
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
     }
    ],
    "furniture": [
+    {
+     "id": "F05_stair_history_w_art",
+     "rect": [
+      -3.148,
+      -0.62,
+      -3.113,
+      0.62
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "paper"
+    },
+    {
+     "id": "F05_stair_history_w_artf",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      0.64
+     ],
+     "z0": 0.99,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F05_stair_history_w_artf2",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      0.64
+     ],
+     "z0": 2.1,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F05_stair_history_w_artfl",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      -0.61
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F05_stair_history_w_artfr",
+     "rect": [
+      -3.148,
+      0.61,
+      -3.103,
+      0.64
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F05_stair_history_e_art",
+     "rect": [
+      3.113,
+      -0.62,
+      3.148,
+      0.62
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "paper"
+    },
+    {
+     "id": "F05_stair_history_e_artf",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      0.64
+     ],
+     "z0": 0.99,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F05_stair_history_e_artf2",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      0.64
+     ],
+     "z0": 2.1,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F05_stair_history_e_artfl",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      -0.61
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F05_stair_history_e_artfr",
+     "rect": [
+      3.113,
+      0.61,
+      3.158,
+      0.64
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
     {
      "id": "5A_shower",
      "asm": "shower",
@@ -18146,7 +20724,7 @@
      "id": "5A_w0_wardrobe",
      "asm": "wardrobe",
      "at": [
-      -9.8,
+      -11.4,
       -6.74
      ],
      "yaw": 180,
@@ -18167,9 +20745,9 @@
     {
      "id": "5A_bart0_art",
      "rect": [
-      -8.75,
+      -11.65,
       -6.325,
-      -8.05,
+      -10.950000000000001,
       -6.29
      ],
      "z0": 1.3,
@@ -18179,9 +20757,9 @@
     {
      "id": "5A_bart0_artf",
      "rect": [
-      -8.77,
+      -11.67,
       -6.325,
-      -8.03,
+      -10.93,
       -6.28
      ],
      "z0": 1.27,
@@ -18191,13 +20769,37 @@
     {
      "id": "5A_bart0_artf2",
      "rect": [
-      -8.77,
+      -11.67,
       -6.325,
-      -8.03,
+      -10.93,
       -6.28
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "5A_bart0_artfl",
+     "rect": [
+      -11.67,
+      -6.325,
+      -11.64,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "5A_bart0_artfr",
+     "rect": [
+      -10.96,
+      -6.325,
+      -10.930000000000001,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -18274,8 +20876,8 @@
      "id": "5A_din_t",
      "asm": "table_rect",
      "at": [
-      -8.65,
-      -2.5
+      -7.75,
+      -2.75
      ],
      "yaw": 0,
      "L": 1.2,
@@ -18286,8 +20888,8 @@
      "id": "5A_din_dc1",
      "asm": "chair",
      "at": [
-      -8.98,
-      -3.28
+      -8.08,
+      -3.53
      ],
      "yaw": 0
     },
@@ -18295,26 +20897,8 @@
      "id": "5A_din_dc2",
      "asm": "chair",
      "at": [
-      -8.32,
-      -1.72
-     ],
-     "yaw": 180
-    },
-    {
-     "id": "5A_din_dc3",
-     "asm": "chair",
-     "at": [
-      -9.53,
-      -2.5
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "5A_din_dc4",
-     "asm": "chair",
-     "at": [
-      -7.77,
-      -2.5
+      -6.87,
+      -2.75
      ],
      "yaw": 90
     },
@@ -18365,11 +20949,35 @@
      "mat": "wood_dark"
     },
     {
+     "id": "5A_lart_artfl",
+     "rect": [
+      -11.87,
+      -0.525,
+      -11.84,
+      -0.48000000000000004
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "5A_lart_artfr",
+     "rect": [
+      -10.959999999999999,
+      -0.525,
+      -10.93,
+      -0.48000000000000004
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
      "id": "5A_plantable",
      "asm": "plantable",
      "at": [
       -9.58,
-      -5.05
+      -4.3
      ],
      "yaw": 0
     },
@@ -18438,7 +21046,7 @@
      "asm": "chair",
      "at": [
       -8.66,
-      -4.03
+      -3.28
      ],
      "yaw": 180
     },
@@ -18574,7 +21182,7 @@
      "id": "5B_din_t",
      "asm": "table_round",
      "at": [
-      -9.15,
+      -8.25,
       3.82
      ],
      "yaw": 0,
@@ -18584,7 +21192,7 @@
      "id": "5B_din_dc1",
      "asm": "chair",
      "at": [
-      -9.48,
+      -8.58,
       3.04
      ],
      "yaw": 0
@@ -18593,7 +21201,7 @@
      "id": "5B_din_dc2",
      "asm": "chair",
      "at": [
-      -8.82,
+      -7.92,
       4.6
      ],
      "yaw": 180
@@ -18625,7 +21233,7 @@
      "asm": "plant",
      "at": [
       -8.37,
-      5.79
+      5.09
      ],
      "yaw": 291,
      "big": false
@@ -18664,6 +21272,30 @@
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "5B_lart_artfl",
+     "rect": [
+      -11.87,
+      6.425,
+      -11.84,
+      6.47
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "5B_lart_artfr",
+     "rect": [
+      -10.959999999999999,
+      6.425,
+      -10.93,
+      6.47
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -18718,7 +21350,7 @@
      "id": "5C_w0_wardrobe",
      "asm": "wardrobe",
      "at": [
-      6.51,
+      8.545,
       6.71
      ],
      "yaw": 0,
@@ -18739,9 +21371,9 @@
     {
      "id": "5C_bart0_art",
      "rect": [
-      7.195,
+      8.495,
       6.31,
-      7.8950000000000005,
+      9.194999999999999,
       6.345
      ],
      "z0": 1.3,
@@ -18751,9 +21383,9 @@
     {
      "id": "5C_bart0_artf",
      "rect": [
-      7.175000000000001,
+      8.475,
       6.31,
-      7.915000000000001,
+      9.215,
       6.3549999999999995
      ],
      "z0": 1.27,
@@ -18763,13 +21395,37 @@
     {
      "id": "5C_bart0_artf2",
      "rect": [
-      7.175000000000001,
+      8.475,
       6.31,
-      7.915000000000001,
+      9.215,
       6.3549999999999995
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "5C_bart0_artfl",
+     "rect": [
+      8.475,
+      6.31,
+      8.504999999999999,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "5C_bart0_artfr",
+     "rect": [
+      9.184999999999999,
+      6.31,
+      9.214999999999998,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -18797,7 +21453,7 @@
      "id": "5C_w1_wardrobe",
      "asm": "wardrobe",
      "at": [
-      10.58,
+      10.515,
       6.71
      ],
      "yaw": 0,
@@ -18818,9 +21474,9 @@
     {
      "id": "5C_bart1_art",
      "rect": [
-      11.265,
+      12.565,
       6.31,
-      11.965,
+      13.264999999999999,
       6.345
      ],
      "z0": 1.3,
@@ -18830,9 +21486,9 @@
     {
      "id": "5C_bart1_artf",
      "rect": [
-      11.245000000000001,
+      12.545,
       6.31,
-      11.985000000000001,
+      13.285,
       6.3549999999999995
      ],
      "z0": 1.27,
@@ -18842,13 +21498,37 @@
     {
      "id": "5C_bart1_artf2",
      "rect": [
-      11.245000000000001,
+      12.545,
       6.31,
-      11.985000000000001,
+      13.285,
       6.3549999999999995
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "5C_bart1_artfl",
+     "rect": [
+      12.545,
+      6.31,
+      12.575,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "5C_bart1_artfr",
+     "rect": [
+      13.254999999999999,
+      6.31,
+      13.284999999999998,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -18926,7 +21606,7 @@
      "asm": "table_rect",
      "at": [
       8.51,
-      1.72
+      2.22
      ],
      "yaw": 0,
      "L": 1.2,
@@ -18938,7 +21618,7 @@
      "asm": "chair",
      "at": [
       8.18,
-      0.94
+      1.44
      ],
      "yaw": 0
     },
@@ -18946,28 +21626,10 @@
      "id": "5C_din_dc2",
      "asm": "chair",
      "at": [
-      8.84,
-      2.5
-     ],
-     "yaw": 180
-    },
-    {
-     "id": "5C_din_dc3",
-     "asm": "chair",
-     "at": [
       7.63,
-      1.72
+      2.22
      ],
      "yaw": -90
-    },
-    {
-     "id": "5C_din_dc4",
-     "asm": "chair",
-     "at": [
-      9.39,
-      1.72
-     ],
-     "yaw": 90
     },
     {
      "id": "5C_shelf",
@@ -19025,6 +21687,30 @@
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "5C_lart_artfl",
+     "rect": [
+      10.93,
+      -0.84,
+      10.959999999999999,
+      -0.7949999999999999
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "5C_lart_artfr",
+     "rect": [
+      11.84,
+      -0.84,
+      11.87,
+      -0.7949999999999999
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -19221,10 +21907,10 @@
     {
      "id": "F05_mop",
      "rect": [
-      -2.6,
-      6.35,
-      -2.2800000000000002,
-      6.67
+      -3.08,
+      6.3,
+      -2.7600000000000002,
+      6.62
      ],
      "z0": 0.0,
      "h": 0.4,
@@ -19554,7 +22240,7 @@
      "id": "F05_SW_08_180",
      "asm": "switch",
      "at": [
-      -5.685,
+      -8.235,
       -6.312
      ],
      "yaw": 180,
@@ -19564,7 +22250,7 @@
      "id": "F05_SW_08_0",
      "asm": "switch",
      "at": [
-      -5.685,
+      -8.235,
       -6.188
      ],
      "yaw": 0,
@@ -19674,7 +22360,7 @@
      "id": "F05_SW_14_180",
      "asm": "switch",
      "at": [
-      6.835,
+      9.385,
       -6.312
      ],
      "yaw": 180,
@@ -19684,7 +22370,7 @@
      "id": "F05_SW_14_0",
      "asm": "switch",
      "at": [
-      6.835,
+      9.385,
       -6.188
      ],
      "yaw": 0,
@@ -19780,15 +22466,7 @@
      "t": 0.18,
      "h": 3.02,
      "z": 16.0,
-     "openings": [
-      {
-       "type": "window",
-       "at": 3.25,
-       "w": 0.9,
-       "h": 1.15,
-       "sill": 1.0
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "brick",
      "wainscot": false,
@@ -19806,15 +22484,7 @@
      "t": 0.18,
      "h": 3.02,
      "z": 16.0,
-     "openings": [
-      {
-       "type": "window",
-       "at": 3.25,
-       "w": 0.9,
-       "h": 1.15,
-       "sill": 1.0
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "brick",
      "wainscot": false,
@@ -20182,13 +22852,6 @@
      "openings": [
       {
        "type": "window",
-       "at": 2.7600000000000002,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
-      },
-      {
-       "type": "window",
        "at": 6.44,
        "w": 1.35,
        "h": 1.7,
@@ -20312,13 +22975,6 @@
        "w": 1.35,
        "h": 1.7,
        "sill": 0.85
-      },
-      {
-       "type": "window",
-       "at": 7.371,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
       }
      ],
      "cat": "walls",
@@ -20338,15 +22994,7 @@
      "t": 0.3,
      "h": 3.2,
      "z": 16.0,
-     "openings": [
-      {
-       "type": "window",
-       "at": 4.07,
-       "w": 1.35,
-       "h": 1.7,
-       "sill": 0.85
-      }
-     ],
+     "openings": [],
      "cat": "walls",
      "mat": "common_brick",
      "wainscot": false,
@@ -20546,7 +23194,7 @@
      "openings": [
       {
        "type": "door",
-       "at": 7.390000000000001,
+       "at": 4.840000000000002,
        "w": 0.81,
        "h": 2.03,
        "sill": 0.0,
@@ -20824,7 +23472,7 @@
      "openings": [
       {
        "type": "door",
-       "at": 0.75,
+       "at": 3.299999999999999,
        "w": 0.81,
        "h": 2.03,
        "sill": 0.0,
@@ -21164,6 +23812,18 @@
    ],
    "markers": [
     {
+     "kind": "sconce_globe",
+     "id": "6A_LT_SCONCE",
+     "unit": "6A",
+     "pos": [
+      -5.59,
+      -4.2700000000000005,
+      17.92
+     ],
+     "yaw_deg": -90,
+     "network": "electrical"
+    },
+    {
      "kind": "radiator",
      "id": "F06_A_RADIATOR_01",
      "pos": [
@@ -21225,6 +23885,18 @@
      "network": "electrical"
     },
     {
+     "kind": "sconce_globe",
+     "id": "6B_LT_SCONCE",
+     "unit": "6B",
+     "pos": [
+      -5.59,
+      4.89,
+      17.92
+     ],
+     "yaw_deg": -90,
+     "network": "electrical"
+    },
+    {
      "kind": "radiator",
      "id": "F06_B_RADIATOR_01",
      "pos": [
@@ -21238,6 +23910,18 @@
      "unit": "6B"
     },
     {
+     "kind": "sconce_globe",
+     "id": "6C_LT_SCONCE",
+     "unit": "6C",
+     "pos": [
+      5.59,
+      5.71,
+      17.92
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
+    },
+    {
      "kind": "radiator",
      "id": "F06_C_RADIATOR_01",
      "pos": [
@@ -21249,6 +23933,18 @@
      "network": "heating",
      "riser": "H-C",
      "unit": "6C"
+    },
+    {
+     "kind": "sconce_globe",
+     "id": "6D_LT_SCONCE",
+     "unit": "6D",
+     "pos": [
+      5.59,
+      -4.2700000000000005,
+      17.92
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
     },
     {
      "kind": "radiator",
@@ -21287,23 +23983,23 @@
      "network": "structural"
     },
     {
-     "kind": "corridor_light",
+     "kind": "electrical_junction",
      "id": "F06_CORRLIGHT_S",
      "pos": [
       0.0,
       -8.3,
-      16.0
+      18.75
      ],
      "yaw_deg": 0,
      "network": "electrical"
     },
     {
-     "kind": "corridor_light",
+     "kind": "electrical_junction",
      "id": "F06_CORRLIGHT_N",
      "pos": [
       0.0,
       8.3,
-      16.0
+      18.75
      ],
      "yaw_deg": 0,
      "network": "electrical"
@@ -21403,7 +24099,7 @@
      "kind": "door",
      "id": "F06_DOOR_08",
      "pos": [
-      -6.665,
+      -9.214999999999998,
       -6.25,
       16.0
      ],
@@ -21481,7 +24177,7 @@
      "kind": "door",
      "id": "F06_DOOR_14",
      "pos": [
-      5.8549999999999995,
+      8.405,
       -6.25,
       16.0
      ],
@@ -21515,9 +24211,405 @@
      "w": 0.81,
      "h": 2.03,
      "leaf": "closed"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F06_CORRIDOR_DOME_01",
+     "unit": "F06",
+     "pos": [
+      -4.35,
+      -5.1,
+      18.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F06_CORRIDOR_DOME_02",
+     "unit": "F06",
+     "pos": [
+      -4.35,
+      0.0,
+      18.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F06_CORRIDOR_DOME_03",
+     "unit": "F06",
+     "pos": [
+      -4.35,
+      5.1,
+      18.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F06_CORRIDOR_DOME_04",
+     "unit": "F06",
+     "pos": [
+      4.35,
+      -5.1,
+      18.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F06_CORRIDOR_DOME_05",
+     "unit": "F06",
+     "pos": [
+      4.35,
+      0.0,
+      18.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F06_CORRIDOR_DOME_06",
+     "unit": "F06",
+     "pos": [
+      4.35,
+      5.1,
+      18.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F06_CORRIDOR_DOME_07",
+     "unit": "F06",
+     "pos": [
+      0.0,
+      -8.25,
+      18.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F06_CORRIDOR_DOME_08",
+     "unit": "F06",
+     "pos": [
+      0.0,
+      8.25,
+      18.94
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F06_A_BED_LT_FLUSH_DOME",
+     "unit": "6A",
+     "pos": [
+      -9.58,
+      -7.95,
+      18.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F06_A_MAIN_LT_PENDANT_SHADE",
+     "unit": "6A",
+     "pos": [
+      -9.58,
+      -3.35,
+      18.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F06_B_ALCOVE_LT_FLUSH_DOME",
+     "unit": "6B",
+     "pos": [
+      -12.275,
+      8.075,
+      18.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "kitchen_linear",
+     "id": "F06_B_KITCHEN_LT_KITCHEN_LINEAR",
+     "unit": "6B",
+     "pos": [
+      -8.205,
+      8.075,
+      18.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F06_B_MAIN_LT_PENDANT_SHADE",
+     "unit": "6B",
+     "pos": [
+      -9.58,
+      4.585,
+      18.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F06_C_BED1_LT_FLUSH_DOME",
+     "unit": "6C",
+     "pos": [
+      7.545,
+      7.95,
+      18.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F06_C_BED2_LT_FLUSH_DOME",
+     "unit": "6C",
+     "pos": [
+      11.615,
+      7.95,
+      18.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F06_C_MAIN_LT_PENDANT_SHADE",
+     "unit": "6C",
+     "pos": [
+      9.58,
+      2.685,
+      18.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F06_D_BED_LT_FLUSH_DOME",
+     "unit": "6D",
+     "pos": [
+      9.58,
+      -7.95,
+      18.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F06_D_MAIN_LT_PENDANT_SHADE",
+     "unit": "6D",
+     "pos": [
+      9.58,
+      -3.625,
+      18.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F06_D_OFFICE_LT_PENDANT_SHADE",
+     "unit": "6D",
+     "pos": [
+      6.61,
+      -1.92,
+      18.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "F06_WSTOR_LT_CAGE_BULB",
+     "unit": "F06",
+     "pos": [
+      -9.58,
+      1.11,
+      18.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "flush_dome",
+     "id": "F06_HALL_LT_FLUSH_DOME",
+     "unit": "F06",
+     "pos": [
+      -1.2,
+      -5.0,
+      18.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "eye_pendant",
+     "id": "F06_ATRIUM_LT_EYE_PENDANT",
+     "unit": "F06",
+     "pos": [
+      0.0,
+      0.0,
+      18.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
+    },
+    {
+     "kind": "cage_bulb",
+     "id": "F06_UTILITY_LT_CAGE_BULB",
+     "unit": "F06",
+     "pos": [
+      0.0,
+      5.0,
+      18.96
+     ],
+     "yaw_deg": 0,
+     "network": "electrical"
     }
    ],
    "furniture": [
+    {
+     "id": "F06_stair_history_w_art",
+     "rect": [
+      -3.148,
+      -0.62,
+      -3.113,
+      0.62
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "paper"
+    },
+    {
+     "id": "F06_stair_history_w_artf",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      0.64
+     ],
+     "z0": 0.99,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F06_stair_history_w_artf2",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      0.64
+     ],
+     "z0": 2.1,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F06_stair_history_w_artfl",
+     "rect": [
+      -3.148,
+      -0.64,
+      -3.103,
+      -0.61
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F06_stair_history_w_artfr",
+     "rect": [
+      -3.148,
+      0.61,
+      -3.103,
+      0.64
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F06_stair_history_e_art",
+     "rect": [
+      3.113,
+      -0.62,
+      3.148,
+      0.62
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "paper"
+    },
+    {
+     "id": "F06_stair_history_e_artf",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      0.64
+     ],
+     "z0": 0.99,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F06_stair_history_e_artf2",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      0.64
+     ],
+     "z0": 2.1,
+     "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F06_stair_history_e_artfl",
+     "rect": [
+      3.113,
+      -0.64,
+      3.158,
+      -0.61
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "F06_stair_history_e_artfr",
+     "rect": [
+      3.113,
+      0.61,
+      3.158,
+      0.64
+     ],
+     "z0": 1.02,
+     "h": 1.08,
+     "mat": "wood_dark"
+    },
     {
      "id": "6A_shower",
      "asm": "shower",
@@ -21570,7 +24662,7 @@
      "id": "6A_w0_wardrobe",
      "asm": "wardrobe",
      "at": [
-      -9.8,
+      -11.4,
       -6.74
      ],
      "yaw": 180,
@@ -21591,9 +24683,9 @@
     {
      "id": "6A_bart0_art",
      "rect": [
-      -8.75,
+      -11.65,
       -6.325,
-      -8.05,
+      -10.950000000000001,
       -6.29
      ],
      "z0": 1.3,
@@ -21603,9 +24695,9 @@
     {
      "id": "6A_bart0_artf",
      "rect": [
-      -8.77,
+      -11.67,
       -6.325,
-      -8.03,
+      -10.93,
       -6.28
      ],
      "z0": 1.27,
@@ -21615,13 +24707,37 @@
     {
      "id": "6A_bart0_artf2",
      "rect": [
-      -8.77,
+      -11.67,
       -6.325,
-      -8.03,
+      -10.93,
       -6.28
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "6A_bart0_artfl",
+     "rect": [
+      -11.67,
+      -6.325,
+      -11.64,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "6A_bart0_artfr",
+     "rect": [
+      -10.96,
+      -6.325,
+      -10.930000000000001,
+      -6.28
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -21656,8 +24772,8 @@
      "id": "6A_din_t",
      "asm": "table_round",
      "at": [
-      -8.65,
-      -2.5
+      -7.75,
+      -2.75
      ],
      "yaw": 0,
      "mat": "floor_oak"
@@ -21666,8 +24782,8 @@
      "id": "6A_din_dc1",
      "asm": "chair",
      "at": [
-      -8.98,
-      -3.28
+      -8.08,
+      -3.53
      ],
      "yaw": 0
     },
@@ -21675,26 +24791,8 @@
      "id": "6A_din_dc2",
      "asm": "chair",
      "at": [
-      -8.32,
-      -1.72
-     ],
-     "yaw": 180
-    },
-    {
-     "id": "6A_din_dc3",
-     "asm": "chair",
-     "at": [
-      -9.53,
-      -2.5
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "6A_din_dc4",
-     "asm": "chair",
-     "at": [
-      -7.77,
-      -2.5
+      -6.87,
+      -2.75
      ],
      "yaw": 90
     },
@@ -21714,7 +24812,7 @@
      "id": "6A_plant2",
      "asm": "plant",
      "at": [
-      -8.37,
+      -7.07,
       -5.66
      ],
      "yaw": 291,
@@ -21754,6 +24852,30 @@
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "6A_lart_artfl",
+     "rect": [
+      -11.87,
+      -0.525,
+      -11.84,
+      -0.48000000000000004
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "6A_lart_artfr",
+     "rect": [
+      -10.959999999999999,
+      -0.525,
+      -10.93,
+      -0.48000000000000004
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -21960,7 +25082,7 @@
      "id": "6B_din_t",
      "asm": "table_rect",
      "at": [
-      -9.15,
+      -8.25,
       3.82
      ],
      "yaw": 0,
@@ -21972,7 +25094,7 @@
      "id": "6B_din_dc1",
      "asm": "chair",
      "at": [
-      -9.48,
+      -8.58,
       3.04
      ],
      "yaw": 0
@@ -21981,7 +25103,7 @@
      "id": "6B_din_dc2",
      "asm": "chair",
      "at": [
-      -8.82,
+      -7.92,
       4.6
      ],
      "yaw": 180
@@ -22045,6 +25167,30 @@
      "mat": "wood_dark"
     },
     {
+     "id": "6B_lart_artfl",
+     "rect": [
+      -11.87,
+      6.425,
+      -11.84,
+      6.47
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "6B_lart_artfr",
+     "rect": [
+      -10.959999999999999,
+      6.425,
+      -10.93,
+      6.47
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
      "id": "6C_shower",
      "asm": "shower",
      "at": [
@@ -22096,7 +25242,7 @@
      "id": "6C_w0_wardrobe",
      "asm": "wardrobe",
      "at": [
-      6.51,
+      8.545,
       6.71
      ],
      "yaw": 0,
@@ -22117,9 +25263,9 @@
     {
      "id": "6C_bart0_art",
      "rect": [
-      7.195,
+      8.495,
       6.31,
-      7.8950000000000005,
+      9.194999999999999,
       6.345
      ],
      "z0": 1.3,
@@ -22129,9 +25275,9 @@
     {
      "id": "6C_bart0_artf",
      "rect": [
-      7.175000000000001,
+      8.475,
       6.31,
-      7.915000000000001,
+      9.215,
       6.3549999999999995
      ],
      "z0": 1.27,
@@ -22141,13 +25287,37 @@
     {
      "id": "6C_bart0_artf2",
      "rect": [
-      7.175000000000001,
+      8.475,
       6.31,
-      7.915000000000001,
+      9.215,
       6.3549999999999995
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "6C_bart0_artfl",
+     "rect": [
+      8.475,
+      6.31,
+      8.504999999999999,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "6C_bart0_artfr",
+     "rect": [
+      9.184999999999999,
+      6.31,
+      9.214999999999998,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -22175,7 +25345,7 @@
      "id": "6C_w1_wardrobe",
      "asm": "wardrobe",
      "at": [
-      10.58,
+      10.515,
       6.71
      ],
      "yaw": 0,
@@ -22196,9 +25366,9 @@
     {
      "id": "6C_bart1_art",
      "rect": [
-      11.265,
+      12.565,
       6.31,
-      11.965,
+      13.264999999999999,
       6.345
      ],
      "z0": 1.3,
@@ -22208,9 +25378,9 @@
     {
      "id": "6C_bart1_artf",
      "rect": [
-      11.245000000000001,
+      12.545,
       6.31,
-      11.985000000000001,
+      13.285,
       6.3549999999999995
      ],
      "z0": 1.27,
@@ -22220,13 +25390,37 @@
     {
      "id": "6C_bart1_artf2",
      "rect": [
-      11.245000000000001,
+      12.545,
       6.31,
-      11.985000000000001,
+      13.285,
       6.3549999999999995
      ],
      "z0": 2.15,
      "h": 0.03,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "6C_bart1_artfl",
+     "rect": [
+      12.545,
+      6.31,
+      12.575,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "6C_bart1_artfr",
+     "rect": [
+      13.254999999999999,
+      6.31,
+      13.284999999999998,
+      6.3549999999999995
+     ],
+     "z0": 1.3,
+     "h": 0.85,
      "mat": "wood_dark"
     },
     {
@@ -22304,7 +25498,7 @@
      "asm": "table_round",
      "at": [
       8.51,
-      1.72
+      2.22
      ],
      "yaw": 0,
      "mat": "floor_oak"
@@ -22314,7 +25508,7 @@
      "asm": "chair",
      "at": [
       8.18,
-      0.94
+      1.44
      ],
      "yaw": 0
     },
@@ -22322,28 +25516,10 @@
      "id": "6C_din_dc2",
      "asm": "chair",
      "at": [
-      8.84,
-      2.5
-     ],
-     "yaw": 180
-    },
-    {
-     "id": "6C_din_dc3",
-     "asm": "chair",
-     "at": [
       7.63,
-      1.72
+      2.22
      ],
      "yaw": -90
-    },
-    {
-     "id": "6C_din_dc4",
-     "asm": "chair",
-     "at": [
-      9.39,
-      1.72
-     ],
-     "yaw": 90
     },
     {
      "id": "6C_shelf",
@@ -22414,6 +25590,30 @@
      "mat": "wood_dark"
     },
     {
+     "id": "6C_lart_artfl",
+     "rect": [
+      10.93,
+      -0.84,
+      10.959999999999999,
+      -0.7949999999999999
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
+     "id": "6C_lart_artfr",
+     "rect": [
+      11.84,
+      -0.84,
+      11.87,
+      -0.7949999999999999
+     ],
+     "z0": 1.3,
+     "h": 0.85,
+     "mat": "wood_dark"
+    },
+    {
      "id": "6D_shower",
      "asm": "shower",
      "at": [
@@ -22443,10 +25643,10 @@
     {
      "id": "6D_crate0",
      "rect": [
-      6.109999999999999,
-      -8.65,
-      7.109999999999999,
-      -7.65
+      5.859999999999999,
+      -9.05,
+      6.859999999999999,
+      -8.05
      ],
      "z0": 0.0,
      "h": 0.9,
@@ -22455,10 +25655,10 @@
     {
      "id": "6D_crate1",
      "rect": [
-      7.51,
-      -8.65,
-      8.51,
-      -7.65
+      7.06,
+      -9.05,
+      8.059999999999999,
+      -8.05
      ],
      "z0": 0.0,
      "h": 1.3,
@@ -22467,10 +25667,10 @@
     {
      "id": "6D_crate2",
      "rect": [
-      8.91,
-      -8.65,
-      9.91,
-      -7.65
+      8.26,
+      -9.05,
+      9.26,
+      -8.05
      ],
      "z0": 0.0,
      "h": 1.7000000000000002,
@@ -22479,10 +25679,10 @@
     {
      "id": "6D_crate3",
      "rect": [
-      10.309999999999999,
-      -8.65,
-      11.309999999999999,
-      -7.65
+      9.46,
+      -9.05,
+      10.46,
+      -8.05
      ],
      "z0": 0.0,
      "h": 0.9,
@@ -22491,10 +25691,10 @@
     {
      "id": "6D_crate4",
      "rect": [
-      6.109999999999999,
-      -7.050000000000001,
-      7.109999999999999,
-      -6.050000000000001
+      5.859999999999999,
+      -7.45,
+      6.859999999999999,
+      -6.45
      ],
      "z0": 0.0,
      "h": 1.3,
@@ -22503,10 +25703,10 @@
     {
      "id": "6D_crate5",
      "rect": [
-      7.51,
-      -7.050000000000001,
-      8.51,
-      -6.050000000000001
+      7.06,
+      -7.45,
+      8.059999999999999,
+      -6.45
      ],
      "z0": 0.0,
      "h": 1.7000000000000002,
@@ -22515,10 +25715,10 @@
     {
      "id": "6D_crate6",
      "rect": [
-      8.91,
-      -7.050000000000001,
-      9.91,
-      -6.050000000000001
+      9.86,
+      -7.45,
+      10.86,
+      -6.45
      ],
      "z0": 0.0,
      "h": 0.9,
@@ -22527,10 +25727,10 @@
     {
      "id": "6D_crate7",
      "rect": [
-      10.309999999999999,
-      -7.050000000000001,
-      11.309999999999999,
-      -6.050000000000001
+      11.059999999999999,
+      -7.45,
+      12.059999999999999,
+      -6.45
      ],
      "z0": 0.0,
      "h": 1.3,
@@ -22655,10 +25855,10 @@
     {
      "id": "F06_mop",
      "rect": [
-      -2.6,
-      6.35,
-      -2.2800000000000002,
-      6.67
+      -3.08,
+      6.3,
+      -2.7600000000000002,
+      6.62
      ],
      "z0": 0.0,
      "h": 0.4,
@@ -22988,7 +26188,7 @@
      "id": "F06_SW_08_180",
      "asm": "switch",
      "at": [
-      -5.685,
+      -8.235,
       -6.312
      ],
      "yaw": 180,
@@ -22998,7 +26198,7 @@
      "id": "F06_SW_08_0",
      "asm": "switch",
      "at": [
-      -5.685,
+      -8.235,
       -6.188
      ],
      "yaw": 0,
@@ -23108,7 +26308,7 @@
      "id": "F06_SW_14_180",
      "asm": "switch",
      "at": [
-      6.835,
+      9.385,
       -6.312
      ],
      "yaw": 180,
@@ -23118,7 +26318,7 @@
      "id": "F06_SW_14_0",
      "asm": "switch",
      "at": [
-      6.835,
+      9.385,
       -6.188
      ],
      "yaw": 0,

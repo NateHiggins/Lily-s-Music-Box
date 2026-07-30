@@ -1,0 +1,13 @@
+{
+  "material": "ceramic",
+  "source": "art/textures/source/ceramic.png",
+  "meters_per_tile": 1.0,
+  "edge_error_horizontal": 0.05352,
+  "edge_error_vertical": 3e-05,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

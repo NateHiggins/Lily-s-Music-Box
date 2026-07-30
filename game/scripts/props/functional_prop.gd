@@ -102,6 +102,29 @@ func make_box(size: Vector3, offset: Vector3, color: Color) -> MeshInstance3D:
 	return mi
 
 
+## Swap prototype flat colors for semantic texture sets: walks child
+## meshes and replaces any material whose albedo matches a table row of
+## [color, key, tint (, uv_scale)]. Emissive surfaces are left alone.
+func retexture(node: Node, table: Array) -> void:
+	for c in node.get_children():
+		retexture(c, table)
+	if node is MeshInstance3D 			and node.material_override is StandardMaterial3D:
+		var m: StandardMaterial3D = node.material_override
+		if m.emission_enabled:
+			return
+		for row in table:
+			if m.albedo_color.is_equal_approx(row[0]):
+				node.material_override = MatLib.get_mat(row[1], row[2],
+						row[3] if row.size() > 3 else 1.0)
+				return
+
+
+## Shared semantic texture material (see MatLib); tint multiplies maps.
+func smat(key: String, tint := Color.WHITE,
+		scale := 1.0) -> StandardMaterial3D:
+	return MatLib.get_mat(key, tint, scale)
+
+
 func _pmat(color: Color, rough := 0.6, metal := 0.0) -> StandardMaterial3D:
 	var mat := StandardMaterial3D.new()
 	mat.albedo_color = color

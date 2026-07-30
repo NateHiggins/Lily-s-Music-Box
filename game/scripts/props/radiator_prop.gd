@@ -50,6 +50,12 @@ func _build_visual() -> void:
 	wheel.rotation_degrees = Vector3(0, 0, 0)
 	make_cyl(0.008, 0.008, 0.05, Vector3(0.44, 0.675, 0.0),
 			Color(0.62, 0.55, 0.30), 0.35, 0.7, _body)
+	# semantic finishes: painted cast iron, steel supply, brass valve
+	retexture(_body, [
+		[Color(0.16, 0.16, 0.17), "metal", Color(0.40, 0.40, 0.44), 0.5],
+		[Color(0.30, 0.28, 0.26), "metal", Color(0.52, 0.48, 0.44), 0.5],
+		[Color(0.62, 0.55, 0.30), "brass", Color.WHITE],
+	])
 	_knock = make_emitter("knock", -6.0)
 	_tick = make_emitter("tick", -16.0)
 

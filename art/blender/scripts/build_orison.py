@@ -38,15 +38,132 @@ MATERIALS = load("material_catalog.json")
 LEVELS = LAYOUT["meta"]["levels"]
 LEVEL_ORDER = sorted(LEVELS.items(), key=lambda kv: kv[1])
 
+# ------------------------------------------------------------- textures
+# art/textures/catalog_mapping.json is the single mapping authority:
+# every semantic catalog material maps to a texture set (or null for the
+# specialized shader-only materials: glassish, screen, fx_ao, fx_shadow).
+# The build validates coverage in both directions and fails early if a
+# mapped set is missing files, so a stale mapping can't ship silently.
+TEX_ROOT = os.path.join(ROOT, "art", "textures")
+with open(os.path.join(TEX_ROOT, "catalog_mapping.json")) as _f:
+    CAT_TEX = json.load(_f)
+
+SHADER_ONLY = {k for k, v in CAT_TEX.items() if v is None}
+
+# declarative UV handling per catalog material:
+#   "world"  - dominant-axis world projection (default)
+#   "vgrain" - world projection, U/V swapped on vertical faces so brushed
+#              grain runs vertically on fronts
+#   "unit"   - each quad spans 0..1 (framed artwork, decal quads)
+UV_MODE_BY_MAT = {
+    "chrome": "vgrain", "metal": "vgrain",
+    "art": "unit", "fx_ao": "unit", "fx_shadow": "unit",
+}
+VGRAIN = {k for k, m in UV_MODE_BY_MAT.items() if m == "vgrain"}
+
+
+def _validate_texture_catalog():
+    problems = []
+    for key in MATERIALS:
+        if key not in CAT_TEX:
+            problems.append("material %r missing from catalog_mapping"
+                            % key)
+    for key, rel in CAT_TEX.items():
+        if key not in MATERIALS:
+            problems.append("mapping key %r not in material_catalog" % key)
+        if rel is None:
+            continue
+        base = os.path.join(TEX_ROOT, *rel.split("/"))
+        for fname in ("albedo.png", "roughness.png", "normal.png"):
+            if not os.path.exists(os.path.join(base, fname)):
+                problems.append("%s: missing %s" % (rel, fname))
+        if not (os.path.exists(os.path.join(base, "material.json"))
+                or os.path.exists(os.path.join(base, "asset.json"))):
+            problems.append("%s: missing metadata" % rel)
+    if problems:
+        raise SystemExit("texture catalog invalid:\n  "
+                         + "\n  ".join(problems))
+    mapped = sum(1 for v in CAT_TEX.values() if v)
+    print("texture catalog OK: %d mapped, %d shader-only (%s)"
+          % (mapped, len(SHADER_ONLY), ", ".join(sorted(SHADER_ONLY))))
+
+
+_validate_texture_catalog()
+
+_tex_cache = {}
+
+
+def tex_set(key):
+    """Resolve a material's texture file set, or None. Albedo/roughness
+    come from the pre-composited overlay variant when one exists (the
+    glTF exporter cannot serialize mix-node graphs, so wear is baked by
+    tools/compose_overlays.py); normals always come from the clean set."""
+    if key in _tex_cache:
+        return _tex_cache[key]
+    rel = CAT_TEX.get(key)
+    if rel is None:
+        _tex_cache[key] = None
+        return None
+    base = os.path.join(TEX_ROOT, *rel.split("/"))
+    over = os.path.join(TEX_ROOT, "generated", "_overlaid", key)
+    meta_p = os.path.join(base, "material.json")
+    if not os.path.exists(meta_p):
+        meta_p = os.path.join(base, "asset.json")
+    if not os.path.exists(os.path.join(base, "albedo.png")):
+        _tex_cache[key] = None
+        return None
+    with open(meta_p) as f:
+        meta = json.load(f)
+    src = over if os.path.exists(os.path.join(over, "albedo.png")) else base
+    _tex_cache[key] = {
+        "albedo": os.path.join(src, "albedo.png"),
+        "roughness": os.path.join(src, "roughness.png"),
+        "normal": os.path.join(base, "normal.png"),
+        "mpt": float(meta.get("meters_per_tile", 2.0)),
+        "slug": rel.replace("/", "_"),
+    }
+    return _tex_cache[key]
+
+
+def tex_mpt(key):
+    ts = tex_set(key)
+    return ts["mpt"] if ts else 2.0
+
+
+def _image(path, slug, kind, srgb):
+    """Load a map via a uniquely-named staging copy. The glTF exporter
+    names written files after the source basename — every set is
+    'albedo.png', so exports would collide across floors with
+    order-dependent suffixes. Staging as T_<slug>_<kind>.png makes the
+    shared texture dir deterministic and collision-free."""
+    import shutil
+    stage_dir = os.path.join(TEX_ROOT, "_export")
+    os.makedirs(stage_dir, exist_ok=True)
+    staged = os.path.join(stage_dir, "T_%s_%s.png" % (slug, kind))
+    if (not os.path.exists(staged)
+            or os.path.getmtime(staged) < os.path.getmtime(path)):
+        shutil.copy2(path, staged)
+    img = bpy.data.images.load(staged, check_existing=True)
+    img.name = "T_%s_%s" % (slug, kind)
+    img.colorspace_settings.name = "sRGB" if srgb else "Non-Color"
+    return img
+
 
 class MeshBuf:
     """Accumulates boxes/prisms, realized as one mesh object at the end."""
 
-    def __init__(self, name, material):
+    def __init__(self, name, material, uv_mode="world"):
         self.name = name
         self.material = material
+        self.uv_mode = uv_mode   # "world" projection or per-quad "unit"
         self.verts = []
         self.faces = []
+
+    def add_quad(self, c0, c1, c2, c3):
+        """Single upward-facing quad (contact shadows, AO strips)."""
+        b = len(self.verts)
+        self.verts += [c0, c1, c2, c3]
+        self.faces.append((b, b + 1, b + 2, b + 3))
 
     def add_box(self, mn, mx):
         if mx[0] - mn[0] < 1e-4 or mx[1] - mn[1] < 1e-4 or mx[2] - mn[2] < 1e-4:
@@ -214,25 +331,118 @@ class MeshBuf:
         me.from_pydata(self.verts, [], self.faces)
         me.validate()
         me.update()
+        self._project_uvs(me)
         me.materials.append(get_material(self.material))
         obj = bpy.data.objects.new(self.name, me)
         collection.objects.link(obj)
         return obj
 
+    def _project_uvs(self, me):
+        """Deterministic world-scale box projection, per polygon loop:
+        the dominant component of each face normal picks the projection
+        plane, world meters divide by the set's meters_per_tile. World
+        space keeps oak boards continuous across a room, keeps fabric
+        from twisting between adjacent faces, and survives the glTF trip
+        (TEXCOORD_0) untouched. Brushed metals swap U/V on vertical
+        faces so the grain falls vertically on fronts."""
+        uv = me.uv_layers.new(name="UVMap")
+        if self.uv_mode == "unit":   # decal quads: corners span 0..1
+            unit_uv = ((0.0, 0.0), (1.0, 0.0), (1.0, 1.0), (0.0, 1.0))
+            for poly in me.polygons:
+                for k, li in enumerate(poly.loop_indices):
+                    uv.data[li].uv = unit_uv[k % 4]
+            return
+        inv = 1.0 / tex_mpt(self.material)
+        vgrain = self.material in VGRAIN
+        for poly in me.polygons:
+            n = poly.normal
+            ax, ay, az = abs(n.x), abs(n.y), abs(n.z)
+            for li in poly.loop_indices:
+                co = me.vertices[me.loops[li].vertex_index].co
+                if az >= ax and az >= ay:      # floor / ceiling
+                    u, v = co.x, co.y
+                elif ax >= ay:                 # X-facing
+                    u, v = co.y, co.z
+                    if vgrain:
+                        u, v = v, u
+                else:                          # Y-facing
+                    u, v = co.x, co.z
+                    if vgrain:
+                        u, v = v, u
+                uv.data[li].uv = (u * inv, v * inv)
+
 
 _mat_cache = {}
 
 
+FX_TEX = {
+    "fx_shadow": "generated/fx/shadow_blob.png",
+    "fx_ao": "generated/fx/ao_strip.png",
+    "fx_traffic": "generated/fx/wear_traffic.png",
+    "fx_scuff": "generated/fx/wear_scuff.png",
+    "fx_drip": "generated/fx/wear_drip.png",
+    "fx_grease": "generated/fx/wear_grease.png",
+    "fx_burn": "generated/fx/wear_burn.png",
+}
+
+
 def get_material(key):
+    """Catalog material -> Blender Principled node tree. Textured sets
+    wire albedo (sRGB), roughness (non-color) and a tangent normal map at
+    conservative strength — a plain pattern the glTF exporter reduces
+    cleanly. Catalog color/roughness stay as the untextured fallback and
+    metallic always comes from the catalog."""
     if key in _mat_cache:
         return _mat_cache[key]
     spec = MATERIALS.get(key, MATERIALS["plaster"])
     mat = bpy.data.materials.new("M_%s" % key)
-    mat.use_nodes = True
-    bsdf = mat.node_tree.nodes["Principled BSDF"]
+    # Blender 5 materials are node-backed by default and deprecate assigning
+    # use_nodes; 4.x still requires the opt-in.
+    if bpy.app.version < (5, 0, 0):
+        mat.use_nodes = True
+    nt = mat.node_tree
+    bsdf = nt.nodes["Principled BSDF"]
     bsdf.inputs["Base Color"].default_value = spec["base_color"]
     bsdf.inputs["Roughness"].default_value = spec.get("roughness", 0.7)
     bsdf.inputs["Metallic"].default_value = spec.get("metallic", 0.0)
+    if key in FX_TEX:
+        # baked-GI decal: albedo alpha does all the work, no reflections
+        img = _image(os.path.join(TEX_ROOT, *FX_TEX[key].split("/")),
+                     "fx", key, True)
+        tex = nt.nodes.new("ShaderNodeTexImage")
+        tex.image = img
+        nt.links.new(tex.outputs["Color"], bsdf.inputs["Base Color"])
+        nt.links.new(tex.outputs["Alpha"], bsdf.inputs["Alpha"])
+        bsdf.inputs["Roughness"].default_value = 1.0
+        bsdf.inputs["Specular IOR Level"].default_value = 0.0
+        mat.blend_method = "BLEND"
+        _mat_cache[key] = mat
+        return mat
+    ts = tex_set(key)
+    if ts:
+        alb = nt.nodes.new("ShaderNodeTexImage")
+        alb.name = alb.label = "albedo"
+        alb.image = _image(ts["albedo"], ts["slug"] +
+                           ("_worn_%s" % key if "_overlaid" in ts["albedo"]
+                            else ""), "albedo", True)
+        alb.location = (-420, 300)
+        nt.links.new(alb.outputs["Color"], bsdf.inputs["Base Color"])
+        rough = nt.nodes.new("ShaderNodeTexImage")
+        rough.name = rough.label = "roughness"
+        rough.image = _image(ts["roughness"], ts["slug"] +
+                             ("_worn_%s" % key if "_overlaid"
+                              in ts["roughness"] else ""), "rough", False)
+        rough.location = (-420, 20)
+        nt.links.new(rough.outputs["Color"], bsdf.inputs["Roughness"])
+        nrm_tex = nt.nodes.new("ShaderNodeTexImage")
+        nrm_tex.name = nrm_tex.label = "normal"
+        nrm_tex.image = _image(ts["normal"], ts["slug"], "normal", False)
+        nrm_tex.location = (-420, -260)
+        nrm = nt.nodes.new("ShaderNodeNormalMap")
+        nrm.inputs["Strength"].default_value = 0.35
+        nrm.location = (-160, -260)
+        nt.links.new(nrm_tex.outputs["Color"], nrm.inputs["Color"])
+        nt.links.new(nrm.outputs["Normal"], bsdf.inputs["Normal"])
     _mat_cache[key] = mat
     return mat
 
@@ -290,6 +500,13 @@ class Frame:
               self.pt(x0, y1, z0), self.pt(x0, y0, z1), self.pt(x1, y0, z1),
               self.pt(x1, y1, z1), self.pt(x0, y1, z1)]
         self.hb().add_hex(cs)
+        # baked contact shadow: the cheapest convincing ray of them all
+        mx = (x1 - x0) * 0.08 + 0.04
+        my = (y1 - y0) * 0.08 + 0.04
+        zq = 0.027  # above floor finishes (0.020) and wall AO (0.024)
+        self.g("fx_shadow").add_quad(
+            self.pt(x0 - mx, y0 - my, zq), self.pt(x1 + mx, y0 - my, zq),
+            self.pt(x1 + mx, y1 + my, zq), self.pt(x0 - mx, y1 + my, zq))
 
 
 def _jit(seed, k, lo, hi):
@@ -796,7 +1013,7 @@ def subtract_rect(rects, hole):
 
 
 def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
-               stone_buf=None):
+               stone_buf=None, ao_buf=None):
     """Wall run with openings, thickness centered on the a->b line.
     Door openings get jamb/head trim; windows get a frame, sill lip and a
     collidable glass pane. Detail pass (unless details=False): baseboards
@@ -828,7 +1045,9 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
                             "concrete")
 
     def detail_seg(d0, d1):
-        """Baseboard/cornice/wainscot on a stretch of wall between doors."""
+        """Baseboard/cornice/wainscot on a stretch of wall between doors,
+        plus a floor AO gradient strip on both faces — the corner
+        darkening a path tracer would give the wall/floor junction."""
         if d1 - d0 < 0.05 or not details:
             return
         box(trim_buf, d0, d1, 0.0, 0.11, t + 0.036)
@@ -836,6 +1055,37 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
         if wains:
             box(wains_buf, d0, d1, 0.11, 1.32, t + 0.022)
             box(trim_buf, d0, d1, 1.32, 1.36, t + 0.040)
+            # A small bullnose bead catches a soft highlight and makes the
+            # dado read as installed millwork instead of a razor-edged box.
+            # Run it on both wall faces so corridor and room views agree.
+            a0, a1 = start + d0, start + d1
+            for sgn in (-1, 1):
+                face = cross + sgn * (t / 2.0 + 0.031)
+                if horizontal:
+                    trim_buf.add_tube((a0, face, z + 1.355),
+                                      (a1, face, z + 1.355), 0.024, 8)
+                else:
+                    trim_buf.add_tube((face, a0, z + 1.355),
+                                      (face, a1, z + 1.355), 0.024, 8)
+        if ao_buf is None:
+            return
+        zq = z + 0.024
+        for sgn in (1, -1):
+            face = cross + sgn * (t / 2.0 + 0.02)
+            outer = face + sgn * 0.14
+            a0, a1 = start + d0, start + d1
+            if horizontal:
+                pts = [(a1, face), (a0, face), (a0, outer), (a1, outer)]                         if sgn < 0 else                         [(a0, face), (a1, face), (a1, outer), (a0, outer)]
+                ao_buf.add_quad((pts[0][0], pts[0][1], zq),
+                                (pts[1][0], pts[1][1], zq),
+                                (pts[2][0], pts[2][1], zq),
+                                (pts[3][0], pts[3][1], zq))
+            else:
+                pts = [(face, a0), (face, a1), (outer, a1), (outer, a0)]                         if sgn < 0 else                         [(face, a1), (face, a0), (outer, a0), (outer, a1)]
+                ao_buf.add_quad((pts[0][0], pts[0][1], zq),
+                                (pts[1][0], pts[1][1], zq),
+                                (pts[2][0], pts[2][1], zq),
+                                (pts[3][0], pts[3][1], zq))
 
     openings = sorted(w["openings"], key=lambda o: o["at"])
     cursor = 0.0
@@ -935,7 +1185,7 @@ def _rail_line(buf, fid, gx0, gx1, yc, z):
 
 
 def _flight(buf, part):
-    """One dog-leg flight along Y: solid treads, walk ramp, raked
+    """One dog-leg flight along Y: thin waist slab + treads, walk ramp, raked
     balustrade on the well side, wall rail on the other, fall guard."""
     fid = floor_for_z(part["z0"] + 0.01)
     vis = buf(fid, "stairs", "stair")
@@ -946,18 +1196,28 @@ def _flight(buf, part):
     n, rise, tread = part["n"], part["rise"], part["tread"]
     s, d = part["start"], part["dir"]
     b0, b1, z0 = part["b0"], part["b1"], part["z0"]
+    # Visible construction is a constant-depth inclined waist slab, matching
+    # the 180 mm landing fascia.  The old boxes all extended down to z0,
+    # producing a giant wedge that intruded into the landing below.
+    a_end = s + d * (n - 1) * tread
+    vis.add_ramp(s, z0 - 0.01, a_end, z0 + (n - 1) * rise - 0.01,
+                 b0, b1, thickness=0.18, axis="y")
     for i in range(1, n):
         a0 = s + d * (i - 1) * tread
         a1 = s + d * i * tread
-        vis.add_box((b0, min(a0, a1), z0), (b1, max(a0, a1), z0 + i * rise))
-    a_end = s + d * (n - 1) * tread
+        top = z0 + i * rise
+        # Thin tread plates overlap the waist slab just enough to close the
+        # saw-tooth silhouette without rebuilding a solid triangular mass.
+        vis.add_box((b0, min(a0, a1), top - 0.065),
+                    (b1, max(a0, a1), top))
     ramp.add_ramp(s, z0, a_end, z0 + n * rise, b0, b1, axis="y")
     xr = b1 - 0.045 if part["rail_side"] == "hi" else b0 + 0.045
     xw = b0 + 0.055 if part["rail_side"] == "hi" else b1 - 0.055
     for i in range(1, n):
-        am = s + d * (i - 0.5) * tread
-        bal.add_box((xr - 0.02, am - 0.02, z0 + i * rise),
-                    (xr + 0.02, am + 0.02, z0 + i * rise + 0.84))
+        for frac in (0.72, 0.28):   # two per tread, real balustrade rhythm
+            am = s + d * (i - frac) * tread
+            bal.add_box((xr - 0.02, am - 0.02, z0 + i * rise),
+                        (xr + 0.02, am + 0.02, z0 + i * rise + 0.84))
     rail.add_ramp(s, z0 + 0.92, a_end, z0 + n * rise + 0.92,
                   xr - 0.045, xr + 0.045, thickness=0.07, axis="y")
     rail.add_ramp(s, z0 + 0.87, a_end, z0 + n * rise + 0.87,
@@ -996,6 +1256,118 @@ def build_stair(buf, st):
         _rail_line(buf, name, gx0, gx1, yc, z)
 
 
+## Simulated wear, placed where life happens: threshold scuffs at every
+## hinged door, traffic sheen down the corridor desire lines, drip
+## staining under every radiator, grease halos behind every range, and
+## the 5D burn fanning up its walls. These are positioned decal quads
+## (unit UVs, alpha textures) — the spatial damage the tile-global
+## overlay pass can't express.
+def build_wear_decals(buf, fl):
+    fid = fl["id"]
+    z = fl["z"]
+    zq = 0.0285   # above AO strips and contact shadows
+
+    def floor_quad(mat, x0, y0, x1, y1):
+        buf(fid, "wear_" + mat, mat).add_quad(
+            (x0, y0, z + zq), (x1, y0, z + zq),
+            (x1, y1, z + zq), (x0, y1, z + zq))
+
+    def wall_quad(mat, p0, p1, z0, z1):
+        b = buf(fid, "wear_" + mat, mat)
+        b.add_quad((p0[0], p0[1], z + z0), (p1[0], p1[1], z + z0),
+                   (p1[0], p1[1], z + z1), (p0[0], p0[1], z + z1))
+
+    def ceiling_quad(mat, x0, y0, x1, y1, drop=0.018):
+        """Down-facing translucent damage just below the plaster ceiling."""
+        b = buf(fid, "wear_ceiling_" + mat, mat)
+        zc = z + 3.0 - drop
+        b.add_quad((x0, y0, zc), (x0, y1, zc),
+                   (x1, y1, zc), (x1, y0, zc))
+
+    BEHIND = {90: (-1, 0), -90: (1, 0), 0: (0, -1), 180: (0, 1),
+              45: (-0.7, -0.7), 135: (0.7, -0.7)}
+    for m in fl["markers"]:
+        if m["kind"] == "door" and m.get("leaf") != "none":
+            px, py = m["pos"][0], m["pos"][1]
+            w = m["w"]
+            if m["yaw_deg"] == 0:
+                floor_quad("fx_scuff", px - 0.1, py - 0.45,
+                           px + w + 0.1, py + 0.45)
+            else:
+                floor_quad("fx_scuff", px - 0.45, py - 0.1 - w,
+                           px + 0.45, py + 0.1)
+        elif m["kind"] == "radiator":
+            dx, dy = BEHIND.get(m["yaw_deg"], (0, -1))
+            wx = m["pos"][0] + dx * 0.27
+            wy = m["pos"][1] + dy * 0.27
+            half = (abs(dy) * 0.5, abs(dx) * 0.5)
+            wall_quad("fx_drip", (wx - half[0], wy - half[1]),
+                      (wx + half[0], wy + half[1]), 0.08, 0.75)
+    # Condensation and failed exterior seals leave vertical blooms below
+    # windows.  Offset the quad just proud of one face to avoid z-fighting.
+    for w in fl["walls"]:
+        ax, ay = w["a"]
+        bx, by = w["b"]
+        horizontal = abs(by - ay) < 1e-6
+        start = min(ax, bx) if horizontal else min(ay, by)
+        cross = ay if horizontal else ax
+        face = cross + w["t"] / 2.0 + 0.004
+        for o in w["openings"]:
+            if o.get("type") != "window" or o.get("sill", 0.0) < 0.25:
+                continue
+            c = start + o["at"]
+            hw = min(0.42, o["w"] * 0.34)
+            if horizontal:
+                wall_quad("fx_drip", (c - hw, face), (c + hw, face),
+                          0.08, o["sill"] + 0.04)
+            else:
+                wall_quad("fx_drip", (face, c + hw), (face, c - hw),
+                          0.08, o["sill"] + 0.04)
+    for fu in fl.get("furniture", []):
+        if fu.get("asm") == "stove":
+            import math as _m
+            a = _m.radians(fu.get("yaw", 0))
+            fx_, fy_ = -_m.sin(a), _m.cos(a)     # local +y in world
+            wx = fu["at"][0] - fx_ * 0.36
+            wy = fu["at"][1] - fy_ * 0.36
+            half = (abs(fy_) * 0.45, abs(fx_) * 0.45)
+            wall_quad("fx_grease", (wx - half[0], wy - half[1]),
+                      (wx + half[0], wy + half[1]), 0.95, 1.90)
+    # Old plumbing announces itself overhead. Wet rooms get small irregular
+    # blooms; the top occupied floor carries broader roof-leak ghosts, while
+    # basement service rooms collect darker condensation around pipe routes.
+    wet_i = 0
+    for r in fl["rooms"]:
+        if r["kind"] not in ("bathroom", "kitchen", "laundry", "boiler"):
+            continue
+        x0, y0, x1, y1 = r["rect"]
+        cx = (x0 + x1) * 0.5 + ((wet_i % 3) - 1) * 0.17
+        cy = (y0 + y1) * 0.5 + ((wet_i % 2) * 2 - 1) * 0.13
+        rx = min(0.72, max(0.32, (x1 - x0) * 0.22))
+        ry = min(0.58, max(0.28, (y1 - y0) * 0.18))
+        ceiling_quad("fx_drip", cx - rx, cy - ry, cx + rx, cy + ry)
+        wet_i += 1
+    if fid == "F06":
+        for cx, cy, rx, ry in ((-10.8, -5.7, 1.15, 0.72),
+                               (8.9, 4.4, 0.95, 0.62),
+                               (0.8, 7.7, 0.82, 0.48)):
+            ceiling_quad("fx_drip", cx - rx, cy - ry, cx + rx, cy + ry)
+    elif fid == "B1":
+        for cx, cy, rx, ry in ((-9.8, 1.4, 1.2, 0.58),
+                               (8.5, -4.2, 1.0, 0.52),
+                               (1.2, 5.8, 0.8, 0.42)):
+            ceiling_quad("fx_grease", cx - rx, cy - ry, cx + rx, cy + ry)
+    if fid != "B1":   # corridor ring traffic sheen
+        for r in ((-4.83, -6.55, -3.93, 6.55), (3.93, -6.55, 4.83, 6.55),
+                  (-4.4, -8.75, 4.4, -7.85), (-4.4, 7.85, 4.4, 8.75),
+                  (-1.65, -6.7, -0.75, -3.35)):
+            floor_quad("fx_traffic", *r)
+        floor_quad("fx_traffic", -1.61, -3.11, 1.61, -1.51)  # deck lane
+    if fid == "F05":  # the 5D fire: soot fans up the bedroom walls
+        wall_quad("fx_burn", (13.44, -9.2), (13.44, -6.6), 0.15, 2.85)
+        wall_quad("fx_burn", (10.9, -9.62), (13.4, -9.62), 0.15, 2.85)
+
+
 def build_facade_details(buf):
     """Roof cornice band and the street entry portal."""
     cor = buf("F06", "cornice", "concrete")
@@ -1014,6 +1386,20 @@ def build_facade_details(buf):
     rib.add_box((-3.46, 3.34, 21.70), (3.46, 3.46, 21.83))
     rib.add_box((-3.46, -3.46, 21.70), (-3.34, 3.46, 21.83))
     rib.add_box((3.34, -3.46, 21.70), (3.46, 3.46, 21.83))
+    # Rainwater goods and roof penetrations make the shell read as a working
+    # building rather than a sealed model.  Downpipes stop just above grade;
+    # roof vents vary in height and diameter but remain deliberately simple.
+    pipes = buf("F01", "facade_rainwater", "metal")
+    for x in (-13.58, 13.58):
+        pipes.add_tube((x, -9.86, 0.18), (x, -9.86, 18.82), 0.055, 10)
+        pipes.add_tube((x, 9.86, 0.18), (x, 9.86, 18.82), 0.055, 10)
+    vents = buf("ROOF", "roof_vents", "metal")
+    for x, y, r, h in ((-8.4, -2.8, 0.13, 0.85),
+                       (7.6, 3.2, 0.11, 0.65),
+                       (10.5, -5.5, 0.18, 1.05),
+                       (-4.8, 6.1, 0.10, 0.55)):
+        vents.add_cyl(x, y, 19.24, 19.24 + h, r, r, 12)
+        vents.add_cyl(x, y, 19.22 + h, 19.30 + h, r * 1.35, r * 1.05, 12)
 
 
 def floor_for_z(z):
@@ -1031,6 +1417,11 @@ def floor_key(fid):
 
 def build():
     bpy.ops.wm.read_factory_settings(use_empty=True)
+    # Blender 5.2's glTF operator currently ignores its public log-level
+    # property unless the global debug level supplies the logger setting.
+    # ERROR keeps actionable exporter failures while omitting the known,
+    # harmless shared-sampler diagnostic for RGBA decal color/alpha sockets.
+    bpy.app.debug_value = 2
     scene = bpy.context.scene
     root_col = bpy.data.collections.new("ORISON")
     scene.collection.children.link(root_col)
@@ -1041,7 +1432,9 @@ def build():
     def buf(fid, cat, mat):
         key = (fid, cat)
         if key not in bufs:
-            bufs[key] = MeshBuf("%s_%s" % (fid, cat), mat)
+            mode = "unit" if mat.startswith("fx_") else                     ("unit" if UV_MODE_BY_MAT.get(mat) == "unit"
+                     else "world")
+            bufs[key] = MeshBuf("%s_%s" % (fid, cat), mat, mode)
         return bufs[key]
 
     for fl in LAYOUT["floors"]:
@@ -1069,7 +1462,8 @@ def build():
                        buf(fid, "trim", "trim"),
                        buf(fid, "glazing-col", "glassish"),
                        buf(fid, "wainscot", "wainscot"),
-                       buf(fid, "stone_trim-col", "limestone"))
+                       buf(fid, "stone_trim-col", "limestone"),
+                       buf(fid, "fx_ao_decal", "fx_ao"))
         for r in fl["rooms"]:
             build_floor_overlay(buf, fid, fl, r)
         for fu in fl.get("furniture", []):
@@ -1101,6 +1495,8 @@ def build():
     # invisible walk ramps / fall guards, filed under the lower floor
     for st in LAYOUT["stairs"]:
         build_stair(buf, st)
+    for fl in LAYOUT["floors"]:
+        build_wear_decals(buf, fl)
     build_facade_details(buf)
 
     for (fid, cat), b in bufs.items():
@@ -1112,9 +1508,21 @@ def build():
         for obj in col.objects:
             if obj.type == "MESH":
                 obj.select_set(True)
-        path = os.path.join(GLB_OUT, floor_key(fid) + ".glb")
+        # GLTF_SEPARATE with one shared texture dir: every floor
+        # references the same texture files (deterministic T_* names), so
+        # ~20 PBR sets exist once on disk and once in VRAM instead of
+        # being embedded eight times over (embedded GLBs ballooned past
+        # 100 MB total; separate keeps the whole export ~a tenth of that).
+        path = os.path.join(GLB_OUT, floor_key(fid) + ".gltf")
+        # RGBA decals intentionally feed one image node to both Base Color
+        # and Alpha. Blender's exporter reports that valid arrangement as a
+        # sampler warning even though both sockets necessarily use the same
+        # node/sampler. Keep production logs at ERROR so real export failures
+        # remain visible without hundreds of false-positive decal messages.
         bpy.ops.export_scene.gltf(filepath=path, use_selection=True,
-                                  export_apply=True)
+                                  export_apply=True,
+                                  export_format="GLTF_SEPARATE",
+                                  export_texture_dir="textures")
         print("exported", path)
 
     bpy.ops.wm.save_as_mainfile(filepath=BLEND_OUT)

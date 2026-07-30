@@ -82,6 +82,23 @@ func _run() -> void:
 	await get_tree().create_timer(2.0).timeout
 	_check(Conductor._beat_i > beat_before, "conductor clock is beating")
 
+	# --- lighting model: fixtures spawned, budget enforced by the rig
+	var fixtures := 0
+	for c2 in root.get_children():
+		if c2 is LightFixtureProp:
+			fixtures += 1
+	_check(fixtures >= 100,
+			"light fixtures spawned across the building (%d)" % fixtures)
+	await get_tree().create_timer(1.2).timeout  # let the rig settle
+	var lst: Dictionary = root.light_rig.stats()
+	_check(lst.full > 0 and lst.full <= 14,
+			"light budget: %d full pools (cap 14)" % lst.full)
+	_check(lst.shadows == 3,
+			"shadow budget: %d nearby shadow maps (target 3)" % lst.shadows)
+	var moon := root.get_node_or_null("ExteriorMoon") as DirectionalLight3D
+	_check(moon != null and moon.shadow_enabled,
+			"exterior moon casts directional shadows")
+
 	# --- south corridor -> elevator hall -> atrium deck -> up the west
 	# flight to the north landing -> east flight onto the F02 deck
 	var pl: PlayerController = root.player
@@ -98,6 +115,46 @@ func _run() -> void:
 	_check(pl.global_position.y > 2.9,
 			"atrium stair climbed corridor-to-corridor (y=%.2f)"
 			% pl.global_position.y)
+
+	# --- physical movement sweep: corridor ring loop on F02, then into
+	# 2A and through the RELOCATED bedroom door (the audit's biggest find)
+	pl.global_position = Vector3(4.38, 3.35, 6.0)
+	pl.velocity = Vector3.ZERO
+	for wp in [Vector2(4.38, -6.0), Vector2(4.38, -8.3),
+			Vector2(0.0, -8.3), Vector2(-4.38, -8.3), Vector2(-4.38, -6.0),
+			Vector2(-4.38, 6.0), Vector2(-4.38, 8.3), Vector2(0.0, 8.3),
+			Vector2(4.38, 8.3), Vector2(4.38, 6.0)]:
+		await _goto(pl, wp, 8.0)
+	_check(Vector2(pl.global_position.x, pl.global_position.z)
+			.distance_to(Vector2(4.38, 6.0)) < 0.6,
+			"F02 corridor ring walked full loop")
+	var entry2a: DoorProp = null
+	for c3 in root.get_children():
+		if c3 is DoorProp and c3.global_position.distance_to(
+				Vector3(-5.33, 3.2, 2.105)) < 0.9:
+			entry2a = c3
+	if entry2a and not entry2a.open:
+		entry2a.interact(null)
+		await get_tree().create_timer(0.7).timeout
+	pl.global_position = Vector3(-4.7, 3.35, 1.65)
+	pl.velocity = Vector3.ZERO
+	await _goto(pl, Vector2(-7.0, 1.65), 5.0)   # through 2A entry
+	await _goto(pl, Vector2(-8.8, 3.0), 5.0)    # living, past dining
+	var bed2a: DoorProp = null
+	for c4 in root.get_children():
+		if c4 is DoorProp and c4.global_position.distance_to(
+				Vector3(-9.215, 3.2, 6.25)) < 0.6:
+			bed2a = c4
+	_check(bed2a != null, "2A bedroom door found at relocated position")
+	if bed2a and not bed2a.open:
+		bed2a.interact(null)
+		await get_tree().create_timer(0.7).timeout
+	await _goto(pl, Vector2(-8.8, 6.2), 4.0)    # through the doorway
+	await _goto(pl, Vector2(-9.5, 7.9), 4.0)    # to the bedside
+	pl.autopilot = Vector3.ZERO
+	_check(pl.global_position.z > 6.8,
+			"2A bedroom reached through its own door (z=%.2f)"
+			% pl.global_position.z)
 
 	# --- elevator travel across full range
 	root.elevator.travel_to("F06")
@@ -117,7 +174,26 @@ func _run() -> void:
 
 	print("WALKTEST RESULT: %s" %
 			("PASS" if _failures == 0 else "FAIL (%d)" % _failures))
+	# Let the dynamically assembled building release its meshes, materials,
+	# timers, signal callables and audio players before the headless engine
+	# tears down its ObjectDB. Immediate quit previously stranded a small,
+	# deterministic set of test-only instances and printed a false leak alarm.
+	_arrivals.clear()
+	_stop_audio(root)
+	root.queue_free()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	PropAudio.clear_cache()
+	await get_tree().process_frame
 	get_tree().quit(_failures)
+
+
+func _stop_audio(node: Node) -> void:
+	if node is AudioStreamPlayer or node is AudioStreamPlayer3D:
+		node.stop()
+		node.stream = null
+	for child in node.get_children(true):
+		_stop_audio(child)
 
 
 ## The architectural walkthrough builds its path from the layout, flies,

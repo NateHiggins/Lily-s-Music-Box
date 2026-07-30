@@ -1,0 +1,14 @@
+{
+  "id": "damage/charred_surface",
+  "kind": "surface",
+  "source": "art/textures/source_library/damage/charred_surface.png",
+  "meters_per_tile": 1.2,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "edge_error_horizontal": 0.0258,
+  "edge_error_vertical": 0.02811
+}

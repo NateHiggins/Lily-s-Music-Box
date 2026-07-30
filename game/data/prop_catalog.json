@@ -222,6 +222,94 @@
   "normal_function_priority": 1.0,
   "infection_receptivity": 0.7
  },
+ "pendant_shade": {
+  "minimum_action_interval": 0.07,
+  "maximum_action_rate": 10,
+  "available_mechanical_events": [
+   "filament_surge"
+  ],
+  "preferred_subdivision": 2,
+  "timing_drift": 0.0,
+  "response_latency": 0.01,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.7
+ },
+ "flush_dome": {
+  "minimum_action_interval": 0.07,
+  "maximum_action_rate": 10,
+  "available_mechanical_events": [
+   "filament_surge"
+  ],
+  "preferred_subdivision": 2,
+  "timing_drift": 0.0,
+  "response_latency": 0.01,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.65
+ },
+ "sconce_globe": {
+  "minimum_action_interval": 0.07,
+  "maximum_action_rate": 10,
+  "available_mechanical_events": [
+   "filament_surge"
+  ],
+  "preferred_subdivision": 2,
+  "timing_drift": 0.0,
+  "response_latency": 0.01,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.6
+ },
+ "kitchen_linear": {
+  "minimum_action_interval": 0.08,
+  "maximum_action_rate": 9,
+  "available_mechanical_events": [
+   "starter_buzz",
+   "flicker"
+  ],
+  "preferred_subdivision": 2,
+  "timing_drift": 0.015,
+  "response_latency": 0.02,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.6
+ },
+ "cage_bulb": {
+  "minimum_action_interval": 0.07,
+  "maximum_action_rate": 12,
+  "available_mechanical_events": [
+   "filament_surge",
+   "swing"
+  ],
+  "preferred_subdivision": 2,
+  "timing_drift": 0.02,
+  "response_latency": 0.01,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.75
+ },
+ "chandelier": {
+  "minimum_action_interval": 0.1,
+  "maximum_action_rate": 8,
+  "available_mechanical_events": [
+   "filament_surge",
+   "crystal_tick"
+  ],
+  "preferred_subdivision": 1,
+  "timing_drift": 0.0,
+  "response_latency": 0.02,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.8
+ },
+ "eye_pendant": {
+  "minimum_action_interval": 0.08,
+  "maximum_action_rate": 10,
+  "available_mechanical_events": [
+   "filament_surge",
+   "sway"
+  ],
+  "preferred_subdivision": 1,
+  "timing_drift": 0.01,
+  "response_latency": 0.01,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.85
+ },
  "door_anomaly": {
   "minimum_action_interval": 0.1,
   "maximum_action_rate": 8,

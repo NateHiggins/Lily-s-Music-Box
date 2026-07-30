@@ -1,0 +1,13 @@
+{
+  "material": "slab",
+  "source": "art/textures/source/slab.png",
+  "meters_per_tile": 2.2,
+  "edge_error_horizontal": 0.00011,
+  "edge_error_vertical": 5e-05,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}
