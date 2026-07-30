@@ -179,10 +179,15 @@ origin (boiler / 4B radiator / F04 corridor light).
 ## Tests
 
 ```bash
-godot --headless --path game --import                     # first time
-godot --headless --path game res://tests/WalkTest.tscn    # 64 checks
-xvfb-run godot --path game res://tests/Screenshot.tscn    # doc renders
+godot --headless --path game --import                       # first time
+godot --headless --path game res://tests/WalkTest.tscn      # ~110 checks
+godot --headless --path game res://tests/LightingAudit.tscn # per-room light
+godot --path game res://tests/Screenshot.tscn               # doc renders
+godot --path game --resolution 2560x1440 res://tests/Perf.tscn
 ```
+
+The last two must run windowed — a headless run renders nothing, which
+would report as a pass.
 
 ### Intro / viral seed director
 
@@ -252,7 +257,32 @@ enamel, rust-run utility metal, chipped wainscot). Floors export as
 .gltf with one shared texture directory; see
 `../art/textures/README.md` for the mapping and how to add a material.
 
-## Performance snapshot (furnished)
+## Performance
+
+Measured, not asserted — run it windowed, since a headless run reports
+zeroes for every rendering counter:
+
+```bash
+godot --path game --resolution 2560x1440 res://tests/Perf.tscn
+```
+
+It parks the camera at six worst-case stations (the atrium eye sees seven
+storeys at once; the street sees the whole block) and reports objects,
+draw calls, primitives and frame time, failing any station over 16.6 ms —
+or any station that renders nothing, which is a broken run rather than a
+fast one. On an RTX 4080 at 1440p every station currently sits between
+101 and 138 fps.
+
+Two things pay for that. Shadows are budgeted separately from light and
+much more tightly: an omni's shadow is a cube, so each caster re-renders
+the visible set six times, and the nearest eight casters carry all the
+modelling an eye can actually find. And 923 box occluders are built at
+load from the same wall and slab data the geometry comes from, cut around
+every door and window — so the facade stops the renderer drawing four
+storeys of furniture behind it, without a doorway ever culling the room
+you can see through it.
+
+## Geometry snapshot (furnished)
 
 - Whole building: 325 meshes, ~225,500 triangles, ~16 MB geometry + 50 MB shared textures —
   still light for a full furnished building. Detailed furnishings render
@@ -260,7 +290,9 @@ enamel, rust-run utility metal, chipped wainscot). Floors export as
   physics instead of trimesh furniture.
 - 38 audio emitters, all procedural `AudioStreamWAV` (mono 22 kHz),
   synthesized at startup; no audio files on disk
-- Coarse floor visibility keeps ≤3 floor scenes rendered while walking
+- Floor streaming keeps ≤3 floor scenes rendered while walking (the whole
+  stack renders in the atrium, where the eye is a sightline through every
+  storey), and 923 generated occluders cull what the masonry hides
 
 ## Structure
 

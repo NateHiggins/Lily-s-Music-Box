@@ -97,7 +97,7 @@ func _run() -> void:
 	# that cap to an arbitrary subset and corridors go black mid-run.
 	var eligible := 0
 	var stray_floor := 0
-	var lit_unshadowed := 0
+	var casting_unlit := 0
 	var lit_circulation := 0
 	for fixture in root.light_rig._controlled_lights():
 		var vertical: bool = root.light_rig._is_vertical(fixture)
@@ -105,12 +105,14 @@ func _run() -> void:
 			eligible += 1
 		var src: Light3D = fixture.light
 		var lit: bool = src != null and src.visible and src.light_energy > 0.05
+		# A shadow map on an unlit fixture is pure waste: six cube faces
+		# rendered for a light contributing nothing.
+		if src != null and src.shadow_enabled and not lit:
+			casting_unlit += 1
 		if not lit:
 			continue
 		if not vertical and root.light_rig._fixture_floor(fixture) != "F01":
 			stray_floor += 1
-		if not src.shadow_enabled:
-			lit_unshadowed += 1
 		if "navigation_light" in fixture and fixture.navigation_light:
 			lit_circulation += 1
 	_check(lst.active_floor == "F01" and stray_floor == 0 and lst.off > 0,
@@ -119,14 +121,32 @@ func _run() -> void:
 	_check(lst.full == mini(eligible, root.light_rig.ACTIVE_N),
 			"the working set is the nearest %d of %d eligible fixtures" %
 			[lst.full, eligible])
-	_check(lit_unshadowed == 0,
-			"every lit fixture casts (%d shadow maps)" % lst.shadows)
+	# Shadows are budgeted separately from light and far more tightly: an
+	# omni's shadow is a cube, so each caster re-renders the visible set
+	# six times. Casters are the nearest few of the lit set, never more.
+	_check(casting_unlit == 0,
+			"no unlit fixture wastes a shadow map (%d casters)" % lst.shadows)
+	_check(lst.shadows == mini(eligible, root.light_rig.SHADOW_N),
+			"shadow casters capped at the nearest %d" % lst.shadows)
 	# the complaint this rig exists to answer: a corridor lit end to end
 	_check(lit_circulation >= 4,
 			"circulation fixtures hold the budget (%d lit)" % lit_circulation)
 	var moon := root.get_node_or_null("ExteriorMoon") as DirectionalLight3D
 	_check(moon != null and moon.shadow_enabled,
 			"exterior moon casts directional shadows")
+
+	# --- occlusion culling: the masonry is what stops the renderer drawing
+	# four storeys of furniture through the facade
+	var occ := root.get_node_or_null("Occluders")
+	var occ_boxes := 0
+	if occ:
+		for c3 in occ.get_children():
+			if c3 is OccluderInstance3D and c3.occluder is BoxOccluder3D:
+				occ_boxes += 1
+	_check(occ_boxes > 500, "occluders built from wall data (%d)" % occ_boxes)
+	_check(ProjectSettings.get_setting(
+			"rendering/occlusion_culling/use_occlusion_culling", false),
+			"occlusion culling is enabled for the project")
 
 	# --- south corridor -> elevator hall -> atrium deck -> up the west
 	# flight to the north landing -> east flight onto the F02 deck

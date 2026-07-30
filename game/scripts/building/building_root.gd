@@ -50,6 +50,7 @@ var call_interface: CallInterface
 var light_rig: LightRig
 var virus_director: VirusSoundDirector
 var floor_nodes: Dictionary = {}
+var occluders: OrisonOccluders
 var show_all_floors := false
 
 
@@ -66,6 +67,10 @@ func _ready() -> void:
 		node.name = fid
 		add_child(node)
 		floor_nodes[fid] = node
+	occluders = OrisonOccluders.new()
+	occluders.name = "Occluders"
+	add_child(occluders)
+	var n_occ := occluders.build(layout)
 	call_interface = CallInterface.new()
 	add_child(call_interface)
 	_spawn_props()
@@ -91,8 +96,8 @@ func _ready() -> void:
 	add_child(layer)
 	layer.add_child(debug)
 	debug.setup(self)
-	print("[BUILDING] Orison assembled: %d floors, player in lobby" %
-			floor_nodes.size())
+	print("[BUILDING] Orison assembled: %d floors, %d occluders, "
+			% [floor_nodes.size(), n_occ] + "player in lobby")
 
 
 func _build_environment() -> void:

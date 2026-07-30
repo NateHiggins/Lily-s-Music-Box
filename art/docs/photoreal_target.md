@@ -159,8 +159,22 @@ Status markers reflect main as of 2026-07-30.
    a 20-piece clutter assembly library (`furniture_references.md`).
    Units that read dark (Juno, Rhea) do so by resident light character,
    not neglect — revisit under phase 5's remaining lightmap work.
-7. **Performance.** OPEN. Floor-visibility streaming (now atrium-aware)
-   is still the stand-in; occluders, HLOD, prop LODs not started.
+7. **Performance.** LARGELY DONE, and measured rather than asserted:
+   `game/tests/Perf.tscn` parks the camera at six worst-case stations and
+   reports objects/draw calls/primitives and frame time (run it windowed;
+   headless reports zeroes, which the probe now fails on rather than
+   passing). Two changes carried it. Shadows are budgeted separately from
+   light and far more tightly — an omni's shadow is a cube, so each caster
+   re-renders the visible set six times, and dropping 14 casters to the
+   nearest 8 halved draw calls with no visible loss. Then occlusion
+   culling: 923 box occluders are generated at load from the same wall and
+   slab data everything else reads, cut around every door and window so a
+   sightline through an opening is never wrongly culled. At 1440p on an
+   RTX 4080 the worst station went 18.5 ms -> 9.9 ms and all six now pass
+   the 16.6 ms budget with 1.7x headroom. Remaining: that headroom still
+   needs to hold on genuinely mid-range hardware, and HLOD plus real prop
+   LODs are untouched — props are still many small MeshInstance3Ds each,
+   which is where the remaining object count lives.
 8. **Atmosphere and post.** PARTLY DONE (depth fog, glow, filmic
    tonemap). Volumetrics, glass treatment and a fuller post chain open.
 

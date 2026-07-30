@@ -27,6 +27,13 @@ const INTERVAL := 0.12
 ## a little past it: what matters is that no single mesh is in range of more
 ## than 16 of these at once.
 const ACTIVE_N := 14
+## Shadows are priced separately from light, and far higher: an omni's
+## shadow is a CUBE, so every caster re-renders the visible set six times.
+## Fourteen casters cost more than everything else in the frame put
+## together. The nearest few carry the modelling that sells a room — the
+## balustrade shadows down the stair, furniture contact — and the rest
+## contribute nothing an eye can find, so they light without casting.
+const SHADOW_N := 8
 ## Circulation fixtures beat room fixtures for the budget well before a tie.
 ## The dome at the far end of a corridor is worth more to someone walking it
 ## than a bedroom fixture 5 m away through a wall, so nav distances count for
@@ -72,7 +79,7 @@ func _process(delta: float) -> void:
 	eligible.sort_custom(func(a, b): return a[0] < b[0])
 	for i in range(eligible.size()):
 		var on := i < ACTIVE_N
-		eligible[i][1].set_budget(1.0 if on else 0.0, false, on)
+		eligible[i][1].set_budget(1.0 if on else 0.0, false, i < SHADOW_N)
 	for fixture in off:
 		fixture.set_budget(0.0, false, false)
 

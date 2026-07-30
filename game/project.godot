@@ -31,6 +31,7 @@ window/size/viewport_height=720
 
 [rendering]
 
+occlusion_culling/use_occlusion_culling=true
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 lights_and_shadows/positional_shadow/atlas_16_bits=false
