@@ -1757,6 +1757,14 @@ def _flight(buf, part):
     a_end = s + d * (n - 1) * tread
     vis.add_ramp(s, z0 - 0.01, a_end, z0 + (n - 1) * rise - 0.01,
                  b0, b1, thickness=0.18, axis="y")
+    # The waist's underside runs 0.19 below the flight's own start height,
+    # so the foot of every flight buried itself in the floor it lands on —
+    # the bottom treads read as sinking into the ground rather than
+    # standing on it. A closer fills that wedge back up to floor level, the
+    # way a real bottom riser sits on the slab.
+    foot_a0 = min(s, s + d * 1.6 * tread)
+    foot_a1 = max(s, s + d * 1.6 * tread)
+    vis.add_box((b0, foot_a0, z0 - 0.19), (b1, foot_a1, z0))
     for i in range(1, n):
         a0 = s + d * (i - 1) * tread
         a1 = s + d * i * tread

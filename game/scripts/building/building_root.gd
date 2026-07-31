@@ -112,6 +112,10 @@ func _ready() -> void:
 	_spawn_npc_placeholders()
 	_spawn_reality_controllers()
 	_spawn_reality_affected_props()
+	_spawn_character_memory_art()
+	_spawn_character_wall_art()
+	_spawn_hallway_art()
+	_build_front_entry_details()
 	objective_tracker = ObjectiveTracker.new()
 	objective_tracker.name = "ObjectiveTracker"
 	add_child(objective_tracker)
@@ -255,35 +259,68 @@ void fragment() {
 ## Compatibility backend), slow dust motes riding it, and a soft
 ## vignette that pulls every frame toward the lens.
 func _build_atrium_atmosphere() -> void:
+	# The court's eye is a 2.92 m SQUARE — the stair wraps it with 1.70 m
+	# flights on the east and west and landings north and south. A round
+	# cone in a square well spilled through the balustrades at the corners
+	# and stopped short of both ends. This is a square prism matched to the
+	# eye, running from the skylight glazing down to the lobby floor, so
+	# the light arrives from where the glass actually is.
 	var shaft := MeshInstance3D.new()
 	shaft.name = "AtriumShaft"
-	var cone := CylinderMesh.new()
-	cone.top_radius = 1.9
-	cone.bottom_radius = 2.65
-	cone.height = 20.6
-	cone.radial_segments = 24
-	shaft.mesh = cone
+	var prism := BoxMesh.new()
+	var top := 21.35            # underside of the monitor's skylight
+	var bottom := -2.6          # basement floor, where the stair starts
+	prism.size = Vector3(2.86, top - bottom, 2.86)
+	shaft.mesh = prism
 	var sm := StandardMaterial3D.new()
 	sm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	sm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	sm.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
-	sm.cull_mode = BaseMaterial3D.CULL_DISABLED
+	# You STAND INSIDE this thing — it fills the eye you are looking up. So
+	# render the far wall only (CULL_FRONT drops the faces between you and
+	# the middle of the volume). With both faces additive, every sightline
+	# crossed two of them and the whole frame washed to white.
+	sm.cull_mode = BaseMaterial3D.CULL_FRONT
 	sm.no_depth_test = false
-	var grad := Gradient.new()
-	grad.offsets = PackedFloat32Array([0.0, 0.55, 1.0])
-	grad.colors = PackedColorArray([
-			Color(0.72, 0.78, 0.95, 0.0),
-			Color(0.72, 0.78, 0.95, 0.020),
-			Color(0.80, 0.85, 1.0, 0.055)])
-	var gt := GradientTexture2D.new()
-	gt.gradient = grad
-	gt.fill_from = Vector2(0.5, 1.0)   # bright toward the skylight
-	gt.fill_to = Vector2(0.5, 0.0)
-	sm.albedo_texture = gt
+	# A gradient texture cannot do this: a box's UVs restart per face, so
+	# "bright toward the skylight" would repeat six times.
+	#
+	# The dimming lives in the COLOUR, not the alpha. Additive blending adds
+	# albedo.rgb, and leaning on a low alpha to hold it back did not work —
+	# the volume came through at nearly full strength and washed the court
+	# white with a hard box edge across the stair. A near-black colour adds
+	# a near-nothing amount no matter how the blend treats alpha.
+	sm.albedo_color = Color(0.055, 0.062, 0.082, 1.0)
 	shaft.material_override = sm
 	shaft.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	shaft.position = Vector3(0.0, 10.4, 0.0)
+	shaft.position = Vector3(0.0, (top + bottom) * 0.5, 0.0)
 	add_child(shaft)
+	# The source itself: a soft pool right under the skylight glazing, so
+	# the shaft visibly begins AT the glass instead of merely existing.
+	var mouth := MeshInstance3D.new()
+	mouth.name = "AtriumSkylightPool"
+	var mq := QuadMesh.new()
+	mq.size = Vector2(2.86, 2.86)
+	mouth.mesh = mq
+	var mm := StandardMaterial3D.new()
+	mm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mm.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	mm.cull_mode = BaseMaterial3D.CULL_DISABLED
+	var mg := Gradient.new()
+	mg.set_color(0, Color(0.30, 0.33, 0.42, 1.0))
+	mg.set_color(1, Color(0.0, 0.0, 0.0, 0.0))
+	var mt := GradientTexture2D.new()
+	mt.gradient = mg
+	mt.fill = GradientTexture2D.FILL_RADIAL
+	mt.fill_from = Vector2(0.5, 0.5)
+	mt.fill_to = Vector2(0.5, 0.0)
+	mm.albedo_texture = mt
+	mouth.material_override = mm
+	mouth.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	mouth.position = Vector3(0.0, top - 0.06, 0.0)
+	mouth.rotation_degrees = Vector3(90, 0, 0)
+	add_child(mouth)
 	var dust := CPUParticles3D.new()
 	dust.name = "AtriumDust"
 	dust.amount = 110
@@ -388,6 +425,7 @@ func _spawn_props() -> void:
 
 func _spawn_npc_placeholders() -> void:
 	var count := 0
+	var animated_count := 0
 	for spec in NPC_RESIDENTS:
 		var unit: String = spec.unit
 		var floor_id := "F0" + unit.left(1)
@@ -425,11 +463,13 @@ func _spawn_npc_placeholders() -> void:
 		var x := lerpf(float(rect[0]), float(rect[2]), 0.52) + slot * 0.48
 		var y := lerpf(float(rect[1]), float(rect[3]), 0.58)
 		var npc: Node3D
-		if spec.sprite == "mina_vale":
+		var model_path := "res://assets/characters/%s/%s_rigged.glb" % [
+				spec.sprite, spec.sprite]
+		if ResourceLoader.exists(model_path):
 			var animated := AnimatedResident.new()
-			animated.setup(spec.name, spec.sprite, unit,
-					"res://assets/characters/mina/mina_vale_rigged.glb")
+			animated.setup(spec.name, spec.sprite, unit, model_path)
 			npc = animated
+			animated_count += 1
 		else:
 			var placeholder := NPCPlaceholder.new()
 			placeholder.setup(spec.name,
@@ -440,7 +480,8 @@ func _spawn_npc_placeholders() -> void:
 		var parent: Node = floor_nodes.get(floor_id, self)
 		parent.add_child(npc)
 		count += 1
-	print("[BUILDING] %d resident placeholders spawned" % count)
+	print("[BUILDING] %d residents spawned (%d rigged, %d sprite fallbacks)" %
+			[count, animated_count, count - animated_count])
 
 
 func _spawn_reality_affected_props() -> void:
@@ -561,6 +602,183 @@ func _spawn_reality_controllers() -> void:
 		reality_controllers[case_id] = controller
 	print("[BUILDING] %d apartment reality controllers ready" %
 			reality_controllers.size())
+
+
+func _spawn_character_memory_art() -> void:
+	_spawn_character_art_catalog(
+			"res://data/character_memory_art.json",
+			"character memory-art", "character memory artworks")
+
+
+func _spawn_character_wall_art() -> void:
+	_spawn_character_art_catalog(
+			"res://data/character_wall_art.json",
+			"character wall-art", "character-specific wall artworks",
+			"character_wall_art")
+
+
+func _spawn_hallway_art() -> void:
+	var file := FileAccess.open("res://data/hallway_art.json", FileAccess.READ)
+	if file == null:
+		push_warning("hallway-art catalog missing")
+		return
+	var catalog: Dictionary = JSON.parse_string(file.get_as_text())
+	var count := 0
+	for spec in catalog.get("pieces", []):
+		var floor_id: String = spec.floor
+		var floor_data: Dictionary = {}
+		for candidate in layout["floors"]:
+			if candidate.id == floor_id:
+				floor_data = candidate
+				break
+		if floor_data.is_empty() or not floor_nodes.has(floor_id):
+			continue
+		var room: Dictionary = {}
+		for candidate in floor_data["rooms"]:
+			if candidate.id == spec.room:
+				room = candidate
+				break
+		if room.is_empty():
+			continue
+		spec["collection"] = "hallway_art"
+		var art := CharacterMemoryArt.new()
+		art.setup(spec)
+		var rect: Array = room.rect
+		var along := float(spec.get("along", 0.5))
+		var wall: String = spec.get("wall", "north")
+		var x := lerpf(float(rect[0]), float(rect[2]), along)
+		var y := lerpf(float(rect[1]), float(rect[3]), along)
+		var yaw := 0.0
+		var clearance := float(spec.get("wall_offset", 0.105))
+		match wall:
+			"north":
+				y = float(rect[3]) - clearance
+			"south":
+				y = float(rect[1]) + clearance
+				yaw = PI
+			"east":
+				x = float(rect[2]) - clearance
+				yaw = -PI * 0.5
+			"west":
+				x = float(rect[0]) + clearance
+				yaw = PI * 0.5
+		art.position = GameBoot.b2g([
+				x, y, float(floor_data.z) +
+				float(spec.get("height", 1.52))])
+		art.rotation.y = yaw
+		floor_nodes[floor_id].add_child(art)
+		count += 1
+	var expected := int(catalog.get("expected_count", count))
+	if count != expected:
+		push_error("hallway-art mismatch: expected %d, placed %d"
+				% [expected, count])
+	print("[BUILDING] %d hallway artworks placed" % count)
+
+
+func _build_front_entry_details() -> void:
+	# Main street door is F01_DOOR_06 at Blender y=-9.795. Both pieces sit
+	# beyond the south facade and face the sidewalk.
+	var entry_light := LightFixtureProp.new()
+	entry_light.name = "FrontDoorExteriorLight"
+	entry_light.prop_type = "sconce_globe"
+	entry_light.navigation_light = true
+	entry_light.range_clamp = 7.5
+	entry_light.energy_scale = 1.25
+	entry_light.standby_scale = 0.55
+	entry_light.position = GameBoot.b2g([-0.455, -9.91, 2.58])
+	add_child(entry_light)
+	var entry_sign := BuildingEntrySign.new()
+	entry_sign.position = GameBoot.b2g([0.72, -9.905, 1.58])
+	add_child(entry_sign)
+	print("[BUILDING] front-door exterior light and signage placed")
+
+
+func _spawn_character_art_catalog(path: String, error_label: String,
+		report_label: String, collection := "character_memories") -> void:
+	var file := FileAccess.open(
+			path, FileAccess.READ)
+	if file == null:
+		push_warning(error_label + " catalog missing")
+		return
+	var catalog: Dictionary = JSON.parse_string(file.get_as_text())
+	var count := 0
+	for spec in catalog.get("pieces", []):
+		spec["collection"] = collection
+		var unit: String = spec.unit
+		var floor_id := "F0" + unit.left(1)
+		var floor_data: Dictionary = {}
+		for candidate in layout["floors"]:
+			if candidate.id == floor_id:
+				floor_data = candidate
+				break
+		if floor_data.is_empty():
+			continue
+		var room: Dictionary = {}
+		for candidate in floor_data["rooms"]:
+			if candidate.get("unit", "") == unit \
+					and candidate.get("kind", "") == "living":
+				room = candidate
+				break
+		if room.is_empty():
+			for candidate in floor_data["rooms"]:
+				if candidate.get("unit", "") == unit \
+						and str(candidate.id).ends_with("_MAIN"):
+					room = candidate
+					break
+		if room.is_empty():
+			continue
+		var rect: Array = room.rect
+		var art := CharacterMemoryArt.new()
+		art.setup(spec)
+		if spec.get("placement", "wall") == "tabletop":
+			var x := lerpf(float(rect[0]), float(rect[2]),
+					float(spec.get("u", 0.5)))
+			var y := lerpf(float(rect[1]), float(rect[3]),
+					float(spec.get("v", 0.5)))
+			art.position = GameBoot.b2g(
+					[x, y, float(floor_data.z) + 0.82])
+			art.rotation.y = deg_to_rad(float(spec.get("yaw", 0.0)))
+		else:
+			var along := float(spec.get("along", 0.5))
+			var wall: String = spec.get("wall", "north")
+			var x := lerpf(float(rect[0]), float(rect[2]), along)
+			var y := lerpf(float(rect[1]), float(rect[3]), along)
+			var yaw := 0.0
+			match wall:
+				"north":
+					y = float(rect[3]) - 0.04
+				"south":
+					y = float(rect[1]) + 0.04
+					yaw = PI
+				"east":
+					x = float(rect[2]) - 0.04
+					yaw = -PI * 0.5
+				"west":
+					x = float(rect[0]) + 0.04
+					yaw = PI * 0.5
+			# Keep the frame fully inside the room instead of coplanar with
+			# the wall, and allow exceptional pieces to author their height.
+			var wall_offset := float(spec.get("wall_offset", 0.065))
+			match wall:
+				"north":
+					y -= wall_offset
+				"south":
+					y += wall_offset
+				"east":
+					x -= wall_offset
+				"west":
+					x += wall_offset
+			art.position = GameBoot.b2g(
+					[x, y, float(floor_data.z) +
+					float(spec.get("height", 1.52))])
+			art.rotation.y = yaw
+		floor_nodes[floor_id].add_child(art)
+		count += 1
+	var expected := int(catalog.get("expected_count", count))
+	if count != expected:
+		push_error("%s mismatch: expected %d, placed %d"
+				% [error_label, expected, count])
+	print("[BUILDING] %d %s placed" % [count, report_label])
 
 
 func teleport_player(fid: String) -> void:

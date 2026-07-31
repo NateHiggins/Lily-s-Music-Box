@@ -394,7 +394,7 @@
    "pos": [
     0.0,
     0.0,
-    -0.24
+    -0.75
    ],
    "room": "B1",
    "network": "electrical",
@@ -857,7 +857,7 @@
    "pos": [
     0.0,
     0.0,
-    2.96
+    2.05
    ],
    "room": "F01",
    "network": "electrical",
@@ -1775,7 +1775,7 @@
    "pos": [
     0.0,
     0.0,
-    6.16
+    5.25
    ],
    "room": "F02",
    "network": "electrical",
@@ -2574,7 +2574,7 @@
    "pos": [
     0.0,
     0.0,
-    9.36
+    8.45
    ],
    "room": "F03",
    "network": "electrical",
@@ -3520,7 +3520,7 @@
    "pos": [
     0.0,
     0.0,
-    12.56
+    11.65
    ],
    "room": "F04",
    "network": "electrical",
@@ -4214,7 +4214,7 @@
    "pos": [
     0.0,
     0.0,
-    15.76
+    14.85
    ],
    "room": "F05",
    "network": "electrical",
@@ -5028,7 +5028,7 @@
    "pos": [
     0.0,
     0.0,
-    18.96
+    18.05
    ],
    "room": "F06",
    "network": "electrical",
@@ -5062,6 +5062,60 @@
    "connections": [
     "F06_CORRLIGHT_S"
    ]
+  },
+  {
+   "id": "ROOF_ATRIUM_LT_EYE_PENDANT",
+   "pos": [
+    0.0,
+    0.0,
+    21.25
+   ],
+   "room": "ROOF",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": []
+  },
+  {
+   "id": "ROOF_LT_DECK",
+   "pos": [
+    8.6,
+    -2.6,
+    21.72
+   ],
+   "room": "ROOF",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": []
+  },
+  {
+   "id": "ROOF_LT_GARDEN",
+   "pos": [
+    -9.0,
+    6.2,
+    21.5
+   ],
+   "room": "ROOF",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": []
   },
   {
    "id": "B1_ELECTRICAL_HUB",

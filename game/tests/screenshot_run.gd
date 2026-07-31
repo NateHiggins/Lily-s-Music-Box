@@ -22,8 +22,10 @@ const SHOTS := [
 	 "look": Vector3(-2.2, 3.6, -1.5), "overlay": false},
 	{"name": "b_16_stair_half_landing", "pos": Vector3(0.0, 6.42, -2.31),
 	 "look": Vector3(0.4, 4.4, 2.6), "overlay": false},
-	{"name": "b_18_atrium_eye", "pos": Vector3(0.0, 1.8, 0.2),
-	 "look": Vector3(0.3, 21.5, 0.0), "overlay": false},
+	# Stand ON the south deck, not in the middle of the eye — the court's
+	# centre is the sculptural pillar now, and a camera there is inside it.
+	{"name": "b_18_atrium_eye", "pos": Vector3(0.0, 1.75, 2.30),
+	 "look": Vector3(0.0, 19.0, 0.10), "overlay": false},
 	{"name": "b_17_2a_mina_living", "pos": Vector3(-6.8, 4.78, 1.4),
 	 "look": Vector3(-12.5, 3.9, 3.8), "overlay": false},
 	{"name": "b_06_laundry_b1", "pos": Vector3(-8.7, -1.25, -3.7),
@@ -60,6 +62,10 @@ const SHOTS := [
 	 "look": Vector3(-9.9, 13.60, 4.4), "overlay": false},
 	{"name": "b_26_4b_bath", "pos": Vector3(-6.10, 11.20, -5.10),
 	 "look": Vector3(-7.21, 10.85, -6.46), "overlay": false},
+	{"name": "b_31_stair_bottom", "pos": Vector3(0.30, -1.70, 2.30),
+	 "look": Vector3(-2.30, -2.72, 0.60), "overlay": false},
+	{"name": "b_32_stair_top", "pos": Vector3(1.6, 20.80, 2.40),
+	 "look": Vector3(-1.00, 20.00, -1.00), "overlay": false},
 	{"name": "b_29_street_east", "pos": Vector3(-1.0, 1.62, 12.2),
 	 "look": Vector3(19.0, 1.50, 12.6), "overlay": false},
 	{"name": "b_30_street_west", "pos": Vector3(1.0, 1.62, 12.2),

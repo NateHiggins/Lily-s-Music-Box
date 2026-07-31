@@ -1,5 +1,5 @@
 {
- "fixture_count": 173,
+ "fixture_count": 176,
  "fixtures": [
   {
    "id": "B1_CORRIDOR_DOME_01",
@@ -218,7 +218,7 @@
    "position": [
     0.0,
     0.0,
-    -0.23999999999999977
+    -0.75
    ],
    "range": 5.0,
    "energy": 1.0,
@@ -506,7 +506,7 @@
    "position": [
     0.0,
     0.0,
-    2.96
+    2.05
    ],
    "range": 5.0,
    "energy": 1.0,
@@ -1082,7 +1082,7 @@
    "position": [
     0.0,
     0.0,
-    6.16
+    5.25
    ],
    "range": 5.0,
    "energy": 1.0,
@@ -1514,7 +1514,7 @@
    "position": [
     0.0,
     0.0,
-    9.36
+    8.45
    ],
    "range": 5.0,
    "energy": 1.0,
@@ -1930,7 +1930,7 @@
    "position": [
     0.0,
     0.0,
-    12.559999999999999
+    11.649999999999999
    ],
    "range": 5.0,
    "energy": 1.0,
@@ -2314,7 +2314,7 @@
    "position": [
     0.0,
     0.0,
-    15.760000000000002
+    14.850000000000001
    ],
    "range": 5.0,
    "energy": 1.0,
@@ -2746,7 +2746,7 @@
    "position": [
     0.0,
     0.0,
-    18.96
+    18.05
    ],
    "range": 5.0,
    "energy": 1.0,
@@ -2768,6 +2768,54 @@
    "energy": 0.78,
    "navigation": true,
    "standby": 0.3
+  },
+  {
+   "id": "ROOF_ATRIUM_LT_EYE_PENDANT",
+   "floor": "ROOF",
+   "kind": "eye_pendant",
+   "room": "ROOF_OPEN",
+   "room_kind": "roof",
+   "position": [
+    0.0,
+    0.0,
+    21.25
+   ],
+   "range": 5.0,
+   "energy": 1.0,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "ROOF_LT_DECK",
+   "floor": "ROOF",
+   "kind": "cage_bulb",
+   "room": "ROOF_OPEN",
+   "room_kind": "roof",
+   "position": [
+    8.6,
+    -2.6,
+    21.72
+   ],
+   "range": 9.5,
+   "energy": 0.95,
+   "navigation": true,
+   "standby": 0.45
+  },
+  {
+   "id": "ROOF_LT_GARDEN",
+   "floor": "ROOF",
+   "kind": "cage_bulb",
+   "room": "ROOF_OPEN",
+   "room_kind": "roof",
+   "position": [
+    -9.0,
+    6.2,
+    21.5
+   ],
+   "range": 8.0,
+   "energy": 0.7,
+   "navigation": true,
+   "standby": 0.35
   }
  ]
 }

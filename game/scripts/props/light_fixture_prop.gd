@@ -266,20 +266,23 @@ func _build_body(p: Node3D) -> Vector3:
 			lens.position = Vector3(0, -0.06, 0)
 			p.add_child(lens)
 			return Vector3(0, -0.08, 0)
-		_:  # eye_pendant: the long drop down the atrium
-			make_cyl(0.007, 0.007, 1.35, Vector3(0, -0.675, 0),
-					Color(0.12, 0.12, 0.12), 0.4, 0.0, p)
-			var g2 := MeshInstance3D.new()
-			var s2 := SphereMesh.new()
-			s2.radius = 0.14
-			s2.height = 0.28
-			g2.mesh = s2
-			g2.name = "bulb_globe"
-			g2.position = Vector3(0, -1.48, 0)
-			p.add_child(g2)
-			make_cyl(0.05, 0.075, 0.07, Vector3(0, -1.335, 0), brass,
-					0.3, 0.8, p)
-			return Vector3(0, -1.48, 0)
+		_:  # eye_pendant: the luminous band around the court's pillar
+			# Was a globe on a 1.35 m drop. Seven of those down the eye read
+			# as seven unrelated fittings; the light now belongs to the
+			# pillar, so this is a lit collar wrapping it — brass rings top
+			# and bottom with an opal band between.
+			for rz in [-0.20, 0.20]:
+				make_ring(0.40, 0.022, Vector3(0, rz, 0), brass, 0.3, 0.8,
+						p).rotation_degrees = Vector3(90, 0, 0)
+			var band := make_cyl(0.385, 0.385, 0.34, Vector3(0, 0, 0),
+					opal, 0.22, 0.0, p)
+			band.name = "bulb_band"
+			for i in 4:      # bracket arms tying the collar to the fins
+				var a := TAU * i / 4.0
+				make_box(Vector3(0.13, 0.05, 0.05),
+						Vector3(cos(a) * 0.34, 0.0, sin(a) * 0.34),
+						Color(0.3, 0.3, 0.32)).reparent(p)
+			return Vector3(0, 0, 0)
 	return Vector3.ZERO
 
 

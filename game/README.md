@@ -75,6 +75,40 @@ cab carries its own floor-button panel. Pressing a call runs the full
 sequence: doors close, the car travels (carrying anyone standing in it —
 WalkTest rides it 19.6 m), the arrival bell strikes, the doors reopen.
 
+**The light court rebuilt (new):** the stair's light was seven separate
+globes on long drops down the eye, which read as seven unrelated fittings
+rather than one idea. It is now a single fluted column standing the full
+height of the court — basement floor to skylight — with the light built
+into it: a glazed slot up each face and a lit brass collar at every
+landing. The court also has a skylight to be lit *by*: the monitor was
+open-topped, so a steel-ribbed glazed cap now closes it. The shaft of
+light down the well was a round cone in a square well, spilling through
+the balustrades at the corners and stopping short at both ends; it is a
+square prism matched to the 2.92 m eye, running from the glazing to the
+lobby floor.
+
+Also fixed at the stair: the foot of every flight buried itself in the
+floor it landed on (the waist slab runs 0.19 m below its own start
+height), so the bottom treads read as sinking into the ground — each
+flight now has a closer filling that wedge, the way a real bottom riser
+sits on the slab. And the topmost landing had no balustrade along its
+open edge, because the guard loop is driven by the climbs and the last
+climb has no floor above it: that left a seven-storey drop with nothing
+across it at roof level.
+
+**Wayfinding and a working lift (new):** a storey numeral faces you as you
+come off the stair and out of the lift on every floor, and every
+apartment door has its number on the wall beside it. The lift cab now
+carries one button per stop instead of a single plate that advanced to
+the next floor — reaching B1 from F06 used to mean riding every landing
+in between.
+
+**The roof is a place (new):** a sheltered lounge deck on the lee side of
+the monitor — boarded, with a pergola whose slats throw a ladder of
+shadow, seating and string lights — and a tenants' garden along the north
+and west parapets: raised beds, vegetables, bean canes, a water butt off
+the tank overflow. Lit, so the roof door no longer opens onto a void.
+
 **A city around it (new):** the block used to stop at ±20 m, so looking
 down the pavement your eye ran straight out to open sky with the sky
 dome's distant city sitting at the wrong elevation — the single loudest

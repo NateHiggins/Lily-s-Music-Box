@@ -29,7 +29,8 @@ var _cabin: AnimatableBody3D
 var _bell: AudioStreamPlayer3D
 var _hum: AudioStreamPlayer3D
 var _doors: Dictionary = {}      # level -> {"w": body, "e": body, "t": float}
-var _buttons: Dictionary = {}    # level -> emissive button material
+var _buttons: Dictionary = {}    # level -> landing call-plate material
+var _cabin_lamps: Dictionary = {}  # level -> cab button material
 
 
 func setup(elevator_data: Dictionary) -> void:
@@ -241,11 +242,13 @@ func interact_area(area: Area3D) -> void:
 				state = S.OPENING
 			return
 		travel_to(level)
-	elif area.has_meta("cabin_panel"):
+	elif area.has_meta("cabin_floor"):
+		# One button per stop. The panel used to be a single plate that
+		# advanced to the next floor, so reaching B1 from F06 meant riding
+		# every landing in between — a lift you cannot direct is furniture.
 		if state != S.IDLE:
 			return
-		var i := stop_order.find(current)
-		travel_to(stop_order[(i + 1) % stop_order.size()])
+		travel_to(String(area.get_meta("cabin_floor")))
 
 
 func travel_to(level: String) -> void:
@@ -256,6 +259,8 @@ func travel_to(level: String) -> void:
 	state = S.CLOSING
 	if _buttons.has(level):
 		_buttons[level].emission_energy_multiplier = 1.6
+	if _cabin_lamps.has(level):
+		_cabin_lamps[level].emission_energy_multiplier = 1.7
 	print("[ELEVATOR] %s -> %s (%.1fs)" % [current, level,
 			absf(stops[level] - _cabin.position.y) / SPEED])
 	create_tween().tween_property(_hum, "volume_db", -16.0, 0.5)
@@ -282,6 +287,8 @@ func _physics_process(delta: float) -> void:
 				_bell.play()
 				if _buttons.has(current):
 					_buttons[current].emission_energy_multiplier = 0.35
+				if _cabin_lamps.has(current):
+					_cabin_lamps[current].emission_energy_multiplier = 0.3
 				create_tween().tween_property(_hum, "volume_db", -60.0, 1.0)
 		S.OPENING:
 			var t2: float = minf(1.0, _doors[current]["t"] + DOOR_SPEED * delta)
@@ -291,25 +298,31 @@ func _physics_process(delta: float) -> void:
 				moving = false
 
 
-## Cabin control panel: brass plate + floor buttons by the door reveal.
+## Cabin control panel: a brass plate carrying one pressable button per
+## stop, in the order they are stacked, so you can go where you want.
 func _add_cabin_panel(cw: float, cd: float) -> void:
+	var n := stop_order.size()
+	var pitch := 0.085
+	var run := pitch * n
 	var plate := MeshInstance3D.new()
 	var pm := BoxMesh.new()
-	pm.size = Vector3(0.015, 0.42, 0.16)
+	pm.size = Vector3(0.016, run + 0.14, 0.20)
 	plate.mesh = pm
 	plate.material_override = _brass()
-	plate.position = Vector3(cw / 2 - 0.04, 1.25, cd / 2 - 0.22)
+	plate.position = Vector3(cw / 2 - 0.04, 1.22, cd / 2 - 0.22)
 	_cabin.add_child(plate)
-	for i in range(stops.size()):
+	# top of the plate is the top of the building: B1 sits at the bottom
+	for i in range(n):
+		var level: String = stop_order[i]
+		var y := 1.22 - run * 0.5 + (i + 0.5) * pitch
 		var b := MeshInstance3D.new()
 		var c := CylinderMesh.new()
-		c.top_radius = 0.014
-		c.bottom_radius = 0.016
-		c.height = 0.014
+		c.top_radius = 0.017
+		c.bottom_radius = 0.019
+		c.height = 0.016
 		b.mesh = c
 		b.rotation_degrees = Vector3(0, 0, 90)
-		b.position = Vector3(cw / 2 - 0.028,
-				1.06 + 0.055 * i, cd / 2 - 0.22)
+		b.position = Vector3(cw / 2 - 0.030, y, cd / 2 - 0.22)
 		var bm := StandardMaterial3D.new()
 		bm.albedo_color = Color(0.9, 0.87, 0.8)
 		bm.emission_enabled = true
@@ -317,12 +330,21 @@ func _add_cabin_panel(cw: float, cd: float) -> void:
 		bm.emission_energy_multiplier = 0.3
 		b.material_override = bm
 		_cabin.add_child(b)
-	var panel := Area3D.new()
-	var pshape := CollisionShape3D.new()
-	var pbox := BoxShape3D.new()
-	pbox.size = Vector3(0.2, 0.5, 0.24)
-	pshape.shape = pbox
-	panel.add_child(pshape)
-	panel.position = Vector3(cw / 2 - 0.10, 1.25, cd / 2 - 0.22)
-	panel.set_meta("cabin_panel", true)
-	_cabin.add_child(panel)
+		_cabin_lamps[level] = bm
+		# engraved level mark beside each button
+		var tag := MeshInstance3D.new()
+		var tm := BoxMesh.new()
+		tm.size = Vector3(0.004, 0.026, 0.014 if level == "B1" else 0.026)
+		tag.mesh = tm
+		tag.material_override = _steel(true)
+		tag.position = Vector3(cw / 2 - 0.048, y, cd / 2 - 0.145)
+		_cabin.add_child(tag)
+		var hit := Area3D.new()
+		var hs := CollisionShape3D.new()
+		var hb := BoxShape3D.new()
+		hb.size = Vector3(0.12, pitch * 0.92, 0.13)
+		hs.shape = hb
+		hit.add_child(hs)
+		hit.position = Vector3(cw / 2 - 0.075, y, cd / 2 - 0.20)
+		hit.set_meta("cabin_floor", level)
+		_cabin.add_child(hit)

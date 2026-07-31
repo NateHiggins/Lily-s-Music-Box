@@ -1525,6 +1525,38 @@ def build_floor(floor_id):
                       0.1, 0.1, 0.0, 2.1, "metal", False)
         _furn_box(furniture, "clothesline", -12.45, -8.58, 5.0, 0.03,
                   1.95, 0.02, "metal", False)
+        # The skylight itself. The monitor was open-topped, so the "light
+        # from the skylight" had no skylight to come from: a steel-ribbed
+        # glazed cap closes it and gives the shaft something to start at.
+        sk = COURT + CORR_T / 2.0
+        _furn_box(furniture, "sky_glass", -sk, -sk, sk * 2, sk * 2, 2.55,
+                  0.05, "glassish", False)
+        for i in range(7):
+            rx = -sk + 0.12 + i * (sk * 2 - 0.24) / 6.0
+            _furn_box(furniture, "sky_rib_x%d" % i, rx - 0.035, -sk,
+                      0.07, sk * 2, 2.52, 0.11, "metal", False)
+        for i in range(7):
+            ry = -sk + 0.12 + i * (sk * 2 - 0.24) / 6.0
+            _furn_box(furniture, "sky_rib_y%d" % i, -sk, ry - 0.035,
+                      sk * 2, 0.07, 2.52, 0.11, "metal", False)
+        for rid, rect in (("s", (-sk, -sk, sk, -sk + 0.10)),
+                          ("n", (-sk, sk - 0.10, sk, sk)),
+                          ("w", (-sk, -sk, -sk + 0.10, sk)),
+                          ("e", (sk - 0.10, -sk, sk, sk))):
+            _furn_box(furniture, "sky_kerb_%s" % rid, rect[0], rect[1],
+                      rect[2] - rect[0], rect[3] - rect[1], 2.50, 0.16,
+                      "limestone", False)
+        # The monitor is where the stair arrives and it had no fixture of
+        # its own — the top of a seven-storey climb ended in the dark.
+        markers.append({
+            "kind": "eye_pendant", "id": "ROOF_ATRIUM_LT_EYE_PENDANT",
+            "unit": "ROOF", "pos": [0.0, 0.0, z + 2.05], "yaw_deg": 0,
+            "network": "electrical", "energy": 1.0,
+            "navigation": True, "standby": 0.5})
+        # ---- the roof is a place now, not just a surface you can reach
+        _roof_programme(furniture, markers, z)
+        stair_top_guard(floor)
+        atrium_pillar(floor)
         return floor
 
     ring_and_cores(floor_id, z, walls, furniture,
@@ -1831,14 +1863,23 @@ def light_fixture_markers(fl):
             continue
         x0, y0, x1, y1 = r["rect"]
         cx, cy = (x0 + x1) / 2.0, (y0 + y1) / 2.0
+        # Per-room mount height. This MUST be a fresh local: assigning to
+        # `ceil` inside the atrium branch leaked the court's height into
+        # every room the loop visited afterwards, and dropped the
+        # basement's cage bulbs to head height.
+        mount = ceil
         if r["kind"] == "atrium":
-            cx, cy = 0.0, 0.0   # the drop hangs dead-center in the eye
+            # No longer a drop: the court's light is integrated into the
+            # central pillar, so this sits ON it at head height rather
+            # than hanging from a ceiling the court does not have.
+            cx, cy = 0.0, 0.0
+            mount = 2.05
         if r["kind"] == "lobby" and r["id"] != "F01_LOBBY":
             continue  # one chandelier, in the lobby proper
         marker = {
             "kind": fix, "id": "%s_LT_%s" % (r["id"], fix.upper()),
             "unit": unit or fl["id"],
-            "pos": [round(cx, 3), round(cy, 3), z + ceil],
+            "pos": [round(cx, 3), round(cy, 3), z + mount],
             "yaw_deg": 0, "network": "electrical"}
         if r["kind"] in ("hall", "corridor", "atrium", "lobby",
                          "vestibule", "utility"):
@@ -2228,6 +2269,219 @@ def storm_pass(fl):
            "wet_asphalt")
 
 
+## The light court's centrepiece. The stair used to be lit by seven
+## separate globes on long drops down the eye, which read as seven
+## unrelated fittings rather than as one idea. This is a single fluted
+## column standing the full height of the court, from the basement floor to
+## the skylight, with the light built INTO it: a continuous glazed slot up
+## each face, and a brighter luminous band at every landing level. From the
+## lobby you look up one lit object; from any deck you are beside it.
+##
+## It is emitted per floor slice so the floor-visibility streaming still
+## works — a single 24 m prop filed under one storey would vanish with it.
+PILLAR_R = 0.30           # half-width of the shaft
+PILLAR_BASE = -2.8        # B1 floor
+PILLAR_TOP = 21.35        # just under the skylight glazing
+
+
+## Tenants' roof: a sheltered lounge deck on the lee side of the monitor
+## and a planted garden along the parapet. Deliberately modest and a bit
+## improvised — this is a 1927 block whose residents colonised the roof,
+## not a developer's amenity terrace.
+def _roof_programme(furniture, markers, z):
+    def fb(bid, rect, z0, h, mat):
+        furniture.append({"id": "roof_" + bid, "rect": list(rect),
+                          "z0": z0, "h": h, "mat": mat})
+
+    # decking east of the monitor, out of the prevailing wind
+    fb("deck", (4.6, -6.4, 12.6, 2.2), 0.0, 0.06, "timber")
+    for i in range(17):     # board joints, so it is not one flat plane
+        fb("deck_joint%d" % i, (4.6 + i * 0.5, -6.4, 4.64 + i * 0.5, 2.2),
+           0.06, 0.004, "wood_dark")
+    # pergola over half of it: four posts, beams, and slats casting a
+    # ladder of shadow that tells you the moon is up
+    for px, py in ((5.0, -6.0), (11.9, -6.0), (5.0, 0.9), (11.9, 0.9)):
+        fb("perg_post_%d_%d" % (int(px * 10), int(py * 10)),
+           (px, py, px + 0.12, py + 0.12), 0.06, 2.42, "timber")
+    for py in (-6.0, 0.9):
+        fb("perg_beam_%d" % int(py * 10), (4.94, py, 12.08, py + 0.12),
+           2.48, 0.14, "timber")
+    for i in range(13):
+        sy = -5.9 + i * 0.58
+        fb("perg_slat%d" % i, (5.0, sy, 12.0, sy + 0.07), 2.62, 0.05,
+           "timber")
+    # seating: a bench along the parapet, two chairs and a low table
+    _asm(furniture, "roof_bench", "bench", 8.6, 1.55, 180, z0=0.06, L=2.2)
+    chair_box(furniture, "roof_chair1", 6.0, -4.3, "n")
+    chair_box(furniture, "roof_chair2", 7.3, -4.3, "n")
+    _asm(furniture, "roof_table", "coffee", 6.75, -3.35, 0, z0=0.06)
+    _asm(furniture, "roof_crate", "crate", 11.6, -5.4, 12, z0=0.06,
+         fill="soot")
+    # string lights along the pergola, drooping between the beams
+    for i in range(9):
+        lx = 5.2 + i * 0.85
+        fb("string%d" % i, (lx, -3.0, lx + 0.55, -2.97),
+           2.44 - (0.06 if i % 2 else 0.0), 0.02, "metal")
+    # ---- the garden: raised beds along the north and west parapets,
+    # tomatoes and beans on canes, a water butt off the tank overflow
+    for i, (bx, by, bw, bd) in enumerate((
+            (-12.4, 7.4, 6.4, 1.5), (-4.6, 7.4, 5.2, 1.5),
+            (-13.0, -2.2, 1.5, 6.6))):
+        fb("bed%d" % i, (bx, by, bx + bw, by + bd), 0.0, 0.42, "timber")
+        fb("bed%d_soil" % i, (bx + 0.08, by + 0.08, bx + bw - 0.08,
+           by + bd - 0.08), 0.40, 0.05, "soil")
+    for i in range(9):
+        px = -12.0 + i * 0.72
+        plant_box(furniture, "roof_veg%d" % i, px, 7.75,
+                  big=(i % 3 == 0))
+    for i in range(6):
+        px = -4.2 + i * 0.8
+        plant_box(furniture, "roof_veg_e%d" % i, px, 7.8, big=(i % 2 == 0))
+    for i in range(7):
+        py = -1.8 + i * 0.85
+        plant_box(furniture, "roof_veg_w%d" % i, -12.6, py,
+                  big=(i % 3 == 1))
+    # bean canes: a tripod of poles over the west bed
+    for i in range(5):
+        cx = -12.5 + (i % 2) * 0.5
+        cy = -1.6 + i * 0.8
+        fb("cane%d" % i, (cx, cy, cx + 0.035, cy + 0.035), 0.42, 1.75,
+           "timber")
+    fb("waterbutt", (-10.2, 4.1, -9.4, 4.9), 0.0, 1.05, "timber")
+    fb("waterbutt_lid", (-10.25, 4.05, -9.35, 4.95), 1.05, 0.05, "metal")
+    fb("hose", (-9.6, 4.9, -9.5, 6.9), 0.02, 0.06, "soot")
+    fb("wateringcan", (-8.6, 6.4, -8.28, 6.75), 0.0, 0.28, "metal")
+    # A light so the roof is usable and the door does not open onto a void.
+    markers.append({
+        "kind": "cage_bulb", "id": "ROOF_LT_DECK", "unit": "ROOF",
+        "pos": [8.6, -2.6, z + 2.52], "yaw_deg": 0,
+        "network": "electrical", "range": 9.5, "energy": 0.95,
+        "navigation": True, "standby": 0.45})
+    markers.append({
+        "kind": "cage_bulb", "id": "ROOF_LT_GARDEN", "unit": "ROOF",
+        "pos": [-9.0, 6.2, z + 2.30], "yaw_deg": 0,
+        "network": "electrical", "range": 8.0, "energy": 0.7,
+        "navigation": True, "standby": 0.35})
+
+
+def atrium_pillar(fl):
+    z = fl["z"]
+    fid = fl["id"]
+    top = min(z + F2F, PILLAR_TOP)
+    if fid == "ROOF":
+        top = PILLAR_TOP
+    if top <= max(z, PILLAR_BASE) + 0.01:
+        return
+    lo = max(z, PILLAR_BASE)
+    f = fl["furniture"]
+
+    # z0 is relative to this floor; lo/top are world heights.
+    def fb(bid, rect, z0, h, mat):
+        f.append({"id": "pillar_%s_%s" % (fid, bid), "rect": list(rect),
+                  "z0": z0 - z, "h": h, "mat": mat})
+
+    r = PILLAR_R
+    # core, then four fins that give it a cruciform section — a plain box
+    # reads as a duct, the fins read as something someone designed
+    fb("core", (-r, -r, r, r), lo, top - lo, "limestone")
+    for fx0, fy0, fx1, fy1 in ((-r - 0.11, -0.075, -r, 0.075),
+                               (r, -0.075, r + 0.11, 0.075),
+                               (-0.075, -r - 0.11, 0.075, -r),
+                               (-0.075, r, 0.075, r + 0.11)):
+        fb("fin_%d_%d" % (int(fx0 * 100), int(fy0 * 100)),
+           (fx0, fy0, fx1, fy1), lo, top - lo, "limestone")
+    # the light itself: a glazed slot up all four faces, unbroken
+    for sx0, sy0, sx1, sy1 in ((-0.045, -r - 0.012, 0.045, -r + 0.012),
+                               (-0.045, r - 0.012, 0.045, r + 0.012),
+                               (-r - 0.012, -0.045, -r + 0.012, 0.045),
+                               (r - 0.012, -0.045, r + 0.012, 0.045)):
+        fb("slot_%d_%d" % (int(sx0 * 100), int(sy0 * 100)),
+           (sx0, sy0, sx1, sy1), lo + 0.05, top - lo - 0.10, "glassish")
+    # collar at each landing: where the band sits and the fins step in
+    if PILLAR_BASE < z < PILLAR_TOP:
+        fb("collar", (-r - 0.16, -r - 0.16, r + 0.16, r + 0.16),
+           z + 1.91, 0.28, "limestone")
+
+
+## Wayfinding. You could climb seven identical storeys with nothing
+## telling you which one you were on, and stand at a door with nothing
+## saying whose it was. Both are plates on the wall: a big floor numeral
+## facing you as you arrive off the stair and out of the lift, and a small
+## number beside every apartment door on the latch side.
+def signage_pass(fl):
+    fid = fl["id"]
+    if fid == "ROOF":
+        return
+    z = fl["z"]
+    f = fl["furniture"]
+    label = "B" if fid == "B1" else fid[-1]
+
+    # NB: furniture z0 is measured from the floor it belongs to, not from
+    # the world origin — the builder adds fl["z"] itself. Passing absolute
+    # heights here put the basement's plates below its own slab.
+    def plate(bid, x, y, w, d, z0, h, mat):
+        f.append({"id": "sign_%s_%s" % (fid, bid),
+                  "rect": [x, y, x + w, y + d], "z0": z0, "h": h,
+                  "mat": mat})
+
+    # Storey plate on the court wall facing the arriving stair deck, and
+    # a second in the lift hall opposite the doors.
+    for bid, px, py, horiz in (("stair", -0.62, -COURT + CORR_T / 2.0
+                                + 0.012, True),
+                               ("hall", -0.62, -CORE_Y1 + CORR_T / 2.0
+                                + 0.012, True)):
+        # Mounted above head height, which is both where a storey numeral
+        # belongs and what keeps it out of the circulation audit — a
+        # wall plate at eye level counts as an obstruction in a hall.
+        plate(bid + "_ground", px, py, 1.24, 0.03, 2.02, 0.46, "trim")
+        plate(bid + "_face", px + 0.06, py + 0.006, 1.12, 0.03,
+              2.07, 0.36, "art")
+        # the numeral itself, as a plain proud block: readable as a mark
+        # at a distance without needing a font in the geometry pipeline
+        plate(bid + "_num", px + 0.50, py + 0.012, 0.24, 0.03, 2.15,
+              0.22, "brass")
+    # Apartment plates: beside each unit's corridor door, latch side.
+    for stack in ("A", "B", "C", "D"):
+        unit = "%s%s" % (fid[-1].lstrip("0") or fid[-1], stack)
+        if fid in ("B1", "F01") or unit not in RESIDENTS:
+            continue
+        if unit == "2D":
+            continue          # sealed since 1927: never had a plate
+        sx0, sy0, sx1, sy1 = STACK_RECTS[stack]
+        east = stack in ("C", "D")
+        ey = {"A": sy1 - 1.2, "B": sy0 + 3.30, "C": sy0 + 1.2,
+              "D": sy0 + 6.34}[stack]
+        # on the corridor face of the apartment wall, beside the opening
+        px = (sx0 - CORR_T / 2.0 - 0.012) if east \
+            else (sx1 + CORR_T / 2.0 - 0.018)
+        plate("apt_%s_back" % unit, px, ey + 0.62, 0.03, 0.30,
+              1.42, 0.20, "brass")
+        plate("apt_%s_face" % unit, px + (0.006 if east else -0.006),
+              ey + 0.65, 0.03, 0.24, 1.45, 0.14, "art")
+
+
+def stair_top_guard(fl):
+    """The topmost landing had no balustrade along its open eye edge: the
+    guard loop stops at the level BELOW the last one, because it is driven
+    by the climbs and the last climb has no floor above it. At roof level
+    that leaves a 3 m drop down the light court with nothing across it."""
+    if fl["id"] != "ROOF":
+        return
+    z = fl["z"]
+    gx0, gx1 = -COURT + 1.79, COURT - 1.79
+    for yc, bid in ((-1.515, "s"), (1.515, "n")):
+        fl["furniture"].append({
+            "id": "ROOF_EYEGUARD_%s_rail" % bid,
+            "rect": [gx0 - 0.06, yc - 0.045, gx1 + 0.06, yc + 0.045],
+            "z0": 0.86, "h": 0.10, "mat": "handrail_wood"})
+        for j in range(int((gx1 - gx0) / 0.16)):
+            xj = gx0 + (j + 0.5) * 0.16
+            fl["furniture"].append({
+                "id": "ROOF_EYEGUARD_%s_bal%d" % (bid, j),
+                "rect": [xj - 0.018, yc - 0.018, xj + 0.018, yc + 0.018],
+                "z0": 0.0, "h": 0.86, "mat": "baluster"})
+
+
 def street_lamp_markers(fl):
     """The lamps were geometry with nothing inside them, so the pavement
     they stand on was as black as the road. Sodium heads at 2000 K, which
@@ -2464,8 +2718,11 @@ def validate(layout):
 def _validate_placement(layout):
     """Catch prop-height and wall-center regressions before export."""
     problems = []
+    # eye_pendant is no longer one: the court's light is a collar built
+    # into the central pillar at head height, not a fitting hanging from a
+    # ceiling the light court does not have.
     ceiling_kinds = {"pendant_shade", "flush_dome", "kitchen_linear",
-                     "cage_bulb", "chandelier", "eye_pendant"}
+                     "cage_bulb", "chandelier"}
     wall_kinds = {"door", "radiator", "sconce_globe", "exhaust_fan",
                   "wall_clock", "flue_breast", "door_anomaly",
                   "neon_sign"}   # bolted to the facade, by definition
@@ -2493,6 +2750,11 @@ def _validate_placement(layout):
             # B1 is a 2.8 m storey: its ceiling sits at +2.62, so its
             # fixtures mount ~0.4 lower than the 3.2 m floors above
             clo, chi = (2.40, 2.60) if fl["id"] == "B1" else (2.70, 3.08)
+            # The roof has no ceiling. Its lights hang off a pergola beam
+            # and a garden post, so a ceiling height is not a thing they
+            # can be measured against.
+            if fl["id"] == "ROOF":
+                clo, chi = 0.0, 4.0
             if kind in ceiling_kinds and not z + clo <= pz <= z + chi:
                 problems.append("%s: ceiling fixture %s at bad height %.2f"
                                 % (fl["id"], m["id"], pz - z))
@@ -3184,6 +3446,9 @@ def main():
     for fl in floors:
         collect_door_markers(fl)
         light_fixture_markers(fl)
+        signage_pass(fl)
+        if fl["id"] != "ROOF":      # ROOF builds its own inside build_floor
+            atrium_pillar(fl)
     radiator_pipe_pass(floors)
     aging_pass(floors)
     site_pass(floors[1])  # the block lives with F01
