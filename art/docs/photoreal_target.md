@@ -167,7 +167,7 @@ Status markers reflect main as of 2026-07-30.
    light and far more tightly — an omni's shadow is a cube, so each caster
    re-renders the visible set six times, and dropping 14 casters to the
    nearest 8 halved draw calls with no visible loss. Then occlusion
-   culling: 923 box occluders are generated at load from the same wall and
+   culling: 1091 box occluders are generated at load from the same wall and
    slab data everything else reads, cut around every door and window so a
    sightline through an opening is never wrongly culled. At 1440p on an
    RTX 4080 the worst station went 18.5 ms -> 9.9 ms. Then a census of

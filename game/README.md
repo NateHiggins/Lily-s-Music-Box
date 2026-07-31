@@ -382,7 +382,7 @@ optimizing the wrong half of that is effort spent for nothing. On an RTX
 Two things pay for that. Shadows are budgeted separately from light and
 much more tightly: an omni's shadow is a cube, so each caster re-renders
 the visible set six times, and the nearest eight casters carry all the
-modelling an eye can actually find. And 923 box occluders are built at
+modelling an eye can actually find. And 1091 box occluders are built at
 load from the same wall and slab data the geometry comes from, cut around
 every door and window — so the facade stops the renderer drawing four
 storeys of furniture behind it, without a doorway ever culling the room
@@ -407,7 +407,7 @@ kind of cost is invisible until something profiles it.
   synthesized at startup; no audio files on disk
 - Floor streaming keeps ≤3 floor scenes rendered while walking (the whole
   stack renders in the atrium, where the eye is a sightline through every
-  storey), and 923 generated occluders cull what the masonry hides
+  storey), and 1091 generated occluders cull what the masonry hides
 
 ## Structure
 
