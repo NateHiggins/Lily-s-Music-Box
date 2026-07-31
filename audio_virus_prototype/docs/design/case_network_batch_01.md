@@ -17,12 +17,15 @@ to end.
 
 Two divergences from this draft, both deliberate:
 
-- **Case 02's field phase is not implemented.** The design has the player
-  leave the desk and follow the pipe route through the building with
-  contact microphones and positional listening. What ships resolves the
-  same four actions (match, walk against, wait, strike) at the console.
-  The consequence is real — the utility door appears on F03 — but the
-  walking is not. This is the largest known gap in the Case Network.
+- **Case 02's field phase is half implemented.** "Waiting at the implied
+  destination" is no longer a button: the response window runs long enough
+  to leave the desk, walk down to the third-floor corridor and be standing
+  where the route ends, and doing so is scored separately from letting the
+  window expire in the chair. Match, walk against and strike remain
+  console answers. What is *not* implemented is the journey the design
+  describes — contact microphones and positional listening on the way
+  down. The walk is currently unguided beyond an on-screen banner and the
+  motif playing from the F03 riser.
 - **Case 03 has no fifth "route one person's voice through another"
   option.** The four that exist already cover the argument, and a fifth
   button that needed a second caller to mean anything would have been a

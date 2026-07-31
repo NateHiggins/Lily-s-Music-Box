@@ -256,10 +256,21 @@ every case scores it as one.
 | 4482 | Leon Price — footsteps in an empty unit | Omar Bell · 3B | A utility door in the F03 corridor that is not on the plans, whichever way you answer |
 | 4496 | Briar Lane — her assistant has her voice | Rhea Sato · 3D | Matching the model exactly leaves it taking calls at *your* desk |
 
+**Field phases.** Case 02's route through the heating riser ends somewhere
+in the building, and its response window is long enough to go there. Leave
+the desk mid-call — the call does not pause, and a banner follows you —
+walk down to the third-floor west corridor, and standing where the route
+ends answers the call with your feet. That is scored as a *different*
+outcome from letting the window expire in the chair: one is going down to
+meet it, the other is being waited out, and Omar has a different thing to
+say about each. The place you have to stand is anchored to the door prop
+itself, so it is exactly where the door then appears.
+
 Cases are data (`scripts/call/case_library.gd`); `call_interface.gd` is
 only the runner. A case is a list of beats — dialogue, delays, infection
 moves, graph injections, and the two that touch the world, `reveal` and
-`flag`. Adding a fourth case is a dictionary, not a class.
+`flag` — plus optional `field` and `window` keys for a case you can walk.
+Adding a fourth case is a dictionary, not a class.
 
 **Room 0 (new):** once the door anomaly is manifest, interact with the
 seam to step through into the hidden room — a pocket space held open by

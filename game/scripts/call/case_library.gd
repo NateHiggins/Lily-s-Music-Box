@@ -126,8 +126,22 @@ const CASES := [
 		"Route held: nine marks, and it turns twice. Push it into the pipes to see where it goes.",
 	"ticks_to_capture": 7,
 	"prompt": "THE ROUTE IS WALKING —",
-	"silence_note": "(or wait at the end of it)",
-	"timeout": "wait",
+	"silence_note": "(or get up, and be standing where it ends)",
+	"timeout": "stay",
+	## Long enough to actually walk it: 4B is two floors above the corridor
+	## the route ends in. At the desk-length 16 s this would be a door
+	## closing in your face rather than a choice.
+	"window": 150.0,
+	## The one action in this case that should never have been a button.
+	## Standing where the route ends is answered with your feet, and the
+	## anchor is the door itself — so the place you have to be is, by
+	## construction, exactly where the door is going to appear.
+	"field": {
+		"node": "F03_UTILITY_ANOMALY",
+		"radius": 2.6,
+		"response": "walk",
+		"banner": "The route is still walking. It ends on three, west corridor.",
+	},
 	"responses": [
 		{"id": "match", "label": "MATCH ITS TEMPO"},
 		{"id": "against", "label": "WALK AGAINST IT"},
@@ -153,7 +167,7 @@ const CASES := [
 		{"propagate": ["F03_D_RADIATOR_01", 2, 0.9, -4.0]},
 		{"say": "It stopped. It's waiting at the end of my hall. Is it waiting for you?"},
 		{"delay": 2.0},
-		{"respond": "The route ends in a stretch of your corridor that is longer than the building is wide."},
+		{"respond": "It ends two floors below you, in your own west corridor — a stretch longer than the building is wide. Answer from the desk, or go down and be standing in it."},
 	],
 	"outcomes": {
 		## Every branch leaves the same door, because the door is what the
@@ -192,16 +206,32 @@ const CASES := [
 			{"reveal": "F03_UTILITY_ANOMALY"},
 			{"resident": "You rerouted it into MY floor. Thanks for that. There's a door here now."},
 		],
-		"wait": [
-			{"hint": "You stayed where it ended."},
-			{"infection_to": [0.66, 4.0]},
-			{"delay": 3.2},
+		## Answered on foot: the player left the desk mid-call, went down two
+		## floors, and was standing in the corridor when the route arrived.
+		"walk": [
+			{"hint": "You left the desk and went down to meet it."},
+			{"infection_to": [0.70, 3.0]},
+			{"delay": 2.4},
 			{"propagate": ["F03_D_RADIATOR_01", 4, 1.0, -6.0]},
-			{"delay": 1.4},
-			{"say": "…it walked up to where you are and stopped. You didn't move. It liked that."},
+			{"delay": 1.2},
+			{"say": "…it stopped. Did it stop because of you? You aren't even in my building."},
 			{"delay": 1.0},
 			{"reveal": "F03_UTILITY_ANOMALY"},
-			{"resident": "It put a door where you were standing. I'd rather you'd moved."},
+			{"resident": "It put the door exactly where you were standing. You understand that's worse."},
+		],
+		## Answered by not answering, from the chair. The route finishes
+		## without anyone present, and the building learns it can simply be
+		## waited out — which is not the same lesson as being met.
+		"stay": [
+			{"hint": ""},
+			{"infection_to": [0.58, 5.0]},
+			{"delay": 4.0},
+			{"propagate": ["F03_D_RADIATOR_01", 2, 0.8, -10.0]},
+			{"delay": 1.6},
+			{"say": "It finished on its own. I don't think it needed either of us for that part."},
+			{"delay": 1.2},
+			{"reveal": "F03_UTILITY_ANOMALY"},
+			{"resident": "Door went in while nobody was watching. That's the part I don't like."},
 		],
 	},
 },

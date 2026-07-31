@@ -786,14 +786,35 @@ func _case_network_checks(ci: CallInterface) -> void:
 			"leaving a closed case brings up the next caller")
 	_check(ci.closed_outcomes == ["complete"], "case 01 outcome recorded")
 
-	# --- Case 02: the route in the pipes, answered by matching its tempo
+	# --- Case 02: the route in the pipes, answered with the player's feet.
+	# Nothing below presses a response button: the case is resolved by
+	# leaving the desk mid-call and being in the corridor when it ends.
 	ci.enter(root.player)
-	var ok: bool = await _drive_case(ci, "match", "case 02")
+	var ok: bool = await _drive_to_response(ci, "case 02")
 	if ok:
 		_check(ci._case.id == "4482", "case 02 is the one on the line")
+		_check(ci._field_live, "case 02: field phase goes live with the window")
 		var door: CaseDoorProp = root.get_node_or_null("F03_UTILITY_ANOMALY")
 		_check(door != null, "case 02: utility door spawned on F03")
+		ci.leave()
+		_check(not root.player.call_locked,
+				"case 02: the player is free to walk during the window")
+		_check(ci._field_banner.visible,
+				"case 02: the route banner follows you off the desk")
+		_check(ci.outcome == "", "case 02: leaving the desk is not an answer")
 		if door:
+			# Down two floors, into the west corridor run, where the door
+			# is about to be.
+			root.player.global_position = door.global_position \
+					+ Vector3(0.9, 0.1, 0.0)
+			root.player.velocity = Vector3.ZERO
+			ok = await _until(func(): return ci.outcome != "", 8.0)
+			_check(ok, "case 02: standing where the route ends answers the call")
+			_check(ci.outcome == "walk",
+					"case 02: walking there scores apart from sitting it out (got %s)"
+					% ci.outcome)
+			ok = await _until(func(): return ci._closed, 30.0)
+			_check(ok, "case 02: case closes")
 			_check(door.is_revealed(),
 					"case 02: closing the case puts the door in the wall")
 			_check(door.interact_prompt() != "",
@@ -828,6 +849,23 @@ func _case_network_checks(ci: CallInterface) -> void:
 ## to this because every case IS this — which is the whole reason the runner
 ## stopped being Case 01 with the serial numbers filed off.
 func _drive_case(ci: CallInterface, respond: String, label: String) -> bool:
+	var ok: bool = await _drive_to_response(ci, label)
+	if not ok:
+		return false
+	ci.press_respond(respond)
+	_check(ci.outcome == respond, "%s: outcome latched (%s)" % [label, respond])
+	# The timeout id is always a real outcome for its case, so this probes
+	# the one-outcome-per-case latch rather than the unknown-id guard.
+	ci.press_respond(ci._case.timeout)
+	_check(ci.outcome == respond, "%s: second response rejected" % label)
+	ok = await _until(func(): return ci._closed, 30.0)
+	_check(ok, "%s: case closes" % label)
+	return ok
+
+
+## Everything up to the point where the case is waiting on the player: the
+## three verbs, in order, on whichever case is loaded.
+func _drive_to_response(ci: CallInterface, label: String) -> bool:
 	var ok: bool = await _until(func(): return not ci._isolate_btn.disabled, 15.0)
 	_check(ok, "%s: isolate unlocks after the caller's opening" % label)
 	if not ok:
@@ -843,16 +881,6 @@ func _drive_case(ci: CallInterface, respond: String, label: String) -> bool:
 	ci.press_route()
 	ok = await _until(func(): return ci.stage == CallInterface.Stage.RESPONSE, 30.0)
 	_check(ok, "%s: reaches RESPONSE" % label)
-	if not ok:
-		return false
-	ci.press_respond(respond)
-	_check(ci.outcome == respond, "%s: outcome latched (%s)" % [label, respond])
-	# The timeout id is always a real outcome for its case, so this probes
-	# the one-outcome-per-case latch rather than the unknown-id guard.
-	ci.press_respond(ci._case.timeout)
-	_check(ci.outcome == respond, "%s: second response rejected" % label)
-	ok = await _until(func(): return ci._closed, 30.0)
-	_check(ok, "%s: case closes" % label)
 	return ok
 
 

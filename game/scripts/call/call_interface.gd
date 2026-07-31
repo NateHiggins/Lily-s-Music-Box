@@ -27,6 +27,14 @@ enum Stage { IDLE, CALL, ISOLATION, CAPTURE, TRANSMISSION, RESPONSE, OUTCOME }
 
 const SILENCE_WINDOW := 16.0
 
+## A field phase turns the response window into something you can answer with
+## your feet. The case names a prop, a radius and the outcome that standing
+## there means; the runner watches the player's position for as long as the
+## window is open. Cases without one behave exactly as before.
+var _field: Dictionary = {}
+var _field_target := Vector3.ZERO
+var _field_live := false
+
 var stage: Stage = Stage.IDLE
 var outcome := ""
 var fast := false          # test hook: compress waits
@@ -60,6 +68,7 @@ var _route_btn: Button
 var _respond_box: HBoxContainer
 var _prompt_label: Label
 var _silence_label: Label
+var _field_banner: Label
 var _murmur: AudioStreamPlayer
 var _breath: AudioStreamPlayer
 var _vocal: AudioStreamPlayer
@@ -70,8 +79,12 @@ var _infection_tween: Tween
 
 func _ready() -> void:
 	layer = 9
-	visible = false
+	# The layer itself stays up and visibility is decided per child. A case
+	# with a field phase has to keep a banner on screen AFTER the player
+	# walks away from the desk, which cannot happen if leaving hides the
+	# whole layer the way it used to.
 	_panel = PanelContainer.new()
+	_panel.visible = false
 	_panel.position = Vector2(240, 340)
 	_panel.custom_minimum_size = Vector2(800, 330)
 	var style := StyleBoxFlat.new()
@@ -119,6 +132,17 @@ func _ready() -> void:
 	vb.add_child(_subtitle)
 	var leave_btn := _btn(vb, "STEP AWAY FROM DESK (Esc)", leave, false)
 	leave_btn.add_theme_font_size_override("font_size", 10)
+
+	# Shown only when a field phase is live and the player has left the
+	# desk. Without it, walking out of 4B mid-call is indistinguishable
+	# from abandoning the call, and the player has no reason to believe the
+	# building is still counting.
+	_field_banner = Label.new()
+	_field_banner.visible = false
+	_field_banner.position = Vector2(240, 96)
+	_field_banner.add_theme_font_size_override("font_size", 15)
+	_field_banner.modulate = Color(0.95, 0.65, 0.35)
+	add_child(_field_banner)
 
 	_murmur = _mk_audio("murmur_loop", -40.0, true)
 	_breath = _mk_audio("breath", -12.0)
@@ -201,6 +225,7 @@ func _advance() -> void:
 	_routed = false
 	_ticks_heard = 0
 	_silence_left = -1.0
+	_close_field()
 	_run_id += 1
 	_load_case()
 
@@ -212,7 +237,8 @@ func enter(player: Node) -> void:
 	if _player:
 		_player.call_locked = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	visible = true
+	_panel.visible = true
+	_field_banner.visible = false
 	if not _started and not _case.is_empty():
 		_started = true
 		_run_id += 1
@@ -220,11 +246,15 @@ func enter(player: Node) -> void:
 
 
 func leave() -> void:
-	visible = false
+	_panel.visible = false
 	if _player:
 		_player.call_locked = false
 		_player = null
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	# A live field phase is the one reason to keep anything on screen after
+	# the chair is empty: the route is still walking whether or not anyone
+	# is watching the console.
+	_field_banner.visible = _field_live
 	# Stepping away from a finished call is what clears the desk. The next
 	# caller is not waiting on the outcome, only on the chair.
 	if _closed:
@@ -232,7 +262,7 @@ func leave() -> void:
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	if visible and event.is_action_pressed("ui_cancel"):
+	if _panel.visible and event.is_action_pressed("ui_cancel"):
 		leave()
 		get_viewport().set_input_as_handled()
 
@@ -377,8 +407,36 @@ func _open_response(hint: String) -> void:
 	stage = Stage.RESPONSE
 	_respond_box.visible = true
 	_hint.text = hint
-	_silence_left = SILENCE_WINDOW * (0.15 if fast else 1.0)
+	# A case with somewhere to walk to needs a window long enough to walk
+	# it: 16 seconds is a beat at the desk, and two floors away it is a
+	# door closing in your face.
+	_silence_left = float(_case.get("window", SILENCE_WINDOW)) \
+			* (0.15 if fast else 1.0)
+	_open_field()
 	print("[CALL] response window open")
+
+
+## Resolve the field target from the prop the case names. Using the prop
+## rather than a copied coordinate means the place you have to stand is,
+## by construction, exactly where the door is going to be.
+func _open_field() -> void:
+	_field = _case.get("field", {})
+	_field_live = false
+	if _field.is_empty() or world == null:
+		return
+	var anchor: Node3D = world.get_node_or_null(NodePath(_field.node))
+	if anchor == null:
+		push_warning("case field: no prop named %s" % _field.node)
+		return
+	_field_target = anchor.global_position
+	_field_live = true
+	_field_banner.text = _field.banner
+	print("[CALL] field phase live, target %s" % _field.node)
+
+
+func _close_field() -> void:
+	_field_live = false
+	_field_banner.visible = false
 
 
 func press_respond(kind: String) -> void:
@@ -390,6 +448,7 @@ func press_respond(kind: String) -> void:
 	stage = Stage.OUTCOME
 	_respond_box.visible = false
 	_silence_left = -1.0
+	_close_field()
 	if _infection_tween and _infection_tween.is_valid():
 		_infection_tween.kill()  # the outcome owns infection from here
 	print("[CALL] outcome -> %s" % kind)
@@ -415,8 +474,10 @@ func _process(delta: float) -> void:
 	for p in _pulses:
 		p.age += delta
 	_pulses = _pulses.filter(func(p): return p.age < 0.8)
-	if visible:
+	if _panel.visible:
 		_waveform.queue_redraw()
+	if _field_live and stage == Stage.RESPONSE and outcome == "":
+		_check_field()
 	if _silence_left > 0.0:
 		_silence_left -= delta
 		if _silence_left <= 0.0:
@@ -424,9 +485,25 @@ func _process(delta: float) -> void:
 			press_respond(_case.timeout)
 
 
+## Standing where the route ends is an answer, and it is not the same answer
+## as letting the window run out at the desk. One is walking two floors down
+## to meet the thing; the other is staying in the chair. A case that has a
+## field phase scores them separately, which is the only way the walk means
+## anything.
+func _check_field() -> void:
+	if world == null:
+		return
+	var body: Node3D = world.get("player")
+	if body == null:
+		return
+	if body.global_position.distance_to(_field_target) <= float(_field.radius):
+		print("[CALL] field target reached on foot")
+		press_respond(_field.response)
+
+
 func _on_motif_tick(index: int, accent: float, _pitch: float) -> void:
 	# phone side: the caller's channel carries the motif whenever we can hear it
-	if visible and stage >= Stage.ISOLATION and stage < Stage.OUTCOME \
+	if _panel.visible and stage >= Stage.ISOLATION and stage < Stage.OUTCOME \
 			and not _case.is_empty():
 		_breath.volume_db = -14.0 + linear_to_db(clampf(accent, 0.2, 1.0)) \
 				+ (4.0 if _isolated else -8.0)

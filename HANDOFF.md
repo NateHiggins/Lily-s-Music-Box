@@ -73,7 +73,7 @@ Conventions that bite if forgotten:
 
 ## Verification
 
-- `game/tests/WalkTest.tscn` — 153-check suite: physics-verified walks
+- `game/tests/WalkTest.tscn` — 157-check suite: physics-verified walks
   (stairs, apartment 4B entry, street exit, roof egress, the reading nook
   at the light tree's base), elevator doors and per-floor cab buttons,
   acoustic propagation timing (riser sweep, flue-vs-riser race), prop
@@ -136,11 +136,15 @@ Nothing here blocks a build; these are the honest edges.
   convergence are unbuilt, and the draft in
   `audio_virus_prototype/docs/design/case_network_batch_01.md` is still
   marked NOT CANON — names and outcomes there are not settled.
-  Case 02's design calls for the player to physically follow the pipe
-  route through the building; what is implemented resolves that at the
-  console instead. Making the field phase real — leaving the desk mid-call
-  and being tracked against the route — is the biggest single gameplay
-  win left in the Case Network.
+  Case 02 has a **field phase**: its response window is long enough to
+  leave the desk, and standing where the route ends resolves the case on
+  foot. That is scored as a different outcome from letting the window run
+  out in the chair, which is the whole point — the building learns whether
+  you can be waited out. Any case can declare one; see the `field` key.
+  What is still missing is the *journey*: the design has contact
+  microphones and positional listening on the way down, and right now the
+  walk is unguided beyond a banner and the motif playing from the F03
+  riser.
 - **Rigged residents are deliberately paused.** 19 rigged GLBs exist and
   import, but `USE_RIGGED_RESIDENTS := false` in `building_root.gd` keeps
   sprite placeholders as the active cast. Flip the one flag to resume.
