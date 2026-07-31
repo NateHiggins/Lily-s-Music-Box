@@ -429,6 +429,7 @@ docs/screenshots/                  rendered from the real build
 ![lobby & grand stair](docs/screenshots/b_02_lobby.png)
 ![the atrium stair](docs/screenshots/b_05_front_stair.png)
 ![the atrium eye](docs/screenshots/b_18_atrium_eye.png)
+![down the eye to B1](docs/screenshots/b_39_eye_down_b1.png)
 ![half landing](docs/screenshots/b_16_stair_half_landing.png)
 ![corridor](docs/screenshots/b_03_corridor_f04.png)
 ![2A living room](docs/screenshots/b_17_2a_mina_living.png)

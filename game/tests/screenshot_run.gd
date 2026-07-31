@@ -68,10 +68,19 @@ const SHOTS := [
 	 "look": Vector3(-2.30, -2.72, 0.60), "overlay": false},
 	{"name": "b_34_reading_nook", "pos": Vector3(1.55, -1.55, 2.55),
 	 "look": Vector3(-0.30, -2.35, -0.20), "overlay": false},
+	# Straight down the eye from the lobby balustrade: the 2.92 m shaft is the
+	# only place in the court with an uninterrupted view to B1, so this is the
+	# frame that proves the basement reads from the lobby.
+	{"name": "b_39_eye_down_b1", "pos": Vector3(0.0, 1.62, 1.80),
+	 "look": Vector3(0.0, -2.80, 0.0), "overlay": false},
 	# The descent from the lobby deck to the basement, one frame per stage,
 	# for checking the stair reads correctly from a walker's eye.
-	{"name": "b_35_desc1_deck", "pos": Vector3(2.30, 1.62, 1.95),
-	 "look": Vector3(2.30, 0.90, -0.60), "overlay": false},
+	# Aimed down the east flight, which is the one that leaves the lobby deck.
+	# The old framing looked level across the ring from x=2.30 and so pointed
+	# at the half-landing soffit — it read as a slab capping the well when it
+	# was really just a camera that never looked at the stair.
+	{"name": "b_35_desc1_deck", "pos": Vector3(2.30, 1.62, 2.40),
+	 "look": Vector3(2.30, -0.60, 0.20), "overlay": false},
 	{"name": "b_36_desc2_flight", "pos": Vector3(2.30, 0.85, 0.40),
 	 "look": Vector3(2.20, 0.05, -1.40), "overlay": false},
 	{"name": "b_37_desc3_landing", "pos": Vector3(2.30, 0.20, -1.15),
@@ -129,9 +138,12 @@ func _run() -> void:
 	cam.make_current()
 	# Documentation must reflect playable exposure exactly; an old 0.55
 	# ambient override hid navigation failures and erased real shadows.
+	# Comma-separated, so a single scene load can re-shoot a whole sequence
+	# instead of paying the load once per frame while iterating on framing.
 	var only := OS.get_environment("SCREENSHOT_ONLY")
+	var wanted := PackedStringArray() if only == "" else only.split(",")
 	for shot in SHOTS:
-		if only != "" and shot.name != only:
+		if only != "" and not wanted.has(shot.name):
 			continue
 		AcousticGraphData.set_overlay_visible(shot.overlay, root)
 		if shot.has("infection"):

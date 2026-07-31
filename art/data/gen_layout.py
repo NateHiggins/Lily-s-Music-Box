@@ -2117,7 +2117,21 @@ def site_pass(fl):
         furn.append({"id": "site_" + bid, "rect": list(rect), "z0": z0,
                      "h": h, "mat": mat})
 
-    fb("ground", (-112.0, -82.0, 108.0, 66.0), -0.30, 0.28, "asphalt")
+    # The road surface is laid AROUND the building, never under it. As one
+    # slab it ran clean through the footprint 20 mm below the lobby floor,
+    # which put a 220 x 148 m lid over the atrium well and the whole
+    # basement: from the lobby you looked down the eye and hit tarmac
+    # instead of B1, and the light court's bottom two storeys were sealed
+    # off. The building brings its own ground — the B1 slab — so the four
+    # bands below tile the site with the footprint left out.
+    gx0, gy0, gx1, gy1 = -112.0, -82.0, 108.0, 66.0
+    bx0, by0, bx1, by1 = -14.0, -10.0, 14.0, 10.0
+    for tag, rect in (
+            ("ground_s", (gx0, gy0, gx1, by0)),
+            ("ground_n", (gx0, by1, gx1, gy1)),
+            ("ground_w", (gx0, by0, bx0, by1)),
+            ("ground_e", (bx1, by0, gx1, by1))):
+        fb(tag, rect, -0.30, 0.28, "asphalt")
     fb("sidewalk", (-SITE_X, -14.6, SITE_X, -10.0), -0.02, 0.03, "concrete")
     fb("sidewalk_s", (-SITE_X, -18.2, SITE_X, -17.4), -0.02, 0.03,
        "concrete")
