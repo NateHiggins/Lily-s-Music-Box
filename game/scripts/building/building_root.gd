@@ -80,6 +80,7 @@ var occluders: OrisonOccluders
 var window_glow: OrisonWindowGlow
 var door_glow: OrisonDoorGlow
 var lobby_figure: LobbyPlaceholder
+var broadcast: BroadcastScreens
 var touch: TouchControls
 var weather: WeatherFX
 var mina_manifestation: MinaCaptionManifestation
@@ -127,6 +128,11 @@ func _ready() -> void:
 	door_glow.name = "DoorGlow"
 	add_child(door_glow)
 	door_glow.build(layout, window_glow)
+	# One video decode feeding every television in the building.
+	broadcast = BroadcastScreens.new()
+	broadcast.name = "Broadcast"
+	add_child(broadcast)
+	broadcast.build(floor_nodes)
 	call_interface = CallInterface.new()
 	add_child(call_interface)
 	# Cases change the building, so the runner needs a handle on it: a

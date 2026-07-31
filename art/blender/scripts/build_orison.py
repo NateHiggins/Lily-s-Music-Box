@@ -58,6 +58,11 @@ SHADER_ONLY = {k for k, v in CAT_TEX.items() if v is None}
 UV_MODE_BY_MAT = {
     "chrome": "vgrain", "metal": "vgrain",
     "art": "unit", "fx_ao": "unit", "fx_shadow": "unit",
+    # A television carries one picture across its whole face. On the default
+    # world-metre projection a 1.04 m screen sampled 1.04 tiles of the
+    # broadcast texture, so every set showed a tiled fragment with the seam
+    # running through it rather than the programme.
+    "screen": "unit",
     "book_burgundy": "unit", "book_green": "unit", "book_navy": "unit",
     "book_ochre": "unit", "book_teal": "unit", "book_brown": "unit",
 }
@@ -762,8 +767,16 @@ def asm_tv(F, p):
                    (0.52, 0.14)):
         F.tbox("wood_dark", (lx * 1.12, ly * 1.3, 0.0), (lx, ly, 0.30),
                0.026, 0.026)
-    F.box("screen", -0.52, -0.03, 0.42, 0.52, 0.015, 1.04)
-    F.box("soot", -0.46, 0.015, 0.48, 0.46, 0.05, 0.98)
+    # Cabinet face, then the picture tube standing proud of it. These were
+    # the wrong way round: the `screen` material was on the surround and the
+    # glass was `soot`, so anything driving the screens painted the bezel
+    # and the tube stayed a black rectangle in front of it. `soot` also
+    # dresses the 5D fire damage, so it can never be the broadcast surface.
+    F.box("bakelite", -0.52, -0.03, 0.42, 0.52, 0.015, 1.04)
+    # 4:3, matching the broadcast. The old glass was 0.92 x 0.50 — nearly
+    # 2:1 — which stretched every picture sideways, and a deep bezel around
+    # a squarer tube reads far more like a set this building would own.
+    F.box("screen", -0.333, 0.015, 0.48, 0.333, 0.05, 0.98)
     F.tbox("metal", (0.0, -0.01, 0.36), (0.0, -0.01, 0.44), 0.16, 0.03)
     F.hull(-0.63, -0.21, 0.0, 0.63, 0.21, 1.05)
 

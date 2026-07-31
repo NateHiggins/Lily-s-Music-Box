@@ -805,6 +805,7 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	await _case_network_checks(ci)
 	_wall_art_report()
 	_door_glow_checks()
+	_broadcast_checks()
 	await _lobby_figure_checks()
 	await _sanity_checks()
 	await _sanity_checks()
@@ -1146,6 +1147,30 @@ func _descendants(node: Node) -> Array[Node]:
 		found.append(child)
 		found.append_array(_descendants(child))
 	return found
+
+
+## The televisions. The assertion that matters is the decode count: one
+## shared viewport feeding every screen, not one video player per set.
+func _broadcast_checks() -> void:
+	var tv: BroadcastScreens = root.broadcast
+	_check(tv != null, "broadcast pass present")
+	if tv == null:
+		return
+	var stats: Dictionary = tv.stats()
+	_check(int(stats.screens) > 0,
+			"screen surfaces carry the broadcast (%d)" % stats.screens)
+	_check(bool(stats.playing), "the reel is running")
+	# One SubViewport, one VideoStreamPlayer, however many televisions.
+	var players := 0
+	var stack: Array = [root]
+	while not stack.is_empty():
+		var node: Node = stack.pop_back()
+		if node is VideoStreamPlayer:
+			players += 1
+		for child in node.get_children():
+			stack.append(child)
+	_check(players == 1,
+			"one decode for the whole building (%d players)" % players)
 
 
 ## Light under the closed doors. The interesting assertions are not "does it
