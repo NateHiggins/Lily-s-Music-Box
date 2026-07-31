@@ -179,11 +179,21 @@ def main():
     rng.shuffle(sources)
     print("%d channels, seed %d" % (len(sources), seed))
 
+    # The reel is planned before any of it is encoded, so the sidecar
+    # manifest and the video cannot drift apart: the game reads the manifest
+    # to know what the picture is doing at any moment, and audio that thinks
+    # the signal is fine while the screen is tearing is worse than no audio.
+    manifest_only = "--manifest-only" in sys.argv
     parts = []
+    plan = []
+    clock = [0.0]
     n = [0]
 
-    def add(path):
+    def add(path, kind, seconds):
         parts.append(path)
+        plan.append({"t": round(clock[0], 3), "d": round(seconds, 3),
+                     "kind": kind})
+        clock[0] += seconds
 
     def tmp(tag):
         n[0] += 1
@@ -191,9 +201,10 @@ def main():
 
     # Opening title, then the marathon.
     title = tmp("title")
-    card([SHOW, "VARIETY HOUR", "MARATHON"], title, 3.2,
-         "0x0b1a2a", "0xf2e4c0", 34, sub="ORISON CHANNEL 4")
-    add(title)
+    if not manifest_only:
+        card([SHOW, "VARIETY HOUR", "MARATHON"], title, 3.2,
+             "0x0b1a2a", "0xf2e4c0", 34, sub="ORISON CHANNEL 4")
+    add(title, "title", 3.2)
 
     kinds = ["static", "ghost", "roll", "dropout"]
     bumpers = BUMPERS[:]
@@ -207,25 +218,61 @@ def main():
              "-of", "csv=p=0", src], capture_output=True, text=True)
         span = min(SEG, float(probe.stdout.strip()) - 0.2)
         seg = tmp("ch")
-        channel(src, seg, span)
-        add(seg)
+        if not manifest_only:
+            channel(src, seg, span)
+        add(seg, "channel", span)
         nxt = sources[(i + 1) % len(sources)]
         glitch = tmp("gl")
-        interference(rng.choice(kinds), src, nxt, glitch)
-        add(glitch)
+        kind = rng.choice(kinds)
+        if not manifest_only:
+            interference(kind, src, nxt, glitch)
+        add(glitch, "glitch", GLITCH)
         # Roughly every third break goes to an ident or the advertising.
         roll = rng.random()
         if roll < 0.22 and bumpers:
             b = tmp("bump")
-            card(list(bumpers.pop()), b, 1.6, "0x101418", "0xe8d9a8", 28)
-            add(b)
-            add(glitch)
+            if not manifest_only:
+                card(list(bumpers.pop()), b, 1.6, "0x101418", "0xe8d9a8", 28)
+            else:
+                bumpers.pop()
+            add(b, "bumper", 1.6)
+            add(glitch, "glitch", GLITCH)
         elif roll < 0.44 and adverts:
             a = tmp("ad")
-            card(list(adverts.pop()), a, 2.4, "0x1a1208", "0xf0d99a", 24,
-                 sub="A PUBLIC SERVICE ANNOUNCEMENT")
-            add(a)
-            add(glitch)
+            if not manifest_only:
+                card(list(adverts.pop()), a, 2.4, "0x1a1208", "0xf0d99a", 24,
+                     sub="A PUBLIC SERVICE ANNOUNCEMENT")
+            else:
+                adverts.pop()
+            add(a, "advert", 2.4)
+            add(glitch, "glitch", GLITCH)
+
+    # Re-time the plan from what was actually encoded. ffmpeg rounds every
+    # segment to whole frames, and across 109 of them that drifted the
+    # planned running order eight seconds clear of the real reel — by the
+    # end the audio would have been going to static a dozen cuts early.
+    if not manifest_only:
+        clock[0] = 0.0
+        for entry, path in zip(plan, parts):
+            probe = subprocess.run(
+                ["ffprobe", "-v", "error", "-show_entries",
+                 "format=duration", "-of", "csv=p=0", path],
+                capture_output=True, text=True)
+            real = float(probe.stdout.strip())
+            entry["t"] = round(clock[0], 3)
+            entry["d"] = round(real, 3)
+            clock[0] += real
+
+    # The sidecar the game syncs its audio to.
+    import json
+    side = os.path.splitext(out_path)[0] + ".json"
+    with open(side, "w") as handle:
+        json.dump({"seed": seed, "length": round(clock[0], 3),
+                   "segments": plan}, handle, indent=1)
+    print("MANIFEST %s  %d segments  %.1f s"
+          % (side, len(plan), clock[0]))
+    if manifest_only or "--no-final" in sys.argv:
+        return
 
     listing = os.path.join(work, "reel.txt")
     with open(listing, "w") as handle:

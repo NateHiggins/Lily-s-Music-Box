@@ -132,7 +132,7 @@ func _ready() -> void:
 	broadcast = BroadcastScreens.new()
 	broadcast.name = "Broadcast"
 	add_child(broadcast)
-	broadcast.build(floor_nodes)
+	broadcast.build(layout, floor_nodes)
 	call_interface = CallInterface.new()
 	add_child(call_interface)
 	# Cases change the building, so the runner needs a handle on it: a

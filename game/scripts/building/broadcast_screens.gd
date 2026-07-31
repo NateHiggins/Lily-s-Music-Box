@@ -30,7 +30,10 @@ var _video: VideoStreamPlayer
 var _material: StandardMaterial3D
 
 
-func build(floor_nodes: Dictionary) -> int:
+var audio: BroadcastAudio
+
+
+func build(layout: Dictionary, floor_nodes: Dictionary) -> int:
 	var stream := load(REEL)
 	if stream == null:
 		push_warning("broadcast reel missing: %s" % REEL)
@@ -69,6 +72,12 @@ func build(floor_nodes: Dictionary) -> int:
 	for fid in floor_nodes:
 		screens += _apply(floor_nodes[fid])
 	print("[BROADCAST] %d screen surfaces on one decode" % screens)
+	# Sound comes from the same place the picture does, so the two cannot be
+	# wired up out of step with each other.
+	audio = BroadcastAudio.new()
+	audio.name = "BroadcastAudio"
+	add_child(audio)
+	audio.build(layout, _video)
 	return screens
 
 

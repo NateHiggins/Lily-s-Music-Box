@@ -1171,6 +1171,26 @@ func _broadcast_checks() -> void:
 			stack.append(child)
 	_check(players == 1,
 			"one decode for the whole building (%d players)" % players)
+	# Sound is synthesised from the procedural library and synchronised to
+	# the reel through a sidecar manifest, so the assertion that matters is
+	# that the manifest agrees with the video it was built beside — an
+	# eight-second drift here would send every set to static a dozen cuts
+	# early, which is exactly what a first pass at this did.
+	var sound: BroadcastAudio = tv.audio
+	_check(sound != null, "broadcast audio present")
+	if sound == null:
+		return
+	_check(sound.sets > 0, "every television has an emitter (%d)" % sound.sets)
+	_check(absf(sound._length - tv._video.get_stream_length()) < 1.0,
+			"manifest matches the reel (%.1f s vs %.1f s)"
+			% [sound._length, tv._video.get_stream_length()])
+	# It has to name what the picture is doing, not merely something.
+	var kinds := {}
+	for probe in [0.5, 5.0, 7.9, 40.0, 120.0]:
+		kinds[sound._kind_at(probe)] = true
+	_check(kinds.has("title") and kinds.has("channel") and kinds.has("glitch"),
+			"manifest resolves title, programme and interference %s"
+			% [kinds.keys()])
 
 
 ## Light under the closed doors. The interesting assertions are not "does it
