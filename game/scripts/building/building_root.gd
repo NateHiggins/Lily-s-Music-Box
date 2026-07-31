@@ -81,6 +81,7 @@ var window_glow: OrisonWindowGlow
 var door_glow: OrisonDoorGlow
 var lobby_figure: LobbyPlaceholder
 var broadcast: BroadcastScreens
+var resident_routines: ResidentRoutines
 var touch: TouchControls
 var weather: WeatherFX
 var mina_manifestation: MinaCaptionManifestation
@@ -142,6 +143,13 @@ func _ready() -> void:
 	call_interface.world = self
 	_spawn_props()
 	_spawn_npc_placeholders()
+	# Eighteen people with somewhere to be, and a mesh instead of a sprite
+	# for whoever has one yet.
+	resident_routines = ResidentRoutines.new()
+	resident_routines.name = "ResidentRoutines"
+	add_child(resident_routines)
+	resident_routines.build(layout,
+			get_tree().get_nodes_in_group("resident_placeholders"))
 	_spawn_reality_controllers()
 	_spawn_reality_affected_props()
 	_spawn_character_memory_art()
