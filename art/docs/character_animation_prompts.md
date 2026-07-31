@@ -3,6 +3,18 @@
 Text-to-animation prompts for the eighteen residents. One reference sheet:
 seven clips everybody needs, then three that only they could perform.
 
+**This sheet is the index.** The prompts below are compact — one line each,
+with a *[signature]* slot to fill in. When a resident comes up for
+production they get an expanded sheet in `animation_prompts/`, where all ten
+clips are written out as that specific person, with their motion-profile
+numbers as the physical brief and a list of what to reject.
+
+| resident | expanded sheet |
+|---|---|
+| Evelyn Marsh — 1A | [`animation_prompts/evelyn_marsh.md`](animation_prompts/evelyn_marsh.md) |
+
+The rest are still at the one-line stage below.
+
 ## How to use this
 
 **Prompt conventions.** These are written for text-to-motion tools (Meshy,
