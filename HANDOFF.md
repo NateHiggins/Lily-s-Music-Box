@@ -73,12 +73,13 @@ Conventions that bite if forgotten:
 
 ## Verification
 
-- `game/tests/WalkTest.tscn` — 124-check suite: physics-verified walks
+- `game/tests/WalkTest.tscn` — 153-check suite: physics-verified walks
   (stairs, apartment 4B entry, street exit, roof egress, the reading nook
   at the light tree's base), elevator doors and per-floor cab buttons,
   acoustic propagation timing (riser sweep, flue-vs-riser race), prop
-  behavior, touch controls, occluders, Case 01 call flow. Exit code 0 =
-  all pass. **Run this before every commit.**
+  behavior, touch controls, occluders, and all three Case Network cases
+  driven end to end including their consequences. Exit code 0 = all pass.
+  **Run this before every commit.**
 - `game/tests/LightingAudit.tscn` — every space is reachable by light:
   127 spaces, 11 intentionally ambient/dark. Exit code 0 = pass.
 - `game/tests/Perf.tscn` — six worst-case camera stations, reporting
@@ -127,9 +128,19 @@ Nothing here blocks a build; these are the honest edges.
   or per-window variation yet.
 - **Aging (phase 4 remainder).** The `aging_pass` thin-box patches (facade
   brick, damp bases) should become mask-driven decals for softer edges.
-- **Case content (phase 8).** Case 01 is wired end to end through
-  `call_interface.gd` and is the template; the rest of the Case Network
-  is unbuilt.
+- **Case content (phase 8).** Three of the seven drafted cases are wired
+  (01 The Early Answer, 02 Someone Upstairs, 03 Voiceprint Correction —
+  the opening trio the design doc names as the strongest). Cases are data
+  in `scripts/call/case_library.gd`; `call_interface.gd` is the runner, so
+  a fourth case is a dictionary rather than a class. Cases 04-07 and the
+  convergence are unbuilt, and the draft in
+  `audio_virus_prototype/docs/design/case_network_batch_01.md` is still
+  marked NOT CANON — names and outcomes there are not settled.
+  Case 02's design calls for the player to physically follow the pipe
+  route through the building; what is implemented resolves that at the
+  console instead. Making the field phase real — leaving the desk mid-call
+  and being tracked against the route — is the biggest single gameplay
+  win left in the Case Network.
 - **Rigged residents are deliberately paused.** 19 rigged GLBs exist and
   import, but `USE_RIGGED_RESIDENTS := false` in `building_root.gd` keeps
   sprite placeholders as the active cast. Flip the one flag to resume.

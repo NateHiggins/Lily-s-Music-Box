@@ -1,35 +1,56 @@
 class_name CallInterface
 extends CanvasLayer
-## Case 01 ("The Early Answer") played from inside apartment 4B. A compact
-## port of the 2D prototype's support-call loop, wired into the building:
-## the caller's breathing rides the SAME conductor clock the building
-## follows, routing the captured loop moves the conductor's origin to the
-## 4B desk, and the outcomes change real building state — Complete pushes
-## infection high enough that the door anomaly manifests in the wall.
-## Interact with the desk chair to enter; Esc to step away (the call and
-## its consequences continue without you).
+## The overnight support desk in apartment 4B, and the runner for every case
+## in the Case Network. The case itself is data (`case_library.gd`); this
+## class knows only how to play one.
+##
+## The desk offers three verbs — split a signal apart, hold a piece of it,
+## push that piece into the building — and a case is what those verbs mean
+## tonight. That fixed shape is deliberate: by the third call the player is
+## fluent in the console and is spending their attention on the person on the
+## line instead of on the buttons.
+##
+## The caller's audio rides the SAME conductor clock the building follows, so
+## routing a captured loop genuinely moves the conductor's origin and the
+## outcomes genuinely change building state — Case 01's Complete pushes
+## infection high enough to manifest the door anomaly in 4B's wall, and Case
+## 02 leaves a utility door in the third-floor corridor whichever way it ends.
+##
+## Interact with the desk chair to enter; Esc steps away (the call and its
+## consequences continue without you).
 
 signal call_ended(outcome: String)
+## A case left something behind in the world (`desk_double`, `rhea_detector`).
+signal case_flag_set(flag: String)
 
 enum Stage { IDLE, CALL, ISOLATION, CAPTURE, TRANSMISSION, RESPONSE, OUTCOME }
 
 const SILENCE_WINDOW := 16.0
-const CALLER := "M. CHEN"
 
 var stage: Stage = Stage.IDLE
 var outcome := ""
 var fast := false          # test hook: compress waits
 
+## Which case is on the line, and what every closed case resolved to.
+var case_index := 0
+var closed_outcomes: Array[String] = []
+var flags: Dictionary = {}
+## Set by building_root so `reveal` beats can find the prop they change.
+var world: Node = null
+
+var _case: Dictionary = {}
 var _player: Node = null
 var _run_id := 0
 var _started := false
+var _closed := false
 var _isolated := false
 var _captured := false
 var _routed := false
 var _silence_left := -1.0
-var _breath_heard := 0
+var _ticks_heard := 0
 
 var _panel: PanelContainer
+var _header: Label
 var _subtitle: Label
 var _hint: Label
 var _waveform: Control
@@ -37,6 +58,8 @@ var _isolate_btn: Button
 var _capture_btn: Button
 var _route_btn: Button
 var _respond_box: HBoxContainer
+var _prompt_label: Label
+var _silence_label: Label
 var _murmur: AudioStreamPlayer
 var _breath: AudioStreamPlayer
 var _vocal: AudioStreamPlayer
@@ -60,11 +83,10 @@ func _ready() -> void:
 	var vb := VBoxContainer.new()
 	vb.add_theme_constant_override("separation", 8)
 	_panel.add_child(vb)
-	var header := Label.new()
-	header.text = "NIGHTLINE REMOTE SUPPORT — CASE #4471 · %s · \"SPEAKER ANSWERS BEFORE I ASK\"" % CALLER
-	header.add_theme_font_size_override("font_size", 13)
-	header.modulate = Color(0.5, 0.85, 0.8)
-	vb.add_child(header)
+	_header = Label.new()
+	_header.add_theme_font_size_override("font_size", 13)
+	_header.modulate = Color(0.5, 0.85, 0.8)
+	vb.add_child(_header)
 	_waveform = Control.new()
 	_waveform.custom_minimum_size = Vector2(780, 96)
 	_waveform.draw.connect(_draw_waveform)
@@ -72,25 +94,20 @@ func _ready() -> void:
 	var tools := HBoxContainer.new()
 	tools.add_theme_constant_override("separation", 10)
 	vb.add_child(tools)
-	_isolate_btn = _btn(tools, "ISOLATE NOISE", _press_isolate)
+	_isolate_btn = _btn(tools, "ISOLATE", _press_isolate)
 	_isolate_btn.toggle_mode = true
-	_capture_btn = _btn(tools, "CAPTURE LOOP", press_capture)
-	_route_btn = _btn(tools, "ROUTE → DESK SPEAKERS", press_route)
+	_capture_btn = _btn(tools, "CAPTURE", press_capture)
+	_route_btn = _btn(tools, "ROUTE", press_route)
 	_respond_box = HBoxContainer.new()
 	_respond_box.add_theme_constant_override("separation", 10)
 	_respond_box.visible = false
 	vb.add_child(_respond_box)
-	var wait := Label.new()
-	wait.text = "THE PATTERN WAITS —"
-	wait.modulate = Color(0.95, 0.65, 0.35)
-	_respond_box.add_child(wait)
-	_btn(_respond_box, "COMPLETE IT", func(): press_respond("complete"), false)
-	_btn(_respond_box, "INTERRUPT", func(): press_respond("interrupt"), false)
-	var silent := Label.new()
-	silent.text = "(or say nothing)"
-	silent.modulate = Color(0.5, 0.55, 0.6)
-	silent.add_theme_font_size_override("font_size", 11)
-	_respond_box.add_child(silent)
+	_prompt_label = Label.new()
+	_prompt_label.modulate = Color(0.95, 0.65, 0.35)
+	_respond_box.add_child(_prompt_label)
+	_silence_label = Label.new()
+	_silence_label.modulate = Color(0.5, 0.55, 0.6)
+	_silence_label.add_theme_font_size_override("font_size", 11)
 	_hint = Label.new()
 	_hint.add_theme_font_size_override("font_size", 12)
 	_hint.modulate = Color(0.75, 0.8, 0.85)
@@ -107,6 +124,7 @@ func _ready() -> void:
 	_breath = _mk_audio("breath", -12.0)
 	_vocal = _mk_audio("vocal", -8.0)
 	Conductor.motif_tick.connect(_on_motif_tick)
+	_load_case()
 	set_process(true)
 
 
@@ -129,6 +147,64 @@ func _mk_audio(key: String, volume_db: float, autoplay := false) -> AudioStreamP
 	return p
 
 
+# ------------------------------------------------------------ case loading
+
+## Dress the console for whichever case is next on the line. Nothing here
+## touches the world; a case only exists once the player sits down.
+func _load_case() -> void:
+	_case = CaseLibrary.case_at(case_index)
+	if _case.is_empty():
+		_header.text = "NIGHTLINE REMOTE SUPPORT — NO CALLS WAITING"
+		_hint.text = "The line is quiet. It has not been quiet before."
+		_isolate_btn.disabled = true
+		_capture_btn.disabled = true
+		_route_btn.disabled = true
+		return
+	_header.text = "NIGHTLINE REMOTE SUPPORT — CASE #%s · %s · \"%s\"" % [
+			_case.id, _case.caller, _case.complaint]
+	var tools: Dictionary = _case.tools
+	_isolate_btn.text = tools.isolate
+	_capture_btn.text = tools.capture
+	_route_btn.text = tools.route
+	_isolate_btn.disabled = true
+	_isolate_btn.set_pressed_no_signal(false)
+	_capture_btn.disabled = true
+	_route_btn.disabled = true
+	_prompt_label.text = _case.prompt
+	_silence_label.text = _case.silence_note
+	for child in _respond_box.get_children():
+		if child is Button:
+			child.queue_free()
+			_respond_box.remove_child(child)
+	if _silence_label.get_parent() == _respond_box:
+		_respond_box.remove_child(_silence_label)
+	for r in _case.responses:
+		var id: String = r.id
+		_btn(_respond_box, r.label, func(): press_respond(id), false)
+	_respond_box.add_child(_silence_label)
+	_respond_box.visible = false
+	_hint.text = ""
+	_subtitle.text = ""
+
+
+## Called when a closed case is left behind: the next caller is already
+## holding. There is always another one.
+func _advance() -> void:
+	closed_outcomes.append(outcome)
+	case_index += 1
+	stage = Stage.IDLE
+	outcome = ""
+	_started = false
+	_closed = false
+	_isolated = false
+	_captured = false
+	_routed = false
+	_ticks_heard = 0
+	_silence_left = -1.0
+	_run_id += 1
+	_load_case()
+
+
 # ------------------------------------------------------------ entry/exit
 
 func enter(player: Node) -> void:
@@ -137,10 +213,10 @@ func enter(player: Node) -> void:
 		_player.call_locked = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	visible = true
-	if not _started:
+	if not _started and not _case.is_empty():
 		_started = true
 		_run_id += 1
-		_seq_call(_run_id)
+		_seq_open(_run_id)
 
 
 func leave() -> void:
@@ -149,6 +225,10 @@ func leave() -> void:
 		_player.call_locked = false
 		_player = null
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	# Stepping away from a finished call is what clears the desk. The next
+	# caller is not waiting on the outcome, only on the chair.
+	if _closed:
+		_advance()
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -157,15 +237,16 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 
-# ------------------------------------------------------------ sequence
+# ------------------------------------------------------------ beat player
 
 func _delay(sec: float, rid: int) -> bool:
 	await get_tree().create_timer(sec * (0.1 if fast else 1.0), false).timeout
 	return rid == _run_id
 
 
-func _say(text: String, rid: int) -> bool:
-	_subtitle.text = "[%s]  %s" % [CALLER, text]
+func _say(text: String, who: String, tint: Color, rid: int) -> bool:
+	_subtitle.text = "[%s]  %s" % [who, text]
+	_subtitle.modulate = tint
 	create_tween().tween_property(_murmur, "volume_db", -16.0, 0.3)
 	var ok: bool = await _delay(clampf(1.6 + 0.045 * text.length(), 2.0, 6.0), rid)
 	if ok:
@@ -173,15 +254,80 @@ func _say(text: String, rid: int) -> bool:
 	return ok
 
 
-func _seq_call(rid: int) -> void:
+## Plays a beat list. Returns false the moment the run is superseded (the
+## player answered, or left and came back to a different case), so a stale
+## sequence can never write over a live one.
+func _run_beats(beats: Array, rid: int) -> bool:
+	for beat in beats:
+		if rid != _run_id:
+			return false
+		if beat.has("delay"):
+			if not await _delay(beat.delay, rid):
+				return false
+		elif beat.has("say"):
+			if not await _say(beat.say, _case.caller,
+					Color(1, 1, 1), rid):
+				return false
+		elif beat.has("resident"):
+			# The resident is not on the phone. They are through the wall.
+			if not await _say(beat.resident, _case.resident,
+					Color(0.72, 0.9, 0.78), rid):
+				return false
+		elif beat.has("hint"):
+			_hint.text = beat.hint
+		elif beat.has("infection"):
+			Conductor.infection = beat.infection
+		elif beat.has("infection_to"):
+			_infection_tween = create_tween()
+			_infection_tween.tween_method(func(v): Conductor.infection = v,
+					Conductor.infection, beat.infection_to[0],
+					beat.infection_to[1] * (0.2 if fast else 1.0))
+		elif beat.has("origin"):
+			# The captured loop now plays from here, and the building hears
+			# it through the acoustic graph with real per-node delays.
+			Conductor.propagation_mode = "network"
+			Conductor.origin_node = beat.origin
+		elif beat.has("propagate"):
+			var p: Array = beat.propagate
+			AcousticGraphData.propagate(p[0], p[1], p[2], p[3])
+		elif beat.has("mutate"):
+			Conductor.mutate_motif()
+		elif beat.has("vocal"):
+			_vocal.pitch_scale = beat.vocal
+			_vocal.play()
+		elif beat.has("reveal"):
+			_reveal(beat.reveal)
+		elif beat.has("flag"):
+			flags[beat.flag] = true
+			case_flag_set.emit(beat.flag)
+			print("[CALL] case flag set: %s" % beat.flag)
+		elif beat.has("respond"):
+			_open_response(beat.respond)
+			return true
+	return true
+
+
+func _reveal(prop_name: String) -> void:
+	var node: Node = null
+	if world:
+		node = world.get_node_or_null(NodePath(prop_name))
+	if node == null:
+		push_warning("case reveal: no prop named %s" % prop_name)
+		return
+	if node.has_method("reveal"):
+		node.reveal()
+	print("[CALL] case revealed %s" % prop_name)
+
+
+# ------------------------------------------------------------ sequence
+
+func _seq_open(rid: int) -> void:
 	stage = Stage.CALL
-	print("[CALL] case 4471 opened")
-	if not await _delay(1.5, rid): return
-	if not await _say("Thanks for staying on this late. It's the speaker — it answers before I finish asking.", rid): return
-	if not await _delay(0.8, rid): return
-	if not await _say("There's a clicking behind it too. That's just the pipes. Ignore that.", rid): return
-	if not await _delay(1.5, rid): return
-	_hint.text = "ANALYSIS: periodic transient on background channel — the same period as this building."
+	print("[CALL] case %s opened (%s)" % [_case.id, _case.caller])
+	if not await _run_beats(_case.open, rid):
+		return
+	if rid != _run_id:
+		return
 	_isolate_btn.disabled = false
 
 
@@ -194,7 +340,7 @@ func press_isolate(active: bool) -> void:
 	_isolate_btn.set_pressed_no_signal(active)
 	if active and stage == Stage.CALL:
 		stage = Stage.ISOLATION
-		_hint.text = "Background channel isolated. Listen to her breathing."
+		_hint.text = _case.isolate_hint
 		print("[CALL] isolation active")
 
 
@@ -205,8 +351,8 @@ func press_capture() -> void:
 	stage = Stage.CAPTURE
 	_capture_btn.disabled = true
 	_route_btn.disabled = false
-	_hint.text = "Loop held: four marks, one empty slot. Route it to hear it in the room."
-	print("[CALL] motif captured")
+	_hint.text = _case.capture_hint
+	print("[CALL] pattern captured")
 
 
 func press_route() -> void:
@@ -214,27 +360,23 @@ func press_route() -> void:
 		return
 	_routed = true
 	stage = Stage.TRANSMISSION
-	# The captured loop now plays from the desk: the conductor's origin
-	# moves to 4B and the building hears it through the electrical network.
-	Conductor.propagation_mode = "network"
-	Conductor.origin_node = "F04_B_MONITOR_01"
-	_infection_tween = create_tween()
-	_infection_tween.tween_method(func(v): Conductor.infection = v,
-			Conductor.infection, 0.6, 2.0 if fast else 10.0)
-	_hint.text = "Routing through desk speakers. Room response pending…"
-	print("[CALL] routed to desk speakers, origin -> F04_B_MONITOR_01")
-	_seq_transmission(_run_id)
+	print("[CALL] routing")
+	_seq_route(_run_id)
 
 
-func _seq_transmission(rid: int) -> void:
-	if not await _delay(6.0, rid): return
-	if not await _say("Wait. I can hear knocking. Not here — through the phone. It's in YOUR room, isn't it?", rid): return
-	if not await _delay(3.0, rid): return
-	if stage != Stage.TRANSMISSION or rid != _run_id:
+func _seq_route(rid: int) -> void:
+	if not await _run_beats(_case.route, rid):
+		return
+	if not await _run_beats(_case.transmission, rid):
+		return
+
+
+func _open_response(hint: String) -> void:
+	if stage != Stage.TRANSMISSION:
 		return
 	stage = Stage.RESPONSE
 	_respond_box.visible = true
-	_hint.text = "Every source stops at the same empty slot. It is waiting."
+	_hint.text = hint
 	_silence_left = SILENCE_WINDOW * (0.15 if fast else 1.0)
 	print("[CALL] response window open")
 
@@ -242,6 +384,8 @@ func _seq_transmission(rid: int) -> void:
 func press_respond(kind: String) -> void:
 	if stage != Stage.RESPONSE or outcome != "":
 		return  # latch: one outcome per case
+	if not _case.outcomes.has(kind):
+		return
 	outcome = kind
 	stage = Stage.OUTCOME
 	_respond_box.visible = false
@@ -249,58 +393,19 @@ func press_respond(kind: String) -> void:
 	if _infection_tween and _infection_tween.is_valid():
 		_infection_tween.kill()  # the outcome owns infection from here
 	print("[CALL] outcome -> %s" % kind)
-	match kind:
-		"complete":
-			_seq_complete(_run_id)
-		"interrupt":
-			_seq_interrupt(_run_id)
-		"silence":
-			_seq_silence(_run_id)
+	_seq_outcome(kind, _run_id)
 
 
-func _seq_complete(rid: int) -> void:
-	_hint.text = "You answered."
-	_vocal.play()  # the player hums the missing fifth
-	if not await _delay(0.9, rid): return
-	# the radiator answers, and the answer spreads from IT
-	AcousticGraphData.propagate("F04_B_RADIATOR_01", 4, 1.0, 0.0)
-	Conductor.infection = 0.85  # stable, elevated: the seam can exist now
-	if not await _delay(1.6, rid): return
-	if not await _say("oh. the door was always there. i can see your room now.", rid): return
-	_finish(rid)
-
-
-func _seq_interrupt(rid: int) -> void:
-	_hint.text = "You spoke over it."
-	_vocal.pitch_scale = 1.3
-	_vocal.play()
-	Conductor.mutate_motif()
-	Conductor.infection = 0.65
-	if not await _delay(2.0, rid): return
-	if not await _say("There's another voice in my speaker now. It's answering for me.", rid): return
-	_finish(rid)
-
-
-func _seq_silence(rid: int) -> void:
-	_hint.text = ""
-	create_tween().tween_method(func(v): Conductor.infection = v,
-			Conductor.infection, 0.25, 3.0)
-	if not await _delay(3.5, rid): return
-	# she finishes it herself; the fifth beat arrives from the radiator
-	# behind the player, low and wrong
-	AcousticGraphData.propagate("F04_B_RADIATOR_01", 4, 1.0, -12.0)
-	Conductor.infection = 0.5
-	if not await _delay(1.4, rid): return
-	if not await _say("you left it unfinished. hold still — i finished it for you.", rid): return
-	_finish(rid)
-
-
-func _finish(rid: int) -> void:
-	if rid != _run_id: return
+func _seq_outcome(kind: String, rid: int) -> void:
+	if not await _run_beats(_case.outcomes[kind], rid):
+		return
+	if rid != _run_id:
+		return
 	_subtitle.text = ""
-	_hint.text = "CASE #4471 · CUSTOMER EDUCATED · ISSUE RESOLVED"
+	_hint.text = "CASE #%s · CUSTOMER EDUCATED · ISSUE RESOLVED" % _case.id
+	_closed = true
 	call_ended.emit(outcome)
-	print("[CALL] case closed (%s)" % outcome)
+	print("[CALL] case %s closed (%s)" % [_case.id, outcome])
 
 
 # ------------------------------------------------------------ per-frame
@@ -315,21 +420,24 @@ func _process(delta: float) -> void:
 	if _silence_left > 0.0:
 		_silence_left -= delta
 		if _silence_left <= 0.0:
-			press_respond("silence")
+			# Saying nothing is an answer, and every case scores it as one.
+			press_respond(_case.timeout)
 
 
 func _on_motif_tick(index: int, accent: float, _pitch: float) -> void:
-	# phone side: her breathing carries the motif whenever we can hear it
-	if visible and stage >= Stage.ISOLATION and stage < Stage.OUTCOME:
+	# phone side: the caller's channel carries the motif whenever we can hear it
+	if visible and stage >= Stage.ISOLATION and stage < Stage.OUTCOME \
+			and not _case.is_empty():
 		_breath.volume_db = -14.0 + linear_to_db(clampf(accent, 0.2, 1.0)) \
 				+ (4.0 if _isolated else -8.0)
 		_breath.pitch_scale = randf_range(0.92, 1.05)
 		_breath.play()
 		_pulses.append({"i": index, "age": 0.0, "accent": accent})
-		_breath_heard += 1
-		if _breath_heard >= 6 and stage == Stage.ISOLATION and _capture_btn.disabled:
+		_ticks_heard += 1
+		if _ticks_heard >= int(_case.ticks_to_capture) \
+				and stage == Stage.ISOLATION and _capture_btn.disabled:
 			_capture_btn.disabled = false
-			_hint.text = "Pattern registered: 4 events, 1 expected. [CAPTURE LOOP] to hold it."
+			_hint.text = _case.capture_ready_hint
 
 
 func _draw_waveform() -> void:
@@ -348,7 +456,7 @@ func _draw_waveform() -> void:
 			var h: float = ev.accent * size.y * 0.36
 			_waveform.draw_rect(Rect2(x - 2, midy - h, 4, h * 2),
 					Color(0.34, 0.9, 0.83))
-		# the implied fifth event: dashed, blinking, unanswered
+		# the implied event: dashed, blinking, unanswered
 		var gx: float = 6.0 + (Conductor.MOTIF_GAP_T / Conductor.MOTIF_LOOP) \
 				* (size.x - 12.0)
 		var ga := 0.35 + 0.5 * (0.5 + 0.5 * sin(_blink * 3.0)) \

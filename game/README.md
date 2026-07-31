@@ -236,15 +236,30 @@ desk lamp, radiator under the rear window, and the **door anomaly** — a
 door-shaped seam that only manifests above 0.75 infection, between the
 workstation and the radiator.
 
-**Case 01 at the desk (new):** interact (E) with the 4B workstation chair
-to take Mara Chen's support call — a compact in-world port of the Audio
-Virus prototype loop. Her breathing rides the same conductor clock the
-building follows; isolating and capturing reveal the four-mark timeline
-with its empty fifth slot; routing the loop moves the conductor's origin
-to the desk so the building hears it through the electrical network; and
-the three responses change real building state — Complete pushes
-infection to 0.85, which is what lets the door anomaly manifest in the
-wall. One outcome per case, latched. Esc steps away; the call continues.
+**The Case Network at the desk:** interact (E) with the 4B workstation
+chair to take whichever call is holding. Three cases are wired, and they
+arrive in order — the desk prompt names the one waiting.
+
+The console only ever offers three verbs: split a signal apart, hold a
+piece of it, push that piece into the building. A case is what those verbs
+*mean* tonight, which is why the third call can be about something as
+personal as a woman's voice and still need no tutorial. The caller's
+channel rides the same conductor clock the building follows, routing moves
+the conductor's origin to a real acoustic-graph node, and every outcome
+changes building state. One outcome per case, latched; Esc steps away and
+the call continues without you. Saying nothing is always a real answer and
+every case scores it as one.
+
+| # | Caller | Resident | What it leaves behind |
+|---|---|---|---|
+| 4471 | Mara Chen — the speaker answers early | Mina Vale · 2A | Complete pushes infection to 0.85, which is what lets the door anomaly manifest |
+| 4482 | Leon Price — footsteps in an empty unit | Omar Bell · 3B | A utility door in the F03 corridor that is not on the plans, whichever way you answer |
+| 4496 | Briar Lane — her assistant has her voice | Rhea Sato · 3D | Matching the model exactly leaves it taking calls at *your* desk |
+
+Cases are data (`scripts/call/case_library.gd`); `call_interface.gd` is
+only the runner. A case is a list of beats — dialogue, delays, infection
+moves, graph injections, and the two that touch the world, `reveal` and
+`flag`. Adding a fourth case is a dictionary, not a class.
 
 **Room 0 (new):** once the door anomaly is manifest, interact with the
 seam to step through into the hidden room — a pocket space held open by
@@ -328,7 +343,7 @@ python art/audio/build_viral_seed.py `
 WalkTest validates floor collision on every level, apartment slabs, prop
 spawning, the conductor clock, a *physical* climb of the new dog-leg
 F1→F2 by the real player capsule, elevator travel B1↔F6, acoustic graph
-connectivity, the vertical slice, Case 01 end-to-end, and Room 0.
+connectivity, the vertical slice, all three cases end-to-end, and Room 0.
 Exit code = failure count.
 
 **The lighting model (new):** 112 period fixtures across seven original

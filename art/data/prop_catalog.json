@@ -334,5 +334,17 @@
   "response_latency": 0.0,
   "normal_function_priority": 0.0,
   "infection_receptivity": 1.0
+ },
+ "case_door": {
+  "minimum_action_interval": 0.5,
+  "maximum_action_rate": 2,
+  "available_mechanical_events": [
+   "latch_settle"
+  ],
+  "preferred_subdivision": 1,
+  "timing_drift": 0.02,
+  "response_latency": 0.08,
+  "normal_function_priority": 0.0,
+  "infection_receptivity": 0.85
  }
 }

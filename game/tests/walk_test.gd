@@ -766,8 +766,94 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 		Conductor.bpm = 72.0
 	else:
 		_check(false, "Room 0 reachable from anomaly")
+	# Cases 02 and 03 run last, after Case 01's own consequences (the seam,
+	# Room 0) have been checked against the state Case 01 left. They move
+	# infection around freely, and an earlier version of this ordering
+	# quietly un-manifested the seam before the Room 0 walk reached it.
+	await _case_network_checks(ci)
 	Conductor.infection = 0.15
 	Conductor.origin_node = "B1_BOILER_01"
+
+
+## Cases 02 and 03, driven through the same console the player uses. The
+## point of these checks is not the dialogue — it is that a case is data now,
+## and that closing one leaves the building measurably different: Case 02
+## puts a door in the third-floor corridor, Case 03 puts someone else in the
+## player's chair.
+func _case_network_checks(ci: CallInterface) -> void:
+	_check(CaseLibrary.count() == 3, "case network holds three cases")
+	_check(ci.case_index == 1,
+			"leaving a closed case brings up the next caller")
+	_check(ci.closed_outcomes == ["complete"], "case 01 outcome recorded")
+
+	# --- Case 02: the route in the pipes, answered by matching its tempo
+	ci.enter(root.player)
+	var ok: bool = await _drive_case(ci, "match", "case 02")
+	if ok:
+		_check(ci._case.id == "4482", "case 02 is the one on the line")
+		var door: CaseDoorProp = root.get_node_or_null("F03_UTILITY_ANOMALY")
+		_check(door != null, "case 02: utility door spawned on F03")
+		if door:
+			_check(door.is_revealed(),
+					"case 02: closing the case puts the door in the wall")
+			_check(door.interact_prompt() != "",
+					"case 02: the door can be examined once it exists")
+			door.interact(root.player)
+			_check(root.player.global_position.y < 20.0,
+					"case 02: the door does not open on the first night")
+	ci.leave()
+	_check(ci.case_index == 2, "case 02 closed and the queue advanced")
+
+	# --- Case 03: matching the imitation exactly is the one that costs you
+	ci.enter(root.player)
+	ok = await _drive_case(ci, "reinforce", "case 03")
+	if ok:
+		_check(ci.flags.has("desk_double"),
+				"case 03: matching the model exactly leaves it at your desk")
+		var desk: DeskZone = root.get_node_or_null("F04_B_DESK_ZONE")
+		_check(desk != null, "desk zone present")
+		if desk:
+			_check(desk.interact_prompt().contains("your voice"),
+					"case 03: the desk prompt reports who is sitting there")
+	ci.leave()
+	_check(ci.case_index == 3, "case 03 closed and the queue is empty")
+	_check(ci.closed_outcomes.size() == 3, "all three outcomes recorded")
+	# The desk is not offering a fourth call it does not have.
+	var desk2: DeskZone = root.get_node_or_null("F04_B_DESK_ZONE")
+	if desk2:
+		_check(desk2.interact_prompt() != "", "desk still interactable when quiet")
+
+
+## The three verbs, in order, on whichever case is loaded. Every case answers
+## to this because every case IS this — which is the whole reason the runner
+## stopped being Case 01 with the serial numbers filed off.
+func _drive_case(ci: CallInterface, respond: String, label: String) -> bool:
+	var ok: bool = await _until(func(): return not ci._isolate_btn.disabled, 15.0)
+	_check(ok, "%s: isolate unlocks after the caller's opening" % label)
+	if not ok:
+		return false
+	ci.press_isolate(true)
+	_check(ci.stage == CallInterface.Stage.ISOLATION,
+			"%s: stage ISOLATION" % label)
+	ok = await _until(func(): return not ci._capture_btn.disabled, 20.0)
+	_check(ok, "%s: capture unlocks once the pattern registers" % label)
+	if not ok:
+		return false
+	ci.press_capture()
+	ci.press_route()
+	ok = await _until(func(): return ci.stage == CallInterface.Stage.RESPONSE, 30.0)
+	_check(ok, "%s: reaches RESPONSE" % label)
+	if not ok:
+		return false
+	ci.press_respond(respond)
+	_check(ci.outcome == respond, "%s: outcome latched (%s)" % [label, respond])
+	# The timeout id is always a real outcome for its case, so this probes
+	# the one-outcome-per-case latch rather than the unknown-id guard.
+	ci.press_respond(ci._case.timeout)
+	_check(ci.outcome == respond, "%s: second response rejected" % label)
+	ok = await _until(func(): return ci._closed, 30.0)
+	_check(ok, "%s: case closes" % label)
+	return ok
 
 
 func _floor_below(from: Vector3) -> bool:

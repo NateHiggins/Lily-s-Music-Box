@@ -2605,6 +2605,26 @@ def signage_pass(fl):
               ey + 0.65, 0.03, 0.24, 1.45, 0.14, "art")
 
 
+## Doors the Case Network leaves behind. They are authored here like every
+## other coordinate in the building — including the ones that are not
+## supposed to exist — but they spawn hidden and only appear when their case
+## closes. Case 02's route through the third-floor heating riser ends here.
+def case_doors(fl):
+    if fl["id"] != "F03":
+        return
+    # West corridor face, in the clear run between 3B's door (y=5.52) and
+    # the storage door (y=0.63). The room behind it is the west storage
+    # room, which already HAS a door: this is a second way into a utility
+    # space, which is both the sort of thing that never appears on a set of
+    # plans and the sort of thing a superintendent refuses to open. It sits
+    # on the plaster rather than in a cut opening on purpose — there is no
+    # hole behind it, and it does not open.
+    fl["markers"].append({
+        "kind": "case_door", "id": "F03_UTILITY_ANOMALY", "unit": "3B",
+        "pos": [-5.33, 2.00, fl["z"]], "yaw_deg": -90,
+        "network": "structural"})
+
+
 def stair_top_guard(fl):
     """The topmost landing had no balustrade along its open eye edge: the
     guard loop stops at the level BELOW the last one, because it is driven
@@ -2869,7 +2889,7 @@ def _validate_placement(layout):
     ceiling_kinds = {"pendant_shade", "flush_dome", "kitchen_linear",
                      "cage_bulb", "chandelier"}
     wall_kinds = {"door", "radiator", "sconce_globe", "exhaust_fan",
-                  "wall_clock", "flue_breast", "door_anomaly",
+                  "wall_clock", "flue_breast", "door_anomaly", "case_door",
                   "neon_sign"}   # bolted to the facade, by definition
     floor_kinds = {"washer", "dryer", "boiler", "fridge", "boxfan",
                    "speaker", "toaster"}
@@ -3239,6 +3259,13 @@ def acoustic_graph(layout):
                 add(m["id"], [m["pos"][0], m["pos"][1], m["pos"][2] + 1.0],
                     "structural", m.get("unit", ""), 0.95, (20, 200), 60)
                 edges.append((m["id"], "F04_B_RADIATOR_01"))
+            elif m["kind"] == "case_door":
+                # On the structural network, hung off the same radiator the
+                # case's route travels: the door is where that route ends,
+                # so it has to be somewhere the route can actually reach.
+                add(m["id"], [m["pos"][0], m["pos"][1], m["pos"][2] + 1.0],
+                    "structural", m.get("unit", ""), 0.90, (20, 240), 55)
+                edges.append((m["id"], "%s_B_RADIATOR_01" % fl["id"]))
     # electrical spine: hub in the basement switchgear room, corridor
     # fixtures chained per floor and down the riser
     add("B1_ELECTRICAL_HUB", [10.0, -5.0, -2.4], "electrical",
@@ -3486,6 +3513,13 @@ PROP_CATALOG = {
                      "preferred_subdivision": 1, "timing_drift": 0.0,
                      "response_latency": 0.0, "normal_function_priority": 0.0,
                      "infection_receptivity": 1.0},
+    # Ordinary joinery, which is the unsettling part: it behaves like a
+    # door that has always been there, because as far as it knows it has.
+    "case_door": {"minimum_action_interval": 0.50, "maximum_action_rate": 2,
+                  "available_mechanical_events": ["latch_settle"],
+                  "preferred_subdivision": 1, "timing_drift": 0.02,
+                  "response_latency": 0.08, "normal_function_priority": 0.0,
+                  "infection_receptivity": 0.85},
 }
 
 MATERIAL_CATALOG = {
@@ -3592,6 +3626,7 @@ def main():
         collect_door_markers(fl)
         light_fixture_markers(fl)
         signage_pass(fl)
+        case_doors(fl)
         if fl["id"] != "ROOF":      # ROOF builds its own inside build_floor
             atrium_tree(fl)
     radiator_pipe_pass(floors)

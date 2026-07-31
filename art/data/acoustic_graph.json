@@ -1990,6 +1990,7 @@
    "infection_receptivity": 0.84,
    "connections": [
     "F03_PORCH_DECK",
+    "F03_UTILITY_ANOMALY",
     "F02_B_RADIATOR_01",
     "F04_B_RADIATOR_01"
    ]
@@ -2689,6 +2690,26 @@
    "infection_receptivity": 0.75,
    "connections": [
     "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_UTILITY_ANOMALY",
+   "pos": [
+    -5.33,
+    2.0,
+    7.4
+   ],
+   "room": "3B",
+   "network": "structural",
+   "frequency_band": [
+    20,
+    240
+   ],
+   "delay_ms": 55,
+   "damping": 0.22,
+   "infection_receptivity": 0.9,
+   "connections": [
+    "F03_B_RADIATOR_01"
    ]
   },
   {

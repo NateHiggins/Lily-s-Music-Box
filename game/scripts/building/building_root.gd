@@ -26,6 +26,7 @@ const PROP_SCRIPTS := {
 	"monitor": preload("res://scripts/props/monitor_prop.gd"),
 	"boxfan": preload("res://scripts/props/boxfan_prop.gd"),
 	"door_anomaly": preload("res://scripts/props/door_anomaly_prop.gd"),
+	"case_door": preload("res://scripts/props/case_door_prop.gd"),
 	"speaker": preload("res://scripts/props/speaker_prop.gd"),
 	"flue_breast": preload("res://scripts/props/flue_breast_prop.gd"),
 	"porch_deck": preload("res://scripts/props/porch_deck_prop.gd"),
@@ -116,6 +117,11 @@ func _ready() -> void:
 	var n_lit := window_glow.build(layout)
 	call_interface = CallInterface.new()
 	add_child(call_interface)
+	# Cases change the building, so the runner needs a handle on it: a
+	# `reveal` beat looks its prop up by the same node name the marker
+	# pipeline spawned it under. Props are spawned below, and no case can
+	# fire before the player has sat down, so the ordering is safe.
+	call_interface.world = self
 	_spawn_props()
 	_spawn_npc_placeholders()
 	_spawn_reality_controllers()
@@ -396,6 +402,9 @@ func _spawn_props() -> void:
 			if m["kind"] == "desk_zone":
 				var desk := DeskZone.new()
 				desk.call_interface = call_interface
+				# Named like every other marker-spawned node, so the desk
+				# can be found by id the way the props can.
+				desk.name = m["id"]
 				add_child(desk)
 				desk.global_position = GameBoot.b2g(m["pos"])
 				continue
