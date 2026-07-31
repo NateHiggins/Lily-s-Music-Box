@@ -1,19 +1,29 @@
 class_name AmbientSoundscape
 extends Node
-## Layered, zone-aware Orison ambience. Quiet beds establish space; sparse
-## positional events leave silence available for the paranormal director.
+## Source-aware building sound director. Beds establish the broad zone; every
+## discrete sound now originates at architecture, a fixture, or a radiator.
+## SanityDirector can bias the timing and nominate the object that "speaks."
 
 var player: Node3D
+var sanity: SanityDirector
 var paranormal_focus := 0.0
 var _beds: Dictionary = {}
 var _event_players: Array[AudioStreamPlayer3D] = []
 var _next_event := 8.0
+var _next_radiator := 5.0
 var _event_index := 0
+var _last_radiator: Node3D
 var _rng := RandomNumberGenerator.new()
 
 
 func setup(target: Node3D) -> void:
 	player = target
+
+
+func bind_sanity(director: SanityDirector) -> void:
+	sanity = director
+	if not sanity.intruded.is_connected(_on_sanity_intruded):
+		sanity.intruded.connect(_on_sanity_intruded)
 
 
 func _ready() -> void:
@@ -24,12 +34,12 @@ func _ready() -> void:
 	_add_bed("building", "ambient_building_loop")
 	_add_bed("basement", "ambient_basement_loop")
 	_add_bed("roof", "ambient_roof_loop")
-	for i in 3:
+	for i in 5:
 		var event := AudioStreamPlayer3D.new()
-		event.name = "AmbientEvent%d" % i
+		event.name = "ArchitecturalEvent%d" % i
 		event.bus = "Ambience"
-		event.max_distance = 18.0
-		event.unit_size = 5.0
+		event.max_distance = 24.0
+		event.unit_size = 4.2
 		event.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
 		add_child(event)
 		_event_players.append(event)
@@ -51,7 +61,8 @@ func _add_bed(key: String, stream_key: String) -> void:
 	bed.stream = PropAudio.get_stream(stream_key)
 	bed.volume_db = -60.0
 	add_child(bed)
-	bed.play()
+	if bed.stream:
+		bed.play()
 	_beds[key] = bed
 
 
@@ -73,18 +84,26 @@ func _on_case_changed(_case_id: String, state: Dictionary) -> void:
 func _process(delta: float) -> void:
 	if player == null:
 		return
-	var outside := player.global_position.z > 9.72
-	var basement := player.global_position.y < -1.2
 	var roof := player.global_position.y > 18.5
-	var duck := paranormal_focus * 10.0
+	var outside := player.global_position.z > 9.72 or roof
+	var basement := player.global_position.y < -1.2
+	var pressure := sanity.pressure if sanity and sanity.enabled else 0.0
+	var duck := maxf(paranormal_focus, pressure * 0.7) * 9.0
 	_fade("city", (-17.0 if outside else -33.0) - duck, delta)
 	_fade("building", (-23.0 if not outside else -38.0) - duck, delta)
 	_fade("basement", (-17.5 if basement else -60.0) - duck, delta)
 	_fade("roof", (-16.5 if roof else -60.0) - duck, delta)
 	_next_event -= delta
-	if _next_event <= 0.0 and not outside:
-		_play_event()
-		_next_event = _rng.randf_range(9.0, 24.0)
+	_next_radiator -= delta
+	if _next_radiator <= 0.0 and not outside:
+		_cue_radiator(pressure)
+		# Higher pressure shortens the wait, but never turns pipes into rhythm.
+		_next_radiator = _rng.randf_range(
+				lerpf(17.0, 8.0, pressure), lerpf(42.0, 19.0, pressure))
+	if _next_event <= 0.0:
+		_cue_architecture(outside, basement, pressure)
+		_next_event = _rng.randf_range(
+				lerpf(16.0, 10.0, pressure), lerpf(38.0, 23.0, pressure))
 
 
 func _fade(key: String, target_db: float, delta: float) -> void:
@@ -92,16 +111,97 @@ func _fade(key: String, target_db: float, delta: float) -> void:
 	bed.volume_db = lerpf(bed.volume_db, target_db, minf(1.0, delta * 0.8))
 
 
-func _play_event() -> void:
+func _cue_radiator(pressure: float) -> void:
+	var candidates: Array = []
+	for radiator in get_tree().get_nodes_in_group("radiators"):
+		if radiator == _last_radiator:
+			continue
+		var distance: float = radiator.global_position.distance_to(
+				player.global_position)
+		# Occasionally answer from the floor above/below; normally use a
+		# source close enough to locate through a wall.
+		if distance < 24.0 and (distance < 14.0 or _rng.randf() < 0.24):
+			candidates.append(radiator)
+	if candidates.is_empty():
+		return
+	candidates.sort_custom(func(a, b):
+		return a.global_position.distance_to(player.global_position) < b.global_position.distance_to(player.global_position))
+	var reach := mini(candidates.size(), 6)
+	var chosen: Node3D = candidates[_rng.randi_range(0, reach - 1)]
+	var roll := _rng.randf()
+	var kind := "tick"
+	if roll < 0.20 + pressure * 0.22:
+		kind = "whistle"
+	elif roll < 0.52 + pressure * 0.18:
+		kind = "knock"
+	chosen.call("play_ambient_cycle", kind,
+			clampf(_rng.randf_range(0.28, 0.72) + pressure * 0.20, 0.0, 1.0))
+	_last_radiator = chosen
+	# A hard knock sometimes receives one remote, quieter reply.
+	if kind == "knock" and candidates.size() > 1 and _rng.randf() < 0.32:
+		var reply: Node3D = candidates[_rng.randi_range(1,
+				mini(candidates.size() - 1, 5))]
+		get_tree().create_timer(_rng.randf_range(0.7, 2.4), false).timeout.connect(
+				func():
+					if is_instance_valid(reply):
+						reply.call("play_ambient_cycle", "tick", 0.30))
+
+
+func _cue_architecture(outside: bool, basement: bool, pressure: float) -> void:
+	var keys: Array
+	if outside:
+		keys = ["distant_rain_people", "hail_window", "rain_on_metal"]
+	elif basement:
+		keys = ["basement_stairs", "door_squeak", "water_droplets", "creak"]
+	else:
+		keys = ["creak", "door_squeak", "water_droplets", "sink_water",
+				"shower_water"]
+		if pressure > 0.48:
+			keys.append_array(["knock", "breath"])
+		if pressure > 0.78:
+			keys.append("power_down")
+	var key: String = keys[_rng.randi_range(0, keys.size() - 1)]
+	_play_at(key, _architectural_source(), _rng.randf_range(-23.0, -16.0)
+			- pressure * 4.0)
+
+
+func _architectural_source() -> Vector3:
+	var candidates: Array[Vector3] = []
+	for node_id in AcousticGraphData.nodes:
+		var at := AcousticGraphData.node_pos(node_id)
+		var distance := at.distance_to(player.global_position)
+		if distance > 4.0 and distance < 20.0:
+			candidates.append(at)
+	if candidates.is_empty():
+		return player.global_position + Vector3(0.0, 0.5, -7.0)
+	return candidates[_rng.randi_range(0, candidates.size() - 1)]
+
+
+func _on_sanity_intruded(_case_id: String, tier: int) -> void:
+	# Intrusions already own their hero sound. This is a restrained physical
+	# afterimage from the object they touched, and some intrusions stay silent.
+	if _rng.randf() > 0.34 + tier * 0.09:
+		return
+	var at := _architectural_source()
+	if sanity and sanity.intrusions and not sanity.intrusions.last_targets.is_empty():
+		var target: Node3D = sanity.intrusions.last_targets[
+				_rng.randi_range(0, sanity.intrusions.last_targets.size() - 1)]
+		if is_instance_valid(target):
+			at = target.global_position
+	var key: String = ["tick", "creak", "knock", "breath"][
+			clampi(tier - 1, 0, 3)]
+	get_tree().create_timer(_rng.randf_range(0.4, 1.8), false).timeout.connect(
+			func(): _play_at(key, at, -18.0 + tier * 1.5))
+
+
+func _play_at(key: String, at: Vector3, volume_db: float) -> void:
+	var stream := PropAudio.get_stream(key)
+	if stream == null:
+		return
 	var event := _event_players[_event_index % _event_players.size()]
 	_event_index += 1
-	var keys := ["creak", "knock", "tick"]
-	event.stream = PropAudio.get_stream(keys[_rng.randi_range(0, keys.size() - 1)])
-	event.pitch_scale = _rng.randf_range(0.82, 1.08)
-	event.volume_db = _rng.randf_range(-21.0, -15.0) - paranormal_focus * 8.0
-	var angle := _rng.randf_range(0.0, TAU)
-	var distance := _rng.randf_range(4.0, 11.0)
-	event.global_position = player.global_position + Vector3(
-			cos(angle) * distance, _rng.randf_range(-0.8, 2.2),
-			sin(angle) * distance)
+	event.stream = stream
+	event.pitch_scale = _rng.randf_range(0.92, 1.06)
+	event.volume_db = volume_db
+	event.global_position = at
 	event.play()

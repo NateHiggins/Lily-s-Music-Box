@@ -166,6 +166,12 @@ func _physics_process(delta: float) -> void:
 		global_position += (wish * 6.0 + Vector3.UP * up * 4.0) * delta
 		return
 	var gravity_direction := _reality_gravity()
+	# A collapsing distortion volume can disappear on the same physics tick
+	# that the safety net returns the player. Never hand CharacterBody3D a
+	# zero or non-finite up vector while those two states cross.
+	if not gravity_direction.is_finite() \
+			or gravity_direction.length_squared() < 0.25:
+		gravity_direction = Vector3.DOWN
 	up_direction = -gravity_direction
 	camera.rotation.z = lerpf(camera.rotation.z,
 			-gravity_direction.x * 0.42, minf(1.0, delta * 2.5))

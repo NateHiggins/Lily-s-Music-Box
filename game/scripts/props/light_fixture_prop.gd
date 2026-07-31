@@ -49,6 +49,7 @@ var _flicker_speed := 1.0
 var _flicker_phase := 0.0
 var _flicker_profile := 0
 var _flicker_value := 1.0
+var _intermittent_exterior_fault := false
 ## Authored throw from the generator, fitted to the room the fixture hangs
 ## in. For ROOM fixtures it is a cap: pools die at their own walls instead
 ## of bleeding through shadowless neighbors (the light-leak pass, done as
@@ -357,6 +358,13 @@ func set_budget(scale: float, with_bounce: bool, with_shadow: bool) -> void:
 		bounce.visible = with_bounce and scale > 0.001
 
 
+func set_intermittent_exterior_fault(enabled: bool) -> void:
+	_intermittent_exterior_fault = enabled
+	if enabled:
+		_flicker_depth = 0.18
+		_flicker_speed = 1.0
+
+
 func _process(delta: float) -> void:
 	if light == null:
 		return
@@ -375,6 +383,18 @@ func _process(delta: float) -> void:
 			var gate := pow(maxf(0.0, sin(t * 0.19)), 42.0)
 			drift -= gate * _flicker_depth * 4.2
 	_flicker_value = clampf(1.0 + drift, 0.52, 1.08)
+	if _intermittent_exterior_fault:
+		# A failed photocell/ballast: mostly dead, then an ugly sputter
+		# followed by a brief period of normal sodium light.
+		var cycle := fmod(t + _flicker_phase, 19.0)
+		var fault_value := 0.0
+		if cycle > 12.8 and cycle < 14.4:
+			var contact := sin(cycle * 47.0) * sin(cycle * 19.0)
+			var chatter := 1.0 if contact >= 0.30 else 0.0
+			fault_value = chatter * 0.72
+		elif cycle >= 14.4 and cycle < 17.8:
+			fault_value = 0.94 + sin(cycle * 8.0) * 0.035
+		_flicker_value = fault_value
 	var want := _base_energy * _target_scale * (1.0 + _surge) \
 			* _flicker_value
 	light.light_energy = lerpf(light.light_energy, want, delta * 6.0)

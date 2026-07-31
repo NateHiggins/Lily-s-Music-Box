@@ -14,6 +14,7 @@ var swing_out := false
 var open := false
 var _body: AnimatableBody3D
 var _click: AudioStreamPlayer3D
+var _squeak: AudioStreamPlayer3D
 var _moving := false
 
 
@@ -150,6 +151,12 @@ func _ready() -> void:
 	_click.unit_size = 2.5
 	_click.max_distance = 12.0
 	add_child(_click)
+	_squeak = AudioStreamPlayer3D.new()
+	_squeak.stream = PropAudio.get_stream("door_squeak")
+	_squeak.volume_db = -18.0
+	_squeak.unit_size = 2.5
+	_squeak.max_distance = 14.0
+	add_child(_squeak)
 	if leaf_state == "open":
 		# parked flat back against the wall so it never blocks a route
 		open = true
@@ -170,6 +177,8 @@ func interact(_player: Node) -> void:
 		return
 	_moving = true
 	open = not open
+	_squeak.pitch_scale = randf_range(0.93, 1.05)
+	_squeak.play()
 	var swept := -100.0 if swing_out else 100.0
 	var tw := create_tween()
 	tw.tween_property(_body, "rotation:y",

@@ -35,6 +35,14 @@ var _splash: CPUParticles3D
 var _leaves: CPUParticles3D
 var _player: Node3D
 var _t := 0.0
+var _lightning: Node3D
+var _lightning_card: MeshInstance3D
+var _lightning_material: StandardMaterial3D
+var _ground_flash: MeshInstance3D
+var _ground_flash_material: StandardMaterial3D
+var _lightning_wait := 16.0
+var _lightning_age := -1.0
+var _rng := RandomNumberGenerator.new()
 
 
 func setup(player: Node3D) -> void:
@@ -102,12 +110,63 @@ func build_reflections(layout: Dictionary) -> int:
 
 
 func _ready() -> void:
+	_rng.seed = 19280731
 	_rain = _make_rain()
 	add_child(_rain)
 	_splash = _make_splash()
 	add_child(_splash)
 	_leaves = _make_leaves()
 	add_child(_leaves)
+	_build_lightning()
+
+
+func _build_lightning() -> void:
+	# Marker/timer node only. A shadowless directional flash penetrated every
+	# interior wall and also proved unstable on the headless Compatibility
+	# renderer. The sky and wet surfaces carry the distant flash instead.
+	_lightning = Node3D.new()
+	_lightning.name = "DistantLightning"
+	_lightning.rotation_degrees = Vector3(-24, -58, 0)
+	add_child(_lightning)
+	_lightning_card = MeshInstance3D.new()
+	var sky_quad := QuadMesh.new()
+	sky_quad.size = Vector2(62.0, 34.0)
+	_lightning_card.mesh = sky_quad
+	_lightning_card.position = Vector3(35.0, 31.0, -76.0)
+	_lightning_material = _flash_material()
+	_lightning_material.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
+	_lightning_card.material_override = _lightning_material
+	_lightning_card.cast_shadow = \
+			GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(_lightning_card)
+	_ground_flash = MeshInstance3D.new()
+	var ground_quad := QuadMesh.new()
+	ground_quad.size = Vector2(34.0, 26.0)
+	_ground_flash.mesh = ground_quad
+	_ground_flash.rotation_degrees.x = -90
+	_ground_flash_material = _flash_material()
+	_ground_flash.material_override = _ground_flash_material
+	_ground_flash.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(_ground_flash)
+
+
+func _flash_material() -> StandardMaterial3D:
+	var material := StandardMaterial3D.new()
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	material.albedo_color = Color(0.52, 0.64, 0.90, 0.0)
+	var gradient := Gradient.new()
+	gradient.set_color(0, Color(0.70, 0.80, 1.0, 0.72))
+	gradient.set_color(1, Color(0.24, 0.32, 0.50, 0.0))
+	var texture := GradientTexture2D.new()
+	texture.gradient = gradient
+	texture.fill = GradientTexture2D.FILL_RADIAL
+	texture.fill_from = Vector2(0.5, 0.5)
+	texture.fill_to = Vector2(0.5, 0.0)
+	material.albedo_texture = texture
+	return material
 
 
 func _make_rain() -> CPUParticles3D:
@@ -215,6 +274,7 @@ func _make_leaves() -> CPUParticles3D:
 
 func _process(delta: float) -> void:
 	_t += delta
+	_update_lightning(delta)
 	# Gusts: two out-of-phase sines so the wind never repeats on a beat the
 	# ear or eye can latch onto.
 	var gust := sin(_t * GUST_SPEED) * 0.6 + sin(_t * GUST_SPEED * 2.7) * 0.4
@@ -242,3 +302,28 @@ func _process(delta: float) -> void:
 	_rain.emitting = outside
 	_splash.emitting = outside
 	_leaves.emitting = outside
+
+
+func _update_lightning(delta: float) -> void:
+	_lightning_wait -= delta
+	if _lightning_age < 0.0 and _lightning_wait <= 0.0:
+		_lightning_age = 0.0
+		_lightning_wait = _rng.randf_range(22.0, 48.0)
+		_lightning.rotation_degrees.y = _rng.randf_range(-110.0, 110.0)
+	var level := 0.0
+	if _lightning_age >= 0.0:
+		_lightning_age += delta
+		# Two distant impulses, separated enough to read as cloud lightning
+		# rather than a game-camera flash.
+		level = exp(-pow((_lightning_age - 0.07) / 0.045, 2.0))
+		level += exp(-pow((_lightning_age - 0.31) / 0.075, 2.0)) * 0.58
+		if _lightning_age > 0.72:
+			_lightning_age = -1.0
+			level = 0.0
+	if _lightning_material:
+		_lightning_material.albedo_color.a = level * 0.34
+	if _ground_flash_material:
+		_ground_flash_material.albedo_color.a = level * 0.11
+	if _player and _ground_flash:
+		_ground_flash.global_position = Vector3(
+				_player.global_position.x, 0.045, _player.global_position.z)

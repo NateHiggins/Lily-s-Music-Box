@@ -64,7 +64,7 @@ func setup(elevator_data: Dictionary) -> void:
 	_bell.volume_db = -10.0
 	_cabin.add_child(_bell)
 	_hum = AudioStreamPlayer3D.new()
-	_hum.stream = PropAudio.get_stream("hum_loop")
+	_hum.stream = PropAudio.get_stream("elevator_machine_loop")
 	_hum.volume_db = -60.0
 	_cabin.add_child(_hum)
 	_hum.play()

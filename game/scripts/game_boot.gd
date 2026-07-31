@@ -7,6 +7,7 @@ const ACTIONS := {
 	"move_left": KEY_A, "move_right": KEY_D,
 	"run": KEY_SHIFT, "crouch": KEY_C, "jump": KEY_SPACE,
 	"interact": KEY_E, "flashlight": KEY_L,
+	"music_player": KEY_M,
 	"noclip": KEY_V, "debug_panel": KEY_F1,
 	"intro": KEY_F2,
 	"distort_map": KEY_F3,

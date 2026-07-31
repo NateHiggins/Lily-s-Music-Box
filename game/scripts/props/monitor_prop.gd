@@ -6,6 +6,10 @@ extends FunctionalProp
 
 var _screen_mats: Array[StandardMaterial3D] = []
 var _incoming_label: Label3D
+const FOUND_SCREEN_ATLASES := [
+	"res://assets/building/textures/found_art/screens_01.webp",
+	"res://assets/building/textures/found_art/screens_02.webp",
+]
 
 
 func _build_visual() -> void:
@@ -14,8 +18,13 @@ func _build_visual() -> void:
 		make_box(Vector3(0.03, 0.34, 0.55), off, Color(0.1, 0.1, 0.11))
 		var mat := StandardMaterial3D.new()
 		mat.albedo_color = Color(0.05, 0.06, 0.07)
+		var screen_texture := _found_screen_texture(i)
+		if screen_texture != null:
+			mat.albedo_texture = screen_texture
 		mat.emission_enabled = true
 		mat.emission = Color(0.55, 0.62, 0.66)
+		if screen_texture != null:
+			mat.emission_texture = screen_texture
 		mat.emission_energy_multiplier = 0.7
 		var screen := make_box(Vector3(0.005, 0.30, 0.51),
 				off + Vector3(0.018, 0, 0), Color.BLACK)
@@ -36,6 +45,25 @@ func _build_visual() -> void:
 	light.omni_range = 2.2
 	light.position = Vector3(0.3, 0.3, 0)
 	add_child(light)
+
+
+func _found_screen_texture(screen_index: int) -> Texture2D:
+	var variation := absi(hash(name) + screen_index * 5) % 8
+	var atlas := load(FOUND_SCREEN_ATLASES[variation / 4]) as Texture2D
+	if atlas == null:
+		return null
+	var image := atlas.get_image()
+	if image == null or image.is_empty():
+		return atlas
+	var half := Vector2i(image.get_width() / 2, image.get_height() / 2)
+	var col := variation % 2
+	var row := (variation % 4) / 2
+	var inset := maxi(5, mini(half.x, half.y) / 96)
+	var tile := image.get_region(Rect2i(
+			Vector2i(col * half.x + inset, row * half.y + inset),
+			half - Vector2i(inset * 2, inset * 2)))
+	tile.generate_mipmaps()
+	return ImageTexture.create_from_image(tile)
 
 
 func _start_normal_function() -> void:

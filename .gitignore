@@ -32,3 +32,11 @@ art/blender/meshy/*/
 # Broadcast build intermediates. build_broadcast.py writes ~110 short mp4s
 # beside the reel while assembling it; the .ogv is the deliverable.
 game/assets/video/_broadcast_work/
+
+# Raw audio source libraries. The game loads the processed files beside
+# them; the masters (marked .gdignore by their own author) are ~950 MB of
+# .wav/.flac that would triple the repository. soundbits/ is the untouched
+# vendor library the picks were made from.
+game/assets/audio/soundbits/
+game/assets/audio/freesound/source/
+game/assets/audio/music/source/

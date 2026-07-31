@@ -34,20 +34,20 @@ func _build_visual() -> void:
 			[Vector3(W + 0.12, 0.07, 0.09), Vector3(0.0, H + 0.045, 0.0)]]:
 		var piece := make_box(spec[0], spec[1], Color.WHITE)
 		piece.material_override = frame
-		_leaf.add_child(piece)
+		piece.reparent(_leaf)
 	var slab := make_box(Vector3(W, H, T), Vector3(0.0, H / 2, 0.0), Color.WHITE)
 	slab.material_override = panel
-	_leaf.add_child(slab)
+	slab.reparent(_leaf)
 	# two sunk panels, so it reads as period joinery and not a plywood blank
 	for oy in [H * 0.30, H * 0.72]:
 		var inset := make_box(Vector3(W - 0.20, H * 0.30, 0.012),
 				Vector3(0.0, oy, T / 2 + 0.004), Color.WHITE)
 		inset.material_override = frame
-		_leaf.add_child(inset)
+		inset.reparent(_leaf)
 	var knob := make_cyl(0.028, 0.028, 0.05,
 			Vector3(W / 2 - 0.09, 1.02, T / 2 + 0.03), Color.WHITE)
 	knob.material_override = smat("brass", Color(0.68, 0.55, 0.24))
-	_leaf.add_child(knob)
+	knob.reparent(_leaf)
 	_leaf.visible = false
 
 

@@ -94,6 +94,9 @@ func interact_prompt() -> String:
 
 
 func interact(_player: Node) -> void:
+	var music := get_tree().get_first_node_in_group("music_director")
+	if music and music.try_music_conversation(resident_id):
+		return
 	RealityCases.interact_with_resident(resident_id)
 
 

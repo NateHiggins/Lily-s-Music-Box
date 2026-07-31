@@ -87,6 +87,10 @@ var weather: WeatherFX
 var mina_manifestation: MinaCaptionManifestation
 var mina_gameplay: MinaCaseGameplay
 var portal_rule_display: PortalRuleDisplay
+var environment_detail_pass: OrisonDetailPass
+var exterior_detail_pass: ExteriorDetailPass
+var found_art_pass: FoundArtPass
+var maintenance_headquarters: MaintenanceHeadquarters
 var objective_tracker: ObjectiveTracker
 var map_distortion_lab: MapDistortionLab
 var safety_net: SafetyNet
@@ -94,6 +98,7 @@ var sanity: SanityDirector
 var intrusions: Intrusions
 var fourth_wall: FourthWallLayer
 var ambient_soundscape: AmbientSoundscape
+var music_director: OrisonMusicDirector
 var affected_prop_count := 0
 var reality_controllers: Dictionary = {}
 var show_all_floors := false
@@ -112,6 +117,9 @@ func _ready() -> void:
 		node.name = fid
 		add_child(node)
 		floor_nodes[fid] = node
+	environment_detail_pass = OrisonDetailPass.new()
+	add_child(environment_detail_pass)
+	var detail_stats := environment_detail_pass.build(layout, floor_nodes)
 	var railing_polish := OrisonRailingPolish.new()
 	add_child(railing_polish)
 	var railing_details := railing_polish.build(layout)
@@ -142,6 +150,10 @@ func _ready() -> void:
 	# fire before the player has sat down, so the ordering is safe.
 	call_interface.world = self
 	_spawn_props()
+	exterior_detail_pass = ExteriorDetailPass.new()
+	add_child(exterior_detail_pass)
+	exterior_detail_pass.build(layout, floor_nodes["F01"])
+	exterior_detail_pass.configure_street_lights(self)
 	_spawn_npc_placeholders()
 	# Eighteen people with somewhere to be, and a mesh instead of a sprite
 	# for whoever has one yet.
@@ -155,14 +167,20 @@ func _ready() -> void:
 	_spawn_character_memory_art()
 	_spawn_character_wall_art()
 	_spawn_hallway_art()
+	found_art_pass = FoundArtPass.new()
+	found_art_pass.name = "FoundArtPass"
+	add_child(found_art_pass)
+	found_art_pass.build(layout, floor_nodes)
 	_build_front_entry_details()
 	# First real character mesh, standing in the lobby east of the runner so
-	# it faces whoever comes in off the street. Static and non-colliding -
+	# it faces whoever comes in off the street. Static and non-colliding —
 	# see lobby_placeholder.gd.
 	lobby_figure = LobbyPlaceholder.new()
 	lobby_figure.name = "LobbyPlaceholder"
 	lobby_figure.setup(Vector2(2.30, -8.10), 0.0, 0.0)
 	add_child(lobby_figure)
+	maintenance_headquarters = MaintenanceHeadquarters.new()
+	floor_nodes["F01"].add_child(maintenance_headquarters)
 	objective_tracker = ObjectiveTracker.new()
 	objective_tracker.name = "ObjectiveTracker"
 	add_child(objective_tracker)
@@ -194,6 +212,9 @@ func _ready() -> void:
 	ambient_soundscape = AmbientSoundscape.new()
 	ambient_soundscape.setup(player)
 	add_child(ambient_soundscape)
+	music_director = OrisonMusicDirector.new()
+	music_director.setup(self)
+	add_child(music_director)
 	virus_director = VirusSoundDirector.new()
 	add_child(virus_director)
 	virus_director.setup(self)
@@ -226,6 +247,7 @@ func _ready() -> void:
 	sanity.name = "SanityDirector"
 	add_child(sanity)
 	sanity.setup(self, player, intrusions, fourth_wall)
+	ambient_soundscape.bind_sanity(sanity)
 	weather = WeatherFX.new()
 	weather.name = "WeatherFX"
 	weather.setup(player)
@@ -246,6 +268,8 @@ func _ready() -> void:
 			% [floor_nodes.size(), n_occ] +
 			"%d windows lit, %d railing details, player in lobby"
 			% [n_lit, railing_details])
+	print("[BUILDING] %d low-overhead environment details and %d story decals"
+			% [detail_stats.details, detail_stats.decals])
 
 
 func _build_environment() -> void:
@@ -256,7 +280,7 @@ func _build_environment() -> void:
 	var env := Environment.new()
 	var panorama := load(
 			"res://assets/building/textures/sky/" +
-			"orison_half_dome_night_4k.png") as Texture2D
+			"orison_queens_night_half_dome_4k.png") as Texture2D
 	env.background_mode = Environment.BG_COLOR
 	env.background_color = Color(0.015, 0.02, 0.035)
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
@@ -281,7 +305,7 @@ func _build_environment() -> void:
 	var moon := DirectionalLight3D.new()
 	moon.name = "ExteriorMoon"
 	moon.light_color = Color(0.65, 0.7, 0.9)
-	moon.light_energy = 0.10
+	moon.light_energy = 0.055
 	moon.rotation_degrees = Vector3(-38, 30, 0)
 	moon.shadow_enabled = true
 	moon.shadow_bias = 0.035
@@ -313,7 +337,7 @@ void fragment() {
 	// immediately so skyline pixels never stretch into vertical bars.
 	float elevation = asin(clamp(direction.y, 0.0, 1.0));
 	float v = 1.0 - elevation / (0.5 * PI);
-	vec3 color = texture(panorama, vec2(u, v)).rgb;
+	vec3 color = texture(panorama, vec2(u, v)).rgb * 0.76;
 	if (direction.y < 0.0) {
 		float haze = smoothstep(0.0, 0.025, -direction.y);
 		color = mix(color, vec3(0.018, 0.025, 0.040), haze);

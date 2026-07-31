@@ -7,6 +7,7 @@ extends FunctionalProp
 var _body: Node3D
 var _knock: AudioStreamPlayer3D
 var _tick: AudioStreamPlayer3D
+var _whistle: AudioStreamPlayer3D
 var _shake := 0.0
 
 
@@ -15,6 +16,7 @@ func _build_visual() -> void:
 	## between bulbous headers, on cabriole-ish feet, with a hand valve.
 	_body = Node3D.new()
 	add_child(_body)
+	add_to_group("radiators")
 	# a century of repaints: roughly a third of the building's radiators
 	# got the landlord's aluminum paint (which is why pre-war radiators
 	# so often run silver); the rest kept their dark enamel
@@ -67,20 +69,31 @@ func _build_visual() -> void:
 	merge_static(_body)
 	_knock = make_emitter("knock", -6.0)
 	_tick = make_emitter("tick", -16.0)
+	_whistle = make_emitter("radiator_whistle", -24.0)
 
 
 func _start_normal_function() -> void:
 	state = PState.OPERATING
-	_normal_tick_loop()
 
 
-func _normal_tick_loop() -> void:
-	while is_inside_tree():
-		await get_tree().create_timer(rng.randf_range(6.0, 16.0), false).timeout
-		if not is_inside_tree():
-			return
-		if state == PState.OPERATING:
-			_tick.pitch_scale = rng.randf_range(0.85, 1.2)
+## Called by AmbientSoundscape. Central scheduling lets one pipe answer
+## another across the building instead of every radiator ticking alone.
+func play_ambient_cycle(kind: String, intensity := 0.5) -> void:
+	if state != PState.OPERATING:
+		return
+	match kind:
+		"whistle":
+			_whistle.volume_db = lerpf(-30.0, -19.0, intensity)
+			_whistle.pitch_scale = rng.randf_range(0.92, 1.05)
+			_whistle.play()
+		"knock":
+			_knock.volume_db = lerpf(-18.0, -8.0, intensity)
+			_knock.pitch_scale = rng.randf_range(0.88, 1.08)
+			_knock.play()
+			_shake = maxf(_shake, intensity * 0.003)
+		_:
+			_tick.volume_db = lerpf(-25.0, -14.0, intensity)
+			_tick.pitch_scale = rng.randf_range(0.82, 1.18)
 			_tick.play()
 
 

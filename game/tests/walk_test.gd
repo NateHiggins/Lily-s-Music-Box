@@ -87,12 +87,6 @@ func _run() -> void:
 	# driven explicitly in _sanity_checks() at the end.
 	if root.sanity:
 		root.sanity.stand_down()
-	# The sanity director moves furniture and rewrites light energies on its
-	# own schedule, which is exactly what the lighting and prop assertions
-	# below measure. It gets stood down for the deterministic pass and is
-	# driven explicitly in _sanity_checks() at the end.
-	if root.sanity:
-		root.sanity.stand_down()
 
 	var levels: Dictionary = root.layout["meta"]["levels"]
 	for fid in levels:
@@ -124,6 +118,25 @@ func _run() -> void:
 	var residents := get_tree().get_nodes_in_group("resident_placeholders")
 	_check(residents.size() == 18,
 			"all resident NPC placeholders spawned (%d)" % residents.size())
+	var hq: MaintenanceHeadquarters = root.maintenance_headquarters
+	_check(hq != null, "Reality Maintenance headquarters placed")
+	_check(hq != null and hq.trophy_slot_count() == 18,
+			"headquarters has one trophy slot per resident case")
+	_check(hq != null and hq.unlocked_gear_count() >= 1,
+			"headquarters issues the starting inspection tool")
+	var exterior: ExteriorDetailPass = root.exterior_detail_pass
+	_check(exterior != null and exterior.detail_count >= 250,
+			"exterior finish details stay batched (%d)" %
+			[exterior.detail_count if exterior else 0])
+	_check(exterior != null and exterior.puddle_count == 8,
+			"reflective street puddles placed")
+	_check(exterior != null and exterior.decal_count == 11,
+			"exterior damage decals placed")
+	_check(exterior != null and exterior.faulty_lamp_count == 1,
+			"one street lamp carries the intermittent fault")
+	_check(root.weather != null
+			and root.weather.get_node_or_null("DistantLightning") != null,
+			"distant lightning source is active")
 	# Placeholders land at the centre of each resident's main room, which is
 	# where the door-to-bedroom route runs. Solid ones block it, and the
 	# generator's movement audit — which authors those clearances — cannot
@@ -808,121 +821,163 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	_broadcast_checks()
 	await _lobby_figure_checks()
 	await _sanity_checks()
-	await _sanity_checks()
 	Conductor.infection = 0.15
 	Conductor.origin_node = "B1_BOILER_01"
 
 
-## The sanity system. Three things need proving and none of them are "does
-## it scare you": that the safety net catches a player the world has dropped,
-## that a poltergeist borrows the building rather than damaging it, and that
-## nothing the meta layer does can strand someone.
-func _sanity_checks() -> void:
-	var net: SafetyNet = root.safety_net
-	_check(net != null, "safety net attached to the player")
-	var director: SanityDirector = root.sanity
-	_check(director != null, "sanity director present")
-	if net == null or director == null:
+## The first character mesh. The checks that matter are not "is it pretty"
+## but the two ways a character can quietly break this build: standing in a
+## route the generator's movement audit believes is clear, and costing more
+## geometry than the room it stands in.
+func _lobby_figure_checks() -> void:
+	var figure: LobbyPlaceholder = root.lobby_figure
+	_check(figure != null, "lobby character placed")
+	if figure == null:
 		return
+	# In the lobby, and standing ON the floor rather than buried in it —
+	# Meshy puts the origin at the mesh centre, not between the feet.
+	var p := figure.global_position
+	_check(p.z > 6.9 and p.z < 9.7 and absf(p.x) < 5.4,
+			"character is inside the lobby (%.2f, %.2f)" % [p.x, p.z])
+	_check(absf(p.y - LobbyPlaceholder.FOOT_OFFSET) < 0.02,
+			"character stands on the floor, not through it (y=%.2f)" % p.y)
+	# Non-colliding, like the eighteen resident placeholders. The audit
+	# authors clearances the generator can see; actors added in Godot are
+	# invisible to it, so a solid one is a route that passes on paper and
+	# fails underfoot.
+	var solid := 0
+	for node in _descendants(figure):
+		if node is CollisionObject3D and node.collision_layer != 0:
+			solid += 1
+	_check(solid == 0,
+			"character does not obstruct the lobby (%d colliders)" % solid)
+	var tris := figure.triangle_count()
+	_check(tris > 0 and tris < 60000,
+			"character geometry stays within budget (%d tris)" % tris)
+	# Meshy ships one animation per file, each with a full copy of the skin.
+	# The merge folds them onto a single rig, and the failure mode is silent:
+	# the exporter drops whichever action is assigned as active, so a clip
+	# goes missing without anything erroring.
+	_check(figure.anim != null, "character has an AnimationPlayer")
+	_check(figure.clips.size() == 10,
+			"all ten clips survived the merge (%d)" % figure.clips.size())
+	_check(figure.anim != null and figure.anim.is_playing(),
+			"character is animating, not frozen in bind pose")
+	# Root motion would fight the navigation; the clips were authored in
+	# place and have to stay that way.
+	var drift_ok := true
+	if figure.anim:
+		var before := figure.global_position
+		figure.play_clip("walk")
+		await get_tree().create_timer(1.1).timeout
+		drift_ok = figure.global_position.distance_to(before) < 0.05
+		figure.play_clip(LobbyPlaceholder.DEFAULT_CLIP)
+	_check(drift_ok, "walk cycle does not translate the character")
 
-	# --- the net. Put the player somewhere real, let it take an anchor,
-	# then throw them out of the world and prove they come back.
-	net.enabled = true
-	root.player.global_position = Vector3(4.3, 0.15, 0.0)  # F01 corridor
-	root.player.velocity = Vector3.ZERO
-	await get_tree().create_timer(0.9).timeout
-	var anchor := net.anchor
-	_check(anchor.y > -6.0, "net anchored somewhere standable (y=%.2f)" % anchor.y)
-	var before := net.recoveries
-	net.drop_test()
-	await get_tree().create_timer(0.4).timeout
-	_check(net.recoveries == before + 1, "net catches a fall out of the world")
-	_check(root.player.global_position.y > -6.0,
-			"recovered player is back in the building (y=%.2f)"
-			% root.player.global_position.y)
-	# A NaN transform fails every range comparison silently, so it needs its
-	# own path or a corrupted player falls forever while the checks pass.
-	before = net.recoveries
-	root.player.global_position = Vector3(NAN, NAN, NAN)
-	await get_tree().create_timer(0.4).timeout
-	_check(net.recoveries == before + 1, "net catches a non-finite position")
 
-	# --- the cast. Every poltergeist must be a real resident with a
-	# complete ladder, or the director can pick someone who cannot speak.
-	var ids := PoltergeistLibrary.ids()
-	_check(ids.size() == 18, "eighteen poltergeists authored (%d)" % ids.size())
-	var incomplete := 0
-	var orphans := 0
-	for case_id in ids:
-		if not RealityCases.definitions.has(case_id):
-			orphans += 1
-		for tier in [1, 2, 3, 4]:
-			if PoltergeistLibrary.rung(case_id, tier).is_empty():
-				incomplete += 1
-	_check(orphans == 0,
-			"every poltergeist maps to a real resident case (%d orphaned)"
-			% orphans)
-	_check(incomplete == 0,
-			"every poltergeist has all four rungs (%d missing)" % incomplete)
+func _descendants(node: Node) -> Array[Node]:
+	var found: Array[Node] = []
+	for child in node.get_children():
+		found.append(child)
+		found.append_array(_descendants(child))
+	return found
 
-	# --- borrowing, not damaging. Force a rung that possesses props, then
-	# prove the building goes back exactly as it was.
-	root.player.global_position = Vector3(-9.5, 11.25, -4.8)  # 4B, dressed
-	root.player.velocity = Vector3.ZERO
-	await get_tree().create_timer(0.5).timeout
-	var sample: Array = []
-	for child in root.get_children():
-		if child is FunctionalProp and not (child is LightFixtureProp):
-			if child.global_position.distance_to(
-					root.player.global_position) < 9.0:
-				sample.append([child, child.transform])
-	_check(sample.size() >= 3,
-			"props within reach of the test position (%d)" % sample.size())
-	var fired := director.intrusion_count
-	director.force("mina_caption_crisis", 3)
-	_check(director.intrusion_count == fired + 1,
-			"forcing a rung performs an intrusion")
-	director.intrusions.restore_all()
-	var moved := 0
-	for entry in sample:
-		if not entry[0].transform.is_equal_approx(entry[1]):
-			moved += 1
-	_check(moved == 0,
-			"possessed props restore exactly (%d left displaced)" % moved)
-	_check(director.intrusions.held_count() == 0,
-			"nothing is still held after a restore")
 
-	# --- the meta layer never strands anyone.
-	var meta: FourthWallLayer = root.fourth_wall
-	_check(meta != null, "fourth-wall layer present")
-	if meta:
-		_check(meta.play("save_corrupt"), "a meta effect can be played")
-		_check(meta.is_busy(), "meta effect holds the screen while it runs")
-		_check(not meta.play("session_time"),
-				"meta effects never overlap each other")
-		meta.force_finish()
-		_check(not meta.is_busy(), "meta effect always clears itself")
-		# Every effect named by a poltergeist has to actually exist, or a
-		# rung-four address silently does nothing at all.
-		var missing: Array[String] = []
-		for case_id in ids:
-			for act in PoltergeistLibrary.rung(case_id, 4):
-				if str(act[0]) != "fourth_wall":
-					continue
-				if not meta.play(str(act[1])):
-					missing.append(str(act[1]))
-				meta.force_finish()
-		_check(missing.is_empty(),
-				"every authored meta effect is implemented (missing %s)"
-				% [missing])
+## The televisions. The assertion that matters is the decode count: one
+## shared viewport feeding every screen, not one video player per set.
+func _broadcast_checks() -> void:
+	var tv: BroadcastScreens = root.broadcast
+	_check(tv != null, "broadcast pass present")
+	if tv == null:
+		return
+	var stats: Dictionary = tv.stats()
+	_check(int(stats.screens) > 0,
+			"screen surfaces carry the broadcast (%d)" % stats.screens)
+	_check(bool(stats.playing), "the reel is running")
+	# One SubViewport, one VideoStreamPlayer, however many televisions.
+	var players := 0
+	var stack: Array = [root]
+	while not stack.is_empty():
+		var node: Node = stack.pop_back()
+		if node is VideoStreamPlayer:
+			players += 1
+		for child in node.get_children():
+			stack.append(child)
+	_check(players == 1,
+			"one decode for the whole building (%d players)" % players)
+	# Sound is synthesised from the procedural library and synchronised to
+	# the reel through a sidecar manifest, so the assertion that matters is
+	# that the manifest agrees with the video it was built beside — an
+	# eight-second drift here would send every set to static a dozen cuts
+	# early, which is exactly what a first pass at this did.
+	var sound: BroadcastAudio = tv.audio
+	_check(sound != null, "broadcast audio present")
+	if sound == null:
+		return
+	_check(sound.sets > 0, "every television has an emitter (%d)" % sound.sets)
+	_check(absf(sound._length - tv._video.get_stream_length()) < 1.0,
+			"manifest matches the reel (%.1f s vs %.1f s)"
+			% [sound._length, tv._video.get_stream_length()])
+	# The reel is a variety hour, not a channel-hop: programmes run whole and
+	# the signal only occasionally goes, so probing fixed timestamps would
+	# mostly land mid-programme. Assert the composition instead, then prove
+	# the lookup resolves each kind at its own recorded start.
+	var present := {}
+	for segment in sound._segments:
+		present[str(segment["kind"])] = true
+	_check(present.has("title") and present.has("channel")
+			and present.has("advert") and present.has("glitch"),
+			"reel carries titles, programmes, adverts and interference %s"
+			% [present.keys()])
+	var resolved := true
+	for segment in sound._segments:
+		# Half a frame in, so the lookup cannot land on the boundary.
+		if sound._kind_at(float(segment["t"]) + 0.02) != str(segment["kind"]):
+			resolved = false
+	_check(resolved,
+			"every segment resolves to its own kind (%d segments)"
+			% sound._segments.size())
+	# Programmes should dominate. If interference is more than a fifth of
+	# the cuts it has stopped being interference and become the format.
+	var glitches := 0
+	for segment in sound._segments:
+		if str(segment["kind"]) == "glitch":
+			glitches += 1
+	_check(glitches * 5 < sound._segments.size(),
+			"interference stays occasional (%d of %d segments)"
+			% [glitches, sound._segments.size()])
 
-	# --- and it stays invisible. Pressure is readable by tooling and tests,
-	# never by the shipped HUD.
-	_check(director.pressure >= 0.0 and director.pressure <= 1.0,
-			"pressure stays normalised (%.2f)" % director.pressure)
-	director.stand_down()
-	_check(director.intrusions.held_count() == 0,
-			"standing down leaves the building clean")
+
+## Light under the closed doors. The interesting assertions are not "does it
+## exist" but "is it in one draw call" and "does it agree with the windows" —
+## a per-door light would starve the corridor fixtures the LightRig protects,
+## and a door that leaks light from a room whose windows are dark is the
+## building caught lying about who is awake.
+func _door_glow_checks() -> void:
+	var glow: OrisonDoorGlow = root.door_glow
+	_check(glow != null, "door spill pass present")
+	if glow == null:
+		return
+	var stats: Dictionary = glow.stats()
+	_check(int(stats.doors) > 50,
+			"every closed door considered (%d)" % stats.doors)
+	_check(int(stats.lit) > 0 and int(stats.lit) < int(stats.doors),
+			"some doors leak and most do not (%d of %d)"
+			% [stats.lit, stats.doors])
+	var meshes := 0
+	for child in glow.get_children():
+		if child is MeshInstance3D:
+			meshes += 1
+	_check(meshes == 1,
+			"all door spill batched into one mesh (%d)" % meshes)
+	# The bar has to sit above the 12 mm terrazzo finish, not on the slab:
+	# below it the light is under the floor and invisible, which is exactly
+	# where the first version of this put it.
+	for child in glow.get_children():
+		if child is MeshInstance3D:
+			var box: AABB = child.get_aabb()
+			_check(box.position.y > 0.012,
+					"spill clears the floor finish (y=%.3f)" % box.position.y)
 
 
 ## The sanity system. Three things need proving and none of them are "does
@@ -1091,161 +1146,6 @@ func _sanity_checks() -> void:
 ## lists are here so the next person to touch the art catalogs has the
 ## leads; turning either into a real invariant needs the placement rules
 ## pinned down first, and that is a job of its own.
-## The first character mesh. The checks that matter are not "is it pretty"
-## but the two ways a character can quietly break this build: standing in a
-## route the generator's movement audit believes is clear, and costing more
-## geometry than the room it stands in.
-func _lobby_figure_checks() -> void:
-	var figure: LobbyPlaceholder = root.lobby_figure
-	_check(figure != null, "lobby character placed")
-	if figure == null:
-		return
-	# In the lobby, and standing ON the floor rather than buried in it —
-	# Meshy puts the origin at the mesh centre, not between the feet.
-	var p := figure.global_position
-	_check(p.z > 6.9 and p.z < 9.7 and absf(p.x) < 5.4,
-			"character is inside the lobby (%.2f, %.2f)" % [p.x, p.z])
-	_check(absf(p.y - LobbyPlaceholder.FOOT_OFFSET) < 0.02,
-			"character stands on the floor, not through it (y=%.2f)" % p.y)
-	# Non-colliding, like the eighteen resident placeholders. The audit
-	# authors clearances the generator can see; actors added in Godot are
-	# invisible to it, so a solid one is a route that passes on paper and
-	# fails underfoot.
-	var solid := 0
-	for node in _descendants(figure):
-		if node is CollisionObject3D and node.collision_layer != 0:
-			solid += 1
-	_check(solid == 0,
-			"character does not obstruct the lobby (%d colliders)" % solid)
-	var tris := figure.triangle_count()
-	_check(tris > 0 and tris < 60000,
-			"character geometry stays within budget (%d tris)" % tris)
-	# Meshy ships one animation per file, each with a full copy of the skin.
-	# The merge folds them onto a single rig, and the failure mode is silent:
-	# the exporter drops whichever action is assigned as active, so a clip
-	# goes missing without anything erroring.
-	_check(figure.anim != null, "character has an AnimationPlayer")
-	_check(figure.clips.size() == 10,
-			"all ten clips survived the merge (%d)" % figure.clips.size())
-	_check(figure.anim != null and figure.anim.is_playing(),
-			"character is animating, not frozen in bind pose")
-	# Root motion would fight the navigation; the clips were authored in
-	# place and have to stay that way.
-	var drift_ok := true
-	if figure.anim:
-		var before := figure.global_position
-		figure.play_clip("walk")
-		await get_tree().create_timer(1.1).timeout
-		drift_ok = figure.global_position.distance_to(before) < 0.05
-		figure.play_clip(LobbyPlaceholder.DEFAULT_CLIP)
-	_check(drift_ok, "walk cycle does not translate the character")
-
-
-func _descendants(node: Node) -> Array[Node]:
-	var found: Array[Node] = []
-	for child in node.get_children():
-		found.append(child)
-		found.append_array(_descendants(child))
-	return found
-
-
-## The televisions. The assertion that matters is the decode count: one
-## shared viewport feeding every screen, not one video player per set.
-func _broadcast_checks() -> void:
-	var tv: BroadcastScreens = root.broadcast
-	_check(tv != null, "broadcast pass present")
-	if tv == null:
-		return
-	var stats: Dictionary = tv.stats()
-	_check(int(stats.screens) > 0,
-			"screen surfaces carry the broadcast (%d)" % stats.screens)
-	_check(bool(stats.playing), "the reel is running")
-	# One SubViewport, one VideoStreamPlayer, however many televisions.
-	var players := 0
-	var stack: Array = [root]
-	while not stack.is_empty():
-		var node: Node = stack.pop_back()
-		if node is VideoStreamPlayer:
-			players += 1
-		for child in node.get_children():
-			stack.append(child)
-	_check(players == 1,
-			"one decode for the whole building (%d players)" % players)
-	# Sound is synthesised from the procedural library and synchronised to
-	# the reel through a sidecar manifest, so the assertion that matters is
-	# that the manifest agrees with the video it was built beside — an
-	# eight-second drift here would send every set to static a dozen cuts
-	# early, which is exactly what a first pass at this did.
-	var sound: BroadcastAudio = tv.audio
-	_check(sound != null, "broadcast audio present")
-	if sound == null:
-		return
-	_check(sound.sets > 0, "every television has an emitter (%d)" % sound.sets)
-	_check(absf(sound._length - tv._video.get_stream_length()) < 1.0,
-			"manifest matches the reel (%.1f s vs %.1f s)"
-			% [sound._length, tv._video.get_stream_length()])
-	# The reel is a variety hour, not a channel-hop: programmes run whole and
-	# the signal only occasionally goes, so probing fixed timestamps would
-	# mostly land mid-programme. Assert the composition instead, then prove
-	# the lookup resolves each kind at its own recorded start.
-	var present := {}
-	for segment in sound._segments:
-		present[str(segment["kind"])] = true
-	_check(present.has("title") and present.has("channel")
-			and present.has("advert") and present.has("glitch"),
-			"reel carries titles, programmes, adverts and interference %s"
-			% [present.keys()])
-	var resolved := true
-	for segment in sound._segments:
-		# Half a frame in, so the lookup cannot land on the boundary.
-		if sound._kind_at(float(segment["t"]) + 0.02) != str(segment["kind"]):
-			resolved = false
-	_check(resolved,
-			"every segment resolves to its own kind (%d segments)"
-			% sound._segments.size())
-	# Programmes should dominate. If interference is more than a fifth of
-	# the cuts it has stopped being interference and become the format.
-	var glitches := 0
-	for segment in sound._segments:
-		if str(segment["kind"]) == "glitch":
-			glitches += 1
-	_check(glitches * 5 < sound._segments.size(),
-			"interference stays occasional (%d of %d segments)"
-			% [glitches, sound._segments.size()])
-
-
-## Light under the closed doors. The interesting assertions are not "does it
-## exist" but "is it in one draw call" and "does it agree with the windows" —
-## a per-door light would starve the corridor fixtures the LightRig protects,
-## and a door that leaks light from a room whose windows are dark is the
-## building caught lying about who is awake.
-func _door_glow_checks() -> void:
-	var glow: OrisonDoorGlow = root.door_glow
-	_check(glow != null, "door spill pass present")
-	if glow == null:
-		return
-	var stats: Dictionary = glow.stats()
-	_check(int(stats.doors) > 50,
-			"every closed door considered (%d)" % stats.doors)
-	_check(int(stats.lit) > 0 and int(stats.lit) < int(stats.doors),
-			"some doors leak and most do not (%d of %d)"
-			% [stats.lit, stats.doors])
-	var meshes := 0
-	for child in glow.get_children():
-		if child is MeshInstance3D:
-			meshes += 1
-	_check(meshes == 1,
-			"all door spill batched into one mesh (%d)" % meshes)
-	# The bar has to sit above the 12 mm terrazzo finish, not on the slab:
-	# below it the light is under the floor and invisible, which is exactly
-	# where the first version of this put it.
-	for child in glow.get_children():
-		if child is MeshInstance3D:
-			var box: AABB = child.get_aabb()
-			_check(box.position.y > 0.012,
-					"spill clears the floor finish (y=%.3f)" % box.position.y)
-
-
 func _wall_art_report() -> void:
 	var space := get_viewport().world_3d.direct_space_state
 	var blocked: Array[String] = []
