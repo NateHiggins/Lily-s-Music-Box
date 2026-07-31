@@ -166,7 +166,7 @@ const POLTERGEISTS := {
 	"wound": "Leaving forever is how they avoid ever deciding to leave.",
 	"tell": [["prop_drift", 1]],
 	"pattern": [["distort", "dollhouse"], ["sound", "knock"]],
-	"reenact": [["distort", "dollhouse"], ["prop_scatter", 3],
+	"reenact": [["distort", "dollhouse"], ["prop_vanish", 3],
 			["whisper", "checkout is at eleven. checkout is at eleven."]],
 	"address": [["fourth_wall", "checkout"]],
 	"voice": "YOUR STAY HAS BEEN EXTENDED INDEFINITELY. NO ACTION REQUIRED.",
@@ -205,7 +205,9 @@ const POLTERGEISTS := {
 	"unit": "6C", "resident": "Mae Kessler",
 	"wound": "Two true versions of her family cannot both be survivable.",
 	"tell": [["prop_turn", 1]],
-	"pattern": [["museum_label", 2], ["prop_drift", 2]],
+	# Two histories, and an object that is in both and neither: it is gone
+	# when you look away and back, which is the shape of her whole problem.
+	"pattern": [["museum_label", 2], ["prop_vanish", 2]],
 	"reenact": [["museum_label", 4],
 			["whisper", "both of those happened. both of them."]],
 	"address": [["fourth_wall", "provenance"]],

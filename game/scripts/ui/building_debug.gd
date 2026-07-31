@@ -471,6 +471,8 @@ func _process(_delta: float) -> void:
 		lines.append("held %d  still %.1fs  net recoveries %d" % [
 				s.held, s.still_for,
 				root.safety_net.recoveries if root.safety_net else 0])
+		lines.append("gaze %s %.1fs  unseen %d  witnessed %d" % [
+				s.gaze, s.gaze_hold, s.ignored, s.witnessed])
 	var case_id := _selected_case()
 	var state: Dictionary = RealityState.case_state(case_id)
 	lines.append("%s: %s · repairs %d · recur %d" % [

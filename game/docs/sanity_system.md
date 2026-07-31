@@ -63,6 +63,43 @@ Hidden, 0–1, recomputed every 1.4 s. Sources:
 - behaviour: standing still (attention), running (flight — pushed briefly,
   then backed off, because chasing a fleeing player reads as unfair), and
   whipping the camera around, which means the last one landed
+- **attention**: holding a gaze on one object says the player has found
+  something and is working out what it means, which is the moment an
+  intrusion is worth spending
+- **being ignored**: see below
+- **campaign memory**: how many addresses this player has already been
+  given, persisted, so escalation runs across the whole game and not just
+  the session
+
+## Attention
+
+The director raycasts from the camera every tick and knows what the player
+is looking at and for how long. That does three things.
+
+**It picks the room.** A held gaze names a place more precisely than a
+position does — you can stand in a corridor and be looking into somebody's
+kitchen, and the poltergeist who speaks should be the one whose things you
+are staring at.
+
+**It aims the act.** `_nearby_props()` sorts unseen props ahead of visible
+ones by default, because the strongest version of nearly every act here is
+the one the player did not watch happen. A chair that turns while you watch
+is a special effect; a chair that has turned when you look back is a fact
+about the room you are standing in. `prop_vanish` goes further and will
+*only* take things currently out of view — watching an object blink out is a
+glitch, finding the shelf empty is a memory you now distrust.
+
+**It closes the loop.** Every act records what it touched. If the player's
+gaze lands on any of it within 14 seconds, the building concludes it was
+heard: the insistence counter resets, pressure drops slightly, and it buys
+some quiet. If the window expires untouched, the intrusion was unwitnessed
+and pressure climbs. This is the one place the building deliberately gets
+louder, and it is why a player who blunders through with the camera on the
+floor ends up somewhere worse than one who stops and looks.
+
+Annotation acts mark their anchor props too, even though a label hung over a
+chair does not move the chair — a player who looks at the labelled chair has
+still noticed, and notice is what is being measured.
 
 ## Pacing
 
@@ -142,9 +179,6 @@ ever displayed.
 
 ## Not done yet
 
-- The director reads player behaviour but not player *attention* — where they
-  are looking, and for how long. Staring at the prop that is about to move is
-  the strongest signal available and it is not being used.
 - No per-resident audio. Whispers are text; the sound acts borrow the
   building's own library (radiator knocks, boiler hum) so a poltergeist
   sounds like the building rather than like a different game, but a resident
@@ -152,6 +186,21 @@ ever displayed.
 - Rungs one to three are strong for the residents whose trauma is spatial or
   object-based, and thinner for the ones whose trauma is linguistic. Jonah
   and Mae in particular want acts that do not exist yet.
-- The escalation is per-poltergeist but the *building* has no memory of how
-  many rung-fours the player has witnessed overall. A late-game player should
-  meet a building that has already said most of what it has to say.
+- Gaze is a single ray from the camera centre. It answers "what are you
+  looking at" but not "what is in your peripheral vision", so an act placed
+  just off-centre counts as unseen when the player would plainly notice it.
+
+## A trap worth knowing about
+
+The campaign persists to a user save, and the test suite was silently
+inheriting it. On a machine that had ever opened Mina's case, her evidence
+interactables came up with collision enabled — and one of them, the redaction
+pencil, stands in 2A's living room on the exact line the bedroom walk takes.
+A fresh clone passed; this machine failed. Environment-dependent and
+invisible in the diff.
+
+WalkTest now resets the campaign **before** the building is built, because
+case gameplay reads the state once in `_ready()`. And it *seeds* every case
+rather than merely emptying the table: `_refresh()` early-returns on an empty
+state, leaving interactables at their default enabled, which is worse than
+the save it was escaping. Emptying is not the same as a first launch.

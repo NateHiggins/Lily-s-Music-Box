@@ -50,6 +50,13 @@ const REFRACTORY := {1: 11.0, 2: 19.0, 3: 34.0, 4: 95.0}
 ## who speaks. Beyond this the building speaks in the voice of whoever is
 ## nearest instead.
 const HOME_REACH := 14.0
+## How long the player has to notice what just changed before the building
+## concludes they missed it.
+const NOTICE_WINDOW := 14.0
+## Where the campaign tally lives. Persisted with the rest of the reality
+## state, because the building is supposed to remember across sessions how
+## much it has already said to this player.
+const WITNESS_KEY := "sanity_addresses_witnessed"
 
 var enabled := true
 ## The hidden value. Exposed for the debug panel and the tests ONLY; nothing
@@ -75,6 +82,13 @@ var _last_pos := Vector3.ZERO
 var _look_changes := 0.0
 var _last_forward := Vector3.FORWARD
 var _dwell: Dictionary = {}          # unit -> seconds
+# attention: what the player is actually looking at, and whether they ever
+# looked at the last thing that moved
+var _gaze_node: Node3D = null
+var _gaze_hold := 0.0
+var _watching: Array[Node3D] = []
+var _watch_deadline := 0.0
+var _ignored_streak := 0
 
 
 func setup(building: Node3D, body: Node3D, acts: Intrusions,
@@ -127,6 +141,66 @@ func _observe(delta: float) -> void:
 	var unit := _unit_at(here)
 	if unit != "":
 		_dwell[unit] = float(_dwell.get(unit, 0.0)) + delta
+	_observe_gaze(delta)
+
+
+## Where the player is actually looking, and for how long. This is the
+## strongest signal the system has: standing in a room says very little,
+## while holding your eyes on one object for four seconds says you have
+## found something and are deciding what it means.
+func _observe_gaze(delta: float) -> void:
+	var cam = player.get("camera")
+	if not (cam is Camera3D):
+		return
+	var camera: Camera3D = cam
+	var from: Vector3 = camera.global_position
+	var to: Vector3 = from - camera.global_transform.basis.z * 14.0
+	var query := PhysicsRayQueryParameters3D.create(from, to)
+	if player is CollisionObject3D:
+		query.exclude = [player.get_rid()]
+	var hit := camera.get_world_3d().direct_space_state.intersect_ray(query)
+	var looked: Node3D = null
+	if not hit.is_empty() and hit.collider is Node:
+		# Collision shapes hang below the prop; walk up to the thing that
+		# has a name and a personality.
+		var node: Node = hit.collider
+		while node != null and not (node is FunctionalProp):
+			node = node.get_parent()
+		if node is FunctionalProp:
+			looked = node
+	if looked == _gaze_node:
+		_gaze_hold += delta
+	else:
+		_gaze_node = looked
+		_gaze_hold = 0.0
+	# Did they notice what just moved? Looking at any of the last act's
+	# targets closes the loop.
+	if not _watching.is_empty() and looked != null and _watching.has(looked):
+		_noticed()
+	elif not _watching.is_empty() \
+			and Time.get_ticks_msec() / 1000.0 > _watch_deadline:
+		_ignored()
+
+
+## They looked. The point landed, so the building can afford to be patient:
+## it has been heard, and repeating yourself to someone who is listening is
+## how a haunting becomes noise.
+func _noticed() -> void:
+	_watching.clear()
+	_ignored_streak = 0
+	pressure = maxf(0.0, pressure - 0.05)
+	_quiet_until = maxf(_quiet_until, Time.get_ticks_msec() / 1000.0 + 6.0)
+
+
+## They did not. An intrusion nobody saw is an intrusion that has to be made
+## again — this is the one place the building gets LOUDER on purpose, and it
+## is why a player who ignores the building ends up somewhere worse than one
+## who pays attention. Sitting still and watching is rewarded; blundering
+## through with the camera on the floor is not.
+func _ignored() -> void:
+	_watching.clear()
+	_ignored_streak = mini(_ignored_streak + 1, 4)
+	print("[SANITY] unwitnessed (%d in a row)" % _ignored_streak)
 
 
 ## Which apartment the player is standing in, via the reality controllers
@@ -176,7 +250,21 @@ func _compute_pressure() -> float:
 			- clampf((_running_for - 9.0) / 20.0, 0.0, 0.1)
 	# Checking behind themselves means the last one landed.
 	p += clampf(_look_changes / 26.0, 0.0, 0.09)
+	# Holding a gaze is the strongest attention signal there is: they have
+	# found something and are working out what it means. That is the moment
+	# worth spending an intrusion on.
+	p += clampf(_gaze_hold / 6.0, 0.0, 0.10)
+	# Repeatedly missing what the building does makes it insist.
+	p += _ignored_streak * 0.06
+	# Campaign memory. A player who has already been addressed four times
+	# meets a building that starts from somewhere worse — the escalation is
+	# across the whole game, not just within a session.
+	p += clampf(_witnessed() * 0.035, 0.0, 0.16)
 	return clampf(p, 0.0, 1.0)
+
+
+func _witnessed() -> int:
+	return int(RealityState.data.get(WITNESS_KEY, 0))
 
 
 func _call_active() -> bool:
@@ -229,6 +317,11 @@ func _tier_for(p: float) -> int:
 ## player can already see.
 func _choose_speaker() -> String:
 	var here: Vector3 = player.global_position
+	# A held gaze names a room more precisely than a position does — you can
+	# stand in a corridor and be looking into somebody's kitchen.
+	var gazed_unit := ""
+	if _gaze_node != null and _gaze_hold > 1.2:
+		gazed_unit = _unit_at(_gaze_node.global_position)
 	var scored: Array = []
 	for case_id in PoltergeistLibrary.ids():
 		var profile: Dictionary = PoltergeistLibrary.profile(case_id)
@@ -236,6 +329,8 @@ func _choose_speaker() -> String:
 		var unit: String = profile.unit
 		if _unit_at(here) == unit:
 			score += 2.4                       # you are in their home
+		if gazed_unit != "" and gazed_unit == unit:
+			score += 1.3                       # and looking at their things
 		var state: Dictionary = RealityState.case_state(case_id)
 		match str(state.get("stage", "unseen")):
 			"active", "reopened": score += 1.5
@@ -269,11 +364,20 @@ func _fire(case_id: String, tier: int) -> void:
 	_last_rung[case_id] = tier
 	var now := Time.get_ticks_msec() / 1000.0
 	_quiet_until = now + float(REFRACTORY[tier])
+	# Arm the notice window on whatever actually moved. If the player never
+	# looks at any of it, the building will conclude it was not heard.
+	_watching = intrusions.last_targets.duplicate()
+	_watch_deadline = now + NOTICE_WINDOW
 	# The address rung buys the longest silence in the game. The player has
 	# just been told something true about a stranger's grief; the building
 	# should have the grace to let them sit with it.
 	if tier >= 4:
 		pressure *= 0.35
+		_ignored_streak = 0
+		# and it is remembered for good: this building has now said one more
+		# of the things it had to say.
+		RealityState.data[WITNESS_KEY] = _witnessed() + 1
+		RealityState.commit()
 	print("[SANITY] %s rung %d (pressure %.2f, %d acts)"
 			% [case_id, tier, pressure, performed])
 	intruded.emit(case_id, tier)
@@ -300,4 +404,7 @@ func stats() -> Dictionary:
 		"last_tier": last_tier, "last_case": _last_case,
 		"still_for": _still_for, "held": intrusions.held_count()
 				if intrusions else 0,
+		"gaze": str(_gaze_node.name) if _gaze_node else "—",
+		"gaze_hold": _gaze_hold, "ignored": _ignored_streak,
+		"witnessed": _witnessed(),
 	}

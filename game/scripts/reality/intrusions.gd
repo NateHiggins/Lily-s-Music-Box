@@ -24,6 +24,10 @@ const REACH := 9.0
 var world: Node3D
 var player: Node3D
 var fourth_wall: FourthWallLayer
+## What the last act actually touched. The director watches these to find out
+## whether the player ever noticed — an intrusion nobody sees is an intrusion
+## that has to be made again, louder.
+var last_targets: Array[Node3D] = []
 
 var _held: Array = []          # [{node, transform, at}]
 var _rng := RandomNumberGenerator.new()
@@ -44,6 +48,7 @@ func _process(_delta: float) -> void:
 		if now >= entry.at:
 			if is_instance_valid(entry.node):
 				entry.node.transform = entry.transform
+				entry.node.visible = entry.get("visible", true)
 			_held.erase(entry)
 	for entry in _light_holds.duplicate():
 		if now >= entry.at:
@@ -61,8 +66,10 @@ func _process(_delta: float) -> void:
 ## Run one act. `arg` is an int count for prop/light acts and a string for
 ## sound, whisper and meta acts.
 func perform(kind: String, arg) -> bool:
+	last_targets.clear()
 	match kind:
 		"prop_turn": return _prop_turn(int(arg))
+		"prop_vanish": return _prop_vanish(int(arg))
 		"prop_drift": return _prop_move(int(arg), 0.16, false)
 		"prop_scatter": return _prop_move(int(arg), 0.42, true)
 		"prop_tremble": return _prop_tremble(int(arg))
@@ -85,9 +92,37 @@ func perform(kind: String, arg) -> bool:
 
 # --------------------------------------------------------------- targets
 
-## Props within reach, nearest first. Lights are excluded: a fixture that
-## rotates to face you reads as a bug, and they have their own acts.
-func _nearby_props(limit: int) -> Array:
+## Is this point inside what the player can currently see? The single most
+## useful question in the system: a chair that turns while you are watching
+## is a special effect, and a chair that has turned when you look back is a
+## fact about the room you are standing in.
+func _in_view(point: Vector3) -> bool:
+	var cam: Camera3D = _camera()
+	if cam == null:
+		return false
+	if not cam.is_position_in_frustum(point):
+		return false
+	# In the frustum is not the same as visible — a wall between you and it
+	# means you are not watching it, whatever the projection says.
+	var space := cam.get_world_3d().direct_space_state
+	var query := PhysicsRayQueryParameters3D.create(cam.global_position, point)
+	if player is CollisionObject3D:
+		query.exclude = [player.get_rid()]
+	var hit := space.intersect_ray(query)
+	return hit.is_empty() or hit.position.distance_to(point) < 0.6
+
+
+func _camera() -> Camera3D:
+	if player == null:
+		return null
+	var cam = player.get("camera")
+	return cam if cam is Camera3D else null
+
+
+## Props within reach. `unseen_first` is the default because the strongest
+## version of nearly every act here is the one the player did not watch
+## happen — they turn around and the room has already changed its mind.
+func _nearby_props(limit: int, unseen_first := true) -> Array:
 	if player == null or world == null:
 		return []
 	var here := player.global_position
@@ -95,9 +130,16 @@ func _nearby_props(limit: int) -> Array:
 	for child in world.get_children():
 		if not (child is FunctionalProp) or child is LightFixtureProp:
 			continue
-		var d: float = child.global_position.distance_to(here)
-		if d <= REACH:
-			found.append([d, child])
+		var prop: Node3D = child
+		var d: float = prop.global_position.distance_to(here)
+		if d > REACH:
+			continue
+		# Sorting key: unseen props sort ahead of visible ones by a margin
+		# wider than the reach, so proximity still orders within each group.
+		var key := d
+		if unseen_first and _in_view(prop.global_position):
+			key += 1000.0
+		found.append([key, prop])
 	found.sort_custom(func(a, b): return a[0] < b[0])
 	var out: Array = []
 	for entry in found.slice(0, limit):
@@ -123,16 +165,46 @@ func _nearby_lights(limit: int) -> Array:
 	return out
 
 
+## Record that an act pointed at this prop. Separate from _hold() because
+## annotation acts do not move anything — a label hung over a chair leaves
+## the chair exactly where it was — but a player who looks at the labelled
+## chair has still noticed, and notice is what the director is measuring.
+func _mark(node: Node3D) -> void:
+	if not last_targets.has(node):
+		last_targets.append(node)
+
+
 ## Snapshot before touching. Taking the snapshot at possession time rather
 ## than at spawn means a prop legitimately moved by gameplay is restored to
 ## where gameplay left it, not to where the level generator put it.
 func _hold(node: Node3D) -> void:
+	_mark(node)
 	for entry in _held:
 		if entry.node == node:
 			entry.at = Time.get_ticks_msec() / 1000.0 + RESTORE_AFTER
 			return
 	_held.append({"node": node, "transform": node.transform,
+			"visible": node.visible,
 			"at": Time.get_ticks_msec() / 1000.0 + RESTORE_AFTER})
+
+
+## Something that was there is not there. Only ever performed on props the
+## player cannot currently see, because the horror is the absence discovered
+## later — watching an object blink out is a glitch, finding the shelf empty
+## is a memory you now distrust.
+func _prop_vanish(count: int) -> bool:
+	var props := _nearby_props(count + 3)
+	var taken := 0
+	for entry in props:
+		var prop: Node3D = entry
+		if _in_view(prop.global_position):
+			continue
+		_hold(prop)
+		prop.visible = false
+		taken += 1
+		if taken >= count:
+			break
+	return taken > 0
 
 
 # ------------------------------------------------------------ prop acts
@@ -207,6 +279,7 @@ func _prop_fault(count: int) -> bool:
 	var props := _nearby_props(count)
 	for entry in props:
 		var prop: FunctionalProp = entry
+		_mark(prop)
 		prop.state = FunctionalProp.PState.FAULT
 	return not props.is_empty()
 
@@ -337,6 +410,7 @@ func _caption_room(count: int) -> bool:
 	var props := _nearby_props(count)
 	for i in props.size():
 		var prop = props[i]
+		_mark(prop)
 		var label := Label3D.new()
 		label.text = ROOM_CAPTIONS[i % ROOM_CAPTIONS.size()]
 		label.font_size = 20
@@ -395,6 +469,7 @@ func _museum_label(count: int) -> bool:
 	var props := _nearby_props(count)
 	for i in props.size():
 		var prop = props[i]
+		_mark(prop)
 		var label := Label3D.new()
 		label.text = MUSEUM_LABELS[i % MUSEUM_LABELS.size()]
 		label.font_size = 16
@@ -468,6 +543,7 @@ func restore_all() -> void:
 	for entry in _held:
 		if is_instance_valid(entry.node):
 			entry.node.transform = entry.transform
+			entry.node.visible = entry.get("visible", true)
 	_held.clear()
 	for entry in _light_holds:
 		if is_instance_valid(entry.fixture) and entry.fixture.light:
