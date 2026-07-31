@@ -776,6 +776,12 @@ def asm_tv(F, p):
     # 4:3, matching the broadcast. The old glass was 0.92 x 0.50 — nearly
     # 2:1 — which stretched every picture sideways, and a deep bezel around
     # a squarer tube reads far more like a set this building would own.
+    #
+    # On +Y, which is the face you see from inside the room — verified by
+    # putting a camera at the sofa and looking back at it. Moving the glass
+    # to -Y turned every set to the wall, so if a particular television
+    # still plays to its own back, the fault is that unit's `yaw` in
+    # gen_layout rather than this assembly.
     F.box("screen", -0.333, 0.015, 0.48, 0.333, 0.05, 0.98)
     F.tbox("metal", (0.0, -0.01, 0.36), (0.0, -0.01, 0.44), 0.16, 0.03)
     F.hull(-0.63, -0.21, 0.0, 0.63, 0.21, 1.05)

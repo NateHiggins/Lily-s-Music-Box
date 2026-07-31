@@ -28,19 +28,23 @@ import glob
 
 # A television in the corner of a room. 384x288 is generous for how large it
 # ever gets on screen, and the reel has to stay small enough to ship.
-W, H, FPS = 384, 288, 24
+## 384x288 at Theora q3 broke up into blocks with magenta chroma tearing —
+## pillarboxed portrait leaves only ~158 px of actual picture, so the codec
+## was being asked to carry the whole programme in a very small raster.
+## Bigger frame, higher quality; it is still a television across a room.
+W, H, FPS = 512, 384, 24
 ## Sources arrive at four different sizes — 704x1280, 576x1048, 480x872 and
 ## one landscape 1048x576 — so the crop cannot be hardcoded. Scale to cover
 ## 4:3 and take the centre: correct for any aspect, and on the portrait
 ## clips it discards the top and bottom bands where the generator's
 ## watermark usually sits.
-## PILLARBOXED, not cropped. Cover-and-crop threw away half of every
-## portrait clip — which is most of them — so the whole frame is fitted
-## inside the 4:3 raster with bars either side, the way a portrait video
-## genuinely looks on a television. Nothing is lost, and the bars are part
-## of the joke rather than a defect.
-FIT = ("scale=%d:%d:force_original_aspect_ratio=decrease,"
-       "pad=%d:%d:(ow-iw)/2:(oh-ih)/2:color=black" % (W, H, W, H))
+## Fill the glass and lose the top and bottom. Pillarboxing kept every clip
+## whole but left a portrait picture stranded in a wide black raster, which
+## on a small in-world screen reads as a broken display rather than as
+## letterboxing. A television fills its tube; the framing loss is the price
+## and it is the right one.
+FIT = ("scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d"
+       % (W, H, W, H))
 ## Audio layout every segment must share, or the concat demuxer refuses.
 ARATE, ACH = 44100, 2
 LOOK = "eq=saturation=0.72:contrast=1.10:brightness=-0.03,noise=alls=7:allf=t+u"
@@ -306,7 +310,13 @@ def main():
     # the procedural voice this project synthesises is reserved for when a
     # poltergeist takes the sets, where sounding wrong is the whole point.
     run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0",
-         "-i", listing, "-c:v", "libtheora", "-q:v", "3",
+         # q5 at 512x384. q3 blocked up badly; q7 was 49 MB for one reel.
+         # -pix_fmt yuv420p is not optional: the per-segment filters set it
+         # but concat does not carry it, and Godot's Theora decoder renders
+         # anything else as blocky colour noise over a legible picture —
+         # which looks like a corrupt file rather than a format mismatch.
+         "-i", listing, "-c:v", "libtheora", "-q:v", "5",
+         "-pix_fmt", "yuv420p",
          "-c:a", "libvorbis", "-q:a", "1", "-ar", str(ARATE),
          "-r", str(FPS), out_path])
     size = os.path.getsize(out_path) / 1048576.0
