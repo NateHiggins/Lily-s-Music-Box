@@ -176,7 +176,10 @@ const POLTERGEISTS := {
 	"wound": "He tuned a moment so finely that it can never be allowed to end.",
 	"tell": [["sound", "static"]],
 	"pattern": [["sound", "static"], ["light_flicker", "fault"]],
-	"reenact": [["sound", "static"], ["motif_mutate", 1],
+	# His case is a radio receiving expired moments, so the building's own
+	# broadcast is the instrument closest to hand: every set in the Orison
+	# stops carrying the programme at once.
+	"reenact": [["tv_infect", 14.0], ["motif_mutate", 1],
 			["whisper", "hold it there. don't move the dial."]],
 	"address": [["fourth_wall", "previous_session"]],
 	"voice": "RESUMING PLAYBACK FROM A SESSION THAT HAS NOT HAPPENED",

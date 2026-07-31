@@ -1184,13 +1184,34 @@ func _broadcast_checks() -> void:
 	_check(absf(sound._length - tv._video.get_stream_length()) < 1.0,
 			"manifest matches the reel (%.1f s vs %.1f s)"
 			% [sound._length, tv._video.get_stream_length()])
-	# It has to name what the picture is doing, not merely something.
-	var kinds := {}
-	for probe in [0.5, 5.0, 7.9, 40.0, 120.0]:
-		kinds[sound._kind_at(probe)] = true
-	_check(kinds.has("title") and kinds.has("channel") and kinds.has("glitch"),
-			"manifest resolves title, programme and interference %s"
-			% [kinds.keys()])
+	# The reel is a variety hour, not a channel-hop: programmes run whole and
+	# the signal only occasionally goes, so probing fixed timestamps would
+	# mostly land mid-programme. Assert the composition instead, then prove
+	# the lookup resolves each kind at its own recorded start.
+	var present := {}
+	for segment in sound._segments:
+		present[str(segment["kind"])] = true
+	_check(present.has("title") and present.has("channel")
+			and present.has("advert") and present.has("glitch"),
+			"reel carries titles, programmes, adverts and interference %s"
+			% [present.keys()])
+	var resolved := true
+	for segment in sound._segments:
+		# Half a frame in, so the lookup cannot land on the boundary.
+		if sound._kind_at(float(segment["t"]) + 0.02) != str(segment["kind"]):
+			resolved = false
+	_check(resolved,
+			"every segment resolves to its own kind (%d segments)"
+			% sound._segments.size())
+	# Programmes should dominate. If interference is more than a fifth of
+	# the cuts it has stopped being interference and become the format.
+	var glitches := 0
+	for segment in sound._segments:
+		if str(segment["kind"]) == "glitch":
+			glitches += 1
+	_check(glitches * 5 < sound._segments.size(),
+			"interference stays occasional (%d of %d segments)"
+			% [glitches, sound._segments.size()])
 
 
 ## Light under the closed doors. The interesting assertions are not "does it

@@ -35,6 +35,8 @@ const VOICE := {
 
 var sets := 0
 var current_kind := ""
+## False for the whole game until something takes the sets.
+var infected := false
 
 var _video: VideoStreamPlayer
 var _segments: Array = []
@@ -77,8 +79,22 @@ func build(layout: Dictionary, video: VideoStreamPlayer) -> int:
 
 
 func _process(_delta: float) -> void:
-	if _video == null or _segments.is_empty() or _emitters.is_empty():
+	if _video == null or _emitters.is_empty():
 		return
+	# NORMAL: the programme's own soundtrack, carried in the reel. A
+	# VideoStreamPlayer cannot be positioned in 3D, so its level tracks the
+	# distance to the nearest set instead — which is indistinguishable from
+	# spatialisation while you are in a room with one, and silent two floors
+	# away, which is all that is actually required.
+	var near := _nearest_set()
+	if not infected:
+		_video.volume_db = clampf(
+				-6.0 - 46.0 * clampf(near / 14.0, 0.0, 1.0), -60.0, -6.0)
+		return
+	# INFECTED: the sets stop carrying the broadcast and start carrying
+	# whatever has taken them. The programme ducks under it rather than
+	# stopping, so you can still hear what it is drowning.
+	_video.volume_db = -34.0
 	var kind := _kind_at(_video.stream_position)
 	if kind == current_kind or kind == "":
 		return
@@ -90,6 +106,39 @@ func _process(_delta: float) -> void:
 		emitter.volume_db = float(voice[1])
 		emitter.pitch_scale = float(voice[2])
 		emitter.play()
+
+
+func _nearest_set() -> float:
+	var camera := get_viewport().get_camera_3d()
+	if camera == null:
+		return 99.0
+	var best := 99.0
+	for emitter in _emitters:
+		best = minf(best, emitter.global_position.distance_to(
+				camera.global_position))
+	return best
+
+
+## A poltergeist taking the televisions. Reuses the procedural voice this
+## project already synthesises — the one that sounded wrong as a programme
+## and is exactly right as a possession.
+func set_infected(on: bool, seconds := 12.0) -> void:
+	if infected == on:
+		return
+	infected = on
+	current_kind = ""
+	if on:
+		print("[BROADCAST] the sets have been taken")
+		for emitter in _emitters:
+			emitter.stream = PropAudio.get_stream("agitate_loop")
+			emitter.volume_db = -14.0
+			emitter.play()
+		if seconds > 0.0:
+			await get_tree().create_timer(seconds).timeout
+			set_infected(false)
+	else:
+		for emitter in _emitters:
+			emitter.stop()
 
 
 ## Walks forward from where it left off rather than searching the whole

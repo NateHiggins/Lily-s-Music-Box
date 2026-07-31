@@ -84,6 +84,7 @@ func perform(kind: String, arg) -> bool:
 		"museum_label": return _museum_label(int(arg))
 		"word_loss": return _word_loss(int(arg))
 		"motif_mutate": return _motif_mutate(int(arg))
+		"tv_infect": return _tv_infect(float(arg))
 		"distort": return _distort(str(arg))
 		"fourth_wall":
 			return fourth_wall != null and fourth_wall.play(str(arg))
@@ -510,6 +511,19 @@ func _word_loss(count: int) -> bool:
 
 
 # ---------------------------------------------------------- system acts
+
+## Every television in the building stops carrying the programme. The
+## picture keeps playing underneath, ducked, so what you lose is not the
+## broadcast — it is the broadcast being the loudest thing in the room.
+func _tv_infect(seconds: float) -> bool:
+	if world == null:
+		return false
+	var tv = world.get("broadcast")
+	if tv == null or tv.audio == null:
+		return false
+	tv.audio.set_infected(true, maxf(4.0, seconds))
+	return true
+
 
 func _motif_mutate(times: int) -> bool:
 	for i in maxi(1, times):

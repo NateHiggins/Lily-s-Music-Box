@@ -58,7 +58,9 @@ func build(layout: Dictionary, floor_nodes: Dictionary) -> int:
 	# target — which on a television reads as a dead set.
 	_video.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_video.size = Vector2(SIZE)
-	_video.volume_db = -80.0        # the reel carries no audio; belt and braces
+	# Level is driven per-frame by BroadcastAudio from the distance to the
+	# nearest set; this is only the starting point before it takes over.
+	_video.volume_db = -60.0
 	_viewport.add_child(_video)
 	_video.play()
 

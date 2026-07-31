@@ -34,13 +34,21 @@ W, H, FPS = 384, 288, 24
 ## 4:3 and take the centre: correct for any aspect, and on the portrait
 ## clips it discards the top and bottom bands where the generator's
 ## watermark usually sits.
-FIT = ("scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d"
-       % (W, H, W, H))
+## PILLARBOXED, not cropped. Cover-and-crop threw away half of every
+## portrait clip — which is most of them — so the whole frame is fitted
+## inside the 4:3 raster with bars either side, the way a portrait video
+## genuinely looks on a television. Nothing is lost, and the bars are part
+## of the joke rather than a defect.
+FIT = ("scale=%d:%d:force_original_aspect_ratio=decrease,"
+       "pad=%d:%d:(ow-iw)/2:(oh-ih)/2:color=black" % (W, H, W, H))
+## Audio layout every segment must share, or the concat demuxer refuses.
+ARATE, ACH = 44100, 2
 LOOK = "eq=saturation=0.72:contrast=1.10:brightness=-0.03,noise=alls=7:allf=t+u"
-## Shorter than it wants to be, deliberately: a marathon of nearly forty
-## channels at six seconds each is a five-minute file, and this reel has to
-## live in a repository whose history is already a gigabyte.
-SEG = 4.5
+## Programmes run in full. Chopping every clip to a few seconds made a
+## channel-hopping montage rather than an evening's television, and the
+## interference only lands as interference if what it interrupts was
+## settled first.
+GLITCH_EVERY = 4          # roughly one cut in four loses the signal
 GLITCH = 0.5
 FONT = "C\\:/Windows/Fonts/arialbd.ttf"
 
@@ -115,17 +123,25 @@ def card(lines, out, seconds, bg, ink, size, sub=""):
             "drawtext=fontfile='%s':text='%s':fontcolor=%s:fontsize=15:"
             "x=(w-text_w)/2:y=h-42" % (FONT, esc(sub), ink))
     chain = ",".join(draws)
+    # Silent, but with a real audio stream: concat will not join segments
+    # whose stream layouts differ, and the cards are the only parts that
+    # have nothing to say.
     run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi",
          "-i", "color=c=%s:s=%dx%d:d=%.2f:r=%d" % (bg, W, H, seconds, FPS),
+         "-f", "lavfi", "-i",
+         "anullsrc=r=%d:cl=stereo:d=%.2f" % (ARATE, seconds),
          "-vf", "%s,noise=alls=11:allf=t+u,vignette=PI/4.2,format=yuv420p"
          % chain,
-         "-c:v", "libx264", "-crf", "18", out])
+         "-shortest", "-c:v", "libx264", "-crf", "18",
+         "-c:a", "aac", "-ar", str(ARATE), "-ac", str(ACH), out])
 
 
 def channel(src, out, seconds):
+    """A programme, whole, with its own sound."""
     run(["ffmpeg", "-v", "error", "-y", "-t", "%.2f" % seconds, "-i", src,
-         "-an", "-vf", "%s,%s,format=yuv420p" % (FIT, LOOK),
-         "-r", str(FPS), "-c:v", "libx264", "-crf", "19", out])
+         "-vf", "%s,%s,format=yuv420p" % (FIT, LOOK),
+         "-r", str(FPS), "-c:v", "libx264", "-crf", "19",
+         "-c:a", "aac", "-ar", str(ARATE), "-ac", str(ACH), out])
 
 
 def interference(kind, outgoing, incoming, out):
@@ -135,21 +151,23 @@ def interference(kind, outgoing, incoming, out):
     common = FIT
     if kind == "static":
         run(["ffmpeg", "-v", "error", "-y", "-t", "%.2f" % GLITCH,
-             "-i", incoming, "-an", "-vf",
+             "-i", incoming, "-vf",
              "%s,eq=saturation=0.10:contrast=1.5:brightness=0.05,"
              "noise=alls=95:allf=t+u,format=yuv420p" % common,
-             "-r", str(FPS), "-c:v", "libx264", "-crf", "20", out])
+             "-r", str(FPS), "-c:v", "libx264", "-crf", "20",
+             "-c:a", "aac", "-ar", str(ARATE), "-ac", str(ACH), out])
     elif kind == "roll":
         run(["ffmpeg", "-v", "error", "-y", "-t", "%.2f" % GLITCH,
-             "-i", incoming, "-an", "-vf",
+             "-i", incoming, "-vf",
              "%s,scroll=vertical=0.34,eq=saturation=0.35:contrast=1.25,"
              "noise=alls=45:allf=t+u,format=yuv420p" % common,
-             "-r", str(FPS), "-c:v", "libx264", "-crf", "20", out])
+             "-r", str(FPS), "-c:v", "libx264", "-crf", "20",
+             "-c:a", "aac", "-ar", str(ARATE), "-ac", str(ACH), out])
     elif kind == "ghost":
         run(["ffmpeg", "-v", "error", "-y",
              "-t", "%.2f" % GLITCH, "-i", outgoing,
-             "-t", "%.2f" % GLITCH, "-i", incoming, "-an",
-             "-filter_complex",
+             "-t", "%.2f" % GLITCH, "-i", incoming,
+             "-map", "0:a?", "-filter_complex",
              "[0:v]%s,eq=saturation=0.45:contrast=1.15[a];"
              "[1:v]%s,eq=saturation=0.45:brightness=0.04,"
              "crop=%d:%d:11:5,pad=%d:%d:0:0[b];"
@@ -157,13 +175,15 @@ def interference(kind, outgoing, incoming, out):
              "eq=saturation=0.30:contrast=1.25,"
              "noise=alls=42:allf=t+u,format=yuv420p"
              % (common, common, W - 11, H - 5, W, H),
-             "-r", str(FPS), "-c:v", "libx264", "-crf", "20", out])
+             "-r", str(FPS), "-c:v", "libx264", "-crf", "20",
+             "-c:a", "aac", "-ar", str(ARATE), "-ac", str(ACH), out])
     else:
         run(["ffmpeg", "-v", "error", "-y", "-t", "%.2f" % GLITCH,
-             "-i", outgoing, "-an", "-vf",
+             "-i", outgoing, "-vf",
              "%s,eq=brightness=-0.62:saturation=0.05:contrast=1.8,"
              "noise=alls=70:allf=t+u,format=yuv420p" % common,
-             "-r", str(FPS), "-c:v", "libx264", "-crf", "20", out])
+             "-r", str(FPS), "-c:v", "libx264", "-crf", "20",
+             "-c:a", "aac", "-ar", str(ARATE), "-ac", str(ACH), out])
 
 
 def main():
@@ -216,17 +236,21 @@ def main():
         probe = subprocess.run(
             ["ffprobe", "-v", "error", "-show_entries", "format=duration",
              "-of", "csv=p=0", src], capture_output=True, text=True)
-        span = min(SEG, float(probe.stdout.strip()) - 0.2)
+        # The whole programme. It is a variety hour, not a channel-hop.
+        span = float(probe.stdout.strip()) - 0.1
         seg = tmp("ch")
         if not manifest_only:
             channel(src, seg, span)
         add(seg, "channel", span)
         nxt = sources[(i + 1) % len(sources)]
+        # Only occasionally does the signal actually go. Interference at
+        # every cut stops being interference and becomes the format.
         glitch = tmp("gl")
-        kind = rng.choice(kinds)
-        if not manifest_only:
-            interference(kind, src, nxt, glitch)
-        add(glitch, "glitch", GLITCH)
+        if rng.randrange(GLITCH_EVERY) == 0:
+            kind = rng.choice(kinds)
+            if not manifest_only:
+                interference(kind, src, nxt, glitch)
+            add(glitch, "glitch", GLITCH)
         # Roughly every third break goes to an ident or the advertising.
         roll = rng.random()
         if roll < 0.22 and bumpers:
@@ -236,7 +260,6 @@ def main():
             else:
                 bumpers.pop()
             add(b, "bumper", 1.6)
-            add(glitch, "glitch", GLITCH)
         elif roll < 0.44 and adverts:
             a = tmp("ad")
             if not manifest_only:
@@ -245,7 +268,6 @@ def main():
             else:
                 adverts.pop()
             add(a, "advert", 2.4)
-            add(glitch, "glitch", GLITCH)
 
     # Re-time the plan from what was actually encoded. ffmpeg rounds every
     # segment to whole frames, and across 109 of them that drifted the
@@ -280,8 +302,12 @@ def main():
             handle.write("file '%s'\n" % part.replace("\\", "/"))
 
     print("encoding Theora from %d segments..." % len(parts))
+    # Audio is kept now. The programmes are meant to sound like programmes;
+    # the procedural voice this project synthesises is reserved for when a
+    # poltergeist takes the sets, where sounding wrong is the whole point.
     run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0",
-         "-i", listing, "-an", "-c:v", "libtheora", "-q:v", "4",
+         "-i", listing, "-c:v", "libtheora", "-q:v", "3",
+         "-c:a", "libvorbis", "-q:a", "1", "-ar", str(ARATE),
          "-r", str(FPS), out_path])
     size = os.path.getsize(out_path) / 1048576.0
     dur = subprocess.run(
