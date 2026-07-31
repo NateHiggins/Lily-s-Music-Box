@@ -1,0 +1,14 @@
+{
+  "id": "architectural/worn_stair_stone",
+  "kind": "surface",
+  "source": "art/textures/source_library/architectural/worn_stair_stone.png",
+  "meters_per_tile": 1.2,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "edge_error_horizontal": 0.03155,
+  "edge_error_vertical": 0.04184
+}

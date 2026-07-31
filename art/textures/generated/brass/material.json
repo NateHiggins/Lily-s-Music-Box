@@ -1,0 +1,13 @@
+{
+  "material": "brass",
+  "source": "art/textures/source/brass.png",
+  "meters_per_tile": 0.8,
+  "edge_error_horizontal": 9e-05,
+  "edge_error_vertical": 0.00093,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

@@ -1,0 +1,2965 @@
+{
+ "fixture_count": 185,
+ "fixtures": [
+  {
+   "id": "B1_CORRIDOR_DOME_01",
+   "floor": "B1",
+   "kind": "flush_dome",
+   "room": "B1_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    -5.1,
+    -0.2599999999999998
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "B1_CORRIDOR_DOME_02",
+   "floor": "B1",
+   "kind": "flush_dome",
+   "room": "B1_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    0.0,
+    -0.2599999999999998
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "B1_CORRIDOR_DOME_03",
+   "floor": "B1",
+   "kind": "flush_dome",
+   "room": "B1_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    5.1,
+    -0.2599999999999998
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "B1_CORRIDOR_DOME_04",
+   "floor": "B1",
+   "kind": "flush_dome",
+   "room": "B1_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    -5.1,
+    -0.2599999999999998
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "B1_CORRIDOR_DOME_05",
+   "floor": "B1",
+   "kind": "flush_dome",
+   "room": "B1_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    0.0,
+    -0.2599999999999998
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "B1_CORRIDOR_DOME_06",
+   "floor": "B1",
+   "kind": "flush_dome",
+   "room": "B1_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    5.1,
+    -0.2599999999999998
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "B1_CORRIDOR_DOME_07",
+   "floor": "B1",
+   "kind": "flush_dome",
+   "room": "B1_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    0.0,
+    -8.25,
+    -0.2599999999999998
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "B1_CORRIDOR_DOME_08",
+   "floor": "B1",
+   "kind": "flush_dome",
+   "room": "B1_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    0.0,
+    8.25,
+    -0.2599999999999998
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "B1_STORAGE_CAGES_LT_CAGE_BULB",
+   "floor": "B1",
+   "kind": "cage_bulb",
+   "room": "B1_STORAGE_CAGES",
+   "room_kind": "storage_cages",
+   "position": [
+    -9.58,
+    -5.05,
+    -0.23999999999999977
+   ],
+   "range": 7.04,
+   "energy": 0.65,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "B1_LAUNDRY_LT_CAGE_BULB",
+   "floor": "B1",
+   "kind": "cage_bulb",
+   "room": "B1_LAUNDRY",
+   "room_kind": "laundry",
+   "position": [
+    -9.58,
+    6.16,
+    -0.23999999999999977
+   ],
+   "range": 6.26,
+   "energy": 0.85,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "B1_BOILER_LT_CAGE_BULB",
+   "floor": "B1",
+   "kind": "cage_bulb",
+   "room": "B1_BOILER",
+   "room_kind": "boiler",
+   "position": [
+    9.58,
+    4.385,
+    -0.23999999999999977
+   ],
+   "range": 7.55,
+   "energy": 0.7,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "B1_ELECTRICAL_LT_CAGE_BULB",
+   "floor": "B1",
+   "kind": "cage_bulb",
+   "room": "B1_ELECTRICAL",
+   "room_kind": "electrical",
+   "position": [
+    9.58,
+    -5.325,
+    -0.23999999999999977
+   ],
+   "range": 6.84,
+   "energy": 0.75,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "B1_HALL_LT_FLUSH_DOME",
+   "floor": "B1",
+   "kind": "flush_dome",
+   "room": "B1_HALL",
+   "room_kind": "hall",
+   "position": [
+    -1.2,
+    -5.0,
+    -0.23999999999999977
+   ],
+   "range": 3.6,
+   "energy": 1.0,
+   "navigation": true,
+   "standby": 0.3
+  },
+  {
+   "id": "B1_UTILITY_LT_CAGE_BULB",
+   "floor": "B1",
+   "kind": "cage_bulb",
+   "room": "B1_UTILITY",
+   "room_kind": "utility",
+   "position": [
+    0.0,
+    5.0,
+    -0.23999999999999977
+   ],
+   "range": 4.59,
+   "energy": 0.78,
+   "navigation": true,
+   "standby": 0.3
+  },
+  {
+   "id": "B1_COAL_LT_CAGE_BULB",
+   "floor": "B1",
+   "kind": "cage_bulb",
+   "room": "B1_COAL",
+   "room_kind": "coal",
+   "position": [
+    12.475,
+    1.5,
+    -0.23999999999999977
+   ],
+   "range": 2.58,
+   "energy": 0.55,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "B1_ATRIUM_FRUIT_1",
+   "floor": "B1",
+   "kind": "eye_pendant",
+   "room": "B1_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    -0.075,
+    0.781,
+    -1.869
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "B1_ATRIUM_FRUIT_2",
+   "floor": "B1",
+   "kind": "eye_pendant",
+   "room": "B1_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    0.466,
+    0.718,
+    -0.424
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "F01_ENTRY_SCONCE",
+   "floor": "F01",
+   "kind": "sconce_globe",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -0.455,
+    -9.91,
+    2.58
+   ],
+   "range": 7.5,
+   "energy": 1.25,
+   "navigation": true,
+   "standby": 0.55
+  },
+  {
+   "id": "F01WC_LT_SCONCE",
+   "floor": "F01",
+   "kind": "sconce_globe",
+   "room": "F01_RESTROOM",
+   "room_kind": "bathroom",
+   "position": [
+    -13.57,
+    7.32,
+    1.92
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "1A_LT_SCONCE",
+   "floor": "F01",
+   "kind": "sconce_globe",
+   "room": "F01_A_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    -5.59,
+    -4.2700000000000005,
+    1.92
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "1D_LT_SCONCE",
+   "floor": "F01",
+   "kind": "sconce_globe",
+   "room": "F01_D_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    5.59,
+    -4.2700000000000005,
+    1.92
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_01",
+   "floor": "F01",
+   "kind": "flush_dome",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    -5.1,
+    2.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_02",
+   "floor": "F01",
+   "kind": "flush_dome",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    0.0,
+    2.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_03",
+   "floor": "F01",
+   "kind": "flush_dome",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    5.1,
+    2.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_04",
+   "floor": "F01",
+   "kind": "flush_dome",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    -5.1,
+    2.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_05",
+   "floor": "F01",
+   "kind": "flush_dome",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    0.0,
+    2.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_06",
+   "floor": "F01",
+   "kind": "flush_dome",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    5.1,
+    2.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_07",
+   "floor": "F01",
+   "kind": "flush_dome",
+   "room": "F01_LOBBY",
+   "room_kind": "lobby",
+   "position": [
+    0.0,
+    -8.25,
+    2.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_08",
+   "floor": "F01",
+   "kind": "flush_dome",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    0.0,
+    8.25,
+    2.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F01_LOBBY_LT_CHANDELIER",
+   "floor": "F01",
+   "kind": "chandelier",
+   "room": "F01_LOBBY",
+   "room_kind": "lobby",
+   "position": [
+    0.0,
+    -8.29,
+    2.96
+   ],
+   "range": 6.4,
+   "energy": 1.25,
+   "navigation": true,
+   "standby": 0.45
+  },
+  {
+   "id": "F01_COMMON_B_LT_PENDANT_SHADE",
+   "floor": "F01",
+   "kind": "pendant_shade",
+   "room": "F01_COMMON_B",
+   "room_kind": "common",
+   "position": [
+    -8.705,
+    7.525,
+    2.96
+   ],
+   "range": 4.74,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F01_STORAGE_C_LT_CAGE_BULB",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "F01_STORAGE_C",
+   "room_kind": "storage",
+   "position": [
+    9.58,
+    4.385,
+    2.96
+   ],
+   "range": 7.55,
+   "energy": 0.7,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F01_HALL_LT_FLUSH_DOME",
+   "floor": "F01",
+   "kind": "flush_dome",
+   "room": "F01_HALL",
+   "room_kind": "hall",
+   "position": [
+    -1.2,
+    -5.0,
+    2.96
+   ],
+   "range": 3.6,
+   "energy": 1.0,
+   "navigation": true,
+   "standby": 0.3
+  },
+  {
+   "id": "F01_UTILITY_LT_CAGE_BULB",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "F01_UTILITY",
+   "room_kind": "utility",
+   "position": [
+    0.0,
+    5.0,
+    2.96
+   ],
+   "range": 4.59,
+   "energy": 0.78,
+   "navigation": true,
+   "standby": 0.3
+  },
+  {
+   "id": "F01_OFFICE_LT_PENDANT_SHADE",
+   "floor": "F01",
+   "kind": "pendant_shade",
+   "room": "F01_OFFICE",
+   "room_kind": "office",
+   "position": [
+    -11.765,
+    4.035,
+    2.96
+   ],
+   "range": 3.23,
+   "energy": 1.15,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F01_PACKAGE_LT_CAGE_BULB",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "F01_PACKAGE",
+   "room_kind": "storage",
+   "position": [
+    -7.695,
+    4.035,
+    2.96
+   ],
+   "range": 3.48,
+   "energy": 0.7,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F01_A_BED_LT_FLUSH_DOME",
+   "floor": "F01",
+   "kind": "flush_dome",
+   "room": "F01_A_BED",
+   "room_kind": "bedroom",
+   "position": [
+    -9.58,
+    -7.95,
+    2.96
+   ],
+   "range": 5.31,
+   "energy": 0.72,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F01_A_MAIN_LT_PENDANT_SHADE",
+   "floor": "F01",
+   "kind": "pendant_shade",
+   "room": "F01_A_MAIN",
+   "room_kind": "living",
+   "position": [
+    -9.58,
+    -3.35,
+    2.96
+   ],
+   "range": 5.9,
+   "energy": 0.85,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F01_D_BED_LT_FLUSH_DOME",
+   "floor": "F01",
+   "kind": "flush_dome",
+   "room": "F01_D_BED",
+   "room_kind": "bedroom",
+   "position": [
+    9.58,
+    -7.95,
+    2.96
+   ],
+   "range": 5.31,
+   "energy": 0.85,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F01_D_MAIN_LT_PENDANT_SHADE",
+   "floor": "F01",
+   "kind": "pendant_shade",
+   "room": "F01_D_MAIN",
+   "room_kind": "living",
+   "position": [
+    9.58,
+    -3.625,
+    2.96
+   ],
+   "range": 5.74,
+   "energy": 1.0,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F01_D_OFFICE_LT_PENDANT_SHADE",
+   "floor": "F01",
+   "kind": "pendant_shade",
+   "room": "F01_D_OFFICE",
+   "room_kind": "office",
+   "position": [
+    6.61,
+    -1.92,
+    2.96
+   ],
+   "range": 2.33,
+   "energy": 1.15,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F01_ATRIUM_FRUIT_1",
+   "floor": "F01",
+   "kind": "eye_pendant",
+   "room": "F01_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    -0.18,
+    -0.48,
+    1.207
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "F01_ATRIUM_FRUIT_2",
+   "floor": "F01",
+   "kind": "eye_pendant",
+   "room": "F01_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    1.063,
+    -0.352,
+    2.319
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "F01_STREETLAMP_03",
+   "floor": "F01",
+   "kind": "street_lamp",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -23.94,
+    -14.49,
+    4.55
+   ],
+   "range": 11.0,
+   "energy": 1.15,
+   "navigation": true,
+   "standby": 0.4
+  },
+  {
+   "id": "F01_STREETLAMP_04",
+   "floor": "F01",
+   "kind": "street_lamp",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -12.94,
+    -14.49,
+    4.55
+   ],
+   "range": 11.0,
+   "energy": 1.15,
+   "navigation": true,
+   "standby": 0.4
+  },
+  {
+   "id": "F01_STREETLAMP_06",
+   "floor": "F01",
+   "kind": "street_lamp",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    9.06,
+    -14.49,
+    4.55
+   ],
+   "range": 11.0,
+   "energy": 1.15,
+   "navigation": true,
+   "standby": 0.4
+  },
+  {
+   "id": "F01_STREETLAMP_07",
+   "floor": "F01",
+   "kind": "street_lamp",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    20.06,
+    -14.49,
+    4.55
+   ],
+   "range": 11.0,
+   "energy": 1.15,
+   "navigation": true,
+   "standby": 0.4
+  },
+  {
+   "id": "F01_STREETLAMP_08",
+   "floor": "F01",
+   "kind": "street_lamp",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    31.06,
+    -14.49,
+    4.55
+   ],
+   "range": 11.0,
+   "energy": 1.15,
+   "navigation": true,
+   "standby": 0.4
+  },
+  {
+   "id": "2A_LT_SCONCE",
+   "floor": "F02",
+   "kind": "sconce_globe",
+   "room": "F02_A_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    -5.59,
+    -4.2700000000000005,
+    5.12
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "2B_LT_SCONCE",
+   "floor": "F02",
+   "kind": "sconce_globe",
+   "room": "F02_B_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    -5.59,
+    4.89,
+    5.12
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "2C_LT_SCONCE",
+   "floor": "F02",
+   "kind": "sconce_globe",
+   "room": "F02_C_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    5.59,
+    5.71,
+    5.12
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "2D_LT_SCONCE",
+   "floor": "F02",
+   "kind": "sconce_globe",
+   "room": "F02_D_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    5.59,
+    -4.2700000000000005,
+    5.12
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_01",
+   "floor": "F02",
+   "kind": "flush_dome",
+   "room": "F02_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    -5.1,
+    6.140000000000001
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_02",
+   "floor": "F02",
+   "kind": "flush_dome",
+   "room": "F02_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    0.0,
+    6.140000000000001
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_03",
+   "floor": "F02",
+   "kind": "flush_dome",
+   "room": "F02_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    5.1,
+    6.140000000000001
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_04",
+   "floor": "F02",
+   "kind": "flush_dome",
+   "room": "F02_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    -5.1,
+    6.140000000000001
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_05",
+   "floor": "F02",
+   "kind": "flush_dome",
+   "room": "F02_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    0.0,
+    6.140000000000001
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_06",
+   "floor": "F02",
+   "kind": "flush_dome",
+   "room": "F02_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    5.1,
+    6.140000000000001
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_07",
+   "floor": "F02",
+   "kind": "flush_dome",
+   "room": "F02_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    0.0,
+    -8.25,
+    6.140000000000001
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_08",
+   "floor": "F02",
+   "kind": "flush_dome",
+   "room": "F02_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    0.0,
+    8.25,
+    6.140000000000001
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F02_A_BED_LT_FLUSH_DOME",
+   "floor": "F02",
+   "kind": "flush_dome",
+   "room": "F02_A_BED",
+   "room_kind": "bedroom",
+   "position": [
+    -9.58,
+    -7.95,
+    6.16
+   ],
+   "range": 5.31,
+   "energy": 0.98,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F02_A_MAIN_LT_PENDANT_SHADE",
+   "floor": "F02",
+   "kind": "pendant_shade",
+   "room": "F02_A_MAIN",
+   "room_kind": "living",
+   "position": [
+    -9.58,
+    -3.35,
+    6.16
+   ],
+   "range": 5.9,
+   "energy": 1.15,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F02_B_ALCOVE_LT_FLUSH_DOME",
+   "floor": "F02",
+   "kind": "flush_dome",
+   "room": "F02_B_ALCOVE",
+   "room_kind": "alcove",
+   "position": [
+    -12.275,
+    8.075,
+    6.16
+   ],
+   "range": 2.99,
+   "energy": 0.74,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F02_B_KITCHEN_LT_KITCHEN_LINEAR",
+   "floor": "F02",
+   "kind": "kitchen_linear",
+   "room": "F02_B_KITCHEN",
+   "room_kind": "kitchen",
+   "position": [
+    -8.205,
+    8.075,
+    6.16
+   ],
+   "range": 4.02,
+   "energy": 1.06,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F02_B_MAIN_LT_PENDANT_SHADE",
+   "floor": "F02",
+   "kind": "pendant_shade",
+   "room": "F02_B_MAIN",
+   "room_kind": "living",
+   "position": [
+    -9.58,
+    4.585,
+    6.16
+   ],
+   "range": 5.4,
+   "energy": 0.95,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F02_C_BED1_LT_FLUSH_DOME",
+   "floor": "F02",
+   "kind": "flush_dome",
+   "room": "F02_C_BED1",
+   "room_kind": "bedroom",
+   "position": [
+    7.545,
+    7.95,
+    6.16
+   ],
+   "range": 3.55,
+   "energy": 0.58,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F02_C_BED2_LT_FLUSH_DOME",
+   "floor": "F02",
+   "kind": "flush_dome",
+   "room": "F02_C_BED2",
+   "room_kind": "bedroom",
+   "position": [
+    11.615,
+    7.95,
+    6.16
+   ],
+   "range": 3.55,
+   "energy": 0.58,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F02_C_MAIN_LT_PENDANT_SHADE",
+   "floor": "F02",
+   "kind": "pendant_shade",
+   "room": "F02_C_MAIN",
+   "room_kind": "living",
+   "position": [
+    9.58,
+    2.685,
+    6.16
+   ],
+   "range": 6.31,
+   "energy": 0.68,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F02_WSTOR_LT_CAGE_BULB",
+   "floor": "F02",
+   "kind": "cage_bulb",
+   "room": "F02_WSTOR",
+   "room_kind": "storage",
+   "position": [
+    -9.58,
+    1.11,
+    6.16
+   ],
+   "range": 5.22,
+   "energy": 0.7,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F02_HALL_LT_FLUSH_DOME",
+   "floor": "F02",
+   "kind": "flush_dome",
+   "room": "F02_HALL",
+   "room_kind": "hall",
+   "position": [
+    -1.2,
+    -5.0,
+    6.16
+   ],
+   "range": 3.6,
+   "energy": 1.0,
+   "navigation": true,
+   "standby": 0.3
+  },
+  {
+   "id": "F02_UTILITY_LT_CAGE_BULB",
+   "floor": "F02",
+   "kind": "cage_bulb",
+   "room": "F02_UTILITY",
+   "room_kind": "utility",
+   "position": [
+    0.0,
+    5.0,
+    6.16
+   ],
+   "range": 4.59,
+   "energy": 0.78,
+   "navigation": true,
+   "standby": 0.3
+  },
+  {
+   "id": "F02_ATRIUM_FRUIT_1",
+   "floor": "F02",
+   "kind": "eye_pendant",
+   "room": "F02_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    -0.079,
+    -1.175,
+    4.269
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "F02_ATRIUM_FRUIT_2",
+   "floor": "F02",
+   "kind": "eye_pendant",
+   "room": "F02_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    0.071,
+    0.307,
+    5.595
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "3A_LT_SCONCE",
+   "floor": "F03",
+   "kind": "sconce_globe",
+   "room": "F03_A_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    -5.59,
+    -4.2700000000000005,
+    8.32
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "3B_LT_SCONCE",
+   "floor": "F03",
+   "kind": "sconce_globe",
+   "room": "F03_B_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    -5.59,
+    4.89,
+    8.32
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "3C_LT_SCONCE",
+   "floor": "F03",
+   "kind": "sconce_globe",
+   "room": "F03_C_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    5.59,
+    5.71,
+    8.32
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "3D_LT_SCONCE",
+   "floor": "F03",
+   "kind": "sconce_globe",
+   "room": "F03_D_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    5.59,
+    -4.2700000000000005,
+    8.32
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_01",
+   "floor": "F03",
+   "kind": "flush_dome",
+   "room": "F03_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    -5.1,
+    9.34
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_02",
+   "floor": "F03",
+   "kind": "flush_dome",
+   "room": "F03_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    0.0,
+    9.34
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_03",
+   "floor": "F03",
+   "kind": "flush_dome",
+   "room": "F03_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    5.1,
+    9.34
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_04",
+   "floor": "F03",
+   "kind": "flush_dome",
+   "room": "F03_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    -5.1,
+    9.34
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_05",
+   "floor": "F03",
+   "kind": "flush_dome",
+   "room": "F03_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    0.0,
+    9.34
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_06",
+   "floor": "F03",
+   "kind": "flush_dome",
+   "room": "F03_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    5.1,
+    9.34
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_07",
+   "floor": "F03",
+   "kind": "flush_dome",
+   "room": "F03_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    0.0,
+    -8.25,
+    9.34
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_08",
+   "floor": "F03",
+   "kind": "flush_dome",
+   "room": "F03_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    0.0,
+    8.25,
+    9.34
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F03_A_BED_LT_FLUSH_DOME",
+   "floor": "F03",
+   "kind": "flush_dome",
+   "room": "F03_A_BED",
+   "room_kind": "bedroom",
+   "position": [
+    -9.58,
+    -7.95,
+    9.36
+   ],
+   "range": 5.31,
+   "energy": 0.81,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F03_A_MAIN_LT_PENDANT_SHADE",
+   "floor": "F03",
+   "kind": "pendant_shade",
+   "room": "F03_A_MAIN",
+   "room_kind": "living",
+   "position": [
+    -9.58,
+    -3.35,
+    9.36
+   ],
+   "range": 5.9,
+   "energy": 0.95,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F03_B_ALCOVE_LT_FLUSH_DOME",
+   "floor": "F03",
+   "kind": "flush_dome",
+   "room": "F03_B_ALCOVE",
+   "room_kind": "alcove",
+   "position": [
+    -12.275,
+    8.075,
+    9.36
+   ],
+   "range": 2.99,
+   "energy": 0.98,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+   "floor": "F03",
+   "kind": "kitchen_linear",
+   "room": "F03_B_KITCHEN",
+   "room_kind": "kitchen",
+   "position": [
+    -8.205,
+    8.075,
+    9.36
+   ],
+   "range": 4.02,
+   "energy": 1.4,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F03_B_MAIN_LT_PENDANT_SHADE",
+   "floor": "F03",
+   "kind": "pendant_shade",
+   "room": "F03_B_MAIN",
+   "room_kind": "living",
+   "position": [
+    -9.58,
+    4.585,
+    9.36
+   ],
+   "range": 5.4,
+   "energy": 1.25,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F03_C_BED1_LT_FLUSH_DOME",
+   "floor": "F03",
+   "kind": "flush_dome",
+   "room": "F03_C_BED1",
+   "room_kind": "bedroom",
+   "position": [
+    7.545,
+    7.95,
+    9.36
+   ],
+   "range": 3.55,
+   "energy": 0.89,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F03_C_BED2_LT_FLUSH_DOME",
+   "floor": "F03",
+   "kind": "flush_dome",
+   "room": "F03_C_BED2",
+   "room_kind": "bedroom",
+   "position": [
+    11.615,
+    7.95,
+    9.36
+   ],
+   "range": 3.55,
+   "energy": 0.89,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F03_C_MAIN_LT_PENDANT_SHADE",
+   "floor": "F03",
+   "kind": "pendant_shade",
+   "room": "F03_C_MAIN",
+   "room_kind": "living",
+   "position": [
+    9.58,
+    2.685,
+    9.36
+   ],
+   "range": 6.31,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F03_D_BED_LT_FLUSH_DOME",
+   "floor": "F03",
+   "kind": "flush_dome",
+   "room": "F03_D_BED",
+   "room_kind": "bedroom",
+   "position": [
+    9.58,
+    -7.95,
+    9.36
+   ],
+   "range": 5.31,
+   "energy": 0.55,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F03_D_MAIN_LT_PENDANT_SHADE",
+   "floor": "F03",
+   "kind": "pendant_shade",
+   "room": "F03_D_MAIN",
+   "room_kind": "living",
+   "position": [
+    9.58,
+    -3.625,
+    9.36
+   ],
+   "range": 5.74,
+   "energy": 0.65,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F03_D_OFFICE_LT_PENDANT_SHADE",
+   "floor": "F03",
+   "kind": "pendant_shade",
+   "room": "F03_D_OFFICE",
+   "room_kind": "office",
+   "position": [
+    6.61,
+    -1.92,
+    9.36
+   ],
+   "range": 2.33,
+   "energy": 0.75,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F03_WSTOR_LT_CAGE_BULB",
+   "floor": "F03",
+   "kind": "cage_bulb",
+   "room": "F03_WSTOR",
+   "room_kind": "storage",
+   "position": [
+    -9.58,
+    1.11,
+    9.36
+   ],
+   "range": 5.22,
+   "energy": 0.7,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F03_HALL_LT_FLUSH_DOME",
+   "floor": "F03",
+   "kind": "flush_dome",
+   "room": "F03_HALL",
+   "room_kind": "hall",
+   "position": [
+    -1.2,
+    -5.0,
+    9.36
+   ],
+   "range": 3.6,
+   "energy": 1.0,
+   "navigation": true,
+   "standby": 0.3
+  },
+  {
+   "id": "F03_UTILITY_LT_CAGE_BULB",
+   "floor": "F03",
+   "kind": "cage_bulb",
+   "room": "F03_UTILITY",
+   "room_kind": "utility",
+   "position": [
+    0.0,
+    5.0,
+    9.36
+   ],
+   "range": 4.59,
+   "energy": 0.78,
+   "navigation": true,
+   "standby": 0.3
+  },
+  {
+   "id": "F03_ATRIUM_FRUIT_1",
+   "floor": "F03",
+   "kind": "eye_pendant",
+   "room": "F03_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    -1.206,
+    -0.377,
+    7.548
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "F03_ATRIUM_FRUIT_2",
+   "floor": "F03",
+   "kind": "eye_pendant",
+   "room": "F03_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    0.29,
+    0.478,
+    8.792
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "4A_LT_SCONCE",
+   "floor": "F04",
+   "kind": "sconce_globe",
+   "room": "F04_A_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    -5.59,
+    -4.2700000000000005,
+    11.52
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "4B_LT_SCONCE",
+   "floor": "F04",
+   "kind": "sconce_globe",
+   "room": "F04_B_CLOSET",
+   "room_kind": "closet",
+   "position": [
+    -5.79,
+    6.84,
+    11.52
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "4C_LT_SCONCE",
+   "floor": "F04",
+   "kind": "sconce_globe",
+   "room": "F04_C_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    5.59,
+    5.71,
+    11.52
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "4D_LT_SCONCE",
+   "floor": "F04",
+   "kind": "sconce_globe",
+   "room": "F04_D_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    5.59,
+    -4.2700000000000005,
+    11.52
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_01",
+   "floor": "F04",
+   "kind": "flush_dome",
+   "room": "F04_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    -5.1,
+    12.54
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_02",
+   "floor": "F04",
+   "kind": "flush_dome",
+   "room": "F04_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    0.0,
+    12.54
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_03",
+   "floor": "F04",
+   "kind": "flush_dome",
+   "room": "F04_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    5.1,
+    12.54
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_04",
+   "floor": "F04",
+   "kind": "flush_dome",
+   "room": "F04_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    -5.1,
+    12.54
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_05",
+   "floor": "F04",
+   "kind": "flush_dome",
+   "room": "F04_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    0.0,
+    12.54
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_06",
+   "floor": "F04",
+   "kind": "flush_dome",
+   "room": "F04_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    5.1,
+    12.54
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_07",
+   "floor": "F04",
+   "kind": "flush_dome",
+   "room": "F04_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    0.0,
+    -8.25,
+    12.54
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_08",
+   "floor": "F04",
+   "kind": "flush_dome",
+   "room": "F04_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    0.0,
+    8.25,
+    12.54
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F04_A_BED_LT_FLUSH_DOME",
+   "floor": "F04",
+   "kind": "flush_dome",
+   "room": "F04_A_BED",
+   "room_kind": "bedroom",
+   "position": [
+    -9.58,
+    -7.95,
+    12.559999999999999
+   ],
+   "range": 5.31,
+   "energy": 0.85,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F04_A_MAIN_LT_PENDANT_SHADE",
+   "floor": "F04",
+   "kind": "pendant_shade",
+   "room": "F04_A_MAIN",
+   "room_kind": "living",
+   "position": [
+    -9.58,
+    -3.35,
+    12.559999999999999
+   ],
+   "range": 5.9,
+   "energy": 1.0,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F04_B_KITCHEN_LT_KITCHEN_LINEAR",
+   "floor": "F04",
+   "kind": "kitchen_linear",
+   "room": "F04_B_KITCHEN",
+   "room_kind": "kitchen",
+   "position": [
+    -9.305,
+    8.075,
+    12.559999999999999
+   ],
+   "range": 3.14,
+   "energy": 1.18,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F04_B_ALCOVE_LT_FLUSH_DOME",
+   "floor": "F04",
+   "kind": "flush_dome",
+   "room": "F04_B_ALCOVE",
+   "room_kind": "alcove",
+   "position": [
+    -12.275,
+    8.075,
+    12.559999999999999
+   ],
+   "range": 2.99,
+   "energy": 0.82,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F04_C_BED1_LT_FLUSH_DOME",
+   "floor": "F04",
+   "kind": "flush_dome",
+   "room": "F04_C_BED1",
+   "room_kind": "bedroom",
+   "position": [
+    7.545,
+    7.95,
+    12.559999999999999
+   ],
+   "range": 3.55,
+   "energy": 0.94,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F04_C_BED2_LT_FLUSH_DOME",
+   "floor": "F04",
+   "kind": "flush_dome",
+   "room": "F04_C_BED2",
+   "room_kind": "bedroom",
+   "position": [
+    11.615,
+    7.95,
+    12.559999999999999
+   ],
+   "range": 3.55,
+   "energy": 0.94,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F04_C_MAIN_LT_PENDANT_SHADE",
+   "floor": "F04",
+   "kind": "pendant_shade",
+   "room": "F04_C_MAIN",
+   "room_kind": "living",
+   "position": [
+    9.58,
+    2.685,
+    12.559999999999999
+   ],
+   "range": 6.31,
+   "energy": 1.1,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F04_D_BED_LT_FLUSH_DOME",
+   "floor": "F04",
+   "kind": "flush_dome",
+   "room": "F04_D_BED",
+   "room_kind": "bedroom",
+   "position": [
+    9.58,
+    -7.95,
+    12.559999999999999
+   ],
+   "range": 5.31,
+   "energy": 0.85,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F04_D_MAIN_LT_PENDANT_SHADE",
+   "floor": "F04",
+   "kind": "pendant_shade",
+   "room": "F04_D_MAIN",
+   "room_kind": "living",
+   "position": [
+    9.58,
+    -3.625,
+    12.559999999999999
+   ],
+   "range": 5.74,
+   "energy": 1.0,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F04_D_OFFICE_LT_PENDANT_SHADE",
+   "floor": "F04",
+   "kind": "pendant_shade",
+   "room": "F04_D_OFFICE",
+   "room_kind": "office",
+   "position": [
+    6.61,
+    -1.92,
+    12.559999999999999
+   ],
+   "range": 2.33,
+   "energy": 1.15,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F04_WSTOR_LT_CAGE_BULB",
+   "floor": "F04",
+   "kind": "cage_bulb",
+   "room": "F04_WSTOR",
+   "room_kind": "storage",
+   "position": [
+    -9.58,
+    1.11,
+    12.559999999999999
+   ],
+   "range": 5.22,
+   "energy": 0.7,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F04_HALL_LT_FLUSH_DOME",
+   "floor": "F04",
+   "kind": "flush_dome",
+   "room": "F04_HALL",
+   "room_kind": "hall",
+   "position": [
+    -1.2,
+    -5.0,
+    12.559999999999999
+   ],
+   "range": 3.6,
+   "energy": 1.0,
+   "navigation": true,
+   "standby": 0.3
+  },
+  {
+   "id": "F04_UTILITY_LT_CAGE_BULB",
+   "floor": "F04",
+   "kind": "cage_bulb",
+   "room": "F04_UTILITY",
+   "room_kind": "utility",
+   "position": [
+    0.0,
+    5.0,
+    12.559999999999999
+   ],
+   "range": 4.59,
+   "energy": 0.78,
+   "navigation": true,
+   "standby": 0.3
+  },
+  {
+   "id": "F04_ATRIUM_FRUIT_1",
+   "floor": "F04",
+   "kind": "eye_pendant",
+   "room": "F04_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    -0.783,
+    0.813,
+    10.64
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "F04_ATRIUM_FRUIT_2",
+   "floor": "F04",
+   "kind": "eye_pendant",
+   "room": "F04_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    -0.709,
+    0.886,
+    11.86
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "5A_LT_SCONCE",
+   "floor": "F05",
+   "kind": "sconce_globe",
+   "room": "F05_A_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    -5.59,
+    -4.2700000000000005,
+    14.72
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "5B_LT_SCONCE",
+   "floor": "F05",
+   "kind": "sconce_globe",
+   "room": "F05_B_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    -5.59,
+    4.89,
+    14.72
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "5C_LT_SCONCE",
+   "floor": "F05",
+   "kind": "sconce_globe",
+   "room": "F05_C_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    5.59,
+    5.71,
+    14.72
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "5D_LT_SCONCE",
+   "floor": "F05",
+   "kind": "sconce_globe",
+   "room": "F05_D_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    5.59,
+    -4.2700000000000005,
+    14.72
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_01",
+   "floor": "F05",
+   "kind": "flush_dome",
+   "room": "F05_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    -5.1,
+    15.740000000000002
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_02",
+   "floor": "F05",
+   "kind": "flush_dome",
+   "room": "F05_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    0.0,
+    15.740000000000002
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_03",
+   "floor": "F05",
+   "kind": "flush_dome",
+   "room": "F05_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    5.1,
+    15.740000000000002
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_04",
+   "floor": "F05",
+   "kind": "flush_dome",
+   "room": "F05_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    -5.1,
+    15.740000000000002
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_05",
+   "floor": "F05",
+   "kind": "flush_dome",
+   "room": "F05_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    0.0,
+    15.740000000000002
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_06",
+   "floor": "F05",
+   "kind": "flush_dome",
+   "room": "F05_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    5.1,
+    15.740000000000002
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_07",
+   "floor": "F05",
+   "kind": "flush_dome",
+   "room": "F05_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    0.0,
+    -8.25,
+    15.740000000000002
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_08",
+   "floor": "F05",
+   "kind": "flush_dome",
+   "room": "F05_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    0.0,
+    8.25,
+    15.740000000000002
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F05_A_BED_LT_FLUSH_DOME",
+   "floor": "F05",
+   "kind": "flush_dome",
+   "room": "F05_A_BED",
+   "room_kind": "bedroom",
+   "position": [
+    -9.58,
+    -7.95,
+    15.760000000000002
+   ],
+   "range": 5.31,
+   "energy": 1.02,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F05_A_MAIN_LT_PENDANT_SHADE",
+   "floor": "F05",
+   "kind": "pendant_shade",
+   "room": "F05_A_MAIN",
+   "room_kind": "living",
+   "position": [
+    -9.58,
+    -3.35,
+    15.760000000000002
+   ],
+   "range": 5.9,
+   "energy": 1.2,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F05_B_ALCOVE_LT_FLUSH_DOME",
+   "floor": "F05",
+   "kind": "flush_dome",
+   "room": "F05_B_ALCOVE",
+   "room_kind": "alcove",
+   "position": [
+    -12.275,
+    8.075,
+    15.760000000000002
+   ],
+   "range": 2.99,
+   "energy": 0.86,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F05_B_KITCHEN_LT_KITCHEN_LINEAR",
+   "floor": "F05",
+   "kind": "kitchen_linear",
+   "room": "F05_B_KITCHEN",
+   "room_kind": "kitchen",
+   "position": [
+    -8.205,
+    8.075,
+    15.760000000000002
+   ],
+   "range": 4.02,
+   "energy": 1.23,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F05_B_MAIN_LT_PENDANT_SHADE",
+   "floor": "F05",
+   "kind": "pendant_shade",
+   "room": "F05_B_MAIN",
+   "room_kind": "living",
+   "position": [
+    -9.58,
+    4.585,
+    15.760000000000002
+   ],
+   "range": 5.4,
+   "energy": 1.1,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F05_C_BED1_LT_FLUSH_DOME",
+   "floor": "F05",
+   "kind": "flush_dome",
+   "room": "F05_C_BED1",
+   "room_kind": "bedroom",
+   "position": [
+    7.545,
+    7.95,
+    15.760000000000002
+   ],
+   "range": 3.55,
+   "energy": 0.72,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F05_C_BED2_LT_FLUSH_DOME",
+   "floor": "F05",
+   "kind": "flush_dome",
+   "room": "F05_C_BED2",
+   "room_kind": "bedroom",
+   "position": [
+    11.615,
+    7.95,
+    15.760000000000002
+   ],
+   "range": 3.55,
+   "energy": 0.72,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F05_C_MAIN_LT_PENDANT_SHADE",
+   "floor": "F05",
+   "kind": "pendant_shade",
+   "room": "F05_C_MAIN",
+   "room_kind": "living",
+   "position": [
+    9.58,
+    2.685,
+    15.760000000000002
+   ],
+   "range": 6.31,
+   "energy": 0.85,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F05_WSTOR_LT_CAGE_BULB",
+   "floor": "F05",
+   "kind": "cage_bulb",
+   "room": "F05_WSTOR",
+   "room_kind": "storage",
+   "position": [
+    -9.58,
+    1.11,
+    15.760000000000002
+   ],
+   "range": 5.22,
+   "energy": 0.7,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F05_HALL_LT_FLUSH_DOME",
+   "floor": "F05",
+   "kind": "flush_dome",
+   "room": "F05_HALL",
+   "room_kind": "hall",
+   "position": [
+    -1.2,
+    -5.0,
+    15.760000000000002
+   ],
+   "range": 3.6,
+   "energy": 1.0,
+   "navigation": true,
+   "standby": 0.3
+  },
+  {
+   "id": "F05_UTILITY_LT_CAGE_BULB",
+   "floor": "F05",
+   "kind": "cage_bulb",
+   "room": "F05_UTILITY",
+   "room_kind": "utility",
+   "position": [
+    0.0,
+    5.0,
+    15.760000000000002
+   ],
+   "range": 4.59,
+   "energy": 0.78,
+   "navigation": true,
+   "standby": 0.3
+  },
+  {
+   "id": "F05_ATRIUM_FRUIT_1",
+   "floor": "F05",
+   "kind": "eye_pendant",
+   "room": "F05_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    0.941,
+    1.21,
+    13.659
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "F05_ATRIUM_FRUIT_2",
+   "floor": "F05",
+   "kind": "eye_pendant",
+   "room": "F05_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    0.998,
+    -0.849,
+    15.161
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "6A_LT_SCONCE",
+   "floor": "F06",
+   "kind": "sconce_globe",
+   "room": "F06_A_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    -5.59,
+    -4.2700000000000005,
+    17.92
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "6B_LT_SCONCE",
+   "floor": "F06",
+   "kind": "sconce_globe",
+   "room": "F06_B_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    -5.59,
+    4.89,
+    17.92
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "6C_LT_SCONCE",
+   "floor": "F06",
+   "kind": "sconce_globe",
+   "room": "F06_C_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    5.59,
+    5.71,
+    17.92
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "6D_LT_SCONCE",
+   "floor": "F06",
+   "kind": "sconce_globe",
+   "room": "F06_D_BATH",
+   "room_kind": "bathroom",
+   "position": [
+    5.59,
+    -4.2700000000000005,
+    17.92
+   ],
+   "range": 5.0,
+   "energy": 1.05,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_01",
+   "floor": "F06",
+   "kind": "flush_dome",
+   "room": "F06_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    -5.1,
+    18.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_02",
+   "floor": "F06",
+   "kind": "flush_dome",
+   "room": "F06_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    0.0,
+    18.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_03",
+   "floor": "F06",
+   "kind": "flush_dome",
+   "room": "F06_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    -4.35,
+    5.1,
+    18.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_04",
+   "floor": "F06",
+   "kind": "flush_dome",
+   "room": "F06_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    -5.1,
+    18.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_05",
+   "floor": "F06",
+   "kind": "flush_dome",
+   "room": "F06_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    0.0,
+    18.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_06",
+   "floor": "F06",
+   "kind": "flush_dome",
+   "room": "F06_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    4.35,
+    5.1,
+    18.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_07",
+   "floor": "F06",
+   "kind": "flush_dome",
+   "room": "F06_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    0.0,
+    -8.25,
+    18.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_08",
+   "floor": "F06",
+   "kind": "flush_dome",
+   "room": "F06_CORRIDOR",
+   "room_kind": "corridor",
+   "position": [
+    0.0,
+    8.25,
+    18.94
+   ],
+   "range": 7.2,
+   "energy": 1.3,
+   "navigation": true,
+   "standby": 0.34
+  },
+  {
+   "id": "F06_A_BED_LT_FLUSH_DOME",
+   "floor": "F06",
+   "kind": "flush_dome",
+   "room": "F06_A_BED",
+   "room_kind": "bedroom",
+   "position": [
+    -9.58,
+    -7.95,
+    18.96
+   ],
+   "range": 5.31,
+   "energy": 0.47,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F06_A_MAIN_LT_PENDANT_SHADE",
+   "floor": "F06",
+   "kind": "pendant_shade",
+   "room": "F06_A_MAIN",
+   "room_kind": "living",
+   "position": [
+    -9.58,
+    -3.35,
+    18.96
+   ],
+   "range": 5.9,
+   "energy": 0.55,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F06_B_ALCOVE_LT_FLUSH_DOME",
+   "floor": "F06",
+   "kind": "flush_dome",
+   "room": "F06_B_ALCOVE",
+   "room_kind": "alcove",
+   "position": [
+    -12.275,
+    8.075,
+    18.96
+   ],
+   "range": 2.99,
+   "energy": 0.66,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F06_B_KITCHEN_LT_KITCHEN_LINEAR",
+   "floor": "F06",
+   "kind": "kitchen_linear",
+   "room": "F06_B_KITCHEN",
+   "room_kind": "kitchen",
+   "position": [
+    -8.205,
+    8.075,
+    18.96
+   ],
+   "range": 4.02,
+   "energy": 0.95,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F06_B_MAIN_LT_PENDANT_SHADE",
+   "floor": "F06",
+   "kind": "pendant_shade",
+   "room": "F06_B_MAIN",
+   "room_kind": "living",
+   "position": [
+    -9.58,
+    4.585,
+    18.96
+   ],
+   "range": 5.4,
+   "energy": 0.85,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F06_C_BED1_LT_FLUSH_DOME",
+   "floor": "F06",
+   "kind": "flush_dome",
+   "room": "F06_C_BED1",
+   "room_kind": "bedroom",
+   "position": [
+    7.545,
+    7.95,
+    18.96
+   ],
+   "range": 3.55,
+   "energy": 0.77,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F06_C_BED2_LT_FLUSH_DOME",
+   "floor": "F06",
+   "kind": "flush_dome",
+   "room": "F06_C_BED2",
+   "room_kind": "bedroom",
+   "position": [
+    11.615,
+    7.95,
+    18.96
+   ],
+   "range": 3.55,
+   "energy": 0.77,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F06_C_MAIN_LT_PENDANT_SHADE",
+   "floor": "F06",
+   "kind": "pendant_shade",
+   "room": "F06_C_MAIN",
+   "room_kind": "living",
+   "position": [
+    9.58,
+    2.685,
+    18.96
+   ],
+   "range": 6.31,
+   "energy": 0.9,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F06_D_BED_LT_FLUSH_DOME",
+   "floor": "F06",
+   "kind": "flush_dome",
+   "room": "F06_D_BED",
+   "room_kind": "bedroom",
+   "position": [
+    9.58,
+    -7.95,
+    18.96
+   ],
+   "range": 5.31,
+   "energy": 0.81,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F06_D_MAIN_LT_PENDANT_SHADE",
+   "floor": "F06",
+   "kind": "pendant_shade",
+   "room": "F06_D_MAIN",
+   "room_kind": "living",
+   "position": [
+    9.58,
+    -3.625,
+    18.96
+   ],
+   "range": 5.74,
+   "energy": 0.95,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F06_D_OFFICE_LT_PENDANT_SHADE",
+   "floor": "F06",
+   "kind": "pendant_shade",
+   "room": "F06_D_OFFICE",
+   "room_kind": "office",
+   "position": [
+    6.61,
+    -1.92,
+    18.96
+   ],
+   "range": 2.33,
+   "energy": 1.09,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F06_WSTOR_LT_CAGE_BULB",
+   "floor": "F06",
+   "kind": "cage_bulb",
+   "room": "F06_WSTOR",
+   "room_kind": "storage",
+   "position": [
+    -9.58,
+    1.11,
+    18.96
+   ],
+   "range": 5.22,
+   "energy": 0.7,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F06_HALL_LT_FLUSH_DOME",
+   "floor": "F06",
+   "kind": "flush_dome",
+   "room": "F06_HALL",
+   "room_kind": "hall",
+   "position": [
+    -1.2,
+    -5.0,
+    18.96
+   ],
+   "range": 3.6,
+   "energy": 1.0,
+   "navigation": true,
+   "standby": 0.3
+  },
+  {
+   "id": "F06_UTILITY_LT_CAGE_BULB",
+   "floor": "F06",
+   "kind": "cage_bulb",
+   "room": "F06_UTILITY",
+   "room_kind": "utility",
+   "position": [
+    0.0,
+    5.0,
+    18.96
+   ],
+   "range": 4.59,
+   "energy": 0.78,
+   "navigation": true,
+   "standby": 0.3
+  },
+  {
+   "id": "F06_ATRIUM_FRUIT_1",
+   "floor": "F06",
+   "kind": "eye_pendant",
+   "room": "F06_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    0.289,
+    0.156,
+    17.017
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "F06_ATRIUM_FRUIT_2",
+   "floor": "F06",
+   "kind": "eye_pendant",
+   "room": "F06_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    -0.824,
+    -0.846,
+    18.252
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "ROOF_LT_DECK",
+   "floor": "ROOF",
+   "kind": "cage_bulb",
+   "room": "ROOF_OPEN",
+   "room_kind": "roof",
+   "position": [
+    8.6,
+    -2.6,
+    21.72
+   ],
+   "range": 9.5,
+   "energy": 0.95,
+   "navigation": true,
+   "standby": 0.45
+  },
+  {
+   "id": "ROOF_LT_GARDEN",
+   "floor": "ROOF",
+   "kind": "cage_bulb",
+   "room": "ROOF_OPEN",
+   "room_kind": "roof",
+   "position": [
+    -9.0,
+    6.2,
+    21.5
+   ],
+   "range": 8.0,
+   "energy": 0.7,
+   "navigation": true,
+   "standby": 0.35
+  },
+  {
+   "id": "ROOF_ATRIUM_FRUIT_1",
+   "floor": "ROOF",
+   "kind": "eye_pendant",
+   "room": "ROOF_OPEN",
+   "room_kind": "roof",
+   "position": [
+    0.105,
+    0.438,
+    19.846
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "ROOF_ATRIUM_FRUIT_2",
+   "floor": "ROOF",
+   "kind": "eye_pendant",
+   "room": "ROOF_OPEN",
+   "room_kind": "roof",
+   "position": [
+    -1.268,
+    -0.23,
+    20.311
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  }
+ ]
+}

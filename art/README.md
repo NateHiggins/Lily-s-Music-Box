@@ -80,8 +80,8 @@ one open switchback stair (B1→roof) around a guarded eye under a glazed
 monitor and skylight, with the cores as elevator hall and utility rooms.
 Verified by `game/tests/WalkTest.tscn` (64 checks, all passing): every
 level walkable, the atrium physically climbable corridor-to-corridor by
-the player capsule, elevator serves B1–F6, acoustic graph connected,
-walkthrough tour flies and returns control. Generation-time validation
+the player capsule, elevator serves B1–F6, and acoustic graph connected.
+Generation-time validation
 asserts furnishing completeness, kitchen facing agreement and prop
 counts (switches = 2 × door leaves).
 

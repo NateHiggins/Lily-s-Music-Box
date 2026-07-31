@@ -6,6 +6,35 @@
 > caller supplies the anomaly, the resident gives it a human interpretation,
 > and the player carries the pattern between them.
 
+## Implementation status
+
+The opening trio this document recommends is built and playable in
+`game/`, as data in `game/scripts/call/case_library.gd` — Case 01 as
+#4471, Case 02 as #4482, Case 03 as #4496 — with the caller names changed
+to Mara Chen, Leon Price and Briar Lane. They arrive in order at the 4B
+desk and each leaves the building changed; WalkTest drives all three end
+to end.
+
+Two divergences from this draft, both deliberate:
+
+- **Case 02's field phase is half implemented.** "Waiting at the implied
+  destination" is no longer a button: the response window runs long enough
+  to leave the desk, walk down to the third-floor corridor and be standing
+  where the route ends, and doing so is scored separately from letting the
+  window expire in the chair. Match, walk against and strike remain
+  console answers. What is *not* implemented is the journey the design
+  describes — contact microphones and positional listening on the way
+  down. The walk is currently unguided beyond an on-screen banner and the
+  motif playing from the F03 riser.
+- **Case 03 has no fifth "route one person's voice through another"
+  option.** The four that exist already cover the argument, and a fifth
+  button that needed a second caller to mean anything would have been a
+  button rather than a choice.
+
+Cases 04-07 and the Convergence are unbuilt. Because a case is a
+dictionary of beats rather than a class, adding one is authoring, not
+engineering — see the beat vocabulary at the top of `case_library.gd`.
+
 ## Working Building: Orison Apartments
 
 An aging apartment building with cheap renovations, unreliable utilities,

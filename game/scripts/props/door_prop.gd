@@ -39,12 +39,59 @@ func _ready() -> void:
 	mat.roughness = 0.5
 	mi.material_override = mat
 	_body.add_child(mi)
-	# stile-and-rail identity: two recessed panel fields per face
+	# Wide leaves are apartment/service entries. Give them the accumulated
+	# hardware that makes a shared building feel inhabited: a low kick plate,
+	# peephole, and three visible hinge knuckles. Interior leaves stay quieter.
+	if width > 0.85:
+		var kick_mat := StandardMaterial3D.new()
+		kick_mat.albedo_color = Color(0.27, 0.25, 0.22)
+		kick_mat.roughness = 0.38
+		kick_mat.metallic = 0.72
+		for side in [-1.0, 1.0]:
+			var kick := MeshInstance3D.new()
+			var kb := BoxMesh.new()
+			kb.size = Vector3(width - 0.12, 0.18, 0.008)
+			kick.mesh = kb
+			kick.position = Vector3(width / 2.0, 0.14, side * 0.026)
+			kick.material_override = kick_mat
+			_body.add_child(kick)
+			var eye := MeshInstance3D.new()
+			var ec := CylinderMesh.new()
+			ec.top_radius = 0.018
+			ec.bottom_radius = 0.012
+			ec.height = 0.018
+			eye.mesh = ec
+			eye.rotation_degrees = Vector3(90, 0, 0)
+			eye.position = Vector3(width / 2.0, 1.53, side * 0.030)
+			eye.material_override = kick_mat
+			_body.add_child(eye)
+		for hz in [0.28, height * 0.50, height - 0.28]:
+			var hinge := MeshInstance3D.new()
+			var hc := CylinderMesh.new()
+			hc.top_radius = 0.012
+			hc.bottom_radius = 0.012
+			hc.height = 0.075
+			hinge.mesh = hc
+			hinge.position = Vector3(0.0, hz, 0.0)
+			hinge.material_override = kick_mat
+			_body.add_child(hinge)
+		# The saddle belongs to the frame, not the moving leaf. Its worn metal
+		# edge catches light even when the door is parked open.
+		var saddle := MeshInstance3D.new()
+		var sb := BoxMesh.new()
+		sb.size = Vector3(width + 0.05, 0.018, 0.14)
+		saddle.mesh = sb
+		saddle.position = Vector3(width / 2.0, 0.009, 0.0)
+		saddle.material_override = kick_mat
+		add_child(saddle)
+	# stile-and-rail identity; cabinet leaves get a single field scaled
+	# to their own height instead of full-door panel positions
 	var pmat := StandardMaterial3D.new()
 	pmat.albedo_color = leaf_col.darkened(0.16)
 	pmat.roughness = 0.55
+	var fields := [[0.16, 0.88], [1.04, height - 0.18]] 			if height >= 1.2 else [[0.07, height - 0.07]]
 	for side in [-1.0, 1.0]:
-		for pz in [[0.16, 0.88], [1.04, height - 0.18]]:
+		for pz in fields:
 			var panel := MeshInstance3D.new()
 			var pb := BoxMesh.new()
 			pb.size = Vector3(width - 0.22, pz[1] - pz[0], 0.012)
@@ -53,11 +100,24 @@ func _ready() -> void:
 					side * 0.020)
 			panel.material_override = pmat
 			_body.add_child(panel)
-	# lever on a rosette over a keyhole escutcheon, both faces
+	# lever on a rosette over a keyhole escutcheon, both faces —
+	# cabinets get a single small knob at carcass scale instead
 	var hw := StandardMaterial3D.new()
 	hw.albedo_color = Color(0.62, 0.55, 0.30)
 	hw.roughness = 0.28
 	hw.metallic = 0.85
+	if height < 1.2:
+		var knob := MeshInstance3D.new()
+		var kc := CylinderMesh.new()
+		kc.top_radius = 0.014
+		kc.bottom_radius = 0.010
+		kc.height = 0.028
+		knob.mesh = kc
+		knob.rotation_degrees = Vector3(90, 0, 0)
+		knob.position = Vector3(width - 0.06, height * 0.55, 0.032)
+		knob.material_override = hw
+		_body.add_child(knob)
+		return
 	for side in [-1.0, 1.0]:
 		var rosette := MeshInstance3D.new()
 		var rc := CylinderMesh.new()

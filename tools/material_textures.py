@@ -134,7 +134,7 @@ def process(material: str) -> None:
     if not source.exists():
         raise SystemExit(f"Missing source plate: {source}")
     output.mkdir(parents=True, exist_ok=True)
-    size = int(manifest["defaults"].get("output_size", 1024))
+    size = int(spec.get("size", manifest["defaults"].get("output_size", 1024)))
     albedo = seamless(fit_square(Image.open(source), size))
     height = make_height(albedo, int(spec.get("height_detail_radius", 16)))
     roughness = make_roughness(

@@ -109,8 +109,7 @@ def arch(at, w, h=2.85):
 
 def door(at, spec=DOOR_INT, leaf="closed", swing=None):
     """leaf: "closed" | "open" | "locked" | "none" (opening only).
-    swing: "out" reverses the hinge direction (egress doors swing with
-    the direction of travel, away from the space they serve)."""
+    swing "out" reverses the hinge (egress doors swing with travel)."""
     o = {"type": "door", "at": at, "w": spec["w"], "h": spec["h"],
          "sill": 0.0, "leaf": leaf}
     if swing:
@@ -153,7 +152,7 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
     if stack in ("A", "D"):
         # bedroom band at the street end
         by = y0 + 3.40
-        door_x = inner_x + (0.75 if east else -0.75)
+        door_x = bx + (1.0 if east else -1.0)  # clear of the bath block
         walls.append(wall((x0, by), (x1, by), PART_T, WALL_H, z,
                           [door(abs(door_x - x0))]))
         rooms.append({"id": prefix + "_BED", "unit": unit,
@@ -168,7 +167,7 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
                       "rect": [bth0, by + 0.06, bth1, by + 2.46],
                       "kind": "bathroom"})
         bath_fixtures(furniture, unit, [bth0, by + 0.06, bth1, by + 2.46],
-                      "e" if not east else "w")
+                      "e" if not east else "w", markers, z)
         rooms.append({"id": prefix + "_MAIN", "unit": unit,
                       "rect": [x0, by, x1, y1], "kind": "living"})
         if stack == "D":
@@ -202,7 +201,7 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
                       "rect": [bth0, y0 + 0.30, bth1, y0 + 2.70],
                       "kind": "bathroom"})
         bath_fixtures(furniture, unit, [bth0, y0 + 0.30, bth1, y0 + 2.70],
-                      "e" if not east else "w")
+                      "e" if not east else "w", markers, z)
         rooms.append({"id": prefix + "_KITCHEN", "unit": unit,
                       "rect": [ax, ay, x1, y1], "kind": "kitchen"})
         rooms.append({"id": prefix + "_MAIN", "unit": unit,
@@ -210,8 +209,10 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
     else:  # C: two bedrooms across the rear
         by = y1 - 3.40
         xm = (x0 + x1) / 2.0
+        pd = "none" if unit == "3C" else "closed"
         walls.append(wall((x0, by), (x1, by), PART_T, WALL_H, z,
-                          [door(1.6), door(x1 - x0 - 1.6)]))
+                          [door(1.6, DOOR_INT, pd),
+                           door(x1 - x0 - 1.6, DOOR_INT, pd)]))
         walls.append(wall((xm, by), (xm, y1), PART_T, WALL_H, z, []))
         rooms.append({"id": prefix + "_BED1", "unit": unit,
                       "rect": [x0, by, xm, y1], "kind": "bedroom"})
@@ -226,7 +227,7 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
                       "rect": [bth0, by - 2.46, bth1, by - 0.06],
                       "kind": "bathroom"})
         bath_fixtures(furniture, unit, [bth0, by - 2.46, bth1, by - 0.06],
-                      "e" if not east else "w")
+                      "e" if not east else "w", markers, z)
         rooms.append({"id": prefix + "_MAIN", "unit": unit,
                       "rect": [x0, y0, x1, by], "kind": "living"})
     rx = (x0 + 0.30) if not east else (x1 - 0.30)
@@ -246,23 +247,52 @@ def _furn_box(furniture, fid, x, y, w, d, z0, h, mat, _east):
 
 
 
-def bath_fixtures(furniture, unit, rect, edge):
+def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
     """Shower, close-coupled toilet and pedestal sink with mirror, lined
-    along one wall of the bath. edge: "e" | "w" | "n"."""
+    along one wall of the bath, plus a milk-glass sconce over the mirror
+    when a markers list is supplied. edge: "e" | "w" | "n"."""
     x0, y0, x1, y1 = rect
     f = furniture
+    # Every fixture mounts with its back (local -Y) to the run wall. The
+    # shower also meets a second wall: `mirror` tells it which of its own
+    # X sides that corner is on, so tile and glass never swap places.
     if edge == "e":
         _asm(f, unit + "_shower", "shower", x1 - 0.46, y0 + 0.50, 90)
         _asm(f, unit + "_wc", "toilet", x1 - 0.41, y0 + 1.22, 90)
         _asm(f, unit + "_sink", "sink_ped", x1 - 0.30, y0 + 1.92, 90)
+        spos, syaw = [x1 - 0.08, y0 + 1.92], -90
     elif edge == "w":
-        _asm(f, unit + "_shower", "shower", x0 + 0.46, y0 + 0.50, -90)
+        _asm(f, unit + "_shower", "shower", x0 + 0.46, y0 + 0.50, -90,
+             mirror=True)
         _asm(f, unit + "_wc", "toilet", x0 + 0.41, y0 + 1.22, -90)
         _asm(f, unit + "_sink", "sink_ped", x0 + 0.30, y0 + 1.92, -90)
+        spos, syaw = [x0 + 0.08, y0 + 1.92], 90
     else:  # "n"
-        _asm(f, unit + "_shower", "shower", x0 + 0.50, y1 - 0.46, 180)
+        _asm(f, unit + "_shower", "shower", x0 + 0.50, y1 - 0.46, 180,
+             mirror=True)
         _asm(f, unit + "_wc", "toilet", x0 + 1.22, y1 - 0.41, 180)
         _asm(f, unit + "_sink", "sink_ped", x0 + 1.92, y1 - 0.30, 180)
+        spos, syaw = [x0 + 1.92, y1 - 0.08], 0
+    # Towels live on the wall opposite the wet fixtures. The former rail
+    # shared the shower/toilet wall and visibly passed through both.
+    tr = {"e": (x0 + 0.10, y0 + 1.60), "w": (x1 - 0.10, y0 + 1.60),
+          "n": (x0 + 1.60, y0 + 0.10)}[edge]
+    if edge in ("e", "w"):
+        _furn_box(f, unit + "_trail", tr[0] - 0.012, tr[1], 0.024, 0.62,
+                  1.05, 0.02, "chrome", False)
+        _furn_box(f, unit + "_towel", tr[0] - 0.03, tr[1] + 0.10, 0.05,
+                  0.38, 0.60, 0.44, "linen", False)
+    else:
+        _furn_box(f, unit + "_trail", tr[0], tr[1] - 0.012, 0.62, 0.024,
+                  1.05, 0.02, "chrome", False)
+        _furn_box(f, unit + "_towel", tr[0] + 0.10, tr[1] - 0.03, 0.38,
+                  0.05, 0.60, 0.44, "linen", False)
+    if markers is not None:
+        markers.append({"kind": "sconce_globe",
+                        "id": "%s_LT_SCONCE" % unit,
+                        "unit": unit, "pos": [spos[0], spos[1], z + 1.92],
+                        "yaw_deg": syaw, "network": "electrical",
+                        "energy": 1.05})
 
 
 def wardrobe(furniture, unit, x, y, along_x=True, face="n"):
@@ -341,18 +371,18 @@ def chair_box(f, uid, x, y, back_side="s"):
         {"s": "n", "n": "s", "w": "e", "e": "w"}[back_side]])
 
 
-def dining_set(f, uid, x, y, n=2, mat="floor_oak"):
-    """Table centered at (x, y) with n cafe chairs around it."""
+def dining_set(f, uid, x, y, sides=("s", "n"), mat="floor_oak"):
+    """Table centered at (x, y); cafe chairs only on the given sides, so
+    seating stays out of the room's walking lines."""
     if sum(ord(c) for c in uid) % 2:
         _asm(f, uid + "_t", "table_round", x, y, 0, mat=mat)
     else:
         _asm(f, uid + "_t", "table_rect", x, y, 0, L=1.2, W=0.8, mat=mat)
-    chair_box(f, uid + "_dc1", x - 0.55, y - 1.00, "s")
-    if n >= 2:
-        chair_box(f, uid + "_dc2", x + 0.11, y + 0.56, "n")
-    if n >= 4:
-        chair_box(f, uid + "_dc3", x - 1.10, y - 0.22, "w")
-        chair_box(f, uid + "_dc4", x + 0.66, y - 0.22, "e")
+    spots = {"s": (x - 0.55, y - 1.00), "n": (x + 0.11, y + 0.56),
+             "w": (x - 1.10, y - 0.22), "e": (x + 0.66, y - 0.22)}
+    for i, side in enumerate(sides):
+        sx_, sy_ = spots[side]
+        chair_box(f, "%s_dc%d" % (uid, i + 1), sx_, sy_, side)
 
 
 def shelf_unit(f, uid, x, y, w=1.1, along_x=True, d=0.30, h=1.85,
@@ -368,10 +398,11 @@ def shelf_unit(f, uid, x, y, w=1.1, along_x=True, d=0.30, h=1.85,
 
 def tv_set(f, uid, x, y, along_x=True, face="n"):
     """Media unit + panel on splayed dowels; (x, y) = min corner."""
+    yaw = (FACE_YAW[face] + 180) % 360
     if along_x:
-        _asm(f, uid, "tv", x + 0.625, y + 0.21, FACE_YAW[face])
+        _asm(f, uid, "tv", x + 0.625, y + 0.21, yaw)
     else:
-        _asm(f, uid, "tv", x + 0.21, y + 0.625, FACE_YAW[face])
+        _asm(f, uid, "tv", x + 0.21, y + 0.625, yaw)
 
 
 def plant_box(f, uid, x, y, big=False):
@@ -387,30 +418,57 @@ def art_panel(f, uid, x, y, w=0.7, along_x=True, z0=1.30, h=0.85, mat="art"):
                   0.03, "wood_dark", False)
         _furn_box(f, uid + "_artf2", x - 0.02, y, w + 0.04, 0.045, z0 + h,
                   0.03, "wood_dark", False)
+        _furn_box(f, uid + "_artfl", x - 0.02, y, 0.03, 0.045, z0, h,
+                  "wood_dark", False)
+        _furn_box(f, uid + "_artfr", x + w - 0.01, y, 0.03, 0.045, z0, h,
+                  "wood_dark", False)
     else:
         _furn_box(f, uid + "_art", x, y, 0.035, w, z0, h, mat, False)
         _furn_box(f, uid + "_artf", x, y - 0.02, 0.045, w + 0.04, z0 - 0.03,
                   0.03, "wood_dark", False)
         _furn_box(f, uid + "_artf2", x, y - 0.02, 0.045, w + 0.04, z0 + h,
                   0.03, "wood_dark", False)
+        _furn_box(f, uid + "_artfl", x, y - 0.02, 0.045, 0.03, z0, h,
+                  "wood_dark", False)
+        _furn_box(f, uid + "_artfr", x, y + w - 0.01, 0.045, 0.03, z0, h,
+                  "wood_dark", False)
 
 
 def kitchen_run(f, uid, x, y, L, along_x=True, side="n"):
     """Cabinetry run + range + fridge along the wall on `side` of the
     0.66-deep footprint whose min corner is (x, y)."""
     cw = max(0.95, L - 1.40)
+
+    def clutter(cx_, cy_, swap=False):
+        # kept clear of the sink basin, which owns the counter's left
+        # third (cutout at carcass x = 0.30*cw-cw/2 +- 0.22)
+        items = (((cw * 0.06, 0.16), 0.22, 0.17, 0.11, "porcelain",
+                  "mugs"),
+                 ((cw * 0.08, -0.15), 0.24, 0.20, 0.07, "porcelain",
+                  "plates"),
+                 ((cw * 0.36, 0.02), 0.28, 0.20, 0.02, "timber", "board"))
+        for (ox, oy), iw, id_, ih, mat_, tag in items:
+            if swap:
+                ox, oy = oy, ox
+                iw, id_ = id_, iw
+            f.append({"id": "%s_k%s" % (uid, tag),
+                      "rect": [cx_ + ox - iw / 2, cy_ + oy - id_ / 2,
+                               cx_ + ox + iw / 2, cy_ + oy + id_ / 2],
+                      "z0": 0.90, "h": ih, "mat": mat_})
     if along_x:
         yaw = FACE_YAW["s" if side == "n" else "n"]
         cy = y + 0.32
         _asm(f, uid, "kitchen", x + cw / 2, cy, yaw, L=cw + 0.75)
         _asm(f, uid + "_stove", "stove", x + cw + 0.33, cy, yaw)
         _asm(f, uid + "_fr", "fridge50", x + cw + 0.66 + 0.36, cy, yaw)
+        clutter(x + cw / 2, cy)
     else:
         yaw = FACE_YAW["e" if side == "w" else "w"]
         cx = x + 0.32
         _asm(f, uid, "kitchen", cx, y + cw / 2, yaw, L=cw + 0.75)
         _asm(f, uid + "_stove", "stove", cx, y + cw + 0.33, yaw)
         _asm(f, uid + "_fr", "fridge50", cx, y + cw + 0.66 + 0.36, yaw)
+        clutter(cx, y + cw / 2, True)
 
 
 def desk_set(f, uid, x, y, L=1.4, along_x=True, chair_side=1):
@@ -428,6 +486,94 @@ def desk_set(f, uid, x, y, L=1.4, along_x=True, chair_side=1):
                   y + L / 2 - 0.22, "e" if chair_side > 0 else "w")
 
 
+def lived_in_surface_detail(f, unit, rooms, skip, ux, lcy):
+    """Small, placement-safe evidence of daily life on existing surfaces.
+
+    These props deliberately sit above dining, coffee and desk assemblies,
+    so they increase close-view density without narrowing circulation.
+    Their mix and rotation are deterministic per household.
+    """
+    seed = sum((i + 1) * ord(c) for i, c in enumerate(unit))
+    dx, dy, _ = rooms["dining_spot"]
+    _asm(f, unit + "_detail_dining_mug", "mug",
+         dx + (-0.16 if seed % 2 else 0.16), dy + 0.08,
+         (seed * 29) % 360, z0=0.75,
+         mat=("porcelain", "ceramic")[seed % 2])
+    _asm(f, unit + "_detail_dining_papers", "papers",
+         dx - 0.12, dy - 0.10, (seed * 17) % 18 - 9, z0=0.75,
+         n=3 + seed % 4, mess=0.15 + (seed % 5) * 0.12)
+
+    if "sofa" not in skip:
+        # coffee_table() receives the min corner of its footprint.
+        cx, cy = ux(1.55, 0.95) + 0.475, lcy - 0.55 + 0.275
+        _asm(f, unit + "_detail_coffee_books", "bookpile",
+             cx - 0.18, cy + 0.02, (seed * 11) % 24 - 12,
+             z0=0.37, n=2 + seed % 3)
+        _asm(f, unit + "_detail_coffee_mug", "mug",
+             cx + 0.20, cy - 0.06, (seed * 41) % 360, z0=0.37,
+             mat=("porcelain", "ceramic")[(seed // 2) % 2])
+
+    if "office" in rooms:
+        ox0, oy0, ox1, oy1 = rooms["office"]
+        # The standard office desk is vertical, centered at this point.
+        dcx, dcy = ox1 - 0.365, oy0 + 1.0
+        _asm(f, unit + "_detail_desk_papers", "papers",
+             dcx, dcy - 0.16, -90 + ((seed % 7) - 3), z0=0.74,
+             n=5 + seed % 4, mess=0.25 + (seed % 4) * 0.18)
+        _asm(f, unit + "_detail_desk_mug", "mug",
+             dcx - 0.16, dcy + 0.17, (seed * 31) % 360, z0=0.74,
+             mat=("porcelain", "ceramic")[(seed // 3) % 2])
+
+
+WIN_TOP = 2.55   # window head (sill 0.85 + h 1.70)
+
+
+def blind_stack(f, uid, x, y, along_x, seed):
+    """One venetian blind: head rail at the window top, slats descending
+    to a per-window drop (someone half-raised theirs), each blind tilted
+    more or less open — thick slats at tight pitch read shut, thin slats
+    at open pitch let the night through."""
+    h = sum(ord(c) * 13 for c in seed)
+    drop = 0.35 + (h % 7) / 6.0 * 0.60          # 0.35..0.95 of the window
+    tilt = ((h // 7) % 5) / 4.0                 # 0 open .. 1 closed
+    pitch = 0.055 + 0.02 * tilt
+    slat_h = 0.010 + 0.024 * tilt
+    depth = 0.05 - 0.022 * tilt
+    n = int(1.70 * drop / pitch)
+    if along_x:
+        _furn_box(f, uid + "_head", x, y, 1.34, 0.06, WIN_TOP, 0.05,
+                  "trim", False)
+        for k in range(n):
+            _furn_box(f, "%s_s%d" % (uid, k), x + 0.02, y + 0.005, 1.30,
+                      depth, WIN_TOP - 0.06 - k * pitch, slat_h, "trim",
+                      False)
+        _furn_box(f, uid + "_rail", x + 0.02, y, 1.30, 0.05,
+                  WIN_TOP - 0.06 - n * pitch, 0.03, "trim", False)
+    else:
+        _furn_box(f, uid + "_head", x, y, 0.06, 1.34, WIN_TOP, 0.05,
+                  "trim", False)
+        for k in range(n):
+            _furn_box(f, "%s_s%d" % (uid, k), x + 0.005, y + 0.02, depth,
+                      1.30, WIN_TOP - 0.06 - k * pitch, slat_h, "trim",
+                      False)
+        _furn_box(f, uid + "_rail", x, y + 0.02, 0.05, 1.30,
+                  WIN_TOP - 0.06 - n * pitch, 0.03, "trim", False)
+
+
+def blinds_for_unit(f, unit, stack):
+    x0, y0, x1, y1 = STACK_RECTS[stack]
+    west = stack in ("A", "B")
+    wx = (x0 + 0.10) if west else (x1 - 0.15)
+    ln = y1 - y0
+    for wi, wc in enumerate((y0 + ln * 0.30, y0 + ln * 0.70)):
+        blind_stack(f, "%s_blw%d" % (unit, wi), wx, wc - 0.67, False,
+                    unit + str(wi))
+    street = stack in ("A", "D")
+    wy = (y0 + 0.10) if street else (y1 - 0.15)
+    blind_stack(f, unit + "_blr", (x0 + x1) / 2.0 - 0.67, wy, True,
+                unit + "r")
+
+
 ## Room geometry per stack archetype, mirrored from apartment(): the
 ## dressing pass reads the same envelope numbers the walls are built from.
 def _unit_rooms(stack):
@@ -437,26 +583,26 @@ def _unit_rooms(stack):
         return {"bedrooms": [[x0, y0, x1, by]],
                 "living": [x0, by, x1, y1],
                 "kitchen_spot": (x1 - 3.4, y1 - 0.64, 2.5, True, "n"),
-                "dining_spot": (x0 + 5.0, (by + y1) / 2 + 0.85, 4)}
+                "dining_spot": (x0 + 5.1, (by + y1) / 2 + 0.25, ("s", "e"))}
     if stack == "B":
         ay = y1 - 3.15
         return {"alcove": [x0, ay, x0 + 2.75, y1],
                 "living": [x0, y0, x1, ay],
                 "kitchen_spot": (x1 - 0.64, y1 - 2.60, 2.5, False, "e"),
-                "dining_spot": (x0 + 4.5, y0 + 1.15, 2)}
+                "dining_spot": (x0 + 5.4, y0 + 1.15, ("s", "n"))}
     if stack == "C":
         by = y1 - 3.40
         xm = (x0 + x1) / 2.0
         return {"bedrooms": [[x0, by, xm, y1], [xm, by, x1, y1]],
                 "living": [x0, y0, x1, by],
                 "kitchen_spot": (x0 + 0.04, y0 + 1.98, 2.55, False, "w"),
-                "dining_spot": (x0 + 3.0, y0 + 2.6, 4)}
+                "dining_spot": (x0 + 3.0, y0 + 3.1, ("s", "w"))}
     by = y0 + 3.40  # D
     return {"bedrooms": [[x0, y0, x1, by]],
             "living": [x0, by, x1, -1.00],
             "office": [x0, by + 3.41, x0 + 2.2, y1],
             "kitchen_spot": (x0 + 2.6, -1.64, 2.5, True, "n"),
-            "dining_spot": (x0 + 4.6, -2.70, 4)}
+            "dining_spot": (x0 + 6.0, -2.35, ("n", "e"))}
 
 
 ## Standard pieces each hero's signature cluster replaces (so the two
@@ -469,6 +615,96 @@ HERO_SKIP = {
     "6A": {"sofa", "rug", "tv", "plant"},
 }
 
+# Supporting residents. Hero units below already have bespoke full-room
+# installations; these identities give every other occupied apartment a
+# readable life through a compact signature cluster.
+RESIDENT_STORIES = {
+    "1A": ("Evelyn Marsh", "retired_teacher"),
+    "1D": ("Teresa Vale", "night_nurse"),
+    "2B": ("Lena Ortiz", "seamstress"),
+    "3A": ("Malcolm Reed", "horticulturist"),
+    "4A": ("Peter Wren", "legal_clerk"),
+    "4C": ("The Bell Family", "young_family"),
+    "4D": ("Transient Guests", "short_term_rental"),
+    "5B": ("Cal Dwyer", "radio_collector"),
+    "5C": ("Iris Bell", "painter"),
+    "6B": ("Jonah Price", "insomniac_writer"),
+    "6C": ("Mae Kessler", "estate_collector"),
+}
+
+
+def resident_story_detail(f, unit, story, rooms, ux, lcy, wface):
+    """A small, collision-safe narrative cluster on the dining surface and
+    exterior wall. Large furniture remains standardized; these are the
+    objects that explain who lives among it."""
+    dx, dy, _sides = rooms["dining_spot"]
+    tabletop = 0.77
+    east = unit[-1] in ("C", "D")
+    # Boards mount flush on the storey's true wall face (wall-hung
+    # flatware is exempt from the embedded-center audit, like the
+    # mail bank before it), centered on the pier BETWEEN the two side
+    # windows — the only stretch of that wall that is actually wall.
+    wall_x = wface + (-0.005 if east else 0.005)
+    wall_yaw = 90 if east else -90
+    sy0, sy1 = STACK_RECTS[unit[-1]][1], STACK_RECTS[unit[-1]][3]
+    pier_y = (sy0 + sy1) / 2.0
+
+    def prop(suffix, asm, ox, oy, yaw=0, z0=tabletop, **params):
+        _asm(f, "%s_story_%s" % (unit, suffix), asm,
+             dx + ox, dy + oy, yaw, z0=z0, **params)
+
+    if story == "retired_teacher":
+        prop("marked_books", "bookpile", -0.20, 0.02, n=7)
+        prop("lesson_notes", "papers", 0.16, -0.04, -7, n=10, mess=0.18)
+        prop("tea", "mug", 0.34, 0.14, 20, mat="porcelain")
+        _asm(f, unit + "_story_classboard", "pinboard", wall_x, pier_y,
+             wall_yaw, z0=1.20, W=1.05, H=0.72, cards=15, neat=True)
+    elif story == "night_nurse":
+        prop("meds", "bottles", -0.18, 0.04, n=7)
+        prop("rota", "papers", 0.15, -0.02, 4, n=6, mess=0.10)
+        prop("coffee", "mug", 0.35, 0.15, -15, mat="ceramic")
+    elif story == "seamstress":
+        prop("notions", "jarrow", -0.16, 0.04, n=5)
+        prop("patterns", "papers", 0.18, -0.03, 12, n=9, mess=0.48)
+        _asm(f, unit + "_story_patterns", "pinboard", wall_x, pier_y,
+             wall_yaw, z0=1.18, W=1.10, H=0.78, cards=18, neat=False)
+    elif story == "horticulturist":
+        prop("cuttings", "bottles", -0.18, 0.03, n=6)
+        prop("seed_jars", "jarrow", 0.20, -0.02, n=4)
+        plant_box(f, unit + "_story_specimen", ux(0.75, 0.60),
+                  lcy + 1.35, big=True)
+    elif story == "legal_clerk":
+        prop("casebooks", "bookpile", -0.21, 0.02, n=8)
+        prop("briefs", "papers", 0.17, -0.03, -3, n=12, mess=0.12)
+        _asm(f, unit + "_story_deadlines", "pinboard", wall_x, pier_y,
+             wall_yaw, z0=1.18, W=1.0, H=0.70, cards=16, neat=True)
+    elif story == "young_family":
+        prop("schoolbooks", "bookpile", -0.20, 0.04, n=5)
+        prop("drawings", "papers", 0.15, -0.05, 18, n=10, mess=0.70)
+        prop("breakfast_mug", "mug", 0.36, 0.13, mat="ceramic")
+        _asm(f, unit + "_story_familyboard", "pinboard", wall_x, pier_y,
+             wall_yaw, z0=1.12, W=1.15, H=0.82, cards=20, neat=False)
+    elif story == "short_term_rental":
+        prop("city_guides", "bookpile", -0.17, 0.02, n=3)
+        prop("empties", "bottles", 0.20, -0.02, n=4, cans=True)
+    elif story == "radio_collector":
+        prop("radio", "radio", -0.18, 0.0, 180)
+        prop("headphones", "headphones", 0.20, -0.01, 12)
+        prop("lead", "cablecoil", 0.37, 0.10, r=0.09)
+    elif story == "painter":
+        prop("solvents", "bottles", -0.19, 0.03, n=7)
+        prop("studies", "papers", 0.17, -0.04, -12, n=11, mess=0.78)
+        _asm(f, unit + "_story_colorboard", "pinboard", wall_x, pier_y,
+             wall_yaw, z0=1.16, W=1.10, H=0.80, cards=22, neat=False)
+    elif story == "insomniac_writer":
+        prop("draft", "papers", -0.14, -0.02, 8, n=14, mess=0.62)
+        prop("references", "bookpile", 0.22, 0.05, n=6)
+        prop("cold_coffee", "mug", 0.38, -0.12, mat="ceramic")
+    elif story == "estate_collector":
+        prop("oddments", "jarrow", -0.19, 0.03, n=5)
+        prop("catalogues", "bookpile", 0.15, -0.02, n=5)
+        prop("old_radio", "radio", 0.36, 0.10, -165)
+
 
 ## Resident-specific environmental identity (Section 16) and unit states.
 ## Every occupied unit now carries a full lived-in furniture set; heroes
@@ -480,6 +716,10 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
     W = abs(x1 - x0)
     f = furniture
     pal = _pal(unit)
+    # true interior face of the exterior side wall on THIS storey (the
+    # masonry steps thinner above F03, so the face drifts off the stack
+    # rect edge) — wall-hung dressing mounts flush against it
+    wface = (14.0 - ext_t(floor_id)) * (1 if east else -1)
 
     def ux(u, w=0.0):
         """x of a box of width w placed u meters off the exterior side wall."""
@@ -496,8 +736,8 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
     if unit == "2D":      # sealed since 1927: nobody dresses a tomb
         return
     if unit == "3C":      # vacant, water-damaged: exposed framing, debris
-        for i in range(4):
-            _furn_box(f, "3C_stud%d" % i, x0 + 2.4 + i * 1.1, y1 - 3.35,
+        for i in range(6):
+            _furn_box(f, "3C_stud%d" % i, x0 + 1.2 + i * 1.1, y1 - 3.35,
                       0.08, 0.08, 0.0, WALL_H, "trim", False)
         _furn_box(f, "3C_debris", cx - 0.8, cy - 1.5, 1.6, 1.0, 0.0, 0.25,
                   "slab", False)
@@ -514,8 +754,7 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
                   0.05, "floor_oak", False)
         return
     if unit == "5D":      # fire-damaged: char, soot shadows on the walls
-        _furn_box(f, "5D_char1", cx - 1.0, cy + 1.1, 1.2, 0.8, 0.0, 0.4,
-                  "slab", False)
+        _furn_box(f, "5D_char1", cx - 1.0, cy, 1.2, 0.8, 0.0, 0.4, "slab", False)
         _furn_box(f, "5D_char2", x1 - 2.0, y0 + 1.2, 0.9, 0.6, 0.0, 0.3,
                   "slab", False)
         _furn_box(f, "5D_bedburn", ux(0.5, 2.0), y0 + 0.6, 2.0, 1.4, 0.0,
@@ -528,15 +767,16 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
                   0.5, "soot", False)
         return
     if unit == "6D":      # landlord storage: crate grid + racking
-        for i in range(6):
-            _furn_box(f, "6D_crate%d" % i, x0 + 3.5 + (i % 3) * 1.4,
-                      y0 + 0.6 + (i // 3) * 1.6, 1.0, 1.0,
+        spots_6d = ((0.35, 0.6), (1.55, 0.6), (2.75, 0.6), (3.95, 0.6),
+                    (0.35, 2.2), (1.55, 2.2), (4.35, 2.2), (5.55, 2.2))
+        for i, (ox, oy) in enumerate(spots_6d):
+            _furn_box(f, "6D_crate%d" % i, x0 + ox, y0 + oy, 1.0, 1.0,
                       0.0, 0.9 + 0.4 * ((i * 7) % 3), "trim", False)
         shelf_unit(f, "6D_rack1", x0 + 0.5, y1 - 1.0, 1.6, True,
                    books=False, face="s")
         shelf_unit(f, "6D_rack2", x0 + 2.4, y1 - 1.0, 1.6, True,
                    books=False, face="s")
-        _furn_box(f, "6D_rolledrug", x0 + 0.5, y0 + 5.6, 2.2, 0.3, 0.0,
+        _furn_box(f, "6D_rolledrug", x0 + 0.5, y0 + 4.2, 2.2, 0.3, 0.0,
                   0.3, "rug_warm", False)
         return
 
@@ -551,20 +791,21 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
         if stack == "C":  # C beds head against the rear (north) wall
             bed_set(f, "%s_bed%d" % (unit, i), bcx - 0.75, by1 - 2.15,
                     False, mat_blanket=pal["sofa"])
-            wardrobe(f, "%s_w%d" % (unit, i), bx0 + 0.35, by0 + 0.15,
+            wardrobe(f, "%s_w%d" % (unit, i),
+                     bcx + (0.35 if i == 0 else -1.75), by0 + 0.15,
                      face="n")
             rug_box(f, "%s_brg%d" % (unit, i), bcx - 1.0, by0 + 0.9, 2.0,
                     1.1, pal["rug"])
-            art_panel(f, "%s_bart%d" % (unit, i), bcx - 0.35, by0 + 0.06,
+            art_panel(f, "%s_bart%d" % (unit, i), bcx + 0.95, by0 + 0.06,
                       0.7, True)
         elif not east:    # A: bed heads against the west exterior wall
             bed_set(f, "%s_bed%d" % (unit, i), bx0 + 0.35, bcy - 0.75,
                     True, mat_blanket=pal["sofa"])
-            wardrobe(f, "%s_w%d" % (unit, i), bx0 + 3.2, by1 - 0.80,
+            wardrobe(f, "%s_w%d" % (unit, i), bx0 + 1.6, by1 - 0.80,
                      face="s")
             rug_box(f, "%s_brg%d" % (unit, i), bx0 + 0.6, bcy + 0.80, 2.4,
                     0.80, pal["rug"])
-            art_panel(f, "%s_bart%d" % (unit, i), bx0 + 4.9, by1 - 0.075,
+            art_panel(f, "%s_bart%d" % (unit, i), bx0 + 2.0, by1 - 0.075,
                       0.7, True)
         else:             # D: bed heads against the bedroom partition
             bed_set(f, "%s_bed%d" % (unit, i), bx1 - 2.0, by1 - 2.15,
@@ -602,8 +843,8 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
     if "tv" not in skip:
         tv_set(f, unit + "_tv", ux(3.10, 0.40), lcy - 0.85, False,
                face="w" if not east else "e")
-    dx, dy, dn = rooms["dining_spot"]
-    dining_set(f, unit + "_din", dx, dy, dn, pal["wood"])
+    dx, dy, dsides = rooms["dining_spot"]
+    dining_set(f, unit + "_din", dx, dy, dsides, pal["wood"])
     if "shelf" not in skip:
         shelf_unit(f, unit + "_shelf", ux(1.2 if stack in ("A", "B")
                    else 2.9, 1.1),
@@ -613,10 +854,16 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
         plant_box(f, unit + "_plant1", ux(0.35, 0.60),
                   ly1 - 0.95 if stack != "B" else ly0 + 0.20, big=True)
     if sum(ord(c) for c in unit) % 2:
-        plant_box(f, unit + "_plant2", ux(W - 3.0, 0.42), ly0 + 0.45
-                  if stack != "B" else ly1 - 0.85)
+        plant_box(f, unit + "_plant2",
+                  ux(W - 1.7 if stack == "A" else W - 3.0, 0.42),
+                  ly0 + 0.45 if stack != "B" else ly1 - 1.55)
     art_panel(f, unit + "_lart", ux(1.8, 0.9),
               ly1 - 0.075 if stack in ("A", "B") else ly0 + 0.04, 0.9, True)
+    blinds_for_unit(f, unit, stack)
+    lived_in_surface_detail(f, unit, rooms, skip, ux, lcy)
+    if unit in RESIDENT_STORIES:
+        resident_story_detail(f, unit, RESIDENT_STORIES[unit][1],
+                              rooms, ux, lcy, wface)
 
     # ---- hero overlays: each resident's signature cluster + conductor bodies
     if unit == "2A":    # Mina: ordered caption station, quiet
@@ -628,74 +875,189 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
                   1.05, "metal", False)
         mk("monitor", 1, x0 + 1.1, cy - 0.5, 0.76, -90)
         mk("lamp", 1, x0 + 0.8, cy - 0.4, 0.76)
+        # the captioner's order: everything squared to the desk edge
+        _asm(f, "2A_pinboard", "pinboard", wface + 0.005, cy - 0.45, -90,
+             z0=1.05, W=0.95, cards=15, neat=True)
+        _asm(f, "2A_phones", "headphones", x0 + 2.32, cy - 0.35, -90,
+             z0=1.05)
+        _asm(f, "2A_papers", "papers", x0 + 0.62, cy - 0.30, 0,
+             z0=0.735, n=5)
+        _asm(f, "2A_mug", "mug", x0 + 1.32, cy - 0.60, 40, z0=0.735)
+        _asm(f, "2A_deck", "reeldeck", x0 + 1.72, cy - 0.42, 0, z0=0.735)
     elif unit == "2C":  # Juno: improvised studio, speakers everywhere
         _furn_box(f, "2C_bench", cx - 1.2, cy - 0.5, 2.4, 0.7, 0.72, 0.05,
                   "metal", False)
-        _furn_box(f, "2C_amp1", x1 - 1.1, cy + 0.6, 0.55, 0.45, 0.0, 0.55,
-                  "screen", False)
-        _furn_box(f, "2C_amp2", x1 - 1.1, cy + 0.6, 0.5, 0.4, 0.55, 0.45,
-                  "soot", False)
         _furn_box(f, "2C_cablerug", cx - 1.8, cy - 1.6, 3.4, 2.4, 0.013,
                   0.012, "soot", False)
-        _furn_box(f, "2C_crates", x1 - 1.3, y0 + 0.4, 0.9, 0.9, 0.0, 1.15,
-                  "trim", False)
+        # the rig: stacked combos, leaned guitars, pedals mid-cable-sprawl
+        _asm(f, "2C_amp1", "amp", x1 - 0.55, cy + 1.0, 90, W=0.62, H=0.54)
+        _asm(f, "2C_amp2", "amp", x1 - 0.55, cy + 1.0, 90, z0=0.57,
+             W=0.48, H=0.38)
+        _asm(f, "2C_guitar1", "guitar", x1 - 0.28, cy + 0.15, 100)
+        _asm(f, "2C_guitar2", "guitar", cx + 0.04, cy + 0.34, 8,
+             acoustic=True)
+        _asm(f, "2C_pedals", "pedalboard", x1 - 1.35, cy + 0.20, 90)
+        _asm(f, "2C_mic", "micstand", cx + 0.75, cy - 0.75, 160)
+        _asm(f, "2C_coil1", "cablecoil", x1 - 1.55, cy - 0.15, 40)
+        _asm(f, "2C_coil2", "cablecoil", cx - 0.5, cy - 2.0, 200, r=0.14)
+        # the record crates that used to be one trim box
+        _asm(f, "2C_crate1", "crate", x1 - 0.62, y0 + 0.55, 0,
+             records=True)
+        _asm(f, "2C_crate2", "crate", x1 - 0.60, y0 + 1.18, 12,
+             records=True)
+        _asm(f, "2C_crate3", "crate", x1 - 0.62, y0 + 0.55, 0, z0=0.34,
+             fill="soot")
+        _asm(f, "2C_bottles", "bottles", cx - 0.62, cy - 0.22, 0, z0=0.77)
+        _furn_box(f, "2C_pizza", cx + 0.45, cy - 0.42, 0.40, 0.40, 0.77,
+                  0.085, "trim", False)
+        art_panel(f, "2C_poster1", wface - 0.041, cy + 0.35, 0.7, False,
+                  z0=1.35, h=0.95, mat="paper")
+        art_panel(f, "2C_poster2", wface - 0.041, cy - 3.75, 0.55, False,
+                  z0=0.95, h=0.75, mat="paper")
+        art_panel(f, "2C_poster3", x1 - 0.10, y0 + 1.95, 0.6, False,
+                  z0=0.05, h=0.85, mat="paper")
         mk("speaker", 1, x1 - 0.6, cy + 1.6, 0.0, -90)
         mk("speaker", 2, x1 - 0.6, cy - 2.2, 0.0, -90)
-        mk("monitor", 1, cx - 0.4, cy - 0.3, 0.76, -90)
+        chair_box(f, "2C_benchstool", cx - 0.35, cy - 1.35, "s")
+        mk("monitor", 1, cx - 0.4, cy - 0.3, 0.76, 180)
     elif unit == "3B":  # Omar: repair shop by category
-        _asm(f, "3B_workbench", "workbench", x0 + 1.5, y0 + 3.7, 180)
+        # bench cluster sits south of the alcove privacy stub at y1-3.15
+        _asm(f, "3B_workbench", "workbench", x0 + 1.5, y0 + 3.37, 180)
         for i in range(2):
-            shelf_unit(f, "3B_tools%d" % i, x1 - 4.0 + i * 1.15,
+            shelf_unit(f, "3B_tools%d" % i, x0 + 2.85 + i * 1.10,
                        y1 - 0.45, 1.0, True, d=0.4, books=False, face="s")
         for i in range(4):
-            _furn_box(f, "3B_bin%d" % i, x1 - 5.1 + i * 0.5, y1 - 0.40,
+            _furn_box(f, "3B_bin%d" % i, x0 + 2.95 + i * 0.5, y1 - 0.40,
                       0.4, 0.28, 0.5 + (i % 2) * 0.46, 0.24,
                       ("metal", "fabric_cool")[i % 2], False)
-        _furn_box(f, "3B_radio", x0 + 1.1, y0 + 3.45, 0.5, 0.35, 0.91,
-                  0.22, "wood_dark", False)
         chair_box(f, "3B_stool", x0 + 1.3, y0 + 2.6, "s")
         mk("lamp", 1, x0 + 1.0, y0 + 3.5, 0.95)
+        # the bench itself, sorted by category like the man sorts his life
+        _asm(f, "3B_radio", "radio", x0 + 1.35, y0 + 3.22, 180, z0=0.91)
+        _asm(f, "3B_toolboard", "toolboard", wface + 0.005, y0 + 3.27,
+             -90, z0=1.15, W=0.9, H=0.65)
+        _asm(f, "3B_tray1", "partstray", x0 + 2.0, y0 + 3.29, -8,
+             z0=0.91, chassis=True)
+        _asm(f, "3B_tray2", "partstray", x0 + 0.78, y0 + 3.37, 94,
+             z0=0.91)
+        _asm(f, "3B_jars", "jarrow", x0 + 1.62, y0 + 3.62, 0, z0=0.91,
+             n=5)
+        _asm(f, "3B_manuals", "bookpile", x0 + 0.58, y0 + 3.17, 25,
+             z0=0.91, n=4)
+        _asm(f, "3B_mug", "mug", x0 + 1.0, y0 + 3.39, 0, z0=0.91,
+             mat="enamel")
+        _asm(f, "3B_partscrate", "crate", x0 + 0.38, y0 + 0.30, 8,
+             fill="metal")
+        _asm(f, "3B_coil", "cablecoil", x0 + 2.72, y0 + 2.85, 70)
     elif unit == "3D":  # Rhea: vocal booth and aligned playback
-        _furn_box(f, "3D_booth_w", cx - 0.3, cy - 1.0, 0.1, 2.0, 0.0, 2.2,
+        _furn_box(f, "3D_booth_w", cx + 0.4, cy - 1.0, 0.1, 2.0, 0.0, 2.2,
                   "fabric_cool", False)
-        _furn_box(f, "3D_booth_n", cx - 0.3, cy + 1.0, 2.0, 0.1, 0.0, 2.2,
+        _furn_box(f, "3D_booth_n", cx + 0.4, cy + 1.0, 2.0, 0.1, 0.0, 2.2,
                   "fabric_cool", False)
-        _furn_box(f, "3D_boothfoam", cx - 0.2, cy - 0.9, 0.06, 1.8, 0.3,
+        _furn_box(f, "3D_boothfoam", cx + 0.5, cy - 0.9, 0.06, 1.8, 0.3,
                   1.6, "soot", False)
         _furn_box(f, "3D_mirror", x1 - 2.6, cy + 0.4, 0.05, 1.2, 0.2, 1.8,
                   "glassish", False)
-        _furn_box(f, "3D_micstand", cx - 0.4, cy + 0.1, 0.06, 0.06, 0.0,
-                  1.55, "metal", False)
         shelf_unit(f, "3D_tapes", x1 - 0.42, -2.25, 1.2, False,
                    books=True, face="w")
         mk("speaker", 1, cx + 1.8, cy + 1.2, 0.0, 180)
         mk("speaker", 2, cx + 1.8, cy - 1.2, 0.0, 180)
+        # a real stand in the booth, playback console dead-center between
+        # the aligned pair, wedge foam checkering the booth's north panel
+        _asm(f, "3D_mic", "micstand", cx + 0.95, cy + 0.13, 180)
+        _asm(f, "3D_console", "table_rect", cx + 1.8, cy, 90, L=1.15,
+             W=0.5, mat="wood_dark")
+        _asm(f, "3D_deck", "reeldeck", cx + 1.8, cy + 0.08, -90,
+             z0=0.745)
+        _asm(f, "3D_phones", "headphones", cx + 1.82, cy - 0.42, -90,
+             z0=0.745)
+        _asm(f, "3D_mug", "mug", cx + 1.68, cy + 0.42, 0, z0=0.745)
+        _asm(f, "3D_lyrics", "papers", cx + 0.62, cy - 0.55, 24, n=8,
+             mess=0.5)
+        _asm(f, "3D_tapepile", "bookpile", cx + 1.8, cy - 0.82, 12, n=5)
+        for i in range(10):
+            _furn_box(f, "3D_foam%d" % i, cx + 0.52 + (i % 5) * 0.36,
+                      cy + 0.94 - 0.028 * ((i // 5) % 2), 0.30,
+                      0.05 + 0.028 * ((i // 5) % 2),
+                      0.62 + 0.34 * (i // 5), 0.30, "soot", False)
     elif unit == "5A":  # Nadia: plans over contradictory plans
-        _asm(f, "5A_plantable", "plantable", cx, cy)
+        _asm(f, "5A_plantable", "plantable", cx, cy + 0.75)
         _furn_box(f, "5A_tuberack", x0 + 2.3, y0 + 3.65, 0.4, 0.4, 0.0,
                   1.1, "ceramic", False)
-        for i in range(3):
-            _furn_box(f, "5A_pin%d" % i, x0 + 0.02, y0 + 3.8 + i * 1.5,
-                      0.03, 1.2, 1.1, 1.0, "paper", False)
         shelf_unit(f, "5A_planshelf", x0 + 0.4, y0 + 3.55, 1.6, True,
                    h=1.4, face="n")
-        chair_box(f, "5A_stool", cx + 0.7, cy + 0.8, "n")
-        mk("lamp", 1, cx + 0.6, cy, 0.83)
+        chair_box(f, "5A_stool", cx + 0.7, cy + 1.55, "n")
+        mk("lamp", 1, cx + 0.6, cy + 0.75, 0.83)
+        # plans over contradictory plans: two drifted boards, loose sheets
+        # taped between them, and a massing model of this very building
+        _asm(f, "5A_pins1", "pinboard", wface + 0.005, y0 + 4.45, -90,
+             z0=1.0, W=1.25, H=0.85, cards=18, neat=False)
+        _asm(f, "5A_pins2", "pinboard", wface + 0.005, y0 + 7.95, -90,
+             z0=1.15, W=1.05, H=0.70, cards=14, neat=False)
+        for i in range(4):
+            _furn_box(f, "5A_sheet%d" % i, wface + 0.006 + 0.004 * i,
+                      y0 + 5.00 + 0.10 * i, 0.004, 0.50 - 0.05 * i,
+                      1.00 + 0.06 * i, 0.72, "paper", False)
+        _asm(f, "5A_modtable", "table_rect", x0 + 1.60, y1 - 0.85, 0,
+             L=0.85, W=0.55, mat="wood_dark")
+        _asm(f, "5A_model", "sitemodel", x0 + 1.60, y1 - 0.85, -90,
+             z0=0.745)
+        _asm(f, "5A_papers1", "papers", cx - 0.5, cy + 0.55, 15,
+             z0=0.83, n=7, mess=0.8)
+        _asm(f, "5A_papers2", "papers", cx + 0.45, cy + 1.0, 170,
+             z0=0.83, n=5, mess=0.6)
+        _asm(f, "5A_mug1", "mug", cx + 0.78, cy + 0.48, 0, z0=0.83)
+        _asm(f, "5A_mug2", "mug", x0 + 2.50, y0 + 3.85, 0, z0=1.10,
+             mat="enamel")
+        _asm(f, "5A_floorstack", "bookpile", x0 + 2.35, y1 - 0.62, 5,
+             n=6)
+        for i, off in enumerate((0.30, 0.44, 0.23)):
+            _asm(f, "5A_roll%d" % i, "pipe", 0, 0,
+                 p0=[x0 + off, y1 - 0.32 - 0.06 * i, z + 0.02],
+                 p1=[x0 + 0.10, y1 - 0.16, z + 1.10 + 0.06 * i],
+                 r=0.032, mat="paper")
     elif unit == "6A":  # Sacha: capture wall, framed for camera
         _furn_box(f, "6A_deskwall", x0 + 0.4, cy - 1.2, 0.8, 2.6, 0.72,
                   0.05, "trim", False)
         _furn_box(f, "6A_dwlegs", x0 + 0.5, cy - 1.1, 0.6, 2.4, 0.0, 0.72,
                   "metal", False)
-        _furn_box(f, "6A_tripod", x0 + 2.3, cy, 0.12, 0.12, 0.0, 1.45,
-                  "metal", False)
-        _furn_box(f, "6A_rig", x0 + 2.24, cy - 0.06, 0.24, 0.24, 1.45,
-                  0.18, "screen", False)
         _furn_box(f, "6A_cablerun", x0 + 0.4, cy - 1.5, 2.0, 0.12, 0.013,
                   0.02, "soot", False)
         _furn_box(f, "6A_cot", x0 + 0.4, y1 - 2.5, 0.9, 2.0, 0.0, 0.35,
                   "fabric_cool", False)
+        # the capture kit: real camera on sticks, lights flanking the
+        # frame, wedge foam behind the desk, life squeezed to the edges
+        _asm(f, "6A_tripod", "tripod", x0 + 2.35, cy, 90)
+        _asm(f, "6A_soft1", "softbox", x0 + 2.0, cy - 0.85, 50)
+        _asm(f, "6A_soft2", "softbox", x0 + 2.0, cy + 1.05, 130)
+        _asm(f, "6A_phones", "headphones", x0 + 0.62, cy - 0.55, -90,
+             z0=0.77)
+        _asm(f, "6A_cans", "bottles", x0 + 0.60, cy + 0.85, 0, z0=0.77,
+             n=4, cans=True)
+        _asm(f, "6A_gearcrate", "crate", x0 + 0.45, cy + 1.85, 355,
+             fill="soot", W=0.50, D=0.40, H=0.36)
+        _asm(f, "6A_coil1", "cablecoil", x0 + 1.5, cy + 0.7, 30)
+        _asm(f, "6A_coil2", "cablecoil", x0 + 2.6, cy - 0.55, 240,
+             r=0.09)
+        for r_ in range(3):
+            for c_ in range(4):
+                _furn_box(f, "6A_foam%d" % (r_ * 4 + c_), wface + 0.008,
+                          cy - 1.15 + c_ * 0.60,
+                          0.045 + 0.025 * ((r_ + c_) % 2), 0.50,
+                          1.05 + 0.36 * r_, 0.30, "soot", False)
+        _furn_box(f, "6A_laundry1", x0 + 0.55, y1 - 2.30, 0.50, 0.60,
+                  0.35, 0.16, "fabric_cool", False)
+        _furn_box(f, "6A_laundry2", x0 + 0.72, y1 - 1.55, 0.35, 0.45,
+                  0.35, 0.10, "linen", False)
+        _furn_box(f, "6A_pillow", x0 + 0.48, y1 - 0.95, 0.66, 0.40,
+                  0.35, 0.12, "linen", False)
         for i in range(3):
-            mk("monitor", i + 1, x0 + 0.8, cy - 1.0 + i * 1.0, 0.78, -90)
+            mk("monitor", i + 1, x0 + 0.8, cy - 1.0 + i * 1.0, 0.78, 0)
+        _asm(f, "6A_detail_capture_papers", "papers",
+             x0 + 0.78, cy + 0.55, 84, z0=0.78, n=8, mess=0.65)
+        _asm(f, "6A_detail_capture_mug", "mug",
+             x0 + 0.77, cy - 1.02, 210, z0=0.78, mat="ceramic")
+        chair_box(f, "6A_deskchair", x0 + 1.55, cy - 0.25, "w")
         mk("boxfan", 1, x1 - 1.2, y0 + 1.0, 0.25, 135)
     elif unit == "4D":  # short-term rental: nobody actually lives here
         # strip the lived-in warmth back out: it stays, but reads staged
@@ -746,22 +1108,35 @@ def apartment_4b(z, walls, rooms, markers, furniture):
         {"id": "F04_B_ALCOVE", "unit": "4B",
          "rect": [x0, ay, ax, y1], "kind": "alcove"},
     ]
-    bath_fixtures(furniture, "4B", [bx, y0 + 1.85, x1, y0 + 4.25], "n")
+    bath_fixtures(furniture, "4B", [bx, y0 + 1.85, x1, y0 + 4.25], "n",
+                  markers, z)
     furniture += [
         {"id": "desk", "rect": [-8.45, 4.95, -7.87, 6.25], "z0": 0.72,
          "h": 0.04, "mat": "floor_oak"},
         {"id": "desk_legs", "rect": [-8.40, 5.00, -8.35, 6.20], "z0": 0.0,
          "h": 0.72, "mat": "metal"},
-        {"id": "chair", "rect": [-9.05, 5.35, -8.60, 5.85], "z0": 0.42,
-         "h": 0.06, "mat": "trim"},
         {"id": "bed", "rect": [-13.40, 6.90, -12.05, 9.50], "z0": 0.15,
          "h": 0.32, "mat": "trim"},
         {"id": "kitchen_counter", "rect": [-10.70, 9.05, -8.85, 9.55],
-         "z0": 0.0, "h": 0.90, "mat": "trim"},
-        {"id": "couch", "rect": [-12.80, 3.60, -11.30, 4.35], "z0": 0.12,
-         "h": 0.42, "mat": "fabric_cool"},
+         "z0": 0.0, "h": 0.86, "mat": "trim"},
     ]
+    # countertop laid as four boards around the sink cutout, so the basin
+    # below is a real hole rather than a dark rectangle painted on
+    sb = (-10.18, 9.12, -9.68, 9.50)          # basin opening
+    for seg, rect in (
+            ("w", [-10.74, 9.01, sb[0], 9.59]),
+            ("e", [sb[2], 9.01, -8.81, 9.59]),
+            ("s", [sb[0], 9.01, sb[2], sb[1]]),
+            ("n", [sb[0], sb[3], sb[2], 9.59])):
+        furniture.append({"id": "kitchen_countertop_" + seg, "rect": rect,
+                          "z0": 0.86, "h": 0.045, "mat": "countertop"})
+    _asm(furniture, "4B_ksink", "sink_basin",
+         (sb[0] + sb[2]) / 2.0, (sb[1] + sb[3]) / 2.0, 180, z0=0.905,
+         W=sb[2] - sb[0], D=sb[3] - sb[1])
     # lived-in touches: the player's own residue
+    sofa_set(furniture, "4B_couch", -12.80, 3.60, 1.50, True, True,
+             "fabric_cool")
+    chair_box(furniture, "4B_desk_chair", -9.05, 5.35, "w")
     rug_box(furniture, "4B_deskrug", -9.35, 4.85, 1.15, 1.5, "rug_cool")
     shelf_unit(furniture, "4B_shelf", -13.40, 4.55, 1.1, False)
     art_panel(furniture, "4B_art", -12.55, 2.71, 0.7, True)
@@ -779,13 +1154,13 @@ def apartment_4b(z, walls, rooms, markers, furniture):
          "pos": [-8.15, 6.00, z + 0.76], "yaw_deg": 0,
          "network": "electrical"},
         {"kind": "monitor", "id": "F04_B_MONITOR_01", "unit": "4B",
-         "pos": [-8.05, 5.50, z + 0.76], "yaw_deg": -90,
+         "pos": [-8.05, 5.50, z + 0.76], "yaw_deg": 180,
          "network": "electrical"},
         {"kind": "toaster", "id": "F04_B_TOASTER_01", "unit": "4B",
          "pos": [-9.70, 9.30, z + 0.90], "yaw_deg": 90,
          "network": "electrical"},
         {"kind": "fridge", "id": "F04_B_FRIDGE_01", "unit": "4B",
-         "pos": [-8.30, 9.20, z], "yaw_deg": 90, "network": "electrical"},
+         "pos": [-8.30, 9.20, z], "yaw_deg": 0, "network": "electrical"},
         {"kind": "boxfan", "id": "F04_B_BOXFAN_01", "unit": "4B",
          "pos": [-13.20, 3.40, z + 0.25], "yaw_deg": 45,
          "network": "electrical"},
@@ -833,19 +1208,15 @@ def furnish_4b_detail(furniture, y0, y1, x0):
                           "h": h, "mat": mat})
 
     fb("uppers", (-10.70, 9.40, -8.85, 9.64), 1.50, 0.72)
-    fb("sink_rim", (-10.18, 9.12, -9.68, 9.50), 0.88, 0.05, "metal")
-    fb("faucet_riser", (-9.96, 9.46, -9.90, 9.52), 0.90, 0.28, "metal")
-    fb("faucet_spout", (-9.96, 9.30, -9.90, 9.50), 1.14, 0.04, "metal")
-    fb("mugs", (-9.62, 9.15, -9.40, 9.32), 0.90, 0.11)
-    fb("plates", (-9.30, 9.16, -9.06, 9.36), 0.90, 0.07)
-    for wi, wc in enumerate((y0 + (y1 - y0) * 0.30, y0 + (y1 - y0) * 0.70)):
-        for k in range(8):
-            fb("blindw%d_%d" % (wi, k),
-               (-13.58, wc - 0.65, -13.53, wc + 0.65),
-               0.92 + k * 0.11, 0.03)
-    for k in range(8):
-        fb("blindr_%d" % k, (-10.24, 9.52, -8.92, 9.57),
-           0.92 + k * 0.11, 0.03)
+    # the sink is a real basin assembly now (4B_ksink); the flat plate and
+    # its stick faucet that used to stand in for it are gone
+    fb("mugs", (-9.62, 9.15, -9.40, 9.32), 0.905, 0.11)
+    fb("plates", (-9.30, 9.16, -9.06, 9.36), 0.905, 0.07)
+    for wi, wc in enumerate((y0 + (y1 - y0) * 0.30,
+                             y0 + (y1 - y0) * 0.70)):
+        blind_stack(furniture, "4B_blw%d" % wi, -13.58, wc - 0.67, False,
+                    "4B" + str(wi))
+    blind_stack(furniture, "4B_blr", -10.25, 9.52, True, "4Br")
     fb("rug", (-12.40, 3.40, -8.70, 6.00), 0.0, 0.015, "rug_warm")
     fb("bookshelf", (-11.20, 2.75, -9.70, 3.07), 0.0, 1.55)
     for r, zr in enumerate((0.30, 0.76, 1.22)):
@@ -861,12 +1232,9 @@ def furnish_4b_detail(furniture, y0, y1, x0):
            (px, py, px + 0.06, py + 0.06), 0.0, 0.52, "timber")
     fb("headboard", (-13.40, 9.44, -12.15, 9.50), 0.15, 0.78, "timber")
     fb("nightstand", (-12.05, 9.10, -11.68, 9.48), 0.0, 0.55)
-    fb("shower_riser", (-7.52, y0 + 4.12, -7.46, y0 + 4.18), 0.14, 1.90,
-       "metal")
-    fb("shower_head", (-7.62, y0 + 3.98, -7.42, y0 + 4.18), 2.00, 0.05,
-       "metal")
-    fb("mirror", (-6.05, y0 + 4.17, -5.60, y0 + 4.21), 1.35, 0.60,
-       "glassish")
+    # the bath's shower riser/head and mirror are part of the real shower
+    # and pedestal-sink assemblies bath_fixtures() places; the old stand-in
+    # boxes stood inside them
 
 
 ## Rear wooden porch stack (the Midwest second egress): posts, decks with
@@ -898,19 +1266,35 @@ def porch(floor_id, z, furniture):
 
 # ---------------------------------------------------------------- floors
 
-def ring_and_cores(floor_id, z, walls, entry_doors=True):
+def ring_and_cores(floor_id, z, walls, furniture, entry_doors=True):
     """Corridor ring, court walls, core walls, shaft walls for one level."""
     h = WALL_H
-    # court walls (light shaft) with small court windows on E/W
-    walls.append(wall((-COURT, -COURT), (-COURT, COURT), CORR_T, h, z,
-                      [window(COURT, WIN_COURT)], mat="brick"))
-    walls.append(wall((COURT, -COURT), (COURT, COURT), CORR_T, h, z,
-                      [window(COURT, WIN_COURT)], mat="brick"))
+    # Borrowed lights between the stair and the corridor ring. These used
+    # to be framed history panels hung on solid brick, because an earlier
+    # attempt at windows here opened into the adjacent corridor wall and
+    # showed nothing. The fix is not to give up on the openings — it is to
+    # cut BOTH leaves of that pair at the same place: the court wall at
+    # x = +-COURT and the corridor inner wall at x = +-XCI stand back to
+    # back with no gap, so an opening has to pass through the two of them
+    # to reach the hallway.
+    #
+    # Placed between the flight edges (the eye spans y +-1.46) at chest
+    # height, clear of the raked balustrade, so from the stair you look
+    # across into the corridor and from the corridor you see the stair.
+    SILL, WINH, WINW = 1.05, 1.15, 1.20
+    borrow_y = (-0.85, 0.85)
+
+    def _cuts(origin):
+        return [{"type": "window", "at": by - origin, "w": WINW,
+                 "h": WINH, "sill": SILL} for by in borrow_y]
+
+    for sx in (-1, 1):
+        walls.append(wall((sx * COURT, -COURT), (sx * COURT, COURT),
+                          CORR_T, h, z, _cuts(-COURT), mat="brick"))
     # corridor inner walls (x) run past court and cores
-    walls.append(wall((-XCI, -YCN), (-XCI, YCN), CORR_T, h, z, [],
-                      mat="plaster", wainscot=True))
-    walls.append(wall((XCI, -YCN), (XCI, YCN), CORR_T, h, z, [],
-                      mat="plaster", wainscot=True))
+    for sx in (-1, 1):
+        walls.append(wall((sx * XCI, -YCN), (sx * XCI, YCN), CORR_T, h, z,
+                          _cuts(-YCN), mat="plaster", wainscot=True))
     # core side walls close the court band between court and corridor walls
     for cy0, cy1 in ((-CORE_Y1, -CORE_Y0), (CORE_Y0, CORE_Y1)):
         walls.append(wall((-COURT, cy0), (-COURT, cy1), CORR_T, h, z, [],
@@ -937,7 +1321,6 @@ def ring_and_cores(floor_id, z, walls, entry_doors=True):
     # corridor outer walls with apartment entry doors
     for sx, stacks in ((-1, ("A", "B")), (1, ("D", "C"))):
         openings = []
-        dado = True
         if entry_doors:
             for stack in stacks:
                 if floor_id == "F02" and stack == "D":
@@ -996,9 +1379,8 @@ def exterior(floor_id, z, walls):
         ln = y1 - y0
         spec = WIN_B1 if floor_id == "B1" else WIN
         wo = [window(ln * 0.30, spec), window(ln * 0.70, spec)]
-        west_wall = wall((wx, y0), (wx, y1), t, h, z, wo, mat="common_brick")
-        west_wall["in_side"] = 1 if west else -1
-        walls.append(west_wall)
+        walls.append(wall((wx, y0), (wx, y1), t, h, z, wo,
+                          mat="common_brick"))
         street = stack in ("A", "D")
         eyl = -(10.0 - off) if street else (10.0 - off)
         end_openings = [window((x1 - x0) * 0.5,
@@ -1007,18 +1389,18 @@ def exterior(floor_id, z, walls):
             # kitchen door onto the rear wooden porch (the Midwest second
             # egress since the 1906 two-exit rule)
             end_openings.append(door(abs(-8.30 - x0), DOOR_INT))
-        end_wall = wall((x0, eyl), (x1, eyl), t, h, z, end_openings,
-                        mat="face_brick" if street else "common_brick")
-        end_wall["in_side"] = 1 if street else -1
-        walls.append(end_wall)
+        walls.append(wall((x0, eyl), (x1, eyl), t, h, z, end_openings,
+                          mat="face_brick" if street else "common_brick"))
     # street / rear walls across the middle band (corridor ends)
     mid_spec = WIN_B1 if floor_id == "B1" else WIN
     s_open = [window(X_IN - 2.5, mid_spec), window(X_IN + 2.5, mid_spec)]
     if floor_id == "F01":
-        # street entrance at x = 0; the main egress door swings out over
-        # the stoop so it never sweeps whoever is in the draft vestibule
-        s_open.append(door(X_IN, DOOR_ENTRY, swing="out"))
-    walls.append(wall((-X_IN, -(10.0 - off)), (X_IN, -(10.0 - off)), t, h,
+        s_open.append(door(X_IN, DOOR_ENTRY, swing="out"))  # street egress
+    # the B1 street wall stops flush under the F01 slab: its 0.4 m
+    # above-grade continuation would curb the entrance shut (the water
+    # table dresses the exposed base instead)
+    hs = 2.78 if floor_id == "B1" else h
+    walls.append(wall((-X_IN, -(10.0 - off)), (X_IN, -(10.0 - off)), t, hs,
                       z, s_open, mat="face_brick"))
     walls.append(wall((-X_IN, 10.0 - off), (X_IN, 10.0 - off), t, h, z,
                       [window(X_IN - 2.5, mid_spec),
@@ -1053,7 +1435,7 @@ def core_rooms(floor_id, z, rooms, furniture):
         _furn_box(furniture, "%s_meter%d" % (floor_id, i),
                   -3.12, 3.6 + i * 0.95, 0.14, 0.75, 1.0, 0.85, "metal",
                   False)
-    _furn_box(furniture, "%s_mop" % floor_id, -3.02, 7.30, 0.32, 0.32,
+    _furn_box(furniture, "%s_mop" % floor_id, -3.08, 6.30, 0.32, 0.32,
               0.0, 0.4, "ceramic", False)
 
 
@@ -1150,9 +1532,35 @@ def build_floor(floor_id):
                       0.1, 0.1, 0.0, 2.1, "metal", False)
         _furn_box(furniture, "clothesline", -12.45, -8.58, 5.0, 0.03,
                   1.95, 0.02, "metal", False)
+        # The skylight itself. The monitor was open-topped, so the "light
+        # from the skylight" had no skylight to come from: a steel-ribbed
+        # glazed cap closes it and gives the shaft something to start at.
+        sk = COURT + CORR_T / 2.0
+        _furn_box(furniture, "sky_glass", -sk, -sk, sk * 2, sk * 2, 2.55,
+                  0.05, "glassish", False)
+        for i in range(7):
+            rx = -sk + 0.12 + i * (sk * 2 - 0.24) / 6.0
+            _furn_box(furniture, "sky_rib_x%d" % i, rx - 0.035, -sk,
+                      0.07, sk * 2, 2.52, 0.11, "metal", False)
+        for i in range(7):
+            ry = -sk + 0.12 + i * (sk * 2 - 0.24) / 6.0
+            _furn_box(furniture, "sky_rib_y%d" % i, -sk, ry - 0.035,
+                      sk * 2, 0.07, 2.52, 0.11, "metal", False)
+        for rid, rect in (("s", (-sk, -sk, sk, -sk + 0.10)),
+                          ("n", (-sk, sk - 0.10, sk, sk)),
+                          ("w", (-sk, -sk, -sk + 0.10, sk)),
+                          ("e", (sk - 0.10, -sk, sk, sk))):
+            _furn_box(furniture, "sky_kerb_%s" % rid, rect[0], rect[1],
+                      rect[2] - rect[0], rect[3] - rect[1], 2.50, 0.16,
+                      "limestone", False)
+        # ---- the roof is a place now, not just a surface you can reach
+        _roof_programme(furniture, markers, z)
+        stair_top_guard(floor)
+        atrium_tree(floor)
         return floor
 
-    ring_and_cores(floor_id, z, walls, entry_doors=(floor_id != "B1"))
+    ring_and_cores(floor_id, z, walls, furniture,
+                   entry_doors=(floor_id != "B1"))
     exterior(floor_id, z, walls)
     split_walls(z, walls)
 
@@ -1268,17 +1676,31 @@ def build_floor(floor_id):
              "riser": "H-A", "unit": "LOBBY"},
             {"kind": "mailboxes", "id": "F01_MAILWALL", "pos": [4.4, -9.3, z],
              "yaw_deg": 0},
+            # Sconce over the street door, outside the facade facing the
+            # pavement — the light you arrive by.
+            {"kind": "sconce_globe", "id": "F01_ENTRY_SCONCE",
+             "unit": "LOBBY", "pos": [-0.455, -9.91, z + 2.58],
+             "yaw_deg": 0, "network": "electrical",
+             "range": 7.5, "energy": 1.25,
+             "navigation": True, "standby": 0.55},
+            # Neon on the street elevation. The blade projects at right
+            # angles to the wall so it is legible coming DOWN the pavement
+            # rather than only from across the road, which is the whole
+            # point of a blade sign. It hangs off the pier east of the
+            # entrance, clear of the doorway and the water table.
+            # yaw 0 turns the lit face toward the street; 180 would read
+            # the lettering backwards through the lobby wall.
+            {"kind": "neon_sign", "id": "F01_NEON_BLADE",
+             "pos": [3.35, -10.42, z + 4.30], "yaw_deg": 0,
+             "text": "ORISON", "vertical": True, "network": "electrical",
+             "tint": [1.0, 0.32, 0.44]},
+            # ...and the ground-floor tenant's own sign, flat on the wall
+            # west of the door: a druggist's, because every block had one.
+            {"kind": "neon_sign", "id": "F01_NEON_TENANT",
+             "pos": [-6.4, -10.12, z + 3.15], "yaw_deg": 0,
+             "text": "DRUGS", "vertical": False, "network": "electrical",
+             "tint": [0.34, 0.86, 1.0]},
         ]
-        # draft vestibule inside the street door
-        walls.append(wall((-1.40, -8.35), (1.40, -8.35), PART_T, WALL_H, z,
-                          [{"type": "door", "at": 1.40, "w": 1.35,
-                            "h": 2.20, "sill": 0.0, "leaf": "none"}]))
-        walls.append(wall((-1.40, -9.65), (-1.40, -8.35), PART_T, WALL_H,
-                          z, []))
-        walls.append(wall((1.40, -9.65), (1.40, -8.35), PART_T, WALL_H,
-                          z, []))
-        rooms.append({"id": "F01_VESTIBULE", "rect": [-1.40, -9.65, 1.40,
-                      -8.35], "kind": "lobby"})
         # limestone entrance surround + step, street side
         for fid_, rect, z0_, hh in (
                 ("pilaster_w", (-1.35, -10.14, -1.05, -9.96), 0.0, 2.60),
@@ -1317,14 +1739,15 @@ def build_floor(floor_id):
             {"id": "F01_RESTROOM", "rect": [-13.65, 5.40, -11.90, 7.30],
              "kind": "bathroom"},
         ]
-        bath_fixtures(furniture, "F01WC", [-13.65, 5.40, -11.90, 7.30], "w")
+        bath_fixtures(furniture, "F01WC", [-13.65, 5.40, -11.90, 7.30], "w",
+                      markers, z)
         desk_set(furniture, "F01_office", -13.2, 3.2, 1.3, True, 1)
         for i in range(2):
             shelf_unit(furniture, "f01_pkg%d" % i, -9.4 + i * 1.9, 2.85,
                        1.6, True, d=0.45, books=False, face="n")
         art_panel(furniture, "lobby_notice", 5.205, -8.85, 0.9, False,
                   z0=1.15, h=0.75, mat="paper")
-        plant_box(furniture, "lobby_plant", -1.75, -9.35, big=True)
+        plant_box(furniture, "lobby_plant", -2.35, -9.20, big=True)
         # community room (B stack) and building storage (C stack)
         _asm(furniture, "common_table", "table_rect", -9.2, 6.6, 0,
              L=2.6, W=1.0)
@@ -1365,13 +1788,122 @@ def build_floor(floor_id):
                         "id": "%s_PORCH_DECK" % floor_id,
                         "pos": [-9.15, 10.70, z], "yaw_deg": 0,
                         "network": "structural"})
-    markers.append({"kind": "corridor_light", "id": "%s_CORRLIGHT_S" % floor_id,
-                    "pos": [0.0, -8.3, z], "yaw_deg": 0, "network": "electrical"})
-    markers.append({"kind": "corridor_light", "id": "%s_CORRLIGHT_N" % floor_id,
-                    "pos": [0.0, 8.3, z], "yaw_deg": 0, "network": "electrical"})
+    # Semantic junctions anchor the electrical/acoustic graph. They deliberately
+    # spawn no prop: the old corridor_light markers created duplicate fixtures
+    # at floor level underneath the ceiling-mounted dome family.
+    markers.append({"kind": "electrical_junction",
+                    "id": "%s_CORRLIGHT_S" % floor_id,
+                    "pos": [0.0, -8.3, z + 2.75], "yaw_deg": 0,
+                    "network": "electrical"})
+    markers.append({"kind": "electrical_junction",
+                    "id": "%s_CORRLIGHT_N" % floor_id,
+                    "pos": [0.0, 8.3, z + 2.75], "yaw_deg": 0,
+                    "network": "electrical"})
     return floor
 
 
+
+
+# room kind -> ceiling/pendant fixture type. Bathrooms get their sconce
+# from bath_fixtures; corridors keep their batten fluorescents; closets,
+# vestibules and the sealed 2D go dark on purpose.
+ROOM_FIXTURE = {
+    "living": "pendant_shade", "common": "pendant_shade",
+    "office": "pendant_shade",
+    "bedroom": "flush_dome", "alcove": "flush_dome", "hall": "flush_dome",
+    "kitchen": "kitchen_linear",
+    "storage": "cage_bulb", "utility": "cage_bulb", "laundry": "cage_bulb",
+    "boiler": "cage_bulb", "electrical": "cage_bulb",
+    "storage_cages": "cage_bulb", "coal": "cage_bulb",
+    "lobby": "chandelier",
+    "atrium": "eye_pendant",
+}
+
+
+ROOM_LIGHT = {
+    "living": 1.0, "bedroom": 0.85, "alcove": 0.78, "hall": 1.0,
+    "kitchen": 1.12, "office": 1.15, "common": 1.05, "lobby": 1.25,
+    "atrium": 1.0, "utility": 0.78, "storage": 0.7, "laundry": 0.85,
+    "boiler": 0.7, "electrical": 0.75, "storage_cages": 0.65,
+    "coal": 0.55,
+}
+# resident temperament: Mina keeps it bright and even, Juno lives in
+# amp-glow, Omar floods the bench, Rhea works by playback light, Nadia
+# burns task lighting, Sacha lives at monitor level
+UNIT_LIGHT = {"2A": 1.15, "2C": 0.68, "3B": 1.25, "3D": 0.65,
+              "5A": 1.20, "6A": 0.55, "4D": 1.0}
+
+
+def light_fixture_markers(fl):
+    """Every room earns a period fixture at its ceiling. 4B's main room
+    keeps its bespoke ceiling_light; fire-gutted 5D hangs nothing.
+    The basement storey is 2.8 m floor-to-floor (2.62 clear), so its
+    fixtures mount 0.4 m lower — at ITS ceiling, not inside the F01
+    slab (they used to poke through and stand on the hallway floors)."""
+    z = fl["z"]
+    ceil = 2.56 if fl["id"] == "B1" else 2.96
+    # Corridors need a legible pool at every turn, stair/elevator approach,
+    # and long run.  The LightRig budgets nearby omnis while emissive fixture
+    # bodies keep the complete rhythm visible at distance.
+    if fl["id"] not in ("ROOF",):
+        for i, (cx, cy) in enumerate((
+                (-4.35, -5.1), (-4.35, 0.0), (-4.35, 5.1),
+                (4.35, -5.1), (4.35, 0.0), (4.35, 5.1),
+                (0.0, -8.25), (0.0, 8.25))):
+            fl["markers"].append({
+                "kind": "flush_dome",
+                "id": "%s_CORRIDOR_DOME_%02d" % (fl["id"], i + 1),
+                "unit": fl["id"], "pos": [cx, cy, z + ceil - 0.02],
+                # domes sit 5.1 m apart: a 7.2 m throw overlaps its
+                # neighbours instead of leaving a black third between them
+                "range": 7.2, "energy": 1.3,
+                "navigation": True, "standby": 0.34,
+                "yaw_deg": 0, "network": "electrical"})
+    for r in fl["rooms"]:
+        fix = ROOM_FIXTURE.get(r["kind"])
+        if fix is None:
+            continue
+        unit = r.get("unit", "")
+        if unit == "2D" or unit == "5D":
+            continue
+        if r["id"] in ("F04_B_MAIN",):
+            continue
+        x0, y0, x1, y1 = r["rect"]
+        cx, cy = (x0 + x1) / 2.0, (y0 + y1) / 2.0
+        # Per-room mount height. This MUST be a fresh local: assigning to
+        # `ceil` inside the atrium branch leaked the court's height into
+        # every room the loop visited afterwards, and dropped the
+        # basement's cage bulbs to head height.
+        mount = ceil
+        if r["kind"] == "atrium":
+            # The court lights itself: atrium_tree() hangs fruit off the
+            # branches at the heights they actually reach. A fixture
+            # placed here would float in the middle of the eye with
+            # nothing holding it.
+            continue
+        if r["kind"] == "lobby" and r["id"] != "F01_LOBBY":
+            continue  # one chandelier, in the lobby proper
+        marker = {
+            "kind": fix, "id": "%s_LT_%s" % (r["id"], fix.upper()),
+            "unit": unit or fl["id"],
+            "pos": [round(cx, 3), round(cy, 3), z + mount],
+            "yaw_deg": 0, "network": "electrical"}
+        if r["kind"] in ("hall", "corridor", "atrium", "lobby",
+                         "vestibule", "utility"):
+            marker["navigation"] = True
+            # circulation standby: the atrium drops and the lobby
+            # chandelier spill hardest (they are the building's vertical
+            # and social hearts); halls and utility stay dimmer
+            marker["standby"] = {"atrium": 0.50, "lobby": 0.45,
+                                 "vestibule": 0.45}.get(r["kind"], 0.30)
+        if r["kind"] != "atrium":   # the eye is meant to throw far
+            rw, rd = x1 - x0, y1 - y0
+            marker["range"] = round((rw * rw + rd * rd) ** 0.5 / 2.0
+                                    + 0.9, 2)
+        e_mult = UNIT_LIGHT.get(unit, 0.85 + (sum(ord(c) for c in unit)
+                                              % 6) * 0.05) if unit else 1.0
+        marker["energy"] = round(ROOM_LIGHT.get(r["kind"], 1.0) * e_mult, 2)
+        fl["markers"].append(marker)
 
 
 def collect_door_markers(fl):
@@ -1393,13 +1925,13 @@ def collect_door_markers(fl):
             pos = [hinge, cross, w["z"]] if horizontal \
                     else [cross, hinge, w["z"]]
             n += 1
-            m = {"kind": "door", "id": "%s_DOOR_%02d" % (fl["id"], n),
-                 "pos": pos, "yaw_deg": 0 if horizontal else -90,
-                 "w": o["w"], "h": o["h"],
-                 "leaf": o.get("leaf", "closed")}
+            fl["markers"].append({
+                "kind": "door", "id": "%s_DOOR_%02d" % (fl["id"], n),
+                "pos": pos, "yaw_deg": 0 if horizontal else -90,
+                "w": o["w"], "h": o["h"],
+                "leaf": o.get("leaf", "closed")})
             if o.get("swing"):
-                m["swing"] = o["swing"]
-            fl["markers"].append(m)
+                fl["markers"][-1]["swing"] = o["swing"]
             latch = start + o["at"] + o["w"] / 2.0 + 0.17
             if latch > length + start - 0.10:
                 latch = hinge - 0.17
@@ -1418,9 +1950,23 @@ def collect_door_markers(fl):
                     "yaw": yaw, "z0": 1.12})
 
 
+def radiator_pipe_pass(floors):
+    """Continue every heating riser from slab to ceiling."""
+    for fl in floors:
+        if fl["id"] == "ROOF":
+            continue
+        clear_h = 2.56 if fl["id"] == "B1" else 2.96
+        for m in fl["markers"]:
+            if m["kind"] != "radiator":
+                continue
+            fl["furniture"].append({
+                "id": m["id"] + "_continuous_supply",
+                "asm": "pipe", "at": [m["pos"][0], m["pos"][1]],
+                "yaw": m["yaw_deg"], "mat": "metal", "r": 0.022,
+                "local": True,
+                "p0": [0.44, 0.0, 0.0], "p1": [0.44, 0.0, clear_h]})
 
-## 1927 -> 2027: a century applied as visible layers. Seeded RNG keeps the
-## history deterministic - the same building every build.
+
 def aging_pass(floors):
     rng = random.Random(1927)
     for fl in floors:
@@ -1439,13 +1985,13 @@ def aging_pass(floors):
                 z0 = rng.uniform(0.3, 2.2)
                 if side == "w":
                     fb("patch%s%d" % (fid, i), (-14.005, c, -13.995, c + w_),
-                       z0, rng.uniform(0.5, 1.2), "brick_patched")
+                       z0, rng.uniform(0.5, 1.2), "fx_patch")
                 elif side == "e":
                     fb("patch%s%d" % (fid, i), (13.995, c, 14.005, c + w_),
-                       z0, rng.uniform(0.5, 1.2), "brick_patched")
+                       z0, rng.uniform(0.5, 1.2), "fx_patch")
                 else:
                     fb("patch%s%d" % (fid, i), (c, 9.995, c + w_, 10.005),
-                       z0, rng.uniform(0.5, 1.2), "brick_patched")
+                       z0, rng.uniform(0.5, 1.2), "fx_patch")
             fb("lane_s%s" % fid, (-4.9, -9.1, 4.9, -7.5), 0.013, 0.002,
                "plaster_stained")
             fb("lane_w%s" % fid, (-5.1, -6.9, -3.7, 6.9), 0.013, 0.002,
@@ -1485,58 +2031,722 @@ def aging_pass(floors):
                    8.96), 0.0, 3.2 + a * 0.8, "metal")
         if fid == "F01":
             fb("damp_s1", (-13.9, -10.06, -1.55, -9.965), 0.45, 0.28,
-               "plaster_stained")
+               "fx_damp")
             fb("damp_s2", (1.55, -10.06, 13.9, -9.965), 0.45, 0.28,
-               "plaster_stained")
+               "fx_damp")
             for i, sx in enumerate((-11.0, 6.5)):
                 fb("streak%d" % i, (sx, -10.055, sx + 0.25, -9.97), 0.7,
-                   2.3, "plaster_stained")
+                   2.3, "fx_drip")
 
 
 ## The building's block: a crowded 2027 street on limited land. Sidewalk
 ## and stoop out front, service alley behind serving the porches and coal
 ## chute, tight gangways between the neighbors' party walls.
+## Extent of the built block. The street used to stop at x = +-20 and the
+## vista ran straight out to open sky with the sky dome's distant city
+## sitting at the wrong elevation — the single loudest tell that this was a
+## set and not a city. The block now runs far enough that the sightline
+## dies in masonry long before it reaches the edge.
+SITE_X = 62.0
+SITE_S = -34.0     # far kerb line, south
+SITE_N = 24.0      # back of the alley blocks, north
+
+## Street-wall blocks: (id, rect, height). Heights step irregularly, since
+## a row of equal parapets reads as one extruded shape rather than as
+## separate buildings put up in different decades.
+CITY_BLOCKS = [
+    # north side (our side), running west from the Orison
+    ("nbr_w", (-19.6, -12.0, -15.2, 12.0), 12.8),
+    ("nw1", (-27.4, -14.2, -20.2, 11.0), 16.4),
+    ("nw2", (-36.0, -14.2, -28.0, 9.5), 10.9),
+    ("nw3", (-47.5, -14.2, -36.6, 12.0), 19.2),
+    ("nw4", (-58.0, -14.2, -48.1, 10.0), 13.6),
+    # north side, running east
+    ("nbr_e", (15.2, -12.0, 19.6, 12.0), 12.8),
+    ("ne1", (20.2, -14.2, 28.8, 11.5), 14.7),
+    ("ne2", (29.4, -14.2, 37.0, 9.0), 21.5),
+    ("ne3", (37.6, -14.2, 48.4, 12.0), 11.2),
+    ("ne4", (49.0, -14.2, 58.0, 10.5), 17.8),
+    # south side of the street, opposite
+    ("nbr_s1", (-20.0, -24.0, -7.0, -18.2), 10.4),
+    ("nbr_s2", (-5.6, -24.0, 6.4, -18.2), 15.8),
+    ("nbr_s3", (7.8, -24.0, 20.0, -18.2), 8.6),
+    ("sw1", (-33.0, -25.5, -20.6, -18.2), 14.2),
+    ("sw2", (-46.0, -24.0, -33.6, -18.2), 9.8),
+    ("sw3", (-58.0, -26.5, -46.6, -18.2), 18.5),
+    ("se1", (20.6, -24.0, 32.0, -18.2), 12.6),
+    ("se2", (32.6, -26.0, 44.5, -18.2), 20.4),
+    ("se3", (45.1, -24.0, 58.0, -18.2), 10.2),
+    # the vista stops: masses across both ends of the street, as if the
+    # road bends behind them. Without these you see sky down the pavement.
+    ("end_w", (-62.0, -26.0, -58.6, 14.0), 24.6),
+    ("end_e", (58.6, -26.0, 62.0, 14.0), 22.3),
+    # behind the alley
+    ("back_w", (-30.0, 16.6, -12.0, 23.0), 15.4),
+    ("back_e", (12.0, 16.6, 31.0, 23.0), 18.9),
+]
+
+## A second ring, further out and much taller. The street-wall row above
+## closes the view at pavement level, but the roof is walkable and the
+## upper floors have windows — from either you look straight over it into
+## the band of black between the block's edge and the sky dome's distant
+## city. These fill that band. They are never approached, so they are
+## single boxes with lit windows and nothing else.
+FAR_SKYLINE = [
+    ("far_nw", (-96.0, 30.0, -64.0, 58.0), 38.0),
+    ("far_n", (-26.0, 34.0, 14.0, 62.0), 44.0),
+    ("far_ne", (44.0, 28.0, 78.0, 56.0), 33.5),
+    ("far_e", (74.0, -18.0, 104.0, 16.0), 41.0),
+    ("far_se", (52.0, -68.0, 86.0, -40.0), 29.5),
+    ("far_s", (-18.0, -78.0, 22.0, -46.0), 46.5),
+    ("far_sw", (-88.0, -62.0, -54.0, -38.0), 31.0),
+    ("far_w", (-108.0, -20.0, -78.0, 18.0), 36.5),
+]
+
+
 def site_pass(fl):
+    """The block the Orison stands in. Everything here is scenery — it
+    exists to close sightlines and to make the building feel surrounded,
+    so it is deliberately cheap: boxes, and lit window rectangles that are
+    data rather than lights."""
     furn = fl["furniture"]
+    rng = random.Random(1927)
+    lights = []
 
     def fb(bid, rect, z0, h, mat):
         furn.append({"id": "site_" + bid, "rect": list(rect), "z0": z0,
                      "h": h, "mat": mat})
 
-    fb("ground", (-20.0, -24.0, 20.0, 16.0), -0.30, 0.28, "asphalt")
-    fb("sidewalk", (-20.0, -14.6, 20.0, -10.0), -0.02, 0.03, "concrete")
-    fb("curb", (-20.0, -14.75, 20.0, -14.60), -0.02, 0.14, "concrete")
+    # The road surface is laid AROUND the building, never under it. As one
+    # slab it ran clean through the footprint 20 mm below the lobby floor,
+    # which put a 220 x 148 m lid over the atrium well and the whole
+    # basement: from the lobby you looked down the eye and hit tarmac
+    # instead of B1, and the light court's bottom two storeys were sealed
+    # off. The building brings its own ground — the B1 slab — so the four
+    # bands below tile the site with the footprint left out.
+    gx0, gy0, gx1, gy1 = -112.0, -82.0, 108.0, 66.0
+    bx0, by0, bx1, by1 = -14.0, -10.0, 14.0, 10.0
+    for tag, rect in (
+            ("ground_s", (gx0, gy0, gx1, by0)),
+            ("ground_n", (gx0, by1, gx1, gy1)),
+            ("ground_w", (gx0, by0, bx0, by1)),
+            ("ground_e", (bx1, by0, gx1, by1))):
+        fb(tag, rect, -0.30, 0.28, "asphalt")
+    fb("sidewalk", (-SITE_X, -14.6, SITE_X, -10.0), -0.02, 0.03, "concrete")
+    fb("sidewalk_s", (-SITE_X, -18.2, SITE_X, -17.4), -0.02, 0.03,
+       "concrete")
+    fb("curb", (-SITE_X, -14.75, SITE_X, -14.60), -0.02, 0.14, "concrete")
+    fb("curb_s", (-SITE_X, -17.55, SITE_X, -17.40), -0.02, 0.14, "concrete")
     fb("alley", (-20.0, 10.0, 20.0, 13.4), -0.02, 0.015, "concrete")
-    for bid, rect, hgt in (("nbr_w", (-19.6, -12.0, -15.2, 12.0), 12.8),
-                           ("nbr_e", (15.2, -12.0, 19.6, 12.0), 12.8),
-                           ("nbr_s1", (-20.0, -24.0, -7.0, -18.2), 10.4),
-                           ("nbr_s2", (-5.6, -24.0, 6.4, -18.2), 15.8),
-                           ("nbr_s3", (7.8, -24.0, 20.0, -18.2), 8.6),
-                           ("garages", (-16.0, 13.4, 16.0, 16.0), 3.0)):
+    fb("garages", (-16.0, 13.4, 16.0, 16.0), 0.0, 3.0, "common_brick")
+    # centre line, so the road reads as a road
+    for i in range(int(SITE_X * 2 / 3.0)):
+        cx = -SITE_X + i * 3.0
+        fb("centreline%d" % i, (cx, -16.05, cx + 1.6, -15.95), 0.0, 0.006,
+           "linen")
+
+    for bid, rect, hgt in CITY_BLOCKS:
         fb(bid, rect, 0.0, hgt, "common_brick")
-    for i in range(10):
-        x = -18.6 + (i % 5) * 1.9
-        fb("nwin_w%d" % i, (-15.19, -9.0 + (i % 5) * 3.7, -15.15,
-           -8.0 + (i % 5) * 3.7), 1.2 + (i // 5) * 3.4, 1.3, "glassish")
-        fb("nwin_e%d" % i, (15.15, -9.0 + (i % 5) * 3.7, 15.19,
-           -8.0 + (i % 5) * 3.7), 1.2 + (i // 5) * 3.4, 1.3, "glassish")
-        fb("nwin_s%d" % i, (x, -18.19, x + 0.9, -18.15),
-           1.5 + (i // 5) * 4.0, 1.4, "glassish")
-    for i, lx in enumerate((-9.0, 6.0)):
+        # a parapet lip catches the moon and stops every roof reading as a
+        # clean extrusion
+        x0, y0, x1, y1 = rect
+        fb(bid + "_cap", (x0 - 0.12, y0 - 0.12, x1 + 0.12, y1 + 0.12),
+           hgt, 0.34, "limestone")
+        _city_windows(fb, lights, rng, bid, rect, hgt)
+
+    for bid, rect, hgt in FAR_SKYLINE:
+        fb(bid, rect, 0.0, hgt, "common_brick")
+        fb(bid + "_cap", (rect[0] - 0.3, rect[1] - 0.3, rect[2] + 0.3,
+           rect[3] + 0.3), hgt, 0.7, "limestone")
+        _city_windows(fb, lights, rng, bid, rect, hgt, storey=3.8)
+
+    _street_furniture(fb, rng)
+    # water tower on a tall neighbour: the silhouette that says American
+    # city more economically than any amount of facade detail
+    for tid, (tx, ty), base in (("wt_e", (33.2, -21.4), 20.4),
+                                ("wt_w", (-41.5, 4.2), 19.2)):
+        for lx in (tx, tx + 2.6):
+            for ly in (ty, ty + 2.6):
+                fb("%s_leg_%d_%d" % (tid, int(lx * 10), int(ly * 10)),
+                   (lx, ly, lx + 0.18, ly + 0.18), base, 3.2, "timber")
+        fb(tid + "_tank", (tx - 0.5, ty - 0.5, tx + 3.3, ty + 3.3),
+           base + 3.2, 4.1, "timber")
+        fb(tid + "_roof", (tx - 0.8, ty - 0.8, tx + 3.6, ty + 3.6),
+           base + 7.3, 0.5, "metal")
+    fl["site_lights"] = lights
+
+
+## Lit windows on the neighbours, as DATA. Godot turns each into one
+## unshaded quad — the same trick the Orison's own windows use. Real lights
+## here would be dozens of omnis competing for the per-object cap the
+## LightRig exists to ration, to light rooms nobody can enter.
+def _city_windows(fb, lights, rng, bid, rect, hgt, storey=3.4):
+    x0, y0, x1, y1 = rect
+    # yaw turns the lit face OUT of its own wall. Godot applies
+    # rotation.y = -yaw, and a quad's face is +Z: south wall keeps 0, north
+    # needs 180. Having these two swapped pointed every street-facing
+    # window on the far pavement back into its own brickwork, which is
+    # exactly as dark as having placed none at all.
+    off = 0.06
+    for face, along0, along1, cross, yaw in (
+            ("s", x0, x1, y0 - off, 0), ("n", x0, x1, y1 + off, 180),
+            ("w", y0, y1, x0 - off, 90), ("e", y0, y1, x1 + off, -90)):
+        span = along1 - along0
+        n = int(span / 3.1)
+        if n < 1:
+            continue
+        for row in range(max(1, int((hgt - 2.2) / storey))):
+            z = 2.0 + row * storey
+            if z + 1.5 > hgt:
+                break
+            for i in range(n):
+                a = along0 + (i + 0.5) * span / n
+                horiz = face in ("s", "n")
+                px, py = (a, cross) if horiz else (cross, a)
+                # a facade is not a switchboard: most windows are dark, and
+                # the lit ones cluster because people share a floor
+                on = rng.random() < (0.46 if row % 2 == 0 else 0.30)
+                if not on:
+                    continue
+                lights.append({
+                    "pos": [round(px, 3), round(py, 3), round(z, 3)],
+                    # a touch under a real sash, since a flat lit rectangle
+                    # with no frame reads larger than the opening it stands for
+                    "size": [1.05, 1.35], "yaw": yaw,
+                    "warm": rng.random() < 0.78,
+                    "energy": round(rng.uniform(0.55, 1.5), 2)})
+
+
+## The storm has passed; the street is still wet and still covered in what
+## the wind took down. Everything here is flat geometry on the ground —
+## the moving part (drizzle, gusts, falling leaves) is particles in Godot,
+## because those have to follow the camera and these have to stay put.
+def storm_pass(fl):
+    furn = fl["furniture"]
+    rng = random.Random(1931)
+
+    def fb(bid, rect, z0, h, mat):
+        furn.append({"id": "storm_" + bid, "rect": list(rect), "z0": z0,
+                     "h": h, "mat": mat})
+
+    # Sheets of wet across the road and pavement, at slightly different
+    # heights so they never z-fight each other. Broken up rather than one
+    # even coat: water pools where the camber and the kerb put it.
+    for i in range(26):
+        wx = rng.uniform(-58.0, 58.0)
+        ww = rng.uniform(4.0, 13.0)
+        band = rng.choice([(-18.1, -14.7), (-14.55, -10.1),
+                           (-18.1, -14.7)])
+        wy0 = rng.uniform(band[0], band[1] - 1.2)
+        fb("wet%d" % i, (wx, wy0, wx + ww, wy0 + rng.uniform(1.0, 3.0)),
+           0.004, 0.002, "wet_asphalt")
+    # Puddles proper: the gutter line holds most of them, because that is
+    # where a crowned road sends its water.
+    for i in range(34):
+        gutter = rng.random() < 0.62
+        px = rng.uniform(-58.0, 58.0)
+        if gutter:
+            py = rng.uniform(-14.95, -14.45)
+            pw, pd = rng.uniform(1.4, 4.6), rng.uniform(0.5, 1.1)
+        else:
+            py = rng.uniform(-17.9, -10.4)
+            pw, pd = rng.uniform(0.8, 2.8), rng.uniform(0.5, 1.6)
+        if abs(px) < 2.6 and py > -13.6:
+            continue          # the stoop approach stays walkable and dry
+        fb("pud%d" % i, (px, py, px + pw, py + pd), 0.006, 0.002, "puddle")
+    # Leaf litter, heaviest against the kerb and the building line where
+    # the wind stacked it.
+    for i in range(150):
+        against_wall = rng.random() < 0.45
+        lx = rng.uniform(-58.0, 58.0)
+        ly = rng.uniform(-10.55, -10.05) if against_wall \
+            else rng.uniform(-17.8, -10.2)
+        s = rng.uniform(0.10, 0.22)
+        fb("leaf%d" % i, (lx, ly, lx + s, ly + s * rng.uniform(0.6, 1.0)),
+           0.010, 0.003, "leaf_fall")
+    # Drifts: where litter has actually piled, a leaf is a lump not a decal
+    for i in range(12):
+        dx = rng.uniform(-52.0, 52.0)
+        dy = rng.choice([-14.5, -10.35])
+        fb("drift%d" % i, (dx, dy, dx + rng.uniform(0.9, 2.4),
+           dy + rng.uniform(0.25, 0.5)), 0.008, rng.uniform(0.03, 0.07),
+           "leaf_fall")
+    # What the wind took down: a branch across the pavement, a bin over on
+    # its side with its lid away from it, and a folded-out umbrella in the
+    # gutter. Storm damage is specific or it reads as set dressing.
+    fb("branch", (-9.4, -12.9, -6.2, -12.66), 0.012, 0.10, "timber")
+    fb("branch_fork", (-7.6, -12.85, -6.9, -12.2), 0.012, 0.07, "timber")
+    fb("twig1", (11.2, -11.6, 12.1, -11.5), 0.010, 0.05, "timber")
+    fb("twig2", (-21.4, -13.2, -20.5, -13.05), 0.010, 0.05, "timber")
+    fb("bin_down", (18.6, -13.4, 19.7, -12.35), 0.0, 0.62, "metal")
+    fb("bin_lid", (20.3, -12.9, 20.95, -12.3), 0.008, 0.05, "metal")
+    fb("umbrella_canopy", (-16.8, -14.9, -15.7, -14.35), 0.01, 0.16,
+       "fabric_cool")
+    fb("umbrella_shaft", (-15.75, -14.66, -14.9, -14.6), 0.02, 0.03,
+       "metal")
+    # Wet still coming off the building: a dark run below each downpipe
+    for i, dx in enumerate((-13.4, 13.2)):
+        fb("downrun%d" % i, (dx, -10.5, dx + 0.5, -10.05), 0.005, 0.002,
+           "wet_asphalt")
+
+
+## The light court's centrepiece. The stair used to be lit by seven
+## separate globes on long drops down the eye, which read as seven
+## unrelated fittings rather than as one idea. This is a single fluted
+## column standing the full height of the court, from the basement floor to
+## the skylight, with the light built INTO it: a continuous glazed slot up
+## each face, and a brighter luminous band at every landing level. From the
+## lobby you look up one lit object; from any deck you are beside it.
+##
+## It is emitted per floor slice so the floor-visibility streaming still
+## works — a single 24 m prop filed under one storey would vanish with it.
+
+
+## Tenants' roof: a sheltered lounge deck on the lee side of the monitor
+## and a planted garden along the parapet. Deliberately modest and a bit
+## improvised — this is a 1927 block whose residents colonised the roof,
+## not a developer's amenity terrace.
+def _roof_programme(furniture, markers, z):
+    def fb(bid, rect, z0, h, mat):
+        furniture.append({"id": "roof_" + bid, "rect": list(rect),
+                          "z0": z0, "h": h, "mat": mat})
+
+    # decking east of the monitor, out of the prevailing wind
+    fb("deck", (4.6, -6.4, 12.6, 2.2), 0.0, 0.06, "timber")
+    for i in range(17):     # board joints, so it is not one flat plane
+        fb("deck_joint%d" % i, (4.6 + i * 0.5, -6.4, 4.64 + i * 0.5, 2.2),
+           0.06, 0.004, "wood_dark")
+    # pergola over half of it: four posts, beams, and slats casting a
+    # ladder of shadow that tells you the moon is up
+    for px, py in ((5.0, -6.0), (11.9, -6.0), (5.0, 0.9), (11.9, 0.9)):
+        fb("perg_post_%d_%d" % (int(px * 10), int(py * 10)),
+           (px, py, px + 0.12, py + 0.12), 0.06, 2.42, "timber")
+    for py in (-6.0, 0.9):
+        fb("perg_beam_%d" % int(py * 10), (4.94, py, 12.08, py + 0.12),
+           2.48, 0.14, "timber")
+    for i in range(13):
+        sy = -5.9 + i * 0.58
+        fb("perg_slat%d" % i, (5.0, sy, 12.0, sy + 0.07), 2.62, 0.05,
+           "timber")
+    # seating: a bench along the parapet, two chairs and a low table
+    _asm(furniture, "roof_bench", "bench", 8.6, 1.55, 180, z0=0.06, L=2.2)
+    chair_box(furniture, "roof_chair1", 6.0, -4.3, "n")
+    chair_box(furniture, "roof_chair2", 7.3, -4.3, "n")
+    _asm(furniture, "roof_table", "coffee", 6.75, -3.35, 0, z0=0.06)
+    _asm(furniture, "roof_crate", "crate", 11.6, -5.4, 12, z0=0.06,
+         fill="soot")
+    # string lights along the pergola, drooping between the beams
+    for i in range(9):
+        lx = 5.2 + i * 0.85
+        fb("string%d" % i, (lx, -3.0, lx + 0.55, -2.97),
+           2.44 - (0.06 if i % 2 else 0.0), 0.02, "metal")
+    # ---- the garden: raised beds along the north and west parapets,
+    # tomatoes and beans on canes, a water butt off the tank overflow
+    for i, (bx, by, bw, bd) in enumerate((
+            (-12.4, 7.4, 6.4, 1.5), (-4.6, 7.4, 5.2, 1.5),
+            (-13.0, -2.2, 1.5, 6.6))):
+        fb("bed%d" % i, (bx, by, bx + bw, by + bd), 0.0, 0.42, "timber")
+        fb("bed%d_soil" % i, (bx + 0.08, by + 0.08, bx + bw - 0.08,
+           by + bd - 0.08), 0.40, 0.05, "soil")
+    for i in range(9):
+        px = -12.0 + i * 0.72
+        plant_box(furniture, "roof_veg%d" % i, px, 7.75,
+                  big=(i % 3 == 0))
+    for i in range(6):
+        px = -4.2 + i * 0.8
+        plant_box(furniture, "roof_veg_e%d" % i, px, 7.8, big=(i % 2 == 0))
+    for i in range(7):
+        py = -1.8 + i * 0.85
+        plant_box(furniture, "roof_veg_w%d" % i, -12.6, py,
+                  big=(i % 3 == 1))
+    # bean canes: a tripod of poles over the west bed
+    for i in range(5):
+        cx = -12.5 + (i % 2) * 0.5
+        cy = -1.6 + i * 0.8
+        fb("cane%d" % i, (cx, cy, cx + 0.035, cy + 0.035), 0.42, 1.75,
+           "timber")
+    fb("waterbutt", (-10.2, 4.1, -9.4, 4.9), 0.0, 1.05, "timber")
+    fb("waterbutt_lid", (-10.25, 4.05, -9.35, 4.95), 1.05, 0.05, "metal")
+    fb("hose", (-9.6, 4.9, -9.5, 6.9), 0.02, 0.06, "soot")
+    fb("wateringcan", (-8.6, 6.4, -8.28, 6.75), 0.0, 0.28, "metal")
+    # A light so the roof is usable and the door does not open onto a void.
+    markers.append({
+        "kind": "cage_bulb", "id": "ROOF_LT_DECK", "unit": "ROOF",
+        "pos": [8.6, -2.6, z + 2.52], "yaw_deg": 0,
+        "network": "electrical", "range": 9.5, "energy": 0.95,
+        "navigation": True, "standby": 0.45})
+    markers.append({
+        "kind": "cage_bulb", "id": "ROOF_LT_GARDEN", "unit": "ROOF",
+        "pos": [-9.0, 6.2, z + 2.30], "yaw_deg": 0,
+        "network": "electrical", "range": 8.0, "energy": 0.7,
+        "navigation": True, "standby": 0.35})
+
+
+TREE_BASE = -2.8          # B1 floor, where the trunk is rooted
+TREE_TOP = 21.0           # crown, just under the skylight glazing
+
+
+def _tree_at(h):
+    """Where the trunk is at height h. Two slow leans of different period,
+    so it wanders and doubles back the way a trained bonsai does rather
+    than spiralling like a helix — a regular twist reads as a machine
+    part, and this is meant to look grown. Amplitudes keep it inside
+    0.62 m of centre; the stair flights begin 1.46 m out."""
+    x = 0.40 * math.sin(h * 0.55) + 0.19 * math.sin(h * 1.31 + 1.1)
+    y = 0.36 * math.cos(h * 0.47 + 0.6) + 0.15 * math.sin(h * 1.07)
+    return x, y
+
+
+def _tree_nook(fl, rx, ry):
+    """A reading nook built around the roots. The bottom of the light
+    court is the one place in the building where you can sit under the
+    whole height of it and still be lit — the fruit hangs overhead all
+    the way up, and the skylight is directly above.
+
+    A built-in bench in three runs, open toward the deck you arrive from,
+    because a ring you have to climb into is a planter, not a seat."""
+    z = fl["z"]
+    f = fl["furniture"]
+
+    def fb(bid, rect, z0, h, mat):
+        f.append({"id": "nook_%s" % bid, "rect": [round(v, 3) for v in rect],
+                  "z0": z0, "h": h, "mat": mat})
+
+    r = 0.82                    # half-width of the bench square
+    # Stay clear of the west flight, which begins at x = -1.46.
+    rx = max(rx, -1.46 + r + 0.16)
+    fb("rug", (rx - 1.24, ry - 1.24, rx + 1.24, ry + 1.24), 0.014, 0.008,
+       "rug_warm")
+    # N, E and W runs; the south side stays open to the deck
+    for bid, rect in (("n", (rx - r, ry + 0.44, rx + r, ry + r)),
+                      ("w", (rx - r, ry - 0.44, rx - 0.44, ry + 0.44)),
+                      ("e", (rx + 0.44, ry - 0.44, rx + r, ry + 0.44))):
+        fb("seat_" + bid, rect, 0.40, 0.065, "floor_oak")
+        fb("apron_" + bid, (rect[0] + 0.05, rect[1] + 0.05, rect[2] - 0.05,
+                            rect[3] - 0.05), 0.0, 0.40, "wood_dark")
+    # cushions, thrown where someone actually sits rather than centred
+    fb("cush1", (rx - 0.74, ry + 0.50, rx - 0.16, ry + 0.86), 0.465, 0.085,
+       "fabric_warm")
+    fb("cush2", (rx + 0.50, ry - 0.30, rx + 0.80, ry + 0.26), 0.465, 0.075,
+       "fabric_green")
+    fb("throw", (rx - 0.80, ry - 0.34, rx - 0.48, ry + 0.30), 0.465, 0.055,
+       "linen")
+    # a low shelf of communal paperbacks against the north run's back
+    shelf_unit(f, "nook_books", rx - 0.62, ry + 0.86, 1.25, True, d=0.26,
+               h=0.92, books=True, face="s")
+    # side table with what someone left on it
+    _asm(f, "nook_table", "coffee", rx + 0.02, ry - 0.86, 0)
+    _asm(f, "nook_mug", "mug", rx + 0.20, ry - 0.80, 35, z0=0.37,
+         mat="ceramic")
+    _asm(f, "nook_pile", "bookpile", rx - 0.20, ry - 0.92, 12, z0=0.37,
+         n=3)
+    _asm(f, "nook_plant", "plant", rx + 0.94, ry + 0.92, 0, big=False)
+    # a reading lamp on the table, and the nook is somewhere you can read
+    fl["markers"].append({
+        "kind": "lamp", "id": "B1_NOOK_LAMP",
+        "unit": "ATRIUM", "pos": [round(rx - 0.46, 3), round(ry - 0.90, 3),
+                                  round(z + 0.37, 3)],
+        "yaw_deg": 30, "network": "electrical"})
+
+
+def atrium_tree(fl):
+    """A brass bonsai wound up the light court, carrying the stair's
+    lighting as fruit hanging in the eye.
+
+    Replaces the fluted column: same job — one object the full height of
+    the well — but it reads as a commissioned piece in a 1927 lobby
+    rather than as structure, and the light becomes something suspended
+    in the void instead of bands on a shaft.
+
+    Emitted per floor slice so floor streaming still works. Trunk and
+    branches are tubes in WORLD coordinates (asm_pipe without `local`),
+    the only primitive in this pipeline that can follow a curve.
+    """
+    z = fl["z"]
+    fid = fl["id"]
+    lo = max(z, TREE_BASE)
+    hi = TREE_TOP if fid == "ROOF" else min(z + F2F, TREE_TOP)
+    if hi <= lo + 0.01:
+        return
+    f = fl["furniture"]
+    rng = random.Random(1927 + int(z * 10))
+
+    def tube(bid, p0, p1, r, mat="brass"):
+        f.append({"id": "tree_%s_%s" % (fid, bid), "asm": "pipe",
+                  "at": [0.0, 0.0], "yaw": 0, "mat": mat, "r": r,
+                  "p0": [round(v, 4) for v in p0],
+                  "p1": [round(v, 4) for v in p1]})
+
+    # ---- trunk: short tubes chained along the path, tapering with height
+    steps = max(2, int((hi - lo) / 0.34))
+    prev = None
+    for i in range(steps + 1):
+        h = lo + (hi - lo) * i / steps
+        x, y = _tree_at(h)
+        if prev is not None:
+            t = (h - TREE_BASE) / (TREE_TOP - TREE_BASE)
+            tube("trunk%d" % i, prev, [x, y, h], 0.115 * (1.0 - t) + 0.035)
+        prev = [x, y, h]
+    # root flare where it meets the basement floor
+    if lo <= TREE_BASE + 0.01:
+        bx, by = _tree_at(TREE_BASE)
+        for a in range(5):
+            ang = math.tau * a / 5.0 + 0.4
+            tube("root%d" % a, [bx, by, TREE_BASE + 0.42],
+                 [bx + math.cos(ang) * 0.55, by + math.sin(ang) * 0.55,
+                  TREE_BASE + 0.02], 0.055)
+        _tree_nook(fl, bx, by)
+
+    # ---- branches and their fruit. Two per storey, thrown to opposite
+    # sides so the crown stays balanced over the well.
+    for k in range(2):
+        h = lo + (hi - lo) * (0.34 + 0.42 * k)
+        if h > TREE_TOP - 0.4:
+            continue
+        tx, ty = _tree_at(h)
+        ang = rng.uniform(0, math.tau) + k * math.pi
+        reach = rng.uniform(0.62, 1.00)
+        # elbow partway out, so the branch bends instead of spiking
+        ex = tx + math.cos(ang) * reach * 0.55
+        ey = ty + math.sin(ang) * reach * 0.55
+        ez = h + rng.uniform(0.10, 0.30)
+        px = tx + math.cos(ang) * reach
+        py = ty + math.sin(ang) * reach
+        pz = ez + rng.uniform(-0.05, 0.18)
+        tube("br%d_a" % k, [tx, ty, h], [ex, ey, ez], 0.045)
+        tube("br%d_b" % k, [ex, ey, ez], [px, py, pz], 0.028)
+        for j in range(2):      # twigs, for silhouette
+            ja = ang + rng.uniform(-1.1, 1.1)
+            jr = rng.uniform(0.18, 0.34)
+            tube("br%d_tw%d" % (k, j), [ex, ey, ez],
+                 [ex + math.cos(ja) * jr, ey + math.sin(ja) * jr,
+                  ez + rng.uniform(0.10, 0.28)], 0.016)
+        # Foliage as bonsai pads — but in brass, like the rest of it. A
+        # green pad made the piece read as half sculpture and half
+        # houseplant; beaten metal leaves keep it one commissioned object,
+        # and let the only colour in the court come from the fruit.
+        # Three small overlapping pads per branch, because one flat card
+        # reads as a card and a cluster reads as a canopy.
+        for q in range(3):
+            qx = px + rng.uniform(-0.20, 0.20)
+            qy = py + rng.uniform(-0.18, 0.18)
+            qw = rng.uniform(0.16, 0.27)
+            qd = rng.uniform(0.14, 0.23)
+            f.append({"id": "tree_%s_pad%d_%d" % (fid, k, q),
+                      "rect": [round(qx - qw, 3), round(qy - qd, 3),
+                               round(qx + qw, 3), round(qy + qd, 3)],
+                      "z0": round(pz + 0.04 + q * 0.035 - z, 3),
+                      "h": 0.035, "mat": "brass"})
+        # the fruit: a stem off the branch tip, then the light itself
+        tube("br%d_stem" % k, [px, py, pz], [px, py, pz - 0.20], 0.011)
+        fl["markers"].append({
+            "kind": "eye_pendant",
+            "id": "%s_ATRIUM_FRUIT_%d" % (fid, k + 1),
+            "unit": fid, "pos": [round(px, 3), round(py, 3),
+                                 round(pz - 0.34, 3)],
+            "yaw_deg": 0, "network": "electrical", "energy": 0.85,
+            "navigation": True, "standby": 0.5})
+
+
+## Wayfinding. You could climb seven identical storeys with nothing
+## telling you which one you were on, and stand at a door with nothing
+## saying whose it was. Both are plates on the wall: a big floor numeral
+## facing you as you arrive off the stair and out of the lift, and a small
+## number beside every apartment door on the latch side.
+def signage_pass(fl):
+    fid = fl["id"]
+    if fid == "ROOF":
+        return
+    z = fl["z"]
+    f = fl["furniture"]
+    label = "B" if fid == "B1" else fid[-1]
+
+    # NB: furniture z0 is measured from the floor it belongs to, not from
+    # the world origin — the builder adds fl["z"] itself. Passing absolute
+    # heights here put the basement's plates below its own slab.
+    def plate(bid, x, y, w, d, z0, h, mat):
+        f.append({"id": "sign_%s_%s" % (fid, bid),
+                  "rect": [x, y, x + w, y + d], "z0": z0, "h": h,
+                  "mat": mat})
+
+    # Storey plate on the court wall facing the arriving stair deck, and
+    # a second in the lift hall opposite the doors.
+    for bid, px, py, horiz in (("stair", -0.62, -COURT + CORR_T / 2.0
+                                + 0.012, True),
+                               ("hall", -0.62, -CORE_Y1 + CORR_T / 2.0
+                                + 0.012, True)):
+        # Mounted above head height, which is both where a storey numeral
+        # belongs and what keeps it out of the circulation audit — a
+        # wall plate at eye level counts as an obstruction in a hall.
+        plate(bid + "_ground", px, py, 1.24, 0.03, 2.02, 0.46, "trim")
+        plate(bid + "_face", px + 0.06, py + 0.006, 1.12, 0.03,
+              2.07, 0.36, "art")
+        # the numeral itself, as a plain proud block: readable as a mark
+        # at a distance without needing a font in the geometry pipeline
+        plate(bid + "_num", px + 0.50, py + 0.012, 0.24, 0.03, 2.15,
+              0.22, "brass")
+    # Apartment plates: beside each unit's corridor door, latch side.
+    for stack in ("A", "B", "C", "D"):
+        unit = "%s%s" % (fid[-1].lstrip("0") or fid[-1], stack)
+        if fid in ("B1", "F01") or unit not in RESIDENTS:
+            continue
+        if unit == "2D":
+            continue          # sealed since 1927: never had a plate
+        sx0, sy0, sx1, sy1 = STACK_RECTS[stack]
+        east = stack in ("C", "D")
+        ey = {"A": sy1 - 1.2, "B": sy0 + 3.30, "C": sy0 + 1.2,
+              "D": sy0 + 6.34}[stack]
+        # on the corridor face of the apartment wall, beside the opening
+        px = (sx0 - CORR_T / 2.0 - 0.012) if east \
+            else (sx1 + CORR_T / 2.0 - 0.018)
+        plate("apt_%s_back" % unit, px, ey + 0.62, 0.03, 0.30,
+              1.42, 0.20, "brass")
+        plate("apt_%s_face" % unit, px + (0.006 if east else -0.006),
+              ey + 0.65, 0.03, 0.24, 1.45, 0.14, "art")
+
+
+## Doors the Case Network leaves behind. They are authored here like every
+## other coordinate in the building — including the ones that are not
+## supposed to exist — but they spawn hidden and only appear when their case
+## closes. Case 02's route through the third-floor heating riser ends here.
+def case_doors(fl):
+    if fl["id"] != "F03":
+        return
+    # West corridor face, in the clear run between 3B's door (y=5.52) and
+    # the storage door (y=0.63). The room behind it is the west storage
+    # room, which already HAS a door: this is a second way into a utility
+    # space, which is both the sort of thing that never appears on a set of
+    # plans and the sort of thing a superintendent refuses to open. It sits
+    # on the plaster rather than in a cut opening on purpose — there is no
+    # hole behind it, and it does not open.
+    fl["markers"].append({
+        "kind": "case_door", "id": "F03_UTILITY_ANOMALY", "unit": "3B",
+        "pos": [-5.33, 2.00, fl["z"]], "yaw_deg": -90,
+        "network": "structural"})
+
+
+def stair_top_guard(fl):
+    """The topmost landing had no balustrade along its open eye edge: the
+    guard loop stops at the level BELOW the last one, because it is driven
+    by the climbs and the last climb has no floor above it. At roof level
+    that leaves a 3 m drop down the light court with nothing across it."""
+    if fl["id"] != "ROOF":
+        return
+    z = fl["z"]
+    gx0, gx1 = -COURT + 1.79, COURT - 1.79
+    for yc, bid in ((-1.515, "s"), (1.515, "n")):
+        fl["furniture"].append({
+            "id": "ROOF_EYEGUARD_%s_rail" % bid,
+            "rect": [gx0 - 0.06, yc - 0.045, gx1 + 0.06, yc + 0.045],
+            "z0": 0.86, "h": 0.10, "mat": "handrail_wood"})
+        for j in range(int((gx1 - gx0) / 0.16)):
+            xj = gx0 + (j + 0.5) * 0.16
+            fl["furniture"].append({
+                "id": "ROOF_EYEGUARD_%s_bal%d" % (bid, j),
+                "rect": [xj - 0.018, yc - 0.018, xj + 0.018, yc + 0.018],
+                "z0": 0.0, "h": 0.86, "mat": "baluster"})
+
+
+def street_lamp_markers(fl):
+    """The lamps were geometry with nothing inside them, so the pavement
+    they stand on was as black as the road. Sodium heads at 2000 K, which
+    is the warmest thing in the exterior palette and reads instantly as
+    street rather than interior."""
+    for i in range(int(SITE_X * 2 / 11.0)):
+        lx = -SITE_X + 5.0 + i * 11.0
+        if abs(lx) < 3.0 or abs(lx) > 34.0:
+            continue      # clear of the stoop; distant ones stay scenery
+        fl["markers"].append({
+            "kind": "street_lamp", "id": "F01_STREETLAMP_%02d" % i,
+            "unit": "SITE", "pos": [lx + 0.06, -14.49, 4.55],
+            "yaw_deg": 0, "network": "electrical",
+            "range": 11.0, "energy": 1.15,
+            "navigation": True, "standby": 0.4})
+
+
+def _street_furniture(fb, rng):
+    # lamps down both pavements, spaced like real ones rather than
+    # bracketing the doorway
+    for i in range(int(SITE_X * 2 / 11.0)):
+        lx = -SITE_X + 5.0 + i * 11.0
+        if abs(lx) < 3.0:
+            continue          # keep the stoop approach clear
         fb("lamp_pole%d" % i, (lx, -14.55, lx + 0.12, -14.43), 0.0, 4.6,
            "metal")
         fb("lamp_head%d" % i, (lx - 0.15, -14.7, lx + 0.27, -14.28), 4.6,
            0.25, "metal")
     fb("hydrant", (-3.4, -10.85, -3.05, -10.5), 0.0, 0.75, "metal")
-    fb("power_pole", (16.2, 11.0, 16.5, 11.3), 0.0, 8.5, "timber")
-    fb("power_line", (10.5, 11.05, 16.2, 11.12), 7.6, 0.05, "metal")
+    fb("hydrant_cap", (-3.45, -10.9, -3.0, -10.45), 0.75, 0.12, "metal")
+    # traffic signal on the corner, mast arm over the road
+    fb("signal_pole", (17.4, -14.5, 17.62, -14.28), 0.0, 5.6, "metal")
+    fb("signal_arm", (13.0, -14.45, 17.4, -14.33), 5.3, 0.12, "metal")
+    fb("signal_head", (13.0, -14.62, 13.4, -14.16), 4.6, 0.85, "soot")
+    # mailbox, papers, a bench, a phone booth: the small municipal clutter
+    fb("mailbox", (7.6, -13.6, 8.35, -12.85), 0.0, 1.15, "metal")
     for i in range(3):
-        cx = -12.0 + i * 6.5
+        fb("newsbox%d" % i, (-8.6 + i * 0.62, -13.5, -8.1 + i * 0.62,
+           -12.95), 0.0, 1.05, "metal")
+    fb("bench_seat", (10.4, -13.5, 12.6, -12.9), 0.44, 0.07, "timber")
+    for bx in (10.5, 12.4):
+        fb("bench_leg%d" % int(bx), (bx, -13.45, bx + 0.1, -12.95), 0.0,
+           0.44, "metal")
+    fb("booth", (-12.4, -13.7, -11.5, -12.8), 0.0, 2.3, "metal")
+    fb("booth_glass", (-12.3, -13.6, -11.6, -12.9), 0.7, 1.35, "glassish")
+    # bus shelter across the road. The glazing needs its frame: a bare
+    # pane floats as a bright slab with nothing holding it up, which is
+    # exactly how it read the first time.
+    fb("shelter_roof", (2.0, -18.0, 6.4, -16.6), 2.45, 0.12, "metal")
+    for sx in (2.05, 6.25):
+        fb("shelter_post%d" % int(sx * 10), (sx, -17.98, sx + 0.1, -16.7),
+           0.0, 2.45, "metal")
+    fb("shelter_back", (2.15, -17.93, 6.25, -17.88), 0.45, 1.85,
+       "glassish")
+    fb("shelter_mullion", (4.1, -17.95, 4.2, -17.86), 0.45, 1.85, "metal")
+    fb("shelter_sill", (2.05, -17.98, 6.35, -17.85), 0.36, 0.09, "metal")
+    fb("shelter_head", (2.05, -17.98, 6.35, -17.85), 2.30, 0.11, "metal")
+    fb("shelter_bench", (2.4, -17.8, 6.0, -17.35), 0.42, 0.08, "timber")
+    # parked cars down both kerbs, with gaps where hydrants and the stoop are
+    for i in range(9):
+        cx = -26.0 + i * 6.6
+        if abs(cx + 2.2) < 5.5:
+            continue
         fb("car%d" % i, (cx, -16.9, cx + 4.4, -15.1), 0.28, 0.95, "metal")
         fb("cartop%d" % i, (cx + 1.1, -16.7, cx + 3.3, -15.3), 1.23, 0.45,
            "metal")
+        fb("carglass%d" % i, (cx + 1.15, -16.65, cx + 3.25, -15.35), 1.26,
+           0.38, "glassish")
+    for i in range(7):
+        cx = -21.0 + i * 7.4
+        # y0 < y1: an inverted rect makes a degenerate box, and the first
+        # version of this row silently produced nothing at all
+        fb("scar%d" % i, (cx, -18.9, cx + 4.3, -17.4), 0.28, 0.95, "metal")
+        fb("scartop%d" % i, (cx + 1.1, -18.7, cx + 3.2, -17.6), 1.23, 0.45,
+           "metal")
     fb("bin1", (12.6, 10.3, 13.6, 11.1), 0.0, 1.1, "metal")
     fb("bin2", (-13.9, 10.3, -12.9, 11.2), 0.0, 1.15, "metal")
+    fb("dumpster", (5.4, 10.4, 8.2, 11.9), 0.0, 1.35, "metal")
+    # power poles and spans, west to east behind the block
+    fb("power_pole", (16.2, 11.0, 16.5, 11.3), 0.0, 8.5, "timber")
+    fb("power_line", (10.5, 11.05, 16.2, 11.12), 7.6, 0.05, "metal")
+    for i, px in enumerate((-24.0, -2.0, 22.0, 44.0)):
+        fb("pole%d" % i, (px, -14.9, px + 0.28, -14.62), 0.0, 9.2,
+           "timber")
+        fb("crossarm%d" % i, (px - 1.1, -14.85, px + 1.4, -14.7), 8.2,
+           0.12, "timber")
+        if i:
+            fb("span%d" % i, (px - 22.0, -14.82, px, -14.76), 7.9, 0.05,
+               "metal")
+    # fire escapes on the two immediate neighbours, street side
+    for eid, ex in (("fe_w", -17.9), ("fe_e", 16.4)):
+        for lvl in range(4):
+            z = 3.2 + lvl * 3.2
+            fb("%s_deck%d" % (eid, lvl), (ex, -12.35, ex + 1.5, -11.05),
+               z, 0.08, "metal")
+            fb("%s_rail%d" % (eid, lvl), (ex, -11.15, ex + 1.5, -11.05),
+               z, 0.95, "metal")
+            fb("%s_stair%d" % (eid, lvl), (ex + 0.2, -12.3, ex + 1.0,
+               -11.2), z - 1.6, 1.6, "metal")
+
 
 # ---------------------------------------------------------------- stairs
 
@@ -1585,6 +2795,64 @@ def stair_geometry(st):
 
 # ---------------------------------------------------------------- validation
 
+def remove_partition_crossing_windows(fl):
+    """Remove facade windows whose opening is cut through by a perpendicular
+    interior partition.
+
+    Exterior openings are established before apartment room walls, so a
+    purely local facade rule cannot know where bedrooms, baths and offices
+    eventually meet the shell. This post-layout pass compares every exterior
+    window span with every perpendicular wall that actually reaches that
+    facade. A small trim clearance prevents jambs from grazing partitions.
+    """
+    if fl["id"] in ("B1", "ROOF"):
+        return 0
+    removed = 0
+    walls = fl["walls"]
+    for ew in walls:
+        ax, ay = ew["a"]
+        bx, by = ew["b"]
+        vertical = abs(bx - ax) < 1e-6
+        exterior_wall = (vertical and abs(ax) > 13.5) or \
+                        (not vertical and abs(ay) > 9.5)
+        if not exterior_wall:
+            continue
+        start = min(ay, by) if vertical else min(ax, bx)
+        kept = []
+        for opening in ew["openings"]:
+            if opening["type"] != "window":
+                kept.append(opening)
+                continue
+            lo = start + opening["at"] - opening["w"] / 2.0 - 0.10
+            hi = start + opening["at"] + opening["w"] / 2.0 + 0.10
+            crossed = False
+            for iw in walls:
+                if iw is ew:
+                    continue
+                ix0, iy0 = iw["a"]
+                ix1, iy1 = iw["b"]
+                i_vertical = abs(ix1 - ix0) < 1e-6
+                if vertical == i_vertical:
+                    continue
+                if vertical:
+                    reaches = min(ix0, ix1) - 0.35 <= ax <= \
+                              max(ix0, ix1) + 0.35
+                    partition_at = iy0
+                else:
+                    reaches = min(iy0, iy1) - 0.35 <= ay <= \
+                              max(iy0, iy1) + 0.35
+                    partition_at = ix0
+                if reaches and lo < partition_at < hi:
+                    crossed = True
+                    break
+            if crossed:
+                removed += 1
+            else:
+                kept.append(opening)
+        ew["openings"] = kept
+    return removed
+
+
 def validate(layout):
     problems = []
     for fl in layout["floors"]:
@@ -1607,7 +2875,256 @@ def validate(layout):
                 if o["type"] == "door" and o["w"] < 0.72:
                     problems.append("narrow door on %s" % fl["id"])
     problems += _validate_furnishing(layout)
+    problems += _validate_movement(layout)
+    problems += _validate_placement(layout)
     return problems
+
+
+def _validate_placement(layout):
+    """Catch prop-height and wall-center regressions before export."""
+    problems = []
+    # eye_pendant is no longer one: the court's light is a collar built
+    # into the central pillar at head height, not a fitting hanging from a
+    # ceiling the light court does not have.
+    ceiling_kinds = {"pendant_shade", "flush_dome", "kitchen_linear",
+                     "cage_bulb", "chandelier"}
+    wall_kinds = {"door", "radiator", "sconce_globe", "exhaust_fan",
+                  "wall_clock", "flue_breast", "door_anomaly", "case_door",
+                  "neon_sign"}   # bolted to the facade, by definition
+    floor_kinds = {"washer", "dryer", "boiler", "fridge", "boxfan",
+                   "speaker", "toaster"}
+
+    def point_in_wall(px, py, w):
+        ax, ay = w["a"]
+        bx, by = w["b"]
+        pad = w["t"] / 2.0 + 0.025
+        if abs(by - ay) < 1e-6:
+            return min(ax, bx) - pad <= px <= max(ax, bx) + pad and \
+                   abs(py - ay) <= pad
+        return min(ay, by) - pad <= py <= max(ay, by) + pad and \
+               abs(px - ax) <= pad
+
+    for fl in layout["floors"]:
+        z = fl["z"]
+        for m in fl["markers"]:
+            kind = m["kind"]
+            px, py, pz = m["pos"]
+            if kind == "corridor_light":
+                problems.append("%s: legacy floor-level corridor light %s"
+                                % (fl["id"], m["id"]))
+            # B1 is a 2.8 m storey: its ceiling sits at +2.62, so its
+            # fixtures mount ~0.4 lower than the 3.2 m floors above
+            clo, chi = (2.40, 2.60) if fl["id"] == "B1" else (2.70, 3.08)
+            # The roof has no ceiling. Its lights hang off a pergola beam
+            # and a garden post, so a ceiling height is not a thing they
+            # can be measured against.
+            if fl["id"] == "ROOF":
+                clo, chi = 0.0, 4.0
+            if kind in ceiling_kinds and not z + clo <= pz <= z + chi:
+                problems.append("%s: ceiling fixture %s at bad height %.2f"
+                                % (fl["id"], m["id"], pz - z))
+            if kind == "electrical_junction" and pz < z + 2.6:
+                problems.append("%s: electrical junction %s below ceiling"
+                                % (fl["id"], m["id"]))
+            if kind in floor_kinds and not z - 0.03 <= pz <= z + 1.2:
+                problems.append("%s: floor prop %s at bad height %.2f"
+                                % (fl["id"], m["id"], pz - z))
+            if kind not in wall_kinds and kind not in ceiling_kinds and \
+                    kind != "electrical_junction":
+                if any(point_in_wall(px, py, w) for w in fl["walls"]):
+                    problems.append("%s: prop %s centered inside wall"
+                                    % (fl["id"], m["id"]))
+        for fu in fl.get("furniture", []):
+            # wall-hung flatware (boards, like the mail bank and pedestal
+            # backsplash mirrors before them) is *meant* to hug the wall
+            if "asm" not in fu or fu["asm"] in (
+                    "switch", "pipe", "sink_ped", "mailbank",
+                    "pinboard", "toolboard"):
+                continue
+            px, py = fu["at"]
+            if any(point_in_wall(px, py, w) for w in fl["walls"]):
+                problems.append("%s: assembly %s centered inside wall"
+                                % (fl["id"], fu["id"]))
+    return sorted(set(problems))
+
+
+# approximate footprint half-extents per assembly kind (worst-case with
+# arms/overhangs), used by the movement audit. Rugs and ceiling work are
+# not obstacles; hulls under 0.3 m tall don't stop a capsule either.
+ASM_FOOT = {
+    "sofa": (1.14, 0.44), "chair": (0.24, 0.25), "table_round": (0.57, 0.57),
+    "table_rect": (0.62, 0.42), "coffee": (0.56, 0.36),
+    "nightstand": (0.24, 0.24), "bed": (0.76, 1.03), "wardrobe": (0.68, 0.33),
+    "shelf": (0.57, 0.16), "tv": (0.64, 0.22), "plant": (0.25, 0.25),
+    "kitchen": (0.90, 0.33), "stove": (0.32, 0.34), "fridge50": (0.34, 0.41),
+    "desk": (0.71, 0.34), "plantable": (1.01, 0.61),
+    "workbench": (1.11, 0.49), "toilet": (0.21, 0.36),
+    "sink_ped": (0.25, 0.25), "shower": (0.41, 0.42), "bench": (0.76, 0.25),
+    "mailbank": (0.81, 0.10),
+    # floor-standing personality clutter (tabletop pieces are absent on
+    # purpose: they never block a route)
+    "amp": (0.31, 0.17), "guitar": (0.20, 0.17),
+    "pedalboard": (0.32, 0.18), "micstand": (0.15, 0.15),
+    "tripod": (0.32, 0.32), "softbox": (0.28, 0.28), "crate": (0.23, 0.20),
+}
+
+
+def _asm_aabb(fu):
+    kind = fu.get("asm")
+    if kind not in ASM_FOOT:
+        return None
+    hx, hy = ASM_FOOT[kind]
+    if kind == "table_rect":
+        hx, hy = fu.get("L", 1.2) / 2.0 + 0.05, fu.get("W", 0.8) / 2.0 + 0.05
+    elif kind == "sofa":
+        hx = fu.get("L", 1.95) / 2.0 + 0.18
+    elif kind == "kitchen":
+        hx = fu.get("L", 2.5) / 2.0 - 0.375 + 0.03
+    elif kind == "shelf":
+        hx = fu.get("W", 1.1) / 2.0 + 0.02
+    elif kind == "bench":
+        hx = fu.get("L", 1.5) / 2.0 + 0.02
+    yaw = fu.get("yaw", 0) % 180
+    if yaw == 90:
+        hx, hy = hy, hx
+    elif yaw not in (0, 90):          # free-rotated: safe square
+        hx = hy = max(hx, hy)
+    cx, cy = fu["at"]
+    return (cx - hx, cy - hy, cx + hx, cy + hy)
+
+
+def _obstacles(fl):
+    obs = []
+    for fu in fl.get("furniture", []):
+        if "asm" in fu:
+            if fu["asm"] in ("switch", "pipe"):
+                continue
+            bb = _asm_aabb(fu)
+            if bb:
+                obs.append((fu["id"], bb))
+        else:
+            if fu.get("z0", 0.0) >= 1.9 or fu.get("h", 1.0) <= 0.30:
+                continue  # ceiling work / floor-level trim, not obstacles
+            r = fu["rect"]
+            obs.append((fu["id"], (r[0], r[1], r[2], r[3])))
+    return obs
+
+
+def _hit(bb, x0, y0, x1, y1):
+    return bb[0] < x1 and x0 < bb[2] and bb[1] < y1 and y0 < bb[3]
+
+
+## "NPCs and the PC must be able to freely move": every hinged door's
+## swing quarter must be clear, and a 0.8 m band from each apartment door
+## to its room center must be passable. Fails the build on regression.
+def _validate_movement(layout):
+    problems = []
+    for fl in layout["floors"]:
+        obs = _obstacles(fl)
+        rooms = {r["id"]: r for r in fl["rooms"]}
+        for m in fl["markers"]:
+            if m["kind"] != "door" or m.get("leaf") == "none"                     or m.get("cabinet"):
+                continue
+            w = m["w"]
+            px, py = m["pos"][0], m["pos"][1]
+            if m["yaw_deg"] == 0:      # wall runs along x; swings +-y
+                sw = (px, py - w, px + w, py + w)
+            else:                      # wall along y
+                sw = (px - w, py, px + w, py + w)
+            tol = 0.08   # leaves may pass within a hand's width
+            for oid, bb in obs:
+                if _hit(bb, sw[0] + tol, sw[1] + tol, sw[2] - tol,
+                        sw[3] - tol):
+                    problems.append("%s: door %s swing blocked by %s"
+                                    % (fl["id"], m["id"], oid))
+        # every refrigerator door needs standing room in front of it
+        for fu in fl.get("furniture", []):
+            if fu.get("asm") != "fridge50":
+                continue
+            import math as _m
+            a = _m.radians(fu.get("yaw", 0))
+            fx_, fy_ = -_m.sin(a), _m.cos(a)   # local +y (door) in world
+            bx0_ = fu["at"][0] + fx_ * 0.85 - 0.42
+            by0_ = fu["at"][1] + fy_ * 0.85 - 0.42
+            band = (bx0_, by0_, bx0_ + 0.84, by0_ + 0.84)
+            for oid, bb in obs:
+                if oid == fu["id"] or oid.startswith(fu["id"][:-3]):
+                    continue
+                if _hit(bb, band[0] + 0.06, band[1] + 0.06,
+                        band[2] - 0.06, band[3] - 0.06):
+                    problems.append("%s: fridge %s door blocked by %s"
+                                    % (fl["id"], fu["id"], oid))
+        # path: unit entry -> living center, an L in either order must
+        # be passable at capsule width (a person routes around a chair;
+        # they should never have to climb the furniture)
+        ENTRY_Y = {"A": lambda rc: rc[3] - 1.2 + 0.0,
+                   "B": lambda rc: rc[1] + 0.63,
+                   "C": lambda rc: rc[1] + 2.08,
+                   "D": lambda rc: rc[3] + 0.0 - (-2.31 - rc[3])}
+        nested = {}
+        for r in fl["rooms"]:
+            if r["kind"] in ("bathroom", "office", "closet"):
+                nested.setdefault(r.get("unit", ""), []).append(
+                    ("wall:" + r["id"], tuple(r["rect"])))
+        for r in fl["rooms"]:
+            if r["kind"] != "living" or r.get("unit") in ("2D",):
+                continue
+            unit = r.get("unit", "")
+            stack = unit[-1] if unit else "A"
+            sx0, sy0, sx1, sy1 = STACK_RECTS.get(stack, r["rect"])
+            east = stack in ("C", "D")
+            ey = {"A": sy1 - 1.2, "B": sy0 + 3.30, "C": sy0 + 1.2,
+                  "D": sy0 + 6.34}.get(stack, (sy0 + sy1) / 2)
+            if unit == "4B":
+                ey = sy0 + 1.2
+            x0, y0, x1, y1 = r["rect"]
+            cx, cy = (x0 + x1) / 2.0, (y0 + y1) / 2.0
+            door_x = sx0 + 0.55 if east else sx1 - 0.55
+            entry = (door_x, ey)
+
+            route_obs = obs + nested.get(unit, [])
+
+            def leg_clear(ax, ay, bx, by):
+                for i in range(15):
+                    t = i / 14.0
+                    px_, py_ = ax + (bx - ax) * t, ay + (by - ay) * t
+                    band = (px_ - 0.35, py_ - 0.35, px_ + 0.35, py_ + 0.35)
+                    for _oid, bb in route_obs:
+                        if _hit(bb, *band):
+                            return _oid
+                return None
+
+            # a person needs to reach the living AREA, not one exact
+            # point a table may rightly occupy: five targets, L-routes
+            # in both leg orders, any success passes
+            blockers = []
+            ok = False
+            for tx, ty in ((cx, cy), (cx - 0.95, cy), (cx + 0.95, cy),
+                           (cx, cy - 0.95), (cx, cy + 0.95)):
+                b1 = leg_clear(entry[0], entry[1], tx, entry[1])                         or leg_clear(tx, entry[1], tx, ty)
+                b2 = leg_clear(entry[0], entry[1], entry[0], ty)                         or leg_clear(entry[0], ty, tx, ty)
+                if not b1 or not b2:
+                    ok = True
+                    break
+                blockers.append(b1)
+            if not ok:
+                problems.append("%s: no clear route into %s (%s)"
+                                % (fl["id"], r["id"], blockers[0]))
+        # circulation rooms must hold nothing but rugs and ceiling work
+        for r in fl["rooms"]:
+            if r["kind"] not in ("corridor", "hall"):
+                continue
+            x0, y0, x1, y1 = r["rect"]
+            for oid, bb in obs:
+                if oid.startswith(("lobby_", "common_", "entry_",
+                                   "water_table")):
+                    continue  # lobby program is placed intentionally
+                if r["kind"] == "corridor" and abs(bb[0] + bb[2]) / 2 < 3.5                         and abs(bb[1] + bb[3]) / 2 < 6.93:
+                    continue  # core column: hall/utility/atrium territory
+                if _hit(bb, x0 + 0.05, y0 + 0.05, x1 - 0.05, y1 - 0.05):
+                    problems.append("%s: %s obstructs %s"
+                                    % (fl["id"], oid, r["id"]))
+    return sorted(set(problems))
 
 
 ## "Everything the residents need": every occupied unit must hold a bed,
@@ -1616,7 +3133,7 @@ def validate(layout):
 ## the kitchen trio must share one facing. Prop counts print as a report.
 def _validate_furnishing(layout):
     problems = []
-    unit_asm, unit_yaw, unit_rad = {}, {}, set()
+    unit_asm, unit_yaw, unit_rad, unit_detail, unit_story = {}, {}, set(), {}, {}
     doors, switches, kinds = 0, 0, {}
     for fl in layout["floors"]:
         for m in fl["markers"]:
@@ -1626,12 +3143,16 @@ def _validate_furnishing(layout):
             if m["kind"] == "radiator" and m.get("unit"):
                 unit_rad.add(m["unit"])
         for fu in fl.get("furniture", []):
+            unit = str(fu["id"]).split("_")[0]
+            if "_detail_" in str(fu["id"]):
+                unit_detail[unit] = unit_detail.get(unit, 0) + 1
+            if "_story_" in str(fu["id"]):
+                unit_story[unit] = unit_story.get(unit, 0) + 1
             if "asm" not in fu:
                 continue
             if fu["asm"] == "switch":
                 switches += 1
                 continue
-            unit = str(fu["id"]).split("_")[0]
             unit_asm.setdefault(unit, {})
             unit_asm[unit][fu["asm"]] = unit_asm[unit].get(fu["asm"], 0) + 1
             if fu["id"].endswith(("_k", "_k_stove", "_k_fr")):
@@ -1654,6 +3175,9 @@ def _validate_furnishing(layout):
                 if a.get(k, 0) < 1:
                     problems.append("4B missing %s" % k)
             continue
+        if unit_detail.get(unit, 0) < 4:
+            problems.append("%s lacks close surface detail (%d < 4)"
+                            % (unit, unit_detail.get(unit, 0)))
         for k, n in need.items():
             if a.get(k, 0) < n:
                 problems.append("%s missing %s (%d < %d)"
@@ -1664,6 +3188,10 @@ def _validate_furnishing(layout):
         if len(yaws) > 1:
             problems.append("%s kitchen trio facing disagrees %s"
                             % (unit, sorted(yaws)))
+    for unit in RESIDENT_STORIES:
+        if unit_story.get(unit, 0) < 2:
+            problems.append("%s lacks resident story props (%d < 2)"
+                            % (unit, unit_story.get(unit, 0)))
     n_asm = sum(sum(v.values()) for v in unit_asm.values()) + switches
     print("furnishing OK: %d assemblies (%d switches), %d door leaves, "
           "%d radiators" % (n_asm, switches, doors, kinds.get("radiator", 0)))
@@ -1705,7 +3233,10 @@ def acoustic_graph(layout):
             elif m["kind"] in ("lamp", "monitor", "toaster", "fridge",
                                "boxfan", "speaker", "kettle", "wall_clock",
                                "smoke_detector", "exhaust_fan",
-                               "ceiling_light"):
+                               "ceiling_light", "pendant_shade",
+                               "flush_dome", "sconce_globe",
+                               "kitchen_linear", "cage_bulb", "chandelier",
+                               "eye_pendant", "neon_sign"):
                 add(m["id"], m["pos"], "electrical", m.get("unit", ""), 0.75,
                     (60, 8000), 4)
                 edges.append((m["id"], "%s_CORRLIGHT_S" % fl["id"]))
@@ -1721,13 +3252,20 @@ def acoustic_graph(layout):
                 add(m["id"], m["pos"], "structural", fl["id"], 0.7,
                     (30, 900), 22)
                 edges.append((m["id"], "%s_B_RADIATOR_01" % fl["id"]))
-            elif m["kind"] == "corridor_light":
-                add(m["id"], [m["pos"][0], m["pos"][1], m["pos"][2] + 2.5],
+            elif m["kind"] == "electrical_junction":
+                add(m["id"], m["pos"],
                     "electrical", fl["id"], 0.55, (100, 9000), 4)
             elif m["kind"] == "door_anomaly":
                 add(m["id"], [m["pos"][0], m["pos"][1], m["pos"][2] + 1.0],
                     "structural", m.get("unit", ""), 0.95, (20, 200), 60)
                 edges.append((m["id"], "F04_B_RADIATOR_01"))
+            elif m["kind"] == "case_door":
+                # On the structural network, hung off the same radiator the
+                # case's route travels: the door is where that route ends,
+                # so it has to be somewhere the route can actually reach.
+                add(m["id"], [m["pos"][0], m["pos"][1], m["pos"][2] + 1.0],
+                    "structural", m.get("unit", ""), 0.90, (20, 240), 55)
+                edges.append((m["id"], "%s_B_RADIATOR_01" % fl["id"]))
     # electrical spine: hub in the basement switchgear room, corridor
     # fixtures chained per floor and down the riser
     add("B1_ELECTRICAL_HUB", [10.0, -5.0, -2.4], "electrical",
@@ -1771,6 +3309,46 @@ def acoustic_graph(layout):
             index[a]["connections"].append(b)
             index[b]["connections"].append(a)
     return {"nodes": nodes}
+
+
+def fixture_light_map(layout):
+    """Fixture-to-room coverage manifest for lighting QA and tuning."""
+    # Exactly the kinds that spawn a LightFixtureProp, because that is what
+    # the lighting audit counts this manifest against. "ceiling_light" is
+    # deliberately absent: 4B's bowl is a CeilingLightProp, which extends
+    # FunctionalProp directly and is not managed by the LightRig, so
+    # listing it here made the manifest claim one fixture more than the
+    # rig has ever had.
+    light_kinds = {"pendant_shade", "flush_dome",
+                   "sconce_globe", "kitchen_linear", "cage_bulb",
+                   "chandelier", "eye_pendant", "street_lamp"}
+    fixtures = []
+    for fl in layout["floors"]:
+        for m in fl["markers"]:
+            if m["kind"] not in light_kinds:
+                continue
+            px, py, pz = m["pos"]
+            candidates = []
+            for r in fl["rooms"]:
+                x0, y0, x1, y1 = r["rect"]
+                if x0 - 0.08 <= px <= x1 + 0.08 and \
+                        y0 - 0.08 <= py <= y1 + 0.08:
+                    candidates.append(((x1 - x0) * (y1 - y0),
+                                       r["id"], r["kind"]))
+            candidates.sort()
+            room_id, room_kind = ("UNASSIGNED", "unknown") if not candidates \
+                    else (candidates[0][1], candidates[0][2])
+            if room_id == "UNASSIGNED" and m.get("navigation", False):
+                room_id, room_kind = fl["id"] + "_NAVIGATION", "corridor"
+            fixtures.append({
+                "id": m["id"], "floor": fl["id"], "kind": m["kind"],
+                "room": room_id, "room_kind": room_kind,
+                "position": [px, py, pz],
+                "range": m.get("range", 5.0),
+                "energy": m.get("energy", 1.0),
+                "navigation": bool(m.get("navigation", False)),
+                "standby": m.get("standby", 0.04)})
+    return {"fixture_count": len(fixtures), "fixtures": fixtures}
 
 
 PROP_CATALOG = {
@@ -1865,28 +3443,86 @@ PROP_CATALOG = {
                    "preferred_subdivision": 1, "timing_drift": 0.035,
                    "response_latency": 0.06, "normal_function_priority": 1.0,
                    "infection_receptivity": 0.7},
+    "pendant_shade": {"minimum_action_interval": 0.07,
+                      "maximum_action_rate": 10,
+                      "available_mechanical_events": ["filament_surge"],
+                      "preferred_subdivision": 2, "timing_drift": 0.0,
+                      "response_latency": 0.01,
+                      "normal_function_priority": 1.0,
+                      "infection_receptivity": 0.7},
+    "flush_dome": {"minimum_action_interval": 0.07,
+                   "maximum_action_rate": 10,
+                   "available_mechanical_events": ["filament_surge"],
+                   "preferred_subdivision": 2, "timing_drift": 0.0,
+                   "response_latency": 0.01,
+                   "normal_function_priority": 1.0,
+                   "infection_receptivity": 0.65},
+    "sconce_globe": {"minimum_action_interval": 0.07,
+                     "maximum_action_rate": 10,
+                     "available_mechanical_events": ["filament_surge"],
+                     "preferred_subdivision": 2, "timing_drift": 0.0,
+                     "response_latency": 0.01,
+                     "normal_function_priority": 1.0,
+                     "infection_receptivity": 0.6},
+    "kitchen_linear": {"minimum_action_interval": 0.08,
+                       "maximum_action_rate": 9,
+                       "available_mechanical_events": ["starter_buzz",
+                                                       "flicker"],
+                       "preferred_subdivision": 2, "timing_drift": 0.015,
+                       "response_latency": 0.02,
+                       "normal_function_priority": 1.0,
+                       "infection_receptivity": 0.6},
+    "cage_bulb": {"minimum_action_interval": 0.07,
+                  "maximum_action_rate": 12,
+                  "available_mechanical_events": ["filament_surge",
+                                                  "swing"],
+                  "preferred_subdivision": 2, "timing_drift": 0.02,
+                  "response_latency": 0.01,
+                  "normal_function_priority": 1.0,
+                  "infection_receptivity": 0.75},
+    "chandelier": {"minimum_action_interval": 0.10,
+                   "maximum_action_rate": 8,
+                   "available_mechanical_events": ["filament_surge",
+                                                   "crystal_tick"],
+                   "preferred_subdivision": 1, "timing_drift": 0.0,
+                   "response_latency": 0.02,
+                   "normal_function_priority": 1.0,
+                   "infection_receptivity": 0.8},
+    "eye_pendant": {"minimum_action_interval": 0.08,
+                    "maximum_action_rate": 10,
+                    "available_mechanical_events": ["filament_surge",
+                                                    "sway"],
+                    "preferred_subdivision": 1, "timing_drift": 0.01,
+                    "response_latency": 0.01,
+                    "normal_function_priority": 1.0,
+                    "infection_receptivity": 0.85},
+    # A neon transformer is slow to strike and slow to let go, so the sign
+    # lags the beat rather than snapping to it — and it is the most
+    # receptive thing on the building, because a tube that already
+    # flickers on its own is where a fault hides best.
+    "neon_sign": {"minimum_action_interval": 0.14,
+                  "maximum_action_rate": 7,
+                  "available_mechanical_events": ["tube_surge",
+                                                  "letter_dropout"],
+                  "preferred_subdivision": 1, "timing_drift": 0.04,
+                  "response_latency": 0.06,
+                  "normal_function_priority": 1.0,
+                  "infection_receptivity": 0.92},
     "door_anomaly": {"minimum_action_interval": 0.10, "maximum_action_rate": 8,
                      "available_mechanical_events": ["seam_glow"],
                      "preferred_subdivision": 1, "timing_drift": 0.0,
                      "response_latency": 0.0, "normal_function_priority": 0.0,
                      "infection_receptivity": 1.0},
+    # Ordinary joinery, which is the unsettling part: it behaves like a
+    # door that has always been there, because as far as it knows it has.
+    "case_door": {"minimum_action_interval": 0.50, "maximum_action_rate": 2,
+                  "available_mechanical_events": ["latch_settle"],
+                  "preferred_subdivision": 1, "timing_drift": 0.02,
+                  "response_latency": 0.08, "normal_function_priority": 0.0,
+                  "infection_receptivity": 0.85},
 }
 
 MATERIAL_CATALOG = {
-    "face_brick": {"base_color": [0.38, 0.16, 0.12, 1.0], "roughness": 0.82},
-    "common_brick": {"base_color": [0.62, 0.42, 0.31, 1.0], "roughness": 0.88},
-    "limestone": {"base_color": [0.78, 0.75, 0.67, 1.0], "roughness": 0.6},
-    "timber": {"base_color": [0.43, 0.32, 0.22, 1.0], "roughness": 0.75},
-    "ceramic_tile": {"base_color": [0.85, 0.87, 0.86, 1.0], "roughness": 0.25},
-    "linoleum": {"base_color": [0.55, 0.50, 0.40, 1.0], "roughness": 0.5},
-    "paint_dado": {"base_color": [0.42, 0.45, 0.38, 1.0], "roughness": 0.55},
-    "plywood": {"base_color": [0.64, 0.54, 0.38, 1.0], "roughness": 0.8},
-    "char": {"base_color": [0.06, 0.055, 0.05, 1.0], "roughness": 0.95},
-    "brick_patched": {"base_color": [0.55, 0.35, 0.28, 1.0],
-                      "roughness": 0.85},
-    "plaster_stained": {"base_color": [0.46, 0.44, 0.39, 1.0],
-                        "roughness": 0.85},
-    "asphalt": {"base_color": [0.15, 0.15, 0.16, 1.0], "roughness": 0.95},
     "plaster": {"base_color": [0.62, 0.64, 0.58, 1.0], "roughness": 0.80},
     "brick": {"base_color": [0.42, 0.27, 0.22, 1.0], "roughness": 0.85},
     "concrete": {"base_color": [0.48, 0.48, 0.47, 1.0], "roughness": 0.75},
@@ -1907,6 +3543,20 @@ MATERIAL_CATALOG = {
     "wood_dark": {"base_color": [0.28, 0.20, 0.14, 1.0], "roughness": 0.50},
     "linen": {"base_color": [0.86, 0.85, 0.81, 1.0], "roughness": 0.85},
     "paper": {"base_color": [0.90, 0.88, 0.82, 1.0], "roughness": 0.85},
+    "countertop": {"base_color": [0.78, 0.75, 0.64, 1.0],
+                   "roughness": 0.62},
+    "book_burgundy": {"base_color": [0.34, 0.10, 0.10, 1.0],
+                      "roughness": 0.72},
+    "book_green": {"base_color": [0.12, 0.24, 0.16, 1.0],
+                   "roughness": 0.72},
+    "book_navy": {"base_color": [0.10, 0.15, 0.25, 1.0],
+                  "roughness": 0.72},
+    "book_ochre": {"base_color": [0.58, 0.34, 0.08, 1.0],
+                   "roughness": 0.72},
+    "book_teal": {"base_color": [0.13, 0.31, 0.31, 1.0],
+                  "roughness": 0.72},
+    "book_brown": {"base_color": [0.28, 0.17, 0.10, 1.0],
+                   "roughness": 0.72},
     "fabric_warm": {"base_color": [0.56, 0.35, 0.27, 1.0], "roughness": 0.92},
     "fabric_cool": {"base_color": [0.36, 0.42, 0.51, 1.0], "roughness": 0.92},
     "fabric_green": {"base_color": [0.38, 0.46, 0.36, 1.0], "roughness": 0.92},
@@ -1926,22 +3576,64 @@ MATERIAL_CATALOG = {
                      "roughness": 0.88},
     "limestone": {"base_color": [0.78, 0.75, 0.67, 1.0], "roughness": 0.6},
     "timber": {"base_color": [0.43, 0.32, 0.22, 1.0], "roughness": 0.75},
+    # fake-GI decal quads: baked contact shadows and wall-base occlusion
+    "fx_shadow": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
+    "fx_ao": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
+    # century-of-aging + site palette (parallel session)
+    "asphalt": {"base_color": [0.16, 0.16, 0.17, 1.0], "roughness": 0.9},
+    "linoleum": {"base_color": [0.55, 0.50, 0.40, 1.0], "roughness": 0.5},
+    "plywood": {"base_color": [0.64, 0.54, 0.38, 1.0], "roughness": 0.8},
+    "char": {"base_color": [0.06, 0.055, 0.05, 1.0], "roughness": 0.95},
+    "brick_patched": {"base_color": [0.55, 0.35, 0.28, 1.0],
+                      "roughness": 0.85},
+    "plaster_stained": {"base_color": [0.46, 0.44, 0.39, 1.0],
+                        "roughness": 0.75},
+    "fx_traffic": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
+    "fx_scuff": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
+    "fx_drip": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
+    "fx_grease": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
+    "fx_burn": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
+    "fx_patch": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
+    "fx_damp": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
     # appliance & hardware finishes for the parametric asset library
     "chrome": {"base_color": [0.80, 0.82, 0.85, 1.0], "roughness": 0.12,
                "metallic": 1.0},
     "enamel": {"base_color": [0.91, 0.89, 0.83, 1.0], "roughness": 0.18},
     "bakelite": {"base_color": [0.16, 0.12, 0.10, 1.0], "roughness": 0.30},
     "porcelain": {"base_color": [0.92, 0.93, 0.92, 1.0], "roughness": 0.14},
+    # planter clay and potting soil (plant realism pass)
+    "terracotta": {"base_color": [0.66, 0.38, 0.26, 1.0], "roughness": 0.72},
+    "soil": {"base_color": [0.20, 0.15, 0.11, 1.0], "roughness": 0.95},
+    # after the storm: standing water is darker AND smoother than what it
+    # lies on, which is the whole reason a wet street reads as wet — it
+    # stops scattering and starts reflecting the lamps and the neon
+    "wet_asphalt": {"base_color": [0.09, 0.09, 0.10, 1.0],
+                    "roughness": 0.22},
+    "puddle": {"base_color": [0.04, 0.045, 0.055, 1.0], "roughness": 0.05,
+               "metallic": 0.35},
+    "leaf_fall": {"base_color": [0.42, 0.28, 0.13, 1.0], "roughness": 0.65},
 }
 
 
 def main():
     floors = [build_floor(f) for f in
               ("B1", "F01", "F02", "F03", "F04", "F05", "F06", "ROOF")]
+    removed_windows = sum(remove_partition_crossing_windows(fl)
+                          for fl in floors)
+    print("facade audit: removed %d partition-crossing windows"
+          % removed_windows)
     for fl in floors:
         collect_door_markers(fl)
+        light_fixture_markers(fl)
+        signage_pass(fl)
+        case_doors(fl)
+        if fl["id"] != "ROOF":      # ROOF builds its own inside build_floor
+            atrium_tree(fl)
+    radiator_pipe_pass(floors)
     aging_pass(floors)
     site_pass(floors[1])  # the block lives with F01
+    storm_pass(floors[1])
+    street_lamp_markers(floors[1])
     layout = {
         "meta": {"name": "Orison Apartments", "footprint": [28.0, 20.0],
                  "levels": LEVELS, "floor_to_floor": F2F,
@@ -1957,41 +3649,6 @@ def main():
                      "door_w": ELEV["door_w"]},
     }
     problems = validate(layout)
-    for fl in layout["floors"]:
-        # only furniture in the door's vertical zone obstructs a swing:
-        # walkable surfaces (top <= 0.25, e.g. porch decks/thresholds) and
-        # overhead pieces (bottom >= 2.0) do not block
-        furn = [f for f in fl.get("furniture", [])
-                if f.get("rect") and f.get("z0", 0.0) < 2.0
-                and f.get("z0", 0.0) + f.get("h", 0.0) > 0.25]
-        for m in fl["markers"]:
-            if m["kind"] != "door" or m.get("leaf") == "none" \
-                    or m.get("cabinet"):
-                continue
-            w = m["w"]
-            px, py = m["pos"][0], m["pos"][1]
-            if m["yaw_deg"] == 0:      # door in a horizontal wall
-                squares = [(px, py, px + w, py + w),
-                           (px, py - w, px + w, py)]
-            else:                       # vertical wall
-                squares = [(px, py, px + w, py + w),
-                           (px - w, py, px, py + w)]
-            for fu in furn:
-                fr = fu["rect"]
-                # wall-hung and shallow (art, mirrors, panels): the leaf
-                # parks flat against the same plane, so it clears them
-                thin = (fr[3] - fr[1]) if m["yaw_deg"] == 0 else fr[2] - fr[0]
-                mid = (fr[1] + fr[3]) / 2.0 if m["yaw_deg"] == 0 \
-                        else (fr[0] + fr[2]) / 2.0
-                if thin <= 0.06 and abs(mid - py if m["yaw_deg"] == 0
-                                        else mid - px) <= 0.10:
-                    continue
-                for s in squares:
-                    if (s[0] < fr[2] - 0.02 and fr[0] < s[2] - 0.02 and
-                            s[1] < fr[3] - 0.02 and fr[1] < s[3] - 0.02):
-                        problems.append("door %s swing blocked by %s"
-                                        % (m["id"], fu["id"]))
-                        break
     if problems:
         for p in problems:
             print("VALIDATION:", p)
@@ -2005,6 +3662,8 @@ def main():
         json.dump(PROP_CATALOG, f, indent=1)
     with open(os.path.join(OUT_DIR, "material_catalog.json"), "w") as f:
         json.dump(MATERIAL_CATALOG, f, indent=1)
+    with open(os.path.join(OUT_DIR, "fixture_light_map.json"), "w") as f:
+        json.dump(fixture_light_map(layout), f, indent=1)
 
     n_walls = sum(len(fl["walls"]) for fl in floors)
     n_marks = sum(len(fl["markers"]) for fl in floors)

@@ -16,7 +16,7 @@
     },
     "brick": {
       "enabled": true,
-      "meters_per_tile": 2.4,
+      "meters_per_tile": 1.6,
       "roughness": 0.85,
       "roughness_variation": 0.1,
       "height_detail_radius": 10,
@@ -58,6 +58,296 @@
       "height_detail_radius": 16,
       "prompt": "Aged painted plaster wainscot surface in muted institutional green, subtle roller texture and restrained age variation.",
       "avoid": "panels, trim edges, peeling sheets, large scratches, text, watermark, perspective, baked lighting"
+    },
+    "wood_dark": {
+      "enabled": true,
+      "meters_per_tile": 1.6,
+      "roughness": 0.5,
+      "roughness_variation": 0.1,
+      "height_detail_radius": 8,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "timber": {
+      "enabled": true,
+      "meters_per_tile": 2.0,
+      "roughness": 0.75,
+      "roughness_variation": 0.1,
+      "height_detail_radius": 10,
+      "size": 1024,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "trim": {
+      "enabled": true,
+      "meters_per_tile": 1.2,
+      "roughness": 0.45,
+      "roughness_variation": 0.06,
+      "height_detail_radius": 14,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "stair": {
+      "enabled": true,
+      "meters_per_tile": 1.8,
+      "roughness": 0.5,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 16,
+      "size": 1024,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "slab": {
+      "enabled": true,
+      "meters_per_tile": 2.2,
+      "roughness": 0.7,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 20,
+      "size": 1024,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "face_brick": {
+      "enabled": true,
+      "meters_per_tile": 1.3,
+      "roughness": 0.82,
+      "roughness_variation": 0.1,
+      "height_detail_radius": 10,
+      "size": 1024,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "common_brick": {
+      "enabled": true,
+      "meters_per_tile": 1.3,
+      "roughness": 0.88,
+      "roughness_variation": 0.1,
+      "height_detail_radius": 10,
+      "size": 1024,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "limestone": {
+      "enabled": true,
+      "meters_per_tile": 2.0,
+      "roughness": 0.6,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 16,
+      "size": 1024,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "porcelain": {
+      "enabled": true,
+      "meters_per_tile": 1.0,
+      "roughness": 0.14,
+      "roughness_variation": 0.04,
+      "height_detail_radius": 18,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "ceramic": {
+      "enabled": true,
+      "meters_per_tile": 1.0,
+      "roughness": 0.22,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 16,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "enamel": {
+      "enabled": true,
+      "meters_per_tile": 1.0,
+      "roughness": 0.18,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 16,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "metal": {
+      "enabled": true,
+      "meters_per_tile": 1.2,
+      "roughness": 0.35,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 12,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "chrome": {
+      "enabled": true,
+      "meters_per_tile": 0.8,
+      "roughness": 0.12,
+      "roughness_variation": 0.04,
+      "height_detail_radius": 12,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "brass": {
+      "enabled": true,
+      "meters_per_tile": 0.8,
+      "roughness": 0.3,
+      "roughness_variation": 0.06,
+      "height_detail_radius": 12,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "appliance": {
+      "enabled": true,
+      "meters_per_tile": 1.2,
+      "roughness": 0.3,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 16,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "bakelite": {
+      "enabled": true,
+      "meters_per_tile": 0.6,
+      "roughness": 0.3,
+      "roughness_variation": 0.06,
+      "height_detail_radius": 12,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "linen": {
+      "enabled": true,
+      "meters_per_tile": 0.8,
+      "roughness": 0.85,
+      "roughness_variation": 0.06,
+      "height_detail_radius": 8,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "paper": {
+      "enabled": true,
+      "meters_per_tile": 0.8,
+      "roughness": 0.85,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 10,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "fabric_warm": {
+      "enabled": true,
+      "meters_per_tile": 0.9,
+      "roughness": 0.92,
+      "roughness_variation": 0.06,
+      "height_detail_radius": 8,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "fabric_cool": {
+      "enabled": true,
+      "meters_per_tile": 0.9,
+      "roughness": 0.92,
+      "roughness_variation": 0.06,
+      "height_detail_radius": 8,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "fabric_green": {
+      "enabled": true,
+      "meters_per_tile": 0.9,
+      "roughness": 0.92,
+      "roughness_variation": 0.06,
+      "height_detail_radius": 8,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "rug_warm": {
+      "enabled": true,
+      "meters_per_tile": 1.4,
+      "roughness": 0.95,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 8,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "rug_cool": {
+      "enabled": true,
+      "meters_per_tile": 1.4,
+      "roughness": 0.95,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 8,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "rug_green": {
+      "enabled": true,
+      "meters_per_tile": 1.4,
+      "roughness": 0.95,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 8,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "soot": {
+      "enabled": true,
+      "meters_per_tile": 1.6,
+      "roughness": 0.9,
+      "roughness_variation": 0.06,
+      "height_detail_radius": 14,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "plant": {
+      "enabled": true,
+      "meters_per_tile": 0.7,
+      "roughness": 0.8,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 10,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "art": {
+      "enabled": true,
+      "meters_per_tile": 0.9,
+      "roughness": 0.6,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 10,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "terracotta": {
+      "enabled": true,
+      "meters_per_tile": 0.5,
+      "roughness": 0.72,
+      "roughness_variation": 0.08,
+      "height_detail_radius": 10,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
+    },
+    "soil": {
+      "enabled": true,
+      "meters_per_tile": 0.4,
+      "roughness": 0.95,
+      "roughness_variation": 0.05,
+      "height_detail_radius": 10,
+      "size": 512,
+      "prompt": "procedurally synthesized plate (tools/synth_plates.py)",
+      "avoid": "n/a (synthesized)"
     }
   }
 }

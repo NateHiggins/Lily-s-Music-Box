@@ -1,0 +1,13 @@
+{
+  "material": "trim",
+  "source": "art/textures/source/trim.png",
+  "meters_per_tile": 1.2,
+  "edge_error_horizontal": 2e-05,
+  "edge_error_vertical": 9e-05,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

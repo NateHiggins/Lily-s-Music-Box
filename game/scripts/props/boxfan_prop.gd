@@ -47,6 +47,13 @@ func _build_visual() -> void:
 				Vector3(90, 0, 0)
 	make_box(Vector3(0.05, 0.035, 0.06), Vector3(0.10, 0.045, -0.10),
 			Color(0.16, 0.12, 0.10))                     # speed switch
+	retexture(self, [
+		[Color(0.55, 0.57, 0.58), "metal", Color.WHITE],
+		[Color(0.72, 0.73, 0.70), "chrome", Color.WHITE],
+		[Color(0.30, 0.31, 0.33), "metal", Color(0.5, 0.5, 0.55)],
+		[Color(0.62, 0.55, 0.30), "brass", Color.WHITE],
+		[Color(0.16, 0.12, 0.10), "bakelite", Color.WHITE],
+	])
 	_hum = make_emitter("buzz_loop", -24.0, true)
 	_hum.pitch_scale = 0.6
 

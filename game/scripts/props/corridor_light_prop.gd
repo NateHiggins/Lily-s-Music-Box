@@ -23,6 +23,12 @@ func _build_visual() -> void:
 			Color(0.72, 0.72, 0.70), 0.4, 0.3)           # starter can
 	make_cyl(0.003, 0.003, 0.16, Vector3(-0.40, -0.16, 0.05),
 			Color(0.60, 0.60, 0.62), 0.3, 0.6)           # pull chain
+	retexture(self, [
+		[Color(0.80, 0.80, 0.78), "enamel", Color.WHITE],
+		[Color(0.55, 0.56, 0.55), "metal", Color(0.7, 0.7, 0.7)],
+		[Color(0.72, 0.72, 0.70), "metal", Color.WHITE],
+		[Color(0.60, 0.60, 0.62), "chrome", Color.WHITE],
+	])
 	_light = OmniLight3D.new()
 	_light.light_color = Color(0.9, 0.93, 0.86)
 	_light.light_energy = _base_energy

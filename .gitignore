@@ -4,3 +4,31 @@
 *.blend1
 __pycache__/
 *.pyc
+art/textures/_export/
+
+# Screen recordings land in the repo root while working. They are capture
+# of the work, not the work, and they are large.
+Recording*.mp4
+*.mp4
+
+# Export output. The APK is ~140 MB and is rebuilt from source in a minute.
+build/
+*.apk
+*.aab
+*.idsig
+
+# Scratch render output. Screenshot passes write comparison sets here
+# while iterating; the keepers live in game/docs/screenshots.
+tmp/
+
+# Meshy animation exports. Every animation ships a complete copy of the
+# character - same 266k-triangle skin, same four 2K maps - with one clip
+# attached, so eleven files for one character is ~900 MB of which ~890 MB is
+# the same mesh over and over. merge_meshy_animations.py folds them into a
+# single ~11 MB rigged glTF in game/assets, and THAT is the deliverable.
+# Re-download from Meshy if the raw exports are ever needed again.
+art/blender/meshy/*/
+
+# Broadcast build intermediates. build_broadcast.py writes ~110 short mp4s
+# beside the reel while assembling it; the .ogv is the deliverable.
+game/assets/video/_broadcast_work/

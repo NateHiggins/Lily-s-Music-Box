@@ -32,6 +32,12 @@ func _build_visual() -> void:
 	for py in [0.08, 0.55]:
 		make_cyl(0.006, 0.006, 0.012, Vector3(-0.13, py, 0.152),
 				Color(0.5, 0.45, 0.3), 0.4, 0.5)         # grille pegs
+	retexture(self, [
+		[Color(0.20, 0.14, 0.10), "wood_dark", Color.WHITE],
+		[Color(0.24, 0.23, 0.21), "paper", Color(0.58, 0.55, 0.50)],
+		[Color(0.5, 0.45, 0.3), "brass", Color.WHITE],
+		[Color(0.32, 0.31, 0.30), "bakelite", Color.WHITE],
+	])
 	var hiss := make_emitter("buzz_loop", -30.0, true)
 	hiss.pitch_scale = 1.4
 	_thump = make_emitter("knock", -12.0)

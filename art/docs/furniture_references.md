@@ -15,22 +15,48 @@ a replica; dimensions follow period ergonomic norms.
 | `coffee` | Postwar biomorphic studio table (elliptical glass over sculptural base) | Elliptical glass blade over two interlocking keeled fins |
 | `bed` | American spool ("Jenny Lind") bed, turned posts and spindles | Turned head/foot posts with urn finial steps, five head spindles, deep mattress, folded turnback blanket, lathe-puffed pillows |
 | `wardrobe` | Biedermeier armoire: plinth, framed doors, crown cornice | Two raised-panel doors, center stile, turned brass knobs, stepped cornice |
-| `shelf` | Postwar modular wall-system shelving (slim steel ladders + boards) | Four round steel posts, five oak boards, jittered book runs and one leaning book per bay |
+| `shelf` | Postwar modular wall-system shelving (slim steel ladders + boards) | Four round steel posts, five oak boards. Books are shelved as they are actually left: runs start where the last hand put them, heights range paperback-to-atlas, spines sit proud or pushed back, a pulled volume leaves its gap, and a row ends in either a leaning book or a flat stack |
 | `tv` | Splay-leg mid-century media credenza | Dowel legs, magazine shelf, thin panel on a fork column |
 | `nightstand` | Mid-century bedside chest | Tapered legs, single drawer, brass cone knob |
 | `desk` | Danish-school teak writing desk | Floating top, splayed square-taper legs with stretchers, single drawer with recessed pull |
-| `kitchen` | The 1926 Frankfurt Kitchen: flat fronts, continuous work surface | Toe-kick, groove pulls, inset sink with arched spout and cross taps, matching uppers |
-| `stove` | 1940s American enamel range | Backsplash clock panel, four ringed burners, bakelite knob row, towel-rail oven door with window |
+| `kitchen` | The 1926 Frankfurt Kitchen: flat fronts, continuous work surface | Toe-kick, groove pulls, matching uppers, and a real sink: the counter is laid as four boards around a cutout holding a rimmed basin with steel walls, a bottom and a drain, under a swan-neck mixer with cross taps |
+| `stove` | 1940s American enamel range | Backsplash clock panel, four ringed burners, bakelite knob row. The oven door is sized to a real range — it spans burner deck to broiler drawer, with the window high and the towel rail on its top edge, over a separate broiler drawer with a recessed pull |
 | `fridge50` | 1950s rounded-shoulder compact refrigerator | Three-step crown chamfer, proud door face, vertical chrome pull with standoffs, latch and maker's badge |
 | `toilet` / `sink_ped` | Interwar sanitary porcelain: close-coupled WC, pedestal lavatory | Lathe-turned bowls and basins, chrome cross taps, framed mirror |
-| `shower` | Tenement retrofit shower corner | Porcelain tray, chrome L-rail, half-drawn curtain, wall head |
+| `shower` | Postwar tiled corner stall | Ceramic-tiled back and corner walls with a trim cap, chrome-channelled glass on the two open sides leaving a 0.38 m entry, escutcheon mixer with lever, riser and arm to a head pitched down at a standing user's crown. `mirror` picks which X side the corner's second wall is on |
+| `sink_basin` | Undermount kitchen basin for hand-built counters | Chrome rim lip, steel walls falling to a real bottom with a drain, swan-neck mixer and cross taps. The counter is laid as boards *around* the opening — this box world has no booleans, so the hole is the boards that aren't there |
 | `switch` | 1930s bakelite toggle on a molded two-step plate | 88 doorways × both faces, latch-side placement at 1.12 m, chrome screws |
 | `bench` | Turn-of-century hall settle | Slat seat, spindle back, spool legs |
 | `mailbank` | Brass apartment-lobby pigeon bank | 4×5 doors with label windows and dial knobs; one door hangs open |
 | `plantable` | Architect's trestle drafting table | A-frame trestles, six overlapping plan sheets, rolled tubes |
 | `workbench` | Machinist's bench | Angle-steel legs, butcher-block top, drawer, side vise with bar handle |
-| `plant` | Terracotta-potted ficus | Lathe pot, soil disc, three jittered canopy lobes |
-| `pipe` | Exposed basement services | True cylinders: headers, mains, conduit, risers |
+| `plant` | Terracotta-potted ficus | Unglazed clay pot with a thrown body, rolled rim lip and drip saucer; potting soil mounded under the rim; a real crown of arched woody canes each carrying its own drooping elliptical leaves, instead of three canopy blobs. Uses the new `terracotta` and `soil` texture sets |
+| `pipe` | Exposed basement services | True cylinders: headers, mains, conduit, risers; `local: true` anchors a run to a marker (the per-floor radiator risers) |
+
+### Personality clutter (Phase 6 hero/resident pass)
+
+| Model (`asm`) | Typology / era referenced | Our variation |
+|---|---|---|
+| `amp` | 1960s valve combo amplifier | Vinyl cab, cloth grille, chrome knob row, brass pilot, bakelite strap handle; stacks (Juno runs a small head on a big cab) |
+| `guitar` | Electric solid-body / flat-top acoustic | Waisted two-slab body, tilted neck to a paddle head, single string line; leans back toward local −Y onto whatever is closest |
+| `pedalboard` | Home-built plywood stomp board | Four mismatched pedals (bakelite/enamel/steel/painted), chrome switches, patch leads |
+| `micstand` | Round-base studio mic stand | Cast base, tapering column, boom dropping a capsule toward +Y |
+| `reeldeck` | 1970s reel-to-reel deck | Twin platters with enamel hubs, head block, paper VU windows, knob row |
+| `headphones` | Cans on a turned wooden stand | Two-segment band, squashed-lathe cups, cable slumped to the surface |
+| `mug` | Diner china / enamel shop mug | Lathe body, two-segment tube handle; `mat` picks porcelain/ceramic/enamel |
+| `papers` | Loose worked-over paper stack | Per-sheet drift; `mess` widens it (Mina 0, Nadia 0.8) |
+| `bookpile` | Horizontal to-read pile | Jittered sizes, five cover materials; doubles as tape boxes and manuals |
+| `pinboard` | Cork noticeboard | Card grid squared (`neat`) or drifted layers fighting for space; mounts flush on the storey's true wall face |
+| `toolboard` | Shop pegboard | Wrench row by size, hammer, coiled cord on a nail |
+| `partstray` | Machinist sorting tray | Rimmed steel tray, 12-cell parts grid; optional opened chassis with socketed glass valves |
+| `jarrow` | Salvage jar row | Glass jars, bakelite lids, per-jar fill (screws/washers/fuses) |
+| `tripod` | Video camera on sticks | Three splayed legs, center column, body with front lens tube and rear screen |
+| `softbox` | Streamer's stand light | Tripod base, tall column, diffuser panel pitched down at the subject (+Y) |
+| `cablecoil` | Uncoiled-tomorrow instrument cable | Octagon tube loop, alternating lay, wandering tail |
+| `crate` | Slat shipping crate | Record collection filed edge-on (`records`) or a jumble under the lid line (`fill`) |
+| `radio` | 1930s table radio | Wood cab, cloth grille, paper dial with brass pointer, two bakelite knobs |
+| `sitemodel` | Architect's chipboard massing study | The Orison and its three neighbors on a plan sheet (Nadia is studying this building) |
+| `bottles` | Empties colonizing a surface | Lathe long-necks or drink cans (`cans`), one always fallen |
 
 ## Godot conductor props (procedural, in `game/scripts/props/`)
 

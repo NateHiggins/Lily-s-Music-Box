@@ -1,112 +1,4 @@
 {
- "face_brick": {
-  "base_color": [
-   0.38,
-   0.16,
-   0.12,
-   1.0
-  ],
-  "roughness": 0.82
- },
- "common_brick": {
-  "base_color": [
-   0.62,
-   0.42,
-   0.31,
-   1.0
-  ],
-  "roughness": 0.88
- },
- "limestone": {
-  "base_color": [
-   0.78,
-   0.75,
-   0.67,
-   1.0
-  ],
-  "roughness": 0.6
- },
- "timber": {
-  "base_color": [
-   0.43,
-   0.32,
-   0.22,
-   1.0
-  ],
-  "roughness": 0.75
- },
- "ceramic_tile": {
-  "base_color": [
-   0.85,
-   0.87,
-   0.86,
-   1.0
-  ],
-  "roughness": 0.25
- },
- "linoleum": {
-  "base_color": [
-   0.55,
-   0.5,
-   0.4,
-   1.0
-  ],
-  "roughness": 0.5
- },
- "paint_dado": {
-  "base_color": [
-   0.42,
-   0.45,
-   0.38,
-   1.0
-  ],
-  "roughness": 0.55
- },
- "plywood": {
-  "base_color": [
-   0.64,
-   0.54,
-   0.38,
-   1.0
-  ],
-  "roughness": 0.8
- },
- "char": {
-  "base_color": [
-   0.06,
-   0.055,
-   0.05,
-   1.0
-  ],
-  "roughness": 0.95
- },
- "brick_patched": {
-  "base_color": [
-   0.55,
-   0.35,
-   0.28,
-   1.0
-  ],
-  "roughness": 0.85
- },
- "plaster_stained": {
-  "base_color": [
-   0.46,
-   0.44,
-   0.39,
-   1.0
-  ],
-  "roughness": 0.85
- },
- "asphalt": {
-  "base_color": [
-   0.15,
-   0.15,
-   0.16,
-   1.0
-  ],
-  "roughness": 0.95
- },
  "plaster": {
   "base_color": [
    0.62,
@@ -261,6 +153,69 @@
   ],
   "roughness": 0.85
  },
+ "countertop": {
+  "base_color": [
+   0.78,
+   0.75,
+   0.64,
+   1.0
+  ],
+  "roughness": 0.62
+ },
+ "book_burgundy": {
+  "base_color": [
+   0.34,
+   0.1,
+   0.1,
+   1.0
+  ],
+  "roughness": 0.72
+ },
+ "book_green": {
+  "base_color": [
+   0.12,
+   0.24,
+   0.16,
+   1.0
+  ],
+  "roughness": 0.72
+ },
+ "book_navy": {
+  "base_color": [
+   0.1,
+   0.15,
+   0.25,
+   1.0
+  ],
+  "roughness": 0.72
+ },
+ "book_ochre": {
+  "base_color": [
+   0.58,
+   0.34,
+   0.08,
+   1.0
+  ],
+  "roughness": 0.72
+ },
+ "book_teal": {
+  "base_color": [
+   0.13,
+   0.31,
+   0.31,
+   1.0
+  ],
+  "roughness": 0.72
+ },
+ "book_brown": {
+  "base_color": [
+   0.28,
+   0.17,
+   0.1,
+   1.0
+  ],
+  "roughness": 0.72
+ },
  "fabric_warm": {
   "base_color": [
    0.56,
@@ -370,6 +325,177 @@
   ],
   "roughness": 0.6
  },
+ "face_brick": {
+  "base_color": [
+   0.38,
+   0.16,
+   0.12,
+   1.0
+  ],
+  "roughness": 0.82
+ },
+ "common_brick": {
+  "base_color": [
+   0.62,
+   0.42,
+   0.31,
+   1.0
+  ],
+  "roughness": 0.88
+ },
+ "limestone": {
+  "base_color": [
+   0.78,
+   0.75,
+   0.67,
+   1.0
+  ],
+  "roughness": 0.6
+ },
+ "timber": {
+  "base_color": [
+   0.43,
+   0.32,
+   0.22,
+   1.0
+  ],
+  "roughness": 0.75
+ },
+ "fx_shadow": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "fx_ao": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "asphalt": {
+  "base_color": [
+   0.16,
+   0.16,
+   0.17,
+   1.0
+  ],
+  "roughness": 0.9
+ },
+ "linoleum": {
+  "base_color": [
+   0.55,
+   0.5,
+   0.4,
+   1.0
+  ],
+  "roughness": 0.5
+ },
+ "plywood": {
+  "base_color": [
+   0.64,
+   0.54,
+   0.38,
+   1.0
+  ],
+  "roughness": 0.8
+ },
+ "char": {
+  "base_color": [
+   0.06,
+   0.055,
+   0.05,
+   1.0
+  ],
+  "roughness": 0.95
+ },
+ "brick_patched": {
+  "base_color": [
+   0.55,
+   0.35,
+   0.28,
+   1.0
+  ],
+  "roughness": 0.85
+ },
+ "plaster_stained": {
+  "base_color": [
+   0.46,
+   0.44,
+   0.39,
+   1.0
+  ],
+  "roughness": 0.75
+ },
+ "fx_traffic": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "fx_scuff": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "fx_drip": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "fx_grease": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "fx_burn": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "fx_patch": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "fx_damp": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
  "chrome": {
   "base_color": [
    0.8,
@@ -406,5 +532,51 @@
    1.0
   ],
   "roughness": 0.14
+ },
+ "terracotta": {
+  "base_color": [
+   0.66,
+   0.38,
+   0.26,
+   1.0
+  ],
+  "roughness": 0.72
+ },
+ "soil": {
+  "base_color": [
+   0.2,
+   0.15,
+   0.11,
+   1.0
+  ],
+  "roughness": 0.95
+ },
+ "wet_asphalt": {
+  "base_color": [
+   0.09,
+   0.09,
+   0.1,
+   1.0
+  ],
+  "roughness": 0.22
+ },
+ "puddle": {
+  "base_color": [
+   0.04,
+   0.045,
+   0.055,
+   1.0
+  ],
+  "roughness": 0.05,
+  "metallic": 0.35
+ },
+ "leaf_fall": {
+  "base_color": [
+   0.42,
+   0.28,
+   0.13,
+   1.0
+  ],
+  "roughness": 0.65
  }
 }

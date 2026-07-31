@@ -1,0 +1,22 @@
+{
+ "mina_caption_crisis": {
+  "rule_types": ["labels", "duplication"],
+  "prop_verbs": ["label", "wrong_color"],
+  "transmission": "electrical",
+  "resolved_residue": "One refrigerator caption remains factual."
+ },
+ "peter_form_corridor": {
+  "rule_types": ["topology", "duplication"],
+  "prop_verbs": ["duplicate", "orbit"],
+  "transmission": "doors",
+  "loop_depth": 2,
+  "resolved_residue": "One form remains stamped GOOD ENOUGH."
+ },
+ "cam_tilted_room": {
+  "rule_types": ["gravity"],
+  "prop_verbs": ["orbit", "point"],
+  "transmission": "structure",
+  "gravity_direction": [0.72, -0.69, 0.0],
+  "resolved_residue": "The helmet hangs slightly off-level."
+ }
+}

@@ -18,7 +18,7 @@ Three top-level projects:
 
 | Path | What |
 |---|---|
-| `game/` | Godot 4.5 project (also verified on 4.7.1) |
+| `game/` | Godot 4.7.1 project (originally authored against 4.5) |
 | `art/` | Procedural pipeline: layout generator + Blender build scripts |
 | `legacy_mobile_mvp/` | The old mobile MVP, kept for reference only |
 
@@ -73,148 +73,120 @@ Conventions that bite if forgotten:
 
 ## Verification
 
-- `game/tests/WalkTest.tscn` — ~80-check suite: physics-verified walks
-  (stairs, apartment 4B entry, street exit), elevator, acoustic
-  propagation timing (riser sweep, flue-vs-riser race), prop behavior,
-  Case 01 call flow. Exit code 0 = all pass.
-- `game/tests/Screenshot.tscn` — renders documentation stills
-  (`SHOT_DIR=<dir> xvfb-run godot --path game res://tests/Screenshot.tscn`
-  on headless Linux; runs directly on a desktop). Copies live in
-  `game/docs/screenshots/` — **stale for the current pass**, re-render.
-- `game/tests/StreetProbe.tscn` — throwaway telemetry probe for the one
-  open defect (below). Delete it once the defect is fixed.
+- `game/tests/WalkTest.tscn` — 157-check suite: physics-verified walks
+  (stairs, apartment 4B entry, street exit, roof egress, the reading nook
+  at the light tree's base), elevator doors and per-floor cab buttons,
+  acoustic propagation timing (riser sweep, flue-vs-riser race), prop
+  behavior, touch controls, occluders, and all three Case Network cases
+  driven end to end including their consequences. Exit code 0 = all pass.
+  **Run this before every commit.**
+- `game/tests/LightingAudit.tscn` — every space is reachable by light:
+  127 spaces, 11 intentionally ambient/dark. Exit code 0 = pass.
+- `game/tests/Perf.tscn` — six worst-case camera stations, reporting
+  objects/draw calls/primitives and frame time. Must run **windowed**;
+  headless reports zeroes, which the probe fails on rather than passing.
+- `game/tests/Screenshot.tscn` — renders documentation stills into
+  `SHOT_DIR`; needs a real window, so run it **without** `--headless`.
+  `SCREENSHOT_ONLY` takes a comma-separated list of shot names to
+  re-shoot a sequence in one scene load. Copies in
+  `game/docs/screenshots/` are current as of the ground-plane fix.
 
-## State at handoff
+Throwaway probes are a normal tool here: write one, get the number, then
+delete it in the same pass rather than letting it rot in `tests/`. Two
+have already paid for themselves — the street probe that found the B1
+bearing wall, and a raycast fan that found the road slab over the well.
 
-Merged in this pass ("century of aging + urban site + gap fixes"):
-- `aging_pass(floors)` in `gen_layout.py`: 2027-era wear at every level —
-  brick repairs/patches, corridor wear lanes, lino patch, the 5D fire
-  (soot, boarded window, char), 3C boarded window, F04 window AC units,
-  roof tar patches/dish antennas/masts/coping repairs, F01 damp line and
-  rain streaks (split around the entrance).
-- `site_pass(fl)`: walkable urban block — ground/sidewalk/curb/alley,
-  three neighbor building masses + garages with lit windows, two
-  streetlamps, hydrant, power pole + line, parked cars, bins. The block
-  is deliberately crowded/limited; F01 floor node is always visible so
-  the site renders from any floor.
-- Kitchen cabinet doors in 4B (`F04_CAB_*`, `cabinet: true` markers).
-- Radiators: ~1/3 render silver ("landlord's aluminum paint").
-- Street door swings **outward** (`swing: "out"` end-to-end:
-  `door()` → `collect_door_markers` → `building_root.gd` → `DoorProp`).
-- Two new screenshot views: `b_16_street_level`, `b_17_alley_porches`.
-- New walk-test checks: street exit, sidewalk/alley solidity, cabinets.
+## State
 
-Merged in from a parallel session at the same time — know these are
-recent and less exercised than the rest:
-- **Atrium stair refactor.** The stair core is now a switchback around an
-  open eye; `stair_geometry(ATRIUM)` emits each climb as
-  `[flight, landing, flight]` and `ArchitecturalWalkthrough`
-  (`game/scripts/tour/architectural_walkthrough.gd`) indexes on that
-  order, so don't reshuffle the parts.
-- **Parametric furnishing library.** Furniture entries now come in two
-  shapes: the original `{rect, z0, h, mat}` boxes and assembly anchors
-  `{asm: "<kind>", at: [x, y], yaw, z0}` expanded by `ASM` in
-  `build_orison.py`. Anything walking the furniture list must handle both
-  — the swing audit does this by skipping entries with no `rect`.
-- **Every doorway gets two molded light switches**, one per wall face at
-  the latch side, emitted in `collect_door_markers`. A validation check
-  asserts two switches per doorway; cabinet leaves are excluded from that
-  count, being joinery rather than doorways.
-- **`build_wall` detail refactor**: `details`/`wains` flags and a
-  `detail_seg()` that runs baseboard, cornice, and wainscot between door
-  reveals. Walls opt in with `wainscot=True`.
-- **Floor finishes moved to the Blender side** — `KIND_FLOOR` in
-  `build_orison.py`, keyed by room kind. The generator no longer emits
-  finish overlays.
-- **Generated texture sets** in `art/textures/generated/` (brick,
-  concrete, floor_oak, plaster, terrazzo, wainscot — albedo, normal,
-  roughness, height, plus previews and a contact sheet), with the
-  workflow in `art/textures/README.md`. These are **authored but not yet
-  wired into the game**: nothing in `game/` loads them, and materials are
-  still flat-color from `material_catalog.json`. Connecting them is the
-  first concrete step of roadmap phase 2.
+**`art/docs/photoreal_target.md` is the live status document** — it holds
+the eight-phase roadmap with an honest per-phase assessment and the
+invariants that hold across all of it. Read it before starting new work.
+This file covers only how to build and verify; do not duplicate phase
+status here, because two copies of a status always disagree.
 
-## ⚠ The one open defect — START HERE
+Broadly: phases 1, 2, 6 (dressing) and 7 (performance) are done; 3, 4, 5
+and 8 are partly done with named remainders. The building is fully
+walkable end to end — street, all seven storeys, basement, roof — and
+runs 112-161 fps at 1440p on an RTX 4080.
 
-`WalkTest` fails exactly one check: **"walked out onto the sidewalk"**.
-The player cannot walk from the vestibule out the street door.
+## Known open items
 
-Diagnosis so far (all numbers are Godot world coords; z+ = street):
+Nothing here blocks a build; these are the honest edges.
 
-1. ~~Door sweep~~ **fixed**: the street door (`F01_DOOR_06`, hinge at
-   (−0.455, 0, 9.795), opening x −0.455..+0.455) used to swing into the
-   vestibule and shove the player into the corner pocket at
-   (−0.98, 8.78) against the west vestibule wall. The `swing: "out"`
-   plumbing fixed that — verified by probe: player is untouched at
-   (0, 9.0) after the door opens to −100°, leaf tip parks at
-   (−0.61, 10.69) over the stoop.
-2. **Remaining blocker, unidentified**: driving straight from (0, 9.0)
-   toward (0, 12.5), the player steps UP onto something and stalls at
-   (0.0, y=0.388, z=9.493) — front of capsule at z 9.87, i.e. inside
-   the wall band (F01 street wall spans z ≈ 9.59..10.0). Something
-   ~0.375 m tall sits in the threshold. It is NOT the limestone water
-   table (already split, gap x ±0.70 vs opening ±0.455) and NOT the
-   stoop step (outside, z 10.0..10.38, h 0.09, top well below).
+- **Lighting (phase 5 remainder).** Lightmap bake / GI fallback is not
+  started. The light-leak pass is done (`door_glow.gd`) — under-door spill
+  and leaf seams, one batched mesh, agreeing with the window pass about who
+  is awake. Transoms are not faked because the geometry has none.
+- **HLOD and prop LODs (phase 7 remainder).** Untouched. The headroom
+  above is measured on one high-end GPU only — mid-range is unproven.
+  The coarse floor-visibility stand-in in `building_root.gd` is still a
+  stand-in, though occlusion culling has taken most of its load.
+- **Mobile.** The APK builds and runs, but the light/shadow budgets in
+  `light_rig.gd` were tuned by argument and then loosened once from real
+  device feedback. They want confirming on hardware via the debug panel
+  sliders, not another guess.
+- **Volumetrics.** Unavailable on the Compatibility renderer, so stairwell
+  and basement fog needs a different technique. Glass has no dirt masks
+  or per-window variation yet.
+- **Aging (phase 4 remainder).** The `aging_pass` thin-box patches (facade
+  brick, damp bases) should become mask-driven decals for softer edges.
+- **Case content (phase 8).** Three of the seven drafted cases are wired
+  (01 The Early Answer, 02 Someone Upstairs, 03 Voiceprint Correction —
+  the opening trio the design doc names as the strongest). Cases are data
+  in `scripts/call/case_library.gd`; `call_interface.gd` is the runner, so
+  a fourth case is a dictionary rather than a class. Cases 04-07 and the
+  convergence are unbuilt, and the draft in
+  `audio_virus_prototype/docs/design/case_network_batch_01.md` is still
+  marked NOT CANON — names and outcomes there are not settled.
+  Case 02 has a **field phase**: its response window is long enough to
+  leave the desk, and standing where the route ends resolves the case on
+  foot. That is scored as a different outcome from letting the window run
+  out in the chair, which is the whole point — the building learns whether
+  you can be waited out. Any case can declare one; see the `field` key.
+  What is still missing is the *journey*: the design has contact
+  microphones and positional listening on the way down, and right now the
+  walk is unguided beyond a banner and the motif playing from the F03
+  riser.
+- **Rigged residents are deliberately paused.** 19 rigged GLBs exist and
+  import, but `USE_RIGGED_RESIDENTS := false` in `building_root.gd` keeps
+  sprite placeholders as the active cast. Flip the one flag to resume.
+  `assets/characters/mina/` is a stale duplicate of `mina_vale/`.
+- **Wall art placement wants an audit.** The B1 "KNOW YOUR EXIT" sign used
+  to render mirrored; the cause was `cull_mode = CULL_DISABLED` on the art
+  quad, which draws a reversed copy of the front on the back face, so
+  anything viewed from behind read as broken art rather than as no art.
+  Art is single-sided now (`character_memory_art.gd`) and the mirroring is
+  gone. WalkTest prints an `[ART]` sweep at the end: of 48 pieces, 1 has
+  something within 0.34 m in front of it and 8 have nothing solid behind.
+  Those are leads, NOT confirmed bugs — a hit in front is as likely to be
+  a wardrobe against the same wall, and "nothing behind" fires on anything
+  hung over an archway, which may be intentional. Deliberately reported
+  rather than asserted. Pinning down the placement rules well enough to
+  make either a real invariant is a job of its own.
 
-Next step, ready to run: `game/tests/street_probe.gd` already contains a
-raycast scan (down-rays every 0.2 m along x=0, z 8.6→12.8) that prints
-each surface height AND the colliding node's name — run
-`godot --headless --path game res://tests/StreetProbe.tscn` and read the
-`PROBE scan` lines to identify the collider. **It is not geometry.** Three candidates are ruled out:
+## Working alongside other sessions
 
-- No layout furniture crosses the doorway at that height — the only
-  things in the threshold are the 0.09 m limestone door step and the
-  0.01 m sidewalk.
-- The leaf parks outside over the stoop; nearest approach to the player
-  capsule is 0.55 m, well clear of 0.38 + 0.022.
-- The exported collision mesh is clear. Reading `floor_01.glb`'s
-  POSITION accessors directly (glTF is Y-up, so filter in Godot space,
-  not Blender space — this is easy to get wrong and produces a
-  misleading empty result), **no vertex of any mesh lies strictly inside
-  the clear opening** (|x| ≤ 0.40) between ankle and waist height. The
-  door surround jambs sit at the opening edges, the skirting correctly
-  stops at both reveals, and the opening is cut to floor level.
+More than one agent session works this repo, sometimes in the same
+working tree. Before pushing: `git fetch`, and if both sides changed the
+same ground, keep the newest user-directed design, port the other side's
+features additively, regenerate artifacts, and prove it with WalkTest.
+Check `git status` before a sweeping `git add -A` — untracked files that
+appeared in the last few minutes are somebody else's work in progress.
 
-**The blocker is `_try_step_up()` in
-`game/scripts/player/player_controller.gd`.** It lifts the capsule a flat
-`0.30` whenever forward motion is blocked at foot level and there is
-headroom *at the current position*. It never checks headroom at the
-destination, never checks that the destination has floor support within
-step height, and lifts a fixed amount rather than only as much as the
-obstacle needs. The arithmetic explains the stall exactly: the player is
-walking the 0.09 m door step, gets lifted to ≈0.31–0.39, and at y 0.388 a
-1.75 m capsule tops out at 2.138 — eight millimetres above the 2.13 m
-door head. Wedged, not slowed, which is why velocity reads zero while the
-autopilot keeps driving.
+## Defects resolved along the way
 
-Fix in the controller, not the model: lift by the minimum the obstacle
-requires, re-test headroom and floor support *at the lifted position*,
-and roll the lift back if either fails. Note the doc comment above the
-function claims a 0.28 m maximum step while the body uses 0.30 — pick one
-and make the layout's `step_max` metadata agree.
+Kept because each one cost real time and the diagnosis generalizes.
 
-Take care: the stair-climb checks currently pass through this same code
-path, so re-run the full suite, not just the street-exit check.
-
-After the fix: re-run WalkTest on 4.5 **and** 4.7.1 (fresh `--import`
-each), expect zero failures, delete the probe (`street_probe.gd`,
-`StreetProbe.tscn`), re-render screenshots into `game/docs/screenshots/`.
-
-## Then what
-
-The destination — a photoreal, fully dressed, fully explorable building —
-is specified in **`art/docs/photoreal_target.md`**, with an eight-phase
-roadmap and the invariants that hold across all of it. Read it before
-starting new work. In short:
-
-1. Fix the street-exit defect (above), then sweep for any other
-   unreachable space — the exterior is otherwise done.
-2. UVs + a real PBR material system replacing flat-color materials.
-3. Texture authoring (tiling sets, trim sheets), then aging as decals.
-4. Lighting: fixture photometrics, lightmap bake, light-leak pass.
-5. Dress the remaining 23 units and all commons to 4B's density.
-6. Performance: occluders, HLOD, prop LODs — replacing the coarse
-   floor-visibility stand-in in `building_root.gd`.
-7. Atmosphere and post.
-8. More Case Network content wired to the in-world call desk
-   (`call_interface.gd` implements Case 01 end-to-end as the template).
+- **The street-exit blocker** was the B1 bearing wall: 1927 walls run
+  continuously past the joist zone, so the basement street wall topped
+  out 0.4 m above the F01 slab — a solid curb across the doorway. It now
+  stops flush under the F01 slab (`exterior()`), water table dressing the
+  base.
+- **The basement was sealed by the road.** `site_pass` laid the ground as
+  one 220 x 148 m asphalt slab across the whole block, running through
+  the building footprint 20 mm under the lobby floor and capping the
+  atrium well — every sightline down the eye died on tarmac instead of
+  reaching B1. The road is now laid as four bands around the footprint.
+  The lesson: site geometry authored in world space does not know the
+  building is there, so anything spanning the block needs the footprint
+  subtracted explicitly.

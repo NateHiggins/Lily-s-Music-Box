@@ -20,12 +20,17 @@ var crouched := false
 var call_locked := false
 ## Test hook: when non-zero, drives movement instead of player input.
 var autopilot := Vector3.ZERO
+## Set while the on-screen touch HUD is driving. A phone has no pointer to
+## capture, so anything gated on MOUSE_MODE_CAPTURED has to consult this
+## instead or it simply never runs there.
+var touch_input := false
 
 var _shape: CollisionShape3D
 var _capsule: CapsuleShape3D
 
 
 func _ready() -> void:
+	add_to_group("player_controller")
 	_capsule = CapsuleShape3D.new()
 	_capsule.radius = 0.38
 	_capsule.height = 1.75
@@ -68,7 +73,8 @@ func _build_hud() -> void:
 ## What the crosshair is looking at, refreshed for the prompt line.
 func _update_prompt() -> void:
 	_prompt.text = ""
-	if call_locked or Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+	if call_locked or (not touch_input
+			and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED):
 		return
 	var from := camera.global_position
 	var to := from + camera.global_transform.basis * Vector3(0, 0, -2.1)
@@ -95,6 +101,25 @@ func _update_prompt() -> void:
 
 func _process(_delta: float) -> void:
 	_update_prompt()
+	if call_locked:
+		return
+	# POLLED, not event-driven. An on-screen button presses an action
+	# through Input.action_press(), which sets the action's state but never
+	# manufactures an InputEvent — so anything handled in _unhandled_input
+	# is unreachable from a touchscreen. Interact, the flashlight and
+	# crouch were all in that dead zone: the HUD button lit up and the
+	# game ignored it. Polling is the one path both a key and a thumb
+	# travel, exactly like movement already does.
+	if Input.is_action_just_pressed("interact"):
+		_try_interact()
+	if Input.is_action_just_pressed("flashlight"):
+		flashlight.visible = not flashlight.visible
+	if Input.is_action_just_pressed("noclip"):
+		noclip = not noclip
+		collision_layer = 0 if noclip else 1
+		collision_mask = 0 if noclip else 1
+	if Input.is_action_just_pressed("crouch"):
+		_set_crouched(not crouched)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -102,23 +127,21 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event is InputEventMouseMotion \
 			and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * MOUSE_SENS)
-		camera.rotate_x(-event.relative.y * MOUSE_SENS)
-		camera.rotation.x = clampf(camera.rotation.x, -1.45, 1.45)
-	elif event is InputEventMouseButton and event.pressed:
+		apply_look(event.relative)
+	elif event is InputEventMouseButton and event.pressed and not touch_input:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	elif event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	elif event.is_action_pressed("flashlight"):
-		flashlight.visible = not flashlight.visible
-	elif event.is_action_pressed("noclip"):
-		noclip = not noclip
-		collision_layer = 0 if noclip else 1
-		collision_mask = 0 if noclip else 1
-	elif event.is_action_pressed("crouch"):
-		_set_crouched(not crouched)
-	elif event.is_action_pressed("interact"):
-		_try_interact()
+
+
+## One look path for both a mouse and a dragged thumb, so the two can never
+## drift into different sensitivities or clamp differently.
+func apply_look(rel: Vector2) -> void:
+	if call_locked:
+		return
+	rotate_y(-rel.x * MOUSE_SENS)
+	camera.rotate_x(-rel.y * MOUSE_SENS)
+	camera.rotation.x = clampf(camera.rotation.x, -1.45, 1.45)
 
 
 func _set_crouched(on: bool) -> void:
@@ -142,18 +165,33 @@ func _physics_process(delta: float) -> void:
 				- Input.get_action_strength("crouch")
 		global_position += (wish * 6.0 + Vector3.UP * up * 4.0) * delta
 		return
+	var gravity_direction := _reality_gravity()
+	up_direction = -gravity_direction
+	camera.rotation.z = lerpf(camera.rotation.z,
+			-gravity_direction.x * 0.42, minf(1.0, delta * 2.5))
 	var speed := CROUCH_SPEED if crouched \
 			else (RUN if Input.is_action_pressed("run") else WALK)
 	velocity.x = wish.x * speed
 	velocity.z = wish.z * speed
 	if not is_on_floor():
-		velocity.y -= GRAVITY * delta
+		velocity += gravity_direction * GRAVITY * delta
 	elif Input.is_action_just_pressed("jump"):
-		velocity.y = 3.4
+		velocity += -gravity_direction * 3.4
 	else:
-		velocity.y = minf(velocity.y, 0.0)
-	_try_step_up(delta)
+		var into_floor := velocity.dot(gravity_direction)
+		if into_floor > 0.0:
+			velocity -= gravity_direction * into_floor
+	if gravity_direction.dot(Vector3.DOWN) > 0.98:
+		_try_step_up(delta)
 	move_and_slide()
+
+
+func _reality_gravity() -> Vector3:
+	for controller in get_tree().get_nodes_in_group(
+			"apartment_reality_controllers"):
+		if controller.contains_point(global_position):
+			return controller.gravity_at(global_position)
+	return Vector3.DOWN
 
 
 ## Brief metric: 0.28 m max step height. If forward motion is blocked at

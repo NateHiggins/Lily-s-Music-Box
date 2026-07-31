@@ -12,6 +12,10 @@ signal motif_gap(event_index: int)  # the implied-but-absent fifth event
 ## Always fires on the clock regardless of propagation mode — for UI and
 ## phone-side audio that listen to the *idea*, not to a building node.
 signal motif_tick(event_index: int, accent: float, pitch: float)
+## Continuous analysis from the authored viral seed. Systems which need
+## envelopes rather than discrete knocks can listen without decoding audio.
+signal viral_seed_frame(features: Dictionary)
+signal viral_seed_state(active: bool)
 
 const REF_BPM := 72.0
 ## incomplete_knock: short - short - pause - long - (missing), at 72 BPM.

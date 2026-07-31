@@ -1,0 +1,30 @@
+{
+ "version": 1,
+ "expected_count": 20,
+ "pieces": [
+  {"id":"evelyn_good_enough","unit":"1A","atlas":"wall_art_floors_1_2.png","col":0,"row":0,"wall":"south","along":0.70,"medium":"poster"},
+  {"id":"teresa_quiet_please","unit":"1D","atlas":"wall_art_floors_1_2.png","col":1,"row":0,"wall":"north","along":0.30,"medium":"sign"},
+  {"id":"mina_the_unsaid","unit":"2A","atlas":"wall_art_floors_1_2.png","col":0,"row":1,"wall":"west","along":0.55,"medium":"poster"},
+  {"id":"lena_visible_mends","unit":"2B","atlas":"wall_art_floors_1_2.png","col":1,"row":1,"wall":"south","along":0.65,"medium":"textile"},
+
+  {"id":"juno_open_channel","unit":"2C","atlas":"wall_art_floors_2_3.png","col":0,"row":0,"wall":"east","along":0.55,"medium":"poster"},
+  {"id":"malcolm_propagation_plate","unit":"3A","atlas":"wall_art_floors_2_3.png","col":1,"row":0,"wall":"south","along":0.30,"medium":"diagram"},
+  {"id":"omar_repair_manual","unit":"3B","atlas":"wall_art_floors_2_3.png","col":0,"row":1,"wall":"west","along":0.55,"medium":"diagram"},
+  {"id":"rhea_one_bad_note","unit":"3D","atlas":"wall_art_floors_2_3.png","col":1,"row":1,"wall":"north","along":0.65,"medium":"poster"},
+
+  {"id":"peter_proceed_uncertain","unit":"4A","atlas":"wall_art_floors_4_guest.png","col":0,"row":0,"wall":"west","along":0.32,"medium":"poster"},
+  {"id":"cam_stolen_bike_route","unit":"4C","atlas":"wall_art_floors_4_guest.png","col":1,"row":0,"wall":"east","along":0.35,"medium":"sign"},
+  {"id":"noel_ordinary_objects","unit":"4C","atlas":"wall_art_floors_4_guest.png","col":0,"row":1,"wall":"east","along":0.70,"medium":"poster"},
+  {"id":"guests_you_are_here","unit":"4D","atlas":"wall_art_floors_4_guest.png","col":1,"row":1,"wall":"north","along":0.32,"medium":"diagram"},
+
+  {"id":"nadia_people_live_here","unit":"5A","atlas":"wall_art_floors_5_6.png","col":0,"row":0,"wall":"north","along":0.68,"medium":"poster"},
+  {"id":"cal_signal_received","unit":"5B","atlas":"wall_art_floors_5_6.png","col":1,"row":0,"wall":"south","along":0.38,"medium":"poster"},
+  {"id":"iris_impossible_fold","unit":"5C","atlas":"wall_art_floors_5_6.png","col":0,"row":1,"wall":"west","along":0.62,"medium":"painting"},
+  {"id":"sacha_look_first","unit":"6A","atlas":"wall_art_floors_5_6.png","col":1,"row":1,"wall":"north","along":0.66,"medium":"poster"},
+
+  {"id":"jonah_begin_anywhere","unit":"6B","atlas":"wall_art_floor_6_private.png","col":0,"row":0,"wall":"west","along":0.35,"medium":"poster"},
+  {"id":"jonah_words_missing","unit":"6B","atlas":"wall_art_floor_6_private.png","col":1,"row":0,"wall":"south","along":0.70,"medium":"sign"},
+  {"id":"mae_provenance_unknown","unit":"6C","atlas":"wall_art_floor_6_private.png","col":0,"row":1,"wall":"south","along":0.65,"medium":"poster"},
+  {"id":"mae_object_genealogy","unit":"6C","atlas":"wall_art_floor_6_private.png","col":1,"row":1,"wall":"north","along":0.32,"medium":"diagram"}
+ ]
+}

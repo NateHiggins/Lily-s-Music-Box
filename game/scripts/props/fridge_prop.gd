@@ -29,6 +29,12 @@ func _build_visual() -> void:
 			Color(0.80, 0.82, 0.85))                     # latch body
 	make_box(Vector3(0.18, 0.06, 0.008), Vector3(0, 1.33, 0.358),
 			Color(0.62, 0.55, 0.30))                     # maker's badge
+	retexture(self, [
+		[Color(0.88, 0.87, 0.84), "appliance", Color.WHITE],
+		[Color(0.80, 0.82, 0.85), "chrome", Color.WHITE],
+		[Color(0.62, 0.55, 0.30), "brass", Color.WHITE],
+		[Color(0.09, 0.09, 0.09), "metal", Color(0.25, 0.25, 0.28)],
+	])
 	_hum = make_emitter("hum_loop", -22.0, true)
 	_click = make_emitter("tick", -12.0)
 

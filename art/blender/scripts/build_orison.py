@@ -38,15 +38,139 @@ MATERIALS = load("material_catalog.json")
 LEVELS = LAYOUT["meta"]["levels"]
 LEVEL_ORDER = sorted(LEVELS.items(), key=lambda kv: kv[1])
 
+# ------------------------------------------------------------- textures
+# art/textures/catalog_mapping.json is the single mapping authority:
+# every semantic catalog material maps to a texture set (or null for the
+# specialized shader-only materials: glassish, screen, fx_ao, fx_shadow).
+# The build validates coverage in both directions and fails early if a
+# mapped set is missing files, so a stale mapping can't ship silently.
+TEX_ROOT = os.path.join(ROOT, "art", "textures")
+with open(os.path.join(TEX_ROOT, "catalog_mapping.json")) as _f:
+    CAT_TEX = json.load(_f)
+
+SHADER_ONLY = {k for k, v in CAT_TEX.items() if v is None}
+
+# declarative UV handling per catalog material:
+#   "world"  - dominant-axis world projection (default)
+#   "vgrain" - world projection, U/V swapped on vertical faces so brushed
+#              grain runs vertically on fronts
+#   "unit"   - each quad spans 0..1 (framed artwork, decal quads)
+UV_MODE_BY_MAT = {
+    "chrome": "vgrain", "metal": "vgrain",
+    "art": "unit", "fx_ao": "unit", "fx_shadow": "unit",
+    # A television carries one picture across its whole face. On the default
+    # world-metre projection a 1.04 m screen sampled 1.04 tiles of the
+    # broadcast texture, so every set showed a tiled fragment with the seam
+    # running through it rather than the programme.
+    "screen": "unit",
+    "book_burgundy": "unit", "book_green": "unit", "book_navy": "unit",
+    "book_ochre": "unit", "book_teal": "unit", "book_brown": "unit",
+}
+VGRAIN = {k for k, m in UV_MODE_BY_MAT.items() if m == "vgrain"}
+
+
+def _validate_texture_catalog():
+    problems = []
+    for key in MATERIALS:
+        if key not in CAT_TEX:
+            problems.append("material %r missing from catalog_mapping"
+                            % key)
+    for key, rel in CAT_TEX.items():
+        if key not in MATERIALS:
+            problems.append("mapping key %r not in material_catalog" % key)
+        if rel is None:
+            continue
+        base = os.path.join(TEX_ROOT, *rel.split("/"))
+        for fname in ("albedo.png", "roughness.png", "normal.png"):
+            if not os.path.exists(os.path.join(base, fname)):
+                problems.append("%s: missing %s" % (rel, fname))
+        if not (os.path.exists(os.path.join(base, "material.json"))
+                or os.path.exists(os.path.join(base, "asset.json"))):
+            problems.append("%s: missing metadata" % rel)
+    if problems:
+        raise SystemExit("texture catalog invalid:\n  "
+                         + "\n  ".join(problems))
+    mapped = sum(1 for v in CAT_TEX.values() if v)
+    print("texture catalog OK: %d mapped, %d shader-only (%s)"
+          % (mapped, len(SHADER_ONLY), ", ".join(sorted(SHADER_ONLY))))
+
+
+_validate_texture_catalog()
+
+_tex_cache = {}
+
+
+def tex_set(key):
+    """Resolve a material's texture file set, or None. Albedo/roughness
+    come from the pre-composited overlay variant when one exists (the
+    glTF exporter cannot serialize mix-node graphs, so wear is baked by
+    tools/compose_overlays.py); normals always come from the clean set."""
+    if key in _tex_cache:
+        return _tex_cache[key]
+    rel = CAT_TEX.get(key)
+    if rel is None:
+        _tex_cache[key] = None
+        return None
+    base = os.path.join(TEX_ROOT, *rel.split("/"))
+    over = os.path.join(TEX_ROOT, "generated", "_overlaid", key)
+    meta_p = os.path.join(base, "material.json")
+    if not os.path.exists(meta_p):
+        meta_p = os.path.join(base, "asset.json")
+    if not os.path.exists(os.path.join(base, "albedo.png")):
+        _tex_cache[key] = None
+        return None
+    with open(meta_p) as f:
+        meta = json.load(f)
+    src = over if os.path.exists(os.path.join(over, "albedo.png")) else base
+    _tex_cache[key] = {
+        "albedo": os.path.join(src, "albedo.png"),
+        "roughness": os.path.join(src, "roughness.png"),
+        "normal": os.path.join(base, "normal.png"),
+        "mpt": float(meta.get("meters_per_tile", 2.0)),
+        "slug": rel.replace("/", "_"),
+    }
+    return _tex_cache[key]
+
+
+def tex_mpt(key):
+    ts = tex_set(key)
+    return ts["mpt"] if ts else 2.0
+
+
+def _image(path, slug, kind, srgb):
+    """Load a map via a uniquely-named staging copy. The glTF exporter
+    names written files after the source basename — every set is
+    'albedo.png', so exports would collide across floors with
+    order-dependent suffixes. Staging as T_<slug>_<kind>.png makes the
+    shared texture dir deterministic and collision-free."""
+    import shutil
+    stage_dir = os.path.join(TEX_ROOT, "_export")
+    os.makedirs(stage_dir, exist_ok=True)
+    staged = os.path.join(stage_dir, "T_%s_%s.png" % (slug, kind))
+    if (not os.path.exists(staged)
+            or os.path.getmtime(staged) < os.path.getmtime(path)):
+        shutil.copy2(path, staged)
+    img = bpy.data.images.load(staged, check_existing=True)
+    img.name = "T_%s_%s" % (slug, kind)
+    img.colorspace_settings.name = "sRGB" if srgb else "Non-Color"
+    return img
+
 
 class MeshBuf:
     """Accumulates boxes/prisms, realized as one mesh object at the end."""
 
-    def __init__(self, name, material):
+    def __init__(self, name, material, uv_mode="world"):
         self.name = name
         self.material = material
+        self.uv_mode = uv_mode   # "world" projection or per-quad "unit"
         self.verts = []
         self.faces = []
+
+    def add_quad(self, c0, c1, c2, c3):
+        """Single upward-facing quad (contact shadows, AO strips)."""
+        b = len(self.verts)
+        self.verts += [c0, c1, c2, c3]
+        self.faces.append((b, b + 1, b + 2, b + 3))
 
     def add_box(self, mn, mx):
         if mx[0] - mn[0] < 1e-4 or mx[1] - mn[1] < 1e-4 or mx[2] - mn[2] < 1e-4:
@@ -214,25 +338,158 @@ class MeshBuf:
         me.from_pydata(self.verts, [], self.faces)
         me.validate()
         me.update()
+        self._project_uvs(me)
         me.materials.append(get_material(self.material))
         obj = bpy.data.objects.new(self.name, me)
         collection.objects.link(obj)
         return obj
 
+    def _project_uvs(self, me):
+        """Deterministic world-scale box projection, per polygon loop:
+        the dominant component of each face normal picks the projection
+        plane, world meters divide by the set's meters_per_tile. World
+        space keeps oak boards continuous across a room, keeps fabric
+        from twisting between adjacent faces, and survives the glTF trip
+        (TEXCOORD_0) untouched. Brushed metals swap U/V on vertical
+        faces so the grain falls vertically on fronts."""
+        uv = me.uv_layers.new(name="UVMap")
+        if self.uv_mode == "unit":   # decal quads: corners span 0..1
+            # Derived from each vertex's POSITION within its own face, not
+            # from its loop index. The index form assigned the four corners
+            # as k % 4, which is only correct while the face is still a
+            # quad — and these meshes are triangulated, so every triangle
+            # took three of the four corners and the texture landed on a
+            # fraction of the surface. A television showed a quarter of its
+            # own picture.
+            #
+            # Per-polygon bounds are safe here because splitting a rectangle
+            # along its diagonal leaves both triangles with the rectangle's
+            # own axis-aligned bounds, so each half still resolves the full
+            # 0..1 range.
+            for poly in me.polygons:
+                n = poly.normal
+                axis = max(range(3), key=lambda i: abs(n[i]))
+                ui, vi = ((1, 2), (0, 2), (0, 1))[axis]
+                pts = [me.vertices[me.loops[li].vertex_index].co
+                       for li in poly.loop_indices]
+                u0 = min(p[ui] for p in pts)
+                v0 = min(p[vi] for p in pts)
+                du = max(p[ui] for p in pts) - u0
+                dv = max(p[vi] for p in pts) - v0
+                du = du if abs(du) > 1e-9 else 1.0
+                dv = dv if abs(dv) > 1e-9 else 1.0
+                for li in poly.loop_indices:
+                    p = me.vertices[me.loops[li].vertex_index].co
+                    uv.data[li].uv = ((p[ui] - u0) / du, (p[vi] - v0) / dv)
+            return
+        inv = 1.0 / tex_mpt(self.material)
+        vgrain = self.material in VGRAIN
+        for poly in me.polygons:
+            n = poly.normal
+            ax, ay, az = abs(n.x), abs(n.y), abs(n.z)
+            for li in poly.loop_indices:
+                co = me.vertices[me.loops[li].vertex_index].co
+                if az >= ax and az >= ay:      # floor / ceiling
+                    u, v = co.x, co.y
+                elif ax >= ay:                 # X-facing
+                    u, v = co.y, co.z
+                    if vgrain:
+                        u, v = v, u
+                else:                          # Y-facing
+                    u, v = co.x, co.z
+                    if vgrain:
+                        u, v = v, u
+                uv.data[li].uv = (u * inv, v * inv)
+
 
 _mat_cache = {}
 
 
+FX_TEX = {
+    "fx_shadow": "generated/fx/shadow_blob.png",
+    "fx_ao": "generated/fx/ao_strip.png",
+    "fx_traffic": "generated/fx/wear_traffic.png",
+    "fx_scuff": "generated/fx/wear_scuff.png",
+    "fx_drip": "generated/fx/wear_drip.png",
+    "fx_grease": "generated/fx/wear_grease.png",
+    "fx_burn": "generated/fx/wear_burn.png",
+    "fx_patch": "generated/fx/age_patch.png",
+    "fx_damp": "generated/fx/age_damp.png",
+}
+
+
 def get_material(key):
+    """Catalog material -> Blender Principled node tree. Textured sets
+    wire albedo (sRGB), roughness (non-color) and a tangent normal map at
+    conservative strength — a plain pattern the glTF exporter reduces
+    cleanly. Catalog color/roughness stay as the untextured fallback and
+    metallic always comes from the catalog."""
     if key in _mat_cache:
         return _mat_cache[key]
     spec = MATERIALS.get(key, MATERIALS["plaster"])
     mat = bpy.data.materials.new("M_%s" % key)
-    mat.use_nodes = True
-    bsdf = mat.node_tree.nodes["Principled BSDF"]
+    # Blender 5 materials are node-backed by default and deprecate assigning
+    # use_nodes; 4.x still requires the opt-in.
+    if bpy.app.version < (5, 0, 0):
+        mat.use_nodes = True
+    nt = mat.node_tree
+    bsdf = nt.nodes["Principled BSDF"]
     bsdf.inputs["Base Color"].default_value = spec["base_color"]
     bsdf.inputs["Roughness"].default_value = spec.get("roughness", 0.7)
     bsdf.inputs["Metallic"].default_value = spec.get("metallic", 0.0)
+    if key == "glassish":
+        # Actual architectural glass: transmissive and lightly tinted,
+        # rather than the opaque blue-gray panel used by the blockout.
+        bsdf.inputs["Base Color"].default_value = (0.72, 0.84, 0.88, 1.0)
+        bsdf.inputs["Roughness"].default_value = 0.08
+        if "Transmission Weight" in bsdf.inputs:
+            bsdf.inputs["Transmission Weight"].default_value = 0.72
+        bsdf.inputs["IOR"].default_value = 1.46
+        bsdf.inputs["Alpha"].default_value = 0.32
+        if hasattr(mat, "surface_render_method"):
+            mat.surface_render_method = "DITHERED"
+        elif hasattr(mat, "blend_method"):
+            mat.blend_method = "BLEND"
+        if hasattr(mat, "use_transparency_overlap"):
+            mat.use_transparency_overlap = False
+    if key in FX_TEX:
+        # baked-GI decal: albedo alpha does all the work, no reflections
+        img = _image(os.path.join(TEX_ROOT, *FX_TEX[key].split("/")),
+                     "fx", key, True)
+        tex = nt.nodes.new("ShaderNodeTexImage")
+        tex.image = img
+        nt.links.new(tex.outputs["Color"], bsdf.inputs["Base Color"])
+        nt.links.new(tex.outputs["Alpha"], bsdf.inputs["Alpha"])
+        bsdf.inputs["Roughness"].default_value = 1.0
+        bsdf.inputs["Specular IOR Level"].default_value = 0.0
+        mat.blend_method = "BLEND"
+        _mat_cache[key] = mat
+        return mat
+    ts = tex_set(key)
+    if ts:
+        alb = nt.nodes.new("ShaderNodeTexImage")
+        alb.name = alb.label = "albedo"
+        alb.image = _image(ts["albedo"], ts["slug"] +
+                           ("_worn_%s" % key if "_overlaid" in ts["albedo"]
+                            else ""), "albedo", True)
+        alb.location = (-420, 300)
+        nt.links.new(alb.outputs["Color"], bsdf.inputs["Base Color"])
+        rough = nt.nodes.new("ShaderNodeTexImage")
+        rough.name = rough.label = "roughness"
+        rough.image = _image(ts["roughness"], ts["slug"] +
+                             ("_worn_%s" % key if "_overlaid"
+                              in ts["roughness"] else ""), "rough", False)
+        rough.location = (-420, 20)
+        nt.links.new(rough.outputs["Color"], bsdf.inputs["Roughness"])
+        nrm_tex = nt.nodes.new("ShaderNodeTexImage")
+        nrm_tex.name = nrm_tex.label = "normal"
+        nrm_tex.image = _image(ts["normal"], ts["slug"], "normal", False)
+        nrm_tex.location = (-420, -260)
+        nrm = nt.nodes.new("ShaderNodeNormalMap")
+        nrm.inputs["Strength"].default_value = 0.35
+        nrm.location = (-160, -260)
+        nt.links.new(nrm_tex.outputs["Color"], nrm.inputs["Color"])
+        nt.links.new(nrm.outputs["Normal"], bsdf.inputs["Normal"])
     _mat_cache[key] = mat
     return mat
 
@@ -290,6 +547,13 @@ class Frame:
               self.pt(x0, y1, z0), self.pt(x0, y0, z1), self.pt(x1, y0, z1),
               self.pt(x1, y1, z1), self.pt(x0, y1, z1)]
         self.hb().add_hex(cs)
+        # baked contact shadow: the cheapest convincing ray of them all
+        mx = (x1 - x0) * 0.08 + 0.04
+        my = (y1 - y0) * 0.08 + 0.04
+        zq = 0.027  # above floor finishes (0.020) and wall AO (0.024)
+        self.g("fx_shadow").add_quad(
+            self.pt(x0 - mx, y0 - my, zq), self.pt(x1 + mx, y0 - my, zq),
+            self.pt(x1 + mx, y1 + my, zq), self.pt(x0 - mx, y1 + my, zq))
 
 
 def _jit(seed, k, lo, hi):
@@ -327,6 +591,17 @@ def asm_sofa(F, p):
         F.box(mat, sx_ * L / 2 + (0.02 if sx_ > 0 else -0.18),
               -d / 2, 0.15, sx_ * L / 2 + (0.18 if sx_ > 0 else -0.02),
               d / 2, 0.62)
+    # Piping and stitch breaks keep the cushions from reading as boxes.
+    seam = "linen"
+    for i in range(nc):
+        x0 = -L / 2 + 0.04 + i * (cw + 0.04)
+        for sx_ in (x0 + 0.018, x0 + cw - 0.018):
+            F.tube(seam, (sx_, -d / 2 + 0.17, 0.458),
+                   (sx_, d / 2 - 0.04, 0.458), 0.006, 6)
+        for k in range(5):
+            sy = -d / 2 + 0.20 + k * (d - 0.28) / 4.0
+            F.box(seam, x0 + cw / 2 - 0.018, sy, 0.458,
+                  x0 + cw / 2 + 0.018, sy + 0.012, 0.463)
     F.hull(-L / 2 - 0.18, -d / 2, 0.0, L / 2 + 0.18, d / 2, 0.8)
 
 
@@ -390,6 +665,8 @@ def asm_nightstand(F, p):
     F.box(wood, -0.225, -0.21, 0.12, 0.225, 0.21, 0.52)
     F.box(wood, -0.20, 0.212, 0.30, 0.20, 0.225, 0.47)   # drawer face
     F.cyl("brass", 0.0, 0.23, 0.385, 0.395, 0.016, 0.010, 8)
+    F.box("paper", -0.14, -0.10, 0.52, 0.02, 0.01, 0.555)   # bedside book
+    F.cyl("glassish", 0.10, 0.06, 0.52, 0.625, 0.035, 0.030, 8)
     for lx, ly in ((-0.17, -0.15), (0.17, -0.15), (-0.17, 0.15),
                    (0.17, 0.15)):
         F.cyl(wood, lx, ly, 0.0, 0.12, 0.020, 0.014, 8)
@@ -470,51 +747,119 @@ def asm_shelf(F, p):
                 F.box("metal", W / 2 - 0.40, -d / 2 + 0.05, bz + 0.032,
                       W / 2 - 0.06, d / 2 - 0.05, bz + 0.22)
             continue
-        run = _jit(seed, i, 0.45, 0.8) * W
-        x = -W / 2 + 0.05
+        # a lived-with shelf: runs start where the last hand left them,
+        # spines sit proud or pushed back, heights range from paperback
+        # to atlas, a pulled book leaves its gap, and some rows end in a
+        # flat stack instead of a leaner
+        run = _jit(seed, i, 0.40, 0.78) * W
+        x = -W / 2 + 0.05 + _jit(seed, i + 61, 0.0, 0.10) * W
         k = 0
         while x + 0.05 < -W / 2 + run:
-            bw = _jit(seed, i * 7 + k, 0.025, 0.055)
-            bh = _jit(seed, i * 13 + k, 0.20, 0.31)
-            bm = ("paper", "fabric_cool", "fabric_warm", "rug_green",
-                  "wood_dark")[(i + k + len(seed)) % 5]
-            F.box(bm, x, -d / 2 + 0.05, bz + 0.032, x + bw, d / 2 - 0.06,
-                  bz + 0.032 + bh)
+            if _jit(seed, i * 5 + k, 0.0, 1.0) > 0.87:
+                x += _jit(seed, i * 3 + k, 0.03, 0.09)   # the pulled book
+            bw = _jit(seed, i * 7 + k, 0.018, 0.062)
+            bh = _jit(seed, i * 13 + k, 0.15, 0.325)
+            push = _jit(seed, i * 19 + k, 0.0, 0.05)
+            bm = ("book_burgundy", "book_green", "book_navy", "book_ochre",
+                  "book_teal", "book_brown")[(i + k + len(seed)) % 6]
+            F.box(bm, x, -d / 2 + 0.05 + push, bz + 0.032, x + bw,
+                  d / 2 - 0.06 + push * 0.4, bz + 0.032 + bh)
             x += bw + 0.004
             k += 1
-        F.tbox("paper", (x + 0.10, 0.0, bz + 0.032),
-               (x + 0.015, 0.0, bz + 0.30), 0.19, 0.03)  # the leaner
+        if _jit(seed, i + 71, 0.0, 1.0) > 0.45 and x + 0.26 < W / 2:
+            fz = bz + 0.032
+            for f_ in range(2 + int(_jit(seed, i + 77, 0.0, 1.99))):
+                fw = _jit(seed, i * 23 + f_, 0.15, 0.21)
+                fh = _jit(seed, i * 29 + f_, 0.028, 0.042)
+                fo = _jit(seed, i * 33 + f_, -0.018, 0.018)
+                fm = ("book_navy", "book_brown", "book_teal",
+                      "book_burgundy")[(i + f_) % 4]
+                F.box(fm, x + 0.03 + fo, -d / 2 + 0.055, fz,
+                      x + 0.03 + fo + fw, d / 2 - 0.075, fz + fh)
+                fz += fh
+        else:
+            F.tbox("paper", (x + 0.10, 0.0, bz + 0.032),
+                   (x + 0.015, 0.0, bz + 0.30), 0.19, 0.03)  # the leaner
     F.hull(-W / 2, -d / 2, 0.0, W / 2, d / 2, h)
 
 
 def asm_tv(F, p):
-    F.box("wood_dark", -0.625, -0.20, 0.30, 0.625, 0.20, 0.36)
-    F.box("wood_dark", -0.55, -0.17, 0.12, 0.55, 0.17, 0.15)
-    for lx, ly in ((-0.52, -0.14), (0.52, -0.14), (-0.52, 0.14),
-                   (0.52, 0.14)):
-        F.tbox("wood_dark", (lx * 1.12, ly * 1.3, 0.0), (lx, ly, 0.30),
-               0.026, 0.026)
-    F.box("screen", -0.52, -0.03, 0.42, 0.52, 0.015, 1.04)
-    F.box("soot", -0.46, 0.015, 0.48, 0.46, 0.05, 0.98)
-    F.tbox("metal", (0.0, -0.01, 0.36), (0.0, -0.01, 0.44), 0.16, 0.03)
-    F.hull(-0.63, -0.21, 0.0, 0.63, 0.21, 1.05)
+    """A portrait panel on a slim stand.
+
+    Rebuilt around the footage rather than the furniture. Every clip the
+    building broadcasts is vertical, and a 4:3 tube can only show a vertical
+    picture by throwing away the top and bottom of it or stranding it in
+    black bars — both were tried, and both read as a fault rather than as a
+    television. So the screen is the shape of the signal: 0.50 x 0.90
+    against the reel's 320x576, so nothing is cropped or padded on its way
+    to the glass.
+
+    A vertical display in a 1927 block is an anachronism, and a deliberate
+    one. The building is a century old; its residents are not.
+    """
+    # Foot and stem, narrow because the panel above them is narrow.
+    F.box("wood_dark", -0.26, -0.17, 0.0, 0.26, 0.17, 0.045)
+    F.tbox("metal", (0.0, 0.0, 0.045), (0.0, 0.0, 0.32), 0.05, 0.05)
+    # Bezel, then glass standing proud of it on +Y — the face you see from
+    # inside the room, verified by putting a camera at the sofa and looking
+    # back. If a set still plays to its own back, the fault is that unit's
+    # `yaw` in gen_layout rather than this assembly. The glass carries the
+    # `screen` material, which takes unit UVs (UV_MODE_BY_MAT), so the quad
+    # carries exactly one picture.
+    F.box("bakelite", -0.275, -0.022, 0.275, 0.275, 0.014, 1.235)
+    F.box("screen", -0.25, 0.014, 0.30, 0.25, 0.038, 1.20)
+    F.hull(-0.29, -0.19, 0.0, 0.29, 0.19, 1.25)
 
 
 def asm_plant(F, p):
+    """Potted ficus remade for close viewing: unglazed terracotta pot
+    with a thrown body, rolled rim and drip saucer, mounded potting
+    soil, and a real crown — arched woody canes each carrying its own
+    drooping elliptical leaves instead of three canopy blobs."""
     big = p.get("big", False)
     s = 1.35 if big else 1.0
-    F.lathe("ceramic", 0, 0, [(0.10 * s, 0.0), (0.145 * s, 0.03),
-                              (0.17 * s, 0.30 * s), (0.15 * s, 0.335 * s)],
-            12)
-    F.cyl("soot", 0, 0, 0.30 * s, 0.315 * s, 0.145 * s, 0.145 * s, 10)
-    F.cyl("plant", 0, 0, 0.30 * s, 0.62 * s, 0.016, 0.012, 6)
     seed = p.get("id", "plant")
-    for i, (r, z) in enumerate(((0.24, 0.62), (0.19, 0.80), (0.12, 0.94))):
-        F.lathe("plant", _jit(seed, i, -0.05, 0.05),
-                _jit(seed, i + 3, -0.05, 0.05),
-                [(0.001, z * s - 0.10 * s), (r * s, z * s),
-                 (0.001, z * s + 0.10 * s)], 8, _jit(seed, i + 6, 0.8, 1.2))
-    F.hull(-0.18 * s, -0.18 * s, 0.0, 0.18 * s, 0.18 * s, 0.95 * s)
+    # drip saucer, thrown body, rolled rim lip
+    F.lathe("terracotta", 0, 0, [(0.150 * s, 0.0), (0.168 * s, 0.010 * s),
+                                 (0.158 * s, 0.032 * s)], 16)
+    F.lathe("terracotta", 0, 0, [(0.105 * s, 0.014 * s),
+                                 (0.148 * s, 0.055 * s),
+                                 (0.175 * s, 0.290 * s),
+                                 (0.178 * s, 0.302 * s)], 16)
+    F.lathe("terracotta", 0, 0, [(0.178 * s, 0.302 * s),
+                                 (0.196 * s, 0.314 * s),
+                                 (0.198 * s, 0.352 * s),
+                                 (0.180 * s, 0.360 * s),
+                                 (0.160 * s, 0.350 * s)], 16)
+    # potting soil mounded toward the stems, tucked under the rim
+    F.lathe("soil", 0, 0, [(0.160 * s, 0.335 * s), (0.118 * s, 0.360 * s),
+                           (0.045 * s, 0.374 * s), (0.001, 0.378 * s)], 14)
+    for i in range(4 if big else 3):
+        a = math.radians(_jit(seed, i, 0.0, 360.0))
+        lean = _jit(seed, i + 9, 0.10, 0.22) * s
+        top = _jit(seed, i + 17, 0.62, 0.92) * s
+        bx = 0.030 * s * math.cos(a)
+        by = 0.030 * s * math.sin(a)
+        tx, ty = lean * math.cos(a), lean * math.sin(a)
+        F.tube("timber", (bx, by, 0.355 * s),
+               (tx * 0.6, ty * 0.6, top * 0.62), 0.010 * s, 6)
+        F.tube("timber", (tx * 0.6, ty * 0.6, top * 0.62), (tx, ty, top),
+               0.008 * s, 6)
+        n_leaf = 6 if big else 5
+        for k in range(n_leaf):
+            t = 0.42 + 0.58 * (k / float(n_leaf - 1))
+            lx = tx * t + _jit(seed, i * 31 + k, -0.055, 0.055) * s
+            ly = ty * t + _jit(seed, i * 37 + k, -0.055, 0.055) * s
+            lz = top * 0.62 + (top - top * 0.62) * t \
+                - 0.025 * s * (k % 3) / 3.0
+            lr = _jit(seed, i * 41 + k, 0.055, 0.095) * s
+            # a leaf: flattened elliptical disk, tip drooping below the
+            # midrib so the silhouette breaks instead of ballooning
+            F.lathe("plant", lx, ly,
+                    [(0.001, lz - 0.012 * s), (lr, lz),
+                     (0.001, lz + 0.006 * s)], 7,
+                    _jit(seed, i * 43 + k, 0.42, 0.68))
+    F.hull(-0.20 * s, -0.20 * s, 0.0, 0.20 * s, 0.20 * s, 0.95 * s)
 
 
 def asm_kitchen(F, p):
@@ -524,9 +869,19 @@ def asm_kitchen(F, p):
     # carcass centered on the origin
     F.box("soot", -cw / 2 + 0.02, -0.28, 0.0, -cw / 2 + cw - 0.02, 0.26, 0.07)
     F.box("trim", -cw / 2, -0.30, 0.07, -cw / 2 + cw, 0.28, 0.86)
-    F.box("linen", -cw / 2 - 0.015, -0.315, 0.86, -cw / 2 + cw + 0.015,
-          0.315, 0.895)                     # counter overhang
-    F.box("linen", -cw / 2 - 0.015, -0.315, 0.895, -cw / 2 + cw + 0.015,
+    # counter, segmented around a real sink cutout (no booleans in the
+    # box world: the hole is the four boards that don't cover it)
+    sx0 = -cw / 2 + cw * 0.30
+    bx0, bx1 = sx0 - 0.22, sx0 + 0.22      # basin cutout in x
+    by0, by1 = -0.20, 0.12                 # basin cutout in y
+    for cx0, cy0, cx1, cy1 in (
+            (-cw / 2 - 0.015, -0.315, bx0, 0.315),
+            (bx1, -0.315, cw / 2 + 0.015, 0.315),
+            (bx0, -0.315, bx1, by0),
+            (bx0, by1, bx1, 0.315)):
+        F.box("countertop", cx0, cy0, 0.86, cx1, cy1, 0.895)
+    F.box("countertop", -cw / 2 - 0.015, -0.315, 0.895,
+          -cw / 2 + cw + 0.015,
           -0.27, 0.97)                      # backsplash lip
     nd = max(2, int(cw / 0.45))
     dw = (cw - 0.02 * (nd + 1)) / nd
@@ -534,14 +889,29 @@ def asm_kitchen(F, p):
         x0 = -cw / 2 + 0.02 + i * (dw + 0.02)
         F.box("trim", x0, 0.281, 0.10, x0 + dw, 0.301, 0.80)
         F.box("soot", x0 + 0.02, 0.283, 0.74, x0 + dw - 0.02, 0.303, 0.775)
-    sx0 = -cw / 2 + cw * 0.30
-    F.box("appliance", sx0 - 0.26, -0.24, 0.895, sx0 + 0.26, 0.16, 0.912)
-    F.box("soot", sx0 - 0.22, -0.20, 0.896, sx0 + 0.22, 0.12, 0.913)
-    F.tube("chrome", (sx0, -0.245, 0.912), (sx0, -0.245, 1.10), 0.014, 8)
+    # the basin itself: chrome rim lip over brushed-steel walls falling
+    # to a true bottom with a drain — a sink you can look down into
+    for rx0, ry0, rx1, ry1 in (
+            (bx0 - 0.018, by0 - 0.018, bx1 + 0.018, by0),
+            (bx0 - 0.018, by1, bx1 + 0.018, by1 + 0.018),
+            (bx0 - 0.018, by0, bx0, by1),
+            (bx1, by0, bx1 + 0.018, by1)):
+        F.box("chrome", rx0, ry0, 0.895, rx1, ry1, 0.906)
+    for wx0, wy0, wx1, wy1 in (
+            (bx0, by0, bx1, by0 + 0.012),
+            (bx0, by1 - 0.012, bx1, by1),
+            (bx0, by0, bx0 + 0.012, by1),
+            (bx1 - 0.012, by0, bx1, by1)):
+        F.box("metal", wx0, wy0, 0.70, wx1, wy1, 0.898)
+    F.box("metal", bx0, by0, 0.695, bx1, by1, 0.715)
+    F.cyl("soot", sx0, (by0 + by1) / 2.0, 0.715, 0.722, 0.030, 0.030, 10)
+    F.lathe("chrome", sx0, (by0 + by1) / 2.0,
+            [(0.030, 0.722), (0.040, 0.726), (0.032, 0.729)], 10)
+    F.tube("chrome", (sx0, -0.245, 0.895), (sx0, -0.245, 1.10), 0.014, 8)
     F.tube("chrome", (sx0, -0.245, 1.10), (sx0, -0.05, 1.06), 0.013, 8)
     for tx in (-0.12, 0.12):
-        F.tube("chrome", (sx0 + tx, -0.24, 0.912),
-               (sx0 + tx, -0.24, 0.965), 0.010, 8)
+        F.tube("chrome", (sx0 + tx, -0.24, 0.895),
+               (sx0 + tx, -0.24, 0.955), 0.010, 8)
         F.tube("chrome", (sx0 + tx - 0.03, -0.24, 0.965),
                (sx0 + tx + 0.03, -0.24, 0.965), 0.008, 6)
     F.box("trim", -cw / 2, -0.30, 1.46, -cw / 2 + cw, 0.05, 2.16)
@@ -571,12 +941,18 @@ def asm_stove(F, p):
     for kx in (-0.24, -0.12, 0.0, 0.12, 0.24):
         F.lathe("bakelite", kx, -0.315,
                 [(0.010, 0.80), (0.022, 0.82), (0.016, 0.835)], 8)
-    F.box("enamel", -0.27, -0.325, 0.18, 0.27, -0.30, 0.72)
-    F.box("soot", -0.19, -0.327, 0.42, 0.19, -0.315, 0.62)
-    F.tube("chrome", (-0.24, -0.36, 0.70), (0.24, -0.36, 0.70), 0.013, 8)
-    for hx in (-0.22, 0.22):
-        F.tbox("chrome", (hx, -0.325, 0.685), (hx, -0.36, 0.70),
-               0.022, 0.014)
+    # oven door at real range proportions: door sits between the broiler
+    # drawer and the burner deck, window high, towel rail at the top edge
+    F.box("enamel", -0.275, -0.322, 0.30, 0.275, -0.298, 0.72)
+    F.box("soot", -0.15, -0.328, 0.50, 0.15, -0.320, 0.64)      # window
+    F.tube("chrome", (-0.24, -0.356, 0.685), (0.24, -0.356, 0.685),
+           0.012, 8)
+    for hx in (-0.23, 0.23):
+        F.tbox("chrome", (hx, -0.322, 0.672), (hx, -0.356, 0.685),
+               0.020, 0.012)
+    # broiler drawer with a recessed pull
+    F.box("enamel", -0.275, -0.318, 0.115, 0.275, -0.300, 0.275)
+    F.box("soot", -0.10, -0.321, 0.175, 0.10, -0.316, 0.215)
     F.hull(-0.31, -0.36, 0.0, 0.31, 0.30, 1.24)
 
 
@@ -695,19 +1071,92 @@ def asm_sink_ped(F, p):
 
 
 def asm_shower(F, p):
-    """Tray, half-drawn curtain on a chrome rail, wall head."""
+    """Corner stall rebuilt for close-up. Local frame matches every other
+    bath fixture: the run wall is behind the piece at -Y (a toilet's tank
+    faces -Y for the same reason), and `mirror` says which X side the
+    corner's second wall is on. Ceramic-tiled back and corner walls,
+    chrome-channeled glass on the two open sides with a 0.38 m entry,
+    and plumbing mounted ON the tile: escutcheon mixer, riser, and a
+    head angled down at a standing user's crown."""
+    m = 1.0 if p.get("mirror") else -1.0    # corner-wall side sign
+
+    def bx(mat, x0, y0, z0, x1, y1, z1):
+        F.box(mat, min(x0, x1), min(y0, y1), z0, max(x0, x1),
+              max(y0, y1), z1)
     F.box("porcelain", -0.40, -0.40, 0.0, 0.40, 0.40, 0.12)
     F.box("soot", -0.34, -0.34, 0.045, 0.34, 0.34, 0.125)
-    F.tube("chrome", (-0.40, -0.40, 1.88), (0.40, -0.40, 1.88), 0.012, 8)
-    F.tube("chrome", (0.40, -0.40, 1.88), (0.40, 0.40, 1.88), 0.012, 8)
-    F.box("linen", -0.40, -0.415, 0.14, 0.05, -0.395, 1.87)
-    F.box("linen", 0.02, -0.408, 0.30, 0.10, -0.402, 1.87)
-    F.tube("chrome", (-0.28, 0.38, 1.70), (-0.16, 0.30, 1.78), 0.012, 8)
-    F.lathe("chrome", -0.16, 0.30, [(0.012, 1.70), (0.055, 1.76),
-                                    (0.06, 1.78)], 10)
-    F.lathe("chrome", -0.05, 0.36, [(0.03, 0.98), (0.038, 1.0),
-                                    (0.012, 1.02)], 8)
+    # tiled surround: back wall (-Y) and the corner-side wall, capped
+    bx("ceramic", -0.43, -0.435, 0.0, 0.43, -0.405, 2.06)
+    bx("ceramic", m * 0.405, -0.43, 0.0, m * 0.435, 0.42, 2.06)
+    bx("trim", -0.435, -0.437, 2.06, 0.435, -0.402, 2.10)
+    bx("trim", m * 0.402, -0.437, 2.06, m * 0.437, 0.42, 2.10)
+    # glass: full panel down the open side, and a front panel returning
+    # from the corner wall, leaving the entry beside the open-side glass
+    bx("glassish", -m * 0.388, -0.40, 0.13, -m * 0.400, 0.30, 1.90)
+    bx("glassish", m * 0.40, 0.390, 0.13, m * 0.02, 0.402, 1.90)
+    # chrome channels: sill and head rails plus corner posts seat the
+    # panels instead of letting them float
+    bx("chrome", -m * 0.383, -0.40, 0.12, -m * 0.405, 0.30, 0.145)
+    bx("chrome", -m * 0.383, -0.40, 1.88, -m * 0.405, 0.30, 1.905)
+    bx("chrome", m * 0.40, 0.385, 0.12, m * 0.02, 0.407, 0.145)
+    bx("chrome", m * 0.40, 0.385, 1.88, m * 0.02, 0.407, 1.905)
+    F.tube("chrome", (-m * 0.394, -0.40, 0.12),
+           (-m * 0.394, -0.40, 1.90), 0.011, 8)
+    F.tube("chrome", (-m * 0.394, 0.30, 0.12),
+           (-m * 0.394, 0.30, 1.90), 0.011, 8)
+    F.tube("chrome", (m * 0.02, 0.396, 0.12), (m * 0.02, 0.396, 1.90),
+           0.011, 8)
+    # plumbing on the back tile: mixer escutcheon + lever, riser, arm,
+    # and the head pitched down-forward toward a 1.7 m user
+    bx("chrome", -0.07, -0.407, 0.98, 0.07, -0.392, 1.16)
+    F.tube("bakelite", (0.0, -0.392, 1.07), (0.0, -0.335, 1.02),
+           0.011, 8)
+    F.tube("chrome", (0.0, -0.393, 1.16), (0.0, -0.393, 1.94), 0.012, 8)
+    F.tube("chrome", (0.0, -0.393, 1.94), (0.0, -0.20, 1.87), 0.012, 8)
+    F.tube("chrome", (0.0, -0.20, 1.87), (0.0, -0.152, 1.785), 0.056, 12)
+    F.tube("soot", (0.0, -0.176, 1.827), (0.0, -0.146, 1.774), 0.050, 12)
     F.hull(-0.40, -0.40, 0.0, 0.40, 0.40, 0.13)
+
+
+def asm_sink_basin(F, p):
+    """Standalone undermount basin for hand-built counters (4B's galley).
+    Origin sits at the CENTER of the counter cutout, on the finished top
+    surface; the bowl hangs below and the mixer rises behind at +Y. The
+    counter itself must be laid as segments around the same opening —
+    there are no booleans in this box world, so the hole is the boards
+    that aren't there."""
+    W, D = p.get("W", 0.50), p.get("D", 0.38)
+    depth = p.get("depth", 0.19)
+    hw, hd = W / 2.0, D / 2.0
+    for rx0, ry0, rx1, ry1 in ((-hw - 0.018, -hd - 0.018, hw + 0.018, -hd),
+                               (-hw - 0.018, hd, hw + 0.018, hd + 0.018),
+                               (-hw - 0.018, -hd, -hw, hd),
+                               (hw, -hd, hw + 0.018, hd)):
+        F.box("chrome", rx0, ry0, 0.0, rx1, ry1, 0.011)
+    for wx0, wy0, wx1, wy1 in ((-hw, -hd, hw, -hd + 0.012),
+                               (-hw, hd - 0.012, hw, hd),
+                               (-hw, -hd, -hw + 0.012, hd),
+                               (hw - 0.012, -hd, hw, hd)):
+        F.box("metal", wx0, wy0, -depth, wx1, wy1, 0.003)
+    F.box("metal", -hw, -hd, -depth, hw, hd, -depth + 0.02)
+    F.cyl("soot", 0.0, 0.0, -depth + 0.02, -depth + 0.027, 0.030, 0.030, 10)
+    F.lathe("chrome", 0.0, 0.0, [(0.030, -depth + 0.027),
+                                 (0.040, -depth + 0.031),
+                                 (0.032, -depth + 0.034)], 10)
+    # mixer behind the bowl: riser, swan spout, two cross taps
+    by = hd + 0.055
+    F.lathe("chrome", 0.0, by, [(0.032, 0.0), (0.036, 0.012),
+                                (0.014, 0.020)], 10)
+    F.tube("chrome", (0.0, by, 0.012), (0.0, by, 0.235), 0.014, 8)
+    F.tube("chrome", (0.0, by, 0.235), (0.0, by - 0.085, 0.268), 0.013, 8)
+    F.tube("chrome", (0.0, by - 0.085, 0.268), (0.0, by - 0.145, 0.225),
+           0.012, 8)
+    for tx in (-0.105, 0.105):
+        F.tube("chrome", (tx, by, 0.010), (tx, by, 0.075), 0.010, 8)
+        F.tube("chrome", (tx - 0.030, by, 0.075), (tx + 0.030, by, 0.075),
+               0.007, 6)
+        F.tube("chrome", (tx, by - 0.030, 0.075), (tx, by + 0.030, 0.075),
+               0.007, 6)
 
 
 def asm_switch(F, p):
@@ -723,8 +1172,13 @@ def asm_switch(F, p):
 
 
 def asm_pipe(F, p):
-    F.g(p.get("mat", "metal")).add_tube(tuple(p["p0"]), tuple(p["p1"]),
-                                        p.get("r", 0.045), 10)
+    """Raw endpoints are world-space by default (the basement services
+    are authored that way); `local: true` routes them through the frame
+    so a run can anchor to a marker's position and yaw."""
+    a, b = tuple(p["p0"]), tuple(p["p1"])
+    if p.get("local"):
+        a, b = F.pt(*a), F.pt(*b)
+    F.g(p.get("mat", "metal")).add_tube(a, b, p.get("r", 0.045), 10)
 
 
 def asm_bench(F, p):
@@ -761,6 +1215,343 @@ def asm_mailbank(F, p):
     F.hull(-0.80, -0.02, 0.30, 0.80, 0.16, 1.72)
 
 
+# ---- resident personality clutter (Phase 6 hero pass). Small originals
+# in the same spirit-of-a-typology language: stage gear for Juno, bench
+# electronics for Omar, playback for Rhea, paperwork for Nadia, capture
+# kit for Sacha, tidy desk order for Mina. Tabletop pieces skip hull()
+# on purpose: no physics, no floor shadow quad floating mid-air.
+
+def asm_amp(F, p):
+    """Guitar combo amp: vinyl cab, cloth grille, knob row, pilot lamp."""
+    W, H, D = p.get("W", 0.56), p.get("H", 0.46), 0.27
+    F.box("soot", -W / 2, -D / 2, 0.02, W / 2, D / 2, H)
+    F.box("linen", -W / 2 + 0.035, D / 2 - 0.004, 0.05, W / 2 - 0.035,
+          D / 2 + 0.012, H - 0.115)
+    F.box("bakelite", -W / 2 + 0.03, D / 2 - 0.02, H - 0.105,
+          W / 2 - 0.03, D / 2 + 0.004, H - 0.03)
+    nk = max(3, int(W / 0.10))
+    for i in range(nk):
+        kx = -W / 2 + 0.07 + i * (W - 0.14) / (nk - 1)
+        F.tube("chrome", (kx, D / 2 + 0.004, H - 0.068),
+               (kx, D / 2 + 0.022, H - 0.068), 0.011, 6)
+    F.tube("brass", (W / 2 - 0.045, D / 2 + 0.004, H - 0.068),
+           (W / 2 - 0.045, D / 2 + 0.016, H - 0.068), 0.005, 6)
+    F.tbox("bakelite", (-0.09, 0.0, H + 0.015), (0.09, 0.0, H + 0.015),
+           0.035, 0.030)
+    for fx in (-W / 2 + 0.05, W / 2 - 0.05):
+        for fy in (-D / 2 + 0.05, D / 2 - 0.05):
+            F.cyl("bakelite", fx, fy, 0.0, 0.02, 0.020, 0.024, 6)
+    F.hull(-W / 2, -D / 2, 0.0, W / 2, D / 2, H + 0.03)
+
+
+def asm_guitar(F, p):
+    """Guitar leaning on whatever was closest: waisted slab body, long
+    neck to a paddle head, back tipped toward local -Y."""
+    body = "timber" if p.get("acoustic") else "enamel"
+    F.tbox(body, (0.0, -0.02, 0.03), (0.0, -0.10, 0.44), 0.32, 0.065)
+    F.tbox(body, (0.0, -0.035, 0.10), (0.0, -0.075, 0.31), 0.40, 0.060)
+    F.tbox("wood_dark", (0.0, -0.105, 0.46), (0.0, -0.175, 0.83),
+           0.048, 0.030)
+    F.tbox("wood_dark", (0.0, -0.178, 0.845), (0.0, -0.205, 0.985),
+           0.062, 0.024)
+    F.tube("chrome", (0.0, -0.052, 0.20), (0.0, -0.150, 0.72), 0.004, 4)
+    F.hull(-0.19, -0.16, 0.0, 0.19, 0.06, 0.48)
+
+
+def asm_pedalboard(F, p):
+    """Plywood pedalboard: four mismatched stomp pedals, patch leads."""
+    seed = p.get("id", "pb")
+    F.box("plywood", -0.30, -0.16, 0.0, 0.30, 0.16, 0.04)
+    for i, pm in enumerate(("bakelite", "enamel", "metal",
+                            "fabric_green")):
+        px = -0.225 + i * 0.15
+        py = _jit(seed, i, -0.055, 0.035)
+        F.box(pm, px - 0.052, py - 0.085, 0.04, px + 0.052, py + 0.085,
+              0.095)
+        F.cyl("chrome", px, py + 0.042, 0.095, 0.112, 0.013, 0.013, 6)
+        F.tube("bakelite", (px - 0.028, py - 0.055, 0.095),
+               (px - 0.028, py - 0.055, 0.112), 0.008, 6)
+    F.tube("soot", (-0.17, 0.10, 0.052), (-0.075, 0.13, 0.052), 0.006, 6)
+    F.tube("soot", (-0.075, 0.13, 0.052), (0.075, 0.115, 0.052), 0.006, 6)
+    F.hull(-0.30, -0.16, 0.0, 0.30, 0.16, 0.12)
+
+
+def asm_micstand(F, p):
+    """Round-base mic stand; the boom drops the capsule toward +Y."""
+    F.lathe("metal", 0, 0, [(0.135, 0.0), (0.11, 0.018), (0.02, 0.035),
+                            (0.013, 0.05)], 10)
+    F.cyl("metal", 0, 0, 0.05, 1.08, 0.011, 0.009, 8)
+    F.tube("metal", (0.0, 0.0, 1.08), (0.0, 0.30, 1.32), 0.008, 6)
+    F.tube("soot", (0.0, 0.30, 1.32), (0.0, 0.355, 1.278), 0.023, 8)
+    F.hull(-0.135, -0.135, 0.0, 0.135, 0.135, 0.30)
+
+
+def asm_reeldeck(F, p):
+    """Reel-to-reel playback deck: twin reels, head block, VU windows."""
+    F.box("metal", -0.24, -0.17, 0.0, 0.24, 0.17, 0.07)
+    F.box("bakelite", -0.235, -0.165, 0.07, 0.235, 0.165, 0.105)
+    for rx in (-0.115, 0.115):
+        F.cyl("soot", rx, 0.03, 0.105, 0.117, 0.10, 0.10, 14)
+        F.cyl("enamel", rx, 0.03, 0.117, 0.124, 0.03, 0.03, 8)
+    F.box("metal", -0.055, -0.135, 0.105, 0.055, -0.085, 0.135)
+    for vx in (-0.16, 0.16):
+        F.box("paper", vx - 0.028, -0.15, 0.106, vx + 0.028, -0.10, 0.110)
+    for kx in (-0.06, 0.0, 0.06):
+        F.tube("bakelite", (kx, -0.045, 0.105), (kx, -0.045, 0.122),
+               0.010, 6)
+
+
+def asm_headphones(F, p):
+    """Cans hung on a turned desk stand, cable slumped to the surface."""
+    F.lathe("wood_dark", 0, 0, [(0.065, 0.0), (0.05, 0.012),
+                                (0.012, 0.022), (0.009, 0.24),
+                                (0.02, 0.25), (0.001, 0.265)], 8)
+    F.tbox("soot", (-0.055, 0.0, 0.20), (0.0, 0.0, 0.262), 0.036, 0.012)
+    F.tbox("soot", (0.055, 0.0, 0.20), (0.0, 0.0, 0.262), 0.036, 0.012)
+    for s in (-1, 1):
+        F.lathe("soot", s * 0.062, 0.0,
+                [(0.012, 0.115), (0.04, 0.135), (0.044, 0.185),
+                 (0.022, 0.198)], 10)
+    F.tube("soot", (-0.062, 0.0, 0.115), (0.05, 0.09, 0.004), 0.004, 4)
+
+
+def asm_mug(F, p):
+    m = p.get("mat", "porcelain")
+    F.lathe(m, 0, 0, [(0.034, 0.0), (0.040, 0.008), (0.040, 0.092),
+                      (0.035, 0.10)], 10)
+    F.tube(m, (0.038, 0.0, 0.030), (0.062, 0.0, 0.052), 0.007, 6)
+    F.tube(m, (0.062, 0.0, 0.052), (0.040, 0.0, 0.078), 0.007, 6)
+
+
+def asm_papers(F, p):
+    """Loose paper stack; `mess` spreads the drift."""
+    seed, n = p.get("id", "pp"), p.get("n", 6)
+    mess = 1.0 + 3.0 * p.get("mess", 0.0)
+    for i in range(n):
+        ox = _jit(seed, i, -0.018, 0.018) * mess
+        oy = _jit(seed, i + 9, -0.014, 0.014) * mess
+        F.box("paper", -0.105 + ox, -0.148 + oy, i * 0.0075,
+              0.105 + ox, 0.148 + oy, i * 0.0075 + 0.005)
+
+
+def asm_bookpile(F, p):
+    """Horizontal pile of mismatched volumes (or tape boxes, or manuals)."""
+    seed, n = p.get("id", "bk"), p.get("n", 4)
+    mats = ("book_burgundy", "book_green", "book_navy", "book_ochre",
+            "book_teal", "book_brown")
+    z = 0.0
+    for i in range(n):
+        w = _jit(seed, i, 0.14, 0.19)
+        d = _jit(seed, i + 5, 0.21, 0.27)
+        h = _jit(seed, i + 11, 0.028, 0.048)
+        ox = _jit(seed, i + 17, -0.02, 0.02)
+        oy = _jit(seed, i + 23, -0.02, 0.02)
+        F.box(mats[(hash_str(seed) + i) % len(mats)],
+              ox - w / 2, oy - d / 2, z,
+              ox + w / 2, oy + d / 2, z + h)
+        z += h
+
+
+def asm_pinboard(F, p):
+    """Cork board on the wall: cards in a tidy grid, or drifted layers
+    of them fighting for space. Front faces +Y."""
+    W, H = p.get("W", 0.90), p.get("H", 0.60)
+    seed, neat = p.get("id", "pin"), p.get("neat", True)
+    F.box("wood_dark", -W / 2, 0.0, 0.0, W / 2, 0.016, H)
+    F.box("timber", -W / 2 + 0.03, 0.016, 0.03, W / 2 - 0.03, 0.026,
+          H - 0.03)
+    n = p.get("cards", 12)
+    cols = max(2, int(round(n / 3.0)))
+    for i in range(n):
+        if neat:
+            px = -W / 2 + 0.08 + (i % cols) * (W - 0.16) / (cols - 1)
+            pz = H - 0.10 - (i // cols) * 0.135
+            cw, ch = 0.037, 0.05
+        else:
+            px = _jit(seed, i, -W / 2 + 0.09, W / 2 - 0.09)
+            pz = _jit(seed, i + 31, 0.10, H - 0.10)
+            cw = _jit(seed, i + 57, 0.03, 0.075)
+            ch = _jit(seed, i + 71, 0.04, 0.09)
+        F.box("paper", px - cw, 0.026, pz - ch, px + cw,
+              0.028 + 0.002 * (i % 3), pz + ch)
+
+
+def asm_toolboard(F, p):
+    """Pegboard: wrench row by size, hammer, a coil of cord on a nail."""
+    W, H = p.get("W", 1.05), p.get("H", 0.70)
+    seed = p.get("id", "tb")
+    F.box("plywood", -W / 2, 0.0, 0.0, W / 2, 0.018, H)
+    for i in range(5):
+        tx = -W / 2 + 0.10 + i * (W - 0.55) / 4.0
+        L = _jit(seed, i, 0.15, 0.24)
+        F.box("metal", tx - 0.010, 0.018, H - 0.10 - L, tx + 0.010,
+              0.030, H - 0.10)
+        F.cyl("metal", tx, 0.024, H - 0.10 - L - 0.025, H - 0.10 - L,
+              0.018, 0.014, 6)
+    hx = W / 2 - 0.22
+    F.box("timber", hx - 0.012, 0.018, H - 0.38, hx + 0.012, 0.032,
+          H - 0.10)
+    F.box("metal", hx - 0.055, 0.014, H - 0.145, hx + 0.055, 0.040,
+          H - 0.095)
+    cx_ = W / 2 - 0.09
+    for k in range(6):
+        F.tube("soot", (cx_ + 0.055 * math.cos(k * 1.047), 0.030,
+                        H - 0.44 + 0.055 * math.sin(k * 1.047)),
+               (cx_ + 0.055 * math.cos((k + 1) * 1.047), 0.030,
+                H - 0.44 + 0.055 * math.sin((k + 1) * 1.047)), 0.009, 6)
+
+
+def asm_partstray(F, p):
+    """Sorting tray of small parts; optionally the opened chassis it
+    all came out of, valves still socketed."""
+    seed = p.get("id", "pt")
+    F.box("metal", -0.20, -0.14, 0.0, 0.20, 0.14, 0.012)
+    for s in (-1, 1):
+        F.box("metal", s * 0.20 - 0.006, -0.14, 0.0, s * 0.20 + 0.006,
+              0.14, 0.045)
+        F.box("metal", -0.20, s * 0.14 - 0.006, 0.0, 0.20,
+              s * 0.14 + 0.006, 0.045)
+    for i in range(12):
+        bx = -0.15 + (i % 4) * 0.10
+        by = -0.085 + (i // 4) * 0.085
+        pm = ("brass", "chrome", "bakelite", "metal")[
+            (hash_str(seed) + i) % 4]
+        F.box(pm, bx - 0.028, by - 0.024, 0.012, bx + 0.028, by + 0.024,
+              0.012 + _jit(seed, i, 0.012, 0.035))
+    if p.get("chassis"):
+        F.box("bakelite", 0.26, -0.12, 0.0, 0.52, 0.12, 0.05)
+        for i, tx in enumerate((0.32, 0.40, 0.47)):
+            F.cyl("glassish", tx, _jit(seed, i + 40, -0.06, 0.06), 0.05,
+                  0.115, 0.014, 0.012, 6)
+        F.cyl("brass", 0.34, 0.07, 0.05, 0.085, 0.022, 0.022, 8)
+
+
+def asm_jarrow(F, p):
+    """Salvage jars in a row: screws, washers, fuses, sorted by kind."""
+    seed, n = p.get("id", "jr"), p.get("n", 4)
+    for i in range(n):
+        jx = (i - (n - 1) / 2.0) * 0.115
+        fill = ("metal", "brass", "chrome", "bakelite")[
+            (hash_str(seed) + i) % 4]
+        F.box(fill, jx - 0.030, -0.030, 0.006, jx + 0.030, 0.030,
+              _jit(seed, i, 0.035, 0.10))
+        F.lathe("glassish", jx, 0, [(0.042, 0.0), (0.046, 0.01),
+                                    (0.046, 0.115), (0.038, 0.125)], 8)
+        F.lathe("bakelite", jx, 0, [(0.040, 0.125), (0.040, 0.148),
+                                    (0.001, 0.148)], 8)
+
+
+def asm_tripod(F, p):
+    """Camera on sticks: splayed legs, body, lens out the front line."""
+    h = p.get("H", 1.32)
+    for a in (90, 210, 330):
+        r = math.radians(a)
+        F.tbox("metal", (0.30 * math.cos(r), 0.30 * math.sin(r), 0.0),
+               (0.0, 0.0, h - 0.22), 0.026, 0.018)
+    F.cyl("metal", 0, 0, h - 0.26, h - 0.015, 0.020, 0.017, 8)
+    F.box("soot", -0.075, -0.10, h, 0.075, 0.095, h + 0.11)
+    F.tube("metal", (0.0, 0.095, h + 0.055), (0.0, 0.185, h + 0.055),
+           0.033, 10)
+    F.box("screen", -0.055, -0.102, h + 0.02, 0.055, -0.099, h + 0.09)
+    F.hull(-0.30, -0.30, 0.0, 0.30, 0.30, 0.60)
+
+
+def asm_softbox(F, p):
+    """Work light on a stand, diffuser panel pitched down at the subject
+    (subject toward +Y)."""
+    for a in (30, 150, 270):
+        r = math.radians(a)
+        F.tbox("metal", (0.26 * math.cos(r), 0.26 * math.sin(r), 0.0),
+               (0.0, 0.0, 0.55), 0.024, 0.016)
+    F.cyl("metal", 0, 0, 0.50, 1.52, 0.014, 0.012, 8)
+    F.tbox("soot", (0.0, -0.02, 1.66), (0.0, 0.17, 1.44), 0.46, 0.09)
+    F.tbox("linen", (0.0, 0.175, 1.437), (0.0, 0.215, 1.39), 0.42, 0.012)
+    F.hull(-0.26, -0.26, 0.0, 0.26, 0.26, 0.55)
+
+
+def asm_cablecoil(F, p):
+    """A coil of instrument cable nobody has put away, tail wandering."""
+    seed, r = p.get("id", "cc"), p.get("r", 0.11)
+    pts = [(r * math.cos(math.radians(a)), r * math.sin(math.radians(a)))
+           for a in range(0, 360, 45)]
+    for i in range(8):
+        xa, ya = pts[i]
+        xb, yb = pts[(i + 1) % 8]
+        F.tube("soot", (xa, ya, 0.014 + 0.010 * (i % 2)),
+               (xb, yb, 0.014 + 0.010 * ((i + 1) % 2)), 0.010, 6)
+    F.tube("soot", (r, 0.0, 0.012),
+           (r + _jit(seed, 1, 0.18, 0.30), _jit(seed, 2, -0.15, 0.15),
+            0.012), 0.008, 6)
+
+
+def asm_crate(F, p):
+    """Slat crate: a record collection filed edge-on, or a gear jumble."""
+    W, D, H = p.get("W", 0.42), p.get("D", 0.35), p.get("H", 0.33)
+    seed = p.get("id", "cr")
+    F.box("timber", -W / 2, -D / 2, 0.0, W / 2, D / 2, 0.02)
+    for s in (-1, 1):
+        F.box("timber", s * W / 2 - 0.011, -D / 2, 0.0,
+              s * W / 2 + 0.011, D / 2, H)
+    for s in (-1, 1):
+        for za, zb in ((0.03, 0.14), (0.19, H - 0.03)):
+            F.box("timber", -W / 2 + 0.011, s * D / 2 - 0.011, za,
+                  W / 2 - 0.011, s * D / 2 + 0.011, zb)
+    if p.get("records"):
+        n = int((W - 0.08) / 0.016)
+        for i in range(n):
+            rx = -W / 2 + 0.04 + i * 0.016
+            lean = _jit(seed, i, 0.0, 0.012)
+            F.box(("soot", "paper", "fabric_cool", "fabric_warm",
+                   "fabric_green")[(hash_str(seed) + i) % 5],
+                  rx, -D / 2 + 0.03 + lean, 0.02, rx + 0.011,
+                  D / 2 - 0.03 + lean, _jit(seed, i + 50, 0.27, 0.31))
+    else:
+        F.box(p.get("fill", "soot"), -W / 2 + 0.03, -D / 2 + 0.03, 0.02,
+              W / 2 - 0.03, D / 2 - 0.03, _jit(seed, 3, 0.15, H - 0.06))
+    F.hull(-W / 2, -D / 2, 0.0, W / 2, D / 2, H)
+
+
+def asm_radio(F, p):
+    """Bench radio: wood cab, cloth grille, dial strip, two knobs."""
+    F.box("wood_dark", -0.19, -0.11, 0.0, 0.19, 0.11, 0.28)
+    F.box("linen", -0.125, 0.105, 0.115, 0.125, 0.118, 0.245)
+    F.box("paper", -0.10, 0.105, 0.05, 0.10, 0.114, 0.085)
+    F.box("brass", -0.015, 0.114, 0.052, -0.011, 0.118, 0.083)
+    for kx in (-0.14, 0.14):
+        F.tube("bakelite", (kx, 0.11, 0.062), (kx, 0.132, 0.062),
+               0.015, 8)
+
+
+def asm_sitemodel(F, p):
+    """Chipboard massing study: the Orison and its three neighbors."""
+    F.box("plywood", -0.30, -0.22, 0.0, 0.30, 0.22, 0.012)
+    F.box("paper", -0.27, -0.19, 0.012, 0.08, 0.19, 0.018)
+    F.box("trim", -0.22, -0.13, 0.012, 0.0, 0.13, 0.20)
+    F.box("trim", -0.155, -0.045, 0.20, -0.065, 0.045, 0.225)
+    for bx, by, w_, d_, h_ in ((0.06, -0.16, 0.15, 0.10, 0.085),
+                               (0.10, -0.02, 0.13, 0.13, 0.125),
+                               (0.05, 0.13, 0.19, 0.06, 0.065)):
+        F.box("timber", bx, by, 0.012, bx + w_, by + d_, 0.012 + h_)
+
+
+def asm_bottles(F, p):
+    """Empties colonizing a flat surface; one has already fallen over.
+    cans=True swaps the long necks for short drink cans."""
+    seed, n = p.get("id", "bt"), p.get("n", 5)
+    m = "metal" if p.get("cans") else "glassish"
+    for i in range(n - 1):
+        bx = _jit(seed, i, -0.14, 0.14)
+        by = _jit(seed, i + 7, -0.09, 0.09)
+        if p.get("cans"):
+            F.cyl(m, bx, by, 0.0, 0.13, 0.032, 0.032, 8)
+        else:
+            h = _jit(seed, i + 13, 0.17, 0.26)
+            F.lathe(m, bx, by, [(0.031, 0.0), (0.033, h * 0.55),
+                                (0.013, h * 0.72), (0.012, h)], 8)
+    fx = _jit(seed, 30, -0.10, 0.10)
+    F.tube(m, (fx, 0.10, 0.030), (fx + 0.19, 0.16, 0.030), 0.030, 8)
+
+
 ASM = {
     "sofa": asm_sofa, "chair": asm_chair, "table_round": asm_table_round,
     "table_rect": asm_table_rect, "coffee": asm_coffee,
@@ -770,7 +1561,16 @@ ASM = {
     "desk": asm_desk, "plantable": asm_plantable,
     "workbench": asm_workbench, "toilet": asm_toilet,
     "sink_ped": asm_sink_ped, "shower": asm_shower, "switch": asm_switch,
+    "sink_basin": asm_sink_basin,
     "pipe": asm_pipe, "bench": asm_bench, "mailbank": asm_mailbank,
+    "amp": asm_amp, "guitar": asm_guitar, "pedalboard": asm_pedalboard,
+    "micstand": asm_micstand, "reeldeck": asm_reeldeck,
+    "headphones": asm_headphones, "mug": asm_mug, "papers": asm_papers,
+    "bookpile": asm_bookpile, "pinboard": asm_pinboard,
+    "toolboard": asm_toolboard, "partstray": asm_partstray,
+    "jarrow": asm_jarrow, "tripod": asm_tripod, "softbox": asm_softbox,
+    "cablecoil": asm_cablecoil, "crate": asm_crate, "radio": asm_radio,
+    "sitemodel": asm_sitemodel, "bottles": asm_bottles,
 }
 
 
@@ -796,7 +1596,7 @@ def subtract_rect(rects, hole):
 
 
 def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
-               stone_buf=None):
+               stone_buf=None, ao_buf=None):
     """Wall run with openings, thickness centered on the a->b line.
     Door openings get jamb/head trim; windows get a frame, sill lip and a
     collidable glass pane. Detail pass (unless details=False): baseboards
@@ -837,7 +1637,9 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
                             "concrete")
 
     def detail_seg(d0, d1):
-        """Baseboard/cornice/wainscot on a stretch of wall between doors."""
+        """Baseboard/cornice/wainscot on a stretch of wall between doors,
+        plus a floor AO gradient strip on both faces — the corner
+        darkening a path tracer would give the wall/floor junction."""
         if d1 - d0 < 0.05 or not details:
             return
         if is_brick and w.get("in_side"):
@@ -851,6 +1653,37 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
         if wains:
             box(wains_buf, d0, d1, 0.11, 1.32, t + 0.022)
             box(trim_buf, d0, d1, 1.32, 1.36, t + 0.040)
+            # A small bullnose bead catches a soft highlight and makes the
+            # dado read as installed millwork instead of a razor-edged box.
+            # Run it on both wall faces so corridor and room views agree.
+            a0, a1 = start + d0, start + d1
+            for sgn in (-1, 1):
+                face = cross + sgn * (t / 2.0 + 0.031)
+                if horizontal:
+                    trim_buf.add_tube((a0, face, z + 1.355),
+                                      (a1, face, z + 1.355), 0.024, 8)
+                else:
+                    trim_buf.add_tube((face, a0, z + 1.355),
+                                      (face, a1, z + 1.355), 0.024, 8)
+        if ao_buf is None:
+            return
+        zq = z + 0.024
+        for sgn in (1, -1):
+            face = cross + sgn * (t / 2.0 + 0.02)
+            outer = face + sgn * 0.14
+            a0, a1 = start + d0, start + d1
+            if horizontal:
+                pts = [(a1, face), (a0, face), (a0, outer), (a1, outer)]                         if sgn < 0 else                         [(a0, face), (a1, face), (a1, outer), (a0, outer)]
+                ao_buf.add_quad((pts[0][0], pts[0][1], zq),
+                                (pts[1][0], pts[1][1], zq),
+                                (pts[2][0], pts[2][1], zq),
+                                (pts[3][0], pts[3][1], zq))
+            else:
+                pts = [(face, a0), (face, a1), (outer, a1), (outer, a0)]                         if sgn < 0 else                         [(face, a1), (face, a0), (outer, a0), (outer, a1)]
+                ao_buf.add_quad((pts[0][0], pts[0][1], zq),
+                                (pts[1][0], pts[1][1], zq),
+                                (pts[2][0], pts[2][1], zq),
+                                (pts[3][0], pts[3][1], zq))
 
     openings = sorted(w["openings"], key=lambda o: o["at"])
     cursor = 0.0
@@ -950,7 +1783,7 @@ def _rail_line(buf, fid, gx0, gx1, yc, z):
 
 
 def _flight(buf, part):
-    """One dog-leg flight along Y: solid treads, walk ramp, raked
+    """One dog-leg flight along Y: thin waist slab + treads, walk ramp, raked
     balustrade on the well side, wall rail on the other, fall guard."""
     fid = floor_for_z(part["z0"] + 0.01)
     vis = buf(fid, "stairs", "stair")
@@ -961,18 +1794,36 @@ def _flight(buf, part):
     n, rise, tread = part["n"], part["rise"], part["tread"]
     s, d = part["start"], part["dir"]
     b0, b1, z0 = part["b0"], part["b1"], part["z0"]
+    # Visible construction is a constant-depth inclined waist slab, matching
+    # the 180 mm landing fascia.  The old boxes all extended down to z0,
+    # producing a giant wedge that intruded into the landing below.
+    a_end = s + d * (n - 1) * tread
+    vis.add_ramp(s, z0 - 0.01, a_end, z0 + (n - 1) * rise - 0.01,
+                 b0, b1, thickness=0.18, axis="y")
+    # The waist's underside runs 0.19 below the flight's own start height,
+    # so the foot of every flight buried itself in the floor it lands on —
+    # the bottom treads read as sinking into the ground rather than
+    # standing on it. A closer fills that wedge back up to floor level, the
+    # way a real bottom riser sits on the slab.
+    foot_a0 = min(s, s + d * 1.6 * tread)
+    foot_a1 = max(s, s + d * 1.6 * tread)
+    vis.add_box((b0, foot_a0, z0 - 0.19), (b1, foot_a1, z0))
     for i in range(1, n):
         a0 = s + d * (i - 1) * tread
         a1 = s + d * i * tread
-        vis.add_box((b0, min(a0, a1), z0), (b1, max(a0, a1), z0 + i * rise))
-    a_end = s + d * (n - 1) * tread
+        top = z0 + i * rise
+        # Thin tread plates overlap the waist slab just enough to close the
+        # saw-tooth silhouette without rebuilding a solid triangular mass.
+        vis.add_box((b0, min(a0, a1), top - 0.065),
+                    (b1, max(a0, a1), top))
     ramp.add_ramp(s, z0, a_end, z0 + n * rise, b0, b1, axis="y")
     xr = b1 - 0.045 if part["rail_side"] == "hi" else b0 + 0.045
     xw = b0 + 0.055 if part["rail_side"] == "hi" else b1 - 0.055
     for i in range(1, n):
-        am = s + d * (i - 0.5) * tread
-        bal.add_box((xr - 0.02, am - 0.02, z0 + i * rise),
-                    (xr + 0.02, am + 0.02, z0 + i * rise + 0.84))
+        for frac in (0.72, 0.28):   # two per tread, real balustrade rhythm
+            am = s + d * (i - frac) * tread
+            bal.add_box((xr - 0.02, am - 0.02, z0 + i * rise),
+                        (xr + 0.02, am + 0.02, z0 + i * rise + 0.84))
     rail.add_ramp(s, z0 + 0.92, a_end, z0 + n * rise + 0.92,
                   xr - 0.045, xr + 0.045, thickness=0.07, axis="y")
     rail.add_ramp(s, z0 + 0.87, a_end, z0 + n * rise + 0.87,
@@ -1011,6 +1862,118 @@ def build_stair(buf, st):
         _rail_line(buf, name, gx0, gx1, yc, z)
 
 
+## Simulated wear, placed where life happens: threshold scuffs at every
+## hinged door, traffic sheen down the corridor desire lines, drip
+## staining under every radiator, grease halos behind every range, and
+## the 5D burn fanning up its walls. These are positioned decal quads
+## (unit UVs, alpha textures) — the spatial damage the tile-global
+## overlay pass can't express.
+def build_wear_decals(buf, fl):
+    fid = fl["id"]
+    z = fl["z"]
+    zq = 0.0285   # above AO strips and contact shadows
+
+    def floor_quad(mat, x0, y0, x1, y1):
+        buf(fid, "wear_" + mat, mat).add_quad(
+            (x0, y0, z + zq), (x1, y0, z + zq),
+            (x1, y1, z + zq), (x0, y1, z + zq))
+
+    def wall_quad(mat, p0, p1, z0, z1):
+        b = buf(fid, "wear_" + mat, mat)
+        b.add_quad((p0[0], p0[1], z + z0), (p1[0], p1[1], z + z0),
+                   (p1[0], p1[1], z + z1), (p0[0], p0[1], z + z1))
+
+    def ceiling_quad(mat, x0, y0, x1, y1, drop=0.018):
+        """Down-facing translucent damage just below the plaster ceiling."""
+        b = buf(fid, "wear_ceiling_" + mat, mat)
+        zc = z + 3.0 - drop
+        b.add_quad((x0, y0, zc), (x0, y1, zc),
+                   (x1, y1, zc), (x1, y0, zc))
+
+    BEHIND = {90: (-1, 0), -90: (1, 0), 0: (0, -1), 180: (0, 1),
+              45: (-0.7, -0.7), 135: (0.7, -0.7)}
+    for m in fl["markers"]:
+        if m["kind"] == "door" and m.get("leaf") != "none":
+            px, py = m["pos"][0], m["pos"][1]
+            w = m["w"]
+            if m["yaw_deg"] == 0:
+                floor_quad("fx_scuff", px - 0.1, py - 0.45,
+                           px + w + 0.1, py + 0.45)
+            else:
+                floor_quad("fx_scuff", px - 0.45, py - 0.1 - w,
+                           px + 0.45, py + 0.1)
+        elif m["kind"] == "radiator":
+            dx, dy = BEHIND.get(m["yaw_deg"], (0, -1))
+            wx = m["pos"][0] + dx * 0.27
+            wy = m["pos"][1] + dy * 0.27
+            half = (abs(dy) * 0.5, abs(dx) * 0.5)
+            wall_quad("fx_drip", (wx - half[0], wy - half[1]),
+                      (wx + half[0], wy + half[1]), 0.08, 0.75)
+    # Condensation and failed exterior seals leave vertical blooms below
+    # windows.  Offset the quad just proud of one face to avoid z-fighting.
+    for w in fl["walls"]:
+        ax, ay = w["a"]
+        bx, by = w["b"]
+        horizontal = abs(by - ay) < 1e-6
+        start = min(ax, bx) if horizontal else min(ay, by)
+        cross = ay if horizontal else ax
+        face = cross + w["t"] / 2.0 + 0.004
+        for o in w["openings"]:
+            if o.get("type") != "window" or o.get("sill", 0.0) < 0.25:
+                continue
+            c = start + o["at"]
+            hw = min(0.42, o["w"] * 0.34)
+            if horizontal:
+                wall_quad("fx_drip", (c - hw, face), (c + hw, face),
+                          0.08, o["sill"] + 0.04)
+            else:
+                wall_quad("fx_drip", (face, c + hw), (face, c - hw),
+                          0.08, o["sill"] + 0.04)
+    for fu in fl.get("furniture", []):
+        if fu.get("asm") == "stove":
+            import math as _m
+            a = _m.radians(fu.get("yaw", 0))
+            fx_, fy_ = -_m.sin(a), _m.cos(a)     # local +y in world
+            wx = fu["at"][0] - fx_ * 0.36
+            wy = fu["at"][1] - fy_ * 0.36
+            half = (abs(fy_) * 0.45, abs(fx_) * 0.45)
+            wall_quad("fx_grease", (wx - half[0], wy - half[1]),
+                      (wx + half[0], wy + half[1]), 0.95, 1.90)
+    # Old plumbing announces itself overhead. Wet rooms get small irregular
+    # blooms; the top occupied floor carries broader roof-leak ghosts, while
+    # basement service rooms collect darker condensation around pipe routes.
+    wet_i = 0
+    for r in fl["rooms"]:
+        if r["kind"] not in ("bathroom", "kitchen", "laundry", "boiler"):
+            continue
+        x0, y0, x1, y1 = r["rect"]
+        cx = (x0 + x1) * 0.5 + ((wet_i % 3) - 1) * 0.17
+        cy = (y0 + y1) * 0.5 + ((wet_i % 2) * 2 - 1) * 0.13
+        rx = min(0.72, max(0.32, (x1 - x0) * 0.22))
+        ry = min(0.58, max(0.28, (y1 - y0) * 0.18))
+        ceiling_quad("fx_drip", cx - rx, cy - ry, cx + rx, cy + ry)
+        wet_i += 1
+    if fid == "F06":
+        for cx, cy, rx, ry in ((-10.8, -5.7, 1.15, 0.72),
+                               (8.9, 4.4, 0.95, 0.62),
+                               (0.8, 7.7, 0.82, 0.48)):
+            ceiling_quad("fx_drip", cx - rx, cy - ry, cx + rx, cy + ry)
+    elif fid == "B1":
+        for cx, cy, rx, ry in ((-9.8, 1.4, 1.2, 0.58),
+                               (8.5, -4.2, 1.0, 0.52),
+                               (1.2, 5.8, 0.8, 0.42)):
+            ceiling_quad("fx_grease", cx - rx, cy - ry, cx + rx, cy + ry)
+    if fid != "B1":   # corridor ring traffic sheen
+        for r in ((-4.83, -6.55, -3.93, 6.55), (3.93, -6.55, 4.83, 6.55),
+                  (-4.4, -8.75, 4.4, -7.85), (-4.4, 7.85, 4.4, 8.75),
+                  (-1.65, -6.7, -0.75, -3.35)):
+            floor_quad("fx_traffic", *r)
+        floor_quad("fx_traffic", -1.61, -3.11, 1.61, -1.51)  # deck lane
+    if fid == "F05":  # the 5D fire: soot fans up the bedroom walls
+        wall_quad("fx_burn", (13.44, -9.2), (13.44, -6.6), 0.15, 2.85)
+        wall_quad("fx_burn", (10.9, -9.62), (13.4, -9.62), 0.15, 2.85)
+
+
 def build_facade_details(buf):
     """Roof cornice band and the street entry portal."""
     cor = buf("F06", "cornice", "concrete")
@@ -1029,6 +1992,20 @@ def build_facade_details(buf):
     rib.add_box((-3.46, 3.34, 21.70), (3.46, 3.46, 21.83))
     rib.add_box((-3.46, -3.46, 21.70), (-3.34, 3.46, 21.83))
     rib.add_box((3.34, -3.46, 21.70), (3.46, 3.46, 21.83))
+    # Rainwater goods and roof penetrations make the shell read as a working
+    # building rather than a sealed model.  Downpipes stop just above grade;
+    # roof vents vary in height and diameter but remain deliberately simple.
+    pipes = buf("F01", "facade_rainwater", "metal")
+    for x in (-13.58, 13.58):
+        pipes.add_tube((x, -9.86, 0.18), (x, -9.86, 18.82), 0.055, 10)
+        pipes.add_tube((x, 9.86, 0.18), (x, 9.86, 18.82), 0.055, 10)
+    vents = buf("ROOF", "roof_vents", "metal")
+    for x, y, r, h in ((-8.4, -2.8, 0.13, 0.85),
+                       (7.6, 3.2, 0.11, 0.65),
+                       (10.5, -5.5, 0.18, 1.05),
+                       (-4.8, 6.1, 0.10, 0.55)):
+        vents.add_cyl(x, y, 19.24, 19.24 + h, r, r, 12)
+        vents.add_cyl(x, y, 19.22 + h, 19.30 + h, r * 1.35, r * 1.05, 12)
 
 
 def floor_for_z(z):
@@ -1046,6 +2023,11 @@ def floor_key(fid):
 
 def build():
     bpy.ops.wm.read_factory_settings(use_empty=True)
+    # Blender 5.2's glTF operator currently ignores its public log-level
+    # property unless the global debug level supplies the logger setting.
+    # ERROR keeps actionable exporter failures while omitting the known,
+    # harmless shared-sampler diagnostic for RGBA decal color/alpha sockets.
+    bpy.app.debug_value = 2
     scene = bpy.context.scene
     root_col = bpy.data.collections.new("ORISON")
     scene.collection.children.link(root_col)
@@ -1056,7 +2038,9 @@ def build():
     def buf(fid, cat, mat):
         key = (fid, cat)
         if key not in bufs:
-            bufs[key] = MeshBuf("%s_%s" % (fid, cat), mat)
+            mode = "unit" if mat.startswith("fx_") else                     ("unit" if UV_MODE_BY_MAT.get(mat) == "unit"
+                     else "world")
+            bufs[key] = MeshBuf("%s_%s" % (fid, cat), mat, mode)
         return bufs[key]
 
     for fl in LAYOUT["floors"]:
@@ -1084,7 +2068,8 @@ def build():
                        buf(fid, "trim", "trim"),
                        buf(fid, "glazing-col", "glassish"),
                        buf(fid, "wainscot", "wainscot"),
-                       buf(fid, "stone_trim-col", "limestone"))
+                       buf(fid, "stone_trim-col", "limestone"),
+                       buf(fid, "fx_ao_decal", "fx_ao"))
         for r in fl["rooms"]:
             build_floor_overlay(buf, fid, fl, r)
         for fu in fl.get("furniture", []):
@@ -1116,6 +2101,8 @@ def build():
     # invisible walk ramps / fall guards, filed under the lower floor
     for st in LAYOUT["stairs"]:
         build_stair(buf, st)
+    for fl in LAYOUT["floors"]:
+        build_wear_decals(buf, fl)
     build_facade_details(buf)
 
     for (fid, cat), b in bufs.items():
@@ -1127,9 +2114,21 @@ def build():
         for obj in col.objects:
             if obj.type == "MESH":
                 obj.select_set(True)
-        path = os.path.join(GLB_OUT, floor_key(fid) + ".glb")
+        # GLTF_SEPARATE with one shared texture dir: every floor
+        # references the same texture files (deterministic T_* names), so
+        # ~20 PBR sets exist once on disk and once in VRAM instead of
+        # being embedded eight times over (embedded GLBs ballooned past
+        # 100 MB total; separate keeps the whole export ~a tenth of that).
+        path = os.path.join(GLB_OUT, floor_key(fid) + ".gltf")
+        # RGBA decals intentionally feed one image node to both Base Color
+        # and Alpha. Blender's exporter reports that valid arrangement as a
+        # sampler warning even though both sockets necessarily use the same
+        # node/sampler. Keep production logs at ERROR so real export failures
+        # remain visible without hundreds of false-positive decal messages.
         bpy.ops.export_scene.gltf(filepath=path, use_selection=True,
-                                  export_apply=True)
+                                  export_apply=True,
+                                  export_format="GLTF_SEPARATE",
+                                  export_texture_dir="textures")
         print("exported", path)
 
     bpy.ops.wm.save_as_mainfile(filepath=BLEND_OUT)

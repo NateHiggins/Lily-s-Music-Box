@@ -31,6 +31,13 @@ func _build_visual() -> void:
 			Color(0.9, 0.9, 0.88))                       # dial pointer
 	make_box(Vector3(0.16, 0.035, 0.10), Vector3(-0.18, 1.005, 0.24),
 			Color(0.75, 0.75, 0.72))                     # soap hatch
+	retexture(self, [
+		[Color(0.85, 0.85, 0.83), "enamel", Color.WHITE],
+		[Color(0.78, 0.80, 0.83), "chrome", Color.WHITE],
+		[Color(0.30, 0.30, 0.33), "bakelite", Color.WHITE],
+		[Color(0.75, 0.75, 0.72), "enamel", Color(0.93, 0.93, 0.91)],
+		[Color(0.22, 0.22, 0.24), "metal", Color(0.35, 0.35, 0.38)],
+	])
 	_agitate = make_emitter("agitate_loop", -14.0, prop_type == "washer")
 	_thump = make_emitter("thud", -10.0)
 

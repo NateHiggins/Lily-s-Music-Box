@@ -8,7 +8,9 @@ const ACTIONS := {
 	"run": KEY_SHIFT, "crouch": KEY_C, "jump": KEY_SPACE,
 	"interact": KEY_E, "flashlight": KEY_L,
 	"noclip": KEY_V, "debug_panel": KEY_F1,
-	"walkthrough": KEY_T,
+	"intro": KEY_F2,
+	"distort_map": KEY_F3,
+	"chaos_mode": KEY_F4,
 }
 
 

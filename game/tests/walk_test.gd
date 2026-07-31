@@ -53,6 +53,26 @@ func _paired_gap_ms(a_id: String, b_id: String) -> int:
 
 
 func _ready() -> void:
+	# BEFORE the building is built, not after. The campaign persists to a
+	# user save and the suite was silently inheriting it: on a machine that
+	# had ever opened Mina's case, her evidence interactables came up with
+	# collision enabled and one of them — the redaction pencil — stands in
+	# the 2A living room on the exact line the bedroom walk takes. A fresh
+	# clone passed and this machine failed, which is the worst kind of flake.
+	# Case gameplay reads the campaign once in _ready(), so resetting after
+	# instantiation is far too late to matter.
+	RealityState.persistence_enabled = false
+	RealityState.reset_campaign_for_tests()
+	# Emptying the case table is NOT the same as a first launch, and the
+	# difference is load-bearing: MinaCaseGameplay._refresh() early-returns
+	# on an empty state, which leaves her evidence interactables at their
+	# default `enabled` — solid — instead of switching them off for an
+	# unseen case. Seed every case the way a first run does, or the reset
+	# lands somewhere worse than the save it was escaping.
+	for case_id in RealityCases.definitions:
+		var definition: Dictionary = RealityCases.definitions[case_id]
+		RealityState.ensure_case(case_id,
+				str(definition.get("resident_id", "")))
 	root = load("res://scenes/building/orison_root.tscn").instantiate()
 	add_child(root)
 	_run()
@@ -61,6 +81,18 @@ func _ready() -> void:
 func _run() -> void:
 	await get_tree().create_timer(0.6).timeout
 	root.show_all_floors = true
+	# The sanity director moves furniture and rewrites light energies on its
+	# own schedule, which is exactly what the lighting and prop assertions
+	# below measure. It gets stood down for the deterministic pass and is
+	# driven explicitly in _sanity_checks() at the end.
+	if root.sanity:
+		root.sanity.stand_down()
+	# The sanity director moves furniture and rewrites light energies on its
+	# own schedule, which is exactly what the lighting and prop assertions
+	# below measure. It gets stood down for the deterministic pass and is
+	# driven explicitly in _sanity_checks() at the end.
+	if root.sanity:
+		root.sanity.stand_down()
 
 	var levels: Dictionary = root.layout["meta"]["levels"]
 	for fid in levels:
@@ -82,10 +114,221 @@ func _run() -> void:
 	await get_tree().create_timer(2.0).timeout
 	_check(Conductor._beat_i > beat_before, "conductor clock is beating")
 
+	# --- lighting model: every fixture on the active floor is enabled
+	var fixtures := 0
+	for c2 in root.get_children():
+		if c2 is LightFixtureProp:
+			fixtures += 1
+	_check(fixtures >= 100,
+			"light fixtures spawned across the building (%d)" % fixtures)
+	var residents := get_tree().get_nodes_in_group("resident_placeholders")
+	_check(residents.size() == 18,
+			"all resident NPC placeholders spawned (%d)" % residents.size())
+	# Placeholders land at the centre of each resident's main room, which is
+	# where the door-to-bedroom route runs. Solid ones block it, and the
+	# generator's movement audit — which authors those clearances — cannot
+	# see actors added in Godot. They stay walk-through until a person is
+	# placed by the same pass that proves the route.
+	var blocking := 0
+	for npc in residents:
+		for part in npc.get_children():
+			if part is StaticBody3D and part.collision_layer != 0:
+				blocking += 1
+	_check(blocking == 0,
+			"resident placeholders do not obstruct audited routes")
+	await get_tree().create_timer(1.2).timeout  # let the rig settle
+	var lst: Dictionary = root.light_rig.stats()
+	# The rig gates by storey and then spends a bounded working set on the
+	# nearest fixtures, because GL compatibility caps lights PER OBJECT and
+	# each floor's walls are one merged mesh: enabling a whole storey hands
+	# that cap to an arbitrary subset and corridors go black mid-run.
+	var eligible := 0
+	var stray_floor := 0
+	var casting_unlit := 0
+	var lit_circulation := 0
+	for fixture in root.light_rig._controlled_lights():
+		var vertical: bool = root.light_rig._is_vertical(fixture)
+		if vertical or root.light_rig._fixture_floor(fixture) == "F01":
+			eligible += 1
+		var src: Light3D = fixture.light
+		var lit: bool = src != null and src.visible and src.light_energy > 0.05
+		# A shadow map on an unlit fixture is pure waste: six cube faces
+		# rendered for a light contributing nothing.
+		if src != null and src.shadow_enabled and not lit:
+			casting_unlit += 1
+		if not lit:
+			continue
+		if not vertical and root.light_rig._fixture_floor(fixture) != "F01":
+			stray_floor += 1
+		if "navigation_light" in fixture and fixture.navigation_light:
+			lit_circulation += 1
+	_check(lst.active_floor == "F01" and stray_floor == 0 and lst.off > 0,
+			"floor lighting: nothing off-storey is lit (%d lit, %d dark)" %
+			[lst.full, lst.off])
+	# Compare against the RESOLVED budgets, not the desktop constants: a
+	# mobile build deliberately runs a smaller working set and one caster.
+	_check(lst.full == mini(eligible, root.light_rig._active_budget),
+			"the working set is the nearest %d of %d eligible fixtures" %
+			[lst.full, eligible])
+	# Shadows are budgeted separately from light and far more tightly: an
+	# omni's shadow is a cube, so each caster re-renders the visible set
+	# six times. Casters are the nearest few of the lit set, never more.
+	_check(casting_unlit == 0,
+			"no unlit fixture wastes a shadow map (%d casters)" % lst.shadows)
+	_check(lst.shadows == mini(eligible, root.light_rig._shadow_budget),
+			"shadow casters capped at the nearest %d" % lst.shadows)
+	# the complaint this rig exists to answer: a corridor lit end to end
+	_check(lit_circulation >= 4,
+			"circulation fixtures hold the budget (%d lit)" % lit_circulation)
+	var moon := root.get_node_or_null("ExteriorMoon") as DirectionalLight3D
+	_check(moon != null and moon.shadow_enabled,
+			"exterior moon casts directional shadows")
+
+	# --- occlusion culling: the masonry is what stops the renderer drawing
+	# four storeys of furniture through the facade
+	var occ := root.get_node_or_null("Occluders")
+	var occ_boxes := 0
+	if occ:
+		for c3 in occ.get_children():
+			if c3 is OccluderInstance3D and c3.occluder is BoxOccluder3D:
+				occ_boxes += 1
+	_check(occ_boxes > 500, "occluders built from wall data (%d)" % occ_boxes)
+	# Props are modelled as heaps of primitives; the column radiator alone
+	# was 62 MeshInstance3Ds, more than half of all prop geometry in the
+	# building. merge_static() bakes fixed sub-trees down to one mesh per
+	# finish — this guards the win, since the cost is invisible until
+	# something profiles it.
+	var rad_meshes := 0
+	var rad_props := 0
+	for c4 in root.get_children():
+		if c4 is RadiatorProp:
+			rad_props += 1
+			rad_meshes += _count_meshes(c4)
+	_check(rad_props > 0 and float(rad_meshes) / rad_props < 8.0,
+			"radiators stay merged (%.1f meshes each across %d)" %
+			[float(rad_meshes) / maxf(1.0, rad_props), rad_props])
+	_check(ProjectSettings.get_setting(
+			"rendering/occlusion_culling/use_occlusion_culling", false),
+			"occlusion culling is enabled for the project")
+
+	# --- night occupancy: the building has to read as lived in from the
+	# street, where the storey gate means at most one floor's fixtures burn
+	var glow := root.get_node_or_null("WindowGlow")
+	var glow_stats: Dictionary = glow.stats() if glow else {}
+	_check(int(glow_stats.get("lit", 0)) > 20,
+			"windows glow from outside at night (%d lit, %d dark)" %
+			[glow_stats.get("lit", 0), glow_stats.get("dark", 0)])
+	_check(int(glow_stats.get("dark", 0)) > 0,
+			"some windows stay dark (sealed 2D, burnt 5D, and sleepers)")
+	var one_sided := true
+	var casts := false
+	if glow:
+		for g in glow.get_children():
+			if g is MeshInstance3D:
+				var gm: StandardMaterial3D = g.material_override
+				if gm == null or gm.cull_mode != BaseMaterial3D.CULL_BACK:
+					one_sided = false
+				if g.cast_shadow != GeometryInstance3D.SHADOW_CASTING_SETTING_OFF:
+					casts = true
+	# Single-sided is what keeps the glow out of the room it belongs to:
+	# from inside you see its culled back face and the real night sky.
+	_check(one_sided, "window glows are single-sided (unseen from inside)")
+	_check(not casts, "window glows cast no shadows")
+
+	# --- touch controls: the phone HUD has to drive the same player the
+	# keyboard does, or the Android build is a slideshow you cannot steer
+	var tc: TouchControls = root.touch
+	_check(tc != null, "touch HUD present")
+	if tc:
+		tc.set_enabled(true)
+		root.player.touch_input = true
+		await get_tree().process_frame
+		var scr := Vector2(get_viewport().get_visible_rect().size)
+		# thumb lands in the left zone, then pushes forward (screen -Y)
+		var origin := Vector2(scr.x * 0.18, scr.y * 0.72)
+		tc._press(0, origin)
+		tc._drag(0, origin + Vector2(0, -scr.y * 0.20))
+		_check(Input.get_action_strength("move_forward") > 0.5,
+				"stick drives move_forward (%.2f)" %
+				Input.get_action_strength("move_forward"))
+		tc._drag(0, origin + Vector2(scr.x * 0.20, 0))
+		_check(Input.get_action_strength("move_right") > 0.5
+				and Input.get_action_strength("move_forward") == 0.0,
+				"stick steers right and releases forward")
+		tc._release(0)
+		_check(Input.get_action_strength("move_right") == 0.0
+				and Input.get_action_strength("move_left") == 0.0,
+				"lifting the thumb stops the player")
+		# a drag on the right half looks, and must not also walk
+		var before_yaw: float = root.player.rotation.y
+		tc._press(1, Vector2(scr.x * 0.75, scr.y * 0.5))
+		tc._drag(1, Vector2(scr.x * 0.75 + 120.0, scr.y * 0.5))
+		await get_tree().process_frame
+		_check(absf(root.player.rotation.y - before_yaw) > 0.05,
+				"right-side drag turns the camera")
+		_check(Input.get_action_strength("move_forward") == 0.0,
+				"looking does not also walk")
+		tc._release(1)
+		# the action cluster: momentary fires and releases, toggles latch
+		var e_btn: Dictionary = tc._buttons[0]
+		tc._press(2, e_btn["centre"])
+		_check(Input.is_action_pressed("interact"),
+				"interact button presses its action")
+		tc._release(2)
+		_check(not Input.is_action_pressed("interact"),
+				"interact releases with the finger")
+		var run_btn: Dictionary = tc._buttons[2]
+		tc._press(3, run_btn["centre"])
+		tc._release(3)
+		_check(Input.is_action_pressed("run"),
+				"run latches on (nobody holds a thumb down to jog)")
+		tc._press(3, run_btn["centre"])
+		tc._release(3)
+		_check(not Input.is_action_pressed("run"), "run latches off again")
+		# The HUD must take only what the UI did not want. Handling touches
+		# in _input instead swallows every tap before Controls see it, and
+		# on a phone the debug panel and the call interface stop responding
+		# entirely — with nothing on screen to suggest why.
+		_check(not tc.has_method("_input"),
+				"the HUD sits on _unhandled_input, behind the UI")
+		tc.set_enabled(false)
+		root.player.touch_input = false
+		_check(Input.get_action_strength("move_forward") == 0.0,
+				"disabling the HUD releases everything it held")
+	# The mobile budget is adjustable at runtime because its first values
+	# were reasoned about rather than measured, and read too dark on a real
+	# device. Clamped so shadows can never exceed the lights that cast them.
+	var rig: LightRig = root.light_rig
+	var keep_a: int = rig._active_budget
+	var keep_s: int = rig._shadow_budget
+	rig.set_budgets(10, 99)
+	_check(rig._shadow_budget == 10,
+			"shadow budget cannot exceed the light budget (%d)"
+			% rig._shadow_budget)
+	rig.set_budgets(0, 0)
+	_check(rig._active_budget >= 1, "light budget never reaches zero")
+	rig.set_budgets(keep_a, keep_s)
+	_check(rig._active_budget == keep_a and rig._shadow_budget == keep_s,
+			"budgets restore")
+
+	# --- the reading nook at the foot of the light tree is a PLACE, so it
+	# has to be reachable on foot like everything else: basement corridor,
+	# through the hall arch, onto the court floor, in past the bench.
+	var pl0: PlayerController = root.player
+	pl0.global_position = Vector3(0.0, -2.65, 7.6)   # B1 inner hall
+	pl0.velocity = Vector3.ZERO
+	await _goto(pl0, Vector2(-1.2, 5.0), 5.0)        # hall arch
+	await _goto(pl0, Vector2(-0.5, 2.6), 4.0)        # court arch
+	await _goto(pl0, Vector2(-0.48, 0.35), 4.0)      # into the nook
+	pl0.autopilot = Vector3.ZERO
+	_check(pl0.global_position.z < 1.1 and pl0.global_position.y < -2.0,
+			"reading nook reached on foot at the tree's base (z=%.2f)"
+			% pl0.global_position.z)
+
 	# --- south corridor -> elevator hall -> atrium deck -> up the west
 	# flight to the north landing -> east flight onto the F02 deck
 	var pl: PlayerController = root.player
-	pl.global_position = Vector3(0.0, 0.15, 7.6)  # lobby, past the vestibule
+	pl.global_position = Vector3(0.0, 0.15, 7.6)  # inner lobby
 	pl.velocity = Vector3.ZERO
 	await _goto(pl, Vector2(-1.2, 5.0), 5.0)    # through the hall arch
 	await _goto(pl, Vector2(-0.5, 2.6), 4.0)    # court arch, onto the deck
@@ -99,13 +342,122 @@ func _run() -> void:
 			"atrium stair climbed corridor-to-corridor (y=%.2f)"
 			% pl.global_position.y)
 
+	# --- physical movement sweep: corridor ring loop on F02, then into
+	# 2A and through the RELOCATED bedroom door (the audit's biggest find)
+	pl.global_position = Vector3(4.38, 3.35, 6.0)
+	pl.velocity = Vector3.ZERO
+	for wp in [Vector2(4.38, -6.0), Vector2(4.38, -8.3),
+			Vector2(0.0, -8.3), Vector2(-4.38, -8.3), Vector2(-4.38, -6.0),
+			Vector2(-4.38, 6.0), Vector2(-4.38, 8.3), Vector2(0.0, 8.3),
+			Vector2(4.38, 8.3), Vector2(4.38, 6.0)]:
+		await _goto(pl, wp, 8.0)
+	_check(Vector2(pl.global_position.x, pl.global_position.z)
+			.distance_to(Vector2(4.38, 6.0)) < 0.6,
+			"F02 corridor ring walked full loop")
+	var entry2a: DoorProp = null
+	for c3 in root.get_children():
+		if c3 is DoorProp and c3.global_position.distance_to(
+				Vector3(-5.33, 3.2, 2.105)) < 0.9:
+			entry2a = c3
+	if entry2a and not entry2a.open:
+		entry2a.interact(null)
+		await get_tree().create_timer(0.7).timeout
+	pl.global_position = Vector3(-4.7, 3.35, 1.65)
+	pl.velocity = Vector3.ZERO
+	await _goto(pl, Vector2(-7.0, 1.65), 5.0)   # through 2A entry
+	await _goto(pl, Vector2(-9.8, 2.2), 5.0)    # west of the dining table
+	await _goto(pl, Vector2(-9.8, 5.2), 5.0)
+	await _goto(pl, Vector2(-8.5, 5.3), 4.0)    # clear of the door swing
+	var bed2a: DoorProp = null
+	for c4 in root.get_children():
+		if c4 is DoorProp and c4.global_position.distance_to(
+				Vector3(-9.215, 3.2, 6.25)) < 0.6:
+			bed2a = c4
+	_check(bed2a != null, "2A bedroom door found at relocated position")
+	if bed2a and not bed2a.open:
+		bed2a.interact(null)
+		await get_tree().create_timer(0.7).timeout
+	await _goto(pl, Vector2(-8.62, 6.55), 4.0)  # east lane past the leaf
+	await _goto(pl, Vector2(-9.5, 7.9), 4.0)    # to the bedside
+	pl.autopilot = Vector3.ZERO
+	_check(pl.global_position.z > 6.8,
+			"2A bedroom reached through its own door (z=%.2f)"
+			% pl.global_position.z)
+
+	# every fixture must hang from its own storey's ceiling — a fixture
+	# low over its floor means it punched through into the level above
+	var lvls2: Array = [-2.8, 0.0, 3.2, 6.4, 9.6, 12.8, 16.0, 19.2]
+	var low_fix := []
+	for f5 in get_tree().get_nodes_in_group("light_fixtures"):
+		# Two families have no ceiling to hang from: street lamps stand on
+		# the pavement on a mast, and the court's lights are fruit on the
+		# branches of the light tree. "Too low for its storey" cannot mean
+		# anything for either.
+		if f5.prop_type in ["street_lamp", "eye_pendant"]:
+			continue
+		var gy: float = f5.global_position.y
+		var own: float = lvls2[0]
+		for lz in lvls2:
+			if lz <= gy + 0.01:
+				own = lz
+		if gy - own < 1.8:
+			low_fix.append(f5.name)
+	_check(low_fix.is_empty(),
+			"all fixtures ceiling-mounted in their own storey (low: %s)"
+			% [low_fix])
+
+	# --- atrium sightline: from a stair landing the open eye shows every
+	# storey, so the whole floor stack must render there
+	root.show_all_floors = false
+	pl.global_position = Vector3(0.0, 8.15, -2.31)  # F03 half landing
+	pl.velocity = Vector3.ZERO
+	await get_tree().create_timer(0.4).timeout
+	var hidden := []
+	for fid2 in root.floor_nodes:
+		if not root.floor_nodes[fid2].visible:
+			hidden.append(fid2)
+	_check(hidden.is_empty(),
+			"all floors render from the atrium eye (hidden: %s)" % [hidden])
+	pl.global_position = Vector3(4.3, 3.35, 0.0)  # corridor: streaming back
+	pl.velocity = Vector3.ZERO
+	await get_tree().create_timer(0.4).timeout
+	_check(not root.floor_nodes["F06"].visible,
+			"floor streaming resumes outside the eye")
+	root.show_all_floors = true
+
 	# --- elevator travel across full range
-	root.elevator.travel_to("F06")
-	await _until(func(): return not root.elevator.moving, 25.0)
-	_check(root.elevator.current == "F06", "elevator reached F06")
-	root.elevator.travel_to("B1")
-	await _until(func(): return not root.elevator.moving, 25.0)
-	_check(root.elevator.current == "B1", "elevator reached B1")
+	var ele: OrisonElevator = root.elevator
+	_check(ele._doors.size() == ele.stop_order.size(),
+			"every elevator stop has landing doors (%d)" % ele._doors.size())
+	_check(ele._doors[ele.current]["t"] > 0.99,
+			"the doors at the car's own landing stand open")
+	for lvl in ele.stop_order:
+		if lvl != ele.current:
+			_check(ele._doors[lvl]["t"] < 0.01,
+					"landing %s is closed off while the car is elsewhere" % lvl)
+			break
+	ele.travel_to("F06")
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	_check(ele._doors["F01"]["t"] < 1.0,
+			"doors start closing before the car leaves")
+	await _until(func(): return not ele.moving, 30.0)
+	_check(ele.current == "F06", "elevator reached F06")
+	_check(ele._doors["F06"]["t"] > 0.99, "doors reopen on arrival at F06")
+	_check(ele._doors["F01"]["t"] < 0.01,
+			"the landing it left is sealed behind it")
+	# a rider standing in the cab is carried, not left on the slab
+	var pl2: PlayerController = root.player
+	pl2.global_position = ele._cabin.global_position + Vector3(0, 0.9, 0)
+	pl2.velocity = Vector3.ZERO
+	await get_tree().physics_frame
+	var rode_from := pl2.global_position.y
+	ele.travel_to("B1")
+	await _until(func(): return not ele.moving, 30.0)
+	_check(ele.current == "B1", "elevator reached B1")
+	_check(pl2.global_position.y < rode_from - 12.0,
+			"a rider in the cab travels with it (%.1f m)" %
+			(rode_from - pl2.global_position.y))
 
 	_check(AcousticGraphData.nodes.size() >= 25,
 			"acoustic graph loaded (%d nodes)" % AcousticGraphData.nodes.size())
@@ -113,33 +465,29 @@ func _run() -> void:
 			"4B radiator connected to heating network")
 
 	await _vertical_slice_checks()
-	await _walkthrough_checks()
 
 	print("WALKTEST RESULT: %s" %
 			("PASS" if _failures == 0 else "FAIL (%d)" % _failures))
+	# Let the dynamically assembled building release its meshes, materials,
+	# timers, signal callables and audio players before the headless engine
+	# tears down its ObjectDB. Immediate quit previously stranded a small,
+	# deterministic set of test-only instances and printed a false leak alarm.
+	_arrivals.clear()
+	_stop_audio(root)
+	root.queue_free()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	PropAudio.clear_cache()
+	await get_tree().process_frame
 	get_tree().quit(_failures)
 
 
-## The architectural walkthrough builds its path from the layout, flies,
-## and hands control back cleanly.
-func _walkthrough_checks() -> void:
-	var wt: ArchitecturalWalkthrough = root.walkthrough
-	_check(wt != null, "walkthrough present")
-	if wt == null:
-		return
-	wt.start()
-	_check(wt._active, "walkthrough starts")
-	_check(wt._wps.size() > 60,
-			"walkthrough path built (%d waypoints)" % wt._wps.size())
-	_check(root.player.call_locked, "walkthrough locks the player")
-	var cam0: Vector3 = wt._cam.global_position
-	await get_tree().create_timer(4.5).timeout  # outlasts the first caption dwell
-	_check(wt._cam.global_position.distance_to(cam0) > 1.0,
-			"walkthrough camera is flying (%.1f m)"
-			% wt._cam.global_position.distance_to(cam0))
-	wt.stop()
-	_check(not root.player.call_locked and not wt._active,
-			"walkthrough hands control back")
+func _stop_audio(node: Node) -> void:
+	if node is AudioStreamPlayer or node is AudioStreamPlayer3D:
+		node.stop()
+		node.stream = null
+	for child in node.get_children(true):
+		_stop_audio(child)
 
 
 func _vertical_slice_checks() -> void:
@@ -163,9 +511,8 @@ func _vertical_slice_checks() -> void:
 	# per-stack archetypes present across the building
 	for rid2 in ["F02_A_BED", "F03_C_BED2", "F05_D_OFFICE", "F02_WSTOR"]:
 		_check(ids.has(rid2), "%s in layout" % rid2)
-	# lobby program + vestibule from the polish pass
-	for rid3 in ["F01_VESTIBULE", "F01_OFFICE", "F01_PACKAGE",
-			"F01_RESTROOM"]:
+	# lobby support program from the polish pass
+	for rid3 in ["F01_OFFICE", "F01_PACKAGE", "F01_RESTROOM"]:
 		_check(ids.has(rid3), "%s in layout" % rid3)
 	await _door_checks()
 
@@ -192,6 +539,50 @@ func _door_checks() -> void:
 		_check(not closed.open, "door closes and latches")
 	else:
 		_check(false, "found a closed door to test")
+
+	# --- E actually opens a door FROM THE PLAYER. Everything above calls
+	# interact() straight on the prop, which proves the door works and says
+	# nothing about whether a keypress reaches it. That gap hid a real bug:
+	# the on-screen button sets the action through Input.action_press(),
+	# which never manufactures an InputEvent, so an _unhandled_input
+	# handler is unreachable from a touchscreen and E did nothing on the
+	# phone build. This drives the same route a player's finger does.
+	var target: DoorProp = null
+	for c5 in root.get_children():
+		if c5 is DoorProp and c5.leaf_state == "closed" and not c5.open:
+			target = c5
+			break
+	if target:
+		var pl3: PlayerController = root.player
+		# stand square to the leaf, a pace back, eyes on the middle of it
+		var face: Vector3 = target.global_transform.basis * Vector3(0, 0, 1)
+		var mid: Vector3 = target.global_position \
+				+ target.global_transform.basis \
+				* Vector3(target.width * 0.5, target.height * 0.5, 0.0)
+		pl3.global_position = mid + face * 1.1 - Vector3(0, 1.62, 0)
+		pl3.velocity = Vector3.ZERO
+		await get_tree().physics_frame
+		pl3.camera.look_at(mid, Vector3.UP)
+		# The prompt is suppressed unless the pointer is captured, which
+		# never happens headlessly OR on a phone — so this checks the touch
+		# path, where touch_input is what unlocks it. Without that flag the
+		# phone build would never tell you an interaction exists.
+		pl3.touch_input = true
+		# _update_prompt runs inside _process, so the camera has to have
+		# been re-aimed for a full frame before the label means anything.
+		for _i in 3:
+			await get_tree().process_frame
+		_check(pl3._prompt.text.contains("[E]"),
+				"the door is under the crosshair (prompt: '%s')"
+				% pl3._prompt.text)
+		pl3.touch_input = false
+		Input.action_press("interact")
+		await get_tree().process_frame
+		Input.action_release("interact")
+		await get_tree().create_timer(0.9).timeout
+		_check(target.open, "pressing E opens the door the player faces")
+	else:
+		_check(false, "found a closed door to face")
 	if locked:
 		locked.interact(null)
 		await get_tree().create_timer(0.4).timeout
@@ -330,9 +721,9 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	ci.leave()
 	_check(not root.player.call_locked, "player released after leaving desk")
 
-	# out the front door: vestibule -> street door -> stoop -> sidewalk
+	# out the front door: lobby -> street door -> stoop -> sidewalk
 	var pl2: PlayerController = root.player
-	pl2.global_position = Vector3(0.0, 0.15, 9.0)  # in the vestibule
+	pl2.global_position = Vector3(0.0, 0.15, 9.0)  # inside the street door
 	pl2.velocity = Vector3.ZERO
 	var street_door: DoorProp = null
 	for c2 in root.get_children():
@@ -345,12 +736,43 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 		if not street_door.open:
 			street_door.interact(null)
 			await get_tree().create_timer(0.8).timeout
+		var sp3 := get_viewport().world_3d.direct_space_state
+		for hy in [0.2, 0.6, 1.1, 1.6]:
+			var q3 := PhysicsRayQueryParameters3D.create(
+					Vector3(0.0, hy, 8.6), Vector3(0.0, hy, 12.5))
+			q3.exclude = [pl2.get_rid()]
+			var h3 := sp3.intersect_ray(q3)
+			if h3.is_empty():
+				print("HPROBE y=%.1f clear" % hy)
+			else:
+				var pr3: Node = h3.collider.get_parent()
+				print("HPROBE y=%.1f hit z=%.2f %s/%s" % [hy,
+						h3.position.z, pr3.name if pr3 else "?",
+						h3.collider.name])
 		await _goto(pl2, Vector2(0.0, 12.5), 6.0)
 		pl2.autopilot = Vector3.ZERO
 		_check(pl2.global_position.z > 11.0 and pl2.global_position.y < 1.5,
 				"walked out onto the sidewalk (z=%.1f)" % pl2.global_position.z)
 	_check(_floor_below(Vector3(0.0, 1.0, 12.5)), "sidewalk is solid")
 	_check(_floor_below(Vector3(0.0, 1.0, -11.5)), "rear alley is solid")
+	# roof egress: the last exterior door — up from the F06 deck through
+	# the monitor door onto the open roof
+	pl2.global_position = Vector3(-0.5, 19.35, 2.6)  # roof-level deck
+	pl2.velocity = Vector3.ZERO
+	var roof_door: DoorProp = null
+	for c5 in root.get_children():
+		if c5 is DoorProp and c5.global_position.y > 19.0 				and absf(c5.global_position.z - 3.25) < 0.5:
+			roof_door = c5
+	_check(roof_door != null, "roof monitor door found")
+	if roof_door and not roof_door.open:
+		roof_door.interact(null)
+		await get_tree().create_timer(0.8).timeout
+	await _goto(pl2, Vector2(-0.85, 4.6), 6.0)
+	pl2.autopilot = Vector3.ZERO
+	_check(pl2.global_position.z > 3.8 and pl2.global_position.y > 19.0,
+			"walked out the monitor door onto the roof (z=%.1f)"
+			% pl2.global_position.z)
+
 	var cab: DoorProp = root.get_node_or_null("F04_CAB_UPPER_1")
 	_check(cab != null, "kitchen cabinet doors spawned")
 	if cab:
@@ -376,8 +798,594 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 		Conductor.bpm = 72.0
 	else:
 		_check(false, "Room 0 reachable from anomaly")
+	# Cases 02 and 03 run last, after Case 01's own consequences (the seam,
+	# Room 0) have been checked against the state Case 01 left. They move
+	# infection around freely, and an earlier version of this ordering
+	# quietly un-manifested the seam before the Room 0 walk reached it.
+	await _case_network_checks(ci)
+	_wall_art_report()
+	_door_glow_checks()
+	_broadcast_checks()
+	await _lobby_figure_checks()
+	await _sanity_checks()
+	await _sanity_checks()
 	Conductor.infection = 0.15
 	Conductor.origin_node = "B1_BOILER_01"
+
+
+## The sanity system. Three things need proving and none of them are "does
+## it scare you": that the safety net catches a player the world has dropped,
+## that a poltergeist borrows the building rather than damaging it, and that
+## nothing the meta layer does can strand someone.
+func _sanity_checks() -> void:
+	var net: SafetyNet = root.safety_net
+	_check(net != null, "safety net attached to the player")
+	var director: SanityDirector = root.sanity
+	_check(director != null, "sanity director present")
+	if net == null or director == null:
+		return
+
+	# --- the net. Put the player somewhere real, let it take an anchor,
+	# then throw them out of the world and prove they come back.
+	net.enabled = true
+	root.player.global_position = Vector3(4.3, 0.15, 0.0)  # F01 corridor
+	root.player.velocity = Vector3.ZERO
+	await get_tree().create_timer(0.9).timeout
+	var anchor := net.anchor
+	_check(anchor.y > -6.0, "net anchored somewhere standable (y=%.2f)" % anchor.y)
+	var before := net.recoveries
+	net.drop_test()
+	await get_tree().create_timer(0.4).timeout
+	_check(net.recoveries == before + 1, "net catches a fall out of the world")
+	_check(root.player.global_position.y > -6.0,
+			"recovered player is back in the building (y=%.2f)"
+			% root.player.global_position.y)
+	# A NaN transform fails every range comparison silently, so it needs its
+	# own path or a corrupted player falls forever while the checks pass.
+	before = net.recoveries
+	root.player.global_position = Vector3(NAN, NAN, NAN)
+	await get_tree().create_timer(0.4).timeout
+	_check(net.recoveries == before + 1, "net catches a non-finite position")
+
+	# --- the cast. Every poltergeist must be a real resident with a
+	# complete ladder, or the director can pick someone who cannot speak.
+	var ids := PoltergeistLibrary.ids()
+	_check(ids.size() == 18, "eighteen poltergeists authored (%d)" % ids.size())
+	var incomplete := 0
+	var orphans := 0
+	for case_id in ids:
+		if not RealityCases.definitions.has(case_id):
+			orphans += 1
+		for tier in [1, 2, 3, 4]:
+			if PoltergeistLibrary.rung(case_id, tier).is_empty():
+				incomplete += 1
+	_check(orphans == 0,
+			"every poltergeist maps to a real resident case (%d orphaned)"
+			% orphans)
+	_check(incomplete == 0,
+			"every poltergeist has all four rungs (%d missing)" % incomplete)
+
+	# --- borrowing, not damaging. Force a rung that possesses props, then
+	# prove the building goes back exactly as it was.
+	root.player.global_position = Vector3(-9.5, 11.25, -4.8)  # 4B, dressed
+	root.player.velocity = Vector3.ZERO
+	await get_tree().create_timer(0.5).timeout
+	var sample: Array = []
+	for child in root.get_children():
+		if child is FunctionalProp and not (child is LightFixtureProp):
+			if child.global_position.distance_to(
+					root.player.global_position) < 9.0:
+				sample.append([child, child.transform])
+	_check(sample.size() >= 3,
+			"props within reach of the test position (%d)" % sample.size())
+	var fired := director.intrusion_count
+	director.force("mina_caption_crisis", 3)
+	_check(director.intrusion_count == fired + 1,
+			"forcing a rung performs an intrusion")
+	director.intrusions.restore_all()
+	var moved := 0
+	for entry in sample:
+		if not entry[0].transform.is_equal_approx(entry[1]):
+			moved += 1
+	_check(moved == 0,
+			"possessed props restore exactly (%d left displaced)" % moved)
+	_check(director.intrusions.held_count() == 0,
+			"nothing is still held after a restore")
+
+	# --- the meta layer never strands anyone.
+	var meta: FourthWallLayer = root.fourth_wall
+	_check(meta != null, "fourth-wall layer present")
+	if meta:
+		_check(meta.play("save_corrupt"), "a meta effect can be played")
+		_check(meta.is_busy(), "meta effect holds the screen while it runs")
+		_check(not meta.play("session_time"),
+				"meta effects never overlap each other")
+		meta.force_finish()
+		_check(not meta.is_busy(), "meta effect always clears itself")
+		# Every effect named by a poltergeist has to actually exist, or a
+		# rung-four address silently does nothing at all.
+		var missing: Array[String] = []
+		for case_id in ids:
+			for act in PoltergeistLibrary.rung(case_id, 4):
+				if str(act[0]) != "fourth_wall":
+					continue
+				if not meta.play(str(act[1])):
+					missing.append(str(act[1]))
+				meta.force_finish()
+		_check(missing.is_empty(),
+				"every authored meta effect is implemented (missing %s)"
+				% [missing])
+
+	# --- and it stays invisible. Pressure is readable by tooling and tests,
+	# never by the shipped HUD.
+	_check(director.pressure >= 0.0 and director.pressure <= 1.0,
+			"pressure stays normalised (%.2f)" % director.pressure)
+	director.stand_down()
+	_check(director.intrusions.held_count() == 0,
+			"standing down leaves the building clean")
+
+
+## The sanity system. Three things need proving and none of them are "does
+## it scare you": that the safety net catches a player the world has dropped,
+## that a poltergeist borrows the building rather than damaging it, and that
+## nothing the meta layer does can strand someone.
+func _sanity_checks() -> void:
+	var net: SafetyNet = root.safety_net
+	_check(net != null, "safety net attached to the player")
+	var director: SanityDirector = root.sanity
+	_check(director != null, "sanity director present")
+	if net == null or director == null:
+		return
+
+	# --- the net. Put the player somewhere real, let it take an anchor,
+	# then throw them out of the world and prove they come back.
+	net.enabled = true
+	root.player.global_position = Vector3(4.3, 0.15, 0.0)  # F01 corridor
+	root.player.velocity = Vector3.ZERO
+	await get_tree().create_timer(0.9).timeout
+	var anchor := net.anchor
+	_check(anchor.y > -6.0, "net anchored somewhere standable (y=%.2f)" % anchor.y)
+	var before := net.recoveries
+	net.drop_test()
+	await get_tree().create_timer(0.4).timeout
+	_check(net.recoveries == before + 1, "net catches a fall out of the world")
+	_check(root.player.global_position.y > -6.0,
+			"recovered player is back in the building (y=%.2f)"
+			% root.player.global_position.y)
+	# A NaN transform fails every range comparison silently, so it needs its
+	# own path or a corrupted player falls forever while the checks pass.
+	before = net.recoveries
+	root.player.global_position = Vector3(NAN, NAN, NAN)
+	await get_tree().create_timer(0.4).timeout
+	_check(net.recoveries == before + 1, "net catches a non-finite position")
+
+	# --- the cast. Every poltergeist must be a real resident with a
+	# complete ladder, or the director can pick someone who cannot speak.
+	var ids := PoltergeistLibrary.ids()
+	_check(ids.size() == 18, "eighteen poltergeists authored (%d)" % ids.size())
+	var incomplete := 0
+	var orphans := 0
+	for case_id in ids:
+		if not RealityCases.definitions.has(case_id):
+			orphans += 1
+		for tier in [1, 2, 3, 4]:
+			if PoltergeistLibrary.rung(case_id, tier).is_empty():
+				incomplete += 1
+	_check(orphans == 0,
+			"every poltergeist maps to a real resident case (%d orphaned)"
+			% orphans)
+	_check(incomplete == 0,
+			"every poltergeist has all four rungs (%d missing)" % incomplete)
+
+	# --- borrowing, not damaging. Force a rung that possesses props, then
+	# prove the building goes back exactly as it was.
+	root.player.global_position = Vector3(-9.5, 11.25, -4.8)  # 4B, dressed
+	root.player.velocity = Vector3.ZERO
+	await get_tree().create_timer(0.5).timeout
+	var sample: Array = []
+	for child in root.get_children():
+		if child is FunctionalProp and not (child is LightFixtureProp):
+			if child.global_position.distance_to(
+					root.player.global_position) < 9.0:
+				sample.append([child, child.transform])
+	_check(sample.size() >= 3,
+			"props within reach of the test position (%d)" % sample.size())
+	var fired := director.intrusion_count
+	director.force("mina_caption_crisis", 3)
+	_check(director.intrusion_count == fired + 1,
+			"forcing a rung performs an intrusion")
+	director.intrusions.restore_all()
+	var moved := 0
+	for entry in sample:
+		if not entry[0].transform.is_equal_approx(entry[1]):
+			moved += 1
+	_check(moved == 0,
+			"possessed props restore exactly (%d left displaced)" % moved)
+	_check(director.intrusions.held_count() == 0,
+			"nothing is still held after a restore")
+
+	# --- the meta layer never strands anyone.
+	var meta: FourthWallLayer = root.fourth_wall
+	_check(meta != null, "fourth-wall layer present")
+	if meta:
+		_check(meta.play("save_corrupt"), "a meta effect can be played")
+		_check(meta.is_busy(), "meta effect holds the screen while it runs")
+		_check(not meta.play("session_time"),
+				"meta effects never overlap each other")
+		meta.force_finish()
+		_check(not meta.is_busy(), "meta effect always clears itself")
+		# Every effect named by a poltergeist has to actually exist, or a
+		# rung-four address silently does nothing at all.
+		var missing: Array[String] = []
+		for case_id in ids:
+			for act in PoltergeistLibrary.rung(case_id, 4):
+				if str(act[0]) != "fourth_wall":
+					continue
+				if not meta.play(str(act[1])):
+					missing.append(str(act[1]))
+				meta.force_finish()
+		_check(missing.is_empty(),
+				"every authored meta effect is implemented (missing %s)"
+				% [missing])
+
+	# --- attention. The director watches what the player looks at, and an
+	# intrusion nobody sees has to be made again. Both halves are asserted
+	# because "the building gets louder when ignored" is the rule that
+	# decides whether a careless player has a worse time than a careful one.
+	director.enabled = true
+	var ignored_before: int = director._ignored_streak
+	director.force("noel_domestic_museum", 2)
+	_check(not director.intrusions.last_targets.is_empty(),
+			"an intrusion reports what it touched (%d targets)"
+			% director.intrusions.last_targets.size())
+	_check(not director._watching.is_empty(),
+			"firing arms the notice window")
+	director._watch_deadline = 0.0          # pretend the window elapsed
+	director._observe_gaze(0.1)
+	_check(director._ignored_streak == ignored_before + 1,
+			"an unwitnessed intrusion makes the building insist")
+	# Now the other way: looking at what moved closes the loop.
+	director.force("noel_domestic_museum", 2)
+	var target: Node3D = director.intrusions.last_targets[0]
+	director._watching = [target]
+	director._noticed()
+	_check(director._ignored_streak == 0,
+			"noticing what moved resets the insistence")
+	_check(director._watching.is_empty(), "the notice window closes on notice")
+	# Vanishing only ever takes things the player cannot see, and gives them
+	# back — a prop left invisible is lost scenery, not a haunting.
+	director.intrusions.perform("prop_vanish", 2)
+	director.intrusions.restore_all()
+	var invisible := 0
+	for child in root.get_children():
+		if child is FunctionalProp and not child.visible:
+			invisible += 1
+	_check(invisible == 0,
+			"vanished props come back (%d still hidden)" % invisible)
+	# Campaign memory: an address is remembered past this session.
+	var witnessed_before: int = int(
+			RealityState.data.get(SanityDirector.WITNESS_KEY, 0))
+	director.force("teresa_call_bells", 4)
+	_check(int(RealityState.data.get(SanityDirector.WITNESS_KEY, 0))
+			== witnessed_before + 1,
+			"an address is recorded against the campaign")
+	director.intrusions.restore_all()
+
+	# --- and it stays invisible. Pressure is readable by tooling and tests,
+	# never by the shipped HUD.
+	_check(director.pressure >= 0.0 and director.pressure <= 1.0,
+			"pressure stays normalised (%.2f)" % director.pressure)
+	director.stand_down()
+	_check(director.intrusions.held_count() == 0,
+			"standing down leaves the building clean")
+
+
+## Art is single-sided now, so a piece hung facing its own wall is invisible
+## rather than mirrored. Better, but silent — hence this sweep.
+##
+## It REPORTS and does not assert, deliberately. Neither probe measures
+## cleanly enough to fail a build on: a hit in front of a picture is just as
+## likely to be a wardrobe standing against the same wall as it is a
+## backwards hang, and "nothing behind" fires on anything hung over an
+## archway or a cased opening, which may well be intentional dressing. The
+## lists are here so the next person to touch the art catalogs has the
+## leads; turning either into a real invariant needs the placement rules
+## pinned down first, and that is a job of its own.
+## The first character mesh. The checks that matter are not "is it pretty"
+## but the two ways a character can quietly break this build: standing in a
+## route the generator's movement audit believes is clear, and costing more
+## geometry than the room it stands in.
+func _lobby_figure_checks() -> void:
+	var figure: LobbyPlaceholder = root.lobby_figure
+	_check(figure != null, "lobby character placed")
+	if figure == null:
+		return
+	# In the lobby, and standing ON the floor rather than buried in it —
+	# Meshy puts the origin at the mesh centre, not between the feet.
+	var p := figure.global_position
+	_check(p.z > 6.9 and p.z < 9.7 and absf(p.x) < 5.4,
+			"character is inside the lobby (%.2f, %.2f)" % [p.x, p.z])
+	_check(absf(p.y - LobbyPlaceholder.FOOT_OFFSET) < 0.02,
+			"character stands on the floor, not through it (y=%.2f)" % p.y)
+	# Non-colliding, like the eighteen resident placeholders. The audit
+	# authors clearances the generator can see; actors added in Godot are
+	# invisible to it, so a solid one is a route that passes on paper and
+	# fails underfoot.
+	var solid := 0
+	for node in _descendants(figure):
+		if node is CollisionObject3D and node.collision_layer != 0:
+			solid += 1
+	_check(solid == 0,
+			"character does not obstruct the lobby (%d colliders)" % solid)
+	var tris := figure.triangle_count()
+	_check(tris > 0 and tris < 60000,
+			"character geometry stays within budget (%d tris)" % tris)
+	# Meshy ships one animation per file, each with a full copy of the skin.
+	# The merge folds them onto a single rig, and the failure mode is silent:
+	# the exporter drops whichever action is assigned as active, so a clip
+	# goes missing without anything erroring.
+	_check(figure.anim != null, "character has an AnimationPlayer")
+	_check(figure.clips.size() == 10,
+			"all ten clips survived the merge (%d)" % figure.clips.size())
+	_check(figure.anim != null and figure.anim.is_playing(),
+			"character is animating, not frozen in bind pose")
+	# Root motion would fight the navigation; the clips were authored in
+	# place and have to stay that way.
+	var drift_ok := true
+	if figure.anim:
+		var before := figure.global_position
+		figure.play_clip("walk")
+		await get_tree().create_timer(1.1).timeout
+		drift_ok = figure.global_position.distance_to(before) < 0.05
+		figure.play_clip(LobbyPlaceholder.DEFAULT_CLIP)
+	_check(drift_ok, "walk cycle does not translate the character")
+
+
+func _descendants(node: Node) -> Array[Node]:
+	var found: Array[Node] = []
+	for child in node.get_children():
+		found.append(child)
+		found.append_array(_descendants(child))
+	return found
+
+
+## The televisions. The assertion that matters is the decode count: one
+## shared viewport feeding every screen, not one video player per set.
+func _broadcast_checks() -> void:
+	var tv: BroadcastScreens = root.broadcast
+	_check(tv != null, "broadcast pass present")
+	if tv == null:
+		return
+	var stats: Dictionary = tv.stats()
+	_check(int(stats.screens) > 0,
+			"screen surfaces carry the broadcast (%d)" % stats.screens)
+	_check(bool(stats.playing), "the reel is running")
+	# One SubViewport, one VideoStreamPlayer, however many televisions.
+	var players := 0
+	var stack: Array = [root]
+	while not stack.is_empty():
+		var node: Node = stack.pop_back()
+		if node is VideoStreamPlayer:
+			players += 1
+		for child in node.get_children():
+			stack.append(child)
+	_check(players == 1,
+			"one decode for the whole building (%d players)" % players)
+	# Sound is synthesised from the procedural library and synchronised to
+	# the reel through a sidecar manifest, so the assertion that matters is
+	# that the manifest agrees with the video it was built beside — an
+	# eight-second drift here would send every set to static a dozen cuts
+	# early, which is exactly what a first pass at this did.
+	var sound: BroadcastAudio = tv.audio
+	_check(sound != null, "broadcast audio present")
+	if sound == null:
+		return
+	_check(sound.sets > 0, "every television has an emitter (%d)" % sound.sets)
+	_check(absf(sound._length - tv._video.get_stream_length()) < 1.0,
+			"manifest matches the reel (%.1f s vs %.1f s)"
+			% [sound._length, tv._video.get_stream_length()])
+	# The reel is a variety hour, not a channel-hop: programmes run whole and
+	# the signal only occasionally goes, so probing fixed timestamps would
+	# mostly land mid-programme. Assert the composition instead, then prove
+	# the lookup resolves each kind at its own recorded start.
+	var present := {}
+	for segment in sound._segments:
+		present[str(segment["kind"])] = true
+	_check(present.has("title") and present.has("channel")
+			and present.has("advert") and present.has("glitch"),
+			"reel carries titles, programmes, adverts and interference %s"
+			% [present.keys()])
+	var resolved := true
+	for segment in sound._segments:
+		# Half a frame in, so the lookup cannot land on the boundary.
+		if sound._kind_at(float(segment["t"]) + 0.02) != str(segment["kind"]):
+			resolved = false
+	_check(resolved,
+			"every segment resolves to its own kind (%d segments)"
+			% sound._segments.size())
+	# Programmes should dominate. If interference is more than a fifth of
+	# the cuts it has stopped being interference and become the format.
+	var glitches := 0
+	for segment in sound._segments:
+		if str(segment["kind"]) == "glitch":
+			glitches += 1
+	_check(glitches * 5 < sound._segments.size(),
+			"interference stays occasional (%d of %d segments)"
+			% [glitches, sound._segments.size()])
+
+
+## Light under the closed doors. The interesting assertions are not "does it
+## exist" but "is it in one draw call" and "does it agree with the windows" —
+## a per-door light would starve the corridor fixtures the LightRig protects,
+## and a door that leaks light from a room whose windows are dark is the
+## building caught lying about who is awake.
+func _door_glow_checks() -> void:
+	var glow: OrisonDoorGlow = root.door_glow
+	_check(glow != null, "door spill pass present")
+	if glow == null:
+		return
+	var stats: Dictionary = glow.stats()
+	_check(int(stats.doors) > 50,
+			"every closed door considered (%d)" % stats.doors)
+	_check(int(stats.lit) > 0 and int(stats.lit) < int(stats.doors),
+			"some doors leak and most do not (%d of %d)"
+			% [stats.lit, stats.doors])
+	var meshes := 0
+	for child in glow.get_children():
+		if child is MeshInstance3D:
+			meshes += 1
+	_check(meshes == 1,
+			"all door spill batched into one mesh (%d)" % meshes)
+	# The bar has to sit above the 12 mm terrazzo finish, not on the slab:
+	# below it the light is under the floor and invisible, which is exactly
+	# where the first version of this put it.
+	for child in glow.get_children():
+		if child is MeshInstance3D:
+			var box: AABB = child.get_aabb()
+			_check(box.position.y > 0.012,
+					"spill clears the floor finish (y=%.3f)" % box.position.y)
+
+
+func _wall_art_report() -> void:
+	var space := get_viewport().world_3d.direct_space_state
+	var blocked: Array[String] = []
+	var unbacked: Array[String] = []
+	var total := 0
+	for group in ["character_memories", "character_wall_art", "hallway_art"]:
+		for art in get_tree().get_nodes_in_group(group):
+			if not (art is Node3D):
+				continue
+			total += 1
+			var node: Node3D = art
+			var origin: Vector3 = node.global_position
+			# The quad faces local +Z, so this is the side you must stand
+			# on to see the picture at all.
+			var out: Vector3 = node.global_transform.basis.z.normalized()
+			var front := PhysicsRayQueryParameters3D.create(
+					origin + out * 0.05, origin + out * 0.34)
+			if not space.intersect_ray(front).is_empty():
+				blocked.append(str(node.name))
+			var back := PhysicsRayQueryParameters3D.create(
+					origin, origin - out * 0.40)
+			if space.intersect_ray(back).is_empty():
+				unbacked.append(str(node.name))
+	_check(total >= 40, "wall art spawned (%d pieces)" % total)
+	print("[ART] %d pieces; %d with something close in front, %d with "
+			% [total, blocked.size(), unbacked.size()] +
+			"nothing solid behind")
+	if not blocked.is_empty():
+		print("[ART] close in front: %s" % [blocked])
+	if not unbacked.is_empty():
+		print("[ART] nothing behind: %s" % [unbacked])
+
+
+## Cases 02 and 03, driven through the same console the player uses. The
+## point of these checks is not the dialogue — it is that a case is data now,
+## and that closing one leaves the building measurably different: Case 02
+## puts a door in the third-floor corridor, Case 03 puts someone else in the
+## player's chair.
+func _case_network_checks(ci: CallInterface) -> void:
+	_check(CaseLibrary.count() == 3, "case network holds three cases")
+	_check(ci.case_index == 1,
+			"leaving a closed case brings up the next caller")
+	_check(ci.closed_outcomes == ["complete"], "case 01 outcome recorded")
+
+	# --- Case 02: the route in the pipes, answered with the player's feet.
+	# Nothing below presses a response button: the case is resolved by
+	# leaving the desk mid-call and being in the corridor when it ends.
+	ci.enter(root.player)
+	var ok: bool = await _drive_to_response(ci, "case 02")
+	if ok:
+		_check(ci._case.id == "4482", "case 02 is the one on the line")
+		_check(ci._field_live, "case 02: field phase goes live with the window")
+		var door: CaseDoorProp = root.get_node_or_null("F03_UTILITY_ANOMALY")
+		_check(door != null, "case 02: utility door spawned on F03")
+		ci.leave()
+		_check(not root.player.call_locked,
+				"case 02: the player is free to walk during the window")
+		_check(ci._field_banner.visible,
+				"case 02: the route banner follows you off the desk")
+		_check(ci.outcome == "", "case 02: leaving the desk is not an answer")
+		if door:
+			# Down two floors, into the west corridor run, where the door
+			# is about to be.
+			root.player.global_position = door.global_position \
+					+ Vector3(0.9, 0.1, 0.0)
+			root.player.velocity = Vector3.ZERO
+			ok = await _until(func(): return ci.outcome != "", 8.0)
+			_check(ok, "case 02: standing where the route ends answers the call")
+			_check(ci.outcome == "walk",
+					"case 02: walking there scores apart from sitting it out (got %s)"
+					% ci.outcome)
+			ok = await _until(func(): return ci._closed, 30.0)
+			_check(ok, "case 02: case closes")
+			_check(door.is_revealed(),
+					"case 02: closing the case puts the door in the wall")
+			_check(door.interact_prompt() != "",
+					"case 02: the door can be examined once it exists")
+			door.interact(root.player)
+			_check(root.player.global_position.y < 20.0,
+					"case 02: the door does not open on the first night")
+	ci.leave()
+	_check(ci.case_index == 2, "case 02 closed and the queue advanced")
+
+	# --- Case 03: matching the imitation exactly is the one that costs you
+	ci.enter(root.player)
+	ok = await _drive_case(ci, "reinforce", "case 03")
+	if ok:
+		_check(ci.flags.has("desk_double"),
+				"case 03: matching the model exactly leaves it at your desk")
+		var desk: DeskZone = root.get_node_or_null("F04_B_DESK_ZONE")
+		_check(desk != null, "desk zone present")
+		if desk:
+			_check(desk.interact_prompt().contains("your voice"),
+					"case 03: the desk prompt reports who is sitting there")
+	ci.leave()
+	_check(ci.case_index == 3, "case 03 closed and the queue is empty")
+	_check(ci.closed_outcomes.size() == 3, "all three outcomes recorded")
+	# The desk is not offering a fourth call it does not have.
+	var desk2: DeskZone = root.get_node_or_null("F04_B_DESK_ZONE")
+	if desk2:
+		_check(desk2.interact_prompt() != "", "desk still interactable when quiet")
+
+
+## The three verbs, in order, on whichever case is loaded. Every case answers
+## to this because every case IS this — which is the whole reason the runner
+## stopped being Case 01 with the serial numbers filed off.
+func _drive_case(ci: CallInterface, respond: String, label: String) -> bool:
+	var ok: bool = await _drive_to_response(ci, label)
+	if not ok:
+		return false
+	ci.press_respond(respond)
+	_check(ci.outcome == respond, "%s: outcome latched (%s)" % [label, respond])
+	# The timeout id is always a real outcome for its case, so this probes
+	# the one-outcome-per-case latch rather than the unknown-id guard.
+	ci.press_respond(ci._case.timeout)
+	_check(ci.outcome == respond, "%s: second response rejected" % label)
+	ok = await _until(func(): return ci._closed, 30.0)
+	_check(ok, "%s: case closes" % label)
+	return ok
+
+
+## Everything up to the point where the case is waiting on the player: the
+## three verbs, in order, on whichever case is loaded.
+func _drive_to_response(ci: CallInterface, label: String) -> bool:
+	var ok: bool = await _until(func(): return not ci._isolate_btn.disabled, 15.0)
+	_check(ok, "%s: isolate unlocks after the caller's opening" % label)
+	if not ok:
+		return false
+	ci.press_isolate(true)
+	_check(ci.stage == CallInterface.Stage.ISOLATION,
+			"%s: stage ISOLATION" % label)
+	ok = await _until(func(): return not ci._capture_btn.disabled, 20.0)
+	_check(ok, "%s: capture unlocks once the pattern registers" % label)
+	if not ok:
+		return false
+	ci.press_capture()
+	ci.press_route()
+	ok = await _until(func(): return ci.stage == CallInterface.Stage.RESPONSE, 30.0)
+	_check(ok, "%s: reaches RESPONSE" % label)
+	return ok
 
 
 func _floor_below(from: Vector3) -> bool:
@@ -407,6 +1415,13 @@ func _until(cond: Callable, timeout: float) -> bool:
 		await get_tree().create_timer(0.25).timeout
 		t += 0.25
 	return cond.call()
+
+
+func _count_meshes(n: Node) -> int:
+	var total := 1 if n is MeshInstance3D else 0
+	for c in n.get_children():
+		total += _count_meshes(c)
+	return total
 
 
 func _check(cond: bool, label: String) -> void:

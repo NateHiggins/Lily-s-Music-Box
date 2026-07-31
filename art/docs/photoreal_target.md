@@ -108,25 +108,115 @@ prototype's tone, no heavy DOF during gameplay.
 ## Roadmap
 
 Ordered so each phase is verifiable before the next depends on it.
+Status markers reflect main as of 2026-07-30.
 
-1. **Close the navigability gaps.** The known street-doorway blocker
-   (see `HANDOFF.md`), then a full sweep: every room reachable, proven
-   by physics walks in the test suite rather than by inspection.
-2. **UVs and the material system.** Emit world-consistent UVs from
-   `build_orison.py`; replace flat-color materials with a shared library
-   generated from an extended `material_catalog.json` (texture set paths,
-   tiling scale, texel density per material).
-3. **Texture authoring.** Build the tiling sets and trim sheets. Keep
-   the pipeline deterministic and the sources committed — procedurally
-   generated in Blender/Python is preferred over ad-hoc downloads so a
-   rebuild reproduces byte-identically.
-4. **Aging as masks and decals** driven by the existing seeded pass.
-5. **Lighting.** Fixture inventory with real photometrics, lightmap
-   bake, GI fallback, light-leak pass.
-6. **Dress the remaining twenty-three units and all commons.**
-7. **Performance.** Occluders, HLOD, prop LODs, streaming that replaces
-   the floor-visibility stand-in.
-8. **Atmosphere and post.** Glass, fog, volumetrics, post chain.
+1. **Close the navigability gaps.** DONE. The street-doorway blocker
+   (the B1 bearing wall's above-grade curb) is fixed; a generator-side
+   movement audit gates every build (door swings, L-route reachability
+   into every living area, circulation-space checks), and the test
+   suite physically walks the corridor ring, the relocated A/D bedroom
+   doors, the atrium climb corridor-to-corridor, the street exit to the
+   sidewalk, and the roof monitor door.
+2. **UVs and the material system.** DONE. `build_orison.py` emits
+   deterministic world-projected UVs (per polygon loop, TEXCOORD_0);
+   `art/textures/catalog_mapping.json` is the single mapping authority
+   with build-time validation; floors export GLTF_SEPARATE with one
+   shared, deterministically named texture directory; Godot props load
+   the same maps through `MatLib` (world triplanar at physical scale).
+3. **Texture authoring.** LARGELY DONE: 35 of 39 catalog materials are
+   texture-backed (generated sets + the curated library: face brick,
+   limestone, walnut, upholstery, enamel, brushed steel, porcelain,
+   ceramic tile...). glassish/screen/fx_* stay shader-only by design.
+   Remaining: replace the weaker synthesized sets with authored ones
+   where close-up scrutiny warrants (trim, some fabrics).
+4. **Aging as masks and decals.** PARTLY DONE: tile-global wear is
+   precomposited per material (compose_overlays.py) and spatial wear is
+   placed as decal quads (thresholds, traffic lanes, radiator drips,
+   range grease, the 5D burn). Remaining: convert the aging_pass's
+   thin-box patches (facade brick patches, damp bases) to mask-driven
+   decals for softer edges.
+5. **Lighting.** LARGELY DONE: 128 period fixtures across seven types,
+   baked contact shadows and wall-base AO, emissive envelopes + halos,
+   tuned fog/glow environment. The LightRig now gates by storey and then
+   holds a bounded working set of the nearest fixtures, weighting
+   circulation above rooms — necessary because GL compatibility caps
+   lights per OBJECT and each floor's walls are one merged mesh, so
+   lighting a whole storey at once silently starves the corridor.
+   Circulation fixtures take their authored range as a throw rather than
+   only a cap, and the atrium is exempt from the storey gate since it is
+   one seven-storey volume. The light-leak pass is in: every closed door on
+   a corridor whose room is awake carries a bar of light on the floor and a
+   hairline around the leaf, batched into ONE unshaded mesh for the whole
+   building rather than a light per door, which the per-object cap could
+   not have afforded. It asks the window pass which rooms are awake, so
+   both sides of the same wall tell the same story. Transom spill is
+   deliberately not faked — the geometry has no transom openings, and a
+   glow on solid plaster is a worse artefact than an absent one. Remaining:
+   lightmap bake / GI fallback.
+6. **Dress the remaining twenty-three units and all commons to 4B's
+   density.** DONE. Three layers land it: the shared close-detail layer
+   (blinds, crockery, towels), a deterministic lived-in surface pass on
+   every dining/coffee/desk top, and identity dressing — eleven named
+   supporting residents carry story clusters (`RESIDENT_STORIES`), and
+   the six heroes carry full personality installations (Mina's squared
+   caption desk, Juno's amp stack/guitars/record crates, Omar's
+   categorized bench with pegboard and parts trays, Rhea's booth with
+   playback console, Nadia's contradictory plan wall and massing model
+   of this very building, Sacha's tripod/softbox capture kit), all from
+   a 20-piece clutter assembly library (`furniture_references.md`).
+   Units that read dark (Juno, Rhea) do so by resident light character,
+   not neglect — revisit under phase 5's remaining lightmap work.
+7. **Performance.** LARGELY DONE, and measured rather than asserted:
+   `game/tests/Perf.tscn` parks the camera at six worst-case stations and
+   reports objects/draw calls/primitives and frame time (run it windowed;
+   headless reports zeroes, which the probe now fails on rather than
+   passing). Two changes carried it. Shadows are budgeted separately from
+   light and far more tightly — an omni's shadow is a cube, so each caster
+   re-renders the visible set six times, and dropping 14 casters to the
+   nearest 8 halved draw calls with no visible loss. Then occlusion
+   culling: 1091 box occluders are generated at load from the same wall and
+   slab data everything else reads, cut around every door and window so a
+   sightline through an opening is never wrongly culled. At 1440p on an
+   RTX 4080 the worst station went 18.5 ms -> 9.9 ms. Then a census of
+   where the geometry actually lives found the column radiator was 62
+   MeshInstance3Ds — 23 props carrying 56% of ALL prop meshes — so
+   `FunctionalProp.merge_static()` bakes a fixed sub-tree down to one
+   mesh per finish (the radiator's knock shakes the whole body, so
+   nothing there moves independently). Scene meshes fell 3028 -> 1682
+   with primitive counts unchanged, and every station now runs 112-161
+   fps. Remaining: that headroom still needs proving on genuinely
+   mid-range hardware, and HLOD is untouched. The remaining prop meshes
+   are 4-7 each (light fixtures, mostly), where merging would have to
+   step around animated bulb materials, billboarded halos and the
+   deliberate cast_shadow=off — worth doing only if measurement says so.
+8. **Atmosphere and post.** PARTLY DONE (depth fog, glow, filmic
+   tonemap, night sky dome). "Emissive interiors visible from the street
+   at night" is now in: every exterior window carries an unshaded quad
+   just behind the glazing, single-sided and facing out, so it reads from
+   the sidewalk and is invisible from the room (you see its culled back
+   face and the real night beyond). It is deliberately NOT a light —
+   lighting is gated to one storey by the per-object cap, which is why
+   the building used to read derelict from outside. What each window
+   shows comes from the room behind it, so the building tells the truth:
+   2D sealed and 5D burnt stay black, vacant 3C and the 6D crate store
+   are unlit, kitchens run cooler than living rooms, and a third of the
+   rest are dark because people are asleep. Remaining: volumetrics are
+   not available on the Compatibility renderer at all, so the stairwell
+   and basement fog needs a different technique; glass still has no dirt
+   masks or per-window variation. The SITE is no longer the weak point it
+   was: the block runs to ±58 m with a taller ring beyond it, so no
+   sightline from the pavement or the roof reaches open sky; streetlamps
+   light the pavement; and ~1,570 neighbour windows are lit as data rather
+   than as lights. Neon on the street elevation (blade + tenant sign) is a
+   conductor body that surges on the motif and drops letters at high
+   infection. Weather is in as an after-the-storm state: light gusting
+   wind, drizzle, falling leaves, wet road and pavement with gutter
+   puddles and storm debris. Volumetrics and SSR are both unavailable on
+   Compatibility, so the drizzle is particles and the wet REFLECTS by
+   drawing the reflection — an additive smear under each lamp and sign,
+   which is the technique that actually sells it. Neighbour windows now
+   carry sashes and mullions, batched into a handful of meshes rather than
+   one draw call each, so the detail cost less than the flat version did.
 
 ## Invariants that survive all of it
 
