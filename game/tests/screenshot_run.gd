@@ -68,6 +68,10 @@ const SHOTS := [
 	 "look": Vector3(-2.30, -2.72, 0.60), "overlay": false},
 	{"name": "b_34_reading_nook", "pos": Vector3(1.55, -1.55, 2.55),
 	 "look": Vector3(-0.30, -2.35, -0.20), "overlay": false},
+	# Somebody is awake in 4A. The corridor's only evidence of it is the bar
+	# of light under their door — the one cue that says people live here.
+	{"name": "b_40_door_spill", "pos": Vector3(-4.30, 11.25, 5.20),
+	 "look": Vector3(-5.25, 10.55, 2.11), "overlay": false},
 	# Straight down the eye from the lobby balustrade: the 2.92 m shaft is the
 	# only place in the court with an uninterrupted view to B1, so this is the
 	# frame that proves the basement reads from the lobby.

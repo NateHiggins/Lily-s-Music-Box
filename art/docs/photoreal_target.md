@@ -144,8 +144,15 @@ Status markers reflect main as of 2026-07-30.
    lighting a whole storey at once silently starves the corridor.
    Circulation fixtures take their authored range as a throw rather than
    only a cap, and the atrium is exempt from the storey gate since it is
-   one seven-storey volume. Remaining: lightmap bake / GI fallback, and
-   the light-leak pass (under-door and transom spill) is still open.
+   one seven-storey volume. The light-leak pass is in: every closed door on
+   a corridor whose room is awake carries a bar of light on the floor and a
+   hairline around the leaf, batched into ONE unshaded mesh for the whole
+   building rather than a light per door, which the per-object cap could
+   not have afforded. It asks the window pass which rooms are awake, so
+   both sides of the same wall tell the same story. Transom spill is
+   deliberately not faked — the geometry has no transom openings, and a
+   glow on solid plaster is a worse artefact than an absent one. Remaining:
+   lightmap bake / GI fallback.
 6. **Dress the remaining twenty-three units and all commons to 4B's
    density.** DONE. Three layers land it: the shared close-detail layer
    (blinds, crockery, towels), a deterministic lived-in surface pass on

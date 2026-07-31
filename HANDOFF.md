@@ -114,7 +114,9 @@ runs 112-161 fps at 1440p on an RTX 4080.
 Nothing here blocks a build; these are the honest edges.
 
 - **Lighting (phase 5 remainder).** Lightmap bake / GI fallback is not
-  started, and the light-leak pass (under-door and transom spill) is open.
+  started. The light-leak pass is done (`door_glow.gd`) — under-door spill
+  and leaf seams, one batched mesh, agreeing with the window pass about who
+  is awake. Transoms are not faked because the geometry has none.
 - **HLOD and prop LODs (phase 7 remainder).** Untouched. The headroom
   above is measured on one high-end GPU only — mid-range is unproven.
   The coarse floor-visibility stand-in in `building_root.gd` is still a

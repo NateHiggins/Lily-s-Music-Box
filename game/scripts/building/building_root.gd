@@ -78,6 +78,7 @@ var virus_director: VirusSoundDirector
 var floor_nodes: Dictionary = {}
 var occluders: OrisonOccluders
 var window_glow: OrisonWindowGlow
+var door_glow: OrisonDoorGlow
 var touch: TouchControls
 var weather: WeatherFX
 var mina_manifestation: MinaCaptionManifestation
@@ -119,6 +120,12 @@ func _ready() -> void:
 	window_glow.name = "WindowGlow"
 	add_child(window_glow)
 	var n_lit := window_glow.build(layout)
+	# Corridor-side spill from the closed doors, asking the window pass which
+	# rooms are awake so both sides of the same wall tell the same story.
+	door_glow = OrisonDoorGlow.new()
+	door_glow.name = "DoorGlow"
+	add_child(door_glow)
+	door_glow.build(layout, window_glow)
 	call_interface = CallInterface.new()
 	add_child(call_interface)
 	# Cases change the building, so the runner needs a handle on it: a

@@ -804,6 +804,7 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	# quietly un-manifested the seam before the Room 0 walk reached it.
 	await _case_network_checks(ci)
 	_wall_art_report()
+	_door_glow_checks()
 	await _sanity_checks()
 	await _sanity_checks()
 	Conductor.infection = 0.15
@@ -1088,6 +1089,38 @@ func _sanity_checks() -> void:
 ## lists are here so the next person to touch the art catalogs has the
 ## leads; turning either into a real invariant needs the placement rules
 ## pinned down first, and that is a job of its own.
+## Light under the closed doors. The interesting assertions are not "does it
+## exist" but "is it in one draw call" and "does it agree with the windows" —
+## a per-door light would starve the corridor fixtures the LightRig protects,
+## and a door that leaks light from a room whose windows are dark is the
+## building caught lying about who is awake.
+func _door_glow_checks() -> void:
+	var glow: OrisonDoorGlow = root.door_glow
+	_check(glow != null, "door spill pass present")
+	if glow == null:
+		return
+	var stats: Dictionary = glow.stats()
+	_check(int(stats.doors) > 50,
+			"every closed door considered (%d)" % stats.doors)
+	_check(int(stats.lit) > 0 and int(stats.lit) < int(stats.doors),
+			"some doors leak and most do not (%d of %d)"
+			% [stats.lit, stats.doors])
+	var meshes := 0
+	for child in glow.get_children():
+		if child is MeshInstance3D:
+			meshes += 1
+	_check(meshes == 1,
+			"all door spill batched into one mesh (%d)" % meshes)
+	# The bar has to sit above the 12 mm terrazzo finish, not on the slab:
+	# below it the light is under the floor and invisible, which is exactly
+	# where the first version of this put it.
+	for child in glow.get_children():
+		if child is MeshInstance3D:
+			var box: AABB = child.get_aabb()
+			_check(box.position.y > 0.012,
+					"spill clears the floor finish (y=%.3f)" % box.position.y)
+
+
 func _wall_art_report() -> void:
 	var space := get_viewport().world_3d.direct_space_state
 	var blocked: Array[String] = []
