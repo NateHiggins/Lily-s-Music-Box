@@ -16,3 +16,7 @@ build/
 *.apk
 *.aab
 *.idsig
+
+# Scratch render output. Screenshot passes write comparison sets here
+# while iterating; the keepers live in game/docs/screenshots.
+tmp/
