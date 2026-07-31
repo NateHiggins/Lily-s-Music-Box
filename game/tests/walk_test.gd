@@ -61,6 +61,12 @@ func _ready() -> void:
 func _run() -> void:
 	await get_tree().create_timer(0.6).timeout
 	root.show_all_floors = true
+	# The sanity director moves furniture and rewrites light energies on its
+	# own schedule, which is exactly what the lighting and prop assertions
+	# below measure. It gets stood down for the deterministic pass and is
+	# driven explicitly in _sanity_checks() at the end.
+	if root.sanity:
+		root.sanity.stand_down()
 
 	var levels: Dictionary = root.layout["meta"]["levels"]
 	for fid in levels:
@@ -772,8 +778,121 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	# quietly un-manifested the seam before the Room 0 walk reached it.
 	await _case_network_checks(ci)
 	_wall_art_report()
+	await _sanity_checks()
 	Conductor.infection = 0.15
 	Conductor.origin_node = "B1_BOILER_01"
+
+
+## The sanity system. Three things need proving and none of them are "does
+## it scare you": that the safety net catches a player the world has dropped,
+## that a poltergeist borrows the building rather than damaging it, and that
+## nothing the meta layer does can strand someone.
+func _sanity_checks() -> void:
+	var net: SafetyNet = root.safety_net
+	_check(net != null, "safety net attached to the player")
+	var director: SanityDirector = root.sanity
+	_check(director != null, "sanity director present")
+	if net == null or director == null:
+		return
+
+	# --- the net. Put the player somewhere real, let it take an anchor,
+	# then throw them out of the world and prove they come back.
+	net.enabled = true
+	root.player.global_position = Vector3(4.3, 0.15, 0.0)  # F01 corridor
+	root.player.velocity = Vector3.ZERO
+	await get_tree().create_timer(0.9).timeout
+	var anchor := net.anchor
+	_check(anchor.y > -6.0, "net anchored somewhere standable (y=%.2f)" % anchor.y)
+	var before := net.recoveries
+	net.drop_test()
+	await get_tree().create_timer(0.4).timeout
+	_check(net.recoveries == before + 1, "net catches a fall out of the world")
+	_check(root.player.global_position.y > -6.0,
+			"recovered player is back in the building (y=%.2f)"
+			% root.player.global_position.y)
+	# A NaN transform fails every range comparison silently, so it needs its
+	# own path or a corrupted player falls forever while the checks pass.
+	before = net.recoveries
+	root.player.global_position = Vector3(NAN, NAN, NAN)
+	await get_tree().create_timer(0.4).timeout
+	_check(net.recoveries == before + 1, "net catches a non-finite position")
+
+	# --- the cast. Every poltergeist must be a real resident with a
+	# complete ladder, or the director can pick someone who cannot speak.
+	var ids := PoltergeistLibrary.ids()
+	_check(ids.size() == 18, "eighteen poltergeists authored (%d)" % ids.size())
+	var incomplete := 0
+	var orphans := 0
+	for case_id in ids:
+		if not RealityCases.definitions.has(case_id):
+			orphans += 1
+		for tier in [1, 2, 3, 4]:
+			if PoltergeistLibrary.rung(case_id, tier).is_empty():
+				incomplete += 1
+	_check(orphans == 0,
+			"every poltergeist maps to a real resident case (%d orphaned)"
+			% orphans)
+	_check(incomplete == 0,
+			"every poltergeist has all four rungs (%d missing)" % incomplete)
+
+	# --- borrowing, not damaging. Force a rung that possesses props, then
+	# prove the building goes back exactly as it was.
+	root.player.global_position = Vector3(-9.5, 11.25, -4.8)  # 4B, dressed
+	root.player.velocity = Vector3.ZERO
+	await get_tree().create_timer(0.5).timeout
+	var sample: Array = []
+	for child in root.get_children():
+		if child is FunctionalProp and not (child is LightFixtureProp):
+			if child.global_position.distance_to(
+					root.player.global_position) < 9.0:
+				sample.append([child, child.transform])
+	_check(sample.size() >= 3,
+			"props within reach of the test position (%d)" % sample.size())
+	var fired := director.intrusion_count
+	director.force("mina_caption_crisis", 3)
+	_check(director.intrusion_count == fired + 1,
+			"forcing a rung performs an intrusion")
+	director.intrusions.restore_all()
+	var moved := 0
+	for entry in sample:
+		if not entry[0].transform.is_equal_approx(entry[1]):
+			moved += 1
+	_check(moved == 0,
+			"possessed props restore exactly (%d left displaced)" % moved)
+	_check(director.intrusions.held_count() == 0,
+			"nothing is still held after a restore")
+
+	# --- the meta layer never strands anyone.
+	var meta: FourthWallLayer = root.fourth_wall
+	_check(meta != null, "fourth-wall layer present")
+	if meta:
+		_check(meta.play("save_corrupt"), "a meta effect can be played")
+		_check(meta.is_busy(), "meta effect holds the screen while it runs")
+		_check(not meta.play("session_time"),
+				"meta effects never overlap each other")
+		meta.force_finish()
+		_check(not meta.is_busy(), "meta effect always clears itself")
+		# Every effect named by a poltergeist has to actually exist, or a
+		# rung-four address silently does nothing at all.
+		var missing: Array[String] = []
+		for case_id in ids:
+			for act in PoltergeistLibrary.rung(case_id, 4):
+				if str(act[0]) != "fourth_wall":
+					continue
+				if not meta.play(str(act[1])):
+					missing.append(str(act[1]))
+				meta.force_finish()
+		_check(missing.is_empty(),
+				"every authored meta effect is implemented (missing %s)"
+				% [missing])
+
+	# --- and it stays invisible. Pressure is readable by tooling and tests,
+	# never by the shipped HUD.
+	_check(director.pressure >= 0.0 and director.pressure <= 1.0,
+			"pressure stays normalised (%.2f)" % director.pressure)
+	director.stand_down()
+	_check(director.intrusions.held_count() == 0,
+			"standing down leaves the building clean")
 
 
 ## Art is single-sided now, so a piece hung facing its own wall is invisible

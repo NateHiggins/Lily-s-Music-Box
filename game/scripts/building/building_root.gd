@@ -85,6 +85,10 @@ var mina_gameplay: MinaCaseGameplay
 var portal_rule_display: PortalRuleDisplay
 var objective_tracker: ObjectiveTracker
 var map_distortion_lab: MapDistortionLab
+var safety_net: SafetyNet
+var sanity: SanityDirector
+var intrusions: Intrusions
+var fourth_wall: FourthWallLayer
 var ambient_soundscape: AmbientSoundscape
 var affected_prop_count := 0
 var reality_controllers: Dictionary = {}
@@ -169,6 +173,30 @@ func _ready() -> void:
 	var anomaly: DoorAnomalyProp = get_node_or_null("F04_B_DOOR_ANOMALY")
 	if anomaly:
 		anomaly.room0 = room0
+	# The world is allowed to lie about its own floor — chaos mode, reality
+	# thresholds, room-local gravity, furniture moving under the player. The
+	# net is what makes all of that safe to ship: it silently remembers the
+	# last real standing position and puts the player back if they leave the
+	# world. Created before the haunting that can cause the fall.
+	safety_net = SafetyNet.new()
+	safety_net.name = "SafetyNet"
+	safety_net.setup(player, map_distortion_lab)
+	add_child(safety_net)
+	# The sanity system: an invisible pressure model, eighteen poltergeists
+	# built from the residents' own traumas, and a meta layer that breaks the
+	# frame. There is no meter and there must never be one — see
+	# sanity_director.gd for why.
+	fourth_wall = FourthWallLayer.new()
+	fourth_wall.name = "FourthWall"
+	add_child(fourth_wall)
+	intrusions = Intrusions.new()
+	intrusions.name = "Intrusions"
+	add_child(intrusions)
+	intrusions.setup(self, player, fourth_wall)
+	sanity = SanityDirector.new()
+	sanity.name = "SanityDirector"
+	add_child(sanity)
+	sanity.setup(self, player, intrusions, fourth_wall)
 	weather = WeatherFX.new()
 	weather.name = "WeatherFX"
 	weather.setup(player)
