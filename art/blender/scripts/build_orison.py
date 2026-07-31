@@ -354,10 +354,33 @@ class MeshBuf:
         faces so the grain falls vertically on fronts."""
         uv = me.uv_layers.new(name="UVMap")
         if self.uv_mode == "unit":   # decal quads: corners span 0..1
-            unit_uv = ((0.0, 0.0), (1.0, 0.0), (1.0, 1.0), (0.0, 1.0))
+            # Derived from each vertex's POSITION within its own face, not
+            # from its loop index. The index form assigned the four corners
+            # as k % 4, which is only correct while the face is still a
+            # quad — and these meshes are triangulated, so every triangle
+            # took three of the four corners and the texture landed on a
+            # fraction of the surface. A television showed a quarter of its
+            # own picture.
+            #
+            # Per-polygon bounds are safe here because splitting a rectangle
+            # along its diagonal leaves both triangles with the rectangle's
+            # own axis-aligned bounds, so each half still resolves the full
+            # 0..1 range.
             for poly in me.polygons:
-                for k, li in enumerate(poly.loop_indices):
-                    uv.data[li].uv = unit_uv[k % 4]
+                n = poly.normal
+                axis = max(range(3), key=lambda i: abs(n[i]))
+                ui, vi = ((1, 2), (0, 2), (0, 1))[axis]
+                pts = [me.vertices[me.loops[li].vertex_index].co
+                       for li in poly.loop_indices]
+                u0 = min(p[ui] for p in pts)
+                v0 = min(p[vi] for p in pts)
+                du = max(p[ui] for p in pts) - u0
+                dv = max(p[vi] for p in pts) - v0
+                du = du if abs(du) > 1e-9 else 1.0
+                dv = dv if abs(dv) > 1e-9 else 1.0
+                for li in poly.loop_indices:
+                    p = me.vertices[me.loops[li].vertex_index].co
+                    uv.data[li].uv = ((p[ui] - u0) / du, (p[vi] - v0) / dv)
             return
         inv = 1.0 / tex_mpt(self.material)
         vgrain = self.material in VGRAIN
@@ -761,30 +784,31 @@ def asm_shelf(F, p):
 
 
 def asm_tv(F, p):
-    F.box("wood_dark", -0.625, -0.20, 0.30, 0.625, 0.20, 0.36)
-    F.box("wood_dark", -0.55, -0.17, 0.12, 0.55, 0.17, 0.15)
-    for lx, ly in ((-0.52, -0.14), (0.52, -0.14), (-0.52, 0.14),
-                   (0.52, 0.14)):
-        F.tbox("wood_dark", (lx * 1.12, ly * 1.3, 0.0), (lx, ly, 0.30),
-               0.026, 0.026)
-    # Cabinet face, then the picture tube standing proud of it. These were
-    # the wrong way round: the `screen` material was on the surround and the
-    # glass was `soot`, so anything driving the screens painted the bezel
-    # and the tube stayed a black rectangle in front of it. `soot` also
-    # dresses the 5D fire damage, so it can never be the broadcast surface.
-    F.box("bakelite", -0.52, -0.03, 0.42, 0.52, 0.015, 1.04)
-    # 4:3, matching the broadcast. The old glass was 0.92 x 0.50 — nearly
-    # 2:1 — which stretched every picture sideways, and a deep bezel around
-    # a squarer tube reads far more like a set this building would own.
-    #
-    # On +Y, which is the face you see from inside the room — verified by
-    # putting a camera at the sofa and looking back at it. Moving the glass
-    # to -Y turned every set to the wall, so if a particular television
-    # still plays to its own back, the fault is that unit's `yaw` in
-    # gen_layout rather than this assembly.
-    F.box("screen", -0.333, 0.015, 0.48, 0.333, 0.05, 0.98)
-    F.tbox("metal", (0.0, -0.01, 0.36), (0.0, -0.01, 0.44), 0.16, 0.03)
-    F.hull(-0.63, -0.21, 0.0, 0.63, 0.21, 1.05)
+    """A portrait panel on a slim stand.
+
+    Rebuilt around the footage rather than the furniture. Every clip the
+    building broadcasts is vertical, and a 4:3 tube can only show a vertical
+    picture by throwing away the top and bottom of it or stranding it in
+    black bars — both were tried, and both read as a fault rather than as a
+    television. So the screen is the shape of the signal: 0.50 x 0.90
+    against the reel's 320x576, so nothing is cropped or padded on its way
+    to the glass.
+
+    A vertical display in a 1927 block is an anachronism, and a deliberate
+    one. The building is a century old; its residents are not.
+    """
+    # Foot and stem, narrow because the panel above them is narrow.
+    F.box("wood_dark", -0.26, -0.17, 0.0, 0.26, 0.17, 0.045)
+    F.tbox("metal", (0.0, 0.0, 0.045), (0.0, 0.0, 0.32), 0.05, 0.05)
+    # Bezel, then glass standing proud of it on +Y — the face you see from
+    # inside the room, verified by putting a camera at the sofa and looking
+    # back. If a set still plays to its own back, the fault is that unit's
+    # `yaw` in gen_layout rather than this assembly. The glass carries the
+    # `screen` material, which takes unit UVs (UV_MODE_BY_MAT), so the quad
+    # carries exactly one picture.
+    F.box("bakelite", -0.275, -0.022, 0.275, 0.275, 0.014, 1.235)
+    F.box("screen", -0.25, 0.014, 0.30, 0.25, 0.038, 1.20)
+    F.hull(-0.29, -0.19, 0.0, 0.29, 0.19, 1.25)
 
 
 def asm_plant(F, p):

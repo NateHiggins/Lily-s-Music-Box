@@ -32,7 +32,12 @@ import glob
 ## pillarboxed portrait leaves only ~158 px of actual picture, so the codec
 ## was being asked to carry the whole programme in a very small raster.
 ## Bigger frame, higher quality; it is still a television across a room.
-W, H, FPS = 512, 384, 24
+## PORTRAIT, because the footage is. Every clip is roughly 9:16, so a
+## landscape raster could only ever crop it or pad it — both were tried and
+## both read as a broken display. 320x576 is 0.556 against the sources'
+## 0.550, so the fit is very nearly native and the televisions are built to
+## match it rather than the other way round.
+W, H, FPS = 320, 576, 24
 ## Sources arrive at four different sizes — 704x1280, 576x1048, 480x872 and
 ## one landscape 1048x576 — so the crop cannot be hardcoded. Scale to cover
 ## 4:3 and take the centre: correct for any aspect, and on the portrait
