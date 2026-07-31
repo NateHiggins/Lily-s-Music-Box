@@ -79,6 +79,7 @@ var floor_nodes: Dictionary = {}
 var occluders: OrisonOccluders
 var window_glow: OrisonWindowGlow
 var door_glow: OrisonDoorGlow
+var lobby_figure: LobbyPlaceholder
 var touch: TouchControls
 var weather: WeatherFX
 var mina_manifestation: MinaCaptionManifestation
@@ -141,6 +142,13 @@ func _ready() -> void:
 	_spawn_character_wall_art()
 	_spawn_hallway_art()
 	_build_front_entry_details()
+	# First real character mesh, standing in the lobby east of the runner so
+	# it faces whoever comes in off the street. Static and non-colliding -
+	# see lobby_placeholder.gd.
+	lobby_figure = LobbyPlaceholder.new()
+	lobby_figure.name = "LobbyPlaceholder"
+	lobby_figure.setup(Vector2(2.30, -8.10), 0.0, 0.0)
+	add_child(lobby_figure)
 	objective_tracker = ObjectiveTracker.new()
 	objective_tracker.name = "ObjectiveTracker"
 	add_child(objective_tracker)

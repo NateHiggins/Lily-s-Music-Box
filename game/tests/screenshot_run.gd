@@ -68,6 +68,9 @@ const SHOTS := [
 	 "look": Vector3(-2.30, -2.72, 0.60), "overlay": false},
 	{"name": "b_34_reading_nook", "pos": Vector3(1.55, -1.55, 2.55),
 	 "look": Vector3(-0.30, -2.35, -0.20), "overlay": false},
+	# The first character mesh, as you meet it walking in off the street.
+	{"name": "b_41_lobby_figure", "pos": Vector3(0.4, 1.65, 9.30),
+	 "look": Vector3(2.30, 1.20, 8.10), "overlay": false},
 	# Somebody is awake in 4A. The corridor's only evidence of it is the bar
 	# of light under their door — the one cue that says people live here.
 	{"name": "b_40_door_spill", "pos": Vector3(-4.30, 11.25, 5.20),

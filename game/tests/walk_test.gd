@@ -805,6 +805,7 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	await _case_network_checks(ci)
 	_wall_art_report()
 	_door_glow_checks()
+	_lobby_figure_checks()
 	await _sanity_checks()
 	await _sanity_checks()
 	Conductor.infection = 0.15
@@ -1089,6 +1090,45 @@ func _sanity_checks() -> void:
 ## lists are here so the next person to touch the art catalogs has the
 ## leads; turning either into a real invariant needs the placement rules
 ## pinned down first, and that is a job of its own.
+## The first character mesh. The checks that matter are not "is it pretty"
+## but the two ways a character can quietly break this build: standing in a
+## route the generator's movement audit believes is clear, and costing more
+## geometry than the room it stands in.
+func _lobby_figure_checks() -> void:
+	var figure: LobbyPlaceholder = root.lobby_figure
+	_check(figure != null, "lobby character placed")
+	if figure == null:
+		return
+	# In the lobby, and standing ON the floor rather than buried in it —
+	# Meshy puts the origin at the mesh centre, not between the feet.
+	var p := figure.global_position
+	_check(p.z > 6.9 and p.z < 9.7 and absf(p.x) < 5.4,
+			"character is inside the lobby (%.2f, %.2f)" % [p.x, p.z])
+	_check(absf(p.y - LobbyPlaceholder.FOOT_OFFSET) < 0.02,
+			"character stands on the floor, not through it (y=%.2f)" % p.y)
+	# Non-colliding, like the eighteen resident placeholders. The audit
+	# authors clearances the generator can see; actors added in Godot are
+	# invisible to it, so a solid one is a route that passes on paper and
+	# fails underfoot.
+	var solid := 0
+	for node in _descendants(figure):
+		if node is CollisionObject3D and node.collision_layer != 0:
+			solid += 1
+	_check(solid == 0,
+			"character does not obstruct the lobby (%d colliders)" % solid)
+	var tris := figure.triangle_count()
+	_check(tris > 0 and tris < 60000,
+			"character geometry stays within budget (%d tris)" % tris)
+
+
+func _descendants(node: Node) -> Array[Node]:
+	var found: Array[Node] = []
+	for child in node.get_children():
+		found.append(child)
+		found.append_array(_descendants(child))
+	return found
+
+
 ## Light under the closed doors. The interesting assertions are not "does it
 ## exist" but "is it in one draw call" and "does it agree with the windows" —
 ## a per-door light would starve the corridor fixtures the LightRig protects,
