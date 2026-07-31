@@ -30,6 +30,7 @@ var _capsule: CapsuleShape3D
 
 
 func _ready() -> void:
+	add_to_group("player_controller")
 	_capsule = CapsuleShape3D.new()
 	_capsule.radius = 0.38
 	_capsule.height = 1.75

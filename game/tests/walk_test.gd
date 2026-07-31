@@ -279,6 +279,20 @@ func _run() -> void:
 	_check(rig._active_budget == keep_a and rig._shadow_budget == keep_s,
 			"budgets restore")
 
+	# --- the reading nook at the foot of the light tree is a PLACE, so it
+	# has to be reachable on foot like everything else: basement corridor,
+	# through the hall arch, onto the court floor, in past the bench.
+	var pl0: PlayerController = root.player
+	pl0.global_position = Vector3(0.0, -2.65, 7.6)   # B1 inner hall
+	pl0.velocity = Vector3.ZERO
+	await _goto(pl0, Vector2(-1.2, 5.0), 5.0)        # hall arch
+	await _goto(pl0, Vector2(-0.5, 2.6), 4.0)        # court arch
+	await _goto(pl0, Vector2(-0.48, 0.35), 4.0)      # into the nook
+	pl0.autopilot = Vector3.ZERO
+	_check(pl0.global_position.z < 1.1 and pl0.global_position.y < -2.0,
+			"reading nook reached on foot at the tree's base (z=%.2f)"
+			% pl0.global_position.z)
+
 	# --- south corridor -> elevator hall -> atrium deck -> up the west
 	# flight to the north landing -> east flight onto the F02 deck
 	var pl: PlayerController = root.player
@@ -343,10 +357,11 @@ func _run() -> void:
 	var lvls2: Array = [-2.8, 0.0, 3.2, 6.4, 9.6, 12.8, 16.0, 19.2]
 	var low_fix := []
 	for f5 in get_tree().get_nodes_in_group("light_fixtures"):
-		# Street lamps stand on the pavement on a mast. They are the one
-		# fixture family with no ceiling to hang from, so "too low for its
-		# storey" means nothing for them.
-		if f5.prop_type == "street_lamp":
+		# Two families have no ceiling to hang from: street lamps stand on
+		# the pavement on a mast, and the court's lights are fruit on the
+		# branches of the light tree. "Too low for its storey" cannot mean
+		# anything for either.
+		if f5.prop_type in ["street_lamp", "eye_pendant"]:
 			continue
 		var gy: float = f5.global_position.y
 		var own: float = lvls2[0]

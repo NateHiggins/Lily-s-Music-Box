@@ -42,6 +42,13 @@ var _target_scale := 1.0   # set by the LightRig
 var _bounce_on := false    # set by the LightRig
 var _surge := 0.0
 var _swing_node: Node3D
+var _individual_tone := Color.WHITE
+var _individual_gain := 1.0
+var _flicker_depth := 0.0
+var _flicker_speed := 1.0
+var _flicker_phase := 0.0
+var _flicker_profile := 0
+var _flicker_value := 1.0
 ## Authored throw from the generator, fitted to the room the fixture hangs
 ## in. For ROOM fixtures it is a cap: pools die at their own walls instead
 ## of bleeding through shadowless neighbors (the light-leak pass, done as
@@ -60,6 +67,14 @@ var navigation_light := false
 func _build_visual() -> void:
 	_base_energy = ENERGY.get(prop_type, 1.5) * energy_scale
 	var tone: Color = TONE.get(prop_type, Color(1.0, 0.84, 0.62))
+	_author_personality(tone)
+	tone = _individual_tone
+	_base_energy *= _individual_gain
+	# A navigation source may be moody, but never so weak that the next
+	# doorway or stair edge disappears. Room fixtures retain the wider
+	# character range because darkness between their pools is intentional.
+	if navigation_light:
+		_base_energy = maxf(_base_energy, 0.72)
 	_swing_node = Node3D.new()
 	add_child(_swing_node)
 	var bulb_at := _build_body(_swing_node)
@@ -141,6 +156,40 @@ func _build_visual() -> void:
 	bounce.position = bulb_at + Vector3(0, -1.0, 0)
 	add_child(bounce)
 	add_to_group("light_fixtures")
+	set_meta("light_personality", {
+		"tone": _individual_tone,
+		"gain": _individual_gain,
+		"flicker_profile": _flicker_profile,
+		"flicker_depth": _flicker_depth,
+		"flicker_speed": _flicker_speed,
+	})
+
+
+func _author_personality(base_tone: Color) -> void:
+	# Names are authored IDs, so this produces stable variations per fixture
+	# rather than randomized lighting that changes between launches.
+	var seed := absi(str(name).hash())
+	var hue_shift := (float(seed & 1023) / 1023.0 - 0.5) * 0.045
+	var saturation_shift := (float((seed >> 10) & 255) / 255.0 - 0.5) * 0.10
+	var value_shift := (float((seed >> 18) & 255) / 255.0 - 0.5) * 0.08
+	_individual_tone = Color.from_hsv(
+			fposmod(base_tone.h + hue_shift, 1.0),
+			clampf(base_tone.s + saturation_shift, 0.0, 1.0),
+			clampf(base_tone.v + value_shift, 0.72, 1.0))
+	var raw_gain := lerpf(0.78, 1.13,
+			float((seed >> 5) & 1023) / 1023.0)
+	_individual_gain = clampf(raw_gain, 0.88, 1.10) \
+			if navigation_light else raw_gain
+	_flicker_profile = (seed >> 15) % 5
+	_flicker_phase = float((seed >> 4) & 4095) * 0.017
+	_flicker_speed = lerpf(0.55, 2.6,
+			float((seed >> 9) & 1023) / 1023.0)
+	# Most bulbs merely breathe at the edge of perception. Only one profile
+	# has a visible starter/dropout, and fluorescents receive slightly more.
+	_flicker_depth = lerpf(0.004, 0.025,
+			float((seed >> 20) & 255) / 255.0)
+	if _flicker_profile == 4:
+		_flicker_depth = 0.11 if prop_type == "kitchen_linear" else 0.065
 
 
 ## Builds the body under `p`, returns the bulb's local position.
@@ -266,23 +315,27 @@ func _build_body(p: Node3D) -> Vector3:
 			lens.position = Vector3(0, -0.06, 0)
 			p.add_child(lens)
 			return Vector3(0, -0.08, 0)
-		_:  # eye_pendant: the luminous band around the court's pillar
-			# Was a globe on a 1.35 m drop. Seven of those down the eye read
-			# as seven unrelated fittings; the light now belongs to the
-			# pillar, so this is a lit collar wrapping it — brass rings top
-			# and bottom with an opal band between.
-			for rz in [-0.20, 0.20]:
-				make_ring(0.40, 0.022, Vector3(0, rz, 0), brass, 0.3, 0.8,
-						p).rotation_degrees = Vector3(90, 0, 0)
-			var band := make_cyl(0.385, 0.385, 0.34, Vector3(0, 0, 0),
-					opal, 0.22, 0.0, p)
-			band.name = "bulb_band"
-			for i in 4:      # bracket arms tying the collar to the fins
-				var a := TAU * i / 4.0
-				make_box(Vector3(0.13, 0.05, 0.05),
-						Vector3(cos(a) * 0.34, 0.0, sin(a) * 0.34),
-						Color(0.3, 0.3, 0.32)).reparent(p)
-			return Vector3(0, 0, 0)
+		_:  # eye_pendant: a fruit hanging off the court's bonsai
+			# The court's light is fruit on a brass tree wound up the stair
+			# well. The generator hangs these at the branch tips, so all
+			# this owns is the fruit: a short stalk, a brass calyx, and a
+			# heavy opal globe under it.
+			make_cyl(0.008, 0.008, 0.10, Vector3(0, 0.10, 0),
+					Color(0.42, 0.35, 0.18), 0.4, 0.6, p)
+			make_cyl(0.030, 0.052, 0.028, Vector3(0, 0.048, 0), brass,
+					0.3, 0.8, p)
+			var fruit := MeshInstance3D.new()
+			var fs := SphereMesh.new()
+			# taller than wide: a hung globe pulls itself into a teardrop
+			fs.radius = 0.115
+			fs.height = 0.27
+			fs.radial_segments = 18
+			fs.rings = 10
+			fruit.mesh = fs
+			fruit.name = "bulb_fruit"
+			fruit.position = Vector3(0, -0.10, 0)
+			p.add_child(fruit)
+			return Vector3(0, -0.10, 0)
 	return Vector3.ZERO
 
 
@@ -307,13 +360,30 @@ func set_budget(scale: float, with_bounce: bool, with_shadow: bool) -> void:
 func _process(delta: float) -> void:
 	if light == null:
 		return
-	var want := _base_energy * _target_scale * (1.0 + _surge)
+	var t := Time.get_ticks_msec() * 0.001 + _flicker_phase
+	var drift := sin(t * _flicker_speed) * _flicker_depth
+	match _flicker_profile:
+		0: # unusually steady replacement bulb
+			drift *= 0.18
+		1: # slow tungsten filament breathing
+			drift += sin(t * 0.23 + 1.7) * _flicker_depth * 0.45
+		2: # asymmetric old-mains flutter
+			drift += maxf(0.0, sin(t * 3.7)) * _flicker_depth * 0.35
+		3: # paired beat frequencies, visible only in peripheral vision
+			drift += sin(t * 1.93) * sin(t * 0.37) * _flicker_depth * 0.7
+		4: # rare starter/contact dropout, never a constant horror strobe
+			var gate := pow(maxf(0.0, sin(t * 0.19)), 42.0)
+			drift -= gate * _flicker_depth * 4.2
+	_flicker_value = clampf(1.0 + drift, 0.52, 1.08)
+	var want := _base_energy * _target_scale * (1.0 + _surge) \
+			* _flicker_value
 	light.light_energy = lerpf(light.light_energy, want, delta * 6.0)
 	bounce.light_energy = lerpf(bounce.light_energy,
-			(_base_energy * 0.08 * _target_scale) if _bounce_on else 0.0,
+			(_base_energy * 0.055 * _target_scale * _flicker_value)
+			if _bounce_on else 0.0,
 			delta * 4.0)
 	var envelope := (1.0 if prop_type == "flush_dome" else 1.6) \
-			* _target_scale
+			* _target_scale * _flicker_value
 	_bulb_mat.emission_energy_multiplier = lerpf(
 			_bulb_mat.emission_energy_multiplier, envelope + _surge * 2.4,
 			delta * 8.0)

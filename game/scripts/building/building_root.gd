@@ -64,6 +64,9 @@ const NPC_RESIDENTS := [
 	{"unit": "6B", "name": "Jonah Price", "sprite": "jonah_price"},
 	{"unit": "6C", "name": "Mae Kessler", "sprite": "mae_kessler"},
 ]
+## Keep the generated rigs available without making them the active cast.
+## Flip this single flag when the 3D character pass is ready to resume.
+const USE_RIGGED_RESIDENTS := false
 
 var layout: Dictionary = {}
 var player: PlayerController
@@ -78,8 +81,10 @@ var touch: TouchControls
 var weather: WeatherFX
 var mina_manifestation: MinaCaptionManifestation
 var mina_gameplay: MinaCaseGameplay
+var portal_rule_display: PortalRuleDisplay
 var objective_tracker: ObjectiveTracker
 var map_distortion_lab: MapDistortionLab
+var ambient_soundscape: AmbientSoundscape
 var affected_prop_count := 0
 var reality_controllers: Dictionary = {}
 var show_all_floors := false
@@ -98,6 +103,9 @@ func _ready() -> void:
 		node.name = fid
 		add_child(node)
 		floor_nodes[fid] = node
+	var railing_polish := OrisonRailingPolish.new()
+	add_child(railing_polish)
+	var railing_details := railing_polish.build(layout)
 	occluders = OrisonOccluders.new()
 	occluders.name = "Occluders"
 	add_child(occluders)
@@ -127,6 +135,11 @@ func _ready() -> void:
 	mina_gameplay.name = "MinaCaseGameplay"
 	mina_gameplay.setup(objective_tracker)
 	add_child(mina_gameplay)
+	portal_rule_display = PortalRuleDisplay.new()
+	# East wall of F04 west storage, inset and facing west into the room.
+	portal_rule_display.position = GameBoot.b2g([-5.615, 1.10, 11.25])
+	portal_rule_display.rotation.y = -PI * 0.5
+	add_child(portal_rule_display)
 	map_distortion_lab = MapDistortionLab.new()
 	map_distortion_lab.name = "MapDistortionLab"
 	map_distortion_lab.setup(self)
@@ -139,6 +152,9 @@ func _ready() -> void:
 	player = PlayerController.new()
 	player.position = GameBoot.b2g([0.0, -9.0, 0.1])  # vestibule
 	add_child(player)
+	ambient_soundscape = AmbientSoundscape.new()
+	ambient_soundscape.setup(player)
+	add_child(ambient_soundscape)
 	virus_director = VirusSoundDirector.new()
 	add_child(virus_director)
 	virus_director.setup(self)
@@ -165,7 +181,8 @@ func _ready() -> void:
 	layer.add_child(debug)
 	print("[BUILDING] Orison assembled: %d floors, %d occluders, "
 			% [floor_nodes.size(), n_occ] +
-			"%d windows lit, player in lobby" % n_lit)
+			"%d windows lit, %d railing details, player in lobby"
+			% [n_lit, railing_details])
 
 
 func _build_environment() -> void:
@@ -180,16 +197,19 @@ func _build_environment() -> void:
 	env.background_mode = Environment.BG_COLOR
 	env.background_color = Color(0.015, 0.02, 0.035)
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	env.ambient_light_color = Color(0.18, 0.21, 0.28)
-	env.ambient_light_energy = 0.055
+	# Target look: blue-black visibility from the windows, with local warm
+	# fixtures doing the modelling. Ambient is enough to retain silhouettes,
+	# not enough to erase pools or contact shadows.
+	env.ambient_light_color = Color(0.135, 0.165, 0.225)
+	env.ambient_light_energy = 0.046
 	env.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	env.fog_enabled = true
 	env.fog_light_color = Color(0.05, 0.06, 0.10)
 	env.fog_density = 0.010
 	env.glow_enabled = true
-	env.glow_intensity = 0.55
-	env.glow_bloom = 0.06
-	env.glow_hdr_threshold = 1.15
+	env.glow_intensity = 0.42
+	env.glow_bloom = 0.045
+	env.glow_hdr_threshold = 1.28
 	var we := WorldEnvironment.new()
 	we.environment = env
 	add_child(we)
@@ -465,7 +485,7 @@ func _spawn_npc_placeholders() -> void:
 		var npc: Node3D
 		var model_path := "res://assets/characters/%s/%s_rigged.glb" % [
 				spec.sprite, spec.sprite]
-		if ResourceLoader.exists(model_path):
+		if USE_RIGGED_RESIDENTS and ResourceLoader.exists(model_path):
 			var animated := AnimatedResident.new()
 			animated.setup(spec.name, spec.sprite, unit, model_path)
 			npc = animated
@@ -678,15 +698,11 @@ func _spawn_hallway_art() -> void:
 func _build_front_entry_details() -> void:
 	# Main street door is F01_DOOR_06 at Blender y=-9.795. Both pieces sit
 	# beyond the south facade and face the sidewalk.
-	var entry_light := LightFixtureProp.new()
-	entry_light.name = "FrontDoorExteriorLight"
-	entry_light.prop_type = "sconce_globe"
-	entry_light.navigation_light = true
-	entry_light.range_clamp = 7.5
-	entry_light.energy_scale = 1.25
-	entry_light.standby_scale = 0.55
-	entry_light.position = GameBoot.b2g([-0.455, -9.91, 2.58])
-	add_child(entry_light)
+	# The door's sconce is authored in gen_layout as F01_ENTRY_SCONCE, not
+	# built here. A fixture spawned outside the marker pipeline is invisible
+	# to the generator's fixture manifest, which then reports one fewer
+	# light than the building actually has — and that manifest is what the
+	# lighting audit checks itself against.
 	var entry_sign := BuildingEntrySign.new()
 	entry_sign.position = GameBoot.b2g([0.72, -9.905, 1.58])
 	add_child(entry_sign)

@@ -19,10 +19,13 @@ const EVIDENCE := [
 var tracker: ObjectiveTracker
 var terminal: CaseInteractable
 var console: CaseInteractable
+var shift_clock: CaseInteractable
+var dialogue: CaseDialoguePanel
 var evidence_nodes: Array[CaseInteractable] = []
-var insight_nodes: Array[CaseInteractable] = []
 var _choice_indices: Dictionary = {}
 var _feedback := ""
+var _visit_overlay: ColorRect
+var _visit_label: Label
 
 
 func setup(objective_tracker: ObjectiveTracker) -> void:
@@ -32,7 +35,11 @@ func setup(objective_tracker: ObjectiveTracker) -> void:
 func _ready() -> void:
 	_build_terminal()
 	_build_apartment_targets()
+	_build_dialogue()
+	_build_visit_boundary()
 	RealityCases.case_changed.connect(_on_case_changed)
+	RealityCases.resident_interaction_requested.connect(
+			_on_resident_interaction)
 	_refresh()
 
 
@@ -61,23 +68,36 @@ func _build_apartment_targets() -> void:
 			Vector3(0.48, 0.42, 0.26))
 	console.position = GameBoot.b2g([-9.35, -2.05, 4.20])
 	add_child(console)
-	_add_insight("FACTS ARE NOT ASSUMPTIONS",
-			"Talk honestly about assumptions",
-			"assumptions_are_not_facts", [-10.65, -4.8, 4.35])
-	_add_insight("SILENCE CAN BE BLANK",
-			"Leave silence uncaptained",
-			"silence_can_be_blank", [-10.05, -4.8, 4.35])
 
 
-func _add_insight(title: String, prompt: String, flag: String,
-		at: Array) -> void:
-	var card := CaseInteractable.new()
-	card.setup(title, prompt,
-			func(): _record_insight(flag), Color(0.36, 0.23, 0.29),
-			Vector3(0.42, 0.025, 0.24))
-	card.position = GameBoot.b2g(at)
-	add_child(card)
-	insight_nodes.append(card)
+func _build_dialogue() -> void:
+	dialogue = CaseDialoguePanel.new()
+	add_child(dialogue)
+
+
+func _build_visit_boundary() -> void:
+	shift_clock = CaseInteractable.new()
+	shift_clock.setup("TIME CLOCK", "Clock out and return for visit two",
+			_advance_visit, Color(0.18, 0.21, 0.19),
+			Vector3(0.38, 0.54, 0.16))
+	shift_clock.position = GameBoot.b2g([-3.55, -7.35, 0.92])
+	add_child(shift_clock)
+	var layer := CanvasLayer.new()
+	layer.layer = 12
+	add_child(layer)
+	_visit_overlay = ColorRect.new()
+	_visit_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_visit_overlay.color = Color(0.008, 0.012, 0.018, 0.0)
+	_visit_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	layer.add_child(_visit_overlay)
+	_visit_label = Label.new()
+	_visit_label.set_anchors_preset(Control.PRESET_CENTER)
+	_visit_label.position = Vector2(-230, -30)
+	_visit_label.size = Vector2(460, 80)
+	_visit_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_visit_label.add_theme_font_size_override("font_size", 22)
+	_visit_label.modulate = Color(0.72, 0.82, 0.78, 0.0)
+	layer.add_child(_visit_label)
 
 
 func _accept_work_order() -> void:
@@ -128,6 +148,90 @@ func _record_insight(flag: String) -> void:
 	RealityCases.record_conversation(CASE_ID, flag)
 
 
+func _on_resident_interaction(case_id: String, resident_id: String) -> void:
+	if case_id != CASE_ID or resident_id != "mina_vale":
+		return
+	var state := RealityState.case_state(CASE_ID)
+	var repairs := int(state.get("repair_count", 0))
+	var flags: Array = state.get("conversation_flags", [])
+	if state.stage == "stabilized" and repairs == 1:
+		dialogue.present("MINA VALE",
+				"It stopped when you made the captions literal. But when someone "
+				+ "goes quiet, I still hear a verdict forming.",
+				[
+					{"text": "Silence isn't evidence of what someone thinks.",
+					 "action": func(): _record_insight("first_silence_named")},
+					{"text": "Then we should caption the silence more carefully.",
+					 "action": func(): _record_insight_with_delta(
+							"first_silence_misread", -1)},
+				])
+	elif repairs >= 2 and "assumptions_are_not_facts" not in flags:
+		dialogue.present("MINA VALE",
+				"I caption the pause before anyone can use it against me. "
+				+ "Disappointed. Annoyed. Leaving.",
+				[
+					{"text": "Those are assumptions, not observable facts.",
+					 "action": func(): _record_insight(
+							"assumptions_are_not_facts")},
+					{"text": "Pick the most likely interpretation.",
+					 "action": func(): _record_insight_with_delta(
+							"interpretation_is_safety", -1)},
+				])
+	elif repairs >= 2 and "silence_can_be_blank" not in flags:
+		dialogue.present("MINA VALE",
+				"If I leave a silence blank, it feels like I failed to catch "
+				+ "the important part.",
+				[
+					{"text": "Blank can be accurate. You don't have to invent it.",
+					 "action": func(): _record_insight("silence_can_be_blank")},
+					{"text": "Every pause must mean something.",
+					 "action": func(): _record_insight_with_delta(
+							"silence_requires_answer", -1)},
+				])
+	elif state.stage == "integration_ready":
+		dialogue.present("MINA VALE",
+				"Then let's leave one thing unexplained on purpose.",
+				[{"text": "[Leave a quiet beat.]",
+				  "action": _leave_quiet_beat}])
+	else:
+		dialogue.present("MINA VALE",
+				"The captions are still getting ahead of what actually happened.",
+				[{"text": "I'll keep the next pass strictly factual.",
+				  "action": _no_op}])
+
+
+func _leave_quiet_beat() -> void:
+	_feedback = "The apartment waits without supplying an answer."
+	_refresh()
+
+
+func _no_op() -> void:
+	pass
+
+
+func _record_insight_with_delta(flag: String, trust_delta: int) -> void:
+	RealityCases.record_conversation(CASE_ID, flag, trust_delta)
+
+
+func _advance_visit() -> void:
+	shift_clock.set_enabled(false)
+	_visit_label.text = "VISIT TWO  ·  11:43 PM\nSAME COMPLAINT, DIFFERENT WORDING"
+	var player := get_tree().get_first_node_in_group(
+			"player_controller") as PlayerController
+	if player:
+		player.call_locked = true
+	var tween := create_tween()
+	tween.tween_property(_visit_overlay, "color:a", 1.0, 0.45)
+	tween.parallel().tween_property(_visit_label, "modulate:a", 1.0, 0.45)
+	tween.tween_interval(1.15)
+	tween.tween_callback(func(): RealityCases.reopen_case(CASE_ID))
+	tween.tween_property(_visit_overlay, "color:a", 0.0, 0.65)
+	tween.parallel().tween_property(_visit_label, "modulate:a", 0.0, 0.45)
+	tween.tween_callback(func():
+		if player:
+			player.call_locked = false)
+
+
 func _inspection_count(state: Dictionary) -> int:
 	var count := 0
 	var round := int(state.get("recurrence_count", 0))
@@ -167,8 +271,11 @@ func _refresh() -> void:
 	var stage: String = state.get("stage", "unseen")
 	var repairs := int(state.get("repair_count", 0))
 	var inspected := _inspection_count(state)
+	var awaiting_shift := repairs == 1 \
+			and bool(state.get("recurrence_pending", false))
 	terminal.set_enabled(stage == "unseen")
-	var inspecting := stage in ["active", "reopened", "recognized", "resistant"]
+	var inspecting := stage in ["active", "reopened", "recognized", "resistant"] \
+			and not awaiting_shift
 	for item in evidence_nodes:
 		item.set_enabled(inspecting)
 	for index in range(evidence_nodes.size()):
@@ -176,21 +283,23 @@ func _refresh() -> void:
 		var selected := _selected_caption(state, spec.id)
 		evidence_nodes[index].set_title("%s\n[%s]" % [spec.name, selected])
 	console.set_enabled(inspecting or stage == "integration_ready")
-	var insight_time := repairs >= 2 \
-			and stage in ["stabilized", "recognized", "integration_ready"]
-	for item in insight_nodes:
-		item.set_enabled(insight_time)
+	var flags: Array = state.get("conversation_flags", [])
+	shift_clock.set_enabled(awaiting_shift
+			and ("first_silence_named" in flags
+			or "first_silence_misread" in flags))
 	if stage == "unseen":
 		tracker.show_objective("REALTY MAINTENANCE",
 				"Check the lobby work-order terminal.")
+	elif awaiting_shift:
+		tracker.show_objective("2A — TEMPORARILY STABLE",
+				("Speak with Mina. The underlying problem has not been resolved."
+				if not shift_clock.enabled else
+				"Clock out in the lobby. Return for a second visit."))
 	elif stage in ["active", "reopened", "recognized", "resistant"]:
 		tracker.show_objective("2A — CAPTION CRISIS",
 				"Assign strictly factual captions (%d/%d), then run the calibrator.%s"
 				% [inspected, EVIDENCE.size(),
 				"\n" + _feedback if _feedback != "" else ""])
-	elif stage == "stabilized" and repairs == 1:
-		tracker.show_objective("2A — TEMPORARILY STABLE",
-				"Speak with Mina. The underlying problem has not been resolved.")
 	elif stage == "stabilized":
 		tracker.show_objective("2A — REAL TALK",
 				"Discuss assumptions and allow one meaningful silence.")

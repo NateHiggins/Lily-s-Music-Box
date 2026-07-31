@@ -138,8 +138,8 @@ func interact_with_resident(resident_id: String) -> void:
 	var state := RealityState.case_state(case_id)
 	if state.stage == "unseen":
 		activate_case(case_id)
-	elif state.stage == "stabilized" and state.recurrence_pending:
-		reopen_case(case_id)
+	# Recurrence belongs to a visit/shift boundary, not to the act of
+	# speaking with a resident. Case gameplay decides when time advances.
 	resident_interaction_requested.emit(case_id, resident_id)
 
 

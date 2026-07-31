@@ -51,6 +51,14 @@ static func _build(key: String) -> AudioStreamWAV:
 			return _hum([100, 200, 300, 411], [0.5, 0.3, 0.2, 0.08], 1.0)
 		"agitate_loop":
 			return _agitate()
+		"ambient_city_loop":
+			return _ambient_loop(1)
+		"ambient_building_loop":
+			return _ambient_loop(2)
+		"ambient_basement_loop":
+			return _ambient_loop(3)
+		"ambient_roof_loop":
+			return _ambient_loop(4)
 		_:
 			push_warning("PropAudio: unknown key %s" % key)
 			return _partials(0.1, [[440, 20, 1.0]], 0.0)
@@ -204,6 +212,45 @@ static func _murmur_loop() -> AudioStreamWAV:
 	for i in fade:
 		var w2 := float(i) / fade
 		s[i] = s[i] * w2 + s[n - fade + i] * (1.0 - w2)
+	s.resize(n - fade)
+	return _pack(s, true)
+
+
+## Broad, non-musical beds used until curated field recordings are added.
+## Seeds and crossfaded edges make them deterministic and cleanly loopable.
+static func _ambient_loop(kind: int) -> AudioStreamWAV:
+	var n := int(8.0 * RATE)
+	var s := PackedFloat32Array()
+	s.resize(n)
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 8000 + kind * 117
+	var low := 0.0
+	var mid := 0.0
+	var slow := 0.0
+	for i in n:
+		var t := float(i) / RATE
+		var noise := rng.randf_range(-1.0, 1.0)
+		low += 0.004 * (noise - low)
+		mid += 0.035 * (noise - mid)
+		slow += 0.00035 * (noise - slow)
+		match kind:
+			1: # traffic body, distant tire hiss, transformer fundamental
+				s[i] = low * 2.7 + (mid - low) * 0.24 \
+						+ sin(TAU * 50.0 * t) * 0.045
+			2: # plaster-and-pipe room tone
+				s[i] = low * 1.5 + sin(TAU * 60.0 * t) * 0.06 \
+						+ sin(TAU * 121.0 * t) * 0.018
+			3: # boiler-room air and slow pressure beating
+				s[i] = low * 2.2 + slow * 4.0 \
+						+ sin(TAU * 46.0 * t) * \
+						(0.10 + 0.025 * sin(TAU * 0.31 * t))
+			_: # roof wind: moving band-limited noise, almost no low tone
+				s[i] = (mid - low) * \
+						(0.8 + 0.35 * sin(TAU * 0.13 * t)) + slow
+	var fade := int(0.65 * RATE)
+	for i in fade:
+		var w := float(i) / fade
+		s[i] = s[i] * w + s[n - fade + i] * (1.0 - w)
 	s.resize(n - fade)
 	return _pack(s, true)
 

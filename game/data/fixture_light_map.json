@@ -1,5 +1,5 @@
 {
- "fixture_count": 176,
+ "fixture_count": 185,
  "fixtures": [
   {
    "id": "B1_CORRIDOR_DOME_01",
@@ -210,22 +210,6 @@
    "standby": 0.3
   },
   {
-   "id": "B1_ATRIUM_LT_EYE_PENDANT",
-   "floor": "B1",
-   "kind": "eye_pendant",
-   "room": "B1_ATRIUM",
-   "room_kind": "atrium",
-   "position": [
-    0.0,
-    0.0,
-    -0.75
-   ],
-   "range": 5.0,
-   "energy": 1.0,
-   "navigation": true,
-   "standby": 0.5
-  },
-  {
    "id": "B1_UTILITY_LT_CAGE_BULB",
    "floor": "B1",
    "kind": "cage_bulb",
@@ -256,6 +240,54 @@
    "energy": 0.55,
    "navigation": false,
    "standby": 0.04
+  },
+  {
+   "id": "B1_ATRIUM_FRUIT_1",
+   "floor": "B1",
+   "kind": "eye_pendant",
+   "room": "B1_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    -0.075,
+    0.781,
+    -1.869
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "B1_ATRIUM_FRUIT_2",
+   "floor": "B1",
+   "kind": "eye_pendant",
+   "room": "B1_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    0.466,
+    0.718,
+    -0.424
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "F01_ENTRY_SCONCE",
+   "floor": "F01",
+   "kind": "sconce_globe",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -0.455,
+    -9.91,
+    2.58
+   ],
+   "range": 7.5,
+   "energy": 1.25,
+   "navigation": true,
+   "standby": 0.55
   },
   {
    "id": "F01WC_LT_SCONCE",
@@ -498,22 +530,6 @@
    "standby": 0.3
   },
   {
-   "id": "F01_ATRIUM_LT_EYE_PENDANT",
-   "floor": "F01",
-   "kind": "eye_pendant",
-   "room": "F01_ATRIUM",
-   "room_kind": "atrium",
-   "position": [
-    0.0,
-    0.0,
-    2.05
-   ],
-   "range": 5.0,
-   "energy": 1.0,
-   "navigation": true,
-   "standby": 0.5
-  },
-  {
    "id": "F01_UTILITY_LT_CAGE_BULB",
    "floor": "F01",
    "kind": "cage_bulb",
@@ -640,6 +656,38 @@
    "energy": 1.15,
    "navigation": false,
    "standby": 0.04
+  },
+  {
+   "id": "F01_ATRIUM_FRUIT_1",
+   "floor": "F01",
+   "kind": "eye_pendant",
+   "room": "F01_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    -0.18,
+    -0.48,
+    1.207
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "F01_ATRIUM_FRUIT_2",
+   "floor": "F01",
+   "kind": "eye_pendant",
+   "room": "F01_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    1.063,
+    -0.352,
+    2.319
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
   },
   {
    "id": "F01_STREETLAMP_03",
@@ -1074,22 +1122,6 @@
    "standby": 0.3
   },
   {
-   "id": "F02_ATRIUM_LT_EYE_PENDANT",
-   "floor": "F02",
-   "kind": "eye_pendant",
-   "room": "F02_ATRIUM",
-   "room_kind": "atrium",
-   "position": [
-    0.0,
-    0.0,
-    5.25
-   ],
-   "range": 5.0,
-   "energy": 1.0,
-   "navigation": true,
-   "standby": 0.5
-  },
-  {
    "id": "F02_UTILITY_LT_CAGE_BULB",
    "floor": "F02",
    "kind": "cage_bulb",
@@ -1104,6 +1136,38 @@
    "energy": 0.78,
    "navigation": true,
    "standby": 0.3
+  },
+  {
+   "id": "F02_ATRIUM_FRUIT_1",
+   "floor": "F02",
+   "kind": "eye_pendant",
+   "room": "F02_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    -0.079,
+    -1.175,
+    4.269
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "F02_ATRIUM_FRUIT_2",
+   "floor": "F02",
+   "kind": "eye_pendant",
+   "room": "F02_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    0.071,
+    0.307,
+    5.595
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
   },
   {
    "id": "3A_LT_SCONCE",
@@ -1506,22 +1570,6 @@
    "standby": 0.3
   },
   {
-   "id": "F03_ATRIUM_LT_EYE_PENDANT",
-   "floor": "F03",
-   "kind": "eye_pendant",
-   "room": "F03_ATRIUM",
-   "room_kind": "atrium",
-   "position": [
-    0.0,
-    0.0,
-    8.45
-   ],
-   "range": 5.0,
-   "energy": 1.0,
-   "navigation": true,
-   "standby": 0.5
-  },
-  {
    "id": "F03_UTILITY_LT_CAGE_BULB",
    "floor": "F03",
    "kind": "cage_bulb",
@@ -1536,6 +1584,38 @@
    "energy": 0.78,
    "navigation": true,
    "standby": 0.3
+  },
+  {
+   "id": "F03_ATRIUM_FRUIT_1",
+   "floor": "F03",
+   "kind": "eye_pendant",
+   "room": "F03_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    -1.206,
+    -0.377,
+    7.548
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "F03_ATRIUM_FRUIT_2",
+   "floor": "F03",
+   "kind": "eye_pendant",
+   "room": "F03_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    0.29,
+    0.478,
+    8.792
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
   },
   {
    "id": "4A_LT_SCONCE",
@@ -1922,22 +2002,6 @@
    "standby": 0.3
   },
   {
-   "id": "F04_ATRIUM_LT_EYE_PENDANT",
-   "floor": "F04",
-   "kind": "eye_pendant",
-   "room": "F04_ATRIUM",
-   "room_kind": "atrium",
-   "position": [
-    0.0,
-    0.0,
-    11.649999999999999
-   ],
-   "range": 5.0,
-   "energy": 1.0,
-   "navigation": true,
-   "standby": 0.5
-  },
-  {
    "id": "F04_UTILITY_LT_CAGE_BULB",
    "floor": "F04",
    "kind": "cage_bulb",
@@ -1952,6 +2016,38 @@
    "energy": 0.78,
    "navigation": true,
    "standby": 0.3
+  },
+  {
+   "id": "F04_ATRIUM_FRUIT_1",
+   "floor": "F04",
+   "kind": "eye_pendant",
+   "room": "F04_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    -0.783,
+    0.813,
+    10.64
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "F04_ATRIUM_FRUIT_2",
+   "floor": "F04",
+   "kind": "eye_pendant",
+   "room": "F04_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    -0.709,
+    0.886,
+    11.86
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
   },
   {
    "id": "5A_LT_SCONCE",
@@ -2306,22 +2402,6 @@
    "standby": 0.3
   },
   {
-   "id": "F05_ATRIUM_LT_EYE_PENDANT",
-   "floor": "F05",
-   "kind": "eye_pendant",
-   "room": "F05_ATRIUM",
-   "room_kind": "atrium",
-   "position": [
-    0.0,
-    0.0,
-    14.850000000000001
-   ],
-   "range": 5.0,
-   "energy": 1.0,
-   "navigation": true,
-   "standby": 0.5
-  },
-  {
    "id": "F05_UTILITY_LT_CAGE_BULB",
    "floor": "F05",
    "kind": "cage_bulb",
@@ -2336,6 +2416,38 @@
    "energy": 0.78,
    "navigation": true,
    "standby": 0.3
+  },
+  {
+   "id": "F05_ATRIUM_FRUIT_1",
+   "floor": "F05",
+   "kind": "eye_pendant",
+   "room": "F05_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    0.941,
+    1.21,
+    13.659
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "F05_ATRIUM_FRUIT_2",
+   "floor": "F05",
+   "kind": "eye_pendant",
+   "room": "F05_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    0.998,
+    -0.849,
+    15.161
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
   },
   {
    "id": "6A_LT_SCONCE",
@@ -2738,22 +2850,6 @@
    "standby": 0.3
   },
   {
-   "id": "F06_ATRIUM_LT_EYE_PENDANT",
-   "floor": "F06",
-   "kind": "eye_pendant",
-   "room": "F06_ATRIUM",
-   "room_kind": "atrium",
-   "position": [
-    0.0,
-    0.0,
-    18.05
-   ],
-   "range": 5.0,
-   "energy": 1.0,
-   "navigation": true,
-   "standby": 0.5
-  },
-  {
    "id": "F06_UTILITY_LT_CAGE_BULB",
    "floor": "F06",
    "kind": "cage_bulb",
@@ -2770,18 +2866,34 @@
    "standby": 0.3
   },
   {
-   "id": "ROOF_ATRIUM_LT_EYE_PENDANT",
-   "floor": "ROOF",
+   "id": "F06_ATRIUM_FRUIT_1",
+   "floor": "F06",
    "kind": "eye_pendant",
-   "room": "ROOF_OPEN",
-   "room_kind": "roof",
+   "room": "F06_ATRIUM",
+   "room_kind": "atrium",
    "position": [
-    0.0,
-    0.0,
-    21.25
+    0.289,
+    0.156,
+    17.017
    ],
    "range": 5.0,
-   "energy": 1.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "F06_ATRIUM_FRUIT_2",
+   "floor": "F06",
+   "kind": "eye_pendant",
+   "room": "F06_ATRIUM",
+   "room_kind": "atrium",
+   "position": [
+    -0.824,
+    -0.846,
+    18.252
+   ],
+   "range": 5.0,
+   "energy": 0.85,
    "navigation": true,
    "standby": 0.5
   },
@@ -2816,6 +2928,38 @@
    "energy": 0.7,
    "navigation": true,
    "standby": 0.35
+  },
+  {
+   "id": "ROOF_ATRIUM_FRUIT_1",
+   "floor": "ROOF",
+   "kind": "eye_pendant",
+   "room": "ROOF_OPEN",
+   "room_kind": "roof",
+   "position": [
+    0.105,
+    0.438,
+    19.846
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
+  },
+  {
+   "id": "ROOF_ATRIUM_FRUIT_2",
+   "floor": "ROOF",
+   "kind": "eye_pendant",
+   "room": "ROOF_OPEN",
+   "room_kind": "roof",
+   "position": [
+    -1.268,
+    -0.23,
+    20.311
+   ],
+   "range": 5.0,
+   "energy": 0.85,
+   "navigation": true,
+   "standby": 0.5
   }
  ]
 }

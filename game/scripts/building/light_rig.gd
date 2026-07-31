@@ -74,6 +74,25 @@ var _accum := 0.0
 		SHADOW_N_MOBILE if OS.has_feature("mobile") else SHADOW_N
 
 
+func _ready() -> void:
+	call_deferred("_report_authored_lights")
+
+
+func _report_authored_lights() -> void:
+	var fixtures := _controlled_lights()
+	var profiles := [0, 0, 0, 0, 0]
+	var individualized := 0
+	for fixture in fixtures:
+		if fixture.has_meta("light_personality"):
+			var profile: Dictionary = fixture.get_meta("light_personality")
+			var index := int(profile.get("flicker_profile", 0))
+			profiles[clampi(index, 0, profiles.size() - 1)] += 1
+			individualized += 1
+	print("[LIGHTING] %d sources active in system; %d full personalities; "
+			% [fixtures.size(), individualized] +
+			"profiles steady/breathe/mains/beat/dropout=%s" % [profiles])
+
+
 func set_budgets(lights: int, shadows: int) -> void:
 	_active_budget = maxi(1, lights)
 	_shadow_budget = clampi(shadows, 0, _active_budget)

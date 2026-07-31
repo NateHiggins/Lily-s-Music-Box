@@ -1269,25 +1269,32 @@ def porch(floor_id, z, furniture):
 def ring_and_cores(floor_id, z, walls, furniture, entry_doors=True):
     """Corridor ring, court walls, core walls, shaft walls for one level."""
     h = WALL_H
-    # The E/W stairwell walls are internal structure, not exterior light-shaft
-    # facades. The former "windows" opened into adjacent core construction and
-    # could overlap stair rails. Keep both walls solid and hang large framed
-    # building-history panels on the atrium faces instead.
-    walls.append(wall((-COURT, -COURT), (-COURT, COURT), CORR_T, h, z, [],
-                      mat="brick"))
-    walls.append(wall((COURT, -COURT), (COURT, COURT), CORR_T, h, z, [],
-                      mat="brick"))
-    art_panel(furniture, "%s_stair_history_w" % floor_id,
-              -COURT + CORR_T / 2.0 + 0.012, -0.62, 1.24, False,
-              z0=1.02, h=1.08, mat="paper")
-    art_panel(furniture, "%s_stair_history_e" % floor_id,
-              COURT - CORR_T / 2.0 - 0.047, -0.62, 1.24, False,
-              z0=1.02, h=1.08, mat="paper")
+    # Borrowed lights between the stair and the corridor ring. These used
+    # to be framed history panels hung on solid brick, because an earlier
+    # attempt at windows here opened into the adjacent corridor wall and
+    # showed nothing. The fix is not to give up on the openings — it is to
+    # cut BOTH leaves of that pair at the same place: the court wall at
+    # x = +-COURT and the corridor inner wall at x = +-XCI stand back to
+    # back with no gap, so an opening has to pass through the two of them
+    # to reach the hallway.
+    #
+    # Placed between the flight edges (the eye spans y +-1.46) at chest
+    # height, clear of the raked balustrade, so from the stair you look
+    # across into the corridor and from the corridor you see the stair.
+    SILL, WINH, WINW = 1.05, 1.15, 1.20
+    borrow_y = (-0.85, 0.85)
+
+    def _cuts(origin):
+        return [{"type": "window", "at": by - origin, "w": WINW,
+                 "h": WINH, "sill": SILL} for by in borrow_y]
+
+    for sx in (-1, 1):
+        walls.append(wall((sx * COURT, -COURT), (sx * COURT, COURT),
+                          CORR_T, h, z, _cuts(-COURT), mat="brick"))
     # corridor inner walls (x) run past court and cores
-    walls.append(wall((-XCI, -YCN), (-XCI, YCN), CORR_T, h, z, [],
-                      mat="plaster", wainscot=True))
-    walls.append(wall((XCI, -YCN), (XCI, YCN), CORR_T, h, z, [],
-                      mat="plaster", wainscot=True))
+    for sx in (-1, 1):
+        walls.append(wall((sx * XCI, -YCN), (sx * XCI, YCN), CORR_T, h, z,
+                          _cuts(-YCN), mat="plaster", wainscot=True))
     # core side walls close the court band between court and corridor walls
     for cy0, cy1 in ((-CORE_Y1, -CORE_Y0), (CORE_Y0, CORE_Y1)):
         walls.append(wall((-COURT, cy0), (-COURT, cy1), CORR_T, h, z, [],
@@ -1546,17 +1553,10 @@ def build_floor(floor_id):
             _furn_box(furniture, "sky_kerb_%s" % rid, rect[0], rect[1],
                       rect[2] - rect[0], rect[3] - rect[1], 2.50, 0.16,
                       "limestone", False)
-        # The monitor is where the stair arrives and it had no fixture of
-        # its own — the top of a seven-storey climb ended in the dark.
-        markers.append({
-            "kind": "eye_pendant", "id": "ROOF_ATRIUM_LT_EYE_PENDANT",
-            "unit": "ROOF", "pos": [0.0, 0.0, z + 2.05], "yaw_deg": 0,
-            "network": "electrical", "energy": 1.0,
-            "navigation": True, "standby": 0.5})
         # ---- the roof is a place now, not just a surface you can reach
         _roof_programme(furniture, markers, z)
         stair_top_guard(floor)
-        atrium_pillar(floor)
+        atrium_tree(floor)
         return floor
 
     ring_and_cores(floor_id, z, walls, furniture,
@@ -1676,6 +1676,13 @@ def build_floor(floor_id):
              "riser": "H-A", "unit": "LOBBY"},
             {"kind": "mailboxes", "id": "F01_MAILWALL", "pos": [4.4, -9.3, z],
              "yaw_deg": 0},
+            # Sconce over the street door, outside the facade facing the
+            # pavement — the light you arrive by.
+            {"kind": "sconce_globe", "id": "F01_ENTRY_SCONCE",
+             "unit": "LOBBY", "pos": [-0.455, -9.91, z + 2.58],
+             "yaw_deg": 0, "network": "electrical",
+             "range": 7.5, "energy": 1.25,
+             "navigation": True, "standby": 0.55},
             # Neon on the street elevation. The blade projects at right
             # angles to the wall so it is legible coming DOWN the pavement
             # rather than only from across the road, which is the whole
@@ -1869,11 +1876,11 @@ def light_fixture_markers(fl):
         # basement's cage bulbs to head height.
         mount = ceil
         if r["kind"] == "atrium":
-            # No longer a drop: the court's light is integrated into the
-            # central pillar, so this sits ON it at head height rather
-            # than hanging from a ceiling the court does not have.
-            cx, cy = 0.0, 0.0
-            mount = 2.05
+            # The court lights itself: atrium_tree() hangs fruit off the
+            # branches at the heights they actually reach. A fixture
+            # placed here would float in the middle of the eye with
+            # nothing holding it.
+            continue
         if r["kind"] == "lobby" and r["id"] != "F01_LOBBY":
             continue  # one chandelier, in the lobby proper
         marker = {
@@ -2279,9 +2286,6 @@ def storm_pass(fl):
 ##
 ## It is emitted per floor slice so the floor-visibility streaming still
 ## works — a single 24 m prop filed under one storey would vanish with it.
-PILLAR_R = 0.30           # half-width of the shaft
-PILLAR_BASE = -2.8        # B1 floor
-PILLAR_TOP = 21.35        # just under the skylight glazing
 
 
 ## Tenants' roof: a sheltered lounge deck on the lee side of the monitor
@@ -2364,43 +2368,170 @@ def _roof_programme(furniture, markers, z):
         "navigation": True, "standby": 0.35})
 
 
-def atrium_pillar(fl):
+TREE_BASE = -2.8          # B1 floor, where the trunk is rooted
+TREE_TOP = 21.0           # crown, just under the skylight glazing
+
+
+def _tree_at(h):
+    """Where the trunk is at height h. Two slow leans of different period,
+    so it wanders and doubles back the way a trained bonsai does rather
+    than spiralling like a helix — a regular twist reads as a machine
+    part, and this is meant to look grown. Amplitudes keep it inside
+    0.62 m of centre; the stair flights begin 1.46 m out."""
+    x = 0.40 * math.sin(h * 0.55) + 0.19 * math.sin(h * 1.31 + 1.1)
+    y = 0.36 * math.cos(h * 0.47 + 0.6) + 0.15 * math.sin(h * 1.07)
+    return x, y
+
+
+def _tree_nook(fl, rx, ry):
+    """A reading nook built around the roots. The bottom of the light
+    court is the one place in the building where you can sit under the
+    whole height of it and still be lit — the fruit hangs overhead all
+    the way up, and the skylight is directly above.
+
+    A built-in bench in three runs, open toward the deck you arrive from,
+    because a ring you have to climb into is a planter, not a seat."""
     z = fl["z"]
-    fid = fl["id"]
-    top = min(z + F2F, PILLAR_TOP)
-    if fid == "ROOF":
-        top = PILLAR_TOP
-    if top <= max(z, PILLAR_BASE) + 0.01:
-        return
-    lo = max(z, PILLAR_BASE)
     f = fl["furniture"]
 
-    # z0 is relative to this floor; lo/top are world heights.
     def fb(bid, rect, z0, h, mat):
-        f.append({"id": "pillar_%s_%s" % (fid, bid), "rect": list(rect),
-                  "z0": z0 - z, "h": h, "mat": mat})
+        f.append({"id": "nook_%s" % bid, "rect": [round(v, 3) for v in rect],
+                  "z0": z0, "h": h, "mat": mat})
 
-    r = PILLAR_R
-    # core, then four fins that give it a cruciform section — a plain box
-    # reads as a duct, the fins read as something someone designed
-    fb("core", (-r, -r, r, r), lo, top - lo, "limestone")
-    for fx0, fy0, fx1, fy1 in ((-r - 0.11, -0.075, -r, 0.075),
-                               (r, -0.075, r + 0.11, 0.075),
-                               (-0.075, -r - 0.11, 0.075, -r),
-                               (-0.075, r, 0.075, r + 0.11)):
-        fb("fin_%d_%d" % (int(fx0 * 100), int(fy0 * 100)),
-           (fx0, fy0, fx1, fy1), lo, top - lo, "limestone")
-    # the light itself: a glazed slot up all four faces, unbroken
-    for sx0, sy0, sx1, sy1 in ((-0.045, -r - 0.012, 0.045, -r + 0.012),
-                               (-0.045, r - 0.012, 0.045, r + 0.012),
-                               (-r - 0.012, -0.045, -r + 0.012, 0.045),
-                               (r - 0.012, -0.045, r + 0.012, 0.045)):
-        fb("slot_%d_%d" % (int(sx0 * 100), int(sy0 * 100)),
-           (sx0, sy0, sx1, sy1), lo + 0.05, top - lo - 0.10, "glassish")
-    # collar at each landing: where the band sits and the fins step in
-    if PILLAR_BASE < z < PILLAR_TOP:
-        fb("collar", (-r - 0.16, -r - 0.16, r + 0.16, r + 0.16),
-           z + 1.91, 0.28, "limestone")
+    r = 0.82                    # half-width of the bench square
+    # Stay clear of the west flight, which begins at x = -1.46.
+    rx = max(rx, -1.46 + r + 0.16)
+    fb("rug", (rx - 1.24, ry - 1.24, rx + 1.24, ry + 1.24), 0.014, 0.008,
+       "rug_warm")
+    # N, E and W runs; the south side stays open to the deck
+    for bid, rect in (("n", (rx - r, ry + 0.44, rx + r, ry + r)),
+                      ("w", (rx - r, ry - 0.44, rx - 0.44, ry + 0.44)),
+                      ("e", (rx + 0.44, ry - 0.44, rx + r, ry + 0.44))):
+        fb("seat_" + bid, rect, 0.40, 0.065, "floor_oak")
+        fb("apron_" + bid, (rect[0] + 0.05, rect[1] + 0.05, rect[2] - 0.05,
+                            rect[3] - 0.05), 0.0, 0.40, "wood_dark")
+    # cushions, thrown where someone actually sits rather than centred
+    fb("cush1", (rx - 0.74, ry + 0.50, rx - 0.16, ry + 0.86), 0.465, 0.085,
+       "fabric_warm")
+    fb("cush2", (rx + 0.50, ry - 0.30, rx + 0.80, ry + 0.26), 0.465, 0.075,
+       "fabric_green")
+    fb("throw", (rx - 0.80, ry - 0.34, rx - 0.48, ry + 0.30), 0.465, 0.055,
+       "linen")
+    # a low shelf of communal paperbacks against the north run's back
+    shelf_unit(f, "nook_books", rx - 0.62, ry + 0.86, 1.25, True, d=0.26,
+               h=0.92, books=True, face="s")
+    # side table with what someone left on it
+    _asm(f, "nook_table", "coffee", rx + 0.02, ry - 0.86, 0)
+    _asm(f, "nook_mug", "mug", rx + 0.20, ry - 0.80, 35, z0=0.37,
+         mat="ceramic")
+    _asm(f, "nook_pile", "bookpile", rx - 0.20, ry - 0.92, 12, z0=0.37,
+         n=3)
+    _asm(f, "nook_plant", "plant", rx + 0.94, ry + 0.92, 0, big=False)
+    # a reading lamp on the table, and the nook is somewhere you can read
+    fl["markers"].append({
+        "kind": "lamp", "id": "B1_NOOK_LAMP",
+        "unit": "ATRIUM", "pos": [round(rx - 0.46, 3), round(ry - 0.90, 3),
+                                  round(z + 0.37, 3)],
+        "yaw_deg": 30, "network": "electrical"})
+
+
+def atrium_tree(fl):
+    """A brass bonsai wound up the light court, carrying the stair's
+    lighting as fruit hanging in the eye.
+
+    Replaces the fluted column: same job — one object the full height of
+    the well — but it reads as a commissioned piece in a 1927 lobby
+    rather than as structure, and the light becomes something suspended
+    in the void instead of bands on a shaft.
+
+    Emitted per floor slice so floor streaming still works. Trunk and
+    branches are tubes in WORLD coordinates (asm_pipe without `local`),
+    the only primitive in this pipeline that can follow a curve.
+    """
+    z = fl["z"]
+    fid = fl["id"]
+    lo = max(z, TREE_BASE)
+    hi = TREE_TOP if fid == "ROOF" else min(z + F2F, TREE_TOP)
+    if hi <= lo + 0.01:
+        return
+    f = fl["furniture"]
+    rng = random.Random(1927 + int(z * 10))
+
+    def tube(bid, p0, p1, r, mat="brass"):
+        f.append({"id": "tree_%s_%s" % (fid, bid), "asm": "pipe",
+                  "at": [0.0, 0.0], "yaw": 0, "mat": mat, "r": r,
+                  "p0": [round(v, 4) for v in p0],
+                  "p1": [round(v, 4) for v in p1]})
+
+    # ---- trunk: short tubes chained along the path, tapering with height
+    steps = max(2, int((hi - lo) / 0.34))
+    prev = None
+    for i in range(steps + 1):
+        h = lo + (hi - lo) * i / steps
+        x, y = _tree_at(h)
+        if prev is not None:
+            t = (h - TREE_BASE) / (TREE_TOP - TREE_BASE)
+            tube("trunk%d" % i, prev, [x, y, h], 0.115 * (1.0 - t) + 0.035)
+        prev = [x, y, h]
+    # root flare where it meets the basement floor
+    if lo <= TREE_BASE + 0.01:
+        bx, by = _tree_at(TREE_BASE)
+        for a in range(5):
+            ang = math.tau * a / 5.0 + 0.4
+            tube("root%d" % a, [bx, by, TREE_BASE + 0.42],
+                 [bx + math.cos(ang) * 0.55, by + math.sin(ang) * 0.55,
+                  TREE_BASE + 0.02], 0.055)
+        _tree_nook(fl, bx, by)
+
+    # ---- branches and their fruit. Two per storey, thrown to opposite
+    # sides so the crown stays balanced over the well.
+    for k in range(2):
+        h = lo + (hi - lo) * (0.34 + 0.42 * k)
+        if h > TREE_TOP - 0.4:
+            continue
+        tx, ty = _tree_at(h)
+        ang = rng.uniform(0, math.tau) + k * math.pi
+        reach = rng.uniform(0.62, 1.00)
+        # elbow partway out, so the branch bends instead of spiking
+        ex = tx + math.cos(ang) * reach * 0.55
+        ey = ty + math.sin(ang) * reach * 0.55
+        ez = h + rng.uniform(0.10, 0.30)
+        px = tx + math.cos(ang) * reach
+        py = ty + math.sin(ang) * reach
+        pz = ez + rng.uniform(-0.05, 0.18)
+        tube("br%d_a" % k, [tx, ty, h], [ex, ey, ez], 0.045)
+        tube("br%d_b" % k, [ex, ey, ez], [px, py, pz], 0.028)
+        for j in range(2):      # twigs, for silhouette
+            ja = ang + rng.uniform(-1.1, 1.1)
+            jr = rng.uniform(0.18, 0.34)
+            tube("br%d_tw%d" % (k, j), [ex, ey, ez],
+                 [ex + math.cos(ja) * jr, ey + math.sin(ja) * jr,
+                  ez + rng.uniform(0.10, 0.28)], 0.016)
+        # Foliage as bonsai pads — but in brass, like the rest of it. A
+        # green pad made the piece read as half sculpture and half
+        # houseplant; beaten metal leaves keep it one commissioned object,
+        # and let the only colour in the court come from the fruit.
+        # Three small overlapping pads per branch, because one flat card
+        # reads as a card and a cluster reads as a canopy.
+        for q in range(3):
+            qx = px + rng.uniform(-0.20, 0.20)
+            qy = py + rng.uniform(-0.18, 0.18)
+            qw = rng.uniform(0.16, 0.27)
+            qd = rng.uniform(0.14, 0.23)
+            f.append({"id": "tree_%s_pad%d_%d" % (fid, k, q),
+                      "rect": [round(qx - qw, 3), round(qy - qd, 3),
+                               round(qx + qw, 3), round(qy + qd, 3)],
+                      "z0": round(pz + 0.04 + q * 0.035 - z, 3),
+                      "h": 0.035, "mat": "brass"})
+        # the fruit: a stem off the branch tip, then the light itself
+        tube("br%d_stem" % k, [px, py, pz], [px, py, pz - 0.20], 0.011)
+        fl["markers"].append({
+            "kind": "eye_pendant",
+            "id": "%s_ATRIUM_FRUIT_%d" % (fid, k + 1),
+            "unit": fid, "pos": [round(px, 3), round(py, 3),
+                                 round(pz - 0.34, 3)],
+            "yaw_deg": 0, "network": "electrical", "energy": 0.85,
+            "navigation": True, "standby": 0.5})
 
 
 ## Wayfinding. You could climb seven identical storeys with nothing
@@ -3448,7 +3579,7 @@ def main():
         light_fixture_markers(fl)
         signage_pass(fl)
         if fl["id"] != "ROOF":      # ROOF builds its own inside build_floor
-            atrium_pillar(fl)
+            atrium_tree(fl)
     radiator_pipe_pass(floors)
     aging_pass(floors)
     site_pass(floors[1])  # the block lives with F01

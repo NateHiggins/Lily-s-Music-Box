@@ -62,14 +62,24 @@ resident trust, required conversation insights, and a final integration act.
 - Debug controls for Mina's complete lifecycle.
 - Focused automated recurrence test.
 
+## Mina vertical slice
+
+Mina's prototype real-talk cards have been replaced by an on-screen,
+choice-driven conversation with recoverable unhelpful responses. Recurrence
+no longer fires when the player merely speaks with her: after the first
+temporary repair, the lobby time clock creates a visible shift/visit boundary
+before visit two begins. The second repair unlocks the assumptions/silence
+conversation, followed by a final deliberately blank calibration.
+
+Resolving the case writes `SILENCE DOES NOT REQUIRE ANNOTATION` onto the
+physical Accepted Local Exceptions board in fourth-floor west storage. The
+ambient soundscape also ducks beneath active manifestations and returns as
+the case stabilizes.
+
 ## Next vertical-slice work
 
-1. Replace Mina's prototype real-talk cards with fully voiced branching
-   dialogue while retaining the same recognition flags.
-2. Add a shift/visit boundary so recurrence timing can breathe instead of
-   depending only on the next resident interaction.
-3. Add Mina's resolved portal rule to the former-suite storage display.
-4. Apply the reusable case-interaction contract to Peter and Cam.
+1. Record or cast Mina's dialogue while retaining the implemented choices.
+2. Apply the reusable case-interaction contract to Peter and Cam.
 
 ## Production waves after Mina
 

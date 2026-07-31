@@ -285,7 +285,7 @@ origin (boiler / 4B radiator / F04 corridor light).
 
 ```bash
 godot --headless --path game --import                       # first time
-godot --headless --path game res://tests/WalkTest.tscn      # 123 checks
+godot --headless --path game res://tests/WalkTest.tscn      # 124 checks
 godot --headless --path game res://tests/LightingAudit.tscn # per-room light
 godot --path game res://tests/Screenshot.tscn               # doc renders
 godot --path game --resolution 2560x1440 res://tests/Perf.tscn

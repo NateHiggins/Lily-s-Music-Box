@@ -390,26 +390,6 @@
    ]
   },
   {
-   "id": "B1_ATRIUM_LT_EYE_PENDANT",
-   "pos": [
-    0.0,
-    0.0,
-    -0.75
-   ],
-   "room": "B1",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "B1_ELECTRICAL_HUB"
-   ]
-  },
-  {
    "id": "B1_UTILITY_LT_CAGE_BULB",
    "pos": [
     0.0,
@@ -450,6 +430,66 @@
    ]
   },
   {
+   "id": "B1_NOOK_LAMP",
+   "pos": [
+    -0.94,
+    -0.65,
+    -2.43
+   ],
+   "room": "ATRIUM",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_ATRIUM_FRUIT_1",
+   "pos": [
+    -0.075,
+    0.781,
+    -1.869
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_ATRIUM_FRUIT_2",
+   "pos": [
+    0.466,
+    0.718,
+    -0.424
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
    "id": "F01_LOBBY_RADIATOR_01",
    "pos": [
     -4.6,
@@ -468,6 +508,26 @@
    "connections": [
     "BASEMENT_HEADER_WEST",
     "F01_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F01_ENTRY_SCONCE",
+   "pos": [
+    -0.455,
+    -9.91,
+    2.58
+   ],
+   "room": "LOBBY",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
    ]
   },
   {
@@ -853,26 +913,6 @@
    ]
   },
   {
-   "id": "F01_ATRIUM_LT_EYE_PENDANT",
-   "pos": [
-    0.0,
-    0.0,
-    2.05
-   ],
-   "room": "F01",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "B1_ELECTRICAL_HUB"
-   ]
-  },
-  {
    "id": "F01_UTILITY_LT_CAGE_BULB",
    "pos": [
     0.0,
@@ -1020,6 +1060,46 @@
     2.96
    ],
    "room": "1D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_ATRIUM_FRUIT_1",
+   "pos": [
+    -0.18,
+    -0.48,
+    1.207
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_ATRIUM_FRUIT_2",
+   "pos": [
+    1.063,
+    -0.352,
+    2.319
+   ],
+   "room": "F01",
    "network": "electrical",
    "frequency_band": [
     60,
@@ -1383,8 +1463,9 @@
     "F02_C_MAIN_LT_PENDANT_SHADE",
     "F02_WSTOR_LT_CAGE_BULB",
     "F02_HALL_LT_FLUSH_DOME",
-    "F02_ATRIUM_LT_EYE_PENDANT",
     "F02_UTILITY_LT_CAGE_BULB",
+    "F02_ATRIUM_FRUIT_1",
+    "F02_ATRIUM_FRUIT_2",
     "B1_ELECTRICAL_HUB",
     "F02_CORRLIGHT_N",
     "F03_CORRLIGHT_S"
@@ -1771,11 +1852,11 @@
    ]
   },
   {
-   "id": "F02_ATRIUM_LT_EYE_PENDANT",
+   "id": "F02_UTILITY_LT_CAGE_BULB",
    "pos": [
     0.0,
-    0.0,
-    5.25
+    5.0,
+    6.16
    ],
    "room": "F02",
    "network": "electrical",
@@ -1791,11 +1872,31 @@
    ]
   },
   {
-   "id": "F02_UTILITY_LT_CAGE_BULB",
+   "id": "F02_ATRIUM_FRUIT_1",
    "pos": [
-    0.0,
-    5.0,
-    6.16
+    -0.079,
+    -1.175,
+    4.269
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_ATRIUM_FRUIT_2",
+   "pos": [
+    0.071,
+    0.307,
+    5.595
    ],
    "room": "F02",
    "network": "electrical",
@@ -2122,8 +2223,9 @@
     "F03_D_OFFICE_LT_PENDANT_SHADE",
     "F03_WSTOR_LT_CAGE_BULB",
     "F03_HALL_LT_FLUSH_DOME",
-    "F03_ATRIUM_LT_EYE_PENDANT",
     "F03_UTILITY_LT_CAGE_BULB",
+    "F03_ATRIUM_FRUIT_1",
+    "F03_ATRIUM_FRUIT_2",
     "F02_CORRLIGHT_S",
     "F03_CORRLIGHT_N",
     "F04_CORRLIGHT_S"
@@ -2570,11 +2672,11 @@
    ]
   },
   {
-   "id": "F03_ATRIUM_LT_EYE_PENDANT",
+   "id": "F03_UTILITY_LT_CAGE_BULB",
    "pos": [
     0.0,
-    0.0,
-    8.45
+    5.0,
+    9.36
    ],
    "room": "F03",
    "network": "electrical",
@@ -2590,11 +2692,31 @@
    ]
   },
   {
-   "id": "F03_UTILITY_LT_CAGE_BULB",
+   "id": "F03_ATRIUM_FRUIT_1",
    "pos": [
-    0.0,
-    5.0,
-    9.36
+    -1.206,
+    -0.377,
+    7.548
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_ATRIUM_FRUIT_2",
+   "pos": [
+    0.29,
+    0.478,
+    8.792
    ],
    "room": "F03",
    "network": "electrical",
@@ -3088,8 +3210,9 @@
     "F04_D_OFFICE_LT_PENDANT_SHADE",
     "F04_WSTOR_LT_CAGE_BULB",
     "F04_HALL_LT_FLUSH_DOME",
-    "F04_ATRIUM_LT_EYE_PENDANT",
     "F04_UTILITY_LT_CAGE_BULB",
+    "F04_ATRIUM_FRUIT_1",
+    "F04_ATRIUM_FRUIT_2",
     "F03_CORRLIGHT_S",
     "F04_CORRLIGHT_N",
     "F05_CORRLIGHT_S"
@@ -3516,11 +3639,11 @@
    ]
   },
   {
-   "id": "F04_ATRIUM_LT_EYE_PENDANT",
+   "id": "F04_UTILITY_LT_CAGE_BULB",
    "pos": [
     0.0,
-    0.0,
-    11.65
+    5.0,
+    12.56
    ],
    "room": "F04",
    "network": "electrical",
@@ -3536,11 +3659,31 @@
    ]
   },
   {
-   "id": "F04_UTILITY_LT_CAGE_BULB",
+   "id": "F04_ATRIUM_FRUIT_1",
    "pos": [
-    0.0,
-    5.0,
-    12.56
+    -0.783,
+    0.813,
+    10.64
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_ATRIUM_FRUIT_2",
+   "pos": [
+    -0.709,
+    0.886,
+    11.86
    ],
    "room": "F04",
    "network": "electrical",
@@ -3822,8 +3965,9 @@
     "F05_C_MAIN_LT_PENDANT_SHADE",
     "F05_WSTOR_LT_CAGE_BULB",
     "F05_HALL_LT_FLUSH_DOME",
-    "F05_ATRIUM_LT_EYE_PENDANT",
     "F05_UTILITY_LT_CAGE_BULB",
+    "F05_ATRIUM_FRUIT_1",
+    "F05_ATRIUM_FRUIT_2",
     "F04_CORRLIGHT_S",
     "F05_CORRLIGHT_N",
     "F06_CORRLIGHT_S"
@@ -4210,11 +4354,11 @@
    ]
   },
   {
-   "id": "F05_ATRIUM_LT_EYE_PENDANT",
+   "id": "F05_UTILITY_LT_CAGE_BULB",
    "pos": [
     0.0,
-    0.0,
-    14.85
+    5.0,
+    15.76
    ],
    "room": "F05",
    "network": "electrical",
@@ -4230,11 +4374,31 @@
    ]
   },
   {
-   "id": "F05_UTILITY_LT_CAGE_BULB",
+   "id": "F05_ATRIUM_FRUIT_1",
    "pos": [
-    0.0,
-    5.0,
-    15.76
+    0.941,
+    1.21,
+    13.659
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_ATRIUM_FRUIT_2",
+   "pos": [
+    0.998,
+    -0.849,
+    15.161
    ],
    "room": "F05",
    "network": "electrical",
@@ -4577,8 +4741,9 @@
     "F06_D_OFFICE_LT_PENDANT_SHADE",
     "F06_WSTOR_LT_CAGE_BULB",
     "F06_HALL_LT_FLUSH_DOME",
-    "F06_ATRIUM_LT_EYE_PENDANT",
     "F06_UTILITY_LT_CAGE_BULB",
+    "F06_ATRIUM_FRUIT_1",
+    "F06_ATRIUM_FRUIT_2",
     "F05_CORRLIGHT_S",
     "F06_CORRLIGHT_N"
    ]
@@ -5024,26 +5189,6 @@
    ]
   },
   {
-   "id": "F06_ATRIUM_LT_EYE_PENDANT",
-   "pos": [
-    0.0,
-    0.0,
-    18.05
-   ],
-   "room": "F06",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "F06_CORRLIGHT_S"
-   ]
-  },
-  {
    "id": "F06_UTILITY_LT_CAGE_BULB",
    "pos": [
     0.0,
@@ -5064,13 +5209,13 @@
    ]
   },
   {
-   "id": "ROOF_ATRIUM_LT_EYE_PENDANT",
+   "id": "F06_ATRIUM_FRUIT_1",
    "pos": [
-    0.0,
-    0.0,
-    21.25
+    0.289,
+    0.156,
+    17.017
    ],
-   "room": "ROOF",
+   "room": "F06",
    "network": "electrical",
    "frequency_band": [
     60,
@@ -5079,7 +5224,29 @@
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.75,
-   "connections": []
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_ATRIUM_FRUIT_2",
+   "pos": [
+    -0.824,
+    -0.846,
+    18.252
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
   },
   {
    "id": "ROOF_LT_DECK",
@@ -5105,6 +5272,42 @@
     -9.0,
     6.2,
     21.5
+   ],
+   "room": "ROOF",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": []
+  },
+  {
+   "id": "ROOF_ATRIUM_FRUIT_1",
+   "pos": [
+    0.105,
+    0.438,
+    19.846
+   ],
+   "room": "ROOF",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": []
+  },
+  {
+   "id": "ROOF_ATRIUM_FRUIT_2",
+   "pos": [
+    -1.268,
+    -0.23,
+    20.311
    ],
    "room": "ROOF",
    "network": "electrical",
@@ -5147,9 +5350,12 @@
     "B1_BOILER_LT_CAGE_BULB",
     "B1_ELECTRICAL_LT_CAGE_BULB",
     "B1_HALL_LT_FLUSH_DOME",
-    "B1_ATRIUM_LT_EYE_PENDANT",
     "B1_UTILITY_LT_CAGE_BULB",
     "B1_COAL_LT_CAGE_BULB",
+    "B1_NOOK_LAMP",
+    "B1_ATRIUM_FRUIT_1",
+    "B1_ATRIUM_FRUIT_2",
+    "F01_ENTRY_SCONCE",
     "F01_NEON_BLADE",
     "F01_NEON_TENANT",
     "F01WC_LT_SCONCE",
@@ -5167,7 +5373,6 @@
     "F01_COMMON_B_LT_PENDANT_SHADE",
     "F01_STORAGE_C_LT_CAGE_BULB",
     "F01_HALL_LT_FLUSH_DOME",
-    "F01_ATRIUM_LT_EYE_PENDANT",
     "F01_UTILITY_LT_CAGE_BULB",
     "F01_OFFICE_LT_PENDANT_SHADE",
     "F01_PACKAGE_LT_CAGE_BULB",
@@ -5176,6 +5381,8 @@
     "F01_D_BED_LT_FLUSH_DOME",
     "F01_D_MAIN_LT_PENDANT_SHADE",
     "F01_D_OFFICE_LT_PENDANT_SHADE",
+    "F01_ATRIUM_FRUIT_1",
+    "F01_ATRIUM_FRUIT_2",
     "F02_CORRLIGHT_S"
    ]
   },
