@@ -1,13 +1,37 @@
 class_name BuildingDebug
 extends PanelContainer
-## Collapsible debug panel (F1): floor teleports, conductor controls,
-## infection, floor-visibility override, acoustic graph overlay, position
-## and FPS readouts.
+## Debug panel (F1). Scrollable, sectioned, and deliberately curated: it
+## carries controls for what is actually being worked on right now, not
+## everything that has ever been worked on.
+##
+## It grew past the bottom of a 720p window some time ago, which made the
+## most recently added controls — always appended at the end — the ones you
+## could not reach. Hence the scroll, and hence the sections: with nine
+## subsystems in here, a flat list is not navigable even when it fits.
+##
+## The wheel is handled explicitly rather than left to the ScrollContainer,
+## because this game captures the mouse. With the pointer captured the
+## container never sees a hover and the panel would only scroll after Esc,
+## which is exactly when you are least likely to want to stop playing.
+##
+## What earned its place, and why:
+##   SUBJECT   one resident picker shared by the sanity and reality sections
+##   SANITY    the newest subsystem and the only one with no other way in
+##   CASES     three call-network cases that need driving from any state
+##   CONDUCTOR bpm/infection/origin drive every other system in the building
+##   WORLD     distortion and chaos, which are how the safety net gets tested
+##   DEVICE    light budgets and the phone HUD, both still unresolved
+## What was cut is described at the bottom of this file.
 
 var root: Node3D
-var _body: VBoxContainer
+
+var _body: ScrollContainer
+var _column: VBoxContainer
 var _status: Label
+var _resident_pick: OptionButton
+var _effect_pick: OptionButton
 var _overlay_on := false
+var _sections: Dictionary = {}
 
 
 func setup(building_root: Node3D) -> void:
@@ -17,157 +41,328 @@ func setup(building_root: Node3D) -> void:
 func _ready() -> void:
 	position = Vector2(8, 8)
 	mouse_filter = Control.MOUSE_FILTER_STOP
-	var vb := VBoxContainer.new()
-	add_child(vb)
+	var shell := VBoxContainer.new()
+	add_child(shell)
 	var header := Button.new()
 	header.text = "ORISON DEBUG ▸ (F1)"
 	header.pressed.connect(func(): _body.visible = not _body.visible)
-	vb.add_child(header)
-	_body = VBoxContainer.new()
-	## Start expanded so a missing/consumed F1 binding can never make the
+	shell.add_child(header)
+
+	_body = ScrollContainer.new()
+	_body.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	# Never taller than the window it is drawn in. Without this the panel
+	# runs off the bottom of the screen and the newest controls are the
+	# unreachable ones.
+	# Width is fixed; height follows the content up to a ceiling, set every
+	# frame in _process. Reserving the full height up front instead left a
+	# slab of empty panel below the controls whenever sections were closed,
+	# which is most of the time.
+	_body.custom_minimum_size = Vector2(340, 0)
+	## Start expanded so a missing or consumed F1 binding can never make the
 	## controls undiscoverable. F1 collapses the body but leaves the header.
 	_body.visible = true
-	vb.add_child(_body)
+	shell.add_child(_body)
+	_column = VBoxContainer.new()
+	_body.add_child(_column)
 
 	_status = Label.new()
 	_status.add_theme_font_size_override("font_size", 11)
-	_body.add_child(_status)
+	_column.add_child(_status)
 
+	_build_subject()
+	_build_sanity()
+	_build_cases()
+	_build_go()
+	_build_conductor()
+	_build_reality()
+	_build_world()
+	_build_device()
+	_build_keys()
+
+
+# ------------------------------------------------------------- sections
+
+## Collapsible so nine subsystems can coexist without a scroll marathon.
+## Only the sections for live work open by default.
+func _section(title: String, tint: Color, open := false) -> VBoxContainer:
+	var toggle := Button.new()
+	toggle.text = ("▾ " if open else "▸ ") + title
+	toggle.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	toggle.add_theme_font_size_override("font_size", 10)
+	toggle.modulate = tint
+	_column.add_child(toggle)
+	var box := VBoxContainer.new()
+	box.visible = open
+	_column.add_child(box)
+	toggle.pressed.connect(func():
+		box.visible = not box.visible
+		toggle.text = ("▾ " if box.visible else "▸ ") + title)
+	_sections[title] = box
+	return box
+
+
+## One picker, shared. Both the sanity rungs and the reality-case lifecycle
+## act on "whichever resident is selected", so asking twice would be two
+## controls that can disagree.
+func _build_subject() -> void:
+	var row := HBoxContainer.new()
+	var label := Label.new()
+	label.text = "SUBJECT"
+	label.custom_minimum_size.x = 58
+	label.add_theme_font_size_override("font_size", 10)
+	row.add_child(label)
+	_resident_pick = OptionButton.new()
+	_resident_pick.add_theme_font_size_override("font_size", 10)
+	_resident_pick.custom_minimum_size.x = 250
+	for case_id in PoltergeistLibrary.ids():
+		var profile: Dictionary = PoltergeistLibrary.profile(case_id)
+		_resident_pick.add_item("%s · %s" % [profile.resident, profile.unit])
+		_resident_pick.set_item_metadata(
+				_resident_pick.item_count - 1, case_id)
+	row.add_child(_resident_pick)
+	_column.add_child(row)
+
+
+func _selected_case() -> String:
+	if _resident_pick == null or _resident_pick.selected < 0:
+		return "mina_caption_crisis"
+	return str(_resident_pick.get_item_metadata(_resident_pick.selected))
+
+
+## The newest subsystem, and the only one with no other way in. Everything
+## the director normally decides for itself can be forced from here, because
+## an invisible system that only fires on its own schedule is untestable by
+## definition.
+func _build_sanity() -> void:
+	var box := _section("SANITY — invisible director", Color(0.95, 0.7, 0.55),
+			true)
+	var rungs := HBoxContainer.new()
+	var rung_label := Label.new()
+	rung_label.text = "Rung"
+	rung_label.custom_minimum_size.x = 58
+	rung_label.add_theme_font_size_override("font_size", 10)
+	rungs.add_child(rung_label)
+	for tier in [1, 2, 3, 4]:
+		var t: int = tier
+		_button(rungs, ["tell", "pattern", "reenact", "ADDRESS"][t - 1],
+				func(): root.sanity.force(_selected_case(), t))
+	box.add_child(rungs)
+	var controls := HBoxContainer.new()
+	_button(controls, "Restore props",
+			func(): root.sanity.intrusions.restore_all())
+	_button(controls, "Stand down", func(): root.sanity.stand_down())
+	_button(controls, "Re-arm", func(): root.sanity.enabled = true)
+	box.add_child(controls)
+	var meta := HBoxContainer.new()
+	_effect_pick = OptionButton.new()
+	_effect_pick.add_theme_font_size_override("font_size", 9)
+	_effect_pick.custom_minimum_size.x = 180
+	for effect in FourthWallLayer.EFFECTS:
+		_effect_pick.add_item(str(effect))
+	meta.add_child(_effect_pick)
+	_button(meta, "Break frame", func():
+		root.fourth_wall.force_finish()
+		root.fourth_wall.play(str(_effect_pick.get_item_text(
+				maxi(0, _effect_pick.selected)))))
+	box.add_child(meta)
+	# The net is invisible by design, so this is the only way to see it work
+	# without actually falling out of the world.
+	var net := HBoxContainer.new()
+	_button(net, "Drop me out of the world",
+			func(): root.safety_net.drop_test())
+	box.add_child(net)
+
+
+## Three cases exist and any of them may need driving from any state — the
+## queue is linear, so without a skip you have to play case one to look at
+## case three.
+func _build_cases() -> void:
+	var box := _section("CASES — call network", Color(0.5, 0.85, 0.8), true)
+	var flow := HBoxContainer.new()
+	_button(flow, "Sit", func(): root.call_interface.enter(root.player))
+	_button(flow, "Isolate", func(): root.call_interface.press_isolate(true))
+	_button(flow, "Capture", func(): root.call_interface.press_capture())
+	_button(flow, "Route", func(): root.call_interface.press_route())
+	_button(flow, "Leave", func(): root.call_interface.leave())
+	box.add_child(flow)
+	# Responses are per-case, so they are built on demand rather than baked.
+	var answers := HBoxContainer.new()
+	var answer_label := Label.new()
+	answer_label.text = "Answer"
+	answer_label.custom_minimum_size.x = 58
+	answer_label.add_theme_font_size_override("font_size", 10)
+	answers.add_child(answer_label)
+	_button(answers, "list ▸", func(): _rebuild_answers(answers))
+	box.add_child(answers)
+	var skip := HBoxContainer.new()
+	_button(skip, "Fast (compress waits)", func():
+		root.call_interface.fast = not root.call_interface.fast)
+	_button(skip, "Skip case", func():
+		root.call_interface.outcome = "skipped"
+		root.call_interface._closed = true
+		root.call_interface.leave())
+	box.add_child(skip)
+
+
+## The live case decides what the buttons are, so they are rebuilt from its
+## own response list rather than hard-coded to Case 01's three.
+func _rebuild_answers(row: HBoxContainer) -> void:
+	for child in row.get_children():
+		if child is Button and str(child.text) != "list ▸":
+			child.queue_free()
+	var case_def: Dictionary = root.call_interface._case
+	if case_def.is_empty():
+		return
+	for response in case_def.responses:
+		var id: String = response.id
+		_button(row, id, func(): root.call_interface.press_respond(id))
+	# The timeout answer never has a button in-game — saying nothing is how
+	# you pick it — but it still needs exercising.
+	var timeout: String = case_def.timeout
+	_button(row, timeout + "*",
+			func(): root.call_interface.press_respond(timeout))
+
+
+func _build_go() -> void:
+	var box := _section("GO — teleports", Color(0.75, 0.8, 0.85))
 	var grid := GridContainer.new()
 	grid.columns = 4
-	_body.add_child(grid)
+	box.add_child(grid)
 	for fid in ["B1", "F01", "F02", "F03", "F04", "F05", "F06", "ROOF"]:
-		var b := Button.new()
-		b.text = fid
-		b.add_theme_font_size_override("font_size", 10)
-		b.pressed.connect(func(): root.teleport_player(fid))
-		grid.add_child(b)
+		var floor_id: String = fid
+		_button(grid, floor_id, func(): root.teleport_player(floor_id))
+	var extra := HBoxContainer.new()
+	_button(extra, "4B desk", func():
+		root.player.global_position = GameBoot.b2g([-8.8, 5.6, 9.7])
+		root.player.velocity = Vector3.ZERO)
+	_button(extra, "F03 utility door", func():
+		root.player.global_position = GameBoot.b2g([-4.4, 2.0, 6.5])
+		root.player.velocity = Vector3.ZERO)
+	box.add_child(extra)
 
-	_slider("BPM", 40, 140, Conductor.bpm, func(v): Conductor.bpm = v)
-	_slider("Infection", 0.0, 1.0, Conductor.infection,
+
+func _build_conductor() -> void:
+	var box := _section("CONDUCTOR — clock, infection, origin",
+			Color(0.85, 0.8, 0.6))
+	_slider(box, "BPM", 40, 140, Conductor.bpm, func(v): Conductor.bpm = v)
+	_slider(box, "Infection", 0.0, 1.0, Conductor.infection,
 			func(v): Conductor.infection = v)
-
 	var networked := CheckBox.new()
 	networked.text = "Networked propagation (graph delays)"
+	networked.add_theme_font_size_override("font_size", 10)
 	networked.button_pressed = Conductor.propagation_mode == "network"
 	networked.toggled.connect(func(on):
 		Conductor.propagation_mode = "network" if on else "global")
-	_body.add_child(networked)
+	box.add_child(networked)
 	var origin_row := HBoxContainer.new()
-	var ol := Label.new()
-	ol.text = "Origin"
-	ol.add_theme_font_size_override("font_size", 10)
-	origin_row.add_child(ol)
+	var label := Label.new()
+	label.text = "Origin"
+	label.custom_minimum_size.x = 58
+	label.add_theme_font_size_override("font_size", 10)
+	origin_row.add_child(label)
 	for origin in ["B1_BOILER_01", "F04_B_RADIATOR_01", "ROOF_FLUE_TOP"]:
-		var ob := Button.new()
-		ob.text = origin.replace("_01", "").replace("_", " ").to_lower()
-		ob.add_theme_font_size_override("font_size", 9)
-		ob.pressed.connect(func(): Conductor.origin_node = origin)
-		origin_row.add_child(ob)
-	_body.add_child(origin_row)
+		var node_id: String = origin
+		_button(origin_row, node_id.replace("_01", "")
+				.replace("_", " ").to_lower(),
+				func(): Conductor.origin_node = node_id)
+	box.add_child(origin_row)
+	var extras := HBoxContainer.new()
+	_button(extras, "Play intro (F2)",
+			func(): root.virus_director.toggle_intro())
+	_button(extras, "Mutate motif", func(): Conductor.mutate_motif())
+	box.add_child(extras)
 
+
+## One lifecycle row for whichever resident is selected, replacing what used
+## to be seven hard-coded Mina buttons plus three more residents' worth of
+## on/fix/reset. Strictly more capable, a third of the controls.
+func _build_reality() -> void:
+	var box := _section("REALITY — resident case lifecycle",
+			Color(0.78, 0.68, 0.94))
+	var row := HBoxContainer.new()
+	_button(row, "Open", func():
+		RealityCases.activate_case(_selected_case()))
+	_button(row, "Stabilize", func():
+		RealityCases.stabilize_case(_selected_case()))
+	_button(row, "Reopen", func():
+		RealityCases.reopen_case(_selected_case()))
+	_button(row, "Reset", func():
+		RealityCases.debug_reset_case(_selected_case()))
+	box.add_child(row)
+	# Insight flags come from the case definition, so this works for all
+	# eighteen instead of only for the two Mina had buttons for.
+	var insight := HBoxContainer.new()
+	var label := Label.new()
+	label.text = "Insight"
+	label.custom_minimum_size.x = 58
+	label.add_theme_font_size_override("font_size", 10)
+	insight.add_child(label)
+	_button(insight, "flags ▸", func(): _rebuild_insights(insight))
+	_button(insight, "Resolve", func():
+		RealityCases.resolve_case(_selected_case()))
+	box.add_child(insight)
+
+
+func _rebuild_insights(row: HBoxContainer) -> void:
+	for child in row.get_children():
+		if child is Button and str(child.text) not in ["flags ▸", "Resolve"]:
+			child.queue_free()
+	var case_id := _selected_case()
+	var definition: Dictionary = RealityCases.definition(case_id)
+	for flag in definition.get("resolution_flags", []):
+		var name: String = flag
+		_button(row, name.substr(0, 12),
+				func(): RealityCases.record_conversation(case_id, name))
+
+
+func _build_world() -> void:
+	var box := _section("WORLD — visibility, distortion, chaos",
+			Color(0.62, 0.82, 0.92))
 	var all_floors := CheckBox.new()
 	all_floors.text = "Show all floors"
+	all_floors.add_theme_font_size_override("font_size", 10)
 	all_floors.toggled.connect(func(on): root.show_all_floors = on)
-	_body.add_child(all_floors)
+	box.add_child(all_floors)
 	var overlay := CheckBox.new()
 	overlay.text = "Acoustic graph overlay"
+	overlay.add_theme_font_size_override("font_size", 10)
 	overlay.toggled.connect(func(on):
 		_overlay_on = on
 		AcousticGraphData.set_overlay_visible(on, root))
-	_body.add_child(overlay)
+	box.add_child(overlay)
 	var mute := CheckBox.new()
 	mute.text = "Mute"
+	mute.add_theme_font_size_override("font_size", 10)
 	mute.toggled.connect(func(on): AudioServer.set_bus_mute(0, on))
-	_body.add_child(mute)
-	var seed := Button.new()
-	seed.text = "Play intro (F2)"
-	seed.add_theme_font_size_override("font_size", 10)
-	seed.pressed.connect(func(): root.virus_director.toggle_intro())
-	_body.add_child(seed)
-	var case_title := Label.new()
-	case_title.text = "MINA CASE — recurrence scaffold"
-	case_title.add_theme_font_size_override("font_size", 10)
-	case_title.modulate = Color(0.65, 0.9, 0.82)
-	_body.add_child(case_title)
-	var case_row := GridContainer.new()
-	case_row.columns = 3
-	_body.add_child(case_row)
-	_case_button(case_row, "Open", func():
-		RealityCases.activate_case("mina_caption_crisis"))
-	_case_button(case_row, "Stabilize", func():
-		RealityCases.stabilize_case("mina_caption_crisis"))
-	_case_button(case_row, "Reopen", func():
-		RealityCases.reopen_case("mina_caption_crisis"))
-	_case_button(case_row, "Insight 1", func():
-		RealityCases.record_conversation("mina_caption_crisis",
-				"assumptions_are_not_facts"))
-	_case_button(case_row, "Insight 2", func():
-		RealityCases.record_conversation("mina_caption_crisis",
-				"silence_can_be_blank"))
-	_case_button(case_row, "Integrate", func():
-		RealityCases.resolve_case("mina_caption_crisis"))
-	_case_button(case_row, "Reset case", func():
-		RealityCases.debug_reset_case("mina_caption_crisis"))
-	var rule_title := Label.new()
-	rule_title.text = "REALITY RULE PROTOTYPES"
-	rule_title.add_theme_font_size_override("font_size", 10)
-	rule_title.modulate = Color(0.78, 0.68, 0.94)
-	_body.add_child(rule_title)
-	for prototype in [
-		["Mina labels", "mina_caption_crisis"],
-		["Peter topology", "peter_form_corridor"],
-		["Cam gravity", "cam_tilted_room"],
-	]:
-		var row := HBoxContainer.new()
-		_body.add_child(row)
-		var title := Label.new()
-		title.text = prototype[0]
-		title.custom_minimum_size.x = 82
-		title.add_theme_font_size_override("font_size", 9)
-		row.add_child(title)
-		var prototype_case: String = prototype[1]
-		_case_button(row, "On", func():
-			RealityCases.activate_case(prototype_case))
-		_case_button(row, "Fix", func():
-			RealityCases.stabilize_case(prototype_case))
-		_case_button(row, "Reset", func():
-			RealityCases.debug_reset_case(prototype_case))
-	var distortion_title := Label.new()
-	distortion_title.text = "MAP DISTORTION LAB — F3 cycles"
-	distortion_title.add_theme_font_size_override("font_size", 10)
-	distortion_title.modulate = Color(0.62, 0.82, 0.92)
-	_body.add_child(distortion_title)
+	box.add_child(mute)
 	var chaos := CheckBox.new()
 	chaos.text = "Chaos mode (F4)"
 	chaos.add_theme_font_size_override("font_size", 10)
-	chaos.toggled.connect(func(on):
-		root.map_distortion_lab.set_chaos(on))
-	_body.add_child(chaos)
-	var distortion_grid := GridContainer.new()
-	distortion_grid.columns = 4
-	_body.add_child(distortion_grid)
+	chaos.toggled.connect(func(on): root.map_distortion_lab.set_chaos(on))
+	box.add_child(chaos)
+	var grid := GridContainer.new()
+	grid.columns = 4
+	box.add_child(grid)
 	for distortion in MapDistortionLab.MODES:
 		var distortion_mode: String = distortion
-		_case_button(distortion_grid,
-				distortion_mode.replace("_", " ").capitalize(),
+		_button(grid, distortion_mode.replace("_", " ").capitalize(),
 				func(): root.map_distortion_lab.set_mode(distortion_mode))
-	# Tunable on the device that has to run it. The mobile light budget was
-	# originally set from reasoning about tile-based GPUs with no phone to
-	# check against, and it came out too dark. These two sliders sit next to
-	# the frame counter so the ceiling can be found by pushing them until
-	# the fps gives, instead of by argument.
-	_slider("Light budget", 1, 24, root.light_rig._active_budget,
+
+
+## Both of these are open questions on hardware rather than settled numbers,
+## which is the whole reason they are adjustable next to a frame counter.
+func _build_device() -> void:
+	var box := _section("DEVICE — budgets and phone HUD",
+			Color(0.7, 0.85, 0.7))
+	_slider(box, "Lights", 1, 24, root.light_rig._active_budget,
 			func(v): root.light_rig.set_budgets(int(v),
 					root.light_rig._shadow_budget), 1.0)
-	_slider("Shadow budget", 0, 16, root.light_rig._shadow_budget,
+	_slider(box, "Shadows", 0, 16, root.light_rig._shadow_budget,
 			func(v): root.light_rig.set_budgets(
 					root.light_rig._active_budget, int(v)), 1.0)
-	# Lets the phone HUD be driven and judged on a desktop, where a mouse
-	# drag stands in for a thumb — otherwise the only way to see whether the
-	# controls are reachable is to build an APK first.
 	var touch := CheckBox.new()
 	touch.text = "Touch controls (phone HUD)"
+	touch.add_theme_font_size_override("font_size", 10)
 	touch.button_pressed = root.touch.enabled if root and root.touch else false
 	touch.toggled.connect(func(on):
 		if root and root.touch:
@@ -175,66 +370,130 @@ func _ready() -> void:
 			root.player.touch_input = on
 			if on:
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE)
-	_body.add_child(touch)
+	box.add_child(touch)
+
+
+func _build_keys() -> void:
+	var box := _section("KEYS", Color(0.7, 0.7, 0.75))
 	var hint := Label.new()
-	hint.text = "WASD move · Shift run · C crouch · E interact\nL flashlight · V noclip · F2 intro · F3 distort · F4 chaos · Esc release mouse"
+	hint.text = "WASD move · Shift run · C crouch · E interact\n" \
+			+ "L flashlight · V noclip · F2 intro · F3 distort · F4 chaos\n" \
+			+ "Esc release mouse · wheel scrolls this panel"
 	hint.add_theme_font_size_override("font_size", 10)
 	hint.modulate = Color(0.7, 0.7, 0.75)
-	_body.add_child(hint)
+	box.add_child(hint)
 
 
-func _slider(label_text: String, lo: float, hi: float, initial: float,
-		on_change: Callable, step := 0.01) -> void:
-	var row := HBoxContainer.new()
-	var l := Label.new()
-	l.text = label_text
-	l.custom_minimum_size.x = 70
-	l.add_theme_font_size_override("font_size", 10)
-	row.add_child(l)
-	var s := HSlider.new()
-	s.min_value = lo
-	s.max_value = hi
-	s.step = step
-	s.value = initial
-	s.custom_minimum_size.x = 150
-	s.value_changed.connect(on_change)
-	row.add_child(s)
-	_body.add_child(row)
+# -------------------------------------------------------------- helpers
 
-
-func _case_button(parent: Node, label_text: String, action: Callable) -> void:
+func _button(parent: Node, label_text: String, action: Callable) -> Button:
 	var button := Button.new()
 	button.text = label_text
 	button.add_theme_font_size_override("font_size", 9)
 	button.pressed.connect(action)
 	parent.add_child(button)
+	return button
+
+
+func _slider(parent: Node, label_text: String, lo: float, hi: float,
+		initial: float, on_change: Callable, step := 0.01) -> void:
+	var row := HBoxContainer.new()
+	var label := Label.new()
+	label.text = label_text
+	label.custom_minimum_size.x = 58
+	label.add_theme_font_size_override("font_size", 10)
+	row.add_child(label)
+	var slider := HSlider.new()
+	slider.min_value = lo
+	slider.max_value = hi
+	slider.step = step
+	slider.value = initial
+	slider.custom_minimum_size.x = 170
+	slider.value_changed.connect(on_change)
+	row.add_child(slider)
+	parent.add_child(row)
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_panel"):
 		_body.visible = not _body.visible
 		get_viewport().set_input_as_handled()
-	elif event.is_action_pressed("intro") and root \
-			and root.virus_director:
+	elif event.is_action_pressed("intro") and root and root.virus_director:
 		root.virus_director.toggle_intro()
 		get_viewport().set_input_as_handled()
 
 
+## The wheel, handled here rather than left to the ScrollContainer, because
+## the game captures the mouse: with no pointer to hover, the container never
+## receives the event and the panel would only scroll after Esc.
+func _unhandled_input(event: InputEvent) -> void:
+	if not _body.visible or not (event is InputEventMouseButton):
+		return
+	var button := event as InputEventMouseButton
+	if not button.pressed:
+		return
+	if button.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+		_body.scroll_vertical += 48
+		get_viewport().set_input_as_handled()
+	elif button.button_index == MOUSE_BUTTON_WHEEL_UP:
+		_body.scroll_vertical -= 48
+		get_viewport().set_input_as_handled()
+
+
+## The readout is the one place the hidden values are allowed to surface, and
+## only here — nothing in the shipped HUD may read sanity pressure.
 func _process(_delta: float) -> void:
 	if not _body.visible or root == null or root.player == null:
 		return
+	# Grow to fit what is open, but never past the window. Recomputed rather
+	# than cached because sections collapse and the viewport can resize.
+	var ceiling: float = get_viewport().get_visible_rect().size.y - 96.0
+	_body.custom_minimum_size.y = clampf(
+			_column.get_combined_minimum_size().y, 0.0, maxf(160.0, ceiling))
 	var p: Vector3 = root.player.global_position
-	var seed_status := ""
-	if root.virus_director and root.virus_director.active:
-		var f: Dictionary = root.virus_director.current_features
-		seed_status = "\nintro %.1fs  low %.2f  mid %.2f  high %.2f" % [
-				root.virus_director._elapsed, float(f.get("low", 0.0)),
-				float(f.get("mid", 0.0)), float(f.get("high", 0.0))]
-	var mina: Dictionary = RealityState.case_state("mina_caption_crisis")
-	var case_status := "\nMina %s · repairs %d · recurrences %d" % [
-			str(mina.get("stage", "unseen")), int(mina.get("repair_count", 0)),
-			int(mina.get("recurrence_count", 0))]
-	_status.text = ("pos (%.1f, %.1f, %.1f)  fps %d\n" +
-			"bpm %.0f  infection %.2f%s%s") \
-			% [p.x, p.y, p.z, Engine.get_frames_per_second(),
-			Conductor.bpm, Conductor.infection, seed_status, case_status]
+	var lines: Array[String] = []
+	lines.append("pos (%.1f, %.1f, %.1f)  fps %d" % [p.x, p.y, p.z,
+			Engine.get_frames_per_second()])
+	lines.append("bpm %.0f  infection %.2f  origin %s"
+			% [Conductor.bpm, Conductor.infection, Conductor.origin_node])
+	var ci = root.call_interface
+	if ci:
+		var case_def: Dictionary = ci._case
+		lines.append("case %s  stage %d  outcome %s" % [
+				case_def.get("id", "—"), int(ci.stage),
+				ci.outcome if ci.outcome != "" else "—"])
+	var director = root.sanity
+	if director:
+		var s: Dictionary = director.stats()
+		lines.append("pressure %.2f  intrusions %d  last %s r%d" % [
+				s.pressure, s.intrusions,
+				s.last_case if s.last_case != "" else "—", s.last_tier])
+		lines.append("held %d  still %.1fs  net recoveries %d" % [
+				s.held, s.still_for,
+				root.safety_net.recoveries if root.safety_net else 0])
+	var case_id := _selected_case()
+	var state: Dictionary = RealityState.case_state(case_id)
+	lines.append("%s: %s · repairs %d · recur %d" % [
+			PoltergeistLibrary.profile(case_id).get("unit", "?"),
+			str(state.get("stage", "unseen")),
+			int(state.get("repair_count", 0)),
+			int(state.get("recurrence_count", 0))])
+	_status.text = "\n".join(lines)
+
+
+# ---------------------------------------------------------------- cut
+#
+# Removed rather than carried, with reasons, so nobody re-adds them by
+# reflex:
+#
+# - Mina's seven-button lifecycle and the three "reality rule prototype"
+#   rows. Sixteen buttons covering four of eighteen residents. The SUBJECT
+#   picker plus one lifecycle row does all eighteen in four buttons, and the
+#   insight flags now come from each case's own definition instead of being
+#   hard-coded to Mina's two.
+# - The separate Mina status line. The status block reports whichever
+#   resident is selected, which is the one you are actually looking at.
+#
+# Nothing else was dropped: the conductor, teleports, distortion, budgets and
+# phone HUD all still earn their place, they are just no longer competing for
+# the same flat list.

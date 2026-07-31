@@ -133,6 +133,13 @@ the building clean.
 Use `SanityDirector.force(case_id, tier)` to fire a specific rung, and
 `stats()` for the hidden values. Neither may ever be wired to shipped UI.
 
+By hand: F1 opens the debug panel, whose SANITY section is open by default.
+Pick a resident in the shared SUBJECT dropdown, then fire any of the four
+rungs on them, restore the props, stand the director down or re-arm it, play
+any fourth-wall effect by name, and drop yourself out of the world to watch
+the net catch you. The status block at the top is the only place pressure is
+ever displayed.
+
 ## Not done yet
 
 - The director reads player behaviour but not player *attention* — where they

@@ -49,6 +49,13 @@ var _distortion: Node = null
 func setup(body: CharacterBody3D, distortion_lab: Node = null) -> void:
 	player = body
 	_distortion = distortion_lab
+	# Run before everything else in the physics step. The net is added to the
+	# tree after the player, so at default priority the player got a whole
+	# frame with the broken position first — and a controller handed a
+	# non-finite transform spends that frame trying to normalise NaN, which
+	# floods the log and can take the run down with it. Catching the fall
+	# before anyone reads the position is the only ordering that works.
+	process_physics_priority = -100
 
 
 func _physics_process(delta: float) -> void:

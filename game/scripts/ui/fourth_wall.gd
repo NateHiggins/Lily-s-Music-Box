@@ -32,6 +32,18 @@ signal effect_finished(effect: String)
 ## being frightening and becomes a support ticket.
 const HARD_CEILING := 7.0
 
+## Every effect, in one place. The names were previously only discoverable by
+## reading the match statement in play(), which meant the debug panel could
+## not list them and a poltergeist could name one that did not exist without
+## anything noticing until the address rung silently did nothing.
+const EFFECTS := [
+	"volume_drop", "save_corrupt", "session_time", "second_operator",
+	"violation_notice", "unrepairable_notice", "accession", "provenance",
+	"checkout", "consent_form", "graded", "alarm", "mic_hot",
+	"previous_session", "audience", "stillness", "unfinished",
+	"unravel_ui", "replay_last", "photo_behind",
+]
+
 var enabled := true
 ## What ran, in order. The director reads this to avoid repeating itself and
 ## the tests read it to prove effects self-clear.
