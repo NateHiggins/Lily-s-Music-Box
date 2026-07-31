@@ -149,7 +149,18 @@ Nothing here blocks a build; these are the honest edges.
   import, but `USE_RIGGED_RESIDENTS := false` in `building_root.gd` keeps
   sprite placeholders as the active cast. Flip the one flag to resume.
   `assets/characters/mina/` is a stale duplicate of `mina_vale/`.
-- **The B1 "KNOW YOUR EXIT" hallway decal renders mirrored.**
+- **Wall art placement wants an audit.** The B1 "KNOW YOUR EXIT" sign used
+  to render mirrored; the cause was `cull_mode = CULL_DISABLED` on the art
+  quad, which draws a reversed copy of the front on the back face, so
+  anything viewed from behind read as broken art rather than as no art.
+  Art is single-sided now (`character_memory_art.gd`) and the mirroring is
+  gone. WalkTest prints an `[ART]` sweep at the end: of 48 pieces, 1 has
+  something within 0.34 m in front of it and 8 have nothing solid behind.
+  Those are leads, NOT confirmed bugs — a hit in front is as likely to be
+  a wardrobe against the same wall, and "nothing behind" fires on anything
+  hung over an archway, which may be intentional. Deliberately reported
+  rather than asserted. Pinning down the placement rules well enough to
+  make either a real invariant is a job of its own.
 
 ## Working alongside other sessions
 

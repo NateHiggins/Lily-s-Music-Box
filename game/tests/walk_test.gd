@@ -771,8 +771,53 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	# infection around freely, and an earlier version of this ordering
 	# quietly un-manifested the seam before the Room 0 walk reached it.
 	await _case_network_checks(ci)
+	_wall_art_report()
 	Conductor.infection = 0.15
 	Conductor.origin_node = "B1_BOILER_01"
+
+
+## Art is single-sided now, so a piece hung facing its own wall is invisible
+## rather than mirrored. Better, but silent — hence this sweep.
+##
+## It REPORTS and does not assert, deliberately. Neither probe measures
+## cleanly enough to fail a build on: a hit in front of a picture is just as
+## likely to be a wardrobe standing against the same wall as it is a
+## backwards hang, and "nothing behind" fires on anything hung over an
+## archway or a cased opening, which may well be intentional dressing. The
+## lists are here so the next person to touch the art catalogs has the
+## leads; turning either into a real invariant needs the placement rules
+## pinned down first, and that is a job of its own.
+func _wall_art_report() -> void:
+	var space := get_viewport().world_3d.direct_space_state
+	var blocked: Array[String] = []
+	var unbacked: Array[String] = []
+	var total := 0
+	for group in ["character_memories", "character_wall_art", "hallway_art"]:
+		for art in get_tree().get_nodes_in_group(group):
+			if not (art is Node3D):
+				continue
+			total += 1
+			var node: Node3D = art
+			var origin: Vector3 = node.global_position
+			# The quad faces local +Z, so this is the side you must stand
+			# on to see the picture at all.
+			var out: Vector3 = node.global_transform.basis.z.normalized()
+			var front := PhysicsRayQueryParameters3D.create(
+					origin + out * 0.05, origin + out * 0.34)
+			if not space.intersect_ray(front).is_empty():
+				blocked.append(str(node.name))
+			var back := PhysicsRayQueryParameters3D.create(
+					origin, origin - out * 0.40)
+			if space.intersect_ray(back).is_empty():
+				unbacked.append(str(node.name))
+	_check(total >= 40, "wall art spawned (%d pieces)" % total)
+	print("[ART] %d pieces; %d with something close in front, %d with "
+			% [total, blocked.size(), unbacked.size()] +
+			"nothing solid behind")
+	if not blocked.is_empty():
+		print("[ART] close in front: %s" % [blocked])
+	if not unbacked.is_empty():
+		print("[ART] nothing behind: %s" % [unbacked])
 
 
 ## Cases 02 and 03, driven through the same console the player uses. The

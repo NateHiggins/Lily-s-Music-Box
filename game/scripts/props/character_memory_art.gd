@@ -38,7 +38,14 @@ func _ready() -> void:
 	var art_material := StandardMaterial3D.new()
 	art_material.albedo_texture = isolated
 	art_material.roughness = 0.76 if medium != "photo" else 0.48
-	art_material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	# Single-sided, like a real poster on a real wall. With culling
+	# disabled a quad's back face renders as a MIRRORED copy of the front,
+	# so anything hung facing away from you read as reversed art rather
+	# than as no art — which is how the B1 "KNOW YOUR EXIT" sign spent a
+	# long time looking like a broken texture when it was simply being
+	# viewed from behind. Culled, a mis-hung piece is invisible, which is
+	# an obvious bug instead of a subtle one.
+	art_material.cull_mode = BaseMaterial3D.CULL_BACK
 	var art := MeshInstance3D.new()
 	art.mesh = art_mesh
 	art.material_override = art_material
