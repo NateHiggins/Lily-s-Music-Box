@@ -805,7 +805,7 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	await _case_network_checks(ci)
 	_wall_art_report()
 	_door_glow_checks()
-	_lobby_figure_checks()
+	await _lobby_figure_checks()
 	await _sanity_checks()
 	await _sanity_checks()
 	Conductor.infection = 0.15
@@ -1119,6 +1119,25 @@ func _lobby_figure_checks() -> void:
 	var tris := figure.triangle_count()
 	_check(tris > 0 and tris < 60000,
 			"character geometry stays within budget (%d tris)" % tris)
+	# Meshy ships one animation per file, each with a full copy of the skin.
+	# The merge folds them onto a single rig, and the failure mode is silent:
+	# the exporter drops whichever action is assigned as active, so a clip
+	# goes missing without anything erroring.
+	_check(figure.anim != null, "character has an AnimationPlayer")
+	_check(figure.clips.size() == 10,
+			"all ten clips survived the merge (%d)" % figure.clips.size())
+	_check(figure.anim != null and figure.anim.is_playing(),
+			"character is animating, not frozen in bind pose")
+	# Root motion would fight the navigation; the clips were authored in
+	# place and have to stay that way.
+	var drift_ok := true
+	if figure.anim:
+		var before := figure.global_position
+		figure.play_clip("walk")
+		await get_tree().create_timer(1.1).timeout
+		drift_ok = figure.global_position.distance_to(before) < 0.05
+		figure.play_clip(LobbyPlaceholder.DEFAULT_CLIP)
+	_check(drift_ok, "walk cycle does not translate the character")
 
 
 func _descendants(node: Node) -> Array[Node]:

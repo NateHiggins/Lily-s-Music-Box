@@ -1,28 +1,34 @@
 class_name LobbyPlaceholder
 extends Node3D
-## The first real character mesh in the building, standing in the lobby.
+## Evelyn Marsh, standing in the lobby while her animation set is judged.
 ##
-## This is a placeholder in the honest sense: it is one static posed mesh out
-## of Meshy with no armature and no actions, so it cannot walk, idle, or be
-## spoken to. It is here to answer the questions you can only answer by
-## standing in front of something — does the scale read, does the lighting
-## sit on it, does a real character make this room feel different — and to
-## give the character pipeline a target to replace.
+## This is a test placement rather than her home — she lives in 1A — and it
+## exists because the only way to know whether a clip works is to stand in
+## front of it at eye height under the building's own lighting. A turntable
+## in Blender will tell you the rig is intact and nothing else.
+##
+## The model is merged from Meshy's eleven separate exports by
+## `art/blender/scripts/merge_meshy_animations.py`: ten clips onto one skin,
+## 45k triangles, 11 MB, instead of eleven copies of the same character at
+## 82 MB each.
 ##
 ## Deliberately non-colliding. The generator's movement audit authors every
 ## clearance in this building and cannot see actors added in Godot, so a
-## solid figure dropped into a room is a route the audit believes is clear
-## and the player finds blocked. The eighteen resident placeholders already
-## follow this rule; so does this.
+## solid figure is a route that passes on paper and fails underfoot.
 
-## Meshy exports with the origin at the mesh's CENTRE, not between the feet,
-## so a character placed at floor height stands buried to the waist. Measured
-## off the source blend rather than eyeballed: the bounding box runs
-## -0.951..+0.948 about the origin.
-const FOOT_OFFSET := 0.951
-const MODEL := "res://assets/characters/lobby_placeholder/lobby_placeholder.gltf"
+const MODEL := "res://assets/characters/evelyn_marsh/evelyn_marsh.gltf"
+## Meshy's *rigged* exports put the origin between the feet, unlike its
+## static ones, which centre it on the mesh. Measured, not assumed: her hips
+## sit at 0.99 above the origin, which is where hips belong on a standing
+## adult.
+const FOOT_OFFSET := 0.0
+## What plays when nobody is driving her. Renamed to `idle` once the clips
+## are identified on screen.
+const DEFAULT_CLIP := "clip_01"
 
 var figure: Node3D
+var anim: AnimationPlayer
+var clips: PackedStringArray = []
 
 
 ## `at` is Blender XY on the lobby floor; `facing` is degrees about up.
@@ -36,15 +42,55 @@ func _ready() -> void:
 	add_to_group("character_placeholders")
 	var scene := load(MODEL) as PackedScene
 	if scene == null:
-		push_warning("lobby placeholder model missing: %s" % MODEL)
+		push_warning("lobby character model missing: %s" % MODEL)
 		return
 	figure = scene.instantiate()
 	add_child(figure)
-	# One dense static mesh: shadow-casting it would put a 43k-triangle
-	# caster inside the lobby chandelier's cube shadow, which is six extra
-	# passes over it for a figure standing still against a wall.
 	for node in _meshes(figure):
+		# A 45k-triangle caster inside the lobby chandelier's cube shadow is
+		# six more passes over her for somebody standing still.
 		node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	anim = _find_player(figure)
+	if anim == null:
+		push_warning("lobby character has no AnimationPlayer")
+		return
+	clips = anim.get_animation_list()
+	# Everything here is a loop except the one-shots, and a clip that plays
+	# once and freezes reads as the character dying. Looping is the safe
+	# default until each clip is identified and classified.
+	for name in clips:
+		var clip := anim.get_animation(name)
+		if clip:
+			clip.loop_mode = Animation.LOOP_LINEAR
+	print("[EVELYN] %d clips: %s" % [clips.size(), clips])
+	play_clip(DEFAULT_CLIP)
+
+
+func play_clip(clip_name: String) -> bool:
+	if anim == null or not anim.has_animation(clip_name):
+		return false
+	anim.play(clip_name)
+	return true
+
+
+## Test/debug: step to the next clip and report which one is now running.
+func next_clip() -> String:
+	if anim == null or clips.is_empty():
+		return ""
+	var here := clips.find(anim.current_animation)
+	var next: String = clips[(here + 1) % clips.size()]
+	play_clip(next)
+	return next
+
+
+func _find_player(node: Node) -> AnimationPlayer:
+	if node is AnimationPlayer:
+		return node
+	for child in node.get_children():
+		var found := _find_player(child)
+		if found:
+			return found
+	return null
 
 
 func _meshes(node: Node) -> Array[MeshInstance3D]:

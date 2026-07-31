@@ -166,6 +166,39 @@ Generators will produce plausible motion that is not *her*. Send it back if:
   reads as a smooth considered decision rather than as something breaking,
   the clip has missed the whole point of her arc.
 
+## What came back — clip inventory
+
+Generated and merged. She is standing in the lobby performing them; F1 →
+**CAST** cycles the clips in front of her, and the status block names the one
+currently running.
+
+`game/assets/characters/evelyn_marsh/evelyn_marsh.gltf` — 45,204 triangles,
+11.4 MB, 24-bone rig, ten clips, no root motion on any of them.
+
+**Meshy normalised every custom clip to 3 s** regardless of the durations
+this sheet asked for, and returned them with UUID filenames and no record of
+which prompt produced which. Identified so far, from hip and hand heights
+plus renders:
+
+| clip | evidence | almost certainly |
+|---|---|---|
+| `clip_06` | hips at 0.72 — the only seated clip | `marking` |
+| `clip_08` | left hand to 1.52, and the only 4 s clip | `enough` |
+| `clip_01` | hands low and still, minimal travel | `idle` |
+| `walk` | Meshy stock, 0.8 s cyclic | `walk` |
+| `run` | Meshy stock, 0.5 s cyclic | not in this sheet — spare |
+
+`clip_02`, `clip_03`, `clip_04`, `clip_05` and `clip_07` are the remaining
+standing clips and cannot be told apart from measurements alone: they are all
+3 s, all hands between 0.83 and 1.17, all low travel. **You know which prompt
+you fed each generation — that mapping is worth writing down here**, or cycle
+them at her in the lobby and name them by eye. Renaming is a one-line change
+to `NAMES` in `merge_meshy_animations.py` followed by a re-export.
+
+Only eight custom clips came back for the nine non-walk prompts on this
+sheet, so one of them was not generated. Working out which is missing is the
+same job as naming the other five.
+
 ## Notes for the runtime
 
 `idle` and `walk` are the only two `AnimatedResident` currently selects, so

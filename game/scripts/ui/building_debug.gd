@@ -71,6 +71,7 @@ func _ready() -> void:
 
 	_build_subject()
 	_build_sanity()
+	_build_cast()
 	_build_cases()
 	_build_go()
 	_build_conductor()
@@ -171,6 +172,35 @@ func _build_sanity() -> void:
 	_button(net, "Drop me out of the world",
 			func(): root.safety_net.drop_test())
 	box.add_child(net)
+
+
+## Evelyn's clips arrive from Meshy with UUID filenames and no way to tell
+## which prompt produced which. Cycling them in front of her, at eye height
+## under the building's own lighting, is the only reliable way to name them —
+## and it is also the only way to find out whether a clip actually works
+## where it has to work.
+func _build_cast() -> void:
+	var box := _section("CAST — Evelyn's clips", Color(0.85, 0.65, 0.85), true)
+	var row := HBoxContainer.new()
+	_button(row, "◀ prev", func(): _step_clip(-1))
+	_button(row, "next ▶", func(): _step_clip(1))
+	_button(row, "go to her", func():
+		var fig = root.lobby_figure
+		if fig:
+			root.player.global_position = fig.global_position \
+					+ Vector3(-1.35, 0.0, 1.30)
+			root.player.velocity = Vector3.ZERO)
+	box.add_child(row)
+
+
+func _step_clip(direction: int) -> void:
+	var fig = root.lobby_figure
+	if fig == null or fig.anim == null or fig.clips.is_empty():
+		return
+	var here := Array(fig.clips).find(fig.anim.current_animation)
+	var count: int = fig.clips.size()
+	var next: String = fig.clips[(here + direction + count) % count]
+	fig.play_clip(next)
 
 
 ## Three cases exist and any of them may need driving from any state — the
@@ -473,6 +503,12 @@ func _process(_delta: float) -> void:
 				root.safety_net.recoveries if root.safety_net else 0])
 		lines.append("gaze %s %.1fs  unseen %d  witnessed %d" % [
 				s.gaze, s.gaze_hold, s.ignored, s.witnessed])
+	var fig = root.lobby_figure
+	if fig and fig.anim:
+		lines.append("evelyn clip %s (%d of %d)" % [
+				fig.anim.current_animation,
+				Array(fig.clips).find(fig.anim.current_animation) + 1,
+				fig.clips.size()])
 	var case_id := _selected_case()
 	var state: Dictionary = RealityState.case_state(case_id)
 	lines.append("%s: %s · repairs %d · recur %d" % [
