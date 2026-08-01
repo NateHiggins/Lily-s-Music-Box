@@ -86,6 +86,9 @@ const ROLES := {
 enum Stage { HOME, PACING, TO_LIFT, RIDING, AT_HAUNT, RETURNING }
 
 var actors: Array = []
+## Portal-graph pathfinding; see resident_nav.gd. Null-safe: without it
+## everything degrades to the old straight-line walk.
+var nav: ResidentNav
 
 var _layout: Dictionary = {}
 var _rng := RandomNumberGenerator.new()
@@ -93,6 +96,10 @@ var _rng := RandomNumberGenerator.new()
 
 func build(layout: Dictionary, residents: Array) -> int:
 	_layout = layout
+	nav = ResidentNav.new()
+	nav.name = "ResidentNav"
+	add_child(nav)
+	nav.build(layout)
 	_rng.randomize()
 	for node in residents:
 		var slug := _slug_of(node)
@@ -108,6 +115,8 @@ func build(layout: Dictionary, residents: Array) -> int:
 			"anim": _player_of(node),
 			"haunt": _haunt_point(slug),
 			"hidden_for": 0.0,
+			"path": PackedVector3Array(),
+			"leg": 0,
 		}
 		actors.append(actor)
 	print("[ROUTINES] %d residents with somewhere to be" % actors.size())
@@ -200,49 +209,69 @@ func _step(actor: Dictionary, delta: float) -> void:
 	actor.timer -= delta
 	match int(actor.stage):
 		Stage.HOME:
+			# Coming off the lift there is still a walk to finish before
+			# settling: idle only once the route is spent.
+			if int(actor.leg) < actor.path.size():
+				_play(actor, "pace")
+				_follow(actor, node, delta)
+				return
 			_play(actor, "idle")
 			if actor.timer <= 0.0:
 				# Most of the time they just get up and move about the room.
 				# Leaving is the rarer, more interesting event.
 				if _rng.randf() < 0.35 and actor.haunt != Vector3.ZERO:
 					actor.stage = Stage.TO_LIFT
-					actor.target = _lift_point(node.global_position.y)
+					_set_route(actor, _lift_point(node.global_position.y))
 				else:
 					actor.stage = Stage.PACING
-					actor.target = _near_home(actor)
+					_set_route(actor, _near_home(actor))
 					actor.timer = _rng.randf_range(6.0, 14.0)
 		Stage.PACING:
 			_play(actor, "pace")
-			if _advance(node, actor.target, delta) or actor.timer <= 0.0:
+			if _follow(actor, node, delta) or actor.timer <= 0.0:
 				actor.stage = Stage.HOME
 				actor.timer = _rng.randf_range(8.0, 30.0)
 				_play(actor, "busy")
 		Stage.TO_LIFT:
 			_play(actor, "pace")
-			if _advance(node, actor.target, delta):
+			if _follow(actor, node, delta):
 				actor.stage = Stage.RIDING
 				actor.hidden_for = _rng.randf_range(2.0, 4.5)
 				node.visible = false
 		Stage.RIDING:
 			actor.hidden_for -= delta
 			if actor.hidden_for <= 0.0:
-				node.global_position = actor.haunt
+				# Step out of the lift on the haunt's floor and WALK the
+				# rest: arriving at the bench is half of what sells that
+				# they went somewhere, rather than respawned there.
+				node.global_position = _lift_point(actor.haunt.y)
 				node.visible = true
 				actor.stage = Stage.AT_HAUNT
+				_set_route(actor, actor.haunt)
 				actor.timer = _rng.randf_range(18.0, 50.0)
 		Stage.AT_HAUNT:
-			_play(actor, "settle")
+			if _follow(actor, node, delta):
+				_play(actor, "settle")
+			else:
+				_play(actor, "pace")
 			if actor.timer <= 0.0:
 				actor.stage = Stage.RETURNING
-				actor.hidden_for = _rng.randf_range(2.0, 4.5)
-				node.visible = false
+				_set_route(actor, _lift_point(node.global_position.y))
 		Stage.RETURNING:
-			actor.hidden_for -= delta
-			if actor.hidden_for <= 0.0:
-				node.global_position = actor.home
-				node.visible = true
-				actor.stage = Stage.HOME
-				actor.timer = _rng.randf_range(10.0, 34.0)
+			# Walk back to the lift, ride it, and reappear walking home.
+			if node.visible:
+				_play(actor, "pace")
+				if _follow(actor, node, delta):
+					node.visible = false
+					actor.hidden_for = _rng.randf_range(2.0, 4.5)
+			else:
+				actor.hidden_for -= delta
+				if actor.hidden_for <= 0.0:
+					node.global_position = _lift_point(actor.home.y)
+					node.visible = true
+					actor.stage = Stage.HOME
+					_set_route(actor, actor.home)
+					actor.timer = _rng.randf_range(10.0, 34.0)
 
 
 ## Somewhere else in the same room. Kept short so nobody walks out through
@@ -258,17 +287,32 @@ func _lift_point(y: float) -> Vector3:
 	return GameBoot.b2g([LIFT.x, LIFT.y, y])
 
 
-## Returns true on arrival. Turns to face the way they are going, because a
-## person sliding sideways across a room is worse than one standing still.
-func _advance(node: Node3D, target: Vector3, delta: float) -> bool:
-	var to := target - node.global_position
-	to.y = 0.0
-	if to.length() < 0.16:
-		return true
-	var step := to.normalized() * WALK_SPEED * delta
-	node.global_position += step
-	node.rotation.y = atan2(-to.x, -to.z)
-	return false
+## Plan a route through the portal graph. Same-floor by contract; the lift
+## stages handle the vertical.
+func _set_route(actor: Dictionary, target: Vector3) -> void:
+	var node: Node3D = actor.node
+	if nav != null:
+		actor.path = nav.route(node.global_position, target)
+	else:
+		actor.path = PackedVector3Array([target])
+	actor.leg = 0
+
+
+## Walk the planned route waypoint by waypoint. Returns true when spent.
+## Turns to face the way they are going, because a person sliding sideways
+## across a room is worse than one standing still.
+func _follow(actor: Dictionary, node: Node3D, delta: float) -> bool:
+	while int(actor.leg) < actor.path.size():
+		var target: Vector3 = actor.path[int(actor.leg)]
+		var to := target - node.global_position
+		to.y = 0.0
+		if to.length() < 0.16:
+			actor.leg = int(actor.leg) + 1
+			continue
+		node.global_position += to.normalized() * WALK_SPEED * delta
+		node.rotation.y = atan2(-to.x, -to.z)
+		return false
+	return true
 
 
 func stats() -> Dictionary:

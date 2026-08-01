@@ -854,6 +854,59 @@ func _lobby_figure_checks() -> void:
 	var tris := figure.triangle_count()
 	_check(tris > 0 and tris < 60000,
 			"character geometry stays within budget (%d tris)" % tris)
+	# --- pathfinding. The one assertion that matters: a planned route never
+	# crosses masonry except at a doorway. Proven with physics, not by
+	# trusting the graph — raycast every leg at torso height and demand any
+	# wall hit be within arm's reach of a door node on the path. Closed door
+	# LEAVES are legal to pass (residents are non-colliding by design; the
+	# audit owns clearances), so DoorProp hits are excused.
+	var routines = root.resident_routines
+	_check(routines != null and routines.nav != null,
+			"resident nav graph built")
+	if routines != null and routines.nav != null:
+		var nav = routines.nav
+		_check(nav.floors.size() >= 7,
+				"nav covers the storeys (%d)" % nav.floors.size())
+		# 1A living room to the lobby mail bank — Evelyn's actual errand.
+		var from := GameBoot.b2g([-9.6, -3.0, 0.0])
+		var to := GameBoot.b2g([0.0, -8.6, 0.0])
+		var path: PackedVector3Array = nav.route(from, to)
+		_check(path.size() >= 4,
+				"route 1A -> mail runs the graph (%d waypoints)" % path.size())
+		var door_nodes: Array = []
+		for pt in nav.floors["F01"].points:
+			if str(pt.tag).begins_with("door:"):
+				door_nodes.append(GameBoot.b2g([pt.at.x, pt.at.y,
+						nav.floors["F01"].z]))
+		var space := get_viewport().world_3d.direct_space_state
+		var breaches := 0
+		for i in range(path.size() - 1):
+			var a: Vector3 = path[i] + Vector3(0, 1.0, 0)
+			var b: Vector3 = path[i + 1] + Vector3(0, 1.0, 0)
+			var q := PhysicsRayQueryParameters3D.create(a, b)
+			var guard := 0
+			while guard < 8:
+				guard += 1
+				var hit := space.intersect_ray(q)
+				if hit.is_empty():
+					break
+				var owner: Node = hit.collider.get_parent() \
+						if hit.collider is Node else null
+				var excused := owner is DoorProp
+				for dn in door_nodes:
+					if Vector3(hit.position.x, dn.y + 1.0, hit.position.z) \
+							.distance_to(dn + Vector3(0, 1.0, 0)) < 0.9:
+						excused = true
+				if not excused:
+					breaches += 1
+					print("  [NAV BREACH] leg %d hits %s at %s" % [i,
+							owner.name if owner else hit.collider,
+							hit.position])
+				q = PhysicsRayQueryParameters3D.create(
+						hit.position + (b - a).normalized() * 0.05, b)
+		_check(breaches == 0,
+				"route passes only through doorways (%d breaches)" % breaches)
+
 	# Meshy ships one animation per file, each with a full copy of the skin.
 	# The merge folds them onto a single rig, and the failure mode is silent:
 	# the exporter drops whichever action is assigned as active, so a clip
