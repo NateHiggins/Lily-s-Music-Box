@@ -20,7 +20,11 @@ extends Node
 ## set on that floor lights up together.
 
 const REEL := "res://assets/video/orison_broadcast.ogv"
-const SIZE := Vector2i(512, 384)
+## Must match the reel's own raster (build_broadcast.py W,H). The glass UVs
+## were blamed first and measured clean, 0..1 exactly — the actual fault was
+## HERE: a 512x384 landscape viewport under a 320x576 portrait reel, so the
+## televisions were faithfully displaying a target the wrong shape.
+const SIZE := Vector2i(320, 576)
 
 var enabled := true
 var screens := 0
@@ -52,16 +56,19 @@ func build(layout: Dictionary, floor_nodes: Dictionary) -> int:
 	_video.stream = stream
 	_video.loop = true
 	_video.expand = true
-	# Anchored to fill, not merely sized: a Control dropped into a bare
-	# SubViewport keeps its own layout, and a player that does not fill the
-	# viewport renders a picture into one corner of an otherwise black
-	# target — which on a television reads as a dead set.
-	_video.set_anchors_preset(Control.PRESET_FULL_RECT)
-	_video.size = Vector2(SIZE)
 	# Level is driven per-frame by BroadcastAudio from the distance to the
 	# nearest set; this is only the starting point before it takes over.
 	_video.volume_db = -60.0
 	_viewport.add_child(_video)
+	# Explicit geometry AFTER parenting, no anchors. Every layout-driven
+	# variant misbehaved in a SubViewport: anchoring before parenting plus a
+	# size assignment produced a 640x1152 player in a 320x576 target (every
+	# set showed the top-left quarter of the picture), and anchors alone
+	# resolved to a 0x0 control that rendered nothing. Position zero, size
+	# equal to the viewport, set once the parent exists — nothing left to a
+	# layout pass that demonstrably does not run here.
+	_video.position = Vector2.ZERO
+	_video.size = Vector2(SIZE)
 	_video.play()
 
 	_material = StandardMaterial3D.new()
