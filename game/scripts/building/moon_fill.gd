@@ -1,0 +1,65 @@
+class_name MoonFill
+extends OmniLight3D
+## Moonlight through the window: the reason a switched-off apartment is
+## dim, not void. One cool fill that follows the player between rooms and
+## only exists in rooms that have a window for the moon to come through —
+## which is also why the basement stays properly dark.
+##
+## ONE light, deliberately. A baked fill per room would be two dozen extra
+## omnis per storey against a 16-per-object cap that is already rationed;
+## a single roamer costs what one lamp costs and nobody can see two rooms'
+## fills at once through 1927 masonry anyway.
+
+const ENERGY := 0.16
+const TINT := Color(0.62, 0.70, 0.86)
+
+var _layout: Dictionary = {}
+var _player: Node3D
+var _windowed: Array = []      # [floor_z, rect] rooms with exterior glass
+var _accum := 0.0
+
+
+func build(layout: Dictionary, player: Node3D) -> void:
+	_layout = layout
+	_player = player
+	light_color = TINT
+	light_energy = 0.0
+	omni_range = 6.5
+	shadow_enabled = false
+	# Rooms touching the facade envelope get moon; interior rooms and B1
+	# do not. The facade test is geometric — a room whose rect reaches
+	# within a wall's thickness of the exterior at ±13.65 / ±9.65 has
+	# window wall.
+	for fl in layout["floors"]:
+		if str(fl["id"]) in ["B1"]:
+			continue
+		var z: float = float(fl["z"])
+		for r in fl.get("rooms", []):
+			var rect: Array = r["rect"]
+			if float(rect[0]) < -13.0 or float(rect[2]) > 13.0 \
+					or float(rect[1]) < -9.0 or float(rect[3]) > 9.0:
+				_windowed.append([z, rect])
+	print("[MOON] %d windowed rooms" % _windowed.size())
+
+
+func _process(delta: float) -> void:
+	_accum += delta
+	if _accum < 0.3 or _player == null:
+		return
+	_accum = 0.0
+	var p := _player.global_position
+	var bl := Vector3(p.x, -p.z, p.y)          # godot -> blender
+	var lit := false
+	for entry in _windowed:
+		if absf(bl.z - float(entry[0])) > 2.2:
+			continue
+		var rect: Array = entry[1]
+		if bl.x >= float(rect[0]) and bl.x <= float(rect[2]) \
+				and bl.y >= float(rect[1]) and bl.y <= float(rect[3]):
+			lit = true
+			break
+	# Hangs above head height so the fill reads as coming from the room,
+	# not from the player's pocket.
+	global_position = p + Vector3(0, 1.6, 0)
+	light_energy = lerpf(light_energy, ENERGY if lit else 0.0, 0.25)
+	visible = light_energy > 0.01

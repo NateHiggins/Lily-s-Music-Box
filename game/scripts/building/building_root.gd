@@ -82,6 +82,8 @@ var door_glow: OrisonDoorGlow
 var lobby_figure: LobbyPlaceholder
 var broadcast: BroadcastDirector
 var resident_routines: ResidentRoutines
+var switch_system: SwitchSystem
+var moon_fill: MoonFill
 var touch: TouchControls
 var weather: WeatherFX
 var mina_manifestation: MinaCaptionManifestation
@@ -99,6 +101,7 @@ var intrusions: Intrusions
 var fourth_wall: FourthWallLayer
 var ambient_soundscape: AmbientSoundscape
 var music_director: OrisonMusicDirector
+var domestic_witnesses: DomesticWitnessSystem
 var affected_prop_count := 0
 var reality_controllers: Dictionary = {}
 var show_all_floors := false
@@ -163,8 +166,22 @@ func _ready() -> void:
 	add_child(resident_routines)
 	resident_routines.build(layout,
 			get_tree().get_nodes_in_group("resident_placeholders"))
+	# The wall switches go live, and the moon keeps switched-off rooms
+	# readable instead of void-black.
+	switch_system = SwitchSystem.new()
+	switch_system.name = "Switches"
+	add_child(switch_system)
+	switch_system.build(layout, self)
+	moon_fill = MoonFill.new()
+	moon_fill.name = "MoonFill"
+	add_child(moon_fill)
+	moon_fill.build(layout, player)
 	_spawn_reality_controllers()
 	_spawn_reality_affected_props()
+	domestic_witnesses = DomesticWitnessSystem.new()
+	domestic_witnesses.name = "DomesticWitnessSystem"
+	add_child(domestic_witnesses)
+	domestic_witnesses.build(layout, floor_nodes)
 	_spawn_character_memory_art()
 	_spawn_character_wall_art()
 	_spawn_hallway_art()
@@ -248,6 +265,7 @@ func _ready() -> void:
 	sanity.name = "SanityDirector"
 	add_child(sanity)
 	sanity.setup(self, player, intrusions, fourth_wall)
+	domestic_witnesses.bind_director(sanity, player)
 	ambient_soundscape.bind_sanity(sanity)
 	weather = WeatherFX.new()
 	weather.name = "WeatherFX"
@@ -754,29 +772,19 @@ func _spawn_hallway_art() -> void:
 		spec["collection"] = "hallway_art"
 		var art := CharacterMemoryArt.new()
 		art.setup(spec)
-		var rect: Array = room.rect
-		var along := float(spec.get("along", 0.5))
-		var wall: String = spec.get("wall", "north")
-		var x := lerpf(float(rect[0]), float(rect[2]), along)
-		var y := lerpf(float(rect[1]), float(rect[3]), along)
-		var yaw := 0.0
-		var clearance := float(spec.get("wall_offset", 0.105))
-		match wall:
-			"north":
-				y = float(rect[3]) - clearance
-			"south":
-				y = float(rect[1]) + clearance
-				yaw = PI
-			"east":
-				x = float(rect[2]) - clearance
-				yaw = -PI * 0.5
-			"west":
-				x = float(rect[0]) + clearance
-				yaw = PI * 0.5
+		var spot := _legal_art_spot(floor_data, room,
+				str(spec.get("wall", "north")),
+				float(spec.get("along", 0.5)),
+				float(spec.get("height", 1.52)))
+		if not spot.ok:
+			push_warning("no legal wall for hallway piece %s"
+					% spec.get("id", "?"))
+			art.queue_free()
+			continue
 		art.position = GameBoot.b2g([
-				x, y, float(floor_data.z) +
+				spot.x, spot.y, float(floor_data.z) +
 				float(spec.get("height", 1.52))])
-		art.rotation.y = yaw
+		art.rotation.y = spot.yaw
 		floor_nodes[floor_id].add_child(art)
 		count += 1
 	var expected := int(catalog.get("expected_count", count))
@@ -846,39 +854,23 @@ func _spawn_character_art_catalog(path: String, error_label: String,
 					[x, y, float(floor_data.z) + 0.82])
 			art.rotation.y = deg_to_rad(float(spec.get("yaw", 0.0)))
 		else:
-			var along := float(spec.get("along", 0.5))
-			var wall: String = spec.get("wall", "north")
-			var x := lerpf(float(rect[0]), float(rect[2]), along)
-			var y := lerpf(float(rect[1]), float(rect[3]), along)
-			var yaw := 0.0
-			match wall:
-				"north":
-					y = float(rect[3]) - 0.04
-				"south":
-					y = float(rect[1]) + 0.04
-					yaw = PI
-				"east":
-					x = float(rect[2]) - 0.04
-					yaw = -PI * 0.5
-				"west":
-					x = float(rect[0]) + 0.04
-					yaw = PI * 0.5
-			# Keep the frame fully inside the room instead of coplanar with
-			# the wall, and allow exceptional pieces to author their height.
-			var wall_offset := float(spec.get("wall_offset", 0.065))
-			match wall:
-				"north":
-					y -= wall_offset
-				"south":
-					y += wall_offset
-				"east":
-					x -= wall_offset
-				"west":
-					x += wall_offset
+			# The character chose the wall; the legality pass chooses the
+			# exact hook — real wall behind, no opening through it, no
+			# tall furniture against it — sliding along before conceding
+			# a different wall. Pieces with nowhere legal are not hung.
+			var spot := _legal_art_spot(floor_data, room,
+					str(spec.get("wall", "north")),
+					float(spec.get("along", 0.5)),
+					float(spec.get("height", 1.52)))
+			if not spot.ok:
+				push_warning("no legal wall for %s in %s"
+						% [spec.get("id", "?"), unit])
+				art.queue_free()
+				continue
 			art.position = GameBoot.b2g(
-					[x, y, float(floor_data.z) +
+					[spot.x, spot.y, float(floor_data.z) +
 					float(spec.get("height", 1.52))])
-			art.rotation.y = yaw
+			art.rotation.y = spot.yaw
 		floor_nodes[floor_id].add_child(art)
 		count += 1
 	var expected := int(catalog.get("expected_count", count))
@@ -886,6 +878,99 @@ func _spawn_character_art_catalog(path: String, error_label: String,
 		push_error("%s mismatch: expected %d, placed %d"
 				% [error_label, expected, count])
 	print("[BUILDING] %d %s placed" % [count, report_label])
+
+
+## Finds a spot on a room wall where a picture can actually hang: a real
+## wall segment behind it, no door or window cut through it at frame
+## height, no furniture pressed against it. Tries the authored position
+## first — the character chose that wall — then slides along the same wall,
+## then concedes other walls. Returns {ok, x, y, yaw, wall}.
+func _legal_art_spot(floor_data: Dictionary, room: Dictionary,
+		want_wall: String, want_along: float, height: float) -> Dictionary:
+	var rect: Array = room.rect
+	var walls_order: Array = [want_wall]
+	for w in ["north", "south", "east", "west"]:
+		if w != want_wall:
+			walls_order.append(w)
+	var alongs: Array = [want_along, 0.3, 0.5, 0.7, 0.25, 0.75, 0.4,
+			0.6, 0.2, 0.8]
+	for wall in walls_order:
+		for along in alongs:
+			var x := lerpf(float(rect[0]), float(rect[2]), float(along))
+			var y := lerpf(float(rect[1]), float(rect[3]), float(along))
+			var yaw := 0.0
+			var bx := x     # probe just beyond the rect edge: the wall
+			var by := y
+			match wall:
+				"north":
+					y = float(rect[3]) - 0.105
+					by = float(rect[3]) + 0.08
+				"south":
+					y = float(rect[1]) + 0.105
+					by = float(rect[1]) - 0.08
+					yaw = PI
+				"east":
+					x = float(rect[2]) - 0.105
+					bx = float(rect[2]) + 0.08
+					yaw = -PI * 0.5
+				"west":
+					x = float(rect[0]) + 0.105
+					bx = float(rect[0]) - 0.08
+					yaw = PI * 0.5
+			if not _wall_backs(floor_data, bx, by, height):
+				continue
+			if _furniture_blocks(floor_data, x, y):
+				continue
+			return {"ok": true, "x": x, "y": y, "yaw": yaw, "wall": wall}
+	return {"ok": false}
+
+
+func _wall_backs(floor_data: Dictionary, px: float, py: float,
+		height: float) -> bool:
+	for w in floor_data.get("walls", []):
+		var ax: float = float(w["a"][0])
+		var ay: float = float(w["a"][1])
+		var bx: float = float(w["b"][0])
+		var by: float = float(w["b"][1])
+		var pad: float = float(w.get("t", 0.12)) / 2.0 + 0.06
+		var hit := false
+		if absf(by - ay) < 0.001:
+			hit = minf(ax, bx) - pad <= px and px <= maxf(ax, bx) + pad \
+					and absf(py - ay) <= pad
+		else:
+			hit = minf(ay, by) - pad <= py and py <= maxf(ay, by) + pad \
+					and absf(px - ax) <= pad
+		if not hit:
+			continue
+		# Inside the wall — but not hanging over a doorway or window: any
+		# cut whose opening spans frame height disqualifies this spot.
+		var horizontal := absf(by - ay) < 0.001
+		var along := (px - minf(ax, bx)) if horizontal else (py - minf(ay, by))
+		var clear := true
+		for c in w.get("cuts", []):
+			if absf(along - float(c.get("at", -99.0))) \
+					> float(c.get("w", 0.0)) / 2.0 + 0.45:
+				continue
+			var sill := float(c.get("sill", 0.0))
+			if sill <= height + 0.35 and sill + float(c.get("h", 0.0)) \
+					>= height - 0.35:
+				clear = false
+		if clear:
+			return true
+	return false
+
+
+func _furniture_blocks(floor_data: Dictionary, px: float, py: float) -> bool:
+	for fu in floor_data.get("furniture", []):
+		if not fu.has("rect"):
+			continue
+		var r: Array = fu["rect"]
+		if float(fu.get("h", 0.0)) < 0.9:
+			continue        # low pieces sit under a hung frame happily
+		if px >= float(r[0]) - 0.1 and px <= float(r[2]) + 0.1 \
+				and py >= float(r[1]) - 0.1 and py <= float(r[3]) + 0.1:
+			return true
+	return false
 
 
 func teleport_player(fid: String) -> void:

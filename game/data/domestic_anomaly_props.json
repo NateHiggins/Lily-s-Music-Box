@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "props": [
+    {"id":"evelyn_mirror","unit":"1A","kind":"mirror","cases":["evelyn_paper_jam"],"tell":"late_reflection","u":0.78,"v":0.08,"height":1.48,"yaw":0},
+    {"id":"teresa_smoke_alarm","unit":"1D","kind":"smoke_detector","cases":["teresa_call_bells"],"tell":"held_breath","u":0.53,"v":0.52,"height":2.87,"yaw":0},
+    {"id":"mina_intercom","unit":"2A","kind":"intercom","cases":["mina_caption_crisis"],"tell":"unlisted_call","u":0.08,"v":0.46,"height":1.42,"yaw":90},
+    {"id":"lena_coat_hook","unit":"2B","kind":"coat_hook","cases":["lena_unraveling"],"tell":"one_more_hook","u":0.91,"v":0.42,"height":1.58,"yaw":-90},
+    {"id":"juno_speaker","unit":"2C","kind":"smart_speaker","cases":["juno_feedback_tetris"],"tell":"stolen_voice","u":0.72,"v":0.68,"height":0.78,"yaw":180},
+    {"id":"malcolm_plant","unit":"3A","kind":"houseplant","cases":["malcolm_memory_plants"],"tell":"turns_to_listen","u":0.81,"v":0.76,"height":0.04,"yaw":0},
+    {"id":"omar_outlet","unit":"3B","kind":"power_outlet","cases":["omar_unrepairable"],"tell":"wrong_voltage","u":0.14,"v":0.06,"height":0.38,"yaw":0},
+    {"id":"rhea_telephone","unit":"3D","kind":"telephone","cases":["rhea_bad_karaoke"],"tell":"open_line","u":0.68,"v":0.32,"height":0.78,"yaw":-20},
+    {"id":"peter_thermostat","unit":"4A","kind":"thermostat","cases":["peter_form_corridor"],"tell":"approval_required","u":0.92,"v":0.51,"height":1.45,"yaw":-90},
+    {"id":"cam_noel_chain","unit":"4C","kind":"door_chain","cases":["cam_tilted_room","noel_domestic_museum"],"tell":"shared_threshold","u":0.06,"v":0.12,"height":1.36,"yaw":90},
+    {"id":"guest_luggage_scale","unit":"4D","kind":"luggage_scale","cases":["transient_infinite_checkout"],"tell":"departure_weight","u":0.48,"v":0.75,"height":0.05,"yaw":0},
+    {"id":"nadia_level","unit":"5A","kind":"spirit_level","cases":["nadia_code_pinball"],"tell":"false_level","u":0.74,"v":0.08,"height":1.32,"yaw":0},
+    {"id":"cal_radio","unit":"5B","kind":"table_radio","cases":["cal_memory_radio"],"tell":"previous_room","u":0.66,"v":0.63,"height":0.78,"yaw":180},
+    {"id":"iris_picture_frame","unit":"5C","kind":"picture_frame","cases":["iris_runaway_paint"],"tell":"changed_pose","u":0.28,"v":0.07,"height":1.42,"yaw":0},
+    {"id":"sacha_camera","unit":"6A","kind":"security_camera","cases":["sacha_camera_delay"],"tell":"tracks_after","u":0.91,"v":0.18,"height":2.42,"yaw":-90},
+    {"id":"jonah_typewriter","unit":"6B","kind":"typewriter","cases":["jonah_sentence_insects"],"tell":"finishes_sentence","u":0.63,"v":0.60,"height":0.77,"yaw":180},
+    {"id":"mae_key_bowl","unit":"6C","kind":"key_bowl","cases":["mae_contradictory_antiques"],"tell":"extra_key","u":0.72,"v":0.58,"height":0.78,"yaw":180}
+  ]
+}

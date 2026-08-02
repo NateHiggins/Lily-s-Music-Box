@@ -344,7 +344,21 @@ func _start_normal_function() -> void:
 	state = PState.OPERATING
 
 
+## The wall switch's verdict. The LightRig decides what the BUDGET affords;
+## this decides what the RESIDENT chose, and off is off whatever the rig
+## can afford.
+var powered := true
+
+
+func set_powered(on: bool) -> void:
+	powered = on
+	if not on:
+		set_budget(0.0, false, false)
+
+
 func set_budget(scale: float, with_bounce: bool, with_shadow: bool) -> void:
+	if not powered:
+		scale = 0.0
 	_target_scale = scale
 	_bounce_on = with_bounce
 	if light:
