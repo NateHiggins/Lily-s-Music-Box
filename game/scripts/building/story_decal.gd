@@ -27,6 +27,10 @@ func setup(atlas_path: String, col: int, row: int,
 	quad.size = size
 	var material := StandardMaterial3D.new()
 	material.albedo_texture = texture
+	# Most story atlases are sparse cut-outs. Without explicit alpha mode the
+	# transparent pixels import correctly but still render as an opaque quad.
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+	material.alpha_scissor_threshold = 0.08
 	material.roughness = 0.84
 	material.cull_mode = BaseMaterial3D.CULL_DISABLED
 	var visual := MeshInstance3D.new()

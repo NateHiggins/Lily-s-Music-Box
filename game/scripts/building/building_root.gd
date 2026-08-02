@@ -90,6 +90,7 @@ var mina_manifestation: MinaCaptionManifestation
 var mina_gameplay: MinaCaseGameplay
 var portal_rule_display: PortalRuleDisplay
 var environment_detail_pass: OrisonDetailPass
+var atmospheric_decal_pass: AtmosphericDecalPass
 var exterior_detail_pass: ExteriorDetailPass
 var cinematic_exterior: CinematicExterior
 var found_art_pass: FoundArtPass
@@ -124,6 +125,9 @@ func _ready() -> void:
 	environment_detail_pass = OrisonDetailPass.new()
 	add_child(environment_detail_pass)
 	var detail_stats := environment_detail_pass.build(layout, floor_nodes)
+	atmospheric_decal_pass = AtmosphericDecalPass.new()
+	add_child(atmospheric_decal_pass)
+	var atmospheric_decals := atmospheric_decal_pass.build(layout, floor_nodes)
 	var railing_polish := OrisonRailingPolish.new()
 	add_child(railing_polish)
 	var railing_details := railing_polish.build(layout)
@@ -228,6 +232,7 @@ func _ready() -> void:
 	elevator = OrisonElevator.new()
 	add_child(elevator)
 	elevator.setup(layout["elevator"])
+	resident_routines.bind_elevator(elevator)
 	player = PlayerController.new()
 	player.position = GameBoot.b2g([0.0, -9.0, 0.1])  # vestibule
 	add_child(player)
@@ -293,6 +298,7 @@ func _ready() -> void:
 			% [n_lit, railing_details])
 	print("[BUILDING] %d low-overhead environment details and %d story decals"
 			% [detail_stats.details, detail_stats.decals])
+	print("[BUILDING] %d atmospheric evidence decals" % atmospheric_decals)
 
 
 func _build_environment() -> void:

@@ -1272,11 +1272,11 @@ def porch(floor_id, z, furniture):
 def ring_and_cores(floor_id, z, walls, furniture, entry_doors=True):
     """Corridor ring, court walls, core walls, shaft walls for one level."""
     h = WALL_H
-    # Borrowed lights between the stair and the corridor ring. These used
-    # to be framed history panels hung on solid brick, because an earlier
-    # attempt at windows here opened into the adjacent corridor wall and
-    # showed nothing. The fix is not to give up on the openings — it is to
-    # cut BOTH leaves of that pair at the same place: the court wall at
+    # Open decorative alcoves between the stair and corridor ring. Cut both
+    # back-to-back wall leaves so the recess reads from either side, but tag
+    # it as an alcove: it gets a finished reveal and sill, never glazing,
+    # sash, condensation decals, or the visual language of an exterior
+    # window. The paired walls are the court wall at
     # x = +-COURT and the corridor inner wall at x = +-XCI stand back to
     # back with no gap, so an opening has to pass through the two of them
     # to reach the hallway.
@@ -1289,7 +1289,8 @@ def ring_and_cores(floor_id, z, walls, furniture, entry_doors=True):
 
     def _cuts(origin):
         return [{"type": "window", "at": by - origin, "w": WINW,
-                 "h": WINH, "sill": SILL} for by in borrow_y]
+                 "h": WINH, "sill": SILL, "decorative_alcove": True}
+                for by in borrow_y]
 
     for sx in (-1, 1):
         walls.append(wall((sx * COURT, -COURT), (sx * COURT, COURT),
@@ -2566,8 +2567,8 @@ def atrium_tree(fl):
             "id": "%s_ATRIUM_FRUIT_%d" % (fid, k + 1),
             "unit": fid, "pos": [round(px, 3), round(py, 3),
                                  round(pz - 0.34, 3)],
-            "yaw_deg": 0, "network": "electrical", "energy": 0.85,
-            "navigation": True, "standby": 0.5})
+            "yaw_deg": 0, "network": "electrical", "energy": 0.48,
+            "navigation": True, "standby": 0.32})
 
 
 ## Wayfinding. You could climb seven identical storeys with nothing

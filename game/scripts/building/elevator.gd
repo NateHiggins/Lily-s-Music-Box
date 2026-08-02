@@ -266,6 +266,26 @@ func travel_to(level: String) -> void:
 	create_tween().tween_property(_hum, "volume_db", -16.0, 0.5)
 
 
+## Small public surface for autonomous residents. They queue by waiting at
+## the landing; only an idle car accepts a new destination.
+func npc_request(level: String) -> bool:
+	if not stops.has(level):
+		return false
+	if current == level and state == S.IDLE:
+		if _doors[current]["t"] < 1.0:
+			state = S.OPENING
+		return true
+	if state != S.IDLE:
+		return false
+	travel_to(level)
+	return true
+
+
+func is_ready_at(level: String) -> bool:
+	return current == level and state == S.IDLE \
+			and float(_doors[level]["t"]) >= 0.98
+
+
 func _physics_process(delta: float) -> void:
 	match state:
 		S.CLOSING:

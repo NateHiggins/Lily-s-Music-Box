@@ -19,6 +19,8 @@ var _moving := false
 
 
 func _ready() -> void:
+	if width > 0.85 and height > 1.8:
+		add_to_group("apartment_doors")
 	_body = AnimatableBody3D.new()
 	_body.sync_to_physics = true
 	add_child(_body)
@@ -185,6 +187,15 @@ func interact(_player: Node) -> void:
 			deg_to_rad(swept) if open else 0.0, 0.5) \
 			.set_trans(Tween.TRANS_SINE)
 	tw.tween_callback(_settled)
+
+
+## Resident routines use the same hinge animation and sounds as the player.
+## Idempotent so several neighbours reaching a shared/service door cannot
+## reverse it every frame.
+func npc_set_open(want_open: bool) -> void:
+	if leaf_state == "locked" or _moving or open == want_open:
+		return
+	interact(null)
 
 
 func _settled() -> void:

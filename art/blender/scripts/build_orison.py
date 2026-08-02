@@ -1720,7 +1720,7 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
                 if is_brick:  # soldier-course lintel proud of the face
                     box(buf, d0 - 0.02, d1 + 0.02, top + 0.06,
                         min(top + 0.26, h), t + 0.05)
-                if glass_buf is not None:
+                if glass_buf is not None and not o.get("decorative_alcove"):
                     box(glass_buf, d0 + 0.05, d1 - 0.05, o["sill"] + 0.05,
                         top - 0.05, 0.02)
                     # 1-over-1 double-hung meeting rail
@@ -1921,7 +1921,8 @@ def build_wear_decals(buf, fl):
         cross = ay if horizontal else ax
         face = cross + w["t"] / 2.0 + 0.004
         for o in w["openings"]:
-            if o.get("type") != "window" or o.get("sill", 0.0) < 0.25:
+            if o.get("type") != "window" or o.get("sill", 0.0) < 0.25 \
+                    or o.get("decorative_alcove"):
                 continue
             c = start + o["at"]
             hw = min(0.42, o["w"] * 0.34)

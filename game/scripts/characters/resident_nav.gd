@@ -19,9 +19,8 @@ extends Node
 ##     the same lane the movement audit walks — and corridor-facing doors
 ##     hop onto the lane rather than crossing the middle.
 ##
-## Floors are separate islands on purpose. Vertical travel is the lift,
-## which the routine system performs as walk-in/hide/walk-out; a path query
-## is always same-floor.
+## Each floor retains its own portal graph. Building-wide queries join those
+## islands through authored stair-flight waypoints or the real elevator.
 ##
 ## Door adjacency is discovered by sampling, not by trusting yaw: probe
 ## half a metre to each side of the leaf on both axes and take the smallest
@@ -36,16 +35,24 @@ const CORE_X := 3.43
 const CORE_Y := 6.93
 
 var floors := {}      # floor_id -> {astar: AStar3D, nodes: [...], z: float}
+var level_order: Array[String] = []
+var pruned_edges := 0
+var visibility_edges := 0
+var _unreachable_warned := {}
 
 
 func build(layout: Dictionary) -> int:
 	var total := 0
 	for fl in layout["floors"]:
 		var fid := str(fl["id"])
-		if fid == "ROOF":
-			continue          # the roof is one open deck; no doors to route
 		total += _build_floor(fid, fl)
-	print("[NAV] %d nodes across %d floors" % [total, floors.size()])
+	level_order.assign(floors.keys())
+	level_order.sort_custom(func(a: String, b: String) -> bool:
+		return float(floors[a].z) < float(floors[b].z))
+	print(("[NAV] %d nodes across %d floors; %d stair links; elevator linked; " \
+			+ "%d wall-crossing edges rejected; %d safe links restored") \
+			% [total, floors.size(), maxi(0, level_order.size() - 1),
+					pruned_edges, visibility_edges])
 	return total
 
 
@@ -53,7 +60,8 @@ func _build_floor(fid: String, fl: Dictionary) -> int:
 	var astar := AStar3D.new()
 	var z: float = float(fl["z"])
 	var rooms: Array = fl.get("rooms", [])
-	var entry := {"astar": astar, "z": z, "rooms": rooms, "points": []}
+	var entry := {"astar": astar, "z": z, "rooms": rooms,
+			"walls": fl.get("walls", []), "points": []}
 	var next_id := [0]
 
 	var add_node := func(pos_bl: Vector2, tag: String) -> int:
@@ -70,6 +78,16 @@ func _build_floor(fid: String, fl: Dictionary) -> int:
 		var c := Vector2((float(rect[0]) + float(rect[2])) * 0.5,
 				(float(rect[1]) + float(rect[3])) * 0.5)
 		centre_of[str(r["id"])] = add_node.call(c, "room:" + str(r["id"]))
+	# The roof's single room rectangle contains the glazed stair monitor, so
+	# its geometric centre is indoors while most destinations are outside it.
+	# A compact lane around the monitor gives residents legal choices through
+	# the roof door without baking the pergola and planters into a navmesh.
+	if fid == "ROOF":
+		for p in [Vector2(-4.2, -4.2), Vector2(0.0, -4.2),
+				Vector2(4.2, -4.2), Vector2(4.2, 0.0),
+				Vector2(4.2, 4.2), Vector2(0.0, 4.2),
+				Vector2(-4.2, 4.2), Vector2(-4.2, 0.0)]:
+			add_node.call(p, "roof_lane")
 
 	# --- the ring lane, on floors whose corridor nests the core
 	var ring_ids: Array = []
@@ -165,6 +183,26 @@ func _build_floor(fid: String, fl: Dictionary) -> int:
 			for rn in _nearest_two(entry, ring_ids, spec.at):
 				astar.connect_points(did, rn)
 
+	# Leafless doors are architectural portals: the grand stair arches and
+	# elevator landing openings. They do not produce DoorProp markers, so the
+	# marker-only graph used to omit precisely the openings needed to enter the
+	# core. Visibility linking below connects each portal to both legal sides.
+	for wall in fl.get("walls", []):
+		var wa: Array = wall.a
+		var wb: Array = wall.b
+		var horizontal := absf(float(wb[1]) - float(wa[1])) < 0.001
+		var start := minf(float(wa[0]), float(wb[0])) if horizontal \
+				else minf(float(wa[1]), float(wb[1]))
+		var cross := float(wa[1]) if horizontal else float(wa[0])
+		for opening in wall.get("openings", []):
+			if str(opening.get("type", "")) != "door" \
+					or str(opening.get("leaf", "closed")) != "none":
+				continue
+			var along := start + float(opening.get("at", 0.0))
+			var portal := Vector2(along, cross) if horizontal \
+					else Vector2(cross, along)
+			add_node.call(portal, "opening")
+
 	# --- interconnect doors that share a non-corridor room, so a route
 	# can cross an apartment without detouring through its centre
 	for r in rooms:
@@ -180,6 +218,8 @@ func _build_floor(fid: String, fl: Dictionary) -> int:
 				if not astar.are_points_connected(here[i], here[j]):
 					astar.connect_points(here[i], here[j])
 
+	pruned_edges += _prune_unsafe_edges(entry)
+	visibility_edges += _add_safe_visibility_edges(entry)
 	floors[fid] = entry
 	return entry.points.size()
 
@@ -238,11 +278,210 @@ func route(from: Vector3, to: Vector3) -> PackedVector3Array:
 	var astar: AStar3D = entry.astar
 	if astar.get_point_count() == 0:
 		return PackedVector3Array([from, to])
-	var a := astar.get_closest_point(from)
-	var b := astar.get_closest_point(to)
+	# Euclidean-nearest is not necessarily reachable-nearest: a node on the
+	# other side of 18 cm of plaster is extremely close. Anchor endpoints only
+	# to nodes with an unobstructed segment through this floor's wall model.
+	var pair := _connected_visible_pair(entry, from, to)
+	var a := pair.x
+	var b := pair.y
+	if a < 0 or b < 0:
+		var warning_key := "%s:%d:%d" % [fid, roundi(from.x), roundi(to.x)]
+		if not _unreachable_warned.has(warning_key):
+			_unreachable_warned[warning_key] = true
+			push_warning("No wall-safe resident route on %s: %s -> %s" \
+					% [fid, from, to])
+		# Standing still is preferable to walking through somebody's wall.
+		return PackedVector3Array([from])
 	var path := astar.get_point_path(a, b)
 	var out := PackedVector3Array([from])
 	for p in path:
 		out.append(p)
 	out.append(to)
+	return out
+
+
+func _visible_candidates(entry: Dictionary, at: Vector3) -> Array:
+	var astar: AStar3D = entry.astar
+	var candidates: Array = []
+	for id in astar.get_point_ids():
+		var point := astar.get_point_position(id)
+		if not _segment_clear(entry, at, point):
+			continue
+		candidates.append({"id": id,
+				"distance": at.distance_squared_to(point)})
+	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		return float(a.distance) < float(b.distance))
+	if candidates.size() > 16:
+		candidates.resize(16)
+	return candidates
+
+
+func _connected_visible_pair(entry: Dictionary, from: Vector3,
+		to: Vector3) -> Vector2i:
+	var astar: AStar3D = entry.astar
+	var starts := _visible_candidates(entry, from)
+	var goals := _visible_candidates(entry, to)
+	var best := Vector2i(-1, -1)
+	var best_cost := INF
+	for start in starts:
+		for goal in goals:
+			var sid := int(start.id)
+			var gid := int(goal.id)
+			var graph_path := astar.get_point_path(sid, gid)
+			if sid != gid and graph_path.is_empty():
+				continue
+			var cost := float(start.distance) + float(goal.distance)
+			if cost < best_cost:
+				best_cost = cost
+				best = Vector2i(sid, gid)
+	return best
+
+
+func _prune_unsafe_edges(entry: Dictionary) -> int:
+	var astar: AStar3D = entry.astar
+	var rejected := 0
+	for id in astar.get_point_ids():
+		for other in astar.get_point_connections(id):
+			if other <= id:
+				continue
+			if _segment_clear(entry, astar.get_point_position(id),
+					astar.get_point_position(other)):
+				continue
+			astar.disconnect_points(id, other)
+			rejected += 1
+	return rejected
+
+
+## Restore useful connections as a conservative visibility graph. This is
+## what makes nested apartment rectangles safe: instead of assuming their
+## centres can see one another, nodes connect only when the authored walls
+## prove that the intervening segment is open. The distance cap preserves the
+## corridor ring's authored lane instead of creating long diagonal shortcuts.
+func _add_safe_visibility_edges(entry: Dictionary) -> int:
+	const MAX_LINK_SQ := 6.5 * 6.5
+	var astar: AStar3D = entry.astar
+	var ids := astar.get_point_ids()
+	var added := 0
+	for ai in ids.size():
+		var a: int = ids[ai]
+		var pa := astar.get_point_position(a)
+		for bi in range(ai + 1, ids.size()):
+			var b: int = ids[bi]
+			if astar.are_points_connected(a, b):
+				continue
+			var pb := astar.get_point_position(b)
+			if pa.distance_squared_to(pb) > MAX_LINK_SQ \
+					or not _segment_clear(entry, pa, pb):
+				continue
+			astar.connect_points(a, b)
+			added += 1
+	return added
+
+
+## Collision-independent line audit against the same authored walls that
+## produced the meshes. Endpoints may sit on a portal centre; actual crossings
+## are legal only through floor-level doors/arches, never windows or alcoves.
+func _segment_clear(entry: Dictionary, from: Vector3, to: Vector3) -> bool:
+	var a := Vector2(from.x, -from.z)
+	var b := Vector2(to.x, -to.z)
+	if a.distance_squared_to(b) < 0.0001:
+		return true
+	for wall in entry.walls:
+		if _segment_crosses_solid_wall(a, b, wall):
+			return false
+	return true
+
+
+func _segment_crosses_solid_wall(a: Vector2, b: Vector2,
+		wall: Dictionary) -> bool:
+	var wa: Array = wall.a
+	var wb: Array = wall.b
+	var horizontal := absf(float(wb[1]) - float(wa[1])) < 0.001
+	var t := -1.0
+	var along := 0.0
+	var start := 0.0
+	var finish := 0.0
+	if horizontal:
+		var dy := b.y - a.y
+		if absf(dy) < 0.0001:
+			return false
+		t = (float(wa[1]) - a.y) / dy
+		along = lerpf(a.x, b.x, t)
+		start = minf(float(wa[0]), float(wb[0]))
+		finish = maxf(float(wa[0]), float(wb[0]))
+	else:
+		var dx := b.x - a.x
+		if absf(dx) < 0.0001:
+			return false
+		t = (float(wa[0]) - a.x) / dx
+		along = lerpf(a.y, b.y, t)
+		start = minf(float(wa[1]), float(wb[1]))
+		finish = maxf(float(wa[1]), float(wb[1]))
+	# Touching a portal node at a segment endpoint is not crossing a wall.
+	if t <= 0.015 or t >= 0.985 or along < start - 0.03 or along > finish + 0.03:
+		return false
+	var local := along - start
+	for opening in wall.get("openings", []):
+		var kind := str(opening.get("type", ""))
+		var walkable := (kind == "door" and float(opening.get("sill", 0.0)) < 0.15) \
+				or kind == "arch"
+		if not walkable:
+			continue
+		var half := float(opening.get("w", 0.0)) * 0.5 + 0.10
+		if absf(local - float(opening.get("at", 0.0))) <= half:
+			return false
+	return true
+
+
+## A complete, physically walkable inter-floor route. The dog-leg stair has
+## two flights around a north half-landing: west flight up, cross the landing,
+## east flight up. Sampling every tread keeps feet on the invisible ramps and
+## makes the same data useful later for root-motion/IK.
+func stair_route(from: Vector3, to: Vector3) -> PackedVector3Array:
+	var from_floor := floor_at(from.y)
+	var to_floor := floor_at(to.y)
+	var ia := level_order.find(from_floor)
+	var ib := level_order.find(to_floor)
+	if ia < 0 or ib < 0 or ia == ib:
+		return route(from, to)
+	var ascending := ib > ia
+	var path := PackedVector3Array()
+	var first_z := float(floors[from_floor].z)
+	var entrance := GameBoot.b2g([
+			-2.31 if ascending else 2.31, -1.46, first_z])
+	path.append_array(route(from, entrance))
+	var index := ia
+	while index != ib:
+		var next_index := index + (1 if ascending else -1)
+		var low_index := mini(index, next_index)
+		var low_z := float(floors[level_order[low_index]].z)
+		var high_z := float(floors[level_order[low_index + 1]].z)
+		var section := _stair_section(low_z, high_z)
+		if not ascending:
+			section.reverse()
+		for point in section:
+			if path.is_empty() or path[-1].distance_to(point) > 0.03:
+				path.append(point)
+		index = next_index
+	var exit := path[-1]
+	path.append_array(route(exit, to))
+	return path
+
+
+func _stair_section(low_z: float, high_z: float) -> PackedVector3Array:
+	var out := PackedVector3Array()
+	var mid_z := (low_z + high_z) * 0.5
+	# West flight: south deck to north landing.
+	for i in 11:
+		var t := float(i) / 10.0
+		out.append(GameBoot.b2g([-2.31, lerpf(-1.46, 1.46, t),
+				lerpf(low_z, mid_z, t)]))
+	# Cross the broad half-landing instead of cutting its inside corner.
+	out.append(GameBoot.b2g([-2.31, 2.30, mid_z]))
+	out.append(GameBoot.b2g([2.31, 2.30, mid_z]))
+	# East flight: north landing back to the south arrival deck.
+	for i in 11:
+		var t := float(i) / 10.0
+		out.append(GameBoot.b2g([2.31, lerpf(1.46, -1.46, t),
+				lerpf(mid_z, high_z, t)]))
 	return out

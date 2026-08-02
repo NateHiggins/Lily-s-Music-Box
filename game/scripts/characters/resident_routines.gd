@@ -83,12 +83,14 @@ const ROLES := {
 	"settle": "clip_05", "reach": "clip_07",
 }
 
-enum Stage { HOME, PACING, TO_LIFT, RIDING, AT_HAUNT, RETURNING, WATCHING }
+enum Stage { HOME, PACING, TO_LIFT, RIDING, AT_HAUNT, RETURNING, WATCHING,
+		ON_STAIRS, RETURN_STAIRS }
 
 var actors: Array = []
 ## Portal-graph pathfinding; see resident_nav.gd. Null-safe: without it
 ## everything degrades to the old straight-line walk.
 var nav: ResidentNav
+var elevator: OrisonElevator
 
 var _layout: Dictionary = {}
 var _rng := RandomNumberGenerator.new()
@@ -133,10 +135,19 @@ func build(layout: Dictionary, residents: Array) -> int:
 			"hidden_for": 0.0,
 			"path": PackedVector3Array(),
 			"leg": 0,
+			"unit": str(node.get("unit")) if "unit" in node else "",
+			"home_door": _nearest_home_door(node),
+			"door_cycle": 2,
+			"vertical_mode": "",
+			"target_floor": "",
 		}
 		actors.append(actor)
 	print("[ROUTINES] %d residents with somewhere to be" % actors.size())
 	return actors.size()
+
+
+func bind_elevator(lift: OrisonElevator) -> void:
+	elevator = lift
 
 
 ## Swap the flat sprite for a real mesh wherever one has been generated.
@@ -229,8 +240,10 @@ func _step(actor: Dictionary, delta: float) -> void:
 			# settling: idle only once the route is spent.
 			if int(actor.leg) < actor.path.size():
 				_play(actor, "pace")
+				_manage_home_door(actor, true)
 				_follow(actor, node, delta)
 				return
+			_manage_home_door(actor, true)
 			_play(actor, "idle")
 			if actor.timer <= 0.0:
 				# An evening at home is mostly pottering, sometimes the
@@ -242,8 +255,7 @@ func _step(actor: Dictionary, delta: float) -> void:
 					_set_route(actor, _couch[unit])
 					actor.timer = _rng.randf_range(24.0, 70.0)
 				elif roll < 0.55 and actor.haunt != Vector3.ZERO:
-					actor.stage = Stage.TO_LIFT
-					_set_route(actor, _lift_point(node.global_position.y))
+					_begin_trip(actor, false)
 				else:
 					actor.stage = Stage.PACING
 					_set_route(actor, _near_home(actor))
@@ -279,13 +291,21 @@ func _step(actor: Dictionary, delta: float) -> void:
 				_play(actor, "busy")
 		Stage.TO_LIFT:
 			_play(actor, "pace")
+			_manage_home_door(actor, false)
 			if _follow(actor, node, delta):
-				actor.stage = Stage.RIDING
-				actor.hidden_for = _rng.randf_range(2.0, 4.5)
-				node.visible = false
+				var source := nav.floor_at(node.global_position.y)
+				if elevator == null:
+					_finish_elevator_fallback(actor, node)
+				elif not elevator.is_ready_at(source):
+					elevator.npc_request(source)
+				elif elevator.npc_request(str(actor.target_floor)):
+					actor.stage = Stage.RIDING
+					node.visible = false
 		Stage.RIDING:
-			actor.hidden_for -= delta
-			if actor.hidden_for <= 0.0:
+			if elevator == null:
+				actor.hidden_for -= delta
+			if (elevator != null and elevator.is_ready_at(str(actor.target_floor))) \
+					or (elevator == null and actor.hidden_for <= 0.0):
 				# Step out of the lift on the haunt's floor and WALK the
 				# rest: arriving at the bench is half of what sells that
 				# they went somewhere, rather than respawned there.
@@ -295,28 +315,49 @@ func _step(actor: Dictionary, delta: float) -> void:
 				_set_route(actor, actor.haunt)
 				actor.timer = _rng.randf_range(18.0, 50.0)
 		Stage.AT_HAUNT:
+			_manage_home_door(actor, false)
 			if _follow(actor, node, delta):
 				_play(actor, "settle")
 			else:
 				_play(actor, "pace")
 			if actor.timer <= 0.0:
-				actor.stage = Stage.RETURNING
-				_set_route(actor, _lift_point(node.global_position.y))
+				_begin_trip(actor, true)
 		Stage.RETURNING:
 			# Walk back to the lift, ride it, and reappear walking home.
 			if node.visible:
 				_play(actor, "pace")
 				if _follow(actor, node, delta):
-					node.visible = false
-					actor.hidden_for = _rng.randf_range(2.0, 4.5)
+					var source := nav.floor_at(node.global_position.y)
+					if elevator == null:
+						node.visible = false
+						actor.hidden_for = _rng.randf_range(2.0, 4.5)
+					elif not elevator.is_ready_at(source):
+						elevator.npc_request(source)
+					elif elevator.npc_request(str(actor.target_floor)):
+						node.visible = false
 			else:
-				actor.hidden_for -= delta
-				if actor.hidden_for <= 0.0:
+				if elevator == null:
+					actor.hidden_for -= delta
+				if (elevator != null and elevator.is_ready_at(str(actor.target_floor))) \
+						or (elevator == null and actor.hidden_for <= 0.0):
 					node.global_position = _lift_point(actor.home.y)
 					node.visible = true
 					actor.stage = Stage.HOME
 					_set_route(actor, actor.home)
 					actor.timer = _rng.randf_range(10.0, 34.0)
+		Stage.ON_STAIRS:
+			_play(actor, "pace")
+			_manage_home_door(actor, false)
+			if _follow(actor, node, delta):
+				actor.stage = Stage.AT_HAUNT
+				actor.timer = _rng.randf_range(18.0, 50.0)
+		Stage.RETURN_STAIRS:
+			_play(actor, "pace")
+			_manage_home_door(actor, true)
+			if _follow(actor, node, delta):
+				actor.stage = Stage.HOME
+				actor.timer = _rng.randf_range(10.0, 34.0)
+				_manage_home_door(actor, true)
 
 
 ## The resident's hand on their own switch.
@@ -330,6 +371,8 @@ func _set_unit_tv(unit: String, on: bool) -> void:
 
 
 func _unit_of(actor: Dictionary) -> String:
+	if str(actor.get("unit", "")) != "":
+		return str(actor.unit)
 	var spec: Dictionary = HAUNTS.get(str(actor.slug), {})
 	# The haunts table has no unit field; the couch map is keyed by unit
 	# prefix, so derive from the slug's home the same way the spawner does.
@@ -337,6 +380,74 @@ func _unit_of(actor: Dictionary) -> String:
 		if actor.home.distance_to(_couch[unit]) < 7.0:
 			return unit
 	return ""
+
+
+func _begin_trip(actor: Dictionary, returning: bool) -> void:
+	var node: Node3D = actor.node
+	var destination: Vector3 = actor.home if returning else actor.haunt
+	var source_floor: String = nav.floor_at(node.global_position.y)
+	var destination_floor: String = nav.floor_at(destination.y)
+	actor.target_floor = destination_floor
+	actor.door_cycle = 0
+	if source_floor == destination_floor:
+		actor.stage = Stage.HOME if returning else Stage.AT_HAUNT
+		_set_route(actor, destination)
+		actor.timer = _rng.randf_range(18.0, 50.0)
+		return
+	# The lift does not serve the roof. Otherwise residents split between
+	# lift and stairs, weighted toward the lift for long climbs.
+	var floor_gap: int = absi(nav.level_order.find(source_floor) \
+			- nav.level_order.find(destination_floor))
+	var use_stairs: bool = destination_floor == "ROOF" or source_floor == "ROOF" \
+			or _rng.randf() < (0.58 if floor_gap <= 2 else 0.28)
+	actor.vertical_mode = "stairs" if use_stairs else "elevator"
+	if use_stairs:
+		actor.path = nav.stair_route(node.global_position, destination)
+		actor.leg = 0
+		actor.stage = Stage.RETURN_STAIRS if returning else Stage.ON_STAIRS
+	else:
+		_set_route(actor, _lift_point(node.global_position.y))
+		actor.stage = Stage.RETURNING if returning else Stage.TO_LIFT
+
+
+func _finish_elevator_fallback(actor: Dictionary, node: Node3D) -> void:
+	actor.stage = Stage.RIDING
+	actor.hidden_for = _rng.randf_range(2.0, 4.5)
+	node.visible = false
+
+
+func _nearest_home_door(node: Node3D) -> DoorProp:
+	var nearest: DoorProp = null
+	var best := INF
+	for candidate in get_tree().get_nodes_in_group("apartment_doors"):
+		if not candidate is DoorProp:
+			continue
+		var door := candidate as DoorProp
+		if absf(door.global_position.y - node.global_position.y) > 0.45:
+			continue
+		var d := door.global_position.distance_to(node.global_position)
+		if d < best:
+			best = d
+			nearest = door
+	return nearest
+
+
+func _manage_home_door(actor: Dictionary, returning: bool) -> void:
+	var door: DoorProp = actor.get("home_door")
+	if not is_instance_valid(door):
+		return
+	var node: Node3D = actor.node
+	var cycle := int(actor.door_cycle)
+	var at_leaf := node.global_position.distance_to(door.global_position)
+	if cycle == 0 and at_leaf < 1.45:
+		door.npc_set_open(true)
+		actor.door_cycle = 1
+	elif cycle == 1:
+		var passed := node.global_position.distance_to(actor.home) < 0.48 \
+				if returning else at_leaf > 1.60
+		if passed:
+			door.npc_set_open(false)
+			actor.door_cycle = 2
 
 
 ## Somewhere else in the same room. Kept short so nobody walks out through
@@ -370,12 +481,17 @@ func _follow(actor: Dictionary, node: Node3D, delta: float) -> bool:
 	while int(actor.leg) < actor.path.size():
 		var target: Vector3 = actor.path[int(actor.leg)]
 		var to := target - node.global_position
-		to.y = 0.0
+		var on_stairs := int(actor.stage) in [Stage.ON_STAIRS,
+				Stage.RETURN_STAIRS]
+		if not on_stairs:
+			to.y = 0.0
 		if to.length() < 0.16:
 			actor.leg = int(actor.leg) + 1
 			continue
 		node.global_position += to.normalized() * WALK_SPEED * delta
-		node.rotation.y = atan2(-to.x, -to.z)
+		var facing := Vector2(to.x, to.z)
+		if facing.length() > 0.01:
+			node.rotation.y = atan2(-to.x, -to.z)
 		return false
 	return true
 
