@@ -32,6 +32,14 @@ func _ready() -> void:
 				profile.display + " accepts the shared move set")
 		_check(player != null and player.has_animation("clip_06"),
 				profile.display + " can settle (shared clip_06)")
+		# Canon proportions: the rigs all ship at 1.80 m; the authored
+		# body factors are realized as scale transforms at load.
+		var height_factor := ResidentMovesLibrary.apply_body(actor, slug)
+		_check(absf(height_factor - float(profile.body.height)) < 0.001
+				and absf(actor.scale.y - height_factor) < 0.001
+				and absf(actor.scale.x - float(profile.body.width)) < 0.001,
+				profile.display + " stands at canon height (x%.2f)"
+				% height_factor)
 		var signature := JSON.stringify(profile.motion)
 		signatures[signature] = true
 		loaded += 1

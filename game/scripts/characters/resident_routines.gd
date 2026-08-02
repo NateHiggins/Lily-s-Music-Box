@@ -197,6 +197,13 @@ func _upgrade(node: Node3D, slug: String) -> bool:
 	# over from the retired lobby test figure, which is where the merged
 	# clips were first judged.)
 	ResidentMovesLibrary.apply(figure)
+	var height_factor := ResidentMovesLibrary.apply_body(figure, slug)
+	if height_factor != 1.0:
+		# The nameplate rides the resident node, not the scaled figure;
+		# keep it just above whatever head height canon gave them.
+		for child in node.get_children():
+			if child is Label3D:
+				child.position.y *= height_factor
 	var anim := _player_of(node)
 	if anim:
 		for clip_name in anim.get_animation_list():
