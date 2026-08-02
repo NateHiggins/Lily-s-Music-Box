@@ -67,14 +67,17 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		_add_decal(floor_nodes[floor_id], INFRA_ATLAS,
 				panel % 2, panel / 2,
 				[2.36, -3.19, z + 1.56], 0.0, Vector2(0.48, 0.48))
-	# Lobby mail wall: 24 shallow boxes in one existing floor batch.
-	if batches.has("F01"):
-		for row in 4:
-			for col in 6:
-				_box(batches.F01,
-						[2.65 + col * 0.24, -9.52, 0.74 + row * 0.20],
-						[0.21, 0.055, 0.16],
-						Color(0.25 + row * 0.012, 0.23, 0.18))
+	# Lobby mail corner: the functional Cutler-style bank replaces the old
+	# 24 flat placeholder boxes (which were stamped straight across a
+	# window). It stands on the east partition — the one clear lobby wall —
+	# facing the generated wood bank across the corner. A real prop: the
+	# player's 4B door opens, and mail_catalog.json arrives through it.
+	if floor_nodes.has("F01"):
+		var bank := MailBankProp.new()
+		bank.name = "LobbyMailBank"
+		bank.position = GameBoot.b2g([5.24, -8.85, 0.0])
+		bank.rotation.y = PI * 0.5
+		floor_nodes["F01"].add_child(bank)
 
 
 func _build_resident_details(layout: Dictionary, floor_nodes: Dictionary,

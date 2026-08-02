@@ -80,6 +80,9 @@ const SHOTS := [
 	# of light under their door — the one cue that says people live here.
 	{"name": "b_40_door_spill", "pos": Vector3(-4.30, 11.25, 5.20),
 	 "look": Vector3(-5.25, 10.55, 2.11), "overlay": false},
+	# The lobby mail corner — the player's box lives on the east wall.
+	{"name": "b_43_mail_bank", "pos": Vector3(3.9, 1.45, 7.55),
+	 "look": Vector3(5.25, 1.15, 8.55), "overlay": false},
 	# Straight down the eye from the lobby balustrade: the 2.92 m shaft is the
 	# only place in the court with an uninterrupted view to B1, so this is the
 	# frame that proves the basement reads from the lobby.
