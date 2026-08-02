@@ -57,11 +57,26 @@ func _run() -> void:
 			continue
 		var fz := float(floor_data["z"])
 		for room in floor_data["rooms"]:
-			await _shoot_room(room, fz)
+			await _shoot_room(room, floor_data["rooms"], fz)
 	get_tree().quit(0)
 
 
-func _shoot_room(room: Dictionary, fz: float) -> void:
+## Bath and office rects are carved out of MAIN rects, so a corner-inset
+## camera can stand inside the nested room and photograph the wrong walls
+## (the first walk's "D_MAIN renders a bathroom" artifact). A corner is
+## only usable if its eye stands in THIS room and no other.
+func _corner_clear(pt: Array, room: Dictionary, rooms: Array) -> bool:
+	for other in rooms:
+		if other == room:
+			continue
+		var r: Array = other["rect"]
+		if pt[0] > float(r[0]) and pt[0] < float(r[2]) \
+				and pt[1] > float(r[1]) and pt[1] < float(r[3]):
+			return false
+	return true
+
+
+func _shoot_room(room: Dictionary, rooms: Array, fz: float) -> void:
 	var rect: Array = room["rect"]
 	var x0 := float(rect[0])
 	var y0 := float(rect[1])
@@ -72,17 +87,34 @@ func _shoot_room(room: Dictionary, fz: float) -> void:
 	var ix: float = min(INSET, (x1 - x0) * 0.45)
 	var iy: float = min(INSET, (y1 - y0) * 0.45)
 	var corners := [
-		[[x0 + ix, y0 + iy], [x1 - ix, y1 - iy]],
-		[[x1 - ix, y1 - iy], [x0 + ix, y0 + iy]],
+		[x0 + ix, y0 + iy], [x1 - ix, y0 + iy],
+		[x1 - ix, y1 - iy], [x0 + ix, y1 - iy],
 	]
+	# Diagonal pairs first, then adjacent fallbacks — first pair whose eye
+	# corner is clear of every other room wins.
+	var pairs := [[0, 2], [2, 0], [1, 3], [3, 1]]
 	var takes: int = 2 if area >= 20.0 else 1
-	for i in takes:
-		var eye_from: Array = corners[i][0]
-		var eye_to: Array = corners[i][1]
+	var shot := 0
+	for pair in pairs:
+		if shot >= takes:
+			break
+		var eye_from: Array = corners[pair[0]]
+		var eye_to: Array = corners[pair[1]]
+		if not _corner_clear(eye_from, room, rooms):
+			continue
 		var pos: Vector3 = GameBoot.b2g([eye_from[0], eye_from[1], fz + EYE])
 		var look: Vector3 = GameBoot.b2g([eye_to[0], eye_to[1], fz + 1.0])
-		var suffix := "" if takes == 1 else ("_a" if i == 0 else "_b")
+		var suffix := "" if takes == 1 else ("_a" if shot == 0 else "_b")
 		await _grab(pos, look, "wt_%s%s" % [str(room["id"]), suffix])
+		shot += 1
+	if shot == 0:
+		# Every corner is inside some carved-out sub-room: shoot from the
+		# room centre toward the farthest corner instead of skipping it.
+		var cx := (x0 + x1) * 0.5
+		var cy := (y0 + y1) * 0.5
+		await _grab(GameBoot.b2g([cx, cy, fz + EYE]),
+				GameBoot.b2g([x1 - ix, y1 - iy, fz + 1.0]),
+				"wt_%s" % str(room["id"]))
 
 
 func _grab(pos: Vector3, look: Vector3, shot_name: String) -> void:

@@ -52,6 +52,9 @@ def main():
              "-r", str(FPS), "-c:v", "libtheora", "-q:v", "5",
              "-pix_fmt", "yuv420p",
              "-c:a", "libvorbis", "-q:a", "1", "-ar", "44100", "-ac", "2",
+             # Source-chain metadata carries Latin-1 bytes that Godot's
+             # demuxer warns about on every station boot. Ship none of it.
+             "-map_metadata", "-1", "-map_metadata:s", "-1",
              out], capture_output=True, text=True)
         if proc.returncode != 0:
             print("FAILED %s: %s" % (name, proc.stderr[-400:]))
