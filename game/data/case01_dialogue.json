@@ -1,0 +1,274 @@
+{
+  "meta": {
+    "case_id": "mina_caption_crisis",
+    "speaker_default": "MINA VALE",
+    "voice_prefix": "mina_c01_",
+    "notes": "Node ids are voice take ids: mina_c01_<node>.ogg. Silence is a first-class option on every node that defines silence_goto. Trust-only costs use bookkeeping flags (agreed_with_record, defended_the_record, annotated_the_blank, comfort_offered, refilled_the_record) that are never resolution flags."
+  },
+  "entries": {
+    "first_stable": "fs_open",
+    "real_talk": "rt_open",
+    "integration": "int_open",
+    "resolved": "res_open",
+    "fallback": "fb_open"
+  },
+  "nodes": {
+    "fs_open": {
+      "line": "It stopped when you made the captions literal. Thank you. That is the correct phrase — thank you. Although you paused out there before you knocked. I have the pause down as: CALLER PREPARING BAD NEWS.",
+      "choices": [
+        {"label": "That's not what the pause was.", "goto": "fs_push"},
+        {"label": "You caption people too? Not just the objects?", "goto": "fs_people"},
+        {"label": "Your captions have all been accurate.", "goto": "fs_flatter"}
+      ],
+      "silence_goto": "fs_silence"
+    },
+    "fs_people": {
+      "line": "Objects were practice. You walked in and the air over your head said: TECHNICIAN. TIRED. HERE TO SAY IT ISN'T FIXED. Two of those are wrong. I keep them anyway.",
+      "choices": [
+        {"label": "Why keep captions you know are wrong?", "goto": "fs_push"},
+        {"label": "What does mine say now?", "goto": "fs_now"}
+      ],
+      "silence_goto": "fs_silence"
+    },
+    "fs_now": {
+      "line": "TECHNICIAN. LISTENING. UNUSUAL. The third word is new. I don't have a rule for it yet.",
+      "choices": [
+        {"label": "What do you write when someone just stops talking?", "goto": "fs_push"}
+      ],
+      "silence_goto": "fs_silence"
+    },
+    "fs_flatter": {
+      "line": "They are accurate. Every one of them. You're the first person to say so out loud — and notice how nothing moved. You confirmed the entire record and the room is exactly as wrong as it was.",
+      "choices": [
+        {"label": "Then accuracy isn't the problem.", "goto": "fs_push"}
+      ],
+      "silence_goto": "fs_silence"
+    },
+    "fs_silence": {
+      "line": "CALLER DECLINES TO STATE. There. Captured. You can't out-quiet me — I've been catching silences for twenty-two years.",
+      "choices": [
+        {"label": "What happens if a silence stays blank?", "goto": "fs_push"},
+        {"label": "That's not what my silence said.", "goto": "fs_push"}
+      ],
+      "silence_goto": "fs_push_sil"
+    },
+    "fs_push": {
+      "line": "Blank is worse. Blank looks like I missed the important part. When someone goes quiet on me I still hear a verdict forming, so the pause has to say something.",
+      "choices": [
+        {"label": "Silence isn't evidence of what someone thinks.",
+         "goto": "fs_named", "flag": "first_silence_named", "trust": 1},
+        {"label": "Then we should caption the silence more carefully.",
+         "goto": "fs_misread", "flag": "first_silence_misread", "trust": -1}
+      ],
+      "silence_goto": "fs_push_sil"
+    },
+    "fs_push_sil": {
+      "line": "Right there — you did it again. CALLER DECLINES TO STATE. I wrote it before you finished not-saying it. I always win.",
+      "choices": [
+        {"label": "Silence isn't evidence of what someone thinks.",
+         "goto": "fs_named", "flag": "first_silence_named", "trust": 1},
+        {"label": "Then we should caption the silence more carefully.",
+         "goto": "fs_misread", "flag": "first_silence_misread", "trust": -1}
+      ],
+      "silence_goto": "fs_push"
+    },
+    "fs_named": {
+      "line": "Not evidence. A pause, four seconds, contents unknown. I wrote 'verdict forming' on a blank four seconds and filed it as accuracy. I'll log your sentence verbatim. It's the first thing today I haven't had to fix."
+    },
+    "fs_misread": {
+      "line": "More carefully. Yes. Smaller words, better guesses. I'll refine the annotation schema tonight. Thank you for taking the problem seriously."
+    },
+
+    "rt_open": {
+      "line": "Fixed twice now. And it held exactly as long as someone was in the room with me, both times. I've started captioning you in real time — currently: TECHNICIAN. PATIENT. PROBABLY BEHIND SCHEDULE.",
+      "choices": [
+        {"label": "Two of those are guesses.", "goto": "rt_guess"},
+        {"label": "That's fair. I am behind schedule.",
+         "goto": "rt_agree", "flag": "agreed_with_record", "trust": -1}
+      ],
+      "silence_goto": "rt_sil"
+    },
+    "rt_sil": {
+      "line": "CALLER DECLINES — no. You're doing it on purpose now. A deliberate silence. What's my annotation for 'on purpose'?",
+      "choices": [
+        {"label": "Maybe it doesn't need one.", "goto": "rt_guess"},
+        {"label": "Two of your three captions are guesses.", "goto": "rt_guess"}
+      ],
+      "silence_goto": "rt_guess"
+    },
+    "rt_agree": {
+      "line": "I know you are. It's on your clipboard. You agreed with the record — people usually argue. And notice: the transcript grew one line and the room stayed wrong. Agreement does nothing here.",
+      "choices": [
+        {"label": "Because accuracy isn't what's wrong.", "goto": "rt_guess"}
+      ],
+      "silence_goto": "rt_sil"
+    },
+    "rt_guess": {
+      "line": "TECHNICIAN I can see — it's on your jacket. PATIENT is a guess. BEHIND SCHEDULE is a guess with a clipboard. If I struck every guess, do you know how thin the record gets? Four words an hour. A person could fall through a gap that size.",
+      "choices": [
+        {"label": "An assumption written down doesn't become a fact.",
+         "goto": "rt_afact", "flag": "assumptions_are_not_facts", "trust": 1},
+        {"label": "Thin and true beats thick and guessed.", "goto": "rt_thin"},
+        {"label": "You're right — a thin record is a failed record.",
+         "goto": "rt_refill", "flag": "refilled_the_record", "trust": -1}
+      ],
+      "silence_goto": "rt_guess_sil"
+    },
+    "rt_guess_sil": {
+      "line": "You keep handing me blanks like you know I can't spend them. CALLER SAYS NOTHING. SIGNIFICANCE PENDING. ...Pending. That's new. I never leave anything pending.",
+      "choices": [
+        {"label": "An assumption written down doesn't become a fact.",
+         "goto": "rt_afact", "flag": "assumptions_are_not_facts", "trust": 1},
+        {"label": "Pending suits you.", "goto": "rt_guess"}
+      ],
+      "silence_goto": "rt_guess"
+    },
+    "rt_thin": {
+      "line": "Thin and true. Charming. You've never been the gap in a record, have you. Never had your four seconds go missing while everyone in the room acted like the words were there.",
+      "choices": [
+        {"label": "Your four seconds?", "goto": "rt_court_door"},
+        {"label": "An assumption written down doesn't become a fact.",
+         "goto": "rt_afact", "flag": "assumptions_are_not_facts", "trust": 1}
+      ],
+      "silence_goto": "rt_court_door"
+    },
+    "rt_refill": {
+      "line": "Exactly. So I fill. I'm glad one of you finally understands the stakes of an empty column.",
+      "choices": [
+        {"label": "Wait — let's go back to what you can observe.", "goto": "rt_open2"}
+      ],
+      "silence_goto": "rt_open2"
+    },
+    "rt_afact": {
+      "line": "Say that again — no. Don't. I heard it. Transcribing from memory: assumptions do not harden into facts just because I wrote them in the observations column. ...Then most of my record of you is annotation. Most of my record of everyone is.",
+      "choices": [
+        {"label": "When did the annotating start?", "goto": "rt_court_door"},
+        {"label": "You said 'the gap' earlier.", "goto": "rt_court_door"}
+      ],
+      "silence_goto": "rt_court_door"
+    },
+    "rt_court_door": {
+      "role": "strained",
+      "line": "Realtime court reporting. Twenty-two years, certified, two hundred and sixty words a minute. Nothing got past me. People's futures went through my hands and I caught every word — that is not a metaphor, that was the actual job.",
+      "choices": [
+        {"label": "What changed?", "goto": "rt_court2"},
+        {"label": "'Went.' Past tense.", "goto": "rt_court2"}
+      ],
+      "silence_goto": "rt_court2"
+    },
+    "rt_court2": {
+      "line": "My ears started editing. Consonants first — quietly, the way a room goes wrong. I sat closer. I bought monitors. I learned to read the judge's jaw. And one afternoon a man stood up for his verdict, the judge spoke, and my hands didn't move.",
+      "choices": [
+        {"label": "What did the record show?", "goto": "rt_blank"},
+        {"label": "What happened to the man?", "goto": "rt_man"}
+      ],
+      "silence_goto": "rt_blank"
+    },
+    "rt_man": {
+      "line": "Guilty. Everyone in that room heard it except me. He was always going to hear it from the judge, not from my transcript — nobody's future hinged on my four seconds. That is not the part that broke.",
+      "choices": [
+        {"label": "What did the record show?", "goto": "rt_blank"}
+      ],
+      "silence_goto": "rt_blank"
+    },
+    "rt_blank": {
+      "line": "The certified record of the State shows a blank. Four seconds, under my name. I have read that blank ten thousand times and every time it says the same thing: SHE MISSED IT. That's the day blanks started talking, so that's the day I stopped leaving any.",
+      "choices": [
+        {"label": "The blank never said that. You did.", "goto": "rt_heart"},
+        {"label": "You've paid for four seconds every day since.", "goto": "rt_heart"},
+        {"label": "One gap in twenty-two years. Your record was accurate.",
+         "goto": "rt_armor", "flag": "defended_the_record", "trust": -1}
+      ],
+      "silence_goto": "rt_heart_sil"
+    },
+    "rt_heart_sil": {
+      "line": "You're not going to tell me it was fine. Good. Everyone tells me it was fine, and I write FALSE COMFORT next to their names.",
+      "choices": [
+        {"label": "It wasn't fine. It also wasn't a verdict on you.", "goto": "rt_heart"}
+      ],
+      "silence_goto": "rt_heart"
+    },
+    "rt_armor": {
+      "line": "One gap. A 99.996 percent capture rate. Thank you for checking my math. Everyone checks my math, and the math was never the problem.",
+      "choices": [
+        {"label": "Then let's talk about what the record is for.", "goto": "rt_open2"}
+      ],
+      "silence_goto": "rt_open2"
+    },
+    "rt_heart": {
+      "role": "recognition",
+      "line": "Four seconds. Blank. Under my name. If a blank can say 'she missed it,' a blank can say anything — so nothing in this apartment stays blank anymore. You've watched me do it all night. So. The space where my four seconds were. What am I supposed to put there?",
+      "choices": [
+        {"label": "Silence, four seconds, speaker unknown.",
+         "goto": "rt_ann", "flag": "annotated_the_blank", "trust": -1},
+        {"label": "Nothing. Leave it empty.", "goto": "rt_told"},
+        {"label": "Whatever lets you sleep.",
+         "goto": "rt_safe", "flag": "comfort_offered", "trust": -1}
+      ],
+      "silence_goto": "rt_earned",
+      "silence_flag": "silence_can_be_blank",
+      "silence_trust": 2
+    },
+    "rt_ann": {
+      "line": "That is what it says now. Word for word. I have annotated the blank for years, and it has never once gone quiet.",
+      "choices": [
+        {"label": "Then stop feeding it.", "goto": "rt_heart"}
+      ],
+      "silence_goto": "rt_heart"
+    },
+    "rt_safe": {
+      "line": "Sleep. The full transcript is how I sleep. It is also why I don't.",
+      "choices": [
+        {"label": "The transcript isn't keeping you safe.", "goto": "rt_heart"}
+      ],
+      "silence_goto": "rt_heart"
+    },
+    "rt_told": {
+      "line": "There. LEAVE IT EMPTY — TECHNICIAN'S INSTRUCTION. You see the problem? The moment you say 'leave it empty' out loud, I write that down, and it isn't empty anymore. Try again.",
+      "choices": [
+        {"label": "Try again how?", "goto": "rt_heart"}
+      ],
+      "silence_goto": "rt_earned",
+      "silence_flag": "silence_can_be_blank",
+      "silence_trust": 2
+    },
+    "rt_earned": {
+      "role": "recognition",
+      "line": "...Nothing. You heard the question and you're not filling the space. Neither am I. Look at that. Four seconds — five now — six — and it isn't a verdict, it isn't a failure, it's just blank. Blank can be accurate. I'm leaving it. I'm actually leaving it."
+    },
+    "rt_open2": {
+      "line": "Where were we. You were about to be useful, and I was about to write down what I decided you meant instead of what you said.",
+      "choices": [
+        {"label": "Back to what you can actually observe.", "goto": "rt_guess"}
+      ],
+      "silence_goto": "rt_guess"
+    },
+
+    "int_open": {
+      "line": "Then let's leave one thing unexplained on purpose.",
+      "choices": [
+        {"label": "[Leave a quiet beat.]", "goto": "int_beat"}
+      ],
+      "silence_goto": "int_beat"
+    },
+    "int_beat": {
+      "line": "There.",
+      "action": "quiet_beat"
+    },
+
+    "fb_open": {
+      "line": "The captions are still getting ahead of what actually happened.",
+      "choices": [
+        {"label": "I'll keep the next pass strictly factual."}
+      ],
+      "silence_goto": "fb_sil"
+    },
+    "fb_sil": {
+      "line": "CALLER DECLINES TO STATE. Noted. Get back to work."
+    },
+
+    "res_open": {
+      "line": "The kettle boiled twice this morning and said nothing about it. We're both letting that stand."
+    }
+  }
+}

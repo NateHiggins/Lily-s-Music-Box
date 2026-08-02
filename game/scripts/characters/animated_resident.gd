@@ -111,6 +111,20 @@ func _set_walking(on: bool) -> void:
 	_play_named("walk" if on else "idle")
 
 
+## Case beats may borrow the actor: the dialogue tree asks for roles like
+## 'strained' or 'recognition' at its deeper layers. Returns false while
+## the named clip hasn't shipped, so cases can request roles ahead of the
+## animation set arriving from the prompt sheet.
+func play_case_role(fragment: String) -> bool:
+	if _animation_player == null:
+		return false
+	for animation_name in _animation_player.get_animation_list():
+		if fragment.to_lower() in str(animation_name).to_lower():
+			_animation_player.play(animation_name, 0.35)
+			return true
+	return false
+
+
 func _play_named(fragment: String) -> void:
 	if _animation_player == null:
 		return

@@ -4,6 +4,8 @@ extends Node3D
 ## calibrate, recur, re-inspect, talk honestly, and integrate.
 
 const CASE_ID := "mina_caption_crisis"
+const DIALOGUE_TREE_PATH := "res://data/case01_dialogue.json"
+const VOICE_DIR := "res://assets/audio/voice/"
 const EVIDENCE := [
 	{"id": "caption_cards", "name": "Caption Cards",
 	 "at": [-11.55, -4.55, 4.25], "fact": "CARDS",
@@ -17,6 +19,7 @@ const EVIDENCE := [
 ]
 
 var tracker: ObjectiveTracker
+var dialogue_tree: Dictionary = {}
 var terminal: CaseInteractable
 var console: CaseInteractable
 var shift_clock: CaseInteractable
@@ -26,6 +29,7 @@ var _choice_indices: Dictionary = {}
 var _feedback := ""
 var _visit_overlay: ColorRect
 var _visit_label: Label
+var _voice: AudioStreamPlayer3D
 
 
 func setup(objective_tracker: ObjectiveTracker) -> void:
@@ -71,8 +75,52 @@ func _build_apartment_targets() -> void:
 
 
 func _build_dialogue() -> void:
+	dialogue_tree = JSON.parse_string(
+			FileAccess.get_file_as_string(DIALOGUE_TREE_PATH))
 	dialogue = CaseDialoguePanel.new()
 	add_child(dialogue)
+	dialogue.node_shown.connect(_on_dialogue_node)
+	dialogue.tree_ended.connect(func():
+		var actor := _mina_actor()
+		if actor:
+			actor.play_case_role("idle"))
+	# Voice takes play from Mina's living room; subtitles are the panel
+	# itself, sourced from the same JSON, so text and voice cannot drift.
+	_voice = AudioStreamPlayer3D.new()
+	_voice.position = GameBoot.b2g([-9.6, -3.35, 4.7])
+	_voice.unit_size = 6.0
+	add_child(_voice)
+
+
+func _on_dialogue_node(node_id: String) -> void:
+	_play_voice_line(node_id)
+	# Deeper layers borrow her body: the tree names the animation role, the
+	# actor plays it if the clip has shipped from the prompt sheet.
+	var node: Dictionary = dialogue_tree.get("nodes", {}).get(node_id, {})
+	if node.has("role"):
+		var actor := _mina_actor()
+		if actor:
+			actor.play_case_role(str(node.role))
+
+
+func _mina_actor() -> AnimatedResident:
+	for actor in get_tree().get_nodes_in_group("animated_residents"):
+		if actor.resident_id == "mina_vale":
+			return actor
+	return null
+
+
+## Node ids are take ids: mina_c01_<node>.ogg. Missing takes are silent —
+## the tree ships before the voice does.
+func _play_voice_line(node_id: String) -> void:
+	var prefix := str(dialogue_tree.get("meta", {}).get(
+			"voice_prefix", "mina_c01_"))
+	var path := "%s%s%s.ogg" % [VOICE_DIR, prefix, node_id]
+	if not ResourceLoader.exists(path):
+		_voice.stop()
+		return
+	_voice.stream = load(path)
+	_voice.play()
 
 
 func _build_visit_boundary() -> void:
@@ -144,73 +192,41 @@ func _use_calibrator() -> void:
 	RealityCases.stabilize_case(CASE_ID)
 
 
-func _record_insight(flag: String) -> void:
-	RealityCases.record_conversation(CASE_ID, flag)
-
-
 func _on_resident_interaction(case_id: String, resident_id: String) -> void:
 	if case_id != CASE_ID or resident_id != "mina_vale":
 		return
 	var state := RealityState.case_state(CASE_ID)
+	dialogue.run_tree(dialogue_tree, _entry_for(state), _apply_flag,
+			_apply_dialogue_action)
+
+
+func _entry_for(state: Dictionary) -> String:
+	var entries: Dictionary = dialogue_tree.get("entries", {})
 	var repairs := int(state.get("repair_count", 0))
-	var flags: Array = state.get("conversation_flags", [])
-	if state.stage == "stabilized" and repairs == 1:
-		dialogue.present("MINA VALE",
-				"It stopped when you made the captions literal. But when someone "
-				+ "goes quiet, I still hear a verdict forming.",
-				[
-					{"text": "Silence isn't evidence of what someone thinks.",
-					 "action": func(): _record_insight("first_silence_named")},
-					{"text": "Then we should caption the silence more carefully.",
-					 "action": func(): _record_insight_with_delta(
-							"first_silence_misread", -1)},
-				])
-	elif repairs >= 2 and "assumptions_are_not_facts" not in flags:
-		dialogue.present("MINA VALE",
-				"I caption the pause before anyone can use it against me. "
-				+ "Disappointed. Annoyed. Leaving.",
-				[
-					{"text": "Those are assumptions, not observable facts.",
-					 "action": func(): _record_insight(
-							"assumptions_are_not_facts")},
-					{"text": "Pick the most likely interpretation.",
-					 "action": func(): _record_insight_with_delta(
-							"interpretation_is_safety", -1)},
-				])
-	elif repairs >= 2 and "silence_can_be_blank" not in flags:
-		dialogue.present("MINA VALE",
-				"If I leave a silence blank, it feels like I failed to catch "
-				+ "the important part.",
-				[
-					{"text": "Blank can be accurate. You don't have to invent it.",
-					 "action": func(): _record_insight("silence_can_be_blank")},
-					{"text": "Every pause must mean something.",
-					 "action": func(): _record_insight_with_delta(
-							"silence_requires_answer", -1)},
-				])
+	var key := "fallback"
+	if bool(state.get("resolved", false)):
+		key = "resolved"
 	elif state.stage == "integration_ready":
-		dialogue.present("MINA VALE",
-				"Then let's leave one thing unexplained on purpose.",
-				[{"text": "[Leave a quiet beat.]",
-				  "action": _leave_quiet_beat}])
-	else:
-		dialogue.present("MINA VALE",
-				"The captions are still getting ahead of what actually happened.",
-				[{"text": "I'll keep the next pass strictly factual.",
-				  "action": _no_op}])
+		key = "integration"
+	elif repairs >= 2:
+		key = "real_talk"
+	elif repairs == 1 and bool(state.get("recurrence_pending", false)):
+		key = "first_stable"
+	return str(entries.get(key, entries.get("fallback", "")))
+
+
+func _apply_flag(flag: String, trust_delta: int) -> void:
+	RealityCases.record_conversation(CASE_ID, flag, trust_delta)
+
+
+func _apply_dialogue_action(action: String) -> void:
+	if action == "quiet_beat":
+		_leave_quiet_beat()
 
 
 func _leave_quiet_beat() -> void:
 	_feedback = "The apartment waits without supplying an answer."
 	_refresh()
-
-
-func _no_op() -> void:
-	pass
-
-
-func _record_insight_with_delta(flag: String, trust_delta: int) -> void:
-	RealityCases.record_conversation(CASE_ID, flag, trust_delta)
 
 
 func _advance_visit() -> void:
