@@ -83,7 +83,7 @@ const ROLES := {
 	"settle": "clip_05", "reach": "clip_07",
 }
 
-enum Stage { HOME, PACING, TO_LIFT, RIDING, AT_HAUNT, RETURNING }
+enum Stage { HOME, PACING, TO_LIFT, RIDING, AT_HAUNT, RETURNING, WATCHING }
 
 var actors: Array = []
 ## Portal-graph pathfinding; see resident_nav.gd. Null-safe: without it
@@ -92,6 +92,8 @@ var nav: ResidentNav
 
 var _layout: Dictionary = {}
 var _rng := RandomNumberGenerator.new()
+var _couch: Dictionary = {}     # unit -> sofa position
+var _tv: Dictionary = {}        # unit -> television position
 
 
 func build(layout: Dictionary, residents: Array) -> int:
@@ -100,6 +102,20 @@ func build(layout: Dictionary, residents: Array) -> int:
 	nav.name = "ResidentNav"
 	add_child(nav)
 	nav.build(layout)
+	# Where each unit's couch and television stand, for the evening's
+	# viewing: the resident walks to the sofa and faces the set, and
+	# TVProp's own watcher-poll does the switching-on — sitting down IS the
+	# remote control.
+	for fl in layout["floors"]:
+		for fu in fl.get("furniture", []):
+			var fid := str(fu.get("id", ""))
+			var at: Array = fu.get("at", [0, 0])
+			var spot := GameBoot.b2g([float(at[0]), float(at[1]),
+					float(fl["z"])])
+			if fid.ends_with("_couch"):
+				_couch[fid.split("_")[0]] = spot
+			elif str(fu.get("asm", "")) == "tv":
+				_tv[fid.split("_")[0]] = spot
 	_rng.randomize()
 	for node in residents:
 		var slug := _slug_of(node)
@@ -217,15 +233,37 @@ func _step(actor: Dictionary, delta: float) -> void:
 				return
 			_play(actor, "idle")
 			if actor.timer <= 0.0:
-				# Most of the time they just get up and move about the room.
-				# Leaving is the rarer, more interesting event.
-				if _rng.randf() < 0.35 and actor.haunt != Vector3.ZERO:
+				# An evening at home is mostly pottering, sometimes the
+				# television, occasionally an errand out of the flat.
+				var unit := _unit_of(actor)
+				var roll := _rng.randf()
+				if roll < 0.30 and _couch.has(unit):
+					actor.stage = Stage.WATCHING
+					_set_route(actor, _couch[unit])
+					actor.timer = _rng.randf_range(24.0, 70.0)
+				elif roll < 0.55 and actor.haunt != Vector3.ZERO:
 					actor.stage = Stage.TO_LIFT
 					_set_route(actor, _lift_point(node.global_position.y))
 				else:
 					actor.stage = Stage.PACING
 					_set_route(actor, _near_home(actor))
 					actor.timer = _rng.randf_range(6.0, 14.0)
+		Stage.WATCHING:
+			if _follow(actor, node, delta):
+				# At the sofa: face the set and settle in. Being within the
+				# TVProp watcher radius is what switches it on, and walking
+				# away is what lets it die again.
+				_play(actor, "settle")
+				var unit := _unit_of(actor)
+				if _tv.has(unit):
+					var to: Vector3 = _tv[unit] - node.global_position
+					node.rotation.y = atan2(-to.x, -to.z)
+			else:
+				_play(actor, "pace")
+			if actor.timer <= 0.0:
+				actor.stage = Stage.HOME
+				_set_route(actor, actor.home)
+				actor.timer = _rng.randf_range(10.0, 30.0)
 		Stage.PACING:
 			_play(actor, "pace")
 			if _follow(actor, node, delta) or actor.timer <= 0.0:
@@ -272,6 +310,16 @@ func _step(actor: Dictionary, delta: float) -> void:
 					actor.stage = Stage.HOME
 					_set_route(actor, actor.home)
 					actor.timer = _rng.randf_range(10.0, 34.0)
+
+
+func _unit_of(actor: Dictionary) -> String:
+	var spec: Dictionary = HAUNTS.get(str(actor.slug), {})
+	# The haunts table has no unit field; the couch map is keyed by unit
+	# prefix, so derive from the slug's home the same way the spawner does.
+	for unit in _couch:
+		if actor.home.distance_to(_couch[unit]) < 7.0:
+			return unit
+	return ""
 
 
 ## Somewhere else in the same room. Kept short so nobody walks out through

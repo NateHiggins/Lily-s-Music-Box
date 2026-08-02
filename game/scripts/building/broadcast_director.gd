@@ -117,7 +117,10 @@ func build(layout: Dictionary, floor_nodes: Dictionary) -> int:
 			var at: Array = fu["at"]
 			tv.position = GameBoot.b2g([float(at[0]), float(at[1]),
 					float(fl["z"])])
-			tv.rotation.y = deg_to_rad(float(fu.get("yaw", 0)))
+			# +PI: the cabinet's authored yaw faces its BACK into the room
+			# (confirmed by standing in front of one), so every set turns
+			# half a circle to meet its sofa.
+			tv.rotation.y = deg_to_rad(float(fu.get("yaw", 0))) + PI
 			floor_nodes[fid].add_child(tv)
 			sets.append(tv)
 	print("[STATION] %d clips, %d sets, all dark" % [clips.size(),
@@ -262,6 +265,13 @@ func tv_power_changed() -> void:
 func _process(delta: float) -> void:
 	if not any_powered():
 		return
+	# Watchdog: whatever path left the station silent — a stream that
+	# failed to load, a finished signal lost across a pause/possess/card
+	# transition — a powered set showing nothing gets the next programme.
+	# Self-healing beats diagnosing every possible stall.
+	if not _card.visible and not _video.paused \
+			and not _video.is_playing():
+		_play_next_clip()
 	# card timer
 	if _card.visible:
 		_card_left -= delta

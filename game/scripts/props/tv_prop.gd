@@ -103,6 +103,14 @@ func set_glow(tint: Color, luminance: float) -> void:
 		return
 	glow.light_color = tint.lerp(Color(0.75, 0.82, 1.0), 0.25)
 	glow.light_energy = clampf(0.25 + luminance * 1.1, 0.2, 1.4)
+	# The glow only SPENDS a light when the player can see it. GL compat
+	# caps lights per OBJECT and each floor's walls are one merged mesh —
+	# seven resident-watched sets each carrying an unbudgeted omni was
+	# enough to bust the cap and silently starve the apartments' own room
+	# fixtures. The emissive glass still reads from any distance.
+	var cam := get_viewport().get_camera_3d()
+	glow.visible = cam != null and cam.global_position.distance_to(
+			global_position) < 9.0
 
 
 func _process(delta: float) -> void:

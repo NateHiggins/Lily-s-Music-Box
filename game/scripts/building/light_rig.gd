@@ -119,6 +119,16 @@ func _process(delta: float) -> void:
 			var d2: float = fixture.global_position.distance_squared_to(eye)
 			if "navigation_light" in fixture and fixture.navigation_light:
 				d2 *= NAV_WEIGHT
+			elif fixture.light != null:
+				# The room you are STANDING IN owns its light. Without
+				# this, the two dozen nav-weighted circulation fixtures
+				# (domes, eye pendants) outrank an apartment's own pendant
+				# from inside the apartment, and the moment corridors were
+				# dimmed to mood the flats went black — the oasis rule
+				# inverted by its own budget arithmetic.
+				var reach: float = fixture.light.omni_range
+				if d2 < reach * reach * 0.55:
+					d2 *= 0.04
 			eligible.append([d2, fixture])
 		else:
 			off.append(fixture)

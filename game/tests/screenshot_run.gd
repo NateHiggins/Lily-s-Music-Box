@@ -107,6 +107,16 @@ const SHOTS := [
 
 
 func _ready() -> void:
+	# Doc stills must not inherit the player's campaign: a case left ACTIVE
+	# in the user save manifests its gloom into the room being photographed
+	# (1A went pitch black this way and burned an hour on a lighting hunt).
+	# Same discipline as WalkTest: reset BEFORE the building is built, seed
+	# every case as a first launch would, never write the real save.
+	RealityState.persistence_enabled = false
+	RealityState.reset_campaign_for_tests()
+	for case_id in RealityCases.definitions:
+		RealityState.ensure_case(case_id,
+				str(RealityCases.definitions[case_id].get("resident_id", "")))
 	_dir = OS.get_environment("SHOT_DIR")
 	if _dir == "":
 		_dir = OS.get_user_data_dir()

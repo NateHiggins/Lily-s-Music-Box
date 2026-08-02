@@ -1820,18 +1820,34 @@ ROOM_FIXTURE = {
 }
 
 
+# The mood inversion: circulation is DIM and the homes are WARM. A corridor
+# at night in a 1927 block is pools of light with dark between them — the
+# walk is moody, and every apartment door is an oasis by contrast. So
+# circulation kinds sit well below 1.0 and dwelling kinds well above, and
+# the gap between them IS the design. Raising a corridor value here should
+# feel like breaking something.
 ROOM_LIGHT = {
-    "living": 1.0, "bedroom": 0.85, "alcove": 0.78, "hall": 1.0,
-    "kitchen": 1.12, "office": 1.15, "common": 1.05, "lobby": 1.25,
-    "atrium": 1.0, "utility": 0.78, "storage": 0.7, "laundry": 0.85,
-    "boiler": 0.7, "electrical": 0.75, "storage_cages": 0.65,
-    "coal": 0.55,
+    "living": 1.35, "bedroom": 1.1, "alcove": 1.0, "hall": 0.68,
+    "kitchen": 1.35, "office": 1.3, "common": 1.25, "lobby": 1.05,
+    "vestibule": 0.7, "atrium": 0.9, "utility": 0.6, "storage": 0.55,
+    "laundry": 0.8, "boiler": 0.65, "electrical": 0.7,
+    "storage_cages": 0.55, "coal": 0.5,
 }
-# resident temperament: Mina keeps it bright and even, Juno lives in
-# amp-glow, Omar floods the bench, Rhea works by playback light, Nadia
-# burns task lighting, Sacha lives at monitor level
+# Resident temperament, the full cast — each home is an oasis to ITS OWN
+# taste, which for some residents is barely an oasis at all. Heroes:
+# Mina bright and even, Juno amp-glow, Omar floods the bench, Rhea
+# playback light, Nadia task lighting, Sacha monitor level. Supporting:
+# Evelyn keeps a teacher's good lamp; Teresa sleeps days and rests dim;
+# Lena's workroom is lit like a shop; Malcolm lives half by grow-light;
+# Peter over-lights against uncertainty; Noel's cases get museum halogen;
+# the transients never touch the dimmer; Cal tunes in the dark; Iris
+# needs daylight wattage; Jonah writes by one lamp; Mae protects her
+# archive from bright light.
 UNIT_LIGHT = {"2A": 1.15, "2C": 0.68, "3B": 1.25, "3D": 0.65,
-              "5A": 1.20, "6A": 0.55, "4D": 1.0}
+              "5A": 1.20, "6A": 0.55, "4D": 1.0,
+              "1A": 1.2, "1D": 0.8, "2B": 1.15, "3A": 1.05,
+              "4A": 1.25, "4C": 1.15, "5B": 0.6, "5C": 1.3,
+              "6B": 0.72, "6C": 0.9}
 
 
 def light_fixture_markers(fl):
@@ -1854,10 +1870,13 @@ def light_fixture_markers(fl):
                 "kind": "flush_dome",
                 "id": "%s_CORRIDOR_DOME_%02d" % (fl["id"], i + 1),
                 "unit": fl["id"], "pos": [cx, cy, z + ceil - 0.02],
-                # domes sit 5.1 m apart: a 7.2 m throw overlaps its
-                # neighbours instead of leaving a black third between them
-                "range": 7.2, "energy": 1.3,
-                "navigation": True, "standby": 0.34,
+                # Domes sit 5.1 m apart and the throw deliberately does NOT
+                # reach the neighbour: the dark third between pools is the
+                # corridor's mood, and the emissive fixture bodies keep the
+                # rhythm legible through it. (This reverses the old
+                # even-wash tuning, which read as an office.)
+                "range": 4.6, "energy": 0.55,
+                "navigation": True, "standby": 0.22,
                 "yaw_deg": 0, "network": "electrical"})
     for r in fl["rooms"]:
         fix = ROOM_FIXTURE.get(r["kind"])
