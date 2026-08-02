@@ -54,9 +54,13 @@ Remaining is the voice itself:
 
 ## Aspirational backlog (unchanged order)
 
-- **Cases 04–07 + convergence** authored as data — engineering is done.
-  Mina's tree is now the template: entries keyed by stage gate, silence
-  routing per node, trust-only bookkeeping flags for traps.
+- ~~**Cases 04–07 + convergence** authored as data~~ DONE 2026-08-01:
+  case_library.gd holds all eight (4508 Juno hold-music, 4519 Mercer
+  appliances, 4531 Room 0 hum, 4544 edited evidence, 4600 convergence);
+  WalkTest drives each and the convergence's timeout protects the empty
+  slot. The convergence is fixed-beat data — an ending assembled from
+  accumulated outcomes needs conditional beats in call_interface's runner,
+  which is the natural next engineering step if the dream is wanted.
 - **Case 02 field journey**: contact-mic listening on the way down.
 - **Poltergeist ↔ broadcast**: bespoke possessed reel for Cal's rung.
 - **17 more character meshes + animation sets** via the prompt sheets.

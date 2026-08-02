@@ -52,7 +52,7 @@ coordinate before fixing.
 | room | symptom | severity |
 |---|---|---|
 | all units | ~~TV picture bugs~~ FIXED: root cause was ffmpeg 8.1.2 writing malformed Theora; station rebuilt live (per-clip shuffle, E toggles sets, NPC watching, glow, 9-fault shader) | done |
-| lobby | duplicate Evelyn (test figure) standing by the elevator | ugly |
+| lobby | ~~duplicate Evelyn (test figure)~~ FIXED: lobby figure retired, assertions moved to the real 1A resident, UUID clips named by eye (ClipSheet.tscn) and ROLES re-pointed | done |
 | all units | 17 residents still billboard sprites until meshes arrive | wish |
 | broadcast | Sora watermark visible in some frames at close range | wish |
 | B1 hall | "KNOW YOUR EXIT" poster fixed earlier — poster itself reads fine in wt_B1_HALL, but a blank white rectangle floats at ceiling height above it (see decal family) | check |

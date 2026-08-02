@@ -1273,7 +1273,8 @@ func _wall_art_report() -> void:
 ## puts a door in the third-floor corridor, Case 03 puts someone else in the
 ## player's chair.
 func _case_network_checks(ci: CallInterface) -> void:
-	_check(CaseLibrary.count() == 3, "case network holds three cases")
+	_check(CaseLibrary.count() == 8,
+			"case network holds the full batch plus convergence")
 	_check(ci.case_index == 1,
 			"leaving a closed case brings up the next caller")
 	_check(ci.closed_outcomes == ["complete"], "case 01 outcome recorded")
@@ -1329,9 +1330,33 @@ func _case_network_checks(ci: CallInterface) -> void:
 			_check(desk.interact_prompt().contains("your voice"),
 					"case 03: the desk prompt reports who is sitting there")
 	ci.leave()
-	_check(ci.case_index == 3, "case 03 closed and the queue is empty")
-	_check(ci.closed_outcomes.size() == 3, "all three outcomes recorded")
-	# The desk is not offering a fourth call it does not have.
+	_check(ci.case_index == 3, "case 03 closed and the queue advanced")
+	_check(ci.closed_outcomes.size() == 3, "first three outcomes recorded")
+
+	# --- Cases 04-07 and the convergence: authored as data, driven by the
+	# same three verbs. One response each — the checks are that each case is
+	# the one on the line, closes, and leaves its distinctive mark on the
+	# desk's flags. The convergence is answered the way the whole network
+	# taught: by protecting the empty slot.
+	var later := [
+		["case 04", "4508", "hand_over", "juno_loop"],
+		["case 05", "4519", "delay_cue", "mercers_speak"],
+		["case 06", "4531", "own_hum", "room0_keyed_to_desk"],
+		["case 07", "4544", "preserve_all", "version_chorus"],
+		["convergence", "4600", "protect_silence", "the_empty_slot"],
+	]
+	for spec in later:
+		ci.enter(root.player)
+		ok = await _drive_case(ci, str(spec[2]), str(spec[0]))
+		if ok:
+			_check(ci._case.id == spec[1],
+					"%s is the one on the line" % spec[0])
+			_check(ci.flags.has(spec[3]),
+					"%s leaves its mark (%s)" % [spec[0], spec[3]])
+		ci.leave()
+	_check(ci.case_index == 8, "the queue ends after the convergence")
+	_check(ci.closed_outcomes.size() == 8, "all eight outcomes recorded")
+	# The desk is not offering a ninth call it does not have.
 	var desk2: DeskZone = root.get_node_or_null("F04_B_DESK_ZONE")
 	if desk2:
 		_check(desk2.interact_prompt() != "", "desk still interactable when quiet")
