@@ -156,7 +156,18 @@ func build(layout: Dictionary, residents: Array) -> int:
 		}
 		actors.append(actor)
 	print("[ROUTINES] %d residents with somewhere to be" % actors.size())
+	_validate_nav_when_settled()
 	return actors.size()
+
+
+## The graph is authored from plan data; the world is meshes and
+## furniture. Two physics frames after build, prove every edge against
+## the actual colliders and cut the liars.
+func _validate_nav_when_settled() -> void:
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	if nav and is_inside_tree():
+		nav.validate_with_collision(get_viewport().find_world_3d())
 
 
 func bind_elevator(lift: OrisonElevator) -> void:
@@ -279,7 +290,13 @@ func _play(actor: Dictionary, role: String) -> void:
 		anim.play(clip)
 
 
+## Debug inspection: the cast holds still while lined up in the lobby.
+var inspection_hold := false
+
+
 func _process(delta: float) -> void:
+	if inspection_hold:
+		return
 	for actor in actors:
 		_step(actor, delta)
 
@@ -302,14 +319,21 @@ func _step(actor: Dictionary, delta: float) -> void:
 			_play(actor, "idle")
 			if actor.timer <= 0.0:
 				# An evening at home is mostly pottering, sometimes the
-				# television, occasionally an errand out of the flat.
+				# television, occasionally an errand out of the flat. A
+				# locked front door keeps the evening indoors: the opening
+				# lockdown seals every unit but the player's, and a resident
+				# does not walk through their own locked door.
 				var unit := _unit_of(actor)
+				var locked_in: bool = actor.home_door != null \
+						and is_instance_valid(actor.home_door) \
+						and actor.home_door.leaf_state == "locked"
 				var roll := _rng.randf()
 				if roll < 0.30 and _couch.has(unit):
 					actor.stage = Stage.WATCHING
 					_set_route(actor, _couch[unit])
 					actor.timer = _rng.randf_range(24.0, 70.0)
-				elif roll < 0.55 and actor.haunt != Vector3.ZERO:
+				elif roll < 0.55 and actor.haunt != Vector3.ZERO \
+						and not locked_in:
 					_begin_trip(actor, false)
 				else:
 					actor.stage = Stage.PACING

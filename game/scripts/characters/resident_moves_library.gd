@@ -12,9 +12,10 @@ extends RefCounted
 ## keep working unchanged.
 
 const LIB_PATH := "res://assets/characters/shared/resident_moves.glb"
+const BIPED_LIB_PATH := "res://assets/characters/evelyn_marsh/evelyn_marsh.gltf"
 const PROFILE_PATH := "res://data/resident_animation_profiles.json"
 
-static var _cache: Array = []
+static var _caches: Dictionary = {}
 static var _profiles: Dictionary = {}
 
 
@@ -49,13 +50,27 @@ static func apply_body(figure: Node3D, slug: String) -> float:
 static func apply(model_root: Node) -> bool:
 	var player := _find_player(model_root)
 	var skeleton := _find_skeleton(model_root)
-	if player == null or skeleton == null:
+	if skeleton == null:
 		return false
-	# Only the generated family shares the skeleton; Evelyn's Meshy rig
-	# (Hips/LeftArm/...) would accept the tracks and animate nothing.
-	if skeleton.find_bone("hips") == -1:
+	if player == null:
+		# Animation-stripped models (the hero dump ships motion-free by
+		# contract) import without an AnimationPlayer; the graft brings
+		# its own.
+		player = AnimationPlayer.new()
+		player.name = "GraftedMoves"
+		model_root.add_child(player)
+	# Two skeleton families share the building: the generated 22-joint
+	# rigs (hips/spine/...) take the retargeted bake, and the Meshy biped
+	# family (Hips/Spine02/... — the hero dump AND the creatures, which
+	# turn out to carry the same 24 joints) borrows Evelyn's set directly.
+	var source := ""
+	if skeleton.find_bone("hips") != -1:
+		source = LIB_PATH
+	elif skeleton.find_bone("Hips") != -1:
+		source = BIPED_LIB_PATH
+	else:
 		return false
-	var moves := _animations()
+	var moves := _animations(source)
 	if moves.is_empty():
 		return false
 	var player_root: Node = player.get_node(player.root_node)
@@ -87,21 +102,23 @@ static func apply(model_root: Node) -> bool:
 	return grafted > 0
 
 
-static func _animations() -> Array:
-	if not _cache.is_empty():
-		return _cache
-	var scene := load(LIB_PATH) as PackedScene
+static func _animations(source: String) -> Array:
+	if _caches.has(source):
+		return _caches[source]
+	var collected: Array = []
+	var scene := load(source) as PackedScene
 	if scene == null:
-		push_warning("shared resident moves missing: " + LIB_PATH)
+		push_warning("shared move library missing: " + source)
 		return []
 	var root := scene.instantiate()
 	var player := _find_player(root)
 	if player:
 		for animation_name in player.get_animation_list():
-			_cache.append({"name": String(animation_name),
+			collected.append({"name": String(animation_name),
 					"animation": player.get_animation(animation_name)})
 	root.free()
-	return _cache
+	_caches[source] = collected
+	return collected
 
 
 static func _find_player(node: Node) -> AnimationPlayer:

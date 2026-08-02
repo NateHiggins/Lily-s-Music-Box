@@ -1,0 +1,20 @@
+{
+  "comment": "Prepped creature roster from the 2026-08-02 dump: models stripped of animations, clips broken out into per-creature move libraries. Both creatures ride the same 24-joint Meshy biped skeleton as the resident hero models, so ResidentMovesLibrary.apply() can also graft Evelyn's full 10-clip set onto either of them when a director wants more than the indexed clips. The lamia was requested but absent from the dump.",
+  "creatures": {
+    "harpy": {
+      "model": "res://assets/creatures/harpy/harpy.gltf",
+      "moves": "res://assets/creatures/harpy/harpy_moves.glb",
+      "clips": ["walk"],
+      "skeleton": "meshy_biped_24",
+      "notes": "Winged, taloned; wings skinned to the arm chain, so arm clips read as wing gestures."
+    },
+    "oni": {
+      "model": "res://assets/creatures/oni/oni.gltf",
+      "moves": "res://assets/creatures/oni/oni_moves.glb",
+      "clips": ["walk"],
+      "skeleton": "meshy_biped_24",
+      "notes": "Horned, red-skinned, athletic build."
+    }
+  },
+  "missing": ["lamia"]
+}

@@ -1,0 +1,32 @@
+{
+  "comment": "Mapping from the 2026-08-02 Meshy character dump to residents. Sources live gitignored in art/blender/meshy/<source>/; convert_dump_characters.py turns each into the committed hero model at assets/characters/<slug>/<slug>.gltf. Confidence notes record why each face got its name — remap and re-run the converter if any call is wrong.",
+  "residents": {
+    "teresa_vale": {"source": "Meshy_AI_Healthcare_Profession_biped", "why": "nurse scrubs + badge; her case is call bells"},
+    "mina_vale": {"source": "Meshy_AI_Futuristic_Field_Engi_biped", "why": "teal jacket, mustard shirt, glasses, lanyard - her authored palette exactly"},
+    "lena_ortiz": {"source": "Meshy_AI_Patchwork_Ranger_biped", "why": "patchwork garments; the seamstress whose case is unraveling"},
+    "juno_kells": {"source": "Meshy_AI_Nightshade_Vanguard_biped", "why": "black/white bob + purple; the sound artist's alt look"},
+    "malcolm_reed": {"source": "Meshy_AI_Earthbound_Explorer_biped", "why": "earth tones, older; memory plants"},
+    "omar_bell": {"source": "Meshy_AI_Rugged_Frontiersman_biped", "why": "work belt and mustache; the man who repairs the unrepairable"},
+    "rhea_sato": {"source": "Meshy_AI_Field_Agent_in_Grey_V_biped", "why": "stage-western shirt + braid; the karaoke voice"},
+    "peter_wren": {"source": "Meshy_AI_Gentleman_in_Suspende_biped", "why": "suspenders and glasses; the bureaucracy corridor's clerk"},
+    "cam_ortiz": {"source": "Meshy_AI_Maroon_Vanguard_biped", "why": "maroon jacket, Ortiz family look"},
+    "noel_price": {"source": "Meshy_AI_Rugged_Stranger_in_Da_biped", "why": "shawl cardigan + plaid; domestic museum keeper"},
+    "transient_guests": {"source": "Meshy_AI_Rugged_Denim_Wanderer_biped", "why": "the wanderer, permanently between checkouts"},
+    "nadia_quell": {"source": "Meshy_AI_Outland_Ranger_biped", "why": "work jacket with the key clip; building management carries keys"},
+    "cal_dwyer": {"source": "Meshy_AI_Neon_Wave_Operative_biped", "why": "the radio operative for the memory radio"},
+    "iris_bell": {"source": "Meshy_AI_Frontier_Warrior_biped", "why": "supply pouch and pigment-red maroons; the painter"},
+    "sacha_reed": {"source": "Meshy_AI_Field_Operator_biped", "why": "camera-ready technical black; the streamer"},
+    "jonah_price": {"source": "Meshy_AI_Old_Man_in_a_Mustard__biped", "why": "cozy mustard sweater and yellow socks; the writer who never starts"},
+    "mae_kessler": {"source": "Meshy_AI_Emerald_Sentinel_biped", "why": "prim spectacled appraiser; contradictory antiques"}
+  },
+  "creatures": {
+    "harpy": {"source": "Meshy_AI_Lifeguard_Harpy_biped", "why": "wings and talons; red lifeguard kit"},
+    "oni": {"source": "Meshy_AI_Horned_Hellrunner_biped", "why": "horns, red skin, athletic black"}
+  },
+  "spare": {
+    "urban_vanguard": {"source": "Meshy_AI_Urban_Vanguard_biped", "why": "18th human, unassigned - held in reserve (street NPC or recast candidate)"}
+  },
+  "missing": {
+    "lamia": "Requested but not present in the dump - every non-creature export is a standard biped; no serpent-bodied model found. Drop the zip in Downloads and re-run the pipeline."
+  }
+}

@@ -38,6 +38,9 @@ var floors := {}      # floor_id -> {astar: AStar3D, nodes: [...], z: float}
 var level_order: Array[String] = []
 var pruned_edges := 0
 var visibility_edges := 0
+var collision_cut := 0
+var collision_relinked := 0
+var stair_blocked := 0
 var _unreachable_warned := {}
 
 
@@ -376,6 +379,108 @@ func _add_safe_visibility_edges(entry: Dictionary) -> int:
 			astar.connect_points(a, b)
 			added += 1
 	return added
+
+
+## --- physics validation ---------------------------------------------------
+## The wall-data audit proves segments against the AUTHORED plan; this pass
+## proves the surviving graph against the world's actual colliders — merged
+## floor meshes, furniture with -col buffers, glazing, everything the plan
+## cannot see. It is the difference between "the drawing says this is open"
+## and "a body can actually walk here." Runs once, deferred until the
+## building has committed its shapes to the physics server.
+func validate_with_collision(world: World3D) -> void:
+	var space := world.direct_space_state
+	collision_cut = 0
+	collision_relinked = 0
+	for fid in floors:
+		var entry: Dictionary = floors[fid]
+		var astar: AStar3D = entry.astar
+		for id in astar.get_point_ids():
+			for other in astar.get_point_connections(id):
+				if other <= id:
+					continue
+				if _ray_blocked(space, astar.get_point_position(id),
+						astar.get_point_position(other)):
+					astar.disconnect_points(id, other)
+					collision_cut += 1
+		# A node that lost every edge would strand whoever stands nearest
+		# to it. Relink islands to their closest physically-clear neighbours.
+		for id in astar.get_point_ids():
+			if not astar.get_point_connections(id).is_empty():
+				continue
+			var pos := astar.get_point_position(id)
+			var scored: Array = []
+			for other in astar.get_point_ids():
+				if other == id:
+					continue
+				scored.append([pos.distance_squared_to(
+						astar.get_point_position(other)), other])
+			scored.sort_custom(func(a, b): return a[0] < b[0])
+			var linked := 0
+			for pair in scored:
+				if linked >= 2 or float(pair[0]) > 8.0 * 8.0:
+					break
+				if _ray_blocked(space, pos,
+						astar.get_point_position(int(pair[1]))):
+					continue
+				astar.connect_points(id, int(pair[1]))
+				linked += 1
+				collision_relinked += 1
+	stair_blocked = _validate_stairs(space)
+	print("[NAV] collision audit: %d edges cut by real geometry, %d island nodes relinked, %d stair legs obstructed"
+			% [collision_cut, collision_relinked, stair_blocked])
+
+
+## Rays at shin and chest height, walked through excusable hits (door
+## leaves are legal, residents are not obstacles). Anything else solid
+## between two nodes means the edge lies about the building.
+func _ray_blocked(space: PhysicsDirectSpaceState3D, a: Vector3,
+		b: Vector3) -> bool:
+	for h in [0.35, 1.15]:
+		var target := b + Vector3(0, h, 0)
+		var origin := a + Vector3(0, h, 0)
+		var guard := 0
+		while guard < 8:
+			guard += 1
+			var query := PhysicsRayQueryParameters3D.create(origin, target)
+			var hit := space.intersect_ray(query)
+			if hit.is_empty():
+				break
+			var owner: Node = hit.collider.get_parent() \
+					if hit.collider is Node else null
+			if hit.collider is DoorProp or owner is DoorProp \
+					or (owner != null and owner.get_parent() is DoorProp):
+				origin = hit.position \
+						+ (target - origin).normalized() * 0.06
+				continue
+			return true
+	return false
+
+
+## The authored stair flights, proven leg by leg. Blocked legs are loud:
+## a resident on a broken stair route is exactly the "not using the stairs
+## right" bug, and silence here is how it stays unfixed.
+func _validate_stairs(space: PhysicsDirectSpaceState3D) -> int:
+	var blocked := 0
+	for index in range(level_order.size() - 1):
+		var low_z := float(floors[level_order[index]].z)
+		var high_z := float(floors[level_order[index + 1]].z)
+		var section := _stair_section(low_z, high_z)
+		for leg in range(section.size() - 1):
+			var a := section[leg] + Vector3(0, 0.55, 0)
+			var b := section[leg + 1] + Vector3(0, 0.55, 0)
+			var hit := space.intersect_ray(
+					PhysicsRayQueryParameters3D.create(a, b))
+			if hit.is_empty():
+				continue
+			var owner: Node = hit.collider.get_parent() \
+					if hit.collider is Node else null
+			if hit.collider is DoorProp or owner is DoorProp:
+				continue
+			blocked += 1
+			push_warning("stair leg obstructed %s->%s at %s" % [
+					level_order[index], level_order[index + 1], hit.position])
+	return blocked
 
 
 ## Collision-independent line audit against the same authored walls that

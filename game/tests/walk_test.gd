@@ -372,6 +372,10 @@ func _run() -> void:
 		if c3 is DoorProp and c3.global_position.distance_to(
 				Vector3(-5.33, 3.2, 2.105)) < 0.9:
 			entry2a = c3
+	if entry2a and entry2a.leaf_state == "locked":
+		# The opening lockdown seals every unit but 4B; the architecture
+		# audit carries the maintenance master key.
+		entry2a.leaf_state = "closed"
 	if entry2a and not entry2a.open:
 		entry2a.interact(null)
 		await get_tree().create_timer(0.7).timeout

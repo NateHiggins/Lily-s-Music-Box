@@ -191,6 +191,37 @@ func _build_cast() -> void:
 					+ Vector3(-1.35, 0.0, 1.30)
 			root.player.velocity = Vector3.ZERO)
 	box.add_child(row)
+	# Inspection parade: every resident teleported into lobby ranks,
+	# routines held, so the whole cast can be judged in one sweep.
+	var parade := HBoxContainer.new()
+	_button(parade, "line up in lobby", func(): _lineup_cast(true))
+	_button(parade, "send them home", func(): _lineup_cast(false))
+	box.add_child(parade)
+
+
+func _lineup_cast(gather: bool) -> void:
+	var routines = root.resident_routines
+	if routines:
+		routines.inspection_hold = gather
+	var residents := get_tree().get_nodes_in_group("resident_placeholders")
+	residents.sort_custom(func(a, b):
+		return str(a.get("resident_id")) < str(b.get("resident_id")))
+	for i in residents.size():
+		var resident: Node3D = residents[i]
+		if gather:
+			if not resident.has_meta("pre_lineup_pos"):
+				resident.set_meta("pre_lineup_pos", resident.global_position)
+				resident.set_meta("pre_lineup_yaw", resident.rotation.y)
+			var col := i % 9
+			var line := i / 9
+			resident.global_position = GameBoot.b2g([
+					-4.4 + col * 1.1, -8.7 + line * 1.3, 0.0])
+			resident.rotation.y = PI  # face the entrance, and the inspector
+		elif resident.has_meta("pre_lineup_pos"):
+			resident.global_position = resident.get_meta("pre_lineup_pos")
+			resident.rotation.y = resident.get_meta("pre_lineup_yaw")
+			resident.remove_meta("pre_lineup_pos")
+			resident.remove_meta("pre_lineup_yaw")
 
 
 ## She stands in 1A now — the lobby test figure that used to carry these

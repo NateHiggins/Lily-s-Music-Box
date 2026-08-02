@@ -12,6 +12,91 @@ const PROFILE_PATH := "res://data/resident_story_details.json"
 
 var detail_count := 0
 var decal_count := 0
+var _lockdown_layout: Dictionary = {}
+var _unit_doors: Dictionary = {}
+
+const PLAYER_UNIT := "4B"
+
+
+## Every apartment door starts locked except the player's own; the front
+## door and commons stay free. Residents honor their own locks by staying
+## home (routines gate errands on a locked home door), and a case
+## activating unlocks its resident's unit so the work can happen.
+func _apply_opening_lockdown() -> void:
+	var locked := 0
+	for candidate in get_tree().get_nodes_in_group("apartment_doors"):
+		if not candidate is DoorProp:
+			continue
+		var door := candidate as DoorProp
+		var unit := _unit_of_door(door)
+		if unit == "":
+			continue
+		_unit_doors[unit] = door
+		if unit == PLAYER_UNIT:
+			continue
+		if door.leaf_state == "closed":
+			door.leaf_state = "locked"
+			locked += 1
+	print("[LOCKDOWN] %d apartment doors locked; %s and the front door stay open"
+			% [locked, PLAYER_UNIT])
+	RealityCases.case_changed.connect(_unlock_for_case)
+
+
+func _unlock_for_case(case_id: String, state: Dictionary) -> void:
+	if str(state.get("stage", "")) not in ["active", "reopened"]:
+		return
+	var unit := str(RealityCases.definitions.get(case_id, {}).get("unit", ""))
+	var door: DoorProp = _unit_doors.get(unit)
+	if door and door.leaf_state == "locked":
+		door.leaf_state = "closed"
+		print("[LOCKDOWN] %s unlocked for %s" % [unit, case_id])
+
+
+## The unit whose ENTRY this is. Probe half a metre either side of the
+## leaf in plan space (the same discovery the nav graph uses): a door is
+## an entry only when one side belongs to a unit and the other side is
+## common space — corridor, hall, or unclaimed circulation. A door with
+## unit rooms on both sides is interior and never locks; a resident's
+## bedroom door is theirs to use.
+func _unit_of_door(door: DoorProp) -> String:
+	var at := Vector2(door.global_position.x, -door.global_position.z)
+	var fid := ""
+	var best := INF
+	for fl in _lockdown_layout.get("floors", []):
+		var d := absf(float(fl.z) - door.global_position.y)
+		if d < best:
+			best = d
+			fid = str(fl.id)
+	for fl in _lockdown_layout.get("floors", []):
+		if str(fl.id) != fid:
+			continue
+		var units := {}
+		var common_side := false
+		for off in [Vector2(0.5, 0), Vector2(-0.5, 0),
+				Vector2(0, 0.5), Vector2(0, -0.5)]:
+			var probe: Vector2 = at + off
+			var best_area := INF
+			var unit := ""
+			var found := false
+			for room in fl.rooms:
+				var rect: Array = room.rect
+				if probe.x < float(rect[0]) or probe.x > float(rect[2]) \
+						or probe.y < float(rect[1]) or probe.y > float(rect[3]):
+					continue
+				found = true
+				var area := (float(rect[2]) - float(rect[0])) \
+						* (float(rect[3]) - float(rect[1]))
+				if area < best_area:
+					best_area = area
+					unit = str(room.get("unit", ""))
+			if not found or unit == "":
+				common_side = true
+			else:
+				units[unit] = true
+		if units.size() == 1 and common_side:
+			return units.keys()[0]
+		return ""
+	return ""
 
 
 func build(layout: Dictionary, floor_nodes: Dictionary) -> Dictionary:
@@ -78,6 +163,10 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		bank.position = GameBoot.b2g([5.24, -8.85, 0.0])
 		bank.rotation.y = PI * 0.5
 		floor_nodes["F01"].add_child(bank)
+	# Opening night: the building starts sealed. Deferred so every door
+	# has finished spawning before the locks turn.
+	_lockdown_layout = layout
+	call_deferred("_apply_opening_lockdown")
 
 
 func _build_resident_details(layout: Dictionary, floor_nodes: Dictionary,
