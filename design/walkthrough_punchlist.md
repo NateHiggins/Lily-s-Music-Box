@@ -32,6 +32,16 @@ quads with no texture assigned — `story_decal.gd` and the new
 `atmospheric_decal_pass.gd` are both mid-edit in the parallel session, so
 coordinate before fixing.
 
+## User-reported 2026-08-02 (lobby pass)
+
+| room | symptom | severity |
+|---|---|---|
+| lobby | old generated wood mailbank still on the south wall — superseded by the functional brass bank; remove asm + marker from gen_layout and regen | ugly |
+| F01 office | title-image plaque (maintenance_headquarters._build_plaque) — remove from world, retool the concept | ugly |
+| foyer | bench is decorative and on the wrong side of the entry door — move across, add sit affordance, move Teresa's haunt with it | ugly |
+| all floors | wall art misplacement family: pieces off-wall, floating, or crossing the mid-wall picture rail — full placement audit + a loud test | blocker |
+| stairway | half-landings share/lack art — each of the seven landings needs a unique piece | wish |
+
 ## Systemic (one fix, many floors)
 
 | room | symptom | severity |
