@@ -78,17 +78,25 @@ func build(layout: Dictionary, floor_nodes: Dictionary) -> int:
 		clips = JSON.parse_string(file.get_as_text()).get("clips", [])
 	_viewport = SubViewport.new()
 	_viewport.size = SIZE
+	# One coordinate system, explicitly. A logical 2D override on the
+	# canvas makes anchored children lay out against a DIFFERENT size than
+	# the render target, which is exactly how a video ends up occupying one
+	# quadrant while text overlays look fine. Zero disables the override.
+	_viewport.size_2d_override = Vector2i.ZERO
+	_viewport.size_2d_override_stretch = false
 	_viewport.disable_3d = true
 	_viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
 	add_child(_viewport)
 	_video = VideoStreamPlayer.new()
 	_video.expand = true
-	_video.set_anchors_preset(Control.PRESET_FULL_RECT)
-	_video.size = Vector2(SIZE)
+	# Anchors AND offsets in one call, and no manual size assignment
+	# afterwards — a pixel size imposed on a full-rect-anchored control
+	# leaves stale offsets that survive the next layout pass.
+	_video.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_video.finished.connect(_next_programme)
 	_viewport.add_child(_video)
 	_card = Control.new()
-	_card.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_card.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_card.visible = false
 	_viewport.add_child(_card)
 	_shared = ShaderMaterial.new()
