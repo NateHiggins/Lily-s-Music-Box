@@ -67,7 +67,13 @@ Remaining is the voice itself:
 - **17 more character meshes + animation sets** via the prompt sheets.
 - **Lightmap bake / GI fallback** — last named phase-5 remainder.
 - **Elevator interior as a room.**
-- **Mail as a system** (Mina's PROVISIONAL TESTIMONY under the door).
+- ~~**Mail as a system**~~ LANDED 2026-08-02: Mina's PROVISIONAL TESTIMONY
+  under the door, plus the functional lobby mail bank (MailBankProp, east
+  lobby wall) — box 4B opens, mail_catalog.json gates deliveries on
+  campaign state, packages grant upgrades into RealityState.data
+  (contact_mic ships after Mina's first repair — Case 02's field journey
+  should consume it). Remaining pull: more deliveries as cases land, and
+  the outgoing LETTERS slot as a player verb.
 - **Save/load of building state** beyond the reality campaign.
 - **Mid-range GPU + phone validation pass.**
 
