@@ -3136,7 +3136,8 @@
       -0.2835
      ]
     }
-   ]
+   ],
+   "sockets": []
   },
   {
    "id": "F01",
@@ -36770,6 +36771,268 @@
      "warm": true,
      "energy": 0.73
     }
+   ],
+   "sockets": [
+    {
+     "id": "1A_SHOWER_EDGE",
+     "unit": "1A",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      -5.14
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1A_TOILET_SIDE",
+     "unit": "1A",
+     "socket": "TOILET_SIDE",
+     "at": [
+      -5.92,
+      -4.57
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1A_SINK_EDGE",
+     "unit": "1A",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      -3.97
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1A_BEDSIDE",
+     "unit": "1A",
+     "socket": "BEDSIDE",
+     "at": [
+      -12.275,
+      -8.9
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1A_BEDSIDE_TOP",
+     "unit": "1A",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      -12.97,
+      -6.89
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1A_WARDROBE_TOP",
+     "unit": "1A",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      -11.4,
+      -6.74
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1A_COUNTER_DIRTY",
+     "unit": "1A",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      -9.06,
+      -0.77
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1A_TRASH_ZONE",
+     "unit": "1A",
+     "socket": "TRASH_ZONE",
+     "at": [
+      -7.46,
+      -0.92
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1A_FRIDGE_FACE",
+     "unit": "1A",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      -6.79,
+      -1.22
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1A_REST_PRIMARY",
+     "unit": "1A",
+     "socket": "REST_PRIMARY",
+     "at": [
+      -12.475,
+      -3.375
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1A_DINING_SURFACE",
+     "unit": "1A",
+     "socket": "DINING_SURFACE",
+     "at": [
+      -8.55,
+      -3.1
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1A_WORK_ARCHIVE",
+     "unit": "1A",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      -11.9,
+      -5.73
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_SHOWER_EDGE",
+     "unit": "1D",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      -6.24
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_TOILET_SIDE",
+     "unit": "1D",
+     "socket": "TOILET_SIDE",
+     "at": [
+      5.92,
+      -5.37
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_SINK_EDGE",
+     "unit": "1D",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      -4.57
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_BEDSIDE",
+     "unit": "1D",
+     "socket": "BEDSIDE",
+     "at": [
+      11.45,
+      -7.375
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_BEDSIDE_TOP",
+     "unit": "1D",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      13.46,
+      -6.68
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_WARDROBE_TOP",
+     "unit": "1D",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      9.8,
+      -9.16
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_WORK_PRIMARY",
+     "unit": "1D",
+     "socket": "WORK_PRIMARY",
+     "at": [
+      7.345,
+      -1.84
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_WORK_ARCHIVE",
+     "unit": "1D",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      6.13,
+      -1.52
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_COUNTER_DIRTY",
+     "unit": "1D",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      7.96,
+      -1.32
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_TRASH_ZONE",
+     "unit": "1D",
+     "socket": "TRASH_ZONE",
+     "at": [
+      9.56,
+      -1.47
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_FRIDGE_FACE",
+     "unit": "1D",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      10.23,
+      -1.77
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_REST_PRIMARY",
+     "unit": "1D",
+     "socket": "REST_PRIMARY",
+     "at": [
+      12.475,
+      -3.65
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_DINING_SURFACE",
+     "unit": "1D",
+     "socket": "DINING_SURFACE",
+     "at": [
+      11.51,
+      -2.35
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_WORK_ARCHIVE",
+     "unit": "1D",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      10.2,
+      -5.73
+     ],
+     "z": 0.0
+    }
    ]
   },
   {
@@ -44048,6 +44311,428 @@
      "h": 0.003,
      "mat": "linoleum"
     }
+   ],
+   "sockets": [
+    {
+     "id": "2A_SHOWER_EDGE",
+     "unit": "2A",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      -5.14
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_TOILET_SIDE",
+     "unit": "2A",
+     "socket": "TOILET_SIDE",
+     "at": [
+      -5.92,
+      -4.57
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_SINK_EDGE",
+     "unit": "2A",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      -3.97
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_BEDSIDE",
+     "unit": "2A",
+     "socket": "BEDSIDE",
+     "at": [
+      -12.275,
+      -8.9
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_BEDSIDE_TOP",
+     "unit": "2A",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      -12.97,
+      -6.89
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_WARDROBE_TOP",
+     "unit": "2A",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      -11.4,
+      -6.74
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_COUNTER_DIRTY",
+     "unit": "2A",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      -9.06,
+      -0.77
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_TRASH_ZONE",
+     "unit": "2A",
+     "socket": "TRASH_ZONE",
+     "at": [
+      -7.46,
+      -0.92
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_FRIDGE_FACE",
+     "unit": "2A",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      -6.79,
+      -1.22
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_REST_PRIMARY",
+     "unit": "2A",
+     "socket": "REST_PRIMARY",
+     "at": [
+      -12.475,
+      -3.375
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_DINING_SURFACE",
+     "unit": "2A",
+     "socket": "DINING_SURFACE",
+     "at": [
+      -8.55,
+      -3.1
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_WORK_PRIMARY",
+     "unit": "2A",
+     "socket": "WORK_PRIMARY",
+     "at": [
+      -12.4,
+      -5.425
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_WORK_ARCHIVE",
+     "unit": "2A",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      -12.775,
+      -5.7
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_WORK_ARCHIVE",
+     "unit": "2A",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      -11.625,
+      -5.7
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_WORK_ARCHIVE",
+     "unit": "2A",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      -10.475,
+      -5.7
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2B_SHOWER_EDGE",
+     "unit": "2B",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      4.02
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2B_TOILET_SIDE",
+     "unit": "2B",
+     "socket": "TOILET_SIDE",
+     "at": [
+      -5.92,
+      4.59
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2B_SINK_EDGE",
+     "unit": "2B",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      5.19
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2B_BEDSIDE",
+     "unit": "2B",
+     "socket": "BEDSIDE",
+     "at": [
+      -13.55,
+      8.225
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2B_BEDSIDE_TOP",
+     "unit": "2B",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      -11.59,
+      8.92
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2B_WARDROBE_TOP",
+     "unit": "2B",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      -11.39,
+      8.75
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2B_COUNTER_DIRTY",
+     "unit": "2B",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      -5.83,
+      8.3
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2B_TRASH_ZONE",
+     "unit": "2B",
+     "socket": "TRASH_ZONE",
+     "at": [
+      -5.98,
+      6.7
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2B_FRIDGE_FACE",
+     "unit": "2B",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      -6.28,
+      9.17
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2B_REST_PRIMARY",
+     "unit": "2B",
+     "socket": "REST_PRIMARY",
+     "at": [
+      -12.475,
+      4.56
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2B_DINING_SURFACE",
+     "unit": "2B",
+     "socket": "DINING_SURFACE",
+     "at": [
+      -8.25,
+      3.82
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2B_WORK_ARCHIVE",
+     "unit": "2B",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      -11.9,
+      3.19
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_SHOWER_EDGE",
+     "unit": "2C",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      3.74
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_TOILET_SIDE",
+     "unit": "2C",
+     "socket": "TOILET_SIDE",
+     "at": [
+      5.92,
+      4.61
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_SINK_EDGE",
+     "unit": "2C",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      5.41
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_BEDSIDE",
+     "unit": "2C",
+     "socket": "BEDSIDE",
+     "at": [
+      6.595,
+      8.525
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_BEDSIDE_TOP",
+     "unit": "2C",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      8.605,
+      9.22
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_WARDROBE_TOP",
+     "unit": "2C",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      8.545,
+      6.71
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_BEDSIDE",
+     "unit": "2C",
+     "socket": "BEDSIDE",
+     "at": [
+      10.665,
+      8.525
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_BEDSIDE_TOP",
+     "unit": "2C",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      12.675,
+      9.22
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_WARDROBE_TOP",
+     "unit": "2C",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      10.515,
+      6.71
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_COUNTER_DIRTY",
+     "unit": "2C",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      5.87,
+      0.975
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_TRASH_ZONE",
+     "unit": "2C",
+     "socket": "TRASH_ZONE",
+     "at": [
+      6.02,
+      2.575
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_FRIDGE_FACE",
+     "unit": "2C",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      6.32,
+      3.27
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_REST_PRIMARY",
+     "unit": "2C",
+     "socket": "REST_PRIMARY",
+     "at": [
+      12.475,
+      2.66
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_DINING_SURFACE",
+     "unit": "2C",
+     "socket": "DINING_SURFACE",
+     "at": [
+      8.51,
+      2.22
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_WORK_ARCHIVE",
+     "unit": "2C",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      10.2,
+      5.73
+     ],
+     "z": 3.2
+    }
    ]
   },
   {
@@ -51287,6 +51972,438 @@
      "h": 1.8,
      "mat": "plywood"
     }
+   ],
+   "sockets": [
+    {
+     "id": "3A_SHOWER_EDGE",
+     "unit": "3A",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      -5.14
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3A_TOILET_SIDE",
+     "unit": "3A",
+     "socket": "TOILET_SIDE",
+     "at": [
+      -5.92,
+      -4.57
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3A_SINK_EDGE",
+     "unit": "3A",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      -3.97
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3A_BEDSIDE",
+     "unit": "3A",
+     "socket": "BEDSIDE",
+     "at": [
+      -12.275,
+      -8.9
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3A_BEDSIDE_TOP",
+     "unit": "3A",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      -12.97,
+      -6.89
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3A_WARDROBE_TOP",
+     "unit": "3A",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      -11.4,
+      -6.74
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3A_COUNTER_DIRTY",
+     "unit": "3A",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      -9.06,
+      -0.77
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3A_TRASH_ZONE",
+     "unit": "3A",
+     "socket": "TRASH_ZONE",
+     "at": [
+      -7.46,
+      -0.92
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3A_FRIDGE_FACE",
+     "unit": "3A",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      -6.79,
+      -1.22
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3A_REST_PRIMARY",
+     "unit": "3A",
+     "socket": "REST_PRIMARY",
+     "at": [
+      -12.475,
+      -3.375
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3A_DINING_SURFACE",
+     "unit": "3A",
+     "socket": "DINING_SURFACE",
+     "at": [
+      -8.55,
+      -3.1
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3A_WORK_ARCHIVE",
+     "unit": "3A",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      -11.9,
+      -5.73
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_SHOWER_EDGE",
+     "unit": "3B",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      4.02
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_TOILET_SIDE",
+     "unit": "3B",
+     "socket": "TOILET_SIDE",
+     "at": [
+      -5.92,
+      4.59
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_SINK_EDGE",
+     "unit": "3B",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      5.19
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_BEDSIDE",
+     "unit": "3B",
+     "socket": "BEDSIDE",
+     "at": [
+      -13.55,
+      8.225
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_BEDSIDE_TOP",
+     "unit": "3B",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      -11.59,
+      8.92
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_WARDROBE_TOP",
+     "unit": "3B",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      -11.39,
+      8.75
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_COUNTER_DIRTY",
+     "unit": "3B",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      -5.83,
+      8.3
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_TRASH_ZONE",
+     "unit": "3B",
+     "socket": "TRASH_ZONE",
+     "at": [
+      -5.98,
+      6.7
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_FRIDGE_FACE",
+     "unit": "3B",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      -6.28,
+      9.17
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_REST_PRIMARY",
+     "unit": "3B",
+     "socket": "REST_PRIMARY",
+     "at": [
+      -12.475,
+      4.56
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_DINING_SURFACE",
+     "unit": "3B",
+     "socket": "DINING_SURFACE",
+     "at": [
+      -8.25,
+      3.82
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_WORK_ARCHIVE",
+     "unit": "3B",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      -11.9,
+      3.19
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_WORK_PRIMARY",
+     "unit": "3B",
+     "socket": "WORK_PRIMARY",
+     "at": [
+      -12.15,
+      6.04
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_WORK_ARCHIVE",
+     "unit": "3B",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      -10.3,
+      9.15
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_WORK_ARCHIVE",
+     "unit": "3B",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      -9.2,
+      9.15
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_SHOWER_EDGE",
+     "unit": "3D",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      -6.24
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_TOILET_SIDE",
+     "unit": "3D",
+     "socket": "TOILET_SIDE",
+     "at": [
+      5.92,
+      -5.37
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_SINK_EDGE",
+     "unit": "3D",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      -4.57
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_BEDSIDE",
+     "unit": "3D",
+     "socket": "BEDSIDE",
+     "at": [
+      11.45,
+      -7.375
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_BEDSIDE_TOP",
+     "unit": "3D",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      13.46,
+      -6.68
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_WARDROBE_TOP",
+     "unit": "3D",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      9.8,
+      -9.16
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_WORK_PRIMARY",
+     "unit": "3D",
+     "socket": "WORK_PRIMARY",
+     "at": [
+      7.345,
+      -1.84
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_WORK_ARCHIVE",
+     "unit": "3D",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      6.13,
+      -1.52
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_COUNTER_DIRTY",
+     "unit": "3D",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      7.96,
+      -1.32
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_TRASH_ZONE",
+     "unit": "3D",
+     "socket": "TRASH_ZONE",
+     "at": [
+      9.56,
+      -1.47
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_FRIDGE_FACE",
+     "unit": "3D",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      10.23,
+      -1.77
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_REST_PRIMARY",
+     "unit": "3D",
+     "socket": "REST_PRIMARY",
+     "at": [
+      12.475,
+      -3.65
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_DINING_SURFACE",
+     "unit": "3D",
+     "socket": "DINING_SURFACE",
+     "at": [
+      11.51,
+      -2.35
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_WORK_ARCHIVE",
+     "unit": "3D",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      10.2,
+      -5.73
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_WORK_ARCHIVE",
+     "unit": "3D",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      13.13,
+      -1.65
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_DINING_SURFACE",
+     "unit": "3D",
+     "socket": "DINING_SURFACE",
+     "at": [
+      11.38,
+      -5.325
+     ],
+     "z": 6.4
+    }
    ]
   },
   {
@@ -54873,7 +55990,7 @@
      "mat": "trim"
     },
     {
-     "id": "kitchen_countertop_w",
+     "id": "4B_kitchen_countertop_w",
      "rect": [
       -10.74,
       9.01,
@@ -54885,7 +56002,7 @@
      "mat": "countertop"
     },
     {
-     "id": "kitchen_countertop_e",
+     "id": "4B_kitchen_countertop_e",
      "rect": [
       -9.68,
       9.01,
@@ -54897,7 +56014,7 @@
      "mat": "countertop"
     },
     {
-     "id": "kitchen_countertop_s",
+     "id": "4B_kitchen_countertop_s",
      "rect": [
       -10.18,
       9.01,
@@ -54909,7 +56026,7 @@
      "mat": "countertop"
     },
     {
-     "id": "kitchen_countertop_n",
+     "id": "4B_kitchen_countertop_n",
      "rect": [
       -10.18,
       9.5,
@@ -59843,6 +60960,468 @@
      "z0": 0.0,
      "h": 0.95,
      "mat": "plaster_stained"
+    }
+   ],
+   "sockets": [
+    {
+     "id": "4A_SHOWER_EDGE",
+     "unit": "4A",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      -5.14
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4A_TOILET_SIDE",
+     "unit": "4A",
+     "socket": "TOILET_SIDE",
+     "at": [
+      -5.92,
+      -4.57
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4A_SINK_EDGE",
+     "unit": "4A",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      -3.97
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4A_BEDSIDE",
+     "unit": "4A",
+     "socket": "BEDSIDE",
+     "at": [
+      -12.275,
+      -8.9
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4A_BEDSIDE_TOP",
+     "unit": "4A",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      -12.97,
+      -6.89
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4A_WARDROBE_TOP",
+     "unit": "4A",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      -11.4,
+      -6.74
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4A_COUNTER_DIRTY",
+     "unit": "4A",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      -9.06,
+      -0.77
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4A_TRASH_ZONE",
+     "unit": "4A",
+     "socket": "TRASH_ZONE",
+     "at": [
+      -7.46,
+      -0.92
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4A_FRIDGE_FACE",
+     "unit": "4A",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      -6.79,
+      -1.22
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4A_REST_PRIMARY",
+     "unit": "4A",
+     "socket": "REST_PRIMARY",
+     "at": [
+      -12.475,
+      -3.375
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4A_DINING_SURFACE",
+     "unit": "4A",
+     "socket": "DINING_SURFACE",
+     "at": [
+      -8.55,
+      -3.1
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4A_WORK_ARCHIVE",
+     "unit": "4A",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      -11.9,
+      -5.73
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4B_SHOWER_EDGE",
+     "unit": "4B",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -7.76,
+      6.46
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4B_TOILET_SIDE",
+     "unit": "4B",
+     "socket": "TOILET_SIDE",
+     "at": [
+      -6.89,
+      6.51
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4B_SINK_EDGE",
+     "unit": "4B",
+     "socket": "SINK_EDGE",
+     "at": [
+      -6.09,
+      6.62
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4B_REST_PRIMARY",
+     "unit": "4B",
+     "socket": "REST_PRIMARY",
+     "at": [
+      -12.05,
+      3.625
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4B_WORK_ARCHIVE",
+     "unit": "4B",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      -13.25,
+      5.35
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_SHOWER_EDGE",
+     "unit": "4C",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      3.74
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_TOILET_SIDE",
+     "unit": "4C",
+     "socket": "TOILET_SIDE",
+     "at": [
+      5.92,
+      4.61
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_SINK_EDGE",
+     "unit": "4C",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      5.41
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_BEDSIDE",
+     "unit": "4C",
+     "socket": "BEDSIDE",
+     "at": [
+      6.595,
+      8.525
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_BEDSIDE_TOP",
+     "unit": "4C",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      8.605,
+      9.22
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_WARDROBE_TOP",
+     "unit": "4C",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      8.545,
+      6.71
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_BEDSIDE",
+     "unit": "4C",
+     "socket": "BEDSIDE",
+     "at": [
+      10.665,
+      8.525
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_BEDSIDE_TOP",
+     "unit": "4C",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      12.675,
+      9.22
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_WARDROBE_TOP",
+     "unit": "4C",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      10.515,
+      6.71
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_COUNTER_DIRTY",
+     "unit": "4C",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      5.87,
+      0.975
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_TRASH_ZONE",
+     "unit": "4C",
+     "socket": "TRASH_ZONE",
+     "at": [
+      6.02,
+      2.575
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_FRIDGE_FACE",
+     "unit": "4C",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      6.32,
+      3.27
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_REST_PRIMARY",
+     "unit": "4C",
+     "socket": "REST_PRIMARY",
+     "at": [
+      12.475,
+      2.66
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_DINING_SURFACE",
+     "unit": "4C",
+     "socket": "DINING_SURFACE",
+     "at": [
+      8.51,
+      2.22
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_WORK_ARCHIVE",
+     "unit": "4C",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      10.2,
+      5.73
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_SHOWER_EDGE",
+     "unit": "4D",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      -6.24
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_TOILET_SIDE",
+     "unit": "4D",
+     "socket": "TOILET_SIDE",
+     "at": [
+      5.92,
+      -5.37
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_SINK_EDGE",
+     "unit": "4D",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      -4.57
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_BEDSIDE",
+     "unit": "4D",
+     "socket": "BEDSIDE",
+     "at": [
+      11.45,
+      -7.375
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_BEDSIDE_TOP",
+     "unit": "4D",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      13.46,
+      -6.68
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_WARDROBE_TOP",
+     "unit": "4D",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      9.8,
+      -9.16
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_WORK_PRIMARY",
+     "unit": "4D",
+     "socket": "WORK_PRIMARY",
+     "at": [
+      7.345,
+      -1.84
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_WORK_ARCHIVE",
+     "unit": "4D",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      6.13,
+      -1.52
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_COUNTER_DIRTY",
+     "unit": "4D",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      7.96,
+      -1.32
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_TRASH_ZONE",
+     "unit": "4D",
+     "socket": "TRASH_ZONE",
+     "at": [
+      9.56,
+      -1.47
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_FRIDGE_FACE",
+     "unit": "4D",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      10.23,
+      -1.77
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_REST_PRIMARY",
+     "unit": "4D",
+     "socket": "REST_PRIMARY",
+     "at": [
+      12.475,
+      -3.65
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_DINING_SURFACE",
+     "unit": "4D",
+     "socket": "DINING_SURFACE",
+     "at": [
+      11.51,
+      -2.35
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_WORK_ARCHIVE",
+     "unit": "4D",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      10.2,
+      -5.73
+     ],
+     "z": 9.6
     }
    ]
   },
@@ -67169,6 +68748,408 @@
      "z0": 2.95,
      "h": 0.06,
      "mat": "char"
+    }
+   ],
+   "sockets": [
+    {
+     "id": "5A_SHOWER_EDGE",
+     "unit": "5A",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      -5.14
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5A_TOILET_SIDE",
+     "unit": "5A",
+     "socket": "TOILET_SIDE",
+     "at": [
+      -5.92,
+      -4.57
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5A_SINK_EDGE",
+     "unit": "5A",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      -3.97
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5A_BEDSIDE",
+     "unit": "5A",
+     "socket": "BEDSIDE",
+     "at": [
+      -12.275,
+      -8.9
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5A_BEDSIDE_TOP",
+     "unit": "5A",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      -12.97,
+      -6.89
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5A_WARDROBE_TOP",
+     "unit": "5A",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      -11.4,
+      -6.74
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5A_COUNTER_DIRTY",
+     "unit": "5A",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      -9.06,
+      -0.77
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5A_TRASH_ZONE",
+     "unit": "5A",
+     "socket": "TRASH_ZONE",
+     "at": [
+      -7.46,
+      -0.92
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5A_FRIDGE_FACE",
+     "unit": "5A",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      -6.79,
+      -1.22
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5A_REST_PRIMARY",
+     "unit": "5A",
+     "socket": "REST_PRIMARY",
+     "at": [
+      -12.475,
+      -3.375
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5A_DINING_SURFACE",
+     "unit": "5A",
+     "socket": "DINING_SURFACE",
+     "at": [
+      -8.55,
+      -3.1
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5A_WORK_ARCHIVE",
+     "unit": "5A",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      -12.45,
+      -5.7
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5A_DINING_SURFACE",
+     "unit": "5A",
+     "socket": "DINING_SURFACE",
+     "at": [
+      -12.05,
+      -1.3
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5B_SHOWER_EDGE",
+     "unit": "5B",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      4.02
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5B_TOILET_SIDE",
+     "unit": "5B",
+     "socket": "TOILET_SIDE",
+     "at": [
+      -5.92,
+      4.59
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5B_SINK_EDGE",
+     "unit": "5B",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      5.19
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5B_BEDSIDE",
+     "unit": "5B",
+     "socket": "BEDSIDE",
+     "at": [
+      -13.55,
+      8.225
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5B_BEDSIDE_TOP",
+     "unit": "5B",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      -11.59,
+      8.92
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5B_WARDROBE_TOP",
+     "unit": "5B",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      -11.39,
+      8.75
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5B_COUNTER_DIRTY",
+     "unit": "5B",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      -5.83,
+      8.3
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5B_TRASH_ZONE",
+     "unit": "5B",
+     "socket": "TRASH_ZONE",
+     "at": [
+      -5.98,
+      6.7
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5B_FRIDGE_FACE",
+     "unit": "5B",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      -6.28,
+      9.17
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5B_REST_PRIMARY",
+     "unit": "5B",
+     "socket": "REST_PRIMARY",
+     "at": [
+      -12.475,
+      4.56
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5B_DINING_SURFACE",
+     "unit": "5B",
+     "socket": "DINING_SURFACE",
+     "at": [
+      -8.25,
+      3.82
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5B_WORK_ARCHIVE",
+     "unit": "5B",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      -11.9,
+      3.19
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_SHOWER_EDGE",
+     "unit": "5C",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      3.74
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_TOILET_SIDE",
+     "unit": "5C",
+     "socket": "TOILET_SIDE",
+     "at": [
+      5.92,
+      4.61
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_SINK_EDGE",
+     "unit": "5C",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      5.41
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_BEDSIDE",
+     "unit": "5C",
+     "socket": "BEDSIDE",
+     "at": [
+      6.595,
+      8.525
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_BEDSIDE_TOP",
+     "unit": "5C",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      8.605,
+      9.22
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_WARDROBE_TOP",
+     "unit": "5C",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      8.545,
+      6.71
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_BEDSIDE",
+     "unit": "5C",
+     "socket": "BEDSIDE",
+     "at": [
+      10.665,
+      8.525
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_BEDSIDE_TOP",
+     "unit": "5C",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      12.675,
+      9.22
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_WARDROBE_TOP",
+     "unit": "5C",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      10.515,
+      6.71
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_COUNTER_DIRTY",
+     "unit": "5C",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      5.87,
+      0.975
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_TRASH_ZONE",
+     "unit": "5C",
+     "socket": "TRASH_ZONE",
+     "at": [
+      6.02,
+      2.575
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_FRIDGE_FACE",
+     "unit": "5C",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      6.32,
+      3.27
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_REST_PRIMARY",
+     "unit": "5C",
+     "socket": "REST_PRIMARY",
+     "at": [
+      12.475,
+      2.66
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_DINING_SURFACE",
+     "unit": "5C",
+     "socket": "DINING_SURFACE",
+     "at": [
+      8.51,
+      2.22
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_WORK_ARCHIVE",
+     "unit": "5C",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      10.2,
+      5.73
+     ],
+     "z": 12.8
     }
    ]
   },
@@ -74733,6 +76714,388 @@
      "h": 0.003,
      "mat": "linoleum"
     }
+   ],
+   "sockets": [
+    {
+     "id": "6A_SHOWER_EDGE",
+     "unit": "6A",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      -5.14
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6A_TOILET_SIDE",
+     "unit": "6A",
+     "socket": "TOILET_SIDE",
+     "at": [
+      -5.92,
+      -4.57
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6A_SINK_EDGE",
+     "unit": "6A",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      -3.97
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6A_BEDSIDE",
+     "unit": "6A",
+     "socket": "BEDSIDE",
+     "at": [
+      -12.275,
+      -8.9
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6A_BEDSIDE_TOP",
+     "unit": "6A",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      -12.97,
+      -6.89
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6A_WARDROBE_TOP",
+     "unit": "6A",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      -11.4,
+      -6.74
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6A_COUNTER_DIRTY",
+     "unit": "6A",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      -9.06,
+      -0.77
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6A_TRASH_ZONE",
+     "unit": "6A",
+     "socket": "TRASH_ZONE",
+     "at": [
+      -7.46,
+      -0.92
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6A_FRIDGE_FACE",
+     "unit": "6A",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      -6.79,
+      -1.22
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6A_DINING_SURFACE",
+     "unit": "6A",
+     "socket": "DINING_SURFACE",
+     "at": [
+      -8.55,
+      -3.1
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6A_WORK_ARCHIVE",
+     "unit": "6A",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      -11.9,
+      -5.73
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6B_SHOWER_EDGE",
+     "unit": "6B",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      4.02
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6B_TOILET_SIDE",
+     "unit": "6B",
+     "socket": "TOILET_SIDE",
+     "at": [
+      -5.92,
+      4.59
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6B_SINK_EDGE",
+     "unit": "6B",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      5.19
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6B_BEDSIDE",
+     "unit": "6B",
+     "socket": "BEDSIDE",
+     "at": [
+      -13.55,
+      8.225
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6B_BEDSIDE_TOP",
+     "unit": "6B",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      -11.59,
+      8.92
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6B_WARDROBE_TOP",
+     "unit": "6B",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      -11.39,
+      8.75
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6B_COUNTER_DIRTY",
+     "unit": "6B",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      -5.83,
+      8.3
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6B_TRASH_ZONE",
+     "unit": "6B",
+     "socket": "TRASH_ZONE",
+     "at": [
+      -5.98,
+      6.7
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6B_FRIDGE_FACE",
+     "unit": "6B",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      -6.28,
+      9.17
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6B_REST_PRIMARY",
+     "unit": "6B",
+     "socket": "REST_PRIMARY",
+     "at": [
+      -12.475,
+      4.56
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6B_DINING_SURFACE",
+     "unit": "6B",
+     "socket": "DINING_SURFACE",
+     "at": [
+      -8.25,
+      3.82
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6B_WORK_ARCHIVE",
+     "unit": "6B",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      -11.9,
+      3.19
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_SHOWER_EDGE",
+     "unit": "6C",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      3.74
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_TOILET_SIDE",
+     "unit": "6C",
+     "socket": "TOILET_SIDE",
+     "at": [
+      5.92,
+      4.61
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_SINK_EDGE",
+     "unit": "6C",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      5.41
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_BEDSIDE",
+     "unit": "6C",
+     "socket": "BEDSIDE",
+     "at": [
+      6.595,
+      8.525
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_BEDSIDE_TOP",
+     "unit": "6C",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      8.605,
+      9.22
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_WARDROBE_TOP",
+     "unit": "6C",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      8.545,
+      6.71
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_BEDSIDE",
+     "unit": "6C",
+     "socket": "BEDSIDE",
+     "at": [
+      10.665,
+      8.525
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_BEDSIDE_TOP",
+     "unit": "6C",
+     "socket": "BEDSIDE_TOP",
+     "at": [
+      12.675,
+      9.22
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_WARDROBE_TOP",
+     "unit": "6C",
+     "socket": "WARDROBE_TOP",
+     "at": [
+      10.515,
+      6.71
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_COUNTER_DIRTY",
+     "unit": "6C",
+     "socket": "COUNTER_DIRTY",
+     "at": [
+      5.87,
+      0.975
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_TRASH_ZONE",
+     "unit": "6C",
+     "socket": "TRASH_ZONE",
+     "at": [
+      6.02,
+      2.575
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_FRIDGE_FACE",
+     "unit": "6C",
+     "socket": "FRIDGE_FACE",
+     "at": [
+      6.32,
+      3.27
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_REST_PRIMARY",
+     "unit": "6C",
+     "socket": "REST_PRIMARY",
+     "at": [
+      12.475,
+      2.66
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_DINING_SURFACE",
+     "unit": "6C",
+     "socket": "DINING_SURFACE",
+     "at": [
+      8.51,
+      2.22
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_WORK_ARCHIVE",
+     "unit": "6C",
+     "socket": "WORK_ARCHIVE",
+     "at": [
+      10.2,
+      5.73
+     ],
+     "z": 16.0
+    }
    ]
   },
   {
@@ -77641,7 +80004,8 @@
      "h": 4.0,
      "mat": "metal"
     }
-   ]
+   ],
+   "sockets": []
   }
  ],
  "stairs": [

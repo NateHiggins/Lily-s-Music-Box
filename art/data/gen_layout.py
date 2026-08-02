@@ -1128,7 +1128,10 @@ def apartment_4b(z, walls, rooms, markers, furniture):
             ("e", [sb[2], 9.01, -8.81, 9.59]),
             ("s", [sb[0], 9.01, sb[2], sb[1]]),
             ("n", [sb[0], sb[3], sb[2], 9.59])):
-        furniture.append({"id": "kitchen_countertop_" + seg, "rect": rect,
+        # 4B-prefixed on purpose: the life audit checks the player flat by
+        # semantic id, and an anonymous counter is invisible to it.
+        furniture.append({"id": "4B_kitchen_countertop_" + seg,
+                          "rect": rect,
                           "z0": 0.86, "h": 0.045, "mat": "countertop"})
     _asm(furniture, "4B_ksink", "sink_basin",
          (sb[0] + sb[2]) / 2.0, (sb[1] + sb[3]) / 2.0, 180, z0=0.905,
@@ -2624,6 +2627,124 @@ def signage_pass(fl):
               ey + 0.65, 0.03, 0.24, 1.45, 0.14, "art")
 
 
+## ---------------------------------------------------------------- lived-in
+## Step 2 of the lived-in pass (design/lived_in_pass.md): semantic sockets
+## and life audits, no visual change. Sockets are named anchor points
+## derived from the furniture the generator already placed — dressing kits
+## land on sockets, never on hand-typed coordinates, so they survive layout
+## changes and can be clearance-audited. The audit walks every occupied
+## unit against its life profile: a home must let its resident sleep, wash,
+## eat, store clothes and leave.
+
+def _load_life_profiles():
+    path = os.path.join(OUT_DIR, "apartment_life_profiles.json")
+    with open(path) as handle:
+        return {p["unit"]: p for p in json.load(handle)["profiles"]}
+
+
+## asm kind -> socket name(s) hung off it, with a local offset in the
+## assembly's own frame (dressing sits ON or BESIDE the anchor furniture).
+SOCKET_RULES = {
+    "bed": [("BEDSIDE", 0.95, 0.0)],
+    "nightstand": [("BEDSIDE_TOP", 0.0, 0.0)],
+    "table_round": [("DINING_SURFACE", 0.0, 0.0)],
+    "table_rect": [("DINING_SURFACE", 0.0, 0.0)],
+    "desk": [("WORK_PRIMARY", 0.0, 0.0)],
+    "workbench": [("WORK_PRIMARY", 0.0, 0.0)],
+    "kitchen": [("COUNTER_DIRTY", 0.7, 0.0), ("TRASH_ZONE", -0.9, 0.15)],
+    "fridge50": [("FRIDGE_FACE", 0.0, 0.45)],
+    "sink_ped": [("SINK_EDGE", 0.3, 0.0)],
+    "shower": [("SHOWER_EDGE", 0.55, 0.0)],
+    "toilet": [("TOILET_SIDE", 0.4, 0.0)],
+    "wardrobe": [("WARDROBE_TOP", 0.0, 0.0)],
+    "sofa": [("REST_PRIMARY", 0.0, 0.4)],
+    "shelf": [("WORK_ARCHIVE", 0.0, 0.25)],
+}
+
+
+def life_pass(floors):
+    """Emit fl["sockets"] and audit every occupied unit's life functions."""
+    profiles = _load_life_profiles()
+    problems = []
+    total = 0
+    for fl in floors:
+        fl["sockets"] = []
+        by_unit = {}
+        for fu in fl.get("furniture", []):
+            fid = str(fu.get("id", ""))
+            unit = fid.split("_")[0]
+            if unit in profiles:
+                by_unit.setdefault(unit, []).append(fu)
+        for unit, pieces in by_unit.items():
+            for fu in pieces:
+                asm = fu.get("asm")
+                if asm not in SOCKET_RULES or "at" not in fu:
+                    continue
+                yaw = math.radians(float(fu.get("yaw", 0)))
+                for name, dx, dy in SOCKET_RULES[asm]:
+                    # local offset rotated into the assembly's facing
+                    ox = dx * math.cos(yaw) - dy * math.sin(yaw)
+                    oy = dx * math.sin(yaw) + dy * math.cos(yaw)
+                    fl["sockets"].append({
+                        "id": "%s_%s" % (unit, name), "unit": unit,
+                        "socket": name,
+                        "at": [round(fu["at"][0] + ox, 3),
+                               round(fu["at"][1] + oy, 3)],
+                        "z": fl["z"]})
+                    total += 1
+        # --- the audit: structural life functions per occupied unit
+        for unit, prof in profiles.items():
+            if unit not in by_unit:
+                continue
+            pieces = by_unit[unit]
+            kinds = {}
+            for fu in pieces:
+                kinds[fu.get("asm", "")] = kinds.get(fu.get("asm", ""), 0) + 1
+            sleepers = 2 if len(prof.get("resident_ids", [])) > 1 else 1
+            beds = kinds.get("bed", 0)
+            conversions = prof.get("room_conversions", {})
+            pending = [k for k in conversions if k.startswith("bedroom")]
+            if beds < sleepers and unit != "4B":   # 4B sleeps on its
+                problems.append("%s: %d bed(s) for %d sleeper(s)"   # mattress
+                                % (unit, beds, sleepers))
+            if beds > sleepers and not pending:
+                problems.append("%s: %d beds, one sleeper, no declared "
+                                "conversion" % (unit, beds))
+            elif beds > sleepers and pending:
+                # The three spare-bedroom contradictions (2C/5C/6C) are
+                # DECLARED in the profiles and resolve in step 3; a warn
+                # keeps them visible without blocking every build until
+                # then.
+                print("life audit: %s spare bed pending conversion to %s"
+                      % (unit, list(conversions.values())[0]))
+            need = {"wardrobe": "clothing storage", "toilet": "toilet",
+                    "shower": "washing", "stove": "cooking",
+                    "fridge50": "cold storage", "kitchen": "kitchen run"}
+            # 4B is box-built rather than assembled, which is exactly why
+            # the brief demands SEMANTIC checks for it: its mattress,
+            # counter run and desk are raw geometry with meaningful ids,
+            # and losing one must fail the build like losing any bed.
+            ids = " ".join(str(fu.get("id", "")) for fu in pieces)
+            if unit == "4B":
+                for token, label in (("mattress", "mattress"),
+                                     ("kitchen_countertop", "kitchen run"),
+                                     ("desk", "desk")):
+                    if token not in ids:
+                        problems.append("4B: bespoke %s missing" % label)
+                if beds == 0 and "mattress" in ids:
+                    pass          # the mattress IS the bed
+                continue
+            for asm, label in need.items():
+                if kinds.get(asm, 0) == 0:
+                    problems.append("%s: no %s" % (unit, label))
+            if kinds.get("table_round", 0) + kinds.get("table_rect", 0) \
+                    + kinds.get("desk", 0) == 0:
+                problems.append("%s: nowhere to eat or work" % unit)
+    print("life pass: %d sockets across %d profiled units"
+          % (total, len(profiles)))
+    return problems
+
+
 ## Doors the Case Network leaves behind. They are authored here like every
 ## other coordinate in the building — including the ones that are not
 ## supposed to exist — but they spawn hidden and only appear when their case
@@ -2896,6 +3017,7 @@ def validate(layout):
     problems += _validate_furnishing(layout)
     problems += _validate_movement(layout)
     problems += _validate_placement(layout)
+    problems += life_pass(layout["floors"])
     return problems
 
 

@@ -91,6 +91,7 @@ var mina_gameplay: MinaCaseGameplay
 var portal_rule_display: PortalRuleDisplay
 var environment_detail_pass: OrisonDetailPass
 var exterior_detail_pass: ExteriorDetailPass
+var cinematic_exterior: CinematicExterior
 var found_art_pass: FoundArtPass
 var maintenance_headquarters: MaintenanceHeadquarters
 var objective_tracker: ObjectiveTracker
@@ -158,6 +159,9 @@ func _ready() -> void:
 	add_child(exterior_detail_pass)
 	exterior_detail_pass.build(layout, floor_nodes["F01"])
 	exterior_detail_pass.configure_street_lights(self)
+	cinematic_exterior = CinematicExterior.new()
+	add_child(cinematic_exterior)
+	cinematic_exterior.build(layout)
 	_spawn_npc_placeholders()
 	# Eighteen people with somewhere to be, and a mesh instead of a sprite
 	# for whoever has one yet.
