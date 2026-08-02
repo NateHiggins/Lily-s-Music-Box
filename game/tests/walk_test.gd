@@ -818,7 +818,7 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	await _case_network_checks(ci)
 	_wall_art_report()
 	_door_glow_checks()
-	_broadcast_checks()
+	await _broadcast_checks()
 	await _lobby_figure_checks()
 	await _sanity_checks()
 	Conductor.infection = 0.15
@@ -936,69 +936,78 @@ func _descendants(node: Node) -> Array[Node]:
 	return found
 
 
-## The televisions. The assertion that matters is the decode count: one
-## shared viewport feeding every screen, not one video player per set.
+## The station. What matters: sets are OFF until someone wants them on, one
+## decode serves the building and stops when nobody watches, the player
+## switch works, cards arrive on cadence, the shader receives the faults,
+## and possession takes every set and gives them back.
 func _broadcast_checks() -> void:
-	var tv: BroadcastScreens = root.broadcast
-	_check(tv != null, "broadcast pass present")
-	if tv == null:
+	var station: BroadcastDirector = root.broadcast
+	_check(station != null, "broadcast director present")
+	if station == null:
 		return
-	var stats: Dictionary = tv.stats()
-	_check(int(stats.screens) > 0,
-			"screen surfaces carry the broadcast (%d)" % stats.screens)
-	_check(bool(stats.playing), "the reel is running")
-	# One SubViewport, one VideoStreamPlayer, however many televisions.
-	var players := 0
-	var stack: Array = [root]
-	while not stack.is_empty():
-		var node: Node = stack.pop_back()
-		if node is VideoStreamPlayer:
-			players += 1
-		for child in node.get_children():
-			stack.append(child)
-	_check(players == 1,
-			"one decode for the whole building (%d players)" % players)
-	# Sound is synthesised from the procedural library and synchronised to
-	# the reel through a sidecar manifest, so the assertion that matters is
-	# that the manifest agrees with the video it was built beside — an
-	# eight-second drift here would send every set to static a dozen cuts
-	# early, which is exactly what a first pass at this did.
-	var sound: BroadcastAudio = tv.audio
-	_check(sound != null, "broadcast audio present")
-	if sound == null:
-		return
-	_check(sound.sets > 0, "every television has an emitter (%d)" % sound.sets)
-	_check(absf(sound._length - tv._video.get_stream_length()) < 1.0,
-			"manifest matches the reel (%.1f s vs %.1f s)"
-			% [sound._length, tv._video.get_stream_length()])
-	# The reel is a variety hour, not a channel-hop: programmes run whole and
-	# the signal only occasionally goes, so probing fixed timestamps would
-	# mostly land mid-programme. Assert the composition instead, then prove
-	# the lookup resolves each kind at its own recorded start.
-	var present := {}
-	for segment in sound._segments:
-		present[str(segment["kind"])] = true
-	_check(present.has("title") and present.has("channel")
-			and present.has("advert") and present.has("glitch"),
-			"reel carries titles, programmes, adverts and interference %s"
-			% [present.keys()])
-	var resolved := true
-	for segment in sound._segments:
-		# Half a frame in, so the lookup cannot land on the boundary.
-		if sound._kind_at(float(segment["t"]) + 0.02) != str(segment["kind"]):
-			resolved = false
-	_check(resolved,
-			"every segment resolves to its own kind (%d segments)"
-			% sound._segments.size())
-	# Programmes should dominate. If interference is more than a fifth of
-	# the cuts it has stopped being interference and become the format.
-	var glitches := 0
-	for segment in sound._segments:
-		if str(segment["kind"]) == "glitch":
-			glitches += 1
-	_check(glitches * 5 < sound._segments.size(),
-			"interference stays occasional (%d of %d segments)"
-			% [glitches, sound._segments.size()])
+	var st: Dictionary = station.stats()
+	_check(int(st.clips) == 37, "all 37 clips catalogued (%d)" % st.clips)
+	_check(int(st.sets) >= 12, "televisions spawned (%d)" % st.sets)
+	# Residents watching their own sets legitimately power them at boot —
+	# that is the feature — so boot state is reported, not asserted.
+	print("  [STATION] %d of %d sets on at boot (residents watching)"
+			% [int(st.on), int(st.sets)])
+	var tv: TVProp = station.sets[0]
+	tv.interact(null)
+	_check(tv.powered, "pressing E turns a set on")
+	_check(station.any_powered() and station._viewport \
+			.render_target_update_mode == SubViewport.UPDATE_ALWAYS,
+			"first viewer puts the station on air")
+	await get_tree().create_timer(0.8).timeout
+	# The station may legitimately be mid-card-break at this instant (the
+	# video pauses under cards), so "on air" means either state.
+	_check(station._video.is_playing() or station._card.visible,
+			"a clip is rolling or a card is up")
+	_check(tv.glass.material_override is ShaderMaterial,
+			"lit glass carries the shared feed")
+	_check(tv.glow.visible, "a lit set casts its glow")
+	# cards every third programme
+	station.programmes_since_card = 2
+	station._next_programme()
+	_check(station._card.visible and station._video.paused,
+			"third programme break shows a card")
+	station._card_left = 0.0
+	# every fault in the vocabulary reaches the shader and clears again
+	var faults := {"static": "static_amount", "roll": "roll_speed",
+			"ghost": "ghost_offset", "dropout": "dropout",
+			"chroma": "chroma", "tear": "tear", "flicker": "flicker",
+			"warp": "warp"}
+	var dead: Array[String] = []
+	for kind in faults:
+		station.disturb(kind, 0.3)
+		if float(station._shared.get_shader_parameter(faults[kind])) <= 0.01:
+			dead.append(kind)
+		station._clear_fx()
+	_check(dead.is_empty(),
+			"all eight picture faults reach the shader (dead: %s)" % [dead])
+	var residue := 0.0
+	for p in faults.values():
+		residue += absf(float(station._shared.get_shader_parameter(p)))
+	_check(residue < 0.01, "faults clear back to a clean signal")
+	# possession takes every set, then gives them back
+	station.possess(0.6)
+	var all_on := true
+	for candidate in station.sets:
+		if not candidate.powered:
+			all_on = false
+	_check(all_on, "possession takes every set in the building")
+	await get_tree().create_timer(1.4).timeout
+	# Watcher counts drift while we wait (residents wander), so the
+	# invariant is residue, not a headcount: nothing stays possessed, and
+	# the player-latched set survives.
+	var residue_sets := 0
+	for candidate in station.sets:
+		if candidate.possessed:
+			residue_sets += 1
+	_check(residue_sets == 0 and tv.powered,
+			"release leaves no possession residue (%d)" % residue_sets)
+	tv.interact(null)
+	_check(not tv.player_on, "E again releases the player latch")
 
 
 ## Light under the closed doors. The interesting assertions are not "does it

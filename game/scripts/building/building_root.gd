@@ -80,7 +80,7 @@ var occluders: OrisonOccluders
 var window_glow: OrisonWindowGlow
 var door_glow: OrisonDoorGlow
 var lobby_figure: LobbyPlaceholder
-var broadcast: BroadcastScreens
+var broadcast: BroadcastDirector
 var resident_routines: ResidentRoutines
 var touch: TouchControls
 var weather: WeatherFX
@@ -138,7 +138,8 @@ func _ready() -> void:
 	add_child(door_glow)
 	door_glow.build(layout, window_glow)
 	# One video decode feeding every television in the building.
-	broadcast = BroadcastScreens.new()
+	# The station: per-clip shuffle, live cards, per-set power, one decode.
+	broadcast = BroadcastDirector.new()
 	broadcast.name = "Broadcast"
 	add_child(broadcast)
 	broadcast.build(layout, floor_nodes)

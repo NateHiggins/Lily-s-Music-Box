@@ -807,7 +807,9 @@ def asm_tv(F, p):
     # `screen` material, which takes unit UVs (UV_MODE_BY_MAT), so the quad
     # carries exactly one picture.
     F.box("bakelite", -0.275, -0.022, 0.275, 0.275, 0.014, 1.235)
-    F.box("screen", -0.25, 0.014, 0.30, 0.25, 0.038, 1.20)
+    # No glass here any more: the screen is a runtime prop (tv_prop.gd)
+    # with its own state, shader and glow — a merged mesh cannot be turned
+    # off per set. The cabinet keeps the socket the prop sits in.
     F.hull(-0.29, -0.19, 0.0, 0.29, 0.19, 1.25)
 
 

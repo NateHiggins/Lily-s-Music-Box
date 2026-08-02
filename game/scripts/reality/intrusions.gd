@@ -518,10 +518,10 @@ func _word_loss(count: int) -> bool:
 func _tv_infect(seconds: float) -> bool:
 	if world == null:
 		return false
-	var tv = world.get("broadcast")
-	if tv == null or tv.audio == null:
+	var station = world.get("broadcast")
+	if station == null or not station.has_method("possess"):
 		return false
-	tv.audio.set_infected(true, maxf(4.0, seconds))
+	station.possess(maxf(4.0, seconds))
 	return true
 
 
