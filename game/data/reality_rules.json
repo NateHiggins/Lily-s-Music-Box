@@ -1,22 +1,74 @@
 {
  "mina_caption_crisis": {
-  "rule_types": ["labels", "duplication"],
-  "prop_verbs": ["label", "wrong_color"],
-  "transmission": "electrical",
-  "resolved_residue": "One refrigerator caption remains factual."
+  "rule_types": ["labels", "duplication"], "prop_verbs": ["label", "wrong_color"],
+  "transmission": "screens_to_lights", "resolved_residue": "One refrigerator caption remains factual."
+ },
+ "juno_feedback_tetris": {
+  "rule_types": ["acoustic", "solid_sound"], "prop_verbs": ["duplicate", "pulse"],
+  "transmission": "open_audio_channels", "resolved_residue": "One cable remains deliberately unplugged."
+ },
+ "omar_unrepairable": {
+  "rule_types": ["fault", "substitution"], "prop_verbs": ["wrong_color", "duplicate"],
+  "transmission": "repairable_machines", "resolved_residue": "One appliance keeps its UNREPAIRABLE tag."
+ },
+ "rhea_bad_karaoke": {
+  "rule_types": ["acoustic", "pressure"], "prop_verbs": ["pulse", "point"],
+  "transmission": "flue_return_wave", "resolved_residue": "The microphone records room tone without judgment."
+ },
+ "nadia_code_pinball": {
+  "rule_types": ["topology", "egress"], "prop_verbs": ["point", "wrong_color"],
+  "transmission": "exit_route", "resolved_residue": "The true violation remains outlined in yellow."
+ },
+ "sacha_camera_delay": {
+  "rule_types": ["recording", "delay"], "prop_verbs": ["duplicate", "lag"],
+  "transmission": "recorded_floor_delay", "resolved_residue": "One photograph develops at the speed of the present."
+ },
+ "evelyn_paper_jam": {
+  "rule_types": ["labels", "judgment"], "prop_verbs": ["label", "point"],
+  "transmission": "a_stack_ascending", "resolved_residue": "One paper is marked GOOD ENOUGH."
+ },
+ "teresa_call_bells": {
+  "rule_types": ["alarm", "priority"], "prop_verbs": ["pulse", "orbit"],
+  "transmission": "nearest_alarm_triage", "resolved_residue": "The disconnected bell can finally be left unanswered."
+ },
+ "lena_unraveling": {
+  "rule_types": ["structure", "continuity"], "prop_verbs": ["orbit", "stretch"],
+  "transmission": "continuous_structural_seam", "resolved_residue": "A conspicuous repair seam remains visible."
+ },
+ "malcolm_memory_plants": {
+  "rule_types": ["growth", "memory"], "prop_verbs": ["duplicate", "grow"],
+  "transmission": "water_to_heat_graft", "resolved_residue": "A compost jar holds the final cutting."
  },
  "peter_form_corridor": {
-  "rule_types": ["topology", "duplication"],
-  "prop_verbs": ["duplicate", "orbit"],
-  "transmission": "doors",
-  "loop_depth": 2,
-  "resolved_residue": "One form remains stamped GOOD ENOUGH."
+  "rule_types": ["topology", "duplication"], "prop_verbs": ["duplicate", "orbit"],
+  "transmission": "doorway_duplication", "loop_depth": 2, "resolved_residue": "One form remains stamped GOOD ENOUGH."
  },
  "cam_tilted_room": {
-  "rule_types": ["gravity"],
-  "prop_verbs": ["orbit", "point"],
-  "transmission": "structure",
-  "gravity_direction": [0.72, -0.69, 0.0],
-  "resolved_residue": "The helmet hangs slightly off-level."
+  "rule_types": ["gravity", "structure"], "prop_verbs": ["orbit", "point"],
+  "transmission": "structural_incline", "gravity_direction": [0.72, -0.69, 0.0], "resolved_residue": "The helmet hangs slightly off-level."
+ },
+ "noel_domestic_museum": {
+  "rule_types": ["preservation", "classification"], "prop_verbs": ["label", "freeze"],
+  "transmission": "matching_object_accession", "resolved_residue": "One chipped cup remains in daily use."
+ },
+ "transient_infinite_checkout": {
+  "rule_types": ["topology", "recurrence"], "prop_verbs": ["duplicate", "drift"],
+  "transmission": "checkout_round_trip", "resolved_residue": "A luggage tag records one chosen destination."
+ },
+ "cal_memory_radio": {
+  "rule_types": ["broadcast", "memory"], "prop_verbs": ["pulse", "lag"],
+  "transmission": "frequency_hopping_receivers", "resolved_residue": "The radio receives only the present weather."
+ },
+ "iris_runaway_paint": {
+  "rule_types": ["audience", "appearance"], "prop_verbs": ["wrong_color", "point"],
+  "transmission": "clockwise_light_spiral", "resolved_residue": "One private bad painting stays facing the wall."
+ },
+ "jonah_sentence_insects": {
+  "rule_types": ["language", "absence"], "prop_verbs": ["orbit", "stutter"],
+  "transmission": "three_nodes_then_gap", "resolved_residue": "A badly written ending remains under the baseboard."
+ },
+ "mae_contradictory_antiques": {
+  "rule_types": ["history", "contradiction"], "prop_verbs": ["duplicate", "wrong_color"],
+  "transmission": "opposite_apartment_counterwave", "resolved_residue": "Two incompatible provenance cards remain together."
  }
 }

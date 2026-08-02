@@ -13,40 +13,8 @@ extends RefCounted
 
 const LIB_PATH := "res://assets/characters/shared/resident_moves.glb"
 const BIPED_LIB_PATH := "res://assets/characters/evelyn_marsh/evelyn_marsh.gltf"
-const PROFILE_PATH := "res://data/resident_animation_profiles.json"
 
 static var _caches: Dictionary = {}
-static var _profiles: Dictionary = {}
-
-
-## The cast's canon proportions live in resident_animation_profiles.json
-## (body.height/width/head, authored per resident) but the generated rigs
-## all ship at the same 1.80 m. Realize the canon with scale transforms:
-## (w, h, w) on the whole figure, the head factor as a bone pose scale —
-## which survives animation because grafted clips carry no scale tracks.
-## Returns the height factor so callers can move nameplates and the like.
-static func apply_body(figure: Node3D, slug: String) -> float:
-	if _profiles.is_empty():
-		var parsed = JSON.parse_string(
-				FileAccess.get_file_as_string(PROFILE_PATH))
-		for profile in (parsed if parsed is Array else []):
-			_profiles[str(profile.slug)] = profile
-	var body: Dictionary = _profiles.get(slug, {}).get("body", {})
-	if body.is_empty():
-		return 1.0
-	var h := float(body.get("height", 1.0))
-	var w := float(body.get("width", 1.0))
-	figure.scale = Vector3(w, h, w)
-	var skeleton := _find_skeleton(figure)
-	if skeleton:
-		var head := skeleton.find_bone("head")
-		if head != -1:
-			var head_factor := float(body.get("head", 1.0))
-			skeleton.set_bone_pose_scale(head,
-					Vector3(head_factor, head_factor, head_factor))
-	return h
-
-
 static func apply(model_root: Node) -> bool:
 	var player := _find_player(model_root)
 	var skeleton := _find_skeleton(model_root)

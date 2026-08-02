@@ -8,6 +8,15 @@
   ],
   "roughness": 0.8
  },
+ "wallpaper_old": {
+  "base_color": [
+   0.56,
+   0.52,
+   0.37,
+   1.0
+  ],
+  "roughness": 0.9
+ },
  "brick": {
   "base_color": [
    0.42,
@@ -25,6 +34,24 @@
    1.0
   ],
   "roughness": 0.75
+ },
+ "sidewalk_haunted": {
+  "base_color": [
+   0.31,
+   0.3,
+   0.28,
+   1.0
+  ],
+  "roughness": 0.82
+ },
+ "sidewalk_grout": {
+  "base_color": [
+   0.075,
+   0.065,
+   0.055,
+   1.0
+  ],
+  "roughness": 0.93
  },
  "trim": {
   "base_color": [
@@ -578,5 +605,14 @@
    1.0
   ],
   "roughness": 0.65
+ },
+ "safety_orange": {
+  "base_color": [
+   0.88,
+   0.22,
+   0.035,
+   1.0
+  ],
+  "roughness": 0.62
  }
 }

@@ -93,11 +93,14 @@ var atmospheric_decal_pass: AtmosphericDecalPass
 var exterior_detail_pass: ExteriorDetailPass
 var cinematic_exterior: CinematicExterior
 var found_art_pass: FoundArtPass
+var wayfinding_signage: WayfindingSignagePass
 var maintenance_headquarters: MaintenanceHeadquarters
 var objective_tracker: ObjectiveTracker
+var first_shift_director: FirstShiftDirector
 var map_distortion_lab: MapDistortionLab
 var safety_net: SafetyNet
 var sanity: SanityDirector
+var building_personality: BuildingPersonalityDirector
 var intrusions: Intrusions
 var fourth_wall: FourthWallLayer
 var ambient_soundscape: AmbientSoundscape
@@ -184,6 +187,9 @@ func _ready() -> void:
 	add_child(moon_fill)
 	moon_fill.build(layout, player)
 	_spawn_reality_controllers()
+	wayfinding_signage = WayfindingSignagePass.new()
+	add_child(wayfinding_signage)
+	wayfinding_signage.build(self)
 	_spawn_reality_affected_props()
 	domestic_witnesses = DomesticWitnessSystem.new()
 	domestic_witnesses.name = "DomesticWitnessSystem"
@@ -197,6 +203,7 @@ func _ready() -> void:
 	add_child(found_art_pass)
 	found_art_pass.build(layout, floor_nodes)
 	_build_front_entry_details()
+	_build_original_orison_ad_board()
 	maintenance_headquarters = MaintenanceHeadquarters.new()
 	floor_nodes["F01"].add_child(maintenance_headquarters)
 	objective_tracker = ObjectiveTracker.new()
@@ -221,6 +228,14 @@ func _ready() -> void:
 	add_child(map_distortion_lab)
 	light_rig = LightRig.new()
 	add_child(light_rig)
+	if GameBoot.launch_mode == GameBoot.LaunchMode.CINEMATIC \
+			and int(GameBoot.settings.get("quality", 0)) == 0:
+		# Maximum GL Compatibility profile. Sixteen is the renderer's actual
+		# per-object ceiling, so requesting more would only reshuffle winners.
+		light_rig.set_budgets(16, 16)
+	else:
+		# Known-safe development profile retained from the live debug controls.
+		light_rig.set_budgets(14, 8)
 	elevator = OrisonElevator.new()
 	add_child(elevator)
 	elevator.setup(layout["elevator"])
@@ -237,6 +252,10 @@ func _ready() -> void:
 	virus_director = VirusSoundDirector.new()
 	add_child(virus_director)
 	virus_director.setup(self)
+	first_shift_director = FirstShiftDirector.new()
+	first_shift_director.name = "FirstShiftDirector"
+	first_shift_director.setup(self, objective_tracker, virus_director)
+	add_child(first_shift_director)
 	var room0 := Room0.new()
 	add_child(room0)
 	var anomaly: DoorAnomalyProp = get_node_or_null("F04_B_DOOR_ANOMALY")
@@ -266,6 +285,11 @@ func _ready() -> void:
 	sanity.name = "SanityDirector"
 	add_child(sanity)
 	sanity.setup(self, player, intrusions, fourth_wall)
+	building_personality = BuildingPersonalityDirector.new()
+	building_personality.name = "BuildingPersonalityDirector"
+	add_child(building_personality)
+	building_personality.setup(self, player, intrusions)
+	sanity.bind_personality(building_personality)
 	domestic_witnesses.bind_director(sanity, player)
 	ambient_soundscape.bind_sanity(sanity)
 	weather = WeatherFX.new()
@@ -278,12 +302,13 @@ func _ready() -> void:
 	add_child(touch)
 	touch.look_delta.connect(player.apply_look)
 	player.touch_input = touch.enabled
-	var debug := preload("res://scripts/ui/building_debug.gd").new()
-	debug.setup(self)
-	var layer := CanvasLayer.new()
-	layer.layer = 10
-	add_child(layer)
-	layer.add_child(debug)
+	if GameBoot.launch_mode == GameBoot.LaunchMode.DEBUG:
+		var debug := preload("res://scripts/ui/building_debug.gd").new()
+		debug.setup(self)
+		var layer := CanvasLayer.new()
+		layer.layer = 10
+		add_child(layer)
+		layer.add_child(debug)
 	print("[BUILDING] Orison assembled: %d floors, %d occluders, "
 			% [floor_nodes.size(), n_occ] +
 			"%d windows lit, %d railing details, player in lobby"
@@ -309,16 +334,17 @@ func _build_environment() -> void:
 	# fixtures doing the modelling. Ambient is enough to retain silhouettes,
 	# not enough to erase pools or contact shadows.
 	env.ambient_light_color = Color(0.135, 0.165, 0.225)
-	env.ambient_light_energy = 0.046
+	env.ambient_light_energy = 0.020
 	env.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	env.fog_enabled = true
 	env.fog_light_color = Color(0.05, 0.06, 0.10)
-	env.fog_density = 0.010
+	env.fog_density = 0.014
 	env.glow_enabled = true
 	env.glow_intensity = 0.42
 	env.glow_bloom = 0.045
 	env.glow_hdr_threshold = 1.28
 	var we := WorldEnvironment.new()
+	we.name = "WorldEnvironment"
 	we.environment = env
 	add_child(we)
 	_build_sky_dome(panorama)
@@ -326,7 +352,7 @@ func _build_environment() -> void:
 	var moon := DirectionalLight3D.new()
 	moon.name = "ExteriorMoon"
 	moon.light_color = Color(0.65, 0.7, 0.9)
-	moon.light_energy = 0.055
+	moon.light_energy = 0.052
 	moon.rotation_degrees = Vector3(-38, 30, 0)
 	moon.shadow_enabled = true
 	moon.shadow_bias = 0.035
@@ -511,7 +537,8 @@ func _spawn_props() -> void:
 				desk.global_position = GameBoot.b2g(m["pos"])
 				continue
 			if m["kind"] == "door":
-				var door := DoorProp.new()
+				var door: DoorProp = LandmarkEntryDoor.new() \
+						if str(m["id"]) == "F01_DOOR_06" else DoorProp.new()
 				door.width = float(m["w"])
 				door.height = float(m["h"])
 				door.leaf_state = m["leaf"]
@@ -808,6 +835,15 @@ func _build_front_entry_details() -> void:
 	entry_sign.position = GameBoot.b2g([0.72, -9.905, 1.58])
 	add_child(entry_sign)
 	print("[BUILDING] front-door exterior light and signage placed")
+
+
+func _build_original_orison_ad_board() -> void:
+	# Covers the generator's flat lobby_notice_art placeholder on the east
+	# wall. Facing west, it owns the view immediately after the front door.
+	var board := LobbyOrisonAdBoard.new()
+	board.position = GameBoot.b2g([5.17, -8.40, 1.52])
+	board.rotation.y = -PI * 0.5
+	floor_nodes["F01"].add_child(board)
 
 
 func _spawn_character_art_catalog(path: String, error_label: String,

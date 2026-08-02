@@ -65,6 +65,17 @@ const LEVELS := {
 
 var active_floor := "F01"
 var _accum := 0.0
+## Global grading is deliberately separate from authored light reach. Cutting
+## energy must not make shadows vanish sooner: omni_range and the moon's
+## directional_shadow_max_distance are never derived from this value.
+var fixture_gain := 0.50
+var ambient_energy := 0.020
+var moon_energy := 0.052
+var glow_intensity := 0.42
+var fog_density := 0.014
+var shadow_opacity := 1.0
+var _environment: Environment
+var _moon: DirectionalLight3D
 ## Resolved once: OS.has_feature is a string lookup, not something to do
 ## per fixture per tick. Writable so the budget can be tuned on the device
 ## it has to run on, with the frame counter visible next to it.
@@ -75,7 +86,73 @@ var _accum := 0.0
 
 
 func _ready() -> void:
+	_bind_environment()
 	call_deferred("_report_authored_lights")
+
+
+func _bind_environment() -> void:
+	var world := get_parent().get_node_or_null("WorldEnvironment") \
+			as WorldEnvironment
+	_moon = get_parent().get_node_or_null("ExteriorMoon") \
+			as DirectionalLight3D
+	if world:
+		_environment = world.environment
+	apply_tuning()
+
+
+func set_tuning(parameter: String, value: float) -> void:
+	match parameter:
+		"fixture_gain": fixture_gain = clampf(value, 0.0, 1.5)
+		"ambient_energy": ambient_energy = clampf(value, 0.0, 0.20)
+		"moon_energy": moon_energy = clampf(value, 0.0, 0.30)
+		"glow_intensity": glow_intensity = clampf(value, 0.0, 1.5)
+		"fog_density": fog_density = clampf(value, 0.0, 0.08)
+		"shadow_opacity": shadow_opacity = clampf(value, 0.0, 1.0)
+	apply_tuning()
+
+
+func apply_tuning() -> void:
+	if _environment:
+		_environment.ambient_light_energy = ambient_energy
+		_environment.glow_intensity = glow_intensity
+		_environment.fog_density = fog_density
+	if _moon:
+		_moon.light_energy = moon_energy
+		# Intentionally fixed: lowering energy cannot shorten visible shadows.
+		_moon.directional_shadow_max_distance = 48.0
+		_moon.shadow_opacity = shadow_opacity
+	for fixture in _controlled_lights():
+		var source: Light3D = fixture.light if "light" in fixture else null
+		if source:
+			source.shadow_opacity = shadow_opacity
+
+
+func tuning_snapshot() -> Dictionary:
+	return {
+		"fixture_gain": fixture_gain,
+		"ambient_energy": ambient_energy,
+		"moon_energy": moon_energy,
+		"glow_intensity": glow_intensity,
+		"fog_density": fog_density,
+		"shadow_opacity": shadow_opacity,
+		"light_budget": _active_budget,
+		"shadow_budget": _shadow_budget,
+		"directional_shadow_max_distance": 48.0,
+		"note": "Fixture brightness is independent of authored light/shadow range."
+	}
+
+
+func export_tuning() -> String:
+	var text := JSON.stringify(tuning_snapshot(), "\t") + "\n"
+	var path := "user://orison_lighting_settings.json"
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	if file:
+		file.store_string(text)
+		file.close()
+	DisplayServer.clipboard_set(text)
+	var absolute := ProjectSettings.globalize_path(path)
+	print("[LIGHTING] exported tuning: " + absolute)
+	return absolute
 
 
 func _report_authored_lights() -> void:
@@ -106,9 +183,13 @@ func _process(delta: float) -> void:
 	var cam := get_viewport().get_camera_3d()
 	if cam == null:
 		return
-	# Cameras are normally 1.62 m above their occupied slab. Comparing raw
-	# eye height against 3.2 m-spaced levels would flip floors at eye level.
-	active_floor = _floor_at_height(cam.global_position.y - 1.62)
+	# Use the controller's feet, not an assumed adult eye height. This remains
+	# correct for the five-foot player, crouching and camera-bob cinematics.
+	var players := get_tree().get_nodes_in_group("player_controller")
+	var occupied_height := cam.global_position.y - PlayerController.STANDING_EYE
+	if not players.is_empty():
+		occupied_height = (players[0] as Node3D).global_position.y
+	active_floor = _floor_at_height(occupied_height)
 	var eye := cam.global_position
 	# gate by storey, then rank the survivors so the per-object cap is spent
 	# on what the camera is actually standing among
@@ -135,8 +216,11 @@ func _process(delta: float) -> void:
 	eligible.sort_custom(func(a, b): return a[0] < b[0])
 	for i in range(eligible.size()):
 		var on := i < _active_budget
-		eligible[i][1].set_budget(1.0 if on else 0.0, false,
+		eligible[i][1].set_budget(fixture_gain if on else 0.0, false,
 				i < _shadow_budget)
+		var source: Light3D = eligible[i][1].light
+		if source:
+			source.shadow_opacity = shadow_opacity
 	for fixture in off:
 		fixture.set_budget(0.0, false, false)
 

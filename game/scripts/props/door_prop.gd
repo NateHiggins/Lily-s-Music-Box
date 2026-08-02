@@ -17,6 +17,13 @@ var _click: AudioStreamPlayer3D
 var _squeak: AudioStreamPlayer3D
 var _moving := false
 
+const PAINT_ALBEDO := preload("res://assets/building/textures/T_library_architectural_painted_trim_albedo.png")
+const PAINT_NORMAL := preload("res://assets/building/textures/T_library_architectural_painted_trim_normal.png")
+const PAINT_ROUGH := preload("res://assets/building/textures/T_library_architectural_painted_trim_rough.png")
+const METAL_ALBEDO := preload("res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png")
+const METAL_NORMAL := preload("res://assets/building/textures/T_library_appliances_galvanized_metal_normal.png")
+const METAL_ROUGH := preload("res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_rough.png")
+
 
 func _ready() -> void:
 	if width > 0.85 and height > 1.8:
@@ -38,8 +45,25 @@ func _ready() -> void:
 	var leaf_col := Color(0.42, 0.34, 0.26) if width > 0.85 \
 			else Color(0.80, 0.78, 0.72)
 	var mat := StandardMaterial3D.new()
-	mat.albedo_color = leaf_col
-	mat.roughness = 0.5
+	var service_finish := leaf_state == "locked"
+	if service_finish:
+		mat.albedo_texture = METAL_ALBEDO
+		mat.normal_enabled = true
+		mat.normal_texture = METAL_NORMAL
+		mat.roughness_texture = METAL_ROUGH
+		mat.albedo_color = Color(0.42, 0.44, 0.43) if height >= 1.2 \
+				else Color(0.56, 0.55, 0.50)
+		mat.metallic = 0.58
+		mat.roughness = 0.62
+	else:
+		mat.albedo_texture = PAINT_ALBEDO
+		mat.normal_enabled = true
+		mat.normal_texture = PAINT_NORMAL
+		mat.roughness_texture = PAINT_ROUGH
+		var finish_variation := float(absi(str(name).hash()) % 17) / 100.0
+		mat.albedo_color = leaf_col.darkened(finish_variation)
+		mat.roughness = 0.56
+	mat.uv1_scale = Vector3(1.1, 2.4, 1.0)
 	mi.material_override = mat
 	_body.add_child(mi)
 	# Wide leaves are apartment/service entries. Give them the accumulated
@@ -87,11 +111,36 @@ func _ready() -> void:
 		saddle.position = Vector3(width / 2.0, 0.009, 0.0)
 		saddle.material_override = kick_mat
 		add_child(saddle)
+		# Surface-mounted closer: ubiquitous later retrofit on apartment and
+		# service doors. It is visual rather than forcibly timed so residents
+		# and the player can still hold a door during navigation.
+		var closer := MeshInstance3D.new()
+		var cb := BoxMesh.new()
+		cb.size = Vector3(0.22, 0.055, 0.07)
+		closer.mesh = cb
+		closer.position = Vector3(width - 0.18, height - 0.12, -0.05)
+		closer.material_override = kick_mat
+		_body.add_child(closer)
+		var arm := MeshInstance3D.new()
+		var ab := BoxMesh.new()
+		ab.size = Vector3(0.34, 0.018, 0.018)
+		arm.mesh = ab
+		arm.position = Vector3(width - 0.34, height - 0.075, -0.06)
+		arm.rotation.z = -0.16
+		arm.material_override = kick_mat
+		_body.add_child(arm)
 	# stile-and-rail identity; cabinet leaves get a single field scaled
 	# to their own height instead of full-door panel positions
 	var pmat := StandardMaterial3D.new()
-	pmat.albedo_color = leaf_col.darkened(0.16)
-	pmat.roughness = 0.55
+	pmat.albedo_color = (Color(0.30, 0.31, 0.30) if service_finish \
+			else leaf_col.darkened(0.20))
+	pmat.albedo_texture = METAL_ALBEDO if service_finish else PAINT_ALBEDO
+	pmat.normal_enabled = true
+	pmat.normal_texture = METAL_NORMAL if service_finish else PAINT_NORMAL
+	pmat.roughness_texture = METAL_ROUGH if service_finish else PAINT_ROUGH
+	pmat.metallic = 0.52 if service_finish else 0.0
+	pmat.roughness = 0.62
+	pmat.uv1_scale = Vector3(1.25, 2.1, 1.0)
 	var fields := [[0.16, 0.88], [1.04, height - 0.18]] 			if height >= 1.2 else [[0.07, height - 0.07]]
 	for side in [-1.0, 1.0]:
 		for pz in fields:

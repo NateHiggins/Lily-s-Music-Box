@@ -5,7 +5,7 @@ extends Node
 
 signal state_changed
 
-const SAVE_VERSION := 2
+const SAVE_VERSION := 3
 const SAVE_PATH := "user://reality_maintenance_save.json"
 
 var data: Dictionary = {}
@@ -28,6 +28,7 @@ func _fresh_data() -> Dictionary:
 		"discovered_documents": [],
 		"music_library": [],
 		"heard_music_anecdotes": [],
+		"building_personality": {},
 	}
 
 
@@ -81,8 +82,16 @@ func load_game() -> void:
 			data.music_library = []
 		if not data.has("heard_music_anecdotes"):
 			data.heard_music_anecdotes = []
+		if not data.has("building_personality"):
+			data.building_personality = {}
 		if int(data.get("version", 0)) < SAVE_VERSION:
 			_migrate()
+
+
+func start_new_campaign() -> void:
+	data = _fresh_data()
+	save_game()
+	state_changed.emit()
 
 
 func _migrate() -> void:

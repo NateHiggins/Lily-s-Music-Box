@@ -1,8 +1,14 @@
 class_name PlayerController
 extends CharacterBody3D
-## First-person controller matched to the brief's metrics: 1.75 m standing,
-## 1.62 m eye height, 0.38 m capsule radius, 1.05 m crouch, 0.28 m steps
-## (handled by stair ramp colliders + floor snap). V toggles debug noclip.
+## Five-foot first-person controller. The building remains true-scale: a
+## 1.41 m eye line beneath standard doors, peepholes, counters and residents
+## is the scale cue. V toggles debug noclip.
+
+const STANDING_HEIGHT := 1.524  # exactly 5'0"
+const STANDING_EYE := 1.41
+const BODY_RADIUS := 0.33
+const CROUCH_HEIGHT := 0.96
+const CROUCH_EYE := 0.84
 
 const WALK := 3.0
 const RUN := 4.6
@@ -32,14 +38,14 @@ var _capsule: CapsuleShape3D
 func _ready() -> void:
 	add_to_group("player_controller")
 	_capsule = CapsuleShape3D.new()
-	_capsule.radius = 0.38
-	_capsule.height = 1.75
+	_capsule.radius = BODY_RADIUS
+	_capsule.height = STANDING_HEIGHT
 	_shape = CollisionShape3D.new()
 	_shape.shape = _capsule
-	_shape.position = Vector3(0, 0.875, 0)
+	_shape.position = Vector3(0, STANDING_HEIGHT * 0.5, 0)
 	add_child(_shape)
 	camera = Camera3D.new()
-	camera.position = Vector3(0, 1.62, 0)
+	camera.position = Vector3(0, STANDING_EYE, 0)
 	camera.fov = 72.0
 	add_child(camera)
 	flashlight = SpotLight3D.new()
@@ -146,9 +152,9 @@ func apply_look(rel: Vector2) -> void:
 
 func _set_crouched(on: bool) -> void:
 	crouched = on
-	_capsule.height = 1.05 if on else 1.75
+	_capsule.height = CROUCH_HEIGHT if on else STANDING_HEIGHT
 	_shape.position.y = _capsule.height / 2.0
-	camera.position.y = 0.92 if on else 1.62
+	camera.position.y = CROUCH_EYE if on else STANDING_EYE
 
 
 func _physics_process(delta: float) -> void:

@@ -1,0 +1,12 @@
+{
+  "id": "exterior/haunted_sidewalk",
+  "kind": "surface",
+  "source": "imagegen joint-free rain-darkened Queens slab face",
+  "meters_per_tile": 1.8,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

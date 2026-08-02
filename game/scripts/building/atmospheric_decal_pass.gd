@@ -22,20 +22,22 @@ func build(layout: Dictionary, floor_nodes: Dictionary) -> int:
 		_add_institutional_layer(parent, floor_id, z)
 		for room in floor.get("rooms", []):
 			if room.get("kind", "") == "living" and room.get("unit", "") != "":
-				_add_domestic_mark(parent, room, z)
+				_add_domestic_mark(parent, room, z, 0)
+				_add_domestic_mark(parent, room, z, 1)
 		_add_uncanny_mark(parent, floor_id, z)
 	return decal_count
 
 
-func _add_domestic_mark(parent: Node3D, room: Dictionary, z: float) -> void:
+func _add_domestic_mark(parent: Node3D, room: Dictionary, z: float,
+		variant: int) -> void:
 	var rect: Array = room.rect
 	var unit: String = room.unit
-	var seed := absi(unit.hash())
-	var west := seed % 2 == 0
+	var seed := absi(unit.hash()) + variant * 7919
+	var west := (seed + variant) % 2 == 0
 	var x := float(rect[0]) + 0.102 if west else float(rect[2]) - 0.102
 	var y := lerpf(float(rect[1]), float(rect[3]),
 			0.27 + float(seed % 37) / 100.0)
-	var tile := seed % 4
+	var tile := (seed + variant) % 4
 	# Mostly mundane: moved-picture ghosts, hand grease, water tide marks.
 	_add(parent, DOMESTIC, tile % 2, tile / 2,
 			[x, y, z + 1.10 + float(seed % 5) * 0.12],

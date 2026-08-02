@@ -101,6 +101,42 @@ def wall(a, b, t, h, z, openings=None, cat="walls", mat="plaster",
             "wainscot": wainscot, "details": details}
 
 
+def normalize_wall_construction(floors):
+    """Enforce construction truth before any finish or export pass.
+
+    Only the thick perimeter envelope is masonry. Every thinner architectural
+    partition inside that envelope is plaster/drywall, including the atrium,
+    corridor ring and apartment demising walls. Exterior masonry records its
+    room-facing side so the exporter may add a damaged finish there without
+    ever turning an interior partition into brick.
+    """
+    converted = 0
+    exterior = 0
+    masonry = {"brick", "brick_patched", "common_brick", "face_brick"}
+    for fl in floors:
+        for w in fl["walls"]:
+            if w.get("cat", "walls") != "walls":
+                continue
+            # Upper exterior bearing walls are 0.30 m; every interior wall is
+            # 0.18 m or thinner. Thickness is a safer invariant than location
+            # because the envelope is split around four apartment stacks.
+            is_envelope = float(w.get("t", 0.0)) >= 0.29
+            if not is_envelope and w.get("mat") in masonry:
+                w["mat"] = "plaster"
+                w.pop("in_side", None)
+                converted += 1
+            elif is_envelope and w.get("mat") in masonry:
+                ax, ay = w["a"]
+                bx, by = w["b"]
+                if abs(by - ay) < 1e-6:  # south faces inward +Y; north -Y
+                    w["in_side"] = 1 if (ay + by) * 0.5 < 0 else -1
+                else:                    # west faces inward +X; east -X
+                    w["in_side"] = 1 if (ax + bx) * 0.5 < 0 else -1
+                exterior += 1
+    print("wall construction audit: %d interior masonry walls -> plaster; "
+          "%d exterior masonry walls retained" % (converted, exterior))
+
+
 def arch(at, w, h=2.85):
     """Full-width archway: an opening with no leaf (grand stair passages)."""
     return {"type": "door", "at": at, "w": w, "h": h, "sill": 0.0,
@@ -1269,7 +1305,8 @@ def porch(floor_id, z, furniture):
 
 # ---------------------------------------------------------------- floors
 
-def ring_and_cores(floor_id, z, walls, furniture, entry_doors=True):
+def ring_and_cores(floor_id, z, walls, furniture, entry_doors=True,
+                   outer_walls=True):
     """Corridor ring, court walls, core walls, shaft walls for one level."""
     h = WALL_H
     # Open decorative alcoves between the stair and corridor ring. Cut both
@@ -1322,8 +1359,12 @@ def ring_and_cores(floor_id, z, walls, furniture, entry_doors=True):
                       wainscot=True))
     # court north wall (utility-room side of the atrium): solid
     walls.append(wall((-COURT, CORE_Y0), (COURT, CORE_Y0), CORR_T, h, z, []))
-    # corridor outer walls with apartment entry doors
-    for sx, stacks in ((-1, ("A", "B")), (1, ("D", "C"))):
+    # Corridor outer walls with apartment entry doors. B1 supplies its own
+    # room-specific versions below; emitting solid generic walls here as
+    # well placed an invisible duplicate directly behind every basement
+    # doorway.
+    for sx, stacks in (((-1, ("A", "B")), (1, ("D", "C")))
+                       if outer_walls else ()):
         openings = []
         if entry_doors:
             for stack in stacks:
@@ -1564,7 +1605,8 @@ def build_floor(floor_id):
         return floor
 
     ring_and_cores(floor_id, z, walls, furniture,
-                   entry_doors=(floor_id != "B1"))
+                   entry_doors=(floor_id != "B1"),
+                   outer_walls=(floor_id != "B1"))
     exterior(floor_id, z, walls)
     split_walls(z, walls)
 
@@ -1577,7 +1619,7 @@ def build_floor(floor_id):
                 x0, y0, x1, y1 = STACK_RECTS[stack]
                 openings.append(door(abs((y0 + y1) / 2 - (-Y_IN)), DOOR_SERV, "open"))
             walls.append(wall((sx * XCO, -Y_IN), (sx * XCO, Y_IN), CORR_T,
-                              WALL_H, z, openings))
+                              WALL_H, z, openings, wainscot=True))
         for stack, name in names.items():
             rooms.append({"id": "B1_%s" % name, "rect": list(STACK_RECTS[stack]),
                           "kind": name.lower()})
@@ -1683,10 +1725,12 @@ def build_floor(floor_id):
             # Sconce over the street door, outside the facade facing the
             # pavement — the light you arrive by.
             {"kind": "sconce_globe", "id": "F01_ENTRY_SCONCE",
-             "unit": "LOBBY", "pos": [-0.455, -9.91, z + 2.58],
+             # The facade face is y=-10.0. The old anchor buried the
+             # fixture in the masonry; this one is wholly street-side.
+             "unit": "LOBBY", "pos": [-0.455, -10.24, z + 2.62],
              "yaw_deg": 0, "network": "electrical",
-             "range": 7.5, "energy": 1.25,
-             "navigation": True, "standby": 0.55},
+             "range": 3.8, "energy": 0.62,
+             "navigation": True, "standby": 0.45},
             # Neon on the street elevation. The blade projects at right
             # angles to the wall so it is legible coming DOWN the pavement
             # rather than only from across the road, which is the whole
@@ -2062,6 +2106,213 @@ def aging_pass(floors):
                    2.3, "fx_drip")
 
 
+def failed_renovation_pass(floors):
+    """A contractor opened the building and then stopped answering.
+
+    Each work wall is three actual layers: brick substrate, broken plaster
+    islands proud of it, and wallpaper fragments proud of the plaster. The
+    stepped relief catches grazing light; it is not a damage image pasted on
+    an otherwise perfect plane. Work zones stay against corridor walls so the
+    audited 1.9 m circulation lane remains open.
+    """
+    by_id = {fl["id"]: fl for fl in floors}
+    zones = [
+        # floor, wall x, corridor-facing sign, y0, y1
+        ("F02", -X_IN, 1, 6.48, 9.18),
+        # Major work zones live inside vacant 3C and fire-damaged 5D, where
+        # equipment can remain without narrowing an occupied corridor.
+        ("F03", X_IN, -1, 1.05, 5.70),
+        ("F04", -X_IN, 1, -6.05, -3.00),
+        ("F05", X_IN, -1, -6.05, -2.35),
+        ("F06", -X_IN, 1, -6.05, -3.00),
+    ]
+    for zi, (fid, wall_x, face, y0, y1) in enumerate(zones):
+        fl = by_id[fid]
+        f = fl["furniture"]
+
+        def layer(bid, xa, xb, ya, yb, z0, h, mat):
+            f.append({"id": "reno_%s_%s" % (fid, bid),
+                      "rect": [xa, ya, xb, yb], "z0": z0,
+                      "h": h, "mat": mat})
+
+        brick0 = wall_x + face * 0.094
+        brick1 = wall_x + face * 0.112
+        layer("brick", min(brick0, brick1), max(brick0, brick1),
+              y0, y1, 0.13, 2.72, "brick_patched")
+        # Jagged plaster remnants: offset rectangles overlap like irregular
+        # surviving islands while leaving most of the brick exposed.
+        plaster0 = wall_x + face * 0.114
+        plaster1 = wall_x + face * 0.132
+        islands = [
+            (0.00, 0.20, 0.10, 1.00), (0.13, 0.38, 1.90, 0.82),
+            (0.43, 0.61, 0.12, 0.64), (0.57, 0.79, 1.28, 1.48),
+            (0.78, 1.00, 0.08, 0.92), (0.84, 1.00, 2.04, 0.74),
+        ]
+        span = y1 - y0
+        for i, (a, b, pz, ph) in enumerate(islands):
+            layer("plaster%d" % i, min(plaster0, plaster1),
+                  max(plaster0, plaster1), y0 + span * a, y0 + span * b,
+                  pz, ph, "plaster_stained")
+        # Wallpaper clings only where plaster survived. Narrow loose tails
+        # stand progressively farther off the wall like curled paper.
+        paper0 = wall_x + face * 0.134
+        strips = [
+            (0.14, 0.245, 1.98, 0.76, 0.006),
+            (0.58, 0.665, 1.34, 1.34, 0.010),
+            (0.86, 0.955, 2.07, 0.67, 0.014),
+        ]
+        for i, (a, b, pz, ph, curl) in enumerate(strips):
+            p1 = paper0 + face * curl
+            layer("paper%d" % i, min(paper0, p1), max(paper0, p1),
+                  y0 + span * a, y0 + span * b, pz, ph,
+                  "wallpaper_old")
+        # Dust and fallen plaster directly beneath each opened wall.
+        floor_x0 = wall_x + face * 0.12
+        floor_x1 = wall_x + face * 0.48
+        layer("debris", min(floor_x0, floor_x1), max(floor_x0, floor_x1),
+              y0 + 0.15, y1 - 0.15, 0.012, 0.025, "plaster_stained")
+
+        # Only two zones still pretend work might resume. Elsewhere the wall
+        # was simply opened and abandoned.
+        if fid in ("F03", "F05"):
+            gear_y = y0 + 0.88
+            f.append({"id": "reno_%s_barrier" % fid,
+                      "asm": "safety_barrier",
+                      "at": [wall_x + face * 0.56, gear_y],
+                      "yaw": 90, "z0": 0.02, "W": 1.35})
+            f.append({"id": "reno_%s_gear" % fid, "asm": "reno_gear",
+                      "at": [wall_x + face * 0.47, y1 - 0.72],
+                      "yaw": 90 if face > 0 else -90, "z0": 0.02})
+            f.append({"id": "reno_%s_crate" % fid, "asm": "crate",
+                      "at": [wall_x + face * 0.40, y1 - 1.58],
+                      "yaw": 8, "z0": 0.02, "fill": "paper"})
+
+    # Organic whole-building grime: base damp follows masonry, traffic wear
+    # follows circulation, and ceiling blooms follow old wet services.
+    for fl in floors:
+        if fl["id"] == "ROOF":
+            continue
+        f = fl["furniture"]
+        fid = fl["id"]
+        zseed = sum(ord(c) for c in fid)
+        for side in (-1, 1):
+            x = side * (XCI + 0.012)
+            y0 = -5.8 + (zseed % 5) * 0.31
+            f.append({"id": "grime_%s_base_%d" % (fid, side),
+                      "rect": [x - 0.012, y0, x + 0.012, y0 + 2.1],
+                      "z0": 0.08, "h": 0.52, "mat": "fx_damp"})
+            f.append({"id": "grime_%s_rub_%d" % (fid, side),
+                      "rect": [x - 0.014, y0 + 2.6, x + 0.014, y0 + 4.0],
+                      "z0": 0.72, "h": 1.05, "mat": "fx_patch"})
+        f.append({"id": "grime_%s_lane" % fid,
+                  "rect": [-4.92, -8.85, 4.92, -7.72],
+                  "z0": 0.016, "h": 0.002, "mat": "fx_traffic"})
+        f.append({"id": "grime_%s_ceiling" % fid,
+                  "rect": [-2.1, 4.15, 1.2, 5.55],
+                  "z0": 2.985, "h": 0.005, "mat": "fx_damp"})
+
+
+def building_operations_pass(floors):
+    """The unglamorous systems that make a century-old building credible."""
+    by_id = {fl["id"]: fl for fl in floors}
+    b1, f01 = by_id["B1"], by_id["F01"]
+
+    # A real cellar has its own exterior route. Cut the center of the rear
+    # B1 wall before door markers are collected, then build the sunken
+    # areaway and stairs up to alley grade.
+    rear_y = 10.0 - ext_t("B1") / 2.0
+    for w in b1["walls"]:
+        if (w["mat"] == "common_brick" and
+                abs(w["a"][1] - rear_y) < 0.01 and
+                abs(w["b"][1] - rear_y) < 0.01 and
+                abs(w["a"][0] + X_IN) < 0.01 and
+                abs(w["b"][0] - X_IN) < 0.01):
+            w["openings"].append(door(X_IN, DOOR_SERV, "closed", "out"))
+            break
+
+    def box(fl, bid, rect, z0, h, mat="concrete"):
+        fl["furniture"].append({"id": "ops_%s" % bid,
+                                "rect": list(rect), "z0": z0, "h": h,
+                                "mat": mat})
+
+    # Areaway cheeks, treads and drain; deliberately offset east so the rear
+    # refuse route does not collide with the porch stack.
+    box(b1, "areaway_w", (-1.45, 9.82, -1.28, 12.55), 0.0, 2.95)
+    box(b1, "areaway_e", (1.28, 9.82, 1.45, 12.55), 0.0, 2.95)
+    for i in range(12):
+        y0 = 10.12 + i * 0.19
+        box(b1, "areaway_step%02d" % i,
+            (-1.20, y0, 1.20, y0 + 0.24), i * 0.235, 0.12)
+    box(b1, "areaway_drain", (-0.24, 10.02, 0.24, 10.34), 0.015, 0.025,
+        "metal")
+    box(b1, "areaway_rail_l", (-1.34, 10.0, -1.29, 12.45), 2.82, 0.08,
+        "metal")
+    box(b1, "areaway_rail_r", (1.29, 10.0, 1.34, 12.45), 2.82, 0.08,
+        "metal")
+
+    # Rear and side egress towers. The western rear apartments already have
+    # wooden porches, so iron towers serve the east rear and both street
+    # apartment stacks without duplicating that silhouette.
+    for bid, at, yaw in (
+            ("rear_e", [9.2, 10.30], 0),
+            ("side_w", [-14.25, -5.15], 90),
+            ("side_e", [14.25, -5.15], -90)):
+        f01["furniture"].append({"id": "ops_fire_escape_%s" % bid,
+                                 "asm": "fire_escape", "at": at,
+                                 "yaw": yaw, "z0": 0.0, "levels": 5,
+                                 "floor_h": F2F})
+
+    # Lobby paperwork: layers at slightly different depths make a century of
+    # required notices, missed inspections and handwritten amendments.
+    for i, (x, z0, w, h) in enumerate((
+            (4.78, 1.10, 0.35, 0.46), (5.16, 1.14, 0.42, 0.38),
+            (4.82, 1.61, 0.52, 0.31), (5.37, 1.58, 0.31, 0.40),
+            (5.14, 2.02, 0.44, 0.24))):
+        box(f01, "lobby_notice_%d" % i,
+            (x, -8.847 - i * 0.001, x + w, -8.827 - i * 0.001),
+            z0, h, "paper" if i != 4 else "safety_orange")
+    # Entry intercom is a conspicuous later retrofit: metal directory,
+    # speaker grille, call buttons and exposed conduit to the ceiling.
+    box(f01, "intercom", (3.95, -9.665, 4.43, -9.59), 1.10, 0.74, "metal")
+    for i in range(8):
+        box(f01, "intercom_button_%d" % i,
+            (4.01 + (i % 2) * 0.20, -9.59, 4.06 + (i % 2) * 0.20, -9.57),
+            1.18 + (i // 2) * 0.12, 0.045, "brass")
+    box(f01, "intercom_conduit", (4.17, -9.65, 4.21, -9.61), 1.84, 1.12,
+        "metal")
+
+    # Boiler inspection life: feed tank, gauge bank, tagged valves, chemical
+    # bucket and a mineral-ringed floor drain.
+    box(b1, "feed_tank", (7.35, 6.55, 8.35, 7.25), 0.10, 1.25, "metal")
+    box(b1, "boiler_gauge_board", (8.48, 7.18, 9.52, 7.26), 1.12, 0.72,
+        "trim")
+    for i in range(3):
+        box(b1, "boiler_tag_%d" % i,
+            (8.58 + i * 0.28, 7.16, 8.76 + i * 0.28, 7.18),
+            1.28, 0.25, "paper")
+    box(b1, "chemical_bucket", (7.05, 5.72, 7.42, 6.09), 0.02, 0.42,
+        "safety_orange")
+    box(b1, "boiler_drain", (8.50, 4.35, 9.08, 4.82), 0.015, 0.025,
+        "metal")
+    # Chute endpoint and the trip garbage takes to the new cellar door.
+    box(b1, "compactor", (1.55, 7.10, 2.85, 8.25), 0.02, 1.35, "metal")
+    for i in range(3):
+        box(b1, "refuse_bin_%d" % i,
+            (-2.85 + i * 0.82, 8.18, -2.18 + i * 0.82, 8.90),
+            0.02, 0.92, "metal")
+
+    # Drainage tells the truth about the court: downspouts terminate at a
+    # grated sump rather than vanishing into the wall.
+    box(b1, "court_sump", (-0.42, 0.70, 0.42, 1.42), 0.012, 0.025, "metal")
+    for i, (x, y) in enumerate(((-3.12, -3.0), (3.02, -3.0),
+                                (-3.12, 3.0), (3.02, 3.0))):
+        b1["furniture"].append({"id": "ops_downspout_%d" % i,
+                                "asm": "pipe", "at": [0, 0], "yaw": 0,
+                                "z0": 0.0, "p0": [x, y, b1["z"]],
+                                "p1": [x, y, LEVELS["ROOF"] + 1.0],
+                                "r": 0.055})
+
+
 ## The building's block: a crowded 2027 street on limited land. Sidewalk
 ## and stoop out front, service alley behind serving the porches and coal
 ## chute, tight gangways between the neighbors' party walls.
@@ -2155,10 +2406,57 @@ def site_pass(fl):
             ("ground_w", (gx0, by0, bx0, by1)),
             ("ground_e", (bx1, by0, gx1, by1))):
         fb(tag, rect, -0.30, 0.28, "asphalt")
-    fb("sidewalk", (-SITE_X, -14.6, SITE_X, -10.0), -0.02, 0.03, "concrete")
+    # The distant pavement can stay cheap, but the playable frontage is
+    # individually poured slabs with settlement, missing corners and open
+    # joints. Their top heights vary by centimetres, not a noisy normal map.
+    fb("sidewalk_w", (-SITE_X, -14.6, -16.0, -10.0), -0.02, 0.03,
+       "concrete")
+    fb("sidewalk_e", (16.0, -14.6, SITE_X, -10.0), -0.02, 0.03,
+       "concrete")
+    slab_rng = random.Random(192703)
+    slab_i = 0
+    # One continuous recessed joint bed sits below the individual pieces.
+    # It is visible only through their authored gaps and missing corners,
+    # so texture and geometry can never disagree about where a joint is.
+    fb("sidewalk_joint_bed", (-16.0, -14.60, 16.0, -10.0),
+       -0.036, 0.022, "sidewalk_grout")
+    for row, (sy0, sy1) in enumerate(((-14.58, -12.34),
+                                       (-12.30, -10.03))):
+        x = -16.0
+        while x < 16.0:
+            w = 1.78 + slab_rng.uniform(-0.16, 0.18)
+            gap = slab_rng.uniform(0.025, 0.065)
+            lift = slab_rng.uniform(-0.016, 0.032)
+            if abs(x + w * 0.5) < 2.2:  # usable route to the front door
+                lift = min(lift, 0.012)
+            # Every seventh slab has a missing corner represented by two
+            # physical pieces and a dark socket down to the old base.
+            if slab_i % 7 == 3:
+                notch = min(0.42, w * 0.28)
+                fb("sidewalk_%d_a" % slab_i,
+                   (x + gap, sy0 + gap, x + w - notch, sy1 - gap),
+                   -0.025 + lift, 0.055, "sidewalk_haunted")
+                fb("sidewalk_%d_b" % slab_i,
+                   (x + w - notch, sy0 + gap, x + w - gap,
+                    sy1 - 0.46), -0.025 + lift + 0.008, 0.047,
+                   "sidewalk_haunted")
+            else:
+                fb("sidewalk_%d" % slab_i,
+                   (x + gap, sy0 + gap, x + w - gap, sy1 - gap),
+                   -0.025 + lift, 0.055, "sidewalk_haunted")
+            x += w
+            slab_i += 1
     fb("sidewalk_s", (-SITE_X, -18.2, SITE_X, -17.4), -0.02, 0.03,
        "concrete")
-    fb("curb", (-SITE_X, -14.75, SITE_X, -14.60), -0.02, 0.14, "concrete")
+    fb("curb_w", (-SITE_X, -14.75, -16.0, -14.60), -0.02, 0.14,
+       "concrete")
+    fb("curb_e", (16.0, -14.75, SITE_X, -14.60), -0.02, 0.14,
+       "concrete")
+    for i in range(16):
+        cx0 = -16.0 + i * 2.0 + 0.025
+        cz = (-0.018, -0.006, 0.012, -0.011)[i % 4]
+        fb("curb%d" % i, (cx0, -14.75, cx0 + 1.94, -14.60),
+           cz, 0.14, "concrete")
     fb("curb_s", (-SITE_X, -17.55, SITE_X, -17.40), -0.02, 0.14, "concrete")
     fb("alley", (-20.0, 10.0, 20.0, 13.4), -0.02, 0.015, "concrete")
     fb("garages", (-16.0, 13.4, 16.0, 16.0), 0.0, 3.0, "common_brick")
@@ -2184,6 +2482,29 @@ def site_pass(fl):
         _city_windows(fb, lights, rng, bid, rect, hgt, storey=3.8)
 
     _street_furniture(fb, rng)
+
+    # Modeled asphalt repairs and potholes in the playable street. The old
+    # road remains below as substrate; these shallow pieces create edges that
+    # catch rain and headlights. A repeating heave subtly aims at the Orison.
+    for i, (px, py, pw, pd) in enumerate((
+            (-12.4, -16.9, 3.7, 1.3), (-6.1, -15.8, 2.4, 0.9),
+            (3.4, -17.3, 4.2, 1.5), (9.8, -15.9, 2.8, 1.1))):
+        fb("road_patch%d" % i, (px, py, px + pw, py + pd),
+           0.001 + (i % 2) * 0.006, 0.018, "wet_asphalt")
+    for i, (px, py) in enumerate(((-8.3, -16.1), (6.6, -16.8),
+                                   (13.2, -15.6))):
+        # Four broken rim pieces around a depressed, water-holding center.
+        fb("pothole%d_n" % i, (px - 0.62, py + 0.30, px + 0.62, py + 0.48),
+           0.004, 0.026, "asphalt")
+        fb("pothole%d_s" % i, (px - 0.62, py - 0.48, px + 0.62, py - 0.30),
+           0.002, 0.021, "asphalt")
+        fb("pothole%d_w" % i, (px - 0.65, py - 0.30, px - 0.43, py + 0.30),
+           0.003, 0.025, "asphalt")
+        fb("pothole%d_e" % i, (px + 0.43, py - 0.30, px + 0.65, py + 0.30),
+           0.006, 0.028, "asphalt")
+        fb("pothole%d_water" % i,
+           (px - 0.44, py - 0.31, px + 0.44, py + 0.31),
+           0.001, 0.003, "puddle")
     # water tower on a tall neighbour: the silhouette that says American
     # city more economically than any amount of facade detail
     for tid, (tx, ty), base in (("wt_e", (33.2, -21.4), 20.4),
@@ -2801,8 +3122,8 @@ def street_lamp_markers(fl):
             "kind": "street_lamp", "id": "F01_STREETLAMP_%02d" % i,
             "unit": "SITE", "pos": [lx + 0.06, -14.49, 4.55],
             "yaw_deg": 0, "network": "electrical",
-            "range": 11.0, "energy": 1.15,
-            "navigation": True, "standby": 0.4})
+            "range": 8.5, "energy": 0.42,
+            "navigation": True, "standby": 0.25})
 
 
 def _street_furniture(fb, rng):
@@ -3666,8 +3987,14 @@ PROP_CATALOG = {
 
 MATERIAL_CATALOG = {
     "plaster": {"base_color": [0.62, 0.64, 0.58, 1.0], "roughness": 0.80},
+    "wallpaper_old": {"base_color": [0.56, 0.52, 0.37, 1.0],
+                      "roughness": 0.90},
     "brick": {"base_color": [0.42, 0.27, 0.22, 1.0], "roughness": 0.85},
     "concrete": {"base_color": [0.48, 0.48, 0.47, 1.0], "roughness": 0.75},
+    "sidewalk_haunted": {"base_color": [0.31, 0.30, 0.28, 1.0],
+                           "roughness": 0.82},
+    "sidewalk_grout": {"base_color": [0.075, 0.065, 0.055, 1.0],
+                         "roughness": 0.93},
     "trim": {"base_color": [0.85, 0.83, 0.77, 1.0], "roughness": 0.45},
     "floor_oak": {"base_color": [0.45, 0.33, 0.22, 1.0], "roughness": 0.55},
     "terrazzo": {"base_color": [0.72, 0.70, 0.66, 1.0], "roughness": 0.40},
@@ -3754,6 +4081,8 @@ MATERIAL_CATALOG = {
     "puddle": {"base_color": [0.04, 0.045, 0.055, 1.0], "roughness": 0.05,
                "metallic": 0.35},
     "leaf_fall": {"base_color": [0.42, 0.28, 0.13, 1.0], "roughness": 0.65},
+    "safety_orange": {"base_color": [0.88, 0.22, 0.035, 1.0],
+                      "roughness": 0.62},
 }
 
 
@@ -3764,6 +4093,7 @@ def main():
                           for fl in floors)
     print("facade audit: removed %d partition-crossing windows"
           % removed_windows)
+    building_operations_pass(floors)
     for fl in floors:
         collect_door_markers(fl)
         light_fixture_markers(fl)
@@ -3771,8 +4101,14 @@ def main():
         case_doors(fl)
         if fl["id"] != "ROOF":      # ROOF builds its own inside build_floor
             atrium_tree(fl)
+    # Run after every architectural contributor, including atrium_tree,
+    # otherwise the stairwell can reintroduce thin brick walls after audit.
+    normalize_wall_construction(floors)
     radiator_pipe_pass(floors)
     aging_pass(floors)
+    # The old global renovation treatment deliberately placed exposed-brick
+    # panels over multiple storeys. Construction is now encoded by wall type:
+    # only exterior masonry receives a damaged room-side finish in Blender.
     site_pass(floors[1])  # the block lives with F01
     storm_pass(floors[1])
     street_lamp_markers(floors[1])
@@ -3780,8 +4116,12 @@ def main():
         "meta": {"name": "Orison Apartments", "footprint": [28.0, 20.0],
                  "levels": LEVELS, "floor_to_floor": F2F,
                  "wall_height": WALL_H, "slab_t": SLAB_T,
-                 "player": {"height": 1.75, "eye": 1.62, "radius": 0.38,
-                            "crouch": 1.05, "step_max": 0.28},
+                 # The maintenance worker is canonically 5'0". Architecture
+                 # stays at real scale so doors, residents, counters and
+                 # switches communicate that stature without a UI label.
+                 "player": {"height": 1.524, "eye": 1.41, "radius": 0.33,
+                            "crouch": 0.96, "crouch_eye": 0.84,
+                            "step_max": 0.28},
                  "residents": RESIDENTS},
         "floors": floors,
         "stairs": [stair_geometry(ATRIUM)],

@@ -7,6 +7,7 @@ var detail_count := 0
 var decal_count := 0
 var puddle_count := 0
 var faulty_lamp_count := 0
+var boundary_count := 0
 
 var _boxes: Array = []
 var _cylinders: Array = []
@@ -29,6 +30,8 @@ func build(layout: Dictionary, parent: Node3D) -> Dictionary:
 	_build_puddles()
 	_build_city_silhouettes(floor)
 	_build_car_details(floor)
+	_build_arrival_rideshare(parent)
+	_build_playable_stage(parent)
 	_emit_boxes(parent)
 	_emit_cylinders(parent)
 	_emit_puddles(parent)
@@ -39,12 +42,19 @@ func build(layout: Dictionary, parent: Node3D) -> Dictionary:
 
 
 func configure_street_lights(world: Node) -> void:
-	# One lamp west of the entrance has a dying ballast. The others remain
-	# dependable navigation anchors.
+	# Every sodium head has old wiring and stained glass. Most only flutter;
+	# one west of the entrance drops out long enough for moonlight to take over.
 	for child in world.get_children():
 		if child is LightFixtureProp \
-				and child.prop_type == "street_lamp" \
-				and child.name == "F01_STREETLAMP_04":
+				and child.name == "F01_ENTRY_SCONCE":
+			child.set_weathered_exterior(true)
+			child.set_entry_emphasis(1.42)
+		elif child is LightFixtureProp \
+				and child.prop_type == "street_lamp":
+			child.set_weathered_exterior(true)
+			child.set_exterior_composition_gain(0.52)
+			if child.name != "F01_STREETLAMP_04":
+				continue
 			child.set_intermittent_exterior_fault(true)
 			var buzz := AudioStreamPlayer3D.new()
 			buzz.name = "FailingBallastAudio"
@@ -55,7 +65,7 @@ func configure_street_lights(world: Node) -> void:
 			child.add_child(buzz)
 			buzz.play()
 			faulty_lamp_count = 1
-			return
+	_build_composition_lights(world)
 
 
 func set_weather_flash(level: float) -> void:
@@ -172,6 +182,7 @@ func _build_city_silhouettes(floor: Dictionary) -> void:
 
 
 func _build_car_details(floor: Dictionary) -> void:
+	var car_index := 0
 	for item in floor.furniture:
 		var id: String = item.id
 		var car := (id.begins_with("site_car") and not id.contains("top")
@@ -201,6 +212,161 @@ func _build_car_details(floor: Dictionary) -> void:
 				Color(0.78, 0.70, 0.46))
 		_box([x0 + 1.10, cy, 1.49], [0.035, y1 - y0 + 0.02, 0.045],
 				Color(0.06, 0.07, 0.075))
+		_build_car_identity(car_index, x0, x1, y0, y1)
+		car_index += 1
+
+
+## The curbside car is the player's last contact with ordinary Queens. Its
+## teal roof lozenge and phone-blue dash glow read as rideshare language
+## without borrowing a real-world trademark. It never moves after arrival.
+func _build_arrival_rideshare(parent: Node3D) -> void:
+	var body_color := Color(0.028, 0.040, 0.052)
+	var glass := Color(0.018, 0.030, 0.040)
+	var cx := 3.35
+	var cy := -15.92
+	_box([cx, cy, 0.52], [4.72, 1.82, 0.68], body_color)
+	_box([cx - 0.22, cy, 1.07], [2.42, 1.66, 0.54], body_color.lightened(0.025))
+	_box([cx - 0.24, cy - 0.845, 1.12], [1.72, 0.025, 0.30], glass)
+	_box([cx - 0.24, cy + 0.845, 1.12], [1.72, 0.025, 0.30], glass)
+	# Motionless wheels, curb-facing brake lamps and a tiny roof identifier.
+	for wx in [cx - 1.45, cx + 1.45]:
+		for wy in [cy - 0.91, cy + 0.91]:
+			_cylinder_rot([wx, wy, 0.36], [0.30, 0.12, 0.30],
+					Color(0.022, 0.024, 0.027), Basis(Vector3.RIGHT, PI * 0.5))
+	_box([cx - 2.38, cy, 0.60], [0.035, 1.30, 0.18], Color(0.42, 0.025, 0.018))
+	_box([cx, cy, 1.39], [0.48, 0.22, 0.10], Color(0.04, 0.40, 0.43))
+	_box([cx + 0.48, cy - 0.858, 0.90], [0.18, 0.018, 0.08], Color(0.05, 0.28, 0.38))
+	# Give the hero car physical presence even though its finish is batched.
+	var car_body := StaticBody3D.new()
+	car_body.name = "ArrivalRideshareCollision"
+	parent.add_child(car_body)
+	_add_boundary_shape(car_body, [cx, cy, 0.62], [4.74, 1.84, 1.24])
+
+
+## A handful of dark profile cues makes the cheap site blocks read as actual
+## remembered cars. No interiors, badges or high-poly panels are required;
+## the player recognizes roofline, greenhouse, hood/trunk ratio and stance.
+func _build_car_identity(index: int, x0: float, x1: float,
+		y0: float, y1: float) -> void:
+	var cx := (x0 + x1) * 0.5
+	var cy := (y0 + y1) * 0.5
+	var length := x1 - x0
+	var width := y1 - y0
+	var ink: Color = [Color(0.045, 0.052, 0.058), Color(0.065, 0.048, 0.042),
+			Color(0.035, 0.047, 0.044), Color(0.075, 0.066, 0.047),
+			Color(0.038, 0.038, 0.043), Color(0.052, 0.047, 0.062),
+			Color(0.055, 0.058, 0.052)][index % 7]
+	match index:
+		0: # Volvo 240 wagon — upright full-length greenhouse and roof rack.
+			_box([cx + 0.15, cy, 1.18], [length * 0.62, width * 0.86, 0.42], ink)
+			for rail_y in [y0 + 0.18, y1 - 0.18]:
+				_box([cx + 0.10, rail_y, 1.48], [length * 0.52, 0.025, 0.035], Color(0.12, 0.13, 0.13))
+			_box([x0 + 0.18, cy, 0.78], [0.10, width * 0.76, 0.34], Color(0.25, 0.05, 0.035))
+		1: # 1985 Lincoln Town Car — long formal hood, opera window, hood ornament.
+			_box([cx - 0.10, cy, 1.20], [length * 0.43, width * 0.88, 0.38], ink)
+			_box([x1 - 0.68, cy, 0.88], [length * 0.26, width * 0.94, 0.10], ink.lightened(0.04))
+			_cylinder([x1 - 0.26, cy, 1.02], [0.012, 0.12, 0.012], Color(0.28, 0.25, 0.18))
+			_box([cx - 0.70, y0 - 0.02, 1.22], [0.16, 0.03, 0.14], Color(0.015, 0.02, 0.022))
+		2: # 1980 Chevrolet Caprice — square sedan, broad nose, quad lamps.
+			_box([cx - 0.05, cy, 1.13], [length * 0.42, width * 0.90, 0.34], ink)
+			for lamp_y in [cy - 0.38, cy - 0.13, cy + 0.13, cy + 0.38]:
+				_box([x1 + 0.038, lamp_y, 0.61], [0.022, 0.12, 0.09], Color(0.30, 0.29, 0.20))
+			_box([x0 + 0.22, cy, 0.92], [0.18, width * 0.88, 0.08], ink)
+		3: # Checker Marathon — tall taxi canopy and slab-sided passenger cell.
+			_box([cx, cy, 1.24], [length * 0.50, width * 0.91, 0.48], ink)
+			_box([cx, cy, 1.54], [0.28, 0.16, 0.10], Color(0.24, 0.20, 0.08))
+			_box([cx, y0 - 0.018, 0.92], [length * 0.46, 0.025, 0.035], Color(0.18, 0.16, 0.08))
+		4: # Buick Grand National — low black coupe, long hood and rear spoiler.
+			_box([cx - 0.26, cy, 1.04], [length * 0.37, width * 0.91, 0.25], ink)
+			_box([x0 + 0.28, cy, 1.04], [0.07, width * 0.96, 0.055], Color(0.025, 0.025, 0.028))
+			_box([x1 - 0.62, cy, 0.83], [length * 0.28, width * 0.94, 0.075], ink)
+		5: # Ford Crown Victoria — cab/police silhouette and A-pillar spotlight.
+			_box([cx - 0.04, cy, 1.17], [length * 0.44, width * 0.89, 0.36], ink)
+			_cylinder([cx + 0.45, y0 - 0.08, 1.20], [0.045, 0.08, 0.045], Color(0.13, 0.13, 0.12))
+			_box([x1 - 0.40, cy, 0.86], [0.42, width * 0.92, 0.06], ink)
+		6: # First-generation Dodge Caravan — one-box roof and blunt tailgate.
+			_box([cx, cy, 1.28], [length * 0.66, width * 0.92, 0.58], ink)
+			_box([x0 + 0.14, cy, 1.03], [0.10, width * 0.88, 0.62], ink.darkened(0.08))
+			_box([cx + 0.15, y0 - 0.018, 1.37], [length * 0.46, 0.025, 0.06], Color(0.018, 0.025, 0.027))
+		7: # Saab 900 — long curved-hatch impression and cab-forward screen.
+			_box([cx - 0.18, cy, 1.14], [length * 0.48, width * 0.88, 0.33], ink)
+			_box([x0 + 0.66, cy, 1.06], [length * 0.22, width * 0.91, 0.23], ink.darkened(0.05))
+			_box([x1 - 0.52, cy, 0.88], [0.62, width * 0.92, 0.09], ink)
+		8: # Mercedes-Benz W123 — formal greenhouse, upright grille, taxi durability.
+			_box([cx - 0.08, cy, 1.17], [length * 0.43, width * 0.87, 0.36], ink)
+			_box([x1 + 0.032, cy, 0.70], [0.024, width * 0.46, 0.30], Color(0.18, 0.18, 0.16))
+			_cylinder([x1 - 0.19, cy, 1.00], [0.010, 0.10, 0.010], Color(0.30, 0.27, 0.17))
+		9: # Cadillac Fleetwood Brougham — vinyl roof, immense deck, sharp lamps.
+			_box([cx - 0.20, cy, 1.20], [length * 0.39, width * 0.90, 0.39], Color(0.025, 0.028, 0.030))
+			_box([x0 + 0.52, cy, 0.86], [length * 0.28, width * 0.95, 0.10], ink)
+			for lamp_y in [y0 + 0.20, y1 - 0.20]:
+				_box([x0 - 0.03, lamp_y, 0.63], [0.025, 0.18, 0.22], Color(0.30, 0.035, 0.025))
+		10: # Volkswagen Rabbit — short upright hatch, wheels at the corners.
+			_box([cx - 0.18, cy, 1.12], [length * 0.36, width * 0.86, 0.38], ink)
+			_box([x0 + 0.18, cy, 0.95], [0.12, width * 0.88, 0.36], ink.darkened(0.08))
+			_box([x1 - 0.30, cy, 0.78], [length * 0.18, width * 0.90, 0.07], ink)
+		11: # Jeep Cherokee XJ — ruler-straight utility roof and vertical tail.
+			_box([cx, cy, 1.33], [length * 0.64, width * 0.91, 0.62], ink)
+			_box([x0 + 0.14, cy, 1.10], [0.10, width * 0.89, 0.72], ink.darkened(0.10))
+			for rail_y in [y0 + 0.16, y1 - 0.16]:
+				_box([cx, rail_y, 1.68], [length * 0.50, 0.025, 0.035], Color(0.10, 0.11, 0.11))
+		12: # Ford Econoline — blunt dark van, shallow windshield, rear ladder.
+			_box([cx - 0.02, cy, 1.43], [length * 0.72, width * 0.94, 0.82], ink)
+			_box([x1 - 0.62, y0 - 0.018, 1.47], [0.72, 0.025, 0.30], Color(0.016, 0.022, 0.024))
+			for rung in [0.82, 1.04, 1.26, 1.48]:
+				_box([x0 - 0.035, y1 - 0.21, rung], [0.025, 0.30, 0.025], Color(0.12, 0.12, 0.11))
+		13: # Oldsmobile Custom Cruiser — huge wagon with faux-wood belt shadow.
+			_box([cx + 0.08, cy, 1.19], [length * 0.64, width * 0.90, 0.43], ink)
+			_box([cx, y0 - 0.022, 0.91], [length * 0.72, 0.030, 0.16], Color(0.12, 0.065, 0.030))
+			_box([x0 + 0.16, cy, 0.86], [0.10, width * 0.88, 0.36], ink.darkened(0.08))
+
+
+## The playable exterior is a theatrical street slice. Parked vehicles and
+## construction hoarding explain its edges; collision preserves the view cone
+## before low-detail neighboring blocks can be inspected from behind.
+func _build_playable_stage(parent: Node3D) -> void:
+	var body := StaticBody3D.new()
+	body.name = "ExteriorStreetStageBoundary"
+	parent.add_child(body)
+	_add_boundary_shape(body, [0.0, -17.35, 0.72], [32.0, 0.28, 1.44])
+	_add_boundary_shape(body, [-16.15, -13.45, 0.72], [0.30, 7.55, 1.44])
+	_add_boundary_shape(body, [16.15, -13.45, 0.72], [0.30, 7.55, 1.44])
+	boundary_count = 3
+	# Side hoardings and battered planters telegraph the lateral stop.
+	for x in [-16.05, 16.05]:
+		_box([x, -13.15, 0.83], [0.22, 5.2, 1.66], Color(0.055, 0.062, 0.064))
+		for y in [-15.2, -13.6, -12.0, -10.8]:
+			_box([x - signf(x) * 0.13, y, 1.15], [0.035, 0.74, 0.035], Color(0.46, 0.24, 0.08))
+	# A near-black curb rail disappears behind the parked row but prevents
+	# stepping into the unmodelled traffic lanes.
+	_box([0.0, -17.28, 0.49], [31.7, 0.16, 0.98], Color(0.018, 0.022, 0.024))
+
+
+func _add_boundary_shape(body: StaticBody3D, pos_b: Array, size_b: Array) -> void:
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(size_b[0], size_b[2], size_b[1])
+	collision.shape = shape
+	collision.position = GameBoot.b2g(pos_b)
+	body.add_child(collision)
+
+
+func _build_composition_lights(world: Node3D) -> void:
+	var door_target := GameBoot.b2g([0.0, -9.84, 1.15])
+	for spec in [[-6.8, -14.0, 1.45], [6.8, -14.0, 1.45]]:
+		var light := SpotLight3D.new()
+		light.name = "EntryCompositionRake"
+		light.position = GameBoot.b2g(spec)
+		light.light_color = Color(0.30, 0.37, 0.50)
+		light.light_energy = 0.34
+		light.spot_range = 10.5
+		light.spot_angle = 29.0
+		light.spot_attenuation = 1.9
+		light.shadow_enabled = true
+		light.shadow_bias = 0.016
+		light.shadow_normal_bias = 0.10
+		world.add_child(light)
+		light.look_at(door_target, Vector3.UP)
 
 
 func _box(position_b: Array, size_b: Array, color: Color) -> void:
@@ -278,20 +444,27 @@ func _emit_puddles(parent: Node3D) -> void:
 shader_type spatial;
 render_mode blend_mix, cull_disabled, depth_prepass_alpha;
 uniform float weather_flash = 0.0;
+uniform sampler2D puddle_surface : source_color, filter_linear_mipmap_anisotropic;
 void fragment() {
 	vec2 p = UV - vec2(0.5);
-	float edge = smoothstep(0.51, 0.39, length(p));
+	vec3 scan = texture(puddle_surface, UV).rgb;
+	float authored_mask = smoothstep(0.018, 0.16, max(scan.r, max(scan.g, scan.b)));
+	float edge = smoothstep(0.52, 0.38, length(p)) * authored_mask;
 	float ripple = sin(length(p) * 92.0 - TIME * 5.0) * 0.5 + 0.5;
 	float rain = pow(ripple, 11.0) * 0.12;
-	ALBEDO = vec3(0.025, 0.038, 0.052) + rain * vec3(0.10, 0.14, 0.18);
+	ALBEDO = mix(vec3(0.018, 0.026, 0.034), scan * 0.38,
+			clamp(length(scan) * 0.7, 0.0, 0.55))
+			+ rain * vec3(0.10, 0.14, 0.18);
 	METALLIC = 0.38;
-	ROUGHNESS = 0.08 + rain * 0.18;
+	ROUGHNESS = 0.065 + rain * 0.18 + (1.0 - authored_mask) * 0.3;
 	SPECULAR = 0.90;
 	EMISSION = vec3(0.035, 0.055, 0.085) * (0.15 + weather_flash * 2.4);
-	ALPHA = edge * 0.76;
+	ALPHA = edge * 0.82;
 }
 """
 	_puddle_material.shader = shader
+	_puddle_material.set_shader_parameter("puddle_surface", load(
+			"res://assets/building/textures/exterior_details/puddle_surface_v2.png"))
 	mesh.material = _puddle_material
 	var multimesh := MultiMesh.new()
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D

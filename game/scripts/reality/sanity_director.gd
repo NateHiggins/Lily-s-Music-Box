@@ -38,6 +38,8 @@ extends Node
 ## them.
 
 signal intruded(case_id: String, tier: int)
+signal attention_registered(case_id: String, tier: int)
+signal attention_withheld(case_id: String, streak: int)
 
 ## Poll rate. Deliberately slow: this thing thinks in beats, not frames.
 const TICK := 1.4
@@ -69,6 +71,7 @@ var world: Node3D
 var player: Node3D
 var intrusions: Intrusions
 var fourth_wall: FourthWallLayer
+var personality: BuildingPersonalityDirector
 
 var _accum := 0.0
 var _quiet_until := 0.0
@@ -100,6 +103,12 @@ func setup(building: Node3D, body: Node3D, acts: Intrusions,
 	_rng.randomize()
 	if player:
 		_last_pos = player.global_position
+
+
+func bind_personality(director: BuildingPersonalityDirector) -> void:
+	personality = director
+	attention_registered.connect(personality.register_attention)
+	attention_withheld.connect(personality.register_ignored)
 
 
 func _process(delta: float) -> void:
@@ -190,6 +199,7 @@ func _noticed() -> void:
 	_ignored_streak = 0
 	pressure = maxf(0.0, pressure - 0.05)
 	_quiet_until = maxf(_quiet_until, Time.get_ticks_msec() / 1000.0 + 6.0)
+	attention_registered.emit(_last_case, last_tier)
 
 
 ## They did not. An intrusion nobody saw is an intrusion that has to be made
@@ -200,6 +210,7 @@ func _noticed() -> void:
 func _ignored() -> void:
 	_watching.clear()
 	_ignored_streak = mini(_ignored_streak + 1, 4)
+	attention_withheld.emit(_last_case, _ignored_streak)
 	print("[SANITY] unwitnessed (%d in a row)" % _ignored_streak)
 
 
@@ -290,6 +301,8 @@ func _consider() -> void:
 	# absence of events, and a director that fires whenever it may becomes
 	# a metronome.
 	var odds := 0.18 + 0.30 * pressure
+	if personality:
+		odds += personality.haunting_urgency()
 	if _call_active():
 		odds += 0.16
 	if _rng.randf() > odds:
@@ -340,6 +353,8 @@ func _choose_speaker() -> String:
 		score += clampf(float(_dwell.get(unit, 0.0)) / 45.0, 0.0, 0.8)
 		if case_id == _last_case:
 			score -= 1.6                       # let somebody else speak
+		if personality:
+			score += personality.speaker_bias(unit, case_id)
 		score += _rng.randf() * 0.5
 		scored.append([score, case_id])
 	scored.sort_custom(func(a, b): return a[0] > b[0])
@@ -353,9 +368,21 @@ func _fire(case_id: String, tier: int) -> void:
 	if acts.is_empty():
 		return
 	var performed := 0
+	var addressed_targets: Array[Node3D] = []
 	for act in acts:
 		if intrusions.perform(str(act[0]), act[1]):
 			performed += 1
+			for target in intrusions.last_targets:
+				if not addressed_targets.has(target):
+					addressed_targets.append(target)
+	if personality:
+		var punctuation := personality.companion_act(tier)
+		if not punctuation.is_empty() and intrusions.perform(
+				str(punctuation[0]), punctuation[1]):
+			performed += 1
+			for target in intrusions.last_targets:
+				if not addressed_targets.has(target):
+					addressed_targets.append(target)
 	if performed == 0:
 		return
 	intrusion_count += 1
@@ -366,7 +393,7 @@ func _fire(case_id: String, tier: int) -> void:
 	_quiet_until = now + float(REFRACTORY[tier])
 	# Arm the notice window on whatever actually moved. If the player never
 	# looks at any of it, the building will conclude it was not heard.
-	_watching = intrusions.last_targets.duplicate()
+	_watching = addressed_targets
 	_watch_deadline = now + NOTICE_WINDOW
 	# The address rung buys the longest silence in the game. The player has
 	# just been told something true about a stranger's grief; the building
@@ -399,7 +426,7 @@ func stand_down() -> void:
 
 
 func stats() -> Dictionary:
-	return {
+	var result := {
 		"pressure": pressure, "intrusions": intrusion_count,
 		"last_tier": last_tier, "last_case": _last_case,
 		"still_for": _still_for, "held": intrusions.held_count()
@@ -408,3 +435,8 @@ func stats() -> Dictionary:
 		"gaze_hold": _gaze_hold, "ignored": _ignored_streak,
 		"witnessed": _witnessed(),
 	}
+	if personality:
+		result["building_mood"] = personality.mood()
+		result["building_floor"] = personality.state.favorite_floor
+		result["building_tactic"] = personality.state.last_tactic
+	return result

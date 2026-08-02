@@ -68,8 +68,19 @@ func _audit() -> void:
 			var rect: Array = room["rect"]
 			var cx: float = (float(rect[0]) + float(rect[2])) * 0.5
 			var cy: float = (float(rect[1]) + float(rect[3])) * 0.5
-			cam.global_position = GameBoot.b2g([cx, cy, floor_y + 1.62])
+			cam.global_position = GameBoot.b2g([
+					cx, cy, floor_y + PlayerController.STANDING_EYE])
+			# LightRig deliberately derives the active storey from the player's
+			# feet, not from whichever debug camera happens to be current. The
+			# old audit moved only this camera, leaving the player in F01, then
+			# reported every F02-F06 fixture correctly gated off as a failure.
+			# Move the occupant and inspection eye together: this now tests the
+			# real contract at each room instead of bypassing its storey input.
+			root.player.global_position = GameBoot.b2g([
+					cx, cy, floor_y + 0.05])
 			root.light_rig._process(1.0)
+			_check(root.light_rig.active_floor == floor_id,
+					"%s/%s selects its active floor" % [floor_id, room["id"]])
 
 			var local_fixtures: Array[Node] = []
 			for fixture in fixtures:

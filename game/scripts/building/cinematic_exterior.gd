@@ -122,12 +122,12 @@ func _build_industrial_horizon() -> void:
 
 
 func _build_moving_city_light() -> void:
-	# Long, low cards under the street wall. A shader moves two tiny glints
-	# across them, suggesting traffic beyond the playable block without cars,
-	# physics, audio emitters or per-frame script work.
+	# Long, low cards under the street wall. The paired glints remain fixed:
+	# traffic is gridlocked for the whole shift, an unmoving urban pressure
+	# beyond the playable block with no vehicles or script work.
 	for spec in [[0.0, -46.0, 0.32, 0.0], [-22.0, 29.0, 0.38, 4.2]]:
 		var card := MeshInstance3D.new()
-		card.name = "DistantTrafficRibbon"
+		card.name = "GridlockedTrafficRibbon"
 		var quad := QuadMesh.new(); quad.size = Vector2(44.0, 0.65)
 		card.mesh = quad
 		card.position = GameBoot.b2g([spec[0], spec[1], spec[2]])
@@ -165,7 +165,7 @@ shader_type spatial;
 render_mode unshaded, blend_add, cull_disabled, depth_draw_never;
 uniform float phase = 0.0;
 void fragment() {
-	float x = fract(UV.x - TIME * 0.018 - phase);
+	float x = fract(UV.x - phase);
 	float head = smoothstep(0.020, 0.0, abs(x - 0.50));
 	float tail = smoothstep(0.014, 0.0, abs(x - 0.54));
 	float lane = smoothstep(0.42, 0.08, abs(UV.y - 0.5));

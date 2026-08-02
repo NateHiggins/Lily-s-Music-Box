@@ -68,16 +68,127 @@ func propagate_reality(origin: String, case_id: String, intensity: float,
 	if not nodes.has(origin):
 		push_warning("reality origin missing from acoustic graph: %s" % origin)
 		return
-	for entry in _plan_for(origin):
+	var grammar := PoltergeistLibrary.propagation(case_id)
+	var plan := _reality_plan(origin, grammar)
+	for entry in plan:
 		_deliver_reality(entry, case_id, intensity, recurrence)
 
 
 func _deliver_reality(entry: Dictionary, case_id: String, intensity: float,
 		recurrence: int) -> void:
-	if entry.delay > 0.0:
-		await get_tree().create_timer(entry.delay, false).timeout
+	var authored_delay := float(entry.get("reality_delay", entry.delay))
+	if authored_delay > 0.0:
+		await get_tree().create_timer(authored_delay, false).timeout
 	reality_event.emit(case_id, entry.id,
 			float(entry.strength) * intensity, recurrence)
+
+
+## Turns the common physical graph into a resident-specific infection route.
+## It never invents geometry: every delivery still follows a reachable graph
+## node, but selection and ordering express the resident's repeatable rule.
+func _reality_plan(origin: String, grammar: Dictionary) -> Array:
+	var base := _plan_for(origin).duplicate(true)
+	if grammar.is_empty():
+		return base
+	var selected: Array = []
+	var carrier := str(grammar.get("carrier", "all"))
+	var origin_node: Dictionary = nodes.get(origin, {})
+	for entry in base:
+		var node: Dictionary = nodes.get(entry.id, {})
+		var keep := false
+		match carrier:
+			"network": keep = str(node.get("network", "")) in grammar.get("networks", [])
+			"tokens": keep = _id_has_any(entry.id, grammar.get("tokens", []))
+			"unit_stack": keep = _unit_letter(entry.id) == str(grammar.get("stack", ""))
+			"same_type": keep = _device_type(entry.id) == _device_type(origin)
+			"unit_mirror": keep = _unit_letter(entry.id) in _mirror_letters(_unit_letter(origin))
+			_: keep = true
+		if keep or entry.id == origin:
+			selected.append(entry)
+	# Sparse carriers are still legible; an empty one is not. Fall back to
+	# reachable nodes rather than silently swallowing the manifestation.
+	if selected.size() < 2:
+		selected = base
+	var pattern := str(grammar.get("pattern", "distance"))
+	selected.sort_custom(func(a, b):
+		return _route_key(a, pattern, origin_node) < _route_key(b, pattern, origin_node))
+	var limit := int(grammar.get("limit", 0))
+	if limit > 0 and selected.size() > limit:
+		selected.resize(limit)
+	var step := float(grammar.get("step", 0.2))
+	var output: Array = []
+	for index in selected.size():
+		if pattern == "missing_word" and (index + 1) % int(grammar.get("skip_every", 4)) == 0:
+			continue
+		var entry: Dictionary = selected[index].duplicate()
+		entry.reality_delay = float(grammar.get("base_delay", 0.0)) + index * step
+		if pattern == "triage":
+			entry.strength *= 1.0 + minf(0.25, index * 0.015)
+		output.append(entry)
+	# Echoes are real second traversals, not simultaneous extra volume.
+	var echoes := int(grammar.get("echoes", 1))
+	if pattern in ["return_wave", "round_trip", "contradiction"]:
+		echoes = maxi(echoes, 2)
+	for echo_index in range(1, echoes):
+		var echo_pass := selected.duplicate(true)
+		echo_pass.reverse()
+		for index in echo_pass.size():
+			var entry: Dictionary = echo_pass[index].duplicate()
+			entry.reality_delay = output.size() * step + index * step
+			entry.strength *= pow(0.72, echo_index)
+			output.append(entry)
+	return output
+
+
+func _route_key(entry: Dictionary, pattern: String, origin_node: Dictionary) -> float:
+	var pos := node_pos(entry.id)
+	match pattern:
+		"ascending", "gravity_wave", "accession": return pos.y * 100.0 + float(entry.delay)
+		"egress", "round_trip": return -pos.y * 100.0 + absf(pos.x) + absf(pos.z)
+		"delayed_floor": return pos.y * 120.0 + float(entry.delay)
+		"spiral": return atan2(pos.z, pos.x) * 100.0 + pos.y
+		"frequency_hop": return float(abs(hash(_device_type(entry.id))) % 17) * 100.0 + pos.y
+		"seam": return pos.distance_to(GameBoot.b2g(origin_node.get("pos", [0, 0, 0])))
+		"graft": return float(abs(hash(str(nodes[entry.id].get("network", "")))) % 7) * 100.0 + float(entry.delay)
+		"contradiction": return pos.y * 100.0 + (-pos.x if _unit_letter(entry.id) in ["A", "B"] else pos.x)
+	return float(entry.delay)
+
+
+func _id_has_any(id: String, tokens: Array) -> bool:
+	for token in tokens:
+		if str(token) in id:
+			return true
+	return false
+
+
+func _unit_letter(id: String) -> String:
+	var parts := id.split("_")
+	if parts.size() > 1 and parts[1] in ["A", "B", "C", "D"]:
+		return parts[1]
+	return ""
+
+
+func _device_type(id: String) -> String:
+	var parts := id.split("_")
+	if parts.size() < 2:
+		return id
+	return "_".join(parts.slice(2)) if parts[0].begins_with("F0") else "_".join(parts.slice(1))
+
+
+func _mirror_letters(letter: String) -> Array:
+	match letter:
+		"A": return ["A", "D"]
+		"D": return ["D", "A"]
+		"B": return ["B", "C"]
+		"C": return ["C", "B"]
+	return ["A", "D"]
+
+
+## Test/debug inspection without emitting events or starting timers.
+func debug_reality_plan(origin: String, case_id: String) -> Array:
+	if not nodes.has(origin):
+		return []
+	return _reality_plan(origin, PoltergeistLibrary.propagation(case_id))
 
 
 ## Dijkstra by accumulated delay; strength decays with each node's damping.

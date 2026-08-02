@@ -97,6 +97,25 @@ func _run() -> void:
 	_check(_floor_below(Vector3(-9.5, 11.2, -4.8)), "apartment 4B has a slab")
 	_check(_floor_below(Vector3(9.5, 11.2, -4.8)), "apartment 4C has a slab")
 	_check(_floor_below(Vector3(0.0, -1.3, 5.0)), "basement corridor floor")
+	# B1 once had two coincident corridor walls: the authored wall carried
+	# four door cuts, while a generic solid wall behind it made every room
+	# unreachable. Probe through each opening at chest height so the duplicate
+	# can never return unnoticed.
+	var basement_space := get_viewport().world_3d.direct_space_state
+	var basement_doors := [
+		[Vector3(-4.55, -1.75, 5.05), Vector3(-6.05, -1.75, 5.05),
+				"storage cages"],
+		[Vector3(-4.55, -1.75, -6.16), Vector3(-6.05, -1.75, -6.16),
+				"laundry"],
+		[Vector3(4.55, -1.75, 5.325), Vector3(6.05, -1.75, 5.325),
+				"electrical room"],
+		[Vector3(4.55, -1.75, -4.385), Vector3(6.05, -1.75, -4.385),
+				"boiler room"],
+	]
+	for probe in basement_doors:
+		var doorway_ray := PhysicsRayQueryParameters3D.create(probe[0], probe[1])
+		_check(basement_space.intersect_ray(doorway_ray).is_empty(),
+				"B1 %s doorway is physically open" % probe[2])
 
 	var props := 0
 	for c in root.get_children():
@@ -576,7 +595,8 @@ func _door_checks() -> void:
 		var mid: Vector3 = target.global_position \
 				+ target.global_transform.basis \
 				* Vector3(target.width * 0.5, target.height * 0.5, 0.0)
-		pl3.global_position = mid + face * 1.1 - Vector3(0, 1.62, 0)
+		pl3.global_position = mid + face * 1.1 \
+				- Vector3(0, PlayerController.STANDING_EYE, 0)
 		pl3.velocity = Vector3.ZERO
 		await get_tree().physics_frame
 		pl3.camera.look_at(mid, Vector3.UP)

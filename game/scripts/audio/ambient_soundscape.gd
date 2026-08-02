@@ -11,6 +11,8 @@ var _beds: Dictionary = {}
 var _event_players: Array[AudioStreamPlayer3D] = []
 var _next_event := 8.0
 var _next_radiator := 5.0
+var _next_signature := 11.0
+var _stagger_guard := 0.0
 var _event_index := 0
 var _last_radiator: Node3D
 var _rng := RandomNumberGenerator.new()
@@ -51,7 +53,7 @@ func _ensure_bus() -> void:
 		AudioServer.add_bus()
 		AudioServer.set_bus_name(AudioServer.bus_count - 1, "Ambience")
 	var bus := AudioServer.get_bus_index("Ambience")
-	AudioServer.set_bus_volume_db(bus, -3.0)
+	AudioServer.set_bus_volume_db(bus, -6.0)
 
 
 func _add_bed(key: String, stream_key: String) -> void:
@@ -95,15 +97,26 @@ func _process(delta: float) -> void:
 	_fade("roof", (-16.5 if roof else -60.0) - duck, delta)
 	_next_event -= delta
 	_next_radiator -= delta
-	if _next_radiator <= 0.0 and not outside:
+	_next_signature -= delta
+	_stagger_guard = maxf(0.0, _stagger_guard - delta)
+	# All three clocks share a guard. The building takes turns speaking instead
+	# of landing a pipe, a door and a resident signature in the same second.
+	if _next_signature <= 0.0 and not outside and _stagger_guard <= 0.0:
+		_cue_nearby_signature()
+		_next_signature = _rng.randf_range(14.0, 31.0)
+		_stagger_guard = 3.5
+	elif _next_radiator <= 0.0 and not outside and _stagger_guard <= 0.0:
 		_cue_radiator(pressure)
-		# Higher pressure shortens the wait, but never turns pipes into rhythm.
+		# Ordinary heat is sparse and mostly a single harmless ping. Resident
+		# signatures have their own scheduler and are allowed to form patterns.
 		_next_radiator = _rng.randf_range(
-				lerpf(17.0, 8.0, pressure), lerpf(42.0, 19.0, pressure))
-	if _next_event <= 0.0:
+				lerpf(34.0, 25.0, pressure), lerpf(82.0, 56.0, pressure))
+		_stagger_guard = 3.0
+	elif _next_event <= 0.0 and _stagger_guard <= 0.0:
 		_cue_architecture(outside, basement, pressure)
 		_next_event = _rng.randf_range(
-				lerpf(16.0, 10.0, pressure), lerpf(38.0, 23.0, pressure))
+				lerpf(29.0, 22.0, pressure), lerpf(66.0, 48.0, pressure))
+		_stagger_guard = 4.0
 
 
 func _fade(key: String, target_db: float, delta: float) -> void:
@@ -130,12 +143,12 @@ func _cue_radiator(pressure: float) -> void:
 	var chosen: Node3D = candidates[_rng.randi_range(0, reach - 1)]
 	var roll := _rng.randf()
 	var kind := "tick"
-	if roll < 0.20 + pressure * 0.22:
+	if roll < 0.03 + pressure * 0.08:
 		kind = "whistle"
-	elif roll < 0.52 + pressure * 0.18:
+	elif roll < 0.15 + pressure * 0.10:
 		kind = "knock"
 	chosen.call("play_ambient_cycle", kind,
-			clampf(_rng.randf_range(0.28, 0.72) + pressure * 0.20, 0.0, 1.0))
+			clampf(_rng.randf_range(0.18, 0.45) + pressure * 0.10, 0.0, 1.0))
 	_last_radiator = chosen
 	# A hard knock sometimes receives one remote, quieter reply.
 	if kind == "knock" and candidates.size() > 1 and _rng.randf() < 0.32:
@@ -161,8 +174,75 @@ func _cue_architecture(outside: bool, basement: bool, pressure: float) -> void:
 		if pressure > 0.78:
 			keys.append("power_down")
 	var key: String = keys[_rng.randi_range(0, keys.size() - 1)]
-	_play_at(key, _architectural_source(), _rng.randf_range(-23.0, -16.0)
+	_play_at(key, _architectural_source(), _rng.randf_range(-29.0, -22.0)
 			- pressure * 4.0)
+
+
+## A resident need not have an active work order to infect the air around
+## them. Proximity is enough. Resolution—not temporary repair—is the only
+## thing that silences their personal tell.
+func _cue_nearby_signature() -> void:
+	var nearby: Array = []
+	for resident in get_tree().get_nodes_in_group("resident_placeholders"):
+		if not resident is Node3D:
+			continue
+		var resident_node := resident as Node3D
+		var resident_id: String = str(resident_node.get("resident_id"))
+		var case_id: String = RealityCases.case_for_resident(resident_id)
+		if case_id.is_empty() or _case_resolved(case_id):
+			continue
+		var distance: float = resident_node.global_position.distance_to(
+				player.global_position)
+		if distance <= 10.5:
+			nearby.append([distance, resident_node, case_id])
+	if nearby.is_empty():
+		return
+	nearby.sort_custom(func(a, b): return a[0] < b[0])
+	var chosen: Array = nearby[0]
+	var source: Node3D = chosen[1]
+	var case_id: String = chosen[2]
+	var signature: Dictionary = PoltergeistLibrary.signature(case_id)
+	if signature.is_empty():
+		return
+	# Omar's infection owns the radiator system. Even before his case starts,
+	# the nearest pipe answers him; after resolution it becomes ordinary heat.
+	if bool(signature.get("radiator", false)):
+		var radiator := _nearest_radiator(source.global_position, 8.0)
+		if radiator:
+			radiator.call("play_ambient_cycle", "tick", 0.42)
+			source = radiator
+	_play_signature(signature, source.global_position)
+
+
+func _play_signature(signature: Dictionary, at: Vector3) -> void:
+	var count := clampi(int(signature.get("pattern", 1)), 1, 4)
+	var spacing := float(signature.get("delay", 0.0))
+	if spacing <= 0.0:
+		spacing = _rng.randf_range(0.22, 0.62)
+	for index in count:
+		var delay := spacing * index
+		var pitch := float(signature.get("pitch", 1.0))
+		if index % 2 == 1 and signature.has("alternate_pitch"):
+			pitch = float(signature.alternate_pitch)
+		get_tree().create_timer(delay, false).timeout.connect(func():
+			_play_at(str(signature.sound), at, -27.0, pitch))
+
+
+func _case_resolved(case_id: String) -> bool:
+	var case_state := RealityState.case_state(case_id)
+	return bool(case_state.get("resolved", false)) \
+			or str(case_state.get("stage", "unseen")) == "resolved"
+
+
+func _nearest_radiator(at: Vector3, radius: float) -> Node3D:
+	var best: Node3D
+	var best_distance := radius
+	for radiator in get_tree().get_nodes_in_group("radiators"):
+		var distance: float = radiator.global_position.distance_to(at)
+		if distance < best_distance:
+			best = radiator
+			best_distance = distance
+	return best
 
 
 func _architectural_source() -> Vector3:
@@ -194,14 +274,16 @@ func _on_sanity_intruded(_case_id: String, tier: int) -> void:
 			func(): _play_at(key, at, -18.0 + tier * 1.5))
 
 
-func _play_at(key: String, at: Vector3, volume_db: float) -> void:
+func _play_at(key: String, at: Vector3, volume_db: float,
+		pitch_override := 0.0) -> void:
 	var stream := PropAudio.get_stream(key)
 	if stream == null:
 		return
 	var event := _event_players[_event_index % _event_players.size()]
 	_event_index += 1
 	event.stream = stream
-	event.pitch_scale = _rng.randf_range(0.92, 1.06)
+	event.pitch_scale = pitch_override if pitch_override > 0.0 \
+			else _rng.randf_range(0.92, 1.06)
 	event.volume_db = volume_db
 	event.global_position = at
 	event.play()

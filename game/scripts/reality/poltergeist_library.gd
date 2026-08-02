@@ -218,6 +218,55 @@ const POLTERGEISTS := {
 },
 }
 
+## The quiet tell each resident carries around before their case is active.
+## These are deliberately domestic and deniable: one sound is plumbing; a
+## recurring personal rhythm is a presence. They cease only at resolution.
+const SIGNATURES := {
+	"mina_caption_crisis": {"thing":"the label-maker click", "sound":"pop", "pitch":1.34, "pattern":2},
+	"juno_feedback_tetris": {"thing":"three beats seeking a fourth", "sound":"tick", "pitch":0.82, "pattern":3},
+	"omar_unrepairable": {"thing":"the answering radiator", "sound":"tick", "pitch":0.91, "pattern":2, "radiator":true},
+	"rhea_bad_karaoke": {"thing":"a breath held past comfort", "sound":"breath", "pitch":1.05, "pattern":1},
+	"nadia_code_pinball": {"thing":"the breaker that almost trips", "sound":"power_down", "pitch":1.12, "pattern":1},
+	"sacha_camera_delay": {"thing":"a shutter after the moment", "sound":"pop", "pitch":1.58, "pattern":1, "delay":0.9},
+	"evelyn_paper_jam": {"thing":"the red pen correcting the wall", "sound":"creak", "pitch":1.42, "pattern":2},
+	"teresa_call_bells": {"thing":"the unanswered call bell", "sound":"bell", "pitch":1.18, "pattern":1},
+	"lena_unraveling": {"thing":"thread pulled through plaster", "sound":"creak", "pitch":1.68, "pattern":3},
+	"malcolm_memory_plants": {"thing":"leaves moving in a sealed room", "sound":"creak", "pitch":0.72, "pattern":1},
+	"peter_form_corridor": {"thing":"a stamp in the next room", "sound":"thud", "pitch":1.48, "pattern":2},
+	"cam_tilted_room": {"thing":"furniture settling uphill", "sound":"thud", "pitch":0.78, "pattern":1},
+	"noel_domestic_museum": {"thing":"glass touched from inside", "sound":"tick", "pitch":1.72, "pattern":1},
+	"transient_infinite_checkout": {"thing":"luggage beyond the door", "sound":"door_squeak", "pitch":0.76, "pattern":1},
+	"cal_memory_radio": {"thing":"a station between stations", "sound":"radiator_whistle", "pitch":0.88, "pattern":1},
+	"iris_runaway_paint": {"thing":"a frame adjusting itself", "sound":"tick", "pitch":1.21, "pattern":2},
+	"jonah_sentence_insects": {"thing":"one insect behind the baseboard", "sound":"tick", "pitch":1.86, "pattern":4},
+	"mae_contradictory_antiques": {"thing":"two clocks disagreeing", "sound":"tick", "pitch":0.67, "pattern":2, "alternate_pitch":1.41},
+}
+
+## How each wound recruits the rest of the building. `carrier` determines
+## what can catch it; `pattern` determines the visible order of infection.
+## The hint is diegetic design guidance: each rule leaves evidence from which
+## a player can infer what will be struck next.
+const PROPAGATION := {
+	"mina_caption_crisis": {"carrier":"tokens", "tokens":["MONITOR", "LIGHT", "DOME", "SCONCE"], "pattern":"ascending", "step":0.16, "hint":"screens name a thing; the nearest light repeats the name"},
+	"juno_feedback_tetris": {"carrier":"tokens", "tokens":["SPEAKER", "MONITOR", "BOXFAN"], "pattern":"echo", "step":0.28, "echoes":2, "hint":"each open audio channel copies the previous channel one beat late"},
+	"omar_unrepairable": {"carrier":"tokens", "tokens":["RADIATOR", "TOASTER", "FRIDGE", "WASHER", "DRYER", "BOILER"], "pattern":"handoff", "step":0.42, "limit":14, "hint":"a new fault appears in the next repairable machine after the last is touched"},
+	"rhea_bad_karaoke": {"carrier":"network", "networks":["flue", "heating"], "pattern":"return_wave", "step":0.22, "hint":"breath climbs the flues and returns from the floor above"},
+	"nadia_code_pinball": {"carrier":"tokens", "tokens":["CORR", "ELEVATOR", "STAIR", "DOME"], "pattern":"egress", "step":0.12, "hint":"exit-route fixtures fail in code-compliance order"},
+	"sacha_camera_delay": {"carrier":"tokens", "tokens":["MONITOR", "CAMERA", "TV"], "pattern":"delayed_floor", "step":0.34, "base_delay":1.1, "hint":"the recorded floor reacts only after the live floor has gone quiet"},
+	"evelyn_paper_jam": {"carrier":"unit_stack", "stack":"A", "pattern":"ascending", "step":0.24, "hint":"the same apartment letter is graded upward, floor by floor"},
+	"teresa_call_bells": {"carrier":"tokens", "tokens":["ELEVATOR", "BELL", "CORR", "DOME"], "pattern":"triage", "step":0.18, "echoes":3, "hint":"the closest unanswered alarm rings first; ignored alarms recruit farther ones"},
+	"lena_unraveling": {"carrier":"network", "networks":["structural"], "pattern":"seam", "step":0.30, "hint":"the crack follows one continuous structural seam and never jumps a gap"},
+	"malcolm_memory_plants": {"carrier":"network", "networks":["water", "heating"], "pattern":"graft", "step":0.38, "hint":"water feeds heat; each successful crossing grows one new remembered branch"},
+	"peter_form_corridor": {"carrier":"tokens", "tokens":["CORR", "DOME", "ELEVATOR"], "pattern":"duplicate", "step":0.20, "echoes":2, "hint":"every doorway duplicates the pending route instead of completing it"},
+	"cam_tilted_room": {"carrier":"network", "networks":["structural"], "pattern":"gravity_wave", "step":0.14, "hint":"the lowest structural member tips first and the incline climbs"},
+	"noel_domestic_museum": {"carrier":"same_type", "pattern":"accession", "step":0.44, "limit":12, "hint":"matching objects are accessioned oldest-floor-first"},
+	"transient_infinite_checkout": {"carrier":"tokens", "tokens":["CORR", "ELEVATOR", "DOME"], "pattern":"round_trip", "step":0.17, "hint":"the checkout wave descends toward the lobby, then comes back upstairs"},
+	"cal_memory_radio": {"carrier":"tokens", "tokens":["SPEAKER", "MONITOR", "TV", "RADIATOR", "INTERCOM"], "pattern":"frequency_hop", "step":0.31, "hint":"the station alternates electrical receivers and heating pipes"},
+	"iris_runaway_paint": {"carrier":"tokens", "tokens":["LIGHT", "LAMP", "SCONCE", "DOME", "PENDANT"], "pattern":"spiral", "step":0.11, "hint":"light changes circle the building clockwise like an audience turning its heads"},
+	"jonah_sentence_insects": {"carrier":"tokens", "tokens":["RADIATOR", "STRUCT", "DOME"], "pattern":"missing_word", "step":0.13, "skip_every":4, "hint":"three nodes speak and the fourth—the ending—is always missing"},
+	"mae_contradictory_antiques": {"carrier":"unit_mirror", "pattern":"contradiction", "step":0.19, "echoes":2, "hint":"opposite apartments report the same event in reverse order"},
+}
+
 
 static func ids() -> Array:
 	return POLTERGEISTS.keys()
@@ -242,3 +291,11 @@ static func rung(case_id: String, tier: int) -> Array:
 
 static func unit_of(case_id: String) -> String:
 	return profile(case_id).get("unit", "")
+
+
+static func signature(case_id: String) -> Dictionary:
+	return SIGNATURES.get(case_id, {})
+
+
+static func propagation(case_id: String) -> Dictionary:
+	return PROPAGATION.get(case_id, {})

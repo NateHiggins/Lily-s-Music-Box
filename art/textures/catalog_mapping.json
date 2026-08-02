@@ -1,11 +1,14 @@
 {
  "plaster": "generated/plaster",
+ "wallpaper_old": "library/architectural/haunted_wallpaper",
  "brick": "generated/brick",
  "common_brick": "generated/common_brick",
  "face_brick": "generated/face_brick",
  "limestone": "generated/limestone",
  "timber": "generated/timber",
  "concrete": "generated/concrete",
+ "sidewalk_haunted": "library/exterior/haunted_sidewalk",
+ "sidewalk_grout": "library/exterior/sidewalk_grout",
  "trim": "library/architectural/painted_trim",
  "floor_oak": "generated/floor_oak",
  "terrazzo": "generated/terrazzo",
@@ -54,8 +57,8 @@
  "linoleum": null,
  "plywood": null,
  "char": null,
- "brick_patched": null,
- "plaster_stained": null,
+ "brick_patched": "generated/common_brick",
+ "plaster_stained": "generated/plaster",
  "fx_patch": null,
  "fx_damp": null,
  "terracotta": "generated/terracotta",
@@ -63,4 +66,5 @@
  "wet_asphalt": null,
  "puddle": null,
  "leaf_fall": null
+ ,"safety_orange": null
 }

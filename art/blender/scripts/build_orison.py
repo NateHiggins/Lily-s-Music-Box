@@ -165,12 +165,21 @@ class MeshBuf:
         self.uv_mode = uv_mode   # "world" projection or per-quad "unit"
         self.verts = []
         self.faces = []
+        self.face_uvs = []
 
     def add_quad(self, c0, c1, c2, c3):
         """Single upward-facing quad (contact shadows, AO strips)."""
         b = len(self.verts)
         self.verts += [c0, c1, c2, c3]
         self.faces.append((b, b + 1, b + 2, b + 3))
+        self.face_uvs.append(None)
+
+    def add_quad_uv(self, c0, c1, c2, c3, uv0, uv1, uv2, uv3):
+        """Quad with explicit atlas coordinates (wall-spanning finishes)."""
+        b = len(self.verts)
+        self.verts += [c0, c1, c2, c3]
+        self.faces.append((b, b + 1, b + 2, b + 3))
+        self.face_uvs.append((uv0, uv1, uv2, uv3))
 
     def add_box(self, mn, mx):
         if mx[0] - mn[0] < 1e-4 or mx[1] - mn[1] < 1e-4 or mx[2] - mn[2] < 1e-4:
@@ -183,6 +192,7 @@ class MeshBuf:
         self.faces += [(b, b + 3, b + 2, b + 1), (b + 4, b + 5, b + 6, b + 7),
                        (b, b + 1, b + 5, b + 4), (b + 1, b + 2, b + 6, b + 5),
                        (b + 2, b + 3, b + 7, b + 6), (b + 3, b, b + 4, b + 7)]
+        self.face_uvs += [None] * 6
 
     def add_ramp(self, x0, z0, x1, z1, y0, y1, thickness=0.08, axis="x"):
         """Inclined slab between (a0,z0) and (a1,z1) along `axis`, spanning
@@ -353,6 +363,14 @@ class MeshBuf:
         (TEXCOORD_0) untouched. Brushed metals swap U/V on vertical
         faces so the grain falls vertically on fronts."""
         uv = me.uv_layers.new(name="UVMap")
+        if self.uv_mode == "explicit":
+            for poly in me.polygons:
+                coords = self.face_uvs[poly.index]
+                if coords is None:
+                    coords = ((0, 0), (1, 0), (1, 1), (0, 1))
+                for j, li in enumerate(poly.loop_indices):
+                    uv.data[li].uv = coords[j]
+            return
         if self.uv_mode == "unit":   # decal quads: corners span 0..1
             # Derived from each vertex's POSITION within its own face, not
             # from its loop index. The index form assigned the four corners
@@ -437,6 +455,29 @@ def get_material(key):
     bsdf.inputs["Base Color"].default_value = spec["base_color"]
     bsdf.inputs["Roughness"].default_value = spec.get("roughness", 0.7)
     bsdf.inputs["Metallic"].default_value = spec.get("metallic", 0.0)
+    if key.startswith("wallfinish_"):
+        wall_id = key[len("wallfinish_"):]
+        base = os.path.join(TEX_ROOT, "wall_finishes", wall_id)
+        for kind, srgb, y in (("albedo", True, 300),
+                              ("roughness", False, 20),
+                              ("normal", False, -260)):
+            node = nt.nodes.new("ShaderNodeTexImage")
+            node.name = node.label = kind
+            node.image = _image(os.path.join(base, kind + ".png"),
+                                "wallfinish_%s" % wall_id, kind, srgb)
+            node.location = (-420, y)
+            if kind == "albedo":
+                nt.links.new(node.outputs["Color"], bsdf.inputs["Base Color"])
+            elif kind == "roughness":
+                nt.links.new(node.outputs["Color"], bsdf.inputs["Roughness"])
+            else:
+                nrm = nt.nodes.new("ShaderNodeNormalMap")
+                nrm.inputs["Strength"].default_value = 0.42
+                nrm.location = (-160, -260)
+                nt.links.new(node.outputs["Color"], nrm.inputs["Color"])
+                nt.links.new(nrm.outputs["Normal"], bsdf.inputs["Normal"])
+        _mat_cache[key] = mat
+        return mat
     if key == "glassish":
         # Actual architectural glass: transmissive and lightly tinted,
         # rather than the opaque blue-gray panel used by the blockout.
@@ -1554,6 +1595,102 @@ def asm_bottles(F, p):
     F.tube(m, (fx, 0.10, 0.030), (fx + 0.19, 0.16, 0.030), 0.030, 8)
 
 
+def asm_safety_barrier(F, p):
+    """Cheap contractor barricade: two weighted cones and a striped rail."""
+    W = p.get("W", 1.55)
+    for sx in (-W / 2, W / 2):
+        F.box("soot", sx - 0.18, -0.14, 0.0, sx + 0.18, 0.14, 0.045)
+        F.lathe("safety_orange", sx, 0.0,
+                [(0.14, 0.045), (0.11, 0.12), (0.065, 0.48),
+                 (0.035, 0.58)], 10)
+        F.lathe("trim", sx, 0.0, [(0.077, 0.30), (0.068, 0.39)], 10)
+    F.box("safety_orange", -W / 2, -0.055, 0.64,
+          W / 2, 0.055, 0.83)
+    for i in range(6):
+        x0 = -W / 2 + i * W / 6.0
+        F.tbox("trim", (x0 + 0.11, 0.058, 0.645),
+               (x0 + 0.28, 0.058, 0.825), 0.10, 0.008)
+    F.hull(-W / 2 - 0.18, -0.14, 0.0, W / 2 + 0.18, 0.14, 0.84)
+
+
+def asm_reno_gear(F, p):
+    """Abandoned renovation cluster: ladder, paint bucket, bags and cord."""
+    # Folding ladder leaning a little too casually against the work wall.
+    for x in (-0.31, 0.31):
+        F.tube("metal", (x, 0.10, 0.0), (x, -0.08, 1.82), 0.025, 8)
+    for i in range(6):
+        z = 0.24 + i * 0.25
+        F.tube("metal", (-0.29, 0.075 - z * 0.10, z),
+               (0.29, 0.075 - z * 0.10, z), 0.018, 8)
+    # Half-dry joint compound bucket with handle.
+    F.lathe("trim", 0.52, 0.02,
+            [(0.16, 0.0), (0.17, 0.04), (0.15, 0.34),
+             (0.14, 0.37)], 12)
+    F.tube("metal", (0.37, 0.02, 0.26), (0.52, -0.10, 0.46), 0.009, 6)
+    F.tube("metal", (0.52, -0.10, 0.46), (0.67, 0.02, 0.26), 0.009, 6)
+    # Torn plaster bags and an unplugged extension cable.
+    F.box("paper", -0.64, -0.20, 0.0, -0.18, 0.14, 0.14)
+    F.box("paper", -0.56, -0.13, 0.14, -0.12, 0.12, 0.25)
+    for i in range(9):
+        a0, a1 = math.tau * i / 9.0, math.tau * (i + 1) / 9.0
+        F.tube("safety_orange",
+               (0.18 * math.cos(a0), 0.18 * math.sin(a0), 0.025),
+               (0.18 * math.cos(a1), 0.18 * math.sin(a1), 0.025),
+               0.012, 6)
+    F.hull(-0.72, -0.24, 0.0, 0.72, 0.20, 1.84)
+
+
+def asm_fire_escape(F, p):
+    """Five-storey riveted iron egress tower with alternating stairs."""
+    levels = p.get("levels", 5)
+    dz = p.get("floor_h", 3.2)
+    width, depth = p.get("W", 2.25), p.get("D", 1.18)
+    for level in range(levels):
+        z = dz * (level + 1)
+        F.box("metal", -width / 2, 0.0, z - 0.07,
+              width / 2, depth, z)
+        # Perimeter guards and wall anchors.
+        for x in (-width / 2, width / 2):
+            F.tube("metal", (x, 0.04, z), (x, depth, z), 0.022, 6)
+            F.tube("metal", (x, depth, z), (x, depth, z + 0.92), 0.025, 6)
+        F.tube("metal", (-width / 2, depth, z + 0.92),
+               (width / 2, depth, z + 0.92), 0.028, 6)
+        F.tube("metal", (-width / 2, depth, z + 0.47),
+               (width / 2, depth, z + 0.47), 0.018, 6)
+        for x in (-width * 0.38, width * 0.38):
+            F.tube("metal", (x, 0.0, z - 0.02),
+                   (x, -0.22, z - 0.02), 0.030, 8)
+        if level == 0:
+            continue
+        # Alternating diagonal stair flights preserve the classic zig-zag.
+        flip = -1 if level % 2 else 1
+        x0, x1 = flip * width * 0.34, -flip * width * 0.34
+        low, high = z - dz, z
+        for y in (0.22, depth - 0.22):
+            F.tube("metal", (x0, y, low), (x1, y, high), 0.035, 8)
+        for step in range(11):
+            u = step / 10.0
+            x = x0 + (x1 - x0) * u
+            sz = low + (high - low) * u
+            F.tube("metal", (x - 0.42, 0.20, sz),
+                   (x + 0.42, depth - 0.20, sz), 0.018, 6)
+    # Drop ladder and roof gooseneck.
+    for x in (-0.24, 0.24):
+        F.tube("metal", (x, depth, 0.15), (x, depth, dz), 0.025, 8)
+        F.tube("metal", (x, depth, dz * (levels + 1) - 0.1),
+               (x, depth, dz * levels), 0.025, 8)
+    for i in range(10):
+        z = 0.25 + i * (dz - 0.30) / 9.0
+        F.tube("metal", (-0.24, depth, z), (0.24, depth, z), 0.018, 6)
+    for i in range(4):
+        z = dz * levels + i * dz / 3.0
+        F.tube("metal", (-0.24, depth, z), (0.24, depth, z), 0.018, 6)
+    # No coarse assembly hull: a single six-storey box would make the open
+    # ironwork behave like an invisible solid tower. These are exterior
+    # silhouette/egress evidence until a dedicated walkable fire-escape
+    # collision asset replaces the batched low-overhead version.
+
+
 ASM = {
     "sofa": asm_sofa, "chair": asm_chair, "table_round": asm_table_round,
     "table_rect": asm_table_rect, "coffee": asm_coffee,
@@ -1573,6 +1710,8 @@ ASM = {
     "jarrow": asm_jarrow, "tripod": asm_tripod, "softbox": asm_softbox,
     "cablecoil": asm_cablecoil, "crate": asm_crate, "radio": asm_radio,
     "sitemodel": asm_sitemodel, "bottles": asm_bottles,
+    "safety_barrier": asm_safety_barrier, "reno_gear": asm_reno_gear,
+    "fire_escape": asm_fire_escape,
 }
 
 
@@ -1639,19 +1778,17 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
                             "concrete")
 
     def detail_seg(d0, d1):
-        """Baseboard/cornice/wainscot on a stretch of wall between doors,
+        """Baseboard/wainscot on a stretch of wall between doors,
         plus a floor AO gradient strip on both faces — the corner
         darkening a path tracer would give the wall/floor junction."""
         if d1 - d0 < 0.05 or not details:
             return
         if is_brick and w.get("in_side"):
             # exterior masonry is furred and plastered on the inside only,
-            # so its baseboard and cornice run on the interior face
+            # so its baseboard runs on the interior face
             side_box(trim_buf, d0, d1, 0.0, 0.11, w["in_side"], 0.036)
-            side_box(trim_buf, d0, d1, h - 0.07, h, w["in_side"], 0.030)
         else:
             box(trim_buf, d0, d1, 0.0, 0.11, t + 0.036)
-            box(trim_buf, d0, d1, h - 0.07, h, t + 0.030)
         if wains:
             box(wains_buf, d0, d1, 0.11, 1.32, t + 0.022)
             box(trim_buf, d0, d1, 1.32, 1.36, t + 0.040)
@@ -1732,6 +1869,207 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
     if cursor < length:
         seg_box(cursor, length, 0.0, h)
     detail_seg(d_cursor, length)
+    # Crown moulding belongs to the ceiling plane, not the door schedule.
+    # It therefore spans lintels continuously while baseboard and dado stop
+    # at the jambs. The old shared detail interval punched door-width gaps
+    # into this runner throughout the building.
+    if details:
+        if is_brick and w.get("in_side"):
+            side_box(trim_buf, 0.0, length, h - 0.07, h,
+                     w["in_side"], 0.030)
+        else:
+            box(trim_buf, 0.0, length, h - 0.07, h, t + 0.030)
+
+
+def build_baked_wall_finish(target, w, side):
+    """One continuous, uniquely baked finish over a room-facing wall.
+
+    Openings are subtracted geometrically, but every remaining rectangle uses
+    coordinates from the same wall-wide 0..1 texture. This prevents windows
+    from stretching a fresh copy of the image into each lintel and sill.
+    """
+    ax, ay = w["a"]
+    bx, by = w["b"]
+    z, h, t = w["z"], w["h"], w["t"]
+    horizontal = abs(by - ay) < 1e-6
+    length = abs((bx - ax) if horizontal else (by - ay))
+    start = min(ax, bx) if horizontal else min(ay, by)
+    cross = ay if horizontal else ax
+    rects = [(0.0, 0.0, length, h)]
+    for opening in w.get("openings", []):
+        d0 = max(0.0, opening["at"] - opening["w"] * .5)
+        d1 = min(length, opening["at"] + opening["w"] * .5)
+        z0 = opening.get("sill", 0.0)
+        z1 = min(h, z0 + opening["h"])
+        rects = subtract_rect(rects, (d0, z0, d1, z1))
+    face = cross + side * (t * .5 + .006)
+    for d0, z0, d1, z1 in rects:
+        if horizontal:
+            pts = ((start + d0, face, z + z0),
+                   (start + d1, face, z + z0),
+                   (start + d1, face, z + z1),
+                   (start + d0, face, z + z1))
+        else:
+            pts = ((face, start + d0, z + z0),
+                   (face, start + d1, z + z0),
+                   (face, start + d1, z + z1),
+                   (face, start + d0, z + z1))
+        target.add_quad_uv(*pts,
+                           (d0 / length, z0 / h),
+                           (d1 / length, z0 / h),
+                           (d1 / length, z1 / h),
+                           (d0 / length, z1 / h))
+
+
+def build_stripped_wall_finish(plaster_buf, wallpaper_buf, damp_buf, w,
+                               sides=(-1, 1)):
+    """Cause-shaped historic finish failure on the inside of masonry.
+
+    Damage is evaluated in continuous wall coordinates. Rising damp makes an
+    uneven tide line; a high leak makes a narrow wandering wet path; movement
+    starts diagonal loss at opening corners; broad detached islands bridge
+    those causes. Wallpaper follows real roll widths and can exist only where
+    plaster survives. The fine tessellation is merely geometry resolution --
+    it never decides damage independently, so there is no random checkerboard.
+    """
+    ax, ay = w["a"]
+    bx, by = w["b"]
+    z, h, t = w["z"], w["h"], w["t"]
+    horizontal = abs(by - ay) < 1e-6
+    length = abs((bx - ax) if horizontal else (by - ay))
+    start = min(ax, bx) if horizontal else min(ay, by)
+    cross = ay if horizontal else ax
+    openings = w.get("openings", [])
+    seed = int(round((ax + 31.0) * 17 + (ay + 37.0) * 29
+                     + (bx + 41.0) * 11 + (by + 43.0) * 7
+                     + (z + 5.0) * 13))
+
+    def covered_by_opening(d0, d1, z0, z1):
+        for opening in openings:
+            od0 = opening["at"] - opening["w"] * 0.5
+            od1 = opening["at"] + opening["w"] * 0.5
+            oz0 = opening.get("sill", 0.0)
+            oz1 = oz0 + opening["h"]
+            if d0 < od1 and d1 > od0 and z0 < oz1 and z1 > oz0:
+                return True
+        return False
+
+    def face_quad(target, d0, d1, z0, z1, side, lift):
+        face = cross + side * (t * 0.5 + lift)
+        if horizontal:
+            pts = [(start + d0, face, z + z0),
+                   (start + d1, face, z + z0),
+                   (start + d1, face, z + z1),
+                   (start + d0, face, z + z1)]
+        else:
+            pts = [(face, start + d0, z + z0),
+                   (face, start + d1, z + z0),
+                   (face, start + d1, z + z1),
+                   (face, start + d0, z + z1)]
+        if side < 0:
+            pts.reverse()
+        target.add_quad(*pts)
+
+    phase = (seed % 97) / 97.0 * math.tau
+    leak_u = 0.68 + ((seed // 7) % 17) / 100.0
+    island_u = 0.28 + ((seed // 11) % 35) / 100.0
+
+    def tide(u):
+        """Nonuniform capillary/rising-damp loss, strongest at the floor."""
+        return 0.075 + 0.052 * (math.sin(u * 8.2 + phase) * 0.5 + 0.5) \
+            + 0.030 * (math.sin(u * 21.0 + phase * 0.7) * 0.5 + 0.5)
+
+    def leak_center(v):
+        # A leak follows gravity but meanders at cracks and mortar joints.
+        return leak_u + math.sin(v * 12.0 + phase) * 0.018 \
+            + math.sin(v * 31.0 + phase * 0.4) * 0.008
+
+    def opening_corner_loss(u, v):
+        """Diagonal settlement cracks and detached shoulders at openings."""
+        for opening in openings:
+            center = opening["at"] / max(length, 0.001)
+            half = opening["w"] * 0.5 / max(length, 0.001)
+            top = (opening.get("sill", 0.0) + opening["h"]) / max(h, 0.001)
+            for corner, direction in ((center - half, -1.0),
+                                      (center + half, 1.0)):
+                # Crack rises and travels away from the opening corner.
+                run = max(0.0, v - top)
+                line_u = corner + direction * run * 0.58
+                width = 0.012 + run * 0.075
+                if run < 0.34 and abs(u - line_u) < width:
+                    return True
+                # Loss fans below the crack where the plaster key detached.
+                du = (u - (corner + direction * 0.055)) / 0.115
+                dv = (v - (top - 0.075)) / 0.16
+                if du * du + dv * dv < 1.0:
+                    return True
+        return False
+
+    def plaster_missing(u, v):
+        # 1. Ground moisture: connected, never evenly sprinkled.
+        if v < tide(u):
+            return True
+        # 2. One high leak: narrow stain above, plaster failure where water
+        # accumulates lower down and beside the pipe/radiator zone.
+        wet_width = 0.022 + max(0.0, 0.62 - v) * 0.095
+        if v < 0.60 and abs(u - leak_center(v)) < wet_width:
+            return True
+        # 3. Structural movement anchored to actual openings.
+        if opening_corner_loss(u, v):
+            return True
+        # 4. One broad delamination island bridges cracks/damp. Its wobbled
+        # ellipse yields the large connected silhouette seen in the target.
+        du = (u - island_u) / 0.17
+        dv = (v - 0.27) / 0.19
+        wobble = 0.86 + 0.10 * math.sin(u * 29.0 + phase) \
+            + 0.07 * math.sin(v * 37.0 - phase)
+        return du * du + dv * dv < wobble
+
+    def wallpaper_present(u, v):
+        # Historic rolls create broad vertical fields with real aligned seams.
+        metres = u * length
+        roll = int(math.floor((metres + (seed % 19) * 0.031) / 0.61))
+        in_roll = (metres + (seed % 19) * 0.031) % 0.61
+        if in_roll < 0.012 or in_roll > 0.598:  # lifted/open roll seam
+            return False
+        if (roll * 7 + seed) % 10 >= 4:         # many rolls already stripped
+            return False
+        # Paper fails before plaster at damp edges and down the leak path.
+        if v < tide(u) + 0.10:
+            return False
+        if abs(u - leak_center(v)) < 0.055 + max(0.0, 0.72 - v) * 0.04:
+            return False
+        # Alternating torn lower edge avoids a ruler-straight surviving roll.
+        torn_edge = 0.18 + ((roll * 13 + seed) % 9) * 0.018
+        return v > torn_edge
+
+    def moisture_stain(u, v):
+        # Stain extends beyond material loss, coherently crossing paper and
+        # plaster. High leak tracks and low tide marks share one overlay.
+        if v < tide(u) + 0.11:
+            return True
+        width = 0.035 + max(0.0, 0.90 - v) * 0.035
+        return v < 0.94 and abs(u - leak_center(v)) < width
+
+    cell_w, cell_h = 0.18, 0.16
+    cols = max(1, int(math.ceil(length / cell_w)))
+    rows = max(1, int(math.ceil(h / cell_h)))
+    for ci in range(cols):
+        d0, d1 = ci * length / cols, (ci + 1) * length / cols
+        for ri in range(rows):
+            z0, z1 = ri * h / rows, (ri + 1) * h / rows
+            if covered_by_opening(d0, d1, z0, z1):
+                continue
+            u = ((d0 + d1) * 0.5) / max(length, 0.001)
+            v = ((z0 + z1) * 0.5) / max(h, 0.001)
+            missing = plaster_missing(u, v)
+            for side in sides:
+                if not missing:
+                    face_quad(plaster_buf, d0, d1, z0, z1, side, 0.011)
+                if not missing and wallpaper_present(u, v):
+                    face_quad(wallpaper_buf, d0, d1, z0, z1, side, 0.017)
+                if moisture_stain(u, v):
+                    face_quad(damp_buf, d0, d1, z0, z1, side, 0.021)
 
 
 # room kind -> floor finish overlay (material, thickness). Nested rooms
@@ -2041,8 +2379,12 @@ def build():
     def buf(fid, cat, mat):
         key = (fid, cat)
         if key not in bufs:
-            mode = "unit" if mat.startswith("fx_") else                     ("unit" if UV_MODE_BY_MAT.get(mat) == "unit"
-                     else "world")
+            if mat.startswith("wallfinish_"):
+                mode = "explicit"
+            elif mat.startswith("fx_") or UV_MODE_BY_MAT.get(mat) == "unit":
+                mode = "unit"
+            else:
+                mode = "world"
             bufs[key] = MeshBuf("%s_%s" % (fid, cat), mat, mode)
         return bufs[key]
 
@@ -2067,12 +2409,22 @@ def build():
                    "face_brick": "walls_fbrick-col",
                    "common_brick": "walls_cbrick-col",
                    "concrete": "walls_conc-col"}.get(w["mat"], "walls-col")
+            # Construction and finish are no longer conflated: partitions
+            # export as plaster/drywall; only true perimeter masonry can show
+            # brick through a damaged room-facing finish.
             build_wall(buf(fid, cat, w["mat"]), w,
                        buf(fid, "trim", "trim"),
                        buf(fid, "glazing-col", "glassish"),
                        buf(fid, "wainscot", "wainscot"),
                        buf(fid, "stone_trim-col", "limestone"),
                        buf(fid, "fx_ao_decal", "fx_ao"))
+            if w["mat"] in ("brick", "common_brick", "face_brick") \
+                    and w.get("in_side") and w.get("finish_texture"):
+                finish_id = w["finish_texture"]
+                build_baked_wall_finish(
+                    buf(fid, "finish_%s" % finish_id,
+                        "wallfinish_%s" % finish_id),
+                    w, w["in_side"])
         for r in fl["rooms"]:
             build_floor_overlay(buf, fid, fl, r)
         for fu in fl.get("furniture", []):

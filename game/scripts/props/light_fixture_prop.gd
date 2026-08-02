@@ -50,6 +50,9 @@ var _flicker_phase := 0.0
 var _flicker_profile := 0
 var _flicker_value := 1.0
 var _intermittent_exterior_fault := false
+var _weathered_exterior := false
+var _entry_spot: SpotLight3D
+var _entry_emphasis := 1.0
 ## Authored throw from the generator, fitted to the room the fixture hangs
 ## in. For ROOM fixtures it is a cap: pools die at their own walls instead
 ## of bleeding through shadowless neighbors (the light-leak pass, done as
@@ -69,6 +72,17 @@ func _build_visual() -> void:
 	_base_energy = ENERGY.get(prop_type, 1.5) * energy_scale
 	var tone: Color = TONE.get(prop_type, Color(1.0, 0.84, 0.62))
 	_author_personality(tone)
+	if name == "F01_ENTRY_SCONCE":
+		_flicker_profile = 2
+		_flicker_depth = 0.045
+		_flicker_speed = 0.86
+	elif prop_type == "chandelier":
+		# The lobby chandelier never quite holds mains voltage and seems to
+		# breathe even when the air below it is still.
+		_flicker_profile = 4
+		_flicker_depth = 0.14
+		_flicker_speed = 0.58
+		_individual_tone = Color(0.86, 0.62, 0.34)
 	tone = _individual_tone
 	_base_energy *= _individual_gain
 	# A navigation source may be moody, but never so weak that the next
@@ -145,6 +159,25 @@ func _build_visual() -> void:
 			else 0.16
 	light.position = bulb_at
 	_swing_node.add_child(light)
+	# A tight downward cone makes the entrance a destination without letting
+	# its wall fixture wash the lobby, facade, and half the street.
+	if name == "F01_ENTRY_SCONCE":
+		light.omni_range = minf(light.omni_range, 2.4)
+		_entry_spot = SpotLight3D.new()
+		_entry_spot.name = "EntrancePool"
+		_entry_spot.light_color = Color(1.0, 0.64, 0.27)
+		_entry_spot.light_energy = 0.0
+		_entry_spot.spot_range = 5.2
+		_entry_spot.spot_angle = 47.0
+		_entry_spot.spot_angle_attenuation = 1.55
+		_entry_spot.spot_attenuation = 1.45
+		_entry_spot.shadow_enabled = true
+		_entry_spot.shadow_bias = 0.012
+		_entry_spot.shadow_normal_bias = 0.08
+		_entry_spot.light_size = 0.18
+		_entry_spot.position = bulb_at + Vector3(0, -0.02, 0.04)
+		_entry_spot.rotation.x = -PI * 0.5
+		_swing_node.add_child(_entry_spot)
 	# faux first bounce: a dim, floor-tinted counter-light low in the room
 	bounce = OmniLight3D.new()
 	bounce.light_color = Color(0.62, 0.47, 0.33)  # oak-bounce warmth
@@ -232,6 +265,8 @@ func _build_body(p: Node3D) -> Vector3:
 			p.add_child(d)
 			return Vector3(0, -0.15, 0)
 		"sconce_globe":
+			if name == "F01_ENTRY_SCONCE":
+				return _build_entry_lantern(p, brass)
 			make_box(Vector3(0.09, 0.16, 0.025),
 					Vector3(0, 0, -0.012), brass).reparent(p)
 			make_cyl(0.02, 0.03, 0.10, Vector3(0, 0.02, 0.06), brass,
@@ -273,34 +308,53 @@ func _build_body(p: Node3D) -> Vector3:
 					Color(0.3, 0.3, 0.32), 0.4, 0.6, p)
 			return Vector3(0, -0.50, 0)
 		"chandelier":
-			# Compact 1920s vestibule fixture: chain, turned hub, six curved
-			# arms and downward opal shades kept above head clearance.
-			make_cyl(0.055, 0.075, 0.035, Vector3(0, -0.018, 0), brass,
+			# Original 1920s fixture, never replaced: verdigris, soot collars,
+			# mismatched shades, one missing cup, and a subtly bent arm.
+			var dead_brass := Color(0.34, 0.30, 0.17)
+			make_cyl(0.055, 0.075, 0.035, Vector3(0, -0.018, 0), dead_brass,
 					0.3, 0.8, p)
 			for link_i in range(5):
 				var link := make_ring(0.025, 0.004,
 						Vector3(0, -0.09 - link_i * 0.055, 0),
-						brass, 0.32, 0.8, p)
+						dead_brass, 0.62, 0.8, p)
 				link.rotation_degrees = Vector3(90,
 						0 if link_i % 2 == 0 else 90, 0)
-			make_cyl(0.045, 0.085, 0.18, Vector3(0, -0.39, 0), brass,
+			make_cyl(0.045, 0.085, 0.18, Vector3(0, -0.39, 0), dead_brass,
 					0.3, 0.8, p)
-			make_ring(0.24, 0.012, Vector3(0, -0.47, 0), brass,
+			make_ring(0.24, 0.012, Vector3(0, -0.47, 0), dead_brass,
 					0.3, 0.8, p).rotation_degrees = Vector3(90, 0, 0)
 			for i in 6:
 				var a := TAU * i / 6.0
 				var inner := Vector3(cos(a) * 0.07, -0.45, sin(a) * 0.07)
-				var outer := Vector3(cos(a) * 0.29, -0.61, sin(a) * 0.29)
+				var sag := 0.12 if i == 4 else (0.035 if i == 1 else 0.0)
+				var outer := Vector3(cos(a) * 0.29, -0.61 - sag,
+						sin(a) * 0.29)
 				make_cyl(0.009, 0.009, inner.distance_to(outer),
-						(inner + outer) * 0.5, brass, 0.3, 0.8, p
+						(inner + outer) * 0.5, dead_brass, 0.68, 0.8, p
 						).rotation_degrees = Vector3(
 								62.0 * cos(a), -rad_to_deg(a),
 								62.0 * sin(a))
 				make_cyl(0.032, 0.045, 0.07,
-						outer + Vector3(0, -0.035, 0), brass, 0.3, 0.8, p)
+						outer + Vector3(0, -0.035, 0), dead_brass, 0.7, 0.8, p)
+				if i == 4:
+					# Empty socket: the shade is in nobody's maintenance ledger.
+					make_cyl(0.018, 0.025, 0.04,
+							outer + Vector3(0, -0.09, 0), Color(0.055, 0.045, 0.035),
+							0.95, 0.0, p)
+					continue
 				var shade := make_cyl(0.105, 0.055, 0.12,
-						outer + Vector3(0, -0.13, 0), opal, 0.22, 0.0, p)
-				shade.name = "bulb_shade_%d" % i
+						outer + Vector3(0, -0.13, 0),
+						Color(0.60, 0.52, 0.39) if i == 1 else opal,
+						0.58 if i == 1 else 0.22, 0.0, p)
+				shade.name = ("cracked_dead_shade" if i == 1
+						else "bulb_shade_%d" % i)
+			# A few taut dusty strands register only when the lamp catches them.
+			for web_i in 3:
+				var wa := TAU * web_i / 3.0 + 0.3
+				var wp0 := Vector3(cos(wa) * 0.08, -0.36, sin(wa) * 0.08)
+				var wp1 := Vector3(cos(wa) * 0.28, -0.66, sin(wa) * 0.28)
+				make_cyl(0.0015, 0.0015, wp0.distance_to(wp1),
+						(wp0 + wp1) * 0.5, Color(0.35, 0.34, 0.30), 0.9, 0.0, p)
 			return Vector3(0, -0.58, 0)
 		"street_lamp":
 			# cobra head on its mast: the lamp body already exists as site
@@ -312,9 +366,21 @@ func _build_body(p: Node3D) -> Vector3:
 			ls.radius = 0.13
 			ls.height = 0.16
 			lens.mesh = ls
-			lens.name = "bulb_lens"
+			lens.name = "stained_lens"
 			lens.position = Vector3(0, -0.06, 0)
+			var glass := StandardMaterial3D.new()
+			glass.albedo_texture = load("res://assets/building/textures/" +
+					"exterior_lighting/stained_cracked_prismatic_glass.png")
+			glass.albedo_color = Color(0.54, 0.38, 0.18)
+			glass.roughness = 0.48
+			glass.emission_enabled = true
+			glass.emission = Color(0.65, 0.27, 0.055)
+			glass.emission_energy_multiplier = 0.42
+			lens.material_override = glass
 			p.add_child(lens)
+			var core := make_cyl(0.035, 0.045, 0.065,
+					Vector3(0, -0.055, 0), Color.WHITE, 0.2, 0.0, p)
+			core.name = "bulb_core"
 			return Vector3(0, -0.08, 0)
 		_:  # eye_pendant: a fruit hanging off the court's bonsai
 			# The court's light is fruit on a brass tree wound up the stair
@@ -338,6 +404,42 @@ func _build_body(p: Node3D) -> Vector3:
 			p.add_child(fruit)
 			return Vector3(0, -0.10, 0)
 	return Vector3.ZERO
+
+
+func _build_entry_lantern(p: Node3D, brass: Color) -> Vector3:
+	# Deep wall bracket, peaked cap, protective frame and stained prismatic
+	# panes. The projection keeps the lens and light clear of the masonry.
+	make_box(Vector3(0.30, 0.44, 0.045), Vector3(0, -0.02, 0.0),
+			brass.darkened(0.48)).reparent(p)
+	make_box(Vector3(0.10, 0.12, 0.30), Vector3(0, 0.02, 0.15),
+			brass.darkened(0.35)).reparent(p)
+	var glass := StandardMaterial3D.new()
+	glass.albedo_texture = load("res://assets/building/textures/" +
+			"exterior_lighting/stained_cracked_prismatic_glass.png")
+	glass.albedo_color = Color(0.72, 0.50, 0.22)
+	glass.roughness = 0.44
+	glass.emission_enabled = true
+	glass.emission = Color(0.72, 0.30, 0.07)
+	glass.emission_energy_multiplier = 0.65
+	for side in [-1.0, 1.0]:
+		var pane := make_box(Vector3(0.23, 0.36, 0.012),
+				Vector3(0, -0.08, 0.315 + side * 0.105), Color.WHITE)
+		pane.name = "stained_glass"
+		pane.material_override = glass
+		pane.reparent(p)
+	for x in [-0.145, 0.145]:
+		make_box(Vector3(0.025, 0.48, 0.27), Vector3(x, -0.08, 0.315),
+				brass.darkened(0.42)).reparent(p)
+	for y in [-0.31, 0.15]:
+		make_box(Vector3(0.32, 0.025, 0.27), Vector3(0, y, 0.315),
+				brass.darkened(0.38)).reparent(p)
+	var cap := make_cyl(0.24, 0.16, 0.12, Vector3(0, 0.20, 0.315),
+			brass.darkened(0.32), 0.54, 0.75, p)
+	cap.name = "weather_cap"
+	var bulb := make_cyl(0.038, 0.050, 0.11, Vector3(0, -0.08, 0.315),
+			Color.WHITE, 0.18, 0.0, p)
+	bulb.name = "bulb_core"
+	return Vector3(0, -0.10, 0.315)
 
 
 func _start_normal_function() -> void:
@@ -366,6 +468,9 @@ func set_budget(scale: float, with_bounce: bool, with_shadow: bool) -> void:
 		# per-object limit, so dormant fixtures must leave the render list.
 		light.visible = scale > 0.001
 		light.shadow_enabled = with_shadow
+	if _entry_spot:
+		_entry_spot.visible = scale > 0.001
+		_entry_spot.shadow_enabled = with_shadow
 	if _halo:
 		_halo.visible = scale > 0.001
 	if bounce:
@@ -377,6 +482,29 @@ func set_intermittent_exterior_fault(enabled: bool) -> void:
 	if enabled:
 		_flicker_depth = 0.18
 		_flicker_speed = 1.0
+
+
+func set_weathered_exterior(enabled: bool) -> void:
+	_weathered_exterior = enabled
+	if enabled:
+		_flicker_depth = 0.055
+		_flicker_speed = 0.72 + float(absi(str(name).hash()) % 30) * 0.018
+		_flicker_profile = 2 + absi(str(name).hash()) % 2
+
+
+## Exterior art direction: street fixtures recede while the entry fixture
+## carries the warmest and strongest pool in the composition.
+func set_exterior_composition_gain(gain: float) -> void:
+	_base_energy *= clampf(gain, 0.1, 2.0)
+
+
+func set_entry_emphasis(gain: float) -> void:
+	_entry_emphasis = clampf(gain, 0.5, 2.5)
+	_base_energy *= _entry_emphasis
+	if _entry_spot:
+		_entry_spot.spot_range = 6.6
+		_entry_spot.spot_angle = 41.0
+		_entry_spot.spot_attenuation = 1.75
 
 
 func _process(delta: float) -> void:
@@ -412,6 +540,10 @@ func _process(delta: float) -> void:
 	var want := _base_energy * _target_scale * (1.0 + _surge) \
 			* _flicker_value
 	light.light_energy = lerpf(light.light_energy, want, delta * 6.0)
+	if _entry_spot:
+		_entry_spot.light_energy = lerpf(_entry_spot.light_energy,
+				2.35 * _entry_emphasis * _target_scale * _flicker_value,
+				delta * 5.0)
 	bounce.light_energy = lerpf(bounce.light_energy,
 			(_base_energy * 0.055 * _target_scale * _flicker_value)
 			if _bounce_on else 0.0,
@@ -422,6 +554,9 @@ func _process(delta: float) -> void:
 			_bulb_mat.emission_energy_multiplier, envelope + _surge * 2.4,
 			delta * 8.0)
 	_surge = maxf(0.0, _surge - delta * 2.2)
+	if prop_type == "chandelier":
+		_swing_node.rotation.z = sin(t * 0.37) * 0.018 + sin(t * 0.11) * 0.006
+		_swing_node.rotation.x = cos(t * 0.29) * 0.012
 	if prop_type in ["cage_bulb", "eye_pendant"] and _surge > 0.01:
 		_swing_node.rotation.z = sin(Time.get_ticks_msec() * 0.004) \
 				* _surge * 0.06

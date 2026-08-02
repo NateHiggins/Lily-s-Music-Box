@@ -438,14 +438,33 @@ func _build_world() -> void:
 ## Both of these are open questions on hardware rather than settled numbers,
 ## which is the whole reason they are adjustable next to a frame counter.
 func _build_device() -> void:
-	var box := _section("DEVICE — budgets and phone HUD",
+	var box := _section("LIGHTING — global grade and budgets",
 			Color(0.7, 0.85, 0.7))
+	_slider(box, "Fixture", 0.0, 1.5, root.light_rig.fixture_gain,
+			func(v): root.light_rig.set_tuning("fixture_gain", v), 0.01)
+	_slider(box, "Ambient", 0.0, 0.10, root.light_rig.ambient_energy,
+			func(v): root.light_rig.set_tuning("ambient_energy", v), 0.001)
+	_slider(box, "Moon", 0.0, 0.20, root.light_rig.moon_energy,
+			func(v): root.light_rig.set_tuning("moon_energy", v), 0.001)
+	_slider(box, "Glow", 0.0, 1.2, root.light_rig.glow_intensity,
+			func(v): root.light_rig.set_tuning("glow_intensity", v), 0.01)
+	_slider(box, "Fog", 0.0, 0.05, root.light_rig.fog_density,
+			func(v): root.light_rig.set_tuning("fog_density", v), 0.001)
+	_slider(box, "Shadow", 0.0, 1.0, root.light_rig.shadow_opacity,
+			func(v): root.light_rig.set_tuning("shadow_opacity", v), 0.01)
 	_slider(box, "Lights", 1, 24, root.light_rig._active_budget,
 			func(v): root.light_rig.set_budgets(int(v),
 					root.light_rig._shadow_budget), 1.0)
 	_slider(box, "Shadows", 0, 16, root.light_rig._shadow_budget,
 			func(v): root.light_rig.set_budgets(
 					root.light_rig._active_budget, int(v)), 1.0)
+	var export_status := Label.new()
+	export_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	export_status.add_theme_font_size_override("font_size", 9)
+	_button(box, "Export settings + copy JSON", func():
+		var path: String = root.light_rig.export_tuning()
+		export_status.text = "Saved: %s\nJSON copied to clipboard" % path)
+	box.add_child(export_status)
 	var touch := CheckBox.new()
 	touch.text = "Touch controls (phone HUD)"
 	touch.add_theme_font_size_override("font_size", 10)
@@ -494,9 +513,18 @@ func _slider(parent: Node, label_text: String, lo: float, hi: float,
 	slider.max_value = hi
 	slider.step = step
 	slider.value = initial
-	slider.custom_minimum_size.x = 170
+	slider.custom_minimum_size.x = 135
 	slider.value_changed.connect(on_change)
 	row.add_child(slider)
+	var value_label := Label.new()
+	value_label.custom_minimum_size.x = 48
+	value_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	value_label.add_theme_font_size_override("font_size", 9)
+	var decimals := 0 if step >= 1.0 else (3 if step < 0.01 else 2)
+	value_label.text = ("%%.%df" % decimals) % initial
+	slider.value_changed.connect(func(value):
+		value_label.text = ("%%.%df" % decimals) % value)
+	row.add_child(value_label)
 	parent.add_child(row)
 
 

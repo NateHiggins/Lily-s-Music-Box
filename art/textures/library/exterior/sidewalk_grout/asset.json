@@ -1,0 +1,12 @@
+{
+  "id": "exterior/sidewalk_grout",
+  "kind": "surface",
+  "source": "imagegen deteriorated recessed grout and compacted street dirt",
+  "meters_per_tile": 0.45,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

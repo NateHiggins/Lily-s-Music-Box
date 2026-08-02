@@ -4,6 +4,8 @@ extends Node3D
 ## deterministic building events. Intro mode reverses a departure: outside,
 ## through the lobby, up the lift, back into 4B, ending at the incoming call.
 
+signal intro_finished
+
 const AUDIO := preload("res://assets/audio/viral_seed.ogg")
 const FEATURES := "res://data/viral_seed_features.json"
 const BAND_ORIGINS := {
@@ -61,7 +63,7 @@ var _elapsed := 0.0
 var _previous_infection := 0.15
 var _previous_noclip := false
 var _previous_call_locked := false
-var _camera_home := Vector3(0, 1.62, 0)
+var _camera_home := Vector3(0, PlayerController.STANDING_EYE, 0)
 
 
 func setup(root: Node3D) -> void:
@@ -206,14 +208,12 @@ func _animate_intro(delta: float) -> void:
 
 
 func _finish_intro() -> void:
-	if building and building.player:
-		building.player.global_position = INTRO_ROUTE[-1].p
-		var monitor: Node = building.get_node_or_null("F04_B_MONITOR_01")
-		if monitor and monitor.has_method("show_incoming_call"):
-			monitor.show_incoming_call()
+	# FirstShiftDirector owns the playable spawn. The placeholder camera route
+	# may end anywhere without silently changing where the actual game begins.
 	# Hard cut: no score tail. Prop loops, pipes, lamps and room tone remain.
 	_player.stop()
 	stop_seed()
+	intro_finished.emit()
 
 
 func _sample_route(time: float) -> Vector3:

@@ -56,6 +56,27 @@ frames/sills/glazing as before; a cornice band crowns the facade, a portal
 surrounds the street entry, and the basement ceiling runs visible heating
 mains, risers and conduit.
 
+**Stripped interior masonry:** interior partitions are now constructed as
+brick substrate with separate plaster and wallpaper finish skins on both
+faces. A deterministic irregular removal field exposes approximately 40%
+of the masonry throughout the building; surviving paper covers only part
+of the remaining plaster, so rooms range organically from faded wallpaper
+to half-stripped renovation work. Exterior masonry receives the same finish
+only on its room-facing side. Openings are subtracted before the skins are
+built, collision remains on the simple substrate, and each finish is batched
+once per floor rather than emitted as individual damage props.
+
+**Building operations pass:** the Orison now advertises how it actually
+works. Three low-overhead riveted fire-escape towers give the rear and side
+elevations period egress silhouettes; the basement has a separate rear
+service door, sunken concrete areaway, steps, drain and railings; the boiler
+room carries feed equipment, inspection tags, chemical treatment and floor
+drain evidence; the trash chute terminates at a compactor and rolling-bin
+route; and court downspouts terminate at a grated sump. The lobby accumulated
+an HPD/fire/inspection notice palimpsest and a visibly later intercom retrofit.
+Apartment and service leaves carry closers in addition to their existing
+hinges, peepholes, kick plates, locks and worn saddles.
+
 **Lived-in apartments (new):** every occupied unit is furnished as its
 resident's home — beds with mattress/blanket/pillow, sofas, dining sets,
 book-filled shelves, kitchens with counters/uppers/stove/fridge, rugs,

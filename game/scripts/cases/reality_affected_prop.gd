@@ -193,12 +193,29 @@ func _process(delta: float) -> void:
 				_base_color, minf(1.0, delta * 4.0))
 	if _intensity > 0.0:
 		var orbit_scale := 0.18 if "orbit" in _verbs else 0.012
+		if "freeze" in _verbs:
+			orbit_scale = 0.0
+		elif "drift" in _verbs:
+			orbit_scale = 0.07
+		elif "stutter" in _verbs:
+			orbit_scale *= 1.0 if fmod(time * 3.0, 1.0) < 0.18 else 0.0
 		position = _home + Vector3(
 				sin(time * 3.7) * orbit_scale,
 				(0.015 + sin(time * 4.9) * 0.008) * _intensity,
 				cos(time * 3.1) * orbit_scale) * _intensity
 		var turn := 0.38 if "point" in _verbs else 0.035
+		if "lag" in _verbs:
+			turn *= 0.25
 		rotation.y = sin(time * 2.3) * turn * (1 + _recurrence)
+		var possessed_scale := Vector3.ONE
+		if "grow" in _verbs:
+			possessed_scale *= 1.0 + _intensity * (0.08 + 0.04 * sin(time))
+		if "stretch" in _verbs:
+			possessed_scale *= Vector3(1.0 + _intensity * 0.12,
+					1.0 - _intensity * 0.05, 1.0)
+		scale = scale.lerp(possessed_scale, minf(1.0, delta * 2.0))
+		if "pulse" in _verbs:
+			_material.emission_energy_multiplier *= 0.72 + 0.28 * sin(time * 5.0)
 		if _echo_root and _echo_root.visible:
 			_echo_root.position = Vector3(
 					sin(time * 1.7) * 0.24, 0.04,
@@ -207,6 +224,7 @@ func _process(delta: float) -> void:
 	else:
 		position = position.lerp(_home, minf(1.0, delta * 6.0))
 		rotation.y = lerp_angle(rotation.y, 0.0, minf(1.0, delta * 6.0))
+		scale = scale.lerp(Vector3.ONE, minf(1.0, delta * 6.0))
 
 
 func _box(size: Vector3, offset: Vector3) -> MeshInstance3D:
