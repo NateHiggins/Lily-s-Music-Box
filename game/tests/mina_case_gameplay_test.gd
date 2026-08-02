@@ -42,7 +42,15 @@ func _ready() -> void:
 			"naming the silence records the first insight")
 
 	# --- visit two: second practical repair --------------------------------
+	_check(not gameplay.letter.enabled,
+			"no letter under the door before the case recurs")
 	RealityCases.reopen_case("mina_caption_crisis")
+	_check(gameplay.letter.enabled,
+			"recurrence slides PROVISIONAL TESTIMONY under the player's door")
+	gameplay._read_letter()
+	_check("DRAFT 4" in panel._line.text,
+			"the letter is her annotated draft while the case is open")
+	panel.choose(0)
 	_repair_round(1)
 	gameplay._use_calibrator()
 	_check(_state().stage == "stabilized" and _state().repair_count == 2,
@@ -117,6 +125,12 @@ func _ready() -> void:
 	_talk()
 	_check(panel.current_node_id == "res_open",
 			"a resolved case still has one line left")
+	_check(gameplay.letter.enabled, "the letter outlives the case")
+	gameplay._read_letter()
+	_check("DRAFT 5" in panel._line.text
+			and "Nothing is written" in panel._line.text,
+			"after resolution the letter's blank stays blank")
+	panel.choose(0)
 
 	print("MINA GAMEPLAY TEST: %s" %
 			("PASS" if failures == 0 else "FAIL (%d)" % failures))

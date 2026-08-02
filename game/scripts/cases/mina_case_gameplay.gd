@@ -21,6 +21,7 @@ const EVIDENCE := [
 var tracker: ObjectiveTracker
 var dialogue_tree: Dictionary = {}
 var terminal: CaseInteractable
+var letter: CaseInteractable
 var console: CaseInteractable
 var shift_clock: CaseInteractable
 var dialogue: CaseDialoguePanel
@@ -41,6 +42,7 @@ func _ready() -> void:
 	_build_apartment_targets()
 	_build_dialogue()
 	_build_visit_boundary()
+	_build_letter()
 	RealityCases.case_changed.connect(_on_case_changed)
 	RealityCases.resident_interaction_requested.connect(
 			_on_resident_interaction)
@@ -146,6 +148,41 @@ func _build_visit_boundary() -> void:
 	_visit_label.add_theme_font_size_override("font_size", 22)
 	_visit_label.modulate = Color(0.72, 0.82, 0.78, 0.0)
 	layer.add_child(_visit_label)
+
+
+## Mail as a system, first letter. When the case recurs, Mina escalates to
+## paper: PROVISIONAL TESTIMONY, slid under the player's own door in the 4B
+## vestibule while they were out clocking back in. It stays after
+## resolution — the drafts are retained; only what they do with the blank
+## changes.
+func _build_letter() -> void:
+	letter = CaseInteractable.new()
+	letter.setup("PROVISIONAL TESTIMONY",
+			"Read the letter slid under your door", _read_letter,
+			Color(0.86, 0.84, 0.78), Vector3(0.24, 0.012, 0.32))
+	letter.position = GameBoot.b2g([-5.95, 3.90, 9.6])
+	letter.rotation.y = 0.22
+	add_child(letter)
+	letter.set_enabled(false)
+
+
+func _read_letter() -> void:
+	var state := RealityState.case_state(CASE_ID)
+	var text: String
+	if bool(state.get("resolved", false)):
+		text = "PROVISIONAL TESTIMONY — DRAFT 5. (DRAFTS 1–4 SHREDDED.)\n" \
+				+ "RE: Work order 002-A, closed.\n" \
+				+ "The captions are quiet. That is a fact, and it needs no witness.\n" \
+				+ "The last four seconds of this page are blank. — M.V.\n" \
+				+ "(They are. Nothing is written beside them.)"
+	else:
+		text = "PROVISIONAL TESTIMONY — DRAFT 4. (DRAFTS 1–3 RETAINED.)\n" \
+				+ "RE: Work order 002-A. The captions returned at 11:41 PM. [FACT]\n" \
+				+ "You will come back. [ASSUMPTION — RETAINED ANYWAY.]\n" \
+				+ "The last four seconds of this letter are blank. I have\n" \
+				+ "annotated them in the margin. Draft five will not. — M.V."
+	dialogue.present("A LETTER, SLID UNDER THE DOOR", text,
+			[{"text": "[Fold it back up.]", "action": Callable()}])
 
 
 func _accept_work_order() -> void:
@@ -299,6 +336,8 @@ func _refresh() -> void:
 		var selected := _selected_caption(state, spec.id)
 		evidence_nodes[index].set_title("%s\n[%s]" % [spec.name, selected])
 	console.set_enabled(inspecting or stage == "integration_ready")
+	if letter:
+		letter.set_enabled(int(state.get("recurrence_count", 0)) >= 1)
 	var flags: Array = state.get("conversation_flags", [])
 	shift_clock.set_enabled(awaiting_shift
 			and ("first_silence_named" in flags
