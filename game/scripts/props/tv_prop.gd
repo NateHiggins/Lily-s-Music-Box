@@ -67,13 +67,16 @@ func setup(owner_director: Node, unit_id: String, shared: ShaderMaterial) -> voi
 	_voice.unit_size = 3.0
 	_voice.max_distance = 15.0
 	add_child(_voice)
-	# Thin interact target across the glass; the cabinet's own hull already
-	# carries the furniture collision, so this adds no new obstacle.
+	# The interact skin sits PROUD of the cabinet's furniture hull. The
+	# merged hull is 0.19 deep and swallowed the old glass-level box
+	# entirely, so the player's 2.1 m interact ray always stopped on the
+	# hull — a switch nobody could ever reach. A few centimetres in front
+	# of the cabinet face, it is the first thing the crosshair meets.
 	var shape := CollisionShape3D.new()
 	var box := BoxShape3D.new()
-	box.size = Vector3(GLASS_W + 0.05, GLASS_H + 0.06, 0.06)
+	box.size = Vector3(GLASS_W + 0.05, GLASS_H + 0.06, 0.05)
 	shape.shape = box
-	shape.position = glass.position
+	shape.position = Vector3(glass.position.x, glass.position.y, -0.235)
 	add_child(shape)
 
 
