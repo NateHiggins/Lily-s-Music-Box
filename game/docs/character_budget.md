@@ -34,8 +34,9 @@ so it lands in the cheapest bucket the renderer has.
    yet, so none of that is being paid — which means today's measurement is
    the optimistic one.
 3. **Shadow casting.** A character that casts is re-rendered once per cube
-   face of every light that reaches it. `lobby_placeholder.gd` switches it
-   off; do the same for any background figure.
+   face of every light that reaches it. `resident_routines.gd`'s upgrade
+   path switches it off (as the since-retired `lobby_placeholder.gd` did);
+   do the same for any background figure.
 4. **Repo and APK weight.** 24 MB of source blend plus 7.2 MB of GLB for one
    character. Eighteen of those is ~560 MB, on a repo whose history is
    already ~1 GB.
@@ -68,9 +69,9 @@ blender -b art/blender/meshy/<source>.blend \
 
 The last argument is the decimation ratio; `1.0` exports at full density.
 The script reports the bounding box, which matters: **Meshy puts the origin
-at the mesh centre, not between the feet**, so anything placed at floor
-height stands buried to the waist. `LobbyPlaceholder.FOOT_OFFSET` is that
-measurement for this character, and it is per-character.
+at the mesh centre, not between the feet** for static exports (rigged ones
+put it between the feet), so anything placed at floor height stands buried
+to the waist. The foot offset is a per-character measurement.
 
 ## Known gaps
 

@@ -79,7 +79,6 @@ var floor_nodes: Dictionary = {}
 var occluders: OrisonOccluders
 var window_glow: OrisonWindowGlow
 var door_glow: OrisonDoorGlow
-var lobby_figure: LobbyPlaceholder
 var broadcast: BroadcastDirector
 var resident_routines: ResidentRoutines
 var switch_system: SwitchSystem
@@ -198,13 +197,6 @@ func _ready() -> void:
 	add_child(found_art_pass)
 	found_art_pass.build(layout, floor_nodes)
 	_build_front_entry_details()
-	# First real character mesh, standing in the lobby east of the runner so
-	# it faces whoever comes in off the street. Static and non-colliding —
-	# see lobby_placeholder.gd.
-	lobby_figure = LobbyPlaceholder.new()
-	lobby_figure.name = "LobbyPlaceholder"
-	lobby_figure.setup(Vector2(2.30, -8.10), 0.0, 0.0)
-	add_child(lobby_figure)
 	maintenance_headquarters = MaintenanceHeadquarters.new()
 	floor_nodes["F01"].add_child(maintenance_headquarters)
 	objective_tracker = ObjectiveTracker.new()

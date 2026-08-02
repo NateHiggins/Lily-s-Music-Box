@@ -819,41 +819,51 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	_wall_art_report()
 	_door_glow_checks()
 	await _broadcast_checks()
-	await _lobby_figure_checks()
+	await _evelyn_checks()
 	await _sanity_checks()
 	Conductor.infection = 0.15
 	Conductor.origin_node = "B1_BOILER_01"
 
 
-## The first character mesh. The checks that matter are not "is it pretty"
-## but the two ways a character can quietly break this build: standing in a
-## route the generator's movement audit believes is clear, and costing more
-## geometry than the room it stands in.
-func _lobby_figure_checks() -> void:
-	var figure: LobbyPlaceholder = root.lobby_figure
-	_check(figure != null, "lobby character placed")
+## The first character mesh — Evelyn, upgraded in place on her 1A resident
+## node now that the lobby test figure is retired. The checks that matter
+## are not "is it pretty" but the ways a character can quietly break this
+## build: standing in a route the generator's movement audit believes is
+## clear, costing more geometry than the room it stands in, and the merge
+## silently dropping a clip.
+func _evelyn_checks() -> void:
+	var figure: Node3D = null
+	for resident in get_tree().get_nodes_in_group("resident_placeholders"):
+		if "resident_id" in resident and str(resident.get(
+				"resident_id")) == "evelyn_marsh":
+			figure = resident
+			break
+	_check(figure != null, "Evelyn's 1A resident placed")
 	if figure == null:
 		return
-	# In the lobby, and standing ON the floor rather than buried in it —
-	# Meshy puts the origin at the mesh centre, not between the feet.
+	# On her floor and standing ON it rather than buried in it — Meshy's
+	# rigged exports put the origin between the feet.
 	var p := figure.global_position
-	_check(p.z > 6.9 and p.z < 9.7 and absf(p.x) < 5.4,
-			"character is inside the lobby (%.2f, %.2f)" % [p.x, p.z])
-	_check(absf(p.y - LobbyPlaceholder.FOOT_OFFSET) < 0.02,
-			"character stands on the floor, not through it (y=%.2f)" % p.y)
-	# Non-colliding, like the eighteen resident placeholders. The audit
-	# authors clearances the generator can see; actors added in Godot are
-	# invisible to it, so a solid one is a route that passes on paper and
-	# fails underfoot.
+	_check(absf(p.y - 0.03) < 0.35,
+			"Evelyn stands on F01, not through it (y=%.2f)" % p.y)
+	# Non-colliding, like every resident. The audit authors clearances the
+	# generator can see; actors added in Godot are invisible to it, so a
+	# solid one is a route that passes on paper and fails underfoot.
+	# (Interaction Area3Ds are fine — they never block movement.)
 	var solid := 0
 	for node in _descendants(figure):
-		if node is CollisionObject3D and node.collision_layer != 0:
+		if node is PhysicsBody3D and node.collision_layer != 0:
 			solid += 1
 	_check(solid == 0,
-			"character does not obstruct the lobby (%d colliders)" % solid)
-	var tris := figure.triangle_count()
+			"Evelyn does not obstruct her routes (%d colliders)" % solid)
+	var tris := 0
+	for node in _descendants(figure):
+		if node is MeshInstance3D and node.mesh:
+			for surface in node.mesh.get_surface_count():
+				tris += node.mesh.surface_get_arrays(surface)[
+						Mesh.ARRAY_INDEX].size() / 3
 	_check(tris > 0 and tris < 60000,
-			"character geometry stays within budget (%d tris)" % tris)
+			"Evelyn's geometry stays within budget (%d tris)" % tris)
 	# --- pathfinding. The one assertion that matters: a planned route never
 	# crosses masonry except at a doorway. Proven with physics, not by
 	# trusting the graph — raycast every leg at torso height and demand any
@@ -911,21 +921,37 @@ func _lobby_figure_checks() -> void:
 	# The merge folds them onto a single rig, and the failure mode is silent:
 	# the exporter drops whichever action is assigned as active, so a clip
 	# goes missing without anything erroring.
-	_check(figure.anim != null, "character has an AnimationPlayer")
-	_check(figure.clips.size() == 10,
-			"all ten clips survived the merge (%d)" % figure.clips.size())
-	_check(figure.anim != null and figure.anim.is_playing(),
-			"character is animating, not frozen in bind pose")
+	var anim: AnimationPlayer = null
+	for node in _descendants(figure):
+		if node is AnimationPlayer:
+			anim = node
+			break
+	_check(anim != null, "Evelyn has an AnimationPlayer")
+	if anim == null:
+		return
+	_check(anim.get_animation_list().size() == 10,
+			"all ten clips survived the merge (%d)" %
+			anim.get_animation_list().size())
+	_check(anim.is_playing(), "Evelyn is animating, not frozen in bind pose")
 	# Root motion would fight the navigation; the clips were authored in
-	# place and have to stay that way.
-	var drift_ok := true
-	if figure.anim:
-		var before := figure.global_position
-		figure.play_clip("walk")
+	# place and have to stay that way. Measured on the mesh child's LOCAL
+	# transform: routines legitimately move the resident node itself, so
+	# global drift is her errand, not the clip.
+	var walker: Node = anim
+	while walker.get_parent() != figure and walker.get_parent() != null:
+		walker = walker.get_parent()
+	var mesh_root := walker as Node3D
+	if mesh_root == null:
+		return
+	var before: Vector3 = mesh_root.position
+	var resumed := anim.current_animation
+	if anim.has_animation("walk"):
+		anim.play("walk")
 		await get_tree().create_timer(1.1).timeout
-		drift_ok = figure.global_position.distance_to(before) < 0.05
-		figure.play_clip(LobbyPlaceholder.DEFAULT_CLIP)
-	_check(drift_ok, "walk cycle does not translate the character")
+	_check(mesh_root.position.distance_to(before) < 0.05,
+			"walk cycle does not translate Evelyn inside her node")
+	if resumed != "":
+		anim.play(resumed)
 
 
 func _descendants(node: Node) -> Array[Node]:

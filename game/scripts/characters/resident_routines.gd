@@ -76,11 +76,24 @@ const HAUNTS := {
 }
 
 ## Clip roles, resolved against whatever the model actually shipped with.
-## Evelyn's arrived from Meshy as clip_01..clip_08 plus walk and run, so the
-## roles are assigned by position and re-pointed once the clips are named.
+## Evelyn's arrived from Meshy as clip_01..clip_08 plus walk and run;
+## identified by eye from rendered contact sheets (tests/ClipSheet.tscn):
+##   clip_01  relaxed stand, hand on hip
+##   clip_02  hand to chest, fingers at the glasses chain — fretting
+##   clip_03  attentive stand, arms loose, slight sway
+##   clip_04  head tipped all the way back, looking straight up
+##   clip_05  sharp glance over the left shoulder, body still
+##   clip_06  seated, hands settling to the lap
+##   clip_07  hands working at counter height
+##   clip_08  arm extended straight out at shoulder height (mail slots)
 const ROLES := {
-	"idle": "clip_01", "pace": "walk", "busy": "clip_03",
-	"settle": "clip_05", "reach": "clip_07",
+	"idle": "clip_01", "pace": "walk", "busy": "clip_07",
+	"settle": "clip_06", "reach": "clip_08",
+	# Not yet requested by any routine, named so they can be: the building
+	# reactions (look_up for the light well, glance for a noise behind her,
+	# fret for a bad night, wait for queueing at the lift).
+	"look_up": "clip_04", "glance": "clip_05",
+	"fret": "clip_02", "wait": "clip_03",
 }
 
 enum Stage { HOME, PACING, TO_LIFT, RIDING, AT_HAUNT, RETURNING, WATCHING,
@@ -173,6 +186,22 @@ func _upgrade(node: Node3D, slug: String) -> bool:
 		# One more shadow caster per resident, inside a per-object light cap
 		# the LightRig is already rationing, for somebody stood in a room.
 		mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	# Everything Meshy ships is a loop except the one-shots, and a clip that
+	# plays once and freezes reads as the character dying. Looping is the
+	# safe default until each clip is identified and classified. (Carried
+	# over from the retired lobby test figure, which is where the merged
+	# clips were first judged.)
+	var anim := _player_of(node)
+	if anim:
+		for clip_name in anim.get_animation_list():
+			var clip := anim.get_animation(clip_name)
+			if clip:
+				clip.loop_mode = Animation.LOOP_LINEAR
+		var idle: String = ROLES.get("idle", "")
+		if idle != "" and anim.has_animation(idle):
+			anim.play(idle)
+		print("[ROUTINES] %s: %d clips" % [
+				slug, anim.get_animation_list().size()])
 	print("[ROUTINES] %s upgraded to a mesh" % slug)
 	return true
 

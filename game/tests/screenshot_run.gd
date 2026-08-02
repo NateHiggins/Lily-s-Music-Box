@@ -71,9 +71,11 @@ const SHOTS := [
 	# Evelyn's television in 1A, carrying the building's one broadcast.
 	{"name": "b_42_broadcast", "pos": Vector3(-8.60, 1.05, 3.58),
 	 "look": Vector3(-10.34, 0.86, 3.58), "overlay": false},
-	# The first character mesh, as you meet it walking in off the street.
-	{"name": "b_41_lobby_figure", "pos": Vector3(0.4, 1.65, 9.30),
-	 "look": Vector3(2.30, 1.20, 8.10), "overlay": false},
+	# The first character mesh — Evelyn at home in 1A now that the lobby
+	# test figure is retired. (She wanders; an empty frame means she's on
+	# her mail-bank errand, which is its own kind of documentation.)
+	{"name": "b_41_1a_evelyn", "pos": Vector3(-7.5, 1.65, 1.5),
+	 "look": Vector3(-9.4, 1.05, 2.9), "overlay": false},
 	# Somebody is awake in 4A. The corridor's only evidence of it is the bar
 	# of light under their door — the one cue that says people live here.
 	{"name": "b_40_door_spill", "pos": Vector3(-4.30, 11.25, 5.20),

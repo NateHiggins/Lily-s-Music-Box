@@ -185,7 +185,7 @@ func _build_cast() -> void:
 	_button(row, "◀ prev", func(): _step_clip(-1))
 	_button(row, "next ▶", func(): _step_clip(1))
 	_button(row, "go to her", func():
-		var fig = root.lobby_figure
+		var fig := _evelyn()
 		if fig:
 			root.player.global_position = fig.global_position \
 					+ Vector3(-1.35, 0.0, 1.30)
@@ -193,14 +193,39 @@ func _build_cast() -> void:
 	box.add_child(row)
 
 
+## She stands in 1A now — the lobby test figure that used to carry these
+## clips is retired, so the cast panel drives the real resident.
+func _evelyn() -> Node3D:
+	for resident in get_tree().get_nodes_in_group("resident_placeholders"):
+		if "resident_id" in resident and str(resident.get(
+				"resident_id")) == "evelyn_marsh":
+			return resident
+	return null
+
+
+func _evelyn_anim() -> AnimationPlayer:
+	var fig := _evelyn()
+	if fig == null:
+		return null
+	var stack: Array = [fig]
+	while not stack.is_empty():
+		var node: Node = stack.pop_back()
+		if node is AnimationPlayer:
+			return node
+		stack.append_array(node.get_children())
+	return null
+
+
 func _step_clip(direction: int) -> void:
-	var fig = root.lobby_figure
-	if fig == null or fig.anim == null or fig.clips.is_empty():
+	var anim := _evelyn_anim()
+	if anim == null:
 		return
-	var here := Array(fig.clips).find(fig.anim.current_animation)
-	var count: int = fig.clips.size()
-	var next: String = fig.clips[(here + direction + count) % count]
-	fig.play_clip(next)
+	var clips := anim.get_animation_list()
+	if clips.is_empty():
+		return
+	var here := Array(clips).find(anim.current_animation)
+	var next: String = clips[(here + direction + clips.size()) % clips.size()]
+	anim.play(next)
 
 
 ## Three cases exist and any of them may need driving from any state — the
@@ -503,12 +528,13 @@ func _process(_delta: float) -> void:
 				root.safety_net.recoveries if root.safety_net else 0])
 		lines.append("gaze %s %.1fs  unseen %d  witnessed %d" % [
 				s.gaze, s.gaze_hold, s.ignored, s.witnessed])
-	var fig = root.lobby_figure
-	if fig and fig.anim:
+	var evelyn_anim := _evelyn_anim()
+	if evelyn_anim:
 		lines.append("evelyn clip %s (%d of %d)" % [
-				fig.anim.current_animation,
-				Array(fig.clips).find(fig.anim.current_animation) + 1,
-				fig.clips.size()])
+				evelyn_anim.current_animation,
+				Array(evelyn_anim.get_animation_list()).find(
+						evelyn_anim.current_animation) + 1,
+				evelyn_anim.get_animation_list().size()])
 	var case_id := _selected_case()
 	var state: Dictionary = RealityState.case_state(case_id)
 	lines.append("%s: %s · repairs %d · recur %d" % [
