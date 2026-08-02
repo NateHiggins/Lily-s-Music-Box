@@ -16,14 +16,15 @@ extends StaticBody3D
 
 const GLASS_W := 0.50
 const GLASS_H := 0.90
-## Resident within this range counts as watching. Their routine parks them
-## at the living-room centre, a couple of metres from their own set.
-const WATCH_RANGE := 4.2
 
 var unit := ""
 var player_on := false
+## A resident's own deliberate latch. Proximity used to power the set
+## automatically, which meant nobody in the building ever actually TOUCHED
+## a television — the routine now walks to the couch and switches it on
+## like a person, and switches it off again when they've had enough.
+var npc_on := false
 var possessed := false
-var npc_watching := false
 var powered := false
 
 var director: Node
@@ -32,13 +33,13 @@ var glow: OmniLight3D
 
 var _off_mat: StandardMaterial3D
 var _voice: AudioStreamPlayer3D
-var _poll := 0.0
 
 
 func setup(owner_director: Node, unit_id: String, shared: ShaderMaterial) -> void:
 	director = owner_director
 	unit = unit_id
 	name = "TV_" + unit_id
+	add_to_group("televisions")
 	var quad := QuadMesh.new()
 	quad.size = Vector2(GLASS_W, GLASS_H)
 	glass = MeshInstance3D.new()
@@ -116,26 +117,13 @@ func set_glow(tint: Color, luminance: float) -> void:
 			global_position) < 9.0
 
 
-func _process(delta: float) -> void:
-	_poll += delta
-	if _poll < 2.0:
-		return
-	_poll = 0.0
-	var was := npc_watching
-	npc_watching = false
-	for res in get_tree().get_nodes_in_group("resident_placeholders"):
-		if not (res is Node3D) or not res.visible:
-			continue
-		var d: Vector3 = res.global_position - global_position
-		if absf(d.y) < 1.6 and Vector2(d.x, d.z).length() < WATCH_RANGE:
-			npc_watching = true
-			break
-	if npc_watching != was:
-		_refresh()
+func set_npc(on: bool) -> void:
+	npc_on = on
+	_refresh()
 
 
 func _refresh() -> void:
-	var want := player_on or possessed or npc_watching
+	var want := player_on or possessed or npc_on
 	if want == powered:
 		return
 	powered = want

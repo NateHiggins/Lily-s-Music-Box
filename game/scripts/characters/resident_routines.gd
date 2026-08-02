@@ -250,17 +250,24 @@ func _step(actor: Dictionary, delta: float) -> void:
 					actor.timer = _rng.randf_range(6.0, 14.0)
 		Stage.WATCHING:
 			if _follow(actor, node, delta):
-				# At the sofa: face the set and settle in. Being within the
-				# TVProp watcher radius is what switches it on, and walking
-				# away is what lets it die again.
+				# At the sofa: face the set, and switch it on THEMSELVES —
+				# the set is a thing residents operate, not a sensor.
 				_play(actor, "settle")
 				var unit := _unit_of(actor)
 				if _tv.has(unit):
 					var to: Vector3 = _tv[unit] - node.global_position
 					node.rotation.y = atan2(-to.x, -to.z)
+				if not bool(actor.get("tv_latched", false)):
+					actor.tv_latched = true
+					_set_unit_tv(unit, true)
 			else:
 				_play(actor, "pace")
 			if actor.timer <= 0.0:
+				# Enough television: off goes their latch (the player's own
+				# latch on the same set survives), and home they go.
+				if bool(actor.get("tv_latched", false)):
+					actor.tv_latched = false
+					_set_unit_tv(_unit_of(actor), false)
 				actor.stage = Stage.HOME
 				_set_route(actor, actor.home)
 				actor.timer = _rng.randf_range(10.0, 30.0)
@@ -310,6 +317,16 @@ func _step(actor: Dictionary, delta: float) -> void:
 					actor.stage = Stage.HOME
 					_set_route(actor, actor.home)
 					actor.timer = _rng.randf_range(10.0, 34.0)
+
+
+## The resident's hand on their own switch.
+func _set_unit_tv(unit: String, on: bool) -> void:
+	if unit == "":
+		return
+	for tv in get_tree().get_nodes_in_group("televisions"):
+		if str(tv.unit) == unit and tv.has_method("set_npc"):
+			tv.set_npc(on)
+			return
 
 
 func _unit_of(actor: Dictionary) -> String:
