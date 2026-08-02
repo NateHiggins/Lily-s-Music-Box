@@ -58,9 +58,10 @@ Remaining is the voice itself:
   case_library.gd holds all eight (4508 Juno hold-music, 4519 Mercer
   appliances, 4531 Room 0 hum, 4544 edited evidence, 4600 convergence);
   WalkTest drives each and the convergence's timeout protects the empty
-  slot. The convergence is fixed-beat data — an ending assembled from
-  accumulated outcomes needs conditional beats in call_interface's runner,
-  which is the natural next engineering step if the dream is wanted.
+  slot. The runner now has conditional beats ({"when"/"when_not": flag,
+  "beats": [...]}) and the convergence's roll-call uses them: Juno's, the
+  Mercers', and Sacha's lines vary by their own case's outcome, and the
+  protected silence knows whether the sister is in the choir.
 - **Case 02 field journey**: contact-mic listening on the way down.
 - **Poltergeist ↔ broadcast**: bespoke possessed reel for Cal's rung.
 - **17 more character meshes + animation sets** via the prompt sheets.

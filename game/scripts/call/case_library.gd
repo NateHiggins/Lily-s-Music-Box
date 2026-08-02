@@ -429,6 +429,7 @@ const CASES := [
 			{"delay": 1.6},
 			{"say": "You just listened. That's all anybody's done for two years. She sounds a little more like you now."},
 			{"delay": 1.2},
+			{"flag": "in_the_choir"},
 			{"resident": "The loop grew a harmonic tonight with your desk's room tone in it. You're in the choir, operator."},
 		],
 	},
@@ -780,7 +781,21 @@ const CASES := [
 		{"resident": "Mina, 2A. The pattern's here. Four marks and the rest. I am NOT annotating the rest."},
 		{"delay": 2.2},
 		{"propagate": ["F02_C_SPEAKER_01", 3, 0.9, -3.0]},
-		{"resident": "Juno, 2C. The loop's singing. Somebody's sister is carrying the alto line."},
+		## The roll-call remembers. Which line each resident sings depends on
+		## what their case left on the desk — the conditional beats are the
+		## network's memory of the player's answers.
+		{"when": "juno_loop", "beats": [
+			{"resident": "Juno, 2C. The loop's singing. Somebody's sister is carrying the alto line."},
+		]},
+		{"when": "hold_hum", "beats": [
+			{"resident": "Juno, 2C. My whole floor already knew the alto line. I only looped what they were carrying."},
+		]},
+		{"when": "melody_in_the_walls", "beats": [
+			{"resident": "Juno, 2C. The buried melody came back up through the unanswered lines. You can't bury a song in a building full of phones."},
+		]},
+		{"when": "in_the_choir", "beats": [
+			{"resident": "Juno, 2C. The loop kept every listener it ever had. Your desk's room tone takes the descant, operator."},
+		]},
 		{"delay": 2.2},
 		{"propagate": ["F03_B_RADIATOR_01", 2, 0.8, -4.0]},
 		{"resident": "Omar, 3B. Nine steps and a turn, right on the beat. It's dancing, is what that is."},
@@ -789,13 +804,35 @@ const CASES := [
 		{"resident": "Rhea, 3D. Both of me are in the soprano section. I can live with it tonight."},
 		{"delay": 2.2},
 		{"propagate": ["F04_C_RADIATOR_01", 2, 0.8, -4.0]},
-		{"resident": "Cam and Noel, 4C. Our kettle has a solo. We are so proud and so tired."},
+		{"when": "object_language", "beats": [
+			{"resident": "Cam and Noel, 4C. Our kettle has a solo. We are so proud and so tired."},
+		]},
+		{"when": "mercers_speak", "beats": [
+			{"resident": "Cam and Noel, 4C. The kettle sat this one out. We're carrying our own part tonight."},
+		]},
+		{"when": "routine_haunting", "beats": [
+			{"resident": "Noel, 4C. The empty unit downstairs is playing our morning, right on the beat. Cam's holding my hand about it."},
+		]},
+		{"when": "one_apology", "beats": [
+			{"resident": "Cam and Noel, 4C. There's a rest in our bar where the apology went. We keep it swept."},
+		]},
 		{"delay": 2.2},
 		{"propagate": ["F05_A_RADIATOR_01", 1, 0.8, -5.0]},
 		{"resident": "Quell, management. The drone is load-bearing. That is a structural assessment."},
 		{"delay": 2.2},
 		{"propagate": ["F06_A_MONITOR_01", 3, 0.8, -3.0]},
-		{"resident": "Sacha, 6A. Recording. All versions agree tonight. First time."},
+		{"when": "version_chorus", "beats": [
+			{"resident": "Sacha, 6A. Recording. All versions agree tonight. First time."},
+		]},
+		{"when": "archive_caller_loose", "beats": [
+			{"resident": "Sacha, 6A. Recording. My new neighbor's singing along. Three weeks of practice, they said."},
+		]},
+		{"when": "footage_tomorrow", "beats": [
+			{"resident": "Sacha, 6A. Recording. Tomorrow's file already has this song in it. We're the echo, apparently."},
+		]},
+		{"when": "distributed_resident", "beats": [
+			{"resident": "Sacha, 6A. Recording on six channels. The versions are singing rounds. Somebody inside them is keeping time."},
+		]},
 		{"delay": 2.0},
 		{"respond": "Every voice is in. The motif is complete except its empty slot, and every channel is leaving it for you."},
 	],
@@ -839,6 +876,10 @@ const CASES := [
 			{"say": "You kept the empty slot empty. All seven channels went around it, like furniture everyone owns. It's still there. It's still nothing. It's OURS."},
 			{"delay": 1.8},
 			{"flag": "the_empty_slot"},
+			{"when": "juno_loop", "beats": [
+				{"flag": "chorus_kept_the_sister"},
+				{"resident": "Juno, 2C, quietly: she stopped singing for the rest. She knows the rest now. That's new."},
+			]},
 			{"resident": "Mina, 2A, one addendum for the record: the rest at the end of the motif remains blank, and the blank is accurate. Goodnight, operator. Goodnight, everyone. — CALLERS DECLINE TO STATE. All of them. Perfect."},
 		],
 	},

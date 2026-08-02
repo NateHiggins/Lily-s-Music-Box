@@ -1356,6 +1356,10 @@ func _case_network_checks(ci: CallInterface) -> void:
 		ci.leave()
 	_check(ci.case_index == 8, "the queue ends after the convergence")
 	_check(ci.closed_outcomes.size() == 8, "all eight outcomes recorded")
+	# Conditional beats: giving Juno the loop in case 04 changes what the
+	# convergence's protected silence contains four cases later.
+	_check(ci.flags.has("chorus_kept_the_sister"),
+			"the convergence remembers what case 04 decided")
 	# The desk is not offering a ninth call it does not have.
 	var desk2: DeskZone = root.get_node_or_null("F04_B_DESK_ZONE")
 	if desk2:

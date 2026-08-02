@@ -331,6 +331,19 @@ func _run_beats(beats: Array, rid: int) -> bool:
 			flags[beat.flag] = true
 			case_flag_set.emit(beat.flag)
 			print("[CALL] case flag set: %s" % beat.flag)
+		elif beat.has("when"):
+			# Conditional beats: the network remembering itself. A case can
+			# play differently because of what an earlier case left on the
+			# desk. Do not nest a "respond" in here — the response window
+			# ends the beat list, and a conditional answer would mean some
+			# players are never asked the question.
+			if flags.get(beat.when, false):
+				if not await _run_beats(beat.beats, rid):
+					return false
+		elif beat.has("when_not"):
+			if not flags.get(beat.when_not, false):
+				if not await _run_beats(beat.beats, rid):
+					return false
 		elif beat.has("respond"):
 			_open_response(beat.respond)
 			return true
