@@ -53,7 +53,7 @@ coordinate before fixing.
 |---|---|---|
 | all units | ~~TV picture bugs~~ FIXED: root cause was ffmpeg 8.1.2 writing malformed Theora; station rebuilt live (per-clip shuffle, E toggles sets, NPC watching, glow, 9-fault shader) | done |
 | lobby | ~~duplicate Evelyn (test figure)~~ FIXED: lobby figure retired, assertions moved to the real 1A resident, UUID clips named by eye (ClipSheet.tscn) and ROLES re-pointed | done |
-| all units | 17 residents still billboard sprites until meshes arrive | wish |
+| all units | ~~17 residents still billboard sprites~~ FIXED: the generated `_rigged.glb` cast upgrades in place, and Evelyn's Meshy set is retargeted once onto their shared skeleton (`resident_moves.glb`) — every resident sits, works, reaches and glances; bespoke gaits still win where they exist. Hero models per the execution plan replace these as they land | done |
 | broadcast | Sora watermark visible in some frames at close range — DECIDED 2026-08-01: don't care for now; illegible at play distance in every walkthrough still, and clips get re-cut when new broadcast footage lands. Revisit only if a marketing capture frames a TV close up | wish |
 | B1 hall | "KNOW YOUR EXIT" poster fixed earlier — poster itself reads fine in wt_B1_HALL, but a blank white rectangle floats at ceiling height above it (see decal family) | check |
 | corridors | door spill bars: not judgeable with the fill light on — needs an unlit pass at play height | check |

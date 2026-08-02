@@ -36,6 +36,10 @@ func _run(model: String) -> void:
 	add_child(key)
 	var figure := (load(model) as PackedScene).instantiate()
 	add_child(figure)
+	# CLIP_LIB=1 grafts the shared retargeted move set onto the model, so
+	# the sheet shows how borrowed clips sit on this body.
+	if OS.get_environment("CLIP_LIB") == "1":
+		print("shared moves applied: ", ResidentMovesLibrary.apply(figure))
 	var anim := _find_player(figure)
 	if anim == null:
 		push_error("no AnimationPlayer in %s" % model)

@@ -26,6 +26,12 @@ func _ready() -> void:
 				profile.display + " idle imports")
 		_check(player != null and _contains(names, "walk"),
 				profile.display + " walk imports")
+		# One skeleton, one retargeted library: every resident can borrow
+		# Evelyn's move set (sit is the role their own two clips lack).
+		_check(ResidentMovesLibrary.apply(actor),
+				profile.display + " accepts the shared move set")
+		_check(player != null and player.has_animation("clip_06"),
+				profile.display + " can settle (shared clip_06)")
 		var signature := JSON.stringify(profile.motion)
 		signatures[signature] = true
 		loaded += 1

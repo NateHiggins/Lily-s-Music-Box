@@ -166,9 +166,14 @@ func bind_elevator(lift: OrisonElevator) -> void:
 ## Swap the flat sprite for a real mesh wherever one has been generated.
 ## Done here rather than in the spawner so the cast can be upgraded one
 ## resident at a time as their models arrive, without the spawn path having
-## to know which of the eighteen currently exist.
+## to know which of the eighteen currently exist. A hero model
+## (<slug>.gltf, currently Evelyn's Meshy merge) wins over the generated
+## <slug>_rigged.glb; the generated family then borrows the shared
+## retargeted move set, so every resident can sit, work, reach and glance.
 func _upgrade(node: Node3D, slug: String) -> bool:
 	var path := "res://assets/characters/%s/%s.gltf" % [slug, slug]
+	if not ResourceLoader.exists(path):
+		path = "res://assets/characters/%s/%s_rigged.glb" % [slug, slug]
 	if not ResourceLoader.exists(path):
 		return false
 	var scene := load(path) as PackedScene
@@ -191,19 +196,33 @@ func _upgrade(node: Node3D, slug: String) -> bool:
 	# safe default until each clip is identified and classified. (Carried
 	# over from the retired lobby test figure, which is where the merged
 	# clips were first judged.)
+	ResidentMovesLibrary.apply(figure)
 	var anim := _player_of(node)
 	if anim:
 		for clip_name in anim.get_animation_list():
 			var clip := anim.get_animation(clip_name)
 			if clip:
 				clip.loop_mode = Animation.LOOP_LINEAR
-		var idle: String = ROLES.get("idle", "")
+		var idle := _resolve_clip(anim, "idle")
 		if idle != "" and anim.has_animation(idle):
 			anim.play(idle)
+			# Eighteen synchronized idles read as a drill team; desync them.
+			anim.seek(_rng.randf() * anim.get_animation(idle).length, true)
 		print("[ROUTINES] %s: %d clips" % [
 				slug, anim.get_animation_list().size()])
 	print("[ROUTINES] %s upgraded to a mesh" % slug)
 	return true
+
+
+## A resident's own baked clip beats the shared retargeted one: gaits stay
+## personal while the borrowed library fills every other role.
+func _resolve_clip(anim: AnimationPlayer, role: String) -> String:
+	var suffix: String = {"idle": "_Idle", "pace": "_Walk"}.get(role, "")
+	if suffix != "":
+		for clip_name in anim.get_animation_list():
+			if String(clip_name).ends_with(suffix):
+				return String(clip_name)
+	return ROLES.get(role, "")
 
 
 func _meshes(node: Node) -> Array[MeshInstance3D]:
@@ -247,7 +266,7 @@ func _play(actor: Dictionary, role: String) -> void:
 	var anim: AnimationPlayer = actor.anim
 	if anim == null:
 		return
-	var clip: String = ROLES.get(role, "")
+	var clip := _resolve_clip(anim, role)
 	if clip != "" and anim.has_animation(clip) \
 			and anim.current_animation != clip:
 		anim.play(clip)
