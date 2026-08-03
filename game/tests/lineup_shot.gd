@@ -32,6 +32,9 @@ func _run() -> void:
 		resident.global_position = GameBoot.b2g([
 				-4.4 + (i % 9) * 1.1, -8.7 + (i / 9) * 1.3, 0.0])
 		resident.rotation.y = PI
+		# AnimatedResident lerps toward _home every frame; for the parade,
+		# home IS the parade ground.
+		resident.set("_home", resident.position)
 	var cam := Camera3D.new()
 	cam.fov = 68
 	add_child(cam)

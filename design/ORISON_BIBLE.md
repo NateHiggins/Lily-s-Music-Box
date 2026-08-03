@@ -140,16 +140,18 @@ and the desk fiction; she has no body in the building.
 *These the bible cannot settle alone. Until ruled, the stated interim
 holds.*
 
-1. **Canon heights: runtime or baked?** The user decreed scale
-   transforms (live, shipped, tested by factors); the parallel workstream
-   added a test guard asserting imported rigs keep identity scale, with a
-   comment against runtime scaling. *Interim: runtime scaling stands.*
-   Decide before the lamia and any future models land.
-2. **Mina's final face.** Phase 3 of the execution plan says "ship
-   Mina's final rigged model" via her bespoke generator
-   (`assets/characters/mina/`); the hero dump gave her a board-accurate
-   mesh that now ships. *Interim: the hero mesh is her face; the bespoke
-   pipeline is a performance-clip workbench.* Confirm or reverse.
+1. ~~Canon heights~~ **RULED 2026-08-02 (refined by the user the same
+   day): one uniform scale, nothing else.** The dump models carry their
+   own authored proportions; only relative height changes, applied as a
+   single uniform scale on the figure node at load
+   (`ResidentMovesLibrary.height_of`). Blender-side baking was attempted
+   twice, lost twice to FBX unit normalization, and is renounced; the
+   exports ship untouched. Width/head factors are generated-cast legacy.
+2. ~~Mina's final face~~ **RULED 2026-08-02: the hero mesh is her
+   face.** Further ruled: every resident gets exactly ONE active model;
+   outfit variations, when they come, arrive as additional whole models,
+   not swaps within one. The bespoke generator remains a performance-clip
+   workbench.
 3. **Nadia Quell: architect, inspector, or management?** Prototype says
    municipal inspector; art bible says architect; the welcome letter says
    Management; her data organizes tenants *against* an institution.
@@ -174,10 +176,11 @@ holds.*
    Current case: her credit was taken. *Interim: both — she takes sound
    from the world without asking, and the world took her work without
    asking; the case is about the second.* Confirm.
-9. **Resident collision.** Doctrine says residents are deliberately
-   non-colliding; the execution plan's Phase 2 demands nobody walks
-   through a visible resident. *Interim: non-colliding stands until
-   Phase 2 implements soft avoidance.*
+9. ~~Resident collision~~ **RULED 2026-08-02: soft yield.** Residents
+   remain physically non-colliding (the movement audit owns clearances),
+   but a resident in the player's space steps aside — they avoid the
+   collision rather than obstruct or be walked through
+   (`ResidentRoutines._yield_to_player`).
 
 ## VII. THE LAWS
 

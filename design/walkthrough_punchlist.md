@@ -40,6 +40,7 @@ coordinate before fixing.
 | foyer | bench is decorative and on the wrong side of the entry door — move across, add sit affordance, move Teresa's haunt with it | ugly |
 | all floors | wall art misplacement family: pieces off-wall, floating, or crossing the mid-wall picture rail — full placement audit + a loud test | blocker |
 | stairway | half-landings share/lack art — each of the seven landings needs a unique piece | wish |
+| 1A / cast | Evelyn's original Meshy model stands 1.80 m while the height-baked hero cast bases at 1.70 m — canon 0.96 says ~1.63. She reads tall against her neighbors; bake her too (she is also the biped move-library donor, so update DONOR_HIPS when rescaling her file) | wish |
 
 ## Systemic (one fix, many floors)
 

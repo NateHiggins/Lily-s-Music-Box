@@ -28,8 +28,54 @@ import bpy
 ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 MESHY = os.path.join(ROOT, "art", "blender", "meshy")
 MAPPING = os.path.join(ROOT, "game", "data", "resident_hero_models.json")
+PROFILES = os.path.join(ROOT, "game", "data",
+                        "resident_animation_profiles.json")
 TRI_BUDGET = 40000
 TEX_SIZE = 1024
+
+
+def body_factors(slug: str):
+    """Canon heights are BAKED into the model, UNIFORMLY (ruling
+    2026-08-02, refined): the dump models already carry their authored
+    proportions, so only relative height scales — one uniform factor,
+    which armatures apply cleanly. Width factors are the generated-cast
+    legacy and are ignored here."""
+    with open(PROFILES, encoding="utf-8") as fh:
+        for profile in json.load(fh):
+            if profile.get("slug") == slug:
+                return float(profile.get("body", {}).get("height", 1.0))
+    return 1.0
+
+
+def bake_body_scale(slug: str) -> None:
+    """Multiply the canon factors onto the ROOT objects' scale and leave
+    it unapplied: the glTF exporter converts axes (Blender Z-up: height
+    is Z), and in Godot the skeleton and skin live under the scaled node,
+    so shared-library clips play correctly with no track rescaling.
+    Applying the scale into FBX child data was tried and fought parent
+    inheritance and per-object axis conventions; this way the exporter
+    owns the geometry problem it already solves."""
+    h = body_factors(slug)
+    if abs(h - 1.0) < 0.001:
+        return
+    # FBX imports carry a 0.01 armature scale with centimeter bone data.
+    # Normalize that FIRST (bones and mesh to meters, scales to one), so
+    # the uniform multiply and second apply operate in a clean domain —
+    # multiplying the un-normalized 0.01 broke the exporter's own unit
+    # normalization and shipped centimeter skeletons.
+    bpy.ops.object.select_all(action="SELECT")
+    bpy.context.view_layer.objects.active = next(
+        (o for o in bpy.data.objects if o.type == "ARMATURE"),
+        bpy.data.objects[0] if bpy.data.objects else None)
+    bpy.ops.object.transform_apply(location=False, rotation=False,
+                                   scale=True)
+    for o in bpy.data.objects:
+        if o.parent is None:
+            o.scale = (h, h, h)
+    bpy.ops.object.select_all(action="SELECT")
+    bpy.ops.object.transform_apply(location=False, rotation=False,
+                                   scale=True)
+    print("  baked body scale h=%.2f (uniform)" % h)
 
 
 def clean_scene() -> None:
@@ -85,7 +131,8 @@ def export_gltf(out_path: str) -> None:
         export_animations=False, export_skins=True, export_yup=True)
 
 
-def convert(source: str, out_dir: str, name: str) -> None:
+def convert(source: str, out_dir: str, name: str,
+            bake_body: bool = False) -> None:
     out_path = os.path.join(out_dir, name + ".gltf")
     if os.path.exists(out_path):
         print("skip (exists)", name)
@@ -94,9 +141,16 @@ def convert(source: str, out_dir: str, name: str) -> None:
     if not import_base(source):
         return
     strip_animations()
+    # Canon heights are applied as one uniform scale on the figure node
+    # at load (resident_routines._upgrade) — Blender-side baking fought
+    # FBX unit normalization twice and lost; the exports ship untouched.
     decimate_to_budget()
     shrink_textures()
     export_gltf(out_path)
+    # Regenerated textures are ungraded; clear the grade markers so
+    # grade_character_textures.py re-runs on them.
+    for marker in glob.glob(os.path.join(out_dir, "*.graded")):
+        os.remove(marker)
     print("converted", name)
 
 
@@ -149,7 +203,8 @@ if __name__ == "__main__":
         mapping = json.load(fh)
     for slug, spec in mapping["residents"].items():
         convert(spec["source"],
-                os.path.join(ROOT, "game", "assets", "characters", slug), slug)
+                os.path.join(ROOT, "game", "assets", "characters", slug),
+                slug, bake_body=True)
     for name, spec in mapping["creatures"].items():
         out_dir = os.path.join(ROOT, "game", "assets", "creatures", name)
         convert(spec["source"], out_dir, name)

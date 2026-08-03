@@ -32,6 +32,10 @@ var _resident_pick: OptionButton
 var _effect_pick: OptionButton
 var _overlay_on := false
 var _sections: Dictionary = {}
+var _light_sliders: Dictionary = {}
+var _updating_light_controls := false
+var _selected_fixture: Node
+var _light_identity: Label
 
 
 func setup(building_root: Node3D) -> void:
@@ -79,6 +83,7 @@ func _ready() -> void:
 	_build_world()
 	_build_device()
 	_build_keys()
+	root.light_rig.debug_fixture_selected.connect(_on_debug_fixture_selected)
 
 
 # ------------------------------------------------------------- sections
@@ -212,16 +217,23 @@ func _lineup_cast(gather: bool) -> void:
 			if not resident.has_meta("pre_lineup_pos"):
 				resident.set_meta("pre_lineup_pos", resident.global_position)
 				resident.set_meta("pre_lineup_yaw", resident.rotation.y)
+				resident.set_meta("pre_lineup_home", resident.get("_home"))
 			var col := i % 9
 			var line := i / 9
 			resident.global_position = GameBoot.b2g([
 					-4.4 + col * 1.1, -8.7 + line * 1.3, 0.0])
 			resident.rotation.y = PI  # face the entrance, and the inspector
+			# AnimatedResident lerps toward _home; the parade ground is
+			# home until dismissal.
+			resident.set("_home", resident.position)
 		elif resident.has_meta("pre_lineup_pos"):
 			resident.global_position = resident.get_meta("pre_lineup_pos")
 			resident.rotation.y = resident.get_meta("pre_lineup_yaw")
+			if resident.get_meta("pre_lineup_home") != null:
+				resident.set("_home", resident.get_meta("pre_lineup_home"))
 			resident.remove_meta("pre_lineup_pos")
 			resident.remove_meta("pre_lineup_yaw")
+			resident.remove_meta("pre_lineup_home")
 
 
 ## She stands in 1A now — the lobby test figure that used to carry these
@@ -458,6 +470,45 @@ func _build_device() -> void:
 	_slider(box, "Shadows", 0, 16, root.light_rig._shadow_budget,
 			func(v): root.light_rig.set_budgets(
 					root.light_rig._active_budget, int(v)), 1.0)
+	var divider := HSeparator.new()
+	box.add_child(divider)
+	var inspect := CheckBox.new()
+	inspect.text = "Walk-up light tuning (look at fixture + E)"
+	inspect.add_theme_font_size_override("font_size", 10)
+	inspect.toggled.connect(func(on):
+		root.light_rig.set_debug_inspection(on)
+		if on:
+			_sections["LIGHTING — global grade and budgets"].visible = true)
+	box.add_child(inspect)
+	var fixture_hint := Label.new()
+	fixture_hint.text = "Select a fitting in the world; sliders edit that fitting only."
+	fixture_hint.add_theme_font_size_override("font_size", 9)
+	fixture_hint.modulate = Color(0.72, 0.78, 0.70)
+	fixture_hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	box.add_child(fixture_hint)
+	_light_identity = Label.new()
+	_light_identity.text = "No light selected"
+	_light_identity.add_theme_font_size_override("font_size", 10)
+	_light_identity.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_light_identity.modulate = Color(0.72, 1.0, 0.84)
+	box.add_child(_light_identity)
+	_light_sliders["energy_multiplier"] = _slider(box, "Energy ×", 0.0, 2.0,
+			1.0, func(v): _set_light_value("energy_multiplier", v), 0.01)
+	_light_sliders["range"] = _slider(box, "Throw m", 1.5, 16.0,
+			6.0, func(v): _set_light_value("range", v), 0.1)
+	_light_sliders["attenuation"] = _slider(box, "Falloff", 0.8, 3.2,
+			2.0, func(v): _set_light_value("attenuation", v), 0.05)
+	_light_sliders["temperature"] = _slider(box, "Temp K", 1800, 6500,
+			2700, func(v): _set_light_value("temperature", v), 50.0)
+	_light_sliders["source_size"] = _slider(box, "Softness", 0.02, 0.50,
+			0.12, func(v): _set_light_value("source_size", v), 0.01)
+	_light_sliders["shadow_opacity"] = _slider(box, "Shadow", 0.0, 1.0,
+			1.0, func(v): _set_light_value("shadow_opacity", v), 0.01)
+	_light_sliders["flicker_depth"] = _slider(box, "Flicker", 0.0, 0.30,
+			0.02, func(v): _set_light_value("flicker_depth", v), 0.005)
+	_light_sliders["flicker_rate"] = _slider(box, "Flicker Hz", 0.10, 4.0,
+			1.0, func(v): _set_light_value("flicker_rate", v), 0.05)
+	_set_light_controls_enabled(false)
 	var export_status := Label.new()
 	export_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	export_status.add_theme_font_size_override("font_size", 9)
@@ -476,6 +527,44 @@ func _build_device() -> void:
 			if on:
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE)
 	box.add_child(touch)
+
+
+func _set_light_value(parameter: String, value: float) -> void:
+	if _updating_light_controls:
+		return
+	if _selected_fixture and is_instance_valid(_selected_fixture):
+		root.light_rig.set_fixture_tuning(_selected_fixture, parameter, value)
+
+
+func _refresh_light_controls() -> void:
+	if _selected_fixture == null or not is_instance_valid(_selected_fixture):
+		_set_light_controls_enabled(false)
+		return
+	var tuning: Dictionary = root.light_rig.fixture_tuning(_selected_fixture)
+	_updating_light_controls = true
+	for parameter in _light_sliders:
+		(_light_sliders[parameter] as HSlider).value = float(tuning[parameter])
+	_updating_light_controls = false
+	_set_light_controls_enabled(true)
+
+
+func _on_debug_fixture_selected(fixture: Node) -> void:
+	_selected_fixture = fixture
+	if fixture == null:
+		_light_identity.text = "No light selected"
+		_refresh_light_controls()
+		return
+	var card: Dictionary = root.light_rig.fixture_provenance(fixture)
+	_light_identity.text = "%s\n%s\nQuirk: %s" % [
+			str(card.get("display", "Selected light")),
+			str(card.get("provenance", "Uncatalogued fixture")),
+			str(card.get("quirk", "None recorded"))]
+	_refresh_light_controls()
+
+
+func _set_light_controls_enabled(enabled: bool) -> void:
+	for slider in _light_sliders.values():
+		(slider as HSlider).editable = enabled
 
 
 func _build_keys() -> void:
@@ -501,7 +590,7 @@ func _button(parent: Node, label_text: String, action: Callable) -> Button:
 
 
 func _slider(parent: Node, label_text: String, lo: float, hi: float,
-		initial: float, on_change: Callable, step := 0.01) -> void:
+		initial: float, on_change: Callable, step := 0.01) -> HSlider:
 	var row := HBoxContainer.new()
 	var label := Label.new()
 	label.text = label_text
@@ -526,6 +615,7 @@ func _slider(parent: Node, label_text: String, lo: float, hi: float,
 		value_label.text = ("%%.%df" % decimals) % value)
 	row.add_child(value_label)
 	parent.add_child(row)
+	return slider
 
 
 func _unhandled_key_input(event: InputEvent) -> void:

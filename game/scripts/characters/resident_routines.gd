@@ -235,6 +235,9 @@ func _upgrade(node: Node3D, slug: String) -> bool:
 	# over from the retired lobby test figure, which is where the merged
 	# clips were first judged.)
 	ResidentMovesLibrary.apply(figure)
+	# Canon relative heights: one uniform scale on the figure node (the
+	# 2026-08-02 ruling as refined — proportions are the model's own).
+	figure.scale = Vector3.ONE * ResidentMovesLibrary.height_of(slug)
 	var anim := _player_of(node)
 	if anim:
 		for clip_name in anim.get_animation_list():
@@ -315,12 +318,40 @@ func _play(actor: Dictionary, role: String) -> void:
 ## Debug inspection: the cast holds still while lined up in the lobby.
 var inspection_hold := false
 
+## Residents yield to the player (ruling 2026-08-02): they are still
+## non-colliding — the movement audit owns clearances — but a body in
+## the player's space steps aside instead of being walked through.
+const YIELD_RADIUS := 0.62
+const YIELD_SPEED := 1.6
+var _player: Node3D
+
 
 func _process(delta: float) -> void:
 	if inspection_hold:
 		return
+	if _player == null or not is_instance_valid(_player):
+		_player = get_tree().get_first_node_in_group(
+				"player_controller") as Node3D
 	for actor in actors:
 		_step(actor, delta)
+		_yield_to_player(actor, delta)
+
+
+func _yield_to_player(actor: Dictionary, delta: float) -> void:
+	if _player == null:
+		return
+	var node: Node3D = actor.node
+	if not is_instance_valid(node):
+		return
+	var away := node.global_position - _player.global_position
+	if absf(away.y) > 1.2:
+		return  # different storey
+	away.y = 0.0
+	var gap := away.length()
+	if gap >= YIELD_RADIUS or gap < 0.001:
+		return
+	var push := minf(YIELD_SPEED * delta, YIELD_RADIUS - gap)
+	node.global_position += away.normalized() * push
 
 
 func _step(actor: Dictionary, delta: float) -> void:
