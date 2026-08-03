@@ -86,9 +86,11 @@ from lobby runner to skylight; WORS 1610 broadcasting from the laundry
 room 1962–1999 with no transmitter ever found; **Room 0 — SHARED
 MECHANICAL / DEVOTIONAL / UNRESOLVED — which exists while the hum does.**
 
-The night begins sealed: every apartment entry is locked except 4B and
-the street door. A case activating unlocks its unit. Residents keep their
-own hours behind their own locks.
+The building starts **awake** *(ruled 2026-08-03)*: doors unlocked,
+residents about their business from the first minute — errands, haunts,
+the elevator moving because somebody is actually in it. The sealed start
+(every entry locked but 4B, cases unlocking their units) remains
+available behind `OrisonDetailPass.START_LOCKED` for scenario use.
 
 `gen_layout.py` authors every coordinate. `b2g()` is the only conversion.
 Nobody hand-edits generated JSON or glTF. These are laws, not customs.
@@ -143,6 +145,8 @@ and the desk fiction; she has no body in the building.
 | What to do next, in order | `design/next_session_plan.md` (sequences under the plan) |
 | Known defects | `design/walkthrough_punchlist.md` |
 | Canon: premise, cast identity, laws, disputes | **this bible** |
+| Who is bound to whom, and by what | `design/ORISON_RELATIONSHIP_WEB.md` (threads tentative until their case's gameplay review) |
+| The animation repertoire, by skeleton family | `game/data/move_repertoire.json` |
 | Faces and visual language | `art/concept/characters/CHARACTER_BIBLE.md` + the four boards |
 | Per-resident mechanics (cases, flags, rules) | `game/data/reality_cases.json`, `reality_rules.json` |
 | Per-resident life texture | `apartment_life_profiles.json`, `resident_story_details.json`, `music_catalog.json` |
@@ -174,7 +178,10 @@ holds.*
    employers.** All three prior readings were fragments of this one.
 4. **Two hearing-loss wounds.** Mina's courtroom loss is load-bearing
    Case 01 canon. Cal's case carries a `hearing_loss_named` flag no other
-   Cal data supports. Echo or error?
+   Cal data supports. *Proposed by the web (2026-08-03): neither echo nor
+   error — the flag marks Cal's Delayed Voice Reel, which holds the only
+   surviving audio of Mina's four seconds (never rendered audible; law
+   8). Confirm or amend.*
 5. ~~The family web~~ **RULED 2026-08-02: everyone is connected to
    everyone else — there is no such thing as coincidence in this
    building.** Every shared surname is a thread; every thread pulls.
@@ -183,10 +190,16 @@ holds.*
    and — because this is purgatory — across *decades and centuries* of
    tenancy. The web itself (who is bound to whom, and by what) is to be
    developed as its own authored document, one relationship at a time,
-   alongside the case work.
+   alongside the case work. *The document now exists:
+   `design/ORISON_RELATIONSHIP_WEB.md` (authored 2026-08-03) — nine
+   knots, the Price Conviction at the center, every thread tentative
+   until its case's gameplay review.*
 6. **Jonah: can't start or can't finish?** His case machinery rewards
    endings; his art and anecdotes are about beginnings. Both are good;
-   pick the spine.
+   pick the spine. *Proposed by the web (2026-08-03): can't FINISH — the
+   celebrated beginnings are the avoidance mechanism (a man who keeps
+   starting books never writes the verdict; §II.1 of the web). Case
+   machinery correct as built. Confirm or amend.*
 7. **HANDOFF's crown.** HANDOFF still names `photoreal_target.md` "the
    live status document" and frames the whole game as the desk prototype.
    *Interim: the execution plan governs; HANDOFF is pipeline mechanics
@@ -194,7 +207,9 @@ holds.*
 8. **Juno's theft, direction of.** Prototype: she samples others.
    Current case: her credit was taken. *Interim: both — she takes sound
    from the world without asking, and the world took her work without
-   asking; the case is about the second.* Confirm.
+   asking; the case is about the second.* Confirm. *The web (2026-08-03)
+   makes the first direction concrete: Rhea's deleted take 18 lives in
+   Juno's stolen session archive (web §II.7).*
 9. ~~Resident collision~~ **RULED 2026-08-02: soft yield.** Residents
    remain physically non-colliding (the movement audit owns clearances),
    but a resident in the player's space steps aside — they avoid the

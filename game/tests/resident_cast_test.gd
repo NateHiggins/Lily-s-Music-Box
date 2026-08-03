@@ -43,6 +43,32 @@ func _ready() -> void:
 	_check(loaded == 18, "all resident models instantiate")
 	_check(signatures.size() == 18,
 			"every resident has a unique authored motion signature")
+	# The biped family gets Evelyn's set PLUS the 38-clip gesture library
+	# (build_gesture_library.py). Prove it on a hero mesh: the graft must
+	# land both a donor clip and the gesture repertoire.
+	var hero := load("res://assets/characters/teresa_vale/teresa_vale.gltf") \
+			as PackedScene
+	_check(hero != null, "hero mesh loads for gesture graft check")
+	if hero:
+		var actor := hero.instantiate()
+		add_child(actor)
+		_check(ResidentMovesLibrary.apply(actor),
+				"hero mesh accepts the biped move set")
+		var player := _find_animation_player(actor)
+		_check(player != null and player.has_animation("walk"),
+				"hero mesh grafts Evelyn's walk")
+		_check(player != null and player.has_animation("formal_bow"),
+				"hero mesh grafts the gesture library (formal_bow)")
+		_check(player != null and player.has_animation("idle_12"),
+				"hero mesh grafts alternate idles (idle_12)")
+		var gesture_count := 0
+		if player:
+			for clip_name in player.get_animation_list():
+				gesture_count += 1
+		_check(gesture_count >= 48,
+				"hero repertoire holds Evelyn's 10 + 38 gestures (%d)"
+				% gesture_count)
+		actor.queue_free()
 	var art_file := FileAccess.open(
 			"res://data/character_memory_art.json", FileAccess.READ)
 	var art_catalog: Dictionary = JSON.parse_string(art_file.get_as_text())

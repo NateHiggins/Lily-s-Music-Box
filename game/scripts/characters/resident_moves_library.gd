@@ -13,6 +13,10 @@ extends RefCounted
 
 const LIB_PATH := "res://assets/characters/shared/resident_moves.glb"
 const BIPED_LIB_PATH := "res://assets/characters/evelyn_marsh/evelyn_marsh.gltf"
+## 38 gesture/idle/dance clips folded from the merged Meshy packs by
+## art/blender/scripts/build_gesture_library.py — same 24-joint biped
+## skeleton, so every hero-mesh resident and creature can play them.
+const GESTURES_LIB_PATH := "res://assets/characters/shared/biped_gestures.glb"
 
 static var _caches: Dictionary = {}
 static func apply(model_root: Node) -> bool:
@@ -31,17 +35,16 @@ static func apply(model_root: Node) -> bool:
 	# rigs (hips/spine/...) take the retargeted bake, and the Meshy biped
 	# family (Hips/Spine02/... — the hero dump AND the creatures, which
 	# turn out to carry the same 24 joints) borrows Evelyn's set directly.
-	var source := ""
-	var hip_name := ""
+	var sources: Array[String] = []
 	if skeleton.find_bone("hips") != -1:
-		source = LIB_PATH
-		hip_name = "hips"
+		sources = [LIB_PATH]
 	elif skeleton.find_bone("Hips") != -1:
-		source = BIPED_LIB_PATH
-		hip_name = "Hips"
+		sources = [BIPED_LIB_PATH, GESTURES_LIB_PATH]
 	else:
 		return false
-	var moves := _animations(source)
+	var moves: Array = []
+	for source in sources:
+		moves.append_array(_animations(source))
 	if moves.is_empty():
 		return false
 	# No scaling of any kind (final ruling 2026-08-02): models render at

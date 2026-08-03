@@ -462,7 +462,15 @@ func _run() -> void:
 	root.show_all_floors = true
 
 	# --- elevator travel across full range
+	# Residents roam from boot now and share the car; the inspection takes
+	# the independent-service key (hall calls refused), waits out any trip
+	# in progress, and parks the car at F01 so the sequence is its own.
 	var ele: OrisonElevator = root.elevator
+	ele.service_mode = true
+	await _until(func(): return not ele.moving, 30.0)
+	if ele.current != "F01":
+		ele.travel_to("F01")
+		await _until(func(): return not ele.moving, 30.0)
 	_check(ele._doors.size() == ele.stop_order.size(),
 			"every elevator stop has landing doors (%d)" % ele._doors.size())
 	_check(ele._doors[ele.current]["t"] > 0.99,
@@ -494,6 +502,7 @@ func _run() -> void:
 	_check(pl2.global_position.y < rode_from - 12.0,
 			"a rider in the cab travels with it (%.1f m)" %
 			(rode_from - pl2.global_position.y))
+	ele.service_mode = false  # hand the car back to the building
 
 	_check(AcousticGraphData.nodes.size() >= 25,
 			"acoustic graph loaded (%d nodes)" % AcousticGraphData.nodes.size())
@@ -953,9 +962,18 @@ func _evelyn_checks() -> void:
 	_check(anim != null, "Evelyn has an AnimationPlayer")
 	if anim == null:
 		return
-	_check(anim.get_animation_list().size() == 10,
-			"all ten clips survived the merge (%d)" %
-			anim.get_animation_list().size())
+	# Her own ten from the merge, plus whatever the gesture library grafts
+	# on top (biped family gets biped_gestures.glb too) — so count her
+	# originals by name rather than capping the list.
+	var evelyn_own := ["clip_01", "clip_02", "clip_03", "clip_04",
+			"clip_05", "clip_06", "clip_07", "clip_08", "walk", "run"]
+	var own_present := 0
+	for clip_name in evelyn_own:
+		if anim.has_animation(clip_name):
+			own_present += 1
+	_check(own_present == 10,
+			"all ten clips survived the merge (%d/10, %d total)" %
+			[own_present, anim.get_animation_list().size()])
 	_check(anim.is_playing(), "Evelyn is animating, not frozen in bind pose")
 	# Root motion would fight the navigation; the clips were authored in
 	# place and have to stay that way. Measured on the mesh child's LOCAL

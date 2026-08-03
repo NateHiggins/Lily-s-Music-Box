@@ -7,8 +7,11 @@ func _ready() -> void:
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	await get_tree().process_frame
-	_check(RealityRules.definitions.size() == 3,
-			"three vertical-slice rule profiles loaded")
+	# The vertical slice shipped 3 profiles; the full campaign carries one
+	# per resident, and reality_rules.json is the system of record.
+	_check(RealityRules.definitions.size() == 18,
+			"all 18 resident rule profiles loaded (%d)"
+			% RealityRules.definitions.size())
 	_check(RealityCases.activate_case("mina_caption_crisis"),
 			"Mina case activates")
 	var mina := RealityRules.effect_for("mina_caption_crisis")

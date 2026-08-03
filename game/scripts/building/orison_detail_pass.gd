@@ -17,11 +17,16 @@ var _unit_doors: Dictionary = {}
 
 const PLAYER_UNIT := "4B"
 
+## Ruling 2026-08-03: doors start unlocked and residents go about their
+## business from boot. Flip to true to restore the sealed-building start
+## (every entry locked but the player's; cases unlock their unit).
+const START_LOCKED := false
 
-## Every apartment door starts locked except the player's own; the front
-## door and commons stay free. Residents honor their own locks by staying
-## home (routines gate errands on a locked home door), and a case
-## activating unlocks its resident's unit so the work can happen.
+
+## Registers every unit's entry door; when START_LOCKED, seals all but the
+## player's. Residents honor their own locks by staying home (routines
+## gate errands on a locked home door), and a case activating unlocks its
+## resident's unit so the work can happen.
 func _apply_opening_lockdown() -> void:
 	var locked := 0
 	for candidate in get_tree().get_nodes_in_group("apartment_doors"):
@@ -32,13 +37,14 @@ func _apply_opening_lockdown() -> void:
 		if unit == "":
 			continue
 		_unit_doors[unit] = door
-		if unit == PLAYER_UNIT:
+		if not START_LOCKED or unit == PLAYER_UNIT:
 			continue
 		if door.leaf_state == "closed":
 			door.leaf_state = "locked"
 			locked += 1
-	print("[LOCKDOWN] %d apartment doors locked; %s and the front door stay open"
-			% [locked, PLAYER_UNIT])
+	if START_LOCKED:
+		print("[LOCKDOWN] %d apartment doors locked; %s and the front door stay open"
+				% [locked, PLAYER_UNIT])
 	RealityCases.case_changed.connect(_unlock_for_case)
 
 

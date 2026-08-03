@@ -24,6 +24,9 @@ var current := "F01"
 var moving := false              # true from request until doors reopen
 var state: int = S.IDLE
 var _pending := ""
+## Independent service: the car answers no hall calls while a keyholder
+## (maintenance, or a test) has it. Residents shrug and take the stairs.
+var service_mode := false
 
 var _cabin: AnimatableBody3D
 var _bell: AudioStreamPlayer3D
@@ -269,7 +272,7 @@ func travel_to(level: String) -> void:
 ## Small public surface for autonomous residents. They queue by waiting at
 ## the landing; only an idle car accepts a new destination.
 func npc_request(level: String) -> bool:
-	if not stops.has(level):
+	if service_mode or not stops.has(level):
 		return false
 	if current == level and state == S.IDLE:
 		if _doors[current]["t"] < 1.0:
