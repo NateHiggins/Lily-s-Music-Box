@@ -11,6 +11,22 @@ confessed openly in §VI rather than papered over.
 
 ## I. THE WORD
 
+**The aesthetic statement** *(ruled 2026-08-02)*: this is a **liminal-space,
+slow-burn psychological horror**, and its engine is one rule — **both
+true**. The Orison is a real prewar block in Queens, and it is purgatory.
+The residents are tenants with leases and grudges, and they are souls who
+have been here — some of them — for centuries. The infection is an
+audio-borne anomaly in the wiring, and it is the building remembering out
+loud. The player is a night-shift maintenance tech, and the work is the
+work of release. No scene may resolve the ambiguity; every explanation
+offered must be true, and neither is allowed to win. The horror is never
+the jump — it is the slow recognition that the ordinary reading and the
+impossible reading have been describing the same night all along.
+Liminality is the palette: lobbies at 3 a.m., hold music, half-landings,
+the hour when the elevator moves with nobody in it. Purgatory is not a
+punishment here. It is a building that keeps everyone until their case
+closes.
+
 There is a building in Queens called **the Orison**, and the building is
 inhabited twice over.
 
@@ -37,7 +53,9 @@ The game runs on **two case systems, and they are layers, not rivals**:
   wound as a physical fault. Repair alone never closes a case; honest
   conversation changes the rule. Mina's is complete and voiced; **Peter
   Wren is the ordained second case; none of the other sixteen shall be
-  built before Peter meets Mina's bar.**
+  built before Peter meets Mina's bar.** *(Ruled 2026-08-02: all case
+  content is TENTATIVE until its gameplay is worked through — cases are
+  reviewed for functionality one at a time, with the user.)*
 
 The two layers share residents, share the motif, and share one law: **a
 case is weak if it can be solved by the obviously compassionate option.**
@@ -94,7 +112,7 @@ face, and wound. Faces are the four cast boards in
 | 3B | **Omar Bell** | repair technician, apron of categorized tools | cannot declare anything unrepairable; *some things are not repairable* |
 | 3D | **Rhea Sato** | vocal coach and recording artist, severe bob, tuning fork | her mistakes accumulate as a captive note; *imperfection can be voluntary* |
 | 4A | **Peter Wren** | legal clerk, rumpled brown, overfilled wallet | every uncertainty demands another form; *uncertainty does not prevent action* |
-| 4B | **the player** | night maintenance; the desk is the tidiest thing in the flat | unopened; the shadow is writing it |
+| 4B | **the player** | night maintenance; the desk is the tidiest thing in the flat | *ruled:* the best way to honor a beginning is with the release of an ending — the player's arc bends toward a release, and the shadow is writing the message |
 | 4C | **Cam Ortiz** | bicycle courier, maroon shell, never fully still | rest reads as collapse; *weight can be shared* |
 | 4C | **Noel Price** | museum preparator, chore coat, archival gloves | preserved the family life into untouchability; *use and change are forms of love* |
 | 4D | **Transient Guests** | a replaceable pair, mismatched luggage | perpetual departure postpones the decision; *departure is a decision* |
@@ -151,19 +169,21 @@ holds.*
    outfit variations, when they come, arrive as additional whole models,
    not swaps within one. The bespoke generator remains a performance-clip
    workbench.
-3. **Nadia Quell: architect, inspector, or management?** Prototype says
-   municipal inspector; art bible says architect; the welcome letter says
-   Management; her data organizes tenants *against* an institution.
-   Richest reading: the architect who became the building's live-in
-   manager and organizes its tenants anyway — but that is an
-   interpretation, not a ruling.
+3. ~~Nadia Quell~~ **RULED 2026-08-02: the architect who became the
+   building's live-in manager and organizes its tenants against her own
+   employers.** All three prior readings were fragments of this one.
 4. **Two hearing-loss wounds.** Mina's courtroom loss is load-bearing
    Case 01 canon. Cal's case carries a `hearing_loss_named` flag no other
    Cal data supports. Echo or error?
-5. **The family web.** Vale ×2, Reed ×2, Bell ×2, Price ×2 (plus
-   caller Leon Price in another city). Kin, coincidence, or the
-   building's habit of rhyming? One ruling reshapes half the ambient
-   dialogue to come.
+5. ~~The family web~~ **RULED 2026-08-02: everyone is connected to
+   everyone else — there is no such thing as coincidence in this
+   building.** Every shared surname is a thread; every thread pulls.
+   The target register is soap-opera drama played utterly straight:
+   grudges, debts, loves and betrayals braided across all eight floors
+   and — because this is purgatory — across *decades and centuries* of
+   tenancy. The web itself (who is bound to whom, and by what) is to be
+   developed as its own authored document, one relationship at a time,
+   alongside the case work.
 6. **Jonah: can't start or can't finish?** His case machinery rewards
    endings; his art and anecdotes are about beginnings. Both are good;
    pick the spine.

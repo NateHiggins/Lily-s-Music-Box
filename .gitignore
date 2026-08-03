@@ -27,7 +27,11 @@ tmp/
 # the same mesh over and over. merge_meshy_animations.py folds them into a
 # single ~11 MB rigged glTF in game/assets, and THAT is the deliverable.
 # Re-download from Meshy if the raw exports are ever needed again.
-art/blender/meshy/*/
+# The whole directory, zips included — the old `*/` pattern ignored the
+# extracted folders but let 400 MB source zips into a commit, which
+# GitHub's pre-receive hook then declined for a full day of failed
+# pushes. Masters are re-downloadable; nothing here ships.
+art/blender/meshy/
 
 # Broadcast build intermediates. build_broadcast.py writes ~110 short mp4s
 # beside the reel while assembling it; the .ogv is the deliverable.
