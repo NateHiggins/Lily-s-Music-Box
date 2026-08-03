@@ -235,9 +235,9 @@ func _upgrade(node: Node3D, slug: String) -> bool:
 	# over from the retired lobby test figure, which is where the merged
 	# clips were first judged.)
 	ResidentMovesLibrary.apply(figure)
-	# Canon relative heights: one uniform scale on the figure node (the
-	# 2026-08-02 ruling as refined — proportions are the model's own).
-	figure.scale = Vector3.ONE * ResidentMovesLibrary.height_of(slug)
+	# No scaling of any kind (final ruling 2026-08-02): models ship and
+	# render exactly as exported. The authored height factors remain in
+	# the profiles as reference only.
 	var anim := _player_of(node)
 	if anim:
 		for clip_name in anim.get_animation_list():

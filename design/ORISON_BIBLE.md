@@ -140,13 +140,12 @@ and the desk fiction; she has no body in the building.
 *These the bible cannot settle alone. Until ruled, the stated interim
 holds.*
 
-1. ~~Canon heights~~ **RULED 2026-08-02 (refined by the user the same
-   day): one uniform scale, nothing else.** The dump models carry their
-   own authored proportions; only relative height changes, applied as a
-   single uniform scale on the figure node at load
-   (`ResidentMovesLibrary.height_of`). Blender-side baking was attempted
-   twice, lost twice to FBX unit normalization, and is renounced; the
-   exports ship untouched. Width/head factors are generated-cast legacy.
+1. ~~Canon heights~~ **RULED FINAL 2026-08-02: no scaling of any kind.**
+   After baked scaling lost twice to FBX unit normalization and runtime
+   scaling misbehaved in play, the user closed the book: models ship and
+   render exactly as exported — original mesh information, untouched.
+   The authored height/width/head factors remain in the profiles as
+   reference for future model *commissioning*, not for transforms.
 2. ~~Mina's final face~~ **RULED 2026-08-02: the hero mesh is her
    face.** Further ruled: every resident gets exactly ONE active model;
    outfit variations, when they come, arrive as additional whole models,

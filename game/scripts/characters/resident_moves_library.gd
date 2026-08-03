@@ -13,22 +13,6 @@ extends RefCounted
 
 const LIB_PATH := "res://assets/characters/shared/resident_moves.glb"
 const BIPED_LIB_PATH := "res://assets/characters/evelyn_marsh/evelyn_marsh.gltf"
-const PROFILE_PATH := "res://data/resident_animation_profiles.json"
-
-static var _heights: Dictionary = {}
-
-
-## The canon height factor for a resident, from the authored profiles.
-## Applied as ONE uniform scale on the figure node at load — proportions
-## are the model's own; only relative height changes.
-static func height_of(slug: String) -> float:
-	if _heights.is_empty():
-		var parsed = JSON.parse_string(
-				FileAccess.get_file_as_string(PROFILE_PATH))
-		for profile in (parsed if parsed is Array else []):
-			_heights[str(profile.slug)] = float(
-					profile.get("body", {}).get("height", 1.0))
-	return float(_heights.get(slug, 1.0))
 
 static var _caches: Dictionary = {}
 static func apply(model_root: Node) -> bool:
@@ -60,11 +44,8 @@ static func apply(model_root: Node) -> bool:
 	var moves := _animations(source)
 	if moves.is_empty():
 		return false
-	# Canon heights ride as one uniform scale on the figure node (ruling
-	# 2026-08-02, refined by the user: "just scale the entire mesh
-	# uniformly"). Position tracks inherit the node scale, so no track
-	# math is needed and none is done.
-	var pos_scale := 1.0
+	# No scaling of any kind (final ruling 2026-08-02): models render at
+	# their exported size, and tracks are copied untouched.
 	var player_root: Node = player.get_node(player.root_node)
 	var skeleton_path := player_root.get_path_to(skeleton)
 	var library: AnimationLibrary
@@ -85,11 +66,6 @@ static func apply(model_root: Node) -> bool:
 			if anim.track_get_type(t) == Animation.TYPE_SCALE_3D:
 				anim.remove_track(t)
 				continue
-			if anim.track_get_type(t) == Animation.TYPE_POSITION_3D \
-					and pos_scale != 1.0:
-				for k in anim.track_get_key_count(t):
-					anim.track_set_key_value(t, k,
-							anim.track_get_key_value(t, k) * pos_scale)
 			var bone := String(anim.track_get_path(t)).get_slice(":", 1)
 			anim.track_set_path(t,
 					NodePath("%s:%s" % [skeleton_path, bone]))
