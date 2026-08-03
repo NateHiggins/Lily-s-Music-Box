@@ -33,6 +33,9 @@ var touch_input := false
 
 var _shape: CollisionShape3D
 var _capsule: CapsuleShape3D
+var _hand: Node3D
+var _light_mask: TextureRect
+var _sway_clock := 0.0
 
 
 func _ready() -> void:
@@ -48,18 +51,51 @@ func _ready() -> void:
 	camera.position = Vector3(0, STANDING_EYE, 0)
 	camera.fov = 72.0
 	add_child(camera)
+	# The torch is a phone: a blue LED under phosphor, held low in the
+	# off hand. Weak, cool, wide, and it drags a beat behind the eye —
+	# the hand pivot is a sibling of the camera and chases it in
+	# _process, so a fast look sweeps the beam late like a carried thing.
+	_hand = Node3D.new()
+	_hand.name = "PhoneHand"
+	add_child(_hand)
 	flashlight = SpotLight3D.new()
-	flashlight.light_energy = 2.4
-	flashlight.spot_range = 14.0
-	flashlight.spot_angle = 32.0
-	flashlight.light_color = Color(1.0, 0.95, 0.85)
+	flashlight.light_energy = 1.15
+	flashlight.spot_range = 7.5
+	flashlight.spot_angle = 38.0
+	flashlight.spot_angle_attenuation = 1.9
+	flashlight.spot_attenuation = 1.35
+	flashlight.light_color = Color(0.78, 0.87, 1.0)
+	flashlight.shadow_enabled = true
 	flashlight.visible = false
-	camera.add_child(flashlight)
+	_hand.add_child(flashlight)
 	floor_snap_length = 0.4
 	_build_hud()
 
 
 func _build_hud() -> void:
+	# The beam's screen mask sits under the HUD: gl_compatibility ignores
+	# light_projector, so the torch pattern — hotspot, phosphor-blue
+	# fringe, floor spill — multiplies over the frame instead, which is
+	# also how a hand-held beam reads on camera. Oversized so its edges
+	# stay offscreen while the sway drifts it.
+	var mask_layer := CanvasLayer.new()
+	mask_layer.layer = 6
+	add_child(mask_layer)
+	_light_mask = TextureRect.new()
+	_light_mask.texture = load("res://assets/ui/phone_light_mask.png")
+	_light_mask.stretch_mode = TextureRect.STRETCH_SCALE
+	_light_mask.anchor_right = 1.0
+	_light_mask.anchor_bottom = 1.0
+	_light_mask.offset_left = -48
+	_light_mask.offset_top = -48
+	_light_mask.offset_right = 48
+	_light_mask.offset_bottom = 48
+	_light_mask.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var blend := CanvasItemMaterial.new()
+	blend.blend_mode = CanvasItemMaterial.BLEND_MODE_MUL
+	_light_mask.material = blend
+	_light_mask.visible = false
+	mask_layer.add_child(_light_mask)
 	var layer := CanvasLayer.new()
 	layer.layer = 7
 	add_child(layer)
@@ -107,6 +143,7 @@ func _update_prompt() -> void:
 
 func _process(_delta: float) -> void:
 	_update_prompt()
+	_carry_phone_light(_delta)
 	if call_locked:
 		return
 	# POLLED, not event-driven. An on-screen button presses an action
@@ -120,6 +157,7 @@ func _process(_delta: float) -> void:
 		_try_interact()
 	if Input.is_action_just_pressed("flashlight"):
 		flashlight.visible = not flashlight.visible
+		_light_mask.visible = flashlight.visible
 	if Input.is_action_just_pressed("noclip"):
 		noclip = not noclip
 		collision_layer = 0 if noclip else 1
@@ -138,6 +176,29 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	elif event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+## The phone chases the eye instead of being bolted to it. Every frame
+## the hand pivot slerps toward the camera's aim from just below-right
+## of it, so a fast turn drags the beam behind the view and lets it
+## catch up — plus a low breathing sway (bigger while walking) that the
+## screen mask mirrors at a few pixels' amplitude.
+func _carry_phone_light(delta: float) -> void:
+	if _hand == null:
+		return
+	_sway_clock += delta * (2.6 if velocity.length() > 0.5 else 1.0)
+	var sway := Vector3(
+			sin(_sway_clock * 1.7) * 0.008,
+			sin(_sway_clock * 3.1) * 0.006, 0.0)
+	var hold := camera.transform \
+			* Transform3D(Basis(), Vector3(0.16, -0.19, -0.06) + sway)
+	var chase := minf(1.0, delta * (9.0 if flashlight.visible else 60.0))
+	_hand.transform = Transform3D(
+			_hand.transform.basis.slerp(hold.basis, chase),
+			_hand.transform.origin.lerp(hold.origin, chase))
+	if _light_mask != null and _light_mask.visible:
+		_light_mask.position = Vector2(-48, -48) + Vector2(
+				sin(_sway_clock * 1.7) * 9.0, sin(_sway_clock * 3.1) * 7.0)
 
 
 ## One look path for both a mouse and a dragged thumb, so the two can never

@@ -124,6 +124,33 @@ def shrink_textures() -> None:
             img.scale(TEX_SIZE, TEX_SIZE)
 
 
+def strip_emission() -> None:
+    """Meshy wires the albedo into every material's emission at full
+    strength, so figures self-illuminate and scene lighting never lands
+    (NPCs read fully lit in a dark corridor). Unhook emission and rein
+    in the doubled specular before export; strip_character_emissive.py
+    applies the same law to files already shipped."""
+    for mat in bpy.data.materials:
+        if not mat.use_nodes:
+            continue
+        for node in mat.node_tree.nodes:
+            if node.type != "BSDF_PRINCIPLED":
+                continue
+            for name in ("Emission Color", "Emission Strength"):
+                sock = node.inputs.get(name)
+                if sock is None:
+                    continue
+                for link in list(sock.links):
+                    mat.node_tree.links.remove(link)
+            node.inputs["Emission Strength"].default_value = 0.0
+            spec = node.inputs.get("Specular Tint")
+            ior_level = node.inputs.get("Specular IOR Level")
+            if ior_level is not None and ior_level.default_value > 0.5:
+                ior_level.default_value = 0.5
+            if spec is not None and not spec.links:
+                spec.default_value = (1.0, 1.0, 1.0, 1.0)
+
+
 def export_gltf(out_path: str) -> None:
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     bpy.ops.export_scene.gltf(
@@ -146,6 +173,7 @@ def convert(source: str, out_dir: str, name: str,
     # FBX unit normalization twice and lost; the exports ship untouched.
     decimate_to_budget()
     shrink_textures()
+    strip_emission()
     export_gltf(out_path)
     # Regenerated textures are ungraded; clear the grade markers so
     # grade_character_textures.py re-runs on them.
