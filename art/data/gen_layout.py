@@ -1720,8 +1720,8 @@ def build_floor(floor_id):
             {"kind": "radiator", "id": "F01_LOBBY_RADIATOR_01",
              "pos": [-4.6, -9.3, z], "yaw_deg": 0, "network": "heating",
              "riser": "H-A", "unit": "LOBBY"},
-            {"kind": "mailboxes", "id": "F01_MAILWALL", "pos": [4.4, -9.3, z],
-             "yaw_deg": 0},
+            # (The old generated mail wall is gone: the functional brass
+            # MailBankProp on the east lobby wall is the real one now.)
             # Sconce over the street door, outside the facade facing the
             # pavement — the light you arrive by.
             {"kind": "sconce_globe", "id": "F01_ENTRY_SCONCE",
@@ -1765,9 +1765,9 @@ def build_floor(floor_id):
             _furn_box(furniture, "water_table_%s" % rid, rect[0], rect[1],
                       rect[2] - rect[0], rect[3] - rect[1], 0.0, 0.45,
                       "limestone", False)
-        # lobby: brass mail bank, hall settle, runner to the atrium
-        _asm(furniture, "lobby_mailbank", "mailbank", 4.38, -9.62, 0)
-        _asm(furniture, "lobby_bench", "bench", 2.45, -9.38, 0, L=1.5)
+        # lobby: hall settle west of the street door (the east side belongs
+        # to the runtime brass mail bank corner), runner to the atrium
+        _asm(furniture, "lobby_bench", "bench", -2.45, -9.38, 0, L=1.5)
         rug_box(furniture, "lobby_runner", -0.65, -9.35, 1.3, 1.75,
                 "rug_warm")
         # management office, package room, public restroom in the B wing

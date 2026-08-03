@@ -24,7 +24,9 @@ var _resolved_count := 0
 func _ready() -> void:
 	name = "RealityMaintenanceHeadquarters"
 	add_to_group("maintenance_headquarters")
-	_build_plaque()
+	# The title-image plaque is out of the world pending a retool — the
+	# concept (title as place marker) survives; the current art does not.
+	# _build_plaque() stays buildable for when the new art lands.
 	_build_workbench()
 	_build_gear_wall()
 	_build_case_wall()

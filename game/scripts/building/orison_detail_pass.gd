@@ -163,6 +163,10 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		bank.position = GameBoot.b2g([5.24, -8.85, 0.0])
 		bank.rotation.y = PI * 0.5
 		floor_nodes["F01"].add_child(bank)
+		# The settle west of the street door is a place to actually sit.
+		var bench := LobbyBenchZone.new()
+		bench.position = GameBoot.b2g([-2.45, -9.30, 0.0])
+		floor_nodes["F01"].add_child(bench)
 	# Opening night: the building starts sealed. Deferred so every door
 	# has finished spawning before the locks turn.
 	_lockdown_layout = layout

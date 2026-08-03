@@ -21,10 +21,9 @@ fills the frame (C_BED2 on F02/F04/F05/F06 — the wardrobe-in-corner itself
 may still deserve a look in-engine). Re-aim those cameras before trusting
 those rooms as "clean".
 
-**WalkTest baseline at walk time:** FAIL (5) — all five are elevator checks
-(doors at own landing, reached F06/B1, doors reopen, rider travels), which
-sit in the parallel session's uncommitted NPC-elevator work (`elevator.gd`
-`npc_request` + routines). Theirs to land; everything else green.
+**WalkTest baseline at walk time:** FAIL (5), elevator checks only — since
+resolved: the NPC-elevator work landed and the opening lockdown ended the
+car contention. WalkTest has been fully green since 2026-08-02 morning.
 
 **Hypothesis for the white-rectangle family** (hall voids, corridor boxes,
 roof sign, above the B1 poster): these look like story/atmospheric decal

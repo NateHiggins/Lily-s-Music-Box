@@ -65,9 +65,9 @@ const NPC_RESIDENTS := [
 	{"unit": "6B", "name": "Jonah Price", "sprite": "jonah_price"},
 	{"unit": "6C", "name": "Mae Kessler", "sprite": "mae_kessler"},
 ]
-## Keep the generated rigs available without making them the active cast.
-## Flip this single flag when the 3D character pass is ready to resume.
-const USE_RIGGED_RESIDENTS := false
+## The textured hero meshes are now the active cast. Sprite sheets remain as
+## an explicit missing-asset fallback, not as the normal spawn path.
+const USE_RIGGED_RESIDENTS := true
 
 var layout: Dictionary = {}
 var player: PlayerController
@@ -621,8 +621,11 @@ func _spawn_npc_placeholders() -> void:
 		var x := lerpf(float(rect[0]), float(rect[2]), 0.52) + slot * 0.48
 		var y := lerpf(float(rect[1]), float(rect[3]), 0.58)
 		var npc: Node3D
-		var model_path := "res://assets/characters/%s/%s_rigged.glb" % [
+		var model_path := "res://assets/characters/%s/%s.gltf" % [
 				spec.sprite, spec.sprite]
+		if not ResourceLoader.exists(model_path):
+			model_path = "res://assets/characters/%s/%s_rigged.glb" % [
+					spec.sprite, spec.sprite]
 		if USE_RIGGED_RESIDENTS and ResourceLoader.exists(model_path):
 			var animated := AnimatedResident.new()
 			animated.setup(spec.name, spec.sprite, unit, model_path)
@@ -811,8 +814,7 @@ func _spawn_hallway_art() -> void:
 			art.queue_free()
 			continue
 		art.position = GameBoot.b2g([
-				spot.x, spot.y, float(floor_data.z) +
-				float(spec.get("height", 1.52))])
+				spot.x, spot.y, float(floor_data.z) + float(spot.height)])
 		art.rotation.y = spot.yaw
 		floor_nodes[floor_id].add_child(art)
 		count += 1
@@ -907,7 +909,7 @@ func _spawn_character_art_catalog(path: String, error_label: String,
 				continue
 			art.position = GameBoot.b2g(
 					[spot.x, spot.y, float(floor_data.z) +
-					float(spec.get("height", 1.52))])
+					float(spot.height)])
 			art.rotation.y = spot.yaw
 		floor_nodes[floor_id].add_child(art)
 		count += 1
@@ -923,92 +925,15 @@ func _spawn_character_art_catalog(path: String, error_label: String,
 ## height, no furniture pressed against it. Tries the authored position
 ## first — the character chose that wall — then slides along the same wall,
 ## then concedes other walls. Returns {ok, x, y, yaw, wall}.
+## Delegates to WallArtLaw — one law for every picture hook, shared with
+## FoundArtPass and the story-decal placements. (The in-file original
+## read openings from a key named "cuts" that the generator never wrote,
+## so its doorway check never fired; the law reads the real key and also
+## keeps art off the wainscot rail.)
 func _legal_art_spot(floor_data: Dictionary, room: Dictionary,
 		want_wall: String, want_along: float, height: float) -> Dictionary:
-	var rect: Array = room.rect
-	var walls_order: Array = [want_wall]
-	for w in ["north", "south", "east", "west"]:
-		if w != want_wall:
-			walls_order.append(w)
-	var alongs: Array = [want_along, 0.3, 0.5, 0.7, 0.25, 0.75, 0.4,
-			0.6, 0.2, 0.8]
-	for wall in walls_order:
-		for along in alongs:
-			var x := lerpf(float(rect[0]), float(rect[2]), float(along))
-			var y := lerpf(float(rect[1]), float(rect[3]), float(along))
-			var yaw := 0.0
-			var bx := x     # probe just beyond the rect edge: the wall
-			var by := y
-			match wall:
-				"north":
-					y = float(rect[3]) - 0.105
-					by = float(rect[3]) + 0.08
-				"south":
-					y = float(rect[1]) + 0.105
-					by = float(rect[1]) - 0.08
-					yaw = PI
-				"east":
-					x = float(rect[2]) - 0.105
-					bx = float(rect[2]) + 0.08
-					yaw = -PI * 0.5
-				"west":
-					x = float(rect[0]) + 0.105
-					bx = float(rect[0]) - 0.08
-					yaw = PI * 0.5
-			if not _wall_backs(floor_data, bx, by, height):
-				continue
-			if _furniture_blocks(floor_data, x, y):
-				continue
-			return {"ok": true, "x": x, "y": y, "yaw": yaw, "wall": wall}
-	return {"ok": false}
-
-
-func _wall_backs(floor_data: Dictionary, px: float, py: float,
-		height: float) -> bool:
-	for w in floor_data.get("walls", []):
-		var ax: float = float(w["a"][0])
-		var ay: float = float(w["a"][1])
-		var bx: float = float(w["b"][0])
-		var by: float = float(w["b"][1])
-		var pad: float = float(w.get("t", 0.12)) / 2.0 + 0.06
-		var hit := false
-		if absf(by - ay) < 0.001:
-			hit = minf(ax, bx) - pad <= px and px <= maxf(ax, bx) + pad \
-					and absf(py - ay) <= pad
-		else:
-			hit = minf(ay, by) - pad <= py and py <= maxf(ay, by) + pad \
-					and absf(px - ax) <= pad
-		if not hit:
-			continue
-		# Inside the wall — but not hanging over a doorway or window: any
-		# cut whose opening spans frame height disqualifies this spot.
-		var horizontal := absf(by - ay) < 0.001
-		var along := (px - minf(ax, bx)) if horizontal else (py - minf(ay, by))
-		var clear := true
-		for c in w.get("cuts", []):
-			if absf(along - float(c.get("at", -99.0))) \
-					> float(c.get("w", 0.0)) / 2.0 + 0.45:
-				continue
-			var sill := float(c.get("sill", 0.0))
-			if sill <= height + 0.35 and sill + float(c.get("h", 0.0)) \
-					>= height - 0.35:
-				clear = false
-		if clear:
-			return true
-	return false
-
-
-func _furniture_blocks(floor_data: Dictionary, px: float, py: float) -> bool:
-	for fu in floor_data.get("furniture", []):
-		if not fu.has("rect"):
-			continue
-		var r: Array = fu["rect"]
-		if float(fu.get("h", 0.0)) < 0.9:
-			continue        # low pieces sit under a hung frame happily
-		if px >= float(r[0]) - 0.1 and px <= float(r[2]) + 0.1 \
-				and py >= float(r[1]) - 0.1 and py <= float(r[3]) + 0.1:
-			return true
-	return false
+	return WallArtLaw.legal_spot(floor_data, room, want_wall, want_along,
+			height)
 
 
 func teleport_player(fid: String) -> void:

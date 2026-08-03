@@ -44,31 +44,22 @@ func _place_wall_piece(spec: Dictionary, floors: Dictionary,
 			break
 	if room.is_empty():
 		return false
+	# Found art obeys the same law as every other picture hook: a real
+	# wall behind it, no opening through it, clear of the wainscot rail —
+	# raw rect edges hung frames on carved-out ghost walls and doorways.
+	var spot := WallArtLaw.legal_spot(floor_data, room,
+			str(spec.get("wall", "north")), float(spec.get("along", 0.5)),
+			float(spec.get("height", 1.55)))
+	if not spot.ok:
+		push_warning("no legal wall for found piece %s" % spec.get("id", "?"))
+		return false
 	var art := CharacterMemoryArt.new()
 	var art_spec := spec.duplicate()
 	art_spec["collection"] = "found_art"
 	art.setup(art_spec)
-	var rect: Array = room.rect
-	var along := float(spec.get("along", 0.5))
-	var x := lerpf(float(rect[0]), float(rect[2]), along)
-	var y := lerpf(float(rect[1]), float(rect[3]), along)
-	var yaw := 0.0
-	var inset := float(spec.get("wall_offset", 0.055))
-	match str(spec.get("wall", "north")):
-		"north":
-			y = float(rect[3]) - inset
-		"south":
-			y = float(rect[1]) + inset
-			yaw = PI
-		"east":
-			x = float(rect[2]) - inset
-			yaw = -PI * 0.5
-		"west":
-			x = float(rect[0]) + inset
-			yaw = PI * 0.5
 	art.position = GameBoot.b2g([
-			x, y, float(floor_data.z) + float(spec.get("height", 1.55))])
-	art.rotation.y = yaw
+			spot.x, spot.y, float(floor_data.z) + float(spot.height)])
+	art.rotation.y = spot.yaw
 	floor_nodes[floor_id].add_child(art)
 	return true
 

@@ -901,9 +901,9 @@ func _evelyn_checks() -> void:
 		var nav = routines.nav
 		_check(nav.floors.size() >= 7,
 				"nav covers the storeys (%d)" % nav.floors.size())
-		# 1A living room to the lobby mail bank — Evelyn's actual errand.
+		# 1A living room to the brass mail bank — Evelyn's actual errand.
 		var from := GameBoot.b2g([-9.6, -3.0, 0.0])
-		var to := GameBoot.b2g([0.0, -8.6, 0.0])
+		var to := GameBoot.b2g([4.55, -8.85, 0.0])
 		var path: PackedVector3Array = nav.route(from, to)
 		_check(path.size() >= 4,
 				"route 1A -> mail runs the graph (%d waypoints)" % path.size())

@@ -35,11 +35,11 @@ const LIFT := Vector2(1.9, -5.6)      # Blender XY of the lift hall
 ## Where each resident goes when they are not at home, and why it is theirs.
 ## `at` is Blender XY; `z` names the storey.
 const HAUNTS := {
-	"evelyn_marsh": {"at": Vector2(0.0, -8.6), "floor": "F01",
-		"why": "the lobby mail bank — she checks it more often than anyone
-		gets post"},
-	"teresa_vale": {"at": Vector2(3.4, -8.4), "floor": "F01",
-		"why": "the lobby bench, facing the street door, where she can see
+	"evelyn_marsh": {"at": Vector2(4.55, -8.85), "floor": "F01",
+		"why": "the brass mail bank on the east lobby wall — she checks it
+		more often than anyone gets post"},
+	"teresa_vale": {"at": Vector2(-2.45, -9.22), "floor": "F01",
+		"why": "the lobby bench west of the street door, where she can see
 		who comes in"},
 	"mina_vale": {"at": Vector2(-2.2, -1.2), "floor": "F01",
 		"why": "the light court, the quietest measurable place in it"},
@@ -96,6 +96,30 @@ const ROLES := {
 	"fret": "clip_02", "wait": "clip_03",
 }
 
+## The same physical clip means something different in a different life.
+## These are state choices, not scale or speed caricatures: characterization
+## comes from what residents do while waiting, working, and settling.
+const CHARACTER_ROLES := {
+	"evelyn_marsh": {"idle": "idle", "busy": "busy", "settle": "wait"},
+	"teresa_vale": {"idle": "fret", "busy": "wait", "settle": "settle"},
+	"mina_vale": {"idle": "wait", "busy": "busy", "settle": "glance"},
+	"lena_ortiz": {"idle": "busy", "busy": "reach", "settle": "idle"},
+	"juno_kells": {"idle": "glance", "busy": "busy", "settle": "wait"},
+	"malcolm_reed": {"idle": "look_up", "busy": "reach", "settle": "idle"},
+	"omar_bell": {"idle": "wait", "busy": "busy", "settle": "settle"},
+	"rhea_sato": {"idle": "glance", "busy": "fret", "settle": "wait"},
+	"peter_wren": {"idle": "fret", "busy": "reach", "settle": "wait"},
+	"cam_ortiz": {"idle": "glance", "busy": "reach", "settle": "idle"},
+	"noel_price": {"idle": "wait", "busy": "busy", "settle": "settle"},
+	"transient_guests": {"idle": "wait", "busy": "fret", "settle": "wait"},
+	"nadia_quell": {"idle": "idle", "busy": "reach", "settle": "wait"},
+	"cal_dwyer": {"idle": "glance", "busy": "reach", "settle": "fret"},
+	"iris_bell": {"idle": "look_up", "busy": "reach", "settle": "glance"},
+	"sacha_reed": {"idle": "glance", "busy": "wait", "settle": "idle"},
+	"jonah_price": {"idle": "fret", "busy": "busy", "settle": "wait"},
+	"mae_kessler": {"idle": "wait", "busy": "reach", "settle": "settle"},
+}
+
 enum Stage { HOME, PACING, TO_LIFT, RIDING, AT_HAUNT, RETURNING, WATCHING,
 		ON_STAIRS, RETURN_STAIRS }
 
@@ -137,6 +161,8 @@ func build(layout: Dictionary, residents: Array) -> int:
 		if slug == "":
 			continue
 		_upgrade(node, slug)
+		if "externally_driven" in node:
+			node.externally_driven = true
 		var actor := {
 			"node": node, "slug": slug,
 			"home": node.global_position,
@@ -187,21 +213,22 @@ func _upgrade(node: Node3D, slug: String) -> bool:
 		path = "res://assets/characters/%s/%s_rigged.glb" % [slug, slug]
 	if not ResourceLoader.exists(path):
 		return false
-	var scene := load(path) as PackedScene
-	if scene == null:
-		return false
+	var figure: Node3D = node.get_node_or_null("RiggedCharacter") as Node3D
+	if figure == null:
+		var scene := load(path) as PackedScene
+		if scene == null:
+			return false
+		figure = scene.instantiate()
+		figure.name = "RiggedCharacter"
+		node.add_child(figure)
 	# The billboard and its name label go; the node itself stays, because
 	# the case system, the movement audit and the resident group all know it
 	# by identity.
 	for child in node.get_children():
 		if child is Sprite3D:
 			child.visible = false
-	var figure := scene.instantiate()
-	node.add_child(figure)
 	for mesh in _meshes(figure):
-		# One more shadow caster per resident, inside a per-object light cap
-		# the LightRig is already rationing, for somebody stood in a room.
-		mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 	# Everything Meshy ships is a loop except the one-shots, and a clip that
 	# plays once and freezes reads as the character dying. Looping is the
 	# safe default until each clip is identified and classified. (Carried
@@ -277,7 +304,9 @@ func _play(actor: Dictionary, role: String) -> void:
 	var anim: AnimationPlayer = actor.anim
 	if anim == null:
 		return
-	var clip := _resolve_clip(anim, role)
+	var style: Dictionary = CHARACTER_ROLES.get(str(actor.slug), {})
+	var characterized_role := str(style.get(role, role))
+	var clip := _resolve_clip(anim, characterized_role)
 	if clip != "" and anim.has_animation(clip) \
 			and anim.current_animation != clip:
 		anim.play(clip)
@@ -563,7 +592,9 @@ func _follow(actor: Dictionary, node: Node3D, delta: float) -> bool:
 		node.global_position += to.normalized() * WALK_SPEED * delta
 		var facing := Vector2(to.x, to.z)
 		if facing.length() > 0.01:
-			node.rotation.y = atan2(-to.x, -to.z)
+			# Imported walk faces +Z while Godot's conventional forward is -Z.
+			# Correct at locomotion, not by scaling or rewriting the skeleton.
+			node.rotation.y = atan2(-to.x, -to.z) + PI
 		return false
 	return true
 

@@ -19,11 +19,11 @@ shared Reality Maintenance objects.
 | Rhea — Bad Karaoke | 3D | Control Tuning Fork; Humiliation Session Reel; Cracked Pop Filter |
 | Peter — Form Corridor | 4A | Self-Appending Forms; Rolling Notary Seal; Disclosure Wallet |
 | Cam — Tilted Room | 4C | Crash-Marked Helmet; Reality Furniture Wedges; Undelivered Courier Bag |
-| Noel — Museum Apartment | 4D | Misdated Artifact Box; White Handling Gloves; Museum Accession Tags |
-| Transient Guests — Wrong Checkout | 5A | Luggage from Tomorrow; Impossible Keycards; Checkout Towel |
-| Nadia — Impossible Plans | 5B | Contradictory Blueprints; Impossible Scale Rule; REJECTED Stamp |
-| Cal — Broadcast Delay | 5C | Shortwave Receiver; Bent Rooftop Antenna; Delayed Voice Reel |
-| Iris — Color Leak | 5D | Unfinished Self-Portrait; Mourning Palette; Impossible Paint Cans |
+| Noel — Museum Apartment | 4C | Misdated Artifact Box; White Handling Gloves; Museum Accession Tags |
+| Transient Guests — Wrong Checkout | 4D | Luggage from Tomorrow; Impossible Keycards; Checkout Towel |
+| Nadia — Impossible Plans | 5A | Contradictory Blueprints; Impossible Scale Rule; REJECTED Stamp |
+| Cal — Broadcast Delay | 5B | Shortwave Receiver; Bent Rooftop Antenna; Delayed Voice Reel |
+| Iris — Color Leak | 5C | Unfinished Self-Portrait; Mourning Palette; Impossible Paint Cans |
 | Sacha — Witness Loop | 6A | Evidence Camera; Statement Recorder; Unfiled Signal Cables |
 | Jonah — Missing Words | 6B | Unfinished Apology; Cold Writing Mug; Loose Missing Words |
 | Mae — Inherited Room | 6C | Contradictory Antique Box; Provenance Gloves; TRUE / FELT TRUE Tags |

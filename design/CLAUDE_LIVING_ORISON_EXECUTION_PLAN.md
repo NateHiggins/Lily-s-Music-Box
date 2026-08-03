@@ -14,6 +14,20 @@ second contrasting case, and only then scale content.
 
 ## Audit snapshot — 2026-08-01
 
+> **Addendum, 2026-08-02 (evidence per working-protocol rule 9):** the
+> following snapshot items are RESOLVED since writing — LightingAudit
+> passes under the new active-floor contract; WalkTest passes with a hard
+> summary; all 18 residents spawn rigged (`USE_RIGGED_RESIDENTS = true`,
+> board-accurate hero meshes, shared move library); all 34 Mina voice
+> takes shipped and wired; the orphaned provenance `.uid` and the UTF-8
+> `0xA9` warning are gone; FirstShiftDirector exists and stages arrival
+> (mundane tasks, shadow error, and `intro_complete` remain). New since
+> the snapshot: opening lockdown (entries locked except 4B; cases unlock
+> their units), collision-validated resident nav, the functional brass
+> mail bank as the upgrade channel, and the desk Case Network complete
+> at 8 entries with conditional beats. Canon authority now lives in
+> `design/ORISON_BIBLE.md`; open disputes are its §VI.
+
 ### Implemented and worth preserving
 
 #### The apartment building
