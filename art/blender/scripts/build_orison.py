@@ -65,6 +65,10 @@ UV_MODE_BY_MAT = {
     "screen": "unit",
     "book_burgundy": "unit", "book_green": "unit", "book_navy": "unit",
     "book_ochre": "unit", "book_teal": "unit", "book_brown": "unit",
+    # A rug carries one composition (border, field, medallion) across its
+    # whole face; world-metre projection put the medallion at an arbitrary
+    # phase and cut it at the binding. Same disease the televisions had.
+    "rug_warm": "unit", "rug_cool": "unit", "rug_green": "unit",
 }
 VGRAIN = {k for k, m in UV_MODE_BY_MAT.items() if m == "vgrain"}
 
