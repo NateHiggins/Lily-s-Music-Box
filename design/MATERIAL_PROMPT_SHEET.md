@@ -1,212 +1,203 @@
-# MATERIAL PROMPT SHEET — the whole building, copy-paste chunks
+# MATERIAL PROMPT SHEET — surface assets, slot format
 
-*Companion to `WALL_TEXTURE_PROMPT_SHEET.md` (which owns the
-plaster/wallpaper/brick finish system). This sheet re-sources the rest
-of the material catalog — every surface the torch actually lands on —
-plus new materials the building deserves. Each block is a complete,
-self-contained prompt: paste the whole chunk as-is.*
+*Companion to `WALL_TEXTURE_PROMPT_SHEET.md`. These are not art
+requests; they are **surface asset** requests — material maps for UV
+projection. Every prompt below follows the slot template:*
 
-**Delivery:** save each as a **square PNG, 1024×1024 or larger**, into
-`art/textures/ai_sources/` under the **exact filename** above its
-block. Contact sheets welcome — label tiles with the filenames like
-last time and Claude will slice them. As files arrive they get
-processed into the catalog's albedo/roughness/normal sets and the
-affected assets rebuild.
+```
+[CORE SURFACE] [KEY DETAILS/VARIATION], [CAMERA VIEW], [LIGHTING], [TILEABILITY], [TECH SPECS]
+```
 
-**Every prompt already encodes the fidelity rules:** flat-on, even
-diffuse light, no shadows, edge-to-edge surface, stated real-world
-scale, no text or watermarks. Two exceptions are marked SEAMLESS —
-those want an explicitly tileable result.
+- **CAMERA VIEW** — `orthographic view, straight-on, flat lay` (floors
+  and ceilings: `top-down`). Any perspective breaks tiling alignment.
+- **LIGHTING** — `flat diffuse lighting, no shadows, no highlights,
+  base color map only` — this is an ALBEDO: the game supplies all
+  light; baked shading repeats as fake dirt.
+- **TILEABILITY** — two classes, and the class is marked on every block:
+  - **TILING**: `seamless, infinitely wrapping edges, homogeneous
+    composition, evenly distributed variation, no unique landmarks` —
+    one distinct chip or knot becomes a visible drumbeat when the
+    engine repeats the tile every stated interval. Our pipeline still
+    runs its own seamless pass as a net, but native beats retrofit.
+  - **COMPOSITION**: `single complete composition filling the frame` —
+    for assets the engine maps 0..1 exactly once (rug, stair tread,
+    paneled surfaces). Landmarks are the point here; tiling language
+    would ruin them.
+- **TECH SPECS** — `square 1:1 aspect ratio, high resolution, macro
+  detail, production-ready surface asset` plus the REAL-WORLD COVERAGE
+  ("represents about N meters of surface") — the engine samples at
+  physical scale, so detail density must match.
+
+**Delivery:** square PNG 1024×1024+, into `art/textures/ai_sources/`
+under the exact filename (Gemini default names fine — say which slot).
+Contact sheets with filename labels get sliced. Ingest measures actual
+feature scale on arrival and the UV audit adjusts `meters_per_tile` to
+match, but the closer the generation is to the stated coverage, the
+less correction distorts.
+
+**The bar:** an AI source only takes its slot if it beats the current
+set (procedural or prior AI) in-engine against period reference. The
+oak lost once; slots are earned.
 
 ---
 
-## TIER 1 — architecture the player stares at all night
+## TIER 1 — architecture
 
-### `common_brick_interior.png`
-
+### `common_brick_interior.png` — TILING
 ```
-Hyperrealistic photographic texture of a 1920s interior common brick wall in a New York tenement cellar: soft orange-brown bricks with wide irregular lime mortar joints, whitewash residue ghosting across some courses, efflorescence salts, a century of grime in the raked joints, occasional spalled brick face. Running bond, standard bricks about 20 by 6 centimeters, the visible area about 2.4 meters wide. Photographed perfectly flat and straight-on, even diffuse lighting with no cast shadows, brick fills the entire frame edge to edge, no perspective, no floor or ceiling, no objects, no border, no text, no watermark. Documentary architectural photography, sharp focus everywhere, square image.
-```
-
-### `face_brick_street.png`
-
-```
-Hyperrealistic photographic texture of a prewar New York apartment building street facade in dark iron-spot face brick: deep red-brown bricks with flashed darker headers, tight raked mortar joints, decades of city soot darkening the surface unevenly, subtle repairs with slightly mismatched mortar. Running bond with occasional header courses, standard bricks about 20 by 6 centimeters, the visible area about 2.4 meters wide. Photographed perfectly flat and straight-on, even diffuse lighting with no cast shadows, brick fills the entire frame edge to edge, no perspective, no windows, no objects, no border, no text, no watermark. Documentary architectural photography, sharp focus everywhere, square image.
+Aged interior common brick wall surface, 1920s tenement cellar, soft orange-brown bricks in running bond with wide irregular lime mortar joints, whitewash residue ghosting across some courses, efflorescence salts and grime in the raked joints, evenly distributed variation, no unique landmark bricks. Represents about 1 meter of wall, standard bricks about 20 by 6 centimeters. Orthographic view, straight-on, flat diffuse lighting, no shadows, no highlights, base color map only. Seamless, infinitely wrapping edges, homogeneous composition. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
-### `limestone_carved.png`
-
+### `face_brick_street.png` — TILING
 ```
-Hyperrealistic photographic texture of aged Indiana limestone from a 1920s apartment entrance surround: pale warm grey stone with fine fossil speckle, tooled surface softened by a century of weather, sooty darkening in protected hollows, faint drip staining below joints, hairline weather cracks. The visible area is about 1.6 meters wide. Photographed perfectly flat and straight-on, even diffuse lighting with no cast shadows, stone fills the entire frame edge to edge, no perspective, no carving figures, no border, no text, no watermark. Documentary architectural photography, sharp focus everywhere, square image.
-```
-
-### `floor_oak_worn.png`
-
-```
-Hyperrealistic photographic texture of 100-year-old oak strip flooring in an occupied apartment, seen straight down from above: narrow 5-centimeter strips, amber shellac finish worn through to grey bare wood along the walking path in the middle, gaps between boards filled with a century of dark dirt, water rings, scattered scratches, old nail heads. Boards run vertically, the visible area is about 2 meters wide. Photographed perfectly flat from directly above, even diffuse lighting with no cast shadows, flooring fills the entire frame edge to edge, no perspective, no furniture, no feet, no border, no text, no watermark. Documentary architectural photography, sharp focus everywhere, square image.
+Weathered dark iron-spot face brick facade surface, prewar New York apartment building, deep red-brown bricks with flashed darker headers in running bond, tight raked mortar joints, uneven city soot darkening, evenly distributed variation, no unique landmark bricks. Represents about 1.1 meters of wall, standard bricks about 20 by 6 centimeters. Orthographic view, straight-on, flat diffuse lighting, no shadows, no highlights, base color map only. Seamless, infinitely wrapping edges, homogeneous composition. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
-### `terrazzo_lobby.png`
-
+### `limestone_carved.png` — TILING
 ```
-Hyperrealistic photographic texture of a 1920s apartment lobby terrazzo floor seen straight down from above: cream and grey marble chips in a warm tan cement matrix, divided by thin brass strips into large panels, polish worn dull along the main walking route, fine settlement cracks repaired with slightly wrong-colored filler, decades of traffic staining near the center. The visible area is about 2 meters wide. Photographed perfectly flat from directly above, even diffuse lighting with no reflections of windows or lamps, floor fills the entire frame edge to edge, no perspective, no furniture, no border, no text, no watermark. Documentary architectural photography, sharp focus everywhere, square image.
-```
-
-### `stair_marble_worn.png`
-
-```
-Hyperrealistic photographic texture of a single worn white-marble tenement stair tread seen straight down from above: the stone dished and polished into a shallow valley by a century of footsteps, edges still crisp at the sides, grey veining, hairline chips at the nosing, dirt accumulated where the tread meets the riser. The tread is about 1.2 meters wide and 28 centimeters deep, shown filling the frame width with a little of the next tread visible. Photographed perfectly flat from directly above, even diffuse lighting with no cast shadows, no perspective, no railing, no border, no text, no watermark. Documentary architectural photography, sharp focus everywhere, square image.
+Aged Indiana limestone surface from a 1920s building entrance, pale warm grey stone with fine fossil speckle, tooled finish softened by a century of weather, faint sooty toning in low spots, hairline weather cracks, homogeneous composition, no unique landmarks. Represents about 1.6 meters of stone. Orthographic view, straight-on, flat diffuse lighting, no shadows, no highlights, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
-### `wainscot_beadboard.png`
-
+### `floor_oak_worn.png` — TILING *(slot retired until this beats the procedural set)*
 ```
-Hyperrealistic photographic texture of painted beadboard wainscot in a 1920s apartment corridor: vertical tongue-and-groove boards about 8 centimeters wide with beaded joints, many thick coats of oil paint in an aged ivory color, chips at the bead edges revealing darker green and brown earlier paint layers, scuffs at chair-rail height, grime settled into the grooves. The visible area is about 1.8 meters wide. Photographed perfectly flat and straight-on, even diffuse lighting with no cast shadows, boards fill the entire frame edge to edge, no perspective, no floor, no border, no text, no watermark. Documentary architectural photography, sharp focus everywhere, square image.
-```
-
-### `trim_painted_layers.png`
-
-```
-Hyperrealistic photographic texture of the flat face of old painted wood door casing from a prewar apartment: so many coats of oil paint that the wood grain is nearly drowned, current color an aged cream, alligatored and crazed paint film, chips exposing ochre and deep green older layers stacked like sediment, a few brush hairs and drips fossilized in the surface. The visible area is about 40 centimeters wide, close detail. Photographed perfectly flat and straight-on, even diffuse lighting with no cast shadows, painted surface fills the entire frame edge to edge, no perspective, no hinges, no border, no text, no watermark. Documentary macro photography, sharp focus everywhere, square image.
+Base color map of 100-year-old oak strip flooring, narrow 5.7 centimeter tongue-and-groove strips, warm amber-to-chestnut shellac tone, staggered end joints, gaps darkened with old dirt, gentle traffic dulling as a broad even gradient not a landmark path, fine grain, evenly distributed variation, no unique knots or stains. Represents about 2 meters of floor, boards running vertically. Top-down orthographic view, flat lay, flat diffuse lighting, no shadows, no highlights, base color map only. Seamless, infinitely wrapping edges, homogeneous composition. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
-### `ceramic_hex_bath.png`
-
+### `terrazzo_lobby.png` — TILING
 ```
-Hyperrealistic photographic texture of a 1920s bathroom floor of small white unglazed porcelain hexagonal mosaic tiles seen straight down from above: 2.5-centimeter hexagons, grout aged to uneven grey-brown, several cracked tiles and two or three replaced with slightly mismatched whites, wear darkening along the path from the door, one faint rust stain near a pipe. The visible area is about 1 meter wide. Photographed perfectly flat from directly above, even diffuse lighting with no reflections, tile fills the entire frame edge to edge, no perspective, no fixtures, no border, no text, no watermark. Documentary architectural photography, sharp focus everywhere, square image.
-```
-
-### `subway_tile_aged.png`
-
-```
-Hyperrealistic photographic texture of aged white glazed subway tile from a 1920s kitchen wall: 7.5 by 15 centimeter tiles in running bond, crazed glaze with fine grey craquelure, grout lines darkened unevenly, a few chipped corners showing red clay body, faint yellowed grease film near the top. The visible area is about 1.2 meters wide. Photographed perfectly flat and straight-on, even diffuse lighting with soft sheen but no hard reflections, tile fills the entire frame edge to edge, no perspective, no fixtures, no border, no text, no watermark. Documentary architectural photography, sharp focus everywhere, square image.
+Aged 1920s lobby terrazzo floor surface, cream and grey marble chips in a warm tan cement matrix, thin brass divider strips crossing as a regular panel grid, polish dulled evenly, fine hairline settlement cracks, homogeneous composition, no unique landmark stains. Represents about 2 meters of floor with the brass grid aligned to the image edges. Top-down orthographic view, flat lay, flat diffuse lighting, no shadows, no reflections, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
-### `concrete_cellar.png`
-
+### `stair_marble_worn.png` — COMPOSITION *(unit-mapped per tread once the per-tread UV pass lands)*
 ```
-Hyperrealistic photographic texture of a 1920s cellar concrete floor seen straight down from above: hand-troweled grey surface with visible trowel arcs, dusted with fine coal grit, oil-darkened patches, hairline shrinkage cracks, one old repair patch in slightly lighter cement, damp darkening toward one corner. The visible area is about 2 meters wide. Photographed perfectly flat from directly above, even diffuse lighting with no cast shadows, concrete fills the entire frame edge to edge, no perspective, no objects, no border, no text, no watermark. Documentary architectural photography, sharp focus everywhere, square image.
+Single worn white-marble stair tread surface seen from directly above, the stone dished into a shallow polished valley by a century of footsteps, grey-blue veining, hairline chips along the front nosing edge at the bottom of the frame, compacted grime along the back edge at the top of the frame. Single complete composition filling the frame: one tread, about 1.2 meters wide by 30 centimeters deep stretched to the square. Top-down orthographic view, flat lay, flat diffuse lighting, no shadows, no reflections, base color map only. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
-### `timber_joist.png`
-
+### `wainscot_beadboard.png` — TILING
 ```
-Hyperrealistic photographic texture of the face of a rough-sawn old-growth structural timber joist from a 1920s building: dense straight grain, circular saw marks, age-darkened amber-brown surface, checks and splits running with the grain, a few rusted nail holes, wisps of cobweb dust in the grain. The visible area is about 1 meter of beam face, grain running horizontally. Photographed perfectly flat and straight-on, even diffuse lighting with no cast shadows, wood fills the entire frame edge to edge, no perspective, no border, no text, no watermark. Documentary architectural photography, sharp focus everywhere, square image.
+Painted beadboard wainscot surface, vertical tongue-and-groove boards about 8 centimeters wide with beaded joints, many coats of aged ivory oil paint, grime settled evenly into the grooves, small chips only as fine evenly distributed wear, no unique landmark damage. Represents about 0.65 meters of wall so roughly eight boards. Orthographic view, straight-on, flat diffuse lighting, no shadows, no highlights, base color map only. Seamless, infinitely wrapping edges, homogeneous composition. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+```
+
+### `trim_painted_layers.png` — TILING
+```
+Old painted wood surface under many coats of oil paint, aged ivory-cream, wood grain nearly drowned, alligatored and crazed paint film as fine even craquelure, only two or three small chips exposing ochre and bottle-green earlier layers, otherwise homogeneous composition with no unique landmarks. Represents about 1 meter of painted surface, macro detail. Orthographic view, straight-on, flat diffuse lighting, no shadows, no highlights, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+```
+
+### `ceramic_hex_bath.png` — TILING
+```
+1920s bathroom floor of small white unglazed porcelain hexagonal mosaic tiles, 2.5 centimeter hexagons, grout aged to uneven grey-brown, one or two hairline-cracked tiles, wear as broad even toning not a landmark path, homogeneous composition. Represents about 1 meter of floor. Top-down orthographic view, flat lay, flat diffuse lighting, no shadows, no reflections, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+```
+
+### `subway_tile_aged.png` — TILING
+```
+Aged white glazed subway tile wall surface, 7.5 by 15 centimeter tiles in running bond, crazed glaze with fine grey craquelure, grout lines darkened unevenly but without landmark stains, one or two chipped corners at most, homogeneous composition. Represents about 0.55 meters of wall. Orthographic view, straight-on, flat diffuse lighting, no shadows, soft even sheen only, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+```
+
+### `concrete_cellar.png` — TILING
+```
+1920s hand-troweled cellar concrete floor surface, grey with faint trowel arcs, fine coal grit dusting, hairline shrinkage cracks, oil toning as broad even variation, no unique landmark patches or puddles, homogeneous composition. Represents about 2.8 meters of floor. Top-down orthographic view, flat lay, flat diffuse lighting, no shadows, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+```
+
+### `timber_joist.png` — TILING
+```
+Rough-sawn old-growth structural timber surface, dense straight grain running horizontally, circular saw marks, age-darkened amber-brown, fine checks along the grain, a few small nail holes evenly distributed, no unique landmark splits. Represents about 1 meter of beam face. Orthographic view, straight-on, flat diffuse lighting, no shadows, base color map only. Seamless, infinitely wrapping edges, homogeneous composition. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
 ---
 
 ## TIER 2 — metals, fixtures, machines
 
-### `brass_aged.png`
-
+### `brass_aged.png` — TILING
 ```
-Hyperrealistic photographic texture of aged unlacquered brass from 1920s apartment hardware: warm gold surface gone deep and uneven with patina, browned in recesses, polished bright only where hands touch it daily, fine scratches in every direction, small tarnish spots. The visible area is about 25 centimeters wide, close macro detail. Photographed perfectly flat and straight-on, even diffuse lighting with soft sheen but no mirror reflections, metal fills the entire frame edge to edge, no perspective, no engraving text, no border, no watermark. Documentary macro photography, sharp focus everywhere, square image.
-```
-
-### `enamel_appliance.png`
-
-```
-Hyperrealistic photographic texture of aged white porcelain enamel from a 1930s stove or refrigerator: creamy white gloss yellowed slightly with age, fine spider-web crazing, several chips at edges showing black steel beneath with thin rust halos, decades of cleaning swirl micro-scratches. The visible area is about 50 centimeters wide. Photographed perfectly flat and straight-on, even diffuse lighting with soft sheen but no hard reflections, enamel fills the entire frame edge to edge, no perspective, no knobs, no border, no text, no watermark. Documentary macro photography, sharp focus everywhere, square image.
+Aged unlacquered sheet brass surface, warm gold with uneven brown patina, tarnish clouds, fine multidirectional scratches, small verdigris specks evenly distributed, no unique landmark spots, homogeneous composition. Represents about 25 centimeters of metal, macro detail. Orthographic view, straight-on, flat diffuse lighting, soft even sheen, no mirror reflections, no hotspot, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
-### `galvanized_aged.png`
-
+### `enamel_appliance.png` — TILING
 ```
-Hyperrealistic photographic texture of aged galvanized sheet steel from old ductwork: dull grey spangled zinc crystal pattern, white oxidation bloom in patches, streaky handling marks, a few rivet dimples and pencil layout lines, light surface rust at one seam. The visible area is about 80 centimeters wide. Photographed perfectly flat and straight-on, even diffuse lighting with no hard reflections, metal fills the entire frame edge to edge, no perspective, no border, no text, no watermark. Documentary photography, sharp focus everywhere, square image.
-```
-
-### `cast_iron_radiator.png` *(new material)*
-
-```
-Hyperrealistic photographic texture of the painted surface of a 1920s cast iron column radiator: many coats of metallic silver-bronze paint over older cream paint, chipped to black iron at the ribs' edges, rust freckles bleeding through, dust fused to the top surfaces, casting seam texture visible under the paint. The visible area is about 40 centimeters wide, close detail. Photographed perfectly flat and straight-on, even diffuse lighting with no cast shadows, painted iron fills the entire frame edge to edge, no perspective, no valve, no border, no text, no watermark. Documentary macro photography, sharp focus everywhere, square image.
+Aged white porcelain enamel surface from a 1930s kitchen appliance, creamy white yellowed unevenly, fine spider-web crazing across the whole surface, cleaning micro-scratch swirls, at most two small chips with thin rust halos, otherwise homogeneous composition with no unique landmarks. Represents about 0.85 meters of enamel. Orthographic view, straight-on, flat diffuse lighting, soft even sheen, no hard reflections, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
-### `porcelain_fixture.png`
-
+### `galvanized_aged.png` — TILING
 ```
-Hyperrealistic photographic texture of aged vitreous china from a 1920s bathroom sink: white glaze grown ivory with age, fine crazing lines stained tan where water penetrated, mineral scale haze near the drain area, one hairline crack, worn dull ring where a soap dish sat for decades. The visible area is about 40 centimeters wide. Photographed perfectly flat and straight-on, even diffuse lighting with soft sheen but no hard reflections, porcelain fills the entire frame edge to edge, no perspective, no faucet, no border, no text, no watermark. Documentary macro photography, sharp focus everywhere, square image.
+Aged galvanized sheet steel surface from old ductwork, dull grey spangled zinc crystal pattern, white oxidation bloom in soft even patches, light streaky handling marks, no unique landmark rust or rivet lines, homogeneous composition. Represents about 0.8 meters of metal. Orthographic view, straight-on, flat diffuse lighting, no hard reflections, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
-### `bakelite.png`
-
+### `cast_iron_radiator.png` — TILING
 ```
-Hyperrealistic photographic texture of aged dark brown bakelite from a 1930s radio cabinet: deep chocolate marbled swirl, high polish gone slightly matte with micro-scratches, edge wear showing lighter brown, one small chip, faint patina of handling oils. The visible area is about 30 centimeters wide, close macro detail. Photographed perfectly flat and straight-on, even diffuse lighting with soft sheen but no mirror reflections, bakelite fills the entire frame edge to edge, no perspective, no dials, no border, no text, no watermark. Documentary macro photography, sharp focus everywhere, square image.
+Painted cast iron surface from a 1920s radiator, many coats of metallic silver-bronze paint over an older cream layer, brush-dabbed unevenly, rust freckles bleeding up through the silver evenly across the surface, sand-cast graininess showing under the paint, at most two small chips to black iron, no unique landmark damage, homogeneous composition. Represents about 40 centimeters of painted metal, macro detail. Orthographic view, straight-on, flat diffuse lighting, soft metallic sheen, no hotspot, no shadows, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+```
+
+### `porcelain_fixture.png` — TILING
+```
+Aged vitreous china surface from a 1920s bathroom fixture, white glaze grown ivory with age, fine network of crazing lines stained pale tan, faint mineral haze as broad even variation, no drain, no fixture edges, no unique landmark cracks, homogeneous composition. Represents about 40 centimeters of glaze, macro detail. Orthographic view, straight-on, flat diffuse lighting, soft even sheen, no hard reflections, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+```
+
+### `bakelite.png` — TILING
+```
+Aged dark brown bakelite surface, deep chocolate marbled swirl, polish gone slightly matte with fine micro-scratches, handling patina as broad even toning, no unique landmark chips, homogeneous composition. Represents about 30 centimeters, macro detail. Orthographic view, straight-on, flat diffuse lighting, soft sheen, no mirror reflections, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
 ---
 
 ## TIER 3 — floors and soft goods
 
-### `linoleum_kitchen.png` *(new material — the slot exists, unsourced)*
-
+### `linoleum_kitchen.png` — TILING
 ```
-Hyperrealistic photographic texture of 1930s inlaid linoleum kitchen flooring seen straight down from above: a faded geometric checker pattern in oxblood red, cream and grey-green, worn through to brown burlap backing in front of where the stove stood, curled seam line, decades of wax yellowing, small gouges and heel marks. The visible area is about 1.5 meters wide. Photographed perfectly flat from directly above, even diffuse lighting with no reflections, flooring fills the entire frame edge to edge, no perspective, no furniture, no border, no text, no watermark. Documentary architectural photography, sharp focus everywhere, square image.
-```
-
-### `walnut_furniture.png`
-
-```
-Hyperrealistic photographic texture of aged walnut furniture wood from a 1920s wardrobe: rich brown cathedral grain under thin worn shellac, sun-faded to honey on one side, fine scratches, a water ring, French polish sheen surviving in protected areas. The visible area is about 60 centimeters wide, grain running vertically. Photographed perfectly flat and straight-on, even diffuse lighting with soft sheen but no hard reflections, wood fills the entire frame edge to edge, no perspective, no hardware, no border, no text, no watermark. Documentary macro photography, sharp focus everywhere, square image.
+1930s inlaid linoleum kitchen floor surface, faded geometric checker pattern in oxblood red, cream and grey-green, squares about 6 centimeters, decades of wax yellowing as broad even toning, fine heel scuffs evenly distributed, no unique landmark wear-throughs. Represents about 0.8 meters of floor with the checker grid aligned to the image edges. Top-down orthographic view, flat lay, flat diffuse lighting, no reflections, base color map only. Seamless, infinitely wrapping edges, homogeneous composition. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
-### `upholstery_rust.png`
-
+### `walnut_furniture.png` — TILING
 ```
-Hyperrealistic photographic texture of aged rust-orange mohair upholstery fabric from a 1930s armchair: dense short pile crushed flat on the seat area, color sun-faded unevenly, one darker patch where an antimacassar protected it, fine fuzz and a few pulled threads, seam with piping visible at one edge. The visible area is about 60 centimeters wide. Photographed perfectly flat and straight-on, even diffuse lighting with no cast shadows, fabric fills the entire frame edge to edge, no perspective, no cushion edges, no border, no text, no watermark. Documentary macro photography, sharp focus everywhere, square image.
-```
-
-### `rug_persian_worn.png` *(upgrade for all three rug slots — recolorable)*
-
-```
-Hyperrealistic photographic texture of a worn 1920s Persian-style wool rug seen straight down from above: a medallion border pattern in muted madder red, indigo and cream, the pile worn to visible warp threads along the main walking path, colors softened by decades of sun and cleaning, fringe absent from view, one moth-worn patch. The visible area is about 1.5 meters of rug field. Photographed perfectly flat from directly above, even diffuse lighting with no cast shadows, rug fills the entire frame edge to edge, no perspective, no floor visible, no border, no text, no watermark. Documentary photography, sharp focus everywhere, square image.
+Aged walnut furniture wood surface, rich brown cathedral grain under thin worn shellac, honey sun-fading as a broad even gradient, fine scratches evenly distributed, no unique landmark rings or damage, grain running vertically. Represents about 0.6 meters of wood. Orthographic view, straight-on, flat diffuse lighting, soft sheen, no hard reflections, base color map only. Seamless, infinitely wrapping edges, homogeneous composition. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
-### `linen_aged.png`
-
+### `upholstery_rust.png` — TILING
 ```
-Hyperrealistic photographic texture of aged household linen: plain weave natural flax cloth yellowed at fold lines from decades in a drawer, subtle stripe of age-darkening along one crease, tiny mended patch, soft rumpled but pressed-flat surface. The visible area is about 50 centimeters wide. Photographed perfectly flat and straight-on, even diffuse lighting with no cast shadows, cloth fills the entire frame edge to edge, no perspective, no border, no text, no watermark. Documentary macro photography, sharp focus everywhere, square image.
+Aged rust-orange mohair upholstery fabric surface, dense short pile with even crushing variation, sun-fading as broad gradients, fine fuzz, no seams, no piping, no unique landmark patches, homogeneous composition. Represents about 0.6 meters of fabric. Orthographic view, straight-on, flat diffuse lighting, no shadows, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+```
+
+### `rug_persian_worn.png` — COMPOSITION *(unit-mapped: the full rug maps 0..1 exactly once)*
+```
+Complete worn 1920s Persian wool rug seen from directly above, full border pattern around a field with a central medallion, muted madder red, indigo and cream, pile worn to visible warp threads along realistic traffic zones, colors softened by decades of sun, one moth-worn patch. Single complete composition filling the frame edge to edge: the whole rug, about 1.5 by 1.5 meters, no floor visible, no fringe overhang. Top-down orthographic view, flat lay, flat diffuse lighting, no shadows, base color map only. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+```
+
+### `linen_aged.png` — TILING
+```
+Aged household linen fabric surface, plain weave natural flax, yellowed fold-line toning as soft even bands, pressed-flat gentle rumple, no unique landmark stains or mends, homogeneous composition. Represents about 0.5 meters of cloth. Orthographic view, flat lay, flat diffuse lighting, no shadows, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
 ---
 
 ## TIER 4 — exterior and grounds
 
-### `sidewalk_slab.png`
-
+### `sidewalk_slab.png` — TILING
 ```
-Hyperrealistic photographic texture of a 1920s New York bluestone-and-concrete sidewalk seen straight down from above: large weathered slabs, expansion joints dark with compressed grime, hairline cracks with moss traces, mica sparkle worn areas, old gum spots gone black, subtle patch repairs. The visible area is about 2.5 meters wide. Photographed perfectly flat from directly above in overcast light with no shadows, pavement fills the entire frame edge to edge, no perspective, no feet or hydrants, no border, no text, no watermark. Documentary photography, sharp focus everywhere, square image.
-```
-
-### `asphalt_street.png` *(new material — the slot exists, unsourced)*
-
-```
-Hyperrealistic photographic texture of an aged city asphalt street surface seen straight down from above: grey-black aggregate polished smoother in the wheel paths, fine alligator cracking in one area, a faded painted line fragment worn to ghost, oil-darkened patch, embedded grit and one filled pothole in blacker fresh asphalt. The visible area is about 2.5 meters wide. Photographed perfectly flat from directly above in overcast light with no shadows, asphalt fills the entire frame edge to edge, no perspective, no vehicles, no border, no text, no watermark. Documentary photography, sharp focus everywhere, square image.
+Aged New York bluestone and concrete sidewalk surface, large weathered slabs with dark grime-filled expansion joints aligned to the image edges, hairline cracks and mica sparkle evenly distributed, no unique landmark patches or gum spots. Represents about 2.5 meters of pavement. Top-down orthographic view, flat lay, overcast flat lighting, no shadows, base color map only. Seamless, infinitely wrapping edges, homogeneous composition. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
-### `tin_ceiling.png` *(new material — corridors and lobby deserve it)*
-
+### `asphalt_street.png` — TILING
 ```
-Hyperrealistic photographic texture of a 1920s pressed tin ceiling seen straight up from below: repeating 30-centimeter embossed square panels with a floral rosette motif, many coats of white oil paint gone cream, rust bleeding through at panel seams and nail dimples, one water-stained brown halo, paint flaking at the worst corner. The visible area is about 1.5 meters wide. SEAMLESS: composed so the panel grid tiles cleanly when repeated. Photographed perfectly flat, even diffuse lighting with no cast shadows, panels fill the entire frame edge to edge, no perspective, no light fixtures, no border, no text, no watermark. Documentary architectural photography, sharp focus everywhere, square image.
+Aged city asphalt street surface, grey-black aggregate with even polish variation, fine alligator cracking evenly distributed, no lane paint, no potholes, no unique landmark patches, homogeneous composition. Represents about 2.5 meters of road. Top-down orthographic view, flat lay, overcast flat lighting, no shadows, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
-### `marble_lobby_base.png` *(new material — wainscot for the lobby)*
-
+### `tin_ceiling.png` — TILING
 ```
-Hyperrealistic photographic texture of aged white Vermont marble wainscot panels from a 1920s lobby: white stone with soft grey clouded veining, surface polish gone matte at hand height, yellowed at edges, fine chips along the base, one discreet old repair line. The visible area is about 1.5 meters wide. Photographed perfectly flat and straight-on, even diffuse lighting with no reflections, marble fills the entire frame edge to edge, no perspective, no border, no text, no watermark. Documentary architectural photography, sharp focus everywhere, square image.
+1920s pressed tin ceiling surface, repeating 30 centimeter embossed square panels with a floral rosette motif, the panel grid perfectly aligned to the image edges, many coats of cream oil paint, rust bleeding softly at panel seams evenly across the surface, no unique landmark stains. Represents about 1.2 meters so a 4 by 4 panel grid. Orthographic view, straight-on, flat diffuse lighting, no shadows, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+```
+
+### `marble_lobby_base.png` — COMPOSITION *(unit-mapped per panel at placement)*
+```
+Single aged white Vermont marble wainscot panel from a 1920s lobby, white stone with soft grey clouded veining, a simple rectangular border profile framing the panel, polish gone matte at hand height as an even band, fine chips along the base edge. Single complete composition filling the frame: one panel, about 1.5 meters wide by 1 meter tall stretched to the square. Orthographic view, straight-on, flat diffuse lighting, no reflections, base color map only. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
 ---
 
-## Fidelity checklist (same law as the wall sheet)
+## Why the slots matter here specifically
 
-- **Square PNG, 1024×1024 minimum**, into `art/textures/ai_sources/`,
-  exact filenames.
-- **Flat-on, even diffuse light, no shadows, no reflections of the
-  photographer's world** — the game supplies all lighting.
-- **Edge-to-edge surface**: no context, props, borders, or text.
-- **Scale discipline**: features at the stated coverage. Floors and
-  ceilings are shot straight down/up; walls straight on.
-- Blocks marked SEAMLESS should tile; everything else gets made
-  tileable in the pipeline.
-- Contact sheets with filename labels are welcome — they get sliced.
+Three in-engine failures this pipeline already survived, each traceable
+to a missing slot: the oak tile carried **baked lighting** (orange
+blotches repeating as fake stains — LIGHTING slot), the trim carried a
+**unique landmark** (one chip cluster drumming every 40 cm — the
+homogeneity term), and object photos carried **perspective** (a radiator
+with shading, a sink with its drain — CAMERA slot). Every block above
+exists to make those three mistakes impossible to request.

@@ -15,6 +15,17 @@ toy-sized or giant in game. Three slots are already filled
 (`plaster_calcimine`, `plaster_distemper_green`, `plaster_tide`) —
 regenerate them only if you can beat what's there.*
 
+**Regeneration standard (2026-08-04):** new generations should use the
+slot format from `MATERIAL_PROMPT_SHEET.md` — `[CORE SURFACE] [KEY
+DETAILS], [CAMERA VIEW], [LIGHTING], [TILEABILITY], [TECH SPECS]` —
+with `orthographic view, straight-on / flat lay`, `flat diffuse
+lighting, no shadows, base color map only`, and for the tiling layers
+`seamless, infinitely wrapping edges, homogeneous composition, no
+unique landmarks`. The damage STENCILS and STAIN overlays are the
+exception on homogeneity: their large connected shapes are placed
+causally by the compositor, not tiled densely, so distinctive
+silhouettes are welcome there.
+
 When done: tell Claude, or run
 `python art/tools/build_wall_finish_textures.py --force` yourself.
 
