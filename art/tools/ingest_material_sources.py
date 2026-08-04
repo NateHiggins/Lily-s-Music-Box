@@ -35,7 +35,7 @@ MAPPING = os.path.join(ROOT, "art", "textures", "catalog_mapping.json")
 #                 normal_strength)
 SLOTS = {
     "common_brick_interior": (["common_brick", "brick_patched"],
-                              0.9, 0.88, 0.10, 7.0),
+                              1.2, 0.88, 0.10, 7.0),
     "face_brick_street": (["face_brick", "brick"], 1.1, 0.82, 0.10, 7.0),
     "limestone_carved": (["limestone"], 1.6, 0.78, 0.10, 4.0),
     # floor_oak re-earned its slot 2026-08-04: the 2048 slot-format
