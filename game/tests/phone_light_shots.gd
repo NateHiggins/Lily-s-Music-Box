@@ -21,6 +21,9 @@ func _ready() -> void:
 
 func _run(root: Node3D) -> void:
 	await get_tree().create_timer(1.2).timeout
+	# A borrowed actor keeps their home floor as parent; streaming would
+	# cull them with it no matter where they stand.
+	root.show_all_floors = true
 	if root.sanity:
 		root.sanity.stand_down()
 		root.sanity.enabled = false
@@ -30,13 +33,22 @@ func _run(root: Node3D) -> void:
 	player.global_position = Vector3(4.3, 3.35, 0.0)
 	player.velocity = Vector3.ZERO
 	player.autopilot = Vector3.ZERO
-	# Borrow the nearest resident and stand them in the beam line.
+	# Freeze the building's direction so the borrowed actor holds the
+	# mark instead of wandering off between frames.
+	if root.get("resident_routines") != null:
+		root.resident_routines.process_mode = Node.PROCESS_MODE_DISABLED
+	# Borrow a resident and stand them in the beam line. Prefer one who
+	# is actually onstage — a rider mid-lift is invisible and stays so.
 	var resident: Node3D = null
 	for candidate in get_tree().get_nodes_in_group("animated_residents"):
-		resident = candidate
-		break
+		if resident == null:
+			resident = candidate
+		if candidate.visible:
+			resident = candidate
+			break
 	if resident:
 		resident.set("externally_driven", true)
+		resident.visible = true
 		resident.global_position = player.global_position \
 				+ Vector3(0.0, 0.0, -2.4)
 		resident.global_position.y = player.global_position.y

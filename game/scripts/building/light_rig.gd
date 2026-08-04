@@ -69,7 +69,10 @@ var _accum := 0.0
 ## energy must not make shadows vanish sooner: omni_range and the moon's
 ## directional_shadow_max_distance are never derived from this value.
 var fixture_gain := 0.50
-var ambient_energy := 0.020
+# Moonlit floor (ruled 2026-08-04): shadows read midnight blue against
+# the warm fixtures and the blue phone torch. Keep in step with
+# building_root._build_environment.
+var ambient_energy := 0.08
 var moon_energy := 0.052
 var glow_intensity := 0.42
 var fog_density := 0.014

@@ -32,15 +32,19 @@ func _begin_if_needed() -> void:
 	if bool(RealityState.data.get("intro_complete", false)):
 		_place_at_arrival()
 		return
-	# Test scenes instantiate the building as a child. Only the actual game
-	# scene may seize the player's camera and run the thirty-second arrival.
 	if get_tree().current_scene != building:
 		return
+	# Ruled 2026-08-04: no seized-camera arrival. A new game starts on the
+	# curb in front of the building, player in control from the first
+	# frame. The authored thirty-second flyover survives behind
+	# VirusSoundDirector.toggle_intro for scenario use.
+	_place_at_arrival()
+	RealityState.data.intro_complete = true
+	RealityState.commit()
 	if tracker:
 		tracker.show_objective("FIRST SHIFT — ORISON APARTMENTS",
-				"Report for Realty Maintenance. The extra I is not a typo.")
-	if intro and not intro.active:
-		intro.start_seed(true)
+				"Report for Realty Maintenance. The extra I is not a typo. " +
+				"The building has left a work order at the lobby terminal.")
 
 
 func _on_intro_finished() -> void:

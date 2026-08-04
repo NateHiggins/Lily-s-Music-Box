@@ -330,11 +330,12 @@ func _build_environment() -> void:
 	env.background_mode = Environment.BG_COLOR
 	env.background_color = Color(0.015, 0.02, 0.035)
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	# Target look: blue-black visibility from the windows, with local warm
-	# fixtures doing the modelling. Ambient is enough to retain silhouettes,
-	# not enough to erase pools or contact shadows.
-	env.ambient_light_color = Color(0.135, 0.165, 0.225)
-	env.ambient_light_energy = 0.020
+	# Target look: moonlit. Shadows read as midnight BLUE, not black —
+	# a cool saturated floor under everything, so the tungsten pools and
+	# the phone torch both land as warm/cold contrast against it instead
+	# of against a void. Deep enough to keep the pools' authority.
+	env.ambient_light_color = Color(0.17, 0.23, 0.42)
+	env.ambient_light_energy = 0.08
 	env.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	env.fog_enabled = true
 	env.fog_light_color = Color(0.05, 0.06, 0.10)
