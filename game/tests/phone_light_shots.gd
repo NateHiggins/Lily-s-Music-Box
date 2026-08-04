@@ -43,6 +43,9 @@ func _run(root: Node3D) -> void:
 	var yaw_env := OS.get_environment("SHOT_YAW")
 	if yaw_env != "":
 		player.rotation.y = deg_to_rad(float(yaw_env))
+	# SHOT_PITCH tips the eye down (negative) or up: floors are half the
+	# material catalog and cannot be judged from a level camera.
+	var pitch_env := OS.get_environment("SHOT_PITCH")
 	player.velocity = Vector3.ZERO
 	player.autopilot = Vector3.ZERO
 	# Freeze the building's direction so the borrowed actor holds the
@@ -70,6 +73,8 @@ func _run(root: Node3D) -> void:
 	if yaw_env == "":
 		player.rotation = Vector3.ZERO
 	player.camera.rotation = Vector3.ZERO
+	if pitch_env != "":
+		player.camera.rotation.x = deg_to_rad(float(pitch_env))
 	player.camera.make_current()
 	await get_tree().process_frame
 	# The torch defaults on now; the comparison still wants a dark frame.

@@ -51,7 +51,7 @@ SLOTS = {
     "stair_marble_worn": (["stair"], 1.2, 0.45, 0.20, 3.0),
     "wainscot_beadboard": (["wainscot"], 0.72, 0.58, 0.15, 5.0),
     "trim_painted_layers": (["trim", "baluster"], 1.1, 0.52, 0.18, 3.5),
-    "ceramic_hex_bath": (["ceramic"], 1.0, 0.42, 0.22, 4.5),
+    "ceramic_hex_bath": (["ceramic"], 0.65, 0.42, 0.22, 4.5),
     "subway_tile_aged": (["subway_tile"], 0.55, 0.28, 0.20, 4.5),
     "concrete_cellar": (["concrete", "slab"], 2.8, 0.86, 0.08, 3.0),
     "timber_joist": (["timber"], 1.0, 0.80, 0.12, 5.0),
