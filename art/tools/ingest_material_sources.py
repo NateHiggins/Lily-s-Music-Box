@@ -49,7 +49,7 @@ SLOTS = {
     "floor_oak_worn": (["floor_oak"], 2.7, 0.55, 0.25, 3.5),
     "terrazzo_lobby": (["terrazzo"], 2.0, 0.38, 0.18, 2.0),
     "stair_marble_worn": (["stair"], 1.2, 0.45, 0.20, 3.0),
-    "wainscot_beadboard": (["wainscot"], 0.6, 0.58, 0.15, 5.0),
+    "wainscot_beadboard": (["wainscot"], 0.72, 0.58, 0.15, 5.0),
     "trim_painted_layers": (["trim", "baluster"], 1.1, 0.52, 0.18, 3.5),
     "ceramic_hex_bath": (["ceramic"], 1.0, 0.42, 0.22, 4.5),
     "subway_tile_aged": (["subway_tile"], 0.55, 0.28, 0.20, 4.5),
@@ -75,6 +75,41 @@ SLOTS = {
 }
 # hue-rotated companions: source slot -> [(extra key, hue degrees)]
 RECOLOR = {"rug_persian_worn": [("rug_cool", 150.0), ("rug_green", 90.0)]}
+
+
+
+# Absolute color governance: per-key target mean sRGB. Generators drift
+# ("aged ivory" means something different every run), so ingest pulls
+# each delivered albedo's MEAN toward its anchor at ANCHOR_STRENGTH,
+# preserving all local variation. Anchored on period reference and the
+# building's grade.
+COLOR_ANCHORS = {
+    "floor_oak": "#9A6132", "common_brick": "#A5663F",
+    "brick_patched": "#A5663F", "face_brick": "#6B3B33",
+    "brick": "#8A4A3A", "trim": "#E3DAC3", "baluster": "#E3DAC3",
+    "wainscot": "#E5DCC6", "limestone": "#C8C1B1", "terrazzo": "#C7BDA6",
+    "stair": "#DCD9D2", "ceramic": "#ECE7DC", "subway_tile": "#EAE4D6",
+    "concrete": "#98958E", "slab": "#98958E", "timber": "#8A6A48",
+    "brass": "#A67C3E", "appliance": "#F0EBDE", "metal": "#9AA0A0",
+    "cast_iron": "#B5B2AA", "porcelain": "#EFE9D6", "bakelite": "#452C20",
+    "linoleum": "#B08A6A", "wood_dark": "#5C3A26",
+    "handrail_wood": "#5C3A26", "fabric_warm": "#B0552F",
+    "rug_warm": "#9E4A3C", "linen": "#D8CBAA",
+    "sidewalk_haunted": "#9A9A92", "sidewalk_grout": "#9A9A92",
+    "asphalt": "#4B4B49", "tin_ceiling": "#E2DAC6",
+    "marble_lobby": "#E8E6E0",
+}
+ANCHOR_STRENGTH = 0.5
+
+
+def anchor_color(albedo, key):
+    hexa = COLOR_ANCHORS.get(key)
+    if not hexa:
+        return albedo
+    target = np.array([int(hexa[i:i + 2], 16) / 255.0
+                       for i in (1, 3, 5)], dtype=np.float32)
+    mean = albedo.reshape(-1, 3).mean(axis=0)
+    return np.clip(albedo + (target - mean) * ANCHOR_STRENGTH, 0.0, 1.0)
 
 
 def make_tileable(a: np.ndarray) -> np.ndarray:
@@ -117,6 +152,7 @@ def write_set(key: str, albedo: np.ndarray, metres: float,
               normal_strength: float, source_name: str) -> None:
     out_dir = os.path.join(OUT, key)
     os.makedirs(out_dir, exist_ok=True)
+    albedo = anchor_color(albedo, key)
     lum = albedo.mean(axis=-1)
     # band-passed luminance as height: local detail without the broad
     # lighting-ish gradients an AI photo sometimes smuggles in

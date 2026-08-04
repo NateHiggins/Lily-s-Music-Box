@@ -192,6 +192,31 @@ Single aged white Vermont marble wainscot panel from a 1920s lobby, white stone 
 
 ---
 
+## COLOR ANCHORS — absolute references
+
+Append to any prompt for tighter color fidelity: *"average surface
+color approximately #HEX, neutral 6500K white balance, sRGB, mid-tone
+exposure, no vignette"*. The pipeline also ENFORCES these at ingest
+(each delivered albedo's mean is pulled halfway to its anchor,
+variation preserved), so a generator that drifts still lands on grade:
+
+| Slot | Anchor | Slot | Anchor |
+|---|---|---|---|
+| floor_oak | `#9A6132` | common_brick | `#A5663F` |
+| face_brick | `#6B3B33` | brick | `#8A4A3A` |
+| trim / baluster | `#E3DAC3` | wainscot | `#E5DCC6` |
+| limestone | `#C8C1B1` | terrazzo | `#C7BDA6` |
+| stair | `#DCD9D2` | ceramic hex | `#ECE7DC` |
+| subway_tile | `#EAE4D6` | concrete / slab | `#98958E` |
+| timber | `#8A6A48` | brass | `#A67C3E` |
+| appliance | `#F0EBDE` | metal | `#9AA0A0` |
+| cast_iron | `#B5B2AA` | porcelain | `#EFE9D6` |
+| bakelite | `#452C20` | linoleum | `#B08A6A` |
+| walnut | `#5C3A26` | upholstery | `#B0552F` |
+| rug | `#9E4A3C` | linen | `#D8CBAA` |
+| sidewalk | `#9A9A92` | asphalt | `#4B4B49` |
+| tin_ceiling | `#E2DAC6` | marble_lobby | `#E8E6E0` |
+
 ## Why the slots matter here specifically
 
 Three in-engine failures this pipeline already survived, each traceable
