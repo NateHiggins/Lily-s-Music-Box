@@ -36,7 +36,11 @@ MAPPING = os.path.join(ROOT, "art", "textures", "catalog_mapping.json")
 SLOTS = {
     "common_brick_interior": (["common_brick", "brick_patched"],
                               1.2, 0.88, 0.10, 7.0),
-    "face_brick_street": (["face_brick", "brick"], 1.1, 0.82, 0.10, 7.0),
+    # Two-generator split (2026-08-04): the sooty iron-spot facade brick
+    # holds face_brick; the brighter clinker-speckled photo source takes
+    # the generic brick key, so party walls stop twinning the facade.
+    "face_brick_street": (["face_brick"], 2.2, 0.82, 0.10, 7.0),
+    "face_brick_clinker": (["brick"], 1.5, 0.84, 0.10, 7.0),
     "limestone_carved": (["limestone"], 1.6, 0.78, 0.10, 4.0),
     # floor_oak re-earned its slot 2026-08-04: the 2048 slot-format
     # generation beat the procedural set against period reference (warm
