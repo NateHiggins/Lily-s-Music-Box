@@ -571,7 +571,7 @@ func _build_keys() -> void:
 	var box := _section("KEYS", Color(0.7, 0.7, 0.75))
 	var hint := Label.new()
 	hint.text = "WASD move · Shift run · C crouch · E interact\n" \
-			+ "L flashlight · V noclip · F2 intro · F3 distort · F4 chaos\n" \
+			+ "F flashlight · V noclip · F2 intro · F3 distort · F4 chaos\n" \
 			+ "Esc release mouse · wheel scrolls this panel"
 	hint.add_theme_font_size_override("font_size", 10)
 	hint.modulate = Color(0.7, 0.7, 0.75)
