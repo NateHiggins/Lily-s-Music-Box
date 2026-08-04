@@ -114,6 +114,7 @@ def normalize_wall_construction(floors):
     exterior = 0
     masonry = {"brick", "brick_patched", "common_brick", "face_brick"}
     for fl in floors:
+        finish_index = 0
         for w in fl["walls"]:
             if w.get("cat", "walls") != "walls":
                 continue
@@ -133,10 +134,13 @@ def normalize_wall_construction(floors):
                     w["in_side"] = 1 if (ay + by) * 0.5 < 0 else -1
                 else:                    # west faces inward +X; east -X
                     w["in_side"] = 1 if (ax + bx) * 0.5 < 0 else -1
-                # The baked-finish pass (build_wall_finish_textures.py +
-                # the exporter's finish quad) is DORMANT by ruling
-                # 2026-08-04: its first look was rejected. To retry,
-                # stamp w["finish_texture"] with a unique id here.
+                # Second look, ruled 2026-08-04: finishes composited
+                # from the AI-generated source library (wall_sources/)
+                # by build_wall_finish_textures.py, one unique id per
+                # room-facing masonry wall.
+                w["finish_texture"] = "%s_w%02d" % (
+                    str(fl["id"]).lower(), finish_index)
+                finish_index += 1
                 exterior += 1
     print("wall construction audit: %d interior masonry walls -> plaster; "
           "%d exterior masonry walls retained" % (converted, exterior))

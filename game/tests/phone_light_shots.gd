@@ -31,6 +31,18 @@ func _run(root: Node3D) -> void:
 		root.fourth_wall.force_finish()
 	var player: PlayerController = root.player
 	player.global_position = Vector3(4.3, 3.35, 0.0)
+	# Optional pose override, so lighting-sensitive surfaces (the wall
+	# finishes, above all) can be judged under real game light:
+	#   SHOT_POS="x,y,z" SHOT_YAW=degrees SHOT_NO_NPC=1
+	var pos_env := OS.get_environment("SHOT_POS")
+	if pos_env != "":
+		var parts := pos_env.split(",")
+		if parts.size() == 3:
+			player.global_position = Vector3(float(parts[0]),
+					float(parts[1]), float(parts[2]))
+	var yaw_env := OS.get_environment("SHOT_YAW")
+	if yaw_env != "":
+		player.rotation.y = deg_to_rad(float(yaw_env))
 	player.velocity = Vector3.ZERO
 	player.autopilot = Vector3.ZERO
 	# Freeze the building's direction so the borrowed actor holds the
@@ -40,12 +52,13 @@ func _run(root: Node3D) -> void:
 	# Borrow a resident and stand them in the beam line. Prefer one who
 	# is actually onstage — a rider mid-lift is invisible and stays so.
 	var resident: Node3D = null
-	for candidate in get_tree().get_nodes_in_group("animated_residents"):
-		if resident == null:
-			resident = candidate
-		if candidate.visible:
-			resident = candidate
-			break
+	if OS.get_environment("SHOT_NO_NPC") == "":
+		for candidate in get_tree().get_nodes_in_group("animated_residents"):
+			if resident == null:
+				resident = candidate
+			if candidate.visible:
+				resident = candidate
+				break
 	if resident:
 		resident.set("externally_driven", true)
 		resident.visible = true
@@ -54,10 +67,14 @@ func _run(root: Node3D) -> void:
 		resident.global_position.y = player.global_position.y
 		resident.look_at(player.global_position, Vector3.UP)
 		resident.set("_home", resident.position)
-	player.rotation = Vector3.ZERO
+	if yaw_env == "":
+		player.rotation = Vector3.ZERO
 	player.camera.rotation = Vector3.ZERO
 	player.camera.make_current()
 	await get_tree().process_frame
+	# The torch defaults on now; the comparison still wants a dark frame.
+	player.flashlight.visible = false
+	player._light_mask.visible = false
 	await _snap("phone_light_off.png")
 	player.flashlight.visible = true
 	player._light_mask.visible = true

@@ -66,7 +66,9 @@ func _ready() -> void:
 	flashlight.spot_attenuation = 1.35
 	flashlight.light_color = Color(0.78, 0.87, 1.0)
 	flashlight.shadow_enabled = true
-	flashlight.visible = false
+	# On from the first frame (ruled 2026-08-04): the phone rides lit in
+	# the off hand all shift. F still toggles it for the brave.
+	flashlight.visible = true
 	_hand.add_child(flashlight)
 	floor_snap_length = 0.4
 	_build_hud()
@@ -94,7 +96,7 @@ func _build_hud() -> void:
 	var blend := CanvasItemMaterial.new()
 	blend.blend_mode = CanvasItemMaterial.BLEND_MODE_MUL
 	_light_mask.material = blend
-	_light_mask.visible = false
+	_light_mask.visible = true  # torch starts on; the mask rides with it
 	mask_layer.add_child(_light_mask)
 	var layer := CanvasLayer.new()
 	layer.layer = 7

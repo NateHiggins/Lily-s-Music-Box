@@ -40,14 +40,35 @@ PX_PER_M = 96
 MAX_PX = 1024
 
 PLASTERS = ["plaster_calcimine", "plaster_distemper_green",
-            "plaster_tide", "plaster_parchment"]
+            "plaster_parchment"]
 PAPERS = ["paper_damask", "paper_stripe", "paper_floral",
           "paper_anaglypta"]
 # metres of wall each source image is assumed to cover
-SCALE_M = {"plaster": 2.3, "paper": 1.9, "mask": 3.0, "relief": 2.0,
-           "stain": 2.8}
+SCALE_M = {"plaster": 2.3, "paper": 1.9, "mask": 4.6, "relief": 2.0,
+           "stain": 4.0}
 
 _cache = {}
+
+
+def make_tileable(a: np.ndarray) -> np.ndarray:
+    """Half-roll and crossfade both axes so wrap repeats leave no seam.
+
+    The classic offset trick: rolling puts the old seam in the middle,
+    a smooth band blends it against the unrolled image, and the borders
+    (now interior-continuous) tile cleanly.
+    """
+    for axis in (1, 0):
+        n = a.shape[axis]
+        rolled = np.roll(a, n // 2, axis=axis)
+        t = np.linspace(0.0, 1.0, n, dtype=np.float32)
+        # weight 1 at the borders (keep rolled = seam-free edge), 0 mid
+        w = np.clip(1.0 - np.abs(t - 0.5) * 2.0, 0.0, 1.0)
+        w = np.clip((w - 0.38) / 0.24, 0.0, 1.0)
+        shape = [1, 1] + ([] if a.ndim == 2 else [1])
+        shape[axis] = n
+        w = w.reshape(shape[:a.ndim])
+        a = rolled * (1.0 - w) + a * w
+    return a
 
 
 def load(name: str, gray: bool = False) -> np.ndarray:
@@ -55,41 +76,50 @@ def load(name: str, gray: bool = False) -> np.ndarray:
     if key not in _cache:
         img = Image.open(os.path.join(SRC, name + ".png"))
         img = img.convert("L" if gray else "RGB")
-        _cache[key] = np.asarray(img, dtype=np.float32) / 255.0
+        a = np.asarray(img, dtype=np.float32) / 255.0
+        # contact-sheet slicing leaves edge artifacts; trim a margin so
+        # wrap boundaries never duplicate a stray border row
+        _cache[key] = make_tileable(a[6:-6, 6:-6])
     return _cache[key]
 
 
 def sample(arr: np.ndarray, length: float, h: float, wpx: int, hpx: int,
-           covers_m: float, rng: np.random.Generator) -> np.ndarray:
+           covers_m: float, rng: np.random.Generator,
+           warp: bool = False, warp_amp: float = 0.38) -> np.ndarray:
     """Cut a wall-sized window from a source at real-world scale.
 
-    The source is mirror-tiled as far as the wall needs, sampled from a
-    random origin with random flips, then resized to the bake grid —
-    every wall sees a different stretch of the same material.
+    Two repeat strategies, chosen by what the eye punishes: smooth
+    surfaces (plaster, paper, stains, relief) mirror-tile — reflection
+    is invisible in near-uniform material and leaves no seams. Stencils
+    warp — mirror-tiling gave their distinctive blobs kaleidoscope
+    symmetry, so they wrap with a deep low-frequency domain warp that
+    shoves every repeat somewhere else.
     """
     src_h, src_w = arr.shape[:2]
-    px_m = src_w / covers_m
-    need_w = max(8, int(length * px_m))
-    need_h = max(8, int(h * px_m))
     a = arr
     if rng.random() < 0.5:
-        a = a[:, ::-1]
-    if rng.random() < 0.5:
-        a = a[::-1, :]
-    # mirror-tile via reflected index grids
-    ox = rng.integers(0, src_w)
-    oy = rng.integers(0, src_h)
-    ix = (np.arange(need_w) + ox)
-    iy = (np.arange(need_h) + oy)
+        a = a[:, ::-1]   # horizontal flips only: damp knows which way is down
+    px_m = src_w / covers_m
+    gx = np.linspace(0.0, length * px_m, wpx, dtype=np.float32)[None, :]
+    gy = np.linspace(0.0, h * px_m, hpx, dtype=np.float32)[:, None]
+    ox = float(rng.integers(0, src_w))
+    oy = float(rng.integers(0, src_h))
+    if warp:
+        amp = src_w * warp_amp
+        wx = blur(rng.standard_normal((hpx, wpx)).astype(np.float32)
+                  * 0.5 + 0.5, max(wpx, hpx) * 0.16) - 0.5
+        wy = blur(rng.standard_normal((hpx, wpx)).astype(np.float32)
+                  * 0.5 + 0.5, max(wpx, hpx) * 0.16) - 0.5
+        sx = np.mod((gx + ox + wx * amp).astype(np.int64), src_w)
+        sy = np.mod((gy + oy + wy * amp).astype(np.int64), src_h)
+        return a[sy, sx]
+    sx = (gx + ox).astype(np.int64)
+    sy = (gy + oy).astype(np.int64)
 
     def mirror(idx, n):
-        period = 2 * n
-        m = np.mod(idx, period)
-        return np.where(m < n, m, period - 1 - m)
-    window = a[np.ix_(mirror(iy, src_h), mirror(ix, src_w))]
-    img = Image.fromarray((np.clip(window, 0, 1) * 255).astype(np.uint8))
-    img = img.resize((wpx, hpx), Image.LANCZOS)
-    return np.asarray(img, dtype=np.float32) / 255.0
+        m = np.mod(idx, 2 * n)
+        return np.where(m < n, m, 2 * n - 1 - m)
+    return a[mirror(sy, src_h), mirror(sx, src_w)]
 
 
 def blur(a: np.ndarray, radius: float) -> np.ndarray:
@@ -145,32 +175,41 @@ def bake(wall: dict) -> None:
     du = (u - island_u) / 0.16
     dv = (v - 0.30) / 0.18
     causal = np.maximum(causal, np.clip(
-        1.15 - (du * du + dv * dv), 0.0, 0.85))
-    causal = np.maximum(causal, 0.08)   # a century leaves no wall untouched
+        1.15 - (du * du + dv * dv), 0.0, 0.70))
+    causal = np.maximum(causal, 0.05)   # a century leaves no wall untouched
 
     # --- survival mask: causal field gates the generated stencils --------
     sten_a = sample(load("mask_delamination", True), length, h, wpx, hpx,
-                    SCALE_M["mask"], rng)
+                    SCALE_M["mask"], rng, warp=True)
     sten_b = sample(load("mask_peel", True), length, h, wpx, hpx,
-                    SCALE_M["mask"], rng)
-    stencil = np.minimum(sten_a, 0.35 + sten_b * 0.65)
-    missing = stencil < (0.04 + causal * 0.72)
+                    SCALE_M["mask"] * 0.6, rng, warp=True)
+    # The stencils are binary, so they cannot be thresholded against the
+    # causal field (black passes every threshold and loss lands
+    # everywhere). Instead causal MODULATES them: a stencil blob only
+    # becomes loss where the building has a reason to fail there.
+    darkness = 1.0 - np.minimum(sten_a, 0.3 + sten_b * 0.7)
+    missing = (darkness * (0.18 + 0.82 * causal)) > 0.42
     present = 1.0 - missing.astype(np.float32)
-    present = (blur(present, 2.0) > 0.5).astype(np.float32)
+    # crumble the boundary at aggregate scale: torn plaster breaks
+    # granularly, never along the causal field's smooth geometry
+    crumble = (np.sin(u * 231.0 + phase * 3.1)
+               * np.sin(v * 197.0 - phase * 2.3)
+               + rng.standard_normal((hpx, wpx)).astype(np.float32) * 0.6)
+    present = ((blur(present, 2.6) + crumble * 0.13) > 0.5).astype(np.float32)
     alpha = blur(present, 1.0)
 
     # --- surface build ---------------------------------------------------
     plaster_name = PLASTERS[decor_seed % len(PLASTERS)]
     albedo = sample(load(plaster_name), length, h, wpx, hpx,
-                    SCALE_M["plaster"], rng)
+                    SCALE_M["plaster"], rng, warp=True, warp_amp=0.14)
     papered = (decor_seed % 10) < 5
     paper = np.zeros((hpx, wpx), dtype=np.float32)
     if papered:
         paper_name = PAPERS[(decor_seed // 7) % len(PAPERS)]
         paper_tex = sample(load(paper_name), length, h, wpx, hpx,
-                           SCALE_M["paper"], rng)
+                           SCALE_M["paper"], rng, warp=True, warp_amp=0.05)
         tear = sample(load("mask_paper_tear", True), length, h, wpx, hpx,
-                      SCALE_M["mask"], rng)
+                      SCALE_M["mask"], rng, warp=True, warp_amp=0.12)
         metres = u * length
         roll_pos = metres + (seed % 19) * 0.031
         roll = np.floor(roll_pos / 0.61).astype(np.int64)
@@ -185,11 +224,11 @@ def bake(wall: dict) -> None:
 
     # --- coherent moisture, leak and soot overlays -----------------------
     tide_tex = sample(load("stain_tide"), length, h, wpx, hpx,
-                      SCALE_M["stain"], rng)
+                      SCALE_M["stain"], rng, warp=True, warp_amp=0.20)
     leak_tex = sample(load("stain_leak"), length, h, wpx, hpx,
-                      SCALE_M["stain"], rng)
+                      SCALE_M["stain"], rng, warp=True, warp_amp=0.10)
     soot_tex = sample(load("stain_soot"), length, h, wpx, hpx,
-                      SCALE_M["stain"], rng)
+                      SCALE_M["stain"], rng, warp=True, warp_amp=0.20)
     tide_w = np.clip((tide + 0.16 - v) * 4.0, 0.0, 1.0) * 0.85
     leak_w = np.clip((0.06 - np.abs(u - leak_center)) * 12.0, 0.0, 1.0) \
         * np.clip(0.94 - v, 0.0, 1.0) * 0.8
@@ -202,7 +241,7 @@ def bake(wall: dict) -> None:
 
     # --- relief: crust + generated height detail -> normal ---------------
     relief = sample(load("relief_plaster", True), length, h, wpx, hpx,
-                    SCALE_M["relief"], rng)
+                    SCALE_M["relief"], rng, warp=True, warp_amp=0.16)
     height = (blur(present, 1.6) * 0.62 + relief * 0.26 * present
               + paper * 0.06)
     gy_, gx_ = np.gradient(height.astype(np.float32))
