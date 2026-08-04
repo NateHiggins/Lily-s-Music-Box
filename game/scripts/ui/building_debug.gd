@@ -452,18 +452,35 @@ func _build_world() -> void:
 func _build_device() -> void:
 	var box := _section("LIGHTING — global grade and budgets",
 			Color(0.7, 0.85, 0.7))
-	_slider(box, "Fixture", 0.0, 1.5, root.light_rig.fixture_gain,
-			func(v): root.light_rig.set_tuning("fixture_gain", v), 0.01)
-	_slider(box, "Ambient", 0.0, 0.10, root.light_rig.ambient_energy,
-			func(v): root.light_rig.set_tuning("ambient_energy", v), 0.001)
-	_slider(box, "Moon", 0.0, 0.20, root.light_rig.moon_energy,
-			func(v): root.light_rig.set_tuning("moon_energy", v), 0.001)
-	_slider(box, "Glow", 0.0, 1.2, root.light_rig.glow_intensity,
-			func(v): root.light_rig.set_tuning("glow_intensity", v), 0.01)
-	_slider(box, "Fog", 0.0, 0.05, root.light_rig.fog_density,
-			func(v): root.light_rig.set_tuning("fog_density", v), 0.001)
-	_slider(box, "Shadow", 0.0, 1.0, root.light_rig.shadow_opacity,
-			func(v): root.light_rig.set_tuning("shadow_opacity", v), 0.01)
+	# The grade set remembers its boot values so one button can walk every
+	# slider home. Budgets stay out: those are device answers, not grades.
+	var grade: Dictionary = {}
+	var torch_default := 1.15
+	if root.player and root.player.flashlight:
+		torch_default = root.player.flashlight.light_energy
+	grade[_slider(box, "Torch", 0.0, 3.0, torch_default,
+			_set_torch_energy, 0.01)] = torch_default
+	grade[_slider(box, "Fixture", 0.0, 1.5, root.light_rig.fixture_gain,
+			func(v): root.light_rig.set_tuning("fixture_gain", v), 0.01)] = \
+			root.light_rig.fixture_gain
+	grade[_slider(box, "Ambient", 0.0, 0.20, root.light_rig.ambient_energy,
+			func(v): root.light_rig.set_tuning("ambient_energy", v), 0.001)] = \
+			root.light_rig.ambient_energy
+	grade[_slider(box, "Moon", 0.0, 0.20, root.light_rig.moon_energy,
+			func(v): root.light_rig.set_tuning("moon_energy", v), 0.001)] = \
+			root.light_rig.moon_energy
+	grade[_slider(box, "Glow", 0.0, 1.2, root.light_rig.glow_intensity,
+			func(v): root.light_rig.set_tuning("glow_intensity", v), 0.01)] = \
+			root.light_rig.glow_intensity
+	grade[_slider(box, "Fog", 0.0, 0.05, root.light_rig.fog_density,
+			func(v): root.light_rig.set_tuning("fog_density", v), 0.001)] = \
+			root.light_rig.fog_density
+	grade[_slider(box, "Shadow", 0.0, 1.0, root.light_rig.shadow_opacity,
+			func(v): root.light_rig.set_tuning("shadow_opacity", v), 0.01)] = \
+			root.light_rig.shadow_opacity
+	_button(box, "Set lighting to defaults", func():
+		for slider in grade:
+			slider.value = grade[slider])
 	_slider(box, "Lights", 1, 24, root.light_rig._active_budget,
 			func(v): root.light_rig.set_budgets(int(v),
 					root.light_rig._shadow_budget), 1.0)
@@ -579,6 +596,11 @@ func _build_keys() -> void:
 
 
 # -------------------------------------------------------------- helpers
+
+func _set_torch_energy(value: float) -> void:
+	if root.player and root.player.flashlight:
+		root.player.flashlight.light_energy = value
+
 
 func _button(parent: Node, label_text: String, action: Callable) -> Button:
 	var button := Button.new()
