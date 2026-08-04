@@ -36,44 +36,12 @@ func _ready() -> void:
 	_model = scene.instantiate()
 	_model.name = "RiggedCharacter"
 	add_child(_model)
-	_apply_presence_glow(_model)
 	_animation_player = _find_animation_player(_model)
 	_build_interaction()
 	_build_nameplate()
 	RealityCases.case_changed.connect(_on_case_changed)
 	_play_named("idle")
 	_refresh_nameplate()
-
-
-## The moonlight rule for bodies: a resident is never a void. The dump's
-## full-strength self-illumination is stripped from the models
-## (strip_character_emissive.py); this puts back the deliberate sliver —
-## a flat few-percent emission tinted the same midnight blue as the
-## ambient floor, so a figure across a dark corridor reads as a cool
-## presence the warm fixtures and the phone beam then carve into.
-const PRESENCE_GLOW := Color(0.055, 0.070, 0.112)
-
-
-func _apply_presence_glow(node: Node) -> void:
-	if node is MeshInstance3D:
-		var mesh_node := node as MeshInstance3D
-		for s in range(mesh_node.get_surface_override_material_count()):
-			_glow_material(mesh_node.get_active_material(s))
-	for child in node.get_children():
-		_apply_presence_glow(child)
-
-
-func _glow_material(material: Material) -> void:
-	var standard := material as StandardMaterial3D
-	if standard == null:
-		return
-	standard.emission_enabled = true
-	# Flat color, no texture: gl_compatibility adds an emission texture
-	# at close to full strength regardless of the emission color, which
-	# is the exact self-lit-cast bug this session removed. A textureless
-	# few-percent wash is honest in both renderers.
-	standard.emission = PRESENCE_GLOW
-	standard.emission_energy_multiplier = 1.0
 
 
 func _build_interaction() -> void:
