@@ -1264,20 +1264,6 @@
 		{
 			"doubleSided":true,
 			"name":"M_linoleum",
-			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					0.550000011920929,
-					0.5,
-					0.4000000059604645,
-					1
-				],
-				"metallicFactor":0,
-				"roughnessFactor":0.5
-			}
-		},
-		{
-			"doubleSided":true,
-			"name":"M_plaster_stained",
 			"normalTexture":{
 				"index":128,
 				"scale":0.3499999940395355
@@ -1294,7 +1280,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"M_rug_cool",
+			"name":"M_plaster_stained",
 			"normalTexture":{
 				"index":131,
 				"scale":0.3499999940395355
@@ -1311,7 +1297,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"M_rug_green",
+			"name":"M_rug_cool",
 			"normalTexture":{
 				"index":134,
 				"scale":0.3499999940395355
@@ -1327,6 +1313,23 @@
 			}
 		},
 		{
+			"doubleSided":true,
+			"name":"M_rug_green",
+			"normalTexture":{
+				"index":137,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":138
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":139
+				}
+			}
+		},
+		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
 			"extensions":{
@@ -1337,7 +1340,7 @@
 			"name":"M_fx_ao",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":137
+					"index":140
 				},
 				"metallicFactor":0
 			}
@@ -1345,23 +1348,6 @@
 		{
 			"doubleSided":true,
 			"name":"M_stair",
-			"normalTexture":{
-				"index":138,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":139
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":140
-				}
-			}
-		},
-		{
-			"doubleSided":true,
-			"name":"M_baluster",
 			"normalTexture":{
 				"index":141,
 				"scale":0.3499999940395355
@@ -1378,7 +1364,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"M_handrail_wood",
+			"name":"M_baluster",
 			"normalTexture":{
 				"index":144,
 				"scale":0.3499999940395355
@@ -1395,7 +1381,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"M_limestone",
+			"name":"M_handrail_wood",
 			"normalTexture":{
 				"index":147,
 				"scale":0.3499999940395355
@@ -1412,7 +1398,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"M_wainscot",
+			"name":"M_limestone",
 			"normalTexture":{
 				"index":150,
 				"scale":0.3499999940395355
@@ -1429,7 +1415,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"M_plaster",
+			"name":"M_wainscot",
 			"normalTexture":{
 				"index":153,
 				"scale":0.3499999940395355
@@ -1446,7 +1432,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"M_common_brick",
+			"name":"M_plaster",
 			"normalTexture":{
 				"index":156,
 				"scale":0.3499999940395355
@@ -1463,7 +1449,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"M_concrete",
+			"name":"M_common_brick",
 			"normalTexture":{
 				"index":159,
 				"scale":0.3499999940395355
@@ -1480,7 +1466,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"M_face_brick",
+			"name":"M_concrete",
 			"normalTexture":{
 				"index":162,
 				"scale":0.3499999940395355
@@ -1496,6 +1482,23 @@
 			}
 		},
 		{
+			"doubleSided":true,
+			"name":"M_face_brick",
+			"normalTexture":{
+				"index":165,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":166
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":167
+				}
+			}
+		},
+		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
 			"extensions":{
@@ -1504,54 +1507,6 @@
 				}
 			},
 			"name":"M_fx_drip",
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":165
-				},
-				"metallicFactor":0
-			}
-		},
-		{
-			"alphaMode":"BLEND",
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
-			},
-			"name":"M_fx_burn",
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":166
-				},
-				"metallicFactor":0
-			}
-		},
-		{
-			"alphaMode":"BLEND",
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
-			},
-			"name":"M_fx_grease",
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":167
-				},
-				"metallicFactor":0
-			}
-		},
-		{
-			"alphaMode":"BLEND",
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
-			},
-			"name":"M_fx_scuff",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":168
@@ -1567,10 +1522,58 @@
 					"specularFactor":0
 				}
 			},
-			"name":"M_fx_traffic",
+			"name":"M_fx_burn",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":169
+				},
+				"metallicFactor":0
+			}
+		},
+		{
+			"alphaMode":"BLEND",
+			"doubleSided":true,
+			"extensions":{
+				"KHR_materials_specular":{
+					"specularFactor":0
+				}
+			},
+			"name":"M_fx_grease",
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":170
+				},
+				"metallicFactor":0
+			}
+		},
+		{
+			"alphaMode":"BLEND",
+			"doubleSided":true,
+			"extensions":{
+				"KHR_materials_specular":{
+					"specularFactor":0
+				}
+			},
+			"name":"M_fx_scuff",
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":171
+				},
+				"metallicFactor":0
+			}
+		},
+		{
+			"alphaMode":"BLEND",
+			"doubleSided":true,
+			"extensions":{
+				"KHR_materials_specular":{
+					"specularFactor":0
+				}
+			},
+			"name":"M_fx_traffic",
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":172
 				},
 				"metallicFactor":0
 			}
@@ -3099,10 +3102,6 @@
 		},
 		{
 			"sampler":0,
-			"source":42
-		},
-		{
-			"sampler":0,
 			"source":75
 		},
 		{
@@ -3363,30 +3362,6 @@
 		},
 		{
 			"sampler":0,
-			"source":114
-		},
-		{
-			"sampler":0,
-			"source":115
-		},
-		{
-			"sampler":0,
-			"source":116
-		},
-		{
-			"sampler":0,
-			"source":117
-		},
-		{
-			"sampler":0,
-			"source":118
-		},
-		{
-			"sampler":0,
-			"source":119
-		},
-		{
-			"sampler":0,
 			"source":140
 		},
 		{
@@ -3411,10 +3386,6 @@
 		},
 		{
 			"sampler":0,
-			"source":127
-		},
-		{
-			"sampler":0,
 			"source":146
 		},
 		{
@@ -3432,10 +3403,6 @@
 		{
 			"sampler":0,
 			"source":150
-		},
-		{
-			"sampler":0,
-			"source":124
 		},
 		{
 			"sampler":0,
@@ -3459,6 +3426,10 @@
 		},
 		{
 			"sampler":0,
+			"source":131
+		},
+		{
+			"sampler":0,
 			"source":156
 		},
 		{
@@ -3476,6 +3447,50 @@
 		{
 			"sampler":0,
 			"source":160
+		},
+		{
+			"sampler":0,
+			"source":161
+		},
+		{
+			"sampler":0,
+			"source":162
+		},
+		{
+			"sampler":0,
+			"source":163
+		},
+		{
+			"sampler":0,
+			"source":164
+		},
+		{
+			"sampler":0,
+			"source":165
+		},
+		{
+			"sampler":0,
+			"source":166
+		},
+		{
+			"sampler":0,
+			"source":167
+		},
+		{
+			"sampler":0,
+			"source":168
+		},
+		{
+			"sampler":0,
+			"source":169
+		},
+		{
+			"sampler":0,
+			"source":170
+		},
+		{
+			"sampler":0,
+			"source":171
 		}
 	],
 	"images":[
@@ -3646,78 +3661,78 @@
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_architectural_ceramic_tile_normal",
-			"uri":"textures/T_library_architectural_ceramic_tile_normal.png"
+			"name":"T_ai_materials_ceramic_normal",
+			"uri":"textures/T_ai_materials_ceramic_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_architectural_ceramic_tile_albedo",
-			"uri":"textures/T_library_architectural_ceramic_tile_albedo.png"
+			"name":"T_ai_materials_ceramic_albedo",
+			"uri":"textures/T_ai_materials_ceramic_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_architectural_ceramic_tile_rough",
-			"uri":"textures/T_library_architectural_ceramic_tile_rough.png"
+			"name":"T_ai_materials_ceramic_rough",
+			"uri":"textures/T_ai_materials_ceramic_rough.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_floor_oak_normal",
-			"uri":"textures/T_generated_floor_oak_normal.png"
+			"name":"T_ai_materials_floor_oak_normal",
+			"uri":"textures/T_ai_materials_floor_oak_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_floor_oak_albedo",
-			"uri":"textures/T_generated_floor_oak_albedo.png"
+			"name":"T_ai_materials_floor_oak_albedo",
+			"uri":"textures/T_ai_materials_floor_oak_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_floor_oak_rough",
-			"uri":"textures/T_generated_floor_oak_rough.png"
+			"name":"T_ai_materials_floor_oak_rough",
+			"uri":"textures/T_ai_materials_floor_oak_rough.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_terrazzo_normal",
-			"uri":"textures/T_generated_terrazzo_normal.png"
+			"name":"T_ai_materials_terrazzo_normal",
+			"uri":"textures/T_ai_materials_terrazzo_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_terrazzo_albedo",
-			"uri":"textures/T_generated_terrazzo_albedo.png"
+			"name":"T_ai_materials_terrazzo_albedo",
+			"uri":"textures/T_ai_materials_terrazzo_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_terrazzo_rough",
-			"uri":"textures/T_generated_terrazzo_rough.png"
+			"name":"T_ai_materials_terrazzo_rough",
+			"uri":"textures/T_ai_materials_terrazzo_rough.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_appliances_aged_enamel_normal",
-			"uri":"textures/T_library_appliances_aged_enamel_normal.png"
+			"name":"T_ai_materials_appliance_normal",
+			"uri":"textures/T_ai_materials_appliance_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_appliances_aged_enamel_worn_appliance_albedo",
-			"uri":"textures/T_library_appliances_aged_enamel_worn_appliance_albedo.png"
+			"name":"T_ai_materials_appliance_worn_appliance_albedo",
+			"uri":"textures/T_ai_materials_appliance_worn_appliance_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_appliances_aged_enamel_worn_appliance_rough",
-			"uri":"textures/T_library_appliances_aged_enamel_worn_appliance_rough.png"
+			"name":"T_ai_materials_appliance_worn_appliance_rough",
+			"uri":"textures/T_ai_materials_appliance_worn_appliance_rough.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_appliances_bakelite_normal",
-			"uri":"textures/T_library_appliances_bakelite_normal.png"
+			"name":"T_ai_materials_bakelite_normal",
+			"uri":"textures/T_ai_materials_bakelite_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_appliances_bakelite_albedo",
-			"uri":"textures/T_library_appliances_bakelite_albedo.png"
+			"name":"T_ai_materials_bakelite_albedo",
+			"uri":"textures/T_ai_materials_bakelite_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_appliances_bakelite_rough",
-			"uri":"textures/T_library_appliances_bakelite_rough.png"
+			"name":"T_ai_materials_bakelite_rough",
+			"uri":"textures/T_ai_materials_bakelite_rough.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -3811,18 +3826,18 @@
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_metals_aged_brass_normal",
-			"uri":"textures/T_library_metals_aged_brass_normal.png"
+			"name":"T_ai_materials_brass_normal",
+			"uri":"textures/T_ai_materials_brass_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_metals_aged_brass_albedo",
-			"uri":"textures/T_library_metals_aged_brass_albedo.png"
+			"name":"T_ai_materials_brass_albedo",
+			"uri":"textures/T_ai_materials_brass_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_metals_aged_brass_rough",
-			"uri":"textures/T_library_metals_aged_brass_rough.png"
+			"name":"T_ai_materials_brass_rough",
+			"uri":"textures/T_ai_materials_brass_rough.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -3853,6 +3868,11 @@
 			"mimeType":"image/png",
 			"name":"T_library_architectural_aged_countertop_rough",
 			"uri":"textures/T_library_architectural_aged_countertop_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_library_appliances_aged_enamel_normal",
+			"uri":"textures/T_library_appliances_aged_enamel_normal.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -3896,18 +3916,18 @@
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_upholstery_rust_normal",
-			"uri":"textures/T_library_furniture_upholstery_rust_normal.png"
+			"name":"T_ai_materials_fabric_warm_normal",
+			"uri":"textures/T_ai_materials_fabric_warm_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_upholstery_rust_albedo",
-			"uri":"textures/T_library_furniture_upholstery_rust_albedo.png"
+			"name":"T_ai_materials_fabric_warm_albedo",
+			"uri":"textures/T_ai_materials_fabric_warm_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_upholstery_rust_rough",
-			"uri":"textures/T_library_furniture_upholstery_rust_rough.png"
+			"name":"T_ai_materials_fabric_warm_rough",
+			"uri":"textures/T_ai_materials_fabric_warm_rough.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -3916,33 +3936,33 @@
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_linen_normal",
-			"uri":"textures/T_library_furniture_linen_normal.png"
+			"name":"T_ai_materials_linen_normal",
+			"uri":"textures/T_ai_materials_linen_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_linen_albedo",
-			"uri":"textures/T_library_furniture_linen_albedo.png"
+			"name":"T_ai_materials_linen_albedo",
+			"uri":"textures/T_ai_materials_linen_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_linen_rough",
-			"uri":"textures/T_library_furniture_linen_rough.png"
+			"name":"T_ai_materials_linen_rough",
+			"uri":"textures/T_ai_materials_linen_rough.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_appliances_galvanized_metal_normal",
-			"uri":"textures/T_library_appliances_galvanized_metal_normal.png"
+			"name":"T_ai_materials_metal_normal",
+			"uri":"textures/T_ai_materials_metal_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_appliances_galvanized_metal_worn_metal_albedo",
-			"uri":"textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png"
+			"name":"T_ai_materials_metal_worn_metal_albedo",
+			"uri":"textures/T_ai_materials_metal_worn_metal_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_appliances_galvanized_metal_worn_metal_rough",
-			"uri":"textures/T_library_appliances_galvanized_metal_worn_metal_rough.png"
+			"name":"T_ai_materials_metal_worn_metal_rough",
+			"uri":"textures/T_ai_materials_metal_worn_metal_rough.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -3976,18 +3996,18 @@
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_porcelain_normal",
-			"uri":"textures/T_library_furniture_porcelain_normal.png"
+			"name":"T_ai_materials_porcelain_normal",
+			"uri":"textures/T_ai_materials_porcelain_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_porcelain_albedo",
-			"uri":"textures/T_library_furniture_porcelain_albedo.png"
+			"name":"T_ai_materials_porcelain_albedo",
+			"uri":"textures/T_ai_materials_porcelain_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_porcelain_rough",
-			"uri":"textures/T_library_furniture_porcelain_rough.png"
+			"name":"T_ai_materials_porcelain_rough",
+			"uri":"textures/T_ai_materials_porcelain_rough.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -4036,48 +4056,48 @@
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_timber_normal",
-			"uri":"textures/T_generated_timber_normal.png"
+			"name":"T_ai_materials_timber_normal",
+			"uri":"textures/T_ai_materials_timber_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_timber_albedo",
-			"uri":"textures/T_generated_timber_albedo.png"
+			"name":"T_ai_materials_timber_albedo",
+			"uri":"textures/T_ai_materials_timber_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_timber_rough",
-			"uri":"textures/T_generated_timber_rough.png"
+			"name":"T_ai_materials_timber_rough",
+			"uri":"textures/T_ai_materials_timber_rough.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_architectural_painted_trim_normal",
-			"uri":"textures/T_library_architectural_painted_trim_normal.png"
+			"name":"T_ai_materials_trim_normal",
+			"uri":"textures/T_ai_materials_trim_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_architectural_painted_trim_albedo",
-			"uri":"textures/T_library_architectural_painted_trim_albedo.png"
+			"name":"T_ai_materials_trim_albedo",
+			"uri":"textures/T_ai_materials_trim_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_architectural_painted_trim_rough",
-			"uri":"textures/T_library_architectural_painted_trim_rough.png"
+			"name":"T_ai_materials_trim_rough",
+			"uri":"textures/T_ai_materials_trim_rough.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_walnut_normal",
-			"uri":"textures/T_library_furniture_walnut_normal.png"
+			"name":"T_ai_materials_wood_dark_normal",
+			"uri":"textures/T_ai_materials_wood_dark_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_walnut_albedo",
-			"uri":"textures/T_library_furniture_walnut_albedo.png"
+			"name":"T_ai_materials_wood_dark_albedo",
+			"uri":"textures/T_ai_materials_wood_dark_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_walnut_rough",
-			"uri":"textures/T_library_furniture_walnut_rough.png"
+			"name":"T_ai_materials_wood_dark_rough",
+			"uri":"textures/T_ai_materials_wood_dark_rough.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -4101,18 +4121,33 @@
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_concrete_normal",
-			"uri":"textures/T_generated_concrete_normal.png"
+			"name":"T_ai_materials_slab_normal",
+			"uri":"textures/T_ai_materials_slab_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_concrete_albedo",
-			"uri":"textures/T_generated_concrete_albedo.png"
+			"name":"T_ai_materials_slab_albedo",
+			"uri":"textures/T_ai_materials_slab_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_concrete_rough",
-			"uri":"textures/T_generated_concrete_rough.png"
+			"name":"T_ai_materials_slab_rough",
+			"uri":"textures/T_ai_materials_slab_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_linoleum_normal",
+			"uri":"textures/T_ai_materials_linoleum_normal.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_linoleum_albedo",
+			"uri":"textures/T_ai_materials_linoleum_albedo.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_linoleum_rough",
+			"uri":"textures/T_ai_materials_linoleum_rough.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -4131,33 +4166,33 @@
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_rug_cool_normal",
-			"uri":"textures/T_library_furniture_rug_cool_normal.png"
+			"name":"T_ai_materials_rug_cool_normal",
+			"uri":"textures/T_ai_materials_rug_cool_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_rug_cool_albedo",
-			"uri":"textures/T_library_furniture_rug_cool_albedo.png"
+			"name":"T_ai_materials_rug_cool_albedo",
+			"uri":"textures/T_ai_materials_rug_cool_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_rug_cool_rough",
-			"uri":"textures/T_library_furniture_rug_cool_rough.png"
+			"name":"T_ai_materials_rug_cool_rough",
+			"uri":"textures/T_ai_materials_rug_cool_rough.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_rug_green_normal",
-			"uri":"textures/T_library_furniture_rug_green_normal.png"
+			"name":"T_ai_materials_rug_green_normal",
+			"uri":"textures/T_ai_materials_rug_green_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_rug_green_albedo",
-			"uri":"textures/T_library_furniture_rug_green_albedo.png"
+			"name":"T_ai_materials_rug_green_albedo",
+			"uri":"textures/T_ai_materials_rug_green_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_furniture_rug_green_rough",
-			"uri":"textures/T_library_furniture_rug_green_rough.png"
+			"name":"T_ai_materials_rug_green_rough",
+			"uri":"textures/T_ai_materials_rug_green_rough.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -4166,48 +4201,78 @@
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_architectural_worn_stair_stone_normal",
-			"uri":"textures/T_library_architectural_worn_stair_stone_normal.png"
+			"name":"T_ai_materials_stair_normal",
+			"uri":"textures/T_ai_materials_stair_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_architectural_worn_stair_stone_albedo",
-			"uri":"textures/T_library_architectural_worn_stair_stone_albedo.png"
+			"name":"T_ai_materials_stair_albedo",
+			"uri":"textures/T_ai_materials_stair_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_library_architectural_worn_stair_stone_rough",
-			"uri":"textures/T_library_architectural_worn_stair_stone_rough.png"
+			"name":"T_ai_materials_stair_rough",
+			"uri":"textures/T_ai_materials_stair_rough.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_limestone_normal",
-			"uri":"textures/T_generated_limestone_normal.png"
+			"name":"T_ai_materials_baluster_normal",
+			"uri":"textures/T_ai_materials_baluster_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_limestone_albedo",
-			"uri":"textures/T_generated_limestone_albedo.png"
+			"name":"T_ai_materials_baluster_albedo",
+			"uri":"textures/T_ai_materials_baluster_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_limestone_rough",
-			"uri":"textures/T_generated_limestone_rough.png"
+			"name":"T_ai_materials_baluster_rough",
+			"uri":"textures/T_ai_materials_baluster_rough.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_wainscot_normal",
-			"uri":"textures/T_generated_wainscot_normal.png"
+			"name":"T_ai_materials_handrail_wood_normal",
+			"uri":"textures/T_ai_materials_handrail_wood_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_wainscot_worn_wainscot_albedo",
-			"uri":"textures/T_generated_wainscot_worn_wainscot_albedo.png"
+			"name":"T_ai_materials_handrail_wood_albedo",
+			"uri":"textures/T_ai_materials_handrail_wood_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_wainscot_worn_wainscot_rough",
-			"uri":"textures/T_generated_wainscot_worn_wainscot_rough.png"
+			"name":"T_ai_materials_handrail_wood_rough",
+			"uri":"textures/T_ai_materials_handrail_wood_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_limestone_normal",
+			"uri":"textures/T_ai_materials_limestone_normal.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_limestone_albedo",
+			"uri":"textures/T_ai_materials_limestone_albedo.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_limestone_rough",
+			"uri":"textures/T_ai_materials_limestone_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_wainscot_normal",
+			"uri":"textures/T_ai_materials_wainscot_normal.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_wainscot_worn_wainscot_albedo",
+			"uri":"textures/T_ai_materials_wainscot_worn_wainscot_albedo.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_wainscot_worn_wainscot_rough",
+			"uri":"textures/T_ai_materials_wainscot_worn_wainscot_rough.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -4221,43 +4286,48 @@
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_common_brick_normal",
-			"uri":"textures/T_generated_common_brick_normal.png"
+			"name":"T_ai_materials_common_brick_normal",
+			"uri":"textures/T_ai_materials_common_brick_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_common_brick_albedo",
-			"uri":"textures/T_generated_common_brick_albedo.png"
+			"name":"T_ai_materials_common_brick_albedo",
+			"uri":"textures/T_ai_materials_common_brick_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_common_brick_rough",
-			"uri":"textures/T_generated_common_brick_rough.png"
+			"name":"T_ai_materials_common_brick_rough",
+			"uri":"textures/T_ai_materials_common_brick_rough.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_concrete_worn_concrete_albedo",
-			"uri":"textures/T_generated_concrete_worn_concrete_albedo.png"
+			"name":"T_ai_materials_concrete_normal",
+			"uri":"textures/T_ai_materials_concrete_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_concrete_worn_concrete_rough",
-			"uri":"textures/T_generated_concrete_worn_concrete_rough.png"
+			"name":"T_ai_materials_concrete_worn_concrete_albedo",
+			"uri":"textures/T_ai_materials_concrete_worn_concrete_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_face_brick_normal",
-			"uri":"textures/T_generated_face_brick_normal.png"
+			"name":"T_ai_materials_concrete_worn_concrete_rough",
+			"uri":"textures/T_ai_materials_concrete_worn_concrete_rough.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_face_brick_albedo",
-			"uri":"textures/T_generated_face_brick_albedo.png"
+			"name":"T_ai_materials_face_brick_normal",
+			"uri":"textures/T_ai_materials_face_brick_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_generated_face_brick_rough",
-			"uri":"textures/T_generated_face_brick_rough.png"
+			"name":"T_ai_materials_face_brick_albedo",
+			"uri":"textures/T_ai_materials_face_brick_albedo.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_face_brick_rough",
+			"uri":"textures/T_ai_materials_face_brick_rough.png"
 		},
 		{
 			"mimeType":"image/png",
