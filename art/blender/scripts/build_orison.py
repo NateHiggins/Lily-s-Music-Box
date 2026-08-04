@@ -2092,6 +2092,10 @@ def build_stripped_wall_finish(plaster_buf, wallpaper_buf, damp_buf, w,
 # instead of z-fighting the host room's boards.
 KIND_FLOOR = {
     "corridor": ("terrazzo", 0.012), "hall": ("terrazzo", 0.012),
+    # The lobby was never in this table, so the building's showpiece
+    # floor rendered as bare slab. The atrium ring walks on the same
+    # terrazzo, as the 1920s intended.
+    "lobby": ("terrazzo", 0.012), "atrium": ("terrazzo", 0.012),
     "living": ("floor_oak", 0.012), "bedroom": ("floor_oak", 0.012),
     "alcove": ("floor_oak", 0.012), "kitchen": ("floor_oak", 0.012),
     "closet": ("floor_oak", 0.012), "vestibule": ("floor_oak", 0.012),

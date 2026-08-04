@@ -47,7 +47,7 @@ SLOTS = {
     # amber, staggered joints, flat light, no landmarks). ~48 strips at
     # a true 5.7 cm face = 2.7 m coverage, measured not assumed.
     "floor_oak_worn": (["floor_oak"], 2.7, 0.55, 0.25, 3.5),
-    "terrazzo_lobby": (["terrazzo"], 2.0, 0.38, 0.18, 2.0),
+    "terrazzo_lobby": (["terrazzo"], 4.0, 0.38, 0.18, 2.0),
     "stair_marble_worn": (["stair"], 1.2, 0.45, 0.20, 3.0),
     "wainscot_beadboard": (["wainscot"], 0.72, 0.58, 0.15, 5.0),
     "trim_painted_layers": (["trim", "baluster"], 1.1, 0.52, 0.18, 3.5),
