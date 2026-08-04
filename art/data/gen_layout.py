@@ -114,6 +114,7 @@ def normalize_wall_construction(floors):
     exterior = 0
     masonry = {"brick", "brick_patched", "common_brick", "face_brick"}
     for fl in floors:
+        finish_index = 0
         for w in fl["walls"]:
             if w.get("cat", "walls") != "walls":
                 continue
@@ -124,6 +125,7 @@ def normalize_wall_construction(floors):
             if not is_envelope and w.get("mat") in masonry:
                 w["mat"] = "plaster"
                 w.pop("in_side", None)
+                w.pop("finish_texture", None)
                 converted += 1
             elif is_envelope and w.get("mat") in masonry:
                 ax, ay = w["a"]
@@ -132,9 +134,17 @@ def normalize_wall_construction(floors):
                     w["in_side"] = 1 if (ay + by) * 0.5 < 0 else -1
                 else:                    # west faces inward +X; east -X
                     w["in_side"] = 1 if (ax + bx) * 0.5 < 0 else -1
+                # Every room-facing masonry wall gets a uniquely baked
+                # plaster/wallpaper finish (build_wall_finish_textures.py
+                # bakes one texture set per id; the exporter builds the
+                # finish quad only when this id is present).
+                w["finish_texture"] = "%s_w%02d" % (
+                    str(fl["id"]).lower(), finish_index)
+                finish_index += 1
                 exterior += 1
     print("wall construction audit: %d interior masonry walls -> plaster; "
-          "%d exterior masonry walls retained" % (converted, exterior))
+          "%d exterior masonry walls retained and given baked finishes"
+          % (converted, exterior))
 
 
 def arch(at, w, h=2.85):
@@ -1172,13 +1182,18 @@ def apartment_4b(z, walls, rooms, markers, furniture):
     _asm(furniture, "4B_ksink", "sink_basin",
          (sb[0] + sb[2]) / 2.0, (sb[1] + sb[3]) / 2.0, 180, z0=0.905,
          W=sb[2] - sb[0], D=sb[3] - sb[1])
-    # lived-in touches: the player's own residue
-    sofa_set(furniture, "4B_couch", -12.80, 3.60, 1.50, True, True,
+    # The player's decompression zone is composed as a real room, not a sofa
+    # dropped into spare floor: a generous two-seat couch faces the south-wall
+    # television across a battered coffee table. The work desk stays visible
+    # over the couch arm, so calls can invade leisure without another hallway.
+    sofa_set(furniture, "4B_couch", -13.15, 4.12, 2.10, True, True,
              "fabric_cool")
+    coffee_table(furniture, "4B_coffee", -12.58, 3.35)
+    tv_set(furniture, "4B_tv", -11.20, y0 + 0.06, True, face="n")
     chair_box(furniture, "4B_desk_chair", -9.05, 5.35, "w")
     rug_box(furniture, "4B_deskrug", -9.35, 4.85, 1.15, 1.5, "rug_cool")
-    shelf_unit(furniture, "4B_shelf", -13.40, 4.55, 1.1, False)
-    art_panel(furniture, "4B_art", -12.55, 2.71, 0.7, True)
+    shelf_unit(furniture, "4B_shelf", -9.25, y0 + 0.08, 1.1, True,
+               books=True, face="n")
     _furn_box(furniture, "4B_mattress", -13.33, 6.97, 1.21, 2.46, 0.32,
               0.16, "linen", False)
     _furn_box(furniture, "4B_blanket", -13.36, 6.94, 1.27, 1.35, 0.46,
@@ -1257,9 +1272,12 @@ def furnish_4b_detail(furniture, y0, y1, x0):
                     "4B" + str(wi))
     blind_stack(furniture, "4B_blr", -10.25, 9.52, True, "4Br")
     fb("rug", (-12.40, 3.40, -8.70, 6.00), 0.0, 0.015, "rug_warm")
-    fb("bookshelf", (-11.20, 2.75, -9.70, 3.07), 0.0, 1.55)
-    for r, zr in enumerate((0.30, 0.76, 1.22)):
-        fb("books%d" % r, (-11.12, 2.79, -9.80, 3.03), zr, 0.26, "timber")
+    # Coffee-table residue: one mug, a folded work order and the remote. Their
+    # asymmetry gives the director tiny objects the player can doubt moved.
+    fb("coffee_mug", (-12.36, 3.50, -12.22, 3.64), 0.43, 0.11, "ceramic")
+    fb("coffee_workorder", (-12.05, 3.47, -11.77, 3.67), 0.432, 0.012,
+       "paper")
+    fb("tv_remote", (-12.47, 3.76, -12.27, 3.83), 0.432, 0.035, "metal")
     fb("keyboard", (-8.30, 5.35, -8.05, 5.75), 0.762, 0.02, "metal")
     fb("mouse", (-8.02, 5.50, -7.96, 5.58), 0.762, 0.025, "metal")
     fb("microphone", (-8.38, 5.95, -8.32, 6.01), 0.762, 0.16, "metal")

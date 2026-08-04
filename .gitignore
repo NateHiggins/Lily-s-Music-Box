@@ -33,6 +33,12 @@ tmp/
 # pushes. Masters are re-downloadable; nothing here ships.
 art/blender/meshy/
 
+# Baked per-wall finish sources. build_wall_finish_textures.py is
+# deterministic (wall coordinates + id seed everything), so these 166 MB
+# of PNGs are pure build artifacts; the copies the Blender export ships
+# into game/assets/building are the deliverable.
+art/textures/wall_finishes/
+
 # Broadcast build intermediates. build_broadcast.py writes ~110 short mp4s
 # beside the reel while assembling it; the .ogv is the deliverable.
 game/assets/video/_broadcast_work/

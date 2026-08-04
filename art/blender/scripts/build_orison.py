@@ -468,6 +468,11 @@ def get_material(key):
             node.location = (-420, y)
             if kind == "albedo":
                 nt.links.new(node.outputs["Color"], bsdf.inputs["Base Color"])
+                # The alpha channel IS the finish-survival mask: where the
+                # century stripped the plaster, the quad vanishes and the
+                # masonry behind it shows. Clip, not blend — torn plaster
+                # has an edge, not a fade.
+                nt.links.new(node.outputs["Alpha"], bsdf.inputs["Alpha"])
             elif kind == "roughness":
                 nt.links.new(node.outputs["Color"], bsdf.inputs["Roughness"])
             else:
@@ -476,6 +481,12 @@ def get_material(key):
                 nrm.location = (-160, -260)
                 nt.links.new(node.outputs["Color"], nrm.inputs["Color"])
                 nt.links.new(nrm.outputs["Normal"], bsdf.inputs["Normal"])
+        if hasattr(mat, "surface_render_method"):
+            mat.surface_render_method = "DITHERED"
+        elif hasattr(mat, "blend_method"):
+            mat.blend_method = "CLIP"
+        if hasattr(mat, "alpha_threshold"):
+            mat.alpha_threshold = 0.5
         _mat_cache[key] = mat
         return mat
     if key == "glassish":
