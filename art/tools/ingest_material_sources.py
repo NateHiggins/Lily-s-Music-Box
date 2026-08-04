@@ -38,11 +38,11 @@ SLOTS = {
                               0.9, 0.88, 0.10, 7.0),
     "face_brick_street": (["face_brick", "brick"], 1.1, 0.82, 0.10, 7.0),
     "limestone_carved": (["limestone"], 1.6, 0.78, 0.10, 4.0),
-    # floor_oak RETIRED from ingest 2026-08-04: the low-res AI tile lost
-    # to the procedural set against period reference (warm amber shellac,
-    # continuous narrow strips - minimaldomesticity.com et al). Re-enable
-    # when a 1024+ generation actually beats generated/floor_oak.
-    # "floor_oak_worn": (["floor_oak"], 0.75, 0.55, 0.25, 3.5),
+    # floor_oak re-earned its slot 2026-08-04: the 2048 slot-format
+    # generation beat the procedural set against period reference (warm
+    # amber, staggered joints, flat light, no landmarks). ~48 strips at
+    # a true 5.7 cm face = 2.7 m coverage, measured not assumed.
+    "floor_oak_worn": (["floor_oak"], 2.7, 0.55, 0.25, 3.5),
     "terrazzo_lobby": (["terrazzo"], 2.0, 0.38, 0.18, 2.0),
     "stair_marble_worn": (["stair"], 1.2, 0.45, 0.20, 3.0),
     "wainscot_beadboard": (["wainscot"], 0.6, 0.58, 0.15, 5.0),
