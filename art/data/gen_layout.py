@@ -337,7 +337,7 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
                     "yaw_deg": 90 if not east else -90,
                     "network": "heating", "riser": "H-%s" % stack,
                     "unit": unit})
-    dress_unit(unit, stack, floor_id, z, furniture, markers)
+    dress_unit(unit, stack, floor_id, z, furniture, markers, walls)
 
 
 def _furn_box(furniture, fid, x, y, w, d, z0, h, mat, _east):
@@ -731,18 +731,70 @@ def blind_stack(f, uid, x, y, along_x, seed):
                   WIN_TOP - 0.06 - n * pitch, 0.03, "trim", False)
 
 
-def blinds_for_unit(f, unit, stack):
+def unit_windows(walls, x0, y0, x1, y1, z):
+    """Every window opening whose glass stands on this unit's envelope.
+
+    Walls carry their openings; the dressing pass used to ignore them and
+    guess. Returns (cx, cy, width, along_x) in plan coordinates.
+    """
+    found = []
+    if not walls:
+        return found
+    for w in walls:
+        if w.get("cat", "walls") != "walls" or abs(float(w["z"]) - z) > 0.01:
+            continue
+        (ax, ay), (bx, by) = w["a"], w["b"]
+        horizontal = abs(by - ay) < 1e-6
+        start = min(ax, bx) if horizontal else min(ay, by)
+        cross = ay if horizontal else ax
+        for o in w.get("openings", []):
+            if o.get("type", "") != "window":
+                continue
+            along = start + float(o["at"])
+            cx = along if horizontal else cross
+            cy = cross if horizontal else along
+            # a window belongs to the unit whose envelope it pierces; the
+            # margin catches walls sitting exactly on the boundary line
+            if not (x0 - 0.35 <= cx <= x1 + 0.35
+                    and y0 - 0.35 <= cy <= y1 + 0.35):
+                continue
+            found.append((cx, cy, float(o["w"]), horizontal))
+    return found
+
+
+def unit_name(floor_id, stack):
+    """`F02` + `A` -> `2A`, the same rule apartment() uses inline."""
+    return "%s%s" % (floor_id[-1].lstrip("0") or floor_id[-1], stack)
+
+
+def blinds_for_unit(f, unit, stack, walls=None, z=0.0):
+    """Hang a blind INSIDE each real window.
+
+    Blinds used to be placed at fixed fractions of the apartment
+    rectangle - 30% and 70% along its length - which is only ever
+    accidentally where a window is. Every unit therefore had venetian
+    blinds floating on blank plaster while its actual windows stood
+    bare. Now the openings decide, and the blind is inset a hand's
+    width into the room the way a mounted head rail is.
+    """
     x0, y0, x1, y1 = STACK_RECTS[stack]
-    west = stack in ("A", "B")
-    wx = (x0 + 0.10) if west else (x1 - 0.15)
-    ln = y1 - y0
-    for wi, wc in enumerate((y0 + ln * 0.30, y0 + ln * 0.70)):
-        blind_stack(f, "%s_blw%d" % (unit, wi), wx, wc - 0.67, False,
+    windows = unit_windows(walls, x0, y0, x1, y1, z)
+    if not windows:
+        return 0
+    for wi, (cx, cy, ww, horizontal) in enumerate(windows):
+        # inward is toward the apartment's middle
+        mx, my = (x0 + x1) * 0.5, (y0 + y1) * 0.5
+        # blind_stack takes a MIN corner and the blind is 1.34 wide, so
+        # the centring offset is half the blind, not half the window
+        if horizontal:
+            bx = cx - 0.67
+            by = cy + (0.10 if my > cy else -0.10)
+        else:
+            bx = cx + (0.10 if mx > cx else -0.10)
+            by = cy - 0.67
+        blind_stack(f, "%s_bl%d" % (unit, wi), bx, by, horizontal,
                     unit + str(wi))
-    street = stack in ("A", "D")
-    wy = (y0 + 0.10) if street else (y1 - 0.15)
-    blind_stack(f, unit + "_blr", (x0 + x1) / 2.0 - 0.67, wy, True,
-                unit + "r")
+    return len(windows)
 
 
 ## Room geometry per stack archetype, mirrored from apartment(): the
@@ -880,7 +932,8 @@ def resident_story_detail(f, unit, story, rooms, ux, lcy, wface):
 ## Resident-specific environmental identity (Section 16) and unit states.
 ## Every occupied unit now carries a full lived-in furniture set; heroes
 ## get their signature clusters (and conductor markers) layered on top.
-def dress_unit(unit, stack, floor_id, z, furniture, markers):
+def dress_unit(unit, stack, floor_id, z, furniture, markers,
+               walls=None):
     x0, y0, x1, y1 = STACK_RECTS[stack]
     cx, cy = (x0 + x1) / 2.0, (y0 + y1) / 2.0
     east = stack in ("C", "D")
@@ -1031,7 +1084,6 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
                   ly0 + 0.45 if stack != "B" else ly1 - 1.55)
     art_panel(f, unit + "_lart", ux(1.8, 0.9),
               ly1 - 0.075 if stack in ("A", "B") else ly0 + 0.04, 0.9, True)
-    blinds_for_unit(f, unit, stack)
     lived_in_surface_detail(f, unit, rooms, skip, ux, lcy)
     if unit in RESIDENT_STORIES:
         resident_story_detail(f, unit, RESIDENT_STORIES[unit][1],
@@ -4257,6 +4309,20 @@ def main():
               ("B1", "F01", "F02", "F03", "F04", "F05", "F06", "ROOF")]
     removed_windows = sum(remove_partition_crossing_windows(fl)
                           for fl in floors)
+    # Blinds hang LAST, after the facade audit. Windows are still being
+    # deleted at this point - eighteen of them cross partitions and get
+    # pulled - and a blind authored earlier would be left covering a
+    # window that no longer exists.
+    hung = 0
+    for fl in floors:
+        if fl["id"] in ("B1", "ROOF"):
+            continue
+        stacks = ("A", "D") if fl["id"] == "F01" else ("A", "B", "C", "D")
+        for stack in stacks:
+            hung += blinds_for_unit(fl["furniture"],
+                                    unit_name(fl["id"], stack), stack,
+                                    fl["walls"], float(fl["z"]))
+    print("blinds: %d hung on real windows" % hung)
     print("facade audit: removed %d partition-crossing windows"
           % removed_windows)
     building_operations_pass(floors)
