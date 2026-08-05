@@ -203,6 +203,7 @@ func _ready() -> void:
 	_spawn_character_memory_art()
 	_spawn_character_wall_art()
 	_spawn_hallway_art()
+	_spawn_landing_art()
 	found_art_pass = FoundArtPass.new()
 	found_art_pass.name = "FoundArtPass"
 	add_child(found_art_pass)
@@ -586,6 +587,43 @@ func _spawn_props() -> void:
 			count += 1
 	print("[BUILDING] %d functional props spawned" % count)
 
+
+
+## The seven half-landings. They are not rooms - they are stair parts -
+## so they cannot go through the hallway-art path, which hangs by room
+## id. Each piece rides the north wall of the well at eye height above
+## its own landing deck, facing south into the turn, which is the one
+## wall a climber faces squarely twice per storey.
+func _spawn_landing_art() -> void:
+	var file := FileAccess.open("res://data/stair_landing_art.json",
+			FileAccess.READ)
+	if file == null:
+		return
+	var catalog: Dictionary = JSON.parse_string(file.get_as_text())
+	var stairs: Array = layout.get("stairs", [])
+	if stairs.is_empty():
+		return
+	var well: Array = stairs[0]["well"]
+	var north := float(well[3])
+	var count := 0
+	for spec in catalog.get("pieces", []):
+		var lz := float(spec["landing_z"])
+		var art := CharacterMemoryArt.new()
+		art.setup({
+			"id": spec.id, "atlas": catalog.atlas,
+			"col": spec.col, "row": spec.row,
+			"cols": catalog.get("cols", 3), "rows": catalog.get("rows", 3),
+			"medium": spec.get("medium", "print"),
+			"width": spec.get("width", 0.58),
+			"height": spec.get("height", 0.58),
+			"collection": "hallway_art",
+		})
+		add_child(art)
+		# 6 cm off the plaster, centred on the well, 1.5 m above the deck
+		art.global_position = GameBoot.b2g([0.0, north - 0.155, lz + 1.50])
+		art.rotation.y = PI
+		count += 1
+	print("[BUILDING] %d stair-landing pieces hung" % count)
 
 func _spawn_npc_placeholders() -> void:
 	var count := 0

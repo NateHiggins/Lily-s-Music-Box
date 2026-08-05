@@ -6,6 +6,10 @@ var art_id := ""
 var atlas_name := ""
 var atlas_col := 0
 var atlas_row := 0
+## Atlas grids were 2x2 everywhere until the stair landings needed seven
+## pieces. The divisor is a property now, not a literal.
+var atlas_cols := 2
+var atlas_rows := 2
 var medium := "photo"
 var tabletop := false
 var collection := "character_memories"
@@ -17,6 +21,8 @@ func setup(spec: Dictionary) -> void:
 	atlas_name = spec.atlas
 	atlas_col = int(spec.col)
 	atlas_row = int(spec.row)
+	atlas_cols = int(spec.get("cols", 2))
+	atlas_rows = int(spec.get("rows", 2))
 	medium = spec.get("medium", "photo")
 	tabletop = spec.get("placement", "wall") == "tabletop"
 	collection = spec.get("collection", "character_memories")
@@ -63,11 +69,12 @@ func _isolate_atlas_tile(source: Texture2D) -> Texture2D:
 	var image := source.get_image()
 	if image == null or image.is_empty():
 		var fallback := AtlasTexture.new()
-		var half := source.get_size() / 2
+		var half := source.get_size() / Vector2(atlas_cols, atlas_rows)
 		fallback.atlas = source
 		fallback.region = Rect2(Vector2(atlas_col, atlas_row) * half, half)
 		return fallback
-	var half_size := Vector2i(image.get_width() / 2, image.get_height() / 2)
+	var half_size := Vector2i(image.get_width() / atlas_cols,
+			image.get_height() / atlas_rows)
 	var inset := maxi(4, mini(half_size.x, half_size.y) / 96)
 	var origin := Vector2i(atlas_col * half_size.x, atlas_row * half_size.y)
 	origin += Vector2i(inset, inset)
