@@ -69,6 +69,7 @@ func perform(kind: String, arg) -> bool:
 	last_targets.clear()
 	match kind:
 		"prop_turn": return _prop_turn(int(arg))
+		"appliance_fit": return _appliance_fit(int(arg))
 		"prop_vanish": return _prop_vanish(int(arg))
 		"prop_drift": return _prop_move(int(arg), 0.16, false)
 		"prop_scatter": return _prop_move(int(arg), 0.42, true)
@@ -212,6 +213,24 @@ func _prop_vanish(count: int) -> bool:
 
 ## The signature act. Nothing moves position; things are simply facing you
 ## now, and were not before.
+## Appliances are the one class of prop that can misbehave in its own
+## vocabulary rather than by being turned or shoved: a fridge door keeps
+## time, a range lights every burner. Anything answering possess_fit()
+## joins in.
+func _appliance_fit(beats: int) -> bool:
+	var found := false
+	for node in get_tree().get_nodes_in_group("functional_props"):
+		if not node.has_method("possess_fit"):
+			continue
+		if player and node is Node3D \
+				and node.global_position.distance_to(
+					player.global_position) > 9.0:
+			continue
+		node.possess_fit(maxi(1, beats))
+		found = true
+	return found
+
+
 func _prop_turn(count: int) -> bool:
 	var props := _nearby_props(count)
 	for entry in props:

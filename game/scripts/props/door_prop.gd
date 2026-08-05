@@ -102,13 +102,18 @@ func _ready() -> void:
 			hinge.position = Vector3(0.0, hz, 0.0)
 			hinge.material_override = kick_mat
 			_body.add_child(hinge)
-		# The saddle belongs to the frame, not the moving leaf. Its worn metal
-		# edge catches light even when the door is parked open.
+		# The saddle belongs to the frame, not the moving leaf. Its worn
+		# metal edge catches light even when the door is parked open.
+		# Ruled 2026-08-05: FLUSH. It used to stand 18 mm proud at every
+		# threshold in the building - a hundred small kerbs to step over
+		# for nothing. Now it is a 4 mm inlay whose top sits level with
+		# the floor finish, so it still catches the torch and no longer
+		# catches the player.
 		var saddle := MeshInstance3D.new()
 		var sb := BoxMesh.new()
-		sb.size = Vector3(width + 0.05, 0.018, 0.14)
+		sb.size = Vector3(width + 0.05, 0.004, 0.14)
 		saddle.mesh = sb
-		saddle.position = Vector3(width / 2.0, 0.009, 0.0)
+		saddle.position = Vector3(width / 2.0, 0.002, 0.0)
 		saddle.material_override = kick_mat
 		add_child(saddle)
 		# Surface-mounted closer: ubiquitous later retrofit on apartment and

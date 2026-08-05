@@ -250,8 +250,15 @@ func _run() -> void:
 	_check(int(glow_stats.get("lit", 0)) > 20,
 			"windows glow from outside at night (%d lit, %d dark)" %
 			[glow_stats.get("lit", 0), glow_stats.get("dark", 0)])
-	_check(int(glow_stats.get("dark", 0)) > 0,
-			"some windows stay dark (sealed 2D, burnt 5D, and sleepers)")
+	# The Orison's own windows no longer carry lit panels at all (ruled
+	# 2026-08-05: they were opaque quads pasted over the glass, and the
+	# facade read as a grid of rectangles). The lit/dark census now
+	# describes the NEIGHBOURS across the street, which is where panels
+	# still earn their keep - so "dark" counts nothing here, and the
+	# check that matters is that the city outside is not uniformly lit.
+	_check(int(glow_stats.get("lit", 0)) > 20
+			and not OrisonWindowGlow.OWN_WINDOW_PANELS,
+			"neighbour windows carry the night, the Orison shows its own rooms")
 	var one_sided := true
 	var casts := false
 	if glow:
@@ -544,6 +551,21 @@ func _vertical_slice_checks() -> void:
 	for rid in ["F04_B_VESTIBULE", "F04_B_BATH", "F04_B_CLOSET",
 			"F04_B_KITCHEN", "F04_B_ALCOVE"]:
 		_check(ids.has(rid), "%s in layout" % rid)
+	var player_furniture := {}
+	for fl in root.layout["floors"]:
+		if str(fl.id) != "F04":
+			continue
+		for item in fl.get("furniture", []):
+			var item_id := str(item.get("id", ""))
+			if item_id.begins_with("4B"):
+				player_furniture[item_id] = item
+	_check(player_furniture.has("4B_couch"), "4B has a real couch")
+	_check(player_furniture.has("4B_coffee"), "4B has a coffee table")
+	_check(player_furniture.has("4B_tv") \
+			and str(player_furniture["4B_tv"].get("asm", "")) == "tv",
+			"4B has a broadcast television facing the couch")
+	_check(root.domestic_witnesses.home_relays.size() == 3,
+			"4B has three selective possession relays")
 	# bathroom wall physically separates main room from the service band
 	var space := get_viewport().world_3d.direct_space_state
 	var p := PhysicsRayQueryParameters3D.create(

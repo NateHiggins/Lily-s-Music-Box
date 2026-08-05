@@ -534,6 +534,54 @@ def art_panel(f, uid, x, y, w=0.7, along_x=True, z0=1.30, h=0.85, mat="art"):
                   "wood_dark", False)
 
 
+# Which cold-box a flat has, and what stands where its range should.
+# Four tenants never replaced the 1927 monitor-top, and that is a fact
+# about them, not about the landlord: Evelyn keeps hers immaculate,
+# Malcolm's holds jars, Cal has not bought anything since the reels
+# arrived, and Mae owns nothing made after 1935. See
+# design/ORISON_APPLIANCE_BIBLE.md for the argument per flat.
+MONITOR_TOP_UNITS = {"1A", "3A", "5B", "6C"}
+## Flats whose range is not a range. Juno records instead of cooking and
+## the deck lives on the hob; Cal's stove carries three console radios.
+## The stove body still ships - it is what they put things ON.
+RANGE_AS_SHELF = {"2C", "5B"}
+
+
+def unit_of_uid(uid):
+    """`4B_k` / `2C_k_stove` -> `4B`. Placement needs the flat, and the
+    ids already carry it."""
+    return str(uid).split("_")[0]
+
+
+def _fridge_for(uid):
+    return ("fridge_monitor" if unit_of_uid(uid) in MONITOR_TOP_UNITS
+            else "fridge50")
+
+
+def _hob_load(f, uid, sx, sy):
+    """What stands on a range nobody cooks on.
+
+    An unused appliance does not read as unused; it reads as clean. So
+    the tenants who do not cook put things on the hob, and the hob says
+    what the kitchen_set field says: Juno's tape boxes, Cal's radios.
+    """
+    unit = unit_of_uid(uid)
+    if unit not in RANGE_AS_SHELF:
+        return
+    if unit == "2C":
+        for i, (dx, dy) in enumerate(((-0.10, -0.06), (0.09, 0.02),
+                                      (-0.02, 0.10))):
+            f.append({"id": "%s_hob_tape%d" % (uid, i),
+                      "rect": [sx + dx - 0.11, sy + dy - 0.08,
+                               sx + dx + 0.11, sy + dy + 0.08],
+                      "z0": 0.90 + i * 0.055, "h": 0.055,
+                      "mat": "bakelite"})
+    else:
+        for i, (dx, dy) in enumerate(((-0.12, 0.0), (0.11, -0.04))):
+            _asm(f, "%s_hob_radio%d" % (uid, i), "radio",
+                 sx + dx, sy + dy, 180, z0=0.90)
+
+
 def kitchen_run(f, uid, x, y, L, along_x=True, side="n"):
     """Cabinetry run + range + fridge along the wall on `side` of the
     0.66-deep footprint whose min corner is (x, y)."""
@@ -560,15 +608,19 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n"):
         cy = y + 0.32
         _asm(f, uid, "kitchen", x + cw / 2, cy, yaw, L=cw + 0.75)
         _asm(f, uid + "_stove", "stove", x + cw + 0.33, cy, yaw)
-        _asm(f, uid + "_fr", "fridge50", x + cw + 0.66 + 0.36, cy, yaw)
+        _asm(f, uid + "_fr", _fridge_for(uid), x + cw + 0.66 + 0.36, cy,
+             yaw)
         clutter(x + cw / 2, cy)
+        _hob_load(f, uid, x + cw + 0.33, cy)
     else:
         yaw = FACE_YAW["e" if side == "w" else "w"]
         cx = x + 0.32
         _asm(f, uid, "kitchen", cx, y + cw / 2, yaw, L=cw + 0.75)
         _asm(f, uid + "_stove", "stove", cx, y + cw + 0.33, yaw)
-        _asm(f, uid + "_fr", "fridge50", cx, y + cw + 0.66 + 0.36, yaw)
+        _asm(f, uid + "_fr", _fridge_for(uid), cx, y + cw + 0.66 + 0.36,
+             yaw)
         clutter(cx, y + cw / 2, True)
+        _hob_load(f, uid, cx, y + cw + 0.33)
 
 
 def desk_set(f, uid, x, y, L=1.4, along_x=True, chair_side=1):
@@ -3128,8 +3180,14 @@ def life_pass(floors):
                 if beds == 0 and "mattress" in ids:
                     pass          # the mattress IS the bed
                 continue
+            # Cold storage is a FUNCTION, not one assembly name: four
+            # flats never replaced their 1927 monitor-top, and an icebox
+            # that keeps milk cold satisfies the same need as a 1950s
+            # cabinet. Any equivalent set is satisfied by any member.
+            equivalents = {"fridge50": ("fridge50", "fridge_monitor")}
             for asm, label in need.items():
-                if kinds.get(asm, 0) == 0:
+                if sum(kinds.get(a, 0)
+                       for a in equivalents.get(asm, (asm,))) == 0:
                     problems.append("%s: no %s" % (unit, label))
             if kinds.get("table_round", 0) + kinds.get("table_rect", 0) \
                     + kinds.get("desk", 0) == 0:
@@ -3713,10 +3771,15 @@ def _validate_furnishing(layout):
         if unit_detail.get(unit, 0) < 4:
             problems.append("%s lacks close surface detail (%d < 4)"
                             % (unit, unit_detail.get(unit, 0)))
+        # Same equivalence as the life audit: a monitor-top IS the flat's
+        # refrigerator, it is simply forty years older than its neighbours'.
+        fridge_kinds = ("fridge50", "fridge_monitor")
         for k, n in need.items():
-            if a.get(k, 0) < n:
+            have = (sum(a.get(f, 0) for f in fridge_kinds)
+                    if k == "fridge50" else a.get(k, 0))
+            if have < n:
                 problems.append("%s missing %s (%d < %d)"
-                                % (unit, k, a.get(k, 0), n))
+                                % (unit, k, have, n))
         if a.get("table_round", 0) + a.get("table_rect", 0) < 1:
             problems.append("%s has no dining table" % unit)
         yaws = unit_yaw.get(unit, set())

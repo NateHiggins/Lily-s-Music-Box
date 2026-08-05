@@ -192,6 +192,40 @@ Single aged white Vermont marble wainscot panel from a 1920s lobby, white stone 
 
 ---
 
+## APPLIANCE IDENTITIES — the same enamel, five lives
+
+*The landlord bought forty identical ranges; a century of tenants made
+them different. These five wear-variants map onto the appliance bible's
+per-apartment table. All TILING, all the same base white, distinguished
+only by what happened to them. Save as `enamel_<name>.png`.*
+
+### `enamel_pristine.png` — Mae 6C, Evelyn 1A
+```
+Aged white porcelain enamel appliance surface kept meticulously for a century, fine even crazing across the glaze, no chips, faint circular polish swirl from decades of careful wiping, uniform ivory tone, homogeneous composition, no unique landmarks. Represents about 0.85 meters of enamel. Average surface color approximately #F2EEE2, neutral 6500K white balance, sRGB, mid-tone exposure, no vignette. Orthographic view, straight-on, flat diffuse lighting, soft even sheen, no hard reflections, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+```
+
+### `enamel_paintflecked.png` — Iris 5C
+```
+Aged white porcelain enamel appliance surface in a painter's kitchen, scattered dried oil-paint flecks in ochre, viridian and lead white distributed evenly across the whole surface, faint coloured thumbprints, underlying crazed glaze, homogeneous composition, no unique landmark spills. Represents about 0.85 meters of enamel. Average surface color approximately #E9E3D2, neutral 6500K white balance, sRGB, mid-tone exposure, no vignette. Orthographic view, straight-on, flat diffuse lighting, soft even sheen, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+```
+
+### `enamel_dented.png` — Cam 4C
+```
+Aged white porcelain enamel appliance surface, hard-used: shallow dents evenly distributed, chipped enamel at several points showing dark steel with thin rust halos, scuff marks from bags and buckles, crazed glaze between, homogeneous composition, no single dominant dent. Represents about 0.85 meters of enamel. Average surface color approximately #E4DDCC, neutral 6500K white balance, sRGB, mid-tone exposure, no vignette. Orthographic view, straight-on, flat diffuse lighting, soft sheen, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+```
+
+### `enamel_greasy.png` — Juno 2C, Jonah 6B
+```
+Aged white porcelain enamel appliance surface gone amber with cooking film, an even veil of grease and nicotine toning, fingerprints and smears distributed across the whole surface, crazed glaze darkened in the craze lines, homogeneous composition, no unique landmark stains. Represents about 0.85 meters of enamel. Average surface color approximately #DCD2B8, neutral 6500K white balance, sRGB, mid-tone exposure, no vignette. Orthographic view, straight-on, flat diffuse lighting, soft sheen, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+```
+
+### `enamel_workshop.png` — Omar 3B
+```
+Aged white porcelain enamel appliance surface belonging to a repairman, masking-tape residue rectangles distributed across it, faded marker numbering and small handwritten codes, one region of slightly mismatched replacement paint, crazed glaze, homogeneous composition, no unique landmark labels. Represents about 0.85 meters of enamel. Average surface color approximately #E6E1D4, neutral 6500K white balance, sRGB, mid-tone exposure, no vignette. Orthographic view, straight-on, flat diffuse lighting, soft sheen, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+```
+
+---
+
 ## COLOR ANCHORS — absolute references
 
 Append to any prompt for tighter color fidelity: *"average surface
