@@ -5,6 +5,43 @@ extends Node3D
 ## the sign system therefore cannot drift away from the playable layout.
 
 const BRASS_TEXTURE := preload("res://assets/building/textures/signage/aged_brass_quadrants_v1.png")
+## Engraved legends, baked into the metal by build_signage_plates.py.
+## Unit numbers used to be Label3D floating in front of a brass
+## rectangle, which is why they read as a debug overlay: no engraving,
+## no depth, and a baseline answering to Godot rather than the plate.
+const PLATE_ATLAS := preload("res://assets/building/textures/signage/engraved_plates.png")
+const PLATE_COLS := 6
+const PLATE_ROWS := 6
+var _plate_index: Dictionary = {}
+
+
+## One plate off the atlas, as its own small textured quad.
+func _plate(parent: Node3D, legend: String, at: Vector3,
+		size: Vector2) -> MeshInstance3D:
+	if _plate_index.is_empty():
+		var f := FileAccess.open("res://data/signage_plates.json",
+				FileAccess.READ)
+		if f:
+			var doc: Dictionary = JSON.parse_string(f.get_as_text())
+			_plate_index = doc.get("index", {})
+	if not _plate_index.has(legend):
+		return null
+	var cell: Array = _plate_index[legend]
+	var mi := MeshInstance3D.new()
+	var quad := QuadMesh.new()
+	quad.size = size
+	mi.mesh = quad
+	var mat := StandardMaterial3D.new()
+	mat.albedo_texture = PLATE_ATLAS
+	mat.uv1_scale = Vector3(1.0 / PLATE_COLS, 1.0 / PLATE_ROWS, 1.0)
+	mat.uv1_offset = Vector3(float(cell[0]) / PLATE_COLS,
+			float(cell[1]) / PLATE_ROWS, 0.0)
+	mat.roughness = 0.38
+	mat.metallic = 0.65
+	mi.material_override = mat
+	mi.position = at
+	parent.add_child(mi)
+	return mi
 const LEVELS := {"B1":-2.8, "F01":0.0, "F02":3.2, "F03":6.4,
 	"F04":9.6, "F05":12.8, "F06":16.0, "ROOF":19.2}
 
@@ -97,8 +134,11 @@ func _add_unit_plaque(door: DoorProp, unit: String) -> void:
 	door.add_child(root)
 	_box(root, Vector3(0.19, 0.13, 0.018), Vector3.ZERO, _dark_brass)
 	_add_screws(root, 0.075, 0.045)
-	_label(root, unit, Vector3(0, 0, 0.013), 46, 0.00125,
-			Color(0.94, 0.74, 0.30), true)
+	# The number IS the plate now, not a caption in front of one.
+	if _plate(root, unit, Vector3(0, 0, 0.0102),
+			Vector2(0.155, 0.105)) == null:
+		_label(root, unit, Vector3(0, 0, 0.013), 46, 0.00125,
+				Color(0.94, 0.74, 0.30), true)
 	# Smoke-level responder marking: intentionally newer and less elegant.
 	var low := Node3D.new()
 	low.position = Vector3(door.width + 0.065, 0.19, 0.0)

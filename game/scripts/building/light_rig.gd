@@ -63,22 +63,34 @@ const LEVELS := {
 	"F04": 9.6, "F05": 12.8, "F06": 16.0, "ROOF": 19.2,
 }
 
+signal debug_fixture_selected(fixture: Node)
+
 var active_floor := "F01"
 var _accum := 0.0
 ## Global grading is deliberately separate from authored light reach. Cutting
 ## energy must not make shadows vanish sooner: omni_range and the moon's
 ## directional_shadow_max_distance are never derived from this value.
-var fixture_gain := 0.50
+# Raised 20% (ruled 2026-08-05). The pools were reading correct but
+# thin; the building is meant to be dark, not dim.
+var fixture_gain := 0.60
 # Moonlit floor (ruled 2026-08-04): shadows read midnight blue against
 # the warm fixtures and the blue phone torch. Keep in step with
 # building_root._build_environment.
 var ambient_energy := 0.08
 var moon_energy := 0.052
-var glow_intensity := 0.42
+# A bulb should bloom. The threshold used to sit above what the
+# fixtures actually emit, so nothing ever crossed it and the glow
+# system was running with nothing to do.
+var glow_intensity := 0.68
 var fog_density := 0.014
 var shadow_opacity := 1.0
 var _environment: Environment
 var _moon: DirectionalLight3D
+var _fixture_tuning: Dictionary = {}
+var debug_inspect_enabled := false
+var selected_debug_fixture: Node
+var _debug_handles: Dictionary = {}
+var _provenance: Dictionary = {}
 ## Resolved once: OS.has_feature is a string lookup, not something to do
 ## per fixture per tick. Writable so the budget can be tuned on the device
 ## it has to run on, with the frame counter visible next to it.
@@ -90,7 +102,56 @@ var _moon: DirectionalLight3D
 
 func _ready() -> void:
 	_bind_environment()
+	_load_provenance()
+	call_deferred("_build_debug_handles")
 	call_deferred("_report_authored_lights")
+
+
+func _load_provenance() -> void:
+	var parsed = JSON.parse_string(FileAccess.get_file_as_string(
+			"res://data/light_provenance.json"))
+	if parsed is Dictionary:
+		_provenance = parsed.get("fixtures", {})
+
+
+func _build_debug_handles() -> void:
+	for fixture in _controlled_lights():
+		if _debug_handles.has(fixture):
+			continue
+		var handle := LightDebugHandle.new()
+		handle.setup(self, fixture)
+		fixture.add_child(handle)
+		_debug_handles[fixture] = handle
+
+
+func set_debug_inspection(enabled: bool) -> void:
+	debug_inspect_enabled = enabled
+	if enabled and _debug_handles.is_empty():
+		_build_debug_handles()
+	for handle in _debug_handles.values():
+		handle.set_inspection_enabled(enabled)
+	if not enabled:
+		selected_debug_fixture = null
+		debug_fixture_selected.emit(null)
+
+
+func select_debug_fixture(fixture: Node) -> void:
+	if not debug_inspect_enabled or fixture == null:
+		return
+	selected_debug_fixture = fixture
+	for candidate in _debug_handles:
+		_debug_handles[candidate].set_selected(candidate == fixture)
+	debug_fixture_selected.emit(fixture)
+
+
+func fixture_provenance(fixture: Node) -> Dictionary:
+	if fixture == null:
+		return {}
+	return _provenance.get(str(fixture.name), {
+		"room": "unmapped practical",
+		"provenance": "No maintenance card survives for this fitting.",
+		"quirk": "Its behavior is currently unclassified.",
+	})
 
 
 func _bind_environment() -> void:
@@ -131,6 +192,11 @@ func apply_tuning() -> void:
 
 
 func tuning_snapshot() -> Dictionary:
+	var fixtures := {}
+	for fixture in debug_fixtures():
+		var card := fixture_provenance(fixture).duplicate(true)
+		card["tuning"] = fixture_tuning(fixture)
+		fixtures[str(fixture.name)] = card
 	return {
 		"fixture_gain": fixture_gain,
 		"ambient_energy": ambient_energy,
@@ -141,6 +207,7 @@ func tuning_snapshot() -> Dictionary:
 		"light_budget": _active_budget,
 		"shadow_budget": _shadow_budget,
 		"directional_shadow_max_distance": 48.0,
+		"fixtures": fixtures,
 		"note": "Fixture brightness is independent of authored light/shadow range."
 	}
 
@@ -160,6 +227,8 @@ func export_tuning() -> String:
 
 func _report_authored_lights() -> void:
 	var fixtures := _controlled_lights()
+	for fixture in fixtures:
+		_ensure_fixture_tuning(fixture)
 	var profiles := [0, 0, 0, 0, 0]
 	var individualized := 0
 	for fixture in fixtures:
@@ -176,6 +245,99 @@ func _report_authored_lights() -> void:
 func set_budgets(lights: int, shadows: int) -> void:
 	_active_budget = maxi(1, lights)
 	_shadow_budget = clampi(shadows, 0, _active_budget)
+
+
+func debug_fixtures() -> Array:
+	var fixtures := _controlled_lights()
+	fixtures.sort_custom(func(a, b): return str(a.name) < str(b.name))
+	for fixture in fixtures:
+		_ensure_fixture_tuning(fixture)
+	return fixtures
+
+
+func _ensure_fixture_tuning(fixture: Node) -> Dictionary:
+	var key := str(fixture.name)
+	if _fixture_tuning.has(key):
+		return _fixture_tuning[key]
+	var source: Light3D = fixture.light
+	var personality: Dictionary = fixture.get_meta("light_personality", {})
+	var tuning := {
+		"energy_multiplier": 1.0,
+		"range": source.omni_range if source is OmniLight3D else 8.0,
+		"attenuation": source.omni_attenuation if source is OmniLight3D else 1.0,
+		"temperature": _estimate_temperature(source.light_color),
+		"source_size": source.light_size,
+		"shadow_opacity": source.shadow_opacity,
+		"flicker_depth": float(personality.get("flicker_depth", 0.0)),
+		"flicker_rate": float(personality.get("flicker_speed", 1.0)),
+	}
+	_fixture_tuning[key] = tuning
+	var authored: Dictionary = _provenance.get(key, {}).get("tuning", {})
+	for parameter in authored:
+		set_fixture_tuning(fixture, str(parameter), float(authored[parameter]))
+	return tuning
+
+
+func fixture_tuning(fixture: Node) -> Dictionary:
+	return _ensure_fixture_tuning(fixture).duplicate(true)
+
+
+func set_fixture_tuning(fixture: Node, parameter: String, value: float) -> void:
+	if fixture == null or not is_instance_valid(fixture):
+		return
+	var tuning := _ensure_fixture_tuning(fixture)
+	var source: Light3D = fixture.light
+	match parameter:
+		"energy_multiplier": tuning[parameter] = clampf(value, 0.0, 2.0)
+		"range":
+			tuning[parameter] = clampf(value, 1.5, 16.0)
+			if source is OmniLight3D:
+				source.omni_range = tuning[parameter]
+		"attenuation":
+			tuning[parameter] = clampf(value, 0.8, 3.2)
+			if source is OmniLight3D:
+				source.omni_attenuation = tuning[parameter]
+		"temperature":
+			tuning[parameter] = clampf(value, 1800.0, 6500.0)
+			source.light_color = _temperature_color(tuning[parameter])
+			if "_bulb_mat" in fixture and fixture._bulb_mat:
+				fixture._bulb_mat.emission = source.light_color
+		"source_size":
+			tuning[parameter] = clampf(value, 0.02, 0.50)
+			source.light_size = tuning[parameter]
+		"shadow_opacity": tuning[parameter] = clampf(value, 0.0, 1.0)
+		"flicker_depth":
+			tuning[parameter] = clampf(value, 0.0, 0.30)
+			_set_flicker_property(fixture, "depth", tuning[parameter])
+		"flicker_rate":
+			tuning[parameter] = clampf(value, 0.10, 4.0)
+			_set_flicker_property(fixture, "rate", tuning[parameter])
+	_fixture_tuning[str(fixture.name)] = tuning
+
+
+func _set_flicker_property(fixture: Node, kind: String, value: float) -> void:
+	var candidates := ["_flicker_depth", "_drift_depth"] if kind == "depth" \
+			else ["_flicker_speed", "_drift_speed"]
+	for property_name in candidates:
+		for property in fixture.get_property_list():
+			if str(property.name) == property_name:
+				fixture.set(property_name, value)
+				return
+
+
+func _temperature_color(kelvin: float) -> Color:
+	# Perceptual art-direction ramp, bounded to plausible practical lamps.
+	if kelvin <= 3200.0:
+		return Color(1.0, 0.36, 0.10).lerp(
+				Color(1.0, 0.80, 0.58), (kelvin - 1800.0) / 1400.0)
+	return Color(1.0, 0.80, 0.58).lerp(
+			Color(0.88, 0.94, 1.0), (kelvin - 3200.0) / 3300.0)
+
+
+func _estimate_temperature(color: Color) -> float:
+	# Stable initialization is more important than laboratory inversion.
+	var cool := clampf((color.b - 0.10) / 0.90, 0.0, 1.0)
+	return lerpf(2000.0, 5200.0, cool)
 
 
 func _process(delta: float) -> void:
@@ -219,11 +381,15 @@ func _process(delta: float) -> void:
 	eligible.sort_custom(func(a, b): return a[0] < b[0])
 	for i in range(eligible.size()):
 		var on := i < _active_budget
-		eligible[i][1].set_budget(fixture_gain if on else 0.0, false,
+		var fixture: Node = eligible[i][1]
+		var tuning := _ensure_fixture_tuning(fixture)
+		var local_gain := float(tuning.energy_multiplier)
+		fixture.set_budget(fixture_gain * local_gain if on else 0.0, false,
 				i < _shadow_budget)
-		var source: Light3D = eligible[i][1].light
+		var source: Light3D = fixture.light
 		if source:
-			source.shadow_opacity = shadow_opacity
+			source.shadow_opacity = shadow_opacity \
+					* float(tuning.shadow_opacity)
 	for fixture in off:
 		fixture.set_budget(0.0, false, false)
 

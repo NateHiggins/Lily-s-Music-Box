@@ -2049,7 +2049,13 @@ def build_floor(floor_id):
         for i in range(2):
             shelf_unit(furniture, "f01_pkg%d" % i, -9.4 + i * 1.9, 2.85,
                        1.6, True, d=0.45, books=False, face="n")
-        art_panel(furniture, "lobby_notice", 5.205, -8.85, 0.9, False,
+        # The notice board used to hang at x=5.2 on the east lobby wall -
+        # the same wall, at the same height, as the brass mail bank, so
+        # the two occupied one another. It belongs on the route people
+        # actually walk: leaving the street door for the stairs you pass
+        # up the hall, and this is the wall on your left, centred on the
+        # run and under the hall fixture.
+        art_panel(furniture, "lobby_notice", -3.16, -5.45, 0.9, False,
                   z0=1.15, h=0.75, mat="paper")
         plant_box(furniture, "lobby_plant", -2.35, -9.20, big=True)
         # community room (B stack) and building storage (C stack)

@@ -347,9 +347,12 @@ func _build_environment() -> void:
 	env.fog_light_color = Color(0.05, 0.06, 0.10)
 	env.fog_density = 0.014
 	env.glow_enabled = true
-	env.glow_intensity = 0.42
-	env.glow_bloom = 0.045
-	env.glow_hdr_threshold = 1.28
+	env.glow_intensity = 0.68
+	env.glow_bloom = 0.10
+	# Fixtures emit around 1.0-1.2 after grading, so a 1.28 threshold
+	# meant no source in the building ever bloomed. Below their output,
+	# and the bulbs finally have haloes.
+	env.glow_hdr_threshold = 0.85
 	var we := WorldEnvironment.new()
 	we.name = "WorldEnvironment"
 	we.environment = env
