@@ -146,44 +146,59 @@ def normalize_wall_construction(floors):
           "%d exterior masonry walls retained" % (converted, exterior))
 
 
-def tile_bathroom_walls(floors):
-    """Wainscot every bathroom wall in glazed subway tile.
+def resolve_wainscot_sides(floors):
+    """Give every dado one face, and the right one.
 
-    The 1920s tiled its bathrooms to shoulder height without exception,
-    and the dado band the wainscot system already draws (0.11-1.32 m) is
-    exactly that height. Rather than hand-flag walls across four stack
-    variants, probe geometrically the way the door/unit resolution does:
-    a wall whose either face stands inside a bathroom rect gets tile.
+    A wainscot is a finish, and a finish belongs to the room that
+    installed it - not to the flat on the other side of the same
+    partition. Two jobs, one geometric probe (the same technique the
+    door/unit resolution uses):
+
+    - bathroom walls earn a glazed subway-tile dado on the wet face;
+    - existing corridor dados, which used to draw on both faces and so
+      hung corridor beadboard inside every apartment, get pinned to the
+      circulation face.
     """
-    tiled = 0
+    tiled = pinned = 0
     for fl in floors:
         baths = [r["rect"] for r in fl["rooms"]
                  if r.get("kind") == "bathroom"]
-        if not baths:
-            continue
-        for w in fl["walls"]:
-            if w.get("cat", "walls") != "walls" or w.get("wainscot"):
-                continue
+        commons = [r["rect"] for r in fl["rooms"]
+                   if r.get("kind") in ("corridor", "hall", "lobby",
+                                        "atrium", "common")]
+
+        def side_facing(w, rects):
+            """+1 / -1 for the face standing in one of these rooms."""
             (ax, ay), (bx, by) = w["a"], w["b"]
             mx, my = (ax + bx) * 0.5, (ay + by) * 0.5
             horizontal = abs(by - ay) < 1e-6
-            hit = 0
-            for off in (0.12, -0.12):
+            for off in (0.14, -0.14):
                 px = mx if horizontal else mx + off
                 py = my + off if horizontal else my
-                for r in baths:
+                for r in rects:
                     if r[0] < px < r[2] and r[1] < py < r[3]:
-                        # +Y / +X faces are side +1 in the exporter
-                        hit = 1 if off > 0 else -1
-                        break
-                if hit:
-                    break
-            if hit:
+                        return 1 if off > 0 else -1
+            return 0
+
+        for w in fl["walls"]:
+            if w.get("cat", "walls") != "walls":
+                continue
+            if w.get("wainscot"):
+                side = side_facing(w, commons)
+                if side:
+                    w["wains_side"] = side
+                    pinned += 1
+                continue
+            if not baths:
+                continue
+            side = side_facing(w, baths)
+            if side:
                 w["wainscot"] = True
                 w["wains_mat"] = "subway_tile"
-                w["wains_side"] = hit
+                w["wains_side"] = side
                 tiled += 1
-    print("bathroom tiling: %d walls wainscoted in subway tile" % tiled)
+    print("wainscot audit: %d bathroom walls tiled, %d corridor dados "
+          "pinned to the circulation face" % (tiled, pinned))
 
 
 def arch(at, w, h=2.85):
@@ -4172,7 +4187,7 @@ def main():
     # Run after every architectural contributor, including atrium_tree,
     # otherwise the stairwell can reintroduce thin brick walls after audit.
     normalize_wall_construction(floors)
-    tile_bathroom_walls(floors)
+    resolve_wainscot_sides(floors)
     radiator_pipe_pass(floors)
     aging_pass(floors)
     # The old global renovation treatment deliberately placed exposed-brick

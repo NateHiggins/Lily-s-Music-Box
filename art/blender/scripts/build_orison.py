@@ -1808,9 +1808,9 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
             # A tiled dado belongs to the wet room only: bathroom walls
             # record which face is the bath, and the band goes on that
             # side alone so the bedroom next door keeps its plaster.
-            bath_side = w.get("wains_side")
-            if bath_side:
-                side_box(wains_buf, d0, d1, 0.11, 1.32, bath_side, 0.024)
+            dado_side = w.get("wains_side")
+            if dado_side:
+                side_box(wains_buf, d0, d1, 0.11, 1.32, dado_side, 0.024)
             else:
                 box(wains_buf, d0, d1, 0.11, 1.32, t + 0.022)
             box(trim_buf, d0, d1, 1.32, 1.36, t + 0.040)
@@ -2127,8 +2127,42 @@ def build_floor_overlay(buf, fid, fl, r):
         for hole in fl["slabs"][0]["holes"]:
             rects = subtract_rect(rects, tuple(hole))
     for (x0, y0, x1, y1) in rects:
-        buf(fid, "floors_%s" % mat, mat).add_box((x0, y0, z),
-                                                 (x1, y1, z + th))
+        # A floor finish is one upward face. The old box also drew an
+        # underside (buried in the slab, free to z-fight) and four edge
+        # walls, six faces where the eye can only ever see one.
+        buf(fid, "floors_%s" % mat, mat).add_quad(
+            (x0, y0, z + th), (x1, y0, z + th),
+            (x1, y1, z + th), (x0, y1, z + th))
+
+
+# room kind -> ceiling finish. A down-facing quad just under the slab
+# soffit: the ceiling is the one surface a torch rakes across all night.
+KIND_CEILING = {
+    "corridor": "tin_ceiling", "hall": "tin_ceiling",
+    "lobby": "tin_ceiling", "atrium": "tin_ceiling",
+}
+
+
+def build_ceiling_overlay(buf, fid, fl, r):
+    mat = KIND_CEILING.get(r["kind"])
+    if mat is None:
+        return
+    # The soffit is where the walls stop, which the floor dict does not
+    # state directly: read it off the walls themselves rather than
+    # guessing a storey height and hanging the ceiling inside the slab.
+    heights = [float(w["h"]) for w in fl["walls"]
+               if w.get("cat", "walls") == "walls"]
+    ztop = fl["z"] + (max(heights) if heights else 3.02) - 0.015
+    rects = [tuple(r["rect"])]
+    if r["kind"] == "corridor":
+        rects = subtract_rect(rects, (-3.43, -6.93, 3.43, 6.93))
+    for hole in fl["slabs"][0]["holes"]:
+        rects = subtract_rect(rects, tuple(hole))
+    for (x0, y0, x1, y1) in rects:
+        # reversed winding: this face looks DOWN into the room
+        buf(fid, "ceiling_%s" % mat, mat).add_quad(
+            (x0, y1, ztop), (x1, y1, ztop),
+            (x1, y0, ztop), (x0, y0, ztop))
 
 
 def _rail_line(buf, fid, gx0, gx1, yc, z):
@@ -2455,6 +2489,7 @@ def build():
                     w, w["in_side"])
         for r in fl["rooms"]:
             build_floor_overlay(buf, fid, fl, r)
+            build_ceiling_overlay(buf, fid, fl, r)
         for fu in fl.get("furniture", []):
             if "asm" in fu:
                 fn = ASM.get(fu["asm"])
