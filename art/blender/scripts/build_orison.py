@@ -1015,28 +1015,81 @@ def asm_stove(F, p):
     for kx in (-0.24, -0.12, 0.0, 0.12, 0.24):
         F.lathe("bakelite", kx, -0.315,
                 [(0.010, 0.80), (0.022, 0.82), (0.016, 0.835)], 8)
-    # oven door at real range proportions: door sits between the broiler
-    # drawer and the burner deck, window high, towel rail at the top edge
-    F.box("enamel", -0.275, -0.322, 0.30, 0.275, -0.298, 0.72)
-    F.box("soot", -0.15, -0.328, 0.50, 0.15, -0.320, 0.64)      # window
-    F.tube("chrome", (-0.24, -0.356, 0.685), (0.24, -0.356, 0.685),
+    # The oven door read as roughly twice its height because it and the
+    # broiler drawer met flush: one unbroken enamel face from 0.115 to
+    # 0.72 with no line between them. A real range separates the two
+    # with a shadow gap and hangs the towel rail on the door's own top
+    # edge. Door 0.335-0.70 (36 cm on an 80 cm body), reveal beneath.
+    F.box("enamel", -0.275, -0.322, 0.335, 0.275, -0.298, 0.70)
+    F.box("soot", -0.15, -0.328, 0.475, 0.15, -0.320, 0.605)
+    F.tube("chrome", (-0.24, -0.356, 0.672), (0.24, -0.356, 0.672),
            0.012, 8)
     for hx in (-0.23, 0.23):
-        F.tbox("chrome", (hx, -0.322, 0.672), (hx, -0.356, 0.685),
+        F.tbox("chrome", (hx, -0.322, 0.660), (hx, -0.356, 0.672),
                0.020, 0.012)
+    # the reveal: a recessed shadow line so door and drawer read apart
+    F.box("soot", -0.275, -0.312, 0.300, 0.275, -0.300, 0.335)
     # broiler drawer with a recessed pull
-    F.box("enamel", -0.275, -0.318, 0.115, 0.275, -0.300, 0.275)
-    F.box("soot", -0.10, -0.321, 0.175, 0.10, -0.316, 0.215)
+    F.box("enamel", -0.275, -0.318, 0.115, 0.275, -0.300, 0.295)
+    F.box("soot", -0.10, -0.321, 0.185, 0.10, -0.316, 0.225)
     F.hull(-0.31, -0.36, 0.0, 0.31, 0.30, 1.24)
+
+
+def rounded_body(F, mat, x0, y0, x1, y1, z0, z1, r=0.055, seg=10):
+    """A box with genuinely rounded vertical edges.
+
+    Prewar and midcentury appliance cabinets have no sharp corners -
+    they are pressed steel with a generous radius, which is most of why
+    a stacked-box appliance reads as a modern fridge in fancy dress.
+    Two inset slabs plus four corner columns give the silhouette back
+    for six primitives.
+    """
+    F.box(mat, x0 + r, y0, z0, x1 - r, y1, z1)
+    F.box(mat, x0, y0 + r, z0, x1, y1 - r, z1)
+    for cx, cy in ((x0 + r, y0 + r), (x1 - r, y0 + r),
+                   (x0 + r, y1 - r), (x1 - r, y1 - r)):
+        F.cyl(mat, cx, cy, z0, z1, r, r, seg)
+
+
+def asm_fridge_monitor(F, p):
+    """The 1927 monitor-top icebox: a rounded cabinet on splayed legs
+    with the compressor drum sitting proud on the lid, named for the
+    turret of the gunship Monitor. Four flats in this building never
+    replaced theirs, which is a fact about their tenants."""
+    body = "appliance"
+    for lx, ly in ((-0.25, -0.22), (0.25, -0.22), (-0.25, 0.22),
+                   (0.25, 0.22)):
+        F.cyl("chrome", lx, ly, 0.0, 0.20, 0.017, 0.013, 8)
+    rounded_body(F, body, -0.29, -0.26, 0.29, 0.26, 0.20, 1.32, 0.05)
+    # door face proud of the cabinet, with its long latching handle
+    F.box(body, -0.265, 0.262, 0.245, 0.265, 0.283, 1.29)
+    F.tube("chrome", (0.20, 0.30, 0.40), (0.20, 0.30, 1.16), 0.014, 8)
+    F.box("chrome", 0.155, 0.283, 0.74, 0.215, 0.315, 0.80)
+    F.box("brass", -0.07, 0.283, 1.14, 0.07, 0.289, 1.19)
+    # the monitor: compressor drum and cooling fins on the lid
+    F.cyl(body, 0.0, 0.0, 1.32, 1.40, 0.235, 0.235, 16)
+    F.cyl("metal", 0.0, 0.0, 1.40, 1.60, 0.205, 0.205, 16)
+    for fz in (1.44, 1.49, 1.54):
+        F.cyl("metal", 0.0, 0.0, fz, fz + 0.012, 0.225, 0.225, 16)
+    F.lathe("metal", 0.0, 0.0, [(0.205, 1.60), (0.16, 1.645),
+                                (0.05, 1.66)], 16)
+    F.hull(-0.29, -0.26, 0.0, 0.29, 0.315, 1.66)
 
 
 def asm_fridge50(F, p):
     """Rounded-shoulder 1950s refrigerator spirit, latch and badge."""
     F.box("soot", -0.30, -0.29, 0.0, 0.30, 0.29, 0.06)
-    F.box("appliance", -0.33, -0.32, 0.06, 0.33, 0.32, 1.52)
-    F.box("appliance", -0.315, -0.305, 1.52, 0.315, 0.305, 1.60)
-    F.box("appliance", -0.285, -0.275, 1.60, 0.285, 0.275, 1.66)
-    F.box("appliance", -0.23, -0.22, 1.66, 0.23, 0.22, 1.70)
+    # Rounded shoulders, not a stack of shrinking boxes: the sheer-look
+    # cabinet is one pressed shell with a real radius on every vertical
+    # edge and a domed crown.
+    rounded_body(F, "appliance", -0.33, -0.32, 0.33, 0.32, 0.06, 1.52,
+                 0.06)
+    rounded_body(F, "appliance", -0.315, -0.305, 0.315, 0.305, 1.52,
+                 1.60, 0.05)
+    rounded_body(F, "appliance", -0.285, -0.275, 0.285, 0.275, 1.60,
+                 1.66, 0.045)
+    F.lathe("appliance", 0.0, 0.0, [(0.23, 1.66), (0.20, 1.695),
+                                    (0.10, 1.71)], 14)
     F.box("appliance", -0.31, 0.321, 0.10, 0.31, 0.345, 1.50)
     F.box("appliance", -0.28, 0.345, 0.14, 0.28, 0.357, 1.46)
     F.tube("chrome", (0.24, 0.395, 0.72), (0.24, 0.395, 1.18), 0.016, 10)
@@ -1728,6 +1781,7 @@ ASM = {
     "nightstand": asm_nightstand, "bed": asm_bed, "wardrobe": asm_wardrobe,
     "shelf": asm_shelf, "tv": asm_tv, "plant": asm_plant,
     "kitchen": asm_kitchen, "stove": asm_stove, "fridge50": asm_fridge50,
+    "fridge_monitor": asm_fridge_monitor,
     "desk": asm_desk, "plantable": asm_plantable,
     "workbench": asm_workbench, "toilet": asm_toilet,
     "sink_ped": asm_sink_ped, "shower": asm_shower, "switch": asm_switch,
