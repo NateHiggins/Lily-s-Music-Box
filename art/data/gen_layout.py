@@ -375,8 +375,15 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
         spos, syaw = [x0 + 1.92, y1 - 0.08], 0
     # Towels live on the wall opposite the wet fixtures. The former rail
     # shared the shower/toilet wall and visibly passed through both.
+    # The C bathroom carries a second door on the same wall the rail
+    # hung from, so on five floors the rail crossed its trim. Sliding
+    # along that wall cannot help - the fix is the opposite wall. Other
+    # stacks keep their position, where the validator confirms the rail
+    # is clear of every swing.
     tr = {"e": (x0 + 0.10, y0 + 1.60), "w": (x1 - 0.10, y0 + 1.60),
           "n": (x0 + 1.60, y0 + 0.10)}[edge]
+    if str(unit).endswith("C") and edge in ("e", "w"):
+        tr = ((x1 - 0.10) if edge == "e" else (x0 + 0.10), y0 + 1.60)
     if edge in ("e", "w"):
         _furn_box(f, unit + "_trail", tr[0] - 0.012, tr[1], 0.024, 0.62,
                   1.05, 0.02, "chrome", False)
@@ -765,6 +772,52 @@ def unit_windows(walls, x0, y0, x1, y1, z):
 def unit_name(floor_id, stack):
     """`F02` + `A` -> `2A`, the same rule apartment() uses inline."""
     return "%s%s" % (floor_id[-1].lstrip("0") or floor_id[-1], stack)
+
+
+def west_storage(floor_id, z, f):
+    """Dress the former west suite that became storage.
+
+    It used to be one 2.2 x 1.4 x 1.1 box labelled "crates" - a
+    placeholder standing in for a whole room. What belongs here is what
+    a landlord does with a flat nobody rents: the tenants' overflow
+    stacked against the party wall, a shelf run for the small things,
+    and the furniture that came with the suite still under dust sheets.
+    Deterministic per storey, so F02 and F06 are not the same room.
+    """
+    h = sum(ord(c) * 17 for c in floor_id)
+    x0, y0, x1, y1 = WSTOR_RECT
+
+    # Crate stacks against the west party wall, two or three high.
+    cx = x0 + 0.55
+    for i in range(4):
+        cy = y0 + 0.45 + i * 0.62
+        if cy > y1 - 0.4:
+            break
+        levels = 2 + ((h >> i) & 1)
+        for lv in range(levels):
+            w = 0.44 - lv * 0.03
+            d = 0.38 - lv * 0.02
+            jitter = ((h >> (i + lv)) % 7 - 3) * 0.012
+            _asm(f, "%s_wstor_cr%d_%d" % (floor_id, i, lv), "crate",
+                 cx + jitter, cy, (h + i * 37 + lv * 11) % 24 - 12,
+                 z0=lv * 0.34, W=w, D=d, H=0.33)
+
+    # A shelf run on the north wall for the small overflow.
+    _asm(f, "%s_wstor_shelf" % floor_id, "shelf",
+         x0 + 2.35, y1 - 0.30, 180, W=1.7, books=False)
+
+    # Suite furniture still under sheets: linen-draped masses, which is
+    # what a covered armchair and a covered table read as at distance.
+    _furn_box(f, "%s_wstor_sheet_a" % floor_id, x0 + 3.55, y0 + 0.55,
+              0.95, 0.92, 0.0, 0.86, "linen", False)
+    _furn_box(f, "%s_wstor_sheet_b" % floor_id, x0 + 4.95, y0 + 1.35,
+              1.35, 0.80, 0.0, 0.74, "linen", False)
+    # a rolled rug on its end in the corner
+    _furn_box(f, "%s_wstor_roll" % floor_id, x1 - 0.55, y1 - 0.62,
+              0.28, 0.28, 0.0, 1.55, "rug_warm", False)
+    # the landlord's own stack of spare radiator sections, never fitted
+    _furn_box(f, "%s_wstor_sections" % floor_id, x1 - 1.45, y0 + 0.35,
+              0.72, 0.34, 0.0, 0.62, "cast_iron", False)
 
 
 def blinds_for_unit(f, unit, stack, walls=None, z=0.0):
@@ -1846,12 +1899,19 @@ def build_floor(floor_id):
         markers += [
             {"kind": "boiler", "id": "B1_BOILER_01", "pos": [10.0, 5.0, z],
              "yaw_deg": 0, "network": "heating"},
-            {"kind": "washer", "id": "B1_WASHER_01", "pos": [-11.5, 4.0, z],
-             "yaw_deg": 90, "network": "water"},
-            {"kind": "washer", "id": "B1_WASHER_02", "pos": [-11.5, 5.2, z],
-             "yaw_deg": 90, "network": "water"},
-            {"kind": "dryer", "id": "B1_DRYER_01", "pos": [-11.5, 7.0, z],
-             "yaw_deg": 90, "network": "electrical"},
+            # Against the west party wall in a row, plumbed off one
+            # stack. They used to stand up to 2.3 m out in open floor,
+            # which reads as machines abandoned mid-delivery rather
+            # than a laundry room.
+            {"kind": "washer", "id": "B1_WASHER_01",
+             "pos": [-13.28, 3.55, z],
+             "yaw_deg": -90, "network": "water"},
+            {"kind": "washer", "id": "B1_WASHER_02",
+             "pos": [-13.28, 4.35, z],
+             "yaw_deg": -90, "network": "water"},
+            {"kind": "dryer", "id": "B1_DRYER_01",
+             "pos": [-13.28, 5.15, z],
+             "yaw_deg": -90, "network": "electrical"},
             {"kind": "room0_threshold", "id": "B1_ROOM0_DOOR",
              "pos": [0.0, 6.9, z], "yaw_deg": 180, "network": "structural"},
         ]
@@ -2017,8 +2077,7 @@ def build_floor(floor_id):
         apartment(floor_id, stack, z, walls, rooms, markers, furniture)
     rooms.append({"id": "%s_WSTOR" % floor_id, "rect": list(WSTOR_RECT),
                   "kind": "storage"})
-    _furn_box(furniture, "%s_stor_crates" % floor_id, -12.9, 0.2, 2.2, 1.4,
-              0.0, 1.1, "trim", False)
+    west_storage(floor_id, z, furniture)
     rooms.append({"id": "%s_CORRIDOR" % floor_id,
                   "rect": [-XCO, -Y_IN, XCO, Y_IN], "kind": "corridor"})
     core_rooms(floor_id, z, rooms, furniture)

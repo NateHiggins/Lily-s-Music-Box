@@ -429,6 +429,13 @@ func _yield_to_player(actor: Dictionary, delta: float) -> void:
 	var node: Node3D = actor.node
 	if not is_instance_valid(node):
 		return
+	# A non-finite player fails every comparison below silently - NaN is
+	# not greater than, not less than, not equal to anything - so the
+	# early returns all miss and eighteen residents normalise a NaN
+	# vector every frame. The safety net exists precisely because the
+	# player CAN end up nowhere; nobody steps aside for nowhere.
+	if not _player.global_position.is_finite():
+		return
 	var away := node.global_position - _player.global_position
 	if absf(away.y) > 1.2:
 		return  # different storey

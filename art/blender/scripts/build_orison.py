@@ -2183,6 +2183,12 @@ KIND_FLOOR = {
     "common": ("floor_oak", 0.012),
     "office": ("floor_oak", 0.016),
     "bathroom": ("ceramic", 0.020),
+    # The west suite kept its boards when it became storage - nobody
+    # relays a floor to stack crates on it. Without this the room
+    # rendered as bare structural slab, which is what made it read as
+    # unfinished geometry.
+    "storage": ("floor_oak", 0.012),
+    "utility": ("concrete", 0.012),
 }
 
 
