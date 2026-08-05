@@ -120,6 +120,92 @@ const CHARACTER_ROLES := {
 	"mae_kessler": {"idle": "wait", "busy": "reach", "settle": "settle"},
 }
 
+## Temperament: how each resident spends a night, and why it is theirs.
+## HAUNTS says WHERE they go; this says HOW OFTEN, HOW LONG, and by which
+## route - the difference between a shut-in and a man who lives in the
+## basement. Every value is argued from the resident's own wound.
+##
+##   out    chance of leaving the flat at a decision point
+##   tv     chance of the couch instead (0 for those who do not sit)
+##   dwell  seconds at the haunt: [min, max]
+##   rest   seconds at home between decisions: [min, max]
+##   climb  preference for stairs over the lift, 0..1
+const TEMPERAMENTS := {
+	# Checks a mail bank nobody writes to, several times a night.
+	"evelyn_marsh": {"out": 0.55, "tv": 0.18, "dwell": [20.0, 46.0],
+		"rest": [14.0, 30.0], "climb": 0.9},
+	# Night nurse, awake when the building is: on the bench watching the
+	# street door because an alarm might yet be hers.
+	"teresa_vale": {"out": 0.60, "tv": 0.10, "dwell": [70.0, 150.0],
+		"rest": [12.0, 26.0], "climb": 0.8},
+	# Everything must be annotated; the light court is the quietest
+	# measurable place, and she stays until she has measured it.
+	"mina_vale": {"out": 0.28, "tv": 0.20, "dwell": [80.0, 170.0],
+		"rest": [26.0, 60.0], "climb": 0.5},
+	# Mends for the whole building, so she goes down to the pile often.
+	"lena_ortiz": {"out": 0.50, "tv": 0.24, "dwell": [50.0, 110.0],
+		"rest": [18.0, 40.0], "climb": 0.6},
+	# Recording the risers: out at strange hours, gone a long time.
+	"juno_kells": {"out": 0.62, "tv": 0.06, "dwell": [90.0, 190.0],
+		"rest": [12.0, 30.0], "climb": 0.55},
+	# The roof garden and the cutting that keeps a goodbye open. Always
+	# the stairs: he arrived in 1918 and the lift is for other people.
+	"malcolm_reed": {"out": 0.58, "tv": 0.08, "dwell": [110.0, 230.0],
+		"rest": [20.0, 44.0], "climb": 0.95},
+	# The super who cannot call anything unrepairable. Practically lives
+	# beside the boiler, and carries his tools down the stairs.
+	"omar_bell": {"out": 0.78, "tv": 0.10, "dwell": [120.0, 260.0],
+		"rest": [10.0, 22.0], "climb": 0.75},
+	# Her mistakes are a captive note. Mostly behind her own door, and
+	# when she does leave it is for the one room with no echo.
+	"rhea_sato": {"out": 0.20, "tv": 0.16, "dwell": [70.0, 150.0],
+		"rest": [30.0, 70.0], "climb": 0.4},
+	# Certainty by re-reading: many short anxious trips to the same
+	# noticeboard, never satisfied, never long.
+	"peter_wren": {"out": 0.66, "tv": 0.12, "dwell": [14.0, 32.0],
+		"rest": [10.0, 20.0], "climb": 0.7},
+	# Rest reads as collapse. Barely home, never on the couch, stairs
+	# every time - a courier does not wait for a lift.
+	"cam_ortiz": {"out": 0.85, "tv": 0.0, "dwell": [16.0, 40.0],
+		"rest": [8.0, 16.0], "climb": 0.98},
+	# The flat is a museum of the life before the trial. He stays in it.
+	"noel_price": {"out": 0.14, "tv": 0.30, "dwell": [30.0, 70.0],
+		"rest": [40.0, 90.0], "climb": 0.3},
+	# Perpetually departing, therefore perpetually in the entry.
+	"transient_guests": {"out": 0.72, "tv": 0.05, "dwell": [40.0, 90.0],
+		"rest": [10.0, 24.0], "climb": 0.5},
+	# Organising the tenants against her own employers: she is on every
+	# floor, all night, and she takes whatever moves fastest.
+	"nadia_quell": {"out": 0.80, "tv": 0.06, "dwell": [40.0, 95.0],
+		"rest": [9.0, 20.0], "climb": 0.35},
+	# Perfect tuning prevents moments ending. He rarely leaves the reels.
+	"cal_dwyer": {"out": 0.22, "tv": 0.34, "dwell": [90.0, 200.0],
+		"rest": [34.0, 76.0], "climb": 0.45},
+	# Painting for an audience she imagines: home, mostly, with the
+	# occasional climb for the light.
+	"iris_bell": {"out": 0.30, "tv": 0.14, "dwell": [80.0, 170.0],
+		"rest": [26.0, 58.0], "climb": 0.8},
+	# The recording displaced the experience, so the recording never
+	# stops: stairwells, roof, everywhere, camera first.
+	"sacha_reed": {"out": 0.70, "tv": 0.08, "dwell": [50.0, 120.0],
+		"rest": [11.0, 24.0], "climb": 0.85},
+	# An insomniac who cannot finish: out at the worst hours, wandering
+	# the stairs rather than writing the verdict down.
+	"jonah_price": {"out": 0.64, "tv": 0.22, "dwell": [60.0, 140.0],
+		"rest": [13.0, 30.0], "climb": 0.9},
+	# The Estate's last name, appraising by gaslight. Rare, formal,
+	# unhurried outings, and never on foot up six storeys.
+	"mae_kessler": {"out": 0.26, "tv": 0.20, "dwell": [60.0, 130.0],
+		"rest": [32.0, 72.0], "climb": 0.12},
+}
+const DEFAULT_TEMPER := {"out": 0.45, "tv": 0.20, "dwell": [18.0, 50.0],
+		"rest": [16.0, 34.0], "climb": 0.5}
+
+
+static func temper_of(slug: String) -> Dictionary:
+	return TEMPERAMENTS.get(slug, DEFAULT_TEMPER)
+
+
 enum Stage { HOME, PACING, TO_LIFT, RIDING, AT_HAUNT, RETURNING, WATCHING,
 		ON_STAIRS, RETURN_STAIRS }
 
@@ -380,12 +466,15 @@ func _step(actor: Dictionary, delta: float) -> void:
 				var locked_in: bool = actor.home_door != null \
 						and is_instance_valid(actor.home_door) \
 						and actor.home_door.leaf_state == "locked"
+				var temper := temper_of(str(actor.slug))
+				var tv_chance: float = float(temper.tv)
 				var roll := _rng.randf()
-				if roll < 0.30 and _couch.has(unit):
+				if roll < tv_chance and _couch.has(unit):
 					actor.stage = Stage.WATCHING
 					_set_route(actor, _couch[unit])
 					actor.timer = _rng.randf_range(24.0, 70.0)
-				elif roll < 0.55 and actor.haunt != Vector3.ZERO \
+				elif roll < tv_chance + float(temper.out) \
+						and actor.haunt != Vector3.ZERO \
 						and not locked_in:
 					_begin_trip(actor, false)
 				else:
@@ -445,7 +534,8 @@ func _step(actor: Dictionary, delta: float) -> void:
 				node.visible = true
 				actor.stage = Stage.AT_HAUNT
 				_set_route(actor, actor.haunt)
-				actor.timer = _rng.randf_range(18.0, 50.0)
+				var dwell: Array = temper_of(str(actor.slug)).dwell
+				actor.timer = _rng.randf_range(dwell[0], dwell[1])
 		Stage.AT_HAUNT:
 			_manage_home_door(actor, false)
 			if _follow(actor, node, delta):
@@ -521,17 +611,24 @@ func _begin_trip(actor: Dictionary, returning: bool) -> void:
 	var destination_floor: String = nav.floor_at(destination.y)
 	actor.target_floor = destination_floor
 	actor.door_cycle = 0
+	var temper := temper_of(str(actor.slug))
 	if source_floor == destination_floor:
 		actor.stage = Stage.HOME if returning else Stage.AT_HAUNT
 		_set_route(actor, destination)
-		actor.timer = _rng.randf_range(18.0, 50.0)
+		var span: Array = temper.rest if returning else temper.dwell
+		actor.timer = _rng.randf_range(span[0], span[1])
 		return
 	# The lift does not serve the roof. Otherwise residents split between
 	# lift and stairs, weighted toward the lift for long climbs.
 	var floor_gap: int = absi(nav.level_order.find(source_floor) \
 			- nav.level_order.find(destination_floor))
-	var use_stairs: bool = destination_floor == "ROOF" or source_floor == "ROOF" \
-			or _rng.randf() < (0.58 if floor_gap <= 2 else 0.28)
+	# Long climbs discourage everyone, but by how much is personal:
+	# Cam takes the stairs from the sixth floor, Mae takes the lift
+	# to the second.
+	var climb: float = float(temper.climb)
+	var use_stairs: bool = destination_floor == "ROOF" \
+			or source_floor == "ROOF" \
+			or _rng.randf() < climb * (1.0 if floor_gap <= 2 else 0.55)
 	actor.vertical_mode = "stairs" if use_stairs else "elevator"
 	if use_stairs:
 		actor.path = nav.stair_route(node.global_position, destination)

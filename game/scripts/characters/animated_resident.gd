@@ -14,6 +14,9 @@ var _home := Vector3.ZERO
 var _pace_direction := 1.0
 var _pace_clock := 0.0
 var _walking := false
+## ResidentRoutines owns building navigation once the actor is registered.
+## The local Mina-era pacing behavior remains available for isolated tests.
+var externally_driven := false
 
 
 func setup(character_name: String, character_id: String,
@@ -36,12 +39,40 @@ func _ready() -> void:
 	_model = scene.instantiate()
 	_model.name = "RiggedCharacter"
 	add_child(_model)
+	_apply_presence_glow(_model)
 	_animation_player = _find_animation_player(_model)
 	_build_interaction()
 	_build_nameplate()
 	RealityCases.case_changed.connect(_on_case_changed)
 	_play_named("idle")
 	_refresh_nameplate()
+
+
+## Restored at half strength (ruled 2026-08-05). A resident is never a
+## pure void in the dark, but the wash has to stay under the ambient
+## floor or the cast lights itself again - which is the bug this session
+## removed from the models. Flat colour, no texture: gl_compatibility
+## adds an emission TEXTURE at near-full strength whatever the emission
+## colour says.
+const PRESENCE_GLOW := Color(0.0275, 0.035, 0.056)
+
+
+func _apply_presence_glow(node: Node) -> void:
+	if node is MeshInstance3D:
+		var mesh_node := node as MeshInstance3D
+		for s in range(mesh_node.get_surface_override_material_count()):
+			_glow_material(mesh_node.get_active_material(s))
+	for child in node.get_children():
+		_apply_presence_glow(child)
+
+
+func _glow_material(material: Material) -> void:
+	var standard := material as StandardMaterial3D
+	if standard == null:
+		return
+	standard.emission_enabled = true
+	standard.emission = PRESENCE_GLOW
+	standard.emission_energy_multiplier = 1.0
 
 
 func _build_interaction() -> void:
@@ -82,6 +113,8 @@ func _build_nameplate() -> void:
 
 
 func _process(delta: float) -> void:
+	if externally_driven:
+		return
 	var case_id := RealityCases.case_for_resident(resident_id)
 	var state: Dictionary = RealityState.case_state(case_id)
 	var active: bool = state.get("stage", "unseen") in ["active", "reopened"]
@@ -100,7 +133,7 @@ func _process(delta: float) -> void:
 	_set_walking(position.distance_to(before) > 0.0001)
 	if _walking:
 		rotation.y = lerp_angle(rotation.y,
-				-PI * 0.5 if _pace_direction > 0 else PI * 0.5,
+				PI * 0.5 if _pace_direction > 0 else -PI * 0.5,
 				minf(1.0, delta * 7.0))
 
 
