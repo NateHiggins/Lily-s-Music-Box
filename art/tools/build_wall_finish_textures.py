@@ -50,24 +50,38 @@ SCALE_M = {"plaster": 2.3, "paper": 1.9, "mask": 4.6, "relief": 2.0,
 _cache = {}
 
 
-def make_tileable(a: np.ndarray) -> np.ndarray:
-    """Half-roll and crossfade both axes so wrap repeats leave no seam.
+def make_tileable(a: np.ndarray, band_frac: float = 0.12) -> np.ndarray:
+    """Make an image wrap by overlap-blending its edges.
 
-    The classic offset trick: rolling puts the old seam in the middle,
-    a smooth band blends it against the unrolled image, and the borders
-    (now interior-continuous) tile cleanly.
+    The previous implementation rolled the image by half and then
+    crossfaded the rolled and unrolled copies across the WHOLE frame.
+    That puts the source's centre at both the middle AND the four
+    edges - a 2x2 restatement of the same content inside one tile,
+    which halves the apparent tile size and makes every distinctive
+    feature announce itself twice per repeat.
+
+    The correct trick keeps the interior untouched: crop the last band
+    off, and crossfade what was the tail into the head. The new last
+    column is then the source's own neighbour of the new first column,
+    so the image wraps with no seam and nothing is duplicated. Costs
+    band_frac of the dimension, which is what a seam is worth.
     """
     for axis in (1, 0):
         n = a.shape[axis]
-        rolled = np.roll(a, n // 2, axis=axis)
-        t = np.linspace(0.0, 1.0, n, dtype=np.float32)
-        # weight 1 at the borders (keep rolled = seam-free edge), 0 mid
-        w = np.clip(1.0 - np.abs(t - 0.5) * 2.0, 0.0, 1.0)
-        w = np.clip((w - 0.38) / 0.24, 0.0, 1.0)
-        shape = [1, 1] + ([] if a.ndim == 2 else [1])
-        shape[axis] = n
-        w = w.reshape(shape[:a.ndim])
-        a = rolled * (1.0 - w) + a * w
+        band = max(2, int(n * band_frac))
+        keep = n - band
+        w = np.linspace(1.0, 0.0, band, dtype=np.float32)
+        w = w * w * (3.0 - 2.0 * w)          # smoothstep, no linear ramp
+        shape = [1] * a.ndim
+        shape[axis] = band
+        w = w.reshape(shape)
+        head = np.take(a, np.arange(band), axis=axis)
+        tail = np.take(a, np.arange(n - band, n), axis=axis)
+        out = np.take(a, np.arange(keep), axis=axis).copy()
+        sl = [slice(None)] * a.ndim
+        sl[axis] = slice(0, band)
+        out[tuple(sl)] = head * (1.0 - w) + tail * w
+        a = out
     return a
 
 
