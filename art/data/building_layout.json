@@ -5032,6 +5032,18 @@
      "unit": "1A"
     },
     {
+     "kind": "stove",
+     "id": "F01_1A_STOVE_01",
+     "unit": "1A",
+     "pos": [
+      -7.48,
+      -0.77,
+      0.0
+     ],
+     "yaw_deg": 180,
+     "network": "gas"
+    },
+    {
      "kind": "sconce_globe",
      "id": "1D_LT_SCONCE",
      "unit": "1D",
@@ -5056,6 +5068,18 @@
      "network": "heating",
      "riser": "H-D",
      "unit": "1D"
+    },
+    {
+     "kind": "stove",
+     "id": "F01_1D_STOVE_01",
+     "unit": "1D",
+     "pos": [
+      9.54,
+      -1.32,
+      0.0
+     ],
+     "yaw_deg": 180,
+     "network": "gas"
     },
     {
      "kind": "door",
@@ -40229,6 +40253,18 @@
      "unit": "2A"
     },
     {
+     "kind": "stove",
+     "id": "F02_2A_STOVE_01",
+     "unit": "2A",
+     "pos": [
+      -7.48,
+      -0.77,
+      3.2
+     ],
+     "yaw_deg": 180,
+     "network": "gas"
+    },
+    {
      "kind": "monitor",
      "id": "F02_A_MONITOR_01",
      "unit": "2A",
@@ -40279,6 +40315,18 @@
      "unit": "2B"
     },
     {
+     "kind": "stove",
+     "id": "F02_2B_STOVE_01",
+     "unit": "2B",
+     "pos": [
+      -5.83,
+      8.48,
+      3.2
+     ],
+     "yaw_deg": 90,
+     "network": "gas"
+    },
+    {
      "kind": "sconce_globe",
      "id": "2C_LT_SCONCE",
      "unit": "2C",
@@ -40303,6 +40351,18 @@
      "network": "heating",
      "riser": "H-C",
      "unit": "2C"
+    },
+    {
+     "kind": "stove",
+     "id": "F02_2C_STOVE_01",
+     "unit": "2C",
+     "pos": [
+      5.87,
+      2.58,
+      3.2
+     ],
+     "yaw_deg": -90,
+     "network": "gas"
     },
     {
      "kind": "speaker",
@@ -48032,6 +48092,18 @@
      "unit": "3A"
     },
     {
+     "kind": "stove",
+     "id": "F03_3A_STOVE_01",
+     "unit": "3A",
+     "pos": [
+      -7.48,
+      -0.77,
+      6.4
+     ],
+     "yaw_deg": 180,
+     "network": "gas"
+    },
+    {
      "kind": "sconce_globe",
      "id": "3B_LT_SCONCE",
      "unit": "3B",
@@ -48056,6 +48128,18 @@
      "network": "heating",
      "riser": "H-B",
      "unit": "3B"
+    },
+    {
+     "kind": "stove",
+     "id": "F03_3B_STOVE_01",
+     "unit": "3B",
+     "pos": [
+      -5.83,
+      8.48,
+      6.4
+     ],
+     "yaw_deg": 90,
+     "network": "gas"
     },
     {
      "kind": "lamp",
@@ -48120,6 +48204,18 @@
      "network": "heating",
      "riser": "H-D",
      "unit": "3D"
+    },
+    {
+     "kind": "stove",
+     "id": "F03_3D_STOVE_01",
+     "unit": "3D",
+     "pos": [
+      9.54,
+      -1.32,
+      6.4
+     ],
+     "yaw_deg": 180,
+     "network": "gas"
     },
     {
      "kind": "speaker",
@@ -55864,6 +55960,18 @@
      "unit": "4A"
     },
     {
+     "kind": "stove",
+     "id": "F04_4A_STOVE_01",
+     "unit": "4A",
+     "pos": [
+      -7.48,
+      -0.77,
+      9.6
+     ],
+     "yaw_deg": 180,
+     "network": "gas"
+    },
+    {
      "kind": "sconce_globe",
      "id": "4B_LT_SCONCE",
      "unit": "4B",
@@ -56115,6 +56223,18 @@
      "unit": "4C"
     },
     {
+     "kind": "stove",
+     "id": "F04_4C_STOVE_01",
+     "unit": "4C",
+     "pos": [
+      5.87,
+      2.58,
+      9.6
+     ],
+     "yaw_deg": -90,
+     "network": "gas"
+    },
+    {
      "kind": "sconce_globe",
      "id": "4D_LT_SCONCE",
      "unit": "4D",
@@ -56139,6 +56259,18 @@
      "network": "heating",
      "riser": "H-D",
      "unit": "4D"
+    },
+    {
+     "kind": "stove",
+     "id": "F04_4D_STOVE_01",
+     "unit": "4D",
+     "pos": [
+      9.54,
+      -1.32,
+      9.6
+     ],
+     "yaw_deg": 180,
+     "network": "gas"
     },
     {
      "kind": "flue_breast",
@@ -64776,6 +64908,18 @@
      "unit": "5A"
     },
     {
+     "kind": "stove",
+     "id": "F05_5A_STOVE_01",
+     "unit": "5A",
+     "pos": [
+      -7.48,
+      -0.77,
+      12.8
+     ],
+     "yaw_deg": 180,
+     "network": "gas"
+    },
+    {
      "kind": "lamp",
      "id": "F05_A_LAMP_01",
      "unit": "5A",
@@ -64814,6 +64958,18 @@
      "unit": "5B"
     },
     {
+     "kind": "stove",
+     "id": "F05_5B_STOVE_01",
+     "unit": "5B",
+     "pos": [
+      -5.83,
+      8.48,
+      12.8
+     ],
+     "yaw_deg": 90,
+     "network": "gas"
+    },
+    {
      "kind": "sconce_globe",
      "id": "5C_LT_SCONCE",
      "unit": "5C",
@@ -64838,6 +64994,18 @@
      "network": "heating",
      "riser": "H-C",
      "unit": "5C"
+    },
+    {
+     "kind": "stove",
+     "id": "F05_5C_STOVE_01",
+     "unit": "5C",
+     "pos": [
+      5.87,
+      2.58,
+      12.8
+     ],
+     "yaw_deg": -90,
+     "network": "gas"
     },
     {
      "kind": "sconce_globe",
@@ -72573,6 +72741,18 @@
      "unit": "6A"
     },
     {
+     "kind": "stove",
+     "id": "F06_6A_STOVE_01",
+     "unit": "6A",
+     "pos": [
+      -7.48,
+      -0.77,
+      16.0
+     ],
+     "yaw_deg": 180,
+     "network": "gas"
+    },
+    {
      "kind": "monitor",
      "id": "F06_A_MONITOR_01",
      "unit": "6A",
@@ -72647,6 +72827,18 @@
      "unit": "6B"
     },
     {
+     "kind": "stove",
+     "id": "F06_6B_STOVE_01",
+     "unit": "6B",
+     "pos": [
+      -5.83,
+      8.48,
+      16.0
+     ],
+     "yaw_deg": 90,
+     "network": "gas"
+    },
+    {
      "kind": "sconce_globe",
      "id": "6C_LT_SCONCE",
      "unit": "6C",
@@ -72671,6 +72863,18 @@
      "network": "heating",
      "riser": "H-C",
      "unit": "6C"
+    },
+    {
+     "kind": "stove",
+     "id": "F06_6C_STOVE_01",
+     "unit": "6C",
+     "pos": [
+      5.87,
+      2.58,
+      16.0
+     ],
+     "yaw_deg": -90,
+     "network": "gas"
     },
     {
      "kind": "sconce_globe",

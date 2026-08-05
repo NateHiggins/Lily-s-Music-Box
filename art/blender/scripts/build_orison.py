@@ -997,7 +997,17 @@ def asm_kitchen(F, p):
 
 
 def asm_stove(F, p):
-    """1940s enamel-range spirit: clock panel, towel-rail door, knob row."""
+    """1940s enamel-range spirit: clock panel, towel-rail door, knob row.
+
+    ORIENTATION (fixed 2026-08-05): the range was installed BACKWARDS.
+    asm_kitchen puts its door fronts and finger pulls at +y, and the
+    stove shares the cabinetry's yaw - but the stove's front was at -y,
+    so every range in the building faced the wall and presented its
+    backsplash to the room. The 34.5 cm backsplash standing above the
+    counter is what read as an oven door of roughly twice the right
+    height. Front features are now at +y with the cabinets, and the
+    clock panel is at the back where it belongs.
+    """
     F.box("enamel", -0.31, -0.30, 0.06, 0.31, 0.30, 0.86)
     for fx, fy in ((-0.27, -0.26), (0.27, -0.26), (-0.27, 0.26),
                    (0.27, 0.26)):
@@ -1008,31 +1018,25 @@ def asm_stove(F, p):
         F.cyl("soot", bx, by, 0.895, 0.905, 0.085, 0.085, 12)
         F.lathe("metal", bx, by, [(0.088, 0.905), (0.095, 0.915),
                                   (0.088, 0.92)], 12)
-    F.box("enamel", -0.31, 0.24, 0.895, 0.31, 0.30, 1.24)
-    F.cyl("appliance", 0.0, 0.268, 1.06, 1.075, 0.065, 0.065, 12)
-    F.lathe("brass", 0.0, 0.268, [(0.068, 1.055), (0.072, 1.075),
-                                  (0.065, 1.08)], 12)
+    F.box("enamel", -0.31, -0.30, 0.895, 0.31, -0.24, 1.24)
+    F.cyl("appliance", 0.0, -0.268, 1.06, 1.075, 0.065, 0.065, 12)
+    F.lathe("brass", 0.0, -0.268, [(0.068, 1.055), (0.072, 1.075),
+                                   (0.065, 1.08)], 12)
     for kx in (-0.24, -0.12, 0.0, 0.12, 0.24):
-        F.lathe("bakelite", kx, -0.315,
+        F.lathe("bakelite", kx, 0.315,
                 [(0.010, 0.80), (0.022, 0.82), (0.016, 0.835)], 8)
-    # The oven door read as roughly twice its height because it and the
-    # broiler drawer met flush: one unbroken enamel face from 0.115 to
-    # 0.72 with no line between them. A real range separates the two
-    # with a shadow gap and hangs the towel rail on the door's own top
-    # edge. Door 0.335-0.70 (36 cm on an 80 cm body), reveal beneath.
-    F.box("enamel", -0.275, -0.322, 0.335, 0.275, -0.298, 0.70)
-    F.box("soot", -0.15, -0.328, 0.475, 0.15, -0.320, 0.605)
-    F.tube("chrome", (-0.24, -0.356, 0.672), (0.24, -0.356, 0.672),
-           0.012, 8)
-    for hx in (-0.23, 0.23):
-        F.tbox("chrome", (hx, -0.322, 0.660), (hx, -0.356, 0.672),
-               0.020, 0.012)
+    # The oven door is NOT baked here. It hangs on a hinge and has to
+    # move, so StoveProp draws it at the same coordinates (door 0.335 to
+    # 0.70, 36 cm on an 80 cm body) and swings it about its foot. What
+    # stays is the dark oven mouth behind it, which is what you should
+    # see when the door falls open.
+    F.box("soot", -0.265, 0.285, 0.335, 0.265, 0.300, 0.70)
     # the reveal: a recessed shadow line so door and drawer read apart
-    F.box("soot", -0.275, -0.312, 0.300, 0.275, -0.300, 0.335)
+    F.box("soot", -0.275, 0.300, 0.300, 0.275, 0.312, 0.335)
     # broiler drawer with a recessed pull
-    F.box("enamel", -0.275, -0.318, 0.115, 0.275, -0.300, 0.295)
-    F.box("soot", -0.10, -0.321, 0.185, 0.10, -0.316, 0.225)
-    F.hull(-0.31, -0.36, 0.0, 0.31, 0.30, 1.24)
+    F.box("enamel", -0.275, 0.300, 0.115, 0.275, 0.318, 0.295)
+    F.box("soot", -0.10, 0.316, 0.185, 0.10, 0.321, 0.225)
+    F.hull(-0.31, -0.30, 0.0, 0.31, 0.36, 1.24)
 
 
 def rounded_body(F, mat, x0, y0, x1, y1, z0, z1, r=0.055, seg=10):

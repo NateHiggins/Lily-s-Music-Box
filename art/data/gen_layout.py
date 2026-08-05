@@ -582,7 +582,24 @@ def _hob_load(f, uid, sx, sy):
                  sx + dx, sy + dy, 180, z0=0.90)
 
 
-def kitchen_run(f, uid, x, y, L, along_x=True, side="n"):
+def _stove_marker(markers, uid, sx, sy, z, yaw, floor_id):
+    """The range needs a prop as well as a body: its oven door swings and
+    its rings light, and neither can happen inside a merged floor mesh.
+    The marker sits exactly where the assembly does, so the prop's door
+    lands on the mouth the assembly left open for it."""
+    if markers is None:
+        return
+    unit = unit_of_uid(uid)
+    markers.append({
+        "kind": "stove",
+        "id": "%s_%s_STOVE_01" % (floor_id or "FXX", unit),
+        "unit": unit, "pos": [round(sx, 4), round(sy, 4), round(z, 4)],
+        "yaw_deg": yaw, "network": "gas",
+    })
+
+
+def kitchen_run(f, uid, x, y, L, along_x=True, side="n", markers=None,
+                z=0.0, floor_id=""):
     """Cabinetry run + range + fridge along the wall on `side` of the
     0.66-deep footprint whose min corner is (x, y)."""
     cw = max(0.95, L - 1.40)
@@ -608,6 +625,7 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n"):
         cy = y + 0.32
         _asm(f, uid, "kitchen", x + cw / 2, cy, yaw, L=cw + 0.75)
         _asm(f, uid + "_stove", "stove", x + cw + 0.33, cy, yaw)
+        _stove_marker(markers, uid, x + cw + 0.33, cy, z, yaw, floor_id)
         _asm(f, uid + "_fr", _fridge_for(uid), x + cw + 0.66 + 0.36, cy,
              yaw)
         clutter(x + cw / 2, cy)
@@ -617,6 +635,7 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n"):
         cx = x + 0.32
         _asm(f, uid, "kitchen", cx, y + cw / 2, yaw, L=cw + 0.75)
         _asm(f, uid + "_stove", "stove", cx, y + cw + 0.33, yaw)
+        _stove_marker(markers, uid, cx, y + cw + 0.33, z, yaw, floor_id)
         _asm(f, uid + "_fr", _fridge_for(uid), cx, y + cw + 0.66 + 0.36,
              yaw)
         clutter(cx, y + cw / 2, True)
@@ -983,7 +1002,8 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers):
     # kitchen run against a wall clear of the entry swing and the bath
     kx, ky, kL, kax, kside = rooms["kitchen_spot"]
     if "kitchen" not in skip:
-        kitchen_run(f, unit + "_k", kx, ky, kL, kax, kside)
+        kitchen_run(f, unit + "_k", kx, ky, kL, kax, kside,
+                    markers=markers, z=z, floor_id=floor_id)
     # sofa cluster against the exterior side wall, tv on the rug's far edge
     if "sofa" not in skip:
         sofa_set(f, unit + "_sofa", ux(0.35, 0.85), lcy - 1.0, 1.95,

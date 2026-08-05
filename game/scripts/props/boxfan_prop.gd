@@ -3,6 +3,7 @@ extends FunctionalProp
 ## Floor box fan. Normal: constant drone, blades spinning. Synced: motor
 ## speed wavers with the motif — pitch bends, never stops dead.
 
+var _possessed_fit := false
 var _hum: AudioStreamPlayer3D
 var _blades: MeshInstance3D
 var _speed := 18.0
@@ -71,3 +72,17 @@ func _process(delta: float) -> void:
 
 func _perform_synced_event(_index: int, accent: float, pitch: float) -> void:
 	_speed = 18.0 + accent * 9.0 * signf(pitch + 0.5)
+
+## Possession: it runs with nothing behind it. The tell is not the noise,
+## it is that the noise does not stop when the switch is off.
+func possess_fit(beats := 4) -> void:
+	if _possessed_fit:
+		return
+	_possessed_fit = true
+	var was := state
+	state = PState.OPERATING
+	await get_tree().create_timer(0.35 * float(beats), false).timeout
+	if not is_inside_tree():
+		return
+	state = was
+	_possessed_fit = false

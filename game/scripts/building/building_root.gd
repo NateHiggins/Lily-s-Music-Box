@@ -23,6 +23,7 @@ const PROP_SCRIPTS := {
 	"boiler": preload("res://scripts/props/boiler_prop.gd"),
 	"toaster": preload("res://scripts/props/toaster_prop.gd"),
 	"fridge": preload("res://scripts/props/fridge_prop.gd"),
+	"stove": preload("res://scripts/props/stove_prop.gd"),
 	"monitor": preload("res://scripts/props/monitor_prop.gd"),
 	"boxfan": preload("res://scripts/props/boxfan_prop.gd"),
 	"door_anomaly": preload("res://scripts/props/door_anomaly_prop.gd"),

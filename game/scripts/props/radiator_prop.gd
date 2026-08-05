@@ -4,6 +4,7 @@ extends FunctionalProp
 ## Normal function: irregular thermal ticks as it heats and cools.
 ## Synced function: a knock — one section impacting — on motif events.
 
+var _possessed_fit := false
 var _body: Node3D
 var _knock: AudioStreamPlayer3D
 var _tick: AudioStreamPlayer3D
@@ -111,3 +112,18 @@ func _process(delta: float) -> void:
 		_shake = maxf(_shake - delta * 0.04, 0.0)
 	elif _body.position != Vector3.ZERO:
 		_body.position = Vector3.ZERO
+
+## Possession: cast iron cannot speak either, but it is plumbed to every
+## other flat in the stack - so when this one is ridden, the knock goes
+## up the riser and the whole building hears the motif.
+func possess_fit(beats := 4) -> void:
+	if _possessed_fit:
+		return
+	_possessed_fit = true
+	for i in range(beats):
+		play_ambient_cycle("knock", 0.85 + 0.1 * float(i % 2))
+		await get_tree().create_timer(0.24 if i % 2 else 0.38,
+				false).timeout
+		if not is_inside_tree():
+			return
+	_possessed_fit = false

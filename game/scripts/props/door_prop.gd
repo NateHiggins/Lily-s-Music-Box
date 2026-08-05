@@ -233,8 +233,12 @@ func interact(_player: Node) -> void:
 		return
 	_moving = true
 	open = not open
-	_squeak.pitch_scale = randf_range(0.93, 1.05)
-	_squeak.play()
+	# Cabinet leaves return before the audio rig is built (they are
+	# 45 cm doors on a carcass, not hung joinery), so every cabinet
+	# interaction was throwing on a null emitter.
+	if _squeak:
+		_squeak.pitch_scale = randf_range(0.93, 1.05)
+		_squeak.play()
 	var swept := -100.0 if swing_out else 100.0
 	var tw := create_tween()
 	tw.tween_property(_body, "rotation:y",
