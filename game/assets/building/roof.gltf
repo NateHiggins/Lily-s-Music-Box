@@ -276,7 +276,6 @@
 	"materials":[
 		{
 			"alphaMode":"BLEND",
-			"doubleSided":true,
 			"name":"M_wallfinish_roof_w00",
 			"normalTexture":{
 				"index":0,
@@ -294,7 +293,6 @@
 		},
 		{
 			"alphaMode":"BLEND",
-			"doubleSided":true,
 			"name":"M_wallfinish_roof_w01",
 			"normalTexture":{
 				"index":3,
@@ -312,7 +310,6 @@
 		},
 		{
 			"alphaMode":"BLEND",
-			"doubleSided":true,
 			"name":"M_wallfinish_roof_w02",
 			"normalTexture":{
 				"index":6,
@@ -330,7 +327,6 @@
 		},
 		{
 			"alphaMode":"BLEND",
-			"doubleSided":true,
 			"name":"M_wallfinish_roof_w03",
 			"normalTexture":{
 				"index":9,
@@ -348,7 +344,6 @@
 		},
 		{
 			"alphaMode":"BLEND",
-			"doubleSided":true,
 			"name":"M_wallfinish_roof_w04",
 			"normalTexture":{
 				"index":12,
@@ -365,7 +360,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_bakelite",
 			"normalTexture":{
 				"index":15,
@@ -382,7 +376,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_brass",
 			"normalTexture":{
 				"index":18,
@@ -399,7 +392,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_chrome",
 			"normalTexture":{
 				"index":21,
@@ -471,7 +463,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_soil",
 			"normalTexture":{
 				"index":28,
@@ -488,7 +479,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_soot",
 			"normalTexture":{
 				"index":31,
@@ -505,7 +495,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_terracotta",
 			"normalTexture":{
 				"index":34,
@@ -522,7 +511,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_timber",
 			"normalTexture":{
 				"index":37,
@@ -539,7 +527,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_trim",
 			"normalTexture":{
 				"index":40,
@@ -556,7 +543,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_wood_dark",
 			"normalTexture":{
 				"index":43,
@@ -573,7 +559,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_baluster",
 			"normalTexture":{
 				"index":46,
@@ -590,7 +575,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_char",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
@@ -604,7 +588,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_concrete",
 			"normalTexture":{
 				"index":49,
@@ -621,7 +604,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_face_brick",
 			"normalTexture":{
 				"index":52,
@@ -638,7 +620,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_handrail_wood",
 			"normalTexture":{
 				"index":55,
@@ -655,7 +636,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_slab",
 			"normalTexture":{
 				"index":58,
@@ -672,7 +652,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_limestone",
 			"normalTexture":{
 				"index":61,
@@ -689,7 +668,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_metal",
 			"normalTexture":{
 				"index":64,
@@ -722,7 +700,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_stair",
 			"normalTexture":{
 				"index":68,
@@ -739,7 +716,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_plaster",
 			"normalTexture":{
 				"index":71,
@@ -756,7 +732,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_brick",
 			"normalTexture":{
 				"index":74,
@@ -773,7 +748,6 @@
 			}
 		},
 		{
-			"doubleSided":true,
 			"name":"M_common_brick",
 			"normalTexture":{
 				"index":77,

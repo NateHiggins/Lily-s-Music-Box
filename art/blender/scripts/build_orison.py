@@ -440,6 +440,19 @@ FX_TEX = {
 }
 
 
+# Materials that genuinely face both ways. Everything else is a solid
+# surface and gets backface culling, without which "single-sided
+# geometry" is a fiction: the floor quads and ceiling quads would still
+# render from behind, and the atrium would show terrazzo for a soffit.
+TWO_SIDED = {
+    "glassish",          # a window is looked through from both sides
+    "screen", "art",     # thin quads
+    "plant", "linen",    # cross-planes and hanging cloth
+    "fx_ao", "fx_shadow", "fx_traffic", "fx_scuff", "fx_drip",
+    "fx_grease", "fx_burn", "fx_patch", "fx_damp",
+}
+
+
 def get_material(key):
     """Catalog material -> Blender Principled node tree. Textured sets
     wire albedo (sRGB), roughness (non-color) and a tangent normal map at
@@ -491,6 +504,7 @@ def get_material(key):
             mat.blend_method = "CLIP"
         if hasattr(mat, "alpha_threshold"):
             mat.alpha_threshold = 0.5
+        mat.use_backface_culling = key not in TWO_SIDED             and not key.startswith("fx_")
         _mat_cache[key] = mat
         return mat
     if key == "glassish":
@@ -519,6 +533,7 @@ def get_material(key):
         bsdf.inputs["Roughness"].default_value = 1.0
         bsdf.inputs["Specular IOR Level"].default_value = 0.0
         mat.blend_method = "BLEND"
+        mat.use_backface_culling = key not in TWO_SIDED             and not key.startswith("fx_")
         _mat_cache[key] = mat
         return mat
     ts = tex_set(key)
@@ -546,6 +561,7 @@ def get_material(key):
         nrm.location = (-160, -260)
         nt.links.new(nrm_tex.outputs["Color"], nrm.inputs["Color"])
         nt.links.new(nrm.outputs["Normal"], bsdf.inputs["Normal"])
+    mat.use_backface_culling = key not in TWO_SIDED and not key.startswith("fx_")
     _mat_cache[key] = mat
     return mat
 
