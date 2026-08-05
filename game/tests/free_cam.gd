@@ -45,7 +45,6 @@ func _ready() -> void:
 	root = load("res://scenes/building/orison_root.tscn").instantiate()
 	add_child(root)
 	await get_tree().create_timer(1.2).timeout
-	root.show_all_floors = true
 	if root.sanity:
 		root.sanity.stand_down()
 		root.sanity.enabled = false
@@ -62,6 +61,9 @@ func _ready() -> void:
 	cam.far = 220.0
 	add_child(cam)
 	cam.make_current()
+	# The camera drives floor streaming, not the parked body. Forcing the
+	# whole stack visible made the first frame effectively never finish.
+	root.view_override = cam
 	fill = OmniLight3D.new()
 	fill.light_energy = 0.0
 	fill.omni_range = 14.0
@@ -101,6 +103,18 @@ func _shoot_rooms(spec: String) -> void:
 		var parts := entry.strip_edges().split(":")
 		var rid := parts[0]
 		var framing := parts[1] if parts.size() > 1 else "room"
+		if rid.begins_with("@"):
+			# @x_y_z:yaw — a raw stand, for views with no room to name
+			# (the street, the roof edge, the light court from above).
+			# Underscores, not commas: comma separates the shot list.
+			var raw := rid.substr(1).split("_")
+			if raw.size() >= 3:
+				var yaw := float(framing) if framing.is_valid_float() else 0.0
+				_place(Vector3(float(raw[0]), float(raw[1]), float(raw[2])),
+						Vector3(yaw, -4, 0))
+				await get_tree().create_timer(0.35).timeout
+				await _snap("stand_%s.png" % framing)
+			continue
 		if not rects.has(rid):
 			printerr("[FREECAM] unknown room: ", rid)
 			continue
@@ -215,3 +229,4 @@ func _unhandled_input(event: InputEvent) -> void:
 				_snap("freecam_%d.png" % Time.get_ticks_msec())
 			KEY_TAB:
 				root.show_all_floors = not root.show_all_floors
+				_hud.text = "all floors: %s" % root.show_all_floors

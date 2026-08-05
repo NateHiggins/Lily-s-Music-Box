@@ -49,16 +49,29 @@ var _lit := 0
 var _dark := 0
 
 
+## Ruled 2026-08-05: the Orison shows its own structure from the street.
+## Every lit window used to get an unshaded emissive quad hung just
+## behind the glazing - which from outside is an opaque panel pasted
+## over the window, so the facade read as a grid of bright rectangles
+## instead of a building with rooms behind its glass. The real fixtures
+## inside light the reveals now. The NEIGHBOURS keep their panels
+## (_site_lights): those are half a block away, where a panel is all the
+## detail anyone can resolve, and a dark city around a lit building
+## reads as a film set.
+const OWN_WINDOW_PANELS := false
+
+
 func build(layout: Dictionary) -> int:
 	for fl in layout["floors"]:
 		var rooms: Array = fl["rooms"]
 		for w in fl["walls"]:
 			if not (w["mat"] in EXTERIOR_MATS):
 				continue
-			for o in w.get("openings", []):
-				if o.get("type", "") != "window":
-					continue
-				_window(fl, rooms, w, o)
+			if OWN_WINDOW_PANELS:
+				for o in w.get("openings", []):
+					if o.get("type", "") != "window":
+						continue
+					_window(fl, rooms, w, o)
 		# The neighbours get the same treatment from generator data. A dark
 		# city around a lit building reads as a film set with one dressed
 		# facade; these are what put the Orison inside somewhere.

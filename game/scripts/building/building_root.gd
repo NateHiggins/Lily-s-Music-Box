@@ -195,6 +195,10 @@ func _ready() -> void:
 	domestic_witnesses.name = "DomesticWitnessSystem"
 	add_child(domestic_witnesses)
 	domestic_witnesses.build(layout, floor_nodes)
+	# New building, new set of picture hooks. Every subsequent art pass shares
+	# this registry so residents, hallway management, and found art cannot
+	# unknowingly occupy the same visual patch of wall.
+	WallArtLaw.clear_reservations()
 	_spawn_character_memory_art()
 	_spawn_character_wall_art()
 	_spawn_hallway_art()
@@ -887,12 +891,16 @@ func _spawn_character_art_catalog(path: String, error_label: String,
 		var art := CharacterMemoryArt.new()
 		art.setup(spec)
 		if spec.get("placement", "wall") == "tabletop":
-			var x := lerpf(float(rect[0]), float(rect[2]),
+			var wanted_x := lerpf(float(rect[0]), float(rect[2]),
 					float(spec.get("u", 0.5)))
-			var y := lerpf(float(rect[1]), float(rect[3]),
+			var wanted_y := lerpf(float(rect[1]), float(rect[3]),
 					float(spec.get("v", 0.5)))
+			var surface := _nearest_art_surface(floor_data, room,
+					Vector2(wanted_x, wanted_y))
+			var x: float = surface.x
+			var y: float = surface.y
 			art.position = GameBoot.b2g(
-					[x, y, float(floor_data.z) + 0.82])
+					[x, y, float(floor_data.z) + float(surface.height)])
 			art.rotation.y = deg_to_rad(float(spec.get("yaw", 0.0)))
 		else:
 			# The character chose the wall; the legality pass chooses the
@@ -919,6 +927,35 @@ func _spawn_character_art_catalog(path: String, error_label: String,
 		push_error("%s mismatch: expected %d, placed %d"
 				% [error_label, expected, count])
 	print("[BUILDING] %d %s placed" % [count, report_label])
+
+
+## The old tabletop portraits were suspended at z=.82 wherever their u/v
+## landed. Choose the nearest plausible horizontal furniture surface instead;
+## this keeps keepsakes on desks/tables and out of bodies, floors, and walls.
+func _nearest_art_surface(floor_data: Dictionary, room: Dictionary,
+		wanted: Vector2) -> Dictionary:
+	var rr: Array = room.rect
+	var best := {"x": wanted.x, "y": wanted.y, "height": 0.82}
+	var best_distance := INF
+	for fu in floor_data.get("furniture", []):
+		if not fu.has("rect"):
+			continue
+		var r: Array = fu.rect
+		var cx := (float(r[0]) + float(r[2])) * 0.5
+		var cy := (float(r[1]) + float(r[3])) * 0.5
+		if cx < float(rr[0]) or cx > float(rr[2]) \
+				or cy < float(rr[1]) or cy > float(rr[3]):
+			continue
+		var top := float(fu.get("z0", 0.0)) + float(fu.get("h", 0.0))
+		var width := absf(float(r[2]) - float(r[0]))
+		var depth := absf(float(r[3]) - float(r[1]))
+		if top < 0.58 or top > 1.08 or width < 0.38 or depth < 0.30:
+			continue
+		var distance := wanted.distance_to(Vector2(cx, cy))
+		if distance < best_distance:
+			best_distance = distance
+			best = {"x": cx, "y": cy, "height": top + 0.025}
+	return best
 
 
 ## Finds a spot on a room wall where a picture can actually hang: a real
@@ -956,13 +993,31 @@ func _physics_process(_delta: float) -> void:
 ## renders there. The zone spans the stair volume plus the elevator
 ## hall, whose archway frames the same view. F01 stays always-on for
 ## glimpses down through the court windows.
+## A free camera is the eye when one is flying; the player's parked body
+## is not. Without this the debug camera renders whatever floor the body
+## happens to stand on, and forcing the whole stack on instead costs a
+## frame that never finishes.
+var view_override: Node3D
+
+
 func _update_floor_visibility() -> void:
+	if view_override != null and is_instance_valid(view_override):
+		_apply_visibility(view_override.global_position)
+		return
 	if player == null:
 		return
-	var p := player.global_position
+	_apply_visibility(player.global_position)
+
+
+func _apply_visibility(p: Vector3) -> void:
 	var in_eye := absf(p.x) < 3.7 and p.z > -3.7 and p.z < 6.9
+	# Outside the shell you are looking AT the building, and a
+	# building that renders two storeys is a stage flat. The
+	# envelope is 28 by 20 metres; a metre of margin keeps the
+	# doorway from flickering the stack on and off.
+	var outside := absf(p.x) > 15.2 or absf(p.z) > 11.2
 	for fid in floor_nodes:
 		var z: float = layout["meta"]["levels"][fid]
-		floor_nodes[fid].visible = show_all_floors or in_eye \
+		floor_nodes[fid].visible = show_all_floors or in_eye or outside \
 				or fid == "F01" \
 				or absf(p.y - z) < 4.9 or (fid == "ROOF" and p.y > 15.0)

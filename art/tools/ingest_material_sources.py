@@ -147,6 +147,22 @@ def hue_rotate(rgb: np.ndarray, degrees: float) -> np.ndarray:
     return np.asarray(out, dtype=np.float32) / 255.0
 
 
+# Ship resolution. Sources arrive at 2048 and that is right for the
+# BAKE (crops, warps and seam blending all want the headroom), but 105
+# shipped maps at 2048 is ~1.7 GB of uncompressed VRAM, which is what
+# killed the free camera. A material tiling every metre or two has
+# nothing to say above 1024, and roughness has nothing to say above 512.
+SHIP_PX = {"albedo": 1024, "normal": 1024, "roughness": 512,
+           "height": 512}
+
+
+def _fit(img: Image.Image, kind: str) -> Image.Image:
+    cap = SHIP_PX.get(kind, 1024)
+    if max(img.size) <= cap:
+        return img
+    return img.resize((cap, cap), Image.LANCZOS)
+
+
 def write_set(key: str, albedo: np.ndarray, metres: float,
               rough_base: float, rough_span: float,
               normal_strength: float, source_name: str) -> None:
@@ -166,14 +182,18 @@ def write_set(key: str, albedo: np.ndarray, metres: float,
                        nz / norm * 0.5 + 0.5), axis=-1)
     rough = np.clip(rough_base + (0.5 - height) * rough_span * 2.0,
                     0.05, 1.0)
-    Image.fromarray((np.clip(albedo, 0, 1) * 255).astype(np.uint8),
-                    "RGB").save(os.path.join(out_dir, "albedo.png"),
-                                optimize=True)
-    save_gray(height, os.path.join(out_dir, "height.png"))
-    save_gray(rough, os.path.join(out_dir, "roughness.png"))
-    Image.fromarray((np.clip(normal, 0, 1) * 255).astype(np.uint8),
-                    "RGB").save(os.path.join(out_dir, "normal.png"),
-                                optimize=True)
+    _fit(Image.fromarray((np.clip(albedo, 0, 1) * 255).astype(np.uint8),
+                         "RGB"), "albedo").save(
+        os.path.join(out_dir, "albedo.png"), optimize=True)
+    _fit(Image.fromarray((np.clip(height, 0, 1) * 255).astype(np.uint8),
+                         "L"), "height").save(
+        os.path.join(out_dir, "height.png"), optimize=True)
+    _fit(Image.fromarray((np.clip(rough, 0, 1) * 255).astype(np.uint8),
+                         "L"), "roughness").save(
+        os.path.join(out_dir, "roughness.png"), optimize=True)
+    _fit(Image.fromarray((np.clip(normal, 0, 1) * 255).astype(np.uint8),
+                         "RGB"), "normal").save(
+        os.path.join(out_dir, "normal.png"), optimize=True)
     with open(os.path.join(out_dir, "material.json"), "w",
               encoding="utf-8") as fh:
         json.dump({
