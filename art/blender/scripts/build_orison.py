@@ -2272,20 +2272,155 @@ def build_ceiling_overlay(buf, fid, fl, r):
             (x1, y0, ztop), (x0, y0, ztop))
 
 
+# ---------------------------------------------------------------- stair
+# The balustrade is the one assembly every resident touches twice a day
+# and the player climbs seven times, so it is built as joinery rather
+# than as a fence. Prewar New York apartment stairs pair a wrought-iron
+# balustrade with a moulded hardwood handrail: the iron is cheap to
+# repeat and impossible to burn, the rail is what the hand wants. Both
+# have been repainted often enough that the paint is part of the
+# profile.
+#
+# Everything here is modelled the way it was made, because the missing
+# engineering is what made the old boxes read as a fence: balusters sit
+# in a shoe rail with a cast collar at each foot, the handrail is a real
+# moulded section rather than a bar, newels are through-bolted to a
+# plinth with the nut and washer showing, and every rail-to-newel joint
+# carries the plugged access hole of a handrail bolt.
+
+HANDRAIL_W = 0.062          # a hand closes on 60-65 mm
+HANDRAIL_H = 0.052
+SHOE_H = 0.038
+BAL_PITCH = 0.115           # 4 1/2 inch centres: no 100 mm sphere passes
+
+
+def _handrail_section(rail, a0, a1, z0, z1, cross, axis, mat_buf=None):
+    """A moulded handrail, not a bar.
+
+    Four courses make the section read: a wide fillet under the hand, the
+    swelled body, a narrow bead each side, and the undercut groove the
+    fingers actually curl into. Cheap in triangles, and it is the
+    difference between a handrail and a plank.
+    """
+    def band(w, zlo, zhi):
+        if axis == "y":
+            rail.add_ramp(a0, z0 + zlo, a1, z1 + zlo,
+                          cross - w * 0.5, cross + w * 0.5,
+                          thickness=(zhi - zlo), axis="y")
+        else:
+            rail.add_ramp(a0, z0 + zlo, a1, z1 + zlo,
+                          cross - w * 0.5, cross + w * 0.5,
+                          thickness=(zhi - zlo), axis="x")
+    band(HANDRAIL_W * 0.74, 0.0, 0.012)          # fillet under the hand
+    band(HANDRAIL_W, 0.012, 0.040)               # the swelled body
+    band(HANDRAIL_W * 0.86, 0.040, HANDRAIL_H)   # crowned top
+    band(HANDRAIL_W * 0.42, -0.016, 0.0)         # the finger undercut
+
+
+def _baluster(bal, brass, x, y, z0, z1):
+    """One iron baluster: square die, turned vase, twisted centre, collar.
+
+    The die at each end is what a real baluster is mortised by; the
+    collar is the cast shoe that hides the joint, and it is the detail
+    whose absence made the old 36 mm sticks read as dowels.
+    """
+    h = z1 - z0
+    bal.add_box((x - 0.017, y - 0.017, z0), (x + 0.017, y + 0.017,
+                                             z0 + 0.075))
+    bal.add_lathe(x, y, [(0.019, z0 + 0.075), (0.029, z0 + 0.105),
+                         (0.023, z0 + 0.150), (0.013, z0 + 0.205)], 10)
+    # twisted centre: a square bar given a quarter turn per 120 mm
+    twist = max(2, int((h - 0.36) / 0.06))
+    for k in range(twist):
+        za = z0 + 0.205 + k * (h - 0.36) / twist
+        zb = z0 + 0.205 + (k + 1) * (h - 0.36) / twist
+        bal.add_cyl(x, y, za, zb, 0.0135, 0.0135, 4,
+                    phase=k * 0.39)
+    bal.add_lathe(x, y, [(0.013, z1 - 0.155), (0.023, z1 - 0.110),
+                         (0.029, z1 - 0.070), (0.019, z1 - 0.045)], 10)
+    bal.add_box((x - 0.017, y - 0.017, z1 - 0.045),
+                (x + 0.017, y + 0.017, z1))
+    # cast collar at the foot, where the iron enters the shoe rail
+    brass.add_lathe(x, y, [(0.030, z0 + 0.004), (0.033, z0 + 0.016),
+                           (0.024, z0 + 0.030)], 10)
+
+
+def _newel(rail, brass, metal, x, y, z0, top):
+    """A gallery newel: plinth, moulded base, turned shaft, capped.
+
+    Through-bolted to the plinth with the washer and nut left showing,
+    which is how these were actually fixed and the first thing missing
+    from a box.
+    """
+    rail.add_box((x - 0.075, y - 0.075, z0), (x + 0.075, y + 0.075,
+                                              z0 + 0.09))
+    rail.add_lathe(x, y, [(0.075, z0 + 0.09), (0.082, z0 + 0.115),
+                          (0.062, z0 + 0.165)], 12)
+    rail.add_box((x - 0.058, y - 0.058, z0 + 0.165),
+                 (x + 0.058, y + 0.058, top - 0.135))
+    rail.add_lathe(x, y, [(0.058, top - 0.135), (0.079, top - 0.100),
+                          (0.070, top - 0.062), (0.050, top - 0.040)], 12)
+    rail.add_box((x - 0.085, y - 0.085, top - 0.040),
+                 (x + 0.085, y + 0.085, top))
+    # brass ball finial and its neck
+    brass.add_lathe(x, y, [(0.030, top), (0.050, top + 0.036),
+                           (0.030, top + 0.070), (0.010, top + 0.082)], 12)
+    # the fixing: square washer and hex nut, two sides of the plinth
+    for sx_, sy_ in ((1, 0), (0, 1)):
+        metal.add_box((x + sx_ * 0.070 - 0.016, y + sy_ * 0.070 - 0.016,
+                       z0 + 0.030),
+                      (x + sx_ * 0.078 + 0.016, y + sy_ * 0.078 + 0.016,
+                       z0 + 0.062))
+        metal.add_cyl(x + sx_ * 0.081, y + sy_ * 0.081, z0 + 0.038,
+                      z0 + 0.054, 0.011, 0.011, 6)
+
+
+def _rail_bolt_plug(brass, x, y, z, axis):
+    """The plugged access hole of a handrail bolt.
+
+    Every joint between a rail length and a newel is drawn together by a
+    bolt through a pocket cut in the underside, then plugged. The plug is
+    the visible evidence that the rail is jointed rather than extruded -
+    a small disc, and the whole reason the assembly reads as built.
+    """
+    if axis == "y":
+        brass.add_cyl(x, y, z - 0.004, z + 0.004, 0.011, 0.011, 8)
+    else:
+        brass.add_cyl(x, y, z - 0.004, z + 0.004, 0.011, 0.011, 8)
+
+
+def _wall_bracket(metal, brass, x, y, z, facing):
+    """Cast wall bracket for the far-side rail, with its two screws."""
+    metal.add_box((x - 0.028, y - 0.010, z - 0.048),
+                  (x + 0.028, y + 0.010, z + 0.010))
+    metal.add_cyl(x, y + facing * 0.030, z - 0.020, z + 0.006,
+                  0.016, 0.022, 10)
+    for dz in (-0.036, 0.000):
+        brass.add_cyl(x, y - 0.004, z + dz, z + dz + 0.006, 0.006, 0.006, 6)
+
+
 def _rail_line(buf, fid, gx0, gx1, yc, z):
     """Level balustrade along X: handrail, newels, balusters + fall guard."""
     rail = buf(fid, "stairs_rail", "handrail_wood")
     bal = buf(fid, "stairs_bal", "baluster")
+    brass = buf(fid, "stairs_brass", "brass")
+    metal = buf(fid, "stairs_iron", "metal")
     guard = buf(fid, "stairs_guard-colonly", "stair")
-    rail.add_box((gx0 - 0.06, yc - 0.045, z + 0.86),
-                 (gx1 + 0.06, yc + 0.045, z + 0.96))
-    rail.add_box((gx0 - 0.13, yc - 0.06, z), (gx0 - 0.02, yc + 0.06, z + 1.02))
-    rail.add_box((gx1 + 0.02, yc - 0.06, z), (gx1 + 0.13, yc + 0.06, z + 1.02))
-    k = max(4, int((gx1 - gx0) / 0.16))
+    top = z + 0.92
+    # shoe rail: the moulded base the balusters are mortised into
+    rail.add_box((gx0 - 0.02, yc - 0.030, z),
+                 (gx1 + 0.02, yc + 0.030, z + SHOE_H))
+    _handrail_section(rail, gx0 - 0.06, gx1 + 0.06, top, top, yc, "x")
+    _newel(rail, brass, metal, gx0 - 0.075, yc, z, top)
+    _newel(rail, brass, metal, gx1 + 0.075, yc, z, top)
+    # the plugged handrail bolt at each newel joint
+    for nx in (gx0 - 0.02, gx1 + 0.02):
+        _rail_bolt_plug(brass, nx, yc + 0.031, top + 0.026, "x")
+    span = gx1 - gx0
+    k = max(4, int(span / BAL_PITCH))
     for j in range(k):
-        xj = gx0 + (j + 0.5) * (gx1 - gx0) / k
-        bal.add_box((xj - 0.018, yc - 0.018, z), (xj + 0.018, yc + 0.018,
-                                                  z + 0.86))
+        xj = gx0 + (j + 0.5) * span / k
+        _baluster(bal, brass, xj, yc, z + SHOE_H, top)
     guard.add_box((gx0 - 0.13, yc - 0.03, z), (gx1 + 0.13, yc + 0.03, z + 1.0))
 
 
@@ -2297,6 +2432,8 @@ def _flight(buf, part):
     ramp = buf(fid, "stairs_ramp-colonly", "stair")
     rail = buf(fid, "stairs_rail", "handrail_wood")
     bal = buf(fid, "stairs_bal", "baluster")
+    brass = buf(fid, "stairs_brass", "brass")
+    metal = buf(fid, "stairs_iron", "metal")
     guard = buf(fid, "stairs_guard-colonly", "stair")
     n, rise, tread = part["n"], part["rise"], part["tread"]
     s, d = part["start"], part["dir"]
@@ -2329,17 +2466,28 @@ def _flight(buf, part):
     for i in range(1, n):
         for frac in (0.72, 0.28):   # two per tread, real balustrade rhythm
             am = s + d * (i - frac) * tread
-            bal.add_box((xr - 0.02, am - 0.02, z0 + i * rise),
-                        (xr + 0.02, am + 0.02, z0 + i * rise + 0.84))
-    rail.add_ramp(s, z0 + 0.92, a_end, z0 + n * rise + 0.92,
-                  xr - 0.045, xr + 0.045, thickness=0.07, axis="y")
-    rail.add_ramp(s, z0 + 0.87, a_end, z0 + n * rise + 0.87,
-                  xw - 0.032, xw + 0.032, thickness=0.05, axis="y")
+            zb = z0 + i * rise
+            _baluster(bal, brass, xr, am, zb + SHOE_H - 0.012,
+                      zb + 0.92)
+    # raked shoe rail under the balusters, and the moulded rail over them
+    rail.add_ramp(s, z0 + 0.86, a_end, z0 + n * rise + 0.86,
+                  xr - 0.030, xr + 0.030, thickness=SHOE_H, axis="y")
+    _handrail_section(rail, s, a_end, z0 + 0.92, z0 + n * rise + 0.92,
+                      xr, "y")
+    # the wall-side rail is carried on cast brackets, not floating
+    _handrail_section(rail, s, a_end, z0 + 0.87, z0 + n * rise + 0.87,
+                      xw, "y")
+    for bi in range(1, max(2, n // 3)):
+        ba = s + d * bi * 3.0 * tread
+        bz = z0 + bi * 3.0 * rise + 0.87
+        if min(s, a_end) <= ba <= max(s, a_end):
+            _wall_bracket(metal, brass, xw, ba, bz - 0.03,
+                          1.0 if xw < xr else -1.0)
     guard.add_ramp(s, z0 + 0.95, a_end, z0 + n * rise + 0.95,
                    xr - 0.03, xr + 0.03, thickness=0.95, axis="y")
-    na = s + d * 0.02  # base newel; the landing/floor rails own the tops
-    rail.add_box((xr - 0.055, min(na, na + d * 0.11), z0),
-                 (xr + 0.055, max(na, na + d * 0.11), z0 + 1.04))
+    na = s + d * 0.06  # starting newel; landing rails own the tops
+    _newel(rail, brass, metal, xr, na, z0, z0 + 0.98)
+    _rail_bolt_plug(brass, xr + 0.031, na + d * 0.09, z0 + 0.95, "y")
 
 
 def build_stair(buf, st):
