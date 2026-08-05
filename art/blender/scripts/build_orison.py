@@ -1805,7 +1805,14 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
         else:
             box(trim_buf, d0, d1, 0.0, 0.11, t + 0.036)
         if wains:
-            box(wains_buf, d0, d1, 0.11, 1.32, t + 0.022)
+            # A tiled dado belongs to the wet room only: bathroom walls
+            # record which face is the bath, and the band goes on that
+            # side alone so the bedroom next door keeps its plaster.
+            bath_side = w.get("wains_side")
+            if bath_side:
+                side_box(wains_buf, d0, d1, 0.11, 1.32, bath_side, 0.024)
+            else:
+                box(wains_buf, d0, d1, 0.11, 1.32, t + 0.022)
             box(trim_buf, d0, d1, 1.32, 1.36, t + 0.040)
             # A small bullnose bead catches a soft highlight and makes the
             # dado read as installed millwork instead of a razor-edged box.
@@ -2434,7 +2441,9 @@ def build():
             build_wall(buf(fid, cat, w["mat"]), w,
                        buf(fid, "trim", "trim"),
                        buf(fid, "glazing-col", "glassish"),
-                       buf(fid, "wainscot", "wainscot"),
+                       buf(fid, "wainscot_%s" % w.get("wains_mat",
+                                                       "wainscot"),
+                           w.get("wains_mat", "wainscot")),
                        buf(fid, "stone_trim-col", "limestone"),
                        buf(fid, "fx_ao_decal", "fx_ao"))
             if w["mat"] in ("brick", "common_brick", "face_brick") \

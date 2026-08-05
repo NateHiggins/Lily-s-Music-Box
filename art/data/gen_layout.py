@@ -146,6 +146,46 @@ def normalize_wall_construction(floors):
           "%d exterior masonry walls retained" % (converted, exterior))
 
 
+def tile_bathroom_walls(floors):
+    """Wainscot every bathroom wall in glazed subway tile.
+
+    The 1920s tiled its bathrooms to shoulder height without exception,
+    and the dado band the wainscot system already draws (0.11-1.32 m) is
+    exactly that height. Rather than hand-flag walls across four stack
+    variants, probe geometrically the way the door/unit resolution does:
+    a wall whose either face stands inside a bathroom rect gets tile.
+    """
+    tiled = 0
+    for fl in floors:
+        baths = [r["rect"] for r in fl["rooms"]
+                 if r.get("kind") == "bathroom"]
+        if not baths:
+            continue
+        for w in fl["walls"]:
+            if w.get("cat", "walls") != "walls" or w.get("wainscot"):
+                continue
+            (ax, ay), (bx, by) = w["a"], w["b"]
+            mx, my = (ax + bx) * 0.5, (ay + by) * 0.5
+            horizontal = abs(by - ay) < 1e-6
+            hit = 0
+            for off in (0.12, -0.12):
+                px = mx if horizontal else mx + off
+                py = my + off if horizontal else my
+                for r in baths:
+                    if r[0] < px < r[2] and r[1] < py < r[3]:
+                        # +Y / +X faces are side +1 in the exporter
+                        hit = 1 if off > 0 else -1
+                        break
+                if hit:
+                    break
+            if hit:
+                w["wainscot"] = True
+                w["wains_mat"] = "subway_tile"
+                w["wains_side"] = hit
+                tiled += 1
+    print("bathroom tiling: %d walls wainscoted in subway tile" % tiled)
+
+
 def arch(at, w, h=2.85):
     """Full-width archway: an opening with no leaf (grand stair passages)."""
     return {"type": "door", "at": at, "w": w, "h": h, "sill": 0.0,
@@ -4015,6 +4055,17 @@ MATERIAL_CATALOG = {
     "trim": {"base_color": [0.85, 0.83, 0.77, 1.0], "roughness": 0.45},
     "floor_oak": {"base_color": [0.45, 0.33, 0.22, 1.0], "roughness": 0.55},
     "terrazzo": {"base_color": [0.72, 0.70, 0.66, 1.0], "roughness": 0.40},
+    # Sourced from the AI material library (ai_materials/), placed by
+    # their own passes: bathroom wainscot, radiator bodies, corridor
+    # ceilings, lobby dado.
+    "subway_tile": {"base_color": [0.88, 0.87, 0.83, 1.0],
+                    "roughness": 0.28},
+    "cast_iron": {"base_color": [0.52, 0.50, 0.48, 1.0], "roughness": 0.60,
+                  "metallic": 0.35},
+    "tin_ceiling": {"base_color": [0.82, 0.79, 0.72, 1.0],
+                    "roughness": 0.45, "metallic": 0.08},
+    "marble_lobby": {"base_color": [0.86, 0.85, 0.82, 1.0],
+                     "roughness": 0.30},
     "metal": {"base_color": [0.55, 0.56, 0.58, 1.0], "roughness": 0.35,
               "metallic": 0.9},
     "slab": {"base_color": [0.35, 0.34, 0.33, 1.0], "roughness": 0.7},
@@ -4121,6 +4172,7 @@ def main():
     # Run after every architectural contributor, including atrium_tree,
     # otherwise the stairwell can reintroduce thin brick walls after audit.
     normalize_wall_construction(floors)
+    tile_bathroom_walls(floors)
     radiator_pipe_pass(floors)
     aging_pass(floors)
     # The old global renovation treatment deliberately placed exposed-brick
