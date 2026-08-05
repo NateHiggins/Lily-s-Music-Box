@@ -218,15 +218,15 @@
 		},
 		{
 			"mesh":37,
-			"name":"ROOF_stairs"
-		},
-		{
-			"mesh":38,
 			"name":"ROOF_stairs_bal"
 		},
 		{
-			"mesh":39,
+			"mesh":38,
 			"name":"ROOF_stairs_guard-colonly"
+		},
+		{
+			"mesh":39,
+			"name":"ROOF_stairs_landing"
 		},
 		{
 			"mesh":40,
@@ -716,7 +716,7 @@
 			}
 		},
 		{
-			"name":"M_plaster",
+			"name":"M_landing",
 			"normalTexture":{
 				"index":71,
 				"scale":0.3499999940395355
@@ -732,7 +732,7 @@
 			}
 		},
 		{
-			"name":"M_brick",
+			"name":"M_plaster",
 			"normalTexture":{
 				"index":74,
 				"scale":0.3499999940395355
@@ -748,7 +748,7 @@
 			}
 		},
 		{
-			"name":"M_common_brick",
+			"name":"M_brick",
 			"normalTexture":{
 				"index":77,
 				"scale":0.3499999940395355
@@ -764,6 +764,22 @@
 			}
 		},
 		{
+			"name":"M_common_brick",
+			"normalTexture":{
+				"index":80,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":81
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":82
+				}
+			}
+		},
+		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
 			"extensions":{
@@ -774,7 +790,7 @@
 			"name":"M_fx_drip",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":80
+					"index":83
 				},
 				"metallicFactor":0
 			}
@@ -790,7 +806,7 @@
 			"name":"M_fx_scuff",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":81
+					"index":84
 				},
 				"metallicFactor":0
 			}
@@ -806,7 +822,7 @@
 			"name":"M_fx_traffic",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":82
+					"index":85
 				},
 				"metallicFactor":0
 			}
@@ -1332,7 +1348,7 @@
 			]
 		},
 		{
-			"name":"ROOF_stairs",
+			"name":"ROOF_stairs_bal",
 			"primitives":[
 				{
 					"attributes":{
@@ -1340,21 +1356,7 @@
 						"NORMAL":139,
 						"TEXCOORD_0":140
 					},
-					"indices":78,
-					"material":26
-				}
-			]
-		},
-		{
-			"name":"ROOF_stairs_bal",
-			"primitives":[
-				{
-					"attributes":{
-						"POSITION":141,
-						"NORMAL":142,
-						"TEXCOORD_0":143
-					},
-					"indices":144,
+					"indices":141,
 					"material":17
 				}
 			]
@@ -1364,12 +1366,26 @@
 			"primitives":[
 				{
 					"attributes":{
+						"POSITION":142,
+						"NORMAL":143,
+						"TEXCOORD_0":144
+					},
+					"indices":78,
+					"material":26
+				}
+			]
+		},
+		{
+			"name":"ROOF_stairs_landing",
+			"primitives":[
+				{
+					"attributes":{
 						"POSITION":145,
 						"NORMAL":146,
 						"TEXCOORD_0":147
 					},
 					"indices":78,
-					"material":26
+					"material":27
 				}
 			]
 		},
@@ -1438,8 +1454,8 @@
 						"NORMAL":162,
 						"TEXCOORD_0":163
 					},
-					"indices":144,
-					"material":27
+					"indices":141,
+					"material":28
 				}
 			]
 		},
@@ -1453,7 +1469,7 @@
 						"TEXCOORD_0":166
 					},
 					"indices":123,
-					"material":28
+					"material":29
 				}
 			]
 		},
@@ -1467,7 +1483,7 @@
 						"TEXCOORD_0":169
 					},
 					"indices":78,
-					"material":29
+					"material":30
 				}
 			]
 		},
@@ -1495,7 +1511,7 @@
 						"TEXCOORD_0":175
 					},
 					"indices":176,
-					"material":30
+					"material":31
 				}
 			]
 		},
@@ -1509,7 +1525,7 @@
 						"TEXCOORD_0":179
 					},
 					"indices":180,
-					"material":31
+					"material":32
 				}
 			]
 		},
@@ -1523,7 +1539,7 @@
 						"TEXCOORD_0":183
 					},
 					"indices":184,
-					"material":32
+					"material":33
 				}
 			]
 		}
@@ -1860,6 +1876,18 @@
 		{
 			"sampler":0,
 			"source":82
+		},
+		{
+			"sampler":0,
+			"source":83
+		},
+		{
+			"sampler":0,
+			"source":84
+		},
+		{
+			"sampler":0,
+			"source":85
 		}
 	],
 	"images":[
@@ -2217,6 +2245,21 @@
 			"mimeType":"image/png",
 			"name":"T_ai_materials_stair_rough",
 			"uri":"textures/T_ai_materials_stair_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_terrazzo_normal",
+			"uri":"textures/T_ai_materials_terrazzo_normal.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_terrazzo_albedo",
+			"uri":"textures/T_ai_materials_terrazzo_albedo.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_terrazzo_rough",
+			"uri":"textures/T_ai_materials_terrazzo_rough.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -3481,34 +3524,6 @@
 		{
 			"bufferView":138,
 			"componentType":5126,
-			"count":24,
-			"max":[
-				3.1600000858306885,
-				19.200000762939453,
-				3.1600000858306885
-			],
-			"min":[
-				-3.1600000858306885,
-				19.020000457763672,
-				1.4600000381469727
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":139,
-			"componentType":5126,
-			"count":24,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":140,
-			"componentType":5126,
-			"count":24,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":141,
-			"componentType":5126,
 			"count":432,
 			"max":[
 				1.3968888521194458,
@@ -3523,25 +3538,25 @@
 			"type":"VEC3"
 		},
 		{
-			"bufferView":142,
+			"bufferView":139,
 			"componentType":5126,
 			"count":432,
 			"type":"VEC3"
 		},
 		{
-			"bufferView":143,
+			"bufferView":140,
 			"componentType":5126,
 			"count":432,
 			"type":"VEC2"
 		},
 		{
-			"bufferView":144,
+			"bufferView":141,
 			"componentType":5123,
 			"count":648,
 			"type":"SCALAR"
 		},
 		{
-			"bufferView":145,
+			"bufferView":142,
 			"componentType":5126,
 			"count":24,
 			"max":[
@@ -3553,6 +3568,34 @@
 				-1.590000033378601,
 				19.200000762939453,
 				1.4850000143051147
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":143,
+			"componentType":5126,
+			"count":24,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":144,
+			"componentType":5126,
+			"count":24,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":145,
+			"componentType":5126,
+			"count":24,
+			"max":[
+				3.1600000858306885,
+				19.200000762939453,
+				3.1600000858306885
+			],
+			"min":[
+				-3.1600000858306885,
+				19.020000457763672,
+				1.4600000381469727
 			],
 			"type":"VEC3"
 		},
@@ -4732,45 +4775,45 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":288,
+			"byteLength":5184,
 			"byteOffset":2575464,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":288,
-			"byteOffset":2575752,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":192,
-			"byteOffset":2576040,
-			"target":34962
-		},
-		{
-			"buffer":0,
 			"byteLength":5184,
-			"byteOffset":2576232,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":5184,
-			"byteOffset":2581416,
+			"byteOffset":2580648,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":3456,
-			"byteOffset":2586600,
+			"byteOffset":2585832,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1296,
-			"byteOffset":2590056,
+			"byteOffset":2589288,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":288,
+			"byteOffset":2590584,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":288,
+			"byteOffset":2590872,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":192,
+			"byteOffset":2591160,
+			"target":34962
 		},
 		{
 			"buffer":0,

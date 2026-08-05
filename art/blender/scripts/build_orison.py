@@ -1879,15 +1879,27 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
         else:
             box(trim_buf, d0, d1, 0.0, 0.11, t + 0.036)
         if wains:
+            # The dado runs to 1.32 and a borrow light sills at 1.05, so
+            # the board crossed the bottom of every aperture on the hall
+            # side. Under one, it stops at the sill.
+            dado_top = 1.32
+            for o2 in openings:
+                if not o2.get("decorative_alcove"):
+                    continue
+                od0 = o2["at"] - o2["w"] * 0.5
+                od1 = o2["at"] + o2["w"] * 0.5
+                if d0 < od1 and d1 > od0:
+                    dado_top = min(dado_top, float(o2.get("sill", 1.32)))
             # A tiled dado belongs to the wet room only: bathroom walls
             # record which face is the bath, and the band goes on that
             # side alone so the bedroom next door keeps its plaster.
             dado_side = w.get("wains_side")
             if dado_side:
-                side_box(wains_buf, d0, d1, 0.11, 1.32, dado_side, 0.024)
+                side_box(wains_buf, d0, d1, 0.11, dado_top, dado_side,
+                         0.024)
             else:
-                box(wains_buf, d0, d1, 0.11, 1.32, t + 0.022)
-            box(trim_buf, d0, d1, 1.32, 1.36, t + 0.040)
+                box(wains_buf, d0, d1, 0.11, dado_top, t + 0.022)
+            box(trim_buf, d0, d1, dado_top, dado_top + 0.04, t + 0.040)
             # A small bullnose bead catches a soft highlight and makes the
             # dado read as installed millwork instead of a razor-edged box.
             # Run it on both wall faces so corridor and room views agree.
@@ -1943,6 +1955,19 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
                 box(surround, d0, d0 + 0.05, 0.0, top, ft)
                 box(surround, d1 - 0.05, d1, 0.0, top, ft)
                 box(surround, d0, d1, top, top + 0.06, ft)
+            elif o.get("decorative_alcove"):
+                # A borrow light is a hole cut between the stair and the
+                # corridor, not a window onto anything. It was being
+                # dressed as one: jambs, a head, a sill board projecting
+                # 5 cm into the hall, and a soldier lintel over it. All
+                # of that is gone. What lines the aperture is what
+                # really would - the plaster returning into the reveal
+                # on all four sides, and nothing else.
+                for zz0, zz1 in ((o["sill"], o["sill"] + 0.018),
+                                 (top - 0.018, top)):
+                    box(trim_buf, d0, d1, zz0, zz1, t - 0.004)
+                for dd0, dd1 in ((d0, d0 + 0.018), (d1 - 0.018, d1)):
+                    box(trim_buf, dd0, dd1, o["sill"], top, t - 0.004)
             else:
                 box(surround, d0, d0 + 0.06, o["sill"], top, ft)
                 box(surround, d1 - 0.06, d1, o["sill"], top, ft)
@@ -2201,11 +2226,13 @@ def build_floor_overlay(buf, fid, fl, r):
     rects = [tuple(r["rect"])]
     if r["kind"] == "corridor":  # ring only: the whole core column is
         rects = subtract_rect(rects, (-3.43, -6.93, 3.43, 6.93))
-        for hole in fl["slabs"][0]["holes"]:  # handled by its own rooms
-            rects = subtract_rect(rects, tuple(hole))
-    elif r["kind"] == "hall":    # keep clear of the elevator shaft pit
-        for hole in fl["slabs"][0]["holes"]:
-            rects = subtract_rect(rects, tuple(hole))
+    # A floor finish may never cover a hole in its own slab. This used to
+    # be done for corridors and halls only, so the moment the atrium and
+    # lobby were given a finish they paved the light well and the stair
+    # opening - the floor rendered straight across the void the stairs
+    # rise through.
+    for hole in fl["slabs"][0]["holes"]:
+        rects = subtract_rect(rects, tuple(hole))
     for (x0, y0, x1, y1) in rects:
         # A floor finish is one upward face. The old box also drew an
         # underside (buried in the slab, free to z-fight) and four edge
@@ -2325,7 +2352,11 @@ def build_stair(buf, st):
             is_deck = "guard_span" not in part
             fid = floor_for_z(part["z"] + (0.01 if is_deck else -0.5))
             r = part["rect"]
-            for b in (buf(fid, "stairs", "stair"),
+            # A landing is a floor, not a tread: it is laid, not
+            # dished, and it wears differently because people turn on
+            # it rather than climb it. Separate material so the two can
+            # be textured apart.
+            for b in (buf(fid, "stairs_landing", "landing"),
                       buf(fid, "stairs_ramp-colonly", "stair")):
                 b.add_box((r[0], r[1], part["z"] - 0.18),
                           (r[2], r[3], part["z"]))

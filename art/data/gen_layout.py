@@ -4269,6 +4269,9 @@ MATERIAL_CATALOG = {
     # ceilings, lobby dado.
     "subway_tile": {"base_color": [0.88, 0.87, 0.83, 1.0],
                     "roughness": 0.28},
+    # Stair landings: laid terrazzo rather than the dished marble of the
+    # treads, so the two wear apart and can be textured apart.
+    "landing": {"base_color": [0.70, 0.68, 0.63, 1.0], "roughness": 0.42},
     "cast_iron": {"base_color": [0.52, 0.50, 0.48, 1.0], "roughness": 0.60,
                   "metallic": 0.35},
     "tin_ceiling": {"base_color": [0.82, 0.79, 0.72, 1.0],
