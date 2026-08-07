@@ -1,0 +1,592 @@
+{
+  "meta": {
+    "source": "design/ORISON_ARCHETYPE_SCHEDULES.md",
+    "authored": "hand-transcribed 2026-08-07; edit this file and the doc together - the SIII interlocks are written into both sides",
+    "schema": {
+      "block": "start_min/end_min are minutes of day, 0..1440, end exclusive; blocks never wrap midnight (split at 1440 instead)",
+      "selection": "for a given minute of a given day, the most specific covering block wins: special_days (doy) > monthly+days > days > base (no days field)",
+      "days": "mon tue wed thu fri sat sun; absent = every day",
+      "monthly": "'first' = first matching weekday of the month (used with days, e.g. the first-Saturday tenant meeting)",
+      "place": "unit:<room> | visit:<unit>[_doorway] | lobby | mail_bank | corridor | stairs | half_landing | roof | laundry | light_court | bodega | harukiya_bar | out",
+      "route": "optional ordered place list for rounds/patrols; place is the primary anchor",
+      "activity": "sleeping waking shower dressing cooking eating errand work hobby socializing tv radio rest chores patrol rounds ritual transit wind_down",
+      "outfit": "street | late_night | towel - the wardrobe bible's three states; reserved for #46 model swaps, runtime may ignore until then",
+      "with": "other resident slugs sharing the block (SIII interlock pairings)",
+      "chance": "optional 0..1 probability the block fires at all that day; chance blocks overlay their base and are exempt from overlap checks",
+      "role": "transient_guests only: guest_a | guest_b - the pair alternates; a single spawned actor should follow guest_b (the night-visible one)",
+      "special_days": "doy = day of year, non-leap arithmetic per the doc; blocks overlay that day's resolved timetable; proposed=true dates await ratification under the bible's evidence discipline"
+    }
+  },
+  "residents": {
+    "evelyn_marsh": {
+      "unit": "1A",
+      "blocks": [
+        {"start_min": 0, "end_min": 330, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night", "detail": "deep; the building's most reliable dark window"},
+        {"start_min": 330, "end_min": 350, "place": "unit:bathroom", "activity": "shower", "outfit": "towel"},
+        {"start_min": 350, "end_min": 375, "place": "unit", "activity": "dressing", "outfit": "street", "detail": "fully, though no one will come"},
+        {"start_min": 375, "end_min": 420, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "breakfast at a properly set table; radio news"},
+        {"start_min": 420, "end_min": 450, "place": "bodega", "activity": "errand", "outfit": "street", "detail": "paper and milk; corrects the sale sign in her head"},
+        {"start_min": 450, "end_min": 510, "place": "unit", "activity": "hobby", "outfit": "street", "detail": "ironing things nobody will see; radio still on"},
+        {"start_min": 510, "end_min": 600, "place": "lobby", "activity": "rounds", "outfit": "street", "route": ["lobby", "mail_bank", "corridor"], "detail": "noticeboard tidied, notices red-pencilled, neighbours' lists collected"},
+        {"start_min": 600, "end_min": 720, "place": "out", "activity": "errand", "outfit": "street", "detail": "the errand circuit for others"},
+        {"start_min": 720, "end_min": 780, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "lunch"},
+        {"start_min": 780, "end_min": 900, "place": "unit", "activity": "hobby", "outfit": "street", "detail": "marking: letters, workbooks, some afternoons the 1954 register"},
+        {"start_min": 900, "end_min": 960, "place": "laundry", "activity": "chores", "outfit": "street", "detail": "wipes the machines down afterward whether they need it or not"},
+        {"start_min": 960, "end_min": 1100, "place": "unit", "activity": "hobby", "outfit": "street", "detail": "tea; baking something for a neighbour who did not ask"},
+        {"start_min": 1080, "end_min": 1100, "place": "mail_bank", "activity": "socializing", "outfit": "street", "days": ["mon", "tue", "wed", "thu", "fri"], "with": ["peter_wren"], "detail": "intercepts Peter; corrects exactly one small thing; neither names the register"},
+        {"start_min": 1100, "end_min": 1170, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "dinner"},
+        {"start_min": 1170, "end_min": 1275, "place": "unit", "activity": "tv", "outfit": "street", "detail": "quiz programmes; corrects the host aloud"},
+        {"start_min": 1275, "end_min": 1305, "place": "unit", "activity": "wind_down", "outfit": "late_night", "detail": "tomorrow's clothes laid out; pencil into her hair"},
+        {"start_min": 1305, "end_min": 1440, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 510, "end_min": 660, "place": "corridor", "activity": "socializing", "outfit": "street", "days": ["sat"], "detail": "the bake-and-deliver round, floor by floor; a corrected recipe is still a correction"},
+        {"start_min": 600, "end_min": 720, "place": "lobby", "activity": "socializing", "outfit": "street", "days": ["sat"], "monthly": "first", "with": ["nadia_quell", "lena_ortiz", "peter_wren"], "detail": "the tenant-association meeting takes her audience, so she attends"},
+        {"start_min": 600, "end_min": 720, "place": "out", "activity": "rest", "outfit": "street", "days": ["sun"], "detail": "the long walk, same route, same duration; no errands accepted"},
+        {"start_min": 750, "end_min": 840, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "days": ["sun"], "detail": "Sunday lunch, the table set for more places than are needed"},
+        {"start_min": 900, "end_min": 1020, "place": "unit", "activity": "hobby", "outfit": "street", "days": ["sun"], "detail": "letters to former students; only the uncorrected ones are posted, which is why almost none are"}
+      ],
+      "special_days": [
+        {"doy": 244, "proposed": true, "label": "first day of term", "blocks": [
+          {"start_min": 375, "end_min": 540, "place": "unit", "activity": "ritual", "outfit": "street", "detail": "every pencil sharpened, the 1954 register open, dressed for school; concedes the day at 09:00"},
+          {"start_min": 1080, "end_min": 1100, "place": "unit", "activity": "hobby", "outfit": "street", "detail": "the one evening she does not intercept Peter at the mail bank"}
+        ]}
+      ]
+    },
+    "teresa_vale": {
+      "unit": "1D",
+      "blocks": [
+        {"start_min": 0, "end_min": 420, "place": "out", "activity": "work", "outfit": "street", "days": ["mon", "tue", "wed", "thu", "fri"], "detail": "night shift, St. Adjutor's; answers every alarm on the ward, hers or not"},
+        {"start_min": 420, "end_min": 460, "place": "out", "activity": "transit", "outfit": "street", "days": ["mon", "tue", "wed", "thu", "fri"], "detail": "the walk home in yesterday's scrubs"},
+        {"start_min": 460, "end_min": 480, "place": "bodega", "activity": "errand", "outfit": "street", "days": ["mon", "tue", "wed", "thu", "fri"], "detail": "thermos refilled; the night clerk knows her order"},
+        {"start_min": 480, "end_min": 585, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["mon", "tue", "wed", "thu", "fri"], "detail": "decompression: tv low, blackout curtains drawn"},
+        {"start_min": 585, "end_min": 600, "place": "unit:bathroom", "activity": "shower", "outfit": "towel", "days": ["mon", "tue", "wed", "thu", "fri"]},
+        {"start_min": 600, "end_min": 1020, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night", "days": ["mon", "tue", "wed", "thu", "fri"], "detail": "blackout; canon hours"},
+        {"start_min": 1020, "end_min": 1080, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night", "days": ["mon", "tue", "wed", "thu", "fri"], "detail": "waking; breakfast-at-dusk"},
+        {"start_min": 1080, "end_min": 1170, "place": "unit", "activity": "chores", "outfit": "late_night", "days": ["mon", "wed", "fri"], "detail": "go-bag restock, uniform turnover; everything staged for departure"},
+        {"start_min": 1080, "end_min": 1170, "place": "laundry", "activity": "chores", "outfit": "late_night", "days": ["tue", "thu"]},
+        {"start_min": 1170, "end_min": 1215, "place": "corridor", "activity": "patrol", "outfit": "late_night", "days": ["sun", "mon", "tue", "wed", "thu"], "route": ["corridor", "lobby"], "detail": "the pre-shift patrol: the boiler, the half-landing tread, a knock on 1A"},
+        {"start_min": 1215, "end_min": 1260, "place": "unit", "activity": "tv", "outfit": "late_night", "days": ["sun", "mon", "tue", "wed", "thu"], "detail": "falls asleep in the chair for twenty minutes and denies it"},
+        {"start_min": 1260, "end_min": 1320, "place": "unit", "activity": "dressing", "outfit": "street", "days": ["sun", "mon", "tue", "wed", "thu"], "detail": "packing the 03:00 meal, filling the thermos"},
+        {"start_min": 1320, "end_min": 1340, "place": "lobby", "activity": "transit", "outfit": "street", "days": ["sun", "mon", "tue", "wed", "thu"], "detail": "leaves for shift, seventy minutes before Mina's late run; the Vales miss each other by design"},
+        {"start_min": 1340, "end_min": 1440, "place": "out", "activity": "work", "outfit": "street", "days": ["sun", "mon", "tue", "wed", "thu"]},
+        {"start_min": 1170, "end_min": 1380, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["fri"], "detail": "a night off she cannot flip; night hours kept anyway"},
+        {"start_min": 1380, "end_min": 1440, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["fri"], "with": ["juno_kells"], "detail": "one drink, the seat nearest the exit; watches the room like triage, never sings"},
+        {"start_min": 0, "end_min": 90, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["sat"]},
+        {"start_min": 90, "end_min": 180, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sat"]},
+        {"start_min": 180, "end_min": 270, "place": "laundry", "activity": "chores", "outfit": "late_night", "days": ["sat"], "detail": "the building's stillest hour, alone with the machines; the nearest thing she has to rest, done standing up"},
+        {"start_min": 270, "end_min": 360, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sat"]},
+        {"start_min": 360, "end_min": 840, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night", "days": ["sat", "sun"], "detail": "the failed attempt to shift back; she gives up by Sunday"},
+        {"start_min": 840, "end_min": 1440, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sat"]},
+        {"start_min": 0, "end_min": 360, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"]},
+        {"start_min": 840, "end_min": 1170, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"], "detail": "the working-week pattern resumes at 20:00"}
+      ],
+      "special_days": [
+        {"doy": 290, "proposed": true, "label": "the night Price died on her ward", "note": "volunteers for the shift every year, swapping to get it if she must; makes herself answer the first alarm at a walk and has never managed it past the third step", "blocks": []}
+      ]
+    },
+    "mina_vale": {
+      "unit": "2A",
+      "blocks": [
+        {"start_min": 0, "end_min": 180, "place": "unit:desk", "activity": "work", "outfit": "late_night", "detail": "caption passes against the deadline queue; headphones, stylus behind the ear"},
+        {"start_min": 180, "end_min": 200, "place": "mail_bank", "activity": "ritual", "outfit": "late_night", "detail": "the 03:00 walk: box 2A checked, the lobby's changes logged in the pocket book"},
+        {"start_min": 200, "end_min": 270, "place": "unit", "activity": "hobby", "outfit": "late_night", "detail": "the personal archive: indexing, re-labelling, cross-referencing"},
+        {"start_min": 270, "end_min": 690, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 690, "end_min": 710, "place": "unit:bathroom", "activity": "shower", "outfit": "towel"},
+        {"start_min": 710, "end_min": 735, "place": "unit", "activity": "dressing", "outfit": "street", "detail": "to court standard, for work she will do alone in a room"},
+        {"start_min": 735, "end_min": 780, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "a transcript playing"},
+        {"start_min": 780, "end_min": 825, "place": "bodega", "activity": "errand", "outfit": "street", "detail": "13:30 sharp, same list, receipt kept and filed"},
+        {"start_min": 825, "end_min": 1140, "place": "unit:desk", "activity": "work", "outfit": "street", "detail": "the main caption block"},
+        {"start_min": 1140, "end_min": 1200, "place": "unit", "activity": "eating", "outfit": "street", "detail": "dinner re-watching the day's captions, checking her own work against itself"},
+        {"start_min": 1200, "end_min": 1410, "place": "unit:desk", "activity": "work", "outfit": "street", "detail": "second pass; corrections of corrections"},
+        {"start_min": 1410, "end_min": 1430, "place": "bodega", "activity": "errand", "outfit": "street", "days": ["mon", "tue", "wed", "thu", "fri", "sat"], "detail": "the late run; Teresa left at 22:20 and the Vales' hours do not overlap"},
+        {"start_min": 1410, "end_min": 1430, "place": "unit:desk", "activity": "work", "outfit": "street", "days": ["sun"], "detail": "the late run skipped; Sunday ends one record short and it itches"},
+        {"start_min": 1430, "end_min": 1440, "place": "unit", "activity": "rest", "outfit": "street", "detail": "tea; back to the desk"},
+        {"start_min": 780, "end_min": 870, "place": "laundry", "activity": "chores", "outfit": "street", "days": ["sat"], "detail": "folded to uniform dimensions, logged"},
+        {"start_min": 900, "end_min": 960, "place": "out", "activity": "rest", "outfit": "street", "days": ["sat"], "detail": "the weekly walk, recorded as voice memos instead of taken"},
+        {"start_min": 780, "end_min": 1140, "place": "unit", "activity": "hobby", "outfit": "street", "days": ["sun"], "detail": "archive day: the full re-index; the shadow's deepest weekly observance"}
+      ],
+      "special_days": [
+        {"doy": 124, "proposed": true, "label": "the date of the record", "blocks": [
+          {"start_min": 735, "end_min": 1410, "place": "unit:desk", "activity": "ritual", "outfit": "street", "detail": "no caption work; the State v. Price transcript read to the gap; the four seconds stay blank; no pocket-log entry"}
+        ]}
+      ]
+    },
+    "lena_ortiz": {
+      "unit": "2B",
+      "blocks": [
+        {"start_min": 0, "end_min": 270, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 270, "end_min": 300, "place": "unit", "activity": "waking", "outfit": "late_night", "detail": "tea at the window in the dark, the hour the shift used to start"},
+        {"start_min": 300, "end_min": 345, "place": "corridor", "activity": "patrol", "outfit": "late_night", "route": ["corridor", "stairs", "roof", "lobby", "laundry"], "detail": "the doors round: testing that every door opens, propping what sticks, noting nothing down"},
+        {"start_min": 345, "end_min": 360, "place": "unit:bathroom", "activity": "shower", "outfit": "towel"},
+        {"start_min": 360, "end_min": 420, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "breakfast; radio on"},
+        {"start_min": 420, "end_min": 720, "place": "unit:workroom", "activity": "work", "outfit": "street", "detail": "alterations; the paying pile done quickly, the refused-payment pile done lovingly"},
+        {"start_min": 720, "end_min": 765, "place": "unit", "activity": "eating", "outfit": "street", "detail": "lunch while pinning"},
+        {"start_min": 765, "end_min": 840, "place": "corridor", "activity": "socializing", "outfit": "street", "detail": "delivering finished work door to door; lingers at each threshold longer than the handoff needs"},
+        {"start_min": 840, "end_min": 1020, "place": "unit:workroom", "activity": "work", "outfit": "street", "detail": "fittings by appointment; neighbours come to her"},
+        {"start_min": 1020, "end_min": 1080, "place": "laundry", "activity": "chores", "outfit": "street", "detail": "hers plus two other households', because she was going down anyway"},
+        {"start_min": 1080, "end_min": 1170, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "cooks too much; plates travel to doors"},
+        {"start_min": 1170, "end_min": 1290, "place": "unit", "activity": "hobby", "outfit": "street", "detail": "the mending basket: other people's things taken unasked; her own hems untouched beneath"},
+        {"start_min": 1290, "end_min": 1320, "place": "unit", "activity": "wind_down", "outfit": "late_night", "detail": "the pincushion band stays on her wrist"},
+        {"start_min": 1320, "end_min": 1440, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 540, "end_min": 780, "place": "unit:workroom", "activity": "work", "outfit": "street", "days": ["sat"], "detail": "the block's fitting morning, busiest slot of the week"},
+        {"start_min": 600, "end_min": 660, "place": "unit", "activity": "rest", "outfit": "street", "days": ["sat"], "monthly": "first", "detail": "fittings pause; her clients are at the tenant-association meeting"},
+        {"start_min": 1170, "end_min": 1290, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["sat"], "detail": "one drink, early; mends the corner banquette's split vinyl; gone before the singing gets loud"},
+        {"start_min": 1020, "end_min": 1170, "place": "unit:kitchen", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["cam_ortiz"], "detail": "cooks for Cam, who eats standing and is gone inside the hour; the courier-bag strap goes home re-stitched, unmentioned"},
+        {"start_min": 1170, "end_min": 1290, "place": "unit", "activity": "rest", "outfit": "street", "days": ["sun"], "detail": "the basket stays closed on Sunday nights; the radio; her hands slower"}
+      ],
+      "special_days": [
+        {"doy": 84, "proposed": false, "label": "the Triangle fire, 1911", "blocks": [
+          {"start_min": 300, "end_min": 1440, "place": "corridor", "activity": "ritual", "outfit": "street", "route": ["corridor", "stairs", "roof", "lobby", "laundry"], "detail": "no work; every door she can reach propped open from before dawn until midnight; her hands still all day"}
+        ]}
+      ]
+    },
+    "juno_kells": {
+      "unit": "2C",
+      "blocks": [
+        {"start_min": 0, "end_min": 120, "place": "unit", "activity": "work", "outfit": "late_night", "detail": "editing the night's captures; the stolen-session archive open more often than the project files"},
+        {"start_min": 120, "end_min": 210, "place": "unit", "activity": "work", "outfit": "late_night", "detail": "editing continues"},
+        {"start_min": 120, "end_min": 210, "place": "roof", "activity": "hobby", "outfit": "street", "days": ["mon", "wed"], "detail": "field recording: roof mics, the light-court acoustics; the descent takes the stairs fast past Rhea's landing"},
+        {"start_min": 120, "end_min": 210, "place": "out", "activity": "hobby", "outfit": "street", "days": ["tue", "thu"], "detail": "the night-bus loop"},
+        {"start_min": 210, "end_min": 240, "place": "bodega", "activity": "errand", "outfit": "late_night", "detail": "the 03:30 run; records the cooler hum; buys one thing so it counts as a transaction"},
+        {"start_min": 240, "end_min": 300, "place": "unit", "activity": "chores", "outfit": "late_night", "detail": "logging files by timestamp only; jacket on because the flat is cold"},
+        {"start_min": 300, "end_min": 780, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 780, "end_min": 800, "place": "unit:bathroom", "activity": "shower", "outfit": "towel", "detail": "the silver ear cuff never comes off"},
+        {"start_min": 800, "end_min": 870, "place": "unit", "activity": "eating", "outfit": "late_night", "detail": "at the desk; yesterday's liner still on"},
+        {"start_min": 870, "end_min": 1080, "place": "unit", "activity": "work", "outfit": "late_night", "detail": "freelance sound-edit gigs, delivered under the pseudonym"},
+        {"start_min": 1080, "end_min": 1140, "place": "out", "activity": "errand", "outfit": "street", "detail": "errand and recording walk; dinner eaten on the move, never the bodega"},
+        {"start_min": 1140, "end_min": 1260, "place": "unit", "activity": "work", "outfit": "late_night", "detail": "her own piece, the one nobody is told about"},
+        {"start_min": 1260, "end_min": 1320, "place": "unit", "activity": "hobby", "outfit": "late_night"},
+        {"start_min": 1260, "end_min": 1320, "place": "laundry", "activity": "chores", "outfit": "late_night", "days": ["thu"], "detail": "the recorder propped on the folding table; drawn to that room's hum and has never asked why"},
+        {"start_min": 1320, "end_min": 1440, "place": "unit", "activity": "tv", "outfit": "late_night", "detail": "tapes running underneath"},
+        {"start_min": 1350, "end_min": 1440, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["fri"], "with": ["teresa_vale"], "detail": "back booth, recorder running in her pocket; nods to Teresa by the exit"},
+        {"start_min": 1350, "end_min": 1440, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["sat"], "detail": "back booth, recorder running; never asks, never sings"},
+        {"start_min": 0, "end_min": 120, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["sat", "sun"]},
+        {"start_min": 900, "end_min": 1020, "place": "visit:5B", "activity": "socializing", "outfit": "street", "days": ["sat"], "with": ["cal_dwyer"], "detail": "tape-trading, the only visit she pays anyone; each records the other and neither says so"},
+        {"start_min": 300, "end_min": 900, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night", "days": ["sun"]},
+        {"start_min": 900, "end_min": 920, "place": "unit:bathroom", "activity": "shower", "outfit": "towel", "days": ["sun"]},
+        {"start_min": 920, "end_min": 990, "place": "unit", "activity": "eating", "outfit": "late_night", "days": ["sun"]},
+        {"start_min": 120, "end_min": 270, "place": "out", "activity": "hobby", "outfit": "street", "days": ["sun"], "detail": "the night-bus recording loop, run long, city-wide, straight off the back of the Saturday bar night"}
+      ],
+      "special_days": [
+        {"doy": 306, "proposed": true, "label": "the premiere that carried someone else's name", "blocks": [
+          {"start_min": 1200, "end_min": 1290, "place": "roof", "activity": "ritual", "outfit": "street", "detail": "at 20:00 the original masters played out loud through a speaker, once, under her own name, to nobody"},
+          {"start_min": 1290, "end_min": 1320, "place": "bodega", "activity": "errand", "outfit": "street"},
+          {"start_min": 1320, "end_min": 1440, "place": "unit", "activity": "rest", "outfit": "late_night", "detail": "skips the bar even if it falls on a Friday"}
+        ]}
+      ]
+    },
+    "malcolm_reed": {
+      "unit": "3A",
+      "blocks": [
+        {"start_min": 0, "end_min": 280, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night", "detail": "earliest sleeper in the building; oldest-layer rhythm"},
+        {"start_min": 280, "end_min": 300, "place": "unit:kitchen", "activity": "waking", "outfit": "late_night", "detail": "kettle, standing in the dark"},
+        {"start_min": 300, "end_min": 360, "place": "unit", "activity": "hobby", "outfit": "late_night", "detail": "THE VIGIL: misting, turning, soil checked with a finger; the cutting watered before anything else alive"},
+        {"start_min": 360, "end_min": 380, "place": "unit:bathroom", "activity": "shower", "outfit": "towel", "detail": "hands and forearms darker than the rest; nails never clean"},
+        {"start_min": 380, "end_min": 420, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night", "detail": "breakfast; frost warnings attended to like scripture"},
+        {"start_min": 420, "end_min": 450, "place": "roof", "activity": "chores", "outfit": "street", "detail": "opening the beds, watering communal planters"},
+        {"start_min": 450, "end_min": 480, "place": "out", "activity": "transit", "outfit": "street", "detail": "walk to work"},
+        {"start_min": 480, "end_min": 990, "place": "out", "activity": "work", "outfit": "street", "detail": "parks-department greenhouse"},
+        {"start_min": 990, "end_min": 1020, "place": "bodega", "activity": "errand", "outfit": "street", "detail": "bread, loose tomatoes; buys small daily, stocks nothing"},
+        {"start_min": 1020, "end_min": 1110, "place": "roof", "activity": "work", "outfit": "street", "detail": "the real work: beds, staking, the compost bin fed with everyone's green waste but his own"},
+        {"start_min": 1110, "end_min": 1170, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night", "detail": "soup"},
+        {"start_min": 1170, "end_min": 1230, "place": "unit", "activity": "hobby", "outfit": "late_night", "detail": "the propagation bench: other people's plants, given away rooted"},
+        {"start_min": 1230, "end_min": 1260, "place": "unit", "activity": "hobby", "outfit": "late_night", "detail": "second check on the cutting; seed catalogue"},
+        {"start_min": 1260, "end_min": 1290, "place": "unit", "activity": "wind_down", "outfit": "late_night", "detail": "washing up, bed"},
+        {"start_min": 1290, "end_min": 1440, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 480, "end_min": 720, "place": "roof", "activity": "socializing", "outfit": "street", "days": ["sat"], "detail": "rebuilding beds, handing out rooted cuttings; everyone gets a descendant of something except the one plant that has none"},
+        {"start_min": 540, "end_min": 660, "place": "roof", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["sacha_reed"], "detail": "Sacha photographs the plants and Malcolm names each one; the one particular cutting is never brought up"},
+        {"start_min": 840, "end_min": 1020, "place": "out", "activity": "rest", "outfit": "street", "days": ["sun"], "detail": "walks to the old neighbourhood and does not turn down the street"}
+      ],
+      "special_days": [
+        {"doy": 296, "proposed": true, "label": "the 1918 unfinished goodbye", "blocks": [
+          {"start_min": 420, "end_min": 1110, "place": "unit", "activity": "ritual", "outfit": "late_night", "detail": "no work; the cutting moved to the centre of the table and sat with; nothing else watered, the compost untouched"}
+        ]}
+      ]
+    },
+    "omar_bell": {
+      "unit": "3B",
+      "blocks": [
+        {"start_min": 0, "end_min": 90, "place": "unit:workbench", "activity": "hobby", "outfit": "late_night", "detail": "THE 3 A.M. BENCH: his own pile; the oldest item is the corridor emergency lantern that failed the night of the blackout"},
+        {"start_min": 90, "end_min": 420, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 180, "end_min": 190, "place": "laundry", "activity": "patrol", "outfit": "late_night", "chance": 0.35, "detail": "wakes ~03:00 and checks the B1 breaker panel, touching nothing that is fine"},
+        {"start_min": 420, "end_min": 440, "place": "unit:bathroom", "activity": "shower", "outfit": "towel"},
+        {"start_min": 440, "end_min": 480, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night", "detail": "breakfast to 1610 kHz static: confirming the dead air is still there"},
+        {"start_min": 480, "end_min": 720, "place": "corridor", "activity": "work", "outfit": "street", "route": ["corridor", "laundry"], "detail": "super's rounds: boiler, bulbs, radiator rota, laundry machines"},
+        {"start_min": 570, "end_min": 690, "place": "visit:5C", "activity": "work", "outfit": "street", "days": ["thu"], "detail": "the Iris round: whatever this week's note says; she is out by arrangement; the marriage maintained like a boiler"},
+        {"start_min": 720, "end_min": 750, "place": "unit:workbench", "activity": "eating", "outfit": "street", "detail": "lunch eaten standing"},
+        {"start_min": 750, "end_min": 1050, "place": "unit:workbench", "activity": "work", "outfit": "street", "detail": "the intake bench: other people's broken things, logged, repaired, never collected"},
+        {"start_min": 1050, "end_min": 1065, "place": "bodega", "activity": "errand", "outfit": "street", "detail": "fuses, flux, milk; in and out"},
+        {"start_min": 1065, "end_min": 1140, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night", "detail": "dinner; a live station now, jazz"},
+        {"start_min": 1140, "end_min": 1260, "place": "corridor", "activity": "work", "outfit": "street", "detail": "overflow: whoever collared him on the stairs"},
+        {"start_min": 1260, "end_min": 1380, "place": "unit", "activity": "tv", "outfit": "late_night", "detail": "apron off and hung; the hanging is the event"},
+        {"start_min": 1260, "end_min": 1380, "place": "visit:5B", "activity": "socializing", "outfit": "street", "days": ["tue"], "with": ["cal_dwyer"], "detail": "valve sets and a chassis re-capped in situ; the one dead-air night of 1977 mostly not talked about"},
+        {"start_min": 1380, "end_min": 1440, "place": "unit:workbench", "activity": "hobby", "outfit": "late_night"},
+        {"start_min": 480, "end_min": 720, "place": "laundry", "activity": "work", "outfit": "street", "days": ["sat"], "detail": "deep-service of the machines plus his own washing, in the room the broadcast came from"},
+        {"start_min": 480, "end_min": 600, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"], "detail": "no rounds"},
+        {"start_min": 600, "end_min": 780, "place": "unit", "activity": "chores", "outfit": "late_night", "days": ["sun"], "detail": "re-shelving and dusting the borrowed-broken archive; compulsion in place of church"}
+      ],
+      "special_days": [
+        {"doy": 194, "proposed": false, "label": "the 1977 blackout", "blocks": [
+          {"start_min": 1296, "end_min": 1440, "place": "unit", "activity": "ritual", "outfit": "late_night", "detail": "at 21:36 he throws his own breaker and sits in the dark with a battery radio on 1610 until dawn; repairs nothing for 24 hours"}
+        ]}
+      ]
+    },
+    "rhea_sato": {
+      "unit": "3D",
+      "blocks": [
+        {"start_min": 0, "end_min": 180, "place": "unit:front_room", "activity": "work", "outfit": "late_night", "detail": "the piece. Take. Delete. Take."},
+        {"start_min": 180, "end_min": 210, "place": "unit", "activity": "rest", "outfit": "late_night", "detail": "warm milk, standing at the window"},
+        {"start_min": 210, "end_min": 600, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night", "detail": "latest riser of the seven; the takes need a silent building"},
+        {"start_min": 600, "end_min": 630, "place": "unit:kitchen", "activity": "waking", "outfit": "late_night", "detail": "hot lemon water; vocal steam, scarf at the throat"},
+        {"start_min": 630, "end_min": 660, "place": "unit:bathroom", "activity": "shower", "outfit": "towel", "detail": "the fork chain stays on; the only line on her"},
+        {"start_min": 660, "end_min": 720, "place": "unit:front_room", "activity": "ritual", "outfit": "late_night", "detail": "the exact 40-minute warm-up, then the tuning fork struck on the doorframe's worn mark"},
+        {"start_min": 720, "end_min": 780, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night", "detail": "mise en place, everything squared"},
+        {"start_min": 780, "end_min": 1080, "place": "unit:front_room", "activity": "work", "outfit": "street", "days": ["mon", "wed", "fri"], "detail": "vocal coaching, 50-minute client blocks; immaculate on purpose"},
+        {"start_min": 780, "end_min": 1080, "place": "out", "activity": "work", "outfit": "street", "days": ["tue", "thu"], "detail": "coaching at a hired studio"},
+        {"start_min": 1080, "end_min": 1110, "place": "out", "activity": "transit", "outfit": "street", "detail": "the long way round; route and hour chosen to miss Juno's, unadmitted"},
+        {"start_min": 1110, "end_min": 1140, "place": "bodega", "activity": "errand", "outfit": "street", "detail": "pastilles, honey; in the shop 18:30-19:00"},
+        {"start_min": 1140, "end_min": 1200, "place": "unit", "activity": "eating", "outfit": "late_night", "detail": "light; tv with the sound off, captions on"},
+        {"start_min": 1200, "end_min": 1320, "place": "unit:desk", "activity": "hobby", "outfit": "late_night", "detail": "THE ERROR ARCHIVE: the day's sessions filed, flaws tagged and cross-referenced"},
+        {"start_min": 1320, "end_min": 1380, "place": "unit", "activity": "wind_down", "outfit": "late_night", "detail": "robe, one sock; the day's face comes off"},
+        {"start_min": 1380, "end_min": 1440, "place": "unit:front_room", "activity": "work", "outfit": "late_night", "detail": "recording: the piece, some nights to take 19"},
+        {"start_min": 780, "end_min": 960, "place": "out", "activity": "errand", "outfit": "street", "days": ["sat"], "detail": "sheet-music and record-shop errand"},
+        {"start_min": 960, "end_min": 1080, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sat"]},
+        {"start_min": 1350, "end_min": 1440, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["sat"], "detail": "comes to watch amateurs be imperfect in public and cannot look away; roughly monthly she sings exactly one song, over-rehearsed, and leaves during the applause"},
+        {"start_min": 0, "end_min": 45, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["sun"]},
+        {"start_min": 780, "end_min": 1080, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"], "detail": "no clients"},
+        {"start_min": 0, "end_min": 240, "place": "unit:front_room", "activity": "work", "outfit": "late_night", "days": ["mon"], "detail": "the Sunday recording block runs to 04:00"},
+        {"start_min": 240, "end_min": 660, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night", "days": ["mon"], "detail": "sleep shifted 04:00-11:00"}
+      ],
+      "special_days": [
+        {"doy": 322, "proposed": true, "label": "the take-18 session", "blocks": [
+          {"start_min": 780, "end_min": 1080, "place": "unit:front_room", "activity": "ritual", "outfit": "late_night", "detail": "no clients; eighteen takes of the same piece, the eighteenth deleted unheard; one floor down the original sits in Juno's stolen archive"}
+        ]}
+      ]
+    },
+    "peter_wren": {
+      "unit": "4A",
+      "blocks": [
+        {"start_min": 0, "end_min": 180, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 180, "end_min": 230, "place": "unit:desk", "activity": "ritual", "outfit": "late_night", "detail": "THE CHECKING HOUR: letters re-read against their photocopies, the wallet reconciled against its list; nothing decided"},
+        {"start_min": 230, "end_min": 390, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 390, "end_min": 420, "place": "unit:bathroom", "activity": "shower", "outfit": "towel", "detail": "one hand holding it, not confident it will hold"},
+        {"start_min": 420, "end_min": 460, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night", "detail": "the same breakfast; a weather forecast he does not trust"},
+        {"start_min": 460, "end_min": 475, "place": "mail_bank", "activity": "errand", "outfit": "street", "detail": "first check; nothing arrives this early; if Evelyn is at her box he waits on the half-landing until she is done"},
+        {"start_min": 475, "end_min": 510, "place": "out", "activity": "transit", "outfit": "street", "days": ["mon", "tue", "wed", "thu", "fri"], "detail": "commute"},
+        {"start_min": 510, "end_min": 1050, "place": "out", "activity": "work", "outfit": "street", "days": ["mon", "tue", "wed", "thu", "fri"], "detail": "legal clerk: filings, certifications, other people's deadlines met to the minute"},
+        {"start_min": 1050, "end_min": 1095, "place": "mail_bank", "activity": "errand", "outfit": "street", "detail": "second check at 18:05, after the last delivery, so nothing can arrive to contradict it; most evenings Evelyn intercepts him here"},
+        {"start_min": 1095, "end_min": 1155, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night", "detail": "the recipe, to the letter, including its errors"},
+        {"start_min": 1155, "end_min": 1230, "place": "unit:desk", "activity": "hobby", "outfit": "late_night", "detail": "FORMS: his own affairs conducted entirely by post; a correspondence ledger"},
+        {"start_min": 1230, "end_min": 1290, "place": "unit", "activity": "tv", "outfit": "late_night", "detail": "procedural dramas, watched for the errors, which he lists"},
+        {"start_min": 1290, "end_min": 1320, "place": "unit:bedroom", "activity": "chores", "outfit": "late_night", "detail": "tomorrow laid out; wallet reconciled"},
+        {"start_min": 1320, "end_min": 1350, "place": "unit", "activity": "chores", "outfit": "late_night", "detail": "washing up"},
+        {"start_min": 1350, "end_min": 1440, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 420, "end_min": 480, "place": "laundry", "activity": "chores", "outfit": "street", "days": ["sat"], "detail": "at the hour the posted schedule calls off-peak, alone with the machines"},
+        {"start_min": 480, "end_min": 600, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sat"]},
+        {"start_min": 600, "end_min": 720, "place": "bodega", "activity": "errand", "outfit": "street", "days": ["sat"], "detail": "errands from a written list in shelf order"},
+        {"start_min": 600, "end_min": 720, "place": "lobby", "activity": "socializing", "outfit": "street", "days": ["sat"], "monthly": "first", "with": ["nadia_quell"], "detail": "the tenant-association meeting; takes no minutes, signs nothing"},
+        {"start_min": 720, "end_min": 780, "place": "lobby", "activity": "socializing", "outfit": "street", "days": ["sat"], "with": ["nadia_quell"], "detail": "checks the association paperwork for formatting and procedural soundness, terrified of its content; signs nothing"},
+        {"start_min": 780, "end_min": 900, "place": "out", "activity": "errand", "outfit": "street", "days": ["sat"], "monthly": "first", "detail": "the errands, shifted by the meeting"},
+        {"start_min": 780, "end_min": 1050, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sat"]},
+        {"start_min": 475, "end_min": 1050, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"]},
+        {"start_min": 180, "end_min": 260, "place": "unit:desk", "activity": "ritual", "outfit": "late_night", "days": ["sun"], "detail": "Sunday night the checking hour runs long"}
+      ],
+      "special_days": [
+        {"doy": 120, "proposed": true, "label": "the passed filing deadline", "blocks": [
+          {"start_min": 180, "end_min": 390, "place": "unit:desk", "activity": "ritual", "outfit": "late_night", "detail": "the checking hour runs until dawn"},
+          {"start_min": 1050, "end_min": 1095, "place": "mail_bank", "activity": "ritual", "outfit": "street", "detail": "stands at the last collection holding a sealed, stamped, unaddressed envelope, and mails nothing"}
+        ]}
+      ]
+    },
+    "cam_ortiz": {
+      "unit": "4C",
+      "blocks": [
+        {"start_min": 0, "end_min": 90, "place": "unit", "activity": "rest", "outfit": "late_night", "detail": "tv standing behind the sofa; wheel-truing, cleat swap"},
+        {"start_min": 90, "end_min": 210, "place": "out", "activity": "hobby", "outfit": "street", "detail": "THE CIRCUIT: over the bridge and back, no destination"},
+        {"start_min": 210, "end_min": 230, "place": "bodega", "activity": "eating", "outfit": "street", "detail": "egg-and-cheese at the counter, the only meal eaten slowly all day"},
+        {"start_min": 230, "end_min": 240, "place": "stairs", "activity": "transit", "outfit": "street", "detail": "never the night elevator: a box that stops mid-shaft is stillness with doors"},
+        {"start_min": 240, "end_min": 510, "place": "unit:back_room", "activity": "sleeping", "outfit": "late_night", "detail": "the shortest sleeper of the seven"},
+        {"start_min": 510, "end_min": 525, "place": "unit:bathroom", "activity": "shower", "outfit": "towel", "detail": "the tan lines are the story"},
+        {"start_min": 525, "end_min": 540, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night", "detail": "standing over the sink; nothing of the museum used"},
+        {"start_min": 540, "end_min": 1080, "place": "out", "activity": "work", "outfit": "street", "days": ["mon", "tue", "wed", "thu", "fri"], "detail": "courier runs, Queens/Manhattan; lunch astride the bike"},
+        {"start_min": 1080, "end_min": 1100, "place": "lobby", "activity": "socializing", "outfit": "street", "days": ["mon", "tue", "wed", "thu", "fri"], "detail": "package handoffs, seconds each: Mina's caption envelopes, Mae's auction catalogues"},
+        {"start_min": 1100, "end_min": 1140, "place": "unit:doorway", "activity": "hobby", "outfit": "late_night", "detail": "bike maintenance with the door open, shell half-off; the sandwich eaten standing mid-maintenance"},
+        {"start_min": 1140, "end_min": 1320, "place": "out", "activity": "work", "outfit": "street", "detail": "evening runs; every ping accepted"},
+        {"start_min": 1290, "end_min": 1320, "place": "visit:2B", "activity": "socializing", "outfit": "street", "days": ["tue"], "with": ["lena_ortiz"], "detail": "the shell dropped for strap and seam work Cam asked for; the doorway held for all eleven minutes; gone before tea is poured"},
+        {"start_min": 1320, "end_min": 1440, "place": "unit", "activity": "rest", "outfit": "late_night", "detail": "tv standing behind the sofa"},
+        {"start_min": 540, "end_min": 600, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sat"]},
+        {"start_min": 600, "end_min": 960, "place": "out", "activity": "work", "outfit": "street", "days": ["sat"], "detail": "runs thin"},
+        {"start_min": 960, "end_min": 1100, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sat"]},
+        {"start_min": 1380, "end_min": 1440, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["sat"], "detail": "the regular who never sits: standing near the door, one beer, leaves during other people's songs, somehow there every week"},
+        {"start_min": 0, "end_min": 60, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["sun"]},
+        {"start_min": 540, "end_min": 1020, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"]},
+        {"start_min": 1020, "end_min": 1080, "place": "visit:2B", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["lena_ortiz"], "detail": "the family dinner: arrives late, eats fast, washes up standing, gone inside the hour"},
+        {"start_min": 1080, "end_min": 1100, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"]},
+        {"start_min": 60, "end_min": 270, "place": "out", "activity": "hobby", "outfit": "street", "days": ["mon"], "detail": "the Sunday circuit, run long, 01:00-04:30"}
+      ],
+      "special_days": [
+        {"doy": 84, "proposed": false, "label": "the Triangle fire date - Lena's century in Cam's legs", "blocks": [
+          {"start_min": 90, "end_min": 300, "place": "out", "activity": "ritual", "outfit": "street", "detail": "the circuit ridden straight through to dawn, no bodega stop; no elevators at all; every door on the route propped open in passing; Cam would tell you it was a bad day for traffic"}
+        ]}
+      ]
+    },
+    "noel_price": {
+      "unit": "4C",
+      "blocks": [
+        {"start_min": 0, "end_min": 170, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 170, "end_min": 220, "place": "unit", "activity": "ritual", "outfit": "late_night", "detail": "THE CIRCUIT, sight only, no gloves: the mug angle, the runner's fringe, the father's chair confirmed; slippers with intact backs"},
+        {"start_min": 220, "end_min": 390, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 390, "end_min": 420, "place": "unit:bathroom", "activity": "shower", "outfit": "towel", "detail": "towel refolded on the rail, edge aligned; hands bare, and they look strange bare"},
+        {"start_min": 420, "end_min": 465, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night", "detail": "the daily crockery; washed, dried, re-shelved before leaving"},
+        {"start_min": 465, "end_min": 480, "place": "mail_bank", "activity": "chores", "outfit": "street", "days": ["mon", "tue", "wed", "thu", "fri"], "detail": "post processed downstairs: opened, flattened, wrappings binned; the flat receives only what has been accessioned"},
+        {"start_min": 480, "end_min": 525, "place": "out", "activity": "transit", "outfit": "street", "days": ["mon", "tue", "wed", "thu", "fri"], "detail": "commute"},
+        {"start_min": 525, "end_min": 1050, "place": "out", "activity": "work", "outfit": "street", "days": ["mon", "tue", "wed", "thu", "fri"], "detail": "museum preparator: mounts, condition reports, crating; the one place his gloved hands are easy"},
+        {"start_min": 1050, "end_min": 1095, "place": "bodega", "activity": "errand", "outfit": "street", "detail": "the standing list, exact brands; substitution is chaos; the bodega only for the two items it reliably stocks"},
+        {"start_min": 1095, "end_min": 1170, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night", "detail": "stove wiped to parade condition"},
+        {"start_min": 1170, "end_min": 1230, "place": "unit:desk", "activity": "hobby", "outfit": "late_night", "detail": "THE CATALOGUE: accession register of the family flat, condition notes; no photographs, copies invite handling"},
+        {"start_min": 1230, "end_min": 1290, "place": "unit", "activity": "hobby", "outfit": "late_night", "detail": "conservation hour: one object per night, correct brush, nitrile gloves, returned to its exact chalk-ghost footprint"},
+        {"start_min": 1290, "end_min": 1350, "place": "unit", "activity": "tv", "outfit": "late_night", "detail": "sound low, seated on a folded blanket so no cushion takes wear"},
+        {"start_min": 1350, "end_min": 1410, "place": "unit", "activity": "rest", "outfit": "late_night", "detail": "reading; lights staged down"},
+        {"start_min": 1410, "end_min": 1440, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 465, "end_min": 540, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sat"]},
+        {"start_min": 540, "end_min": 660, "place": "laundry", "activity": "chores", "outfit": "street", "days": ["sat"], "detail": "washed, ironed, and returned to drawers same-day; nothing rests on a chair overnight"},
+        {"start_min": 660, "end_min": 840, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sat"]},
+        {"start_min": 840, "end_min": 1020, "place": "out", "activity": "errand", "outfit": "street", "days": ["sat"], "detail": "archival-supplies errand"},
+        {"start_min": 1020, "end_min": 1050, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sat"]},
+        {"start_min": 465, "end_min": 720, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"]},
+        {"start_min": 720, "end_min": 750, "place": "unit:doorway", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["jonah_price"], "detail": "Jonah brings two coffees; drunk standing, never inside; both relieved when it ends"},
+        {"start_min": 750, "end_min": 1020, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"]},
+        {"start_min": 1020, "end_min": 1140, "place": "unit", "activity": "ritual", "outfit": "late_night", "days": ["sun"], "detail": "the deep round: full white-glove inspection, one room per week on a four-week rota"}
+      ],
+      "special_days": [
+        {"doy": 48, "proposed": true, "label": "the day 4C was sealed", "blocks": [
+          {"start_min": 420, "end_min": 1140, "place": "unit", "activity": "ritual", "outfit": "late_night", "detail": "the museum's one closed day: leave taken, curtains drawn, a full-flat inventory against the catalogue, gloves on; nothing is ever missing; he checks anyway"}
+        ]},
+        {"doy": 68, "proposed": true, "label": "the verdict, State v. Price", "blocks": [
+          {"start_min": 1230, "end_min": 1290, "place": "unit", "activity": "ritual", "outfit": "late_night", "detail": "the conservation hour goes to the father's chair, the one night a year it is handled rather than confirmed by sight; nothing else touched"}
+        ]}
+      ]
+    },
+    "transient_guests": {
+      "unit": "4D",
+      "blocks": [
+        {"start_min": 0, "end_min": 60, "place": "unit", "activity": "tv", "outfit": "late_night", "role": "guest_a", "detail": "sitting on the made bed"},
+        {"start_min": 60, "end_min": 120, "place": "unit", "activity": "sleeping", "outfit": "late_night", "detail": "the single dark hour: both down"},
+        {"start_min": 120, "end_min": 180, "place": "unit", "activity": "rest", "outfit": "late_night", "role": "guest_b", "detail": "awake on the made bed, tv sound nearly off"},
+        {"start_min": 180, "end_min": 220, "place": "bodega", "activity": "rest", "outfit": "street", "role": "guest_b", "detail": "coffee at the counter, anonymous: THE CHAPEL; the clerk not knowing their name is the entire comfort"},
+        {"start_min": 220, "end_min": 330, "place": "unit", "activity": "rest", "outfit": "late_night", "role": "guest_b", "detail": "dozing in the chair, dressed"},
+        {"start_min": 330, "end_min": 360, "place": "unit:bathroom", "activity": "shower", "outfit": "towel", "role": "guest_b", "detail": "the building's towel; no ring, no chain, no mark"},
+        {"start_min": 360, "end_min": 450, "place": "unit", "activity": "tv", "outfit": "late_night", "detail": "rolling news watched with departure-board attention; tickets checked that name no legible date"},
+        {"start_min": 450, "end_min": 480, "place": "lobby", "activity": "ritual", "outfit": "street", "detail": "THE ALMOST-DEPARTURE: both, coats on, facing the doors, waiting for a car that does not come"},
+        {"start_min": 480, "end_min": 540, "place": "unit", "activity": "eating", "outfit": "late_night", "detail": "bodega food picnicked on the case lid"},
+        {"start_min": 540, "end_min": 720, "place": "out", "activity": "errand", "outfit": "street", "detail": "itinerary errands that produce nothing: reconfirmations, a copy shop, a currency window"},
+        {"start_min": 720, "end_min": 840, "place": "unit", "activity": "ritual", "outfit": "late_night", "detail": "THE RE-PACK: cases repacked daily, never unpacked; contents rotated so everything stays travel-creased"},
+        {"start_min": 840, "end_min": 960, "place": "lobby", "activity": "rest", "outfit": "street", "detail": "lingering at a bank where no box is theirs; the noticeboard read in full and nothing signed"},
+        {"start_min": 960, "end_min": 1140, "place": "unit", "activity": "rest", "outfit": "late_night", "detail": "naps in turns; tv"},
+        {"start_min": 1140, "end_min": 1185, "place": "bodega", "activity": "errand", "outfit": "street", "detail": "dinner shopped minibar-style: single-serving everything, nothing that implies a pantry"},
+        {"start_min": 1185, "end_min": 1275, "place": "unit", "activity": "eating", "outfit": "late_night", "detail": "whatever channel it was already on; choosing would be a mark; Guest B retires at 20:30 mid-programme"},
+        {"start_min": 1275, "end_min": 1380, "place": "corridor", "activity": "socializing", "outfit": "street", "role": "guest_a", "detail": "THE CORRIDOR HOUR: talking at whoever passes and agreeing with them; forms with Peter, shortcuts with Cam"},
+        {"start_min": 1380, "end_min": 1440, "place": "unit", "activity": "tv", "outfit": "late_night", "role": "guest_a"},
+        {"start_min": 510, "end_min": 570, "place": "lobby", "activity": "ritual", "outfit": "street", "days": ["sat"], "detail": "CHECKOUT DAY: both, with all luggage, asking for a bill at a desk that does not exist; at 09:30 they re-enter the room like new arrivals"},
+        {"start_min": 1320, "end_min": 1410, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["sat"], "detail": "they drift in behind the actual regulars, order what the last person ordered, sing nothing, are remembered by no one"},
+        {"start_min": 540, "end_min": 720, "place": "unit", "activity": "tv", "outfit": "late_night", "days": ["sun"], "detail": "no errands; the cases stand zipped by the door all day"}
+      ],
+      "special_days": [
+        {"doy": 365, "proposed": true, "label": "checking in since 1908", "blocks": [
+          {"start_min": 1420, "end_min": 1440, "place": "lobby", "activity": "ritual", "outfit": "street", "detail": "at 23:40 both are in the lobby, luggage at their feet, facing the doors; they wait until 00:20, the longest they ever wait, and the year turns with them mid-departure"}
+        ]}
+      ]
+    },
+    "nadia_quell": {
+      "unit": "5A",
+      "blocks": [
+        {"start_min": 0, "end_min": 60, "place": "unit:drafting", "activity": "hobby", "outfit": "late_night", "detail": "annotating her private set of the renovation drawings: the violations, in her own hand, shown to no one"},
+        {"start_min": 60, "end_min": 90, "place": "corridor", "activity": "patrol", "outfit": "late_night", "route": ["corridor", "mail_bank"], "detail": "the night round; Mon/Wed/Fri the tenant memo posted, signed Management, hair down and coatless"},
+        {"start_min": 90, "end_min": 420, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 420, "end_min": 465, "place": "unit:bathroom", "activity": "shower", "outfit": "towel", "detail": "then hair scraped back, lip on: the persona assembled"},
+        {"start_min": 465, "end_min": 495, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "coffee standing over the maintenance ledger"},
+        {"start_min": 495, "end_min": 570, "place": "lobby", "activity": "work", "outfit": "street", "detail": "manager surgery hours: complaints received, notices posted, box 4B fed its envelopes"},
+        {"start_min": 570, "end_min": 750, "place": "corridor", "activity": "work", "outfit": "street", "route": ["corridor", "roof", "laundry"], "detail": "inspection rounds, snagging list; repair notes left for the super"},
+        {"start_min": 750, "end_min": 780, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "lunch, standing, over drawings"},
+        {"start_min": 780, "end_min": 1020, "place": "out", "activity": "work", "outfit": "street", "days": ["mon", "tue", "wed", "fri"], "detail": "architect: small commissions, site visits, planning office"},
+        {"start_min": 780, "end_min": 960, "place": "out", "activity": "work", "outfit": "street", "days": ["thu"], "detail": "site work, back by 16:00"},
+        {"start_min": 960, "end_min": 1050, "place": "visit:6C", "activity": "socializing", "outfit": "street", "days": ["thu"], "with": ["mae_kessler"], "detail": "tea, the good service; neither woman says the thing"},
+        {"start_min": 1020, "end_min": 1050, "place": "bodega", "activity": "errand", "outfit": "street", "detail": "shopping; she listens to which tenants are talking and about what"},
+        {"start_min": 1050, "end_min": 1095, "place": "bodega", "activity": "errand", "outfit": "street", "days": ["thu"], "detail": "the run shifted by the tea"},
+        {"start_min": 1050, "end_min": 1080, "place": "unit:kitchen", "activity": "chores", "outfit": "street", "detail": "shopping put away; the day's overheard grievances into the maintenance ledger"},
+        {"start_min": 1095, "end_min": 1110, "place": "unit:kitchen", "activity": "chores", "outfit": "street", "days": ["thu"]},
+        {"start_min": 1080, "end_min": 1170, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "cooking, eating at a properly set table, alone; the persona holds even unwatched"},
+        {"start_min": 1170, "end_min": 1290, "place": "unit:drafting", "activity": "work", "outfit": "late_night", "detail": "Estate correspondence answered as Management; the rent-strike ledger"},
+        {"start_min": 1290, "end_min": 1350, "place": "unit", "activity": "chores", "outfit": "late_night", "detail": "radio news while squaring the flat: an inspection of her own realm"},
+        {"start_min": 1350, "end_min": 1440, "place": "unit:drafting", "activity": "hobby", "outfit": "late_night", "detail": "buildings nobody commissioned; the only drawings signed N. Quell"},
+        {"start_min": 60, "end_min": 120, "place": "corridor", "activity": "patrol", "outfit": "late_night", "days": ["sat"], "detail": "the night round extends to a full building walkdown, B1 to roof"},
+        {"start_min": 600, "end_min": 720, "place": "lobby", "activity": "socializing", "outfit": "street", "days": ["sat"], "monthly": "first", "with": ["lena_ortiz", "evelyn_marsh", "peter_wren"], "detail": "she chairs the tenant-association meeting; the minutes on the board are still signed Management"},
+        {"start_min": 720, "end_min": 780, "place": "lobby", "activity": "socializing", "outfit": "street", "days": ["sat"], "with": ["peter_wren"], "detail": "Peter checks the association paperwork; she lets him; he signs nothing"},
+        {"start_min": 780, "end_min": 1020, "place": "unit", "activity": "rest", "outfit": "street", "days": ["sat"]},
+        {"start_min": 90, "end_min": 510, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night", "days": ["sun"], "detail": "the only lie-in"},
+        {"start_min": 510, "end_min": 600, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"], "detail": "no surgery hours"},
+        {"start_min": 780, "end_min": 840, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"]},
+        {"start_min": 840, "end_min": 1080, "place": "unit:drafting", "activity": "hobby", "outfit": "late_night", "days": ["sun"], "detail": "the unbuilt buildings, all afternoon; the one day the persona is off-duty, she practices having a name"}
+      ],
+      "special_days": [
+        {"doy": 17, "proposed": true, "label": "the certificate that bought her silence", "blocks": [
+          {"start_min": 120, "end_min": 240, "place": "corridor", "activity": "ritual", "outfit": "late_night", "detail": "walks the building alone, ground to roof, folding rule out, re-measuring every violation she certified; posts nothing and signs nothing; on a posting night the memo does not appear"}
+        ]}
+      ]
+    },
+    "cal_dwyer": {
+      "unit": "5B",
+      "blocks": [
+        {"start_min": 0, "end_min": 180, "place": "unit:workshop", "activity": "hobby", "outfit": "late_night", "detail": "the night dial: distant AM stations as the ionosphere opens; taping; aid in, volume low; light under the door"},
+        {"start_min": 180, "end_min": 570, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night", "detail": "with the aid in; he will not let himself not-hear"},
+        {"start_min": 570, "end_min": 615, "place": "unit:bathroom", "activity": "shower", "outfit": "towel", "detail": "the aid on the sink edge: the only 45 minutes of the day it is out"},
+        {"start_min": 615, "end_min": 660, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "breakfast; the AM radio on, always tuned, never off"},
+        {"start_min": 660, "end_min": 690, "place": "lobby", "activity": "errand", "outfit": "street", "detail": "post: parts catalogues, club newsletters; lingers at the brass mail bank longer than the post requires"},
+        {"start_min": 690, "end_min": 810, "place": "unit:workshop", "activity": "work", "outfit": "street", "detail": "radio restoration for the collectors' club: his paid tinkering"},
+        {"start_min": 810, "end_min": 840, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "lunch"},
+        {"start_min": 840, "end_min": 930, "place": "unit:bedroom", "activity": "sleeping", "outfit": "street", "detail": "the afternoon nap; old-man biphasic"},
+        {"start_min": 930, "end_min": 1050, "place": "unit:workshop", "activity": "hobby", "outfit": "street", "detail": "cataloguing the archive; the high shelf, the Delayed Voice Reel, dusted, never played"},
+        {"start_min": 930, "end_min": 1050, "place": "unit:bathroom", "activity": "chores", "outfit": "street", "days": ["mon"], "detail": "bathtub laundry, hand-washing, because B1 is not a place he goes; not since 1999"},
+        {"start_min": 1050, "end_min": 1065, "place": "bodega", "activity": "errand", "outfit": "street", "detail": "hearing-aid batteries and the evening paper; the counterman saves him the batteries; in and out"},
+        {"start_min": 1065, "end_min": 1140, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night", "detail": "dinner; radio news"},
+        {"start_min": 1140, "end_min": 1260, "place": "unit:living", "activity": "radio", "outfit": "late_night", "detail": "he owns no television; the radio is the television"},
+        {"start_min": 1260, "end_min": 1440, "place": "unit:workshop", "activity": "hobby", "outfit": "late_night", "detail": "tape transfer and tuning"},
+        {"start_min": 1260, "end_min": 1380, "place": "unit:workshop", "activity": "socializing", "outfit": "late_night", "days": ["tue"], "with": ["omar_bell"], "detail": "Omar comes up and they re-cap a chassis together; the one dead-air night of 1977 sits between them, never mentioned"},
+        {"start_min": 690, "end_min": 900, "place": "unit:workshop", "activity": "chores", "outfit": "street", "days": ["sat"], "detail": "full archive re-shelving; the collection must be inventoried faster than it grows, and it grows"},
+        {"start_min": 900, "end_min": 1020, "place": "unit:workshop", "activity": "socializing", "outfit": "street", "days": ["sat"], "with": ["juno_kells"], "detail": "her tape-trading visit, the only caller he receives; each records the other and neither says so"},
+        {"start_min": 510, "end_min": 750, "place": "out", "activity": "errand", "outfit": "street", "days": ["sun"], "detail": "the Queens radio flea market: valves, capacitors, other men's dead sets; eats standing at a cart"},
+        {"start_min": 1260, "end_min": 1380, "place": "unit:workshop", "activity": "ritual", "outfit": "late_night", "days": ["sun"], "detail": "the week's tapes reviewed, each one stopped a foot before the leader and rewound; nothing in the flat is allowed to run out"}
+      ],
+      "special_days": [
+        {"doy": 194, "proposed": false, "label": "the 1977 blackout - the only dead air in thirty-seven years of WORS", "blocks": [
+          {"start_min": 1296, "end_min": 1440, "place": "unit", "activity": "ritual", "outfit": "late_night", "detail": "at 21:36 every set powered down; sits in the dark with the aid in until dawn: the single silence he reproduces because he cannot fix it"}
+        ]}
+      ]
+    },
+    "iris_bell": {
+      "unit": "5C",
+      "blocks": [
+        {"start_min": 0, "end_min": 270, "place": "unit:studio", "activity": "work", "outfit": "late_night", "detail": "the night session: easel toward the door, the imagined audience seated"},
+        {"start_min": 270, "end_min": 690, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 690, "end_min": 735, "place": "unit:bathroom", "activity": "shower", "outfit": "towel", "detail": "the paint stays under the nails; it does not come off"},
+        {"start_min": 735, "end_min": 780, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "breakfast-as-lunch; coffee; music radio"},
+        {"start_min": 780, "end_min": 840, "place": "roof", "activity": "hobby", "outfit": "street", "detail": "sketching the light court, the tanks, the pigeons: the one hour she draws from observation and for no one; her honest hour"},
+        {"start_min": 840, "end_min": 1080, "place": "unit:studio", "activity": "work", "outfit": "street", "detail": "the current series; canvases repositioned to face the room, hung as if for an opening"},
+        {"start_min": 1080, "end_min": 1125, "place": "bodega", "activity": "errand", "outfit": "street", "detail": "the coveralls worn out and she has stopped noticing; the errand is also a costume"},
+        {"start_min": 1125, "end_min": 1170, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "standing at the counter"},
+        {"start_min": 1170, "end_min": 1230, "place": "unit:living", "activity": "tv", "outfit": "street", "detail": "half-watched, while stretching canvases"},
+        {"start_min": 1230, "end_min": 1440, "place": "unit:studio", "activity": "work", "outfit": "late_night", "detail": "painting; at 21:00 sharp she stops and re-hangs the studio wall for the audience that is not there"},
+        {"start_min": 270, "end_min": 540, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night", "days": ["thu"]},
+        {"start_min": 540, "end_min": 570, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["thu"]},
+        {"start_min": 570, "end_min": 690, "place": "out", "activity": "rest", "outfit": "street", "days": ["thu"], "detail": "walks the block, sits in the diner, while Omar works the standing repair slot in 5C; she returns to a fixed sink and no note back"},
+        {"start_min": 840, "end_min": 900, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night", "days": ["thu"], "detail": "a nap in place of the first studio hour"},
+        {"start_min": 1290, "end_min": 1440, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["fri"], "with": ["sacha_reed"], "detail": "sings two songs, staged like a set, genuinely magnificent, and leaves before the applause finishes"},
+        {"start_min": 0, "end_min": 90, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["sat"]},
+        {"start_min": 90, "end_min": 300, "place": "unit:studio", "activity": "work", "outfit": "late_night", "days": ["sat", "sun"], "detail": "the night session runs long"},
+        {"start_min": 300, "end_min": 720, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night", "days": ["sat", "sun"], "detail": "sleeps to noon"},
+        {"start_min": 900, "end_min": 1020, "place": "unit:studio", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["sacha_reed"], "detail": "Sacha photographs the week's canvases, the only documentation she permits; she directs every frame"},
+        {"start_min": 1230, "end_min": 1440, "place": "unit", "activity": "chores", "outfit": "late_night", "days": ["sun"], "detail": "no painting: brushes cleaned, canvases primed; one night of preparation instead of performance"}
+      ],
+      "special_days": [
+        {"doy": 190, "proposed": true, "label": "the wedding anniversary, four days before the blackout", "blocks": [
+          {"start_min": 735, "end_min": 1440, "place": "unit", "activity": "ritual", "outfit": "late_night", "detail": "she does not paint; one note left in the super's box with no repair request in it, just the date; the only note all year Omar does not answer with a fix"}
+        ]}
+      ]
+    },
+    "sacha_reed": {
+      "unit": "6A",
+      "blocks": [
+        {"start_min": 0, "end_min": 120, "place": "unit:desk", "activity": "work", "outfit": "late_night", "detail": "editing, captioning, indexing the day's shoot; nothing sleeps unfiled"},
+        {"start_min": 120, "end_min": 180, "place": "unit:desk", "activity": "work", "outfit": "late_night"},
+        {"start_min": 120, "end_min": 180, "place": "corridor", "activity": "hobby", "outfit": "street", "days": ["mon", "wed"], "route": ["corridor", "lobby"], "detail": "night photography of the building: the light court, the half-landing, the elevator moving"},
+        {"start_min": 120, "end_min": 180, "place": "roof", "activity": "hobby", "outfit": "street", "days": ["tue", "thu"], "detail": "night photography; the roof is divided, Juno Mon/Wed and Sacha Tue/Thu, never double-booked"},
+        {"start_min": 180, "end_min": 210, "place": "unit:desk", "activity": "chores", "outfit": "late_night", "detail": "contact sheets pinned; the day's index ruled off"},
+        {"start_min": 210, "end_min": 600, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 600, "end_min": 640, "place": "unit:bathroom", "activity": "shower", "outfit": "towel", "detail": "the strap tan-line the only mark"},
+        {"start_min": 640, "end_min": 675, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "breakfast standing, annotating yesterday's files; even eating is captioned"},
+        {"start_min": 675, "end_min": 1110, "place": "out", "activity": "work", "outfit": "street", "days": ["mon", "tue", "wed", "thu", "fri"], "detail": "documentary and client shoots: photographing other people's lives all day"},
+        {"start_min": 1110, "end_min": 1140, "place": "bodega", "activity": "errand", "outfit": "street", "detail": "the counterman keeps their film stock in the beer fridge, an arrangement neither has ever named"},
+        {"start_min": 1140, "end_min": 1185, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night", "detail": "the day's takes playing on the laptop; never just eating"},
+        {"start_min": 1185, "end_min": 1290, "place": "unit:desk", "activity": "work", "outfit": "late_night", "detail": "backups: three copies, two locations, the liturgy"},
+        {"start_min": 1185, "end_min": 1290, "place": "unit:bathroom", "activity": "hobby", "outfit": "late_night", "days": ["tue", "thu"], "detail": "developing: the bathroom-as-darkroom"},
+        {"start_min": 1290, "end_min": 1440, "place": "unit:desk", "activity": "work", "outfit": "late_night", "detail": "captioning, filing; the family archive box stays on the top shelf, indexed once, reopened once a year"},
+        {"start_min": 1290, "end_min": 1440, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["fri"], "with": ["iris_bell"], "detail": "never sings; photographs the singers, with permission, which is how they attend anything"},
+        {"start_min": 0, "end_min": 90, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["sat"]},
+        {"start_min": 210, "end_min": 690, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night", "days": ["sat"], "detail": "sleeps to 11:30"},
+        {"start_min": 690, "end_min": 1110, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sat"]},
+        {"start_min": 1380, "end_min": 1440, "place": "out", "activity": "hobby", "outfit": "street", "days": ["sat"], "detail": "street photography: the weekend nights belong to their own work, not clients'"},
+        {"start_min": 0, "end_min": 120, "place": "out", "activity": "hobby", "outfit": "street", "days": ["sun"], "detail": "street photography, run long"},
+        {"start_min": 540, "end_min": 660, "place": "roof", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["malcolm_reed"], "detail": "photographs the plants and Malcolm names each one; has photographed every plant the man owns except it, and has noticed"},
+        {"start_min": 660, "end_min": 900, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"]},
+        {"start_min": 900, "end_min": 1020, "place": "visit:5C", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["iris_bell"], "detail": "photographing Iris's canvases, the only lens she permits"},
+        {"start_min": 1020, "end_min": 1110, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"]}
+      ],
+      "special_days": [
+        {"doy": 297, "proposed": true, "label": "the date on the back of the only surviving photograph of Auggie Reed", "blocks": [
+          {"start_min": 640, "end_min": 1110, "place": "out", "activity": "ritual", "outfit": "street", "detail": "every camera left in the flat; one undocumented day, lasted until dusk"},
+          {"start_min": 1110, "end_min": 1140, "place": "roof", "activity": "ritual", "outfit": "street", "detail": "surfaces at the roof garden empty-handed and stands watching Malcolm water, recording nothing"},
+          {"start_min": 1185, "end_min": 1290, "place": "unit:desk", "activity": "ritual", "outfit": "late_night", "detail": "the family box down off the top shelf, re-scanned, again, for the gap that is not in it"}
+        ]}
+      ]
+    },
+    "jonah_price": {
+      "unit": "6B",
+      "blocks": [
+        {"start_min": 0, "end_min": 150, "place": "unit:desk", "activity": "work", "outfit": "late_night", "detail": "new openings, read aloud to the room; nothing carried past page thirty"},
+        {"start_min": 150, "end_min": 210, "place": "bodega", "activity": "socializing", "outfit": "street", "detail": "coffee and a roll at the counter; the counterman and the night's strays have heard four different books begin; the anchor of the 3 a.m. world"},
+        {"start_min": 210, "end_min": 300, "place": "unit:desk", "activity": "work", "outfit": "late_night", "detail": "annotating the notebook; the margins win"},
+        {"start_min": 300, "end_min": 450, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night", "detail": "first sleep"},
+        {"start_min": 450, "end_min": 495, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night", "detail": "coffee; toast over the sink; radio low"},
+        {"start_min": 495, "end_min": 660, "place": "unit:desk", "activity": "work", "outfit": "late_night", "detail": "the family book; mornings are when he tries the last chapter, and by 09:00 he is renumbering earlier chapters instead"},
+        {"start_min": 660, "end_min": 690, "place": "unit:bathroom", "activity": "shower", "outfit": "towel", "detail": "ink still on two fingers; the robe goes straight back on"},
+        {"start_min": 690, "end_min": 720, "place": "lobby", "activity": "errand", "outfit": "street", "detail": "box 6B checked daily for nothing he could name; anyone in the lobby gets the start of an anecdote"},
+        {"start_min": 720, "end_min": 780, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night", "detail": "eggs again"},
+        {"start_min": 780, "end_min": 870, "place": "unit", "activity": "sleeping", "outfit": "late_night", "detail": "second sleep, on the sofa"},
+        {"start_min": 870, "end_min": 1020, "place": "unit:desk", "activity": "work", "outfit": "late_night", "detail": "the column: 800 words he can finish because the deadline finishes it for him; how he eats"},
+        {"start_min": 1020, "end_min": 1065, "place": "corridor", "activity": "hobby", "outfit": "street", "route": ["stairs", "roof"], "detail": "walking the stairwell top to bottom, thinking; the pause on the F04 landing outside 4C is longer than any other pause; he does not knock"},
+        {"start_min": 1065, "end_min": 1095, "place": "bodega", "activity": "errand", "outfit": "street", "detail": "dinner makings; second visit"},
+        {"start_min": 1095, "end_min": 1170, "place": "unit:kitchen", "activity": "eating", "outfit": "late_night"},
+        {"start_min": 1170, "end_min": 1290, "place": "unit:living", "activity": "tv", "outfit": "late_night", "detail": "crime procedurals: the only endings he consumes are televised verdicts"},
+        {"start_min": 1290, "end_min": 1440, "place": "unit:desk", "activity": "work", "outfit": "late_night", "detail": "fresh page; a fresh notebook if the page resists"},
+        {"start_min": 1260, "end_min": 1440, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["sat"], "detail": "never sings; holds the room between songs, telling the beginning of a story and buying a round when someone asks what happens next"},
+        {"start_min": 0, "end_min": 90, "place": "harukiya_bar", "activity": "socializing", "outfit": "street", "days": ["sun"]},
+        {"start_min": 690, "end_min": 750, "place": "visit:4C_doorway", "activity": "socializing", "outfit": "street", "days": ["sun"], "with": ["noel_price"], "detail": "two coffees; the door opens at noon and the brothers drink them in the doorway, never inside, nothing said past objects"},
+        {"start_min": 780, "end_min": 1020, "place": "unit", "activity": "rest", "outfit": "late_night", "days": ["sun"], "detail": "no column; the nap stretches; the only day the deadline is not holding anything up, and it shows"}
+      ],
+      "special_days": [
+        {"doy": 68, "proposed": true, "label": "the verdict, State v. Price", "blocks": [
+          {"start_min": 180, "end_min": 210, "place": "bodega", "activity": "ritual", "outfit": "street", "detail": "buys a composition book, writes a single sentence on the first page standing in the stairwell, and shelves it in 6B beside the others; a different sentence every year, never reread"}
+        ]}
+      ]
+    },
+    "mae_kessler": {
+      "unit": "6C",
+      "blocks": [
+        {"start_min": 0, "end_min": 390, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night", "detail": "asleep before anyone but Malcolm; her dark window is the counterweight to Jonah's lit one"},
+        {"start_min": 390, "end_min": 435, "place": "unit:bathroom", "activity": "shower", "outfit": "towel", "detail": "the hands much older than the face she maintains; the most exposed image in the building"},
+        {"start_min": 435, "end_min": 480, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "breakfast laid properly: cloth, teapot; classical radio, low; dressed and brooched by 07:15"},
+        {"start_min": 480, "end_min": 510, "place": "lobby", "activity": "errand", "outfit": "street", "detail": "the post; one gloved finger drawn along the mail-bank brass, and tarnish reported to Management"},
+        {"start_min": 510, "end_min": 540, "place": "bodega", "activity": "errand", "outfit": "street", "detail": "milk and the paper; the counterman calls her Mrs. Kessler and she does not correct the Mrs."},
+        {"start_min": 540, "end_min": 750, "place": "unit:front_room", "activity": "work", "outfit": "street", "detail": "appraisals: clients by appointment bring objects to her; loupe, white gloves, certificates in fountain pen"},
+        {"start_min": 750, "end_min": 810, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "lunch at table"},
+        {"start_min": 810, "end_min": 960, "place": "unit", "activity": "hobby", "outfit": "street", "detail": "cataloguing her own collection: every object appraised and carded except the ledger box on the bottom shelf, dusted around"},
+        {"start_min": 810, "end_min": 960, "place": "out", "activity": "work", "outfit": "street", "days": ["mon", "wed"], "detail": "auction previews, estate visits"},
+        {"start_min": 960, "end_min": 1050, "place": "unit", "activity": "hobby", "outfit": "street", "detail": "provenance catalogues; mending the kid gloves"},
+        {"start_min": 960, "end_min": 1050, "place": "unit", "activity": "socializing", "outfit": "street", "days": ["thu"], "with": ["nadia_quell"], "detail": "tea, the good service, poured by the last Kessler for the architect her family silenced; neither has ever said the thing"},
+        {"start_min": 1050, "end_min": 1110, "place": "unit:kitchen", "activity": "eating", "outfit": "street", "detail": "dinner early"},
+        {"start_min": 1110, "end_min": 1200, "place": "unit:living", "activity": "ritual", "outfit": "street", "detail": "the alignment ritual: polish and inventory, every object returned to its chalk-mark; the Ruler straightening objects nobody uses"},
+        {"start_min": 1200, "end_min": 1320, "place": "unit:living", "activity": "hobby", "outfit": "street", "detail": "radio drama; letter-writing to dealers"},
+        {"start_min": 1320, "end_min": 1350, "place": "unit:bedroom", "activity": "wind_down", "outfit": "late_night", "detail": "the pins come out; reading; the shortest LATE NIGHT in the building"},
+        {"start_min": 1350, "end_min": 1440, "place": "unit:bedroom", "activity": "sleeping", "outfit": "late_night"},
+        {"start_min": 570, "end_min": 900, "place": "out", "activity": "work", "outfit": "street", "days": ["sat"], "detail": "sale day at the auction rooms; she authenticates for the house; her certainty is the product"},
+        {"start_min": 510, "end_min": 570, "place": "roof", "activity": "rest", "outfit": "street", "days": ["sun"], "detail": "her one unhurried hour: the roof garden, gloved, touching nothing; the realm inspected, never used"},
+        {"start_min": 1110, "end_min": 1230, "place": "unit:living", "activity": "ritual", "outfit": "street", "days": ["sun"], "detail": "the clocks wound and set against the radio pips; the private inventory ledger ruled off; the week must end squared, or it did not happen correctly"}
+      ],
+      "special_days": [
+        {"doy": 152, "proposed": true, "label": "cornerstone day, 1893", "blocks": [
+          {"start_min": 450, "end_min": 510, "place": "lobby", "activity": "ritual", "outfit": "street", "detail": "descends in full dress and inspects the lobby with a white glove: sill, stair rail, mail bank; recites the building's provenance flawlessly, identically, every year"},
+          {"start_min": 1200, "end_min": 1260, "place": "unit:living", "activity": "ritual", "outfit": "street", "detail": "the Estate ledger comes down off the bottom shelf, is dusted, and goes back unopened"}
+        ]}
+      ]
+    }
+  }
+}
