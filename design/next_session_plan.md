@@ -1,5 +1,31 @@
 # Priorities — after the street learned to end and the bar learned the time
 
+## STATUS UPDATE 2026-08-07 (evening session): P0 and P1 SHIPPED
+
+- **P0 done.** `game/data/resident_schedules.json` (382 blocks, 19
+  date-keyed observances, outfit field reserved for #46; overlay schema
+  doy > monthly+days > days > base) + `ScheduleDirector` driving
+  resident_routines: home / place / exterior (lobby-door crossing, same
+  abstraction as the lifts) / offsite despawn. Envs: SCHEDULE=1/0,
+  SCHEDULE_DAY, SCHEDULE_DOY; inert under DAYNIGHT=0. Suites:
+  ScheduleTest (headless) + ScheduleLiveProbe (manual; proved the
+  Friday bar roster forms in engine). Doc wobble kept faithful: the
+  Thursday bodega stagger runs 4 bodies 17:30-18:15, wider than SIII's
+  quarter-hour claim.
+- **P1 P5 done.** HarukiyaStateDirector: OPEN 19:00-02:00 /
+  AFTER-HOURS -04:30 / CLOSED, same clock as the sky. Fixed en route:
+  bar fixtures were storey-gated OFF for anyone standing in the room
+  (F01_ names at B1 heights) — the venue is a vertical zone now.
+- **P1 P6 done.** Inspectables (pictures/barrels/pool table) + four
+  couch seat sockets; scheduled bar-goers claim couches and settle.
+- **Signage redesign done (user directive).** Both shops dropped tube
+  neon: bodega = HALF BAKED backlit yellow awning valance + projecting
+  corner lightbox (24 h, one tired tube); Harukiya = painted 春木屋
+  board under goosenecks + red chochin (lit when open, taken in when
+  closed) + marquee bulb arrow. Doc shots b_44-b_47; all states
+  verified by render + measured RGB.
+- **P2 Songbook remains gated on explicit user direction.**
+
 Written 2026-08-07, at the close of the exterior-makeover arc: the
 elevator finished top to bottom (roof car included), the texture library
 regenerated and folded into ai_materials with multi-gen synthesis
