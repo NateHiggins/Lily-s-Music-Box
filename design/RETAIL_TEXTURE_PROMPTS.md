@@ -11,6 +11,15 @@ promised and never wrote (green wall, red trim, couch vinyl). 10–12 are
 the new shopfront signage surfaces, added 2026-08-07 when both shops
 dropped tube neon for their own vocabularies.
 
+> **Before pasting any of these into a generator**, read *Talking to the
+> generator* in `MATERIAL_PROMPT_SHEET.md`. These blocks are written in
+> slot language — precise for us, poorly followed by an image model. The
+> short version: open with "a flatbed scanner scan of…", state scale as
+> a count of visible features rather than in metres, ask for a close
+> crop of a larger surface instead of a seamless tile (ingest has its
+> own seamless pass), and say the surface fills the frame with no object
+> edges or background.
+
 ## 1. `red_steel_shelving.png` — 0.8 m  (bodega gondolas + wall shelves)
 
 ```

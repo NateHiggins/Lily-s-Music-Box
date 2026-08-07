@@ -41,6 +41,116 @@ oak lost once; slots are earned.
 
 ---
 
+## TALKING TO THE GENERATOR — read this before blaming the prompt
+
+*Added 2026-08-07, after a run of these came back as photographs of
+objects in rooms. The blocks above are written in slot language, for a
+technical artist who already knows what an albedo is. Gemini does not.
+Translate before pasting; the content is right, the dialect is wrong.*
+
+**The one sentence that fixes most of it.** Every prompt should open by
+saying it is a **flatbed scanner scan** — "A flatbed scanner scan of…"
+or "Photographed from directly overhead on a copy stand." Perspective,
+shadow, vignette and staging are all one concept to an image model, and
+that concept is *a photograph of a thing*. Naming the scanner replaces
+it with a different concept the model has seen a hundred thousand times:
+a flat surface, lit dead even, filling the frame. It does more work than
+"orthographic, flat diffuse lighting, no shadows, no specular" combined,
+because those are four separate negatives it will half-obey.
+
+**Say what it is, not what it must not be.** Negatives are the weakest
+instruction in the box; a model asked for "no shadows" will frequently
+draw shadows, having been reminded of them. Prefer the positive: "lit
+absolutely evenly across the whole frame, like a document scanner." Keep
+the negatives only where they are cheap and specific — "no letters or
+numbers anywhere" earns its place, because label-adding is the single
+most common failure and it is unambiguous.
+
+**Metres mean nothing. Counts mean everything.** "Coverage: 1.2 metres"
+is precise, correct, and completely invisible to the generator, which
+has no metric sense at all. Say instead how many features should be
+visible across the image: *about eight tiles across* · *about five
+courses of brick* · *roughly three plank widths*. Scale is the thing
+ingest cannot fix well — a swatch generated at the wrong zoom either
+tiles into wallpaper or blurs into mud — so this is the most valuable
+sentence in the prompt. Keep the metre figure in the sheet for us;
+translate it to a count for the generator.
+
+**Stop asking for seamless.** It cannot do it. It will produce something
+that *looks* seamless in thumbnail and has a visible seam at 100%, and
+sometimes it draws a literal border or grid because "edges" was in the
+prompt at all. `ingest_material_sources.py` runs its own seamless pass
+as a net, and that pass wants a good crop, not a bad attempt at a tile.
+Ask for the crop instead: **"a close crop of a much larger continuous
+surface, the material filling the entire frame edge to edge."**
+
+**Ask for the surface, not the object.** The other big failure is a
+picture of the thing: a rug lying on a floor, a shelving unit standing
+in a shop, an awning on a building. Add "no object edges, no background,
+no floor or wall visible, no corners, the surface continues past all
+four sides of the frame." A rug prompt that returns a rug has failed;
+it should return *rug*.
+
+**Keep landmarks out, and mean it.** One dramatic stain, chip or knot is
+what a model reaches for to make an image interesting, and it becomes a
+drumbeat the moment the engine repeats the tile. "Wear evenly
+distributed across the whole surface, many small blemishes rather than
+one large one, nothing that draws the eye to a single spot" beats "no
+unique landmarks," which reads to a model as an art-direction note
+rather than a rule. COMPOSITION-class assets are the exception and want
+the opposite.
+
+**Short beats long.** These prompts are long because they are specs.
+Attention gets thinner the further down you go, so put the format first
+(scanner, frame-filling, even light), the subject second, and the period
+detail last — and cut any clause you would not notice missing.
+
+### The same prompt in both dialects
+
+Sheet language, correct and ignored:
+
+> Seamless tileable texture of a 1960s bar floor in red-orange quarry
+> tile, 15 cm square unglazed tiles with thin near-black grout […]
+> Orthographic top-down view, flat lay, flat even diffuse lighting, no
+> shadows, no specular, base color map only. Seamless, infinitely
+> wrapping. Coverage: 1.2 metres, eight tiles across.
+
+Generator language, same asset:
+
+> A flatbed scanner scan of an old bar floor, red-orange unglazed quarry
+> tile with thin near-black grout, about eight tiles across the image.
+> Decades of spilled-drink grime darkened into the grout lines, the tile
+> faces dulled unevenly by traffic, two hairline-cracked tiles and one
+> old replacement in a slightly wrong red, a few small cigarette scorch
+> marks. Wear spread evenly over the whole surface, many small marks
+> rather than one big one. The tile grid runs square to the edges of the
+> image. A close crop of a much larger continuous floor: tile fills the
+> entire frame edge to edge, no background, no skirting, no floor edges,
+> no objects on it. Lit absolutely evenly like a document scanner, no
+> shadows and no glare. Flat matte colour only. Square image, sharp,
+> high resolution, no letters or numbers anywhere.
+
+Same information. The second one is ordered the way attention actually
+falls, states the scale as a count, asks for a crop rather than a
+miracle, and spends its negatives where they pay.
+
+### If it still fights you
+
+- **Feed it a winner.** Attach an already-accepted source from
+  `art/textures/ai_sources/` and say "match this framing, lighting and
+  zoom level; different material." Reference beats description.
+- **Generate at the wrong zoom on purpose.** If it keeps coming back too
+  close, ask for twice the feature count; the miss is usually zoom, not
+  content.
+- **Take the good half.** A square with three good quadrants and one
+  landmark is fine — crop and let the seamless pass extend it.
+- **Two or three tries, then move on.** Drop `<stem>_alt.png` or
+  `<stem>_v2.png` beside the source and ingest builds `_b`/`_c`/`_d`
+  family variants from the spares automatically, so a near-miss is not
+  waste — it is variation.
+
+---
+
 ## TIER 1 — architecture
 
 ### `common_brick_interior.png` — TILING
