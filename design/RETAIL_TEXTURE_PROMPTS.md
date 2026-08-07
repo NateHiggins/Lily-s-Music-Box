@@ -1,10 +1,15 @@
 # RETAIL & STREET TEXTURE PROMPTS (task #49)
 
-Six surfaces the new spaces stand on that currently wear stand-in flat
-colours. Drop each under the exact stem in `art/textures/ai_sources/`;
-SLOTS entries follow once delivered. All are TILING swatches except
-where marked. References on file: the Harukiya bar (Akira) and the
-Half Baked corner store.
+Twelve surfaces the new spaces stand on that currently wear stand-in
+flat colours. Drop each under the exact stem in
+`art/textures/ai_sources/`; SLOTS entries follow once delivered. All are
+TILING swatches except where marked. References on file: the Harukiya
+bar (Akira) and the Half Baked corner store.
+
+1–6 are the original #49 set. 7–9 are the bar accent surfaces the brief
+promised and never wrote (green wall, red trim, couch vinyl). 10–12 are
+the new shopfront signage surfaces, added 2026-08-07 when both shops
+dropped tube neon for their own vocabularies.
 
 ## 1. `red_steel_shelving.png` — 0.8 m  (bodega gondolas + wall shelves)
 
@@ -92,4 +97,124 @@ drips, a strip of bare plywood along the bottom. Orthographic
 straight-on view, flat even diffuse lighting, no shadows, no specular,
 base color map only. Seamless, infinitely wrapping, no readable text,
 no watermark. Square 1:1, high resolution. Coverage: 2.0 metres.
+```
+
+---
+
+# THE BAR ACCENTS (7–9)
+
+*The palette law from the reference notes: dirty warm light, poisoned
+green walls, bruised red accents. `bar_wall_smoked` above is the oxblood
+back room; this green is the main room, and it is the colour the whole
+space is remembered by.*
+
+## 7. `bar_wall_green.png` — 1.6 m  (Harukiya main room walls)
+
+```
+Seamless tileable texture of a 1970s basement bar interior wall in
+poisoned institutional green oil paint over old plaster, a sickly
+yellow-tinged olive green, glossy sheen worn matte at shoulder height,
+decades of cigarette smoke deepening it unevenly, small nail holes and
+pale rectangles where pictures once hung, hairline plaster cracks,
+scuffs and old adhesive residue, a faint tidemark of damp low down.
+Wear evenly distributed, no single dominant blemish. Orthographic
+straight-on view, flat even diffuse lighting, no shadows, no specular,
+base color map only. Seamless, infinitely wrapping on all four edges,
+no landmarks, no watermark, no text. Square 1:1, high resolution.
+Coverage: 1.6 metres.
+```
+
+## 8. `lacquer_red_trim.png` — 0.5 m  (counter trim, canopy rim, door)
+
+```
+Seamless tileable texture of aggressive signal-red lacquered timber
+trim from a bar counter front, many coats of gloss paint built up over
+grain that still reads through, knocked and chipped along what would be
+a leading edge to show black undercoat and bare wood, fine scratch
+webbing from stools and shoes, hand-polish sheen worn into it unevenly,
+a dull grime film in the low spots. Small-scale detail, wear evenly
+distributed, no single dominant chip. Orthographic straight-on view,
+flat even diffuse lighting, no shadows, no specular, base color map
+only. Seamless, infinitely wrapping, no landmarks, no watermark, no
+text. Square 1:1, high resolution, macro detail. Coverage: 0.5 metres.
+```
+
+## 9. `couch_vinyl_oxblood.png` — 0.7 m  (bar couches and banquettes)
+
+```
+Seamless tileable texture of old oxblood-red vinyl upholstery from a
+bar banquette, deep buttoned-look grain pressed into the surface, the
+gloss worn to a dull matte across seating areas, fine surface crazing
+and hairline splits distributed evenly across the whole swatch, edges
+of the cracks slightly paler where the backing shows, a greasy sheen
+where hands and heads have rested, small cigarette scorch pocks. Every
+split small and evenly distributed, no single large tear, no seams, no
+piping, no buttons. Orthographic straight-on view, flat even diffuse
+lighting, no shadows, no specular, base color map only. Seamless,
+infinitely wrapping, no landmarks, no watermark, no text. Square 1:1,
+high resolution, macro grain detail. Coverage: 0.7 metres.
+```
+
+*(The one conspicuous split on the corner banquette — the one Lena
+brings thread for on a Saturday — is authored geometry, not this
+texture. A landmark tear baked into a tiling swatch would repeat across
+every couch in the room.)*
+
+---
+
+# THE SHOPFRONT SIGNAGE (10–12)
+
+*Added 2026-08-07. Both shops now carry lit signage in vocabularies
+deliberately unlike the Orison's tube neon; these three surfaces are
+what those props currently fake with flat colour. All three are lit
+from behind or in front BY THE ENGINE — generate flat unlit albedo as
+usual and let the prop's emission do the glowing.*
+
+## 10. `awning_vinyl_yellow.png` — 1.2 m  (bodega awning and valance)
+
+```
+Seamless tileable texture of a cheap corner-store awning in glossy
+yellow vinyl-coated canvas, the taxi-yellow gone slightly green and
+chalky from years of sun, faint horizontal seam welts where panels are
+joined, a fine grid of the woven backing showing through the coating,
+grey rain-streak grime running downward, small scuffs and one or two
+tiny stress cracks at stitch lines, city dust settled into the weave.
+Wear evenly distributed, no single dominant stain. Orthographic
+straight-on view, flat even diffuse lighting, no shadows, no specular,
+base color map only. Seamless, infinitely wrapping, no lettering, no
+logo, no readable text, no watermark. Square 1:1, high resolution.
+Coverage: 1.2 metres.
+```
+
+## 11. `sign_board_painted.png` — 1.0 m  (Harukiya fascia board)
+
+```
+Seamless tileable texture of a weathered hand-painted wooden shop sign
+board, dark oiled timber with visible straight grain and two plank
+joints, a hand-brushed off-white paint field laid over it and worn thin
+so the grain shows through in the brush direction, fine craquelure in
+the paint, water staining darkening the lower portion, small chips at
+the plank edges, a century of city grime in the grain. No lettering, no
+characters, no symbols of any kind - blank painted board only. Wear
+evenly distributed. Orthographic straight-on view, flat even diffuse
+lighting, no shadows, no specular, base color map only. Seamless,
+infinitely wrapping, no landmarks, no watermark, no text. Square 1:1,
+high resolution, macro grain detail. Coverage: 1.0 metres.
+```
+
+## 12. `chochin_paper.png` — 0.5 m  (the bar's red lantern)
+
+```
+Seamless tileable texture of a red Japanese paper lantern surface,
+deep vermilion washi paper stretched over a bamboo spiral rib frame so
+evenly spaced horizontal ribs show as slightly raised paler bands,
+the paper fibrous and uneven in density, small stains and a soft dark
+tidemark of rain at one band, one tiny repaired tear patched with a
+paler paper square, colour warm saturated red. No lettering, no
+characters, no symbols, blank lantern paper only. Ribs running
+horizontally and wrapping exactly at the top and bottom edges. 
+Orthographic straight-on view, flat even diffuse lighting, no shadows,
+no specular, base color map only. Seamless, infinitely wrapping, no
+watermark, no text. Square 1:1, high resolution, macro fibre detail.
+Coverage: 0.5 metres.
 ```
