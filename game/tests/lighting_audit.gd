@@ -48,10 +48,18 @@ func _audit() -> void:
 		if fixture.light and \
 				fixture.light.omni_shadow_mode != OmniLight3D.SHADOW_CUBE:
 			incompatible_shadow_modes += 1
-		if fixture.light and (fixture.light.shadow_opacity < 0.95 or
+		# The provenance pass (tools/author_light_provenance.py) authors
+		# per-fixture shadow_opacity in [0.86, 1.0] as personality; the
+		# audit floor sits just under that range. Below it, shadows wash
+		# out under ambient fill — the original sin this check guards.
+		if fixture.light and (fixture.light.shadow_opacity < 0.85 or
 				fixture.light.shadow_bias > 0.02 or
 				fixture.light.shadow_normal_bias > 0.12):
 			weak_shadow_settings += 1
+			print("  [light weak] %s (%s): opacity=%.2f bias=%.3f nbias=%.3f"
+					% [fixture.name, fixture.prop_type,
+					fixture.light.shadow_opacity, fixture.light.shadow_bias,
+					fixture.light.shadow_normal_bias])
 	_check(incompatible_shadow_modes == 0,
 			"all omni lights use Compatibility-safe cubemap shadows")
 	_check(weak_shadow_settings == 0,

@@ -11,6 +11,9 @@ extends OmniLight3D
 ## fills at once through 1927 masonry anyway.
 
 const ENERGY := 0.16
+## Day/night: the director dims the window pools toward daylight, when
+## moonlight through glass stops being the story.
+var energy_scale := 1.0
 const TINT := Color(0.62, 0.70, 0.86)
 
 var _layout: Dictionary = {}
@@ -61,5 +64,5 @@ func _process(delta: float) -> void:
 	# Hangs above head height so the fill reads as coming from the room,
 	# not from the player's pocket.
 	global_position = p + Vector3(0, 1.6, 0)
-	light_energy = lerpf(light_energy, ENERGY if lit else 0.0, 0.25)
+	light_energy = lerpf(light_energy, ENERGY * energy_scale if lit else 0.0, 0.25)
 	visible = light_energy > 0.01

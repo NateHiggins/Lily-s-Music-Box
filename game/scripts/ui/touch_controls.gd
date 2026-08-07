@@ -88,7 +88,6 @@ func _layout() -> void:
 		_button("JUMP", "jump", Vector2(right - gap, bottom), false),
 		_button("RUN", "run", Vector2(right, bottom - gap), true),
 		_button("CROUCH", "crouch", Vector2(right - gap, bottom - gap), false),
-		_button("LAMP", "flashlight", Vector2(right, bottom - gap * 2.0), false),
 	]
 	_panel.queue_redraw()
 

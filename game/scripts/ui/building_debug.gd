@@ -25,6 +25,7 @@ extends PanelContainer
 
 var root: Node3D
 
+var _shot_status: Label
 var _body: ScrollContainer
 var _column: VBoxContainer
 var _status: Label
@@ -82,6 +83,7 @@ func _ready() -> void:
 	_build_reality()
 	_build_world()
 	_build_device()
+	_build_capture()
 	_build_keys()
 	root.light_rig.debug_fixture_selected.connect(_on_debug_fixture_selected)
 
@@ -336,6 +338,22 @@ func _build_go() -> void:
 	_button(extra, "F03 utility door", func():
 		root.player.global_position = GameBoot.b2g([-4.4, 2.0, 6.5])
 		root.player.velocity = Vector3.ZERO)
+	# The warehouse is a teleport, so it belongs with the teleports. It
+	# used to live under CAPTURE - a section about screenshots, collapsed
+	# by default - which is nobody's first guess for "take me to the
+	# warehouse", and the one route into a room with no door is not a
+	# thing to hide.
+	_button(extra, "Prop warehouse", func():
+		if root == null or root.warehouse == null:
+			push_warning("[DEBUG] warehouse exists in DEBUG launches only")
+			return
+		var to: Vector3 = root.warehouse.viewing_stand()
+		if root.view_override:
+			root.view_override.global_position = to
+		if root.player:
+			root.player.global_position = to
+			root.player.velocity = Vector3.ZERO
+		print("[DEBUG] warehouse: %d prop kinds" % root.warehouse._built))
 	box.add_child(extra)
 
 
@@ -433,18 +451,6 @@ func _build_world() -> void:
 	mute.add_theme_font_size_override("font_size", 10)
 	mute.toggled.connect(func(on): AudioServer.set_bus_mute(0, on))
 	box.add_child(mute)
-	var chaos := CheckBox.new()
-	chaos.text = "Chaos mode (F4)"
-	chaos.add_theme_font_size_override("font_size", 10)
-	chaos.toggled.connect(func(on): root.map_distortion_lab.set_chaos(on))
-	box.add_child(chaos)
-	var grid := GridContainer.new()
-	grid.columns = 4
-	box.add_child(grid)
-	for distortion in MapDistortionLab.MODES:
-		var distortion_mode: String = distortion
-		_button(grid, distortion_mode.replace("_", " ").capitalize(),
-				func(): root.map_distortion_lab.set_mode(distortion_mode))
 
 
 ## Both of these are open questions on hardware rather than settled numbers,
@@ -584,11 +590,34 @@ func _set_light_controls_enabled(enabled: bool) -> void:
 		(slider as HSlider).editable = enabled
 
 
+## Where the player stands is the only camera that ever finds the real
+## problems — a scripted stand frames what I already suspect. The work
+## happens in ShotCapture, which lives on the building root so F still
+## takes a shot in a launch mode that never built this panel.
+func _build_capture() -> void:
+	var box := _section("CAPTURE — shots for review", Color(0.85, 0.85, 0.6),
+			true)
+	var status := Label.new()
+	status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	status.add_theme_font_size_override("font_size", 9)
+	status.modulate = Color(0.7, 0.75, 0.6)
+	status.text = "F anywhere, or the button. Panel hides itself first.
+" 			+ "Lands in art/renders/insitu with the pose in shots.md."
+	_button(box, "Screenshot  (F)", func():
+		if root and root.shots:
+			root.shots.capture())
+	box.add_child(status)
+	_shot_status = status
+	if root and root.shots:
+		root.shots.captured.connect(func(stem, aim):
+			status.text = "%s.png · %s" % [stem, aim])
+
+
 func _build_keys() -> void:
 	var box := _section("KEYS", Color(0.7, 0.7, 0.75))
 	var hint := Label.new()
 	hint.text = "WASD move · Shift run · C crouch · E interact\n" \
-			+ "F flashlight · V noclip · F2 intro · F3 distort · F4 chaos\n" \
+			+ "F screenshot · V noclip · F2 intro · F3 distort · F4 chaos\n" \
 			+ "Esc release mouse · wheel scrolls this panel"
 	hint.add_theme_font_size_override("font_size", 10)
 	hint.modulate = Color(0.7, 0.7, 0.75)

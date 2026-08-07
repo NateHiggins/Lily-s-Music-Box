@@ -353,7 +353,17 @@ func _process(delta: float) -> void:
 	var players := get_tree().get_nodes_in_group("player_controller")
 	var occupied_height := cam.global_position.y - PlayerController.STANDING_EYE
 	if not players.is_empty():
-		occupied_height = (players[0] as Node3D).global_position.y
+		var body := players[0] as Node3D
+		# ...but only when the camera is actually ON the controller. A
+		# detached camera - the free camera, a cinematic, anything that
+		# sets view_override - leaves the body parked where it was, and
+		# reading the floor off a parked body gates every fixture around
+		# the camera OFF as "another storey". Fly to the fourth floor
+		# with the body still in the lobby and the fourth floor is dark:
+		# the fixtures are there, they are simply switched off by a
+		# storey test answering about somewhere else.
+		if body.is_ancestor_of(cam):
+			occupied_height = body.global_position.y
 	active_floor = _floor_at_height(occupied_height)
 	var eye := cam.global_position
 	# gate by storey, then rank the survivors so the per-object cap is spent

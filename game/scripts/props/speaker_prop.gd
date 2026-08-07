@@ -7,7 +7,15 @@ extends FunctionalProp
 var _thump: AudioStreamPlayer3D
 
 
+## Optional looping ambience stream key, set from the marker.
+var bed := ""
+
+
 func _build_visual() -> void:
+	if bed != "":
+		var bed_p := make_emitter(bed, -24.0, true)
+		if bed_p:
+			bed_p.max_distance = 9.0
 	## Studio monitor, salvage grade: veneer cabinet, real conical woofer
 	## with dust cap, horn tweeter, bass port and one missing grille peg.
 	make_box(Vector3(0.34, 0.55, 0.30), Vector3(0, 0.275, 0),

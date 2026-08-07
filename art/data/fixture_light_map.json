@@ -1,5 +1,5 @@
 {
- "fixture_count": 185,
+ "fixture_count": 195,
  "fixtures": [
   {
    "id": "B1_CORRIDOR_DOME_01",
@@ -274,20 +274,36 @@
    "standby": 0.32
   },
   {
-   "id": "F01_ENTRY_SCONCE",
+   "id": "F01_MARQUEE_LT_01",
    "floor": "F01",
-   "kind": "sconce_globe",
-   "room": "F01_NAVIGATION",
-   "room_kind": "corridor",
+   "kind": "flush_dome",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
    "position": [
-    -0.455,
-    -10.24,
-    2.62
+    -0.78,
+    -10.86,
+    3.24
    ],
-   "range": 3.8,
-   "energy": 0.62,
-   "navigation": true,
-   "standby": 0.45
+   "range": 5.0,
+   "energy": 1.0,
+   "navigation": false,
+   "standby": 0.04
+  },
+  {
+   "id": "F01_MARQUEE_LT_02",
+   "floor": "F01",
+   "kind": "flush_dome",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    0.78,
+    -10.86,
+    3.24
+   ],
+   "range": 5.0,
+   "energy": 1.0,
+   "navigation": false,
+   "standby": 0.04
   },
   {
    "id": "F01WC_LT_SCONCE",
@@ -688,6 +704,150 @@
    "energy": 0.48,
    "navigation": true,
    "standby": 0.32
+  },
+  {
+   "id": "F01_BODEGA_LT_0",
+   "floor": "F01",
+   "kind": "kitchen_linear",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    17.55,
+    -10.2,
+    3.05
+   ],
+   "range": 5.5,
+   "energy": 0.55,
+   "navigation": true,
+   "standby": 0.35
+  },
+  {
+   "id": "F01_BODEGA_LT_1",
+   "floor": "F01",
+   "kind": "kitchen_linear",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    17.55,
+    -7.2,
+    3.05
+   ],
+   "range": 5.5,
+   "energy": 0.55,
+   "navigation": true,
+   "standby": 0.35
+  },
+  {
+   "id": "F01_BODEGA_LT_2",
+   "floor": "F01",
+   "kind": "kitchen_linear",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    17.55,
+    -4.2,
+    3.05
+   ],
+   "range": 5.5,
+   "energy": 0.55,
+   "navigation": true,
+   "standby": 0.35
+  },
+  {
+   "id": "F01_BAR_LT_LOBBY",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    4.875,
+    -29.3,
+    2.3
+   ],
+   "range": 3.5,
+   "energy": 0.4,
+   "navigation": true,
+   "standby": 0.35
+  },
+  {
+   "id": "F01_BAR_LT_STAIR",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    5.3,
+    -32.6,
+    0.55
+   ],
+   "range": 3.5,
+   "energy": 0.4,
+   "navigation": true,
+   "standby": 0.35
+  },
+  {
+   "id": "F01_BAR_LT_CAN0",
+   "floor": "F01",
+   "kind": "kitchen_linear",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -3.2,
+    -29.7,
+    -1.06
+   ],
+   "range": 5.0,
+   "energy": 0.55,
+   "navigation": true,
+   "standby": 0.4
+  },
+  {
+   "id": "F01_BAR_LT_CAN1",
+   "floor": "F01",
+   "kind": "kitchen_linear",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -0.9,
+    -29.7,
+    -1.06
+   ],
+   "range": 5.0,
+   "energy": 0.55,
+   "navigation": true,
+   "standby": 0.4
+  },
+  {
+   "id": "F01_BAR_LT_POOL",
+   "floor": "F01",
+   "kind": "pendant_shade",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -0.75,
+    -32.2,
+    -0.75
+   ],
+   "range": 4.0,
+   "energy": 0.45,
+   "navigation": true,
+   "standby": 0.4
+  },
+  {
+   "id": "F01_BAR_LT_WC",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "F01_NAVIGATION",
+   "room_kind": "corridor",
+   "position": [
+    -4.3,
+    -34.7,
+    -0.44999999999999973
+   ],
+   "range": 2.5,
+   "energy": 0.4,
+   "navigation": true,
+   "standby": 0.35
   },
   {
    "id": "F01_STREETLAMP_03",

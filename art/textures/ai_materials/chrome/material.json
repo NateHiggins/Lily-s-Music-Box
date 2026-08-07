@@ -1,0 +1,12 @@
+{
+  "material": "chrome",
+  "source": "art/textures/ai_sources/chrome_brushed.png",
+  "generator": "ingest_material_sources.py",
+  "meters_per_tile": 0.8,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

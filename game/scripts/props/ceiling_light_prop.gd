@@ -11,6 +11,7 @@ var _target_scale := 1.0
 var _surge := 0.0
 var _phase := 0.0
 var _drift_depth := 0.012
+var _drift_speed := 0.83
 var standby_scale := 0.0
 var navigation_light := false
 
@@ -69,8 +70,8 @@ func _process(delta: float) -> void:
 	if light == null:
 		return
 	var t := Time.get_ticks_msec() * 0.001 + _phase
-	var individual := 1.0 + sin(t * 0.83) * _drift_depth \
-			+ sin(t * 2.41) * _drift_depth * 0.32
+	var individual := 1.0 + sin(t * _drift_speed) * _drift_depth \
+			+ sin(t * _drift_speed * 2.90) * _drift_depth * 0.32
 	var want := _base_energy * _target_scale * (1.0 + _surge) * individual
 	light.light_energy = lerpf(light.light_energy, want, delta * 6.0)
 	_surge = maxf(0.0, _surge - delta * 2.2)

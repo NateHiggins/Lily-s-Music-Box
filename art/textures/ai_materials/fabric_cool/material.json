@@ -1,0 +1,12 @@
+{
+  "material": "fabric_cool",
+  "source": "art/textures/ai_sources/upholstery_cool.png",
+  "generator": "ingest_material_sources.py",
+  "meters_per_tile": 0.7,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

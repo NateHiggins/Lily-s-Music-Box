@@ -16,10 +16,18 @@ const PLATE := Vector3(0.16, 0.24, 0.06)
 var switches := 0
 
 var _layout: Dictionary = {}
+var _room_fixtures: Dictionary = {}
+
+const LIGHT_KINDS := {
+	"flush_dome": true, "pendant_shade": true, "sconce_globe": true,
+	"kitchen_linear": true, "cage_bulb": true, "chandelier": true,
+	"eye_pendant": true, "ceiling_light": true, "corridor_light": true,
+}
 
 
 func build(layout: Dictionary, root: Node3D) -> int:
 	_layout = layout
+	_map_fixtures(layout)
 	for fl in layout["floors"]:
 		var z: float = float(fl["z"])
 		for fu in fl.get("furniture", []):
@@ -42,6 +50,16 @@ func build(layout: Dictionary, root: Node3D) -> int:
 			body.add_child(shape)
 			var room_id := _room_served(fl, at, yaw)
 			body.set_meta("room_id", room_id)
+			# The click is the whole point of a switch. Without it a
+			# plate is a texture you press and a room that changes
+			# behind you.
+			var click := AudioStreamPlayer3D.new()
+			click.name = "Click"
+			click.stream = PropAudio.get_stream("tick")
+			click.volume_db = -6.0
+			click.unit_size = 1.6
+			click.max_distance = 9.0
+			body.add_child(click)
 			body.set_script(preload("res://scripts/building/switch_plate.gd"))
 			body.system = self
 			add_child(body)
@@ -70,16 +88,58 @@ func _room_served(fl: Dictionary, at: Array, yaw: float) -> String:
 	return best
 
 
-## Every fixture whose marker id begins with the room id — the generator
-## names them `<ROOM>_LT_<KIND>`, so the binding is the same one the
-## lighting pass authored.
+## Which fixtures each room owns, resolved from the LAYOUT by position
+## rather than from fixture names.
+##
+## The old rule was "every fixture whose marker id begins with the room
+## id". That reached 82 of 187 fixtures. The other 105 are named for the
+## thing they belong to rather than the room they hang in - `4C_LT_SCONCE`
+## is in F04_C_MAIN, `B1_CORRIDOR_DOME_01` is in B1_HALL - so more than
+## half the lights in the building answered to no switch at all, and a
+## room whose only fixture was one of them could not be turned on.
+##
+## A light is in the room its position is in. That is all this needs to be.
+func _map_fixtures(layout: Dictionary) -> void:
+	_room_fixtures.clear()
+	var homeless := 0
+	for fl in layout["floors"]:
+		for m in fl.get("markers", []):
+			if not LIGHT_KINDS.has(str(m.get("kind", ""))):
+				continue
+			var pos: Array = m.get("pos", [])
+			if pos.size() < 2:
+				continue
+			var found := ""
+			for r in fl.get("rooms", []):
+				var rect: Array = r["rect"]
+				if float(rect[0]) <= float(pos[0]) 						and float(pos[0]) <= float(rect[2]) 						and float(rect[1]) <= float(pos[1]) 						and float(pos[1]) <= float(rect[3]):
+					found = str(r["id"])
+					break
+			if found == "":
+				# Exterior fittings - the marquee, the street lamps - hang
+				# on no room and belong to no plate. Correct, not missing.
+				homeless += 1
+				continue
+			if not _room_fixtures.has(found):
+				_room_fixtures[found] = []
+			_room_fixtures[found].append(str(m.get("id", "")))
+	var wired := 0
+	for k in _room_fixtures:
+		wired += _room_fixtures[k].size()
+	print("[SWITCHES] %d fixtures wired across %d rooms, %d exterior"
+			% [wired, _room_fixtures.size(), homeless])
+
+
 func toggle_room(room_id: String) -> bool:
-	if room_id == "":
+	if room_id == "" or not _room_fixtures.has(room_id):
 		return false
+	var want: Dictionary = {}
+	for n in _room_fixtures[room_id]:
+		want[n] = true
 	var flipped := 0
 	var now_on := false
 	for fixture in get_tree().get_nodes_in_group("light_fixtures"):
-		if not str(fixture.name).begins_with(room_id + "_LT"):
+		if not want.has(str(fixture.name)):
 			continue
 		if "powered" in fixture:
 			fixture.set_powered(not fixture.powered)
@@ -88,4 +148,4 @@ func toggle_room(room_id: String) -> bool:
 	if flipped > 0:
 		print("[SWITCHES] %s -> %s (%d fixtures)"
 				% [room_id, "on" if now_on else "off", flipped])
-	return flipped > 0
+	return now_on

@@ -1,95 +1,104 @@
-# Priorities — post-cast-arrival, the lobby pass, and the spine
+# Priorities — after the street learned to end and the bar learned the time
 
-Written 2026-08-02, after the merge that closed the lighting blocker, the
-character dump landing (17 hero faces + harpy + oni, lamia still missing),
-the opening lockdown, collision-validated pathfinding, and all 34 voice
-takes arriving. Every suite is green. The governing document remains
-`design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`; this brief sequences the
-work in front of it.
+Written 2026-08-07, at the close of the exterior-makeover arc: the
+elevator finished top to bottom (roof car included), the texture library
+regenerated and folded into ai_materials with multi-gen synthesis
+families (#51), the street rebuilt at a true 60 ft right-of-way with
+diegetic route closures, the bodega (Half Baked) and Harukiya (Akira)
+standing through Phase 3 hero geometry, and a real-local-time day/night
+director with four measured states. WalkTest and LightingAudit green on
+the committed tree. Governing design docs now include the Harukiya
+Accords (ORISON_BIBLE laws 9–15), `docs/harukiya_reference_notes.md`,
+and `docs/songbook_brief.md`.
 
-## P0 — the vertical-slice spine (execution plan phases 1, 3, 5)
+## P0 — the residents get a clock (#50, second half)
 
-1. **Finish the first shift** (Phase 1): FirstShiftDirector exists and
-   stages arrival; still owed are the two mundane teaching tasks (entrance
-   lamp, radiator bleed) using the same verbs as supernatural work, the
-   staged first shadow error, and `intro_complete` set/consumed so a fresh
-   save reaches Mina's work order with no debug keys.
-2. **Mina's performance layer** (Phase 3): voice is DONE (34/34, matched,
-   playing). Remaining: her bespoke acting clips (listen, guarded,
-   strained, deflecting, recognition, quiet, relieved — `strained` and
-   `recognition` are already requested by the tree and no-op), gaze
-   targets, and the six non-case interactions + three behavior reactions.
-3. **Close the Mina loop honestly** (Phase 5): replace the time-clock
-   "Visit Two" shortcut with a real shift boundary; trophy/track/witness
-   aftermath on resolution.
+Day/night is DONE (`day_night_director.gd`, DAYNIGHT_FORCE/DAYNIGHT=0
+envs, tests pinned at 03:00). Remaining, in order:
 
-## P1 — the lobby pass (user-directed, this week)
+1. **Transcribe the timetables** — `design/ORISON_ARCHETYPE_SCHEDULES.md`
+   (18 schedules, lines 201–1236) → `game/data/resident_schedules.json`.
+   Do it IN-LOOP: the agent route died twice on the monthly spend limit.
+   Schema to design on the way in: per-resident array of
+   {start_min, end_min, place, activity, days/holiday filters} honoring
+   the cross-schedule interlocks (§III).
+2. **Schedule runtime** — a director that reads the JSON + the day/night
+   clock and drives resident_routines destinations: home rooms, hallway,
+   roof, lobby, bodega aisles, Harukiya (stage/couches/bar), "work" =
+   offsite despawn. Weekend/holiday branches per day-of-year.
+3. **Wardrobe hooks later** — swaps wait on #46 model generation; leave a
+   per-entry `outfit` field in the schema now so the data doesn't need a
+   second pass.
 
-1. **Remove the old wood mailbank** — the generated `lobby_mailbank` asm
-   in `gen_layout.py` (south lobby wall). The brass MailBankProp on the
-   east wall is the real one now. Pipeline is finally uncontended:
-   delete the asm + `F01_MAILWALL` marker, regen, rebuild glTFs.
-2. **Remove + retool the title board** — the title-image plaque built by
-   `maintenance_headquarters._build_plaque()` (south wall of F01_OFFICE).
-   Pull it from the world; retool the concept before it returns.
-3. **Foyer bench: functional and re-sited** — move to the other side of
-   the entry door (gen_layout furniture), give it a sit affordance
-   (resident `settle` role socket + player sit). Teresa's authored haunt
-   `(3.4, -8.4)` IS this bench — move her haunt with it or she will sit
-   on air.
-4. **Wall-art placement audit** — walkthrough + user confirm a large
-   misplacement family: art floating off walls, clipping openings, and
-   crossing the mid-wall picture rail. Audit every FoundArtPass /
-   character_wall_art / hallway_art placement against actual wall faces
-   and the rail line; add a WalkTest-style assertion so regressions are
-   loud (art quad must lie on a wall plane, not span the rail, not
-   overlap an opening).
-5. **Unique art per stair half-landing** — seven landings (B1..ROOF),
-   each gets its own piece (extend the hallway-art catalog + atlas;
-   landing walls are known geometry at the half-flight x=±2.31 line).
+## P1 — Harukiya phases that need no assets (#52)
 
-## P2 — walkthrough systemics (now unblocked — gen_layout is free)
+P1–P3 verified (descent, red door, room, restroom, hero couches/cabs/
+jukebox). P4 material language is BLOCKED on user gens
+(`design/RETAIL_TEXTURE_PROMPTS.md`, 6 prompts, plus green wall / red
+trim / couch vinyl). Self-serviceable meanwhile:
 
-1. **Blinds decoupled from windows** (~15 rooms, every floor) — one
-   placement offset in the window-dressing pass. The walk's top blocker.
-2. **WSTOR placeholder slab + cube** (F02–F06) — untextured geometry
-   filling the west storage rooms.
-3. Batchable trivia: floating faucets, towel bars across door trim,
-   pendant-in-duct clipping, ceiling-height sticky notes, B1 laundry
-   machines mid-floor, coal-room placeholder block.
+- **P5 lighting states** — bar OPEN/CLOSED/AFTER-HOURS looks; the
+  day/night director is the natural driver (bar lights keyed to
+  minute-of-day, exterior:True lights already unit SITE).
+- **P6 components** — Inspectable on the pictures/barrels/pool table,
+  Seat sockets on the couches (resident `settle` role + player sit,
+  same pattern as the lobby bench).
+- **P7 is superseded** by the Songbook (#53) — do not build the brief's
+  timed-lyrics karaoke; it is Songbook Phase 1 now.
 
-## P3 — smaller carried items
+## P2 — THE SONGBOOK Phase 1 (#53, when directed)
 
-- White decal quads (halls/corridors/roof sign/B1) — believed to be the
-  wallpaper/story-decal passes still settling; re-render before fixing.
-- Socket-prop labels render world-space and mirrored — should be
-  look-triggered prompts (execution plan Phase 2 wants nameplates
-  debug-only; same policy for these).
-- Re-shoot walkthrough floors after fixes (`WALK_FLOOR=F0x`); the camera
-  rig now dodges nested rooms.
-- Lamia: still absent from the dump — drop the zip and the pipeline
-  (`resident_hero_models.json` → `convert_dump_characters.py`) takes it.
-- Canon-height mechanism: runtime scaling (current, user-directed) vs
-  baking heights in the converter (parallel session's stated preference
-  via the identity-scale test guard). Decide once, before more models.
+LAST TRAIN HOME vertical slice per `docs/songbook_brief.md` MVP order:
+SongResource + phrase slots + timed display + lyric editor + mic record
++ latency clap-check + playback through the bar-PA effect chain. The
+stage, mic stand, and karaoke TV already exist in the bar. Ask before
+starting — it is a large feature and the user said "when directed."
+
+## Blocked on the user (offer prompts, don't wait)
+
+- **#22** — `linen_aged` hi-res gen (last of batch B).
+- **#36** — garbage cleanup pass; user F-keys floating placeholders
+  first, then they move to the warehouse.
+- **#46** — character models: Cal Dwyer FIRST, verify retarget on Mae's
+  coat and Jonah's robe before batching the other 51 prompts
+  (`design/ORISON_APOSE_PROMPTS.md`).
+- **#52 P4** — the six retail texture gens + bar accent prompts.
+- Day-state eyeball: bodega fluorescents under DAYNIGHT_FORCE=day are
+  untested-by-eye; worth a look next time in engine.
+
+## New invariants learned this arc (also in memory)
+
+- TWO SILENT JAILERS: anything opening the earth registers in
+  `GROUND_HOLES` (gen_layout site_pass) or gets an asphalt lid; any
+  off-site floor registers an AABB in `safety_net.exempt_zones` or
+  teleports silently snap back.
+- `EXPLICIT_MATS` in build_orison.py: materials sampled by explicit UVs
+  (stair_treads, art, sidewalk_haunted) — world-projection forbidden.
+- Judge rooms with SHOT_LIGHTS=1 SHOT_TORCH=1, never SHOT_FILL (merged
+  meshes drop lights past 16).
+- Multi-gen synthesis: drop `stem_alt`/`stem_vN` files next to a source
+  and ingest builds `_b/_c/_d` family variants automatically;
+  `NO_VARIANTS`/`GRID_SLOTS`/`ROT_OK` sets in ingest control behavior.
+- material_catalog.json is GENERATED — new materials go in gen_layout's
+  MATERIAL_CATALOG dict; GDScript-only props also need GODOT_STAGE +
+  MatLib.SETS.
 
 ## Standing state
 
-- Case Network: all eight desk cases + conditional beats. Reality cases:
-  Mina complete and voiced; Peter Wren is the sanctioned second case
-  (Phase 6) — do not author cases 3–18 before he meets the bar.
-- Mail: brass bank functional, upgrades flow through it (contact_mic
-  gated on Mina repair one), letters land under doors.
-- Start state: entries locked except 4B, cases unlock their units,
-  residents home; debug lineup + LineupShot for cast inspection.
-- Nav: collision-audited graph (352 bad edges cut), stairs proven.
-- WalkTest, LightingAudit, ResidentCast, Mina, MailBank, RealityCase:
-  all green as of this writing.
+- Building green B1–roof; elevator serves every stop including ROOF.
+- Street: 3 legal routes (Orison circumference, bar, bodega); trenches,
+  hoardings, alley fences close the rest; shop doors proven unlocked.
+- Day/night: night/dawn/day/twilight measured distinct (36.8/22.7/
+  10.3/6.4 frame means); WalkTest deterministic via DAYNIGHT=0.
+- Warehouse teleport proven by headless probe (WarehouseTeleportTest).
+- Cases, mail, nav, cast: unchanged from the 2026-08-02 brief below the
+  line — Mina voiced and complete, Peter Wren the sanctioned second
+  case, brass mailbank functional, collision-audited nav graph.
 
 ## Invariants (unchanged, sworn again)
 
 gen_layout authors all coordinates; b2g() is the only conversion; never
-hand-edit generated JSON/glTF; all suites green before every commit
-(isolated-worktree verification when the tree is contended); fetch before
-push; audio stays procedural except catalogued, attributed assets with
-gdignored sources.
+hand-edit generated JSON/glTF; all suites green before every commit;
+fetch before push; one Godot instance at a time against the .godot
+cache; audio stays procedural except catalogued, attributed assets with
+gitignored sources.

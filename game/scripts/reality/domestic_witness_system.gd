@@ -8,6 +8,7 @@ const ANOMALY_CATALOG := "res://data/domestic_anomaly_props.json"
 
 var clocks: Dictionary = {}
 var anomalies: Dictionary = {}
+var home_relays: Array[PossessedDomesticProp] = []
 var player: Node3D
 
 
@@ -32,6 +33,13 @@ func build(layout: Dictionary, floor_nodes: Dictionary) -> int:
 		var clock := DomesticWitnessClock.new()
 		clock.configure(spec)
 		clock.position = GameBoot.b2g([x, plan_y, floor_z + 1.78])
+		# Turn it around. The clock is built facing its own +Z, and it
+		# hangs on the room's low-y wall - so at identity rotation every
+		# one of the eighteen faced INTO the masonry it was nailed to.
+		# The dial, the numerals and the hands were all there the whole
+		# time, pointed at the back of a wall; what the room showed was
+		# the blank back of the case.
+		clock.rotation.y = PI
 		floor_nodes.get(floor_id, self).add_child(clock)
 		clocks[str(spec.case_id)] = clock
 	var anomaly_count := _build_anomalies(layout, floor_nodes)
@@ -53,6 +61,7 @@ func _on_intruded(case_id: String, tier: int) -> void:
 	var anomaly: PossessedDomesticProp = anomalies.get(case_id)
 	if is_instance_valid(anomaly):
 		anomaly.stage_haunt(case_id, tier, player)
+	_stage_one_home_relay(case_id, tier)
 
 
 func force(case_id: String, tier := 2) -> bool:
@@ -61,7 +70,20 @@ func force(case_id: String, tier := 2) -> bool:
 	var did := is_instance_valid(clock) and clock.stage_haunt(tier, player)
 	if is_instance_valid(anomaly):
 		did = anomaly.stage_haunt(case_id, tier, player) or did
+	if not home_relays.is_empty():
+		var relay := home_relays[abs((case_id + str(tier)).hash()) % home_relays.size()]
+		did = relay.stage_haunt(case_id, tier, player) or did
 	return did
+
+
+## Apartment 4B is the receiver, not the source. Exactly one familiar object
+## answers each building intrusion, chosen deterministically, so the room feels
+## implicated without every appliance performing on cue.
+func _stage_one_home_relay(case_id: String, tier: int) -> void:
+	if home_relays.is_empty():
+		return
+	var relay := home_relays[abs((case_id + str(tier)).hash()) % home_relays.size()]
+	relay.stage_haunt(case_id, tier, player)
 
 
 func _build_anomalies(layout: Dictionary, floor_nodes: Dictionary) -> int:
@@ -84,6 +106,8 @@ func _build_anomalies(layout: Dictionary, floor_nodes: Dictionary) -> int:
 		prop.rotation.y = deg_to_rad(float(spec.get("yaw", 0.0)))
 		floor_nodes.get(floor_id, self).add_child(prop)
 		for case_id in spec.get("cases", []): anomalies[str(case_id)] = prop
+		if bool(spec.get("relay_all", false)):
+			home_relays.append(prop)
 		count += 1
 	return count
 

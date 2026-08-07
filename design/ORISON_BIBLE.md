@@ -232,3 +232,35 @@ holds.*
    diegetically or not at all.
 8. The empty slot stays empty. Whatever else is decided, nothing
    fills the fifth position of the motif. It is load-bearing.
+
+**The Harukiya Accords** *(adopted 2026-08-07 from the HARUKIYA NYC
+brief; they bind the whole building, not just the bar — full text and
+evidence ledger in `docs/harukiya_reference_notes.md`)*:
+
+9. **Ordinary decay outranks spectacle.** A crappy couch beats another
+   neon sign; a correctly routed cable beats a hologram; a sticky patch
+   beats a particle effect. Never everything-neon, never every-surface-
+   wet, never spotless, never abandoned, never a ruin.
+10. **Evidence discipline.** Every reconstruction decision is filed
+    CANONICAL / INFERRED / ADAPTATION / NECESSITY, and nothing invented
+    is ever silently promoted to canonical. (The building already
+    practices this — the appliance bible, the cast boards — the accord
+    names it.)
+11. **Nothing floats; everything terminates.** Every pipe has support,
+    coupling, and a plausible continuation; every wire has origin,
+    path, destination; every bracket has anchors, and one of the
+    anchors is painted over.
+12. **Wear is positional.** Damage follows use: elbow zones, wiping
+    arcs, kick heights, the corner a mop cannot reach. A wear texture
+    applied uniformly is a lie about how hands work.
+13. **Retrofits read as a timeline.** Old fabric, then each later
+    intervention visibly its own decade — the room is stratigraphy,
+    and a dated junction box tells more story than a prop skull.
+14. **The Shenmue test.** Stop anywhere; within two metres there must
+    be evidence of construction, attachment, use, age, maintenance,
+    and consequence. If a spot fails, that spot is unfinished.
+15. **Light is practical.** Every lumen has a fixture; localized
+    emission, no fill floods (the LightRig already enforces the
+    budget; this accord fixes the aesthetic). Renderer ruling: the
+    brief's Forward+ is superseded by the building's gl_compatibility
+    mobile target — principles transfer, the toggle does not.

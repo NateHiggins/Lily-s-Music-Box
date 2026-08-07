@@ -4,27 +4,27 @@
  "pieces": [
   {"id":"evelyn_retirement","unit":"1A","atlas":"memories_floors_1_2.png","col":0,"row":0,"wall":"north","along":0.34,"medium":"photo"},
   {"id":"teresa_night_shift","unit":"1D","atlas":"memories_floors_1_2.png","col":1,"row":0,"wall":"east","along":0.60,"medium":"photo"},
-  {"id":"mina_caption_desk","unit":"2A","atlas":"memories_floors_1_2.png","col":0,"row":1,"wall":"north","along":0.68,"medium":"photo"},
+  {"id":"mina_caption_desk","unit":"2A","atlas":"memories_floors_1_2.png","col":0,"row":1,"wall":"north","along":0.25,"medium":"photo"},
   {"id":"lena_visible_mend","unit":"2B","atlas":"memories_floors_1_2.png","col":1,"row":1,"wall":"west","along":0.40,"medium":"painting"},
 
   {"id":"juno_session","unit":"2C","atlas":"memories_floors_2_3.png","col":0,"row":0,"wall":"south","along":0.32,"medium":"polaroid"},
-  {"id":"malcolm_cutting","unit":"3A","atlas":"memories_floors_2_3.png","col":1,"row":0,"wall":"east","along":0.54,"medium":"photo"},
+  {"id":"malcolm_cutting","unit":"3A","atlas":"memories_floors_2_3.png","col":1,"row":0,"wall":"west","along":0.25,"medium":"photo"},
   {"id":"omar_radio","unit":"3B","atlas":"memories_floors_2_3.png","col":0,"row":1,"wall":"north","along":0.64,"medium":"photo"},
-  {"id":"rhea_before_stage","unit":"3D","atlas":"memories_floors_2_3.png","col":1,"row":1,"wall":"west","along":0.36,"medium":"photo"},
+  {"id":"rhea_before_stage","unit":"3D","atlas":"memories_floors_2_3.png","col":1,"row":1,"wall":"east","along":0.75,"medium":"photo"},
 
-  {"id":"peter_submitted","unit":"4A","atlas":"memories_floors_4_guest.png","col":0,"row":0,"wall":"east","along":0.58,"medium":"photo"},
-  {"id":"cam_delivery","unit":"4C","atlas":"memories_floors_4_guest.png","col":1,"row":0,"wall":"north","along":0.32,"medium":"photo"},
-  {"id":"noel_conservation","unit":"4C","atlas":"memories_floors_4_guest.png","col":0,"row":1,"wall":"north","along":0.72,"medium":"photo"},
-  {"id":"guests_safe_trip","unit":"4D","atlas":"memories_floors_4_guest.png","col":1,"row":1,"wall":"south","along":0.56,"medium":"polaroid"},
+  {"id":"peter_submitted","unit":"4A","atlas":"memories_floors_4_guest.png","col":0,"row":0,"wall":"west","along":0.75,"medium":"photo"},
+  {"id":"cam_delivery","unit":"4C","atlas":"memories_floors_4_guest.png","col":1,"row":0,"wall":"south","along":0.75,"medium":"photo"},
+  {"id":"noel_conservation","unit":"4C","atlas":"memories_floors_4_guest.png","col":0,"row":1,"wall":"east","along":0.25,"medium":"photo"},
+  {"id":"guests_safe_trip","unit":"4D","atlas":"memories_floors_4_guest.png","col":1,"row":1,"wall":"east","along":0.25,"medium":"polaroid"},
 
   {"id":"nadia_humane_plan","unit":"5A","atlas":"memories_floors_5_6.png","col":0,"row":0,"wall":"west","along":0.48,"medium":"photo"},
   {"id":"cal_human_signal","unit":"5B","atlas":"memories_floors_5_6.png","col":1,"row":0,"wall":"north","along":0.62,"medium":"photo"},
-  {"id":"iris_self_portrait","unit":"5C","atlas":"memories_floors_5_6.png","col":0,"row":1,"wall":"east","along":0.44,"medium":"painting"},
-  {"id":"sacha_camera_lowered","unit":"6A","atlas":"memories_floors_5_6.png","col":1,"row":1,"wall":"south","along":0.36,"medium":"photo"},
+  {"id":"iris_self_portrait","unit":"5C","atlas":"memories_floors_5_6.png","col":0,"row":1,"wall":"north","along":0.75,"medium":"painting"},
+  {"id":"sacha_camera_lowered","unit":"6A","atlas":"memories_floors_5_6.png","col":1,"row":1,"wall":"east","along":0.35,"medium":"photo"},
 
   {"id":"jonah_unfinished_words","unit":"6B","atlas":"memories_floor_6_private.png","col":0,"row":0,"wall":"north","along":0.60,"medium":"photo"},
   {"id":"jonah_listening_watercolor","unit":"6B","atlas":"memories_floor_6_private.png","col":1,"row":0,"placement":"tabletop","u":0.36,"v":0.60,"yaw":20,"medium":"watercolor"},
-  {"id":"mae_inherited_box","unit":"6C","atlas":"memories_floor_6_private.png","col":0,"row":1,"wall":"west","along":0.46,"medium":"photo"},
+  {"id":"mae_inherited_box","unit":"6C","atlas":"memories_floor_6_private.png","col":0,"row":1,"wall":"east","along":0.75,"medium":"photo"},
   {"id":"mae_young_cataloger","unit":"6C","atlas":"memories_floor_6_private.png","col":1,"row":1,"placement":"tabletop","u":0.58,"v":0.58,"yaw":-18,"medium":"painting"}
  ]
 }

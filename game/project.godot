@@ -34,18 +34,13 @@ window/size/viewport_height=720
 
 [input_devices]
 
-; Lets a mouse drag stand in for a thumb so the phone HUD can be driven and
-; judged on a desktop. Harmless when the HUD is off: it ignores touch then.
 pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
-occlusion_culling/use_occlusion_culling=true
 renderer/rendering_method="gl_compatibility"
-; Android will not export without it, and it is what the texture budget
-; wants anyway: mobile GPUs sample ETC2/ASTC natively instead of paying to
-; decompress. Costs a second import variant per texture on disk.
-textures/vram_compression/import_etc2_astc=true
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/positional_shadow/atlas_16_bits=false
 limits/opengl/max_lights_per_object=16
+occlusion_culling/use_occlusion_culling=true

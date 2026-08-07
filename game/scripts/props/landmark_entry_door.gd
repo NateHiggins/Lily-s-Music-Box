@@ -19,6 +19,7 @@ func _ready() -> void:
 	_build_frame_and_transom()
 	_build_leaf()
 	_build_audio()
+	apply_hinge_setback()
 
 
 func _build_materials() -> void:
@@ -169,9 +170,94 @@ func _build_hardware() -> void:
 			Vector3(width * 0.43, 0.68, 0.073), _brass)
 	_box(_body, Vector3(0.27, 0.035, 0.022),
 			Vector3(width * 0.43, 0.68, 0.087), _iron)
-	# Three overbuilt ball-tip hinges.
-	for y in [0.28, height * 0.50, height - 0.28]:
-		_cylinder(_body, 0.018, 0.12, Vector3(0, y, 0), _brass, 0)
+	# Four overbuilt butt hinges, ball-tipped, because an oak-and-glass
+	# leaf this heavy was never hung on three.
+	for y in [0.26, height * 0.36, height * 0.66, height - 0.26]:
+		butt_hinge(_body, y, _brass)
+	_entrance_lockset()
+
+
+## Ornamental research, and the reason this door is the building's face.
+##
+## A 1926 New York apartment-house entrance was ironmongered from a
+## catalogue - Corbin, Sargent, Russwin - and the pattern that turns up
+## again and again on buildings of exactly this class is a long cast
+## escutcheon carrying a knob above a covered keyhole, with a thumbpiece
+## latch for the hand that is already full. The ornament is late
+## Beaux-Arts sliding into Deco: a stepped border, a beaded rose, and an
+## octagonal faceted knob rather than a plain sphere, because faceting is
+## what catches a streetlight at a glancing angle.
+##
+## All of it is bronze that nobody has polished since the sixties, except
+## the two places a century of hands actually land: the knob's crown and
+## the thumbpiece.
+func _entrance_lockset() -> void:
+	var worn := StandardMaterial3D.new()
+	worn.albedo_color = Color(0.66, 0.47, 0.20)
+	worn.metallic = 0.92
+	worn.roughness = 0.22
+
+	for face in [1.0, -1.0]:
+		var z0: float = 0.073 * face
+		var kx: float = width - 0.115
+		# stepped Deco border on the escutcheon: three receding frames
+		for i in 3:
+			var inset: float = 0.012 * i
+			_box(_body, Vector3(0.116 - inset * 2.0, 0.334 - inset * 2.0,
+					0.004), Vector3(kx, 0.96, z0 + 0.008 + 0.004 * i),
+					_brass)
+		# beaded rose behind the knob
+		_cylinder(_body, 0.040, 0.010, Vector3(kx, 1.045, z0 + 0.022),
+				_brass, 90)
+		for b in 10:
+			var a: float = TAU * b / 10.0
+			_cylinder(_body, 0.006, 0.008,
+					Vector3(kx + cos(a) * 0.040, 1.045 + sin(a) * 0.040,
+							z0 + 0.026), _brass, 90)
+		# shank, collar, and the faceted knob itself
+		_cylinder(_body, 0.014, 0.030, Vector3(kx, 1.045, z0 + 0.040),
+				_brass, 90)
+		_cylinder(_body, 0.023, 0.010, Vector3(kx, 1.045, z0 + 0.056),
+				_brass, 90)
+		var knob := MeshInstance3D.new()
+		var km := SphereMesh.new()
+		km.radius = 0.034
+		km.height = 0.060
+		km.radial_segments = 8      # octagonal facets, not a ball
+		km.rings = 4
+		knob.mesh = km
+		knob.material_override = worn
+		knob.position = Vector3(kx, 1.045, z0 + 0.086 * face / absf(face))
+		knob.position.z = z0 + 0.086 * (1.0 if face > 0.0 else -1.0)
+		_body.add_child(knob)
+		# thumbpiece: the lever that lifts the latch bar, worn bright
+		var thumb := _box(_body, Vector3(0.030, 0.052, 0.010),
+				Vector3(kx, 1.132, z0 + 0.034), worn)
+		thumb.rotation.x = -0.34
+		# keyhole below, under a pivoting cover hanging slightly askew
+		_cylinder(_body, 0.019, 0.006, Vector3(kx, 0.862, z0 + 0.020),
+				_brass, 90)
+		_box(_body, Vector3(0.010, 0.020, 0.004),
+				Vector3(kx, 0.856, z0 + 0.024), _iron)
+		var cover := _box(_body, Vector3(0.030, 0.036, 0.004),
+				Vector3(kx + 0.006, 0.872, z0 + 0.028), _brass)
+		cover.rotation.z = 0.28 if face > 0.0 else -0.28
+		_cylinder(_body, 0.005, 0.008, Vector3(kx, 0.888, z0 + 0.030),
+				_brass, 90)
+
+	# The bell push lives on the jamb, not the leaf: a brass rosette with a
+	# bakelite button worn pale in the middle.
+	var bell_x := width + 0.105
+	_cylinder(self, 0.034, 0.012, Vector3(bell_x, 1.16, 0.086), _brass, 90)
+	for b in 8:
+		var a2: float = TAU * b / 8.0
+		_cylinder(self, 0.005, 0.007,
+				Vector3(bell_x + cos(a2) * 0.034, 1.16 + sin(a2) * 0.034,
+						0.090), _brass, 90)
+	var button := StandardMaterial3D.new()
+	button.albedo_color = Color(0.19, 0.14, 0.11)
+	button.roughness = 0.34
+	_cylinder(self, 0.014, 0.010, Vector3(bell_x, 1.16, 0.096), button, 90)
 
 
 func _wire_grid(parent: Node3D, center: Vector3, size: Vector2,

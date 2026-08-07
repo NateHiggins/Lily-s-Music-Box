@@ -166,7 +166,11 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 	if floor_nodes.has("F01"):
 		var bank := MailBankProp.new()
 		bank.name = "LobbyMailBank"
-		bank.position = GameBoot.b2g([5.24, -8.85, 0.0])
+		# Centred on the lobby's east run (-9.65..-6.93) rather than jammed
+		# against its south end. The ad board that used to crowd this wall
+		# now lives opposite, so the bank gets the wall it was always meant
+		# to have and can be walked up to square on instead of edged around.
+		bank.position = GameBoot.b2g([5.24, -8.29, 0.0])
 		bank.rotation.y = PI * 0.5
 		floor_nodes["F01"].add_child(bank)
 		# The settle west of the street door is a place to actually sit.

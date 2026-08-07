@@ -72,8 +72,8 @@
   {
    "id": "B1_WASHER_01",
    "pos": [
-    -11.5,
-    4.0,
+    -13.28,
+    3.55,
     -2.8
    ],
    "room": "B1_LAUNDRY",
@@ -92,8 +92,8 @@
   {
    "id": "B1_WASHER_02",
    "pos": [
-    -11.5,
-    5.2,
+    -13.28,
+    4.35,
     -2.8
    ],
    "room": "B1_LAUNDRY",
@@ -112,8 +112,8 @@
   {
    "id": "B1_DRYER_01",
    "pos": [
-    -11.5,
-    7.0,
+    -13.28,
+    5.15,
     -2.8
    ],
    "room": "B1_LAUNDRY",
@@ -511,31 +511,11 @@
    ]
   },
   {
-   "id": "F01_ENTRY_SCONCE",
-   "pos": [
-    -0.455,
-    -10.24,
-    2.62
-   ],
-   "room": "LOBBY",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "B1_ELECTRICAL_HUB"
-   ]
-  },
-  {
    "id": "F01_NEON_BLADE",
    "pos": [
     3.35,
-    -10.42,
-    4.3
+    -10.0,
+    6.6
    ],
    "room": "",
    "network": "electrical",
@@ -558,6 +538,46 @@
     3.15
    ],
    "room": "",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_MARQUEE_LT_01",
+   "pos": [
+    -0.78,
+    -10.86,
+    3.24
+   ],
+   "room": "LOBBY",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_MARQUEE_LT_02",
+   "pos": [
+    0.78,
+    -10.86,
+    3.24
+   ],
+   "room": "LOBBY",
    "network": "electrical",
    "frequency_band": [
     60,
@@ -632,6 +652,26 @@
    ]
   },
   {
+   "id": "F01_1A_FRIDGE_01",
+   "pos": [
+    -6.79,
+    -0.77,
+    0.0
+   ],
+   "room": "1A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
    "id": "1D_LT_SCONCE",
    "pos": [
     5.59,
@@ -670,6 +710,26 @@
    "connections": [
     "BASEMENT_HEADER_EAST",
     "F02_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F01_1D_FRIDGE_01",
+   "pos": [
+    10.23,
+    -1.32,
+    0.0
+   ],
+   "room": "1D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
    ]
   },
   {
@@ -1113,6 +1173,306 @@
    ]
   },
   {
+   "id": "F01_BODEGA_LT_0",
+   "pos": [
+    17.55,
+    -10.2,
+    3.05
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BODEGA_LT_1",
+   "pos": [
+    17.55,
+    -7.2,
+    3.05
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BODEGA_LT_2",
+   "pos": [
+    17.55,
+    -4.2,
+    3.05
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BODEGA_RADIO",
+   "pos": [
+    16.55,
+    -10.55,
+    0.0
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_NEON_BODEGA",
+   "pos": [
+    17.4,
+    -12.16,
+    3.4
+   ],
+   "room": "",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_KARAOKE_SPK_0",
+   "pos": [
+    -4.85,
+    -33.35,
+    -2.8
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_KARAOKE_SPK_1",
+   "pos": [
+    -4.85,
+    -31.85,
+    -2.8
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_NEON_BAR",
+   "pos": [
+    4.875,
+    -28.18,
+    2.85
+   ],
+   "room": "",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_NEON_KARAOKE",
+   "pos": [
+    3.6,
+    -28.16,
+    3.1
+   ],
+   "room": "",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_LOBBY",
+   "pos": [
+    4.875,
+    -29.3,
+    2.3
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_STAIR",
+   "pos": [
+    5.3,
+    -32.6,
+    0.55
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_CAN0",
+   "pos": [
+    -3.2,
+    -29.7,
+    -1.06
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_CAN1",
+   "pos": [
+    -0.9,
+    -29.7,
+    -1.06
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_POOL",
+   "pos": [
+    -0.75,
+    -32.2,
+    -0.75
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_WC",
+   "pos": [
+    -4.3,
+    -34.7,
+    -0.45
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
    "id": "2A_LT_SCONCE",
    "pos": [
     -5.59,
@@ -1151,6 +1511,26 @@
    "connections": [
     "F01_A_RADIATOR_01",
     "F03_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F02_2A_FRIDGE_01",
+   "pos": [
+    -6.79,
+    -0.77,
+    3.2
+   ],
+   "room": "2A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
    ]
   },
   {
@@ -1236,6 +1616,26 @@
    ]
   },
   {
+   "id": "F02_2B_FRIDGE_01",
+   "pos": [
+    -5.83,
+    9.17,
+    3.2
+   ],
+   "room": "2B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "2C_LT_SCONCE",
    "pos": [
     5.59,
@@ -1274,6 +1674,26 @@
    "connections": [
     "BASEMENT_HEADER_EAST",
     "F03_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F02_2C_FRIDGE_01",
+   "pos": [
+    5.87,
+    3.27,
+    3.2
+   ],
+   "room": "2C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
    ]
   },
   {
@@ -1437,10 +1857,13 @@
    "infection_receptivity": 0.55,
    "connections": [
     "2A_LT_SCONCE",
+    "F02_2A_FRIDGE_01",
     "F02_A_MONITOR_01",
     "F02_A_LAMP_01",
     "2B_LT_SCONCE",
+    "F02_2B_FRIDGE_01",
     "2C_LT_SCONCE",
+    "F02_2C_FRIDGE_01",
     "F02_C_SPEAKER_01",
     "F02_C_SPEAKER_02",
     "F02_C_MONITOR_01",
@@ -1953,6 +2376,26 @@
    ]
   },
   {
+   "id": "F03_3A_FRIDGE_01",
+   "pos": [
+    -6.79,
+    -0.77,
+    6.4
+   ],
+   "room": "3A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "3B_LT_SCONCE",
    "pos": [
     -5.59,
@@ -1993,6 +2436,26 @@
     "F03_UTILITY_ANOMALY",
     "F02_B_RADIATOR_01",
     "F04_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F03_3B_FRIDGE_01",
+   "pos": [
+    -5.83,
+    9.17,
+    6.4
+   ],
+   "room": "3B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
    ]
   },
   {
@@ -2098,6 +2561,26 @@
    ]
   },
   {
+   "id": "F03_3D_FRIDGE_01",
+   "pos": [
+    10.23,
+    -1.32,
+    6.4
+   ],
+   "room": "3D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "F03_D_SPEAKER_01",
    "pos": [
     11.38,
@@ -2197,10 +2680,13 @@
    "infection_receptivity": 0.55,
    "connections": [
     "3A_LT_SCONCE",
+    "F03_3A_FRIDGE_01",
     "3B_LT_SCONCE",
+    "F03_3B_FRIDGE_01",
     "F03_B_LAMP_01",
     "3C_LT_SCONCE",
     "3D_LT_SCONCE",
+    "F03_3D_FRIDGE_01",
     "F03_D_SPEAKER_01",
     "F03_D_SPEAKER_02",
     "F03_CORRIDOR_DOME_01",
@@ -2794,6 +3280,26 @@
    ]
   },
   {
+   "id": "F04_4A_FRIDGE_01",
+   "pos": [
+    -6.79,
+    -0.77,
+    9.6
+   ],
+   "room": "4A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "4B_LT_SCONCE",
    "pos": [
     -5.79,
@@ -3098,6 +3604,26 @@
    ]
   },
   {
+   "id": "F04_4C_FRIDGE_01",
+   "pos": [
+    5.87,
+    3.27,
+    9.6
+   ],
+   "room": "4C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "4D_LT_SCONCE",
    "pos": [
     5.59,
@@ -3136,6 +3662,26 @@
    "connections": [
     "F03_D_RADIATOR_01",
     "F05_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F04_4D_FRIDGE_01",
+   "pos": [
+    10.23,
+    -1.32,
+    9.6
+   ],
+   "room": "4D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
    ]
   },
   {
@@ -3198,6 +3744,7 @@
    "infection_receptivity": 0.55,
    "connections": [
     "4A_LT_SCONCE",
+    "F04_4A_FRIDGE_01",
     "4B_LT_SCONCE",
     "F04_B_LAMP_01",
     "F04_B_MONITOR_01",
@@ -3210,7 +3757,9 @@
     "F04_B_EXHFAN_01",
     "F04_B_CEILLIGHT_01",
     "4C_LT_SCONCE",
+    "F04_4C_FRIDGE_01",
     "4D_LT_SCONCE",
+    "F04_4D_FRIDGE_01",
     "F04_CORRIDOR_DOME_01",
     "F04_CORRIDOR_DOME_02",
     "F04_CORRIDOR_DOME_03",
@@ -3761,6 +4310,26 @@
    ]
   },
   {
+   "id": "F05_5A_FRIDGE_01",
+   "pos": [
+    -6.79,
+    -0.77,
+    12.8
+   ],
+   "room": "5A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "F05_A_LAMP_01",
    "pos": [
     -8.98,
@@ -3823,6 +4392,26 @@
    ]
   },
   {
+   "id": "F05_5B_FRIDGE_01",
+   "pos": [
+    -5.83,
+    9.17,
+    12.8
+   ],
+   "room": "5B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "5C_LT_SCONCE",
    "pos": [
     5.59,
@@ -3861,6 +4450,26 @@
    "connections": [
     "F04_C_RADIATOR_01",
     "F06_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F05_5C_FRIDGE_01",
+   "pos": [
+    5.87,
+    3.27,
+    12.8
+   ],
+   "room": "5C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
    ]
   },
   {
@@ -3964,9 +4573,12 @@
    "infection_receptivity": 0.55,
    "connections": [
     "5A_LT_SCONCE",
+    "F05_5A_FRIDGE_01",
     "F05_A_LAMP_01",
     "5B_LT_SCONCE",
+    "F05_5B_FRIDGE_01",
     "5C_LT_SCONCE",
+    "F05_5C_FRIDGE_01",
     "5D_LT_SCONCE",
     "F05_CORRIDOR_DOME_01",
     "F05_CORRIDOR_DOME_02",
@@ -4475,6 +5087,26 @@
    ]
   },
   {
+   "id": "F06_6A_FRIDGE_01",
+   "pos": [
+    -6.79,
+    -0.77,
+    16.0
+   ],
+   "room": "6A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "F06_A_MONITOR_01",
    "pos": [
     -12.85,
@@ -4596,6 +5228,26 @@
    ]
   },
   {
+   "id": "F06_6B_FRIDGE_01",
+   "pos": [
+    -5.83,
+    9.17,
+    16.0
+   ],
+   "room": "6B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "6C_LT_SCONCE",
    "pos": [
     5.59,
@@ -4633,6 +5285,26 @@
    "infection_receptivity": 0.84,
    "connections": [
     "F05_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F06_6C_FRIDGE_01",
+   "pos": [
+    5.87,
+    3.27,
+    16.0
+   ],
+   "room": "6C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
    ]
   },
   {
@@ -4734,12 +5406,15 @@
    "infection_receptivity": 0.55,
    "connections": [
     "6A_LT_SCONCE",
+    "F06_6A_FRIDGE_01",
     "F06_A_MONITOR_01",
     "F06_A_MONITOR_02",
     "F06_A_MONITOR_03",
     "F06_A_BOXFAN_01",
     "6B_LT_SCONCE",
+    "F06_6B_FRIDGE_01",
     "6C_LT_SCONCE",
+    "F06_6C_FRIDGE_01",
     "6D_LT_SCONCE",
     "F06_CORRIDOR_DOME_01",
     "F06_CORRIDOR_DOME_02",
@@ -5376,12 +6051,15 @@
     "B1_NOOK_LAMP",
     "B1_ATRIUM_FRUIT_1",
     "B1_ATRIUM_FRUIT_2",
-    "F01_ENTRY_SCONCE",
     "F01_NEON_BLADE",
     "F01_NEON_TENANT",
+    "F01_MARQUEE_LT_01",
+    "F01_MARQUEE_LT_02",
     "F01WC_LT_SCONCE",
     "1A_LT_SCONCE",
+    "F01_1A_FRIDGE_01",
     "1D_LT_SCONCE",
+    "F01_1D_FRIDGE_01",
     "F01_CORRIDOR_DOME_01",
     "F01_CORRIDOR_DOME_02",
     "F01_CORRIDOR_DOME_03",
@@ -5404,6 +6082,21 @@
     "F01_D_OFFICE_LT_PENDANT_SHADE",
     "F01_ATRIUM_FRUIT_1",
     "F01_ATRIUM_FRUIT_2",
+    "F01_BODEGA_LT_0",
+    "F01_BODEGA_LT_1",
+    "F01_BODEGA_LT_2",
+    "F01_BODEGA_RADIO",
+    "F01_NEON_BODEGA",
+    "F01_KARAOKE_SPK_0",
+    "F01_KARAOKE_SPK_1",
+    "F01_NEON_BAR",
+    "F01_NEON_KARAOKE",
+    "F01_BAR_LT_LOBBY",
+    "F01_BAR_LT_STAIR",
+    "F01_BAR_LT_CAN0",
+    "F01_BAR_LT_CAN1",
+    "F01_BAR_LT_POOL",
+    "F01_BAR_LT_WC",
     "F02_CORRLIGHT_S"
    ]
   },

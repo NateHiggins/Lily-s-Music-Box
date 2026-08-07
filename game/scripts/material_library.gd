@@ -54,6 +54,36 @@ const SETS := {
 	"plant": ["T_library_organic_leaf_surface_albedo.png",
 			"T_library_organic_leaf_surface_rough.png",
 			"T_library_organic_leaf_surface_normal.png", 0.5, 0.0],
+	# The elevator sheet. These exist only on GDScript-built props, so
+	# the Blender bake never sees them — ingest_material_sources.py
+	# stages them into res://assets/building/textures/ directly.
+	"brass_bright": ["T_ai_materials_brass_bright_albedo.png",
+			"T_ai_materials_brass_bright_rough.png",
+			"T_ai_materials_brass_bright_normal.png", 0.35, 0.85],
+	"bronze": ["T_ai_materials_bronze_albedo.png",
+			"T_ai_materials_bronze_rough.png",
+			"T_ai_materials_bronze_normal.png", 0.60, 0.75],
+	"car_paint": ["T_ai_materials_car_paint_albedo.png",
+			"T_ai_materials_car_paint_rough.png",
+			"T_ai_materials_car_paint_normal.png", 1.00, 0.0],
+	"oak_quartered": ["T_ai_materials_oak_quartered_albedo.png",
+			"T_ai_materials_oak_quartered_rough.png",
+			"T_ai_materials_oak_quartered_normal.png", 0.90, 0.0],
+	"milk_glass": ["T_ai_materials_milk_glass_albedo.png",
+			"T_ai_materials_milk_glass_rough.png",
+			"T_ai_materials_milk_glass_normal.png", 0.50, 0.0],
+	"bakelite_black": ["T_ai_materials_bakelite_black_albedo.png",
+			"T_ai_materials_bakelite_black_rough.png",
+			"T_ai_materials_bakelite_black_normal.png", 0.30, 0.0],
+	"terrazzo_dark": ["T_ai_materials_terrazzo_dark_albedo.png",
+			"T_ai_materials_terrazzo_dark_rough.png",
+			"T_ai_materials_terrazzo_dark_normal.png", 1.20, 0.0],
+	"brass_mesh": ["T_ai_materials_brass_mesh_albedo.png",
+			"T_ai_materials_brass_mesh_rough.png",
+			"T_ai_materials_brass_mesh_normal.png", 0.35, 0.80],
+	"indicator_enamel": ["T_ai_materials_indicator_enamel_albedo.png",
+			"T_ai_materials_indicator_enamel_rough.png",
+			"T_ai_materials_indicator_enamel_normal.png", 0.50, 0.0],
 }
 
 static var _cache: Dictionary = {}

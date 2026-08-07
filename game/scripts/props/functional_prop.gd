@@ -163,7 +163,14 @@ func merge_static(under: Node3D, keep: Array = []) -> int:
 	if victims.size() < 2:
 		return 0
 	for v in victims:
-		under.remove_child(v)
+		# _gather_static recurses, so a victim can be a grandchild several
+		# levels down. Removing it from `under` only works when it happens
+		# to be a direct child; anything nested threw "p_child->data.parent
+		# != this" and stayed in the tree. Ask the node who its parent
+		# actually is.
+		var owner_node: Node = v.get_parent()
+		if owner_node:
+			owner_node.remove_child(v)
 		v.queue_free()
 	for key in groups:
 		var mi := MeshInstance3D.new()

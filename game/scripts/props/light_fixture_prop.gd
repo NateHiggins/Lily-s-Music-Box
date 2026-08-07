@@ -308,54 +308,94 @@ func _build_body(p: Node3D) -> Vector3:
 					Color(0.3, 0.3, 0.32), 0.4, 0.6, p)
 			return Vector3(0, -0.50, 0)
 		"chandelier":
-			# Original 1920s fixture, never replaced: verdigris, soot collars,
-			# mismatched shades, one missing cup, and a subtly bent arm.
-			var dead_brass := Color(0.34, 0.30, 0.17)
-			make_cyl(0.055, 0.075, 0.035, Vector3(0, -0.018, 0), dead_brass,
-					0.3, 0.8, p)
-			for link_i in range(5):
-				var link := make_ring(0.025, 0.004,
-						Vector3(0, -0.09 - link_i * 0.055, 0),
-						dead_brass, 0.62, 0.8, p)
-				link.rotation_degrees = Vector3(90,
-						0 if link_i % 2 == 0 else 90, 0)
-			make_cyl(0.045, 0.085, 0.18, Vector3(0, -0.39, 0), dead_brass,
-					0.3, 0.8, p)
-			make_ring(0.24, 0.012, Vector3(0, -0.47, 0), dead_brass,
-					0.3, 0.8, p).rotation_degrees = Vector3(90, 0, 0)
+			# The lobby's one piece of real money, and the only thing in the
+			# building that was ever meant to be looked at.
+			#
+			# 1926 gives two hallmarks: the "pan" fixture and the bowl
+			# pendant. A Queens house with aspirations bought the bowl - a
+			# Colonial Revival electrolier, cast bronze crown on three
+			# chains, an inverted opal bowl slung under it, and a ring of
+			# candle lamps above the rim so the ceiling gets lit too. The
+			# bowl does the work; the candles are the argument for the rent.
+			#
+			# It is NOT broken. The previous fixture here was modelled with
+			# verdigris, a bent arm and an empty socket, which reads as a
+			# missing asset rather than as atmosphere. Decay in this building
+			# should be something the player notices, not something they
+			# mistake for a bug. What is left of the wear is in the texture
+			# and in the flicker.
+			var bronze := Color(0.62, 0.55, 0.30)
+			# canopy: stepped disc against the plaster, then the collar
+			make_cyl(0.125, 0.105, 0.030, Vector3(0, -0.015, 0), bronze,
+					0.34, 0.85, p)
+			make_cyl(0.052, 0.062, 0.055, Vector3(0, -0.052, 0), bronze,
+					0.34, 0.85, p)
+			# three chains, canopy edge out to the crown
+			for ch in 3:
+				var ca := TAU * ch / 3.0 + 0.5
+				var top := Vector3(cos(ca) * 0.105, -0.070, sin(ca) * 0.105)
+				var bot := Vector3(cos(ca) * 0.165, -0.385, sin(ca) * 0.165)
+				for li in 7:
+					var t := (li + 0.5) / 7.0
+					var link := make_ring(0.021, 0.0042,
+							top.lerp(bot, t), bronze, 0.42, 0.85, p)
+					link.rotation_degrees = Vector3(90,
+							0 if li % 2 == 0 else 90, 0)
+			# the crown: gallery collar, banded above and below
+			make_ring(0.168, 0.013, Vector3(0, -0.400, 0), bronze,
+					0.34, 0.85, p)
+			make_cyl(0.150, 0.172, 0.062, Vector3(0, -0.434, 0), bronze,
+					0.34, 0.85, p)
+			make_ring(0.158, 0.010, Vector3(0, -0.470, 0), bronze,
+					0.34, 0.85, p)
+			# six candle lamps on arms that sweep out and back up, so the
+			# bowl is not the only thing throwing light
 			for i in 6:
 				var a := TAU * i / 6.0
-				var inner := Vector3(cos(a) * 0.07, -0.45, sin(a) * 0.07)
-				var sag := 0.12 if i == 4 else (0.035 if i == 1 else 0.0)
-				var outer := Vector3(cos(a) * 0.29, -0.61 - sag,
-						sin(a) * 0.29)
-				make_cyl(0.009, 0.009, inner.distance_to(outer),
-						(inner + outer) * 0.5, dead_brass, 0.68, 0.8, p
-						).rotation_degrees = Vector3(
-								62.0 * cos(a), -rad_to_deg(a),
-								62.0 * sin(a))
-				make_cyl(0.032, 0.045, 0.07,
-						outer + Vector3(0, -0.035, 0), dead_brass, 0.7, 0.8, p)
-				if i == 4:
-					# Empty socket: the shade is in nobody's maintenance ledger.
-					make_cyl(0.018, 0.025, 0.04,
-							outer + Vector3(0, -0.09, 0), Color(0.055, 0.045, 0.035),
-							0.95, 0.0, p)
-					continue
-				var shade := make_cyl(0.105, 0.055, 0.12,
-						outer + Vector3(0, -0.13, 0),
-						Color(0.60, 0.52, 0.39) if i == 1 else opal,
-						0.58 if i == 1 else 0.22, 0.0, p)
-				shade.name = ("cracked_dead_shade" if i == 1
-						else "bulb_shade_%d" % i)
-			# A few taut dusty strands register only when the lamp catches them.
-			for web_i in 3:
-				var wa := TAU * web_i / 3.0 + 0.3
-				var wp0 := Vector3(cos(wa) * 0.08, -0.36, sin(wa) * 0.08)
-				var wp1 := Vector3(cos(wa) * 0.28, -0.66, sin(wa) * 0.28)
-				make_cyl(0.0015, 0.0015, wp0.distance_to(wp1),
-						(wp0 + wp1) * 0.5, Color(0.35, 0.34, 0.30), 0.9, 0.0, p)
-			return Vector3(0, -0.58, 0)
+				var dir := Vector3(cos(a), 0, sin(a))
+				var knee := dir * 0.255 + Vector3(0, -0.395, 0)
+				_strut(dir * 0.165 + Vector3(0, -0.418, 0), knee,
+						0.0105, bronze, p)
+				var cup := dir * 0.310 + Vector3(0, -0.300, 0)
+				_strut(knee, cup, 0.0105, bronze, p)
+				# bobeche, candle tube, flame-tip lamp
+				make_cyl(0.046, 0.020, 0.014, cup, bronze, 0.34, 0.85, p)
+				make_cyl(0.019, 0.021, 0.090,
+						cup + Vector3(0, 0.052, 0), Color(0.88, 0.86, 0.80),
+						0.62, 0.0, p)
+				var flame := make_cyl(0.005, 0.021, 0.062,
+						cup + Vector3(0, 0.128, 0), opal, 0.2, 0.0, p)
+				flame.name = "bulb_candle_%d" % i
+			# three straps carrying the bowl out to its rim
+			for sp in 3:
+				var sa := TAU * sp / 3.0 + 0.5
+				_strut(Vector3(cos(sa) * 0.160, -0.480, sin(sa) * 0.160),
+						Vector3(cos(sa) * 0.330, -0.556, sin(sa) * 0.330),
+						0.0095, bronze, p)
+			# the bowl itself: a turned profile, not a cone. Named bulb_ so
+			# it takes the emissive material and glows with the fixture.
+			var prof := [[0.340, 0.329, 0.0675, -0.58375],
+					[0.329, 0.294, 0.0675, -0.65125],
+					[0.294, 0.243, 0.0540, -0.71200],
+					[0.243, 0.179, 0.0405, -0.75925],
+					# closes to a point rather than a 6 cm opening: from
+					# directly underneath, which is where everyone walks,
+					# an open bowl bottom reads as a hole punched in the
+					# glass rather than as the turned base of a bowl.
+					[0.179, 0.014, 0.0405, -0.79975]]
+			for bi in prof.size():
+				var seg: Array = prof[bi]
+				var band := make_cyl(seg[0], seg[1], seg[2],
+						Vector3(0, seg[3], 0), opal, 0.22, 0.0, p)
+				band.name = "bulb_bowl_%d" % bi
+			# rim band and the finial that finishes the underside
+			make_ring(0.345, 0.013, Vector3(0, -0.552, 0), bronze,
+					0.34, 0.85, p)
+			make_cyl(0.050, 0.030, 0.026, Vector3(0, -0.833, 0), bronze,
+					0.34, 0.85, p)
+			make_cyl(0.030, 0.009, 0.048, Vector3(0, -0.870, 0), bronze,
+					0.34, 0.85, p)
+			return Vector3(0, -0.620, 0)
 		"street_lamp":
 			# cobra head on its mast: the lamp body already exists as site
 			# geometry, so this is only the lit lens and its shroud
@@ -564,3 +604,23 @@ func _process(delta: float) -> void:
 
 func _perform_synced_event(_index: int, accent: float, _pitch: float) -> void:
 	_surge = maxf(_surge, accent * 0.9)
+
+
+## A tube running between two points, correctly oriented.
+##
+## The old chandelier faked this with a hand-tuned Euler triple that only
+## held for the one radius it was written against. Arms that sweep in two
+## planes need the real thing.
+func _strut(from: Vector3, to: Vector3, r: float, color: Color,
+		parent: Node3D) -> MeshInstance3D:
+	var span := to - from
+	var mi := make_cyl(r, r, span.length(), (from + to) * 0.5,
+			color, 0.34, 0.85, parent)
+	var dir := span.normalized()
+	var dot := clampf(Vector3.UP.dot(dir), -1.0, 1.0)
+	if absf(dot) < 0.9999:
+		mi.rotation = Basis(Vector3.UP.cross(dir).normalized(),
+				acos(dot)).get_euler()
+	elif dot < 0.0:
+		mi.rotation = Vector3(PI, 0, 0)
+	return mi

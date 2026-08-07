@@ -86,7 +86,6 @@ func perform(kind: String, arg) -> bool:
 		"word_loss": return _word_loss(int(arg))
 		"motif_mutate": return _motif_mutate(int(arg))
 		"tv_infect": return _tv_infect(float(arg))
-		"distort": return _distort(str(arg))
 		"fourth_wall":
 			return fourth_wall != null and fourth_wall.play(str(arg))
 	return false
@@ -550,24 +549,14 @@ func _motif_mutate(times: int) -> bool:
 	return true
 
 
-## Borrowed from the distortion lab rather than reimplemented. It already
-## captures and restores canonical transforms, and it is already the thing
-## chaos mode drives, so a poltergeist bending a floor uses the same code
-## path the debug tooling has been proving out.
-func _distort(mode: String) -> bool:
-	if world == null:
-		return false
-	var lab = world.get("map_distortion_lab")
-	if lab == null or not lab.has_method("set_mode"):
-		return false
-	lab.set_mode(mode)
-	# Always comes back. A poltergeist gets to bend a floor for a few
-	# seconds; it does not get to keep it.
-	var timer := get_tree().create_timer(6.0)
-	timer.timeout.connect(func():
-		if is_instance_valid(lab) and not lab.chaos_enabled:
-			lab.set_mode("none"))
-	return true
+## "distort" was an act here: a poltergeist could bend the floor of the
+## room you were standing in by borrowing the map distortion lab. It has
+## been withdrawn with that lab - the effect moved visual geometry out
+## from under live collision and dropped the player through the world.
+##
+## Everything else in this file still stands. An intrusion that moves a
+## chair, hides a mug or opens a door is the same idea done to something
+## the size of a chair, which is where it belonged.
 
 
 ## Put everything back right now, whatever its timer says. Used when the

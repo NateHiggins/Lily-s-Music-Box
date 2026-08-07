@@ -1,0 +1,12 @@
+{
+  "material": "cast_iron_d",
+  "source": "art/textures/ai_sources/cast_iron_radiator_d.png",
+  "generator": "ingest_material_sources.py",
+  "meters_per_tile": 0.4,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

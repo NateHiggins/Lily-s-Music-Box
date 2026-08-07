@@ -12,12 +12,28 @@ extends RefCounted
 ## opening check therefore never fired, which is how frames ended up
 ## bridging doorways. This version reads the key that exists.
 
-const RAIL_TOP := 1.08     # wainscot cap height; art bottoms stay above
+# The generated corridor cap is the high picture rail at 1.55 m (the old
+# value, 1.08, described the panel field and put the rail through every
+# frame). Hall art belongs wholly above it.
+const RAIL_TOP := 1.56
 const ART_HALF_H := 0.34   # conservative half-height for clearance tests
+const ART_HALF_W := 0.38
+const VISUAL_GAP := 0.18
+
+# A hook is not legal merely because the wall exists. The whole building is
+# assembled in one pass, so remember occupied wall bands as each character
+# hangs their work. This also keeps the later found-art pass from silently
+# laying a second frame over a resident's chosen piece.
+static var _reserved: Dictionary = {}
+
+
+static func clear_reservations() -> void:
+	_reserved.clear()
 
 
 static func legal_spot(floor_data: Dictionary, room: Dictionary,
-		want_wall: String, want_along: float, height: float) -> Dictionary:
+		want_wall: String, want_along: float, height: float,
+		visual_blocker := Callable()) -> Dictionary:
 	var rect: Array = room.rect
 	var walls_order: Array = [want_wall]
 	for w in ["north", "south", "east", "west"]:
@@ -54,25 +70,71 @@ static func legal_spot(floor_data: Dictionary, room: Dictionary,
 					yaw = PI * 0.5
 			if not wall_backs(floor_data, bx, by, hang_height):
 				continue
-			if furniture_blocks(floor_data, x, y):
+			if furniture_blocks(floor_data, x, y, hang_height):
 				continue
+			if visual_blocker.is_valid() and bool(visual_blocker.call(
+					x, y, yaw, hang_height)):
+				continue
+			if _reserved_blocks(room, wall, x, y, hang_height):
+				continue
+			_reserve(room, wall, x, y, hang_height)
 			return {"ok": true, "x": x, "y": y, "yaw": yaw, "wall": wall,
 					"height": hang_height}
 	return {"ok": false}
 
 
 static func furniture_blocks(floor_data: Dictionary, px: float,
-		py: float) -> bool:
+		py: float, height: float) -> bool:
 	for fu in floor_data.get("furniture", []):
-		if not fu.has("rect"):
-			continue
-		var r: Array = fu["rect"]
-		if float(fu.get("h", 0.0)) < 0.9:
-			continue        # low pieces sit under a hung frame happily
-		if px >= float(r[0]) - 0.1 and px <= float(r[2]) + 0.1 \
-				and py >= float(r[1]) - 0.1 and py <= float(r[3]) + 0.1:
+		var z0 := float(fu.get("z0", 0.0))
+		var z1 := z0 + float(fu.get("h", 0.0))
+		if fu.has("rect"):
+			var r: Array = fu["rect"]
+			# Test the frame footprint, not just its centre hook. This was the
+			# source of pictures half swallowed by shelves and upper cabinets.
+			if height + ART_HALF_H >= z0 and height - ART_HALF_H <= z1 \
+					and px >= float(r[0]) - ART_HALF_W - 0.08 \
+					and px <= float(r[2]) + ART_HALF_W + 0.08 \
+					and py >= float(r[1]) - ART_HALF_W - 0.08 \
+					and py <= float(r[3]) + ART_HALF_W + 0.08:
+				return true
+		# Exposed risers, radiator pipes, and conduit use p0/p1 instead of a
+		# rect. A framed picture pierced by one reads as a placement bug.
+		if fu.has("p0") and fu.has("p1"):
+			var p0: Array = fu.p0
+			var p1: Array = fu.p1
+			var floor_z := float(floor_data.get("z", 0.0))
+			var low := minf(float(p0[2]), float(p1[2])) - floor_z
+			var high := maxf(float(p0[2]), float(p1[2])) - floor_z
+			var radius := float(fu.get("r", 0.06)) + ART_HALF_W + 0.08
+			if height + ART_HALF_H >= low and height - ART_HALF_H <= high \
+					and Vector2(px, py).distance_to(Vector2(
+						float(p0[0]), float(p0[1]))) <= radius:
+				return true
+	return false
+
+
+static func _reservation_key(room: Dictionary, wall: String) -> String:
+	return "%s:%s" % [str(room.get("id", "?")), wall]
+
+
+static func _reserved_blocks(room: Dictionary, wall: String, x: float,
+		y: float, height: float) -> bool:
+	for hook in _reserved.get(_reservation_key(room, wall), []):
+		if Vector2(x, y).distance_to(Vector2(hook.x, hook.y)) \
+				< ART_HALF_W * 2.0 + VISUAL_GAP \
+				and absf(height - float(hook.height)) \
+				< ART_HALF_H * 2.0 + VISUAL_GAP:
 			return true
 	return false
+
+
+static func _reserve(room: Dictionary, wall: String, x: float, y: float,
+		height: float) -> void:
+	var key := _reservation_key(room, wall)
+	if not _reserved.has(key):
+		_reserved[key] = []
+	_reserved[key].append({"x": x, "y": y, "height": height})
 
 
 static func _room_has_rail(room: Dictionary) -> bool:

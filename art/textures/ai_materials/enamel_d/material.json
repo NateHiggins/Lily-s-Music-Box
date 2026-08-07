@@ -1,0 +1,12 @@
+{
+  "material": "enamel_d",
+  "source": "art/textures/ai_sources/neon_porcelain_d.png",
+  "generator": "ingest_material_sources.py",
+  "meters_per_tile": 0.6,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

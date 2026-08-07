@@ -157,9 +157,6 @@ func _process(_delta: float) -> void:
 	# travel, exactly like movement already does.
 	if Input.is_action_just_pressed("interact"):
 		_try_interact()
-	if Input.is_action_just_pressed("flashlight"):
-		flashlight.visible = not flashlight.visible
-		_light_mask.visible = flashlight.visible
 	if Input.is_action_just_pressed("noclip"):
 		noclip = not noclip
 		collision_layer = 0 if noclip else 1

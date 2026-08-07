@@ -14,6 +14,9 @@ extends Node3D
 const CATALOG_PATH := "res://data/mail_catalog.json"
 const TEX_DIR := "res://assets/building/textures/mailbank/"
 const COLS := 6
+## The name-card sheet: one wide slip per unit, 6 x 4.
+const CARD_COLS := 6
+const CARD_ROWS := 4
 const ROWS := 4
 const DOOR_W := 0.24
 const DOOR_H := 0.20
@@ -182,12 +185,20 @@ func _card(cards: Texture2D, atlas_index: int, local_at: Vector3,
 	var quad := QuadMesh.new()
 	quad.size = Vector2(0.115, 0.052)
 	card.mesh = quad
-	var atlas := AtlasTexture.new()
-	atlas.atlas = cards
-	atlas.region = Rect2((atlas_index % COLS) * 128,
-			(atlas_index / COLS) * 64, 128, 64)
+	# Crop with UV scale/offset, not AtlasTexture: on a 3D material the
+	# region is ignored and the mesh's own UVs still address the whole
+	# sheet, so every box wore all twenty-four cards at once.
+	#
+	# Straight window, no mirroring. The quad's 180-degree turn does not
+	# flip U - the header plate above proves it, reading forwards through
+	# the same rotation - so negating the scale to "correct" for it was
+	# what printed every tenant's name backwards.
 	var card_mat := StandardMaterial3D.new()
-	card_mat.albedo_texture = atlas
+	card_mat.albedo_texture = cards
+	card_mat.uv1_scale = Vector3(1.0 / CARD_COLS, 1.0 / CARD_ROWS, 1.0)
+	card_mat.uv1_offset = Vector3(
+			float(atlas_index % CARD_COLS) / CARD_COLS,
+			float(atlas_index / CARD_COLS) / CARD_ROWS, 0.0)
 	card_mat.roughness = 0.42  # glass front
 	card.material_override = card_mat
 	card.position = local_at + Vector3(0, 0, Z_CARD if parent == self \

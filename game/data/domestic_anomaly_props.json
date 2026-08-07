@@ -17,6 +17,10 @@
     {"id":"iris_picture_frame","unit":"5C","kind":"picture_frame","cases":["iris_runaway_paint"],"tell":"changed_pose","u":0.28,"v":0.07,"height":1.42,"yaw":0},
     {"id":"sacha_camera","unit":"6A","kind":"security_camera","cases":["sacha_camera_delay"],"tell":"tracks_after","u":0.91,"v":0.18,"height":2.42,"yaw":-90},
     {"id":"jonah_typewriter","unit":"6B","kind":"typewriter","cases":["jonah_sentence_insects"],"tell":"finishes_sentence","u":0.63,"v":0.60,"height":0.77,"yaw":180},
-    {"id":"mae_key_bowl","unit":"6C","kind":"key_bowl","cases":["mae_contradictory_antiques"],"tell":"extra_key","u":0.72,"v":0.58,"height":0.78,"yaw":180}
+    {"id":"mae_key_bowl","unit":"6C","kind":"key_bowl","cases":["mae_contradictory_antiques"],"tell":"extra_key","u":0.72,"v":0.58,"height":0.78,"yaw":180},
+
+    {"id":"player_answering_machine","unit":"4B","kind":"telephone","cases":[],"relay_all":true,"tell":"open_line","u":0.84,"v":0.72,"height":0.78,"yaw":-90},
+    {"id":"player_smart_speaker","unit":"4B","kind":"smart_speaker","cases":[],"relay_all":true,"tell":"stolen_voice","u":0.43,"v":0.31,"height":0.44,"yaw":180},
+    {"id":"player_wrong_mirror","unit":"4B","kind":"mirror","cases":[],"relay_all":true,"tell":"late_reflection","u":0.08,"v":0.76,"height":1.48,"yaw":90}
   ]
 }

@@ -115,8 +115,11 @@ func build(layout: Dictionary, floor_nodes: Dictionary) -> int:
 			tv.setup(self, str(fu.get("id", "tv")).split("_")[0],
 					_shared)
 			var at: Array = fu["at"]
+			# z0 matters now: the Harukiya's karaoke set lives in a
+			# basement 2.8 m below its floor entry in the layout, and
+			# ignoring z0 spawned it at street level inside solid infill.
 			tv.position = GameBoot.b2g([float(at[0]), float(at[1]),
-					float(fl["z"])])
+					float(fl["z"]) + float(fu.get("z0", 0.0))])
 			# +PI: the cabinet's authored yaw faces its BACK into the room
 			# (confirmed by standing in front of one), so every set turns
 			# half a circle to meet its sofa.

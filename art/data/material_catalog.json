@@ -89,6 +89,15 @@
   ],
   "roughness": 0.28
  },
+ "landing": {
+  "base_color": [
+   0.7,
+   0.68,
+   0.63,
+   1.0
+  ],
+  "roughness": 0.42
+ },
  "cast_iron": {
   "base_color": [
    0.52,
@@ -117,6 +126,109 @@
    1.0
   ],
   "roughness": 0.3
+ },
+ "stair_treads": {
+  "base_color": [
+   0.82,
+   0.81,
+   0.79,
+   1.0
+  ],
+  "roughness": 0.42
+ },
+ "brass_dull": {
+  "base_color": [
+   0.62,
+   0.48,
+   0.22,
+   1.0
+  ],
+  "roughness": 0.52,
+  "metallic": 0.3
+ },
+ "brass_bright": {
+  "base_color": [
+   0.541,
+   0.416,
+   0.2,
+   1.0
+  ],
+  "roughness": 0.34,
+  "metallic": 0.85
+ },
+ "bronze": {
+  "base_color": [
+   0.275,
+   0.251,
+   0.184,
+   1.0
+  ],
+  "roughness": 0.62,
+  "metallic": 0.75
+ },
+ "car_paint": {
+  "base_color": [
+   0.369,
+   0.361,
+   0.259,
+   1.0
+  ],
+  "roughness": 0.55
+ },
+ "oak_quartered": {
+  "base_color": [
+   0.522,
+   0.345,
+   0.196,
+   1.0
+  ],
+  "roughness": 0.45
+ },
+ "milk_glass": {
+  "base_color": [
+   0.894,
+   0.882,
+   0.847,
+   1.0
+  ],
+  "roughness": 0.22
+ },
+ "bakelite_black": {
+  "base_color": [
+   0.141,
+   0.125,
+   0.114,
+   1.0
+  ],
+  "roughness": 0.28
+ },
+ "terrazzo_dark": {
+  "base_color": [
+   0.29,
+   0.267,
+   0.235,
+   1.0
+  ],
+  "roughness": 0.4
+ },
+ "brass_mesh": {
+  "base_color": [
+   0.416,
+   0.322,
+   0.157,
+   1.0
+  ],
+  "roughness": 0.52,
+  "metallic": 0.8
+ },
+ "indicator_enamel": {
+  "base_color": [
+   0.878,
+   0.835,
+   0.745,
+   1.0
+  ],
+  "roughness": 0.24
  },
  "metal": {
   "base_color": [

@@ -2,7 +2,18 @@ extends Node3D
 ## Assembles Orison Apartments: instances per-floor glTF scenes, spawns
 ## functional props from the shared layout markers, places the player and
 ## elevator, and manages coarse level-of-interest floor visibility (a
-## streaming stand-in until real occluder/HLOD passes land).
+## streaming stand-in until a real HLOD pass lands).
+##
+## There is deliberately no occlusion-culling pass. One existed, built from
+## the same wall data as everything else, emitting a box for every solid
+## pier, spandrel and header. The boxes were correct and that was the
+## problem: each sat exactly coincident with the masonry it described, so
+## the facade occluded itself. Headers and spandrels culled their own
+## brick, and the street elevation showed dark bands in a grid matching
+## the floors and windows - with the window glazing among the things that
+## vanished. Removed 2026-08-05 rather than nudged, because an occluder
+## offset far enough not to cull its own wall is far enough to pop the
+## corridor beyond a doorway instead.
 
 const FLOOR_SCENES := {
 	"B1": "res://assets/building/floor_b1.gltf",
@@ -44,6 +55,9 @@ const PROP_SCRIPTS := {
 	"chandelier": preload("res://scripts/props/light_fixture_prop.gd"),
 	"eye_pendant": preload("res://scripts/props/light_fixture_prop.gd"),
 	"neon_sign": preload("res://scripts/props/neon_sign_prop.gd"),
+	"sink": preload("res://scripts/props/tap_prop.gd"),
+	"shower": preload("res://scripts/props/tap_prop.gd"),
+	"mirror": preload("res://scripts/props/medicine_cabinet_prop.gd"),
 	"street_lamp": preload("res://scripts/props/light_fixture_prop.gd"),
 }
 const NPC_RESIDENTS := [
@@ -77,13 +91,15 @@ var call_interface: CallInterface
 var light_rig: LightRig
 var virus_director: VirusSoundDirector
 var floor_nodes: Dictionary = {}
-var occluders: OrisonOccluders
 var window_glow: OrisonWindowGlow
 var door_glow: OrisonDoorGlow
 var broadcast: BroadcastDirector
 var resident_routines: ResidentRoutines
 var switch_system: SwitchSystem
 var moon_fill: MoonFill
+var shots: ShotCapture
+var heightmaps: HeightmapPass
+var warehouse: PropWarehouse
 var touch: TouchControls
 var weather: WeatherFX
 var mina_manifestation: MinaCaptionManifestation
@@ -92,13 +108,11 @@ var portal_rule_display: PortalRuleDisplay
 var environment_detail_pass: OrisonDetailPass
 var atmospheric_decal_pass: AtmosphericDecalPass
 var exterior_detail_pass: ExteriorDetailPass
-var cinematic_exterior: CinematicExterior
 var found_art_pass: FoundArtPass
 var wayfinding_signage: WayfindingSignagePass
 var maintenance_headquarters: MaintenanceHeadquarters
 var objective_tracker: ObjectiveTracker
 var first_shift_director: FirstShiftDirector
-var map_distortion_lab: MapDistortionLab
 var safety_net: SafetyNet
 var sanity: SanityDirector
 var building_personality: BuildingPersonalityDirector
@@ -125,6 +139,12 @@ func _ready() -> void:
 		node.name = fid
 		add_child(node)
 		floor_nodes[fid] = node
+	# Re-attach the height maps the glTF could not carry. Must run after
+	# every floor scene is in the tree and before anything else touches
+	# their materials.
+	heightmaps = HeightmapPass.new()
+	add_child(heightmaps)
+	heightmaps.build(floor_nodes)
 	environment_detail_pass = OrisonDetailPass.new()
 	add_child(environment_detail_pass)
 	var detail_stats := environment_detail_pass.build(layout, floor_nodes)
@@ -134,10 +154,6 @@ func _ready() -> void:
 	var railing_polish := OrisonRailingPolish.new()
 	add_child(railing_polish)
 	var railing_details := railing_polish.build(layout)
-	occluders = OrisonOccluders.new()
-	occluders.name = "Occluders"
-	add_child(occluders)
-	var n_occ := occluders.build(layout)
 	window_glow = OrisonWindowGlow.new()
 	window_glow.name = "WindowGlow"
 	add_child(window_glow)
@@ -166,9 +182,6 @@ func _ready() -> void:
 	add_child(exterior_detail_pass)
 	exterior_detail_pass.build(layout, floor_nodes["F01"])
 	exterior_detail_pass.configure_street_lights(self)
-	cinematic_exterior = CinematicExterior.new()
-	add_child(cinematic_exterior)
-	cinematic_exterior.build(layout)
 	_spawn_npc_placeholders()
 	# Eighteen people with somewhere to be, and a mesh instead of a sprite
 	# for whoever has one yet.
@@ -228,10 +241,14 @@ func _ready() -> void:
 	portal_rule_display.position = GameBoot.b2g([-5.615, 1.10, 11.25])
 	portal_rule_display.rotation.y = -PI * 0.5
 	add_child(portal_rule_display)
-	map_distortion_lab = MapDistortionLab.new()
-	map_distortion_lab.name = "MapDistortionLab"
-	map_distortion_lab.setup(self)
-	add_child(map_distortion_lab)
+	# The map distortion lab is gone (2026-08-06). It captured every
+	# MeshInstance3D on the player's floor and drove their global
+	# transforms - walls, floors, ceilings - while the StaticBody3D
+	# collision those meshes came with stayed exactly where it was. So
+	# the floor you could see moved and the floor you were standing on
+	# did not, which is not a haunting, it is the player falling through
+	# the world. A poltergeist may move a prop; it may not move the
+	# building.
 	light_rig = LightRig.new()
 	add_child(light_rig)
 	if GameBoot.launch_mode == GameBoot.LaunchMode.CINEMATIC \
@@ -274,7 +291,7 @@ func _ready() -> void:
 	# world. Created before the haunting that can cause the fall.
 	safety_net = SafetyNet.new()
 	safety_net.name = "SafetyNet"
-	safety_net.setup(player, map_distortion_lab)
+	safety_net.setup(player)
 	add_child(safety_net)
 	# The sanity system: an invisible pressure model, eighteen poltergeists
 	# built from the residents' own traumas, and a meta layer that breaks the
@@ -308,15 +325,30 @@ func _ready() -> void:
 	add_child(touch)
 	touch.look_delta.connect(player.apply_look)
 	player.touch_input = touch.enabled
+	# Always present, debug launch or not: F is how a shot gets taken and
+	# a review tool that only exists in one launch mode is one you have to
+	# remember the state of.
+	shots = ShotCapture.new()
+	shots.name = "ShotCapture"
+	add_child(shots)
 	if GameBoot.launch_mode == GameBoot.LaunchMode.DEBUG:
+		# One of every prop, lit and labelled, 400 m east. Unreachable by
+		# design and built in debug launches only, so play never pays for
+		# it. See prop_warehouse.gd for why it exists.
+		warehouse = PropWarehouse.new()
+		add_child(warehouse)
+		warehouse.build(PROP_SCRIPTS)
+		if safety_net:
+			safety_net.exempt_zones.append(warehouse.hall_aabb())
 		var debug := preload("res://scripts/ui/building_debug.gd").new()
 		debug.setup(self)
 		var layer := CanvasLayer.new()
 		layer.layer = 10
 		add_child(layer)
 		layer.add_child(debug)
-	print("[BUILDING] Orison assembled: %d floors, %d occluders, "
-			% [floor_nodes.size(), n_occ] +
+		shots.chrome = layer
+	print("[BUILDING] Orison assembled: %d floors, "
+			% [floor_nodes.size()] +
 			"%d windows lit, %d railing details, player in lobby"
 			% [n_lit, railing_details])
 	print("[BUILDING] %d low-overhead environment details and %d story decals"
@@ -370,6 +402,12 @@ func _build_environment() -> void:
 	moon.directional_shadow_max_distance = 48.0
 	moon.directional_shadow_fade_start = 0.80
 	add_child(moon)
+	var director := DayNightDirector.new()
+	director.name = "DayNightDirector"
+	add_child(director)
+	var dome := get_node_or_null("NightSkyHalfDome") as MeshInstance3D
+	director.setup(self, env, moon,
+			dome.material_override if dome else null)
 
 
 func _build_sky_dome(panorama: Texture2D) -> void:
@@ -384,6 +422,8 @@ render_mode unshaded, cull_front, depth_draw_never, fog_disabled,
 		shadows_disabled;
 uniform sampler2D panorama : source_color, filter_linear_mipmap,
 		repeat_enable;
+uniform vec3 tint = vec3(1.0);
+uniform float exposure = 0.76;
 void fragment() {
 	vec3 direction = normalize(
 			(INV_VIEW_MATRIX * vec4(-VIEW, 0.0)).xyz);
@@ -394,7 +434,7 @@ void fragment() {
 	// immediately so skyline pixels never stretch into vertical bars.
 	float elevation = asin(clamp(direction.y, 0.0, 1.0));
 	float v = 1.0 - elevation / (0.5 * PI);
-	vec3 color = texture(panorama, vec2(u, v)).rgb * 0.76;
+	vec3 color = texture(panorama, vec2(u, v)).rgb * exposure * tint;
 	if (direction.y < 0.0) {
 		float haze = smoothstep(0.0, 0.025, -direction.y);
 		color = mix(color, vec3(0.018, 0.025, 0.040), haze);
@@ -574,6 +614,29 @@ func _spawn_props() -> void:
 				prop.set("standby_scale", float(m["standby"]))
 			if m.get("navigation", false):
 				prop.set("navigation_light", true)
+			# The refrigerator needs to know whose kitchen it is, so its
+			# contents are somebody's, and whether it is one of the four
+			# 1927 monitor-tops, whose door is a different size.
+			# A tap needs to know whether it is over a basin or in a
+			# stall: same prop, different handles and a different drop.
+			if prop is MedicineCabinetProp:
+				prop.unit = String(m.get("unit", ""))
+			if prop is SpeakerProp and m.has("bed"):
+				# An ambience bed named in DATA: the bodega radio murmurs
+				# because its marker says so, not because the prop grew a
+				# special case for one shop.
+				prop.bed = String(m["bed"])
+			if prop is TapProp:
+				prop.fixture = String(m["kind"])
+			if prop is FridgeProp:
+				prop.unit = String(m.get("unit", ""))
+				prop.monitor_top = bool(m.get("monitor", false))
+			# A fitting under the entrance marquee hangs off the facade,
+			# not off a storey ceiling. Carried through as a group so the
+			# "too low for its floor" audit can tell the difference
+			# between a canopy lamp and one that punched through a slab.
+			if m.get("exterior", false):
+				prop.add_to_group("exterior_fixtures")
 			if prop is NeonSignProp:
 				prop.sign_text = String(m.get("text", "ORISON"))
 				prop.vertical = bool(m.get("vertical", true))
@@ -883,15 +946,50 @@ func _build_front_entry_details() -> void:
 	var entry_sign := BuildingEntrySign.new()
 	entry_sign.position = GameBoot.b2g([0.72, -9.905, 1.58])
 	add_child(entry_sign)
+	# The marquee's structure ships in floor_01.gltf; its lamps and its
+	# name panel cannot. Same origin as the Blender assembly - the facade
+	# face at the door centreline - so the two stay welded together.
+	# The building's notice board, on the left of the walk from the street
+	# door to the stairs, facing east into the route.
+	var notices := LobbyBulletinBoard.new()
+	# Clear of the dado. At 1.52 the board's lower third sat on the
+	# beadboard and the rail ran straight through it; a notice board is
+	# hung on the wall above the panelling, never across it.
+	notices.position = GameBoot.b2g([-3.14, -5.00, 1.80])
+	notices.rotation.y = PI * 0.5
+	floor_nodes["F01"].add_child(notices)
+	var marquee := EntranceMarqueeDress.new()
+	marquee.position = GameBoot.b2g([0.0, -10.00, 0.0])
+	add_child(marquee)
+	# Cellar light up through the pavement prisms. Origins and panel sizes
+	# match the vault_lights assemblies in gen_layout exactly; if one moves
+	# the other has to move with it.
+	for spec in [[-2.60, -10.72, 2.60, 1.15], [4.10, -10.72, 1.85, 1.15]]:
+		var vault := VaultLightGlow.new()
+		vault.panel_w = spec[2]
+		vault.panel_d = spec[3]
+		vault.position = GameBoot.b2g([spec[0], spec[1], 0.052])
+		add_child(vault)
 	print("[BUILDING] front-door exterior light and signage placed")
 
 
 func _build_original_orison_ad_board() -> void:
-	# Covers the generator's flat lobby_notice_art placeholder on the east
-	# wall. Facing west, it owns the view immediately after the front door.
+	# Moved off the east wall 2026-08-05. It was hung at y -8.40 and the
+	# mail bank sits at -8.85: at 1.42 m wide against the bank's 1.58 m,
+	# the board buried 1.05 m of the boxes and stood 70 mm proud of them,
+	# so the mail corner read as a frame with some cardboard behind it.
+	# The lobby's east run has only 1.13 m clear beside the bank, which
+	# the board does not fit into — so it changes walls rather than slides.
+	#
+	# The west run is 2.72 m of unbroken plaster (its only door is five
+	# metres north) and it is the left-hand side of the walk from the
+	# street door to the stairs, which is where a notice board belongs.
+	# Centred at -8.29 it hangs directly opposite the lobby chandelier,
+	# clears the south-wall radiator (which ends at y -9.2) by 200 mm,
+	# and still owns the view immediately after the front door.
 	var board := LobbyOrisonAdBoard.new()
-	board.position = GameBoot.b2g([5.17, -8.40, 1.52])
-	board.rotation.y = -PI * 0.5
+	board.position = GameBoot.b2g([-5.17, -8.29, 1.52])
+	board.rotation.y = PI * 0.5
 	floor_nodes["F01"].add_child(board)
 
 

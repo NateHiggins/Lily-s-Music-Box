@@ -91,7 +91,12 @@ ATRIUM = {"id": "atrium",
                      "ROOF"]}
 ELEV = {"shaft": (0.85, -6.75, 3.00, -4.55),  # 2.15 x 2.20
         "cabin": (1.55, 1.70), "door_w": 0.91,
-        "stops": ["B1", "F01", "F02", "F03", "F04", "F05", "F06"]}
+        # ROOF is a real stop. The bulkhead, its door and the shaft
+        # opening in the roof slab were all already modelled - the car
+        # simply never came, so the top landing was a hole in the roof
+        # with a concrete hut around it and no way to arrive.
+        "stops": ["B1", "F01", "F02", "F03", "F04", "F05", "F06",
+                  "ROOF"]}
 
 
 def wall(a, b, t, h, z, openings=None, cat="walls", mat="plaster",
@@ -99,6 +104,40 @@ def wall(a, b, t, h, z, openings=None, cat="walls", mat="plaster",
     return {"a": list(a), "b": list(b), "t": t, "h": h, "z": z,
             "openings": openings or [], "cat": cat, "mat": mat,
             "wainscot": wainscot, "details": details}
+
+
+def seat_walls_under_the_floor_above(floors):
+    """A wall may not rise through the floor above it.
+
+    Wall heights come from WALL_H and F2F, both derived from the standard
+    3.20 m residential floor-to-floor. The basement does not have one: it
+    runs -2.80 to 0.0, a floor-to-floor of 2.80. Its walls were still
+    built 3.02 m and 3.20 m tall, so they finished 220 mm and 400 mm
+    ABOVE the ground floor.
+
+    Where F01 has a wall of its own that overshoot is buried inside it and
+    nobody sees a thing. Where F01 has a door or an archway it is not
+    buried, and the basement wall surfaces as a kerb straight across the
+    opening - which is the hump at the bottom of every threshold and open
+    section on the ground floor, and why it appeared at archways that have
+    no door prop to blame.
+
+    Partitions stop at the underside of the slab above. Full-height
+    masonry runs up to the top of it, so the facade stays continuous.
+    """
+    order = ["B1", "F01", "F02", "F03", "F04", "F05", "F06", "ROOF"]
+    seated = 0
+    for fl in floors:
+        fid = fl["id"]
+        if fid not in order or order.index(fid) + 1 >= len(order):
+            continue
+        above = LEVELS[order[order.index(fid) + 1]]
+        for w in fl["walls"]:
+            limit = above if w["h"] >= F2F - 1e-6 else above - SLAB_T
+            if w["z"] + w["h"] > limit + 1e-6:
+                w["h"] = limit - w["z"]
+                seated += 1
+    return seated
 
 
 def normalize_wall_construction(floors):
@@ -159,20 +198,34 @@ def resolve_wainscot_sides(floors):
       hung corridor beadboard inside every apartment, get pinned to the
       circulation face.
     """
-    tiled = pinned = 0
+    tiled = pinned = marbled = 0
     for fl in floors:
         baths = [r["rect"] for r in fl["rooms"]
                  if r.get("kind") == "bathroom"]
         commons = [r["rect"] for r in fl["rooms"]
                    if r.get("kind") in ("corridor", "hall", "lobby",
                                         "atrium", "common")]
+        # The lobby is the one room a visitor is asked to form an opinion
+        # in, and a house of this class spent its money where that
+        # happened: marble to the dado downstairs, painted beadboard
+        # everywhere else. Splitting the lobby out of `commons` is what
+        # makes that distinction, so it is read separately.
+        lobbies = [r["rect"] for r in fl["rooms"]
+                   if r.get("kind") == "lobby"]
 
-        def side_facing(w, rects):
-            """+1 / -1 for the face standing in one of these rooms."""
+        def side_facing(w, rects, reach=0.14):
+            """+1 / -1 for the face standing in one of these rooms.
+
+            `reach` is how far off the wall centreline to probe. 0.14 m
+            finds a room whose rect runs up to the wall, but a rect is
+            the CLEAR floor area and does not always do that: the lobby
+            stops 18 cm short of its own north wall, so the default probe
+            landed inside the wall and reported no lobby at all.
+            """
             (ax, ay), (bx, by) = w["a"], w["b"]
             mx, my = (ax + bx) * 0.5, (ay + by) * 0.5
             horizontal = abs(by - ay) < 1e-6
-            for off in (0.14, -0.14):
+            for off in (reach, -reach):
                 px = mx if horizontal else mx + off
                 py = my + off if horizontal else my
                 for r in rects:
@@ -184,6 +237,18 @@ def resolve_wainscot_sides(floors):
             if w.get("cat", "walls") != "walls":
                 continue
             if w.get("wainscot"):
+                # Lobby first: where a wall serves both the lobby and the
+                # hall behind it, the dado belongs to the lobby face. It
+                # was being pinned to whichever common room the probe hit
+                # first, which is the hall, so the one room that was
+                # supposed to be dressed in marble faced raw plaster.
+                lside = side_facing(w, lobbies, 0.34) if lobbies else 0
+                if lside:
+                    w["wains_side"] = lside
+                    w["wains_mat"] = "marble_lobby"
+                    marbled += 1
+                    pinned += 1
+                    continue
                 side = side_facing(w, commons)
                 if side:
                     w["wains_side"] = side
@@ -198,7 +263,8 @@ def resolve_wainscot_sides(floors):
                 w["wains_side"] = side
                 tiled += 1
     print("wainscot audit: %d bathroom walls tiled, %d corridor dados "
-          "pinned to the circulation face" % (tiled, pinned))
+          "pinned to the circulation face, %d lobby dados in marble"
+          % (tiled, pinned, marbled))
 
 
 def arch(at, w, h=2.85):
@@ -353,25 +419,42 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
     when a markers list is supplied. edge: "e" | "w" | "n"."""
     x0, y0, x1, y1 = rect
     f = furniture
+    # The standard run wants 1.92 m from the corner to the sink. The
+    # ground-floor public restroom is 1.90 m deep, so the sink landed two
+    # centimetres inside its own far wall - invisible while the fixture
+    # was inert furniture, and caught the moment it became a prop the
+    # placement validator looks at. Clamp the run to the room instead of
+    # assuming every bath is full size.
+    def _run(v, lo, hi):
+        return min(max(v, lo + 0.32), hi - 0.32)
     # Every fixture mounts with its back (local -Y) to the run wall. The
     # shower also meets a second wall: `mirror` tells it which of its own
     # X sides that corner is on, so tile and glass never swap places.
     if edge == "e":
         _asm(f, unit + "_shower", "shower", x1 - 0.46, y0 + 0.50, 90)
+        _bath_marker(markers, unit, "shower", x1 - 0.46, y0 + 0.50, 90, z)
         _asm(f, unit + "_wc", "toilet", x1 - 0.41, y0 + 1.22, 90)
-        _asm(f, unit + "_sink", "sink_ped", x1 - 0.30, y0 + 1.92, 90)
+        _asm(f, unit + "_sink", "sink_ped", x1 - 0.30, _run(y0 + 1.92, y0, y1), 90)
+        _bath_marker(markers, unit, "sink", x1 - 0.30, _run(y0 + 1.92, y0, y1), 90, z)
+        _bath_marker(markers, unit, "mirror", x1 - 0.30, _run(y0 + 1.92, y0, y1), 90, z)
         spos, syaw = [x1 - 0.08, y0 + 1.92], -90
     elif edge == "w":
         _asm(f, unit + "_shower", "shower", x0 + 0.46, y0 + 0.50, -90,
              mirror=True)
+        _bath_marker(markers, unit, "shower", x0 + 0.46, y0 + 0.50, -90, z)
         _asm(f, unit + "_wc", "toilet", x0 + 0.41, y0 + 1.22, -90)
-        _asm(f, unit + "_sink", "sink_ped", x0 + 0.30, y0 + 1.92, -90)
+        _asm(f, unit + "_sink", "sink_ped", x0 + 0.30, _run(y0 + 1.92, y0, y1), -90)
+        _bath_marker(markers, unit, "sink", x0 + 0.30, _run(y0 + 1.92, y0, y1), -90, z)
+        _bath_marker(markers, unit, "mirror", x0 + 0.30, _run(y0 + 1.92, y0, y1), -90, z)
         spos, syaw = [x0 + 0.08, y0 + 1.92], 90
     else:  # "n"
         _asm(f, unit + "_shower", "shower", x0 + 0.50, y1 - 0.46, 180,
              mirror=True)
+        _bath_marker(markers, unit, "shower", x0 + 0.50, y1 - 0.46, 180, z)
         _asm(f, unit + "_wc", "toilet", x0 + 1.22, y1 - 0.41, 180)
-        _asm(f, unit + "_sink", "sink_ped", x0 + 1.92, y1 - 0.30, 180)
+        _asm(f, unit + "_sink", "sink_ped", _run(x0 + 1.92, x0, x1), y1 - 0.30, 180)
+        _bath_marker(markers, unit, "sink", _run(x0 + 1.92, x0, x1), y1 - 0.30, 180, z)
+        _bath_marker(markers, unit, "mirror", _run(x0 + 1.92, x0, x1), y1 - 0.30, 180, z)
         spos, syaw = [x0 + 1.92, y1 - 0.08], 0
     # Towels live on the wall opposite the wet fixtures. The former rail
     # shared the shower/toilet wall and visibly passed through both.
@@ -512,10 +595,14 @@ def tv_set(f, uid, x, y, along_x=True, face="n"):
         _asm(f, uid, "tv", x + 0.21, y + 0.625, yaw)
 
 
-def plant_box(f, uid, x, y, big=False):
+def plant_box(f, uid, x, y, big=False, species=None):
+    """A pot with somebody's plant in it. Species comes from the unit
+    prefix unless the caller names one - the lobby and the halls are not
+    anybody's flat, so they say what they want."""
     s = 0.36 if big else 0.28
+    kind = species or UNIT_PLANT.get(str(uid)[:2], "sansevieria")
     _asm(f, uid, "plant", x + s / 2, y + s / 2,
-         (sum(ord(c) for c in uid) * 53) % 360, big=big)
+         (sum(ord(c) for c in uid) * 53) % 360, big=big, species=kind)
 
 
 def art_panel(f, uid, x, y, w=0.7, along_x=True, z0=1.30, h=0.85, mat="art"):
@@ -589,6 +676,53 @@ def _hob_load(f, uid, sx, sy):
                  sx + dx, sy + dy, 180, z0=0.90)
 
 
+def _fridge_marker(markers, uid, fx, fy, z, yaw, floor_id):
+    """The cabinet needs a prop as well as a body: its door swings, its
+    lamp comes on when the seal breaks, and it holds somebody's food.
+    None of that can happen inside a merged floor mesh.
+
+    Seventeen of the eighteen flats had the assembly and no marker, so
+    seventeen refrigerators were furniture. The marker sits exactly where
+    the assembly does, so the prop's door lands on the mouth the cabinet
+    left open for it - the same contract the range has used all along."""
+    if markers is None:
+        return
+    unit = unit_of_uid(uid)
+    markers.append({
+        "kind": "fridge",
+        "id": "%s_%s_FRIDGE_01" % (floor_id or "FXX", unit),
+        "unit": unit, "pos": [round(fx, 4), round(fy, 4), round(z, 4)],
+        "yaw_deg": yaw, "network": "electrical",
+        "monitor": unit in MONITOR_TOP_UNITS})
+
+
+def _bath_marker(markers, unit, kind, bx, by, yaw, z):
+    """A tap is not a shape, it is a thing that turns.
+
+    Twenty-three showers and twenty-three sinks were assemblies with no
+    marker - the same fault the refrigerators had and the range never
+    did. The porcelain, the cross taps and the valve plate are all
+    modelled; what was missing was anything to spawn a prop that turns
+    them and runs water.
+
+    The marker sits exactly where the assembly does, so the prop's
+    handles land on the spindles the assembly already built."""
+    if markers is None:
+        return
+    # bath_fixtures is handed a level, not a floor name, so name the
+    # marker from whichever level this z belongs to.
+    floor_id = "FXX"
+    for name, level in LEVELS.items():
+        if abs(level - z) < 0.01:
+            floor_id = name
+            break
+    markers.append({
+        "kind": kind,
+        "id": "%s_%s_%s_01" % (floor_id, unit, kind.upper()),
+        "unit": unit, "pos": [round(bx, 4), round(by, 4), round(z, 4)],
+        "yaw_deg": yaw, "network": "water"})
+
+
 def _stove_marker(markers, uid, sx, sy, z, yaw, floor_id):
     """The range needs a prop as well as a body: its oven door swings and
     its rings light, and neither can happen inside a merged floor mesh.
@@ -603,6 +737,55 @@ def _stove_marker(markers, uid, sx, sy, z, yaw, floor_id):
         "unit": unit, "pos": [round(sx, 4), round(sy, 4), round(z, 4)],
         "yaw_deg": yaw, "network": "gas",
     })
+
+
+def _lino_field(f, uid, x, y, cw, along_x, side):
+    """The square of linoleum the kitchen actually stands on.
+
+    Most of these runs are a kitchenette in the corner of a living room,
+    not a separate room, so flooring the whole space in lino was wrong
+    twice over: it lino'd bedrooms-adjacent living space, and it threw
+    away the thing that makes a period kitchenette read - a defined
+    working field laid over the boards.
+
+    So: a square, sized off the run itself (counter + range + icebox is
+    cw + 1.38 long) and never less than 1.9 m so there is somewhere to
+    stand, pushed up against the wall the run is on.
+
+    The edge is bound in brass. A sheet of linoleum has to be held down
+    where it stops, and the binding bar is the detail that says this was
+    laid rather than painted on. It runs on the three exposed edges
+    only - the wall side gets a skirting board, not a threshold strip,
+    and putting one there is the sort of mistake that reads instantly.
+    """
+    run = cw + 1.38
+    sq = max(run, 1.90)
+    bar = 0.05          # brass binding bar, 50 mm
+    if along_x:
+        fx0 = x + run / 2.0 - sq / 2.0
+        fy1 = y + 0.66 if side == "n" else y + sq
+        fy0 = fy1 - sq
+        open_edges = (("s" if side == "n" else "n"), "e", "w")
+    else:
+        fy0 = y + run / 2.0 - sq / 2.0
+        fx1 = x + 0.66 if side == "e" else x + sq
+        fx0 = fx1 - sq
+        open_edges = (("w" if side == "e" else "e"), "n", "s")
+    _furn_box(f, "%s_lino" % uid, fx0, fy0, sq, sq, 0.013, 0.004,
+              "linoleum", False)
+    for e in open_edges:
+        if e == "n":
+            _furn_box(f, "%s_linobar_n" % uid, fx0, fy0 + sq - bar,
+                      sq, bar, 0.013, 0.008, "brass_dull", False)
+        elif e == "s":
+            _furn_box(f, "%s_linobar_s" % uid, fx0, fy0,
+                      sq, bar, 0.013, 0.008, "brass_dull", False)
+        elif e == "e":
+            _furn_box(f, "%s_linobar_e" % uid, fx0 + sq - bar, fy0,
+                      bar, sq, 0.013, 0.008, "brass_dull", False)
+        else:
+            _furn_box(f, "%s_linobar_w" % uid, fx0, fy0,
+                      bar, sq, 0.013, 0.008, "brass_dull", False)
 
 
 def kitchen_run(f, uid, x, y, L, along_x=True, side="n", markers=None,
@@ -635,8 +818,11 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n", markers=None,
         _stove_marker(markers, uid, x + cw + 0.33, cy, z, yaw, floor_id)
         _asm(f, uid + "_fr", _fridge_for(uid), x + cw + 0.66 + 0.36, cy,
              yaw)
+        _fridge_marker(markers, uid, x + cw + 0.66 + 0.36, cy, z, yaw,
+                       floor_id)
         clutter(x + cw / 2, cy)
         _hob_load(f, uid, x + cw + 0.33, cy)
+        _lino_field(f, uid, x, y, cw, True, side)
     else:
         yaw = FACE_YAW["e" if side == "w" else "w"]
         cx = x + 0.32
@@ -645,8 +831,11 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n", markers=None,
         _stove_marker(markers, uid, cx, y + cw + 0.33, z, yaw, floor_id)
         _asm(f, uid + "_fr", _fridge_for(uid), cx, y + cw + 0.66 + 0.36,
              yaw)
+        _fridge_marker(markers, uid, cx, y + cw + 0.66 + 0.36, z, yaw,
+                       floor_id)
         clutter(cx, y + cw / 2, True)
         _hob_load(f, uid, cx, y + cw + 0.33)
+        _lino_field(f, uid, x, y, cw, False, side)
 
 
 def desk_set(f, uid, x, y, L=1.4, along_x=True, chair_side=1):
@@ -1422,7 +1611,11 @@ def apartment_4b(z, walls, rooms, markers, furniture):
     coffee_table(furniture, "4B_coffee", -12.58, 3.35)
     tv_set(furniture, "4B_tv", -11.20, y0 + 0.06, True, face="n")
     chair_box(furniture, "4B_desk_chair", -9.05, 5.35, "w")
-    rug_box(furniture, "4B_deskrug", -9.35, 4.85, 1.15, 1.5, "rug_cool")
+    # Clear of 4B's main rug, which runs to x -8.70. The desk mat used to
+    # start at -9.35 and lie half on top of it - two rugs occupying the
+    # same 0.65 x 1.15 m of floor, which reads as one rug with a colour
+    # fault rather than as two.
+    rug_box(furniture, "4B_deskrug", -8.55, 4.85, 1.15, 1.5, "rug_cool")
     shelf_unit(furniture, "4B_shelf", -9.25, y0 + 0.08, 1.1, True,
                books=True, face="n")
     _furn_box(furniture, "4B_mattress", -13.33, 6.97, 1.21, 2.46, 0.32,
@@ -1690,9 +1883,10 @@ def exterior(floor_id, z, walls):
     s_open = [window(X_IN - 2.5, mid_spec), window(X_IN + 2.5, mid_spec)]
     if floor_id == "F01":
         s_open.append(door(X_IN, DOOR_ENTRY, swing="out"))  # street egress
-    # the B1 street wall stops flush under the F01 slab: its 0.4 m
-    # above-grade continuation would curb the entrance shut (the water
-    # table dresses the exposed base instead)
+    # The B1 street wall must stop under the F01 slab or its above-grade
+    # continuation curbs the entrance shut (the water table dresses the
+    # exposed base instead). Kept as a hint; seat_walls_under_the_floor_
+    # above() is what actually guarantees it, for every wall down here.
     hs = 2.78 if floor_id == "B1" else h
     walls.append(wall((-X_IN, -(10.0 - off)), (X_IN, -(10.0 - off)), t, hs,
                       z, s_open, mat="face_brick"))
@@ -1752,6 +1946,34 @@ def stair_holes(floor_id):
     return holes
 
 
+
+# Which houseplant is on whose windowsill, and whether it is still alive.
+#
+# A plant is a statement about its owner, so these are cast rather than
+# scattered: the shut-ins keep something that forgives them, the ones who
+# are never home keep something that does not care, and two of them keep
+# a dead crown in a good pot because nobody throws the pot away.
+UNIT_PLANT = {
+    "1A": "aspidistra",   # Evelyn: a proofreader's plant, outlives everyone
+    "1D": "fern",         # Teresa: fusses over it, mists it, it still sulks
+    "2A": "pothos",       # Mina: cuttings in jars along the sill
+    "2B": "spider",       # Lena: gives the pups away to the whole floor
+    "2C": "sansevieria",  # Juno: out at all hours, needs a plant that copes
+    "3A": "rubber",       # Malcolm: bought it as furniture
+    "3B": "sansevieria",  # Omar: same reason, different life
+    "3D": "pothos",       # Rhea: trails it along the shelf above the desk
+    "4A": "dead",         # Peter: pending, like everything else of his
+    "4C": "spider",       # Cam and Noel: it came with one of them
+    "4D": "dead",         # transient guests water nothing
+    "5A": "dracaena",     # Nadia: office plant that followed her home
+    "5B": "sansevieria",  # Cal: broadcast hours, no gardening
+    "5C": "fern",         # Iris: the studio window is the only humid room
+    "6A": "rubber",       # Sacha: matches the sofa
+    "6B": "aspidistra",   # Jonah: unfinished, but the plant is fine
+    "6C": "dracaena",     # Mae: two histories, one cane
+}
+
+
 def build_floor(floor_id):
     z = LEVELS[floor_id]
     walls, rooms, markers, furniture = [], [], [], []
@@ -1782,14 +2004,25 @@ def build_floor(floor_id):
                           z, [dict(gl)]))
         ex0, ey0, ex1, ey1 = ELEV["shaft"]
         m = 0.45
-        walls.append(wall((ex0 - m, ey0 - m), (ex0 - m, ey1 + m), CORR_T, 2.4, z,
+        # 2.4 m was shorter than the car it is supposed to contain: the
+        # cab stands 2.36 m, so at the top landing its roof came within
+        # 4 cm of a bulkhead that had no lid on it anyway, and you could
+        # see sky down the hoistway. A machine-room bulkhead carries the
+        # overhead sheave above the car's overtravel, so it is tall, and
+        # it is roofed.
+        bh = 3.30
+        walls.append(wall((ex0 - m, ey0 - m), (ex0 - m, ey1 + m), CORR_T, bh, z,
                           [], mat="concrete"))
-        walls.append(wall((ex1 + m, ey0 - m), (ex1 + m, ey1 + m), CORR_T, 2.4, z,
+        walls.append(wall((ex1 + m, ey0 - m), (ex1 + m, ey1 + m), CORR_T, bh, z,
                           [], mat="concrete"))
-        walls.append(wall((ex0 - m, ey1 + m), (ex1 + m, ey1 + m), CORR_T, 2.4, z,
+        walls.append(wall((ex0 - m, ey1 + m), (ex1 + m, ey1 + m), CORR_T, bh, z,
                           [], mat="concrete"))
-        walls.append(wall((ex0 - m, ey0 - m), (ex1 + m, ey0 - m), CORR_T, 2.4, z,
+        walls.append(wall((ex0 - m, ey0 - m), (ex1 + m, ey0 - m), CORR_T, bh, z,
                           [door(1.0, DOOR_SERV, "open")], mat="concrete"))
+        floor["slabs"].append(
+            {"rect": [ex0 - m - CORR_T, ey0 - m - CORR_T,
+                      ex1 + m + CORR_T, ey1 + m + CORR_T],
+             "z_top": z + bh + 0.16, "t": 0.16, "holes": []})
         rooms.append({"id": "ROOF_OPEN", "rect": [-13.65, -9.65, 13.65, 9.65],
                       "kind": "roof"})
         markers.append({"kind": "watertank", "id": "ROOF_TANK",
@@ -1860,6 +2093,10 @@ def build_floor(floor_id):
     split_walls(z, walls)
 
     if floor_id == "B1":
+        # Somewhere to wait out a wash. Plain plank, against the wall,
+        # clear of the machines.
+        _asm(furniture, "b1_laundry_bench", "bench", -9.60, 2.95, 0,
+             style="slat", L=1.4)
         names = {"A": "STORAGE_CAGES", "B": "LAUNDRY", "C": "BOILER",
                  "D": "ELECTRICAL"}
         for sx, stacks in ((-1, ("A", "B")), (1, ("D", "C"))):
@@ -1894,8 +2131,18 @@ def build_floor(floor_id):
         walls.append(wall((11.30, 2.70), (X_IN, 2.70), PART_T, WALL_H, z, []))
         rooms.append({"id": "B1_COAL", "rect": [11.30, 0.30, X_IN, 2.70],
                       "kind": "coal"})
-        _furn_box(furniture, "coal_pile", 12.4, 0.6, 1.0, 1.8, 0.0, 0.75,
-                  "slab", False)
+        # The plant room tells the building's heating history in one
+        # look: the 1926 coal boiler dead where it stood, the oil boiler
+        # that replaced it piped into the same chimney beside it, and
+        # what is left of the last coal delivery in the bunker.
+        #
+        # The heap used to be a rectangular block of SLAB - grey
+        # concrete in the shape of a crate, which is what read as a
+        # white blob in the corner of the coal room.
+        _asm(furniture, "b1_coal_furnace", "coal_furnace", 9.05, 1.55, 0)
+        _asm(furniture, "b1_modern_boiler", "modern_boiler", 7.35, 1.62, 0)
+        _asm(furniture, "b1_coal_heap", "coal_heap", 12.85, 1.50, 0,
+             W=0.95, D=1.70, H=0.58)
         markers += [
             {"kind": "boiler", "id": "B1_BOILER_01", "pos": [10.0, 5.0, z],
              "yaw_deg": 0, "network": "heating"},
@@ -1978,15 +2225,11 @@ def build_floor(floor_id):
              "riser": "H-A", "unit": "LOBBY"},
             # (The old generated mail wall is gone: the functional brass
             # MailBankProp on the east lobby wall is the real one now.)
-            # Sconce over the street door, outside the facade facing the
-            # pavement — the light you arrive by.
-            {"kind": "sconce_globe", "id": "F01_ENTRY_SCONCE",
-             # The facade face is y=-10.0. The old anchor buried the
-             # fixture in the masonry; this one is wholly street-side.
-             "unit": "LOBBY", "pos": [-0.455, -10.24, z + 2.62],
-             "yaw_deg": 0, "network": "electrical",
-             "range": 3.8, "energy": 0.62,
-             "navigation": True, "standby": 0.45},
+            # The street-door sconce is gone (2026-08-05). It hung at
+            # z 2.62 directly under a marquee whose glazed tray is now a
+            # lit ceiling over the same doorway - two fixtures lighting
+            # one square metre, the older one from inside the newer one's
+            # shadow. The marquee is the light you arrive by.
             # Neon on the street elevation. The blade projects at right
             # angles to the wall so it is legible coming DOWN the pavement
             # rather than only from across the road, which is the whole
@@ -1995,7 +2238,14 @@ def build_floor(floor_id):
             # yaw 0 turns the lit face toward the street; 180 would read
             # the lettering backwards through the lobby wall.
             {"kind": "neon_sign", "id": "F01_NEON_BLADE",
-             "pos": [3.35, -10.42, z + 4.30], "yaw_deg": 0,
+             # Origin ON the facade face (y -10.00): the blade is built
+             # projecting south from there, standing 1.19 m off the wall
+             # so it reads from either end of the block instead of only
+             # from square in front of it. Centred at z 6.60 it spans
+             # 3.77 to 9.43 - clear of the marquee (tops at 3.66) and of
+             # the F02 window that ends at x 3.17, with the bracket
+             # landing in solid brick.
+             "pos": [3.35, -10.00, z + 6.60], "yaw_deg": 0,
              "text": "ORISON", "vertical": True, "network": "electrical",
              "tint": [1.0, 0.32, 0.44]},
             # ...and the ground-floor tenant's own sign, flat on the wall
@@ -2005,6 +2255,22 @@ def build_floor(floor_id):
              "text": "DRUGS", "vertical": False, "network": "electrical",
              "tint": [0.34, 0.86, 1.0]},
         ]
+        # The marquee: hung off the facade above the stone surround, not
+        # resting on it, because it was bolted up a decade after the
+        # building went in. Origin on the outer face of the south wall
+        # (y -10.00) at the door centreline; the assembly projects south
+        # 1.80 m and its tie rods anchor at z 5.08, in the solid brick
+        # pier between the two F02 windows (which stop at x +/-1.82).
+        _asm(furniture, "entry_marquee", "entrance_marquee", 0.0, -10.00,
+             0, exterior=True)
+        # Prismatic glass over the door is only a centrepiece if it is
+        # lit from inside the tray. Two flush fittings in the soffit.
+        for mi, mx in enumerate((-0.78, 0.78)):
+            markers.append({"kind": "flush_dome",
+                            "id": "F01_MARQUEE_LT_%02d" % (mi + 1),
+                            "pos": [mx, -10.86, z + 3.24], "yaw_deg": 0,
+                            "exterior": True,
+                            "network": "electrical", "unit": "LOBBY"})
         # limestone entrance surround + step, street side
         for fid_, rect, z0_, hh in (
                 ("pilaster_w", (-1.35, -10.14, -1.05, -9.96), 0.0, 2.60),
@@ -2023,7 +2289,16 @@ def build_floor(floor_id):
                       "limestone", False)
         # lobby: hall settle west of the street door (the east side belongs
         # to the runtime brass mail bank corner), runner to the atrium
-        _asm(furniture, "lobby_bench", "bench", -2.45, -9.38, 0, L=1.5)
+        # Two settles flanking the street door, clear of the pilasters
+        # at x +/-1.35 and pulled out to -9.26 so their backs stop
+        # cutting into the window sill - at -9.38 a 0.48 m deep bench
+        # put its back rail 35 mm inside the wall face.
+        _asm(furniture, "lobby_bench_w", "bench", -2.20, -9.26, 0, L=1.4)
+        _asm(furniture, "lobby_bench_e", "bench", 2.20, -9.26, 0, L=1.4)
+        # The common room keeps a settle to match the lobby; everywhere a
+        # bench gets rained on, splashed or sat on in work clothes gets
+        # the plain plank kind instead.
+        _asm(furniture, "common_bench", "bench", -8.70, 5.62, 0, L=1.5)
         rug_box(furniture, "lobby_runner", -0.65, -9.35, 1.3, 1.75,
                 "rug_warm")
         # management office, package room, public restroom in the B wing
@@ -2055,9 +2330,14 @@ def build_floor(floor_id):
         # actually walk: leaving the street door for the stairs you pass
         # up the hall, and this is the wall on your left, centred on the
         # run and under the hall fixture.
-        art_panel(furniture, "lobby_notice", -3.16, -5.45, 0.9, False,
-                  z0=1.15, h=0.75, mat="paper")
-        plant_box(furniture, "lobby_plant", -2.35, -9.20, big=True)
+        # The lobby board is a real object now (LobbyBulletinBoard), with
+        # printed notices pinned to cork rather than a flat paper-material
+        # panel in a frame. Placed from building_root at the same spot on
+        # the walk from the street door to the stairs.
+        # The cast-iron plant, in the lobby it was invented for: it will
+        # outlive the boiler, the residents and probably the building.
+        plant_box(furniture, "lobby_plant", -2.35, -9.20, big=True,
+                  species="aspidistra")
         # community room (B stack) and building storage (C stack)
         _asm(furniture, "common_table", "table_rect", -9.2, 6.6, 0,
              L=2.6, W=1.0)
@@ -2272,10 +2552,120 @@ def collect_door_markers(fl):
                     sx_, sy_ = latch, cross + side[1]
                 else:
                     sx_, sy_ = cross + side[0], latch
+                # A switch pair straddles the wall, one plate per face.
+                # On an EXTERIOR wall that means one of them lands on the
+                # street, which is how a light switch ended up screwed to
+                # the brick beside the front door. Nobody wires a switch
+                # outdoors on a 1926 apartment house; the outboard plate
+                # is dropped wherever it falls beyond the interior face.
+                if abs(sx_) > X_IN + 0.01 or abs(sy_) > Y_IN + 0.01:
+                    EXTERIOR_SWITCHES_DROPPED.append(
+                        "%s_SW_%02d_%d" % (fl["id"], n, yaw % 360))
+                    continue
                 fl["furniture"].append({
                     "id": "%s_SW_%02d_%d" % (fl["id"], n, yaw % 360),
                     "asm": "switch", "at": [round(sx_, 4), round(sy_, 4)],
                     "yaw": yaw, "z0": 1.12})
+
+
+EXTERIOR_SWITCHES_DROPPED = []
+
+
+COVERAGE_SWITCHES_ADDED = []
+
+LIGHT_KINDS_FOR_SWITCH = ("flush_dome", "pendant_shade", "sconce_globe",
+                          "kitchen_linear", "cage_bulb", "chandelier",
+                          "eye_pendant", "ceiling_light", "corridor_light")
+
+
+def switch_coverage_pass(floors):
+    """Every room with a light gets something to switch it with.
+
+    The original pass hangs a plate pair on each side of every DOOR. That
+    is correct as far as it goes, and it leaves out every room you reach
+    through an archway - the halls, the atria, the alcoves open to their
+    main room - plus any room whose door belongs to a neighbour. Twenty-two
+    rooms had a fixture and no plate anywhere, one of them the player's own
+    kitchen.
+
+    Placement follows normal practice rather than convenience: the plate
+    goes on the LATCH side of the room's principal opening, inside the
+    room, about 200 mm clear of the reveal, at 1.12 m to centre. Latch
+    side matters - a switch behind a door that opens onto it is a switch
+    you cannot reach without closing the door first.
+    """
+    for fl in floors:
+        rooms = fl.get("rooms", [])
+        furn = fl["furniture"]
+        existing = [f["at"] for f in furn if f.get("asm") == "switch"]
+        for r in rooms:
+            x0, y0, x1, y1 = r["rect"]
+            lit = any(m.get("kind") in LIGHT_KINDS_FOR_SWITCH
+                      and m.get("pos")
+                      and x0 <= m["pos"][0] <= x1
+                      and y0 <= m["pos"][1] <= y1
+                      for m in fl.get("markers", []))
+            if not lit:
+                continue
+            if any(x0 - 0.4 <= a[0] <= x1 + 0.4
+                   and y0 - 0.4 <= a[1] <= y1 + 0.4 for a in existing):
+                continue
+            spot = _plate_beside_opening(fl, r)
+            if spot is None:
+                continue
+            sx, sy, yaw = spot
+            sid = "%s_SWX_%s" % (fl["id"], r["id"])
+            furn.append({"id": sid, "asm": "switch",
+                         "at": [round(sx, 4), round(sy, 4)],
+                         "yaw": yaw, "z0": 1.12})
+            existing.append([sx, sy])
+            COVERAGE_SWITCHES_ADDED.append(sid)
+
+
+def _plate_beside_opening(fl, r):
+    """Inside the room, beside its widest opening, clear of the swing."""
+    x0, y0, x1, y1 = r["rect"]
+    best = None
+    for w in fl.get("walls", []):
+        ax, ay = w["a"]
+        bx, by = w["b"]
+        horizontal = abs(by - ay) < 1e-6
+        cross = ay if horizontal else ax
+        # the wall has to lie on one of this room's four edges
+        edges = (y0, y1) if horizontal else (x0, x1)
+        side = None
+        for e in edges:
+            if abs(cross - e) < 0.30:
+                side = e
+                break
+        if side is None:
+            continue
+        start = min(ax, bx) if horizontal else min(ay, by)
+        lo, hi = (x0, x1) if horizontal else (y0, y1)
+        for o in w.get("openings", []):
+            if o.get("type") != "door":
+                continue
+            c = start + o["at"]
+            if not (lo - 0.1 <= c <= hi + 0.1):
+                continue
+            if best is None or o["w"] > best[0]["w"]:
+                best = (o, w, c, horizontal, cross, lo, hi)
+    if best is None:
+        return None
+    o, w, c, horizontal, cross, lo, hi = best
+    t = float(w["t"])
+    # 200 mm clear of the reveal, on whichever side has room for a hand
+    off = o["w"] * 0.5 + 0.20
+    along = c + off if (c + off + 0.12) <= hi else c - off
+    if along < lo + 0.12:
+        along = c + off
+    # inside the room, just off the wall face
+    inward = t * 0.5 + 0.002
+    if horizontal:
+        into = inward if cross < (y0 + y1) * 0.5 else -inward
+        return along, cross + into, 0 if into > 0 else 180
+    into = inward if cross < (x0 + x1) * 0.5 else -inward
+    return cross + into, along, -90 if into > 0 else 90
 
 
 def radiator_pipe_pass(floors):
@@ -2523,15 +2913,18 @@ def building_operations_pass(floors):
                                  "yaw": yaw, "z0": 0.0, "levels": 5,
                                  "floor_h": F2F})
 
-    # Lobby paperwork: layers at slightly different depths make a century of
-    # required notices, missed inspections and handwritten amendments.
-    for i, (x, z0, w, h) in enumerate((
-            (4.78, 1.10, 0.35, 0.46), (5.16, 1.14, 0.42, 0.38),
-            (4.82, 1.61, 0.52, 0.31), (5.37, 1.58, 0.31, 0.40),
-            (5.14, 2.02, 0.44, 0.24))):
-        box(f01, "lobby_notice_%d" % i,
-            (x, -8.847 - i * 0.001, x + w, -8.827 - i * 0.001),
-            z0, h, "paper" if i != 4 else "safety_orange")
+    # Lobby paperwork: WITHDRAWN 2026-08-06.
+    #
+    # Five blank cream slabs of "paper" hung off the lobby wall with
+    # nothing printed on them - from the floor they read as four boxes
+    # floating in space, which is what they were. The idea is right (a
+    # century of required notices layered over each other) and the
+    # execution was a placeholder that never got its content.
+    #
+    # The work-order board in the hall now shows what these should be:
+    # aged slips at differing yellows, pinned crooked, on a real ground.
+    # They come back when they have something written on them, and not
+    # before. See task "Fix the bulletin board texture and reposition it".
     # Entry intercom is a conspicuous later retrofit: metal directory,
     # speaker grille, call buttons and exposed conduit to the ceiling.
     box(f01, "intercom", (3.95, -9.665, 4.43, -9.59), 1.10, 0.74, "metal")
@@ -2583,8 +2976,34 @@ def building_operations_pass(floors):
 ## set and not a city. The block now runs far enough that the sightline
 ## dies in masonry long before it reaches the edge.
 SITE_X = 62.0
-SITE_S = -34.0     # far kerb line, south
-SITE_N = 24.0      # back of the alley blocks, north
+SITE_S = -42.0     # behind the south street wall
+SITE_N = 26.0      # back of the alley blocks, north
+
+## THE STREET SECTION, taken from the real thing.
+##
+## A historic New York rowhouse block is a 60 ft right-of-way: 15 ft of
+## sidewalk, 30 ft of roadway, 15 ft of sidewalk. Ours had the north walk
+## exactly right at 4.57 m and then lost its nerve completely - the
+## roadway measured 2.65 m and the far pavement 0.80 m, so building line
+## to building line came to 8.40 m against a real 18.29 m. Less than half
+## a street.
+##
+## Those numbers are not a stylisation, they are impossible: a car is
+## 1.8 m wide, so nothing could ever have driven down it, and the far
+## pavement was narrower than a doorway. It also quietly broke three
+## other things - the lamps are commented "down both pavements" but are
+## all on ours because the far one had no room, the traffic signal's
+## "mast arm over the road" stops at the kerb, and the potholes are
+## crowded into a strip narrower than one car.
+##
+## Everything south of the kerb now derives from these three figures.
+WALK_W = 4.572     # 15 ft, and what the north walk already was
+ROAD_W = 9.144     # 30 ft kerb to kerb
+KERB_N = -14.75    # north kerb face: the roadway starts here
+KERB_S = KERB_N - ROAD_W           # -23.894
+WALK_S = KERB_S + 0.15             # south kerb is 150 mm, like the north
+BLDG_S = WALK_S - WALK_W           # -28.316, the south building line
+ROAD_MID = (KERB_N + KERB_S) * 0.5
 
 ## Street-wall blocks: (id, rect, height). Heights step irregularly, since
 ## a row of equal parapets reads as one extruded shape rather than as
@@ -2603,22 +3022,25 @@ CITY_BLOCKS = [
     ("ne3", (37.6, -14.2, 48.4, 12.0), 11.2),
     ("ne4", (49.0, -14.2, 58.0, 10.5), 17.8),
     # south side of the street, opposite
-    ("nbr_s1", (-20.0, -24.0, -7.0, -18.2), 10.4),
-    ("nbr_s2", (-5.6, -24.0, 6.4, -18.2), 15.8),
-    ("nbr_s3", (7.8, -24.0, 20.0, -18.2), 8.6),
-    ("sw1", (-33.0, -25.5, -20.6, -18.2), 14.2),
-    ("sw2", (-46.0, -24.0, -33.6, -18.2), 9.8),
-    ("sw3", (-58.0, -26.5, -46.6, -18.2), 18.5),
-    ("se1", (20.6, -24.0, 32.0, -18.2), 12.6),
-    ("se2", (32.6, -26.0, 44.5, -18.2), 20.4),
-    ("se3", (45.1, -24.0, 58.0, -18.2), 10.2),
+    # South side. Faces all sit on BLDG_S; depths vary because a real
+    # block is not one slab, and these are deep enough now to read as
+    # buildings from the roof rather than as a row of flats.
+    ("nbr_s1", (-20.0, -39.0, -7.0, -28.32), 10.4),
+    ("nbr_s2", (-5.6, -38.2, 6.4, -28.32), 15.8),
+    ("nbr_s3", (7.8, -37.6, 20.0, -28.32), 8.6),
+    ("sw1", (-33.0, -39.4, -20.6, -28.32), 14.2),
+    ("sw2", (-46.0, -38.0, -33.6, -28.32), 9.8),
+    ("sw3", (-58.0, -40.4, -46.6, -28.32), 18.5),
+    ("se1", (20.6, -38.6, 32.0, -28.32), 12.6),
+    ("se2", (32.6, -39.8, 44.5, -28.32), 20.4),
+    ("se3", (45.1, -37.4, 58.0, -28.32), 10.2),
     # the vista stops: masses across both ends of the street, as if the
     # road bends behind them. Without these you see sky down the pavement.
-    ("end_w", (-62.0, -26.0, -58.6, 14.0), 24.6),
-    ("end_e", (58.6, -26.0, 62.0, 14.0), 22.3),
+    ("end_w", (-62.0, -40.4, -58.6, 14.0), 24.6),
+    ("end_e", (58.6, -40.4, 62.0, 14.0), 22.3),
     # behind the alley
-    ("back_w", (-30.0, 16.6, -12.0, 23.0), 15.4),
-    ("back_e", (12.0, 16.6, 31.0, 23.0), 18.9),
+    ("back_w", (-30.0, 18.1, -12.0, 24.5), 15.4),
+    ("back_e", (12.0, 18.1, 31.0, 24.5), 18.9),
 ]
 
 ## A second ring, further out and much taller. The street-wall row above
@@ -2637,6 +3059,26 @@ FAR_SKYLINE = [
     ("far_sw", (-88.0, -62.0, -54.0, -38.0), 31.0),
     ("far_w", (-108.0, -20.0, -78.0, 18.0), 36.5),
 ]
+
+
+def subtract_rect(rects, hole):
+    """Axis-aligned rect subtraction: rects minus hole, as rect pieces."""
+    hx0, hy0, hx1, hy1 = hole
+    out = []
+    for (x0, y0, x1, y1) in rects:
+        if hx1 <= x0 or hx0 >= x1 or hy1 <= y0 or hy0 >= y1:
+            out.append((x0, y0, x1, y1))
+            continue
+        cx0, cx1 = max(x0, hx0), min(x1, hx1)
+        if y0 < hy0:
+            out.append((x0, y0, x1, hy0))
+        if hy1 < y1:
+            out.append((x0, hy1, x1, y1))
+        if x0 < cx0:
+            out.append((x0, max(y0, hy0), cx0, min(y1, hy1)))
+        if cx1 < x1:
+            out.append((cx1, max(y0, hy0), x1, min(y1, hy1)))
+    return out
 
 
 def site_pass(fl):
@@ -2661,12 +3103,24 @@ def site_pass(fl):
     # bands below tile the site with the footprint left out.
     gx0, gy0, gx1, gy1 = -112.0, -82.0, 108.0, 66.0
     bx0, by0, bx1, by1 = -14.0, -10.0, 14.0, 10.0
-    for tag, rect in (
-            ("ground_s", (gx0, gy0, gx1, by0)),
-            ("ground_n", (gx0, by1, gx1, gy1)),
-            ("ground_w", (gx0, by0, bx0, by1)),
-            ("ground_e", (bx1, by0, gx1, by1))):
-        fb(tag, rect, -0.30, 0.28, "asphalt")
+    # TWO holes now, not one. The bands were authored around a single
+    # footprint (the Orison brings its own ground), and when the Harukiya
+    # dug its stairwell through the south block nobody told the ground:
+    # a flat asphalt lid ran straight across the open shaft at grade, the
+    # descent descended into the underside of the street, and the whole
+    # basement was sealed under a plane nobody could see the top of.
+    # Ground is subtracted per hole like the road around the building -
+    # anything that opens the earth must register here.
+    GROUND_HOLES = [(bx0, by0, bx1, by1),
+                    (4.30, -35.80, 5.45, -28.32)]     # Harukiya shaft
+    ground = [(gx0, gy0, gx1, gy1)]
+    for hole in GROUND_HOLES:
+        nxt = []
+        for r in ground:
+            nxt += subtract_rect([r], hole)
+        ground = nxt
+    for gi, rect in enumerate(ground):
+        fb("ground_%d" % gi, rect, -0.30, 0.28, "asphalt")
     # The distant pavement can stay cheap, but the playable frontage is
     # individually poured slabs with settlement, missing corners and open
     # joints. Their top heights vary by centimetres, not a noisy normal map.
@@ -2679,27 +3133,42 @@ def site_pass(fl):
     # One continuous recessed joint bed sits below the individual pieces.
     # It is visible only through their authored gaps and missing corners,
     # so texture and geometry can never disagree about where a joint is.
-    fb("sidewalk_joint_bed", (-16.0, -14.60, 16.0, -10.0),
+    fb("sidewalk_joint_bed", (-16.0, -14.60, 16.0, -9.98),
        -0.036, 0.022, "sidewalk_grout")
-    for row, (sy0, sy1) in enumerate(((-14.58, -12.34),
-                                       (-12.30, -10.03))):
+    # The real module. New York sidewalk flags are scored in 5-foot
+    # squares, and this walk is 4.57 m from building line to curb -
+    # which is three of them, near enough exactly. It was previously two
+    # rows of 2.25 m, a size no city ever poured, and the slabs read as
+    # oblong panels rather than as pavement.
+    FLAG = 1.524                       # 5 ft
+    rows = [(-14.58 + i * FLAG, -14.58 + (i + 1) * FLAG) for i in range(3)]
+    # Sidewalks are laid with a cross-fall to the gutter, about 1.5%, so
+    # water leaves rather than stands against the building. Over three
+    # flags that is a couple of centimetres a row - invisible as a slope,
+    # readable as the reason the near row is the one that puddles.
+    row_fall = (-0.021, -0.010, 0.0)
+    for row, (sy0, sy1) in enumerate(rows):
+        base = row_fall[row]
         x = -16.0
         while x < 16.0:
-            w = 1.78 + slab_rng.uniform(-0.16, 0.18)
-            gap = slab_rng.uniform(0.025, 0.065)
-            lift = slab_rng.uniform(-0.016, 0.032)
+            # Flags are cut to a module; the variation in a real walk
+            # comes from replacement pieces and settlement, not from
+            # every slab being a different size. Hence a tight jitter.
+            w = FLAG + slab_rng.uniform(-0.035, 0.035)
+            gap = slab_rng.uniform(0.020, 0.052)
+            lift = base + slab_rng.uniform(-0.016, 0.032)
             if abs(x + w * 0.5) < 2.2:  # usable route to the front door
-                lift = min(lift, 0.012)
+                lift = min(lift, base + 0.012)
             # Every seventh slab has a missing corner represented by two
             # physical pieces and a dark socket down to the old base.
             if slab_i % 7 == 3:
-                notch = min(0.42, w * 0.28)
+                notch = min(0.40, w * 0.28)
                 fb("sidewalk_%d_a" % slab_i,
                    (x + gap, sy0 + gap, x + w - notch, sy1 - gap),
                    -0.025 + lift, 0.055, "sidewalk_haunted")
                 fb("sidewalk_%d_b" % slab_i,
                    (x + w - notch, sy0 + gap, x + w - gap,
-                    sy1 - 0.46), -0.025 + lift + 0.008, 0.047,
+                    sy1 - FLAG * 0.30), -0.025 + lift + 0.008, 0.047,
                    "sidewalk_haunted")
             else:
                 fb("sidewalk_%d" % slab_i,
@@ -2707,7 +3176,27 @@ def site_pass(fl):
                    -0.025 + lift, 0.055, "sidewalk_haunted")
             x += w
             slab_i += 1
-    fb("sidewalk_s", (-SITE_X, -18.2, SITE_X, -17.4), -0.02, 0.03,
+    # The ironwork a 1926 pavement over a coal vault actually carried.
+    # All of it sits in the row nearest the building line, because that
+    # is where the vault is: the cellar reaches out under the walk, and
+    # everything here is a hole into it that somebody had to be able to
+    # open.
+    # z0 sits these AT the walking surface, not at the slab datum. The
+    # flags are 55 mm pieces laid at -0.025 plus their own settlement, so
+    # their top face lands around +0.03 to +0.06; ironwork built at the
+    # datum finished BELOW the pavement and was simply buried by it.
+    WALK_TOP = 0.052
+    _asm(furn, "walk_vault_lights", "vault_lights", -2.60, -10.72,
+         0, z0=WALK_TOP, exterior=True, W=2.60, D=1.15)
+    _asm(furn, "walk_vault_lights_e", "vault_lights", 4.10, -10.72,
+         0, z0=WALK_TOP, exterior=True, W=1.85, D=1.15)
+    _asm(furn, "walk_coal_chute", "coal_chute", 1.35, -10.62, 0,
+         z0=WALK_TOP, exterior=True, R=0.235)
+    _asm(furn, "walk_valve_water", "utility_cover", -6.55, -11.30, 0,
+         z0=WALK_TOP, exterior=True, S=0.15)
+    _asm(furn, "walk_valve_gas", "utility_cover", 6.90, -12.05, 0,
+         z0=WALK_TOP, exterior=True, S=0.12)
+    fb("sidewalk_s", (-SITE_X, BLDG_S, SITE_X, WALK_S), -0.02, 0.03,
        "concrete")
     fb("curb_w", (-SITE_X, -14.75, -16.0, -14.60), -0.02, 0.14,
        "concrete")
@@ -2718,23 +3207,32 @@ def site_pass(fl):
         cz = (-0.018, -0.006, 0.012, -0.011)[i % 4]
         fb("curb%d" % i, (cx0, -14.75, cx0 + 1.94, -14.60),
            cz, 0.14, "concrete")
-    fb("curb_s", (-SITE_X, -17.55, SITE_X, -17.40), -0.02, 0.14, "concrete")
-    fb("alley", (-20.0, 10.0, 20.0, 13.4), -0.02, 0.015, "concrete")
-    fb("garages", (-16.0, 13.4, 16.0, 16.0), 0.0, 3.0, "common_brick")
+    fb("curb_s", (-SITE_X, KERB_S, SITE_X, WALK_S), -0.02, 0.14,
+       "concrete")
+    # 3.4 m was under 11 ft - too tight for the delivery truck the
+    # coal chute and the porches imply. 4.9 m is 16 ft, a real
+    # service alley.
+    fb("alley", (-20.0, 10.0, 20.0, 14.9), -0.02, 0.015, "concrete")
+    fb("garages", (-16.0, 14.9, 16.0, 17.5), 0.0, 3.0, "common_brick")
     # centre line, so the road reads as a road
     for i in range(int(SITE_X * 2 / 3.0)):
         cx = -SITE_X + i * 3.0
-        fb("centreline%d" % i, (cx, -16.05, cx + 1.6, -15.95), 0.0, 0.006,
-           "linen")
+        fb("centreline%d" % i, (cx, ROAD_MID - 0.05, cx + 1.6,
+                                ROAD_MID + 0.05), 0.0, 0.006, "linen")
 
+    # Two blocks carry playable retail in their ground floor, so their
+    # mass starts above it; retail_pass() supplies the shell below.
+    HOLLOW = {"nbr_e": 3.55, "nbr_s2": 3.55}
     for bid, rect, hgt in CITY_BLOCKS:
-        fb(bid, rect, 0.0, hgt, "common_brick")
+        gz = HOLLOW.get(bid, 0.0)
+        fb(bid, rect, gz, hgt - gz, "common_brick")
         # a parapet lip catches the moon and stops every roof reading as a
         # clean extrusion
         x0, y0, x1, y1 = rect
         fb(bid + "_cap", (x0 - 0.12, y0 - 0.12, x1 + 0.12, y1 + 0.12),
            hgt, 0.34, "limestone")
-        _city_windows(fb, lights, rng, bid, rect, hgt)
+        _city_windows(fb, lights, rng, bid, rect, hgt,
+                      min_z=HOLLOW.get(bid, 0.0))
 
     for bid, rect, hgt in FAR_SKYLINE:
         fb(bid, rect, 0.0, hgt, "common_brick")
@@ -2747,13 +3245,18 @@ def site_pass(fl):
     # Modeled asphalt repairs and potholes in the playable street. The old
     # road remains below as substrate; these shallow pieces create edges that
     # catch rain and headlights. A repeating heave subtly aims at the Orison.
+    # Spread across the WHOLE carriageway now. These were bunched into
+    # y -15.8..-17.3, which was the entire road when the road was 2.65 m
+    # wide; on a real 9 m street that reads as damage confined to a
+    # single stripe down the middle.
     for i, (px, py, pw, pd) in enumerate((
-            (-12.4, -16.9, 3.7, 1.3), (-6.1, -15.8, 2.4, 0.9),
-            (3.4, -17.3, 4.2, 1.5), (9.8, -15.9, 2.8, 1.1))):
+            (-12.4, -17.4, 3.7, 1.3), (-6.1, -21.2, 2.4, 0.9),
+            (3.4, -16.2, 4.2, 1.5), (9.8, -22.0, 2.8, 1.1),
+            (-1.8, -19.4, 3.1, 1.2), (14.6, -18.1, 2.2, 0.9))):
         fb("road_patch%d" % i, (px, py, px + pw, py + pd),
            0.001 + (i % 2) * 0.006, 0.018, "wet_asphalt")
-    for i, (px, py) in enumerate(((-8.3, -16.1), (6.6, -16.8),
-                                   (13.2, -15.6))):
+    for i, (px, py) in enumerate(((-8.3, -16.4), (6.6, -21.6),
+                                   (13.2, -18.9), (-3.9, -22.4))):
         # Four broken rim pieces around a depressed, water-holding center.
         fb("pothole%d_n" % i, (px - 0.62, py + 0.30, px + 0.62, py + 0.48),
            0.004, 0.026, "asphalt")
@@ -2785,7 +3288,8 @@ def site_pass(fl):
 ## unshaded quad — the same trick the Orison's own windows use. Real lights
 ## here would be dozens of omnis competing for the per-object cap the
 ## LightRig exists to ration, to light rooms nobody can enter.
-def _city_windows(fb, lights, rng, bid, rect, hgt, storey=3.4):
+def _city_windows(fb, lights, rng, bid, rect, hgt, storey=3.4,
+                  min_z=0.0):
     x0, y0, x1, y1 = rect
     # yaw turns the lit face OUT of its own wall. Godot applies
     # rotation.y = -yaw, and a quad's face is +Z: south wall keeps 0, north
@@ -2804,6 +3308,12 @@ def _city_windows(fb, lights, rng, bid, rect, hgt, storey=3.4):
             z = 2.0 + row * storey
             if z + 1.5 > hgt:
                 break
+            if z < min_z:
+                # Retail hollowed this block's ground floor; painting the
+                # fake lit-window quads over a real storefront hung two
+                # glowing phantom windows in front of the bar's actual
+                # glass. The fakes start above the real thing.
+                continue
             for i in range(n):
                 a = along0 + (i + 0.5) * span / n
                 horiz = face in ("s", "n")
@@ -2955,15 +3465,29 @@ def _roof_programme(furniture, markers, z):
            by + bd - 0.08), 0.40, 0.05, "soil")
     for i in range(9):
         px = -12.0 + i * 0.72
+        # north bed: tomatoes, with a sunflower at each end because
+        # somebody always puts one in
         plant_box(furniture, "roof_veg%d" % i, px, 7.75,
-                  big=(i % 3 == 0))
+                  big=(i % 3 == 0),
+                  species="sunflower" if i in (0, 8) else "tomato")
     for i in range(6):
         px = -4.2 + i * 0.8
-        plant_box(furniture, "roof_veg_e%d" % i, px, 7.8, big=(i % 2 == 0))
+        # east bed, by the stair door: herbs and a geranium, the things
+        # you step out for without putting a coat on
+        plant_box(furniture, "roof_veg_e%d" % i, px, 7.8,
+                  big=(i % 2 == 0),
+                  species="geranium" if i % 3 == 1 else "herb")
     for i in range(7):
         py = -1.8 + i * 0.85
+        # west bed: the beans that already have canes over them, and a
+        # fig in the corner that somebody is determined to overwinter
         plant_box(furniture, "roof_veg_w%d" % i, -12.6, py,
-                  big=(i % 3 == 1))
+                  big=(i % 3 == 1),
+                  species="fig" if i == 6 else "beans")
+    # The kit that says somebody tends it. There is no tap on this roof;
+    # everything in these beds was carried up the stair in that can.
+    _asm(furniture, "roof_can", "watering_can", -11.55, 6.95, 20)
+    _asm(furniture, "roof_can2", "watering_can", -4.95, 6.90, -35)
     # bean canes: a tripod of poles over the west bed
     for i in range(5):
         cx = -12.5 + (i % 2) * 0.5
@@ -3376,6 +3900,473 @@ def stair_top_guard(fl):
                 "z0": 0.0, "h": 0.86, "mat": "baluster"})
 
 
+def retail_pass(fl):
+    """Two lit rooms in the night, and the walls of the world.
+
+    THE BODEGA is the Half Baked corner store: one tunnel of cheap red
+    steel shelving, stocked thin enough that every item is an event,
+    fluorescent tubes humming down the aisle, drink coolers at the back,
+    and a glass door whose whole job is the view OUT - the street, the
+    stoop, the Orison waiting.
+
+    THE BAR is the Harukiya. It is a BASEMENT: a street door beside a
+    roll gate, then a littered stairwell going down - cans on the
+    treads, a red mat at the bottom - into one low room. A huge red
+    canopy hangs over the counter with its light strip under the rim,
+    barrels and crowded pictures on the wall behind the bottles, a
+    violet-felt pool table under its own pendant, round tables, booths,
+    and the karaoke corner where the screen never quite syncs. The
+    descent is the point: the street does not know the room exists.
+
+    THE WALLS. No invisible barriers. Scaffolding hoarding closes the
+    west pavement, an excavation eats the road at each end, fences and
+    a dumpster end the alley. Everything that stops the player is a
+    thing a city put there - and the two road closures answer the
+    question the empty street would otherwise keep asking.
+    """
+    furn = fl["furniture"]
+    mk = fl["markers"]
+
+    def fb(bid, rect, z0, h, mat):
+        furn.append({"id": "retail_" + bid, "rect": list(rect), "z0": z0,
+                     "h": h, "mat": mat})
+
+    def pipe(bid, p0, p1, r, mat="metal"):
+        furn.append({"id": "retail_" + bid, "asm": "pipe", "at": [p0[0],
+                     p0[1]], "yaw": 0, "mat": mat, "p0": list(p0),
+                     "p1": list(p1), "r": r})
+
+    def asm(bid, kind, x, y, yaw=0, **kw):
+        e = {"id": "retail_" + bid, "asm": kind, "at": [x, y], "yaw": yaw,
+             "exterior": True}
+        e.update(kw)
+        furn.append(e)
+
+    import random as _r
+    rs = _r.Random(1931)
+    W_T = 0.30
+
+    # ============ BODEGA (nbr_e ground, Half Baked) ===================
+    bx0, bx1 = 15.2, 19.6
+    ix0, ix1 = bx0 + W_T, bx1 - W_T          # 15.50 .. 19.30
+    iy1 = -1.60
+    fb("bod_floor", (bx0, -12.0, bx1, iy1 + W_T), 0.0, 0.05, "linoleum")
+    fb("bod_ceil", (bx0, -12.0, bx1, iy1 + W_T), 3.20, 0.35, "plaster")
+    fb("bod_wall_w", (bx0, -12.0, ix0, iy1 + W_T), 0.0, 3.20,
+       "plaster_stained")
+    fb("bod_wall_e", (ix1, -12.0, bx1, iy1 + W_T), 0.0, 3.20,
+       "plaster_stained")
+    fb("bod_wall_n", (bx0, iy1, bx1, iy1 + W_T), 0.0, 3.20,
+       "plaster_stained")
+    # shopfront: stall riser, glazing, door gap at east
+    DOOR_X0, DOOR_X1 = 18.20, 19.15
+    fb("bod_stall", (bx0, -12.0, DOOR_X0, -11.82), 0.0, 0.55, "wood_dark")
+    fb("bod_glass", (bx0 + 0.10, -11.96, DOOR_X0, -11.90), 0.55, 2.05,
+       "glassish")
+    fb("bod_fascia", (bx0, -12.02, bx1, -11.78), 2.60, 0.60, "wood_dark")
+    for mx in (bx0 + 0.10, 16.55, 17.55, DOOR_X0):
+        fb("bod_mull%d" % int(mx * 10), (mx - 0.05, -11.98, mx + 0.05,
+           -11.86), 0.0, 2.60, "wood_dark")
+    fb("bod_head", (DOOR_X0, -11.98, DOOR_X1, -11.86), 2.10, 0.50,
+       "wood_dark")
+    fb("bod_gate_box", (bx0, -12.10, bx1, -11.80), 2.62, 0.34, "metal")
+    fb("bod_gate", (bx0 + 0.05, -12.02, bx1 - 0.05, -11.94), 2.20, 0.42,
+       "chrome")
+    fb("bod_awning", (bx0, -13.10, bx1, -11.95), 2.55, 0.10,
+       "fabric_warm")
+    # ONE central double-sided gondola run in cheap red steel - three
+    # units up the tunnel, aisle both sides
+    for gi, (gy0, gy1) in enumerate(((-10.6, -8.6), (-7.8, -5.8),
+                                     (-5.0, -3.0))):
+        fb("bod_g%d_base" % gi, (17.15, gy0, 17.95, gy1), 0.05, 0.12,
+           "safety_orange")
+        fb("bod_g%d_spine" % gi, (17.50, gy0, 17.60, gy1), 0.17, 1.58,
+           "safety_orange")
+        for si, sz in enumerate((0.45, 0.85, 1.25, 1.60)):
+            fb("bod_g%d_s%d" % (gi, si), (17.15, gy0, 17.95, gy1), sz,
+               0.035, "safety_orange")
+        for cap_y in (gy0, gy1 - 0.03):
+            fb("bod_g%d_cap%d" % (gi, int(cap_y * 10)),
+               (17.15, cap_y, 17.95, cap_y + 0.03), 0.17, 1.58,
+               "safety_orange")
+    # red wall shelving, both long walls
+    for si, sz in enumerate((0.55, 1.00, 1.45)):
+        fb("bod_ws_w%d" % si, (ix0, -10.9, ix0 + 0.33, -3.4), sz, 0.035,
+           "safety_orange")
+        fb("bod_ws_e%d" % si, (ix1 - 0.33, -10.9, ix1, -5.8), sz, 0.035,
+           "safety_orange")
+    # drink coolers at the back east, glass doors
+    fb("bod_cooler", (ix1 - 0.75, -5.4, ix1, iy1), 0.0, 2.30, "metal")
+    fb("bod_cooler_glass", (ix1 - 0.78, -5.3, ix1 - 0.72, iy1 - 0.1),
+       0.60, 1.55, "glassish")
+    # counter by the door
+    fb("bod_counter", (17.05, -11.0, 18.35, -10.35), 0.0, 0.95,
+       "wood_dark")
+    fb("bod_counter_top", (17.0, -11.05, 18.40, -10.30), 0.95, 0.05,
+       "countertop")
+    fb("bod_register", (17.25, -10.9, 17.75, -10.45), 1.00, 0.30,
+       "bakelite")
+    asm("bod_papers", "papers", 18.05, -10.6, 0)
+    asm("bod_crate0", "crate", 15.95, -11.3, 12)
+    asm("bod_bottles", "bottles", 15.85, -2.3, 0)
+    # SPARSE stock: gaps are the point. Whole stretches stay empty.
+    def sparse(gy0, gy1, shelf_zs, x_lo, x_hi):
+        for sz in shelf_zs:
+            if rs.random() < 0.30:
+                continue                     # a shelf with nothing on it
+            y = gy0 + 0.15
+            while y < gy1 - 0.25:
+                if rs.random() < 0.42:
+                    y += rs.uniform(0.30, 0.65)   # the sad gap
+                    continue
+                d = rs.uniform(0.09, 0.16)
+                tint = rs.choice(("enamel", "terracotta", "brass",
+                                  "fabric_green", "bakelite", "paper"))
+                fb("bod_stk%d" % rs.randrange(1 << 30),
+                   (x_lo + rs.uniform(0, 0.05), y,
+                    x_lo + rs.uniform(0.10, x_hi - x_lo), y + d),
+                   sz + 0.035, rs.uniform(0.10, 0.24), tint)
+                y += d + rs.uniform(0.04, 0.12)
+    for gy0, gy1 in ((-10.6, -8.6), (-7.8, -5.8), (-5.0, -3.0)):
+        sparse(gy0, gy1, (0.45, 0.85, 1.25, 1.60), 17.17, 17.48)
+        sparse(gy0, gy1, (0.45, 0.85, 1.25, 1.60), 17.62, 17.93)
+    sparse(-10.9, -3.4, (0.55, 1.00, 1.45), ix0 + 0.02, ix0 + 0.31)
+    sparse(-10.9, -5.8, (0.55, 1.00, 1.45), ix1 - 0.31, ix1 - 0.02)
+    # markers: door, fluorescents, radio, neon
+    mk.append({"kind": "door", "id": "F01_BODEGA_DOOR",
+               "pos": [18.67, -11.92, 0.0], "yaw_deg": 0, "w": 0.90,
+               "h": 2.10, "leaf": "closed", "exterior": True})
+    for i, ly in enumerate((-10.2, -7.2, -4.2)):
+        mk.append({"kind": "kitchen_linear", "id": "F01_BODEGA_LT_%d" % i,
+                   "unit": "SITE", "pos": [17.55, ly, 3.05], "yaw_deg": 90,
+                   "network": "electrical", "range": 5.5, "energy": 0.55,
+                   "navigation": True, "standby": 0.35, "exterior": True})
+    mk.append({"kind": "speaker", "id": "F01_BODEGA_RADIO", "unit": "SITE",
+               "pos": [16.55, -10.55, 0.0], "yaw_deg": 90,
+               "network": "electrical", "exterior": True,
+               "bed": "murmur_loop"})
+    mk.append({"kind": "neon_sign", "id": "F01_NEON_BODEGA",
+               "pos": [17.4, -12.16, 3.4], "yaw_deg": 0,
+               "text": "DELI GROCERY", "vertical": False,
+               "network": "electrical"})
+
+    # ============ THE HARUKIYA (film-first greybox, brief P2) =========
+    # Room 10.8 x 6.8 x 2.65 under nbr_s2; stair 1.15 m clear, 16 risers
+    # at 175 mm over 270 mm treads; vestibule; red steel door; the two
+    # arcade cabinets immediately LEFT of the entrance (canonical);
+    # counter on the north long wall with canopy; stage west; restroom
+    # SW. Everything here is collision-bearing greybox - decoration is
+    # later phases, per the brief's own order.
+    KX0, KX1 = -5.6, 6.4
+    FACE = -28.32
+    RX0, RX1 = -5.10, 4.00           # room clear span (10.8 incl shell)
+    RY0, RY1 = -35.50, -28.70
+    FLR = -2.80                       # basement floor top
+    SH_W, SH_E = 4.30, 5.45           # stair shaft, 1.15 clear
+
+    # ground storey: infill everywhere but the lobby/shaft slot
+    # The fills stop at the shaft LINING. The first cut ran them to the
+    # shaft's clear face, which buried the plaster stairwell walls inside
+    # brick - and the teal descent is canonical, so the stairwell must
+    # own its skin.
+    fb("bar_fill_w", (KX0, -38.2, RX1, FACE), 0.0, 3.55, "common_brick")
+    fb("bar_fill_e", (SH_E + 0.30, -38.2, KX1, FACE), 0.0, 3.55,
+       "common_brick")
+    fb("bar_fill_s", (SH_W, -38.2, SH_E, -35.80), 0.0, 3.55,
+       "common_brick")
+    fb("bar_lintel", (SH_W, -35.80, SH_E, FACE), 2.55, 1.00,
+       "common_brick")
+
+    # the slot: lobby at street, 15 treads down, vestibule at bottom
+    fb("bar_lob_floor", (SH_W, -30.00, SH_E, FACE), -0.02, 0.04,
+       "terracotta")
+    RUN = 0.27
+    for t in range(15):
+        ty1 = -30.00 - t * RUN
+        top = -0.175 * (t + 1)
+        fb("bar_tread%d" % t, (SH_W, ty1 - RUN, SH_E, ty1), -2.90,
+           2.90 + top, "terracotta")
+    fb("bar_vest_floor", (SH_W, RY0, SH_E, -34.05), -2.87, 0.07,
+       "terracotta")
+    fb("bar_mat", (SH_W + 0.10, -34.60, SH_E - 0.10, -34.10), FLR,
+       0.012, "rug_warm")
+    # shaft walls, full height street to basement
+    fb("bar_shaft_e", (SH_E, RY0 - 0.30, SH_E + 0.30, FACE), -2.90,
+       5.45, "plaster_stained")
+    fb("bar_shaft_s", (SH_W, RY0 - 0.30, SH_E, RY0), -2.90, 5.45,
+       "plaster_stained")
+    # west shaft wall doubles as the room's east wall; pierced at the
+    # bottom for the red door (opening y -34.90..-33.95)
+    fb("bar_wall_e_n", (RX1, -33.95, SH_W, FACE), -2.90, 5.45,
+       "plaster_stained")
+    fb("bar_wall_e_s", (RX1, RY0 - 0.30, SH_W, -34.90), -2.90, 5.45,
+       "plaster_stained")
+    fb("bar_wall_e_lint", (RX1, -34.90, SH_W, -33.95), -0.77, 2.32,
+       "plaster_stained")
+    # litter on the way down
+    asm("bar_lit_paper", "papers", 4.70, -31.35, 35, z0=-0.95)
+    asm("bar_lit_bott", "bottles", 5.15, -32.85, 0, z0=-1.93)
+    asm("bar_lit_crate", "crate", 4.55, -29.30, 55, z0=0.0)
+
+    # the room shell
+    fb("bar_floor", (RX0 - 0.30, RY0 - 0.30, RX1, RY1 + 0.05), -2.87,
+       0.07, "terracotta")
+    fb("bar_ceil", (RX0 - 0.30, RY0 - 0.30, RX1, RY1 + 0.05), -0.15,
+       0.43, "soot")
+    fb("bar_wall_w", (RX0 - 0.30, RY0 - 0.30, RX0, RY1 + 0.05), -2.87,
+       2.72, "plaster_stained")
+    fb("bar_wall_s", (RX0, RY0 - 0.30, RX1, RY0), -2.87, 2.72,
+       "plaster_stained")
+    fb("bar_wall_n", (RX0, RY1, RX1, RY1 + 0.38), -2.87, 2.72,
+       "plaster_stained")
+
+    # -- BAR, north long wall: backbar / aisle / counter with red trim
+    for bi, bz in enumerate((-1.60, -1.10, -0.65)):
+        fb("bar_bshelf%d" % bi, (-4.30, RY1 - 0.24, 0.90, RY1 - 0.02),
+           bz, 0.04, "timber")
+    for i, bx in enumerate((-3.9, -2.4, -0.9, 0.3)):
+        asm("bar_bott%d" % i, "bottles", bx, RY1 - 0.14, 180, z0=-1.56)
+    for i, (b0, b1) in enumerate(((-3.40, -2.50), (-1.20, -0.30))):
+        pipe("bar_barrel%d" % i, (b0, RY1 - 0.16, -0.72),
+             (b1, RY1 - 0.16, -0.72), 0.36, "timber")
+    for i, (px, pz) in enumerate(((-4.15, -1.35), (1.55, -1.5),
+                                  (2.9, -0.95))):
+        fb("bar_pic%d_art" % i, (px, RY1 - 0.045, px + 0.62, RY1),
+           pz, 0.5, "art")
+    fb("bar_counter", (-4.30, -30.28, 0.90, -29.60), FLR, 1.02,
+       "wood_dark")
+    fb("bar_counter_top", (-4.36, -30.34, 0.96, -29.54), -1.78, 0.06,
+       "countertop")
+    # the aggressive red trim, canonical
+    fb("bar_trim_front", (-4.36, -30.36, 0.96, -30.28), -1.92, 0.20,
+       "terracotta")
+    fb("bar_trim_ends_w", (-4.36, -30.36, -4.28, -29.54), -1.92, 0.20,
+       "terracotta")
+    pipe("bar_footrail", (-4.1, -30.55, -2.42), (0.7, -30.55, -2.42),
+         0.024, "brass")
+    fb("bar_canopy", (-4.45, -30.45, 1.05, -29.45), -0.98, 0.40,
+       "fabric_warm")
+    for eid, rect in (("f", (-4.45, -30.51, 1.05, -30.45)),
+                      ("w", (-4.51, -30.51, -4.45, -29.45)),
+                      ("e", (1.05, -30.51, 1.11, -29.45))):
+        fb("bar_can_rim_%s" % eid, rect, -1.04, 0.10, "terracotta")
+    for i, sx in enumerate((-3.8, -2.75, -1.7, -0.65, 0.4)):
+        pipe("bar_stool%d_post" % i, (sx, -30.85, FLR),
+             (sx, -30.85, FLR + 0.70), 0.04, "chrome")
+        pipe("bar_stool%d_seat" % i, (sx, -30.85, FLR + 0.70),
+             (sx, -30.85, FLR + 0.76), 0.19, "fabric_warm")
+
+    # -- ARCADE CORNER, immediately left of the red door (canonical).
+    # Hero assemblies now: two distinct uprights against the south wall
+    # facing the room, screens angled away from the door glare.
+    asm("bar_cab01", "arcade_cab", 3.45, -35.05, 180, z0=FLR, variant=0)
+    asm("bar_cab02", "arcade_cab", 2.45, -35.03, 180, z0=FLR, variant=1)
+    asm("bar_jukebox", "jukebox", 1.48, -35.08, 180, z0=FLR)
+    asm("bar_cab03", "arcade_cab", 0.50, -35.10, 180, z0=FLR, variant=2)
+    asm("bar_cab04", "arcade_cab", -2.90, -29.10, 0, z0=FLR, variant=3)
+
+    # -- COUCH BANK, south wall: two of the four modules, with tables
+    asm("bar_couch0", "couch", -2.65, -34.95, 0, z0=FLR, variant=0,
+        L=1.35)
+    asm("bar_couch1", "couch", -1.05, -34.95, 0, z0=FLR, variant=1,
+        L=1.35)
+    for i, (cx0, cx1) in enumerate(((-3.35, -1.95), (-1.75, -0.35))):
+        fb("bar_ctable%d" % i, (cx0 + 0.25, -34.35, cx1 - 0.25, -33.75),
+           FLR + 0.70, 0.05, "wood_dark")
+    # -- NE couch strip facing the bar: modules three and four
+    asm("bar_couch2", "couch", 3.22, -29.15, 180, z0=FLR, variant=2,
+        L=1.20)
+    asm("bar_couch3", "couch", -4.35, -29.15, 180, z0=FLR, variant=3,
+        L=1.20)
+    asm("bar_tab_ne", "table_round", 2.55, -30.4, 0, z0=FLR)
+    asm("bar_tab_c", "table_round", 1.6, -31.6, 0, z0=FLR)
+    asm("bar_ch_c", "chair", 1.0, -31.6, 90, z0=FLR)
+
+    # -- STAGE west + karaoke rig; screen is TV furniture so the
+    # broadcast station actually feeds it (audit fix)
+    fb("bar_stage", (-5.00, -33.50, -2.40, -31.70), FLR, 0.20, "timber")
+    asm("bar_mic", "micstand", -3.60, -32.60, 90, z0=FLR + 0.20)
+    asm("bar_tv", "tv", -4.72, -32.60, 90, z0=FLR + 0.20)
+    for i, sy in enumerate((-33.35, -31.85)):
+        mk.append({"kind": "speaker", "id": "F01_KARAOKE_SPK_%d" % i,
+                   "unit": "SITE", "pos": [-4.85, sy, FLR],
+                   "yaw_deg": 90, "network": "electrical",
+                   "exterior": True})
+
+    # -- POOL TABLE mid-room, violet felt
+    fb("bar_pool_body", (-1.90, -32.85, 0.40, -31.55), FLR, 0.78,
+       "wood_dark")
+    fb("bar_pool_felt", (-1.78, -32.73, 0.28, -31.67), FLR + 0.78,
+       0.04, "fabric_cool")
+    for i, (bx, by, mat) in enumerate((
+            (-1.05, -32.35, "enamel"), (-0.70, -32.05, "terracotta"),
+            (-0.40, -32.40, "brass"), (-0.10, -31.95, "fabric_green"),
+            (-0.85, -31.80, "bakelite"))):
+        fb("bar_ball%d" % i, (bx, by, bx + 0.06, by + 0.06),
+           FLR + 0.82, 0.055, mat)
+    pipe("bar_cue", (0.55, -31.40, FLR + 0.05),
+         (0.80, -31.60, FLR + 1.50), 0.012, "timber")
+
+    # -- RESTROOM, SW cell
+    fb("bar_wc_wall_e", (-3.60, RY0, -3.45, -33.90), FLR, 2.60,
+       "plaster_stained")
+    fb("bar_wc_wall_n_w", (-5.10, -33.90, -4.55, -33.75), FLR, 2.60,
+       "plaster_stained")
+    fb("bar_wc_wall_n_e", (-3.85, -33.90, -3.45, -33.75), FLR, 2.60,
+       "plaster_stained")
+    fb("bar_wc_lintel", (-4.55, -33.90, -3.85, -33.75), FLR + 2.05,
+       0.55, "plaster_stained")
+    asm("bar_wc_toilet", "toilet", -4.80, -35.10, 0, z0=FLR)
+    asm("bar_wc_sink", "sink_basin", -3.85, -35.15, 0, z0=FLR)
+    mk.append({"kind": "door", "id": "F01_BAR_WC_DOOR",
+               "pos": [-4.20, -33.82, FLR], "yaw_deg": 0, "w": 0.70,
+               "h": 2.00, "leaf": "closed", "exterior": True})
+
+    # -- doors, signs, lights
+    mk.append({"kind": "door", "id": "F01_BAR_DOOR",
+               "pos": [4.875, FACE - 0.10, 0.0], "yaw_deg": 180,
+               "w": 0.90, "h": 2.10, "leaf": "closed", "exterior": True})
+    mk.append({"kind": "door", "id": "F01_BAR_RED_DOOR",
+               "pos": [4.15, -34.42, FLR], "yaw_deg": 90, "w": 0.90,
+               "h": 2.05, "leaf": "closed", "exterior": True})
+    fb("bar_face_gate", (-5.30, FACE - 0.10, 3.90, FACE - 0.02), 0.55,
+       1.95, "chrome")
+    fb("bar_face_stall", (-5.30, FACE - 0.13, 3.90, FACE), 0.0, 0.55,
+       "wood_dark")
+    fb("bar_face_fascia", (KX0, FACE - 0.16, KX1, FACE + 0.02), 2.50,
+       0.60, "soot")
+    mk.append({"kind": "neon_sign", "id": "F01_NEON_BAR",
+               "pos": [4.875, FACE + 0.14, 2.85], "yaw_deg": 180,
+               "text": "BAR", "vertical": False, "network": "electrical"})
+    mk.append({"kind": "neon_sign", "id": "F01_NEON_KARAOKE",
+               "pos": [3.60, FACE + 0.16, 3.1], "yaw_deg": 180,
+               "text": "KARAOKE", "vertical": True,
+               "network": "electrical"})
+    mk.append({"kind": "cage_bulb", "id": "F01_BAR_LT_LOBBY",
+               "unit": "SITE", "pos": [4.875, -29.30, 2.30],
+               "yaw_deg": 0, "network": "electrical", "range": 3.5,
+               "energy": 0.4, "navigation": True, "standby": 0.35,
+               "exterior": True})
+    mk.append({"kind": "cage_bulb", "id": "F01_BAR_LT_STAIR",
+               "unit": "SITE", "pos": [5.30, -32.60, 0.55],
+               "yaw_deg": 0, "network": "electrical", "range": 3.5,
+               "energy": 0.4, "navigation": True, "standby": 0.35,
+               "exterior": True})
+    for i, lx in enumerate((-3.2, -0.9)):
+        mk.append({"kind": "kitchen_linear", "id": "F01_BAR_LT_CAN%d" % i,
+                   "unit": "SITE", "pos": [lx, -29.70, -1.06],
+                   "yaw_deg": 90, "network": "electrical", "range": 5.0,
+                   "energy": 0.55, "navigation": True, "standby": 0.4,
+                   "exterior": True})
+    mk.append({"kind": "pendant_shade", "id": "F01_BAR_LT_POOL",
+               "unit": "SITE", "pos": [-0.75, -32.20, -0.75],
+               "yaw_deg": 0, "network": "electrical", "range": 4.0,
+               "energy": 0.45, "navigation": True, "standby": 0.4,
+               "exterior": True})
+    mk.append({"kind": "cage_bulb", "id": "F01_BAR_LT_WC",
+               "unit": "SITE", "pos": [-4.30, -34.70, FLR + 2.35],
+               "yaw_deg": 0, "network": "electrical", "range": 2.5,
+               "energy": 0.4, "navigation": True, "standby": 0.35,
+               "exterior": True})
+
+    # =================== THE WALLS OF THE WORLD =======================
+    for bay in range(3):
+        sx = -20.2 - bay * 1.8
+        for py in (-10.1, -12.3, -14.4):
+            pipe("scaf_w%d_%d" % (bay, int(-py * 10)),
+                 (sx, py, 0.0), (sx, py, 4.6), 0.038)
+        pipe("scaf_wl%d" % bay, (sx, -10.1, 2.55), (sx, -14.4, 2.55),
+             0.030)
+    fb("scaf_w_deck", (-25.6, -14.6, -19.9, -9.9), 2.60, 0.06, "plywood")
+    fb("scaf_w_hoard", (-20.35, -14.70, -20.15, -9.85), 0.0, 2.55,
+       "plywood")
+    fb("scaf_w_hoard2", (-25.6, -10.05, -20.2, -9.85), 0.0, 2.55,
+       "plywood")
+    fb("scaf_e_hoard", (20.05, -14.70, 20.25, -9.85), 0.0, 2.55,
+       "plywood")
+    fb("scaf_e_deck", (20.0, -14.6, 24.4, -9.9), 2.60, 0.06, "plywood")
+    for bay in range(2):
+        sx = 20.5 + bay * 1.9
+        for py in (-10.1, -14.4):
+            pipe("scaf_e%d_%d" % (bay, int(-py * 10)),
+                 (sx, py, 0.0), (sx, py, 4.6), 0.038)
+    for tag, dx0, dx1, bxx in (("w", -22.6, -19.9, -19.55),
+                               ("e", 19.9, 22.6, 19.55)):
+        fb("dig_%s_pit" % tag, (dx0, -23.7, dx1, -14.9), -0.55, 0.53,
+           "soot")
+        fb("dig_%s_spoil" % tag, (dx0 + 0.4, -18.6, dx1 - 0.4, -16.4),
+           0.0, 0.85, "soil")
+        fb("dig_%s_plank" % tag, (dx0 + 0.8, -21.9, dx1 - 0.8, -21.3),
+           0.02, 0.06, "plywood")
+        for i in range(4):
+            asm("dig_%s_bar%d" % (tag, i), "safety_barrier", bxx,
+                -15.9 - i * 2.1, 90 if tag == "w" else -90)
+    fb("hoard_s_w", (-20.35, -28.30, -20.15, -23.95), 0.0, 2.55,
+       "plywood")
+    fb("hoard_s_e", (20.15, -28.30, 20.35, -23.95), 0.0, 2.55, "plywood")
+    fb("alley_fence_w", (-16.35, 10.0, -16.20, 14.9), 0.0, 2.4, "metal")
+    fb("alley_fence_e", (16.20, 10.0, 16.35, 14.9), 0.0, 2.4, "metal")
+    fb("dumpster", (13.8, 11.0, 16.0, 12.6), 0.0, 1.35, "metal")
+    fb("dumpster_lid", (13.75, 11.0, 16.05, 12.65), 1.35, 0.09, "soot")
+    for i, (px, py) in enumerate(((16.3, -14.35), (17.6, -14.35),
+                                  (18.9, -14.35), (-16.3, -14.35),
+                                  (-17.6, -14.35), (-18.9, -14.35),
+                                  (18.0, -12.35), (19.2, -12.35))):
+        pipe("bollard%d" % i, (px, py, 0.0), (px, py, 0.95), 0.085)
+    # ---- ROUTE DISCIPLINE: the walkable world is three paths --------
+    # (1) the Orison's circumference: front walk between the gangways,
+    #     the gangways themselves, the alley behind between the fences;
+    # (2) the crossing to the Harukiya, inside the trench corridor;
+    # (3) the walk east to the bodega.
+    # Everything else ends diegetically. Two more utility trenches cut
+    # the roadway so the only crossing is the one in front of the door,
+    # and the far pavement is hoarded beyond the bar's own block.
+    fb("walk_w_hoard", (-15.55, -14.70, -15.35, -9.85), 0.0, 2.55,
+       "plywood")
+    for tag, dx0, dx1, bxx in (("mw", -8.4, -6.4, -6.15),
+                               ("me", 10.6, 12.6, 12.85)):
+        fb("dig_%s_pit" % tag, (dx0, -23.7, dx1, -14.9), -0.55, 0.53,
+           "soot")
+        fb("dig_%s_spoil" % tag, (dx0 + 0.3, -19.6, dx1 - 0.3, -17.6),
+           0.0, 0.75, "soil")
+        for i in range(4):
+            asm("dig_%s_bar%d" % (tag, i), "safety_barrier", bxx,
+                -15.9 - i * 2.1, 90 if tag == "mw" else -90)
+    fb("swalk_hoard_w", (-6.6, -28.30, -6.4, -23.95), 0.0, 2.55,
+       "plywood")
+    fb("swalk_hoard_e", (10.4, -28.30, 10.6, -23.95), 0.0, 2.55,
+       "plywood")
+    asm("street_crate0", "crate", -13.3, -13.9, 25)
+    asm("street_crate1", "crate", -12.9, -13.3, 70)
+    asm("street_bottles", "bottles", 12.3, -13.6, 0)
+    asm("street_papers", "papers", 5.2, -24.1, 15)
+    fb("binbags", (8.9, -13.35, 10.1, -12.75), 0.0, 0.55, "soot")
+    fb("binbags2", (9.3, -13.6, 10.0, -13.3), 0.0, 0.38, "soot")
+
+    # ============== BAND 1: relief on the facing facades ==============
+    for tag, fx0, fx1, awn in (("s1a", -18.6, -14.4, "fabric_green"),
+                               ("s1b", -13.2, -8.4, "fabric_cool"),
+                               ("s3a", 9.0, 13.6, "fabric_warm"),
+                               ("s3b", 14.6, 18.8, "fabric_green")):
+        fy = -28.32
+        fb("shop_%s_riser" % tag, (fx0, fy - 0.05, fx1, fy + 0.08), 0.0,
+           0.60, "wood_dark")
+        fb("shop_%s_glass" % tag, (fx0 + 0.1, fy, fx1 - 0.1, fy + 0.06),
+           0.60, 1.90, "glassish")
+        fb("shop_%s_gate" % tag, (fx0 + 0.05, fy + 0.02, fx1 - 0.05,
+           fy + 0.10), 0.05, 2.45, "chrome")
+        fb("shop_%s_fascia" % tag, (fx0, fy - 0.08, fx1, fy + 0.14),
+           2.50, 0.55, "soot")
+        fb("shop_%s_awn" % tag, (fx0, fy - 1.05, fx1, fy + 0.05), 2.45,
+           0.09, awn)
+    fb("shop_w_riser", (-19.5, -11.95, -15.3, -11.82), 0.0, 0.6,
+       "wood_dark")
+    fb("shop_w_gate", (-19.45, -11.92, -15.35, -11.84), 0.6, 1.95,
+       "chrome")
+    fb("shop_w_fascia", (-19.6, -12.0, -15.2, -11.78), 2.55, 0.55,
+       "enamel")
+
+
 def street_lamp_markers(fl):
     """The lamps were geometry with nothing inside them, so the pavement
     they stand on was as black as the road. Sodium heads at 2000 K, which
@@ -3396,20 +4387,34 @@ def street_lamp_markers(fl):
 def _street_furniture(fb, rng):
     # lamps down both pavements, spaced like real ones rather than
     # bracketing the doorway
+    # Both pavements, at last. The comment always claimed both; the far
+    # one was 0.80 m wide and had nowhere to stand a pole. The south row
+    # is offset half a bay so the two sides alternate down the street
+    # instead of standing in facing pairs, which is how they are actually
+    # set out.
     for i in range(int(SITE_X * 2 / 11.0)):
         lx = -SITE_X + 5.0 + i * 11.0
-        if abs(lx) < 3.0:
-            continue          # keep the stoop approach clear
-        fb("lamp_pole%d" % i, (lx, -14.55, lx + 0.12, -14.43), 0.0, 4.6,
-           "metal")
-        fb("lamp_head%d" % i, (lx - 0.15, -14.7, lx + 0.27, -14.28), 4.6,
-           0.25, "metal")
+        if abs(lx) >= 3.0:          # keep the stoop approach clear
+            fb("lamp_pole%d" % i, (lx, -14.55, lx + 0.12, -14.43), 0.0,
+               4.6, "metal")
+            fb("lamp_head%d" % i, (lx - 0.15, -14.7, lx + 0.27, -14.28),
+               4.6, 0.25, "metal")
+        sx = lx + 5.5
+        if -SITE_X < sx < SITE_X:
+            fb("lamp_s_pole%d" % i, (sx, WALK_S + 0.12, sx + 0.12,
+               WALK_S + 0.24), 0.0, 4.6, "metal")
+            fb("lamp_s_head%d" % i, (sx - 0.15, WALK_S - 0.03, sx + 0.27,
+               WALK_S + 0.39), 4.6, 0.25, "metal")
     fb("hydrant", (-3.4, -10.85, -3.05, -10.5), 0.0, 0.75, "metal")
     fb("hydrant_cap", (-3.45, -10.9, -3.0, -10.45), 0.75, 0.12, "metal")
     # traffic signal on the corner, mast arm over the road
+    # A mast arm reaches OUT OVER the carriageway and hangs the head above
+    # the lane it governs. This one ran along the kerb line and stopped
+    # there, because there was no carriageway to reach over.
     fb("signal_pole", (17.4, -14.5, 17.62, -14.28), 0.0, 5.6, "metal")
-    fb("signal_arm", (13.0, -14.45, 17.4, -14.33), 5.3, 0.12, "metal")
-    fb("signal_head", (13.0, -14.62, 13.4, -14.16), 4.6, 0.85, "soot")
+    fb("signal_arm", (17.4, ROAD_MID, 17.52, -14.33), 5.3, 0.12, "metal")
+    fb("signal_head", (17.28, ROAD_MID - 0.22, 17.64, ROAD_MID + 0.22),
+       4.6, 0.85, "soot")
     # mailbox, papers, a bench, a phone booth: the small municipal clutter
     fb("mailbox", (7.6, -13.6, 8.35, -12.85), 0.0, 1.15, "metal")
     for i in range(3):
@@ -3637,6 +4642,12 @@ def _validate_placement(layout):
     for fl in layout["floors"]:
         z = fl["z"]
         for m in fl["markers"]:
+            if m.get("exterior"):
+                # Retail markers live at street furniture heights and,
+                # for the basement bar, at NEGATIVE z relative to their
+                # floor. Their placement is authored against their own
+                # interior, not against a storey the validator knows.
+                continue
             kind = m["kind"]
             px, py, pz = m["pos"]
             if kind == "corridor_light":
@@ -3650,7 +4661,10 @@ def _validate_placement(layout):
             # can be measured against.
             if fl["id"] == "ROOF":
                 clo, chi = 0.0, 4.0
-            if kind in ceiling_kinds and not z + clo <= pz <= z + chi:
+            # Same reasoning as the roof: a fitting hung under an
+            # exterior canopy is not mounted to a storey ceiling, so a
+            # storey ceiling height is not a thing it can be wrong about.
+            if kind in ceiling_kinds and not m.get("exterior")                     and not z + clo <= pz <= z + chi:
                 problems.append("%s: ceiling fixture %s at bad height %.2f"
                                 % (fl["id"], m["id"], pz - z))
             if kind == "electrical_junction" and pz < z + 2.6:
@@ -3667,6 +4681,11 @@ def _validate_placement(layout):
         for fu in fl.get("furniture", []):
             # wall-hung flatware (boards, like the mail bank and pedestal
             # backsplash mirrors before them) is *meant* to hug the wall
+            # Facade assemblies (marquee, fire escape) are anchored ON
+            # the outer face of a wall - being at the wall line is the
+            # whole point of them, not a placement mistake.
+            if fu.get("exterior"):
+                continue
             if "asm" not in fu or fu["asm"] in (
                     "switch", "pipe", "sink_ped", "mailbank",
                     "pinboard", "toolboard"):
@@ -3754,6 +4773,13 @@ def _validate_movement(layout):
         rooms = {r["id"]: r for r in fl["rooms"]}
         for m in fl["markers"]:
             if m["kind"] != "door" or m.get("leaf") == "none"                     or m.get("cabinet"):
+                continue
+            if m.get("exterior"):
+                # A shop door's swing sweeps over its own storefront -
+                # stall riser, mullions, the shop's own walls. The
+                # validator cannot tell a storefront's fabric from an
+                # obstruction, and the street fittings around it are
+                # equally its own. Interior doors keep the full check.
                 continue
             w = m["w"]
             px, py = m["pos"][0], m["pos"][1]
@@ -3868,8 +4894,10 @@ def _validate_furnishing(layout):
     for fl in layout["floors"]:
         for m in fl["markers"]:
             kinds[m["kind"]] = kinds.get(m["kind"], 0) + 1
-            if m["kind"] == "door" and not m.get("cabinet"):
-                doors += 1  # cabinet leaves are joinery, not doorways
+            if m["kind"] == "door" and not m.get("cabinet")                     and not m.get("exterior"):
+                doors += 1  # cabinet leaves are joinery, not doorways;
+                # exterior shop doors have no switch plates by the same
+                # rule that dropped every other exterior switch
             if m["kind"] == "radiator" and m.get("unit"):
                 unit_rad.add(m["unit"])
         for fu in fl.get("furniture", []):
@@ -3887,8 +4915,28 @@ def _validate_furnishing(layout):
             unit_asm[unit][fu["asm"]] = unit_asm[unit].get(fu["asm"], 0) + 1
             if fu["id"].endswith(("_k", "_k_stove", "_k_fr")):
                 unit_yaw.setdefault(unit, set()).add(fu.get("yaw"))
-    if switches != 2 * doors:
-        problems.append("switches %d != 2 x doors %d" % (switches, doors))
+    # Every door still gets a plate on each face it actually has. Doors in
+    # exterior walls only have one interior face, so their outboard plate
+    # is dropped on purpose - counted, not silently lost, so the invariant
+    # stays an invariant.
+    # Two rugs on the same patch of floor read as one rug with a colour
+    # fault. Cheap to check, and it caught 4B's desk mat lying half on
+    # top of the room's main rug.
+    for fl_ in layout["floors"]:
+        rugs = [m for m in fl_.get("furniture", [])
+                if str(m.get("id", "")).endswith("_rug")]
+        for a in range(len(rugs)):
+            for b in range(a + 1, len(rugs)):
+                ra, rb = rugs[a]["rect"], rugs[b]["rect"]
+                if ra[0] < rb[2] and ra[2] > rb[0]                         and ra[1] < rb[3] and ra[3] > rb[1]:
+                    problems.append("%s: rugs %s and %s overlap"
+                                    % (fl_["id"], rugs[a]["id"],
+                                       rugs[b]["id"]))
+    dropped = len(EXTERIOR_SWITCHES_DROPPED)
+    coverage = len(COVERAGE_SWITCHES_ADDED)
+    if switches + dropped - coverage != 2 * doors:
+        problems.append("switches %d + %d dropped - %d coverage != 2 x doors %d"
+                        % (switches, dropped, coverage, doors))
     skip_states = ("sealed", "vacant (damaged)", "vacant (fire damage)",
                    "landlord storage")
     need = {"bed": 1, "kitchen": 1, "stove": 1, "fridge50": 1,
@@ -4284,6 +5332,44 @@ MATERIAL_CATALOG = {
                     "roughness": 0.45, "metallic": 0.08},
     "marble_lobby": {"base_color": [0.86, 0.85, 0.82, 1.0],
                      "roughness": 0.30},
+    # The six-tread sheet. Sampled a band per tread by explicit UVs, so
+    # it never world-projects and its coverage figure is decorative.
+    "stair_treads": {"base_color": [0.82, 0.81, 0.79, 1.0],
+                     "roughness": 0.42},
+    # Tarnished brass, for things lying flat on a floor.
+    #
+    # Polished brass (metallic 0.85) lying flat under a torch held above
+    # it reflects the light AWAY from the eye, so the linoleum binding
+    # bars measured DARKER than both the lino and the boards they
+    # separate - a shadow line where there should be a gleam. A binding
+    # bar in a 1926 kitchen has decades of oxide on it anyway, and an
+    # oxide layer genuinely behaves far less like a metal, so dropping
+    # metallic is the physical answer rather than a cheat.
+    "brass_dull": {"base_color": [0.62, 0.48, 0.22, 1.0],
+                   "roughness": 0.52, "metallic": 0.30},
+    # The elevator sheet. These belong HERE, not hand-added to
+    # material_catalog.json: gen_layout writes that file, so anything
+    # edited into it directly is silently discarded the next time the
+    # layout is regenerated - which is how the Blender build went from
+    # clean to "not in material_catalog" for all nine at once.
+    "brass_bright": {"base_color": [0.541, 0.416, 0.200, 1.0],
+                     "roughness": 0.34, "metallic": 0.85},
+    "bronze": {"base_color": [0.275, 0.251, 0.184, 1.0],
+               "roughness": 0.62, "metallic": 0.75},
+    "car_paint": {"base_color": [0.369, 0.361, 0.259, 1.0],
+                  "roughness": 0.55},
+    "oak_quartered": {"base_color": [0.522, 0.345, 0.196, 1.0],
+                      "roughness": 0.45},
+    "milk_glass": {"base_color": [0.894, 0.882, 0.847, 1.0],
+                   "roughness": 0.22},
+    "bakelite_black": {"base_color": [0.141, 0.125, 0.114, 1.0],
+                       "roughness": 0.28},
+    "terrazzo_dark": {"base_color": [0.290, 0.267, 0.235, 1.0],
+                      "roughness": 0.40},
+    "brass_mesh": {"base_color": [0.416, 0.322, 0.157, 1.0],
+                   "roughness": 0.52, "metallic": 0.80},
+    "indicator_enamel": {"base_color": [0.878, 0.835, 0.745, 1.0],
+                         "roughness": 0.24},
     "metal": {"base_color": [0.55, 0.56, 0.58, 1.0], "roughness": 0.35,
               "metallic": 0.9},
     "slab": {"base_color": [0.35, 0.34, 0.33, 1.0], "roughness": 0.7},
@@ -4403,6 +5489,13 @@ def main():
             atrium_tree(fl)
     # Run after every architectural contributor, including atrium_tree,
     # otherwise the stairwell can reintroduce thin brick walls after audit.
+    switch_coverage_pass(floors)
+    if COVERAGE_SWITCHES_ADDED:
+        print("added %d switch plates for rooms reached through archways"
+              % len(COVERAGE_SWITCHES_ADDED))
+    seated = seat_walls_under_the_floor_above(floors)
+    if seated:
+        print("seated %d wall(s) under the floor above" % seated)
     normalize_wall_construction(floors)
     resolve_wainscot_sides(floors)
     radiator_pipe_pass(floors)
@@ -4411,6 +5504,7 @@ def main():
     # panels over multiple storeys. Construction is now encoded by wall type:
     # only exterior masonry receives a damaged room-side finish in Blender.
     site_pass(floors[1])  # the block lives with F01
+    retail_pass(floors[1])
     storm_pass(floors[1])
     street_lamp_markers(floors[1])
     layout = {

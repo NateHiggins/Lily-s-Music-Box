@@ -1,0 +1,12 @@
+{
+  "material": "floor_oak_c",
+  "source": "art/textures/ai_sources/floor_oak_worn_c.png",
+  "generator": "ingest_material_sources.py",
+  "meters_per_tile": 2.7,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

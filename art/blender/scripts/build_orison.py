@@ -16,7 +16,9 @@ Outputs: game/assets/building/*.glb and art/blender/orison_master.blend
 """
 import json
 import os
+import zlib
 import sys
+import time
 
 import bpy
 
@@ -48,6 +50,21 @@ TEX_ROOT = os.path.join(ROOT, "art", "textures")
 with open(os.path.join(TEX_ROOT, "catalog_mapping.json")) as _f:
     CAT_TEX = json.load(_f)
 
+# Second-generator takes ingest as "<key>_b". They inherit their base's
+# blockout numbers rather than carrying their own: an alt is the same
+# surface photographed twice, so hand-writing base_color and roughness
+# for it would only create a second place to get them wrong. Doing this
+# here also keeps the catalog validator happy in both directions without
+# gen_layout having to know which slots happen to have an alt.
+for _key in list(CAT_TEX):
+    if _key[-2:] in ("_b", "_c", "_d") and _key not in MATERIALS:
+        _base = _key[:-2]
+        if _base in MATERIALS:
+            MATERIALS[_key] = dict(MATERIALS[_base])
+
+ROOMS_BY_FLOOR = {f["id"]: f.get("rooms", [])
+                  for f in LAYOUT["floors"]}
+
 SHADER_ONLY = {k for k, v in CAT_TEX.items() if v is None}
 
 # declarative UV handling per catalog material:
@@ -71,6 +88,29 @@ UV_MODE_BY_MAT = {
     "rug_warm": "unit", "rug_cool": "unit", "rug_green": "unit",
 }
 VGRAIN = {k for k, m in UV_MODE_BY_MAT.items() if m == "vgrain"}
+
+# Surfaces with no grain direction, which can be turned a quarter turn
+# per room for extra variety. Anything with boards, tiles, a weave or a
+# printed composition is excluded: rotating oak flooring ninety degrees
+# lays the boards across the room instead of along it, and that is a
+# construction mistake, not variety. The _b alts inherit the property.
+ROTATABLE = {
+    "concrete", "slab", "plaster", "plaster_stained", "terrazzo",
+    "terrazzo_dark", "asphalt", "wet_asphalt", "soil", "char", "soot",
+}
+
+
+# Materials that are ALWAYS sampled by an explicit UV window and must
+# never be world-projected, whatever buffer they land in.
+EXPLICIT_MATS = {"stair_treads", "art", "sidewalk_haunted"}
+
+
+def _base_mat(mat):
+    return mat[:-2] if mat[-2:] in ("_b", "_c", "_d") else mat
+
+
+def _rotatable(mat):
+    return _base_mat(mat) in ROTATABLE
 
 
 def _validate_texture_catalog():
@@ -164,6 +204,9 @@ class MeshBuf:
     """Accumulates boxes/prisms, realized as one mesh object at the end."""
 
     def __init__(self, name, material, uv_mode="world"):
+        # Rooms of the floor this buffer belongs to, filled in by the
+        # caller. Used only to break up world-projected horizontals.
+        self.rooms = []
         self.name = name
         self.material = material
         self.uv_mode = uv_mode   # "world" projection or per-quad "unit"
@@ -404,15 +447,67 @@ class MeshBuf:
                     p = me.vertices[me.loops[li].vertex_index].co
                     uv.data[li].uv = ((p[ui] - u0) / du, (p[vi] - v0) / dv)
             return
-        inv = 1.0 / tex_mpt(self.material)
+        tile = tex_mpt(self.material)
+        inv = 1.0 / tile
         vgrain = self.material in VGRAIN
+        # Per-room shift for horizontal surfaces.
+        #
+        # World projection is right for continuity - it keeps oak boards
+        # running across a room and stops fabric twisting between faces -
+        # but it also means every room on a floor samples ONE continuous
+        # field. So identical repeats line up across rooms: the same
+        # stain sits at the same place relative to the same doorway in
+        # eighteen apartments, which is the one artefact that reads as
+        # software rather than as a building.
+        #
+        # Each room's floor and ceiling therefore get their own offset,
+        # and non-directional surfaces additionally get a quarter turn.
+        # Only HORIZONTALS are shifted: a wall stands between two rooms,
+        # so shifting it per room would put a hard seam down the middle
+        # of every partition. Floors and ceilings belong to exactly one
+        # room and can be moved freely.
+        rot_ok = _rotatable(self.material)
+        shifts = {}
+
+        def _shift_for(cx, cy):
+            for r in self.rooms:
+                x0, y0, x1, y1 = r["rect"]
+                if not (min(x0, x1) <= cx <= max(x0, x1)
+                        and min(y0, y1) <= cy <= max(y0, y1)):
+                    continue
+                rid = r["id"]
+                if rid not in shifts:
+                    # crc32, not hash(): Python salts string hashing per
+                    # process, so hash() would rebuild the same layout
+                    # differently every run.
+                    hv = zlib.crc32(rid.encode("utf-8"))
+                    shifts[rid] = (
+                        ((hv & 0xFF) / 255.0) * tile,
+                        (((hv >> 8) & 0xFF) / 255.0) * tile,
+                        ((hv >> 16) & 3) if rot_ok else 0,
+                        (min(x0, x1) + max(x0, x1)) * 0.5,
+                        (min(y0, y1) + max(y0, y1)) * 0.5)
+                return shifts[rid]
+            return None
+
         for poly in me.polygons:
             n = poly.normal
             ax, ay, az = abs(n.x), abs(n.y), abs(n.z)
+            horizontal = az >= ax and az >= ay
+            sh = None
+            if horizontal and self.rooms:
+                c = poly.center
+                sh = _shift_for(c[0], c[1])
             for li in poly.loop_indices:
                 co = me.vertices[me.loops[li].vertex_index].co
-                if az >= ax and az >= ay:      # floor / ceiling
+                if horizontal:                 # floor / ceiling
                     u, v = co.x, co.y
+                    if sh is not None:
+                        ox, oy, turns, rcx, rcy = sh
+                        du, dv = u - rcx, v - rcy
+                        for _ in range(turns):
+                            du, dv = -dv, du
+                        u, v = rcx + du + ox, rcy + dv + oy
                 elif ax >= ay:                 # X-facing
                     u, v = co.y, co.z
                     if vgrain:
@@ -508,16 +603,28 @@ def get_material(key):
         _mat_cache[key] = mat
         return mat
     if key == "glassish":
-        # Actual architectural glass: transmissive and lightly tinted,
-        # rather than the opaque blue-gray panel used by the blockout.
-        bsdf.inputs["Base Color"].default_value = (0.72, 0.84, 0.88, 1.0)
-        bsdf.inputs["Roughness"].default_value = 0.08
+        # Architectural glass, and it has to survive the trip.
+        #
+        # This used to ask for physically-correct glass: transmission
+        # 0.72, IOR 1.46, dithered blending. The exporter faithfully
+        # wrote KHR_materials_transmission into the glTF and the game
+        # renders on gl_compatibility, which does not implement that
+        # extension. The result was the exact failure the old comment
+        # here claimed to be fixing - from the street every window was a
+        # flat blue-grey panel with no room behind it, and it changed
+        # with the viewing angle, which is what gave it away.
+        #
+        # So: no transmission extension, no refraction. Just a lightly
+        # tinted, mostly clear alpha-blended pane. Less physical, and it
+        # is the version that actually looks like glass on the target
+        # renderer - which is the only place anyone sees it.
+        bsdf.inputs["Base Color"].default_value = (0.76, 0.85, 0.89, 1.0)
+        bsdf.inputs["Roughness"].default_value = 0.06
         if "Transmission Weight" in bsdf.inputs:
-            bsdf.inputs["Transmission Weight"].default_value = 0.72
-        bsdf.inputs["IOR"].default_value = 1.46
-        bsdf.inputs["Alpha"].default_value = 0.32
+            bsdf.inputs["Transmission Weight"].default_value = 0.0
+        bsdf.inputs["Alpha"].default_value = 0.16
         if hasattr(mat, "surface_render_method"):
-            mat.surface_render_method = "DITHERED"
+            mat.surface_render_method = "BLENDED"
         elif hasattr(mat, "blend_method"):
             mat.blend_method = "BLEND"
         if hasattr(mat, "use_transparency_overlap"):
@@ -581,10 +688,15 @@ class Frame:
     """Placement frame: local -> world, one visual buffer per material,
     plus a coarse invisible collision hull per assembly."""
 
-    def __init__(self, get_buf, hull_buf, ox, oy, oz, yaw_deg):
+    def __init__(self, get_buf, hull_buf, ox, oy, oz, yaw_deg, finish=0.0):
         self.g = get_buf
         self.hb = hull_buf
         self.o = (ox, oy, oz)
+        # Floor finish under this assembly, so its baked contact shadow
+        # lands on the floor rather than hovering over it. Zero for
+        # anything standing on a shelf or counter: there the shadow is
+        # already relative to the surface it sits on.
+        self.finish = finish
         a = math.radians(yaw_deg)
         self.c, self.s = math.cos(a), math.sin(a)
         self.yaw = a
@@ -622,7 +734,7 @@ class Frame:
         # baked contact shadow: the cheapest convincing ray of them all
         mx = (x1 - x0) * 0.08 + 0.04
         my = (y1 - y0) * 0.08 + 0.04
-        zq = 0.027  # above floor finishes (0.020) and wall AO (0.024)
+        zq = self.finish + 0.004  # just clear of the finish it sits on
         self.g("fx_shadow").add_quad(
             self.pt(x0 - mx, y0 - my, zq), self.pt(x1 + mx, y0 - my, zq),
             self.pt(x1 + mx, y1 + my, zq), self.pt(x0 - mx, y1 + my, zq))
@@ -679,7 +791,7 @@ def asm_sofa(F, p):
 
 def asm_chair(F, p):
     """Viennese-cafe spirit: round seat, splayed legs, steamed hoop back."""
-    wood = p.get("mat", "wood_dark")
+    wood = p.get("mat", case_wood(p))
     F.cyl(wood, 0, 0, 0.44, 0.478, 0.215, 0.215, 14)
     F.lathe(wood, 0, 0, [(0.20, 0.415), (0.215, 0.44)], 14)  # seat rim
     for fx, fy in ((-0.14, 0.12), (0.14, 0.12), (-0.14, -0.11),
@@ -733,7 +845,7 @@ def asm_coffee(F, p):
 
 
 def asm_nightstand(F, p):
-    wood = p.get("mat", "wood_dark")
+    wood = p.get("mat", case_wood(p))
     F.box(wood, -0.225, -0.21, 0.12, 0.225, 0.21, 0.52)
     F.box(wood, -0.20, 0.212, 0.30, 0.20, 0.225, 0.47)   # drawer face
     F.cyl("brass", 0.0, 0.23, 0.385, 0.395, 0.016, 0.010, 8)
@@ -754,16 +866,16 @@ def asm_bed(F, p):
     foot = [(0.034, 0.0), (0.026, 0.20), (0.042, 0.25), (0.028, 0.44),
             (0.040, 0.50), (0.001, 0.56)]
     for sx_ in (-1, 1):
-        F.lathe("wood_dark", sx_ * (W / 2 - 0.05), -L / 2 + 0.05, post, 10)
-        F.lathe("wood_dark", sx_ * (W / 2 - 0.05), L / 2 - 0.05, foot, 10)
-        F.box("wood_dark", sx_ * (W / 2 - 0.03) - 0.012, -L / 2 + 0.05,
+        F.lathe(case_wood(p), sx_ * (W / 2 - 0.05), -L / 2 + 0.05, post, 10)
+        F.lathe(case_wood(p), sx_ * (W / 2 - 0.05), L / 2 - 0.05, foot, 10)
+        F.box(case_wood(p), sx_ * (W / 2 - 0.03) - 0.012, -L / 2 + 0.05,
               0.24, sx_ * (W / 2 - 0.03) + 0.012, L / 2 - 0.05, 0.33)
-    F.box("wood_dark", -W / 2 + 0.05, -L / 2 + 0.028, 0.78, W / 2 - 0.05,
+    F.box(case_wood(p), -W / 2 + 0.05, -L / 2 + 0.028, 0.78, W / 2 - 0.05,
           -L / 2 + 0.072, 0.86)             # head rail
     for i in range(5):
         sxp = -W / 2 + 0.16 + i * (W - 0.32) / 4.0
-        F.cyl("wood_dark", sxp, -L / 2 + 0.05, 0.33, 0.78, 0.014, 0.014, 8)
-    F.box("wood_dark", -W / 2 + 0.05, L / 2 - 0.068, 0.40, W / 2 - 0.05,
+        F.cyl(case_wood(p), sxp, -L / 2 + 0.05, 0.33, 0.78, 0.014, 0.014, 8)
+    F.box(case_wood(p), -W / 2 + 0.05, L / 2 - 0.068, 0.40, W / 2 - 0.05,
           L / 2 - 0.028, 0.47)              # foot rail
     F.box("linen", -W / 2 + 0.06, -L / 2 + 0.08, 0.33, W / 2 - 0.06,
           L / 2 - 0.08, 0.50)
@@ -778,20 +890,37 @@ def asm_bed(F, p):
     F.hull(-W / 2, -L / 2, 0.0, W / 2, L / 2, 0.9)
 
 
+def case_wood(p):
+    """Walnut or quartered oak, decided per unit.
+
+    Every bed, wardrobe, nightstand and chair in the building was the
+    same walnut, so eighteen flats read as furnished from one catalogue
+    page on one afternoon. Both woods are correct for this class and
+    period and these tenants did not shop together.
+
+    Keyed on the unit prefix of the item's id, not on the item, so a
+    bedroom suite agrees with itself: a bed, its nightstand and the
+    wardrobe beside it are one purchase, not three coincidences.
+    """
+    ident = str(p.get("id", ""))
+    unit = ident.split("_", 1)[0] if "_" in ident else ident
+    return "oak_quartered" if zlib.crc32(unit.encode()) & 1 else "wood_dark"
+
+
 def asm_wardrobe(F, p):
     """Armoire spirit: plinth, framed doors, cornice, turned knobs."""
     W, d = p.get("W", 1.30), 0.62
-    F.box("wood_dark", -W / 2, -d / 2, 0.0, W / 2, d / 2, 0.07)
-    F.box("wood_dark", -W / 2 + 0.02, -d / 2 + 0.02, 0.07, W / 2 - 0.02,
+    F.box(case_wood(p), -W / 2, -d / 2, 0.0, W / 2, d / 2, 0.07)
+    F.box(case_wood(p), -W / 2 + 0.02, -d / 2 + 0.02, 0.07, W / 2 - 0.02,
           d / 2 - 0.03, 1.86)
-    F.box("wood_dark", -W / 2 - 0.03, -d / 2 - 0.01, 1.86, W / 2 + 0.03,
+    F.box(case_wood(p), -W / 2 - 0.03, -d / 2 - 0.01, 1.86, W / 2 + 0.03,
           d / 2 + 0.03, 1.91)
-    F.box("wood_dark", -W / 2 - 0.015, -d / 2, 1.91, W / 2 + 0.015,
+    F.box(case_wood(p), -W / 2 - 0.015, -d / 2, 1.91, W / 2 + 0.015,
           d / 2 + 0.015, 1.945)
     for sx_ in (-1, 1):
         x0 = 0.012 if sx_ > 0 else -W / 2 + 0.035
         x1 = W / 2 - 0.035 if sx_ > 0 else -0.012
-        F.box("wood_dark", x0, d / 2 - 0.03, 0.10, x1, d / 2 - 0.005, 1.82)
+        F.box(case_wood(p), x0, d / 2 - 0.03, 0.10, x1, d / 2 - 0.005, 1.82)
         F.box("floor_oak", x0 + 0.05, d / 2 - 0.012, 0.22, x1 - 0.05,
               d / 2 + 0.002, 1.68)          # raised door panel
         F.lathe("brass", sx_ * 0.075, d / 2 + 0.012,
@@ -886,10 +1015,34 @@ def asm_tv(F, p):
 
 
 def asm_plant(F, p):
-    """Potted ficus remade for close viewing: unglazed terracotta pot
-    with a thrown body, rolled rim and drip saucer, mounded potting
-    soil, and a real crown — arched woody canes each carrying its own
-    drooping elliptical leaves instead of three canopy blobs."""
+    """A potted houseplant. The pot is always good; the plant depends on
+    who waters it.
+
+    Species chosen from what a New York apartment building actually held
+    and could actually keep alive, because a plant is a statement about
+    its owner and the wrong one says nothing:
+
+      ASPIDISTRA  the cast-iron plant. Broad lance leaves straight out
+                  of the soil; survives a dark hall and being forgotten
+                  for a decade. This is the LOBBY plant, and it is why
+                  every pre-war lobby in the city had one.
+      SANSEVIERIA mother-in-law's tongue. Stiff vertical blades.
+                  Indestructible, and everywhere after 1955.
+      POTHOS      devil's ivy trailing over the rim and down the pot.
+      RUBBER      ficus elastica: one thick stem, big glossy ovals.
+                  Somebody's idea of a living-room tree.
+      SPIDER      arching strappy leaves throwing runners with plantlets
+                  on the ends - the plant that gives you more plants.
+      FERN        Boston fern, many arching fronds from a crown. Wants a
+                  humidity no steam-heated flat can give it.
+      DRACAENA    bare cane with a topknot. The office plant that came
+                  home.
+      DEAD        the same crown, brown and collapsed. Some of these
+                  people do not water anything.
+    """
+    species = p.get("species", "ficus")
+    if species != "ficus":
+        return _plant_species(F, p, species)
     big = p.get("big", False)
     s = 1.35 if big else 1.0
     seed = p.get("id", "plant")
@@ -934,6 +1087,240 @@ def asm_plant(F, p):
                      (0.001, lz + 0.006 * s)], 7,
                     _jit(seed, i * 43 + k, 0.42, 0.68))
     F.hull(-0.20 * s, -0.20 * s, 0.0, 0.20 * s, 0.20 * s, 0.95 * s)
+
+
+def _plant_pot(F, s, glazed=False):
+    """The thrown pot, saucer and soil, shared by every species."""
+    clay = "enamel" if glazed else "terracotta"
+    F.lathe(clay, 0, 0, [(0.150 * s, 0.0), (0.168 * s, 0.010 * s),
+                         (0.158 * s, 0.032 * s)], 16)
+    F.lathe(clay, 0, 0, [(0.105 * s, 0.014 * s), (0.148 * s, 0.055 * s),
+                         (0.175 * s, 0.290 * s),
+                         (0.178 * s, 0.302 * s)], 16)
+    F.lathe(clay, 0, 0, [(0.178 * s, 0.302 * s), (0.196 * s, 0.314 * s),
+                         (0.198 * s, 0.352 * s), (0.180 * s, 0.360 * s),
+                         (0.160 * s, 0.350 * s)], 16)
+    F.lathe("soil", 0, 0, [(0.160 * s, 0.335 * s), (0.118 * s, 0.360 * s),
+                           (0.045 * s, 0.374 * s), (0.001, 0.378 * s)], 14)
+
+
+def _blade(F, mat, base_z, length, width, lean, twist):
+    """One strap leaf: a tapered arc of flattened discs. It reads as a
+    leaf because it narrows and bends, rather than hanging as a card."""
+    steps = 4
+    for i in range(steps):
+        t0 = float(i) / steps
+        t1 = float(i + 1) / steps
+        bend = lean * t1 * t1
+        r = width * (1.0 - 0.72 * t1)
+        F.lathe(mat, math.cos(twist) * bend, math.sin(twist) * bend,
+                [(0.001, base_z + length * t0),
+                 (r, base_z + length * (t0 + t1) * 0.5),
+                 (0.001, base_z + length * t1)], 5, 0.30)
+
+
+GARDEN = ("tomato", "beans", "herb", "geranium", "sunflower", "fig")
+
+
+def _plant_species(F, p, species):
+    s = 1.35 if p.get("big", False) else 1.0
+    seed = p.get("id", "plant")
+    mat = "timber" if species == "dead" else "plant"
+    if species in GARDEN:
+        # A raised bed already has soil in it; a pot inside a bed is how
+        # you can tell nobody has actually grown anything.
+        return _garden_species(F, p, species, s, seed, mat)
+    _plant_pot(F, s, glazed=p.get("glazed", False))
+    soil_z = 0.372 * s
+
+    if species in ("aspidistra", "sansevieria", "spider", "fern", "dead"):
+        counts = {"aspidistra": 7, "sansevieria": 6, "spider": 9,
+                  "fern": 11, "dead": 6}
+        for i in range(counts[species]):
+            a = math.radians(_jit(seed, i, 0.0, 360.0))
+            if species == "sansevieria":
+                _blade(F, mat, soil_z, _jit(seed, i + 5, 0.42, 0.68) * s,
+                       0.028 * s, 0.045 * s, a)
+            elif species == "aspidistra":
+                _blade(F, mat, soil_z, _jit(seed, i + 5, 0.30, 0.46) * s,
+                       0.058 * s, 0.16 * s, a)
+            elif species == "fern":
+                _blade(F, mat, soil_z, _jit(seed, i + 5, 0.24, 0.40) * s,
+                       0.036 * s, 0.26 * s, a)
+            elif species == "dead":
+                _blade(F, mat, soil_z, _jit(seed, i + 5, 0.14, 0.26) * s,
+                       0.030 * s, 0.30 * s, a)
+            else:
+                ln = _jit(seed, i + 5, 0.22, 0.38) * s
+                _blade(F, mat, soil_z, ln, 0.030 * s, 0.22 * s, a)
+                if i % 3 == 0:
+                    rx = math.cos(a) * 0.30 * s
+                    ry = math.sin(a) * 0.30 * s
+                    F.tube(mat, (0, 0, soil_z + ln * 0.8),
+                           (rx, ry, soil_z + ln * 0.35), 0.005 * s, 5)
+                    for k in range(3):
+                        _blade(F, mat, soil_z + ln * 0.30, 0.09 * s,
+                               0.016 * s, 0.03 * s, a + k * 2.1)
+    elif species == "pothos":
+        for i in range(6):
+            a = math.radians(_jit(seed, i, 0.0, 360.0))
+            drop = _jit(seed, i + 4, 0.20, 0.44) * s
+            ex = math.cos(a) * 0.19 * s
+            ey = math.sin(a) * 0.19 * s
+            F.tube(mat, (0, 0, soil_z), (ex, ey, soil_z - 0.02 * s),
+                   0.006 * s, 5)
+            F.tube(mat, (ex, ey, soil_z - 0.02 * s),
+                   (ex * 1.15, ey * 1.15, soil_z - drop), 0.005 * s, 5)
+            for k in range(4):
+                t = (k + 1) / 5.0
+                lz = soil_z - drop * t
+                F.lathe(mat, ex * (1.0 + 0.15 * t), ey * (1.0 + 0.15 * t),
+                        [(0.001, lz - 0.010 * s), (0.042 * s, lz),
+                         (0.001, lz + 0.008 * s)], 6, 0.55)
+    elif species in ("rubber", "dracaena"):
+        cane_h = (0.86 if species == "dracaena" else 0.62) * s
+        F.tube("timber", (0, 0, soil_z),
+               (0.02 * s, 0.01 * s, soil_z + cane_h), 0.020 * s, 7)
+        if species == "dracaena":
+            for i in range(9):
+                a = math.radians(_jit(seed, i, 0.0, 360.0))
+                _blade(F, mat, soil_z + cane_h * 0.92,
+                       _jit(seed, i + 3, 0.16, 0.28) * s, 0.026 * s,
+                       0.20 * s, a)
+        else:
+            for i in range(6):
+                a = math.radians(_jit(seed, i, 0.0, 360.0))
+                lz = soil_z + cane_h * (0.34 + 0.11 * i)
+                r = _jit(seed, i + 6, 0.070, 0.105) * s
+                F.lathe(mat, math.cos(a) * 0.075 * s,
+                        math.sin(a) * 0.075 * s,
+                        [(0.001, lz - 0.014 * s), (r, lz),
+                         (0.001, lz + 0.010 * s)], 7, 0.46)
+    F.hull(-0.20 * s, -0.20 * s, 0.0, 0.20 * s, 0.20 * s, 0.95 * s)
+
+
+def _garden_species(F, p, species, s, seed, mat):
+    """What is actually growing on a New York roof in August.
+
+    These sit straight in the bed soil rather than in a pot, and they are
+    all things somebody would eat or pick. A roof garden is not
+    decoration - it is the only ground these tenants have, and what is in
+    it says so: tomatoes because they are worth the carrying, beans
+    because they climb and the roof has more air than floor, herbs by the
+    door where you can reach them without going out in the rain.
+    """
+    if species == "tomato":
+        # staked stem, jagged foliage, and trusses of fruit at three
+        # heights - green at the top, ripe at the bottom, like a real one
+        h = _jit(seed, 1, 0.72, 1.05) * s
+        F.tube("timber", (0, 0, 0.0), (0.02, 0.01, h), 0.016 * s, 6)
+        F.tube("timber", (0.06 * s, 0.04 * s, 0.0),
+               (0.06 * s, 0.04 * s, h * 1.05), 0.012 * s, 5)   # the cane
+        for i in range(7):
+            a = math.radians(_jit(seed, i + 3, 0.0, 360.0))
+            lz = h * (0.22 + 0.11 * i)
+            r = _jit(seed, i + 11, 0.075, 0.115) * s
+            F.lathe(mat, math.cos(a) * 0.085 * s, math.sin(a) * 0.085 * s,
+                    [(0.001, lz - 0.020 * s), (r, lz),
+                     (0.001, lz + 0.014 * s)], 6, 0.42)
+        for k, (tz, ripe) in enumerate(((0.34, True), (0.58, True),
+                                        (0.80, False))):
+            for j in range(3):
+                a2 = math.radians(_jit(seed, k * 13 + j, 0.0, 360.0))
+                fx = math.cos(a2) * 0.075 * s
+                fy = math.sin(a2) * 0.075 * s
+                F.cyl("terracotta" if ripe else "plant", fx, fy,
+                      h * tz, h * tz + 0.055 * s, 0.030 * s, 0.030 * s, 7)
+    elif species == "beans":
+        # a vine twining up its cane, with pods hanging off it
+        h = _jit(seed, 2, 1.10, 1.55) * s
+        F.tube("timber", (0, 0, 0.0), (0.05 * s, 0.03 * s, h), 0.013 * s, 5)
+        turns = 7
+        for i in range(turns):
+            t0 = float(i) / turns
+            t1 = float(i + 1) / turns
+            a0 = t0 * 9.0
+            a1 = t1 * 9.0
+            r = 0.045 * s
+            F.tube(mat, (math.cos(a0) * r, math.sin(a0) * r, h * t0),
+                   (math.cos(a1) * r, math.sin(a1) * r, h * t1),
+                   0.007 * s, 4)
+            if i % 2 == 0:
+                F.lathe(mat, math.cos(a0) * 0.10 * s,
+                        math.sin(a0) * 0.10 * s,
+                        [(0.001, h * t0 - 0.02 * s), (0.062 * s, h * t0),
+                         (0.001, h * t0 + 0.012 * s)], 6, 0.45)
+            if i % 3 == 1:
+                F.tube(mat, (math.cos(a0) * r, math.sin(a0) * r, h * t0),
+                       (math.cos(a0) * r * 1.6, math.sin(a0) * r * 1.6,
+                        h * t0 - 0.13 * s), 0.010 * s, 5)
+    elif species == "herb":
+        # a low bushy mound: parsley, thyme, whatever survived
+        for i in range(14):
+            a = math.radians(_jit(seed, i, 0.0, 360.0))
+            r = _jit(seed, i + 7, 0.02, 0.11) * s
+            hz = _jit(seed, i + 19, 0.05, 0.20) * s
+            F.lathe(mat, math.cos(a) * r, math.sin(a) * r,
+                    [(0.001, hz - 0.030 * s), (0.040 * s, hz),
+                     (0.001, hz + 0.018 * s)], 5, 0.50)
+    elif species == "geranium":
+        for i in range(9):
+            a = math.radians(_jit(seed, i, 0.0, 360.0))
+            r = _jit(seed, i + 5, 0.03, 0.10) * s
+            hz = _jit(seed, i + 15, 0.10, 0.26) * s
+            F.lathe(mat, math.cos(a) * r, math.sin(a) * r,
+                    [(0.001, hz - 0.026 * s), (0.055 * s, hz),
+                     (0.001, hz + 0.014 * s)], 6, 0.48)
+        for i in range(4):                       # the flower heads
+            a = math.radians(_jit(seed, i + 30, 0.0, 360.0))
+            r = _jit(seed, i + 33, 0.02, 0.07) * s
+            F.cyl("terracotta", math.cos(a) * r, math.sin(a) * r,
+                  0.28 * s, 0.32 * s, 0.045 * s, 0.030 * s, 8)
+    elif species == "sunflower":
+        h = _jit(seed, 4, 1.30, 1.85) * s
+        F.tube("timber", (0, 0, 0.0), (0.03 * s, 0.02 * s, h), 0.020 * s, 6)
+        for i in range(5):
+            a = math.radians(_jit(seed, i + 2, 0.0, 360.0))
+            lz = h * (0.28 + 0.13 * i)
+            F.lathe(mat, math.cos(a) * 0.10 * s, math.sin(a) * 0.10 * s,
+                    [(0.001, lz - 0.030 * s), (0.115 * s, lz),
+                     (0.001, lz + 0.020 * s)], 6, 0.40)
+        F.lathe("soil", 0.03 * s, 0.02 * s,
+                [(0.001, h - 0.02 * s), (0.115 * s, h + 0.01 * s),
+                 (0.001, h + 0.04 * s)], 12, 0.30)
+        F.lathe("brass", 0.03 * s, 0.02 * s,
+                [(0.115 * s, h + 0.005 * s), (0.185 * s, h + 0.02 * s),
+                 (0.115 * s, h + 0.035 * s)], 14, 0.30)
+    elif species == "fig":
+        h = _jit(seed, 6, 0.80, 1.10) * s
+        F.tube("timber", (0, 0, 0.0), (0.04 * s, 0.02 * s, h), 0.034 * s, 7)
+        for i in range(8):
+            a = math.radians(_jit(seed, i + 1, 0.0, 360.0))
+            lz = h * (0.34 + 0.09 * i)
+            r = _jit(seed, i + 21, 0.10, 0.155) * s
+            F.lathe(mat, math.cos(a) * 0.12 * s, math.sin(a) * 0.12 * s,
+                    [(0.001, lz - 0.030 * s), (r, lz),
+                     (0.001, lz + 0.020 * s)], 5, 0.44)
+    F.hull(-0.18 * s, -0.18 * s, 0.0, 0.18 * s, 0.18 * s, 1.10 * s)
+
+
+def asm_watering_can(F, p):
+    """Galvanised can, and the fact that somebody carries it up here.
+
+    A roof garden with no watering kit is a set dressing of a roof
+    garden. There is no tap on this roof, which is the point: everything
+    in those beds was carried up the stair in this."""
+    F.lathe("metal", 0.0, 0.0, [(0.0, 0.0), (0.115, 0.015), (0.125, 0.30),
+                                (0.112, 0.335), (0.0, 0.345)], 14)
+    # spout, rising from the base and out past the rim
+    F.tube("metal", (0.09, 0.0, 0.06), (0.34, 0.0, 0.30), 0.026, 8)
+    F.lathe("metal", 0.36, 0.0, [(0.030, 0.30), (0.058, 0.325),
+                                 (0.056, 0.335)], 10)
+    # handles: one over the top, one at the back to tip it with
+    F.tube("metal", (-0.10, 0.0, 0.30), (0.0, 0.0, 0.44), 0.013, 6)
+    F.tube("metal", (0.0, 0.0, 0.44), (0.10, 0.0, 0.30), 0.013, 6)
+    F.tube("metal", (-0.12, 0.0, 0.14), (-0.19, 0.0, 0.24), 0.011, 6)
+    F.tube("metal", (-0.19, 0.0, 0.24), (-0.12, 0.0, 0.30), 0.011, 6)
 
 
 def asm_kitchen(F, p):
@@ -1065,11 +1452,21 @@ def asm_fridge_monitor(F, p):
                    (0.25, 0.22)):
         F.cyl("chrome", lx, ly, 0.0, 0.20, 0.017, 0.013, 8)
     rounded_body(F, body, -0.29, -0.26, 0.29, 0.26, 0.20, 1.32, 0.05)
-    # door face proud of the cabinet, with its long latching handle
-    F.box(body, -0.265, 0.262, 0.245, 0.265, 0.283, 1.29)
-    F.tube("chrome", (0.20, 0.30, 0.40), (0.20, 0.30, 1.16), 0.014, 8)
-    F.box("chrome", 0.155, 0.283, 0.74, 0.215, 0.315, 0.80)
-    F.box("brass", -0.07, 0.283, 1.14, 0.07, 0.289, 1.19)
+    # Cabinet only - the door belongs to the prop, same as the range and
+    # the 1950s cabinet next door. What stays is the porcelain liner and
+    # the two wire shelves, because an icebox this old is mostly liner.
+    F.box("enamel", -0.245, 0.10, 0.27, 0.245, 0.262, 1.27)
+    F.box("enamel", -0.245, -0.22, 0.27, -0.220, 0.262, 1.27)
+    F.box("enamel", 0.220, -0.22, 0.27, 0.245, 0.262, 1.27)
+    F.box("enamel", -0.245, -0.22, 0.27, 0.245, 0.262, 0.31)
+    F.box("enamel", -0.245, -0.22, 1.23, 0.245, 0.262, 1.27)
+    for sz in (0.66, 0.98):
+        for i in range(6):
+            gx = -0.21 + i * 0.084
+            F.tube("chrome", (gx, -0.20, sz), (gx, 0.24, sz), 0.005, 4)
+        F.tube("chrome", (-0.22, -0.17, sz), (0.22, -0.17, sz), 0.006, 4)
+    # the little chill box under the drum, frosted solid since the war
+    F.box("enamel", -0.20, -0.20, 1.12, 0.20, 0.24, 1.16)
     # the monitor: compressor drum and cooling fins on the lid
     F.cyl(body, 0.0, 0.0, 1.32, 1.40, 0.235, 0.235, 16)
     F.cyl("metal", 0.0, 0.0, 1.40, 1.60, 0.205, 0.205, 16)
@@ -1077,7 +1474,7 @@ def asm_fridge_monitor(F, p):
         F.cyl("metal", 0.0, 0.0, fz, fz + 0.012, 0.225, 0.225, 16)
     F.lathe("metal", 0.0, 0.0, [(0.205, 1.60), (0.16, 1.645),
                                 (0.05, 1.66)], 16)
-    F.hull(-0.29, -0.26, 0.0, 0.29, 0.315, 1.66)
+    F.hull(-0.29, -0.26, 0.0, 0.29, 0.29, 1.66)
 
 
 def asm_fridge50(F, p):
@@ -1094,16 +1491,33 @@ def asm_fridge50(F, p):
                  1.66, 0.045)
     F.lathe("appliance", 0.0, 0.0, [(0.23, 1.66), (0.20, 1.695),
                                     (0.10, 1.71)], 14)
-    F.box("appliance", -0.31, 0.321, 0.10, 0.31, 0.345, 1.50)
-    F.box("appliance", -0.28, 0.345, 0.14, 0.28, 0.357, 1.46)
-    F.tube("chrome", (0.24, 0.395, 0.72), (0.24, 0.395, 1.18), 0.016, 10)
-    for hz in (0.74, 1.16):
-        F.tbox("chrome", (0.24, 0.357, hz), (0.24, 0.40, hz), 0.03, 0.02)
-    F.box("chrome", 0.20, 0.35, 0.93, 0.28, 0.40, 0.99)
-    F.box("brass", -0.09, 0.357, 1.30, 0.09, 0.363, 1.36)
+    # NO DOOR HERE. The same division the range already uses: the
+    # assembly is the cabinet, and the prop spawned by the marker at this
+    # spot supplies everything that swings, lights or holds food. Baking
+    # a door into the floor mesh is what made seventeen of these inert.
+    #
+    # What the cabinet does provide is the mouth the door closes onto and
+    # the food liner behind it, because those never move.
+    F.box("enamel", -0.285, 0.10, 0.14, 0.285, 0.325, 1.46)
+    F.box("enamel", -0.285, -0.26, 0.14, -0.255, 0.325, 1.46)
+    F.box("enamel", 0.255, -0.26, 0.14, 0.285, 0.325, 1.46)
+    F.box("enamel", -0.285, -0.26, 0.14, 0.285, 0.325, 0.18)
+    F.box("enamel", -0.285, -0.26, 1.42, 0.285, 0.325, 1.46)
+    # wire shelves, and the crisper drawer under the lowest one
+    for sz in (0.62, 0.92, 1.18):
+        for i in range(7):
+            gx = -0.25 + i * 0.083
+            F.tube("chrome", (gx, -0.24, sz), (gx, 0.30, sz), 0.005, 4)
+        F.tube("chrome", (-0.26, -0.20, sz), (0.26, -0.20, sz), 0.006, 4)
+        F.tube("chrome", (-0.26, 0.26, sz), (0.26, 0.26, sz), 0.006, 4)
+    F.box("glassish", -0.25, -0.22, 0.24, 0.25, 0.30, 0.50)
+    F.box("enamel", -0.25, 0.295, 0.24, 0.25, 0.315, 0.50)
+    # the freezer box: its own little door, permanently ajar
+    F.box("enamel", -0.24, -0.24, 1.16, 0.24, 0.30, 1.20)
+    F.box("chrome", -0.22, 0.24, 1.20, 0.22, 0.27, 1.40)
     for hz in (0.22, 1.34):
         F.cyl("chrome", -0.315, 0.335, hz, hz + 0.05, 0.018, 0.018, 8)
-    F.hull(-0.33, -0.32, 0.0, 0.33, 0.40, 1.70)
+    F.hull(-0.33, -0.32, 0.0, 0.33, 0.36, 1.70)
 
 
 def asm_desk(F, p):
@@ -1195,9 +1609,19 @@ def asm_sink_ped(F, p):
                (tx + 0.028, -0.17, 0.855), 0.007, 6)
         F.tube("chrome", (tx, -0.198, 0.855), (tx, -0.142, 0.855),
                0.007, 6)
-    F.box("glassish", -0.22, -0.245, 1.05, 0.22, -0.235, 1.55)
-    F.box("trim", -0.24, -0.248, 1.03, 0.24, -0.232, 1.05)
-    F.box("trim", -0.24, -0.248, 1.55, 0.24, -0.232, 1.57)
+    # The mirror is the door of a medicine cabinet, and the door belongs
+    # to the prop - the same split the range, the refrigerator and the
+    # taps use. What the assembly leaves is the carcass recessed into the
+    # wall, its shelves, and the frame the door closes onto.
+    F.box("enamel", -0.22, -0.235, 1.05, 0.22, -0.215, 1.55)   # back
+    for sx in (-0.22, 0.20):
+        F.box("enamel", sx, -0.235, 1.05, sx + 0.02, -0.150, 1.55)
+    F.box("enamel", -0.22, -0.235, 1.05, 0.22, -0.150, 1.07)
+    F.box("enamel", -0.22, -0.235, 1.53, 0.22, -0.150, 1.55)
+    for shz in (1.20, 1.35):
+        F.box("glassish", -0.20, -0.232, shz, 0.20, -0.155, shz + 0.008)
+    F.box("trim", -0.24, -0.168, 1.03, 0.24, -0.150, 1.05)
+    F.box("trim", -0.24, -0.168, 1.55, 0.24, -0.150, 1.57)
     F.hull(-0.24, -0.22, 0.0, 0.24, 0.22, 0.82)
 
 
@@ -1313,7 +1737,19 @@ def asm_pipe(F, p):
 
 
 def asm_bench(F, p):
-    """Hall settle: slat seat, turned legs, spindle back."""
+    """Somewhere to sit. Two kinds, because a lobby and a laundry do not
+    buy the same furniture.
+
+    SETTLE (default) is the hall settle a 1926 lobby was fitted with:
+    slat seat, turned legs, spindle back, dark stained oak. It is meant
+    to be looked at as much as sat on.
+
+    SLAT is what gets bought later and put where things get wet - a
+    backless plank bench on square legs with steel angle brackets, in
+    plain timber that nobody minds. Laundry, basement corridor, roof.
+    """
+    if p.get("style", "settle") == "slat":
+        return _bench_slat(F, p)
     L = p.get("L", 1.5)
     for i in range(3):
         F.box("wood_dark", -L / 2, -0.20 + i * 0.145, 0.44, L / 2,
@@ -1327,6 +1763,21 @@ def asm_bench(F, p):
         sxp = -L / 2 + 0.10 + i * (L - 0.20) / 6.0
         F.cyl("wood_dark", sxp, -0.21, 0.475, 0.86, 0.012, 0.012, 8)
     F.hull(-L / 2, -0.24, 0.0, L / 2, 0.24, 0.93)
+
+
+def _bench_slat(F, p):
+    """Backless plank bench: three boards, square legs, angle brackets."""
+    L = p.get("L", 1.3)
+    for i in range(3):
+        F.box("timber", -L / 2, -0.17 + i * 0.125, 0.41, L / 2,
+              -0.075 + i * 0.125, 0.445)
+    for lx in (-L / 2 + 0.10, L / 2 - 0.10):
+        for ly in (-0.13, 0.13):
+            F.box("timber", lx - 0.028, ly - 0.028, 0.0,
+                  lx + 0.028, ly + 0.028, 0.41)
+        # the steel angle that stops it racking
+        F.box("metal", lx - 0.034, -0.15, 0.33, lx + 0.034, 0.15, 0.36)
+    F.hull(-L / 2, -0.19, 0.0, L / 2, 0.19, 0.45)
 
 
 def asm_mailbank(F, p):
@@ -1779,7 +2230,604 @@ def asm_fire_escape(F, p):
     # collision asset replaces the batched low-overhead version.
 
 
+def asm_entrance_marquee(F, p):
+    """Suspended cast-iron and prismatic-glass entrance marquee, 1926.
+
+    Researched against the type that survives all over pre-war New York -
+    Grand Concourse, Riverside Drive, the Jackson Heights garden blocks.
+    The apartment-house marquee is not a fabric awning on a folding arm;
+    that is a shopfront. It is a structural steel tray hung off the
+    facade, and every part of it is doing a job:
+
+      LEDGER      a steel angle lag-bolted through the brick, carrying
+                  the whole inner edge. Bolt heads are visible because
+                  nobody hid them, and a century of rain has bled rust
+                  down the brick beneath them.
+      TIE RODS    two forged rods running back up to anchor rosettes
+                  above, taking the outer edge in tension. Each has a
+                  turnbuckle at mid-span - the fitting that let a
+                  1920s ironworker take the sag out, and the fitting
+                  that seizes first.
+      TRAY        rolled channel perimeter with outriggers front to
+                  back and cross T-bars, making a 4 x 3 grid of bays.
+      GLAZING     prismatic glass set in that grid, laid to daylight
+                  the entrance from above rather than to keep rain off
+                  it. That is the whole point of the type and the
+                  reason it earns a centrepiece: it is a lit ceiling
+                  over the door. Two panes are not glass any more -
+                  one plywood, one mismatched tin - because no one has
+                  been able to buy a matching prismatic pane since
+                  about 1955.
+      FASCIA      ornamental cast iron: a bead-and-reel course under a
+                  run of alternating palmette and lotus cresting, with
+                  a bronze name panel dead centre.
+      DRAINAGE    the deck falls to a scupper at the east end, which
+                  pipes back along the tray and down the building line.
+                  A downspout that emptied onto the middle of the
+                  sidewalk would be a lawsuit, then and now.
+
+    Local frame: origin sits on the facade face at the door centre, so
+    the canopy projects along -y and every visible part has y < 0.
+    """
+    HW = 1.80            # half width, 300 mm proud of the stone surround
+    PROJ = 1.80          # projection over the sidewalk
+    Z_BOT, Z_TOP = 3.28, 3.46          # the structural tray
+    Z_GLASS = 3.395                    # deck, inside the tray
+    ANCHOR_Z = 5.08      # clear brick pier between the F02 windows
+
+    iron, glass, bronze = "cast_iron", "glassish", "brass"
+
+    # ---- ledger: the inner edge, bolted through the brick
+    F.box(iron, -HW, -0.07, 3.26, HW, 0.0, 3.50)
+    for i in range(7):
+        bx = -1.56 + i * 0.52
+        F.tube("metal", (bx, -0.07, 3.38), (bx, -0.115, 3.38), 0.017, 6)
+    # rust bleeding out of the anchors and the ledger bolts
+    for sx in (-1.0, 1.0):
+        F.box("soot", sx * 1.55 - 0.055, -0.012, 4.16,
+              sx * 1.55 + 0.055, 0.0, ANCHOR_Z - 0.02)
+    F.box("soot", -HW + 0.10, -0.010, 2.62, HW - 0.10, 0.0, 3.26)
+
+    # ---- tray: perimeter channel, outriggers, cross bars
+    F.box(iron, -HW, -PROJ, Z_BOT, HW, -PROJ + 0.06, Z_TOP)
+    F.box(iron, -HW, -PROJ, Z_BOT, -HW + 0.06, 0.0, Z_TOP)
+    F.box(iron, HW - 0.06, -PROJ, Z_BOT, HW, 0.0, Z_TOP)
+    for ox in (-0.90, 0.0, 0.90):
+        F.box(iron, ox - 0.025, -PROJ + 0.02, 3.32, ox + 0.025, 0.0, 3.44)
+    for oy in (-0.60, -1.20):
+        F.box(iron, -HW + 0.04, oy - 0.02, 3.36, HW - 0.04, oy + 0.02, 3.42)
+
+    # ---- glazing: 4 bays x 3 courses, two of them long since replaced
+    bays = ((-HW + 0.06, -0.925), (-0.875, -0.025),
+            (0.025, 0.875), (0.925, HW - 0.06))
+    rows = ((-0.58, -0.02), (-1.18, -0.62), (-PROJ + 0.06, -1.22))
+    gone = {(0, 2): "plywood", (3, 0): "metal"}
+    for bi, (gx0, gx1) in enumerate(bays):
+        for ri, (gy0, gy1) in enumerate(rows):
+            mat = gone.get((bi, ri), glass)
+            th = 0.018 if mat != glass else 0.012
+            F.box(mat, gx0, gy0, Z_GLASS, gx1, gy1, Z_GLASS + th)
+
+    # ---- fascia, bead-and-reel, cresting
+    F.box(iron, -HW - 0.06, -PROJ - 0.08, 3.18, HW + 0.06, -PROJ, 3.50)
+    for sx in (-1.0, 1.0):
+        F.box(iron, sx * (HW + 0.06), -PROJ - 0.08, 3.18,
+              sx * HW, -0.30, 3.50)
+    n_bead = 25
+    for i in range(n_bead):
+        bx = -HW + 0.06 + (2 * HW - 0.12) * i / float(n_bead - 1)
+        F.lathe(bronze, bx, -PROJ - 0.085,
+                [(0.005, 3.205), (0.030, 3.232), (0.005, 3.258)], 6)
+    n_crest = 15
+    for i in range(n_crest):
+        cx = -HW + 0.10 + (2 * HW - 0.20) * i / float(n_crest - 1)
+        tall = (i % 2 == 0)
+        ch = 0.17 if tall else 0.105
+        # Gilded cresting. Painted iron at night is a silhouette; the
+        # brass catches the trough light and gives the roofline its edge.
+        F.box(bronze, cx - 0.048, -PROJ - 0.065, 3.50,
+              cx + 0.048, -PROJ - 0.025, 3.50 + ch * 0.55)
+        F.lathe(bronze, cx, -PROJ - 0.045,
+                [(0.048, 3.50 + ch * 0.55), (0.030, 3.50 + ch * 0.85),
+                 (0.0, 3.50 + ch)], 7, 0.42)
+
+    # ---- bronze name panel, centre of the fascia
+    F.box(bronze, -0.80, -PROJ - 0.115, 3.20, 0.80, -PROJ - 0.08, 3.46)
+    for ex in (-0.80, 0.80):
+        F.box(bronze, ex - 0.028, -PROJ - 0.125, 3.18,
+              ex + 0.028, -PROJ - 0.08, 3.48)
+    F.box(bronze, -0.83, -PROJ - 0.125, 3.44, 0.83, -PROJ - 0.08, 3.48)
+    F.box(bronze, -0.83, -PROJ - 0.125, 3.18, 0.83, -PROJ - 0.08, 3.22)
+
+    # ---- tie rods with turnbuckles, back to rosettes on the brick
+    for sx in (-1.0, 1.0):
+        rx = sx * 1.55
+        F.lathe(iron, rx, -0.03,
+                [(0.0, ANCHOR_Z - 0.10), (0.115, ANCHOR_Z - 0.075),
+                 (0.125, ANCHOR_Z - 0.03), (0.052, ANCHOR_Z + 0.02),
+                 (0.030, ANCHOR_Z + 0.075)], 12)
+        top = (rx, -0.06, ANCHOR_Z)
+        bot = (rx, -PROJ + 0.10, Z_TOP + 0.02)
+        F.tube("metal", top, bot, 0.017, 7)
+        # turnbuckle: the fitting that took the sag out, and the first
+        # thing to seize solid
+        def lerp(t):
+            return tuple(top[k] + (bot[k] - top[k]) * t for k in range(3))
+        F.tube("metal", lerp(0.40), lerp(0.60), 0.040, 6)
+        F.tube("metal", lerp(0.38), lerp(0.42), 0.026, 6)
+        F.tube("metal", lerp(0.58), lerp(0.62), 0.026, 6)
+        # clevis where the rod picks up the tray
+        F.box(iron, rx - 0.035, -PROJ + 0.06, Z_TOP - 0.02,
+              rx + 0.035, -PROJ + 0.16, Z_TOP + 0.06)
+
+    # ---- drainage: scupper east, piped back to the building line
+    F.box("metal", 1.50, -PROJ - 0.02, 3.29, 1.66, -PROJ + 0.10, 3.35)
+    F.tube("metal", (1.58, -PROJ + 0.10, 3.24), (1.58, -0.20, 3.24),
+           0.048, 8)
+    F.cyl("metal", 1.58, -0.20, 0.16, 3.26, 0.048, 0.048, 8)
+    for sz in (0.90, 2.10):
+        F.tube("metal", (1.50, -0.20, sz), (1.66, -0.20, sz), 0.014, 6)
+    F.lathe("metal", 1.58, -0.20,
+            [(0.048, 0.16), (0.070, 0.10), (0.070, 0.05)], 8)
+
+
+def asm_vault_lights(F, p):
+    """Sidewalk vault lights: the detail that proves there is a basement.
+
+    Every pre-war New York building with a coal vault under its pavement
+    had these - a cast-iron frame set flush in the walk, filled with
+    round glass prisms that daylight the cellar below. They are the
+    reason a 1920s basement has light at all before the electric went
+    in, and a century of feet has worn every prism from clear to a
+    bruised violet, because manganese in the old glass solarises in
+    sunlight. Nobody who has walked a Manhattan side street has failed
+    to see them; almost nobody models them.
+
+    The frame sits 12 mm proud, which is what you catch your heel on.
+    """
+    W = p.get("W", 2.60)
+    D = p.get("D", 1.15)
+    iron, glass = "cast_iron", "glassish"
+    hw, hd = W * 0.5, D * 0.5
+    # perimeter angle, set into the concrete
+    F.box(iron, -hw, -hd, -0.06, hw, hd, 0.012)
+    F.box("concrete", -hw + 0.05, -hd + 0.05, -0.07,
+          hw - 0.05, hd - 0.05, -0.02)
+    cols, rows = 7, 3
+    for i in range(cols + 1):
+        x = -hw + W * i / cols
+        F.box(iron, x - 0.016, -hd, -0.02, x + 0.016, hd, 0.014)
+    for j in range(rows + 1):
+        y = -hd + D * j / rows
+        F.box(iron, -hw, y - 0.016, -0.02, hw, y + 0.016, 0.014)
+    # the prisms themselves, one per cell, a few cracked out and patched
+    for i in range(cols):
+        for j in range(rows):
+            cx = -hw + W * (i + 0.5) / cols
+            cy = -hd + D * (j + 0.5) / rows
+            gone = ((i * 3 + j * 5) % 11) == 4
+            mat = "concrete" if gone else glass
+            F.cyl(mat, cx, cy, -0.015, 0.006, 0.052, 0.052, 10)
+
+
+def asm_coal_chute(F, p):
+    """The cast-iron coal-hole cover, and the ring it has worn.
+
+    Coal went into the cellar through a 460 mm hole in the pavement, shut
+    with a plate whose raised diamonds were there to stop a horse
+    slipping on it. The plate turns in its seat, so the seat is polished
+    bright and the plate itself is dished from a century of being trodden
+    into it.
+    """
+    r = p.get("R", 0.235)
+    F.lathe("cast_iron", 0.0, 0.0,
+            [(r + 0.045, -0.055), (r + 0.045, 0.004), (r + 0.010, 0.006),
+             (r + 0.010, -0.050)], 24)
+    F.lathe("cast_iron", 0.0, 0.0,
+            [(0.0, 0.014), (r * 0.55, 0.016), (r, 0.011), (r, -0.030),
+             (0.0, -0.030)], 24)
+    # raised diamonds, two rings of them
+    for ring, count in ((r * 0.52, 8), (r * 0.84, 13)):
+        for k in range(count):
+            a = 2.0 * math.pi * k / count
+            dx, dy = ring * math.cos(a), ring * math.sin(a)
+            F.box("cast_iron", dx - 0.022, dy - 0.022, 0.014,
+                  dx + 0.022, dy + 0.022, 0.024)
+    # the lifting slot
+    F.box("soot", -0.055, -0.014, 0.010, 0.055, 0.014, 0.020)
+
+
+def asm_utility_cover(F, p):
+    """Water or gas valve box: a small square plate with a lettered boss."""
+    h = p.get("S", 0.15)
+    F.box("cast_iron", -h - 0.022, -h - 0.022, -0.045, h + 0.022,
+          h + 0.022, 0.004)
+    F.box("cast_iron", -h, -h, -0.030, h, h, 0.012)
+    F.cyl("cast_iron", 0.0, 0.0, 0.012, 0.019, h * 0.55, h * 0.55, 10)
+
+
+def asm_modern_boiler(F, p):
+    """What replaced the coal: an oil-fired packaged steam boiler.
+
+    When the coal plant was condemned nobody rebuilt the plant room -
+    they stood a packaged boiler next to the dead one and piped it into
+    the same chimney and the same steam main. That is why basements like
+    this hold two boilers, one of which has not been lit since Kennedy.
+
+    A conversion of this vintage is a sheet-metal jacket over a cast-iron
+    block, with the parts that keep it legal bolted to the outside where
+    an inspector can see them:
+      BURNER      gun-type oil burner on the front door - motor, blower
+                  scroll, ignition transformer, and the oil line coming
+                  in off the floor through a filter
+      DRAFT HOOD  a barometric damper again, because the chimney is the
+                  same chimney
+      CONTROLS    pressuretrol and aquastat in grey boxes on flex conduit
+      SIGHT GLASS the water column, this one still intact, with its
+                  low-water cutoff hanging off the side
+      HEADER      insulated steam main leaving the top, and the Hartford
+                  loop that stops the boiler emptying itself into the
+                  return
+    """
+    jacket = p.get("jacket", "appliance")
+    metal, brass, iron = "metal", "brass", "cast_iron"
+    W, D, H = 0.92, 1.24, 1.48
+
+    F.box("concrete", -W / 2 - 0.10, -D / 2 - 0.10, 0.0,
+          W / 2 + 0.10, D / 2 + 0.10, 0.09)
+    F.box(jacket, -W / 2, -D / 2, 0.09, W / 2, D / 2, H)
+    # jacket panel seams and the maker's badge
+    for sz in (0.52, 1.02):
+        F.box(metal, -W / 2 - 0.006, -D / 2 - 0.006, sz,
+              W / 2 + 0.006, D / 2 + 0.006, sz + 0.014)
+    F.box(brass, -0.16, -D / 2 - 0.012, 1.16, 0.16, -D / 2 - 0.004, 1.28)
+
+    # ---- gun burner on the front, and its oil line
+    F.cyl(metal, 0.0, -D / 2 - 0.24, 0.44, 0.74, 0.145, 0.145, 12)
+    F.tube(metal, (0.0, -D / 2 - 0.24, 0.59), (0.0, -D / 2 + 0.02, 0.59),
+           0.075, 10)
+    F.box(metal, -0.10, -D / 2 - 0.40, 0.50, 0.10, -D / 2 - 0.22, 0.68)
+    F.box("bakelite", -0.085, -D / 2 - 0.30, 0.74, 0.085, -D / 2 - 0.14,
+          0.86)                                          # ign transformer
+    F.tube(metal, (0.10, -D / 2 - 0.30, 0.10), (0.10, -D / 2 - 0.30, 0.52),
+           0.014, 6)
+    F.cyl(metal, 0.10, -D / 2 - 0.30, 0.10, 0.30, 0.055, 0.055, 8)  # filter
+
+    # ---- draft hood into the same chimney
+    F.box(metal, -0.20, D / 2 - 0.04, H - 0.02, 0.20, D / 2 + 0.22, H + 0.26)
+    F.cyl(metal, 0.0, D / 2 + 0.34, H + 0.06, H + 0.30, 0.165, 0.165, 14)
+    F.tube(metal, (0.0, D / 2 + 0.34, H + 0.26),
+           (0.0, D / 2 + 0.86, H + 0.26), 0.165, 14)
+
+    # ---- controls, in grey boxes on flex conduit
+    for cz, cw in ((0.92, 0.13), (1.16, 0.11)):
+        F.box(metal, W / 2 + 0.01, -0.16, cz, W / 2 + 0.10, -0.16 + cw,
+              cz + cw)
+        F.tube(metal, (W / 2 + 0.055, -0.16 + cw * 0.5, cz),
+               (W / 2 + 0.055, -0.16 + cw * 0.5, cz - 0.22), 0.011, 6)
+
+    # ---- water column, sight glass, low-water cutoff
+    F.cyl(iron, W / 2 + 0.14, 0.22, 0.66, 1.12, 0.040, 0.040, 8)
+    F.cyl("glassish", W / 2 + 0.20, 0.22, 0.74, 1.04, 0.016, 0.016, 8)
+    for tz in (0.76, 0.90, 1.04):
+        F.cyl(brass, W / 2 + 0.14, 0.14, tz, tz + 0.026, 0.016, 0.016, 6)
+    F.box(iron, W / 2 + 0.06, 0.34, 0.60, W / 2 + 0.26, 0.56, 0.78)
+
+    # ---- steam main out of the top, lagged, and the Hartford loop
+    F.tube("linen", (0.0, -0.10, H + 0.14), (0.0, D / 2 + 0.70, H + 0.14),
+           0.075, 10)
+    F.cyl("linen", 0.0, -0.10, H + 0.02, H + 0.20, 0.075, 0.075, 10)
+    F.tube(metal, (-W / 2 - 0.10, 0.30, 0.16), (-W / 2 - 0.10, 0.30, 0.78),
+           0.038, 8)
+    F.tube(metal, (-W / 2 - 0.10, 0.30, 0.78), (-W / 2 - 0.10, -0.34, 0.78),
+           0.038, 8)
+    F.cyl(brass, -W / 2 - 0.10, -0.34, 0.78, 0.86, 0.052, 0.052, 8)
+    # the service sticker somebody has been signing since 1974
+    F.box("paper", -0.12, -D / 2 - 0.013, 0.94, 0.14, -D / 2 - 0.009, 1.10)
+
+
+def asm_coal_furnace(F, p):
+    """The original coal plant, dead since about 1961.
+
+    A 1926 apartment house of this size burned coal in a cast-iron
+    SECTIONAL steam boiler: cast sections bolted together into a barrel,
+    lagged with asbestos plaster, wrapped in canvas and banded with steel
+    straps. Coal went in the upper firing door onto grate bars; ash fell
+    through to the pit behind the lower door; the smoke left through a
+    hood at the back into a breeching pipe with a barometric damper on
+    it, and so to the chimney.
+
+    Decommissioning one is not demolition - it is abandonment in place,
+    because the thing weighs four tons and the door is 900 mm wide. So
+    what is left is the whole boiler with:
+      - the breeching cut and the chimney thimble plated over
+      - both fire doors bolted shut, not merely closed
+      - the steam header's pipes cut and capped, unions hanging
+      - the gauge glass broken out and the try-cocks seized
+      - a condemned tag wired to the firing door and left to yellow
+      - the lagging torn where somebody took a sample, showing the
+        fibrous core nobody wants to talk about
+    """
+    iron, metal, brass = "cast_iron", "metal", "brass"
+    canvas, soot = "linen", "soot"
+    W, D = 1.16, 1.02
+    HB = 1.62                       # top of the barrel
+
+    # ---- hearth apron and the ash pit the boiler stands over
+    F.box("concrete", -W / 2 - 0.14, -D / 2 - 0.30, 0.0,
+          W / 2 + 0.14, D / 2 + 0.10, 0.10)
+    F.box(iron, -W / 2, -D / 2, 0.10, W / 2, D / 2, 0.30)
+    # ---- the barrel: sections, then lagging over them, then the bands
+    F.box(iron, -W / 2, -D / 2, 0.30, W / 2, D / 2, HB)
+    F.box(canvas, -W / 2 - 0.035, -D / 2 - 0.035, 0.40,
+          W / 2 + 0.035, D / 2 + 0.035, HB - 0.08)
+    for bz in (0.56, 0.94, 1.32):
+        F.box(metal, -W / 2 - 0.045, -D / 2 - 0.045, bz,
+              W / 2 + 0.045, D / 2 + 0.045, bz + 0.035)
+    # somebody took a sample of the lagging and never patched it
+    F.box(soot, -W / 2 - 0.05, -D / 2 - 0.05, 0.66,
+          -W / 2 + 0.14, -D / 2 + 0.02, 0.86)
+
+    # ---- firing door, ash door, and the bolts that shut them for good
+    for (dz, dh, tag) in ((0.92, 0.40, True), (0.40, 0.26, False)):
+        F.box(iron, -0.30, -D / 2 - 0.075, dz, 0.30, -D / 2 - 0.035,
+              dz + dh)
+        for hz in (dz + 0.05, dz + dh - 0.05):      # strap hinges
+            F.box(iron, -0.33, -D / 2 - 0.085, hz - 0.022,
+                  -0.05, -D / 2 - 0.030, hz + 0.022)
+        # the latch, and the bolt run through it so it cannot be opened
+        F.cyl(iron, 0.235, -D / 2 - 0.09, dz + dh * 0.5 - 0.05,
+              dz + dh * 0.5 + 0.05, 0.030, 0.030, 8)
+        F.tube(metal, (0.16, -D / 2 - 0.115, dz + dh * 0.5),
+               (0.31, -D / 2 - 0.115, dz + dh * 0.5), 0.010, 6)
+        if tag:
+            # peep hole with its slide, and the condemned tag on a wire
+            F.cyl(iron, -0.16, -D / 2 - 0.085, dz + 0.28, dz + 0.30,
+                  0.048, 0.048, 10)
+            F.box(metal, -0.21, -D / 2 - 0.10, dz + 0.315,
+                  -0.05, -D / 2 - 0.088, dz + 0.345)
+            F.tube(metal, (0.02, -D / 2 - 0.10, dz + dh * 0.5),
+                   (0.02, -D / 2 - 0.10, dz + dh * 0.5 - 0.10), 0.004, 5)
+            F.box("paper", -0.045, -D / 2 - 0.108, dz + dh * 0.5 - 0.22,
+                  0.085, -D / 2 - 0.104, dz + dh * 0.5 - 0.10)
+
+    # ---- smoke hood, breeching, and the plate where it was cut
+    F.box(iron, -0.34, D / 2 - 0.10, HB - 0.06, 0.34, D / 2 + 0.16, HB + 0.30)
+    F.cyl(metal, 0.0, D / 2 + 0.30, HB + 0.04, HB + 0.34, 0.185, 0.185, 14)
+    F.tube(metal, (0.0, D / 2 + 0.30, HB + 0.30),
+           (0.0, D / 2 + 0.86, HB + 0.30), 0.185, 14)
+    # barometric damper: a hinged disc in its own collar
+    F.cyl(metal, 0.0, D / 2 + 0.62, HB + 0.30, HB + 0.34, 0.205, 0.205, 14)
+    F.box(iron, -0.13, D / 2 + 0.60, HB + 0.30, 0.13, D / 2 + 0.64,
+          HB + 0.56)
+    # the cut end, blanked off with a plate and four bolts
+    F.box(metal, -0.21, D / 2 + 0.86, HB + 0.09, 0.21, D / 2 + 0.90,
+          HB + 0.51)
+    for bx in (-0.15, 0.15):
+        for bz in (HB + 0.15, HB + 0.45):
+            F.cyl(metal, bx, D / 2 + 0.92, bz, bz + 0.018, 0.014, 0.014, 6)
+
+    # ---- steam header, gauge, safety valve, and the dead water column
+    F.tube(metal, (-W / 2 + 0.10, -0.10, HB + 0.16),
+           (W / 2 - 0.10, -0.10, HB + 0.16), 0.052, 10)
+    F.cyl(brass, W / 2 - 0.16, -0.10, HB + 0.16, HB + 0.34, 0.030, 0.030, 8)
+    F.lathe(brass, W / 2 - 0.16, -0.10,
+            [(0.0, HB + 0.34), (0.075, HB + 0.36), (0.075, HB + 0.42),
+             (0.0, HB + 0.44)], 12)                      # pressure gauge
+    F.cyl(brass, -0.10, -0.10, HB + 0.16, HB + 0.40, 0.036, 0.028, 8)
+    F.box(brass, -0.10, -0.24, HB + 0.36, 0.14, -0.16, HB + 0.40)
+    # water column: the glass is gone, the try-cocks are seized
+    F.cyl(iron, -W / 2 + 0.16, -D / 2 - 0.02, 0.86, 1.34, 0.042, 0.042, 8)
+    for tz in (0.94, 1.10, 1.26):
+        F.cyl(brass, -W / 2 + 0.16, -D / 2 - 0.10, tz, tz + 0.030,
+              0.018, 0.018, 6)
+    # feed pipe, cut short, with the union left hanging open
+    F.tube(metal, (W / 2 + 0.02, 0.10, 0.62), (W / 2 + 0.02, 0.10, 1.24),
+           0.030, 8)
+    F.cyl(brass, W / 2 + 0.02, 0.10, 1.24, 1.30, 0.046, 0.046, 8)
+
+    # ---- what was left standing beside it
+    F.box(metal, W / 2 + 0.22, -D / 2 + 0.06, 0.0, W / 2 + 0.52,
+          -D / 2 + 0.36, 0.34)                          # ash bucket
+    F.tube(metal, (W / 2 + 0.24, -D / 2 + 0.10, 0.34),
+           (W / 2 + 0.50, -D / 2 + 0.32, 0.34), 0.008, 5)
+    F.tube("timber", (-W / 2 - 0.24, -D / 2 - 0.12, 0.0),
+           (-W / 2 - 0.10, -D / 2 + 0.30, 1.24), 0.022, 7)   # shovel haft
+    F.box(metal, -W / 2 - 0.20, -D / 2 - 0.10, 0.0,
+          -W / 2 - 0.02, -D / 2 + 0.10, 0.05)
+
+
+def asm_couch(F, p):
+    """An old overstuffed sofa doing booth duty. Brief section 8.
+
+    Four distinct modules, not four recolors: the variant changes the
+    upholstery, the arm profile, the sag and the damage, because the
+    Harukiya acquired its seating one dead sofa at a time. Cushions sit
+    at slightly different heights and tilts - compressed foam has no
+    two survivors alike - and every module's middle sits lower than its
+    ends, which is where everyone always sits.
+    """
+    v = int(p.get("variant", 0)) % 4
+    L = float(p.get("L", 1.5))
+    mat = ("fabric_green", "fabric_warm", "fabric_cool", "rug_warm")[v]
+    seed = p.get("id", "couch")
+    D = 0.86
+    # plinth and frame
+    F.box("wood_dark", -L / 2, -D / 2, 0.03, L / 2, D / 2, 0.10)
+    # seat deck
+    F.box(mat, -L / 2, -D / 2 + 0.04, 0.10, L / 2, D / 2, 0.34)
+    # seat cushions: three, unequal, the middle one flattened
+    n_c = 3 if L > 1.25 else 2
+    cw = (L - 0.06) / n_c
+    for i in range(n_c):
+        x0 = -L / 2 + 0.03 + i * cw
+        sag = 0.055 if (n_c == 3 and i == 1) else _jit(seed, i, 0.0, 0.02)
+        tilt = _jit(seed, i + 7, -0.008, 0.012)
+        F.box(mat, x0 + 0.012, -D / 2 + 0.06, 0.34 - sag,
+              x0 + cw - 0.012, D / 2 - 0.14, 0.475 - sag + tilt)
+    # back: a leaning slab with loose back cushions
+    F.box(mat, -L / 2, D / 2 - 0.16, 0.10, L / 2, D / 2, 0.78)
+    for i in range(n_c):
+        x0 = -L / 2 + 0.03 + i * cw
+        lean = _jit(seed, i + 13, 0.0, 0.035)
+        F.box(mat, x0 + 0.02, D / 2 - 0.26 + lean, 0.44,
+              x0 + cw - 0.02, D / 2 - 0.10, 0.82 - lean)
+    # arms differ by variant: rolled (lathe) on 0/1, square on 2/3
+    for sx in (-1.0, 1.0):
+        ax = sx * (L / 2 + 0.09)
+        if v < 2:
+            F.tube(mat, (sx * L / 2, -D / 2 + 0.10, 0.58),
+                   (sx * L / 2 + sx * 0.17, -D / 2 + 0.10, 0.58), 0.09, 10)
+            F.box(mat, min(ax, sx * L / 2), -D / 2, 0.10,
+                  max(ax, sx * L / 2), D / 2, 0.56)
+        else:
+            F.box(mat, min(ax, sx * L / 2), -D / 2, 0.10,
+                  max(ax, sx * L / 2), D / 2, 0.66)
+    # damage: variant 1 has a repaired tear (timber batten under a
+    # patch), variant 3 has one dead cushion showing its underside
+    if v == 1:
+        F.box("linen", -L * 0.18, -D / 2 + 0.055, 0.40,
+              -L * 0.02, -D / 2 + 0.075, 0.47)
+    if v == 3:
+        F.box("linen", L * 0.12, -D / 2 + 0.06, 0.43,
+              L * 0.34, D / 2 - 0.16, 0.455)
+    F.hull(-L / 2 - 0.26, -D / 2, 0.0, L / 2 + 0.26, D / 2, 0.85)
+
+
+def asm_arcade_cab(F, p):
+    """Four late-century cabinets, four silhouettes. Brief section 9.
+
+    Not recolors: 0 is the traditional upright, 1 the flamboyant
+    late-80s shape with fins and an oversized marquee, 2 the
+    music-adjacent chrome amusement, 3 the compact low unit with a
+    steeply raked screen. Screens are the dark "screen" material - the
+    glow is the Godot prop's job (attract mode is runtime, not
+    geometry). Every cabinet gets a coin door, vents, and feet, because
+    a cabinet with no coin door is furniture pretending.
+    """
+    v = int(p.get("variant", 0)) % 4
+    body = ("metal", "fabric_cool", "chrome", "enamel")[v]
+    W, D = 0.66, 0.72
+    if v == 3:
+        W, D = 0.60, 0.60
+    H = (1.83, 1.90, 1.72, 1.45)[v]
+    # carcass
+    F.box(body, -W / 2, -D / 2, 0.02, W / 2, D / 2, H - (0.22 if v == 1
+          else 0.0))
+    # feet
+    for fx in (-W / 2 + 0.06, W / 2 - 0.06):
+        for fy in (-D / 2 + 0.06, D / 2 - 0.06):
+            F.cyl("bakelite", fx, fy, 0.0, 0.03, 0.025, 0.025, 8)
+    # control panel wedge on the front (front = -y)
+    F.box("bakelite_black", -W / 2 + 0.02, -D / 2 - 0.13,
+          (0.92, 0.95, 0.88, 0.72)[v],
+          W / 2 - 0.02, -D / 2 + 0.02, (1.02, 1.06, 0.97, 0.80)[v])
+    # buttons and stick
+    for i in range(3):
+        F.cyl("terracotta" if i == 0 else "enamel",
+              -W / 2 + 0.16 + i * 0.12, -D / 2 - 0.065,
+              (1.02, 1.06, 0.97, 0.80)[v],
+              (1.035, 1.075, 0.985, 0.815)[v], 0.016, 0.016, 8)
+    F.cyl("bakelite_black", -W / 2 + 0.13, -D / 2 - 0.09,
+          (1.02, 1.06, 0.97, 0.80)[v],
+          (1.10, 1.14, 1.05, 0.88)[v], 0.008, 0.008, 6)
+    # screen: recessed dark glass, raked harder on the compact unit
+    sz0 = (1.10, 1.14, 1.02, 0.84)[v]
+    sz1 = (1.48, 1.55, 1.38, 1.12)[v]
+    F.box("bakelite_black", -W / 2 + 0.03, -D / 2 - 0.02, sz0 - 0.04,
+          W / 2 - 0.03, -D / 2 + 0.06, sz1 + 0.04)
+    F.box("screen", -W / 2 + 0.06, -D / 2 - 0.005, sz0,
+          W / 2 - 0.06, -D / 2 + 0.005, sz1)
+    # marquee
+    if v == 1:
+        # the flamboyant one: fins and a lit-header oversize marquee
+        F.box("milk_glass", -W / 2 - 0.05, -D / 2 - 0.06, H - 0.22,
+              W / 2 + 0.05, -D / 2 + 0.10, H)
+        for sx in (-1.0, 1.0):
+            F.box("terracotta", sx * (W / 2 + 0.045) - 0.015,
+                  -D / 2, 0.55, sx * (W / 2 + 0.045) + 0.015,
+                  D / 2 - 0.10, H - 0.10)
+    elif v != 3:
+        F.box("milk_glass", -W / 2 + 0.02, -D / 2 - 0.03, H - 0.16,
+              W / 2 - 0.02, -D / 2 + 0.05, H - 0.02)
+    # coin door low on the front
+    F.box("brass", -0.09, -D / 2 - 0.012, 0.38, 0.09, -D / 2, 0.55)
+    F.cyl("bakelite_black", 0.0, -D / 2 - 0.02, 0.44, 0.455,
+          0.012, 0.012, 8)
+    # side vents (louvre slits)
+    for i in range(4):
+        F.box("bakelite_black", W / 2 - 0.005, D / 2 - 0.30,
+              0.30 + i * 0.05, W / 2 + 0.005, D / 2 - 0.12,
+              0.315 + i * 0.05)
+    F.hull(-W / 2 - 0.06, -D / 2 - 0.14, 0.0, W / 2 + 0.06,
+           D / 2, H)
+
+
+def asm_jukebox(F, p):
+    """The hero music machine. Brief section 10: tacky, impressive,
+    expensive when new, badly dated now, lovable. Rounded chrome crown
+    over a lit sign, brass mesh grille below, a rank of selection
+    buttons - and it still works, which in this bar is a character
+    trait."""
+    W, D, H = 0.92, 0.62, 1.58
+    F.box("wood_dark", -W / 2, -D / 2, 0.02, W / 2, D / 2, 0.55)
+    F.box("chrome", -W / 2, -D / 2, 0.55, W / 2, D / 2, 0.62)
+    # grille: brass mesh face in a chrome surround
+    F.box("brass_mesh", -W / 2 + 0.08, -D / 2 - 0.008, 0.12,
+          W / 2 - 0.08, -D / 2, 0.50)
+    # body rising to the crown
+    F.box("enamel", -W / 2, -D / 2, 0.62, W / 2, D / 2, 1.06)
+    # the lit sign band
+    F.box("milk_glass", -W / 2 + 0.05, -D / 2 - 0.02, 1.06,
+          W / 2 - 0.05, -D / 2 + 0.04, 1.26)
+    # rounded crown, lathe half-drum along x approximated by cyl slices
+    F.lathe("chrome", 0.0, 0.0,
+            [(W * 0.28, 1.26), (W * 0.46, 1.34), (W * 0.5, 1.44),
+             (W * 0.42, 1.54), (W * 0.2, 1.58), (0.001, 1.585)], 16)
+    # selection buttons: two ranks of bakelite
+    for r_i in range(2):
+        for i in range(8):
+            F.box("bakelite", -W / 2 + 0.10 + i * 0.09,
+                  -D / 2 - 0.02, 0.80 - r_i * 0.075,
+                  -W / 2 + 0.16 + i * 0.09, -D / 2, 0.845 - r_i * 0.075)
+    # window over the mechanism
+    F.box("glassish", -W / 2 + 0.10, -D / 2 - 0.005, 0.88,
+          W / 2 - 0.10, -D / 2 + 0.005, 1.04)
+    F.hull(-W / 2 - 0.04, -D / 2 - 0.05, 0.0, W / 2 + 0.04, D / 2, H)
+
+
+def asm_coal_heap(F, p):
+    """What is left in the bunker: a heap, not a box.
+
+    The coal pile was a rectangular block of the SLAB material - grey
+    concrete, in the shape of a crate. Coal does not stack; it slumps to
+    its angle of repose, which for broken anthracite is about 27 degrees.
+    So this is a low mound with a scatter of loose lumps at its foot,
+    black and dusty, sitting on the bunker floor where the last delivery
+    ran out.
+    """
+    W = p.get("W", 1.0)
+    D = p.get("D", 1.8)
+    H = p.get("H", 0.62)
+    steps = 5
+    for i in range(steps):
+        t = float(i) / steps
+        F.box("soot", -W * 0.5 * (1.0 - t * 0.72), -D * 0.5 * (1.0 - t * 0.55),
+              H * t, W * 0.5 * (1.0 - t * 0.72), D * 0.5 * (1.0 - t * 0.55),
+              H * (t + 1.0 / steps))
+    # lumps that rolled off the toe of the heap
+    for k in range(9):
+        a = 2.0 * math.pi * ((k * 97) % 360) / 360.0
+        r = W * 0.52 + (k % 3) * 0.09
+        lx = math.cos(a) * r
+        ly = math.sin(a) * (D * 0.52 + (k % 2) * 0.08)
+        sz = 0.035 + ((k * 31) % 5) * 0.012
+        F.box("soot", lx - sz, ly - sz, 0.0, lx + sz, ly + sz, sz * 1.6)
+
+
 ASM = {
+    "couch": asm_couch, "arcade_cab": asm_arcade_cab,
+    "jukebox": asm_jukebox,
     "sofa": asm_sofa, "chair": asm_chair, "table_round": asm_table_round,
     "table_rect": asm_table_rect, "coffee": asm_coffee,
     "nightstand": asm_nightstand, "bed": asm_bed, "wardrobe": asm_wardrobe,
@@ -1801,6 +2849,14 @@ ASM = {
     "sitemodel": asm_sitemodel, "bottles": asm_bottles,
     "safety_barrier": asm_safety_barrier, "reno_gear": asm_reno_gear,
     "fire_escape": asm_fire_escape,
+    "entrance_marquee": asm_entrance_marquee,
+    "vault_lights": asm_vault_lights,
+    "coal_chute": asm_coal_chute,
+    "utility_cover": asm_utility_cover,
+    "coal_furnace": asm_coal_furnace,
+    "modern_boiler": asm_modern_boiler,
+    "coal_heap": asm_coal_heap,
+    "watering_can": asm_watering_can,
 }
 
 
@@ -1826,7 +2882,7 @@ def subtract_rect(rects, hole):
 
 
 def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
-               stone_buf=None, ao_buf=None):
+               stone_buf=None, ao_buf=None, fl=None):
     """Wall run with openings, thickness centered on the a->b line.
     Door openings get jamb/head trim; windows get a frame, sill lip and a
     collidable glass pane. Detail pass (unless details=False): baseboards
@@ -1899,26 +2955,76 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
                          0.024)
             else:
                 box(wains_buf, d0, d1, 0.11, dado_top, t + 0.022)
+            # A bordered composition cannot be tiled. The lobby marble
+            # source carries a moulded panel edge down two sides, so
+            # running it along a wall under scalar world UVs prints that
+            # moulding through the middle of the run, where no moulding
+            # exists. Lay it as what it physically is - discrete panels,
+            # each mapped 0..1 - and the border lands on a panel edge.
+            if w.get("wains_mat") == "marble_lobby":
+                span = d1 - d0
+                n_panels = max(1, int(round(span / 0.86)))
+                lift = 0.024 if dado_side else 0.011
+                for pi in range(n_panels):
+                    p0 = d0 + span * pi / n_panels
+                    p1 = d0 + span * (pi + 1) / n_panels
+                    for sgn in ((dado_side,) if dado_side else (1, -1)):
+                        pf = cross + sgn * (t / 2 + lift + 0.004)
+                        if horizontal:
+                            pts = ((start + p0, pf, z + 0.11),
+                                   (start + p1, pf, z + 0.11),
+                                   (start + p1, pf, z + dado_top),
+                                   (start + p0, pf, z + dado_top))
+                        else:
+                            pts = ((pf, start + p0, z + 0.11),
+                                   (pf, start + p1, z + 0.11),
+                                   (pf, start + p1, z + dado_top),
+                                   (pf, start + p0, z + dado_top))
+                        wains_buf.add_quad_uv(*pts, (0.0, 0.0), (1.0, 0.0),
+                                              (1.0, 1.0), (0.0, 1.0))
             box(trim_buf, d0, d1, dado_top, dado_top + 0.04, t + 0.040)
             # A small bullnose bead catches a soft highlight and makes the
             # dado read as installed millwork instead of a razor-edged box.
             # Run it on both wall faces so corridor and room views agree.
+            #
+            # It rides on dado_top, NOT on a constant. It was pinned at
+            # 1.355 - which is 1.32 + 0.035, the default dado read off a
+            # wall with no alcove in it - so wherever the rail stepped
+            # down to an alcove sill the bead stayed up at full height
+            # and hung in the air with daylight under it. A chair rail
+            # is nailed to the top of the panelling; it goes where the
+            # panelling goes.
+            bead_z = dado_top + 0.035
             a0, a1 = start + d0, start + d1
             for sgn in (-1, 1):
                 face = cross + sgn * (t / 2.0 + 0.031)
                 if horizontal:
-                    trim_buf.add_tube((a0, face, z + 1.355),
-                                      (a1, face, z + 1.355), 0.024, 8)
+                    trim_buf.add_tube((a0, face, z + bead_z),
+                                      (a1, face, z + bead_z), 0.024, 8)
                 else:
-                    trim_buf.add_tube((face, a0, z + 1.355),
-                                      (face, a1, z + 1.355), 0.024, 8)
+                    trim_buf.add_tube((face, a0, z + bead_z),
+                                      (face, a1, z + bead_z), 0.024, 8)
         if ao_buf is None:
             return
-        zq = z + 0.024
-        for sgn in (1, -1):
+        # A contact-shadow strip belongs to a wall/floor junction, and a
+        # perimeter wall only has one of those - the inside. Drawn on
+        # both faces it hung a 20 mm band right around the outside of the
+        # building at every storey line, 160 mm proud of the brick: the
+        # dark horizontal bars ruled across the facade in a grid matching
+        # the floors, straight through the tenant's neon. The baseboard
+        # two blocks up already knew this and asked in_side; the strip
+        # never did.
+        sides = (w["in_side"],) if w.get("in_side") else (1, -1)
+        for sgn in sides:
             face = cross + sgn * (t / 2.0 + 0.02)
             outer = face + sgn * 0.14
             a0, a1 = start + d0, start + d1
+            # Each side of a wall can face a different finish - terrazzo
+            # corridor one side, ceramic bathroom the other - so the strip
+            # is levelled per face rather than per wall.
+            mid = (a0 + a1) * 0.5
+            sx, sy = (mid, outer) if horizontal else (outer, mid)
+            zq = z + finish_at(fl, sx, sy) + 0.002
             if horizontal:
                 pts = [(a1, face), (a0, face), (a0, outer), (a1, outer)]                         if sgn < 0 else                         [(a0, face), (a1, face), (a1, outer), (a0, outer)]
                 ao_buf.add_quad((pts[0][0], pts[0][1], zq),
@@ -2203,7 +3309,12 @@ KIND_FLOOR = {
     # terrazzo, as the 1920s intended.
     "lobby": ("terrazzo", 0.012), "atrium": ("terrazzo", 0.012),
     "living": ("floor_oak", 0.012), "bedroom": ("floor_oak", 0.012),
-    "alcove": ("floor_oak", 0.012), "kitchen": ("floor_oak", 0.012),
+    "alcove": ("floor_oak", 0.012),
+    # Boards. The linoleum is not the room's floor - it is a bound
+    # square laid over the boards under the run (see _lino_field in
+    # gen_layout). Flooring the whole room in it was wrong: most of
+    # these kitchens are a corner of a living room.
+    "kitchen": ("floor_oak", 0.012),
     "closet": ("floor_oak", 0.012), "vestibule": ("floor_oak", 0.012),
     "common": ("floor_oak", 0.012),
     "office": ("floor_oak", 0.016),
@@ -2215,6 +3326,30 @@ KIND_FLOOR = {
     "storage": ("floor_oak", 0.012),
     "utility": ("concrete", 0.012),
 }
+
+
+def finish_at(fl, x, y):
+    """Thickness of the floor finish under a plan point.
+
+    Everything painted on the floor - wall AO strips, contact shadows,
+    wear decals - used to be authored against the bare slab and lifted
+    clear of the thickest finish in the building (bathroom ceramic, 20
+    mm) so it could never z-fight. In a corridor, whose terrazzo is 12
+    mm, that left the decal floating 12-16 mm in the air. Opaque, lit on
+    its upper face, and running the length of every wall and straight
+    across every threshold, it read as a kerb: the hump at the bottom of
+    doorways and open archways.
+
+    Painted-on things now ask what they are painted on.
+    """
+    if not fl:
+        return 0.0
+    for r in fl.get("rooms", ()):
+        x0, y0, x1, y1 = r["rect"]
+        if x0 <= x <= x1 and y0 <= y <= y1:
+            spec = KIND_FLOOR.get(r["kind"])
+            return spec[1] if spec else 0.0
+    return 0.0
 
 
 def build_floor_overlay(buf, fid, fl, r):
@@ -2424,6 +3559,33 @@ def _rail_line(buf, fid, gx0, gx1, yc, z):
     guard.add_box((gx0 - 0.13, yc - 0.03, z), (gx1 + 0.13, yc + 0.03, z + 1.0))
 
 
+# The tread sheet is six treads stacked top to bottom in one image;
+# each tread takes one band. EPS keeps a hair of margin so a band never
+# bleeds the neighbouring tread's grime line into its own nosing.
+TREAD_BANDS = 6
+TREAD_EPS = 0.0016
+# Set True if a render shows the grime band along the FRONT edge of the
+# treads instead of the back. Verified False.
+TREAD_V_FLIP = False
+
+# Which end of the tread map faces down-flight. VERIFIED IN ENGINE at
+# 0.0 - do not "correct" it by reading the source, read this first.
+#
+# The source's grimy banded edge is NOT the nosing, which is the trap
+# here. It is the back corner where the tread meets the riser above it:
+# the band feathers forward into the tread field with drip streaks, the
+# way filth packs into a corner and gets swept onward. A nosing is the
+# one strip of a stair that feet scuff CLEAN - it never cakes like that.
+# So the image's top edge is the riser junction and its clean, lightly
+# scuffed bottom edge is the nose.
+#
+# Blender's UV origin is bottom-left and the glTF exporter flips v, so
+# which end that lands on is not something to reason out - it was
+# checked on a render. Flip to 1.0 only if a render shows the grime
+# band along the front edge of the treads.
+NOSING_V = 0.0
+
+
 def _flight(buf, part):
     """One dog-leg flight along Y: thin waist slab + treads, walk ramp, raked
     balustrade on the well side, wall rail on the other, fall guard."""
@@ -2435,8 +3597,11 @@ def _flight(buf, part):
     brass = buf(fid, "stairs_brass", "brass")
     metal = buf(fid, "stairs_iron", "metal")
     guard = buf(fid, "stairs_guard-colonly", "stair")
+    treads = buf(fid, "stairs_treads", "stair_treads")
     n, rise, tread = part["n"], part["rise"], part["tread"]
     s, d = part["start"], part["dir"]
+    flight_seed = zlib.crc32(
+        ("%s|%.3f|%.3f" % (fid, part["z0"], part["start"])).encode()) % 97
     b0, b1, z0 = part["b0"], part["b1"], part["z0"]
     # Visible construction is a constant-depth inclined waist slab, matching
     # the 180 mm landing fascia.  The old boxes all extended down to z0,
@@ -2460,6 +3625,35 @@ def _flight(buf, part):
         # saw-tooth silhouette without rebuilding a solid triangular mass.
         vis.add_box((b0, min(a0, a1), top - 0.065),
                     (b1, max(a0, a1), top))
+        # The tread top gets its OWN 0..1 map.
+        #
+        # The stair source is a composition, not a tiling swatch: it is
+        # one tread, with the grimed riser junction along one edge and
+        # the dish that a century of feet wore into the middle of it.
+        # Under the scalar world projection every tread sampled whatever
+        # slice of that image its world position happened to land on, so
+        # the grime band ran across the middle of some treads and missed
+        # others entirely. Mapped per tread it lands in the corner it
+        # came from, and the dish lands where people actually walk.
+        ya, yb = min(a0, a1), max(a0, a1)
+        # Which of the six treads on the sheet this one wears. The flight
+        # seed decorrelates one flight from the next, so the same
+        # sequence does not march up the whole building; +i then walks
+        # the sheet so no two treads in a row match.
+        k = (flight_seed + i) % TREAD_BANDS
+        v_front = 1.0 - float(k + 1) / TREAD_BANDS + TREAD_EPS
+        v_back = 1.0 - float(k) / TREAD_BANDS - TREAD_EPS
+        if TREAD_V_FLIP:
+            v_front, v_back = v_back, v_front
+        # a0 is the down-flight (nosing) edge whichever way the flight
+        # runs, so orient off it rather than off min/max.
+        v_ya, v_yb = ((v_front, v_back) if a0 <= a1
+                      else (v_back, v_front))
+        tz = top + 0.002
+        treads.add_quad_uv((b0, ya, tz), (b1, ya, tz),
+                           (b1, yb, tz), (b0, yb, tz),
+                           (0.0, v_ya), (1.0, v_ya),
+                           (1.0, v_yb), (0.0, v_yb))
     ramp.add_ramp(s, z0, a_end, z0 + n * rise, b0, b1, axis="y")
     xr = b1 - 0.045 if part["rail_side"] == "hi" else b0 + 0.045
     xw = b0 + 0.055 if part["rail_side"] == "hi" else b1 - 0.055
@@ -2488,6 +3682,81 @@ def _flight(buf, part):
     na = s + d * 0.06  # starting newel; landing rails own the tops
     _newel(rail, brass, metal, xr, na, z0, z0 + 0.98)
     _rail_bolt_plug(brass, xr + 0.031, na + d * 0.09, z0 + 0.95, "y")
+
+
+# The paving flag lives in the middle 66% of its source; the outer 17%
+# on each edge is a sliver of the neighbouring stones, and sampling it
+# would print a joint across the middle of a flag that has none.
+FLAG_UV0, FLAG_UV1 = 0.17, 0.83
+
+
+def build_sidewalk_flag(buf, fid, fu, r, z0):
+    """One paving flag, wearing one stone.
+
+    The walk was world-projected, so the source's own joint lines fell
+    wherever the world grid happened to put them - across the middle of
+    flags, missing the actual gaps between them. Two joint systems, one
+    real and one printed, disagreeing.
+
+    Now the GEOMETRY owns the joints (the gaps between these boxes are
+    the joints, and the grout material shows through them) and the
+    TEXTURE owns the stone: each flag samples the single complete flag
+    out of the middle of the source.
+
+    Each flag also takes one of four quarter turns, chosen by a stable
+    hash of its id. A paving gang lays stones as they come off the
+    pallet, and without this every flag in the street carries the same
+    crack in the same corner.
+    """
+    body = buf(fid, "furniture_sidewalk_kerb-col", "concrete")
+    body.add_box((r[0], r[1], z0), (r[2], r[3], z0 + fu["h"] - 0.004))
+    top = buf(fid, "furniture_sidewalk_haunted", "sidewalk_haunted")
+    zt = z0 + fu["h"]
+    uv = [(FLAG_UV0, FLAG_UV0), (FLAG_UV1, FLAG_UV0),
+          (FLAG_UV1, FLAG_UV1), (FLAG_UV0, FLAG_UV1)]
+    turns = zlib.crc32(str(fu.get("id", "")).encode()) % 4
+    uv = uv[turns:] + uv[:turns]
+    top.add_quad_uv((r[0], r[1], zt), (r[2], r[1], zt),
+                    (r[2], r[3], zt), (r[0], r[3], zt), *uv)
+
+
+def build_framed_picture(buf, fid, fu, r, z0):
+    """One picture off the nine-cell art sheet, not all nine at once.
+
+    "art" is unit-mapped, so every framed picture in the building showed
+    the WHOLE texture. With a single painting that meant the same
+    painting sixty-seven times; with a nine-cell sheet it would have
+    meant all nine crushed into every frame. Neither is a picture.
+
+    So each frame takes one cell, chosen by a stable hash of its own id -
+    stable because crc32 is not salted, so the painting in 3B does not
+    move between builds. The panel is emitted as a dark frame box with
+    the picture laid on BOTH thin faces: which way a frame points depends
+    on its wall, and a second quad costs one draw against the certainty
+    of never hanging a picture face-inwards.
+    """
+    frame = buf(fid, "furniture_wood_dark-col", "wood_dark")
+    frame.add_box((r[0], r[1], z0), (r[2], r[3], z0 + fu["h"]))
+    k = zlib.crc32(str(fu.get("id", "")).encode()) % 9
+    col, row = k % 3, k // 3
+    sp = 1.0 / 3.0
+    u0, u1 = col * sp, (col + 1) * sp
+    v0, v1 = 1.0 - (row + 1) * sp, 1.0 - row * sp
+    pic = buf(fid, "furniture_art", "art")
+    thin_y = (r[3] - r[1]) < (r[2] - r[0])
+    e = 0.004
+    for sgn in (1, -1):
+        if thin_y:
+            f = (r[3] + e) if sgn > 0 else (r[1] - e)
+            pts = [(r[0], f, z0), (r[2], f, z0),
+                   (r[2], f, z0 + fu["h"]), (r[0], f, z0 + fu["h"])]
+        else:
+            f = (r[2] + e) if sgn > 0 else (r[0] - e)
+            pts = [(f, r[1], z0), (f, r[3], z0),
+                   (f, r[3], z0 + fu["h"]), (f, r[1], z0 + fu["h"])]
+        if sgn < 0:
+            pts = [pts[1], pts[0], pts[3], pts[2]]
+        pic.add_quad_uv(*pts, (u0, v0), (u1, v0), (u1, v1), (u0, v1))
 
 
 def build_stair(buf, st):
@@ -2530,15 +3799,48 @@ def build_stair(buf, st):
 def build_wear_decals(buf, fl):
     fid = fl["id"]
     z = fl["z"]
-    zq = 0.0285   # above AO strips and contact shadows
 
     def floor_quad(mat, x0, y0, x1, y1):
+        # 6 mm over the finish this quad lands on: clear of the wall AO
+        # strip (2 mm) and the contact shadows (4 mm), but no longer a
+        # step you can see across a threshold.
+        zq = finish_at(fl, (x0 + x1) * 0.5, (y0 + y1) * 0.5) + 0.006
         buf(fid, "wear_" + mat, mat).add_quad(
             (x0, y0, z + zq), (x1, y0, z + zq),
             (x1, y1, z + zq), (x0, y1, z + zq))
 
+    def _in_a_room(x, y):
+        for r in fl.get("rooms", []):
+            x0, y0, x1, y1 = r["rect"]
+            if (min(x0, x1) <= x <= max(x0, x1)
+                    and min(y0, y1) <= y <= max(y0, y1)):
+                return True
+        return False
+
     def wall_quad(mat, p0, p1, z0, z1):
         b = buf(fid, "wear_" + mat, mat)
+        # Make the decal face the room.
+        #
+        # The winding came from whatever corner order each caller found
+        # convenient, while the OFFSET was computed properly from the
+        # wall's in_side. So on every wall whose interior face is on the
+        # negative side, the stain sat in exactly the right place facing
+        # backwards - and because fx_ materials are deliberately
+        # double-sided, you saw its back face, lit from behind, which
+        # renders BLACK with the texture's alpha still cutting the blob
+        # shape. That is what the punchlist's "white decal quads" had
+        # become: pure black holes punched in the plaster.
+        #
+        # Rather than thread a facing argument through six call sites and
+        # rely on each staying correct, ask the geometry: step off the
+        # quad along its own normal and see whether that lands in a room.
+        nx, ny = (p1[1] - p0[1]), -(p1[0] - p0[0])
+        ln = math.hypot(nx, ny) or 1.0
+        nx, ny = nx / ln, ny / ln
+        mx = (p0[0] + p1[0]) * 0.5
+        my = (p0[1] + p1[1]) * 0.5
+        if not _in_a_room(mx + nx * 0.30, my + ny * 0.30):
+            p0, p1 = p1, p0
         b.add_quad((p0[0], p0[1], z + z0), (p1[0], p1[1], z + z0),
                    (p1[0], p1[1], z + z1), (p0[0], p0[1], z + z1))
 
@@ -2576,7 +3878,11 @@ def build_wear_decals(buf, fl):
         horizontal = abs(by - ay) < 1e-6
         start = min(ax, bx) if horizontal else min(ay, by)
         cross = ay if horizontal else ax
-        face = cross + w["t"] / 2.0 + 0.004
+        # Condensation blooms below a window form on the room side. This
+        # always picked the + face, which is indoors for the south and
+        # west runs and out on the street for the north and east ones.
+        drip_side = w.get("in_side") or 1
+        face = cross + drip_side * (w["t"] / 2.0 + 0.004)
         for o in w["openings"]:
             if o.get("type") != "window" or o.get("sill", 0.0) < 0.25 \
                     or o.get("decorative_alcove"):
@@ -2695,16 +4001,41 @@ def build():
     floor_cols = {}
     bufs = {}
 
+    # Alternate finishes up the building.
+    #
+    # Every storey drew from one texture per material, so the corridor on
+    # F05 was the same wall as the corridor on F02 down to the crack, and
+    # a player climbing the stair passed the same photograph six times.
+    # Where a second generator's take exists it ingests as "<mat>_b";
+    # hand it to every other storey. Keyed off the storey's index rather
+    # than a hash of its name, because what actually reads as repetition
+    # is two ADJACENT floors matching, and an index guarantees they never
+    # do. UV mode is still resolved from the BASE material - an alt is
+    # the same surface, so it projects the same way.
+    STOREY_IDX = {lvl: i for i, (lvl, _z) in enumerate(LEVEL_ORDER)}
+
+    def variant(fid, mat):
+        # Cycle the whole synthesized family up the building, not just a
+        # parity pick of _b: with up to four variants, adjacent storeys
+        # never match and the repeat period is the building's height.
+        fam = [mat] + [mat + sfx for sfx in ("_b", "_c", "_d")
+                       if (mat + sfx) in CAT_TEX]
+        if len(fam) == 1:
+            return mat
+        return fam[STOREY_IDX.get(fid, 0) % len(fam)]
+
     def buf(fid, cat, mat):
         key = (fid, cat)
         if key not in bufs:
-            if mat.startswith("wallfinish_"):
+            if mat.startswith("wallfinish_") or mat in EXPLICIT_MATS:
                 mode = "explicit"
             elif mat.startswith("fx_") or UV_MODE_BY_MAT.get(mat) == "unit":
                 mode = "unit"
             else:
                 mode = "world"
-            bufs[key] = MeshBuf("%s_%s" % (fid, cat), mat, mode)
+            bufs[key] = MeshBuf("%s_%s" % (fid, cat),
+                                variant(fid, mat), mode)
+            bufs[key].rooms = ROOMS_BY_FLOOR.get(fid, [])
         return bufs[key]
 
     for fl in LAYOUT["floors"]:
@@ -2738,7 +4069,7 @@ def build():
                                                        "wainscot"),
                            w.get("wains_mat", "wainscot")),
                        buf(fid, "stone_trim-col", "limestone"),
-                       buf(fid, "fx_ao_decal", "fx_ao"))
+                       buf(fid, "fx_ao_decal", "fx_ao"), fl)
             if w["mat"] in ("brick", "common_brick", "face_brick") \
                     and w.get("in_side") and w.get("finish_texture"):
                 finish_id = w["finish_texture"]
@@ -2754,19 +4085,51 @@ def build():
                 fn = ASM.get(fu["asm"])
                 if fn is None:
                     continue
+                on_floor = abs(fu.get("z0", 0.0)) < 1e-6
                 F = Frame(
                     lambda m, _f=fid: buf(_f, "furnish_%s" % m, m),
                     lambda _f=fid: buf(_f, "furniture_hull-colonly", "slab"),
                     fu["at"][0], fu["at"][1],
-                    fl["z"] + fu.get("z0", 0.0), fu.get("yaw", 0))
+                    fl["z"] + fu.get("z0", 0.0), fu.get("yaw", 0),
+                    finish_at(fl, fu["at"][0], fu["at"][1])
+                    if on_floor else 0.0)
                 fn(F, fu)
                 continue
             r = fu["rect"]
             z0 = fl["z"] + fu.get("z0", 0.0)
             fmat = fu.get("mat", "trim")
+            if fmat == "sidewalk_haunted":
+                build_sidewalk_flag(buf, fid, fu, r, z0)
+                continue
+            # Retail interiors get their OWN merged meshes, bucketed per
+            # shop. In the floor-wide furniture buffers their walls
+            # joined a mesh whose AABB spans the whole block, and on
+            # gl_compatibility lights are assigned per object with a cap
+            # of 16 - so the bodega's own bulbs lost the contest against
+            # every fixture on the street and the shop went black. Same
+            # failure as the masonry-under-fill mystery, prevented at
+            # authoring time instead of debugged again.
+            fu_id0 = str(fu.get("id", ""))
+            cat_prefix = "furniture"
+            if fu_id0.startswith("retail_bod"):
+                cat_prefix = "retail_bod"
+            elif fu_id0.startswith("retail_bar"):
+                cat_prefix = "retail_bar"
+            elif fu_id0.startswith("retail_"):
+                cat_prefix = "retail_site"
+            if fmat == "art":
+                fu_id = str(fu.get("id", ""))
+                if fu_id.endswith("_art"):
+                    build_framed_picture(buf, fid, fu, r, z0)
+                    continue
+                # Wayfinding sign faces were sharing the picture
+                # material. Harmless while that was one abstract canvas;
+                # with a sheet of nine paintings it would hang a
+                # landscape on every stair sign. A sign face is enamel.
+                fmat = "indicator_enamel"
             # one buffer per material: a shared buffer would weld every
             # piece on the floor into the first item's material
-            buf(fid, "furniture_%s-col" % fmat, fmat).add_box(
+            buf(fid, "%s_%s-col" % (cat_prefix, fmat), fmat).add_box(
                 (r[0], r[1], z0), (r[2], r[3], z0 + fu["h"]))
         for m in fl["markers"]:
             e = bpy.data.objects.new("MK_%s" % m["id"], None)
@@ -2786,6 +4149,7 @@ def build():
         b.realize(floor_cols[fid])
 
     os.makedirs(GLB_OUT, exist_ok=True)
+    failed = []
     for fid, col in floor_cols.items():
         bpy.ops.object.select_all(action="DESELECT")
         for obj in col.objects:
@@ -2802,11 +4166,43 @@ def build():
         # sampler warning even though both sockets necessarily use the same
         # node/sampler. Keep production logs at ERROR so real export failures
         # remain visible without hundreds of false-positive decal messages.
-        bpy.ops.export_scene.gltf(filepath=path, use_selection=True,
-                                  export_apply=True,
-                                  export_format="GLTF_SEPARATE",
-                                  export_texture_dir="textures")
-        print("exported", path)
+        # Every floor rewrites the whole shared texture directory, so the
+        # same ~20 multi-MB PBR sets get written eight times over. On
+        # Windows that occasionally loses a race with the indexer or the
+        # scanner and finalize_images() dies with EINVAL on a path that is
+        # provably valid and writable a second later. Retry rather than
+        # lose the floor.
+        last_err = None
+        for attempt in range(3):
+            try:
+                bpy.ops.export_scene.gltf(filepath=path, use_selection=True,
+                                          export_apply=True,
+                                          export_format="GLTF_SEPARATE",
+                                          export_texture_dir="textures")
+                last_err = None
+                break
+            except RuntimeError as exc:
+                last_err = exc
+                print("retrying %s after export error: %s" % (path, exc))
+                time.sleep(1.5 * (attempt + 1))
+        if last_err is None:
+            print("exported", path)
+        else:
+            failed.append((fid, str(last_err)))
+            print("EXPORT FAILED", path)
+
+    # Blender exits 0 on an unhandled script exception, so a partial build
+    # used to look exactly like a good one: floors b1-04 rebuilt, 05/06 and
+    # the roof left at whatever they were, and nothing in the exit code to
+    # say so. Say it loudly instead - a building that is half old geometry
+    # and half new is worse than one that did not build at all.
+    if failed:
+        for fid, err in failed:
+            print("!! floor %s did not export: %s" % (fid, err))
+        print("BUILD FAILED: %d of %d floors did not export; the building "
+              "on disk is now a mix of old and new geometry"
+              % (len(failed), len(floor_cols)))
+        sys.exit(1)
 
     bpy.ops.wm.save_as_mainfile(filepath=BLEND_OUT)
     print("saved", BLEND_OUT)

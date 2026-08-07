@@ -11,7 +11,15 @@ var leaf_state := "closed"  # "closed" | "open" | "locked"
 ## so the street door never sweeps whoever stands in the vestibule.
 var swing_out := false
 
+## A butt hinge's pin does not sit on the door's centreline - it stands
+## proud of the face the door closes against, which is the entire reason a
+## leaf can swing without grinding its own corner into the jamb. Pivoting
+## on the centreline (as this did) buried 22 mm of leaf in the frame on
+## every swing.
+const HINGE_SETBACK := 0.026
+
 var open := false
+var _hinge_offset := 0.0
 var _body: AnimatableBody3D
 var _click: AudioStreamPlayer3D
 var _squeak: AudioStreamPlayer3D
@@ -30,12 +38,21 @@ func _ready() -> void:
 		add_to_group("apartment_doors")
 	_body = AnimatableBody3D.new()
 	_body.sync_to_physics = true
+	# The swing axis moves off the leaf's centreline and onto the face the
+	# door closes against, so the leaf stops grinding its own corner
+	# through the jamb. It has to be baked in HERE, before the body enters
+	# the tree: sync_to_physics ignores a position written afterwards, so
+	# shifting the body later moved the visuals and left the collision
+	# behind - which quietly swung the basement leaves into doorways the
+	# walk test needs clear.
+	_hinge_offset = HINGE_SETBACK * (-1.0 if swing_out else 1.0)
+	_body.position.z = -_hinge_offset
 	add_child(_body)
 	var shape := CollisionShape3D.new()
 	var box := BoxShape3D.new()
 	box.size = Vector3(width - 0.02, height - 0.02, 0.044)
 	shape.shape = box
-	shape.position = Vector3(width / 2.0, height / 2.0, 0)
+	shape.position = Vector3(width / 2.0, height / 2.0, _hinge_offset)
 	_body.add_child(shape)
 	var mi := MeshInstance3D.new()
 	var bm := BoxMesh.new()
@@ -93,15 +110,7 @@ func _ready() -> void:
 			eye.material_override = kick_mat
 			_body.add_child(eye)
 		for hz in [0.28, height * 0.50, height - 0.28]:
-			var hinge := MeshInstance3D.new()
-			var hc := CylinderMesh.new()
-			hc.top_radius = 0.012
-			hc.bottom_radius = 0.012
-			hc.height = 0.075
-			hinge.mesh = hc
-			hinge.position = Vector3(0.0, hz, 0.0)
-			hinge.material_override = kick_mat
-			_body.add_child(hinge)
+			butt_hinge(_body, hz, kick_mat)
 		# The saddle belongs to the frame, not the moving leaf. Its worn
 		# metal edge catches light even when the door is parked open.
 		# Ruled 2026-08-05: FLUSH. It used to stand 18 mm proud at every
@@ -217,7 +226,7 @@ func _ready() -> void:
 		# parked flat back against the wall so it never blocks a route
 		open = true
 		_body.rotation.y = deg_to_rad(-168 if swing_out else 168)
-
+	apply_hinge_setback()
 
 func interact_prompt() -> String:
 	if leaf_state == "locked":
@@ -268,3 +277,89 @@ func _rattle() -> void:
 	for i in 3:
 		tw.tween_callback(_click.play)
 		tw.tween_interval(0.09)
+
+
+## A butt hinge as the ironmonger made it: two mortised leaves, five
+## knuckles interleaved 3-and-2, a pin through all of them, and a ball
+## finial at each end of the pin. The old version was a bare cylinder
+## floating on the door's centreline, which reads as a peg and hinges
+## nothing.
+func butt_hinge(parent: Node3D, at_y: float, mat: StandardMaterial3D) -> void:
+	var barrel_z := -HINGE_SETBACK
+	var plate_h := 0.098
+	# the two leaves: one mortised into the door edge, one into the jamb
+	for side in [1.0, -1.0]:
+		var plate := MeshInstance3D.new()
+		var pb := BoxMesh.new()
+		pb.size = Vector3(0.046, plate_h, 0.0035)
+		plate.mesh = pb
+		plate.position = Vector3(side * 0.027, at_y, barrel_z)
+		plate.material_override = mat
+		parent.add_child(plate)
+		# countersunk screws, three to a leaf
+		for sy in [-0.032, 0.0, 0.032]:
+			var screw := MeshInstance3D.new()
+			var sc := CylinderMesh.new()
+			sc.top_radius = 0.0045
+			sc.bottom_radius = 0.0045
+			sc.height = 0.002
+			sc.radial_segments = 6
+			screw.mesh = sc
+			screw.rotation_degrees = Vector3(90, 0, 0)
+			screw.position = Vector3(side * 0.030, at_y + sy,
+					barrel_z - 0.002)
+			screw.material_override = mat
+			parent.add_child(screw)
+	# five knuckles up the pin
+	for k in 5:
+		var knuckle := MeshInstance3D.new()
+		var kc := CylinderMesh.new()
+		kc.top_radius = 0.0105
+		kc.bottom_radius = 0.0105
+		kc.height = plate_h / 5.0 - 0.002
+		kc.radial_segments = 8
+		knuckle.mesh = kc
+		knuckle.position = Vector3(0.0,
+				at_y - plate_h * 0.5 + (k + 0.5) * plate_h / 5.0, barrel_z)
+		knuckle.material_override = mat
+		parent.add_child(knuckle)
+	# the pin, and the finials that say somebody chose this hinge
+	var pin := MeshInstance3D.new()
+	var pc := CylinderMesh.new()
+	pc.top_radius = 0.0042
+	pc.bottom_radius = 0.0042
+	pc.height = plate_h + 0.028
+	pc.radial_segments = 6
+	pin.mesh = pc
+	pin.position = Vector3(0.0, at_y, barrel_z)
+	pin.material_override = mat
+	parent.add_child(pin)
+	for fy in [-1.0, 1.0]:
+		var ball := MeshInstance3D.new()
+		var bs := SphereMesh.new()
+		bs.radius = 0.0105
+		bs.height = 0.021
+		bs.radial_segments = 8
+		bs.rings = 5
+		ball.mesh = bs
+		ball.position = Vector3(0.0, at_y + fy * (plate_h * 0.5 + 0.013),
+				barrel_z)
+		ball.material_override = mat
+		parent.add_child(ball)
+
+
+## Move the swing axis off the leaf's centreline and onto the face it
+## closes against. Everything inside the body shifts one way and the body
+## shifts back the other, so a closed door is pixel-identical and an
+## opening one stops sweeping through its own frame.
+## Slide the visual leaf forward to meet the collision box, which was
+## already built at the offset. Only meshes move: a CollisionShape3D
+## repositioned after its body is in the tree does not reliably reach the
+## physics server, and a leaf you can see but not touch is worse than one
+## that clips its frame.
+func apply_hinge_setback() -> void:
+	if _body == null or is_zero_approx(_hinge_offset):
+		return
+	for c in _body.get_children():
+		if c is MeshInstance3D:
+			(c as MeshInstance3D).position.z += _hinge_offset

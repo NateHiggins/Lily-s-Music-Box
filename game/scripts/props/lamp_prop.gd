@@ -8,6 +8,7 @@ var _base_energy := 1.1
 var _target_scale := 1.0
 var _phase := 0.0
 var _drift_depth := 0.015
+var _drift_speed := 0.71
 
 
 func _build_visual() -> void:
@@ -81,6 +82,6 @@ func _process(_delta: float) -> void:
 	if light == null or _target_scale <= 0.0:
 		return
 	var t := Time.get_ticks_msec() * 0.001 + _phase
-	var filament := 1.0 + sin(t * 0.71) * _drift_depth \
-			+ sin(t * 2.13) * _drift_depth * 0.35
+	var filament := 1.0 + sin(t * _drift_speed) * _drift_depth \
+			+ sin(t * _drift_speed * 3.0) * _drift_depth * 0.35
 	light.light_energy = _base_energy * _target_scale * filament

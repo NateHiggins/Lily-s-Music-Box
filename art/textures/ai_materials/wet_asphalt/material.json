@@ -1,0 +1,12 @@
+{
+  "material": "wet_asphalt",
+  "source": "art/textures/ai_sources/wet_asphalt.png",
+  "generator": "ingest_material_sources.py",
+  "meters_per_tile": 2.5,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

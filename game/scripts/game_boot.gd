@@ -6,12 +6,10 @@ const ACTIONS := {
 	"move_forward": KEY_W, "move_back": KEY_S,
 	"move_left": KEY_A, "move_right": KEY_D,
 	"run": KEY_SHIFT, "crouch": KEY_C, "jump": KEY_SPACE,
-	"interact": KEY_E, "flashlight": KEY_F,
+	"interact": KEY_E, "shot_capture": KEY_F,
 	"music_player": KEY_M,
 	"noclip": KEY_V, "debug_panel": KEY_F1,
 	"intro": KEY_F2,
-	"distort_map": KEY_F3,
-	"chaos_mode": KEY_F4,
 }
 
 const SETTINGS_PATH := "user://orison_settings.cfg"

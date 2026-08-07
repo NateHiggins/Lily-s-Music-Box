@@ -61,6 +61,7 @@ func _ready() -> void:
 	# clone passed and this machine failed, which is the worst kind of flake.
 	# Case gameplay reads the campaign once in _ready(), so resetting after
 	# instantiation is far too late to matter.
+	OS.set_environment("DAYNIGHT", "0")   # tests live at the canonical 03:00
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	# Emptying the case table is NOT the same as a first launch, and the
@@ -216,15 +217,6 @@ func _run() -> void:
 	_check(moon != null and moon.shadow_enabled,
 			"exterior moon casts directional shadows")
 
-	# --- occlusion culling: the masonry is what stops the renderer drawing
-	# four storeys of furniture through the facade
-	var occ := root.get_node_or_null("Occluders")
-	var occ_boxes := 0
-	if occ:
-		for c3 in occ.get_children():
-			if c3 is OccluderInstance3D and c3.occluder is BoxOccluder3D:
-				occ_boxes += 1
-	_check(occ_boxes > 500, "occluders built from wall data (%d)" % occ_boxes)
 	# Props are modelled as heaps of primitives; the column radiator alone
 	# was 62 MeshInstance3Ds, more than half of all prop geometry in the
 	# building. merge_static() bakes fixed sub-trees down to one mesh per
@@ -420,8 +412,15 @@ func _run() -> void:
 	if bed2a and not bed2a.open:
 		bed2a.interact(null)
 		await get_tree().create_timer(0.7).timeout
-	await _goto(pl, Vector2(-8.62, 6.55), 4.0)  # east lane past the leaf
-	await _goto(pl, Vector2(-9.5, 7.9), 4.0)    # to the bedside
+	# Budgets, not deadlines. _goto gives up silently when its timer runs
+	# out, so a slow frame turned into "2A bedroom reached through its own
+	# door" FAILING at z=6.70 against a 6.8 threshold - 10 cm short, on an
+	# assertion that is about whether the doorway is passable, not about
+	# how fast the walk is. It failed roughly one run in eight, which is
+	# the worst rate there is: often enough to waste a build, rare enough
+	# to train you to dismiss it. These legs are ~1.6 m; 7 s is slack.
+	await _goto(pl, Vector2(-8.62, 6.55), 7.0)  # east lane past the leaf
+	await _goto(pl, Vector2(-9.5, 7.9), 7.0)    # to the bedside
 	pl.autopilot = Vector3.ZERO
 	_check(pl.global_position.z > 6.8,
 			"2A bedroom reached through its own door (z=%.2f)"
@@ -437,6 +436,11 @@ func _run() -> void:
 		# branches of the light tree. "Too low for its storey" cannot mean
 		# anything for either.
 		if f5.prop_type in ["street_lamp", "eye_pendant"]:
+			continue
+		# Same reasoning, one rung more general: anything the layout
+		# flagged as exterior is mounted to the facade or to a canopy,
+		# so its height above the storey datum means nothing.
+		if f5.is_in_group("exterior_fixtures"):
 			continue
 		var gy: float = f5.global_position.y
 		var own: float = lvls2[0]

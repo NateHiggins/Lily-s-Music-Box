@@ -2,12 +2,16 @@ class_name SafetyNet
 extends Node
 ## Catches the player when the world stops holding them.
 ##
-## The building deliberately lies about its own geometry — chaos mode folds
-## the floor you are standing on, reality thresholds teleport you through
-## paired doorways, room-local gravity points sideways, and a poltergeist can
-## be moving furniture out from under you. Every one of those is a supported
-## state, and any of them can drop a capsule out of the world. A horror game
-## is allowed to terrify the player; it is not allowed to lose them.
+## The building lies about itself in several supported ways — reality
+## thresholds teleport you through paired doorways, room-local gravity
+## points sideways, a poltergeist can move furniture out from under you —
+## and any of them can drop a capsule out of the world. A horror game is
+## allowed to terrify the player; it is not allowed to lose them.
+##
+## It no longer folds its own floors. Chaos mode did exactly that and is
+## gone (2026-08-06): it moved wall and floor MESHES while their collision
+## stayed put, so the net was catching a fall the building itself had
+## caused, every time. Deleting the cause is better than catching it.
 ##
 ## So this watches, silently, and does the least dramatic thing that works:
 ## it remembers the last place the player was genuinely standing on real
@@ -25,13 +29,21 @@ const FLOOR_OF_THE_WORLD := -12.0
 ## The site is ±112 x ±82 m of road. Past this you are not falling off the
 ## building, you are somewhere the level does not exist at all.
 const SITE_LIMIT := 240.0
+
+## Volumes that are legitimately outside the site: the prop warehouse
+## is 400 m east BY DESIGN, and the net's rescue was silently undoing
+## the debug teleport every time - the button worked, the arrival was
+## cancelled within a frame, and from the panel it read as a dead
+## button. Anything that builds real floor outside SITE_LIMIT registers
+## itself here.
+var exempt_zones: Array[AABB] = []
 ## Sampling the anchor every frame is wasted work; the player cannot get
 ## anywhere interesting in a fifth of a second.
 const SAMPLE_INTERVAL := 0.2
-## Never trust an anchor recorded during a distortion — the whole point of
-## chaos mode is that the floor you are standing on is not where it looks.
-## A short quarantine after any distortion clears keeps a folded-floor
-## position from becoming the place we rescue people to.
+## Kept at zero effect now that nothing distorts the building, but the
+## quarantine machinery stays: reality thresholds and sideways gravity can
+## still hand us a position that looks like solid floor and is not, and
+## this is where that would be excluded from becoming an anchor.
 const DISTORTION_QUARANTINE := 1.5
 
 var player: CharacterBody3D
@@ -43,12 +55,10 @@ var enabled := true
 
 var _accum := 0.0
 var _quarantine := 0.0
-var _distortion: Node = null
 
 
-func setup(body: CharacterBody3D, distortion_lab: Node = null) -> void:
+func setup(body: CharacterBody3D) -> void:
 	player = body
-	_distortion = distortion_lab
 	# Run before everything else in the physics step. The net is added to the
 	# tree after the player, so at default priority the player got a whole
 	# frame with the broken position first — and a controller handed a
@@ -89,6 +99,9 @@ func _lost(p: Vector3) -> bool:
 		return true
 	if p.y < FLOOR_OF_THE_WORLD:
 		return true
+	for zone in exempt_zones:
+		if zone.has_point(p):
+			return false
 	return absf(p.x) > SITE_LIMIT or absf(p.z) > SITE_LIMIT
 
 
@@ -103,12 +116,11 @@ func _rescue(from: Vector3) -> void:
 	recovered.emit(from, anchor)
 
 
+## Was: "is the map being distorted right now, in which case do not
+## count this fall". The building does not distort any more, so a fall is
+## always a fall and the net always catches it.
 func _distorting() -> bool:
-	if _distortion == null:
-		return false
-	if "chaos_enabled" in _distortion and _distortion.chaos_enabled:
-		return true
-	return "mode" in _distortion and str(_distortion.mode) != "none"
+	return false
 
 
 ## Test hook: prove the net catches without waiting for a real fall.

@@ -1,0 +1,12 @@
+{
+  "material": "puddle_b",
+  "source": "art/textures/ai_sources/puddle_water_b.png",
+  "generator": "ingest_material_sources.py",
+  "meters_per_tile": 2.0,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

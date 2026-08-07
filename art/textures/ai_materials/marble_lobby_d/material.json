@@ -1,0 +1,12 @@
+{
+  "material": "marble_lobby_d",
+  "source": "art/textures/ai_sources/marble_lobby_base_d.png",
+  "generator": "ingest_material_sources.py",
+  "meters_per_tile": 1.5,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

@@ -6,6 +6,7 @@ var prop_id := ""
 var kind := "mirror"
 var tell := ""
 var case_ids: Array = []
+var relay_all := false
 var accent := Color(0.52, 0.60, 0.57)
 
 var _rig: Node3D
@@ -23,6 +24,7 @@ func configure(spec: Dictionary) -> void:
 	kind = str(spec.kind)
 	tell = str(spec.tell)
 	case_ids = spec.get("cases", []).duplicate()
+	relay_all = bool(spec.get("relay_all", false))
 	prop_type = "wall_clock" # conservative conductor timing profile
 	accent = Color.from_hsv(fposmod(float(abs(prop_id.hash()) % 997) / 997.0,
 			1.0), 0.32, 0.62)
@@ -203,7 +205,7 @@ func _start_normal_function() -> void: state = PState.OPERATING
 
 
 func stage_haunt(case_id: String, tier: int, player: Node3D) -> bool:
-	if not case_ids.has(case_id) or _busy: return false
+	if (not relay_all and not case_ids.has(case_id)) or _busy: return false
 	if _watched(player) and tier < 4:
 		_sound.pitch_scale = 0.72; _sound.play(); return true
 	_busy = true; state = PState.INFECTED

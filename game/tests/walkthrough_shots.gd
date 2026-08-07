@@ -37,6 +37,13 @@ func _run() -> void:
 	await get_tree().create_timer(0.8).timeout
 	root.show_all_floors = true
 	Conductor.infection = 0.0  # placement pass: no seam interference
+	# Lighting evidence must be repeatable. Autonomous sanity pressure used to
+	# place fourth-wall captions over random rooms halfway through a capture.
+	if root.sanity:
+		root.sanity.stand_down()
+		root.sanity.enabled = false
+	if root.fourth_wall:
+		root.fourth_wall.force_finish()
 	cam = Camera3D.new()
 	cam.fov = 72
 	add_child(cam)

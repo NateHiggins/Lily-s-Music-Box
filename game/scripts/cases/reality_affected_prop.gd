@@ -116,7 +116,7 @@ func _build_visual() -> void:
 		"palette":
 			_sphere(Vector3(0.26, 0.025, 0.18), Vector3(0, 0.03, 0))
 		"work_order_board":
-			_box(Vector3(1.1, 0.72, 0.06), Vector3(0, 0.36, 0))
+			_build_work_order_board()
 		"service_cart":
 			_box(Vector3(0.78, 0.08, 0.42), Vector3(0, 0.46, 0))
 			for x in [-0.31, 0.31]:
@@ -136,6 +136,14 @@ func _build_label() -> void:
 	_label.position.y = 0.48 if kind != "storage_crate" else 0.82
 	_label.font_size = 26
 	_label.pixel_size = 0.0018
+	if kind == "work_order_board":
+		# Sized to sit ON the brass plate rather than hang over the hall
+		# shouting its own name across the lobby.
+		_label.text = "WORK ORDERS"
+		_label.position = Vector3(0, 0.695, 0.036)
+		_label.font_size = 64
+		_label.pixel_size = 0.00042
+		_label.modulate = Color(0.93, 0.86, 0.62)
 	_label.modulate = Color(0.72, 0.9, 0.84, 0.0 if case_id != "" else 0.82)
 	_label.outline_size = 8
 	_label.outline_modulate = Color(0.01, 0.02, 0.02, 0.9)
@@ -225,6 +233,81 @@ func _process(delta: float) -> void:
 		position = position.lerp(_home, minf(1.0, delta * 6.0))
 		rotation.y = lerp_angle(rotation.y, 0.0, minf(1.0, delta * 6.0))
 		scale = scale.lerp(Vector3.ONE, minf(1.0, delta * 6.0))
+
+
+## The board the game tells you to go and read, so it had better look
+## like a board.
+##
+## It was a 1.1 x 0.72 slab in the shared palette tint with the prop's
+## name floating over it - which in the hall reads as a teal void with
+## WORK OR... running off its edge. A maintenance board in a building
+## like this is an oak-framed cork panel with a clip rail, the week's
+## slips pinned to it in no particular order, a pencil on a string, and
+## a tray at the bottom for the ones that are finished.
+func _build_work_order_board() -> void:
+	var oak := _finish(Color(0.23, 0.145, 0.085), 0.68, 0.0)
+	var cork := _finish(Color(0.52, 0.37, 0.21), 0.92, 0.0)
+	var steel := _finish(Color(0.38, 0.39, 0.40), 0.44, 0.65)
+	var brass := _finish(Color(0.46, 0.32, 0.11), 0.38, 0.85)
+	var W := 1.10
+	var H := 0.72
+	# cork ground, then the frame around it
+	_panel(Vector3(W - 0.10, H - 0.10, 0.018), Vector3(0, 0.36, 0.0), cork)
+	for sy in [-1.0, 1.0]:
+		_panel(Vector3(W, 0.055, 0.045),
+				Vector3(0, 0.36 + sy * (H * 0.5 - 0.027), 0.006), oak)
+	for sx in [-1.0, 1.0]:
+		_panel(Vector3(0.055, H - 0.11, 0.045),
+				Vector3(sx * (W * 0.5 - 0.027), 0.36, 0.006), oak)
+	# clip rail across the top, with its spring clips
+	_panel(Vector3(W - 0.16, 0.030, 0.020), Vector3(0, 0.635, 0.020), steel)
+	for i in 7:
+		_panel(Vector3(0.035, 0.045, 0.012),
+				Vector3(-0.42 + i * 0.14, 0.628, 0.030), steel)
+	# the week's slips: pinned, uneven, and going yellow at different rates
+	for i in 9:
+		var col := i % 3
+		var row := i / 3
+		var age: float = float((i * 37) % 100) / 100.0
+		var slip := _panel(Vector3(0.235, 0.135, 0.004),
+				Vector3(-0.30 + col * 0.30, 0.545 - row * 0.155, 0.026),
+				_finish(Color(0.86, 0.83, 0.70).lerp(
+						Color(0.72, 0.63, 0.44), age), 0.94, 0.0))
+		slip.rotation.z = (float((i * 53) % 11) - 5.0) * 0.012
+		_panel(Vector3(0.012, 0.012, 0.010),
+				Vector3(-0.30 + col * 0.30, 0.600 - row * 0.155, 0.032),
+				brass)
+	# pencil on a string, and the tray for finished work
+	_panel(Vector3(0.010, 0.150, 0.010), Vector3(0.46, 0.20, 0.030),
+			_finish(Color(0.72, 0.55, 0.12), 0.7, 0.0))
+	_panel(Vector3(0.004, 0.230, 0.004), Vector3(0.46, 0.36, 0.026),
+			_finish(Color(0.30, 0.28, 0.24), 0.95, 0.0))
+	_panel(Vector3(W - 0.20, 0.020, 0.070), Vector3(0, 0.048, 0.036), steel)
+	_panel(Vector3(W - 0.22, 0.055, 0.006), Vector3(0, 0.070, 0.068), steel)
+	# brass legend plate on the head rail
+	_panel(Vector3(0.30, 0.042, 0.006), Vector3(0, 0.695, 0.028), brass)
+
+
+func _finish(c: Color, rough: float, metal: float) -> StandardMaterial3D:
+	var m := StandardMaterial3D.new()
+	m.albedo_color = c
+	m.roughness = rough
+	m.metallic = metal
+	return m
+
+
+## Like _box, but with its own material instead of the shared palette
+## tint every reality prop wears.
+func _panel(size: Vector3, offset: Vector3,
+		mat: StandardMaterial3D) -> MeshInstance3D:
+	var mesh := BoxMesh.new()
+	mesh.size = size
+	var instance := MeshInstance3D.new()
+	instance.mesh = mesh
+	instance.position = offset
+	instance.material_override = mat
+	add_child(instance)
+	return instance
 
 
 func _box(size: Vector3, offset: Vector3) -> MeshInstance3D:

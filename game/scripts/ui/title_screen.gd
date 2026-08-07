@@ -5,6 +5,12 @@ extends Control
 ## so every word remains readable at any resolution.
 
 const ART := preload("res://assets/ui/title/orison_original_advert_lobby_v1.png")
+const THEME := preload("res://assets/audio/music/title/three_am_radiator.ogg")
+## The theme is mixed hot as a standalone file; it sits under the menu, not
+## on top of it. Trimmed rather than re-encoded so the source stays the
+## thing that was delivered. Looping is set on the import, not here: the
+## stream is a constant and the parser will not let one be mutated.
+const MUSIC_TRIM_DB := -7.0
 
 var _art: TextureRect
 var _shade: ColorRect
@@ -17,6 +23,9 @@ var _volume: HSlider
 var _elapsed := 0.0
 var _next_knock := 8.0
 var _knock_left := 0.0
+var _music: AudioStreamPlayer
+var _music_fade: Tween
+var _leaving := false
 
 
 func _ready() -> void:
@@ -24,6 +33,7 @@ func _ready() -> void:
 	_build_backdrop()
 	_build_menu()
 	_build_settings()
+	_build_music()
 	get_viewport().size_changed.connect(_place_uncanny_evidence)
 	_place_uncanny_evidence()
 
@@ -110,6 +120,47 @@ func _build_menu() -> void:
 	menu.add_child(foot)
 
 
+## Built after the settings panel, because it reads the volume slider the
+## panel creates and then follows it live — a menu whose volume control
+## only takes effect after you leave the menu is a volume control you have
+## to test by guessing.
+func _build_music() -> void:
+	_music = AudioStreamPlayer.new()
+	_music.name = "TitleTheme"
+	_music.stream = THEME
+	_music.volume_db = -60.0
+	add_child(_music)
+	_music.play()
+	_music_fade = create_tween()
+	_music_fade.tween_property(_music, "volume_db", _music_db(), 2.6)
+	if _volume:
+		_volume.value_changed.connect(func(_v):
+			if _music_fade and _music_fade.is_valid():
+				_music_fade.kill()
+			_music.volume_db = _music_db())
+
+
+func _music_db() -> float:
+	var level := float(_volume.value) if _volume else 0.82
+	if level <= 0.001:
+		return -60.0
+	return linear_to_db(level) + MUSIC_TRIM_DB
+
+
+## Take the theme down before the scene goes. A hard cut from a warm room
+## tone to the loading frame is the one moment the menu stops being an
+## object in the building and starts being software.
+func _leave(go: Callable) -> void:
+	if _leaving:
+		return
+	_leaving = true
+	if _music_fade and _music_fade.is_valid():
+		_music_fade.kill()
+	var out := create_tween()
+	out.tween_property(_music, "volume_db", -60.0, 0.7)
+	out.tween_callback(go)
+
+
 func _add_button(parent: Control, text: String, callback: Callable) -> void:
 	var button := Button.new()
 	button.text = text
@@ -156,11 +207,11 @@ func _build_settings() -> void:
 
 
 func _new_game() -> void:
-	GameBoot.begin_game(GameBoot.LaunchMode.CINEMATIC, true)
+	_leave(func(): GameBoot.begin_game(GameBoot.LaunchMode.CINEMATIC, true))
 
 
 func _debug_game() -> void:
-	GameBoot.begin_game(GameBoot.LaunchMode.DEBUG, false)
+	_leave(func(): GameBoot.begin_game(GameBoot.LaunchMode.DEBUG, false))
 
 
 func _save_settings() -> void:
