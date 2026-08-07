@@ -24,7 +24,12 @@
   board under goosenecks + red chochin (lit when open, taken in when
   closed) + marquee bulb arrow. Doc shots b_44-b_47; all states
   verified by render + measured RGB.
-- **P2 Songbook remains gated on explicit user direction.**
+- **P2 Songbook remains gated on explicit user direction.** The owner
+  filed three more modes on 2026-08-07; they are ADDENDUM A of
+  `docs/songbook_brief.md` (Blind Read · STRICT METER · Producer and
+  Performer). Phase 1's scope is unchanged but for one thing: the lyric
+  editor should draw the syllable map from `melodic_shape` /
+  `suggested_syllables`, which the PhraseSlot spec already carries.
 
 Written 2026-08-07, at the close of the exterior-makeover arc: the
 elevator finished top to bottom (roof car included), the texture library

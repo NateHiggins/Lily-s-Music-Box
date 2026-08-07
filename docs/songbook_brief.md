@@ -240,3 +240,144 @@ record → listen back → save → see it in the Songbook → derive a second
 version → view the parent/child relationship → have an NPC later
 perform the saved version. Do not expand beyond this until the vertical
 slice works.
+
+---
+
+# ADDENDUM A — three modes (owner, 2026-08-07)
+
+*Filed after the brief body, which stays verbatim. Three ideas from the
+owner, assessed against the brief and against the bible. One of them
+contradicts a stated rule above and the contradiction is resolved here
+rather than silently.*
+
+## A.1 THE BLIND READ
+
+Split writing from performing. Player A writes lyrics to an
+instrumental. Player B receives the track but **does not see the lyrics
+until they hit RECORD** — they sing it cold, reacting to words scrolling
+at them in real time. The recording keeps the stumbles, the laugh, the
+save. That artifact is the shareable thing.
+
+**Why it belongs here and not in some other game.** The brief already
+lists EXQUISITE CORPSE as a creative mode, but that version blinds the
+*writer*. This blinds the *performer*, and that is a different machine.
+It is the only mechanic in the Orison that manufactures the present
+moment. Per `ORISON_ARCHETYPE_SCHEDULES.md` §I, no resident carries the
+Jester — purgatory contains nobody who can live in the moment for its
+own sake, and the karaoke basement is explicitly where they go to borrow
+it. A blind read cannot be planned, rehearsed, perfected or deferred.
+It can only be *done*, once, live. Read the cast against that:
+
+- **Rhea** deletes take 18 and re-records. A blind read has no take 18.
+- **Jonah** cannot finish. A blind read finishes itself or fails aloud.
+- **Peter**'s rule is *uncertainty does not prevent action*. This is
+  that sentence as a control scheme.
+- **Iris** performs for an imagined house and flees the applause. Here
+  the house is real and the performance is unrehearsable.
+
+The brief's scoring section already refuses pitch and tracks
+**COMMITMENT — did the singer finish**. In every other mode that is a
+footnote. In a blind read it is the whole score.
+
+**Ships earlier than it looks.** The mechanic is local; only the
+*sourcing* of unseen lyrics needs other people. A blind read of any
+version the player has not read — an NPC's, a stranger's, one of their
+own from months ago — is Phase 2 work the moment versioning exists.
+Hold the lyrics behind the record button and the feature is done; the
+network only widens the pool. It also solves NPC performance cheaply:
+an NPC stumbling through a human's words needs no acting model, because
+stumbling is the authored behaviour.
+
+## A.2 SYLLABLE-RESTRICTED PUZZLES — *opt-in, not the default path*
+
+Treat a phrase slot as an audio puzzle: a clear simple melody guide
+(music box, retro synth), a UI that maps the required rhythm as
+positions (`_ _ _  -  _ _`), and lyrics that must land on the exact
+syllable count and stress before the line is accepted. Solve the text,
+then perform it.
+
+**The contradiction, stated plainly.** LYRIC WRITING above says the UI
+"may hint a line is probably too long/short but **never prevents
+experimentation**." Idea as given requires exact fit *to progress*. Both
+cannot be the default. Resolution: the constraint becomes a **creative
+mode** — `STRICT METER` — alongside PROMPTED, THREE WORDS and GENRE
+WRONG, which is precisely the slot the brief already built for
+constraints that "defeat the blank page." Default writing stays
+unblocked and unjudged. A player who wants the puzzle chooses the
+puzzle.
+
+Split further, because the two halves have different rules:
+
+- **The syllable map is a DISPLAY and ships for every mode.** Showing
+  the shape of the melody as beats is information, not enforcement, and
+  it is the single best answer to a blank slot. `PhraseSlot` already
+  carries `suggested_syllables` and `melodic_shape`; this is drawing
+  what the data already says.
+- **The gate is a MODE and ships only when chosen.** Only STRICT METER
+  refuses a line.
+
+Songs written in STRICT METER should be marked as such in the Songbook,
+because a later coverer inherits the meter whether they know it or not —
+and a mutation that breaks it is a legitimate branch, not an error.
+
+## A.3 PRODUCER AND PERFORMER
+
+Two ways to play the same room. **Producers** arrange the isolated stems
+in a sandbox — physically, by placing elements into a diorama of the
+bar's own stage — and publish the result as a beat. **Performers**
+browse community beats, write, record, and release the finished song.
+Both names go on it.
+
+**What this actually solves.** Two real problems, neither of them
+cosmetic:
+
+1. **The library problem.** The brief asks for 30–50 authored
+   instrumentals and then expects thousands of variants. Producer mode
+   multiplies the library without commissioning more music: the same
+   stems, rearranged, are new backing. It scales the one input that
+   does not scale by itself.
+2. **The microphone problem.** The brief already protects the shy —
+   anonymous publishing, PRIVATE state, never punish an unusual voice —
+   but every one of those still ends at a microphone. Producer mode is
+   the first way to be a full participant in the culture and never
+   record a sound. For a game whose thesis is folk music, that is not a
+   side mode; it is half the folk.
+
+**Diegetically it is already built.** This game puts its interfaces in
+the world — the mail bank, the call desk, the Songbook binder. A mixing
+desk that is a diorama of the stage you can see across the room is the
+same instinct, and the stage, mic stand, PA and karaoke TV all exist as
+geometry today.
+
+**Data implication, flagged now so it is cheap later.** A published beat
+is a new entity between `SongResource` and `CommunitySongVersion` —
+call it `SongArrangement`: arrangement_id · base_song_id · author ·
+stem gains/mutes/positions · effects. Genealogy grows a second axis, so
+lineage becomes `base → arrangement → version`, and a version must name
+which arrangement it was sung over or playback reconstructs the wrong
+backing. The brief's STORAGE PRINCIPLE survives intact and gets
+stronger: still no audio uploaded for the backing, because an
+arrangement is a handful of numbers over stems every client already has.
+
+## A.4 WHERE THEY LAND IN THE MVP ORDER
+
+The brief's rule holds — **do not build networking first**. Each of the
+three has a local core and a networked pool; only the pool waits.
+
+| Idea | Local core | Needs the network for |
+|---|---|---|
+| Blind Read | Phase 2, once versions exist to hide | a stranger's words |
+| Syllable map (display) | **Phase 1** — it is the lyric editor | nothing |
+| STRICT METER (gate) | Phase 2, with modes | nothing |
+| Producer sandbox | Phase 3, when stems arrive | publishing beats (5) |
+
+Phase 1 as written does not change. The syllable map is the only one
+that touches it, and it is a better editor, not a new feature.
+
+**One combination worth building toward.** A Producer publishes a beat.
+A writer sets words to it. A third player blind-reads those words over
+that arrangement, cold, and finishes the take laughing. Three people who
+never met, one song, and every one of them on the credit. That is the
+brief's own thesis — *a folk-music simulator disguised as a shitty
+karaoke machine* — at full extension, and it is the argument for taking
+all three ideas rather than any one.
