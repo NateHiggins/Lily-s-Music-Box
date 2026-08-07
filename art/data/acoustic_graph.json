@@ -1253,26 +1253,6 @@
    ]
   },
   {
-   "id": "F01_NEON_BODEGA",
-   "pos": [
-    17.4,
-    -12.16,
-    3.4
-   ],
-   "room": "",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "B1_ELECTRICAL_HUB"
-   ]
-  },
-  {
    "id": "F01_KARAOKE_SPK_0",
    "pos": [
     -4.85,
@@ -1300,46 +1280,6 @@
     -2.8
    ],
    "room": "SITE",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "B1_ELECTRICAL_HUB"
-   ]
-  },
-  {
-   "id": "F01_NEON_BAR",
-   "pos": [
-    4.875,
-    -28.18,
-    2.85
-   ],
-   "room": "",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "B1_ELECTRICAL_HUB"
-   ]
-  },
-  {
-   "id": "F01_NEON_KARAOKE",
-   "pos": [
-    3.6,
-    -28.16,
-    3.1
-   ],
-   "room": "",
    "network": "electrical",
    "frequency_band": [
     60,
@@ -6086,11 +6026,8 @@
     "F01_BODEGA_LT_1",
     "F01_BODEGA_LT_2",
     "F01_BODEGA_RADIO",
-    "F01_NEON_BODEGA",
     "F01_KARAOKE_SPK_0",
     "F01_KARAOKE_SPK_1",
-    "F01_NEON_BAR",
-    "F01_NEON_KARAOKE",
     "F01_BAR_LT_LOBBY",
     "F01_BAR_LT_STAIR",
     "F01_BAR_LT_CAN0",

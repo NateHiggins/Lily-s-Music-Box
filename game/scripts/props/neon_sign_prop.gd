@@ -414,6 +414,16 @@ func _start_normal_function() -> void:
 	state = PState.OPERATING
 
 
+## Business hours for the tube. Unlit is not invisible: two percent of
+## emission keeps the dead glass reading as glass, and the omni glow goes
+## out entirely — a shop sign at 4 a.m., not a hole in the facade.
+var _lit := true
+
+
+func set_lit(on: bool) -> void:
+	_lit = on
+
+
 func _perform_synced_event(_index: int, accent: float, _pitch: float) -> void:
 	_surge = maxf(_surge, accent)
 	# Deep infection kills a letter outright for a moment. A sign missing
@@ -432,7 +442,7 @@ func _process(delta: float) -> void:
 	var now := Time.get_ticks_msec() / 1000.0
 	# a slow mains hum under everything, so the tube is never quite steady
 	var idle := 1.0 + sin(now * 7.3) * 0.03
-	var want := idle * (1.0 + _surge * 1.4)
+	var want := idle * (1.0 + _surge * 1.4) if _lit else 0.02
 	_tube_mat.emission_energy_multiplier = lerpf(
 			_tube_mat.emission_energy_multiplier, TUBE_EMISSION * want,
 			delta * 14.0)

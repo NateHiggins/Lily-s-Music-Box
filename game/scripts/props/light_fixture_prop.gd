@@ -66,6 +66,14 @@ var energy_scale := 1.0
 ## Navigation fixtures receive a higher authored value from the light map.
 var standby_scale := 0.0
 var navigation_light := false
+## Venue-state dimmer (Harukiya OPEN/CLOSED/AFTER-HOURS). Multiplies the
+## final output the way a dimmed circuit would, leaving the switch state,
+## the rig's budget, and the authored energy all untouched.
+var _state_gain := 1.0
+
+
+func set_state_gain(gain: float) -> void:
+	_state_gain = clampf(gain, 0.0, 1.0)
 
 
 func _build_visual() -> void:
@@ -578,7 +586,7 @@ func _process(delta: float) -> void:
 			fault_value = 0.94 + sin(cycle * 8.0) * 0.035
 		_flicker_value = fault_value
 	var want := _base_energy * _target_scale * (1.0 + _surge) \
-			* _flicker_value
+			* _flicker_value * _state_gain
 	light.light_energy = lerpf(light.light_energy, want, delta * 6.0)
 	if _entry_spot:
 		_entry_spot.light_energy = lerpf(_entry_spot.light_energy,
@@ -589,7 +597,7 @@ func _process(delta: float) -> void:
 			if _bounce_on else 0.0,
 			delta * 4.0)
 	var envelope := (1.0 if prop_type == "flush_dome" else 1.6) \
-			* _target_scale * _flicker_value
+			* _target_scale * _flicker_value * _state_gain
 	_bulb_mat.emission_energy_multiplier = lerpf(
 			_bulb_mat.emission_energy_multiplier, envelope + _surge * 2.4,
 			delta * 8.0)

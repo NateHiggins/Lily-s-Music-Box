@@ -55,6 +55,8 @@ const PROP_SCRIPTS := {
 	"chandelier": preload("res://scripts/props/light_fixture_prop.gd"),
 	"eye_pendant": preload("res://scripts/props/light_fixture_prop.gd"),
 	"neon_sign": preload("res://scripts/props/neon_sign_prop.gd"),
+	"bodega_signage": preload("res://scripts/props/bodega_signage_prop.gd"),
+	"bar_signage": preload("res://scripts/props/harukiya_signage_prop.gd"),
 	"sink": preload("res://scripts/props/tap_prop.gd"),
 	"shower": preload("res://scripts/props/tap_prop.gd"),
 	"mirror": preload("res://scripts/props/medicine_cabinet_prop.gd"),
@@ -270,6 +272,16 @@ func _ready() -> void:
 	schedule_director.name = "ScheduleDirector"
 	add_child(schedule_director)
 	schedule_director.setup(resident_routines, layout)
+	# The bar keeps hours on the same clock: OPEN / AFTER-HOURS / CLOSED.
+	var harukiya_states := HarukiyaStateDirector.new()
+	harukiya_states.name = "HarukiyaStateDirector"
+	add_child(harukiya_states)
+	harukiya_states.setup(self)
+	# And gains its hands-on layer: pictures, barrels, pool table, seats.
+	var harukiya_hands := HarukiyaInteractables.new()
+	harukiya_hands.name = "HarukiyaInteractables"
+	add_child(harukiya_hands)
+	harukiya_hands.build(self)
 	player = PlayerController.new()
 	player.position = GameBoot.b2g([0.0, -9.0, 0.1])  # vestibule
 	add_child(player)

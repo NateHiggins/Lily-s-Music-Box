@@ -108,6 +108,21 @@ const SHOTS := [
 	 "look": Vector3(19.0, 1.50, 12.6), "overlay": false},
 	{"name": "b_30_street_west", "pos": Vector3(1.0, 1.62, 12.2),
 	 "look": Vector3(-19.0, 1.50, 12.6), "overlay": false},
+	# The Harukiya, from beside the red door across the pool table to the
+	# stage, and from the stage end down the counter run. Shot per state:
+	# DAYNIGHT_FORCE=22:30 (OPEN), 03:00 (AFTER-HOURS), 12:00 (CLOSED).
+	{"name": "b_44_bar_room", "pos": Vector3(3.3, -1.15, 33.9),
+	 "look": Vector3(-3.0, -1.75, 31.2), "overlay": false},
+	{"name": "b_45_bar_counter", "pos": Vector3(-3.9, -1.2, 32.4),
+	 "look": Vector3(0.5, -1.85, 29.9), "overlay": false},
+	# The two shop signs as the residents actually see them: from Orison
+	# windows. The bar's board+lantern from a third-floor south window;
+	# the bodega's blade cabinet and awning from the east face.
+	{"name": "b_46_bar_sign_from_orison", "pos": Vector3(2.0, 8.1, 10.2),
+	 "look": Vector3(4.5, 2.6, 28.3), "overlay": false},
+	{"name": "b_47_bodega_sign_from_orison",
+	 "pos": Vector3(14.35, 6.0, 8.2),
+	 "look": Vector3(15.9, 2.9, 12.9), "overlay": false},
 ]
 
 

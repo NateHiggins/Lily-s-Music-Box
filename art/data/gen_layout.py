@@ -4045,10 +4045,14 @@ def retail_pass(fl):
                "pos": [16.55, -10.55, 0.0], "yaw_deg": 90,
                "network": "electrical", "exterior": True,
                "bed": "murmur_loop"})
-    mk.append({"kind": "neon_sign", "id": "F01_NEON_BODEGA",
-               "pos": [17.4, -12.16, 3.4], "yaw_deg": 0,
-               "text": "DELI GROCERY", "vertical": False,
-               "network": "electrical"})
+    # Signage redesign (2026-08-07): the bodega dropped its neon for the
+    # NYC vocabulary - backlit yellow awning valance + projecting blade
+    # lightbox on the west corner, angled to read from the Orison. The
+    # prop builds everything; this marker only places and aims it.
+    mk.append({"kind": "bodega_signage", "id": "F01_BODEGA_SIGNAGE",
+               "pos": [17.4, -12.05, 2.62], "yaw_deg": 0,
+               "unit": "SITE", "network": "electrical",
+               "exterior": True})
 
     # ============ THE HARUKIYA (film-first greybox, brief P2) =========
     # Room 10.8 x 6.8 x 2.65 under nbr_s2; stair 1.15 m clear, 16 risers
@@ -4235,13 +4239,15 @@ def retail_pass(fl):
        "wood_dark")
     fb("bar_face_fascia", (KX0, FACE - 0.16, KX1, FACE + 0.02), 2.50,
        0.60, "soot")
-    mk.append({"kind": "neon_sign", "id": "F01_NEON_BAR",
-               "pos": [4.875, FACE + 0.14, 2.85], "yaw_deg": 180,
-               "text": "BAR", "vertical": False, "network": "electrical"})
-    mk.append({"kind": "neon_sign", "id": "F01_NEON_KARAOKE",
-               "pos": [3.60, FACE + 0.16, 3.1], "yaw_deg": 180,
-               "text": "KARAOKE", "vertical": True,
-               "network": "electrical"})
+    # Signage redesign (2026-08-07): the bar's two neons are replaced by
+    # one izakaya ensemble the prop builds - the painted 春木屋 board
+    # under gooseneck trough lights, the red chochin lantern (lit when
+    # open, taken in when closed), and a marquee bulb arrow pointing
+    # down the stair. Faces the street and the Orison beyond it.
+    mk.append({"kind": "bar_signage", "id": "F01_BAR_SIGNAGE",
+               "pos": [4.875, FACE + 0.06, 2.80], "yaw_deg": 180,
+               "unit": "SITE", "network": "electrical",
+               "exterior": True})
     mk.append({"kind": "cage_bulb", "id": "F01_BAR_LT_LOBBY",
                "unit": "SITE", "pos": [4.875, -29.30, 2.30],
                "yaw_deg": 0, "network": "electrical", "range": 3.5,

@@ -5860,17 +5860,17 @@
      "bed": "murmur_loop"
     },
     {
-     "kind": "neon_sign",
-     "id": "F01_NEON_BODEGA",
+     "kind": "bodega_signage",
+     "id": "F01_BODEGA_SIGNAGE",
      "pos": [
       17.4,
-      -12.16,
-      3.4
+      -12.05,
+      2.62
      ],
      "yaw_deg": 0,
-     "text": "DELI GROCERY",
-     "vertical": false,
-     "network": "electrical"
+     "unit": "SITE",
+     "network": "electrical",
+     "exterior": true
     },
     {
      "kind": "speaker",
@@ -5941,30 +5941,17 @@
      "exterior": true
     },
     {
-     "kind": "neon_sign",
-     "id": "F01_NEON_BAR",
+     "kind": "bar_signage",
+     "id": "F01_BAR_SIGNAGE",
      "pos": [
       4.875,
-      -28.18,
-      2.85
+      -28.26,
+      2.8
      ],
      "yaw_deg": 180,
-     "text": "BAR",
-     "vertical": false,
-     "network": "electrical"
-    },
-    {
-     "kind": "neon_sign",
-     "id": "F01_NEON_KARAOKE",
-     "pos": [
-      3.6,
-      -28.16,
-      3.1
-     ],
-     "yaw_deg": 180,
-     "text": "KARAOKE",
-     "vertical": true,
-     "network": "electrical"
+     "unit": "SITE",
+     "network": "electrical",
+     "exterior": true
     },
     {
      "kind": "cage_bulb",

@@ -405,7 +405,13 @@ func _process(delta: float) -> void:
 
 
 func _is_vertical(fixture: Node) -> bool:
-	return "prop_type" in fixture and fixture.prop_type in VERTICAL_FIXTURES
+	# vertical_zone meta: a venue that genuinely spans storeys (the
+	# Harukiya's street-to-basement shaft) opts its fixtures out of the
+	# storey gate; distance ranking already keeps them from stealing
+	# budget anywhere else in the building.
+	return fixture.has_meta("vertical_zone") \
+			or ("prop_type" in fixture
+			and fixture.prop_type in VERTICAL_FIXTURES)
 
 
 func _controlled_lights() -> Array:

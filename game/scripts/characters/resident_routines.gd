@@ -316,6 +316,30 @@ func _door_point() -> Vector3:
 	return GameBoot.b2g([-1.9, -8.75, 0.06])
 
 
+## Where an exterior crossing lands. At the Harukiya a resident claims a
+## free couch socket (BarSeatZone, group "bar_seats") and sits in it;
+## when the couches are full — or anywhere else — they stand near the
+## venue anchor, jittered so a crowd reads as a crowd and not a stack.
+func _venue_spot(actor: Dictionary, directive: Dictionary) -> Vector3:
+	var anchor: Vector3 = directive.get("point", Vector3.ZERO)
+	if str(directive.get("key", "")) == "harukiya_bar":
+		for seat in get_tree().get_nodes_in_group("bar_seats"):
+			if str(seat.occupied_by) == "" and not bool(seat.seated):
+				seat.occupied_by = str(actor.slug)
+				actor.seat = seat
+				return seat.global_position
+	return anchor + Vector3(_rng.randf_range(-0.8, 0.8), 0.0,
+			_rng.randf_range(-0.8, 0.8))
+
+
+func _release_seat(actor: Dictionary) -> void:
+	var seat: Node3D = actor.get("seat")
+	if seat != null and is_instance_valid(seat) \
+			and str(seat.occupied_by) == str(actor.slug):
+		seat.occupied_by = ""
+	actor.seat = null
+
+
 ## Where the schedule wants this actor, if it still wants what the actor
 ## is currently doing.
 func _schedule_holds(actor: Dictionary) -> bool:
@@ -647,8 +671,7 @@ func _step(actor: Dictionary, delta: float) -> void:
 				node.visible = false
 				if str(standing.mode) == "exterior":
 					actor.stage = Stage.CROSSING
-					actor.cross_to = standing.get("point",
-							node.global_position)
+					actor.cross_to = _venue_spot(actor, standing)
 					actor.timer = _rng.randf_range(5.0, 9.0)
 				else:
 					actor.timer = _rng.randf_range(30.0, 70.0)
@@ -661,6 +684,7 @@ func _step(actor: Dictionary, delta: float) -> void:
 					# The block ended somewhere off the nav graph: cross
 					# back to the lobby door before walking home.
 					actor.at_venue = false
+					_release_seat(actor)
 					node.visible = false
 					actor.stage = Stage.CROSSING
 					actor.cross_to = _door_point()
@@ -676,6 +700,11 @@ func _step(actor: Dictionary, delta: float) -> void:
 				actor.path = PackedVector3Array()
 				actor.leg = 0
 				actor.timer = _rng.randf_range(20.0, 45.0)
+				# A claimed seat comes with a facing: settle INTO the
+				# couch, not toward wherever the walk left them pointed.
+				var seat: Node3D = actor.get("seat")
+				if seat != null and is_instance_valid(seat):
+					node.rotation.y = seat.rotation.y
 		Stage.RETURNING:
 			# Walk back to the lift, ride it, and reappear walking home.
 			if node.visible:
