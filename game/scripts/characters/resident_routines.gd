@@ -207,13 +207,17 @@ static func temper_of(slug: String) -> Dictionary:
 
 
 enum Stage { HOME, PACING, TO_LIFT, RIDING, AT_HAUNT, RETURNING, WATCHING,
-		ON_STAIRS, RETURN_STAIRS }
+		ON_STAIRS, RETURN_STAIRS, CROSSING }
 
 var actors: Array = []
 ## Portal-graph pathfinding; see resident_nav.gd. Null-safe: without it
 ## everything degrades to the old straight-line walk.
 var nav: ResidentNav
 var elevator: OrisonElevator
+## slug -> directive from the ScheduleDirector: {mode, key, activity,
+## point?}. Empty per slug (and entirely, under DAYNIGHT=0) means the
+## temperament wander below runs exactly as it always has.
+var schedules: Dictionary = {}
 
 var _layout: Dictionary = {}
 var _rng := RandomNumberGenerator.new()
@@ -265,6 +269,9 @@ func build(layout: Dictionary, residents: Array) -> int:
 			"door_cycle": 2,
 			"vertical_mode": "",
 			"target_floor": "",
+			"at_venue": false,
+			"cross_to": Vector3.ZERO,
+			"sched_key": "",
 		}
 		actors.append(actor)
 	print("[ROUTINES] %d residents with somewhere to be" % actors.size())
@@ -284,6 +291,75 @@ func _validate_nav_when_settled() -> void:
 
 func bind_elevator(lift: OrisonElevator) -> void:
 	elevator = lift
+
+
+## The ScheduleDirector's hand. Stores the directive and hurries the
+## actor's next decision so a change of hour is answered in seconds, not
+## whenever the current dwell happens to run out.
+func set_schedule(slug: String, directive: Dictionary) -> void:
+	schedules[slug] = directive
+	for actor in actors:
+		if str(actor.slug) != slug:
+			continue
+		if int(actor.stage) in [Stage.HOME, Stage.AT_HAUNT]:
+			actor.timer = minf(float(actor.timer),
+					_rng.randf_range(2.0, 8.0))
+		return
+
+
+## Inside the door, off the street: where exterior trips cross over.
+## West of the doorway on purpose — (0, -9) is the player's own spawn
+## point, and a walk target inside the player's yield radius (0.62 m)
+## can never be closed to _follow's 0.16 m: the resident walks in, is
+## shoved back out, forever.
+func _door_point() -> Vector3:
+	return GameBoot.b2g([-1.9, -8.75, 0.06])
+
+
+## Where the schedule wants this actor, if it still wants what the actor
+## is currently doing.
+func _schedule_holds(actor: Dictionary) -> bool:
+	var directive: Dictionary = schedules.get(str(actor.slug), {})
+	if directive.is_empty():
+		return false
+	return str(directive.get("mode", "")) in ["place", "exterior",
+			"offsite"] \
+			and str(directive.get("key", "")) == str(actor.get(
+			"sched_key", ""))
+
+
+## A scheduled decision replaces the temperament roll while a directive
+## stands. Scheduled trips deliberately ignore the opening lockdown's
+## locked leaf: the lockdown gates the PLAYER out of units; a tenant
+## leaving their own flat has always had the key.
+func _scheduled_decision(actor: Dictionary, directive: Dictionary) -> void:
+	var mode := str(directive.get("mode", "home"))
+	var activity := str(directive.get("activity", ""))
+	var unit := _unit_of(actor)
+	if mode == "home":
+		if activity == "sleeping":
+			actor.timer = _rng.randf_range(24.0, 60.0)
+			return
+		var roll := _rng.randf()
+		var tv_chance := 0.65 if activity == "tv" else 0.12
+		if roll < tv_chance and _couch.has(unit):
+			actor.stage = Stage.WATCHING
+			_set_route(actor, _couch[unit])
+			actor.timer = _rng.randf_range(24.0, 70.0)
+		else:
+			actor.stage = Stage.PACING
+			_set_route(actor, _near_home(actor))
+			actor.timer = _rng.randf_range(6.0, 14.0)
+		return
+	# place / exterior / offsite: a trip. Exterior and offsite walk to
+	# the lobby door first; the crossing happens at AT_HAUNT arrival.
+	actor.sched_key = str(directive.get("key", ""))
+	actor.at_venue = false
+	if mode == "place":
+		actor.haunt = directive.get("point", actor.haunt)
+	else:
+		actor.haunt = _door_point()
+	_begin_trip(actor, false)
 
 
 ## Swap the flat sprite for a real mesh wherever one has been generated.
@@ -464,6 +540,13 @@ func _step(actor: Dictionary, delta: float) -> void:
 			_manage_home_door(actor, true)
 			_play(actor, "idle")
 			if actor.timer <= 0.0:
+				# A standing directive from the ScheduleDirector outranks
+				# the temperament roll: the hour, not the mood, decides.
+				var directive: Dictionary = schedules.get(
+						str(actor.slug), {})
+				if not directive.is_empty():
+					_scheduled_decision(actor, directive)
+					return
 				# An evening at home is mostly pottering, sometimes the
 				# television, occasionally an errand out of the flat. A
 				# locked front door keeps the evening indoors: the opening
@@ -545,12 +628,54 @@ func _step(actor: Dictionary, delta: float) -> void:
 				actor.timer = _rng.randf_range(dwell[0], dwell[1])
 		Stage.AT_HAUNT:
 			_manage_home_door(actor, false)
-			if _follow(actor, node, delta):
+			var arrived := _follow(actor, node, delta)
+			if arrived:
 				_play(actor, "settle")
 			else:
 				_play(actor, "pace")
+			# Arrival at the lobby door with a street directive: cross
+			# over. Exterior venues reappear across the road after a
+			# hidden beat, the way lift riders reappear upstairs;
+			# offsite ("work") is the crossing that does not come back
+			# until the schedule says so.
+			var standing: Dictionary = schedules.get(str(actor.slug), {})
+			if arrived and _schedule_holds(actor) \
+					and str(standing.get("mode", "")) in [
+					"exterior", "offsite"] \
+					and not bool(actor.at_venue):
+				actor.at_venue = true
+				node.visible = false
+				if str(standing.mode) == "exterior":
+					actor.stage = Stage.CROSSING
+					actor.cross_to = standing.get("point",
+							node.global_position)
+					actor.timer = _rng.randf_range(5.0, 9.0)
+				else:
+					actor.timer = _rng.randf_range(30.0, 70.0)
+				return
 			if actor.timer <= 0.0:
-				_begin_trip(actor, true)
+				if _schedule_holds(actor):
+					# The hour still wants them here; stay.
+					actor.timer = _rng.randf_range(20.0, 45.0)
+				elif bool(actor.at_venue):
+					# The block ended somewhere off the nav graph: cross
+					# back to the lobby door before walking home.
+					actor.at_venue = false
+					node.visible = false
+					actor.stage = Stage.CROSSING
+					actor.cross_to = _door_point()
+					actor.timer = _rng.randf_range(5.0, 9.0)
+				else:
+					actor.sched_key = ""
+					_begin_trip(actor, true)
+		Stage.CROSSING:
+			if actor.timer <= 0.0:
+				node.global_position = actor.cross_to
+				node.visible = true
+				actor.stage = Stage.AT_HAUNT
+				actor.path = PackedVector3Array()
+				actor.leg = 0
+				actor.timer = _rng.randf_range(20.0, 45.0)
 		Stage.RETURNING:
 			# Walk back to the lift, ride it, and reappear walking home.
 			if node.visible:

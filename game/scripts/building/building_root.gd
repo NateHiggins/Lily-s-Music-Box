@@ -263,6 +263,13 @@ func _ready() -> void:
 	add_child(elevator)
 	elevator.setup(layout["elevator"])
 	resident_routines.bind_elevator(elevator)
+	# The archetype timetables, driving the routines off the same clock
+	# the sky reads. Inert under DAYNIGHT=0 so the tests' canonical 03:00
+	# building keeps its exact pre-schedule behaviour.
+	var schedule_director := ScheduleDirector.new()
+	schedule_director.name = "ScheduleDirector"
+	add_child(schedule_director)
+	schedule_director.setup(resident_routines, layout)
 	player = PlayerController.new()
 	player.position = GameBoot.b2g([0.0, -9.0, 0.1])  # vestibule
 	add_child(player)
