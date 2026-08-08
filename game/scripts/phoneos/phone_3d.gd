@@ -289,10 +289,10 @@ func _build_body() -> void:
 	# it does, the dark shell is both more accurate and better for the
 	# build, because hot glue and rainbow ribbon read far louder against
 	# black plastic than against cream.
-	var ivory := _texmat("phone_softtouch", Color(1, 1, 1), 0.86, 0.0, 1.6)
-	var ivory_dk := _texmat("phone_softtouch", Color(0.72, 0.72, 0.75),
+	var ivory: StandardMaterial3D = _texmat("phone_softtouch", Color(1, 1, 1), 0.86, 0.0, 1.6)
+	var ivory_dk: StandardMaterial3D = _texmat("phone_softtouch", Color(0.72, 0.72, 0.75),
 			0.88, 0.0, 2.2)
-	var chrome := _texmat("phone_chrome_band", Color(1, 1, 1), 0.34,
+	var chrome: StandardMaterial3D = _texmat("phone_chrome_band", Color(1, 1, 1), 0.34,
 			0.85, 3.0)
 	var w := BODY_W * 0.5
 	var h := BODY_H * 0.5
@@ -324,15 +324,17 @@ func _build_body() -> void:
 ## factory handset. Somebody wound a coil onto a ferrite rod, hung a
 ## tuning capacitor off it, and hot-glued the lot inside a phone.
 func _build_guts() -> void:
-	var board := _mat(Color("cfc9b6"), 0.76)       # breadboard plastic
-	var pcb := _mat(Color("2c5638"), 0.55)
+	var board: StandardMaterial3D = _texmat("breadboard", Color(1, 1, 1), 0.76, 0.0, 1.0)
+	var pcb: StandardMaterial3D = _texmat("stripboard", Color(1, 1, 1), 0.58, 0.0, 1.0)
 	var ic := _mat(Color("17171a"), 0.42)
-	var tin := _mat(Color("b9bcc0"), 0.28, 0.85)
-	var copper := _mat(Color("a8642c"), 0.34, 0.75)
-	var ferrite := _mat(Color("232329"), 0.60)
-	var kapton := _mat(Color("b8761e", 0.72), 0.40)
+	var tin: StandardMaterial3D = _texmat("solder_tinned", Color(1, 1, 1), 0.34, 0.55, 2.0)
+	var copper: StandardMaterial3D = _texmat("copper_coil", Color(1, 1, 1), 0.36, 0.55, 1.0)
+	var ferrite: StandardMaterial3D = _texmat("ferrite_rod", Color(1, 1, 1), 0.66, 0.0, 1.5)
+	var kapton: StandardMaterial3D = _texmat("kapton_tape", Color(1, 1, 1, 0.80), 0.42,
+			0.0, 1.2)
 	kapton.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	var glue := _mat(Color("e6e0cc", 0.55), 0.18)
+	var glue: StandardMaterial3D = _texmat("hot_glue", Color(1, 1, 1, 0.72), 0.22,
+			0.0, 1.6)
 	glue.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 
 	# Breadboard, sat slightly crooked because it was cut down with
@@ -407,11 +409,10 @@ func _build_guts() -> void:
 	for i in ribbon_cols.size():
 		var rz := Z_GUTS + 0.0055
 		var x := -0.0075 + i * 0.0022
-		_box(Vector3(0.0020, 0.020, 0.0004),
-				Vector3(x, 0.006, rz), _mat(ribbon_cols[i], 0.55))
+		var rib: StandardMaterial3D = _texmat("ribbon_cable", Color(1, 1, 1), 0.56, 0.0, 1.0)
+		_box(Vector3(0.0020, 0.020, 0.0004), Vector3(x, 0.006, rz), rib)
 		_box(Vector3(0.0020, 0.0044, 0.0004),
-				Vector3(x, 0.0175, rz + 0.0016),
-				_mat(ribbon_cols[i], 0.55))
+				Vector3(x, 0.0175, rz + 0.0016), rib)
 	# Kapton over the ribbon's fold, and hot glue at every joint that
 	# somebody did not trust.
 	_box(Vector3(0.020, 0.0060, 0.0006), Vector3(-0.0005, 0.0172,
@@ -466,8 +467,8 @@ func _build_keys() -> void:
 	# One keycap swatch across a 5 mm cap: the thumb-polish that came
 	# back in the centre of the photograph lands in the centre of every
 	# key, which is exactly where a thumb puts it.
-	var cap := _texmat("phone_keycap", Color(1, 1, 1), 0.54, 0.0, 1.0)
-	var cap_lit := _texmat("phone_keycap", Color(1.15, 1.15, 1.2), 0.44,
+	var cap: StandardMaterial3D = _texmat("phone_keycap", Color(1, 1, 1), 0.54, 0.0, 1.0)
+	var cap_lit: StandardMaterial3D = _texmat("phone_keycap", Color(1.15, 1.15, 1.2), 0.44,
 			0.0, 1.0)
 	var odd := _mat(Color("8a5a2c"), 0.50)          # a salvaged cap
 	var hole := _mat(Color("0d0c10"), 0.85)         # one is gone
@@ -533,7 +534,7 @@ func _build_screen() -> void:
 	# The panel is a salvaged LCD screwed to the shell through a hole
 	# cut with a craft knife: a dark surround, four brass screws, and
 	# an edge that does not quite line up with the aperture.
-	var surround := _texmat("phone_bezel", Color(1, 1, 1), 0.58, 0.0, 1.4)
+	var surround: StandardMaterial3D = _texmat("phone_bezel", Color(1, 1, 1), 0.58, 0.0, 1.4)
 	var brass := _mat(Color("c8a54a"), 0.35, 0.80)
 	var sy: float = BODY_H * 0.235
 	_box(Vector3(SCREEN_MM.x + 0.0075, SCREEN_MM.y + 0.0075, 0.0022),

@@ -65,41 +65,6 @@ func setup(player: Node3D, camera: Camera3D) -> void:
 	camera.add_child(self)
 	phone = Phone3D.new()
 	add_child(phone)
-	# A small fill so the body is never a silhouette. The building is
-	# dark on purpose and the screen only lights its own face; without
-	# this the phone reads as a hole in the bottom corner.
-	var fill := OmniLight3D.new()
-	fill.light_color = Color("8fa4c8")
-	# Barely there. At 0.22 it washed the casing to near-white and the
-	# handset read as a sheet of paper; the screen is meant to be the
-	# brightest thing on the object by a wide margin.
-	# Now that the torch is culled off the handset and the beam mask no
-	# longer touches it, this lamp is doing ALL the work. It can be
-	# generous without leaking, because its cull mask means the room
-	# never sees it - which is the whole reason held objects get their
-	# own light in every game that has one.
-	fill.light_energy = 1.30
-	fill.omni_range = 0.45
-	fill.shadow_enabled = false
-	# Lights the handset and NOTHING else. Without the cull mask this
-	# little lamp spills onto whatever wall the player is standing next
-	# to and gives the room a soft blue patch that follows them around.
-	fill.light_cull_mask = 1 << (Phone3D.PHONE_LAYER - 1)
-	# Up and to the left of the handset, IN FRONT of the camera.
-	# At (0.06, 0.12, 0.12) it sat 12 cm behind the lens, lighting
-	# the back of the player's head and nothing else.
-	fill.position = Vector3(0.02, 0.06, -0.24)
-	add_child(fill)
-	# A cold rim from below and behind, so the handset has an edge
-	# against a dark corridor instead of dissolving into it.
-	var rim := OmniLight3D.new()
-	rim.light_color = Color("6f7fa8")
-	rim.light_energy = 0.70
-	rim.omni_range = 0.40
-	rim.shadow_enabled = false
-	rim.light_cull_mask = 1 << (Phone3D.PHONE_LAYER - 1)
-	rim.position = Vector3(0.26, -0.16, -0.30)
-	add_child(rim)
 	# The lens has to share the player's World3D or the viewfinder shows
 	# a correctly-lit void. Deferred because the carrier is parented to
 	# the camera during the building's own _ready, and get_viewport()
@@ -139,16 +104,67 @@ func _build_overlay_pass(camera: Camera3D) -> void:
 	_pass_view.size = Vector2i(maxi(2, int(size.x)), maxi(2, int(size.y)))
 	_pass_view.transparent_bg = true
 	_pass_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
-	_pass_view.world_3d = get_viewport().world_3d
 	_pass_view.handle_input_locally = false
+	# ITS OWN WORLD, and this is the fix.
+	#
+	# Sharing the building's World3D and culling by light mask did not
+	# work: the handset rendered near-black however loud its lamps were,
+	# and moving them around changed nothing. Rather than keep guessing
+	# at why a cull mask is not honoured here, the pass gets a world of
+	# its own containing exactly three things - the phone, two lights
+	# and a scrap of ambient. Nothing can reach in and nothing leaks
+	# out, which is how every game that has ever drawn a weapon in a
+	# hand does it.
+	#
+	# The cost is real and worth naming: the room's own light no longer
+	# falls across the phone, so walking past a lit doorway will not
+	# warm it. That is a loss. A phone you cannot see at all is worse.
+	_pass_view.world_3d = World3D.new()
 	add_child(_pass_view)
+
+	var env := Environment.new()
+	env.background_mode = Environment.BG_CLEAR_COLOR
+	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	env.ambient_light_color = Color("3a3f52")
+	# The casing is near-black soft-touch, so the pass needs a lot
+	# more ambient than a room would. It leaks nowhere: this world
+	# contains the phone and nothing else.
+	env.ambient_light_energy = 1.60
+	env.tonemap_mode = Environment.TONE_MAPPER_FILMIC
+	var we := WorldEnvironment.new()
+	we.environment = env
+	_pass_view.add_child(we)
+
 	_pass_cam = Camera3D.new()
 	_pass_cam.cull_mask = 1 << (Phone3D.PHONE_LAYER - 1)
 	_pass_cam.current = true
-	_pass_cam.near = 0.02          # the phone is 12 cm away when raised
+	_pass_cam.near = 0.02
+	_pass_cam.fov = camera.fov
 	_pass_view.add_child(_pass_cam)
-	# Composited above the beam mask (CanvasLayer 6), so the handset is
-	# lit by the room and by its own fill, and by nothing else.
+
+	# The handset moves INTO that world. It is no longer a child of the
+	# player's camera, so the carry transform is applied to it directly
+	# each frame instead of to this node.
+	if phone.get_parent():
+		phone.get_parent().remove_child(phone)
+	_pass_view.add_child(phone)
+
+	# Key from above-left, cold kicker from below-right, both close.
+	var key := OmniLight3D.new()
+	key.light_color = Color("cfd8ee")
+	key.light_energy = 5.5
+	key.omni_range = 0.9
+	key.shadow_enabled = false
+	key.position = Vector3(-0.16, 0.20, -0.10)
+	_pass_view.add_child(key)
+	var rim := OmniLight3D.new()
+	rim.light_color = Color("6f7fa8")
+	rim.light_energy = 2.6
+	rim.omni_range = 0.8
+	rim.shadow_enabled = false
+	rim.position = Vector3(0.26, -0.18, -0.04)
+	_pass_view.add_child(rim)
+
 	var layer := CanvasLayer.new()
 	layer.layer = 8
 	add_child(layer)
@@ -158,7 +174,6 @@ func _build_overlay_pass(camera: Camera3D) -> void:
 	rect.stretch_mode = TextureRect.STRETCH_SCALE
 	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(rect)
-	# and the main camera stops seeing the handset entirely
 	camera.cull_mask = camera.cull_mask & ~(1 << (Phone3D.PHONE_LAYER - 1))
 	get_viewport().size_changed.connect(_resize_pass)
 
@@ -205,20 +220,22 @@ func _process(delta: float) -> void:
 	var bob := Vector3(sin(_bob * 1.6) * amp,
 			sin(_bob * 3.2) * amp * 0.8, 0.0)
 	_sway = _sway.lerp(Vector2.ZERO, minf(1.0, delta * 5.0))
-	# The second camera rides the first exactly, so the handset lands
-	# where it would have if it were drawn in the main pass.
+	# The pass camera stays at its own origin: the handset is carried in
+	# camera space anyway, so there is nothing for it to follow.
 	if _pass_cam and _pass_src:
-		_pass_cam.global_transform = _pass_src.global_transform
 		_pass_cam.fov = _pass_src.fov
-	position = CARRY_POS.lerp(RAISE_POS, eased) + bob
+	# Applied to the handset, which now lives in the pass world, rather
+	# than to this node, which stays on the camera purely to do the maths.
+	var target: Node3D = phone if phone else self
+	target.position = CARRY_POS.lerp(RAISE_POS, eased) + bob
 	var rot := CARRY_ROT.lerp(RAISE_ROT, eased)
 	# Sway is damped out as the phone comes up: a readable screen must
 	# not be a moving one, and the hand-lag that sells the carry is
 	# exactly what makes small text unreadable when you are trying to
 	# use it.
 	var settle: float = 1.0 - eased * 0.88
-	rotation_degrees = rot + Vector3(_sway.y, _sway.x, 0.0) * settle
-	scale = Vector3.ONE.lerp(Vector3.ONE * RAISE_SCALE, eased)
+	target.rotation_degrees = rot + Vector3(_sway.y, _sway.x, 0.0) * settle
+	target.scale = Vector3.ONE.lerp(Vector3.ONE * RAISE_SCALE, eased)
 
 
 func key(action: String, typed := "") -> void:
