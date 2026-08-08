@@ -317,6 +317,47 @@ def anchor_color(albedo, key):
     return np.clip(albedo + (target - mean) * ANCHOR_STRENGTH, 0.0, 1.0)
 
 
+def flatten_lighting(a: np.ndarray, radius_frac: float = 0.16,
+                     strength: float = 0.92) -> np.ndarray:
+    """Divide out the broad shading a generator baked into an albedo.
+
+    The prompts all say flat even lighting and base colour only, and no
+    generator has ever fully complied: what arrives has a soft gradient
+    across it - brighter toward one corner, a wide pale bloom where the
+    model imagined a window. On a single swatch that reads as nothing.
+    Tiled across a wall it becomes the most visible thing in the room,
+    because a gradient that repeats every 1.6 m is a GRID, and the eye
+    finds a grid instantly. Measured on the delivered set: bar_wall
+    carried 0.114 of low-frequency spread and the sidewalk flag 0.153.
+
+    So: blur the luminance hard, divide by it, and restore the original
+    mean. Local detail - grain, chips, grout, the whole reason the
+    photograph was worth having - is untouched, because it is all above
+    the blur radius. What goes is exactly the part that had no business
+    being in an albedo.
+
+    Runs BEFORE make_tileable on purpose. The half-roll crossfade
+    blends opposite edges together, and blending two ends of a gradient
+    is what puts the soft cross through the middle of the tile.
+    """
+    lum = a.mean(axis=2)
+    r = max(2, int(min(a.shape[0], a.shape[1]) * radius_frac))
+    # Wrap the blur, so the flattening itself cannot introduce an edge.
+    pad = np.pad(lum, r, mode="wrap")
+    blurred = np.asarray(
+        Image.fromarray((pad * 255.0).clip(0, 255).astype(np.uint8))
+        .filter(ImageFilter.GaussianBlur(r * 0.5)),
+        dtype=np.float32) / 255.0
+    blurred = blurred[r:-r, r:-r]
+    mean = float(lum.mean())
+    # Mix toward a flat field rather than dividing outright: a full
+    # division on a legitimately two-tone surface (the checkerboard, a
+    # dark grout course) would fight the material's own design.
+    target = blurred * (1.0 - strength) + mean * strength
+    gain = np.clip(target / np.maximum(blurred, 1e-4), 0.55, 1.8)
+    return np.clip(a * gain[:, :, None], 0.0, 1.0)
+
+
 def make_tileable(a: np.ndarray, band_frac: float = 0.12) -> np.ndarray:
     """Make an image wrap by overlap-blending its edges.
 
@@ -570,6 +611,10 @@ def main() -> None:
             img = img.crop((left, top, left + side, top + side))
         a = np.asarray(img, dtype=np.float32) / 255.0
         if slot not in COMPOSITION:
+            # Flatten first, THEN blend the edges: the crossfade joins
+            # opposite sides, and joining two ends of a gradient is what
+            # draws the soft cross through the middle of every tile.
+            a = flatten_lighting(a)
             a = make_tileable(a)
         return a
 
