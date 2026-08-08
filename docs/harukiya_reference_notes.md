@@ -19,6 +19,30 @@ booth seating at right). Secondary: production-background scholarship
 confirming the two arcade cabinets immediately left of the entrance and
 Otomo's teal-offset-by-red staircase composition.
 
+**LAYOUT REBUILD (2026-08-07).** The owner supplied Belchí Lorente's
+full layout doc and interior concept — the same artist this file
+already cites as the primary interior study, now with the plan, the
+layout-exploration sheet, and his own note that he imagined the room
+"a bite more friendly than in the manga". The bar was rebuilt to it.
+
+The room now runs 9.2 m deep instead of 6.8 (the block above is hollow
+to 3.55 and the basement had been using two thirds of its footprint)
+and reads as the study's three zones: a raised lounge of banquettes
+behind a turned-baluster railing where you arrive, a checkerboard
+table floor in the middle, and a curtained stage at the far end under
+a lit sign. Added with it: the rubble dado, the crowded gallery wall,
+exposed ceiling services, seven tables with candles and bentwood
+chairs, an upright piano, PA stacks, and palms.
+
+Nothing canonical moved. The teal descent, the red steel door, the two
+arcade cabinets immediately left of the entrance, the deep canopy over
+the counter, the barrels and pictures behind the backbar, the violet
+felt and the low ceiling are all where the evidence ledger puts them —
+the cabinets now stand on the raised deck, which is still the first
+thing on your left. This is a NYC ADAPTATION entry, not a canon
+revision: the film's basement is still the film's basement, and what
+changed is what a New York operator did with a bigger cellar.
+
 **Standing integration rulings (2026-08-07):**
 
 1. **Renderer stays `gl_compatibility`.** The brief specifies Forward+;

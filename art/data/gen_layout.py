@@ -4054,18 +4054,33 @@ def retail_pass(fl):
                "unit": "SITE", "network": "electrical",
                "exterior": True})
 
-    # ============ THE HARUKIYA (film-first greybox, brief P2) =========
-    # Room 10.8 x 6.8 x 2.65 under nbr_s2; stair 1.15 m clear, 16 risers
-    # at 175 mm over 270 mm treads; vestibule; red steel door; the two
-    # arcade cabinets immediately LEFT of the entrance (canonical);
-    # counter on the north long wall with canopy; stage west; restroom
-    # SW. Everything here is collision-bearing greybox - decoration is
-    # later phases, per the brief's own order.
+    # ============ THE HARUKIYA (Belchi Lorente layout, brief P2) ======
+    # Rebuilt 2026-08-07 from the owner's layout doc and the Belchi
+    # Lorente interior study - the same artist docs/harukiya_reference_
+    # notes.md already cites, now with the whole plan and his own note
+    # that he imagined it "a bite more friendly than in the manga".
+    #
+    # The old room was one 9.1 x 6.8 m box holding a counter, a pool
+    # table and almost nowhere to sit. This one runs 9.2 m deep - the
+    # block overhead is hollow to 3.55 and the basement had been using
+    # two thirds of its footprint - and reads as the study's three
+    # zones: a raised lounge of banquettes behind a turned-baluster
+    # railing where you come in, a checkerboard table floor in the
+    # middle, and a curtained stage at the far end under a lit sign.
+    #
+    # What did NOT move, because it is what makes this the Harukiya and
+    # not a generic tavern: the teal descent, the red steel door, two
+    # arcade cabinets immediately left of the entrance, the deep canopy
+    # over the counter, the barrels and crowded pictures behind the
+    # backbar, the violet felt, the low ceiling, and light that only
+    # ever comes from something you can point at.
     KX0, KX1 = -5.6, 6.4
     FACE = -28.32
-    RX0, RX1 = -5.10, 4.00           # room clear span (10.8 incl shell)
-    RY0, RY1 = -35.50, -28.70
+    RX0, RX1 = -5.10, 4.00           # room clear span, east-west
+    RY0, RY1 = -37.90, -28.70        # 9.2 m deep now, was 6.8
     FLR = -2.80                       # basement floor top
+    DECK = FLR + 0.18                 # the raised lounge
+    STAGE_Z = FLR + 0.22
     SH_W, SH_E = 4.30, 5.45           # stair shaft, 1.15 clear
 
     # ground storey: infill everywhere but the lobby/shaft slot
@@ -4090,23 +4105,27 @@ def retail_pass(fl):
         top = -0.175 * (t + 1)
         fb("bar_tread%d" % t, (SH_W, ty1 - RUN, SH_E, ty1), -2.90,
            2.90 + top, "quarry_tile")
-    fb("bar_vest_floor", (SH_W, RY0, SH_E, -34.05), -2.87, 0.07,
+    fb("bar_vest_floor", (SH_W, -35.50, SH_E, -34.05), -2.87, 0.07,
        "quarry_tile")
     fb("bar_mat", (SH_W + 0.10, -34.60, SH_E - 0.10, -34.10), FLR,
        0.012, "rug_warm")
     # shaft walls, full height street to basement
-    fb("bar_shaft_e", (SH_E, RY0 - 0.30, SH_E + 0.30, FACE), -2.90,
+    fb("bar_shaft_e", (SH_E, -35.80, SH_E + 0.30, FACE), -2.90,
        5.45, "stairwell_teal")
-    fb("bar_shaft_s", (SH_W, RY0 - 0.30, SH_E, RY0), -2.90, 5.45,
+    fb("bar_shaft_s", (SH_W, -35.80, SH_E, -35.50), -2.90, 5.45,
        "stairwell_teal")
     # west shaft wall doubles as the room's east wall; pierced at the
     # bottom for the red door (opening y -34.90..-33.95)
     fb("bar_wall_e_n", (RX1, -33.95, SH_W, FACE), -2.90, 5.45,
        "stairwell_teal")
-    fb("bar_wall_e_s", (RX1, RY0 - 0.30, SH_W, -34.90), -2.90, 5.45,
+    fb("bar_wall_e_s", (RX1, -35.80, SH_W, -34.90), -2.90, 5.45,
        "stairwell_teal")
     fb("bar_wall_e_lint", (RX1, -34.90, SH_W, -33.95), -0.77, 2.32,
        "stairwell_teal")
+    # the room's own east wall south of the shaft, now that the room
+    # runs deeper than the stair does
+    fb("bar_wall_e_deep", (RX1, RY0 - 0.30, RX1 + 0.30, -35.50), -2.87,
+       2.72, "bar_wall")
     # litter on the way down
     asm("bar_lit_paper", "papers", 4.70, -31.35, 35, z0=-0.95)
     asm("bar_lit_bott", "bottles", 5.15, -32.85, 0, z0=-1.93)
@@ -4123,6 +4142,68 @@ def retail_pass(fl):
        "bar_wall")
     fb("bar_wall_n", (RX0, RY1, RX1, RY1 + 0.38), -2.87, 2.72,
        "bar_wall")
+    # Rubble dado, straight from the study: coursed stone to just above
+    # table height, plaster above it. It is the single detail that stops
+    # the walls reading as painted cardboard.
+    for tag, rect in (("w", (RX0, RY0, RX0 + 0.06, RY1)),
+                      ("s", (RX0, RY0, RX1, RY0 + 0.06)),
+                      ("n", (RX0, RY1 - 0.06, RX1, RY1))):
+        fb("bar_dado_%s" % tag, rect, FLR, 1.05, "concrete")
+
+    # -- THE CHECKERBOARD, the middle zone the tables stand on.
+    # Laid as pale inlays over the quarry floor rather than as two
+    # interleaved grids: half the boxes for the same picture.
+    CB_X0, CB_Y0, CB_N, CB_M, CB = -3.20, -36.60, 8, 9, 0.60
+    for cx in range(CB_N):
+        for cy in range(CB_M):
+            if (cx + cy) % 2:
+                continue
+            x0 = CB_X0 + cx * CB
+            y0 = CB_Y0 + cy * CB
+            fb("bar_cb%d_%d" % (cx, cy), (x0, y0, x0 + CB, y0 + CB),
+               FLR + 0.005, 0.012, "limestone")
+
+    # -- THE RAISED LOUNGE, east side, where you arrive.
+    # A step up, a railing of turned balusters, and banquettes round
+    # low tables: the study's "friendlier" half, and the reason the bar
+    # now has somewhere to sit that is not a stool.
+    LD_X0, LD_Y0, LD_Y1 = 1.80, -37.60, -32.00
+    fb("bar_deck", (LD_X0, LD_Y0, RX1, LD_Y1), FLR, 0.18, "quarry_tile")
+    fb("bar_deck_nose", (LD_X0 - 0.06, LD_Y0, LD_X0, LD_Y1), FLR,
+       0.18, "wood_dark")
+    # two steps down into the table floor, opposite the door
+    for si, sy in enumerate((-34.30, -33.70)):
+        fb("bar_step%d" % si, (LD_X0 - 0.34, sy, LD_X0, sy + 0.58),
+           FLR, 0.09, "wood_dark")
+    # the railing: newels, turned balusters, moulded rail. Split either
+    # side of the step opening so the way down is actually a way down.
+    for seg, (ry0, ry1) in enumerate(((LD_Y0 + 0.10, -34.40),
+                                      (-33.60, LD_Y1 - 0.10))):
+        pipe("bar_rail%d" % seg, (LD_X0 - 0.03, ry0, DECK + 0.92),
+             (LD_X0 - 0.03, ry1, DECK + 0.92), 0.035, "handrail_wood")
+        n_bal = max(2, int((ry1 - ry0) / 0.16))
+        for b in range(n_bal + 1):
+            by = ry0 + (ry1 - ry0) * b / n_bal
+            pipe("bar_bal%d_%d" % (seg, b), (LD_X0 - 0.03, by, DECK),
+                 (LD_X0 - 0.03, by, DECK + 0.90), 0.019,
+                 "handrail_wood")
+        for e, ey in enumerate((ry0, ry1)):
+            pipe("bar_newel%d_%d" % (seg, e), (LD_X0 - 0.03, ey, DECK),
+                 (LD_X0 - 0.03, ey, DECK + 1.02), 0.045, "handrail_wood")
+    # banquettes along the east wall, and the low tables they face
+    for i, (by, ln) in enumerate(((-37.10, 1.60), (-35.30, 1.50),
+                                  (-33.40, 1.40))):
+        asm("bar_banq%d" % i, "couch", RX1 - 0.42, by, 270, z0=DECK,
+            variant=i, L=ln)
+        fb("bar_btab%d" % i, (2.30, by - 0.42, 3.10, by + 0.42),
+           DECK + 0.38, 0.05, "wood_dark")
+        asm("bar_bmug%d" % i, "mug", 2.70, by + 0.10, 0, z0=DECK + 0.43)
+
+    # -- ARCADE CORNER, immediately left of the red door (canonical).
+    # Still the first thing on your left, now standing on the deck.
+    asm("bar_cab01", "arcade_cab", 3.55, -35.35, 270, z0=DECK, variant=0)
+    asm("bar_cab02", "arcade_cab", 3.55, -36.30, 270, z0=DECK, variant=1)
+    asm("bar_jukebox", "jukebox", 2.35, -37.35, 180, z0=DECK)
 
     # -- BAR, north long wall: backbar / aisle / counter with red trim
     for bi, bz in enumerate((-1.60, -1.10, -0.65)):
@@ -4133,10 +4214,6 @@ def retail_pass(fl):
     for i, (b0, b1) in enumerate(((-3.40, -2.50), (-1.20, -0.30))):
         pipe("bar_barrel%d" % i, (b0, RY1 - 0.16, -0.72),
              (b1, RY1 - 0.16, -0.72), 0.36, "timber")
-    for i, (px, pz) in enumerate(((-4.15, -1.35), (1.55, -1.5),
-                                  (2.9, -0.95))):
-        fb("bar_pic%d_art" % i, (px, RY1 - 0.045, px + 0.62, RY1),
-           pz, 0.5, "art")
     fb("bar_counter", (-4.30, -30.28, 0.90, -29.60), FLR, 1.02,
        "wood_dark")
     fb("bar_counter_top", (-4.36, -30.34, 0.96, -29.54), -1.78, 0.06,
@@ -4158,72 +4235,137 @@ def retail_pass(fl):
         pipe("bar_stool%d_post" % i, (sx, -30.85, FLR),
              (sx, -30.85, FLR + 0.70), 0.04, "chrome")
         pipe("bar_stool%d_seat" % i, (sx, -30.85, FLR + 0.70),
-             (sx, -30.85, FLR + 0.76), 0.19, "fabric_warm")
+             (sx, -30.85, FLR + 0.76), 0.19, "vinyl_oxblood")
 
-    # -- ARCADE CORNER, immediately left of the red door (canonical).
-    # Hero assemblies now: two distinct uprights against the south wall
-    # facing the room, screens angled away from the door glare.
-    asm("bar_cab01", "arcade_cab", 3.45, -35.05, 180, z0=FLR, variant=0)
-    asm("bar_cab02", "arcade_cab", 2.45, -35.03, 180, z0=FLR, variant=1)
-    asm("bar_jukebox", "jukebox", 1.48, -35.08, 180, z0=FLR)
-    asm("bar_cab03", "arcade_cab", 0.50, -35.10, 180, z0=FLR, variant=2)
-    asm("bar_cab04", "arcade_cab", -2.90, -29.10, 0, z0=FLR, variant=3)
+    # -- THE GALLERY WALL. The study's crowded, mismatched frames: the
+    # bar has been collecting them longer than anyone working here has
+    # been alive. Deterministic scatter so a regen does not reshuffle
+    # somebody's memory of the room.
+    gal = 0
+    for wall, (ax, ay, span, horiz) in {
+            "n": (-4.30, RY1 - 0.045, 8.10, True),
+            "w": (RX0 + 0.02, -36.40, 5.60, False)}.items():
+        for k in range(11):
+            t = (k * 0.61803) % 1.0
+            w = 0.34 + ((k * 7) % 4) * 0.13
+            h = 0.28 + ((k * 5) % 3) * 0.16
+            z = -1.55 + ((k * 3) % 5) * 0.20
+            if horiz:
+                x0 = ax + t * (span - w)
+                fb("bar_gal%d_art" % gal, (x0, ay, x0 + w, ay + 0.045),
+                   z, h, "art")
+            else:
+                y0 = ay + t * (span - w)
+                fb("bar_gal%d_art" % gal, (ax, y0, ax + 0.045, y0 + w),
+                   z, h, "art")
+            gal += 1
 
-    # -- COUCH BANK, south wall: two of the four modules, with tables
-    asm("bar_couch0", "couch", -2.65, -34.95, 0, z0=FLR, variant=0,
-        L=1.35)
-    asm("bar_couch1", "couch", -1.05, -34.95, 0, z0=FLR, variant=1,
-        L=1.35)
-    for i, (cx0, cx1) in enumerate(((-3.35, -1.95), (-1.75, -0.35))):
-        fb("bar_ctable%d" % i, (cx0 + 0.25, -34.35, cx1 - 0.25, -33.75),
-           FLR + 0.70, 0.05, "wood_dark")
-    # -- NE couch strip facing the bar: modules three and four
-    asm("bar_couch2", "couch", 3.22, -29.15, 180, z0=FLR, variant=2,
-        L=1.20)
-    asm("bar_couch3", "couch", -4.35, -29.15, 180, z0=FLR, variant=3,
-        L=1.20)
-    asm("bar_tab_ne", "table_round", 2.55, -30.4, 0, z0=FLR)
-    asm("bar_tab_c", "table_round", 1.6, -31.6, 0, z0=FLR)
-    asm("bar_ch_c", "chair", 1.0, -31.6, 90, z0=FLR)
+    # -- CEILING SERVICES. Exposed runs across a low dark ceiling, the
+    # study's most-repeated detail after the frames. They also give the
+    # eye something to read the height against.
+    for i, py in enumerate((-36.20, -34.10, -31.60, -29.90)):
+        pipe("bar_pipe%d" % i, (RX0 + 0.10, py, -0.34),
+             (RX1 - 0.10, py, -0.34), 0.055, "metal")
+    for i, px in enumerate((-2.60, 0.80)):
+        pipe("bar_condu%d" % i, (px, RY0 + 0.20, -0.28),
+             (px, RY1 - 0.20, -0.28), 0.028, "metal")
 
-    # -- STAGE west + karaoke rig; screen is TV furniture so the
-    # broadcast station actually feeds it (audit fix)
-    fb("bar_stage", (-5.00, -33.50, -2.40, -31.70), FLR, 0.20, "timber")
-    asm("bar_mic", "micstand", -3.60, -32.60, 90, z0=FLR + 0.20)
-    asm("bar_tv", "tv", -4.72, -32.60, 90, z0=FLR + 0.20)
-    for i, sy in enumerate((-33.35, -31.85)):
-        mk.append({"kind": "speaker", "id": "F01_KARAOKE_SPK_%d" % i,
-                   "unit": "SITE", "pos": [-4.85, sy, FLR],
-                   "yaw_deg": 90, "network": "electrical",
-                   "exterior": True})
+    # -- TABLES. Round tops, bentwood chairs, a candle on each: the
+    # single biggest change, and the reason the room now reads as a
+    # place people sit in rather than a corridor with a counter.
+    TABLES = [(-2.55, -35.60, 3), (-0.75, -35.95, 2), (0.85, -34.60, 3),
+              (-2.35, -33.40, 2), (-0.55, -32.85, 3), (0.95, -31.85, 2),
+              (-2.75, -31.55, 3)]
+    for i, (tx, ty, seats) in enumerate(TABLES):
+        asm("bar_tab%d" % i, "table_round", tx, ty, 0, z0=FLR)
+        fb("bar_candle%d" % i, (tx - 0.03, ty - 0.03, tx + 0.03,
+                                ty + 0.03), FLR + 0.74, 0.16, "linen")
+        for s in range(seats):
+            a = (i * 41 + s * (360 // seats)) % 360
+            rad = 0.78
+            cx = tx + rad * math.cos(math.radians(a))
+            cy = ty + rad * math.sin(math.radians(a))
+            asm("bar_ch%d_%d" % (i, s), "chair", cx, cy,
+                (a + 180) % 360, z0=FLR)
 
-    # -- POOL TABLE mid-room, violet felt
-    fb("bar_pool_body", (-1.90, -32.85, 0.40, -31.55), FLR, 0.78,
+    # -- THE STAGE, far end, curtained, under a lit sign. In the study
+    # it is a small raised platform with a piano at one side and heavy
+    # red drapes behind - not a performance space so much as a corner
+    # somebody stands in.
+    ST_X0, ST_X1, ST_Y0, ST_Y1 = -2.60, 1.20, -37.60, -36.20
+    fb("bar_stage", (ST_X0, ST_Y0, ST_X1, ST_Y1), FLR, 0.22, "timber")
+    fb("bar_stage_lip", (ST_X0, ST_Y1 - 0.05, ST_X1, ST_Y1), FLR,
+       0.22, "lacquer_red")
+    # the drapes: pleats as alternating depths so they read as cloth.
+    # Wearing the restroom's oxblood until a velvet gen lands
+    # (prompt 14 in RETAIL_TEXTURE_PROMPTS); a catalog key with no
+    # ingested mapping fails the build, so the stand-in is a real
+    # material and not a placeholder colour.
+    for i in range(16):
+        dx = ST_X0 + i * (ST_X1 - ST_X0) / 16.0
+        dep = 0.10 if i % 2 else 0.17
+        fb("bar_drape%d" % i, (dx, ST_Y0 - 0.02, dx + 0.24,
+                               ST_Y0 - 0.02 + dep), FLR, 2.35,
+           "bar_wall_red")
+    fb("bar_pelmet", (ST_X0 - 0.10, ST_Y0 - 0.04, ST_X1 + 0.10,
+                      ST_Y0 + 0.20), FLR + 2.30, 0.26, "bar_wall_red")
+    asm("bar_mic", "micstand", -0.70, -36.75, 180, z0=STAGE_Z)
+    asm("bar_tv", "tv", 0.90, -37.30, 200, z0=STAGE_Z)
+    # the piano, upright against the stage's west end
+    fb("bar_piano_body", (-2.45, -37.45, -1.35, -36.85), STAGE_Z, 1.18,
        "wood_dark")
-    fb("bar_pool_felt", (-1.78, -32.73, 0.28, -31.67), FLR + 0.78,
+    fb("bar_piano_lid", (-2.50, -37.50, -1.30, -36.80), STAGE_Z + 1.18,
+       0.06, "wood_dark")
+    fb("bar_piano_keys", (-2.40, -36.85, -1.40, -36.63), STAGE_Z + 0.62,
+       0.05, "linen")
+    for i in range(2):
+        pipe("bar_pastack%d" % i, (ST_X0 - 0.35 + i * 4.4, -37.30,
+                                   FLR + 0.90),
+             (ST_X0 - 0.35 + i * 4.4, -37.30, FLR + 2.05), 0.16, "soot")
+        mk.append({"kind": "speaker", "id": "F01_KARAOKE_SPK_%d" % i,
+                   "unit": "SITE",
+                   "pos": [ST_X0 - 0.35 + i * 4.4, -37.30, FLR + 0.90],
+                   "yaw_deg": 180, "network": "electrical",
+                   "exterior": True})
+    # the sign over the stage - the study hangs a big lit word up there
+    # and it is the room's one piece of legible text
+    mk.append({"kind": "neon_sign", "id": "F01_BAR_STAGE_SIGN",
+               "pos": [-0.70, ST_Y0 + 0.05, FLR + 2.42],
+               "yaw_deg": 180, "text": "HARUKIYA", "vertical": False,
+               "tint": [1.0, 0.86, 0.52], "network": "electrical"})
+
+    # -- POOL TABLE, west aisle, out of the walking line
+    fb("bar_pool_body", (-4.70, -34.60, -2.70, -33.30), FLR, 0.78,
+       "wood_dark")
+    fb("bar_pool_felt", (-4.58, -34.48, -2.82, -33.42), FLR + 0.78,
        0.04, "felt_violet")
     for i, (bx, by, mat) in enumerate((
-            (-1.05, -32.35, "enamel"), (-0.70, -32.05, "terracotta"),
-            (-0.40, -32.40, "brass"), (-0.10, -31.95, "fabric_green"),
-            (-0.85, -31.80, "bakelite"))):
+            (-3.95, -34.10, "enamel"), (-3.60, -33.80, "terracotta"),
+            (-3.30, -34.15, "brass"), (-3.00, -33.70, "fabric_green"),
+            (-3.75, -33.55, "bakelite"))):
         fb("bar_ball%d" % i, (bx, by, bx + 0.06, by + 0.06),
            FLR + 0.82, 0.055, mat)
-    pipe("bar_cue", (0.55, -31.40, FLR + 0.05),
-         (0.80, -31.60, FLR + 1.50), 0.012, "timber")
+    pipe("bar_cue", (-2.55, -33.15, FLR + 0.05),
+         (-2.30, -33.35, FLR + 1.50), 0.012, "timber")
 
-    # -- RESTROOM, SW cell
-    fb("bar_wc_wall_e", (-3.60, RY0, -3.45, -33.90), FLR, 2.60,
+    # -- PLANTS. Canon: tall indoor palms, improbably alive.
+    asm("bar_palm0", "plant", -4.55, -31.90, 0, z0=FLR)
+    asm("bar_palm1", "plant", 1.35, -37.20, 0, z0=DECK)
+    asm("bar_palm2", "plant", 3.70, -32.45, 0, z0=DECK)
+
+    # -- RESTROOM, far SW corner
+    fb("bar_wc_wall_e", (-3.40, RY0, -3.25, -36.10), FLR, 2.60,
        "bar_wall_red")
-    fb("bar_wc_wall_n_w", (-5.10, -33.90, -4.55, -33.75), FLR, 2.60,
+    fb("bar_wc_wall_n_w", (RX0, -36.25, -4.45, -36.10), FLR, 2.60,
        "bar_wall_red")
-    fb("bar_wc_wall_n_e", (-3.85, -33.90, -3.45, -33.75), FLR, 2.60,
+    fb("bar_wc_wall_n_e", (-3.75, -36.25, -3.25, -36.10), FLR, 2.60,
        "bar_wall_red")
-    fb("bar_wc_lintel", (-4.55, -33.90, -3.85, -33.75), FLR + 2.05,
+    fb("bar_wc_lintel", (-4.45, -36.25, -3.75, -36.10), FLR + 2.05,
        0.55, "bar_wall_red")
-    asm("bar_wc_toilet", "toilet", -4.80, -35.10, 0, z0=FLR)
-    asm("bar_wc_sink", "sink_basin", -3.85, -35.15, 0, z0=FLR)
+    asm("bar_wc_toilet", "toilet", -4.75, -37.45, 0, z0=FLR)
+    asm("bar_wc_sink", "sink_basin", -3.70, -37.50, 0, z0=FLR)
     mk.append({"kind": "door", "id": "F01_BAR_WC_DOOR",
-               "pos": [-4.20, -33.82, FLR], "yaw_deg": 0, "w": 0.70,
+               "pos": [-4.10, -36.17, FLR], "yaw_deg": 0, "w": 0.70,
                "h": 2.00, "leaf": "closed", "exterior": True})
 
     # -- doors, signs, lights
@@ -4240,10 +4382,10 @@ def retail_pass(fl):
     fb("bar_face_fascia", (KX0, FACE - 0.16, KX1, FACE + 0.02), 2.50,
        0.60, "soot")
     # Signage redesign (2026-08-07): the bar's two neons are replaced by
-    # one izakaya ensemble the prop builds - the painted 春木屋 board
-    # under gooseneck trough lights, the red chochin lantern (lit when
-    # open, taken in when closed), and a marquee bulb arrow pointing
-    # down the stair. Faces the street and the Orison beyond it.
+    # one izakaya ensemble the prop builds - the painted board under
+    # gooseneck trough lights, the red chochin lantern (lit when open,
+    # taken in when closed), and a marquee bulb arrow pointing down the
+    # stair. Faces the street and the Orison beyond it.
     mk.append({"kind": "bar_signage", "id": "F01_BAR_SIGNAGE",
                "pos": [4.875, FACE + 0.06, 2.80], "yaw_deg": 180,
                "unit": "SITE", "network": "electrical",
@@ -4265,12 +4407,34 @@ def retail_pass(fl):
                    "energy": 0.55, "navigation": True, "standby": 0.4,
                    "exterior": True})
     mk.append({"kind": "pendant_shade", "id": "F01_BAR_LT_POOL",
-               "unit": "SITE", "pos": [-0.75, -32.20, -0.75],
+               "unit": "SITE", "pos": [-3.70, -33.95, -0.75],
                "yaw_deg": 0, "network": "electrical", "range": 4.0,
                "energy": 0.45, "navigation": True, "standby": 0.4,
                "exterior": True})
+    # a low pendant over every other table: the study is lit almost
+    # entirely by small warm sources hung close over people
+    for i, (tx, ty, _s) in enumerate(TABLES):
+        if i % 2:
+            continue
+        mk.append({"kind": "pendant_shade",
+                   "id": "F01_BAR_LT_TAB%d" % i, "unit": "SITE",
+                   "pos": [tx, ty, -0.82], "yaw_deg": 0,
+                   "network": "electrical", "range": 3.2,
+                   "energy": 0.38, "navigation": True, "standby": 0.35,
+                   "exterior": True})
+    for i, sx in enumerate((-1.90, 0.50)):
+        mk.append({"kind": "cage_bulb", "id": "F01_BAR_LT_STAGE%d" % i,
+                   "unit": "SITE", "pos": [sx, -36.55, -0.95],
+                   "yaw_deg": 0, "network": "electrical", "range": 3.6,
+                   "energy": 0.5, "navigation": True, "standby": 0.3,
+                   "exterior": True})
+    mk.append({"kind": "sconce_globe", "id": "F01_BAR_LT_DECK",
+               "unit": "SITE", "pos": [3.92, -34.90, -1.30],
+               "yaw_deg": 270, "network": "electrical", "range": 3.4,
+               "energy": 0.42, "navigation": True, "standby": 0.35,
+               "exterior": True})
     mk.append({"kind": "cage_bulb", "id": "F01_BAR_LT_WC",
-               "unit": "SITE", "pos": [-4.30, -34.70, FLR + 2.35],
+               "unit": "SITE", "pos": [-4.30, -37.10, FLR + 2.35],
                "yaw_deg": 0, "network": "electrical", "range": 2.5,
                "energy": 0.4, "navigation": True, "standby": 0.35,
                "exterior": True})

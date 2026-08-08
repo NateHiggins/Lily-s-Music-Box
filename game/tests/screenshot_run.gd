@@ -111,10 +111,15 @@ const SHOTS := [
 	# The Harukiya, from beside the red door across the pool table to the
 	# stage, and from the stage end down the counter run. Shot per state:
 	# DAYNIGHT_FORCE=22:30 (OPEN), 03:00 (AFTER-HOURS), 12:00 (CLOSED).
-	{"name": "b_44_bar_room", "pos": Vector3(3.3, -1.15, 33.9),
-	 "look": Vector3(-3.0, -1.75, 31.2), "overlay": false},
-	{"name": "b_45_bar_counter", "pos": Vector3(-3.9, -1.2, 32.4),
-	 "look": Vector3(0.5, -1.85, 29.9), "overlay": false},
+	# The rebuilt Harukiya. From the red door across the table floor to
+	# the stage; from the stage back up the room at the counter; and
+	# the raised lounge from the far side of the railing.
+	{"name": "b_44_bar_room", "pos": Vector3(3.30, -1.05, 34.30),
+	 "look": Vector3(-0.90, -1.85, 36.80), "overlay": false},
+	{"name": "b_45_bar_counter", "pos": Vector3(-0.60, -1.15, 35.90),
+	 "look": Vector3(-1.20, -1.90, 30.10), "overlay": false},
+	{"name": "b_48_bar_lounge", "pos": Vector3(-1.60, -1.10, 32.60),
+	 "look": Vector3(3.40, -1.95, 35.60), "overlay": false},
 	# The two shop signs as the residents actually see them: from Orison
 	# windows. The bar's board+lantern from a third-floor south window;
 	# the bodega's blade cabinet and awning from the east face.

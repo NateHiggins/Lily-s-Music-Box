@@ -11,17 +11,19 @@ const FLR := -2.80              # bar floor, Blender z
 
 func build(root: Node3D) -> int:
 	var count := 0
-	# -- pictures on the north wall (bar_pic0..2 in gen_layout)
+	# -- three of the gallery wall's frames, on the north run above the
+	# backbar. The rest of the wall is scatter; these are the ones worth
+	# stopping at.
 	var pictures := [
-		[-3.84, -1.10, "the framed block",
+		[-3.55, -1.10, "the framed block",
 			["A framed photograph: this block in 1948, the Orison already old in it. The bar is not in the picture. The stairs down to it are.",
 			"Someone has inked a small x on one window of the tower. Fourth floor."]],
-		[1.86, -1.25, "the opening-night photo",
+		[0.35, -1.25, "the opening-night photo",
 			["The bar under its first name, 1962 - work jackets around the pool table. The felt was green then.",
 			"Nobody in the photograph is looking at the camera. Everyone is looking at the door."]],
-		[3.21, -0.70, "the signed portrait",
+		[2.65, -0.70, "the signed portrait",
 			["A signed publicity photo of a singer nobody can place. The signature has outlived the name.",
-			"The frame is the only one of the three without dust on its top edge."]],
+			"The frame is the only one on the wall without dust on its top edge."]],
 	]
 	for spec in pictures:
 		var zone := InspectableZone.new()
@@ -45,22 +47,23 @@ func build(root: Node3D) -> int:
 		root.add_child(zone)
 		zone.global_position = GameBoot.b2g([float(spec[0]), -28.95, -0.72])
 		count += 1
-	# -- the pool table
+	# -- the pool table, now in the west aisle
 	var pool := InspectableZone.new()
 	pool.name = "BAR_POOL_TABLE"
 	pool.setup("the pool table",
 			["Violet felt, five mismatched balls, one cue. The house rules are chalked on the underside of the rail, where nobody can read them.",
 			"The cue leans where somebody left it mid-game. The balls have not moved since."],
-			Vector3(2.3, 0.5, 1.3))
+			Vector3(2.0, 0.5, 1.3))
 	root.add_child(pool)
-	pool.global_position = GameBoot.b2g([-0.75, -32.20, FLR + 0.85])
+	pool.global_position = GameBoot.b2g([-3.70, -33.95, FLR + 0.85])
 	count += 1
-	# -- seat sockets on the four couch modules (bar_couch0..3).
-	# Couches 0/1 stand on the south wall facing north into the room;
-	# couches 2/3 are the strip facing the bar, yaw 180 in the generator.
+	# -- seat sockets on the three banquettes of the raised lounge, which
+	# face west off the east wall (yaw 270 in the generator). The deck
+	# stands 180 mm proud of the floor, so these sit at DECK, not FLR.
+	var deck := FLR + 0.18
 	var seats := [
-		[-2.65, -34.80, 0.0], [-1.05, -34.80, 0.0],
-		[3.22, -29.30, PI], [-4.35, -29.30, PI],
+		[3.30, -37.10, -PI * 0.5], [3.30, -35.30, -PI * 0.5],
+		[3.30, -33.40, -PI * 0.5],
 	]
 	for i in seats.size():
 		var spec: Array = seats[i]
@@ -69,7 +72,7 @@ func build(root: Node3D) -> int:
 		seat.setup()
 		root.add_child(seat)
 		seat.global_position = GameBoot.b2g([float(spec[0]), float(spec[1]),
-				FLR + 0.42])
+				deck + 0.42])
 		seat.rotation.y = float(spec[2])
 		count += 1
 	print("[HARUKIYA] %d interactables placed" % count)

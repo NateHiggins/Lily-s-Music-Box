@@ -1255,9 +1255,9 @@
   {
    "id": "F01_KARAOKE_SPK_0",
    "pos": [
-    -4.85,
-    -33.35,
-    -2.8
+    -2.95,
+    -37.3,
+    -1.9
    ],
    "room": "SITE",
    "network": "electrical",
@@ -1275,11 +1275,31 @@
   {
    "id": "F01_KARAOKE_SPK_1",
    "pos": [
-    -4.85,
-    -31.85,
-    -2.8
+    1.45,
+    -37.3,
+    -1.9
    ],
    "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_STAGE_SIGN",
+   "pos": [
+    -0.7,
+    -37.55,
+    -0.38
+   ],
+   "room": "",
    "network": "electrical",
    "frequency_band": [
     60,
@@ -1375,9 +1395,149 @@
   {
    "id": "F01_BAR_LT_POOL",
    "pos": [
-    -0.75,
-    -32.2,
+    -3.7,
+    -33.95,
     -0.75
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_TAB0",
+   "pos": [
+    -2.55,
+    -35.6,
+    -0.82
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_TAB2",
+   "pos": [
+    0.85,
+    -34.6,
+    -0.82
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_TAB4",
+   "pos": [
+    -0.55,
+    -32.85,
+    -0.82
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_TAB6",
+   "pos": [
+    -2.75,
+    -31.55,
+    -0.82
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_STAGE0",
+   "pos": [
+    -1.9,
+    -36.55,
+    -0.95
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_STAGE1",
+   "pos": [
+    0.5,
+    -36.55,
+    -0.95
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_DECK",
+   "pos": [
+    3.92,
+    -34.9,
+    -1.3
    ],
    "room": "SITE",
    "network": "electrical",
@@ -1396,7 +1556,7 @@
    "id": "F01_BAR_LT_WC",
    "pos": [
     -4.3,
-    -34.7,
+    -37.1,
     -0.45
    ],
    "room": "SITE",
@@ -6028,11 +6188,19 @@
     "F01_BODEGA_RADIO",
     "F01_KARAOKE_SPK_0",
     "F01_KARAOKE_SPK_1",
+    "F01_BAR_STAGE_SIGN",
     "F01_BAR_LT_LOBBY",
     "F01_BAR_LT_STAIR",
     "F01_BAR_LT_CAN0",
     "F01_BAR_LT_CAN1",
     "F01_BAR_LT_POOL",
+    "F01_BAR_LT_TAB0",
+    "F01_BAR_LT_TAB2",
+    "F01_BAR_LT_TAB4",
+    "F01_BAR_LT_TAB6",
+    "F01_BAR_LT_STAGE0",
+    "F01_BAR_LT_STAGE1",
+    "F01_BAR_LT_DECK",
     "F01_BAR_LT_WC",
     "F02_CORRLIGHT_S"
    ]

@@ -211,6 +211,28 @@ infinitely wrapping, no landmarks, no watermark, no text. Square 1:1,
 high resolution, macro grain detail. Coverage: 1.0 metres.
 ```
 
+## 14. `curtain_velvet_red.png` — 1.4 m  (the stage drapes)
+
+*Added 2026-08-07 with the Belchí Lorente rebuild. The stage drapes are
+wearing the restroom's oxblood in the meantime — a catalog key with no
+ingested mapping fails the Blender build outright, so the stand-in had
+to be a real material rather than a placeholder colour. This replaces
+it and earns the `curtain_red` key.*
+
+```
+A flatbed scanner scan of heavy deep-crimson velvet stage curtain,
+the pile catching light in soft vertical bands where it has hung in
+folds for decades, dusty and flattened along one band, the colour a
+deep blood red going slightly brown where the sun has reached it. A
+few small moth holes and a faint water tidemark low down. Wear spread
+evenly over the whole surface, nothing that draws the eye to one spot.
+A close crop of a much larger curtain: velvet fills the entire frame
+edge to edge, no hem, no pleat edges standing proud, no track, no
+background. Lit absolutely evenly like a document scanner, no shadows
+and no glare. Flat matte colour only. Square image, sharp, high
+resolution, no letters or numbers anywhere.
+```
+
 ## 12. `chochin_paper.png` — 0.5 m  (the bar's red lantern)
 
 ```

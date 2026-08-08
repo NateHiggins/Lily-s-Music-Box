@@ -29,8 +29,20 @@ const FIXTURE_STATES := {
 	"F01_BAR_LT_CAN1": [1.0, 0.0, 0.0],
 	"F01_BAR_LT_POOL": [1.0, 0.0, 0.0],
 	"F01_BAR_LT_WC": [1.0, 0.0, 0.0],
+	# The Belchi Lorente rebuild's own fixtures. The table pendants are
+	# what the room is actually lit by, so one of them survives into
+	# after-hours as the light somebody wipes down under.
+	"F01_BAR_LT_TAB0": [1.0, 0.5, 0.0],
+	"F01_BAR_LT_TAB2": [1.0, 0.0, 0.0],
+	"F01_BAR_LT_TAB4": [1.0, 0.0, 0.0],
+	"F01_BAR_LT_TAB6": [1.0, 0.0, 0.0],
+	"F01_BAR_LT_STAGE0": [1.0, 0.0, 0.0],
+	"F01_BAR_LT_STAGE1": [1.0, 0.0, 0.0],
+	"F01_BAR_LT_DECK": [1.0, 0.35, 0.0],
 }
 const SIGNAGE := "F01_BAR_SIGNAGE"
+## The lit word over the stage, which keeps the facade's hours.
+const STAGE_SIGN := "F01_BAR_STAGE_SIGN"
 enum BarState { OPEN, AFTER_HOURS, CLOSED }
 
 var _root: Node3D
@@ -94,6 +106,12 @@ func _apply(bar_state: BarState) -> void:
 		missing += 1
 	else:
 		sign.set_bar_state(int(bar_state))
+	var stage_sign := _root.get_node_or_null(NodePath(STAGE_SIGN)) \
+			as NeonSignProp
+	if stage_sign == null:
+		missing += 1
+	else:
+		stage_sign.set_lit(bar_state == BarState.OPEN)
 	if missing > 0:
 		push_warning("harukiya states: %d bar fixtures not found" % missing)
 	print("[HARUKIYA] %s" % BarState.keys()[int(bar_state)])
