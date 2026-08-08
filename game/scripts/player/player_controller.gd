@@ -183,12 +183,29 @@ func _carry_phone_light(delta: float) -> void:
 	if _hand == null:
 		return
 	_sway_clock += delta * (2.6 if velocity.length() > 0.5 else 1.0)
-	var sway := Vector3(
-			sin(_sway_clock * 1.7) * 0.008,
-			sin(_sway_clock * 3.1) * 0.006, 0.0)
-	var hold := camera.transform \
-			* Transform3D(Basis(), Vector3(0.16, -0.19, -0.06) + sway)
-	var chase := minf(1.0, delta * (9.0 if flashlight.visible else 60.0))
+	# THE BEAM LEAVES THE PHONE'S LAMP. The carrier publishes the lamp's
+	# pose in camera space every frame — its position on the back of the
+	# handset, its direction down the handset's own -Z — so the light
+	# goes wherever the hand has turned it, breathing and stride
+	# included. It used to be a spotlight at a fixed offset pointing
+	# level, with its own invented sway, beside a phone that was pitched
+	# somewhere else entirely and had no lamp modelled on it at all.
+	var hold: Transform3D
+	if phone_carrier and phone_carrier.get("beam_valid"):
+		hold = camera.transform * phone_carrier.beam_xform
+		if _light_mask:
+			_light_mask.set_aim(phone_carrier.beam_aim)
+	else:
+		# No handset in the scene (test rigs, mostly). Keep the old
+		# hand-held offset so the building is still lit.
+		var sway := Vector3(
+				sin(_sway_clock * 1.7) * 0.008,
+				sin(_sway_clock * 3.1) * 0.006, 0.0)
+		hold = camera.transform \
+				* Transform3D(Basis(), Vector3(0.16, -0.19, -0.06) + sway)
+	# Less lag than before: the phone already trails the eye on its own
+	# hand-lag, and stacking a second one on the light doubled it.
+	var chase := minf(1.0, delta * (16.0 if flashlight.visible else 60.0))
 	_hand.transform = Transform3D(
 			_hand.transform.basis.slerp(hold.basis, chase),
 			_hand.transform.origin.lerp(hold.origin, chase))

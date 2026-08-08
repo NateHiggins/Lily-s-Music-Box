@@ -48,6 +48,7 @@ var _w_cracked := 0.0
 var _w_haze := 0.0
 var _surge := 0.0
 var _t := 0.0
+var _aim := Vector2.ZERO
 
 
 func setup(player: Node3D) -> void:
@@ -85,6 +86,14 @@ func _draw() -> void:
 ## Called by the intrusion layer when the building does something.
 func punch(amount := 1.0) -> void:
 	_surge = maxf(_surge, clampf(amount, 0.0, 1.0))
+
+
+## Degrees the hand has taken the beam off the eye's axis, from the
+## carrier's motion model. The light itself has ALREADY moved in the
+## world by this much; this only slides the plate the same way so the
+## screen layer and the 3D beam stay married.
+func set_aim(a: Vector2) -> void:
+	_aim = a
 
 
 func _find_sanity() -> void:
@@ -144,6 +153,9 @@ func _process(delta: float) -> void:
 			sin(_t * 0.9 * rate) * 0.006 + sin(_t * 2.3) * 0.002,
 			sin(_t * 1.4 * rate) * 0.005 + cos(_t * 3.1) * 0.0015)
 	drift *= 1.0 + speed * 0.5
+	# The wrist's own wander, in the same units, so the plate and the
+	# 3D beam move together instead of arguing.
+	drift += Vector2(_aim.x, -_aim.y) * 0.004
 	_mat.set_shader_parameter("drift", drift)
 	_mat.set_shader_parameter("w_cracked", _w_cracked)
 	_mat.set_shader_parameter("w_haze", _w_haze)

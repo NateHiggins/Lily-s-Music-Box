@@ -31,7 +31,21 @@ extends Node3D
 ## that pitch is the whole difference between seeing the screen and
 ## seeing the phone's edge, which is how the first framegrab came out.
 const CARRY_POS := Vector3(0.135, -0.150, -0.315)
-const CARRY_ROT := Vector3(-49.0, -13.0, 5.0)
+## CARRIED IS A TORCH POSE, and it used to be a looking-at-it pose.
+##
+## The handset lay pitched 49 degrees down, screen flat to the ceiling,
+## while the beam it supposedly casts pointed level out of the air
+## beside it — two unrelated things that happened to be near each other.
+## The lamp is on the BACK, so the pitch is now what a hand actually
+## does with a phone it is using to see: tipped down far enough to throw
+## light on the floor ahead and glance at the screen, not so far that
+## the beam lands at your feet.
+##
+## The small yaw is the other half of the same argument. The phone is
+## carried right of centre; turning it slightly inward points the screen
+## a little toward the eye and puts the beam a little right of where you
+## are looking, which is where a torch in one hand actually goes.
+const CARRY_ROT := Vector3(-22.0, -8.0, 5.0)
 ## RAISED IS SQUARE-ON AND CLOSE, and both halves of that matter.
 ##
 ## Square-on: the screen quad's normal is the phone's local +Z and the
@@ -93,6 +107,14 @@ func setup(player: Node3D, camera: Camera3D) -> void:
 ## This also buys the other thing a separate pass always buys: the
 ## phone can no longer clip through a door frame, because it is not in
 ## the same depth buffer as the building.
+## The lamp's pose in CAMERA space, republished every frame for whoever
+## is actually carrying the light. See _process.
+var beam_xform := Transform3D()
+var beam_aim := Vector2.ZERO      # degrees off axis, for the mask
+var beam_valid := false
+
+var _life := 0.0
+var _tilt := Vector3.ZERO
 var _pass_view: SubViewport
 var _pass_cam: Camera3D
 var _pass_src: Camera3D
@@ -245,9 +267,42 @@ func _process(delta: float) -> void:
 		speed = Vector3(_player.velocity.x, 0.0,
 				_player.velocity.z).length()
 	_bob += delta * (2.2 + speed * 2.4)
-	var amp: float = (0.0035 + speed * 0.0022) * (1.0 - eased * 0.6)
-	var bob := Vector3(sin(_bob * 1.6) * amp,
-			sin(_bob * 3.2) * amp * 0.8, 0.0)
+	_life += delta
+	# A raised phone is being READ, so the hand steadies against it. Not
+	# to zero: a completely still object in a first-person view stops
+	# reading as held and starts reading as painted on the lens.
+	var calm: float = 1.0 - eased * 0.72
+
+	# TRANSLATION, at three scales, because a hand is never doing only
+	# one thing. Stride is the walk, two beats to a step. Breath is
+	# always underneath it and slower than anything else. Tremor is the
+	# hand simply not being a tripod — tiny, fast, and on frequencies
+	# with no common multiple so the loop never becomes audible to the
+	# eye.
+	var stride: float = (0.0016 + speed * 0.0026) * calm
+	var breath := 0.0011 * calm
+	var tremor: float = (0.00055 + speed * 0.00030) * calm
+	var bob := Vector3(
+			sin(_bob * 1.6) * stride
+			+ sin(_life * 1.13) * breath * 0.5
+			+ (sin(_life * 11.3) + sin(_life * 17.7) * 0.6) * tremor,
+			sin(_bob * 3.2) * stride * 0.8
+			+ sin(_life * 0.74) * breath
+			+ (sin(_life * 13.9) + sin(_life * 21.1) * 0.5) * tremor,
+			sin(_life * 0.53) * breath * 0.7
+			+ sin(_bob * 1.6) * stride * 0.35)
+
+	# ROTATION, in degrees, and this is the half the BEAM notices. Seven
+	# and a half metres out, one degree walks the pool of light thirteen
+	# centimetres — so these stay under about two degrees all told, and
+	# the light still never sits quite still on a wall.
+	var wob: float = calm * (0.55 + speed * 0.42)
+	_tilt = Vector3(
+			sin(_life * 0.83) * 0.42 + sin(_bob * 3.2) * 0.30
+			+ sin(_life * 12.7) * 0.06,
+			sin(_life * 0.61) * 0.55 + sin(_bob * 1.6) * 0.34
+			+ sin(_life * 15.1) * 0.05,
+			sin(_life * 0.47) * 0.60 + sin(_bob * 1.6) * 0.26) * wob
 	_sway = _sway.lerp(Vector2.ZERO, minf(1.0, delta * 5.0))
 	# The pass camera stays at its own origin: the handset is carried in
 	# camera space anyway, so there is nothing for it to follow.
@@ -271,8 +326,22 @@ func _process(delta: float) -> void:
 	# exactly what makes small text unreadable when you are trying to
 	# use it.
 	var settle: float = 1.0 - eased * 0.88
-	target.rotation_degrees = rot + Vector3(_sway.y, _sway.x, 0.0) * settle
+	target.rotation_degrees = rot + _tilt 			+ Vector3(_sway.y, _sway.x, 0.0) * settle
 	target.scale = Vector3.ONE.lerp(Vector3.ONE * RAISE_SCALE, eased)
+
+	# WHERE THE LIGHT COMES FROM. The torch is a spotlight out in the
+	# building's world — it cannot be a child of a handset that lives in
+	# its own — so the phone publishes the lamp's pose in camera space
+	# each frame and the player hangs the beam on it. Orientation only:
+	# the raise scales the model up, and a scaled basis would stretch the
+	# cone with it.
+	var aim := Basis.from_euler(target.rotation)
+	beam_xform = Transform3D(aim, target.position + aim * Phone3D.FLASH_AT)
+	beam_valid = true
+	# The screen-space mask has to agree with the 3D beam or the two
+	# drift apart and the whole effect reads as a texture sliding over
+	# the picture. Same numbers, different consumer.
+	beam_aim = Vector2(_tilt.y, _tilt.x)
 
 
 func key(action: String, typed := "") -> void:

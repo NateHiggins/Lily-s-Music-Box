@@ -33,6 +33,11 @@ const SCREEN_MM := Vector2(0.050, 0.0400)   # 5:4, sat above the keys
 # the casing, and it rendered perfectly with the body drawn over it.
 # Named planes make that mistake visible in the source.
 const Z_BACK := -0.0130        # back plate, mostly missing
+## Where the torch leaves the handset: the salvaged lamp on the back,
+## high and slightly to the hinge side. The beam runs down the phone's
+## own -Z from here, so the light goes wherever the back is pointing —
+## which is the entire reason the carry pose is what it is.
+const FLASH_AT := Vector3(-0.019, 0.040, Z_BACK - 0.0016)
 const Z_GUTS := -0.0040        # breadboard surface, where the build lives
 const Z_FACE := 0.0090         # front bezel plane
 const Z_KEY := 0.0104          # keycap tops
@@ -50,6 +55,7 @@ var _font: Font
 var _canvas: Control
 var _led: OmniLight3D
 var _led_mat: StandardMaterial3D
+var _lamp_mat: StandardMaterial3D
 const TEX := "res://assets/ui/phone/%s.png"
 var _grime: Texture2D
 var _scratches: Texture2D
@@ -233,6 +239,34 @@ func _texmat(file: String, tint: Color, rough: float, metal := 0.0,
 	return m
 
 
+## A hardware surface that upgrades itself.
+##
+## Wears `file` at full strength if that plate has been generated, and
+## falls back to flat `flat` if it has not — so the Amiga palette is
+## visible NOW, before a single new texture exists, and every part
+## picks up its photograph the moment one is dropped in. Prompts for
+## the six plates are in design/PHONE_AMIGA_TEXTURE_PROMPTS.md.
+##
+## Worth saying why this is not just _texmat with a tint: albedo_color
+## MULTIPLIES the texture, and the old shell wore a near-black
+## soft-touch photograph. Beige times black is black. Retinting a dark
+## plate toward a light colour cannot work, and quietly does nothing,
+## which is exactly what it did on the first attempt.
+func _hw(file: String, flat: Color, rough: float, uv := 1.0,
+		metal := 0.0) -> StandardMaterial3D:
+	var tex: Texture2D = load(TEX % file) if ResourceLoader.exists(
+			TEX % file) else null
+	if tex == null:
+		return _mat(flat, rough, metal)
+	var m := StandardMaterial3D.new()
+	m.albedo_texture = tex
+	m.albedo_color = Color(1, 1, 1)
+	m.roughness = rough
+	m.metallic = metal
+	m.uv1_scale = Vector3(uv, uv, 1.0)
+	return m
+
+
 func _mat(albedo: Color, rough: float, metal := 0.0) -> StandardMaterial3D:
 	var m := StandardMaterial3D.new()
 	m.albedo_color = albedo
@@ -299,14 +333,25 @@ func _wire(a: Vector3, b: Vector3, colour: Color, sag := 0.004) -> void:
 ## The back is gone, so the build shows, and what holds the whole thing
 ## together is hot glue and the fact that nobody has dropped it.
 func _build_body() -> void:
-	# The frame is a BlackBerry again, in its own soft-touch. The ivory
-	# was a stand-in for a photograph that did not exist yet; now that
-	# it does, the dark shell is both more accurate and better for the
-	# build, because hot glue and rainbow ribbon read far louder against
-	# black plastic than against cream.
-	var ivory: StandardMaterial3D = _texmat("phone_softtouch", Color(1, 1, 1), 0.86, 0.0, 1.6)
-	var ivory_dk: StandardMaterial3D = _texmat("phone_softtouch", Color(0.72, 0.72, 0.75),
-			0.88, 0.0, 2.2)
+	# AMIGA-ERA HARDWARE. The shell is warm greige ABS — the colour every
+	# machine of that decade was moulded in, and the colour they all went
+	# on their way to yellow. Two tones, because that era never used one:
+	# a light body and a darker functional grey for the parts your hands
+	# actually work, exactly the way those keyboards split their function
+	# keys out from their alphabet.
+	#
+	# It reads better here than the black soft-touch did, too. A homebrew
+	# radio hot-glued inside a case is a story about somebody's bench in
+	# 1987, and beige is what was on the bench.
+	# Pushed warm and a good deal more saturated than the plastic really
+	# is. The handset renders in its own pass under a cold blue-grey
+	# ambient (see phone_carrier), which drains a true beige straight to
+	# grey — so the albedo has to lean into the yellow to come out the
+	# other side reading as oatmeal rather than as office equipment.
+	var ivory: StandardMaterial3D = _hw("amiga_case",
+			Color(0.860, 0.760, 0.560), 0.84, 1.6)
+	var ivory_dk: StandardMaterial3D = _hw("amiga_case_grey",
+			Color(0.560, 0.495, 0.390), 0.88, 2.2)
 	var chrome: StandardMaterial3D = _texmat("phone_chrome_band", Color(1, 1, 1), 0.34,
 			0.85, 3.0)
 	var w := BODY_W * 0.5
@@ -328,7 +373,38 @@ func _build_body() -> void:
 	# What is left of the back: a corner of the original door, taped on.
 	_box(Vector3(BODY_W * 0.62, BODY_H * 0.34, 0.0018),
 			Vector3(-0.006, -h + 0.024, Z_BACK), ivory_dk)
+	_build_stripe()
 	_build_guts()
+
+
+## THE STRIPE. Five bands raked across the shoulder, which is the one
+## piece of decoration that decade agreed on: every home computer, every
+## portable radio, every piece of hi-fi got a run of colour somewhere it
+## did not need one. It is also the cheapest way to date an object —
+## nothing since has been willing to put orange next to teal on a
+## consumer product and call it finished.
+##
+## Slightly out of register, because the original was a printed decal
+## and this one has been on a phone in a pocket for years.
+func _build_stripe() -> void:
+	var bands := [
+		Color("c8352b"), Color("d9722a"), Color("e3b02f"),
+		Color("2f8f86"), Color("2b5c9e"),
+	]
+	# On the top rail, in the one band of bare case above the screen.
+	# It went two other places first — mid-bezel, then the bottom rail —
+	# and both are covered: the screen owns nearly the whole face, and
+	# the bottom edge falls out of frame at the raise pose. This strip,
+	# 1 cm of plastic between the top edge and the bezel, is the only
+	# part of the case the player reliably looks straight at.
+	var base := BODY_H * 0.5 - 0.0050
+	for i in bands.size():
+		var band: StandardMaterial3D = _mat(bands[i], 0.62)
+		# Stepped a hair each, so the print reads as a decal applied by
+		# hand rather than as something machined into the case.
+		_box(Vector3(0.0090, 0.0038, 0.0007),
+				Vector3(-0.0228 + i * 0.0098, base + i * 0.00018,
+						Z_FACE + 0.0021), band)
 
 
 ## THE BUILD. Radio parts on a scrap of breadboard, glued in.
@@ -473,6 +549,46 @@ func _build_guts() -> void:
 	_led.shadow_enabled = false
 	_led.position = Vector3(BODY_W * 0.30, BODY_H * 0.44, Z_FACE + 0.004)
 	add_child(_led)
+	_build_lamp()
+
+
+## THE LAMP, on the back, which is where the torch actually comes from.
+##
+## The building is lit all shift by a beam that had no source on the
+## model: the handset was carried face-up and steeply down while a
+## spotlight pointed level out of thin air beside it. So here is the
+## thing making the light — the original camera module, the one part of
+## the phone's optics that survived whatever happened to the back, with
+## a fat white LED glued in beside it and its own wire running back to
+## the board. FLASH_AT is where the beam leaves the phone and the beam
+## runs down the phone's own -Z, so any way the hand turns, the light
+## turns with it.
+func _build_lamp() -> void:
+	var housing := _mat(Color("2b2b31"), 0.52)
+	var chrome_ring: StandardMaterial3D = _texmat("solder_tinned",
+			Color(1, 1, 1), 0.28, 0.70, 1.0)
+	# Camera module: a squat can with a dark lens in it, sunk into what
+	# is left of the back.
+	var can := _cyl(0.0062, 0.0035, FLASH_AT + Vector3(0.0, 0.0115, 0.001),
+			housing, Vector3.FORWARD)
+	can.rotation.x = PI * 0.5
+	var lens := _cyl(0.0040, 0.0038, FLASH_AT + Vector3(0.0, 0.0115, 0.0),
+			_mat(Color("0a0a10"), 0.12, 0.15), Vector3.FORWARD)
+	lens.rotation.x = PI * 0.5
+	# The lamp itself: 5 mm white LED in a scrap reflector, pointing the
+	# way the back points.
+	var cup := _cyl(0.0044, 0.0026, FLASH_AT + Vector3(0, 0, 0.0008),
+			chrome_ring, Vector3.FORWARD)
+	cup.rotation.x = PI * 0.5
+	_lamp_mat = _mat(Color("dfe8ff"), 0.18)
+	_lamp_mat.emission_enabled = true
+	_lamp_mat.emission = Color("cfe0ff")
+	_lamp_mat.emission_energy_multiplier = 2.2
+	var bulb := _cyl(0.0026, 0.0034, FLASH_AT, _lamp_mat, Vector3.FORWARD)
+	bulb.rotation.x = PI * 0.5
+	# Its wire, because nothing on this phone is fitted, only attached.
+	_wire(FLASH_AT + Vector3(0.002, 0.002, 0.002),
+			Vector3(0.010, -0.004, Z_GUTS + 0.003), Color("b03030"), 0.003)
 
 
 ## The keypad. Still the BlackBerry's own rubber mat, because nobody
