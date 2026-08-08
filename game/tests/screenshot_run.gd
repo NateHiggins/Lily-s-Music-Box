@@ -163,6 +163,28 @@ const SHOTS := [
 	# cannot see at all.
 	{"name": "b_62_bar_west", "pos": Vector3(-10.40, -1.30, 30.20),
 	 "look": Vector3(-1.00, -1.90, 35.60), "overlay": false},
+	# THE SHOPS, now that there is something behind the glass. Until this
+	# pass the whole south side was a facade with solid brick 100 mm
+	# behind it, so none of these views existed. Building y maps to Godot
+	# -z: the shopfronts stand at z 28.3 and each sales floor runs back
+	# to z 32-35.
+	# From the roadway, square on. Down the pavement at a grazing angle
+	# you see nothing but pier edges — the whole point of these is that
+	# the window has depth behind it, and depth only reads face-on.
+	{"name": "b_63_shop_row", "pos": Vector3(-29.60, 2.00, 20.50),
+	 "look": Vector3(-29.60, 1.45, 28.30), "overlay": false},
+	{"name": "b_64_luncheonette", "pos": Vector3(-10.30, 1.41, 29.60),
+	 "look": Vector3(-6.90, 1.15, 32.40), "overlay": false},
+	{"name": "b_65_hand_laundry", "pos": Vector3(-27.80, 1.41, 29.80),
+	 "look": Vector3(-31.40, 1.10, 33.20), "overlay": false},
+	{"name": "b_66_pawnbroker", "pos": Vector3(14.00, 1.41, 29.60),
+	 "look": Vector3(11.20, 1.20, 33.00), "overlay": false},
+	{"name": "b_67_radio_service", "pos": Vector3(-13.10, 1.41, 29.40),
+	 "look": Vector3(-14.60, 1.15, 32.80), "overlay": false},
+	# The lobby cabinet: the first one a player ever sees, thirty seconds
+	# from the desk they were hired to sit at.
+	{"name": "b_68_lobby_cabinet", "pos": Vector3(-4.10, 1.45, 6.95),
+	 "look": Vector3(-4.60, 1.05, 8.95), "overlay": false},
 	# The two routes a resident actually has to walk, from eye height at
 	# the Orison's own front door: south across the road to the bar, and
 	# east along the walk to the bodega.

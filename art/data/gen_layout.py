@@ -2097,6 +2097,15 @@ def build_floor(floor_id):
         # clear of the machines.
         _asm(furniture, "b1_laundry_bench", "bench", -9.60, 2.95, 0,
              style="slat", L=1.4)
+        # AND SOMETHING TO DO WHILE YOU WAIT. Same argument as the hand
+        # laundry across the street: the machine goes where the people
+        # already are and already have forty minutes to kill. This one is
+        # the building's, which means it is the superintendent's problem
+        # when it stops taking coins — see the job creep throughline in
+        # PROP_ACTIVITIES. Against the east wall of the laundry (stack B
+        # runs to x -5.51), clear of the bench and the machines.
+        _asm(furniture, "b1_laundry_cab", "arcade_cab", -5.95, 4.60, 270,
+             variant=0)
         names = {"A": "STORAGE_CAGES", "B": "LAUNDRY", "C": "BOILER",
                  "D": "ELECTRICAL"}
         for sx, stacks in ((-1, ("A", "B")), (1, ("D", "C"))):
@@ -2341,6 +2350,25 @@ def build_floor(floor_id):
         # community room (B stack) and building storage (C stack)
         _asm(furniture, "common_table", "table_rect", -9.2, 6.6, 0,
              L=2.6, W=1.0)
+        # THE COMMON ROOM'S MACHINE. A residents' room with a table, a
+        # settle and three chairs is a room nobody uses; the cabinet is
+        # what makes it somewhere people are found. Against the west wall
+        # (stack B starts at x -13.65), facing back into the room.
+        _asm(furniture, "common_cab", "arcade_cab", -13.10, 7.85, 90,
+             variant=1)
+        # And one in the lobby — where a building puts the thing it was
+        # talked into taking and now cannot get rid of. It is the first
+        # cabinet a player ever sees, thirty seconds from the desk they
+        # were hired to sit at, which states the job-creep joke before
+        # the game has said a word.
+        #
+        # WEST of the street door, not east: the east lobby wall is the
+        # brass mail bank's corner and Dead Letters is played standing in
+        # front of it. Back to the south wall (yaw 180 faces the leaf's
+        # back at -y), clear of the settle at -2.20 and the pilaster
+        # at -1.35.
+        _asm(furniture, "lobby_cab", "arcade_cab", -4.60, -9.05, 180,
+             variant=3)
         for i in range(3):
             chair_box(furniture, "common_ch%d" % i, -10.4 + i * 1.0, 5.60, "s")
             chair_box(furniture, "common_chn%d" % i, -10.4 + i * 1.0, 7.35, "n")
@@ -3132,6 +3160,60 @@ SHOPS = [
 ]
 ## Faces of the shopfronts, in the order a walker meets them going up.
 SHOP_FACE = BLDG_S               # the south building line
+## Clear height inside a shop, and the slab over it. A 1920s retail
+## ground floor is TALL — the transom light at 2.45 only makes sense if
+## there is ceiling above it to throw light at — and the block above
+## these starts at 3.55, so the slab fills 3.30..3.55 exactly.
+SHOP_CLEAR, SHOP_H = 3.30, 3.55
+## How deep each trade's sales floor runs back from the face, and how
+## many arcade cabinets it keeps. Depths are the trade's, not a number:
+## a news kiosk is a slot you stand in the mouth of, a funeral parlour
+## needs a front room you can hold a service in, and a laundry needs the
+## length to put the machines down one side and still walk past them.
+##
+## The block behind each shop is deeper than the depth given, and the
+## remainder stays solid brick — that is the back-of-house, the yard and
+## the stair to the flat above, and none of it is modelled because none
+## of it is enterable.
+SHOP_PLAN = {
+    #            depth  cabs
+    "laundry":  (7.00,  1),
+    "cobbler":  (6.00,  0),
+    "locksmith": (5.00, 0),
+    "radio":    (5.00,  1),
+    "diner":    (7.00,  2),
+    "news":     (4.00,  1),
+    "pawn":     (6.00,  1),
+    "funeral":  (7.00,  0),
+    "hardware": (6.50,  0),
+    "photo":    (6.00,  1),
+}
+## Which street block each shop's void is cut out of. Everything on the
+## south side sits on one of five masses; only nbr_s2 was already hollow
+## at ground level (the Harukiya's street door is in it).
+SHOP_BLOCK = {
+    "laundry": "sw1", "cobbler": "sw1",
+    "locksmith": "nbr_s1", "radio": "nbr_s1",
+    "diner": "nbr_s2",
+    "news": "nbr_s3", "pawn": "nbr_s3", "funeral": "nbr_s3",
+    "hardware": "se1", "photo": "se1",
+}
+
+
+def shop_voids():
+    """(block id, rect) for every shop's interior, as holes to cut.
+
+    Inset 100 mm each side of the authored bay so neighbours keep
+    200 mm of brick between them: a row of shops is a row of separate
+    buildings pretending to be one, and the party wall is the only thing
+    that says so from inside.
+    """
+    out = []
+    for x0, x1, _n, trade, _a, _b, _u in SHOPS:
+        depth = SHOP_PLAN.get(trade, (6.0, 0))[0]
+        out.append((SHOP_BLOCK[trade],
+                    (x0 + 0.10, SHOP_FACE - depth, x1 - 0.10, SHOP_FACE)))
+    return out
 SHOP_TRIM = {
     "laundry":  ("plaster_stained", "book_teal"),
     "cobbler":  ("wood_dark", "lacquer_red"),
@@ -3170,8 +3252,29 @@ def _storefronts(fb, mk):
         dx0 = x0 + (0.55 if trade in ("diner", "news", "photo")
                     else w - 1.45)
         dx1 = dx0 + 0.95
-        fb("sf_%s_reveal" % tag, (dx0 - 0.10, F + 0.26, dx1 + 0.10,
-                                  F + 0.42), 0.0, 2.55, body)
+        # THE REVEAL WAS A WALL. It was authored as one box spanning
+        # dx0-0.10 .. dx1+0.10 at full height — the entire doorway, filled
+        # in solid, which nobody caught because there was nothing behind
+        # it to walk into. It is now what it was always meant to be: a
+        # jamb each side and a head over, with the opening left open.
+        # Fifth door in this file to be authored shut, and the first one
+        # that was shut across its whole width.
+        for jx0, jname in ((dx0 - 0.10, "w"), (dx1, "e")):
+            fb("sf_%s_jamb_%s" % (tag, jname),
+               (jx0, F + 0.26, jx0 + 0.10, F + 0.42), 0.0, 2.55, body)
+        fb("sf_%s_doorhead" % tag, (dx0, F + 0.26, dx1, F + 0.42),
+           2.10, 0.45, body)
+        # HINGE AT THE WEST JAMB, so the marker is dx0 and not the middle
+        # of the opening. At yaw 0 the leaf runs from the marker toward
+        # +x, which is across the hole rather than into the shop.
+        mk.append({"kind": "door", "id": "SITE_SHOP_DOOR_%s" % tag.upper(),
+                   "pos": [dx0, F + 0.34, 0.0], "yaw_deg": 0, "w": 0.95,
+                   "h": 2.10,
+                   # The trades that keep the light on keep the door open
+                   # with it. The rest you have to push.
+                   "leaf": "open" if trade in ("laundry", "diner", "news")
+                           else "closed",
+                   "exterior": True})
         # Stall riser and glass, either side of the door.
         for si, (gx0, gx1) in enumerate(((x0 + 0.14, dx0 - 0.10),
                                          (dx1 + 0.10, x1 - 0.14))):
@@ -3234,20 +3337,501 @@ def _storefronts(fb, mk):
                    "yaw_deg": 0, "network": "electrical", "range": 4.2,
                    "energy": 0.55, "navigation": False,
                    "standby": 0.30, "exterior": True})
-        # And the window itself is lit from within, for the trades that
-        # keep the light on: a laundry at three in the morning is the
-        # warmest thing on the block.
-        if trade in ("laundry", "diner", "news", "pawn"):
-            fb("sf_%s_within" % tag, (x0 + 0.20, F + 0.16, x1 - 0.20,
-                                      F + 0.20), SILL + 0.10,
-               GLASS - SILL - 0.20, "linen")
-            mk.append({"kind": "cage_bulb", "id": "SITE_SHOP_IN_%s"
-                       % tag.upper(), "unit": "SITE",
-                       "pos": [(x0 + x1) * 0.5, F + 0.10, 1.95],
+        # And the window is lit from within. The LINEN PANEL IS GONE: it
+        # was a lit rectangle standing in the glass line faking a room,
+        # and now that there is a room it was standing in the middle of
+        # it — across the doorway, in front of the fittings, exactly the
+        # sort of scenery that becomes a wall the moment somewhere gets
+        # built behind it. The light survives, moved back inside where it
+        # is now lighting an actual interior; a laundry at three in the
+        # morning is still the warmest thing on the block, but it is warm
+        # because you can see into it.
+        depth = SHOP_PLAN.get(trade, (6.0, 0))[0]
+        # A RUN OF THEM DOWN THE SHOP, not one at the window. The first
+        # attempt hung two — front and back — at the energies the street
+        # lamps use, and the renders came back navy: a 5 x 7 m room with
+        # a 3.3 m ceiling swallows a 0.6 lamp, and what you saw from the
+        # pavement was a lit mouth and a black throat with a glowing bulb
+        # floating in it. One every 2.4 m, and brighter, because these
+        # rooms are the only warm thing on a street the player only ever
+        # sees at night — and because a shop you can see into is the
+        # entire reason the interiors were built.
+        #
+        # The trades that keep the light on burn brighter than the ones
+        # shut for the night, which is the whole difference between the
+        # laundry at 3 a.m. and the funeral parlour at any hour.
+        openish = trade in ("laundry", "diner", "news", "pawn")
+        runs = max(2, int(round(depth / 2.4)))
+        for li in range(runs):
+            ly = F - 0.95 - li * (depth - 1.9) / max(1, runs - 1)
+            mk.append({"kind": "cage_bulb",
+                       "id": "SITE_SHOP_IN%d_%s" % (li, tag.upper()),
+                       "unit": "SITE",
+                       "pos": [(x0 + x1) * 0.5, ly, 2.92],
                        "yaw_deg": 0, "network": "electrical",
-                       "range": 3.4, "energy": 0.48,
-                       "navigation": False, "standby": 0.40,
+                       "range": 5.2,
+                       # The window lamp leads, so the front of the shop
+                       # is what reads from across the road.
+                       "energy": (0.98 if openish else 0.74) if li == 0
+                                 else (0.80 if openish else 0.58),
+                       "navigation": False,
+                       "standby": 0.40 if openish else 0.22,
                        "exterior": True})
+
+
+## What is underfoot and overhead in each trade. Pressed tin went into
+## anything that wanted to look like a going concern in 1927; the ones
+## that get plaster are the ones nobody has spent money on since the war.
+SHOP_FLOOR = {
+    "laundry": "quarry_tile", "cobbler": "floor_oak",
+    "locksmith": "concrete", "radio": "linoleum", "diner": "terrazzo",
+    "news": "linoleum", "pawn": "floor_oak", "funeral": "floor_oak",
+    "hardware": "concrete", "photo": "linoleum",
+}
+SHOP_CEIL = {"diner": "tin_ceiling", "pawn": "tin_ceiling",
+             "photo": "tin_ceiling", "funeral": "tin_ceiling"}
+
+
+def _shop_interiors(fb, mk, asm):
+    """The ten sales floors behind the ten shopfronts.
+
+    Until now this street was a stage flat: ten beautifully sectioned
+    1920s fronts with solid brick 100 mm behind the glass, a lit linen
+    panel faking a room, and a doorway filled in. You could read every
+    sign on the block and enter nothing.
+
+    Each shop is now a room you walk into. The shell is generic — floor,
+    ceiling, a plastered back wall, a dado — because a terrace of shops
+    IS generic behind the front; what differs is the fittings, and those
+    are the whole point. A trade is legible from its furniture at a
+    glance or it is a beige box with a name over the door.
+
+    Depths come from SHOP_PLAN and they are the trade's rather than a
+    number: a news kiosk is a slot you stand in the mouth of, a funeral
+    parlour needs a front room you can hold a service in.
+
+    ARCADE CABINETS, and where they are is an argument rather than a
+    scatter. Under the Rule of Signal (bible VIII.2) a machine that
+    reproduces a signal is forty years ahead of 1927, so these are not
+    anachronisms — they are the most native technology on the street.
+    They go where a machine actually earns its floor space: somewhere
+    with people who are WAITING (the laundry, the luncheonette), a trade
+    that already sells time by the minute (the news kiosk), a shop that
+    ends up owning whatever people stop collecting (the pawnbroker), and
+    two shops that are signal trades themselves and would have one on
+    the bench as a matter of professional interest (the radio service,
+    the photo supply). The funeral parlour, the cobbler, the locksmith
+    and the hardware store have none, and the absence is doing as much
+    work as the presence.
+    """
+    F = SHOP_FACE
+    CLR = SHOP_CLEAR
+    for x0, x1, name, trade, _awn, _bl, _use in SHOPS:
+        tag = name.lower().replace(" ", "_")
+        depth, _ncab = SHOP_PLAN[trade]
+        ix0, ix1 = x0 + 0.10, x1 - 0.10        # brick party faces
+        by = F - depth                          # back wall inner face
+        mid = (ix0 + ix1) * 0.5
+
+        def b(sub, rect, z0, h, mat, _t=tag):
+            fb("shop_%s_%s" % (_t, sub), rect, z0, h, mat)
+
+        def cab(n, cx, cy, yaw, variant, _t=tag):
+            # Variant is the SILHOUETTE (upright / finned / chrome /
+            # compact), not the game — which title lands in which
+            # carcass is ArcadeRow's business, off the catalog, in
+            # layout order.
+            asm("shopcab_%s%d" % (_t, n), "arcade_cab", cx, cy, yaw,
+                variant=variant)
+
+        # ---- the shell ------------------------------------------------
+        # FLUSH WITH THE PAVEMENT, and this is not a detail. sidewalk_s
+        # tops out at 0.01, and the floor was first authored 0.00..0.05 —
+        # a 40 mm step up across every shop threshold, plus every fitting
+        # standing on 0.05 while the arcade cabinets (which carry no z0)
+        # sat at 0.00 and were buried to the ankles in their own floor.
+        # The bar spent three separate fixes on a doorway before anyone
+        # measured the 180 mm kerb in front of it; this one is measured
+        # first. Slab hangs below the finish line, everything stands on
+        # 0.01, and you walk in without noticing there was ever a change
+        # of level — which is the entire objective.
+        b("floor", (ix0, by, ix1, F), -0.05, 0.06, SHOP_FLOOR[trade])
+        b("ceil", (ix0, by, ix1, F), CLR, SHOP_H - CLR,
+          SHOP_CEIL.get(trade, "plaster"))
+        # Back wall lined, side walls left as the party brick they are.
+        b("back", (ix0, by, ix1, by + 0.06), 0.01, CLR - 0.05,
+          "plaster_stained")
+        # A dado all round, which is what stops a shop reading as a
+        # cardboard box: trolleys, boot heels and crates all hit the
+        # bottom metre of a wall and every shop of this date protected it.
+        for sub, rect in (("dw", (ix0, by, ix0 + 0.05, F)),
+                          ("de", (ix1 - 0.05, by, ix1, F)),
+                          ("db", (ix0, by + 0.06, ix1, by + 0.11))):
+            b(sub, rect, 0.05, 1.05, "wainscot")
+
+        # ---- the trade ------------------------------------------------
+        if trade == "laundry":
+            # Machines down the west wall, a folding table opposite, and
+            # the counter across the front so you meet it on the way in.
+            for i in range(5):
+                my = F - 1.90 - i * 0.98
+                b("wash%d" % i, (ix0 + 0.05, my - 0.42, ix0 + 0.80,
+                                 my + 0.42), 0.01, 0.94, "enamel")
+                b("wash%d_dr" % i, (ix0 + 0.78, my - 0.28, ix0 + 0.86,
+                                    my + 0.28), 0.42, 0.44, "chrome")
+            for i in range(2):
+                my = by + 0.90 + i * 1.20
+                b("dry%d" % i, (ix1 - 0.86, my - 0.52, ix1 - 0.05,
+                                my + 0.52), 0.01, 1.72, "enamel")
+                b("dry%d_dr" % i, (ix1 - 0.94, my - 0.34, ix1 - 0.84,
+                                   my + 0.34), 0.78, 0.62, "glassish")
+            b("fold", (mid - 0.75, by + 1.30, mid + 0.75, by + 1.95),
+              0.05, 0.88, "linen")
+            b("counter", (ix0 + 0.05, F - 1.30, ix1 - 1.60, F - 0.68),
+              0.05, 0.95, "wood_dark")
+            b("counter_top", (ix0 + 0.02, F - 1.34, ix1 - 1.56, F - 0.64),
+              1.00, 0.05, "countertop")
+            # Shirts on a rail over the counter, the thing that says
+            # laundry from across the street.
+            b("rail", (ix0 + 0.40, F - 2.70, ix1 - 0.40, F - 2.64),
+              2.05, 0.04, "chrome")
+            for i in range(9):
+                sx = ix0 + 0.55 + i * (ix1 - ix0 - 1.10) / 8.0
+                b("shirt%d" % i, (sx - 0.16, F - 2.80, sx + 0.16,
+                                  F - 2.56), 1.28, 0.76, "linen")
+            b("bench", (ix1 - 1.45, F - 1.15, ix1 - 0.20, F - 0.70),
+              0.05, 0.44, "timber")
+            # WAITING IS THE WHOLE REASON. Forty minutes with nothing to
+            # do is what an arcade cabinet was invented for, and it is
+            # the only room on the street where the machine is furniture
+            # rather than an attraction.
+            #
+            # by+3.60 and not by+2.60: the driers run back to by+2.62 and
+            # a cabinet at 2.60 was standing inside the second one.
+            cab(0, ix1 - 0.45, by + 3.60, 270, 0)
+
+        elif trade == "cobbler":
+            # The bench is the shop. Everything else is storage for
+            # other people's shoes.
+            b("bench", (ix0 + 0.05, by + 0.60, ix0 + 0.85, F - 2.40),
+              0.05, 0.92, "timber")
+            b("bench_top", (ix0 + 0.02, by + 0.55, ix0 + 0.92, F - 2.35),
+              0.97, 0.06, "wood_dark")
+            # The finishing machine: a brushing and buffing head on a
+            # cast stand, and the reason the smell of this shop is half
+            # the block.
+            b("finisher", (ix0 + 0.95, by + 1.05, ix0 + 1.55, by + 1.85),
+              0.05, 0.88, "cast_iron")
+            b("finisher_hd", (ix0 + 0.90, by + 1.15, ix0 + 1.60,
+                              by + 1.75), 0.93, 0.42, "metal")
+            for i in range(5):
+                b("rack%d" % i, (ix1 - 0.42, by + 0.30, ix1 - 0.05,
+                                 F - 2.30), 0.42 + i * 0.36, 0.04,
+                  "timber")
+            # Somebody's shoes, paired, waiting to be collected.
+            for i in range(11):
+                sy = by + 0.55 + (i % 6) * 0.62
+                sz = 0.46 + (i % 5) * 0.36
+                b("shoe%d" % i, (ix1 - 0.38, sy, ix1 - 0.12, sy + 0.26),
+                  sz, 0.11, "wood_dark" if i % 3 else "vinyl_oxblood")
+            b("counter", (ix0 + 0.30, F - 1.45, ix1 - 1.50, F - 0.85),
+              0.05, 1.02, "wood_dark")
+            b("counter_top", (ix0 + 0.26, F - 1.50, ix1 - 1.46, F - 0.80),
+              1.07, 0.05, "countertop")
+
+        elif trade == "locksmith":
+            # A key board is the whole window display of this trade and
+            # the only thing that makes a 3.4 m shop legible.
+            b("board", (ix0 + 0.35, by + 0.07, ix1 - 0.35, by + 0.12),
+              1.25, 1.55, "plywood")
+            for r in range(7):
+                for c in range(14):
+                    kx = ix0 + 0.45 + c * (ix1 - ix0 - 0.90) / 13.0
+                    b("key%d_%d" % (r, c), (kx - 0.025, by + 0.12,
+                                            kx + 0.025, by + 0.16),
+                      1.36 + r * 0.20, 0.09,
+                      "brass_dull" if (r + c) % 3 else "chrome")
+            b("cutter_bench", (ix0 + 0.05, by + 0.60, ix0 + 0.72,
+                               by + 2.10), 0.01, 0.94, "timber")
+            b("cutter", (ix0 + 0.10, by + 1.05, ix0 + 0.66, by + 1.70),
+              0.99, 0.34, "cast_iron")
+            b("cutter_wheel", (ix0 + 0.16, by + 1.20, ix0 + 0.24,
+                               by + 1.55), 1.33, 0.22, "metal")
+            # A safe, because a locksmith is also the man who opens one.
+            b("safe", (ix1 - 0.78, by + 0.35, ix1 - 0.08, by + 1.05),
+              0.05, 1.05, "cast_iron")
+            b("safe_dial", (ix1 - 0.50, by + 0.30, ix1 - 0.36, by + 0.36),
+              0.62, 0.14, "brass_bright")
+            b("counter", (ix0 + 0.05, F - 1.40, ix1 - 1.15, F - 0.80),
+              0.05, 1.02, "wood_dark")
+            b("counter_top", (ix0 + 0.02, F - 1.45, ix1 - 1.11, F - 0.75),
+              1.07, 0.05, "countertop")
+
+        elif trade == "radio":
+            # A SIGNAL TRADE, which under VIII.2 means this is the most
+            # modern room on the block and knows it. The bench is where a
+            # set gets aligned; the shop knows about the carrier at 1610
+            # and will not say.
+            b("bench", (ix1 - 0.78, by + 0.50, ix1 - 0.05, F - 2.20),
+              0.05, 0.90, "timber")
+            b("bench_top", (ix1 - 0.84, by + 0.45, ix1 - 0.02, F - 2.15),
+              0.95, 0.06, "wood_dark")
+            # A set with its back off, and the test gear over it.
+            b("chassis", (ix1 - 0.70, by + 1.10, ix1 - 0.16, by + 1.72),
+              1.01, 0.34, "bakelite_black")
+            b("scope", (ix1 - 0.72, by + 2.05, ix1 - 0.20, by + 2.55),
+              1.01, 0.44, "appliance")
+            b("scope_face", (ix1 - 0.76, by + 2.16, ix1 - 0.72, by + 2.44),
+              1.16, 0.22, "screen")
+            for i in range(4):
+                b("valve_sh%d" % i, (ix0 + 0.05, by + 0.40, ix0 + 0.34,
+                                     F - 2.60), 0.85 + i * 0.42, 0.04,
+                  "timber")
+            for i in range(14):
+                vy = by + 0.55 + (i % 7) * 0.30
+                b("valve%d" % i, (ix0 + 0.12, vy, ix0 + 0.22, vy + 0.10),
+                  0.89 + (i // 7) * 0.84, 0.13, "milk_glass")
+            b("counter", (ix0 + 0.05, F - 1.35, ix1 - 1.05, F - 0.75),
+              0.05, 1.02, "wood_dark")
+            b("counter_top", (ix0 + 0.02, F - 1.40, ix1 - 1.01, F - 0.70),
+              1.07, 0.05, "countertop")
+            # On the floor at the back, half stripped, "in for repair"
+            # since before anyone asked. It works perfectly.
+            #
+            # Against the BACK wall rather than the west one: the valve
+            # shelves are 0.29 m deep and a cabinet is 0.72, so the west
+            # wall could not hold both and the cabinet was standing in
+            # the shelving.
+            cab(0, mid, by + 0.55, 180, 2)
+
+        elif trade == "diner":
+            # A counter and eight stools, which is what the brief says
+            # and also what a luncheonette IS: the counter is not
+            # furniture in the room, it is the room.
+            # THE COUNTER STOPS 1.5 m SHORT OF THE EAST WALL, which is
+            # what makes the rest of this room work: the two machines go
+            # in that corner, on the CUSTOMER side. Run the counter the
+            # full width and the only floor left for them is behind it,
+            # where a customer would have to vault the servery to reach
+            # a machine and the player simply cannot get to one at all.
+            cy = F - 2.25
+            CE = ix1 - 1.50                    # counter's east end
+            b("counter", (ix0 + 0.35, cy - 0.34, CE, cy + 0.34),
+              0.05, 1.02, "wood_dark")
+            b("counter_top", (ix0 + 0.30, cy - 0.40, CE + 0.05,
+                              cy + 0.40), 1.07, 0.05, "countertop")
+            b("counter_kick", (ix0 + 0.30, cy + 0.34, CE + 0.05,
+                               cy + 0.40), 0.01, 0.14, "chrome")
+            for i in range(8):
+                sx = ix0 + 0.62 + i * (CE - ix0 - 0.94) / 7.0
+                b("stool%d" % i, (sx - 0.17, cy + 0.72, sx + 0.17,
+                                  cy + 1.06), 0.01, 0.70, "chrome")
+                b("stool%d_top" % i, (sx - 0.20, cy + 0.69, sx + 0.20,
+                                      cy + 1.09), 0.75, 0.07,
+                  "vinyl_oxblood")
+            # Back bar: the urns, the pie case, the shelf of everything.
+            b("backbar", (ix0 + 0.35, by + 0.90, ix1 - 0.30, by + 1.45),
+              0.05, 0.92, "chrome")
+            b("backbar_top", (ix0 + 0.30, by + 0.85, ix1 - 0.25,
+                              by + 1.50), 0.97, 0.05, "countertop")
+            for i in range(2):
+                ux = ix0 + 0.85 + i * 0.62
+                b("urn%d" % i, (ux - 0.19, by + 1.02, ux + 0.19,
+                                by + 1.36), 1.02, 0.74, "chrome")
+            b("piecase", (ix1 - 1.35, by + 1.00, ix1 - 0.45, by + 1.42),
+              1.02, 0.46, "glassish")
+            for i in range(3):
+                b("bbshelf%d" % i, (ix0 + 0.35, by + 0.62, ix1 - 0.30,
+                                    by + 0.67), 1.32 + i * 0.40, 0.04,
+                  "timber")
+            b("griddle", (ix0 + 0.40, by + 1.55, ix0 + 1.50, by + 2.10),
+              0.05, 0.92, "metal")
+            b("griddle_top", (ix0 + 0.38, by + 1.52, ix0 + 1.52,
+                              by + 2.13), 0.97, 0.04, "cast_iron")
+            # TWO MACHINES, in the corner the counter leaves free, which
+            # is where a diner puts anything that takes coins and makes
+            # noise: by the window, in everybody's way, facing the room.
+            cab(0, ix1 - 0.45, F - 1.15, 270, 1)
+            cab(1, ix1 - 0.45, F - 1.95, 270, 3)
+
+        elif trade == "news":
+            # 2.1 m wide: a slot you stand in the mouth of. The whole
+            # trade faces out and the customer barely comes in.
+            #
+            # THE COUNTER RUNS DOWN THE EAST WALL, not across the front.
+            # Across the front it was a 2.1 m barricade 1.2 m inside the
+            # shop's own door — the customer never coming in is a
+            # characterisation, not a licence to wall the room off, and
+            # the machine at the back would have been unreachable.
+            b("counter", (ix1 - 0.68, F - 2.90, ix1 - 0.05, F - 0.62),
+              0.05, 1.05, "wood_dark")
+            b("counter_top", (ix1 - 0.74, F - 2.95, ix1 - 0.02, F - 0.56),
+              1.10, 0.05, "countertop")
+            # Papers, racked at an angle nobody can read from indoors.
+            for i in range(4):
+                b("rack%d" % i, (ix0 + 0.05, F - 2.35, ix0 + 0.46,
+                                 F - 1.40), 0.30 + i * 0.42, 0.05,
+                  "timber")
+            for i in range(8):
+                py = F - 2.28 + (i % 4) * 0.22
+                b("paper%d" % i, (ix0 + 0.09, py, ix0 + 0.42, py + 0.18),
+                  0.35 + (i // 4) * 0.84, 0.03, "paper")
+            b("cigars", (ix1 - 0.62, F - 2.80, ix1 - 0.10, F - 1.95),
+              1.15, 0.50, "glassish")
+            for i in range(5):
+                b("shelf%d" % i, (ix0 + 0.05, by + 0.07, ix1 - 0.05,
+                                  by + 0.34), 0.55 + i * 0.42, 0.04,
+                  "timber")
+            # The racing page nobody admits to, and the machine that is
+            # the same transaction with the pretence removed. by+0.95
+            # rather than by+0.55: the back shelving is 0.27 deep and
+            # 0.55 stood the cabinet in it.
+            cab(0, mid - 0.25, by + 0.95, 180, 0)
+
+        elif trade == "pawn":
+            # Glass down both walls, a grille at the back, and the whole
+            # inventory a record of what the block stopped being able to
+            # keep. It buys what the smash room leaves.
+            # The cases stop at F-2.60 rather than F-1.90, which leaves
+            # the front metre of the west wall clear for the cabinet. The
+            # door is at the EAST end of this bay, so the west front
+            # corner is the one bit of floor nothing walks through.
+            for side, sx0, sx1 in (("w", ix0 + 0.05, ix0 + 0.62),
+                                   ("e", ix1 - 0.62, ix1 - 0.05)):
+                b("case_%s" % side, (sx0, by + 1.20, sx1, F - 2.60),
+                  0.05, 0.92, "wood_dark")
+                b("case_%s_gl" % side, (sx0, by + 1.20, sx1, F - 2.60),
+                  0.97, 0.44, "glassish")
+                b("case_%s_top" % side, (sx0 - 0.03, by + 1.17, sx1 + 0.03,
+                                         F - 2.57), 1.41, 0.04, "brass_dull")
+            # A wall of clocks, which is what a pawnshop wall always is,
+            # and none of them agree — in a building whose case system
+            # already plays with time, that is not only a joke.
+            for i in range(9):
+                cx_ = ix0 + 0.85 + (i % 3) * (ix1 - ix0 - 1.70) / 2.0
+                b("clock%d" % i, (cx_ - 0.16, by + 0.07, cx_ + 0.16,
+                                  by + 0.13), 1.35 + (i // 3) * 0.52,
+                  0.32, "brass_dull" if i % 2 else "wood_dark")
+            b("grille_counter", (ix0 + 0.70, by + 0.75, ix1 - 0.70,
+                                 by + 1.35), 0.01, 1.08, "wood_dark")
+            b("grille_top", (ix0 + 0.66, by + 0.70, ix1 - 0.66, by + 1.40),
+              1.13, 0.05, "countertop")
+            b("grille", (ix0 + 0.70, by + 1.00, ix1 - 0.70, by + 1.06),
+              1.18, 0.95, "brass_mesh")
+            # Somebody pawned it and never came back for it.
+            cab(0, ix0 + 0.48, F - 1.55, 90, 1)
+
+        elif trade == "funeral":
+            # A front room you can hold a service in. Dorothy Ash went
+            # from here. Chairs, a lectern, and drapes across the chapel
+            # behind — which is not modelled, and should not be.
+            for r in range(4):
+                for c in range(4):
+                    cx_ = mid - 1.35 + c * 0.90
+                    cy_ = by + 2.30 + r * 0.78
+                    b("chair%d_%d" % (r, c), (cx_ - 0.21, cy_ - 0.21,
+                                              cx_ + 0.21, cy_ + 0.21),
+                      0.05, 0.44, "wood_dark")
+                    b("chairb%d_%d" % (r, c), (cx_ - 0.21, cy_ + 0.14,
+                                               cx_ + 0.21, cy_ + 0.21),
+                      0.49, 0.48, "wood_dark")
+            b("lectern", (mid - 0.28, by + 1.15, mid + 0.28, by + 0.85),
+              0.05, 1.12, "wood_dark")
+            b("lectern_top", (mid - 0.34, by + 0.80, mid + 0.34,
+                              by + 1.20), 1.17, 0.05, "oak_quartered")
+            b("book", (mid - 0.14, by + 0.95, mid + 0.14, by + 1.12),
+              1.22, 0.05, "paper")
+            # Pleated, as alternating depths, so they read as cloth.
+            for i in range(14):
+                dx = ix0 + 0.20 + i * (ix1 - ix0 - 0.40) / 14.0
+                dd = 0.10 if i % 2 else 0.17
+                b("drape%d" % i, (dx, by + 0.13, dx + 0.16, by + 0.13 + dd),
+                  0.05, 2.85, "vinyl_oxblood")
+            b("stand", (ix0 + 0.25, F - 1.50, ix0 + 0.70, F - 1.05),
+              0.05, 0.86, "wood_dark")
+            b("wreath", (ix0 + 0.22, F - 1.55, ix0 + 0.73, F - 1.00),
+              0.91, 0.14, "plant")
+
+        elif trade == "hardware":
+            # Bins, a paint bench, and the only ladder on the block —
+            # which is a plot device as much as a fitting.
+            for side, sx0, sx1 in (("w", ix0 + 0.05, ix0 + 0.52),
+                                   ("e", ix1 - 0.52, ix1 - 0.05)):
+                for i in range(6):
+                    b("bin_%s%d" % (side, i), (sx0, by + 0.50, sx1,
+                                               F - 2.10),
+                      0.20 + i * 0.44, 0.06, "timber")
+                for i in range(18):
+                    byy = by + 0.62 + (i % 6) * 0.62
+                    b("stock_%s%d" % (side, i), (sx0 + 0.05, byy,
+                                                 sx1 - 0.05, byy + 0.34),
+                      0.26 + (i // 6) * 0.44, 0.16,
+                      ("safety_orange", "brass_dull", "metal")[i % 3])
+            b("paint_bench", (mid - 1.05, by + 0.55, mid + 1.05,
+                              by + 1.25), 0.01, 0.92, "timber")
+            b("paint_top", (mid - 1.10, by + 0.50, mid + 1.10, by + 1.30),
+              0.97, 0.06, "metal")
+            for i in range(7):
+                px = mid - 0.90 + i * 0.30
+                b("can%d" % i, (px - 0.11, by + 0.72, px + 0.11,
+                                by + 1.05), 1.03, 0.26,
+                  ("lacquer_red", "book_teal", "fabric_green",
+                   "safety_orange")[i % 4])
+            # THE LADDER, leant where a ladder is always leant.
+            b("ladder_r0", (ix1 - 0.95, F - 3.10, ix1 - 0.87, F - 2.30),
+              0.05, 3.05, "timber")
+            b("ladder_r1", (ix1 - 0.55, F - 3.10, ix1 - 0.47, F - 2.30),
+              0.05, 3.05, "timber")
+            for i in range(9):
+                b("ladder_rung%d" % i, (ix1 - 0.90, F - 3.05, ix1 - 0.50,
+                                        F - 2.98), 0.30 + i * 0.32, 0.05,
+                  "timber")
+            b("counter", (ix0 + 0.60, F - 1.40, ix1 - 1.60, F - 0.80),
+              0.05, 1.02, "wood_dark")
+            b("counter_top", (ix0 + 0.56, F - 1.45, ix1 - 1.56, F - 0.75),
+              1.07, 0.05, "countertop")
+
+        elif trade == "photo":
+            # Film for the handset. Nadia is in here more than she is
+            # upstairs, and this is the only shop on the street whose
+            # trade the player's own phone depends on.
+            b("counter", (ix0 + 0.05, F - 1.65, ix1 - 1.40, F - 0.95),
+              0.05, 1.00, "wood_dark")
+            b("counter_gl", (ix0 + 0.05, F - 1.65, ix1 - 1.40, F - 0.95),
+              1.05, 0.36, "glassish")
+            b("counter_top", (ix0 + 0.02, F - 1.70, ix1 - 1.36, F - 0.90),
+              1.41, 0.04, "brass_dull")
+            for i in range(5):
+                b("cab_sh%d" % i, (ix0 + 0.05, by + 1.30, ix0 + 0.40,
+                                   F - 2.20), 0.55 + i * 0.44, 0.04,
+                  "timber")
+            for i in range(15):
+                fy = by + 1.45 + (i % 5) * 0.52
+                b("box%d" % i, (ix0 + 0.09, fy, ix0 + 0.36, fy + 0.30),
+                  0.59 + (i // 5) * 0.44, 0.16,
+                  ("book_ochre", "book_teal", "lacquer_red")[i % 3])
+            # Enlargers on the high shelf, second-hand, all of them.
+            for i in range(3):
+                ex = mid - 0.70 + i * 0.70
+                b("enl%d" % i, (ex - 0.17, by + 0.40, ex + 0.17,
+                                by + 0.74), 1.62, 0.62, "cast_iron")
+            b("enl_shelf", (ix0 + 0.45, by + 0.35, ix1 - 0.45, by + 0.80),
+              1.56, 0.06, "timber")
+            # THE DARKROOM DOOR, and the red light over it that is the
+            # only reason anyone believes the back of this shop exists.
+            b("dr_door", (ix1 - 1.30, by + 0.07, ix1 - 0.35, by + 0.13),
+              0.05, 2.05, "wood_dark")
+            b("dr_lamp", (ix1 - 0.95, by + 0.13, ix1 - 0.70, by + 0.22),
+              2.18, 0.18, "lacquer_red")
+            mk.append({"kind": "cage_bulb",
+                       "id": "SITE_SHOP_DARKROOM_%s" % tag.upper(),
+                       "unit": "SITE",
+                       "pos": [ix1 - 0.82, by + 0.30, 2.24],
+                       "yaw_deg": 0, "network": "electrical",
+                       "range": 2.2, "energy": 0.34,
+                       "navigation": False, "standby": 0.34,
+                       "exterior": True})
+            cab(0, ix1 - 0.45, by + 1.55, 270, 2)
 
 
 def site_pass(fl):
@@ -3262,6 +3846,16 @@ def site_pass(fl):
     def fb(bid, rect, z0, h, mat):
         furn.append({"id": "site_" + bid, "rect": list(rect), "z0": z0,
                      "h": h, "mat": mat})
+
+    def asm(bid, kind, x, y, yaw=0, **kw):
+        # exterior: True keeps these off the storey gate the same way the
+        # street furniture and the retail assemblies are — the site floor
+        # is not a storey and a shop fitting has no business being
+        # switched off by one.
+        e = {"id": "site_" + bid, "asm": kind, "at": [x, y], "yaw": yaw,
+             "exterior": True}
+        e.update(kw)
+        furn.append(e)
 
     # The road surface is laid AROUND the building, never under it. As one
     # slab it ran clean through the footprint 20 mm below the lobby floor,
@@ -3392,8 +3986,29 @@ def site_pass(fl):
     # Two blocks carry playable retail in their ground floor, so their
     # mass starts above it; retail_pass() supplies the shell below.
     HOLLOW = {"nbr_e": 3.55, "nbr_s2": 3.55}
+    # THE SHOPS GET SOMEWHERE TO BE. Until now the ten storefronts on the
+    # south side were a facade in front of a solid brick block: glass,
+    # sign band, awning and a lit linen panel faking a room behind. This
+    # cuts each shop's floor plan out of its block's ground band and
+    # leaves the mass above sitting on the brick between them, which is
+    # how a real terrace of shops is built and also the only way to get
+    # an interior without moving the street.
+    voids = {}
+    for block_id, rect in shop_voids():
+        voids.setdefault(block_id, []).append(rect)
     for bid, rect, hgt in CITY_BLOCKS:
         gz = HOLLOW.get(bid, 0.0)
+        if bid in voids:
+            band = [rect]
+            for hole in voids[bid]:
+                nxt = []
+                for r in band:
+                    nxt += subtract_rect([r], hole)
+                band = nxt
+            for i, r in enumerate(band):
+                fb("%s_gnd%d" % (bid, i), r, gz, SHOP_H - gz, "common_brick")
+            fb(bid, rect, SHOP_H, hgt - SHOP_H, "common_brick")
+            continue
         fb(bid, rect, gz, hgt - gz, "common_brick")
         # a parapet lip catches the moon and stops every roof reading as a
         # clean extrusion
@@ -3513,6 +4128,18 @@ def storm_pass(fl):
         furn.append({"id": "storm_" + bid, "rect": list(rect), "z0": z0,
                      "h": h, "mat": mat})
 
+    def asm(bid, kind, x, y, yaw=0, **kw):
+        # The shopfronts and their interiors are built here rather than in
+        # site_pass, which is where the blocks they are cut into are
+        # built. That split is historical and slightly silly, but the two
+        # passes write to the SAME floor, so a fitting authored here lands
+        # in the void carved there. exterior: True keeps these off the
+        # storey gate, like every other site assembly.
+        e = {"id": "storm_" + bid, "asm": kind, "at": [x, y], "yaw": yaw,
+             "exterior": True}
+        e.update(kw)
+        furn.append(e)
+
     # Sheets of wet across the road and pavement, at slightly different
     # heights so they never z-fight each other. Broken up rather than one
     # even coat: water pools where the camber and the kerb put it.
@@ -3579,6 +4206,7 @@ def storm_pass(fl):
            "wet_asphalt")
 
     _storefronts(fb, fl["markers"])
+    _shop_interiors(fb, fl["markers"], asm)
 
 
 ## The light court's centrepiece. The stair used to be lit by seven
@@ -4284,7 +4912,21 @@ def retail_pass(fl):
     # shaft's clear face, which buried the plaster stairwell walls inside
     # brick - and the teal descent is canonical, so the stairwell must
     # own its skin.
-    fb("bar_fill_w", (KX0, -38.2, RX1, FACE), 0.0, 3.55, "common_brick")
+    # THE LUNCHEONETTE IS IN THIS BLOCK TOO. nbr_s2's ground floor is
+    # brick everywhere the Harukiya's stair is not, and that fill ran
+    # straight through the diner's new sales floor — a shopfront with a
+    # solid block behind it, which is the whole fault this pass exists to
+    # fix, reappearing one function away. Cut the same void out of the
+    # fill that site_pass cuts out of the block above it.
+    fill_w = [(KX0, -38.2, RX1, FACE)]
+    for _blk, hole in shop_voids():
+        if _blk == "nbr_s2":
+            nxt = []
+            for r in fill_w:
+                nxt += subtract_rect([r], hole)
+            fill_w = nxt
+    for _i, _r in enumerate(fill_w):
+        fb("bar_fill_w%d" % _i, _r, 0.0, 3.55, "common_brick")
     fb("bar_fill_e", (SH_E + 0.30, -38.2, KX1, FACE), 0.0, 3.55,
        "common_brick")
     fb("bar_fill_s", (SH_W, -38.2, SH_E, -35.80), 0.0, 3.55,

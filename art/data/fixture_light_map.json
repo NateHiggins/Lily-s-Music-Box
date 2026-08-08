@@ -1,5 +1,5 @@
 {
- "fixture_count": 219,
+ "fixture_count": 240,
  "fixtures": [
   {
    "id": "B1_CORRIDOR_DOME_01",
@@ -1026,18 +1026,50 @@
    "standby": 0.3
   },
   {
-   "id": "SITE_SHOP_IN_MODEL_LAUNDRY",
+   "id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
    "floor": "F01",
    "kind": "cage_bulb",
    "room": "UNASSIGNED",
    "room_kind": "unknown",
    "position": [
     -29.6,
-    -28.215999999999998,
-    1.95
+    -29.266,
+    2.92
    ],
-   "range": 3.4,
-   "energy": 0.48,
+   "range": 5.2,
+   "energy": 0.98,
+   "navigation": false,
+   "standby": 0.4
+  },
+  {
+   "id": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    -29.6,
+    -31.816,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.8,
+   "navigation": false,
+   "standby": 0.4
+  },
+  {
+   "id": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    -29.6,
+    -34.366,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.8,
    "navigation": false,
    "standby": 0.4
   },
@@ -1058,6 +1090,38 @@
    "standby": 0.3
   },
   {
+   "id": "SITE_SHOP_IN0_SHOE_REBUILDING",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    -24.0,
+    -29.266,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.74,
+   "navigation": false,
+   "standby": 0.22
+  },
+  {
+   "id": "SITE_SHOP_IN1_SHOE_REBUILDING",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    -24.0,
+    -33.366,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.58,
+   "navigation": false,
+   "standby": 0.22
+  },
+  {
    "id": "SITE_SHOP_LT_KEYS_CUT",
    "floor": "F01",
    "kind": "cage_bulb",
@@ -1072,6 +1136,38 @@
    "energy": 0.55,
    "navigation": false,
    "standby": 0.3
+  },
+  {
+   "id": "SITE_SHOP_IN0_KEYS_CUT",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    -17.6,
+    -29.266,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.74,
+   "navigation": false,
+   "standby": 0.22
+  },
+  {
+   "id": "SITE_SHOP_IN1_KEYS_CUT",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    -17.6,
+    -32.366,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.58,
+   "navigation": false,
+   "standby": 0.22
   },
   {
    "id": "SITE_SHOP_LT_RADIO_SERVICE",
@@ -1090,6 +1186,38 @@
    "standby": 0.3
   },
   {
+   "id": "SITE_SHOP_IN0_RADIO_SERVICE",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    -14.2,
+    -29.266,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.74,
+   "navigation": false,
+   "standby": 0.22
+  },
+  {
+   "id": "SITE_SHOP_IN1_RADIO_SERVICE",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    -14.2,
+    -32.366,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.58,
+   "navigation": false,
+   "standby": 0.22
+  },
+  {
    "id": "SITE_SHOP_LT_LUNCHEONETTE",
    "floor": "F01",
    "kind": "cage_bulb",
@@ -1106,18 +1234,50 @@
    "standby": 0.3
   },
   {
-   "id": "SITE_SHOP_IN_LUNCHEONETTE",
+   "id": "SITE_SHOP_IN0_LUNCHEONETTE",
    "floor": "F01",
    "kind": "cage_bulb",
    "room": "UNASSIGNED",
    "room_kind": "unknown",
    "position": [
     -8.8,
-    -28.215999999999998,
-    1.95
+    -29.266,
+    2.92
    ],
-   "range": 3.4,
-   "energy": 0.48,
+   "range": 5.2,
+   "energy": 0.98,
+   "navigation": false,
+   "standby": 0.4
+  },
+  {
+   "id": "SITE_SHOP_IN1_LUNCHEONETTE",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    -8.8,
+    -31.816,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.8,
+   "navigation": false,
+   "standby": 0.4
+  },
+  {
+   "id": "SITE_SHOP_IN2_LUNCHEONETTE",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    -8.8,
+    -34.366,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.8,
    "navigation": false,
    "standby": 0.4
   },
@@ -1138,18 +1298,34 @@
    "standby": 0.3
   },
   {
-   "id": "SITE_SHOP_IN_NEWS_CIGARS",
+   "id": "SITE_SHOP_IN0_NEWS_CIGARS",
    "floor": "F01",
    "kind": "cage_bulb",
    "room": "UNASSIGNED",
    "room_kind": "unknown",
    "position": [
     9.05,
-    -28.215999999999998,
-    1.95
+    -29.266,
+    2.92
    ],
-   "range": 3.4,
-   "energy": 0.48,
+   "range": 5.2,
+   "energy": 0.98,
+   "navigation": false,
+   "standby": 0.4
+  },
+  {
+   "id": "SITE_SHOP_IN1_NEWS_CIGARS",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    9.05,
+    -31.366,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.8,
    "navigation": false,
    "standby": 0.4
   },
@@ -1170,18 +1346,34 @@
    "standby": 0.3
   },
   {
-   "id": "SITE_SHOP_IN_PAWNBROKER",
+   "id": "SITE_SHOP_IN0_PAWNBROKER",
    "floor": "F01",
    "kind": "cage_bulb",
    "room": "UNASSIGNED",
    "room_kind": "unknown",
    "position": [
     12.7,
-    -28.215999999999998,
-    1.95
+    -29.266,
+    2.92
    ],
-   "range": 3.4,
-   "energy": 0.48,
+   "range": 5.2,
+   "energy": 0.98,
+   "navigation": false,
+   "standby": 0.4
+  },
+  {
+   "id": "SITE_SHOP_IN1_PAWNBROKER",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    12.7,
+    -33.366,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.8,
    "navigation": false,
    "standby": 0.4
   },
@@ -1202,6 +1394,54 @@
    "standby": 0.3
   },
   {
+   "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    17.5,
+    -29.266,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.74,
+   "navigation": false,
+   "standby": 0.22
+  },
+  {
+   "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    17.5,
+    -31.816,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.58,
+   "navigation": false,
+   "standby": 0.22
+  },
+  {
+   "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    17.5,
+    -34.366,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.58,
+   "navigation": false,
+   "standby": 0.22
+  },
+  {
    "id": "SITE_SHOP_LT_HARDWARE_PAINT",
    "floor": "F01",
    "kind": "cage_bulb",
@@ -1218,6 +1458,54 @@
    "standby": 0.3
   },
   {
+   "id": "SITE_SHOP_IN0_HARDWARE_PAINT",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    23.7,
+    -29.266,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.74,
+   "navigation": false,
+   "standby": 0.22
+  },
+  {
+   "id": "SITE_SHOP_IN1_HARDWARE_PAINT",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    23.7,
+    -31.566,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.58,
+   "navigation": false,
+   "standby": 0.22
+  },
+  {
+   "id": "SITE_SHOP_IN2_HARDWARE_PAINT",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    23.7,
+    -33.866,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.58,
+   "navigation": false,
+   "standby": 0.22
+  },
+  {
    "id": "SITE_SHOP_LT_PHOTO_SUPPLIES",
    "floor": "F01",
    "kind": "cage_bulb",
@@ -1232,6 +1520,54 @@
    "energy": 0.55,
    "navigation": false,
    "standby": 0.3
+  },
+  {
+   "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    29.0,
+    -29.266,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.74,
+   "navigation": false,
+   "standby": 0.22
+  },
+  {
+   "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    29.0,
+    -33.366,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.58,
+   "navigation": false,
+   "standby": 0.22
+  },
+  {
+   "id": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    30.68,
+    -34.016000000000005,
+    2.24
+   ],
+   "range": 2.2,
+   "energy": 0.34,
+   "navigation": false,
+   "standby": 0.34
   },
   {
    "id": "F01_STREETLAMP_03",
