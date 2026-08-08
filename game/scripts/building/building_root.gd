@@ -130,6 +130,13 @@ var show_all_floors := false
 
 
 func _ready() -> void:
+	# Findable by group rather than only as the current scene. Systems
+	# that need the building reach for this group first and fall back to
+	# get_tree().current_scene — a fallback that works in play, where the
+	# building IS the scene, and silently fails in every test, where it
+	# is a child of the test node. That is how the torch's reaction to
+	# intrusions came to be wired to a director it could never find.
+	add_to_group("building_root")
 	var f := FileAccess.open("res://data/building_layout.json", FileAccess.READ)
 	layout = JSON.parse_string(f.get_as_text())
 	_build_environment()

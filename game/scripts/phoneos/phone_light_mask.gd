@@ -95,6 +95,27 @@ func _find_sanity() -> void:
 		root = get_tree().current_scene
 	if root and root.get("sanity") != null:
 		_sanity = root.sanity
+		# The building shoves the torch. Pressure already bends the beam
+		# slowly, over a whole shift; this is the other half — the moment
+		# something actually HAPPENS, felt in the light before the player
+		# has found what moved.
+		if not _sanity.intruded.is_connected(_on_intruded):
+			_sanity.intruded.connect(_on_intruded)
+		if not _sanity.attention_withheld.is_connected(_on_withheld):
+			_sanity.attention_withheld.connect(_on_withheld)
+
+
+## Rungs run 1..4. A rung one is a flicker you might talk yourself out
+## of; a rung four is the light nearly going.
+func _on_intruded(_case_id: String, tier: int) -> void:
+	punch(clampf(0.28 + 0.24 * float(tier - 1), 0.0, 1.0))
+
+
+## Ignoring the building does not make it quieter. Each unwitnessed
+## intrusion in a row leans harder on the beam than the last, which is
+## the same escalation the director applies to everything else.
+func _on_withheld(_case_id: String, streak: int) -> void:
+	punch(clampf(0.30 + 0.20 * float(streak), 0.0, 1.0))
 
 
 func _process(delta: float) -> void:
