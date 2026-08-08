@@ -1313,6 +1313,26 @@
    ]
   },
   {
+   "id": "F01_BAR_LT_DARTS",
+   "pos": [
+    -11.08,
+    -33.0,
+    -0.29
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
    "id": "F01_BAR_LT_LOBBY",
    "pos": [
     4.875,
@@ -1375,7 +1395,7 @@
   {
    "id": "F01_BAR_LT_CAN1",
    "pos": [
-    -0.9,
+    -0.25,
     -29.7,
     -1.06
    ],
@@ -1395,9 +1415,9 @@
   {
    "id": "F01_BAR_LT_POOL",
    "pos": [
-    -3.7,
-    -33.95,
-    -0.75
+    -7.4,
+    -31.25,
+    -0.6
    ],
    "room": "SITE",
    "network": "electrical",
@@ -1415,9 +1435,29 @@
   {
    "id": "F01_BAR_LT_TAB0",
    "pos": [
-    -2.55,
-    -35.6,
-    -0.82
+    -8.2,
+    -35.3,
+    -0.62
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_TAB1",
+   "pos": [
+    -5.2,
+    -35.3,
+    -0.62
    ],
    "room": "SITE",
    "network": "electrical",
@@ -1435,49 +1475,9 @@
   {
    "id": "F01_BAR_LT_TAB2",
    "pos": [
-    0.85,
-    -34.6,
-    -0.82
-   ],
-   "room": "SITE",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "B1_ELECTRICAL_HUB"
-   ]
-  },
-  {
-   "id": "F01_BAR_LT_TAB4",
-   "pos": [
-    -0.55,
-    -32.85,
-    -0.82
-   ],
-   "room": "SITE",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "B1_ELECTRICAL_HUB"
-   ]
-  },
-  {
-   "id": "F01_BAR_LT_TAB6",
-   "pos": [
-    -2.75,
-    -31.55,
-    -0.82
+    -1.2,
+    -34.9,
+    -0.62
    ],
    "room": "SITE",
    "network": "electrical",
@@ -1533,10 +1533,70 @@
    ]
   },
   {
-   "id": "F01_BAR_LT_DECK",
+   "id": "F01_BAR_LT_DECK0",
    "pos": [
     3.92,
-    -34.9,
+    -36.6,
+    -1.3
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_DECK1",
+   "pos": [
+    3.92,
+    -33.2,
+    -1.3
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_WEST0",
+   "pos": [
+    -11.34,
+    -35.4,
+    -1.3
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_WEST1",
+   "pos": [
+    -11.34,
+    -31.3,
     -1.3
    ],
    "room": "SITE",
@@ -1555,9 +1615,709 @@
   {
    "id": "F01_BAR_LT_WC",
    "pos": [
-    -4.3,
+    -10.62,
     -37.1,
     -0.45
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_MODEL_LAUNDRY",
+   "pos": [
+    -27.775,
+    -27.856,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+   "pos": [
+    -29.6,
+    -29.266,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+   "pos": [
+    -29.6,
+    -31.816,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+   "pos": [
+    -29.6,
+    -34.366,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_SHOE_REBUILDING",
+   "pos": [
+    -22.175,
+    -27.856,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_SHOE_REBUILDING",
+   "pos": [
+    -24.0,
+    -29.266,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_SHOE_REBUILDING",
+   "pos": [
+    -24.0,
+    -33.366,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_KEYS_CUT",
+   "pos": [
+    -16.775,
+    -27.856,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_KEYS_CUT",
+   "pos": [
+    -17.6,
+    -29.266,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_KEYS_CUT",
+   "pos": [
+    -17.6,
+    -32.366,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_RADIO_SERVICE",
+   "pos": [
+    -13.575,
+    -27.856,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_RADIO_SERVICE",
+   "pos": [
+    -14.2,
+    -29.266,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_RADIO_SERVICE",
+   "pos": [
+    -14.2,
+    -32.366,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_LUNCHEONETTE",
+   "pos": [
+    -10.375,
+    -27.856,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_LUNCHEONETTE",
+   "pos": [
+    -8.8,
+    -29.266,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_LUNCHEONETTE",
+   "pos": [
+    -8.8,
+    -31.816,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN2_LUNCHEONETTE",
+   "pos": [
+    -8.8,
+    -34.366,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_NEWS_CIGARS",
+   "pos": [
+    8.925,
+    -27.856,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_NEWS_CIGARS",
+   "pos": [
+    9.05,
+    -29.266,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_NEWS_CIGARS",
+   "pos": [
+    9.05,
+    -31.366,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_PAWNBROKER",
+   "pos": [
+    14.025,
+    -27.856,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_PAWNBROKER",
+   "pos": [
+    12.7,
+    -29.266,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_PAWNBROKER",
+   "pos": [
+    12.7,
+    -33.366,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_FUNERAL_PARLOUR",
+   "pos": [
+    18.825,
+    -27.856,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+   "pos": [
+    17.5,
+    -29.266,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+   "pos": [
+    17.5,
+    -31.816,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+   "pos": [
+    17.5,
+    -34.366,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_HARDWARE_PAINT",
+   "pos": [
+    25.425,
+    -27.856,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_HARDWARE_PAINT",
+   "pos": [
+    23.7,
+    -29.266,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_HARDWARE_PAINT",
+   "pos": [
+    23.7,
+    -31.566,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN2_HARDWARE_PAINT",
+   "pos": [
+    23.7,
+    -33.866,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_PHOTO_SUPPLIES",
+   "pos": [
+    27.425,
+    -27.856,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+   "pos": [
+    29.0,
+    -29.266,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+   "pos": [
+    29.0,
+    -33.366,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+   "pos": [
+    30.68,
+    -34.016,
+    2.24
    ],
    "room": "SITE",
    "network": "electrical",
@@ -6189,19 +6949,57 @@
     "F01_KARAOKE_SPK_0",
     "F01_KARAOKE_SPK_1",
     "F01_BAR_STAGE_SIGN",
+    "F01_BAR_LT_DARTS",
     "F01_BAR_LT_LOBBY",
     "F01_BAR_LT_STAIR",
     "F01_BAR_LT_CAN0",
     "F01_BAR_LT_CAN1",
     "F01_BAR_LT_POOL",
     "F01_BAR_LT_TAB0",
+    "F01_BAR_LT_TAB1",
     "F01_BAR_LT_TAB2",
-    "F01_BAR_LT_TAB4",
-    "F01_BAR_LT_TAB6",
     "F01_BAR_LT_STAGE0",
     "F01_BAR_LT_STAGE1",
-    "F01_BAR_LT_DECK",
+    "F01_BAR_LT_DECK0",
+    "F01_BAR_LT_DECK1",
+    "F01_BAR_LT_WEST0",
+    "F01_BAR_LT_WEST1",
     "F01_BAR_LT_WC",
+    "SITE_SHOP_LT_MODEL_LAUNDRY",
+    "SITE_SHOP_IN0_MODEL_LAUNDRY",
+    "SITE_SHOP_IN1_MODEL_LAUNDRY",
+    "SITE_SHOP_IN2_MODEL_LAUNDRY",
+    "SITE_SHOP_LT_SHOE_REBUILDING",
+    "SITE_SHOP_IN0_SHOE_REBUILDING",
+    "SITE_SHOP_IN1_SHOE_REBUILDING",
+    "SITE_SHOP_LT_KEYS_CUT",
+    "SITE_SHOP_IN0_KEYS_CUT",
+    "SITE_SHOP_IN1_KEYS_CUT",
+    "SITE_SHOP_LT_RADIO_SERVICE",
+    "SITE_SHOP_IN0_RADIO_SERVICE",
+    "SITE_SHOP_IN1_RADIO_SERVICE",
+    "SITE_SHOP_LT_LUNCHEONETTE",
+    "SITE_SHOP_IN0_LUNCHEONETTE",
+    "SITE_SHOP_IN1_LUNCHEONETTE",
+    "SITE_SHOP_IN2_LUNCHEONETTE",
+    "SITE_SHOP_LT_NEWS_CIGARS",
+    "SITE_SHOP_IN0_NEWS_CIGARS",
+    "SITE_SHOP_IN1_NEWS_CIGARS",
+    "SITE_SHOP_LT_PAWNBROKER",
+    "SITE_SHOP_IN0_PAWNBROKER",
+    "SITE_SHOP_IN1_PAWNBROKER",
+    "SITE_SHOP_LT_FUNERAL_PARLOUR",
+    "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+    "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+    "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+    "SITE_SHOP_LT_HARDWARE_PAINT",
+    "SITE_SHOP_IN0_HARDWARE_PAINT",
+    "SITE_SHOP_IN1_HARDWARE_PAINT",
+    "SITE_SHOP_IN2_HARDWARE_PAINT",
+    "SITE_SHOP_LT_PHOTO_SUPPLIES",
+    "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+    "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+    "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
     "F02_CORRLIGHT_S"
    ]
   },

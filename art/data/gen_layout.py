@@ -3191,6 +3191,36 @@ SHOP_PLAN = {
 ## Which street block each shop's void is cut out of. Everything on the
 ## south side sits on one of five masses; only nbr_s2 was already hollow
 ## at ground level (the Harukiya's street door is in it).
+## THE SECOND LINE ON THE BOARD, which is where the period actually
+## lives: nobody in 1927 painted SHOE REBUILDING on a fascia without
+## also promising it while you wait, and nobody wrote PAWNBROKER when
+## they could write LOANS ON EVERYTHING OF VALUE.
+SHOP_SUB = {
+    "laundry": "HAND WORK  ·  SHIRTS  ·  SAME DAY",
+    "cobbler": "REBUILT WHILE YOU WAIT",
+    "locksmith": "KEYS  ·  LOCKS  ·  SAFES OPENED",
+    "radio": "SETS ALIGNED  ·  TUBES TESTED",
+    "diner": "COFFEE  ·  SANDWICHES  ·  PIE",
+    "news": "PAPERS  ·  CIGARS  ·  FORM",
+    "pawn": "LOANS ON EVERYTHING OF VALUE",
+    "funeral": "FUNERAL DIRECTORS  ·  CHAPEL",
+    "hardware": "PAINTS  ·  TOOLS  ·  HOUSEHOLD",
+    "photo": "FILM  ·  PLATES  ·  DEVELOPING",
+}
+## One word on the blade, because a blade is read at an angle from up
+## the street and a sentence on one is a smear.
+SHOP_BLADE = {"cobbler": "SHOES", "locksmith": "KEYS", "news": "NEWS",
+              "pawn": "LOANS", "hardware": "PAINT"}
+## Letter colour. Painted signwriting, so these are pigments a signwriter
+## actually had: bone white, a cheap chrome yellow, oxblood, and the one
+## green that everybody who could afford it used.
+SHOP_LETTER = {
+    "laundry": [0.90, 0.91, 0.86], "cobbler": [0.88, 0.72, 0.24],
+    "locksmith": [0.86, 0.70, 0.28], "radio": [0.72, 0.86, 0.88],
+    "diner": [0.92, 0.90, 0.84], "news": [0.90, 0.62, 0.20],
+    "pawn": [0.88, 0.74, 0.30], "funeral": [0.84, 0.84, 0.82],
+    "hardware": [0.62, 0.80, 0.58], "photo": [0.82, 0.78, 0.90],
+}
 SHOP_BLOCK = {
     "laundry": "sw1", "cobbler": "sw1",
     "locksmith": "nbr_s1", "radio": "nbr_s1",
@@ -3300,6 +3330,42 @@ def _storefronts(fb, mk):
            SIGN - TRANS, body)
         fb("sf_%s_sign" % tag, (x0 + 0.22, F + 0.20, x1 - 0.22,
                                 F + 0.26), TRANS + 0.10, 0.46, accent)
+        # THE LETTERING, which is a prop rather than geometry because the
+        # texture rules forbid words in a generated plate — the most
+        # broken rule in the brief, and the reason the fascia boards have
+        # been blank since they were built. ShopSignProp hangs real type
+        # on this board and on the blade. Facing north at yaw 180, like
+        # every other sign on this face.
+        # ON THE VALANCE IF THERE IS AN AWNING, on the fascia if not.
+        # The first version put every name on the fascia board and the
+        # render came back with MODEL LAUNDRY sliced in half — the awning
+        # projects 1.3 m over the walk with a valance hanging to 2.36,
+        # and from the pavement below that is exactly what it hides. Not
+        # a bug in the sign: it is what an awning DOES, and it is the
+        # reason real shops with awnings paint the name on the valance
+        # and hang a blade for the long view. So do we. (The bodega prop
+        # already worked this out for itself; this generalises it.)
+        # F + 1.60, not 1.50. The valance box spans F+1.52..F+1.58 and
+        # the street is to the NORTH, so its outward face is the 1.58
+        # one — 1.50 put the lettering behind its own board, where it
+        # rendered as nothing at all. Same class of mistake as the phone
+        # screen behind its own casing, and caught the same way.
+        sign_pos = ([(x0 + x1) * 0.5, F + 1.60, 2.50] if awning
+                    else [(x0 + x1) * 0.5, F + 0.27, TRANS + 0.31])
+        mk.append({"kind": "shop_sign",
+                   "id": "SITE_SHOP_SIGN_%s" % tag.upper(),
+                   "unit": "SITE",
+                   "pos": sign_pos, "compact": awning,
+                   "yaw_deg": 180, "text": name,
+                   "sub": SHOP_SUB.get(trade, ""),
+                   "tint": SHOP_LETTER.get(trade, [0.9, 0.86, 0.74]),
+                   "blade_text": SHOP_BLADE.get(trade, "") if blade else "",
+                   # Where the blade hangs, in the sign's own local x —
+                   # the yaw flips the axis, so this is measured from the
+                   # bay centre back toward the pier the bracket is on.
+                   "blade_dx": (x0 + x1) * 0.5 - (x0 + 0.46),
+                   "half_width": (x1 - x0) * 0.5,
+                   "exterior": True})
         # The cornice every one of these has, and the upper wall above.
         fb("sf_%s_cornice" % tag, (x0 - 0.06, F - 0.08, x1 + 0.06,
                                    F + 0.30), SIGN, 0.22, body)
@@ -5586,9 +5652,22 @@ def retail_pass(fl):
         for i in range(4):
             asm("dig_%s_bar%d" % (tag, i), "safety_barrier", bxx,
                 -15.9 - i * 2.1, 90 if tag == "w" else -90)
-    fb("hoard_s_w", (-20.35, -28.30, -20.15, -23.95), 0.0, 2.55,
+    # THE PARADE IS OPEN NOW, and this moves a line that was drawn on
+    # purpose, so it is worth saying why. Route discipline (below) closed
+    # the far pavement "beyond the bar's own block" when the far pavement
+    # was a facade — ten sectioned shopfronts with solid brick behind the
+    # glass and nothing to walk to. It is not that any more: there are
+    # ten sales floors, seven arcade cabinets and ten working doors down
+    # there, and a hoarding at x -6.6 put every one of them out of reach.
+    #
+    # The DISCIPLINE is untouched, only its extent. The roadway still has
+    # four trenches across it and the zebra in front of the Orison's door
+    # is still the only way over; you still cannot wander off the block.
+    # The walkable world simply has a fourth path now — the parade — and
+    # it ends at the two ends of the row rather than in the middle of it.
+    fb("hoard_s_w", (-33.20, -28.30, -33.00, -23.95), 0.0, 2.55,
        "plywood")
-    fb("hoard_s_e", (20.15, -28.30, 20.35, -23.95), 0.0, 2.55, "plywood")
+    fb("hoard_s_e", (32.00, -28.30, 32.20, -23.95), 0.0, 2.55, "plywood")
     fb("alley_fence_w", (-16.35, 10.0, -16.20, 14.9), 0.0, 2.4, "metal")
     fb("alley_fence_e", (16.20, 10.0, 16.35, 14.9), 0.0, 2.4, "metal")
     fb("dumpster", (13.8, 11.0, 16.0, 12.6), 0.0, 1.35, "metal")
@@ -5598,14 +5677,17 @@ def retail_pass(fl):
                                   (-17.6, -14.35), (-18.9, -14.35),
                                   (16.6, -12.35), (20.4, -12.35))):
         pipe("bollard%d" % i, (px, py, 0.0), (px, py, 0.95), 0.085)
-    # ---- ROUTE DISCIPLINE: the walkable world is three paths --------
+    # ---- ROUTE DISCIPLINE: the walkable world is four paths ---------
     # (1) the Orison's circumference: front walk between the gangways,
     #     the gangways themselves, the alley behind between the fences;
     # (2) the crossing to the Harukiya, inside the trench corridor;
-    # (3) the walk east to the bodega.
+    # (3) the walk east to the bodega;
+    # (4) THE PARADE — the far pavement, the full length of the ten
+    #     shopfronts, added when they stopped being a facade.
     # Everything else ends diegetically. Two more utility trenches cut
-    # the roadway so the only crossing is the one in front of the door,
-    # and the far pavement is hoarded beyond the bar's own block.
+    # the roadway so the only crossing is STILL the one in front of the
+    # door: opening the far pavement does not open the road, and you
+    # reach the parade by walking over the zebra like anybody else.
     fb("walk_w_hoard", (-15.55, -14.70, -15.35, -9.85), 0.0, 2.55,
        "plywood")
     for tag, dx0, dx1, bxx in (("mw", -8.4, -6.4, -6.15),
@@ -5617,10 +5699,12 @@ def retail_pass(fl):
         for i in range(4):
             asm("dig_%s_bar%d" % (tag, i), "safety_barrier", bxx,
                 -15.9 - i * 2.1, 90 if tag == "mw" else -90)
-    fb("swalk_hoard_w", (-6.6, -28.30, -6.4, -23.95), 0.0, 2.55,
-       "plywood")
-    fb("swalk_hoard_e", (10.4, -28.30, 10.6, -23.95), 0.0, 2.55,
-       "plywood")
+    # The inner pair that used to stand at x -6.6 and 10.4 is GONE. They
+    # narrowed the far pavement to the 17 m in front of the bar's own
+    # block, which was right when there was nothing either side of it and
+    # is the single thing that made ten new interiors unreachable. The
+    # outer pair above still ends the world; it just ends it at the ends
+    # of the parade.
     # THE CROSSING. The route discipline above says the only way over
     # the road is in front of the door; until now nothing on the ground
     # said so. Ladder markings from kerb to kerb, aligned on the Orison

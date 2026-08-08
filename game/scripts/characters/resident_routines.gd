@@ -237,6 +237,38 @@ const STREET_ROUTES := {
 		Vector2(12.00, -12.60), Vector2(16.60, -12.60),
 		Vector2(18.67, -12.60),
 	],
+	# THE PARADE, over the zebra. Every one of these crosses at x ~3.4,
+	# which is the crossing in front of the Orison's own door, because
+	# that is the only way over the road — four utility trenches see to
+	# that and a resident stepping into one would be the first thing
+	# anybody noticed. They then walk the far pavement at y -26.6, which
+	# is the middle of it, and turn in at the shop's own door.
+	"luncheonette": [
+		Vector2(0.72, -10.70), Vector2(3.40, -13.60),
+		Vector2(3.40, -19.30), Vector2(3.40, -25.10),
+		Vector2(1.20, -26.60), Vector2(-5.60, -26.60),
+		Vector2(-10.40, -26.60), Vector2(-10.40, -27.90),
+	],
+	"hand_laundry": [
+		Vector2(0.72, -10.70), Vector2(3.40, -13.60),
+		Vector2(3.40, -19.30), Vector2(3.40, -25.10),
+		Vector2(-2.00, -26.60), Vector2(-12.00, -26.60),
+		Vector2(-22.00, -26.60), Vector2(-27.80, -26.60),
+		Vector2(-27.80, -27.90),
+	],
+	"news_cigars": [
+		Vector2(0.72, -10.70), Vector2(3.40, -13.60),
+		Vector2(3.40, -19.30), Vector2(3.40, -25.10),
+		Vector2(6.00, -26.60), Vector2(8.90, -26.60),
+		Vector2(8.90, -27.90),
+	],
+	"photo_supplies": [
+		Vector2(0.72, -10.70), Vector2(3.40, -13.60),
+		Vector2(3.40, -19.30), Vector2(3.40, -25.10),
+		Vector2(8.00, -26.60), Vector2(18.00, -26.60),
+		Vector2(26.00, -26.60), Vector2(28.90, -26.60),
+		Vector2(28.90, -27.90),
+	],
 }
 const STREET_Z := 0.06
 

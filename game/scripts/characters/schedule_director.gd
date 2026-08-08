@@ -40,6 +40,25 @@ const ANCHORS := {
 	"bodega": {"floor": "F01", "at": Vector2(16.8, -8.6), "exterior": true},
 	"harukiya_bar": {"floor": "B1", "at": Vector2(-1.75, -31.1),
 			"exterior": true},
+	# THE PARADE. Four of the ten shops opposite are somewhere a resident
+	# has an actual reason to be, and each of these points is a metre
+	# inside the shop's own door rather than at it — a destination on the
+	# threshold reads as somebody loitering in a doorway.
+	#
+	# Only four. Every shop COULD take visitors and a building whose
+	# residents visit all ten equally is a building of errand-runners
+	# rather than people; these are the four the layout already asserts
+	# somebody uses (SHOPS in gen_layout says the luncheonette is where
+	# residents sit between shifts and that Nadia is in the photo shop
+	# more than she is upstairs).
+	"luncheonette": {"floor": "F01", "at": Vector2(-8.80, -29.60),
+			"exterior": true},
+	"hand_laundry": {"floor": "F01", "at": Vector2(-29.60, -29.80),
+			"exterior": true},
+	"news_cigars": {"floor": "F01", "at": Vector2(9.05, -29.40),
+			"exterior": true},
+	"photo_supplies": {"floor": "F01", "at": Vector2(29.00, -29.80),
+			"exterior": true},
 }
 ## Corridor ring fallback for corridor / stairs / half_landing / doorway
 ## targets, resolved on the resident's own floor.
