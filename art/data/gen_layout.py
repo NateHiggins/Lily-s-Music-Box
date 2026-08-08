@@ -4448,6 +4448,12 @@ def retail_pass(fl):
            FLR + 0.82, 0.055, mat)
     pipe("bar_cue", (-6.25, -30.45, FLR + 0.05),
          (-6.00, -30.65, FLR + 1.50), 0.012, "timber")
+    # The chalk on the rail: the handle on the game, because the table
+    # is two metres long and an interactable on it would be a two-metre
+    # button.
+    mk.append({"kind": "point_ball", "id": "F01_BAR_POOL", "unit": "SITE",
+               "pos": [-6.52, -30.70, FLR + 0.78], "yaw_deg": 0,
+               "exterior": True})
 
     # -- DARTS, in the west bay, TO REGULATION.
     #
