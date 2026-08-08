@@ -264,3 +264,135 @@ evidence ledger in `docs/harukiya_reference_notes.md`)*:
     budget; this accord fixes the aesthetic). Renderer ruling: the
     brief's Forward+ is superseded by the building's gl_compatibility
     mobile target — principles transfer, the toggle does not.
+
+---
+
+## VIII. THE DIVERGENCE
+
+*Ruled 2026-08-08, at the owner's direction. This section governs every
+object in the building. Where the appliance bible, the prop briefs or
+any art pass disagree with it, this prevails.*
+
+### VIII.1 The point of divergence
+
+**In 1873 a deaf-school teacher in Boston failed to invent the
+telephone, and a Queens ironmonger named Josiah Vantry succeeded
+instead — by a different road.**
+
+Bell was chasing speech. Vantry was chasing a way to make a room
+*confess what had happened in it*: acoustic telegraphy for insurance
+work, a device to prove which pipe burst and when. Speech came out of it
+as a by-product he never much cared about. What he actually built was a
+machine for **listening to buildings**.
+
+The consequence, in this world: **signal technology ran forty to sixty
+years ahead of everything else, and nothing else moved at all.**
+
+There is still no penicillin. There are still horses on Roosevelt
+Avenue. Refrigeration is ice and a drip tray in most flats. A woman
+still dies of a septic cut in 1927 — in a building wired well enough to
+record her saying so.
+
+### VIII.2 The Rule of Signal
+
+**The one test. Apply it to every object in the game, without
+exception:**
+
+> **Does it carry, capture, switch, store or reproduce a signal?**
+>
+> **If YES — it is uncannily advanced.** Forty years early. Better made
+> than it should be, in materials that will not exist commercially for
+> decades, and repairable by anyone who can read.
+>
+> **If NO — it is 1927, and probably second-hand.**
+
+That is the whole aesthetic in one line, and it is why the building
+looks the way it does. A tenant scrapes ice off the inside of her
+window in the morning and dictates a letter to a machine that
+transcribes it in the afternoon.
+
+The rule also explains why the horror lives where it does. **This is a
+world that got very good at listening and no better at anything else.**
+The infection is audio-borne because audio is the only thing here that
+was ever given room to grow.
+
+### VIII.3 The Orison as a demonstration
+
+**Vantry & Co. built the Orison in 1912 as a showcase**, which is why an
+ordinary Queens walk-up is wired past the standard of a broadcast house.
+The prospectus in Mae's shelf is the sales document — that is the same
+book, and the roof garden is drawn with people in it because the drawing
+was a promise.
+
+Every flat has a **point**: a signal outlet beside the power socket,
+brass, flush, in every room including the bathrooms. Nobody remembers
+what half of them terminate in. The switchboard the player works at is
+Vantry house equipment, not the phone company's, and it was installed
+before the building had tenants.
+
+Vantry & Co. no longer exists. Nothing in the building has been
+serviced by the people who made it since 1924.
+
+### VIII.4 The technology quirks
+
+The characterising details. Use these; they are the texture of the
+world.
+
+| Quirk | The look | Why it matters |
+|---|---|---|
+| **Bakelite is the plastic** | Every moulded object is dark phenolic — warm brown-black, high gloss, chipped white at the edges. No injection-moulded colour anywhere | One material family across a hundred props, instantly legible |
+| **Cloth-braided cable is status** | Good flats have woven silk flex in colours; poor ones have rubber gone stiff and tape | Wealth reads through wiring, not furniture |
+| **Valves are a consumable** | Glass tubes sold at the bodega beside the cigarettes, in printed sleeves, six for a dollar | A shop stocking valves says everything about this world in one shelf |
+| **Recording is cheap; photography is dear** | Everyone has a means of recording sound. A photograph is an occasion | **Inverted from ours.** The building remembers in sound, and its people have almost no pictures of each other |
+| **Batteries are enormous** | Wet cells in a wooden case under the stairs. Nothing is portable that does not have to be | Explains why the player's handset is a brick and always has been |
+| **Dial-less telephones** | Most flats cannot dial. You lift the handset and an operator answers | **The operator is the player.** Job creep is structural: you are the only way anyone in this building reaches anyone else |
+| **Ice and coal, still** | Iceboxes, coal chutes, a stove that has to be lit | The kitchen is 1890. The parlour is 1970. Same flat |
+| **No aluminium, no stainless** | Tin, enamel, cast iron, copper, brass. A dented enamel bowl, not a shiny one | Kills every modern-kitchen instinct in one line |
+| **Everything is repairable** | Screws, not clips. Service plates. A schematic pasted inside the lid | The player can open anything, which is the licence the chore games need |
+
+### VIII.5 Rulings on open questions
+
+**VIII.5.a — THE FRIDGES ARE A MIX** *(answering PROP_ART_BRIEF §8)*.
+Refrigeration is not signal, so it did not run ahead; but the twenties
+were when electric refrigeration actually arrived, so both exist and the
+split is characterisation, not decoration:
+
+- **Iceboxes** — oak carcass, zinc lining, brass latch, drip tray
+  underneath that somebody has to empty. **Most of the building.** The
+  ice card in the window tells the iceman how many pounds, and which
+  number is showing is a fact about that household.
+- **Electric** — a monitor-top: white enamel box, a cylindrical
+  compressor sitting on top like a hat. **Four flats only.** New,
+  expensive, noticeably loud, and the neighbours know who has one.
+- The **drip tray** is the better minigame anyway: it overflows, and it
+  is nobody's job.
+
+**VIII.5.b — THERE ARE NO SMOKE DETECTORS. THEY ARE LISTENERS.**
+*(answering PROP_ART_BRIEF §8, and this is the good answer.)*
+
+Domestic smoke detection did not exist in 1927 and does not exist here
+either. The small ceiling device in every room is a **Vantry point** —
+part of the house listening system, installed 1912, for fire and flood
+detection. Bakelite, perforated, the size of a saucer, with a brass
+grille.
+
+They still work. Nobody knows what they report to. **One of them
+chirps, at three in the morning, and finding it is the game** — and the
+joke is that the player will assume it needs a battery, and the horror
+is that it does not have one.
+
+Both true, per §I: it is a fire detector in an over-wired building, and
+it is an ear the building never stopped using.
+
+### VIII.6 What this does not license
+
+**The divergence is not a licence for anachronism at will.** The rule of
+signal is narrow on purpose. If an object is not carrying a signal, it
+is 1927, it is second-hand, and it is probably a bit broken. A jet
+engine is not permitted because somebody invented a good microphone.
+
+And per Accord 9, **ordinary decay still outranks spectacle**. A world
+forty years ahead in signal is not a world of gleaming devices — it is a
+world where the gleaming device is twenty years old, has been repaired
+by four people, and sits on a table with a wonky leg.
+

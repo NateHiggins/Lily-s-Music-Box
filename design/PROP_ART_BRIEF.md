@@ -43,6 +43,20 @@ Work prop by prop. Do not restructure the prop system.
 
 ## 2. The world, precisely
 
+**READ `design/ORISON_BIBLE.md` §VIII — THE DIVERGENCE FIRST.** This is
+an alternate 1927 and the difference is not decorative. One rule governs
+every object you will touch:
+
+> **Does it carry, capture, switch, store or reproduce a signal?**
+> If YES it is forty years ahead of its time. If NO it is 1927 and
+> probably second-hand.
+
+Signal technology diverged in 1873 and nothing else did. There is no
+penicillin, there are horses on the street, and most flats keep their
+food in an icebox — in a building wired past the standard of a
+broadcast house, because the firm that built it was in the business.
+Apply the rule before you reference anything.
+
 - **The Orison Apartments, Queens, New York.** A 1927 walk-up: six
   storeys, basement, roof. Brick, plaster, oak, brass, cast iron.
 - **The present is late 1927.** So every object is either NEW in the
@@ -206,9 +220,25 @@ carry a game are the ones worth the modelling effort.
    code, and it has caught a screen mounted inside its own casing, a
    mask that never drew, and a shelf hidden behind a bezel.
 
-## 8. Ask before you assume
+## 8. Two things already ruled — do not re-open
 
-Two things are genuinely open and should be raised rather than decided
-quietly: **the smoke detector's anachronism** (§5.8), and **whether the
-fridges are iceboxes, electric, or a mix** — that one changes eighteen
-kitchens and the fridge minigame with them.
+Both questions this brief originally raised have been answered in the
+bible, §VIII.5:
+
+- **THE FRIDGES ARE A MIX.** Most flats have an ICEBOX — oak carcass,
+  zinc lining, brass latch, and a drip tray underneath that somebody has
+  to empty. **Four flats only** have an electric monitor-top: white
+  enamel with the compressor sitting on top like a hat, new, expensive
+  and audibly running. Which a household has is characterisation. Model
+  both.
+- **THERE ARE NO SMOKE DETECTORS.** The ceiling device is a **Vantry
+  point** — part of the house listening system, installed 1912 for fire
+  and flood detection. Bakelite, perforated, saucer-sized, brass grille.
+  It has no battery. Model it as what it is: an ear.
+
+## 9. Ask before you assume
+
+Anything else that would change the fiction rather than the model —
+raise it. Per §VIII.6 the divergence is narrow: it does not license
+anachronism at will, and an object that carries no signal is 1927,
+second-hand, and probably a bit broken.
