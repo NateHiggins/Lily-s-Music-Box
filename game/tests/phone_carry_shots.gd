@@ -18,6 +18,7 @@ const SHOTS := [
 	{"name": "q_03_raised_home", "raised": true, "at": 6.0},
 	{"name": "q_04_pairs", "raised": true, "at": 6.0, "app": "pairs"},
 	{"name": "q_05_maze", "raised": true, "at": 6.0, "app": "maze"},
+	{"name": "q_06_shards", "raised": true, "at": 6.0, "app": "shards"},
 ]
 
 var root: Node3D
@@ -98,6 +99,17 @@ func _run() -> void:
 					carrier.phone.maze.tick(0.016)
 				carrier.phone.maze.tilt_ax = 0.0
 				carrier.phone.maze.tilt_ay = 0.0
+			elif str(shot.app) == "shards":
+				carrier.phone.shards.start(roll, load_photo, 12)
+				carrier.phone.shards.layout(Rect2(10, 32, 460, 304))
+				# Seat a third of the glass so the frame shows both
+				# states at once: pieces home with their gold hairline,
+				# and pieces still loose over their dashed ghosts.
+				for i in [0, 3, 6, 9]:
+					var s: Dictionary = carrier.phone.shards.shards[i]
+					s["off"] = Vector2.ZERO
+					s["v"] = Vector2.ZERO
+				carrier.phone.shards.tick(0.016)
 		else:
 			carrier.phone.os_sim.screen = PhoneOS.Screen.HOME \
 					if float(shot.at) > 4.0 else PhoneOS.Screen.MOTD

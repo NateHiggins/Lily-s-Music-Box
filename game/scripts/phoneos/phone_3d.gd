@@ -42,6 +42,7 @@ var os_sim := PhoneOS.new()
 var cam := PhoneCamera.new()
 var pairs := CartPairs.new()
 var maze := CartMaze.new()
+var shards := CartShards.new()
 var screen_viewport: SubViewport
 var screen_material: ShaderMaterial
 
@@ -72,6 +73,7 @@ func _ready() -> void:
 	cam.setup(self)
 	os_sim.cart_pairs = pairs
 	os_sim.cart_maze = maze
+	os_sim.cart_shards = shards
 	_isolate_from_world_light()
 	set_process(true)
 
@@ -164,6 +166,9 @@ func _draw_screen() -> void:
 				SCREEN_W - 20, TermGrid.CH * 19.0), _font)
 	if os_sim.screen == PhoneOS.Screen.APP and os_sim.app_id == "maze":
 		maze.draw(_canvas, Rect2(10, TermGrid.CH * 2.0,
+				SCREEN_W - 20, TermGrid.CH * 19.0), _font)
+	if os_sim.screen == PhoneOS.Screen.APP and os_sim.app_id == "shards":
+		shards.draw(_canvas, Rect2(10, TermGrid.CH * 2.0,
 				SCREEN_W - 20, TermGrid.CH * 19.0), _font)
 	if os_sim.screen == PhoneOS.Screen.APP and os_sim.app_id == "cam":
 		var frame := Rect2(24, TermGrid.CH * 3.5,
@@ -673,6 +678,8 @@ func _process(delta: float) -> void:
 		pairs.tick(delta)
 	if os_sim.screen == PhoneOS.Screen.APP and os_sim.app_id == "maze":
 		maze.tick(delta)
+	if os_sim.screen == PhoneOS.Screen.APP and os_sim.app_id == "shards":
+		shards.tick(delta)
 	os_sim.camera_roll = cam.roll.size()
 	os_sim.camera_cap = PhoneCamera.CAP
 	var pulse: float = 0.35 + 0.65 * absf(sin(os_sim.led_pulse * 1.7))
@@ -704,5 +711,7 @@ func key(action: String, typed := "") -> void:
 	# resumes the depth you reached rather than sending you back to I.
 	if os_sim.app_id == "maze" and before_app != "maze":
 		maze.start(cam.roll, func(p): return cam.load_photo(p))
+	if os_sim.app_id == "shards" and before_app != "shards":
+		shards.start(cam.roll, func(p): return cam.load_photo(p))
 	if os_sim.screen != before:
 		punch_glitch(0.8)

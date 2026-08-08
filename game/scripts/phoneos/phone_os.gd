@@ -55,7 +55,7 @@ const APPS := [
 	{"id": "term", "label": "term", "icon": ["$_  ", "    "], "live": true},
 	{"id": "radio", "label": "radio", "icon": ["|)) ", "1610"], "live": true},
 	{"id": "maze", "label": "maze", "icon": ["|_||", "||_|"], "live": true},
-	{"id": "shards", "label": "shards", "icon": ["\\/\\/", "/\\/\\"], "live": false},
+	{"id": "shards", "label": "shards", "icon": ["\\/\\/", "/\\/\\"], "live": true},
 	{"id": "pairs", "label": "pairs", "icon": ["[][]", "[][]"], "live": true},
 	{"id": "sys", "label": "sys", "icon": ["<+>", "   "], "live": true},
 ]
@@ -71,6 +71,7 @@ var led_pulse := 0.0
 ## Set by Phone3D. The OS routes to it but never owns it.
 var cart_pairs: CartPairs
 var cart_maze: CartMaze
+var cart_shards: CartShards
 
 var camera_roll := 0
 var camera_cap := 40
@@ -160,6 +161,9 @@ func key(action: String, typed := "") -> void:
 		return
 	if app_id == "maze" and cart_maze != null:
 		cart_maze.key(action)
+		return
+	if app_id == "shards" and cart_shards != null:
+		cart_shards.key(action)
 		return
 	if app_id == "cam":
 		match action:
@@ -318,7 +322,7 @@ func _render_home(g: TermGrid) -> void:
 		g.put(x + 4, y + 3, str(app.label), fg)
 		if not app.live:
 			g.put(x + 2, y + 4, "no cartridge", TermGrid.DIM)
-		elif str(app.id) in ["pairs", "maze"] and camera_roll > 0:
+		elif str(app.id) in ["pairs", "maze", "shards"] and camera_roll > 0:
 			# Both cartridges hide a photograph the player took, so the
 			# tile reports how much there is to find behind them.
 			g.put(x + 1, y + 4, "%d photos ready" % camera_roll,
@@ -359,6 +363,7 @@ func _render_app(g: TermGrid) -> void:
 		"sys": _app_sys(g)
 		"pairs": _app_pairs(g)
 		"maze": _app_maze(g)
+		"shards": _app_shards(g)
 		_: _app_cartridge(g, str(app.get("label", app_id)))
 	g.fill_row(23, TermGrid.BG_ALT)
 	g.put(1, 23, "esc: back", TermGrid.DIM, TermGrid.BG_ALT)
@@ -480,6 +485,14 @@ func _app_maze(g: TermGrid) -> void:
 		g.put_centre(11, "cartridge not loaded", TermGrid.WARN)
 		return
 	g.put(1, 22, cart_maze.status(), TermGrid.HI)
+
+
+## Chrome only, as with the other two cartridges.
+func _app_shards(g: TermGrid) -> void:
+	if cart_shards == null:
+		g.put_centre(11, "cartridge not loaded", TermGrid.WARN)
+		return
+	g.put(1, 22, cart_shards.status(), TermGrid.HI)
 
 
 ## The remaining HTML games land here once they are ported. Saying so
