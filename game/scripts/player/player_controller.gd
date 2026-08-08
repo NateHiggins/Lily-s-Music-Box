@@ -71,6 +71,10 @@ func _ready() -> void:
 	# On from the first frame (ruled 2026-08-04): the phone rides lit in
 	# the off hand all shift. F still toggles it for the brave.
 	flashlight.visible = true
+	# The torch lights the building, not the thing holding it. Layer 2
+	# is the handset (see Phone3D.PHONE_LAYER); excluding it stops the
+	# beam blowing out the back of the phone from 6 cm away.
+	flashlight.light_cull_mask = 0xFFFFF & ~(1 << 1)
 	_hand.add_child(flashlight)
 	floor_snap_length = 0.4
 	_build_hud()

@@ -73,17 +73,101 @@ func setup(player: Node3D, camera: Camera3D) -> void:
 	# Barely there. At 0.22 it washed the casing to near-white and the
 	# handset read as a sheet of paper; the screen is meant to be the
 	# brightest thing on the object by a wide margin.
-	fill.light_energy = 0.045
+	# Now that the torch is culled off the handset and the beam mask no
+	# longer touches it, this lamp is doing ALL the work. It can be
+	# generous without leaking, because its cull mask means the room
+	# never sees it - which is the whole reason held objects get their
+	# own light in every game that has one.
+	fill.light_energy = 1.30
 	fill.omni_range = 0.45
 	fill.shadow_enabled = false
-	fill.position = Vector3(0.06, 0.12, 0.12)
+	# Lights the handset and NOTHING else. Without the cull mask this
+	# little lamp spills onto whatever wall the player is standing next
+	# to and gives the room a soft blue patch that follows them around.
+	fill.light_cull_mask = 1 << (Phone3D.PHONE_LAYER - 1)
+	# Up and to the left of the handset, IN FRONT of the camera.
+	# At (0.06, 0.12, 0.12) it sat 12 cm behind the lens, lighting
+	# the back of the player's head and nothing else.
+	fill.position = Vector3(0.02, 0.06, -0.24)
 	add_child(fill)
+	# A cold rim from below and behind, so the handset has an edge
+	# against a dark corridor instead of dissolving into it.
+	var rim := OmniLight3D.new()
+	rim.light_color = Color("6f7fa8")
+	rim.light_energy = 0.70
+	rim.omni_range = 0.40
+	rim.shadow_enabled = false
+	rim.light_cull_mask = 1 << (Phone3D.PHONE_LAYER - 1)
+	rim.position = Vector3(0.26, -0.16, -0.30)
+	add_child(rim)
 	# The lens has to share the player's World3D or the viewfinder shows
 	# a correctly-lit void. Deferred because the carrier is parented to
 	# the camera during the building's own _ready, and get_viewport()
 	# only answers once we are actually in the tree.
 	call_deferred("_bind_lens_world")
+	call_deferred("_build_overlay_pass", camera)
 	set_process(true)
+
+
+## RENDER THE HANDSET SEPARATELY.
+##
+## Culling it out of the torch fixed the lighting, but the beam mask is
+## a screen-space multiply over the whole frame, and the phone sits in
+## the bottom right where that mask is darkest - so the thing the
+## player is holding was being dimmed by the beam it is casting. A held
+## object should not be shaded by a post effect describing the room.
+##
+## So it gets its own pass: a SubViewport sharing the world (for the
+## room's own light to still fall across it) with a camera culled to
+## the handset layer alone, composited on a CanvasLayer ABOVE the mask.
+## The main camera stops drawing layer 2, so nothing renders twice.
+##
+## This also buys the other thing a separate pass always buys: the
+## phone can no longer clip through a door frame, because it is not in
+## the same depth buffer as the building.
+var _pass_view: SubViewport
+var _pass_cam: Camera3D
+var _pass_src: Camera3D
+
+
+func _build_overlay_pass(camera: Camera3D) -> void:
+	if not is_inside_tree():
+		return
+	_pass_src = camera
+	var size := get_viewport().get_visible_rect().size
+	_pass_view = SubViewport.new()
+	_pass_view.size = Vector2i(maxi(2, int(size.x)), maxi(2, int(size.y)))
+	_pass_view.transparent_bg = true
+	_pass_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	_pass_view.world_3d = get_viewport().world_3d
+	_pass_view.handle_input_locally = false
+	add_child(_pass_view)
+	_pass_cam = Camera3D.new()
+	_pass_cam.cull_mask = 1 << (Phone3D.PHONE_LAYER - 1)
+	_pass_cam.current = true
+	_pass_cam.near = 0.02          # the phone is 12 cm away when raised
+	_pass_view.add_child(_pass_cam)
+	# Composited above the beam mask (CanvasLayer 6), so the handset is
+	# lit by the room and by its own fill, and by nothing else.
+	var layer := CanvasLayer.new()
+	layer.layer = 8
+	add_child(layer)
+	var rect := TextureRect.new()
+	rect.texture = _pass_view.get_texture()
+	rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	rect.stretch_mode = TextureRect.STRETCH_SCALE
+	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	layer.add_child(rect)
+	# and the main camera stops seeing the handset entirely
+	camera.cull_mask = camera.cull_mask & ~(1 << (Phone3D.PHONE_LAYER - 1))
+	get_viewport().size_changed.connect(_resize_pass)
+
+
+func _resize_pass() -> void:
+	if _pass_view == null:
+		return
+	var size := get_viewport().get_visible_rect().size
+	_pass_view.size = Vector2i(maxi(2, int(size.x)), maxi(2, int(size.y)))
 
 
 func _bind_lens_world() -> void:
@@ -121,6 +205,11 @@ func _process(delta: float) -> void:
 	var bob := Vector3(sin(_bob * 1.6) * amp,
 			sin(_bob * 3.2) * amp * 0.8, 0.0)
 	_sway = _sway.lerp(Vector2.ZERO, minf(1.0, delta * 5.0))
+	# The second camera rides the first exactly, so the handset lands
+	# where it would have if it were drawn in the main pass.
+	if _pass_cam and _pass_src:
+		_pass_cam.global_transform = _pass_src.global_transform
+		_pass_cam.fov = _pass_src.fov
 	position = CARRY_POS.lerp(RAISE_POS, eased) + bob
 	var rot := CARRY_ROT.lerp(RAISE_ROT, eased)
 	# Sway is damped out as the phone comes up: a readable screen must

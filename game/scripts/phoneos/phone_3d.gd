@@ -68,7 +68,48 @@ func _ready() -> void:
 	_build_screen()
 	add_child(cam)
 	cam.setup(self)
+	_isolate_from_world_light()
 	set_process(true)
+
+
+## HELD OBJECTS DO NOT LIVE IN THE WORLD'S LIGHTING.
+##
+## Two faults, both classic and both visible: the handset was casting
+## shadows into the room it is being carried through, and the torch -
+## a real SpotLight3D parented a few centimetres away on the same hand
+## - was blasting the back of the thing holding it. A phone lit by its
+## own beam reads as a lamp somebody is pointing at a phone.
+##
+## The fix is render layers rather than a second viewport. Every mesh
+## on the handset moves to layer 2 and stops casting; the torch is told
+## not to light layer 2; the carrier's fill is told to light NOTHING
+## ELSE. The phone is then lit only by its own fill and by the room's
+## own fixtures, which is what you want - walking past a lit doorway
+## should still fall across it.
+##
+## A separate SubViewport would also stop the phone clipping through
+## door frames and would lift it out of the beam mask entirely. That is
+## the escalation if this is not enough; it costs a second 3D pass, so
+## it is not the first thing to reach for.
+const PHONE_LAYER := 2         # 1-indexed, as the inspector shows it
+
+
+func _isolate_from_world_light() -> void:
+	var n := 0
+	for m in _all_meshes(self):
+		m.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		m.layers = 1 << (PHONE_LAYER - 1)
+		n += 1
+	print("[PHONE] %d meshes moved off the world's shadow pass" % n)
+
+
+func _all_meshes(node: Node) -> Array[MeshInstance3D]:
+	var out: Array[MeshInstance3D] = []
+	if node is MeshInstance3D:
+		out.append(node)
+	for c in node.get_children():
+		out.append_array(_all_meshes(c))
+	return out
 
 
 ## The OS renders here, exactly as it did in 2D. Nothing below this
