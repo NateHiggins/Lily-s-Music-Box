@@ -11,7 +11,8 @@ extends Object
 
 const TEX := "res://assets/building/textures/"
 
-# key -> [albedo, rough, normal, meters_per_tile, metallic]
+# key -> [albedo, rough, normal, meters_per_tile, metallic,
+#         optional roughness multiplier]
 # worn_* albedo/rough variants come from the precomposited overlay pass.
 const SETS := {
 	"enamel": ["T_library_appliances_aged_enamel_worn_enamel_albedo.png",
@@ -33,6 +34,19 @@ const SETS := {
 	"brass": ["T_library_metals_aged_brass_albedo.png",
 			"T_library_metals_aged_brass_rough.png",
 			"T_library_metals_aged_brass_normal.png", 0.5, 0.85],
+	# Same photographed plate as brass, staged under its own key by the
+	# ingest map. Oxide is the point: a horizontal tray pull with polished
+	# brass's 0.85 metallic reflected the ceiling away from the eye and read
+	# black. This finish keeps the tarnish visible under a hand-held torch.
+	"brass_dull": ["T_ai_materials_brass_dull_albedo.png",
+			"T_ai_materials_brass_dull_rough.png",
+			"T_ai_materials_brass_dull_normal.png", 0.50, 0.30, 0.52],
+	"zinc_liner": ["T_ai_materials_zinc_liner_albedo.png",
+			"T_ai_materials_zinc_liner_rough.png",
+			"T_ai_materials_zinc_liner_normal.png", 0.55, 0.12, 0.82],
+	"copper_aged": ["T_ai_materials_copper_aged_albedo.png",
+			"T_ai_materials_copper_aged_rough.png",
+			"T_ai_materials_copper_aged_normal.png", 0.40, 0.72, 0.58],
 	"porcelain": ["T_library_furniture_porcelain_albedo.png",
 			"T_library_furniture_porcelain_rough.png",
 			"T_library_furniture_porcelain_normal.png", 0.9, 0.0],
@@ -107,7 +121,10 @@ static func get_mat(key: String, tint := Color.WHITE,
 	var rt: Texture2D = load(TEX + spec[1])
 	if rt:
 		mat.roughness_texture = rt
-		mat.roughness = 1.0
+		# A sixth field is an optional roughness multiplier. Most inherited
+		# sets intentionally use the authored map at full strength; oxidised
+		# metal needs a lower ceiling or its surface turns to chalk.
+		mat.roughness = float(spec[5]) if spec.size() > 5 else 1.0
 	mat.normal_enabled = true
 	mat.normal_texture = load(TEX + spec[2])
 	mat.normal_scale = 0.35

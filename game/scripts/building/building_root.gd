@@ -57,6 +57,7 @@ const PROP_SCRIPTS := {
 	"neon_sign": preload("res://scripts/props/neon_sign_prop.gd"),
 	"bodega_signage": preload("res://scripts/props/bodega_signage_prop.gd"),
 	"bar_signage": preload("res://scripts/props/harukiya_signage_prop.gd"),
+	"shop_sign": preload("res://scripts/props/shop_sign_prop.gd"),
 	"sink": preload("res://scripts/props/tap_prop.gd"),
 	"shower": preload("res://scripts/props/tap_prop.gd"),
 	"mirror": preload("res://scripts/props/medicine_cabinet_prop.gd"),
@@ -100,6 +101,7 @@ var floor_nodes: Dictionary = {}
 var window_glow: OrisonWindowGlow
 var door_glow: OrisonDoorGlow
 var broadcast: BroadcastDirector
+var arcade_row: ArcadeRow
 var resident_routines: ResidentRoutines
 var switch_system: SwitchSystem
 var moon_fill: MoonFill
@@ -184,6 +186,13 @@ func _ready() -> void:
 	broadcast.name = "Broadcast"
 	add_child(broadcast)
 	broadcast.build(layout, floor_nodes)
+	# A game in every arcade cabinet. The carcasses are already in the floor
+	# mesh; this gives each one a live screen, a marquee, and a title that has
+	# nothing to do with what it runs.
+	arcade_row = ArcadeRow.new()
+	arcade_row.name = "Arcade"
+	add_child(arcade_row)
+	arcade_row.install(layout, floor_nodes)
 	call_interface = CallInterface.new()
 	add_child(call_interface)
 	# Cases change the building, so the runner needs a handle on it: a
@@ -674,6 +683,17 @@ func _spawn_props() -> void:
 			# between a canopy lamp and one that punched through a slab.
 			if m.get("exterior", false):
 				prop.add_to_group("exterior_fixtures")
+			if prop is ShopSignProp:
+				# All of it comes off the marker so that adding a shop to
+				# SHOPS in gen_layout is the entire job — see the prop.
+				prop.sign_text = String(m.get("text", "SHOP"))
+				prop.sub_text = String(m.get("sub", ""))
+				prop.blade_text = String(m.get("blade_text", ""))
+				prop.blade_dx = float(m.get("blade_dx", 0.0))
+				prop.half_width = float(m.get("half_width", 2.4))
+				prop.compact = bool(m.get("compact", false))
+				var lt: Array = m.get("tint", [0.90, 0.86, 0.74])
+				prop.tint = Color(float(lt[0]), float(lt[1]), float(lt[2]))
 			if prop is NeonSignProp:
 				prop.sign_text = String(m.get("text", "ORISON"))
 				prop.vertical = bool(m.get("vertical", true))
@@ -685,7 +705,13 @@ func _spawn_props() -> void:
 			# _ready() creates the Light3D children. Moving the prop afterward
 			# moved its mesh but left the rendered light pool at the origin.
 			prop.position = GameBoot.b2g(m["pos"])
-			prop.rotation.y = deg_to_rad(-float(m.get("yaw_deg", 0)))
+			# The complete refrigerator is authored with local -Z as its front,
+			# matching the room-facing vector used by the generator's clearance
+			# audit. Blender's +Z yaw therefore carries through with the same
+			# sign. Legacy marker props were authored around the old negation and
+			# keep it until each becomes the sole owner of its own geometry.
+			prop.rotation.y = deg_to_rad(float(m.get("yaw_deg", 0)) \
+					if prop is FridgeProp else -float(m.get("yaw_deg", 0)))
 			add_child(prop)
 			count += 1
 	print("[BUILDING] %d functional props spawned" % count)

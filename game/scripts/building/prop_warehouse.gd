@@ -24,7 +24,12 @@ extends Node3D
 ## Far enough east that no streaming volume, nav mesh or occlusion query
 ## will ever reach it, and on a round number so poses are easy to read.
 const ORIGIN := Vector3(400.0, 0.0, 0.0)
-const CELL := 2.6           # metres between plinth centres
+# Large wall-backed props were only 0.73 m apart at 2.6 m centres. Their
+# inspection backers then hid the next row's appliance before the appliance
+# itself entered frame — the refrigerator looked like a blank wall from the
+# viewing aisle. Four-metre bays leave a person-width route around every
+# plinth and let the silhouette be judged against the one-metre floor grid.
+const CELL := 4.0           # metres between plinth centres
 const COLS := 6
 const HALL_H := 5.0
 ## Where a ceiling fixture and a wall fixture are put so they read in the
@@ -41,22 +46,42 @@ func build(prop_scripts: Dictionary) -> int:
 	position = ORIGIN
 	var kinds: Array = prop_scripts.keys()
 	kinds.sort()
-	# Several kinds share one script (every light fixture, for instance).
-	# The point here is one entry per KIND, because the kind is what the
-	# layout asks for and what a marker will spell wrong.
-	var rows := int(ceil(float(kinds.size()) / COLS))
+	# Most kinds own one silhouette. A few are a real family behind one
+	# marker kind — the fridge marker can mean an oak icebox or a monitor-
+	# top — and displaying only the default let the second model escape the
+	# very comparison this room exists to make.
+	var displays: Array[Dictionary] = []
+	for kind in kinds:
+		var script: GDScript = prop_scripts[kind]
+		var probe: FunctionalProp = script.new()
+		var variants: Array[Dictionary] = probe.warehouse_variants()
+		probe.free()
+		if variants.is_empty():
+			variants = [{}]
+		for variant in variants:
+			displays.append({"kind": String(kind), "script": script,
+					"variant": variant})
+	var rows := int(ceil(float(displays.size()) / COLS))
 	_build_shell(rows)
-	for i in kinds.size():
+	for i in displays.size():
 		var col := i % COLS
 		var row := i / COLS
 		var at := Vector3((col - (COLS - 1) * 0.5) * CELL, 0.0,
 				(row - (rows - 1) * 0.5) * CELL)
-		_plinth(at, String(kinds[i]))
-		var script: GDScript = prop_scripts[kinds[i]]
+		var entry: Dictionary = displays[i]
+		var variant: Dictionary = entry.variant
+		_plinth(at, String(variant.get("label", entry.kind)))
+		var script: GDScript = entry.script
 		var prop: Node3D = script.new()
-		prop.name = "WH_%s" % kinds[i]
+		prop.name = "WH_%s_%02d" % [entry.kind, i]
 		if "prop_type" in prop:
-			prop.set("prop_type", String(kinds[i]))
+			prop.set("prop_type", String(entry.kind))
+		# Before add_child, because `_ready()` is the constructor for every
+		# FunctionalProp. Setting monitor_top one frame later builds an icebox
+		# and merely renames it a monitor-top.
+		for key in variant.get("properties", {}):
+			if key in prop:
+				prop.set(key, variant.properties[key])
 		add_child(prop)
 		# Stand it the way it hangs.
 		#
@@ -81,7 +106,8 @@ func build(prop_scripts: Dictionary) -> int:
 				_stub_wall(at)
 		prop.position = at + Vector3(0, lift, 0)
 		_built += 1
-	print("[WAREHOUSE] %d prop kinds on the floor, %d rows" % [_built, rows])
+	print("[WAREHOUSE] %d prop displays from %d kinds, %d rows" % [
+			_built, kinds.size(), rows])
 	return _built
 
 
@@ -161,7 +187,11 @@ func _plinth(at: Vector3, label_text: String) -> void:
 	var label := Label3D.new()
 	label.text = label_text
 	label.font_size = 64
-	label.pixel_size = 0.0032
+	# Family labels carry useful qualifiers (the fridge has two eras), but
+	# the old scale made those honest names wider than a four-metre bay and
+	# hid the neighbouring silhouette. Keep type readable from the aisle
+	# without letting typography become another prop in the comparison.
+	label.pixel_size = 0.0025
 	label.modulate = Color(0.92, 0.93, 0.95)
 	label.outline_size = 8
 	label.outline_modulate = Color(0.05, 0.05, 0.06, 0.95)

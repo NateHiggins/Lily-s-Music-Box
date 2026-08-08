@@ -708,6 +708,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F01_1D_FRIDGE_01",
     "BASEMENT_HEADER_EAST",
     "F02_D_RADIATOR_01"
    ]
@@ -720,16 +721,16 @@
     0.0
    ],
    "room": "1D",
-   "network": "electrical",
+   "network": "structural",
    "frequency_band": [
-    60,
-    8000
+    25,
+    900
    ],
-   "delay_ms": 4,
+   "delay_ms": 34,
    "damping": 0.22,
-   "infection_receptivity": 0.75,
+   "infection_receptivity": 0.68,
    "connections": [
-    "B1_ELECTRICAL_HUB"
+    "F01_D_RADIATOR_01"
    ]
   },
   {
@@ -2449,6 +2450,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F02_2A_FRIDGE_01",
     "F01_A_RADIATOR_01",
     "F03_A_RADIATOR_01"
    ]
@@ -2461,16 +2463,16 @@
     3.2
    ],
    "room": "2A",
-   "network": "electrical",
+   "network": "structural",
    "frequency_band": [
-    60,
-    8000
+    25,
+    900
    ],
-   "delay_ms": 4,
+   "delay_ms": 34,
    "damping": 0.22,
-   "infection_receptivity": 0.75,
+   "infection_receptivity": 0.68,
    "connections": [
-    "F02_CORRLIGHT_S"
+    "F02_A_RADIATOR_01"
    ]
   },
   {
@@ -2550,6 +2552,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F02_2B_FRIDGE_01",
     "F02_PORCH_DECK",
     "BASEMENT_HEADER_WEST",
     "F03_B_RADIATOR_01"
@@ -2563,16 +2566,16 @@
     3.2
    ],
    "room": "2B",
-   "network": "electrical",
+   "network": "structural",
    "frequency_band": [
-    60,
-    8000
+    25,
+    900
    ],
-   "delay_ms": 4,
+   "delay_ms": 34,
    "damping": 0.22,
-   "infection_receptivity": 0.75,
+   "infection_receptivity": 0.68,
    "connections": [
-    "F02_CORRLIGHT_S"
+    "F02_B_RADIATOR_01"
    ]
   },
   {
@@ -2612,6 +2615,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F02_2C_FRIDGE_01",
     "BASEMENT_HEADER_EAST",
     "F03_C_RADIATOR_01"
    ]
@@ -2624,16 +2628,16 @@
     3.2
    ],
    "room": "2C",
-   "network": "electrical",
+   "network": "structural",
    "frequency_band": [
-    60,
-    8000
+    25,
+    900
    ],
-   "delay_ms": 4,
+   "delay_ms": 34,
    "damping": 0.22,
-   "infection_receptivity": 0.75,
+   "infection_receptivity": 0.68,
    "connections": [
-    "F02_CORRLIGHT_S"
+    "F02_C_RADIATOR_01"
    ]
   },
   {
@@ -2797,13 +2801,10 @@
    "infection_receptivity": 0.55,
    "connections": [
     "2A_LT_SCONCE",
-    "F02_2A_FRIDGE_01",
     "F02_A_MONITOR_01",
     "F02_A_LAMP_01",
     "2B_LT_SCONCE",
-    "F02_2B_FRIDGE_01",
     "2C_LT_SCONCE",
-    "F02_2C_FRIDGE_01",
     "F02_C_SPEAKER_01",
     "F02_C_SPEAKER_02",
     "F02_C_MONITOR_01",
@@ -3372,6 +3373,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F03_3B_FRIDGE_01",
     "F03_PORCH_DECK",
     "F03_UTILITY_ANOMALY",
     "F02_B_RADIATOR_01",
@@ -3386,16 +3388,16 @@
     6.4
    ],
    "room": "3B",
-   "network": "electrical",
+   "network": "structural",
    "frequency_band": [
-    60,
-    8000
+    25,
+    900
    ],
-   "delay_ms": 4,
+   "delay_ms": 34,
    "damping": 0.22,
-   "infection_receptivity": 0.75,
+   "infection_receptivity": 0.68,
    "connections": [
-    "F03_CORRLIGHT_S"
+    "F03_B_RADIATOR_01"
    ]
   },
   {
@@ -3496,6 +3498,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F03_3D_FRIDGE_01",
     "F02_D_RADIATOR_01",
     "F04_D_RADIATOR_01"
    ]
@@ -3508,16 +3511,16 @@
     6.4
    ],
    "room": "3D",
-   "network": "electrical",
+   "network": "structural",
    "frequency_band": [
-    60,
-    8000
+    25,
+    900
    ],
-   "delay_ms": 4,
+   "delay_ms": 34,
    "damping": 0.22,
-   "infection_receptivity": 0.75,
+   "infection_receptivity": 0.68,
    "connections": [
-    "F03_CORRLIGHT_S"
+    "F03_D_RADIATOR_01"
    ]
   },
   {
@@ -3622,11 +3625,9 @@
     "3A_LT_SCONCE",
     "F03_3A_FRIDGE_01",
     "3B_LT_SCONCE",
-    "F03_3B_FRIDGE_01",
     "F03_B_LAMP_01",
     "3C_LT_SCONCE",
     "3D_LT_SCONCE",
-    "F03_3D_FRIDGE_01",
     "F03_D_SPEAKER_01",
     "F03_D_SPEAKER_02",
     "F03_CORRIDOR_DOME_01",
@@ -4215,6 +4216,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F04_4A_FRIDGE_01",
     "F03_A_RADIATOR_01",
     "F05_A_RADIATOR_01"
    ]
@@ -4227,16 +4229,16 @@
     9.6
    ],
    "room": "4A",
-   "network": "electrical",
+   "network": "structural",
    "frequency_band": [
-    60,
-    8000
+    25,
+    900
    ],
-   "delay_ms": 4,
+   "delay_ms": 34,
    "damping": 0.22,
-   "infection_receptivity": 0.75,
+   "infection_receptivity": 0.68,
    "connections": [
-    "F04_CORRLIGHT_S"
+    "F04_A_RADIATOR_01"
    ]
   },
   {
@@ -4262,8 +4264,8 @@
   {
    "id": "F04_B_RADIATOR_01",
    "pos": [
-    -8.55,
-    9.35,
+    -7.96,
+    7.48,
     9.95
    ],
    "room": "4B",
@@ -4276,6 +4278,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F04_B_FRIDGE_01",
     "F04_B_DOOR_ANOMALY",
     "F04_PORCH_DECK",
     "F03_B_RADIATOR_01",
@@ -4345,21 +4348,21 @@
   {
    "id": "F04_B_FRIDGE_01",
    "pos": [
-    -8.3,
-    9.2,
+    -8.03,
+    8.6,
     9.6
    ],
    "room": "4B",
-   "network": "electrical",
+   "network": "structural",
    "frequency_band": [
-    60,
-    8000
+    25,
+    900
    ],
-   "delay_ms": 4,
+   "delay_ms": 34,
    "damping": 0.22,
-   "infection_receptivity": 0.75,
+   "infection_receptivity": 0.68,
    "connections": [
-    "F04_CORRLIGHT_S"
+    "F04_B_RADIATOR_01"
    ]
   },
   {
@@ -4539,6 +4542,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F04_4C_FRIDGE_01",
     "F03_C_RADIATOR_01",
     "F05_C_RADIATOR_01"
    ]
@@ -4551,16 +4555,16 @@
     9.6
    ],
    "room": "4C",
-   "network": "electrical",
+   "network": "structural",
    "frequency_band": [
-    60,
-    8000
+    25,
+    900
    ],
-   "delay_ms": 4,
+   "delay_ms": 34,
    "damping": 0.22,
-   "infection_receptivity": 0.75,
+   "infection_receptivity": 0.68,
    "connections": [
-    "F04_CORRLIGHT_S"
+    "F04_C_RADIATOR_01"
    ]
   },
   {
@@ -4600,6 +4604,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F04_4D_FRIDGE_01",
     "F03_D_RADIATOR_01",
     "F05_D_RADIATOR_01"
    ]
@@ -4612,16 +4617,16 @@
     9.6
    ],
    "room": "4D",
-   "network": "electrical",
+   "network": "structural",
    "frequency_band": [
-    60,
-    8000
+    25,
+    900
    ],
-   "delay_ms": 4,
+   "delay_ms": 34,
    "damping": 0.22,
-   "infection_receptivity": 0.75,
+   "infection_receptivity": 0.68,
    "connections": [
-    "F04_CORRLIGHT_S"
+    "F04_D_RADIATOR_01"
    ]
   },
   {
@@ -4684,12 +4689,10 @@
    "infection_receptivity": 0.55,
    "connections": [
     "4A_LT_SCONCE",
-    "F04_4A_FRIDGE_01",
     "4B_LT_SCONCE",
     "F04_B_LAMP_01",
     "F04_B_MONITOR_01",
     "F04_B_TOASTER_01",
-    "F04_B_FRIDGE_01",
     "F04_B_BOXFAN_01",
     "F04_B_KETTLE_01",
     "F04_B_CLOCK_01",
@@ -4697,9 +4700,7 @@
     "F04_B_EXHFAN_01",
     "F04_B_CEILLIGHT_01",
     "4C_LT_SCONCE",
-    "F04_4C_FRIDGE_01",
     "4D_LT_SCONCE",
-    "F04_4D_FRIDGE_01",
     "F04_CORRIDOR_DOME_01",
     "F04_CORRIDOR_DOME_02",
     "F04_CORRIDOR_DOME_03",
@@ -5245,6 +5246,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F05_5A_FRIDGE_01",
     "F04_A_RADIATOR_01",
     "F06_A_RADIATOR_01"
    ]
@@ -5257,16 +5259,16 @@
     12.8
    ],
    "room": "5A",
-   "network": "electrical",
+   "network": "structural",
    "frequency_band": [
-    60,
-    8000
+    25,
+    900
    ],
-   "delay_ms": 4,
+   "delay_ms": 34,
    "damping": 0.22,
-   "infection_receptivity": 0.75,
+   "infection_receptivity": 0.68,
    "connections": [
-    "F05_CORRLIGHT_S"
+    "F05_A_RADIATOR_01"
    ]
   },
   {
@@ -5388,6 +5390,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F05_5C_FRIDGE_01",
     "F04_C_RADIATOR_01",
     "F06_C_RADIATOR_01"
    ]
@@ -5400,16 +5403,16 @@
     12.8
    ],
    "room": "5C",
-   "network": "electrical",
+   "network": "structural",
    "frequency_band": [
-    60,
-    8000
+    25,
+    900
    ],
-   "delay_ms": 4,
+   "delay_ms": 34,
    "damping": 0.22,
-   "infection_receptivity": 0.75,
+   "infection_receptivity": 0.68,
    "connections": [
-    "F05_CORRLIGHT_S"
+    "F05_C_RADIATOR_01"
    ]
   },
   {
@@ -5513,12 +5516,10 @@
    "infection_receptivity": 0.55,
    "connections": [
     "5A_LT_SCONCE",
-    "F05_5A_FRIDGE_01",
     "F05_A_LAMP_01",
     "5B_LT_SCONCE",
     "F05_5B_FRIDGE_01",
     "5C_LT_SCONCE",
-    "F05_5C_FRIDGE_01",
     "5D_LT_SCONCE",
     "F05_CORRIDOR_DOME_01",
     "F05_CORRIDOR_DOME_02",
@@ -6023,6 +6024,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F06_6A_FRIDGE_01",
     "F05_A_RADIATOR_01"
    ]
   },
@@ -6034,16 +6036,16 @@
     16.0
    ],
    "room": "6A",
-   "network": "electrical",
+   "network": "structural",
    "frequency_band": [
-    60,
-    8000
+    25,
+    900
    ],
-   "delay_ms": 4,
+   "delay_ms": 34,
    "damping": 0.22,
-   "infection_receptivity": 0.75,
+   "infection_receptivity": 0.68,
    "connections": [
-    "F06_CORRLIGHT_S"
+    "F06_A_RADIATOR_01"
    ]
   },
   {
@@ -6163,6 +6165,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.84,
    "connections": [
+    "F06_6B_FRIDGE_01",
     "F06_PORCH_DECK",
     "F05_B_RADIATOR_01"
    ]
@@ -6175,16 +6178,16 @@
     16.0
    ],
    "room": "6B",
-   "network": "electrical",
+   "network": "structural",
    "frequency_band": [
-    60,
-    8000
+    25,
+    900
    ],
-   "delay_ms": 4,
+   "delay_ms": 34,
    "damping": 0.22,
-   "infection_receptivity": 0.75,
+   "infection_receptivity": 0.68,
    "connections": [
-    "F06_CORRLIGHT_S"
+    "F06_B_RADIATOR_01"
    ]
   },
   {
@@ -6346,13 +6349,11 @@
    "infection_receptivity": 0.55,
    "connections": [
     "6A_LT_SCONCE",
-    "F06_6A_FRIDGE_01",
     "F06_A_MONITOR_01",
     "F06_A_MONITOR_02",
     "F06_A_MONITOR_03",
     "F06_A_BOXFAN_01",
     "6B_LT_SCONCE",
-    "F06_6B_FRIDGE_01",
     "6C_LT_SCONCE",
     "F06_6C_FRIDGE_01",
     "6D_LT_SCONCE",
@@ -6999,7 +7000,6 @@
     "1A_LT_SCONCE",
     "F01_1A_FRIDGE_01",
     "1D_LT_SCONCE",
-    "F01_1D_FRIDGE_01",
     "F01_CORRIDOR_DOME_01",
     "F01_CORRIDOR_DOME_02",
     "F01_CORRIDOR_DOME_03",

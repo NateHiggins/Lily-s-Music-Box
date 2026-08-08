@@ -1,0 +1,12 @@
+{
+  "material": "zinc_liner",
+  "source": "art/textures/ai_sources/zinc_liner.png",
+  "generator": "ingest_material_sources.py",
+  "meters_per_tile": 0.55,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

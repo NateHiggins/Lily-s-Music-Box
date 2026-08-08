@@ -1,0 +1,4602 @@
+{
+  "connections": [
+    {
+      "bidirectional": true,
+      "from": "the_pit",
+      "to": "the_vault",
+      "via": "door_pit_vault"
+    }
+  ],
+  "description": "A single-screen shooter sized for an arcade cabinet: a pit with cover and two waves, a window onto the objective, one door, and a vault behind it. Authored as gameplay only. Nothing in this file knows it is going to be sold as a racing game.",
+  "display_name": "The Pit",
+  "entities": [
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_001",
+      "transform": {
+        "position": [
+          -6.0,
+          -0.15,
+          -6.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_001",
+      "transform": {
+        "position": [
+          -6.0,
+          3.55,
+          -6.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_002",
+      "transform": {
+        "position": [
+          -6.0,
+          -0.15,
+          -2.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_002",
+      "transform": {
+        "position": [
+          -6.0,
+          3.55,
+          -2.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_003",
+      "transform": {
+        "position": [
+          -6.0,
+          -0.15,
+          2.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_003",
+      "transform": {
+        "position": [
+          -6.0,
+          3.55,
+          2.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_004",
+      "transform": {
+        "position": [
+          -6.0,
+          -0.15,
+          6.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_004",
+      "transform": {
+        "position": [
+          -6.0,
+          3.55,
+          6.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_005",
+      "transform": {
+        "position": [
+          -6.0,
+          -0.15,
+          10.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_005",
+      "transform": {
+        "position": [
+          -6.0,
+          3.55,
+          10.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_006",
+      "transform": {
+        "position": [
+          -2.0,
+          -0.15,
+          -6.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_006",
+      "transform": {
+        "position": [
+          -2.0,
+          3.55,
+          -6.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_007",
+      "transform": {
+        "position": [
+          -2.0,
+          -0.15,
+          -2.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_007",
+      "transform": {
+        "position": [
+          -2.0,
+          3.55,
+          -2.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_008",
+      "transform": {
+        "position": [
+          -2.0,
+          -0.15,
+          2.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_008",
+      "transform": {
+        "position": [
+          -2.0,
+          3.55,
+          2.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_009",
+      "transform": {
+        "position": [
+          -2.0,
+          -0.15,
+          6.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_009",
+      "transform": {
+        "position": [
+          -2.0,
+          3.55,
+          6.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_010",
+      "transform": {
+        "position": [
+          -2.0,
+          -0.15,
+          10.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_010",
+      "transform": {
+        "position": [
+          -2.0,
+          3.55,
+          10.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_011",
+      "transform": {
+        "position": [
+          2.0,
+          -0.15,
+          -6.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_011",
+      "transform": {
+        "position": [
+          2.0,
+          3.55,
+          -6.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_012",
+      "transform": {
+        "position": [
+          2.0,
+          -0.15,
+          -2.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_012",
+      "transform": {
+        "position": [
+          2.0,
+          3.55,
+          -2.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_013",
+      "transform": {
+        "position": [
+          2.0,
+          -0.15,
+          2.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_013",
+      "transform": {
+        "position": [
+          2.0,
+          3.55,
+          2.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_014",
+      "transform": {
+        "position": [
+          2.0,
+          -0.15,
+          6.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_014",
+      "transform": {
+        "position": [
+          2.0,
+          3.55,
+          6.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_015",
+      "transform": {
+        "position": [
+          2.0,
+          -0.15,
+          10.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_015",
+      "transform": {
+        "position": [
+          2.0,
+          3.55,
+          10.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_016",
+      "transform": {
+        "position": [
+          6.0,
+          -0.15,
+          -6.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_016",
+      "transform": {
+        "position": [
+          6.0,
+          3.55,
+          -6.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_017",
+      "transform": {
+        "position": [
+          6.0,
+          -0.15,
+          -2.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_017",
+      "transform": {
+        "position": [
+          6.0,
+          3.55,
+          -2.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_018",
+      "transform": {
+        "position": [
+          6.0,
+          -0.15,
+          2.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_018",
+      "transform": {
+        "position": [
+          6.0,
+          3.55,
+          2.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_019",
+      "transform": {
+        "position": [
+          6.0,
+          -0.15,
+          6.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_019",
+      "transform": {
+        "position": [
+          6.0,
+          3.55,
+          6.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "utilitarian"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "floor_020",
+      "transform": {
+        "position": [
+          6.0,
+          -0.15,
+          10.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "ceiling_020",
+      "transform": {
+        "position": [
+          6.0,
+          3.55,
+          10.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "ceremonial"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_vault"
+      },
+      "region": "the_vault",
+      "semantic_id": "floor_021",
+      "transform": {
+        "position": [
+          -2.0,
+          -0.15,
+          14.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_vault"
+      },
+      "region": "the_vault",
+      "semantic_id": "ceiling_021",
+      "transform": {
+        "position": [
+          -2.0,
+          3.55,
+          14.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "ceremonial"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_vault"
+      },
+      "region": "the_vault",
+      "semantic_id": "floor_022",
+      "transform": {
+        "position": [
+          -2.0,
+          -0.15,
+          18.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_vault"
+      },
+      "region": "the_vault",
+      "semantic_id": "ceiling_022",
+      "transform": {
+        "position": [
+          -2.0,
+          3.55,
+          18.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "ceremonial"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_vault"
+      },
+      "region": "the_vault",
+      "semantic_id": "floor_023",
+      "transform": {
+        "position": [
+          2.0,
+          -0.15,
+          14.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_vault"
+      },
+      "region": "the_vault",
+      "semantic_id": "ceiling_023",
+      "transform": {
+        "position": [
+          2.0,
+          3.55,
+          14.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "traversal"
+      ],
+      "presentation": {
+        "hints": [
+          "ceremonial"
+        ],
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "floor_the_vault"
+      },
+      "region": "the_vault",
+      "semantic_id": "floor_024",
+      "transform": {
+        "position": [
+          2.0,
+          -0.15,
+          18.0
+        ]
+      },
+      "type": "floor"
+    },
+    {
+      "bounds": {
+        "depth": 4.0,
+        "height": 0.3,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          0.15,
+          2.0
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "ceiling_the_vault"
+      },
+      "region": "the_vault",
+      "semantic_id": "ceiling_024",
+      "transform": {
+        "position": [
+          2.0,
+          3.55,
+          18.0
+        ]
+      },
+      "type": "ceiling"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_001",
+      "transform": {
+        "position": [
+          -6.0,
+          1.7,
+          -8.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_002",
+      "transform": {
+        "position": [
+          -2.0,
+          1.7,
+          -8.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_003",
+      "transform": {
+        "position": [
+          2.0,
+          1.7,
+          -8.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_004",
+      "transform": {
+        "position": [
+          6.0,
+          1.7,
+          -8.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_005",
+      "transform": {
+        "position": [
+          -8.0,
+          1.7,
+          -6.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_006",
+      "transform": {
+        "position": [
+          -8.0,
+          1.7,
+          -2.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_007",
+      "transform": {
+        "position": [
+          -8.0,
+          1.7,
+          2.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_008",
+      "transform": {
+        "position": [
+          -8.0,
+          1.7,
+          6.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_009",
+      "transform": {
+        "position": [
+          -8.0,
+          1.7,
+          10.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_010",
+      "transform": {
+        "position": [
+          8.0,
+          1.7,
+          -6.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_011",
+      "transform": {
+        "position": [
+          8.0,
+          1.7,
+          -2.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_012",
+      "transform": {
+        "position": [
+          8.0,
+          1.7,
+          2.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_013",
+      "transform": {
+        "position": [
+          8.0,
+          1.7,
+          6.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_014",
+      "transform": {
+        "position": [
+          8.0,
+          1.7,
+          10.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_015",
+      "transform": {
+        "position": [
+          -6.0,
+          1.7,
+          12.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.4,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "boxes": [
+          {
+            "extents": [
+              0.6,
+              1.7,
+              0.175
+            ],
+            "offset": [
+              -1.4,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "extents": [
+              0.6,
+              1.7,
+              0.175
+            ],
+            "offset": [
+              1.4,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "extents": [
+              0.8,
+              0.5,
+              0.175
+            ],
+            "offset": [
+              0.0,
+              1.2,
+              0.0
+            ]
+          }
+        ],
+        "layer": "world",
+        "shape": "multi_box"
+      },
+      "constraints": {
+        "clearance": {
+          "depth": 0.95,
+          "height": 2.4,
+          "offset": [
+            0.0,
+            -0.5,
+            0.0
+          ],
+          "width": 1.6
+        },
+        "max_triangles": 700,
+        "may_overhang_visual_bounds": 0.08,
+        "preserve_clearance": true
+      },
+      "freedom": "STRUCTURAL_DECORATION",
+      "gameplay_role": [
+        "structure",
+        "traversal",
+        "occluder"
+      ],
+      "presentation": {
+        "hints": [
+          "frequently-used"
+        ],
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture",
+          "interactive"
+        ]
+      },
+      "region": "the_pit",
+      "semantic_id": "doorframe_pit_vault",
+      "transform": {
+        "position": [
+          -2.0,
+          1.7,
+          12.0
+        ]
+      },
+      "type": "door_frame"
+    },
+    {
+      "bounds": {
+        "depth": 0.12,
+        "height": 2.4,
+        "width": 1.6
+      },
+      "collision": {
+        "extents": [
+          0.8,
+          1.2,
+          0.06
+        ],
+        "layer": "dynamic",
+        "shape": "box"
+      },
+      "constraints": {
+        "attachment_points": [
+          {
+            "name": "hinge",
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "position": [
+              -0.8,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "name": "handle",
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position": [
+              0.6200000000000001,
+              0.0,
+              0.06
+            ]
+          },
+          {
+            "name": "interaction",
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.06
+            ]
+          }
+        ],
+        "max_triangles": 500,
+        "may_overhang_visual_bounds": 0.04,
+        "preserve_hinge_axis": true
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "connects": [
+          "the_pit",
+          "the_vault"
+        ],
+        "hinge_side": "left",
+        "locked": false,
+        "open_angle_deg": 95.0,
+        "open_time_s": 0.9,
+        "starts_open": false
+      },
+      "gameplay_role": [
+        "traversal",
+        "interaction",
+        "occluder"
+      ],
+      "presentation": {
+        "hints": [
+          "frequently-used",
+          "important"
+        ],
+        "material_slots": [
+          "main",
+          "hardware"
+        ],
+        "style_tags": [
+          "architecture",
+          "interactive"
+        ]
+      },
+      "region": "the_pit",
+      "semantic_id": "door_pit_vault",
+      "transform": {
+        "position": [
+          -2.0,
+          1.2,
+          12.0
+        ]
+      },
+      "type": "door"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "clearance": {
+          "depth": 0.55,
+          "height": 1.4,
+          "offset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "width": 2.4
+        },
+        "max_triangles": 500,
+        "may_overhang_visual_bounds": 0.06,
+        "preserve_clearance": true,
+        "sight_lines": [
+          {
+            "from": [
+              0.0,
+              0.0,
+              -1.2
+            ],
+            "radius": 0.4,
+            "to": [
+              0.0,
+              0.0,
+              1.2
+            ]
+          }
+        ]
+      },
+      "freedom": "STRUCTURAL_DECORATION",
+      "gameplay_role": [
+        "structure",
+        "occluder",
+        "navigation"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim",
+          "glass"
+        ],
+        "style_tags": [
+          "architecture"
+        ]
+      },
+      "region": "the_pit",
+      "semantic_id": "window_001",
+      "transform": {
+        "position": [
+          2.0,
+          1.7,
+          12.0
+        ]
+      },
+      "type": "window"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "wall_016",
+      "transform": {
+        "position": [
+          6.0,
+          1.7,
+          12.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_vault"
+      },
+      "region": "the_vault",
+      "semantic_id": "wall_017",
+      "transform": {
+        "position": [
+          -4.0,
+          1.7,
+          14.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_vault"
+      },
+      "region": "the_vault",
+      "semantic_id": "wall_018",
+      "transform": {
+        "position": [
+          -4.0,
+          1.7,
+          18.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_vault"
+      },
+      "region": "the_vault",
+      "semantic_id": "wall_019",
+      "transform": {
+        "position": [
+          4.0,
+          1.7,
+          14.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_vault"
+      },
+      "region": "the_vault",
+      "semantic_id": "wall_020",
+      "transform": {
+        "position": [
+          4.0,
+          1.7,
+          18.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "hints": [
+          "ceremonial"
+        ],
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_vault"
+      },
+      "region": "the_vault",
+      "semantic_id": "wall_021",
+      "transform": {
+        "position": [
+          -2.0,
+          1.7,
+          20.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 0.35,
+        "height": 3.4,
+        "width": 4.0
+      },
+      "collision": {
+        "extents": [
+          2.0,
+          1.7,
+          0.175
+        ],
+        "layer": "world",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "occluder"
+      ],
+      "presentation": {
+        "hints": [
+          "ceremonial"
+        ],
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "wall_the_vault"
+      },
+      "region": "the_vault",
+      "semantic_id": "wall_022",
+      "transform": {
+        "position": [
+          2.0,
+          1.7,
+          20.0
+        ]
+      },
+      "type": "wall"
+    },
+    {
+      "bounds": {
+        "depth": 1.2,
+        "height": 1.2,
+        "width": 1.2
+      },
+      "collision": {
+        "extents": [
+          0.6,
+          0.6,
+          0.6
+        ],
+        "layer": "prop",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 300,
+        "may_overhang_visual_bounds": 0.05,
+        "preserve_silhouette": 0.85
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "breakable": true,
+        "cover_height_m": 1.2,
+        "hitpoints": 30
+      },
+      "gameplay_role": [
+        "cover",
+        "breakable",
+        "movable"
+      ],
+      "presentation": {
+        "hints": [
+          "mass-produced"
+        ],
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "prop"
+        ],
+        "variation_group": "crate"
+      },
+      "region": "the_pit",
+      "semantic_id": "crate_001",
+      "transform": {
+        "position": [
+          -4.2,
+          0.6,
+          -1.0
+        ]
+      },
+      "type": "crate"
+    },
+    {
+      "bounds": {
+        "depth": 0.9,
+        "height": 0.9,
+        "width": 0.9
+      },
+      "collision": {
+        "extents": [
+          0.45,
+          0.45,
+          0.45
+        ],
+        "layer": "prop",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 300,
+        "may_overhang_visual_bounds": 0.05,
+        "preserve_silhouette": 0.85
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "breakable": true,
+        "cover_height_m": 0.9,
+        "hitpoints": 30
+      },
+      "gameplay_role": [
+        "cover",
+        "breakable",
+        "movable"
+      ],
+      "presentation": {
+        "hints": [
+          "mass-produced"
+        ],
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "prop"
+        ],
+        "variation_group": "crate"
+      },
+      "region": "the_pit",
+      "semantic_id": "crate_002",
+      "transform": {
+        "position": [
+          -4.2,
+          0.45,
+          0.3
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          14.0,
+          0.0
+        ]
+      },
+      "type": "crate"
+    },
+    {
+      "bounds": {
+        "depth": 0.9,
+        "height": 0.9,
+        "width": 0.9
+      },
+      "collision": {
+        "extents": [
+          0.45,
+          0.45,
+          0.45
+        ],
+        "layer": "prop",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 300,
+        "may_overhang_visual_bounds": 0.05,
+        "preserve_silhouette": 0.85
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "breakable": true,
+        "cover_height_m": 0.9,
+        "hitpoints": 30
+      },
+      "gameplay_role": [
+        "cover",
+        "breakable",
+        "movable"
+      ],
+      "presentation": {
+        "hints": [
+          "mass-produced"
+        ],
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "prop"
+        ],
+        "variation_group": "crate"
+      },
+      "region": "the_pit",
+      "semantic_id": "crate_003",
+      "transform": {
+        "position": [
+          -3.0,
+          0.45,
+          -1.0
+        ]
+      },
+      "type": "crate"
+    },
+    {
+      "bounds": {
+        "depth": 1.2,
+        "height": 1.2,
+        "width": 1.2
+      },
+      "collision": {
+        "extents": [
+          0.6,
+          0.6,
+          0.6
+        ],
+        "layer": "prop",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 300,
+        "may_overhang_visual_bounds": 0.05,
+        "preserve_silhouette": 0.85
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "breakable": true,
+        "cover_height_m": 1.2,
+        "hitpoints": 30
+      },
+      "gameplay_role": [
+        "cover",
+        "breakable",
+        "movable"
+      ],
+      "presentation": {
+        "hints": [
+          "mass-produced"
+        ],
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "prop"
+        ],
+        "variation_group": "crate"
+      },
+      "region": "the_pit",
+      "semantic_id": "crate_004",
+      "transform": {
+        "position": [
+          4.4,
+          0.6,
+          1.4
+        ]
+      },
+      "type": "crate"
+    },
+    {
+      "bounds": {
+        "depth": 0.9,
+        "height": 0.9,
+        "width": 0.9
+      },
+      "collision": {
+        "extents": [
+          0.45,
+          0.45,
+          0.45
+        ],
+        "layer": "prop",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 300,
+        "may_overhang_visual_bounds": 0.05,
+        "preserve_silhouette": 0.85
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "breakable": true,
+        "cover_height_m": 0.9,
+        "hitpoints": 30
+      },
+      "gameplay_role": [
+        "cover",
+        "breakable",
+        "movable"
+      ],
+      "presentation": {
+        "hints": [
+          "mass-produced"
+        ],
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "prop"
+        ],
+        "variation_group": "crate"
+      },
+      "region": "the_pit",
+      "semantic_id": "crate_005",
+      "transform": {
+        "position": [
+          4.4,
+          0.45,
+          2.7
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          -21.0,
+          0.0
+        ]
+      },
+      "type": "crate"
+    },
+    {
+      "bounds": {
+        "depth": 1.2,
+        "height": 1.2,
+        "width": 1.2
+      },
+      "collision": {
+        "extents": [
+          0.6,
+          0.6,
+          0.6
+        ],
+        "layer": "prop",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 300,
+        "may_overhang_visual_bounds": 0.05,
+        "preserve_silhouette": 0.85
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "breakable": true,
+        "cover_height_m": 1.2,
+        "hitpoints": 30
+      },
+      "gameplay_role": [
+        "cover",
+        "breakable",
+        "movable"
+      ],
+      "presentation": {
+        "hints": [
+          "mass-produced"
+        ],
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "prop"
+        ],
+        "variation_group": "crate"
+      },
+      "region": "the_pit",
+      "semantic_id": "crate_006",
+      "transform": {
+        "position": [
+          -1.6,
+          0.6,
+          7.6
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          32.0,
+          0.0
+        ]
+      },
+      "type": "crate"
+    },
+    {
+      "bounds": {
+        "depth": 1.2,
+        "height": 1.2,
+        "width": 1.2
+      },
+      "collision": {
+        "extents": [
+          0.6,
+          0.6,
+          0.6
+        ],
+        "layer": "prop",
+        "shape": "box"
+      },
+      "constraints": {
+        "max_triangles": 300,
+        "may_overhang_visual_bounds": 0.05,
+        "preserve_silhouette": 0.85
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "breakable": true,
+        "cover_height_m": 1.2,
+        "hitpoints": 30
+      },
+      "gameplay_role": [
+        "cover",
+        "breakable",
+        "movable"
+      ],
+      "presentation": {
+        "hints": [
+          "mass-produced"
+        ],
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "prop"
+        ],
+        "variation_group": "crate"
+      },
+      "region": "the_pit",
+      "semantic_id": "crate_007",
+      "transform": {
+        "position": [
+          2.2,
+          0.6,
+          8.4
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          -9.0,
+          0.0
+        ]
+      },
+      "type": "crate"
+    },
+    {
+      "bounds": {
+        "depth": 0.9,
+        "height": 3.4,
+        "width": 0.9
+      },
+      "collision": {
+        "height": 3.4,
+        "layer": "world",
+        "radius": 0.45,
+        "shape": "cylinder"
+      },
+      "constraints": {
+        "max_triangles": 500,
+        "may_overhang_visual_bounds": 0.08,
+        "preserve_silhouette": 0.75
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "cover",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "column_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "column_001",
+      "transform": {
+        "position": [
+          -2.6,
+          1.7,
+          3.6
+        ]
+      },
+      "type": "column"
+    },
+    {
+      "bounds": {
+        "depth": 0.9,
+        "height": 3.4,
+        "width": 0.9
+      },
+      "collision": {
+        "height": 3.4,
+        "layer": "world",
+        "radius": 0.45,
+        "shape": "cylinder"
+      },
+      "constraints": {
+        "max_triangles": 500,
+        "may_overhang_visual_bounds": 0.08,
+        "preserve_silhouette": 0.75
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_role": [
+        "structure",
+        "cover",
+        "occluder"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "architecture"
+        ],
+        "variation_group": "column_the_pit"
+      },
+      "region": "the_pit",
+      "semantic_id": "column_002",
+      "transform": {
+        "position": [
+          2.6,
+          1.7,
+          3.6
+        ]
+      },
+      "type": "column"
+    },
+    {
+      "bounds": {
+        "depth": 0.3,
+        "height": 0.52,
+        "width": 0.44
+      },
+      "collision": {
+        "shape": "none"
+      },
+      "constraints": {
+        "attachment_points": [
+          {
+            "name": "light_emitter",
+            "position": [
+              0.0,
+              -0.1,
+              0.12
+            ]
+          }
+        ],
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "energy": 3.2,
+        "range_m": 13.0,
+        "shadows": true
+      },
+      "gameplay_role": [
+        "light_source",
+        "decoration"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "emitter"
+        ],
+        "style_tags": [
+          "fixture"
+        ],
+        "variation_group": "lamp"
+      },
+      "region": "the_pit",
+      "semantic_id": "lamp_001",
+      "transform": {
+        "position": [
+          -7.5,
+          2.7,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "type": "lamp"
+    },
+    {
+      "bounds": {
+        "depth": 0.3,
+        "height": 0.52,
+        "width": 0.44
+      },
+      "collision": {
+        "shape": "none"
+      },
+      "constraints": {
+        "attachment_points": [
+          {
+            "name": "light_emitter",
+            "position": [
+              0.0,
+              -0.1,
+              0.12
+            ]
+          }
+        ],
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "energy": 3.2,
+        "range_m": 13.0,
+        "shadows": true
+      },
+      "gameplay_role": [
+        "light_source",
+        "decoration"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "emitter"
+        ],
+        "style_tags": [
+          "fixture"
+        ],
+        "variation_group": "lamp"
+      },
+      "region": "the_pit",
+      "semantic_id": "lamp_002",
+      "transform": {
+        "position": [
+          7.5,
+          2.7,
+          6.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          -90.0,
+          0.0
+        ]
+      },
+      "type": "lamp"
+    },
+    {
+      "bounds": {
+        "depth": 0.3,
+        "height": 0.52,
+        "width": 0.44
+      },
+      "collision": {
+        "shape": "none"
+      },
+      "constraints": {
+        "attachment_points": [
+          {
+            "name": "light_emitter",
+            "position": [
+              0.0,
+              -0.1,
+              0.12
+            ]
+          }
+        ],
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "energy": 2.4,
+        "range_m": 11.0,
+        "shadows": true
+      },
+      "gameplay_role": [
+        "light_source",
+        "decoration"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "emitter"
+        ],
+        "style_tags": [
+          "fixture"
+        ],
+        "variation_group": "lamp"
+      },
+      "region": "the_pit",
+      "semantic_id": "lamp_003",
+      "transform": {
+        "position": [
+          0.0,
+          2.7,
+          -7.5
+        ]
+      },
+      "type": "lamp"
+    },
+    {
+      "bounds": {
+        "depth": 0.3,
+        "height": 0.52,
+        "width": 0.44
+      },
+      "collision": {
+        "shape": "none"
+      },
+      "constraints": {
+        "attachment_points": [
+          {
+            "name": "light_emitter",
+            "position": [
+              0.0,
+              -0.1,
+              0.12
+            ]
+          }
+        ],
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.06
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "energy": 3.6,
+        "range_m": 10.0,
+        "shadows": true
+      },
+      "gameplay_role": [
+        "light_source",
+        "decoration"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "emitter"
+        ],
+        "style_tags": [
+          "fixture"
+        ],
+        "variation_group": "lamp"
+      },
+      "region": "the_vault",
+      "semantic_id": "lamp_004",
+      "transform": {
+        "position": [
+          0.0,
+          2.7,
+          19.5
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          180.0,
+          0.0
+        ]
+      },
+      "type": "lamp"
+    },
+    {
+      "bounds": {
+        "depth": 0.72,
+        "height": 1.8,
+        "width": 0.72
+      },
+      "collision": {
+        "shape": "none"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_params": {
+        "start_ammo": 90,
+        "start_health": 100,
+        "start_weapon": "sidearm",
+        "yaw_deg": 180.0
+      },
+      "gameplay_role": [
+        "player_spawn"
+      ],
+      "region": "the_pit",
+      "semantic_id": "player_spawn_main",
+      "transform": {
+        "position": [
+          0.0,
+          0.9,
+          -6.5
+        ]
+      },
+      "type": "player_spawn"
+    },
+    {
+      "bounds": {
+        "depth": 0.8,
+        "height": 1.8,
+        "width": 0.8
+      },
+      "collision": {
+        "shape": "none"
+      },
+      "constraints": {
+        "max_triangles": 900,
+        "may_overhang_visual_bounds": 0.1
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "activation": "proximity",
+        "activation_radius_m": 13.0,
+        "count": 2,
+        "enemy": "drone",
+        "enemy_damage": 9,
+        "enemy_health": 60,
+        "enemy_speed": 3.4,
+        "spawn_interval_s": 1.6,
+        "wave": 1
+      },
+      "gameplay_role": [
+        "enemy_spawn"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim",
+          "emitter"
+        ],
+        "style_tags": [
+          "character"
+        ]
+      },
+      "region": "the_pit",
+      "semantic_id": "enemyspawn_pit_01",
+      "transform": {
+        "position": [
+          -5.0,
+          0.9,
+          5.0
+        ]
+      },
+      "type": "enemy_spawn"
+    },
+    {
+      "bounds": {
+        "depth": 0.8,
+        "height": 1.8,
+        "width": 0.8
+      },
+      "collision": {
+        "shape": "none"
+      },
+      "constraints": {
+        "max_triangles": 900,
+        "may_overhang_visual_bounds": 0.1
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "activation": "proximity",
+        "activation_radius_m": 15.0,
+        "count": 2,
+        "enemy": "drone",
+        "enemy_damage": 9,
+        "enemy_health": 60,
+        "enemy_speed": 3.4,
+        "spawn_interval_s": 1.6,
+        "wave": 2
+      },
+      "gameplay_role": [
+        "enemy_spawn"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim",
+          "emitter"
+        ],
+        "style_tags": [
+          "character"
+        ]
+      },
+      "region": "the_pit",
+      "semantic_id": "enemyspawn_pit_02",
+      "transform": {
+        "position": [
+          5.5,
+          0.9,
+          9.0
+        ]
+      },
+      "type": "enemy_spawn"
+    },
+    {
+      "bounds": {
+        "depth": 0.8,
+        "height": 1.8,
+        "width": 0.8
+      },
+      "collision": {
+        "shape": "none"
+      },
+      "constraints": {
+        "max_triangles": 900,
+        "may_overhang_visual_bounds": 0.1
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "activation": "proximity",
+        "activation_radius_m": 11.0,
+        "count": 2,
+        "enemy": "drone",
+        "enemy_damage": 9,
+        "enemy_health": 60,
+        "enemy_speed": 3.4,
+        "spawn_interval_s": 1.6,
+        "wave": 3
+      },
+      "gameplay_role": [
+        "enemy_spawn"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim",
+          "emitter"
+        ],
+        "style_tags": [
+          "character"
+        ]
+      },
+      "region": "the_vault",
+      "semantic_id": "enemyspawn_vault_01",
+      "transform": {
+        "position": [
+          0.0,
+          0.9,
+          17.5
+        ]
+      },
+      "type": "enemy_spawn"
+    },
+    {
+      "bounds": {
+        "depth": 0.6,
+        "height": 1.0,
+        "width": 0.6
+      },
+      "collision": {
+        "extents": [
+          0.35,
+          0.5,
+          0.35
+        ],
+        "layer": "trigger",
+        "shape": "box"
+      },
+      "constraints": {
+        "attachment_points": [
+          {
+            "name": "interaction",
+            "position": [
+              0.0,
+              0.2,
+              0.0
+            ]
+          }
+        ],
+        "max_triangles": 400,
+        "may_overhang_visual_bounds": 0.1
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "amount": 35,
+        "auto_collect": true,
+        "kind": "health",
+        "respawn_s": 0
+      },
+      "gameplay_role": [
+        "interaction",
+        "objective"
+      ],
+      "presentation": {
+        "hints": [
+          "important"
+        ],
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "prop"
+        ]
+      },
+      "region": "the_pit",
+      "semantic_id": "pickup_health_pit",
+      "transform": {
+        "position": [
+          -6.4,
+          0.5,
+          9.6
+        ]
+      },
+      "type": "pickup"
+    },
+    {
+      "bounds": {
+        "depth": 0.6,
+        "height": 1.0,
+        "width": 0.6
+      },
+      "collision": {
+        "extents": [
+          0.35,
+          0.5,
+          0.35
+        ],
+        "layer": "trigger",
+        "shape": "box"
+      },
+      "constraints": {
+        "attachment_points": [
+          {
+            "name": "interaction",
+            "position": [
+              0.0,
+              0.2,
+              0.0
+            ]
+          }
+        ],
+        "max_triangles": 600,
+        "may_overhang_visual_bounds": 0.1
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "amount": 60,
+        "auto_collect": true,
+        "kind": "ammo"
+      },
+      "gameplay_role": [
+        "interaction"
+      ],
+      "presentation": {
+        "material_slots": [
+          "main",
+          "trim"
+        ],
+        "style_tags": [
+          "weapon"
+        ]
+      },
+      "region": "the_pit",
+      "semantic_id": "weapon_ammo_pit",
+      "transform": {
+        "position": [
+          6.4,
+          0.5,
+          -3.0
+        ]
+      },
+      "type": "weapon"
+    },
+    {
+      "bounds": {
+        "depth": 0.8,
+        "height": 1.8,
+        "width": 1.4
+      },
+      "collision": {
+        "extents": [
+          0.7,
+          0.9,
+          0.4
+        ],
+        "layer": "prop",
+        "shape": "box"
+      },
+      "constraints": {
+        "attachment_points": [
+          {
+            "name": "interaction",
+            "position": [
+              0.0,
+              0.1,
+              0.4
+            ]
+          },
+          {
+            "name": "screen",
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position": [
+              0.0,
+              0.35,
+              0.4
+            ]
+          }
+        ],
+        "max_triangles": 900,
+        "may_overhang_visual_bounds": 0.05
+      },
+      "freedom": "VISUAL_MESH_WITHIN_BOUNDS",
+      "gameplay_params": {
+        "completes_level": true,
+        "interact_time_s": 2.5,
+        "objective_id": "purge_core"
+      },
+      "gameplay_role": [
+        "objective",
+        "interaction"
+      ],
+      "presentation": {
+        "hints": [
+          "important",
+          "ceremonial"
+        ],
+        "material_slots": [
+          "main",
+          "hardware",
+          "screen"
+        ],
+        "style_tags": [
+          "machinery",
+          "interactive"
+        ]
+      },
+      "region": "the_vault",
+      "semantic_id": "objective_core",
+      "transform": {
+        "position": [
+          0.0,
+          0.9,
+          19.4
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          180.0,
+          0.0
+        ]
+      },
+      "type": "objective"
+    },
+    {
+      "bounds": {
+        "depth": 3.2,
+        "height": 3.4,
+        "width": 8.0
+      },
+      "collision": {
+        "extents": [
+          4.0,
+          1.7,
+          1.6
+        ],
+        "layer": "trigger",
+        "shape": "box"
+      },
+      "freedom": "LOCKED",
+      "gameplay_params": {
+        "on_enter": "activate_wave_3",
+        "once": true,
+        "trigger_id": "vault_entered"
+      },
+      "gameplay_role": [
+        "objective"
+      ],
+      "region": "the_vault",
+      "semantic_id": "trigger_vault_alarm",
+      "transform": {
+        "position": [
+          0.0,
+          1.7,
+          13.6
+        ]
+      },
+      "type": "trigger_volume"
+    },
+    {
+      "bounds": {
+        "depth": 20,
+        "height": 3.4,
+        "width": 16
+      },
+      "collision": {
+        "shape": "none"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_params": {
+        "volume_db": -14.0,
+        "zone": "the_pit"
+      },
+      "gameplay_role": [
+        "ambience"
+      ],
+      "region": "the_pit",
+      "semantic_id": "ambience_the_pit",
+      "transform": {
+        "position": [
+          0.0,
+          1.7,
+          2.0
+        ]
+      },
+      "type": "ambience_zone"
+    },
+    {
+      "bounds": {
+        "depth": 8,
+        "height": 3.4,
+        "width": 8
+      },
+      "collision": {
+        "shape": "none"
+      },
+      "freedom": "MATERIAL_ONLY",
+      "gameplay_params": {
+        "volume_db": -14.0,
+        "zone": "the_vault"
+      },
+      "gameplay_role": [
+        "ambience"
+      ],
+      "region": "the_vault",
+      "semantic_id": "ambience_the_vault",
+      "transform": {
+        "position": [
+          0.0,
+          1.7,
+          16.0
+        ]
+      },
+      "type": "ambience_zone"
+    }
+  ],
+  "gameplay_metrics": {
+    "enemy_attack_interval_s": 1.1,
+    "enemy_attack_range_m": 22.0,
+    "enemy_damage": 9,
+    "enemy_health": 60,
+    "enemy_speed": 3.4,
+    "gravity": 22.0,
+    "max_step_height": 0.32,
+    "objective_interact_time_s": 2.5,
+    "pickup_health_amount": 35,
+    "player_eye_height": 1.62,
+    "player_health": 100,
+    "player_height": 1.8,
+    "player_jump_velocity": 5.0,
+    "player_radius": 0.36,
+    "player_sprint_speed": 7.6,
+    "player_walk_speed": 5.2,
+    "weapon_damage": 24,
+    "weapon_range_m": 60.0,
+    "weapon_rounds_per_minute": 420,
+    "weapon_spread_deg": 1.2
+  },
+  "handedness": "right",
+  "regions": [
+    {
+      "bounds_max": [
+        8,
+        3.4,
+        12
+      ],
+      "bounds_min": [
+        -8,
+        0.0,
+        -8
+      ],
+      "display_name": "The Pit",
+      "hints": [
+        "utilitarian"
+      ],
+      "purpose": "the whole game: arrival, cover, two waves",
+      "region_id": "the_pit"
+    },
+    {
+      "bounds_max": [
+        4,
+        3.4,
+        20
+      ],
+      "bounds_min": [
+        -4,
+        0.0,
+        12
+      ],
+      "display_name": "The Vault",
+      "hints": [
+        "ceremonial",
+        "important"
+      ],
+      "purpose": "objective chamber behind the only door",
+      "region_id": "the_vault"
+    }
+  ],
+  "scene_id": "arcade_pit",
+  "schema_version": 1,
+  "units": "meters",
+  "up_axis": "+Y"
+}

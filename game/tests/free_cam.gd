@@ -119,6 +119,16 @@ func _ready() -> void:
 	if hide != "":
 		var n_hidden := _hide_matching(root, hide.split(","))
 		print("[HIDE] %d node(s) hidden for %s" % [n_hidden, hide])
+	# SHOT_FRIDGE_POSE="4B:open_tray" — put a real installed cold box in
+	# its maintenance pose before framing it. Source inspection cannot prove
+	# that a leaf clears the counter or that the drip tray comes toward the
+	# player instead of through the wall; the render has to carry that proof.
+	var fridge_pose := OS.get_environment("SHOT_FRIDGE_POSE")
+	if fridge_pose != "":
+		var fp := fridge_pose.split(":")
+		_pose_fridges(root, String(fp[0]),
+				String(fp[1]) if fp.size() > 1 else "open")
+		await get_tree().create_timer(0.08).timeout
 	_lights_on = OS.get_environment("SHOT_LIGHTS") == "1"
 	var rooms := OS.get_environment("SHOT_ROOMS")
 	if rooms != "":
@@ -134,6 +144,19 @@ func _ready() -> void:
 		return
 	_build_hud()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func _pose_fridges(node: Node, wanted_unit: String, pose: String) -> void:
+	if node is FridgeProp:
+		var fridge := node as FridgeProp
+		if wanted_unit == "*" or fridge.unit == wanted_unit:
+			fridge.set_door_open(true, 0.01)
+			if pose.contains("tray"):
+				fridge.set_tray_open(true, 0.01)
+			if pose.contains("ice"):
+				fridge.set_ice_door_open(true, 0.01)
+	for child in node.get_children():
+		_pose_fridges(child, wanted_unit, pose)
 
 
 ## Every room's rectangle, by id, in plan coordinates.

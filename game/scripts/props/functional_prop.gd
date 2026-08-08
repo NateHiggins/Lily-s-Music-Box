@@ -46,6 +46,14 @@ func _start_normal_function() -> void:
 	pass
 
 
+## Inspection displays, not gameplay variants. Most props have one honest
+## silhouette; a shared script may return several property sets when one
+## layout kind would otherwise hide a materially different object in the
+## warehouse. Properties are applied before `_ready()` builds the model.
+func warehouse_variants() -> Array[Dictionary]:
+	return [{}]
+
+
 func _on_motif_event(index: int, accent: float, pitch: float) -> void:
 	_receive(index, accent, pitch, 1.0)
 

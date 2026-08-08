@@ -76,6 +76,11 @@ SLOTS = {
     "timber_joist": (["timber"], 1.0, 0.80, 0.12, 5.0),
     "brass_aged": (["brass"], 0.25, 0.40, 0.25, 2.0),
     "enamel_appliance": (["appliance"], 0.85, 0.22, 0.15, 1.5),
+    # Fridge-only plates. They still enter through the common ingest so
+    # flattening, seam repair and map derivation are identical to every
+    # other close-read material in the building.
+    "zinc_liner": (["zinc_liner"], 0.55, 0.72, 0.10, 2.8),
+    "copper_aged": (["copper_aged"], 0.40, 0.58, 0.14, 2.4),
     # One enamel, five lives (design/ORISON_APPLIANCE_BIBLE.md IV).
     "enamel_pristine": (["enamel_pristine"], 0.85, 0.18, 0.12, 1.2),
     "enamel_paintflecked": (["enamel_paintflecked"], 0.85, 0.30, 0.18, 1.6),
@@ -224,7 +229,8 @@ RECOLOR = {"rug_persian_worn": [("rug_cool", 150.0), ("rug_green", 90.0)]}
 # res://assets/building/textures/ and MatLib silently falls back to flat
 # colour. Copying them here keeps that reproducible instead of a manual
 # step somebody has to remember after every regeneration.
-GODOT_STAGE = ("brass_bright", "bronze", "car_paint", "oak_quartered",
+GODOT_STAGE = ("brass_bright", "brass_dull", "bronze", "car_paint",
+               "oak_quartered", "zinc_liner", "copper_aged",
                "milk_glass", "bakelite_black", "terrazzo_dark",
                "brass_mesh", "indicator_enamel",
                # The shopfront signage is built in GDScript too
@@ -233,9 +239,18 @@ GODOT_STAGE = ("brass_bright", "bronze", "car_paint", "oak_quartered",
 GODOT_TEX = os.path.join(ROOT, "game", "assets", "building", "textures")
 
 
-def stage_for_godot(key):
-    """Copy one material's maps under the T_ai_materials_* convention."""
-    src = os.path.join(OUT, key)
+def stage_for_godot(key, mapping):
+    """Copy one material's maps under the T_ai_materials_* convention.
+
+    A catalog alias is still a distinct runtime finish. `brass_dull`
+    deliberately points at brass's photographed plate, but stages under
+    its own name so MatLib can give it the lower metallic response that
+    keeps horizontal hardware visible.
+    """
+    mapped = str(mapping.get(key, ""))
+    source_key = os.path.basename(mapped) if mapped.startswith(
+        "ai_materials/") else key
+    src = os.path.join(OUT, source_key)
     if not os.path.isdir(src):
         return False
     pairs = (("albedo.png", "albedo"), ("roughness.png", "rough"),
@@ -286,6 +301,7 @@ COLOR_ANCHORS = {
     # opal brighter because unlit opal glass is not grey.
     "brass_bright": "#8A6A33", "bronze": "#46402F",
     "car_paint": "#5E5C42", "oak_quartered": "#855832",
+    "zinc_liner": "#A9ABAA", "copper_aged": "#8B5436",
     "milk_glass": "#E4E1D8", "bakelite_black": "#24201D",
     "terrazzo_dark": "#4A443C", "brass_mesh": "#6A5228",
     "indicator_enamel": "#E0D5BE",
@@ -643,7 +659,7 @@ def main() -> None:
     with open(MAPPING, "w", encoding="utf-8") as fh:
         json.dump(mapping, fh, indent=1)
         fh.write("\n")
-    staged = [k for k in GODOT_STAGE if stage_for_godot(k)]
+    staged = [k for k in GODOT_STAGE if stage_for_godot(k, mapping)]
     if staged:
         print("staged for Godot props: %s" % ", ".join(staged))
     for slot, n, keys in ingested:

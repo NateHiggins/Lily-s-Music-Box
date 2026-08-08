@@ -647,11 +647,6 @@ def unit_of_uid(uid):
     return str(uid).split("_")[0]
 
 
-def _fridge_for(uid):
-    return ("fridge_monitor" if unit_of_uid(uid) in MONITOR_TOP_UNITS
-            else "fridge50")
-
-
 def _hob_load(f, uid, sx, sy):
     """What stands on a range nobody cooks on.
 
@@ -677,14 +672,13 @@ def _hob_load(f, uid, sx, sy):
 
 
 def _fridge_marker(markers, uid, fx, fy, z, yaw, floor_id):
-    """The cabinet needs a prop as well as a body: its door swings, its
-    lamp comes on when the seal breaks, and it holds somebody's food.
-    None of that can happen inside a merged floor mesh.
+    """One marker owns the complete cold box, including its cabinet.
 
-    Seventeen of the eighteen flats had the assembly and no marker, so
-    seventeen refrigerators were furniture. The marker sits exactly where
-    the assembly does, so the prop's door lands on the mouth the cabinet
-    left open for it - the same contract the range has used all along."""
+    Splitting the shell into Blender and the moving parts into Godot made
+    the warehouse display a floating door and left 4B with no shell at all.
+    More importantly, an oak icebox is furniture, not an electrical node.
+    The four monitor-tops opt into electricity here; the other fourteen
+    travel through the structural fabric when reality needs a route."""
     if markers is None:
         return
     unit = unit_of_uid(uid)
@@ -692,7 +686,8 @@ def _fridge_marker(markers, uid, fx, fy, z, yaw, floor_id):
         "kind": "fridge",
         "id": "%s_%s_FRIDGE_01" % (floor_id or "FXX", unit),
         "unit": unit, "pos": [round(fx, 4), round(fy, 4), round(z, 4)],
-        "yaw_deg": yaw, "network": "electrical",
+        "yaw_deg": yaw,
+        "network": "electrical" if unit in MONITOR_TOP_UNITS else "structural",
         "monitor": unit in MONITOR_TOP_UNITS})
 
 
@@ -816,8 +811,6 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n", markers=None,
         _asm(f, uid, "kitchen", x + cw / 2, cy, yaw, L=cw + 0.75)
         _asm(f, uid + "_stove", "stove", x + cw + 0.33, cy, yaw)
         _stove_marker(markers, uid, x + cw + 0.33, cy, z, yaw, floor_id)
-        _asm(f, uid + "_fr", _fridge_for(uid), x + cw + 0.66 + 0.36, cy,
-             yaw)
         _fridge_marker(markers, uid, x + cw + 0.66 + 0.36, cy, z, yaw,
                        floor_id)
         clutter(x + cw / 2, cy)
@@ -829,8 +822,6 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n", markers=None,
         _asm(f, uid, "kitchen", cx, y + cw / 2, yaw, L=cw + 0.75)
         _asm(f, uid + "_stove", "stove", cx, y + cw + 0.33, yaw)
         _stove_marker(markers, uid, cx, y + cw + 0.33, z, yaw, floor_id)
-        _asm(f, uid + "_fr", _fridge_for(uid), cx, y + cw + 0.66 + 0.36,
-             yaw)
         _fridge_marker(markers, uid, cx, y + cw + 0.66 + 0.36, z, yaw,
                        floor_id)
         clutter(cx, y + cw / 2, True)
@@ -1625,8 +1616,12 @@ def apartment_4b(z, walls, rooms, markers, furniture):
     _furn_box(furniture, "4B_pillow", -13.25, 8.85, 0.65, 0.5, 0.48, 0.10,
               "paper", False)
     markers += [
+        # The north-wall position occupied the refrigerator's rear 29 cm:
+        # both objects rendered, so the collision looked like a radiator
+        # growing through the icebox instead of a failed plan. The east wall
+        # keeps it on H-B, clear of the galley run and the refrigerator door.
         {"kind": "radiator", "id": "F04_B_RADIATOR_01", "unit": "4B",
-         "pos": [-8.55, y1 - 0.30, z], "yaw_deg": 180, "network": "heating",
+         "pos": [-7.96, 7.48, z], "yaw_deg": -90, "network": "heating",
          "riser": "H-B"},
         {"kind": "lamp", "id": "F04_B_LAMP_01", "unit": "4B",
          "pos": [-8.15, 6.00, z + 0.76], "yaw_deg": 0,
@@ -1638,7 +1633,12 @@ def apartment_4b(z, walls, rooms, markers, furniture):
          "pos": [-9.70, 9.30, z + 0.90], "yaw_deg": 90,
          "network": "electrical"},
         {"kind": "fridge", "id": "F04_B_FRIDGE_01", "unit": "4B",
-         "pos": [-8.30, 9.20, z], "yaw_deg": 0, "network": "electrical"},
+         # The old north-wall position sat inside F04_DOOR_07's sweep — a
+         # latent fault the marker audit can finally see. On the east wall
+         # the front faces west, the left hinge falls south (away from the
+         # entry), and the radiator retains 32 cm of air below it.
+         "pos": [-8.03, 8.60, z], "yaw_deg": 90,
+         "network": "structural", "monitor": False},
         {"kind": "boxfan", "id": "F04_B_BOXFAN_01", "unit": "4B",
          "pos": [-13.20, 3.40, z + 0.25], "yaw_deg": 45,
          "network": "electrical"},
@@ -5105,7 +5105,6 @@ SOCKET_RULES = {
     "desk": [("WORK_PRIMARY", 0.0, 0.0)],
     "workbench": [("WORK_PRIMARY", 0.0, 0.0)],
     "kitchen": [("COUNTER_DIRTY", 0.7, 0.0), ("TRASH_ZONE", -0.9, 0.15)],
-    "fridge50": [("FRIDGE_FACE", 0.0, 0.45)],
     "sink_ped": [("SINK_EDGE", 0.3, 0.0)],
     "shower": [("SHOWER_EDGE", 0.55, 0.0)],
     "toilet": [("TOILET_SIDE", 0.4, 0.0)],
@@ -5123,6 +5122,13 @@ def life_pass(floors):
     for fl in floors:
         fl["sockets"] = []
         by_unit = {}
+        marker_kinds = {}
+        for m in fl.get("markers", []):
+            unit = str(m.get("unit", ""))
+            if unit:
+                marker_kinds.setdefault(unit, {})
+                kind = str(m.get("kind", ""))
+                marker_kinds[unit][kind] = marker_kinds[unit].get(kind, 0) + 1
         for fu in fl.get("furniture", []):
             fid = str(fu.get("id", ""))
             unit = fid.split("_")[0]
@@ -5145,6 +5151,22 @@ def life_pass(floors):
                                round(fu["at"][1] + oy, 3)],
                         "z": fl["z"]})
                     total += 1
+        # The refrigerator stopped being a Blender assembly. Its face
+        # socket must follow the marker too or the aging pass quietly loses
+        # every handle smudge the moment the obsolete shell is removed.
+        for m in fl.get("markers", []):
+            if m.get("kind") != "fridge":
+                continue
+            yaw = math.radians(float(m.get("yaw_deg", 0)))
+            dx, dy = 0.0, 0.45
+            ox = dx * math.cos(yaw) - dy * math.sin(yaw)
+            oy = dx * math.sin(yaw) + dy * math.cos(yaw)
+            fl["sockets"].append({
+                "id": "%s_FRIDGE_FACE" % m.get("unit", ""),
+                "unit": m.get("unit", ""), "socket": "FRIDGE_FACE",
+                "at": [round(m["pos"][0] + ox, 3),
+                       round(m["pos"][1] + oy, 3)], "z": fl["z"]})
+            total += 1
         # --- the audit: structural life functions per occupied unit
         for unit, prof in profiles.items():
             if unit not in by_unit:
@@ -5172,7 +5194,7 @@ def life_pass(floors):
                       % (unit, list(conversions.values())[0]))
             need = {"wardrobe": "clothing storage", "toilet": "toilet",
                     "shower": "washing", "stove": "cooking",
-                    "fridge50": "cold storage", "kitchen": "kitchen run"}
+                    "fridge": "cold storage", "kitchen": "kitchen run"}
             # 4B is box-built rather than assembled, which is exactly why
             # the brief demands SEMANTIC checks for it: its mattress,
             # counter run and desk are raw geometry with meaningful ids,
@@ -5186,15 +5208,13 @@ def life_pass(floors):
                         problems.append("4B: bespoke %s missing" % label)
                 if beds == 0 and "mattress" in ids:
                     pass          # the mattress IS the bed
+                if marker_kinds.get(unit, {}).get("fridge", 0) == 0:
+                    problems.append("4B: no cold storage")
                 continue
-            # Cold storage is a FUNCTION, not one assembly name: four
-            # flats never replaced their 1927 monitor-top, and an icebox
-            # that keeps milk cold satisfies the same need as a 1950s
-            # cabinet. Any equivalent set is satisfied by any member.
-            equivalents = {"fridge50": ("fridge50", "fridge_monitor")}
             for asm, label in need.items():
-                if sum(kinds.get(a, 0)
-                       for a in equivalents.get(asm, (asm,))) == 0:
+                have = (marker_kinds.get(unit, {}).get("fridge", 0)
+                        if asm == "fridge" else kinds.get(asm, 0))
+                if have == 0:
                     problems.append("%s: no %s" % (unit, label))
             if kinds.get("table_round", 0) + kinds.get("table_rect", 0) \
                     + kinds.get("desk", 0) == 0:
@@ -6582,7 +6602,7 @@ ASM_FOOT = {
     "table_rect": (0.62, 0.42), "coffee": (0.56, 0.36),
     "nightstand": (0.24, 0.24), "bed": (0.76, 1.03), "wardrobe": (0.68, 0.33),
     "shelf": (0.57, 0.16), "tv": (0.64, 0.22), "plant": (0.25, 0.25),
-    "kitchen": (0.90, 0.33), "stove": (0.32, 0.34), "fridge50": (0.34, 0.41),
+    "kitchen": (0.90, 0.33), "stove": (0.32, 0.34),
     "desk": (0.71, 0.34), "plantable": (1.01, 0.61),
     "workbench": (1.11, 0.49), "toilet": (0.21, 0.36),
     "sink_ped": (0.25, 0.25), "shower": (0.41, 0.42), "bench": (0.76, 0.25),
@@ -6592,6 +6612,15 @@ ASM_FOOT = {
     "amp": (0.31, 0.17), "guitar": (0.20, 0.17),
     "pedalboard": (0.32, 0.18), "micstand": (0.15, 0.15),
     "tripod": (0.32, 0.32), "softbox": (0.28, 0.28), "crate": (0.23, 0.20),
+}
+
+# Marker-built obstacles need footprints too. The refrigerator body moved
+# out of `furniture`, but it did not stop occupying floor. These are closed
+# bounds including the handle, measured from fridge_prop.gd rather than a
+# stale baked shell.
+FRIDGE_FOOT = {
+    False: (0.35, 0.31),       # compact oak apartment icebox
+    True: (0.36, 0.34),        # 1927 GE monitor-top
 }
 
 
@@ -6621,6 +6650,17 @@ def _asm_aabb(fu):
 
 def _obstacles(fl):
     obs = []
+    for m in fl.get("markers", []):
+        if m.get("kind") != "fridge":
+            continue
+        hx, hy = FRIDGE_FOOT[bool(m.get("monitor", False))]
+        yaw = float(m.get("yaw_deg", 0)) % 180
+        if yaw == 90:
+            hx, hy = hy, hx
+        elif yaw not in (0, 90):
+            hx = hy = max(hx, hy)
+        cx, cy = m["pos"][0], m["pos"][1]
+        obs.append((m["id"], (cx - hx, cy - hy, cx + hx, cy + hy)))
     for fu in fl.get("furniture", []):
         if "asm" in fu:
             if fu["asm"] in ("switch", "pipe"):
@@ -6670,23 +6710,47 @@ def _validate_movement(layout):
                         sw[3] - tol):
                     problems.append("%s: door %s swing blocked by %s"
                                     % (fl["id"], m["id"], oid))
-        # every refrigerator door needs standing room in front of it
-        for fu in fl.get("furniture", []):
-            if fu.get("asm") != "fridge50":
+        # Every refrigerator door needs standing room and an honest sweep.
+        # This deliberately follows the marker: the old assembly loop skipped
+        # all four monitor-tops and vanished entirely when the shell moved to
+        # GDScript.
+        for m in fl.get("markers", []):
+            if m.get("kind") != "fridge":
                 continue
             import math as _m
-            a = _m.radians(fu.get("yaw", 0))
+            a = _m.radians(m.get("yaw_deg", 0))
             fx_, fy_ = -_m.sin(a), _m.cos(a)   # local +y (door) in world
-            bx0_ = fu["at"][0] + fx_ * 0.85 - 0.42
-            by0_ = fu["at"][1] + fy_ * 0.85 - 0.42
-            band = (bx0_, by0_, bx0_ + 0.84, by0_ + 0.84)
+            bx0_ = m["pos"][0] + fx_ * 0.82 - 0.36
+            by0_ = m["pos"][1] + fy_ * 0.82 - 0.36
+            band = (bx0_, by0_, bx0_ + 0.72, by0_ + 0.72)
             for oid, bb in obs:
-                if oid == fu["id"] or oid.startswith(fu["id"][:-3]):
+                if oid == m["id"]:
                     continue
                 if _hit(bb, band[0] + 0.06, band[1] + 0.06,
                         band[2] - 0.06, band[3] - 0.06):
                     problems.append("%s: fridge %s door blocked by %s"
-                                    % (fl["id"], fu["id"], oid))
+                                    % (fl["id"], m["id"], oid))
+            # Closed leaf runs from the left hinge across the face; opening
+            # carries its free corner forward. The triangle's AABB is a
+            # conservative quarter-sweep and catches counters or radiators
+            # that a standing-room square can miss.
+            width = 0.72 if m.get("monitor", False) else 0.70
+            depth = 0.64 if m.get("monitor", False) else 0.58
+            rx_, ry_ = _m.cos(a), _m.sin(a)     # local +x in world
+            hx_ = m["pos"][0] - rx_ * width * 0.5 + fx_ * depth * 0.5
+            hy_ = m["pos"][1] - ry_ * width * 0.5 + fy_ * depth * 0.5
+            corners = ((hx_, hy_),
+                       (hx_ + rx_ * width, hy_ + ry_ * width),
+                       (hx_ + fx_ * width, hy_ + fy_ * width))
+            sweep = (min(p[0] for p in corners), min(p[1] for p in corners),
+                     max(p[0] for p in corners), max(p[1] for p in corners))
+            for oid, bb in obs:
+                if oid == m["id"]:
+                    continue
+                if _hit(bb, sweep[0] + 0.04, sweep[1] + 0.04,
+                        sweep[2] - 0.04, sweep[3] - 0.04):
+                    problems.append("%s: fridge %s sweep blocked by %s"
+                                    % (fl["id"], m["id"], oid))
         # path: unit entry -> living center, an L in either order must
         # be passable at capsule width (a person routes around a chair;
         # they should never have to climb the furniture)
@@ -6766,7 +6830,8 @@ def _validate_movement(layout):
 ## the kitchen trio must share one facing. Prop counts print as a report.
 def _validate_furnishing(layout):
     problems = []
-    unit_asm, unit_yaw, unit_rad, unit_detail, unit_story = {}, {}, set(), {}, {}
+    unit_asm, unit_marker, unit_yaw = {}, {}, {}
+    unit_rad, unit_detail, unit_story = set(), {}, {}
     doors, switches, kinds = 0, 0, {}
     for fl in layout["floors"]:
         for m in fl["markers"]:
@@ -6777,6 +6842,13 @@ def _validate_furnishing(layout):
                 # rule that dropped every other exterior switch
             if m["kind"] == "radiator" and m.get("unit"):
                 unit_rad.add(m["unit"])
+            if m.get("unit"):
+                unit = m["unit"]
+                unit_marker.setdefault(unit, {})
+                unit_marker[unit][m["kind"]] = (
+                    unit_marker[unit].get(m["kind"], 0) + 1)
+                if m["kind"] == "fridge":
+                    unit_yaw.setdefault(unit, set()).add(m.get("yaw_deg"))
         for fu in fl.get("furniture", []):
             unit = str(fu["id"]).split("_")[0]
             if "_detail_" in str(fu["id"]):
@@ -6816,7 +6888,7 @@ def _validate_furnishing(layout):
                         % (switches, dropped, coverage, doors))
     skip_states = ("sealed", "vacant (damaged)", "vacant (fire damage)",
                    "landlord storage")
-    need = {"bed": 1, "kitchen": 1, "stove": 1, "fridge50": 1,
+    need = {"bed": 1, "kitchen": 1, "stove": 1, "fridge": 1,
             "toilet": 1, "sink_ped": 1, "shower": 1, "wardrobe": 1,
             "chair": 2}
     for unit, res in RESIDENTS.items():
@@ -6829,16 +6901,15 @@ def _validate_furnishing(layout):
             for k in ("toilet", "sink_ped", "shower"):
                 if a.get(k, 0) < 1:
                     problems.append("4B missing %s" % k)
+            if unit_marker.get(unit, {}).get("fridge", 0) < 1:
+                problems.append("4B missing fridge")
             continue
         if unit_detail.get(unit, 0) < 4:
             problems.append("%s lacks close surface detail (%d < 4)"
                             % (unit, unit_detail.get(unit, 0)))
-        # Same equivalence as the life audit: a monitor-top IS the flat's
-        # refrigerator, it is simply forty years older than its neighbours'.
-        fridge_kinds = ("fridge50", "fridge_monitor")
         for k, n in need.items():
-            have = (sum(a.get(f, 0) for f in fridge_kinds)
-                    if k == "fridge50" else a.get(k, 0))
+            have = (unit_marker.get(unit, {}).get("fridge", 0)
+                    if k == "fridge" else a.get(k, 0))
             if have < n:
                 problems.append("%s missing %s (%d < %d)"
                                 % (unit, k, have, n))
@@ -6881,6 +6952,10 @@ def acoustic_graph(layout):
               ("BASEMENT_HEADER_EAST", "BASEMENT_HEADER_WEST")]
     by_riser = {}
     for fl in layout["floors"]:
+        radiator_by_unit = {
+            m.get("unit", ""): m["id"] for m in fl["markers"]
+            if m.get("kind") == "radiator" and m.get("unit")
+        }
         for m in fl["markers"]:
             if m["kind"] == "radiator":
                 add(m["id"], [m["pos"][0], m["pos"][1], m["pos"][2] + 0.35],
@@ -6890,7 +6965,7 @@ def acoustic_graph(layout):
                 add(m["id"], m["pos"], "water", "B1_LAUNDRY", 0.6,
                     (40, 2000), 20)
                 edges.append((m["id"], "BASEMENT_HEADER_WEST"))
-            elif m["kind"] in ("lamp", "monitor", "toaster", "fridge",
+            elif m["kind"] in ("lamp", "monitor", "toaster",
                                "boxfan", "speaker", "kettle", "wall_clock",
                                "smoke_detector", "exhaust_fan",
                                "ceiling_light", "pendant_shade",
@@ -6902,6 +6977,22 @@ def acoustic_graph(layout):
                 edges.append((m["id"], "%s_CORRLIGHT_S" % fl["id"]))
                 if fl["id"] in ("B1", "F01"):
                     edges.append((m["id"], "B1_ELECTRICAL_HUB"))
+            elif m["kind"] == "fridge":
+                if m.get("network") == "electrical":
+                    # Only the four monitor-tops have a wire and relay.
+                    add(m["id"], m["pos"], "electrical", m.get("unit", ""),
+                        0.75, (60, 8000), 4)
+                    edges.append((m["id"], "%s_CORRLIGHT_S" % fl["id"]))
+                    if fl["id"] in ("B1", "F01"):
+                        edges.append((m["id"], "B1_ELECTRICAL_HUB"))
+                else:
+                    # Oak, zinc and meltwater: the icebox hears the room
+                    # through floorboards and pipe brackets, never a wire.
+                    add(m["id"], m["pos"], "structural", m.get("unit", ""),
+                        0.68, (25, 900), 34)
+                    target = radiator_by_unit.get(m.get("unit", ""))
+                    if target:
+                        edges.append((m["id"], target))
             elif m["kind"] == "flue_breast":
                 # chimney breast: the room-side face of the flue
                 add(m["id"], m["pos"], "flue", m.get("unit", ""), 0.9,
@@ -7224,6 +7315,13 @@ MATERIAL_CATALOG = {
     # metallic is the physical answer rather than a cheat.
     "brass_dull": {"base_color": [0.62, 0.48, 0.22, 1.0],
                    "roughness": 0.52, "metallic": 0.30},
+    # Close-read refrigerator metals. Zinc oxide and forty years of wet
+    # wiping make the liner read mostly diffuse. At 0.38 metallic its shelves
+    # still reflected the practical away and sampled nearly black in 4B.
+    "zinc_liner": {"base_color": [0.66, 0.67, 0.67, 1.0],
+                    "roughness": 0.82, "metallic": 0.12},
+    "copper_aged": {"base_color": [0.55, 0.33, 0.21, 1.0],
+                    "roughness": 0.58, "metallic": 0.72},
     # The elevator sheet. These belong HERE, not hand-added to
     # material_catalog.json: gen_layout writes that file, so anything
     # edited into it directly is silently discarded the next time the

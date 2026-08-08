@@ -1442,84 +1442,6 @@ def rounded_body(F, mat, x0, y0, x1, y1, z0, z1, r=0.055, seg=10):
         F.cyl(mat, cx, cy, z0, z1, r, r, seg)
 
 
-def asm_fridge_monitor(F, p):
-    """The 1927 monitor-top icebox: a rounded cabinet on splayed legs
-    with the compressor drum sitting proud on the lid, named for the
-    turret of the gunship Monitor. Four flats in this building never
-    replaced theirs, which is a fact about their tenants."""
-    body = "appliance"
-    for lx, ly in ((-0.25, -0.22), (0.25, -0.22), (-0.25, 0.22),
-                   (0.25, 0.22)):
-        F.cyl("chrome", lx, ly, 0.0, 0.20, 0.017, 0.013, 8)
-    rounded_body(F, body, -0.29, -0.26, 0.29, 0.26, 0.20, 1.32, 0.05)
-    # Cabinet only - the door belongs to the prop, same as the range and
-    # the 1950s cabinet next door. What stays is the porcelain liner and
-    # the two wire shelves, because an icebox this old is mostly liner.
-    F.box("enamel", -0.245, 0.10, 0.27, 0.245, 0.262, 1.27)
-    F.box("enamel", -0.245, -0.22, 0.27, -0.220, 0.262, 1.27)
-    F.box("enamel", 0.220, -0.22, 0.27, 0.245, 0.262, 1.27)
-    F.box("enamel", -0.245, -0.22, 0.27, 0.245, 0.262, 0.31)
-    F.box("enamel", -0.245, -0.22, 1.23, 0.245, 0.262, 1.27)
-    for sz in (0.66, 0.98):
-        for i in range(6):
-            gx = -0.21 + i * 0.084
-            F.tube("chrome", (gx, -0.20, sz), (gx, 0.24, sz), 0.005, 4)
-        F.tube("chrome", (-0.22, -0.17, sz), (0.22, -0.17, sz), 0.006, 4)
-    # the little chill box under the drum, frosted solid since the war
-    F.box("enamel", -0.20, -0.20, 1.12, 0.20, 0.24, 1.16)
-    # the monitor: compressor drum and cooling fins on the lid
-    F.cyl(body, 0.0, 0.0, 1.32, 1.40, 0.235, 0.235, 16)
-    F.cyl("metal", 0.0, 0.0, 1.40, 1.60, 0.205, 0.205, 16)
-    for fz in (1.44, 1.49, 1.54):
-        F.cyl("metal", 0.0, 0.0, fz, fz + 0.012, 0.225, 0.225, 16)
-    F.lathe("metal", 0.0, 0.0, [(0.205, 1.60), (0.16, 1.645),
-                                (0.05, 1.66)], 16)
-    F.hull(-0.29, -0.26, 0.0, 0.29, 0.29, 1.66)
-
-
-def asm_fridge50(F, p):
-    """Rounded-shoulder 1950s refrigerator spirit, latch and badge."""
-    F.box("soot", -0.30, -0.29, 0.0, 0.30, 0.29, 0.06)
-    # Rounded shoulders, not a stack of shrinking boxes: the sheer-look
-    # cabinet is one pressed shell with a real radius on every vertical
-    # edge and a domed crown.
-    rounded_body(F, "appliance", -0.33, -0.32, 0.33, 0.32, 0.06, 1.52,
-                 0.06)
-    rounded_body(F, "appliance", -0.315, -0.305, 0.315, 0.305, 1.52,
-                 1.60, 0.05)
-    rounded_body(F, "appliance", -0.285, -0.275, 0.285, 0.275, 1.60,
-                 1.66, 0.045)
-    F.lathe("appliance", 0.0, 0.0, [(0.23, 1.66), (0.20, 1.695),
-                                    (0.10, 1.71)], 14)
-    # NO DOOR HERE. The same division the range already uses: the
-    # assembly is the cabinet, and the prop spawned by the marker at this
-    # spot supplies everything that swings, lights or holds food. Baking
-    # a door into the floor mesh is what made seventeen of these inert.
-    #
-    # What the cabinet does provide is the mouth the door closes onto and
-    # the food liner behind it, because those never move.
-    F.box("enamel", -0.285, 0.10, 0.14, 0.285, 0.325, 1.46)
-    F.box("enamel", -0.285, -0.26, 0.14, -0.255, 0.325, 1.46)
-    F.box("enamel", 0.255, -0.26, 0.14, 0.285, 0.325, 1.46)
-    F.box("enamel", -0.285, -0.26, 0.14, 0.285, 0.325, 0.18)
-    F.box("enamel", -0.285, -0.26, 1.42, 0.285, 0.325, 1.46)
-    # wire shelves, and the crisper drawer under the lowest one
-    for sz in (0.62, 0.92, 1.18):
-        for i in range(7):
-            gx = -0.25 + i * 0.083
-            F.tube("chrome", (gx, -0.24, sz), (gx, 0.30, sz), 0.005, 4)
-        F.tube("chrome", (-0.26, -0.20, sz), (0.26, -0.20, sz), 0.006, 4)
-        F.tube("chrome", (-0.26, 0.26, sz), (0.26, 0.26, sz), 0.006, 4)
-    F.box("glassish", -0.25, -0.22, 0.24, 0.25, 0.30, 0.50)
-    F.box("enamel", -0.25, 0.295, 0.24, 0.25, 0.315, 0.50)
-    # the freezer box: its own little door, permanently ajar
-    F.box("enamel", -0.24, -0.24, 1.16, 0.24, 0.30, 1.20)
-    F.box("chrome", -0.22, 0.24, 1.20, 0.22, 0.27, 1.40)
-    for hz in (0.22, 1.34):
-        F.cyl("chrome", -0.315, 0.335, hz, hz + 0.05, 0.018, 0.018, 8)
-    F.hull(-0.33, -0.32, 0.0, 0.33, 0.36, 1.70)
-
-
 def asm_desk(F, p):
     """Mid-century writing desk: floating top, splayed legs, one drawer."""
     L = p.get("L", 1.40)
@@ -2832,8 +2754,7 @@ ASM = {
     "table_rect": asm_table_rect, "coffee": asm_coffee,
     "nightstand": asm_nightstand, "bed": asm_bed, "wardrobe": asm_wardrobe,
     "shelf": asm_shelf, "tv": asm_tv, "plant": asm_plant,
-    "kitchen": asm_kitchen, "stove": asm_stove, "fridge50": asm_fridge50,
-    "fridge_monitor": asm_fridge_monitor,
+    "kitchen": asm_kitchen, "stove": asm_stove,
     "desk": asm_desk, "plantable": asm_plantable,
     "workbench": asm_workbench, "toilet": asm_toilet,
     "sink_ped": asm_sink_ped, "shower": asm_shower, "switch": asm_switch,
