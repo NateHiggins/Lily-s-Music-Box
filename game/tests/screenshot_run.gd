@@ -195,6 +195,15 @@ const SHOTS := [
 	 "look": Vector3(-17.40, 1.35, 12.00), "overlay": false},
 	{"name": "b_70_druggist", "pos": Vector3(-16.10, 1.41, 10.90),
 	 "look": Vector3(-18.40, 1.15, 7.20), "overlay": false},
+	# THE CITY. Three views of the skyline the street wall became: from
+	# the roof looking over the parade, from the pavement looking up the
+	# setbacks, and from high and back where the whole block reads.
+	{"name": "b_71_skyline_roof", "pos": Vector3(-4.00, 21.60, -6.00),
+	 "look": Vector3(2.00, 16.00, 30.00), "overlay": false},
+	{"name": "b_72_setbacks_up", "pos": Vector3(2.00, 1.70, 20.00),
+	 "look": Vector3(-6.00, 16.00, 33.00), "overlay": false},
+	{"name": "b_73_block_wide", "pos": Vector3(46.00, 38.00, 62.00),
+	 "look": Vector3(-4.00, 12.00, 6.00), "overlay": false},
 	# The two routes a resident actually has to walk, from eye height at
 	# the Orison's own front door: south across the road to the bar, and
 	# east along the walk to the bodega.

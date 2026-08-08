@@ -3036,44 +3036,98 @@ ROAD_MID = (KERB_N + KERB_S) * 0.5
 ## Street-wall blocks: (id, rect, height). Heights step irregularly, since
 ## a row of equal parapets reads as one extruded shape rather than as
 ## separate buildings put up in different decades.
+## Buildings, not blocks. Every entry now carries a STYLE as well, which
+## picks its base stone, its brick and its cornice metal — a street where
+## every mass is the same red brick reads as one extrusion however well
+## it is stepped.
+##
+## The south side is not listed here: it is GENERATED, one building per
+## shop, by _south_street_wall(). sw1/nbr_s1/nbr_s3/se1 are gone with the
+## placeholder they were.
 CITY_BLOCKS = [
     # north side (our side), running west from the Orison
-    ("nbr_w", (-19.6, -12.0, -15.2, 12.0), 12.8),
-    ("nw1", (-27.4, -14.2, -20.2, 11.0), 16.4),
-    ("nw2", (-36.0, -14.2, -28.0, 9.5), 10.9),
-    ("nw3", (-47.5, -14.2, -36.6, 12.0), 19.2),
-    ("nw4", (-58.0, -14.2, -48.1, 10.0), 13.6),
+    ("nbr_w", (-19.6, -12.0, -15.2, 12.0), 12.8, "brick"),
+    ("nw1", (-27.4, -14.2, -20.2, 11.0), 16.4, "limestone"),
+    ("nw2", (-36.0, -14.2, -28.0, 9.5), 10.9, "buff"),
+    ("nw3", (-47.5, -14.2, -36.6, 12.0), 19.2, "brick"),
+    ("nw4", (-58.0, -14.2, -48.1, 10.0), 13.6, "sooted"),
     # north side, running east
-    ("nbr_e", (15.2, -12.0, 19.6, 12.0), 12.8),
-    ("ne1", (20.2, -14.2, 28.8, 11.5), 14.7),
-    ("ne2", (29.4, -14.2, 37.0, 9.0), 21.5),
-    ("ne3", (37.6, -14.2, 48.4, 12.0), 11.2),
-    ("ne4", (49.0, -14.2, 58.0, 10.5), 17.8),
-    # south side of the street, opposite
-    # South side. Faces all sit on BLDG_S; depths vary because a real
-    # block is not one slab, and these are deep enough now to read as
-    # buildings from the roof rather than as a row of flats.
-    # nbr_s1 gives up 5.2 m of its east end so the Harukiya's block can
-    # grow west. Both are scenery above the ground floor; only nbr_s2
-    # has a playable interior, and that interior was too small to walk
-    # around in.
-    ("nbr_s1", (-20.0, -39.0, -12.2, -28.32), 10.4),
-    ("nbr_s2", (-12.0, -38.2, 6.4, -28.32), 15.8),
-    ("nbr_s3", (7.8, -37.6, 20.0, -28.32), 8.6),
-    ("sw1", (-33.0, -39.4, -20.6, -28.32), 14.2),
-    ("sw2", (-46.0, -38.0, -33.6, -28.32), 9.8),
-    ("sw3", (-58.0, -40.4, -46.6, -28.32), 18.5),
-    ("se1", (20.6, -38.6, 32.0, -28.32), 12.6),
-    ("se2", (32.6, -39.8, 44.5, -28.32), 20.4),
-    ("se3", (45.1, -37.4, 58.0, -28.32), 10.2),
+    ("nbr_e", (15.2, -12.0, 19.6, 12.0), 12.8, "brick"),
+    ("ne1", (20.2, -14.2, 28.8, 11.5), 14.7, "buff"),
+    ("ne2", (29.4, -14.2, 37.0, 9.0), 21.5, "limestone"),
+    ("ne3", (37.6, -14.2, 48.4, 12.0), 11.2, "sooted"),
+    ("ne4", (49.0, -14.2, 58.0, 10.5), 17.8, "brick"),
+    # The Harukiya's block keeps its id: retail_pass owns its ground
+    # floor and the bar's stair is cut through it.
+    ("nbr_s2", (-12.0, -38.2, 6.4, -28.32), 15.8, "sooted"),
+    # The far ends of the parade, past the last shop either way.
+    ("sw2", (-46.0, -38.0, -33.6, -28.32), 9.8, "buff"),
+    ("sw3", (-58.0, -40.4, -46.6, -28.32), 18.5, "limestone"),
+    ("se2", (32.6, -39.8, 44.5, -28.32), 20.4, "brick"),
+    ("se3", (45.1, -37.4, 58.0, -28.32), 10.2, "sooted"),
     # the vista stops: masses across both ends of the street, as if the
     # road bends behind them. Without these you see sky down the pavement.
-    ("end_w", (-62.0, -40.4, -58.6, 14.0), 24.6),
-    ("end_e", (58.6, -40.4, 62.0, 14.0), 22.3),
+    ("end_w", (-62.0, -40.4, -58.6, 14.0), 24.6, "limestone"),
+    ("end_e", (58.6, -40.4, 62.0, 14.0), 22.3, "limestone"),
     # behind the alley
-    ("back_w", (-30.0, 18.1, -12.0, 24.5), 15.4),
-    ("back_e", (12.0, 18.1, 31.0, 24.5), 18.9),
+    ("back_w", (-30.0, 18.1, -12.0, 24.5), 15.4, "sooted"),
+    ("back_e", (12.0, 18.1, 31.0, 24.5), 18.9, "buff"),
 ]
+
+
+def _south_street_wall():
+    """The parade, as separate buildings — one per shop, plus fillers.
+
+    Tiled west to east so there is no gap for the eye to fall through,
+    with each shop's host getting its own depth, storey count and stone.
+    A terrace is a row of buildings pretending to be one; this is where
+    the pretending stops being a lie.
+
+    Seeded, and the seed is fixed: a regeneration must not reshuffle a
+    skyline somebody has learned to navigate by.
+    """
+    rs = random.Random(19270)
+    hosts = []
+    for x0, x1, name, trade, _a, _b, _u in SHOPS:
+        tag = "".join(c if c.isalnum() else "_"
+                      for c in name.lower()).strip("_")
+        if SHOP_BLOCK.get(trade) != "shop_%s" % tag:
+            continue          # the diner is inside the Harukiya's mass
+        hosts.append([x0, x1, "shop_%s" % tag, trade])
+    hosts.sort()
+    # Close the small joints by growing the neighbour rather than by
+    # emitting a 200 mm sliver: a party wall IS the joint.
+    for i in range(len(hosts) - 1):
+        gap = hosts[i + 1][0] - hosts[i][1]
+        if 0.0 < gap < 1.0:
+            hosts[i][1] += gap * 0.5
+            hosts[i + 1][0] -= gap * 0.5
+    out = []
+    for x0, x1, bid, trade in hosts:
+        sales = SHOP_PLAN.get(trade, (6.0, 0))[0]
+        # Back-of-house behind the sales floor: the yard, the stair to
+        # the flat above, the WC nobody models. It only has to be deeper
+        # than the shop so the shop is never the whole building.
+        depth = sales + rs.uniform(2.6, 5.4)
+        storeys = rs.choice((2, 3, 3, 4, 4, 5, 6))
+        hgt = 6.4 + storeys * 3.35 + rs.uniform(-0.5, 0.9)
+        style = rs.choice(("brick", "brick", "buff", "sooted", "limestone"))
+        out.append((bid, (x0, SHOP_FACE - depth, x1, SHOP_FACE),
+                    round(hgt, 2), style))
+    # Fillers for the two real gaps in the row: between the last shop and
+    # the Harukiya's block either side. Without them you see straight
+    # through the terrace into the site's black.
+    for i in range(len(hosts) - 1):
+        gap0, gap1 = hosts[i][1], hosts[i + 1][0]
+        if gap1 - gap0 < 1.0:
+            continue
+        out.append(("fill_%d" % i,
+                    (gap0, SHOP_FACE - rs.uniform(7.5, 11.0), gap1,
+                     SHOP_FACE), round(9.0 + rs.uniform(0, 9.5), 2),
+                    rs.choice(("sooted", "buff", "brick"))))
+    return out
+
+
 
 ## A second ring, further out and much taller. The street-wall row above
 ## closes the view at pavement level, but the roof is walkable and the
@@ -3091,6 +3145,230 @@ FAR_SKYLINE = [
     ("far_sw", (-88.0, -62.0, -54.0, -38.0), 31.0),
     ("far_w", (-108.0, -20.0, -78.0, 18.0), 36.5),
 ]
+
+
+## ===================== THE CITY, BUILT PROPERLY ====================
+##
+## What was here before was placeholder and said so: one extruded box per
+## block, a parapet lip, and a scatter of lit rectangles. It closed the
+## sightlines and did nothing else. This is the replacement, and every
+## rule in it is a real 1920s New York fact before it is a stylistic one.
+##
+## THE 1916 ZONING RESOLUTION is the single most important of them and
+## the reason a New York skyline of this decade cannot be drawn with
+## rectangles. Passed after the Equitable Building threw a seven-acre
+## shadow across lower Manhattan in 1915, it defined a SKY EXPOSURE
+## PLANE: a building could rise sheer at the street line only to a height
+## set by the width of the street it faced, and above that it had to step
+## back inside an inclined plane, over and over, as it climbed. A tower
+## could go up unrestricted only on a quarter of its lot. That one law
+## produced the wedding-cake silhouette that IS New York between the wars
+## — every ziggurat setback, every terrace, every stepped crown. A 1927
+## street of flat-topped extrusions is not a stylised New York; it is a
+## different city.
+##
+## Under it, the classical tripartite block: a BASE of two or three
+## storeys in limestone or cast stone (the part a person touches), a
+## plain brick SHAFT, and an ornamented CROWN. Sheet-metal cornices at
+## the base line and at every setback. And on the roof, the two things
+## every photograph of this city has in it and no render ever remembers:
+## a timber water tank on a steel frame (street pressure will not lift
+## water past about six storeys) and the brick BULKHEAD over the stair.
+##
+## AND THEN THE DIVERGENCE. Bible VIII.2: signal technology ran forty to
+## sixty years ahead and nothing else moved at all. Forty years past 1927
+## is the microwave relay era — so the roofs of this city carry parabolic
+## reflectors, horn feeds, guyed lattice masts and beacon lamps, built in
+## the only materials this world has (VIII.4: no aluminium, no stainless
+## — riveted steel, copper, brass, ceramic and glass). The skyline is
+## 1927 masonry wearing 1967 antennas.
+##
+## The street is strung with it too. Where our cities run power overhead,
+## this one runs SIGNAL: trunk catenaries on insulator racks, crossing
+## from parapet to parapet, sagging over the roadway. Vantry & Co. built
+## the Orison as a demonstration (VIII.3) and they built the network it
+## demonstrates; you can see it from every window in the game.
+CITY_STYLES = {
+    #            base ht  base stone     shaft brick     cornice
+    "limestone": (7.4, "limestone", "limestone", "bronze"),
+    "brick":     (6.8, "limestone", "common_brick", "bronze"),
+    "buff":      (6.2, "concrete", "face_brick", "metal"),
+    "sooted":    (5.6, "concrete", "brick_patched", "soot"),
+    "plain":     (4.8, "concrete", "common_brick", "metal"),
+}
+## How much height a building gets before it must step back, and how far
+## in each step goes. Real sky-exposure geometry is an inclined plane
+## against a lot line; this is that law's SHAPE at the fidelity a scenery
+## block needs — step in, carry a cornice at every step, and let the
+## stages shorten as they climb, which is what the plane actually does.
+SETBACK_RISE, SETBACK_IN = 9.5, 1.15
+
+
+def _roof_rig(fb, pipe, rng, bid, rect, top, tall):
+    """The signal farm on one roof. Bible VIII.2, in steel and copper.
+
+    Not decoration: this is the network the whole game runs on made
+    visible. A player who never reads a word of the bible should be able
+    to look out of any window and see that this city listens.
+    """
+    x0, y0, x1, y1 = rect
+    cx, cy = (x0 + x1) * 0.5, (y0 + y1) * 0.5
+    w, d = x1 - x0, y1 - y0
+    # THE MAST. Riveted lattice, guyed to the parapet on three sides —
+    # a free-standing tube this slender would not stand, and the guys
+    # are most of what reads at distance anyway.
+    mh = rng.uniform(6.0, 11.0) if tall else rng.uniform(3.4, 5.6)
+    mx = cx + rng.uniform(-w * 0.22, w * 0.22)
+    my = cy + rng.uniform(-d * 0.22, d * 0.22)
+    pipe("%s_mast" % bid, (mx, my, top), (mx, my, top + mh), 0.055)
+    for gi in range(3):
+        ga = rng.uniform(0, 6.28) + gi * 2.094
+        gx = mx + math.cos(ga) * min(w, d) * 0.40
+        gy = my + math.sin(ga) * min(w, d) * 0.40
+        pipe("%s_guy%d" % (bid, gi), (mx, my, top + mh * 0.82),
+             (gx, gy, top + 0.25), 0.012)
+    # THE BEACON. Red, at the top of anything tall enough to be flown
+    # into. It is also the only warm point on a dark roof, which is what
+    # makes a skyline read as inhabited rather than as a cut-out.
+    if tall:
+        fb("%s_beacon" % bid, (mx - 0.13, my - 0.13, mx + 0.13, my + 0.13),
+           top + mh, 0.22, "lacquer_red")
+    # THE T-AERIAL. Two spreaders and a flat top wire with a downlead —
+    # the classic long-wave antenna, and the oldest-looking thing up
+    # here. Strung the long way across the roof.
+    if w > 5.0:
+        ay = cy + rng.uniform(-d * 0.3, d * 0.3)
+        sx0, sx1 = x0 + 0.8, x1 - 0.8
+        for si, sx in ((0, sx0), (1, sx1)):
+            pipe("%s_spread%d" % (bid, si), (sx, ay, top),
+                 (sx, ay, top + 2.6), 0.032)
+        pipe("%s_flattop" % bid, (sx0, ay, top + 2.55),
+             (sx1, ay, top + 2.55), 0.014)
+        pipe("%s_downlead" % bid, ((sx0 + sx1) * 0.5, ay, top + 2.55),
+             ((sx0 + sx1) * 0.5, ay, top + 0.3), 0.012)
+    # THE DISH. A parabolic reflector on a steel yoke, aimed at another
+    # roof. This is the anachronism doing the heavy lifting — a 1960s
+    # object, in 1927, made of spun copper because there is no aluminium
+    # to make it out of.
+    if tall and rng.random() < 0.72:
+        da = rng.uniform(0, 6.28)
+        dx = cx + math.cos(da) * w * 0.30
+        dy = cy + math.sin(da) * d * 0.30
+        dz = top + rng.uniform(1.5, 3.0)
+        pipe("%s_dishpost" % bid, (dx, dy, top), (dx, dy, dz), 0.048)
+        r = rng.uniform(0.55, 0.95)
+        pipe("%s_dish" % bid, (dx, dy, dz), (dx + math.cos(da) * 0.22,
+             dy + math.sin(da) * 0.22, dz), r, "bronze")
+        # the feed on its tripod arm, out at the focus
+        pipe("%s_feed" % bid, (dx, dy, dz),
+             (dx + math.cos(da) * (0.22 + r * 0.55),
+              dy + math.sin(da) * (0.22 + r * 0.55), dz), 0.05, "brass_dull")
+    # THE RELAY HUT. Vantry & Co. plant: a brick shed with a louvre and
+    # a cable gland, on about a third of the roofs. The firm stopped
+    # existing in 1924 and the huts are all still humming.
+    if rng.random() < 0.34 and w > 4.0 and d > 4.0:
+        hx = x0 + rng.uniform(0.9, max(1.0, w - 2.4))
+        hy = y0 + rng.uniform(0.9, max(1.0, d - 2.4))
+        fb("%s_hut" % bid, (hx, hy, hx + 1.5, hy + 1.3), top, 1.9,
+           "common_brick")
+        fb("%s_hut_lv" % bid, (hx + 0.25, hy - 0.04, hx + 1.25, hy + 0.02),
+           top + 1.05, 0.55, "brass_mesh")
+        fb("%s_hut_cap" % bid, (hx - 0.1, hy - 0.1, hx + 1.6, hy + 1.4),
+           top + 1.9, 0.09, "metal")
+
+
+def _city_building(fb, pipe, lights, rng, wins, bid, rect, hgt,
+                   style="brick", min_z=0.0, holes=()):
+    """One New York building: base, setback shaft, crown, roof, aerials.
+
+    `holes` are ground-floor voids (a shop's sales floor) subtracted from
+    the base band only — the mass above sits on the brick between them,
+    which is how a real terrace of shops carries the storeys over it.
+    """
+    x0, y0, x1, y1 = rect
+    base_h, base_mat, shaft_mat, corn_mat = CITY_STYLES.get(
+        style, CITY_STYLES["brick"])
+    base_h = min(base_h, hgt - 0.6) if hgt > 2.0 else hgt
+    # ---- the base, minus whatever trades out of its ground floor
+    band = [rect]
+    for hole in holes:
+        nxt = []
+        for r in band:
+            nxt += subtract_rect([r], hole)
+        band = nxt
+    for i, r in enumerate(band):
+        fb("%s_base%d" % (bid, i), r, min_z, base_h - min_z, base_mat)
+    if min_z > 0.0:
+        # a hollowed ground floor still needs its own soffit to stand on
+        fb("%s_soffit" % bid, rect, min_z - 0.22, 0.22, base_mat)
+    fb("%s_bcorn" % bid, (x0 - 0.20, y0 - 0.20, x1 + 0.20, y1 + 0.20),
+       base_h, 0.34, corn_mat)
+    # ---- the shaft, stepping back under the sky exposure plane
+    z = base_h + 0.34
+    inset = 0.0
+    rise = SETBACK_RISE
+    stage = 0
+    while z < hgt - 0.3 and stage < 5:
+        top = min(hgt, z + rise)
+        lim = min(x1 - x0, y1 - y0) * 0.5 - 1.2
+        inset = min(inset, max(0.0, lim))
+        sx0, sy0 = x0 + inset, y0 + inset
+        sx1, sy1 = x1 - inset, y1 - inset
+        if sx1 - sx0 < 2.4 or sy1 - sy0 < 2.4:
+            break
+        fb("%s_s%d" % (bid, stage), (sx0, sy0, sx1, sy1), z, top - z,
+           shaft_mat)
+        # A cornice at every setback, which is what makes the steps read
+        # as architecture rather than as a stack of boxes.
+        fb("%s_c%d" % (bid, stage),
+           (sx0 - 0.16, sy0 - 0.16, sx1 + 0.16, sy1 + 0.16), top, 0.26,
+           corn_mat)
+        wins.append(((sx0, sy0, sx1, sy1), z, top))
+        z = top + 0.26
+        inset += SETBACK_IN
+        rise *= 0.86
+        stage += 1
+    # ---- the crown: parapet, stair bulkhead, and the water tank
+    lim = min(x1 - x0, y1 - y0) * 0.5 - 1.2
+    fin = min(max(0.0, inset - SETBACK_IN), max(0.0, lim))
+    tx0, ty0, tx1, ty1 = x0 + fin, y0 + fin, x1 - fin, y1 - fin
+    top = max(z, base_h + 0.34)
+    for tag, pr in (("n", (tx0 - 0.1, ty1 - 0.18, tx1 + 0.1, ty1 + 0.1)),
+                    ("s", (tx0 - 0.1, ty0 - 0.1, tx1 + 0.1, ty0 + 0.18)),
+                    ("w", (tx0 - 0.1, ty0, tx0 + 0.18, ty1)),
+                    ("e", (tx1 - 0.18, ty0, tx1 + 0.1, ty1))):
+        fb("%s_par_%s" % (bid, tag), pr, top, 0.62, corn_mat)
+    tw, td = tx1 - tx0, ty1 - ty0
+    if tw > 3.4 and td > 3.4:
+        bx = tx0 + tw * rng.uniform(0.18, 0.55)
+        by = ty0 + td * rng.uniform(0.18, 0.55)
+        fb("%s_bulk" % bid, (bx, by, bx + 2.1, by + 1.7), top, 2.5,
+           shaft_mat)
+        fb("%s_bulk_c" % bid, (bx - 0.12, by - 0.12, bx + 2.22, by + 1.82),
+           top + 2.5, 0.16, corn_mat)
+    # THE WATER TANK, and it is not optional in this city. Street mains
+    # will not lift water past about six storeys, so every building over
+    # roughly that height keeps a timber stave tank on a steel frame, and
+    # its silhouette is the most recognisable object on any New York
+    # roof. A skyline without them is a skyline of somewhere else.
+    if hgt > 17.0 and tw > 3.0 and td > 3.0:
+        wx = tx1 - tw * rng.uniform(0.22, 0.40)
+        wy = ty0 + td * rng.uniform(0.22, 0.55)
+        legs, tr = 3.0, rng.uniform(1.15, 1.55)
+        for lx, ly in ((-1, -1), (-1, 1), (1, -1), (1, 1)):
+            pipe("%s_wleg%d%d" % (bid, lx, ly),
+                 (wx + lx * tr * 0.64, wy + ly * tr * 0.64, top),
+                 (wx + lx * tr * 0.64, wy + ly * tr * 0.64, top + legs),
+                 0.055)
+        pipe("%s_wtank" % bid, (wx, wy, top + legs),
+             (wx, wy, top + legs + tr * 1.75), tr, "timber")
+        pipe("%s_wband" % bid, (wx, wy, top + legs + tr * 0.55),
+             (wx, wy, top + legs + tr * 0.70), tr + 0.03, "metal")
+        pipe("%s_wcone" % bid, (wx, wy, top + legs + tr * 1.75),
+             (wx, wy, top + legs + tr * 2.05), tr * 0.72, "metal")
+    _roof_rig(fb, pipe, rng, bid, (tx0, ty0, tx1, ty1), top + 0.62,
+              hgt > 15.0)
+    return (tx0, ty0, tx1, ty1), top
 
 
 def subtract_rect(rects, hole):
@@ -3241,14 +3519,32 @@ SHOP_LETTER = {
     "hardware": [0.62, 0.80, 0.58], "photo": [0.82, 0.78, 0.90],
     "druggist": [0.74, 0.90, 0.88],
 }
+## EVERY SHOP IS ITS OWN BUILDING NOW. It used to be that four long
+## scenery slabs (sw1, nbr_s1, nbr_s3, se1) each carried two or three
+## shops, and a shop's interior was a hole subtracted out of a shared
+## mass — which is why the diner needed a second hole cut in the
+## Harukiya's infill and why every shop on a slab had to share one
+## height, one depth and one brick. A terrace of shops is a row of
+## separate buildings pretending to be one; the pretending is done at
+## the cornice line, not in the plan. So the south street wall is
+## generated one building per shop (see _south_street_wall), each with
+## its own footprint, storey count and stone, and a shop's void is now
+## simply its own building's ground floor.
+##
+## The two that keep their old block are the ones whose ground floor
+## belongs to somebody else already: the diner sits in the Harukiya's
+## mass and the druggist in nbr_w beside the Orison.
 SHOP_BLOCK = {
-    "laundry": "sw1", "cobbler": "sw1",
-    "locksmith": "nbr_s1", "radio": "nbr_s1",
     "diner": "nbr_s2",
-    "news": "nbr_s3", "pawn": "nbr_s3", "funeral": "nbr_s3",
-    "hardware": "se1", "photo": "se1",
     "druggist": "nbr_w",
 }
+for _x0, _x1, _nm, _tr, _a, _b, _u in SHOPS:
+    SHOP_BLOCK.setdefault(_tr, "shop_%s" % "".join(
+        c if c.isalnum() else "_" for c in _nm.lower()).strip("_"))
+
+## Appended here rather than at the table, because the generator reads
+## SHOPS, SHOP_PLAN and SHOP_BLOCK and all three are defined below it.
+CITY_BLOCKS += _south_street_wall()
 
 
 def shop_voids():
@@ -4043,6 +4339,19 @@ def site_pass(fl):
         e.update(kw)
         furn.append(e)
 
+    def pipe(bid, p0, p1, r, mat="metal"):
+        # Masts, guys, water-tank legs and the trunk cables. Everything
+        # on a roof that is a line rather than a box.
+        furn.append({"id": "site_" + bid, "asm": "pipe",
+                     "at": [p0[0], p0[1]], "yaw": 0, "mat": mat,
+                     "p0": list(p0), "p1": list(p1), "r": r})
+
+    ## Where each finished stage wants its lit windows. Collected as the
+    ## masses are built and drawn afterwards, because a setback's windows
+    ## belong to the stage's OWN rect — painted on the base footprint they
+    ## hang in the air beside a building that has stepped away from them.
+    wins = []
+
     # The road surface is laid AROUND the building, never under it. As one
     # slab it ran clean through the footprint 20 mm below the lobby floor,
     # which put a 220 x 148 m lid over the atrium well and the whole
@@ -4172,43 +4481,86 @@ def site_pass(fl):
     # Two blocks carry playable retail in their ground floor, so their
     # mass starts above it; retail_pass() supplies the shell below.
     HOLLOW = {"nbr_e": 3.55, "nbr_s2": 3.55}
-    # THE SHOPS GET SOMEWHERE TO BE. Until now the ten storefronts on the
-    # south side were a facade in front of a solid brick block: glass,
-    # sign band, awning and a lit linen panel faking a room behind. This
-    # cuts each shop's floor plan out of its block's ground band and
-    # leaves the mass above sitting on the brick between them, which is
-    # how a real terrace of shops is built and also the only way to get
-    # an interior without moving the street.
+    # Each shop's sales floor is a hole in its host building's ground
+    # floor. On the south side the host IS the shop's own building now,
+    # so the hole is simply that building's ground storey; the two that
+    # share a mass with somebody else (the diner in the Harukiya, the
+    # druggist in nbr_w) are the only ones still genuinely subtracting.
     voids = {}
     for block_id, rect in shop_voids():
         voids.setdefault(block_id, []).append(rect)
-    for bid, rect, hgt in CITY_BLOCKS:
-        gz = HOLLOW.get(bid, 0.0)
-        if bid in voids:
-            band = [rect]
-            for hole in voids[bid]:
-                nxt = []
-                for r in band:
-                    nxt += subtract_rect([r], hole)
-                band = nxt
-            for i, r in enumerate(band):
-                fb("%s_gnd%d" % (bid, i), r, gz, SHOP_H - gz, "common_brick")
-            fb(bid, rect, SHOP_H, hgt - SHOP_H, "common_brick")
-            continue
-        fb(bid, rect, gz, hgt - gz, "common_brick")
-        # a parapet lip catches the moon and stops every roof reading as a
-        # clean extrusion
-        x0, y0, x1, y1 = rect
-        fb(bid + "_cap", (x0 - 0.12, y0 - 0.12, x1 + 0.12, y1 + 0.12),
-           hgt, 0.34, "limestone")
-        _city_windows(fb, lights, rng, bid, rect, hgt,
-                      min_z=HOLLOW.get(bid, 0.0))
+    # Every roof's finished top, kept so the trunk cables can be strung
+    # between real parapets rather than at a guessed height.
+    roofs = {}
+    for bid, rect, hgt, style in CITY_BLOCKS:
+        top_rect, top_z = _city_building(
+            fb, pipe, lights, rng, wins, bid, rect, hgt, style,
+            min_z=HOLLOW.get(bid, 0.0), holes=voids.get(bid, ()))
+        roofs[bid] = (top_rect, top_z)
+    for rect, z0, z1 in wins:
+        _city_windows(fb, lights, rng, "st", rect, z1, min_z=z0)
+    wins.clear()
 
+    # ---- THE TRUNK ROUTE, and this is the thing that makes it a radio
+    # punk city rather than a 1927 one. Where our streets are strung with
+    # power, this one is strung with SIGNAL: Vantry & Co. trunk cable on
+    # insulator racks, parapet to parapet, sagging over the roadway. It
+    # is the network the whole game runs on, drawn where a player cannot
+    # help seeing it. Bible VIII.3 — the firm stopped existing in 1924
+    # and none of this has been touched since.
+    #
+    # Sagged as three chords rather than a curve, because at this
+    # distance a catenary and a three-segment polyline are the same
+    # picture and one of them is nine vertices.
+    for i, (nb, sb) in enumerate((("nw1", "shop_shoe_rebuilding"),
+                                  ("nbr_w", "shop_keys_cut"),
+                                  ("nbr_e", "shop_pawnbroker"),
+                                  ("ne1", "shop_hardware_paint"))):
+        if nb not in roofs or sb not in roofs:
+            continue
+        (nr, nz), (sr, sz) = roofs[nb], roofs[sb]
+        nx = (nr[0] + nr[2]) * 0.5
+        sx = (sr[0] + sr[2]) * 0.5
+        n_y, s_y = nr[1] - 0.2, sr[3] + 0.2
+        for k in range(3):
+            # A rack of three cables, spaced on the insulator crossarm.
+            off = (k - 1) * 0.34
+            ax, ay, az = nx + off, n_y, nz + 1.15
+            bx_, by_, bz = sx + off, s_y, sz + 1.15
+            sag = 2.4 + k * 0.12
+            mid = ((ax + bx_) * 0.5, (ay + by_) * 0.5,
+                   (az + bz) * 0.5 - sag)
+            q1 = ((ax + mid[0]) * 0.5, (ay + mid[1]) * 0.5,
+                  (az + mid[2]) * 0.5 - sag * 0.28)
+            q3 = ((bx_ + mid[0]) * 0.5, (by_ + mid[1]) * 0.5,
+                  (bz + mid[2]) * 0.5 - sag * 0.28)
+            for j, (p, q) in enumerate((((ax, ay, az), q1), (q1, mid),
+                                        (mid, q3), (q3, (bx_, by_, bz)))):
+                pipe("trunk%d_%d_%d" % (i, k, j), p, q, 0.020)
+        # The rack itself, both ends: a crossarm on a post with three
+        # insulators, which is what a cable of this weight terminates on.
+        for tag, (rx, ry, rz) in (("n", (nx, n_y, nz)), ("s", (sx, s_y, sz))):
+            pipe("trunkpost%d_%s" % (i, tag), (rx, ry, rz),
+                 (rx, ry, rz + 1.30), 0.06)
+            pipe("trunkarm%d_%s" % (i, tag), (rx - 0.52, ry, rz + 1.15),
+                 (rx + 0.52, ry, rz + 1.15), 0.045)
+            for k in range(3):
+                ix = rx + (k - 1) * 0.34
+                pipe("trunkins%d_%s%d" % (i, tag, k), (ix, ry, rz + 1.15),
+                     (ix, ry, rz + 1.30), 0.075, "milk_glass")
+
+    # THE FAR RING gets the same law. These are never approached, so they
+    # were single boxes with a cap — which is exactly the silhouette the
+    # 1916 resolution makes impossible, and the silhouette is the ONLY
+    # thing they contribute. Stepped, crowned and masted, they are the
+    # skyline; flat, they are a wall with windows painted on it.
     for bid, rect, hgt in FAR_SKYLINE:
-        fb(bid, rect, 0.0, hgt, "common_brick")
-        fb(bid + "_cap", (rect[0] - 0.3, rect[1] - 0.3, rect[2] + 0.3,
-           rect[3] + 0.3), hgt, 0.7, "limestone")
-        _city_windows(fb, lights, rng, bid, rect, hgt, storey=3.8)
+        _city_building(fb, pipe, lights, rng, wins, bid, rect, hgt,
+                       "limestone" if hgt > 40.0 else "brick")
+    for rect, z0, z1 in wins:
+        _city_windows(fb, lights, rng, "far", rect, z1, storey=3.8,
+                      min_z=z0)
+    wins.clear()
 
     _street_furniture(fb, rng)
 
