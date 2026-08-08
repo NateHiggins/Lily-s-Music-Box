@@ -129,6 +129,15 @@ func _ready() -> void:
 		_pose_fridges(root, String(fp[0]),
 				String(fp[1]) if fp.size() > 1 else "open")
 		await get_tree().create_timer(0.08).timeout
+	# SHOT_STOVE_POSE="2B:service" proves the interactive parts on an
+	# installed range. A source file cannot show whether the oven falls into
+	# the refrigerator or whether the lifted grate merely floats in space.
+	var stove_pose := OS.get_environment("SHOT_STOVE_POSE")
+	if stove_pose != "":
+		var sp := stove_pose.split(":")
+		_pose_stoves(root, String(sp[0]),
+				String(sp[1]) if sp.size() > 1 else "open")
+		await get_tree().create_timer(0.08).timeout
 	_lights_on = OS.get_environment("SHOT_LIGHTS") == "1"
 	var rooms := OS.get_environment("SHOT_ROOMS")
 	if rooms != "":
@@ -157,6 +166,20 @@ func _pose_fridges(node: Node, wanted_unit: String, pose: String) -> void:
 				fridge.set_ice_door_open(true, 0.01)
 	for child in node.get_children():
 		_pose_fridges(child, wanted_unit, pose)
+
+
+func _pose_stoves(node: Node, wanted_unit: String, pose: String) -> void:
+	if node is StoveProp:
+		var stove := node as StoveProp
+		if wanted_unit == "*" or stove.unit == wanted_unit:
+			if pose.contains("open") or pose.contains("door"):
+				stove.set_door_open(true, 0.01)
+			if pose.contains("service"):
+				stove.set_service_pose(0)
+			if pose.contains("lit"):
+				stove.set_burner_lit(1, true, 0.01, true)
+	for child in node.get_children():
+		_pose_stoves(child, wanted_unit, pose)
 
 
 ## Every room's rectangle, by id, in plan coordinates.

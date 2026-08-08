@@ -1383,49 +1383,6 @@ def asm_kitchen(F, p):
     F.hull(-cw / 2, -0.32, 0.0, -cw / 2 + cw, 0.32, 0.92)
 
 
-def asm_stove(F, p):
-    """1940s enamel-range spirit: clock panel, towel-rail door, knob row.
-
-    ORIENTATION (fixed 2026-08-05): the range was installed BACKWARDS.
-    asm_kitchen puts its door fronts and finger pulls at +y, and the
-    stove shares the cabinetry's yaw - but the stove's front was at -y,
-    so every range in the building faced the wall and presented its
-    backsplash to the room. The 34.5 cm backsplash standing above the
-    counter is what read as an oven door of roughly twice the right
-    height. Front features are now at +y with the cabinets, and the
-    clock panel is at the back where it belongs.
-    """
-    F.box("enamel", -0.31, -0.30, 0.06, 0.31, 0.30, 0.86)
-    for fx, fy in ((-0.27, -0.26), (0.27, -0.26), (-0.27, 0.26),
-                   (0.27, 0.26)):
-        F.cyl("metal", fx, fy, 0.0, 0.06, 0.024, 0.030, 8)
-    F.box("appliance", -0.31, -0.30, 0.86, 0.31, 0.30, 0.895)
-    for bx, by in ((-0.15, -0.12), (0.15, -0.12), (-0.15, 0.14),
-                   (0.15, 0.14)):
-        F.cyl("soot", bx, by, 0.895, 0.905, 0.085, 0.085, 12)
-        F.lathe("metal", bx, by, [(0.088, 0.905), (0.095, 0.915),
-                                  (0.088, 0.92)], 12)
-    F.box("enamel", -0.31, -0.30, 0.895, 0.31, -0.24, 1.24)
-    F.cyl("appliance", 0.0, -0.268, 1.06, 1.075, 0.065, 0.065, 12)
-    F.lathe("brass", 0.0, -0.268, [(0.068, 1.055), (0.072, 1.075),
-                                   (0.065, 1.08)], 12)
-    for kx in (-0.24, -0.12, 0.0, 0.12, 0.24):
-        F.lathe("bakelite", kx, 0.315,
-                [(0.010, 0.80), (0.022, 0.82), (0.016, 0.835)], 8)
-    # The oven door is NOT baked here. It hangs on a hinge and has to
-    # move, so StoveProp draws it at the same coordinates (door 0.335 to
-    # 0.70, 36 cm on an 80 cm body) and swings it about its foot. What
-    # stays is the dark oven mouth behind it, which is what you should
-    # see when the door falls open.
-    F.box("soot", -0.265, 0.285, 0.335, 0.265, 0.300, 0.70)
-    # the reveal: a recessed shadow line so door and drawer read apart
-    F.box("soot", -0.275, 0.300, 0.300, 0.275, 0.312, 0.335)
-    # broiler drawer with a recessed pull
-    F.box("enamel", -0.275, 0.300, 0.115, 0.275, 0.318, 0.295)
-    F.box("soot", -0.10, 0.316, 0.185, 0.10, 0.321, 0.225)
-    F.hull(-0.31, -0.30, 0.0, 0.31, 0.36, 1.24)
-
-
 def rounded_body(F, mat, x0, y0, x1, y1, z0, z1, r=0.055, seg=10):
     """A box with genuinely rounded vertical edges.
 
@@ -2754,7 +2711,7 @@ ASM = {
     "table_rect": asm_table_rect, "coffee": asm_coffee,
     "nightstand": asm_nightstand, "bed": asm_bed, "wardrobe": asm_wardrobe,
     "shelf": asm_shelf, "tv": asm_tv, "plant": asm_plant,
-    "kitchen": asm_kitchen, "stove": asm_stove,
+    "kitchen": asm_kitchen,
     "desk": asm_desk, "plantable": asm_plantable,
     "workbench": asm_workbench, "toilet": asm_toilet,
     "sink_ped": asm_sink_ped, "shower": asm_shower, "switch": asm_switch,
@@ -3816,13 +3773,17 @@ def build_wear_decals(buf, fl):
             else:
                 wall_quad("fx_drip", (face, c + hw), (face, c - hw),
                           0.08, o["sill"] + 0.04)
-    for fu in fl.get("furniture", []):
-        if fu.get("asm") == "stove":
+    # The complete range is marker-built now. Grease stays a Blender decal
+    # because it belongs to the WALL behind the appliance, but its position
+    # follows the same marker as the runtime shell instead of a deleted
+    # furniture entry.
+    for m in fl.get("markers", []):
+        if m.get("kind") == "stove":
             import math as _m
-            a = _m.radians(fu.get("yaw", 0))
+            a = _m.radians(m.get("yaw_deg", 0))
             fx_, fy_ = -_m.sin(a), _m.cos(a)     # local +y in world
-            wx = fu["at"][0] - fx_ * 0.36
-            wy = fu["at"][1] - fy_ * 0.36
+            wx = m["pos"][0] - fx_ * 0.36
+            wy = m["pos"][1] - fy_ * 0.36
             half = (abs(fy_) * 0.45, abs(fx_) * 0.45)
             wall_quad("fx_grease", (wx - half[0], wy - half[1]),
                       (wx + half[0], wy + half[1]), 0.95, 1.90)

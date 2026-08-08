@@ -31,6 +31,19 @@ const SETS := {
 	"bakelite": ["T_library_appliances_bakelite_albedo.png",
 			"T_library_appliances_bakelite_rough.png",
 			"T_library_appliances_bakelite_normal.png", 0.35, 0.0],
+	# These two finishes existed in the Blender catalog before a complete
+	# range existed in GDScript. A catalog key without a runtime set is only
+	# a colour here: the cast grates lose their scale and the grease decal
+	# becomes an opaque brown card. Both are staged by the common ingest.
+	"cast_iron": ["T_ai_materials_cast_iron_albedo.png",
+			"T_ai_materials_cast_iron_rough.png",
+			"T_ai_materials_cast_iron_normal.png", 0.40, 0.35, 0.60],
+	# Seventh field = preserve the source alpha. The wear-grease plate is a
+	# placed deposit, not a repeating surface; alpha depth pre-pass keeps its
+	# soft edge while still letting the hob cast and receive honest shadows.
+	"fx_grease": ["T_ai_materials_fx_grease_albedo.png",
+			"T_ai_materials_fx_grease_rough.png",
+			"T_ai_materials_fx_grease_normal.png", 0.70, 0.0, 0.78, true],
 	"brass": ["T_library_metals_aged_brass_albedo.png",
 			"T_library_metals_aged_brass_rough.png",
 			"T_library_metals_aged_brass_normal.png", 0.5, 0.85],
@@ -129,6 +142,8 @@ static func get_mat(key: String, tint := Color.WHITE,
 	mat.normal_texture = load(TEX + spec[2])
 	mat.normal_scale = 0.35
 	mat.metallic = float(spec[4])
+	if spec.size() > 6 and bool(spec[6]):
+		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS
 	# world triplanar at physical scale: primitives tile like architecture
 	mat.uv1_triplanar = true
 	var s: float = 1.0 / (float(spec[3]) * scale_mult)

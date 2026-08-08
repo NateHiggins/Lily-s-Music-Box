@@ -677,6 +677,9 @@ func _spawn_props() -> void:
 			if prop is FridgeProp:
 				prop.unit = String(m.get("unit", ""))
 				prop.monitor_top = bool(m.get("monitor", false))
+			if prop is StoveProp:
+				prop.unit = String(m.get("unit", ""))
+				prop.ambient_lit = bool(m.get("ambient_lit", false))
 			# A fitting under the entrance marquee hangs off the facade,
 			# not off a storey ceiling. Carried through as a group so the
 			# "too low for its floor" audit can tell the difference
@@ -705,13 +708,14 @@ func _spawn_props() -> void:
 			# _ready() creates the Light3D children. Moving the prop afterward
 			# moved its mesh but left the rendered light pool at the origin.
 			prop.position = GameBoot.b2g(m["pos"])
-			# The complete refrigerator is authored with local -Z as its front,
+			# Complete appliances are authored with local -Z as their front,
 			# matching the room-facing vector used by the generator's clearance
 			# audit. Blender's +Z yaw therefore carries through with the same
 			# sign. Legacy marker props were authored around the old negation and
 			# keep it until each becomes the sole owner of its own geometry.
 			prop.rotation.y = deg_to_rad(float(m.get("yaw_deg", 0)) \
-					if prop is FridgeProp else -float(m.get("yaw_deg", 0)))
+					if prop is FridgeProp or prop is StoveProp \
+					else -float(m.get("yaw_deg", 0)))
 			add_child(prop)
 			count += 1
 	print("[BUILDING] %d functional props spawned" % count)

@@ -231,12 +231,23 @@ RECOLOR = {"rug_persian_worn": [("rug_cool", 150.0), ("rug_green", 90.0)]}
 # step somebody has to remember after every regeneration.
 GODOT_STAGE = ("brass_bright", "brass_dull", "bronze", "car_paint",
                "oak_quartered", "zinc_liner", "copper_aged",
+               "cast_iron", "fx_grease",
                "milk_glass", "bakelite_black", "terrazzo_dark",
                "brass_mesh", "indicator_enamel",
                # The shopfront signage is built in GDScript too
                # (harukiya_signage_prop.gd, bodega_signage_prop.gd).
                "sign_board", "chochin", "awning_vinyl")
 GODOT_TEX = os.path.join(ROOT, "game", "assets", "building", "textures")
+
+# Positioned wear plates are generated assets, not tileable source photos.
+# They still pass through GODOT_STAGE: that list is the reproducible contract
+# for every material a GDScript prop names. `fx_grease` keeps the RGBA plate
+# Blender uses and receives neutral companions so MatLib can consume the same
+# five-field material shape as a photographed surface.
+GODOT_GENERATED = {
+    "fx_grease": os.path.join(ROOT, "art", "textures", "generated", "fx",
+                               "wear_grease.png"),
+}
 
 
 def stage_for_godot(key, mapping):
@@ -247,6 +258,17 @@ def stage_for_godot(key, mapping):
     its own name so MatLib can give it the lower metallic response that
     keeps horizontal hardware visible.
     """
+    if key in GODOT_GENERATED:
+        src = GODOT_GENERATED[key]
+        if not os.path.exists(src):
+            return False
+        image = Image.open(src).convert("RGBA")
+        stem = os.path.join(GODOT_TEX, "T_ai_materials_%s_" % key)
+        image.save(stem + "albedo.png")
+        Image.new("L", image.size, 199).save(stem + "rough.png")
+        Image.new("RGB", image.size, (128, 128, 255)).save(
+            stem + "normal.png")
+        return True
     mapped = str(mapping.get(key, ""))
     source_key = os.path.basename(mapped) if mapped.startswith(
         "ai_materials/") else key

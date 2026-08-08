@@ -167,3 +167,148 @@ fill.
   functional props instantiated. Its existing dummy-renderer null-texture
   diagnostics remain in the phone/broadcast cookie paths; they are unrelated
   to this prop and do not fail the suite.
+
+## `stove_prop`
+
+### What the real object was
+
+The Orison range is a cheap freestanding gas cooker sold in the first half of
+the 1920s: white porcelain enamel panels on an angle-iron base, four open gas
+burners, an oven below, a separate broiler, exposed front valve rail, shallow
+splash panel and no clock. It is a mechanical gas appliance. It carries no
+signal, so the Rule of Signal leaves it in 1927 and on a pipe rather than a
+wire. **HISTORICAL; CANONICAL.**
+
+The March 1922 *Washington Times* Champion-range advertisement is the closest
+price-class reference: its copy calls out a porcelain-enamel splash back,
+porcelain door panels, angle-iron base, broiler and an oven about eighteen
+inches deep. A 1924 Clark Jewel advertisement corroborates the period's white
+enamel, open-burner, oven-and-broiler organization. The Science Museum's
+1920–25 Metro cooker and a surviving 1927 Eriez range supplied three-dimensional
+checks for the legged carcass, valve row, removable grates and door hierarchy.
+**HISTORICAL.**
+
+Sources:
+
+- Library of Congress, [Champion gas range advertisement, 26 March 1922](https://tile.loc.gov/storage-services/service/ndnp/au/batch_au_engle_ver01/data/sn85038485/00340583073/1922032601/0401.pdf)
+- University of North Texas, [Clark Jewel gas range advertisement, 1924](https://texashistory.unt.edu/ark:/67531/metapth893052/m1/4/?q=+date%3A%2A-2008)
+- Science Museum Group, [Metro gas cooker no. 370750, c. 1920–25](https://collection.sciencemuseumgroup.org.uk/objects/co49016/metro-gas-cooker-no-370750-c-1920)
+- Antique Appliances, [1927 Eriez gas stove](https://www.antiqueappliances.com/product/1927-eriez-gas-stove/)
+
+### What we inherited
+
+- The Blender assembly was a 1930s–40s Chambers/Roper composite: clock-like
+  high back, modern continuous cabinet and oven-window language. It was the
+  wrong decade and class of object. **CANONICAL fault.**
+- The fixed shell lived in Blender while the oven leaf and glowing electric-
+  style rings lived in GDScript. The warehouse rendered the moving parts in
+  mid-air and no complete silhouette existed outside the installed room.
+  **NECESSITY fault.**
+- The visual burners were plates rather than open gas grates. There were no
+  caps, jets, gas rail, liner, rack, broiler cavity or removable service parts,
+  although the activity brief asks the player to clean and diagnose them.
+- A random 35% of all seventeen ranges started lit. That turned a deliberate
+  domestic hazard into six simultaneous gas leaks and made the event
+  impossible to learn. The random beat was authored, not merely a visual bug.
+- The baked footprint row survived independently of the marker, and clearance
+  checked the obsolete assembly rather than the functional prop.
+
+### Built result
+
+`stove_prop.gd` is now the sole owner of the complete range and its moving
+parts. The obsolete `asm_stove` builder and `ASM_FOOT["stove"]` entry are gone.
+
+- 0.64 m wide x 0.60 m deep. The width was already the inherited footprint;
+  depth reduces from 0.68 m to the measured kitchen run. The top bearing plane
+  is exactly **0.90 m**, preserving contact with 2C's tape boxes and 5B's radio
+  collection. **ADAPTATION.**
+- Pressed enamel shell on four angle-iron legs, recessed deck, shallow splash
+  panel and shelf, exposed dull-brass gas rail and five bakelite valves.
+- Four separate cast-iron open grates, caps and jet plugs. Each household gets
+  deterministic grime and one deterministic blocked jet; caps and grates are
+  removable through the maintenance API.
+- A real dark oven cavity has five liner planes and a wire rack. The falling
+  oven leaf has an inner heat shield and period pressed panel rather than a
+  glass window. The broiler remains a separate pull below it.
+- `set_service_pose()` exposes the blocked jet with its cap aside and grate
+  leaned against the splashback. `set_burner_lit()` produces a restrained blue
+  gas flame; a blocked jet coughs yellow and dies. The compatibility
+  `set_ring()` path remains for existing director calls.
+- Per-unit wear belongs where heat, hands and grease act. 3D is unusually
+  clean; 2C/5B carry old film beneath their shelf loads; 5C carries paint-life
+  neglect. This is not a uniform dirt multiplier over the complete object.
+
+All seventeen markers retain `network: gas`. Nothing was repointed to the
+electrical graph. 4B has no range and no eighteenth marker was introduced.
+Only 2B owns `ambient_lit`: Lena's borrowed-family cookware makes one low,
+repeatable unattended flame a discoverable fact instead of a boot-time roll.
+
+### Layout and clearance result
+
+The generator now treats each `stove` marker as the range footprint and
+clearance owner. It audits the 0.64 x 0.60 body, a 0.72 m standing square and
+the 0.44 x 0.34 m forward oven sweep. Both life and furnishing audits count the
+marker, not a deleted furniture assembly. The rebuilt data contains exactly
+the approved units: 1A, 1D, 2A, 2B, 2C, 3A, 3B, 3D, 4A, 4C, 4D, 5A, 5B, 5C,
+6A, 6B and 6C.
+
+The rendered 1A open pose clears its adjacent counter and monitor-top. 2C's
+three tape boxes and 5B's upright radios contact the 0.90 m grate plane without
+the 10 mm gap the rejected 0.91 m proposal would have produced.
+
+### Materials and measured render response
+
+- `enamel` and `bakelite` are reused runtime sets.
+- `cast_iron` now has the missing `GODOT_STAGE` and `MatLib.SETS` paths. It
+  reuses the existing cast-iron source family with 0.35 metallic / 0.60
+  roughness response.
+- `fx_grease` now has an explicit runtime path rather than relying on its
+  Blender-only overlay key. The staged plate preserves its source alpha and
+  receives neutral roughness and normal companions; `MatLib` uses alpha depth
+  pre-pass so the shaped stain does not become an opaque square.
+- `brass_dull`, added during the refrigerator pass, is reused for the
+  horizontal shelf edge, rail and hardware.
+- Warehouse lighting remains effectively identical before/after: mean RGB
+  **(102.6, 102.5, 105.2)** before and **(102.4, 102.0, 103.4)** after;
+  luma p10/50/p90 **54.5/108.4/123.4** before and
+  **54.1/108.1/123.1** after. The comparison therefore reflects geometry and
+  material response, not a brighter inspection rig.
+
+No new generated plate was required. `cast_iron` reuses an ingested source and
+`fx_grease` reuses the existing authored alpha decal; see
+`PROP_TEXTURE_PROMPTS.md` for the explicit no-generation decision.
+
+### Render evidence
+
+Before:
+
+- Warehouse — `C:/shots/orison_prop_pass/stove_before/stand_410_1.10_4.8_180_-4.png`
+- 1A installed — `C:/shots/orison_prop_pass/stove_before/stand_-7.48_1.10_2.50_0_-5.png`
+
+After:
+
+- Warehouse — `C:/shots/orison_prop_pass/stove_after/warehouse/stand_410_1.10_4.8_180_-4.png`
+- 1A installed, oven open — `C:/shots/orison_prop_pass/stove_after/insitu_1a/stand_-7.48_1.10_2.50_0_-5.png`
+- 2B deterministic ambient flame — `C:/shots/orison_prop_pass/stove_after/insitu_2b/stand_-7.20_4.30_-8.48_-90_-8.png`
+- 2B service pose and door sweep — `C:/shots/orison_prop_pass/stove_after/service_2b/stand_-7.20_4.30_-8.48_-90_-8.png`
+- 2C tape load — `C:/shots/orison_prop_pass/stove_after/loaded_hobs/stand_7.20_4.30_-2.58_90_-8.png`
+- 5B radio load — `C:/shots/orison_prop_pass/stove_after/loaded_hobs/stand_-7.20_13.90_-8.48_-90_-8.png`
+
+Every installed frame uses `SHOT_LIGHTS=1 SHOT_TORCH=1`; none uses the judging
+fill.
+
+### Validation
+
+- `python art/data/gen_layout.py` — exit 0; exactly 17 stove markers, all
+  `network: gas`, 2B alone `ambient_lit`, no 4B marker; furnishing, footprint,
+  standing-room and door-clearance audits passed.
+- `python art/tools/ingest_material_sources.py` — exit 0; `cast_iron` and
+  alpha-preserving `fx_grease` runtime maps staged.
+- Blender 5.2 background build — exit 0; 230 mapped materials validated and
+  all eight floor/roof scenes exported.
+- JSON copy followed by Godot 4.7.1 import and editor rescan — exit 0; one
+  shadowed helper parameter caught by the first WalkTest run was fixed before
+  visual acceptance.
+- `WalkTest.tscn` — exit 0 in 184.7 seconds; 432 functional props instantiated,
+  all navigation, stair and elevator checks passed. Its existing dummy-renderer
+  phone-cookie diagnostics remain unrelated and do not fail the suite.

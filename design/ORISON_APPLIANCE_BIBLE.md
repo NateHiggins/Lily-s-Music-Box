@@ -22,17 +22,14 @@ badges, no trademarks.
 |---|---|---|
 | **Monitor-top fridge** | GE Monitor Top, 1927–36 | Steel drum compressor sitting proud on a rounded cabinet, cabinet on slim splayed legs, single latching door with a long chrome handle. Reads as furniture, not a box. ([design history](http://www.industrialdesignhistory.com/node/148)) |
 | **Sheer-look fridge** | Frigidaire / Kelvinator, mid-1950s | Full rounded shoulders, one continuous door face, vertical chrome pull, plinth to the floor, badge at chest height. |
-| **Enamel range** | Chambers / Roper, 1930s–40s | Porcelain enamel body, four burners on a raised deck, **oven door about 45 cm tall on a 90 cm body**, towel rail across the door, clock in the backsplash, knob row on the apron. |
+| **Enamel gas range** | Champion / Clark Jewel / Metro, 1920–27 | Porcelain-enamel panels on an angle-iron base, four open gas grates, oven and separate broiler, exposed valve rail, shallow splash panel, no clock and no oven window. |
 | **Wringer washer** | Maytag, 1930s–50s | Cylindrical tub on four legs, wringer arm over the rim, single agitator dome. |
 | **Console radio** | Zenith / Philco, 1930s | Bakelite or veneer cabinet, cloth grille, illuminated dial glass, chrome pointer. |
 | **Toaster** | Chrome pop-up, 1940s | Mirror-chrome curved body, bakelite ends, single lever. |
 
-**The oven-door bug**: the current `asm_stove` draws its door from 0.30
-to 0.72 m — 42 cm on an 80 cm body, which is right — but the broiler
-drawer beneath (0.115–0.275) and the door read as one continuous face
-from the front, so the oven appears roughly twice its height. The fix
-is separation, not shrinking: a visible 3 cm reveal between drawer and
-door, and the door's towel rail moved to its true top edge.
+**The oven-door ruling**: the range is now wholly marker-built. Its 34 cm oven
+leaf and separate broiler are distinct mechanisms around a real liner; the
+obsolete Blender shell and its 1930s–40s clock/window language are gone.
 
 ---
 
@@ -45,7 +42,7 @@ interaction; **possession** names what the poltergeist does with it.
 
 | Appliance | Units | `[E]` | Possessed |
 |---|---|---|---|
-| **Enamel range** | every kitchen | Oven door drops open, one burner ticks and blooms | All four burners light at once, dials spin against their stops |
+| **Enamel gas range** | 17 kitchens (all except 4B) | Oven door drops open; grate and cap lift for jet service | All four gas flames answer together, valves turn against their stops |
 | **Monitor-top fridge** | 1A, 3A, 5B, 6C (never replaced) | Door swings, interior lamp, compressor sighs | Door beats open and shut on the motif, contents rearrange between glimpses |
 | **Sheer-look fridge** | 1D, 2A, 2B, 4A, 4B, 5A | as above | as above |
 | **Kettle** | 1A, 3D, 4B, 6C | Lifts, sets down, whistles when hot | Boils dry and whistles a held note |
@@ -123,8 +120,10 @@ is the same enamel, aged by a different life:
 - Interaction and possession live in the Godot props
   (`fridge_prop.gd` etc., `FunctionalProp` base), with the poltergeist
   vocabulary in `poltergeist_library.gd`.
-- Assembly geometry lives in `build_orison.py` (`ASM`), placement in
-  `gen_layout.py`.
+- Fixed furniture assemblies live in `build_orison.py` (`ASM`), placement in
+  `gen_layout.py`. Complete interactive ranges and refrigerators are owned by
+  their GDScript props; their Blender assemblies were removed so one marker
+  cannot produce two competing shells.
 - **Law**: an appliance may only be unique where its uniqueness tells
   the tenant's story. Everything else is the same enamel range, because
   a landlord bought forty of them at once.

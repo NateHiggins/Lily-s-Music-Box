@@ -637,8 +637,12 @@ def art_panel(f, uid, x, y, w=0.7, along_x=True, z0=1.30, h=0.85, mat="art"):
 MONITOR_TOP_UNITS = {"1A", "3A", "5B", "6C"}
 ## Flats whose range is not a range. Juno records instead of cooking and
 ## the deck lives on the hob; Cal's stove carries three console radios.
-## The stove body still ships - it is what they put things ON.
+## The complete range prop still ships - it is what they put things ON.
 RANGE_AS_SHELF = {"2C", "5B"}
+# One retained domestic hazard, authored rather than rolled per boot. Lena's
+# big borrowed-family pots make a low unattended ring in 2B findable; 35% of
+# seventeen ranges made the whole building behave like an active gas leak.
+AMBIENT_LIT_STOVE_UNIT = "2B"
 
 
 def unit_of_uid(uid):
@@ -719,10 +723,11 @@ def _bath_marker(markers, unit, kind, bx, by, yaw, z):
 
 
 def _stove_marker(markers, uid, sx, sy, z, yaw, floor_id):
-    """The range needs a prop as well as a body: its oven door swings and
-    its rings light, and neither can happen inside a merged floor mesh.
-    The marker sits exactly where the assembly does, so the prop's door
-    lands on the mouth the assembly left open for it."""
+    """One marker owns the complete range, including shell and service parts.
+
+    A stove carries no signal: under VIII.2 it remains a 1920s gas appliance
+    on a pipe, not a wire. `network: gas` already expressed that correctly
+    before the visual rebuild and stays deliberately unchanged."""
     if markers is None:
         return
     unit = unit_of_uid(uid)
@@ -731,6 +736,7 @@ def _stove_marker(markers, uid, sx, sy, z, yaw, floor_id):
         "id": "%s_%s_STOVE_01" % (floor_id or "FXX", unit),
         "unit": unit, "pos": [round(sx, 4), round(sy, 4), round(z, 4)],
         "yaw_deg": yaw, "network": "gas",
+        "ambient_lit": unit == AMBIENT_LIT_STOVE_UNIT,
     })
 
 
@@ -809,7 +815,6 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n", markers=None,
         yaw = FACE_YAW["s" if side == "n" else "n"]
         cy = y + 0.32
         _asm(f, uid, "kitchen", x + cw / 2, cy, yaw, L=cw + 0.75)
-        _asm(f, uid + "_stove", "stove", x + cw + 0.33, cy, yaw)
         _stove_marker(markers, uid, x + cw + 0.33, cy, z, yaw, floor_id)
         _fridge_marker(markers, uid, x + cw + 0.66 + 0.36, cy, z, yaw,
                        floor_id)
@@ -820,7 +825,6 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n", markers=None,
         yaw = FACE_YAW["e" if side == "w" else "w"]
         cx = x + 0.32
         _asm(f, uid, "kitchen", cx, y + cw / 2, yaw, L=cw + 0.75)
-        _asm(f, uid + "_stove", "stove", cx, y + cw + 0.33, yaw)
         _stove_marker(markers, uid, cx, y + cw + 0.33, z, yaw, floor_id)
         _fridge_marker(markers, uid, cx, y + cw + 0.66 + 0.36, z, yaw,
                        floor_id)
@@ -1574,15 +1578,37 @@ def apartment_4b(z, walls, rooms, markers, furniture):
          "h": 0.72, "mat": "metal"},
         {"id": "bed", "rect": [-13.40, 6.90, -12.05, 9.50], "z0": 0.15,
          "h": 0.32, "mat": "trim"},
-        {"id": "kitchen_counter", "rect": [-10.70, 9.05, -8.85, 9.55],
+        # Stops at -9.55 where the range begins, and reaches 160 mm
+        # further west to the wall to buy back the worktop that costs.
+        {"id": "kitchen_counter", "rect": [-10.86, 9.05, -9.55, 9.55],
          "z0": 0.0, "h": 0.86, "mat": "trim"},
     ]
     # countertop laid as four boards around the sink cutout, so the basin
     # below is a real hole rather than a dark rectangle painted on
+    # THE PLAYER'S FLAT GETS A RANGE (ruled 2026-08-08, at the owner's
+    # direction: "the players apartment to have all the amenities").
+    # 4B was the only flat in the building without one, and that was not
+    # an oversight — its kitchen is a 1.85 m galley with the sink in the
+    # middle and nowhere a 0.64 m range could stand.
+    #
+    # Both obvious places are taken. The north wall east of the counter
+    # is inside F04_DOOR_07's swing, which is the fault the marker audit
+    # caught in the fridge and the reason the fridge moved to the east
+    # wall. The east wall now carries that fridge at y 8.60 and the
+    # radiator at y 7.48, leaving 0.47 m between them.
+    #
+    # So the galley is re-planned the way a real one of this length is:
+    # RANGE AT THE EAST END OF THE RUN, sink where it already was, run
+    # extended to the wall. Working surface goes WEST of the sink, where
+    # there is 0.68 m of it and nothing else wants to be — an earlier
+    # attempt slid the basin west to make an east worktop instead and
+    # put the toaster, mugs and plates on the hob or on each other.
     sb = (-10.18, 9.12, -9.68, 9.50)          # basin opening
+    CTR_W = -10.86                            # run's west end
+    ST_X0, ST_X1 = -9.55, -8.91               # the range, in the run
     for seg, rect in (
-            ("w", [-10.74, 9.01, sb[0], 9.59]),
-            ("e", [sb[2], 9.01, -8.81, 9.59]),
+            ("w", [CTR_W - 0.04, 9.01, sb[0], 9.59]),
+            ("e", [sb[2], 9.01, ST_X0, 9.59]),
             ("s", [sb[0], 9.01, sb[2], sb[1]]),
             ("n", [sb[0], sb[3], sb[2], 9.59])):
         # 4B-prefixed on purpose: the life audit checks the player flat by
@@ -1593,6 +1619,27 @@ def apartment_4b(z, walls, rooms, markers, furniture):
     _asm(furniture, "4B_ksink", "sink_basin",
          (sb[0] + sb[2]) / 2.0, (sb[1] + sb[3]) / 2.0, 180, z0=0.905,
          W=sb[2] - sb[0], D=sb[3] - sb[1])
+    # ONLY A MARKER. stove_prop.gd owns the whole range now — the baked
+    # assembly the other seventeen carried was deleted in the stove pass,
+    # so authoring geometry here would be authoring the thing that was
+    # just removed. Yaw 180 faces it south out of the north wall, the
+    # same way the run it stands in faces.
+    #
+    # This is the building's eighteenth range. Anything that counted
+    # seventeen counts eighteen, and 4B stops being the flat the cooking
+    # audit had to be told to forgive.
+    markers.append({
+        "kind": "stove", "id": "F04_B_STOVE_01", "unit": "4B",
+        "pos": [round((ST_X0 + ST_X1) / 2.0, 4), 9.30, z],
+        "yaw_deg": 180, "network": "gas"})
+    # The run's plinth under it and the splashback a gas range needs at
+    # its back. No wall cupboard over it — see the uppers below.
+    furniture.append({"id": "4B_stove_plinth",
+                      "rect": [ST_X0, 9.05, ST_X1, 9.62],
+                      "z0": 0.0, "h": 0.10, "mat": "trim"})
+    furniture.append({"id": "4B_splashback",
+                      "rect": [ST_X0 - 0.04, 9.60, ST_X1 + 0.04, 9.64],
+                      "z0": 0.86, "h": 0.52, "mat": "subway_tile"})
     # The player's decompression zone is composed as a real room, not a sofa
     # dropped into spare floor: a generous two-seat couch faces the south-wall
     # television across a battered coffee table. The work desk stays visible
@@ -1629,8 +1676,10 @@ def apartment_4b(z, walls, rooms, markers, furniture):
         {"kind": "monitor", "id": "F04_B_MONITOR_01", "unit": "4B",
          "pos": [-8.05, 5.50, z + 0.76], "yaw_deg": 180,
          "network": "electrical"},
+        # West of the sink with the mugs. At -9.70 it was 150 mm from the
+        # range's cheek and on top of the plates.
         {"kind": "toaster", "id": "F04_B_TOASTER_01", "unit": "4B",
-         "pos": [-9.70, 9.30, z + 0.90], "yaw_deg": 90,
+         "pos": [-10.70, 9.30, z + 0.90], "yaw_deg": 90,
          "network": "electrical"},
         {"kind": "fridge", "id": "F04_B_FRIDGE_01", "unit": "4B",
          # The old north-wall position sat inside F04_DOOR_07's sweep — a
@@ -1685,11 +1734,17 @@ def furnish_4b_detail(furniture, y0, y1, x0):
         furniture.append({"id": "4B_" + fid, "rect": list(rect), "z0": z0,
                           "h": h, "mat": mat})
 
-    fb("uppers", (-10.70, 9.40, -8.85, 9.64), 1.50, 0.72)
+    # STOPS SHORT OF THE RANGE. It ran to -8.85, which is a wall cupboard
+    # hanging directly over four gas burners.
+    fb("uppers", (-10.86, 9.40, -9.62, 9.64), 1.50, 0.72)
     # the sink is a real basin assembly now (4B_ksink); the flat plate and
     # its stick faucet that used to stand in for it are gone
-    fb("mugs", (-9.62, 9.15, -9.40, 9.32), 0.905, 0.11)
-    fb("plates", (-9.30, 9.16, -9.06, 9.36), 0.905, 0.07)
+    # West of the sink, on the working stretch. At -9.62 and -9.30 they
+    # would now be standing on the hob.
+    fb("mugs", (-10.46, 9.15, -10.24, 9.32), 0.905, 0.11)
+    # Plates on edge in a draining rack beside the basin, which is where
+    # a flat with one bowl and no machine actually keeps them.
+    fb("plates", (-9.64, 9.15, -9.57, 9.42), 0.905, 0.21)
     for wi, wc in enumerate((y0 + (y1 - y0) * 0.30,
                              y0 + (y1 - y0) * 0.70)):
         blind_stack(furniture, "4B_blw%d" % wi, -13.58, wc - 0.67, False,
@@ -5212,8 +5267,8 @@ def life_pass(floors):
                     problems.append("4B: no cold storage")
                 continue
             for asm, label in need.items():
-                have = (marker_kinds.get(unit, {}).get("fridge", 0)
-                        if asm == "fridge" else kinds.get(asm, 0))
+                have = (marker_kinds.get(unit, {}).get(asm, 0)
+                        if asm in ("fridge", "stove") else kinds.get(asm, 0))
                 if have == 0:
                     problems.append("%s: no %s" % (unit, label))
             if kinds.get("table_round", 0) + kinds.get("table_rect", 0) \
@@ -6523,7 +6578,7 @@ def _validate_placement(layout):
     wall_kinds = {"door", "radiator", "sconce_globe", "exhaust_fan",
                   "wall_clock", "flue_breast", "door_anomaly", "case_door",
                   "neon_sign"}   # bolted to the facade, by definition
-    floor_kinds = {"washer", "dryer", "boiler", "fridge", "boxfan",
+    floor_kinds = {"washer", "dryer", "boiler", "fridge", "stove", "boxfan",
                    "speaker", "toaster"}
 
     def point_in_wall(px, py, w):
@@ -6602,7 +6657,7 @@ ASM_FOOT = {
     "table_rect": (0.62, 0.42), "coffee": (0.56, 0.36),
     "nightstand": (0.24, 0.24), "bed": (0.76, 1.03), "wardrobe": (0.68, 0.33),
     "shelf": (0.57, 0.16), "tv": (0.64, 0.22), "plant": (0.25, 0.25),
-    "kitchen": (0.90, 0.33), "stove": (0.32, 0.34),
+    "kitchen": (0.90, 0.33),
     "desk": (0.71, 0.34), "plantable": (1.01, 0.61),
     "workbench": (1.11, 0.49), "toilet": (0.21, 0.36),
     "sink_ped": (0.25, 0.25), "shower": (0.41, 0.42), "bench": (0.76, 0.25),
@@ -6622,6 +6677,10 @@ FRIDGE_FOOT = {
     False: (0.35, 0.31),       # compact oak apartment icebox
     True: (0.36, 0.34),        # 1927 GE monitor-top
 }
+# Complete marker-built range: 0.64 m wide, 0.60 m deep. The obsolete
+# assembly row was 0.64 x 0.68; keeping it in ASM_FOOT after removing the
+# assembly would make a stale table look authoritative to future audits.
+STOVE_FOOT = (0.32, 0.30)
 
 
 def _asm_aabb(fu):
@@ -6651,9 +6710,13 @@ def _asm_aabb(fu):
 def _obstacles(fl):
     obs = []
     for m in fl.get("markers", []):
-        if m.get("kind") != "fridge":
+        kind = m.get("kind")
+        if kind == "fridge":
+            hx, hy = FRIDGE_FOOT[bool(m.get("monitor", False))]
+        elif kind == "stove":
+            hx, hy = STOVE_FOOT
+        else:
             continue
-        hx, hy = FRIDGE_FOOT[bool(m.get("monitor", False))]
         yaw = float(m.get("yaw_deg", 0)) % 180
         if yaw == 90:
             hx, hy = hy, hx
@@ -6751,6 +6814,45 @@ def _validate_movement(layout):
                         sweep[2] - 0.04, sweep[3] - 0.04):
                     problems.append("%s: fridge %s sweep blocked by %s"
                                     % (fl["id"], m["id"], oid))
+        # A range needs the same two proofs: a person can stand at its
+        # valves, and the bottom-hinged oven leaf can fall through its real
+        # 34 cm travel without entering a counter, radiator or refrigerator.
+        for m in fl.get("markers", []):
+            if m.get("kind") != "stove":
+                continue
+            import math as _m
+            a = _m.radians(m.get("yaw_deg", 0))
+            fx_, fy_ = -_m.sin(a), _m.cos(a)   # local +y/front in plan
+            rx_, ry_ = _m.cos(a), _m.sin(a)    # local +x/right in plan
+            stand_cx = m["pos"][0] + fx_ * 0.72
+            stand_cy = m["pos"][1] + fy_ * 0.72
+            band = (stand_cx - 0.36, stand_cy - 0.36,
+                    stand_cx + 0.36, stand_cy + 0.36)
+            for oid, bb in obs:
+                if oid == m["id"]:
+                    continue
+                if _hit(bb, band[0] + 0.06, band[1] + 0.06,
+                        band[2] - 0.06, band[3] - 0.06):
+                    problems.append("%s: stove %s standing room blocked by %s"
+                                    % (fl["id"], m["id"], oid))
+            front_x = m["pos"][0] + fx_ * STOVE_FOOT[1]
+            front_y = m["pos"][1] + fy_ * STOVE_FOOT[1]
+            half_w, reach = 0.22, 0.34
+            corners = ((front_x - rx_ * half_w, front_y - ry_ * half_w),
+                       (front_x + rx_ * half_w, front_y + ry_ * half_w),
+                       (front_x - rx_ * half_w + fx_ * reach,
+                        front_y - ry_ * half_w + fy_ * reach),
+                       (front_x + rx_ * half_w + fx_ * reach,
+                        front_y + ry_ * half_w + fy_ * reach))
+            sweep = (min(p[0] for p in corners), min(p[1] for p in corners),
+                     max(p[0] for p in corners), max(p[1] for p in corners))
+            for oid, bb in obs:
+                if oid == m["id"]:
+                    continue
+                if _hit(bb, sweep[0] + 0.035, sweep[1] + 0.035,
+                        sweep[2] - 0.035, sweep[3] - 0.035):
+                    problems.append("%s: stove %s oven sweep blocked by %s"
+                                    % (fl["id"], m["id"], oid))
         # path: unit entry -> living center, an L in either order must
         # be passable at capsule width (a person routes around a chair;
         # they should never have to climb the furniture)
@@ -6847,7 +6949,7 @@ def _validate_furnishing(layout):
                 unit_marker.setdefault(unit, {})
                 unit_marker[unit][m["kind"]] = (
                     unit_marker[unit].get(m["kind"], 0) + 1)
-                if m["kind"] == "fridge":
+                if m["kind"] in ("fridge", "stove"):
                     unit_yaw.setdefault(unit, set()).add(m.get("yaw_deg"))
         for fu in fl.get("furniture", []):
             unit = str(fu["id"]).split("_")[0]
@@ -6862,7 +6964,7 @@ def _validate_furnishing(layout):
                 continue
             unit_asm.setdefault(unit, {})
             unit_asm[unit][fu["asm"]] = unit_asm[unit].get(fu["asm"], 0) + 1
-            if fu["id"].endswith(("_k", "_k_stove", "_k_fr")):
+            if fu["id"].endswith("_k"):
                 unit_yaw.setdefault(unit, set()).add(fu.get("yaw"))
     # Every door still gets a plate on each face it actually has. Doors in
     # exterior walls only have one interior face, so their outboard plate
@@ -6908,8 +7010,8 @@ def _validate_furnishing(layout):
             problems.append("%s lacks close surface detail (%d < 4)"
                             % (unit, unit_detail.get(unit, 0)))
         for k, n in need.items():
-            have = (unit_marker.get(unit, {}).get("fridge", 0)
-                    if k == "fridge" else a.get(k, 0))
+            have = (unit_marker.get(unit, {}).get(k, 0)
+                    if k in ("fridge", "stove") else a.get(k, 0))
             if have < n:
                 problems.append("%s missing %s (%d < %d)"
                                 % (unit, k, have, n))

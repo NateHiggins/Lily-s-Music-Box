@@ -44,3 +44,20 @@ The two generated source plates are stored at:
 - `art/textures/ai_sources/zinc_liner.png`
 - `art/textures/ai_sources/copper_aged.png`
 
+## Stove pass
+
+No generated texture prompt is warranted for this prop.
+
+- `cast_iron` already has a period-appropriate ingested source family. The
+  missing work was the Godot runtime stage and `MatLib.SETS` entry, not a new
+  bitmap. Generating a second plate would fork the same material between the
+  building and the functional prop.
+- `fx_grease` already exists as a shaped, transparent authored overlay at
+  `art/textures/generated/fx/wear_grease.png`. The stove pass preserves that
+  alpha and synthesizes neutral roughness/normal companions for the runtime
+  material. Re-prompting it as a seamless swatch would destroy its placed-
+  decal framing.
+- `enamel`, `bakelite` and `brass_dull` are existing sets.
+
+This is an intentional zero-image batch: no letters, numbers, words, logos or
+new visual source material were introduced.
