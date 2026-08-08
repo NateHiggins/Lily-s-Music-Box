@@ -120,6 +120,23 @@ const SHOTS := [
 	 "look": Vector3(-1.20, -1.90, 30.10), "overlay": false},
 	{"name": "b_48_bar_lounge", "pos": Vector3(-1.60, -1.10, 32.60),
 	 "look": Vector3(3.40, -1.95, 35.60), "overlay": false},
+	# The crossing itself, reported blocked by a black plane mid-road.
+	{"name": "b_56_cross_from_north", "pos": Vector3(3.70, 1.62, 14.20),
+	 "look": Vector3(4.20, 1.10, 24.00), "overlay": false},
+	{"name": "b_57_cross_above", "pos": Vector3(3.70, 7.00, 13.00),
+	 "look": Vector3(4.20, 0.00, 24.00), "overlay": false},
+	{"name": "b_58_cross_along", "pos": Vector3(-6.00, 1.62, 19.00),
+	 "look": Vector3(12.00, 1.20, 19.40), "overlay": false},
+	# Standing at each shop door, reported unreachable behind a black
+	# plane. Eye height, close in, so whatever is in the way is in frame.
+	{"name": "b_52_at_bar_door", "pos": Vector3(4.875, 1.62, 26.60),
+	 "look": Vector3(4.875, 1.20, 29.20), "overlay": false},
+	{"name": "b_53_bar_door_side", "pos": Vector3(1.60, 1.62, 26.20),
+	 "look": Vector3(5.20, 1.10, 29.00), "overlay": false},
+	{"name": "b_54_at_bodega_door", "pos": Vector3(18.67, 1.62, 14.10),
+	 "look": Vector3(18.67, 1.30, 11.60), "overlay": false},
+	{"name": "b_55_bodega_approach", "pos": Vector3(13.20, 1.62, 12.60),
+	 "look": Vector3(18.90, 1.30, 12.00), "overlay": false},
 	# The two routes a resident actually has to walk, from eye height at
 	# the Orison's own front door: south across the road to the bar, and
 	# east along the walk to the bodega.

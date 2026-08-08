@@ -222,7 +222,10 @@ func _build_car_details(floor: Dictionary) -> void:
 func _build_arrival_rideshare(parent: Node3D) -> void:
 	var body_color := Color(0.028, 0.040, 0.052)
 	var glass := Color(0.018, 0.030, 0.040)
-	var cx := 3.35
+	# Parked WEST of the crossing. At x 3.35 this car sat squarely
+	# across the only legal way over the road, and a 4.7 m collision box
+	# is not something a player walks around when they cannot see why.
+	var cx := -6.40
 	var cy := -15.92
 	_box([cx, cy, 0.52], [4.72, 1.82, 0.68], body_color)
 	_box([cx - 0.22, cy, 1.07], [2.42, 1.66, 0.54], body_color.lightened(0.025))
@@ -328,18 +331,47 @@ func _build_playable_stage(parent: Node3D) -> void:
 	var body := StaticBody3D.new()
 	body.name = "ExteriorStreetStageBoundary"
 	parent.add_child(body)
-	_add_boundary_shape(body, [0.0, -17.35, 0.72], [32.0, 0.28, 1.44])
-	_add_boundary_shape(body, [-16.15, -13.45, 0.72], [0.30, 7.55, 1.44])
-	_add_boundary_shape(body, [16.15, -13.45, 0.72], [0.30, 7.55, 1.44])
-	boundary_count = 3
+	# THE STAGE HAS TWO DOORS IN IT NOW.
+	#
+	# This boundary was authored when the playable street was the north
+	# pavement and nothing else: one 32 m wall down the middle of the
+	# road, side walls at x +-16.15, and a near-black kerb rail the full
+	# width. Since then the Harukiya opened across the road and the
+	# bodega opened to the east, and route discipline named both of them
+	# legal destinations - so the fence that stopped the player
+	# wandering was also stopping them arriving. It read exactly as
+	# reported: a dark bar lying across the carriageway.
+	#
+	# The mid-road run is now split either side of the crossing, and the
+	# east wall has moved out past the bodega frontage (x 15.2..19.6) so
+	# the shop is inside the stage rather than behind its edge. Anything
+	# added to the street from here on has to ask the same question:
+	# does the boundary still leave a way to every place the schedules
+	# send a resident?
+	const CROSS_W := 0.10        # crossing gap, west edge
+	const CROSS_E := 7.55        # crossing gap, east edge
+	const STAGE_E := 20.60       # east edge, clear of the bodega
+	const STAGE_W := -16.15
+	for seg in [[STAGE_W, CROSS_W], [CROSS_E, STAGE_E]]:
+		var w: float = seg[1] - seg[0]
+		_add_boundary_shape(body, [seg[0] + w * 0.5, -17.35, 0.72],
+				[w, 0.28, 1.44])
+	_add_boundary_shape(body, [STAGE_W, -13.45, 0.72], [0.30, 7.55, 1.44])
+	_add_boundary_shape(body, [STAGE_E, -13.45, 0.72], [0.30, 7.55, 1.44])
+	boundary_count = 4
 	# Side hoardings and battered planters telegraph the lateral stop.
-	for x in [-16.05, 16.05]:
+	for x in [STAGE_W + 0.10, STAGE_E - 0.10]:
 		_box([x, -13.15, 0.83], [0.22, 5.2, 1.66], Color(0.055, 0.062, 0.064))
 		for y in [-15.2, -13.6, -12.0, -10.8]:
 			_box([x - signf(x) * 0.13, y, 1.15], [0.035, 0.74, 0.035], Color(0.46, 0.24, 0.08))
-	# A near-black curb rail disappears behind the parked row but prevents
-	# stepping into the unmodelled traffic lanes.
-	_box([0.0, -17.28, 0.49], [31.7, 0.16, 0.98], Color(0.018, 0.022, 0.024))
+	# The near-black kerb rail is GONE. It was a 31.7 m bar of colour
+	# 0.018,0.022,0.024 lying across the carriageway to telegraph the
+	# stage edge, and what it actually read as was a black plane the
+	# player could not get past - which is precisely what it was. The
+	# collision above still holds the edge; the street already explains
+	# itself with hoardings, open trenches and a parked row, and those
+	# are closures a person believes. A bar of near-black is not a
+	# reason, it is a wall wearing an apology.
 
 
 func _add_boundary_shape(body: StaticBody3D, pos_b: Array, size_b: Array) -> void:

@@ -4033,9 +4033,13 @@ def retail_pass(fl):
     sparse(-10.9, -3.4, (0.55, 1.00, 1.45), ix0 + 0.02, ix0 + 0.31)
     sparse(-10.9, -5.8, (0.55, 1.00, 1.45), ix1 - 0.31, ix1 - 0.02)
     # markers: door, fluorescents, radio, neon
+    # STANDS OPEN. The bodega trades 24 hours and the schedules send
+    # residents through this door all night; a closed leaf is a solid
+    # body across the only way in, and it read to the player as a grey
+    # block rather than as a door they had not tried.
     mk.append({"kind": "door", "id": "F01_BODEGA_DOOR",
                "pos": [18.67, -11.92, 0.0], "yaw_deg": 0, "w": 0.90,
-               "h": 2.10, "leaf": "closed", "exterior": True})
+               "h": 2.10, "leaf": "open", "exterior": True})
     for i, ly in enumerate((-10.2, -7.2, -4.2)):
         mk.append({"kind": "kitchen_linear", "id": "F01_BODEGA_LT_%d" % i,
                    "unit": "SITE", "pos": [17.55, ly, 3.05], "yaw_deg": 90,
@@ -4369,9 +4373,11 @@ def retail_pass(fl):
                "h": 2.00, "leaf": "closed", "exterior": True})
 
     # -- doors, signs, lights
+    # The street door to the stair stands open too - it is the mouth of
+    # the descent, and the teal shaft below is the whole invitation.
     mk.append({"kind": "door", "id": "F01_BAR_DOOR",
                "pos": [4.875, FACE - 0.10, 0.0], "yaw_deg": 180,
-               "w": 0.90, "h": 2.10, "leaf": "closed", "exterior": True})
+               "w": 0.90, "h": 2.10, "leaf": "open", "exterior": True})
     mk.append({"kind": "door", "id": "F01_BAR_RED_DOOR",
                "pos": [4.15, -34.42, FLR], "yaw_deg": 90, "w": 0.90,
                "h": 2.05, "leaf": "closed", "exterior": True})

@@ -32,8 +32,23 @@ extends Node3D
 ## seeing the phone's edge, which is how the first framegrab came out.
 const CARRY_POS := Vector3(0.135, -0.150, -0.315)
 const CARRY_ROT := Vector3(-49.0, -13.0, 5.0)
-const RAISE_POS := Vector3(0.055, -0.075, -0.165)
-const RAISE_ROT := Vector3(-10.0, -5.0, 1.0)
+## RAISED IS SQUARE-ON AND CLOSE, and both halves of that matter.
+##
+## Square-on: the screen quad's normal is the phone's local +Z and the
+## camera looks down its own -Z, so a rotation of exactly zero puts the
+## panel parallel to the view plane. Any tilt at all foreshortens the
+## text, and foreshortened 8-pixel glyphs are the difference between
+## reading the OS and squinting at it.
+##
+## Close: legibility is pure arithmetic here. The panel is 52 mm wide;
+## at distance d inside a 72-degree camera it covers
+## 0.052 / (2 d tan 36) of the frame. To land the 480-pixel OS at about
+## 1:1 on a 1280-wide frame it has to cover ~38%, which is d = 0.122 m
+## with the handset scaled 1.3x. Further away and the OS is downscaled
+## and mushy; nearer and the body starts clipping the near plane.
+const RAISE_POS := Vector3(0.040, -0.028, -0.122)
+const RAISE_ROT := Vector3.ZERO
+const RAISE_SCALE := 1.30
 const RAISE_SPEED := 6.5
 
 var phone: Phone3D
@@ -108,7 +123,13 @@ func _process(delta: float) -> void:
 	_sway = _sway.lerp(Vector2.ZERO, minf(1.0, delta * 5.0))
 	position = CARRY_POS.lerp(RAISE_POS, eased) + bob
 	var rot := CARRY_ROT.lerp(RAISE_ROT, eased)
-	rotation_degrees = rot + Vector3(_sway.y, _sway.x, 0.0)
+	# Sway is damped out as the phone comes up: a readable screen must
+	# not be a moving one, and the hand-lag that sells the carry is
+	# exactly what makes small text unreadable when you are trying to
+	# use it.
+	var settle: float = 1.0 - eased * 0.88
+	rotation_degrees = rot + Vector3(_sway.y, _sway.x, 0.0) * settle
+	scale = Vector3.ONE.lerp(Vector3.ONE * RAISE_SCALE, eased)
 
 
 func key(action: String, typed := "") -> void:

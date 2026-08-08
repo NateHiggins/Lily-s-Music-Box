@@ -234,8 +234,8 @@ const STREET_ROUTES := {
 	],
 	"bodega": [
 		Vector2(0.72, -10.70), Vector2(6.20, -12.40),
-		Vector2(12.00, -12.45), Vector2(16.60, -12.45),
-		Vector2(18.67, -12.35),
+		Vector2(12.00, -12.60), Vector2(16.60, -12.60),
+		Vector2(18.67, -12.60),
 	],
 }
 const STREET_Z := 0.06
