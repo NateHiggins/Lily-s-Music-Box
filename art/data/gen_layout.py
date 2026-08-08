@@ -4481,7 +4481,7 @@ def retail_pass(fl):
     for i, (px, py) in enumerate(((16.3, -14.35), (17.6, -14.35),
                                   (18.9, -14.35), (-16.3, -14.35),
                                   (-17.6, -14.35), (-18.9, -14.35),
-                                  (18.0, -12.35), (19.2, -12.35))):
+                                  (16.6, -12.35), (20.4, -12.35))):
         pipe("bollard%d" % i, (px, py, 0.0), (px, py, 0.95), 0.085)
     # ---- ROUTE DISCIPLINE: the walkable world is three paths --------
     # (1) the Orison's circumference: front walk between the gangways,
@@ -4506,12 +4506,26 @@ def retail_pass(fl):
        "plywood")
     fb("swalk_hoard_e", (10.4, -28.30, 10.6, -23.95), 0.0, 2.55,
        "plywood")
+    # THE CROSSING. The route discipline above says the only way over
+    # the road is in front of the door; until now nothing on the ground
+    # said so. Ladder markings from kerb to kerb, aligned on the Orison
+    # entrance and wide enough for two people to pass.
+    for i in range(9):
+        zx = 0.55 + i * 0.72
+        fb("zebra%d" % i, (zx, KERB_S + 0.10, zx + 0.42, KERB_N - 0.10),
+           0.002, 0.006, "linen")
+    for tag, zy in (("n", KERB_N - 0.12), ("s", KERB_S + 0.06)):
+        fb("zebra_bar_%s" % tag, (0.35, zy, 6.85, zy + 0.06), 0.002,
+           0.006, "linen")
     asm("street_crate0", "crate", -13.3, -13.9, 25)
     asm("street_crate1", "crate", -12.9, -13.3, 70)
     asm("street_bottles", "bottles", 12.3, -13.6, 0)
     asm("street_papers", "papers", 5.2, -24.1, 15)
-    fb("binbags", (8.9, -13.35, 10.1, -12.75), 0.0, 0.55, "soot")
-    fb("binbags2", (9.3, -13.6, 10.0, -13.3), 0.0, 0.38, "soot")
+    # Bin bags pushed back against the building line. They were sitting
+    # at y -13.3, which is the middle of the only walk east to the
+    # bodega, and a resident's route should not be an obstacle course.
+    fb("binbags", (8.9, -10.85, 10.1, -10.25), 0.0, 0.55, "soot")
+    fb("binbags2", (9.3, -11.10, 10.0, -10.80), 0.0, 0.38, "soot")
 
     # ============== BAND 1: relief on the facing facades ==============
     for tag, fx0, fx1, awn in (("s1a", -18.6, -14.4, "fabric_green"),
@@ -4596,19 +4610,29 @@ def _street_furniture(fb, rng):
            0.44, "metal")
     fb("booth", (-12.4, -13.7, -11.5, -12.8), 0.0, 2.3, "metal")
     fb("booth_glass", (-12.3, -13.6, -11.6, -12.9), 0.7, 1.35, "glassish")
-    # bus shelter across the road. The glazing needs its frame: a bare
-    # pane floats as a bright slab with nothing holding it up, which is
-    # exactly how it read the first time.
-    fb("shelter_roof", (2.0, -18.0, 6.4, -16.6), 2.45, 0.12, "metal")
-    for sx in (2.05, 6.25):
-        fb("shelter_post%d" % int(sx * 10), (sx, -17.98, sx + 0.1, -16.7),
+    # Bus shelter, on the SOUTH pavement and well west of the door.
+    # It used to stand at x 2.0..6.4, y -18.0 - which is the middle of
+    # the carriageway, and directly between the Orison's front door and
+    # the bar's. It was authored before the street was widened to a true
+    # 60 ft and never moved with it, so the one crossing a resident
+    # actually needs was blocked by a bus shelter nobody could reach.
+    SH_X, SH_Y = -12.6, -25.55        # south walk, -23.894..-28.316
+    fb("shelter_roof", (SH_X, SH_Y - 1.40, SH_X + 4.4, SH_Y), 2.45, 0.12,
+       "metal")
+    for so in (0.05, 4.25):
+        fb("shelter_post%d" % int(so * 10),
+           (SH_X + so, SH_Y - 1.32, SH_X + so + 0.1, SH_Y - 0.02),
            0.0, 2.45, "metal")
-    fb("shelter_back", (2.15, -17.93, 6.25, -17.88), 0.45, 1.85,
-       "glassish")
-    fb("shelter_mullion", (4.1, -17.95, 4.2, -17.86), 0.45, 1.85, "metal")
-    fb("shelter_sill", (2.05, -17.98, 6.35, -17.85), 0.36, 0.09, "metal")
-    fb("shelter_head", (2.05, -17.98, 6.35, -17.85), 2.30, 0.11, "metal")
-    fb("shelter_bench", (2.4, -17.8, 6.0, -17.35), 0.42, 0.08, "timber")
+    fb("shelter_back", (SH_X + 0.15, SH_Y - 1.35, SH_X + 4.25,
+                        SH_Y - 1.30), 0.45, 1.85, "glassish")
+    fb("shelter_mullion", (SH_X + 2.1, SH_Y - 1.36, SH_X + 2.2,
+                           SH_Y - 1.29), 0.45, 1.85, "metal")
+    fb("shelter_sill", (SH_X + 0.05, SH_Y - 1.37, SH_X + 4.35,
+                        SH_Y - 1.28), 0.36, 0.09, "metal")
+    fb("shelter_head", (SH_X + 0.05, SH_Y - 1.37, SH_X + 4.35,
+                        SH_Y - 1.28), 2.30, 0.11, "metal")
+    fb("shelter_bench", (SH_X + 0.4, SH_Y - 1.22, SH_X + 4.0,
+                         SH_Y - 0.78), 0.42, 0.08, "timber")
     # parked cars down both kerbs, with gaps where hydrants and the stoop are
     for i in range(9):
         cx = -26.0 + i * 6.6
@@ -4621,11 +4645,19 @@ def _street_furniture(fb, rng):
            0.38, "glassish")
     for i in range(7):
         cx = -21.0 + i * 7.4
+        # This row was parked at y -18.9..-17.4, which after the street
+        # was widened is the middle of the road rather than the south
+        # kerb it is named for - and one of them sat squarely across the
+        # walk to the bar. It parks at the kerb now, and leaves the same
+        # gap at the crossing that the north row already leaves.
+        if abs(cx + 0.6) < 6.2:
+            continue
         # y0 < y1: an inverted rect makes a degenerate box, and the first
         # version of this row silently produced nothing at all
-        fb("scar%d" % i, (cx, -18.9, cx + 4.3, -17.4), 0.28, 0.95, "metal")
-        fb("scartop%d" % i, (cx + 1.1, -18.7, cx + 3.2, -17.6), 1.23, 0.45,
+        fb("scar%d" % i, (cx, -23.75, cx + 4.3, -22.25), 0.28, 0.95,
            "metal")
+        fb("scartop%d" % i, (cx + 1.1, -23.55, cx + 3.2, -22.45), 1.23,
+           0.45, "metal")
     fb("bin1", (12.6, 10.3, 13.6, 11.1), 0.0, 1.1, "metal")
     fb("bin2", (-13.9, 10.3, -12.9, 11.2), 0.0, 1.15, "metal")
     fb("dumpster", (5.4, 10.4, 8.2, 11.9), 0.0, 1.35, "metal")

@@ -44,3 +44,11 @@ textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/positional_shadow/atlas_16_bits=false
 limits/opengl/max_lights_per_object=16
 occlusion_culling/use_occlusion_culling=true
+
+[audio]
+
+; The Songbook records vocals through AudioEffectRecord, which needs
+; the input device open. Godot asks the OS for the microphone the
+; moment this is true, so it is also the line that makes the platform
+; permission prompt appear.
+driver/enable_input=true

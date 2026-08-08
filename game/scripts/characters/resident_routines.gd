@@ -207,7 +207,38 @@ static func temper_of(slug: String) -> Dictionary:
 
 
 enum Stage { HOME, PACING, TO_LIFT, RIDING, AT_HAUNT, RETURNING, WATCHING,
-		ON_STAIRS, RETURN_STAIRS, CROSSING }
+		ON_STAIRS, RETURN_STAIRS, CROSSING, STREET }
+
+## The walk to the shops, authored rather than pathfound.
+##
+## ResidentNav is built per storey from room rectangles; the street is
+## not a room and never enters the graph. Rather than teach the graph
+## about outdoors, these are the same authored routes the site itself is
+## built around - gen_layout's route discipline says the walkable world
+## is three paths, and two of them are these. Blender XY; the street
+## surface is z 0.06.
+##
+## Residents used to cross to the shops hidden, the way they ride the
+## lift. That was honest for a lift and a lie for a road: the bodega is
+## forty metres away in plain sight of every south window, and a
+## building whose residents vanish at the kerb is a building nobody
+## lives on the street of. They walk it now, and are only hidden for
+## the bit that is genuinely out of sight - the stair down to the bar,
+## and the moment of stepping through a shop door.
+const STREET_ROUTES := {
+	"harukiya_bar": [
+		Vector2(0.72, -10.70), Vector2(2.90, -13.60),
+		Vector2(3.50, -15.10), Vector2(4.10, -19.30),
+		Vector2(4.60, -23.60), Vector2(4.875, -26.40),
+		Vector2(4.875, -28.05),
+	],
+	"bodega": [
+		Vector2(0.72, -10.70), Vector2(6.20, -12.40),
+		Vector2(12.00, -12.45), Vector2(16.60, -12.45),
+		Vector2(18.67, -12.35),
+	],
+}
+const STREET_Z := 0.06
 
 var actors: Array = []
 ## Portal-graph pathfinding; see resident_nav.gd. Null-safe: without it
@@ -272,6 +303,8 @@ func build(layout: Dictionary, residents: Array) -> int:
 			"at_venue": false,
 			"cross_to": Vector3.ZERO,
 			"sched_key": "",
+			"street_homeward": false,
+			"seat": null,
 		}
 		actors.append(actor)
 	print("[ROUTINES] %d residents with somewhere to be" % actors.size())
@@ -330,6 +363,23 @@ func _venue_spot(actor: Dictionary, directive: Dictionary) -> Vector3:
 				return seat.global_position
 	return anchor + Vector3(_rng.randf_range(-0.8, 0.8), 0.0,
 			_rng.randf_range(-0.8, 0.8))
+
+
+## Load one of the authored street polylines into the actor's own path,
+## forward or homeward. Deliberately NOT run through nav.route(): the
+## graph has no outdoor nodes and would answer "no wall-safe route" for
+## every one of these.
+func _set_street_route(actor: Dictionary, key: String,
+		homeward: bool) -> void:
+	var pts: Array = STREET_ROUTES[key]
+	var path := PackedVector3Array()
+	for i in pts.size():
+		var p: Vector2 = pts[pts.size() - 1 - i] if homeward else pts[i]
+		path.append(GameBoot.b2g([p.x, p.y, STREET_Z]))
+	actor.path = path
+	actor.leg = 0
+	actor.street_homeward = homeward
+	actor.node.visible = true
 
 
 func _release_seat(actor: Dictionary) -> void:
@@ -668,6 +718,13 @@ func _step(actor: Dictionary, delta: float) -> void:
 					"exterior", "offsite"] \
 					and not bool(actor.at_venue):
 				actor.at_venue = true
+				var key := str(standing.get("key", ""))
+				if str(standing.mode) == "exterior" \
+						and STREET_ROUTES.has(key):
+					# Out the door and down the street on foot.
+					_set_street_route(actor, key, false)
+					actor.stage = Stage.STREET
+					return
 				node.visible = false
 				if str(standing.mode) == "exterior":
 					actor.stage = Stage.CROSSING
@@ -681,10 +738,17 @@ func _step(actor: Dictionary, delta: float) -> void:
 					# The hour still wants them here; stay.
 					actor.timer = _rng.randf_range(20.0, 45.0)
 				elif bool(actor.at_venue):
-					# The block ended somewhere off the nav graph: cross
-					# back to the lobby door before walking home.
+					# The block ended somewhere off the nav graph.
 					actor.at_venue = false
 					_release_seat(actor)
+					var key2 := str(actor.get("sched_key", ""))
+					if STREET_ROUTES.has(key2):
+						# Step back out of the shop and walk home.
+						_set_street_route(actor, key2, true)
+						node.global_position = actor.path[0]
+						node.visible = true
+						actor.stage = Stage.STREET
+						return
 					node.visible = false
 					actor.stage = Stage.CROSSING
 					actor.cross_to = _door_point()
@@ -692,6 +756,26 @@ func _step(actor: Dictionary, delta: float) -> void:
 				else:
 					actor.sched_key = ""
 					_begin_trip(actor, true)
+		Stage.STREET:
+			# Visible, on the pavement, walking it like anyone would.
+			_play(actor, "pace")
+			if not _follow(actor, node, delta):
+				return
+			node.visible = false
+			if bool(actor.get("street_homeward", false)):
+				# At the Orison's own door: back on the graph.
+				actor.stage = Stage.CROSSING
+				actor.cross_to = _door_point()
+				actor.timer = _rng.randf_range(1.0, 2.0)
+			else:
+				# At the shop's door. The stair down to the bar and the
+				# step through a shop door are the only parts genuinely
+				# out of sight, so they are the only parts hidden.
+				var standing2: Dictionary = schedules.get(
+						str(actor.slug), {})
+				actor.stage = Stage.CROSSING
+				actor.cross_to = _venue_spot(actor, standing2)
+				actor.timer = _rng.randf_range(2.5, 5.0)
 		Stage.CROSSING:
 			if actor.timer <= 0.0:
 				node.global_position = actor.cross_to

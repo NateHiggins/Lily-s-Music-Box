@@ -120,6 +120,13 @@ const SHOTS := [
 	 "look": Vector3(-1.20, -1.90, 30.10), "overlay": false},
 	{"name": "b_48_bar_lounge", "pos": Vector3(-1.60, -1.10, 32.60),
 	 "look": Vector3(3.40, -1.95, 35.60), "overlay": false},
+	# The two routes a resident actually has to walk, from eye height at
+	# the Orison's own front door: south across the road to the bar, and
+	# east along the walk to the bodega.
+	{"name": "b_49_route_to_bar", "pos": Vector3(0.72, 1.62, 10.90),
+	 "look": Vector3(4.60, 1.05, 26.00), "overlay": false},
+	{"name": "b_50_route_to_bodega", "pos": Vector3(1.60, 1.62, 12.30),
+	 "look": Vector3(18.40, 1.15, 12.40), "overlay": false},
 	# The two shop signs as the residents actually see them: from Orison
 	# windows. The bar's board+lantern from a third-floor south window;
 	# the bodega's blade cabinet and awning from the east face.
