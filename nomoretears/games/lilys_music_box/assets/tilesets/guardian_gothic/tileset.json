@@ -1,0 +1,17 @@
+{
+  "id": "guardian_gothic",
+  "name": "Guardian's Gothic Hall",
+  "style": "placeholder",
+  "description": "Heavy Gothic stone: ribbed vaults, pointed arches, deep shadow. For the guardian_hall biome. Darker and more imposing than the Escher foyer.",
+  "status": "not_yet_generated",
+  "tile_roles_needed": [
+    "void_open", "floor_slab", "floor_surface", "floor_surface_left_edge",
+    "floor_surface_right_edge", "ceiling_slab", "wall_left_face", "wall_right_face",
+    "stair_ascending_right", "stair_ascending_left", "stair_landing_flat",
+    "stair_turn_ne", "stair_turn_nw", "stair_turn_se", "stair_turn_sw",
+    "pillar_cap_top", "pillar_shaft", "pillar_cap_bottom",
+    "arch_left_springer", "arch_keystone", "arch_right_springer",
+    "window_void", "window_lancet"
+  ],
+  "style_notes": "Gothic pointed arches instead of Romanesque semicircular. Clustered columns. Grotesque boss details at pillar caps. Tight crosshatch with heavier line weight than escher_foyer. Palette: near-black stone, pale mortar lines, occasional torchlight warm spot."
+}

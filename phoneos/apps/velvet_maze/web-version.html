@@ -1,0 +1,684 @@
+<title>The Velvet Maze</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<style>
+  :root{
+    --ink:#120810;
+    --velvet:#2a1220;
+    --wine:#3d1a2b;
+    --gold:#d4af5e;
+    --gold-deep:#c9a227;
+    --rose:#c4788a;
+    --ivory:#efe3d0;
+    --ivory-dim:#b9a68f;
+    --serif:"Didot","Bodoni MT","Playfair Display",Georgia,"Times New Roman",serif;
+    --ui:system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;overflow:hidden;background:var(--ink);color:var(--ivory);
+    font-family:var(--serif);overscroll-behavior:none;touch-action:none;
+    -webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+  #stage{position:fixed;inset:0;display:block}
+  button{font-family:inherit;color:inherit;background:none;border:none;cursor:pointer}
+  button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+  /* ---------- shared chrome ---------- */
+  .screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;gap:1.4rem;padding:2rem;text-align:center;
+    background:radial-gradient(120% 90% at 50% 8%, var(--velvet) 0%, var(--ink) 68%);
+    z-index:30;transition:opacity .6s ease}
+  .screen.hidden{opacity:0;pointer-events:none}
+  .eyebrow{font-family:var(--ui);font-size:.66rem;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--rose)}
+  h1{font-size:clamp(2.4rem,11vw,4rem);font-weight:400;letter-spacing:.04em;
+    line-height:1.05;text-wrap:balance;color:var(--ivory)}
+  h1 em{font-style:italic;color:var(--gold)}
+  .rule{width:52px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .lede{max-width:30ch;font-size:1.02rem;line-height:1.65;color:var(--ivory-dim);font-style:italic}
+  .btn{padding:.85rem 2.2rem;border:1px solid var(--gold-deep);border-radius:999px;
+    font-family:var(--ui);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--gold);transition:background .25s,color .25s}
+  .btn:active{background:var(--gold);color:var(--ink)}
+  .btn.quiet{border-color:#5a3a4a;color:var(--ivory-dim);letter-spacing:.24em}
+  .fineprint{font-family:var(--ui);font-size:.62rem;letter-spacing:.06em;
+    color:#7d6a72;max-width:34ch;line-height:1.7}
+
+  /* ---------- HUD ---------- */
+  #hud{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;
+    justify-content:space-between;padding:calc(env(safe-area-inset-top,0px) + .7rem) 1rem .6rem;
+    pointer-events:none;opacity:0;transition:opacity .5s}
+  #hud.on{opacity:1}
+  #hud .cluster{display:flex;align-items:baseline;gap:.9rem}
+  .hud-label{font-family:var(--ui);font-size:.58rem;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--rose)}
+  .hud-val{font-family:var(--serif);font-size:1.05rem;color:var(--gold);
+    font-variant-numeric:tabular-nums}
+  #hud .actions{display:flex;gap:.4rem;pointer-events:auto}
+  .icon-btn{width:42px;height:42px;border:1px solid #4a2d3c;border-radius:50%;
+    display:grid;place-items:center;color:var(--ivory-dim);font-size:1.05rem;
+    background:rgba(18,8,16,.55);backdrop-filter:blur(4px)}
+  .icon-btn:active{border-color:var(--gold);color:var(--gold)}
+
+  /* ---------- level complete ---------- */
+  #veil{position:fixed;inset:0;z-index:25;display:flex;align-items:flex-end;
+    justify-content:center;padding:0 1.4rem calc(env(safe-area-inset-bottom,0px) + 2.2rem);
+    opacity:0;pointer-events:none;transition:opacity .8s ease .9s}
+  #veil.on{opacity:1;pointer-events:auto}
+  .veil-card{display:flex;flex-direction:column;align-items:center;gap:.9rem;
+    padding:1.3rem 1.8rem 1.5rem;border:1px solid rgba(212,175,94,.35);border-radius:4px;
+    background:linear-gradient(180deg,rgba(18,8,16,.82),rgba(42,18,32,.88));
+    backdrop-filter:blur(8px);text-align:center}
+  .veil-card h2{font-size:1.5rem;font-weight:400;font-style:italic;color:var(--gold)}
+  .veil-card p{font-family:var(--ui);font-size:.66rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ivory-dim)}
+
+  /* ---------- gallery ---------- */
+  #gallery{position:fixed;inset:0;z-index:40;background:rgba(10,4,9,.92);
+    backdrop-filter:blur(10px);display:none;flex-direction:column;
+    padding:calc(env(safe-area-inset-top,0px) + 1.2rem) 1.2rem 1.2rem}
+  #gallery.on{display:flex}
+  #gallery header{display:flex;align-items:center;justify-content:space-between;
+    margin-bottom:.4rem}
+  #gallery h2{font-size:1.5rem;font-weight:400;font-style:italic}
+  #gallery .note{font-family:var(--ui);font-size:.62rem;letter-spacing:.05em;
+    color:#8d7580;line-height:1.7;margin-bottom:1rem;max-width:46ch}
+  #thumbs{flex:1;overflow-y:auto;display:grid;grid-template-columns:repeat(3,1fr);
+    gap:.6rem;align-content:start;touch-action:pan-y}
+  .thumb{position:relative;aspect-ratio:3/4;border:1px solid #4a2d3c;border-radius:3px;
+    overflow:hidden;background:var(--velvet)}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .thumb .del{position:absolute;top:4px;right:4px;width:30px;height:30px;border-radius:50%;
+    background:rgba(18,8,16,.75);color:var(--rose);font-size:.95rem;line-height:1;
+    display:grid;place-items:center;border:1px solid rgba(196,120,138,.4)}
+  .thumb .badge{position:absolute;left:0;right:0;bottom:0;padding:.2rem;
+    font-family:var(--ui);font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;
+    text-align:center;color:var(--gold);background:rgba(18,8,16,.7)}
+  .thumb.add{display:grid;place-items:center;border-style:dashed;border-color:#6b4457;
+    color:var(--rose);font-size:2rem;font-weight:300}
+  #gallery footer{display:flex;justify-content:center;padding-top:1rem}
+
+  #toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 5.4rem);
+    transform:translateX(-50%);z-index:50;padding:.55rem 1.2rem;border-radius:999px;
+    background:rgba(42,18,32,.92);border:1px solid rgba(212,175,94,.4);
+    font-family:var(--ui);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold);opacity:0;transition:opacity .35s;pointer-events:none;white-space:nowrap}
+  #toast.on{opacity:1}
+
+  @media (prefers-reduced-motion: reduce){
+    .screen,#veil,#toast{transition:none}
+  }
+</style>
+
+<canvas id="stage"></canvas>
+
+<div id="hud">
+  <div class="cluster">
+    <span><span class="hud-label">Chamber</span> <span class="hud-val" id="hudLevel">I</span></span>
+    <span><span class="hud-label">Unveiled</span> <span class="hud-val" id="hudPct">0%</span></span>
+  </div>
+  <div class="actions">
+    <button class="icon-btn" id="btnCenter" title="Re-centre tilt" aria-label="Re-centre tilt">&#10752;</button>
+    <button class="icon-btn" id="btnGallery" title="Gallery" aria-label="Open gallery">&#10048;</button>
+  </div>
+</div>
+
+<div id="veil">
+  <div class="veil-card">
+    <h2 id="veilTitle">Unveiled</h2>
+    <p id="veilSub">Chamber I complete</p>
+    <button class="btn" id="btnNext">Next chamber</button>
+  </div>
+</div>
+
+<div class="screen" id="title">
+  <div class="eyebrow">A tilting diversion</div>
+  <h1>The <em>Velvet</em> Maze</h1>
+  <div class="rule"></div>
+  <p class="lede">Tilt your phone to roll the marble. Wherever it wanders, the darkness lifts &mdash; reach the gilded door and the whole picture is yours.</p>
+  <button class="btn" id="btnBegin">Begin</button>
+  <button class="btn quiet" id="btnTitleGallery">Your gallery</button>
+  <p class="fineprint">Add your own art in the gallery. Images are stored only on this device and never leave it.</p>
+</div>
+
+<div id="gallery">
+  <header>
+    <h2>Your gallery</h2>
+    <button class="icon-btn" id="btnGalleryClose" aria-label="Close gallery">&#10005;</button>
+  </header>
+  <p class="note">These images are revealed one per chamber, in order. They are kept in this browser's private storage on your device only &mdash; nothing is uploaded. Tap &#10005; on a tile to remove it.</p>
+  <div id="thumbs"></div>
+  <footer><button class="btn" id="btnDone">Done</button></footer>
+</div>
+
+<input type="file" id="filePick" accept="image/*" multiple hidden>
+<div id="toast"></div>
+
+<script>
+'use strict';
+/* ============================================================
+   The Velvet Maze — tilt marble game that unveils an image.
+   Layers per frame: velvet ground → artwork (maze window) →
+   fog (erased along the marble's path) → walls → door → marble.
+   ============================================================ */
+
+const $ = s => document.querySelector(s);
+const stage = $('#stage'), ctx = stage.getContext('2d');
+const DPR = Math.min(window.devicePixelRatio || 1, 2);
+const ROMAN = n => ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'][ (n-1) % 12 ];
+
+/* ---------- persistent state ---------- */
+const store = {
+  get level(){ return +(localStorage.getItem('vm_level') || 1); },
+  set level(v){ localStorage.setItem('vm_level', v); }
+};
+
+/* ---------- IndexedDB gallery ---------- */
+const idb = {
+  open(){
+    return new Promise((res, rej) => {
+      const r = indexedDB.open('velvet-maze', 1);
+      r.onupgradeneeded = () => r.result.createObjectStore('art', { keyPath:'id', autoIncrement:true });
+      r.onsuccess = () => res(r.result);
+      r.onerror = () => rej(r.error);
+    });
+  },
+  async all(){
+    const db = await this.open();
+    return new Promise((res, rej) => {
+      const q = db.transaction('art').objectStore('art').getAll();
+      q.onsuccess = () => res(q.result); q.onerror = () => rej(q.error);
+    });
+  },
+  async add(blob){
+    const db = await this.open();
+    return new Promise((res, rej) => {
+      const tx = db.transaction('art','readwrite');
+      tx.objectStore('art').add({ blob });
+      tx.oncomplete = res; tx.onerror = () => rej(tx.error);
+    });
+  },
+  async del(id){
+    const db = await this.open();
+    return new Promise((res, rej) => {
+      const tx = db.transaction('art','readwrite');
+      tx.objectStore('art').delete(id);
+      tx.oncomplete = res; tx.onerror = () => rej(tx.error);
+    });
+  }
+};
+
+/* ---------- default artwork: gilded abstract, generated on device ---------- */
+function makeDefaultArt(seed){
+  const w = 900, h = 1400;
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  const g = c.getContext('2d');
+  let s = seed * 2654435761 >>> 0;
+  const rnd = () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296;
+
+  const base = g.createLinearGradient(0, 0, w, h);
+  base.addColorStop(0, '#3d1a2b'); base.addColorStop(.55, '#241019'); base.addColorStop(1, '#120810');
+  g.fillStyle = base; g.fillRect(0, 0, w, h);
+
+  const tints = ['rgba(212,175,94,', 'rgba(196,120,138,', 'rgba(122,62,90,', 'rgba(239,227,208,'];
+  for (let i = 0; i < 7; i++){
+    const x = rnd()*w, y = rnd()*h, r = 180 + rnd()*380;
+    const gr = g.createRadialGradient(x, y, 0, x, y, r);
+    gr.addColorStop(0, tints[i % tints.length] + (0.16 + rnd()*0.18) + ')');
+    gr.addColorStop(1, tints[i % tints.length] + '0)');
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+  }
+  g.lineCap = 'round';
+  for (let i = 0; i < 14; i++){
+    g.strokeStyle = (i % 3 === 0 ? 'rgba(212,175,94,' : 'rgba(196,120,138,') + (0.1 + rnd()*0.25) + ')';
+    g.lineWidth = 1.5 + rnd()*5;
+    g.beginPath();
+    let x = rnd()*w, y = rnd()*h;
+    g.moveTo(x, y);
+    for (let k = 0; k < 3; k++){
+      g.bezierCurveTo(rnd()*w, rnd()*h, rnd()*w, rnd()*h, rnd()*w, rnd()*h);
+    }
+    g.stroke();
+  }
+  for (let i = 0; i < 900; i++){
+    g.fillStyle = 'rgba(239,227,208,' + (rnd()*0.06) + ')';
+    g.fillRect(rnd()*w, rnd()*h, 1.2, 1.2);
+  }
+  return c;
+}
+
+/* ---------- maze generation (recursive backtracker) ---------- */
+function genMaze(cols, rows, rng){
+  // walls[r][c] = {n,e,s,w} booleans
+  const cell = () => ({ n:true, e:true, s:true, w:true, seen:false });
+  const m = Array.from({length: rows}, () => Array.from({length: cols}, cell));
+  const stack = [[0, 0]];
+  m[0][0].seen = true;
+  const dirs = [[0,-1,'n','s'],[1,0,'e','w'],[0,1,'s','n'],[-1,0,'w','e']];
+  while (stack.length){
+    const [cx, cy] = stack[stack.length-1];
+    const options = dirs.filter(([dx,dy]) => {
+      const nx = cx+dx, ny = cy+dy;
+      return nx>=0 && ny>=0 && nx<cols && ny<rows && !m[ny][nx].seen;
+    });
+    if (!options.length){ stack.pop(); continue; }
+    const [dx, dy, a, b] = options[Math.floor(rng()*options.length)];
+    const nx = cx+dx, ny = cy+dy;
+    m[cy][cx][a] = false; m[ny][nx][b] = false;
+    m[ny][nx].seen = true;
+    stack.push([nx, ny]);
+  }
+  return m;
+}
+
+/* ---------- game state ---------- */
+const G = {
+  running:false, won:false,
+  level:1, cols:6, rows:9,
+  maze:null, walls:[],           // walls: array of {x,y,w,h} in css px
+  ox:0, oy:0, cw:0, ch:0, cs:0,  // maze origin, size, cell size
+  ball:{ x:0, y:0, vx:0, vy:0, r:0 },
+  exit:{ c:0, r:0 },
+  visited:null, visitCount:0, openCells:0,
+  fog:null, fogCtx:null, fogAlpha:1,
+  art:null, artFit:null,
+  tilt:{ ax:0, ay:0, nb:null, ng:null, raw:{b:0,g:0}, live:false },
+  keys:{}, drag:null,
+  glow:0
+};
+
+let images = [];            // [{id, url, custom:true}] — object URLs
+let defaultArts = [makeDefaultArt(3), makeDefaultArt(7), makeDefaultArt(11)];
+
+function artForLevel(n){
+  if (images.length) return images[(n-1) % images.length].el;
+  return defaultArts[(n-1) % defaultArts.length];
+}
+
+/* ---------- sizing ---------- */
+function resize(){
+  stage.width  = Math.round(innerWidth * DPR);
+  stage.height = Math.round(innerHeight * DPR);
+  stage.style.width = innerWidth + 'px';
+  stage.style.height = innerHeight + 'px';
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  if (G.maze) layoutMaze();
+}
+addEventListener('resize', resize);
+
+function layoutMaze(){
+  const padTop = 74, pad = 14, padBot = 20;
+  const availW = innerWidth - pad*2;
+  const availH = innerHeight - padTop - padBot;
+  G.cs = Math.floor(Math.min(availW / G.cols, availH / G.rows));
+  G.cw = G.cs * G.cols; G.ch = G.cs * G.rows;
+  G.ox = Math.round((innerWidth - G.cw) / 2);
+  G.oy = Math.round(padTop + (availH - G.ch) / 2);
+  G.ball.r = G.cs * 0.28;
+
+  // wall rectangles
+  const t = Math.max(3, G.cs * 0.11);
+  G.wallT = t;
+  G.walls = [];
+  for (let r = 0; r < G.rows; r++){
+    for (let c = 0; c < G.cols; c++){
+      const cell = G.maze[r][c];
+      const x = G.ox + c*G.cs, y = G.oy + r*G.cs;
+      if (cell.n) G.walls.push({ x:x - t/2, y:y - t/2, w:G.cs + t, h:t });
+      if (cell.w) G.walls.push({ x:x - t/2, y:y - t/2, w:t, h:G.cs + t });
+      if (c === G.cols-1 && cell.e) G.walls.push({ x:x + G.cs - t/2, y:y - t/2, w:t, h:G.cs + t });
+      if (r === G.rows-1 && cell.s) G.walls.push({ x:x - t/2, y:y + G.cs - t/2, w:G.cs + t, h:t });
+    }
+  }
+
+  // fog buffer matches maze rect
+  G.fog = document.createElement('canvas');
+  G.fog.width = Math.round(G.cw * DPR); G.fog.height = Math.round(G.ch * DPR);
+  G.fogCtx = G.fog.getContext('2d');
+  G.fogCtx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  paintFogFull();
+  // re-erase already-visited cells after a resize
+  for (let r = 0; r < G.rows; r++)
+    for (let c = 0; c < G.cols; c++)
+      if (G.visited && G.visited[r][c]) eraseFogAt(G.ox + (c+.5)*G.cs, G.oy + (r+.5)*G.cs, true);
+
+  // art cover-fit into maze rect
+  const a = G.art, ar = a.width / a.height, mr = G.cw / G.ch;
+  let dw, dh;
+  if (ar > mr){ dh = G.ch; dw = dh * ar; } else { dw = G.cw; dh = dw / ar; }
+  G.artFit = { dx: G.ox + (G.cw - dw)/2, dy: G.oy + (G.ch - dh)/2, dw, dh };
+}
+
+function paintFogFull(){
+  const f = G.fogCtx;
+  f.save();
+  f.setTransform(DPR, 0, 0, DPR, 0, 0);
+  f.globalCompositeOperation = 'source-over';
+  const gr = f.createLinearGradient(0, 0, 0, G.ch);
+  gr.addColorStop(0, '#1a0c15'); gr.addColorStop(1, '#120810');
+  f.fillStyle = gr;
+  f.fillRect(0, 0, G.cw, G.ch);
+  f.restore();
+}
+
+function eraseFogAt(px, py, hard){
+  const f = G.fogCtx;
+  const x = px - G.ox, y = py - G.oy;
+  const rad = G.cs * (hard ? 0.95 : 0.85);
+  f.save();
+  f.globalCompositeOperation = 'destination-out';
+  const gr = f.createRadialGradient(x, y, 0, x, y, rad);
+  gr.addColorStop(0, 'rgba(0,0,0,1)');
+  gr.addColorStop(0.55, 'rgba(0,0,0,0.85)');
+  gr.addColorStop(1, 'rgba(0,0,0,0)');
+  f.fillStyle = gr;
+  f.beginPath(); f.arc(x, y, rad, 0, Math.PI*2); f.fill();
+  f.restore();
+}
+
+/* ---------- level setup ---------- */
+function startLevel(n){
+  G.level = n;
+  const grow = Math.min(n - 1, 8);
+  G.cols = 6 + Math.floor(grow * 0.9);
+  G.rows = 9 + grow;
+  let s = n * 48271 % 2147483647;
+  const rng = () => (s = s * 48271 % 2147483647) / 2147483647;
+  G.maze = genMaze(G.cols, G.rows, rng);
+  G.visited = Array.from({length:G.rows}, () => new Array(G.cols).fill(false));
+  G.visitCount = 0; G.openCells = G.cols * G.rows;
+  G.exit = { c: G.cols - 1, r: G.rows - 1 };
+  G.art = artForLevel(n);
+  G.won = false; G.fogAlpha = 1; G.glow = 0;
+  layoutMaze();
+  G.ball.x = G.ox + G.cs * 0.5; G.ball.y = G.oy + G.cs * 0.5;
+  G.ball.vx = G.ball.vy = 0;
+  $('#hudLevel').textContent = ROMAN(n);
+  visitCell(0, 0);
+  $('#veil').classList.remove('on');
+}
+
+function visitCell(c, r){
+  if (c<0 || r<0 || c>=G.cols || r>=G.rows || G.visited[r][c]) return;
+  G.visited[r][c] = true;
+  G.visitCount++;
+  $('#hudPct').textContent = Math.round(100 * G.visitCount / G.openCells) + '%';
+}
+
+/* ---------- tilt input ---------- */
+function onOrient(e){
+  if (e.beta == null || e.gamma == null) return;
+  G.tilt.live = true;
+  G.tilt.raw.b = e.beta; G.tilt.raw.g = e.gamma;
+  if (G.tilt.nb === null){ G.tilt.nb = e.beta; G.tilt.ng = e.gamma; }
+  let db = e.beta - G.tilt.nb, dg = e.gamma - G.tilt.ng;
+  // remap for screen rotation
+  const ang = (screen.orientation && screen.orientation.angle) || 0;
+  let ax, ay;
+  if (ang === 90)      { ax = db;  ay = -dg; }
+  else if (ang === 270){ ax = -db; ay = dg;  }
+  else if (ang === 180){ ax = -dg; ay = -db; }
+  else                 { ax = dg;  ay = db;  }
+  const clamp = v => Math.max(-28, Math.min(28, v));
+  G.tilt.ax = clamp(ax); G.tilt.ay = clamp(ay);
+}
+
+function recenter(){
+  if (G.tilt.live){ G.tilt.nb = G.tilt.raw.b; G.tilt.ng = G.tilt.raw.g; }
+  toast('Tilt re-centred');
+}
+
+async function armSensors(){
+  if (typeof DeviceOrientationEvent !== 'undefined' &&
+      typeof DeviceOrientationEvent.requestPermission === 'function'){
+    try {
+      const p = await DeviceOrientationEvent.requestPermission();
+      if (p !== 'granted'){ toast('Tilt denied — drag to steer'); return; }
+    } catch (_){ /* fall through — some browsers throw off-gesture */ }
+  }
+  addEventListener('deviceorientation', onOrient);
+}
+
+/* desktop / no-sensor fallback */
+addEventListener('keydown', e => { G.keys[e.key] = true; });
+addEventListener('keyup',   e => { G.keys[e.key] = false; });
+stage.addEventListener('pointerdown', e => { G.drag = { x:e.clientX, y:e.clientY }; });
+addEventListener('pointermove', e => {
+  if (!G.drag) return;
+  G.tilt.ax = Math.max(-28, Math.min(28, (e.clientX - G.drag.x) * 0.22));
+  G.tilt.ay = Math.max(-28, Math.min(28, (e.clientY - G.drag.y) * 0.22));
+});
+addEventListener('pointerup', () => { G.drag = null; if (!G.tilt.live){ G.tilt.ax = 0; G.tilt.ay = 0; } });
+
+/* ---------- physics ---------- */
+function step(dt){
+  const b = G.ball;
+  let ax = G.tilt.ax, ay = G.tilt.ay;
+  if (G.keys.ArrowLeft || G.keys.a) ax -= 16;
+  if (G.keys.ArrowRight|| G.keys.d) ax += 16;
+  if (G.keys.ArrowUp   || G.keys.w) ay -= 16;
+  if (G.keys.ArrowDown || G.keys.s) ay += 16;
+
+  const ACC = G.cs * 0.9;            // px/s^2 per degree — scales with maze size
+  b.vx += ax * ACC * dt * 0.1;
+  b.vy += ay * ACC * dt * 0.1;
+  const drag = Math.pow(0.32, dt);   // heavy velvet friction
+  b.vx *= drag; b.vy *= drag;
+  const vmax = G.cs * 14;
+  const sp = Math.hypot(b.vx, b.vy);
+  if (sp > vmax){ b.vx *= vmax/sp; b.vy *= vmax/sp; }
+
+  const sub = 4;
+  for (let i = 0; i < sub; i++){
+    b.x += b.vx * dt / sub;
+    b.y += b.vy * dt / sub;
+    collide(b);
+  }
+
+  const cc = Math.floor((b.x - G.ox) / G.cs), cr = Math.floor((b.y - G.oy) / G.cs);
+  visitCell(cc, cr);
+  eraseFogAt(b.x, b.y, false);
+
+  if (!G.won && cc === G.exit.c && cr === G.exit.r){
+    const ex = G.ox + (G.exit.c + .5) * G.cs, ey = G.oy + (G.exit.r + .5) * G.cs;
+    if (Math.hypot(b.x - ex, b.y - ey) < G.cs * 0.34) win();
+  }
+}
+
+function collide(b){
+  for (const w of G.walls){
+    const cx = Math.max(w.x, Math.min(b.x, w.x + w.w));
+    const cy = Math.max(w.y, Math.min(b.y, w.y + w.h));
+    const dx = b.x - cx, dy = b.y - cy;
+    const d2 = dx*dx + dy*dy;
+    if (d2 >= b.r * b.r || d2 === 0) continue;
+    const d = Math.sqrt(d2), nx = dx/d, ny = dy/d, push = b.r - d;
+    b.x += nx * push; b.y += ny * push;
+    const vn = b.vx*nx + b.vy*ny;
+    if (vn < 0){ b.vx -= 1.45 * vn * nx; b.vy -= 1.45 * vn * ny; } // soft bounce
+  }
+  // hard clamp to maze bounds
+  b.x = Math.max(G.ox + b.r, Math.min(G.ox + G.cw - b.r, b.x));
+  b.y = Math.max(G.oy + b.r, Math.min(G.oy + G.ch - b.r, b.y));
+}
+
+function win(){
+  G.won = true;
+  $('#veilTitle').textContent = 'Unveiled';
+  $('#veilSub').textContent = 'Chamber ' + ROMAN(G.level) + ' complete';
+  $('#veil').classList.add('on');
+  store.level = G.level + 1;
+  if (navigator.vibrate) navigator.vibrate([30, 40, 80]);
+}
+
+/* ---------- render ---------- */
+let last = 0;
+function frame(t){
+  requestAnimationFrame(frame);
+  const dt = Math.min(0.033, (t - last) / 1000 || 0.016);
+  last = t;
+  if (!G.maze) return;
+  // some environments never fire the resize event — self-heal each frame
+  if (stage.width !== Math.round(innerWidth * DPR) ||
+      stage.height !== Math.round(innerHeight * DPR)) resize();
+  if (G.running && !G.won) step(dt);
+  if (G.won && G.fogAlpha > 0) G.fogAlpha = Math.max(0, G.fogAlpha - dt * 0.55);
+  G.glow += dt;
+  draw();
+}
+
+function draw(){
+  const w = innerWidth, h = innerHeight;
+  // velvet ground
+  const bg = ctx.createRadialGradient(w/2, h*0.12, 0, w/2, h*0.5, h*0.9);
+  bg.addColorStop(0, '#241019'); bg.addColorStop(1, '#0d0509');
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, w, h);
+
+  // artwork clipped to maze rect
+  ctx.save();
+  ctx.beginPath(); ctx.rect(G.ox, G.oy, G.cw, G.ch); ctx.clip();
+  const f = G.artFit;
+  ctx.drawImage(G.art, f.dx, f.dy, f.dw, f.dh);
+  // fog over it
+  if (G.fogAlpha > 0){
+    ctx.globalAlpha = G.fogAlpha;
+    ctx.drawImage(G.fog, G.ox, G.oy, G.cw, G.ch);
+    ctx.globalAlpha = 1;
+  }
+  ctx.restore();
+
+  const wallFade = G.won ? Math.max(0, G.fogAlpha) : 1;
+
+  if (wallFade > 0){
+    // walls: velvet body with a gold edge
+    ctx.globalAlpha = wallFade;
+    ctx.fillStyle = '#170a12';
+    for (const r of G.walls) ctx.fillRect(r.x, r.y, r.w, r.h);
+    ctx.fillStyle = 'rgba(212,175,94,0.32)';
+    const e = Math.max(1, G.wallT * 0.22);
+    for (const r of G.walls){
+      if (r.w > r.h){ ctx.fillRect(r.x, r.y, r.w, e); }
+      else { ctx.fillRect(r.x, r.y, e, r.h); }
+    }
+    ctx.globalAlpha = 1;
+
+    // gilded door (exit)
+    const ex = G.ox + (G.exit.c + .5) * G.cs, ey = G.oy + (G.exit.r + .5) * G.cs;
+    const pulse = 0.55 + 0.45 * Math.sin(G.glow * 2.6);
+    const dg = ctx.createRadialGradient(ex, ey, 0, ex, ey, G.cs * 0.6);
+    dg.addColorStop(0, 'rgba(212,175,94,' + (0.5 * pulse * wallFade) + ')');
+    dg.addColorStop(1, 'rgba(212,175,94,0)');
+    ctx.fillStyle = dg;
+    ctx.beginPath(); ctx.arc(ex, ey, G.cs * 0.6, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = 'rgba(212,175,94,' + (0.85 * wallFade) + ')';
+    ctx.lineWidth = 1.4;
+    ctx.beginPath(); ctx.arc(ex, ey, G.cs * 0.22, 0, Math.PI*2); ctx.stroke();
+    ctx.beginPath(); ctx.arc(ex, ey, G.cs * 0.10 * (0.8 + 0.4*pulse), 0, Math.PI*2); ctx.stroke();
+
+    // marble: ivory pearl with gold rim-light
+    const b = G.ball;
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 3;
+    const mg = ctx.createRadialGradient(b.x - b.r*0.35, b.y - b.r*0.4, b.r*0.1, b.x, b.y, b.r);
+    mg.addColorStop(0, '#f7ecdc'); mg.addColorStop(0.6, '#d8c4ab'); mg.addColorStop(1, '#8f7460');
+    ctx.fillStyle = mg;
+    ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fill();
+    ctx.restore();
+    ctx.strokeStyle = 'rgba(212,175,94,0.5)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.stroke();
+  }
+}
+
+/* ---------- gallery UI ---------- */
+async function loadGallery(){
+  for (const im of images) URL.revokeObjectURL(im.url);
+  const rows = await idb.all();
+  images = await Promise.all(rows.map(row => new Promise(res => {
+    const url = URL.createObjectURL(row.blob);
+    const el = new Image();
+    el.onload = () => res({ id: row.id, url, el });
+    el.onerror = () => res(null);
+    el.src = url;
+  })));
+  images = images.filter(Boolean);
+}
+
+function renderThumbs(){
+  const box = $('#thumbs');
+  box.innerHTML = '';
+  images.forEach((im, i) => {
+    const d = document.createElement('div');
+    d.className = 'thumb';
+    d.innerHTML = '<img alt="Gallery image ' + (i+1) + '">' +
+      '<button class="del" aria-label="Remove image">&#10005;</button>' +
+      '<div class="badge">Chamber ' + ROMAN(i+1) + '</div>';
+    d.querySelector('img').src = im.url;
+    d.querySelector('.del').onclick = async () => {
+      await idb.del(im.id); await loadGallery(); renderThumbs();
+      toast('Removed');
+    };
+    box.appendChild(d);
+  });
+  const add = document.createElement('button');
+  add.className = 'thumb add';
+  add.textContent = '+';
+  add.setAttribute('aria-label', 'Add images');
+  add.onclick = () => $('#filePick').click();
+  box.appendChild(add);
+}
+
+$('#filePick').onchange = async e => {
+  const files = [...e.target.files];
+  for (const fl of files) if (fl.type.startsWith('image/')) await idb.add(fl);
+  e.target.value = '';
+  await loadGallery(); renderThumbs();
+  toast(files.length + (files.length === 1 ? ' image added' : ' images added'));
+};
+
+function openGallery(){ renderThumbs(); $('#gallery').classList.add('on'); G.running = false; }
+function closeGallery(){
+  $('#gallery').classList.remove('on');
+  if (!$('#title').classList.contains('hidden')) return;
+  G.art = artForLevel(G.level); layoutMaze(); G.running = true;
+}
+
+/* ---------- toast ---------- */
+let toastTimer;
+function toast(msg){
+  const el = $('#toast');
+  el.textContent = msg; el.classList.add('on');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('on'), 1800);
+}
+
+/* ---------- wiring ---------- */
+$('#btnBegin').onclick = async () => {
+  await armSensors();
+  try {
+    await document.documentElement.requestFullscreen({ navigationUI: 'hide' });
+    if (screen.orientation && screen.orientation.lock)
+      await screen.orientation.lock('portrait');
+  } catch (_){ /* fullscreen or lock unsupported — play in-page */ }
+  G.tilt.nb = null; G.tilt.ng = null;      // calibrate to how they hold it now
+  $('#title').classList.add('hidden');
+  $('#hud').classList.add('on');
+  startLevel(store.level);
+  G.running = true;
+};
+$('#btnNext').onclick = () => { startLevel(G.level + 1); };
+$('#btnCenter').onclick = recenter;
+$('#btnGallery').onclick = openGallery;
+$('#btnTitleGallery').onclick = openGallery;
+$('#btnGalleryClose').onclick = closeGallery;
+$('#btnDone').onclick = closeGallery;
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) G.running = false;
+  else if ($('#title').classList.contains('hidden') && !$('#gallery').classList.contains('on'))
+    G.running = true;
+});
+
+(async () => {
+  resize();
+  await loadGallery();
+  requestAnimationFrame(frame);
+})();
+</script>

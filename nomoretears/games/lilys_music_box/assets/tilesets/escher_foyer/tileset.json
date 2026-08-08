@@ -1,0 +1,237 @@
+{
+  "id": "escher_foyer",
+  "name": "Escher Foyer",
+  "style": "pen-ink-crosshatch",
+  "description": "M.C. Escher 'Relativity' (1953) inspired stone architecture tileset. Pen-and-ink crosshatch rendering, multiple implied gravity planes. 512x512 source images designed for downscaling to 32x32 in-engine.",
+  "source_size": [512, 512],
+  "display_size": [32, 32],
+  "reference": "reference/relativity.jpg",
+  "missing": [],
+  "edge_types": {
+    "FLAT": "Stone surface flush with tile edge — connects to any other FLAT edge",
+    "VOID": "Open air — connects to any other VOID edge",
+    "STEP": "Stair tread nosing meeting the tile edge mid-pixel"
+  },
+  "tiles": [
+    {
+      "id": "void_open",
+      "category": "void",
+      "file": "void/void_open.png",
+      "edges": { "N": "VOID", "E": "VOID", "S": "VOID", "W": "VOID" },
+      "description": "Pure open air. Faint atmospheric grain lines at 7° off-horizontal. No structure. Tiles in any direction without seams."
+    },
+    {
+      "id": "floor_slab",
+      "category": "floor",
+      "file": "floor/floor_slab.png",
+      "edges": { "N": "FLAT", "E": "FLAT", "S": "FLAT", "W": "FLAT" },
+      "description": "Full solid stone slab. All edges FLAT — stacks in any direction to form larger stone masses."
+    },
+    {
+      "id": "floor_surface",
+      "category": "floor",
+      "file": "floor/floor_surface.png",
+      "edges": { "N": "FLAT", "E": "VOID", "S": "VOID", "W": "VOID" },
+      "description": "Walkable floor surface: 96px slab at top, void below. Tiles horizontally to form continuous floor runs."
+    },
+    {
+      "id": "floor_surface_left_edge",
+      "category": "floor",
+      "file": "floor/floor_surface_left_edge.png",
+      "edges": { "N": "FLAT", "E": "VOID", "S": "VOID", "W": "VOID" },
+      "description": "Floor slab with left drop-off. Slab occupies right 416px; left 96px void. Exposed left vertical face rendered."
+    },
+    {
+      "id": "floor_surface_right_edge",
+      "category": "floor",
+      "file": "floor/floor_surface_right_edge.png",
+      "edges": { "N": "FLAT", "E": "VOID", "S": "VOID", "W": "VOID" },
+      "description": "Floor slab with right drop-off. Mirror of floor_surface_left_edge."
+    },
+    {
+      "id": "ceiling_slab",
+      "category": "ceiling",
+      "file": "ceiling/ceiling_slab.png",
+      "edges": { "N": "VOID", "E": "VOID", "S": "FLAT", "W": "VOID" },
+      "description": "Overhead ceiling surface. 96px slab at bottom, void above. Underside lit — readable as floor under inverted gravity. Complement to floor_surface for Relativity double-gravity corridors."
+    },
+    {
+      "id": "wall_left_face",
+      "category": "wall",
+      "file": "wall/wall_left_face.png",
+      "edges": { "N": "FLAT", "E": "VOID", "S": "FLAT", "W": "FLAT" },
+      "description": "Vertical stone wall occupying left 96px. Exposed right face rendered. Stacks vertically for full-height walls."
+    },
+    {
+      "id": "wall_right_face",
+      "category": "wall",
+      "file": "wall/wall_right_face.png",
+      "edges": { "N": "FLAT", "E": "FLAT", "S": "FLAT", "W": "VOID" },
+      "description": "Mirror of wall_left_face. Wall occupies right 96px, exposed left face."
+    },
+    {
+      "id": "stair_ascending_right",
+      "category": "stair",
+      "file": "stair/stair_ascending_right.png",
+      "edges": { "N": "VOID", "E": "FLAT", "S": "FLAT", "W": "VOID" },
+      "description": "Single step ascending left-to-right. Tread right half, riser center. Tile horizontally for continuous ascending staircase. Combine with stair_turn_ne / stair_turn_sw as bookends."
+    },
+    {
+      "id": "stair_ascending_left",
+      "category": "stair",
+      "file": "stair/stair_ascending_left.png",
+      "edges": { "N": "VOID", "E": "VOID", "S": "FLAT", "W": "FLAT" },
+      "description": "Single step ascending right-to-left. Mirror of stair_ascending_right. Tile horizontally for continuous left-ascending staircase. Combine with stair_turn_nw / stair_turn_se as bookends."
+    },
+    {
+      "id": "stair_step_deep",
+      "category": "stair",
+      "file": "stair/stair_step_deep.png",
+      "edges": { "N": "VOID", "E": "FLAT", "S": "FLAT", "W": "VOID" },
+      "description": "Two steps per tile, ascending left-to-right. Use when staircase must rise steeply in fewer tiles."
+    },
+    {
+      "id": "stair_landing_flat",
+      "category": "stair",
+      "file": "stair/stair_landing_flat.png",
+      "edges": { "N": "FLAT", "E": "FLAT", "S": "FLAT", "W": "FLAT" },
+      "description": "Horizontal stone landing with flag-joint seam detail. All edges FLAT — universal adjacency. Gravity-reversal junction: a landing from which staircases depart in opposite directions reads as floor or ceiling depending on which staircase you follow."
+    },
+    {
+      "id": "stair_turn_ne",
+      "category": "stair",
+      "file": "stair/stair_turn_ne.png",
+      "edges": { "N": "FLAT", "E": "FLAT", "S": "FLAT", "W": "VOID" },
+      "description": "L-corner: staircase arriving from west, wall rising north. Lower floor strip + right wall strip. Connects stair_ascending_right (left) with wall_left_face (above)."
+    },
+    {
+      "id": "stair_turn_nw",
+      "category": "stair",
+      "file": "stair/stair_turn_nw.png",
+      "edges": { "N": "FLAT", "E": "VOID", "S": "FLAT", "W": "FLAT" },
+      "description": "L-corner: staircase arriving from east, wall rising north. Mirror of stair_turn_ne."
+    },
+    {
+      "id": "stair_turn_se",
+      "category": "stair",
+      "file": "stair/stair_turn_se.png",
+      "edges": { "N": "VOID", "E": "FLAT", "S": "FLAT", "W": "VOID" },
+      "description": "L-corner: staircase descending to ground level, east corridor. Terminates ascending staircase at floor on right side."
+    },
+    {
+      "id": "stair_turn_sw",
+      "category": "stair",
+      "file": "stair/stair_turn_sw.png",
+      "edges": { "N": "VOID", "E": "VOID", "S": "FLAT", "W": "FLAT" },
+      "description": "L-corner: staircase descending to ground level, west corridor. Mirror of stair_turn_se."
+    },
+    {
+      "id": "pillar_cap_top",
+      "category": "pillar",
+      "file": "pillar/pillar_cap_top.png",
+      "edges": { "N": "FLAT", "E": "VOID", "S": "FLAT", "W": "VOID" },
+      "description": "Ionic column capital (top). Volute scrolls at upper corners. Flares from 128px shaft to 192px capital. Stack above pillar_shaft tiles; place below floor_slab or ceiling."
+    },
+    {
+      "id": "pillar_shaft",
+      "category": "pillar",
+      "file": "pillar/pillar_shaft.png",
+      "edges": { "N": "FLAT", "E": "VOID", "S": "FLAT", "W": "VOID" },
+      "description": "Cylindrical column shaft segment. 128px wide, full height. Drum joint every 128px. Stack as many as needed between pillar_cap_top and pillar_cap_bottom."
+    },
+    {
+      "id": "pillar_cap_bottom",
+      "category": "pillar",
+      "file": "pillar/pillar_cap_bottom.png",
+      "edges": { "N": "FLAT", "E": "VOID", "S": "FLAT", "W": "VOID" },
+      "description": "Column base capital. 180° rotation of pillar_cap_top. Functions as conventional base under normal gravity OR as capital under inverted gravity — enabling Escher ambiguity."
+    },
+    {
+      "id": "arch_left_springer",
+      "category": "arch",
+      "file": "arch/arch_left_springer.png",
+      "edges": { "N": "FLAT", "E": "VOID", "S": "FLAT", "W": "FLAT" },
+      "description": "Left springing stone of a semicircular arch. Quarter-circle intrados from bottom-right corner to top. Arch center implied at tile bottom-right corner. Place left of arch_keystone."
+    },
+    {
+      "id": "arch_keystone",
+      "category": "arch",
+      "file": "arch/arch_keystone.png",
+      "edges": { "N": "FLAT", "E": "VOID", "S": "VOID", "W": "VOID" },
+      "description": "Arch crown keystone. Slightly projecting voussoir. Arch center at tile bottom-center. Place between arch_left_springer and arch_right_springer to complete the semicircle."
+    },
+    {
+      "id": "arch_right_springer",
+      "category": "arch",
+      "file": "arch/arch_right_springer.png",
+      "edges": { "N": "FLAT", "E": "FLAT", "S": "FLAT", "W": "VOID" },
+      "description": "Right springing stone of a semicircular arch. Mirror of arch_left_springer. Arch center at tile bottom-left corner."
+    },
+    {
+      "id": "impossible_floor_ceiling",
+      "category": "special",
+      "file": "special/impossible_floor_ceiling.png",
+      "edges": { "N": "FLAT", "E": "FLAT", "S": "FLAT", "W": "FLAT" },
+      "description": "Signature Relativity junction tile. Two stone slabs (top 96px and bottom 96px) with 320px void between, connected by wall strips on both sides forming a tunnel cross-section. Contradictory shadow directions make the tile readable as floor from one gravity and ceiling from another simultaneously."
+    },
+    {
+      "id": "window_void",
+      "category": "special",
+      "file": "special/window_void.png",
+      "edges": { "N": "FLAT", "E": "FLAT", "S": "FLAT", "W": "FLAT" },
+      "description": "Full wall tile with centered semicircular arched window opening. All four edges FLAT — drops into any wall run. The void interior suggests depth and inhabitation."
+    },
+    {
+      "id": "transition_gravity_west",
+      "category": "special",
+      "file": "special/transition_gravity_west.png",
+      "edges": { "N": "VOID", "E": "FLAT", "S": "FLAT", "W": "VOID" },
+      "description": "Gravity-shift corner: east-system floor meets west-system wall. L-mass in lower-right quadrant. Equal-density hatching at the 90° corner creates visual ambiguity about which surface is floor and which is wall. Use at the junction between a staircase run and a corridor on a perpendicular gravity plane."
+    },
+    {
+      "id": "transition_gravity_east",
+      "category": "special",
+      "file": "special/transition_gravity_east.png",
+      "edges": { "N": "VOID", "E": "VOID", "S": "FLAT", "W": "FLAT" },
+      "description": "Mirror of transition_gravity_west. L-mass in lower-left quadrant. Place as a pair with transition_gravity_west flanking a floor run to produce the three-gravity-system reading of Relativity."
+    }
+  ],
+  "assembly_recipes": {
+    "floor_run": {
+      "description": "Horizontal walkable floor",
+      "pattern": ["floor_surface_left_edge", "floor_surface", "floor_surface", "floor_surface_right_edge"]
+    },
+    "staircase_ascending_right": {
+      "description": "Complete rightward-ascending staircase",
+      "pattern": ["stair_turn_sw", "stair_ascending_right", "stair_ascending_right", "stair_turn_ne"]
+    },
+    "staircase_ascending_left": {
+      "description": "Complete leftward-ascending staircase (mirror run)",
+      "pattern": ["stair_turn_se", "stair_ascending_left", "stair_ascending_left", "stair_turn_nw"]
+    },
+    "staircase_loop": {
+      "description": "Closed Escher loop — ascending right along bottom, ascending left along top, connected by landings. Reads as infinite staircase from either gravity.",
+      "grid": [
+        ["stair_turn_nw",        "stair_ascending_left",  "stair_ascending_left",  "stair_turn_ne"],
+        ["stair_ascending_right","void_open",              "void_open",             "stair_ascending_left"],
+        ["stair_turn_sw",        "stair_ascending_right", "stair_ascending_right", "stair_turn_se"]
+      ]
+    },
+    "full_column": {
+      "description": "Freestanding column (top to bottom)",
+      "pattern": ["pillar_cap_top", "pillar_shaft", "pillar_shaft", "pillar_cap_bottom"]
+    },
+    "full_arch": {
+      "description": "Complete semicircular arch",
+      "pattern": ["arch_left_springer", "arch_keystone", "arch_right_springer"]
+    },
+    "relativity_corridor": {
+      "description": "3x3 arrangement creating double-gravity corridor readable from two directions",
+      "grid": [
+        ["void_open",            "ceiling_slab", "void_open"],
+        ["wall_left_face",       "impossible_floor_ceiling", "wall_right_face"],
+        ["void_open",            "floor_surface", "void_open"]
+      ]
+    }
+  }
+}

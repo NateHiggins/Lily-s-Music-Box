@@ -56,7 +56,7 @@ const APPS := [
 	{"id": "radio", "label": "radio", "icon": ["|)) ", "1610"], "live": true},
 	{"id": "maze", "label": "maze", "icon": ["|_||", "||_|"], "live": false},
 	{"id": "shards", "label": "shards", "icon": ["\\/\\/", "/\\/\\"], "live": false},
-	{"id": "pairs", "label": "pairs", "icon": ["[][]", "[][]"], "live": false},
+	{"id": "pairs", "label": "pairs", "icon": ["[][]", "[][]"], "live": true},
 	{"id": "sys", "label": "sys", "icon": ["<+>", "   "], "live": true},
 ]
 const COLS_PER_ROW := 3
@@ -68,6 +68,9 @@ var app_id := ""
 var led_pulse := 0.0
 
 ## Set by Phone3D so the cam app can report the roll without owning it.
+## Set by Phone3D. The OS routes to it but never owns it.
+var cart_pairs: CartPairs
+
 var camera_roll := 0
 var camera_cap := 40
 var gallery_index := 0
@@ -150,6 +153,9 @@ func key(action: String, typed := "") -> void:
 			_term_input = ""
 			return
 		screen = Screen.HOME
+		return
+	if app_id == "pairs" and cart_pairs != null:
+		cart_pairs.key(action)
 		return
 	if app_id == "cam":
 		match action:
@@ -348,6 +354,7 @@ func _render_app(g: TermGrid) -> void:
 		"dial": _app_dial(g)
 		"radio": _app_radio(g)
 		"sys": _app_sys(g)
+		"pairs": _app_pairs(g)
 		_: _app_cartridge(g, str(app.get("label", app_id)))
 	g.fill_row(23, TermGrid.BG_ALT)
 	g.put(1, 23, "esc: back", TermGrid.DIM, TermGrid.BG_ALT)
@@ -453,7 +460,16 @@ func _app_sys(g: TermGrid) -> void:
 	g.put(2, 14, "you got it.", TermGrid.DIM)
 
 
-## The three HTML games land here once a runtime is chosen. Saying so
+## Chrome only: the board is drawn in pixels underneath, so every cell
+## left blank here is a hole it shows through.
+func _app_pairs(g: TermGrid) -> void:
+	if cart_pairs == null:
+		g.put_centre(11, "cartridge not loaded", TermGrid.WARN)
+		return
+	g.put(1, 22, cart_pairs.status(), TermGrid.HI)
+
+
+## The remaining HTML games land here once they are ported. Saying so
 ## plainly beats a fake loading bar: the slot is real, the cartridge
 ## is not in it yet.
 func _app_cartridge(g: TermGrid, label: String) -> void:

@@ -16,6 +16,7 @@ const SHOTS := [
 	{"name": "q_01_carried", "raised": false, "at": 2.6},
 	{"name": "q_02_raised", "raised": true, "at": 2.6},
 	{"name": "q_03_raised_home", "raised": true, "at": 6.0},
+	{"name": "q_04_pairs", "raised": true, "at": 6.0, "app": "pairs"},
 ]
 
 var root: Node3D
@@ -53,8 +54,19 @@ func _run() -> void:
 	for shot in SHOTS:
 		carrier.raised = bool(shot.raised)
 		# Drive the OS to a settled state rather than waiting out boot.
-		carrier.phone.os_sim.screen = PhoneOS.Screen.HOME \
-				if float(shot.at) > 4.0 else PhoneOS.Screen.MOTD
+		if shot.has("app"):
+			carrier.phone.os_sim.screen = PhoneOS.Screen.APP
+			carrier.phone.os_sim.app_id = str(shot.app)
+			carrier.phone.pairs.start(carrier.phone.cam.roll,
+					func(p): return carrier.phone.cam.load_photo(p))
+			# Turn three up so the frame catches the game mid-play
+			# rather than as sixteen identical backs.
+			for c in [0, 5, 9]:
+				carrier.phone.pairs.cursor = c
+				carrier.phone.pairs.key("ok")
+		else:
+			carrier.phone.os_sim.screen = PhoneOS.Screen.HOME \
+					if float(shot.at) > 4.0 else PhoneOS.Screen.MOTD
 		carrier.phone.os_sim.t = float(shot.at)
 		for i in 40:
 			await get_tree().process_frame

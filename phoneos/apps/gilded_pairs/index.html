@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Gilded Pairs</title>
+<style>
+  :root {
+    --plum-deep: #120810;
+    --plum: #2a1220;
+    --plum-soft: #3d1c30;
+    --gold: #d4af5e;
+    --gold-dim: #8a7340;
+    --rose: #c4788a;
+    --ivory: #efe3d0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; overflow: hidden; }
+  body {
+    background: radial-gradient(ellipse at 50% 30%, var(--plum) 0%, var(--plum-deep) 70%);
+    color: var(--ivory);
+    font-family: Georgia, 'Times New Roman', serif;
+    user-select: none;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .screen { display: none; flex-direction: column; align-items: center; width: 100%; height: 100%; padding: max(16px, env(safe-area-inset-top)) 16px 16px; }
+  .screen.active { display: flex; }
+
+  /* ---------- Title ---------- */
+  #titleScreen { justify-content: center; gap: 18px; text-align: center; }
+  .wordmark {
+    font-size: clamp(2.2rem, 9vw, 3.4rem); letter-spacing: .18em; color: var(--gold);
+    text-shadow: 0 0 24px rgba(212,175,94,.35);
+  }
+  .wordmark small { display: block; font-size: .32em; letter-spacing: .55em; color: var(--rose); margin-top: 8px; }
+  .deco-line { width: 180px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .btn {
+    font-family: inherit; font-size: 1.05rem; letter-spacing: .14em; cursor: pointer;
+    background: linear-gradient(180deg, var(--plum-soft), var(--plum));
+    color: var(--ivory); border: 1px solid var(--gold-dim); border-radius: 4px;
+    padding: 14px 34px; min-width: 230px; transition: border-color .2s, box-shadow .2s;
+  }
+  .btn:active { border-color: var(--gold); box-shadow: 0 0 18px rgba(212,175,94,.25); }
+  .btn.primary { border-color: var(--gold); color: var(--gold); }
+  .hint { font-size: .8rem; color: var(--rose); opacity: .8; max-width: 300px; line-height: 1.5; font-style: italic; }
+
+  /* ---------- HUD ---------- */
+  #hud { display: flex; justify-content: space-between; align-items: baseline; width: 100%; max-width: 480px; padding: 4px 2px 10px; }
+  #hud .stat { font-size: .85rem; letter-spacing: .12em; color: var(--gold); }
+  #hud .stat span { color: var(--ivory); }
+  #backBtn { background: none; border: none; color: var(--rose); font-family: inherit; font-size: .85rem; letter-spacing: .12em; cursor: pointer; }
+
+  /* ---------- Board ---------- */
+  #boardWrap {
+    position: relative; width: min(94vw, 480px, 72vh); aspect-ratio: 3/4;
+    border: 1px solid var(--gold-dim); border-radius: 6px; overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,.55);
+  }
+  #revealImg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  #grid { position: absolute; inset: 0; display: grid; gap: 3px; padding: 3px; }
+  .card { perspective: 600px; cursor: pointer; }
+  .card-inner {
+    position: relative; width: 100%; height: 100%;
+    transform-style: preserve-3d; transition: transform .38s cubic-bezier(.4,.1,.2,1);
+  }
+  .card.flipped .card-inner { transform: rotateY(180deg); }
+  .card-face {
+    position: absolute; inset: 0; backface-visibility: hidden; border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card-back {
+    background:
+      radial-gradient(circle at 50% 50%, rgba(212,175,94,.14) 0%, transparent 55%),
+      repeating-linear-gradient(45deg, var(--plum-soft) 0 6px, var(--plum) 6px 12px);
+    border: 1px solid var(--gold-dim);
+  }
+  .card-back::after { content: '❖'; color: var(--gold-dim); font-size: clamp(.7rem, 2.6vw, 1.1rem); }
+  .card-front {
+    background: linear-gradient(160deg, var(--plum-soft), var(--plum-deep));
+    border: 1px solid var(--gold); transform: rotateY(180deg);
+    color: var(--gold); font-size: clamp(1.2rem, 5.5vw, 2rem);
+    text-shadow: 0 0 12px rgba(212,175,94,.5);
+  }
+  .card.matched { pointer-events: none; animation: dissolve .8s ease .25s forwards; }
+  @keyframes dissolve { to { opacity: 0; transform: scale(1.08); filter: blur(3px); } }
+  .card.shake .card-inner { animation: shake .3s ease; }
+  @keyframes shake { 25% { transform: rotateY(180deg) translateX(-4px); } 75% { transform: rotateY(180deg) translateX(4px); } }
+
+  /* ---------- Win veil ---------- */
+  #winVeil {
+    position: absolute; inset: 0; display: none; flex-direction: column; justify-content: flex-end;
+    align-items: center; padding-bottom: 22px; gap: 12px;
+    background: linear-gradient(180deg, transparent 55%, rgba(18,8,16,.88));
+  }
+  #winVeil.show { display: flex; animation: fadeIn 1.2s ease; }
+  @keyframes fadeIn { from { opacity: 0; } }
+  #winText { color: var(--gold); letter-spacing: .3em; font-size: 1.1rem; text-shadow: 0 1px 8px #000; }
+
+  /* ---------- Gallery ---------- */
+  #galleryScreen { gap: 14px; }
+  #galleryScreen h2 { color: var(--gold); letter-spacing: .25em; font-weight: normal; font-size: 1.1rem; margin-top: 6px; }
+  #thumbs {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+    width: 100%; max-width: 480px; overflow-y: auto; flex: 1; padding: 4px;
+  }
+  .thumb { position: relative; aspect-ratio: 3/4; border: 1px solid var(--gold-dim); border-radius: 4px; overflow: hidden; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .thumb .del {
+    position: absolute; top: 4px; right: 4px; width: 26px; height: 26px; border-radius: 50%;
+    background: rgba(18,8,16,.8); color: var(--rose); border: 1px solid var(--rose);
+    font-size: .8rem; cursor: pointer; line-height: 1;
+  }
+  .thumb.builtin::after {
+    content: 'demo'; position: absolute; left: 0; bottom: 0; right: 0; text-align: center;
+    font-size: .65rem; letter-spacing: .2em; color: var(--gold); background: rgba(18,8,16,.75); padding: 3px 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TITLE ============ -->
+<div id="titleScreen" class="screen active">
+  <div class="wordmark">GILDED PAIRS<small>A GILDED MOTH GAME</small></div>
+  <div class="deco-line"></div>
+  <button class="btn primary" id="playBtn">BEGIN &nbsp;·&nbsp; 4×4</button>
+  <button class="btn" id="playHardBtn">DEEPER &nbsp;·&nbsp; 6×6</button>
+  <button class="btn" id="galleryBtn">PRIVATE GALLERY</button>
+  <p class="hint">Match the pairs. Each match melts the veil.<br>Your gallery stays on this device — nothing is uploaded, ever.</p>
+</div>
+
+<!-- ============ GAME ============ -->
+<div id="gameScreen" class="screen">
+  <div id="hud">
+    <button id="backBtn">‹ RETIRE</button>
+    <div class="stat">MOVES <span id="moveCount">0</span></div>
+    <div class="stat">VEIL <span id="veilPct">100%</span></div>
+  </div>
+  <div id="boardWrap">
+    <img id="revealImg" alt="">
+    <div id="grid"></div>
+    <div id="winVeil">
+      <div id="winText">UNVEILED</div>
+      <button class="btn primary" id="nextBtn">NEXT IMAGE</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ GALLERY ============ -->
+<div id="galleryScreen" class="screen">
+  <div id="hud">
+    <button id="galleryBackBtn">‹ RETURN</button>
+    <div class="stat" id="galleryCount"></div>
+  </div>
+  <h2>PRIVATE GALLERY</h2>
+  <div id="thumbs"></div>
+  <button class="btn primary" id="addBtn">ADD IMAGES</button>
+  <input type="file" id="fileInput" accept="image/*" multiple hidden>
+  <p class="hint">Images are stored only in this app's local database on this device.</p>
+</div>
+
+<script>
+'use strict';
+/* Gilded Pairs — reveal memory-match. Gilded Moth Productions.
+   Gallery is bring-your-own; the app ships with abstract deco placeholders only. */
+
+// ---------- Built-in filler art: three abstract gilded-deco SVG compositions ----------
+function decoSvg(seedHue, motif) {
+  const svg =
+    `<svg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'>` +
+    `<defs><radialGradient id='g' cx='50%' cy='38%' r='75%'>` +
+    `<stop offset='0%' stop-color='hsl(${seedHue},45%,26%)'/>` +
+    `<stop offset='100%' stop-color='#120810'/></radialGradient></defs>` +
+    `<rect width='600' height='800' fill='url(#g)'/>` +
+    motif +
+    `<rect x='24' y='24' width='552' height='752' fill='none' stroke='#d4af5e' stroke-opacity='.5'/>` +
+    `<rect x='36' y='36' width='528' height='728' fill='none' stroke='#d4af5e' stroke-opacity='.25'/>` +
+    `</svg>`;
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+const mothMotif =
+  `<g stroke='#d4af5e' fill='none' stroke-opacity='.85' transform='translate(300 380)'>` +
+  `<path d='M0,-40 C-120,-160 -240,-100 -200,20 C-170,110 -60,120 0,60 C60,120 170,110 200,20 C240,-100 120,-160 0,-40Z' stroke-width='2.5'/>` +
+  `<path d='M0,-40 C-70,-100 -150,-70 -130,10 C-115,70 -45,80 0,40 C45,80 115,70 130,10 C150,-70 70,-100 0,-40Z' stroke-opacity='.45'/>` +
+  `<ellipse cx='0' cy='30' rx='14' ry='70' fill='#d4af5e' fill-opacity='.55' stroke='none'/>` +
+  `<circle r='210' stroke-opacity='.2'/><circle r='250' stroke-opacity='.12'/></g>`;
+const fanMotif =
+  `<g stroke='#c4788a' fill='none' stroke-opacity='.8' transform='translate(300 500)'>` +
+  Array.from({length: 9}, (_, i) =>
+    `<path d='M0,0 L${Math.round(320*Math.cos((-160+i*20)*Math.PI/180))},${Math.round(320*Math.sin((-160+i*20)*Math.PI/180))}'/>`
+  ).join('') +
+  `<circle r='320' stroke-opacity='.35'/><circle r='40' fill='#d4af5e' fill-opacity='.5' stroke='none'/></g>`;
+const moonMotif =
+  `<g transform='translate(300 340)'>` +
+  `<circle r='170' fill='none' stroke='#efe3d0' stroke-opacity='.7' stroke-width='2'/>` +
+  `<path d='M60,-158 A170,170 0 1,0 60,158 A130,130 0 1,1 60,-158Z' fill='#d4af5e' fill-opacity='.4'/>` +
+  `<circle cx='0' cy='330' r='4' fill='#c4788a'/><circle cx='-70' cy='300' r='3' fill='#c4788a'/><circle cx='70' cy='300' r='3' fill='#c4788a'/></g>`;
+const BUILTINS = [
+  { id: 'builtin-moth', src: decoSvg(315, mothMotif) },
+  { id: 'builtin-fan',  src: decoSvg(340, fanMotif) },
+  { id: 'builtin-moon', src: decoSvg(290, moonMotif) },
+];
+
+// ---------- Private gallery (IndexedDB, on-device only) ----------
+const DB_NAME = 'gilded-pairs', STORE = 'gallery';
+function openDb() {
+  return new Promise((res, rej) => {
+    const rq = indexedDB.open(DB_NAME, 1);
+    rq.onupgradeneeded = () => rq.result.createObjectStore(STORE, { keyPath: 'id', autoIncrement: true });
+    rq.onsuccess = () => res(rq.result);
+    rq.onerror = () => rej(rq.error);
+  });
+}
+async function dbAll() {
+  const db = await openDb();
+  return new Promise(res => {
+    const rq = db.transaction(STORE).objectStore(STORE).getAll();
+    rq.onsuccess = () => res(rq.result);
+  });
+}
+async function dbAdd(blob) {
+  const db = await openDb();
+  return new Promise(res => {
+    const tx = db.transaction(STORE, 'readwrite');
+    tx.objectStore(STORE).add({ blob });
+    tx.oncomplete = res;
+  });
+}
+async function dbDel(id) {
+  const db = await openDb();
+  return new Promise(res => {
+    const tx = db.transaction(STORE, 'readwrite');
+    tx.objectStore(STORE).delete(id);
+    tx.oncomplete = res;
+  });
+}
+
+let userImages = [];   // [{id, url}] object URLs for stored blobs
+async function refreshGallery() {
+  userImages.forEach(u => URL.revokeObjectURL(u.url));
+  userImages = (await dbAll()).map(r => ({ id: r.id, url: URL.createObjectURL(r.blob) }));
+}
+function imagePool() {
+  return userImages.length
+    ? userImages.map(u => u.url)
+    : BUILTINS.map(b => b.src);
+}
+
+// ---------- Game state ----------
+const SYMBOLS = ['🦋','🗝','🎭','🌹','🍷','☾','🪶','⚜','♠','♣','♥','♦','✧','❀','⚘','✦','☙','❧'];
+let gridSize = 4, moves = 0, matched = 0, lock = false, firstCard = null, poolIndex = 0;
+
+const $ = id => document.getElementById(id);
+function show(screenId) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  $(screenId).classList.add('active');
+}
+
+function startGame(size) {
+  gridSize = size; moves = 0; matched = 0; lock = false; firstCard = null;
+  $('moveCount').textContent = '0';
+  $('winVeil').classList.remove('show');
+
+  const pool = imagePool();
+  $('revealImg').src = pool[poolIndex % pool.length];
+
+  const pairCount = size * size / 2;
+  const symbols = SYMBOLS.slice(0, pairCount);
+  const deck = [...symbols, ...symbols];
+  for (let i = deck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [deck[i], deck[j]] = [deck[j], deck[i]];
+  }
+
+  const grid = $('grid');
+  grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  grid.innerHTML = '';
+  deck.forEach(sym => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.sym = sym;
+    card.innerHTML = `<div class="card-inner">
+        <div class="card-face card-back"></div>
+        <div class="card-face card-front">${sym}</div>
+      </div>`;
+    card.addEventListener('click', () => onCard(card));
+    grid.appendChild(card);
+  });
+  updateVeil();
+  show('gameScreen');
+}
+
+function onCard(card) {
+  if (lock || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+  card.classList.add('flipped');
+  if (!firstCard) { firstCard = card; return; }
+
+  moves++;
+  $('moveCount').textContent = moves;
+  const a = firstCard, b = card;
+  firstCard = null;
+
+  if (a.dataset.sym === b.dataset.sym) {
+    a.classList.add('matched'); b.classList.add('matched');
+    matched++;
+    updateVeil();
+    if (matched === gridSize * gridSize / 2) setTimeout(win, 1100);
+  } else {
+    lock = true;
+    a.classList.add('shake'); b.classList.add('shake');
+    setTimeout(() => {
+      a.classList.remove('flipped', 'shake');
+      b.classList.remove('flipped', 'shake');
+      lock = false;
+    }, 750);
+  }
+}
+
+function updateVeil() {
+  const total = gridSize * gridSize / 2;
+  $('veilPct').textContent = Math.round(100 * (1 - matched / total)) + '%';
+}
+
+function win() {
+  $('winVeil').classList.add('show');
+}
+
+// ---------- Gallery UI ----------
+async function renderGallery() {
+  await refreshGallery();
+  const thumbs = $('thumbs');
+  thumbs.innerHTML = '';
+  const items = userImages.length ? userImages : BUILTINS.map(b => ({ id: b.id, url: b.src, builtin: true }));
+  items.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'thumb' + (item.builtin ? ' builtin' : '');
+    div.innerHTML = `<img src="${item.url}" alt="">`;
+    if (!item.builtin) {
+      const del = document.createElement('button');
+      del.className = 'del'; del.textContent = '✕';
+      del.addEventListener('click', async () => { await dbDel(item.id); renderGallery(); });
+      div.appendChild(del);
+    }
+    thumbs.appendChild(div);
+  });
+  $('galleryCount').textContent = userImages.length
+    ? userImages.length + ' PRIVATE'
+    : 'DEMO ART — ADD YOUR OWN';
+}
+
+// ---------- Wiring ----------
+$('playBtn').addEventListener('click', () => startGame(4));
+$('playHardBtn').addEventListener('click', () => startGame(6));
+$('backBtn').addEventListener('click', () => show('titleScreen'));
+$('nextBtn').addEventListener('click', () => { poolIndex++; startGame(gridSize); });
+$('galleryBtn').addEventListener('click', async () => { await renderGallery(); show('galleryScreen'); });
+$('galleryBackBtn').addEventListener('click', () => show('titleScreen'));
+$('addBtn').addEventListener('click', () => $('fileInput').click());
+$('fileInput').addEventListener('change', async e => {
+  for (const f of e.target.files) await dbAdd(f);
+  e.target.value = '';
+  renderGallery();
+});
+
+refreshGallery();
+</script>
+</body>
+</html>

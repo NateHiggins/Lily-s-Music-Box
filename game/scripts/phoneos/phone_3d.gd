@@ -40,6 +40,7 @@ const Z_SCREEN := 0.0125       # panel, proud of everything
 
 var os_sim := PhoneOS.new()
 var cam := PhoneCamera.new()
+var pairs := CartPairs.new()
 var screen_viewport: SubViewport
 var screen_material: ShaderMaterial
 
@@ -68,6 +69,7 @@ func _ready() -> void:
 	_build_screen()
 	add_child(cam)
 	cam.setup(self)
+	os_sim.cart_pairs = pairs
 	_isolate_from_world_light()
 	set_process(true)
 
@@ -155,6 +157,9 @@ func _draw_screen() -> void:
 	# The picture goes UNDER the character grid. The cam app draws only
 	# chrome, so every cell it leaves as a space is a hole this shows
 	# through - which is why that app must never paint a background.
+	if os_sim.screen == PhoneOS.Screen.APP and os_sim.app_id == "pairs":
+		pairs.draw(_canvas, Rect2(10, TermGrid.CH * 2.0,
+				SCREEN_W - 20, TermGrid.CH * 19.0), _font)
 	if os_sim.screen == PhoneOS.Screen.APP and os_sim.app_id == "cam":
 		var frame := Rect2(24, TermGrid.CH * 3.5,
 				SCREEN_W - 48, TermGrid.CH * 16.0)
@@ -659,6 +664,8 @@ func _process(delta: float) -> void:
 	cam.set_active(in_cam)
 	if in_cam:
 		cam.track(self)
+	if os_sim.screen == PhoneOS.Screen.APP and os_sim.app_id == "pairs":
+		pairs.tick(delta)
 	os_sim.camera_roll = cam.roll.size()
 	os_sim.camera_cap = PhoneCamera.CAP
 	var pulse: float = 0.35 + 0.65 * absf(sin(os_sim.led_pulse * 1.7))
@@ -681,7 +688,10 @@ func key(action: String, typed := "") -> void:
 	if action == "ok" and os_sim.screen == PhoneOS.Screen.APP 			and os_sim.app_id == "cam" and not os_sim.gallery_open:
 		os_sim.last_shot = cam.capture()
 		return
+	var before_app := os_sim.app_id
 	var before := os_sim.screen
 	os_sim.key(action, typed)
+	if os_sim.app_id == "pairs" and before_app != "pairs":
+		pairs.start(cam.roll, func(p): return cam.load_photo(p))
 	if os_sim.screen != before:
 		punch_glitch(0.8)

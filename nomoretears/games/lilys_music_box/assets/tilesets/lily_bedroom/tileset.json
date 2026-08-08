@@ -1,0 +1,17 @@
+{
+  "id": "lily_bedroom",
+  "name": "Lily's Bedroom",
+  "style": "placeholder",
+  "description": "Soft watercolour / dreamlike palette for the bedroom win-room biome. Intended contrast to the Escher foyer — warm, pastel, organic rather than architectural.",
+  "status": "not_yet_generated",
+  "tile_roles_needed": [
+    "void_open", "floor_slab", "floor_surface", "floor_surface_left_edge",
+    "floor_surface_right_edge", "ceiling_slab", "wall_left_face", "wall_right_face",
+    "stair_ascending_right", "stair_ascending_left", "stair_landing_flat",
+    "stair_turn_ne", "stair_turn_nw", "stair_turn_se", "stair_turn_sw",
+    "pillar_cap_top", "pillar_shaft", "pillar_cap_bottom",
+    "arch_left_springer", "arch_keystone", "arch_right_springer",
+    "window_void"
+  ],
+  "style_notes": "Starfield background, moonlit stone, soft pencil outlines rather than hard crosshatch. Colours: deep navy, soft silver, pale gold. Edge contracts identical to escher_foyer so tiles can be mixed across sets."
+}
