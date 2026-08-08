@@ -35,6 +35,17 @@ var _shape: CollisionShape3D
 var _capsule: CapsuleShape3D
 var _hand: Node3D
 var _light_mask: PhoneLightMask
+var _cookie_mask: PhoneLightMask
+var _mask_view: SubViewport
+var _cookie: ImageTexture
+var _bake_due := 0.0
+## A projector cannot be a live ViewportTexture — Godot refuses it and
+## says to pass an image — so the cookie is read back on a timer. That
+## readback is a GPU stall, and this ships to Android, which is why it
+## is small and slow. Everything the cookie carries moves slower than
+## this anyway; the fast flicker rides on light_energy instead.
+const BAKE_EVERY := 0.10
+const COOKIE := 512
 ## Set by building_root once the camera exists; the handset rides it.
 var phone_carrier: Node3D
 var _sway_clock := 0.0
@@ -95,6 +106,29 @@ func _build_hud() -> void:
 	_light_mask = PhoneLightMask.new()
 	_light_mask.setup(self)
 	mask_layer.add_child(_light_mask)
+
+	# THE BEAM'S PATTERN, ON THE LIGHT. A second copy of the same mask
+	# renders into this SubViewport and is baked onto the spotlight as
+	# its projector cookie, so the hotspot, the fringe and the crack
+	# land on GEOMETRY — they wrap a doorframe and hold still on a wall
+	# as you walk into it, instead of sliding over the world at range
+	# the way a screen-space pattern must.
+	#
+	# gl_compatibility supports this. The comment claiming otherwise had
+	# been true of an older Godot, was never re-checked, and very nearly
+	# cost a renderer migration.
+	#
+	# Both copies read the same sanity and the same speed, so the
+	# atmosphere layer and the beam cannot drift out of agreement.
+	_mask_view = SubViewport.new()
+	_mask_view.size = Vector2i(COOKIE, COOKIE)
+	_mask_view.disable_3d = true
+	_mask_view.transparent_bg = false
+	_mask_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	add_child(_mask_view)
+	_cookie_mask = PhoneLightMask.new()
+	_cookie_mask.setup(self, true)
+	_mask_view.add_child(_cookie_mask)
 	var layer := CanvasLayer.new()
 	layer.layer = 7
 	add_child(layer)
@@ -205,6 +239,7 @@ func _carry_phone_light(delta: float) -> void:
 				* Transform3D(Basis(), Vector3(0.16, -0.19, -0.06) + sway)
 	# Less lag than before: the phone already trails the eye on its own
 	# hand-lag, and stacking a second one on the light doubled it.
+	_bake_cookie(delta)
 	var chase := minf(1.0, delta * (16.0 if flashlight.visible else 60.0))
 	_hand.transform = Transform3D(
 			_hand.transform.basis.slerp(hold.basis, chase),
@@ -212,6 +247,27 @@ func _carry_phone_light(delta: float) -> void:
 	# The beam's own drift lives in the mask shader now, where it can be
 	# scaled by walking speed; nudging the Control here as well would
 	# double it.
+
+
+## Read the blended plate back off the GPU and hand it to the light.
+func _bake_cookie(delta: float) -> void:
+	if _mask_view == null:
+		return
+	_bake_due -= delta
+	if _bake_due > 0.0:
+		return
+	_bake_due = BAKE_EVERY
+	var vt := _mask_view.get_texture()
+	if vt == null:
+		return
+	var img := vt.get_image()
+	if img == null or img.is_empty():
+		return          # headless, or the pass has not resolved yet
+	if _cookie == null:
+		_cookie = ImageTexture.create_from_image(img)
+		flashlight.light_projector = _cookie
+	else:
+		_cookie.update(img)
 
 
 ## One look path for both a mouse and a dragged thumb, so the two can never

@@ -49,10 +49,15 @@ var _w_haze := 0.0
 var _surge := 0.0
 var _t := 0.0
 var _aim := Vector2.ZERO
+var _cookie_mode := false
 
 
-func setup(player: Node3D) -> void:
+## `as_cookie` builds the projector version instead of the screen one:
+## same three plates, same live mix, but rendered into a SubViewport to
+## be baked onto the SpotLight3D rather than multiplied over the frame.
+func setup(player: Node3D, as_cookie := false) -> void:
 	_player = player
+	_cookie_mode = as_cookie
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	# Oversized so its edges stay off-screen while the beam drifts.
 	offset_left = -64
@@ -169,10 +174,64 @@ func _process(delta: float) -> void:
 
 func _make_shader() -> Shader:
 	var s := Shader.new()
+	# THE COOKIE VERSION. Same plates, same mix, but this one renders
+	# into a SubViewport and is baked onto the SpotLight3D's
+	# light_projector — so the pattern is carried by the LIGHT and lands
+	# on geometry: it wraps a doorframe, stretches down a corridor, and
+	# holds still on a wall while the player walks into it.
+	#
+	# gl_compatibility DOES support projectors in 4.7, whatever the old
+	# comment in this file said. That claim had been true once, was
+	# never re-checked, and cost a renderer migration before anyone
+	# simply assigned one and looked.
+	#
+	# No blend_mul (it renders into a texture, not over a frame) and no
+	# black floor (on a cookie, black means the light does not go there,
+	# which is what the edge of a beam IS).
+	if _cookie_mode:
+		s.code = """
+shader_type canvas_item;
+
+uniform sampler2D m_clean : filter_linear, repeat_disable;
+uniform sampler2D m_cracked : filter_linear, repeat_disable;
+uniform sampler2D m_haze : filter_linear, repeat_disable;
+uniform float w_cracked = 0.0;
+uniform float w_haze = 0.0;
+uniform float surge = 0.0;
+uniform float split = 0.0;
+uniform float t = 0.0;
+uniform vec2 drift = vec2(0.0);
+uniform float falloff = 1.55;
+uniform float zoom = 1.10;
+
+void fragment() {
+	// Near 1:1 — the plate maps across the spotlight's cone rather than
+	// across the screen. A little over, so the plate's dark surround
+	// falls just inside the cone edge and the beam does not end on a
+	// hard circle.
+	vec2 uv = (UV - vec2(0.5)) * zoom + vec2(0.5) + drift;
+	vec3 col = texture(m_clean, uv).rgb;
+	col = mix(col, texture(m_cracked, uv).rgb, w_cracked);
+	col = mix(col, texture(m_haze, uv).rgb, w_haze);
+	// Chromatic split, and it is worth far more here than it was on the
+	// screen: the fringe now separates ON THE WALL, at whatever distance
+	// the wall happens to be.
+	if (split > 0.001) {
+		vec2 o = vec2(split * 0.012, split * 0.004);
+		col.r = mix(col.r, texture(m_cracked, uv + o).r, split);
+		col.b = mix(col.b, texture(m_cracked, uv - o).b, split);
+	}
+	col = pow(clamp(col, vec3(0.0), vec3(1.0)), vec3(falloff));
+	COLOR = vec4(col, 1.0);
+}
+"""
+		return s
 	s.code = """
 shader_type canvas_item;
-// MULTIPLY. The mask's brightness IS the lighting: white passes the
-// frame through and is the beam, dark is the mask.
+// MULTIPLY. This is the ATMOSPHERE pass now, not the beam: the beam's
+// pattern is on the light itself (see the cookie branch above). What
+// this still does is hold the building dark around the edges of the
+// frame, which is the job it was always secretly doing.
 render_mode blend_mul;
 
 // repeat_disable so sampling past the edge CLAMPS to the dark
