@@ -183,6 +183,7 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		tray.position = GameBoot.b2g([5.02, -7.40, 0.86])
 		tray.rotation.y = PI * 0.5
 		floor_nodes["F01"].add_child(tray)
+		_place_bookshelves(layout, floor_nodes)
 		# The porter's board, further up the same wall toward the lift.
 		# There has not been a porter in years, which is why it is yours.
 		var board := OtisProp.new()
@@ -253,6 +254,66 @@ func _build_resident_details(layout: Dictionary, floor_nodes: Dictionary,
 				[wall_x, wall_y, z + 1.34],
 				PI * 0.5 if wall_west else -PI * 0.5,
 				Vector2(0.54, 0.54))
+
+
+## THE BOOKSHELVES, placed on purpose.
+##
+## They are hero props: each one is somebody's actual books in somebody's
+## actual order, and the shelf is meant to be read from across the room.
+## So every one goes on its unit's OUTER wall — the long one with the
+## windows, away from the corridor — at eye height and set back from the
+## corner, which is where a shelf goes in a real flat and where the
+## light in these units actually falls.
+##
+## Stacks A and B look west, C and D look east, so the shelf always
+## faces into its own room rather than at a wall.
+const SHELF_OWNERS := [
+	{"who": "Mae Kessler", "unit": "6C", "floor": "F06", "along": 0.30},
+	{"who": "Jonah Price", "unit": "6B", "floor": "F06", "along": 0.55},
+	{"who": "Sacha Reed", "unit": "6A", "floor": "F06", "along": 0.62},
+	{"who": "Iris Bell", "unit": "5C", "floor": "F05", "along": 0.24},
+	{"who": "Nadia Quell", "unit": "5A", "floor": "F05", "along": 0.44},
+	{"who": "Peter Wren", "unit": "4A", "floor": "F04", "along": 0.50},
+	{"who": "Malcolm Reed", "unit": "3A", "floor": "F03", "along": 0.68},
+	{"who": "Mina Vale", "unit": "2A", "floor": "F02", "along": 0.38},
+]
+## Mounted so the spines sit just under a five-foot eye line: you read
+## the shelf without stooping, which is the whole point of a hero prop.
+const SHELF_Z := 1.02
+
+
+func _place_bookshelves(layout: Dictionary,
+		floor_nodes: Dictionary) -> void:
+	for spec in SHELF_OWNERS:
+		var fid: String = str(spec["floor"])
+		if not floor_nodes.has(fid):
+			continue
+		var floor_data: Dictionary = {}
+		for fl in layout.get("floors", []):
+			if str(fl.get("id", "")) == fid:
+				floor_data = fl
+		if floor_data.is_empty():
+			continue
+		var room := _living_room(floor_data, str(spec["unit"]))
+		if room.is_empty():
+			continue
+		var r: Array = room["rect"]
+		var x0: float = minf(float(r[0]), float(r[2]))
+		var x1: float = maxf(float(r[0]), float(r[2]))
+		var y0: float = minf(float(r[1]), float(r[3]))
+		var y1: float = maxf(float(r[1]), float(r[3]))
+		var west: bool = str(spec["unit"]).substr(1, 1) in ["A", "B"]
+		var x: float = (x0 + 0.14) if west else (x1 - 0.14)
+		var y: float = y0 + (y1 - y0) * float(spec["along"])
+		var shelf := BookshelfProp.new()
+		shelf.owner_name = str(spec["who"])
+		shelf.prop_type = "bookshelf"
+		shelf.name = "%s_SHELF_%s" % [fid, str(spec["unit"])]
+		shelf.position = GameBoot.b2g([x, y,
+				float(floor_data.get("z", 0.0)) + SHELF_Z])
+		# Face into the room, never at the wall it hangs on.
+		shelf.rotation.y = PI * 0.5 if west else -PI * 0.5
+		floor_nodes[fid].add_child(shelf)
 
 
 func _living_room(floor: Dictionary, unit: String) -> Dictionary:

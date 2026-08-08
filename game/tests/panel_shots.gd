@@ -126,5 +126,21 @@ func _run() -> void:
 	await _shot("p_05_otis")
 	ot.close()
 
+
+	# ---- A BOOKSHELF -------------------------------------------------
+	var bs = load("res://scripts/ui/bookshelf_panel.gd").new()
+	var fake := BookshelfProp.new()
+	fake.owner_name = "Mae Kessler"
+	fake.sorter.load_library()
+	fake.sorter.begin("Mae Kessler", 0.55, 42)
+	bs.open(pl, fake)
+	get_tree().current_scene.add_child(bs)
+	bs.guessed = true          # show what the order is meant to be
+	bs.shelf.touch(2)          # one down, so the gap reads
+	bs._hover = 2
+	bs._refresh()
+	await _shot("p_06_bookshelf")
+	bs.close()
+
 	print("[PANELS] RESULT: %s" % ["PASS" if _fails == 0 else "FAIL"])
 	get_tree().quit(_fails)
