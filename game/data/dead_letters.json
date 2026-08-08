@@ -1,0 +1,396 @@
+{
+  "title": "Dead Letters",
+  "scoring": {
+    "filed": 1,
+    "dead_letter": 2,
+    "misfiled": 0,
+    "tray": 8
+  },
+  "boxes": [
+    {
+      "unit": "6A",
+      "names": [
+        "Sacha Reed"
+      ]
+    },
+    {
+      "unit": "6B",
+      "names": [
+        "Jonah Price"
+      ]
+    },
+    {
+      "unit": "6C",
+      "names": [
+        "Mae Kessler"
+      ]
+    },
+    {
+      "unit": "6D",
+      "names": []
+    },
+    {
+      "unit": "5A",
+      "names": [
+        "Nadia Quell"
+      ]
+    },
+    {
+      "unit": "5B",
+      "names": [
+        "Cal Dwyer"
+      ]
+    },
+    {
+      "unit": "5C",
+      "names": [
+        "Iris Bell"
+      ]
+    },
+    {
+      "unit": "5D",
+      "names": []
+    },
+    {
+      "unit": "4A",
+      "names": [
+        "Peter Wren"
+      ]
+    },
+    {
+      "unit": "4B",
+      "names": [
+        "you"
+      ],
+      "player": true
+    },
+    {
+      "unit": "4C",
+      "names": [
+        "Cam Ortiz",
+        "Noel Price"
+      ]
+    },
+    {
+      "unit": "4D",
+      "names": [
+        "Transient Guests"
+      ]
+    },
+    {
+      "unit": "3A",
+      "names": [
+        "Malcolm Reed"
+      ]
+    },
+    {
+      "unit": "3B",
+      "names": [
+        "Omar Bell"
+      ]
+    },
+    {
+      "unit": "3C",
+      "names": []
+    },
+    {
+      "unit": "3D",
+      "names": [
+        "Rhea Sato"
+      ]
+    },
+    {
+      "unit": "2A",
+      "names": [
+        "Mina Vale"
+      ]
+    },
+    {
+      "unit": "2B",
+      "names": [
+        "Lena Ortiz"
+      ]
+    },
+    {
+      "unit": "2C",
+      "names": [
+        "Juno Kells"
+      ]
+    },
+    {
+      "unit": "2D",
+      "names": []
+    },
+    {
+      "unit": "1A",
+      "names": [
+        "Evelyn Marsh"
+      ]
+    },
+    {
+      "unit": "1B",
+      "names": []
+    },
+    {
+      "unit": "1C",
+      "names": []
+    },
+    {
+      "unit": "1D",
+      "names": [
+        "Teresa Vale"
+      ]
+    }
+  ],
+  "gone": [
+    {
+      "name": "H. Vantry",
+      "note": "3C. Moved out in the spring and left no forwarding address. The box has been empty since."
+    },
+    {
+      "name": "Dorothy Ash",
+      "note": "Died in 5D, eleven years ago. The mail has never entirely stopped."
+    },
+    {
+      "name": "R. Okonkwo",
+      "note": "Never lived here. Somebody has had the number wrong for a decade."
+    },
+    {
+      "name": "The Superintendent",
+      "note": "There has not been one in residence since the building went to management."
+    }
+  ],
+  "letters": [
+    {
+      "to": "Mina Vale",
+      "unit": "2A",
+      "answer": "2A",
+      "clues": [
+        "typed, window envelope",
+        "a utility, by the look of it"
+      ],
+      "why": "Name and number both legible. They are not all like this."
+    },
+    {
+      "to": "J. Kells",
+      "unit": "2C",
+      "answer": "2C",
+      "clues": [
+        "hand-addressed, fountain pen"
+      ],
+      "why": "Only one Kells in the building."
+    },
+    {
+      "to": "Vale",
+      "unit": "",
+      "answer": "1D",
+      "clues": [
+        "the unit is smudged past reading",
+        "postmarked from a hospital district",
+        "addressed in a shaky hand to 'Mrs Vale'"
+      ],
+      "why": "Mrs. Teresa in 1D — Mina has never been a Mrs, and the hand is older than she is."
+    },
+    {
+      "to": "M. Vale",
+      "unit": "",
+      "answer": "2A",
+      "clues": [
+        "no unit at all",
+        "a music school's return address"
+      ],
+      "why": "Mina, 2A. Teresa has no business with a conservatory."
+    },
+    {
+      "to": "Bell",
+      "unit": "",
+      "answer": "3B",
+      "clues": [
+        "the unit is torn away with the stamp",
+        "a union local's franking mark"
+      ],
+      "why": "Omar in 3B is the one who pays dues."
+    },
+    {
+      "to": "I. Bell",
+      "unit": "5C",
+      "answer": "5C",
+      "clues": [
+        "a gallery's card, hand-addressed"
+      ],
+      "why": "Iris, and the number agrees for once."
+    },
+    {
+      "to": "Reed",
+      "unit": "",
+      "answer": "6A",
+      "clues": [
+        "the unit reads 3A, crossed out, no correction",
+        "a school report envelope"
+      ],
+      "why": "Crossed out by somebody who knew better. Sacha is in 6A; Malcolm has no children."
+    },
+    {
+      "to": "M. Reed",
+      "unit": "3A",
+      "answer": "3A",
+      "clues": [
+        "a betting slip envelope, no return address"
+      ],
+      "why": "Malcolm. The number is right and nobody wants it anyway."
+    },
+    {
+      "to": "Price",
+      "unit": "4C",
+      "answer": "4C",
+      "clues": [
+        "addressed in a child's hand",
+        "no stamp — hand-delivered"
+      ],
+      "why": "Noel shares 4C with Cam. Hand-delivered means it never left the building."
+    },
+    {
+      "to": "J. Price",
+      "unit": "",
+      "answer": "6B",
+      "clues": [
+        "a chapel's seal on the flap"
+      ],
+      "why": "Jonah, 6B. The Guests' chapel writes to him and to nobody else."
+    },
+    {
+      "to": "Ortiz",
+      "unit": "",
+      "answer": "2B",
+      "clues": [
+        "a sewing pattern company's catalogue"
+      ],
+      "why": "Lena in 2B takes in work. Cam has never sewn anything."
+    },
+    {
+      "to": "C. Ortiz",
+      "unit": "4C",
+      "answer": "4C",
+      "clues": [
+        "a hospital appointment card, second reminder"
+      ],
+      "why": "Cam, 4C, and the second reminder tells you the first one went astray."
+    },
+    {
+      "to": "Occupant",
+      "unit": "4D",
+      "answer": "4D",
+      "clues": [
+        "addressed to no one at all",
+        "a takeaway menu"
+      ],
+      "why": "4D is the transients' box. Anything addressed to nobody goes there."
+    },
+    {
+      "to": "P. Wren",
+      "unit": "4A",
+      "answer": "4A",
+      "clues": [
+        "a solicitor's envelope, recorded delivery"
+      ],
+      "why": "Peter, and it will matter later."
+    },
+    {
+      "to": "N. Quell",
+      "unit": "5A",
+      "answer": "5A",
+      "clues": [
+        "a photographic supplier"
+      ],
+      "why": "Nadia, 5A."
+    },
+    {
+      "to": "Cal Dwyer",
+      "unit": "5B",
+      "answer": "5B",
+      "clues": [
+        "a postcard, no envelope, everyone has read it"
+      ],
+      "why": "Cal in 5B, and so has everyone else."
+    },
+    {
+      "to": "M. Kessler",
+      "unit": "6C",
+      "answer": "6C",
+      "clues": [
+        "an archive's compliments slip"
+      ],
+      "why": "Mae, 6C."
+    },
+    {
+      "to": "R. Sato",
+      "unit": "3D",
+      "answer": "3D",
+      "clues": [
+        "a records label, promotional"
+      ],
+      "why": "Rhea, 3D."
+    },
+    {
+      "to": "H. Vantry",
+      "unit": "3C",
+      "answer": "dead",
+      "clues": [
+        "3C, which is empty",
+        "a final demand, third one this year"
+      ],
+      "why": "Vantry moved out in the spring and left no forwarding address."
+    },
+    {
+      "to": "Dorothy Ash",
+      "unit": "5D",
+      "answer": "dead",
+      "clues": [
+        "5D",
+        "a birthday card, addressed in the same hand every year"
+      ],
+      "why": "Dorothy died eleven years ago. Somebody has not been told, or will not accept it."
+    },
+    {
+      "to": "R. Okonkwo",
+      "unit": "",
+      "answer": "dead",
+      "clues": [
+        "no unit",
+        "a bank, in earnest"
+      ],
+      "why": "Never lived here. Somebody has had the number wrong for a decade."
+    },
+    {
+      "to": "The Superintendent",
+      "unit": "",
+      "answer": "dead",
+      "clues": [
+        "addressed to the post, not the person",
+        "a boiler inspection notice"
+      ],
+      "why": "There has not been one in residence since the building went to management. It should go to the office, and the office is not a box."
+    },
+    {
+      "to": "E. Marsh",
+      "unit": "1A",
+      "answer": "1A",
+      "clues": [
+        "1A",
+        "no postmark at all"
+      ],
+      "why": "Evelyn is still in 1A as far as the boxes are concerned, and a letter with no postmark did not come through the door."
+    }
+  ],
+  "grid": {
+    "cols": 4,
+    "rows": 6,
+    "stacks": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "top_floor": 6
+  }
+}

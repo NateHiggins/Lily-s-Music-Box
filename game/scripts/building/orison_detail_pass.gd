@@ -173,6 +173,16 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		bank.position = GameBoot.b2g([5.24, -8.29, 0.0])
 		bank.rotation.y = PI * 0.5
 		floor_nodes["F01"].add_child(bank)
+		# The tray of unsorted post, on the ledge under the bank. The
+		# wall is twenty-four doors and one of them is yours; reaching
+		# for the whole wall would fight with that, so the tray is the
+		# handle on the sorting.
+		var tray := DeadLettersProp.new()
+		tray.name = "LobbyPostTray"
+		tray.prop_type = "dead_letters"
+		tray.position = GameBoot.b2g([5.02, -7.40, 0.86])
+		tray.rotation.y = PI * 0.5
+		floor_nodes["F01"].add_child(tray)
 		# The settle west of the street door is a place to actually sit.
 		var bench := LobbyBenchZone.new()
 		bench.position = GameBoot.b2g([-2.45, -9.30, 0.0])

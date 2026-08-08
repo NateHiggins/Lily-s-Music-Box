@@ -13,19 +13,31 @@ extends Node3D
 
 const CATALOG_PATH := "res://data/mail_catalog.json"
 const TEX_DIR := "res://assets/building/textures/mailbank/"
-const COLS := 6
-## The name-card sheet: one wide slip per unit, 6 x 4.
+## THE BANK IS AN ELEVATION OF THE BUILDING. Four stacks across, six
+## floors down, floor six at the top — so finding 5C means looking where
+## 5C actually is, two below the top and third from the left, and the
+## grid teaches the building to anyone who reads it.
+##
+## It used to be six across and four down, filled 1A..6D left to right,
+## which put "2C 2D 3A 3B 3C 3D" on one row. That is a list, not a
+## building: every lookup was a scan, and the wall told you nothing.
+const COLS := 4                  # stacks A B C D
+const ROWS := 6                  # floors, 6 at the top
+const STACKS := ["A", "B", "C", "D"]
+## The name-card sheet is UNCHANGED — one wide slip per unit, 6 x 4, in
+## its own order. Cards are picked by a unit's index in CARD_ORDER and
+## placed by what its NAME says, so re-sorting the wall never re-cuts
+## the atlas.
 const CARD_COLS := 6
 const CARD_ROWS := 4
-const ROWS := 4
-const DOOR_W := 0.24
-const DOOR_H := 0.20
-const PLAYER_UNIT := "4B"
-## Grid order, left-right top-bottom — must match the card atlas.
-const UNITS := ["1A", "1B", "1C", "1D", "2A", "2B",
+const CARD_ORDER := ["1A", "1B", "1C", "1D", "2A", "2B",
 		"2C", "2D", "3A", "3B", "3C", "3D",
 		"4A", "4B", "4C", "4D", "5A", "5B",
 		"5C", "5D", "6A", "6B", "6C", "6D"]
+const UNITS := CARD_ORDER
+const DOOR_W := 0.24
+const DOOR_H := 0.20
+const PLAYER_UNIT := "4B"
 
 var deliveries: Array = []
 var door_open := false
@@ -98,12 +110,15 @@ func _build() -> void:
 	header.rotation.y = PI
 	add_child(header)
 	var cards: Texture2D = load(TEX_DIR + "T_mailbank_cards.png")
-	for i in UNITS.size():
-		var col := i % COLS
-		var row := i / COLS
+	for i in CARD_ORDER.size():
+		var unit: String = CARD_ORDER[i]
+		# Placed by what the unit IS, not by where it sits in the atlas.
+		var floor_no := int(unit.substr(0, 1))
+		var col: int = maxi(0, STACKS.find(unit.substr(1, 1)))
+		var row: int = ROWS - floor_no          # floor 6 -> row 0
 		var x := (col - (COLS - 1) * 0.5) * DOOR_W
 		var y := 0.72 + height - (row + 0.5) * DOOR_H
-		if UNITS[i] == PLAYER_UNIT:
+		if unit == PLAYER_UNIT:
 			_build_player_door(Vector3(x, y, 0), cards, i)
 		else:
 			_build_door(Vector3(x, y, 0), cards, i)
