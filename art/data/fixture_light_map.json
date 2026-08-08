@@ -1,5 +1,5 @@
 {
- "fixture_count": 240,
+ "fixture_count": 244,
  "fixtures": [
   {
    "id": "B1_CORRIDOR_DOME_01",
@@ -1568,6 +1568,70 @@
    "energy": 0.34,
    "navigation": false,
    "standby": 0.34
+  },
+  {
+   "id": "SITE_SHOP_LT_OTIS___SON",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    -16.225,
+    -12.46,
+    2.66
+   ],
+   "range": 4.2,
+   "energy": 0.55,
+   "navigation": false,
+   "standby": 0.3
+  },
+  {
+   "id": "SITE_SHOP_IN0_OTIS___SON",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    -17.4,
+    -11.05,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.74,
+   "navigation": false,
+   "standby": 0.22
+  },
+  {
+   "id": "SITE_SHOP_IN1_OTIS___SON",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    -17.4,
+    -13.600000000000001,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.58,
+   "navigation": false,
+   "standby": 0.22
+  },
+  {
+   "id": "SITE_SHOP_IN2_OTIS___SON",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    -17.4,
+    -16.15,
+    2.92
+   ],
+   "range": 5.2,
+   "energy": 0.58,
+   "navigation": false,
+   "standby": 0.22
   },
   {
    "id": "F01_STREETLAMP_03",

@@ -185,6 +185,16 @@ const SHOTS := [
 	# from the desk they were hired to sit at.
 	{"name": "b_68_lobby_cabinet", "pos": Vector3(-4.10, 1.45, 6.95),
 	 "look": Vector3(-4.60, 1.05, 8.95), "overlay": false},
+	# THE NEAR SIDE, which did not exist until the scaffolding came down.
+	# Standing where the hoarding stood, looking west along the pavement
+	# the Orison's own residents step onto.
+	# From the roadway. Under the awning the camera is inside the canopy
+	# and sees nothing but its own underside — 5.5 m back is where a
+	# 4.3 m shopfront actually fits in a 72-degree frame.
+	{"name": "b_69_near_side", "pos": Vector3(-17.40, 1.80, 17.60),
+	 "look": Vector3(-17.40, 1.35, 12.00), "overlay": false},
+	{"name": "b_70_druggist", "pos": Vector3(-16.10, 1.41, 10.90),
+	 "look": Vector3(-18.40, 1.15, 7.20), "overlay": false},
 	# The two routes a resident actually has to walk, from eye height at
 	# the Orison's own front door: south across the road to the bar, and
 	# east along the walk to the bodega.

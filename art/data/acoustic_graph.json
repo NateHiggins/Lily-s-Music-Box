@@ -2333,6 +2333,86 @@
    ]
   },
   {
+   "id": "SITE_SHOP_LT_OTIS___SON",
+   "pos": [
+    -16.225,
+    -12.46,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_OTIS___SON",
+   "pos": [
+    -17.4,
+    -11.05,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_OTIS___SON",
+   "pos": [
+    -17.4,
+    -13.6,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN2_OTIS___SON",
+   "pos": [
+    -17.4,
+    -16.15,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
    "id": "2A_LT_SCONCE",
    "pos": [
     -5.59,
@@ -7000,6 +7080,10 @@
     "SITE_SHOP_IN0_PHOTO_SUPPLIES",
     "SITE_SHOP_IN1_PHOTO_SUPPLIES",
     "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+    "SITE_SHOP_LT_OTIS___SON",
+    "SITE_SHOP_IN0_OTIS___SON",
+    "SITE_SHOP_IN1_OTIS___SON",
+    "SITE_SHOP_IN2_OTIS___SON",
     "F02_CORRLIGHT_S"
    ]
   },
