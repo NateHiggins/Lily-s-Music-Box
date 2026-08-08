@@ -2,12 +2,19 @@ class_name PhoneLightMask
 extends Control
 ## The torch beam, blended live from three photographs.
 ##
-## The mask multiplies over the whole frame (gl_compatibility ignores
-## light_projector, so the beam is a screen-space layer rather than a
-## projector cookie). One static image means one mood for an entire
-## shift, and this is the most-looked-at surface in the game — the
-## torch is lit from the first frame. So three are mixed in a shader
-## and the mix answers to what the building is doing to the player.
+## TWO CONSUMERS, one mix. `setup(player, true)` builds the COOKIE: the
+## plate is rendered to a SubViewport and baked onto the spotlight's
+## light_projector, so the pattern lands on geometry. `setup(player)`
+## builds the ATMOSPHERE layer, which multiplies over the frame and
+## holds the edges dark. (An older comment here said gl_compatibility
+## ignores light_projector. It does not, in 4.7. That claim was true of
+## an older Godot, was never re-checked, and nearly cost a renderer
+## migration.)
+##
+## One static image means one mood for an entire shift, and this is the
+## most-looked-at surface in the game — the torch is lit from the first
+## frame. So three are mixed in a shader and the mix answers to what the
+## building is doing to the player.
 ##
 ## The three poles, named for what they look like rather than for any
 ## theory:
@@ -39,14 +46,21 @@ extends Control
 
 const DIR := "res://assets/ui/phone/%s.png"
 const CHASE := 0.55            # how fast the mix follows its target
+## How fast the vignette gets out of the way when you walk into a lit
+## room, and back down when you leave it. Slow on purpose: this is the
+## eye adapting, not a switch, and anything quicker reads as the gamma
+## being yanked.
+const LIFT_CHASE := 0.85
 
 
 var _mat: ShaderMaterial
 var _player: Node3D
 var _sanity: Node
+var _rig: Node
 var _w_cracked := 0.0
 var _w_haze := 0.0
 var _surge := 0.0
+var _lift := 0.0
 var _t := 0.0
 var _aim := Vector2.ZERO
 var _cookie_mode := false
@@ -101,12 +115,47 @@ func set_aim(a: Vector2) -> void:
 	_aim = a
 
 
+## HOW FAR THE BEAM IS THROWING, in metres, from the player's raycast
+## down its own axis. Only the cookie wants this: the pattern on the
+## light softens with range (see the shader), and the screen layer is a
+## vignette that has no business knowing what the beam hit.
+func set_throw(metres: float, reach: float) -> void:
+	if not _cookie_mode or _mat == null:
+		return
+	# THE HAND IS THE BLUR. A torch pattern subtends the same angle at
+	# every distance, so geometry alone would keep it equally sharp on a
+	# wall 1 m away and one 7 m away — which is not what a held light
+	# looks like, and the reason is already written down two files over:
+	# at 7.5 m one degree of wrist walks the pool thirteen centimetres,
+	# and at 1 m it walks it under two. The tremor that this codebase
+	# already models is smearing the pattern across the eye's integration
+	# time, linearly with range. So the blur is linear in throw, and the
+	# near end is held sharp because inside about a metre the hand is not
+	# fast enough to smear anything.
+	var span: float = maxf(0.5, reach - THROW_NEAR)
+	var t: float = clampf((metres - THROW_NEAR) / span, 0.0, 1.0)
+	_mat.set_shader_parameter("blur", pow(t, 0.85) * BLUR_MAX)
+
+
+## Sharp under this range; the smear has nothing to work with yet.
+const THROW_NEAR := 1.10
+## Kernel radius in cookie UV at full throw. Past about 0.07 the two
+## rings start reading as two rings rather than as defocus.
+const BLUR_MAX := 0.052
+
+
 func _find_sanity() -> void:
-	if _sanity != null and is_instance_valid(_sanity):
+	# Both, not just sanity: the two are built a few lines apart in
+	# building_root, but keying the search off one of them means the other
+	# is never looked for again if it happened to be a frame late.
+	if _sanity != null and is_instance_valid(_sanity) \
+			and _rig != null and is_instance_valid(_rig):
 		return
 	var root := get_tree().get_first_node_in_group("building_root")
 	if root == null:
 		root = get_tree().current_scene
+	if root and root.get("light_rig") != null:
+		_rig = root.light_rig
 	if root and root.get("sanity") != null:
 		_sanity = root.sanity
 		# The building shoves the torch. Pressure already bends the beam
@@ -150,6 +199,15 @@ func _process(delta: float) -> void:
 	_w_cracked = move_toward(_w_cracked, want_cracked, delta * CHASE)
 	_w_haze = move_toward(_w_haze, want_haze, delta * CHASE * 2.2)
 	_surge = maxf(0.0, _surge - delta * 1.8)
+	# THE ROOM WINS WHERE THERE IS A ROOM. The rig measures what its own
+	# fixtures are actually putting on the camera; the vignette gets out
+	# of their way in proportion. In the Harukiya with the pendants lit
+	# you should barely know the torch is on, and in the coal cellar it
+	# should be the only thing you have.
+	var room := 0.0
+	if _rig and "room_light" in _rig:
+		room = clampf(float(_rig.room_light), 0.0, 1.0)
+	_lift = move_toward(_lift, room, delta * LIFT_CHASE)
 
 	# The hand. A slow figure-of-eight that speeds up as you walk, so
 	# the beam is never still and never mechanical.
@@ -166,9 +224,15 @@ func _process(delta: float) -> void:
 	_mat.set_shader_parameter("w_haze", _w_haze)
 	_mat.set_shader_parameter("surge", _surge)
 	_mat.set_shader_parameter("split", _w_cracked * 0.6 + _surge * 0.4)
+	_mat.set_shader_parameter("lift", _lift)
 	# A tighter beam when still, a slightly opener one when moving -
 	# the eye reads the difference as the hand relaxing.
-	_mat.set_shader_parameter("falloff", 2.35 - _w_haze * 0.40)
+	#
+	# Dropped from 2.35. That gamma was set when this layer WAS the beam
+	# and had to manufacture a hotspot out of a flat plate; the cookie
+	# carries the hotspot now, so all 2.35 was still doing was crushing
+	# the building's own fixtures along with everything else.
+	_mat.set_shader_parameter("falloff", 1.70 - _w_haze * 0.30)
 	_mat.set_shader_parameter("t", _t)
 
 
@@ -203,6 +267,37 @@ uniform float t = 0.0;
 uniform vec2 drift = vec2(0.0);
 uniform float falloff = 1.55;
 uniform float zoom = 1.10;
+// Kernel radius in UV, set from the raycast throw. 0 = hard against a
+// near wall, BLUR_MAX = thrown down a corridor with nothing to land on.
+uniform float blur = 0.0;
+
+// TWO RINGS, NOT A BOX. A 3x3 box at a radius this large reads as three
+// copies of the beam rather than as one soft one — the taps are far
+// enough apart to be individually visible. Six at 0.55r and six more at
+// r rotated 30 degrees puts twelve samples on a disc with no axis for
+// the eye to find, which is the cheapest arrangement that actually
+// looks defocused.
+const vec2 DISC[12] = vec2[12](
+	vec2( 0.550,  0.000), vec2( 0.275,  0.476), vec2(-0.275,  0.476),
+	vec2(-0.550,  0.000), vec2(-0.275, -0.476), vec2( 0.275, -0.476),
+	vec2( 0.866,  0.500), vec2( 0.000,  1.000), vec2(-0.866,  0.500),
+	vec2(-0.866, -0.500), vec2( 0.000, -1.000), vec2( 0.866, -0.500));
+
+// The blend, at one point. Pulled out of fragment() so the blur can run
+// it per tap. The two branches are on uniforms, so every pixel in the
+// pass takes the same one and they cost nothing — and they matter,
+// because most of a shift is spent with both weights at zero and no
+// reason to pay for two more texture fetches.
+vec3 plate(vec2 uv) {
+	vec3 c = texture(m_clean, uv).rgb;
+	if (w_cracked > 0.002) {
+		c = mix(c, texture(m_cracked, uv).rgb, w_cracked);
+	}
+	if (w_haze > 0.002) {
+		c = mix(c, texture(m_haze, uv).rgb, w_haze);
+	}
+	return c;
+}
 
 void fragment() {
 	// Near 1:1 — the plate maps across the spotlight's cone rather than
@@ -210,9 +305,22 @@ void fragment() {
 	// falls just inside the cone edge and the beam does not end on a
 	// hard circle.
 	vec2 uv = (UV - vec2(0.5)) * zoom + vec2(0.5) + drift;
-	vec3 col = texture(m_clean, uv).rgb;
-	col = mix(col, texture(m_cracked, uv).rgb, w_cracked);
-	col = mix(col, texture(m_haze, uv).rgb, w_haze);
+	vec3 col;
+	if (blur < 0.0015) {
+		col = plate(uv);
+	} else {
+		// Centre weighted 3, inner ring 2, outer ring 1. Weighting the
+		// middle keeps the hotspot a hotspot instead of flattening the
+		// whole beam into an even disc as the radius opens up.
+		col = plate(uv) * 3.0;
+		float wsum = 3.0;
+		for (int i = 0; i < 12; i++) {
+			float w = i < 6 ? 2.0 : 1.0;
+			col += plate(uv + DISC[i] * blur) * w;
+			wsum += w;
+		}
+		col /= wsum;
+	}
 	// Chromatic split, and it is worth far more here than it was on the
 	// screen: the fringe now separates ON THE WALL, at whatever distance
 	// the wall happens to be.
@@ -247,6 +355,10 @@ uniform float t = 0.0;
 uniform vec2 drift = vec2(0.0);
 uniform float falloff = 2.6;
 uniform float zoom = 1.85;
+// 0 = the room is dark and this layer owns the frame; 1 = the room's own
+// fixtures are lighting the camera and this layer stands down. Driven by
+// LightRig.room_light. See DARK_UNLIT / DARK_LIT below.
+uniform float lift = 0.0;
 
 void fragment() {
 	// ZOOM OUT. The delivered plates put their bright core across most
@@ -285,9 +397,31 @@ void fragment() {
 	// Mains ripple, always there, far below conscious notice.
 	col *= 0.985 + 0.015 * sin(t * 41.0);
 
-	// Never let the mask reach pure black: at zero the frame is gone
-	// rather than dark, and the building's own fixtures stop reading.
-	col = max(col, vec3(0.050, 0.058, 0.078));
+	// THE FLOOR, AND WHY IT MOVES.
+	//
+	// This used to be a flat max() at 0.05 — meaning anything outside the
+	// beam was multiplied down to a twentieth of itself, INCLUDING the
+	// building's own fixtures. Two hundred and fifteen authored lights, a
+	// per-fixture provenance table and a whole flicker model, all of it
+	// arriving at the eye through a screen-space multiply that had never
+	// heard of any of them. Stand in a lit bar and it still looked like a
+	// dark room with a torch in it, because a dark room with a torch in
+	// it was the only thing this layer could draw.
+	//
+	// So the floor is a mix instead of a max — the plate is remapped into
+	// FLOOR..1 rather than clipped at it, which keeps the beam's shape
+	// while bounding how much of the frame it is allowed to take away —
+	// and the floor itself answers to the room. Dark room: 0.18, and the
+	// torch is the only reason you can see. Lit room: 0.66, and the
+	// vignette is barely more than a lens edge.
+	//
+	// The blue tint stays in both: it is the phosphor, and the building's
+	// own tungsten reading warm against it is half of why the torch feels
+	// like the wrong light to be looking at a home with.
+	const vec3 DARK_UNLIT = vec3(0.180, 0.196, 0.230);
+	const vec3 DARK_LIT = vec3(0.660, 0.672, 0.700);
+	vec3 base = mix(DARK_UNLIT, DARK_LIT, lift);
+	col = mix(base, vec3(1.0), clamp(col, vec3(0.0), vec3(1.0)));
 	COLOR = vec4(col, 1.0);
 }
 """

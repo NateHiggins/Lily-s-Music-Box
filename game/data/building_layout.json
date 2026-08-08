@@ -5952,7 +5952,7 @@
      "yaw_deg": 0,
      "network": "electrical",
      "range": 2.6,
-     "energy": 0.5,
+     "energy": 0.55,
      "navigation": false,
      "standby": 0.2,
      "exterior": true
@@ -6038,7 +6038,7 @@
      "yaw_deg": 0,
      "network": "electrical",
      "range": 3.5,
-     "energy": 0.4,
+     "energy": 0.46,
      "navigation": true,
      "standby": 0.35,
      "exterior": true
@@ -6055,7 +6055,7 @@
      "yaw_deg": 0,
      "network": "electrical",
      "range": 3.5,
-     "energy": 0.4,
+     "energy": 0.46,
      "navigation": true,
      "standby": 0.35,
      "exterior": true
@@ -6072,7 +6072,7 @@
      "yaw_deg": 90,
      "network": "electrical",
      "range": 5.0,
-     "energy": 0.55,
+     "energy": 0.7,
      "navigation": true,
      "standby": 0.4,
      "exterior": true
@@ -6082,14 +6082,14 @@
      "id": "F01_BAR_LT_CAN1",
      "unit": "SITE",
      "pos": [
-      -0.9,
+      -0.25,
       -29.7,
       -1.06
      ],
      "yaw_deg": 90,
      "network": "electrical",
      "range": 5.0,
-     "energy": 0.55,
+     "energy": 0.7,
      "navigation": true,
      "standby": 0.4,
      "exterior": true
@@ -6099,14 +6099,14 @@
      "id": "F01_BAR_LT_POOL",
      "unit": "SITE",
      "pos": [
-      -3.7,
-      -33.95,
-      -0.75
+      -7.4,
+      -31.25,
+      -0.6
      ],
      "yaw_deg": 0,
      "network": "electrical",
-     "range": 4.0,
-     "energy": 0.45,
+     "range": 4.2,
+     "energy": 0.66,
      "navigation": true,
      "standby": 0.4,
      "exterior": true
@@ -6118,12 +6118,29 @@
      "pos": [
       -8.2,
       -35.3,
-      -0.82
+      -0.62
      ],
      "yaw_deg": 0,
      "network": "electrical",
-     "range": 3.2,
-     "energy": 0.38,
+     "range": 3.6,
+     "energy": 0.52,
+     "navigation": true,
+     "standby": 0.35,
+     "exterior": true
+    },
+    {
+     "kind": "pendant_shade",
+     "id": "F01_BAR_LT_TAB1",
+     "unit": "SITE",
+     "pos": [
+      -5.2,
+      -35.3,
+      -0.62
+     ],
+     "yaw_deg": 0,
+     "network": "electrical",
+     "range": 3.6,
+     "energy": 0.52,
      "navigation": true,
      "standby": 0.35,
      "exterior": true
@@ -6135,12 +6152,12 @@
      "pos": [
       -1.2,
       -34.9,
-      -0.82
+      -0.62
      ],
      "yaw_deg": 0,
      "network": "electrical",
-     "range": 3.2,
-     "energy": 0.38,
+     "range": 3.6,
+     "energy": 0.52,
      "navigation": true,
      "standby": 0.35,
      "exterior": true
@@ -6157,7 +6174,7 @@
      "yaw_deg": 0,
      "network": "electrical",
      "range": 3.6,
-     "energy": 0.5,
+     "energy": 0.6,
      "navigation": true,
      "standby": 0.3,
      "exterior": true
@@ -6174,24 +6191,75 @@
      "yaw_deg": 0,
      "network": "electrical",
      "range": 3.6,
-     "energy": 0.5,
+     "energy": 0.6,
      "navigation": true,
      "standby": 0.3,
      "exterior": true
     },
     {
      "kind": "sconce_globe",
-     "id": "F01_BAR_LT_DECK",
+     "id": "F01_BAR_LT_DECK0",
      "unit": "SITE",
      "pos": [
       3.92,
-      -34.9,
+      -36.6,
       -1.3
      ],
      "yaw_deg": 270,
      "network": "electrical",
      "range": 3.4,
-     "energy": 0.42,
+     "energy": 0.55,
+     "navigation": true,
+     "standby": 0.35,
+     "exterior": true
+    },
+    {
+     "kind": "sconce_globe",
+     "id": "F01_BAR_LT_DECK1",
+     "unit": "SITE",
+     "pos": [
+      3.92,
+      -33.2,
+      -1.3
+     ],
+     "yaw_deg": 270,
+     "network": "electrical",
+     "range": 3.4,
+     "energy": 0.55,
+     "navigation": true,
+     "standby": 0.35,
+     "exterior": true
+    },
+    {
+     "kind": "sconce_globe",
+     "id": "F01_BAR_LT_WEST0",
+     "unit": "SITE",
+     "pos": [
+      -11.34,
+      -35.4,
+      -1.3
+     ],
+     "yaw_deg": 90,
+     "network": "electrical",
+     "range": 3.6,
+     "energy": 0.55,
+     "navigation": true,
+     "standby": 0.35,
+     "exterior": true
+    },
+    {
+     "kind": "sconce_globe",
+     "id": "F01_BAR_LT_WEST1",
+     "unit": "SITE",
+     "pos": [
+      -11.34,
+      -31.3,
+      -1.3
+     ],
+     "yaw_deg": 90,
+     "network": "electrical",
+     "range": 3.6,
+     "energy": 0.55,
      "navigation": true,
      "standby": 0.35,
      "exterior": true
@@ -6201,14 +6269,14 @@
      "id": "F01_BAR_LT_WC",
      "unit": "SITE",
      "pos": [
-      -4.3,
+      -10.62,
       -37.1,
       -0.44999999999999973
      ],
      "yaw_deg": 0,
      "network": "electrical",
      "range": 2.5,
-     "energy": 0.4,
+     "energy": 0.48,
      "navigation": true,
      "standby": 0.35,
      "exterior": true

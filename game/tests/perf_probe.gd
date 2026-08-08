@@ -31,6 +31,15 @@ const STATIONS := [
 	 "look": Vector3(0, 8, 0)},
 	{"name": "roof", "pos": Vector3(-6, 21.4, 9.5),
 	 "look": Vector3(2, 19.4, -4)},
+	# THE DENSEST LIT ROOM IN THE GAME, added when the light budget came
+	# off. Sixteen fixtures inside one 15.5 x 9.2 m box, all of them
+	# exempt from the storey gate, all of them in range of the same merged
+	# floor and ceiling meshes — which is precisely the case ACTIVE_N was
+	# invented to avoid and therefore the one that has to be measured now
+	# that nothing avoids it. Standing just inside the red door looking
+	# west down the whole room, which sees every one of them at once.
+	{"name": "harukiya (16 fixtures)", "pos": Vector3(3.0, -1.39, 34.0),
+	 "look": Vector3(-11.0, -1.9, 33.0)},
 ]
 
 var root: Node3D

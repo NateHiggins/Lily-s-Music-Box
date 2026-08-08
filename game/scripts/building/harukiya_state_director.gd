@@ -4,10 +4,11 @@ extends Node
 ##
 ## Three looks for the Harukiya, keyed to the same minute-of-day the sky
 ## and the resident schedules already read (ScheduleDirector.minute_now,
-## so DAYNIGHT_FORCE pins it for renders). The fixtures are the six SITE
-## lights gen_layout authors for the bar plus the two facade neons; all
-## are found by their marker ids, so a regenerated building keeps working
-## or fails loudly here.
+## so DAYNIGHT_FORCE pins it for renders). The fixtures are every SITE
+## light gen_layout authors under the F01_BAR_LT_ prefix — sixteen of
+## them as of the relighting — plus the facade signage and the stage
+## sign, which are still found by id because there is exactly one of
+## each and they are not lights.
 ##
 ## OPEN        19:00-02:00  everything lit, neon full — the roster hours
 ##                          (Fri/Sat crowd 21:30-02:00, Lena's early
@@ -21,24 +22,35 @@ extends Node
 ## Inert under DAYNIGHT=0: the canonical 03:00 test building keeps its
 ## pre-state look byte for byte, same convention as the other directors.
 
+## THE ROOM IS DISCOVERED, NOT LISTED. Every fixture whose name starts
+## with PREFIX is picked up off the tree; this table only says what the
+## ones with opinions do, and anything not named here takes DEFAULT.
+##
+## It used to be a closed list, and the list went stale the moment the
+## room was rebuilt: it named TAB4 and TAB6, which stopped existing when
+## the table count went from eight to three, and it did not name DECK1 or
+## either WEST sconce, which were added when the west half of the bar
+## turned out to have no lighting in it at all. So it warned about two
+## fixtures that were gone and silently left three new ones burning at
+## full through a closed bar. A prefix scan cannot drift: a fixture that
+## is in the room is in the system, by construction.
+##
 ## fixture id -> [OPEN gain, AFTER_HOURS gain, CLOSED gain]; 0 = off.
+const PREFIX := "F01_BAR_LT_"
+## Lit for business and dark otherwise, which is nearly everything.
+const DEFAULT := [1.0, 0.0, 0.0]
 const FIXTURE_STATES := {
-	"F01_BAR_LT_LOBBY": [1.0, 0.0, 0.0],
+	# The stair is never fully dark: it is the way out of a basement, and
+	# a caretaker's minimum on it is the difference between a closed bar
+	# and a hole in the pavement.
 	"F01_BAR_LT_STAIR": [1.0, 0.6, 0.35],
+	# What somebody actually cleans up under after two: one end of the
+	# counter, one table, and enough of the lounge to find the glasses.
 	"F01_BAR_LT_CAN0": [1.0, 0.45, 0.0],
-	"F01_BAR_LT_CAN1": [1.0, 0.0, 0.0],
-	"F01_BAR_LT_POOL": [1.0, 0.0, 0.0],
-	"F01_BAR_LT_WC": [1.0, 0.0, 0.0],
-	# The Belchi Lorente rebuild's own fixtures. The table pendants are
-	# what the room is actually lit by, so one of them survives into
-	# after-hours as the light somebody wipes down under.
 	"F01_BAR_LT_TAB0": [1.0, 0.5, 0.0],
-	"F01_BAR_LT_TAB2": [1.0, 0.0, 0.0],
-	"F01_BAR_LT_TAB4": [1.0, 0.0, 0.0],
-	"F01_BAR_LT_TAB6": [1.0, 0.0, 0.0],
-	"F01_BAR_LT_STAGE0": [1.0, 0.0, 0.0],
-	"F01_BAR_LT_STAGE1": [1.0, 0.0, 0.0],
-	"F01_BAR_LT_DECK": [1.0, 0.35, 0.0],
+	"F01_BAR_LT_DECK0": [1.0, 0.35, 0.0],
+	# The restroom stays on through the clean-up for the obvious reason.
+	"F01_BAR_LT_WC": [1.0, 0.40, 0.0],
 }
 const SIGNAGE := "F01_BAR_SIGNAGE"
 ## The lit word over the stage, which keeps the facade's hours.
@@ -61,10 +73,22 @@ func setup(root: Node3D) -> void:
 	# moment anyone was in it. Tag them as a vertical zone (the same
 	# exemption the stair and atrium fixtures ride) and the gate defers
 	# to plain distance ranking, which does the right thing here.
-	for id in FIXTURE_STATES:
-		var fixture := root.get_node_or_null(NodePath(id))
-		if fixture:
-			fixture.set_meta("vertical_zone", true)
+	for fixture in _fixtures():
+		fixture.set_meta("vertical_zone", true)
+
+
+## Every light in the bar, by name. Cheap enough to re-walk on the rare
+## state change, and it is the only thing keeping this director and
+## gen_layout in agreement — so it is deliberately not cached against
+## some future pass that adds a fixture after _ready.
+func _fixtures() -> Array:
+	var found: Array = []
+	if _root == null:
+		return found
+	for child in _root.get_children():
+		if child is LightFixtureProp and str(child.name).begins_with(PREFIX):
+			found.append(child)
+	return found
 
 
 static func state_for(minute: float) -> BarState:
@@ -91,13 +115,17 @@ func _process(delta: float) -> void:
 
 func _apply(bar_state: BarState) -> void:
 	var missing := 0
-	for id in FIXTURE_STATES:
-		var fixture := _root.get_node_or_null(NodePath(id)) \
-				as LightFixtureProp
-		if fixture == null:
-			missing += 1
-			continue
-		var gain: float = FIXTURE_STATES[id][int(bar_state)]
+	var fixtures := _fixtures()
+	# A bar with no lights in it is the failure this is really watching
+	# for — a renamed prefix, a regeneration that dropped the block, a
+	# scene where the room was never built. One fixture missing is not
+	# findable any more (there is no list to be missing from); zero of
+	# them is, and it is the case that actually matters.
+	if fixtures.is_empty():
+		push_warning("harukiya states: no '%s' fixtures in the tree" % PREFIX)
+	for fixture in fixtures:
+		var gain: float = FIXTURE_STATES.get(
+				str(fixture.name), DEFAULT)[int(bar_state)]
 		fixture.set_state_gain(gain)
 		fixture.set_powered(gain > 0.0)
 	var sign := _root.get_node_or_null(NodePath(SIGNAGE)) \
@@ -113,5 +141,6 @@ func _apply(bar_state: BarState) -> void:
 	else:
 		stage_sign.set_lit(bar_state == BarState.OPEN)
 	if missing > 0:
-		push_warning("harukiya states: %d bar fixtures not found" % missing)
-	print("[HARUKIYA] %s" % BarState.keys()[int(bar_state)])
+		push_warning("harukiya states: %d signs not found" % missing)
+	print("[HARUKIYA] %s, %d fixtures" % [
+			BarState.keys()[int(bar_state)], fixtures.size()])

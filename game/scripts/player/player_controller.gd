@@ -46,6 +46,10 @@ var _bake_due := 0.0
 ## this anyway; the fast flicker rides on light_energy instead.
 const BAKE_EVERY := 0.10
 const COOKIE := 512
+## Metres to whatever the beam is currently landing on, eased. Drives
+## both the cookie's blur and the cone edge's softness — see
+## _measure_throw. Starts mid-range so the first bake is not a jump.
+var _throw := 3.5
 ## Set by building_root once the camera exists; the handset rides it.
 var phone_carrier: Node3D
 var _sway_clock := 0.0
@@ -72,7 +76,13 @@ func _ready() -> void:
 	_hand.name = "PhoneHand"
 	add_child(_hand)
 	flashlight = SpotLight3D.new()
-	flashlight.light_energy = 1.15
+	# Down from 1.15 (ruled 2026-08-08). The torch was outshining the
+	# building: walk into a room with six lit pendants and the brightest
+	# thing on the wall was still the thing in your hand. The other two
+	# thirds of that ruling are LightRig.fixture_gain, which came up, and
+	# the atmosphere mask's floor, which stopped crushing every fixture in
+	# the frame to a twentieth of itself.
+	flashlight.light_energy = 0.74
 	flashlight.spot_range = 7.5
 	flashlight.spot_angle = 38.0
 	flashlight.spot_angle_attenuation = 1.9
@@ -257,6 +267,7 @@ func _bake_cookie(delta: float) -> void:
 	if _bake_due > 0.0:
 		return
 	_bake_due = BAKE_EVERY
+	_measure_throw()
 	var vt := _mask_view.get_texture()
 	if vt == null:
 		return
@@ -268,6 +279,44 @@ func _bake_cookie(delta: float) -> void:
 		flashlight.light_projector = _cookie
 	else:
 		_cookie.update(img)
+
+
+## HOW FAR THE BEAM IS THROWING. One ray, down the light's own axis, at
+## the bake rate rather than per frame — the beam's softness has no
+## business being a 60 Hz quantity and this is a physics query.
+##
+## Nothing found means nothing to land on, which is the corridor case:
+## the beam runs out at its own range and is at its softest, which is
+## exactly right and falls out of the arithmetic for free.
+func _measure_throw() -> void:
+	if flashlight == null or not is_inside_tree():
+		return
+	var space := get_world_3d().direct_space_state
+	if space == null:
+		return
+	var origin := flashlight.global_position
+	var reach := flashlight.spot_range
+	var params := PhysicsRayQueryParameters3D.create(
+			origin, origin - flashlight.global_transform.basis.z * reach)
+	params.exclude = [get_rid()]
+	var hit := space.intersect_ray(params)
+	var found: float = reach if hit.is_empty() \
+			else origin.distance_to(hit.position)
+	# Eased, not assigned. Sweeping the beam off a near wall and down a
+	# corridor is a real thing a player does constantly, and a blur that
+	# tracked it exactly would pop on every doorway. A third per bake is
+	# about a third of a second to settle — slow enough to read as the
+	# eye adjusting, fast enough that it has finished by the time you
+	# have finished turning.
+	_throw = lerpf(_throw, found, 0.34)
+	if _cookie_mask:
+		_cookie_mask.set_throw(_throw, reach)
+	# The CONE EDGE softens with the same argument as the pattern inside
+	# it. A hard-edged circle on a far wall is the single clearest tell
+	# that a beam is a projected texture rather than light, and the
+	# penumbra of a real torch at seven metres is most of a metre wide.
+	var soft: float = clampf((_throw - 1.10) / (reach - 1.10), 0.0, 1.0)
+	flashlight.spot_angle_attenuation = lerpf(1.90, 1.15, soft)
 
 
 ## One look path for both a mouse and a dragged thumb, so the two can never

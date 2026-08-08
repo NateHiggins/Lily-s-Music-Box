@@ -4698,7 +4698,7 @@ def retail_pass(fl):
     mk.append({"kind": "cage_bulb", "id": "F01_BAR_LT_DARTS",
                "unit": "SITE", "pos": [DB_X + 0.34, DB_Y, DB_Z + 0.78],
                "yaw_deg": 0, "network": "electrical", "range": 2.6,
-               "energy": 0.5, "navigation": False, "standby": 0.2,
+               "energy": 0.55, "navigation": False, "standby": 0.2,
                "exterior": True})
 
     # -- PLANTS. Canon: tall indoor palms, improbably alive.
@@ -4778,53 +4778,138 @@ def retail_pass(fl):
                "pos": [4.875, FACE + 0.06, 2.80], "yaw_deg": 180,
                "unit": "SITE", "network": "electrical",
                "exterior": True})
+    # ================= THE HARUKIYA'S LIGHTING ========================
+    # RELIT (2026-08-08) on the brief "the bar needs actual lighting".
+    # It had fourteen fixtures and still read as an unlit room, for three
+    # reasons that had nothing to do with how many there were:
+    #
+    # 1. THREE OF THEM WERE OVER THE WRONG THING. The room was widened
+    #    from 9.1 x 6.8 to 15.5 x 9.2 and the furniture moved with it;
+    #    the lights did not. LT_POOL hung at x -3.70 while the pool
+    #    table went to -7.40, so the pendant NAMED for the table was
+    #    lighting four metres of empty floor beside it. LT_WC sat at
+    #    -4.30 with the restroom out at -10.65 — a different corner of
+    #    a different part of the room. A fixture named for the thing it
+    #    is over is a promise that regeneration does not keep, and
+    #    nothing checked.
+    # 2. THE WEST HALF HAD NOTHING AT ALL. Everything except one table
+    #    pendant and the darts bulb lived east of x -4.30. The gallery
+    #    wall, the songbook terminal, the pool table and the whole
+    #    approach to the restroom were lit by spill and by the torch.
+    # 3. TWO OF THEM DID NOT EXIST. The pendant loop ran over TABLES
+    #    taking even indices, which was four pendants when there were
+    #    eight tables and is two now there are three. The state director
+    #    still asked for TAB4 and TAB6 by name every time the bar
+    #    changed hours, found nothing, and warned into a log nobody
+    #    reads. See harukiya_state_director, which no longer keeps a
+    #    hand-written list for exactly this reason.
+    #
+    # The plan is the Belchi Lorente study's, which is the plan the room
+    # was rebuilt to: SMALL WARM SOURCES HUNG CLOSE OVER PEOPLE, and
+    # nothing lighting the room in general. One over each table, one
+    # over the pool, two under the counter canopy, one at each end of
+    # each long wall, two on the stage. You read the room by the pools,
+    # and the dark between them is the point.
+    #
+    # Sixteen fixtures against LightRig's budget of fourteen: standing
+    # anywhere in the room the two that lose are the street lobby and
+    # the stair bulb, which are up the shaft behind you and correct to
+    # drop. That is the intended margin and not an accident.
     mk.append({"kind": "cage_bulb", "id": "F01_BAR_LT_LOBBY",
                "unit": "SITE", "pos": [4.875, -29.30, 2.30],
                "yaw_deg": 0, "network": "electrical", "range": 3.5,
-               "energy": 0.4, "navigation": True, "standby": 0.35,
+               "energy": 0.46, "navigation": True, "standby": 0.35,
                "exterior": True})
     mk.append({"kind": "cage_bulb", "id": "F01_BAR_LT_STAIR",
                "unit": "SITE", "pos": [5.30, -32.60, 0.55],
                "yaw_deg": 0, "network": "electrical", "range": 3.5,
-               "energy": 0.4, "navigation": True, "standby": 0.35,
+               "energy": 0.46, "navigation": True, "standby": 0.35,
                "exterior": True})
-    for i, lx in enumerate((-3.2, -0.9)):
+    # Under the canopy, over the counter's 5.2 m run. Re-spaced: the old
+    # pair sat at -3.2 and -0.9, both west of the counter's midpoint,
+    # leaving its east end and the last two stools in shadow.
+    for i, lx in enumerate((-3.20, -0.25)):
         mk.append({"kind": "kitchen_linear", "id": "F01_BAR_LT_CAN%d" % i,
                    "unit": "SITE", "pos": [lx, -29.70, -1.06],
                    "yaw_deg": 90, "network": "electrical", "range": 5.0,
-                   "energy": 0.55, "navigation": True, "standby": 0.4,
+                   "energy": 0.70, "navigation": True, "standby": 0.4,
                    "exterior": True})
+    # OVER THE POOL TABLE, which is at (-8.40..-6.40, -31.90..-30.60).
+    # Reaching wide: a pool pendant's whole job is to light the felt hard
+    # and leave the room around it alone, which is also the best thing
+    # that happens to this room visually.
+    #
+    # THE Z IS A CEILING ANCHOR, NOT THE LAMP. pendant_shade hangs a
+    # 0.55 m cord and its diffuser sits 0.755 m below the marker, so the
+    # first attempt at "hung low, like a pool light" put the marker at
+    # -1.05 and landed the shade 21 cm off the felt — a lamp standing on
+    # the table. It renders as exactly that, which is how it was caught.
+    # -0.60 puts the diffuser 0.665 m over the slate, which is where a
+    # pool light goes, and 1.445 m off the floor — just clear of the
+    # 1.41 m eye line, so it lights the table without being in the face
+    # of whoever is walking round it to take the shot.
     mk.append({"kind": "pendant_shade", "id": "F01_BAR_LT_POOL",
-               "unit": "SITE", "pos": [-3.70, -33.95, -0.75],
-               "yaw_deg": 0, "network": "electrical", "range": 4.0,
-               "energy": 0.45, "navigation": True, "standby": 0.4,
+               "unit": "SITE", "pos": [-7.40, -31.25, -0.60],
+               "yaw_deg": 0, "network": "electrical", "range": 4.2,
+               "energy": 0.66, "navigation": True, "standby": 0.4,
                "exterior": True})
-    # a low pendant over every other table: the study is lit almost
-    # entirely by small warm sources hung close over people
+    # A low pendant over EVERY table. The old loop lit every other one,
+    # which was defensible at eight tables and leaves a third of the
+    # room's seating dark at three. Ids come off the enumeration, so a
+    # table added or removed can no longer strand a fixture id.
+    #
+    # RAISED from -0.82, which hung the drum from -1.33 to -1.57 — with
+    # the eye line at -1.39, dead centre of it. You could not get your
+    # head there (the table is in the way) so it was not a collision, but
+    # every shot across the room had a lampshade the size of a doorway
+    # sitting in the middle of it, which is how it was noticed. -0.62
+    # puts the diffuser 0.685 m over the table — where a pendant hung
+    # over people actually goes — and just above the eye line.
     for i, (tx, ty, _s) in enumerate(TABLES):
-        if i % 2:
-            continue
         mk.append({"kind": "pendant_shade",
                    "id": "F01_BAR_LT_TAB%d" % i, "unit": "SITE",
-                   "pos": [tx, ty, -0.82], "yaw_deg": 0,
-                   "network": "electrical", "range": 3.2,
-                   "energy": 0.38, "navigation": True, "standby": 0.35,
+                   "pos": [tx, ty, -0.62], "yaw_deg": 0,
+                   "network": "electrical", "range": 3.6,
+                   "energy": 0.52, "navigation": True, "standby": 0.35,
                    "exterior": True})
     for i, sx in enumerate((-1.90, 0.50)):
         mk.append({"kind": "cage_bulb", "id": "F01_BAR_LT_STAGE%d" % i,
                    "unit": "SITE", "pos": [sx, -36.55, -0.95],
                    "yaw_deg": 0, "network": "electrical", "range": 3.6,
-                   "energy": 0.5, "navigation": True, "standby": 0.3,
+                   "energy": 0.60, "navigation": True, "standby": 0.3,
                    "exterior": True})
-    mk.append({"kind": "sconce_globe", "id": "F01_BAR_LT_DECK",
-               "unit": "SITE", "pos": [3.92, -34.90, -1.30],
-               "yaw_deg": 270, "network": "electrical", "range": 3.4,
-               "energy": 0.42, "navigation": True, "standby": 0.35,
-               "exterior": True})
+    # EAST WALL, over the deck. One globe was centred on the middle
+    # banquette and left the other two and the arcade corner dark; two
+    # put a light over each end of the lounge instead of over its
+    # midpoint. Facing back into the room (yaw 270) off the wall at
+    # RX1 = 4.00.
+    for i, dy in enumerate((-36.60, -33.20)):
+        mk.append({"kind": "sconce_globe", "id": "F01_BAR_LT_DECK%d" % i,
+                   "unit": "SITE", "pos": [3.92, dy, -1.30],
+                   "yaw_deg": 270, "network": "electrical", "range": 3.4,
+                   "energy": 0.55, "navigation": True, "standby": 0.35,
+                   "exterior": True})
+    # WEST WALL, and this is the half of the room that had nothing. Two
+    # globes on the gallery wall at RX0 = -11.50, facing east: they light
+    # the eleven frames (which are the wall's entire reason to exist and
+    # were invisible), the songbook terminal at -11.34, and the way down
+    # to the restroom. Placed BETWEEN the frames' run and the corners
+    # rather than at the wall's midpoint, so the pool table's approach
+    # and the darts oche each get one.
+    for i, wy in enumerate((-35.40, -31.30)):
+        mk.append({"kind": "sconce_globe", "id": "F01_BAR_LT_WEST%d" % i,
+                   "unit": "SITE", "pos": [-11.34, wy, -1.30],
+                   "yaw_deg": 90, "network": "electrical", "range": 3.6,
+                   "energy": 0.55, "navigation": True, "standby": 0.35,
+                   "exterior": True})
+    # IN THE RESTROOM, not five metres outside it. The cubicle is
+    # x -11.50..-9.80, y -37.90..-36.25 with its door at -10.85..-10.15;
+    # this hangs over the middle of that, between the toilet at -11.15
+    # and the basin at -10.10.
     mk.append({"kind": "cage_bulb", "id": "F01_BAR_LT_WC",
-               "unit": "SITE", "pos": [-4.30, -37.10, FLR + 2.35],
+               "unit": "SITE", "pos": [-10.62, -37.10, FLR + 2.35],
                "yaw_deg": 0, "network": "electrical", "range": 2.5,
-               "energy": 0.4, "navigation": True, "standby": 0.35,
+               "energy": 0.48, "navigation": True, "standby": 0.35,
                "exterior": True})
 
     # =================== THE WALLS OF THE WORLD =======================

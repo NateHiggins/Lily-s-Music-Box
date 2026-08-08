@@ -33,7 +33,21 @@ const ACTIVE_N := 14
 ## together. The nearest few carry the modelling that sells a room — the
 ## balustrade shadows down the stair, furniture contact — and the rest
 ## contribute nothing an eye can find, so they light without casting.
-const SHADOW_N := 8
+##
+## ALL OF WHICH WAS REASONING, AND IT WAS WRONG. Measured 2026-08-08 by
+## sweeping this value against the perf probe: 0, 8, 24 and 64 casters
+## produce the same frame time to within noise, and the same object count
+## to within 200. The six-renders-per-caster argument is correct about
+## the GPU and irrelevant to this frame, which is CPU-bound on draw call
+## submission and has been the whole time — so shadow work lands in time
+## that was being spent anyway.
+##
+## Raised to 32. Not to UNLIMITED, and this one IS a judgement rather than
+## a measurement: the shadow atlas is a fixed budget that subdivides per
+## caster, so past some count every shadow in the frame gets blurrier in
+## exchange for shadows nobody was going to look at. 32 with an 8192
+## atlas is 1448 px a side each, which still models a room.
+const SHADOW_N := 32
 ## Mobile still pays more for a cube shadow than desktop does — six passes
 ## over the visible set, on a tiler's bandwidth — so it runs a smaller
 ## budget than the 8/14 above. The FIRST values here (1 caster, 8 lights)
@@ -72,7 +86,27 @@ var _accum := 0.0
 ## directional_shadow_max_distance are never derived from this value.
 # Raised 20% (ruled 2026-08-05). The pools were reading correct but
 # thin; the building is meant to be dark, not dim.
-var fixture_gain := 0.60
+# Raised again to 0.80 (ruled 2026-08-08) on the brief that the TORCH was
+# doing too much of the work and the building's own fixtures too little.
+# The other half of that ruling is in phone_light_mask.gd, which was
+# multiplying every fixture in the frame down to a fifth of itself.
+var fixture_gain := 0.80
+## HOW LIT THE ROOM AROUND THE CAMERA ACTUALLY IS, 0..1. Recomputed each
+## tick from the fixtures that are genuinely on, and read by the torch:
+## walk into a lit bar and the beam's screen-space vignette gets out of
+## the way, walk into a black corridor and it closes back down.
+##
+## This exists because "the building lights you" and "the torch lights
+## you" were two systems that had never been introduced. The torch
+## crushed the frame by a constant amount whatever room you were in, so
+## the most expensive thing in the building — 215 authored fixtures —
+## was competing with a screen-space multiply and losing.
+var room_light := 0.0
+## What room_light calls fully lit. Standing under a bar pendant at a
+## metre sums to about 0.5 across the near fixtures; a corridor with one
+## dome four metres off sums to under 0.02, which is the separation this
+## is calibrated against. Measured, not guessed — see stats().
+const ROOM_LIT_FULL := 0.45
 # Moonlit floor (ruled 2026-08-04): shadows read midnight blue against
 # the warm fixtures and the blue phone torch. Keep in step with
 # building_root._build_environment.
@@ -91,16 +125,41 @@ var debug_inspect_enabled := false
 var selected_debug_fixture: Node
 var _debug_handles: Dictionary = {}
 var _provenance: Dictionary = {}
-## Resolved once: OS.has_feature is a string lookup, not something to do
-## per fixture per tick. Writable so the budget can be tuned on the device
-## it has to run on, with the frame counter visible next to it.
+## THE BUDGET IS OFF ON DESKTOP (2026-08-08). Every fixture that passes
+## the storey gate is lit, and the ranking below now only decides which
+## ones get SHADOWS. The constants above are kept because they are the
+## mobile path and because they record what the ceiling was.
+##
+## The reason it could come off is that the thing it was working around
+## was a project setting: limits/opengl/max_lights_per_object was 16, and
+## with a whole storey's walls merged into one mesh, 16 was reached by an
+## arbitrary subset. Raised to 128, which is past what any storey
+## authors, so the subset is no longer arbitrary because it is no longer
+## a subset.
+##
+## Mobile keeps its budget. This is not timidity about a number — a tiler
+## pays for lights per fragment and there is no device here to measure on,
+## so the honest position is that the desktop figure is measured and the
+## mobile one is not, and the unmeasured one keeps its guard rail until
+## somebody puts a phone in front of it. See #20.
+const UNLIMITED := 4096
 @onready var _active_budget: int = \
-		ACTIVE_N_MOBILE if OS.has_feature("mobile") else ACTIVE_N
+		ACTIVE_N_MOBILE if OS.has_feature("mobile") else UNLIMITED
 @onready var _shadow_budget: int = \
 		SHADOW_N_MOBILE if OS.has_feature("mobile") else SHADOW_N
 
 
 func _ready() -> void:
+	# Sweepable from the shell so the ceiling is found by measuring rather
+	# than by argument: LIGHT_BUDGET=14 SHADOW_BUDGET=8 reproduces the old
+	# rationed rig exactly, which is what any "is this actually costing
+	# anything?" question needs on the other side of it.
+	var lit := OS.get_environment("LIGHT_BUDGET")
+	var shad := OS.get_environment("SHADOW_BUDGET")
+	if lit != "":
+		_active_budget = maxi(1, int(lit))
+	if shad != "":
+		_shadow_budget = clampi(int(shad), 0, _active_budget)
 	_bind_environment()
 	_load_provenance()
 	call_deferred("_build_debug_handles")
@@ -389,6 +448,7 @@ func _process(delta: float) -> void:
 		else:
 			off.append(fixture)
 	eligible.sort_custom(func(a, b): return a[0] < b[0])
+	var lit := 0.0
 	for i in range(eligible.size()):
 		var on := i < _active_budget
 		var fixture: Node = eligible[i][1]
@@ -400,6 +460,19 @@ func _process(delta: float) -> void:
 		if source:
 			source.shadow_opacity = shadow_opacity \
 					* float(tuning.shadow_opacity)
+		# Sum what is actually landing on the camera. Read AFTER set_budget
+		# and off the LIGHT rather than off the authored energy on purpose:
+		# a fixture that is off, dimmed to standby, or mid-flicker should
+		# count for what it is emitting this instant, not for what it was
+		# authored at. It answers one tick stale because the fixture applies
+		# its own scale in its own _process — 0.12 s, beneath noticing.
+		if on and source is OmniLight3D and source.visible:
+			var d: float = fixture.global_position.distance_to(eye)
+			var reach: float = source.omni_range
+			if d < reach:
+				lit += source.light_energy * pow(
+						1.0 - d / reach, source.omni_attenuation)
+	room_light = clampf(lit / ROOM_LIT_FULL, 0.0, 1.0)
 	for fixture in off:
 		fixture.set_budget(0.0, false, false)
 
@@ -456,4 +529,8 @@ func stats() -> Dictionary:
 	return {
 		"full": full, "half": 0, "off": off, "shadows": shadows,
 		"active_floor": active_floor,
+		# Exposed so the torch's backing-off can be checked by number
+		# instead of by squinting: stand in the bar and this should read
+		# near 1, stand in a basement corridor and near 0.
+		"room_light": room_light,
 	}
