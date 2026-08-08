@@ -253,7 +253,7 @@ func _texmat(file: String, tint: Color, rough: float, metal := 0.0,
 ## plate toward a light colour cannot work, and quietly does nothing,
 ## which is exactly what it did on the first attempt.
 func _hw(file: String, flat: Color, rough: float, uv := 1.0,
-		metal := 0.0) -> StandardMaterial3D:
+		metal := 0.0, off := Vector2.ZERO) -> StandardMaterial3D:
 	var tex: Texture2D = load(TEX % file) if ResourceLoader.exists(
 			TEX % file) else null
 	if tex == null:
@@ -264,6 +264,7 @@ func _hw(file: String, flat: Color, rough: float, uv := 1.0,
 	m.roughness = rough
 	m.metallic = metal
 	m.uv1_scale = Vector3(uv, uv, 1.0)
+	m.uv1_offset = Vector3(off.x, off.y, 0.0)
 	return m
 
 
@@ -387,6 +388,21 @@ func _build_body() -> void:
 ## Slightly out of register, because the original was a printed decal
 ## and this one has been on a phone in a pocket for years.
 func _build_stripe() -> void:
+	# THE DECAL, now that the plate exists. It was five coloured boxes
+	# until the photograph arrived, and the photograph is better for the
+	# reason photographs usually are here: the print has faded a shade
+	# unevenly, one band sits a hair out of register, and a corner has
+	# worn back to the plastic. None of that is worth authoring by hand
+	# and all of it is what makes a decal read as applied rather than
+	# drawn.
+	var plate: StandardMaterial3D = _hw("amiga_stripe",
+			Color(0.80, 0.75, 0.60), 0.62)
+	if plate.albedo_texture != null:
+		_box(Vector3(BODY_W * 0.94, 0.0098, 0.0007),
+				Vector3(0.0, BODY_H * 0.5 - 0.0050, Z_FACE + 0.0021),
+				plate)
+		return
+	# No plate yet: five painted bands, so the case is never undecorated.
 	var bands := [
 		Color("c8352b"), Color("d9722a"), Color("e3b02f"),
 		Color("2f8f86"), Color("2b5c9e"),
@@ -598,9 +614,14 @@ func _build_keys() -> void:
 	# One keycap swatch across a 5 mm cap: the thumb-polish that came
 	# back in the centre of the photograph lands in the centre of every
 	# key, which is exactly where a thumb puts it.
-	var cap: StandardMaterial3D = _texmat("phone_keycap", Color(1, 1, 1), 0.54, 0.0, 1.0)
-	var cap_lit: StandardMaterial3D = _texmat("phone_keycap", Color(1.15, 1.15, 1.2), 0.44,
-			0.0, 1.0)
+	# The delivered plate is a FIELD of caps, six across, not a single
+	# swatch — so each cap samples one cell out of it rather than the
+	# whole image. Scale 0.128 is one cap face; the offset lands inside
+	# a cell instead of across the gap between two.
+	var cap: StandardMaterial3D = _hw("amiga_keycaps",
+			Color(0.815, 0.760, 0.610), 0.54, 0.128, 0.0, Vector2(0.022, 0.022))
+	var cap_lit: StandardMaterial3D = _hw("amiga_keycaps",
+			Color(0.900, 0.845, 0.690), 0.44, 0.128, 0.0, Vector2(0.022, 0.022))
 	var odd := _mat(Color("8a5a2c"), 0.50)          # a salvaged cap
 	var hole := _mat(Color("0d0c10"), 0.85)         # one is gone
 	var rows := ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"]
