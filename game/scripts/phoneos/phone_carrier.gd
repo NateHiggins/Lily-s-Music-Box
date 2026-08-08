@@ -73,7 +73,7 @@ func setup(player: Node3D, camera: Camera3D) -> void:
 	# Barely there. At 0.22 it washed the casing to near-white and the
 	# handset read as a sheet of paper; the screen is meant to be the
 	# brightest thing on the object by a wide margin.
-	fill.light_energy = 0.07
+	fill.light_energy = 0.045
 	fill.omni_range = 0.45
 	fill.shadow_enabled = false
 	fill.position = Vector3(0.06, 0.12, 0.12)

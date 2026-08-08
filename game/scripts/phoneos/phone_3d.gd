@@ -26,8 +26,17 @@ const SCREEN_H := 384
 # Real handset proportions in metres: 66 mm wide, 114 mm tall, 14 thick.
 const BODY_W := 0.066
 const BODY_H := 0.114
-const BODY_D := 0.014
-const SCREEN_MM := Vector2(0.052, 0.0416)   # 5:4, sat above the keys
+const BODY_D := 0.026          # it is a brick now, and it should be
+const SCREEN_MM := Vector2(0.050, 0.0400)   # 5:4, sat above the keys
+# Explicit Z planes rather than fractions of depth. The screen was once
+# mounted at 0.335 of a depth whose front face was 0.36, i.e. inside
+# the casing, and it rendered perfectly with the body drawn over it.
+# Named planes make that mistake visible in the source.
+const Z_BACK := -0.0130        # back plate, mostly missing
+const Z_GUTS := -0.0040        # breadboard surface, where the build lives
+const Z_FACE := 0.0090         # front bezel plane
+const Z_KEY := 0.0104          # keycap tops
+const Z_SCREEN := 0.0125       # panel, proud of everything
 
 var os_sim := PhoneOS.new()
 var cam := PhoneCamera.new()
@@ -122,80 +131,258 @@ func _box(size: Vector3, at: Vector3, mat: Material,
 	return mi
 
 
-## Chamfer by stacking three slabs of decreasing footprint rather than
-## generating a rounded prism. Under a soft key light the silhouette
-## reads as a bevelled edge, it costs three boxes instead of a few
-## hundred triangles, and on a gl_compatibility mobile target that
-## trade is not close.
+## ---- helpers --------------------------------------------------------
+
+func _cyl(r: float, h: float, at: Vector3, mat: Material,
+		axis := Vector3.RIGHT) -> MeshInstance3D:
+	var mi := MeshInstance3D.new()
+	var cm := CylinderMesh.new()
+	cm.top_radius = r
+	cm.bottom_radius = r
+	cm.height = h
+	cm.radial_segments = 8
+	mi.mesh = cm
+	mi.position = at
+	if axis == Vector3.RIGHT:
+		mi.rotation.z = PI * 0.5
+	elif axis == Vector3.FORWARD:
+		mi.rotation.x = PI * 0.5
+	mi.material_override = mat
+	add_child(mi)
+	return mi
+
+
+## A wire: a short chain of segments sagging between two points. Real
+## hookup wire never runs straight and the sag is most of what makes a
+## build read as hand-made rather than as modelled.
+func _wire(a: Vector3, b: Vector3, colour: Color, sag := 0.004) -> void:
+	var mat := _mat(colour, 0.45)
+	var steps := 5
+	var prev := a
+	for i in range(1, steps + 1):
+		var t := float(i) / steps
+		var p := a.lerp(b, t)
+		p.y -= sin(t * PI) * sag
+		var mid := (prev + p) * 0.5
+		var seg := _cyl(0.00042, prev.distance_to(p), mid, mat)
+		seg.look_at_from_position(mid, p, Vector3.UP)
+		seg.rotate_object_local(Vector3.RIGHT, PI * 0.5)
+		prev = p
+
+
+## THE SHELL. A BlackBerry that somebody opened and never closed.
+##
+## The frame is the only factory part left: bezel, side rails and the
+## keypad surround, in plastic that has gone the colour of old ivory.
+## The back is gone, so the build shows, and what holds the whole thing
+## together is hot glue and the fact that nobody has dropped it.
 func _build_body() -> void:
-	var soft := _mat(Color("14111a"), 0.86)     # soft-touch plastic
-	var chrome := _mat(Color("9aa0aa"), 0.28, 0.95)
-	var d := BODY_D
-	_box(Vector3(BODY_W, BODY_H, d * 0.62), Vector3(0, 0, -d * 0.19), soft)
-	_box(Vector3(BODY_W - 0.004, BODY_H - 0.004, d * 0.24),
-			Vector3(0, 0, d * 0.19), soft)
-	_box(Vector3(BODY_W - 0.010, BODY_H - 0.010, d * 0.10),
-			Vector3(0, 0, d * 0.31), soft)
-	# the chrome rail down each flank
+	var ivory := _mat(Color("a09681"), 0.74)      # yellowed ABS, pocket-worn
+	var ivory_dk := _mat(Color("7d7565"), 0.78)
+	var chrome := _mat(Color("9aa0aa"), 0.30, 0.92)
+	var w := BODY_W * 0.5
+	var h := BODY_H * 0.5
+	# Front bezel: four rails, so the middle is open and the guts read.
+	_box(Vector3(BODY_W, 0.010, 0.0035), Vector3(0, h - 0.005, Z_FACE),
+			ivory)
+	_box(Vector3(BODY_W, 0.006, 0.0035), Vector3(0, -h + 0.003, Z_FACE),
+			ivory)
 	for sx in [-1.0, 1.0]:
-		_box(Vector3(0.0022, BODY_H * 0.86, d * 0.66),
-				Vector3(sx * BODY_W * 0.5, 0, -d * 0.16), chrome)
-	# earpiece slot above the screen
-	_box(Vector3(0.016, 0.0022, 0.002),
-			Vector3(0, BODY_H * 0.455, d * 0.40),
-			_mat(Color("07060a"), 0.9))
-	# notification LED, top right, and a real light so it marks the room
-	_led_mat = _mat(Color("5cf07a"), 0.3)
+		_box(Vector3(0.006, BODY_H, 0.0035),
+				Vector3(sx * (w - 0.003), 0, Z_FACE), ivory)
+		# side rail, the one piece of the original that still looks new
+		_box(Vector3(0.0022, BODY_H * 0.92, BODY_D * 0.80),
+				Vector3(sx * w, 0, 0), chrome)
+	# The keypad surround, still factory, still slightly grubby.
+	_box(Vector3(BODY_W - 0.008, 0.030, 0.0030),
+			Vector3(0, -h + 0.026, Z_FACE - 0.0004), ivory_dk)
+	# What is left of the back: a corner of the original door, taped on.
+	_box(Vector3(BODY_W * 0.62, BODY_H * 0.34, 0.0018),
+			Vector3(-0.006, -h + 0.024, Z_BACK), ivory_dk)
+	_build_guts()
+
+
+## THE BUILD. Radio parts on a scrap of breadboard, glued in.
+##
+## In-universe this is the answer to a question the OS keeps raising:
+## the radio app finds a carrier at 1610 kHz that has no transmitter,
+## and a factory handset has no business hearing it. This one is not a
+## factory handset. Somebody wound a coil onto a ferrite rod, hung a
+## tuning capacitor off it, and hot-glued the lot inside a phone.
+func _build_guts() -> void:
+	var board := _mat(Color("cfc9b6"), 0.76)       # breadboard plastic
+	var pcb := _mat(Color("2c5638"), 0.55)
+	var ic := _mat(Color("17171a"), 0.42)
+	var tin := _mat(Color("b9bcc0"), 0.28, 0.85)
+	var copper := _mat(Color("a8642c"), 0.34, 0.75)
+	var ferrite := _mat(Color("232329"), 0.60)
+	var kapton := _mat(Color("b8761e", 0.72), 0.40)
+	kapton.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	var glue := _mat(Color("e6e0cc", 0.55), 0.18)
+	glue.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+
+	# Breadboard, sat slightly crooked because it was cut down with
+	# snips to fit a hole it was never meant to fit.
+	var bb := _box(Vector3(0.042, 0.030, 0.0042),
+			Vector3(0.002, -0.010, Z_GUTS), board)
+	bb.rotation.z = deg_to_rad(-2.4)
+	# its centre channel and contact rows
+	_box(Vector3(0.042, 0.0022, 0.0044), Vector3(0.002, -0.010, Z_GUTS),
+			_mat(Color("bdb6a4"), 0.7))
+	for r in 6:
+		for c in 13:
+			_box(Vector3(0.0007, 0.0007, 0.0046),
+					Vector3(-0.018 + c * 0.0032,
+					-0.0205 + r * 0.0042, Z_GUTS), _mat(Color("6d6659"), 0.6))
+	# A scrap of stripboard bridged across the top, dead-bug style.
+	_box(Vector3(0.030, 0.013, 0.0016), Vector3(-0.004, 0.014, Z_GUTS),
+			pcb)
+	# The radio front end: ferrite rod with its coil, and a tuning cap.
+	_cyl(0.0026, 0.030, Vector3(-0.002, 0.0225, Z_GUTS + 0.004),
+			ferrite)
+	for i in 9:
+		_cyl(0.0032, 0.0011,
+				Vector3(-0.010 + i * 0.0024, 0.0225, Z_GUTS + 0.004),
+				copper)
+	var vcap := _cyl(0.0055, 0.0060,
+			Vector3(0.0215, 0.0140, Z_GUTS + 0.004), tin, Vector3.FORWARD)
+	vcap.rotation.x = PI * 0.5
+	# Electrolytics, an IC, and a row of resistors with their bands.
+	for spec in [[-0.014, -0.004, 0.0030, 0.0075],
+			[-0.006, -0.006, 0.0024, 0.0060]]:
+		_cyl(spec[2], spec[3], Vector3(spec[0], spec[1],
+				Z_GUTS + spec[3] * 0.5), _mat(Color("2b3a52"), 0.40),
+				Vector3.FORWARD).rotation.x = PI * 0.5
+	_box(Vector3(0.0130, 0.0052, 0.0022),
+			Vector3(0.008, -0.0035, Z_GUTS + 0.003), ic)
+	for i in 8:
+		_box(Vector3(0.0006, 0.0006, 0.0016),
+				Vector3(0.0026 + (i % 4) * 0.0032,
+				-0.0035 + (0.0034 if i < 4 else -0.0034),
+				Z_GUTS + 0.001), tin)
+	for i in 4:
+		var rx := -0.016 + i * 0.0085
+		_cyl(0.0011, 0.0042, Vector3(rx, -0.0175, Z_GUTS + 0.0028),
+				_mat(Color("c8b48a"), 0.55))
+		for b in 3:
+			_cyl(0.00118, 0.0005,
+					Vector3(rx - 0.0012 + b * 0.0011, -0.0175,
+					Z_GUTS + 0.0028),
+					_mat([Color("6b3a1c"), Color("1a1a1e"),
+					Color("8a2020")][b], 0.5))
+	# Hookup wire, sagging between the board and the shell.
+	var wires := [
+		[Vector3(-0.017, 0.0075, Z_GUTS + 0.003),
+		 Vector3(0.014, 0.0180, Z_GUTS + 0.004), Color("c02a24")],
+		[Vector3(-0.012, -0.0195, Z_GUTS + 0.003),
+		 Vector3(0.017, -0.0090, Z_GUTS + 0.004), Color("1f56b8")],
+		[Vector3(0.006, 0.0165, Z_GUTS + 0.004),
+		 Vector3(0.020, -0.0035, Z_GUTS + 0.003), Color("d8b118")],
+		[Vector3(-0.019, -0.0090, Z_GUTS + 0.003),
+		 Vector3(-0.008, 0.0195, Z_GUTS + 0.004), Color("2c9a3e")],
+		[Vector3(0.012, -0.0180, Z_GUTS + 0.003),
+		 Vector3(-0.016, -0.0035, Z_GUTS + 0.003), Color("e8e4d8")],
+	]
+	for wv in wires:
+		_wire(wv[0], wv[1], wv[2])
+	# The ribbon: the display's own flat cable, looping out of the panel
+	# and back down into the board. Straight from the reference.
+	var ribbon_cols = [Color("8a2f2f"), Color("b8681e"), Color("c8b12a"),
+			Color("3d8a3a"), Color("2f5aa8"), Color("6a3a8a"),
+			Color("b8b2a4")]
+	for i in ribbon_cols.size():
+		var rz := Z_GUTS + 0.0055
+		var x := -0.0075 + i * 0.0022
+		_box(Vector3(0.0020, 0.020, 0.0004),
+				Vector3(x, 0.006, rz), _mat(ribbon_cols[i], 0.55))
+		_box(Vector3(0.0020, 0.0044, 0.0004),
+				Vector3(x, 0.0175, rz + 0.0016),
+				_mat(ribbon_cols[i], 0.55))
+	# Kapton over the ribbon's fold, and hot glue at every joint that
+	# somebody did not trust.
+	_box(Vector3(0.020, 0.0060, 0.0006), Vector3(-0.0005, 0.0172,
+			Z_GUTS + 0.0064), kapton)
+	for g in [[-0.0210, 0.0205, 0.0030], [0.0215, 0.0175, 0.0034],
+			[-0.0190, -0.0200, 0.0026], [0.0180, -0.0190, 0.0030],
+			[0.0000, 0.0245, 0.0028]]:
+		var blob := MeshInstance3D.new()
+		var sp := SphereMesh.new()
+		sp.radius = g[2]
+		sp.height = g[2] * 1.5
+		sp.radial_segments = 8
+		sp.rings = 5
+		blob.mesh = sp
+		blob.position = Vector3(g[0], g[1], Z_GUTS + 0.002)
+		blob.material_override = glue
+		add_child(blob)
+	# A stub whip antenna, taped to the top edge and slightly bent.
+	var whip := _cyl(0.00085, 0.034,
+			Vector3(0.0255, BODY_H * 0.5 + 0.014, 0.0), tin,
+			Vector3.FORWARD)
+	whip.rotation = Vector3(PI * 0.5, 0, deg_to_rad(9))
+	_box(Vector3(0.0055, 0.0075, 0.0035),
+			Vector3(0.0255, BODY_H * 0.5 - 0.002, 0.0), kapton)
+	# The buzzer from the reference: a round can, glued on, off to one
+	# side because that is where there was room.
+	var buzz := _cyl(0.0072, 0.0040, Vector3(0.0175, -0.0270, Z_GUTS
+			+ 0.004), _mat(Color("35353b"), 0.45), Vector3.FORWARD)
+	buzz.rotation.x = PI * 0.5
+	_cyl(0.0022, 0.0042, Vector3(0.0175, -0.0270, Z_GUTS + 0.005),
+			_mat(Color("17171a"), 0.5), Vector3.FORWARD).rotation.x = PI * 0.5
+	# LED, wired not fitted, poking through a hole somebody drilled.
+	_led_mat = _mat(Color("5cf07a"), 0.30)
 	_led_mat.emission_enabled = true
 	_led_mat.emission = Color("5cf07a")
 	_led_mat.emission_energy_multiplier = 3.0
-	_box(Vector3(0.003, 0.002, 0.001),
-			Vector3(BODY_W * 0.34, BODY_H * 0.455, d * 0.42), _led_mat)
+	_cyl(0.0016, 0.0030, Vector3(BODY_W * 0.30, BODY_H * 0.44, Z_FACE),
+			_led_mat, Vector3.FORWARD).rotation.x = PI * 0.5
 	_led = OmniLight3D.new()
 	_led.light_color = Color("5cf07a")
 	_led.light_energy = 0.35
 	_led.omni_range = 0.22
 	_led.shadow_enabled = false
-	_led.position = Vector3(BODY_W * 0.34, BODY_H * 0.455, d * 0.46)
+	_led.position = Vector3(BODY_W * 0.30, BODY_H * 0.44, Z_FACE + 0.004)
 	add_child(_led)
 
 
-## 35 keys in the staggered rows the hardware actually used, plus the
-## nav cluster. Every one is its own mesh because they are what the eye
-## checks first to decide whether a phone is modelled or drawn.
+## The keypad. Still the BlackBerry's own rubber mat, because nobody
+## hand-builds thirty-five keys - but three caps have been replaced
+## with whatever was in the drawer, and one is simply missing.
 func _build_keys() -> void:
-	var cap := _mat(Color("1b1620"), 0.52)
-	var cap_lit := _mat(Color("221c28"), 0.44)
+	var cap := _mat(Color("2a2530"), 0.52)
+	var cap_lit := _mat(Color("353040"), 0.44)
+	var odd := _mat(Color("8a5a2c"), 0.50)          # a salvaged cap
+	var hole := _mat(Color("0d0c10"), 0.85)         # one is gone
 	var rows := ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"]
-	var kw := 0.0054
-	var kh := 0.0046
-	var top := -BODY_H * 0.10
+	var kw := 0.0050
+	var kh := 0.0042
+	var top := -BODY_H * 0.115
 	for r in rows.size():
 		var row: String = rows[r]
 		var span := row.length() * (kw + 0.0006)
 		for c in row.length():
 			var x := -span * 0.5 + c * (kw + 0.0006) + kw * 0.5
 			var y := top - r * (kh + 0.0009)
-			# keycaps sit proud and are very slightly domed: a second
-			# thinner slab on top does the job at this scale
-			_box(Vector3(kw, kh, 0.0016), Vector3(x, y, BODY_D * 0.42),
-					cap)
-			_box(Vector3(kw - 0.0010, kh - 0.0010, 0.0006),
-					Vector3(x, y, BODY_D * 0.50), cap_lit)
-	# space bar
-	_box(Vector3(0.020, kh, 0.0016),
-			Vector3(0, top - 3 * (kh + 0.0009), BODY_D * 0.42), cap)
-	# nav cluster: call / menu / trackpad / back / end
-	var ny := top + 0.0092
+			var mat: Material = cap
+			if (r == 0 and c == 4) or (r == 2 and c == 1):
+				mat = odd
+			elif r == 1 and c == 6:
+				_box(Vector3(kw, kh, 0.0008), Vector3(x, y, Z_KEY - 0.0016),
+						hole)
+				continue
+			_box(Vector3(kw, kh, 0.0015), Vector3(x, y, Z_KEY), mat)
+			_box(Vector3(kw - 0.0010, kh - 0.0010, 0.0005),
+					Vector3(x, y, Z_KEY + 0.0009), cap_lit)
+	_box(Vector3(0.019, kh, 0.0015),
+			Vector3(0, top - 3 * (kh + 0.0009), Z_KEY), cap)
+	var ny := top + 0.0088
 	for i in 5:
-		var x := (i - 2) * 0.0104
+		var x := (i - 2) * 0.0100
 		if i == 2:
-			# the trackpad, worn shinier than anything else on the phone
-			_box(Vector3(0.0078, 0.0078, 0.0012), Vector3(x, ny,
-					BODY_D * 0.43), _mat(Color("2a2432"), 0.22))
+			_box(Vector3(0.0074, 0.0074, 0.0011), Vector3(x, ny, Z_KEY),
+					_mat(Color("3a3442"), 0.22))
 			continue
-		_box(Vector3(0.0082, 0.0052, 0.0014),
-				Vector3(x, ny, BODY_D * 0.42), cap)
+		_box(Vector3(0.0078, 0.0050, 0.0013), Vector3(x, ny, Z_KEY), cap)
 
 
 ## The panel: a quad standing just proud of the body, wearing the CRT
@@ -213,7 +400,8 @@ func _build_screen() -> void:
 	quad.size = SCREEN_MM
 	var mi := MeshInstance3D.new()
 	mi.mesh = quad
-	mi.position = Vector3(0, BODY_H * 0.235, BODY_D * 0.42)
+	mi.position = Vector3(0, BODY_H * 0.235, Z_SCREEN)
+	mi.rotation.z = deg_to_rad(-1.1)   # nobody mounts it straight
 	screen_material = ShaderMaterial.new()
 	screen_material.shader = _make_shader()
 	mi.material_override = screen_material
@@ -224,6 +412,21 @@ func _build_screen() -> void:
 	# on an unshaded quad is a blank pale screen with no error anywhere,
 	# exactly what the first framegrab showed.
 	_screen_quad = mi
+	# The panel is a salvaged LCD screwed to the shell through a hole
+	# cut with a craft knife: a dark surround, four brass screws, and
+	# an edge that does not quite line up with the aperture.
+	var surround := _mat(Color("1d1a22"), 0.55)
+	var brass := _mat(Color("c8a54a"), 0.35, 0.80)
+	var sy: float = BODY_H * 0.235
+	_box(Vector3(SCREEN_MM.x + 0.0075, SCREEN_MM.y + 0.0075, 0.0022),
+			Vector3(0, sy, Z_SCREEN - 0.0016), surround)
+	for sx in [-1.0, 1.0]:
+		for syy in [-1.0, 1.0]:
+			_cyl(0.0011, 0.0016,
+					Vector3(sx * (SCREEN_MM.x * 0.5 + 0.0026),
+					sy + syy * (SCREEN_MM.y * 0.5 + 0.0026),
+					Z_SCREEN - 0.0004), brass,
+					Vector3.FORWARD).rotation.x = PI * 0.5
 	call_deferred("_bind_panel")
 	# No separate glass quad. The first version put one here at
 	# roughness 0.06, which is a mirror: under any fill light at all it
