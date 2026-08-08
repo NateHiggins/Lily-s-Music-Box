@@ -3085,6 +3085,171 @@ def subtract_rect(rects, hole):
     return out
 
 
+## THE STREET'S SHOPS.
+##
+## A New York block does not have one shop on it. It has a continuous
+## run of them, five to eight metres of frontage each, sharing party
+## walls and arguing about awnings — and the mix is always the same
+## because it is what a neighbourhood needs within walking distance:
+## somewhere to wash, somewhere to eat standing up, somewhere to get a
+## key cut, somewhere to pawn a watch, and somewhere to be buried from.
+##
+## These run along the SOUTH side, facing the Orison, because that is
+## the elevation every resident sees out of every front window — and
+## because the Harukiya is already down there, so the bar stops being an
+## outpost and becomes the middle of a parade.
+##
+## Each one is a real 1920s shopfront in section: a stall riser you
+## could kick, plate glass, a transom over it, a sign band above that,
+## and a door set back far enough to stand in out of the rain. Every one
+## gets a gameplay function; nothing here is a painted flat.
+SHOPS = [
+    # (x0, x1, name, trade, awning, blade sign, function)
+    (-32.4, -26.8, "MODEL LAUNDRY", "laundry", True, False,
+     "hand laundry: the public Matching game, and a warm window at 3am"),
+    (-26.8, -21.2, "SHOE REBUILDING", "cobbler", False, True,
+     "repairs worn objects; the smell of it is half the block"),
+    (-19.4, -15.8, "KEYS CUT", "locksmith", False, True,
+     "cuts keys for the building's locked doors"),
+    (-15.8, -12.6, "RADIO SERVICE", "radio", True, False,
+     "aligns a set; knows about the carrier at 1610 and will not say"),
+    (-11.4, -6.2, "LUNCHEONETTE", "diner", True, False,
+     "a counter and eight stools; where residents sit between shifts"),
+    # NOT on nbr_s2's east end: x 4.30..5.45 is the Harukiya's stair
+    # shaft, and a shopfront there seals the only way into the bar. The
+    # newsagent moves to the next block along, which is where a corner
+    # news stand belongs anyway.
+    (7.9, 10.2, "NEWS CIGARS", "news", False, True,
+     "papers carrying case leads, and the racing page nobody admits to"),
+    (10.4, 15.0, "PAWNBROKER", "pawn", False, True,
+     "buys what the smash room leaves; sells what the building needs"),
+    (15.2, 19.8, "FUNERAL PARLOUR", "funeral", True, False,
+     "Dorothy Ash went from here. The chapel is behind the front room"),
+    (21.0, 26.4, "HARDWARE PAINT", "hardware", False, True,
+     "parts, and the only ladder on the block"),
+    (26.4, 31.6, "PHOTO SUPPLIES", "photo", True, False,
+     "film for the handset; Nadia is in here more than she is upstairs"),
+]
+## Faces of the shopfronts, in the order a walker meets them going up.
+SHOP_FACE = BLDG_S               # the south building line
+SHOP_TRIM = {
+    "laundry":  ("plaster_stained", "book_teal"),
+    "cobbler":  ("wood_dark", "lacquer_red"),
+    "locksmith": ("common_brick", "brass"),
+    "radio":    ("wood_dark", "stairwell_teal"),
+    "diner":    ("chrome", "lacquer_red"),
+    "news":     ("wood_dark", "safety_orange"),
+    "pawn":     ("common_brick", "brass_bright"),
+    "funeral":  ("limestone", "soot"),
+    "hardware": ("wood_dark", "fabric_green"),
+    "photo":    ("plaster_stained", "felt_violet"),
+}
+
+
+def _storefronts(fb, mk):
+    """One 1920s shopfront per entry, in section.
+
+    Heights are the ones these were actually built to: a 550 mm stall
+    riser (kick it and nothing breaks), glass to 2.05, a transom to
+    2.45 for light and ventilation, and the sign band above that where
+    the whole street competes for attention.
+    """
+    SILL, GLASS, TRANS, SIGN = 0.55, 2.05, 2.45, 3.10
+    F = SHOP_FACE                # building line; the walk is north of it
+    for x0, x1, name, trade, awning, blade, _use in SHOPS:
+        tag = name.lower().replace(" ", "_")
+        body, accent = SHOP_TRIM.get(trade, ("wood_dark", "brass"))
+        w = x1 - x0
+        # The party walls between neighbours: every shop on a block is a
+        # different building pretending to be one.
+        for px in (x0, x1 - 0.14):
+            fb("sf_%s_pier%d" % (tag, int(px * 10)),
+               (px, F, px + 0.14, F + 0.26), 0.0, 4.20, body)
+        # Entry, recessed. Set to one side, the way a shop puts its door
+        # where it loses the least window.
+        dx0 = x0 + (0.55 if trade in ("diner", "news", "photo")
+                    else w - 1.45)
+        dx1 = dx0 + 0.95
+        fb("sf_%s_reveal" % tag, (dx0 - 0.10, F + 0.26, dx1 + 0.10,
+                                  F + 0.42), 0.0, 2.55, body)
+        # Stall riser and glass, either side of the door.
+        for si, (gx0, gx1) in enumerate(((x0 + 0.14, dx0 - 0.10),
+                                         (dx1 + 0.10, x1 - 0.14))):
+            if gx1 - gx0 < 0.35:
+                continue
+            fb("sf_%s_stall%d" % (tag, si), (gx0, F, gx1, F + 0.20),
+               0.0, SILL, body)
+            fb("sf_%s_glass%d" % (tag, si), (gx0 + 0.04, F + 0.06,
+                                             gx1 - 0.04, F + 0.12),
+               SILL, GLASS - SILL, "glassish")
+            # Mullions every 900, because plate glass came in sheets.
+            n = max(1, int((gx1 - gx0) / 0.90))
+            for m in range(1, n):
+                mx = gx0 + (gx1 - gx0) * m / n
+                fb("sf_%s_mull%d_%d" % (tag, si, m),
+                   (mx - 0.03, F + 0.02, mx + 0.03, F + 0.16),
+                   SILL, GLASS - SILL, body)
+        # Transom over the whole front, then the sign band.
+        fb("sf_%s_transom" % tag, (x0 + 0.14, F + 0.02, x1 - 0.14,
+                                   F + 0.14), GLASS, TRANS - GLASS,
+           "glassish")
+        fb("sf_%s_band" % tag, (x0, F - 0.04, x1, F + 0.22), TRANS,
+           SIGN - TRANS, body)
+        fb("sf_%s_sign" % tag, (x0 + 0.22, F + 0.20, x1 - 0.22,
+                                F + 0.26), TRANS + 0.10, 0.46, accent)
+        # The cornice every one of these has, and the upper wall above.
+        fb("sf_%s_cornice" % tag, (x0 - 0.06, F - 0.08, x1 + 0.06,
+                                   F + 0.30), SIGN, 0.22, body)
+        if awning:
+            # Canvas, out over the walk, sloping down toward the kerb.
+            fb("sf_%s_awning" % tag, (x0 + 0.16, F + 1.55, x1 - 0.16,
+                                      F + 0.26), 2.62, 0.09,
+               "awning_vinyl")
+            fb("sf_%s_awn_val" % tag, (x0 + 0.16, F + 1.52, x1 - 0.16,
+                                       F + 1.58), 2.36, 0.28,
+               "awning_vinyl")
+            for ax in (x0 + 0.20, x1 - 0.26):
+                fb("sf_%s_awn_arm%d" % (tag, int(ax * 10)),
+                   (ax, F + 0.26, ax + 0.05, F + 1.56), 2.58, 0.05,
+                   "metal")
+        if blade:
+            # A sign hung square to the wall, read from up the street —
+            # which is the only way anybody finds a locksmith.
+            fb("sf_%s_blade" % tag, (x0 + 0.42, F + 0.28, x0 + 0.50,
+                                     F + 1.30), 2.70, 0.72, accent)
+            fb("sf_%s_bracket" % tag, (x0 + 0.40, F + 0.26, x0 + 0.52,
+                                       F + 1.32), 3.42, 0.05, "metal")
+        # A cellar hatch in the pavement outside every second one: this
+        # is how a shop on this street takes a delivery.
+        if int(x0) % 2 == 0:
+            fb("sf_%s_hatch" % tag, (x0 + 0.60, F + 0.70, x0 + 1.90,
+                                     F + 1.60), 0.045, 0.02, "metal")
+        # A LAMP OVER EVERY DOOR. A shopfront with no light of its own
+        # is a dark wall at night, and this street is only ever seen at
+        # night — the first render of the parade was a row of shapes you
+        # could not read a sign on.
+        mk.append({"kind": "cage_bulb", "id": "SITE_SHOP_LT_%s"
+                   % tag.upper(), "unit": "SITE",
+                   "pos": [(dx0 + dx1) * 0.5, F + 0.46, 2.66],
+                   "yaw_deg": 0, "network": "electrical", "range": 4.2,
+                   "energy": 0.55, "navigation": False,
+                   "standby": 0.30, "exterior": True})
+        # And the window itself is lit from within, for the trades that
+        # keep the light on: a laundry at three in the morning is the
+        # warmest thing on the block.
+        if trade in ("laundry", "diner", "news", "pawn"):
+            fb("sf_%s_within" % tag, (x0 + 0.20, F + 0.16, x1 - 0.20,
+                                      F + 0.20), SILL + 0.10,
+               GLASS - SILL - 0.20, "linen")
+            mk.append({"kind": "cage_bulb", "id": "SITE_SHOP_IN_%s"
+                       % tag.upper(), "unit": "SITE",
+                       "pos": [(x0 + x1) * 0.5, F + 0.10, 1.95],
+                       "yaw_deg": 0, "network": "electrical",
+                       "range": 3.4, "energy": 0.48,
+                       "navigation": False, "standby": 0.40,
+                       "exterior": True})
+
+
 def site_pass(fl):
     """The block the Orison stands in. Everything here is scenery — it
     exists to close sightlines and to make the building feel surrounded,
@@ -3412,6 +3577,8 @@ def storm_pass(fl):
     for i, dx in enumerate((-13.4, 13.2)):
         fb("downrun%d" % i, (dx, -10.5, dx + 0.5, -10.05), 0.005, 0.002,
            "wet_asphalt")
+
+    _storefronts(fb, fl["markers"])
 
 
 ## The light court's centrepiece. The stair used to be lit by seven

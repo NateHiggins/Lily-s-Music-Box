@@ -148,6 +148,15 @@ const SHOTS := [
 	 "look": Vector3(-4.94, -1.55, 35.25), "overlay": false},
 	# Standing at the oche, looking down the throw. The west bay, which
 	# was empty floor until darts went in it.
+	# The south side of the street, which is a parade of shops now
+	# rather than a wall with one bar in it. From the Orison's own door,
+	# which is the view every resident has out of every front window.
+	{"name": "b_63_street_shops_w", "pos": Vector3(-6.00, 1.72, 12.60),
+	 "look": Vector3(-22.00, 2.60, 27.40), "overlay": false},
+	{"name": "b_64_street_shops_e", "pos": Vector3(4.00, 1.72, 12.60),
+	 "look": Vector3(20.00, 2.60, 27.60), "overlay": false},
+	{"name": "b_65_shopfront_close", "pos": Vector3(-13.20, 1.62, 25.20),
+	 "look": Vector3(-14.60, 2.10, 28.30), "overlay": false},
 	{"name": "b_61_darts", "pos": Vector3(-9.05, -1.45, 33.00),
 	 "look": Vector3(-11.42, -1.14, 33.00), "overlay": false},
 	# And the room from the new west end, which the old b_44 camera
