@@ -85,3 +85,13 @@ key.properties
 # rest of the build directory that produces them.
 **/android/build/
 icon_master.png
+
+# Standalone packaging for the cartridge games, per the standing rule:
+# their Android wrappers are how the user ships them as separate titles
+# and have nothing to do with this repo. The whole android/ tree for
+# Shattered; for VelvetMaze the same files sit loose at the app root
+# instead of under android/, so they need naming individually.
+phoneos/apps/*/android/
+phoneos/apps/*/AndroidManifest.xml
+phoneos/apps/*/java/
+phoneos/apps/*/res/
