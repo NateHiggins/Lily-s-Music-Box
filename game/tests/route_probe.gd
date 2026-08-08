@@ -19,13 +19,18 @@ const LEGS_BAR := [
 	[Vector3(4.60, 0.9, 23.60), Vector3(4.875, 0.9, 26.40)],
 	[Vector3(4.875, 0.9, 26.40), Vector3(4.875, 0.9, 28.05)],
 ]
-## Straight in at the door from due south, which is the only approach
-## that matters: if this is clear the shop is enterable and any earlier
-## block was the diagonal lane clipping street furniture, not the door.
+## In at the door from due south, then INTO THE AISLE, which is what a
+## body actually does. The old third leg carried straight north at the
+## door's centre line and ended in the east wall shelving — but that
+## shelving is meant to be there, and no shop has a clear straight run
+## from its door to its back wall along one x. The aisle between the
+## gondolas (x 17.95) and that shelving (x 18.97) is the route, so the
+## probe walks it.
 const LEGS_DOOR_IN := [
 	[Vector3(18.67, 0.9, 13.60), Vector3(18.67, 0.9, 12.40)],
 	[Vector3(18.67, 0.9, 12.40), Vector3(18.67, 0.9, 11.40)],
-	[Vector3(18.67, 0.9, 11.40), Vector3(18.67, 0.9, 9.50)],
+	[Vector3(18.67, 0.9, 11.40), Vector3(18.46, 0.9, 10.40)],
+	[Vector3(18.46, 0.9, 10.40), Vector3(18.46, 0.9, 8.00)],
 ]
 const LEGS_BODEGA := [
 	[Vector3(0.72, 0.9, 10.70), Vector3(6.20, 0.9, 12.40)],
@@ -62,6 +67,22 @@ func _ready() -> void:
 			params.transform = Transform3D(Basis(), from)
 			params.motion = to - from
 			params.collide_with_areas = false
+			# A leg that BEGINS inside something reads as perfectly clear:
+			# cast_motion has no free space to measure and hands back 1.0.
+			# That is how a bin lying across the bodega door passed this
+			# probe for two sessions — the leg started in it. Check the
+			# start pose before trusting any sweep.
+			var stuck := space.intersect_shape(params, 4)
+			if stuck.size() > 0:
+				blocked = true
+				print("  STUCK AT START %v (sweep result is meaningless)"
+						% from)
+				for h in stuck:
+					var sc = h.collider
+					var sp = sc.get_parent() if sc else null
+					print("       inside %s parent=%s"
+							% [str(sc.name), str(sp.name) if sp else "-"])
+				continue
 			var res := space.cast_motion(params)
 			var frac: float = res[0] if res.size() > 0 else 1.0
 			if frac >= 0.999:

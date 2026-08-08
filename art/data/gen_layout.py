@@ -3393,7 +3393,12 @@ def storm_pass(fl):
     fb("branch_fork", (-7.6, -12.85, -6.9, -12.2), 0.012, 0.07, "timber")
     fb("twig1", (11.2, -11.6, 12.1, -11.5), 0.010, 0.05, "timber")
     fb("twig2", (-21.4, -13.2, -20.5, -13.05), 0.010, 0.05, "timber")
-    fb("bin_down", (18.6, -13.4, 19.7, -12.35), 0.0, 0.62, "metal")
+    # Blown against the kerb, NOT across the bodega's door. It used to
+    # lie at x 18.6-19.7, which is squarely in front of the only way into
+    # a shop that trades 24 hours and takes a third of the night
+    # schedule's traffic. Storm damage should cost the street some
+    # charm, not close a business.
+    fb("bin_down", (16.05, -14.15, 17.15, -13.10), 0.0, 0.62, "metal")
     fb("bin_lid", (20.3, -12.9, 20.95, -12.3), 0.008, 0.05, "metal")
     fb("umbrella_canopy", (-16.8, -14.9, -15.7, -14.35), 0.01, 0.16,
        "fabric_cool")
@@ -3999,14 +4004,17 @@ def retail_pass(fl):
     fb("bod_cooler", (ix1 - 0.75, -5.4, ix1, iy1), 0.0, 2.30, "metal")
     fb("bod_cooler_glass", (ix1 - 0.78, -5.3, ix1 - 0.72, iy1 - 0.1),
        0.60, 1.55, "glassish")
-    # counter by the door
-    fb("bod_counter", (17.05, -11.0, 18.35, -10.35), 0.0, 0.95,
+    # Counter by the door, held WEST of the door opening. Its top used
+    # to overhang to 18.40, which put 6 cm of countertop inside the lane
+    # a body walks through the door — enough to stop one dead, and
+    # invisible unless something measures it.
+    fb("bod_counter", (16.85, -11.0, 18.00, -10.35), 0.0, 0.95,
        "wood_dark")
-    fb("bod_counter_top", (17.0, -11.05, 18.40, -10.30), 0.95, 0.05,
+    fb("bod_counter_top", (16.80, -11.05, 18.05, -10.30), 0.95, 0.05,
        "countertop")
     fb("bod_register", (17.25, -10.9, 17.75, -10.45), 1.00, 0.30,
        "bakelite")
-    asm("bod_papers", "papers", 18.05, -10.6, 0)
+    asm("bod_papers", "papers", 17.80, -10.6, 0)
     asm("bod_crate0", "crate", 15.95, -11.3, 12)
     asm("bod_bottles", "bottles", 15.85, -2.3, 0)
     # SPARSE stock: gaps are the point. Whole stretches stay empty.
@@ -4037,8 +4045,15 @@ def retail_pass(fl):
     # residents through this door all night; a closed leaf is a solid
     # body across the only way in, and it read to the player as a grey
     # block rather than as a door they had not tried.
+    # HINGE, not centre. Every other door marker in this file is the
+    # hinge jamb (see the wall-opening loop: hinge = start + at - w/2),
+    # because DoorProp builds its leaf from local x 0 to width and pivots
+    # on the node origin. This one was authored at the opening's centre,
+    # which hinged the leaf in the middle of its own doorway — so setting
+    # it "open" swung it across the other half instead of clearing it,
+    # and no amount of opening the door ever opened the door.
     mk.append({"kind": "door", "id": "F01_BODEGA_DOOR",
-               "pos": [18.67, -11.92, 0.0], "yaw_deg": 0, "w": 0.90,
+               "pos": [DOOR_X0, -11.92, 0.0], "yaw_deg": 0, "w": 0.90,
                "h": 2.10, "leaf": "open", "exterior": True})
     for i, ly in enumerate((-10.2, -7.2, -4.2)):
         mk.append({"kind": "kitchen_linear", "id": "F01_BODEGA_LT_%d" % i,
@@ -4610,9 +4625,13 @@ def _street_furniture(fb, rng):
     for i in range(3):
         fb("newsbox%d" % i, (-8.6 + i * 0.62, -13.5, -8.1 + i * 0.62,
            -12.95), 0.0, 1.05, "metal")
-    fb("bench_seat", (10.4, -13.5, 12.6, -12.9), 0.44, 0.07, "timber")
+    # Pulled 25 cm back toward the kerb. Where it stood it left exactly
+    # 1.0 m of pavement between its back and the shopfronts, and a body
+    # is 0.66 m wide — so the walk east to the bodega threaded a gap
+    # with 17 cm to spare on each side and caught the bench instead.
+    fb("bench_seat", (10.4, -13.75, 12.6, -13.15), 0.44, 0.07, "timber")
     for bx in (10.5, 12.4):
-        fb("bench_leg%d" % int(bx), (bx, -13.45, bx + 0.1, -12.95), 0.0,
+        fb("bench_leg%d" % int(bx), (bx, -13.70, bx + 0.1, -13.20), 0.0,
            0.44, "metal")
     fb("booth", (-12.4, -13.7, -11.5, -12.8), 0.0, 2.3, "metal")
     fb("booth_glass", (-12.3, -13.6, -11.6, -12.9), 0.7, 1.35, "glassish")

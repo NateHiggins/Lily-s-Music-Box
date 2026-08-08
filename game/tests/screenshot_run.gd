@@ -137,6 +137,11 @@ const SHOTS := [
 	 "look": Vector3(18.67, 1.30, 11.60), "overlay": false},
 	{"name": "b_55_bodega_approach", "pos": Vector3(13.20, 1.62, 12.60),
 	 "look": Vector3(18.90, 1.30, 12.00), "overlay": false},
+	# Inside, standing where the door leaves you, looking up the aisle.
+	# The shop had NO interior coverage at all, which is a large part of
+	# why a counter overhanging the doorway lane went unseen for so long.
+	{"name": "b_59_bodega_inside", "pos": Vector3(18.50, 1.62, 11.10),
+	 "look": Vector3(18.20, 1.30, 5.00), "overlay": false},
 	# The two routes a resident actually has to walk, from eye height at
 	# the Orison's own front door: south across the road to the bar, and
 	# east along the walk to the bodega.
