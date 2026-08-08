@@ -1,26 +1,43 @@
-# Priorities — after the schedules landed and the phone became an object
+# Priorities — after the schedules landed, the phone became an object, and the cartridges came home
 
-Written at the close of 2026-08-07, a long session. Everything below is
-committed and pushed; WalkTest, LightingAudit and ScheduleTest are green
-on the tree as it stands.
+Written at the close of 2026-08-07 and extended 2026-08-08. Everything
+below is committed and pushed; WalkTest, LightingAudit, ScheduleTest and
+the three cartridge suites are green on the tree as it stands.
 
-## READ FIRST — two things will bite you
+## READ FIRST — four things will bite you
 
-**`godot` is not on PATH.** The user moved their `Python projects`
-folder into the repo root and the shim went with it. The user PATH
-still points at `D:\Python projects\devkit\bin`, which is now empty.
-Until that is repointed, call it by full path:
+**`godot` is not on PATH.** The shim now lives at `C:\devkit\bin\godot.cmd`
+(moved out of the repo, verified answering 4.7.1). The user PATH still
+points at the old `D:\Python projects\devkit\bin`, which no longer
+exists. Until the user repoints it — a one-time thing, and the address
+is now stable — call it by full path:
 
 ```
-"C:\PleaseRemainOnTheLine\Python projects\devkit\bin\godot.cmd" --path game <scene>
+C:\devkit\bin\godot.cmd --path game <scene>
 ```
+
+**A new `class_name` does not exist until Godot rescans, and a test
+whose script will not parse HANGS FOREVER rather than failing.** This
+cost a 600-second timeout with zero output. After adding any script with
+a `class_name`, run this once before anything references it:
+
+```
+C:\devkit\bin\godot.cmd --headless --path game --editor --quit
+```
+
+**Anything touching the phone's camera needs a REAL WINDOW — no
+`--headless`.** The handset photographs the world through a SubViewport,
+and headless has nothing to read back, so `capture()` returns `""` and
+every check downstream of the roll fails for reasons unrelated to what
+is being tested. `CartMazeTest`, `CartShardsTest`, `CartPairsTest` and
+all the shot passes are in this category. WalkTest, LightingAudit and
+ScheduleTest are fine headless.
 
 **When the world stops the player, use the probe, not your eyes.**
 `tests/RouteProbe.tscn` sweeps a player-sized capsule along a route and
 names the first collider it touches. It turned "a black plane
 somewhere" into a node name in one headless run, after reading the
-geometry had produced two wrong answers. This is the most useful thing
-added this session.
+geometry had produced two wrong answers.
 
 ## P0 — the bodega cannot be entered (task #17)
 
@@ -43,26 +60,54 @@ the syllable map — the data already carries it), the timed karaoke
 display, and the review screen. Nothing references any of it yet, so
 the project builds green with it sitting there.
 
-## P2 — the phone, and what it is waiting on
+## P2 — the phone, which now has all three cartridges in it
 
 The handset is a homebrew radio hot-glued into a BlackBerry frame,
 carried bottom-right, rendering in its own World3D pass above the beam
 mask, wearing eleven photographs. Its OS boots, runs a shell, takes
-photographs to a 40-frame roll, and the roll is already the deck the
-pairs game will deal from.
+photographs to a 40-frame roll — and every tile in the launcher is now
+live. No "no cartridge" text left on the home screen.
+
+**The webview decision is CLOSED, and it went to native ports.**
+`godot_wry` renders a webview as an always-on-top overlay and can never
+appear inside a 3D phone held in the world; `gdCEF` renders to a texture
+but has no Android support and never will. Neither covers Windows AND
+Android, and these are tilt games shipping to Android. So the three
+canvas games were rewritten as GDScript cartridges: `cart_pairs.gd`,
+`cart_maze.gd`, `cart_shards.gd`. The HTML originals are UNTOUCHED and
+still open in any browser, per the sealed-cartridge rule.
+
+All three hide a photograph the player took, which is what makes them
+belong here rather than being minigames bolted on:
+
+- **PAIRS** — match to melt the veil off a photo, piece by piece.
+- **MAZE** — roll a marble and the fog lifts wherever it wanders. Reads
+  the accelerometer DIRECTLY, replacing the web build's
+  `window.__nativeTilt` bridge, which only existed because a browser tab
+  could not reach the sensor. On a handset you tilt the real phone to
+  roll the marble on the phone drawn inside the game.
+- **SHARDS** — glass triangles scattered off a photo; tilt them home and
+  they lock with a gold hairline. Repaired, not restored.
+
+Each has a suite (16, 16 and 11 checks) built around the ONE bug in it
+that hides: reachability for the maze, tiling coverage for the shards.
+Both would otherwise present as rendering artefacts.
 
 Next, in the order they pay off:
 - **Hook `PhoneLightMask.punch()`** to the intrusion layer (task #19).
   One line, and it is the payoff for the whole blended-beam system.
-- **The webview decision** (task #13) — still unmade, and it blocks all
-  three HTML cartridges. `godot_wry` is overlay-only and cannot render
-  inside a 3D phone; `gdCEF` renders to a texture but has no Android,
-  ever. A native port of the three canvas games is the option that
-  solves overlay, Android and the in-world screen at once.
-- **The folder layout proposal** is still unapproved. `Python
-  projects/` keeps a space and a capital in a git repo, and `devkit`
-  living inside the repo it builds is the circular dependency that
-  broke PATH in the first place.
+- **Verify tilt on real hardware** (task #20). The degrees conversion in
+  `_read_tilt()` is reasoned, not measured, and it inherits axis
+  conventions from a browser API. Never run on a device.
+- **The bodega arcade cabinet** (task #13) is now the only port left,
+  and it is blocked on a decision rather than on work — the platformer
+  is pygame, which the standing rule says is a sibling desktop title and
+  must not be ported unprompted.
+
+**The folder layout is DONE.** `phoneos/apps/{shattered,gilded_pairs,
+velvet_maze}`, `nomoretears/`, `legacy_arcade/`, and `devkit` moved out
+to `C:\devkit`. The cartridge games' Android wrappers are untracked and
+ignored — packaging, not project.
 
 ## Standing state
 
@@ -88,4 +133,13 @@ cache; audio stays procedural except catalogued, attributed assets with
 gitignored sources. Verify visual work by rendering, never by reading
 code — this session that rule caught a screen mounted inside its own
 casing, a mask that was never drawing at all, and a bus shelter parked
-in the middle of the road.
+in the middle of the road. On 2026-08-08 it settled a question the docs
+would not: Godot's `draw_colored_polygon` UVs are normalized, which one
+rendered frame answered and no amount of reading did.
+
+Ported code gets a test aimed at the invariant that CANNOT be seen. Both
+cartridge suites written on 2026-08-08 exist for a single bug apiece —
+an unreachable maze cell, a gap between shards — because each is
+invisible in the code, looks like a rendering fault on screen, and is
+therefore chased in entirely the wrong place. Everything else in those
+games is obvious within a second of playing them.
