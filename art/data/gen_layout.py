@@ -4128,6 +4128,13 @@ def retail_pass(fl):
        "quarry_tile")
     fb("bar_mat", (SH_W + 0.10, -34.60, SH_E - 0.10, -34.10), FLR,
        0.012, "rug_warm")
+    # THE THRESHOLD HAD NO FLOOR. The room's slab stops at x 4.00 and
+    # the vestibule's starts at 4.30, so the 30 cm of doorway between
+    # them was a hole — and a body that will not walk over a hole stops
+    # dead in the opening, which reads exactly like a blocked door and
+    # is why this survived the hinge fix and the swing fix both.
+    fb("bar_threshold", (RX1, -34.90, SH_W, -33.95), -2.87, 0.07,
+       "quarry_tile")
     # shaft walls, full height street to basement
     fb("bar_shaft_e", (SH_E, -35.80, SH_E + 0.30, FACE), -2.90,
        5.45, "stairwell_teal")
@@ -4145,9 +4152,15 @@ def retail_pass(fl):
     # runs deeper than the stair does
     fb("bar_wall_e_deep", (RX1, RY0 - 0.30, RX1 + 0.30, -35.50), -2.87,
        2.72, "bar_wall")
-    # litter on the way down
-    asm("bar_lit_paper", "papers", 4.70, -31.35, 35, z0=-0.95)
-    asm("bar_lit_bott", "bottles", 5.15, -32.85, 0, z0=-1.93)
+    # Litter, moved OUT of the stair run. The shaft is 1.15 m clear and
+    # a body is 0.66 wide, so anything standing mid-flight leaves less
+    # than a shoulder either side — and these two were at x 4.70 and
+    # 5.15, which is the middle of the only way into the bar. They read
+    # exactly as well tucked against the walls at the top and bottom,
+    # where somebody would actually have kicked them, and the descent is
+    # now clear the whole way down.
+    asm("bar_lit_paper", "papers", 5.22, -29.25, 35, z0=-0.02)
+    asm("bar_lit_bott", "bottles", 5.24, -35.15, 0, z0=-2.87)
     asm("bar_lit_crate", "crate", 4.55, -29.30, 55, z0=0.0)
 
     # the room shell
@@ -4187,13 +4200,30 @@ def retail_pass(fl):
     # low tables: the study's "friendlier" half, and the reason the bar
     # now has somewhere to sit that is not a stool.
     LD_X0, LD_Y0, LD_Y1 = 1.80, -37.60, -32.00
-    fb("bar_deck", (LD_X0, LD_Y0, RX1, LD_Y1), FLR, 0.18, "quarry_tile")
-    fb("bar_deck_nose", (LD_X0 - 0.06, LD_Y0, LD_X0, LD_Y1), FLR,
-       0.18, "wood_dark")
-    # two steps down into the table floor, opposite the door
-    for si, sy in enumerate((-34.30, -33.70)):
-        fb("bar_step%d" % si, (LD_X0 - 0.34, sy, LD_X0, sy + 0.58),
-           FLR, 0.09, "wood_dark")
+    # NOTCHED AT THE DOOR. The deck used to run unbroken past the red
+    # door, so you came in off the stair straight into a vertical 180 mm
+    # lip across the whole width of the opening — and the controller has
+    # no step-up, so the bar simply could not be entered. Three separate
+    # fixes went into that doorway (hinge, swing, threshold floor) before
+    # anything measured what was actually in front of it, which was a
+    # kerb.
+    #
+    # So the deck stops short either side of the door and you arrive on
+    # the table floor, which is also the better room: you walk IN, and
+    # the lounge is a step up to your left and right rather than
+    # something you trip over on the way through.
+    ND0, ND1 = -34.95, -33.90          # the notch, on the door's centre
+    fb("bar_deck_s", (LD_X0, LD_Y0, RX1, ND0), FLR, 0.18, "quarry_tile")
+    fb("bar_deck_n", (LD_X0, ND1, RX1, LD_Y1), FLR, 0.18, "quarry_tile")
+    for tag, (ny0, ny1) in (("s", (LD_Y0, ND0)), ("n", (ND1, LD_Y1))):
+        fb("bar_deck_nose_%s" % tag, (LD_X0 - 0.06, ny0, LD_X0, ny1),
+           FLR, 0.18, "wood_dark")
+    # A 90 mm tread along each notch edge, so the deck is climbable from
+    # the way in rather than being a shelf you can only look at.
+    fb("bar_step_s", (LD_X0, ND0 - 0.09, RX1, ND0), FLR, 0.09,
+       "wood_dark")
+    fb("bar_step_n", (LD_X0, ND1, RX1, ND1 + 0.09), FLR, 0.09,
+       "wood_dark")
     # the railing: newels, turned balusters, moulded rail. Split either
     # side of the step opening so the way down is actually a way down.
     for seg, (ry0, ry1) in enumerate(((LD_Y0 + 0.10, -34.40),
@@ -4210,8 +4240,14 @@ def retail_pass(fl):
             pipe("bar_newel%d_%d" % (seg, e), (LD_X0 - 0.03, ey, DECK),
                  (LD_X0 - 0.03, ey, DECK + 1.02), 0.045, "handrail_wood")
     # banquettes along the east wall, and the low tables they face
-    for i, (by, ln) in enumerate(((-37.10, 1.60), (-35.30, 1.50),
-                                  (-33.40, 1.40))):
+    # Pulled clear of the door. A banquette centred at -35.30 is 1.50
+    # long, so it reached -34.55 — over the notch edge and squarely
+    # across the lane you walk in on, which is how the way into the bar
+    # stayed blocked through a hinge fix, a swing fix, a threshold slab
+    # and a notched deck. Furniture was the last thing anyone suspected
+    # and the first thing standing there.
+    for i, (by, ln) in enumerate(((-37.20, 1.50), (-35.85, 1.40),
+                                  (-32.85, 1.30))):
         asm("bar_banq%d" % i, "couch", RX1 - 0.42, by, 270, z0=DECK,
             variant=i, L=ln)
         fb("bar_btab%d" % i, (2.30, by - 0.42, 3.10, by + 0.42),
@@ -4383,8 +4419,12 @@ def retail_pass(fl):
        0.55, "bar_wall_red")
     asm("bar_wc_toilet", "toilet", -4.75, -37.45, 0, z0=FLR)
     asm("bar_wc_sink", "sink_basin", -3.70, -37.50, 0, z0=FLR)
+    # HINGE at the west jamb. Was -4.10, the dead centre of its own
+    # -4.45..-3.75 opening — the fourth door in this file authored that
+    # way, and the same consequence every time: the closed leaf covers
+    # half the hole and buries the other half in the wall.
     mk.append({"kind": "door", "id": "F01_BAR_WC_DOOR",
-               "pos": [-4.10, -36.17, FLR], "yaw_deg": 0, "w": 0.70,
+               "pos": [-4.45, -36.17, FLR], "yaw_deg": 0, "w": 0.70,
                "h": 2.00, "leaf": "closed", "exterior": True})
 
     # -- doors, signs, lights
@@ -4399,9 +4439,32 @@ def retail_pass(fl):
     mk.append({"kind": "door", "id": "F01_BAR_DOOR",
                "pos": [SH_E, FACE - 0.10, 0.0], "yaw_deg": 180,
                "w": 0.90, "h": 2.10, "leaf": "open", "exterior": True})
+    # HINGE at the north jamb. Was -34.42 — dead centre of the
+    # -34.90..-33.95 opening pierced for it — so the leaf hung in the
+    # middle of the only way from the foot of the stair into the room,
+    # and the bar could not be entered even after the street door was
+    # fixed. At yaw 90 the leaf runs from the marker toward -y.
+    # SWINGS INTO THE ROOM, not into the stair. With the default hinge
+    # it opened backwards into a shaft 1.15 m wide and lay diagonally
+    # across its own doorway — the hinge was right and the leaf still
+    # blocked the way in. "swing": "out" is DoorProp's reversed hinge,
+    # written for precisely this: a door that must not sweep whoever is
+    # standing in the vestibule. It now parks along the room's east wall
+    # and the shaft stays clear.
     mk.append({"kind": "door", "id": "F01_BAR_RED_DOOR",
-               "pos": [4.15, -34.42, FLR], "yaw_deg": 90, "w": 0.90,
-               "h": 2.05, "leaf": "closed", "exterior": True})
+               "pos": [4.15, -33.95, FLR], "yaw_deg": 90, "w": 0.90,
+               "h": 2.05, "leaf": "closed", "swing": "out",
+               "exterior": True})
+    # THE SONGBOOK TERMINAL. Wall-hung on the west side within sight of
+    # the stage, chest height, facing back into the room — a rented
+    # karaoke box, which is how every bar of this kind has one without
+    # any of them owning one. This marker is what makes the whole
+    # Songbook reachable: everything under scripts/songbook was built
+    # and left inert because nothing in the world referenced it.
+    mk.append({"kind": "songbook_terminal", "id": "F01_BAR_SONGBOOK",
+               "unit": "SITE", "pos": [RX0 + 0.16, -35.20, FLR + 0.92],
+               "yaw_deg": -90, "network": "electrical",
+               "exterior": True})
     fb("bar_face_gate", (-5.30, FACE - 0.10, 3.90, FACE - 0.02), 0.55,
        1.95, "chrome")
     fb("bar_face_stall", (-5.30, FACE - 0.13, 3.90, FACE), 0.0, 0.55,

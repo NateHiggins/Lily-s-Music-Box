@@ -32,6 +32,15 @@ const LEGS_DOOR_IN := [
 	[Vector3(18.67, 0.9, 11.40), Vector3(18.46, 0.9, 10.40)],
 	[Vector3(18.46, 0.9, 10.40), Vector3(18.46, 0.9, 8.00)],
 ]
+## From the foot of the stair, west through the red door into the room.
+## The opening is pierced in the x 4.00..4.30 wall between z 33.95 and
+## 34.90; the leaf is CLOSED by default, so a block here names either
+## the leaf (hinge still wrong) or the wall (the lane is off the hole).
+const LEGS_BAR_ROOM := [
+	[Vector3(4.875, -1.9, 34.42), Vector3(4.40, -1.9, 34.42)],
+	[Vector3(4.40, -1.9, 34.42), Vector3(3.80, -1.9, 34.42)],
+	[Vector3(3.80, -1.9, 34.42), Vector3(2.60, -1.9, 34.60)],
+]
 const LEGS_BODEGA := [
 	[Vector3(0.72, 0.9, 10.70), Vector3(6.20, 0.9, 12.40)],
 	[Vector3(6.20, 0.9, 12.40), Vector3(12.00, 0.9, 12.60)],
@@ -55,6 +64,7 @@ func _ready() -> void:
 	shape.height = 1.524
 
 	for name_and_legs in [["TO THE BAR", LEGS_BAR],
+			["INTO THE BAR ROOM", LEGS_BAR_ROOM],
 			["TO THE BODEGA", LEGS_BODEGA],
 			["IN THE BODEGA DOOR", LEGS_DOOR_IN]]:
 		print("--- %s ---" % name_and_legs[0])

@@ -142,6 +142,10 @@ const SHOTS := [
 	# why a counter overhanging the doorway lane went unseen for so long.
 	{"name": "b_59_bodega_inside", "pos": Vector3(18.50, 1.62, 11.10),
 	 "look": Vector3(18.20, 1.30, 5.00), "overlay": false},
+	# The songbook terminal, hung on the bar's west wall within sight of
+	# the stage. This is the thing that makes scripts/songbook reachable.
+	{"name": "b_60_songbook", "pos": Vector3(-3.00, -1.35, 34.60),
+	 "look": Vector3(-4.94, -1.55, 35.25), "overlay": false},
 	# The two routes a resident actually has to walk, from eye height at
 	# the Orison's own front door: south across the road to the bar, and
 	# east along the walk to the bodega.
