@@ -183,6 +183,14 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		tray.position = GameBoot.b2g([5.02, -7.40, 0.86])
 		tray.rotation.y = PI * 0.5
 		floor_nodes["F01"].add_child(tray)
+		# The porter's board, further up the same wall toward the lift.
+		# There has not been a porter in years, which is why it is yours.
+		var board := OtisProp.new()
+		board.name = "LobbyPorterBoard"
+		board.prop_type = "otis"
+		board.position = GameBoot.b2g([5.20, -6.20, 1.42])
+		board.rotation.y = PI * 0.5
+		floor_nodes["F01"].add_child(board)
 		# The settle west of the street door is a place to actually sit.
 		var bench := LobbyBenchZone.new()
 		bench.position = GameBoot.b2g([-2.45, -9.30, 0.0])

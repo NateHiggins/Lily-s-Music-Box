@@ -93,7 +93,7 @@ func _build() -> void:
 	top.add_child(_ask)
 
 	var right := MarginContainer.new()
-	right.set_anchors_preset(Control.PRESET_RIGHT_WIDE)
+	_side_anchors(right, 0.66)
 	right.add_theme_constant_override("margin_right", 56)
 	right.add_theme_constant_override("margin_top", 150)
 	add_child(right)
@@ -339,3 +339,19 @@ func close() -> void:
 	if _prop and _prop.has_method("panel_closed"):
 		_prop.panel_closed()
 	queue_free()
+
+## A column down one side of the screen.
+##
+## Control.PRESET_RIGHT_WIDE anchors BOTH edges to 1.0, which is a
+## container zero pixels wide whose children are laid out past the edge
+## of the screen — invisible, silent, and identical to a panel that
+## simply forgot to add them. Every side panel in the game had it.
+func _side_anchors(c: Control, from: float, to := 1.0) -> void:
+	c.anchor_left = from
+	c.anchor_right = to
+	c.anchor_top = 0.0
+	c.anchor_bottom = 1.0
+	c.offset_left = 0.0
+	c.offset_right = 0.0
+	c.offset_top = 0.0
+	c.offset_bottom = 0.0

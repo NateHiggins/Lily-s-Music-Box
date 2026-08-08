@@ -58,7 +58,7 @@ func _build() -> void:
 	_face.draw.connect(_draw_table)
 	add_child(_face)
 	var right := MarginContainer.new()
-	right.set_anchors_preset(Control.PRESET_RIGHT_WIDE)
+	_side_anchors(right, 0.73)
 	right.add_theme_constant_override("margin_right", 56)
 	right.add_theme_constant_override("margin_top", 60)
 	add_child(right)
@@ -122,9 +122,9 @@ func _refresh() -> void:
 
 func _rect() -> Rect2:
 	var s := get_viewport().get_visible_rect().size
-	var k: float = minf(s.x * 0.62 / PointBall.W, s.y * 0.68 / PointBall.H)
+	var k: float = minf(s.x * 0.56 / PointBall.W, s.y * 0.66 / PointBall.H)
 	var size := Vector2(PointBall.W, PointBall.H) * k
-	return Rect2(Vector2(s.x * 0.40 - size.x * 0.5,
+	return Rect2(Vector2(s.x * 0.36 - size.x * 0.5,
 			s.y * 0.5 - size.y * 0.5), size)
 
 
@@ -238,3 +238,19 @@ func close() -> void:
 	if _prop and _prop.has_method("panel_closed"):
 		_prop.panel_closed()
 	queue_free()
+
+## A column down one side of the screen.
+##
+## Control.PRESET_RIGHT_WIDE anchors BOTH edges to 1.0, which is a
+## container zero pixels wide whose children are laid out past the edge
+## of the screen — invisible, silent, and identical to a panel that
+## simply forgot to add them. Every side panel in the game had it.
+func _side_anchors(c: Control, from: float, to := 1.0) -> void:
+	c.anchor_left = from
+	c.anchor_right = to
+	c.anchor_top = 0.0
+	c.anchor_bottom = 1.0
+	c.offset_left = 0.0
+	c.offset_right = 0.0
+	c.offset_top = 0.0
+	c.offset_bottom = 0.0

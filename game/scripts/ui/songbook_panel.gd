@@ -171,6 +171,7 @@ func _show_edit() -> void:
 	if shape != "":
 		_line("the tune here:  %s" % shape, GREEN_DIM, 14)
 	_line(SongResource.syllable_map(want), GREEN_DIM, 20)
+	_line("", GREEN, 6)          # the map's descenders, off the box
 	_edit = LineEdit.new()
 	_edit.text = str(lyrics.get(str(slot.id), ""))
 	_edit.placeholder_text = "sing something"
