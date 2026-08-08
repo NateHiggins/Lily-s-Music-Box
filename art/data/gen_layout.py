@@ -4390,8 +4390,14 @@ def retail_pass(fl):
     # -- doors, signs, lights
     # The street door to the stair stands open too - it is the mouth of
     # the descent, and the teal shaft below is the whole invitation.
+    # HINGE, not centre — the same fault the bodega door had, and for
+    # the same reason: 4.875 is dead centre of the 4.30..5.45 shaft, so
+    # the leaf was hung in the middle of its own doorway and "open"
+    # swung it across the half it had been leaving clear. At yaw 180 the
+    # leaf runs from the marker toward -x, so the hinge is the EAST
+    # jamb.
     mk.append({"kind": "door", "id": "F01_BAR_DOOR",
-               "pos": [4.875, FACE - 0.10, 0.0], "yaw_deg": 180,
+               "pos": [SH_E, FACE - 0.10, 0.0], "yaw_deg": 180,
                "w": 0.90, "h": 2.10, "leaf": "open", "exterior": True})
     mk.append({"kind": "door", "id": "F01_BAR_RED_DOOR",
                "pos": [4.15, -34.42, FLR], "yaw_deg": 90, "w": 0.90,
