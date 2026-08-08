@@ -40,7 +40,7 @@ func _build_visual() -> void:
 
 
 func interact_prompt() -> String:
-	return "[E]  Play darts  —  301"
+	return "[E]  The Rainbow Round"
 
 
 func interact(player: Node) -> void:

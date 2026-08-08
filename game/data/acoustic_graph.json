@@ -1313,6 +1313,26 @@
    ]
   },
   {
+   "id": "F01_BAR_LT_DARTS",
+   "pos": [
+    -11.08,
+    -33.0,
+    -0.29
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
    "id": "F01_BAR_LT_LOBBY",
    "pos": [
     4.875,
@@ -1415,8 +1435,8 @@
   {
    "id": "F01_BAR_LT_TAB0",
    "pos": [
-    -2.55,
-    -35.6,
+    -8.2,
+    -35.3,
     -0.82
    ],
    "room": "SITE",
@@ -1435,48 +1455,8 @@
   {
    "id": "F01_BAR_LT_TAB2",
    "pos": [
-    0.85,
-    -34.6,
-    -0.82
-   ],
-   "room": "SITE",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "B1_ELECTRICAL_HUB"
-   ]
-  },
-  {
-   "id": "F01_BAR_LT_TAB4",
-   "pos": [
-    -0.55,
-    -32.85,
-    -0.82
-   ],
-   "room": "SITE",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "B1_ELECTRICAL_HUB"
-   ]
-  },
-  {
-   "id": "F01_BAR_LT_TAB6",
-   "pos": [
-    -2.75,
-    -31.55,
+    -1.2,
+    -34.9,
     -0.82
    ],
    "room": "SITE",
@@ -6189,6 +6169,7 @@
     "F01_KARAOKE_SPK_0",
     "F01_KARAOKE_SPK_1",
     "F01_BAR_STAGE_SIGN",
+    "F01_BAR_LT_DARTS",
     "F01_BAR_LT_LOBBY",
     "F01_BAR_LT_STAIR",
     "F01_BAR_LT_CAN0",
@@ -6196,8 +6177,6 @@
     "F01_BAR_LT_POOL",
     "F01_BAR_LT_TAB0",
     "F01_BAR_LT_TAB2",
-    "F01_BAR_LT_TAB4",
-    "F01_BAR_LT_TAB6",
     "F01_BAR_LT_STAGE0",
     "F01_BAR_LT_STAGE1",
     "F01_BAR_LT_DECK",

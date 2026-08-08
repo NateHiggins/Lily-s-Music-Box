@@ -4481,6 +4481,26 @@ def retail_pass(fl):
          (DB_X, DB_Y, DB_Z), 0.245, "soot")
     pipe("bar_darts_face", (DB_X, DB_Y, DB_Z),
          (DB_X + 0.012, DB_Y, DB_Z), 0.2255, "linen")
+    # THE RAINBOW. Seven slices, because the game played on this board
+    # is not 301 — it is the Rainbow Round, where the answer to every
+    # question is a colour and you throw at the one you believe.
+    #
+    # fb() is axis-aligned and pipe() is a cylinder, so there is no way
+    # to author a true wedge here. Seven radial bars in the seven
+    # colours read as the slices they mark, which is what the board
+    # needs to do from four feet away in a dark bar — the panel is
+    # where the geometry is exact.
+    RAINBOW = ["lacquer_red", "safety_orange", "brass_bright",
+               "fabric_green", "book_teal", "stairwell_teal",
+               "felt_violet"]
+    for si, smat in enumerate(RAINBOW):
+        sa = math.radians(si * 360.0 / len(RAINBOW))
+        for rr in (0.062, 0.118, 0.174):
+            pipe("bar_darts_slice%d_%d" % (si, int(rr * 1000)),
+                 (DB_X + 0.013, DB_Y + math.sin(sa) * (rr - 0.026),
+                  DB_Z + math.cos(sa) * (rr - 0.026)),
+                 (DB_X + 0.013, DB_Y + math.sin(sa) * (rr + 0.026),
+                  DB_Z + math.cos(sa) * (rr + 0.026)), 0.021, smat)
     pipe("bar_darts_treble", (DB_X + 0.012, DB_Y, DB_Z),
          (DB_X + 0.015, DB_Y, DB_Z), 0.107, "brass")
     pipe("bar_darts_double", (DB_X + 0.012, DB_Y, DB_Z),

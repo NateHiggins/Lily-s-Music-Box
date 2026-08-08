@@ -47,8 +47,13 @@ func _run() -> void:
 		var p: Vector3 = prop.global_position
 		print("      darts at %v" % p)
 		_check("in the bar, not on the street", p.y < -1.5 and p.z > 30.0)
+		# The board is physically a dartboard; the GAME played on it is
+		# the Rainbow Round (see TriviaDartsTest). DartsGame's 301 rules
+		# below are kept because they are a correct, tested game on the
+		# same geometry — a second mode the board could offer — not
+		# because anybody is currently throwing for a double top.
 		_check("they offer themselves",
-				str(prop.interact_prompt()).contains("darts"))
+				str(prop.interact_prompt()).contains("Rainbow"))
 
 	# ---- IS IT A REAL BOARD -----------------------------------------
 	var g := DartsGame.new()

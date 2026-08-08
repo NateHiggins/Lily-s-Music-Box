@@ -1,5 +1,5 @@
 {
- "fixture_count": 202,
+ "fixture_count": 201,
  "fixtures": [
   {
    "id": "B1_CORRIDOR_DOME_01",
@@ -754,6 +754,22 @@
    "standby": 0.35
   },
   {
+   "id": "F01_BAR_LT_DARTS",
+   "floor": "F01",
+   "kind": "cage_bulb",
+   "room": "UNASSIGNED",
+   "room_kind": "unknown",
+   "position": [
+    -11.08,
+    -33.0,
+    -0.2899999999999998
+   ],
+   "range": 2.6,
+   "energy": 0.5,
+   "navigation": false,
+   "standby": 0.2
+  },
+  {
    "id": "F01_BAR_LT_LOBBY",
    "floor": "F01",
    "kind": "cage_bulb",
@@ -840,8 +856,8 @@
    "room": "F01_NAVIGATION",
    "room_kind": "corridor",
    "position": [
-    -2.55,
-    -35.6,
+    -8.2,
+    -35.3,
     -0.82
    ],
    "range": 3.2,
@@ -856,40 +872,8 @@
    "room": "F01_NAVIGATION",
    "room_kind": "corridor",
    "position": [
-    0.85,
-    -34.6,
-    -0.82
-   ],
-   "range": 3.2,
-   "energy": 0.38,
-   "navigation": true,
-   "standby": 0.35
-  },
-  {
-   "id": "F01_BAR_LT_TAB4",
-   "floor": "F01",
-   "kind": "pendant_shade",
-   "room": "F01_NAVIGATION",
-   "room_kind": "corridor",
-   "position": [
-    -0.55,
-    -32.85,
-    -0.82
-   ],
-   "range": 3.2,
-   "energy": 0.38,
-   "navigation": true,
-   "standby": 0.35
-  },
-  {
-   "id": "F01_BAR_LT_TAB6",
-   "floor": "F01",
-   "kind": "pendant_shade",
-   "room": "F01_NAVIGATION",
-   "room_kind": "corridor",
-   "position": [
-    -2.75,
-    -31.55,
+    -1.2,
+    -34.9,
     -0.82
    ],
    "range": 3.2,
