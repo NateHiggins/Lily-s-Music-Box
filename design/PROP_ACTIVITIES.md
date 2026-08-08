@@ -203,55 +203,44 @@ everything about themselves.
 
 ---
 
-## 5. TIER B — chore loops
+## 5. TIER B — the chores worth keeping
 
 Hold to perform, a visible state change, a work order closes. No panel,
-no module — a method on the prop and an entry in the log.
+no module — a method on the prop and an entry in the log. Only three of
+these earned their place; the rest of the building's props are better
+as scenery.
 
-| Prop | Activity | The joke |
-|---|---|---|
-| `medicine_cabinet_prop` (23) | Check dates, restock | You learn what a resident is being treated for and you were not meant to |
-| `clock_prop` (1) | Wind it | **Every clock in the building says something different and the Handbook says to set them by the lobby's, which is wrong** |
-| `exhaust_fan_prop` (1) | Clear the lint | It has never been cleared |
-| `boxfan_prop` (2) | Dust the blades | It moves the same dust around |
-| `flue_breast_prop` (5) | Check the draw | A bird, eventually |
-| `lamp_prop` / `light_fixture_prop` (many) | Replace a bulb | The Handbook specifies a wattage no longer manufactured |
-| `porch_deck_prop` (5) | Sweep it | It is autumn permanently |
-| `bench_zone` / `bar_seat_zone` | Sit | Not a chore. Sitting should restore something, and be the only thing on this list that does |
-| `tv_prop` / `monitor_prop` | Tune it | The aerial, the weather, and one channel that should not be there |
-| `speaker_prop` (7) | Test the PA | Feedback, at 3 a.m., in a building of sleepers |
-| `neon_sign_prop` (3) | Report the dead tube | Six to eight weeks |
-| `lobby_bulletin_board` | Post and remove notices | **A passive-aggressive war between residents conducted entirely in pinned paper. The best writing in the game could live here** |
-| `corridor_light_prop` | Replace a flickering tube | Fixing it removes something the building was using |
+**THE BULLETIN BOARD** (`lobby_bulletin_board`) — post and remove
+notices. A passive-aggressive war between residents conducted entirely
+in pinned paper, and the best writing in the game could live here. It
+costs almost nothing and it characterises eighteen people at once.
 
----
+**THE CLOCKS** (`clock_prop`, `domestic_witness_clock`) — wind them.
+Every clock in the building says something different, and the Handbook
+says to set them by the lobby's, which is wrong. In a building where
+the case system already plays with time, a wrong clock is never only a
+wrong clock.
 
-## 6. TIER C — moments
-
-One-shot. Fires once, says something, becomes scenery.
-
-- `door_anomaly_prop`, `case_door_prop`, `possessed_domestic_prop`,
-  `domestic_witness_clock` — these belong to the case system and should
-  **not** be gamified. They are already doing a job.
-- `character_memory_art`, `found_art_pass` pieces — look, once.
-- `building_entry_sign`, `entrance_marquee_dress`,
-  `lobby_orison_ad_board` — read once. The ad board is worth a moment:
-  the building advertising itself in the present tense.
-- `inspectable_zone` — the existing look-at system. Already correct.
+**SITTING** (`bench_zone`, `bar_seat_zone`) — not a chore. It should
+restore something, and be the only thing on any of these lists that
+does.
 
 ---
 
-## 7. TIER D — leave alone
+## 6. Everything else
 
-`ceiling_light_prop`, `light_fixture_prop` as fixtures, `vault_light_glow`,
-`bodega_signage_prop`, `harukiya_signage_prop`, `radiator_prop` as
-*scenery* on floors you are not servicing, `functional_prop` (base
-class), `landmark_entry_door`, `mail_box_zone` (the player's own box —
-it is a delivery channel, not a chore).
+`door_anomaly_prop`, `case_door_prop`, `possessed_domestic_prop`,
+`domestic_witness_clock` belong to the CASE SYSTEM and must not be
+gamified — they are already doing a job, and a minigame on top would
+compete with it.
 
-**A building where everything is a button is a building nobody believes
-in.** The dark, quiet, useless objects are what make the interactive
-ones feel chosen.
+`inspectable_zone` is the existing look-at system and is already
+correct.
+
+Lights, signage, fixtures, `functional_prop` (base class) and the
+player's own mailbox: **leave alone**. A building where everything is a
+button is a building nobody believes in. The dark, quiet, useless
+objects are what make the interactive ones feel chosen.
 
 ---
 
