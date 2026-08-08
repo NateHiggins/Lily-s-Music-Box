@@ -56,3 +56,32 @@ game/assets/audio/voice/source/
 Godot_v*.exe
 chunk_push.log
 push_result.log
+
+# ---------------------------------------------------------------------
+# The Python projects folder (moved in 2026-08-07), and the things that
+# travelled with it that must never enter history.
+#
+# Nothing under it is tracked yet on purpose: where these live, and
+# whether the folder keeps a name with a space in it, is an open
+# decision. These rules cover the parts that are junk under ANY layout.
+
+# Vendored dependency dump. 84 MB, reinstallable, and the single largest
+# thing that arrived with the move.
+_tmp_deps/
+
+# Test-runner cache, same class of thing as __pycache__ above.
+.pytest_cache/
+
+# Android signing material. A committed keystore is a key somebody else
+# can sign your releases with; there is no undo once it is pushed, and
+# rotating it orphans every install of the app. None exist in the tree
+# today and none ever should.
+*.keystore
+*.jks
+key.properties
+
+# Android packaging intermediates and the icon source they are cut from.
+# The APKs themselves are already covered by *.apk above; this is the
+# rest of the build directory that produces them.
+**/android/build/
+icon_master.png
