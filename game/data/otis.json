@@ -1,0 +1,62 @@
+{
+  "title": "Otis",
+  "floors": [
+    {"id": "B1", "label": "B1", "name": "laundry and stores"},
+    {"id": "F01", "label": "1", "name": "lobby"},
+    {"id": "F02", "label": "2", "name": ""},
+    {"id": "F03", "label": "3", "name": ""},
+    {"id": "F04", "label": "4", "name": ""},
+    {"id": "F05", "label": "5", "name": ""},
+    {"id": "F06", "label": "6", "name": ""},
+    {"id": "ROOF", "label": "R", "name": "the deck"}
+  ],
+  "car": {
+    "capacity": 4,
+    "seconds_per_floor": 1.35,
+    "door_open_seconds": 2.2,
+    "start_floor": 1
+  },
+  "rules": {
+    "patience": 26.0,
+    "delivered": 2,
+    "on_time_bonus": 1,
+    "on_time_above": 0.5,
+    "gave_up": 0,
+    "shift_seconds": 180.0,
+    "call_every": [7.0, 15.0]
+  },
+  "quirks": [
+    {"id": "sticks", "label": "the doors stick",
+     "note": "They take their time on the way open, and there is nothing to be done about it.",
+     "door_extra": 1.6},
+    {"id": "overshoot", "label": "it runs past on a long trip",
+     "note": "Four floors or more and the car goes one too far before it settles back.",
+     "floors": 4},
+    {"id": "deaf", "label": "it will not hear the sixth",
+     "note": "Six has to be asked for twice. Everybody who lives up there knows.",
+     "floor": 6},
+    {"id": "slow_start", "label": "it thinks about it first",
+     "note": "A beat of nothing before it moves, every time, since the war.",
+     "delay": 0.9}
+  ],
+  "riders": [
+    {"who": "Cam Ortiz", "home": 4, "note": "down for the bodega, 3 a.m."},
+    {"who": "Noel Price", "home": 4, "note": ""},
+    {"who": "Mina Vale", "home": 2, "note": "carrying something that must not be tipped"},
+    {"who": "Teresa Vale", "home": 1, "note": "will not use the stairs"},
+    {"who": "Omar Bell", "home": 3, "note": ""},
+    {"who": "Iris Bell", "home": 5, "note": ""},
+    {"who": "Malcolm Reed", "home": 3, "note": ""},
+    {"who": "Sacha Reed", "home": 6, "note": "the sixth, which it will not hear"},
+    {"who": "Jonah Price", "home": 6, "note": ""},
+    {"who": "Mae Kessler", "home": 6, "note": ""},
+    {"who": "Nadia Quell", "home": 5, "note": "boxes, always boxes"},
+    {"who": "Cal Dwyer", "home": 5, "note": ""},
+    {"who": "Juno Kells", "home": 2, "note": ""},
+    {"who": "Lena Ortiz", "home": 2, "note": ""},
+    {"who": "Rhea Sato", "home": 3, "note": ""},
+    {"who": "Peter Wren", "home": 4, "note": ""},
+    {"who": "Transient Guests", "home": 4, "note": "going up to the chapel"},
+    {"who": "Evelyn Marsh", "home": 1, "note": ""}
+  ]
+}
