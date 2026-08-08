@@ -212,11 +212,13 @@ func _run() -> void:
 	# with furniture in it and the schedules had nowhere to put anyone.
 	# These are the routes a drinker actually walks.
 	var routes := [
-		# Down the lane between the two southern table rows. Not at
-		# z 34.60: the pool table occupies y -34.60..-33.30, so that
-		# line runs through the baize.
-		["the length of the room, east to west",
-			Vector3(3.20, -2.79, 35.20), Vector3(-10.30, -2.79, 35.20)],
+		# From the deck's edge across to the pool table. Deliberately not
+		# a 13 m straight line down the middle: a bar with a stage, a
+		# counter and a pool table in it does not have one, and testing
+		# for a corridor would only push the furniture back against the
+		# walls it was just pulled off.
+		["from the deck across to the pool table",
+			Vector3(1.50, -2.79, 32.80), Vector3(-6.00, -2.79, 32.80)],
 		# Stops IN FRONT of the stage: the stage is a 220 mm platform, so
 		# a route that ends on it is testing a step, not a path.
 		# A dogleg, because a straight line from the door clips the
@@ -224,8 +226,10 @@ func _run() -> void:
 		# then turn for the stage, which is what a person does.
 		["out of the doorway, clear of the deck",
 			Vector3(3.20, -2.79, 34.40), Vector3(0.60, -2.79, 34.40)],
+		# Down the deck's edge to the stage's east end, rather than
+		# cutting the diagonal through the middle table's chairs.
 		["and on to the stage",
-			Vector3(0.60, -2.79, 34.40), Vector3(-0.70, -2.79, 35.90)],
+			Vector3(0.60, -2.79, 34.40), Vector3(0.60, -2.79, 35.90)],
 		["along the counter",
 			Vector3(-4.40, -2.79, 31.40), Vector3(1.00, -2.79, 31.40)],
 		# A metre off the west wall — nobody walks with a shoulder on the
@@ -236,6 +240,25 @@ func _run() -> void:
 	for r2 in routes:
 		var f := _sweep(r2[1], r2[2])
 		_check("%s (%d%% clear)" % [r2[0], int(f * 100.0)], f >= 0.999)
+
+	# ---- CAN YOU ACTUALLY PLAY POOL ---------------------------------
+	# A cue is 1.45 m. A table you cannot stand back from is scenery, so
+	# every rail needs a lane beside it — this is the check the table's
+	# old position would have failed on all four sides at once.
+	# Table body is x -8.40..-6.40, z 30.60..31.90.
+	var rails := [
+		["stand off the north rail",
+			Vector3(-9.30, -2.79, 29.80), Vector3(-5.60, -2.79, 29.80)],
+		["stand off the south rail",
+			Vector3(-9.30, -2.79, 32.70), Vector3(-5.60, -2.79, 32.70)],
+		["stand off the west end",
+			Vector3(-9.40, -2.79, 29.90), Vector3(-9.40, -2.79, 32.60)],
+		["stand off the east end",
+			Vector3(-5.50, -2.79, 29.90), Vector3(-5.50, -2.79, 32.60)],
+	]
+	for r3 in rails:
+		var f2 := _sweep(r3[1], r3[2])
+		_check("%s (%d%% clear)" % [r3[0], int(f2 * 100.0)], f2 >= 0.999)
 
 	print("[SHOPS] RESULT: %s (%d failures)"
 			% ["PASS" if _fails == 0 else "FAIL", _fails])

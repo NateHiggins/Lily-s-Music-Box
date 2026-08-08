@@ -4352,9 +4352,17 @@ def retail_pass(fl):
     #
     # Eight tables now rather than seven, because the room grew by more
     # than it lost to spacing.
-    TABLES = [(-9.60, -36.30, 3), (-6.60, -36.60, 2), (-3.55, -36.30, 3),
-              (-9.90, -33.10, 2), (-6.80, -33.40, 3), (-3.70, -33.10, 2),
-              (-9.70, -30.10, 3), (-6.65, -30.30, 2)]
+    # A CHAIR REACHES 1.23 m FROM ITS TABLE, not 0.78: the seat sits at
+    # 0.78 radius and carries its own 0.45 hull. Every spacing sum here
+    # was originally done against 0.78, which is why the first re-space
+    # still left chairs inside the west riser pipes and across the
+    # middle of the room.
+    #
+    # Three tables, not eight. The room also holds a pool table, five
+    # stools, three banquettes and a stage, and the brief was that you
+    # could not move — so the floor is mostly floor now, which is what a
+    # bar with a stage in it should be.
+    TABLES = [(-8.20, -35.30, 3), (-5.20, -35.30, 2), (-1.20, -34.90, 3)]
     for i, (tx, ty, seats) in enumerate(TABLES):
         asm("bar_tab%d" % i, "table_round", tx, ty, 0, z0=FLR)
         fb("bar_candle%d" % i, (tx - 0.03, ty - 0.03, tx + 0.03,
@@ -4413,19 +4421,33 @@ def retail_pass(fl):
                "yaw_deg": 180, "text": "HARUKIYA", "vertical": False,
                "tint": [1.0, 0.86, 0.52], "network": "electrical"})
 
-    # -- POOL TABLE, west aisle, out of the walking line
-    fb("bar_pool_body", (-4.70, -34.60, -2.70, -33.30), FLR, 0.78,
+    # -- POOL TABLE, north-west, WITH ROOM TO PLAY IT.
+    #
+    # It used to sit at x -4.70..-2.70, y -34.60..-33.30, which is the
+    # middle of the room — the obvious east-west lane ran straight
+    # through the baize, and the re-spaced tables put a set of chairs on
+    # top of it. A cue is 1.45 m long, so a table needs about 1.4 m
+    # clear off every rail before a shot is possible at all; nothing
+    # like that existed anywhere near it.
+    #
+    # Here it has 1.55 m to the west riser pipes, 2.89 m to the counter,
+    # 1.95 m to the north wall and 2.87 m to the nearest chair. The one
+    # tight side is west, where a short cue does the job — which is what
+    # every bar table in a real room asks of you.
+    fb("bar_pool_body", (-8.40, -31.90, -6.40, -30.60), FLR, 0.78,
        "wood_dark")
-    fb("bar_pool_felt", (-4.58, -34.48, -2.82, -33.42), FLR + 0.78,
+    fb("bar_pool_felt", (-8.28, -31.78, -6.52, -30.72), FLR + 0.78,
        0.04, "felt_violet")
     for i, (bx, by, mat) in enumerate((
-            (-3.95, -34.10, "enamel"), (-3.60, -33.80, "terracotta"),
-            (-3.30, -34.15, "brass"), (-3.00, -33.70, "fabric_green"),
-            (-3.75, -33.55, "bakelite"))):
+            (-7.65, -31.40, "enamel"),
+            (-7.30, -31.10, "terracotta"),
+            (-7.00, -31.45, "brass"),
+            (-6.70, -31.00, "fabric_green"),
+            (-7.45, -30.85, "bakelite"))):
         fb("bar_ball%d" % i, (bx, by, bx + 0.06, by + 0.06),
            FLR + 0.82, 0.055, mat)
-    pipe("bar_cue", (-2.55, -33.15, FLR + 0.05),
-         (-2.30, -33.35, FLR + 1.50), 0.012, "timber")
+    pipe("bar_cue", (-6.25, -30.45, FLR + 0.05),
+         (-6.00, -30.65, FLR + 1.50), 0.012, "timber")
 
     # -- PLANTS. Canon: tall indoor palms, improbably alive.
     asm("bar_palm0", "plant", -10.20, -29.60, 0, z0=FLR)
