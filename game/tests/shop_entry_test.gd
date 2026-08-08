@@ -82,7 +82,7 @@ func _name_blocker(at: Vector3) -> void:
 ## Sweep a body-sized capsule along a line and say where it stops and on
 ## what. Same trick as RouteProbe, run here because the door has to be
 ## OPEN for the answer to mean anything.
-func _sweep(from: Vector3, to: Vector3) -> void:
+func _sweep(from: Vector3, to: Vector3) -> float:
 	var shape := CapsuleShape3D.new()
 	shape.radius = 0.33
 	shape.height = 1.524
@@ -91,15 +91,18 @@ func _sweep(from: Vector3, to: Vector3) -> void:
 	q.transform = Transform3D(Basis(), from + Vector3(0, 0.79, 0))
 	q.motion = to - from
 	q.collide_with_areas = false
+	# The player is standing in this room from the walk that got here,
+	# and a route is about the FURNITURE, not about whether somebody is
+	# already in the way.
+	if root.player:
+		q.exclude = [root.player.get_rid()]
 	var space := root.get_viewport().find_world_3d().direct_space_state
 	var res := space.cast_motion(q)
 	var frac: float = res[0] if res.size() > 0 else 1.0
 	print("        sweep %v -> %v stopped at %d%%" % [from, to,
 			int(frac * 100.0)])
 	if frac >= 0.999:
-		print("        ...the doorway itself is CLEAR; the walk is the"
-				+ " thing at fault, not the world")
-		return
+		return frac
 	q.transform = Transform3D(Basis(),
 			from + (to - from) * frac + Vector3(0, 0.79, 0))
 	for h in space.intersect_shape(q, 6):
@@ -107,6 +110,7 @@ func _sweep(from: Vector3, to: Vector3) -> void:
 		var p = c.get_parent() if c else null
 		print("        on %s parent=%s"
 				% [str(c.name), str(p.name) if p else "-"])
+	return frac
 
 
 func _run() -> void:
@@ -200,6 +204,38 @@ func _run() -> void:
 	print("      walked on to %v" % across)
 	_check("and can cross the room rather than wedging in the furniture",
 			across.x < 3.0)
+
+	# ---- CAN YOU MOVE AROUND IN THERE ------------------------------
+	# The room was widened because you could not. Seven tables with
+	# chairs at 0.78 m radius sat 1.8 m apart centre to centre, which
+	# leaves no gap a body fits through — so the bar read as a corridor
+	# with furniture in it and the schedules had nowhere to put anyone.
+	# These are the routes a drinker actually walks.
+	var routes := [
+		# Down the lane between the two southern table rows. Not at
+		# z 34.60: the pool table occupies y -34.60..-33.30, so that
+		# line runs through the baize.
+		["the length of the room, east to west",
+			Vector3(3.20, -2.79, 35.20), Vector3(-10.30, -2.79, 35.20)],
+		# Stops IN FRONT of the stage: the stage is a 220 mm platform, so
+		# a route that ends on it is testing a step, not a path.
+		# A dogleg, because a straight line from the door clips the
+		# deck's south-west corner — you walk out of the notch first,
+		# then turn for the stage, which is what a person does.
+		["out of the doorway, clear of the deck",
+			Vector3(3.20, -2.79, 34.40), Vector3(0.60, -2.79, 34.40)],
+		["and on to the stage",
+			Vector3(0.60, -2.79, 34.40), Vector3(-0.70, -2.79, 35.90)],
+		["along the counter",
+			Vector3(-4.40, -2.79, 31.40), Vector3(1.00, -2.79, 31.40)],
+		# A metre off the west wall — nobody walks with a shoulder on the
+		# riser pipes, and a route that hugs a wall tests the wall.
+		["down the west side past the tables",
+			Vector3(-10.30, -2.79, 30.60), Vector3(-10.30, -2.79, 35.60)],
+	]
+	for r2 in routes:
+		var f := _sweep(r2[1], r2[2])
+		_check("%s (%d%% clear)" % [r2[0], int(f * 100.0)], f >= 0.999)
 
 	print("[SHOPS] RESULT: %s (%d failures)"
 			% ["PASS" if _fails == 0 else "FAIL", _fails])

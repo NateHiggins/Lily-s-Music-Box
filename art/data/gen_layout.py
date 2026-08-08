@@ -3025,8 +3025,12 @@ CITY_BLOCKS = [
     # South side. Faces all sit on BLDG_S; depths vary because a real
     # block is not one slab, and these are deep enough now to read as
     # buildings from the roof rather than as a row of flats.
-    ("nbr_s1", (-20.0, -39.0, -7.0, -28.32), 10.4),
-    ("nbr_s2", (-5.6, -38.2, 6.4, -28.32), 15.8),
+    # nbr_s1 gives up 5.2 m of its east end so the Harukiya's block can
+    # grow west. Both are scenery above the ground floor; only nbr_s2
+    # has a playable interior, and that interior was too small to walk
+    # around in.
+    ("nbr_s1", (-20.0, -39.0, -12.2, -28.32), 10.4),
+    ("nbr_s2", (-12.0, -38.2, 6.4, -28.32), 15.8),
     ("nbr_s3", (7.8, -37.6, 20.0, -28.32), 8.6),
     ("sw1", (-33.0, -39.4, -20.6, -28.32), 14.2),
     ("sw2", (-46.0, -38.0, -33.6, -28.32), 9.8),
@@ -4093,9 +4097,15 @@ def retail_pass(fl):
     # over the counter, the barrels and crowded pictures behind the
     # backbar, the violet felt, the low ceiling, and light that only
     # ever comes from something you can point at.
-    KX0, KX1 = -5.6, 6.4
+    KX0, KX1 = -12.0, 6.4
     FACE = -28.32
-    RX0, RX1 = -5.10, 4.00           # room clear span, east-west
+    # WIDENED WEST, 2026-08-08. Was -5.10: a 9.1 x 9.2 m room carrying a
+    # stage, a raised deck, a nine-metre counter, a WC and seven tables,
+    # which left tables 1.8 m apart centre to centre when a table with
+    # chairs at 0.78 m radius needs 2.5 m before anybody can walk
+    # between two of them. You could not cross the room, and the
+    # schedules send residents in here.
+    RX0, RX1 = -11.50, 4.00          # room clear span, east-west
     RY0, RY1 = -37.90, -28.70        # 9.2 m deep now, was 6.8
     FLR = -2.80                       # basement floor top
     DECK = FLR + 0.18                 # the raised lounge
@@ -4226,8 +4236,12 @@ def retail_pass(fl):
        "wood_dark")
     # the railing: newels, turned balusters, moulded rail. Split either
     # side of the step opening so the way down is actually a way down.
-    for seg, (ry0, ry1) in enumerate(((LD_Y0 + 0.10, -34.40),
-                                      (-33.60, LD_Y1 - 0.10))):
+    # The gap in the railing has to be the gap in the DECK. It was cut
+    # at -34.40..-33.60 when the deck was solid; the notch is at
+    # ND0..ND1, so the railing was closed across the way in and open
+    # over a piece of deck that is no longer there.
+    for seg, (ry0, ry1) in enumerate(((LD_Y0 + 0.10, ND0),
+                                      (ND1, LD_Y1 - 0.10))):
         pipe("bar_rail%d" % seg, (LD_X0 - 0.03, ry0, DECK + 0.92),
              (LD_X0 - 0.03, ry1, DECK + 0.92), 0.035, "handrail_wood")
         n_bal = max(2, int((ry1 - ry0) / 0.16))
@@ -4328,9 +4342,19 @@ def retail_pass(fl):
     # -- TABLES. Round tops, bentwood chairs, a candle on each: the
     # single biggest change, and the reason the room now reads as a
     # place people sit in rather than a corridor with a counter.
-    TABLES = [(-2.55, -35.60, 3), (-0.75, -35.95, 2), (0.85, -34.60, 3),
-              (-2.35, -33.40, 2), (-0.55, -32.85, 3), (0.95, -31.85, 2),
-              (-2.75, -31.55, 3)]
+    # RE-SPACED on the widened floor. The old set sat 1.8 m apart centre
+    # to centre; chairs hang at 0.78 m radius, so two tables need 2.5 m
+    # before a person fits between them and about 2.9 m before it is a
+    # route rather than a squeeze. Every pair below is at least 2.9 m
+    # apart, and the run down the middle of the room is left clear so
+    # there is a way from the door to the stage that does not go through
+    # anybody's chair.
+    #
+    # Eight tables now rather than seven, because the room grew by more
+    # than it lost to spacing.
+    TABLES = [(-9.60, -36.30, 3), (-6.60, -36.60, 2), (-3.55, -36.30, 3),
+              (-9.90, -33.10, 2), (-6.80, -33.40, 3), (-3.70, -33.10, 2),
+              (-9.70, -30.10, 3), (-6.65, -30.30, 2)]
     for i, (tx, ty, seats) in enumerate(TABLES):
         asm("bar_tab%d" % i, "table_round", tx, ty, 0, z0=FLR)
         fb("bar_candle%d" % i, (tx - 0.03, ty - 0.03, tx + 0.03,
@@ -4404,27 +4428,27 @@ def retail_pass(fl):
          (-2.30, -33.35, FLR + 1.50), 0.012, "timber")
 
     # -- PLANTS. Canon: tall indoor palms, improbably alive.
-    asm("bar_palm0", "plant", -4.55, -31.90, 0, z0=FLR)
+    asm("bar_palm0", "plant", -10.20, -29.60, 0, z0=FLR)
     asm("bar_palm1", "plant", 1.35, -37.20, 0, z0=DECK)
     asm("bar_palm2", "plant", 3.70, -32.45, 0, z0=DECK)
 
     # -- RESTROOM, far SW corner
-    fb("bar_wc_wall_e", (-3.40, RY0, -3.25, -36.10), FLR, 2.60,
+    fb("bar_wc_wall_e", (-9.80, RY0, -9.65, -36.10), FLR, 2.60,
        "bar_wall_red")
-    fb("bar_wc_wall_n_w", (RX0, -36.25, -4.45, -36.10), FLR, 2.60,
+    fb("bar_wc_wall_n_w", (RX0, -36.25, -10.85, -36.10), FLR, 2.60,
        "bar_wall_red")
-    fb("bar_wc_wall_n_e", (-3.75, -36.25, -3.25, -36.10), FLR, 2.60,
+    fb("bar_wc_wall_n_e", (-10.15, -36.25, -9.65, -36.10), FLR, 2.60,
        "bar_wall_red")
-    fb("bar_wc_lintel", (-4.45, -36.25, -3.75, -36.10), FLR + 2.05,
+    fb("bar_wc_lintel", (-10.85, -36.25, -10.15, -36.10), FLR + 2.05,
        0.55, "bar_wall_red")
-    asm("bar_wc_toilet", "toilet", -4.75, -37.45, 0, z0=FLR)
-    asm("bar_wc_sink", "sink_basin", -3.70, -37.50, 0, z0=FLR)
+    asm("bar_wc_toilet", "toilet", -11.15, -37.45, 0, z0=FLR)
+    asm("bar_wc_sink", "sink_basin", -10.10, -37.50, 0, z0=FLR)
     # HINGE at the west jamb. Was -4.10, the dead centre of its own
     # -4.45..-3.75 opening — the fourth door in this file authored that
     # way, and the same consequence every time: the closed leaf covers
     # half the hole and buries the other half in the wall.
     mk.append({"kind": "door", "id": "F01_BAR_WC_DOOR",
-               "pos": [-4.45, -36.17, FLR], "yaw_deg": 0, "w": 0.70,
+               "pos": [-10.85, -36.17, FLR], "yaw_deg": 0, "w": 0.70,
                "h": 2.00, "leaf": "closed", "exterior": True})
 
     # -- doors, signs, lights
