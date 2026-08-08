@@ -1171,15 +1171,18 @@
 		},
 		{
 			"name":"M_safety_orange",
+			"normalTexture":{
+				"index":133,
+				"scale":0.3499999940395355
+			},
 			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					0.8799999952316284,
-					0.2199999988079071,
-					0.03500000014901161,
-					1
-				],
+				"baseColorTexture":{
+					"index":134
+				},
 				"metallicFactor":0,
-				"roughnessFactor":0.6200000047683716
+				"metallicRoughnessTexture":{
+					"index":135
+				}
 			}
 		},
 		{
@@ -1193,29 +1196,13 @@
 			"name":"M_fx_ao",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":133
+					"index":136
 				},
 				"metallicFactor":0
 			}
 		},
 		{
 			"name":"M_stair",
-			"normalTexture":{
-				"index":134,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":135
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":136
-				}
-			}
-		},
-		{
-			"name":"M_baluster",
 			"normalTexture":{
 				"index":137,
 				"scale":0.3499999940395355
@@ -1231,7 +1218,7 @@
 			}
 		},
 		{
-			"name":"M_landing",
+			"name":"M_baluster",
 			"normalTexture":{
 				"index":140,
 				"scale":0.3499999940395355
@@ -1247,7 +1234,7 @@
 			}
 		},
 		{
-			"name":"M_handrail_wood",
+			"name":"M_landing",
 			"normalTexture":{
 				"index":143,
 				"scale":0.3499999940395355
@@ -1263,7 +1250,7 @@
 			}
 		},
 		{
-			"name":"M_stair_treads",
+			"name":"M_handrail_wood",
 			"normalTexture":{
 				"index":146,
 				"scale":0.3499999940395355
@@ -1279,7 +1266,7 @@
 			}
 		},
 		{
-			"name":"M_limestone",
+			"name":"M_stair_treads",
 			"normalTexture":{
 				"index":149,
 				"scale":0.3499999940395355
@@ -1295,7 +1282,7 @@
 			}
 		},
 		{
-			"name":"M_wainscot",
+			"name":"M_limestone",
 			"normalTexture":{
 				"index":152,
 				"scale":0.3499999940395355
@@ -1311,7 +1298,7 @@
 			}
 		},
 		{
-			"name":"M_plaster",
+			"name":"M_wainscot",
 			"normalTexture":{
 				"index":155,
 				"scale":0.3499999940395355
@@ -1327,7 +1314,7 @@
 			}
 		},
 		{
-			"name":"M_face_brick",
+			"name":"M_plaster",
 			"normalTexture":{
 				"index":158,
 				"scale":0.3499999940395355
@@ -1343,6 +1330,22 @@
 			}
 		},
 		{
+			"name":"M_face_brick",
+			"normalTexture":{
+				"index":161,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":162
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":163
+				}
+			}
+		},
+		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
 			"extensions":{
@@ -1353,7 +1356,7 @@
 			"name":"M_fx_drip",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":161
+					"index":164
 				},
 				"metallicFactor":0
 			}
@@ -1369,7 +1372,7 @@
 			"name":"M_fx_grease",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":162
+					"index":165
 				},
 				"metallicFactor":0
 			}
@@ -1385,7 +1388,7 @@
 			"name":"M_fx_scuff",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":163
+					"index":166
 				},
 				"metallicFactor":0
 			}
@@ -3090,18 +3093,6 @@
 		},
 		{
 			"sampler":0,
-			"source":39
-		},
-		{
-			"sampler":0,
-			"source":40
-		},
-		{
-			"sampler":0,
-			"source":41
-		},
-		{
-			"sampler":0,
 			"source":140
 		},
 		{
@@ -3111,6 +3102,18 @@
 		{
 			"sampler":0,
 			"source":142
+		},
+		{
+			"sampler":0,
+			"source":39
+		},
+		{
+			"sampler":0,
+			"source":40
+		},
+		{
+			"sampler":0,
+			"source":41
 		},
 		{
 			"sampler":0,
@@ -3183,6 +3186,18 @@
 		{
 			"sampler":0,
 			"source":160
+		},
+		{
+			"sampler":0,
+			"source":161
+		},
+		{
+			"sampler":0,
+			"source":162
+		},
+		{
+			"sampler":0,
+			"source":163
 		}
 	],
 	"images":[
@@ -3850,6 +3865,21 @@
 			"mimeType":"image/png",
 			"name":"T_ai_materials_rug_warm_rough",
 			"uri":"textures/T_ai_materials_rug_warm_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_safety_orange_normal",
+			"uri":"textures/T_ai_materials_safety_orange_normal.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_safety_orange_albedo",
+			"uri":"textures/T_ai_materials_safety_orange_albedo.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_ai_materials_safety_orange_rough",
+			"uri":"textures/T_ai_materials_safety_orange_rough.png"
 		},
 		{
 			"mimeType":"image/png",

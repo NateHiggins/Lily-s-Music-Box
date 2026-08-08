@@ -146,6 +146,25 @@ SLOTS = {
     "terrazzo_car_floor": (["terrazzo_dark"], 1.20, 0.40, 0.18, 2.5),
     "brass_mesh": (["brass_mesh"], 0.35, 0.52, 0.18, 5.0),
     "indicator_enamel": (["indicator_enamel"], 0.50, 0.24, 0.12, 1.5),
+    # The retail and bar batch (2026-08-07, design/RETAIL_TEXTURE_
+    # PROMPTS.md). Coverage figures are the ones the prompts asked for
+    # and the generations honoured - the quarry sheet really does read
+    # eight tiles across, so 1.2 m is measured, not hoped for.
+    "red_steel_shelving": (["safety_orange"], 0.80, 0.35, 0.20, 2.5),
+    "quarry_tile_red": (["quarry_tile"], 1.20, 0.72, 0.15, 4.0),
+    "felt_violet": (["felt_violet"], 0.90, 0.94, 0.05, 3.0),
+    "stairwell_teal_paint": (["stairwell_teal"], 1.40, 0.55, 0.25, 5.0),
+    "bar_wall_smoked": (["bar_wall_red"], 1.60, 0.62, 0.20, 3.0),
+    "bar_wall_green": (["bar_wall"], 1.60, 0.60, 0.22, 3.0),
+    "lacquer_red_trim": (["lacquer_red"], 0.50, 0.35, 0.25, 3.5),
+    "couch_vinyl_oxblood": (["vinyl_oxblood"], 0.70, 0.55, 0.18, 3.0),
+    "hoarding_posters": (["hoarding"], 2.00, 0.82, 0.12, 4.0),
+    "awning_vinyl_yellow": (["awning_vinyl"], 1.20, 0.42, 0.18, 2.5),
+    # Two surfaces that live only on GDScript-built signage props, so
+    # they also need GODOT_STAGE below - the Blender build never sees
+    # them and would leave MatLib on flat colour.
+    "sign_board_painted": (["sign_board"], 1.00, 0.72, 0.16, 4.0),
+    "chochin_paper": (["chochin"], 0.50, 0.88, 0.08, 2.5),
 }
 # Sources that are COMPOSITIONS, not tiling swatches.
 #
@@ -174,6 +193,24 @@ PRECROP = {
     "upholstery_cool": 0.82,
     "leaf_surface_v2": 0.82,
     "charred_surface_v2": 0.82,
+    # The retail/bar batch (2026-08-07). Every winner in it came from
+    # Gemini and every one carries the sparkle at ~86%; the _alt
+    # candidates are ChatGPT's and do not, which is exactly why this
+    # table is keyed by file stem.
+    "red_steel_shelving": 0.82,
+    "red_steel_shelving_v3": 0.82,
+    "quarry_tile_red": 0.82,
+    "felt_violet": 0.82,
+    "stairwell_teal_paint": 0.82,
+    "bar_wall_smoked": 0.82,
+    "hoarding_posters": 0.82,
+    "bar_wall_green": 0.82,
+    "lacquer_red_trim": 0.82,
+    "couch_vinyl_oxblood": 0.82,
+    "awning_vinyl_yellow": 0.82,
+    "sign_board_painted": 0.82,
+    "chochin_paper": 0.82,
+    "linen_aged": 0.82,
 }
 
 # hue-rotated companions: source slot -> [(extra key, hue degrees)]
@@ -189,7 +226,10 @@ RECOLOR = {"rug_persian_worn": [("rug_cool", 150.0), ("rug_green", 90.0)]}
 # step somebody has to remember after every regeneration.
 GODOT_STAGE = ("brass_bright", "bronze", "car_paint", "oak_quartered",
                "milk_glass", "bakelite_black", "terrazzo_dark",
-               "brass_mesh", "indicator_enamel")
+               "brass_mesh", "indicator_enamel",
+               # The shopfront signage is built in GDScript too
+               # (harukiya_signage_prop.gd, bodega_signage_prop.gd).
+               "sign_board", "chochin", "awning_vinyl")
 GODOT_TEX = os.path.join(ROOT, "game", "assets", "building", "textures")
 
 
@@ -252,6 +292,17 @@ COLOR_ANCHORS = {
     "chrome": "#A8ACB0", "plant": "#46573A", "paper": "#DFD2B4",
     "fabric_cool": "#4A6274", "fabric_green": "#6E7042",
     "countertop": "#DED4BC", "soot": "#2A2724", "char": "#241F1C",
+    # The retail and bar batch. Measured off the delivered sheets and
+    # then pulled back, because both generators read "signal red" and
+    # "vermilion" as fully saturated primaries - the shelving came in at
+    # 228,26,22 and the lacquer at 206,14,5, which is paint straight
+    # from the tin, not paint that has been in a basement since 1974.
+    "safety_orange": "#A8443A", "quarry_tile": "#9C4A2E",
+    "felt_violet": "#3E2A6E", "stairwell_teal": "#4E7A66",
+    "bar_wall": "#6E7038", "bar_wall_red": "#5C2422",
+    "lacquer_red": "#A83228", "vinyl_oxblood": "#5E2A28",
+    "hoarding": "#8E867C", "awning_vinyl": "#C8A81E",
+    "sign_board": "#C6BCA8", "chochin": "#B03026",
 }
 ANCHOR_STRENGTH = 0.5
 
@@ -406,6 +457,14 @@ GRID_SLOTS = {
     "tin_ceiling", "wainscot_beadboard", "marble_lobby_base",
     "floor_oak_worn", "timber_joist", "walnut_furniture",
     "galvanized_aged", "chrome_brushed",
+    # Anything from the bar batch carrying a module or a direction: the
+    # tile course, the lantern's ribs, the awning's seams, the board's
+    # planks, the lacquer's grain, the felt's nap, and the posters,
+    # which are only right way up. Cross-candidate blending would slide
+    # one gen's module off another's.
+    "quarry_tile_red", "chochin_paper", "awning_vinyl_yellow",
+    "sign_board_painted", "lacquer_red_trim", "felt_violet",
+    "hoarding_posters",
 }
 # mirror of build_orison's ROTATABLE: no direction, quarter turns legal
 ROT_OK = {"concrete_cellar", "plaster_aged", "plaster_stained",

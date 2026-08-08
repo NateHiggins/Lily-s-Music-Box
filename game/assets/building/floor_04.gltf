@@ -1030,7 +1030,8 @@
 			}
 		},
 		{
-			"name":"M_linen_b",
+			"doubleSided":true,
+			"name":"M_linen",
 			"normalTexture":{
 				"index":94,
 				"scale":0.3499999940395355
@@ -4231,18 +4232,18 @@
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_ai_materials_linen_b_normal",
-			"uri":"textures/T_ai_materials_linen_b_normal.png"
+			"name":"T_ai_materials_linen_normal",
+			"uri":"textures/T_ai_materials_linen_normal.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_ai_materials_linen_b_albedo",
-			"uri":"textures/T_ai_materials_linen_b_albedo.png"
+			"name":"T_ai_materials_linen_albedo",
+			"uri":"textures/T_ai_materials_linen_albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"T_ai_materials_linen_b_rough",
-			"uri":"textures/T_ai_materials_linen_b_rough.png"
+			"name":"T_ai_materials_linen_rough",
+			"uri":"textures/T_ai_materials_linen_rough.png"
 		},
 		{
 			"mimeType":"image/png",

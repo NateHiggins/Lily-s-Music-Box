@@ -1,0 +1,12 @@
+{
+  "material": "sign_board",
+  "source": "art/textures/ai_sources/sign_board_painted.png",
+  "generator": "ingest_material_sources.py",
+  "meters_per_tile": 1.0,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

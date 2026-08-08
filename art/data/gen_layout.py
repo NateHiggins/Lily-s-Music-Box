@@ -3973,7 +3973,7 @@ def retail_pass(fl):
     fb("bod_gate", (bx0 + 0.05, -12.02, bx1 - 0.05, -11.94), 2.20, 0.42,
        "chrome")
     fb("bod_awning", (bx0, -13.10, bx1, -11.95), 2.55, 0.10,
-       "fabric_warm")
+       "awning_vinyl")
     # ONE central double-sided gondola run in cheap red steel - three
     # units up the tunnel, aisle both sides
     for gi, (gy0, gy1) in enumerate(((-10.6, -8.6), (-7.8, -5.8),
@@ -4083,30 +4083,30 @@ def retail_pass(fl):
 
     # the slot: lobby at street, 15 treads down, vestibule at bottom
     fb("bar_lob_floor", (SH_W, -30.00, SH_E, FACE), -0.02, 0.04,
-       "terracotta")
+       "quarry_tile")
     RUN = 0.27
     for t in range(15):
         ty1 = -30.00 - t * RUN
         top = -0.175 * (t + 1)
         fb("bar_tread%d" % t, (SH_W, ty1 - RUN, SH_E, ty1), -2.90,
-           2.90 + top, "terracotta")
+           2.90 + top, "quarry_tile")
     fb("bar_vest_floor", (SH_W, RY0, SH_E, -34.05), -2.87, 0.07,
-       "terracotta")
+       "quarry_tile")
     fb("bar_mat", (SH_W + 0.10, -34.60, SH_E - 0.10, -34.10), FLR,
        0.012, "rug_warm")
     # shaft walls, full height street to basement
     fb("bar_shaft_e", (SH_E, RY0 - 0.30, SH_E + 0.30, FACE), -2.90,
-       5.45, "plaster_stained")
+       5.45, "stairwell_teal")
     fb("bar_shaft_s", (SH_W, RY0 - 0.30, SH_E, RY0), -2.90, 5.45,
-       "plaster_stained")
+       "stairwell_teal")
     # west shaft wall doubles as the room's east wall; pierced at the
     # bottom for the red door (opening y -34.90..-33.95)
     fb("bar_wall_e_n", (RX1, -33.95, SH_W, FACE), -2.90, 5.45,
-       "plaster_stained")
+       "stairwell_teal")
     fb("bar_wall_e_s", (RX1, RY0 - 0.30, SH_W, -34.90), -2.90, 5.45,
-       "plaster_stained")
+       "stairwell_teal")
     fb("bar_wall_e_lint", (RX1, -34.90, SH_W, -33.95), -0.77, 2.32,
-       "plaster_stained")
+       "stairwell_teal")
     # litter on the way down
     asm("bar_lit_paper", "papers", 4.70, -31.35, 35, z0=-0.95)
     asm("bar_lit_bott", "bottles", 5.15, -32.85, 0, z0=-1.93)
@@ -4114,15 +4114,15 @@ def retail_pass(fl):
 
     # the room shell
     fb("bar_floor", (RX0 - 0.30, RY0 - 0.30, RX1, RY1 + 0.05), -2.87,
-       0.07, "terracotta")
+       0.07, "quarry_tile")
     fb("bar_ceil", (RX0 - 0.30, RY0 - 0.30, RX1, RY1 + 0.05), -0.15,
        0.43, "soot")
     fb("bar_wall_w", (RX0 - 0.30, RY0 - 0.30, RX0, RY1 + 0.05), -2.87,
-       2.72, "plaster_stained")
+       2.72, "bar_wall")
     fb("bar_wall_s", (RX0, RY0 - 0.30, RX1, RY0), -2.87, 2.72,
-       "plaster_stained")
+       "bar_wall")
     fb("bar_wall_n", (RX0, RY1, RX1, RY1 + 0.38), -2.87, 2.72,
-       "plaster_stained")
+       "bar_wall")
 
     # -- BAR, north long wall: backbar / aisle / counter with red trim
     for bi, bz in enumerate((-1.60, -1.10, -0.65)):
@@ -4143,9 +4143,9 @@ def retail_pass(fl):
        "countertop")
     # the aggressive red trim, canonical
     fb("bar_trim_front", (-4.36, -30.36, 0.96, -30.28), -1.92, 0.20,
-       "terracotta")
+       "lacquer_red")
     fb("bar_trim_ends_w", (-4.36, -30.36, -4.28, -29.54), -1.92, 0.20,
-       "terracotta")
+       "lacquer_red")
     pipe("bar_footrail", (-4.1, -30.55, -2.42), (0.7, -30.55, -2.42),
          0.024, "brass")
     fb("bar_canopy", (-4.45, -30.45, 1.05, -29.45), -0.98, 0.40,
@@ -4153,7 +4153,7 @@ def retail_pass(fl):
     for eid, rect in (("f", (-4.45, -30.51, 1.05, -30.45)),
                       ("w", (-4.51, -30.51, -4.45, -29.45)),
                       ("e", (1.05, -30.51, 1.11, -29.45))):
-        fb("bar_can_rim_%s" % eid, rect, -1.04, 0.10, "terracotta")
+        fb("bar_can_rim_%s" % eid, rect, -1.04, 0.10, "lacquer_red")
     for i, sx in enumerate((-3.8, -2.75, -1.7, -0.65, 0.4)):
         pipe("bar_stool%d_post" % i, (sx, -30.85, FLR),
              (sx, -30.85, FLR + 0.70), 0.04, "chrome")
@@ -4201,7 +4201,7 @@ def retail_pass(fl):
     fb("bar_pool_body", (-1.90, -32.85, 0.40, -31.55), FLR, 0.78,
        "wood_dark")
     fb("bar_pool_felt", (-1.78, -32.73, 0.28, -31.67), FLR + 0.78,
-       0.04, "fabric_cool")
+       0.04, "felt_violet")
     for i, (bx, by, mat) in enumerate((
             (-1.05, -32.35, "enamel"), (-0.70, -32.05, "terracotta"),
             (-0.40, -32.40, "brass"), (-0.10, -31.95, "fabric_green"),
@@ -4213,13 +4213,13 @@ def retail_pass(fl):
 
     # -- RESTROOM, SW cell
     fb("bar_wc_wall_e", (-3.60, RY0, -3.45, -33.90), FLR, 2.60,
-       "plaster_stained")
+       "bar_wall_red")
     fb("bar_wc_wall_n_w", (-5.10, -33.90, -4.55, -33.75), FLR, 2.60,
-       "plaster_stained")
+       "bar_wall_red")
     fb("bar_wc_wall_n_e", (-3.85, -33.90, -3.45, -33.75), FLR, 2.60,
-       "plaster_stained")
+       "bar_wall_red")
     fb("bar_wc_lintel", (-4.55, -33.90, -3.85, -33.75), FLR + 2.05,
-       0.55, "plaster_stained")
+       0.55, "bar_wall_red")
     asm("bar_wc_toilet", "toilet", -4.80, -35.10, 0, z0=FLR)
     asm("bar_wc_sink", "sink_basin", -3.85, -35.15, 0, z0=FLR)
     mk.append({"kind": "door", "id": "F01_BAR_WC_DOOR",
@@ -4285,11 +4285,11 @@ def retail_pass(fl):
              0.030)
     fb("scaf_w_deck", (-25.6, -14.6, -19.9, -9.9), 2.60, 0.06, "plywood")
     fb("scaf_w_hoard", (-20.35, -14.70, -20.15, -9.85), 0.0, 2.55,
-       "plywood")
+       "hoarding")
     fb("scaf_w_hoard2", (-25.6, -10.05, -20.2, -9.85), 0.0, 2.55,
-       "plywood")
+       "hoarding")
     fb("scaf_e_hoard", (20.05, -14.70, 20.25, -9.85), 0.0, 2.55,
-       "plywood")
+       "hoarding")
     fb("scaf_e_deck", (20.0, -14.6, 24.4, -9.9), 2.60, 0.06, "plywood")
     for bay in range(2):
         sx = 20.5 + bay * 1.9
@@ -5461,6 +5461,36 @@ MATERIAL_CATALOG = {
     "leaf_fall": {"base_color": [0.42, 0.28, 0.13, 1.0], "roughness": 0.65},
     "safety_orange": {"base_color": [0.88, 0.22, 0.035, 1.0],
                       "roughness": 0.62},
+    # ---- the retail and bar batch (2026-08-07) -----------------------
+    # Ten surfaces that stood on flat colour until the textures landed.
+    # Base colours here are the fallback the build uses if a material
+    # set is ever missing, so they are set close to the ingested anchor
+    # rather than left at a placeholder: a missing map should read as a
+    # duller version of the right surface, never as a different one.
+    "quarry_tile": {"base_color": [0.42, 0.20, 0.13, 1.0],
+                    "roughness": 0.72},
+    "felt_violet": {"base_color": [0.17, 0.12, 0.32, 1.0],
+                    "roughness": 0.94},
+    "stairwell_teal": {"base_color": [0.20, 0.36, 0.30, 1.0],
+                       "roughness": 0.55},
+    # The Harukiya's two wall colours. Green is the main room and the
+    # colour the place is remembered by; the oxblood is the restroom
+    # cell, where the palette's bruised red goes.
+    "bar_wall": {"base_color": [0.30, 0.31, 0.16, 1.0], "roughness": 0.60},
+    "bar_wall_red": {"base_color": [0.25, 0.10, 0.09, 1.0],
+                     "roughness": 0.62},
+    "lacquer_red": {"base_color": [0.52, 0.14, 0.11, 1.0],
+                    "roughness": 0.35},
+    "vinyl_oxblood": {"base_color": [0.26, 0.12, 0.11, 1.0],
+                      "roughness": 0.55},
+    "hoarding": {"base_color": [0.40, 0.37, 0.34, 1.0], "roughness": 0.82},
+    "awning_vinyl": {"base_color": [0.61, 0.51, 0.09, 1.0],
+                     "roughness": 0.42},
+    # Signage surfaces used only by GDScript props; catalogued so the
+    # audit can see them and GODOT_STAGE has a key to stage.
+    "sign_board": {"base_color": [0.60, 0.56, 0.50, 1.0],
+                   "roughness": 0.72},
+    "chochin": {"base_color": [0.54, 0.15, 0.12, 1.0], "roughness": 0.88},
 }
 
 

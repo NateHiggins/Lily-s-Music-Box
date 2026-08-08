@@ -1,0 +1,12 @@
+{
+  "material": "stairwell_teal_d",
+  "source": "art/textures/ai_sources/stairwell_teal_paint_d.png",
+  "generator": "ingest_material_sources.py",
+  "meters_per_tile": 1.4,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

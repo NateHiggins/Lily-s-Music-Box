@@ -1,0 +1,12 @@
+{
+  "material": "quarry_tile",
+  "source": "art/textures/ai_sources/quarry_tile_red.png",
+  "generator": "ingest_material_sources.py",
+  "meters_per_tile": 1.2,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}
