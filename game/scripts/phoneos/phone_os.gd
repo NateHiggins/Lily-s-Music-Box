@@ -54,7 +54,7 @@ const APPS := [
 	{"id": "cam", "label": "cam", "icon": ["(oo)", "'--'"], "live": true},
 	{"id": "term", "label": "term", "icon": ["$_  ", "    "], "live": true},
 	{"id": "radio", "label": "radio", "icon": ["|)) ", "1610"], "live": true},
-	{"id": "maze", "label": "maze", "icon": ["|_||", "||_|"], "live": false},
+	{"id": "maze", "label": "maze", "icon": ["|_||", "||_|"], "live": true},
 	{"id": "shards", "label": "shards", "icon": ["\\/\\/", "/\\/\\"], "live": false},
 	{"id": "pairs", "label": "pairs", "icon": ["[][]", "[][]"], "live": true},
 	{"id": "sys", "label": "sys", "icon": ["<+>", "   "], "live": true},
@@ -70,6 +70,7 @@ var led_pulse := 0.0
 ## Set by Phone3D so the cam app can report the roll without owning it.
 ## Set by Phone3D. The OS routes to it but never owns it.
 var cart_pairs: CartPairs
+var cart_maze: CartMaze
 
 var camera_roll := 0
 var camera_cap := 40
@@ -156,6 +157,9 @@ func key(action: String, typed := "") -> void:
 		return
 	if app_id == "pairs" and cart_pairs != null:
 		cart_pairs.key(action)
+		return
+	if app_id == "maze" and cart_maze != null:
+		cart_maze.key(action)
 		return
 	if app_id == "cam":
 		match action:
@@ -313,13 +317,12 @@ func _render_home(g: TermGrid) -> void:
 					TermGrid.HI if selected else fg)
 		g.put(x + 4, y + 3, str(app.label), fg)
 		if not app.live:
-			# pairs deals its deck from the camera roll, so once there
-			# are photographs it has something real to say.
-			if str(app.id) == "pairs" and camera_roll >= 8:
-				g.put(x + 1, y + 4, "%d photos ready" % camera_roll,
-						TermGrid.GREEN)
-			else:
-				g.put(x + 2, y + 4, "no cartridge", TermGrid.DIM)
+			g.put(x + 2, y + 4, "no cartridge", TermGrid.DIM)
+		elif str(app.id) in ["pairs", "maze"] and camera_roll > 0:
+			# Both cartridges hide a photograph the player took, so the
+			# tile reports how much there is to find behind them.
+			g.put(x + 1, y + 4, "%d photos ready" % camera_roll,
+					TermGrid.GREEN)
 	g.fill_row(23, TermGrid.BG_ALT)
 	var ticker := ("  CARRIER 1610 PRESENT  //  NO TRANSMITTER FOUND  "
 			+ "//  27 UNREAD  //  SLEEP MODE UNIMPLEMENTED  "
@@ -355,6 +358,7 @@ func _render_app(g: TermGrid) -> void:
 		"radio": _app_radio(g)
 		"sys": _app_sys(g)
 		"pairs": _app_pairs(g)
+		"maze": _app_maze(g)
 		_: _app_cartridge(g, str(app.get("label", app_id)))
 	g.fill_row(23, TermGrid.BG_ALT)
 	g.put(1, 23, "esc: back", TermGrid.DIM, TermGrid.BG_ALT)
@@ -467,6 +471,15 @@ func _app_pairs(g: TermGrid) -> void:
 		g.put_centre(11, "cartridge not loaded", TermGrid.WARN)
 		return
 	g.put(1, 22, cart_pairs.status(), TermGrid.HI)
+
+
+## Also chrome only. Same rule as pairs: paint no background or the
+## maze underneath disappears behind it.
+func _app_maze(g: TermGrid) -> void:
+	if cart_maze == null:
+		g.put_centre(11, "cartridge not loaded", TermGrid.WARN)
+		return
+	g.put(1, 22, cart_maze.status(), TermGrid.HI)
 
 
 ## The remaining HTML games land here once they are ported. Saying so

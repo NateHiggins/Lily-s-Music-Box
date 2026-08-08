@@ -17,6 +17,7 @@ const SHOTS := [
 	{"name": "q_02_raised", "raised": true, "at": 2.6},
 	{"name": "q_03_raised_home", "raised": true, "at": 6.0},
 	{"name": "q_04_pairs", "raised": true, "at": 6.0, "app": "pairs"},
+	{"name": "q_05_maze", "raised": true, "at": 6.0, "app": "maze"},
 ]
 
 var root: Node3D
@@ -50,6 +51,21 @@ func _run() -> void:
 	root.player.rotation.y = deg_to_rad(-152.0)
 	root.player.camera.rotation.x = deg_to_rad(-6.0)
 	root.player.camera.make_current()
+	# Put something on the roll. Both cartridges hide a photograph the
+	# player took, so with an empty roll these frames would show the
+	# game over a dark rectangle and prove nothing about the join.
+	carrier.raised = true
+	carrier.phone.os_sim.screen = PhoneOS.Screen.APP
+	carrier.phone.os_sim.app_id = "cam"
+	carrier.phone.os_sim.gallery_open = false
+	for i in 24:
+		await get_tree().process_frame
+	for i in 3:
+		root.player.rotation.y = deg_to_rad(-152.0 + i * 42.0)
+		for f in 10:
+			await get_tree().process_frame
+		carrier.phone.cam.capture()
+	root.player.rotation.y = deg_to_rad(-152.0)
 	var failures := 0
 	for shot in SHOTS:
 		carrier.raised = bool(shot.raised)
@@ -57,13 +73,31 @@ func _run() -> void:
 		if shot.has("app"):
 			carrier.phone.os_sim.screen = PhoneOS.Screen.APP
 			carrier.phone.os_sim.app_id = str(shot.app)
-			carrier.phone.pairs.start(carrier.phone.cam.roll,
-					func(p): return carrier.phone.cam.load_photo(p))
-			# Turn three up so the frame catches the game mid-play
-			# rather than as sixteen identical backs.
-			for c in [0, 5, 9]:
-				carrier.phone.pairs.cursor = c
-				carrier.phone.pairs.key("ok")
+			var roll: Array = carrier.phone.cam.roll
+			var load_photo := func(p): return carrier.phone.cam.load_photo(p)
+			if str(shot.app) == "pairs":
+				carrier.phone.pairs.start(roll, load_photo)
+				# Turn three up so the frame catches the game mid-play
+				# rather than as sixteen identical backs.
+				for c in [0, 5, 9]:
+					carrier.phone.pairs.cursor = c
+					carrier.phone.pairs.key("ok")
+			elif str(shot.app) == "maze":
+				carrier.phone.maze.start(roll, load_photo, 1)
+				# Roll the marble around for a moment so the shot shows a
+				# trail wiped through the fog, which is the whole look of
+				# the thing. A fresh chamber is just a dark rectangle.
+				carrier.phone.maze.layout(Rect2(10, 32, 460, 304))
+				# A slowly rotating tilt, which is close to what a hand
+				# does when it is hunting rather than aiming. Ten seconds
+				# of it wipes enough fog to see the picture underneath.
+				for i in 640:
+					var a := i * 0.011
+					carrier.phone.maze.tilt_ax = 26.0 * cos(a)
+					carrier.phone.maze.tilt_ay = 26.0 * sin(a * 1.37)
+					carrier.phone.maze.tick(0.016)
+				carrier.phone.maze.tilt_ax = 0.0
+				carrier.phone.maze.tilt_ay = 0.0
 		else:
 			carrier.phone.os_sim.screen = PhoneOS.Screen.HOME \
 					if float(shot.at) > 4.0 else PhoneOS.Screen.MOTD
