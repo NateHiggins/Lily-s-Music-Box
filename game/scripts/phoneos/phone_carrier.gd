@@ -50,6 +50,9 @@ const RAISE_POS := Vector3(0.040, -0.028, -0.122)
 const RAISE_ROT := Vector3.ZERO
 const RAISE_SCALE := 1.30
 const RAISE_SPEED := 6.5
+## The shape the carry and raise poses were posed against. Everything
+## horizontal in them is a fraction of this frame, not a distance.
+const REF_ASPECT := 16.0 / 9.0
 
 var phone: Phone3D
 var raised := false
@@ -102,6 +105,11 @@ func _build_overlay_pass(camera: Camera3D) -> void:
 	var size := get_viewport().get_visible_rect().size
 	_pass_view = SubViewport.new()
 	_pass_view.size = Vector2i(maxi(2, int(size.x)), maxi(2, int(size.y)))
+	# Follow the window. Sized once, the pass keeps the resolution it was
+	# born at and the TextureRect scales it to fit — so resizing the
+	# window, or shipping to a handset whose screen is not the shape of
+	# the desktop it was tuned on, stretches the phone.
+	get_viewport().size_changed.connect(_match_viewport)
 	_pass_view.transparent_bg = true
 	_pass_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	_pass_view.handle_input_locally = false
@@ -205,6 +213,27 @@ func apply_look(rel: Vector2) -> void:
 	_sway.y = clampf(_sway.y - rel.y * 0.016, -5.0, 5.0)
 
 
+## The pass renders at the window's resolution, so it has to be told
+## when that changes.
+func _match_viewport() -> void:
+	if _pass_view == null or not is_inside_tree():
+		return
+	var s := get_viewport().get_visible_rect().size
+	_pass_view.size = Vector2i(maxi(2, int(s.x)), maxi(2, int(s.y)))
+
+
+## How much wider the frame is than the 16:9 it was posed against. The
+## poses were authored at 1280x720 and every offset in them is relative
+## to that shape.
+func _aspect_shift() -> float:
+	if not is_inside_tree():
+		return 1.0
+	var s := get_viewport().get_visible_rect().size
+	if s.y <= 0.0:
+		return 1.0
+	return (s.x / s.y) / REF_ASPECT
+
+
 func _process(delta: float) -> void:
 	_blend = move_toward(_blend, 1.0 if raised else 0.0,
 			delta * RAISE_SPEED)
@@ -227,7 +256,15 @@ func _process(delta: float) -> void:
 	# Applied to the handset, which now lives in the pass world, rather
 	# than to this node, which stays on the camera purely to do the maths.
 	var target: Node3D = phone if phone else self
-	target.position = CARRY_POS.lerp(RAISE_POS, eased) + bob
+	var pose := CARRY_POS.lerp(RAISE_POS, eased)
+	# Hold the phone's place ON SCREEN, not in space. Godot keeps the
+	# VERTICAL fov fixed as the aspect changes, so a fixed offset holds
+	# its height at any shape of window but drifts horizontally: on a
+	# 21.6:9 handset the carried phone had wandered from the bottom-right
+	# corner to about 60% across, which is the middle of the frame and
+	# not where a hand is. Scaling x by the aspect puts it back.
+	pose.x *= _aspect_shift()
+	target.position = pose + bob
 	var rot := CARRY_ROT.lerp(RAISE_ROT, eased)
 	# Sway is damped out as the phone comes up: a readable screen must
 	# not be a moving one, and the hand-lag that sells the carry is
