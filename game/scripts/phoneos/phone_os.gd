@@ -67,6 +67,13 @@ var t := 0.0
 var app_id := ""
 var led_pulse := 0.0
 
+## Set by Phone3D so the cam app can report the roll without owning it.
+var camera_roll := 0
+var camera_cap := 40
+var gallery_index := 0
+var gallery_open := false
+var last_shot := ""
+
 var _term_lines: Array[String] = []
 var _term_input := ""
 var _boot_done_at := 0.0
@@ -143,6 +150,18 @@ func key(action: String, typed := "") -> void:
 			_term_input = ""
 			return
 		screen = Screen.HOME
+		return
+	if app_id == "cam":
+		match action:
+			"up": gallery_open = true
+			"down": gallery_open = false
+			"left":
+				if gallery_open:
+					gallery_index = maxi(0, gallery_index - 1)
+			"right":
+				if gallery_open:
+					gallery_index = mini(maxi(0, camera_roll - 1),
+							gallery_index + 1)
 		return
 	if app_id == "term":
 		if action == "ok":
@@ -288,7 +307,13 @@ func _render_home(g: TermGrid) -> void:
 					TermGrid.HI if selected else fg)
 		g.put(x + 4, y + 3, str(app.label), fg)
 		if not app.live:
-			g.put(x + 2, y + 4, "no cartridge", TermGrid.DIM)
+			# pairs deals its deck from the camera roll, so once there
+			# are photographs it has something real to say.
+			if str(app.id) == "pairs" and camera_roll >= 8:
+				g.put(x + 1, y + 4, "%d photos ready" % camera_roll,
+						TermGrid.GREEN)
+			else:
+				g.put(x + 2, y + 4, "no cartridge", TermGrid.DIM)
 	g.fill_row(23, TermGrid.BG_ALT)
 	var ticker := ("  CARRIER 1610 PRESENT  //  NO TRANSMITTER FOUND  "
 			+ "//  27 UNREAD  //  SLEEP MODE UNIMPLEMENTED  "
@@ -354,11 +379,43 @@ func _app_notes(g: TermGrid) -> void:
 
 
 func _app_cam(g: TermGrid) -> void:
-	g.box(8, 3, 44, 15, TermGrid.DIM)
-	g.put_centre(9, "no viewfinder bound", TermGrid.WARN)
-	g.put_centre(11, "camera hardware answers", TermGrid.DIM)
-	g.put_centre(12, "but nothing is reading it yet", TermGrid.DIM)
-	g.put(10, 16, "shutter: enter", TermGrid.DIM)
+	# Draws CHROME ONLY. Every cell left as a space is a hole the
+	# viewfinder shows through, because Phone3D paints the lens texture
+	# under the grid and TermGrid never fills a cell whose background is
+	# still the default. Writing a box of spaces here would black the
+	# picture out.
+	if gallery_open:
+		_app_gallery(g)
+		return
+	g.put(1, 2, "REC", TermGrid.WARN)
+	g.put(6, 2, "%d/%d" % [camera_roll, camera_cap], TermGrid.HI)
+	if camera_roll >= camera_cap:
+		g.put(16, 2, "roll full - oldest goes", TermGrid.WARN)
+	# corner marks, the way a viewfinder frames rather than a full box
+	for corner in [[2, 4, "+--", "|"], [55, 4, "--+", "|"],
+			[2, 19, "+--", "|"], [55, 19, "--+", "|"]]:
+		g.put(int(corner[0]), int(corner[1]), str(corner[2]),
+				TermGrid.CYAN)
+	g.put(29, 4, "|", TermGrid.CYAN)
+	g.put(29, 19, "|", TermGrid.CYAN)
+	g.put(2, 11, "-", TermGrid.CYAN)
+	g.put(57, 11, "-", TermGrid.CYAN)
+	if last_shot != "":
+		g.put(1, 21, "saved", TermGrid.GREEN)
+	g.put(1, 22, "enter: shutter    up: gallery", TermGrid.DIM)
+
+
+## The roll, one frame at a time, with the picture itself drawn under
+## this by Phone3D exactly as the viewfinder is.
+func _app_gallery(g: TermGrid) -> void:
+	g.put(1, 2, "ROLL", TermGrid.HI)
+	if camera_roll == 0:
+		g.put_centre(11, "no photographs yet", TermGrid.DIM)
+		g.put(1, 22, "down: viewfinder", TermGrid.DIM)
+		return
+	g.put(8, 2, "%d of %d" % [gallery_index + 1, camera_roll],
+			TermGrid.CYAN)
+	g.put(1, 22, "left/right: browse   down: viewfinder", TermGrid.DIM)
 
 
 func _app_dial(g: TermGrid) -> void:

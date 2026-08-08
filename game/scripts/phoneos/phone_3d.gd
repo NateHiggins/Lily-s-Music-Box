@@ -30,6 +30,7 @@ const BODY_D := 0.014
 const SCREEN_MM := Vector2(0.052, 0.0416)   # 5:4, sat above the keys
 
 var os_sim := PhoneOS.new()
+var cam := PhoneCamera.new()
 var screen_viewport: SubViewport
 var screen_material: ShaderMaterial
 
@@ -50,6 +51,8 @@ func _ready() -> void:
 	_build_body()
 	_build_keys()
 	_build_screen()
+	add_child(cam)
+	cam.setup(self)
 	set_process(true)
 
 
@@ -73,6 +76,27 @@ func _build_screen_viewport() -> void:
 
 func _draw_screen() -> void:
 	_canvas.draw_rect(Rect2(0, 0, SCREEN_W, SCREEN_H), TermGrid.BG)
+	# The picture goes UNDER the character grid. The cam app draws only
+	# chrome, so every cell it leaves as a space is a hole this shows
+	# through - which is why that app must never paint a background.
+	if os_sim.screen == PhoneOS.Screen.APP and os_sim.app_id == "cam":
+		var frame := Rect2(24, TermGrid.CH * 3.5,
+				SCREEN_W - 48, TermGrid.CH * 16.0)
+		var tex: Texture2D = null
+		if os_sim.gallery_open:
+			if cam.roll.size() > 0:
+				var i: int = clampi(os_sim.gallery_index, 0,
+						cam.roll.size() - 1)
+				tex = cam.load_photo(str(cam.roll[i]))
+		else:
+			tex = cam.viewfinder_texture()
+		if tex:
+			_canvas.draw_texture_rect(tex, frame, false)
+		# The shutter flash is the torch firing, so it whites the frame
+		# rather than fading it.
+		var f := cam.flash_amount()
+		if f > 0.0:
+			_canvas.draw_rect(frame, Color(1, 1, 1, f * 0.85))
 	os_sim.render().draw(_canvas, _font)
 
 
@@ -308,6 +332,12 @@ func _process(delta: float) -> void:
 		screen_material.set_shader_parameter("t", _t)
 		screen_material.set_shader_parameter("warm", _warm)
 		screen_material.set_shader_parameter("glitch", _glitch)
+	var in_cam: bool = os_sim.screen == PhoneOS.Screen.APP 			and os_sim.app_id == "cam" and not os_sim.gallery_open
+	cam.set_active(in_cam)
+	if in_cam:
+		cam.track(self)
+	os_sim.camera_roll = cam.roll.size()
+	os_sim.camera_cap = PhoneCamera.CAP
 	var pulse: float = 0.35 + 0.65 * absf(sin(os_sim.led_pulse * 1.7))
 	if _led:
 		_led.light_energy = 0.35 * pulse
@@ -322,6 +352,12 @@ func punch_glitch(amount := 1.0) -> void:
 
 
 func key(action: String, typed := "") -> void:
+	# The shutter is intercepted before the OS sees it: inside the cam
+	# app with the gallery closed, enter takes the picture rather than
+	# meaning "open".
+	if action == "ok" and os_sim.screen == PhoneOS.Screen.APP 			and os_sim.app_id == "cam" and not os_sim.gallery_open:
+		os_sim.last_shot = cam.capture()
+		return
 	var before := os_sim.screen
 	os_sim.key(action, typed)
 	if os_sim.screen != before:

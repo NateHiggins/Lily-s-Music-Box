@@ -63,7 +63,17 @@ func setup(player: Node3D, camera: Camera3D) -> void:
 	fill.shadow_enabled = false
 	fill.position = Vector3(0.06, 0.12, 0.12)
 	add_child(fill)
+	# The lens has to share the player's World3D or the viewfinder shows
+	# a correctly-lit void. Deferred because the carrier is parented to
+	# the camera during the building's own _ready, and get_viewport()
+	# only answers once we are actually in the tree.
+	call_deferred("_bind_lens_world")
 	set_process(true)
+
+
+func _bind_lens_world() -> void:
+	if phone and phone.cam and is_inside_tree():
+		phone.cam.bind_world(get_viewport())
 
 
 func toggle_raise() -> void:
