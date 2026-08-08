@@ -103,6 +103,7 @@ var shots: ShotCapture
 var heightmaps: HeightmapPass
 var warehouse: PropWarehouse
 var touch: TouchControls
+var phone_carrier: PhoneCarrier
 var weather: WeatherFX
 var mina_manifestation: MinaCaptionManifestation
 var mina_gameplay: MinaCaseGameplay
@@ -285,6 +286,12 @@ func _ready() -> void:
 	player = PlayerController.new()
 	player.position = GameBoot.b2g([0.0, -9.0, 0.1])  # vestibule
 	add_child(player)
+	# The handset, in the hand that was already carrying the torch.
+	# Parented to the camera, so it needs the player in the tree first.
+	phone_carrier = PhoneCarrier.new()
+	phone_carrier.name = "PhoneCarrier"
+	phone_carrier.setup(player, player.camera)
+	player.phone_carrier = phone_carrier
 	ambient_soundscape = AmbientSoundscape.new()
 	ambient_soundscape.setup(player)
 	add_child(ambient_soundscape)

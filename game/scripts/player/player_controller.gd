@@ -35,6 +35,8 @@ var _shape: CollisionShape3D
 var _capsule: CapsuleShape3D
 var _hand: Node3D
 var _light_mask: TextureRect
+## Set by building_root once the camera exists; the handset rides it.
+var phone_carrier: Node3D
 var _sway_clock := 0.0
 
 
@@ -207,6 +209,10 @@ func apply_look(rel: Vector2) -> void:
 		return
 	rotate_y(-rel.x * MOUSE_SENS)
 	camera.rotate_x(-rel.y * MOUSE_SENS)
+	# The hand trails the view. One look path in, one hand lag out, so
+	# a mouse and a dragged thumb can never disagree about it.
+	if phone_carrier and phone_carrier.has_method("apply_look"):
+		phone_carrier.apply_look(rel)
 	camera.rotation.x = clampf(camera.rotation.x, -1.45, 1.45)
 
 
