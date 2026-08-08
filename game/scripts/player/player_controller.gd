@@ -34,7 +34,7 @@ var touch_input := false
 var _shape: CollisionShape3D
 var _capsule: CapsuleShape3D
 var _hand: Node3D
-var _light_mask: TextureRect
+var _light_mask: PhoneLightMask
 ## Set by building_root once the camera exists; the handset rides it.
 var phone_carrier: Node3D
 var _sway_clock := 0.0
@@ -85,20 +85,11 @@ func _build_hud() -> void:
 	var mask_layer := CanvasLayer.new()
 	mask_layer.layer = 6
 	add_child(mask_layer)
-	_light_mask = TextureRect.new()
-	_light_mask.texture = load("res://assets/ui/phone_light_mask.png")
-	_light_mask.stretch_mode = TextureRect.STRETCH_SCALE
-	_light_mask.anchor_right = 1.0
-	_light_mask.anchor_bottom = 1.0
-	_light_mask.offset_left = -48
-	_light_mask.offset_top = -48
-	_light_mask.offset_right = 48
-	_light_mask.offset_bottom = 48
-	_light_mask.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var blend := CanvasItemMaterial.new()
-	blend.blend_mode = CanvasItemMaterial.BLEND_MODE_MUL
-	_light_mask.material = blend
-	_light_mask.visible = true  # torch starts on; the mask rides with it
+	# Three plates blended live instead of one still image. The mix
+	# answers to sanity pressure, to whether the player is walking, and
+	# to the building intruding - see phone_light_mask.gd.
+	_light_mask = PhoneLightMask.new()
+	_light_mask.setup(self)
 	mask_layer.add_child(_light_mask)
 	var layer := CanvasLayer.new()
 	layer.layer = 7
@@ -197,9 +188,9 @@ func _carry_phone_light(delta: float) -> void:
 	_hand.transform = Transform3D(
 			_hand.transform.basis.slerp(hold.basis, chase),
 			_hand.transform.origin.lerp(hold.origin, chase))
-	if _light_mask != null and _light_mask.visible:
-		_light_mask.position = Vector2(-48, -48) + Vector2(
-				sin(_sway_clock * 1.7) * 9.0, sin(_sway_clock * 3.1) * 7.0)
+	# The beam's own drift lives in the mask shader now, where it can be
+	# scaled by walking speed; nudging the Control here as well would
+	# double it.
 
 
 ## One look path for both a mouse and a dragged thumb, so the two can never

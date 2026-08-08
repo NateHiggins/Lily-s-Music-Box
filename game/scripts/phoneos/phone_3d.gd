@@ -47,6 +47,11 @@ var _font: Font
 var _canvas: Control
 var _led: OmniLight3D
 var _led_mat: StandardMaterial3D
+const TEX := "res://assets/ui/phone/%s.png"
+var _grime: Texture2D
+var _scratches: Texture2D
+var _protector: Texture2D
+var _overlay: Control
 var _screen_quad: MeshInstance3D
 var _glitch := 0.0
 var _warm := 0.0
@@ -55,6 +60,7 @@ var _t := 0.0
 
 func _ready() -> void:
 	_font = TermGrid.make_font()
+	_load_overlays()
 	os_sim.boot()
 	_build_screen_viewport()
 	_build_body()
@@ -81,6 +87,26 @@ func _build_screen_viewport() -> void:
 	_canvas.size = Vector2(SCREEN_W, SCREEN_H)
 	_canvas.draw.connect(_draw_screen)
 	screen_viewport.add_child(_canvas)
+	# The grime layer is its own Control with an ADDITIVE material.
+	# draw_texture_rect uses the CanvasItem's material, so mixing normal
+	# and additive draws in one _draw is not possible - the marks would
+	# composite over the OS instead of adding to it, and pure black
+	# would paint the screen out rather than vanishing.
+	_overlay = Control.new()
+	_overlay.size = Vector2(SCREEN_W, SCREEN_H)
+	var add := CanvasItemMaterial.new()
+	add.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+	_overlay.material = add
+	_overlay.draw.connect(_draw_overlays)
+	screen_viewport.add_child(_overlay)
+
+
+## Load once. Godot caches these, but doing it per frame in a draw call
+## is the kind of thing that is free until it is not.
+func _load_overlays() -> void:
+	_grime = load(TEX % "screen_grime")
+	_scratches = load(TEX % "screen_scratches")
+	_protector = load(TEX % "screen_protector")
 
 
 func _draw_screen() -> void:
@@ -109,7 +135,47 @@ func _draw_screen() -> void:
 	os_sim.render().draw(_canvas, _font)
 
 
+## Fingerprints, scratches and the badly-fitted protector, ADDED over
+## everything the OS drew. They were generated as light marks on pure
+## black, so black contributes nothing and only the marks land. Kept
+## deliberately faint: the right amount of grime is the amount you only
+## notice when it is switched off, and the temptation is always to
+## crank it until you can see it.
+func _draw_overlays() -> void:
+	var full := Rect2(0, 0, SCREEN_W, SCREEN_H)
+	if _grime:
+		_overlay.draw_texture_rect(_grime, full, false,
+				Color(1, 1, 1, 0.16))
+	if _scratches:
+		_overlay.draw_texture_rect(_scratches, full, false,
+				Color(1, 1, 1, 0.22))
+	if _protector:
+		_overlay.draw_texture_rect(_protector, full, false,
+				Color(1, 1, 1, 0.13))
+
+
 ## ---- the object -----------------------------------------------------
+
+## A material wearing one of the delivered photographs. uv1_scale is
+## the number of times the swatch repeats across the part, and it is
+## the whole game here: these are small objects, so a body texture at
+## 1x reads as a blurry smear and at 8x reads as sandpaper. The values
+## below are set from each part's real size against the coverage the
+## prompt asked for.
+func _texmat(file: String, tint: Color, rough: float, metal := 0.0,
+		uv := 1.0) -> StandardMaterial3D:
+	var m := StandardMaterial3D.new()
+	var tex: Texture2D = load(TEX % file)
+	if tex == null:
+		push_warning("phone: missing texture " + file)
+		return _mat(tint, rough, metal)
+	m.albedo_texture = tex
+	m.albedo_color = tint
+	m.roughness = rough
+	m.metallic = metal
+	m.uv1_scale = Vector3(uv, uv, 1.0)
+	return m
+
 
 func _mat(albedo: Color, rough: float, metal := 0.0) -> StandardMaterial3D:
 	var m := StandardMaterial3D.new()
@@ -177,9 +243,16 @@ func _wire(a: Vector3, b: Vector3, colour: Color, sag := 0.004) -> void:
 ## The back is gone, so the build shows, and what holds the whole thing
 ## together is hot glue and the fact that nobody has dropped it.
 func _build_body() -> void:
-	var ivory := _mat(Color("a09681"), 0.74)      # yellowed ABS, pocket-worn
-	var ivory_dk := _mat(Color("7d7565"), 0.78)
-	var chrome := _mat(Color("9aa0aa"), 0.30, 0.92)
+	# The frame is a BlackBerry again, in its own soft-touch. The ivory
+	# was a stand-in for a photograph that did not exist yet; now that
+	# it does, the dark shell is both more accurate and better for the
+	# build, because hot glue and rainbow ribbon read far louder against
+	# black plastic than against cream.
+	var ivory := _texmat("phone_softtouch", Color(1, 1, 1), 0.86, 0.0, 1.6)
+	var ivory_dk := _texmat("phone_softtouch", Color(0.72, 0.72, 0.75),
+			0.88, 0.0, 2.2)
+	var chrome := _texmat("phone_chrome_band", Color(1, 1, 1), 0.34,
+			0.85, 3.0)
 	var w := BODY_W * 0.5
 	var h := BODY_H * 0.5
 	# Front bezel: four rails, so the middle is open and the guts read.
@@ -349,8 +422,12 @@ func _build_guts() -> void:
 ## hand-builds thirty-five keys - but three caps have been replaced
 ## with whatever was in the drawer, and one is simply missing.
 func _build_keys() -> void:
-	var cap := _mat(Color("2a2530"), 0.52)
-	var cap_lit := _mat(Color("353040"), 0.44)
+	# One keycap swatch across a 5 mm cap: the thumb-polish that came
+	# back in the centre of the photograph lands in the centre of every
+	# key, which is exactly where a thumb puts it.
+	var cap := _texmat("phone_keycap", Color(1, 1, 1), 0.54, 0.0, 1.0)
+	var cap_lit := _texmat("phone_keycap", Color(1.15, 1.15, 1.2), 0.44,
+			0.0, 1.0)
 	var odd := _mat(Color("8a5a2c"), 0.50)          # a salvaged cap
 	var hole := _mat(Color("0d0c10"), 0.85)         # one is gone
 	var rows := ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"]
@@ -415,7 +492,7 @@ func _build_screen() -> void:
 	# The panel is a salvaged LCD screwed to the shell through a hole
 	# cut with a craft knife: a dark surround, four brass screws, and
 	# an edge that does not quite line up with the aperture.
-	var surround := _mat(Color("1d1a22"), 0.55)
+	var surround := _texmat("phone_bezel", Color(1, 1, 1), 0.58, 0.0, 1.4)
 	var brass := _mat(Color("c8a54a"), 0.35, 0.80)
 	var sy: float = BODY_H * 0.235
 	_box(Vector3(SCREEN_MM.x + 0.0075, SCREEN_MM.y + 0.0075, 0.0022),
@@ -521,6 +598,7 @@ func _process(delta: float) -> void:
 	_t += delta
 	os_sim.advance(delta)
 	_canvas.queue_redraw()
+	_overlay.queue_redraw()
 	# The panel warms up rather than snapping on, which is most of why
 	# a boot sequence feels like hardware.
 	_warm = minf(1.0, _warm + delta * 0.55)
