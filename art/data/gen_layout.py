@@ -4449,6 +4449,65 @@ def retail_pass(fl):
     pipe("bar_cue", (-6.25, -30.45, FLR + 0.05),
          (-6.00, -30.65, FLR + 1.50), 0.012, "timber")
 
+    # -- DARTS, in the west bay, TO REGULATION.
+    #
+    # The numbers are not decoration: a board's bull sits 1.73 m off the
+    # floor and the oche is 2.37 m from the FACE of the board, and if
+    # either is wrong every player who has ever thrown a dart will feel
+    # it before they can say why. The west bay is the only stretch of
+    # this room with 2.4 m of clear wall and nothing behind the thrower,
+    # which is the other half of the requirement — you do not put a
+    # dartboard where people walk past your elbow.
+    DB_Y = -33.00                      # the lane, between the tables
+    DB_X = -11.42                      # board face, on the west wall
+    DB_Z = FLR + 1.73                  # bull height, off the finished floor
+    OCHE = DB_X + 2.37                 # where the feet go
+    # The cabinet: a plywood box with doors, the way every pub keeps a
+    # board from warping. Doors folded open against the wall.
+    fb("bar_darts_case", (-11.50, DB_Y - 0.55, -11.43, DB_Y + 0.55),
+       DB_Z - 0.62, 1.24, "wood_dark")
+    for sgn in (-1.0, 1.0):
+        fb("bar_darts_door%d" % int(sgn), (-11.49, DB_Y + sgn * 0.56,
+                                           -11.44, DB_Y + sgn * 1.08),
+           DB_Z - 0.60, 1.20, "wood_dark")
+    # The board itself: sisal face, wire ring, a dark surround.
+    pipe("bar_darts_back", (DB_X - 0.02, DB_Y, DB_Z),
+         (DB_X, DB_Y, DB_Z), 0.245, "soot")
+    pipe("bar_darts_face", (DB_X, DB_Y, DB_Z),
+         (DB_X + 0.012, DB_Y, DB_Z), 0.2255, "linen")
+    pipe("bar_darts_treble", (DB_X + 0.012, DB_Y, DB_Z),
+         (DB_X + 0.015, DB_Y, DB_Z), 0.107, "brass")
+    pipe("bar_darts_double", (DB_X + 0.012, DB_Y, DB_Z),
+         (DB_X + 0.015, DB_Y, DB_Z), 0.170, "brass")
+    pipe("bar_darts_bull", (DB_X + 0.014, DB_Y, DB_Z),
+         (DB_X + 0.018, DB_Y, DB_Z), 0.0159, "lacquer_red")
+    # THE OCHE. A brass strip let into the floor, because a chalk line
+    # gets walked off and this one has been argued over.
+    fb("bar_oche", (OCHE - 0.02, DB_Y - 0.38, OCHE + 0.02, DB_Y + 0.38),
+       FLR, 0.006, "brass")
+    # The chalk scoreboard, hung where the thrower can see it without
+    # turning round.
+    fb("bar_darts_score", (-11.49, DB_Y + 1.22, -11.44, DB_Y + 2.10),
+       DB_Z - 0.30, 0.86, "soot")
+    fb("bar_darts_score_rim", (-11.50, DB_Y + 1.18, -11.42, DB_Y + 2.14),
+       DB_Z - 0.34, 0.05, "wood_dark")
+    # The ledge the darts live on, beside the oche. This is the thing
+    # the player actually presses E on — the board is 2.37 m away by
+    # definition, which is well past anybody's reach.
+    fb("bar_darts_ledge", (OCHE - 0.18, DB_Y - 1.02, OCHE + 0.22,
+                           DB_Y - 0.72), FLR + 0.92, 0.05, "wood_dark")
+    pipe("bar_darts_ledge_leg", (OCHE + 0.02, DB_Y - 0.87, FLR),
+         (OCHE + 0.02, DB_Y - 0.87, FLR + 0.92), 0.030, "metal")
+    mk.append({"kind": "darts", "id": "F01_BAR_DARTS", "unit": "SITE",
+               "pos": [OCHE + 0.02, DB_Y - 0.87, FLR + 0.97],
+               "yaw_deg": 0, "exterior": True})
+    # A board unlit is a board nobody uses.
+    mk.append({"kind": "cage_bulb", "id": "F01_BAR_LT_DARTS",
+               "unit": "SITE", "pos": [DB_X + 0.34, DB_Y, DB_Z + 0.78],
+               "yaw_deg": 0, "network": "electrical", "range": 2.6,
+               "energy": 0.5, "navigation": False, "standby": 0.2,
+               "exterior": True})
+
     # -- PLANTS. Canon: tall indoor palms, improbably alive.
     asm("bar_palm0", "plant", -10.20, -29.60, 0, z0=FLR)
     asm("bar_palm1", "plant", 1.35, -37.20, 0, z0=DECK)

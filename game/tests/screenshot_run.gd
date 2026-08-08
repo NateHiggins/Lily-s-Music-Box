@@ -146,6 +146,14 @@ const SHOTS := [
 	# the stage. This is the thing that makes scripts/songbook reachable.
 	{"name": "b_60_songbook", "pos": Vector3(-3.00, -1.35, 34.60),
 	 "look": Vector3(-4.94, -1.55, 35.25), "overlay": false},
+	# Standing at the oche, looking down the throw. The west bay, which
+	# was empty floor until darts went in it.
+	{"name": "b_61_darts", "pos": Vector3(-9.05, -1.45, 33.00),
+	 "look": Vector3(-11.42, -1.14, 33.00), "overlay": false},
+	# And the room from the new west end, which the old b_44 camera
+	# cannot see at all.
+	{"name": "b_62_bar_west", "pos": Vector3(-10.40, -1.30, 30.20),
+	 "look": Vector3(-1.00, -1.90, 35.60), "overlay": false},
 	# The two routes a resident actually has to walk, from eye height at
 	# the Orison's own front door: south across the road to the bar, and
 	# east along the walk to the bodega.

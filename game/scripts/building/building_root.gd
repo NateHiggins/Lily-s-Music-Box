@@ -63,6 +63,7 @@ const PROP_SCRIPTS := {
 	"street_lamp": preload("res://scripts/props/light_fixture_prop.gd"),
 	"songbook_terminal": preload(
 			"res://scripts/props/songbook_terminal_prop.gd"),
+	"darts": preload("res://scripts/props/darts_prop.gd"),
 }
 const NPC_RESIDENTS := [
 	{"unit": "1A", "name": "Evelyn Marsh", "sprite": "evelyn_marsh"},
