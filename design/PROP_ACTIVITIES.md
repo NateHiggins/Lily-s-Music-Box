@@ -29,7 +29,8 @@ list as a gas leak, in the same typeface, at the same priority.
 
 That is the frame. Every chore below is funny because it is on a list
 that should not exist, and the horror works better against it: you are
-bleeding a radiator when the building starts doing something, and the
+replacing a radiator vent orifice when the building starts doing something,
+and the
 work order is still open afterwards.
 
 ### The connective tissue — build this FIRST
@@ -146,29 +147,38 @@ order. Cheap to build, high return.
 
 **RADIATOR — "Balancing the Heat"** (`radiator_prop`, 23) — **BEST
 SATIRE IN THE BUILDING**
-Bleed the air, adjust the valves, balance the system. It is a genuine
-constraint puzzle: total heat is fixed, so warming 6C cools 2B.
+Check the pitch, replace fixed-orifice air vents, and leave every supply
+valve fully open or fully shut. A partly closed valve traps condensate in
+this one-pipe system and hammers; it is a fault, not a heat setting. It is a
+genuine constraint puzzle: total heat is fixed, so a faster vent warming 6C
+cools 2B.
 *Satire:* **you cannot win.** Every resident wants their own warmer and
 the total is constant, so every solution generates a complaint from
 somewhere else, and the complaints arrive by telephone — at your desk.
 The Handbook says the system was balanced in 1913 and requires no
 further attention.
 *Implementation:* `heat_balance.gd`. A flow network over the 23
-radiators; valve positions as the input; per-unit satisfaction as the
-output, feeding the call desk's complaint queue. This is the one that
+radiators; installed vent grades, binary supply state and condensate pitch as
+the inputs; per-unit satisfaction plus hiss/hammer faults as the output,
+feeding the call desk's complaint queue. This is the one that
 most deserves its own module: it is a real system, it is legitimately
 hard, and it is the purest expression of the whole joke.
 
-**BOILER — "Keeping It Lit"** (`boiler_prop`, 1, currently inert)
-Pressure, water level, the pilot. Runs on a slow clock all shift and
-wants attention at inconvenient moments.
+**BOILER — "Keeping It Lit"** (`boiler_prop`, 1, operational)
+Pressure, water level, firebed, draft, coal charge and ash. Runs on a slow
+clock all shift and wants attention at inconvenient moments. There is no
+pilot: this is the original hand-fired coal plant, and the player shovels,
+banks and rakes it rather than pressing a burner reset.
 *Satire:* the boiler is the building's heart and it is older than
 anyone living in it. It has a name on a brass plate and the company
 does not exist.
 *Implementation:* `boiler_tend.gd`. A background state machine that is
 always running whether or not you look, feeding the radiators and the
 hot water. **This is the system the sink and the radiators both hang
-off** — build it before either.
+off.** The boiler exposes independent firing and ash doors, a readable water
+glass, pressure gauge and barometric draft control; low water or a neglected
+fire reduces the one finite heat budget rather than merely changing an
+animation.
 
 **SMOKE DETECTOR — "The Chirp"** (`smoke_detector_prop`, 1 — should be
 many) — **BUILD THIS ONE**

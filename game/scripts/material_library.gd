@@ -38,6 +38,12 @@ const SETS := {
 	"cast_iron": ["T_ai_materials_cast_iron_albedo.png",
 			"T_ai_materials_cast_iron_rough.png",
 			"T_ai_materials_cast_iron_normal.png", 0.40, 0.35, 0.60],
+	# Soot already dressed the Blender-authored chimney and dead furnace, but
+	# the working boiler is a GDScript prop. Staging the same plate here keeps
+	# deposits textured instead of turning them into flat black stickers.
+	"soot": ["T_ai_materials_soot_worn_soot_albedo.png",
+			"T_ai_materials_soot_worn_soot_rough.png",
+			"T_ai_materials_soot_normal.png", 0.55, 0.0, 0.90],
 	# Seventh field = preserve the source alpha. The wear-grease plate is a
 	# placed deposit, not a repeating surface; alpha depth pre-pass keeps its
 	# soft edge while still letting the hob cast and receive honest shadows.

@@ -147,6 +147,22 @@ func _ready() -> void:
 		_pose_toasters(root, String(tp[0]),
 				String(tp[1]) if tp.size() > 1 else "tray")
 		await get_tree().create_timer(0.08).timeout
+	# SHOT_RADIATOR_POSE="3B:partial" exposes the service state in a real
+	# room. The source saying a wheel turns cannot prove that its bench leaves
+	# the handwheel and far-end vent visible and reachable.
+	var radiator_pose := OS.get_environment("SHOT_RADIATOR_POSE")
+	if radiator_pose != "":
+		var rp := radiator_pose.split(":")
+		_pose_radiators(root, String(rp[0]),
+				String(rp[1]) if rp.size() > 1 else "service")
+		await get_tree().create_timer(0.08).timeout
+	# SHOT_BOILER_POSE=service opens both doors and sets readable gauge states
+	# on the installed plant and warehouse copy. A closed source hierarchy
+	# cannot prove that the coal throat exists or that either leaf clears.
+	var boiler_pose := OS.get_environment("SHOT_BOILER_POSE")
+	if boiler_pose != "":
+		_pose_boilers(root, boiler_pose)
+		await get_tree().create_timer(0.10).timeout
 	# The plumbing family has two independent valves and the medicine mirror
 	# is a real door. Inspection poses make water/stopper and leaf clearance
 	# visible in the installed room rather than merely true in source.
@@ -173,6 +189,25 @@ func _ready() -> void:
 		return
 	_build_hud()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func _pose_radiators(node: Node, wanted_unit: String, pose: String) -> void:
+	if node is RadiatorProp:
+		var radiator := node as RadiatorProp
+		if radiator.unit == wanted_unit:
+			match pose:
+				"partial":
+					radiator.set_supply_position(0.50, 0.0)
+				"bad_pitch":
+					radiator.set_pitch(-0.85)
+				"fast_vent":
+					radiator.set_vent_grade(4)
+				_:
+					radiator.set_supply_open(true, 0.0)
+					radiator.set_vent_grade(3)
+			return
+	for child in node.get_children():
+		_pose_radiators(child, wanted_unit, pose)
 
 
 func _pose_fridges(node: Node, wanted_unit: String, pose: String) -> void:
@@ -230,6 +265,13 @@ func _pose_cabinets(node: Node, wanted_unit: String) -> void:
 			cabinet.set_door_open(true, 0.0)
 	for child in node.get_children():
 		_pose_cabinets(child, wanted_unit)
+
+
+func _pose_boilers(node: Node, _pose: String) -> void:
+	if node is BoilerProp:
+		(node as BoilerProp).set_service_pose()
+	for child in node.get_children():
+		_pose_boilers(child, _pose)
 
 
 ## Every room's rectangle, by id, in plan coordinates.

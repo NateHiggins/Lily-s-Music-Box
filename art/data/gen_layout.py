@@ -397,11 +397,15 @@ def apartment(floor_id, stack, z, walls, rooms, markers, furniture):
         rooms.append({"id": prefix + "_MAIN", "unit": unit,
                       "rect": [x0, y0, x1, by], "kind": "living"})
     rx = (x0 + 0.30) if not east else (x1 - 0.30)
+    radiator_y = (y0 + y1) / 2.0
     markers.append({"kind": "radiator",
                     "id": "%s_%s_RADIATOR_01" % (floor_id, stack),
-                    "pos": [rx, (y0 + y1) / 2.0, z],
+                    "pos": [rx, radiator_y, z],
                     "yaw_deg": 90 if not east else -90,
                     "network": "heating", "riser": "H-%s" % stack,
+                    # Seven-to-nine section bodies vary by household but
+                    # never exceed the old 810 mm clearance envelope.
+                    "sections": 7 + sum(ord(ch) for ch in unit) % 3,
                     "unit": unit})
     dress_unit(unit, stack, floor_id, z, furniture, markers, walls)
 
@@ -1389,23 +1393,34 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
 
     # ---- hero overlays: each resident's signature cluster + conductor bodies
     if unit == "2A":    # Mina: ordered caption station, quiet
-        desk_set(f, "2A_desk", x0 + 0.5, cy - 0.7, 1.5, True, 1)
+        # The first desk layout put its west cheek and the first shelf across
+        # the H-A supply wheel. Keep Mina's exact squared arrangement, shifted
+        # 700 mm into the room as one composition so the service end remains
+        # a fitting rather than scenery behind furniture.
+        service_dx = 0.70
+        desk_set(f, "2A_desk", x0 + 0.5 + service_dx, cy - 0.7, 1.5, True, 1)
         for i in range(3):
-            shelf_unit(f, "2A_shelf%d" % i, x0 + 0.4 + i * 1.15, y0 + 3.55,
+            shelf_unit(f, "2A_shelf%d" % i,
+                       x0 + 0.4 + service_dx + i * 1.15, y0 + 3.55,
                        0.95, True, h=1.6, face="n")
-        _furn_box(f, "2A_filing", x0 + 2.1, cy - 0.65, 0.45, 0.6, 0.0,
+        _furn_box(f, "2A_filing", x0 + 2.1 + service_dx, cy - 0.65,
+                  0.45, 0.6, 0.0,
                   1.05, "metal", False)
-        mk("monitor", 1, x0 + 1.1, cy - 0.5, 0.76, -90)
-        mk("lamp", 1, x0 + 0.8, cy - 0.4, 0.76)
+        mk("monitor", 1, x0 + 1.1 + service_dx, cy - 0.5, 0.76, -90)
+        mk("lamp", 1, x0 + 0.8 + service_dx, cy - 0.4, 0.76)
         # the captioner's order: everything squared to the desk edge
         _asm(f, "2A_pinboard", "pinboard", wface + 0.005, cy - 0.45, -90,
              z0=1.05, W=0.95, cards=15, neat=True)
-        _asm(f, "2A_phones", "headphones", x0 + 2.32, cy - 0.35, -90,
+        _asm(f, "2A_phones", "headphones", x0 + 2.32 + service_dx,
+             cy - 0.35, -90,
              z0=1.05)
-        _asm(f, "2A_papers", "papers", x0 + 0.62, cy - 0.30, 0,
+        _asm(f, "2A_papers", "papers", x0 + 0.62 + service_dx,
+             cy - 0.30, 0,
              z0=0.735, n=5)
-        _asm(f, "2A_mug", "mug", x0 + 1.32, cy - 0.60, 40, z0=0.735)
-        _asm(f, "2A_deck", "reeldeck", x0 + 1.72, cy - 0.42, 0, z0=0.735)
+        _asm(f, "2A_mug", "mug", x0 + 1.32 + service_dx,
+             cy - 0.60, 40, z0=0.735)
+        _asm(f, "2A_deck", "reeldeck", x0 + 1.72 + service_dx,
+             cy - 0.42, 0, z0=0.735)
     elif unit == "2C":  # Juno: improvised studio, speakers everywhere
         _furn_box(f, "2C_bench", cx - 1.2, cy - 0.5, 2.4, 0.7, 0.72, 0.05,
                   "metal", False)
@@ -1444,7 +1459,12 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
         mk("monitor", 1, cx - 0.4, cy - 0.3, 0.76, 180)
     elif unit == "3B":  # Omar: repair shop by category
         # bench cluster sits south of the alcove privacy stub at y1-3.15
-        _asm(f, "3B_workbench", "workbench", x0 + 1.5, y0 + 3.37, 180)
+        # It used to sit directly over both radiator fittings. The whole
+        # working cluster moves 900 mm into the room; the wall toolboard stays
+        # on the wall because it is thin enough for a hand to work beneath.
+        bench_dx = 0.90
+        _asm(f, "3B_workbench", "workbench", x0 + 1.5 + bench_dx,
+             y0 + 3.37, 180)
         for i in range(2):
             shelf_unit(f, "3B_tools%d" % i, x0 + 2.85 + i * 1.10,
                        y1 - 0.45, 1.0, True, d=0.4, books=False, face="s")
@@ -1452,21 +1472,27 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
             _furn_box(f, "3B_bin%d" % i, x0 + 2.95 + i * 0.5, y1 - 0.40,
                       0.4, 0.28, 0.5 + (i % 2) * 0.46, 0.24,
                       ("metal", "fabric_cool")[i % 2], False)
-        chair_box(f, "3B_stool", x0 + 1.3, y0 + 2.6, "s")
-        mk("lamp", 1, x0 + 1.0, y0 + 3.5, 0.95)
+        chair_box(f, "3B_stool", x0 + 1.3 + bench_dx, y0 + 2.6, "s")
+        mk("lamp", 1, x0 + 1.0 + bench_dx, y0 + 3.5, 0.95)
         # the bench itself, sorted by category like the man sorts his life
-        _asm(f, "3B_radio", "radio", x0 + 1.35, y0 + 3.22, 180, z0=0.91)
+        _asm(f, "3B_radio", "radio", x0 + 1.35 + bench_dx,
+             y0 + 3.22, 180, z0=0.91)
         _asm(f, "3B_toolboard", "toolboard", wface + 0.005, y0 + 3.27,
              -90, z0=1.15, W=0.9, H=0.65)
-        _asm(f, "3B_tray1", "partstray", x0 + 2.0, y0 + 3.29, -8,
+        _asm(f, "3B_tray1", "partstray", x0 + 2.0 + bench_dx,
+             y0 + 3.29, -8,
              z0=0.91, chassis=True)
-        _asm(f, "3B_tray2", "partstray", x0 + 0.78, y0 + 3.37, 94,
+        _asm(f, "3B_tray2", "partstray", x0 + 0.78 + bench_dx,
+             y0 + 3.37, 94,
              z0=0.91)
-        _asm(f, "3B_jars", "jarrow", x0 + 1.62, y0 + 3.62, 0, z0=0.91,
+        _asm(f, "3B_jars", "jarrow", x0 + 1.62 + bench_dx,
+             y0 + 3.62, 0, z0=0.91,
              n=5)
-        _asm(f, "3B_manuals", "bookpile", x0 + 0.58, y0 + 3.17, 25,
+        _asm(f, "3B_manuals", "bookpile", x0 + 0.58 + bench_dx,
+             y0 + 3.17, 25,
              z0=0.91, n=4)
-        _asm(f, "3B_mug", "mug", x0 + 1.0, y0 + 3.39, 0, z0=0.91,
+        _asm(f, "3B_mug", "mug", x0 + 1.0 + bench_dx,
+             y0 + 3.39, 0, z0=0.91,
              mat="enamel")
         _asm(f, "3B_partscrate", "crate", x0 + 0.38, y0 + 0.30, 8,
              fill="metal")
@@ -1541,8 +1567,13 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
     elif unit == "6A":  # Sacha: capture wall, framed for camera
         _furn_box(f, "6A_deskwall", x0 + 0.4, cy - 1.2, 0.8, 2.6, 0.72,
                   0.05, "trim", False)
-        _furn_box(f, "6A_dwlegs", x0 + 0.5, cy - 1.1, 0.6, 2.4, 0.0, 0.72,
-                  "metal", False)
+        # This used to be one solid 2.4 m steel slab called "legs", hiding
+        # both fittings under the desk. Two honest end frames carry the same
+        # top and leave the radiator service bay open between them.
+        _furn_box(f, "6A_dwleg_s", x0 + 0.5, cy - 1.1, 0.6, 0.12, 0.0,
+                  0.72, "metal", False)
+        _furn_box(f, "6A_dwleg_n", x0 + 0.5, cy + 1.18, 0.6, 0.12, 0.0,
+                  0.72, "metal", False)
         _furn_box(f, "6A_cablerun", x0 + 0.4, cy - 1.5, 2.0, 0.12, 0.013,
                   0.02, "soot", False)
         _furn_box(f, "6A_cot", x0 + 0.4, y1 - 2.5, 0.9, 2.0, 0.0, 0.35,
@@ -1737,7 +1768,7 @@ def apartment_4b(z, walls, rooms, markers, furniture):
         # keeps it on H-B, clear of the galley run and the refrigerator door.
         {"kind": "radiator", "id": "F04_B_RADIATOR_01", "unit": "4B",
          "pos": [-7.96, 7.48, z], "yaw_deg": -90, "network": "heating",
-         "riser": "H-B"},
+         "riser": "H-B", "sections": 8},
         {"kind": "lamp", "id": "F04_B_LAMP_01", "unit": "4B",
          "pos": [-8.15, 6.00, z + 0.76], "yaw_deg": 0,
          "network": "electrical"},
@@ -2267,21 +2298,27 @@ def build_floor(floor_id):
         walls.append(wall((11.30, 2.70), (X_IN, 2.70), PART_T, WALL_H, z, []))
         rooms.append({"id": "B1_COAL", "rect": [11.30, 0.30, X_IN, 2.70],
                       "kind": "coal"})
-        # The plant room tells the building's heating history in one
-        # look: the 1926 coal boiler dead where it stood, the oil boiler
-        # that replaced it piped into the same chimney beside it, and
-        # what is left of the last coal delivery in the bunker.
+        # The plant room tells the building's heating history in one look:
+        # the original 1912 coal boiler is still where the fitters set it,
+        # patched rather than replaced, while every generation of caretaker
+        # has added another valve, clamp and inspection tag around it. The
+        # bleakness is not an abandoned relic beside a modern answer; it is
+        # that the Orison never received the answer. The interactive marker
+        # is the sole owner of that working plant, so no baked duplicate sits
+        # behind it pretending to be history.
         #
         # The heap used to be a rectangular block of SLAB - grey
         # concrete in the shape of a crate, which is what read as a
         # white blob in the corner of the coal room.
-        _asm(furniture, "b1_coal_furnace", "coal_furnace", 9.05, 1.55, 0)
-        _asm(furniture, "b1_modern_boiler", "modern_boiler", 7.35, 1.62, 0)
         _asm(furniture, "b1_coal_heap", "coal_heap", 12.85, 1.50, 0,
              W=0.95, D=1.70, H=0.58)
         markers += [
-            {"kind": "boiler", "id": "B1_BOILER_01", "pos": [10.0, 5.0, z],
-             "yaw_deg": 0, "network": "heating"},
+            # Faces the open service aisle; its rear breeching runs north to
+            # the masonry chimney. The old marker was 3.58 m from the boiler
+            # it purported to operate and spawned a third plant mid-room.
+            {"kind": "boiler", "id": "B1_BOILER_01",
+             "pos": [9.05, 1.55, z], "yaw_deg": 180,
+             "network": "heating"},
             # Against the west party wall in a row, plumbed off one
             # stack. They used to stand up to 2.3 m out in open floor,
             # which reads as machines abandoned mid-delivery rather
@@ -2300,11 +2337,15 @@ def build_floor(floor_id):
         ]
         # ceiling pipe runs: heating headers, corridor mains, riser stubs
         _asm(furniture, "b1_header", "pipe", 0, 0,
-             p0=[-5.85, 0.0, z + 2.38], p1=[10.0, 0.0, z + 2.38], r=0.075)
+             p0=[-5.85, 0.0, z + 2.38], p1=[9.05, 0.0, z + 2.38], r=0.075)
         _asm(furniture, "b1_spur", "pipe", 0, 0,
-             p0=[10.0, 0.0, z + 2.38], p1=[10.0, 4.7, z + 2.38], r=0.075)
+             p0=[9.05, 0.0, z + 2.38], p1=[9.05, 1.55, z + 2.38], r=0.075)
         _asm(furniture, "b1_boilerriser", "pipe", 0, 0,
-             p0=[10.0, 4.7, z + 0.85], p1=[10.0, 4.7, z + 2.38], r=0.11)
+             p0=[9.05, 1.55, z + 1.84], p1=[9.05, 1.55, z + 2.38], r=0.11)
+        # Boiler-owned smoke hood ends above its rear cheek; this building-
+        # owned breeching completes the visible trip to the chimney thimble.
+        _asm(furniture, "b1_boiler_breeching", "pipe", 0, 0,
+             p0=[9.05, 2.08, z + 1.88], p1=[9.90, 9.18, z + 1.88], r=0.17)
         for px in (-5.02, 4.88):
             _asm(furniture, "b1_main_%d" % int(px), "pipe", 0, 0,
                  p0=[px, -8.5, z + 2.42], p1=[px, 8.5, z + 2.42], r=0.07)
@@ -2358,7 +2399,7 @@ def build_floor(floor_id):
         markers += [
             {"kind": "radiator", "id": "F01_LOBBY_RADIATOR_01",
              "pos": [-4.6, -9.3, z], "yaw_deg": 0, "network": "heating",
-             "riser": "H-A", "unit": "LOBBY"},
+             "riser": "H-A", "unit": "LOBBY", "sections": 9},
             # (The old generated mail wall is gone: the functional brass
             # MailBankProp on the east lobby wall is the real one now.)
             # The street-door sconce is gone (2026-08-05). It hung at
@@ -2835,7 +2876,15 @@ def _plate_beside_opening(fl, r):
 
 
 def radiator_pipe_pass(floors):
-    """Continue every heating riser from slab to ceiling."""
+    """Continue every heating riser from slab to ceiling.
+
+    The prop owns its tee, union and valve; this is the building-owned pipe
+    they visibly terminate at. Generator furniture and the legacy radiator
+    marker use opposite yaw signs at runtime. The installed render, not either
+    source transform, rules the end: generator local -x and the prop's marked
+    supply end meet on the same side. Writing the opposite sign put the riser
+    at the air vent even though both source coordinates looked reasonable.
+    """
     for fl in floors:
         if fl["id"] == "ROOF":
             continue
@@ -2848,7 +2897,7 @@ def radiator_pipe_pass(floors):
                 "asm": "pipe", "at": [m["pos"][0], m["pos"][1]],
                 "yaw": m["yaw_deg"], "mat": "metal", "r": 0.022,
                 "local": True,
-                "p0": [0.44, 0.0, 0.0], "p1": [0.44, 0.0, clear_h]})
+                "p0": [-0.52, 0.0, 0.0], "p1": [-0.52, 0.0, clear_h]})
 
 
 def aging_pass(floors):
@@ -6966,6 +7015,59 @@ def _validate_movement(layout):
                         sweep[2] - 0.035, sweep[3] - 0.035):
                     problems.append("%s: stove %s oven sweep blocked by %s"
                                     % (fl["id"], m["id"], oid))
+        # A radiator body pressed neatly against the wall is not proof that
+        # it can be serviced. Check a kneeling person's 48 cm square at BOTH
+        # end fittings: the low supply handwheel and the far air vent. The
+        # body never enters this obstacle list, so there is no self-hit; its
+        # building-owned continuous riser is an asm pipe and is skipped too.
+        for m in fl.get("markers", []):
+            if m.get("kind") != "radiator":
+                continue
+            import math as _m
+            a = _m.radians(m.get("yaw_deg", 0))
+            rx_, ry_ = _m.cos(a), _m.sin(a)     # local +x / fitting ends
+            # Radiators still use the legacy marker convention: yaw 90 is
+            # the west wall facing east, -90 the east wall facing west, and
+            # zero the lobby's south wall facing north.
+            fx_, fy_ = _m.sin(a), _m.cos(a)     # room-facing service side
+            half = (int(m.get("sections", 9)) - 1) * 0.085 * 0.5
+            fittings = (("handwheel", -0.44), ("air vent", half + 0.045))
+            for label, lx in fittings:
+                fitting_x = m["pos"][0] + rx_ * lx
+                fitting_y = m["pos"][1] + ry_ * lx
+                # A fitter can kneel square-on or offset a knee to either
+                # side. Requiring one exact 48 cm square called a sofa 30 cm
+                # from the wheel "unreachable" even though the wheel was in
+                # open air at arm's length. All three approaches must fail
+                # before the build rejects the placement.
+                clear = False
+                blockers = set()
+                for side in (0.0, -0.28, 0.28, -0.55, 0.55):
+                    cx = fitting_x + fx_ * 0.48 + rx_ * side
+                    cy = fitting_y + fy_ * 0.48 + ry_ * side
+                    band = (cx - 0.20, cy - 0.20, cx + 0.20, cy + 0.20)
+                    blocked = False
+                    for oid, bb in obs:
+                        if oid == m["id"]:
+                            continue
+                        # Paint, paper and a 140 mm masonry water table can
+                        # sit behind a hand. They are surfaces at the fitting,
+                        # not floor objects occupying the kneeling square.
+                        if ("_art" in oid or "_poster" in oid or
+                                "_sheet" in oid or "_soot" in oid or
+                                oid.startswith("water_table_")):
+                            continue
+                        if _hit(bb, band[0] + 0.03, band[1] + 0.03,
+                                band[2] - 0.03, band[3] - 0.03):
+                            blocked = True
+                            blockers.add(oid)
+                    if not blocked:
+                        clear = True
+                        break
+                if not clear:
+                    problems.append("%s: radiator %s %s unreachable by %s"
+                                    % (fl["id"], m["id"], label,
+                                       ", ".join(sorted(blockers))))
         # path: unit entry -> living center, an L in either order must
         # be passable at capsule width (a person routes around a chair;
         # they should never have to climb the furniture)
@@ -7159,11 +7261,19 @@ def acoustic_graph(layout):
                       "damping": 0.22, "infection_receptivity": recv,
                       "connections": []})
 
+    # The boiler used to be repeated here as a magic coordinate. It then
+    # stayed in the middle of the room after the actual plant moved. Graph
+    # truth follows the same marker that spawns the functional prop.
+    boiler_marker = next(
+        (m for fl in layout["floors"] for m in fl["markers"]
+         if m.get("id") == "B1_BOILER_01"), None)
+    boiler_pos = boiler_marker["pos"] if boiler_marker else [9.05, 1.55, -2.8]
+
     add("BASEMENT_HEADER_WEST", [-5.85, 0.0, -2.3], "heating",
         "B1_LAUNDRY", 0.6, (30, 400), 12)
     add("BASEMENT_HEADER_EAST", [5.85, 0.0, -2.3], "heating",
         "B1_BOILER", 0.6, (30, 400), 12)
-    add("B1_BOILER_01", [10.0, 5.0, -2.8], "heating", "B1_BOILER", 0.5,
+    add("B1_BOILER_01", boiler_pos, "heating", "B1_BOILER", 0.5,
         (25, 300), 5)
     edges += [("B1_BOILER_01", "BASEMENT_HEADER_EAST"),
               ("BASEMENT_HEADER_EAST", "BASEMENT_HEADER_WEST")]

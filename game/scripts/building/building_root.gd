@@ -67,6 +67,8 @@ const PROP_SCRIPTS := {
 	"darts": preload("res://scripts/props/darts_prop.gd"),
 	"point_ball": preload("res://scripts/props/point_ball_prop.gd"),
 }
+const HEAT_BALANCE_SCRIPT := preload("res://scripts/props/heat_balance.gd")
+const BOILER_TEND_SCRIPT := preload("res://scripts/props/boiler_tend.gd")
 const NPC_RESIDENTS := [
 	{"unit": "1A", "name": "Evelyn Marsh", "sprite": "evelyn_marsh"},
 	{"unit": "1D", "name": "Teresa Vale", "sprite": "teresa_vale"},
@@ -130,6 +132,10 @@ var fourth_wall: FourthWallLayer
 var ambient_soundscape: AmbientSoundscape
 var music_director: OrisonMusicDirector
 var domestic_witnesses: DomesticWitnessSystem
+## One finite steam cycle shared by all twenty-three radiators. Props expose
+## fittings; this model owns the consequence of changing one of them.
+var heat_balance
+var boiler_tend
 var affected_prop_count := 0
 var reality_controllers: Dictionary = {}
 var show_all_floors := false
@@ -200,7 +206,20 @@ func _ready() -> void:
 	# pipeline spawned it under. Props are spawned below, and no case can
 	# fire before the player has sat down, so the ordering is safe.
 	call_interface.world = self
+	heat_balance = HEAT_BALANCE_SCRIPT.new()
+	heat_balance.configure(layout)
 	_spawn_props()
+	# One physical coal plant feeds both systems. The props remain individually
+	# interactable; this clock is only the shared consequence of tending them.
+	var plant := get_node_or_null("B1_BOILER_01") as BoilerProp
+	var water_fixtures: Array[TapProp] = []
+	for child in get_children():
+		if child is TapProp:
+			water_fixtures.append(child)
+	boiler_tend = BOILER_TEND_SCRIPT.new()
+	boiler_tend.name = "BoilerTend"
+	add_child(boiler_tend)
+	boiler_tend.configure(plant, heat_balance, water_fixtures)
 	exterior_detail_pass = ExteriorDetailPass.new()
 	add_child(exterior_detail_pass)
 	exterior_detail_pass.build(layout, floor_nodes["F01"])
@@ -691,6 +710,11 @@ func _spawn_props() -> void:
 				prop.unit = String(m.get("unit", ""))
 				if String(m.get("tray_axis", "")) == "-x":
 					prop.tray_axis = Vector3.LEFT
+			if prop is RadiatorProp:
+				prop.unit = String(m.get("unit", ""))
+				prop.riser = String(m.get("riser", "H-X"))
+				prop.section_count = int(m.get("sections", 9))
+				prop.bind_heat_balance(heat_balance)
 			# A fitting under the entrance marquee hangs off the facade,
 			# not off a storey ceiling. Carried through as a group so the
 			# "too low for its floor" audit can tell the difference

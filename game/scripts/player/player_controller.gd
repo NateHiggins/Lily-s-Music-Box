@@ -261,7 +261,10 @@ func _carry_phone_light(delta: float) -> void:
 
 ## Read the blended plate back off the GPU and hand it to the light.
 func _bake_cookie(delta: float) -> void:
-	if _mask_view == null:
+	# The dummy headless renderer can return a non-null ViewportTexture whose
+	# internal RID is null; asking it for an Image prints an engine error before
+	# the empty-image guard below can run. WalkTest does not render a phone beam.
+	if _mask_view == null or DisplayServer.get_name() == "headless":
 		return
 	_bake_due -= delta
 	if _bake_due > 0.0:

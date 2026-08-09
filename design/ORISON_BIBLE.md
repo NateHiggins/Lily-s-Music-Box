@@ -384,6 +384,23 @@ is that it does not have one.
 Both true, per §I: it is a fire detector in an over-wired building, and
 it is an ear the building never stopped using.
 
+**VIII.5.c — THE HEAT IS ONE-PIPE STEAM.** The Orison's 1912 heating has
+one pipe at each radiator carrying steam out and condensate back. A radiator
+has a bottom-fed supply valve that is healthy only fully open or fully shut,
+an automatic air vent at the far end, and a slight pitch back toward the
+supply. Partly closing the supply traps water and causes hammer. Balancing is
+maintenance, not thermostat work: fit slower or faster vent orifices, correct
+the pitch, and redistribute a fixed boiler cycle. Warming one flat can cool
+another. The radiator carries no signal, so the Rule of Signal simply leaves
+this ordinary, second-hand 1927 machinery in its own period; it supplies no
+further argument about which historically available vent design may exist.
+
+The original 1912 hand-fired coal boiler is still the working plant. It was
+patched, re-jacketed and fitted with replacement controls, but never converted
+or replaced. This is not a claim that oil heat was unavailable in 1927; it is
+the building's history and the maintenance activity's physical premise. The
+coal chute, bunker, ash door and water glass all still have jobs.
+
 ### VIII.6 What this does not license
 
 **The divergence is not a licence for anachronism at will.** The rule of
@@ -395,4 +412,3 @@ And per Accord 9, **ordinary decay still outranks spectacle**. A world
 forty years ahead in signal is not a world of gleaming devices — it is a
 world where the gleaming device is twenty years old, has been repaired
 by four people, and sits on a table with a wonky leg.
-

@@ -588,3 +588,230 @@ of flattening white or disappearing black.
   exercises the standard 2A path and measures the tray's full 160 mm travel.
 - The Blender build, JSON synchronization and Godot import completed in the
   required order before the inspection render.
+
+## `radiator_prop` — American three-column one-pipe steam radiator
+
+### What the real object was
+
+The Orison's six-storey heating is one-pipe steam: one connection admits
+steam and drains condensate in the opposite direction, while an automatic
+air vent at the far end releases air so steam can enter. The American
+Radiator Company's 1922 Corto catalog and Archer A. Landon's 1926 American
+Radiator section patent show the right body language: repeated joined iron
+castings with rounded header shoulders and narrow column waists, not a row of
+independent pipes. William Russell's 1924 automatic radiator air-valve patent
+supplies a period-correct far-end vent precedent. **HISTORICAL; CANONICAL.**
+
+- https://heatinghelp.com/systems-help-center/american-radiator-companys-corto-1922/
+- https://patents.google.com/patent/USD70077S/en
+- https://patents.google.com/patent/US1490940A/en
+- https://www.nyc.gov/assets/nycaccelerator/downloads/pdf/hprt-techprimer-1pipe-steam.pdf
+
+The supply handwheel has healthy endpoints, open or shut. A partly closed
+one-pipe valve admits steam while obstructing the water returning through the
+same throat, causing poor heat and hammer. Building balance therefore belongs
+to vent rate, radiator pitch and the finite boiler cycle rather than a bank of
+twenty-three proportional supply knobs. **HISTORICAL; CANONICAL.**
+
+### What we inherited
+
+- Nine groups of four skinny freestanding cylinders under flat bars: closer
+  to a fence than a joined cast radiator section.
+- Box feet and a straight local pipe ending at an upper brass wheel.
+- No automatic air vent, union, angle-valve body, visible riser branch,
+  condensate pitch or service API.
+- `metal`/`brass` semantic finishes instead of the staged `cast_iron` and
+  `brass_dull` material sets.
+- A continuous baked riser beside the body with no convincing termination.
+- Twenty-three bodies that passed general furnishing checks even where a
+  desk or workbench covered the fittings.
+- An activity document describing hot-water bleeding and proportional valve
+  positions in a one-pipe steam building.
+
+### Built result
+
+Seven-, eight- and nine-section bodies now share a measured maximum clearance
+envelope. Each section is one three-column casting: narrow vertical waterways,
+ellipsoidal shoulders, transverse top/bottom headers, nipple-shadow gaps and
+integral end feet. Dark old enamel and later landlord silver use deterministic
+household variation without creating another material family.
+
+The installed assembly has a bottom-fed union, angle-valve body, rising stem,
+six-spoke handwheel, building-owned slab-to-slab riser and a short prop-owned
+branch visibly joining the two. The opposite upper end carries a removable
+automatic vent with a local downward rust track. A small far-foot wood shim
+records the deliberate pitch toward the supply. The first installed render
+caught the generator/runtime yaw-sign mismatch placing the riser at the vent;
+the final render rules the transform and shows the riser terminating beside
+the supply valve.
+
+`set_supply_open()` gives the healthy binary operation;
+`set_supply_position()` exists so the maintenance activity can deliberately
+demonstrate the partly-closed hammer fault. `set_vent_grade()` exchanges one of
+five fixed service inserts, `set_pitch()` creates or corrects the condensate
+fault, and `get_heat_state()` exposes heat, satisfaction, hiss and hammer.
+Handwheel and vent retain separate named interaction areas after static mesh
+merging.
+
+`heat_balance.gd` is one finite building model over all 23 marker IDs. Faster
+venting raises one radiator's share and reduces the rest; household target
+temperatures turn a mathematically even allocation into an uneven complaint
+problem. It consumes the existing `H-A` through `H-D` identities but does not
+duplicate the acoustic graph: possession continues to travel through the
+already-authored radiator-to-header chain.
+
+The generator now proves five possible angled approaches to both fittings on
+all 23 instances. It exposed three actual furnishing faults. Mina's complete
+caption desk composition moved 700 mm into the room, Omar's complete repair
+bench cluster moved 900 mm, and Sacha's falsely solid 2.4 m "desk legs" became
+two real end frames with an open service bay. Paper, wall art, soot paint and
+the shallow masonry water table are correctly treated as surfaces behind a
+hand rather than floor obstacles.
+
+### Materials and texture prompt batch
+
+`cast_iron`, `brass_dull`, `metal` and the small existing `wood_dark` shim all
+reuse staged runtime sets. No material key or source plate was added, so there
+is no texture-generation batch for this family.
+
+### Render evidence
+
+Before:
+
+- Warehouse blockout — `C:/shots/orison_prop_pass/radiator_before/stand_402_0.85_2.35_180_-10.png`
+- 1D installed — `C:/shots/orison_prop_pass/radiator_before/stand_11.65_1.05_5.325_-90_-8.png`
+
+After:
+
+- Warehouse, seven-section dark — `C:/shots/orison_prop_pass/radiator_after/stand_402_0.90_2.25_180_-8.png`
+- Warehouse, nine-section silver — `C:/shots/orison_prop_pass/radiator_after/stand_406_0.90_2.25_180_-8.png`
+- 1D installed, partly closed service pose — `C:/shots/orison_prop_pass/radiator_after/stand_11.65_1.05_5.325_-90_-8.png`
+- 6A, open service bay beneath capture desk — `C:/shots/orison_prop_pass/radiator_after/stand_-11.65_17.05_5.05_90_-8.png`
+
+Installed frames use `SHOT_LIGHTS=1 SHOT_TORCH=1`; warehouse frames use the
+shed's even inspection light. In the identical 1D crop, median RGB moved from
+**(22, 11, 11)** to **(37, 20, 16)** and luma p10/50/p90 from
+**0.2/13.2/77.7** to **0.3/23.2/80.9**. The body remains black cast iron in a
+night room, but its shoulders, fittings and section gaps no longer disappear.
+
+### Validation
+
+- `python art/data/gen_layout.py` — exit 0: 23 radiator markers, all general
+  movement checks, and both fitting-reach checks on every instance passed.
+- Blender 4.5.12 build — exit 0: 232 mapped materials and all floor scenes
+  exported; generated JSONs copied to the game and Godot 4.7.1 imported them.
+- Real-window warehouse and installed inspection renders completed under the
+  Compatibility renderer; the installed render corrected the first riser-end
+  transform rather than accepting source coordinates as proof.
+- FAST WalkTest exercises all 23 props, preserves the riser graph, forces a
+  partly closed hammer, changes fixed vent grades, proves another flat loses
+  heat, and proves total delivered heat remains constant. Final run:
+  **PASS [FAST] in 12.6 seconds**, with the phone-cookie dummy-renderer warning
+  removed rather than ignored.
+
+## `boiler_prop` — original 1912 hand-fired sectional coal boiler
+
+### What the real object was
+
+American Radiator Company's 1910 *Ideal Fitter* and its 1920 Type A “Heat
+Machine” advertising establish the right class of object: a coal-rated
+cast-iron steam boiler assembled in sections, jacketed to contain heat and
+dust, with long recoaling intervals and automatic draft regulation. A 1904
+water-gauge patent shows that an exposed glass level tube with isolating cocks
+and automatic protection was ordinary steam-boiler hardware well before the
+Orison was built. **HISTORICAL; CANONICAL.**
+
+- https://commons.wikimedia.org/wiki/File:The_Ideal_fitter_-_American_radiators_%26_Ideal_boilers_%28IA_idealfitterradia00amerrich%29.pdf
+- https://usmodernist.org/AF/AF-1920-09.pdf
+- https://patents.google.com/patent/US755456A/en
+
+Oil burners were commercially real in the twenties; their availability is not
+the reason for this choice. The activity's authored premise is that the
+building's heart is older than every resident and still needs to be kept lit.
+One surviving coal plant gives the player a firebed to bank, ash to rake, draft
+to balance and a glass to watch. **FICTION RULING; CANONICAL.**
+
+### What we inherited
+
+- Three incompatible plants: an interactive 1.6 m round vertical tank at
+  `(10.0, 5.0)`, a detailed but dead coal assembly at `(9.05, 1.55)`, and a
+  later oil package at `(7.35, 1.62)`.
+- The functional prop stood 3.58 m from the coal plant and 4.29 m from the oil
+  plant, in open floor, while the acoustic graph repeated the same wrong magic
+  coordinate.
+- Its upper pipe reached roughly 3.25 m through a 2.72 m basement ceiling.
+- A blank gauge disc, one oversized round hatch, no water glass, no grate,
+  no ashpit, no draft control, no return and no credible chimney connection.
+- `PROP_ACTIVITIES.md` asked the player to watch a “pilot,” which belongs to
+  neither a hand-fired coal plant nor the physical tending game described.
+
+### Built result
+
+`B1_BOILER_01` is now the sole owner of the working plant at `(9.05, 1.55)`,
+facing the service aisle. The baked coal and oil shells are removed. The
+rewritten plant-room comment preserves the tableau's historical purpose: this
+room now records a boiler that was never replaced, only patched. Ceiling steam
+header, return and rear breeching visibly meet the prop, and the acoustic node
+derives its position from the same marker instead of repeating a coordinate.
+
+The body is a measured `1.16 x 1.02 m` five-section block on a concrete hearth,
+under 2 m at its own fittings. It carries patched canvas lagging, steel bands,
+an opening firing door, independent ash door, firebrick throat, real grate
+bars and a coal bed inside the opening. A readable water glass has upper and
+lower cocks plus a blow-down tail; the pressure gauge has a live needle. The
+top carries a safety valve, takeoff and equalizer/return, while a weighted
+barometric damper regulates the smoke hood and chimney breeching.
+
+`boiler_tend.gd` advances coal, firebed, ash, draft, pressure and water on one
+slow deterministic clock. Its output multiplies the existing finite radiator
+budget and feeds the hot-water curve on every tap. Low water therefore cools
+the building instead of changing only a gauge animation. The two doors,
+damper, water fill and needle remain rigged; everything inside each rigid
+assembly merges by material. The complete boiler is 19 meshes.
+
+### Materials and texture prompt batch
+
+`cast_iron`, `linen`, `metal`, `brass_dull` and `paper` reuse existing runtime
+sets. `soot` already existed in `MATERIAL_CATALOG` and the source library but
+was absent from `GODOT_STAGE` and `MatLib.SETS`; it now uses the shared charred
+surface maps on the GDScript plant. No material key or source plate was added,
+so there is no texture-generation batch for this family.
+
+### Render evidence
+
+Before:
+
+- Warehouse tank blockout — `C:/shots/orison_prop_pass/boiler_before/stand_398_1.10_-14_180_-6.png`
+- Installed third boiler — `C:/shots/orison_prop_pass/boiler_before/stand_10_-1.30_-7.4_180_-6.png`
+- Separate baked coal and oil shells — `C:/shots/orison_prop_pass/boiler_before/stand_8.4_-1.25_-4.2_180_-5.png`
+
+After:
+
+- Warehouse, closed — `C:/shots/orison_prop_pass/boiler_after/closed2/stand_398_1.10_-14_180_-6.png`
+- Installed, closed — `C:/shots/orison_prop_pass/boiler_after/closed2/stand_9.05_-1.30_0.25_0_-5.png`
+- Installed, both service doors open — `C:/shots/orison_prop_pass/boiler_after/final/stand_9.05_-1.30_0.25_0_-5.png`
+- Installed three-quarter service view — `C:/shots/orison_prop_pass/boiler_after/final/stand_7.65_-1.25_0.10_-22_-6.png`
+
+Installed frames use `SHOT_LIGHTS=1 SHOT_TORCH=1`; the warehouse uses its even
+inspection lighting. The old installed frame's median RGB was **(0, 0, 5)**
+with luma p10/50/p90 **0.0/0.5/26.2**. The closed replacement is
+**(42, 18, 12)** and **0.5/22.6/77.1**: still a night basement, but the water
+glass, jacket, door hardware and gauge now survive the intended light.
+
+### Validation
+
+- `python art/data/gen_layout.py` — exit 0: 1,717 assemblies, 599 markers,
+  23 radiator markers and exactly one boiler marker.
+- Blender 5.2 build — exit 0: 232 mapped materials, 11 shader-only
+  materials, every floor exported and the master blend saved. Generated JSONs
+  were copied to `game/data/`, then Godot 4.7.1 completed its import pass.
+- Material-source audit — 72 staged source slots, 0 problems. The existing
+  charred-surface maps now reach the runtime `soot` set.
+- Real-window warehouse and installed renders completed under the
+  Compatibility renderer. Both the shut and independent two-door service
+  poses were judged from pixels, not from source geometry.
+- FAST WalkTest — **PASS [FAST]**. FULL WalkTest — **PASS [FULL]** at sim x4
+  / 240 Hz in approximately 57 wall-clock seconds. The final assertions report
+  **7.0 meshes per radiator across all 23** and **19 meshes for the boiler**;
+  they also exercise its collider, service zones, independent doors, low-water
+  heat starvation and the tending clock's heat/hot-water feed.

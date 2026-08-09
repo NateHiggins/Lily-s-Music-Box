@@ -45,7 +45,19 @@ func _record_arrival(node_id: String, i: int, _a: float, _p: float,
 		return  # compare like with like: only the motif's downbeat
 	if not _arrivals.has(node_id):
 		_arrivals[node_id] = []
-	_arrivals[node_id].append(Time.get_ticks_msec())
+	# RECORDED IN SIM MILLISECONDS, NOT WALL ONES. Time.get_ticks_msec is
+	# wall clock and does not care about Engine.time_scale, but the thing
+	# being measured — a motif propagating up a riser through the acoustic
+	# graph — runs on scaled delta. At 4x, a 117 ms sweep arrives 26 ms
+	# apart on the wall and the assertion below (30..600) failed a
+	# perfectly healthy building.
+	#
+	# It failed LOUDLY, which is the only reason this is a footnote rather
+	# than a bug hunt: the number in the message was a quarter of what it
+	# should have been and said so. A timing assertion that had been
+	# written as "> 0" would have passed at any speed and quietly stopped
+	# testing anything.
+	_arrivals[node_id].append(int(Time.get_ticks_msec() * _scale))
 
 
 ## Same-loop delta: first F02 downbeat, then the next F05 downbeat at or
@@ -192,6 +204,8 @@ func _run() -> void:
 			"distant lightning source is active")
 	await _plumbing_checks()
 	_toaster_checks()
+	_radiator_checks()
+	_prop_mesh_and_boiler_checks()
 	if not _full:
 		await _finish("FAST")
 		return
@@ -255,20 +269,6 @@ func _run() -> void:
 	_check(moon != null and moon.shadow_enabled,
 			"exterior moon casts directional shadows")
 
-	# Props are modelled as heaps of primitives; the column radiator alone
-	# was 62 MeshInstance3Ds, more than half of all prop geometry in the
-	# building. merge_static() bakes fixed sub-trees down to one mesh per
-	# finish — this guards the win, since the cost is invisible until
-	# something profiles it.
-	var rad_meshes := 0
-	var rad_props := 0
-	for c4 in root.get_children():
-		if c4 is RadiatorProp:
-			rad_props += 1
-			rad_meshes += _count_meshes(c4)
-	_check(rad_props > 0 and float(rad_meshes) / rad_props < 8.0,
-			"radiators stay merged (%.1f meshes each across %d)" %
-			[float(rad_meshes) / maxf(1.0, rad_props), rad_props])
 	_check(ProjectSettings.get_setting(
 			"rendering/occlusion_culling/use_occlusion_culling", false),
 			"occlusion culling is enabled for the project")
@@ -658,6 +658,38 @@ func _toaster_checks() -> void:
 						ToasterProp.TRAY_TRAVEL),
 				"Orison retrofit crumb tray exposes its full service travel")
 		sample.set_crumb_tray_open(false, 0.0)
+
+
+func _radiator_checks() -> void:
+	var radiators := get_tree().get_nodes_in_group("radiators")
+	_check(radiators.size() == 23,
+			"all 23 one-pipe radiators own working fittings")
+	var sample := root.get_node_or_null("F06_C_RADIATOR_01") as RadiatorProp
+	var neighbor := root.get_node_or_null("F02_B_RADIATOR_01") as RadiatorProp
+	_check(sample != null and neighbor != null,
+			"heat balance has radiators on separate floors and risers")
+	if sample == null or neighbor == null:
+		return
+	_check(sample.get_node_or_null("WorkingAssembly/SupplyHandwheel") != null
+			and sample.get_node_or_null(
+					"WorkingAssembly/CastSections/ReplaceableAirVent") != null,
+			"radiator handwheel and replaceable far-end vent remain service parts")
+	var total_before: float = root.heat_balance.total_delivered_heat()
+	var neighbor_before := float(neighbor.get_heat_state().get("heat", 0.0))
+	sample.set_supply_position(0.50, 0.0)
+	_check(bool(sample.get_heat_state().get("hammer", false)),
+			"partly shut one-pipe supply traps condensate and hammers")
+	sample.set_supply_open(true, 0.0)
+	sample.set_vent_grade(0)
+	var slow_heat := float(sample.get_heat_state().get("heat", 0.0))
+	sample.set_vent_grade(4)
+	var fast_heat := float(sample.get_heat_state().get("heat", 0.0))
+	var neighbor_after := float(neighbor.get_heat_state().get("heat", 0.0))
+	_check(fast_heat > slow_heat and neighbor_after < neighbor_before,
+			"faster fixed vent warms one flat by cooling another")
+	_check(is_equal_approx(root.heat_balance.total_delivered_heat(), total_before),
+			"vent changes redistribute a fixed boiler heat cycle")
+	sample.set_vent_grade(2)
 
 
 func _stop_audio(node: Node) -> void:
@@ -1593,6 +1625,50 @@ func _drive_to_response(ci: CallInterface, label: String) -> bool:
 	ok = await _until(func(): return ci.stage == CallInterface.Stage.RESPONSE, 30.0)
 	_check(ok, "%s: reaches RESPONSE" % label)
 	return ok
+
+
+func _prop_mesh_and_boiler_checks() -> void:
+	# Props are modelled as heaps of primitives; keeping the mechanism rigged
+	# does not excuse keeping every spoke and section as its own draw call.
+	var rad_meshes := 0
+	var rad_props := 0
+	for child in root.get_children():
+		if child is RadiatorProp:
+			rad_props += 1
+			rad_meshes += _count_meshes(child)
+	var rad_average := float(rad_meshes) / maxf(1.0, rad_props)
+	_check(rad_props == 23 and rad_average < 8.0,
+			"radiators stay merged (%.1f meshes each across %d)" %
+			[rad_average, rad_props])
+
+	var plant := root.get_node_or_null("B1_BOILER_01") as BoilerProp
+	_check(plant != null, "one functional 1912 coal boiler owns the plant")
+	if plant == null:
+		return
+	_check(plant.global_position.distance_to(Vector3(9.05, -2.8, -1.55)) < 0.02,
+			"boiler marker and physical plant share one position")
+	_check(_count_meshes(plant) < 20,
+			"boiler's long parts list stays merged (%d meshes)" %
+			_count_meshes(plant))
+	_check(plant.get_node_or_null("BoilerCollision") is StaticBody3D,
+			"boiler has a physical service footprint")
+	_check(plant.get_node_or_null("FireDoorReach") is Area3D
+			and plant.get_node_or_null("AshDoorReach") is Area3D
+			and plant.get_node_or_null("WaterGlassReach") is Area3D
+			and plant.get_node_or_null("DraftReach") is Area3D,
+			"coal, ash, water glass and draft remain reachable")
+	plant.set_service_pose()
+	var service := plant.get_boiler_state()
+	_check(bool(service.fire_door_open) and bool(service.ash_door_open),
+			"both tended doors retain independent service poses")
+	var heat_before: float = root.heat_balance.total_delivered_heat()
+	plant.set_water_level(0.05)
+	var heat_starved: float = root.heat_balance.total_delivered_heat()
+	plant.set_water_level(0.62)
+	_check(heat_starved < heat_before * 0.10,
+			"low water at the boiler starves the shared radiator cycle")
+	_check(root.boiler_tend != null,
+			"boiler tending clock feeds heat and domestic hot water")
 
 
 func _floor_below(from: Vector3) -> bool:

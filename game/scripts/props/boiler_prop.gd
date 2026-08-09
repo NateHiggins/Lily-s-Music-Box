@@ -1,59 +1,487 @@
 class_name BoilerProp
 extends FunctionalProp
-## The basement boiler: the building's low-frequency register. Normal:
-## continuous hum. Synced: deep pressure thuds — sparse, heavy, late.
+## The Orison's original 1912 hand-fired coal plant. It was never replaced;
+## every caretaker merely added another clamp, valve or instruction tag. The
+## ordinary operation is already dramatic enough: coal, draft, water and ash
+## must agree before twenty-three radiators receive one finite steam cycle.
 
+signal boiler_state_changed(state: Dictionary)
+
+const W := 1.16
+const D := 1.02
+const BARREL_TOP := 1.62
+
+const IRON := Color(0.20, 0.19, 0.18)
+const IRON_EDGE := Color(0.29, 0.27, 0.25)
+const JACKET := Color(0.66, 0.63, 0.54)
+const STEEL := Color(0.34, 0.33, 0.31)
+const BRASS := Color(0.58, 0.48, 0.27)
+const SOOT := Color(0.09, 0.085, 0.08)
+const PAPER := Color(0.82, 0.76, 0.62)
+const FIREBRICK := Color(0.39, 0.19, 0.12)
+const WATER := Color(0.28, 0.48, 0.52, 0.72)
+
+var pressure := 0.48
+var water_level := 0.62
+var firebed := 0.78
+var draft := 0.54
+var coal_charge := 0.66
+var ash_level := 0.24
+
+var _carcass: Node3D
+var _fire_door: Node3D
+var _ash_door: Node3D
+var _draft_damper: Node3D
+var _gauge_needle: Node3D
+var _water_fill: MeshInstance3D
+var _firebed_mesh: MeshInstance3D
+var _fire_material: StandardMaterial3D
+var _fire_open := false
+var _ash_open := false
+var _fire_tween: Tween
+var _ash_tween: Tween
 var _thud: AudioStreamPlayer3D
+var _settle: AudioStreamPlayer3D
+var _draft_bed: AudioStreamPlayer3D
+var _shake := 0.0
 
 
 func _build_visual() -> void:
-	## Riveted vertical boiler: drum with band seams, domed crown, fire
-	## door with dogged latch, pressure gauge, relief pipe and flue.
-	var iron := Color(0.35, 0.30, 0.28)
-	make_cyl(0.80, 0.84, 1.9, Vector3(0, 0.95, 0), iron, 0.55, 0.3)
-	make_cyl(0.55, 0.80, 0.35, Vector3(0, 2.07, 0), iron, 0.55, 0.3)
-	for bz in [0.45, 1.05, 1.65]:
-		var band := make_ring(0.82, 0.018, Vector3(0, bz, 0),
-				Color(0.28, 0.24, 0.22), 0.5, 0.4)
-		band.rotation_degrees = Vector3(0, 0, 0)
-	var door := make_cyl(0.24, 0.24, 0.10, Vector3(0, 0.62, -0.80),
-			Color(0.24, 0.21, 0.19), 0.5, 0.4)
-	door.rotation_degrees = Vector3(90, 0, 0)
-	var dring := make_ring(0.27, 0.02, Vector3(0, 0.62, -0.78),
-			Color(0.22, 0.19, 0.17), 0.5, 0.4)
-	dring.rotation_degrees = Vector3(90, 0, 0)
-	make_cyl(0.012, 0.012, 0.30, Vector3(0.22, 0.62, -0.83),
-			Color(0.62, 0.55, 0.30), 0.35, 0.7).rotation_degrees = \
-			Vector3(0, 0, 90)                            # latch bar
-	var gauge := make_cyl(0.07, 0.07, 0.04, Vector3(0.45, 1.55, -0.72),
-			Color(0.9, 0.9, 0.86), 0.2)
-	gauge.rotation_degrees = Vector3(90, 0, 0)
-	var gring := make_ring(0.075, 0.012, Vector3(0.45, 1.55, -0.71),
-			Color(0.62, 0.55, 0.30), 0.3, 0.7)
-	gring.rotation_degrees = Vector3(90, 0, 0)
-	make_cyl(0.10, 0.10, 1.2, Vector3(0.55, 2.65, 0.30), iron, 0.5, 0.3)
-	make_cyl(0.045, 0.045, 0.9, Vector3(-0.55, 2.45, -0.25),
-			Color(0.30, 0.28, 0.27), 0.45, 0.4)          # relief pipe
+	add_to_group("boilers")
+	_carcass = Node3D.new()
+	_carcass.name = "StaticPlant"
+	add_child(_carcass)
+	_build_hearth_and_sections()
+	_build_water_column()
+	_build_pressure_gauge()
+	_build_header_and_return()
+	_build_smoke_hood()
+	_build_service_plate()
+	_build_doors()
+	_build_collision()
+
 	retexture(self, [
-		[Color(0.35, 0.30, 0.28), "metal", Color(0.46, 0.41, 0.39), 0.7],
-		[Color(0.28, 0.24, 0.22), "metal", Color(0.40, 0.36, 0.34), 0.7],
-		[Color(0.24, 0.21, 0.19), "metal", Color(0.36, 0.33, 0.31)],
-		[Color(0.22, 0.19, 0.17), "metal", Color(0.34, 0.31, 0.29)],
-		[Color(0.62, 0.55, 0.30), "brass", Color.WHITE],
-		[Color(0.9, 0.9, 0.86), "porcelain", Color.WHITE],
-		[Color(0.30, 0.28, 0.27), "metal", Color(0.44, 0.42, 0.41)],
+		[IRON, "cast_iron", Color(0.34, 0.33, 0.31), 0.72],
+		# Section bosses and door hardware rely on silhouette and grime, not a
+		# second near-identical iron tint that costs another surface everywhere.
+		[IRON_EDGE, "cast_iron", Color(0.34, 0.33, 0.31), 0.72],
+		[JACKET, "linen", Color(0.90, 0.84, 0.69), 0.72],
+		[STEEL, "metal", Color(0.52, 0.50, 0.47), 0.62],
+		[BRASS, "brass_dull", Color(0.80, 0.70, 0.43), 0.62],
+		[SOOT, "soot", Color(0.72, 0.68, 0.64), 0.62],
+		[PAPER, "paper", Color(0.86, 0.78, 0.62), 0.62],
+		[FIREBRICK, "soot", Color(0.56, 0.30, 0.18), 0.48],
 	])
-	var hum := make_emitter("hum_loop", -12.0, true)
-	hum.max_distance = 40.0
-	_thud = make_emitter("thud", -4.0)
+	# The long parts list is not a licence for forty draw calls. The fixed
+	# plant is one mesh per finish; each tended assembly is merged internally
+	# but remains outside the carcass so its transform survives.
+	merge_static(_carcass)
+	merge_static(_fire_door)
+	merge_static(_ash_door)
+	merge_static(_draft_damper)
+	merge_static(_gauge_needle)
+	_fire_material = (_firebed_mesh.material_override as StandardMaterial3D).duplicate()
+	_firebed_mesh.material_override = _fire_material
+
+	_service_area("FireDoorReach", Vector3(0, 1.03, -0.72),
+			Vector3(0.80, 0.62, 0.46))
+	_service_area("AshDoorReach", Vector3(0, 0.43, -0.70),
+			Vector3(0.72, 0.40, 0.42))
+	_service_area("WaterGlassReach", Vector3(0.54, 1.05, -0.55),
+			Vector3(0.30, 0.62, 0.30))
+	_service_area("DraftReach", Vector3(-0.49, 1.28, -0.57),
+			Vector3(0.30, 0.42, 0.30))
+
+	_thud = make_emitter("thud", -15.0)
 	_thud.max_distance = 45.0
+	_settle = make_emitter("tick", -25.0)
+	_settle.max_distance = 24.0
+	# The library has no dedicated coal-draft loop yet. This recorded low
+	# mechanical bed is quiet enough to act as air moving through a masonry
+	# flue, not an electric motor, until the sound pass records the real thing.
+	_draft_bed = make_emitter("hum_loop", -34.0, true)
+	_draft_bed.max_distance = 18.0
+	_apply_state()
+
+
+func _build_hearth_and_sections() -> void:
+	_box(_carcass, Vector3(W + 0.28, 0.10, D + 0.40),
+			Vector3(0, 0.05, -0.10), Color(0.42, 0.40, 0.37))
+	_box(_carcass, Vector3(W, 0.22, D), Vector3(0, 0.21, 0), IRON)
+	# Five joined sections make the silhouette read as bolted heating plant,
+	# not a domestic tank. Narrow seams remain as honest assembly shadows.
+	for i in 5:
+		var x := -0.46 + float(i) * 0.23
+		_box(_carcass, Vector3(0.205, 1.28, D),
+				Vector3(x, 0.94, 0), IRON)
+		for y in [0.41, 1.48]:
+			var boss := _cyl(_carcass, 0.045, 0.045, 0.225,
+					Vector3(x, y, -D * 0.50 - 0.015), IRON_EDGE)
+			boss.rotation_degrees.z = 90.0
+	# Patched canvas/asbestos lagging covers the hot block, held by straps.
+	_box(_carcass, Vector3(W + 0.065, 1.12, D + 0.065),
+			Vector3(0, 1.00, 0), JACKET)
+	for y in [0.56, 0.94, 1.32]:
+		_box(_carcass, Vector3(W + 0.09, 0.035, D + 0.09),
+				Vector3(0, y, 0), STEEL)
+	# A torn inspection patch exposes the dark fibrous edge underneath.
+	_box(_carcass, Vector3(0.22, 0.22, 0.012),
+			Vector3(-0.45, 0.78, -D * 0.5 - 0.040), SOOT)
+	# Soot belongs above the firing opening and fades before the gauge side.
+	_box(_carcass, Vector3(0.50, 0.22, 0.008),
+			Vector3(0.06, 1.37, -D * 0.5 - 0.047), SOOT)
+	# Firebrick throat and grate bars exist behind the opening; an open door
+	# reveals a place coal can actually be put rather than another black card.
+	_box(_carcass, Vector3(0.58, 0.42, 0.06),
+			Vector3(0, 1.03, -D * 0.5 - 0.008), FIREBRICK)
+	for i in 7:
+		var gx := -0.24 + float(i) * 0.08
+		var bar := _cyl(_carcass, 0.012, 0.012, 0.34,
+				Vector3(gx, 0.86, -D * 0.5 - 0.055), IRON_EDGE)
+		bar.rotation_degrees.x = 90.0
+	# Kept outside the static carcass because its emission follows the firebed.
+	_firebed_mesh = _box(self, Vector3(0.46, 0.07, 0.24),
+			Vector3(0, 0.91, -0.34), SOOT)
+
+
+func _build_doors() -> void:
+	_fire_door = Node3D.new()
+	_fire_door.name = "FiringDoor"
+	_fire_door.position = Vector3(-0.33, 1.04, -D * 0.5 - 0.075)
+	add_child(_fire_door)
+	_box(_fire_door, Vector3(0.66, 0.43, 0.055),
+			Vector3(0.33, 0, 0), IRON)
+	for y in [-0.15, 0.15]:
+		_cyl(_fire_door, 0.027, 0.027, 0.12,
+				Vector3(0, y, 0), IRON_EDGE)
+	var fire_latch := _cyl(_fire_door, 0.015, 0.015, 0.22,
+			Vector3(0.57, 0, -0.040), BRASS)
+	fire_latch.rotation_degrees.z = 90.0
+	# Peep slide: the ordinary orange line becomes frightening only when it
+	# appears to blink. It remains a real combustion inspection opening first.
+	make_ring(0.047, 0.009, Vector3(0.23, 0.07, -0.040),
+			IRON_EDGE, 0.58, 0.30, _fire_door).rotation_degrees.x = 90.0
+
+	_ash_door = Node3D.new()
+	_ash_door.name = "AshpitDoor"
+	_ash_door.position = Vector3(-0.29, 0.43, -D * 0.5 - 0.070)
+	add_child(_ash_door)
+	_box(_ash_door, Vector3(0.58, 0.26, 0.05),
+			Vector3(0.29, 0, 0), IRON)
+	for y in [-0.085, 0.085]:
+		_cyl(_ash_door, 0.023, 0.023, 0.10,
+				Vector3(0, y, 0), IRON_EDGE)
+	var ash_latch := _cyl(_ash_door, 0.013, 0.013, 0.18,
+			Vector3(0.50, 0, -0.035), BRASS)
+	ash_latch.rotation_degrees.z = 90.0
+	# Ash on the apron follows the lower opening rather than washing the whole
+	# machine in generic dirt.
+	_box(_carcass, Vector3(0.62, 0.010, 0.27),
+			Vector3(0.06, 0.106, -D * 0.5 - 0.22), SOOT)
+
+
+func _build_water_column() -> void:
+	# Glass tube, separate top and bottom cocks, and a blow-down tail. The
+	# water level is a real moving object because judging it is the activity.
+	var glass_mat := StandardMaterial3D.new()
+	glass_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	glass_mat.albedo_color = Color(0.70, 0.88, 0.90, 0.34)
+	glass_mat.roughness = 0.08
+	glass_mat.metallic = 0.0
+	var tube := _cyl(_carcass, 0.019, 0.019, 0.48,
+			Vector3(0.50, 1.08, -D * 0.5 - 0.075), Color.WHITE)
+	tube.material_override = glass_mat
+	for y in [0.82, 1.34]:
+		_cyl(_carcass, 0.035, 0.035, 0.075,
+				Vector3(0.50, y, -D * 0.5 - 0.075), BRASS)
+		var cock := _cyl(_carcass, 0.010, 0.010, 0.12,
+				Vector3(0.56, y, -D * 0.5 - 0.075), BRASS)
+		cock.rotation_degrees.z = 90.0
+	var fill_mat := StandardMaterial3D.new()
+	fill_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	fill_mat.albedo_color = WATER
+	fill_mat.roughness = 0.14
+	_water_fill = _box(self, Vector3(0.024, 0.28, 0.024),
+			Vector3(0.50, 1.00, -D * 0.5 - 0.075), WATER)
+	_water_fill.name = "GaugeWaterLevel"
+	_water_fill.material_override = fill_mat
+	var blowdown := _cyl(_carcass, 0.016, 0.016, 0.24,
+			Vector3(0.50, 0.67, -D * 0.5 - 0.075), STEEL)
+	blowdown.rotation_degrees.x = 12.0
+	# Mineral track begins at the packing gland and ends at the hearth.
+	_box(_carcass, Vector3(0.075, 0.34, 0.006),
+			Vector3(0.50, 0.54, -D * 0.5 - 0.105), PAPER)
+
+
+func _build_pressure_gauge() -> void:
+	var face := _cyl(_carcass, 0.092, 0.092, 0.038,
+			Vector3(0.31, 1.48, -D * 0.5 - 0.055), PAPER)
+	face.rotation_degrees.x = 90.0
+	make_ring(0.098, 0.010, Vector3(0.31, 1.48, -D * 0.5 - 0.078),
+			BRASS, 0.55, 0.30, _carcass).rotation_degrees.x = 90.0
+	_gauge_needle = Node3D.new()
+	_gauge_needle.name = "PressureNeedle"
+	_gauge_needle.position = Vector3(0.31, 1.48, -D * 0.5 - 0.102)
+	add_child(_gauge_needle)
+	var needle := _box(_gauge_needle, Vector3(0.008, 0.068, 0.006),
+			Vector3(0, 0.030, 0), IRON)
+	needle.position.y = 0.030
+	_cyl(_gauge_needle, 0.012, 0.012, 0.008, Vector3.ZERO, BRASS)
+
+
+func _build_header_and_return() -> void:
+	# The prop owns the fittings up to the old fitter's unions; the generator
+	# owns the long ceiling runs. That seam keeps this serviceable without a
+	# duplicate pipe hiding in the floor mesh.
+	_cyl(_carcass, 0.105, 0.105, 0.28,
+			Vector3(0.05, 1.72, 0.02), IRON_EDGE)
+	var takeoff := _cyl(_carcass, 0.078, 0.078, 0.40,
+			Vector3(0.05, 1.84, 0.02), STEEL)
+	takeoff.position.y = 1.82
+	# Equalizer and low return form a visible Hartford-style loop at the left.
+	_cyl(_carcass, 0.038, 0.038, 0.72,
+			Vector3(-0.49, 0.54, 0.28), STEEL)
+	var return_leg := _cyl(_carcass, 0.038, 0.038, 0.48,
+			Vector3(-0.26, 0.18, 0.28), STEEL)
+	return_leg.rotation_degrees.z = 90.0
+	_cyl(_carcass, 0.055, 0.055, 0.09,
+			Vector3(-0.49, 0.77, 0.28), BRASS)
+	# Safety valve is vertical, with a discharge elbow aimed away from the
+	# person reading the water glass.
+	_cyl(_carcass, 0.042, 0.052, 0.13,
+			Vector3(-0.30, 1.68, -0.10), BRASS)
+	var relief := _cyl(_carcass, 0.022, 0.022, 0.34,
+			Vector3(-0.30, 1.88, -0.10), STEEL)
+	relief.rotation_degrees.z = -18.0
+
+
+func _build_smoke_hood() -> void:
+	_box(_carcass, Vector3(0.68, 0.30, 0.32),
+			Vector3(0, 1.65, D * 0.5 + 0.09), IRON)
+	var collar := _cyl(_carcass, 0.17, 0.17, 0.34,
+			Vector3(0, 1.84, D * 0.5 + 0.30), STEEL)
+	collar.rotation_degrees.x = 90.0
+	# Barometric damper is the tended draft control, a weighted disc in the
+	# breeching rather than a science-fiction slider on the boiler jacket.
+	_draft_damper = Node3D.new()
+	_draft_damper.name = "BarometricDamper"
+	_draft_damper.position = Vector3(-0.20, 1.84, D * 0.5 + 0.30)
+	add_child(_draft_damper)
+	var disc := _cyl(_draft_damper, 0.13, 0.13, 0.025, Vector3.ZERO, STEEL)
+	disc.rotation_degrees.x = 90.0
+	var weight_arm := _cyl(_draft_damper, 0.009, 0.009, 0.22,
+			Vector3(-0.11, -0.03, 0), BRASS)
+	weight_arm.rotation_degrees.z = 90.0
+	_cyl(_draft_damper, 0.025, 0.025, 0.035,
+			Vector3(-0.22, -0.03, 0), BRASS)
+
+
+func _build_service_plate() -> void:
+	# The maker's name has been polished illegible. Two raised rules preserve
+	# the fact of a nameplate without asking an image generator to typeset it.
+	_box(_carcass, Vector3(0.30, 0.13, 0.012),
+			Vector3(-0.20, 1.47, -D * 0.5 - 0.054), BRASS)
+	for y in [1.44, 1.49]:
+		_box(_carcass, Vector3(0.20, 0.008, 0.008),
+				Vector3(-0.20, y, -D * 0.5 - 0.063), IRON_EDGE)
+	# One inspection tag, tied where a hand actually checks the glass.
+	_box(_carcass, Vector3(0.12, 0.16, 0.006),
+			Vector3(0.40, 1.24, -D * 0.5 - 0.112), PAPER)
+
+
+func _build_collision() -> void:
+	var body := StaticBody3D.new()
+	body.name = "BoilerCollision"
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = Vector3(W + 0.16, BARREL_TOP, D + 0.24)
+	shape.shape = box
+	shape.position = Vector3(0, BARREL_TOP * 0.5, 0)
+	body.add_child(shape)
+	add_child(body)
 
 
 func _start_normal_function() -> void:
 	state = PState.OPERATING
 
 
+func interact_prompt() -> String:
+	return "[E]  %s firing door" % ("Close" if _fire_open else "Open")
+
+
+func interact(_player: Node) -> void:
+	set_fire_door_open(not _fire_open)
+
+
+func interact_area(area: Area3D) -> void:
+	match area.name:
+		"AshDoorReach": set_ash_door_open(not _ash_open)
+		"DraftReach": set_draft(wrapf(draft + 0.2, 0.15, 1.01))
+		"WaterGlassReach": blow_down_glass()
+		_: set_fire_door_open(not _fire_open)
+
+
+func set_fire_door_open(open: bool, seconds := 0.55) -> void:
+	_fire_open = open
+	if _fire_tween and _fire_tween.is_valid():
+		_fire_tween.kill()
+	if seconds <= 0.0:
+		_fire_door.rotation.y = deg_to_rad(-95.0 if open else 0.0)
+	else:
+		_fire_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(
+				Tween.EASE_IN_OUT)
+		_fire_tween.tween_property(_fire_door, "rotation:y",
+				deg_to_rad(-95.0 if open else 0.0), seconds)
+	boiler_state_changed.emit(get_boiler_state())
+
+
+func set_ash_door_open(open: bool, seconds := 0.45) -> void:
+	_ash_open = open
+	if _ash_tween and _ash_tween.is_valid():
+		_ash_tween.kill()
+	if seconds <= 0.0:
+		_ash_door.rotation.y = deg_to_rad(-82.0 if open else 0.0)
+	else:
+		_ash_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(
+				Tween.EASE_IN_OUT)
+		_ash_tween.tween_property(_ash_door, "rotation:y",
+				deg_to_rad(-82.0 if open else 0.0), seconds)
+	boiler_state_changed.emit(get_boiler_state())
+
+
+func set_draft(value: float) -> void:
+	draft = clampf(value, 0.0, 1.0)
+	if _draft_damper:
+		_draft_damper.rotation.z = deg_to_rad(lerpf(-28.0, 32.0, draft))
+	_apply_state()
+
+
+func set_water_level(value: float) -> void:
+	water_level = clampf(value, 0.0, 1.0)
+	_apply_state()
+
+
+func set_pressure(value: float) -> void:
+	pressure = clampf(value, 0.0, 1.0)
+	_apply_state()
+
+
+func add_coal(amount := 0.22) -> void:
+	coal_charge = clampf(coal_charge + amount, 0.0, 1.0)
+	firebed = clampf(firebed + amount * 0.72, 0.0, 1.0)
+	ash_level = clampf(ash_level + amount * 0.08, 0.0, 1.0)
+	_apply_state()
+
+
+func rake_grate() -> void:
+	ash_level = maxf(0.0, ash_level - 0.24)
+	firebed = clampf(firebed + 0.08, 0.0, 1.0)
+	_settle.play()
+	_apply_state()
+
+
+func blow_down_glass() -> void:
+	# Clearing sediment briefly drops the visible column. The tending system
+	# restores it from the boiler state rather than pretending water vanished.
+	if _water_fill:
+		var held := water_level
+		set_water_level(0.08)
+		await get_tree().create_timer(0.55, false).timeout
+		if is_inside_tree():
+			set_water_level(held)
+
+
+func tick_plant(sim_seconds: float) -> void:
+	# One shift can neglect the boiler; one conversation cannot. Rates are
+	# deliberately slow and deterministic so render/test timing cannot become
+	# a hidden source of heat-balance failures.
+	var burn := sim_seconds / 1800.0 * lerpf(0.45, 1.25, draft)
+	coal_charge = maxf(0.0, coal_charge - burn)
+	firebed = maxf(0.0, firebed - burn * 0.72)
+	ash_level = clampf(ash_level + burn * 0.38, 0.0, 1.0)
+	pressure = move_toward(pressure, boiler_output(), sim_seconds / 480.0)
+	water_level = clampf(water_level - sim_seconds / 7200.0, 0.0, 1.0)
+	_apply_state()
+
+
+func boiler_output() -> float:
+	var water_factor := clampf((water_level - 0.12) / 0.46, 0.0, 1.0)
+	var ash_factor := lerpf(1.0, 0.48, ash_level)
+	return clampf(firebed * lerpf(0.58, 1.12, draft) * water_factor * ash_factor,
+			0.0, 1.0)
+
+
+func get_boiler_state() -> Dictionary:
+	return {"pressure": pressure, "water_level": water_level,
+			"firebed": firebed, "draft": draft, "coal_charge": coal_charge,
+			"ash_level": ash_level, "output": boiler_output(),
+			"fire_door_open": _fire_open, "ash_door_open": _ash_open}
+
+
+func set_service_pose() -> void:
+	set_fire_door_open(true, 0.0)
+	set_ash_door_open(true, 0.0)
+	set_draft(0.82)
+	set_water_level(0.56)
+	set_pressure(0.68)
+
+
+func _apply_state() -> void:
+	if _water_fill:
+		var h := lerpf(0.018, 0.44, water_level)
+		_water_fill.scale.y = h / 0.28
+		_water_fill.position.y = 0.82 + h * 0.5
+	if _gauge_needle:
+		_gauge_needle.rotation.z = deg_to_rad(lerpf(-118.0, 118.0, pressure))
+	if _fire_material:
+		_fire_material.emission_enabled = firebed > 0.08
+		_fire_material.emission = Color(0.50, 0.070, 0.010) * firebed
+		_fire_material.emission_energy_multiplier = 0.24 + firebed * 0.24
+	if _draft_bed:
+		_draft_bed.volume_db = lerpf(-40.0, -31.0, boiler_output())
+	boiler_state_changed.emit(get_boiler_state())
+
+
 func _perform_synced_event(_index: int, accent: float, _pitch: float) -> void:
-	_thud.volume_db = -6.0 + linear_to_db(clampf(accent, 0.3, 1.0))
-	_thud.pitch_scale = rng.randf_range(0.9, 1.05)
+	_thud.volume_db = -17.0 + linear_to_db(clampf(accent, 0.25, 1.0))
+	_thud.pitch_scale = rng.randf_range(0.78, 0.93)
 	_thud.play()
+	_shake = maxf(_shake, accent * 0.004)
+
+
+func _process(delta: float) -> void:
+	if _shake > 0.0002:
+		_carcass.position = Vector3(rng.randf_range(-_shake, _shake), 0,
+				rng.randf_range(-_shake, _shake))
+		_shake = maxf(0.0, _shake - delta * 0.025)
+	elif _carcass and _carcass.position != Vector3.ZERO:
+		_carcass.position = Vector3.ZERO
+
+
+func _service_area(area_name: String, at: Vector3, size: Vector3) -> void:
+	var area := Area3D.new()
+	area.name = area_name
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = size
+	shape.shape = box
+	shape.position = at
+	area.add_child(shape)
+	add_child(area)
+
+
+func _box(parent: Node3D, size: Vector3, at: Vector3,
+		color: Color) -> MeshInstance3D:
+	var node := MeshInstance3D.new()
+	var mesh := BoxMesh.new()
+	mesh.size = size
+	node.mesh = mesh
+	node.position = at
+	node.material_override = _pmat(color, 0.58, 0.18)
+	parent.add_child(node)
+	return node
+
+
+func _cyl(parent: Node3D, rt: float, rb: float, height: float,
+		at: Vector3, color: Color) -> MeshInstance3D:
+	return make_cyl(rt, rb, height, at, color, 0.56, 0.25, parent)

@@ -248,7 +248,7 @@ RECOLOR = {"rug_persian_worn": [("rug_cool", 150.0), ("rug_green", 90.0)]}
 # step somebody has to remember after every regeneration.
 GODOT_STAGE = ("brass_bright", "brass_dull", "bronze", "car_paint",
                "oak_quartered", "zinc_liner", "copper_aged",
-               "cast_iron", "fx_grease", "nickel_plated", "mica_heater",
+               "cast_iron", "soot", "fx_grease", "nickel_plated", "mica_heater",
                "milk_glass", "bakelite_black", "terrazzo_dark",
                "brass_mesh", "indicator_enamel",
                # The shopfront signage is built in GDScript too
