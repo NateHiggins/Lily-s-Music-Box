@@ -192,9 +192,13 @@ nodes). No panel at all: you walk, you listen, you find it. It is the
 best possible use of a system already built, and it costs almost
 nothing.
 
-**WASHER / DRYER — "Matching"** (`washer_prop`, 3, currently inert)
-Two washers, one dryer, a basket of other people's socks. Timing and
-memory; every match says something about who owns them.
+**WRINGER / AIRER — "Matching"** (`washer_prop`, 2, operational mechanisms;
+`laundry_airer_prop`, 1)
+Two powered wringer washers, two rinse tubs, a ceiling pulley airer and a
+basket of other people's socks. Timing and memory; every match says something
+about who owns them. There is no tumble dryer to turn this into a modern
+laundromat: a garment goes wash, wringer, rinse, wringer, airer, and the game
+uses that physical route.
 *Satire:* laundry is where a building's residents accidentally tell you
 everything about themselves.
 *Already specced in #24.*

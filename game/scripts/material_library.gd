@@ -72,6 +72,12 @@ const SETS := {
 	"mica_heater": ["T_ai_materials_mica_heater_albedo.png",
 			"T_ai_materials_mica_heater_rough.png",
 			"T_ai_materials_mica_heater_normal.png", 0.18, 0.0],
+	# Natural rubber is a contact material, not black Bakelite. Fine checking
+	# and soap bloom survive close inspection while the high roughness keeps
+	# the rollers from reading as two glossy plastic shafts.
+	"rubber_aged": ["T_ai_materials_rubber_aged_albedo.png",
+			"T_ai_materials_rubber_aged_rough.png",
+			"T_ai_materials_rubber_aged_normal.png", 0.26, 0.0, 0.82],
 	"zinc_liner": ["T_ai_materials_zinc_liner_albedo.png",
 			"T_ai_materials_zinc_liner_rough.png",
 			"T_ai_materials_zinc_liner_normal.png", 0.55, 0.12, 0.82],

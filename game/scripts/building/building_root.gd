@@ -30,7 +30,7 @@ const PROP_SCRIPTS := {
 	"lamp": preload("res://scripts/props/lamp_prop.gd"),
 	"corridor_light": preload("res://scripts/props/corridor_light_prop.gd"),
 	"washer": preload("res://scripts/props/washer_prop.gd"),
-	"dryer": preload("res://scripts/props/washer_prop.gd"),
+	"laundry_airer": preload("res://scripts/props/laundry_airer_prop.gd"),
 	"boiler": preload("res://scripts/props/boiler_prop.gd"),
 	"toaster": preload("res://scripts/props/toaster_prop.gd"),
 	"fridge": preload("res://scripts/props/fridge_prop.gd"),
@@ -750,7 +750,8 @@ func _spawn_props() -> void:
 			# keep it until each becomes the sole owner of its own geometry.
 			prop.rotation.y = deg_to_rad(float(m.get("yaw_deg", 0)) \
 					if prop is FridgeProp or prop is StoveProp or prop is TapProp \
-							or prop is ToasterProp \
+							or prop is ToasterProp or prop is WasherProp \
+							or prop is LaundryAirerProp \
 					else -float(m.get("yaw_deg", 0)))
 			add_child(prop)
 			count += 1

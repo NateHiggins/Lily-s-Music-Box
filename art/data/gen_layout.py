@@ -2319,19 +2319,23 @@ def build_floor(floor_id):
             {"kind": "boiler", "id": "B1_BOILER_01",
              "pos": [9.05, 1.55, z], "yaw_deg": 180,
              "network": "heating"},
-            # Against the west party wall in a row, plumbed off one
-            # stack. They used to stand up to 2.3 m out in open floor,
-            # which reads as machines abandoned mid-delivery rather
-            # than a laundry room.
+            # North of the pier, where the pair reads from the doorway as a
+            # pair. At their old 3.55/4.35 positions the masonry never hit a
+            # footprint, so every clearance audit passed, but it hid the
+            # second machine in every honest room view. The 1.15 m centres
+            # also leave room for each wringer head to swing.
             {"kind": "washer", "id": "B1_WASHER_01",
-             "pos": [-13.28, 3.55, z],
+             "pos": [-13.28, 5.45, z],
              "yaw_deg": -90, "network": "water"},
             {"kind": "washer", "id": "B1_WASHER_02",
-             "pos": [-13.28, 4.35, z],
+             "pos": [-13.28, 6.60, z],
              "yaw_deg": -90, "network": "water"},
-            {"kind": "dryer", "id": "B1_DRYER_01",
-             "pos": [-13.28, 5.15, z],
-             "yaw_deg": -90, "network": "electrical"},
+            # A domestic tumble dryer is a 1938 answer in a 1927 room.
+            # Two rinse tubs and the ceiling pulley rack are one interactive
+            # ensemble: the wet garment's actual path after the wringer.
+            {"kind": "laundry_airer", "id": "B1_LAUNDRY_AIRER_01",
+             "pos": [-12.95, 8.05, z],
+             "yaw_deg": -90, "network": "structural"},
             {"kind": "room0_threshold", "id": "B1_ROOM0_DOOR",
              "pos": [0.0, 6.9, z], "yaw_deg": 180, "network": "structural"},
         ]
@@ -2357,6 +2361,16 @@ def build_floor(floor_id):
             _asm(furniture, "b1_riser_%d_%d" % (int(rx * 10), int(ry * 10)),
                  "pipe", 0, 0, p0=[rx, ry, z], p1=[rx, ry, z + 2.62],
                  r=0.06)
+        # Cold supply dedicated to the laundry. The graph used to hang these
+        # water appliances on the steam header; this visible main is also the
+        # physical reason the corrected graph has somewhere honest to go.
+        _asm(furniture, "b1_laundry_water_main", "pipe", 0, 0,
+             p0=[-13.48, 4.95, z + 0.95], p1=[-13.48, 8.55, z + 0.95],
+             r=0.035, mat="metal")
+        for i, wy in enumerate((5.45, 6.60, 8.05)):
+            _asm(furniture, "b1_laundry_water_branch%d" % i, "pipe", 0, 0,
+                 p0=[-13.48, wy, z + 0.95],
+                 p1=[-13.24, wy, z + 0.95], r=0.018, mat="brass_dull")
         # laundry: folding table, baskets, bench under the small windows
         _furn_box(furniture, "b1_foldtable", -10.3, 5.1, 1.6, 0.8, 0.82,
                   0.05, "trim", False)
@@ -6731,7 +6745,7 @@ def _validate_placement(layout):
     wall_kinds = {"door", "radiator", "sconce_globe", "exhaust_fan",
                   "wall_clock", "flue_breast", "door_anomaly", "case_door",
                   "neon_sign"}   # bolted to the facade, by definition
-    floor_kinds = {"washer", "dryer", "boiler", "fridge", "stove", "boxfan",
+    floor_kinds = {"washer", "laundry_airer", "boiler", "fridge", "stove", "boxfan",
                    "speaker", "toaster"}
 
     def point_in_wall(px, py, w):
@@ -7275,6 +7289,10 @@ def acoustic_graph(layout):
         "B1_BOILER", 0.6, (30, 400), 12)
     add("B1_BOILER_01", boiler_pos, "heating", "B1_BOILER", 0.5,
         (25, 300), 5)
+    add("B1_WATER_MAIN", [-13.48, 7.0, -1.85], "water",
+        "B1_LAUNDRY", 0.62, (35, 1800), 14)
+    add("B1_LAUNDRY_JOIST", [-11.8, 7.8, -0.35], "structural",
+        "B1_LAUNDRY", 0.48, (20, 900), 28)
     edges += [("B1_BOILER_01", "BASEMENT_HEADER_EAST"),
               ("BASEMENT_HEADER_EAST", "BASEMENT_HEADER_WEST")]
     by_riser = {}
@@ -7288,10 +7306,18 @@ def acoustic_graph(layout):
                 add(m["id"], [m["pos"][0], m["pos"][1], m["pos"][2] + 0.35],
                     "heating", room=m.get("unit", ""), recv=0.84, delay=38)
                 by_riser.setdefault(m.get("riser", "H-X"), []).append(m)
-            elif m["kind"] in ("washer", "dryer"):
+            elif m["kind"] == "washer":
                 add(m["id"], m["pos"], "water", "B1_LAUNDRY", 0.6,
                     (40, 2000), 20)
-                edges.append((m["id"], "BASEMENT_HEADER_WEST"))
+                edges.append((m["id"], "B1_WATER_MAIN"))
+                # A powered wringer bridges its wet plumbing and the basement
+                # motor circuit. Neither route is the steam header.
+                edges.append((m["id"], "B1_ELECTRICAL_HUB"))
+            elif m["kind"] == "laundry_airer":
+                add(m["id"], m["pos"], "structural", "B1_LAUNDRY", 0.52,
+                    (20, 900), 32)
+                edges.append((m["id"], "B1_LAUNDRY_JOIST"))
+                edges.append(("B1_LAUNDRY_JOIST", "B1_WATER_MAIN"))
             elif m["kind"] in ("lamp", "monitor", "toaster",
                                "boxfan", "speaker", "kettle", "wall_clock",
                                "smoke_detector", "exhaust_fan",
@@ -7450,6 +7476,12 @@ PROP_CATALOG = {
                "preferred_subdivision": 0.5, "timing_drift": 0.05,
                "response_latency": 0.20, "normal_function_priority": 1.0,
                "infection_receptivity": 0.6},
+    "laundry_airer": {
+               "minimum_action_interval": 1.8, "maximum_action_rate": 1,
+               "available_mechanical_events": ["rope_settle", "pulley_tick"],
+               "preferred_subdivision": 0.25, "timing_drift": 0.12,
+               "response_latency": 0.35, "normal_function_priority": 0.0,
+               "infection_receptivity": 0.52},
     "boiler": {"minimum_action_interval": 0.9, "maximum_action_rate": 1,
                "available_mechanical_events": ["thud", "pressure_hiss"],
                "preferred_subdivision": 0.25, "timing_drift": 0.08,
@@ -7682,6 +7714,11 @@ MATERIAL_CATALOG = {
                    "roughness": 0.52, "metallic": 0.80},
     "indicator_enamel": {"base_color": [0.878, 0.835, 0.745, 1.0],
                          "roughness": 0.24},
+    # Natural rubber rollers are the wringer's contact surface. Bakelite is
+    # too hard and glossy, and generic metal turns the silhouette into two
+    # more shafts instead of the part that can take a hand.
+    "rubber_aged": {"base_color": [0.10, 0.09, 0.08, 1.0],
+                    "roughness": 0.82, "metallic": 0.0},
     "metal": {"base_color": [0.55, 0.56, 0.58, 1.0], "roughness": 0.35,
               "metallic": 0.9},
     "slab": {"base_color": [0.35, 0.34, 0.33, 1.0], "roughness": 0.7},

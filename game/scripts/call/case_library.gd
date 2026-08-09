@@ -467,7 +467,7 @@ const CASES := [
 		{"delay": 1.5},
 		{"say": "This is going to sound like a marriage problem. It's an appliance problem. — It's both."},
 		{"delay": 1.0},
-		{"say": "The kettle goes off before either of us raises our voice. Before. The dryer buzzes when one of us is about to apologize. We checked. We keep not-apologizing to test it."},
+		{"say": "The kettle goes off before either of us raises our voice. Before. The icebox latch snaps when one of us is about to apologize. We checked. We keep not-apologizing to test it."},
 		{"delay": 1.5},
 		{"hint": "ANALYSIS: appliance events lead the vocal events. The household is conducting, not reacting."},
 	],
@@ -499,7 +499,7 @@ const CASES := [
 			{"resident": "Noel here. Our kettle hesitated tonight. First time I've heard Cam laugh in a kitchen in a year."},
 		],
 		"remove": [
-			{"hint": "You took the dryer out of the sequence entirely."},
+			{"hint": "You took the icebox latch out of the sequence entirely."},
 			{"mutate": true},
 			{"infection": 0.58},
 			{"delay": 2.0},
@@ -507,7 +507,7 @@ const CASES := [
 			{"delay": 1.4},
 			{"propagate": ["F04_C_MAIN_LT_PENDANT_SHADE", 1, 0.6, -10.0]},
 			{"flag": "routine_haunting"},
-			{"resident": "Cam here. The building ran our whole morning — kettle, shower, dryer — at six a.m. In the empty unit downstairs. Nobody lives there."},
+			{"resident": "Cam here. The building ran our whole morning — kettle, shower, icebox latch — at six a.m. In the empty unit downstairs. Nobody lives there."},
 		],
 		"let_finish": [
 			{"hint": "You let the chorus play the exchange to the end."},

@@ -163,6 +163,13 @@ func _ready() -> void:
 	if boiler_pose != "":
 		_pose_boilers(root, boiler_pose)
 		await get_tree().create_timer(0.10).timeout
+	# SHOT_WASHER_POSE=service opens both wringers and lowers the airer. The
+	# sightline and swing envelope are the reason this family had to be judged
+	# in the room rather than accepted from source coordinates.
+	var washer_pose := OS.get_environment("SHOT_WASHER_POSE")
+	if washer_pose != "":
+		_pose_laundry(root, washer_pose)
+		await get_tree().create_timer(0.10).timeout
 	# The plumbing family has two independent valves and the medicine mirror
 	# is a real door. Inspection poses make water/stopper and leaf clearance
 	# visible in the installed room rather than merely true in source.
@@ -272,6 +279,15 @@ func _pose_boilers(node: Node, _pose: String) -> void:
 		(node as BoilerProp).set_service_pose()
 	for child in node.get_children():
 		_pose_boilers(child, _pose)
+
+
+func _pose_laundry(node: Node, _pose: String) -> void:
+	if node is WasherProp:
+		(node as WasherProp).set_service_pose()
+	elif node is LaundryAirerProp:
+		(node as LaundryAirerProp).set_service_pose()
+	for child in node.get_children():
+		_pose_laundry(child, _pose)
 
 
 ## Every room's rectangle, by id, in plan coordinates.

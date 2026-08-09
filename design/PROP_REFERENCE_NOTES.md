@@ -815,3 +815,103 @@ glass, jacket, door hardware and gauge now survive the intended light.
   **7.0 meshes per radiator across all 23** and **19 meshes for the boiler**;
   they also exercise its collider, service zones, independent doors, low-water
   heat starvation and the tending clock's heat/hot-water feed.
+
+## `washer_prop` + `laundry_airer_prop` — 1920s basement wash line
+
+### What the real objects were
+
+An electric domestic washer in 1927 was an open tub on a frame, with an
+electric gyrator below and a separate powered wringer above. Maytag's 1922
+gyrator machines establish the mechanism and date; the operator still moved a
+garment by hand through wash, rollers and rinse. Automatic tumble drying did
+not belong here: the first domestic machines followed in the 1930s, with the
+Hamilton June Day appearing in 1938. A shared tenement room dried on a raised
+wooden-lath pulley airer. **HISTORICAL; CANONICAL.**
+
+The Orison's machines use patched galvanised steel rather than the cast
+aluminium associated with surviving Maytags. That keeps ordinary, non-signal
+technology inside the 1927 rule and records a maintenance history instead of
+making this basement a showroom. **FICTION RULING; CANONICAL.**
+
+### What we inherited
+
+- Three modern front-loading cubes at 0.80 m centres, including an automatic
+  tumble dryer which post-dated the setting.
+- Coin-laundry portholes, programme dials and sealed drums; none of the parts
+  requested by `PROP_ACTIVITIES.md` could physically move.
+- The brick pier did not collide with the row, but concealed its second and
+  third machines from the room's useful approach.
+- Both wet machines and the dryer were water nodes connected to the steam
+  header. There was no cold-water-main node.
+- No rinse stage, drying apparatus, supply cocks, drain, safety release or
+  hand-reachable service points.
+
+### Built result
+
+The dryer is gone. Two electrically powered wringer washers stand 1.15 m apart
+north of the pier, with two open rinse tubs and a ceiling pulley airer completing
+the real wash path. Each washer has a hollow tub, bottom gyrator, independent
+lid, swinging yoke, two rubber rollers, pressure screw, safety release, exposed
+motor guard, belt housing, paired supply cocks and drain. The stable service API
+opens the lid, swings the wringer, separates the rollers, runs agitation and
+drain states, and makes the release give fractionally before the player touches
+it. The ensemble supplies five named reach zones per washer and separate rinse
+and airer zones.
+
+The two washers bridge a real `B1_WATER_MAIN` and the electrical hub. The airer
+runs through the laundry joists. None of them uses the steam header. The 4C case
+beat now predicts a tiny icebox-latch sound—never a compressor—before voices
+rise. Static parts merge by material; only the lid, gyrator, yoke, rollers,
+pressure screw and release remain independently rigged.
+
+### Materials and texture prompt batch
+
+`enamel`, `brass_dull`, `wood_dark`, `linen` and the existing `zinc_liner`
+response are reused. The last is deliberately used for the broad galvanised
+faces: generic high-metallic steel rendered nearly black under the real
+basement lamps, while dull zinc preserves both oxidation and silhouette.
+`rubber_aged` is the one new catalog, ingest, staged and runtime material.
+
+Paste-ready source prompt:
+
+> square, high resolution, seamless tileable PBR material swatch, flat
+> evenly-lit document scan, close crop of an aged black natural-rubber wringer
+> roller, fine vulcanised grain, compressed polished band where wet fabric has
+> passed, faint chalk bloom and hairline age checking, restrained 1920s service
+> wear, no baked directional light, no perspective, no object silhouette, no
+> letters, numbers, words, labels, brands or logos
+
+### Render evidence
+
+Before:
+
+- Warehouse modern washer — `C:/shots/orison_prop_pass/washer_before/stand_410_1.15_14.35_0_-7.png`
+- Installed front-loader row — `C:/shots/orison_prop_pass/washer_before/stand_-11.15_-1.30_-4.35_90_-7.png`
+
+After:
+
+- Warehouse wringer — `C:/shots/orison_prop_pass/washer_after/normal/stand_410_1.15_14.35_0_-7.png`
+- Warehouse rinse tubs and airer — `C:/shots/orison_prop_pass/washer_after/normal/stand_398_1.25_2.85_0_-8.png`
+- Installed complete line — `C:/shots/orison_prop_pass/washer_after/final_normal/stand_-9.65_-1.25_-6.55_90_-7.png`
+- Installed service pose — `C:/shots/orison_prop_pass/washer_after/final_service/stand_-9.65_-1.25_-6.55_90_-7.png`
+
+Installed frames use `SHOT_LIGHTS=1 SHOT_TORCH=1`. Replacing the broad-face
+generic metal response with dull zinc moved the washer-region median luminance
+from **60 to 68** and the tub-region median from **27 to 35** in the same crop.
+The result stays dim and dirty, but the object boundaries now survive the
+intended room light.
+
+### Validation
+
+- `python art/data/gen_layout.py` — exit 0: 1,721 assemblies, 599 markers,
+  exactly two washers and one airer ensemble; no dryer marker remains.
+- Blender 5.2 build — exit 0: 233 mapped materials, 11 shader-only materials,
+  all floors exported and generated JSON copied to `game/data/`; Godot 4.7.1
+  completed the import pass.
+- Material-source audit — 73 staged source slots, 0 problems.
+- FAST WalkTest — **PASS [FAST]**. It verifies count, 1.15 m spacing, all reach
+  zones, service motion, the lowered airer, a **28-mesh** two-washer total,
+  **6 meshes** for the airer, the cold-water main and absence of a steam-header
+  edge. FULL WalkTest — **PASS [FULL]** at sim x4 / 240 Hz in 58.2 wall-clock
+  seconds; its physical walks, elevator rides and complete case sequence also
+  completed.

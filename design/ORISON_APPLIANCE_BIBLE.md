@@ -23,7 +23,7 @@ badges, no trademarks.
 | **Monitor-top fridge** | GE Monitor Top, 1927–36 | Steel drum compressor sitting proud on a rounded cabinet, cabinet on slim splayed legs, single latching door with a long chrome handle. Reads as furniture, not a box. ([design history](http://www.industrialdesignhistory.com/node/148)) |
 | **Sheer-look fridge** | Frigidaire / Kelvinator, mid-1950s | Full rounded shoulders, one continuous door face, vertical chrome pull, plinth to the floor, badge at chest height. |
 | **Enamel gas range** | Champion / Clark Jewel / Metro, 1920–27 | Porcelain-enamel panels on an angle-iron base, four open gas grates, oven and separate broiler, exposed valve rail, shallow splash panel, no clock and no oven window. |
-| **Wringer washer** | Maytag, 1930s–50s | Cylindrical tub on four legs, wringer arm over the rim, single agitator dome. |
+| **Wringer washer** | Galvanized-tub electric washer, 1920s | Open square tub on an angle-iron stand, bottom gyrator, swinging powered wringer and exposed service hardware. No aluminium. |
 | **Console radio** | Zenith / Philco, 1930s | Bakelite or veneer cabinet, cloth grille, illuminated dial glass, chrome pointer. |
 | **Automatic toaster** | Waters-Genter Toastmaster Model 1-A-1, 1926 | Tall narrow nickel-plated single-slice body, one long slot, paired end controls, horizontal vents and a sprung carrier. |
 
@@ -56,7 +56,8 @@ interaction; **possession** names what the poltergeist does with it.
 | **Cast iron radiator** | all | Valve turns, knock travels the riser | Hammers the motif through the whole stack |
 | **Console radio** | 5B (three), 2C, 6B | Dial sweeps, stations bleed | Tunes itself to WORS 1610 |
 | **Box fan** | 2C, 5C, 6A | Speed steps 0-1-2-3 | Runs unplugged |
-| **Wringer washer** | B1 laundry (four) | Agitator starts, tub sloshes | Wrings on empty, arm swinging |
+| **Wringer washer** | B1 laundry (two) | Lid lifts, gyrator starts, wringer swings and rollers open | Safety release gives before it wrings on empty |
+| **Rinse tubs + pulley airer** | B1 laundry (one paired ensemble) | Airer lowers; wet pieces move wash → wring → rinse → air | Rope settles and one piece hangs in a different place |
 | **Sewing machine** | 2B | Treadle turns, needle drops | Stitches a seam with no cloth |
 | **Reel-to-reel deck** | 2C, 5B | Reels spool, playback | Plays take 18 (web §II.7) |
 

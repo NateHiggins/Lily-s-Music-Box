@@ -106,6 +106,10 @@ SLOTS = {
     # single toaster slot. The resistance wire is geometry, so this plate
     # stays evenly mineral and can tile without baking a glowing landmark.
     "mica_heater": (["mica_heater"], 0.18, 0.78, 0.16, 2.2),
+    # A roller is read at hand scale. This stays a fine, nearly featureless
+    # swatch so the seamless pass cannot turn one soap mark into a repeating
+    # row around the cylinder.
+    "rubber_aged": (["rubber_aged"], 0.26, 0.82, 0.12, 2.4),
     "porcelain_fixture": (["porcelain"], 0.4, 0.18, 0.15, 1.5),
     "bakelite": (["bakelite"], 0.3, 0.25, 0.15, 1.5),
     # 11 squares across the sheet; at 1.1 m that is a ~10 cm check,
@@ -250,7 +254,7 @@ GODOT_STAGE = ("brass_bright", "brass_dull", "bronze", "car_paint",
                "oak_quartered", "zinc_liner", "copper_aged",
                "cast_iron", "soot", "fx_grease", "nickel_plated", "mica_heater",
                "milk_glass", "bakelite_black", "terrazzo_dark",
-               "brass_mesh", "indicator_enamel",
+               "brass_mesh", "indicator_enamel", "rubber_aged",
                # The shopfront signage is built in GDScript too
                # (harukiya_signage_prop.gd, bodega_signage_prop.gd).
                "sign_board", "chochin", "awning_vinyl")
@@ -363,7 +367,7 @@ COLOR_ANCHORS = {
     "zinc_liner": "#A9ABAA", "copper_aged": "#8B5436",
     "milk_glass": "#E4E1D8", "bakelite_black": "#24201D",
     "terrazzo_dark": "#4A443C", "brass_mesh": "#6A5228",
-    "indicator_enamel": "#E0D5BE",
+    "indicator_enamel": "#E0D5BE", "rubber_aged": "#1A1714",
     "chrome": "#A8ACB0", "plant": "#46573A", "paper": "#DFD2B4",
     "fabric_cool": "#4A6274", "fabric_green": "#6E7042",
     "countertop": "#DED4BC", "soot": "#2A2724", "char": "#241F1C",

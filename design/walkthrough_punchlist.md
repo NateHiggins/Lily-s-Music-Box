@@ -73,7 +73,7 @@ coordinate before fixing.
 | room | symptom | severity |
 |---|---|---|
 | B1_STORAGE_CAGES | Cage partitions are solid opaque metal (no chain-link read), no cage doors or stored contents | ugly |
-| B1_LAUNDRY | Washer/dryer units freestanding mid-floor away from every wall, drums facing open space — reads unplaced | ugly |
+| B1_LAUNDRY | ~~Washer/dryer units freestanding mid-floor~~ Resolved: two wall-fed wringers, paired rinse tubs and ceiling airer; automatic dryer removed | resolved |
 | B1_LAUNDRY | Empty white window-style frame embedded at ceiling height in the brick wall, top edge clipped | wish |
 | B1_ATRIUM | Light-well tube intersected mid-height by a white rail/stringer; its lower run passes through the reading-nook furniture | ugly |
 | B1_COAL | Only a bare untextured white block on clean brick — no coal, chute, or grime | ugly |

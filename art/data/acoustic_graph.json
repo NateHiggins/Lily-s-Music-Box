@@ -18,9 +18,6 @@
    "infection_receptivity": 0.6,
    "connections": [
     "BASEMENT_HEADER_EAST",
-    "B1_WASHER_01",
-    "B1_WASHER_02",
-    "B1_DRYER_01",
     "F01_LOBBY_RADIATOR_01",
     "F02_B_RADIATOR_01"
    ]
@@ -70,10 +67,53 @@
    ]
   },
   {
+   "id": "B1_WATER_MAIN",
+   "pos": [
+    -13.48,
+    7.0,
+    -1.85
+   ],
+   "room": "B1_LAUNDRY",
+   "network": "water",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 14,
+   "damping": 0.22,
+   "infection_receptivity": 0.62,
+   "connections": [
+    "B1_WASHER_01",
+    "B1_WASHER_02",
+    "B1_LAUNDRY_JOIST"
+   ]
+  },
+  {
+   "id": "B1_LAUNDRY_JOIST",
+   "pos": [
+    -11.8,
+    7.8,
+    -0.35
+   ],
+   "room": "B1_LAUNDRY",
+   "network": "structural",
+   "frequency_band": [
+    20,
+    900
+   ],
+   "delay_ms": 28,
+   "damping": 0.22,
+   "infection_receptivity": 0.48,
+   "connections": [
+    "B1_LAUNDRY_AIRER_01",
+    "B1_WATER_MAIN"
+   ]
+  },
+  {
    "id": "B1_WASHER_01",
    "pos": [
     -13.28,
-    3.55,
+    5.45,
     -2.8
    ],
    "room": "B1_LAUNDRY",
@@ -86,14 +126,15 @@
    "damping": 0.22,
    "infection_receptivity": 0.6,
    "connections": [
-    "BASEMENT_HEADER_WEST"
+    "B1_WATER_MAIN",
+    "B1_ELECTRICAL_HUB"
    ]
   },
   {
    "id": "B1_WASHER_02",
    "pos": [
     -13.28,
-    4.35,
+    6.6,
     -2.8
    ],
    "room": "B1_LAUNDRY",
@@ -106,27 +147,28 @@
    "damping": 0.22,
    "infection_receptivity": 0.6,
    "connections": [
-    "BASEMENT_HEADER_WEST"
+    "B1_WATER_MAIN",
+    "B1_ELECTRICAL_HUB"
    ]
   },
   {
-   "id": "B1_DRYER_01",
+   "id": "B1_LAUNDRY_AIRER_01",
    "pos": [
-    -13.28,
-    5.15,
+    -12.95,
+    8.05,
     -2.8
    ],
    "room": "B1_LAUNDRY",
-   "network": "water",
+   "network": "structural",
    "frequency_band": [
-    40,
-    2000
+    20,
+    900
    ],
-   "delay_ms": 20,
+   "delay_ms": 32,
    "damping": 0.22,
-   "infection_receptivity": 0.6,
+   "infection_receptivity": 0.52,
    "connections": [
-    "BASEMENT_HEADER_WEST"
+    "B1_LAUNDRY_JOIST"
    ]
   },
   {
@@ -7245,6 +7287,8 @@
    "damping": 0.22,
    "infection_receptivity": 0.5,
    "connections": [
+    "B1_WASHER_01",
+    "B1_WASHER_02",
     "B1_CORRIDOR_DOME_01",
     "B1_CORRIDOR_DOME_02",
     "B1_CORRIDOR_DOME_03",

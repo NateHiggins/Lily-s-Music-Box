@@ -54,6 +54,19 @@
   "normal_function_priority": 1.0,
   "infection_receptivity": 0.6
  },
+ "laundry_airer": {
+  "minimum_action_interval": 1.8,
+  "maximum_action_rate": 1,
+  "available_mechanical_events": [
+   "rope_settle",
+   "pulley_tick"
+  ],
+  "preferred_subdivision": 0.25,
+  "timing_drift": 0.12,
+  "response_latency": 0.35,
+  "normal_function_priority": 0.0,
+  "infection_receptivity": 0.52
+ },
  "boiler": {
   "minimum_action_interval": 0.9,
   "maximum_action_rate": 1,

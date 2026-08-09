@@ -167,8 +167,9 @@ carry a game are the ones worth the modelling effort.
    so both must be modelled and findable.
 6. **`boiler_prop`** (1) — the building's heart. Gauges, sight glass,
    firebox, flue. It is going to be tended.
-7. **`washer_prop`** (3) — a 1927 wringer washer is a very different
-   object from a front-loading drum. Check what we have built.
+7. **`washer_prop`** (2) + **`laundry_airer_prop`** (1) — a 1927
+   wringer washer is a very different object from a front-loading drum, and
+   the room dries on a pulley airer rather than an automatic dryer.
 8. **`smoke_detector_prop`** (1) — **flag a fiction problem rather than
    modelling it prettier.** Domestic smoke detectors did not exist in
    1927. Either it is an anachronism the building should be asked about

@@ -203,6 +203,7 @@ func _run() -> void:
 			and root.weather.get_node_or_null("DistantLightning") != null,
 			"distant lightning source is active")
 	await _plumbing_checks()
+	_laundry_checks()
 	_toaster_checks()
 	_radiator_checks()
 	_prop_mesh_and_boiler_checks()
@@ -658,6 +659,58 @@ func _toaster_checks() -> void:
 						ToasterProp.TRAY_TRAVEL),
 				"Orison retrofit crumb tray exposes its full service travel")
 		sample.set_crumb_tray_open(false, 0.0)
+
+
+func _laundry_checks() -> void:
+	var washers: Array[WasherProp] = []
+	var airers: Array[LaundryAirerProp] = []
+	for child in root.get_children():
+		if child is WasherProp:
+			washers.append(child as WasherProp)
+		elif child is LaundryAirerProp:
+			airers.append(child as LaundryAirerProp)
+	_check(washers.size() == 2 and airers.size() == 1,
+			"laundry owns two wringers and one rinse-tub/airer ensemble")
+	_check(root.get_node_or_null("B1_DRYER_01") == null,
+			"the anachronistic automatic dryer is gone")
+	if washers.size() != 2 or airers.size() != 1:
+		return
+	var first := washers[0]
+	var second := washers[1]
+	_check(absf(first.global_position.z - second.global_position.z) >= 1.10,
+			"wringer centres leave at least 1.10 m for swinging heads")
+	var required := ["LidReach", "ReleaseReach", "FeedReach",
+			"CocksReach", "DrainReach"]
+	var missing := []
+	for area_name in required:
+		if first.get_node_or_null(area_name) is not Area3D:
+			missing.append(area_name)
+	_check(missing.is_empty(),
+			"lid, safety release, feed, cocks and drain remain reachable")
+	first.set_service_pose()
+	var state := first.get_service_state()
+	_check(bool(state.lid_open) and absf(float(state.wringer_angle)) > 30.0
+			and float(state.roller_gap) > 0.02,
+			"wringer service pose opens the vessel, head and safety gap")
+	airers[0].set_service_pose()
+	_check(airers[0].is_airer_lowered(),
+			"ceiling airer lowers into the Matching-game work zone")
+	var washer_meshes := _count_meshes(washers[0]) + _count_meshes(washers[1])
+	_check(washer_meshes < 30,
+			"both moving wringers stay below 30 meshes total (%d)" % washer_meshes)
+	_check(_count_meshes(airers[0]) < 9,
+			"paired rinse tubs and airer stay merged (%d meshes)" %
+			_count_meshes(airers[0]))
+	var graph_nodes: Dictionary = AcousticGraphData.nodes
+	_check(graph_nodes.has("B1_WATER_MAIN")
+			and str(graph_nodes["B1_WATER_MAIN"].get("network", "")) == "water",
+			"laundry terminates at a real water-main graph node")
+	var bad_steam_edge := false
+	for washer in washers:
+		if "BASEMENT_HEADER_WEST" in AcousticGraphData.neighbors(washer.name):
+			bad_steam_edge = true
+	_check(not bad_steam_edge,
+			"laundry water no longer propagates through the steam header")
 
 
 func _radiator_checks() -> void:

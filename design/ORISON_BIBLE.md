@@ -401,6 +401,13 @@ or replaced. This is not a claim that oil heat was unavailable in 1927; it is
 the building's history and the maintenance activity's physical premise. The
 coal chute, bunker, ash door and water glass all still have jobs.
 
+**VIII.5.d — THE BASEMENT HAS NO TUMBLE DRYER.** Domestic automatic tumble
+dryers are a later answer and the Rule of Signal does not advance laundry.
+The Orison has two 1920s powered wringer washers, two rinse tubs and a wooden
+ceiling pulley airer. Clothes move through those stations by hand. The washers
+use galvanized steel rather than the period Maytag's cast aluminium because
+VIII.4's material ruling still governs a historically correct silhouette.
+
 **VIII.5.d — THE CLOTHES ARE 1927, AND MOSTLY OLDER.** Ruled at the
 owner's direction. The full treatment is `ORISON_WARDROBE_BIBLE.md`,
 which now carries the period research; this is the covenant line it
