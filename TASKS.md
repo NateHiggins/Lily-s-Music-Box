@@ -1,0 +1,111 @@
+# OPEN TASKS
+
+The shared queue. Everyone working on Orison writes here — the main dev chat,
+Codex, the arcade/compiler session, and whoever picks this up next.
+
+**This is a list of open work, not a log.** Delete a task when it is done; git
+history is the record. If a task is wrong, say so on the line rather than
+quietly removing it.
+
+## How to use it
+
+- **Add to the bottom of a section.** Ids are permanent — never renumber.
+- **Claim by putting your name in the line.** No name means unclaimed.
+- **Section prefixes exist so two agents adding at once do not collide.**
+  `D` decisions · `A` arcade · `S` studio · `M` materials · `H` housekeeping.
+- One line each. If it needs a paragraph it needs a brief in `design/`.
+
+---
+
+## D — Needs a decision from the owner
+
+Nothing below is blocked on effort; it is blocked on someone choosing.
+
+- **D1** Studio: does the desk power up? A room the player can use is a system;
+  a room they can only look into is a landmark. The layout supports either.
+  *Blocks S1.*
+- **D2** Studio: do the storage cages stay? Argued for in the brief, but it
+  costs floor area.
+- **D3** Studio: is the echo chamber's extra tail ever *heard*, or only measured
+  on the reel?
+- **D4** Studio: which resident is found down there, if any, and at what hour.
+- **D5** Coarse-luminance threshold is **absolute** luma (0.02) — that is 2.6%
+  relative on plaster at mean 0.70 and 13% on a dark floor. Perceptually
+  backwards. Absolute or relative? Shared definition, so it binds both
+  pipelines.
+
+## A — Arcade / the signal parlour
+
+Ruled in `ORISON_BIBLE.md` VIII.5.g. Docs: `game/docs/arcade_cabinets.md`.
+
+- **A1** `.swcpkg` files almost certainly do **not** ship in an exported build.
+  `export_presets.cfg` has `export_filter="all_resources"` with an empty
+  `include_filter`, and `.swcpkg` has no Godot importer. Expected fix is
+  `include_filter="*.swcpkg"` — **untested**. Export, install, confirm a cabinet
+  still boots. Failure mode is a machine playing in graybox with no error.
+- **A2** Nobody has played one. `arcade_panel.gd` is unproven in the hand: mouse
+  capture and restore, ESC, `E`, and whether a 480×360 feed at 2× is aimable.
+  Expect tuning, not repair.
+- **A3** Machines never free their world. `set_live(false)` stops the board
+  rendering but the built world stays in memory. Needs an unload policy on the
+  same distance gate that governs `set_live`.
+- **A4** Twelve live machines have never been profiled — twelve 3D worlds plus
+  twelve phosphor viewports, gated at 9 m. Measure before adding more.
+- **A5** Audio is undifferentiated: attract mode is silent and every machine
+  shares one weapon report. The World Bible already carries a `sound_palette`
+  per world and nothing consumes it. Probably the highest-value polish left.
+- **A6** The held object is procedural GDScript built from `held_object`, not a
+  compiled mesh shipped in the package like every other visual.
+- **A7** `arcade_panel.gd` reads raw keys, bypassing Orison's input map — on
+  purpose, so a cabinet cannot inherit the outer player's bindings, but it means
+  no rebinding, no gamepad, no touch.
+- **A8** Port drift: `game/scripts/arcade/swc_*.gd` is a deliberate *copy* of the
+  compiler repo's runtime. Nothing checks the two have not diverged.
+- **A9** Screen legibility at distance in the dark bar. Brightness floor on the
+  feed, or accept it as atmosphere? Worth deciding rather than defaulting.
+- **A10** Every spawned enemy is named `Enemy`, so Godot's rename-on-collision
+  makes their degrade thresholds differ slightly. Cosmetic.
+
+## S — Basement studio
+
+Proposed in `design/ORISON_STUDIO_BRIEF.md`. Not canon until the owner rules.
+
+- **S1** Author the studio and echo chamber in `gen_layout.py`. Studio in
+  `B1_STORAGE_CAGES`, chamber in `B1_UTILITY`, clear height 2.62 m. Never
+  hand-edit `building_layout.json`. *Blocked by D1.*
+- **S2** Six new Blender assemblies: `mixing_desk`, `monitor_pair`, `patch_bay`,
+  `control_glass`, `acoustic_drape`, `chamber_fitting`. Reuse the nine that
+  exist first; check for an upright piano before authoring a seventh.
+  *Blocked by S1.*
+- **S3** Wire the chamber into the acoustic graph. Send and return cross
+  `B1_ATRIUM` past the `room0_threshold`, so the return shares house wiring
+  rather than a cable of its own. *Blocked by S1, D3.*
+- **S4** Studio props and the dead-channel chore: pull the rack, read the
+  schematic in the lid, find the dead valve, buy one at the bodega, return.
+  *Blocked by S2.*
+- **S5** Connect the studio to the Songbook as its capture half — the bar is
+  where songs mutate, the studio is where a take is fixed. Ghost duets belong in
+  the room that records. No pitch scoring. *Blocked by S4 and the Songbook's own
+  order.*
+
+## M — Materials and textures
+
+- **M1** Supertiles and stable per-wall UV offsets. Explicitly **not** part of
+  the plaster repair, which was fixed without them — an optional later
+  anti-repetition enhancement, with a real VRAM cost to decide first.
+- **M2** `family_mean_spread` is defined on the compiler side but has never run:
+  one texture per material means no family to compare. If the planner ever emits
+  texture variants, that gate is unexercised.
+- **M3** Compiler textures are 128² at roughly 64 px/m, which is the deeper
+  reason features come out large relative to the tile.
+
+## H — Housekeeping
+
+- **H1** `found_art_pass.gd:54` throws during the warehouse build
+  (`_place_wall_piece` ← `build`). Unmodified since `b0c1bb8`; not from the
+  arcade or plaster work. Nobody has claimed it.
+- **H2** **`C:\FPSengine01` is not a git repository.** The entire compiler side —
+  the world compiler, the providers, the arcade catalog build, the texture
+  validation — is unversioned files on disk. `git init` and a first commit.
+- **H3** `worldc clean --stale` has no test covering it.
+- **H4** Prop families: 12 of 24 done, `bookshelf_prop` next (main dev chat).

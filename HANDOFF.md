@@ -125,7 +125,9 @@ JSONs.
 
 ## Known open items
 
-Nothing here blocks a build; these are the honest edges.
+**`TASKS.md` at the repo root is the live queue** — one line per open task,
+shared by everyone working on this. What follows is the standing shape of the
+work; anything actionable belongs in that file.
 
 - **Signal parlour.** Never played by a human — verified only headless and
   by screenshot, so the panel's input path is unproven. The layout now
