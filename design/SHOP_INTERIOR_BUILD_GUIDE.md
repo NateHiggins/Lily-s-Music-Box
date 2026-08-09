@@ -498,9 +498,22 @@ brass.
 
 ## V. MATERIALS
 
-Everything here is already in `MatLib.SETS` with a runtime path. **No new
-material key should be needed for these interiors**, and a request for
-one should be justified against this list first:
+**These are BLENDER CATALOG keys, not runtime keys, and the difference
+decides where a fitting may be built.** Every name below is in
+`MATERIAL_CATALOG`, so any of them is safe on geometry the Blender build
+bakes — which is all of Phase 1. Eight of them are **not** in
+`MatLib.SETS` and therefore render flat colour on a GDScript-built prop:
+
+> `terrazzo` · `marble_lobby` · `subway_tile` · `linoleum` ·
+> `quarry_tile` · `timber` · `plywood` · `vinyl_oxblood`
+
+So a diner counter in `terrazzo` is correct as a baked box and wrong as
+a prop. Any GDScript prop must be re-audited against `MatLib.SETS` and
+`GODOT_STAGE` before it names a material, and the first version of this
+document called all thirty-three "runtime keys", which was wrong.
+
+**No new material key should be needed for these interiors**, and a
+request for one should be justified against this list first:
 
 `wood_dark` · `oak_quartered` · `enamel` · `porcelain` · `chrome` ·
 `nickel_plated` · `brass_dull` · `brass_bright` · `brass_mesh` ·
