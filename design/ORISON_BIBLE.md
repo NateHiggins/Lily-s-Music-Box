@@ -401,6 +401,37 @@ or replaced. This is not a claim that oil heat was unavailable in 1927; it is
 the building's history and the maintenance activity's physical premise. The
 coal chute, bunker, ash door and water glass all still have jobs.
 
+**VIII.5.d — THE CLOTHES ARE 1927, AND MOSTLY OLDER.** Ruled at the
+owner's direction. The full treatment is `ORISON_WARDROBE_BIBLE.md`,
+which now carries the period research; this is the covenant line it
+answers to.
+
+Nobody in this building is in costume, and nobody is at a party. The
+decade's iconography — fringed dancing frocks, held cigarette holders,
+gangster pinstripes — is banned outright. Its *tailoring* is mandatory:
+for women the dropped waist at the hip and 1927's hem just below the
+knee, the shortest of the decade; for men the three-piece lounge suit,
+braces rather than a belt, and a hat out of doors. Rayon is new and
+cheap and everywhere; there is no nylon, no polyester, no elastic yarn,
+and no zip on any garment.
+
+**The persistence rule does the uncanny work for free, because the
+period supplies it.** The silhouette changed completely between 1913 and
+1927, so a woman who never shortened her hems or cut her hair is not in
+fancy dress — she is a woman who stopped, and it reads at fifty feet. A
+man in a suit cut in 1919 with his collar turned to hide the fray is
+every third man in Queens. The gap between what a garment was cut for
+and the year it is worn in is already a decade wide for half this
+building, and that gap is the whole effect: **read one way these are
+people who do not shop much; read the other, people for whom time has
+not been passing normally.** Both true.
+
+The Rule of Signal applies to worn objects and is the only licensed
+exception. Cal's hearing aid and Juno's recorder carry signal and may
+look forty years early — black Bakelite, cloth cord, a battery case that
+sags the pocket it lives in. Everything else on every body in the
+building is 1927 and probably second-hand.
+
 ### VIII.6 What this does not license
 
 **The divergence is not a licence for anachronism at will.** The rule of
