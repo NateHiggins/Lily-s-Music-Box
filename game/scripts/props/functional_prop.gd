@@ -54,6 +54,13 @@ func warehouse_variants() -> Array[Dictionary]:
 	return [{}]
 
 
+## A prop normally keeps its gameplay yaw in the inspection shed. Wall props
+## whose authored front is local -Z can turn here without lying to the room
+## transform or making the warehouse build a second model just for review.
+func warehouse_rotation_y() -> float:
+	return 0.0
+
+
 func _on_motif_event(index: int, accent: float, pitch: float) -> void:
 	_receive(index, accent, pitch, 1.0)
 

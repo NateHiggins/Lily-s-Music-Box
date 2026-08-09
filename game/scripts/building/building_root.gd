@@ -707,6 +707,7 @@ func _spawn_props() -> void:
 			# stall: same prop, different handles and a different drop.
 			if prop is MedicineCabinetProp:
 				prop.unit = String(m.get("unit", ""))
+				prop.hinge_side = String(m.get("hinge_side", "left"))
 			if prop is SpeakerProp and m.has("bed"):
 				# An ambience bed named in DATA: the bodega radio murmurs
 				# because its marker says so, not because the prop grew a
@@ -778,6 +779,7 @@ func _spawn_props() -> void:
 					if prop is FridgeProp or prop is StoveProp or prop is TapProp \
 							or prop is ToasterProp or prop is WasherProp \
 							or prop is LaundryAirerProp or prop is KettleProp \
+							or prop is MedicineCabinetProp \
 					else -float(m.get("yaw_deg", 0)))
 			add_child(prop)
 			count += 1

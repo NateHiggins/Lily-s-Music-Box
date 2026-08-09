@@ -102,6 +102,9 @@ SLOTS = {
     # Fine polishing has direction, so it stays in GRID_SLOTS and never
     # receives a quarter-turn blend that would cross the scratch field.
     "nickel_plated": (["nickel_plated"], 0.32, 0.38, 0.18, 2.5),
+    # A flat viewing-side swatch. A reflected room would be one room's lie
+    # stamped onto twenty-three different cabinets.
+    "mirror_aged": (["mirror_aged"], 0.55, 0.18, 0.10, 1.1),
     # One heater card fills most of the visible source area inside the
     # single toaster slot. The resistance wire is geometry, so this plate
     # stays evenly mineral and can tile without baking a glowing landmark.
@@ -252,7 +255,8 @@ RECOLOR = {"rug_persian_worn": [("rug_cool", 150.0), ("rug_green", 90.0)]}
 # step somebody has to remember after every regeneration.
 GODOT_STAGE = ("brass_bright", "brass_dull", "bronze", "car_paint",
                "oak_quartered", "zinc_liner", "copper_aged",
-               "cast_iron", "soot", "fx_grease", "nickel_plated", "mica_heater",
+               "cast_iron", "soot", "fx_grease", "nickel_plated", "mirror_aged",
+               "mica_heater",
                "milk_glass", "bakelite_black", "terrazzo_dark",
                "brass_mesh", "indicator_enamel", "rubber_aged",
                # The shopfront signage is built in GDScript too
@@ -349,6 +353,7 @@ COLOR_ANCHORS = {
     "puddle": "#0A0B0E", "wet_asphalt": "#17171A", "timber": "#8A6A48",
     "brass": "#A67C3E", "appliance": "#F0EBDE", "metal": "#9AA0A0",
     "cast_iron": "#B5B2AA", "nickel_plated": "#B7B2A7",
+    "mirror_aged": "#ADAFAB",
     "mica_heater": "#94652D",
     "enamel_pristine": "#F2EEE2", "enamel_paintflecked": "#E9E3D2",
     "enamel_dented": "#E4DDCC", "enamel_greasy": "#DCD2B8",

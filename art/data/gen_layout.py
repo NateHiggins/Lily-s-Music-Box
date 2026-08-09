@@ -438,19 +438,24 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
         _bath_marker(markers, unit, "shower", x1 - 0.46, y0 + 0.50, 90, z)
         _asm(f, unit + "_wc", "toilet", x1 - 0.41, y0 + 1.22, 90)
         _bath_marker(markers, unit, "sink", x1 - 0.30, _run(y0 + 1.92, y0, y1), 90, z)
-        _bath_marker(markers, unit, "mirror", x1 - 0.30, _run(y0 + 1.92, y0, y1), 90, z)
+        # The cabinet is close to the far return wall. Hinge on the roomward
+        # side so its leaf opens into free air instead of through that return.
+        _bath_marker(markers, unit, "mirror", x1 - 0.30,
+                     _run(y0 + 1.92, y0, y1), 90, z, "right")
         spos, syaw = [x1 - 0.08, y0 + 1.92], -90
     elif edge == "w":
         _bath_marker(markers, unit, "shower", x0 + 0.46, y0 + 0.50, -90, z)
         _asm(f, unit + "_wc", "toilet", x0 + 0.41, y0 + 1.22, -90)
         _bath_marker(markers, unit, "sink", x0 + 0.30, _run(y0 + 1.92, y0, y1), -90, z)
-        _bath_marker(markers, unit, "mirror", x0 + 0.30, _run(y0 + 1.92, y0, y1), -90, z)
+        _bath_marker(markers, unit, "mirror", x0 + 0.30,
+                     _run(y0 + 1.92, y0, y1), -90, z, "left")
         spos, syaw = [x0 + 0.08, y0 + 1.92], 90
     else:  # "n"
         _bath_marker(markers, unit, "shower", x0 + 0.50, y1 - 0.46, 180, z)
         _asm(f, unit + "_wc", "toilet", x0 + 1.22, y1 - 0.41, 180)
         _bath_marker(markers, unit, "sink", _run(x0 + 1.92, x0, x1), y1 - 0.30, 180, z)
-        _bath_marker(markers, unit, "mirror", _run(x0 + 1.92, x0, x1), y1 - 0.30, 180, z)
+        _bath_marker(markers, unit, "mirror",
+                     _run(x0 + 1.92, x0, x1), y1 - 0.30, 180, z, "left")
         spos, syaw = [x0 + 1.92, y1 - 0.08], 0
     # Towels live on the wall opposite the wet fixtures. The former rail
     # shared the shower/toilet wall and visibly passed through both.
@@ -743,8 +748,8 @@ def _kettle_marker(markers, uid, kx, ky, z, yaw, floor_id):
         "case_id": "4519" if unit == "4C" else ""})
 
 
-def _bath_marker(markers, unit, kind, bx, by, yaw, z):
-    """One water marker owns one complete period fixture.
+def _bath_marker(markers, unit, kind, bx, by, yaw, z, hinge_side="left"):
+    """One marker owns one complete period bathroom fixture.
 
     The former assembly/prop split was the plumbing version of the old
     refrigerator fault: Blender owned a generic shell and Godot owned two
@@ -764,9 +769,15 @@ def _bath_marker(markers, unit, kind, bx, by, yaw, z):
         "kind": kind,
         "id": "%s_%s_%s_01" % (floor_id, unit, kind.upper()),
         "unit": unit, "pos": [round(bx, 4), round(by, 4), round(z, 4)],
-        "yaw_deg": yaw, "network": "water"}
+        # A mirror door is screwed to the wall, not coupled to the water
+        # main. Nothing reads this field for mirrors today; structural is
+        # honest metadata rather than a promise of acoustic propagation.
+        "yaw_deg": yaw,
+        "network": "structural" if kind == "mirror" else "water"}
     if kind in ("sink", "shower"):
         marker["fixture"] = "shower" if kind == "shower" else "bath_sink"
+    elif kind == "mirror":
+        marker["hinge_side"] = hinge_side
     markers.append(marker)
 
 
@@ -7849,6 +7860,11 @@ MATERIAL_CATALOG = {
     # work, but not enough to turn a horizontal spout black under the torch.
     "nickel_plated": {"base_color": [0.72, 0.70, 0.66, 1.0],
                       "roughness": 0.38, "metallic": 0.70},
+    # Back-silvered glass is not generic architectural glazing. Compatibility
+    # has no planar reflection, so damp clouding and pinprick silver loss have
+    # to carry the read without baking a reflected room into the surface.
+    "mirror_aged": {"base_color": [0.68, 0.69, 0.67, 1.0],
+                    "roughness": 0.18, "metallic": 0.78},
     # Natural mica sheet carrying the 1-A-1's resistance wire. It is a
     # mineral insulator, not ceramic and not a glowing surface by itself;
     # the GDScript wire geometry owns the mutable emission.

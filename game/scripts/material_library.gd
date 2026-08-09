@@ -66,6 +66,12 @@ const SETS := {
 	"nickel_plated": ["T_ai_materials_nickel_plated_albedo.png",
 			"T_ai_materials_nickel_plated_rough.png",
 			"T_ai_materials_nickel_plated_normal.png", 0.32, 0.70, 0.82],
+	# `glassish` is intentionally Blender-only. A GDScript cabinet naming it
+	# would silently fall back to flat colour, so mirrors own this staged set.
+	# It supplies age and silver loss, not a fake reflected room.
+	"mirror_aged": ["T_ai_materials_mirror_aged_albedo.png",
+			"T_ai_materials_mirror_aged_rough.png",
+			"T_ai_materials_mirror_aged_normal.png", 0.55, 0.78, 0.18],
 	# The mica card is passive insulation. ToasterProp lays mutable resistance
 	# wire geometry over it, so possession can pulse the wire without making
 	# the whole mineral sheet emit like a television screen.

@@ -96,6 +96,7 @@ func build(prop_scripts: Dictionary) -> int:
 			if key in prop:
 				prop.set(key, variant.properties[key])
 		add_child(prop)
+		prop.rotation.y = prop.warehouse_rotation_y()
 		# Stand it the way it hangs.
 		#
 		# Every prop used to be dropped on the plinth top, which is only

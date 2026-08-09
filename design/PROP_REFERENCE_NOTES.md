@@ -1103,3 +1103,99 @@ wood, cap and handle separation in the required night lighting.
   interrupted/restarted boil cycle in 4B.
 - LightingAudit: **PASS**, 127 spaces with 11 intentionally ambient/dark;
   all 244 catalog fixtures and their local shadow casters remain covered.
+
+## `medicine_cabinet_prop` — 1926 white-enamel mirror cabinet
+
+### What the real object was
+
+A January 1926 hardware advertisement offers a white-enamel medicine cabinet
+for the bathroom. The contemporary object was already ordinary enough that a
+1926-origin concealed-cabinet patent calls the projecting box with a tell-tale
+mirror door old-fashioned and unsightly: the patent's concealed universal
+hinge, beveled Venetian glass, wheel-cut ornament and glass studs are the
+luxury alternative, not what a cheap Queens landlord supplied. The Orison's
+cabinet is therefore the established folded-enamel rectangle with obvious pin
+hinges, friction catch, shallow wall recess and plate-glass shelves. It carries
+no signal. **HISTORICAL.** Reference anchors: [Wichita Hardware advertisement,
+1926](https://texashistory.unt.edu/ark:/67531/metapth1773582/m1/8/?q=Pine+Needle)
+and [concealed-cabinet continuation of a 1926 application](https://patents.google.com/patent/US1908831A/en).
+
+### What we inherited
+
+- A 440 x 500 mm luminous square without readable cabinet depth, flange,
+  fasteners, shelf clips, hinge barrels, backing plate or mechanical catch.
+- The supposed back plate sat at local Z -0.225, farther into the room than
+  the trim. Opening the mirror exposed another white rectangle in front of the
+  shelves; closed and open renders were visually indistinguishable.
+- Every leaf was left-hinged and swung 1.9 radians (108.86 degrees), with no
+  return-wall, faucet, sconce or worker-position clearance audit.
+- 2D, 3C, 5D, 6D and the lobby public lavatory were absent from `KEPT` and
+  silently inherited the player's aspirin, iodine and razor.
+- All markers claimed a water network. `acoustic_graph()` has never created a
+  mirror node, so the field was dead metadata rather than propagation.
+
+### Built result
+
+Twenty-three 460 x 610 mm cabinets now carry a real wall-depth order: rolled
+enamel mounting flange and screws at the plaster, folded box into the wall,
+visible cavity, two clipped plate-glass shelves, and the mirror leaf on the
+room side. The leaf has an enamelled steel back, nickel channel frame, two pin
+hinges, friction catch and pull. It opens 95 degrees. `hinge_side` is authored
+from the resident's view at the basin and chosen from bathroom geometry; both
+hands occur in the building. The rebuilt family moved onto the same local -Z
+front/yaw contract as the other complete props after the clearance sweep
+proved the legacy negated transform opened every east/west cabinet into its
+mounting wall.
+
+Every cabinet now owns one interaction volume and an explicit inventory.
+Sealed and vacant flats are empty, 5D retains one landlord-left tin, and the
+public lavatory holds only carbolic soap and plasters. The data field is now
+`network: structural`, but cabinets remain absent from the acoustic graph; no
+test pretends a new propagation feature exists. Closed and open variants stand
+side by side in the warehouse, whose copy turns 180 degrees so the generic
+wall backing no longer covers its face.
+
+### Materials and texture prompt batch
+
+`enamel` and `nickel_plated` are reused. One new key, `mirror_aged`, travels
+through `MATERIAL_CATALOG`, `GODOT_STAGE` and `MatLib.SETS`. `glassish` remains
+Blender-only by design. The generated source is
+`art/textures/ai_sources/mirror_aged.png`; the ingest derives and stages the
+runtime albedo, roughness and normal set.
+
+```
+Square, high-resolution, seamless, flat evenly-lit document-scan material swatch of aged early-twentieth-century back-silvered bathroom mirror viewed from the glass side; pale cool silver-grey with faint warm mercury-grey clouding, sparse black pinprick oxidation, subtle damp haze and very fine cleaning scratches, extremely low contrast, no reflected room, no reflected objects or people, no highlights, no perspective, no frame, no border, no watermark, no letters, numbers, words, labels, symbols or logos. Edge-to-edge infinitely wrapping surface, production-ready base color asset.
+```
+
+### Render evidence
+
+Before:
+
+- Warehouse side silhouette — `C:/shots/orison_prop_pass/medicine_cabinet_before/warehouse_side/stand_407.4_1.35_-2.0_-90_0.png`
+- Installed 4B, closed — `C:/shots/orison_prop_pass/medicine_cabinet_before/in_situ_detail/stand_-5.83_10.95_-5.20_0_0.png`
+- Installed 4B, commanded open — `C:/shots/orison_prop_pass/medicine_cabinet_before/in_situ_open/stand_-5.83_10.95_-5.20_0_0.png`
+
+After:
+
+- Closed/open warehouse family — `C:/shots/orison_prop_pass/medicine_cabinet_after/warehouse/stand_392_1.35_4.6_0_0.png`
+- Installed 4B, closed — `C:/shots/orison_prop_pass/medicine_cabinet_after/in_situ_closed/stand_-5.83_10.95_-5.20_0_0.png`
+- Installed 4B, open — `C:/shots/orison_prop_pass/medicine_cabinet_after/in_situ_open/stand_-5.83_10.95_-5.20_0_0.png`
+
+Installed frames use `SHOT_LIGHTS=1 SHOT_TORCH=1`. Before, the cabinet crop's
+closed/open median luma was **141.4/141.2**: moving the door disclosed nothing.
+After, it is **45.6/134.9**. The closed aged glass no longer glows like paper,
+and the open pose visibly reveals the cavity, shelves, contents and door back.
+
+### Validation
+
+- Final-source generator: 23 mirror markers, two geometry-derived hinge sides,
+  every marker structural, and no mirror node added to the acoustic graph.
+- The family remains at **150 meshes total**, every individual cabinet at or
+  below eight meshes.
+- WalkTest verifies count, both hands, interaction, explicit exceptional
+  inventories, 95-degree motion, shut return, graph absence, independent
+  family budget, and every sweep against real wall collision, basin fittings,
+  sconces and the five-foot worker's basin position.
+- FAST and FULL WalkTest both pass; FULL completed at sim x4 / 240 Hz in
+  59.8 wall-clock seconds. LightingAudit passes all 127 spaces with 11
+  intentionally ambient/dark.

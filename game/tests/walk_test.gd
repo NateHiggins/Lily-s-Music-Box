@@ -209,6 +209,7 @@ func _run() -> void:
 	_radiator_checks()
 	_vantry_checks()
 	_prop_mesh_and_boiler_checks()
+	_medicine_cabinet_checks()
 	if not _full:
 		await _finish("FAST")
 		return
@@ -1903,6 +1904,147 @@ func _prop_mesh_and_boiler_checks() -> void:
 			"low water at the boiler starves the shared radiator cycle")
 	_check(root.boiler_tend != null,
 			"boiler tending clock feeds heat and domestic hot water")
+
+
+func _medicine_cabinet_checks() -> void:
+	var cabinets: Array[MedicineCabinetProp] = []
+	for child in root.get_children():
+		if child is MedicineCabinetProp:
+			cabinets.append(child)
+	_check(cabinets.size() == 23,
+			"all twenty-three bathroom mirrors are functional cabinets")
+
+	var total_meshes := 0
+	var every_cabinet_under_cap := true
+	var every_reach_exists := true
+	var every_sweep_clear := true
+	var every_stand_clear := true
+	var every_fixture_clear := true
+	for cabinet in cabinets:
+		var meshes := _count_meshes(cabinet)
+		total_meshes += meshes
+		every_cabinet_under_cap = every_cabinet_under_cap and meshes <= 8
+		every_reach_exists = every_reach_exists \
+				and cabinet.get_node_or_null("CabinetReach") is Area3D
+		var standing := cabinet.standing_point()
+		for point in cabinet.door_sweep_samples():
+			every_stand_clear = every_stand_clear \
+					and point.distance_to(standing) > 0.22
+			if not _cabinet_sweep_point_clear(cabinet, point):
+				every_sweep_clear = false
+			if not _cabinet_fixture_point_clear(cabinet, point):
+				every_fixture_clear = false
+	_check(every_cabinet_under_cap,
+			"each medicine cabinet stays at or below eight visible meshes")
+	_check(total_meshes <= 184,
+			"medicine-cabinet family stays within its independent mesh budget (%d)"
+			% total_meshes)
+	_check(every_reach_exists,
+			"every medicine cabinet exposes one player interaction volume")
+	_check(every_sweep_clear,
+			"all twenty-three cabinet leaves clear real room collision")
+	_check(every_fixture_clear,
+			"all cabinet leaves clear their basin fittings and sconces")
+	_check(every_stand_clear,
+			"every cabinet opens clear of the worker's basin standing point")
+
+	var marker_count := 0
+	var structural_count := 0
+	var hinge_sides := {}
+	for floor in root.layout.get("floors", []):
+		for marker in floor.get("markers", []):
+			if String(marker.get("kind", "")) != "mirror":
+				continue
+			marker_count += 1
+			if String(marker.get("network", "")) == "structural":
+				structural_count += 1
+			hinge_sides[String(marker.get("hinge_side", ""))] = true
+	_check(marker_count == 23 and structural_count == 23,
+			"mirror metadata names wall structure, not a fictitious water path")
+	_check(hinge_sides.has("left") and hinge_sides.has("right")
+			and hinge_sides.size() == 2,
+			"cabinet markers choose one of both geometry-derived hinge sides")
+	var graph_mirrors := 0
+	for node_id in AcousticGraphData.nodes:
+		if String(node_id).contains("_MIRROR_"):
+			graph_mirrors += 1
+	_check(graph_mirrors == 0,
+			"structural mirror metadata does not invent an acoustic graph feature")
+
+	var by_unit := {}
+	for cabinet in cabinets:
+		by_unit[cabinet.unit] = cabinet
+	var no_player_fallback := by_unit.has("2D") and by_unit.has("3C") \
+			and by_unit.has("5D") and by_unit.has("6D") and by_unit.has("F01WC")
+	if no_player_fallback:
+		no_player_fallback = (by_unit["2D"].inventory_names().is_empty()
+				and by_unit["3C"].inventory_names().is_empty()
+				and by_unit["6D"].inventory_names().is_empty()
+				and by_unit["5D"].inventory_names() == ["landlord salve tin"]
+				and by_unit["F01WC"].inventory_names()
+						== ["carbolic soap", "plasters"])
+	_check(no_player_fallback,
+			"sealed, vacant, landlord and public cabinets never inherit 4B")
+
+	var player_cabinet := by_unit.get("4B") as MedicineCabinetProp
+	_check(player_cabinet != null and player_cabinet.hinge_side == "left",
+			"4B's leaf hinges away from its close return wall")
+	if player_cabinet:
+		player_cabinet.set_door_open(true, 0.0)
+		var leaf := player_cabinet.get_node_or_null("CabinetDoor") as Node3D
+		_check(leaf != null and absf(rad_to_deg(leaf.rotation.y) + 95.0) < 0.1,
+				"left-hinged cabinet reaches the ruled ninety-five-degree pose")
+		player_cabinet.set_door_open(false, 0.0)
+		_check(leaf != null and absf(leaf.rotation.y) < 0.001,
+				"cabinet door returns to its measured shut pose")
+
+
+func _cabinet_sweep_point_clear(cabinet: MedicineCabinetProp,
+		point: Vector3) -> bool:
+	var sphere := SphereShape3D.new()
+	sphere.radius = 0.018
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = sphere
+	query.transform = Transform3D(Basis.IDENTITY, point)
+	query.collide_with_areas = false
+	var hits := get_viewport().world_3d.direct_space_state.intersect_shape(
+			query, 8)
+	for hit in hits:
+		var collider := hit.get("collider") as Node
+		if collider != null and not cabinet.is_ancestor_of(collider):
+			return false
+	return true
+
+
+func _cabinet_fixture_point_clear(cabinet: MedicineCabinetProp,
+		point: Vector3) -> bool:
+	for child in root.get_children():
+		var relevant := false
+		if child is TapProp:
+			relevant = child.unit == cabinet.unit and child.fixture == "bath_sink"
+		elif child is LightFixtureProp:
+			relevant = child.name == "%s_LT_SCONCE" % cabinet.unit
+		if relevant:
+			var bounds := _world_visual_aabb(child)
+			if bounds.size.length_squared() > 0.0 and bounds.grow(0.012).has_point(point):
+				return false
+	return true
+
+
+func _world_visual_aabb(node: Node) -> AABB:
+	var found := false
+	var bounds := AABB()
+	var pending: Array[Node] = [node]
+	while not pending.is_empty():
+		var current: Node = pending.pop_back()
+		if current is MeshInstance3D and current.mesh != null:
+			var mi := current as MeshInstance3D
+			var box: AABB = mi.global_transform * mi.get_aabb()
+			bounds = bounds.merge(box) if found else box
+			found = true
+		for child in current.get_children():
+			pending.append(child)
+	return bounds if found else AABB()
 
 
 func _floor_below(from: Vector3) -> bool:

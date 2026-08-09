@@ -278,6 +278,13 @@ Aged household linen fabric surface, plain weave natural flax, yellowed fold-lin
 
 ---
 
+### `mirror_aged.png` — TILING
+```
+Square, high-resolution, seamless, flat evenly-lit document-scan material swatch of aged early-twentieth-century back-silvered bathroom mirror viewed from the glass side; pale cool silver-grey with faint warm mercury-grey clouding, sparse black pinprick oxidation, subtle damp haze and very fine cleaning scratches, extremely low contrast, no reflected room, no reflected objects or people, no highlights, no perspective, no frame, no border, no watermark, no letters, numbers, words, labels, symbols or logos. Edge-to-edge infinitely wrapping surface, production-ready base color asset.
+```
+
+---
+
 ## TIER 4 — exterior and grounds
 
 ### `sidewalk_slab.png` — TILING
