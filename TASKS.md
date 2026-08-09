@@ -122,7 +122,9 @@ and by NPCs. R2 needs a brief before anyone builds.
   (fittings falling back into floor-wide buffers is what made the bodega go
   black), and `ShopEntryTest`'s ruling that the NEWS CIGARS proprietor side stays
   inaccessible — that one is deliberate, so changing it must be a decision.
-  Watch the street elevation too: at 47.11 ms it is the second-worst station.
+  Watch the street elevation too: **32.53 ms** after the door pass streamed 120
+  doors (it was 47.11 when this was filed), so there is real headroom for
+  fittings now — but it is still double the budget, so spend it deliberately.
 - **R6** **Residents walk through furniture, everywhere, today.** `resident_nav.gd`
   builds its AStar graph from `fl["walls"]` alone and never reads a prop, so the
   router cannot see a counter, a shelf or a display case. Harmless while NPCs
