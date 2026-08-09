@@ -1748,7 +1748,10 @@ def apartment_4b(z, walls, rooms, markers, furniture):
         # range's cheek and on top of the plates.
         {"kind": "toaster", "id": "F04_B_TOASTER_01", "unit": "4B",
          "pos": [-10.70, 9.30, z + 0.90], "yaw_deg": 90,
-         "network": "electrical"},
+         # The body runs across this short bespoke counter. Its Orison
+         # retrofit therefore pulls from the open west end, not through the
+         # backsplash like the standard room-facing trays.
+         "tray_axis": "-x", "network": "electrical"},
         {"kind": "fridge", "id": "F04_B_FRIDGE_01", "unit": "4B",
          # The old north-wall position sat inside F04_DOOR_07's sweep — a
          # latent fault the marker audit can finally see. On the east wall
@@ -7534,6 +7537,11 @@ MATERIAL_CATALOG = {
     # work, but not enough to turn a horizontal spout black under the torch.
     "nickel_plated": {"base_color": [0.72, 0.70, 0.66, 1.0],
                       "roughness": 0.38, "metallic": 0.70},
+    # Natural mica sheet carrying the 1-A-1's resistance wire. It is a
+    # mineral insulator, not ceramic and not a glowing surface by itself;
+    # the GDScript wire geometry owns the mutable emission.
+    "mica_heater": {"base_color": [0.58, 0.36, 0.12, 1.0],
+                    "roughness": 0.78, "metallic": 0.0},
     # Close-read refrigerator metals. Zinc oxide and forty years of wet
     # wiping make the liner read mostly diffuse. At 0.38 metallic its shelves
     # still reflected the practical away and sampled nearly black in 4B.

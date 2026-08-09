@@ -18,11 +18,16 @@ each known source it:
 Rug sources also emit hue-shifted variants for the cool and green rug
 slots. Sources without a SLOTS entry are listed, not guessed at.
 
-    python art/tools/ingest_material_sources.py
+    python art/tools/ingest_material_sources.py                 # changed only
+    python art/tools/ingest_material_sources.py --slot brass    # one source/key
+    python art/tools/ingest_material_sources.py --full          # deliberate rebake
+    python art/tools/ingest_material_sources.py --check         # contract audit
 """
+import argparse
 import json
 import os
 import re
+import time
 import zlib
 
 import numpy as np
@@ -32,6 +37,10 @@ ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", ".."))
 SRC = os.path.join(ROOT, "art", "textures", "ai_sources")
 OUT = os.path.join(ROOT, "art", "textures", "ai_materials")
 MAPPING = os.path.join(ROOT, "art", "textures", "catalog_mapping.json")
+STATE = os.path.join(OUT, ".ingest_state.json")
+# Bump only when the processing algorithm changes. Recipe and source changes
+# are fingerprinted separately, so adding one plate never rebakes the building.
+PIPELINE_VERSION = 2
 
 # source file -> (catalog keys, meters_per_tile, rough_base, rough_span,
 #                 normal_strength)
@@ -93,6 +102,10 @@ SLOTS = {
     # Fine polishing has direction, so it stays in GRID_SLOTS and never
     # receives a quarter-turn blend that would cross the scratch field.
     "nickel_plated": (["nickel_plated"], 0.32, 0.38, 0.18, 2.5),
+    # One heater card fills most of the visible source area inside the
+    # single toaster slot. The resistance wire is geometry, so this plate
+    # stays evenly mineral and can tile without baking a glowing landmark.
+    "mica_heater": (["mica_heater"], 0.18, 0.78, 0.16, 2.2),
     "porcelain_fixture": (["porcelain"], 0.4, 0.18, 0.15, 1.5),
     "bakelite": (["bakelite"], 0.3, 0.25, 0.15, 1.5),
     # 11 squares across the sheet; at 1.1 m that is a ~10 cm check,
@@ -235,7 +248,7 @@ RECOLOR = {"rug_persian_worn": [("rug_cool", 150.0), ("rug_green", 90.0)]}
 # step somebody has to remember after every regeneration.
 GODOT_STAGE = ("brass_bright", "brass_dull", "bronze", "car_paint",
                "oak_quartered", "zinc_liner", "copper_aged",
-               "cast_iron", "fx_grease", "nickel_plated",
+               "cast_iron", "fx_grease", "nickel_plated", "mica_heater",
                "milk_glass", "bakelite_black", "terrazzo_dark",
                "brass_mesh", "indicator_enamel",
                # The shopfront signage is built in GDScript too
@@ -268,10 +281,11 @@ def stage_for_godot(key, mapping):
             return False
         image = Image.open(src).convert("RGBA")
         stem = os.path.join(GODOT_TEX, "T_ai_materials_%s_" % key)
-        image.save(stem + "albedo.png")
-        Image.new("L", image.size, 199).save(stem + "rough.png")
-        Image.new("RGB", image.size, (128, 128, 255)).save(
-            stem + "normal.png")
+        _save_if_changed(image, stem + "albedo.png")
+        _save_if_changed(Image.new("L", image.size, 199),
+                         stem + "rough.png")
+        _save_if_changed(Image.new("RGB", image.size, (128, 128, 255)),
+                         stem + "normal.png")
         return True
     mapped = str(mapping.get(key, ""))
     source_key = os.path.basename(mapped) if mapped.startswith(
@@ -289,9 +303,27 @@ def stage_for_godot(key, mapping):
                               "T_ai_materials_%s_%s.png" % (key, suffix))
         with open(s_path, "rb") as fh:
             data = fh.read()
+        if os.path.exists(d_path):
+            with open(d_path, "rb") as fh:
+                if fh.read() == data:
+                    continue
         with open(d_path, "wb") as fh:
             fh.write(data)
     return True
+
+
+def _save_if_changed(image, path):
+    """Avoid touching Godot imports when generated pixels did not change."""
+    import io
+    buf = io.BytesIO()
+    image.save(buf, format="PNG")
+    data = buf.getvalue()
+    if os.path.exists(path):
+        with open(path, "rb") as fh:
+            if fh.read() == data:
+                return
+    with open(path, "wb") as fh:
+        fh.write(data)
 
 
 
@@ -313,6 +345,7 @@ COLOR_ANCHORS = {
     "puddle": "#0A0B0E", "wet_asphalt": "#17171A", "timber": "#8A6A48",
     "brass": "#A67C3E", "appliance": "#F0EBDE", "metal": "#9AA0A0",
     "cast_iron": "#B5B2AA", "nickel_plated": "#B7B2A7",
+    "mica_heater": "#94652D",
     "enamel_pristine": "#F2EEE2", "enamel_paintflecked": "#E9E3D2",
     "enamel_dented": "#E4DDCC", "enamel_greasy": "#DCD2B8",
     "enamel_workshop": "#E6E1D4", "porcelain": "#EFE9D6", "bakelite": "#452C20",
@@ -621,13 +654,8 @@ def synthesize_family(slot, key, candidates):
         out.append(("_" + "bcd"[i], np.clip(v, 0, 1)))
     return out
 
-def main() -> None:
-    os.makedirs(SRC, exist_ok=True)
-    with open(MAPPING, encoding="utf-8") as fh:
-        mapping = json.load(fh)
-    # ---- collect: group every candidate file under its slot.
-    # <slot>.png is the winner; <slot>_alt.png and <slot>_vN.png are
-    # further generations of the same surface.
+def _collect_sources():
+    """Return candidate groups without opening or decoding any image."""
     groups, unknown = {}, []
     for fname in sorted(os.listdir(SRC)):
         stem, ext = os.path.splitext(fname)
@@ -640,6 +668,153 @@ def main() -> None:
         rank = 0 if stem == slot else (1 if stem.endswith("_alt")
                                        else 1 + int(stem.rsplit("_v", 1)[1]))
         groups.setdefault(slot, []).append((rank, stem, fname))
+    for cands in groups.values():
+        cands.sort()
+    return groups, unknown
+
+
+def _slot_keys(slot, candidate_count):
+    keys = list(SLOTS[slot][0])
+    if slot not in COMPOSITION:
+        variants = min(MAX_FAMILY - 1, 3 if candidate_count > 1 else 2)
+        for key in SLOTS[slot][0]:
+            if key not in NO_VARIANTS:
+                keys.extend(key + "_" + "bcd"[i] for i in range(variants))
+    keys.extend(key for key, _degrees in RECOLOR.get(slot, []))
+    return keys
+
+
+def _outputs_complete(slot, candidate_count):
+    names = ("albedo.png", "height.png", "normal.png",
+             "roughness.png", "material.json")
+    return all(os.path.isfile(os.path.join(OUT, key, name))
+               for key in _slot_keys(slot, candidate_count)
+               for name in names)
+
+
+def _slot_fingerprint(slot, cands):
+    """Cheap, stable recipe fingerprint; image decoding is intentionally absent."""
+    sources = []
+    for _rank, stem, fname in cands:
+        stat = os.stat(os.path.join(SRC, fname))
+        sources.append([stem, fname, stat.st_size, stat.st_mtime_ns])
+    recipe = {
+        "pipeline": PIPELINE_VERSION,
+        "slot": slot,
+        "sources": sources,
+        "recipe": SLOTS[slot],
+        "composition": slot in COMPOSITION,
+        "precrop": {k: v for k, v in PRECROP.items()
+                    if k == slot or k.startswith(slot + "_")},
+        "grid": slot in GRID_SLOTS,
+        "rot_ok": slot in ROT_OK,
+        "no_variants": [k for k in SLOTS[slot][0] if k in NO_VARIANTS],
+        "recolor": RECOLOR.get(slot, []),
+        "max_family": MAX_FAMILY,
+        "ship_px": SHIP_PX,
+        "anchors": [[k, COLOR_ANCHORS.get(k), ANCHOR_STRENGTH]
+                    for k in _slot_keys(slot, len(cands))],
+    }
+    return "%08x" % (zlib.crc32(json.dumps(
+        recipe, sort_keys=True, separators=(",", ":")).encode()) & 0xffffffff)
+
+
+def _newer_than_sources(slot, cands):
+    """Safe first-run adoption: outputs must post-date every input plate."""
+    if not _outputs_complete(slot, len(cands)):
+        return False
+    newest_source = max(os.stat(os.path.join(SRC, f)).st_mtime_ns
+                        for _rank, _stem, f in cands)
+    oldest_output = min(os.stat(os.path.join(OUT, key, name)).st_mtime_ns
+                        for key in _slot_keys(slot, len(cands))
+                        for name in ("albedo.png", "height.png", "normal.png",
+                                     "roughness.png", "material.json"))
+    return oldest_output >= newest_source
+
+
+def _write_json_atomic(path, value, sort_keys=False):
+    temp = path + ".tmp"
+    with open(temp, "w", encoding="utf-8") as fh:
+        json.dump(value, fh, indent=1, sort_keys=sort_keys)
+        fh.write("\n")
+    os.replace(temp, path)
+
+
+def _resolve_slots(requested, groups):
+    resolved = set()
+    for name in requested:
+        if name in SLOTS:
+            resolved.add(name)
+            continue
+        matches = [slot for slot, data in SLOTS.items() if name in data[0]]
+        if len(matches) == 1:
+            resolved.add(matches[0])
+        else:
+            raise SystemExit("unknown or ambiguous --slot %r" % name)
+    missing = sorted(slot for slot in resolved if slot not in groups)
+    if missing:
+        raise SystemExit("no source image for slot(s): %s" % ", ".join(missing))
+    return resolved
+
+
+def _audit(groups, mapping):
+    errors = []
+    for slot, cands in sorted(groups.items()):
+        if not _outputs_complete(slot, len(cands)):
+            errors.append("incomplete output: %s" % slot)
+        for key in _slot_keys(slot, len(cands)):
+            if mapping.get(key) != "ai_materials/%s" % key:
+                errors.append("mapping missing/stale: %s" % key)
+    for key in GODOT_STAGE:
+        for suffix in ("albedo", "rough", "normal"):
+            path = os.path.join(GODOT_TEX,
+                                "T_ai_materials_%s_%s.png" % (key, suffix))
+            if not os.path.isfile(path):
+                errors.append("Godot stage missing: %s/%s" % (key, suffix))
+    for error in errors:
+        print("ERROR:", error)
+    print("checked %d source slots, %d problem(s)" % (len(groups), len(errors)))
+    return not errors
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Incrementally ingest AI material plates.")
+    parser.add_argument("--slot", action="append", default=[],
+                        help="force one source slot or catalog key; repeatable")
+    parser.add_argument("--full", action="store_true",
+                        help="deliberately rebuild every available source")
+    parser.add_argument("--check", action="store_true",
+                        help="audit outputs, mapping, and Godot staging only")
+    parser.add_argument("--show-unknown", action="store_true",
+                        help="list every unassigned image instead of a count")
+    args = parser.parse_args()
+    os.makedirs(SRC, exist_ok=True)
+    os.makedirs(OUT, exist_ok=True)
+    with open(MAPPING, encoding="utf-8") as fh:
+        mapping = json.load(fh)
+    # ---- collect: group every candidate file under its slot.
+    # <slot>.png is the winner; <slot>_alt.png and <slot>_vN.png are
+    # further generations of the same surface.
+    groups, unknown = _collect_sources()
+    requested = _resolve_slots(args.slot, groups)
+    if args.check:
+        if args.show_unknown:
+            for fname in unknown:
+                print("UNKNOWN source (no SLOTS entry):", fname)
+        elif unknown:
+            print("%d unassigned source image(s); use --show-unknown to list"
+                  % len(unknown))
+        # Unassigned files are an inventory opportunity, not a broken
+        # material contract. --show-unknown exposes them for a curation pass;
+        # CI fails only when a named slot is incomplete or unstaged.
+        raise SystemExit(0 if _audit(groups, mapping) else 1)
+    try:
+        with open(STATE, encoding="utf-8") as fh:
+            state = json.load(fh)
+    except (FileNotFoundError, json.JSONDecodeError):
+        state = {"pipeline": PIPELINE_VERSION, "slots": {}}
+    state.setdefault("slots", {})
 
     def prep(stem, fname, slot):
         img = Image.open(os.path.join(SRC, fname)).convert("RGB")
@@ -661,9 +836,28 @@ def main() -> None:
             a = make_tileable(a)
         return a
 
-    ingested = []
+    ingested, adopted, skipped = [], [], []
+    processed_keys = set()
+    started = time.perf_counter()
     for slot, cands in sorted(groups.items()):
-        cands.sort()
+        # A surgical prop-material pass must remain surgical even when some
+        # unrelated plate changed while it was in progress.
+        if requested and slot not in requested:
+            continue
+        fingerprint = _slot_fingerprint(slot, cands)
+        force = args.full or slot in requested
+        current = state["slots"].get(slot) == fingerprint
+        complete = _outputs_complete(slot, len(cands))
+        if not force and current and complete:
+            skipped.append(slot)
+            continue
+        # Migration from the old unconditional script: trust an existing set
+        # only when every output is newer than every source. --full remains the
+        # explicit way to discard that trust and regenerate the whole library.
+        if not force and slot not in state["slots"] and _newer_than_sources(slot, cands):
+            state["slots"][slot] = fingerprint
+            adopted.append(slot)
+            continue
         keys, metres, rough_base, rough_span, strength = SLOTS[slot]
         albedos = [prep(stem, fname, slot) for _, stem, fname in cands]
         base = albedos[0]
@@ -682,23 +876,45 @@ def main() -> None:
             write_set(extra_key, hue_rotate(base, degrees), metres,
                       rough_base, rough_span, strength, cands[0][1])
             mapping[extra_key] = "ai_materials/%s" % extra_key
+        processed_keys.update(_slot_keys(slot, len(cands)))
+        state["slots"][slot] = fingerprint
         ingested.append((slot, len(albedos), keys))
-    with open(MAPPING, "w", encoding="utf-8") as fh:
-        json.dump(mapping, fh, indent=1)
-        fh.write("\n")
-    staged = [k for k in GODOT_STAGE if stage_for_godot(k, mapping)]
+    _write_json_atomic(MAPPING, mapping)
+    state["pipeline"] = PIPELINE_VERSION
+    _write_json_atomic(STATE, state, sort_keys=True)
+    stage_keys = []
+    for key in GODOT_STAGE:
+        mapped = str(mapping.get(key, ""))
+        source_key = (os.path.basename(mapped) if mapped.startswith(
+                      "ai_materials/") else key)
+        missing = any(not os.path.isfile(os.path.join(
+            GODOT_TEX, "T_ai_materials_%s_%s.png" % (key, suffix)))
+            for suffix in ("albedo", "rough", "normal"))
+        if args.full or key in processed_keys or source_key in processed_keys or missing:
+            stage_keys.append(key)
+    staged = [k for k in stage_keys if stage_for_godot(k, mapping)]
     if staged:
         print("staged for Godot props: %s" % ", ".join(staged))
     for slot, n, keys in ingested:
         print("ingested %-24s %d gen(s) -> %s"
               % (slot, n, ", ".join(keys)))
-    for fname in unknown:
-        print("UNKNOWN source (no SLOTS entry):", fname)
-    if not ingested and not unknown:
-        print("art/textures/ai_sources/ is empty - drop sheet images in "
-              "and re-run")
+    if adopted:
+        print("adopted %d current legacy set(s); use --full to rebake" % len(adopted))
+    if skipped:
+        print("skipped %d unchanged source slot(s)" % len(skipped))
+    if args.show_unknown:
+        for fname in unknown:
+            print("UNKNOWN source (no SLOTS entry):", fname)
+    elif unknown:
+        print("%d unassigned source image(s); use --show-unknown to list"
+              % len(unknown))
+    if not groups and not unknown:
+        print("art/textures/ai_sources/ is empty - drop sheet images in and re-run")
+    elif not ingested and not unknown:
+        print("all material outputs are current")
     else:
         print("re-run the Blender build to see them in the floors")
+    print("ingest finished in %.2fs" % (time.perf_counter() - started))
 
 
 if __name__ == "__main__":

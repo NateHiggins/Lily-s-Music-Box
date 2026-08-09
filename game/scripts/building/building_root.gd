@@ -685,6 +685,12 @@ func _spawn_props() -> void:
 			if prop is StoveProp:
 				prop.unit = String(m.get("unit", ""))
 				prop.ambient_lit = bool(m.get("ambient_lit", false))
+			if prop is ToasterProp:
+				# Crumb placement is deterministic per household, and the future
+				# archaeology content belongs to a resident rather than a marker id.
+				prop.unit = String(m.get("unit", ""))
+				if String(m.get("tray_axis", "")) == "-x":
+					prop.tray_axis = Vector3.LEFT
 			# A fitting under the entrance marquee hangs off the facade,
 			# not off a storey ceiling. Carried through as a group so the
 			# "too low for its floor" audit can tell the difference
@@ -720,6 +726,7 @@ func _spawn_props() -> void:
 			# keep it until each becomes the sole owner of its own geometry.
 			prop.rotation.y = deg_to_rad(float(m.get("yaw_deg", 0)) \
 					if prop is FridgeProp or prop is StoveProp or prop is TapProp \
+							or prop is ToasterProp \
 					else -float(m.get("yaw_deg", 0)))
 			add_child(prop)
 			count += 1

@@ -60,6 +60,12 @@ const SETS := {
 	"nickel_plated": ["T_ai_materials_nickel_plated_albedo.png",
 			"T_ai_materials_nickel_plated_rough.png",
 			"T_ai_materials_nickel_plated_normal.png", 0.32, 0.70, 0.82],
+	# The mica card is passive insulation. ToasterProp lays mutable resistance
+	# wire geometry over it, so possession can pulse the wire without making
+	# the whole mineral sheet emit like a television screen.
+	"mica_heater": ["T_ai_materials_mica_heater_albedo.png",
+			"T_ai_materials_mica_heater_rough.png",
+			"T_ai_materials_mica_heater_normal.png", 0.18, 0.0],
 	"zinc_liner": ["T_ai_materials_zinc_liner_albedo.png",
 			"T_ai_materials_zinc_liner_rough.png",
 			"T_ai_materials_zinc_liner_normal.png", 0.55, 0.12, 0.82],

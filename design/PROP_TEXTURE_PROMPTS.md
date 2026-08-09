@@ -84,3 +84,26 @@ This is a tiling finish, not a picture of a faucet. Exposed brass, mineral
 bloom and rust are positioned geometry/deposits in `tap_prop.gd`, where hands
 and standing water put them; baking those landmarks into the swatch would
 repeat the same accident on every vertical riser and every valve.
+
+## Toaster pass
+
+1. **`mica_heater.png`**
+
+   Seamless flat evenly-lit document-scan material swatch of aged natural
+   electrical mica insulation from a 1920s bread toaster, honey-amber layered
+   mineral flakes, fine random heat-darkened speckling and subtle dry scorch
+   toning, homogeneous composition, close crop filling the frame edge to edge,
+   square, high resolution, no object edges, no perspective, no heating wires,
+   no hardware, no shadows, no glare, no highlights, no vignette, no letters,
+   no numbers, no words, no logos, no symbols, no labels, no watermark, no
+   border, perfectly tileable on all four edges.
+
+Generated source and processed set:
+
+- `art/textures/ai_sources/mica_heater.png`
+- `art/textures/ai_materials/mica_heater/`
+- `game/assets/building/textures/T_ai_materials_mica_heater_{albedo,rough,normal}.png`
+
+Resistance wire is separate emissive geometry in `toaster_prop.gd`. Baking a
+wire or hotspot into this plate would repeat a luminous landmark and make the
+passive mineral sheet glow when the director pulses the element.

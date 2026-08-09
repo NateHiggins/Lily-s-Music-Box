@@ -138,6 +138,15 @@ func _ready() -> void:
 		_pose_stoves(root, String(sp[0]),
 				String(sp[1]) if sp.size() > 1 else "open")
 		await get_tree().create_timer(0.08).timeout
+	# SHOT_TOASTER_POSE="2A:tray" pulls the non-factory service pan on an
+	# installed toaster. The important proof is direction and clearance: a
+	# boolean in source cannot show a tray sliding through the counter wall.
+	var toaster_pose := OS.get_environment("SHOT_TOASTER_POSE")
+	if toaster_pose != "":
+		var tp := toaster_pose.split(":")
+		_pose_toasters(root, String(tp[0]),
+				String(tp[1]) if tp.size() > 1 else "tray")
+		await get_tree().create_timer(0.08).timeout
 	# The plumbing family has two independent valves and the medicine mirror
 	# is a real door. Inspection poses make water/stopper and leaf clearance
 	# visible in the installed room rather than merely true in source.
@@ -191,6 +200,18 @@ func _pose_stoves(node: Node, wanted_unit: String, pose: String) -> void:
 				stove.set_burner_lit(1, true, 0.01, true)
 	for child in node.get_children():
 		_pose_stoves(child, wanted_unit, pose)
+
+
+func _pose_toasters(node: Node, wanted_unit: String, pose: String) -> void:
+	if node is ToasterProp:
+		var toaster := node as ToasterProp
+		if wanted_unit == "*" or toaster.unit == wanted_unit:
+			if pose.contains("tray"):
+				toaster.set_crumb_tray_open(true, 0.0)
+			if pose.contains("toast") or pose.contains("cycle"):
+				toaster.start_cycle()
+	for child in node.get_children():
+		_pose_toasters(child, wanted_unit, pose)
 
 
 func _pose_taps(node: Node, wanted_unit: String) -> void:

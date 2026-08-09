@@ -12,6 +12,31 @@ var root: Node3D
 var _failures := 0
 var _arrivals := {}
 var _full := OS.get_environment("WALKTEST_FULL") == "1"
+## HOW FAST THE CLOCK RUNS. The FULL pass is gated on a body physically
+## walking the building at 2.8 m/s — up the stair, round two flats, into
+## the lift and back — and every metre of that was wall-clock time
+## nobody got back. 208 seconds of it.
+##
+## Engine.time_scale multiplies delta, so the player covers four times
+## the ground per real second AND every create_timer in here fires four
+## times sooner, because those are scaled too. The _goto timeouts are in
+## the same scaled seconds, so their budgets stay exactly as authored.
+##
+## PHYSICS TICKS RISE WITH IT, and that is the part that matters. Scaling
+## time alone would quadruple how far the capsule moves per physics step,
+## which is how a collision test starts tunnelling through the walls it
+## exists to prove are solid — and a walk test that walks through a wall
+## does not fail, it PASSES for the wrong reason. At 240 Hz the
+## displacement per step is identical to 60 Hz at normal speed, so the
+## contact solver sees exactly the run it always saw, four times sooner.
+##
+## WALKTEST_SCALE overrides it; 1.0 restores real time if a result ever
+## looks scale-dependent, which is the first thing to try if this test
+## starts disagreeing with itself.
+const BASE_TICKS := 60
+@onready var _scale: float = maxf(1.0, float(
+		OS.get_environment("WALKTEST_SCALE")) if
+		OS.get_environment("WALKTEST_SCALE") != "" else 4.0)
 
 
 func _record_arrival(node_id: String, i: int, _a: float, _p: float,
@@ -83,7 +108,11 @@ func _ready() -> void:
 
 
 func _run() -> void:
-	print("[WALKTEST] %s mode" % ("FULL" if _full else "FAST"))
+	Engine.time_scale = _scale
+	Engine.physics_ticks_per_second = int(round(BASE_TICKS * _scale))
+	print("[WALKTEST] %s mode, sim x%.1f (%d Hz physics)"
+			% ["FULL" if _full else "FAST", _scale,
+			Engine.physics_ticks_per_second])
 	await get_tree().create_timer(0.6).timeout
 	root.show_all_floors = true
 	# The sanity director moves furniture and rewrites light energies on its
@@ -162,6 +191,7 @@ func _run() -> void:
 			and root.weather.get_node_or_null("DistantLightning") != null,
 			"distant lightning source is active")
 	await _plumbing_checks()
+	_toaster_checks()
 	if not _full:
 		await _finish("FAST")
 		return
@@ -598,6 +628,36 @@ func _plumbing_checks() -> void:
 				"4B hot valve, cold valve, stopper and stream operate independently")
 		player_sink.set_running(false)
 		player_sink.set_stopper(false)
+
+
+func _toaster_checks() -> void:
+	var expected := {
+		"1A": true, "1D": true, "2A": true, "2B": true,
+		"3A": true, "3B": true, "3D": true, "4A": true,
+		"4B": true, "4C": true, "5A": true, "6A": true,
+		"6B": true, "6C": true,
+	}
+	var found := {}
+	var sample: ToasterProp = null
+	for child in root.get_children():
+		if child is not ToasterProp:
+			continue
+		var toaster := child as ToasterProp
+		found[toaster.unit] = true
+		if toaster.unit == "2A":
+			sample = toaster
+	_check(found.size() == 14 and found == expected,
+			"fourteen intended flats own period single-slot toasters (%s)" % [found.keys()])
+	_check(sample != null, "standard 2A kitchen owns a toaster")
+	if sample:
+		var closed_position: Vector3 = sample._crumb_tray.position
+		sample.set_crumb_tray_open(true, 0.0)
+		_check(sample.is_crumb_tray_open()
+				and is_equal_approx(sample._crumb_tray.position.distance_to(
+						closed_position),
+						ToasterProp.TRAY_TRAVEL),
+				"Orison retrofit crumb tray exposes its full service travel")
+		sample.set_crumb_tray_open(false, 0.0)
 
 
 func _stop_audio(node: Node) -> void:

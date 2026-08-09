@@ -25,7 +25,7 @@ badges, no trademarks.
 | **Enamel gas range** | Champion / Clark Jewel / Metro, 1920–27 | Porcelain-enamel panels on an angle-iron base, four open gas grates, oven and separate broiler, exposed valve rail, shallow splash panel, no clock and no oven window. |
 | **Wringer washer** | Maytag, 1930s–50s | Cylindrical tub on four legs, wringer arm over the rim, single agitator dome. |
 | **Console radio** | Zenith / Philco, 1930s | Bakelite or veneer cabinet, cloth grille, illuminated dial glass, chrome pointer. |
-| **Toaster** | Chrome pop-up, 1940s | Mirror-chrome curved body, bakelite ends, single lever. |
+| **Automatic toaster** | Waters-Genter Toastmaster Model 1-A-1, 1926 | Tall narrow nickel-plated single-slice body, one long slot, paired end controls, horizontal vents and a sprung carrier. |
 
 **The oven-door ruling**: the range is now wholly marker-built. Its 34 cm oven
 leaf and separate broiler are distinct mechanisms around a real liner; the
@@ -46,7 +46,7 @@ interaction; **possession** names what the poltergeist does with it.
 | **Monitor-top fridge** | 1A, 3A, 5B, 6C (never replaced) | Door swings, interior lamp, compressor sighs | Door beats open and shut on the motif, contents rearrange between glimpses |
 | **Sheer-look fridge** | 1D, 2A, 2B, 4A, 4B, 5A | as above | as above |
 | **Kettle** | 1A, 3D, 4B, 6C | Lifts, sets down, whistles when hot | Boils dry and whistles a held note |
-| **Chrome toaster** | 4B, 4A, 6B | Lever down, elements glow, pops | Ejects nothing, repeatedly |
+| **1-A-1 toaster** | 14 flats: 1A, 1D, 2A, 2B, 3A, 3B, 3D, 4A, 4B, 4C, 5A, 6A, 6B, 6C | Carriage lever down, mica-mounted elements glow, toast pops; Orison retrofit crumb pan slides out | Ejects nothing, repeatedly |
 | **Icebox (dead)** | 4D, 4C-Noel side | Door opens on a dry, ringing cavity | Drips water that is not there |
 
 ### Utility and comfort

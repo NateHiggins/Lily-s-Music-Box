@@ -489,3 +489,102 @@ shed's even inspection light with `SHOT_TORCH=0`.
   **WALKTEST RESULT: PASS [FAST]** in **14.1 seconds**, including construction,
   layout, lighting, resident/exterior checks, all 66 plumbing markers and an
   operated 4B hot/cold/stopper/stream state.
+
+## `toaster_prop` — Waters-Genter Toastmaster 1-A-1
+
+### What the real object was
+
+Waters-Genter introduced the automatic Toastmaster Model 1-A-1 in 1926. The
+Henry Ford museum example measures **10.125 x 4.75 x 7.375 inches** (0.257 x
+0.121 x 0.187 m). Patent US 1,698,146 records one longitudinal bread slot, a
+spring carriage, paired resistance-wire mica heater cards, a mechanical timing
+device and end-mounted controls. A November 1927 *New Yorker* advertisement
+priced it at $12.50: expensive, current, and plausible as an aspirational
+second-hand appliance in the Orison. It carries no signal, so bible VIII.2
+leaves its mechanism entirely in 1927. **HISTORICAL; CANONICAL.**
+
+The model did not have a factory pull-out crumb tray. The activity requires a
+tray that can be opened, so this one is explicitly a crude folded-metal Orison
+maintenance retrofit rather than a false factory feature. **NECESSITY;
+CANONICAL.**
+
+### What we inherited
+
+- A generic late-century two-slot rectangular toaster, with a modern rotary
+  control and no legible carriage mechanism.
+- One instance in 4B despite the authored majority-apartment ruling.
+- No removable tray, heater cards, exposed resistance system or useful
+  maintenance API.
+- A single flat material treatment that could not distinguish nickel plate,
+  Bakelite, braided cord, mica or hand grease.
+
+### Built result
+
+The prop now owns the measured single-slot 1-A-1 silhouette: plated pressed
+case, three stepped shoulder folds, raised slot lip, recessed ventilation,
+corner fasteners, four Bakelite feet, braided cord and two-pin plug. The two
+end controls have distinct jobs—carriage/switch and clockwork timing stop—and
+the bread carrier, lever, click, hum, heater glow and spring pop remain a
+complete mechanical cycle.
+
+Inside are two textured mica heater cards and separate resistance-wire
+geometry. Only the wire emits. The service pan is a 0.215 x 0.105 m shallow
+folded tray with a mismatched Bakelite pull, local grease and deterministic
+per-household crumbs. `set_crumb_tray_open()` exposes 160 mm of travel for the
+archaeology minigame without replacing the normal carriage interaction.
+
+Fourteen flats instantiate it: **1A, 1D, 2A, 2B, 3A, 3B, 3D, 4A, 4B, 4C, 5A,
+6A, 6B and 6C**. The deliberate exceptions remain 2C, 5B, 4D and 5C. Standard
+kitchen markers expose local -Z to the cook. 4B deliberately turns the body
+across its short bespoke counter, so its superintendent retrofit exits the
+open end instead. Real-window maintenance renders caught and corrected the
+first implementation withdrawing toward the backsplash; both the standard 2A
+pan and 4B end-pull now clear their counters visibly.
+
+### Materials and ingestion
+
+`nickel_plated`, `bakelite_black`, `fabric_warm` and `fx_grease` reuse their
+runtime sets. New `mica_heater` is present in `MATERIAL_CATALOG`, ingest
+`SLOTS`/`GODOT_STAGE` and `MatLib.SETS`. Its source is a seamless, square,
+flat evenly-lit mineral document scan with no marks or writing. The generated
+albedo, height, normal, roughness and metadata are staged as the three runtime
+maps used by the GDScript prop.
+
+The material ingester is now incremental. It fingerprints each source and its
+entire recipe, adopts legacy outputs only when they post-date every source,
+does not decode unchanged images, does not rewrite identical Godot maps, and
+supports `--slot`, `--full`, `--check` and `--show-unknown`. The mica-only pass
+took **1.6 seconds**; the following no-change library pass took **0.18
+seconds**, rather than timing out during a whole-library rebake. Unassigned
+source art is reported as a count during normal work and can be enumerated for
+curation without making the named material contract fail.
+
+### Render evidence
+
+Before:
+
+- Warehouse, generic two-slot box — `C:/shots/orison_prop_pass/toaster_before/stand_398_1.00_10_180_-8.png`
+- 4B installed — `C:/shots/orison_prop_pass/toaster_before/stand_-10.70_10.88_-8.40_0_-12.png`
+
+After:
+
+- Warehouse, closed 1-A-1 — `C:/shots/orison_prop_pass/toaster_after/stand_398_0.55_11.25_180_-8.png`
+- Standard 2A kitchen, tray open — `C:/shots/orison_prop_pass/toaster_after/stand_-7.94_5.45_1.50_0_-35.png`
+- 4B bespoke counter, end-pull tray open — `C:/shots/orison_prop_pass/toaster_after/stand_-10.70_11.35_-8.20_0_-35.png`
+- 4B installed, eye-level context — `C:/shots/orison_prop_pass/toaster_after/stand_-10.70_10.88_-8.40_0_-12.png`
+
+The warehouse uses its flat inspection light with the torch off. Installed
+frames use `SHOT_LIGHTS=1 SHOT_TORCH=1`. In a sampled warehouse crop, median
+luma rose from **103.0** to **116.7** while the p10/p90 range widened from
+**89.3/157.3** to **80.0/187.0**: the plated case remains dimensional instead
+of flattening white or disappearing black.
+
+### Validation
+
+- Layout generation: exit 0; 14 toaster markers, 1718 assemblies, 599 total
+  markers, and all furnishing/life audits passed.
+- Godot editor rescan: exit 0.
+- FAST WalkTest: **PASS in 14.4 seconds**. It asserts the exact 14-unit set,
+  exercises the standard 2A path and measures the tray's full 160 mm travel.
+- The Blender build, JSON synchronization and Godot import completed in the
+  required order before the inspection render.
