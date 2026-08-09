@@ -169,7 +169,7 @@ coordinate before fixing.
 | F06_A_MAIN | Glowing art/TV panel overlaps window blinds | ugly |
 | F06_C_BATH | Vertical brown strip above the towel rail — looks like a mis-rotated duplicate rail | ugly |
 | F06_C_MAIN | "PROVENANCE UNKNOWN" sign overlaps the abstract painting; portrait painting sits in front of the fridge/cabinet face, clipping the counter | ugly |
-| F06_D_BED | Bed and dressers are featureless pure-white boxes; both windows brick-filled; smoke detector tilted off-axis | ugly |
+| F06_D_BED | Bed and dressers are featureless pure-white boxes; both windows brick-filled | ugly |
 | F06_D_BATH | Orange bench/tabletop clips ~0.6 m of geometry through the closed bathroom door | ugly |
 | F06_WSTOR | Floor is two mismatched slabs with a visible ledge drop | ugly |
 | F06_HALL | Painting mounted flush against ceiling trim, clipped by the soffit | wish |

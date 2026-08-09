@@ -56,7 +56,7 @@ pieces. These are influences rather than replicas of branded products.
 | Unit | Object | Deniable behavior |
 |---|---|---|
 | 1A | mirror | reflection shifts slightly late |
-| 1D | smoke detector | indicator holds its breath with Teresa |
+| 1D | Vantry listening point | mechanical telltale holds its breath with Teresa |
 | 2A | intercom | receives an unlisted internal call |
 | 2B | coat hook | gains one hook after the player looks away |
 | 2C | smart speaker | repeats a voice it was never taught |

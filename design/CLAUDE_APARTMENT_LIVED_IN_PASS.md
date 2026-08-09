@@ -83,9 +83,9 @@ Every occupied physical unit needs these cues, even when represented cheaply:
 - Charging/power use near bed and work position.
 - Cleaning tool storage.
 - Window treatment state appropriate to sleep schedule and privacy.
-- Smoke/CO detector coverage. The current functional marker catalog only has a
-  dedicated smoke detector in 4B; add static low-cost detectors elsewhere or
-  intentionally promote them to the shared functional system.
+- Vantry fire/flood/listening coverage. Every enclosed room now has one quiet
+  batched face; the current chirp alone is promoted to the shared functional
+  owner. Do not reintroduce modern smoke or CO detectors.
 
 ### Avoid generic completeness
 

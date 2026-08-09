@@ -170,12 +170,11 @@ carry a game are the ones worth the modelling effort.
 7. **`washer_prop`** (2) + **`laundry_airer_prop`** (1) — a 1927
    wringer washer is a very different object from a front-loading drum, and
    the room dries on a pulley airer rather than an automatic dryer.
-8. **`smoke_detector_prop`** (1) — **flag a fiction problem rather than
-   modelling it prettier.** Domestic smoke detectors did not exist in
-   1927. Either it is an anachronism the building should be asked about
-   (which may be the interesting answer), or it should be a different
-   device — a heat detector, a sprinkler head, a fire-alarm pull. Say
-   which and why, then model that.
+8. **`vantry_point_prop`** (one per enclosed room) — **ruled and built.**
+   The modern smoke detector was the fiction problem, not the reference.
+   Its replacement is a 1912 Bakelite-and-brass Vantry fire/flood/listening
+   head on a dedicated house signal circuit. The old `smoke_detector` key
+   remains only as a serialized-data alias; never author a new one.
 
 ### Second — read closely, touched often
 

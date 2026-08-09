@@ -7,6 +7,7 @@ const NETWORK_COLORS := {
 	"heating": Color(0.95, 0.5, 0.2), "water": Color(0.3, 0.6, 0.95),
 	"electrical": Color(0.95, 0.9, 0.3), "structural": Color(0.7, 0.7, 0.7),
 	"ventilation": Color(0.5, 0.9, 0.6), "flue": Color(0.9, 0.35, 0.5),
+	"signal": Color(0.55, 0.82, 0.95),
 }
 
 ## Emitted when a propagated motif event arrives at a graph node. Strength

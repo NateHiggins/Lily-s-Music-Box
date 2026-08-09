@@ -5,7 +5,7 @@ extends Node
 
 signal state_changed
 
-const SAVE_VERSION := 3
+const SAVE_VERSION := 4
 const SAVE_PATH := "user://reality_maintenance_save.json"
 
 var data: Dictionary = {}
@@ -29,6 +29,7 @@ func _fresh_data() -> Dictionary:
 		"music_library": [],
 		"heard_music_anecdotes": [],
 		"building_personality": {},
+		"work_orders": {},
 	}
 
 
@@ -84,6 +85,8 @@ func load_game() -> void:
 			data.heard_music_anecdotes = []
 		if not data.has("building_personality"):
 			data.building_personality = {}
+		if not data.has("work_orders"):
+			data.work_orders = {}
 		if int(data.get("version", 0)) < SAVE_VERSION:
 			_migrate()
 

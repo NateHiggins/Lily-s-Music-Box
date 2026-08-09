@@ -42,6 +42,9 @@ license is incompatible with a potentially commercial release.
 - `828528__bogenseeberg__whistle-from-central-heating-radiator-upper-floor.wav`
   — “Whistle from central heating radiator upper floor” by bogenseeberg,
   https://freesound.org/s/828528/ — CC BY 4.0.
+  The short `vantry_line_chirp.ogg` event is a filtered, compressed excerpt
+  from this recording; it remains a recorded mechanical whistle rather than
+  a synthesized placeholder waveform.
 - `832036__timkahn__ambsubn_distant-people-talking-in-the-rain-and-a-train_tim-kahn_mkh80208030st.flac`
   — “AMBSubn_distant people talking in the rain and a train” by tim.kahn,
   https://freesound.org/s/832036/ — CC BY 4.0.

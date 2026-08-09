@@ -173,17 +173,30 @@
   "normal_function_priority": 1.0,
   "infection_receptivity": 0.8
  },
- "smoke_detector": {
+ "vantry_point": {
   "minimum_action_interval": 4.0,
   "maximum_action_rate": 1,
   "available_mechanical_events": [
-   "chirp"
+   "line_chirp",
+   "telltale_close"
   ],
   "preferred_subdivision": 0.25,
   "timing_drift": 0.0,
   "response_latency": 0.02,
   "normal_function_priority": 1.0,
-  "infection_receptivity": 0.45
+  "infection_receptivity": 0.72
+ },
+ "smoke_detector": {
+  "minimum_action_interval": 4.0,
+  "maximum_action_rate": 1,
+  "available_mechanical_events": [
+   "line_chirp"
+  ],
+  "preferred_subdivision": 0.25,
+  "timing_drift": 0.0,
+  "response_latency": 0.02,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.72
  },
  "exhaust_fan": {
   "minimum_action_interval": 0.4,

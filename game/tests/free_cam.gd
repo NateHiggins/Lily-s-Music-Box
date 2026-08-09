@@ -181,6 +181,17 @@ func _ready() -> void:
 	if cabinet_pose != "":
 		_pose_cabinets(root, cabinet_pose)
 		await get_tree().create_timer(0.08).timeout
+	# SHOT_VANTRY_POINT=<layout id> promotes that batched ceiling face to the
+	# full service owner. SHOT_VANTRY_POSE=service opens the captive grille;
+	# SHOT_VANTRY_POSE=closed_telltale records Teresa's impossible held breath.
+	var vantry_id := OS.get_environment("SHOT_VANTRY_POINT")
+	if vantry_id != "" and root.vantry_points.activate(vantry_id):
+		var vantry_pose := OS.get_environment("SHOT_VANTRY_POSE")
+		if vantry_pose == "service":
+			root.vantry_points.active_owner.set_service_pose()
+		elif vantry_pose == "closed_telltale":
+			root.vantry_points.active_owner.set_telltale_closed(true)
+		await get_tree().create_timer(0.08).timeout
 	_lights_on = OS.get_environment("SHOT_LIGHTS") == "1"
 	var rooms := OS.get_environment("SHOT_ROOMS")
 	if rooms != "":

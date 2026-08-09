@@ -180,17 +180,20 @@ glass, pressure gauge and barometric draft control; low water or a neglected
 fire reduces the one finite heat budget rather than merely changing an
 animation.
 
-**SMOKE DETECTOR — "The Chirp"** (`smoke_detector_prop`, 1 — should be
-many) — **BUILD THIS ONE**
-One is chirping. Somewhere. At three in the morning. Find it.
-*Satire:* the single most universally understood domestic experience of
-the last fifty years, transplanted to 1927 where it has no business
-existing — which is itself a question the building should not answer.
-*Implementation:* `chirp_hunt.gd`. Pure audio direction-finding using
-the acoustic graph that already exists (`acoustic_graph.json`, 305
-nodes). No panel at all: you walk, you listen, you find it. It is the
-best possible use of a system already built, and it costs almost
-nothing.
+**VANTRY POINT — "The Chirp"** (`vantry_point_prop`, one per enclosed
+room) — **OPERATIONAL**
+One is chirping. Somewhere. At three in the morning. Find it by ear and
+open its captive grille. There is no battery inside: this is a 1912 Vantry
+house-circuit listening point, a Bakelite-and-brass fire, flood and line-test
+instrument whose signal technology is allowed to be forty years early.
+*Satire:* the player brings a modern dead-battery diagnosis to an apparatus
+that is older than every tenant and more attentive than the landlord.
+*Implementation:* `work_orders.gd` is now the smallest honest maintenance
+spine: it issues, activates, persists and closes this first order.
+`chirp_hunt.gd` direction-finds through the acoustic graph that already
+exists. Quiet faces are batched into three draws per floor; one full owner
+moves between unheard locations. Teresa's point closes a mechanical red
+telltale just before she stops speaking. No LED, battery or boot-time chirp.
 
 **WRINGER / AIRER — "Matching"** (`washer_prop`, 2, operational mechanisms;
 `laundry_airer_prop`, 1)
@@ -263,9 +266,9 @@ objects are what make the interactive ones feel chosen.
 1. **`WorkOrders` + the Handbook.** Without the spine, everything else
    is a toy. Half a day.
 2. **`boiler_tend`.** The sink and the radiators both hang off it.
-3. **SMOKE DETECTOR CHIRP.** Cheapest thing on this list with the
-   highest return — it is pure audio over an acoustic graph that
-   already exists, and it needs no UI at all.
+3. **VANTRY POINT CHIRP.** The first WorkOrders customer is now built on the
+   acoustic graph and the dedicated house signal circuit. Its captive grille
+   makes this the cheapest complete maintenance loop on the list.
 4. **FRIDGE → shopping list → bodega.** The loop the user asked for,
    and the one that ties the building to the street.
 5. **RADIATOR BALANCE.** The best satire and a genuinely good puzzle.

@@ -10,6 +10,7 @@ var clocks: Dictionary = {}
 var anomalies: Dictionary = {}
 var home_relays: Array[PossessedDomesticProp] = []
 var player: Node3D
+var vantry_points: VantryPointNetwork
 
 
 func build(layout: Dictionary, floor_nodes: Dictionary) -> int:
@@ -54,11 +55,15 @@ func bind_director(director: SanityDirector, body: Node3D) -> void:
 		director.intruded.connect(_on_intruded)
 
 
+func bind_vantry_network(network: VantryPointNetwork) -> void:
+	vantry_points = network
+
+
 func _on_intruded(case_id: String, tier: int) -> void:
 	var clock: DomesticWitnessClock = clocks.get(case_id)
 	if is_instance_valid(clock):
 		clock.stage_haunt(tier, player)
-	var anomaly: PossessedDomesticProp = anomalies.get(case_id)
+	var anomaly: Node = anomalies.get(case_id)
 	if is_instance_valid(anomaly):
 		anomaly.stage_haunt(case_id, tier, player)
 	_stage_one_home_relay(case_id, tier)
@@ -66,7 +71,7 @@ func _on_intruded(case_id: String, tier: int) -> void:
 
 func force(case_id: String, tier := 2) -> bool:
 	var clock: DomesticWitnessClock = clocks.get(case_id)
-	var anomaly: PossessedDomesticProp = anomalies.get(case_id)
+	var anomaly: Node = anomalies.get(case_id)
 	var did := is_instance_valid(clock) and clock.stage_haunt(tier, player)
 	if is_instance_valid(anomaly):
 		did = anomaly.stage_haunt(case_id, tier, player) or did
@@ -108,6 +113,11 @@ func _build_anomalies(layout: Dictionary, floor_nodes: Dictionary) -> int:
 		for case_id in spec.get("cases", []): anomalies[str(case_id)] = prop
 		if bool(spec.get("relay_all", false)):
 			home_relays.append(prop)
+		count += 1
+	# Teresa's witness is not a second ceiling object. Her real bedroom point
+	# owns the mechanical aperture that closes before she stops speaking.
+	if vantry_points and vantry_points.points.has("F01_D_BED_VANTRY_POINT"):
+		anomalies["teresa_call_bells"] = vantry_points
 		count += 1
 	return count
 

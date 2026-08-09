@@ -1813,9 +1813,6 @@ def apartment_4b(z, walls, rooms, markers, furniture):
         {"kind": "wall_clock", "id": "F04_B_CLOCK_01", "unit": "4B",
          "pos": [-7.78, 4.60, z + 1.70], "yaw_deg": -90,
          "network": "electrical"},
-        {"kind": "smoke_detector", "id": "F04_B_SMOKEDET_01", "unit": "4B",
-         "pos": [-9.50, 5.50, z + 2.62], "yaw_deg": 0,
-         "network": "electrical"},
         {"kind": "exhaust_fan", "id": "F04_B_EXHFAN_01", "unit": "4B",
          "pos": [-6.60, y0 + 3.00, z + 2.55], "yaw_deg": 0,
          "network": "electrical"},
@@ -6730,7 +6727,49 @@ def validate(layout):
     problems += _validate_furnishing(layout)
     problems += _validate_movement(layout)
     problems += _validate_placement(layout)
+    problems += _validate_vantry_points(layout)
     problems += life_pass(layout["floors"])
+    return problems
+
+
+def _validate_vantry_points(layout):
+    """The ceiling network is complete, separate, and physically installed.
+
+    Counting the room source rather than freezing ``119`` here lets the
+    assertion survive a legitimate room addition while still failing the
+    moment a room silently loses its listening head.
+    """
+    problems = []
+    rooms = {r["id"]: (fl, r) for fl in layout["floors"]
+             for r in fl["rooms"] if r.get("kind") not in ("roof", "atrium")}
+    points = layout.get("vantry_points", [])
+    ids = [p.get("id", "") for p in points]
+    if len(points) != len(rooms):
+        problems.append("Vantry coverage %d points for %d enclosed rooms"
+                        % (len(points), len(rooms)))
+    if len(ids) != len(set(ids)):
+        problems.append("duplicate Vantry point id")
+    for point in points:
+        room_id = point.get("room", "")
+        if room_id not in rooms:
+            problems.append("%s names missing room %s"
+                            % (point.get("id", "Vantry point"), room_id))
+            continue
+        fl, room = rooms[room_id]
+        x0, y0, x1, y1 = room["rect"]
+        px, py, pz = point["pos"]
+        if not min(x0, x1) <= px <= max(x0, x1) or \
+                not min(y0, y1) <= py <= max(y0, y1):
+            problems.append("%s falls outside %s" % (point["id"], room_id))
+        expected_z = float(fl["z"]) + WALL_H
+        if abs(float(pz) - expected_z) > 0.011:
+            problems.append("%s is not seated on its ceiling" % point["id"])
+        if point.get("network") != "signal":
+            problems.append("%s escaped the Vantry signal circuit"
+                            % point["id"])
+    if any(m.get("kind") == "smoke_detector" for fl in layout["floors"]
+           for m in fl.get("markers", [])):
+        problems.append("legacy smoke-detector marker survived Vantry ruling")
     return problems
 
 
@@ -7265,6 +7304,62 @@ def _validate_furnishing(layout):
 
 # ---------------------------------------------------------------- graphs
 
+def vantry_point_pass(floors):
+    """One 1912 listening head in every enclosed room, cheaply rendered.
+
+    These do not enter ``markers``: that path constructs one FunctionalProp
+    per marker, which would turn 119 quiet ceiling fittings into 119 scripts,
+    timers and material-owning draw submissions.  The runtime batches these
+    records per floor and promotes exactly one record to the movable owner of
+    the current chirp.
+
+    A room-centre fixture is normally where the electric lamp already is.
+    Choose among restrained off-centre positions and maximise distance from
+    authored ceiling hardware; this is why the pass runs after light markers.
+    """
+    points = []
+    ceiling_kinds = {"ceiling_light", "pendant_shade", "flush_dome",
+                     "kitchen_linear", "cage_bulb", "chandelier",
+                     "eye_pendant", "exhaust_fan", "smoke_detector"}
+    for fl in floors:
+        for room in fl.get("rooms", []):
+            if room.get("kind") in ("roof", "atrium"):
+                continue
+            x0, y0, x1, y1 = room["rect"]
+            x0, x1 = sorted((float(x0), float(x1)))
+            y0, y1 = sorted((float(y0), float(y1)))
+            cx, cy = (x0 + x1) * 0.5, (y0 + y1) * 0.5
+            margin = min(0.42, max(0.18, min(x1 - x0, y1 - y0) * 0.22))
+            offsets = ((0.38, 0.31), (-0.38, 0.31), (0.38, -0.31),
+                       (-0.38, -0.31), (0.0, 0.36), (0.36, 0.0))
+            blockers = [m for m in fl.get("markers", [])
+                        if m.get("kind") in ceiling_kinds]
+            candidates = []
+            for ox, oy in offsets:
+                px = max(x0 + margin, min(x1 - margin, cx + ox))
+                py = max(y0 + margin, min(y1 - margin, cy + oy))
+                nearest = min((math.hypot(px - float(m["pos"][0]),
+                                          py - float(m["pos"][1]))
+                               for m in blockers), default=9.0)
+                candidates.append((nearest, px, py))
+            _, px, py = max(candidates)
+            rid = str(room["id"])
+            points.append({
+                "id": "%s_VANTRY_POINT" % rid,
+                "floor": fl["id"], "room": rid,
+                "room_kind": room.get("kind", ""),
+                "unit": room.get("unit", ""),
+                "pos": [round(px, 3), round(py, 3),
+                        round(float(fl["z"]) + WALL_H, 3)],
+                "network": "signal",
+                # Tiny deterministic rotation keeps a century of service
+                # screws from forming a conspicuous building-wide grid.
+                "yaw_deg": sum((i + 1) * ord(ch)
+                               for i, ch in enumerate(rid)) % 4 * 90,
+            })
+    return points
+
+
 def acoustic_graph(layout):
     nodes, edges = [], []
 
@@ -7320,7 +7415,7 @@ def acoustic_graph(layout):
                 edges.append(("B1_LAUNDRY_JOIST", "B1_WATER_MAIN"))
             elif m["kind"] in ("lamp", "monitor", "toaster",
                                "boxfan", "speaker", "kettle", "wall_clock",
-                               "smoke_detector", "exhaust_fan",
+                               "exhaust_fan",
                                "ceiling_light", "pendant_shade",
                                "flush_dome", "sconce_globe",
                                "kitchen_linear", "cage_bulb", "chandelier",
@@ -7380,6 +7475,22 @@ def acoustic_graph(layout):
         edges.append((s, prev_s))
         edges.append((s, "%s_CORRLIGHT_N" % fid))
         prev_s = s
+    # Vantry's house circuit is a signal network, never an electrical-light
+    # shortcut.  Cache-friendly stars per floor keep every listening head one
+    # hop from its trunk while the seven trunks describe the vertical riser.
+    previous_vantry = None
+    for fid in ("B1", "F01", "F02", "F03", "F04", "F05", "F06"):
+        floor_z = LEVELS[fid]
+        trunk = "%s_VANTRY_TRUNK" % fid
+        add(trunk, [-0.72, -1.85, floor_z + 2.28], "signal", fid,
+            0.82, (180, 6200), 6)
+        if previous_vantry:
+            edges.append((previous_vantry, trunk))
+        previous_vantry = trunk
+    for point in layout.get("vantry_points", []):
+        add(point["id"], point["pos"], "signal", point["room"],
+            0.92, (240, 5600), 5)
+        edges.append((point["id"], "%s_VANTRY_TRUNK" % point["floor"]))
     for riser, rads in by_riser.items():
         rads.sort(key=lambda m: m["pos"][2])
         header = ("BASEMENT_HEADER_WEST" if riser in ("H-A", "H-B")
@@ -7523,13 +7634,22 @@ PROP_CATALOG = {
                    "preferred_subdivision": 1, "timing_drift": 0.0,
                    "response_latency": 0.01, "normal_function_priority": 1.0,
                    "infection_receptivity": 0.8},
+    "vantry_point": {"minimum_action_interval": 4.0,
+                     "maximum_action_rate": 1,
+                     "available_mechanical_events": ["line_chirp",
+                                                       "telltale_close"],
+                     "preferred_subdivision": 0.25, "timing_drift": 0.0,
+                     "response_latency": 0.02,
+                     "normal_function_priority": 1.0,
+                     "infection_receptivity": 0.72},
+    # Save/data compatibility only. New layout and code say what it is.
     "smoke_detector": {"minimum_action_interval": 4.0,
                        "maximum_action_rate": 1,
-                       "available_mechanical_events": ["chirp"],
+                       "available_mechanical_events": ["line_chirp"],
                        "preferred_subdivision": 0.25, "timing_drift": 0.0,
                        "response_latency": 0.02,
                        "normal_function_priority": 1.0,
-                       "infection_receptivity": 0.45},
+                       "infection_receptivity": 0.72},
     "exhaust_fan": {"minimum_action_interval": 0.4, "maximum_action_rate": 3,
                     "available_mechanical_events": ["whir_waver"],
                     "preferred_subdivision": 0.5, "timing_drift": 0.05,
@@ -7886,6 +8006,7 @@ def main():
     retail_pass(floors[1])
     storm_pass(floors[1])
     street_lamp_markers(floors[1])
+    vantry_points = vantry_point_pass(floors)
     layout = {
         "meta": {"name": "Orison Apartments", "footprint": [28.0, 20.0],
                  "levels": LEVELS, "floor_to_floor": F2F,
@@ -7898,6 +8019,7 @@ def main():
                             "step_max": 0.28},
                  "residents": RESIDENTS},
         "floors": floors,
+        "vantry_points": vantry_points,
         "stairs": [stair_geometry(ATRIUM)],
         "elevator": {"shaft": list(ELEV["shaft"]),
                      "cabin": list(ELEV["cabin"]),

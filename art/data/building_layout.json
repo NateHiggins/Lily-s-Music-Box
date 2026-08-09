@@ -79160,18 +79160,6 @@
      "network": "electrical"
     },
     {
-     "kind": "smoke_detector",
-     "id": "F04_B_SMOKEDET_01",
-     "unit": "4B",
-     "pos": [
-      -9.5,
-      5.5,
-      12.219999999999999
-     ],
-     "yaw_deg": 0,
-     "network": "electrical"
-    },
-    {
      "kind": "exhaust_fan",
      "id": "F04_B_EXHFAN_01",
      "unit": "4B",
@@ -106577,6 +106565,1674 @@
     }
    ],
    "sockets": []
+  }
+ ],
+ "vantry_points": [
+  {
+   "id": "B1_STORAGE_CAGES_VANTRY_POINT",
+   "floor": "B1",
+   "room": "B1_STORAGE_CAGES",
+   "room_kind": "storage_cages",
+   "unit": "",
+   "pos": [
+    -9.2,
+    -4.74,
+    0.22
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "B1_LAUNDRY_VANTRY_POINT",
+   "floor": "B1",
+   "room": "B1_LAUNDRY",
+   "room_kind": "laundry",
+   "unit": "",
+   "pos": [
+    -9.2,
+    6.47,
+    0.22
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "B1_BOILER_VANTRY_POINT",
+   "floor": "B1",
+   "room": "B1_BOILER",
+   "room_kind": "boiler",
+   "unit": "",
+   "pos": [
+    9.96,
+    4.695,
+    0.22
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "B1_ELECTRICAL_VANTRY_POINT",
+   "floor": "B1",
+   "room": "B1_ELECTRICAL",
+   "room_kind": "electrical",
+   "unit": "",
+   "pos": [
+    9.96,
+    -5.015,
+    0.22
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "B1_HALL_VANTRY_POINT",
+   "floor": "B1",
+   "room": "B1_HALL",
+   "room_kind": "hall",
+   "unit": "",
+   "pos": [
+    -1.58,
+    -4.69,
+    0.22
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "B1_UTILITY_VANTRY_POINT",
+   "floor": "B1",
+   "room": "B1_UTILITY",
+   "room_kind": "utility",
+   "unit": "",
+   "pos": [
+    0.38,
+    5.31,
+    0.22
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "B1_COAL_VANTRY_POINT",
+   "floor": "B1",
+   "room": "B1_COAL",
+   "room_kind": "coal",
+   "unit": "",
+   "pos": [
+    12.855,
+    1.81,
+    0.22
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F01_LOBBY_VANTRY_POINT",
+   "floor": "F01",
+   "room": "F01_LOBBY",
+   "room_kind": "lobby",
+   "unit": "",
+   "pos": [
+    0.38,
+    -8.6,
+    3.02
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F01_COMMON_B_VANTRY_POINT",
+   "floor": "F01",
+   "room": "F01_COMMON_B",
+   "room_kind": "common",
+   "unit": "",
+   "pos": [
+    -8.325,
+    7.835,
+    3.02
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F01_STORAGE_C_VANTRY_POINT",
+   "floor": "F01",
+   "room": "F01_STORAGE_C",
+   "room_kind": "storage",
+   "unit": "",
+   "pos": [
+    9.96,
+    4.695,
+    3.02
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F01_HALL_VANTRY_POINT",
+   "floor": "F01",
+   "room": "F01_HALL",
+   "room_kind": "hall",
+   "unit": "",
+   "pos": [
+    -1.58,
+    -4.69,
+    3.02
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F01_UTILITY_VANTRY_POINT",
+   "floor": "F01",
+   "room": "F01_UTILITY",
+   "room_kind": "utility",
+   "unit": "",
+   "pos": [
+    0.38,
+    5.31,
+    3.02
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F01_OFFICE_VANTRY_POINT",
+   "floor": "F01",
+   "room": "F01_OFFICE",
+   "room_kind": "office",
+   "unit": "",
+   "pos": [
+    -11.385,
+    3.725,
+    3.02
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F01_PACKAGE_VANTRY_POINT",
+   "floor": "F01",
+   "room": "F01_PACKAGE",
+   "room_kind": "storage",
+   "unit": "",
+   "pos": [
+    -8.075,
+    3.725,
+    3.02
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F01_RESTROOM_VANTRY_POINT",
+   "floor": "F01",
+   "room": "F01_RESTROOM",
+   "room_kind": "bathroom",
+   "unit": "",
+   "pos": [
+    -13.155,
+    6.66,
+    3.02
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F01_A_BED_VANTRY_POINT",
+   "floor": "F01",
+   "room": "F01_A_BED",
+   "room_kind": "bedroom",
+   "unit": "1A",
+   "pos": [
+    -9.2,
+    -7.64,
+    3.02
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F01_A_BATH_VANTRY_POINT",
+   "floor": "F01",
+   "room": "F01_A_BATH",
+   "room_kind": "bathroom",
+   "unit": "1A",
+   "pos": [
+    -6.99,
+    -4.68,
+    3.02
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F01_A_MAIN_VANTRY_POINT",
+   "floor": "F01",
+   "room": "F01_A_MAIN",
+   "room_kind": "living",
+   "unit": "1A",
+   "pos": [
+    -9.2,
+    -3.04,
+    3.02
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F01_D_BED_VANTRY_POINT",
+   "floor": "F01",
+   "room": "F01_D_BED",
+   "room_kind": "bedroom",
+   "unit": "1D",
+   "pos": [
+    9.96,
+    -7.64,
+    3.02
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F01_D_BATH_VANTRY_POINT",
+   "floor": "F01",
+   "room": "F01_D_BATH",
+   "room_kind": "bathroom",
+   "unit": "1D",
+   "pos": [
+    6.99,
+    -4.68,
+    3.02
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F01_D_MAIN_VANTRY_POINT",
+   "floor": "F01",
+   "room": "F01_D_MAIN",
+   "room_kind": "living",
+   "unit": "1D",
+   "pos": [
+    9.96,
+    -3.315,
+    3.02
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F01_D_OFFICE_VANTRY_POINT",
+   "floor": "F01",
+   "room": "F01_D_OFFICE",
+   "room_kind": "office",
+   "unit": "1D",
+   "pos": [
+    6.23,
+    -1.61,
+    3.02
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F02_A_BED_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_A_BED",
+   "room_kind": "bedroom",
+   "unit": "2A",
+   "pos": [
+    -9.2,
+    -7.64,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F02_A_BATH_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_A_BATH",
+   "room_kind": "bathroom",
+   "unit": "2A",
+   "pos": [
+    -6.99,
+    -4.68,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F02_A_MAIN_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_A_MAIN",
+   "room_kind": "living",
+   "unit": "2A",
+   "pos": [
+    -9.2,
+    -3.04,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F02_B_ALCOVE_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_B_ALCOVE",
+   "room_kind": "alcove",
+   "unit": "2B",
+   "pos": [
+    -11.895,
+    8.385,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F02_B_BATH_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_B_BATH",
+   "room_kind": "bathroom",
+   "unit": "2B",
+   "pos": [
+    -6.99,
+    3.86,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F02_B_KITCHEN_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_B_KITCHEN",
+   "room_kind": "kitchen",
+   "unit": "2B",
+   "pos": [
+    -8.585,
+    8.385,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F02_B_MAIN_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_B_MAIN",
+   "room_kind": "living",
+   "unit": "2B",
+   "pos": [
+    -9.2,
+    4.895,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F02_C_BED1_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_C_BED1",
+   "room_kind": "bedroom",
+   "unit": "2C",
+   "pos": [
+    7.925,
+    8.26,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F02_C_BED2_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_C_BED2",
+   "room_kind": "bedroom",
+   "unit": "2C",
+   "pos": [
+    11.995,
+    8.26,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F02_C_BATH_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_C_BATH",
+   "room_kind": "bathroom",
+   "unit": "2C",
+   "pos": [
+    6.99,
+    4.68,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F02_C_MAIN_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_C_MAIN",
+   "room_kind": "living",
+   "unit": "2C",
+   "pos": [
+    9.96,
+    2.995,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F02_D_BED_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_D_BED",
+   "room_kind": "bedroom",
+   "unit": "2D",
+   "pos": [
+    9.96,
+    -8.26,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F02_D_BATH_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_D_BATH",
+   "room_kind": "bathroom",
+   "unit": "2D",
+   "pos": [
+    6.99,
+    -4.68,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F02_D_MAIN_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_D_MAIN",
+   "room_kind": "living",
+   "unit": "2D",
+   "pos": [
+    9.96,
+    -3.315,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F02_D_OFFICE_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_D_OFFICE",
+   "room_kind": "office",
+   "unit": "2D",
+   "pos": [
+    6.99,
+    -2.23,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F02_WSTOR_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_WSTOR",
+   "room_kind": "storage",
+   "unit": "",
+   "pos": [
+    -9.2,
+    0.8,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F02_CORRIDOR_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_CORRIDOR",
+   "room_kind": "corridor",
+   "unit": "",
+   "pos": [
+    -0.38,
+    -0.31,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F02_HALL_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_HALL",
+   "room_kind": "hall",
+   "unit": "",
+   "pos": [
+    -1.58,
+    -4.69,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F02_UTILITY_VANTRY_POINT",
+   "floor": "F02",
+   "room": "F02_UTILITY",
+   "room_kind": "utility",
+   "unit": "",
+   "pos": [
+    0.38,
+    5.31,
+    6.22
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F03_A_BED_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_A_BED",
+   "room_kind": "bedroom",
+   "unit": "3A",
+   "pos": [
+    -9.2,
+    -7.64,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F03_A_BATH_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_A_BATH",
+   "room_kind": "bathroom",
+   "unit": "3A",
+   "pos": [
+    -6.99,
+    -4.68,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F03_A_MAIN_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_A_MAIN",
+   "room_kind": "living",
+   "unit": "3A",
+   "pos": [
+    -9.2,
+    -3.04,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F03_B_ALCOVE_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_B_ALCOVE",
+   "room_kind": "alcove",
+   "unit": "3B",
+   "pos": [
+    -11.895,
+    8.385,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F03_B_BATH_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_B_BATH",
+   "room_kind": "bathroom",
+   "unit": "3B",
+   "pos": [
+    -6.99,
+    3.86,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F03_B_KITCHEN_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_B_KITCHEN",
+   "room_kind": "kitchen",
+   "unit": "3B",
+   "pos": [
+    -8.585,
+    8.385,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F03_B_MAIN_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_B_MAIN",
+   "room_kind": "living",
+   "unit": "3B",
+   "pos": [
+    -9.2,
+    4.895,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F03_C_BED1_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_C_BED1",
+   "room_kind": "bedroom",
+   "unit": "3C",
+   "pos": [
+    7.925,
+    8.26,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F03_C_BED2_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_C_BED2",
+   "room_kind": "bedroom",
+   "unit": "3C",
+   "pos": [
+    11.995,
+    8.26,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F03_C_BATH_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_C_BATH",
+   "room_kind": "bathroom",
+   "unit": "3C",
+   "pos": [
+    6.99,
+    4.68,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F03_C_MAIN_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_C_MAIN",
+   "room_kind": "living",
+   "unit": "3C",
+   "pos": [
+    9.96,
+    2.995,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F03_D_BED_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_D_BED",
+   "room_kind": "bedroom",
+   "unit": "3D",
+   "pos": [
+    9.96,
+    -7.64,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F03_D_BATH_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_D_BATH",
+   "room_kind": "bathroom",
+   "unit": "3D",
+   "pos": [
+    6.99,
+    -4.68,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F03_D_MAIN_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_D_MAIN",
+   "room_kind": "living",
+   "unit": "3D",
+   "pos": [
+    9.96,
+    -3.315,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F03_D_OFFICE_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_D_OFFICE",
+   "room_kind": "office",
+   "unit": "3D",
+   "pos": [
+    6.23,
+    -1.61,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F03_WSTOR_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_WSTOR",
+   "room_kind": "storage",
+   "unit": "",
+   "pos": [
+    -9.2,
+    0.8,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F03_CORRIDOR_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_CORRIDOR",
+   "room_kind": "corridor",
+   "unit": "",
+   "pos": [
+    -0.38,
+    -0.31,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F03_HALL_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_HALL",
+   "room_kind": "hall",
+   "unit": "",
+   "pos": [
+    -1.58,
+    -4.69,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F03_UTILITY_VANTRY_POINT",
+   "floor": "F03",
+   "room": "F03_UTILITY",
+   "room_kind": "utility",
+   "unit": "",
+   "pos": [
+    0.38,
+    5.31,
+    9.42
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F04_A_BED_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_A_BED",
+   "room_kind": "bedroom",
+   "unit": "4A",
+   "pos": [
+    -9.2,
+    -7.64,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F04_A_BATH_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_A_BATH",
+   "room_kind": "bathroom",
+   "unit": "4A",
+   "pos": [
+    -6.99,
+    -4.68,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F04_A_MAIN_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_A_MAIN",
+   "room_kind": "living",
+   "unit": "4A",
+   "pos": [
+    -9.2,
+    -3.04,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F04_B_VESTIBULE_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_B_VESTIBULE",
+   "room_kind": "vestibule",
+   "unit": "4B",
+   "pos": [
+    -6.99,
+    3.585,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F04_B_BATH_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_B_BATH",
+   "room_kind": "bathroom",
+   "unit": "4B",
+   "pos": [
+    -6.99,
+    6.03,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F04_B_CLOSET_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_B_CLOSET",
+   "room_kind": "closet",
+   "unit": "4B",
+   "pos": [
+    -5.763,
+    8.13,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F04_B_KITCHEN_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_B_KITCHEN",
+   "room_kind": "kitchen",
+   "unit": "4B",
+   "pos": [
+    -8.925,
+    8.385,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F04_B_MAIN_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_B_MAIN",
+   "room_kind": "living",
+   "unit": "4B",
+   "pos": [
+    -11.06,
+    4.275,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F04_B_ALCOVE_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_B_ALCOVE",
+   "room_kind": "alcove",
+   "unit": "4B",
+   "pos": [
+    -11.895,
+    8.385,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F04_C_BED1_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_C_BED1",
+   "room_kind": "bedroom",
+   "unit": "4C",
+   "pos": [
+    7.925,
+    8.26,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F04_C_BED2_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_C_BED2",
+   "room_kind": "bedroom",
+   "unit": "4C",
+   "pos": [
+    11.995,
+    8.26,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F04_C_BATH_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_C_BATH",
+   "room_kind": "bathroom",
+   "unit": "4C",
+   "pos": [
+    6.99,
+    4.68,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F04_C_MAIN_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_C_MAIN",
+   "room_kind": "living",
+   "unit": "4C",
+   "pos": [
+    9.96,
+    2.995,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F04_D_BED_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_D_BED",
+   "room_kind": "bedroom",
+   "unit": "4D",
+   "pos": [
+    9.96,
+    -7.64,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F04_D_BATH_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_D_BATH",
+   "room_kind": "bathroom",
+   "unit": "4D",
+   "pos": [
+    6.99,
+    -4.68,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F04_D_MAIN_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_D_MAIN",
+   "room_kind": "living",
+   "unit": "4D",
+   "pos": [
+    9.96,
+    -3.315,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F04_D_OFFICE_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_D_OFFICE",
+   "room_kind": "office",
+   "unit": "4D",
+   "pos": [
+    6.23,
+    -1.61,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F04_WSTOR_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_WSTOR",
+   "room_kind": "storage",
+   "unit": "",
+   "pos": [
+    -9.2,
+    0.8,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F04_CORRIDOR_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_CORRIDOR",
+   "room_kind": "corridor",
+   "unit": "",
+   "pos": [
+    0.38,
+    -0.31,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F04_HALL_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_HALL",
+   "room_kind": "hall",
+   "unit": "",
+   "pos": [
+    -1.58,
+    -4.69,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F04_UTILITY_VANTRY_POINT",
+   "floor": "F04",
+   "room": "F04_UTILITY",
+   "room_kind": "utility",
+   "unit": "",
+   "pos": [
+    0.38,
+    5.31,
+    12.62
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F05_A_BED_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_A_BED",
+   "room_kind": "bedroom",
+   "unit": "5A",
+   "pos": [
+    -9.2,
+    -7.64,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F05_A_BATH_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_A_BATH",
+   "room_kind": "bathroom",
+   "unit": "5A",
+   "pos": [
+    -6.99,
+    -4.68,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F05_A_MAIN_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_A_MAIN",
+   "room_kind": "living",
+   "unit": "5A",
+   "pos": [
+    -9.2,
+    -3.04,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F05_B_ALCOVE_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_B_ALCOVE",
+   "room_kind": "alcove",
+   "unit": "5B",
+   "pos": [
+    -11.895,
+    8.385,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F05_B_BATH_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_B_BATH",
+   "room_kind": "bathroom",
+   "unit": "5B",
+   "pos": [
+    -6.99,
+    3.86,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F05_B_KITCHEN_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_B_KITCHEN",
+   "room_kind": "kitchen",
+   "unit": "5B",
+   "pos": [
+    -8.585,
+    8.385,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F05_B_MAIN_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_B_MAIN",
+   "room_kind": "living",
+   "unit": "5B",
+   "pos": [
+    -9.2,
+    4.895,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F05_C_BED1_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_C_BED1",
+   "room_kind": "bedroom",
+   "unit": "5C",
+   "pos": [
+    7.925,
+    8.26,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F05_C_BED2_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_C_BED2",
+   "room_kind": "bedroom",
+   "unit": "5C",
+   "pos": [
+    11.995,
+    8.26,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F05_C_BATH_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_C_BATH",
+   "room_kind": "bathroom",
+   "unit": "5C",
+   "pos": [
+    6.99,
+    4.68,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F05_C_MAIN_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_C_MAIN",
+   "room_kind": "living",
+   "unit": "5C",
+   "pos": [
+    9.96,
+    2.995,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F05_D_BED_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_D_BED",
+   "room_kind": "bedroom",
+   "unit": "5D",
+   "pos": [
+    9.96,
+    -8.26,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F05_D_BATH_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_D_BATH",
+   "room_kind": "bathroom",
+   "unit": "5D",
+   "pos": [
+    6.99,
+    -4.68,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F05_D_MAIN_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_D_MAIN",
+   "room_kind": "living",
+   "unit": "5D",
+   "pos": [
+    9.96,
+    -3.315,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F05_D_OFFICE_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_D_OFFICE",
+   "room_kind": "office",
+   "unit": "5D",
+   "pos": [
+    6.99,
+    -2.23,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F05_WSTOR_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_WSTOR",
+   "room_kind": "storage",
+   "unit": "",
+   "pos": [
+    -9.2,
+    0.8,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F05_CORRIDOR_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_CORRIDOR",
+   "room_kind": "corridor",
+   "unit": "",
+   "pos": [
+    -0.38,
+    0.31,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F05_HALL_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_HALL",
+   "room_kind": "hall",
+   "unit": "",
+   "pos": [
+    -1.58,
+    -4.69,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F05_UTILITY_VANTRY_POINT",
+   "floor": "F05",
+   "room": "F05_UTILITY",
+   "room_kind": "utility",
+   "unit": "",
+   "pos": [
+    0.38,
+    5.31,
+    15.82
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F06_A_BED_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_A_BED",
+   "room_kind": "bedroom",
+   "unit": "6A",
+   "pos": [
+    -9.2,
+    -7.64,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F06_A_BATH_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_A_BATH",
+   "room_kind": "bathroom",
+   "unit": "6A",
+   "pos": [
+    -6.99,
+    -4.68,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F06_A_MAIN_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_A_MAIN",
+   "room_kind": "living",
+   "unit": "6A",
+   "pos": [
+    -9.2,
+    -3.04,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F06_B_ALCOVE_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_B_ALCOVE",
+   "room_kind": "alcove",
+   "unit": "6B",
+   "pos": [
+    -11.895,
+    8.385,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F06_B_BATH_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_B_BATH",
+   "room_kind": "bathroom",
+   "unit": "6B",
+   "pos": [
+    -6.99,
+    3.86,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F06_B_KITCHEN_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_B_KITCHEN",
+   "room_kind": "kitchen",
+   "unit": "6B",
+   "pos": [
+    -8.585,
+    8.385,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F06_B_MAIN_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_B_MAIN",
+   "room_kind": "living",
+   "unit": "6B",
+   "pos": [
+    -9.2,
+    4.895,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F06_C_BED1_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_C_BED1",
+   "room_kind": "bedroom",
+   "unit": "6C",
+   "pos": [
+    7.925,
+    8.26,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F06_C_BED2_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_C_BED2",
+   "room_kind": "bedroom",
+   "unit": "6C",
+   "pos": [
+    11.995,
+    8.26,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F06_C_BATH_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_C_BATH",
+   "room_kind": "bathroom",
+   "unit": "6C",
+   "pos": [
+    6.99,
+    4.68,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F06_C_MAIN_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_C_MAIN",
+   "room_kind": "living",
+   "unit": "6C",
+   "pos": [
+    9.96,
+    2.995,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F06_D_BED_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_D_BED",
+   "room_kind": "bedroom",
+   "unit": "6D",
+   "pos": [
+    9.96,
+    -7.64,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F06_D_BATH_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_D_BATH",
+   "room_kind": "bathroom",
+   "unit": "6D",
+   "pos": [
+    6.99,
+    -4.68,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F06_D_MAIN_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_D_MAIN",
+   "room_kind": "living",
+   "unit": "6D",
+   "pos": [
+    9.96,
+    -3.315,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F06_D_OFFICE_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_D_OFFICE",
+   "room_kind": "office",
+   "unit": "6D",
+   "pos": [
+    6.23,
+    -1.61,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 0
+  },
+  {
+   "id": "F06_WSTOR_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_WSTOR",
+   "room_kind": "storage",
+   "unit": "",
+   "pos": [
+    -9.2,
+    0.8,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 270
+  },
+  {
+   "id": "F06_CORRIDOR_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_CORRIDOR",
+   "room_kind": "corridor",
+   "unit": "",
+   "pos": [
+    -0.38,
+    -0.31,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 90
+  },
+  {
+   "id": "F06_HALL_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_HALL",
+   "room_kind": "hall",
+   "unit": "",
+   "pos": [
+    -1.58,
+    -4.69,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 180
+  },
+  {
+   "id": "F06_UTILITY_VANTRY_POINT",
+   "floor": "F06",
+   "room": "F06_UTILITY",
+   "room_kind": "utility",
+   "unit": "",
+   "pos": [
+    0.38,
+    5.31,
+    19.02
+   ],
+   "network": "signal",
+   "yaw_deg": 0
   }
  ],
  "stairs": [

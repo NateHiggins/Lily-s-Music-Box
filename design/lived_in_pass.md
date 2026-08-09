@@ -31,10 +31,9 @@ order and acceptance criteria are adopted as written.
 4. **daily_loops map to ResidentRoutines stages.** WATCHING exists; the
    work loops (record/paint/catalog/write) become future routine stages at
    the WORK_PRIMARY socket, so dressing and behaviour share coordinates.
-5. **Smoke detectors:** add as a cheap static marker kind everywhere,
-   promoted to the functional system ONLY in 4B (already) and any unit
-   whose case narrative needs one — matches the brief's "static low-cost
-   detectors elsewhere".
+5. **Vantry points:** one 1912 house-circuit listening head now covers every
+   enclosed room. Quiet faces batch per floor; only the current chirp is
+   promoted to a functional owner, so coverage does not become draw-call debt.
 6. **no_tv / no_sofa flags** (Rhea, Sacha, Cal's wear pattern) are in the
    profiles so the generic-completeness trap is machine-checkable, not
    tribal knowledge.

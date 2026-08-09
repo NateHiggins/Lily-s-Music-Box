@@ -915,3 +915,99 @@ intended room light.
   edge. FULL WalkTest — **PASS [FULL]** at sim x4 / 240 Hz in 58.2 wall-clock
   seconds; its physical walks, elevator rides and complete case sequence also
   completed.
+
+## `vantry_point_prop` — 1912 house-circuit listening head
+
+### What the real object was
+
+There was no domestic smoke detector to make prettier in 1927. Early fire
+alarm systems were wired alarm-telegraph apparatus, while carbon telephone
+transmitters had already established a practical diaphragm, granule chamber
+and perforated mounting. The Orison's ruled object is therefore a building-
+specific hybrid: a 1912 hard-wired Vantry point that listens for fire, flood
+and line-test signals. Its signal function is forty years early under VIII.2;
+its Bakelite-like moulded body, brass grille, cloth pair and mechanical flag
+remain legible as installed apparatus rather than a modern detector in brown
+paint. **HISTORICAL BASIS; FICTION RULING CANONICAL.** Reference anchors:
+[Berliner carbon transmitter, 1897](https://patents.google.com/patent/US579699A/en),
+[Gamewell alarm telegraph, 1909](https://patents.google.com/patent/US923114A/en),
+and [Western Electric perforated transmitter mounting, 1927](https://patents.google.com/patent/US1636006A/en).
+
+### What we inherited
+
+- One 120 mm white cube in 4B, visually a modern domestic detector and absent
+  from every other room.
+- No service interior, moving face, line circuit, direction-finding job or
+  relationship to Teresa's held-breath manifestation.
+- The generic anomaly layer could still build a second detector-like object,
+  while the acoustic graph had no dedicated signal trunk for either one.
+- No `WorkOrders` implementation existed, so gating the chirp behind the named
+  spine would simply have made the building silent.
+
+### Built result
+
+Every enclosed room except the roof and atrium volumes now receives one
+230 mm ceiling point—119 in the current 127-room layout. The broad stepped
+moulding, true-open radial brass grille, dark carbon diaphragm, three service
+screws, paired terminals, exposed cloth-and-copper tail and red mechanical
+telltale survive both room light and a five-foot worker's eye line. The captive
+grille twists and drops to expose an interior with no battery bay.
+
+Quiet points are one three-surface MultiMesh per floor: three static draws on
+each of seven floors. One six-mesh `VantryPointProp` owns audio, interaction and
+service motion. Promotion compacts only the affected floor's small transform
+list and changes `visible_instance_count`, then restores the former face in the
+same frame; this is the Compatibility-renderer-safe version of the invisible
+handoff. The first minimal `WorkOrders` spine issues, persists, activates and
+closes `WO-VANTRY-001`. `ChirpHunt` caches its source, waits 50–95 seconds
+between attributed recorded chirps, propagates them through the dedicated
+seven-floor signal trunk and closes only when the player opens the correct
+grille. Teresa's 1D point uses the same network and closes a mechanical shutter
+before she stops speaking. The old `smoke_detector` name remains a data/class
+alias only.
+
+### Materials and texture prompt batch
+
+No material work was required. `bakelite_black`, `brass_mesh`, `copper_aged`
+and `indicator_enamel` already travel through the runtime material library.
+`linen` deliberately remains on its older `T_library_furniture_linen_*` path;
+it was not added to `GODOT_STAGE`, which would have generated three unused,
+competing files. Because no new surface exists, there is no texture prompt
+batch for this family.
+
+### Render evidence
+
+Before:
+
+- Warehouse white cube — `C:/shots/orison_prop_pass/vantry_before_close/stand_406_2.0_8.75_0_40.png`
+- Installed 4B cube — `C:/shots/orison_prop_pass/vantry_before_close/stand_-9.5_11.45_-4.65_0_42.png`
+
+After:
+
+- Warehouse silhouette under even inspection light — `C:/shots/orison_prop_pass/vantry_after/warehouse/stand_402_2.0_13.4_0_25.png`
+- Installed 4B, shut — `C:/shots/orison_prop_pass/vantry_after/close/stand_-11.06_11.55_-3.35_0_45.png`
+- Installed 4B, captive grille open — `C:/shots/orison_prop_pass/vantry_after/service/stand_-11.06_11.55_-3.35_0_45.png`
+- Teresa's 1D point in context — `C:/shots/orison_prop_pass/vantry_after/evidence/stand_9.96_2.0_8.8_0_45.png`
+
+Installed frames use `SHOT_LIGHTS=1 SHOT_TORCH=1`; the warehouse uses its flat
+inspection rig. The installed shut frame has median RGB **(124, 66, 39)** and
+luma p10/50/p90 **20.3/76.5/190.6**. Its grille, terminal tail and stepped dark
+body remain separable without lifting the building's night grade.
+
+### Validation
+
+- Final-source `python art/data/gen_layout.py` — exit 0: 1,721 assemblies,
+  598 ordinary markers and one generated Vantry point for each of 119 eligible
+  rooms. The validator derives this count from room data rather than freezing
+  it as a constant, checks unique IDs, room bounds, ceiling seating, signal
+  network ownership and absence of legacy smoke-detector markers.
+- Blender 5.2 build — exit 0: 233 mapped materials, 11 shader-only materials,
+  all eight levels exported; generated JSON was copied to `game/data/`, then
+  Godot 4.7.1 completed its import pass.
+- FAST WalkTest — **PASS [FAST]**. It verifies 119 points, seven floor batches,
+  three static draws per floor, a six-mesh movable owner, the active persisted
+  work order, cached chirp source, every signal-trunk edge, synchronous owner
+  handoff, service pose, Teresa's telltale, attributed audio and correct-order
+  closure. FULL WalkTest — **PASS [FULL]** at sim x4 / 240 Hz in 72.2
+  wall-clock seconds; its physical walks, stair and elevator routes, complete
+  case sequence and restoration checks also completed.

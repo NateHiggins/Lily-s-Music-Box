@@ -44,7 +44,7 @@ const PROP_SCRIPTS := {
 	"porch_deck": preload("res://scripts/props/porch_deck_prop.gd"),
 	"kettle": preload("res://scripts/props/kettle_prop.gd"),
 	"wall_clock": preload("res://scripts/props/clock_prop.gd"),
-	"smoke_detector": preload("res://scripts/props/smoke_detector_prop.gd"),
+	"vantry_point": preload("res://scripts/props/vantry_point_prop.gd"),
 	"exhaust_fan": preload("res://scripts/props/exhaust_fan_prop.gd"),
 	"ceiling_light": preload("res://scripts/props/ceiling_light_prop.gd"),
 	"pendant_shade": preload("res://scripts/props/light_fixture_prop.gd"),
@@ -123,6 +123,9 @@ var found_art_pass: FoundArtPass
 var wayfinding_signage: WayfindingSignagePass
 var maintenance_headquarters: MaintenanceHeadquarters
 var objective_tracker: ObjectiveTracker
+var work_orders: WorkOrders
+var vantry_points: VantryPointNetwork
+var chirp_hunt: ChirpHunt
 var first_shift_director: FirstShiftDirector
 var safety_net: SafetyNet
 var sanity: SanityDirector
@@ -161,6 +164,21 @@ func _ready() -> void:
 		node.name = fid
 		add_child(node)
 		floor_nodes[fid] = node
+	# Work orders are a gameplay owner, not UI text. The tracker presents their
+	# state, but the state exists before the first customer is constructed.
+	objective_tracker = ObjectiveTracker.new()
+	objective_tracker.name = "ObjectiveTracker"
+	add_child(objective_tracker)
+	work_orders = WorkOrders.new()
+	work_orders.name = "WorkOrders"
+	work_orders.setup(objective_tracker)
+	add_child(work_orders)
+	# The 119 quiet heads are batched by floor. Exactly one full prop is kept
+	# ready to become the current audible/serviceable owner without a blink.
+	vantry_points = VantryPointNetwork.new()
+	vantry_points.name = "VantryPointNetwork"
+	add_child(vantry_points)
+	vantry_points.build(layout, floor_nodes, work_orders)
 	# Re-attach the height maps the glTF could not carry. Must run after
 	# every floor scene is in the tree and before anything else touches
 	# their materials.
@@ -250,6 +268,7 @@ func _ready() -> void:
 	domestic_witnesses = DomesticWitnessSystem.new()
 	domestic_witnesses.name = "DomesticWitnessSystem"
 	add_child(domestic_witnesses)
+	domestic_witnesses.bind_vantry_network(vantry_points)
 	domestic_witnesses.build(layout, floor_nodes)
 	# New building, new set of picture hooks. Every subsequent art pass shares
 	# this registry so residents, hallway management, and found art cannot
@@ -267,9 +286,6 @@ func _ready() -> void:
 	_build_original_orison_ad_board()
 	maintenance_headquarters = MaintenanceHeadquarters.new()
 	floor_nodes["F01"].add_child(maintenance_headquarters)
-	objective_tracker = ObjectiveTracker.new()
-	objective_tracker.name = "ObjectiveTracker"
-	add_child(objective_tracker)
 	mina_manifestation = MinaCaptionManifestation.new()
 	mina_manifestation.name = "MinaCaptionManifestation"
 	mina_manifestation.setup(self)
@@ -325,6 +341,7 @@ func _ready() -> void:
 	player = PlayerController.new()
 	player.position = GameBoot.b2g([0.0, -9.0, 0.1])  # vestibule
 	add_child(player)
+	vantry_points.bind_player(player)
 	# The handset, in the hand that was already carrying the torch.
 	# Parented to the camera, so it needs the player in the tree first.
 	phone_carrier = PhoneCarrier.new()
@@ -344,6 +361,10 @@ func _ready() -> void:
 	first_shift_director.name = "FirstShiftDirector"
 	first_shift_director.setup(self, objective_tracker, virus_director)
 	add_child(first_shift_director)
+	chirp_hunt = ChirpHunt.new()
+	chirp_hunt.name = "ChirpHunt"
+	add_child(chirp_hunt)
+	chirp_hunt.setup(vantry_points, work_orders)
 	var room0 := Room0.new()
 	add_child(room0)
 	var anomaly: DoorAnomalyProp = get_node_or_null("F04_B_DOOR_ANOMALY")

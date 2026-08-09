@@ -63,6 +63,8 @@ const RECORDED := {
 		"res://assets/audio/freesound/processed/mechanical/electrical_buzz_loop.ogg",
 	"agitate_loop":
 		"res://assets/audio/freesound/processed/mechanical/washer_agitate_loop.ogg",
+	"vantry_chirp":
+		"res://assets/audio/freesound/processed/mechanical/vantry_line_chirp.ogg",
 }
 static var _cache: Dictionary = {}
 static var _warned: Dictionary = {}

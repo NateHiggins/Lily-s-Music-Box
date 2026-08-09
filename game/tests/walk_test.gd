@@ -206,6 +206,7 @@ func _run() -> void:
 	_laundry_checks()
 	_toaster_checks()
 	_radiator_checks()
+	_vantry_checks()
 	_prop_mesh_and_boiler_checks()
 	if not _full:
 		await _finish("FAST")
@@ -743,6 +744,65 @@ func _radiator_checks() -> void:
 	_check(is_equal_approx(root.heat_balance.total_delivered_heat(), total_before),
 			"vent changes redistribute a fixed boiler heat cycle")
 	sample.set_vent_grade(2)
+
+
+func _vantry_checks() -> void:
+	var network: VantryPointNetwork = root.vantry_points
+	var orders: WorkOrders = root.work_orders
+	var expected := 0
+	for floor in root.layout.get("floors", []):
+		for room in floor.get("rooms", []):
+			if str(room.get("kind", "")) not in ["roof", "atrium"]:
+				expected += 1
+	_check(network != null and network.points.size() == expected,
+			"every enclosed room owns one Vantry point (%d)" % expected)
+	_check(network != null and network.floor_batch_count() == 7
+			and network.static_draws_per_floor() == 3,
+			"Vantry network stays at three static draws on seven visible floors")
+	_check(network != null and network.active_mesh_count() <= 6,
+			"movable Vantry owner stays within six meshes (%d)" %
+			[network.active_mesh_count() if network else -1])
+	_check(orders != null and orders.status(ChirpHunt.ORDER_ID) == "active",
+			"minimal WorkOrders spine issues and activates the chirp hunt")
+	_check(root.chirp_hunt != null
+			and root.chirp_hunt.active_point_id == "F06_D_BED_VANTRY_POINT",
+			"chirp hunt caches its authored starting point")
+	var graph_ok := network != null
+	if network:
+		for point_id in network.cached_point_ids():
+			var node: Dictionary = AcousticGraphData.nodes.get(point_id, {})
+			if str(node.get("network", "")) != "signal" \
+					or not (str(network.point_spec(point_id).floor)
+							+ "_VANTRY_TRUNK") in AcousticGraphData.neighbors(point_id):
+				graph_ok = false
+				break
+	_check(graph_ok, "all Vantry points terminate on the dedicated signal trunk")
+	if network == null:
+		return
+	var old_id := network.active_point_id
+	const TEST_POINT := "F04_B_MAIN_VANTRY_POINT"
+	var moved := network.activate(TEST_POINT)
+	var old_restored := network.static_instance_visible(old_id)
+	var destination_suppressed := not network.static_instance_visible(TEST_POINT)
+	_check(moved and old_restored and destination_suppressed,
+			"owner handoff restores old face and suppresses destination in one frame "
+			+ "(moved=%s old=%s new_hidden=%s)" %
+			[moved, old_restored, destination_suppressed])
+	network.active_owner.set_service_pose()
+	_check(float(network.active_owner.get_service_state().grille_open) == 1.0,
+			"Vantry grille exposes its no-battery service interior")
+	_check(network.stage_haunt("teresa_call_bells", 1, root.player)
+			and network.teresa_telltale_visible(),
+			"Teresa closes the mechanical telltale before the room answers")
+	_check(PropAudio.get_stream("vantry_chirp") != null,
+			"chirp uses an attributed recorded source")
+	# Return the sole owner to the point cached by ChirpHunt. Moving it directly
+	# above tested the network handoff; the director must still reject a grille
+	# that is not its current audio source.
+	network.activate(old_id)
+	network.active_owner.interact(root.player)
+	_check(orders.status(ChirpHunt.ORDER_ID) == "closed",
+			"inspecting the active grille closes the first work order")
 
 
 func _stop_audio(node: Node) -> void:
