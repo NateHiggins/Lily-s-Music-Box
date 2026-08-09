@@ -127,6 +127,13 @@ and by NPCs. R2 needs a brief before anyone builds.
   black), and `ShopEntryTest`'s ruling that the NEWS CIGARS proprietor side stays
   inaccessible — that one is deliberate, so changing it must be a decision.
   Watch the street elevation too: at 47.11 ms it is the second-worst station.
+- **R6** **Residents walk through furniture, everywhere, today.** `resident_nav.gd`
+  builds its AStar graph from `fl["walls"]` alone and never reads a prop, so the
+  router cannot see a counter, a shelf or a display case. Harmless while NPCs
+  only cross open corridors; fatal the moment they are asked to move inside a
+  fitted shop. R2's re-plan is wasted unless the router learns about fittings —
+  and the fix is worth having building-wide, not just on the street.
+
 
 ## M — Materials and textures
 
