@@ -94,6 +94,40 @@ Proposed in `design/ORISON_STUDIO_BRIEF.md`. Not canon until the owner rules.
   the room that records. No pitch scoring. *Blocked by S4 and the Songbook's own
   order.*
 
+## R — The street's shops
+
+Built in `art/data/shop_interiors.py`. Guide: `design/SHOP_INTERIOR_BUILD_GUIDE.md`.
+**The rooms are display cases, not spaces.** They were authored to be looked
+into through a storefront; the owner wants them walked around in, by the player
+and by NPCs. R2 needs a brief before anyone builds.
+
+- **R1** Measure before resizing. Nothing records the *clear* floor left after
+  fittings — only the gross bay. Interior width is the authored bay less the
+  200 mm party-wall inset, so today: news **2.10**, radio 3.00, locksmith 3.40,
+  druggist 4.10, pawn/funeral 4.40, diner/photo 5.00, hardware 5.20,
+  laundry/cobbler 5.40. Depths run 4.0 (news) to 7.0. Player capsule is
+  `BODY_RADIUS` 0.33, so a 0.66 m body needs ~0.9 m of aisle not to scrape.
+- **R2** Enlarge and re-plan. **Depth is the cheap axis** — `SHOP_PLAN` cuts
+  further into the block and nothing is behind the south row. **Width is not:**
+  since `_south_street_wall()` makes every shop its own building, `x0/x1` drives
+  the footprint, the void, the awning, the blade and the signage together.
+  Two cannot grow backward at all — the diner sits in the Harukiya's mass
+  (`nbr_s2`) and the druggist in `nbr_w` beside the Orison. *Needs the brief.*
+- **R3** NPCs have no way in. Movement is anchor-to-anchor in
+  `resident_routines.gd` — there is **no NavigationRegion3D or NavigationAgent3D
+  anywhere in the project** — so "NPCs move around inside" means authoring venue
+  anchors per shop, not dropping a navmesh. Overlaps #22 (favourite spots) and
+  should be done with it rather than twice.
+- **R4** `_validate_movement()` has never audited a shop. It skips any door with
+  `exterior` set (`gen_layout.py:6699`) because it cannot tell a storefront's own
+  fabric from an obstruction — which exempts precisely the eleven rooms in
+  question. Whatever R2 builds needs an audit that does not opt out.
+- **R5** Two things the re-plan must not break: the **181 per-shop buffers**
+  (fittings falling back into floor-wide buffers is what made the bodega go
+  black), and `ShopEntryTest`'s ruling that the NEWS CIGARS proprietor side stays
+  inaccessible — that one is deliberate, so changing it must be a decision.
+  Watch the street elevation too: at 47.11 ms it is the second-worst station.
+
 ## M — Materials and textures
 
 - **M1** Supertiles and stable per-wall UV offsets. Explicitly **not** part of
@@ -111,7 +145,6 @@ Proposed in `design/ORISON_STUDIO_BRIEF.md`. Not canon until the owner rules.
   the world compiler, the providers, the arcade catalog build, the texture
   validation — is unversioned files on disk. `git init` and a first commit.
 - **H3** `worldc clean --stale` has no test covering it.
-- **H4 · Codex** Prop families: 12 of 24 done; `bookshelf_prop` evaluation active.
 - **H9** Nothing defends the **mail bank ↔ lobby clock clearance**. Measured
   today at 175 mm: the clock spans blender y -9.205..-8.735 and the bank's
   surround -8.560..-7.200, and they overlap in height (1.715..1.930), so that
