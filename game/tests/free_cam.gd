@@ -147,6 +147,14 @@ func _ready() -> void:
 		_pose_toasters(root, String(tp[0]),
 				String(tp[1]) if tp.size() > 1 else "tray")
 		await get_tree().create_timer(0.08).timeout
+	# SHOT_KETTLE_POSE="4B:service" opens the chained cap and lid and lifts
+	# the vessel. The render proves those parts are outside their own shell.
+	var kettle_pose := OS.get_environment("SHOT_KETTLE_POSE")
+	if kettle_pose != "":
+		var kp := kettle_pose.split(":")
+		_pose_kettles(root, String(kp[0]),
+				String(kp[1]) if kp.size() > 1 else "service")
+		await get_tree().create_timer(0.08).timeout
 	# SHOT_RADIATOR_POSE="3B:partial" exposes the service state in a real
 	# room. The source saying a wheel turns cannot prove that its bench leaves
 	# the handwheel and far-end vent visible and reachable.
@@ -265,6 +273,20 @@ func _pose_toasters(node: Node, wanted_unit: String, pose: String) -> void:
 				toaster.start_cycle()
 	for child in node.get_children():
 		_pose_toasters(child, wanted_unit, pose)
+
+
+func _pose_kettles(node: Node, wanted_unit: String, pose: String) -> void:
+	if node is KettleProp:
+		var kettle := node as KettleProp
+		if wanted_unit == "*" or kettle.unit == wanted_unit:
+			if pose.contains("service"):
+				kettle.set_service_pose()
+			elif pose.contains("lid"):
+				kettle.set_lid_open(true, 0.01)
+			elif pose.contains("whistle"):
+				kettle.set_whistle_open(true, 0.01)
+	for child in node.get_children():
+		_pose_kettles(child, wanted_unit, pose)
 
 
 func _pose_taps(node: Node, wanted_unit: String) -> void:

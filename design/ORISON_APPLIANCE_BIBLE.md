@@ -45,7 +45,7 @@ interaction; **possession** names what the poltergeist does with it.
 | **Enamel gas range** | 17 kitchens (all except 4B) | Oven door drops open; grate and cap lift for jet service | All four gas flames answer together, valves turn against their stops |
 | **Monitor-top fridge** | 1A, 3A, 5B, 6C (never replaced) | Door swings, interior lamp, compressor sighs | Door beats open and shut on the motif, contents rearrange between glimpses |
 | **Sheer-look fridge** | 1D, 2A, 2B, 4A, 4B, 5A | as above | as above |
-| **Kettle** | 1A, 3D, 4B, 6C | Lifts, sets down, whistles when hot | Boils dry and whistles a held note |
+| **Kettle** | 1A, 1D, 3D, 4B, 4C, 6C | Lid and chained whistle cap open; vessel lifts, sets down and whistles when hot | Holds its onset for the building's next beat, then whistles a held note |
 | **1-A-1 toaster** | 14 flats: 1A, 1D, 2A, 2B, 3A, 3B, 3D, 4A, 4B, 4C, 5A, 6A, 6B, 6C | Carriage lever down, mica-mounted elements glow, toast pops; Orison retrofit crumb pan slides out | Ejects nothing, repeatedly |
 | **Icebox (dead)** | 4D, 4C-Noel side | Door opens on a dry, ringing cavity | Drips water that is not there |
 
@@ -70,7 +70,7 @@ interaction; **possession** names what the poltergeist does with it.
 | Unit | Tenant | The appliance that tells the truth about them |
 |---|---|---|
 | 1A | Evelyn | Monitor-top kept immaculate at 0.92 clean; a **second teacup** beside the kettle, never used. Her contradiction, in porcelain. |
-| 1D | Teresa | Range cold, thermos on the counter, fridge full of leftovers in labelled tins. The **silenced alarm clock** sits on the fridge top where she can't hear it from bed. |
+| 1D | Teresa | Range cold, dented vacuum flask beside a dull nickel kettle boiled twice a day for twenty-two years. Its replacement Bakelite knob does not match; she owns nothing that needs polishing. The **silenced alarm clock** sits on the fridge top where she can't hear it from bed. |
 | 2A | Mina | Everything labelled — including the fridge shelves, in her own hand. One box conspicuously unlabelled. |
 | 2B | Lena | The biggest pots in the building, for people who don't live here. Sewing machine in the front room, oiled and true (maint 0.90). |
 | 2C | Juno | Range unused as a range; **used as a shelf** for tape boxes. Takeout cartons, one percolator, and the recording rig where a table should be. |
@@ -79,7 +79,7 @@ interaction; **possession** names what the poltergeist does with it.
 | 3D | Rhea | Kettle, honey, lemon. The range is spotless because it is never used. |
 | 4A | Peter | Identical weekday meals means identical tins in identical rows, and a toaster with a **form taped to it** about a replacement he never filed. |
 | 4B | the player | Kettle and toaster on a counter otherwise bare. The desk is the tidiest thing in the flat. |
-| 4C | Cam / Noel | **The negotiated dining table**: Cam's fridge side is quick food, Noel's is a museum shelf with a dead icebox nobody empties. One kitchen, two centuries. |
+| 4C | Cam / Noel | **The negotiated dining table**: Cam's fridge side is quick food, Noel's is a museum shelf with a dead icebox nobody empties. Their battered copper kettle is evidence, not dressing: it sounds one beat before either yields. One kitchen, two centuries. |
 | 4D | Guests | Inadequate cookware — one pan for everything, hotel-issue, and a fridge that was never turned on. |
 | 5A | Nadia | Batch cooking, efficient, and a **corrected floor plan of this building** magneted to the fridge door. |
 | 5B | Cal | Forgets to eat: the range is a stand for **three console radios**. Fridge holds batteries and film. The reel deck is the only thing warm. |

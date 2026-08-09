@@ -85,6 +85,11 @@ func _build_visual() -> void:
 	# Valves, stopper and water remain separate because the player and the
 	# haunting move them. Everything else is fixed enough to merge.
 	merge_static(fixed)
+	# Each valve still turns independently. Its stem, escutcheon, cross and
+	# cap do not; merging inside the pivot preserves that verb and removes the
+	# repeated primitive cost across sixty-six fixtures.
+	for handle in _handles:
+		merge_static(handle)
 
 	_water = make_emitter(
 			"shower_water" if fixture == "shower" else "sink_water",

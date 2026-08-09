@@ -156,6 +156,14 @@ func _build_visual() -> void:
 	# food and lamp remain outside this subtree because each has a different
 	# mechanical life.
 	merge_static(carcass)
+	# Leaves and tray remain independent mechanisms, but their panels and
+	# hardware never move relative to their hinge/pull owner. Merge inside
+	# each owner instead of paying every board as a draw.
+	merge_static(_door)
+	if _ice_door:
+		merge_static(_ice_door)
+	if _tray:
+		merge_static(_tray)
 
 	_click = make_emitter("tick", -19.0)
 	_creak = make_emitter("creak", -30.0)

@@ -5300,6 +5300,19 @@
      "network": "electrical"
     },
     {
+     "kind": "kettle",
+     "id": "F01_1A_KETTLE_01",
+     "unit": "1A",
+     "pos": [
+      -8.03,
+      -0.64,
+      0.905
+     ],
+     "yaw_deg": 180,
+     "network": "electrical",
+     "case_id": ""
+    },
+    {
      "kind": "stove",
      "id": "F01_1A_STOVE_01",
      "unit": "1A",
@@ -5417,6 +5430,19 @@
      ],
      "yaw_deg": 180,
      "network": "electrical"
+    },
+    {
+     "kind": "kettle",
+     "id": "F01_1D_KETTLE_01",
+     "unit": "1D",
+     "pos": [
+      8.99,
+      -1.19,
+      0.905
+     ],
+     "yaw_deg": 180,
+     "network": "electrical",
+     "case_id": ""
     },
     {
      "kind": "stove",
@@ -8397,16 +8423,6 @@
      "L": 1.85
     },
     {
-     "id": "1A_k_kmug",
-     "asm": "mug",
-     "at": [
-      -8.03,
-      -0.64
-     ],
-     "yaw": 0,
-     "z0": 0.905
-    },
-    {
      "id": "1A_k_kdishrack",
      "asm": "dishrack",
      "at": [
@@ -8891,16 +8907,6 @@
      ],
      "yaw": 180,
      "L": 1.85
-    },
-    {
-     "id": "1D_k_kmug",
-     "asm": "mug",
-     "at": [
-      8.99,
-      -1.19
-     ],
-     "yaw": 0,
-     "z0": 0.905
     },
     {
      "id": "1D_k_kdishrack",
@@ -70715,6 +70721,19 @@
      "network": "electrical"
     },
     {
+     "kind": "kettle",
+     "id": "F03_3D_KETTLE_01",
+     "unit": "3D",
+     "pos": [
+      8.99,
+      -1.19,
+      7.305
+     ],
+     "yaw_deg": 180,
+     "network": "electrical",
+     "case_id": ""
+    },
+    {
      "kind": "stove",
      "id": "F03_3D_STOVE_01",
      "unit": "3D",
@@ -72729,16 +72748,6 @@
      ],
      "yaw": 180,
      "L": 1.85
-    },
-    {
-     "id": "3D_k_kmug",
-     "asm": "mug",
-     "at": [
-      8.99,
-      -1.19
-     ],
-     "yaw": 0,
-     "z0": 0.905
     },
     {
      "id": "3D_k_kdishrack",
@@ -79144,7 +79153,7 @@
       9.3,
       10.52
      ],
-     "yaw_deg": 0,
+     "yaw_deg": 180,
      "network": "electrical"
     },
     {
@@ -79275,6 +79284,19 @@
      ],
      "yaw_deg": -90,
      "network": "electrical"
+    },
+    {
+     "kind": "kettle",
+     "id": "F04_4C_KETTLE_01",
+     "unit": "4C",
+     "pos": [
+      6.0,
+      2.02,
+      10.505
+     ],
+     "yaw_deg": -90,
+     "network": "electrical",
+     "case_id": "4519"
     },
     {
      "kind": "stove",
@@ -81957,16 +81979,6 @@
      ],
      "yaw": -90,
      "L": 1.9
-    },
-    {
-     "id": "4C_k_kmug",
-     "asm": "mug",
-     "at": [
-      6.0,
-      2.02
-     ],
-     "yaw": 90,
-     "z0": 0.905
     },
     {
      "id": "4C_k_kdishrack",
@@ -96964,6 +96976,19 @@
      "network": "electrical"
     },
     {
+     "kind": "kettle",
+     "id": "F06_6C_KETTLE_01",
+     "unit": "6C",
+     "pos": [
+      6.0,
+      2.02,
+      16.905
+     ],
+     "yaw_deg": -90,
+     "network": "electrical",
+     "case_id": ""
+    },
+    {
      "kind": "stove",
      "id": "F06_6C_STOVE_01",
      "unit": "6C",
@@ -98998,16 +99023,6 @@
      ],
      "yaw": -90,
      "L": 1.9
-    },
-    {
-     "id": "6C_k_kmug",
-     "asm": "mug",
-     "at": [
-      6.0,
-      2.02
-     ],
-     "yaw": 90,
-     "z0": 0.905
     },
     {
      "id": "6C_k_kdishrack",

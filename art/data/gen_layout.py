@@ -647,6 +647,9 @@ RANGE_AS_SHELF = {"2C", "5B"}
 ##   4D  a short-term let, furnished to the landlord's minimum
 ##   5C  the spare room is becoming a painting studio and she eats out
 NO_TOASTER_UNITS = {"2C", "5B", "4D", "5C"}
+# One third of the flats own kettles, each for a character reason rather
+# than because the kitchen generator had an empty socket to fill.
+KETTLE_UNITS = {"1A", "1D", "3D", "4B", "4C", "6C"}
 # One retained domestic hazard, authored rather than rolled per boot. Lena's
 # big borrowed-family pots make a low unattended ring in 2B findable; 35% of
 # seventeen ranges made the whole building behave like an active gas leak.
@@ -722,6 +725,22 @@ def _toaster_marker(markers, uid, tx, ty, z, yaw, floor_id):
         "unit": unit,
         "pos": [round(tx, 4), round(ty, 4), round(z + 0.90, 4)],
         "yaw_deg": yaw, "network": "electrical"})
+
+
+def _kettle_marker(markers, uid, kx, ky, z, yaw, floor_id):
+    """Put a kettle in the rear mug socket, never on top of a fifth item."""
+    if markers is None:
+        return
+    unit = unit_of_uid(uid)
+    if unit not in KETTLE_UNITS or unit == "4B":
+        return  # the player's bespoke galley owns its exact marker below
+    markers.append({
+        "kind": "kettle",
+        "id": "%s_%s_KETTLE_01" % (floor_id or "FXX", unit),
+        "unit": unit,
+        "pos": [round(kx, 4), round(ky, 4), round(z + 0.905, 4)],
+        "yaw_deg": yaw, "network": "electrical",
+        "case_id": "4519" if unit == "4C" else ""})
 
 
 def _bath_marker(markers, unit, kind, bx, by, yaw, z):
@@ -847,9 +866,11 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n", markers=None,
         # right. Three anonymous furniture boxes used to stand for mugs,
         # plates and a board; in the render they were simply three blocks
         # laid over the sink. Use the real assembly silhouettes instead.
-        items = (((cw * 0.30, 0.13), "mug", "mug", {}),
-                 ((cw * 0.40, -0.12), "dishrack", "dishrack",
-                  {"W": 0.12, "D": 0.26, "n": 4}))
+        items = []
+        if unit_of_uid(uid) not in KETTLE_UNITS:
+            items.append(((cw * 0.30, 0.13), "mug", "mug", {}))
+        items.append(((cw * 0.40, -0.12), "dishrack", "dishrack",
+                      {"W": 0.12, "D": 0.26, "n": 4}))
         for (ox, oy), asm, tag, extra in items:
             if swap:
                 ox, oy = oy, ox
@@ -868,6 +889,9 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n", markers=None,
                         x + cw / 2 + (-0.38 * cw) * math.cos(math.radians(yaw)),
                         cy + (-0.38 * cw) * math.sin(math.radians(yaw)),
                         z, yaw, floor_id)
+        _kettle_marker(markers, uid,
+                       x + cw / 2 + 0.30 * cw, cy + 0.13,
+                       z, yaw, floor_id)
         _stove_marker(markers, uid, x + cw + 0.33, cy, z, yaw, floor_id)
         _fridge_marker(markers, uid, x + cw + 0.66 + 0.36, cy, z, yaw,
                        floor_id)
@@ -885,6 +909,9 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n", markers=None,
                         cx + (-0.38 * cw) * math.cos(math.radians(yaw)),
                         y + cw / 2 + (-0.38 * cw) * math.sin(math.radians(yaw)),
                         z, yaw, floor_id)
+        _kettle_marker(markers, uid,
+                       cx + 0.13, y + cw / 2 + 0.30 * cw,
+                       z, yaw, floor_id)
         _stove_marker(markers, uid, cx, y + cw + 0.33, z, yaw, floor_id)
         _fridge_marker(markers, uid, cx, y + cw + 0.66 + 0.36, z, yaw,
                        floor_id)
@@ -1808,7 +1835,7 @@ def apartment_4b(z, walls, rooms, markers, furniture):
          "pos": [-10.84, 9.40, 9.6 + 1.50], "yaw_deg": 0, "w": 0.48,
          "h": 0.70, "leaf": "closed", "cabinet": True},
         {"kind": "kettle", "id": "F04_B_KETTLE_01", "unit": "4B",
-         "pos": [-10.50, 9.30, z + 0.92], "yaw_deg": 0,
+         "pos": [-10.50, 9.30, z + 0.92], "yaw_deg": 180,
          "network": "electrical"},
         {"kind": "wall_clock", "id": "F04_B_CLOCK_01", "unit": "4B",
          "pos": [-7.78, 4.60, z + 1.70], "yaw_deg": -90,
@@ -6728,7 +6755,30 @@ def validate(layout):
     problems += _validate_movement(layout)
     problems += _validate_placement(layout)
     problems += _validate_vantry_points(layout)
+    problems += _validate_kettles(layout)
     problems += life_pass(layout["floors"])
+    return problems
+
+
+def _validate_kettles(layout):
+    """Six authored households, including the 4C evidence object."""
+    problems = []
+    kettles = [m for fl in layout["floors"] for m in fl.get("markers", [])
+               if m.get("kind") == "kettle"]
+    units = {m.get("unit") for m in kettles}
+    if len(kettles) != 6 or units != KETTLE_UNITS:
+        problems.append("kettles must be exactly %s, got %s" %
+                        (sorted(KETTLE_UNITS), sorted(units)))
+    four_c = [m for m in kettles if m.get("unit") == "4C"]
+    if len(four_c) != 1 or four_c[0].get("case_id") != "4519":
+        problems.append("4C kettle lost case 4519 evidence binding")
+    four_b = [m for m in kettles if m.get("unit") == "4B"]
+    if len(four_b) == 1:
+        # 200 mm centre spacing - 90 mm kettle radius - 60.5 mm of the
+        # crosswise toaster leaves 49.5 mm. That is the whole margin.
+        clearance = abs(float(four_b[0]["pos"][0]) - (-10.70)) - 0.09 - 0.0605
+        if clearance < 0.048:
+            problems.append("4B kettle/toaster clearance fell below 48 mm")
     return problems
 
 
@@ -6785,7 +6835,7 @@ def _validate_placement(layout):
                   "wall_clock", "flue_breast", "door_anomaly", "case_door",
                   "neon_sign"}   # bolted to the facade, by definition
     floor_kinds = {"washer", "laundry_airer", "boiler", "fridge", "stove", "boxfan",
-                   "speaker", "toaster"}
+                   "speaker", "toaster", "kettle"}
 
     def point_in_wall(px, py, w):
         ax, ay = w["a"]

@@ -731,6 +731,11 @@ func _spawn_props() -> void:
 				prop.unit = String(m.get("unit", ""))
 				if String(m.get("tray_axis", "")) == "-x":
 					prop.tray_axis = Vector3.LEFT
+			if prop is KettleProp:
+				# Finish and the 4C evidence binding are household facts. They
+				# must arrive before _ready() chooses copper, nickel and wear.
+				prop.unit = String(m.get("unit", ""))
+				prop.case_id = String(m.get("case_id", ""))
 			if prop is RadiatorProp:
 				prop.unit = String(m.get("unit", ""))
 				prop.riser = String(m.get("riser", "H-X"))
@@ -772,7 +777,7 @@ func _spawn_props() -> void:
 			prop.rotation.y = deg_to_rad(float(m.get("yaw_deg", 0)) \
 					if prop is FridgeProp or prop is StoveProp or prop is TapProp \
 							or prop is ToasterProp or prop is WasherProp \
-							or prop is LaundryAirerProp \
+							or prop is LaundryAirerProp or prop is KettleProp \
 					else -float(m.get("yaw_deg", 0)))
 			add_child(prop)
 			count += 1

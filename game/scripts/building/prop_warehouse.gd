@@ -62,6 +62,13 @@ func build(prop_scripts: Dictionary) -> int:
 		probe.free()
 		if variants.is_empty():
 			variants = [{}]
+		# A family is a comparison, so never wrap its variants across the aisle.
+		# Kettle happened to begin in column six and put nickel and copper four
+		# metres apart on different rows — both existed, but not side by side.
+		if variants.size() > 1 \
+				and displays.size() % COLS + variants.size() > COLS:
+			while displays.size() % COLS != 0:
+				displays.append({"spacer": true})
 		for variant in variants:
 			displays.append({"kind": String(kind), "script": script,
 					"variant": variant})
@@ -73,6 +80,8 @@ func build(prop_scripts: Dictionary) -> int:
 		var at := Vector3((col - (COLS - 1) * 0.5) * CELL, 0.0,
 				(row - (rows - 1) * 0.5) * CELL)
 		var entry: Dictionary = displays[i]
+		if entry.get("spacer", false):
+			continue
 		var variant: Dictionary = entry.variant
 		_plinth(at, String(variant.get("label", entry.kind)))
 		var script: GDScript = entry.script

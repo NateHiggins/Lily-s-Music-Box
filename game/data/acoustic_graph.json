@@ -714,6 +714,26 @@
    ]
   },
   {
+   "id": "F01_1A_KETTLE_01",
+   "pos": [
+    -8.03,
+    -0.64,
+    0.905
+   ],
+   "room": "1A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
    "id": "F01_1A_FRIDGE_01",
    "pos": [
     -6.79,
@@ -781,6 +801,26 @@
     9.078,
     -1.32,
     0.9
+   ],
+   "room": "1D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_1D_KETTLE_01",
+   "pos": [
+    8.99,
+    -1.19,
+    0.905
    ],
    "room": "1D",
    "network": "electrical",
@@ -3688,6 +3728,26 @@
    ]
   },
   {
+   "id": "F03_3D_KETTLE_01",
+   "pos": [
+    8.99,
+    -1.19,
+    7.305
+   ],
+   "room": "3D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "F03_3D_FRIDGE_01",
    "pos": [
     10.23,
@@ -3815,6 +3875,7 @@
     "3C_LT_SCONCE",
     "3D_LT_SCONCE",
     "F03_3D_TOASTER_01",
+    "F03_3D_KETTLE_01",
     "F03_D_SPEAKER_01",
     "F03_D_SPEAKER_02",
     "F03_CORRIDOR_DOME_01",
@@ -4755,6 +4816,26 @@
    ]
   },
   {
+   "id": "F04_4C_KETTLE_01",
+   "pos": [
+    6.0,
+    2.02,
+    10.505
+   ],
+   "room": "4C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "F04_4C_FRIDGE_01",
    "pos": [
     5.87,
@@ -4908,6 +4989,7 @@
     "F04_B_CEILLIGHT_01",
     "4C_LT_SCONCE",
     "F04_4C_TOASTER_01",
+    "F04_4C_KETTLE_01",
     "4D_LT_SCONCE",
     "F04_CORRIDOR_DOME_01",
     "F04_CORRIDOR_DOME_02",
@@ -6520,6 +6602,26 @@
    ]
   },
   {
+   "id": "F06_6C_KETTLE_01",
+   "pos": [
+    6.0,
+    2.02,
+    16.905
+   ],
+   "room": "6C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
    "id": "F06_6C_FRIDGE_01",
    "pos": [
     5.87,
@@ -6647,6 +6749,7 @@
     "F06_6B_TOASTER_01",
     "6C_LT_SCONCE",
     "F06_6C_TOASTER_01",
+    "F06_6C_KETTLE_01",
     "F06_6C_FRIDGE_01",
     "6D_LT_SCONCE",
     "F06_CORRIDOR_DOME_01",
@@ -7293,9 +7396,11 @@
     "F01WC_LT_SCONCE",
     "1A_LT_SCONCE",
     "F01_1A_TOASTER_01",
+    "F01_1A_KETTLE_01",
     "F01_1A_FRIDGE_01",
     "1D_LT_SCONCE",
     "F01_1D_TOASTER_01",
+    "F01_1D_KETTLE_01",
     "F01_CORRIDOR_DOME_01",
     "F01_CORRIDOR_DOME_02",
     "F01_CORRIDOR_DOME_03",

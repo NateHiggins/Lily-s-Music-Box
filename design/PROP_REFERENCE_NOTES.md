@@ -1011,3 +1011,95 @@ body remain separable without lifting the building's night grade.
   closure. FULL WalkTest — **PASS [FULL]** at sim x4 / 240 Hz in 72.2
   wall-clock seconds; its physical walks, stair and elevator routes, complete
   case sequence and restoration checks also completed.
+
+## `kettle_prop` — c.1925 formed-metal electric kettle
+
+### What the real object was
+
+Electric kettles are ordinary period domestic technology, not an Orison
+divergence. A 1917 New York advertisement offered Hotpoint polished-nickel
+electric tea kettles through New York, Queens and Long Island distributors;
+the Science Museum's c.1925 General Electric example is 250 mm high by 170 mm
+wide, with copper-plated versions combining brass fittings, Bakelite feet and
+knob, and a wooden handle. Contemporary patents also establish detachable
+heating terminals and kettle whistles before the building's present year.
+**HISTORICAL.** Reference anchors: [New York Tribune Hotpoint advertisement,
+1917](https://tile.loc.gov/storage-services/service/sgp/sgpbatches/batch_dlc_belleauwood_ver02/data/sn83030214/print/1917110401/0004.pdf),
+[GE electric kettle, c.1925](https://collection.sciencemuseumgroup.org.uk/objects/co8408515),
+[electric kettle patent, 1921](https://patents.google.com/patent/US1390028A/en),
+and [combined kettle and whistle patent,
+1915](https://patents.google.com/patent/US1161713A/en).
+
+### What we inherited
+
+- One 160 x 160 x 200 mm bright rectangular block in 4B, with a box handle
+  and box spout: the silhouette was closer to a late electric jug than a
+  formed 1920s vessel.
+- No lid, whistle cap, heating well, terminal, cord, plug, water cavity or
+  reachable service parts; the appliance could only switch and make sound.
+- The only household was 4B, despite established kettle evidence in 1A, 3D,
+  4C and 6C and Teresa's canonical night-shift vacuum flask.
+- Switching off did not cancel its `SceneTreeTimer`. Restarting before the
+  old due time made that stale timer whistle early during the new cycle.
+
+### Built result
+
+Six 180 mm formed vessels now occupy the former rear-mug socket in 1A, 1D,
+3D, 4B, 4C and 6C. The stepped belly and shoulder, rolled seams, tapered
+three-part spout, exposed heating well, detachable cloth lead, Bakelite plug,
+wooden bail, removable lid and chained brass whistle keep the silhouette and
+construction in 1925. Nickel and copper warehouse variants now remain beside
+one another instead of wrapping across rows.
+
+Finish belongs to the household. Evelyn's nickel is kept bright; Teresa's is
+dull, mineral-ringed inside and fitted with a wrong squat replacement knob;
+Rhea and 4C carry increasingly handled copper; 4B receives the landlord's
+scuffed nickel; Mae's old copper is deliberately maintained. The lid, cap and
+whole vessel have stable service APIs, steam begins only at a real boil, and a
+generation token makes an interrupted timer harmless. Marker `F04_4C_KETTLE_01`
+is explicitly bound to case `4519`, whose opening kettle cue is load-bearing.
+
+### Materials and texture prompt batch
+
+No new material or texture was required. `nickel_plated`, `copper_aged`,
+`bakelite_black`, `rubber_aged`, `brass_dull`, `wood_dark` and `enamel` all
+already have valid runtime paths through `MatLib.SETS`. There is therefore no
+paste-ready generation batch for this family; inventing one would duplicate
+surfaces already in the library.
+
+### Render evidence
+
+Before:
+
+- Warehouse block — `C:/shots/orison_prop_pass/kettle_before/stand_410_1.05_-1.2_0_-10.png`
+- Installed 4B block — `C:/shots/orison_prop_pass/kettle_before/stand_-10.5_10.95_-7.9_0_-12.png`
+
+After:
+
+- Nickel and copper family, side by side under flat inspection light —
+  `C:/shots/orison_prop_pass/kettle_after/warehouse/stand_392_0.85_0.4_0_-5.png`
+- Installed 4B service pose with room lights and torch —
+  `C:/shots/orison_prop_pass/kettle_after/close/stand_-10.5_10.95_-7.9_0_-12.png`
+
+The identical installed crop moves from median RGB **(109, 103, 112)** to
+**(97, 96, 107)**, with luma p10/50/p90 moving from **31.9/105.2/161.9** to
+**22.5/97.3/149.4**. The lower response is intentional: the old untextured
+front was a luminous rectangle; the new dark formed silhouette retains metal,
+wood, cap and handle separation in the required night lighting.
+
+### Validation
+
+- Final-source generator: exactly six kettle markers, exactly the ruled unit
+  set, 49.5 mm at the 4B kettle/toaster gap and case `4519` retained on 4C.
+- Blender 5.2: 233 mapped and 11 shader-only materials; eight levels exported,
+  generated JSON copied to `game/data/`, Godot import completed.
+- FAST WalkTest: **PASS [FAST]**. Six kettles, eight meshes each / 48 total,
+  all four service reaches, full service pose, case evidence and stale-timer
+  rejection pass. The family sweep also freezes improved averages for fridges
+  (13.1), ranges (47.0), taps (15.4) and toasters (13.0); ranges fell from
+  98 meshes each without sacrificing independently moving mechanisms.
+- FULL WalkTest: **PASS [FULL]** at sim x4 / 240 Hz in 58.5 wall-clock
+  seconds, including physical routes, the complete case sequence and the
+  interrupted/restarted boil cycle in 4B.
+- LightingAudit: **PASS**, 127 spaces with 11 intentionally ambient/dark;
+  all 244 catalog fixtures and their local shadow casters remain covered.

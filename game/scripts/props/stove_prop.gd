@@ -93,8 +93,20 @@ func _build_visual() -> void:
 		[GREASE, "fx_grease", Color(1.0, 1.0, 1.0, 0.84), 1.0],
 	])
 	# Only the carcass is fixed. Doors, valves, caps and grates retain their
-	# nodes because the hand and the haunting both move them.
+	# owner nodes because the hand and the haunting both move them. Their
+	# primitives do not move relative to those owners, so keeping every spoke
+	# as a draw was needless: eighteen ranges were carrying 1,764 meshes.
 	merge_static(carcass)
+	merge_static(_door)
+	merge_static(_broiler)
+	for knob in _knobs:
+		merge_static(knob)
+	for grate in _grates:
+		merge_static(grate)
+	for cap in _caps:
+		merge_static(cap, _jet_plugs)
+	for i in _flames.size():
+		merge_static(_flames[i], [_dirty_flames[i]])
 
 	var seed := _unit_seed()
 	for i in BURNER_SPOTS.size():

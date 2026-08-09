@@ -205,6 +205,7 @@ func _run() -> void:
 	await _plumbing_checks()
 	_laundry_checks()
 	_toaster_checks()
+	_kettle_fast_checks()
 	_radiator_checks()
 	_vantry_checks()
 	_prop_mesh_and_boiler_checks()
@@ -662,6 +663,55 @@ func _toaster_checks() -> void:
 		sample.set_crumb_tray_open(false, 0.0)
 
 
+func _kettle_fast_checks() -> void:
+	var units := {}
+	var total_meshes := 0
+	var maximum_meshes := 0
+	for child in root.get_children():
+		if child is KettleProp:
+			var kettle := child as KettleProp
+			units[kettle.unit] = true
+			var meshes := _count_meshes(kettle)
+			total_meshes += meshes
+			maximum_meshes = maxi(maximum_meshes, meshes)
+	_check(units.keys().size() == 6
+			and ["1A", "1D", "3D", "4B", "4C", "6C"].all(
+					func(u): return units.has(u)),
+			"six authored households own kettles")
+	_check(maximum_meshes <= 8 and total_meshes <= 48,
+			"kettles stay at eight meshes each / 48 family total (%d / %d)" %
+			[maximum_meshes, total_meshes])
+	var evidence := root.get_node_or_null("F04_4C_KETTLE_01") as KettleProp
+	_check(evidence != null and evidence.case_id == "4519",
+			"4C kettle remains evidence for case 4519")
+	var player_kettle := root.get_node_or_null("F04_B_KETTLE_01") as KettleProp
+	_check(player_kettle != null
+			and player_kettle.get_node_or_null("HandleReach") is Marker3D
+			and player_kettle.get_node_or_null("LidReach") is Marker3D
+			and player_kettle.get_node_or_null("WhistleReach") is Marker3D
+			and player_kettle.get_node_or_null("PlugReach") is Marker3D,
+			"kettle handle, lid, whistle and plug remain serviceable")
+	if player_kettle:
+		player_kettle.set_service_pose()
+		var service := player_kettle.get_service_state()
+		_check(bool(service.lid_open) and bool(service.whistle_open)
+				and bool(service.lifted),
+				"kettle service pose opens both caps and lifts the vessel")
+		player_kettle.set_lid_open(false, 0.0)
+		player_kettle.set_whistle_open(false, 0.0)
+		player_kettle.set_lifted(false, 0.0)
+		# Deterministic version of the real regression: cycle one leaves a
+		# SceneTreeTimer behind, cycle two is OPERATING when it arrives. Calling
+		# that old generation must not whistle the new water early.
+		player_kettle.heat_time = 999.0
+		player_kettle.interact(null)
+		var stale_generation: int = player_kettle.get_service_state().cycle_generation
+		player_kettle.interact(null)
+		player_kettle.interact(null)
+		player_kettle._request_whistle(stale_generation)
+		_check(player_kettle.state == player_kettle.PState.OPERATING,
+				"interrupted boil timer cannot whistle in a later cycle")
+		player_kettle.interact(null)
 func _laundry_checks() -> void:
 	var washers: Array[WasherProp] = []
 	var airers: Array[LaundryAirerProp] = []
@@ -966,19 +1016,59 @@ func _door_checks() -> void:
 		_check(toaster.state == toaster.PState.IDLE,
 				"toaster returned to IDLE")
 
-	# 4B detail: kettle boils and its whistle can be taken off; the wall
-	# clock's tick drifts toward the conductor's tempo under infection
+	# Six kettles are household evidence, not a kitchen default. 4C is also
+	# the first clause of case 4519, so losing it breaks a call, not dressing.
+	var kettle_units := {}
+	var kettle_meshes := 0
+	var kettle_max := 0
+	for child in root.get_children():
+		if child is KettleProp:
+			var family_kettle := child as KettleProp
+			kettle_units[family_kettle.unit] = true
+			var meshes := _count_meshes(family_kettle)
+			kettle_meshes += meshes
+			kettle_max = maxi(kettle_max, meshes)
+	_check(kettle_units.keys().size() == 6
+			and ["1A", "1D", "3D", "4B", "4C", "6C"].all(
+					func(u): return kettle_units.has(u)),
+			"six authored households own kettles")
+	_check(kettle_max <= 8 and kettle_meshes <= 48,
+			"kettles stay at eight meshes each / 48 family total (%d / %d)" %
+			[kettle_max, kettle_meshes])
+	var case_kettle := root.get_node_or_null("F04_4C_KETTLE_01") as KettleProp
+	_check(case_kettle != null and case_kettle.case_id == "4519",
+			"4C kettle remains evidence for case 4519")
 	var kettle: KettleProp = root.get_node_or_null("F04_B_KETTLE_01")
 	_check(kettle != null, "kettle on the 4B counter")
 	if kettle:
+		_check(kettle.get_node_or_null("HandleReach") is Marker3D
+				and kettle.get_node_or_null("LidReach") is Marker3D
+				and kettle.get_node_or_null("WhistleReach") is Marker3D
+				and kettle.get_node_or_null("PlugReach") is Marker3D,
+				"kettle handle, lid, whistle and plug remain serviceable")
 		Conductor.infection = 0.1  # below quantize threshold: boil is honest
-		kettle.heat_time = 1.0
+		# Interrupt cycle one, restart, then wait past the OLD due time but not
+		# the new one. State-only guards whistle early here; generation does not.
+		kettle.heat_time = 1.2
 		kettle.interact(null)
+		await get_tree().create_timer(0.30).timeout
+		kettle.interact(null)
+		await get_tree().create_timer(0.05).timeout
+		kettle.interact(null)
+		await get_tree().create_timer(0.95).timeout
+		_check(kettle.state == kettle.PState.OPERATING,
+				"interrupted kettle timer cannot whistle in a later cycle")
 		var okk: bool = await _until(func(): return kettle.state == kettle.PState.COMPLETING, 8.0)
 		_check(okk, "kettle reaches the whistle")
 		kettle.interact(null)
 		_check(kettle.cycles_completed == 1 and kettle.state == kettle.PState.IDLE,
 				"kettle switched off cleanly")
+		kettle.set_service_pose()
+		var kettle_service := kettle.get_service_state()
+		_check(bool(kettle_service.lid_open)
+				and bool(kettle_service.whistle_open)
+				and bool(kettle_service.lifted),
+				"kettle service pose opens cap and lid and lifts the vessel")
 	var clock: ClockProp = root.get_node_or_null("F04_B_CLOCK_01")
 	_check(clock != null, "wall clock hung in 4B")
 	if clock:
@@ -1753,6 +1843,37 @@ func _prop_mesh_and_boiler_checks() -> void:
 	_check(rad_props == 23 and rad_average < 8.0,
 			"radiators stay merged (%.1f meshes each across %d)" %
 			[rad_average, rad_props])
+
+	# These five families were already merged, but until now only radiators
+	# and Vantry points had assertions. A family can quietly regain hundreds
+	# of primitive draws while its own interaction test remains green.
+	var family_counts := {
+		"fridge": [0, 0], "stove": [0, 0], "tap": [0, 0], "toaster": [0, 0],
+	}
+	for child in root.get_children():
+		var key := ""
+		if child is FridgeProp:
+			key = "fridge"
+		elif child is StoveProp:
+			key = "stove"
+		elif child is TapProp:
+			key = "tap"
+		elif child is ToasterProp:
+			key = "toaster"
+		if key != "":
+			family_counts[key][0] += 1
+			family_counts[key][1] += _count_meshes(child)
+	for spec in [
+		["fridge", 18, 14.0], ["stove", 18, 47.0],
+		["tap", 66, 16.0], ["toaster", 14, 14.0],
+	]:
+		var key: String = spec[0]
+		var count: int = family_counts[key][0]
+		var total: int = family_counts[key][1]
+		var average := float(total) / maxf(1.0, count)
+		_check(count == int(spec[1]) and average <= float(spec[2]),
+				"%s family stays merged (%.1f meshes each across %d)" %
+				[key, average, count])
 
 	var plant := root.get_node_or_null("B1_BOILER_01") as BoilerProp
 	_check(plant != null, "one functional 1912 coal boiler owns the plant")
