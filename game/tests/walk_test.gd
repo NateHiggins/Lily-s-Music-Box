@@ -517,6 +517,13 @@ func _run() -> void:
 				hidden_atrium_props.append(streamed_prop.name)
 	_check(hidden_atrium_props.is_empty(),
 			"all functional props render across the open atrium eye")
+	var hidden_atrium_doors := []
+	for floor_id in root.doors_by_floor:
+		for streamed_door in root.doors_by_floor[floor_id]:
+			if not streamed_door.visible:
+				hidden_atrium_doors.append(streamed_door.name)
+	_check(hidden_atrium_doors.is_empty(),
+			"all doors render across the open atrium eye")
 	pl.global_position = Vector3(4.3, 3.35, 0.0)  # corridor: streaming back
 	pl.velocity = Vector3.ZERO
 	await get_tree().create_timer(0.4).timeout
@@ -530,6 +537,14 @@ func _run() -> void:
 	_check(not f06_props.is_empty() and f06_props.all(
 			func(streamed_prop): return not streamed_prop.visible),
 			"closed-storey functional props leave the render and shadow passes")
+	var f02_doors: Array = root.doors_by_floor.get("F02", [])
+	var f06_doors: Array = root.doors_by_floor.get("F06", [])
+	_check(not f02_doors.is_empty() and f02_doors.all(
+			func(streamed_door): return streamed_door.visible),
+			"active-storey doors remain visible")
+	_check(not f06_doors.is_empty() and f06_doors.all(
+			func(streamed_door): return not streamed_door.visible),
+			"closed-storey doors leave the render and shadow passes")
 	root.show_all_floors = true
 
 	# --- elevator travel across full range
@@ -1892,6 +1907,38 @@ func _prop_mesh_and_boiler_checks() -> void:
 	_check(rad_props == 23 and rad_average < 8.0,
 			"radiators stay merged (%.1f meshes each across %d)" %
 			[rad_average, rad_props])
+
+	# DoorProp stays outside FunctionalProp on purpose, but not outside the
+	# performance budget. The old 120-leaf family cost roughly 4,489 meshes and
+	# was absent from the census; subtype batching must keep the replacement
+	# below six hundred without merging the collision/animation owner away.
+	var door_total := 0
+	var door_max := 0
+	var door_count := 0
+	var door_kinds := {}
+	var entry_units := {}
+	for child in root.get_children():
+		if child is DoorProp:
+			door_count += 1
+			var family_door := child as DoorProp
+			var meshes := _count_meshes(family_door)
+			door_total += meshes
+			door_max = maxi(door_max, meshes)
+			door_kinds[family_door.door_kind] = \
+					int(door_kinds.get(family_door.door_kind, 0)) + 1
+			if family_door.door_kind == "apartment_entry":
+				entry_units[family_door.unit] = true
+	_check(door_count == 120,
+			"all 120 layout doors use the semantic family")
+	_check(door_total <= 600,
+			"door family stays below 600 meshes (%d, max leaf %d)" %
+			[door_total, door_max])
+	_check(entry_units.size() == 23 and not entry_units.has(""),
+			"all non-landmark apartment entries carry an explicit unit")
+	_check(door_kinds.get("storefront", 0) == 13
+			and door_kinds.get("exterior_service", 0) == 2
+			and door_kinds.get("cabinet", 0) == 3,
+			"storefront, exterior-service and cabinet classes remain distinct")
 
 	# These five families were already merged, but until now only radiators
 	# and Vantry points had assertions. A family can quietly regain hundreds

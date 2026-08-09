@@ -2850,6 +2850,89 @@ def collect_door_markers(fl):
                     "yaw": yaw, "z0": 1.12})
 
 
+def classify_door_markers(floors):
+    """Give every leaf the semantic facts its prop needs.
+
+    Width used to stand in for class and lock state for finish.  Both are
+    accidents.  Probe the rooms on the two faces of the opening once, in the
+    generator, and emit the decision so runtime, Blender audits and the door
+    actor all read the same versioned fact.
+    """
+    import math
+    counts = {}
+    for fl in floors:
+        rooms = fl.get("rooms", [])
+        for marker in fl.get("markers", []):
+            if marker.get("kind") != "door":
+                continue
+            did = marker.get("id", "")
+            if marker.get("cabinet"):
+                kind = "cabinet"
+                adjacent = []
+            elif did == "F01_DOOR_06":
+                kind = "landmark_entry"
+                adjacent = []
+            elif did.startswith("SITE_SHOP_DOOR_") or did in (
+                    "F01_BODEGA_DOOR", "F01_BAR_DOOR"):
+                kind = "storefront"
+                adjacent = []
+            elif marker.get("exterior"):
+                kind = "exterior_service"
+                adjacent = []
+            else:
+                angle = math.radians(marker.get("yaw_deg", 0))
+                # DoorProp's local +X runs from hinge to latch. Blender yaw
+                # uses the opposite sign from Godot around Y.
+                dx, dy = math.cos(angle), -math.sin(angle)
+                cx = marker["pos"][0] + dx * marker["w"] * 0.5
+                cy = marker["pos"][1] + dy * marker["w"] * 0.5
+                nx, ny = -dy, dx
+                adjacent = []
+                for side in (-1, 1):
+                    px, py = cx + nx * 0.34 * side, cy + ny * 0.34 * side
+                    hits = [r for r in rooms
+                            if r["rect"][0] <= px <= r["rect"][2]
+                            and r["rect"][1] <= py <= r["rect"][3]]
+                    if hits:
+                        adjacent.append(min(hits, key=lambda r:
+                                            (r["rect"][2]-r["rect"][0]) *
+                                            (r["rect"][3]-r["rect"][1])))
+                units = sorted(set(r.get("unit") for r in adjacent
+                                   if r.get("unit")))
+                common = any(not r.get("unit") for r in adjacent)
+                if len(units) == 1 and common:
+                    kind = "apartment_entry"
+                    marker["unit"] = units[0]
+                elif len(units) == 1:
+                    kind = "apartment_interior"
+                    marker["unit"] = units[0]
+                else:
+                    kind = "service"
+            # F01's B/C rooms are common and landlord storage now, but their
+            # 1928 openings are still apartment-address entries. The four
+            # reopening leaves form one bank and keep their original unit
+            # identity even where the tenancy later disappeared.
+            first_floor_entries = {"F01_DOOR_02": "1A",
+                                   "F01_DOOR_03": "1B",
+                                   "F01_DOOR_04": "1D",
+                                   "F01_DOOR_05": "1C"}
+            if did in first_floor_entries:
+                kind = "apartment_entry"
+                marker["unit"] = first_floor_entries[did]
+            if adjacent:
+                marker["rooms"] = [r["id"] for r in adjacent]
+                if "unit" not in marker:
+                    units = sorted(set(r.get("unit") for r in adjacent
+                                       if r.get("unit")))
+                    if len(units) == 1:
+                        marker["unit"] = units[0]
+            marker["subtype"] = kind
+            marker["finish_variant"] = sum(ord(c) for c in did) % 3
+            counts[kind] = counts.get(kind, 0) + 1
+    print("door classifier: " + ", ".join("%s=%d" % item
+          for item in sorted(counts.items())))
+
+
 EXTERIOR_SWITCHES_DROPPED = []
 
 
@@ -6698,13 +6781,6 @@ def _validate_movement(layout):
         for m in fl["markers"]:
             if m["kind"] != "door" or m.get("leaf") == "none"                     or m.get("cabinet"):
                 continue
-            if m.get("exterior"):
-                # A shop door's swing sweeps over its own storefront -
-                # stall riser, mullions, the shop's own walls. The
-                # validator cannot tell a storefront's fabric from an
-                # obstruction, and the street fittings around it are
-                # equally its own. Interior doors keep the full check.
-                continue
             w = m["w"]
             px, py = m["pos"][0], m["pos"][1]
             if m["yaw_deg"] == 0:      # wall runs along x; swings +-y
@@ -6713,6 +6789,25 @@ def _validate_movement(layout):
                 sw = (px - w, py, px + w, py + w)
             tol = 0.08   # leaves may pass within a hand's width
             for oid, bb in obs:
+                if m.get("exterior"):
+                    # Exterior leaves are finally audited, but their own
+                    # jamb, stall and host-building fabric are not furniture.
+                    # Ignore only named architectural ownership; displays,
+                    # counters and loose fittings remain blockers.
+                    did = m.get("id", "")
+                    tag = did.removeprefix("SITE_SHOP_DOOR_").lower()
+                    own = ((did.startswith("SITE_SHOP_DOOR_") and
+                            (oid.startswith("storm_sf_%s_" % tag) or
+                             oid.startswith("sf_%s_" % tag) or
+                             oid.startswith("storm_shop_%s_de" % tag))) or
+                           (did.startswith("F01_BAR_") and
+                            oid.startswith("retail_bar_")) or
+                           (did == "SITE_SHOP_DOOR_LUNCHEONETTE" and
+                            oid.startswith("retail_bar_")) or
+                           (did == "SITE_SHOP_DOOR_OTIS___SON" and
+                            oid.startswith("site_nbr_w_")))
+                    if own:
+                        continue
                 if _hit(bb, sw[0] + tol, sw[1] + tol, sw[2] - tol,
                         sw[3] - tol):
                     problems.append("%s: door %s swing blocked by %s"
@@ -7752,6 +7847,7 @@ def main():
     retail_pass(floors[1])
     storm_pass(floors[1])
     street_lamp_markers(floors[1])
+    classify_door_markers(floors)
     bookshelves = bookshelf_pass(floors)
     vantry_points = vantry_point_pass(floors)
     layout = {

@@ -18,6 +18,10 @@ func _ready() -> void:
 	_build_materials()
 	_build_frame_and_transom()
 	_build_leaf()
+	# The hero keeps its distinct modelling, but it does not get a waiver from
+	# the draw-call budget: static frame and moving leaf each collapse by finish.
+	StaticMeshBatcher.merge(_body)
+	StaticMeshBatcher.merge(self, [_body])
 	_build_audio()
 	apply_hinge_setback()
 
@@ -88,6 +92,8 @@ func _build_leaf() -> void:
 	_body = AnimatableBody3D.new()
 	_body.name = "CenturyOakLeaf"
 	_body.sync_to_physics = true
+	_hinge_offset = HINGE_SETBACK * (-1.0 if swing_out else 1.0)
+	_body.position.z = -_hinge_offset
 	add_child(_body)
 	var shape_node := CollisionShape3D.new()
 	var shape := BoxShape3D.new()

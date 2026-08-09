@@ -148,11 +148,10 @@ item, with the filename each output should take.
 Priority follows `design/PROP_ACTIVITIES.md`: the ones that are about to
 carry a game are the ones worth the modelling effort.
 
-**Progress (2026-08-09): 11 of 24 review families complete.** The entire
-first tier is finished; the second tier is halfway finished. Detailed evidence,
-renders, pipeline notes and validation results live in
-`design/PROP_REFERENCE_NOTES.md`. The next untouched family is
-`mail_bank_prop`.
+**Progress (2026-08-09): 14 of 24 review families complete.** The first and
+second tiers are finished. Detailed evidence, renders, pipeline notes and
+validation results live in `design/PROP_REFERENCE_NOTES.md`. The next untouched
+family is `boxfan_prop`.
 
 ### First — these are getting games and will be looked at closely
 
@@ -185,11 +184,11 @@ renders, pipeline notes and validation results live in
 ### Second — read closely, touched often
 
 9. **[COMPLETE]** `kettle_prop`, `medicine_cabinet_prop`, `clock_prop`,
-   `mail_bank_prop`; `bookshelf_prop`; **[NEXT]** `door_prop`.
+   `mail_bank_prop`; `bookshelf_prop`; `door_prop`.
 
 ### Third — a lighter pass
 
-10. `boxfan_prop`, `exhaust_fan_prop`, `flue_breast_prop`,
+10. **[NEXT]** `boxfan_prop`, `exhaust_fan_prop`, `flue_breast_prop`,
     `lamp_prop`, `light_fixture_prop`, `monitor_prop`, `tv_prop`,
     `speaker_prop`, `arcade_cabinet_prop`, `lobby_bulletin_board`.
 

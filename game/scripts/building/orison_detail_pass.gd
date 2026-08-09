@@ -65,6 +65,11 @@ func _unlock_for_case(case_id: String, state: Dictionary) -> void:
 ## unit rooms on both sides is interior and never locks; a resident's
 ## bedroom door is theirs to use.
 func _unit_of_door(door: DoorProp) -> String:
+	# The generator owns this classification now. Keep the geometry probe only
+	# as migration cover for an old generated layout, not as a second source of
+	# truth that can silently disagree with the door model.
+	if door.door_kind == "apartment_entry" and door.unit != "":
+		return door.unit
 	var at := Vector2(door.global_position.x, -door.global_position.z)
 	var fid := ""
 	var best := INF

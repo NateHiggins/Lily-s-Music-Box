@@ -1,50 +1,70 @@
 class_name DoorProp
 extends Node3D
-## Hinged door leaf spawned from a layout door opening. Interact (E) to
-## swing it; latch clicks on close. Locked doors rattle and hold — the
-## former-suite storage rooms and 6D keep their secrets for now.
+## A 1928 reopening-era leaf hung in the Orison's older openings.  These are
+## deliberately plain Node3D actors, not FunctionalProps: a hinge can be used
+## by residents and the player without becoming one hundred and twenty new
+## subscribers to the building's possession network.
+##
+## The subtype is layout data, never inferred from width or lock state.  The
+## old leaf made every wide door an apartment entry and every locked door
+## galvanized; a deadbolt is not a material specification.
 
 var width := 0.81
 var height := 2.03
-var leaf_state := "closed"  # "closed" | "open" | "locked"
-## Egress doors swing with the direction of travel (reversed hinge),
-## so the street door never sweeps whoever stands in the vestibule.
+var leaf_state := "closed"  # closed | open | locked
 var swing_out := false
+var door_kind := "apartment_interior"
+var unit := ""
+var finish_variant := 0
 
-## A butt hinge's pin does not sit on the door's centreline - it stands
-## proud of the face the door closes against, which is the entire reason a
-## leaf can swing without grinding its own corner into the jamb. Pivoting
-## on the centreline (as this did) buried 22 mm of leaf in the frame on
-## every swing.
 const HINGE_SETBACK := 0.026
 
 var open := false
 var _hinge_offset := 0.0
 var _body: AnimatableBody3D
+var _fixed: Node3D
 var _click: AudioStreamPlayer3D
 var _squeak: AudioStreamPlayer3D
 var _moving := false
 
-const PAINT_ALBEDO := preload("res://assets/building/textures/T_library_architectural_painted_trim_albedo.png")
-const PAINT_NORMAL := preload("res://assets/building/textures/T_library_architectural_painted_trim_normal.png")
-const PAINT_ROUGH := preload("res://assets/building/textures/T_library_architectural_painted_trim_rough.png")
-const METAL_ALBEDO := preload("res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png")
-const METAL_NORMAL := preload("res://assets/building/textures/T_library_appliances_galvanized_metal_normal.png")
-const METAL_ROUGH := preload("res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_rough.png")
+
+func warehouse_variants() -> Array[Dictionary]:
+	return [
+		{"label": "1928 apartment entry", "properties": {
+			"door_kind": "apartment_entry", "width": 0.91, "height": 2.13,
+			"unit": "2A"}},
+		{"label": "1928 apartment interior", "properties": {
+			"door_kind": "apartment_interior", "width": 0.81, "height": 2.03}},
+		{"label": "service leaf", "properties": {
+			"door_kind": "service", "width": 0.96, "height": 2.10}},
+		{"label": "glazed storefront", "properties": {
+			"door_kind": "storefront", "width": 0.95, "height": 2.10}},
+		{"label": "exterior service", "properties": {
+			"door_kind": "exterior_service", "width": 0.90, "height": 2.10}},
+		{"label": "cabinet leaf", "properties": {
+			"door_kind": "cabinet", "width": 0.55, "height": 0.72}},
+	]
+
+
+func warehouse_rotation_y() -> float:
+	return PI
 
 
 func _ready() -> void:
-	if width > 0.85 and height > 1.8:
+	if door_kind == "apartment_entry" and unit != "":
 		add_to_group("apartment_doors")
+	_build_leaf()
+	_build_audio()
+	if leaf_state == "open":
+		open = true
+		_body.rotation.y = deg_to_rad(-168.0 if swing_out else 168.0)
+	apply_hinge_setback()
+
+
+func _build_leaf() -> void:
 	_body = AnimatableBody3D.new()
+	_body.name = "HingedLeaf"
 	_body.sync_to_physics = true
-	# The swing axis moves off the leaf's centreline and onto the face the
-	# door closes against, so the leaf stops grinding its own corner
-	# through the jamb. It has to be baked in HERE, before the body enters
-	# the tree: sync_to_physics ignores a position written afterwards, so
-	# shifting the body later moved the visuals and left the collision
-	# behind - which quietly swung the basement leaves into doorways the
-	# walk test needs clear.
 	_hinge_offset = HINGE_SETBACK * (-1.0 if swing_out else 1.0)
 	_body.position.z = -_hinge_offset
 	add_child(_body)
@@ -52,164 +72,151 @@ func _ready() -> void:
 	var box := BoxShape3D.new()
 	box.size = Vector3(width - 0.02, height - 0.02, 0.044)
 	shape.shape = box
-	shape.position = Vector3(width / 2.0, height / 2.0, _hinge_offset)
+	shape.position = Vector3(width * 0.5, height * 0.5, _hinge_offset)
 	_body.add_child(shape)
-	var mi := MeshInstance3D.new()
-	var bm := BoxMesh.new()
-	bm.size = box.size
-	mi.mesh = bm
-	mi.position = shape.position
-	var leaf_col := Color(0.42, 0.34, 0.26) if width > 0.85 \
-			else Color(0.80, 0.78, 0.72)
-	var mat := StandardMaterial3D.new()
-	var service_finish := leaf_state == "locked"
-	if service_finish:
-		mat.albedo_texture = METAL_ALBEDO
-		mat.normal_enabled = true
-		mat.normal_texture = METAL_NORMAL
-		mat.roughness_texture = METAL_ROUGH
-		mat.albedo_color = Color(0.42, 0.44, 0.43) if height >= 1.2 \
-				else Color(0.56, 0.55, 0.50)
-		mat.metallic = 0.58
-		mat.roughness = 0.62
+	_fixed = Node3D.new()
+	_fixed.name = "FixedIronmongery"
+	add_child(_fixed)
+
+	if door_kind == "cabinet" or height < 1.2:
+		_build_cabinet()
+	elif door_kind == "storefront":
+		_build_storefront()
+	elif door_kind in ["service", "exterior_service"]:
+		_build_service()
 	else:
-		mat.albedo_texture = PAINT_ALBEDO
-		mat.normal_enabled = true
-		mat.normal_texture = PAINT_NORMAL
-		mat.roughness_texture = PAINT_ROUGH
-		var finish_variation := float(absi(str(name).hash()) % 17) / 100.0
-		mat.albedo_color = leaf_col.darkened(finish_variation)
-		mat.roughness = 0.56
-	mat.uv1_scale = Vector3(1.1, 2.4, 1.0)
-	mi.material_override = mat
-	_body.add_child(mi)
-	# Wide leaves are apartment/service entries. Give them the accumulated
-	# hardware that makes a shared building feel inhabited: a low kick plate,
-	# peephole, and three visible hinge knuckles. Interior leaves stay quieter.
-	if width > 0.85:
-		var kick_mat := StandardMaterial3D.new()
-		kick_mat.albedo_color = Color(0.27, 0.25, 0.22)
-		kick_mat.roughness = 0.38
-		kick_mat.metallic = 0.72
-		for side in [-1.0, 1.0]:
-			var kick := MeshInstance3D.new()
-			var kb := BoxMesh.new()
-			kb.size = Vector3(width - 0.12, 0.18, 0.008)
-			kick.mesh = kb
-			kick.position = Vector3(width / 2.0, 0.14, side * 0.026)
-			kick.material_override = kick_mat
-			_body.add_child(kick)
-			var eye := MeshInstance3D.new()
-			var ec := CylinderMesh.new()
-			ec.top_radius = 0.018
-			ec.bottom_radius = 0.012
-			ec.height = 0.018
-			eye.mesh = ec
-			eye.rotation_degrees = Vector3(90, 0, 0)
-			eye.position = Vector3(width / 2.0, 1.53, side * 0.030)
-			eye.material_override = kick_mat
-			_body.add_child(eye)
-		for hz in [0.28, height * 0.50, height - 0.28]:
-			butt_hinge(_body, hz, kick_mat)
-		# The saddle belongs to the frame, not the moving leaf. Its worn
-		# metal edge catches light even when the door is parked open.
-		# Ruled 2026-08-05: FLUSH. It used to stand 18 mm proud at every
-		# threshold in the building - a hundred small kerbs to step over
-		# for nothing. Now it is a 4 mm inlay whose top sits level with
-		# the floor finish, so it still catches the torch and no longer
-		# catches the player.
-		var saddle := MeshInstance3D.new()
-		var sb := BoxMesh.new()
-		sb.size = Vector3(width + 0.05, 0.004, 0.14)
-		saddle.mesh = sb
-		saddle.position = Vector3(width / 2.0, 0.002, 0.0)
-		saddle.material_override = kick_mat
-		add_child(saddle)
-		# Surface-mounted closer: ubiquitous later retrofit on apartment and
-		# service doors. It is visual rather than forcibly timed so residents
-		# and the player can still hold a door during navigation.
-		var closer := MeshInstance3D.new()
-		var cb := BoxMesh.new()
-		cb.size = Vector3(0.22, 0.055, 0.07)
-		closer.mesh = cb
-		closer.position = Vector3(width - 0.18, height - 0.12, -0.05)
-		closer.material_override = kick_mat
-		_body.add_child(closer)
-		var arm := MeshInstance3D.new()
-		var ab := BoxMesh.new()
-		ab.size = Vector3(0.34, 0.018, 0.018)
-		arm.mesh = ab
-		arm.position = Vector3(width - 0.34, height - 0.075, -0.06)
+		_build_domestic(door_kind == "apartment_entry")
+	if door_kind != "cabinet" and height >= 1.2:
+		_build_fixed_hardware()
+	StaticMeshBatcher.merge(_body)
+	StaticMeshBatcher.merge(_fixed)
+
+
+## The reopening contractor used one economical two-panel pattern throughout
+## the residential work. Entries get darker corridor paint and accumulated
+## security hardware; room leaves are the same stock joinery without pretending
+## every bedroom needs a closer, peephole and kick plate.
+func _build_domestic(is_entry: bool) -> void:
+	var palette := [Color(0.38, 0.34, 0.25), Color(0.25, 0.34, 0.29),
+		Color(0.35, 0.27, 0.24)] if is_entry else [Color(0.78, 0.75, 0.67),
+		Color(0.66, 0.69, 0.61), Color(0.70, 0.63, 0.57)]
+	var tint: Color = palette[finish_variant % palette.size()]
+	var paint := MatLib.get_mat("trim", tint, 0.85)
+	var shadow := MatLib.get_mat("trim", tint.darkened(0.18), 0.85)
+	var brass := MatLib.get_mat("brass_dull", Color(0.82, 0.74, 0.55))
+	_box(_body, Vector3(width - 0.02, height - 0.02, 0.044),
+			Vector3(width * 0.5, height * 0.5, 0), paint)
+	# Recesses are shallow dark beds surrounded by physical rails. From a
+	# glancing hallway angle the rail casts the line; it is not a rectangle
+	# pasted onto a featureless slab.
+	for face in [-1.0, 1.0]:
+		for field in [[0.18, 0.84], [0.98, height - 0.16]]:
+			var cy: float = (field[0] + field[1]) * 0.5
+			var fh: float = field[1] - field[0]
+			_box(_body, Vector3(width - 0.24, fh, 0.006),
+					Vector3(width * 0.5, cy, face * 0.025), shadow)
+			for x in [0.095, width - 0.095]:
+				_box(_body, Vector3(0.045, fh + 0.045, 0.018),
+						Vector3(x, cy, face * 0.031), paint)
+			for y in [field[0] - 0.022, field[1] + 0.022]:
+				_box(_body, Vector3(width - 0.15, 0.045, 0.018),
+						Vector3(width * 0.5, y, face * 0.031), paint)
+	_build_knob_set(brass)
+	if is_entry:
+		# One outer kick plate, polished only in the crescent where shoes land.
+		_box(_body, Vector3(width - 0.13, 0.17, 0.008),
+				Vector3(width * 0.5, 0.13, -0.029), brass)
+		_cyl(_body, 0.014, 0.018, Vector3(width * 0.5, 1.49, -0.034),
+				brass, 90)
+		var iron := MatLib.get_mat("cast_iron", Color(0.42, 0.40, 0.36))
+		_box(_body, Vector3(0.22, 0.055, 0.065),
+				Vector3(width - 0.18, height - 0.115, -0.055), iron)
+		var arm := _box(_body, Vector3(0.33, 0.018, 0.018),
+				Vector3(width - 0.34, height - 0.07, -0.065), iron)
 		arm.rotation.z = -0.16
-		arm.material_override = kick_mat
-		_body.add_child(arm)
-	# stile-and-rail identity; cabinet leaves get a single field scaled
-	# to their own height instead of full-door panel positions
-	var pmat := StandardMaterial3D.new()
-	pmat.albedo_color = (Color(0.30, 0.31, 0.30) if service_finish \
-			else leaf_col.darkened(0.20))
-	pmat.albedo_texture = METAL_ALBEDO if service_finish else PAINT_ALBEDO
-	pmat.normal_enabled = true
-	pmat.normal_texture = METAL_NORMAL if service_finish else PAINT_NORMAL
-	pmat.roughness_texture = METAL_ROUGH if service_finish else PAINT_ROUGH
-	pmat.metallic = 0.52 if service_finish else 0.0
-	pmat.roughness = 0.62
-	pmat.uv1_scale = Vector3(1.25, 2.1, 1.0)
-	var fields := [[0.16, 0.88], [1.04, height - 0.18]] 			if height >= 1.2 else [[0.07, height - 0.07]]
-	for side in [-1.0, 1.0]:
-		for pz in fields:
-			var panel := MeshInstance3D.new()
-			var pb := BoxMesh.new()
-			pb.size = Vector3(width - 0.22, pz[1] - pz[0], 0.012)
-			panel.mesh = pb
-			panel.position = Vector3(width / 2.0, (pz[0] + pz[1]) / 2.0,
-					side * 0.020)
-			panel.material_override = pmat
-			_body.add_child(panel)
-	# lever on a rosette over a keyhole escutcheon, both faces —
-	# cabinets get a single small knob at carcass scale instead
-	var hw := StandardMaterial3D.new()
-	hw.albedo_color = Color(0.62, 0.55, 0.30)
-	hw.roughness = 0.28
-	hw.metallic = 0.85
-	if height < 1.2:
-		var knob := MeshInstance3D.new()
-		var kc := CylinderMesh.new()
-		kc.top_radius = 0.014
-		kc.bottom_radius = 0.010
-		kc.height = 0.028
-		knob.mesh = kc
-		knob.rotation_degrees = Vector3(90, 0, 0)
-		knob.position = Vector3(width - 0.06, height * 0.55, 0.032)
-		knob.material_override = hw
-		_body.add_child(knob)
-		return
-	for side in [-1.0, 1.0]:
-		var rosette := MeshInstance3D.new()
-		var rc := CylinderMesh.new()
-		rc.top_radius = 0.026
-		rc.bottom_radius = 0.026
-		rc.height = 0.012
-		rosette.mesh = rc
-		rosette.rotation_degrees = Vector3(90, 0, 0)
-		rosette.position = Vector3(width - 0.075, 0.96, side * 0.028)
-		rosette.material_override = hw
-		_body.add_child(rosette)
-		var lever := MeshInstance3D.new()
-		var lb := BoxMesh.new()
-		lb.size = Vector3(0.11, 0.016, 0.014)
-		lever.mesh = lb
-		lever.position = Vector3(width - 0.075 - 0.045, 0.955,
-				side * 0.043)
-		lever.material_override = hw
-		_body.add_child(lever)
-		var esc := MeshInstance3D.new()
-		var eb := BoxMesh.new()
-		eb.size = Vector3(0.022, 0.055, 0.008)
-		esc.mesh = eb
-		esc.position = Vector3(width - 0.075, 0.875, side * 0.026)
-		esc.material_override = hw
-		_body.add_child(esc)
+
+
+func _build_service() -> void:
+	var galvanized := MatLib.get_mat("metal", Color(0.48, 0.50, 0.47))
+	var iron := MatLib.get_mat("cast_iron", Color(0.36, 0.35, 0.32))
+	_box(_body, Vector3(width - 0.02, height - 0.02, 0.052),
+			Vector3(width * 0.5, height * 0.5, 0), galvanized)
+	# Riveted Z-brace: cheap reinforcement on a hard-used service leaf, not
+	# domestic panel moulding recoloured grey.
+	for y in [0.16, height - 0.16]:
+		_box(_body, Vector3(width - 0.10, 0.065, 0.018),
+				Vector3(width * 0.5, y, -0.035), iron)
+	var brace := _box(_body, Vector3(width * 0.92, 0.065, 0.018),
+			Vector3(width * 0.5, height * 0.51, -0.035), iron)
+	brace.rotation.z = atan2(height - 0.40, width - 0.12) - PI * 0.5
+	_build_knob_set(MatLib.get_mat("brass_dull", Color(0.64, 0.58, 0.43)))
+
+
+func _build_storefront() -> void:
+	var oak := MatLib.get_mat("oak_quartered", Color(0.42, 0.30, 0.20), 0.8)
+	var brass := MatLib.get_mat("brass_dull", Color(0.80, 0.70, 0.47))
+	var glass := StandardMaterial3D.new()
+	glass.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS
+	glass.albedo_color = Color(0.16, 0.22, 0.20, 0.34)
+	glass.roughness = 0.18
+	glass.metallic = 0.08
+	glass.cull_mode = BaseMaterial3D.CULL_DISABLED
+	# A real glazed shop leaf: narrow timber carcass around a transparent field,
+	# so the eleven interiors remain the point of building them.
+	for x in [0.065, width - 0.065]:
+		_box(_body, Vector3(0.13, height - 0.02, 0.055),
+				Vector3(x, height * 0.5, 0), oak)
+	for y in [0.065, 0.78, height - 0.065]:
+		_box(_body, Vector3(width - 0.02, 0.13, 0.055),
+				Vector3(width * 0.5, y, 0), oak)
+	_box(_body, Vector3(width - 0.19, height - 0.98, 0.012),
+			Vector3(width * 0.5, 1.39, 0), glass)
+	for face in [-1.0, 1.0]:
+		_cyl(_body, 0.014, 0.34, Vector3(width - 0.16, 1.03,
+				face * 0.07), brass, 0)
+		for y in [0.86, 1.20]:
+			_cyl(_body, 0.012, 0.065, Vector3(width - 0.16, y,
+					face * 0.045), brass, 90)
+
+
+func _build_cabinet() -> void:
+	var paint := MatLib.get_mat("trim", Color(0.70, 0.68, 0.61), 0.65)
+	var brass := MatLib.get_mat("brass_dull", Color(0.70, 0.62, 0.44))
+	_box(_body, Vector3(width - 0.015, height - 0.015, 0.032),
+			Vector3(width * 0.5, height * 0.5, 0), paint)
+	_box(_body, Vector3(width - 0.12, height - 0.12, 0.006),
+			Vector3(width * 0.5, height * 0.5, -0.020),
+			MatLib.get_mat("trim", Color(0.56, 0.54, 0.48), 0.65))
+	_cyl(_body, 0.014, 0.026, Vector3(width - 0.055, height * 0.53,
+			-0.030), brass, 90)
+
+
+func _build_knob_set(material: StandardMaterial3D) -> void:
+	for face in [-1.0, 1.0]:
+		var z: float = float(face) * 0.038
+		_box(_body, Vector3(0.055, 0.17, 0.010),
+				Vector3(width - 0.085, 0.94, z), material)
+		_cyl(_body, 0.029, 0.048, Vector3(width - 0.085, 1.00,
+				face * 0.065), material, 90)
+		_box(_body, Vector3(0.012, 0.030, 0.006),
+				Vector3(width - 0.085, 0.89, face * 0.045), material)
+
+
+func _build_fixed_hardware() -> void:
+	var metal := MatLib.get_mat("brass_dull", Color(0.58, 0.52, 0.39)) \
+			if door_kind in ["apartment_entry", "apartment_interior", "storefront"] \
+			else MatLib.get_mat("cast_iron", Color(0.38, 0.37, 0.34))
+	# The saddle and jamb-side barrels do not rotate with the leaf. The old
+	# model parented both hinge leaves to the door and visibly tore the jamb
+	# half away whenever it opened.
+	_box(_fixed, Vector3(width + 0.045, 0.004, 0.14),
+			Vector3(width * 0.5, 0.002, 0), metal)
+	for y in [0.26, height * 0.5, height - 0.26]:
+		_cyl(_fixed, 0.010, 0.105, Vector3(0, y, -HINGE_SETBACK),
+				metal, 0, 8)
+
+
+func _build_audio() -> void:
 	_click = AudioStreamPlayer3D.new()
 	_click.stream = PropAudio.get_stream("tick")
 	_click.volume_db = -14.0
@@ -222,11 +229,7 @@ func _ready() -> void:
 	_squeak.unit_size = 2.5
 	_squeak.max_distance = 14.0
 	add_child(_squeak)
-	if leaf_state == "open":
-		# parked flat back against the wall so it never blocks a route
-		open = true
-		_body.rotation.y = deg_to_rad(-168 if swing_out else 168)
-	apply_hinge_setback()
+
 
 func interact_prompt() -> String:
 	if leaf_state == "locked":
@@ -242,23 +245,16 @@ func interact(_player: Node) -> void:
 		return
 	_moving = true
 	open = not open
-	# Cabinet leaves return before the audio rig is built (they are
-	# 45 cm doors on a carcass, not hung joinery), so every cabinet
-	# interaction was throwing on a null emitter.
 	if _squeak:
 		_squeak.pitch_scale = randf_range(0.93, 1.05)
 		_squeak.play()
 	var swept := -100.0 if swing_out else 100.0
-	var tw := create_tween()
-	tw.tween_property(_body, "rotation:y",
-			deg_to_rad(swept) if open else 0.0, 0.5) \
-			.set_trans(Tween.TRANS_SINE)
-	tw.tween_callback(_settled)
+	var tween := create_tween()
+	tween.tween_property(_body, "rotation:y",
+			deg_to_rad(swept) if open else 0.0, 0.5).set_trans(Tween.TRANS_SINE)
+	tween.tween_callback(_settled)
 
 
-## Resident routines use the same hinge animation and sounds as the player.
-## Idempotent so several neighbours reaching a shared/service door cannot
-## reverse it every frame.
 func npc_set_open(want_open: bool) -> void:
 	if leaf_state == "locked" or _moving or open == want_open:
 		return
@@ -267,99 +263,64 @@ func npc_set_open(want_open: bool) -> void:
 
 func _settled() -> void:
 	_moving = false
-	if not open:
+	if not open and _click:
 		_click.pitch_scale = 0.9
-		_click.play()  # latch
+		_click.play()
 
 
 func _rattle() -> void:
-	var tw := create_tween()
+	if not _click:
+		return
+	var tween := create_tween()
 	for i in 3:
-		tw.tween_callback(_click.play)
-		tw.tween_interval(0.09)
+		tween.tween_callback(_click.play)
+		tween.tween_interval(0.09)
 
 
-## A butt hinge as the ironmonger made it: two mortised leaves, five
-## knuckles interleaved 3-and-2, a pin through all of them, and a ball
-## finial at each end of the pin. The old version was a bare cylinder
-## floating on the door's centreline, which reads as a peg and hinges
-## nothing.
-func butt_hinge(parent: Node3D, at_y: float, mat: StandardMaterial3D) -> void:
-	var barrel_z := -HINGE_SETBACK
-	var plate_h := 0.098
-	# the two leaves: one mortised into the door edge, one into the jamb
-	for side in [1.0, -1.0]:
-		var plate := MeshInstance3D.new()
-		var pb := BoxMesh.new()
-		pb.size = Vector3(0.046, plate_h, 0.0035)
-		plate.mesh = pb
-		plate.position = Vector3(side * 0.027, at_y, barrel_z)
-		plate.material_override = mat
-		parent.add_child(plate)
-		# countersunk screws, three to a leaf
-		for sy in [-0.032, 0.0, 0.032]:
-			var screw := MeshInstance3D.new()
-			var sc := CylinderMesh.new()
-			sc.top_radius = 0.0045
-			sc.bottom_radius = 0.0045
-			sc.height = 0.002
-			sc.radial_segments = 6
-			screw.mesh = sc
-			screw.rotation_degrees = Vector3(90, 0, 0)
-			screw.position = Vector3(side * 0.030, at_y + sy,
-					barrel_z - 0.002)
-			screw.material_override = mat
-			parent.add_child(screw)
-	# five knuckles up the pin
-	for k in 5:
-		var knuckle := MeshInstance3D.new()
-		var kc := CylinderMesh.new()
-		kc.top_radius = 0.0105
-		kc.bottom_radius = 0.0105
-		kc.height = plate_h / 5.0 - 0.002
-		kc.radial_segments = 8
-		knuckle.mesh = kc
-		knuckle.position = Vector3(0.0,
-				at_y - plate_h * 0.5 + (k + 0.5) * plate_h / 5.0, barrel_z)
-		knuckle.material_override = mat
-		parent.add_child(knuckle)
-	# the pin, and the finials that say somebody chose this hinge
-	var pin := MeshInstance3D.new()
-	var pc := CylinderMesh.new()
-	pc.top_radius = 0.0042
-	pc.bottom_radius = 0.0042
-	pc.height = plate_h + 0.028
-	pc.radial_segments = 6
-	pin.mesh = pc
-	pin.position = Vector3(0.0, at_y, barrel_z)
-	pin.material_override = mat
-	parent.add_child(pin)
-	for fy in [-1.0, 1.0]:
-		var ball := MeshInstance3D.new()
-		var bs := SphereMesh.new()
-		bs.radius = 0.0105
-		bs.height = 0.021
-		bs.radial_segments = 8
-		bs.rings = 5
-		ball.mesh = bs
-		ball.position = Vector3(0.0, at_y + fy * (plate_h * 0.5 + 0.013),
-				barrel_z)
-		ball.material_override = mat
-		parent.add_child(ball)
-
-
-## Move the swing axis off the leaf's centreline and onto the face it
-## closes against. Everything inside the body shifts one way and the body
-## shifts back the other, so a closed door is pixel-identical and an
-## opening one stops sweeping through its own frame.
-## Slide the visual leaf forward to meet the collision box, which was
-## already built at the offset. Only meshes move: a CollisionShape3D
-## repositioned after its body is in the tree does not reliably reach the
-## physics server, and a leaf you can see but not touch is worse than one
-## that clips its frame.
 func apply_hinge_setback() -> void:
 	if _body == null or is_zero_approx(_hinge_offset):
 		return
-	for c in _body.get_children():
-		if c is MeshInstance3D:
-			(c as MeshInstance3D).position.z += _hinge_offset
+	for child in _body.get_children():
+		if child is MeshInstance3D:
+			child.position.z += _hinge_offset
+
+
+## Compatibility builder for the landmark leaf. Its detailed ball-tipped
+## hinge is collapsed with the rest of that hero's brass in _ready().
+func butt_hinge(parent: Node3D, at_y: float,
+		material: StandardMaterial3D) -> void:
+	_cyl(parent, 0.011, 0.105, Vector3(0, at_y, -HINGE_SETBACK),
+			material, 0, 10)
+	for end in [-1.0, 1.0]:
+		_cyl(parent, 0.014, 0.014,
+				Vector3(0, at_y + end * 0.059, -HINGE_SETBACK),
+				material, 0, 8)
+
+
+func _box(parent: Node3D, size: Vector3, at: Vector3,
+		material: StandardMaterial3D) -> MeshInstance3D:
+	var node := MeshInstance3D.new()
+	var mesh := BoxMesh.new()
+	mesh.size = size
+	node.mesh = mesh
+	node.position = at
+	node.material_override = material
+	parent.add_child(node)
+	return node
+
+
+func _cyl(parent: Node3D, radius: float, length: float, at: Vector3,
+		material: StandardMaterial3D, x_rotation: float,
+		segments := 12) -> MeshInstance3D:
+	var node := MeshInstance3D.new()
+	var mesh := CylinderMesh.new()
+	mesh.top_radius = radius
+	mesh.bottom_radius = radius
+	mesh.height = length
+	mesh.radial_segments = segments
+	node.mesh = mesh
+	node.position = at
+	node.rotation_degrees.x = x_rotation
+	node.material_override = material
+	parent.add_child(node)
+	return node

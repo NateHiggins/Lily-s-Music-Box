@@ -1,5 +1,5 @@
 class_name MailBankProp
-extends FunctionalProp
+extends Node3D
 ## The lobby mail bank, Cutler-descended: a Couch-pattern cast-brass grid
 ## of tenant boxes in a wood surround, built prop-side so the player's own
 ## box can actually open. Twenty-four doors, one per unit; typed name cards from the
@@ -165,7 +165,7 @@ func _build() -> void:
 	flap.rotation.x = -0.14
 	# The fixed architecture is five material draws instead of roughly 140
 	# little meshes. The only unmerged door is 4B, because it really opens.
-	merge_static(_fixed, [cards_mesh])
+	StaticMeshBatcher.merge(_fixed, [cards_mesh])
 
 
 ## A unit without a household does not get a plausible-looking fake name.

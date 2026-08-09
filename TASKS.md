@@ -118,10 +118,6 @@ and by NPCs. R2 needs a brief before anyone builds.
   anywhere in the project** — so "NPCs move around inside" means authoring venue
   anchors per shop, not dropping a navmesh. Overlaps #22 (favourite spots) and
   should be done with it rather than twice.
-- **R4** `_validate_movement()` has never audited a shop. It skips any door with
-  `exterior` set (`gen_layout.py:6699`) because it cannot tell a storefront's own
-  fabric from an obstruction — which exempts precisely the eleven rooms in
-  question. Whatever R2 builds needs an audit that does not opt out.
 - **R5** Two things the re-plan must not break: the **181 per-shop buffers**
   (fittings falling back into floor-wide buffers is what made the bodega go
   black), and `ShopEntryTest`'s ruling that the NEWS CIGARS proprietor side stays

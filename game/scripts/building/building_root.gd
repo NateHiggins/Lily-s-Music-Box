@@ -73,6 +73,11 @@ const PROP_SCRIPTS := {
 	# Architectural hardware has no layout marker, but the warehouse registry
 	# is a catalog of things worth judging, not only things marker-spawned.
 	"mail_bank": preload("res://scripts/props/mail_bank_prop.gd"),
+	# Plain Node3D actors can opt into warehouse inspection without pretending
+	# to be networked FunctionalProps. Runtime door markers are still handled
+	# by the dedicated branch below, so this is inspection registration only.
+	"door": preload("res://scripts/props/door_prop.gd"),
+	"landmark_entry": preload("res://scripts/props/landmark_entry_door.gd"),
 	"bookshelf": preload("res://scripts/props/bookshelf_prop.gd"),
 }
 const HEAT_BALANCE_SCRIPT := preload("res://scripts/props/heat_balance.gd")
@@ -114,6 +119,12 @@ var floor_nodes: Dictionary = {}
 ## this index existed all 471 props (and their shadow geometry) rendered on
 ## every storey even while the floor around them was hidden.
 var functional_props_by_floor: Dictionary = {}
+## Doors intentionally remain plain Node3D actors: making 120 pieces of
+## architectural joinery FunctionalProps would subscribe every hinge to the
+## possession network.  They still need exactly the same storey visibility
+## ownership, otherwise a closed F06 door submits geometry and shadows while
+## the player is in F02.
+var doors_by_floor: Dictionary = {}
 var window_glow: OrisonWindowGlow
 var door_glow: OrisonDoorGlow
 var broadcast: BroadcastDirector
@@ -432,7 +443,8 @@ func _ready() -> void:
 	shots = ShotCapture.new()
 	shots.name = "ShotCapture"
 	add_child(shots)
-	if GameBoot.launch_mode == GameBoot.LaunchMode.DEBUG:
+	if GameBoot.launch_mode == GameBoot.LaunchMode.DEBUG \
+			and OS.get_environment("SHOT_ROOMS") == "":
 		# One of every prop, lit and labelled, 400 m east. Unreachable by
 		# design and built in debug launches only, so play never pays for
 		# it. See prop_warehouse.gd for why it exists.
@@ -680,6 +692,8 @@ func _spawn_props() -> void:
 		var floor_id := String(fl["id"])
 		if not functional_props_by_floor.has(floor_id):
 			functional_props_by_floor[floor_id] = []
+		if not doors_by_floor.has(floor_id):
+			doors_by_floor[floor_id] = []
 		for m in fl["markers"]:
 			if m["kind"] == "desk_zone":
 				var desk := DeskZone.new()
@@ -697,12 +711,16 @@ func _spawn_props() -> void:
 				door.height = float(m["h"])
 				door.leaf_state = m["leaf"]
 				door.swing_out = String(m.get("swing", "")) == "out"
+				door.door_kind = String(m.get("subtype", "apartment_interior"))
+				door.unit = String(m.get("unit", ""))
+				door.finish_variant = int(m.get("finish_variant", 0))
 				door.name = m["id"]
 				# transform BEFORE add_child: a sync_to_physics leaf keeps
 				# its global transform if the parent moves after entry
 				door.position = GameBoot.b2g(m["pos"])
 				door.rotation.y = deg_to_rad(-float(m.get("yaw_deg", 0)))
 				add_child(door)
+				doors_by_floor[floor_id].append(door)
 				continue
 			var script: GDScript = PROP_SCRIPTS.get(m["kind"])
 			if script == null:
@@ -1360,3 +1378,5 @@ func _apply_visibility(p: Vector3) -> void:
 				or (fid == "ROOF" and p.y > 15.0)
 		for prop in functional_props_by_floor.get(fid, []):
 			prop.visible = show_props
+		for door in doors_by_floor.get(fid, []):
+			door.visible = show_props

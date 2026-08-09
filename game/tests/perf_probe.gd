@@ -102,7 +102,7 @@ func _report_mesh_census() -> void:
 	var props := 0
 	var prop_nodes := 0
 	for c in root.get_children():
-		if c is FunctionalProp:
+		if c is FunctionalProp or c is DoorProp:
 			prop_nodes += 1
 			props += _count_meshes(c)
 	print("PERF census: %d floor meshes, %d prop meshes across %d props "
@@ -111,8 +111,8 @@ func _report_mesh_census() -> void:
 			[float(props) / maxf(1.0, prop_nodes), per_floor + props])
 	var by_type := {}
 	for c in root.get_children():
-		if c is FunctionalProp:
-			var k: String = c.prop_type
+		if c is FunctionalProp or c is DoorProp:
+			var k: String = c.prop_type if c is FunctionalProp else "door"
 			if not by_type.has(k):
 				by_type[k] = [0, 0]
 			by_type[k][0] += 1

@@ -146,6 +146,10 @@ func _add_unit_plaque(door: DoorProp, unit: String) -> void:
 	_box(low, Vector3(0.09, 0.065, 0.008), Vector3.ZERO, _luminous)
 	_label(low, unit, Vector3(0, 0, 0.008), 25, 0.0010,
 			Color(0.05, 0.09, 0.035), true)
+	# Four screw heads and a backplate used to remain five separate shadow
+	# submissions on every entry door. The typed face keeps its own atlas
+	# material; the fixed brass behind it is one surface.
+	StaticMeshBatcher.merge(root)
 
 
 func _build_floor_directories() -> void:

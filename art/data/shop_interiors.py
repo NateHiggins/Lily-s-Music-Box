@@ -477,8 +477,11 @@ def build_shop_interiors(fb, mk, asm, shops, face, S=1):
                               F - S * 0.36), 0.48, 0.48, "brass_dull")
             b("horn_throat", (ix0 + 0.84, F - S * 0.65, ix0 + 1.12,
                                F - S * 0.45), 0.54, 0.22, "brass_dull")
-            b("cone_speaker", (ix0 + 1.18, F - S * 0.74, ix0 + 1.74,
-                                F - S * 0.34), 0.46, 0.58, "fabric_warm")
+            # Twenty-five centimetres deeper than the horn: the old position
+            # sat just inside the glazed door's quarter-sweep. The display was
+            # legible from the pavement and physically hit by its own door.
+            b("cone_speaker", (ix0 + 1.18, F - S * 0.99, ix0 + 1.74,
+                                F - S * 0.59), 0.46, 0.58, "fabric_warm")
             b("aerial_spools", (mid - 0.42, by + 1.04, mid + 0.42,
                                  by + 1.42), 0.08, 0.46, "copper_aged")
             b("solder_ring", (mid - 0.32, by + 1.54, mid + 0.32,

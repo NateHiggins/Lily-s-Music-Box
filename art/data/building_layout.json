@@ -1133,7 +1133,12 @@
      "yaw_deg": 0,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "closed"
+     "leaf": "closed",
+     "rooms": [
+      "B1_UTILITY"
+     ],
+     "subtype": "service",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -1147,7 +1152,9 @@
      "w": 0.96,
      "h": 2.1,
      "leaf": "closed",
-     "swing": "out"
+     "swing": "out",
+     "subtype": "service",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -1160,7 +1167,12 @@
      "yaw_deg": -90,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "open"
+     "leaf": "open",
+     "rooms": [
+      "B1_STORAGE_CAGES"
+     ],
+     "subtype": "service",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -1173,7 +1185,12 @@
      "yaw_deg": -90,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "open"
+     "leaf": "open",
+     "rooms": [
+      "B1_LAUNDRY"
+     ],
+     "subtype": "service",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -1186,7 +1203,12 @@
      "yaw_deg": -90,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "open"
+     "leaf": "open",
+     "rooms": [
+      "B1_ELECTRICAL"
+     ],
+     "subtype": "service",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -1199,7 +1221,12 @@
      "yaw_deg": -90,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "open"
+     "leaf": "open",
+     "rooms": [
+      "B1_BOILER"
+     ],
+     "subtype": "service",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -1212,7 +1239,13 @@
      "yaw_deg": -90,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "open"
+     "leaf": "open",
+     "rooms": [
+      "B1_COAL",
+      "B1_BOILER"
+     ],
+     "subtype": "service",
+     "finish_variant": 2
     },
     {
      "kind": "flush_dome",
@@ -5500,7 +5533,12 @@
      "yaw_deg": 0,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "closed"
+     "leaf": "closed",
+     "rooms": [
+      "F01_UTILITY"
+     ],
+     "subtype": "service",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -5513,7 +5551,13 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "1A",
+     "rooms": [
+      "F01_A_MAIN"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -5526,7 +5570,13 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "1B",
+     "rooms": [
+      "F01_COMMON_B"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -5539,7 +5589,13 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "1D",
+     "rooms": [
+      "F01_D_MAIN"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -5552,7 +5608,13 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "1C",
+     "rooms": [
+      "F01_STORAGE_C"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -5566,7 +5628,9 @@
      "w": 0.91,
      "h": 2.13,
      "leaf": "closed",
-     "swing": "out"
+     "swing": "out",
+     "subtype": "landmark_entry",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -5579,7 +5643,13 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "rooms": [
+      "F01_OFFICE",
+      "F01_COMMON_B"
+     ],
+     "subtype": "service",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -5592,7 +5662,13 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "rooms": [
+      "F01_PACKAGE",
+      "F01_COMMON_B"
+     ],
+     "subtype": "service",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -5605,7 +5681,13 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "rooms": [
+      "F01_COMMON_B",
+      "F01_RESTROOM"
+     ],
+     "subtype": "service",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -5618,7 +5700,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "1A",
+     "rooms": [
+      "F01_A_BED",
+      "F01_A_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -5631,7 +5720,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "1A",
+     "rooms": [
+      "F01_A_BATH",
+      "F01_A_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -5644,7 +5740,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "1D",
+     "rooms": [
+      "F01_D_BED",
+      "F01_D_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -5657,7 +5760,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "1D",
+     "rooms": [
+      "F01_D_MAIN",
+      "F01_D_BATH"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -5670,7 +5780,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "1D",
+     "rooms": [
+      "F01_D_MAIN",
+      "F01_D_OFFICE"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "flush_dome",
@@ -6016,7 +6133,9 @@
      "w": 0.9,
      "h": 2.1,
      "leaf": "open",
-     "exterior": true
+     "exterior": true,
+     "subtype": "storefront",
+     "finish_variant": 0
     },
     {
      "kind": "kitchen_linear",
@@ -6206,7 +6325,9 @@
      "w": 0.7,
      "h": 2.0,
      "leaf": "closed",
-     "exterior": true
+     "exterior": true,
+     "subtype": "exterior_service",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -6220,7 +6341,9 @@
      "w": 0.9,
      "h": 2.1,
      "leaf": "open",
-     "exterior": true
+     "exterior": true,
+     "subtype": "storefront",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -6235,7 +6358,9 @@
      "h": 2.05,
      "leaf": "closed",
      "swing": "out",
-     "exterior": true
+     "exterior": true,
+     "subtype": "exterior_service",
+     "finish_variant": 1
     },
     {
      "kind": "songbook_terminal",
@@ -6530,7 +6655,9 @@
      "w": 0.95,
      "h": 2.1,
      "leaf": "open",
-     "exterior": true
+     "exterior": true,
+     "subtype": "storefront",
+     "finish_variant": 0
     },
     {
      "kind": "shop_sign",
@@ -6635,7 +6762,9 @@
      "w": 0.95,
      "h": 2.1,
      "leaf": "closed",
-     "exterior": true
+     "exterior": true,
+     "subtype": "storefront",
+     "finish_variant": 0
     },
     {
      "kind": "shop_sign",
@@ -6723,7 +6852,9 @@
      "w": 0.95,
      "h": 2.1,
      "leaf": "closed",
-     "exterior": true
+     "exterior": true,
+     "subtype": "storefront",
+     "finish_variant": 0
     },
     {
      "kind": "shop_sign",
@@ -6811,7 +6942,9 @@
      "w": 0.95,
      "h": 2.1,
      "leaf": "closed",
-     "exterior": true
+     "exterior": true,
+     "subtype": "storefront",
+     "finish_variant": 2
     },
     {
      "kind": "shop_sign",
@@ -6899,7 +7032,9 @@
      "w": 0.95,
      "h": 2.1,
      "leaf": "open",
-     "exterior": true
+     "exterior": true,
+     "subtype": "storefront",
+     "finish_variant": 2
     },
     {
      "kind": "shop_sign",
@@ -7004,7 +7139,9 @@
      "w": 0.95,
      "h": 2.1,
      "leaf": "locked",
-     "exterior": true
+     "exterior": true,
+     "subtype": "storefront",
+     "finish_variant": 2
     },
     {
      "kind": "shop_sign",
@@ -7092,7 +7229,9 @@
      "w": 0.95,
      "h": 2.1,
      "leaf": "closed",
-     "exterior": true
+     "exterior": true,
+     "subtype": "storefront",
+     "finish_variant": 2
     },
     {
      "kind": "shop_sign",
@@ -7180,7 +7319,9 @@
      "w": 0.95,
      "h": 2.1,
      "leaf": "closed",
-     "exterior": true
+     "exterior": true,
+     "subtype": "storefront",
+     "finish_variant": 0
     },
     {
      "kind": "shop_sign",
@@ -7285,7 +7426,9 @@
      "w": 0.95,
      "h": 2.1,
      "leaf": "closed",
-     "exterior": true
+     "exterior": true,
+     "subtype": "storefront",
+     "finish_variant": 1
     },
     {
      "kind": "shop_sign",
@@ -7390,7 +7533,9 @@
      "w": 0.95,
      "h": 2.1,
      "leaf": "closed",
-     "exterior": true
+     "exterior": true,
+     "subtype": "storefront",
+     "finish_variant": 0
     },
     {
      "kind": "shop_sign",
@@ -7495,7 +7640,9 @@
      "w": 0.95,
      "h": 2.1,
      "leaf": "closed",
-     "exterior": true
+     "exterior": true,
+     "subtype": "storefront",
+     "finish_variant": 2
     },
     {
      "kind": "shop_sign",
@@ -49605,9 +49752,9 @@
      "id": "storm_shop_radio_service_cone_speaker",
      "rect": [
       -14.520000000000001,
-      -29.055999999999997,
+      -29.305999999999997,
       -13.96,
-      -28.656
+      -28.906
      ],
      "z0": 0.46,
      "h": 0.58,
@@ -69266,7 +69413,13 @@
      "yaw_deg": 0,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "closed"
+     "leaf": "closed",
+     "rooms": [
+      "F02_UTILITY",
+      "F02_CORRIDOR"
+     ],
+     "subtype": "service",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -69279,7 +69432,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "2A",
+     "rooms": [
+      "F02_CORRIDOR",
+      "F02_A_MAIN"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -69292,7 +69452,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "2B",
+     "rooms": [
+      "F02_CORRIDOR",
+      "F02_B_MAIN"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -69305,7 +69472,13 @@
      "yaw_deg": -90,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "locked"
+     "leaf": "locked",
+     "rooms": [
+      "F02_CORRIDOR",
+      "F02_WSTOR"
+     ],
+     "subtype": "service",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -69318,7 +69491,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "2C",
+     "rooms": [
+      "F02_C_MAIN",
+      "F02_CORRIDOR"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -69331,7 +69511,13 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "2B",
+     "rooms": [
+      "F02_B_KITCHEN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -69344,7 +69530,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "2A",
+     "rooms": [
+      "F02_A_BED",
+      "F02_A_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -69357,7 +69550,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "2A",
+     "rooms": [
+      "F02_A_BATH",
+      "F02_A_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -69370,7 +69570,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "2B",
+     "rooms": [
+      "F02_B_BATH",
+      "F02_B_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -69383,7 +69590,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "2C",
+     "rooms": [
+      "F02_C_BATH",
+      "F02_C_BED1"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -69396,7 +69610,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "2C",
+     "rooms": [
+      "F02_C_MAIN",
+      "F02_C_BED2"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -69409,7 +69630,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "2C",
+     "rooms": [
+      "F02_C_MAIN",
+      "F02_C_BATH"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -69422,7 +69650,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "2D",
+     "rooms": [
+      "F02_D_BED",
+      "F02_D_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -69435,7 +69670,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "2D",
+     "rooms": [
+      "F02_D_MAIN",
+      "F02_D_BATH"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -69448,7 +69690,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "2D",
+     "rooms": [
+      "F02_D_MAIN",
+      "F02_D_OFFICE"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "flush_dome",
@@ -77619,7 +77868,13 @@
      "yaw_deg": 0,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "closed"
+     "leaf": "closed",
+     "rooms": [
+      "F03_UTILITY",
+      "F03_CORRIDOR"
+     ],
+     "subtype": "service",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -77632,7 +77887,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "3A",
+     "rooms": [
+      "F03_CORRIDOR",
+      "F03_A_MAIN"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -77645,7 +77907,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "3B",
+     "rooms": [
+      "F03_CORRIDOR",
+      "F03_B_MAIN"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -77658,7 +77927,13 @@
      "yaw_deg": -90,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "locked"
+     "leaf": "locked",
+     "rooms": [
+      "F03_CORRIDOR",
+      "F03_WSTOR"
+     ],
+     "subtype": "service",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -77671,7 +77946,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "3D",
+     "rooms": [
+      "F03_D_MAIN",
+      "F03_CORRIDOR"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -77684,7 +77966,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "3C",
+     "rooms": [
+      "F03_C_MAIN",
+      "F03_CORRIDOR"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -77697,7 +77986,13 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "3B",
+     "rooms": [
+      "F03_B_KITCHEN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -77710,7 +78005,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "3A",
+     "rooms": [
+      "F03_A_BED",
+      "F03_A_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -77723,7 +78025,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "3A",
+     "rooms": [
+      "F03_A_BATH",
+      "F03_A_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -77736,7 +78045,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "3B",
+     "rooms": [
+      "F03_B_BATH",
+      "F03_B_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -77749,7 +78065,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "3C",
+     "rooms": [
+      "F03_C_MAIN",
+      "F03_C_BATH"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -77762,7 +78085,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "3D",
+     "rooms": [
+      "F03_D_BED",
+      "F03_D_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -77775,7 +78105,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "3D",
+     "rooms": [
+      "F03_D_MAIN",
+      "F03_D_BATH"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -77788,7 +78125,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "3D",
+     "rooms": [
+      "F03_D_MAIN",
+      "F03_D_OFFICE"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "flush_dome",
@@ -85889,7 +86233,9 @@
      "w": 0.55,
      "h": 0.72,
      "leaf": "closed",
-     "cabinet": true
+     "cabinet": true,
+     "subtype": "cabinet",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -85903,7 +86249,9 @@
      "w": 0.55,
      "h": 0.72,
      "leaf": "closed",
-     "cabinet": true
+     "cabinet": true,
+     "subtype": "cabinet",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -85917,7 +86265,9 @@
      "w": 0.48,
      "h": 0.7,
      "leaf": "closed",
-     "cabinet": true
+     "cabinet": true,
+     "subtype": "cabinet",
+     "finish_variant": 0
     },
     {
      "kind": "kettle",
@@ -86268,7 +86618,13 @@
      "yaw_deg": 0,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "closed"
+     "leaf": "closed",
+     "rooms": [
+      "F04_UTILITY",
+      "F04_CORRIDOR"
+     ],
+     "subtype": "service",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -86281,7 +86637,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4A",
+     "rooms": [
+      "F04_CORRIDOR",
+      "F04_A_MAIN"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -86294,7 +86657,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4B",
+     "rooms": [
+      "F04_CORRIDOR",
+      "F04_B_VESTIBULE"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -86307,7 +86677,13 @@
      "yaw_deg": -90,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "locked"
+     "leaf": "locked",
+     "rooms": [
+      "F04_CORRIDOR",
+      "F04_WSTOR"
+     ],
+     "subtype": "service",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -86320,7 +86696,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4D",
+     "rooms": [
+      "F04_D_MAIN",
+      "F04_CORRIDOR"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -86333,7 +86716,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4C",
+     "rooms": [
+      "F04_C_MAIN",
+      "F04_CORRIDOR"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -86346,7 +86736,13 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4B",
+     "rooms": [
+      "F04_B_KITCHEN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -86359,7 +86755,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4A",
+     "rooms": [
+      "F04_A_BED",
+      "F04_A_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -86372,7 +86775,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4A",
+     "rooms": [
+      "F04_A_BATH",
+      "F04_A_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -86385,7 +86795,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4B",
+     "rooms": [
+      "F04_B_VESTIBULE",
+      "F04_B_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -86398,7 +86815,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4B",
+     "rooms": [
+      "F04_B_VESTIBULE",
+      "F04_B_BATH"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -86411,7 +86835,13 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4B",
+     "rooms": [
+      "F04_B_CLOSET"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -86424,7 +86854,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4C",
+     "rooms": [
+      "F04_C_BATH",
+      "F04_C_BED1"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -86437,7 +86874,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4C",
+     "rooms": [
+      "F04_C_MAIN",
+      "F04_C_BED2"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -86450,7 +86894,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4C",
+     "rooms": [
+      "F04_C_MAIN",
+      "F04_C_BATH"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -86463,7 +86914,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4D",
+     "rooms": [
+      "F04_D_BED",
+      "F04_D_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -86476,7 +86934,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4D",
+     "rooms": [
+      "F04_D_MAIN",
+      "F04_D_BATH"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -86489,7 +86954,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "4D",
+     "rooms": [
+      "F04_D_MAIN",
+      "F04_D_OFFICE"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "flush_dome",
@@ -95560,7 +96032,13 @@
      "yaw_deg": 0,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "closed"
+     "leaf": "closed",
+     "rooms": [
+      "F05_UTILITY",
+      "F05_CORRIDOR"
+     ],
+     "subtype": "service",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -95573,7 +96051,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "5A",
+     "rooms": [
+      "F05_CORRIDOR",
+      "F05_A_MAIN"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -95586,7 +96071,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "5B",
+     "rooms": [
+      "F05_CORRIDOR",
+      "F05_B_MAIN"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -95599,7 +96091,13 @@
      "yaw_deg": -90,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "locked"
+     "leaf": "locked",
+     "rooms": [
+      "F05_CORRIDOR",
+      "F05_WSTOR"
+     ],
+     "subtype": "service",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -95612,7 +96110,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "5D",
+     "rooms": [
+      "F05_D_MAIN",
+      "F05_CORRIDOR"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -95625,7 +96130,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "5C",
+     "rooms": [
+      "F05_C_MAIN",
+      "F05_CORRIDOR"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -95638,7 +96150,13 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "5B",
+     "rooms": [
+      "F05_B_KITCHEN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -95651,7 +96169,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "5A",
+     "rooms": [
+      "F05_A_BED",
+      "F05_A_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -95664,7 +96189,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "5A",
+     "rooms": [
+      "F05_A_BATH",
+      "F05_A_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -95677,7 +96209,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "5B",
+     "rooms": [
+      "F05_B_BATH",
+      "F05_B_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -95690,7 +96229,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "5C",
+     "rooms": [
+      "F05_C_BATH",
+      "F05_C_BED1"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -95703,7 +96249,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "5C",
+     "rooms": [
+      "F05_C_MAIN",
+      "F05_C_BED2"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -95716,7 +96269,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "5C",
+     "rooms": [
+      "F05_C_MAIN",
+      "F05_C_BATH"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -95729,7 +96289,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "5D",
+     "rooms": [
+      "F05_D_BED",
+      "F05_D_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -95742,7 +96309,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "5D",
+     "rooms": [
+      "F05_D_MAIN",
+      "F05_D_BATH"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -95755,7 +96329,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "5D",
+     "rooms": [
+      "F05_D_MAIN",
+      "F05_D_OFFICE"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "flush_dome",
@@ -103925,7 +104506,13 @@
      "yaw_deg": 0,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "closed"
+     "leaf": "closed",
+     "rooms": [
+      "F06_UTILITY",
+      "F06_CORRIDOR"
+     ],
+     "subtype": "service",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -103938,7 +104525,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "6A",
+     "rooms": [
+      "F06_CORRIDOR",
+      "F06_A_MAIN"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -103951,7 +104545,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "6B",
+     "rooms": [
+      "F06_CORRIDOR",
+      "F06_B_MAIN"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -103964,7 +104565,13 @@
      "yaw_deg": -90,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "locked"
+     "leaf": "locked",
+     "rooms": [
+      "F06_CORRIDOR",
+      "F06_WSTOR"
+     ],
+     "subtype": "service",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -103977,7 +104584,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "locked"
+     "leaf": "locked",
+     "unit": "6D",
+     "rooms": [
+      "F06_D_MAIN",
+      "F06_CORRIDOR"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -103990,7 +104604,14 @@
      "yaw_deg": -90,
      "w": 0.91,
      "h": 2.13,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "6C",
+     "rooms": [
+      "F06_C_MAIN",
+      "F06_CORRIDOR"
+     ],
+     "subtype": "apartment_entry",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -104003,7 +104624,13 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "6B",
+     "rooms": [
+      "F06_B_KITCHEN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -104016,7 +104643,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "6A",
+     "rooms": [
+      "F06_A_BED",
+      "F06_A_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -104029,7 +104663,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "6A",
+     "rooms": [
+      "F06_A_BATH",
+      "F06_A_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -104042,7 +104683,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "6B",
+     "rooms": [
+      "F06_B_BATH",
+      "F06_B_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -104055,7 +104703,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "6C",
+     "rooms": [
+      "F06_C_BATH",
+      "F06_C_BED1"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -104068,7 +104723,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "6C",
+     "rooms": [
+      "F06_C_MAIN",
+      "F06_C_BED2"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -104081,7 +104743,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "6C",
+     "rooms": [
+      "F06_C_MAIN",
+      "F06_C_BATH"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -104094,7 +104763,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "6D",
+     "rooms": [
+      "F06_D_BED",
+      "F06_D_MAIN"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 0
     },
     {
      "kind": "door",
@@ -104107,7 +104783,14 @@
      "yaw_deg": -90,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "6D",
+     "rooms": [
+      "F06_D_MAIN",
+      "F06_D_BATH"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 1
     },
     {
      "kind": "door",
@@ -104120,7 +104803,14 @@
      "yaw_deg": 0,
      "w": 0.81,
      "h": 2.03,
-     "leaf": "closed"
+     "leaf": "closed",
+     "unit": "6D",
+     "rooms": [
+      "F06_D_MAIN",
+      "F06_D_OFFICE"
+     ],
+     "subtype": "apartment_interior",
+     "finish_variant": 2
     },
     {
      "kind": "flush_dome",
@@ -110818,7 +111508,13 @@
      "yaw_deg": 0,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "closed"
+     "leaf": "closed",
+     "rooms": [
+      "ROOF_OPEN",
+      "ROOF_OPEN"
+     ],
+     "subtype": "service",
+     "finish_variant": 2
     },
     {
      "kind": "door",
@@ -110831,7 +111527,13 @@
      "yaw_deg": 0,
      "w": 0.96,
      "h": 2.1,
-     "leaf": "open"
+     "leaf": "open",
+     "rooms": [
+      "ROOF_OPEN",
+      "ROOF_OPEN"
+     ],
+     "subtype": "service",
+     "finish_variant": 0
     }
    ],
    "furniture": [

@@ -172,28 +172,7 @@ func retexture(node: Node, table: Array) -> void:
 ## Call AFTER retexture(), so parts that end up sharing a finish merge
 ## into the same surface.
 func merge_static(under: Node3D, keep: Array = []) -> int:
-	var groups := {}          # material key -> {"mat":, "st": SurfaceTool}
-	var victims: Array = []
-	_gather_static(under, under, groups, victims, keep)
-	if victims.size() < 2:
-		return 0
-	for v in victims:
-		# _gather_static recurses, so a victim can be a grandchild several
-		# levels down. Removing it from `under` only works when it happens
-		# to be a direct child; anything nested threw "p_child->data.parent
-		# != this" and stayed in the tree. Ask the node who its parent
-		# actually is.
-		var owner_node: Node = v.get_parent()
-		if owner_node:
-			owner_node.remove_child(v)
-		v.queue_free()
-	for key in groups:
-		var mi := MeshInstance3D.new()
-		mi.mesh = groups[key]["st"].commit()
-		mi.material_override = groups[key]["mat"]
-		mi.cast_shadow = groups[key]["shadow"]
-		under.add_child(mi)
-	return victims.size() - groups.size()
+	return StaticMeshBatcher.merge(under, keep)
 
 
 func _gather_static(node: Node3D, root: Node3D, groups: Dictionary,

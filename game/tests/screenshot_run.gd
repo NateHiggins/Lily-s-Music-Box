@@ -16,6 +16,12 @@ const SHOTS := [
 	 "look": Vector3(3.6, 1.25, 6.6), "overlay": false},
 	{"name": "b_03_corridor_f04", "pos": Vector3(4.3, 11.25, 7.6),
 	 "look": Vector3(4.3, 10.8, -6.0), "overlay": false},
+	# Prop-review close frames: the long corridor proves repetition and light;
+	# these prove the joinery and glazing at the distance a player inspects it.
+	{"name": "b_80_door_4b_close", "pos": Vector3(-4.25, 11.05, -1.80),
+	 "look": Vector3(-5.33, 10.65, -3.42), "overlay": false},
+	{"name": "b_81_door_radio_close", "pos": Vector3(-13.57, 1.55, 30.0),
+	 "look": Vector3(-13.57, 1.05, 27.98), "overlay": false},
 	{"name": "b_04_apartment_4b", "pos": Vector3(-8.1, 11.25, -3.2),
 	 "look": Vector3(-13.2, 10.2, -8.0), "overlay": false},
 	{"name": "b_05_front_stair", "pos": Vector3(-0.4, 1.75, 5.6),

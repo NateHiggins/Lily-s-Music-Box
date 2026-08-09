@@ -46,6 +46,13 @@ func build(prop_scripts: Dictionary) -> int:
 	position = ORIGIN
 	var kinds: Array = prop_scripts.keys()
 	kinds.sort()
+	# Automated review asks for one family at a time. Constructing all fifty-
+	# plus displays before photographing six doors spent minutes compiling
+	# unrelated appliance materials. Interactive debug launches keep the whole
+	# catalogue; a requested screenshot builds only what it is going to judge.
+	var requested := OS.get_environment("SHOT_WAREHOUSE_KIND")
+	if requested != "" and prop_scripts.has(requested):
+		kinds = [requested]
 	# Most kinds own one silhouette. A few are a real family behind one
 	# marker kind — the fridge marker can mean an oak icebox or a monitor-
 	# top — and displaying only the default let the second model escape the
@@ -53,12 +60,14 @@ func build(prop_scripts: Dictionary) -> int:
 	var displays: Array[Dictionary] = []
 	for kind in kinds:
 		var script: GDScript = prop_scripts[kind]
-		var probe: FunctionalProp = script.new()
+		var probe: Node3D = script.new()
 		# A shared script can branch variants by marker kind (tap_prop is both
 		# sink and shower). It must know that kind before inspection or both
 		# catalog entries expand to the default sink family and duplicate it.
-		probe.prop_type = String(kind)
-		var variants: Array[Dictionary] = probe.warehouse_variants()
+		if "prop_type" in probe:
+			probe.set("prop_type", String(kind))
+		var variants: Array = probe.warehouse_variants() \
+				if probe.has_method("warehouse_variants") else [{}]
 		probe.free()
 		if variants.is_empty():
 			variants = [{}]
@@ -73,7 +82,10 @@ func build(prop_scripts: Dictionary) -> int:
 			displays.append({"kind": String(kind), "script": script,
 					"variant": variant})
 	var rows := int(ceil(float(displays.size()) / COLS))
-	_build_shell(rows)
+	# A one-family capture can still span all six columns. Give its camera the
+	# same deep viewing aisle as the full shed; otherwise the calculated stand
+	# lands behind the rear wall and faithfully photographs a black rectangle.
+	_build_shell(maxi(rows, 8) if requested != "" else rows)
 	for i in displays.size():
 		var col := i % COLS
 		var row := i / COLS
@@ -125,7 +137,8 @@ func build(prop_scripts: Dictionary) -> int:
 				# the mail bank is the first example, not a named exception.
 				_stub_wall(at, true)
 		prop.position = at + Vector3(0, lift, 0)
-		prop.rotation.y = prop.warehouse_rotation_y()
+		prop.rotation.y = prop.warehouse_rotation_y() \
+				if prop.has_method("warehouse_rotation_y") else 0.0
 		_built += 1
 	print("[WAREHOUSE] %d prop displays from %d kinds, %d rows" % [
 			_built, kinds.size(), rows])

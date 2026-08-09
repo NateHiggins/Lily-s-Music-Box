@@ -14,8 +14,8 @@ Evidence labels used below:
 
 ## Review progress — 2026-08-09
 
-The ordered brief contains **24 review families**. **Thirteen are complete
-(54%)**: all eight first-priority/gameplay families and the first five
+The ordered brief contains **24 review families**. **Fourteen are complete
+(58%)**: all eight first-priority/gameplay families and all six
 second-priority families. Every completed family has a reference comparison,
 model and runtime-material pass, warehouse and installed renders, generated
 data synchronized after the final edit, and automated validation.
@@ -23,21 +23,20 @@ data synchronized after the final edit, and automated validation.
 | Priority | Complete | Remaining |
 |---|---:|---:|
 | First — carries a game | **8 / 8** | none |
-| Second — touched often | **5 / 6** | `door_prop` |
+| Second — touched often | **6 / 6** | none |
 | Third — lighter pass | **0 / 10** | all ten |
-| **Total** | **13 / 24** | **11** |
+| **Total** | **14 / 24** | **10** |
 
 Completed in review order: `fridge_prop`, `stove_prop`, `tap_prop`,
 `toaster_prop`, `radiator_prop`, `boiler_prop`, `washer_prop` with
 `laundry_airer_prop`, `vantry_point_prop`, `kettle_prop`,
 `medicine_cabinet_prop`, and `clock_prop` with the domestic witness clocks.
-The fourth and fifth second-priority families are `mail_bank_prop` and
-`bookshelf_prop`.
+The fourth through sixth second-priority families are `mail_bank_prop`,
+`bookshelf_prop` and `door_prop`.
 
-**Next:** `door_prop`. Its review begins only after reading its activity
-and checking both the warehouse specimen and the installed room families. The
-mesh-count sweep identified `stove_prop` as a later optimization candidate,
-but it is not reopened unless performance work is explicitly scheduled.
+**Next:** `boxfan_prop`, the first lighter-pass family. The mesh-count sweep
+identified `stove_prop` as a later optimization candidate, but it is not
+reopened unless performance work is explicitly scheduled.
 
 ## `fridge_prop`
 
@@ -1517,3 +1516,116 @@ render-verification defect source inspection and mesh assertions did not catch.
 - FULL WalkTest: **PASS** at sim x4 / 240 Hz in **61.7 wall-clock seconds**.
   It verifies all eight owners, three silhouettes, the 64-mesh family cap and
   Mae's canonical title in the assembled building.
+
+## `door_prop` — reopening joinery and shop leaves
+
+### What the real objects were
+
+The 1928 apartment-house door was contractor joinery: a standardized painted
+stile-and-rail leaf with recessed fields, mortised butt hinges and a knob on a
+long backplate. Corridor entries accumulated a closer, peephole, kick plate
+and replacement lock; bedroom and bath leaves did not inherit that entire
+security stack. Service rooms used reinforced sheet-metal or boarded leaves.
+A retail entrance was a narrow timber carcass around a large clear pane, built
+to disclose the shop rather than hide it. **HISTORICAL; CANONICAL.**
+
+The landmark entrance remains the 1928 reopening door. Nothing was re-dated:
+the 1912 fabric is older, the address and its paper trail begin in 1928, and no
+door explains the missing years. Ordinary leaves are consequently plainer and
+more uniform than the Vantry-era structure around them. **CANONICAL.**
+
+Reference families: Russwin and Corbin 1920s builders' hardware catalogues;
+Sweet's 1927 architectural catalogue; surviving New York glazed shopfronts and
+apartment-corridor joinery documented by the Building Technology Heritage
+Library.
+
+### What we inherited
+
+- Width was the subtype. Every leaf wider than 850 mm became an apartment
+  entry with the same kick plate, peephole, three elaborate hinges and closer.
+- Lock state was the finish specification, so locking a painted wood door
+  silently converted it to galvanized metal.
+- Panel fields were shallow boxes pasted onto a slab. Both leaves of each butt
+  hinge rotated with the door, visibly pulling the jamb half away.
+- Storefront leaves were opaque and concealed the eleven interiors they were
+  meant to advertise.
+- All 120 actors were root-owned but absent from storey streaming and from the
+  performance census. Roughly 4,489 door meshes rendered on every floor and in
+  every applicable shadow view while the reported census omitted them.
+- The movement audit skipped every exterior/shop leaf. The first real audit
+  found the radio-service cone display inside its door sweep.
+
+### Built result
+
+The generator now emits `subtype`, `unit`, adjacent room ids and a stable
+finish variant for every one of the 120 markers. Runtime consumes those facts;
+it no longer re-derives household identity from geometry. The resulting family
+is 23 apartment entries plus the landmark, 55 apartment-interior leaves, 23
+service leaves, 13 glazed storefronts, two exterior-service leaves and three
+cabinet leaves.
+
+Residential leaves share economical 1928 two-field joinery, with darker
+corridor finishes and security hardware only on entries. Service leaves have
+galvanized skins and a physical Z-brace. Storefront leaves are oak carcasses
+with optical runtime glass, so the shop remains visible through the closed
+door. Locking changes behavior only. Jamb-side hinge barrels and saddles are
+fixed; the leaf, collision and player/NPC APIs remain animated together.
+
+Doors remain plain `Node3D` actors by design. A shared `StaticMeshBatcher`
+gives them and the mail bank FunctionalProp's batching discipline without
+subscribing architectural joinery to the signal and possession systems. The
+warehouse now inspects either class through optional methods, making plain
+`Node3D` the canonical pattern. The mail bank returns to that base.
+
+All doors now follow the floor visibility gate and the census includes them.
+The assembled family is **575 meshes**, under the 600 cap and down about 87%
+from the uncounted predecessor. Exterior door sweeps are audited against real
+fittings while exempting only their own named jamb/storefront fabric; the cone
+speaker moved 250 mm deeper after failing that audit. Furniture-aware resident
+navigation remains the separate open R6 task.
+
+The 1080p windowed probe confirms that this was not bookkeeping theatre. The
+F04 corridor fell from the last recorded **39.62 ms to 27.11 ms**, and its
+render submissions from roughly **26,269 to 13,265 objects**. Lobby is 27.42
+ms, atrium 38.59 ms and 4B 17.69 ms. Six of seven stations remain over the
+16.6 ms target, but doors are no longer the hidden all-floor multiplier.
+
+### Materials and texture prompt batch
+
+No new key and no prompt batch. `trim`, `wood_dark`, `oak_quartered`,
+`brass_dull`, `metal` and `cast_iron` already have complete runtime paths.
+Storefront glass is optical runtime material rather than a bitmap with a room
+or highlight baked into it.
+
+### Render evidence
+
+Before:
+
+- Corridor family — `C:/PleaseRemainOnTheLine/art/renders/door_review/before/f04_corridor_room.png`
+- Installed 4B context — `C:/PleaseRemainOnTheLine/art/renders/door_review/before/f04_b_main_room.png`
+- Warehouse unavailable: `DoorProp` was outside the FunctionalProp-only
+  registry contract.
+
+After:
+
+- Six silhouettes together — `C:/PleaseRemainOnTheLine/art/renders/door_review/after/warehouse_door.png`
+- F04 corridor repetition — `C:/PleaseRemainOnTheLine/art/renders/door_review/after/b_03_corridor_f04.png`
+- 4B entry close — `C:/PleaseRemainOnTheLine/art/renders/door_review/after/b_80_door_4b_close.png`
+- Radio-service glazed leaf — `C:/PleaseRemainOnTheLine/art/renders/door_review/after/b_81_door_radio_close.png`
+- Lobby context — `C:/PleaseRemainOnTheLine/art/renders/door_review/after/b_02_lobby.png`
+- Street/elevation context — `C:/PleaseRemainOnTheLine/art/renders/door_review/after/b_16_street_level.png`
+
+Measured rather than judged only by a dark frame: corridor / 4B close / shop
+close mean luminance is **52.0 / 46.3 / 45.7**, with 95th-percentile luminance
+**92 / 84 / 117**. The scene retains its night range without losing the leaf
+silhouettes or glazed shop interior.
+
+### Validation
+
+- Generator and Blender pipeline: **PASS**; 120 classified markers, exterior
+  sweep audit green, generated layout synchronized after the final edit.
+- FULL WalkTest: **PASS** in **61.2 seconds**. It verifies the semantic counts,
+  explicit entry units, floor streaming and the 575-mesh family cap while
+  physically traversing the building.
+- LightingAudit: **PASS** for all 127 spaces. ShopEntryTest and MailBankTest:
+  **PASS**. WarehouseTeleportTest: **PASS**, 65 displays from 44 kinds.
