@@ -527,6 +527,62 @@ confident. Only at the very end does the dressing come off what is being
 received, and underneath it two machines that claimed different stations
 turn out to be showing the identical grey room.
 
+**VIII.5.h — 1927: THE PARTIAL DEMOLITION, AND 1928: THE REOPENING.**
+*(Ruled 2026-08-09, at the owner's direction. Settles the 1912/1928
+question and governs every date the building shows the player.)*
+
+**The Orison was partially demolished in 1927 and reopened in 1928 as an
+apartment building. What it was, and what happened to it, is shrouded in
+darkness.**
+
+**IT IS 1928 WHEN THE GAME STARTS.** This supersedes the earlier pinning
+of the present to late 1927. Everywhere else in this document, and in the
+wardrobe bible, **"1927" is the VINTAGE of ordinary things, not the date
+on the calendar** — and it still gives the right answer, because the test
+was always "is this object second-hand and a bit behind". In a 1928
+present, last year's is exactly what second-hand looks like. Nothing that
+was researched as 1927 needs re-dating; the Rule of Signal's question
+(§VIII.2) is unchanged.
+
+**The building reopened the year before last winter.** Every resident in
+it moved in within the last twelve months. Nobody in the cast has a long
+history with this address, because the address does not have one either.
+Whatever they brought with them, they owned in 1927 — which is why the
+whole building is dressed one year behind and none of it is a costume.
+
+Both dates are true and neither replaces the other:
+
+- **1912 is the fabric.** Vantry & Co. built the showcase (§VIII.3), and
+  what survived the demolition is still doing its job — the hand-fired
+  coal boiler (§VIII.5.c), the house listening system and its Vantry
+  points (§VIII.5.a), the light court, the stair. **The oldest things in
+  the building are older than the building's own front door**, and they
+  are the ones that were never taken out.
+- **1928 is the address.** The Orison the player stands in opened that
+  year as flats. The entrance, its transom, the sign that reads
+  EST. 1928, the earliest photograph on the lobby wall, the notice on the
+  stair landing and the oldest surviving light fitting all date from the
+  reopening, and they are all correct. **The building's paper trail
+  begins in 1928 because that is when this building began.**
+
+**THE SIXTEEN YEARS ARE THE POINT.** Nothing in the game explains what
+the Orison was between 1912 and 1927, why part of it came down, or what
+was on the ground it reopened over. No document survives it. No resident
+remembers it. The prospectus in Mae's shelf is a sales book for a
+building that was demolished, which is why it is the most disquieting
+object on that shelf and not the most reassuring one.
+
+This is the same silence the world already keeps about WORS 1610 and
+about the three machines with no maker's date (§VIII.5.g). **Do not
+explain it anywhere in the game.** A resident may wonder aloud. Nobody
+answers, and no found document answers either.
+
+**A partial demolition is also the plainest possible reason the plan is
+the way it is** — why 1912 services run under 1928 rooms, why the
+survey does not close, why a wall is thick where nothing needs to be
+thick. Accord 9 already says everything is twenty years old and repaired
+by four people. This says the building itself was.
+
 ### VIII.6 What this does not license
 
 **The divergence is not a licence for anachronism at will.** The rule of

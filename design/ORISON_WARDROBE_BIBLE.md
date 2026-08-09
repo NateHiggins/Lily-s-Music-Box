@@ -9,13 +9,21 @@ backstory it *extends* those; it does not contradict them. Signature
 garments named in the bible are canon and appear here unchanged.
 
 **Re-dated to 1927, 2026-08-08.** The first version of this document was
-written before the bible pinned the present to late 1927, and it dressed
+written before the bible dated the ordinary world, and it dressed
 eighteen people in nylon, lycra, poly-blend suiting, trainers, cargo
 trousers, fleece and nitrile gloves — none of which existed. Every
 garment below has been replaced with something a person could have
 bought, inherited or mended in New York in 1927. The framework — three
 states, one colour each, persistence over costume — was right and is
 unchanged.
+
+**The present is 1928 (§VIII.5.h, ruled 2026-08-09), and this document
+does not change because of it.** The clothes stay 1927 and older, and
+that is now a better answer than it was: the building reopened in 1928
+and everyone in it arrived within the year, wearing what they already
+owned. Dressed one season behind is what second-hand looks like from
+the inside. **Nothing below needs re-dating** — only stop reading 1927
+as "now".
 
 ---
 
