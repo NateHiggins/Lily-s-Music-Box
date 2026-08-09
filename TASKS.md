@@ -156,3 +156,18 @@ and by NPCs. R2 needs a brief before anyone builds.
   gap is the only separation. `MAIL_BANK_Y` is a Godot constant and the clock's
   `mount_along` is layout data, so either side can move without the other
   noticing. The mail-bank plan listed this assertion and it did not land.
+- **H10** **EVERY FLAT IS OPEN TO THE SKY WHEN STREAMING IS LIVE.** Flats own no
+  ceiling: `F04_ceiling_tin_ceiling` spans x -5.33..5.33, the core only, while
+  4B runs out to x -13.65. The plane over every flat is `F05_slabs-col`
+  (z 12.62..12.80) — the floor above's slab. Floor streaming (`aca55f5`, mine)
+  hides inactive floors, so the ceiling goes with them. Fix is current-floor-
+  owned ceiling faces batched to one plaster draw per floor; do NOT fix it by
+  keeping the upper storey visible, which would give back most of the 65->29 ms.
+  Claimed by the vent pass as its item 3 — this entry exists so it does not
+  vanish if that pass is re-scoped.
+- **H11** **No render can show a streaming bug.** `screenshot_run.gd:289` sets
+  `show_all_floors = true`, so every screenshot ever taken has culling disabled
+  — including the ones used to verify the streaming pass itself. H10 was
+  invisible for exactly this reason. Needs either a streaming-on render mode or
+  an assertion that walks the storeys with the gate live and checks each room
+  still has a surface overhead.
