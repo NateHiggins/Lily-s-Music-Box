@@ -11,12 +11,13 @@ var style := "bauhaus"
 var tell := "correction"
 var frozen_time := "04:17"
 var accent := Color(0.7, 0.2, 0.2)
+var mounting := "wall"
 
 var _hour: Node3D
 var _minute: Node3D
 var _second: Node3D
 var _face: Node3D
-var _tell_mark: MeshInstance3D
+var _tell_mark: Node3D
 var _display: Label3D
 var _tick: AudioStreamPlayer3D
 var _home_rotation := 0.0
@@ -29,7 +30,7 @@ const DIAL_HONEST := "res://assets/building/textures/clocks/dials_honest.png"
 const DIAL_WRONG := "res://assets/building/textures/clocks/dials_possessed.png"
 const DIAL_INDEX := {
 	"schoolhouse": [0, 0], "hospital": [1, 0], "bauhaus": [2, 0],
-	"stitch": [3, 0], "memphis": [0, 1], "sunburst": [1, 1],
+	"stitch": [3, 0], "vantry_modular": [0, 1], "sunray_1920": [1, 1],
 	"industrial": [2, 1], "railway": [3, 1], "courier": [0, 2],
 	"mantel": [1, 2], "architect": [2, 2], "palette": [3, 2],
 }
@@ -66,6 +67,51 @@ func _build_visual() -> void:
 	_build_collision()
 	_tick = make_emitter("tick", -31.0)
 	_tick.max_distance = 5.5
+	# The witness faces used to be hundreds of individually submitted flat
+	# primitives.  Semantic finishes make them belong to the same material
+	# world as the ordinary clocks, then the immobile carcass collapses by
+	# finish.  FaceRig and the tell remain independent because the case system
+	# moves them; clear glass is deliberately optical, never a baked bitmap.
+	var body := _style_body_color()
+	var body_key := "oak_quartered" if style in ["schoolhouse", "sunray_1920",
+			"mantel"] else ("nickel_plated" if style in ["travel_alarm",
+			"architect", "industrial"] else ("bakelite_black" if style in [
+			"vantry_modular", "nixie", "railway", "writer"] else "enamel"))
+	retexture(self, [
+		[body, body_key, Color.WHITE],
+		[body.darkened(0.15), body_key, Color(0.76, 0.72, 0.66)],
+		[body.darkened(0.25), body_key, Color(0.64, 0.60, 0.55)],
+		[body.darkened(0.30), body_key, Color(0.58, 0.55, 0.50)],
+		[Color(0.88, 0.86, 0.78), "paper", Color(0.90, 0.85, 0.74)],
+		[Color(0.025, 0.03, 0.032), "bakelite_black", Color(0.55, 0.55, 0.55)],
+		[Color(0.46, 0.43, 0.36), "brass_dull", Color(0.77, 0.71, 0.55)],
+		[Color(0.62, 0.46, 0.16), "brass_dull", Color(0.91, 0.72, 0.36)],
+		[accent, "enamel", accent], [accent.darkened(0.25), "enamel", accent],
+	])
+	merge_static(self, [_face, _tell_mark])
+
+
+func _style_body_color() -> Color:
+	match style:
+		"hospital": return Color(0.76, 0.79, 0.75)
+		"vantry_modular": return Color(0.10, 0.12, 0.16)
+		"sunray_1920": return Color(0.30, 0.20, 0.10)
+		"travel_alarm": return Color(0.47, 0.48, 0.46)
+		"palette": return Color(0.83, 0.72, 0.57)
+		"nixie": return Color(0.055, 0.06, 0.065)
+		"deco": return Color(0.08, 0.13, 0.12)
+		"schoolhouse": return Color(0.34, 0.21, 0.11)
+		"bauhaus": return Color(0.90, 0.90, 0.88)
+		"stitch": return Color(0.80, 0.74, 0.64)
+		"industrial": return Color(0.30, 0.32, 0.33)
+		"studio": return Color(0.18, 0.18, 0.19)
+		"railway": return Color(0.07, 0.07, 0.08)
+		"courier": return Color(0.28, 0.28, 0.30)
+		"mantel": return Color(0.26, 0.16, 0.10)
+		"architect": return Color(0.72, 0.70, 0.66)
+		"split_flap": return Color(0.82, 0.78, 0.68)
+		"writer": return Color(0.09, 0.09, 0.10)
+	return Color(0.11, 0.105, 0.095)
 
 
 func _build_housing() -> void:
@@ -78,11 +124,15 @@ func _build_housing() -> void:
 	# to agree with whose wall it is on.
 	match style:
 		"hospital": body_color = Color(0.76, 0.79, 0.75)
-		"memphis": body_color = Color(0.10, 0.12, 0.16)
-		"sunburst": body_color = Color(0.30, 0.20, 0.10)
-		"motel": body_color = Color(0.16, 0.30, 0.29)
+		# These three display or synchronise a signal, so VIII.2 licenses
+		# precision hardware no later than 1967.  This is not a general
+		# licence for their neighbours: Malcolm's mechanical sunray and the
+		# guests' travelling alarm carry nothing and remain honest 1927.
+		"vantry_modular": body_color = Color(0.10, 0.12, 0.16)
+		"sunray_1920": body_color = Color(0.30, 0.20, 0.10)
+		"travel_alarm": body_color = Color(0.47, 0.48, 0.46)
 		"palette": body_color = Color(0.83, 0.72, 0.57)
-		"digital": body_color = Color(0.055, 0.06, 0.065)
+		"nixie": body_color = Color(0.055, 0.06, 0.065)
 		"deco": body_color = Color(0.08, 0.13, 0.12)
 		# oak schoolhouse regulator, the clock a proofreader trusts
 		"schoolhouse": body_color = Color(0.34, 0.21, 0.11)
@@ -103,18 +153,19 @@ func _build_housing() -> void:
 		# exposed movement on brass standoffs, drafting-triangle markers
 		"architect": body_color = Color(0.72, 0.70, 0.66)
 		# 1970s split-flap in cream plastic
-		"flip": body_color = Color(0.82, 0.78, 0.68)
+		"split_flap": body_color = Color(0.82, 0.78, 0.68)
 		# typewriter-black case with a paper dial
 		"writer": body_color = Color(0.09, 0.09, 0.10)
 	var radius := 0.19
-	if style in ["digital", "flip", "writer", "motel", "studio"]:
+	if style in ["nixie", "split_flap", "writer", "travel_alarm", "studio",
+			"vantry_modular"]:
 		make_box(Vector3(0.42, 0.22, 0.055), Vector3(0, 0, 0), body_color)
 	else:
 		var shell := make_cyl(radius, radius, 0.05, Vector3.ZERO,
 				body_color, 0.38, 0.15)
 		shell.rotation_degrees.x = 90
 	# Design-language silhouette details, kept restrained and low-poly.
-	if style == "sunburst":
+	if style == "sunray_1920":
 		for i in 12:
 			var a := TAU * i / 12.0
 			var spoke := make_box(Vector3(0.018, 0.13, 0.018),
@@ -145,8 +196,8 @@ func _build_housing() -> void:
 			seg.rotation.z = -a
 		make_box(Vector3(0.17, 0.30, 0.055), Vector3(0, -0.33, 0.0),
 				body_color)
-		make_box(Vector3(0.12, 0.24, 0.008), Vector3(0, -0.33, 0.030),
-				Color(0.10, 0.12, 0.12))
+		# The wall itself is the dark field behind this open economy case.  A
+		# second backing plate added a draw without changing the silhouette.
 		var bob := make_cyl(0.045, 0.045, 0.012, Vector3(0, -0.38, 0.034),
 				Color(0.62, 0.46, 0.16), 0.34, 0.75)
 		bob.rotation_degrees.x = 90
@@ -205,12 +256,25 @@ func _build_housing() -> void:
 		var tri := make_box(Vector3(0.16, 0.012, 0.012),
 				Vector3(0.02, -0.135, 0.034), accent)
 		tri.rotation.z = -0.52
-	if style == "flip":
+	if style == "split_flap":
 		# the split across the middle is the whole idea
 		make_box(Vector3(0.40, 0.006, 0.062), Vector3(0, 0, 0.0),
 				Color(0.20, 0.19, 0.17))
 		make_box(Vector3(0.30, 0.035, 0.08), Vector3(0, -0.125, 0.0),
 				body_color.darkened(0.30))
+	if style == "travel_alarm":
+		# Cheap nickel travelling alarm, hinged into its own folding case.
+		# It packs because 4D's occupants do; no wire and no signal licence.
+		var cover := make_box(Vector3(0.32, 0.20, 0.018),
+				Vector3(0, -0.155, -0.065), body_color.darkened(0.18))
+		cover.rotation.x = -0.62
+		make_box(Vector3(0.30, 0.018, 0.018), Vector3(0, -0.115, -0.035),
+				Color(0.62, 0.60, 0.52))
+	if style == "nixie":
+		# Four warm cathode tubes behind one smoked aperture; never an LED.
+		for nx in [-0.115, -0.038, 0.038, 0.115]:
+			make_box(Vector3(0.052, 0.105, 0.018), Vector3(nx, 0, 0.036),
+					Color(0.11, 0.055, 0.025))
 	if style == "writer":
 		# platen knobs, because it is made from a typewriter
 		for kx in [-0.225, 0.225]:
@@ -221,7 +285,7 @@ func _build_housing() -> void:
 
 func _build_face() -> void:
 	var face_color := Color(0.88, 0.86, 0.78)
-	if style in ["digital", "flip", "writer", "motel"]:
+	if style in ["nixie", "split_flap", "writer", "travel_alarm"]:
 		face_color = Color(0.025, 0.03, 0.032)
 		make_box(Vector3(0.34, 0.13, 0.008), Vector3(0, 0, 0.033), face_color)
 	else:
@@ -237,11 +301,20 @@ func _build_face() -> void:
 					Vector3(sin(a) * 0.126, cos(a) * 0.126, 0.041),
 					accent if long_mark else Color(0.17, 0.16, 0.14))
 			mark.rotation.z = -a
-	_tell_mark = make_box(Vector3(0.026, 0.026, 0.009),
-			Vector3(0, -0.112, 0.048), accent)
+	# A Label3D dot is still a physical-looking painted tell in the frame, but
+	# it does not spend a separate submitted mesh on all eighteen clocks.
+	# It must stay independent because the case system reveals it.
+	var tell_label := Label3D.new()
+	tell_label.text = "•"
+	tell_label.font_size = 26
+	tell_label.pixel_size = 0.0012
+	tell_label.modulate = accent
+	tell_label.position = Vector3(0, -0.112, 0.048)
+	_tell_mark = tell_label
+	add_child(_tell_mark)
 	_tell_mark.visible = false
 	_display = Label3D.new()
-	_display.text = frozen_time if style in ["digital", "flip", "writer", "motel"] else ""
+	_display.text = frozen_time if style in ["nixie", "split_flap", "writer", "travel_alarm"] else ""
 	_display.font_size = 46
 	_display.pixel_size = 0.0024
 	_display.position = Vector3(0, -0.005, 0.043)
@@ -293,7 +366,7 @@ func _set_dial_possessed(wrong: bool) -> void:
 
 
 func _build_hands() -> void:
-	if style in ["digital", "flip", "writer", "motel"]:
+	if style in ["nixie", "split_flap", "writer", "travel_alarm"]:
 		return
 	_hour = _hand("HourHand", 0.080, 0.012, 0.052)
 	_minute = _hand("MinuteHand", 0.118, 0.008, 0.055)
@@ -369,7 +442,7 @@ func _show_live_time() -> void:
 	var h := float(int(t.hour) % 12)
 	var m := float(t.minute)
 	var sec := float(t.second)
-	if _display and style in ["digital", "flip", "writer", "motel"]:
+	if _display and style in ["nixie", "split_flap", "writer", "travel_alarm"]:
 		_display.text = "%02d:%02d" % [int(t.hour) % 12 if int(t.hour) % 12 				else 12, int(t.minute)]
 	if _hour == null:
 		return
@@ -460,7 +533,7 @@ func _restore() -> void:
 	_face.rotation = Vector3.ZERO
 	_face.scale = Vector3.ONE
 	_tell_mark.visible = false
-	_display.text = frozen_time if style in ["digital", "flip", "writer", "motel"] else ""
+	_display.text = frozen_time if style in ["nixie", "split_flap", "writer", "travel_alarm"] else ""
 	_set_hand_time(frozen_time)
 
 

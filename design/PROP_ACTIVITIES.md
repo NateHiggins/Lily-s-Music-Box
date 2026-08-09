@@ -232,11 +232,12 @@ notices. A passive-aggressive war between residents conducted entirely
 in pinned paper, and the best writing in the game could live here. It
 costs almost nothing and it characterises eighteen people at once.
 
-**THE CLOCKS** (`clock_prop`, `domestic_witness_clock`) — wind them.
-Every clock in the building says something different, and the Handbook
-says to set them by the lobby's, which is wrong. In a building where
-the case system already plays with time, a wrong clock is never only a
-wrong clock.
+**THE CLOCKS** (`clock_prop`) — wind the ordinary mechanical clock in 4B.
+The Handbook says to set it by the lobby's electrical master, which is
+authoritative and four minutes fast. The eighteen `domestic_witness_clock`
+objects are explicitly excluded: they belong to the CASE SYSTEM under §6 and
+must never acquire a maintenance minigame. In a building where the case system
+already plays with time, a wrong clock is never only a wrong clock.
 
 **SITTING** (`bench_zone`, `bar_seat_zone`) — not a chore. It should
 restore something, and be the only thing on any of these lists that

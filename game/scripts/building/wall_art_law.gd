@@ -25,15 +25,18 @@ const VISUAL_GAP := 0.18
 # hangs their work. This also keeps the later found-art pass from silently
 # laying a second frame over a resident's chosen piece.
 static var _reserved: Dictionary = {}
+static var _surface_reserved: Dictionary = {}
 
 
 static func clear_reservations() -> void:
 	_reserved.clear()
+	_surface_reserved.clear()
 
 
 static func legal_spot(floor_data: Dictionary, room: Dictionary,
 		want_wall: String, want_along: float, height: float,
-		visual_blocker := Callable()) -> Dictionary:
+		visual_blocker := Callable(), half_width := ART_HALF_W,
+		half_height := ART_HALF_H) -> Dictionary:
 	var rect: Array = room.rect
 	var walls_order: Array = [want_wall]
 	for w in ["north", "south", "east", "west"]:
@@ -43,7 +46,7 @@ static func legal_spot(floor_data: Dictionary, room: Dictionary,
 			0.6, 0.2, 0.8]
 	# Walls with a rail push low pieces up above the cap, once, before
 	# the search — a piece authored at rail height is a request, not a fact.
-	var hang_height := maxf(height, RAIL_TOP + ART_HALF_H + 0.06) \
+	var hang_height := maxf(height, RAIL_TOP + half_height + 0.06) \
 			if _room_has_rail(room) else height
 	for wall in walls_order:
 		for along in alongs:
@@ -68,23 +71,27 @@ static func legal_spot(floor_data: Dictionary, room: Dictionary,
 					x = float(rect[0]) + 0.105
 					bx = float(rect[0]) - 0.08
 					yaw = PI * 0.5
-			if not wall_backs(floor_data, bx, by, hang_height):
+			if not wall_backs(floor_data, bx, by, hang_height, half_height):
 				continue
-			if furniture_blocks(floor_data, x, y, hang_height):
+			if furniture_blocks(floor_data, x, y, hang_height,
+					half_width, half_height):
 				continue
 			if visual_blocker.is_valid() and bool(visual_blocker.call(
 					x, y, yaw, hang_height)):
 				continue
-			if _reserved_blocks(room, wall, x, y, hang_height):
+			if _reserved_blocks(room, wall, x, y, hang_height,
+					half_width, half_height):
 				continue
-			_reserve(room, wall, x, y, hang_height)
+			_reserve(room, wall, x, y, hang_height,
+					half_width, half_height)
 			return {"ok": true, "x": x, "y": y, "yaw": yaw, "wall": wall,
 					"height": hang_height}
 	return {"ok": false}
 
 
 static func furniture_blocks(floor_data: Dictionary, px: float,
-		py: float, height: float) -> bool:
+		py: float, height: float, half_width := ART_HALF_W,
+		half_height := ART_HALF_H) -> bool:
 	for fu in floor_data.get("furniture", []):
 		var z0 := float(fu.get("z0", 0.0))
 		var z1 := z0 + float(fu.get("h", 0.0))
@@ -92,11 +99,11 @@ static func furniture_blocks(floor_data: Dictionary, px: float,
 			var r: Array = fu["rect"]
 			# Test the frame footprint, not just its centre hook. This was the
 			# source of pictures half swallowed by shelves and upper cabinets.
-			if height + ART_HALF_H >= z0 and height - ART_HALF_H <= z1 \
-					and px >= float(r[0]) - ART_HALF_W - 0.08 \
-					and px <= float(r[2]) + ART_HALF_W + 0.08 \
-					and py >= float(r[1]) - ART_HALF_W - 0.08 \
-					and py <= float(r[3]) + ART_HALF_W + 0.08:
+			if height + half_height >= z0 and height - half_height <= z1 \
+					and px >= float(r[0]) - half_width - 0.08 \
+					and px <= float(r[2]) + half_width + 0.08 \
+					and py >= float(r[1]) - half_width - 0.08 \
+					and py <= float(r[3]) + half_width + 0.08:
 				return true
 		# Exposed risers, radiator pipes, and conduit use p0/p1 instead of a
 		# rect. A framed picture pierced by one reads as a placement bug.
@@ -106,8 +113,8 @@ static func furniture_blocks(floor_data: Dictionary, px: float,
 			var floor_z := float(floor_data.get("z", 0.0))
 			var low := minf(float(p0[2]), float(p1[2])) - floor_z
 			var high := maxf(float(p0[2]), float(p1[2])) - floor_z
-			var radius := float(fu.get("r", 0.06)) + ART_HALF_W + 0.08
-			if height + ART_HALF_H >= low and height - ART_HALF_H <= high \
+			var radius := float(fu.get("r", 0.06)) + half_width + 0.08
+			if height + half_height >= low and height - half_height <= high \
 					and Vector2(px, py).distance_to(Vector2(
 						float(p0[0]), float(p0[1]))) <= radius:
 				return true
@@ -119,22 +126,49 @@ static func _reservation_key(room: Dictionary, wall: String) -> String:
 
 
 static func _reserved_blocks(room: Dictionary, wall: String, x: float,
-		y: float, height: float) -> bool:
+		y: float, height: float, half_width: float,
+		half_height: float) -> bool:
 	for hook in _reserved.get(_reservation_key(room, wall), []):
 		if Vector2(x, y).distance_to(Vector2(hook.x, hook.y)) \
-				< ART_HALF_W * 2.0 + VISUAL_GAP \
+				< half_width + float(hook.get("half_width", ART_HALF_W)) \
+						+ VISUAL_GAP \
 				and absf(height - float(hook.height)) \
-				< ART_HALF_H * 2.0 + VISUAL_GAP:
+				< half_height + float(hook.get("half_height", ART_HALF_H)) \
+						+ VISUAL_GAP:
 			return true
 	return false
 
 
 static func _reserve(room: Dictionary, wall: String, x: float, y: float,
-		height: float) -> void:
+		height: float, half_width: float, half_height: float) -> void:
 	var key := _reservation_key(room, wall)
 	if not _reserved.has(key):
 		_reserved[key] = []
-	_reserved[key].append({"x": x, "y": y, "height": height})
+	_reserved[key].append({"x": x, "y": y, "height": height,
+			"half_width": half_width, "half_height": half_height})
+
+
+## Table clocks and tabletop photographs compete for the same finite surface
+## exactly as two frames compete for one hook.  Keep that reservation in the
+## same law so a later art pass cannot place a portrait through Noel's mantel
+## clock merely because neither object is on a wall.
+static func reserve_surface(room: Dictionary, x: float, y: float,
+		height: float, radius: float) -> void:
+	var key := str(room.get("id", "?"))
+	if not _surface_reserved.has(key):
+		_surface_reserved[key] = []
+	_surface_reserved[key].append({"x": x, "y": y, "height": height,
+			"radius": radius})
+
+
+static func surface_blocks(room: Dictionary, x: float, y: float,
+		height: float, radius := 0.24) -> bool:
+	for item in _surface_reserved.get(str(room.get("id", "?")), []):
+		if Vector2(x, y).distance_to(Vector2(item.x, item.y)) \
+				< radius + float(item.radius) + 0.08 \
+				and absf(height - float(item.height)) < 0.34:
+			return true
+	return false
 
 
 static func _room_has_rail(room: Dictionary) -> bool:
@@ -144,7 +178,7 @@ static func _room_has_rail(room: Dictionary) -> bool:
 ## True when a real wall stands at (px, py) and no opening's frame swings
 ## through the band the art would occupy.
 static func wall_backs(floor_data: Dictionary, px: float, py: float,
-		height: float) -> bool:
+		height: float, half_height := ART_HALF_H) -> bool:
 	for w in floor_data.get("walls", []):
 		var ax: float = float(w["a"][0])
 		var ay: float = float(w["a"][1])
@@ -170,12 +204,12 @@ static func wall_backs(floor_data: Dictionary, px: float, py: float,
 					> float(c.get("w", 0.0)) / 2.0 + 0.45:
 				continue
 			var sill := float(c.get("sill", 0.0))
-			if sill <= height + ART_HALF_H \
-					and sill + float(c.get("h", 0.0)) >= height - ART_HALF_H:
+			if sill <= height + half_height \
+					and sill + float(c.get("h", 0.0)) >= height - half_height:
 				clear = false
 		# A railed wall also refuses pieces that would cross its cap.
 		if clear and bool(w.get("wainscot", false)) \
-				and height - ART_HALF_H < RAIL_TOP:
+				and height - half_height < RAIL_TOP:
 			clear = false
 		if clear:
 			return true

@@ -10,12 +10,16 @@ apartment develops its own visual grammar and the player cannot reduce the
 system to "watch the clocks." Unit 4C's door chain is shared by Cam and Noel
 and performs a different movement for each case.
 
-The clocks are deliberately *not* haunted antiques. They look selected,
+The clocks are deliberately *not* generically haunted antiques. They look selected,
 inherited, repaired, or bought by the people who live with them. References
 include schoolhouse and railway clocks, Bauhaus geometry, Streamline Moderne,
-mid-century sunbursts, seventies flip displays, restrained industrial design,
-Memphis color blocking, motel alarm clocks, studio timers and Art Deco mantel
-pieces. These are influences rather than replicas of branded products.
+1920s sunrays, restrained industrial design, studio timers and Art Deco mantel
+pieces. Juno's Vantry modular clock, Cal's split-flap receiver and Sacha's
+Nixie display are the exceptions licensed by the Rule of Signal: they
+synchronise or display information and stop at the 1967 ceiling. Malcolm's
+mechanical sunray and 4D's folding travelling alarm carry no signal and remain
+period-correct, second-hand 1927 objects. These are influences rather than
+replicas of branded products.
 
 ## Horror contract
 
@@ -36,18 +40,18 @@ pieces. These are influences rather than replicas of branded products.
 | Teresa | institutional hospital | returns to the fatal call time |
 | Mina | Bauhaus annotation clock | labels the present `YOU: NOW` |
 | Lena | stitched textile clock | second hand comes visibly loose |
-| Juno | Memphis sampler clock | skips and repeats a sampled tick |
-| Malcolm | mid-century sunburst | preserves the last minute |
+| Juno | Vantry modular signal clock | skips and repeats a sampled tick |
+| Malcolm | 1920s mechanical sunray | preserves the last minute |
 | Omar | industrial service clock | develops a new visible fault |
 | Rhea | studio timer | plays its own ticking back wrong |
 | Peter | railway office clock | remains permanently pending |
 | Cam | courier/bicycle clock | becomes a spirit level for the room |
 | Noel | protected mantel clock | turns its untouched face away |
-| Guests | motel alarm clock | advances to checkout, never beyond it |
+| Guests | 1927 folding travelling alarm | advances to checkout, never beyond it |
 | Nadia | architectural clock | tilts toward an impossible exit |
-| Cal | seventies flip clock | receives a previous moment |
+| Cal | broadcast-synchronised split-flap | receives a previous moment |
 | Iris | painter's palette clock | subtly performs for an audience |
-| Sacha | digital evidence timer | displays a seven-second delay |
+| Sacha | Vantry Nixie evidence timer | displays a seven-second delay |
 | Jonah | writer's clock | loses the end of its time |
 | Mae | Art Deco heirloom | displays two valid histories |
 
@@ -77,7 +81,10 @@ pieces. These are influences rather than replicas of branded products.
 
 `DomesticWitnessSystem` reads `domestic_witness_clocks.json` and
 `domestic_anomaly_props.json`, finds each resident's living-room bounds, and
-places both layers from normalized room coordinates.
+places both layers through `WallArtLaw`. Wall clocks reserve a real hook before
+resident art is hung; Noel's mantel clock and the Guests' travelling alarm
+reserve a real furniture surface. The two 4C clocks therefore share one wall
+budget without occupying one another or a later photograph.
 It subscribes to `SanityDirector.intruded`; the emitted case ID selects exactly
 one clock and the escalation tier controls intensity. Each clock is a
 `FunctionalProp`, so existing gaze raycasts and conductor timing can perceive

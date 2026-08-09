@@ -12,6 +12,31 @@ Evidence labels used below:
 - **NECESSITY** — ownership or pipeline work required for the prop to exist
   and behave reliably in this project.
 
+## Review progress — 2026-08-09
+
+The ordered brief contains **24 review families**. **Eleven are complete
+(46%)**: all eight first-priority/gameplay families and the first three
+second-priority families. Every completed family has a reference comparison,
+model and runtime-material pass, warehouse and installed renders, generated
+data synchronized after the final edit, and automated validation.
+
+| Priority | Complete | Remaining |
+|---|---:|---:|
+| First — carries a game | **8 / 8** | none |
+| Second — touched often | **3 / 6** | `mail_bank_prop`, `bookshelf_prop`, `door_prop` |
+| Third — lighter pass | **0 / 10** | all ten |
+| **Total** | **11 / 24** | **13** |
+
+Completed in review order: `fridge_prop`, `stove_prop`, `tap_prop`,
+`toaster_prop`, `radiator_prop`, `boiler_prop`, `washer_prop` with
+`laundry_airer_prop`, `vantry_point_prop`, `kettle_prop`,
+`medicine_cabinet_prop`, and `clock_prop` with the domestic witness clocks.
+
+**Next:** `mail_bank_prop`. Its review begins only after reading its activity
+and checking both the warehouse specimen and the installed lobby bank. The
+mesh-count sweep identified `stove_prop` as a later optimization candidate,
+but it is not reopened unless performance work is explicitly scheduled.
+
 ## `fridge_prop`
 
 ### What the real objects were
@@ -1199,3 +1224,99 @@ and the open pose visibly reveals the cavity, shelves, contents and door back.
 - FAST and FULL WalkTest both pass; FULL completed at sim x4 / 240 Hz in
   59.8 wall-clock seconds. LightingAudit passes all 127 spaces with 11
   intentionally ambient/dark.
+
+## `clock_prop` + `domestic_witness_clock` — house time and case time
+
+### What the real objects were
+
+The ordinary apartment clock is a cheap second-hand eight-day American
+drop-octagon: roughly a twelve-inch dial in a sixteen-inch oak case, brass
+bezel, two winding arbors and a visible pendulum below. Drop-octagon and
+schoolhouse regulators remained ordinary catalogue goods into the late 1920s.
+The player winds the time train; the clock stops when its spring is spent.
+**HISTORICAL; CANONICAL.** References: the Smithsonian's
+[wall regulator](https://americanhistory.si.edu/collections/object/nmah_1172811),
+the Henry Ford's [drop-octagon wall clock](https://www.thehenryford.org/collections/explore/artifact/166687),
+a [1920 winding-key patent](https://patents.google.com/patent/US1358457A/en),
+and the [Pequegnat catalogue survey](https://skipkerr.com/pequegnat-clocks/pequegnat-wall-clocks/).
+
+The lobby master is not a decorative domestic movement. Early electrical
+master/secondary clock systems already existed; Vantry's house-time signal
+licenses a sealed receiver through the Divergence's 1967 ceiling. It is
+authoritative, permanent, and four minutes fast. Reference:
+[1918 electrical clock system patent](https://patents.google.com/patent/US1283431A/en).
+
+### What we inherited
+
+- `clock_prop` was one 280 mm bare disc with fixed L-shaped hands, no glazing,
+  collision, interaction, spring, winding point, work order, material pass or
+  relationship to the lobby. Its only marker was incorrectly electrical and
+  intersected 4B's door zone.
+- Eighteen case witnesses existed, but all were forced onto one low wall before
+  later art ignored them. Three post-1967-looking forms had no recorded signal
+  licence; Malcolm's non-signal sunburst and 4D's motel alarm were simply late.
+- `PROP_ACTIVITIES` simultaneously said to wind the witnesses and forbade
+  gamifying them. The more specific case-system rule now governs.
+
+### Built result
+
+4B now owns the measured oak drop-octagon, with brass bezel, paper dial,
+winding holes, pendulum, clear optical glass and an eight-day reserve that
+actually stops the hands. Holding the winding interaction completes
+`WO-CLOCK-001`. The clock is structural, not electrical—the same category
+correction previously made for fourteen iceboxes. The lobby owns a separate
+sealed Bakelite/enamel/brass Vantry receiver on the signal trunk, placed beside
+the resident directory and clear of the historic advertisement board.
+
+The eighteen witnesses remain case props and receive no maintenance action.
+Juno's Vantry modular clock, Cal's split-flap receiver and Sacha's Nixie display
+are signal-bearing designs capped at 1967. Malcolm gets a mechanical 1920s
+sunray; the Transient Guests get a nickel folding travelling alarm that packs.
+All witnesses reserve real wall or furniture space before art. Cam uses 4C's
+wall budget while Noel's protected mantel clock occupies a shelf surface.
+
+### Materials and texture prompt batch
+
+No new material key and no texture batch. `oak_quartered`, `wood_dark`,
+`brass_dull`, `nickel_plated`, `enamel`, `paper` and `bakelite_black` already
+have runtime sets. Clear clock glass is an optical runtime material; baking a
+room reflection into a bitmap would make every clock repeat the same room.
+
+### Render evidence
+
+Before:
+
+- Warehouse generic disc — `C:/shots/orison_prop_pass/clock_before/stand_398_1.45_16_0_0.png`
+- Installed 4B wall/door context — `C:/shots/orison_prop_pass/clock_before/stand_-9.25_11.30_4.60_-90_0.png`
+- 2A/6A witness and art overlap — `C:/shots/orison_prop_pass/clock_before/stand_-11.29_4.98_-4.70_0_0.png`
+
+After:
+
+- Both honest warehouse variants — `C:/shots/orison_prop_pass/clock_after/warehouse/stand_400_1.45_18_0_0.png`
+- 4B drop-octagon installed — `C:/shots/orison_prop_pass/clock_after/details/stand_-9.37_11.10_-4.40_180_0.png`
+- Lobby master beside the directory — `C:/shots/orison_prop_pass/clock_after/details/stand_3.50_1.50_8.97_-90_0.png`
+- Cam witness with reserved art spacing — `C:/shots/orison_prop_pass/clock_after/in_situ/f04_c_main_room.png`
+- Juno signal clock with reserved art spacing — `C:/shots/orison_prop_pass/clock_after/in_situ/f02_c_main_room.png`
+- Noel's shelf clock — `C:/shots/orison_prop_pass/clock_after/details/stand_10.20_11.10_-4.30_0_0.png`
+
+Installed crops were measured, not brightened by eye. Median RGB/luma is
+**(182,141,140)/146.3** for 4B, **(118,96,92)/99.9** for the lobby master,
+**(44,16,18)/22.4** for Cam, **(98,109,129)/107.5** for Juno, and
+**(111,55,38)/64.6** for Noel; the flat-light warehouse crop reaches luma
+p90 **122.4** despite the intentionally black wall backers.
+
+### Validation
+
+- Generator and graph: exactly two `wall_clock` markers; 4B structural and
+  lobby signal, both present on the corresponding propagation path.
+- FAST WalkTest: **PASS**. It verifies 20 clocks, the five historical/signal
+  rulings, independent wall/surface budgets in 4C, five-foot readability,
+  4B door clearance, spring exhaustion, winding/order closure and the lobby's
+  fixed error. Every clock is at or below ten meshes; the family totals
+  **156 meshes**, below its independent 160 limit.
+- FULL WalkTest: **PASS** on the clean rerun at sim x4 / 240 Hz in **63.4
+  wall-clock seconds**. The first run encountered the existing stochastic
+  monitor-door roof-route failure; no clock assertion failed, and the rerun
+  completed with exit code 0.
+- LightingAudit: **PASS** for all **127 spaces**, including the 11 spaces
+  intentionally classified as ambient/dark.

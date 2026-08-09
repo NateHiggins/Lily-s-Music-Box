@@ -553,6 +553,26 @@
    ]
   },
   {
+   "id": "F01_LOBBY_CLOCK_01",
+   "pos": [
+    5.225,
+    -8.97,
+    1.95
+   ],
+   "room": "LOBBY",
+   "network": "signal",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
    "id": "F01_NEON_BLADE",
    "pos": [
     3.35,
@@ -4548,6 +4568,7 @@
    "connections": [
     "F04_B_FRIDGE_01",
     "F04_B_DOOR_ANOMALY",
+    "F04_B_CLOCK_01",
     "F04_PORCH_DECK",
     "F03_B_RADIATOR_01",
     "F05_B_RADIATOR_01"
@@ -4696,21 +4717,21 @@
   {
    "id": "F04_B_CLOCK_01",
    "pos": [
-    -7.78,
-    4.6,
-    11.3
+    -9.373,
+    2.775,
+    11.18
    ],
    "room": "4B",
-   "network": "electrical",
+   "network": "structural",
    "frequency_band": [
     60,
     8000
    ],
-   "delay_ms": 4,
+   "delay_ms": 28,
    "damping": 0.22,
    "infection_receptivity": 0.75,
    "connections": [
-    "F04_CORRLIGHT_S"
+    "F04_B_RADIATOR_01"
    ]
   },
   {
@@ -4984,7 +5005,6 @@
     "F04_B_TOASTER_01",
     "F04_B_BOXFAN_01",
     "F04_B_KETTLE_01",
-    "F04_B_CLOCK_01",
     "F04_B_EXHFAN_01",
     "F04_B_CEILLIGHT_01",
     "4C_LT_SCONCE",
@@ -7532,6 +7552,7 @@
    "damping": 0.22,
    "infection_receptivity": 0.82,
    "connections": [
+    "F01_LOBBY_CLOCK_01",
     "B1_VANTRY_TRUNK",
     "F02_VANTRY_TRUNK",
     "F01_LOBBY_VANTRY_POINT",

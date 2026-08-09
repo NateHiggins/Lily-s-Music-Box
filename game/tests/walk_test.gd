@@ -210,6 +210,7 @@ func _run() -> void:
 	_vantry_checks()
 	_prop_mesh_and_boiler_checks()
 	_medicine_cabinet_checks()
+	_clock_checks()
 	if not _full:
 		await _finish("FAST")
 		return
@@ -1997,6 +1998,95 @@ func _medicine_cabinet_checks() -> void:
 		player_cabinet.set_door_open(false, 0.0)
 		_check(leaf != null and absf(leaf.rotation.y) < 0.001,
 				"cabinet door returns to its measured shut pose")
+
+
+func _clock_checks() -> void:
+	var owners: Array[ClockProp] = []
+	for child in root.get_children():
+		if child is ClockProp:
+			owners.append(child)
+	var witnesses: Array = get_tree().get_nodes_in_group(
+			"domestic_witness_clocks")
+	_check(owners.size() == 2 and witnesses.size() == 18,
+			"two building clocks and eighteen case witnesses are present")
+	var total_meshes := 0
+	var individual_cap := true
+	var mesh_report := []
+	for clock in owners + witnesses:
+		var meshes := _count_meshes(clock)
+		total_meshes += meshes
+		individual_cap = individual_cap and meshes <= 10
+		mesh_report.append("%s=%d" % [clock.name, meshes])
+	_check(individual_cap,
+			"every clock remains at or below ten visible meshes (%s)"
+			% ", ".join(mesh_report))
+	_check(total_meshes <= 160,
+			"clock family stays within its independent 160-mesh budget (%d)"
+			% total_meshes)
+
+	var by_variant := {}
+	for clock in owners:
+		by_variant[clock.clock_variant] = clock
+	var apartment := by_variant.get("drop_octagon") as ClockProp
+	var master := by_variant.get("vantry_master") as ClockProp
+	_check(apartment != null and master != null,
+			"warehouse variants also exist as distinct installed clocks")
+	_check(apartment != null and apartment.get_node_or_null("ClockReach") is Area3D
+			and apartment.get_node_or_null("WindingReach") is Marker3D,
+			"4B clock exposes its winding point and one interaction volume")
+	_check(master != null and master.get_node_or_null("WindingReach") == null
+			and absf(master.displayed_offset_minutes() - 4.0) < 0.01,
+			"sealed lobby master is authoritative and four minutes fast")
+	if apartment:
+		var apartment_box := _world_visual_aabb(apartment).grow(0.015)
+		var clears_doors := true
+		for child in root.get_children():
+			if child is DoorProp and apartment_box.intersects(
+					_world_visual_aabb(child)):
+				clears_doors = false
+		_check(clears_doors, "4B drop clock clears every door leaf and frame")
+		apartment.set_spring_reserve(0.0)
+		_check(apartment.state == FunctionalProp.PState.OFF,
+				"spent eight-day spring stops the mechanical hands")
+		apartment.interact(null)
+		_check(apartment.spring_reserve >= 0.95
+				and root.work_orders.status(ClockProp.ORDER_ID) == "closed",
+				"winding restores the movement and closes its work order")
+
+	var marker_networks := {}
+	for floor in root.layout.get("floors", []):
+		for marker in floor.get("markers", []):
+			if String(marker.get("kind", "")) == "wall_clock":
+				marker_networks[String(marker.id)] = String(marker.network)
+	_check(marker_networks.size() == 2
+			and marker_networks.get("F04_B_CLOCK_01") == "structural"
+			and marker_networks.get("F01_LOBBY_CLOCK_01") == "signal",
+			"mechanical 4B clock is structural while the Vantry master carries signal")
+	_check(AcousticGraphData.nodes.has("F04_B_CLOCK_01")
+			and AcousticGraphData.nodes.has("F01_LOBBY_CLOCK_01")
+			and String(AcousticGraphData.nodes["F04_B_CLOCK_01"].network)
+					== "structural"
+			and String(AcousticGraphData.nodes["F01_LOBBY_CLOCK_01"].network)
+					== "signal",
+			"both honest clocks enter the correct propagation graph")
+
+	var placements: Dictionary = root.domestic_witnesses.placements
+	var readable := placements.size() == 18
+	var corrected := {}
+	for placed in placements.values():
+		readable = readable and float(placed.height) <= 1.95
+		corrected[String(placed.style)] = true
+	_check(readable,
+			"all witness faces are readable below the five-foot worker's sight limit")
+	_check(corrected.has("vantry_modular") and corrected.has("sunray_1920")
+			and corrected.has("travel_alarm") and corrected.has("split_flap")
+			and corrected.has("nixie"),
+			"all five period and signal rulings are instantiated")
+	_check(String(placements["cam_tilted_room"].mounting) == "wall"
+			and String(placements["noel_domestic_museum"].mounting) == "table",
+			"4C's two residents spend separate wall and furniture budgets (%s/%s)"
+			% [placements["cam_tilted_room"].mounting,
+			placements["noel_domestic_museum"].mounting])
 
 
 func _cabinet_sweep_point_clear(cabinet: MedicineCabinetProp,

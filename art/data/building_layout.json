@@ -5078,6 +5078,22 @@
      "sections": 9
     },
     {
+     "kind": "wall_clock",
+     "id": "F01_LOBBY_CLOCK_01",
+     "unit": "LOBBY",
+     "room": "F01_LOBBY",
+     "variant": "vantry_master",
+     "mount_wall": "east",
+     "mount_along": 0.25,
+     "pos": [
+      5.225,
+      -8.97,
+      1.95
+     ],
+     "yaw_deg": -90,
+     "network": "signal"
+    },
+    {
      "kind": "neon_sign",
      "id": "F01_NEON_BLADE",
      "pos": [
@@ -79173,13 +79189,17 @@
      "kind": "wall_clock",
      "id": "F04_B_CLOCK_01",
      "unit": "4B",
+     "room": "F04_B_MAIN",
+     "variant": "drop_octagon",
+     "mount_wall": "south",
+     "mount_along": 0.72,
      "pos": [
-      -7.78,
-      4.6,
-      11.299999999999999
+      -9.373,
+      2.775,
+      11.18
      ],
-     "yaw_deg": -90,
-     "network": "electrical"
+     "yaw_deg": 180,
+     "network": "structural"
     },
     {
      "kind": "exhaust_fan",

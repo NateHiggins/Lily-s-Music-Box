@@ -226,6 +226,11 @@ func _ready() -> void:
 	call_interface.world = self
 	heat_balance = HEAT_BALANCE_SCRIPT.new()
 	heat_balance.configure(layout)
+	# Clocks are wall art's older, more authoritative cousins.  Reserve their
+	# hooks before either the functional props or the eighteen case witnesses
+	# are built; clearing this registry after them was why later picture passes
+	# could unknowingly hang a frame through a clock face.
+	WallArtLaw.clear_reservations()
 	_spawn_props()
 	# One physical coal plant feeds both systems. The props remain individually
 	# interactable; this clock is only the shared consequence of tending them.
@@ -270,10 +275,6 @@ func _ready() -> void:
 	add_child(domestic_witnesses)
 	domestic_witnesses.bind_vantry_network(vantry_points)
 	domestic_witnesses.build(layout, floor_nodes)
-	# New building, new set of picture hooks. Every subsequent art pass shares
-	# this registry so residents, hallway management, and found art cannot
-	# unknowingly occupy the same visual patch of wall.
-	WallArtLaw.clear_reservations()
 	_spawn_character_memory_art()
 	_spawn_character_wall_art()
 	_spawn_hallway_art()
@@ -708,6 +709,10 @@ func _spawn_props() -> void:
 			if prop is MedicineCabinetProp:
 				prop.unit = String(m.get("unit", ""))
 				prop.hinge_side = String(m.get("hinge_side", "left"))
+			if prop is ClockProp:
+				prop.unit = String(m.get("unit", ""))
+				prop.clock_variant = String(m.get("variant", "drop_octagon"))
+				prop.bind_order_spine(work_orders)
 			if prop is SpeakerProp and m.has("bed"):
 				# An ambience bed named in DATA: the bodega radio murmurs
 				# because its marker says so, not because the prop grew a
@@ -769,21 +774,44 @@ func _spawn_props() -> void:
 			# Compatibility renderer light transforms must be authored before
 			# _ready() creates the Light3D children. Moving the prop afterward
 			# moved its mesh but left the rendered light pool at the origin.
-			prop.position = GameBoot.b2g(m["pos"])
+			var clock_spot: Dictionary = {}
+			if prop is ClockProp and m.has("room"):
+				var clock_room := _room_on_floor(fl, String(m.room))
+				if not clock_room.is_empty():
+					var clock_height := float(m.pos[2]) - float(fl.z)
+					var half_h := 0.38 if prop.clock_variant == "drop_octagon" else 0.25
+					clock_spot = WallArtLaw.legal_spot(fl, clock_room,
+							String(m.get("mount_wall", "south")),
+							float(m.get("mount_along", 0.5)), clock_height,
+							Callable(), 0.26, half_h)
+			if not clock_spot.is_empty() and bool(clock_spot.get("ok", false)):
+				prop.position = GameBoot.b2g([clock_spot.x, clock_spot.y,
+						float(fl.z) + float(clock_spot.height)])
+			else:
+				prop.position = GameBoot.b2g(m["pos"])
 			# Complete appliances are authored with local -Z as their front,
 			# matching the room-facing vector used by the generator's clearance
 			# audit. Blender's +Z yaw therefore carries through with the same
 			# sign. Legacy marker props were authored around the old negation and
 			# keep it until each becomes the sole owner of its own geometry.
-			prop.rotation.y = deg_to_rad(float(m.get("yaw_deg", 0)) \
+			prop.rotation.y = float(clock_spot.yaw) \
+					if not clock_spot.is_empty() and bool(clock_spot.get("ok", false)) \
+					else deg_to_rad(float(m.get("yaw_deg", 0)) \
 					if prop is FridgeProp or prop is StoveProp or prop is TapProp \
 							or prop is ToasterProp or prop is WasherProp \
 							or prop is LaundryAirerProp or prop is KettleProp \
-							or prop is MedicineCabinetProp \
+							or prop is MedicineCabinetProp or prop is ClockProp \
 					else -float(m.get("yaw_deg", 0)))
 			add_child(prop)
 			count += 1
 	print("[BUILDING] %d functional props spawned" % count)
+
+
+func _room_on_floor(floor_data: Dictionary, room_id: String) -> Dictionary:
+	for room in floor_data.get("rooms", []):
+		if String(room.get("id", "")) == room_id:
+			return room
+	return {}
 
 
 
@@ -1222,6 +1250,8 @@ func _nearest_art_surface(floor_data: Dictionary, room: Dictionary,
 		var width := absf(float(r[2]) - float(r[0]))
 		var depth := absf(float(r[3]) - float(r[1]))
 		if top < 0.58 or top > 1.08 or width < 0.38 or depth < 0.30:
+			continue
+		if WallArtLaw.surface_blocks(room, cx, cy, top + 0.025, 0.20):
 			continue
 		var distance := wanted.distance_to(Vector2(cx, cy))
 		if distance < best_distance:

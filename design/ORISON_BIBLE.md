@@ -408,7 +408,21 @@ ceiling pulley airer. Clothes move through those stations by hand. The washers
 use galvanized steel rather than the period Maytag's cast aluminium because
 VIII.4's material ruling still governs a historically correct silhouette.
 
-**VIII.5.d — THE CLOTHES ARE 1927, AND MOSTLY OLDER.** Ruled at the
+**VIII.5.e — THE LOBBY MASTER IS RIGHT, AND WRONG.** Apartment 4B has an
+ordinary second-hand eight-day drop-octagon clock. It carries no signal, has
+no wire, and must be wound. The lobby has a sealed Vantry electrical master
+clock that receives house time and remains permanently four minutes fast.
+The Handbook calls that master authoritative, so setting a mechanical clock
+from it makes the whole building agree for the wrong reason.
+
+The eighteen domestic witness clocks belong to the case system and are never
+maintenance chores. A witness that synchronises or displays a signal may use
+technology through 1967: Juno's Vantry modular, Cal's split-flap receiver and
+Sacha's Nixie display. Malcolm's decorative sunray and the transient guests'
+folding travelling alarm carry no signal, so they remain 1927 and second-hand.
+The licence attaches to the function, not to the silhouette's neighbours.
+
+**VIII.5.f — THE CLOTHES ARE 1927, AND MOSTLY OLDER.** Ruled at the
 owner's direction. The full treatment is `ORISON_WARDROBE_BIBLE.md`,
 which now carries the period research; this is the covenant line it
 answers to.

@@ -148,29 +148,35 @@ item, with the filename each output should take.
 Priority follows `design/PROP_ACTIVITIES.md`: the ones that are about to
 carry a game are the ones worth the modelling effort.
 
+**Progress (2026-08-09): 11 of 24 review families complete.** The entire
+first tier is finished; the second tier is halfway finished. Detailed evidence,
+renders, pipeline notes and validation results live in
+`design/PROP_REFERENCE_NOTES.md`. The next untouched family is
+`mail_bank_prop`.
+
 ### First — these are getting games and will be looked at closely
 
-1. **`fridge_prop`** (18 in the building) — an ICEBOX or an early
+1. **[COMPLETE] `fridge_prop`** (18 in the building) — an ICEBOX or an early
    electric? In 1927 Queens, in rented flats, most likely both exist in
    the building and that difference is characterful. Get the class of
    object right before the details. It opens, and its interior will be
    inventoried.
-2. **`stove_prop`** (17) — gas range, four burners, oven below. The
+2. **[COMPLETE] `stove_prop`** (17) — gas range, four burners, oven below. The
    burners, jets, and the oven door are all about to become
    interactive.
-3. **`tap_prop`** (23 sinks, 23 showers) — taps, spouts, and what a
+3. **[COMPLETE] `tap_prop`** (23 sinks, 23 showers) — taps, spouts, and what a
    1927 rented-flat sink actually was. Dishes will be washed here.
-4. **`toaster_prop`** (1) — and **the crumb tray must open**, because
+4. **[COMPLETE] `toaster_prop`** (14) — and **the crumb tray must open**, because
    that is the game. What was a 1927 toaster, really?
-5. **`radiator_prop`** (23) — cast-iron column radiator, valves, air
+5. **[COMPLETE] `radiator_prop`** (23) — cast-iron column radiator, valves, air
    vent. The bleed valve and the supply valve both become interactive,
    so both must be modelled and findable.
-6. **`boiler_prop`** (1) — the building's heart. Gauges, sight glass,
+6. **[COMPLETE] `boiler_prop`** (1) — the building's heart. Gauges, sight glass,
    firebox, flue. It is going to be tended.
-7. **`washer_prop`** (2) + **`laundry_airer_prop`** (1) — a 1927
+7. **[COMPLETE] `washer_prop`** (2) + **`laundry_airer_prop`** (1) — a 1927
    wringer washer is a very different object from a front-loading drum, and
    the room dries on a pulley airer rather than an automatic dryer.
-8. **`vantry_point_prop`** (one per enclosed room) — **ruled and built.**
+8. **[COMPLETE] `vantry_point_prop`** (one per enclosed room) — **ruled and built.**
    The modern smoke detector was the fiction problem, not the reference.
    Its replacement is a 1912 Bakelite-and-brass Vantry fire/flood/listening
    head on a dedicated house signal circuit. The old `smoke_detector` key
@@ -178,8 +184,8 @@ carry a game are the ones worth the modelling effort.
 
 ### Second — read closely, touched often
 
-9. `kettle_prop`, `medicine_cabinet_prop`, `clock_prop`,
-   `mail_bank_prop`, `bookshelf_prop`, `door_prop`.
+9. **[COMPLETE]** `kettle_prop`, `medicine_cabinet_prop`, `clock_prop`;
+   **[NEXT]** `mail_bank_prop`; then `bookshelf_prop`, `door_prop`.
 
 ### Third — a lighter pass
 

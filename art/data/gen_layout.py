@@ -1848,9 +1848,17 @@ def apartment_4b(z, walls, rooms, markers, furniture):
         {"kind": "kettle", "id": "F04_B_KETTLE_01", "unit": "4B",
          "pos": [-10.50, 9.30, z + 0.92], "yaw_deg": 180,
          "network": "electrical"},
+        # An eight-day spring movement has no wire.  The old marker was
+        # electrically coupled to the corridor light — the same category
+        # error that left fourteen oak iceboxes on the power network — and
+        # it occupied F04_DOOR_09's leaf.  This south-wall request is resolved
+        # through WallArtLaw at runtime and stays below the five-foot worker's
+        # comfortable reading limit.
         {"kind": "wall_clock", "id": "F04_B_CLOCK_01", "unit": "4B",
-         "pos": [-7.78, 4.60, z + 1.70], "yaw_deg": -90,
-         "network": "electrical"},
+         "room": "F04_B_MAIN", "variant": "drop_octagon",
+         "mount_wall": "south", "mount_along": 0.72,
+         "pos": [-9.373, 2.775, z + 1.58], "yaw_deg": 180,
+         "network": "structural"},
         {"kind": "exhaust_fan", "id": "F04_B_EXHFAN_01", "unit": "4B",
          "pos": [-6.60, y0 + 3.00, z + 2.55], "yaw_deg": 0,
          "network": "electrical"},
@@ -2449,6 +2457,20 @@ def build_floor(floor_id):
             {"kind": "radiator", "id": "F01_LOBBY_RADIATOR_01",
              "pos": [-4.6, -9.3, z], "yaw_deg": 0, "network": "heating",
              "riser": "H-A", "unit": "LOBBY", "sections": 9},
+            # The Handbook's reference clock finally exists.  It is not a
+            # windable domestic movement: it receives Vantry's house time
+            # signal and is therefore licensed by VIII.2 to be uncannily
+            # advanced.  Its small, stable error is why every obedient clock
+            # in the building is wrong for a reason rather than decoration.
+            {"kind": "wall_clock", "id": "F01_LOBBY_CLOCK_01",
+             "unit": "LOBBY", "room": "F01_LOBBY",
+             # The wall centre is later occupied by the original Orison
+             # advertisement board, a Godot pass the layout audit cannot see.
+             # The master belongs toward the entrance end, not behind sales.
+             "variant": "vantry_master", "mount_wall": "east",
+             "mount_along": 0.25,
+             "pos": [5.225, -8.970, z + 1.95], "yaw_deg": -90,
+             "network": "signal"},
             # (The old generated mail wall is gone: the functional brass
             # MailBankProp on the east lobby wall is the real one now.)
             # The street-door sconce is gone (2026-08-05). It hung at
@@ -7474,8 +7496,20 @@ def acoustic_graph(layout):
                     (20, 900), 32)
                 edges.append((m["id"], "B1_LAUNDRY_JOIST"))
                 edges.append(("B1_LAUNDRY_JOIST", "B1_WATER_MAIN"))
+            elif m["kind"] == "wall_clock":
+                network = m.get("network", "structural")
+                add(m["id"], m["pos"], network, m.get("unit", ""), 0.75,
+                    (60, 8000), 4 if network == "signal" else 28)
+                if network == "signal":
+                    edges.append((m["id"], "%s_VANTRY_TRUNK" % fl["id"]))
+                else:
+                    # A spring clock reaches the building through its hanging
+                    # screw and plaster, not through a convenient light wire.
+                    target = radiator_by_unit.get(m.get("unit", ""))
+                    if target:
+                        edges.append((m["id"], target))
             elif m["kind"] in ("lamp", "monitor", "toaster",
-                               "boxfan", "speaker", "kettle", "wall_clock",
+                               "boxfan", "speaker", "kettle",
                                "exhaust_fan",
                                "ceiling_light", "pendant_shade",
                                "flush_dome", "sconce_globe",
