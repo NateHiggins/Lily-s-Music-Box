@@ -1088,6 +1088,36 @@ func _door_checks() -> void:
 				and bool(kettle_service.whistle_open)
 				and bool(kettle_service.lifted),
 				"kettle service pose opens cap and lid and lifts the vessel")
+	# Eight generator-authored hero shelves replace the repeated baked cases.
+	# Covers and pages remain two surfaces regardless of how many colours the
+	# resident owns; sectionals pay exactly one retained mesh per lifting tier.
+	var shelf_units := {}
+	var shelf_styles := {}
+	var shelf_meshes := 0
+	var mae_shelf: BookshelfProp = null
+	for child in root.get_children():
+		if child is BookshelfProp:
+			var family_shelf := child as BookshelfProp
+			var shelf_state := family_shelf.inspection_state()
+			shelf_units[family_shelf.unit] = true
+			shelf_styles[family_shelf.case_style] = true
+			shelf_meshes += int(shelf_state.mesh_count)
+			_check(int(shelf_state.book_mesh_count) == 2,
+					"%s shelf keeps book variation in two vertex-colour batches" %
+					family_shelf.unit)
+			_check(int(shelf_state.mesh_count) <= 10 + int(shelf_state.door_count),
+					"%s shelf meets static cap plus moving tiers" % family_shelf.unit)
+			if family_shelf.unit == "6C":
+				mae_shelf = family_shelf
+	_check(shelf_units.size() == 8,
+			"eight residents have exactly one functional bookshelf")
+	_check(shelf_styles.has("plain") and shelf_styles.has("repaired")
+			and shelf_styles.has("sectional"),
+			"bookshelf family exposes all three silhouettes in situ")
+	_check(shelf_meshes <= 64,
+			"eight hero shelves remain at or below 64 meshes (%d)" % shelf_meshes)
+	_check(mae_shelf != null and mae_shelf.sorter.order.has("prospectus"),
+			"Mae's glass sectional retains the covenant prospectus")
 	var clock: ClockProp = root.get_node_or_null("F04_B_CLOCK_01")
 	_check(clock != null, "wall clock hung in 4B")
 	if clock:

@@ -73,6 +73,7 @@ const PROP_SCRIPTS := {
 	# Architectural hardware has no layout marker, but the warehouse registry
 	# is a catalog of things worth judging, not only things marker-spawned.
 	"mail_bank": preload("res://scripts/props/mail_bank_prop.gd"),
+	"bookshelf": preload("res://scripts/props/bookshelf_prop.gd"),
 }
 const HEAT_BALANCE_SCRIPT := preload("res://scripts/props/heat_balance.gd")
 const BOILER_TEND_SCRIPT := preload("res://scripts/props/boiler_tend.gd")
@@ -758,6 +759,13 @@ func _spawn_props() -> void:
 				# must arrive before _ready() chooses copper, nickel and wear.
 				prop.unit = String(m.get("unit", ""))
 				prop.case_id = String(m.get("case_id", ""))
+			if prop is BookshelfProp:
+				# Ownership, silhouette and Mae's evidence are generator facts.
+				# They arrive before _ready() deals the shelf and builds the case.
+				prop.owner_name = String(m.get("owner", ""))
+				prop.unit = String(m.get("unit", ""))
+				prop.case_style = String(m.get("variant", "plain"))
+				prop.canonical_book = String(m.get("canonical_book", ""))
 			if prop is RadiatorProp:
 				prop.unit = String(m.get("unit", ""))
 				prop.riser = String(m.get("riser", "H-X"))

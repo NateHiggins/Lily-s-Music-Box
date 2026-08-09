@@ -14,8 +14,8 @@ Evidence labels used below:
 
 ## Review progress — 2026-08-09
 
-The ordered brief contains **24 review families**. **Twelve are complete
-(50%)**: all eight first-priority/gameplay families and the first four
+The ordered brief contains **24 review families**. **Thirteen are complete
+(54%)**: all eight first-priority/gameplay families and the first five
 second-priority families. Every completed family has a reference comparison,
 model and runtime-material pass, warehouse and installed renders, generated
 data synchronized after the final edit, and automated validation.
@@ -23,17 +23,18 @@ data synchronized after the final edit, and automated validation.
 | Priority | Complete | Remaining |
 |---|---:|---:|
 | First — carries a game | **8 / 8** | none |
-| Second — touched often | **4 / 6** | `bookshelf_prop`, `door_prop` |
+| Second — touched often | **5 / 6** | `door_prop` |
 | Third — lighter pass | **0 / 10** | all ten |
-| **Total** | **12 / 24** | **12** |
+| **Total** | **13 / 24** | **11** |
 
 Completed in review order: `fridge_prop`, `stove_prop`, `tap_prop`,
 `toaster_prop`, `radiator_prop`, `boiler_prop`, `washer_prop` with
 `laundry_airer_prop`, `vantry_point_prop`, `kettle_prop`,
 `medicine_cabinet_prop`, and `clock_prop` with the domestic witness clocks.
-The fourth second-priority family is `mail_bank_prop`.
+The fourth and fifth second-priority families are `mail_bank_prop` and
+`bookshelf_prop`.
 
-**Next:** `bookshelf_prop`. Its review begins only after reading its activity
+**Next:** `door_prop`. Its review begins only after reading its activity
 and checking both the warehouse specimen and the installed room families. The
 mesh-count sweep identified `stove_prop` as a later optimization candidate,
 but it is not reopened unless performance work is explicitly scheduled.
@@ -1424,3 +1425,95 @@ than accepted by brightening a dark frame by eye.
   changed or folded into this pass.
 - LightingAudit: **PASS** for all **127 spaces**, including 11 intentionally
   ambient/dark spaces.
+
+## `bookshelf_prop` — resident bookcases
+
+### What the real objects were
+
+Globe-Wernicke's 1907 “Elastic” catalogue describes the sectional form: a
+base, stackable glazed units and cornice, expanded one section at a time. The
+Smithsonian's 1899–1929 example has four dark-mahogany glazed sections with
+brushed-brass fittings. That is the right aspirational object for archivist
+Mae and exacting Peter. Ordinary inherited open oak cases and repaired board
+shelves cover the less prosperous households. None carries a signal, so all
+three remain ordinary, second-hand 1927 furniture. **HISTORICAL; CANONICAL.**
+
+Sources:
+
+- Smithsonian Libraries, [Stacking the Books: The Globe-Wernicke Elastic Bookcase](https://blog.library.si.edu/blog/2019/04/11/stacking-the-books/)
+- National Museum of African American History and Culture, [Sectional bookcase, 1899–1929](https://nmaahc.si.edu/object/nmaahc_2011.12.8a-f)
+
+### What we inherited
+
+- Eight interactive shelves were 500 mm-high floating boxes sharing one
+  silhouette. Their books intersected the middle board and cost one mesh each.
+- A separate 1.85 m steel-ladder `asm_shelf` duplicated the same ownership in
+  six households; Mina's three studio racks and Nadia's plan rack also carried
+  generic books unrelated to their actual use.
+- Runtime placement chose the exterior wall without examining openings. Five
+  of eight cases crossed windows, and the result was absent from versioned
+  layout data and the Blender context.
+- The warehouse had no `bookshelf` registry entry. Mae's covenant prospectus
+  could be omitted by the deterministic random deal.
+
+### Built result
+
+Eight generator-authored markers now choose a solid living-room boundary,
+reject openings and clear both the case footprint and a 550 mm standing/reach
+strip. The chosen wall index and measured coordinate are written to layout and
+validated at build time. Generic domestic shelf assemblies are removed; Mina's
+three studio racks and Nadia's plan rack remain as useful storage with their
+generic books removed.
+
+The family now has three silhouettes: dark three-tier glazed sectionals for
+Mae and Peter, inherited open oak cases for Iris, Nadia and Jonah, and visibly
+repaired board cases for Mina, Sacha and Malcolm. Sectional glass lifts into
+its own pocket rather than swinging into the room. Its three door meshes remain
+outside `merge_static`; the fixed body still batches normally.
+
+Every cover, rubbed band and page block is emitted into one of two shared
+vertex-colour meshes. Colour variation therefore survives without causing
+`_material_key()` to split the family back into a draw per book. The active
+run tops out at 1.18 m, below the five-foot worker's 1.41 m eye line. Mae's
+1912 Orison prospectus is required by `library.json`, repeated on her layout
+marker and kept behind the upper glass tier.
+
+### Materials and texture prompt batch
+
+No new key and no prompt batch. `oak_quartered`, `wood_dark`, `linen`, `paper`
+and `brass_dull` already have valid runtime paths. `linen` continues through
+the older library path and is deliberately not duplicated in `GODOT_STAGE`.
+The sectional pane is optical runtime glass with no reflected room baked in.
+
+### Render evidence
+
+Before:
+
+- `C:/PleaseRemainOnTheLine/art/renders/bookshelf_review/before/f02_a_main_room.png`
+- `C:/PleaseRemainOnTheLine/art/renders/bookshelf_review/before/f03_a_main_room.png`
+- `C:/PleaseRemainOnTheLine/art/renders/bookshelf_review/before/f05_c_main_room.png`
+- `C:/PleaseRemainOnTheLine/art/renders/bookshelf_review/before/f06_c_main_room.png`
+- Warehouse unavailable: the kind was absent from the registry.
+
+After:
+
+- Family warehouse comparison — `C:/PleaseRemainOnTheLine/art/renders/bookshelf_review/after/warehouse_bookshelf.png`
+- Mina — `C:/PleaseRemainOnTheLine/art/renders/bookshelf_review/after/f02_a_main_room.png`
+- Peter — `C:/PleaseRemainOnTheLine/art/renders/bookshelf_review/after/f04_a_main_room.png`
+- Iris — `C:/PleaseRemainOnTheLine/art/renders/bookshelf_review/after/f05_c_main_room.png`
+- Mae — `C:/PleaseRemainOnTheLine/art/renders/bookshelf_review/after/f06_c_main_room.png`
+
+The first warehouse render exposed an opaque full-face sash that hid every
+book. Four perimeter rails replaced it before the accepted render. This is the
+render-verification defect source inspection and mesh assertions did not catch.
+
+### Validation
+
+- `BookshelfTest`: **PASS**. Plain/repaired/sectional cases render in **4 / 5 /
+  7 meshes**, keep books in two batches, retain one door per glazed tier, lift
+  without a room-side sweep, stay below eye line and retain the prospectus.
+- Generator: **8 unique owners**, solid backing walls, no openings, no generic
+  domestic duplicate, Mina's three racks and Nadia's plan rack book-free.
+- FULL WalkTest: **PASS** at sim x4 / 240 Hz in **61.7 wall-clock seconds**.
+  It verifies all eight owners, three silhouettes, the 64-mesh family cap and
+  Mae's canonical title in the assembled building.

@@ -69765,6 +69765,21 @@
      "energy": 0.48,
      "navigation": true,
      "standby": 0.32
+    },
+    {
+     "kind": "bookshelf",
+     "id": "F02_2A_BOOKSHELF_01",
+     "unit": "2A",
+     "owner": "Mina Vale",
+     "variant": "repaired",
+     "pos": [
+      -9.61,
+      -0.54,
+      3.2
+     ],
+     "yaw_deg": 0,
+     "network": "structural",
+     "wall_index": 27
     }
    ],
    "furniture": [
@@ -70211,7 +70226,7 @@
      "yaw": 0,
      "W": 0.95,
      "H": 1.6,
-     "books": true
+     "books": false
     },
     {
      "id": "2A_shelf1",
@@ -70223,7 +70238,7 @@
      "yaw": 0,
      "W": 0.95,
      "H": 1.6,
-     "books": true
+     "books": false
     },
     {
      "id": "2A_shelf2",
@@ -70235,7 +70250,7 @@
      "yaw": 0,
      "W": 0.95,
      "H": 1.6,
-     "books": true
+     "books": false
     },
     {
      "id": "2A_filing",
@@ -78144,6 +78159,21 @@
      "energy": 0.48,
      "navigation": true,
      "standby": 0.32
+    },
+    {
+     "kind": "bookshelf",
+     "id": "F03_3A_BOOKSHELF_01",
+     "unit": "3A",
+     "owner": "Malcolm Reed",
+     "variant": "repaired",
+     "pos": [
+      -9.61,
+      -0.54,
+      6.4
+     ],
+     "yaw_deg": 0,
+     "network": "structural",
+     "wall_index": 27
     }
    ],
    "furniture": [
@@ -78435,18 +78465,6 @@
       -3.1
      ],
      "yaw": 90
-    },
-    {
-     "id": "3A_shelf",
-     "asm": "shelf",
-     "at": [
-      -11.9,
-      -5.98
-     ],
-     "yaw": 0,
-     "W": 1.1,
-     "H": 1.85,
-     "books": true
     },
     {
      "id": "3A_plant1",
@@ -83545,16 +83563,6 @@
      "z": 6.4
     },
     {
-     "id": "3A_WORK_ARCHIVE",
-     "unit": "3A",
-     "socket": "WORK_ARCHIVE",
-     "at": [
-      -11.9,
-      -5.73
-     ],
-     "z": 6.4
-    },
-    {
      "id": "3B_TOILET_SIDE",
      "unit": "3B",
      "socket": "TOILET_SIDE",
@@ -86826,6 +86834,21 @@
      "energy": 0.48,
      "navigation": true,
      "standby": 0.32
+    },
+    {
+     "kind": "bookshelf",
+     "id": "F04_4A_BOOKSHELF_01",
+     "unit": "4A",
+     "owner": "Peter Wren",
+     "variant": "sectional",
+     "pos": [
+      -9.56,
+      -0.565,
+      9.6
+     ],
+     "yaw_deg": 0,
+     "network": "structural",
+     "wall_index": 27
     }
    ],
    "furniture": [
@@ -87115,18 +87138,6 @@
       -3.1
      ],
      "yaw": 90
-    },
-    {
-     "id": "4A_shelf",
-     "asm": "shelf",
-     "at": [
-      -11.9,
-      -5.98
-     ],
-     "yaw": 0,
-     "W": 1.1,
-     "H": 1.85,
-     "books": true
     },
     {
      "id": "4A_plant1",
@@ -93146,16 +93157,6 @@
      "z": 9.6
     },
     {
-     "id": "4A_WORK_ARCHIVE",
-     "unit": "4A",
-     "socket": "WORK_ARCHIVE",
-     "at": [
-      -11.9,
-      -5.73
-     ],
-     "z": 9.6
-    },
-    {
      "id": "4B_TOILET_SIDE",
      "unit": "4B",
      "socket": "TOILET_SIDE",
@@ -96071,6 +96072,36 @@
      "energy": 0.48,
      "navigation": true,
      "standby": 0.32
+    },
+    {
+     "kind": "bookshelf",
+     "id": "F05_5A_BOOKSHELF_01",
+     "unit": "5A",
+     "owner": "Nadia Quell",
+     "variant": "plain",
+     "pos": [
+      -9.59,
+      -0.555,
+      12.8
+     ],
+     "yaw_deg": 0,
+     "network": "structural",
+     "wall_index": 27
+    },
+    {
+     "kind": "bookshelf",
+     "id": "F05_5C_BOOKSHELF_01",
+     "unit": "5C",
+     "owner": "Iris Bell",
+     "variant": "plain",
+     "pos": [
+      9.57,
+      -0.775,
+      12.8
+     ],
+     "yaw_deg": 180,
+     "network": "structural",
+     "wall_index": 29
     }
    ],
    "furniture": [
@@ -96510,7 +96541,7 @@
      "yaw": 0,
      "W": 1.6,
      "H": 1.4,
-     "books": true
+     "books": false
     },
     {
      "id": "5A_stool",
@@ -97533,18 +97564,6 @@
       2.22
      ],
      "yaw": -90
-    },
-    {
-     "id": "5C_shelf",
-     "asm": "shelf",
-     "at": [
-      10.2,
-      5.98
-     ],
-     "yaw": 180,
-     "W": 1.1,
-     "H": 1.85,
-     "books": true
     },
     {
      "id": "5C_plant1",
@@ -101710,16 +101729,6 @@
      "z": 12.8
     },
     {
-     "id": "5C_WORK_ARCHIVE",
-     "unit": "5C",
-     "socket": "WORK_ARCHIVE",
-     "at": [
-      10.2,
-      5.73
-     ],
-     "z": 12.8
-    },
-    {
      "id": "5A_SHOWER_EDGE",
      "unit": "5A",
      "socket": "SHOWER_EDGE",
@@ -104470,6 +104479,52 @@
      "energy": 0.48,
      "navigation": true,
      "standby": 0.32
+    },
+    {
+     "kind": "bookshelf",
+     "id": "F06_6A_BOOKSHELF_01",
+     "unit": "6A",
+     "owner": "Sacha Reed",
+     "variant": "repaired",
+     "pos": [
+      -9.61,
+      -0.54,
+      16.0
+     ],
+     "yaw_deg": 0,
+     "network": "structural",
+     "wall_index": 27
+    },
+    {
+     "kind": "bookshelf",
+     "id": "F06_6B_BOOKSHELF_01",
+     "unit": "6B",
+     "owner": "Jonah Price",
+     "variant": "plain",
+     "pos": [
+      -9.59,
+      2.775,
+      16.0
+     ],
+     "yaw_deg": 180,
+     "network": "structural",
+     "wall_index": 28
+    },
+    {
+     "kind": "bookshelf",
+     "id": "F06_6C_BOOKSHELF_01",
+     "unit": "6C",
+     "owner": "Mae Kessler",
+     "variant": "sectional",
+     "pos": [
+      9.6,
+      -0.765,
+      16.0
+     ],
+     "yaw_deg": 180,
+     "network": "structural",
+     "wall_index": 29,
+     "canonical_book": "prospectus"
     }
    ],
    "furniture": [
@@ -104717,18 +104772,6 @@
       -3.1
      ],
      "yaw": 90
-    },
-    {
-     "id": "6A_shelf",
-     "asm": "shelf",
-     "at": [
-      -11.9,
-      -5.98
-     ],
-     "yaw": 0,
-     "W": 1.1,
-     "H": 1.85,
-     "books": true
     },
     {
      "id": "6A_plant2",
@@ -105395,18 +105438,6 @@
      "yaw": 180
     },
     {
-     "id": "6B_shelf",
-     "asm": "shelf",
-     "at": [
-      -11.9,
-      2.94
-     ],
-     "yaw": 0,
-     "W": 1.1,
-     "H": 1.85,
-     "books": true
-    },
-    {
      "id": "6B_plant1",
      "asm": "plant",
      "at": [
@@ -105935,18 +105966,6 @@
       2.22
      ],
      "yaw": -90
-    },
-    {
-     "id": "6C_shelf",
-     "asm": "shelf",
-     "at": [
-      10.2,
-      5.98
-     ],
-     "yaw": 180,
-     "W": 1.1,
-     "H": 1.85,
-     "books": true
     },
     {
      "id": "6C_plant1",
@@ -110031,16 +110050,6 @@
      "z": 16.0
     },
     {
-     "id": "6A_WORK_ARCHIVE",
-     "unit": "6A",
-     "socket": "WORK_ARCHIVE",
-     "at": [
-      -11.9,
-      -5.73
-     ],
-     "z": 16.0
-    },
-    {
      "id": "6B_TOILET_SIDE",
      "unit": "6B",
      "socket": "TOILET_SIDE",
@@ -110117,16 +110126,6 @@
      "at": [
       -8.25,
       3.82
-     ],
-     "z": 16.0
-    },
-    {
-     "id": "6B_WORK_ARCHIVE",
-     "unit": "6B",
-     "socket": "WORK_ARCHIVE",
-     "at": [
-      -11.9,
-      3.19
      ],
      "z": 16.0
     },
@@ -110237,16 +110236,6 @@
      "at": [
       8.51,
       2.22
-     ],
-     "z": 16.0
-    },
-    {
-     "id": "6C_WORK_ARCHIVE",
-     "unit": "6C",
-     "socket": "WORK_ARCHIVE",
-     "at": [
-      10.2,
-      5.73
      ],
      "z": 16.0
     },
@@ -115029,6 +115018,129 @@
    ],
    "network": "signal",
    "yaw_deg": 0
+  }
+ ],
+ "bookshelves": [
+  {
+   "kind": "bookshelf",
+   "id": "F02_2A_BOOKSHELF_01",
+   "unit": "2A",
+   "owner": "Mina Vale",
+   "variant": "repaired",
+   "pos": [
+    -9.61,
+    -0.54,
+    3.2
+   ],
+   "yaw_deg": 0,
+   "network": "structural",
+   "wall_index": 27
+  },
+  {
+   "kind": "bookshelf",
+   "id": "F03_3A_BOOKSHELF_01",
+   "unit": "3A",
+   "owner": "Malcolm Reed",
+   "variant": "repaired",
+   "pos": [
+    -9.61,
+    -0.54,
+    6.4
+   ],
+   "yaw_deg": 0,
+   "network": "structural",
+   "wall_index": 27
+  },
+  {
+   "kind": "bookshelf",
+   "id": "F04_4A_BOOKSHELF_01",
+   "unit": "4A",
+   "owner": "Peter Wren",
+   "variant": "sectional",
+   "pos": [
+    -9.56,
+    -0.565,
+    9.6
+   ],
+   "yaw_deg": 0,
+   "network": "structural",
+   "wall_index": 27
+  },
+  {
+   "kind": "bookshelf",
+   "id": "F05_5A_BOOKSHELF_01",
+   "unit": "5A",
+   "owner": "Nadia Quell",
+   "variant": "plain",
+   "pos": [
+    -9.59,
+    -0.555,
+    12.8
+   ],
+   "yaw_deg": 0,
+   "network": "structural",
+   "wall_index": 27
+  },
+  {
+   "kind": "bookshelf",
+   "id": "F05_5C_BOOKSHELF_01",
+   "unit": "5C",
+   "owner": "Iris Bell",
+   "variant": "plain",
+   "pos": [
+    9.57,
+    -0.775,
+    12.8
+   ],
+   "yaw_deg": 180,
+   "network": "structural",
+   "wall_index": 29
+  },
+  {
+   "kind": "bookshelf",
+   "id": "F06_6A_BOOKSHELF_01",
+   "unit": "6A",
+   "owner": "Sacha Reed",
+   "variant": "repaired",
+   "pos": [
+    -9.61,
+    -0.54,
+    16.0
+   ],
+   "yaw_deg": 0,
+   "network": "structural",
+   "wall_index": 27
+  },
+  {
+   "kind": "bookshelf",
+   "id": "F06_6B_BOOKSHELF_01",
+   "unit": "6B",
+   "owner": "Jonah Price",
+   "variant": "plain",
+   "pos": [
+    -9.59,
+    2.775,
+    16.0
+   ],
+   "yaw_deg": 180,
+   "network": "structural",
+   "wall_index": 28
+  },
+  {
+   "kind": "bookshelf",
+   "id": "F06_6C_BOOKSHELF_01",
+   "unit": "6C",
+   "owner": "Mae Kessler",
+   "variant": "sectional",
+   "pos": [
+    9.6,
+    -0.765,
+    16.0
+   ],
+   "yaw_deg": 180,
+   "network": "structural",
+   "wall_index": 29,
+   "canonical_book": "prospectus"
   }
  ],
  "stairs": [

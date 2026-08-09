@@ -207,19 +207,30 @@ func _ready() -> void:
 			root.vantry_points.active_owner.set_telltale_closed(true)
 		await get_tree().create_timer(0.08).timeout
 	_lights_on = OS.get_environment("SHOT_LIGHTS") == "1"
-	# SHOT_WAREHOUSE_KIND=mail_bank frames one registered warehouse specimen
-	# by name. This keeps review evidence reproducible when a new family shifts
-	# every later grid index and makes hand-authored stand coordinates stale.
+	# SHOT_WAREHOUSE_KIND=bookshelf frames the whole registered family. A
+	# variant hook exists so silhouettes can be compared side by side; framing
+	# only the first specimen made the warehouse faithfully build three and the
+	# evidence quietly show one.
 	var warehouse_kind := OS.get_environment("SHOT_WAREHOUSE_KIND")
 	if warehouse_kind != "" and root.warehouse != null:
-		var specimen := root.warehouse.find_child(
-				"WH_%s_*" % warehouse_kind, true, false) as Node3D
-		if specimen != null:
+		var specimens: Array[Node] = root.warehouse.find_children(
+				"WH_%s_*" % warehouse_kind, "Node3D", true, false)
+		if not specimens.is_empty():
 			_interactive = false
 			var hidden := _hide_all_ui(root)
 			print("[FREECAM] %d UI layer(s) hidden for warehouse shooting" % hidden)
-			cam.global_position = specimen.global_position + Vector3(0, 1.28, 2.25)
-			cam.look_at(specimen.global_position + Vector3(0, 1.12, 0))
+			var centre := Vector3.ZERO
+			for item in specimens:
+				centre += (item as Node3D).global_position
+			centre /= float(specimens.size())
+			var radius := 0.0
+			for item in specimens:
+				var at := (item as Node3D).global_position
+				radius = maxf(radius, Vector2(at.x - centre.x,
+						at.z - centre.z).length())
+			cam.global_position = centre + Vector3(0, 1.28,
+					maxf(2.25, 2.25 + radius * 1.35))
+			cam.look_at(centre + Vector3(0, 1.05, 0))
 			await get_tree().create_timer(0.35).timeout
 			await _snap("warehouse_%s.png" % warehouse_kind)
 			get_tree().quit(0)

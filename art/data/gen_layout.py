@@ -1444,7 +1444,7 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
         for i in range(3):
             shelf_unit(f, "2A_shelf%d" % i,
                        x0 + 0.4 + service_dx + i * 1.15, y0 + 3.55,
-                       0.95, True, h=1.6, face="n")
+                       0.95, True, h=1.6, books=False, face="n")
         _furn_box(f, "2A_filing", x0 + 2.1 + service_dx, cy - 0.65,
                   0.45, 0.6, 0.0,
                   1.05, "metal", False)
@@ -1575,7 +1575,7 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
         _furn_box(f, "5A_tuberack", x0 + 2.3, y0 + 3.65, 0.4, 0.4, 0.0,
                   1.1, "ceramic", False)
         shelf_unit(f, "5A_planshelf", x0 + 0.4, y0 + 3.55, 1.6, True,
-                   h=1.4, face="n")
+                   h=1.4, books=False, face="n")
         chair_box(f, "5A_stool", cx + 0.7, cy + 1.55, "n")
         mk("lamp", 1, cx + 0.6, cy + 0.75, 0.83)
         # plans over contradictory plans: two drifted boards, loose sheets
@@ -6472,6 +6472,154 @@ BATH_SINK_FOOT = (0.305, 0.28)
 SHOWER_FOOT = (0.36, 0.36)
 
 
+# Eight shelves are gameplay owners, not repetitions of the generic steel
+# ladder assembly.  Their coordinates are resolved here, beside the walls and
+# furniture that constrain them, then written into the layout.  The runtime
+# prop is allowed to build a bookcase; it is not allowed to decide where the
+# Orison has a solid wall.
+BOOKSHELF_OWNERS = (
+    ("2A", "Mina Vale", "repaired"),
+    ("3A", "Malcolm Reed", "repaired"),
+    ("4A", "Peter Wren", "sectional"),
+    ("5A", "Nadia Quell", "plain"),
+    ("5C", "Iris Bell", "plain"),
+    ("6A", "Sacha Reed", "repaired"),
+    ("6B", "Jonah Price", "plain"),
+    ("6C", "Mae Kessler", "sectional"),
+)
+BOOKSHELF_SIZE = {
+    "repaired": (0.68, 0.25),
+    "plain": (0.72, 0.28),
+    "sectional": (0.78, 0.30),
+}
+
+
+def bookshelf_pass(floors):
+    """Replace eight duplicated dressing shelves with authored hero markers.
+
+    Candidate centres live on solid room-boundary wall runs.  Both the body
+    and the 550 mm standing/reach strip in front must stay clear.  Sampling at
+    100 mm makes this deterministic and reviewable without pretending the
+    prop can renegotiate a furnished room when it loads.
+    """
+    made = []
+    hero_units = {row[0] for row in BOOKSHELF_OWNERS}
+    for fl in floors:
+        # The generic shelf was the old visual owner.  Leaving it behind makes
+        # the rebuild look like two bookcases occupying the same biography.
+        fl["furniture"] = [fu for fu in fl.get("furniture", [])
+                           if not (fu.get("id") == "%s_shelf" %
+                                   str(fu.get("id", ""))[:2]
+                                   and str(fu.get("id", ""))[:2]
+                                   in hero_units)]
+    for unit, owner, style in BOOKSHELF_OWNERS:
+        fid = "F%02d" % int(unit[0])
+        fl = next(f for f in floors if f["id"] == fid)
+        room = next(r for r in fl["rooms"]
+                    if r.get("unit") == unit and r.get("kind") == "living")
+        x0, y0, x1, y1 = room["rect"]
+        width, depth = BOOKSHELF_SIZE[style]
+        candidates = []
+        for wi, wall in enumerate(fl["walls"]):
+            ax, ay = wall["a"]
+            bx, by = wall["b"]
+            # A door or window anywhere in this short wall run makes it a
+            # worse owner than the intact partition opposite it.  The old
+            # runtime pass ignored this and put five cases through windows.
+            if wall.get("openings"):
+                continue
+            vertical = abs(ax - bx) < 0.01
+            horizontal = abs(ay - by) < 0.01
+            if horizontal and (abs(ay - y0) < 0.15 or
+                               abs(ay - y1) < 0.15):
+                lo, hi = max(min(ax, bx), x0), min(max(ax, bx), x1)
+                inward = 1.0 if abs(ay - y0) < abs(ay - y1) else -1.0
+                for n in range(int(max(0.0, hi - lo - width) / 0.10) + 1):
+                    x = lo + width / 2.0 + n * 0.10
+                    y = ay + inward * (depth / 2.0 + 0.025)
+                    candidates.append((x, y, 180 if inward > 0 else 0,
+                                       wi, "h", inward))
+            elif vertical and (abs(ax - x0) < 0.15 or
+                               abs(ax - x1) < 0.15):
+                lo, hi = max(min(ay, by), y0), min(max(ay, by), y1)
+                inward = 1.0 if abs(ax - x0) < abs(ax - x1) else -1.0
+                for n in range(int(max(0.0, hi - lo - width) / 0.10) + 1):
+                    y = lo + width / 2.0 + n * 0.10
+                    x = ax + inward * (depth / 2.0 + 0.025)
+                    candidates.append((x, y, -90 if inward > 0 else 90,
+                                       wi, "v", inward))
+        obstacles = [a for a in (_asm_aabb(fu)
+                                  for fu in fl.get("furniture", [])) if a]
+
+        def clear(c):
+            x, y, _yaw, _wi, axis, inward = c
+            if axis == "h":
+                body = (x - width / 2.0, y - depth / 2.0,
+                        x + width / 2.0, y + depth / 2.0)
+                reach = (body[0], min(body[1], y + inward * 0.70),
+                         body[2], max(body[3], y + inward * 0.70))
+            else:
+                body = (x - depth / 2.0, y - width / 2.0,
+                        x + depth / 2.0, y + width / 2.0)
+                reach = (min(body[0], x + inward * 0.70), body[1],
+                         max(body[2], x + inward * 0.70), body[3])
+            for box in obstacles:
+                if not (reach[2] <= box[0] or reach[0] >= box[2] or
+                        reach[3] <= box[1] or reach[1] >= box[3]):
+                    return False
+            return True
+
+        legal = [c for c in candidates if clear(c)]
+        if not legal:
+            raise SystemExit("bookshelf %s has no solid reachable wall" % unit)
+        # Prefer the centre of an intact run.  It reads as furniture placed by
+        # a resident, not a collision audit that happened to stop at a corner.
+        legal.sort(key=lambda c: abs(c[0] - (x0 + x1) / 2.0) +
+                   abs(c[1] - (y0 + y1) / 2.0))
+        x, y, yaw, wall_i, _axis, _inward = legal[0]
+        marker = {
+            "kind": "bookshelf", "id": "%s_%s_BOOKSHELF_01" % (fid, unit),
+            "unit": unit, "owner": owner, "variant": style,
+            "pos": [round(x, 4), round(y, 4), fl["z"]],
+            "yaw_deg": yaw, "network": "structural", "wall_index": wall_i,
+        }
+        if unit == "6C":
+            marker["canonical_book"] = "prospectus"
+        fl["markers"].append(marker)
+        made.append(marker)
+    return made
+
+
+def validate_bookshelves(layout):
+    """Build-time cover for facts a runtime prop cannot repair honestly."""
+    problems = []
+    markers = [(fl, m) for fl in layout["floors"]
+               for m in fl.get("markers", []) if m.get("kind") == "bookshelf"]
+    if len(markers) != len(BOOKSHELF_OWNERS):
+        problems.append("bookshelves: expected 8 markers, found %d" % len(markers))
+    if len({m["unit"] for _fl, m in markers}) != len(markers):
+        problems.append("bookshelves: duplicate unit ownership")
+    for fl, marker in markers:
+        wall_i = int(marker.get("wall_index", -1))
+        if wall_i < 0 or wall_i >= len(fl["walls"]):
+            problems.append("%s: missing authored backing wall" % marker["id"])
+            continue
+        if fl["walls"][wall_i].get("openings"):
+            problems.append("%s: backing wall contains an opening" % marker["id"])
+        room = next((r for r in fl["rooms"]
+                     if r.get("unit") == marker["unit"] and
+                     r.get("kind") == "living"), None)
+        px, py = marker["pos"][:2]
+        inside = room is not None and room["rect"][0] <= px <= room["rect"][2] \
+            and room["rect"][1] <= py <= room["rect"][3]
+        if not inside:
+            problems.append("%s: authored outside resident living room" %
+                            marker["id"])
+        if marker["unit"] == "6C" and marker.get("canonical_book") != "prospectus":
+            problems.append("6C bookshelf lost the covenant prospectus")
+    return problems
+
+
 def _asm_aabb(fu):
     kind = fu.get("asm")
     if kind not in ASM_FOOT:
@@ -7604,6 +7752,7 @@ def main():
     retail_pass(floors[1])
     storm_pass(floors[1])
     street_lamp_markers(floors[1])
+    bookshelves = bookshelf_pass(floors)
     vantry_points = vantry_point_pass(floors)
     layout = {
         "meta": {"name": "Orison Apartments", "footprint": [28.0, 20.0],
@@ -7618,6 +7767,7 @@ def main():
                  "residents": RESIDENTS},
         "floors": floors,
         "vantry_points": vantry_points,
+        "bookshelves": bookshelves,
         "stairs": [stair_geometry(ATRIUM)],
         "elevator": {"shaft": list(ELEV["shaft"]),
                      "cabin": list(ELEV["cabin"]),
@@ -7625,6 +7775,7 @@ def main():
                      "door_w": ELEV["door_w"]},
     }
     problems = validate(layout)
+    problems += validate_bookshelves(layout)
     if problems:
         for p in problems:
             print("VALIDATION:", p)

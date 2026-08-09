@@ -137,6 +137,13 @@ func begin(owner: String, disorder := 0.5, seed_value := 0) -> void:
 	var pick := RandomNumberGenerator.new()
 	pick.seed = hash("shelf:" + owner)
 	var chosen: Array = []
+	# Required titles are evidence, not a favourable random deal. Mae's
+	# prospectus is the covenant's 1912 sales document; a rebuild must never
+	# make it disappear because another title won the seed.
+	for required in sh.get("required", []):
+		var required_id := str(required)
+		if books.has(required_id) and not chosen.has(required_id):
+			chosen.append(required_id)
 	while chosen.size() < mini(want, pool.size()):
 		var c: String = str(pool[pick.randi() % pool.size()])
 		if not chosen.has(c):
