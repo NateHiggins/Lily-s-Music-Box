@@ -44,16 +44,41 @@ const _VARIANTS := [
 	{"w": 0.60, "d": 0.60, "h": 1.45, "sz0": 0.84, "sz1": 1.12, "marquee": []},
 ]
 
-## An older machine has a worse picture, and that is the only thing `era` is
+## An older chassis holds a worse picture, and that is the only thing `era` is
 ## allowed to drive here - the silhouette belongs to the layout's variant, not to
-## the catalog. (scanline, base flicker, base chroma)
-const _ERA_PICTURE := {
-	"1979":   [0.42, 0.10, 0.09],
-	"1985":   [0.36, 0.07, 0.06],
-	"1991":   [0.30, 0.04, 0.04],
-	"1998":   [0.26, 0.03, 0.02],
-	"2004":   [0.20, 0.01, 0.01],
-	"modern": [0.14, 0.00, 0.00],
+## the catalog. (scanline, base flicker, base trace-tear)
+##
+## All of these are before the year the building is stuck in. None of them
+## explains what the machine is receiving; see the card's `received_from`, which
+## is the part with no business being here.
+const _CHASSIS_PICTURE := {
+	"1912":     [0.30, 0.11, 0.10],
+	"1916":     [0.26, 0.08, 0.07],
+	"1919":     [0.22, 0.06, 0.05],
+	"1922":     [0.19, 0.04, 0.03],
+	"1924":     [0.16, 0.02, 0.02],
+	"unmarked": [0.24, 0.07, 0.06],
+}
+
+## The phosphor a tube of this vintage was coated with. Early glass is the
+## yellow-green of a willemite screen; the later boxes got the blue-white
+## long-persistence coating the radar sets used.
+##
+## The unmarked boxes show colour. No coating available in 1927 does that, their
+## chassis plates are blank, and nobody in the parlour can say where they came
+## from - which is the same answer the building gives about WORS 1610.
+const _MONO := {
+	"1912": 1.0, "1916": 1.0, "1919": 1.0, "1922": 1.0, "1924": 1.0,
+	"unmarked": 0.12,
+}
+
+const _PHOSPHOR := {
+	"1912":     Color(0.52, 0.92, 0.30),
+	"1916":     Color(0.46, 0.95, 0.34),
+	"1919":     Color(0.38, 1.00, 0.42),
+	"1922":     Color(0.34, 0.98, 0.56),
+	"1924":     Color(0.44, 0.86, 0.92),
+	"unmarked": Color(0.40, 0.96, 0.46),
 }
 
 var cabinet: Dictionary = {}
@@ -61,7 +86,9 @@ var machine: ArcadeMachine = null
 var variant := 0
 
 var _shape: Dictionary = _VARIANTS[0]
-var _picture: Array = [0.30, 0.04, 0.04]
+var _picture: Array = [0.22, 0.06, 0.05]
+var _phosphor := Color(0.40, 0.96, 0.46)
+var _mono := 1.0
 var _screen: MeshInstance3D
 var _screen_mat: ShaderMaterial
 var _glow: OmniLight3D
@@ -76,10 +103,54 @@ var _knock := 0.0
 ## Called before the prop enters the tree, by whatever is laying out the row.
 func configure(entry: Dictionary, cab_variant: int, catalog_dir := ArcadeCatalog.DIR) -> void:
 	cabinet = entry
-	variant = posmod(cab_variant, _VARIANTS.size())
-	_shape = _VARIANTS[variant]
+	variant = cab_variant
 	_catalog_dir = catalog_dir
-	_picture = _ERA_PICTURE.get(String(entry.get("era", "1991")), _ERA_PICTURE["1991"])
+	_derive()
+
+
+## Everything the chassis and the card imply, worked out from `cabinet` and
+## `variant` alone.
+##
+## Split out of `configure()` because the prop warehouse builds a display by
+## constructing the script and *setting properties* - it never calls configure,
+## and a prop that only derives itself there shows up in the inspection shed as
+## an empty plinth. Idempotent, so both callers can run it.
+func _derive() -> void:
+	variant = posmod(variant, _VARIANTS.size())
+	_shape = _VARIANTS[variant]
+	var chassis := String(cabinet.get("era", "unmarked"))
+	_picture = _CHASSIS_PICTURE.get(chassis, _CHASSIS_PICTURE["unmarked"])
+	_phosphor = _PHOSPHOR.get(chassis, _PHOSPHOR["unmarked"])
+	_mono = float(_MONO.get(chassis, 1.0))
+
+
+## Four silhouettes, not four recolours: the layout's `variant` picks between a
+## traditional upright, the tall one with the oversized header, the low chrome
+## amusement and the compact raked box. One display each, or the shed shows a
+## quarter of the family and calls it the family.
+##
+## Cards come from the real catalog when it is present, so the shed shows what is
+## actually on the row rather than four copies of a fabricated example.
+func warehouse_variants() -> Array[Dictionary]:
+	var catalog := ArcadeCatalog.load_catalog()
+	var cards: Array[Dictionary] = []
+	if catalog != null and catalog.size() > 0:
+		cards = catalog.spread()
+	var out: Array[Dictionary] = []
+	for i in _VARIANTS.size():
+		var card: Dictionary = cards[i % cards.size()] if not cards.is_empty() else {
+			"title": "NO CARD", "claimed_genre": "quiz_programme",
+			"station": "WORS 1610", "era": ["1912", "1919", "1924", "unmarked"][i],
+			"received_from": "no date given", "manufacturer": "VANTRY & CO.",
+			"cabinet_color": "#3a332c", "marquee_color": "#c8a828",
+			"bezel_color": "#1a1714", "attract_lines": ["NO SIGNAL"],
+			"tagline": "", "control_layout": "single_dial",
+		}
+		out.append({
+			"label": "arcade_cabinet %d · %s" % [i, String(card.get("era", "?"))],
+			"properties": {"cabinet": card, "variant": i},
+		})
+	return out
 
 
 # ---------------------------------------------------------------------- visual
@@ -87,6 +158,7 @@ func configure(entry: Dictionary, cab_variant: int, catalog_dir := ArcadeCatalog
 
 func _build_visual() -> void:
 	add_to_group("arcade_cabinets")
+	_derive()
 	if cabinet.is_empty():
 		push_warning("ArcadeCabinetProp: no catalog entry; the screen will stay dark")
 		return
@@ -109,8 +181,11 @@ func _build_visual() -> void:
 	machine.name = "Machine"
 	add_child(machine)
 
+	# Square, not 4:3. The tube face is circular and the shader discards outside
+	# it; a rectangular quad would leave the aperture off-centre in its own bezel.
+	var face_size: float = minf(w - 0.12, sz1 - sz0)
 	var quad := QuadMesh.new()
-	quad.size = Vector2(w - 0.12, sz1 - sz0)
+	quad.size = Vector2(face_size, face_size)
 	_screen = MeshInstance3D.new()
 	_screen.name = "Screen"
 	_screen.mesh = quad
@@ -120,8 +195,13 @@ func _build_visual() -> void:
 	add_child(_screen)
 
 	_screen_mat = ShaderMaterial.new()
-	_screen_mat.shader = load("res://shaders/tv_screen.gdshader")
-	_screen_mat.set_shader_parameter("feed", machine.get_texture())
+	_screen_mat.shader = load("res://shaders/scope_screen.gdshader")
+	# The accumulated tube face, not the raw board: the trail is upstream.
+	_screen_mat.set_shader_parameter("feed", machine.scope_texture())
+	_screen_mat.set_shader_parameter("phosphor", Vector3(
+		_phosphor.r, _phosphor.g, _phosphor.b
+	))
+	_screen_mat.set_shader_parameter("mono", _mono)
 	_screen.material_override = _screen_mat
 	_apply_infection()
 
@@ -129,7 +209,7 @@ func _build_visual() -> void:
 	_glow = OmniLight3D.new()
 	_glow.position = Vector3(0.0, (sz0 + sz1) * 0.5, face - 0.12)
 	_glow.omni_range = 1.9
-	_glow.light_color = Color(0.72, 0.80, 1.0)
+	_glow.light_color = _phosphor
 	_glow.light_energy = 0.0
 	_glow.shadow_enabled = false
 	add_child(_glow)
@@ -166,12 +246,15 @@ func _build_marquee(face: float) -> void:
 	_fitted_label(String(cabinet.get("title", "")),
 			Vector3(0.0, centre + height * 0.14, face - 0.036),
 			art_w, height * 0.44, accent)
-	_fitted_label("%s   %s" % [
+	# The line nobody reads until they read it twice: a chassis dated before the
+	# year the building is stuck in, receiving a programme from long after it.
+	_fitted_label("%s   ·   %s   ·   %s" % [
+				String(cabinet.get("station", "")),
 				String(cabinet.get("manufacturer", "")),
-				String(cabinet.get("era", "")),
+				String(cabinet.get("received_from", "")),
 			],
 			Vector3(0.0, centre - height * 0.26, face - 0.036),
-			art_w * 0.7, height * 0.17, accent)
+			art_w * 0.86, height * 0.17, accent)
 
 	_marquee_light = OmniLight3D.new()
 	_marquee_light.position = Vector3(0.0, centre, face - 0.20)
@@ -232,39 +315,99 @@ func _build_claimed_controls(w: float, d: float) -> void:
 	var deck_z := -(d * 0.5 + 0.07)
 	var dark := Color(0.09, 0.09, 0.10)
 
-	match String(cabinet.get("control_layout", "stick_1button")):
-		"wheel":
+	match String(cabinet.get("control_layout", "single_dial")):
+		"wheel_and_dial":
 			var rim := make_ring(0.085, 0.014, Vector3(0.0, deck_y + 0.08, deck_z - 0.03), dark)
 			rim.rotation.x = deg_to_rad(68.0)
 			var hub := make_cyl(0.016, 0.016, 0.055,
 					Vector3(0.0, deck_y + 0.055, deck_z - 0.015), Color(0.30, 0.31, 0.33))
 			hub.rotation.x = deg_to_rad(68.0)
-		"trackball":
-			make_cyl(0.040, 0.040, 0.010, Vector3(0.0, deck_y + 0.005, deck_z), dark)
-			make_cyl(0.036, 0.036, 0.048, Vector3(0.0, deck_y + 0.022, deck_z),
-					Color(0.86, 0.24, 0.22), 0.14)
-		"twin_stick":
-			# A second stick, mirrored, because the first one is already modelled.
-			_stick(w * 0.22, deck_y, deck_z)
-		"stick_6button":
-			# Three more, staggered into a second row.
-			for i in 3:
-				make_cyl(0.014, 0.014, 0.011,
-						Vector3(-w * 0.5 + 0.16 + i * 0.12, deck_y + 0.006, deck_z + 0.045),
-						[Color(0.36, 0.62, 0.85), Color(0.44, 0.72, 0.36),
-						Color(0.78, 0.45, 0.74)][i], 0.25)
-		"lightgun":
-			# In a holster on the side, wired to nothing at all.
-			make_box(Vector3(0.045, 0.10, 0.13),
-					Vector3(w * 0.5 + 0.03, 0.86, -d * 0.18), Color(0.14, 0.14, 0.16))
-			make_box(Vector3(0.028, 0.05, 0.15),
-					Vector3(w * 0.5 + 0.03, 0.93, -d * 0.20), Color(0.11, 0.12, 0.14))
+		"ticker_and_bell":
+			# A printing tape head and a call bell. The tape is not moving.
+			make_box(Vector3(0.10, 0.05, 0.09), Vector3(-0.10, deck_y + 0.028, deck_z),
+					Color(0.12, 0.11, 0.10))
+			make_cyl(0.030, 0.030, 0.014, Vector3(-0.10, deck_y + 0.058, deck_z),
+					Color(0.74, 0.68, 0.42), 0.28, 0.85)
+			_dome_bell(0.12, deck_y, deck_z)
+		"twin_dials":
+			_tuning_dial(-0.10, deck_y, deck_z, 0.052)
+			_tuning_dial(0.10, deck_y, deck_z, 0.052)
+		"bakelite_knobs":
+			for i in 4:
+				make_cyl(0.019, 0.022, 0.026,
+						Vector3(-0.11 + i * 0.073, deck_y + 0.017, deck_z),
+						Color(0.10, 0.08, 0.07), 0.3)
+		"dial_and_key":
+			_tuning_dial(-0.09, deck_y, deck_z, 0.058)
+			# A telegraph key, on a brass base, wired to nothing that answers.
+			_metal_box(Vector3(0.055, 0.010, 0.085), Vector3(0.11, deck_y + 0.008, deck_z),
+					Color(0.68, 0.60, 0.36), 0.3, 0.8)
+			var lever := make_box(Vector3(0.014, 0.008, 0.070),
+					Vector3(0.11, deck_y + 0.022, deck_z), Color(0.10, 0.09, 0.08))
+			lever.rotation.x = deg_to_rad(-5.0)
+			make_cyl(0.014, 0.014, 0.008, Vector3(0.11, deck_y + 0.030, deck_z - 0.030),
+					Color(0.09, 0.08, 0.07), 0.25)
+		"lever_and_pedal":
+			var throw_bar := _metal_box(Vector3(0.016, 0.115, 0.016),
+					Vector3(0.13, deck_y + 0.058, deck_z), Color(0.16, 0.15, 0.14), 0.4, 0.6)
+			throw_bar.rotation.x = deg_to_rad(-14.0)
+			make_cyl(0.020, 0.020, 0.024, Vector3(0.13, deck_y + 0.118, deck_z - 0.016),
+					Color(0.62, 0.16, 0.13), 0.25)
+			# A foot pedal on the plinth. Nothing reads it.
+			make_box(Vector3(0.10, 0.018, 0.07), Vector3(0.0, 0.10, -d * 0.5 - 0.11),
+					Color(0.13, 0.12, 0.11))
+		"patch_cords":
+			# A patch bay, fully wired, connecting nothing to nothing.
+			make_box(Vector3(0.20, 0.09, 0.012), Vector3(0.0, deck_y + 0.05, deck_z),
+					Color(0.11, 0.10, 0.09))
+			for i in 6:
+				make_cyl(0.006, 0.006, 0.010,
+						Vector3(-0.078 + i * 0.031, deck_y + 0.072, deck_z - 0.008),
+						Color(0.70, 0.62, 0.34), 0.3, 0.8)
+		_:
+			_tuning_dial(0.0, deck_y, deck_z, 0.062)
 
 
-func _stick(x: float, top: float, z: float) -> void:
-	make_cyl(0.026, 0.030, 0.010, Vector3(x, top + 0.005, z), Color(0.10, 0.10, 0.11))
-	make_cyl(0.007, 0.007, 0.072, Vector3(x, top + 0.045, z), Color(0.62, 0.63, 0.66), 0.3, 0.6)
-	make_cyl(0.019, 0.019, 0.028, Vector3(x, top + 0.090, z), Color(0.83, 0.20, 0.18), 0.2)
+## `make_box` with a finish. Brass and Bakelite are the two materials this world
+## has, and they are not the same shine.
+func _metal_box(size: Vector3, offset: Vector3, colour: Color,
+		rough: float, metal: float) -> MeshInstance3D:
+	var instance := make_box(size, offset, colour)
+	var material := instance.material_override as StandardMaterial3D
+	if material != null:
+		material.roughness = rough
+		material.metallic = metal
+	return instance
+
+
+## A slow-motion tuning dial: engraved scale plate, Bakelite knob, brass pointer.
+## The one control on the panel that does anything, and what it does is nothing
+## the programme can hear.
+func _tuning_dial(x: float, top: float, z: float, radius: float) -> void:
+	var plate := make_cyl(radius, radius, 0.006, Vector3(x, top + 0.004, z),
+			Color(0.80, 0.74, 0.50), 0.35, 0.6)
+	plate.rotation.x = deg_to_rad(0.0)
+	for i in 12:
+		var tick := make_box(Vector3(0.0022, 0.0018, radius * 0.28),
+				Vector3(x, top + 0.008, z), Color(0.10, 0.09, 0.08))
+		tick.rotation.y = TAU * float(i) / 12.0
+		tick.position = Vector3(
+			x + sin(TAU * float(i) / 12.0) * radius * 0.66,
+			top + 0.008,
+			z + cos(TAU * float(i) / 12.0) * radius * 0.66
+		)
+	make_cyl(0.019, 0.023, 0.028, Vector3(x, top + 0.020, z), Color(0.09, 0.07, 0.06), 0.28)
+	var pointer := _metal_box(Vector3(0.0035, 0.0035, radius * 0.9),
+			Vector3(x, top + 0.036, z - radius * 0.30), Color(0.76, 0.68, 0.38), 0.3, 0.85)
+	pointer.rotation.y = deg_to_rad(18.0)
+
+
+## The call bell every wire-service machine has, for when the tape says something.
+func _dome_bell(x: float, top: float, z: float) -> void:
+	make_cyl(0.030, 0.034, 0.008, Vector3(x, top + 0.005, z), Color(0.12, 0.11, 0.10))
+	var dome := make_cyl(0.028, 0.028, 0.030, Vector3(x, top + 0.022, z),
+			Color(0.78, 0.70, 0.40), 0.22, 0.9)
+	dome.rotation.x = deg_to_rad(0.0)
 
 
 # --------------------------------------------------------------------- running

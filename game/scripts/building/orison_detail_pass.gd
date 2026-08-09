@@ -164,13 +164,18 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 	# facing the generated wood bank across the corner. A real prop: the
 	# player's 4B door opens, and mail_catalog.json arrives through it.
 	if floor_nodes.has("F01"):
+		# Measured against F01_LOBBY_CLOCK_01 at Blender y -8.970. The wider
+		# Couch bank has only a half-metre legal centre window on this run;
+		# -7.88 clears the master and keeps its north cheek off the wall end.
+		const MAIL_BANK_Y := -7.88
+		const POST_TRAY_FROM_BANK := 0.48
 		var bank := MailBankProp.new()
 		bank.name = "LobbyMailBank"
 		# Centred on the lobby's east run (-9.65..-6.93) rather than jammed
 		# against its south end. The ad board that used to crowd this wall
 		# now lives opposite, so the bank gets the wall it was always meant
 		# to have and can be walked up to square on instead of edged around.
-		bank.position = GameBoot.b2g([5.24, -8.29, 0.0])
+		bank.position = GameBoot.b2g([5.24, MAIL_BANK_Y, 0.0])
 		bank.rotation.y = PI * 0.5
 		floor_nodes["F01"].add_child(bank)
 		# The tray of unsorted post, on the ledge under the bank. The
@@ -180,7 +185,8 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		var tray := DeadLettersProp.new()
 		tray.name = "LobbyPostTray"
 		tray.prop_type = "dead_letters"
-		tray.position = GameBoot.b2g([5.02, -7.40, 0.86])
+		tray.position = GameBoot.b2g(
+				[5.02, MAIL_BANK_Y + POST_TRAY_FROM_BANK, 0.86])
 		tray.rotation.y = PI * 0.5
 		floor_nodes["F01"].add_child(tray)
 		_place_bookshelves(layout, floor_nodes)

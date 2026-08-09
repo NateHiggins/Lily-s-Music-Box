@@ -96,7 +96,6 @@ func build(prop_scripts: Dictionary) -> int:
 			if key in prop:
 				prop.set(key, variant.properties[key])
 		add_child(prop)
-		prop.rotation.y = prop.warehouse_rotation_y()
 		# Stand it the way it hangs.
 		#
 		# Every prop used to be dropped on the plinth top, which is only
@@ -109,6 +108,9 @@ func build(prop_scripts: Dictionary) -> int:
 		# re-file every kind added later, ask the prop: it is already
 		# built by the time add_child returns, so its own bounds say
 		# whether it hangs below its origin or straddles it.
+		# Read the unrotated authored bounds first. A fixture whose complete
+		# depth lives behind its origin plane is declaring a wall datum just as
+		# clearly as a pendant declares a ceiling datum by building downward.
 		var box := _content_bounds(prop)
 		var lift := 0.12
 		if box.size.length_squared() > 0.0:
@@ -118,7 +120,12 @@ func build(prop_scripts: Dictionary) -> int:
 			elif box.position.y < -0.12:             # straddles: wall
 				lift = WALL_Y
 				_stub_wall(at)
+			elif box.end.z <= 0.01 and box.position.z < -0.04:
+				# Builds upward from a floor datum but backward from a wall datum:
+				# the mail bank is the first example, not a named exception.
+				_stub_wall(at, true)
 		prop.position = at + Vector3(0, lift, 0)
+		prop.rotation.y = prop.warehouse_rotation_y()
 		_built += 1
 	print("[WAREHOUSE] %d prop displays from %d kinds, %d rows" % [
 			_built, kinds.size(), rows])
@@ -270,9 +277,9 @@ func _soffit(at: Vector3) -> void:
 
 ## A stub of wall for the things that hang off one. It stands at the back
 ## of the cell so the fixture still faces the aisle.
-func _stub_wall(at: Vector3) -> void:
+func _stub_wall(at: Vector3, at_origin := false) -> void:
 	var m := StandardMaterial3D.new()
 	m.albedo_color = Color(0.34, 0.33, 0.31)
 	m.roughness = 0.90
 	_slab(Vector3(CELL * 0.72, 2.10, 0.10),
-			at + Vector3(0, 1.17, -CELL * 0.31), m)
+			at + Vector3(0, 1.17, -0.08 if at_origin else -CELL * 0.31), m)

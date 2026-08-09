@@ -189,6 +189,12 @@ func _ready() -> void:
 	if cabinet_pose != "":
 		_pose_cabinets(root, cabinet_pose)
 		await get_tree().create_timer(0.08).timeout
+	# SHOT_MAIL_POSE=open proves the sole working leaf against the lobby wall.
+	# The other twenty-three are intentionally one batched architectural face.
+	var mail_pose := OS.get_environment("SHOT_MAIL_POSE")
+	if mail_pose == "open":
+		_pose_mail_bank(root)
+		await get_tree().create_timer(0.45).timeout
 	# SHOT_VANTRY_POINT=<layout id> promotes that batched ceiling face to the
 	# full service owner. SHOT_VANTRY_POSE=service opens the captive grille;
 	# SHOT_VANTRY_POSE=closed_telltale records Teresa's impossible held breath.
@@ -201,6 +207,24 @@ func _ready() -> void:
 			root.vantry_points.active_owner.set_telltale_closed(true)
 		await get_tree().create_timer(0.08).timeout
 	_lights_on = OS.get_environment("SHOT_LIGHTS") == "1"
+	# SHOT_WAREHOUSE_KIND=mail_bank frames one registered warehouse specimen
+	# by name. This keeps review evidence reproducible when a new family shifts
+	# every later grid index and makes hand-authored stand coordinates stale.
+	var warehouse_kind := OS.get_environment("SHOT_WAREHOUSE_KIND")
+	if warehouse_kind != "" and root.warehouse != null:
+		var specimen := root.warehouse.find_child(
+				"WH_%s_*" % warehouse_kind, true, false) as Node3D
+		if specimen != null:
+			_interactive = false
+			var hidden := _hide_all_ui(root)
+			print("[FREECAM] %d UI layer(s) hidden for warehouse shooting" % hidden)
+			cam.global_position = specimen.global_position + Vector3(0, 1.28, 2.25)
+			cam.look_at(specimen.global_position + Vector3(0, 1.12, 0))
+			await get_tree().create_timer(0.35).timeout
+			await _snap("warehouse_%s.png" % warehouse_kind)
+			get_tree().quit(0)
+			return
+		printerr("[FREECAM] unknown warehouse kind: ", warehouse_kind)
 	var rooms := OS.get_environment("SHOT_ROOMS")
 	if rooms != "":
 		_interactive = false
@@ -305,6 +329,16 @@ func _pose_cabinets(node: Node, wanted_unit: String) -> void:
 			cabinet.set_door_open(true, 0.0)
 	for child in node.get_children():
 		_pose_cabinets(child, wanted_unit)
+
+
+func _pose_mail_bank(node: Node) -> void:
+	if node is MailBankProp:
+		var bank := node as MailBankProp
+		if bank.name == "LobbyMailBank":
+			bank._set_door(true)
+			return
+	for child in node.get_children():
+		_pose_mail_bank(child)
 
 
 func _pose_boilers(node: Node, _pose: String) -> void:

@@ -109,9 +109,30 @@ and 8 are partly done with named remainders. The building is fully
 walkable end to end — street, all seven storeys, basement, roof — and
 runs 112-161 fps at 1440p on an RTX 4080.
 
+## Arcade cabinets
+
+The machines in the bar are playable. They are not arcade cabinets — they
+are Vantry receiving furniture tuned to a broadcast this world has no
+transmitter for, ruled in `design/ORISON_BIBLE.md` VIII.5.g. Each is running
+a compiled first-person shooter. They are the same shooter — the world compiler at
+`C:\FPSengine01` proves it with `worldc invariance` before writing the catalog,
+and `res://tests/ArcadeTest.tscn` re-checks it here. Everything about them,
+including how to regenerate them, is in `game/docs/arcade_cabinets.md`.
+
+`game/assets/arcade/` is a **build output**. Regenerate it from that repository;
+never hand-edit the catalog, for the same reason you never hand-edit the layout
+JSONs.
+
 ## Known open items
 
 Nothing here blocks a build; these are the honest edges.
+
+- **Signal parlour.** Never played by a human — verified only headless and
+  by screenshot, so the panel's input path is unproven. The layout now
+  carries twelve machines, and twelve live 3D worlds has never been
+  profiled; machines never free their world once built. `.swcpkg` inclusion
+  in the export preset is untested and probably missing. Full list in
+  `game/docs/arcade_cabinets.md`.
 
 - **Lighting (phase 5 remainder).** Lightmap bake / GI fallback is not
   started. The light-leak pass is done (`door_glow.gd`) — under-door spill

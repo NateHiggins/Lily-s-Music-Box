@@ -1,12 +1,28 @@
 # Arcade cabinets
 
-The two machines in the retail bar are playable, and they are lying to you.
+The machines in the bar are playable, and they are lying to you — though not on
+purpose, which is worse.
 
-Each one boots a small first-person shooter. `SOMETHING IN THE HALL` sells itself
-as horror — "A STORY IN ONE SITTING", "HIDE · LISTEN · SURVIVE". `OPERATIONS`
-sells itself as a management sim — "HIRE · BUILD · BALANCE", forty weeks to break
-even. They are the same game. Same room, same colliders, same three waves, same
-weapon numbers, down to the byte.
+They are not arcade cabinets. There is no video game industry in this world.
+They are Vantry-descended receiving furniture with a coin box bolted on: Bakelite
+carcass, brass bezel, cloth-braided flex, a valve rack behind a service door, and
+a **circular long-persistence scope** where a screen would be. They are not
+playing a cartridge. There is no cartridge. They are **tuned** — and what they are
+tuned to is a broadcast this world has no transmitter for. The governing ruling is
+`design/ORISON_BIBLE.md` VIII.5.g; its precedent is WORS 1610 in §III, out of the
+laundry room, 1962 to 1999, transmitter never found.
+
+Each carries an enamel **programme card** in a lit frame. `SOMETHING IN THE HALL`
+is a mystery serial, not for children, one sitting. `THE LONG TALLY` is a farm and
+market report, prices on the half hour, no action sequences. They are the same
+programme. Same room, same colliders, same three waves, same weapon numbers, down
+to the byte.
+
+**Every machine is receiving the same signal.** That is the same line
+`broadcast_director.gd` already says about the televisions — one signal, one
+decode, every lit set tuned to the same interference. The cabinets rhyme with the
+sets deliberately; they are the same building doing the same thing in another
+room.
 
 That is the joke, and it is checked rather than asserted: the world compiler runs
 `worldc invariance` across all twelve compiled cabinets and refuses to write the
@@ -23,7 +39,7 @@ What lands here:
 
 ```
 game/assets/arcade/
-  arcade_cabinets.json      the catalog: 12 cabinets, their claims, their ROMs
+  arcade_cabinets.json      the catalog: 12 machines, their cards, their signals
   semantic_scene.json       the game, once
   packages/cab_*.swcpkg     one ROM per cabinet, ~1.25 MiB each  (~15 MiB total)
 ```
@@ -36,11 +52,12 @@ game/assets/arcade/
 | | |
 |---|---|
 | `scripts/arcade/swc_*.gd` | the ported runtime: package reader, scene loader, world builder, player, enemies, doors, pickups |
-| `scripts/arcade/arcade_machine.gd` | one cabinet's board — a SubViewport at 480×360 running one ROM |
+| `scripts/arcade/arcade_machine.gd` | one machine's board — a SubViewport at 480×360, plus the phosphor viewport |
 | `scripts/arcade/arcade_attract.gd` | the copy on the screen, straight from the cabinet's `cabinet_language` |
 | `scripts/arcade/arcade_catalog.gd` | reads `arcade_cabinets.json` |
 | `scripts/arcade/swc_held_object.gd` | the viewmodel and the projectile |
-| `scripts/props/arcade_cabinet_prop.gd` | live screen, marquee, glow, and the switch |
+| `shaders/scope_screen.gdshader` | the tube face: circular aperture, phosphor tint, sweep, graticule |
+| `scripts/props/arcade_cabinet_prop.gd` | live tube, programme card, panel controls, glow, the switch |
 | `scripts/building/arcade_row.gd` | walks the layout for `asm == "arcade_cab"` and fills each one |
 | `scripts/ui/arcade_panel.gd` | standing at the machine, playing it |
 | `tests/ArcadeTest.tscn` | boots all twelve, asserts one gameplay fingerprint |
@@ -60,10 +77,30 @@ carcass, coin door, vents, feet, control panel and three buttons into the merged
 floor mesh, in one of four silhouettes, and leaves the screen as flat dark
 `screen` material. Its own comment says the glow is the Godot prop's job.
 
-So `ArcadeCabinetProp` follows `TVProp`: it adds the live screen, the marquee
-artwork, the glow and the interaction, and nothing else. `_VARIANTS` in that file
-mirrors the Blender geometry per variant. **If `asm_arcade_cab` is edited, those
-numbers move with it.**
+So `ArcadeCabinetProp` follows `TVProp`: it adds the live tube face, the
+programme card, the glow, the panel's own controls and the interaction, and
+nothing else.
+
+**The picture is a round tube, and the trail is real.** `scope_screen.gdshader`
+discards outside the tube face, tints to one phosphor, and adds the sweep and the
+etched graticule. Persistence is *not* faked there — a fragment shader has no
+memory of the previous frame — so it is accumulated upstream in a second 2D
+viewport (`ArcadeMachine._build_phosphor`) that **never clears**: each frame a
+low-alpha black rect dims the glass, then the new frame blends over it. That is
+an exponential decay, which is what a phosphor is.
+
+**The tube has one phosphor**, chosen by chassis year: willemite yellow-green on
+the earliest boxes, the blue-white long-persistence radar coating on the last. The
+**unmarked** chassis show colour, which no coating available in 1927 can do.
+Nothing in the game explains that, and nothing should.
+
+**The panel controls are furniture.** A tuning dial, a telegraph key, a patch bay
+wired to nothing, a call bell, a foot pedal. Whatever is on the scope reads a
+stick and one button regardless — that is the joke made physical, and it is the
+same joke as the format on the card.
+
+`_VARIANTS` in `arcade_cabinet_prop.gd` mirrors the Blender geometry per variant.
+**If `asm_arcade_cab` is edited, those numbers move with it.**
 
 Two millimetre-level facts, both learned the hard way:
 
@@ -74,11 +111,11 @@ Two millimetre-level facts, both learned the hard way:
   surround 20 mm in front of the screen; a quad level with the glass is mostly
   behind that surround, which looks exactly like the feed not working.
 
-### Which game goes in which cabinet
+### Which programme goes in which machine
 
-`ArcadeRow` assigns from the catalog **genre-first**, not in catalog order. The
+`ArcadeRow` assigns from the catalog **format-first**, not in catalog order. The
 catalog is sorted by id, which is right for a build output and wrong for a room —
-the first two entries are both horror, and two horror cabinets side by side read
+the first two entries are both mystery serials, and two side by side read
 as one product line rather than as an industry.
 
 Adding a machine is an `arcade_cab` entry in `gen_layout.py`. It takes the next
@@ -86,8 +123,8 @@ unused genre in the catalog and nothing here changes.
 
 ### Talking to the building
 
-Cabinets are bound to the nearest acoustic-graph node within 14 m — both bar
-machines land on `F01_BAR_LT_DECK0`, the bar's electrical node, about 1.5 m away.
+Machines are bound to the nearest acoustic-graph node within 14 m — the bar pair
+land on `F01_BAR_LT_DECK0`, the bar's electrical node, about 1.5 m away.
 
 This is done explicitly in `ArcadeRow` because `building_root._spawn_props` only
 sets `graph_node_id` for props spawned from **markers**, and cabinets come from
@@ -101,8 +138,8 @@ The cabinet loses the picture before it loses the world.
 
 | infection | what you see |
 |---|---|
-| 0.0 | a clean picture of whatever game it claims to be |
-| 0.35 | the set is rolling, chroma splitting, flickering; the world is intact |
+| 0.0 | a clean picture of whatever programme the card claims |
+| 0.35 | the tube is rolling, the trace tearing, flickering; the world is intact |
 | 0.5 | the skin starts lifting off the world, entity by entity |
 | 0.85 | the object in the player's hands goes |
 | 1.0 | the authored graybox, under neutral light, identical on every machine |
@@ -123,18 +160,18 @@ they are gameplay. Only the tint does.
 
 ## Why the games look so different
 
-The cabinet's claimed genre reaches down into the compiled world and redresses
-it: a racing cabinet gets daylight, tarmac and guard rail; a management sim gets
-fluorescent tubes, suspended ceiling and carpet tile; a dance cabinet gets a black
-room and magenta rigging. It reaches lighting, palette, every material, the
+The card's claimed format reaches down into the compiled world and redresses it:
+a motor-racing card gets daylight, tarmac and guard rail; a farm-and-market card
+gets fluorescent tubes, suspended ceiling and carpet tile; a variety hour gets a
+black room and magenta rigging. It reaches lighting, palette, every material, the
 architecture, the bodies, and the object in the player's hands.
 
 It cannot reach the level. That is the entire design — the harder these skins
 work, the more the graybox underneath is worth revealing.
 
-The held object is the sharpest version of it. A management sim hands you a
-clipboard and you issue a **memo**; a racing cabinet hands you a wheel and it
-throws **sparks**; a dance cabinet hands you a microphone and it throws a
+The held object is the sharpest version of it. A farm-and-market card hands you a
+clipboard and you issue a **memo**; a motor-racing card hands you a wheel and it
+throws **sparks**; a variety hour hands you a microphone and it throws a
 **note**. All of them do 24 damage at 420 rounds per minute, hitscan, identical
 spread — the projectile is launched *after* the raycast has already resolved and
 applied damage, so it is chasing a decision rather than making one.

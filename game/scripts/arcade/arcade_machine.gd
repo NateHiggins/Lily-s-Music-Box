@@ -67,6 +67,7 @@ var _t := 0.0
 var _over_t := 0.0
 var _base_yaw := 0.0
 var _overlay: ArcadeAttract = null
+var _phosphor: SubViewport = null
 var _environment: WorldEnvironment = null
 var _dressed_environment: Environment = null
 var _lights: Array[OmniLight3D] = []
@@ -159,6 +160,7 @@ func boot(entry: Dictionary, catalog_dir: String) -> bool:
 	_overlay = ArcadeAttract.new()
 	add_child(_overlay)
 	_overlay.configure(cabinet)
+	_build_phosphor()
 
 	_enter(State.ATTRACT)
 	return true
@@ -268,6 +270,49 @@ func _graybox_environment() -> Environment:
 	return environment
 
 
+## The tube face: this board's picture with a phosphor's memory of it.
+##
+## A long-persistence scope keeps showing a bright trace for a second after the
+## thing that made it has gone (ORISON_BIBLE VIII.5.g). That cannot be done in a
+## fragment shader, which sees one frame and has no memory of the last - so it is
+## accumulated here instead, in a 2D viewport that **never clears**:
+##
+##   each frame  a low-alpha black rect dims whatever is already on the glass
+##               then the new frame is blended over it
+##
+## which is an exponential decay, which is what a phosphor is. Cheap: one 2D
+## viewport per machine, drawing two full-screen rects.
+func _build_phosphor() -> void:
+	_phosphor = SubViewport.new()
+	_phosphor.name = "Phosphor"
+	_phosphor.size = RES
+	_phosphor.transparent_bg = false
+	_phosphor.render_target_clear_mode = SubViewport.CLEAR_MODE_NEVER
+	_phosphor.render_target_update_mode = SubViewport.UPDATE_DISABLED
+	add_child(_phosphor)
+
+	# Drawn first: the decay. Raise its alpha for a shorter trail.
+	var decay := ColorRect.new()
+	decay.name = "Decay"
+	decay.color = Color(0.0, 0.0, 0.0, 0.22)
+	decay.size = RES
+	_phosphor.add_child(decay)
+
+	# Drawn second: this frame, partially, so it accumulates rather than replaces.
+	var live := TextureRect.new()
+	live.name = "Live"
+	live.texture = get_texture()
+	live.size = RES
+	live.modulate = Color(1.0, 1.0, 1.0, 0.78)
+	_phosphor.add_child(live)
+
+
+## What the tube is showing, trail and all. This is what the prop hangs on the
+## glass; `get_texture()` is the raw board behind it.
+func scope_texture() -> ViewportTexture:
+	return _phosphor.get_texture() if _phosphor != null else get_texture()
+
+
 ## Whether this machine has built its world yet.
 func is_booted() -> bool:
 	return _built
@@ -278,6 +323,10 @@ func set_live(live: bool) -> void:
 	render_target_update_mode = (
 		SubViewport.UPDATE_ALWAYS if live else SubViewport.UPDATE_DISABLED
 	)
+	if _phosphor != null:
+		_phosphor.render_target_update_mode = (
+			SubViewport.UPDATE_ALWAYS if live else SubViewport.UPDATE_DISABLED
+		)
 	if _built:
 		player.set_physics_process(live)
 		player.set_process(live)

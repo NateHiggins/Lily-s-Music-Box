@@ -453,6 +453,80 @@ look forty years early — black Bakelite, cloth cord, a battery case that
 sags the pocket it lives in. Everything else on every body in the
 building is 1927 and probably second-hand.
 
+**VIII.5.g — THE AMUSEMENT MACHINES ARE RECEIVERS.** *(Ruled 2026-08-09,
+at the owner's direction. Governs the Harukiya's cabinets and any machine
+like them.)*
+
+There is no arcade in this world, because there is no video game industry
+in this world. There is a **signal parlour**, and what stands in the
+Harukiya's entrance corner are two pieces of Vantry-descended receiving
+furniture that somebody has put a coin slot on.
+
+**The chassis is 1927 and the programme is not.** That split is the whole
+object, and it is the Rule of Signal and the purgatory doing their
+separate jobs in one machine:
+
+- **The cabinet obeys VIII.4 without exception.** Bakelite carcass, brass
+  bezel, cloth-braided flex, a valve rack behind a hinged service door
+  with a schematic pasted inside the lid, wet cells in the base because
+  nothing here is portable that does not have to be. No aluminium, no
+  stainless, no injection-moulded colour. It carries, switches and
+  reproduces a signal, so it is beautifully made and forty years early —
+  and per Accord 9 it is also twenty years old, repaired by four people,
+  and standing on a floor that slopes.
+- **The picture is a circular scope**, not a rectangle. Long-persistence
+  phosphor, so movement smears and stops smearing; a bright thing leaves a
+  trail across the glass for a second after it has gone. This is the
+  period's actual display technology and it is worth more than any
+  distress effect: nothing dates a picture like the shape of its frame.
+- **What is on the scope came from somewhere else.** The machines are not
+  playing a cartridge. There is no cartridge. They are **tuned**, and what
+  they are tuned to is a broadcast this world does not have a transmitter
+  for.
+
+**A few of the boxes show colour, and their plates are blank.** Most tubes on
+the row are one phosphor — willemite yellow-green on the earliest, the
+blue-white long-persistence coating on the last of them — because that
+is what a tube of this vintage is. Three machines in the parlour show
+the picture in its own colours, which no coating available in 1927 can
+do. Those are the ones with no maker's date stamped on the chassis, and
+nobody working the room can say where they came from. **Do not explain
+this anywhere in the game.** It is the same answer the building already
+gives about the station in the laundry.
+
+**The precedent is already in III: WORS 1610, out of the laundry room,
+1962 to 1999, transmitter never found.** The cabinets are the same
+phenomenon with a coin box on it. Time is not passing here; things arrive
+anyway, and they arrive without a date on them. A machine built in 1919
+receiving a programme from 1987 is not a contradiction in a building where
+the year does not advance — it is Tuesday.
+
+**Every cabinet is receiving the same signal.** This is the joke and it is
+also the horror, and it is the line `broadcast_director.gd` already says
+about the televisions: *one signal, one decode, every lit set in the
+building tuned to the same interference.* The cabinets rhyme with the
+sets deliberately. They are the same building doing the same thing in a
+different room.
+
+The **programme card** — enamel on steel, in a lit frame above the scope,
+the one part of the machine anybody ever looks at — says what station it
+is tuned to and what is on. THE MIDNIGHT CORRESPONDENT, a mystery serial.
+THE LONG TALLY, a farm and market report. Each card promises a different
+programme in a different voice from a different decade.
+
+They are the same programme. A player who works that out has understood
+something true about the building, and nothing in the machine will ever
+confirm it — the cards do not break character, there is no service screen
+that admits it, and the schematic inside the lid is genuine. **The
+machines are not lying. They believe their cards.** Whatever is
+transmitting is the thing that is lying, and it is not in the room.
+
+When the infection reaches a cabinet the picture goes before the
+programme does: the scope rolls, the trace smears, the card stays lit and
+confident. Only at the very end does the dressing come off what is being
+received, and underneath it two machines that claimed different stations
+turn out to be showing the identical grey room.
+
 ### VIII.6 What this does not license
 
 **The divergence is not a licence for anachronism at will.** The rule of

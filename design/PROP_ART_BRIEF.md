@@ -184,8 +184,8 @@ renders, pipeline notes and validation results live in
 
 ### Second — read closely, touched often
 
-9. **[COMPLETE]** `kettle_prop`, `medicine_cabinet_prop`, `clock_prop`;
-   **[NEXT]** `mail_bank_prop`; then `bookshelf_prop`, `door_prop`.
+9. **[COMPLETE]** `kettle_prop`, `medicine_cabinet_prop`, `clock_prop`,
+   `mail_bank_prop`; **[NEXT]** `bookshelf_prop`; then `door_prop`.
 
 ### Third — a lighter pass
 

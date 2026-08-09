@@ -40,7 +40,7 @@ MAPPING = os.path.join(ROOT, "art", "textures", "catalog_mapping.json")
 STATE = os.path.join(OUT, ".ingest_state.json")
 # Bump only when the processing algorithm changes. Recipe and source changes
 # are fingerprinted separately, so adding one plate never rebakes the building.
-PIPELINE_VERSION = 2
+PIPELINE_VERSION = 3
 
 # source file -> (catalog keys, meters_per_tile, rough_base, rough_span,
 #                 normal_strength)
@@ -392,7 +392,13 @@ ANCHOR_STRENGTH = 0.5
 
 
 def anchor_color(albedo, key):
-    hexa = COLOR_ANCHORS.get(key)
+    # A synthesized member is still the same material.  Looking up
+    # plaster_stained_b literally used to miss plaster_stained's anchor, so
+    # the base was pulled toward the approved colour while its neighbours
+    # were left at the generator's darker mean.  Cycling that family per
+    # storey made the building change exposure at every landing.
+    base_key = re.sub(r"_[bcd]$", "", key)
+    hexa = COLOR_ANCHORS.get(key, COLOR_ANCHORS.get(base_key))
     if not hexa:
         return albedo
     target = np.array([int(hexa[i:i + 2], 16) / 255.0
@@ -601,6 +607,14 @@ ROT_OK = {"concrete_cellar", "plaster_aged", "plaster_stained",
 NO_VARIANTS = set(GODOT_STAGE) | {"rug_cool", "rug_green"}
 MAX_FAMILY = 4
 
+# A broad value change in one of these albedos is not patina.  It is baked
+# illumination, and world projection repeats it as a bright square every tile.
+# Patterned masonry and tile are deliberately absent: their legitimate module
+# would fail a flat-surface test and teach the next person to disable the test.
+FLAT_ARCH_SLOTS = {"concrete_cellar", "plaster_aged", "plaster_stained"}
+FLAT_COARSE_RANGE_MAX = 0.020
+FAMILY_MEAN_SPREAD_MAX = 0.020
+
 
 def _vrng(key, i):
     return np.random.default_rng(zlib.crc32(("%s#%d" % (key, i)).encode()))
@@ -611,6 +625,34 @@ def _low_noise(rng, size, cells=5):
     img = Image.fromarray((g * 255).astype(np.uint8)).resize(
         (size, size), Image.BICUBIC)
     return np.asarray(img, dtype=np.float32) / 255.0
+
+
+def _match_mean(a, reference):
+    """Match family colour without changing local material contrast."""
+    target = reference.reshape(-1, 3).mean(axis=0)
+    current = a.reshape(-1, 3).mean(axis=0)
+    return np.clip(a + (target - current)[None, None, :], 0.0, 1.0)
+
+
+def _coarse_luma_range(a, cells=8):
+    """Range of block means: the grid global standard deviation misses."""
+    lum = (a[..., 0] * 0.2126 + a[..., 1] * 0.7152 + a[..., 2] * 0.0722)
+    h, w = lum.shape
+    means = [float(lum[y * h // cells:(y + 1) * h // cells,
+                        x * w // cells:(x + 1) * w // cells].mean())
+             for y in range(cells) for x in range(cells)]
+    return max(means) - min(means)
+
+
+def _finish_variant(v, base):
+    """Synthesis happens after prep, so restore prep's guarantees afterward."""
+    # Regional masks and the old value jitter were not periodic.  A candidate
+    # could therefore enter synthesis seamless and leave it with two different
+    # edges.  Flatten again before the final wrap, for the same ordering reason
+    # documented in prep().
+    v = flatten_lighting(v)
+    v = make_tileable(v)
+    return _match_mean(v, base)
 
 
 def _blur(a, radius):
@@ -632,13 +674,14 @@ def synthesize_family(slot, key, candidates):
         rng = _vrng(key, i + 1)
         if grid or n == 1:
             v = base.copy()
-            if i % 2 == 1 or n == 1:
-                # half turn: legal for any module, breaks repetition
+            if n == 1 and not grid and slot in ROT_OK:
+                # A single honest plate can still break landmark alignment by
+                # turning.  It cannot honestly become another plate by having
+                # a five-cell exposure field multiplied over it.
+                v = np.rot90(v, 2 if i == 0 else 1).copy()
+            elif i % 2 == 1:
+                # Half turn is legal for a module and preserves its spacing.
                 v = v[::-1, ::-1].copy()
-            jit = 0.90 + 0.14 * _low_noise(rng, size)[..., None]
-            v = np.clip(v * jit, 0, 1)
-            if not grid and slot in ROT_OK and i == 2:
-                v = np.rot90(v).copy()
         else:
             other = candidates[1 + (i % (n - 1))]
             if other.shape != base.shape:
@@ -660,8 +703,35 @@ def synthesize_family(slot, key, candidates):
                 v = np.clip(lo + (other - o_lo), 0, 1)
             if slot in ROT_OK and rng.random() < 0.5:
                 v = np.rot90(v, 1 + int(rng.random() * 3)).copy()
-        out.append(("_" + "bcd"[i], np.clip(v, 0, 1)))
+        out.append(("_" + "bcd"[i], _finish_variant(
+            np.clip(v, 0, 1), base)))
     return out
+
+
+def validate_family(slot, key, base, family):
+    """Refuse variants whose repetition will become more visible than grain."""
+    members = [(key, anchor_color(base, key))]
+    members.extend((key + suffix, anchor_color(albedo, key + suffix))
+                   for suffix, albedo in family)
+    means = []
+    for member_key, albedo in members:
+        lum = (albedo[..., 0] * 0.2126 + albedo[..., 1] * 0.7152
+               + albedo[..., 2] * 0.0722)
+        means.append(float(lum.mean()))
+        if slot in FLAT_ARCH_SLOTS:
+            coarse = _coarse_luma_range(albedo)
+            if coarse > FLAT_COARSE_RANGE_MAX:
+                raise SystemExit(
+                    "%s coarse luma range %.4f exceeds flat-surface %.4f"
+                    % (member_key, coarse, FLAT_COARSE_RANGE_MAX))
+    # Compare the widest pair, not each member to base: two legal-looking
+    # deviations on opposite sides otherwise make an illegal neighbour pair.
+    relative_spread = (max(means) - min(means)) / max(means[0], 1e-4)
+    if relative_spread > FAMILY_MEAN_SPREAD_MAX:
+        raise SystemExit(
+            "%s family mean spread %.2f%% exceeds %.2f%%"
+            % (key, relative_spread * 100.0,
+               FAMILY_MEAN_SPREAD_MAX * 100.0))
 
 def _collect_sources():
     """Return candidate groups without opening or decoding any image."""
@@ -871,12 +941,12 @@ def main() -> None:
         albedos = [prep(stem, fname, slot) for _, stem, fname in cands]
         base = albedos[0]
         for key in keys:
+            fam = [] if slot in COMPOSITION or key in NO_VARIANTS \
+                    else synthesize_family(slot, key, albedos)
+            validate_family(slot, key, base, fam)
             write_set(key, base, metres, rough_base, rough_span,
                       strength, cands[0][1])
             mapping[key] = "ai_materials/%s" % key
-            if slot in COMPOSITION or key in NO_VARIANTS:
-                continue
-            fam = synthesize_family(slot, key, albedos)
             for sfx, alb in fam:
                 write_set(key + sfx, alb, metres, rough_base, rough_span,
                           strength, cands[0][1] + sfx)

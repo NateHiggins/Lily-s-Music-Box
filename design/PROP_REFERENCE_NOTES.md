@@ -14,8 +14,8 @@ Evidence labels used below:
 
 ## Review progress — 2026-08-09
 
-The ordered brief contains **24 review families**. **Eleven are complete
-(46%)**: all eight first-priority/gameplay families and the first three
+The ordered brief contains **24 review families**. **Twelve are complete
+(50%)**: all eight first-priority/gameplay families and the first four
 second-priority families. Every completed family has a reference comparison,
 model and runtime-material pass, warehouse and installed renders, generated
 data synchronized after the final edit, and automated validation.
@@ -23,17 +23,18 @@ data synchronized after the final edit, and automated validation.
 | Priority | Complete | Remaining |
 |---|---:|---:|
 | First — carries a game | **8 / 8** | none |
-| Second — touched often | **3 / 6** | `mail_bank_prop`, `bookshelf_prop`, `door_prop` |
+| Second — touched often | **4 / 6** | `bookshelf_prop`, `door_prop` |
 | Third — lighter pass | **0 / 10** | all ten |
-| **Total** | **11 / 24** | **13** |
+| **Total** | **12 / 24** | **12** |
 
 Completed in review order: `fridge_prop`, `stove_prop`, `tap_prop`,
 `toaster_prop`, `radiator_prop`, `boiler_prop`, `washer_prop` with
 `laundry_airer_prop`, `vantry_point_prop`, `kettle_prop`,
 `medicine_cabinet_prop`, and `clock_prop` with the domestic witness clocks.
+The fourth second-priority family is `mail_bank_prop`.
 
-**Next:** `mail_bank_prop`. Its review begins only after reading its activity
-and checking both the warehouse specimen and the installed lobby bank. The
+**Next:** `bookshelf_prop`. Its review begins only after reading its activity
+and checking both the warehouse specimen and the installed room families. The
 mesh-count sweep identified `stove_prop` as a later optimization candidate,
 but it is not reopened unless performance work is explicitly scheduled.
 
@@ -1320,3 +1321,106 @@ p90 **122.4** despite the intentionally black wall backers.
   completed with exit code 0.
 - LightingAudit: **PASS** for all **127 spaces**, including the 11 spaces
   intentionally classified as ambient/dark.
+
+## `mail_bank_prop` — the lobby tenant bank
+
+### What the real object was
+
+The Orison calls the bank Cutler-descended, but Cutler's 1920 Model F is the
+large receiving box at the foot of a mail chute, not the tenant compartments
+above it. The useful subtype is S. H. Couch's 1915 apartment-house bank:
+inclined sheet-metal pockets behind one faceplate, horizontally swinging
+tenant leaves on a common concealed hinge, an upper gravity delivery flap,
+glass identification window and keyed cylinder. Francis Keil's 1889 catalogue
+corroborates the long, low bronze-box proportion and the wood mounting frame.
+The bank carries no signal, so this is ordinary 1912 hardware still working in
+1927—not Divergence technology. **HISTORICAL; CANONICAL.**
+
+Sources:
+
+- Smithsonian National Postal Museum, [Cutler Model F mailbox, 1920](https://postalmuseum.si.edu/object/npm_0.279485.1.1)
+- S. H. Couch, [US1173961A apartment-house letter box, filed 1915](https://patents.google.com/patent/US1173961A/en)
+- Francis Keil, [Illustrated catalogue of apartment-house letter boxes, 1889](https://upload.wikimedia.org/wikipedia/commons/d/d7/Illustrated_catalogue..._%28IA_illustratedcatal00keil%29.pdf)
+
+### What we inherited
+
+- Twenty-four 240 x 200 mm nearly square doors made the wall read as a safe-
+  deposit bank. Every leaf carried body, bevel, card, frame and lock as a
+  separate draw—roughly 149 meshes for one static lobby elevation.
+- The absolute card and lock dimensions happened to fit the old 148 mm leaf;
+  shrinking the cell without re-deriving them would have floated both off it.
+- There was no carrier insertion flap and no inclined-pocket read. All twenty-
+  four cards implied occupied households, although only eighteen units have
+  resident profiles.
+- The bank overlapped the built Vantry master at `(5.225, -8.970, 1.95)` and
+  the separately hard-coded post tray could not follow a placement change.
+- The 4B hinge inherited a room-side sign error. The first after render showed
+  the cavity but not the leaf: it had swung into the wall.
+- `MailBankProp` was absent from the warehouse registry. Source inspection
+  therefore had no flat-light silhouette or one-metre-grid comparison at all.
+
+### Built result
+
+The elevation is now a 4 x 6 Couch-pattern array of 310 x 140 mm cells, with
+its base at 0.92 m and box 4B centred at the five-foot worker's 1.41 m eye
+line. Carrier flaps live in the shared faceplate above the occupied leaves;
+each leaf has room only for its glass card and low keyed cylinder. Six units
+without resident profiles—1B, 1C, 2D, 3C, 5D and 6D—remain literal recessed
+dark gaps rather than invented tenants.
+
+The sole functional leaf, 4B, opens 95 degrees into the lobby and reveals the
+existing delivery contents. Delivery gates, upgrades, dialogue, persistence
+and Dead Letters are unchanged. The bank centre is the measured Blender
+`y = -7.88`; the tray derives from it at `+0.48`, while the layout-owned clock
+stays untouched. Closed bank, open sweep, tray, clock and worker standing lane
+all clear independently.
+
+The 17 fixed occupied doors, six empty pockets, shared faceplate hardware and
+surround merge by material. Seventeen fixed name cards bake their atlas regions
+into vertex UVs under one material; the first render caught and corrected the
+back-face U reversal. The closed bank is **13 meshes**, removing roughly 136
+from the lobby. `MailBankProp` now inherits the ordinary prop base solely so it
+can enter the review registry; it does not join a propagation network. The
+warehouse infers its wall datum generically because its complete depth lies
+behind local origin, preserving the rule that a prop describes its own mount.
+
+### Materials and texture prompt batch
+
+No new material key and no texture batch. `oak_quartered`, `brass_dull`,
+`brass_bright` and `paper` already have valid runtime paths. The placed card
+and header atlases retain necessary authored lettering; `paper` remains on its
+older library path and is deliberately not duplicated through `GODOT_STAGE`.
+
+### Render evidence
+
+Before:
+
+- Installed lobby bank — `C:/PleaseRemainOnTheLine/art/renders/mail_bank_review/before/b_43_mail_bank.png`
+- Warehouse — unavailable by construction: the prop was absent from the
+  registry, which was itself a review defect.
+
+After:
+
+- Flat-light warehouse specimen — `C:/PleaseRemainOnTheLine/art/renders/mail_bank_review/after/warehouse/warehouse_mail_bank.png`
+- Installed, closed — `C:/PleaseRemainOnTheLine/art/renders/mail_bank_review/after/installed_closed/stand_3.2_1.45_7.55_-99_5.png`
+- Installed, 4B open — `C:/PleaseRemainOnTheLine/art/renders/mail_bank_review/after/installed_open/stand_3.2_1.45_7.55_-99_5.png`
+- Installed, 4B open detail — `C:/PleaseRemainOnTheLine/art/renders/mail_bank_review/after/installed_open_detail/stand_4.0_1.42_7.20_-123_0.png`
+
+The installed closed/open bank crops measure median RGB/luma
+**(99,57,40)/64.6** and **(92,55,38)/61.7**. The flat-light warehouse crop is
+**(157,120,83)/125.5**, with luma p90 **176.3**; the details are present rather
+than accepted by brightening a dark frame by eye.
+
+### Validation
+
+- `MailBankTest`: **PASS**. It verifies 24 addresses, 18 occupied boxes, six
+  empty slots, faceplate flaps, 4B height and 95-degree room-side motion, the
+  13-mesh cap, every delivery gate, persistence and upgrade grant.
+- FAST WalkTest: **PASS**. It verifies measured placement, derived tray,
+  master-clock clearance, open sweep and worker standing lane.
+- FULL WalkTest reached **PASS** in **63.8 wall-clock seconds** with every mail
+  assertion green. The run also reported parse errors from concurrent,
+  unrelated uncommitted `arcade_cabinet_prop.gd` work; that file was not
+  changed or folded into this pass.
+- LightingAudit: **PASS** for all **127 spaces**, including 11 intentionally
+  ambient/dark spaces.

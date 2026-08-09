@@ -15,12 +15,31 @@ func _ready() -> void:
 	var bank := MailBankProp.new()
 	add_child(bank)
 	await get_tree().process_frame
+	var geometry := bank.inspection_state()
+	_check(int(geometry.address_count) == 24
+			and int(geometry.card_count) == 18
+			and int(geometry.fixed_door_count) == 17,
+			"twenty-four addresses display only eighteen occupied boxes")
+	_check(int(geometry.empty_slot_count) == 6,
+			"six apartments without resident profiles remain empty gaps")
+	_check(int(geometry.carrier_flap_count) == 18,
+			"only occupied Couch compartments have carrier flaps")
+	_check(absf(float(geometry.player_center_y) - 1.41) < 0.001,
+			"box 4B remains centred at the five-foot worker's eye line")
+	_check(absf(float(geometry.open_angle_deg) - 95.0) < 0.001,
+			"working leaf uses the ruled ninety-five-degree stop")
+	_check(int(geometry.mesh_count) <= 16,
+			"closed bank stays within sixteen visible meshes (%d)" %
+			int(geometry.mesh_count))
 
 	_check(bank.pending().size() == 2, "day one: two always-deliveries wait")
 	_check("2 waiting" in bank.interact_prompt(),
 			"the closed door counts its mail")
 	bank.interact(null)
 	_check(bank.door_open, "interacting opens the 4B door")
+	await get_tree().create_timer(0.45).timeout
+	_check(absf(rad_to_deg(bank._hinge.rotation.y) - 95.0) < 0.2,
+			"4B leaf reaches its physical open stop")
 	bank._panel.choose(0)  # take the welcome note
 	bank._panel.choose(0)  # take the hum notice, offered immediately after
 	_check(bank.pending().is_empty(), "both letters taken")

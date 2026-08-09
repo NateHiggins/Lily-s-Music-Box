@@ -95,3 +95,6 @@ phoneos/apps/*/android/
 phoneos/apps/*/AndroidManifest.xml
 phoneos/apps/*/java/
 phoneos/apps/*/res/
+# Local fingerprints for the incremental material ingester. Source mtimes are
+# intentionally machine-local; generated texture outputs remain versioned.
+art/textures/ai_materials/.ingest_state.json

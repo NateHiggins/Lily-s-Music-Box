@@ -211,6 +211,7 @@ func _run() -> void:
 	_prop_mesh_and_boiler_checks()
 	_medicine_cabinet_checks()
 	_clock_checks()
+	_mail_bank_checks()
 	_shop_static_checks()
 	if not _full:
 		await _finish("FAST")
@@ -2103,6 +2104,44 @@ func _clock_checks() -> void:
 			"4C's two residents spend separate wall and furniture budgets (%s/%s)"
 			% [placements["cam_tilted_room"].mounting,
 			placements["noel_domestic_museum"].mounting])
+
+
+func _mail_bank_checks() -> void:
+	var bank := root.find_child("LobbyMailBank", true, false) as MailBankProp
+	var tray := root.find_child("LobbyPostTray", true, false) as Node3D
+	var master := root.get_node_or_null("F01_LOBBY_CLOCK_01") as ClockProp
+	_check(bank != null and tray != null and master != null,
+			"mail bank, post tray and measured lobby master all exist")
+	if bank == null or tray == null or master == null:
+		return
+	var state := bank.inspection_state()
+	_check(int(state.address_count) == 24 and int(state.card_count) == 18
+			and int(state.empty_slot_count) == 6,
+			"mail elevation keeps six residentless apartments visibly empty")
+	_check(absf(bank.global_position.z - 7.88) < 0.01,
+			"Couch bank occupies its measured east-wall centre")
+	_check(absf(tray.global_position.z - 7.40) < 0.01,
+			"post tray derives from and follows the bank centre")
+	_check(absf(float(state.player_center_y) - 1.41) < 0.001,
+			"4B box stays readable at the five-foot player's eye line")
+	_check(int(state.mesh_count) <= 16,
+			"batched closed bank stays at or below sixteen meshes (%d)" %
+			int(state.mesh_count))
+	_check(_world_visual_aabb(bank).grow(0.015).intersects(
+			_world_visual_aabb(master)) == false,
+			"wider bank clears the Vantry master clock")
+	var local_sweep: AABB = state.open_sweep
+	var sweep: AABB = bank.global_transform * local_sweep
+	_check(not sweep.intersects(_world_visual_aabb(master).grow(0.02)),
+			"4B's wider open leaf clears the master clock")
+	_check(not sweep.intersects(_world_visual_aabb(tray).grow(0.02)),
+			"4B's wider open leaf clears the sorting tray")
+	# A 0.70 m-deep standing lane remains in front of the sweep; checking the
+	# open pose matters because the new leaf reaches 70 mm farther than its
+	# predecessor even though the closed elevation is shallower.
+	var stand := bank.global_position + Vector3(-0.80, 1.41, 0.0)
+	_check(not sweep.grow(0.05).has_point(stand),
+			"open box leaves a full worker standing lane in the lobby")
 
 
 func _cabinet_sweep_point_clear(cabinet: MedicineCabinetProp,

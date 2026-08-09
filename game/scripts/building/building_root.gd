@@ -54,6 +54,10 @@ const PROP_SCRIPTS := {
 	"cage_bulb": preload("res://scripts/props/light_fixture_prop.gd"),
 	"chandelier": preload("res://scripts/props/light_fixture_prop.gd"),
 	"eye_pendant": preload("res://scripts/props/light_fixture_prop.gd"),
+	# Spawned from `furniture`, not from a marker, so nothing here will ever
+	# instantiate it for the building - it is registered so the inspection shed
+	# can show the four chassis. See arcade_row.gd for how the real ones arrive.
+	"arcade_cabinet": preload("res://scripts/props/arcade_cabinet_prop.gd"),
 	"neon_sign": preload("res://scripts/props/neon_sign_prop.gd"),
 	"bodega_signage": preload("res://scripts/props/bodega_signage_prop.gd"),
 	"bar_signage": preload("res://scripts/props/harukiya_signage_prop.gd"),
@@ -66,6 +70,9 @@ const PROP_SCRIPTS := {
 			"res://scripts/props/songbook_terminal_prop.gd"),
 	"darts": preload("res://scripts/props/darts_prop.gd"),
 	"point_ball": preload("res://scripts/props/point_ball_prop.gd"),
+	# Architectural hardware has no layout marker, but the warehouse registry
+	# is a catalog of things worth judging, not only things marker-spawned.
+	"mail_bank": preload("res://scripts/props/mail_bank_prop.gd"),
 }
 const HEAT_BALANCE_SCRIPT := preload("res://scripts/props/heat_balance.gd")
 const BOILER_TEND_SCRIPT := preload("res://scripts/props/boiler_tend.gd")
