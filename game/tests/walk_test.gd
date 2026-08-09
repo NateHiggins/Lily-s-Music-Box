@@ -210,6 +210,7 @@ func _run() -> void:
 	_vantry_checks()
 	await _boxfan_checks()
 	_exhaust_fan_checks()
+	_flue_breast_checks()
 	_prop_mesh_and_boiler_checks()
 	_medicine_cabinet_checks()
 	_clock_checks()
@@ -2057,6 +2058,53 @@ func _exhaust_fan_checks() -> void:
 		_check(fans[0].is_running(),
 				"roof motor opens its gravity louver with the running cycle")
 		fans[0].set_running(false, true)
+
+
+func _flue_breast_checks() -> void:
+	var fittings: Array[FlueBreastProp] = []
+	var total_meshes := 0
+	var max_meshes := 0
+	var ids_unchanged := true
+	var metadata_clean := true
+	var seated := true
+	for child in root.get_children():
+		if child is FlueBreastProp:
+			var fitting := child as FlueBreastProp
+			fittings.append(fitting)
+			var meshes := _count_meshes(fitting)
+			total_meshes += meshes
+			max_meshes = maxi(max_meshes, meshes)
+			var fid := "F0%s" % fitting.unit.left(1)
+			var expected_id := "%s_FLUE_BREAST" % fid
+			ids_unchanged = ids_unchanged and String(fitting.name) == expected_id
+			var graph_data: Dictionary = AcousticGraphData.nodes.get(
+					expected_id, {})
+			metadata_clean = metadata_clean \
+					and String(graph_data.get("room", "")) == fitting.unit \
+					and String(graph_data.get("network", "")) == "flue" \
+					and AcousticGraphData.neighbors(expected_id).has("%s_FLUE" % fid)
+			var floor_y := float(root.layout.meta.levels.get(fid, 0.0))
+			var expected := GameBoot.b2g([10.0, 9.10, floor_y])
+			seated = seated and fitting.global_position.distance_to(expected) < 0.012
+	_check(fittings.size() == 5,
+			"five C-stack bedrooms retain sealed chimney thimbles")
+	_check(ids_unchanged,
+			"flue marker ids remain the unchanged acoustic binding keys")
+	_check(metadata_clean,
+			"flue graph carries real 2C-6C metadata on the unchanged ids")
+	_check(seated, "every thimble is seated on the masonry breast face")
+	_check(max_meshes <= 3 and total_meshes <= 15,
+			"sealed thimbles stay at three meshes each / 15 total (%d / %d)" %
+			[max_meshes, total_meshes])
+	if not fittings.is_empty():
+		var cap := fittings[0].get_node_or_null("ClosurePlate") as Node3D
+		fittings[0].set_knock_pose(0.0)
+		var rest_z := cap.position.z if cap else 0.0
+		fittings[0].set_knock_pose(1.0)
+		var moved_z := cap.position.z if cap else 0.0
+		_check(cap != null and absf(moved_z - rest_z - -0.003) < 0.0001,
+				"knock settle retains its render-ruled three-millimetre evidence pose")
+		fittings[0].set_knock_pose(0.0)
 
 
 func _graph_reachable(origin: String) -> Dictionary:

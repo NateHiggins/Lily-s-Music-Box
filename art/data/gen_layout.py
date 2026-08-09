@@ -2738,9 +2738,16 @@ def build_floor(floor_id):
     core_rooms(floor_id, z, rooms, furniture)
     chimney_block(floor_id, z, walls)
     porch(floor_id, z, furniture)
+    # The masonry is CHIMNEY; this marker is only the sealed room-side
+    # thimble.  The old y=8.95 floated its 30 mm plate 150 mm in front of the
+    # breast's south face at CHIMNEY[1].  Keep the marker ID unchanged — it is
+    # the runtime acoustic binding key — while correcting the household and
+    # room metadata that used to be the nonexistent hybrid "F02C".
     markers.append({"kind": "flue_breast", "id": "%s_FLUE_BREAST" % floor_id,
-                    "unit": floor_id + "C",
-                    "pos": [10.0, 8.95, z], "yaw_deg": 180, "network": "flue"})
+                    "unit": unit_name(floor_id, "C"),
+                    "room": "%s_C_BED2" % floor_id,
+                    "pos": [10.0, CHIMNEY[1], z], "yaw_deg": 180,
+                    "network": "flue"})
     if floor_id in ("F02", "F03", "F04", "F05", "F06"):
         markers.append({"kind": "porch_deck",
                         "id": "%s_PORCH_DECK" % floor_id,
@@ -6410,6 +6417,7 @@ def validate(layout):
     problems += _validate_kettles(layout)
     problems += _validate_boxfans(layout)
     problems += _validate_ventilation(layout)
+    problems += _validate_flue_fittings(layout)
     problems += _validate_ceilings(layout)
     problems += _validate_shop_interiors(layout)
     problems += life_pass(layout["floors"])
@@ -6482,6 +6490,92 @@ def _validate_ventilation(layout):
         if point and math.hypot(float(reg["pos"][0]) - float(point["pos"][0]),
                                 float(reg["pos"][1]) - float(point["pos"][1])) < 0.24:
             problems.append("%s crowds its Vantry point" % reg["id"])
+    return problems
+
+
+def _validate_flue_fittings(layout):
+    """Five sealed thimbles stay seated, named and clear at head height.
+
+    Marker ID is deliberately NOT derived from the corrected room/unit.  It is
+    the runtime graph binding key, and renaming it would leave a beautiful
+    fitting that never answers the flue.
+    """
+    problems = []
+    floors = {fl["id"]: fl for fl in layout["floors"]}
+    expected = {fid: (unit_name(fid, "C"), "%s_C_BED2" % fid)
+                for fid in ("F02", "F03", "F04", "F05", "F06")}
+    found = []
+    for fl in layout["floors"]:
+        found.extend((fl, m) for m in fl.get("markers", [])
+                     if m.get("kind") == "flue_breast")
+    if len(found) != 5:
+        problems.append("flue fittings expected five owners, got %d" % len(found))
+    for fid, (unit, room_id) in expected.items():
+        fl = floors.get(fid, {})
+        marker = next((m for m in fl.get("markers", [])
+                       if m.get("kind") == "flue_breast"), None)
+        if marker is None:
+            problems.append("%s has no sealed flue fitting" % fid)
+            continue
+        expected_id = "%s_FLUE_BREAST" % fid
+        if marker.get("id") != expected_id:
+            problems.append("%s binding id changed to %s" %
+                            (expected_id, marker.get("id")))
+        if marker.get("unit") != unit or marker.get("room") != room_id:
+            problems.append("%s has unit/room %s/%s, expected %s/%s" %
+                            (expected_id, marker.get("unit"), marker.get("room"),
+                             unit, room_id))
+        if not any(r.get("id") == room_id for r in fl.get("rooms", [])):
+            problems.append("%s names missing bedroom %s" % (expected_id, room_id))
+        pos = marker.get("pos", [])
+        if (len(pos) < 3 or abs(float(pos[0]) - 10.0) > 0.001 or
+                abs(float(pos[1]) - float(CHIMNEY[1])) > 0.001 or
+                abs(float(pos[2]) - float(fl.get("z", 0.0))) > 0.001):
+            problems.append("%s is not seated on the chimney face" % expected_id)
+            continue
+        # 310 mm plate plus tolerance; 50 mm projection toward the bedroom.
+        fitting = (9.825, float(CHIMNEY[1]) - 0.055,
+                   10.175, float(CHIMNEY[1]) + 0.005)
+        for item in fl.get("furniture", []):
+            rect = item.get("rect")
+            if not rect or len(rect) < 4:
+                continue
+            z0 = float(item.get("z0", 0.0))
+            z1 = z0 + float(item.get("h", 0.0))
+            # The plate spans 1.275..1.605 m. Floor rugs and low bed frames
+            # are harmless; a headboard, tall case or wall picture is not.
+            if z1 < 1.265 or z0 > 1.615:
+                continue
+            overlap = (float(rect[0]) < fitting[2] and fitting[0] < float(rect[2])
+                       and float(rect[1]) < fitting[3]
+                       and fitting[1] < float(rect[3]))
+            if overlap:
+                name = str(item.get("id", "furniture"))
+                role = "bed/headboard" if ("bed" in name.lower()
+                        or "head" in name.lower()) else "furniture/art"
+                problems.append("%s intersects %s %s" %
+                                (expected_id, role, name))
+    return problems
+
+
+def _validate_flue_graph(layout, graph):
+    """Generated graph must carry corrected metadata without rebinding IDs."""
+    problems = []
+    nodes = {n.get("id"): n for n in graph.get("nodes", [])}
+    for fid in ("F02", "F03", "F04", "F05", "F06"):
+        marker_id = "%s_FLUE_BREAST" % fid
+        unit = unit_name(fid, "C")
+        node = nodes.get(marker_id)
+        if node is None:
+            problems.append("%s missing from generated acoustic graph" % marker_id)
+            continue
+        if node.get("room") != unit:
+            problems.append("%s graph room is %s, expected %s" %
+                            (marker_id, node.get("room"), unit))
+        if node.get("network") != "flue":
+            problems.append("%s escaped the flue network" % marker_id)
+        if "%s_FLUE" % fid not in node.get("connections", []):
+            problems.append("%s no longer reaches its floor trunk" % marker_id)
     return problems
 
 
@@ -8169,10 +8263,19 @@ def main():
             print("VALIDATION:", p)
         raise SystemExit("layout validation failed (%d problems)" % len(problems))
 
+    graph = acoustic_graph(layout)
+    graph_problems = _validate_flue_graph(layout, graph)
+    if graph_problems:
+        for p in graph_problems:
+            print("VALIDATION:", p)
+        raise SystemExit("flue graph validation failed (%d problems)" %
+                         len(graph_problems))
+    print("flue fittings: 5 sealed thimbles on unchanged graph ids")
+
     with open(os.path.join(OUT_DIR, "building_layout.json"), "w") as f:
         json.dump(layout, f, indent=1)
     with open(os.path.join(OUT_DIR, "acoustic_graph.json"), "w") as f:
-        json.dump(acoustic_graph(layout), f, indent=1)
+        json.dump(graph, f, indent=1)
     with open(os.path.join(OUT_DIR, "prop_catalog.json"), "w") as f:
         json.dump(PROP_CATALOG, f, indent=1)
     with open(os.path.join(OUT_DIR, "material_catalog.json"), "w") as f:

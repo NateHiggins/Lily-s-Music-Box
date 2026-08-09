@@ -1856,3 +1856,122 @@ the bathroom's authored light and torch.
   **PASS**, 68 displays from 44 kinds. Parser/editor scan and final Godot
   import: **PASS**; `art/data` and `game/data` layout, acoustic-graph and
   material-catalog hashes are byte-identical after the final source build.
+
+## `flue_breast_prop`
+
+### What the real fitting was
+
+The masonry breast belongs to the 1912 fabric. Its room face would not have
+been a generic rectangular panel: it would have carried a cast-iron stove-pipe
+thimble, a short tubular sleeve through the plaster and masonry with an annular
+faceplate, nested reducing rings and a closure for seasons or rooms in which no
+stove was connected. Buckley's 1911 patent describes that construction and the
+closed state explicitly as a way to exclude the chimney draft. Shurtleff's
+1919 patent records the equally important boundary condition: a non-combustible
+thimble and flange protect the surrounding plaster from heat and breakage.
+
+The fitting carries no signal. It is therefore ordinary 1912 building fabric,
+not divergent apparatus and not a 1928 decorative replacement. The five C-stack
+bedrooms retain sealed fittings from an earlier use of the building whose nature
+the game does not explain. **HISTORICAL; CANONICAL.**
+
+Sources:
+
+- [C. W. Buckley, US980919A, Stove-pipe thimble (1911)](https://patents.google.com/patent/US980919A/en)
+- [H. E. Shurtleff, US1321675A, Chimney thimble (1919)](https://patents.google.com/patent/US1321675)
+
+### What we inherited
+
+- Five identical 500 x 700 x 30 mm boxes stood on the chimney breasts. They
+  had no round throat, flange, reducing rings, closure, fasteners, soot boundary
+  or means for the sound-producing part to move. The object was the wrong class
+  rather than merely under-detailed.
+- The boxes were centred at layout y 8.95 while the south masonry face is y
+  9.10. The visible prop therefore floated **150 mm in front of the chimney**.
+  Reading the marker alone did not expose that error; the wall-context render did.
+- Marker `unit` values were malformed hybrids (`F02C` through `F06C`). Generated
+  acoustic graph nodes inherited those strings as their `room` metadata. Runtime
+  propagation still worked because `building_root.gd` binds by the unchanged
+  marker ids (`F02_FLUE_BREAST` through `F06_FLUE_BREAST`), not by room. This was
+  data hygiene, not a repaired signal path, and renaming those ids would have
+  created the real failure.
+- The ordinary draft loop peaked at -26 dB. Its identical timing and volume made
+  a sealed fitting announce itself like machinery rather than occasionally
+  reminding the room that the chimney is open to the roof.
+
+### Built result
+
+Each C-stack bedroom now carries a 310 mm sealed cast-iron thimble centred at
+1.44 m: shallow throat, broad annular flange, three nested reducing rings,
+slightly proud centre closure, four dark fasteners and a small finger pull. A
+restrained soot halo and four short plaster cracks mark the real heat and hand
+boundary instead of uniformly dirtying the wall. The full-height breast remains
+Blender-owned masonry; the prop owns only the fitting and its local evidence.
+
+All five markers are seated directly on `CHIMNEY[1]`. The generator derives real
+units 2C–6C and BED2 room ids, verifies those rooms exist, and checks the plate's
+height-aware footprint against room furniture and wall art. Beds and headboards
+are named explicitly in the failure because a fitting at eye height behind a bed
+would read as a layout mistake even if its generic footprint technically fit.
+The graph is generated only after a second audit proves each unchanged binding id
+still carries the corrected unit metadata and reaches its floor flue trunk.
+
+The normal draft is six decibels softer at -32 dB, begins at a deterministic
+per-floor offset and thereafter returns at irregular 24–48 second intervals.
+The sound carries the uncanny beat. A propagated knock lets the closure rock on
+one lip, settle 3 mm outward and slip 2 mm off-centre, leaving circles that are
+subtly no longer concentric. It never opens into a spectacle.
+
+Static iron parts merge by finish while the closure remains independently
+movable. The result is **3 visible meshes each / 15 across the family**, up from
+five one-box placeholders but still bounded and explicitly asserted.
+
+### Materials and texture prompt batch
+
+No new material key and no texture batch. `cast_iron` and `soot` are present in
+`MATERIAL_CATALOG`, `GODOT_STAGE` and `MatLib.SETS`, so both geometry and local
+wear use existing runtime-safe plates. Variation comes from restrained iron tint,
+fastener wear and placed soot geometry rather than a new low-frequency albedo.
+
+### Render evidence
+
+Before:
+
+- One-box warehouse placeholder — `C:/PleaseRemainOnTheLine/art/renders/flue_breast_review/before/warehouse_flue_breast.png`
+- Bedroom context — `C:/PleaseRemainOnTheLine/art/renders/flue_breast_review/before/f05_c_bed2_room.png`
+- Old wall relationship — `C:/PleaseRemainOnTheLine/art/renders/flue_breast_review/before/f05_c_bed2_wall.png`
+
+After:
+
+- Flat-light silhouette — `C:/PleaseRemainOnTheLine/art/renders/flue_breast_review/after/warehouse_flue_breast.png`
+- 2C seated, standing distance — `C:/PleaseRemainOnTheLine/art/renders/flue_breast_review/after/stand_10_4.61_-7.6_0_0.png`
+- 2C settled evidence pose — `C:/PleaseRemainOnTheLine/art/renders/flue_breast_review/after/settled/stand_10_4.61_-7.6_0_0.png`
+- 3C and 6C context — `C:/PleaseRemainOnTheLine/art/renders/flue_breast_review/after/stand_10_7.81_-7.6_0_0.png` and `C:/PleaseRemainOnTheLine/art/renders/flue_breast_review/after/stand_10_17.41_-7.6_0_0.png`
+
+The first render experiment moved the cap 2 mm and spun it in its own plane.
+Pixel comparison detected the change, but it did not read at the ruled 1.5 m
+standing distance. That motion was rejected. The final 3 mm lip-rock and lateral
+settle remains nearly subliminal in a still frame, but the shadow edge and broken
+concentricity reinforce a movement the player first hears. Making the displacement
+larger would turn uncertainty into an animation cue and defeat the brief.
+
+Measured rather than accepted from dark frames: mean sRGB for the warehouse /
+2C seated / 2C settled / 3C / 6C frames is **(110.6, 110.2, 110.3) / (82.0,
+72.0, 76.3) / (79.0, 69.9, 74.7) / (94.7, 79.3, 79.6) / (74.9, 52.0,
+47.4)**. The fitting remains separated from plaster and furniture without
+raising any authored room light.
+
+### Validation
+
+- Generator and graph audits: **PASS**; five unchanged binding ids, five real
+  units and rooms, exact masonry-face seating, height-aware furniture/art checks,
+  and complete links to the isolated flue trunk.
+- FAST WalkTest: **PASS**; five props, corrected graph metadata, exact placement,
+  3/15 mesh caps and the render-ruled 3 mm evidence pose.
+- FULL WalkTest: **PASS in 61.7 seconds**. LightingAudit: **PASS** for all 127
+  spaces, including 11 intentionally ambient/dark. WarehouseTeleportTest:
+  **PASS**, 68 displays from 44 kinds.
+- Final source generation, Blender build, Godot import and editor/parser scan:
+  **PASS**. `building_layout.json`, `acoustic_graph.json` and
+  `material_catalog.json` are byte-identical between `art/data` and `game/data`
+  after the final source edit and rebuild.

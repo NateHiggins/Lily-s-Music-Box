@@ -198,6 +198,16 @@ func _ready() -> void:
 		_pose_boxfans(root, String(bp[0]),
 				String(bp[1]) if bp.size() > 1 else "unplugged")
 		await get_tree().create_timer(0.12).timeout
+	# SHOT_FLUE_POSE="2C:settled" holds the loose closure at the full three-
+	# millimetre knock displacement.  Paired with the seated frame from the
+	# same standing position, this judges motion at player scale rather than
+	# declaring a source-coordinate difference visible by inspection.
+	var flue_pose := OS.get_environment("SHOT_FLUE_POSE")
+	if flue_pose != "":
+		var fp := flue_pose.split(":")
+		_pose_flues(root, String(fp[0]),
+				String(fp[1]) if fp.size() > 1 else "settled")
+		await get_tree().create_timer(0.08).timeout
 	# SHOT_MAIL_POSE=open proves the sole working leaf against the lobby wall.
 	# The other twenty-three are intentionally one batched architectural face.
 	var mail_pose := OS.get_environment("SHOT_MAIL_POSE")
@@ -360,6 +370,15 @@ func _pose_boxfans(node: Node, wanted_unit: String, pose: String) -> void:
 				fan.set_plugged(false, true)
 	for child in node.get_children():
 		_pose_boxfans(child, wanted_unit, pose)
+
+
+func _pose_flues(node: Node, wanted_unit: String, pose: String) -> void:
+	if node is FlueBreastProp:
+		var fitting := node as FlueBreastProp
+		if wanted_unit == "*" or fitting.unit == wanted_unit:
+			fitting.set_knock_pose(1.0 if pose == "settled" else 0.0)
+	for child in node.get_children():
+		_pose_flues(child, wanted_unit, pose)
 
 
 func _pose_mail_bank(node: Node) -> void:

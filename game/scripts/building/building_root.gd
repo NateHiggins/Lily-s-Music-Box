@@ -790,6 +790,11 @@ func _spawn_props() -> void:
 				# from which their sound is allowed to emerge.
 				prop.riser = String(m.get("riser", "V-A"))
 				prop.fan_variant = String(m.get("variant", "west_weathered"))
+			if prop is FlueBreastProp:
+				# The marker id binds the acoustic graph and must never be rebuilt
+				# from this value.  Unit is only household/wear metadata; it used
+				# to be the nonexistent hybrid F02C rather than the real 2C.
+				prop.unit = String(m.get("unit", "5C"))
 			if prop is BookshelfProp:
 				# Ownership, silhouette and Mae's evidence are generator facts.
 				# They arrive before _ready() deals the shelf and builds the case.
@@ -857,6 +862,7 @@ func _spawn_props() -> void:
 							or prop is LaundryAirerProp or prop is KettleProp \
 							or prop is MedicineCabinetProp or prop is ClockProp \
 							or prop is BoxFanProp or prop is ExhaustFanProp \
+							or prop is FlueBreastProp \
 					else -float(m.get("yaw_deg", 0)))
 			add_child(prop)
 			functional_props_by_floor[floor_id].append(prop)
