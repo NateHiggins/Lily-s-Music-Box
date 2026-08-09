@@ -4012,7 +4012,17 @@ def build():
             # authoring time instead of debugged again.
             fu_id0 = str(fu.get("id", ""))
             cat_prefix = "furniture"
-            if fu_id0.startswith("retail_bod"):
+            batch_key = str(fu.get("batch", ""))
+            if batch_key:
+                # One local AABB per shop and material.  These boxes used to
+                # join the 220 x 148 m F01 furniture buffers, so GL Compatibility
+                # assigned distant street lights to the mesh before the bulbs
+                # hanging directly over it.  Ownership is emitted by the layout
+                # rather than reconstructed from an ambiguous id prefix.
+                safe_batch = "".join(c if c.isalnum() else "_"
+                                     for c in batch_key).strip("_")
+                cat_prefix = "retail_%s" % safe_batch
+            elif fu_id0.startswith("retail_bod"):
                 cat_prefix = "retail_bod"
             elif fu_id0.startswith("retail_bar"):
                 cat_prefix = "retail_bar"

@@ -211,6 +211,7 @@ func _run() -> void:
 	_prop_mesh_and_boiler_checks()
 	_medicine_cabinet_checks()
 	_clock_checks()
+	_shop_static_checks()
 	if not _full:
 		await _finish("FAST")
 		return
@@ -2171,6 +2172,61 @@ func _count_meshes(n: Node) -> int:
 	for c in n.get_children():
 		total += _count_meshes(c)
 	return total
+
+
+func _shop_static_checks() -> void:
+	var f01: Dictionary = {}
+	for floor in root.layout.get("floors", []):
+		if String(floor.get("id", "")) == "F01":
+			f01 = floor
+			break
+	var boxes: Array = []
+	var batches := {}
+	var material_buckets := {}
+	var heroes := {}
+	var ledgers := 0
+	for entry in f01.get("furniture", []):
+		var batch := String(entry.get("batch", ""))
+		if not batch.begins_with("shop_"):
+			continue
+		boxes.append(entry)
+		batches[batch] = true
+		material_buckets["%s|%s" % [batch, String(entry.get("mat", "trim"))]] = true
+		if String(entry.get("hero", "")) != "":
+			heroes[String(entry.hero)] = true
+		var eid := String(entry.get("id", ""))
+		if eid.ends_with("_ledger") or eid.ends_with("_book"):
+			ledgers += 1
+	_check(boxes.size() <= 1080 and batches.size() == 11,
+			"eleven owned shop batches stay below 1080 static boxes (%d)"
+			% boxes.size())
+	_check(heroes.size() == 10,
+			"ten isolatable heroes plus the in-situ funeral arrangement exist")
+	_check(ledgers == 11, "every shop keeps one account book")
+
+	# Imported mesh names, not source assumptions. Every local material bucket
+	# must remain smaller than a shop; the old floor-wide mesh was 220 x 148 m
+	# and silently lost its own lamps to GL Compatibility's per-object cap.
+	var shop_meshes: Array[MeshInstance3D] = []
+	var floor_node: Node = root.floor_nodes.get("F01")
+	if floor_node:
+		_collect_named_shop_meshes(floor_node, shop_meshes)
+	var local_aabbs := not shop_meshes.is_empty()
+	for mesh in shop_meshes:
+		var size := mesh.get_aabb().size
+		local_aabbs = local_aabbs and size.x <= 8.0 and size.z <= 8.0
+	_check(shop_meshes.size() == material_buckets.size() and shop_meshes.size() <= 190,
+			"shop geometry imports as bounded local material buckets (%d meshes)"
+			% shop_meshes.size())
+	_check(local_aabbs,
+			"no shop bucket regresses to the block-wide lighting AABB")
+
+
+func _collect_named_shop_meshes(node: Node, into: Array[MeshInstance3D]) -> void:
+	if node is MeshInstance3D and String(node.name).contains("retail_shop_"):
+		into.append(node)
+	for child in node.get_children():
+		_collect_named_shop_meshes(child, into)
 
 
 func _check(cond: bool, label: String) -> void:

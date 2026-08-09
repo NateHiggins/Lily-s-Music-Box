@@ -351,7 +351,10 @@ func _build_playable_stage(parent: Node3D) -> void:
 	const CROSS_W := 0.10        # crossing gap, west edge
 	const CROSS_E := 7.55        # crossing gap, east edge
 	const STAGE_E := 20.60       # east edge, clear of the bodega
-	const STAGE_W := -16.15
+	# The west edge now includes Otis & Son.  Keeping the old -16.15 m
+	# theatre wall made the newly modelled druggist visible but placed its
+	# public door 75 mm beyond the playable world.
+	const STAGE_W := -20.10
 	for seg in [[STAGE_W, CROSS_W], [CROSS_E, STAGE_E]]:
 		var w: float = seg[1] - seg[0]
 		_add_boundary_shape(body, [seg[0] + w * 0.5, -17.35, 0.72],

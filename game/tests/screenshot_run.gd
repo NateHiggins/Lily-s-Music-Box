@@ -181,6 +181,20 @@ const SHOTS := [
 	 "look": Vector3(11.20, 1.20, 33.00), "overlay": false},
 	{"name": "b_67_radio_service", "pos": Vector3(-13.10, 1.41, 29.40),
 	 "look": Vector3(-14.60, 1.15, 32.80), "overlay": false},
+	{"name": "b_74_shoe_rebuilding", "pos": Vector3(-22.18, 1.41, 29.35),
+	 "look": Vector3(-24.20, 1.12, 32.40), "overlay": false},
+	{"name": "b_75_keys_cut", "pos": Vector3(-16.78, 1.41, 29.30),
+	 "look": Vector3(-18.15, 1.30, 32.10), "overlay": false},
+	# The news booth is deliberately not entered: its locked proprietor leaf
+	# and pavement service hatch are the design, not missing access.
+	{"name": "b_76_news_hatch", "pos": Vector3(9.72, 1.41, 26.70),
+	 "look": Vector3(9.25, 1.20, 29.20), "overlay": false},
+	{"name": "b_77_funeral_parlour", "pos": Vector3(18.83, 1.41, 29.35),
+	 "look": Vector3(17.15, 1.10, 32.60), "overlay": false},
+	{"name": "b_78_hardware_paint", "pos": Vector3(25.43, 1.41, 29.35),
+	 "look": Vector3(22.60, 1.20, 32.40), "overlay": false},
+	{"name": "b_79_photo_supplies", "pos": Vector3(27.43, 1.41, 29.30),
+	 "look": Vector3(29.65, 1.20, 32.40), "overlay": false},
 	# The lobby cabinet: the first one a player ever sees, thirty seconds
 	# from the desk they were hired to sit at.
 	{"name": "b_68_lobby_cabinet", "pos": Vector3(-4.10, 1.45, 6.95),

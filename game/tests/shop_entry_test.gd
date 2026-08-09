@@ -1,5 +1,5 @@
 extends Node
-## Can the player actually GET INSIDE the two shops?
+## Can the player actually GET INSIDE every public shop?
 ##
 ## RouteProbe sweeps a capsule and names what stops it, which is the
 ## right tool for finding a blocker — but a clear sweep is not the same
@@ -30,6 +30,12 @@ func _ready() -> void:
 	root = load("res://scenes/building/orison_root.tscn").instantiate()
 	add_child(root)
 	await get_tree().create_timer(1.6).timeout
+	if OS.get_environment("SHOP_ROUTES_ONLY") == "1":
+		await _eleven_shop_routes()
+		print("[SHOPS] ROUTES RESULT: %s (%d failures)"
+				% ["PASS" if _fails == 0 else "FAIL", _fails])
+		get_tree().quit(_fails)
+		return
 	await _run()
 
 
@@ -103,8 +109,10 @@ func _sweep(from: Vector3, to: Vector3) -> float:
 			int(frac * 100.0)])
 	if frac >= 0.999:
 		return frac
+	var direction := (to - from).normalized()
 	q.transform = Transform3D(Basis(),
-			from + (to - from) * frac + Vector3(0, 0.79, 0))
+			from + (to - from) * frac + direction * 0.025
+			+ Vector3(0, 0.79, 0))
 	for h in space.intersect_shape(q, 6):
 		var c = h.collider
 		var p = c.get_parent() if c else null
@@ -260,6 +268,68 @@ func _run() -> void:
 		var f2 := _sweep(r3[1], r3[2])
 		_check("%s (%d%% clear)" % [r3[0], int(f2 * 100.0)], f2 >= 0.999)
 
+	await _eleven_shop_routes()
+
 	print("[SHOPS] RESULT: %s (%d failures)"
 			% ["PASS" if _fails == 0 else "FAIL", _fails])
 	get_tree().quit(_fails)
+
+
+## Every sales floor except NEWS & CIGARS accepts a five-foot worker through
+## its real leaf and into its customer lane.  These are physical capsule casts
+## against the imported Blender collision, not coordinate arguments.  The news
+## booth is the inverse claim: its pavement hatch is reachable and its locked
+## proprietor door is not a public entrance.
+func _eleven_shop_routes() -> void:
+	var public_shops := [
+		"MODEL_LAUNDRY", "SHOE_REBUILDING", "KEYS_CUT",
+		"RADIO_SERVICE", "LUNCHEONETTE", "PAWNBROKER",
+		"FUNERAL_PARLOUR", "HARDWARE_PAINT", "PHOTO_SUPPLIES",
+		"OTIS___SON",
+	]
+	for tag in public_shops:
+		var door = root.find_child("SITE_SHOP_DOOR_%s" % tag, true, false)
+		_check("%s public door exists" % tag, door != null)
+		if door:
+			door.npc_set_open(true)
+	await get_tree().create_timer(1.0).timeout
+	for tag in public_shops:
+		var door = root.find_child("SITE_SHOP_DOOR_%s" % tag, true, false)
+		if not door:
+			continue
+		# The marker is the hinge, not the opening centre, and north/south
+		# shopfronts have opposite normals. Deriving both from the installed
+		# door keeps this test honest when a frontage or hinge side changes.
+		var centre: Vector3 = door.to_global(Vector3(door.width * 0.5, 0.0, 0.0))
+		var inward: Vector3 = door.global_basis.z.normalized()
+		# Stand in the clear strip between the facade and pavement furniture.
+		# At 900 mm the diner probe began inside the bus shelter sill, so the
+		# reverse cast tested the shelter rather than the shop threshold.
+		var start := centre - inward * 0.45
+		# Centre 900 mm past the hinge plane leaves the entire 660 mm body
+		# beyond the facade while stopping before trade furniture begins.  A
+		# deeper straight cast wrongly asks a luncheonette to have no stools.
+		var inside := centre + inward * 0.90
+		start.y = 0.02
+		inside.y = 0.02
+		var frac := _sweep(start, inside)
+		_check("%s pavement-to-customer lane (%d%% clear)" %
+				[tag, int(frac * 100.0)], frac >= 0.999)
+		var back := _sweep(inside, start)
+		_check("%s customer lane-to-pavement (%d%% clear)" %
+				[tag, int(back * 100.0)], back >= 0.999)
+
+	var news = root.find_child("SITE_SHOP_DOOR_NEWS_CIGARS", true, false)
+	_check("NEWS_CIGARS proprietor door exists", news != null)
+	_check("NEWS_CIGARS proprietor door is locked",
+			news != null and news.leaf_state == "locked")
+	# The service shelf is reached from the pavement without crossing the glass.
+	var hatch_fraction := _sweep(Vector3(9.72, 0.02, 26.85),
+			Vector3(9.72, 0.02, 27.72))
+	_check("NEWS_CIGARS pavement hatch is reachable (%d%% clear)" %
+			int(hatch_fraction * 100.0), hatch_fraction >= 0.85)
+	# A body attempting the proprietor's door must meet the locked leaf.
+	var private_fraction := _sweep(Vector3(8.925, 0.02, 27.10),
+			Vector3(8.925, 0.02, 30.45))
+	_check("NEWS_CIGARS proprietor side remains inaccessible",
+			private_fraction < 0.80)
