@@ -2163,6 +2163,59 @@ def slab(floor_id, z, holes):
             "holes": [list(h) for h in holes]}
 
 
+CEILING_MATERIAL = {
+    "corridor": "tin_ceiling", "hall": "tin_ceiling",
+    "lobby": "tin_ceiling", "atrium": "tin_ceiling",
+}
+
+
+def ceiling_pass(floors):
+    """Give each storey the underside that belongs to the rooms below it.
+
+    The slab at F05 is F05's floor, so floor streaming quite correctly hides
+    it when the player is in F04. It was also, accidentally, F04's only
+    ceiling. Keeping F05 alive would undo the streaming win; these downward
+    faces instead live in F04 and merge into one plaster buffer there.
+
+    Room records overlap deliberately: MAIN is the apartment envelope and a
+    BATH or OFFICE may sit inside it. Deal the smaller rooms first and subtract
+    every claimed rectangle from the broader one. Besides avoiding coplanar
+    faces, this lets a later room-specific finish replace plaster honestly.
+    """
+    order = ["B1", "F01", "F02", "F03", "F04", "F05", "F06", "ROOF"]
+    total = 0
+    for fl in floors:
+        fl["ceilings"] = []
+        fid = fl["id"]
+        if fid == "ROOF":
+            continue
+        above = LEVELS[order[order.index(fid) + 1]]
+        ztop = round(above - SLAB_T - 0.005, 3)
+        claimed = []
+        rooms = sorted((r for r in fl.get("rooms", [])
+                        if r.get("kind") != "roof"),
+                       key=lambda r: rect_area(r["rect"]))
+        for room in rooms:
+            rects = [tuple(room["rect"])]
+            for prior in claimed:
+                rects = subtract_rect(rects, prior)
+            for hole in fl["slabs"][0].get("holes", []):
+                rects = subtract_rect(rects, tuple(hole))
+            mat = CEILING_MATERIAL.get(room.get("kind"), "plaster")
+            for i, rect in enumerate(rects):
+                if rect_area(rect) < 0.001:
+                    continue
+                fl["ceilings"].append({
+                    "id": "%s_CEILING_%s_%02d" %
+                          (fid, str(room["id"]).upper(), i),
+                    "room": room["id"], "rect": list(rect),
+                    "z": ztop, "mat": mat,
+                })
+                total += 1
+            claimed.append(tuple(room["rect"]))
+    print("ceilings: %d current-floor-owned faces" % total)
+
+
 def stair_holes(floor_id):
     """Slab openings: the atrium well (flush with the court wall faces —
     no more slivers showing gaps between floors) and the elevator shaft.
@@ -6348,8 +6401,49 @@ def validate(layout):
     problems += _validate_vantry_points(layout)
     problems += _validate_kettles(layout)
     problems += _validate_boxfans(layout)
+    problems += _validate_ceilings(layout)
     problems += _validate_shop_interiors(layout)
     problems += life_pass(layout["floors"])
+    return problems
+
+
+def _validate_ceilings(layout):
+    """Every enclosed room remains covered when the storey above is hidden."""
+    problems = []
+    floors = layout["floors"]
+    for floor_i, fl in enumerate(floors):
+        if fl["id"] == "ROOF":
+            continue
+        ceilings = fl.get("ceilings", [])
+        if not ceilings:
+            problems.append("%s owns no ceiling faces" % fl["id"])
+            continue
+        # B1 is taller than the repeated residential storeys.  The lawful
+        # soffit is always the underside of the next slab, not an assumed
+        # WALL_H above this floor's datum.
+        expected_z = (float(floors[floor_i + 1]["z"])
+                      - SLAB_T - 0.005)
+        for face in ceilings:
+            if abs(float(face["z"]) - expected_z) > 0.011:
+                problems.append("%s ceiling escaped its soffit" % face["id"])
+            if face.get("mat") not in ("plaster", "tin_ceiling"):
+                problems.append("%s names unsupported finish %s" %
+                                (face["id"], face.get("mat")))
+        # Subtract the faces from each room. Slab holes are lawful absences;
+        # anything left after both operations is a patch of open sky.
+        holes = [tuple(h) for h in fl["slabs"][0].get("holes", [])]
+        for room in fl.get("rooms", []):
+            if room.get("kind") == "roof":
+                continue
+            remainder = [tuple(room["rect"])]
+            for hole in holes:
+                remainder = subtract_rect(remainder, hole)
+            for face in ceilings:
+                remainder = subtract_rect(remainder, tuple(face["rect"]))
+            leaked = sum(rect_area(r) for r in remainder)
+            if leaked > 0.002:
+                problems.append("%s has %.3f m2 open ceiling" %
+                                (room["id"], leaked))
     return problems
 
 
@@ -7906,6 +8000,7 @@ def main():
         print("seated %d wall(s) under the floor above" % seated)
     normalize_wall_construction(floors)
     resolve_wainscot_sides(floors)
+    ceiling_pass(floors)
     radiator_pipe_pass(floors)
     aging_pass(floors)
     # The old global renovation treatment deliberately placed exposed-brick

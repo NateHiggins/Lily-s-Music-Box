@@ -530,6 +530,29 @@ func _run() -> void:
 	await get_tree().create_timer(0.4).timeout
 	_check(not root.floor_nodes["F06"].visible,
 			"floor streaming resumes outside the eye")
+	# The slab above belongs to the floor above and is correctly hidden here.
+	# The active floor must therefore carry its own downward ceiling buffer.
+	# This is the regression screenshot_run concealed by forcing every storey
+	# visible: a green screenshot could never exercise this state.
+	# gen_layout's area-subtraction audit proves room coverage.  Here we prove
+	# the imported surface obeys the live floor gate: the owning floor remains,
+	# while the slab and ceiling owned by a distant storey both leave the tree.
+	var active_ceiling := root.floor_nodes["F02"].find_child(
+			"F02_ceiling_plaster", true, false) as VisualInstance3D
+	var hidden_upper_ceiling := root.floor_nodes["F06"].find_child(
+			"F06_ceiling_plaster", true, false) as VisualInstance3D
+	_check(active_ceiling != null and active_ceiling.is_visible_in_tree(),
+			"active storey retains its own plaster ceiling buffer")
+	_check(hidden_upper_ceiling != null \
+			and not hidden_upper_ceiling.is_visible_in_tree(),
+			"inactive upper-storey ceiling leaves the render pass")
+	for ceiling_floor_id in ["F01", "F02", "F03", "F04", "F05", "F06"]:
+		var plaster_buffers: Array[Node] = root.floor_nodes[ceiling_floor_id].find_children(
+				"%s_ceiling_plaster" % ceiling_floor_id,
+				"VisualInstance3D", true, false)
+		_check(plaster_buffers.size() == 1,
+				"%s owns one batched plaster ceiling draw (%d)" % [
+					ceiling_floor_id, plaster_buffers.size()])
 	var f02_props: Array = root.functional_props_by_floor.get("F02", [])
 	var f06_props: Array = root.functional_props_by_floor.get("F06", [])
 	_check(not f02_props.is_empty() and f02_props.all(

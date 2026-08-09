@@ -3274,34 +3274,20 @@ def build_floor_overlay(buf, fid, fl, r):
             (x1, y1, z + th), (x0, y1, z + th))
 
 
-# room kind -> ceiling finish. A down-facing quad just under the slab
-# soffit: the ceiling is the one surface a torch rakes across all night.
-KIND_CEILING = {
-    "corridor": "tin_ceiling", "hall": "tin_ceiling",
-    "lobby": "tin_ceiling", "atrium": "tin_ceiling",
-}
+def build_ceiling_overlay(buf, fid, face):
+    """One generator-owned, downward ceiling face.
 
-
-def build_ceiling_overlay(buf, fid, fl, r):
-    mat = KIND_CEILING.get(r["kind"])
-    if mat is None:
-        return
-    # The soffit is where the walls stop, which the floor dict does not
-    # state directly: read it off the walls themselves rather than
-    # guessing a storey height and hanging the ceiling inside the slab.
-    heights = [float(w["h"]) for w in fl["walls"]
-               if w.get("cat", "walls") == "walls"]
-    ztop = fl["z"] + (max(heights) if heights else 3.02) - 0.015
-    rects = [tuple(r["rect"])]
-    if r["kind"] == "corridor":
-        rects = subtract_rect(rects, (-3.43, -6.93, 3.43, 6.93))
-    for hole in fl["slabs"][0]["holes"]:
-        rects = subtract_rect(rects, tuple(hole))
-    for (x0, y0, x1, y1) in rects:
-        # reversed winding: this face looks DOWN into the room
-        buf(fid, "ceiling_%s" % mat, mat).add_quad(
-            (x0, y1, ztop), (x1, y1, ztop),
-            (x1, y0, ztop), (x0, y0, ztop))
+    These used to be inferred only for the core while the flats borrowed the
+    slab above. Keeping the semantic faces in layout data makes ownership
+    assertable before Blender and keeps every same-finish face in one buffer.
+    """
+    x0, y0, x1, y1 = face["rect"]
+    ztop = float(face["z"])
+    mat = face.get("mat", "plaster")
+    # Reversed winding: this face looks DOWN into the room.
+    buf(fid, "ceiling_%s" % mat, mat).add_quad(
+        (x0, y1, ztop), (x1, y1, ztop),
+        (x1, y0, ztop), (x0, y0, ztop))
 
 
 # ---------------------------------------------------------------- stair
@@ -3980,7 +3966,8 @@ def build():
                     w, w["in_side"])
         for r in fl["rooms"]:
             build_floor_overlay(buf, fid, fl, r)
-            build_ceiling_overlay(buf, fid, fl, r)
+        for face in fl.get("ceilings", []):
+            build_ceiling_overlay(buf, fid, face)
         for fu in fl.get("furniture", []):
             if "asm" in fu:
                 fn = ASM.get(fu["asm"])

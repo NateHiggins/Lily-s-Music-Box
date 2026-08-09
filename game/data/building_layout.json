@@ -3778,6 +3778,128 @@
      "z0": 1.12
     }
    ],
+   "ceilings": [
+    {
+     "id": "B1_CEILING_B1_COAL_00",
+     "room": "B1_COAL",
+     "rect": [
+      11.3,
+      0.3,
+      13.65,
+      2.7
+     ],
+     "z": -0.185,
+     "mat": "plaster"
+    },
+    {
+     "id": "B1_CEILING_B1_HALL_00",
+     "room": "B1_HALL",
+     "rect": [
+      -3.25,
+      -6.75,
+      0.85,
+      -3.25
+     ],
+     "z": -0.185,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "B1_CEILING_B1_UTILITY_00",
+     "room": "B1_UTILITY",
+     "rect": [
+      -3.25,
+      3.25,
+      3.25,
+      6.75
+     ],
+     "z": -0.185,
+     "mat": "plaster"
+    },
+    {
+     "id": "B1_CEILING_B1_ATRIUM_00",
+     "room": "B1_ATRIUM",
+     "rect": [
+      -3.25,
+      -3.25,
+      3.25,
+      3.25
+     ],
+     "z": -0.185,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "B1_CEILING_B1_LAUNDRY_00",
+     "room": "B1_LAUNDRY",
+     "rect": [
+      -13.65,
+      2.67,
+      -5.51,
+      9.65
+     ],
+     "z": -0.185,
+     "mat": "plaster"
+    },
+    {
+     "id": "B1_CEILING_B1_ELECTRICAL_00",
+     "room": "B1_ELECTRICAL",
+     "rect": [
+      5.51,
+      -9.65,
+      13.65,
+      -1.0
+     ],
+     "z": -0.185,
+     "mat": "plaster"
+    },
+    {
+     "id": "B1_CEILING_B1_STORAGE_CAGES_00",
+     "room": "B1_STORAGE_CAGES",
+     "rect": [
+      -13.65,
+      -9.65,
+      -5.51,
+      -0.45
+     ],
+     "z": -0.185,
+     "mat": "plaster"
+    },
+    {
+     "id": "B1_CEILING_B1_BOILER_00",
+     "room": "B1_BOILER",
+     "rect": [
+      5.51,
+      -0.88,
+      13.65,
+      0.3
+     ],
+     "z": -0.185,
+     "mat": "plaster"
+    },
+    {
+     "id": "B1_CEILING_B1_BOILER_01",
+     "room": "B1_BOILER",
+     "rect": [
+      5.51,
+      2.7,
+      13.65,
+      9.65
+     ],
+     "z": -0.185,
+     "mat": "plaster"
+    },
+    {
+     "id": "B1_CEILING_B1_BOILER_02",
+     "room": "B1_BOILER",
+     "rect": [
+      5.51,
+      0.3,
+      11.3,
+      2.7
+     ],
+     "z": -0.185,
+     "mat": "plaster"
+    }
+   ],
    "sockets": []
   },
   {
@@ -58570,6 +58692,320 @@
      "batch": "shop_otis___son"
     }
    ],
+   "ceilings": [
+    {
+     "id": "F01_CEILING_F01_RESTROOM_00",
+     "room": "F01_RESTROOM",
+     "rect": [
+      -13.65,
+      5.4,
+      -11.9,
+      7.3
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_D_OFFICE_00",
+     "room": "F01_D_OFFICE",
+     "rect": [
+      5.51,
+      -2.84,
+      7.71,
+      -1.0
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_A_BATH_00",
+     "room": "F01_A_BATH",
+     "rect": [
+      -7.71,
+      -6.19,
+      -5.51,
+      -3.79
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_D_BATH_00",
+     "room": "F01_D_BATH",
+     "rect": [
+      5.51,
+      -6.19,
+      7.71,
+      -3.79
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_OFFICE_00",
+     "room": "F01_OFFICE",
+     "rect": [
+      -13.65,
+      2.67,
+      -9.88,
+      5.4
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_PACKAGE_00",
+     "room": "F01_PACKAGE",
+     "rect": [
+      -9.88,
+      2.67,
+      -5.51,
+      5.4
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_HALL_00",
+     "room": "F01_HALL",
+     "rect": [
+      -3.25,
+      -6.75,
+      0.85,
+      -3.25
+     ],
+     "z": 3.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F01_CEILING_F01_UTILITY_00",
+     "room": "F01_UTILITY",
+     "rect": [
+      -3.25,
+      3.25,
+      3.25,
+      6.75
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_COMMON_B_00",
+     "room": "F01_COMMON_B",
+     "rect": [
+      -11.9,
+      5.4,
+      -5.51,
+      9.65
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_A_BED_00",
+     "room": "F01_A_BED",
+     "rect": [
+      -13.65,
+      -9.65,
+      -5.51,
+      -6.25
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_D_BED_00",
+     "room": "F01_D_BED",
+     "rect": [
+      5.51,
+      -9.65,
+      13.65,
+      -6.25
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_LOBBY_00",
+     "room": "F01_LOBBY",
+     "rect": [
+      -5.33,
+      -9.65,
+      5.33,
+      -6.93
+     ],
+     "z": 3.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F01_CEILING_F01_ATRIUM_00",
+     "room": "F01_ATRIUM",
+     "rect": [
+      -3.25,
+      -3.25,
+      3.25,
+      -3.16
+     ],
+     "z": 3.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F01_CEILING_F01_ATRIUM_01",
+     "room": "F01_ATRIUM",
+     "rect": [
+      -3.25,
+      3.16,
+      3.25,
+      3.25
+     ],
+     "z": 3.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F01_CEILING_F01_ATRIUM_02",
+     "room": "F01_ATRIUM",
+     "rect": [
+      -3.25,
+      -3.16,
+      -3.16,
+      3.16
+     ],
+     "z": 3.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F01_CEILING_F01_ATRIUM_03",
+     "room": "F01_ATRIUM",
+     "rect": [
+      3.16,
+      -3.16,
+      3.25,
+      3.16
+     ],
+     "z": 3.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F01_CEILING_F01_D_MAIN_00",
+     "room": "F01_D_MAIN",
+     "rect": [
+      5.51,
+      -6.25,
+      13.65,
+      -6.19
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_D_MAIN_01",
+     "room": "F01_D_MAIN",
+     "rect": [
+      5.51,
+      -3.79,
+      13.65,
+      -2.84
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_D_MAIN_02",
+     "room": "F01_D_MAIN",
+     "rect": [
+      7.71,
+      -6.19,
+      13.65,
+      -3.79
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_D_MAIN_03",
+     "room": "F01_D_MAIN",
+     "rect": [
+      7.71,
+      -2.84,
+      13.65,
+      -1.0
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_A_MAIN_00",
+     "room": "F01_A_MAIN",
+     "rect": [
+      -13.65,
+      -6.25,
+      -5.51,
+      -6.19
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_A_MAIN_01",
+     "room": "F01_A_MAIN",
+     "rect": [
+      -13.65,
+      -3.79,
+      -5.51,
+      -0.45
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_A_MAIN_02",
+     "room": "F01_A_MAIN",
+     "rect": [
+      -13.65,
+      -6.19,
+      -7.71,
+      -3.79
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_STORAGE_C_00",
+     "room": "F01_STORAGE_C",
+     "rect": [
+      5.51,
+      -0.88,
+      13.65,
+      9.1
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_STORAGE_C_01",
+     "room": "F01_STORAGE_C",
+     "rect": [
+      5.51,
+      9.1,
+      9.55,
+      9.65
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F01_CEILING_F01_STORAGE_C_02",
+     "room": "F01_STORAGE_C",
+     "rect": [
+      10.45,
+      9.1,
+      13.65,
+      9.65
+     ],
+     "z": 3.015,
+     "mat": "plaster"
+    }
+   ],
    "site_lights": [
     {
      "pos": [
@@ -75366,6 +75802,512 @@
      "mat": "linoleum"
     }
    ],
+   "ceilings": [
+    {
+     "id": "F02_CEILING_F02_D_OFFICE_00",
+     "room": "F02_D_OFFICE",
+     "rect": [
+      5.51,
+      -2.84,
+      7.71,
+      -1.0
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_A_BATH_00",
+     "room": "F02_A_BATH",
+     "rect": [
+      -7.71,
+      -6.19,
+      -5.51,
+      -3.79
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_B_BATH_00",
+     "room": "F02_B_BATH",
+     "rect": [
+      -7.71,
+      2.9699999999999998,
+      -5.51,
+      5.37
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_C_BATH_00",
+     "room": "F02_C_BATH",
+     "rect": [
+      5.51,
+      3.79,
+      7.71,
+      6.19
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_D_BATH_00",
+     "room": "F02_D_BATH",
+     "rect": [
+      5.51,
+      -6.19,
+      7.71,
+      -3.79
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_B_ALCOVE_00",
+     "room": "F02_B_ALCOVE",
+     "rect": [
+      -13.65,
+      6.5,
+      -10.9,
+      9.65
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_C_BED1_00",
+     "room": "F02_C_BED1",
+     "rect": [
+      5.51,
+      6.25,
+      9.58,
+      9.1
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_C_BED1_01",
+     "room": "F02_C_BED1",
+     "rect": [
+      5.51,
+      9.1,
+      9.55,
+      9.65
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_C_BED2_00",
+     "room": "F02_C_BED2",
+     "rect": [
+      9.58,
+      6.25,
+      13.65,
+      9.1
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_C_BED2_01",
+     "room": "F02_C_BED2",
+     "rect": [
+      10.45,
+      9.1,
+      13.65,
+      9.65
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_HALL_00",
+     "room": "F02_HALL",
+     "rect": [
+      -3.25,
+      -6.75,
+      0.85,
+      -3.25
+     ],
+     "z": 6.215,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F02_CEILING_F02_B_KITCHEN_00",
+     "room": "F02_B_KITCHEN",
+     "rect": [
+      -10.9,
+      6.5,
+      -5.51,
+      9.65
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_UTILITY_00",
+     "room": "F02_UTILITY",
+     "rect": [
+      -3.25,
+      3.25,
+      3.25,
+      6.75
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_WSTOR_00",
+     "room": "F02_WSTOR",
+     "rect": [
+      -13.65,
+      -0.33,
+      -5.51,
+      2.55
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_A_BED_00",
+     "room": "F02_A_BED",
+     "rect": [
+      -13.65,
+      -9.65,
+      -5.51,
+      -6.25
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_D_BED_00",
+     "room": "F02_D_BED",
+     "rect": [
+      5.51,
+      -9.65,
+      13.65,
+      -6.25
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_B_MAIN_00",
+     "room": "F02_B_MAIN",
+     "rect": [
+      -13.65,
+      2.67,
+      -5.51,
+      2.9699999999999998
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_B_MAIN_01",
+     "room": "F02_B_MAIN",
+     "rect": [
+      -13.65,
+      5.37,
+      -5.51,
+      6.5
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_B_MAIN_02",
+     "room": "F02_B_MAIN",
+     "rect": [
+      -13.65,
+      2.9699999999999998,
+      -7.71,
+      5.37
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_ATRIUM_00",
+     "room": "F02_ATRIUM",
+     "rect": [
+      -3.25,
+      -3.25,
+      3.25,
+      -3.16
+     ],
+     "z": 6.215,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F02_CEILING_F02_ATRIUM_01",
+     "room": "F02_ATRIUM",
+     "rect": [
+      -3.25,
+      3.16,
+      3.25,
+      3.25
+     ],
+     "z": 6.215,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F02_CEILING_F02_ATRIUM_02",
+     "room": "F02_ATRIUM",
+     "rect": [
+      -3.25,
+      -3.16,
+      -3.16,
+      3.16
+     ],
+     "z": 6.215,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F02_CEILING_F02_ATRIUM_03",
+     "room": "F02_ATRIUM",
+     "rect": [
+      3.16,
+      -3.16,
+      3.25,
+      3.16
+     ],
+     "z": 6.215,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F02_CEILING_F02_D_MAIN_00",
+     "room": "F02_D_MAIN",
+     "rect": [
+      5.51,
+      -6.25,
+      13.65,
+      -6.19
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_D_MAIN_01",
+     "room": "F02_D_MAIN",
+     "rect": [
+      5.51,
+      -3.79,
+      13.65,
+      -2.84
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_D_MAIN_02",
+     "room": "F02_D_MAIN",
+     "rect": [
+      7.71,
+      -6.19,
+      13.65,
+      -3.79
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_D_MAIN_03",
+     "room": "F02_D_MAIN",
+     "rect": [
+      7.71,
+      -2.84,
+      13.65,
+      -1.0
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_A_MAIN_00",
+     "room": "F02_A_MAIN",
+     "rect": [
+      -13.65,
+      -6.25,
+      -5.51,
+      -6.19
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_A_MAIN_01",
+     "room": "F02_A_MAIN",
+     "rect": [
+      -13.65,
+      -3.79,
+      -5.51,
+      -0.45
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_A_MAIN_02",
+     "room": "F02_A_MAIN",
+     "rect": [
+      -13.65,
+      -6.19,
+      -7.71,
+      -3.79
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_C_MAIN_00",
+     "room": "F02_C_MAIN",
+     "rect": [
+      5.51,
+      -0.88,
+      13.65,
+      3.79
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_C_MAIN_01",
+     "room": "F02_C_MAIN",
+     "rect": [
+      5.51,
+      6.19,
+      13.65,
+      6.25
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_C_MAIN_02",
+     "room": "F02_C_MAIN",
+     "rect": [
+      7.71,
+      3.79,
+      13.65,
+      6.19
+     ],
+     "z": 6.215,
+     "mat": "plaster"
+    },
+    {
+     "id": "F02_CEILING_F02_CORRIDOR_00",
+     "room": "F02_CORRIDOR",
+     "rect": [
+      -5.33,
+      -9.65,
+      5.33,
+      -6.75
+     ],
+     "z": 6.215,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F02_CEILING_F02_CORRIDOR_01",
+     "room": "F02_CORRIDOR",
+     "rect": [
+      -5.33,
+      -3.25,
+      -3.25,
+      3.25
+     ],
+     "z": 6.215,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F02_CEILING_F02_CORRIDOR_02",
+     "room": "F02_CORRIDOR",
+     "rect": [
+      3.25,
+      -3.25,
+      5.33,
+      3.25
+     ],
+     "z": 6.215,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F02_CEILING_F02_CORRIDOR_03",
+     "room": "F02_CORRIDOR",
+     "rect": [
+      -5.33,
+      6.75,
+      5.33,
+      9.65
+     ],
+     "z": 6.215,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F02_CEILING_F02_CORRIDOR_04",
+     "room": "F02_CORRIDOR",
+     "rect": [
+      -5.33,
+      3.25,
+      -3.25,
+      6.75
+     ],
+     "z": 6.215,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F02_CEILING_F02_CORRIDOR_05",
+     "room": "F02_CORRIDOR",
+     "rect": [
+      3.25,
+      3.25,
+      5.33,
+      6.75
+     ],
+     "z": 6.215,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F02_CEILING_F02_CORRIDOR_06",
+     "room": "F02_CORRIDOR",
+     "rect": [
+      -5.33,
+      -6.75,
+      -3.25,
+      -3.25
+     ],
+     "z": 6.215,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F02_CEILING_F02_CORRIDOR_07",
+     "room": "F02_CORRIDOR",
+     "rect": [
+      0.85,
+      -4.55,
+      5.33,
+      -3.25
+     ],
+     "z": 6.215,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F02_CEILING_F02_CORRIDOR_08",
+     "room": "F02_CORRIDOR",
+     "rect": [
+      3.0,
+      -6.75,
+      5.33,
+      -4.55
+     ],
+     "z": 6.215,
+     "mat": "tin_ceiling"
+    }
+   ],
    "sockets": [
     {
      "id": "2A_TOILET_SIDE",
@@ -83837,6 +84779,512 @@
      "z0": 0.8,
      "h": 1.8,
      "mat": "plywood"
+    }
+   ],
+   "ceilings": [
+    {
+     "id": "F03_CEILING_F03_D_OFFICE_00",
+     "room": "F03_D_OFFICE",
+     "rect": [
+      5.51,
+      -2.84,
+      7.71,
+      -1.0
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_A_BATH_00",
+     "room": "F03_A_BATH",
+     "rect": [
+      -7.71,
+      -6.19,
+      -5.51,
+      -3.79
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_B_BATH_00",
+     "room": "F03_B_BATH",
+     "rect": [
+      -7.71,
+      2.9699999999999998,
+      -5.51,
+      5.37
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_C_BATH_00",
+     "room": "F03_C_BATH",
+     "rect": [
+      5.51,
+      3.79,
+      7.71,
+      6.19
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_D_BATH_00",
+     "room": "F03_D_BATH",
+     "rect": [
+      5.51,
+      -6.19,
+      7.71,
+      -3.79
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_B_ALCOVE_00",
+     "room": "F03_B_ALCOVE",
+     "rect": [
+      -13.65,
+      6.5,
+      -10.9,
+      9.65
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_C_BED1_00",
+     "room": "F03_C_BED1",
+     "rect": [
+      5.51,
+      6.25,
+      9.58,
+      9.1
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_C_BED1_01",
+     "room": "F03_C_BED1",
+     "rect": [
+      5.51,
+      9.1,
+      9.55,
+      9.65
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_C_BED2_00",
+     "room": "F03_C_BED2",
+     "rect": [
+      9.58,
+      6.25,
+      13.65,
+      9.1
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_C_BED2_01",
+     "room": "F03_C_BED2",
+     "rect": [
+      10.45,
+      9.1,
+      13.65,
+      9.65
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_HALL_00",
+     "room": "F03_HALL",
+     "rect": [
+      -3.25,
+      -6.75,
+      0.85,
+      -3.25
+     ],
+     "z": 9.415,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F03_CEILING_F03_B_KITCHEN_00",
+     "room": "F03_B_KITCHEN",
+     "rect": [
+      -10.9,
+      6.5,
+      -5.51,
+      9.65
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_UTILITY_00",
+     "room": "F03_UTILITY",
+     "rect": [
+      -3.25,
+      3.25,
+      3.25,
+      6.75
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_WSTOR_00",
+     "room": "F03_WSTOR",
+     "rect": [
+      -13.65,
+      -0.33,
+      -5.51,
+      2.55
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_A_BED_00",
+     "room": "F03_A_BED",
+     "rect": [
+      -13.65,
+      -9.65,
+      -5.51,
+      -6.25
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_D_BED_00",
+     "room": "F03_D_BED",
+     "rect": [
+      5.51,
+      -9.65,
+      13.65,
+      -6.25
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_B_MAIN_00",
+     "room": "F03_B_MAIN",
+     "rect": [
+      -13.65,
+      2.67,
+      -5.51,
+      2.9699999999999998
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_B_MAIN_01",
+     "room": "F03_B_MAIN",
+     "rect": [
+      -13.65,
+      5.37,
+      -5.51,
+      6.5
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_B_MAIN_02",
+     "room": "F03_B_MAIN",
+     "rect": [
+      -13.65,
+      2.9699999999999998,
+      -7.71,
+      5.37
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_ATRIUM_00",
+     "room": "F03_ATRIUM",
+     "rect": [
+      -3.25,
+      -3.25,
+      3.25,
+      -3.16
+     ],
+     "z": 9.415,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F03_CEILING_F03_ATRIUM_01",
+     "room": "F03_ATRIUM",
+     "rect": [
+      -3.25,
+      3.16,
+      3.25,
+      3.25
+     ],
+     "z": 9.415,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F03_CEILING_F03_ATRIUM_02",
+     "room": "F03_ATRIUM",
+     "rect": [
+      -3.25,
+      -3.16,
+      -3.16,
+      3.16
+     ],
+     "z": 9.415,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F03_CEILING_F03_ATRIUM_03",
+     "room": "F03_ATRIUM",
+     "rect": [
+      3.16,
+      -3.16,
+      3.25,
+      3.16
+     ],
+     "z": 9.415,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F03_CEILING_F03_D_MAIN_00",
+     "room": "F03_D_MAIN",
+     "rect": [
+      5.51,
+      -6.25,
+      13.65,
+      -6.19
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_D_MAIN_01",
+     "room": "F03_D_MAIN",
+     "rect": [
+      5.51,
+      -3.79,
+      13.65,
+      -2.84
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_D_MAIN_02",
+     "room": "F03_D_MAIN",
+     "rect": [
+      7.71,
+      -6.19,
+      13.65,
+      -3.79
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_D_MAIN_03",
+     "room": "F03_D_MAIN",
+     "rect": [
+      7.71,
+      -2.84,
+      13.65,
+      -1.0
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_A_MAIN_00",
+     "room": "F03_A_MAIN",
+     "rect": [
+      -13.65,
+      -6.25,
+      -5.51,
+      -6.19
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_A_MAIN_01",
+     "room": "F03_A_MAIN",
+     "rect": [
+      -13.65,
+      -3.79,
+      -5.51,
+      -0.45
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_A_MAIN_02",
+     "room": "F03_A_MAIN",
+     "rect": [
+      -13.65,
+      -6.19,
+      -7.71,
+      -3.79
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_C_MAIN_00",
+     "room": "F03_C_MAIN",
+     "rect": [
+      5.51,
+      -0.88,
+      13.65,
+      3.79
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_C_MAIN_01",
+     "room": "F03_C_MAIN",
+     "rect": [
+      5.51,
+      6.19,
+      13.65,
+      6.25
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_C_MAIN_02",
+     "room": "F03_C_MAIN",
+     "rect": [
+      7.71,
+      3.79,
+      13.65,
+      6.19
+     ],
+     "z": 9.415,
+     "mat": "plaster"
+    },
+    {
+     "id": "F03_CEILING_F03_CORRIDOR_00",
+     "room": "F03_CORRIDOR",
+     "rect": [
+      -5.33,
+      -9.65,
+      5.33,
+      -6.75
+     ],
+     "z": 9.415,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F03_CEILING_F03_CORRIDOR_01",
+     "room": "F03_CORRIDOR",
+     "rect": [
+      -5.33,
+      -3.25,
+      -3.25,
+      3.25
+     ],
+     "z": 9.415,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F03_CEILING_F03_CORRIDOR_02",
+     "room": "F03_CORRIDOR",
+     "rect": [
+      3.25,
+      -3.25,
+      5.33,
+      3.25
+     ],
+     "z": 9.415,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F03_CEILING_F03_CORRIDOR_03",
+     "room": "F03_CORRIDOR",
+     "rect": [
+      -5.33,
+      6.75,
+      5.33,
+      9.65
+     ],
+     "z": 9.415,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F03_CEILING_F03_CORRIDOR_04",
+     "room": "F03_CORRIDOR",
+     "rect": [
+      -5.33,
+      3.25,
+      -3.25,
+      6.75
+     ],
+     "z": 9.415,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F03_CEILING_F03_CORRIDOR_05",
+     "room": "F03_CORRIDOR",
+     "rect": [
+      3.25,
+      3.25,
+      5.33,
+      6.75
+     ],
+     "z": 9.415,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F03_CEILING_F03_CORRIDOR_06",
+     "room": "F03_CORRIDOR",
+     "rect": [
+      -5.33,
+      -6.75,
+      -3.25,
+      -3.25
+     ],
+     "z": 9.415,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F03_CEILING_F03_CORRIDOR_07",
+     "room": "F03_CORRIDOR",
+     "rect": [
+      0.85,
+      -4.55,
+      5.33,
+      -3.25
+     ],
+     "z": 9.415,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F03_CEILING_F03_CORRIDOR_08",
+     "room": "F03_CORRIDOR",
+     "rect": [
+      3.0,
+      -6.75,
+      5.33,
+      -4.55
+     ],
+     "z": 9.415,
+     "mat": "tin_ceiling"
     }
    ],
    "sockets": [
@@ -93563,6 +95011,512 @@
      "mat": "plaster_stained"
     }
    ],
+   "ceilings": [
+    {
+     "id": "F04_CEILING_F04_B_CLOSET_00",
+     "room": "F04_B_CLOSET",
+     "rect": [
+      -6.66,
+      6.92,
+      -5.51,
+      8.719999999999999
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_B_VESTIBULE_00",
+     "room": "F04_B_VESTIBULE",
+     "rect": [
+      -7.71,
+      3.27,
+      -5.51,
+      4.52
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_D_OFFICE_00",
+     "room": "F04_D_OFFICE",
+     "rect": [
+      5.51,
+      -2.84,
+      7.71,
+      -1.0
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_A_BATH_00",
+     "room": "F04_A_BATH",
+     "rect": [
+      -7.71,
+      -6.19,
+      -5.51,
+      -3.79
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_B_BATH_00",
+     "room": "F04_B_BATH",
+     "rect": [
+      -7.71,
+      4.52,
+      -5.51,
+      6.92
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_C_BATH_00",
+     "room": "F04_C_BATH",
+     "rect": [
+      5.51,
+      3.79,
+      7.71,
+      6.19
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_D_BATH_00",
+     "room": "F04_D_BATH",
+     "rect": [
+      5.51,
+      -6.19,
+      7.71,
+      -3.79
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_B_ALCOVE_00",
+     "room": "F04_B_ALCOVE",
+     "rect": [
+      -13.65,
+      6.5,
+      -10.9,
+      9.65
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_B_KITCHEN_00",
+     "room": "F04_B_KITCHEN",
+     "rect": [
+      -10.9,
+      6.5,
+      -7.71,
+      9.65
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_C_BED1_00",
+     "room": "F04_C_BED1",
+     "rect": [
+      5.51,
+      6.25,
+      9.58,
+      9.1
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_C_BED1_01",
+     "room": "F04_C_BED1",
+     "rect": [
+      5.51,
+      9.1,
+      9.55,
+      9.65
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_C_BED2_00",
+     "room": "F04_C_BED2",
+     "rect": [
+      9.58,
+      6.25,
+      13.65,
+      9.1
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_C_BED2_01",
+     "room": "F04_C_BED2",
+     "rect": [
+      10.45,
+      9.1,
+      13.65,
+      9.65
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_HALL_00",
+     "room": "F04_HALL",
+     "rect": [
+      -3.25,
+      -6.75,
+      0.85,
+      -3.25
+     ],
+     "z": 12.615,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F04_CEILING_F04_UTILITY_00",
+     "room": "F04_UTILITY",
+     "rect": [
+      -3.25,
+      3.25,
+      3.25,
+      6.75
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_B_MAIN_00",
+     "room": "F04_B_MAIN",
+     "rect": [
+      -13.65,
+      2.67,
+      -7.71,
+      6.5
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_WSTOR_00",
+     "room": "F04_WSTOR",
+     "rect": [
+      -13.65,
+      -0.33,
+      -5.51,
+      2.55
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_A_BED_00",
+     "room": "F04_A_BED",
+     "rect": [
+      -13.65,
+      -9.65,
+      -5.51,
+      -6.25
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_D_BED_00",
+     "room": "F04_D_BED",
+     "rect": [
+      5.51,
+      -9.65,
+      13.65,
+      -6.25
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_ATRIUM_00",
+     "room": "F04_ATRIUM",
+     "rect": [
+      -3.25,
+      -3.25,
+      3.25,
+      -3.16
+     ],
+     "z": 12.615,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F04_CEILING_F04_ATRIUM_01",
+     "room": "F04_ATRIUM",
+     "rect": [
+      -3.25,
+      3.16,
+      3.25,
+      3.25
+     ],
+     "z": 12.615,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F04_CEILING_F04_ATRIUM_02",
+     "room": "F04_ATRIUM",
+     "rect": [
+      -3.25,
+      -3.16,
+      -3.16,
+      3.16
+     ],
+     "z": 12.615,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F04_CEILING_F04_ATRIUM_03",
+     "room": "F04_ATRIUM",
+     "rect": [
+      3.16,
+      -3.16,
+      3.25,
+      3.16
+     ],
+     "z": 12.615,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F04_CEILING_F04_D_MAIN_00",
+     "room": "F04_D_MAIN",
+     "rect": [
+      5.51,
+      -6.25,
+      13.65,
+      -6.19
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_D_MAIN_01",
+     "room": "F04_D_MAIN",
+     "rect": [
+      5.51,
+      -3.79,
+      13.65,
+      -2.84
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_D_MAIN_02",
+     "room": "F04_D_MAIN",
+     "rect": [
+      7.71,
+      -6.19,
+      13.65,
+      -3.79
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_D_MAIN_03",
+     "room": "F04_D_MAIN",
+     "rect": [
+      7.71,
+      -2.84,
+      13.65,
+      -1.0
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_A_MAIN_00",
+     "room": "F04_A_MAIN",
+     "rect": [
+      -13.65,
+      -6.25,
+      -5.51,
+      -6.19
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_A_MAIN_01",
+     "room": "F04_A_MAIN",
+     "rect": [
+      -13.65,
+      -3.79,
+      -5.51,
+      -0.45
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_A_MAIN_02",
+     "room": "F04_A_MAIN",
+     "rect": [
+      -13.65,
+      -6.19,
+      -7.71,
+      -3.79
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_C_MAIN_00",
+     "room": "F04_C_MAIN",
+     "rect": [
+      5.51,
+      -0.88,
+      13.65,
+      3.79
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_C_MAIN_01",
+     "room": "F04_C_MAIN",
+     "rect": [
+      5.51,
+      6.19,
+      13.65,
+      6.25
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_C_MAIN_02",
+     "room": "F04_C_MAIN",
+     "rect": [
+      7.71,
+      3.79,
+      13.65,
+      6.19
+     ],
+     "z": 12.615,
+     "mat": "plaster"
+    },
+    {
+     "id": "F04_CEILING_F04_CORRIDOR_00",
+     "room": "F04_CORRIDOR",
+     "rect": [
+      -5.33,
+      -9.65,
+      5.33,
+      -6.75
+     ],
+     "z": 12.615,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F04_CEILING_F04_CORRIDOR_01",
+     "room": "F04_CORRIDOR",
+     "rect": [
+      -5.33,
+      -3.25,
+      -3.25,
+      3.25
+     ],
+     "z": 12.615,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F04_CEILING_F04_CORRIDOR_02",
+     "room": "F04_CORRIDOR",
+     "rect": [
+      3.25,
+      -3.25,
+      5.33,
+      3.25
+     ],
+     "z": 12.615,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F04_CEILING_F04_CORRIDOR_03",
+     "room": "F04_CORRIDOR",
+     "rect": [
+      -5.33,
+      6.75,
+      5.33,
+      9.65
+     ],
+     "z": 12.615,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F04_CEILING_F04_CORRIDOR_04",
+     "room": "F04_CORRIDOR",
+     "rect": [
+      -5.33,
+      3.25,
+      -3.25,
+      6.75
+     ],
+     "z": 12.615,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F04_CEILING_F04_CORRIDOR_05",
+     "room": "F04_CORRIDOR",
+     "rect": [
+      3.25,
+      3.25,
+      5.33,
+      6.75
+     ],
+     "z": 12.615,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F04_CEILING_F04_CORRIDOR_06",
+     "room": "F04_CORRIDOR",
+     "rect": [
+      -5.33,
+      -6.75,
+      -3.25,
+      -3.25
+     ],
+     "z": 12.615,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F04_CEILING_F04_CORRIDOR_07",
+     "room": "F04_CORRIDOR",
+     "rect": [
+      0.85,
+      -4.55,
+      5.33,
+      -3.25
+     ],
+     "z": 12.615,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F04_CEILING_F04_CORRIDOR_08",
+     "room": "F04_CORRIDOR",
+     "rect": [
+      3.0,
+      -6.75,
+      5.33,
+      -4.55
+     ],
+     "z": 12.615,
+     "mat": "tin_ceiling"
+    }
+   ],
    "sockets": [
     {
      "id": "4A_TOILET_SIDE",
@@ -102036,6 +103990,512 @@
      "z0": 2.95,
      "h": 0.06,
      "mat": "char"
+    }
+   ],
+   "ceilings": [
+    {
+     "id": "F05_CEILING_F05_D_OFFICE_00",
+     "room": "F05_D_OFFICE",
+     "rect": [
+      5.51,
+      -2.84,
+      7.71,
+      -1.0
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_A_BATH_00",
+     "room": "F05_A_BATH",
+     "rect": [
+      -7.71,
+      -6.19,
+      -5.51,
+      -3.79
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_B_BATH_00",
+     "room": "F05_B_BATH",
+     "rect": [
+      -7.71,
+      2.9699999999999998,
+      -5.51,
+      5.37
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_C_BATH_00",
+     "room": "F05_C_BATH",
+     "rect": [
+      5.51,
+      3.79,
+      7.71,
+      6.19
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_D_BATH_00",
+     "room": "F05_D_BATH",
+     "rect": [
+      5.51,
+      -6.19,
+      7.71,
+      -3.79
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_B_ALCOVE_00",
+     "room": "F05_B_ALCOVE",
+     "rect": [
+      -13.65,
+      6.5,
+      -10.9,
+      9.65
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_C_BED1_00",
+     "room": "F05_C_BED1",
+     "rect": [
+      5.51,
+      6.25,
+      9.58,
+      9.1
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_C_BED1_01",
+     "room": "F05_C_BED1",
+     "rect": [
+      5.51,
+      9.1,
+      9.55,
+      9.65
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_C_BED2_00",
+     "room": "F05_C_BED2",
+     "rect": [
+      9.58,
+      6.25,
+      13.65,
+      9.1
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_C_BED2_01",
+     "room": "F05_C_BED2",
+     "rect": [
+      10.45,
+      9.1,
+      13.65,
+      9.65
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_HALL_00",
+     "room": "F05_HALL",
+     "rect": [
+      -3.25,
+      -6.75,
+      0.85,
+      -3.25
+     ],
+     "z": 15.815,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F05_CEILING_F05_B_KITCHEN_00",
+     "room": "F05_B_KITCHEN",
+     "rect": [
+      -10.9,
+      6.5,
+      -5.51,
+      9.65
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_UTILITY_00",
+     "room": "F05_UTILITY",
+     "rect": [
+      -3.25,
+      3.25,
+      3.25,
+      6.75
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_WSTOR_00",
+     "room": "F05_WSTOR",
+     "rect": [
+      -13.65,
+      -0.33,
+      -5.51,
+      2.55
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_A_BED_00",
+     "room": "F05_A_BED",
+     "rect": [
+      -13.65,
+      -9.65,
+      -5.51,
+      -6.25
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_D_BED_00",
+     "room": "F05_D_BED",
+     "rect": [
+      5.51,
+      -9.65,
+      13.65,
+      -6.25
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_B_MAIN_00",
+     "room": "F05_B_MAIN",
+     "rect": [
+      -13.65,
+      2.67,
+      -5.51,
+      2.9699999999999998
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_B_MAIN_01",
+     "room": "F05_B_MAIN",
+     "rect": [
+      -13.65,
+      5.37,
+      -5.51,
+      6.5
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_B_MAIN_02",
+     "room": "F05_B_MAIN",
+     "rect": [
+      -13.65,
+      2.9699999999999998,
+      -7.71,
+      5.37
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_ATRIUM_00",
+     "room": "F05_ATRIUM",
+     "rect": [
+      -3.25,
+      -3.25,
+      3.25,
+      -3.16
+     ],
+     "z": 15.815,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F05_CEILING_F05_ATRIUM_01",
+     "room": "F05_ATRIUM",
+     "rect": [
+      -3.25,
+      3.16,
+      3.25,
+      3.25
+     ],
+     "z": 15.815,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F05_CEILING_F05_ATRIUM_02",
+     "room": "F05_ATRIUM",
+     "rect": [
+      -3.25,
+      -3.16,
+      -3.16,
+      3.16
+     ],
+     "z": 15.815,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F05_CEILING_F05_ATRIUM_03",
+     "room": "F05_ATRIUM",
+     "rect": [
+      3.16,
+      -3.16,
+      3.25,
+      3.16
+     ],
+     "z": 15.815,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F05_CEILING_F05_D_MAIN_00",
+     "room": "F05_D_MAIN",
+     "rect": [
+      5.51,
+      -6.25,
+      13.65,
+      -6.19
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_D_MAIN_01",
+     "room": "F05_D_MAIN",
+     "rect": [
+      5.51,
+      -3.79,
+      13.65,
+      -2.84
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_D_MAIN_02",
+     "room": "F05_D_MAIN",
+     "rect": [
+      7.71,
+      -6.19,
+      13.65,
+      -3.79
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_D_MAIN_03",
+     "room": "F05_D_MAIN",
+     "rect": [
+      7.71,
+      -2.84,
+      13.65,
+      -1.0
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_A_MAIN_00",
+     "room": "F05_A_MAIN",
+     "rect": [
+      -13.65,
+      -6.25,
+      -5.51,
+      -6.19
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_A_MAIN_01",
+     "room": "F05_A_MAIN",
+     "rect": [
+      -13.65,
+      -3.79,
+      -5.51,
+      -0.45
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_A_MAIN_02",
+     "room": "F05_A_MAIN",
+     "rect": [
+      -13.65,
+      -6.19,
+      -7.71,
+      -3.79
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_C_MAIN_00",
+     "room": "F05_C_MAIN",
+     "rect": [
+      5.51,
+      -0.88,
+      13.65,
+      3.79
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_C_MAIN_01",
+     "room": "F05_C_MAIN",
+     "rect": [
+      5.51,
+      6.19,
+      13.65,
+      6.25
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_C_MAIN_02",
+     "room": "F05_C_MAIN",
+     "rect": [
+      7.71,
+      3.79,
+      13.65,
+      6.19
+     ],
+     "z": 15.815,
+     "mat": "plaster"
+    },
+    {
+     "id": "F05_CEILING_F05_CORRIDOR_00",
+     "room": "F05_CORRIDOR",
+     "rect": [
+      -5.33,
+      -9.65,
+      5.33,
+      -6.75
+     ],
+     "z": 15.815,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F05_CEILING_F05_CORRIDOR_01",
+     "room": "F05_CORRIDOR",
+     "rect": [
+      -5.33,
+      -3.25,
+      -3.25,
+      3.25
+     ],
+     "z": 15.815,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F05_CEILING_F05_CORRIDOR_02",
+     "room": "F05_CORRIDOR",
+     "rect": [
+      3.25,
+      -3.25,
+      5.33,
+      3.25
+     ],
+     "z": 15.815,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F05_CEILING_F05_CORRIDOR_03",
+     "room": "F05_CORRIDOR",
+     "rect": [
+      -5.33,
+      6.75,
+      5.33,
+      9.65
+     ],
+     "z": 15.815,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F05_CEILING_F05_CORRIDOR_04",
+     "room": "F05_CORRIDOR",
+     "rect": [
+      -5.33,
+      3.25,
+      -3.25,
+      6.75
+     ],
+     "z": 15.815,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F05_CEILING_F05_CORRIDOR_05",
+     "room": "F05_CORRIDOR",
+     "rect": [
+      3.25,
+      3.25,
+      5.33,
+      6.75
+     ],
+     "z": 15.815,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F05_CEILING_F05_CORRIDOR_06",
+     "room": "F05_CORRIDOR",
+     "rect": [
+      -5.33,
+      -6.75,
+      -3.25,
+      -3.25
+     ],
+     "z": 15.815,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F05_CEILING_F05_CORRIDOR_07",
+     "room": "F05_CORRIDOR",
+     "rect": [
+      0.85,
+      -4.55,
+      5.33,
+      -3.25
+     ],
+     "z": 15.815,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F05_CEILING_F05_CORRIDOR_08",
+     "room": "F05_CORRIDOR",
+     "rect": [
+      3.0,
+      -6.75,
+      5.33,
+      -4.55
+     ],
+     "z": 15.815,
+     "mat": "tin_ceiling"
     }
    ],
    "sockets": [
@@ -110700,6 +113160,512 @@
      "mat": "linoleum"
     }
    ],
+   "ceilings": [
+    {
+     "id": "F06_CEILING_F06_D_OFFICE_00",
+     "room": "F06_D_OFFICE",
+     "rect": [
+      5.51,
+      -2.84,
+      7.71,
+      -1.0
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_A_BATH_00",
+     "room": "F06_A_BATH",
+     "rect": [
+      -7.71,
+      -6.19,
+      -5.51,
+      -3.79
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_B_BATH_00",
+     "room": "F06_B_BATH",
+     "rect": [
+      -7.71,
+      2.9699999999999998,
+      -5.51,
+      5.37
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_C_BATH_00",
+     "room": "F06_C_BATH",
+     "rect": [
+      5.51,
+      3.79,
+      7.71,
+      6.19
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_D_BATH_00",
+     "room": "F06_D_BATH",
+     "rect": [
+      5.51,
+      -6.19,
+      7.71,
+      -3.79
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_B_ALCOVE_00",
+     "room": "F06_B_ALCOVE",
+     "rect": [
+      -13.65,
+      6.5,
+      -10.9,
+      9.65
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_C_BED1_00",
+     "room": "F06_C_BED1",
+     "rect": [
+      5.51,
+      6.25,
+      9.58,
+      9.1
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_C_BED1_01",
+     "room": "F06_C_BED1",
+     "rect": [
+      5.51,
+      9.1,
+      9.55,
+      9.65
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_C_BED2_00",
+     "room": "F06_C_BED2",
+     "rect": [
+      9.58,
+      6.25,
+      13.65,
+      9.1
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_C_BED2_01",
+     "room": "F06_C_BED2",
+     "rect": [
+      10.45,
+      9.1,
+      13.65,
+      9.65
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_HALL_00",
+     "room": "F06_HALL",
+     "rect": [
+      -3.25,
+      -6.75,
+      0.85,
+      -3.25
+     ],
+     "z": 19.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F06_CEILING_F06_B_KITCHEN_00",
+     "room": "F06_B_KITCHEN",
+     "rect": [
+      -10.9,
+      6.5,
+      -5.51,
+      9.65
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_UTILITY_00",
+     "room": "F06_UTILITY",
+     "rect": [
+      -3.25,
+      3.25,
+      3.25,
+      6.75
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_WSTOR_00",
+     "room": "F06_WSTOR",
+     "rect": [
+      -13.65,
+      -0.33,
+      -5.51,
+      2.55
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_A_BED_00",
+     "room": "F06_A_BED",
+     "rect": [
+      -13.65,
+      -9.65,
+      -5.51,
+      -6.25
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_D_BED_00",
+     "room": "F06_D_BED",
+     "rect": [
+      5.51,
+      -9.65,
+      13.65,
+      -6.25
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_B_MAIN_00",
+     "room": "F06_B_MAIN",
+     "rect": [
+      -13.65,
+      2.67,
+      -5.51,
+      2.9699999999999998
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_B_MAIN_01",
+     "room": "F06_B_MAIN",
+     "rect": [
+      -13.65,
+      5.37,
+      -5.51,
+      6.5
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_B_MAIN_02",
+     "room": "F06_B_MAIN",
+     "rect": [
+      -13.65,
+      2.9699999999999998,
+      -7.71,
+      5.37
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_ATRIUM_00",
+     "room": "F06_ATRIUM",
+     "rect": [
+      -3.25,
+      -3.25,
+      3.25,
+      -3.16
+     ],
+     "z": 19.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F06_CEILING_F06_ATRIUM_01",
+     "room": "F06_ATRIUM",
+     "rect": [
+      -3.25,
+      3.16,
+      3.25,
+      3.25
+     ],
+     "z": 19.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F06_CEILING_F06_ATRIUM_02",
+     "room": "F06_ATRIUM",
+     "rect": [
+      -3.25,
+      -3.16,
+      -3.16,
+      3.16
+     ],
+     "z": 19.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F06_CEILING_F06_ATRIUM_03",
+     "room": "F06_ATRIUM",
+     "rect": [
+      3.16,
+      -3.16,
+      3.25,
+      3.16
+     ],
+     "z": 19.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F06_CEILING_F06_D_MAIN_00",
+     "room": "F06_D_MAIN",
+     "rect": [
+      5.51,
+      -6.25,
+      13.65,
+      -6.19
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_D_MAIN_01",
+     "room": "F06_D_MAIN",
+     "rect": [
+      5.51,
+      -3.79,
+      13.65,
+      -2.84
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_D_MAIN_02",
+     "room": "F06_D_MAIN",
+     "rect": [
+      7.71,
+      -6.19,
+      13.65,
+      -3.79
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_D_MAIN_03",
+     "room": "F06_D_MAIN",
+     "rect": [
+      7.71,
+      -2.84,
+      13.65,
+      -1.0
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_A_MAIN_00",
+     "room": "F06_A_MAIN",
+     "rect": [
+      -13.65,
+      -6.25,
+      -5.51,
+      -6.19
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_A_MAIN_01",
+     "room": "F06_A_MAIN",
+     "rect": [
+      -13.65,
+      -3.79,
+      -5.51,
+      -0.45
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_A_MAIN_02",
+     "room": "F06_A_MAIN",
+     "rect": [
+      -13.65,
+      -6.19,
+      -7.71,
+      -3.79
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_C_MAIN_00",
+     "room": "F06_C_MAIN",
+     "rect": [
+      5.51,
+      -0.88,
+      13.65,
+      3.79
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_C_MAIN_01",
+     "room": "F06_C_MAIN",
+     "rect": [
+      5.51,
+      6.19,
+      13.65,
+      6.25
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_C_MAIN_02",
+     "room": "F06_C_MAIN",
+     "rect": [
+      7.71,
+      3.79,
+      13.65,
+      6.19
+     ],
+     "z": 19.015,
+     "mat": "plaster"
+    },
+    {
+     "id": "F06_CEILING_F06_CORRIDOR_00",
+     "room": "F06_CORRIDOR",
+     "rect": [
+      -5.33,
+      -9.65,
+      5.33,
+      -6.75
+     ],
+     "z": 19.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F06_CEILING_F06_CORRIDOR_01",
+     "room": "F06_CORRIDOR",
+     "rect": [
+      -5.33,
+      -3.25,
+      -3.25,
+      3.25
+     ],
+     "z": 19.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F06_CEILING_F06_CORRIDOR_02",
+     "room": "F06_CORRIDOR",
+     "rect": [
+      3.25,
+      -3.25,
+      5.33,
+      3.25
+     ],
+     "z": 19.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F06_CEILING_F06_CORRIDOR_03",
+     "room": "F06_CORRIDOR",
+     "rect": [
+      -5.33,
+      6.75,
+      5.33,
+      9.65
+     ],
+     "z": 19.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F06_CEILING_F06_CORRIDOR_04",
+     "room": "F06_CORRIDOR",
+     "rect": [
+      -5.33,
+      3.25,
+      -3.25,
+      6.75
+     ],
+     "z": 19.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F06_CEILING_F06_CORRIDOR_05",
+     "room": "F06_CORRIDOR",
+     "rect": [
+      3.25,
+      3.25,
+      5.33,
+      6.75
+     ],
+     "z": 19.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F06_CEILING_F06_CORRIDOR_06",
+     "room": "F06_CORRIDOR",
+     "rect": [
+      -5.33,
+      -6.75,
+      -3.25,
+      -3.25
+     ],
+     "z": 19.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F06_CEILING_F06_CORRIDOR_07",
+     "room": "F06_CORRIDOR",
+     "rect": [
+      0.85,
+      -4.55,
+      5.33,
+      -3.25
+     ],
+     "z": 19.015,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "F06_CEILING_F06_CORRIDOR_08",
+     "room": "F06_CORRIDOR",
+     "rect": [
+      3.0,
+      -6.75,
+      5.33,
+      -4.55
+     ],
+     "z": 19.015,
+     "mat": "tin_ceiling"
+    }
+   ],
    "sockets": [
     {
      "id": "6A_TOILET_SIDE",
@@ -114083,6 +117049,7 @@
      "mat": "metal"
     }
    ],
+   "ceilings": [],
    "sockets": []
   }
  ],

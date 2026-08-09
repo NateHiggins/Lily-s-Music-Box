@@ -286,12 +286,19 @@ func _shoot_touch_hud() -> void:
 
 func _run() -> void:
 	await get_tree().create_timer(0.8).timeout
-	root.show_all_floors = true
+	# Documentation normally keeps the whole shell for exterior and atrium
+	# views. SCREENSHOT_STREAMING=1 instead makes the camera the streaming eye;
+	# this is the mode that can actually reveal a ceiling borrowed from the
+	# hidden storey above.
+	var streaming_shot := OS.get_environment("SCREENSHOT_STREAMING") == "1"
+	root.show_all_floors = not streaming_shot
 	Conductor.infection = 0.6       # lights react in stills too
 	cam = Camera3D.new()
 	cam.fov = 72
 	add_child(cam)
 	cam.make_current()
+	if streaming_shot:
+		root.view_override = cam
 	# Documentation must reflect playable exposure exactly; an old 0.55
 	# ambient override hid navigation failures and erased real shadows.
 	# Comma-separated, so a single scene load can re-shoot a whole sequence
