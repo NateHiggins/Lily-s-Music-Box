@@ -418,22 +418,31 @@ zeroes for every rendering counter:
 godot --path game --resolution 2560x1440 res://tests/Perf.tscn
 ```
 
-It parks the camera at six worst-case stations (the atrium eye sees seven
+It parks the camera at seven worst-case stations (the atrium eye sees seven
 storeys at once; the street sees the whole block) and reports objects,
 draw calls, primitives and frame time, failing any station over 16.6 ms —
 or any station that renders nothing, which is a broken run rather than a
 fast one. It also prints a census of where the geometry lives, because
-optimizing the wrong half of that is effort spent for nothing. On an RTX
-4080 at 1440p every station currently sits between 112 and 161 fps.
+optimizing the wrong half of that is effort spent for nothing. Set
+`PERF_DIAG_ONLY=1` to decompose the F04 corridor into illumination,
+shadow-caster and functional-prop submissions.
 
-Two things pay for that. Shadows are budgeted separately from light and
-much more tightly: an omni's shadow is a cube, so each caster re-renders
-the visible set six times, and the nearest eight casters carry all the
-modelling an eye can actually find. And 1091 box occluders are built at
-load from the same wall and slab data the geometry comes from, cut around
-every door and window — so the facade stops the renderer drawing four
-storeys of furniture behind it, without a doorway ever culling the room
-you can see through it.
+The August 2026 census found that RenderingServer's ~46,000 “objects” in
+the F04 corridor were not 46,000 scene nodes. They were repeated render and
+shadow submissions from 3,431 imported meshes and 5,035 prop meshes. All
+471 marker-built props were root-owned, so hiding a floor never hid its
+appliances or fixtures; the benchmark also moved its camera without making
+that camera the streaming eye. Both are fixed. Closed rooms now render only
+their active storey's shell and props; the open atrium and exterior retain
+the views they genuinely need. On the project's RTX 4080 reference machine
+the corridor fell from 65.54 ms / ~46,000 objects to 36.88 ms / 21,458,
+while Harukiya reached 16.51 ms. Six of seven stations still miss the
+16.6 ms target, so this is a measured recovery, not a declaration of 60 fps.
+
+There is deliberately no box-occluder pass. The former wall-derived
+occluders sat coincident with their own masonry and culled the facade,
+window glazing and doorway sightlines. Storey visibility is the safe coarse
+gate until a non-self-occluding interior solution is authored and rendered.
 
 Props are modelled as heaps of primitives, and the census found one
 outlier: the column radiator was 62 separate meshes, so 23 of them
@@ -452,9 +461,9 @@ kind of cost is invisible until something profiles it.
   physics instead of trimesh furniture.
 - 38 audio emitters, all procedural `AudioStreamWAV` (mono 22 kHz),
   synthesized at startup; no audio files on disk
-- Floor streaming keeps ≤3 floor scenes rendered while walking (the whole
+- Floor streaming keeps one floor scene rendered in closed rooms (the whole
   stack renders in the atrium, where the eye is a sightline through every
-  storey), and 1091 generated occluders cull what the masonry hides
+  storey); exterior views retain the complete shell and F01's shop dressing
 
 ## Structure
 

@@ -509,11 +509,26 @@ func _run() -> void:
 			hidden.append(fid2)
 	_check(hidden.is_empty(),
 			"all floors render from the atrium eye (hidden: %s)" % [hidden])
+	var hidden_atrium_props := []
+	for floor_id in root.functional_props_by_floor:
+		for streamed_prop in root.functional_props_by_floor[floor_id]:
+			if not streamed_prop.visible:
+				hidden_atrium_props.append(streamed_prop.name)
+	_check(hidden_atrium_props.is_empty(),
+			"all functional props render across the open atrium eye")
 	pl.global_position = Vector3(4.3, 3.35, 0.0)  # corridor: streaming back
 	pl.velocity = Vector3.ZERO
 	await get_tree().create_timer(0.4).timeout
 	_check(not root.floor_nodes["F06"].visible,
 			"floor streaming resumes outside the eye")
+	var f02_props: Array = root.functional_props_by_floor.get("F02", [])
+	var f06_props: Array = root.functional_props_by_floor.get("F06", [])
+	_check(not f02_props.is_empty() and f02_props.all(
+			func(streamed_prop): return streamed_prop.visible),
+			"active-storey functional props remain visible")
+	_check(not f06_props.is_empty() and f06_props.all(
+			func(streamed_prop): return not streamed_prop.visible),
+			"closed-storey functional props leave the render and shadow passes")
 	root.show_all_floors = true
 
 	# --- elevator travel across full range

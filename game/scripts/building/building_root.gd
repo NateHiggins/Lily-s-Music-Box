@@ -100,6 +100,12 @@ var call_interface: CallInterface
 var light_rig: LightRig
 var virus_director: VirusSoundDirector
 var floor_nodes: Dictionary = {}
+## Marker-built props deliberately remain direct children: several directors
+## discover them through that stable ownership boundary.  They still need to
+## ride the same coarse visibility gate as the imported floor, though.  Before
+## this index existed all 471 props (and their shadow geometry) rendered on
+## every storey even while the floor around them was hidden.
+var functional_props_by_floor: Dictionary = {}
 var window_glow: OrisonWindowGlow
 var door_glow: OrisonDoorGlow
 var broadcast: BroadcastDirector
@@ -663,6 +669,9 @@ func _build_atrium_atmosphere() -> void:
 func _spawn_props() -> void:
 	var count := 0
 	for fl in layout["floors"]:
+		var floor_id := String(fl["id"])
+		if not functional_props_by_floor.has(floor_id):
+			functional_props_by_floor[floor_id] = []
 		for m in fl["markers"]:
 			if m["kind"] == "desk_zone":
 				var desk := DeskZone.new()
@@ -803,6 +812,7 @@ func _spawn_props() -> void:
 							or prop is MedicineCabinetProp or prop is ClockProp \
 					else -float(m.get("yaw_deg", 0)))
 			add_child(prop)
+			functional_props_by_floor[floor_id].append(prop)
 			count += 1
 	print("[BUILDING] %d functional props spawned" % count)
 
@@ -1289,12 +1299,14 @@ func _physics_process(_delta: float) -> void:
 	_update_floor_visibility()
 
 
-## Coarse streaming: only the player's level and its vertical neighbors
-## render — EXCEPT in the atrium, where the open eye is a sightline
+## Coarse streaming: only the player's level renders — EXCEPT in the atrium,
+## where the open eye is a sightline
 ## through every storey (lobby runner to skylight), so the whole stack
 ## renders there. The zone spans the stair volume plus the elevator
-## hall, whose archway frames the same view. F01 stays always-on for
-## glimpses down through the court windows.
+## hall, whose archway frames the same view. Each imported floor owns the
+## opposite wall at its own height, so a court-window view does not require
+## the 220 x 148 m F01 site or the storeys above and below it. Keeping those
+## hidden shells used to multiply 3,431 meshes through every shadow view.
 ## A free camera is the eye when one is flying; the player's parked body
 ## is not. Without this the debug camera renders whatever floor the body
 ## happens to stand on, and forcing the whole stack on instead costs a
@@ -1320,6 +1332,16 @@ func _apply_visibility(p: Vector3) -> void:
 	var outside := absf(p.x) > 15.2 or absf(p.z) > 11.2
 	for fid in floor_nodes:
 		var z: float = layout["meta"]["levels"][fid]
-		floor_nodes[fid].visible = show_all_floors or in_eye or outside \
-				or fid == "F01" \
-				or absf(p.y - z) < 4.9 or (fid == "ROOF" and p.y > 15.0)
+		var should_show: bool = show_all_floors or in_eye or outside \
+				or absf(p.y - z) < 1.75 or (fid == "ROOF" and p.y > 15.0)
+		floor_nodes[fid].visible = should_show
+		# Props are root-owned for discovery, not floor-owned for inheritance.
+		# Give them the same active-storey rule: from a corridor or flat there is
+		# no legal view into the kitchen above. The open eye retains the whole
+		# stack; exterior views retain F01's shops and facade fixtures.
+		var show_props: bool = show_all_floors or in_eye \
+				or (outside and fid == "F01") \
+				or absf(p.y - z) < 1.75 \
+				or (fid == "ROOF" and p.y > 15.0)
+		for prop in functional_props_by_floor.get(fid, []):
+			prop.visible = show_props

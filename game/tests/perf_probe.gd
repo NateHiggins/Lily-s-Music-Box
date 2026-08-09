@@ -62,6 +62,12 @@ func _ready() -> void:
 	cam = Camera3D.new()
 	add_child(cam)
 	cam.make_current()
+	# Perf is a free-camera test.  Without this handoff BuildingRoot keeps
+	# streaming around the player parked in the lobby while the benchmark
+	# camera visits F04, 4B and the roof.  That once made an empty 4B look
+	# like a large optimization and made every non-lobby station measure the
+	# wrong collection of floors and props.
+	root.view_override = cam
 	print("PERF: viewport %s" % [get_viewport().get_visible_rect().size])
 	# Visit every station once before timing anything. Godot compiles
 	# shaders lazily on first draw, so whichever station goes first
@@ -73,6 +79,10 @@ func _ready() -> void:
 		for i in WARMUP:
 			await get_tree().process_frame
 	_report_mesh_census()
+	if OS.get_environment("PERF_DIAG_ONLY") == "1":
+		await _diagnose_corridor_submissions()
+		get_tree().quit(0)
+		return
 	print("%-24s %7s %7s %9s %8s %7s" %
 			["station", "objs", "calls", "prims", "ms", "fps"])
 	for s in STATIONS:
@@ -123,6 +133,93 @@ func _count_meshes(n: Node) -> int:
 	for c in n.get_children():
 		total += _count_meshes(c)
 	return total
+
+
+## RenderingServer's "objects" count is submission work, not scene-tree
+## objects: one mesh can appear again in several shadow views.  These toggles
+## isolate those repeat submissions from actual visible content and make the
+## forty-thousand-object corridor actionable instead of mysterious.
+func _diagnose_corridor_submissions() -> void:
+	var station: Dictionary = STATIONS[2]
+	print("\nPERF DIAG: corridor submission decomposition")
+	await _diag_snapshot("baseline", station)
+	# Freeze only BuildingRoot's streaming decision after the corridor has
+	# settled. Otherwise its physics tick quite correctly restores prop and
+	# floor visibility while this diagnostic is trying to suppress them.
+	root.set_physics_process(false)
+
+	var lights: Array[Light3D] = []
+	_collect_lights(root, lights)
+	var light_shadows := PackedByteArray()
+	for light in lights:
+		light_shadows.append(1 if light.shadow_enabled else 0)
+		light.shadow_enabled = false
+	await _diag_snapshot("all light shadows off", station)
+	for i in lights.size():
+		lights[i].shadow_enabled = light_shadows[i] == 1
+
+	var light_visibility := PackedByteArray()
+	for light in lights:
+		light_visibility.append(1 if light.visible else 0)
+		light.visible = false
+	await _diag_snapshot("all illumination hidden", station)
+	for i in lights.size():
+		lights[i].visible = light_visibility[i] == 1
+
+	var geometry: Array[GeometryInstance3D] = []
+	_collect_geometry(root, geometry)
+	var cast_modes := PackedInt32Array()
+	for item in geometry:
+		cast_modes.append(item.cast_shadow)
+		item.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	await _diag_snapshot("all geometry cast off", station)
+	for i in geometry.size():
+		if is_instance_valid(geometry[i]):
+			geometry[i].cast_shadow = cast_modes[i]
+
+	var props: Array[Node3D] = []
+	var prop_visibility := PackedByteArray()
+	for child in root.get_children():
+		if child is FunctionalProp:
+			props.append(child)
+			prop_visibility.append(1 if child.visible else 0)
+			child.visible = false
+	await _diag_snapshot("functional props hidden", station)
+	for i in props.size():
+		props[i].visible = prop_visibility[i] == 1
+
+
+func _diag_snapshot(label: String, station: Dictionary) -> void:
+	cam.global_position = station.pos
+	cam.look_at(station.look)
+	for i in WARMUP:
+		await get_tree().process_frame
+	var total := 0.0
+	for i in 45:
+		await get_tree().process_frame
+		total += 1000.0 / maxf(1.0, Performance.get_monitor(
+				Performance.TIME_FPS))
+	print("   %-28s %7d objs %7d calls %8.2f ms" % [
+		label,
+		RenderingServer.get_rendering_info(
+				RenderingServer.RENDERING_INFO_TOTAL_OBJECTS_IN_FRAME),
+		RenderingServer.get_rendering_info(
+				RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME),
+		total / 45.0])
+
+
+func _collect_lights(node: Node, into: Array[Light3D]) -> void:
+	if node is Light3D:
+		into.append(node)
+	for child in node.get_children():
+		_collect_lights(child, into)
+
+
+func _collect_geometry(node: Node, into: Array[GeometryInstance3D]) -> void:
+	if node is GeometryInstance3D:
+		into.append(node)
+	for child in node.get_children():
+		_collect_geometry(child, into)
 
 
 func _measure(station: Dictionary) -> void:
