@@ -1,8 +1,8 @@
 # Every interactive prop, and what you do with it
 
-Audit of all 50 prop scripts in `game/scripts/props/`, 2026-08-08.
-Twenty-two currently answer `interact_prompt()`; twenty-eight are inert
-scenery. This proposes an activity for everything worth one, says
+Audit of all 55 prop scripts in `game/scripts/props/`, recounted
+2026-08-09. Twenty-six currently answer `interact_prompt()`; twenty-nine
+are inert scenery. This proposes an activity for everything worth one, says
 plainly what should be left alone, and gives the implementation for
 each.
 
@@ -216,7 +216,7 @@ everything about themselves.
 | `otis_prop` | Otis | **done** (rules + panel) |
 | `bookshelf_prop` | Shelf sorting | **done** |
 | `songbook_terminal_prop` | Songbook | **Phase 1 done** |
-| `arcade_cabinet_prop` | the platformer | blocked on #13 |
+| `arcade_cabinet_prop` | the received programme (VIII.5.g) | panel built, never played — `TASKS.md` A2 |
 
 ---
 

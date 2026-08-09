@@ -11,9 +11,12 @@ extends Node3D
 ## fixtures on a storey therefore hands that cap to an arbitrary subset —
 ## in practice apartment lights sitting behind walls, which is exactly how
 ## a lit corridor ends up black at its far end while its own domes glow.
-## So within the active floor we also keep the nearest ACTIVE_N, ranking
-## circulation fixtures ahead of room fixtures at equal distance: the lights
-## you are walking under always own the budget.
+## So within the active floor we used to keep only the nearest ACTIVE_N,
+## ranking circulation fixtures ahead of room fixtures at equal distance.
+## DESKTOP NO LONGER RATIONS: the budget came off once the frame proved
+## submission-bound rather than light-bound, and desktop takes UNLIMITED.
+## The ranking still runs, because mobile still has a budget to spend and
+## the order is what decides who gets it.
 ##
 ## The light court is exempt from the floor gate entirely. The atrium is a
 ## single open volume seven storeys tall: from the lobby deck you look
@@ -26,6 +29,10 @@ const INTERVAL := 0.12
 ## pendants are permanently eligible (see below), so the working set can run
 ## a little past it: what matters is that no single mesh is in range of more
 ## than 16 of these at once.
+## Desktop no longer reads this — it is the HISTORICAL desktop budget, kept
+## because `LIGHT_BUDGET=14 SHADOW_BUDGET=8` reproduces the pre-removal rig
+## exactly, which is how the removal was measured and how a regression would
+## be re-measured. Delete it only if that sweep goes too.
 const ACTIVE_N := 14
 ## Shadows are priced separately from light, and far higher: an omni's
 ## shadow is a CUBE, so every caster re-renders the visible set six times.

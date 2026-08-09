@@ -137,7 +137,7 @@ and Rhea's flats. Six new assemblies are genuinely needed:
 |---|---|
 | `mixing_desk` | the hero object; sloped panel, rotary controls, meter bridge |
 | `monitor_pair` | soffit-mounted, in a wooden baffle |
-| `patch_bay` | already prototyped as an arcade control-panel variant; promote it |
+| `patch_bay` | already prototyped as the signal cabinet control-panel variant; promote it |
 | `control_glass` | double-glazed, splayed, with the reveal deep enough to read |
 | `acoustic_drape` | runner-hung, gathered; also useful in the Harukiya |
 | `chamber_fitting` | the speaker-and-two-mics set, and the live lamp |
@@ -202,7 +202,8 @@ best-made object is also the one they are allowed to open.
 - **No new case.** Per §I, sixteen resident cases wait behind Peter Wren.
 - **No pitch scoring.** The songbook brief rules that out and this does not
   reopen it.
-- **No explanation of the chamber's tail.** Per §VIII.6 and the arcade ruling,
+- **No explanation of the chamber's tail.** Per §VIII.6 and the receiver ruling
+  (§VIII.5.g),
   the building does not confirm things.
 - **No hand-edited JSON.** `gen_layout.py` authors every coordinate (§III).
 

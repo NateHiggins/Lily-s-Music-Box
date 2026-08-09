@@ -283,7 +283,7 @@ end. A cigar case beside it. A menu board with sliding letters (Label3D,
 not texture). Ceiling fan. Napkin dispenser, sugar shakers, a jar of
 pickled eggs.
 
-**The flair.** *The two arcade cabinets in the corner the counter leaves
+**The flair.** *The two receiving cabinets in the corner the counter leaves
 free* — already placed, and they are the joke the street tells about
 itself: a 1927 luncheonette with two machines that reproduce a signal
 and are therefore forty years ahead, standing next to a pie case.

@@ -386,12 +386,14 @@ accents), a six-arm brass chandelier in the lobby, and long-drop globe
 pendants down the atrium eye. Every fixture is a conductor body
 (filament class: motif events surge the envelope and sway the drops).
 Light quality is faked ray tracing on the compatibility renderer, by
-design: a LightRig spends the light budget on the 14 nearest fixtures
-(10 more at reduced energy, everything else keeps only its emissive
-envelope + additive halo so it still reads as ON), the nearest six gain
-a dim floor-tinted counter-light that fakes the first bounce, and the
-three nearest eligible fixtures cast sticky, Compatibility-safe cubemap
-shadows. Every fixture family participates, and a short distance cutoff
+design: on desktop a LightRig now lights **every** fixture on the active
+storey (the budget that once kept only the nearest 14 came off in the
+light-budget pass — it cost nothing measurable, because this frame is
+submission-bound rather than light-bound), the nearest six gain a dim
+floor-tinted counter-light that fakes the first bounce, and the nearest
+32 eligible fixtures cast sticky, Compatibility-safe cubemap shadows.
+Mobile still rations: `ACTIVE_N_MOBILE` 12 lights, `SHADOW_N_MOBILE` 4.
+Every fixture family participates, and a short distance cutoff
 prevents lights in adjacent rooms from stealing the shadow budget. The
 exterior moon casts tuned directional shadows, while the Blender build
 bakes the rest of the GI impression into geometry: radial contact-shadow
@@ -526,8 +528,11 @@ are excluded by name in the preset. If you add a sky texture and reference
 it dynamically, add it to the preset's `exclude_filter` allowlist logic or
 it will be excluded by pattern.
 
-**Tuning the light budget on device.** The mobile budget starts at 12
-lights / 4 shadow casters against the desktop 14 / 8. The first values (8
+**Tuning the light budget on device.** There is no desktop budget any
+more — desktop takes `UNLIMITED` (4096) lights and `SHADOW_N` 32, and the
+sweeps behind that decision are in the light-budget pass. **Mobile is the
+only platform that still rations**, and it starts at 12 lights / 4 shadow
+casters. The first values (8
 and 1) were reasoned about rather than measured and read flat and half-lit
 on real hardware — one caster is not enough shadow to model a room. The
 debug panel carries **Light budget** and **Shadow budget** sliders next to
@@ -535,14 +540,15 @@ the frame counter, so the ceiling can be found by pushing them until the
 fps gives, on the phone in your hand. If you settle on values, move them
 into `SHADOW_N_MOBILE` / `ACTIVE_N_MOBILE` in `light_rig.gd`.
 
-**Not yet proven: whether it RUNS well.** It has never been on a phone.
-The desktop build sits at 112-161 fps on an RTX 4080 at 1440p, which
-sounds like margin and is not — a phone GPU is a different class of
-machine, not a slower one. `LightRig` already drops to one shadow caster
-and eight live lights on mobile (`SHADOW_N_MOBILE`, `ACTIVE_N_MOBILE`),
+**Not yet proven: whether it RUNS well.** It has never been on a phone,
+and desktop does not have the margin the old note here claimed. `Perf`
+currently fails every one of its seven stations against the 16.6 ms
+budget — see the measured table above — so a phone GPU is not being
+asked to absorb slack that exists. `LightRig` drops to 4 shadow casters
+and 12 live lights on mobile (`SHADOW_N_MOBILE`, `ACTIVE_N_MOBILE`),
 because an omni's cube shadow costs six passes over the visible set.
-Still unmeasured: the atrium eye, which renders seven storeys at once and
-is the worst case by a wide margin. `Perf.tscn` runs on-device exactly as
+The worst case is the atrium eye, which renders seven storeys at once by
+design and is the one view floor streaming cannot help. `Perf.tscn` runs on-device exactly as
 it does on desktop, and those numbers are the only ones worth trusting.
 
 ## Known limitations

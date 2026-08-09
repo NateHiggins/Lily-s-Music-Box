@@ -99,10 +99,12 @@ Next, in the order they pay off:
 - **Verify tilt on real hardware** (task #20). The degrees conversion in
   `_read_tilt()` is reasoned, not measured, and it inherits axis
   conventions from a browser API. Never run on a device.
-- **The bodega arcade cabinet** (task #13) is now the only port left,
-  and it is blocked on a decision rather than on work — the platformer
-  is pygame, which the standing rule says is a sibling desktop title and
-  must not be ported unprompted.
+- **The bodega machine** (task #13) is **ruled, not blocked.** VIII.5.g
+  settled it on 2026-08-09: it is not a game platform and there is nothing
+  to port to it. It is Vantry-descended receiving furniture with a coin box,
+  tuned to the same broadcast every other machine on the row receives. The
+  pygame platformer remains a sibling desktop title under the standing rule
+  and is now irrelevant here rather than merely deferred.
 
 **The folder layout is DONE.** `phoneos/apps/{shattered,gilded_pairs,
 velvet_maze}`, `nomoretears/`, `legacy_arcade/`, and `devkit` moved out

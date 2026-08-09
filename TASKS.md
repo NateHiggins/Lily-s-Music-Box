@@ -112,34 +112,6 @@ Proposed in `design/ORISON_STUDIO_BRIEF.md`. Not canon until the owner rules.
   validation — is unversioned files on disk. `git init` and a first commit.
 - **H3** `worldc clean --stale` has no test covering it.
 - **H4 · Codex** Prop families: 12 of 24 done; `bookshelf_prop` evaluation active.
-- **H5** **`game/README.md`'s lighting and perf numbers are wrong on desktop and
-  contradict themselves.** All verified against the code today:
-  L389 "spends the light budget on the 14 nearest fixtures" and L529 "against
-  the desktop 14 / 8" both describe the mechanic *removed* by #27 — desktop is
-  `UNLIMITED` (4096) lights and `SHADOW_N` 32. L542 says mobile drops to "one
-  shadow caster and eight live lights", but the code says `SHADOW_N_MOBILE` 4 /
-  `ACTIVE_N_MOBILE` 12 — which is what L529 of the same document says. L539
-  still claims "112-161 fps on an RTX 4080 at 1440p" while L437-440, added by
-  the streaming pass, gives the honest figure a few hundred lines earlier.
-  The **mobile** budget guidance is still correct and should be kept; only the
-  desktop half and the fps claim are stale.
-- **H6** `ACTIVE_N := 14` (`light_rig.gd:29`) is dead — desktop takes
-  `UNLIMITED` and mobile takes `ACTIVE_N_MOBILE`. Nothing reads it but its own
-  doc comment and a comment in `perf_probe.gd`. Delete it, or relabel it as the
-  historical value the env sweep reproduces.
-- **H7** **Three design docs predate VIII.5.g and still call the machines video
-  games.** `PROP_ACTIVITIES.md:219` names the content "the platformer";
-  `next_session_plan.md:102` calls the bodega machine a "port"; the
-  `SHOP_INTERIOR_BUILD_GUIDE.md:286` flair note says "two arcade cabinets".
-  The ruling is explicit that there is no cartridge. **Do not touch
-  `docs/harukiya_reference_notes.md`** — that describes the real Tokyo
-  reference photographs, where "arcade cabinet" is the correct term for the
-  thing in the photo.
-- **H8** `PROP_ACTIVITIES.md`'s audit header is a day stale: it claims 50 prop
-  scripts with 22 answering `interact_prompt()`; the tree has **55 and 26**.
-  The proposed-but-unwritten implementation files in that doc (`washing_up.gd`,
-  `stove_service.gd`, `larder.json` …) are correct as proposals — it is a
-  proposal doc, not an inventory. Only the counts need refreshing.
 - **H9** Nothing defends the **mail bank ↔ lobby clock clearance**. Measured
   today at 175 mm: the clock spans blender y -9.205..-8.735 and the bank's
   surround -8.560..-7.200, and they overlap in height (1.715..1.930), so that
