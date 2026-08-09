@@ -209,6 +209,7 @@ func _run() -> void:
 	_radiator_checks()
 	_vantry_checks()
 	await _boxfan_checks()
+	_exhaust_fan_checks()
 	_prop_mesh_and_boiler_checks()
 	_medicine_cabinet_checks()
 	_clock_checks()
@@ -1992,6 +1993,82 @@ func _boxfan_checks() -> void:
 		_check(evidence.possession_phase() == 0 and evidence.is_plugged(),
 				"second room exit restores the ordinary appliance unseen")
 		root.teleport_player("F01")
+
+
+func _exhaust_fan_checks() -> void:
+	var fans: Array[ExhaustFanProp] = []
+	var risers := {}
+	var total_meshes := 0
+	var max_meshes := 0
+	var duct_mouths := 0
+	var serviceable := true
+	for child in root.get_children():
+		if child is ExhaustFanProp:
+			var fan := child as ExhaustFanProp
+			fans.append(fan)
+			risers[fan.riser] = true
+			var meshes := _count_meshes(fan)
+			total_meshes += meshes
+			max_meshes = maxi(max_meshes, meshes)
+			duct_mouths += fan.duct_emitter_count()
+			serviceable = serviceable \
+					and fan.get_node_or_null("ServicePlateReach") is Marker3D \
+					and fan.get_node_or_null("BeltGuardReach") is Marker3D
+	_check(fans.size() == 4 and ["V-A", "V-B", "V-C", "V-D"].all(
+			func(riser): return risers.has(riser)),
+			"four roof ventilators own the bathroom risers")
+	_check(max_meshes <= 8 and total_meshes <= 32,
+			"central ventilators stay at eight meshes each / 32 total (%d / %d)" %
+			[max_meshes, total_meshes])
+	_check(fans.all(func(fan): return fan.global_position.y > 19.0),
+			"all ventilation motors remain on the roof")
+	_check(serviceable, "roof belt guards and service plates remain findable")
+	_check(root.get_node_or_null("F04_B_EXHFAN_01") == null,
+			"4B no longer owns an anachronistic private extractor")
+
+	var registers := []
+	var network_clean := true
+	for node_id in AcousticGraphData.nodes:
+		var data: Dictionary = AcousticGraphData.nodes[node_id]
+		if str(node_id).ends_with("_VENT_REGISTER"):
+			registers.append(node_id)
+			network_clean = network_clean \
+					and str(data.get("network", "")) == "ventilation"
+	_check(registers.size() == 23 and duct_mouths == 23,
+			"all twenty-three bathrooms own a passive audible register")
+	_check(network_clean, "every bathroom register stays on the ventilation graph")
+	var isolated := true
+	for fan in fans:
+		var reachable := _graph_reachable(String(fan.name))
+		for node_id in registers:
+			var data: Dictionary = AcousticGraphData.nodes[node_id]
+			if str(data.get("riser", "")) == fan.riser:
+				isolated = isolated and reachable.has(node_id)
+			else:
+				isolated = isolated and not reachable.has(node_id)
+	_check(isolated,
+			"each motor reaches its own bathrooms without crossing another riser")
+	if not fans.is_empty():
+		fans[0].set_running(false, true)
+		fans[0]._perform_synced_event(1, 1.0, 1.0)
+		_check(not fans[0].is_running(),
+				"a motif cannot start central plant that is between cycles")
+		fans[0].set_running(true, true)
+		_check(fans[0].is_running(),
+				"roof motor opens its gravity louver with the running cycle")
+		fans[0].set_running(false, true)
+
+
+func _graph_reachable(origin: String) -> Dictionary:
+	var seen := {origin: true}
+	var frontier := [origin]
+	while not frontier.is_empty():
+		var current: String = frontier.pop_back()
+		for neighbor in AcousticGraphData.neighbors(current):
+			if not seen.has(neighbor):
+				seen[neighbor] = true
+				frontier.append(neighbor)
+	return seen
 
 
 func _prop_mesh_and_boiler_checks() -> void:

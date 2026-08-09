@@ -1889,9 +1889,6 @@ def apartment_4b(z, walls, rooms, markers, furniture):
          "mount_wall": "south", "mount_along": 0.72,
          "pos": [-9.373, 2.775, z + 1.58], "yaw_deg": 180,
          "network": "structural"},
-        {"kind": "exhaust_fan", "id": "F04_B_EXHFAN_01", "unit": "4B",
-         "pos": [-6.60, y0 + 3.00, z + 2.55], "yaw_deg": 0,
-         "network": "electrical"},
         {"kind": "ceiling_light", "id": "F04_B_CEILLIGHT_01", "unit": "4B",
          "pos": [-10.60, 4.60, z + 2.60], "yaw_deg": 0,
          "network": "electrical"},
@@ -2334,10 +2331,21 @@ def build_floor(floor_id):
                       False)
         _furn_box(furniture, "watertank", -9.45, 4.95, 2.80, 2.20, 1.6,
                   2.3, "timber", False)
-        for i, (vx, vy) in enumerate(((-11.5, -6.0), (-4.0, 8.2),
-                                      (6.5, -7.5), (12.0, 3.0))):
-            _furn_box(furniture, "vent%d" % i, vx, vy, 0.4, 0.4, 0.0, 0.9,
-                      "metal", False)
+        # The four anonymous boxes were the right infrastructure count and
+        # the wrong ownership.  They are the 1928 reopening's central ILG-
+        # pattern roof ventilators: one real motor per bathroom riser, not a
+        # private domestic extractor hidden in the player's ceiling.
+        for i, (vx, vy, riser, variant) in enumerate((
+                (-11.5, -6.0, "V-A", "west_weathered"),
+                (-4.0, 8.2, "V-B", "north_belt"),
+                (6.5, -7.5, "V-C", "south_repainted"),
+                (12.0, 3.0, "V-D", "east_oxidised"))):
+            markers.append({
+                "kind": "exhaust_fan", "id": "ROOF_VENT_FAN_%s" % riser[-1],
+                "pos": [vx, vy, z], "yaw_deg": i * 90,
+                "room": "ROOF_OPEN", "riser": riser, "variant": variant,
+                "network": "ventilation",
+            })
         for px_ in (-12.5, -7.5):
             _furn_box(furniture, "clothespost_%d" % int(px_), px_, -8.6,
                       0.1, 0.1, 0.0, 2.1, "metal", False)
@@ -6401,6 +6409,7 @@ def validate(layout):
     problems += _validate_vantry_points(layout)
     problems += _validate_kettles(layout)
     problems += _validate_boxfans(layout)
+    problems += _validate_ventilation(layout)
     problems += _validate_ceilings(layout)
     problems += _validate_shop_interiors(layout)
     problems += life_pass(layout["floors"])
@@ -6444,6 +6453,35 @@ def _validate_ceilings(layout):
             if leaked > 0.002:
                 problems.append("%s has %.3f m2 open ceiling" %
                                 (room["id"], leaked))
+    return problems
+
+
+def _validate_ventilation(layout):
+    """The shared system replaces one private fan; neither half may drift."""
+    problems = []
+    baths = [r for fl in layout["floors"] for r in fl.get("rooms", [])
+             if r.get("kind") == "bathroom"]
+    registers = layout.get("ventilation_registers", [])
+    fans = [m for fl in layout["floors"] for m in fl.get("markers", [])
+            if m.get("kind") == "exhaust_fan"]
+    if len(baths) != 23 or len(registers) != len(baths):
+        problems.append("ventilation expected 23 baths/registers, got %d/%d" %
+                        (len(baths), len(registers)))
+    if len({r.get("room") for r in registers}) != len(baths):
+        problems.append("bathroom ventilation registers are not one-per-room")
+    if len(fans) != 4 or {m.get("riser") for m in fans} != {
+            "V-A", "V-B", "V-C", "V-D"}:
+        problems.append("roof ventilation expected four distinct riser owners")
+    if any(m.get("unit") or m.get("network") != "ventilation" for m in fans):
+        problems.append("central roof ventilator regressed to a private/electrical fan")
+    if any(r.get("network") != "ventilation" for r in registers):
+        problems.append("bathroom register escaped the ventilation network")
+    points = {p.get("room"): p for p in layout.get("vantry_points", [])}
+    for reg in registers:
+        point = points.get(reg.get("room"))
+        if point and math.hypot(float(reg["pos"][0]) - float(point["pos"][0]),
+                                float(reg["pos"][1]) - float(point["pos"][1])) < 0.24:
+            problems.append("%s crowds its Vantry point" % reg["id"])
     return problems
 
 
@@ -7290,6 +7328,52 @@ def _validate_furnishing(layout):
 
 # ---------------------------------------------------------------- graphs
 
+def ventilation_register_pass(floors):
+    """One passive ceiling register per windowless bathroom.
+
+    A private electric fan in 4B made the player's flat more modern than its
+    neighbours and left twenty-two bathrooms with nowhere for damp air to go.
+    The 1928 reopening instead cut four shared risers through the 1912 fabric.
+    These records are static Blender geometry; the four roof motors remain the
+    only scripted owners, so twenty-three grilles do not become twenty-three
+    timers and draw-call islands.
+    """
+    registers = []
+    for fl in floors:
+        if fl["id"] in ("B1", "ROOF"):
+            fl["vent_registers"] = []
+            continue
+        owned = []
+        for room in fl.get("rooms", []):
+            if room.get("kind") != "bathroom":
+                continue
+            x0, y0, x1, y1 = map(float, room["rect"])
+            unit = str(room.get("unit") or "")
+            # The public lavatory is west of the lobby and joins the A riser
+            # through a first-floor branch; it must not invent a fifth stack.
+            letter = unit[-1] if unit and unit[-1] in "ABCD" else "A"
+            # The register is deliberately off-centre. A grille centred like
+            # a lamp reads as a replaced fixture, while a riser takeoff hugs
+            # the wet wall and leaves the basin standing position readable.
+            px = x0 + (0.43 if letter in "AB" else (x1 - x0) - 0.43)
+            py = y0 + (y1 - y0) * 0.52
+            rid = "%s_VENT_REGISTER" % room["id"]
+            rec = {
+                "id": rid, "floor": fl["id"], "room": room["id"],
+                "unit": unit, "riser": "V-%s" % letter,
+                "pos": [round(px, 3), round(py, 3),
+                        round(float(fl["z"]) + WALL_H - 0.022, 3)],
+                "yaw_deg": 90 if letter in "BC" else 0,
+                "network": "ventilation",
+            }
+            owned.append(rec)
+            registers.append(rec)
+        fl["vent_registers"] = owned
+    print("ventilation: %d passive bathroom registers on four risers" %
+          len(registers))
+    return registers
+
+
 def vantry_point_pass(floors):
     """One 1912 listening head in every enclosed room, cheaply rendered.
 
@@ -7320,6 +7404,10 @@ def vantry_point_pass(floors):
                        (-0.38, -0.31), (0.0, 0.36), (0.36, 0.0))
             blockers = [m for m in fl.get("markers", [])
                         if m.get("kind") in ceiling_kinds]
+            # Passive ventilation grilles are Blender-owned rather than
+            # marker-spawned, but they occupy the same ceiling plane. Let the
+            # listening head see them before it chooses its own position.
+            blockers += fl.get("vent_registers", [])
             candidates = []
             for ox, oy in offsets:
                 px = max(x0 + margin, min(x1 - margin, cx + ox))
@@ -7377,6 +7465,7 @@ def acoustic_graph(layout):
     edges += [("B1_BOILER_01", "BASEMENT_HEADER_EAST"),
               ("BASEMENT_HEADER_EAST", "BASEMENT_HEADER_WEST")]
     by_riser = {}
+    vent_fans = {}
     for fl in layout["floors"]:
         radiator_by_unit = {
             m.get("unit", ""): m["id"] for m in fl["markers"]
@@ -7411,9 +7500,17 @@ def acoustic_graph(layout):
                     target = radiator_by_unit.get(m.get("unit", ""))
                     if target:
                         edges.append((m["id"], target))
+            elif m["kind"] == "exhaust_fan":
+                # Powered at the roof, heard through the duct.  The old 4B
+                # ceiling fan was an electrical node; central plant gets its
+                # own physical carrier so a bathroom whir cannot teleport
+                # through corridor lights.
+                add(m["id"], [m["pos"][0], m["pos"][1], m["pos"][2] + 0.55],
+                    "ventilation", "ROOF_OPEN", 0.82, (35, 1800), 9)
+                nodes[-1]["riser"] = m.get("riser", "V-X")
+                vent_fans[m.get("riser", "V-X")] = m
             elif m["kind"] in ("lamp", "monitor", "toaster",
                                "boxfan", "speaker", "kettle",
-                               "exhaust_fan",
                                "ceiling_light", "pendant_shade",
                                "flush_dome", "sconce_globe",
                                "kitchen_linear", "cage_bulb", "chandelier",
@@ -7489,6 +7586,36 @@ def acoustic_graph(layout):
         add(point["id"], point["pos"], "signal", point["room"],
             0.92, (240, 5600), 5)
         edges.append((point["id"], "%s_VANTRY_TRUNK" % point["floor"]))
+    # Four reopening-era sheet-metal risers. Registers are quiet static
+    # geometry, but graph nodes let the director route a motor pulse to the
+    # exact bathroom where the player hears it rather than playing a global
+    # roof loop. The public WC takes a short first-floor branch into V-A.
+    registers_by_riser = {}
+    for register in layout.get("ventilation_registers", []):
+        riser = register.get("riser", "V-X")
+        registers_by_riser.setdefault(riser, []).append(register)
+        add(register["id"], register["pos"], "ventilation",
+            register.get("room", ""), 0.86, (35, 1800), 16)
+        nodes[-1]["riser"] = riser
+    for riser, registers in sorted(registers_by_riser.items()):
+        upper = [r for r in registers if r.get("unit")]
+        source = upper if upper else registers
+        rx = sum(float(r["pos"][0]) for r in source) / len(source)
+        ry = sum(float(r["pos"][1]) for r in source) / len(source)
+        previous = None
+        for fid in ("F01", "F02", "F03", "F04", "F05", "F06"):
+            trunk = "%s_%s_RISER" % (fid, riser.replace("-", "_"))
+            add(trunk, [rx, ry, LEVELS[fid] + WALL_H - 0.08],
+                "ventilation", fid, 0.74, (35, 1800), 11)
+            nodes[-1]["riser"] = riser
+            if previous:
+                edges.append((previous, trunk))
+            previous = trunk
+            for register in registers:
+                if register["floor"] == fid:
+                    edges.append((register["id"], trunk))
+        if riser in vent_fans and previous:
+            edges.append((vent_fans[riser]["id"], previous))
     for riser, rads in by_riser.items():
         rads.sort(key=lambda m: m["pos"][2])
         header = ("BASEMENT_HEADER_WEST" if riser in ("H-A", "H-B")
@@ -8012,6 +8139,7 @@ def main():
     street_lamp_markers(floors[1])
     classify_door_markers(floors)
     bookshelves = bookshelf_pass(floors)
+    ventilation_registers = ventilation_register_pass(floors)
     vantry_points = vantry_point_pass(floors)
     layout = {
         "meta": {"name": "Orison Apartments", "footprint": [28.0, 20.0],
@@ -8026,6 +8154,7 @@ def main():
                  "residents": RESIDENTS},
         "floors": floors,
         "vantry_points": vantry_points,
+        "ventilation_registers": ventilation_registers,
         "bookshelves": bookshelves,
         "stairs": [stair_geometry(ATRIUM)],
         "elevator": {"shaft": list(ELEV["shaft"]),

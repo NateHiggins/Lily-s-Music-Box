@@ -3290,6 +3290,50 @@ def build_ceiling_overlay(buf, fid, face):
         (x1, y0, ztop), (x0, y0, ztop))
 
 
+def build_vent_register(buf, fid, register):
+    """A passive 1928 stamped-steel ceiling register, not a little fan.
+
+    Twenty-three scripted owners would be the most expensive way to model a
+    hole in a duct.  Bars from every bathroom share the floor's trim buffer;
+    only the four motors on the roof remain FunctionalProps.
+    """
+    x, y, z = map(float, register["pos"])
+    half, rim, depth = 0.17, 0.035, 0.022
+    frame = buf(fid, "vent_register_trim", "trim")
+    throat = buf(fid, "vent_register_throat", "cast_iron")
+    screws = buf(fid, "vent_register_screws", "brass_dull")
+    # A dark shallow box behind real gaps reads as duct depth without cutting
+    # the ceiling mesh or adding a collision surface above the player's head.
+    throat.add_box((x - half + rim, y - half + rim, z - 0.008),
+                   (x + half - rim, y + half - rim, z - 0.003))
+    for mn, mx in (
+            ((x - half, y - half, z - depth),
+             (x + half, y - half + rim, z)),
+            ((x - half, y + half - rim, z - depth),
+             (x + half, y + half, z)),
+            ((x - half, y - half + rim, z - depth),
+             (x - half + rim, y + half - rim, z)),
+            ((x + half - rim, y - half + rim, z - depth),
+             (x + half, y + half - rim, z))):
+        frame.add_box(mn, mx)
+    # Louver pitch alternates with the stack's run, breaking the building-
+    # wide ceiling grid while leaving the same cheap stamped fitting.
+    across_x = int(register.get("yaw_deg", 0)) % 180 == 0
+    for i in range(5):
+        offset = -0.10 + i * 0.05
+        if across_x:
+            frame.add_box((x - 0.115, y + offset - 0.010, z - 0.030),
+                          (x + 0.115, y + offset + 0.010, z - 0.012))
+        else:
+            frame.add_box((x + offset - 0.010, y - 0.115, z - 0.030),
+                          (x + offset + 0.010, y + 0.115, z - 0.012))
+    for sx, sy in ((-1, -1), (-1, 1), (1, -1), (1, 1)):
+        screws.add_box((x + sx * 0.137 - 0.008,
+                        y + sy * 0.137 - 0.008, z - 0.034),
+                       (x + sx * 0.137 + 0.008,
+                        y + sy * 0.137 + 0.008, z - 0.028))
+
+
 # ---------------------------------------------------------------- stair
 # The balustrade is the one assembly every resident touches twice a day
 # and the player climbs seven times, so it is built as joinery rather
@@ -3968,6 +4012,8 @@ def build():
             build_floor_overlay(buf, fid, fl, r)
         for face in fl.get("ceilings", []):
             build_ceiling_overlay(buf, fid, face)
+        for register in fl.get("vent_registers", []):
+            build_vent_register(buf, fid, register)
         for fu in fl.get("furniture", []):
             if "asm" in fu:
                 fn = ASM.get(fu["asm"])

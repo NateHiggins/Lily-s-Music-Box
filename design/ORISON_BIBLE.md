@@ -583,6 +583,19 @@ survey does not close, why a wall is thick where nothing needs to be
 thick. Accord 9 already says everything is twenty years old and repaired
 by four people. This says the building itself was.
 
+**VIII.5.i — THE BATHROOMS SHARE FOUR ROOF VENTILATORS.** The 1928
+reopening fitted twenty-three windowless bathrooms to four sheet-metal
+risers, each ending at an ILG-pattern electric ventilator on the roof.
+Inside a flat there is only a painted gravity register: no switch, no motor,
+and no privileged private extractor in 4B. The roof plant cycles by stack,
+so its tired bearing tone appears in one vertical run of bathrooms and then
+goes away.
+
+This carries no signal. An electric motor is powered machinery, not a
+message, and the Rule of Signal gives it no licence beyond its period. The
+system is ordinary reopening-era plant threaded through surviving 1912
+fabric — exactly the seam §VIII.5.h says the building is made from.
+
 ### VIII.6 What this does not license
 
 **The divergence is not a licence for anachronism at will.** The rule of

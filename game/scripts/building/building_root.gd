@@ -784,6 +784,12 @@ func _spawn_props() -> void:
 				prop.unit = String(m.get("unit", ""))
 				prop.fan_variant = String(m.get("variant", "plain"))
 				prop.room_id = String(m.get("room", ""))
+			if prop is ExhaustFanProp:
+				# Four roof motors own the shared system.  Riser identity controls
+				# both their quiet mechanical variation and the bathroom mouths
+				# from which their sound is allowed to emerge.
+				prop.riser = String(m.get("riser", "V-A"))
+				prop.fan_variant = String(m.get("variant", "west_weathered"))
 			if prop is BookshelfProp:
 				# Ownership, silhouette and Mae's evidence are generator facts.
 				# They arrive before _ready() deals the shelf and builds the case.
@@ -850,7 +856,7 @@ func _spawn_props() -> void:
 							or prop is ToasterProp or prop is WasherProp \
 							or prop is LaundryAirerProp or prop is KettleProp \
 							or prop is MedicineCabinetProp or prop is ClockProp \
-							or prop is BoxFanProp \
+							or prop is BoxFanProp or prop is ExhaustFanProp \
 					else -float(m.get("yaw_deg", 0)))
 			add_child(prop)
 			functional_props_by_floor[floor_id].append(prop)

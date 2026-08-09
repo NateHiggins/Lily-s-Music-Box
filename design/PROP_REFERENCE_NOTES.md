@@ -14,9 +14,9 @@ Evidence labels used below:
 
 ## Review progress — 2026-08-09
 
-The ordered brief contains **24 review families**. **Fifteen are complete
-(63%)**: all eight first-priority/gameplay families, all six second-priority
-families, and the first lighter-pass family. Every completed family has a reference comparison,
+The ordered brief contains **24 review families**. **Sixteen are complete
+(67%)**: all eight first-priority/gameplay families, all six second-priority
+families, and the first two lighter-pass families. Every completed family has a reference comparison,
 model and runtime-material pass, warehouse and installed renders, generated
 data synchronized after the final edit, and automated validation.
 
@@ -24,17 +24,18 @@ data synchronized after the final edit, and automated validation.
 |---|---:|---:|
 | First — carries a game | **8 / 8** | none |
 | Second — touched often | **6 / 6** | none |
-| Third — lighter pass | **1 / 10** | nine |
-| **Total** | **15 / 24** | **9** |
+| Third — lighter pass | **2 / 10** | eight |
+| **Total** | **16 / 24** | **8** |
 
 Completed in review order: `fridge_prop`, `stove_prop`, `tap_prop`,
 `toaster_prop`, `radiator_prop`, `boiler_prop`, `washer_prop` with
 `laundry_airer_prop`, `vantry_point_prop`, `kettle_prop`,
 `medicine_cabinet_prop`, and `clock_prop` with the domestic witness clocks.
 The fourth through sixth second-priority families are `mail_bank_prop`,
-`bookshelf_prop` and `door_prop`. The first lighter family is `boxfan_prop`.
+`bookshelf_prop` and `door_prop`. The first two lighter families are
+`boxfan_prop` and `exhaust_fan_prop`.
 
-**Next:** `exhaust_fan_prop`. The mesh-count sweep
+**Next:** `flue_breast_prop`. The mesh-count sweep
 identified `stove_prop` as a later optimization candidate, but it is not
 reopened unless performance work is explicitly scheduled.
 
@@ -1739,3 +1740,119 @@ wood floor and loose plug; the light has not been raised to sell the prop.
 - FULL WalkTest: **PASS** in **59.6 seconds**. LightingAudit: **PASS** for all
   127 spaces. WarehouseTeleportTest: **PASS**, with four fan variants among
   68 displays from 44 kinds.
+
+## `exhaust_fan_prop`
+
+### What the real system was
+
+The relevant 1928 object is not a private plastic bathroom extractor. It is a
+commercial direct-driven propeller fan terminating a shared sheet-metal duct,
+with a protected motor, gravity louvers and weather housing. ILG's company
+history records self-cooled motor propeller fans and automatic louvers in its
+first 1908 production line, explicitly noting that a sheet-metal plenum made
+roof mounting possible. By the late 1920s the firm sold nationwide and was
+beginning to adapt that commercial ventilation family to domestic kitchens.
+**HISTORICAL; CANONICAL.**
+
+Robert Ilg's 1906 patent supplies the construction logic rather than a modern
+roof-fan silhouette: a direct-driven fan, motor behind the impeller, removable
+cylindrical protective hood, frustum transition, brackets, bolts and a
+serviceable cover. It names kitchens among the rooms this machinery ventilates
+and specifies enameled sheet metal for the corrosive air path. The Orison uses
+that exposed, repairable vocabulary beneath a simple weather cap; it does not
+borrow the spun-aluminium low-profile form ILG's history dates to the 1940s
+and 1950s. **HISTORICAL; ADAPTATION.**
+
+Sources:
+
+- [ILG Fan and Blower — company history](https://ilgblower.com/history/)
+- [Robert A. Ilg, US831284A, Protective device for ventilating-fans (1906)](https://patents.google.com/patent/US831284A/en)
+
+### What we inherited
+
+- One marker existed, in 4B alone. Its two flat boxes described a 280 mm
+  private ceiling appliance while the other twenty-two windowless bathrooms
+  had no ventilation object at all.
+- The placeholder was electrically graphed to the fourth-floor corridor
+  lights. Its whir started at boot, never stopped, and answered every motif
+  without a switch, duct or other physical route.
+- Four anonymous 400 x 400 x 900 mm metal boxes already occupied the roof,
+  but they were Blender furniture with no motors, ownership or connection to
+  any bathroom. The correct infrastructure count was hiding in the wrong
+  authoring path.
+
+### Built result
+
+The 1928 reopening now owns **four** central roof ventilators, one per V-A to
+V-D riser, and **twenty-three** passive bathroom registers. The public lobby
+lavatory takes a first-floor branch into V-A; the apartment stacks remain
+vertical. 4B's private fan is gone. Every bathroom receives the same 340 mm
+painted stamped-steel grille, shallow dark throat, five real louvers and four
+dull-brass fasteners, batched by finish per floor rather than instanced as a
+script.
+
+Each roof owner is 720 mm across the curb and 940 mm high: square sheet-metal
+plenum, bell transition, broad rain cap with a discharge gap, four supports,
+external cast motor and belt guard, service panel, unlettered brass plate,
+rubber isolation feet, a vertical four-blade rotor and gravity louver. The
+four finishes vary only through plausible maintenance history; they remain
+one contractor's 1928 plant rather than four character appliances.
+
+The normal cycle is staggered by riser. A motor starts, its louver opens and
+the same low mechanical recording becomes audible at only the grilles on that
+duct; it coasts away before another stack joins it. A motif may bend a running
+motor but cannot start one between cycles. The acoustic graph contains 51
+ventilation nodes — 23 register mouths, 24 vertical trunk points and four roof
+owners — in four isolated connected components. There is no shortcut through
+the electrical lighting spine.
+
+The family grows from **2 placeholder meshes to 32 roof-owner meshes**: eight
+per motor. The registers add three batched finish buffers on each residential
+floor, not twenty-three FunctionalProps. The separate ceiling repair adds one
+plaster draw per floor and remains far cheaper than retaining an entire upper
+storey merely to borrow its slab underside.
+
+### Materials and texture prompt batch
+
+No new key and no texture batch. `metal`, `cast_iron`, `trim`, `brass_dull`
+and `rubber_aged` already have valid runtime paths. Variation comes from
+material tint and physically separate hand/water/weather zones, not from a
+new low-frequency albedo plate. There are no generated letters, numbers,
+words, badges or logos; the small service plate is deliberately blank.
+
+### Render evidence
+
+Before:
+
+- Flat two-box warehouse placeholder — `C:/PleaseRemainOnTheLine/art/renders/exhaust_fan_review/before/warehouse_exhaust_fan.png`
+- Private 4B ceiling appliance — `C:/PleaseRemainOnTheLine/art/renders/exhaust_fan_review/before/f04_b_bath_room.png`
+- Streaming exposed the absent ceiling and floating private owner — `C:/PleaseRemainOnTheLine/art/renders/exhaust_fan_review/before/stand_-6.6_10.7_-5.67_0_70.png`
+
+After:
+
+- Flat-light roof-machine silhouette — `C:/PleaseRemainOnTheLine/art/renders/exhaust_fan_review/after/warehouse_exhaust_fan.png`
+- Roof context and service side — `C:/PleaseRemainOnTheLine/art/renders/exhaust_fan_review/after/stand_-10.0_20.3_8.0_37_-12.png`
+- Opposite roof silhouette — `C:/PleaseRemainOnTheLine/art/renders/exhaust_fan_review/after/stand_-12.8_20.2_8.0_-33_-12.png`
+- 4B passive grille under its real light — `C:/PleaseRemainOnTheLine/art/renders/exhaust_fan_review/after/stand_-6.61_11.2_-5.72_86_62.png`
+- Standard bathrooms, own lights and torch — `C:/PleaseRemainOnTheLine/art/renders/exhaust_fan_review/after/f04_b_bath_up.png` and `C:/PleaseRemainOnTheLine/art/renders/exhaust_fan_review/after/f02_a_bath_up.png`
+
+Measured rather than accepted from dark frames: mean sRGB for the flat-light
+warehouse crop / two roof-context crops / register crop is **(127.9, 130.3,
+126.8) / (29.2, 28.0, 35.0) / (37.1, 34.1, 41.3) / (188.6, 159.3,
+151.8)**. The roof owners retain a readable painted body and dark separate
+motor without raising the scene lights; the register remains legible under
+the bathroom's authored light and torch.
+
+### Validation
+
+- Generator and graph audit: **PASS**; 23 bathrooms/registers, four distinct
+  roof owners, 51 ventilation nodes, and every motor reaches its own complete
+  stack without reaching another.
+- FAST WalkTest: **PASS in 13.4 seconds**; 8/32 mesh caps, roof ownership,
+  service anchors, no private 4B owner, 23 audible mouths, isolated graph
+  components, off-motif restraint and running/louver state.
+- FULL WalkTest: **PASS in 63.1 seconds**. LightingAudit: **PASS** for all
+  127 spaces, including 11 intentionally ambient/dark. WarehouseTeleportTest:
+  **PASS**, 68 displays from 44 kinds. Parser/editor scan and final Godot
+  import: **PASS**; `art/data` and `game/data` layout, acoustic-graph and
+  material-catalog hashes are byte-identical after the final source build.

@@ -56,6 +56,7 @@ interaction; **possession** names what the poltergeist does with it.
 | **Cast iron radiator** | all | Valve turns, knock travels the riser | Hammers the motif through the whole stack |
 | **Console radio** | 5B (three), 2C, 6B | Dial sweeps, stations bleed | Tunes itself to WORS 1610 |
 | **Portable electric fan** *(serialized `boxfan`)* | 2C, 4B, 5C, 6A | Speed steps 0-1-2-3 | 6A alone runs unplugged; the other three obey their switches |
+| **Central bathroom ventilation** | Four roof motors, 23 passive registers | No tenant control; roof plant cycles by riser | A motor pulse travels only through its own sheet-metal stack and is heard at those bathrooms |
 | **Wringer washer** | B1 laundry (two) | Lid lifts, gyrator starts, wringer swings and rollers open | Safety release gives before it wrings on empty |
 | **Rinse tubs + pulley airer** | B1 laundry (one paired ensemble) | Airer lowers; wet pieces move wash → wring → rinse → air | Rope settles and one piece hangs in a different place |
 | **Sewing machine** | 2B | Treadle turns, needle drops | Stitches a seam with no cloth |
@@ -78,7 +79,7 @@ interaction; **possession** names what the poltergeist does with it.
 | 3B | Omar | Two of every appliance: one working, one **half torn down** on newspaper — his sacrificial teardown, the thing he keeps not declaring unrepairable. |
 | 3D | Rhea | Kettle, honey, lemon. The range is spotless because it is never used. |
 | 4A | Peter | Identical weekday meals means identical tins in identical rows, and a toaster with a **form taped to it** about a replacement he never filed. |
-| 4B | the player | Kettle and toaster on a counter otherwise bare; the landlord-supplied fan gives the player flat the same domestic provision as the other households. The desk is the tidiest thing in the flat. |
+| 4B | the player | Kettle and toaster on a counter otherwise bare; the landlord-supplied portable fan gives the player flat the same domestic provision as the other households. The bathroom has the same passive ceiling register as every flat, not a private extractor. The desk is the tidiest thing in the flat. |
 | 4C | Cam / Noel | **The negotiated dining table**: Cam's fridge side is quick food, Noel's is a museum shelf with a dead icebox nobody empties. Their battered copper kettle is evidence, not dressing: it sounds one beat before either yields. One kitchen, two centuries. |
 | 4D | Guests | Inadequate cookware — one pan for everything, hotel-issue, and a fridge that was never turned on. |
 | 5A | Nadia | Batch cooking, efficient, and a **corrected floor plan of this building** magneted to the fridge door. |
