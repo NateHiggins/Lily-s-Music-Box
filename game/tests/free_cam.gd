@@ -189,6 +189,15 @@ func _ready() -> void:
 	if cabinet_pose != "":
 		_pose_cabinets(root, cabinet_pose)
 		await get_tree().create_timer(0.08).timeout
+	# SHOT_BOXFAN_POSE="6A:unplugged" leaves the cord and plug visibly on
+	# the floor while the rotor runs. That impossible separation is the 6A
+	# beat; a normal switched-on fan does not prove it survived the rebuild.
+	var boxfan_pose := OS.get_environment("SHOT_BOXFAN_POSE")
+	if boxfan_pose != "":
+		var bp := boxfan_pose.split(":")
+		_pose_boxfans(root, String(bp[0]),
+				String(bp[1]) if bp.size() > 1 else "unplugged")
+		await get_tree().create_timer(0.12).timeout
 	# SHOT_MAIL_POSE=open proves the sole working leaf against the lobby wall.
 	# The other twenty-three are intentionally one batched architectural face.
 	var mail_pose := OS.get_environment("SHOT_MAIL_POSE")
@@ -340,6 +349,17 @@ func _pose_cabinets(node: Node, wanted_unit: String) -> void:
 			cabinet.set_door_open(true, 0.0)
 	for child in node.get_children():
 		_pose_cabinets(child, wanted_unit)
+
+
+func _pose_boxfans(node: Node, wanted_unit: String, pose: String) -> void:
+	if node is BoxFanProp:
+		var fan := node as BoxFanProp
+		if wanted_unit == "*" or fan.unit == wanted_unit:
+			fan.set_speed_step(2, true)
+			if pose.contains("unplugged"):
+				fan.set_plugged(false, true)
+	for child in node.get_children():
+		_pose_boxfans(child, wanted_unit, pose)
 
 
 func _pose_mail_bank(node: Node) -> void:

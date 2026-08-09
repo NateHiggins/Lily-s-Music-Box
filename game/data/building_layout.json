@@ -69292,6 +69292,20 @@
      "network": "electrical"
     },
     {
+     "kind": "boxfan",
+     "id": "F02_C_BOXFAN_01",
+     "unit": "2C",
+     "pos": [
+      11.75,
+      5.1,
+      3.2
+     ],
+     "yaw_deg": 180,
+     "network": "electrical",
+     "room": "F02_C_MAIN",
+     "variant": "juno_black"
+    },
+    {
      "kind": "shower",
      "id": "F02_2D_SHOWER_01",
      "unit": "2D",
@@ -86191,11 +86205,13 @@
      "id": "F04_B_BOXFAN_01",
      "unit": "4B",
      "pos": [
-      -13.2,
-      3.4,
-      9.85
+      -13.05,
+      6.1,
+      9.6
      ],
-     "yaw_deg": 45,
+     "yaw_deg": 135,
+     "room": "F04_B_MAIN",
+     "variant": "landlord_plain",
      "network": "electrical"
     },
     {
@@ -95911,6 +95927,20 @@
      "monitor": false
     },
     {
+     "kind": "boxfan",
+     "id": "F05_C_BOXFAN_01",
+     "unit": "5C",
+     "pos": [
+      12.85,
+      0.15,
+      12.8
+     ],
+     "yaw_deg": -135,
+     "network": "electrical",
+     "room": "F05_C_MAIN",
+     "variant": "iris_green"
+    },
+    {
      "kind": "shower",
      "id": "F05_5D_SHOWER_01",
      "unit": "5D",
@@ -104126,10 +104156,12 @@
      "pos": [
       -6.71,
       -8.65,
-      16.25
+      16.0
      ],
      "yaw_deg": 135,
-     "network": "electrical"
+     "network": "electrical",
+     "room": "F06_A_BED",
+     "variant": "sacha_nickel"
     },
     {
      "kind": "shower",

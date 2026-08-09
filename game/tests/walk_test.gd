@@ -208,6 +208,7 @@ func _run() -> void:
 	_kettle_fast_checks()
 	_radiator_checks()
 	_vantry_checks()
+	await _boxfan_checks()
 	_prop_mesh_and_boiler_checks()
 	_medicine_cabinet_checks()
 	_clock_checks()
@@ -1892,6 +1893,82 @@ func _drive_to_response(ci: CallInterface, label: String) -> bool:
 	ok = await _until(func(): return ci.stage == CallInterface.Stage.RESPONSE, 30.0)
 	_check(ok, "%s: reaches RESPONSE" % label)
 	return ok
+
+
+func _boxfan_checks() -> void:
+	var fans: Array[BoxFanProp] = []
+	var units := {}
+	var total_meshes := 0
+	var max_meshes := 0
+	for child in root.get_children():
+		if child is BoxFanProp:
+			var fan := child as BoxFanProp
+			fans.append(fan)
+			units[fan.unit] = true
+			var meshes := _count_meshes(fan)
+			total_meshes += meshes
+			max_meshes = maxi(max_meshes, meshes)
+	_check(fans.size() == 4 and ["2C", "4B", "5C", "6A"].all(
+			func(unit): return units.has(unit)),
+			"four ruled households own portable fans")
+	_check(max_meshes <= 9 and total_meshes <= 36,
+			"fans cost at most nine meshes each / 36 family total (%d / %d)" %
+			[max_meshes, total_meshes])
+	var room_owned := true
+	var serviceable := true
+	for fan in fans:
+		room_owned = room_owned and fan.room_id != "" \
+				and root.room_at_world(fan.global_position) == fan.room_id
+		serviceable = serviceable \
+				and fan.get_node_or_null("SelectorReach") is Marker3D \
+				and fan.get_node_or_null("HandleReach") is Marker3D \
+				and fan.get_node_or_null("PlugReach") is Marker3D \
+				and fan.get_node_or_null("Interaction") is Area3D
+	_check(room_owned,
+			"every fan is seated in the room that gates its unseen plug swap")
+	_check(serviceable,
+			"selector, handle, plug and interaction remain physically reachable")
+
+	var player_fan := root.get_node_or_null("F04_B_BOXFAN_01") as BoxFanProp
+	_check(player_fan != null, "4B keeps its landlord-supplied fan")
+	if player_fan:
+		player_fan.set_speed_step(0, true)
+		player_fan._perform_synced_event(1, 1.0, 1.0)
+		_check(player_fan.speed_step() == 0 and player_fan.state == FunctionalProp.PState.OFF,
+				"motif accents cannot start a fan whose selector is at zero")
+		player_fan.interact(null)
+		_check(player_fan.speed_step() == 1,
+				"one interaction advances the mechanical selector")
+
+	# The impossible state is room-gated, not camera-guessed: leave, return to
+	# find exposed prongs and a live rotor, then leave again before cleanup.
+	var evidence := root.get_node_or_null("F06_A_BOXFAN_01") as BoxFanProp
+	_check(evidence != null, "6A evidence fan remains case-addressable")
+	if evidence:
+		root.player.global_position = GameBoot.b2g([-6.8, -8.4, 16.1])
+		await get_tree().process_frame
+		_check(root.room_at_world(root.player.global_position) == "F06_A_BED",
+				"player starts the possession check inside Sacha's fan room")
+		evidence.set_speed_step(0, true)
+		evidence.possess_fit(1)
+		_check(evidence.possession_phase() == 1 and evidence.is_plugged(),
+				"possession waits while the player remains in the room")
+		root.player.global_position = GameBoot.b2g([4.3, 0.0, 16.1])
+		await get_tree().process_frame
+		_check(evidence.possession_phase() == 2 and not evidence.is_plugged(),
+				"first room exit moves the plug and starts the impossible rotor")
+		root.player.global_position = GameBoot.b2g([-6.8, -8.4, 16.1])
+		await get_tree().process_frame
+		_check(evidence.possession_phase() == 3 and not evidence.is_plugged(),
+				"returning player finds the fan running unplugged")
+		await get_tree().create_timer(0.9).timeout
+		_check(evidence.possession_phase() == 4 and not evidence.is_plugged(),
+				"exposed plug remains until another room exit")
+		root.player.global_position = GameBoot.b2g([4.3, 0.0, 16.1])
+		await _until(func(): return evidence.possession_phase() == 0, 1.0)
+		_check(evidence.possession_phase() == 0 and evidence.is_plugged(),
+				"second room exit restores the ordinary appliance unseen")
+		root.teleport_player("F01")
 
 
 func _prop_mesh_and_boiler_checks() -> void:

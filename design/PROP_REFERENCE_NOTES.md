@@ -14,9 +14,9 @@ Evidence labels used below:
 
 ## Review progress — 2026-08-09
 
-The ordered brief contains **24 review families**. **Fourteen are complete
-(58%)**: all eight first-priority/gameplay families and all six
-second-priority families. Every completed family has a reference comparison,
+The ordered brief contains **24 review families**. **Fifteen are complete
+(63%)**: all eight first-priority/gameplay families, all six second-priority
+families, and the first lighter-pass family. Every completed family has a reference comparison,
 model and runtime-material pass, warehouse and installed renders, generated
 data synchronized after the final edit, and automated validation.
 
@@ -24,17 +24,17 @@ data synchronized after the final edit, and automated validation.
 |---|---:|---:|
 | First — carries a game | **8 / 8** | none |
 | Second — touched often | **6 / 6** | none |
-| Third — lighter pass | **0 / 10** | all ten |
-| **Total** | **14 / 24** | **10** |
+| Third — lighter pass | **1 / 10** | nine |
+| **Total** | **15 / 24** | **9** |
 
 Completed in review order: `fridge_prop`, `stove_prop`, `tap_prop`,
 `toaster_prop`, `radiator_prop`, `boiler_prop`, `washer_prop` with
 `laundry_airer_prop`, `vantry_point_prop`, `kettle_prop`,
 `medicine_cabinet_prop`, and `clock_prop` with the domestic witness clocks.
 The fourth through sixth second-priority families are `mail_bank_prop`,
-`bookshelf_prop` and `door_prop`.
+`bookshelf_prop` and `door_prop`. The first lighter family is `boxfan_prop`.
 
-**Next:** `boxfan_prop`, the first lighter-pass family. The mesh-count sweep
+**Next:** `exhaust_fan_prop`. The mesh-count sweep
 identified `stove_prop` as a later optimization candidate, but it is not
 reopened unless performance work is explicitly scheduled.
 
@@ -1629,3 +1629,113 @@ silhouettes or glazed shop interior.
   physically traversing the building.
 - LightingAudit: **PASS** for all 127 spaces. ShopEntryTest and MailBankTest:
   **PASS**. WarehouseTeleportTest: **PASS**, 65 displays from 44 kinds.
+
+## `boxfan_prop`
+
+### What the real object was
+
+`boxfan` remains the serialized compatibility name, not the description of
+the object. A square window box fan would be the wrong postwar silhouette.
+The real household object available to a Queens tenant was a portable desk or
+floor fan: a heavy cast-metal base, exposed cylindrical motor, broad blades,
+deep wire guard, carrying handle and cloth-covered line cord. The Henry Ford
+dates its comparable Westinghouse example to **1920–1927**, and Springfield
+Museums records electric fans as a popular 1920s product before domestic air
+conditioning. The fan carries no signal, so it receives no divergent licence:
+it is ordinary 1927 electrical hardware, bought second-hand. **HISTORICAL;
+CANONICAL.**
+
+Reference objects:
+
+- [Westinghouse Electric Fan, 1920–1927 — The Henry Ford](https://www.thehenryford.org/collections/explore/artifact/318696)
+- [Westinghouse Electric Fan — Springfield Museums](https://springfieldmuseums.org/blog/portfolio-item/westinghouse-electric-fan-westinghouse-electric-company/)
+
+### What we inherited
+
+- Two fans existed although the appliance bible named three households and
+  the standing player-flat ruling required a fourth. 2C and 5C were absent;
+  6A and 4B followed different authoring paths.
+- The rotor was distributed in the local XY plane but rotated around local Y,
+  so the blades tumbled instead of spinning about their shaft.
+- `_process()` spun and hummed unconditionally. The selector was scenery, and
+  the header's “never stops dead” motif contract made an ordinary switched-off
+  appliance impossible.
+- 6A's marker floated 250 mm above the floor. 4B's occupied an unreadable gap
+  between furniture. The old model had a generic ring on legs: no massive
+  base, deep motor, front/rear guard, handle, speed selector, cord termination
+  or plug to carry the activity.
+- The proposed unseen plug change had no supporting sightline machinery. A
+  camera-forward or frustum shortcut would still fire through an open doorway
+  and would be brittle in headless validation.
+
+### Built result
+
+There are now exactly four: Juno's black fan in 2C, the landlord's plain fan
+in 4B, Iris's green fan in 5C and Sacha's dull-nickel fan in 6A. All four are
+floor-seated, explicitly room-owned and checked against the generator's real
+furniture and door-sweep obstacles. The first proposed 2C position failed that
+audit against `F02_DOOR_11`; the marker moved 450 mm rather than weakening the
+rule. Counting the final built layout covers both the standard `dress_unit()`
+path and 4B's bespoke marker.
+
+The rebuilt silhouette follows the 1920–27 reference family: 440 mm sweep,
+cast base and neck, trunnions, deep motor can, two concentric wire guards,
+four broad blades, rear vents, carrying handle, selector, cloth cord and a
+separate two-pin plug. The rotor now turns around its actual local Z shaft.
+The selector provides 0–1–2–3, speed and hum coast together, and a motif accent
+does nothing while the appliance is off.
+
+Only 6A may break that physical contract. Possession arms while the player is
+in Sacha's room, waits for a room exit, then puts the plug on the floor while
+the blades continue. It waits for the player to return before exhibiting the
+beat, leaves the impossible evidence behind, and restores the connection only
+after a second exit. This uses the building's authored room partition rather
+than new camera or occlusion machinery; it is deterministic and testable. The
+other three fans always obey their switches.
+
+Static components are merged by material while rotor, selector and plug stay
+independent. The result is **9 visible meshes per fan / 36 across the family**.
+That is 44% cheaper per appliance than the inherited approximately sixteen,
+but four meshes more at family level because two missing households were
+restored. Both facts are intentional.
+
+### Materials and texture prompt batch
+
+No new material key and no texture batch. `cast_iron`, `metal`,
+`brass_dull`, `bakelite_black`, `rubber_aged` and `linen` already have valid
+runtime paths. `linen` deliberately remains on its older
+`T_library_furniture_linen_*` path; adding it to `GODOT_STAGE` would create an
+unused competing texture set.
+
+### Render evidence
+
+Before:
+
+- Single inherited silhouette — `C:/PleaseRemainOnTheLine/art/renders/boxfan_review/before/warehouse_boxfan.png`
+- 4B context — `C:/PleaseRemainOnTheLine/art/renders/boxfan_review/before/f04_b_main_room.png`
+- 6A context — `C:/PleaseRemainOnTheLine/art/renders/boxfan_review/before/f06_a_main_room.png`
+
+After:
+
+- Four household variants — `C:/PleaseRemainOnTheLine/art/renders/boxfan_review/after/warehouse_boxfan.png`
+- 2C placement — `C:/PleaseRemainOnTheLine/art/renders/boxfan_review/after/stand_10.2_4.4_-3.6_-45_-20.png`
+- 4B placement — `C:/PleaseRemainOnTheLine/art/renders/boxfan_review/after/stand_-11.5_10.8_-4.5_48_-20.png`
+- 5C context — `C:/PleaseRemainOnTheLine/art/renders/boxfan_review/after/f05_c_main_room.png`
+- 6A unplugged/running evidence — `C:/PleaseRemainOnTheLine/art/renders/boxfan_review/after/stand_-8.4_17.3_7.0_-132_-15.png`
+
+Measured rather than accepted from a dark frame: mean sRGB for 2C / 4B / 6A
+is **(89.7, 62.9, 49.4) / (83.5, 67.5, 59.7) / (41.7, 29.0, 24.6)**.
+The darkest evidence frame still separates the nickel motor, black cage,
+wood floor and loose plug; the light has not been raised to sell the prop.
+
+### Validation
+
+- Generator and full asset pipeline: **PASS**; four authored owners, all
+  grounded, room-contained, electrically networked and clear of fixed
+  obstacles; generated data synchronized after the last source edit.
+- Fast WalkTest: **PASS**; four owner identities, 9/36 mesh caps, selector and
+  off-motif behavior, service anchors, and the complete exit/return/exhibit/
+  second-exit possession sequence.
+- FULL WalkTest: **PASS** in **59.6 seconds**. LightingAudit: **PASS** for all
+  127 spaces. WarehouseTeleportTest: **PASS**, with four fan variants among
+  68 displays from 44 kinds.

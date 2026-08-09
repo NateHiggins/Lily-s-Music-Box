@@ -777,6 +777,13 @@ func _spawn_props() -> void:
 				# must arrive before _ready() chooses copper, nickel and wear.
 				prop.unit = String(m.get("unit", ""))
 				prop.case_id = String(m.get("case_id", ""))
+			if prop is BoxFanProp:
+				# Household finish and room ownership are generator facts.  The
+				# latter is also the possession cut: leave this room, and only then
+				# may Sacha's attachment plug move without being witnessed.
+				prop.unit = String(m.get("unit", ""))
+				prop.fan_variant = String(m.get("variant", "plain"))
+				prop.room_id = String(m.get("room", ""))
 			if prop is BookshelfProp:
 				# Ownership, silhouette and Mae's evidence are generator facts.
 				# They arrive before _ready() deals the shelf and builds the case.
@@ -843,6 +850,7 @@ func _spawn_props() -> void:
 							or prop is ToasterProp or prop is WasherProp \
 							or prop is LaundryAirerProp or prop is KettleProp \
 							or prop is MedicineCabinetProp or prop is ClockProp \
+							or prop is BoxFanProp \
 					else -float(m.get("yaw_deg", 0)))
 			add_child(prop)
 			functional_props_by_floor[floor_id].append(prop)
@@ -855,6 +863,39 @@ func _room_on_floor(floor_data: Dictionary, room_id: String) -> Dictionary:
 		if String(room.get("id", "")) == room_id:
 			return room
 	return {}
+
+
+## Smallest authored room containing a world-space point. Rooms nest — a bath
+## sits inside its apartment envelope — so first-match would call the whole
+## flat one room and let a possession swap happen through an open bathroom
+## door. WindowGlow uses the same smallest-footprint law for the same reason.
+## This is geometry/data partitioning, not a visibility guess, and therefore
+## remains deterministic in tests without a camera or an occlusion query.
+func room_at_world(world_position: Vector3) -> String:
+	var floor_data: Dictionary = {}
+	var floor_distance := INF
+	for fl in layout.get("floors", []):
+		var distance := absf(world_position.y - float(fl.get("z", 0.0)))
+		if distance < floor_distance:
+			floor_distance = distance
+			floor_data = fl
+	if floor_data.is_empty():
+		return ""
+	var bx := world_position.x
+	var by := -world_position.z
+	var best_id := ""
+	var best_area := INF
+	for room in floor_data.get("rooms", []):
+		var rect: Array = room.get("rect", [])
+		if rect.size() != 4 or bx < float(rect[0]) or bx > float(rect[2]) \
+				or by < float(rect[1]) or by > float(rect[3]):
+			continue
+		var area := (float(rect[2]) - float(rect[0])) \
+				* (float(rect[3]) - float(rect[1]))
+		if area < best_area:
+			best_area = area
+			best_id = String(room.get("id", ""))
+	return best_id
 
 
 

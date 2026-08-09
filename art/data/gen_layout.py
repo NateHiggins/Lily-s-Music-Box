@@ -659,6 +659,11 @@ NO_TOASTER_UNITS = {"2C", "5B", "4D", "5C"}
 # One third of the flats own kettles, each for a character reason rather
 # than because the kitchen generator had an empty socket to fill.
 KETTLE_UNITS = {"1A", "1D", "3D", "4B", "4C", "6C"}
+# Three residents were always named in the appliance bible; 4B is the
+# standing player-flat ruling in the same form as its range, toaster and
+# kettle.  Count the whole built layout because 4B is bespoke while the
+# other three are authored by dress_unit().
+BOXFAN_UNITS = {"2C", "4B", "5C", "6A"}
 # One retained domestic hazard, authored rather than rolled per boot. Lena's
 # big borrowed-family pots make a low unattended ring in 2B findable; 35% of
 # seventeen ranges made the whole building behave like an active gas leak.
@@ -1293,12 +1298,14 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
         """x of a box of width w placed u meters off the exterior side wall."""
         return x0 + u if not east else x1 - u - w
 
-    def mk(kind, idx, px, py, pz=0.0, yaw=0):
-        markers.append({"kind": kind,
-                        "id": "%s_%s_%s_%02d" % (floor_id, stack,
-                                                 kind.upper(), idx),
-                        "unit": unit, "pos": [px, py, z + pz],
-                        "yaw_deg": yaw, "network": "electrical"})
+    def mk(kind, idx, px, py, pz=0.0, yaw=0, **facts):
+        marker = {"kind": kind,
+                  "id": "%s_%s_%s_%02d" % (floor_id, stack,
+                                               kind.upper(), idx),
+                  "unit": unit, "pos": [px, py, z + pz],
+                  "yaw_deg": yaw, "network": "electrical"}
+        marker.update(facts)
+        markers.append(marker)
 
     # ---- unit states first: these rooms are NOT ordinary households
     if unit == "2D":      # sealed since 1927: nobody dresses a tomb
@@ -1653,10 +1660,25 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
         _asm(f, "6A_detail_capture_mug", "mug",
              x0 + 0.77, cy - 1.02, 210, z0=0.78, mat="ceramic")
         chair_box(f, "6A_deskchair", x0 + 1.55, cy - 0.25, "w")
-        mk("boxfan", 1, x1 - 1.2, y0 + 1.0, 0.25, 135)
+        # The fan stands on the bedroom floor, not 250 mm above it.  Its
+        # Tomorrow File beat names this room, and the room id is also the
+        # deterministic cut used to move the attachment plug unseen.
+        mk("boxfan", 1, x1 - 1.2, y0 + 1.0, 0.0, 135,
+           room="F06_A_BED", variant="sacha_nickel")
     elif unit == "4D":  # short-term rental: nobody actually lives here
         # strip the lived-in warmth back out: it stays, but reads staged
         pass
+
+    # The two bible-owned fans missing from the built layout.  These are
+    # chosen floor positions, not runtime searches: Juno's clears the record
+    # shelf and amplifier stack; Iris's clears the sofa and the south-wall
+    # bookshelf while still sending air across the paint room.
+    if unit == "2C":
+        mk("boxfan", 1, 11.75, 5.10, 0.0, 180,
+           room="F02_C_MAIN", variant="juno_black")
+    elif unit == "5C":
+        mk("boxfan", 1, 12.85, 0.15, 0.0, -135,
+           room="F05_C_MAIN", variant="iris_green")
 
 
 def apartment_4b(z, walls, rooms, markers, furniture):
@@ -1833,7 +1855,11 @@ def apartment_4b(z, walls, rooms, markers, furniture):
          "pos": [-8.03, 8.60, z], "yaw_deg": 90,
          "network": "structural", "monitor": False},
         {"kind": "boxfan", "id": "F04_B_BOXFAN_01", "unit": "4B",
-         "pos": [-13.20, 3.40, z + 0.25], "yaw_deg": 45,
+         # The old marker floated 250 mm above the floor and hid between the
+         # coffee table and west wall.  This floor datum clears the couch and
+         # makes the selector legible from the main-room route.
+         "pos": [-13.05, 6.10, z], "yaw_deg": 135,
+         "room": "F04_B_MAIN", "variant": "landlord_plain",
          "network": "electrical"},
         {"kind": "door_anomaly", "id": "F04_B_DOOR_ANOMALY", "unit": "4B",
          "pos": [-7.20, y0 + 4.32, z], "yaw_deg": 0,
@@ -6321,6 +6347,7 @@ def validate(layout):
     problems += _validate_placement(layout)
     problems += _validate_vantry_points(layout)
     problems += _validate_kettles(layout)
+    problems += _validate_boxfans(layout)
     problems += _validate_shop_interiors(layout)
     problems += life_pass(layout["floors"])
     return problems
@@ -6393,6 +6420,44 @@ def _validate_kettles(layout):
         clearance = abs(float(four_b[0]["pos"][0]) - (-10.70)) - 0.09 - 0.0605
         if clearance < 0.048:
             problems.append("4B kettle/toaster clearance fell below 48 mm")
+    return problems
+
+
+def _validate_boxfans(layout):
+    """Four households, grounded, room-owned and clear of fixed furniture.
+
+    The family has two authoring paths: three dress_unit markers and 4B's
+    bespoke marker.  This deliberately counts the finished layout so neither
+    path can disappear behind a locally green assertion.
+    """
+    problems = []
+    fans = [(fl, m) for fl in layout["floors"]
+            for m in fl.get("markers", []) if m.get("kind") == "boxfan"]
+    units = {m.get("unit") for _fl, m in fans}
+    if len(fans) != 4 or units != BOXFAN_UNITS:
+        problems.append("boxfans must be exactly %s, got %s" %
+                        (sorted(BOXFAN_UNITS), sorted(units)))
+    for fl, fan in fans:
+        if fan.get("network") != "electrical":
+            problems.append("%s escaped its electrical circuit" % fan["id"])
+        if abs(float(fan["pos"][2]) - float(fl["z"])) > 0.011:
+            problems.append("%s is not seated on the floor" % fan["id"])
+        room_id = fan.get("room", "")
+        room = next((r for r in fl["rooms"] if r.get("id") == room_id), None)
+        px, py = fan["pos"][:2]
+        if room is None or not (room["rect"][0] <= px <= room["rect"][2]
+                                and room["rect"][1] <= py <= room["rect"][3]):
+            problems.append("%s escaped authored room %s" %
+                            (fan["id"], room_id))
+            continue
+        # A 500 mm square is conservative for the 310 x 230 mm base at an
+        # arbitrary yaw and leaves a hand-width service halo around the cage.
+        body = (px - 0.25, py - 0.25, px + 0.25, py + 0.25)
+        for oid, obstacle in _obstacles(fl):
+            if oid == fan["id"]:
+                continue
+            if _hit(obstacle, *body):
+                problems.append("%s overlaps %s" % (fan["id"], oid))
     return problems
 
 
@@ -6553,6 +6618,7 @@ FRIDGE_FOOT = {
 STOVE_FOOT = (0.32, 0.30)
 BATH_SINK_FOOT = (0.305, 0.28)
 SHOWER_FOOT = (0.36, 0.36)
+BOXFAN_FOOT = (0.25, 0.25)
 
 
 # Eight shelves are gameplay owners, not repetitions of the generic steel
@@ -6735,6 +6801,8 @@ def _obstacles(fl):
             hx, hy = FRIDGE_FOOT[bool(m.get("monitor", False))]
         elif kind == "stove":
             hx, hy = STOVE_FOOT
+        elif kind == "boxfan":
+            hx, hy = BOXFAN_FOOT
         elif m.get("fixture") == "bath_sink":
             hx, hy = BATH_SINK_FOOT
         elif m.get("fixture") == "shower":
