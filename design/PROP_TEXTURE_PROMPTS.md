@@ -61,3 +61,26 @@ No generated texture prompt is warranted for this prop.
 
 This is an intentional zero-image batch: no letters, numbers, words, logos or
 new visual source material were introduced.
+
+## Plumbing fixture pass
+
+1. **`nickel_plated.png`**
+
+   Seamless PBR swatch: square, seamless, tileable aged nickel-plated brass
+   plumbing hardware; warm silvery nickel, fine hand-polished micro-scratches,
+   subtle cloudy oxidation, restrained pinprick tarnish, tiny warmer brass
+   beginning to show. Generic uniform surface, flat diffuse evenly-lit
+   document-scan, no object, no edge, no fitting, no screw, no seam, no
+   highlight, no shadow, no landmark, no letters, no numbers, no words, no
+   labels, no logos, no symbols, no watermark, no border, no baked lighting.
+
+Generated source and processed set:
+
+- `art/textures/ai_sources/nickel_plated.png`
+- `art/textures/ai_materials/nickel_plated/`
+- `game/assets/building/textures/T_ai_materials_nickel_plated_{albedo,rough,normal}.png`
+
+This is a tiling finish, not a picture of a faucet. Exposed brass, mineral
+bloom and rust are positioned geometry/deposits in `tap_prop.gd`, where hands
+and standing water put them; baking those landmarks into the swatch would
+repeat the same accident on every vertical riser and every valve.

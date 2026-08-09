@@ -89,6 +89,10 @@ SLOTS = {
     "enamel_workshop": (["enamel_workshop"], 0.85, 0.32, 0.18, 1.6),
     "galvanized_aged": (["metal"], 0.8, 0.55, 0.18, 2.0),
     "cast_iron_radiator": (["cast_iron"], 0.4, 0.60, 0.18, 3.0),
+    # The plumbing sheet is a uniform document-scan swatch, not a fitting.
+    # Fine polishing has direction, so it stays in GRID_SLOTS and never
+    # receives a quarter-turn blend that would cross the scratch field.
+    "nickel_plated": (["nickel_plated"], 0.32, 0.38, 0.18, 2.5),
     "porcelain_fixture": (["porcelain"], 0.4, 0.18, 0.15, 1.5),
     "bakelite": (["bakelite"], 0.3, 0.25, 0.15, 1.5),
     # 11 squares across the sheet; at 1.1 m that is a ~10 cm check,
@@ -231,7 +235,7 @@ RECOLOR = {"rug_persian_worn": [("rug_cool", 150.0), ("rug_green", 90.0)]}
 # step somebody has to remember after every regeneration.
 GODOT_STAGE = ("brass_bright", "brass_dull", "bronze", "car_paint",
                "oak_quartered", "zinc_liner", "copper_aged",
-               "cast_iron", "fx_grease",
+               "cast_iron", "fx_grease", "nickel_plated",
                "milk_glass", "bakelite_black", "terrazzo_dark",
                "brass_mesh", "indicator_enamel",
                # The shopfront signage is built in GDScript too
@@ -308,7 +312,7 @@ COLOR_ANCHORS = {
     "terracotta": "#A85C3C", "soil": "#3A2E22",
     "puddle": "#0A0B0E", "wet_asphalt": "#17171A", "timber": "#8A6A48",
     "brass": "#A67C3E", "appliance": "#F0EBDE", "metal": "#9AA0A0",
-    "cast_iron": "#B5B2AA",
+    "cast_iron": "#B5B2AA", "nickel_plated": "#B7B2A7",
     "enamel_pristine": "#F2EEE2", "enamel_paintflecked": "#E9E3D2",
     "enamel_dented": "#E4DDCC", "enamel_greasy": "#DCD2B8",
     "enamel_workshop": "#E6E1D4", "porcelain": "#EFE9D6", "bakelite": "#452C20",
@@ -536,6 +540,7 @@ GRID_SLOTS = {
     "tin_ceiling", "wainscot_beadboard", "marble_lobby_base",
     "floor_oak_worn", "timber_joist", "walnut_furniture",
     "galvanized_aged", "chrome_brushed",
+    "nickel_plated",
     # Anything from the bar batch carrying a module or a direction: the
     # tile course, the lantern's ribs, the awning's seams, the board's
     # planks, the lacquer's grain, the felt's nap, and the posters,

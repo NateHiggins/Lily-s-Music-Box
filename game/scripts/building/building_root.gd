@@ -673,7 +673,12 @@ func _spawn_props() -> void:
 				# special case for one shop.
 				prop.bed = String(m["bed"])
 			if prop is TapProp:
-				prop.fixture = String(m["kind"])
+				prop.fixture = String(m.get("fixture",
+						"shower" if m["kind"] == "shower" else "bath_sink"))
+				prop.unit = String(m.get("unit", ""))
+				prop.drain_side = int(m.get("drain_side", 1))
+				prop.compact_kitchen = bool(m.get("compact", false))
+				prop.has_drainboard = bool(m.get("drainboard", true))
 			if prop is FridgeProp:
 				prop.unit = String(m.get("unit", ""))
 				prop.monitor_top = bool(m.get("monitor", false))
@@ -714,7 +719,7 @@ func _spawn_props() -> void:
 			# sign. Legacy marker props were authored around the old negation and
 			# keep it until each becomes the sole owner of its own geometry.
 			prop.rotation.y = deg_to_rad(float(m.get("yaw_deg", 0)) \
-					if prop is FridgeProp or prop is StoveProp \
+					if prop is FridgeProp or prop is StoveProp or prop is TapProp \
 					else -float(m.get("yaw_deg", 0)))
 			add_child(prop)
 			count += 1

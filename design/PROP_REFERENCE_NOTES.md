@@ -312,3 +312,180 @@ fill.
 - `WalkTest.tscn` — exit 0 in 184.7 seconds; 432 functional props instantiated,
   all navigation, stair and elevator checks passed. Its existing dummy-renderer
   phone-cookie diagnostics remain unrelated and do not fail the suite.
+
+## `tap_prop` plumbing family
+
+### What the real objects were
+
+The cheap Orison kitchen fixture is the smallest roll-rim enameled-iron sink
+shown in the J. L. Mott Iron Works catalog: **24 x 18 x 6 inches**, with an
+integral back, hanger or legs, optional porcelain-enamel drainboard, and
+nickel-plated Fuller-pattern brass faucets. The bathroom basin is Mott's
+compact apartment-house enameled lavatory with integral back/apron,
+compression taps, pedestal and exposed waste. The shower follows Mott plate
+1034-A: a **28-inch corner receptor**, exposed tubular shower and mixing
+valves, a roughly 25-inch curtain ring, and white duck curtain. These are
+ordinary plumbing fixtures. They carry no signal, so the Rule of Signal leaves
+them in 1927, second-hand, and on water pipe. **HISTORICAL; CANONICAL.**
+
+Primary reference copies retained with the project work:
+
+- `tmp/pdfs/mott_plumbing_fixtures_1908.pdf`, plates 7300–7306: Beekman and
+  Economic roll-rim sinks, drainboards, hanger/leg options and nickel-plated
+  Fuller faucets.
+- `tmp/pdfs/mott_modern_plumbing_1908.pdf`, plates 1034-A and 1053: corner
+  receptor/tubular shower and inexpensive compact apartment-house lavatory.
+
+### What we inherited
+
+- Blender owned all porcelain and stall geometry while `tap_prop.gd` owned
+  only floating handles and a water column. The warehouse therefore showed
+  no complete sink silhouette. **NECESSITY fault.**
+- The kitchen run used a modern brushed-metal undermount basin with no
+  drainboard. The generic bath assembly used a late-century glass enclosure,
+  single mixer plate and lever. Both were the wrong period and object class.
+- The basin, shower and 4B standalone sink had three different geometry
+  owners. Activities could turn a valve but could not address hot and cold
+  independently, close a stopper, fill a bowl, or share the boiler curve.
+- `asm_sink_ped` also secretly owned the fixed medicine-cabinet carcass. Once
+  the basin assembly was removed, the otherwise functional mirror opened onto
+  empty wall.
+- Nine blind stacks could descend through the 1.00 m court-window sill and
+  into the countertop below. 4B made the fault conspicuous, but it was a
+  shared generator defect rather than a player-flat exception.
+
+### Built result
+
+`tap_prop.gd` now solely owns three complete period fixtures:
+
+- **Apartment lavatory:** 0.61 x 0.56 m, 0.82 m rim, rolled oval enamel basin,
+  tapered pedestal, integral back, independent cross taps, central spout,
+  exposed supplies, stops, trap, drain and stopper. The bowl is one continuous
+  elliptical surface under one rolled rim; a rejected lower ring and a
+  permanently high water plane both read as a second basin in the doorway
+  render. Water now begins at the drain and rises/spreads with fill level.
+- **Kitchen sink:** measured 0.61 x 0.46 x 0.15 m roll-rim iron bowl with
+  integral back, ribbed 0.42 m drainboard and independent wall-mounted
+  compression taps. The cross handles now face the user in the wall plane,
+  with visible escutcheons, a joined supply bridge and a high gooseneck spout;
+  the inherited handles had been modelled as deck taps rotated 90 degrees out
+  of their useful plane. The valve centre is 110 mm above the sink rim: this
+  keeps the complete escutcheon on the 160 mm integral enamel back instead of
+  floating above its edge. The 4B version preserves its existing 0.50 x 0.38
+  m opening and separate plate rack; an attached board there would occupy the
+  new range.
+- **Shower:** 0.72 m corner receptor, real cavity/drain, exposed nickel riser,
+  arm and broad rose, separate valves, 25-inch-equivalent rail and gathered,
+  partly open white-duck curtain. The deleted glass cubicle does not survive.
+
+`set_hot`, `set_cold`, `set_stopper` and `set_boiler_temperature` are
+independent maintenance APIs. A closed stopper fills the visible basin surface
+while flow is active and drains when opened; `set_running` remains only as a
+compatibility path. Possession can retime a valve or admit a brief cold thread,
+but does not make these non-signal objects electrical. Every fixture retains
+`network: water`.
+
+The medicine cabinet now owns its recessed pressed-enamel carcass, two glass
+shelves and nickel frame as well as its moving mirror leaf and resident-kept
+contents. Its stable inspection API renders the complete 1.9-radian door sweep.
+
+### Layout, counts and clearance
+
+The generated building contains **23 showers, 24 bathroom lavatories** (23
+apartment/public markers plus the Harukiya bar WC), and **19 kitchen sinks**
+(18 kitchen assemblies including `common_k`, plus 4B). Obsolete `sink_ped`,
+`shower`, and `sink_basin` furniture assemblies are all zero.
+
+Bath and kitchen semantics live in `fixture` while public marker kinds remain
+`sink`/`shower`. Life, furnishing, activity-socket, footprint and circulation
+audits now count the semantic marker. The kitchen cabinet keeps its dirty-
+counter and trash sockets; new `SINK_EDGE`, `KITCHEN_SINK_EDGE`, and
+`SHOWER_EDGE` sockets follow the actual fixtures. A kitchen sink does not add
+a duplicate movement obstacle because it is already inside the cabinet/counter
+footprint.
+
+The generic blind cap now stops every stack at `WIN_COURT["sill"] == 1.00`.
+The rendered 4B follow-up exposed a second, horizontal conflict: its upper
+cabinet occupied the window/blind span. The upper now stops at `x == -10.31`,
+8 cm before the blind begins, and carries one correctly sized door instead of
+two leaves extending past the carcass. 4B retains the approved counter
+`-10.86..-9.55`, range `-9.55..-8.91`, mug at `-10.35`, and plate rack at
+`-9.605`; its basin remains centered at `(-9.93, 9.31)`.
+
+Both the generic kitchen assembly and 4B now segment the cabinet carcass as
+well as the countertop around the exact basin bounds. A sink-hidden render
+shows a deep open void instead of the former textured cabinet face, proving
+that the bowl descends through a real opening. The generic three-box stand-ins
+and 4B's box crockery are gone; a real mug and compact nickel-wire draining
+rack with four porcelain plates give each silhouette a legible purpose.
+
+### Materials and measured render response
+
+- `porcelain`, `enamel`, `linen`, `cast_iron` and `brass_dull` reuse existing
+  runtime sets.
+- New `nickel_plated` is present in `MATERIAL_CATALOG`, ingest `SLOTS` and
+  `GODOT_STAGE`, and `MatLib.SETS`. Its generated flat document-scan plate is
+  warm silver rather than modern blue chrome: 0.70 metallic / 0.38 catalog
+  roughness, with a 0.82 runtime roughness multiplier so horizontal spouts do
+  not disappear black under the torch.
+- Mineral bloom and rust are positioned at drains, rims and wet corners rather
+  than tiled uniformly over dry vertical enamel.
+
+Measured from identical installed crops under `SHOT_LIGHTS=1 SHOT_TORCH=1`:
+bath luma p10/50/p90 moved from **30.3/110.9/165.3** to
+**31.3/110.6/170.3**; standard kitchen from **29.1/133.9/205.7** to
+**34.5/135.2/197.9**; 4B from **3.8/104.5/181.3** to
+**15.3/129.7/187.4**. The replacements remain shadowed while their cavities,
+hardware and working surfaces read more reliably.
+
+### Render evidence
+
+Before:
+
+- Warehouse split ownership — `C:/shots/orison_prop_pass/tap_before/warehouse/stand_392_1.10_4.6_180_-5.png`
+- 1A lavatory — `C:/shots/orison_prop_pass/tap_before/insitu_close/stand_-7.10_1.25_4.27_-90_-5.png`
+- 1A shower — `C:/shots/orison_prop_pass/tap_before/insitu_close/stand_-7.10_1.30_5.69_-90_-4.png`
+- 2B kitchen — `C:/shots/orison_prop_pass/tap_before/kitchen/stand_-7.15_4.55_-7.60_-90_-10.png`
+- 4B kitchen — `C:/shots/orison_prop_pass/tap_before/kitchen/stand_-9.93_10.95_-8.35_0_-10.png`
+
+After:
+
+- Warehouse shower — `C:/shots/orison_prop_pass/tap_after/warehouse_flat/stand_390_1.25_6_180_-8.png`
+- Warehouse lavatory — `C:/shots/orison_prop_pass/tap_after/warehouse_flat/stand_394_1.15_6_180_-10.png`
+- Warehouse kitchen sink — `C:/shots/orison_prop_pass/tap_after/warehouse_flat/stand_398_1.20_6_180_-10.png`
+- 1A lavatory installed — `C:/shots/orison_prop_pass/tap_after/insitu/stand_-7.10_1.25_4.27_-90_-5.png`
+- 1A shower installed — `C:/shots/orison_prop_pass/tap_after/insitu/stand_-7.10_1.30_5.69_-90_-4.png`
+- 2B kitchen installed — `C:/shots/orison_prop_pass/tap_after/insitu/stand_-7.15_4.55_-7.60_-90_-10.png`
+- 4B kitchen installed — `C:/shots/orison_prop_pass/tap_after/insitu/stand_-9.93_10.95_-8.35_0_-10.png`
+- Final lowered wall mount, 2B — `C:/shots/orison_prop_pass/tap_after/lowered_mount/stand_-7.15_4.55_-7.60_-90_-10.png`
+- Final lowered wall mount, 4B — `C:/shots/orison_prop_pass/tap_after/lowered_mount/stand_-9.93_10.95_-8.35_0_-10.png`
+- Old false cutout, sink hidden over the solid carcass — `C:/shots/orison_prop_pass/tap_after/kitchen_cutout_probe/stand_-7.15_4.55_-7.60_-90_-10.png`
+- Generic real cutout, sink hidden — `C:/shots/orison_prop_pass/tap_after/kitchen_cutout_after/stand_-7.15_4.55_-7.60_-90_-10.png`
+- 4B real cutout, sink hidden — `C:/shots/orison_prop_pass/tap_after/kitchen_cutout_after/stand_-9.93_10.95_-8.35_0_-10.png`
+- 1A hot/cold/stopper and cabinet sweep — `C:/shots/orison_prop_pass/tap_after/service/stand_-7.10_1.25_4.27_-90_-5.png`
+- 1A shower flow — `C:/shots/orison_prop_pass/tap_after/service/stand_-7.10_1.30_5.69_-90_-4.png`
+- 1A shower valve/flow through curtain opening — `C:/shots/orison_prop_pass/tap_after/service/stand_-7.10_1.30_5.32_-72_-4.png`
+- Duplicate-owner proof, new sink hidden and no basin left behind — `C:/shots/orison_prop_pass/tap_after/duplicate_probe/stand_-7.10_1.25_4.27_-90_-5.png`
+
+Installed frames use `SHOT_LIGHTS=1 SHOT_TORCH=1`; warehouse frames use the
+shed's even inspection light with `SHOT_TORCH=0`.
+
+### Validation
+
+- `python art/data/gen_layout.py` — exit 0; furnishing, wall, movement, life,
+  semantic fixture and marker counts passed.
+- `python art/tools/ingest_material_sources.py` — exit 0; nickel generated and
+  staged. Unrelated tracked roughness rewrites from full ingest were restored;
+  only the new nickel maps remain in this pass.
+- Blender 4.5.12 build — exit 0; 231 mapped materials, all eight floor/roof
+  scenes exported. JSON copy and Godot 4.7.1 import — exit 0.
+- Godot editor rescan — exit 0. An exact UP-to-DOWN pipe quaternion caught by
+  the first WalkTest was replaced with an explicit 180-degree branch.
+- The last exhaustive `WalkTest.tscn` before the inspection-helper-only
+  handle correction exited 0 in 196.7 seconds with 453 functional props and
+  all route, stair, elevator, lighting and collision checks passing.
+- WalkTest now defaults to a focused iteration gate and reserves those long
+  physical performances for `WALKTEST_FULL=1`. The exact final source passed
+  **WALKTEST RESULT: PASS [FAST]** in **14.1 seconds**, including construction,
+  layout, lighting, resident/exterior checks, all 66 plumbing markers and an
+  operated 4B hot/cold/stopper/stream state.

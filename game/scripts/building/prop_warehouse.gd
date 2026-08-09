@@ -54,6 +54,10 @@ func build(prop_scripts: Dictionary) -> int:
 	for kind in kinds:
 		var script: GDScript = prop_scripts[kind]
 		var probe: FunctionalProp = script.new()
+		# A shared script can branch variants by marker kind (tap_prop is both
+		# sink and shower). It must know that kind before inspection or both
+		# catalog entries expand to the default sink family and duplicate it.
+		probe.prop_type = String(kind)
 		var variants: Array[Dictionary] = probe.warehouse_variants()
 		probe.free()
 		if variants.is_empty():

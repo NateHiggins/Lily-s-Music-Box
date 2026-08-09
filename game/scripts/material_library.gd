@@ -54,6 +54,12 @@ const SETS := {
 	"brass_dull": ["T_ai_materials_brass_dull_albedo.png",
 			"T_ai_materials_brass_dull_rough.png",
 			"T_ai_materials_brass_dull_normal.png", 0.50, 0.30, 0.52],
+	# Period plumbing is nickel plate over brass, warmer and cloudier than
+	# modern chrome. Its lower metallic response keeps horizontal faucet
+	# parts visible under the building's grazing night light.
+	"nickel_plated": ["T_ai_materials_nickel_plated_albedo.png",
+			"T_ai_materials_nickel_plated_rough.png",
+			"T_ai_materials_nickel_plated_normal.png", 0.32, 0.70, 0.82],
 	"zinc_liner": ["T_ai_materials_zinc_liner_albedo.png",
 			"T_ai_materials_zinc_liner_rough.png",
 			"T_ai_materials_zinc_liner_normal.png", 0.55, 0.12, 0.82],

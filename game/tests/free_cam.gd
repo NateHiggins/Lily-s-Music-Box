@@ -138,6 +138,17 @@ func _ready() -> void:
 		_pose_stoves(root, String(sp[0]),
 				String(sp[1]) if sp.size() > 1 else "open")
 		await get_tree().create_timer(0.08).timeout
+	# The plumbing family has two independent valves and the medicine mirror
+	# is a real door. Inspection poses make water/stopper and leaf clearance
+	# visible in the installed room rather than merely true in source.
+	var tap_pose := OS.get_environment("SHOT_TAP_POSE")
+	if tap_pose != "":
+		_pose_taps(root, tap_pose)
+		await get_tree().create_timer(0.12).timeout
+	var cabinet_pose := OS.get_environment("SHOT_CABINET_POSE")
+	if cabinet_pose != "":
+		_pose_cabinets(root, cabinet_pose)
+		await get_tree().create_timer(0.08).timeout
 	_lights_on = OS.get_environment("SHOT_LIGHTS") == "1"
 	var rooms := OS.get_environment("SHOT_ROOMS")
 	if rooms != "":
@@ -180,6 +191,24 @@ func _pose_stoves(node: Node, wanted_unit: String, pose: String) -> void:
 				stove.set_burner_lit(1, true, 0.01, true)
 	for child in node.get_children():
 		_pose_stoves(child, wanted_unit, pose)
+
+
+func _pose_taps(node: Node, wanted_unit: String) -> void:
+	if node is TapProp:
+		var tap := node as TapProp
+		if wanted_unit == "*" or tap.unit == wanted_unit:
+			tap.set_service_pose()
+	for child in node.get_children():
+		_pose_taps(child, wanted_unit)
+
+
+func _pose_cabinets(node: Node, wanted_unit: String) -> void:
+	if node is MedicineCabinetProp:
+		var cabinet := node as MedicineCabinetProp
+		if wanted_unit == "*" or cabinet.unit == wanted_unit:
+			cabinet.set_door_open(true, 0.0)
+	for child in node.get_children():
+		_pose_cabinets(child, wanted_unit)
 
 
 ## Every room's rectangle, by id, in plan coordinates.

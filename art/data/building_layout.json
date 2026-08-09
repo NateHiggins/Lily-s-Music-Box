@@ -5062,7 +5062,8 @@
       0.0
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -5074,7 +5075,8 @@
       0.0
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -5102,6 +5104,22 @@
      "energy": 1.05
     },
     {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F01_common_KITCHEN_SINK_01",
+     "unit": "common",
+     "pos": [
+      -5.83,
+      7.285,
+      0.0
+     ],
+     "yaw_deg": 90,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
      "kind": "shower",
      "id": "F01_1A_SHOWER_01",
      "unit": "1A",
@@ -5111,7 +5129,8 @@
       0.0
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -5123,7 +5142,8 @@
       0.0
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -5164,6 +5184,34 @@
      "unit": "1A"
     },
     {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F01_1A_KITCHEN_SINK_01",
+     "unit": "1A",
+     "pos": [
+      -8.14,
+      -0.77,
+      0.0
+     ],
+     "yaw_deg": 180,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
+     "kind": "toaster",
+     "id": "F01_1A_TOASTER_01",
+     "unit": "1A",
+     "pos": [
+      -7.942,
+      -0.77,
+      0.9
+     ],
+     "yaw_deg": 180,
+     "network": "electrical"
+    },
+    {
      "kind": "stove",
      "id": "F01_1A_STOVE_01",
      "unit": "1A",
@@ -5199,7 +5247,8 @@
       0.0
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -5211,7 +5260,8 @@
       0.0
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -5250,6 +5300,34 @@
      "network": "heating",
      "riser": "H-D",
      "unit": "1D"
+    },
+    {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F01_1D_KITCHEN_SINK_01",
+     "unit": "1D",
+     "pos": [
+      8.88,
+      -1.32,
+      0.0
+     ],
+     "yaw_deg": 180,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
+     "kind": "toaster",
+     "id": "F01_1D_TOASTER_01",
+     "unit": "1D",
+     "pos": [
+      9.078,
+      -1.32,
+      0.9
+     ],
+     "yaw_deg": 180,
+     "network": "electrical"
     },
     {
      "kind": "stove",
@@ -5968,6 +6046,19 @@
      "navigation": false,
      "standby": 0.2,
      "exterior": true
+    },
+    {
+     "kind": "sink",
+     "fixture": "bath_sink",
+     "id": "F01_BAR_WC_SINK_01",
+     "unit": "BAR",
+     "pos": [
+      -10.1,
+      -37.5,
+      -2.8
+     ],
+     "yaw_deg": 0,
+     "network": "water"
     },
     {
      "kind": "door",
@@ -7674,30 +7765,11 @@
      "mat": "rug_warm"
     },
     {
-     "id": "F01WC_shower",
-     "asm": "shower",
-     "at": [
-      -13.19,
-      5.9
-     ],
-     "yaw": -90,
-     "mirror": true
-    },
-    {
      "id": "F01WC_wc",
      "asm": "toilet",
      "at": [
       -13.24,
       6.62
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "F01WC_sink",
-     "asm": "sink_ped",
-     "at": [
-      -13.35,
-      6.98
      ],
      "yaw": -90
     },
@@ -7947,40 +8019,27 @@
      "L": 1.7
     },
     {
-     "id": "common_k_kmugs",
-     "rect": [
-      -5.755,
-      7.422,
-      -5.585,
-      7.642
+     "id": "common_k_kmug",
+     "asm": "mug",
+     "at": [
+      -5.7,
+      7.76
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 90,
+     "z0": 0.905
     },
     {
-     "id": "common_k_kplates",
-     "rect": [
-      -6.08,
-      7.430999999999999,
-      -5.880000000000001,
-      7.670999999999999
+     "id": "common_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      -5.95,
+      7.855
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "common_k_kboard",
-     "rect": [
-      -5.91,
-      7.677,
-      -5.710000000000001,
-      7.956999999999999
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 90,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "common_k_lino",
@@ -8103,29 +8162,11 @@
      "mat": "trim"
     },
     {
-     "id": "1A_shower",
-     "asm": "shower",
-     "at": [
-      -5.97,
-      -5.69
-     ],
-     "yaw": 90
-    },
-    {
      "id": "1A_wc",
      "asm": "toilet",
      "at": [
       -5.92,
       -4.97
-     ],
-     "yaw": 90
-    },
-    {
-     "id": "1A_sink",
-     "asm": "sink_ped",
-     "at": [
-      -5.81,
-      -4.27
      ],
      "yaw": 90
     },
@@ -8267,40 +8308,27 @@
      "L": 1.85
     },
     {
-     "id": "1A_k_kmugs",
-     "rect": [
-      -8.403999999999998,
-      -0.695,
-      -8.184,
-      -0.525
+     "id": "1A_k_kmug",
+     "asm": "mug",
+     "at": [
+      -8.03,
+      -0.64
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 0,
+     "z0": 0.905
     },
     {
-     "id": "1A_k_kplates",
-     "rect": [
-      -8.392,
-      -1.02,
-      -8.152000000000001,
-      -0.8200000000000001
+     "id": "1A_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      -7.92,
+      -0.89
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "1A_k_kboard",
-     "rect": [
-      -8.104,
-      -0.85,
-      -7.824,
-      -0.65
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 0,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "1A_k_lino",
@@ -8599,30 +8627,11 @@
      "neat": true
     },
     {
-     "id": "1D_shower",
-     "asm": "shower",
-     "at": [
-      5.97,
-      -5.69
-     ],
-     "yaw": -90,
-     "mirror": true
-    },
-    {
      "id": "1D_wc",
      "asm": "toilet",
      "at": [
       5.92,
       -4.97
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "1D_sink",
-     "asm": "sink_ped",
-     "at": [
-      5.81,
-      -4.27
      ],
      "yaw": -90
     },
@@ -8795,40 +8804,27 @@
      "L": 1.85
     },
     {
-     "id": "1D_k_kmugs",
-     "rect": [
-      8.616000000000001,
-      -1.2449999999999999,
-      8.836,
-      -1.075
+     "id": "1D_k_kmug",
+     "asm": "mug",
+     "at": [
+      8.99,
+      -1.19
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 0,
+     "z0": 0.905
     },
     {
-     "id": "1D_k_kplates",
-     "rect": [
-      8.628,
-      -1.5699999999999998,
-      8.867999999999999,
-      -1.3699999999999997
+     "id": "1D_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      9.1,
+      -1.44
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "1D_k_kboard",
-     "rect": [
-      8.916,
-      -1.4,
-      9.196000000000002,
-      -1.1999999999999997
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 0,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "1D_k_lino",
@@ -9481,30 +9477,6 @@
      "mat": "trim"
     },
     {
-     "id": "1A_bl0_s27",
-     "rect": [
-      -13.69,
-      -3.86,
-      -13.639999999999999,
-      -2.5599999999999996
-     ],
-     "z0": 1.0049999999999997,
-     "h": 0.01,
-     "mat": "trim"
-    },
-    {
-     "id": "1A_bl0_s28",
-     "rect": [
-      -13.69,
-      -3.86,
-      -13.639999999999999,
-      -2.5599999999999996
-     ],
-     "z0": 0.9499999999999997,
-     "h": 0.01,
-     "mat": "trim"
-    },
-    {
      "id": "1A_bl0_rail",
      "rect": [
       -13.695,
@@ -9512,7 +9484,7 @@
       -13.645,
       -2.5599999999999996
      ],
-     "z0": 0.8949999999999998,
+     "z0": 1.0049999999999997,
      "h": 0.03,
      "mat": "trim"
     },
@@ -38842,17 +38814,6 @@
      "z0": -2.8
     },
     {
-     "id": "retail_bar_wc_sink",
-     "asm": "sink_basin",
-     "at": [
-      -10.1,
-      -37.5
-     ],
-     "yaw": 0,
-     "exterior": true,
-     "z0": -2.8
-    },
-    {
      "id": "retail_bar_face_gate",
      "rect": [
       -5.3,
@@ -60098,32 +60059,12 @@
    ],
    "sockets": [
     {
-     "id": "1A_SHOWER_EDGE",
-     "unit": "1A",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      -5.97,
-      -5.14
-     ],
-     "z": 0.0
-    },
-    {
      "id": "1A_TOILET_SIDE",
      "unit": "1A",
      "socket": "TOILET_SIDE",
      "at": [
       -5.92,
       -4.57
-     ],
-     "z": 0.0
-    },
-    {
-     "id": "1A_SINK_EDGE",
-     "unit": "1A",
-     "socket": "SINK_EDGE",
-     "at": [
-      -5.81,
-      -3.97
      ],
      "z": 0.0
     },
@@ -60208,32 +60149,12 @@
      "z": 0.0
     },
     {
-     "id": "1D_SHOWER_EDGE",
-     "unit": "1D",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      5.97,
-      -6.24
-     ],
-     "z": 0.0
-    },
-    {
      "id": "1D_TOILET_SIDE",
      "unit": "1D",
      "socket": "TOILET_SIDE",
      "at": [
       5.92,
       -5.37
-     ],
-     "z": 0.0
-    },
-    {
-     "id": "1D_SINK_EDGE",
-     "unit": "1D",
-     "socket": "SINK_EDGE",
-     "at": [
-      5.81,
-      -4.57
      ],
      "z": 0.0
     },
@@ -60338,6 +60259,66 @@
      "z": 0.0
     },
     {
+     "id": "F01WC_SHOWER_EDGE",
+     "unit": "F01WC",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -13.19,
+      5.35
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "F01WC_SINK_EDGE",
+     "unit": "F01WC",
+     "socket": "SINK_EDGE",
+     "at": [
+      -13.35,
+      6.68
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "common_KITCHEN_SINK_EDGE",
+     "unit": "common",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      -5.83,
+      7.705
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1A_SHOWER_EDGE",
+     "unit": "1A",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      -5.14
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1A_SINK_EDGE",
+     "unit": "1A",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      -3.97
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1A_KITCHEN_SINK_EDGE",
+     "unit": "1A",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      -8.56,
+      -0.77
+     ],
+     "z": 0.0
+    },
+    {
      "id": "1A_FRIDGE_FACE",
      "unit": "1A",
      "socket": "FRIDGE_FACE",
@@ -60348,12 +60329,52 @@
      "z": 0.0
     },
     {
+     "id": "1D_SHOWER_EDGE",
+     "unit": "1D",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      -6.24
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_SINK_EDGE",
+     "unit": "1D",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      -4.57
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "1D_KITCHEN_SINK_EDGE",
+     "unit": "1D",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      8.46,
+      -1.32
+     ],
+     "z": 0.0
+    },
+    {
      "id": "1D_FRIDGE_FACE",
      "unit": "1D",
      "socket": "FRIDGE_FACE",
      "at": [
       10.23,
       -1.77
+     ],
+     "z": 0.0
+    },
+    {
+     "id": "BAR_SINK_EDGE",
+     "unit": "BAR",
+     "socket": "SINK_EDGE",
+     "at": [
+      -9.8,
+      -37.5
      ],
      "z": 0.0
     }
@@ -61873,7 +61894,8 @@
       3.2
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -61885,7 +61907,8 @@
       3.2
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -61924,6 +61947,34 @@
      "network": "heating",
      "riser": "H-A",
      "unit": "2A"
+    },
+    {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F02_2A_KITCHEN_SINK_01",
+     "unit": "2A",
+     "pos": [
+      -8.14,
+      -0.77,
+      3.2
+     ],
+     "yaw_deg": 180,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
+     "kind": "toaster",
+     "id": "F02_2A_TOASTER_01",
+     "unit": "2A",
+     "pos": [
+      -7.942,
+      -0.77,
+      4.1
+     ],
+     "yaw_deg": 180,
+     "network": "electrical"
     },
     {
      "kind": "stove",
@@ -61985,7 +62036,8 @@
       3.2
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -61997,7 +62049,8 @@
       3.2
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -62038,6 +62091,34 @@
      "unit": "2B"
     },
     {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F02_2B_KITCHEN_SINK_01",
+     "unit": "2B",
+     "pos": [
+      -5.83,
+      7.38,
+      3.2
+     ],
+     "yaw_deg": 90,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
+     "kind": "toaster",
+     "id": "F02_2B_TOASTER_01",
+     "unit": "2B",
+     "pos": [
+      -5.83,
+      7.182,
+      4.1
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
+    },
+    {
      "kind": "stove",
      "id": "F02_2B_STOVE_01",
      "unit": "2B",
@@ -62073,7 +62154,8 @@
       3.2
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -62085,7 +62167,8 @@
       3.2
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -62124,6 +62207,22 @@
      "network": "heating",
      "riser": "H-C",
      "unit": "2C"
+    },
+    {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F02_2C_KITCHEN_SINK_01",
+     "unit": "2C",
+     "pos": [
+      5.87,
+      1.905,
+      3.2
+     ],
+     "yaw_deg": -90,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
     },
     {
      "kind": "stove",
@@ -62197,7 +62296,8 @@
       3.2
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -62209,7 +62309,8 @@
       3.2
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -62808,29 +62909,11 @@
    ],
    "furniture": [
     {
-     "id": "2A_shower",
-     "asm": "shower",
-     "at": [
-      -5.97,
-      -5.69
-     ],
-     "yaw": 90
-    },
-    {
      "id": "2A_wc",
      "asm": "toilet",
      "at": [
       -5.92,
       -4.97
-     ],
-     "yaw": 90
-    },
-    {
-     "id": "2A_sink",
-     "asm": "sink_ped",
-     "at": [
-      -5.81,
-      -4.27
      ],
      "yaw": 90
     },
@@ -62972,40 +63055,27 @@
      "L": 1.85
     },
     {
-     "id": "2A_k_kmugs",
-     "rect": [
-      -8.403999999999998,
-      -0.695,
-      -8.184,
-      -0.525
+     "id": "2A_k_kmug",
+     "asm": "mug",
+     "at": [
+      -8.03,
+      -0.64
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 0,
+     "z0": 0.905
     },
     {
-     "id": "2A_k_kplates",
-     "rect": [
-      -8.392,
-      -1.02,
-      -8.152000000000001,
-      -0.8200000000000001
+     "id": "2A_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      -7.92,
+      -0.89
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "2A_k_kboard",
-     "rect": [
-      -8.104,
-      -0.85,
-      -7.824,
-      -0.65
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 0,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "2A_k_lino",
@@ -63374,29 +63444,11 @@
      "z0": 0.735
     },
     {
-     "id": "2B_shower",
-     "asm": "shower",
-     "at": [
-      -5.97,
-      3.47
-     ],
-     "yaw": 90
-    },
-    {
      "id": "2B_wc",
      "asm": "toilet",
      "at": [
       -5.92,
       4.19
-     ],
-     "yaw": 90
-    },
-    {
-     "id": "2B_sink",
-     "asm": "sink_ped",
-     "at": [
-      -5.81,
-      4.89
      ],
      "yaw": 90
     },
@@ -63466,40 +63518,27 @@
      "L": 1.85
     },
     {
-     "id": "2B_k_kmugs",
-     "rect": [
-      -5.754999999999999,
-      7.556,
-      -5.584999999999999,
-      7.776000000000001
+     "id": "2B_k_kmug",
+     "asm": "mug",
+     "at": [
+      -5.7,
+      7.93
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 90,
+     "z0": 0.905
     },
     {
-     "id": "2B_k_kplates",
-     "rect": [
-      -6.079999999999999,
-      7.5680000000000005,
-      -5.88,
-      7.808000000000001
+     "id": "2B_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      -5.95,
+      8.04
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "2B_k_kboard",
-     "rect": [
-      -5.909999999999999,
-      7.856000000000001,
-      -5.71,
-      8.136000000000001
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 90,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "2B_k_lino",
@@ -63787,30 +63826,11 @@
      "neat": false
     },
     {
-     "id": "2C_shower",
-     "asm": "shower",
-     "at": [
-      5.97,
-      4.29
-     ],
-     "yaw": -90,
-     "mirror": true
-    },
-    {
      "id": "2C_wc",
      "asm": "toilet",
      "at": [
       5.92,
       5.01
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "2C_sink",
-     "asm": "sink_ped",
-     "at": [
-      5.81,
-      5.71
      ],
      "yaw": -90
     },
@@ -64055,40 +64075,27 @@
      "L": 1.9
     },
     {
-     "id": "2C_k_kmugs",
-     "rect": [
-      5.945,
-      1.634,
-      6.115,
-      1.854
+     "id": "2C_k_kmug",
+     "asm": "mug",
+     "at": [
+      6.0,
+      2.02
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 90,
+     "z0": 0.905
     },
     {
-     "id": "2C_k_kplates",
-     "rect": [
-      5.62,
-      1.6470000000000002,
-      5.819999999999999,
-      1.887
+     "id": "2C_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      5.75,
+      2.135
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "2C_k_kboard",
-     "rect": [
-      5.79,
-      1.9489999999999998,
-      5.989999999999999,
-      2.229
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 90,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "2C_k_hob_tape0",
@@ -64717,30 +64724,11 @@
      "yaw": 0
     },
     {
-     "id": "2D_shower",
-     "asm": "shower",
-     "at": [
-      5.97,
-      -5.69
-     ],
-     "yaw": -90,
-     "mirror": true
-    },
-    {
      "id": "2D_wc",
      "asm": "toilet",
      "at": [
       5.92,
       -4.97
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "2D_sink",
-     "asm": "sink_ped",
-     "at": [
-      5.81,
-      -4.27
      ],
      "yaw": -90
     },
@@ -68242,32 +68230,12 @@
    ],
    "sockets": [
     {
-     "id": "2A_SHOWER_EDGE",
-     "unit": "2A",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      -5.97,
-      -5.14
-     ],
-     "z": 3.2
-    },
-    {
      "id": "2A_TOILET_SIDE",
      "unit": "2A",
      "socket": "TOILET_SIDE",
      "at": [
       -5.92,
       -4.57
-     ],
-     "z": 3.2
-    },
-    {
-     "id": "2A_SINK_EDGE",
-     "unit": "2A",
-     "socket": "SINK_EDGE",
-     "at": [
-      -5.81,
-      -3.97
      ],
      "z": 3.2
     },
@@ -68382,32 +68350,12 @@
      "z": 3.2
     },
     {
-     "id": "2B_SHOWER_EDGE",
-     "unit": "2B",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      -5.97,
-      4.02
-     ],
-     "z": 3.2
-    },
-    {
      "id": "2B_TOILET_SIDE",
      "unit": "2B",
      "socket": "TOILET_SIDE",
      "at": [
       -5.92,
       4.59
-     ],
-     "z": 3.2
-    },
-    {
-     "id": "2B_SINK_EDGE",
-     "unit": "2B",
-     "socket": "SINK_EDGE",
-     "at": [
-      -5.81,
-      5.19
      ],
      "z": 3.2
     },
@@ -68492,32 +68440,12 @@
      "z": 3.2
     },
     {
-     "id": "2C_SHOWER_EDGE",
-     "unit": "2C",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      5.97,
-      3.74
-     ],
-     "z": 3.2
-    },
-    {
      "id": "2C_TOILET_SIDE",
      "unit": "2C",
      "socket": "TOILET_SIDE",
      "at": [
       5.92,
       4.61
-     ],
-     "z": 3.2
-    },
-    {
-     "id": "2C_SINK_EDGE",
-     "unit": "2C",
-     "socket": "SINK_EDGE",
-     "at": [
-      5.81,
-      5.41
      ],
      "z": 3.2
     },
@@ -68632,12 +68560,72 @@
      "z": 3.2
     },
     {
+     "id": "2A_SHOWER_EDGE",
+     "unit": "2A",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      -5.14
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_SINK_EDGE",
+     "unit": "2A",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      -3.97
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2A_KITCHEN_SINK_EDGE",
+     "unit": "2A",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      -8.56,
+      -0.77
+     ],
+     "z": 3.2
+    },
+    {
      "id": "2A_FRIDGE_FACE",
      "unit": "2A",
      "socket": "FRIDGE_FACE",
      "at": [
       -6.79,
       -1.22
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2B_SHOWER_EDGE",
+     "unit": "2B",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      4.02
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2B_SINK_EDGE",
+     "unit": "2B",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      5.19
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2B_KITCHEN_SINK_EDGE",
+     "unit": "2B",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      -5.83,
+      7.8
      ],
      "z": 3.2
     },
@@ -68652,12 +68640,62 @@
      "z": 3.2
     },
     {
+     "id": "2C_SHOWER_EDGE",
+     "unit": "2C",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      3.74
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_SINK_EDGE",
+     "unit": "2C",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      5.41
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2C_KITCHEN_SINK_EDGE",
+     "unit": "2C",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      5.87,
+      1.485
+     ],
+     "z": 3.2
+    },
+    {
      "id": "2C_FRIDGE_FACE",
      "unit": "2C",
      "socket": "FRIDGE_FACE",
      "at": [
       6.32,
       3.27
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2D_SHOWER_EDGE",
+     "unit": "2D",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      -6.24
+     ],
+     "z": 3.2
+    },
+    {
+     "id": "2D_SINK_EDGE",
+     "unit": "2D",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      -4.57
      ],
      "z": 3.2
     }
@@ -70185,7 +70223,8 @@
       6.4
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -70197,7 +70236,8 @@
       6.4
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -70238,6 +70278,34 @@
      "unit": "3A"
     },
     {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F03_3A_KITCHEN_SINK_01",
+     "unit": "3A",
+     "pos": [
+      -8.14,
+      -0.77,
+      6.4
+     ],
+     "yaw_deg": 180,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
+     "kind": "toaster",
+     "id": "F03_3A_TOASTER_01",
+     "unit": "3A",
+     "pos": [
+      -7.942,
+      -0.77,
+      7.3
+     ],
+     "yaw_deg": 180,
+     "network": "electrical"
+    },
+    {
      "kind": "stove",
      "id": "F03_3A_STOVE_01",
      "unit": "3A",
@@ -70273,7 +70341,8 @@
       6.4
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -70285,7 +70354,8 @@
       6.4
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -70324,6 +70394,34 @@
      "network": "heating",
      "riser": "H-B",
      "unit": "3B"
+    },
+    {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F03_3B_KITCHEN_SINK_01",
+     "unit": "3B",
+     "pos": [
+      -5.83,
+      7.38,
+      6.4
+     ],
+     "yaw_deg": 90,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
+     "kind": "toaster",
+     "id": "F03_3B_TOASTER_01",
+     "unit": "3B",
+     "pos": [
+      -5.83,
+      7.182,
+      7.3
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
     },
     {
      "kind": "stove",
@@ -70373,7 +70471,8 @@
       6.4
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -70385,7 +70484,8 @@
       6.4
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -70435,7 +70535,8 @@
       6.4
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -70447,7 +70548,8 @@
       6.4
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -70486,6 +70588,34 @@
      "network": "heating",
      "riser": "H-D",
      "unit": "3D"
+    },
+    {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F03_3D_KITCHEN_SINK_01",
+     "unit": "3D",
+     "pos": [
+      8.88,
+      -1.32,
+      6.4
+     ],
+     "yaw_deg": 180,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
+     "kind": "toaster",
+     "id": "F03_3D_TOASTER_01",
+     "unit": "3D",
+     "pos": [
+      9.078,
+      -1.32,
+      7.3
+     ],
+     "yaw_deg": 180,
+     "network": "electrical"
     },
     {
      "kind": "stove",
@@ -71137,29 +71267,11 @@
    ],
    "furniture": [
     {
-     "id": "3A_shower",
-     "asm": "shower",
-     "at": [
-      -5.97,
-      -5.69
-     ],
-     "yaw": 90
-    },
-    {
      "id": "3A_wc",
      "asm": "toilet",
      "at": [
       -5.92,
       -4.97
-     ],
-     "yaw": 90
-    },
-    {
-     "id": "3A_sink",
-     "asm": "sink_ped",
-     "at": [
-      -5.81,
-      -4.27
      ],
      "yaw": 90
     },
@@ -71301,40 +71413,27 @@
      "L": 1.85
     },
     {
-     "id": "3A_k_kmugs",
-     "rect": [
-      -8.403999999999998,
-      -0.695,
-      -8.184,
-      -0.525
+     "id": "3A_k_kmug",
+     "asm": "mug",
+     "at": [
+      -8.03,
+      -0.64
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 0,
+     "z0": 0.905
     },
     {
-     "id": "3A_k_kplates",
-     "rect": [
-      -8.392,
-      -1.02,
-      -8.152000000000001,
-      -0.8200000000000001
+     "id": "3A_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      -7.92,
+      -0.89
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "3A_k_kboard",
-     "rect": [
-      -8.104,
-      -0.85,
-      -7.824,
-      -0.65
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 0,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "3A_k_lino",
@@ -71618,29 +71717,11 @@
      "species": "rubber"
     },
     {
-     "id": "3B_shower",
-     "asm": "shower",
-     "at": [
-      -5.97,
-      3.47
-     ],
-     "yaw": 90
-    },
-    {
      "id": "3B_wc",
      "asm": "toilet",
      "at": [
       -5.92,
       4.19
-     ],
-     "yaw": 90
-    },
-    {
-     "id": "3B_sink",
-     "asm": "sink_ped",
-     "at": [
-      -5.81,
-      4.89
      ],
      "yaw": 90
     },
@@ -71710,40 +71791,27 @@
      "L": 1.85
     },
     {
-     "id": "3B_k_kmugs",
-     "rect": [
-      -5.754999999999999,
-      7.556,
-      -5.584999999999999,
-      7.776000000000001
+     "id": "3B_k_kmug",
+     "asm": "mug",
+     "at": [
+      -5.7,
+      7.93
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 90,
+     "z0": 0.905
     },
     {
-     "id": "3B_k_kplates",
-     "rect": [
-      -6.079999999999999,
-      7.5680000000000005,
-      -5.88,
-      7.808000000000001
+     "id": "3B_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      -5.95,
+      8.04
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "3B_k_kboard",
-     "rect": [
-      -5.909999999999999,
-      7.856000000000001,
-      -5.71,
-      8.136000000000001
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 90,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "3B_k_lino",
@@ -72188,30 +72256,11 @@
      "yaw": 70
     },
     {
-     "id": "3C_shower",
-     "asm": "shower",
-     "at": [
-      5.97,
-      4.29
-     ],
-     "yaw": -90,
-     "mirror": true
-    },
-    {
      "id": "3C_wc",
      "asm": "toilet",
      "at": [
       5.92,
       5.01
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "3C_sink",
-     "asm": "sink_ped",
-     "at": [
-      5.81,
-      5.71
      ],
      "yaw": -90
     },
@@ -72408,30 +72457,11 @@
      "mat": "floor_oak"
     },
     {
-     "id": "3D_shower",
-     "asm": "shower",
-     "at": [
-      5.97,
-      -5.69
-     ],
-     "yaw": -90,
-     "mirror": true
-    },
-    {
      "id": "3D_wc",
      "asm": "toilet",
      "at": [
       5.92,
       -4.97
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "3D_sink",
-     "asm": "sink_ped",
-     "at": [
-      5.81,
-      -4.27
      ],
      "yaw": -90
     },
@@ -72604,40 +72634,27 @@
      "L": 1.85
     },
     {
-     "id": "3D_k_kmugs",
-     "rect": [
-      8.616000000000001,
-      -1.2449999999999999,
-      8.836,
-      -1.075
+     "id": "3D_k_kmug",
+     "asm": "mug",
+     "at": [
+      8.99,
+      -1.19
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 0,
+     "z0": 0.905
     },
     {
-     "id": "3D_k_kplates",
-     "rect": [
-      8.628,
-      -1.5699999999999998,
-      8.867999999999999,
-      -1.3699999999999997
+     "id": "3D_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      9.1,
+      -1.44
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "3D_k_kboard",
-     "rect": [
-      8.916,
-      -1.4,
-      9.196000000000002,
-      -1.1999999999999997
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 0,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "3D_k_lino",
@@ -75432,30 +75449,6 @@
      "mat": "trim"
     },
     {
-     "id": "3D_bl2_s21",
-     "rect": [
-      8.93,
-      -9.719999999999999,
-      10.23,
-      -9.686499999999999
-     ],
-     "z0": 1.0199999999999996,
-     "h": 0.028000000000000004,
-     "mat": "trim"
-    },
-    {
-     "id": "3D_bl2_s22",
-     "rect": [
-      8.93,
-      -9.719999999999999,
-      10.23,
-      -9.686499999999999
-     ],
-     "z0": 0.9499999999999997,
-     "h": 0.028000000000000004,
-     "mat": "trim"
-    },
-    {
      "id": "3D_bl2_rail",
      "rect": [
       8.93,
@@ -75463,7 +75456,7 @@
       10.23,
       -9.674999999999999
      ],
-     "z0": 0.8799999999999997,
+     "z0": 1.0199999999999996,
      "h": 0.03,
      "mat": "trim"
     },
@@ -76601,32 +76594,12 @@
    ],
    "sockets": [
     {
-     "id": "3A_SHOWER_EDGE",
-     "unit": "3A",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      -5.97,
-      -5.14
-     ],
-     "z": 6.4
-    },
-    {
      "id": "3A_TOILET_SIDE",
      "unit": "3A",
      "socket": "TOILET_SIDE",
      "at": [
       -5.92,
       -4.57
-     ],
-     "z": 6.4
-    },
-    {
-     "id": "3A_SINK_EDGE",
-     "unit": "3A",
-     "socket": "SINK_EDGE",
-     "at": [
-      -5.81,
-      -3.97
      ],
      "z": 6.4
     },
@@ -76711,32 +76684,12 @@
      "z": 6.4
     },
     {
-     "id": "3B_SHOWER_EDGE",
-     "unit": "3B",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      -5.97,
-      4.02
-     ],
-     "z": 6.4
-    },
-    {
      "id": "3B_TOILET_SIDE",
      "unit": "3B",
      "socket": "TOILET_SIDE",
      "at": [
       -5.92,
       4.59
-     ],
-     "z": 6.4
-    },
-    {
-     "id": "3B_SINK_EDGE",
-     "unit": "3B",
-     "socket": "SINK_EDGE",
-     "at": [
-      -5.81,
-      5.19
      ],
      "z": 6.4
     },
@@ -76851,32 +76804,12 @@
      "z": 6.4
     },
     {
-     "id": "3D_SHOWER_EDGE",
-     "unit": "3D",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      5.97,
-      -6.24
-     ],
-     "z": 6.4
-    },
-    {
      "id": "3D_TOILET_SIDE",
      "unit": "3D",
      "socket": "TOILET_SIDE",
      "at": [
       5.92,
       -5.37
-     ],
-     "z": 6.4
-    },
-    {
-     "id": "3D_SINK_EDGE",
-     "unit": "3D",
-     "socket": "SINK_EDGE",
-     "at": [
-      5.81,
-      -4.57
      ],
      "z": 6.4
     },
@@ -77001,6 +76934,36 @@
      "z": 6.4
     },
     {
+     "id": "3A_SHOWER_EDGE",
+     "unit": "3A",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      -5.14
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3A_SINK_EDGE",
+     "unit": "3A",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      -3.97
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3A_KITCHEN_SINK_EDGE",
+     "unit": "3A",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      -8.56,
+      -0.77
+     ],
+     "z": 6.4
+    },
+    {
      "id": "3A_FRIDGE_FACE",
      "unit": "3A",
      "socket": "FRIDGE_FACE",
@@ -77011,12 +76974,92 @@
      "z": 6.4
     },
     {
+     "id": "3B_SHOWER_EDGE",
+     "unit": "3B",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      4.02
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_SINK_EDGE",
+     "unit": "3B",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      5.19
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3B_KITCHEN_SINK_EDGE",
+     "unit": "3B",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      -5.83,
+      7.8
+     ],
+     "z": 6.4
+    },
+    {
      "id": "3B_FRIDGE_FACE",
      "unit": "3B",
      "socket": "FRIDGE_FACE",
      "at": [
       -6.28,
       9.17
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3C_SHOWER_EDGE",
+     "unit": "3C",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      3.74
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3C_SINK_EDGE",
+     "unit": "3C",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      5.41
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_SHOWER_EDGE",
+     "unit": "3D",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      -6.24
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_SINK_EDGE",
+     "unit": "3D",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      -4.57
+     ],
+     "z": 6.4
+    },
+    {
+     "id": "3D_KITCHEN_SINK_EDGE",
+     "unit": "3D",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      8.46,
+      -1.32
      ],
      "z": 6.4
     },
@@ -78666,7 +78709,8 @@
       9.6
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -78678,7 +78722,8 @@
       9.6
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -78719,6 +78764,34 @@
      "unit": "4A"
     },
     {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F04_4A_KITCHEN_SINK_01",
+     "unit": "4A",
+     "pos": [
+      -8.14,
+      -0.77,
+      9.6
+     ],
+     "yaw_deg": 180,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
+     "kind": "toaster",
+     "id": "F04_4A_TOASTER_01",
+     "unit": "4A",
+     "pos": [
+      -7.942,
+      -0.77,
+      10.5
+     ],
+     "yaw_deg": 180,
+     "network": "electrical"
+    },
+    {
      "kind": "stove",
      "id": "F04_4A_STOVE_01",
      "unit": "4A",
@@ -78754,7 +78827,8 @@
       9.6
      ],
      "yaw_deg": 180,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -78766,7 +78840,8 @@
       9.6
      ],
      "yaw_deg": 180,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -78792,6 +78867,22 @@
      "yaw_deg": 0,
      "network": "electrical",
      "energy": 1.05
+    },
+    {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F04_4B_KITCHEN_SINK_01",
+     "unit": "4B",
+     "pos": [
+      -9.93,
+      9.31,
+      9.605
+     ],
+     "yaw_deg": 180,
+     "network": "water",
+     "drain_side": 1,
+     "compact": true,
+     "drainboard": false
     },
     {
      "kind": "stove",
@@ -78934,26 +79025,12 @@
      "kind": "door",
      "id": "F04_CAB_UPPER_1",
      "pos": [
-      -10.55,
+      -10.84,
       9.4,
       11.1
      ],
      "yaw_deg": 0,
-     "w": 0.45,
-     "h": 0.7,
-     "leaf": "closed",
-     "cabinet": true
-    },
-    {
-     "kind": "door",
-     "id": "F04_CAB_UPPER_2",
-     "pos": [
-      -10.0,
-      9.4,
-      11.1
-     ],
-     "yaw_deg": 0,
-     "w": 0.45,
+     "w": 0.48,
      "h": 0.7,
      "leaf": "closed",
      "cabinet": true
@@ -79028,7 +79105,8 @@
       9.6
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -79040,7 +79118,8 @@
       9.6
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -79081,6 +79160,34 @@
      "unit": "4C"
     },
     {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F04_4C_KITCHEN_SINK_01",
+     "unit": "4C",
+     "pos": [
+      5.87,
+      1.905,
+      9.6
+     ],
+     "yaw_deg": -90,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
+     "kind": "toaster",
+     "id": "F04_4C_TOASTER_01",
+     "unit": "4C",
+     "pos": [
+      5.87,
+      2.112,
+      10.5
+     ],
+     "yaw_deg": -90,
+     "network": "electrical"
+    },
+    {
      "kind": "stove",
      "id": "F04_4C_STOVE_01",
      "unit": "4C",
@@ -79116,7 +79223,8 @@
       9.6
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -79128,7 +79236,8 @@
       9.6
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -79167,6 +79276,22 @@
      "network": "heating",
      "riser": "H-D",
      "unit": "4D"
+    },
+    {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F04_4D_KITCHEN_SINK_01",
+     "unit": "4D",
+     "pos": [
+      8.88,
+      -1.32,
+      9.6
+     ],
+     "yaw_deg": 180,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
     },
     {
      "kind": "stove",
@@ -79820,29 +79945,11 @@
    ],
    "furniture": [
     {
-     "id": "4A_shower",
-     "asm": "shower",
-     "at": [
-      -5.97,
-      -5.69
-     ],
-     "yaw": 90
-    },
-    {
      "id": "4A_wc",
      "asm": "toilet",
      "at": [
       -5.92,
       -4.97
-     ],
-     "yaw": 90
-    },
-    {
-     "id": "4A_sink",
-     "asm": "sink_ped",
-     "at": [
-      -5.81,
-      -4.27
      ],
      "yaw": 90
     },
@@ -79984,40 +80091,27 @@
      "L": 1.85
     },
     {
-     "id": "4A_k_kmugs",
-     "rect": [
-      -8.403999999999998,
-      -0.695,
-      -8.184,
-      -0.525
+     "id": "4A_k_kmug",
+     "asm": "mug",
+     "at": [
+      -8.03,
+      -0.64
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 0,
+     "z0": 0.905
     },
     {
-     "id": "4A_k_kplates",
-     "rect": [
-      -8.392,
-      -1.02,
-      -8.152000000000001,
-      -0.8200000000000001
+     "id": "4A_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      -7.92,
+      -0.89
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "4A_k_kboard",
-     "rect": [
-      -8.104,
-      -0.85,
-      -7.824,
-      -0.65
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 0,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "4A_k_lino",
@@ -80314,30 +80408,11 @@
      "neat": true
     },
     {
-     "id": "4B_shower",
-     "asm": "shower",
-     "at": [
-      -7.21,
-      6.46
-     ],
-     "yaw": 180,
-     "mirror": true
-    },
-    {
      "id": "4B_wc",
      "asm": "toilet",
      "at": [
       -6.49,
       6.51
-     ],
-     "yaw": 180
-    },
-    {
-     "id": "4B_sink",
-     "asm": "sink_ped",
-     "at": [
-      -5.83,
-      6.62
      ],
      "yaw": 180
     },
@@ -80402,11 +80477,47 @@
      "mat": "trim"
     },
     {
-     "id": "kitchen_counter",
+     "id": "kitchen_counter_w",
      "rect": [
       -10.86,
       9.05,
+      -10.18,
+      9.55
+     ],
+     "z0": 0.0,
+     "h": 0.86,
+     "mat": "trim"
+    },
+    {
+     "id": "kitchen_counter_e",
+     "rect": [
+      -9.68,
+      9.05,
       -9.55,
+      9.55
+     ],
+     "z0": 0.0,
+     "h": 0.86,
+     "mat": "trim"
+    },
+    {
+     "id": "kitchen_counter_s",
+     "rect": [
+      -10.18,
+      9.05,
+      -9.68,
+      9.12
+     ],
+     "z0": 0.0,
+     "h": 0.86,
+     "mat": "trim"
+    },
+    {
+     "id": "kitchen_counter_n",
+     "rect": [
+      -10.18,
+      9.5,
+      -9.68,
       9.55
      ],
      "z0": 0.0,
@@ -80460,18 +80571,6 @@
      "z0": 0.86,
      "h": 0.045,
      "mat": "countertop"
-    },
-    {
-     "id": "4B_ksink",
-     "asm": "sink_basin",
-     "at": [
-      -9.93,
-      9.31
-     ],
-     "yaw": 180,
-     "z0": 0.905,
-     "W": 0.5,
-     "D": 0.3800000000000008
     },
     {
      "id": "4B_stove_plinth",
@@ -80601,7 +80700,7 @@
      "rect": [
       -10.86,
       9.4,
-      -9.62,
+      -10.31,
       9.64
      ],
      "z0": 1.5,
@@ -80609,28 +80708,28 @@
      "mat": "trim"
     },
     {
-     "id": "4B_mugs",
-     "rect": [
-      -10.46,
-      9.15,
-      -10.24,
-      9.32
+     "id": "4B_mug",
+     "asm": "mug",
+     "at": [
+      -10.35,
+      9.235
      ],
+     "yaw": 0,
      "z0": 0.905,
-     "h": 0.11,
-     "mat": "trim"
+     "mat": "porcelain"
     },
     {
-     "id": "4B_plates",
-     "rect": [
-      -9.64,
-      9.15,
-      -9.57,
-      9.42
+     "id": "4B_dishrack",
+     "asm": "dishrack",
+     "at": [
+      -9.605,
+      9.285
      ],
+     "yaw": 0,
      "z0": 0.905,
-     "h": 0.21,
-     "mat": "trim"
+     "W": 0.07,
+     "D": 0.25,
+     "n": 4
     },
     {
      "id": "4B_blw0_head",
@@ -81329,30 +81428,6 @@
      "mat": "trim"
     },
     {
-     "id": "4B_blr_s27",
-     "rect": [
-      -10.23,
-      9.525,
-      -8.93,
-      9.575000000000001
-     ],
-     "z0": 1.0049999999999997,
-     "h": 0.01,
-     "mat": "trim"
-    },
-    {
-     "id": "4B_blr_s28",
-     "rect": [
-      -10.23,
-      9.525,
-      -8.93,
-      9.575000000000001
-     ],
-     "z0": 0.9499999999999997,
-     "h": 0.01,
-     "mat": "trim"
-    },
-    {
      "id": "4B_blr_rail",
      "rect": [
       -10.23,
@@ -81360,7 +81435,7 @@
       -8.93,
       9.57
      ],
-     "z0": 0.8949999999999998,
+     "z0": 1.0049999999999997,
      "h": 0.03,
      "mat": "trim"
     },
@@ -81545,30 +81620,11 @@
      "mat": "trim"
     },
     {
-     "id": "4C_shower",
-     "asm": "shower",
-     "at": [
-      5.97,
-      4.29
-     ],
-     "yaw": -90,
-     "mirror": true
-    },
-    {
      "id": "4C_wc",
      "asm": "toilet",
      "at": [
       5.92,
       5.01
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "4C_sink",
-     "asm": "sink_ped",
-     "at": [
-      5.81,
-      5.71
      ],
      "yaw": -90
     },
@@ -81813,40 +81869,27 @@
      "L": 1.9
     },
     {
-     "id": "4C_k_kmugs",
-     "rect": [
-      5.945,
-      1.634,
-      6.115,
-      1.854
+     "id": "4C_k_kmug",
+     "asm": "mug",
+     "at": [
+      6.0,
+      2.02
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 90,
+     "z0": 0.905
     },
     {
-     "id": "4C_k_kplates",
-     "rect": [
-      5.62,
-      1.6470000000000002,
-      5.819999999999999,
-      1.887
+     "id": "4C_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      5.75,
+      2.135
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "4C_k_kboard",
-     "rect": [
-      5.79,
-      1.9489999999999998,
-      5.989999999999999,
-      2.229
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 90,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "4C_k_lino",
@@ -82154,30 +82197,11 @@
      "neat": false
     },
     {
-     "id": "4D_shower",
-     "asm": "shower",
-     "at": [
-      5.97,
-      -5.69
-     ],
-     "yaw": -90,
-     "mirror": true
-    },
-    {
      "id": "4D_wc",
      "asm": "toilet",
      "at": [
       5.92,
       -4.97
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "4D_sink",
-     "asm": "sink_ped",
-     "at": [
-      5.81,
-      -4.27
      ],
      "yaw": -90
     },
@@ -82350,40 +82374,27 @@
      "L": 1.85
     },
     {
-     "id": "4D_k_kmugs",
-     "rect": [
-      8.616000000000001,
-      -1.2449999999999999,
-      8.836,
-      -1.075
+     "id": "4D_k_kmug",
+     "asm": "mug",
+     "at": [
+      8.99,
+      -1.19
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 0,
+     "z0": 0.905
     },
     {
-     "id": "4D_k_kplates",
-     "rect": [
-      8.628,
-      -1.5699999999999998,
-      8.867999999999999,
-      -1.3699999999999997
+     "id": "4D_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      9.1,
+      -1.44
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "4D_k_kboard",
-     "rect": [
-      8.916,
-      -1.4,
-      9.196000000000002,
-      -1.1999999999999997
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 0,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "4D_k_lino",
@@ -84613,30 +84624,6 @@
      "mat": "trim"
     },
     {
-     "id": "4D_bl1_s21",
-     "rect": [
-      13.755,
-      -4.245000000000001,
-      13.7885,
-      -2.945000000000001
-     ],
-     "z0": 1.0199999999999996,
-     "h": 0.028000000000000004,
-     "mat": "trim"
-    },
-    {
-     "id": "4D_bl1_s22",
-     "rect": [
-      13.755,
-      -4.245000000000001,
-      13.7885,
-      -2.945000000000001
-     ],
-     "z0": 0.9499999999999997,
-     "h": 0.028000000000000004,
-     "mat": "trim"
-    },
-    {
      "id": "4D_bl1_rail",
      "rect": [
       13.75,
@@ -84644,7 +84631,7 @@
       13.8,
       -2.945000000000001
      ],
-     "z0": 0.8799999999999997,
+     "z0": 1.0199999999999996,
      "h": 0.03,
      "mat": "trim"
     },
@@ -86204,32 +86191,12 @@
    ],
    "sockets": [
     {
-     "id": "4A_SHOWER_EDGE",
-     "unit": "4A",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      -5.97,
-      -5.14
-     ],
-     "z": 9.6
-    },
-    {
      "id": "4A_TOILET_SIDE",
      "unit": "4A",
      "socket": "TOILET_SIDE",
      "at": [
       -5.92,
       -4.57
-     ],
-     "z": 9.6
-    },
-    {
-     "id": "4A_SINK_EDGE",
-     "unit": "4A",
-     "socket": "SINK_EDGE",
-     "at": [
-      -5.81,
-      -3.97
      ],
      "z": 9.6
     },
@@ -86314,32 +86281,12 @@
      "z": 9.6
     },
     {
-     "id": "4B_SHOWER_EDGE",
-     "unit": "4B",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      -7.76,
-      6.46
-     ],
-     "z": 9.6
-    },
-    {
      "id": "4B_TOILET_SIDE",
      "unit": "4B",
      "socket": "TOILET_SIDE",
      "at": [
       -6.89,
       6.51
-     ],
-     "z": 9.6
-    },
-    {
-     "id": "4B_SINK_EDGE",
-     "unit": "4B",
-     "socket": "SINK_EDGE",
-     "at": [
-      -6.13,
-      6.62
      ],
      "z": 9.6
     },
@@ -86364,32 +86311,12 @@
      "z": 9.6
     },
     {
-     "id": "4C_SHOWER_EDGE",
-     "unit": "4C",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      5.97,
-      3.74
-     ],
-     "z": 9.6
-    },
-    {
      "id": "4C_TOILET_SIDE",
      "unit": "4C",
      "socket": "TOILET_SIDE",
      "at": [
       5.92,
       4.61
-     ],
-     "z": 9.6
-    },
-    {
-     "id": "4C_SINK_EDGE",
-     "unit": "4C",
-     "socket": "SINK_EDGE",
-     "at": [
-      5.81,
-      5.41
      ],
      "z": 9.6
     },
@@ -86504,32 +86431,12 @@
      "z": 9.6
     },
     {
-     "id": "4D_SHOWER_EDGE",
-     "unit": "4D",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      5.97,
-      -6.24
-     ],
-     "z": 9.6
-    },
-    {
      "id": "4D_TOILET_SIDE",
      "unit": "4D",
      "socket": "TOILET_SIDE",
      "at": [
       5.92,
       -5.37
-     ],
-     "z": 9.6
-    },
-    {
-     "id": "4D_SINK_EDGE",
-     "unit": "4D",
-     "socket": "SINK_EDGE",
-     "at": [
-      5.81,
-      -4.57
      ],
      "z": 9.6
     },
@@ -86634,12 +86541,72 @@
      "z": 9.6
     },
     {
+     "id": "4A_SHOWER_EDGE",
+     "unit": "4A",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      -5.14
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4A_SINK_EDGE",
+     "unit": "4A",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      -3.97
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4A_KITCHEN_SINK_EDGE",
+     "unit": "4A",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      -8.56,
+      -0.77
+     ],
+     "z": 9.6
+    },
+    {
      "id": "4A_FRIDGE_FACE",
      "unit": "4A",
      "socket": "FRIDGE_FACE",
      "at": [
       -6.79,
       -1.22
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4B_SHOWER_EDGE",
+     "unit": "4B",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -7.76,
+      6.46
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4B_SINK_EDGE",
+     "unit": "4B",
+     "socket": "SINK_EDGE",
+     "at": [
+      -6.13,
+      6.62
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4B_KITCHEN_SINK_EDGE",
+     "unit": "4B",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      -10.35,
+      9.31
      ],
      "z": 9.6
     },
@@ -86654,12 +86621,72 @@
      "z": 9.6
     },
     {
+     "id": "4C_SHOWER_EDGE",
+     "unit": "4C",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      3.74
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_SINK_EDGE",
+     "unit": "4C",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      5.41
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4C_KITCHEN_SINK_EDGE",
+     "unit": "4C",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      5.87,
+      1.485
+     ],
+     "z": 9.6
+    },
+    {
      "id": "4C_FRIDGE_FACE",
      "unit": "4C",
      "socket": "FRIDGE_FACE",
      "at": [
       6.32,
       3.27
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_SHOWER_EDGE",
+     "unit": "4D",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      -6.24
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_SINK_EDGE",
+     "unit": "4D",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      -4.57
+     ],
+     "z": 9.6
+    },
+    {
+     "id": "4D_KITCHEN_SINK_EDGE",
+     "unit": "4D",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      8.46,
+      -1.32
      ],
      "z": 9.6
     },
@@ -88197,7 +88224,8 @@
       12.8
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -88209,7 +88237,8 @@
       12.8
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -88248,6 +88277,34 @@
      "network": "heating",
      "riser": "H-A",
      "unit": "5A"
+    },
+    {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F05_5A_KITCHEN_SINK_01",
+     "unit": "5A",
+     "pos": [
+      -8.14,
+      -0.77,
+      12.8
+     ],
+     "yaw_deg": 180,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
+     "kind": "toaster",
+     "id": "F05_5A_TOASTER_01",
+     "unit": "5A",
+     "pos": [
+      -7.942,
+      -0.77,
+      13.7
+     ],
+     "yaw_deg": 180,
+     "network": "electrical"
     },
     {
      "kind": "stove",
@@ -88297,7 +88354,8 @@
       12.8
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -88309,7 +88367,8 @@
       12.8
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -88350,6 +88409,22 @@
      "unit": "5B"
     },
     {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F05_5B_KITCHEN_SINK_01",
+     "unit": "5B",
+     "pos": [
+      -5.83,
+      7.38,
+      12.8
+     ],
+     "yaw_deg": 90,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
      "kind": "stove",
      "id": "F05_5B_STOVE_01",
      "unit": "5B",
@@ -88385,7 +88460,8 @@
       12.8
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -88397,7 +88473,8 @@
       12.8
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -88438,6 +88515,22 @@
      "unit": "5C"
     },
     {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F05_5C_KITCHEN_SINK_01",
+     "unit": "5C",
+     "pos": [
+      5.87,
+      1.905,
+      12.8
+     ],
+     "yaw_deg": -90,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
      "kind": "stove",
      "id": "F05_5C_STOVE_01",
      "unit": "5C",
@@ -88473,7 +88566,8 @@
       12.8
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -88485,7 +88579,8 @@
       12.8
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -89097,29 +89192,11 @@
    ],
    "furniture": [
     {
-     "id": "5A_shower",
-     "asm": "shower",
-     "at": [
-      -5.97,
-      -5.69
-     ],
-     "yaw": 90
-    },
-    {
      "id": "5A_wc",
      "asm": "toilet",
      "at": [
       -5.92,
       -4.97
-     ],
-     "yaw": 90
-    },
-    {
-     "id": "5A_sink",
-     "asm": "sink_ped",
-     "at": [
-      -5.81,
-      -4.27
      ],
      "yaw": 90
     },
@@ -89261,40 +89338,27 @@
      "L": 1.85
     },
     {
-     "id": "5A_k_kmugs",
-     "rect": [
-      -8.403999999999998,
-      -0.695,
-      -8.184,
-      -0.525
+     "id": "5A_k_kmug",
+     "asm": "mug",
+     "at": [
+      -8.03,
+      -0.64
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 0,
+     "z0": 0.905
     },
     {
-     "id": "5A_k_kplates",
-     "rect": [
-      -8.392,
-      -1.02,
-      -8.152000000000001,
-      -0.8200000000000001
+     "id": "5A_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      -7.92,
+      -0.89
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "5A_k_kboard",
-     "rect": [
-      -8.104,
-      -0.85,
-      -7.824,
-      -0.65
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 0,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "5A_k_lino",
@@ -89791,29 +89855,11 @@
      "mat": "paper"
     },
     {
-     "id": "5B_shower",
-     "asm": "shower",
-     "at": [
-      -5.97,
-      3.47
-     ],
-     "yaw": 90
-    },
-    {
      "id": "5B_wc",
      "asm": "toilet",
      "at": [
       -5.92,
       4.19
-     ],
-     "yaw": 90
-    },
-    {
-     "id": "5B_sink",
-     "asm": "sink_ped",
-     "at": [
-      -5.81,
-      4.89
      ],
      "yaw": 90
     },
@@ -89883,40 +89929,27 @@
      "L": 1.85
     },
     {
-     "id": "5B_k_kmugs",
-     "rect": [
-      -5.754999999999999,
-      7.556,
-      -5.584999999999999,
-      7.776000000000001
+     "id": "5B_k_kmug",
+     "asm": "mug",
+     "at": [
+      -5.7,
+      7.93
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 90,
+     "z0": 0.905
     },
     {
-     "id": "5B_k_kplates",
-     "rect": [
-      -6.079999999999999,
-      7.5680000000000005,
-      -5.88,
-      7.808000000000001
+     "id": "5B_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      -5.95,
+      8.04
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "5B_k_kboard",
-     "rect": [
-      -5.909999999999999,
-      7.856000000000001,
-      -5.71,
-      8.136000000000001
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 90,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "5B_k_hob_radio0",
@@ -90227,30 +90260,11 @@
      "r": 0.09
     },
     {
-     "id": "5C_shower",
-     "asm": "shower",
-     "at": [
-      5.97,
-      4.29
-     ],
-     "yaw": -90,
-     "mirror": true
-    },
-    {
      "id": "5C_wc",
      "asm": "toilet",
      "at": [
       5.92,
       5.01
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "5C_sink",
-     "asm": "sink_ped",
-     "at": [
-      5.81,
-      5.71
      ],
      "yaw": -90
     },
@@ -90495,40 +90509,27 @@
      "L": 1.9
     },
     {
-     "id": "5C_k_kmugs",
-     "rect": [
-      5.945,
-      1.634,
-      6.115,
-      1.854
+     "id": "5C_k_kmug",
+     "asm": "mug",
+     "at": [
+      6.0,
+      2.02
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 90,
+     "z0": 0.905
     },
     {
-     "id": "5C_k_kplates",
-     "rect": [
-      5.62,
-      1.6470000000000002,
-      5.819999999999999,
-      1.887
+     "id": "5C_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      5.75,
+      2.135
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "5C_k_kboard",
-     "rect": [
-      5.79,
-      1.9489999999999998,
-      5.989999999999999,
-      2.229
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 90,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "5C_k_lino",
@@ -90816,30 +90817,11 @@
      "neat": false
     },
     {
-     "id": "5D_shower",
-     "asm": "shower",
-     "at": [
-      5.97,
-      -5.69
-     ],
-     "yaw": -90,
-     "mirror": true
-    },
-    {
      "id": "5D_wc",
      "asm": "toilet",
      "at": [
       5.92,
       -4.97
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "5D_sink",
-     "asm": "sink_ped",
-     "at": [
-      5.81,
-      -4.27
      ],
      "yaw": -90
     },
@@ -92346,30 +92328,6 @@
      "mat": "trim"
     },
     {
-     "id": "5B_bl2_s21",
-     "rect": [
-      -10.23,
-      9.755,
-      -8.93,
-      9.7885
-     ],
-     "z0": 1.0199999999999996,
-     "h": 0.028000000000000004,
-     "mat": "trim"
-    },
-    {
-     "id": "5B_bl2_s22",
-     "rect": [
-      -10.23,
-      9.755,
-      -8.93,
-      9.7885
-     ],
-     "z0": 0.9499999999999997,
-     "h": 0.028000000000000004,
-     "mat": "trim"
-    },
-    {
      "id": "5B_bl2_rail",
      "rect": [
       -10.23,
@@ -92377,7 +92335,7 @@
       -8.93,
       9.8
      ],
-     "z0": 0.8799999999999997,
+     "z0": 1.0199999999999996,
      "h": 0.03,
      "mat": "trim"
     },
@@ -92778,30 +92736,6 @@
      "mat": "trim"
     },
     {
-     "id": "5D_bl0_s21",
-     "rect": [
-      13.755,
-      -7.705,
-      13.7885,
-      -6.405
-     ],
-     "z0": 1.0199999999999996,
-     "h": 0.028000000000000004,
-     "mat": "trim"
-    },
-    {
-     "id": "5D_bl0_s22",
-     "rect": [
-      13.755,
-      -7.705,
-      13.7885,
-      -6.405
-     ],
-     "z0": 0.9499999999999997,
-     "h": 0.028000000000000004,
-     "mat": "trim"
-    },
-    {
      "id": "5D_bl0_rail",
      "rect": [
       13.75,
@@ -92809,7 +92743,7 @@
       13.8,
       -6.405
      ],
-     "z0": 0.8799999999999997,
+     "z0": 1.0199999999999996,
      "h": 0.03,
      "mat": "trim"
     },
@@ -94593,32 +94527,12 @@
    ],
    "sockets": [
     {
-     "id": "5A_SHOWER_EDGE",
-     "unit": "5A",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      -5.97,
-      -5.14
-     ],
-     "z": 12.8
-    },
-    {
      "id": "5A_TOILET_SIDE",
      "unit": "5A",
      "socket": "TOILET_SIDE",
      "at": [
       -5.92,
       -4.57
-     ],
-     "z": 12.8
-    },
-    {
-     "id": "5A_SINK_EDGE",
-     "unit": "5A",
-     "socket": "SINK_EDGE",
-     "at": [
-      -5.81,
-      -3.97
      ],
      "z": 12.8
     },
@@ -94713,32 +94627,12 @@
      "z": 12.8
     },
     {
-     "id": "5B_SHOWER_EDGE",
-     "unit": "5B",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      -5.97,
-      4.02
-     ],
-     "z": 12.8
-    },
-    {
      "id": "5B_TOILET_SIDE",
      "unit": "5B",
      "socket": "TOILET_SIDE",
      "at": [
       -5.92,
       4.59
-     ],
-     "z": 12.8
-    },
-    {
-     "id": "5B_SINK_EDGE",
-     "unit": "5B",
-     "socket": "SINK_EDGE",
-     "at": [
-      -5.81,
-      5.19
      ],
      "z": 12.8
     },
@@ -94823,32 +94717,12 @@
      "z": 12.8
     },
     {
-     "id": "5C_SHOWER_EDGE",
-     "unit": "5C",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      5.97,
-      3.74
-     ],
-     "z": 12.8
-    },
-    {
      "id": "5C_TOILET_SIDE",
      "unit": "5C",
      "socket": "TOILET_SIDE",
      "at": [
       5.92,
       4.61
-     ],
-     "z": 12.8
-    },
-    {
-     "id": "5C_SINK_EDGE",
-     "unit": "5C",
-     "socket": "SINK_EDGE",
-     "at": [
-      5.81,
-      5.41
      ],
      "z": 12.8
     },
@@ -94963,12 +94837,72 @@
      "z": 12.8
     },
     {
+     "id": "5A_SHOWER_EDGE",
+     "unit": "5A",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      -5.14
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5A_SINK_EDGE",
+     "unit": "5A",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      -3.97
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5A_KITCHEN_SINK_EDGE",
+     "unit": "5A",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      -8.56,
+      -0.77
+     ],
+     "z": 12.8
+    },
+    {
      "id": "5A_FRIDGE_FACE",
      "unit": "5A",
      "socket": "FRIDGE_FACE",
      "at": [
       -6.79,
       -1.22
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5B_SHOWER_EDGE",
+     "unit": "5B",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      4.02
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5B_SINK_EDGE",
+     "unit": "5B",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      5.19
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5B_KITCHEN_SINK_EDGE",
+     "unit": "5B",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      -5.83,
+      7.8
      ],
      "z": 12.8
     },
@@ -94983,12 +94917,62 @@
      "z": 12.8
     },
     {
+     "id": "5C_SHOWER_EDGE",
+     "unit": "5C",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      3.74
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_SINK_EDGE",
+     "unit": "5C",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      5.41
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5C_KITCHEN_SINK_EDGE",
+     "unit": "5C",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      5.87,
+      1.485
+     ],
+     "z": 12.8
+    },
+    {
      "id": "5C_FRIDGE_FACE",
      "unit": "5C",
      "socket": "FRIDGE_FACE",
      "at": [
       6.32,
       3.27
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5D_SHOWER_EDGE",
+     "unit": "5D",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      -6.24
+     ],
+     "z": 12.8
+    },
+    {
+     "id": "5D_SINK_EDGE",
+     "unit": "5D",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      -4.57
      ],
      "z": 12.8
     }
@@ -96516,7 +96500,8 @@
       16.0
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -96528,7 +96513,8 @@
       16.0
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -96567,6 +96553,34 @@
      "network": "heating",
      "riser": "H-A",
      "unit": "6A"
+    },
+    {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F06_6A_KITCHEN_SINK_01",
+     "unit": "6A",
+     "pos": [
+      -8.14,
+      -0.77,
+      16.0
+     ],
+     "yaw_deg": 180,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
+     "kind": "toaster",
+     "id": "F06_6A_TOASTER_01",
+     "unit": "6A",
+     "pos": [
+      -7.942,
+      -0.77,
+      16.9
+     ],
+     "yaw_deg": 180,
+     "network": "electrical"
     },
     {
      "kind": "stove",
@@ -96652,7 +96666,8 @@
       16.0
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -96664,7 +96679,8 @@
       16.0
      ],
      "yaw_deg": 90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -96705,6 +96721,34 @@
      "unit": "6B"
     },
     {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F06_6B_KITCHEN_SINK_01",
+     "unit": "6B",
+     "pos": [
+      -5.83,
+      7.38,
+      16.0
+     ],
+     "yaw_deg": 90,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
+     "kind": "toaster",
+     "id": "F06_6B_TOASTER_01",
+     "unit": "6B",
+     "pos": [
+      -5.83,
+      7.182,
+      16.9
+     ],
+     "yaw_deg": 90,
+     "network": "electrical"
+    },
+    {
      "kind": "stove",
      "id": "F06_6B_STOVE_01",
      "unit": "6B",
@@ -96740,7 +96784,8 @@
       16.0
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -96752,7 +96797,8 @@
       16.0
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -96793,6 +96839,34 @@
      "unit": "6C"
     },
     {
+     "kind": "sink",
+     "fixture": "kitchen_sink",
+     "id": "F06_6C_KITCHEN_SINK_01",
+     "unit": "6C",
+     "pos": [
+      5.87,
+      1.905,
+      16.0
+     ],
+     "yaw_deg": -90,
+     "network": "water",
+     "drain_side": 1,
+     "compact": false,
+     "drainboard": true
+    },
+    {
+     "kind": "toaster",
+     "id": "F06_6C_TOASTER_01",
+     "unit": "6C",
+     "pos": [
+      5.87,
+      2.112,
+      16.9
+     ],
+     "yaw_deg": -90,
+     "network": "electrical"
+    },
+    {
      "kind": "stove",
      "id": "F06_6C_STOVE_01",
      "unit": "6C",
@@ -96828,7 +96902,8 @@
       16.0
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "shower"
     },
     {
      "kind": "sink",
@@ -96840,7 +96915,8 @@
       16.0
      ],
      "yaw_deg": -90,
-     "network": "water"
+     "network": "water",
+     "fixture": "bath_sink"
     },
     {
      "kind": "mirror",
@@ -97494,29 +97570,11 @@
    ],
    "furniture": [
     {
-     "id": "6A_shower",
-     "asm": "shower",
-     "at": [
-      -5.97,
-      -5.69
-     ],
-     "yaw": 90
-    },
-    {
      "id": "6A_wc",
      "asm": "toilet",
      "at": [
       -5.92,
       -4.97
-     ],
-     "yaw": 90
-    },
-    {
-     "id": "6A_sink",
-     "asm": "sink_ped",
-     "at": [
-      -5.81,
-      -4.27
      ],
      "yaw": 90
     },
@@ -97658,40 +97716,27 @@
      "L": 1.85
     },
     {
-     "id": "6A_k_kmugs",
-     "rect": [
-      -8.403999999999998,
-      -0.695,
-      -8.184,
-      -0.525
+     "id": "6A_k_kmug",
+     "asm": "mug",
+     "at": [
+      -8.03,
+      -0.64
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 0,
+     "z0": 0.905
     },
     {
-     "id": "6A_k_kplates",
-     "rect": [
-      -8.392,
-      -1.02,
-      -8.152000000000001,
-      -0.8200000000000001
+     "id": "6A_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      -7.92,
+      -0.89
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "6A_k_kboard",
-     "rect": [
-      -8.104,
-      -0.85,
-      -7.824,
-      -0.65
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 0,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "6A_k_lino",
@@ -98217,29 +98262,11 @@
      "yaw": -90
     },
     {
-     "id": "6B_shower",
-     "asm": "shower",
-     "at": [
-      -5.97,
-      3.47
-     ],
-     "yaw": 90
-    },
-    {
      "id": "6B_wc",
      "asm": "toilet",
      "at": [
       -5.92,
       4.19
-     ],
-     "yaw": 90
-    },
-    {
-     "id": "6B_sink",
-     "asm": "sink_ped",
-     "at": [
-      -5.81,
-      4.89
      ],
      "yaw": 90
     },
@@ -98309,40 +98336,27 @@
      "L": 1.85
     },
     {
-     "id": "6B_k_kmugs",
-     "rect": [
-      -5.754999999999999,
-      7.556,
-      -5.584999999999999,
-      7.776000000000001
+     "id": "6B_k_kmug",
+     "asm": "mug",
+     "at": [
+      -5.7,
+      7.93
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 90,
+     "z0": 0.905
     },
     {
-     "id": "6B_k_kplates",
-     "rect": [
-      -6.079999999999999,
-      7.5680000000000005,
-      -5.88,
-      7.808000000000001
+     "id": "6B_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      -5.95,
+      8.04
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "6B_k_kboard",
-     "rect": [
-      -5.909999999999999,
-      7.856000000000001,
-      -5.71,
-      8.136000000000001
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 90,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "6B_k_lino",
@@ -98627,30 +98641,11 @@
      "mat": "ceramic"
     },
     {
-     "id": "6C_shower",
-     "asm": "shower",
-     "at": [
-      5.97,
-      4.29
-     ],
-     "yaw": -90,
-     "mirror": true
-    },
-    {
      "id": "6C_wc",
      "asm": "toilet",
      "at": [
       5.92,
       5.01
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "6C_sink",
-     "asm": "sink_ped",
-     "at": [
-      5.81,
-      5.71
      ],
      "yaw": -90
     },
@@ -98895,40 +98890,27 @@
      "L": 1.9
     },
     {
-     "id": "6C_k_kmugs",
-     "rect": [
-      5.945,
-      1.634,
-      6.115,
-      1.854
+     "id": "6C_k_kmug",
+     "asm": "mug",
+     "at": [
+      6.0,
+      2.02
      ],
-     "z0": 0.9,
-     "h": 0.11,
-     "mat": "porcelain"
+     "yaw": 90,
+     "z0": 0.905
     },
     {
-     "id": "6C_k_kplates",
-     "rect": [
-      5.62,
-      1.6470000000000002,
-      5.819999999999999,
-      1.887
+     "id": "6C_k_kdishrack",
+     "asm": "dishrack",
+     "at": [
+      5.75,
+      2.135
      ],
-     "z0": 0.9,
-     "h": 0.07,
-     "mat": "porcelain"
-    },
-    {
-     "id": "6C_k_kboard",
-     "rect": [
-      5.79,
-      1.9489999999999998,
-      5.989999999999999,
-      2.229
-     ],
-     "z0": 0.9,
-     "h": 0.02,
-     "mat": "timber"
+     "yaw": 90,
+     "z0": 0.905,
+     "W": 0.12,
+     "D": 0.26,
+     "n": 4
     },
     {
      "id": "6C_k_lino",
@@ -99220,30 +99202,11 @@
      "z0": 0.77
     },
     {
-     "id": "6D_shower",
-     "asm": "shower",
-     "at": [
-      5.97,
-      -5.69
-     ],
-     "yaw": -90,
-     "mirror": true
-    },
-    {
      "id": "6D_wc",
      "asm": "toilet",
      "at": [
       5.92,
       -4.97
-     ],
-     "yaw": -90
-    },
-    {
-     "id": "6D_sink",
-     "asm": "sink_ped",
-     "at": [
-      5.81,
-      -4.27
      ],
      "yaw": -90
     },
@@ -100557,30 +100520,6 @@
      "mat": "trim"
     },
     {
-     "id": "6B_bl1_s21",
-     "rect": [
-      -13.745,
-      6.906,
-      -13.7115,
-      8.206
-     ],
-     "z0": 1.0199999999999996,
-     "h": 0.028000000000000004,
-     "mat": "trim"
-    },
-    {
-     "id": "6B_bl1_s22",
-     "rect": [
-      -13.745,
-      6.906,
-      -13.7115,
-      8.206
-     ],
-     "z0": 0.9499999999999997,
-     "h": 0.028000000000000004,
-     "mat": "trim"
-    },
-    {
      "id": "6B_bl1_rail",
      "rect": [
       -13.75,
@@ -100588,7 +100527,7 @@
       -13.7,
       8.206
      ],
-     "z0": 0.8799999999999997,
+     "z0": 1.0199999999999996,
      "h": 0.03,
      "mat": "trim"
     },
@@ -101193,30 +101132,6 @@
      "mat": "trim"
     },
     {
-     "id": "6C_bl0_s21",
-     "rect": [
-      13.755,
-      1.6290000000000004,
-      13.7885,
-      2.9290000000000003
-     ],
-     "z0": 1.0199999999999996,
-     "h": 0.028000000000000004,
-     "mat": "trim"
-    },
-    {
-     "id": "6C_bl0_s22",
-     "rect": [
-      13.755,
-      1.6290000000000004,
-      13.7885,
-      2.9290000000000003
-     ],
-     "z0": 0.9499999999999997,
-     "h": 0.028000000000000004,
-     "mat": "trim"
-    },
-    {
      "id": "6C_bl0_rail",
      "rect": [
       13.75,
@@ -101224,7 +101139,7 @@
       13.8,
       2.9290000000000003
      ],
-     "z0": 0.8799999999999997,
+     "z0": 1.0199999999999996,
      "h": 0.03,
      "mat": "trim"
     },
@@ -103140,32 +103055,12 @@
    ],
    "sockets": [
     {
-     "id": "6A_SHOWER_EDGE",
-     "unit": "6A",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      -5.97,
-      -5.14
-     ],
-     "z": 16.0
-    },
-    {
      "id": "6A_TOILET_SIDE",
      "unit": "6A",
      "socket": "TOILET_SIDE",
      "at": [
       -5.92,
       -4.57
-     ],
-     "z": 16.0
-    },
-    {
-     "id": "6A_SINK_EDGE",
-     "unit": "6A",
-     "socket": "SINK_EDGE",
-     "at": [
-      -5.81,
-      -3.97
      ],
      "z": 16.0
     },
@@ -103240,32 +103135,12 @@
      "z": 16.0
     },
     {
-     "id": "6B_SHOWER_EDGE",
-     "unit": "6B",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      -5.97,
-      4.02
-     ],
-     "z": 16.0
-    },
-    {
      "id": "6B_TOILET_SIDE",
      "unit": "6B",
      "socket": "TOILET_SIDE",
      "at": [
       -5.92,
       4.59
-     ],
-     "z": 16.0
-    },
-    {
-     "id": "6B_SINK_EDGE",
-     "unit": "6B",
-     "socket": "SINK_EDGE",
-     "at": [
-      -5.81,
-      5.19
      ],
      "z": 16.0
     },
@@ -103350,32 +103225,12 @@
      "z": 16.0
     },
     {
-     "id": "6C_SHOWER_EDGE",
-     "unit": "6C",
-     "socket": "SHOWER_EDGE",
-     "at": [
-      5.97,
-      3.74
-     ],
-     "z": 16.0
-    },
-    {
      "id": "6C_TOILET_SIDE",
      "unit": "6C",
      "socket": "TOILET_SIDE",
      "at": [
       5.92,
       4.61
-     ],
-     "z": 16.0
-    },
-    {
-     "id": "6C_SINK_EDGE",
-     "unit": "6C",
-     "socket": "SINK_EDGE",
-     "at": [
-      5.81,
-      5.41
      ],
      "z": 16.0
     },
@@ -103490,12 +103345,72 @@
      "z": 16.0
     },
     {
+     "id": "6A_SHOWER_EDGE",
+     "unit": "6A",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      -5.14
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6A_SINK_EDGE",
+     "unit": "6A",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      -3.97
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6A_KITCHEN_SINK_EDGE",
+     "unit": "6A",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      -8.56,
+      -0.77
+     ],
+     "z": 16.0
+    },
+    {
      "id": "6A_FRIDGE_FACE",
      "unit": "6A",
      "socket": "FRIDGE_FACE",
      "at": [
       -6.79,
       -1.22
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6B_SHOWER_EDGE",
+     "unit": "6B",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      -5.97,
+      4.02
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6B_SINK_EDGE",
+     "unit": "6B",
+     "socket": "SINK_EDGE",
+     "at": [
+      -5.81,
+      5.19
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6B_KITCHEN_SINK_EDGE",
+     "unit": "6B",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      -5.83,
+      7.8
      ],
      "z": 16.0
     },
@@ -103510,12 +103425,62 @@
      "z": 16.0
     },
     {
+     "id": "6C_SHOWER_EDGE",
+     "unit": "6C",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      3.74
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_SINK_EDGE",
+     "unit": "6C",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      5.41
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6C_KITCHEN_SINK_EDGE",
+     "unit": "6C",
+     "socket": "KITCHEN_SINK_EDGE",
+     "at": [
+      5.87,
+      1.485
+     ],
+     "z": 16.0
+    },
+    {
      "id": "6C_FRIDGE_FACE",
      "unit": "6C",
      "socket": "FRIDGE_FACE",
      "at": [
       6.32,
       3.27
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6D_SHOWER_EDGE",
+     "unit": "6D",
+     "socket": "SHOWER_EDGE",
+     "at": [
+      5.97,
+      -6.24
+     ],
+     "z": 16.0
+    },
+    {
+     "id": "6D_SINK_EDGE",
+     "unit": "6D",
+     "socket": "SINK_EDGE",
+     "at": [
+      5.81,
+      -4.57
      ],
      "z": 16.0
     }

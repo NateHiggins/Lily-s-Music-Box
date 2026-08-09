@@ -1324,17 +1324,25 @@ def asm_watering_can(F, p):
 
 
 def asm_kitchen(F, p):
-    """Frankfurt-kitchen spirit: flat fronts, groove pulls, real sink."""
+    """Frankfurt-kitchen cabinetry around a marker-owned sink opening."""
     L = p.get("L", 2.5)
     cw = L - 0.75
+    sx0 = -cw / 2 + cw * 0.30
+    # The complete roll-rim prop is 610 x 460 mm. Its cavity must clear
+    # through the worktop AND the carcass below. Segmenting only the top
+    # exposed the solid cabinet's top face as a false bottom to the hole.
+    bx0, bx1 = sx0 - 0.305, sx0 + 0.305
+    by0, by1 = -0.23, 0.23
     # carcass centered on the origin
     F.box("soot", -cw / 2 + 0.02, -0.28, 0.0, -cw / 2 + cw - 0.02, 0.26, 0.07)
-    F.box("trim", -cw / 2, -0.30, 0.07, -cw / 2 + cw, 0.28, 0.86)
+    for cx0, cy0, cx1, cy1 in (
+            (-cw / 2, -0.30, bx0, 0.28),
+            (bx1, -0.30, cw / 2, 0.28),
+            (bx0, -0.30, bx1, by0),
+            (bx0, by1, bx1, 0.28)):
+        F.box("trim", cx0, cy0, 0.07, cx1, cy1, 0.86)
     # counter, segmented around a real sink cutout (no booleans in the
     # box world: the hole is the four boards that don't cover it)
-    sx0 = -cw / 2 + cw * 0.30
-    bx0, bx1 = sx0 - 0.22, sx0 + 0.22      # basin cutout in x
-    by0, by1 = -0.20, 0.12                 # basin cutout in y
     for cx0, cy0, cx1, cy1 in (
             (-cw / 2 - 0.015, -0.315, bx0, 0.315),
             (bx1, -0.315, cw / 2 + 0.015, 0.315),
@@ -1350,31 +1358,6 @@ def asm_kitchen(F, p):
         x0 = -cw / 2 + 0.02 + i * (dw + 0.02)
         F.box("trim", x0, 0.281, 0.10, x0 + dw, 0.301, 0.80)
         F.box("soot", x0 + 0.02, 0.283, 0.74, x0 + dw - 0.02, 0.303, 0.775)
-    # the basin itself: chrome rim lip over brushed-steel walls falling
-    # to a true bottom with a drain — a sink you can look down into
-    for rx0, ry0, rx1, ry1 in (
-            (bx0 - 0.018, by0 - 0.018, bx1 + 0.018, by0),
-            (bx0 - 0.018, by1, bx1 + 0.018, by1 + 0.018),
-            (bx0 - 0.018, by0, bx0, by1),
-            (bx1, by0, bx1 + 0.018, by1)):
-        F.box("chrome", rx0, ry0, 0.895, rx1, ry1, 0.906)
-    for wx0, wy0, wx1, wy1 in (
-            (bx0, by0, bx1, by0 + 0.012),
-            (bx0, by1 - 0.012, bx1, by1),
-            (bx0, by0, bx0 + 0.012, by1),
-            (bx1 - 0.012, by0, bx1, by1)):
-        F.box("metal", wx0, wy0, 0.70, wx1, wy1, 0.898)
-    F.box("metal", bx0, by0, 0.695, bx1, by1, 0.715)
-    F.cyl("soot", sx0, (by0 + by1) / 2.0, 0.715, 0.722, 0.030, 0.030, 10)
-    F.lathe("chrome", sx0, (by0 + by1) / 2.0,
-            [(0.030, 0.722), (0.040, 0.726), (0.032, 0.729)], 10)
-    F.tube("chrome", (sx0, -0.245, 0.895), (sx0, -0.245, 1.10), 0.014, 8)
-    F.tube("chrome", (sx0, -0.245, 1.10), (sx0, -0.05, 1.06), 0.013, 8)
-    for tx in (-0.12, 0.12):
-        F.tube("chrome", (sx0 + tx, -0.24, 0.895),
-               (sx0 + tx, -0.24, 0.955), 0.010, 8)
-        F.tube("chrome", (sx0 + tx - 0.03, -0.24, 0.965),
-               (sx0 + tx + 0.03, -0.24, 0.965), 0.008, 6)
     F.box("trim", -cw / 2, -0.30, 1.46, -cw / 2 + cw, 0.05, 2.16)
     for i in range(nd):
         x0 = -cw / 2 + 0.02 + i * (dw + 0.02)
@@ -1782,6 +1765,42 @@ def asm_mug(F, p):
                       (0.035, 0.10)], 10)
     F.tube(m, (0.038, 0.0, 0.030), (0.062, 0.0, 0.052), 0.007, 6)
     F.tube(m, (0.062, 0.0, 0.052), (0.040, 0.0, 0.078), 0.007, 6)
+
+
+def asm_dishrack(F, p):
+    """Narrow wire rack with plates on edge; unmistakable at counter scale.
+
+    The previous 'mugs / plates / board' were three cuboids. They satisfied
+    a data inventory and looked like packing blocks abandoned in the sink.
+    Circular plate rims and a nickel wire cradle spend fewer triangles than
+    those boxes while finally saying what the objects are.
+    """
+    W, D = p.get("W", 0.12), p.get("D", 0.26)
+    n = max(2, int(p.get("n", 4)))
+    # cradle and raised side rails
+    for x in (-W * 0.5, W * 0.5):
+        F.tube("nickel_plated", (x, -D * 0.5, 0.012),
+               (x, D * 0.5, 0.012), 0.005, 6)
+        F.tube("nickel_plated", (x, -D * 0.5, 0.012),
+               (x, -D * 0.5, 0.105), 0.005, 6)
+        F.tube("nickel_plated", (x, D * 0.5, 0.012),
+               (x, D * 0.5, 0.105), 0.005, 6)
+    F.tube("nickel_plated", (-W * 0.5, -D * 0.5, 0.105),
+           (W * 0.5, -D * 0.5, 0.105), 0.005, 6)
+    F.tube("nickel_plated", (-W * 0.5, D * 0.5, 0.105),
+           (W * 0.5, D * 0.5, 0.105), 0.005, 6)
+    # Plates stand in Y/Z planes. Chained tubes give each a real circular
+    # silhouette without introducing a high-sided dish mesh for six pixels.
+    radius = min(0.095, D * 0.40)
+    for i in range(n):
+        px = -W * 0.36 + (W * 0.72 * i / max(1, n - 1))
+        for k in range(16):
+            a0 = 2.0 * math.pi * k / 16.0
+            a1 = 2.0 * math.pi * (k + 1) / 16.0
+            p0 = (px, math.cos(a0) * radius, 0.105 + math.sin(a0) * radius)
+            p1 = (px, math.cos(a1) * radius, 0.105 + math.sin(a1) * radius)
+            F.tube("porcelain", p0, p1, 0.006, 5)
+    F.hull(-W * 0.55, -D * 0.55, 0.0, W * 0.55, D * 0.55, 0.21)
 
 
 def asm_papers(F, p):
@@ -2714,12 +2733,12 @@ ASM = {
     "kitchen": asm_kitchen,
     "desk": asm_desk, "plantable": asm_plantable,
     "workbench": asm_workbench, "toilet": asm_toilet,
-    "sink_ped": asm_sink_ped, "shower": asm_shower, "switch": asm_switch,
-    "sink_basin": asm_sink_basin,
+    "switch": asm_switch,
     "pipe": asm_pipe, "bench": asm_bench, "mailbank": asm_mailbank,
     "amp": asm_amp, "guitar": asm_guitar, "pedalboard": asm_pedalboard,
     "micstand": asm_micstand, "reeldeck": asm_reeldeck,
-    "headphones": asm_headphones, "mug": asm_mug, "papers": asm_papers,
+    "headphones": asm_headphones, "mug": asm_mug,
+    "dishrack": asm_dishrack, "papers": asm_papers,
     "bookpile": asm_bookpile, "pinboard": asm_pinboard,
     "toolboard": asm_toolboard, "partstray": asm_partstray,
     "jarrow": asm_jarrow, "tripod": asm_tripod, "softbox": asm_softbox,

@@ -1,14 +1,17 @@
 extends Node
 ## Headless building validation — not shipped gameplay. Run:
 ##   godot --headless --path game res://tests/WalkTest.tscn
-## Asserts: every level has walkable floor, apartments have slabs, the
-## front stair is physically climbable by the real player controller, the
-## elevator travels B1..F06, and props/conductor are alive.
+## The normal command is the iteration gate: it builds the complete Orison
+## and checks layout, systems and the current prop family in about one boot.
+## WALKTEST_FULL=1 adds the slow physical walks, elevator rides and case
+## simulations for release gates. Making every mesh edit wait for those
+## authored performances trained people to stop running the test at all.
 ## Exits with the failure count as exit code.
 
 var root: Node3D
 var _failures := 0
 var _arrivals := {}
+var _full := OS.get_environment("WALKTEST_FULL") == "1"
 
 
 func _record_arrival(node_id: String, i: int, _a: float, _p: float,
@@ -80,6 +83,7 @@ func _ready() -> void:
 
 
 func _run() -> void:
+	print("[WALKTEST] %s mode" % ("FULL" if _full else "FAST"))
 	await get_tree().create_timer(0.6).timeout
 	root.show_all_floors = true
 	# The sanity director moves furniture and rewrites light energies on its
@@ -157,6 +161,10 @@ func _run() -> void:
 	_check(root.weather != null
 			and root.weather.get_node_or_null("DistantLightning") != null,
 			"distant lightning source is active")
+	await _plumbing_checks()
+	if not _full:
+		await _finish("FAST")
+		return
 	# Placeholders land at the centre of each resident's main room, which is
 	# where the door-to-bedroom route runs. Solid ones block it, and the
 	# generator's movement audit — which authors those clearances — cannot
@@ -522,8 +530,12 @@ func _run() -> void:
 
 	await _vertical_slice_checks()
 
-	print("WALKTEST RESULT: %s" %
-			("PASS" if _failures == 0 else "FAIL (%d)" % _failures))
+	await _finish("FULL")
+
+
+func _finish(mode: String) -> void:
+	print("WALKTEST RESULT: %s [%s]" % [
+			"PASS" if _failures == 0 else "FAIL (%d)" % _failures, mode])
 	# Let the dynamically assembled building release its meshes, materials,
 	# timers, signal callables and audio players before the headless engine
 	# tears down its ObjectDB. Immediate quit previously stranded a small,
@@ -536,6 +548,56 @@ func _run() -> void:
 	PropAudio.clear_cache()
 	await get_tree().process_frame
 	get_tree().quit(_failures)
+
+
+func _plumbing_checks() -> void:
+	# The plumbing scripts own complete fixtures now, not handles hovering
+	# over Blender geometry. Count the semantic silhouettes, then operate the
+	# player's compact sink through the same public API maintenance uses.
+	var counts := {"bath_sink": 0, "kitchen_sink": 0, "shower": 0}
+	var player_sink: TapProp = null
+	var incomplete := []
+	for child in root.get_children():
+		if child is not TapProp:
+			continue
+		var tap := child as TapProp
+		if counts.has(tap.fixture):
+			counts[tap.fixture] += 1
+		if tap._handles.size() != 2 or tap._stream == null:
+			incomplete.append(tap.name)
+		if tap.fixture == "kitchen_sink" and tap.unit == "4B":
+			player_sink = tap
+	_check(counts.bath_sink == 24,
+			"24 complete bath lavatories, including the retail WC")
+	_check(counts.kitchen_sink == 19,
+			"19 complete kitchen sinks, including 4B and common kitchen")
+	_check(counts.shower == 23, "23 complete shower receptors")
+	_check(incomplete.is_empty(),
+			"every water fixture owns two valves and a stream (%s)" % [incomplete])
+
+	var water_markers := 0
+	var wrong_network := []
+	for floor_data in root.layout["floors"]:
+		for marker in floor_data.get("markers", []):
+			if str(marker.get("kind", "")) not in ["sink", "shower"]:
+				continue
+			water_markers += 1
+			if str(marker.get("network", "")) != "water":
+				wrong_network.append(str(marker.get("id", "?")))
+	_check(water_markers == 66 and wrong_network.is_empty(),
+			"all 66 plumbing markers remain on the water network")
+	_check(player_sink != null and player_sink.compact_kitchen
+			and not player_sink.has_drainboard,
+			"4B keeps its compact basin beside the replanned gas range")
+	if player_sink:
+		player_sink.set_service_pose()
+		await get_tree().process_frame
+		var flowing := player_sink.get_flow_state()
+		_check(flowing.hot and flowing.cold and flowing.stopper
+				and player_sink._stream.visible,
+				"4B hot valve, cold valve, stopper and stream operate independently")
+		player_sink.set_running(false)
+		player_sink.set_stopper(false)
 
 
 func _stop_audio(node: Node) -> void:

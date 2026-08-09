@@ -431,28 +431,20 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
     # shower also meets a second wall: `mirror` tells it which of its own
     # X sides that corner is on, so tile and glass never swap places.
     if edge == "e":
-        _asm(f, unit + "_shower", "shower", x1 - 0.46, y0 + 0.50, 90)
         _bath_marker(markers, unit, "shower", x1 - 0.46, y0 + 0.50, 90, z)
         _asm(f, unit + "_wc", "toilet", x1 - 0.41, y0 + 1.22, 90)
-        _asm(f, unit + "_sink", "sink_ped", x1 - 0.30, _run(y0 + 1.92, y0, y1), 90)
         _bath_marker(markers, unit, "sink", x1 - 0.30, _run(y0 + 1.92, y0, y1), 90, z)
         _bath_marker(markers, unit, "mirror", x1 - 0.30, _run(y0 + 1.92, y0, y1), 90, z)
         spos, syaw = [x1 - 0.08, y0 + 1.92], -90
     elif edge == "w":
-        _asm(f, unit + "_shower", "shower", x0 + 0.46, y0 + 0.50, -90,
-             mirror=True)
         _bath_marker(markers, unit, "shower", x0 + 0.46, y0 + 0.50, -90, z)
         _asm(f, unit + "_wc", "toilet", x0 + 0.41, y0 + 1.22, -90)
-        _asm(f, unit + "_sink", "sink_ped", x0 + 0.30, _run(y0 + 1.92, y0, y1), -90)
         _bath_marker(markers, unit, "sink", x0 + 0.30, _run(y0 + 1.92, y0, y1), -90, z)
         _bath_marker(markers, unit, "mirror", x0 + 0.30, _run(y0 + 1.92, y0, y1), -90, z)
         spos, syaw = [x0 + 0.08, y0 + 1.92], 90
     else:  # "n"
-        _asm(f, unit + "_shower", "shower", x0 + 0.50, y1 - 0.46, 180,
-             mirror=True)
         _bath_marker(markers, unit, "shower", x0 + 0.50, y1 - 0.46, 180, z)
         _asm(f, unit + "_wc", "toilet", x0 + 1.22, y1 - 0.41, 180)
-        _asm(f, unit + "_sink", "sink_ped", _run(x0 + 1.92, x0, x1), y1 - 0.30, 180)
         _bath_marker(markers, unit, "sink", _run(x0 + 1.92, x0, x1), y1 - 0.30, 180, z)
         _bath_marker(markers, unit, "mirror", _run(x0 + 1.92, x0, x1), y1 - 0.30, 180, z)
         spos, syaw = [x0 + 1.92, y1 - 0.08], 0
@@ -639,6 +631,18 @@ MONITOR_TOP_UNITS = {"1A", "3A", "5B", "6C"}
 ## the deck lives on the hob; Cal's stove carries three console radios.
 ## The complete range prop still ships - it is what they put things ON.
 RANGE_AS_SHELF = {"2C", "5B"}
+## WHO DOES NOT HAVE A TOASTER (ruled 2026-08-08 at the owner's
+## direction: "I want toasters in the majority of apartments"). Fourteen
+## of the eighteen do — the appliance bible had named only three, and
+## that reads as a building where nobody eats breakfast.
+##
+## The four without each have a reason, because a majority is only
+## characterful if the minority is a choice:
+##   2C  Juno records instead of cooking; the hob carries tape boxes
+##   5B  Cal's range carries three console radios
+##   4D  a short-term let, furnished to the landlord's minimum
+##   5C  the spare room is becoming a painting studio and she eats out
+NO_TOASTER_UNITS = {"2C", "5B", "4D", "5C"}
 # One retained domestic hazard, authored rather than rolled per boot. Lena's
 # big borrowed-family pots make a low unattended ring in 2B findable; 35% of
 # seventeen ranges made the whole building behave like an active gas leak.
@@ -695,17 +699,35 @@ def _fridge_marker(markers, uid, fx, fy, z, yaw, floor_id):
         "monitor": unit in MONITOR_TOP_UNITS})
 
 
+def _toaster_marker(markers, uid, tx, ty, z, yaw, floor_id):
+    """A toaster on the counter, for the flats that eat breakfast at home.
+
+    It sits at -0.38 of the run from centre: the far end from the range,
+    west of the sink at -0.20 and clear of the mug at +0.30 and the
+    drainer at +0.40. Those four offsets are the whole worktop, and a
+    fifth thing on it would be standing on one of them.
+    """
+    if markers is None:
+        return
+    unit = unit_of_uid(uid)
+    if unit in NO_TOASTER_UNITS:
+        return
+    markers.append({
+        "kind": "toaster",
+        "id": "%s_%s_TOASTER_01" % (floor_id or "FXX", unit),
+        "unit": unit,
+        "pos": [round(tx, 4), round(ty, 4), round(z + 0.90, 4)],
+        "yaw_deg": yaw, "network": "electrical"})
+
+
 def _bath_marker(markers, unit, kind, bx, by, yaw, z):
-    """A tap is not a shape, it is a thing that turns.
+    """One water marker owns one complete period fixture.
 
-    Twenty-three showers and twenty-three sinks were assemblies with no
-    marker - the same fault the refrigerators had and the range never
-    did. The porcelain, the cross taps and the valve plate are all
-    modelled; what was missing was anything to spawn a prop that turns
-    them and runs water.
-
-    The marker sits exactly where the assembly does, so the prop's
-    handles land on the spindles the assembly already built."""
+    The former assembly/prop split was the plumbing version of the old
+    refrigerator fault: Blender owned a generic shell and Godot owned two
+    floating handles. `fixture` is deliberately more specific than `kind`;
+    the latter stays sink/shower so the graph and prop catalog keep their
+    stable public vocabulary."""
     if markers is None:
         return
     # bath_fixtures is handed a level, not a floor name, so name the
@@ -715,11 +737,32 @@ def _bath_marker(markers, unit, kind, bx, by, yaw, z):
         if abs(level - z) < 0.01:
             floor_id = name
             break
-    markers.append({
+    marker = {
         "kind": kind,
         "id": "%s_%s_%s_01" % (floor_id, unit, kind.upper()),
         "unit": unit, "pos": [round(bx, 4), round(by, 4), round(z, 4)],
-        "yaw_deg": yaw, "network": "water"})
+        "yaw_deg": yaw, "network": "water"}
+    if kind in ("sink", "shower"):
+        marker["fixture"] = "shower" if kind == "shower" else "bath_sink"
+    markers.append(marker)
+
+
+def _kitchen_sink_marker(markers, uid, sx, sy, z, yaw, floor_id,
+                         compact=False, drainboard=True):
+    """The basin cutout and the fixture marker are one coordinate contract.
+
+    `kitchen` still owns cabinetry and its dirty-counter/trash sockets. The
+    sink owns only the iron bowl, drainboard and plumbing, so replacing a
+    cupboard run cannot duplicate or strand the interactive water object."""
+    if markers is None:
+        return
+    unit = unit_of_uid(uid)
+    markers.append({
+        "kind": "sink", "fixture": "kitchen_sink",
+        "id": "%s_%s_KITCHEN_SINK_01" % (floor_id or "FXX", unit),
+        "unit": unit, "pos": [round(sx, 4), round(sy, 4), round(z, 4)],
+        "yaw_deg": yaw, "network": "water", "drain_side": 1,
+        "compact": bool(compact), "drainboard": bool(drainboard)})
 
 
 def _stove_marker(markers, uid, sx, sy, z, yaw, floor_id):
@@ -796,25 +839,31 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n", markers=None,
     cw = max(0.95, L - 1.40)
 
     def clutter(cx_, cy_, swap=False):
-        # kept clear of the sink basin, which owns the counter's left
-        # third (cutout at carcass x = 0.30*cw-cw/2 +- 0.22)
-        items = (((cw * 0.06, 0.16), 0.22, 0.17, 0.11, "porcelain",
-                  "mugs"),
-                 ((cw * 0.08, -0.15), 0.24, 0.20, 0.07, "porcelain",
-                  "plates"),
-                 ((cw * 0.36, 0.02), 0.28, 0.20, 0.02, "timber", "board"))
-        for (ox, oy), iw, id_, ih, mat_, tag in items:
+        # The basin owns the left third and the raised board stands to its
+        # right. Three anonymous furniture boxes used to stand for mugs,
+        # plates and a board; in the render they were simply three blocks
+        # laid over the sink. Use the real assembly silhouettes instead.
+        items = (((cw * 0.30, 0.13), "mug", "mug", {}),
+                 ((cw * 0.40, -0.12), "dishrack", "dishrack",
+                  {"W": 0.12, "D": 0.26, "n": 4}))
+        for (ox, oy), asm, tag, extra in items:
             if swap:
                 ox, oy = oy, ox
-                iw, id_ = id_, iw
-            f.append({"id": "%s_k%s" % (uid, tag),
-                      "rect": [cx_ + ox - iw / 2, cy_ + oy - id_ / 2,
-                               cx_ + ox + iw / 2, cy_ + oy + id_ / 2],
-                      "z0": 0.90, "h": ih, "mat": mat_})
+            _asm(f, "%s_k%s" % (uid, tag), asm, cx_ + ox, cy_ + oy,
+                 90 if swap else 0, z0=0.905, **extra)
     if along_x:
         yaw = FACE_YAW["s" if side == "n" else "n"]
         cy = y + 0.32
         _asm(f, uid, "kitchen", x + cw / 2, cy, yaw, L=cw + 0.75)
+        # asm_kitchen's local cutout is x = -0.20*cw. Rotate that exact
+        # anchor into the layout so bowl and hole cannot drift separately.
+        sx = x + cw / 2 + (-0.20 * cw) * math.cos(math.radians(yaw))
+        sy = cy + (-0.20 * cw) * math.sin(math.radians(yaw))
+        _kitchen_sink_marker(markers, uid, sx, sy, z, yaw, floor_id)
+        _toaster_marker(markers, uid,
+                        x + cw / 2 + (-0.38 * cw) * math.cos(math.radians(yaw)),
+                        cy + (-0.38 * cw) * math.sin(math.radians(yaw)),
+                        z, yaw, floor_id)
         _stove_marker(markers, uid, x + cw + 0.33, cy, z, yaw, floor_id)
         _fridge_marker(markers, uid, x + cw + 0.66 + 0.36, cy, z, yaw,
                        floor_id)
@@ -825,6 +874,13 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n", markers=None,
         yaw = FACE_YAW["e" if side == "w" else "w"]
         cx = x + 0.32
         _asm(f, uid, "kitchen", cx, y + cw / 2, yaw, L=cw + 0.75)
+        sx = cx + (-0.20 * cw) * math.cos(math.radians(yaw))
+        sy = y + cw / 2 + (-0.20 * cw) * math.sin(math.radians(yaw))
+        _kitchen_sink_marker(markers, uid, sx, sy, z, yaw, floor_id)
+        _toaster_marker(markers, uid,
+                        cx + (-0.38 * cw) * math.cos(math.radians(yaw)),
+                        y + cw / 2 + (-0.38 * cw) * math.sin(math.radians(yaw)),
+                        z, yaw, floor_id)
         _stove_marker(markers, uid, cx, y + cw + 0.33, z, yaw, floor_id)
         _fridge_marker(markers, uid, cx, y + cw + 0.66 + 0.36, z, yaw,
                        floor_id)
@@ -902,6 +958,11 @@ def blind_stack(f, uid, x, y, along_x, seed):
     slat_h = 0.010 + 0.024 * tilt
     depth = 0.05 - 0.022 * tilt
     n = int(1.70 * drop / pitch)
+    # A blind is fixed to the window, not to the room's idea of gravity.
+    # Nine stacks could descend through the 1.00 m court sill and through
+    # the counter/range beneath it. Cap the shared generator at the sill;
+    # trimming 4B alone would leave the same physical fault in eight flats.
+    n = min(n, int((WIN_TOP - 0.06 - WIN_COURT["sill"]) / pitch))
     if along_x:
         _furn_box(f, uid + "_head", x, y, 1.34, 0.06, WIN_TOP, 0.05,
                   "trim", False)
@@ -1571,6 +1632,9 @@ def apartment_4b(z, walls, rooms, markers, furniture):
     ]
     bath_fixtures(furniture, "4B", [bx, y0 + 1.85, x1, y0 + 4.25], "n",
                   markers, z)
+    sb = (-10.18, 9.12, -9.68, 9.50)          # basin opening
+    CTR_W = -10.86                            # run's west end
+    ST_X0, ST_X1 = -9.55, -8.91               # the range, in the run
     furniture += [
         {"id": "desk", "rect": [-8.45, 4.95, -7.87, 6.25], "z0": 0.72,
          "h": 0.04, "mat": "floor_oak"},
@@ -1578,13 +1642,20 @@ def apartment_4b(z, walls, rooms, markers, furniture):
          "h": 0.72, "mat": "metal"},
         {"id": "bed", "rect": [-13.40, 6.90, -12.05, 9.50], "z0": 0.15,
          "h": 0.32, "mat": "trim"},
-        # Stops at -9.55 where the range begins, and reaches 160 mm
-        # further west to the wall to buy back the worktop that costs.
-        {"id": "kitchen_counter", "rect": [-10.86, 9.05, -9.55, 9.55],
-         "z0": 0.0, "h": 0.86, "mat": "trim"},
     ]
-    # countertop laid as four boards around the sink cutout, so the basin
-    # below is a real hole rather than a dark rectangle painted on
+    # The base AND countertop are four boards around the opening. Segmenting
+    # only the 45 mm worktop left the solid cabinet's top face immediately
+    # beneath it, so hiding the sink revealed a convincing rectangular lid
+    # instead of a hole. These four carcass pieces retain the cupboard run
+    # while leaving the basin somewhere physical to descend.
+    for seg, rect in (
+            ("w", [CTR_W, 9.05, sb[0], 9.55]),
+            ("e", [sb[2], 9.05, ST_X0, 9.55]),
+            ("s", [sb[0], 9.05, sb[2], sb[1]]),
+            ("n", [sb[0], sb[3], sb[2], 9.55])):
+        furniture.append({"id": "kitchen_counter_" + seg, "rect": rect,
+                          "z0": 0.0, "h": 0.86, "mat": "trim"})
+    # Countertop laid as the same four boards around the sink cutout.
     # THE PLAYER'S FLAT GETS A RANGE (ruled 2026-08-08, at the owner's
     # direction: "the players apartment to have all the amenities").
     # 4B was the only flat in the building without one, and that was not
@@ -1603,9 +1674,6 @@ def apartment_4b(z, walls, rooms, markers, furniture):
     # there is 0.68 m of it and nothing else wants to be — an earlier
     # attempt slid the basin west to make an east worktop instead and
     # put the toaster, mugs and plates on the hob or on each other.
-    sb = (-10.18, 9.12, -9.68, 9.50)          # basin opening
-    CTR_W = -10.86                            # run's west end
-    ST_X0, ST_X1 = -9.55, -8.91               # the range, in the run
     for seg, rect in (
             ("w", [CTR_W - 0.04, 9.01, sb[0], 9.59]),
             ("e", [sb[2], 9.01, ST_X0, 9.59]),
@@ -1616,9 +1684,9 @@ def apartment_4b(z, walls, rooms, markers, furniture):
         furniture.append({"id": "4B_kitchen_countertop_" + seg,
                           "rect": rect,
                           "z0": 0.86, "h": 0.045, "mat": "countertop"})
-    _asm(furniture, "4B_ksink", "sink_basin",
-         (sb[0] + sb[2]) / 2.0, (sb[1] + sb[3]) / 2.0, 180, z0=0.905,
-         W=sb[2] - sb[0], D=sb[3] - sb[1])
+    _kitchen_sink_marker(markers, "4B", (sb[0] + sb[2]) / 2.0,
+                         (sb[1] + sb[3]) / 2.0, z + 0.005, 180, "F04",
+                         compact=True, drainboard=False)
     # ONLY A MARKER. stove_prop.gd owns the whole range now — the baked
     # assembly the other seventeen carried was deleted in the stove pass,
     # so authoring geometry here would be authoring the thing that was
@@ -1703,10 +1771,7 @@ def apartment_4b(z, walls, rooms, markers, furniture):
          "yaw_deg": 0, "w": 0.55, "h": 0.72, "leaf": "closed",
          "cabinet": True},
         {"kind": "door", "id": "F04_CAB_UPPER_1",
-         "pos": [-10.55, 9.40, 9.6 + 1.50], "yaw_deg": 0, "w": 0.45,
-         "h": 0.70, "leaf": "closed", "cabinet": True},
-        {"kind": "door", "id": "F04_CAB_UPPER_2",
-         "pos": [-10.00, 9.40, 9.6 + 1.50], "yaw_deg": 0, "w": 0.45,
+         "pos": [-10.84, 9.40, 9.6 + 1.50], "yaw_deg": 0, "w": 0.48,
          "h": 0.70, "leaf": "closed", "cabinet": True},
         {"kind": "kettle", "id": "F04_B_KETTLE_01", "unit": "4B",
          "pos": [-10.50, 9.30, z + 0.92], "yaw_deg": 0,
@@ -1736,15 +1801,19 @@ def furnish_4b_detail(furniture, y0, y1, x0):
 
     # STOPS SHORT OF THE RANGE. It ran to -8.85, which is a wall cupboard
     # hanging directly over four gas burners.
-    fb("uppers", (-10.86, 9.40, -9.62, 9.64), 1.50, 0.72)
-    # the sink is a real basin assembly now (4B_ksink); the flat plate and
-    # its stick faucet that used to stand in for it are gone
+    # One cupboard stops before the real window at x=-10.25. The former
+    # second leaf occupied the glazing and the blind passed through it.
+    fb("uppers", (-10.86, 9.40, -10.31, 9.64), 1.50, 0.72)
+    # The marker-built basin owns the opening; the rack remains the player's
+    # draining surface because an attached board would occupy the range.
     # West of the sink, on the working stretch. At -9.62 and -9.30 they
     # would now be standing on the hob.
-    fb("mugs", (-10.46, 9.15, -10.24, 9.32), 0.905, 0.11)
-    # Plates on edge in a draining rack beside the basin, which is where
-    # a flat with one bowl and no machine actually keeps them.
-    fb("plates", (-9.64, 9.15, -9.57, 9.42), 0.905, 0.21)
+    _asm(furniture, "4B_mug", "mug", -10.35, 9.235, 0,
+         z0=0.905, mat="porcelain")
+    # Plates on edge in an actual draining rack beside the basin, narrow
+    # enough to stop before the range cheek at -9.55.
+    _asm(furniture, "4B_dishrack", "dishrack", -9.605, 9.285, 0,
+         z0=0.905, W=0.07, D=0.25, n=4)
     for wi, wc in enumerate((y0 + (y1 - y0) * 0.30,
                              y0 + (y1 - y0) * 0.70)):
         blind_stack(furniture, "4B_blw%d" % wi, -13.58, wc - 0.67, False,
@@ -2432,6 +2501,17 @@ def build_floor(floor_id):
         art_panel(furniture, "common_notice", -9.5, 2.745, 1.2, True,
                   z0=1.1, h=0.9, mat="paper")
         kitchen_run(furniture, "common_k", -6.15, 7.0, 2.2, False, "e")
+        # The common room has the nineteenth kitchen basin but intentionally
+        # no domestic range/fridge pair. Add only the cutout-owned sink; passing
+        # markers through kitchen_run would invent two appliances here.
+        common_cw = 0.95
+        common_yaw = FACE_YAW["w"]
+        common_cx, common_cy = -6.15 + 0.32, 7.0 + common_cw / 2.0
+        _kitchen_sink_marker(
+            markers, "common_k",
+            common_cx + (-0.20 * common_cw) * math.cos(math.radians(common_yaw)),
+            common_cy + (-0.20 * common_cw) * math.sin(math.radians(common_yaw)),
+            z, common_yaw, floor_id)
         for i in range(3):
             shelf_unit(furniture, "f01_store%d" % i, 6.2, 1.4 + i * 2.6,
                        1.6, True, d=0.45, books=False, face="n")
@@ -5160,8 +5240,6 @@ SOCKET_RULES = {
     "desk": [("WORK_PRIMARY", 0.0, 0.0)],
     "workbench": [("WORK_PRIMARY", 0.0, 0.0)],
     "kitchen": [("COUNTER_DIRTY", 0.7, 0.0), ("TRASH_ZONE", -0.9, 0.15)],
-    "sink_ped": [("SINK_EDGE", 0.3, 0.0)],
-    "shower": [("SHOWER_EDGE", 0.55, 0.0)],
     "toilet": [("TOILET_SIDE", 0.4, 0.0)],
     "wardrobe": [("WARDROBE_TOP", 0.0, 0.0)],
     "sofa": [("REST_PRIMARY", 0.0, 0.4)],
@@ -5182,7 +5260,10 @@ def life_pass(floors):
             unit = str(m.get("unit", ""))
             if unit:
                 marker_kinds.setdefault(unit, {})
-                kind = str(m.get("kind", ""))
+                # A `sink` marker can be a lavatory or a kitchen bowl.
+                # Count the semantic fixture while retaining kind for the
+                # water network's stable public vocabulary.
+                kind = str(m.get("fixture", m.get("kind", "")))
                 marker_kinds[unit][kind] = marker_kinds[unit].get(kind, 0) + 1
         for fu in fl.get("furniture", []):
             fid = str(fu.get("id", ""))
@@ -5206,19 +5287,26 @@ def life_pass(floors):
                                round(fu["at"][1] + oy, 3)],
                         "z": fl["z"]})
                     total += 1
-        # The refrigerator stopped being a Blender assembly. Its face
-        # socket must follow the marker too or the aging pass quietly loses
-        # every handle smudge the moment the obsolete shell is removed.
+        # Complete marker-built fixtures carry their dressing anchors with
+        # them. Otherwise removing the obsolete shells silently removes the
+        # mineral/rust activity edge even though the fixture still renders.
         for m in fl.get("markers", []):
-            if m.get("kind") != "fridge":
+            semantic = str(m.get("fixture", m.get("kind", "")))
+            marker_socket = {
+                "fridge": ("FRIDGE_FACE", 0.0, 0.45),
+                "bath_sink": ("SINK_EDGE", 0.30, 0.0),
+                "kitchen_sink": ("KITCHEN_SINK_EDGE", 0.42, 0.0),
+                "shower": ("SHOWER_EDGE", 0.55, 0.0),
+            }.get(semantic)
+            if marker_socket is None:
                 continue
             yaw = math.radians(float(m.get("yaw_deg", 0)))
-            dx, dy = 0.0, 0.45
+            socket, dx, dy = marker_socket
             ox = dx * math.cos(yaw) - dy * math.sin(yaw)
             oy = dx * math.sin(yaw) + dy * math.cos(yaw)
             fl["sockets"].append({
-                "id": "%s_FRIDGE_FACE" % m.get("unit", ""),
-                "unit": m.get("unit", ""), "socket": "FRIDGE_FACE",
+                "id": "%s_%s" % (m.get("unit", ""), socket),
+                "unit": m.get("unit", ""), "socket": socket,
                 "at": [round(m["pos"][0] + ox, 3),
                        round(m["pos"][1] + oy, 3)], "z": fl["z"]})
             total += 1
@@ -5248,7 +5336,8 @@ def life_pass(floors):
                 print("life audit: %s spare bed pending conversion to %s"
                       % (unit, list(conversions.values())[0]))
             need = {"wardrobe": "clothing storage", "toilet": "toilet",
-                    "shower": "washing", "stove": "cooking",
+                    "bath_sink": "bathroom basin", "shower": "washing",
+                    "kitchen_sink": "kitchen sink", "stove": "cooking",
                     "fridge": "cold storage", "kitchen": "kitchen run"}
             # 4B is box-built rather than assembled, which is exactly why
             # the brief demands SEMANTIC checks for it: its mattress,
@@ -5263,12 +5352,21 @@ def life_pass(floors):
                         problems.append("4B: bespoke %s missing" % label)
                 if beds == 0 and "mattress" in ids:
                     pass          # the mattress IS the bed
-                if marker_kinds.get(unit, {}).get("fridge", 0) == 0:
-                    problems.append("4B: no cold storage")
+                for semantic, label in (("fridge", "cold storage"),
+                                        ("stove", "cooking"),
+                                        ("bath_sink", "bathroom basin"),
+                                        ("kitchen_sink", "kitchen sink"),
+                                        ("shower", "washing")):
+                    if marker_kinds.get(unit, {}).get(semantic, 0) == 0:
+                        problems.append("4B: no %s" % label)
+                if kinds.get("toilet", 0) == 0:
+                    problems.append("4B: no toilet")
                 continue
             for asm, label in need.items():
                 have = (marker_kinds.get(unit, {}).get(asm, 0)
-                        if asm in ("fridge", "stove") else kinds.get(asm, 0))
+                        if asm in ("fridge", "stove", "bath_sink",
+                                   "kitchen_sink", "shower")
+                        else kinds.get(asm, 0))
                 if have == 0:
                     problems.append("%s: no %s" % (unit, label))
             if kinds.get("table_round", 0) + kinds.get("table_rect", 0) \
@@ -5975,7 +6073,10 @@ def retail_pass(fl):
     fb("bar_wc_lintel", (-10.85, -36.25, -10.15, -36.10), FLR + 2.05,
        0.55, "bar_wall_red")
     asm("bar_wc_toilet", "toilet", -11.15, -37.45, 0, z0=FLR)
-    asm("bar_wc_sink", "sink_basin", -10.10, -37.50, 0, z0=FLR)
+    mk.append({"kind": "sink", "fixture": "bath_sink",
+               "id": "F01_BAR_WC_SINK_01", "unit": "BAR",
+               "pos": [-10.10, -37.50, FLR], "yaw_deg": 0,
+               "network": "water"})
     # HINGE at the west jamb. Was -4.10, the dead centre of its own
     # -4.45..-3.75 opening — the fourth door in this file authored that
     # way, and the same consequence every time: the closed leaf covers
@@ -6639,7 +6740,7 @@ def _validate_placement(layout):
             if fu.get("exterior"):
                 continue
             if "asm" not in fu or fu["asm"] in (
-                    "switch", "pipe", "sink_ped", "mailbank",
+                    "switch", "pipe", "mailbank",
                     "pinboard", "toolboard"):
                 continue
             px, py = fu["at"]
@@ -6660,7 +6761,7 @@ ASM_FOOT = {
     "kitchen": (0.90, 0.33),
     "desk": (0.71, 0.34), "plantable": (1.01, 0.61),
     "workbench": (1.11, 0.49), "toilet": (0.21, 0.36),
-    "sink_ped": (0.25, 0.25), "shower": (0.41, 0.42), "bench": (0.76, 0.25),
+    "bench": (0.76, 0.25),
     "mailbank": (0.81, 0.10),
     # floor-standing personality clutter (tabletop pieces are absent on
     # purpose: they never block a route)
@@ -6681,6 +6782,8 @@ FRIDGE_FOOT = {
 # assembly row was 0.64 x 0.68; keeping it in ASM_FOOT after removing the
 # assembly would make a stale table look authoritative to future audits.
 STOVE_FOOT = (0.32, 0.30)
+BATH_SINK_FOOT = (0.305, 0.28)
+SHOWER_FOOT = (0.36, 0.36)
 
 
 def _asm_aabb(fu):
@@ -6715,7 +6818,14 @@ def _obstacles(fl):
             hx, hy = FRIDGE_FOOT[bool(m.get("monitor", False))]
         elif kind == "stove":
             hx, hy = STOVE_FOOT
+        elif m.get("fixture") == "bath_sink":
+            hx, hy = BATH_SINK_FOOT
+        elif m.get("fixture") == "shower":
+            hx, hy = SHOWER_FOOT
         else:
+            # A kitchen sink is cut into an obstacle already represented by
+            # the kitchen run or 4B's raw counter slabs; counting it again
+            # invents a second blocker at the same coordinate.
             continue
         yaw = float(m.get("yaw_deg", 0)) % 180
         if yaw == 90:
@@ -6947,9 +7057,10 @@ def _validate_furnishing(layout):
             if m.get("unit"):
                 unit = m["unit"]
                 unit_marker.setdefault(unit, {})
-                unit_marker[unit][m["kind"]] = (
-                    unit_marker[unit].get(m["kind"], 0) + 1)
-                if m["kind"] in ("fridge", "stove"):
+                semantic = m.get("fixture", m["kind"])
+                unit_marker[unit][semantic] = (
+                    unit_marker[unit].get(semantic, 0) + 1)
+                if semantic in ("fridge", "stove", "kitchen_sink"):
                     unit_yaw.setdefault(unit, set()).add(m.get("yaw_deg"))
         for fu in fl.get("furniture", []):
             unit = str(fu["id"]).split("_")[0]
@@ -6991,8 +7102,8 @@ def _validate_furnishing(layout):
     skip_states = ("sealed", "vacant (damaged)", "vacant (fire damage)",
                    "landlord storage")
     need = {"bed": 1, "kitchen": 1, "stove": 1, "fridge": 1,
-            "toilet": 1, "sink_ped": 1, "shower": 1, "wardrobe": 1,
-            "chair": 2}
+            "toilet": 1, "bath_sink": 1, "kitchen_sink": 1,
+            "shower": 1, "wardrobe": 1, "chair": 2}
     for unit, res in RESIDENTS.items():
         if res in skip_states:
             continue
@@ -7000,18 +7111,19 @@ def _validate_furnishing(layout):
             problems.append("%s has no radiator" % unit)
         a = unit_asm.get(unit, {})
         if res == "PLAYER":  # 4B is bespoke; the bath suite is shared code
-            for k in ("toilet", "sink_ped", "shower"):
-                if a.get(k, 0) < 1:
+            if a.get("toilet", 0) < 1:
+                problems.append("4B missing toilet")
+            for k in ("bath_sink", "kitchen_sink", "shower", "fridge", "stove"):
+                if unit_marker.get(unit, {}).get(k, 0) < 1:
                     problems.append("4B missing %s" % k)
-            if unit_marker.get(unit, {}).get("fridge", 0) < 1:
-                problems.append("4B missing fridge")
             continue
         if unit_detail.get(unit, 0) < 4:
             problems.append("%s lacks close surface detail (%d < 4)"
                             % (unit, unit_detail.get(unit, 0)))
         for k, n in need.items():
             have = (unit_marker.get(unit, {}).get(k, 0)
-                    if k in ("fridge", "stove") else a.get(k, 0))
+                    if k in ("fridge", "stove", "bath_sink",
+                             "kitchen_sink", "shower") else a.get(k, 0))
             if have < n:
                 problems.append("%s missing %s (%d < %d)"
                                 % (unit, k, have, n))
@@ -7417,6 +7529,11 @@ MATERIAL_CATALOG = {
     # metallic is the physical answer rather than a cheat.
     "brass_dull": {"base_color": [0.62, 0.48, 0.22, 1.0],
                    "roughness": 0.52, "metallic": 0.30},
+    # Nickel-plated brass, not chromium. A warm silver with cloudy wear is
+    # the 1908 catalog finish; enough metallic response to read as plated
+    # work, but not enough to turn a horizontal spout black under the torch.
+    "nickel_plated": {"base_color": [0.72, 0.70, 0.66, 1.0],
+                      "roughness": 0.38, "metallic": 0.70},
     # Close-read refrigerator metals. Zinc oxide and forty years of wet
     # wiping make the liner read mostly diffuse. At 0.38 metallic its shelves
     # still reflected the practical away and sampled nearly black in 4B.

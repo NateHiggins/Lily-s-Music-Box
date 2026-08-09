@@ -10,9 +10,10 @@ extends FunctionalProp
 ## silvered glass gone slightly warm and blotchy at the edges, with the
 ## silver failing where the damp gets behind it. That reads as an old
 ## mirror at a glance and does not owe the renderer anything. What makes
-## it FUNCTIONAL is that it opens - the carcass and its two glass shelves
-## are already in the wall, and behind the door is whatever this tenant
-## keeps where they can reach it in the dark.
+## it FUNCTIONAL is that it opens. This prop owns the carcass and its two
+## glass shelves too: the deleted pedestal-sink assembly used to own those
+## fixed pieces, which left a perfect door opening onto literal empty air in
+## the warehouse. Behind it is whatever this tenant keeps in the dark.
 ##
 ## Left open, the door hangs. It also means the mirror is no longer
 ## facing the room, which is a cheap and very old trick and this building
@@ -76,6 +77,15 @@ var _squeak: AudioStreamPlayer3D
 
 
 func _build_visual() -> void:
+	var carcass := Node3D.new()
+	carcass.name = "CabinetCarcass"
+	add_child(carcass)
+	_build_carcass(carcass)
+	retexture(carcass, [
+		[Color(0.83, 0.82, 0.77), "enamel", Color(0.82, 0.81, 0.75), 0.65],
+		[Color(0.70, 0.70, 0.67), "nickel_plated", Color(0.88, 0.86, 0.79), 0.42],
+	])
+	merge_static(carcass)
 	_build_kept()
 	# The door: mirror glass in a slim frame, hinged on the left stile so
 	# it opens away from whoever is standing at the basin.
@@ -138,6 +148,42 @@ func _build_visual() -> void:
 		_squeak.max_distance = 7.0
 
 
+func _build_carcass(parent: Node3D) -> void:
+	var enamel := Color(0.83, 0.82, 0.77)
+	var nickel := Color(0.70, 0.70, 0.67)
+	# Recessed 440 x 500 mm pressed-steel box. Its shallow depth is why the
+	# kept bottles sit so close to the mirror when the leaf swings shut.
+	_box_on(parent, Vector3(0.44, 0.50, 0.020),
+			Vector3(0, 1.30, -0.225), enamel)
+	for x in [-0.21, 0.21]:
+		_box_on(parent, Vector3(0.020, 0.50, 0.085),
+				Vector3(x, 1.30, -0.1925), enamel)
+	for y in [1.06, 1.54]:
+		_box_on(parent, Vector3(0.44, 0.020, 0.085),
+				Vector3(0, y, -0.1925), enamel)
+	for y in SHELF_Y:
+		var shelf := _box_on(parent, Vector3(0.40, 0.008, 0.075),
+				Vector3(0, y, -0.1925), Color(0.72, 0.76, 0.75, 0.42))
+		var mat: StandardMaterial3D = shelf.material_override
+		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		mat.roughness = 0.14
+	for x in [-0.23, 0.23]:
+		_box_on(parent, Vector3(0.018, 0.54, 0.018),
+				Vector3(x, 1.30, -0.148), nickel)
+	for y in [1.04, 1.56]:
+		_box_on(parent, Vector3(0.48, 0.018, 0.018),
+				Vector3(0, y, -0.148), nickel)
+
+
+func _box_on(parent: Node3D, size: Vector3, at: Vector3,
+		color: Color) -> MeshInstance3D:
+	var node := make_box(size, at, color)
+	node.get_parent().remove_child(node)
+	parent.add_child(node)
+	node.position = at - parent.position
+	return node
+
+
 ## What this tenant keeps where they can reach it in the dark.
 func _build_kept() -> void:
 	var items: Array = KEPT.get(unit, KEPT.get("4B", []))
@@ -189,10 +235,21 @@ func interact_prompt() -> String:
 
 
 func interact(_player: Node) -> void:
-	_open = not _open
+	set_door_open(not _open)
+
+
+## Inspection/minigame API. A zero duration puts the leaf directly in its
+## measured sweep pose so a screenshot proves clearance rather than catching
+## an arbitrary animation frame.
+func set_door_open(open: bool, duration := 0.35) -> void:
+	_open = open
 	if _squeak and not _squeak.playing:
 		_squeak.pitch_scale = 1.05 + randf_range(-0.06, 0.06)
 		_squeak.play()
+	if duration <= 0.0:
+		_swing = 1.0 if _open else 0.0
+		if _door:
+			_door.rotation.y = _swing * -1.9
 
 
 func _start_normal_function() -> void:
