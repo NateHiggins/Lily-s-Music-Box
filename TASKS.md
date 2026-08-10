@@ -178,9 +178,6 @@ Nothing below should start before that ruling.
   texture variants, that gate is unexercised.
 - **M3** Compiler textures are 128² at roughly 64 px/m, which is the deeper
   reason features come out large relative to the tile.
-- **M7** **Codex:** replace the granular/crazed bathroom porcelain plate with
-  a calm 1920s fired-glaze swatch; pilot on one lavatory and render beside the
-  legacy finish before promoting it across the fixture family.
 
 ## C — Cast (ruled 2026-08-10, ORISON_BIBLE §IV.1)
 

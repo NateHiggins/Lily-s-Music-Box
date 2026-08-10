@@ -2071,3 +2071,22 @@ last source edit. Art and game layout hashes match. FAST WalkTest checks the
 stable binding id, absence of all five modern peripherals, instrument parts,
 ten-mesh count, physical stage response, incoming annunciator, preserved verbs
 and the brass/Bakelite interface palette.
+
+## Lavatory porcelain — calm fired-glaze family promotion
+
+The original `porcelain` plate carried dense granular relief and full-surface
+crazing. On the close-hand lavatory it read as cast plaster or sprayed stone,
+not vitreous china. The approved `porcelain_fixture` source is overwhelmingly
+smooth warm ivory, with minute pinholes, extremely sparse short scratches and
+no baked bowl, drain, hotspot or directional stain. It remains a 0.40 m tiling
+swatch shared by Blender and runtime through the generated material contract.
+
+4B served as the isolated approval specimen through the faucet, rim, pedestal,
+mirror and sconce corrections. The exact approved plate now covers the complete
+lavatory class: 23 apartment basins plus the retail-bar WC. Kitchen roll-rim
+sinks and shower receptors keep their separate enamel jobs. The legacy granular
+plate remains visible only as a labelled warehouse comparison, so the defect
+can still be recognized without shipping it on an installed fixture.
+
+Final non-4B render, 2A under its own light and a grazing torch:
+`C:/PleaseRemainOnTheLine/art/renders/porcelain_fixture_pilot/family_promotion/stand_-6.85_4.65_-4.89_-90_-8.png`

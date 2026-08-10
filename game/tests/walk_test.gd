@@ -2248,8 +2248,9 @@ func _prop_mesh_and_boiler_checks() -> void:
 				[key, average, count])
 	_check(fired_enamel_stoves == 18,
 			"all eighteen ranges use the approved fired-enamel plate")
-	_check(fired_porcelain_lavatories == ["4B"],
-			"only 4B's lavatory uses the calm fired-glaze approval plate")
+	fired_porcelain_lavatories.sort()
+	_check(fired_porcelain_lavatories.size() == 24,
+			"all 24 lavatories, including the retail WC, use calm fired glaze")
 
 	var plant := root.get_node_or_null("B1_BOILER_01") as BoilerProp
 	_check(plant != null, "one functional 1912 coal boiler owns the plant")
