@@ -28,6 +28,25 @@ That is the joke, and it is checked rather than asserted: the world compiler run
 `worldc invariance` across all twelve compiled cabinets and refuses to write the
 catalog if any two of them differ mechanically.
 
+## A note on names
+
+The fiction and the code disagree on purpose, and it is worth knowing which is
+which before you go looking.
+
+**In the world** these are not arcade cabinets. There is no video game industry
+in the Orison; there is a signal parlour, and the machines are Vantry receiving
+furniture with a coin box on them (`ORISON_BIBLE.md` VIII.5.g). Cards, not
+marquees. Programme formats, not genres. Chassis years, not console generations.
+
+**In the code** the subsystem is called `arcade` everywhere — `arcade_pit`,
+`build_arcade.py`, `arcade_cabinets.json`, `ArcadeCabinetProp`, `arcade_row.gd`,
+`game/assets/arcade/`. That is the lineage the implementation grew from and it
+is not being renamed: a rename touches twenty files, a catalog, an asset
+directory and a scene id, and buys nothing a sentence cannot.
+
+So: **`arcade` is the subsystem, the signal parlour is the fiction.** If a
+document says one and the code says the other, they agree.
+
 ## Where it comes from
 
 Nothing in `game/` generates these. They are a build output of a separate

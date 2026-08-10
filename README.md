@@ -1,14 +1,23 @@
 # Lily's Music Box
 
-This repository currently holds three standalone prototypes:
+The live project is **Please Remain On The Line** — the Orison Apartments, a
+first-person psychological horror set in a 1927 Queens block where sound moves
+through the building's own wiring. It is `art/` + `game/`.
+
+**Start here:**
+
+| | |
+|---|---|
+| [`DOCS.md`](DOCS.md) | **where everything is written down** — read this if you do not know where to look |
+| [`TASKS.md`](TASKS.md) | the live queue: open work, one line each |
+| [`HANDOFF.md`](HANDOFF.md) | how to build and verify the layout → Blender → Godot chain |
+| [`design/ORISON_BIBLE.md`](design/ORISON_BIBLE.md) | the covenant: what is true, and what prevails when documents disagree |
+
+This repository also holds two older standalone prototypes, kept for reference:
 
 - **`audio_virus_prototype/`** — *The Audio Virus*: an experiential audio-narrative
   prototype where a rhythmic motif passes from a support caller into the player's
   apartment (Godot 4.2+). See [`audio_virus_prototype/README.md`](audio_virus_prototype/README.md).
-- **`art/` + `game/`** — *Orison Apartments*: the full building as a first-person
-  3D environment — procedural Blender 4.5 pipeline (`art/`) feeding a Godot 4.5
-  project (`game/`) with the unseen-conductor prop system. See
-  [`art/README.md`](art/README.md) and [`game/README.md`](game/README.md).
 - **`legacy_mobile_mvp/`** — the earlier mobile-edition top-down MVP, documented below.
 
 Each prototype has its own `project.godot` — in Godot's Project Manager use **Import** and select the `project.godot` inside the folder you want (`game/` for the 3D building, `audio_virus_prototype/` for the 2D call prototype, `legacy_mobile_mvp/` for the old MVP). The repository root is deliberately not a project.
@@ -39,10 +48,19 @@ editing `art/data/gen_layout.py`, see [`art/README.md`](art/README.md).
 
 # Lily's Music Box (Mobile Edition) — Godot MVP
 
+---
+
+# The legacy mobile MVP
+
+**Everything below this line documents `legacy_mobile_mvp/` — the retired
+top-down prototype, kept for reference. It is not the live game.** All paths in
+this section are relative to `legacy_mobile_mvp/`; for the Orison see
+[`DOCS.md`](DOCS.md).
+
 A mobile-first, portrait-oriented 2D top-down prototype focused on trap logic and persistent death remnants.
 
 ## Requirements
-- Godot 4.2+ (tested with 4.x project format)
+- Godot 4.2+ (this section only; the Orison needs 4.7.1)
 - No external assets required
 
 ## Run

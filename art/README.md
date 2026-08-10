@@ -16,7 +16,7 @@ art/data/gen_layout.py ──► building_layout.json  (rooms, walls+openings,
 art/blender/scripts/build_orison.py  (Blender 4.5 / bpy)
         ├─► game/assets/building/*.glb   (one scene per floor)
         └─► art/blender/orison_master.blend
-game/  (Godot 4.5)  — see game/README.md
+game/  (Godot 4.7.1)  — see game/README.md
 ```
 
 ## Regenerating the building

@@ -211,7 +211,8 @@ Within the existing pipeline (not a fresh tree):
 - Data: `data/songs/*.tres` (SongData: title, fictional artist, stream,
   duration, lyric_events[], mood, bpm, crowd profile; LyricEvent:
   timestamp, text, end).
-- Docs owed later: `docs/asset_manifest.md`, `docs/interaction_manifest.md`.
+- Docs owed later (not yet written, deliberately): an asset manifest and
+  an interaction manifest for this room.
 
 ## V. REUSABLE COMPONENTS (map to existing systems)
 

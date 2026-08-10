@@ -105,11 +105,20 @@ bearing wall, and a raycast fan that found the road slab over the well.
 
 ## State
 
-**`art/docs/photoreal_target.md` is the live status document** — it holds
-the eight-phase roadmap with an honest per-phase assessment and the
-invariants that hold across all of it. Read it before starting new work.
-This file covers only how to build and verify; do not duplicate phase
-status here, because two copies of a status always disagree.
+**Three documents, three jobs — do not duplicate between them.**
+
+| | |
+|---|---|
+| `art/docs/photoreal_target.md` | the eight-phase art roadmap and its per-phase assessment |
+| `TASKS.md` | the live queue: one line per open task, anyone may add |
+| this file | how to build and verify, and nothing else |
+
+*ORISON_BIBLE §VI.7 records a dispute about this file's standing: HANDOFF
+used to call `photoreal_target.md` "the live status document" and framed
+the whole game as the desk prototype. The interim ruling is that the
+execution plan governs and HANDOFF is pipeline mechanics only. That ruling
+is now reflected above; the dispute stays open until the owner blesses or
+amends it.*
 
 Broadly: phases 1, 2 and 6 (dressing) are done; 3, 4, 5, 7 and 8 are
 partly done with named remainders. The building is fully walkable end to

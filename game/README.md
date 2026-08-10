@@ -1,8 +1,8 @@
-# Orison Apartments — Godot 4.5 Building Prototype
+# Orison Apartments — Godot 4.7.1 Building Prototype
 
 First-person navigable blockout of the full building, assembled from the
 procedural art pipeline in `../art/` (see that README for regeneration).
-Open this folder in Godot 4.5+ and press F5. You start in the lobby at
+Open this folder in Godot 4.7.1 and press F5. You start in the lobby at
 night.
 
 ## Controls
