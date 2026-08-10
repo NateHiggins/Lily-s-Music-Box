@@ -2166,6 +2166,30 @@ CEILING_MATERIAL = {
 }
 
 
+def _ceiling_material(fid, room):
+    """Finish condition follows water and exposure, never generic grunge.
+
+    Corridors and the lobby retain their pressed tin.  Plaster darkens where
+    the roof, baths and kitchens can actually feed it; a small deterministic
+    minority of ordinary rooms records a century of patched leaks.  The
+    structure stays whole.  The approved stair-soffit scan is a separate,
+    unique finish and is never tiled over apartment ceilings.
+    """
+    base = CEILING_MATERIAL.get(room.get("kind"), "plaster")
+    if base != "plaster":
+        return base
+    kind = room.get("kind", "")
+    if (kind in ("bathroom", "kitchen", "laundry", "boiler")
+            or room.get("id") == "F04_B_MAIN"):
+        return "plaster_stained"
+    rng = random.Random("ceiling-condition:%s:%s" % (fid, room["id"]))
+    # The roof makes failures common on six, not universal.  A whole floor of
+    # one stain condition looked authored and also erased the plain-plaster
+    # buffer used to prove that floor streaming culls ceilings with their owner.
+    threshold = 45 if fid == "F06" else 18
+    return "plaster_stained" if rng.randrange(100) < threshold else "plaster"
+
+
 def ceiling_pass(floors):
     """Give each storey the underside that belongs to the rooms below it.
 
@@ -2198,7 +2222,7 @@ def ceiling_pass(floors):
                 rects = subtract_rect(rects, prior)
             for hole in fl["slabs"][0].get("holes", []):
                 rects = subtract_rect(rects, tuple(hole))
-            mat = CEILING_MATERIAL.get(room.get("kind"), "plaster")
+            mat = _ceiling_material(fid, room)
             for i, rect in enumerate(rects):
                 if rect_area(rect) < 0.001:
                     continue
@@ -6312,9 +6336,15 @@ def stair_geometry(st):
                       "tread": run / (n1 - 1), "n": n1, "axis": "y",
                       "dir": 1, "start": deck_edge, "b0": wx0,
                       "b1": wx0 + w, "rail_side": "hi"})
-        parts.append({"kind": "landing", "z": lz,
-                      "rect": [wx0, land_edge, wx1, wy1],
-                      "guard_edge": "s", "guard_span": [wx0 + w, wx1 - w]})
+        landing = {"kind": "landing", "z": lz,
+                   "rect": [wx0, land_edge, wx1, wy1],
+                   # Approved on F04 before promotion.  A 180-degree flip on
+                   # alternate storeys keeps adjacent soffits from presenting
+                   # the same water bloom in the same direction.
+                   "soffit_finish": "fx_ceiling_soffit_failed",
+                   "soffit_flip": i % 2 == 1,
+                   "guard_edge": "s", "guard_span": [wx0 + w, wx1 - w]}
+        parts.append(landing)
         # east flight: north landing back south, one level up
         parts.append({"kind": "flight", "z0": lz, "rise": rise,
                       "tread": run / (n2 - 1), "n": n2, "axis": "y",
@@ -6443,7 +6473,8 @@ def _validate_ceilings(layout):
         for face in ceilings:
             if abs(float(face["z"]) - expected_z) > 0.011:
                 problems.append("%s ceiling escaped its soffit" % face["id"])
-            if face.get("mat") not in ("plaster", "tin_ceiling"):
+            if face.get("mat") not in ("plaster", "plaster_stained",
+                                        "tin_ceiling"):
                 problems.append("%s names unsupported finish %s" %
                                 (face["id"], face.get("mat")))
         # Subtract the faces from each room. Slab holes are lawful absences;
@@ -8129,6 +8160,10 @@ MATERIAL_CATALOG = {
     "fx_burn": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
     "fx_patch": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
     "fx_damp": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0},
+    # Approved full-surface landing soffit. It terminates at the real slab
+    # edge, so it is neither a floating decal nor a tiled room material.
+    "fx_ceiling_soffit_failed": {"base_color": [1.0, 1.0, 1.0, 1.0],
+                                  "roughness": 1.0},
     # appliance & hardware finishes for the parametric asset library
     "chrome": {"base_color": [0.80, 0.82, 0.85, 1.0], "roughness": 0.12,
                "metallic": 1.0},

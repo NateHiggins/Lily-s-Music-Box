@@ -532,6 +532,9 @@ FX_TEX = {
     "fx_burn": "generated/fx/wear_burn.png",
     "fx_patch": "generated/fx/age_patch.png",
     "fx_damp": "generated/fx/age_damp.png",
+    # Approved landing soffit plate. Full-bleed opacity means its boundary is
+    # the real slab edge; there is no rectangular decal island.
+    "fx_ceiling_soffit_failed": "ai_sources/ceiling_soffit_failed_v1.png",
 }
 
 
@@ -3704,6 +3707,20 @@ def build_stair(buf, st):
                       buf(fid, "stairs_ramp-colonly", "stair")):
                 b.add_box((r[0], r[1], part["z"] - 0.18),
                           (r[2], r[3], part["z"]))
+            if part.get("soffit_finish"):
+                # Three millimetres below the structural landing: enough to
+                # avoid z-fighting, far too shallow to read as the black cavity
+                # made by the rejected failed-plaster pass. Unit UVs put the
+                # unique scan across this one soffit exactly once.
+                z_soffit = part["z"] - 0.183
+                finish = buf(fid, "stairs_soffit_failed",
+                             part["soffit_finish"])
+                uv = ((1, 1), (0, 1), (0, 0), (1, 0)) \
+                    if part.get("soffit_flip") else \
+                    ((0, 1), (1, 1), (1, 0), (0, 0))
+                finish.add_quad_uv(
+                    (r[0], r[3], z_soffit), (r[2], r[3], z_soffit),
+                    (r[2], r[1], z_soffit), (r[0], r[1], z_soffit), *uv)
             if not is_deck:
                 gx0, gx1 = part["guard_span"]
                 yc = r[1] + 0.055 if part["guard_edge"] == "s" \

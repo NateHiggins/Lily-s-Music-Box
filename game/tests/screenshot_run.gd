@@ -32,6 +32,11 @@ const SHOTS := [
 	# back on the deck and the storey above fills the frame with its soffit.
 	{"name": "b_18_atrium_eye", "pos": Vector3(0.0, 1.75, 1.58),
 	 "look": Vector3(0.12, 15.0, 0.10), "overlay": false},
+	# Ceiling-rule approval frame: player-height inspection of the F04
+	# half-landing soffit.  A whole-shaft view made the trial finish look like
+	# every other landing and could not answer whether its scale reads.
+	{"name": "b_82_f04_soffit", "pos": Vector3(0.0, 10.15, 0.20),
+	 "look": Vector3(0.0, 11.12, -2.30), "overlay": false},
 	{"name": "b_33_light_tree", "pos": Vector3(1.05, 8.05, 2.35),
 	 "look": Vector3(-0.10, 6.60, -0.10), "overlay": false},
 	{"name": "b_17_2a_mina_living", "pos": Vector3(-6.8, 4.78, 1.4),
