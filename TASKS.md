@@ -204,7 +204,7 @@ they keep their door, schedule, mailbox and place in the web.
   the world compiler, the providers, the arcade catalog build, the texture
   validation — is unversioned files on disk. `git init` and a first commit.
 - **H3** `worldc clean --stale` has no test covering it.
-- **H9** Nothing defends the **mail bank ↔ lobby clock clearance**. Measured
+- **H9** **Codex:** Nothing defends the **mail bank ↔ lobby clock clearance**. Measured
   today at 175 mm: the clock spans blender y -9.205..-8.735 and the bank's
   surround -8.560..-7.200, and they overlap in height (1.715..1.930), so that
   gap is the only separation. `MAIL_BANK_Y` is a Godot constant and the clock's
