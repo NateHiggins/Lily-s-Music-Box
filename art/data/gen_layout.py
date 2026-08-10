@@ -447,7 +447,7 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
         # side so its leaf opens into free air instead of through that return.
         _bath_marker(markers, unit, "mirror", x1 - 0.30,
                      sink_run, 90, z, "right")
-        spos, syaw = [x1 - 0.08, sink_run - 0.39], -90
+        spos, syaw = [x1 - 0.08, sink_run - 0.50], -90
     elif edge == "w":
         sink_run = _run(y0 + 1.92, y0, y1)
         _bath_marker(markers, unit, "shower", x0 + 0.46, y0 + 0.50, -90, z)
@@ -455,7 +455,7 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
         _bath_marker(markers, unit, "sink", x0 + 0.30, sink_run, -90, z)
         _bath_marker(markers, unit, "mirror", x0 + 0.30,
                      sink_run, -90, z, "left")
-        spos, syaw = [x0 + 0.08, sink_run - 0.39], 90
+        spos, syaw = [x0 + 0.08, sink_run - 0.50], 90
     else:  # "n"
         sink_run = _run(x0 + 1.92, x0, x1)
         _bath_marker(markers, unit, "shower", x0 + 0.50, y1 - 0.46, 180, z)
@@ -463,7 +463,7 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
         _bath_marker(markers, unit, "sink", sink_run, y1 - 0.30, 180, z)
         _bath_marker(markers, unit, "mirror",
                      sink_run, y1 - 0.30, 180, z, "left")
-        spos, syaw = [sink_run - 0.39, y1 - 0.08], 0
+        spos, syaw = [sink_run - 0.50, y1 - 0.08], 0
     # Towels live on the wall opposite the wet fixtures. The former rail
     # shared the shower/toilet wall and visibly passed through both.
     # The C bathroom carries a second door on the same wall the rail
@@ -490,8 +490,9 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
                         "id": "%s_LT_SCONCE" % unit,
                         # A lamp above the raised cabinet was crowded against
                         # the ceiling. One roomward side light is the cheaper
-                        # 1928 composition: centred near the worker's face,
-                        # clear of the mirror leaf, and still one circuit load.
+                        # 1928 composition. Its centre is half a metre along
+                        # the wall from the basin: 390 mm left the opal globe
+                        # pinching the cabinet edge once bloom was visible.
                         "unit": unit, "pos": [spos[0], spos[1], z + 1.62],
                         "yaw_deg": syaw, "network": "electrical",
                         "energy": 1.05})

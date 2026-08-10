@@ -122,8 +122,16 @@ func _build_visual() -> void:
 	# additive halo billboard around the source
 	_halo = MeshInstance3D.new()
 	var quad := QuadMesh.new()
-	quad.size = Vector2(0.55, 0.55) if prop_type != "chandelier" \
-			else Vector2(1.2, 1.2)
+	if prop_type == "chandelier":
+		quad.size = Vector2(1.2, 1.2)
+	elif prop_type == "sconce_globe" and name.ends_with("_LT_SCONCE"):
+		# The default 550 mm additive bloom was more than three times the
+		# globe diameter. Beside a 460 mm medicine cabinet it overlapped the
+		# mirror even though the brass bodies had measured clearance, making
+		# the composition read crowded and the glass look self-illuminated.
+		quad.size = Vector2(0.32, 0.32)
+	else:
+		quad.size = Vector2(0.55, 0.55)
 	_halo.mesh = quad
 	var hm := StandardMaterial3D.new()
 	hm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED

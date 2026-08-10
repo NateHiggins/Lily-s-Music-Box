@@ -2402,9 +2402,21 @@ func _medicine_cabinet_checks() -> void:
 		var separation: float = mirror_markers[unit].distance_to(
 				side_sconces[unit])
 		every_sconce_spaced = every_sconce_spaced \
-				and separation >= 0.43 and separation <= 0.47
+				and separation >= 0.53 and separation <= 0.56
 	_check(every_sconce_spaced,
 			"all 23 lavatory sconces occupy the measured roomward side position")
+	var compact_sconce_halos := true
+	var bath_sconce_count := 0
+	for child in root.get_children():
+		if child is not LightFixtureProp or not child.name.ends_with("_LT_SCONCE"):
+			continue
+		bath_sconce_count += 1
+		var fixture := child as LightFixtureProp
+		var halo_mesh := fixture._halo.mesh as QuadMesh
+		compact_sconce_halos = compact_sconce_halos and halo_mesh != null \
+				and halo_mesh.size.x <= 0.32 and halo_mesh.size.y <= 0.32
+	_check(bath_sconce_count == 23 and compact_sconce_halos,
+			"bathroom globe halos stay clear of the medicine-cabinet glass")
 	_check(hinge_sides.has("left") and hinge_sides.has("right")
 			and hinge_sides.size() == 2,
 			"cabinet markers choose one of both geometry-derived hinge sides")
