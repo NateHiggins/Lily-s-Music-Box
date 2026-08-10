@@ -190,6 +190,61 @@ is no battery, because it is a 1912 house-circuit listening instrument and not a
 smoke detector. The finding is navigation and the grille is the mechanism. This
 is the template for how the acoustic graph earns its keep.
 
+### THE BULBS — the building goes dark on its own
+
+*Added 2026-08-10, at the owner's direction.* Lights burn out over time. You
+change them. If you do not, the building gets darker, and darker is scarier.
+
+This is the one decay model that passes §9's test without argument, because
+**its output is the light in the room.** Nothing is simulated that the player
+cannot see; the system's entire state is legible by standing in a corridor.
+
+**The mechanism.** Reach up — some of them need the chair. Twist the dead one
+out: resistance, then it gives, then the weight of it in your hand. **It is hot,**
+so a bulb that has just blown cannot be changed immediately, which is period-true
+and buys a pause. Seat the new one and the light comes on *mid-twist*, before you
+have finished, which is the commit. The sounds are glass on thread and the tink
+of a hot filament cooling.
+
+That is the whole interaction. No panel, no module, no score.
+
+**Bulbs are a consumable, and the errand already exists.** §VIII.4 puts valves in
+the bodega beside the cigarettes, in printed sleeves, six for a dollar. Bulbs go
+on the same shelf. The basement studio's dead-channel chore already sends the
+player there for a valve — **one errand, two reasons**, and the bodega stops
+being set dressing.
+
+**Not all 245.** The building has 245 fixtures and a burnout model across all of
+them is a treadmill, not a game. Three classes:
+
+| Class | Behaviour |
+|---|---|
+| **Yours** | corridors, stairs, landings, basement, the light court — the public parts. These burn out, you change them, and this is the whole loop |
+| **Theirs** | inside a flat. A resident's bulb is a resident's problem, and one of them will ask you anyway, which is job creep arriving by telephone |
+| **Dead already** | fixtures that have been out since before you arrived. No spare fits, or the fitting itself is gone. **These never come back on** and they are where the permanent dark lives |
+
+The third class is doing the real work. A building you can fully light is a
+building you have beaten, and this one should never be beatable.
+
+**You cannot get ahead**, and that is the same joke as the radiators. The rate is
+set slightly faster than a shift can clear, so the lit map is always receding
+somewhere. The Handbook has a procedure for lamp renewal; it is six steps and one
+of them is "notify management".
+
+**The infection blows them.** `FunctionalProp._on_reality_event` already dips
+lights as one of its expressions — blowing a bulb outright is one step further
+along a road that is built. That makes the dark **follow the case**: wherever the
+building is currently wrong is where the corridor goes out, so the player is
+maintaining most heavily in exactly the place they least want to stand. The
+system balances itself against the story with no tuning at all.
+
+**Where this touches other work.** `LightRig` carried a per-storey light budget
+for the compatibility renderer; burnt-out fixtures reduce the live count rather
+than raising it, so this is performance-positive — but the rig should be checked
+rather than assumed. `door_glow` and `window_glow` model who is awake, and as the
+corridors go dark those become the dominant light in the building: the place
+reads as inhabited by everyone except you.
+
 **WRINGER / AIRER** (`washer_prop`, 2; `laundry_airer_prop`, 1). A garment goes
 wash, wringer, rinse, wringer, airer, and the route is physical — you feed cloth
 through a powered mangle, which is inherently good to do and slightly alarming.
@@ -260,7 +315,9 @@ objects are what make the interactive ones feel chosen.
 4. **Radiator valve and vent.** Two mechanisms, no network.
 5. **Fridge doors**, then the errand that comes from remembering what was in one.
 6. **The stove knob.** Detents and ignition.
-7. The chores in batches, once `WorkOrders` exists.
+7. **The bulbs.** The mechanism is an hour; the three fixture classes and the
+   rate are the design, and the rate wants playtesting rather than a guess.
+8. The chores in batches, once `WorkOrders` exists.
 
 ## 9. Two warnings
 

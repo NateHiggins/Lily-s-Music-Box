@@ -197,6 +197,20 @@ they keep their door, schedule, mailbox and place in the web.
   light, schedule, signature sound, mailbox — so "case-less" reads as a person
   without a chapter rather than an unfinished resident.
 
+## L — Light and decay
+
+- **L1** Bulb burnout and renewal (`design/PROP_ACTIVITIES.md` §4). The
+  mechanism is small; the design is the three fixture classes — yours, theirs,
+  and the ones that never come back on — and a rate set slightly faster than a
+  shift can clear.
+- **L2** Bulbs onto the bodega shelf beside the valves, sharing the studio
+  chore's errand. One trip, two reasons.
+- **L3** Let the infection blow bulbs, so the permanent dark follows the active
+  case rather than being tuned by hand.
+- **L4** Check `LightRig`'s per-storey budget against fixtures going dark. Should
+  be performance-positive, but it was written when the cap was 16 and wants
+  re-reading rather than assuming.
+
 ## H — Housekeeping
 
 - **H2** **`C:\FPSengine01` is not a git repository.** The entire compiler side —
