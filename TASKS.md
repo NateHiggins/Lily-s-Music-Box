@@ -155,9 +155,6 @@ and by NPCs. R2 needs a brief before anyone builds.
 - **M3** Compiler textures are 128² at roughly 64 px/m, which is the deeper
   reason features come out large relative to the tile.
 
-- **M6** **Codex — stove enamel approval pilot.** Author one smooth fired
-  appliance-enamel plate, compare it beside the legacy stove in the warehouse,
-  and install it in 4B only until the owner approves family promotion.
 ## H — Housekeeping
 
 - **H2** **`C:\FPSengine01` is not a git repository.** The entire compiler side —

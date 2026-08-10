@@ -39,9 +39,9 @@ const BURNER_SPOTS := [
 ## retained ambient-burner beat; the other sixteen start honestly cold.
 var unit := ""
 var ambient_lit := false
-## Exposed for the approval gate: until the owner promotes the finish, exactly
-## one installed range may report the new semantic material.
-var enamel_material_key := "enamel"
+## Exposed for the material-family gate. A stove is porcelain-enamel sheet;
+## the old generic key remains only for consumers awaiting their own review.
+var enamel_material_key := "enamel_appliance"
 
 var blocked_burner := -1
 var burner_grime: Array[float] = []
@@ -66,12 +66,8 @@ var _burn: AudioStreamPlayer3D
 
 
 func warehouse_variants() -> Array[Dictionary]:
-	return [
-		{"label": "stove / legacy enamel",
-			"properties": {"unit": "2B", "ambient_lit": false}},
-		{"label": "stove / fired enamel pilot",
-			"properties": {"unit": "4B", "ambient_lit": false}},
-	]
+	return [{"label": "stove / 1922 fired-enamel gas range",
+			"properties": {"unit": "2B", "ambient_lit": false}}]
 
 
 func _build_visual() -> void:
@@ -91,11 +87,6 @@ func _build_visual() -> void:
 		_build_burner(i, BURNER_SPOTS[i])
 
 	var enamel_tint := _enamel_tint()
-	# One installed range and its warehouse twin carry the approval plate.
-	# Keeping the other seventeen on `enamel` makes the comparison honest and
-	# prevents a promising source swatch from becoming a building-wide ruling
-	# before it has survived the torch and the kitchen's authored light.
-	enamel_material_key = "enamel_appliance" if unit == "4B" else "enamel"
 	retexture(self, [
 		[ENAMEL, enamel_material_key, enamel_tint, 0.82],
 		[IRON, "cast_iron", Color(0.42, 0.40, 0.38), 0.72],
