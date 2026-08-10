@@ -144,7 +144,9 @@ and by NPCs. R2 needs a brief before anyone builds.
 - **M3** Compiler textures are 128² at roughly 64 px/m, which is the deeper
   reason features come out large relative to the tile.
 
-- **M4** **Texture appearance audit.** Not "do the textures exist" but *does each material read correctly at the size of the object wearing it*. Materials are triplanar in WORLD space, so a bad `meters_per_tile` shows as brick-sized grain on a doorknob rather than stretched UVs. Sweep the warehouse first (68 displays, 44 kinds, flat-lit, side by side — it is the instrument for this), then spot-check in situ under torch. Method and the four failure modes in `design/AUDIT_BRIEF.md`. *Audit only — propose fixes, change nothing.*
+- **M6** **Codex — stove enamel approval pilot.** Author one smooth fired
+  appliance-enamel plate, compare it beside the legacy stove in the warehouse,
+  and install it in 4B only until the owner approves family promotion.
 ## H — Housekeeping
 
 - **H2** **`C:\FPSengine01` is not a git repository.** The entire compiler side —
