@@ -144,6 +144,30 @@ and by NPCs. R2 needs a brief before anyone builds.
   and the fix is worth having building-wide, not just on the street.
 
 
+## N — The dream (narcolepsy maze)
+
+Proposed in `design/ORISON_MAZE_BRIEF.md`. **Not canon until the owner rules.**
+Nothing below should start before that ruling.
+
+- **N1** Owner ruling on the brief. Four open questions at its foot, of which the
+  first — whether a call in progress protects the player from an attack — is the
+  one that decides how cruel the game is. *Blocks everything else in this section.*
+- **N2** Fractal maze generator: one seed per save, generated once at campaign
+  start, room archetypes drawn from the Orison's own rooms. Must run the same
+  overlap / footprint / door-width / door-swing audit `gen_layout.py` does.
+- **N3** Narcolepsy onset system in the waking game: gradual and sudden, weak
+  resistance, cataplexy on strong emotion, and the accessibility option forcing
+  all onsets to be gradual.
+- **N4** The light binary — on to see hazards and be found, off to be safe and
+  blind. This is the entire verb set and wants prototyping before anything else
+  is built around it.
+- **N5** Eight hazards across positional, triggered, rhythmic and conditional,
+  each with an audible tell that survives the light being off.
+- **N6** Bind the pursuer to `PoltergeistLibrary` so the thing in the dream is
+  the current case's poltergeist, not a new monster.
+- **N7** If ruled canon, add the Rule of Signal exemption to `ORISON_BIBLE.md`
+  so the dream is not later read as a violation of §VIII.
+
 ## M — Materials and textures
 
 - **M1** Supertiles and stable per-wall UV offsets. Explicitly **not** part of
