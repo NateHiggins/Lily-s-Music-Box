@@ -235,10 +235,6 @@ and the four isolated roof fixtures now terminating at a real riser.
   rig or animation, so nothing in it reintroduces them. Remaining question is
   only whether to delete or move them outside `game/` so `all_resources` cannot
   package them.
-- **U5** `resident_decor_profiles.json` — a complete seventeen-household
-  decorating brief with no consumer. It is *valuable prose in the wrong file
-  class*: per `DOCS.md` it is a brief, not game data. **Move it to `design/`**
-  rather than delete.
 - **U6** The `smoke_detector` alias class has no reference of any kind, but
   external saves may name it. **Decide save compatibility before touching it.**
 - **U7** `ROOF_TANK` is an unregistered marker with no graph node or lookup; the

@@ -26,6 +26,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | **Reference** | How a subsystem actually works. Kept current. | `game/docs/`, `art/docs/`, `docs/` |
 | **Brief / proposal** | **Not canon until ruled.** Says so at the top. | `design/*_BRIEF.md`, `docs/songbook_brief.md` |
 | **Prompt sheet** | Inputs to asset generation. Historical once used. | `design/*_PROMPTS.md`, `*_PROMPT_SHEET.md` |
+| **Brief in data shape** | Design written as JSON but read by nobody. Lives in `design/` so it is not mistaken for game data | `design/resident_decor_profiles.json` |
 | **Queue** | Open work, one line each. Deleted when done. | `TASKS.md` |
 | **Audit** | Evidence with a method and confidence levels. Findings graduate to the queue; the audit stays as the record | `design/AUDIT_*.md` |
 | **Build guide** | How to build and verify. Mechanics only. | `HANDOFF.md`, `art/README.md`, `game/README.md` |
@@ -53,6 +54,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Why a texture tiles badly | `art/tools/ingest_material_sources.py`, and the compiler's `docs/provider-api.md` |
 | What clothes people wear | `design/ORISON_WARDROBE_BIBLE.md` |
 | What appliances exist | `design/ORISON_APPLIANCE_BIBLE.md` |
+| How a household decorates | `design/resident_decor_profiles.json` *(brief, not loaded)* |
 
 ## The two repositories
 
