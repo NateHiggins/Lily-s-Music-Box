@@ -80,6 +80,19 @@ not a reveal.
 **They must fear it happening.** That is the design target for the waking game,
 and it is achieved by surprise, not by frequency.
 
+### A call in progress protects them
+
+*(Ruled 2026-08-10.)* Once a call has started, sleep holds off. The job is the
+one safe place, which is worth more than the cruelty of taking someone
+mid-sentence — and it obeys the rule that an attack may cost time, position and
+dignity but never work.
+
+**It delays; it does not cancel.** Pressure accumulates through the call and
+fires when the handset goes down. So the shape of it is: the conversation lands,
+the player feels it land, they hang up — and then they go down, because feeling
+it is what drops them. The dread moves into the aftermath, which is a better
+place for it, and there is no exploit in staying on the line.
+
 **Accessibility valve: ship an option forcing every onset to be gradual.** It
 keeps the mechanic and removes the ambush, and it costs one boolean.
 
@@ -228,13 +241,25 @@ So the leash is lengthened by the **campaign**, not by maze performance:
 The player is allowed further as the story proceeds, and they never earn it. That
 is the correct feeling for purgatory and it should not be softened.
 
-### How does the player know they are doing better?
+### The world never acknowledges improvement, and that is the point
 
-With no UI and no counter, there is exactly one channel: **they see rooms they
-have not seen.** Recognition is the progress meter — the dread of *I know what is
-after this door* is the reward, and running out of recognised rooms is the
-frontier. This should be authored deliberately; it is the only feedback the
-design permits.
+*(Ruled 2026-08-10: the feeling of not making progress is the design.)*
+
+Nothing congratulates the player. No counter, no distance, no best-ever, no
+resident remarking that they look rested. The character is not getting anywhere,
+because there is nowhere, and the game must never imply otherwise.
+
+One distinction to hold on to while building it, because it is easy to lose:
+**the player's own mastery still has to be perceptible to the player.** They
+learn the first rooms, they recognise a corridor, they last ninety seconds where
+they used to last ten. That improvement is real and felt — and the world's
+refusal to acknowledge it is what makes this purgatory rather than noise. If
+neither the character nor the player can perceive anything changing, the loop
+stops being oppressive and becomes tedious.
+
+Nothing needs to be added to achieve it; the run-length curve and room
+recognition deliver it on their own. The instruction is only: **do not author
+against it.**
 
 ---
 
@@ -274,12 +299,9 @@ One-way. Cheap now, and it keeps the option open.
 
 ## OPEN QUESTIONS
 
-1. **Does a call in progress protect the player, or make an attack more likely?**
-   Inferred from "catch em by surprise" that nothing protects them, but this is
-   the single most frustrating decision available and the owner should own it.
-2. **Which poltergeist chases the player before the first case is assigned**, and
+1. **Which poltergeist chases the player before the first case is assigned**, and
    after the last one closes?
-3. **Does the player's own poltergeist ever appear?** 4B has no case; §IV says
+2. **Does the player's own poltergeist ever appear?** 4B has no case; §IV says
    the player's arc bends toward a release.
-4. **Does the dream ever change after a case closes** — does the thing that was
+3. **Does the dream ever change after a case closes** — does the thing that was
    chasing you stop?

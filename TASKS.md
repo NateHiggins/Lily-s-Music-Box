@@ -149,9 +149,9 @@ and by NPCs. R2 needs a brief before anyone builds.
 Proposed in `design/ORISON_MAZE_BRIEF.md`. **Not canon until the owner rules.**
 Nothing below should start before that ruling.
 
-- **N1** Owner ruling on the brief. Four open questions at its foot, of which the
-  first — whether a call in progress protects the player from an attack — is the
-  one that decides how cruel the game is. *Blocks everything else in this section.*
+- **N1** Owner ruling on the brief. Three open questions remain at its foot, all
+  about which poltergeist is in the dream and when. *Blocks everything else in
+  this section.*
 - **N2** Fractal maze generator: one seed per save, generated once at campaign
   start, room archetypes drawn from the Orison's own rooms. Must run the same
   overlap / footprint / door-width / door-swing audit `gen_layout.py` does.
