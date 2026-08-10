@@ -2292,25 +2292,38 @@ func _medicine_cabinet_checks() -> void:
 
 	var marker_count := 0
 	var structural_count := 0
-	var raised_sconce_count := 0
+	var side_sconces := {}
+	var mirror_markers := {}
 	var hinge_sides := {}
 	for floor in root.layout.get("floors", []):
 		for marker in floor.get("markers", []):
 			if String(marker.get("kind", "")) == "sconce_globe" \
 					and String(marker.get("unit", "")) != "":
 				var relative_height := float(marker.pos[2]) - float(floor.z)
-				if absf(relative_height - 2.08) < 0.001:
-					raised_sconce_count += 1
+				if absf(relative_height - 1.62) < 0.001:
+					side_sconces[String(marker.unit)] = Vector2(
+							float(marker.pos[0]), float(marker.pos[1]))
 			if String(marker.get("kind", "")) != "mirror":
 				continue
 			marker_count += 1
+			mirror_markers[String(marker.unit)] = Vector2(
+					float(marker.pos[0]), float(marker.pos[1]))
 			if String(marker.get("network", "")) == "structural":
 				structural_count += 1
 			hinge_sides[String(marker.get("hinge_side", ""))] = true
 	_check(marker_count == 23 and structural_count == 23,
 			"mirror metadata names wall structure, not a fictitious water path")
-	_check(raised_sconce_count == 23,
-			"all bathroom sconces clear the raised medicine cabinets")
+	var every_sconce_spaced := side_sconces.size() == 23
+	for unit in mirror_markers:
+		if not side_sconces.has(unit):
+			every_sconce_spaced = false
+			continue
+		var separation: float = mirror_markers[unit].distance_to(
+				side_sconces[unit])
+		every_sconce_spaced = every_sconce_spaced \
+				and separation >= 0.43 and separation <= 0.47
+	_check(every_sconce_spaced,
+			"all 23 lavatory sconces occupy the measured roomward side position")
 	_check(hinge_sides.has("left") and hinge_sides.has("right")
 			and hinge_sides.size() == 2,
 			"cabinet markers choose one of both geometry-derived hinge sides")

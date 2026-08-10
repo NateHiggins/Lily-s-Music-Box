@@ -439,28 +439,31 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
     # shower also meets a second wall: `mirror` tells it which of its own
     # X sides that corner is on, so tile and glass never swap places.
     if edge == "e":
+        sink_run = _run(y0 + 1.92, y0, y1)
         _bath_marker(markers, unit, "shower", x1 - 0.46, y0 + 0.50, 90, z)
         _asm(f, unit + "_wc", "toilet", x1 - 0.41, y0 + 1.22, 90)
-        _bath_marker(markers, unit, "sink", x1 - 0.30, _run(y0 + 1.92, y0, y1), 90, z)
+        _bath_marker(markers, unit, "sink", x1 - 0.30, sink_run, 90, z)
         # The cabinet is close to the far return wall. Hinge on the roomward
         # side so its leaf opens into free air instead of through that return.
         _bath_marker(markers, unit, "mirror", x1 - 0.30,
-                     _run(y0 + 1.92, y0, y1), 90, z, "right")
-        spos, syaw = [x1 - 0.08, y0 + 1.92], -90
+                     sink_run, 90, z, "right")
+        spos, syaw = [x1 - 0.08, sink_run - 0.39], -90
     elif edge == "w":
+        sink_run = _run(y0 + 1.92, y0, y1)
         _bath_marker(markers, unit, "shower", x0 + 0.46, y0 + 0.50, -90, z)
         _asm(f, unit + "_wc", "toilet", x0 + 0.41, y0 + 1.22, -90)
-        _bath_marker(markers, unit, "sink", x0 + 0.30, _run(y0 + 1.92, y0, y1), -90, z)
+        _bath_marker(markers, unit, "sink", x0 + 0.30, sink_run, -90, z)
         _bath_marker(markers, unit, "mirror", x0 + 0.30,
-                     _run(y0 + 1.92, y0, y1), -90, z, "left")
-        spos, syaw = [x0 + 0.08, y0 + 1.92], 90
+                     sink_run, -90, z, "left")
+        spos, syaw = [x0 + 0.08, sink_run - 0.39], 90
     else:  # "n"
+        sink_run = _run(x0 + 1.92, x0, x1)
         _bath_marker(markers, unit, "shower", x0 + 0.50, y1 - 0.46, 180, z)
         _asm(f, unit + "_wc", "toilet", x0 + 1.22, y1 - 0.41, 180)
-        _bath_marker(markers, unit, "sink", _run(x0 + 1.92, x0, x1), y1 - 0.30, 180, z)
+        _bath_marker(markers, unit, "sink", sink_run, y1 - 0.30, 180, z)
         _bath_marker(markers, unit, "mirror",
-                     _run(x0 + 1.92, x0, x1), y1 - 0.30, 180, z, "left")
-        spos, syaw = [x0 + 1.92, y1 - 0.08], 0
+                     sink_run, y1 - 0.30, 180, z, "left")
+        spos, syaw = [sink_run - 0.39, y1 - 0.08], 0
     # Towels live on the wall opposite the wet fixtures. The former rail
     # shared the shower/toilet wall and visibly passed through both.
     # The C bathroom carries a second door on the same wall the rail
@@ -485,11 +488,11 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
     if markers is not None:
         markers.append({"kind": "sconce_globe",
                         "id": "%s_LT_SCONCE" % unit,
-                        # At 1.92 m the wall plate occupied the only space the
-                        # cabinet could rise into, leaving its mirror over the
-                        # tapwork. 2.08 m clears the raised cabinet while the
-                        # 85 mm globe still finishes below the bath ceiling.
-                        "unit": unit, "pos": [spos[0], spos[1], z + 2.08],
+                        # A lamp above the raised cabinet was crowded against
+                        # the ceiling. One roomward side light is the cheaper
+                        # 1928 composition: centred near the worker's face,
+                        # clear of the mirror leaf, and still one circuit load.
+                        "unit": unit, "pos": [spos[0], spos[1], z + 1.62],
                         "yaw_deg": syaw, "network": "electrical",
                         "energy": 1.05})
 
