@@ -22,8 +22,19 @@ func build(layout: Dictionary, floor_nodes: Dictionary) -> int:
 		_add_institutional_layer(parent, floor_id, z)
 		for room in floor.get("rooms", []):
 			if room.get("kind", "") == "living" and room.get("unit", "") != "":
-				_add_domestic_mark(parent, room, z, 0)
-				_add_domestic_mark(parent, room, z, 1)
+				var unit := str(room.get("unit", ""))
+				if unit == "2B":
+					# 2B's living rectangle contains its bathroom. Both inferred east-
+					# wall marks consequently landed together behind the lavatory and
+					# repeated the same hand smear. Preserve the higher approved mark
+					# exactly; do not relocate or regenerate it.
+					var base_seed := absi(unit.hash())
+					var high_variant := (0 if base_seed % 5
+							> (base_seed + 7919) % 5 else 1)
+					_add_domestic_mark(parent, room, z, high_variant)
+				else:
+					_add_domestic_mark(parent, room, z, 0)
+					_add_domestic_mark(parent, room, z, 1)
 		_add_uncanny_mark(parent, floor_id, z)
 	return decal_count
 
@@ -39,10 +50,11 @@ func _add_domestic_mark(parent: Node3D, room: Dictionary, z: float,
 			0.27 + float(seed % 37) / 100.0)
 	var tile := (seed + variant) % 4
 	# Mostly mundane: moved-picture ghosts, hand grease, water tide marks.
-	_add(parent, DOMESTIC, tile % 2, tile / 2,
+	var decal := _add(parent, DOMESTIC, tile % 2, tile / 2,
 			[x, y, z + 1.10 + float(seed % 5) * 0.12],
 			PI * 0.5 if west else -PI * 0.5,
 			Vector2(0.38 + float(seed % 4) * 0.07, 0.34 + float(seed % 3) * 0.08))
+	decal.name = "DomesticMark_%s_%d" % [unit, variant]
 
 
 func _add_institutional_layer(parent: Node3D, floor_id: String, z: float) -> void:
@@ -75,10 +87,11 @@ func _add_uncanny_mark(parent: Node3D, floor_id: String, z: float) -> void:
 
 
 func _add(parent: Node3D, atlas: String, col: int, row: int,
-		position_b: Array, yaw: float, size: Vector2) -> void:
+		position_b: Array, yaw: float, size: Vector2) -> StoryDecal:
 	var decal := StoryDecal.new()
 	decal.setup(atlas, col, row, size)
 	decal.position = GameBoot.b2g(position_b)
 	decal.rotation.y = yaw
 	parent.add_child(decal)
 	decal_count += 1
+	return decal

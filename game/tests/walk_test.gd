@@ -651,6 +651,8 @@ func _plumbing_checks() -> void:
 	var counts := {"bath_sink": 0, "kitchen_sink": 0, "shower": 0}
 	var player_sink: TapProp = null
 	var incomplete := []
+	var misoriented_lavatories := []
+	var missing_outlets := []
 	for child in root.get_children():
 		if child is not TapProp:
 			continue
@@ -659,6 +661,11 @@ func _plumbing_checks() -> void:
 			counts[tap.fixture] += 1
 		if tap._handles.size() != 2 or tap._stream == null:
 			incomplete.append(tap.name)
+		if tap.fixture == "bath_sink":
+			if tap._handle_wall_mounted != [true, true]:
+				misoriented_lavatories.append(tap.name)
+			if tap.get_node_or_null("SpoutOutlet") == null:
+				missing_outlets.append(tap.name)
 		if tap.fixture == "kitchen_sink" and tap.unit == "4B":
 			player_sink = tap
 	_check(counts.bath_sink == 24,
@@ -668,6 +675,15 @@ func _plumbing_checks() -> void:
 	_check(counts.shower == 23, "23 complete shower receptors")
 	_check(incomplete.is_empty(),
 			"every water fixture owns two valves and a stream (%s)" % [incomplete])
+	_check(misoriented_lavatories.is_empty(),
+			"lavatory cross handles face the room from the integral back (%s)"
+			% [misoriented_lavatories])
+	_check(missing_outlets.is_empty(),
+			"every lavatory faucet terminates at a modelled outlet (%s)"
+			% [missing_outlets])
+	var two_b_marks := root.find_children("DomesticMark_2B_*", "", true, false)
+	_check(two_b_marks.size() == 1,
+			"2B retains one high hand smear rather than a repeated pair")
 
 	var water_markers := 0
 	var wrong_network := []

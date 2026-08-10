@@ -120,13 +120,26 @@ func _build_bath_sink(parent: Node3D) -> void:
 			PORCELAIN)
 	_box_on(parent, Vector3(0.61, 0.18, 0.045),
 			Vector3(0, 0.87, 0.205), PORCELAIN)
-	_build_pair_taps(Vector3(0, 0.91, 0.105), 0.18, false)
-	_build_spout(Vector3(0, 0.91, 0.095), Vector3(0, 0.84, -0.04))
+	# These are wall valves through the integral porcelain back, not taps set
+	# into a horizontal deck. The old false flag turned both crosses edge-on;
+	# from the doorway they read as unexplained rectangular pegs.
+	var mount := Vector3(0, 0.91, 0.105)
+	_build_pair_taps(mount, 0.18, true)
+	# A cheap 1920s bridge lavatory fitting still explains how water reaches
+	# its centre spout. The exposed manifold and union keep the faucet from
+	# reading as a loose chrome rod planted in the bowl.
+	_tube_between(parent, mount + Vector3(-0.09, 0, -0.020),
+			mount + Vector3(0.09, 0, -0.020), 0.010, NICKEL)
+	var bridge_union := _cyl_on(parent, 0.022, 0.019, 0.038,
+			mount + Vector3(0, 0, -0.038), NICKEL)
+	bridge_union.rotation_degrees.x = 90.0
+	var outlet := Vector3(0, 0.885, -0.075)
+	_build_spout(parent, mount + Vector3(0, 0, -0.020), outlet)
 	_build_drain(parent, Vector3(0, 0.686, -0.02))
 	_build_exposed_waste(parent, Vector3(0, 0.678, -0.02))
 	_build_stopper(Vector3(0, 0.694, -0.055))
 	_add_use_wear(parent, Vector3(0.22, 0.805, -0.19), false)
-	_stream = _make_stream(Vector3(0, 0.865, -0.045), 0.178, 0.007)
+	_stream = _make_stream(outlet + Vector3(0, -0.018, 0), 0.185, 0.007)
 	_water_empty_y = 0.689
 	_water_full_y = 0.765
 	_basin_water = _make_water_surface(
@@ -151,12 +164,12 @@ func _build_kitchen_sink(parent: Node3D) -> void:
 	# A bridge joins the two wall valves and gives the central riser a
 	# mechanical origin. Without it the gooseneck was just a nickel pole
 	# descending from nowhere when the player stood square to the run.
-	_tube_between(self, Vector3(-0.095, mount_y, d * 0.5 - 0.055),
+	_tube_between(parent, Vector3(-0.095, mount_y, d * 0.5 - 0.055),
 			Vector3(0.095, mount_y, d * 0.5 - 0.055), 0.011, NICKEL)
-	var bridge_collar := _cyl_on(self, 0.022, 0.022, 0.035,
+	var bridge_collar := _cyl_on(parent, 0.022, 0.022, 0.035,
 			Vector3(0, mount_y, d * 0.5 - 0.073), NICKEL)
 	bridge_collar.rotation_degrees.x = 90.0
-	_build_spout(Vector3(0, mount_y, d * 0.5 - 0.055),
+	_build_spout(parent, Vector3(0, mount_y, d * 0.5 - 0.055),
 			Vector3(0, top + 0.13, 0.015), true)
 	_build_stopper(Vector3(0, top - 0.135, 0.01))
 	if has_drainboard:
@@ -392,7 +405,7 @@ func _build_pair_taps(at: Vector3, separation: float,
 					Vector3(0, 0.035, 0), BRASS)
 
 
-func _build_spout(base: Vector3, outlet: Vector3,
+func _build_spout(parent: Node3D, base: Vector3, outlet: Vector3,
 		high_arc := false) -> void:
 	if high_arc:
 		# Five short chords read as a bent gooseneck at this scale. A single
@@ -406,14 +419,27 @@ func _build_spout(base: Vector3, outlet: Vector3,
 			outlet,
 		]
 		for i in points.size() - 1:
-			_tube_between(self, points[i], points[i + 1], 0.012, NICKEL)
+			_tube_between(parent, points[i], points[i + 1], 0.012, NICKEL)
 	else:
-		_tube_between(self, base, base + Vector3(0, 0.10, 0), 0.011, NICKEL)
-		_tube_between(self, base + Vector3(0, 0.10, 0), outlet, 0.011, NICKEL)
+		# Compact bridge-faucet swan neck. Four short bends make a recognisable
+		# cast fitting; the former two-segment diagonal looked like bent wire.
+		var points := [
+			base,
+			base + Vector3(0, 0.060, -0.018),
+			base + Vector3(0, 0.090, -0.070),
+			Vector3(0, outlet.y + 0.055, outlet.z),
+			outlet,
+		]
+		for i in points.size() - 1:
+			_tube_between(parent, points[i], points[i + 1], 0.013, NICKEL)
 	var mouth_r := 0.019 if high_arc else 0.014
-	var mouth := _cyl_on(self, mouth_r, mouth_r * 0.82, 0.032,
+	var mouth := _cyl_on(parent, mouth_r, mouth_r * 0.82, 0.032,
 			outlet, NICKEL)
 	mouth.rotation_degrees.x = 90.0
+	var outlet_marker := Marker3D.new()
+	outlet_marker.name = "SpoutOutlet"
+	outlet_marker.position = outlet
+	add_child(outlet_marker)
 
 
 func _build_exposed_waste(parent: Node3D, drain_at: Vector3) -> void:
