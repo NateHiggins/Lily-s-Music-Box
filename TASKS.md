@@ -235,10 +235,6 @@ and the four isolated roof fixtures now terminating at a real riser.
   rig or animation, so nothing in it reintroduces them. Remaining question is
   only whether to delete or move them outside `game/` so `all_resources` cannot
   package them.
-- **U4** `clock_dials.json` has no consumer and is stale — it names
-  `memphis`/`sunburst` while the runtime uses `vantry_modular`/`sunray_1920`,
-  duplicated in `DIAL_INDEX`. Delete it, or make the clock read it; do not leave
-  a stale second authority.
 - **U5** `resident_decor_profiles.json` — a complete seventeen-household
   decorating brief with no consumer. It is *valuable prose in the wrong file
   class*: per `DOCS.md` it is a brief, not game data. **Move it to `design/`**

@@ -28,6 +28,14 @@ var _possessed := false
 ## same dial the player has been reading all night.
 const DIAL_HONEST := "res://assets/building/textures/clocks/dials_honest.png"
 const DIAL_WRONG := "res://assets/building/textures/clocks/dials_possessed.png"
+## Cell positions in the two atlases, and the authority for the dial NAMES is
+## ORISON_BIBLE VIII.5.e - Juno's Vantry modular, Malcolm's decorative sunray.
+##
+## There used to be a `clock_dials.json` carrying this same table. Nothing read
+## it, and when the ruling renamed two dials the code followed and the JSON did
+## not, so it sat claiming `memphis` and `sunburst` at the cells now held by
+## `vantry_modular` and `sunray_1920`. A dial name is canon rather than content
+## to retune, so this is the single authority and the file is gone.
 const DIAL_INDEX := {
 	"schoolhouse": [0, 0], "hospital": [1, 0], "bauhaus": [2, 0],
 	"stitch": [3, 0], "vantry_modular": [0, 1], "sunray_1920": [1, 1],
