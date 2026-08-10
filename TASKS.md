@@ -101,18 +101,29 @@ Built in `art/data/shop_interiors.py`. Guide: `design/SHOP_INTERIOR_BUILD_GUIDE.
 into through a storefront; the owner wants them walked around in, by the player
 and by NPCs. R2 needs a brief before anyone builds.
 
-- **R1** Measure before resizing. Nothing records the *clear* floor left after
-  fittings — only the gross bay. Interior width is the authored bay less the
-  200 mm party-wall inset, so today: news **2.10**, radio 3.00, locksmith 3.40,
-  druggist 4.10, pawn/funeral 4.40, diner/photo 5.00, hardware 5.20,
-  laundry/cobbler 5.40. Depths run 4.0 (news) to 7.0. Player capsule is
+- **R1** Measure before resizing. Interior width is the authored bay less the
+  200 mm party-wall inset. **Floor area is the number that matters, and it is
+  small**: news 8.4 m², radio 15.0, locksmith 17.0, pawn 26.4, druggist 28.7,
+  photo 30.0, funeral 30.8, cobbler 32.4, hardware 33.8, diner 35.0, laundry
+  37.8 — all of it under a **3.30 m clear ceiling** (`SHOP_CLEAR`). That ratio
+  is the complaint: these are tall narrow slots, not rooms. Player capsule is
   `BODY_RADIUS` 0.33, so a 0.66 m body needs ~0.9 m of aisle not to scrape.
-- **R2** Enlarge and re-plan. **Depth is the cheap axis** — `SHOP_PLAN` cuts
-  further into the block and nothing is behind the south row. **Width is not:**
-  since `_south_street_wall()` makes every shop its own building, `x0/x1` drives
-  the footprint, the void, the awning, the blade and the signage together.
-  Two cannot grow backward at all — the diner sits in the Harukiya's mass
-  (`nbr_s2`) and the druggist in `nbr_w` beside the Orison. *Needs the brief.*
+- **R2** Enlarge and re-plan. **RULED BY THE OWNER 2026-08-10: DO NOT GAIN
+  SPACE VERTICALLY.** Ceiling height is not usable space — a taller slot is
+  still a slot. Three requirements, together: *historically accurate*, *less
+  interior clutter so the player can move*, *use the space to its fullest*.
+  They reconcile the way a real 1928 shop did — **density at the perimeter,
+  clear floor in the middle**. Goods went floor-to-ceiling on the walls, behind
+  and under counters, and overhead on rails; the customer floor stayed open,
+  because the shopkeeper fetched. Fully stocked and walkable is the period-
+  correct answer, not a compromise between them.
+  Mechanically: **depth is the cheap axis** — `SHOP_PLAN` cuts further into the
+  block and nothing is behind the south row. **Width is not:**
+  `_south_street_wall()` makes every shop its own building, so `x0/x1` drives
+  the footprint, void, awning, blade and signage together. Two cannot grow
+  backward at all — the diner sits in the Harukiya's mass (`nbr_s2`) and the
+  druggist in `nbr_w`. Nothing has been built yet: `SHOP_CLEAR/SHOP_H` are
+  still 3.30/3.55 and every `SHOP_PLAN` depth is as filed. *Needs the brief.*
 - **R3** NPCs have no way in. Movement is anchor-to-anchor in
   `resident_routines.gd` — there is **no NavigationRegion3D or NavigationAgent3D
   anywhere in the project** — so "NPCs move around inside" means authoring venue

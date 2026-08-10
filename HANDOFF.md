@@ -7,11 +7,18 @@ defect with its full diagnosis so far.
 
 ## What this project is
 
-*The Audio Virus* — a first-person Godot prototype set in the Orison
-Apartments, a 1927 Midwestern brick apartment block, now aged to 2027.
-The player is a support-line operator; sound propagates through the
-building's physical infrastructure (heating risers, electrical, water,
-structural, chimney flue) as an "audio virus". Design docs live in
+*Please Remain On The Line* — a first-person Godot game set in the Orison,
+a prewar brick apartment block in **Queens, New York**. Vantry & Co. built
+it in 1912 as a showcase; it was partially demolished in 1927 and reopened
+in 1928 as flats, and **it is 1928 when the game starts** (`ORISON_BIBLE.md`
+VIII.5.h). What the building was before 1927 is shrouded in darkness.
+
+The player is a night-shift maintenance tenant in 4B who also answers the
+support line at the desk — both halves are the job. Sound propagates
+through the building's physical infrastructure (heating risers,
+electrical, water, structural, chimney flue) as an "audio virus"; *The
+Audio Virus* was this project's prototype name and survives as the case
+layer's fiction, not as the title. Design docs live in
 `design/` and `art/docs/`; per-case content in the Case Network docs.
 
 Three top-level projects:
@@ -104,10 +111,18 @@ invariants that hold across all of it. Read it before starting new work.
 This file covers only how to build and verify; do not duplicate phase
 status here, because two copies of a status always disagree.
 
-Broadly: phases 1, 2, 6 (dressing) and 7 (performance) are done; 3, 4, 5
-and 8 are partly done with named remainders. The building is fully
-walkable end to end — street, all seven storeys, basement, roof — and
-runs 112-161 fps at 1440p on an RTX 4080.
+Broadly: phases 1, 2 and 6 (dressing) are done; 3, 4, 5, 7 and 8 are
+partly done with named remainders. The building is fully walkable end to
+end — street, all seven storeys, basement, roof.
+
+**Phase 7 (performance) is NOT done, and the old "112-161 fps at 1440p"
+claim here was badly stale.** `Perf.tscn` currently fails six or seven of
+its seven stations against the 16.6 ms budget. Two floor-streaming passes
+took the F04 corridor from 65.54 ms to ~29 and the street from 52.25 to
+~33 — real gains — but the atrium eye sits near 40 ms and is the wall,
+because it is the one view that legitimately sees seven storeys and so
+defeats floor streaming by design. Task #28 carries the measurements and
+the remaining levers.
 
 ## Arcade cabinets
 
