@@ -1245,8 +1245,17 @@ def resident_story_detail(f, unit, story, rooms, ux, lcy, wface):
     elif story == "seamstress":
         prop("notions", "jarrow", -0.16, 0.04, n=5)
         prop("patterns", "papers", 0.18, -0.03, 12, n=9, mess=0.48)
-        _asm(f, unit + "_story_patterns", "pinboard", wall_x, pier_y,
-             wall_yaw, z0=1.18, W=1.10, H=0.78, cards=18, neat=False)
+        # Lena works at the dining table.  The runtime story collage used the
+        # living rectangle's east edge as though it were a wall; in 2B that
+        # edge is the bathroom and the quad landed on the shower glass.  Give
+        # the collage one real, dry backing on the west-wall pier between the
+        # side windows.  The south wall is already Lena's three-piece memory
+        # composition, and its apparent open end is behind the bath partition.
+        # It owns no loose cards: the atlas collage is the paper layer.  A
+        # distinct id also stops it colliding with the patterns on the table.
+        _asm(f, unit + "_story_pattern_board", "pinboard", wall_x,
+             pier_y, wall_yaw, z0=1.01, W=0.66, H=0.66, cards=0,
+             neat=False)
     elif story == "horticulturist":
         prop("cuttings", "bottles", -0.18, 0.03, n=6)
         prop("seed_jars", "jarrow", 0.20, -0.02, n=4)

@@ -215,9 +215,6 @@ they keep their door, schedule, mailbox and place in the web.
 - **H15** Fully enclose every shower with an operable, properly supported curtain;
   model the rod, rings, gathered/open states and believable cloth silhouette,
   then author a period waterproof-fabric texture without relying on cloth physics.
-- **H16** **Codex:** Move the note board out of the bathroom and rehang it in a dry,
-  character-logical circulation or living-space location with collision and
-  wall-art spacing checked in render.
 - **H17** Research and model the building's period-correct 1928 light switches;
   give every bathroom a reachable switch outside the wet zone whose interaction
   actually toggles that bathroom's complete light circuit and visible emissives.

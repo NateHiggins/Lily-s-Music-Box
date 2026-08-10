@@ -213,6 +213,7 @@ func _run() -> void:
 	_flue_breast_checks()
 	_prop_mesh_and_boiler_checks()
 	_medicine_cabinet_checks()
+	_story_board_checks()
 	_clock_checks()
 	_mail_bank_checks()
 	_shop_static_checks()
@@ -2236,6 +2237,70 @@ func _prop_mesh_and_boiler_checks() -> void:
 			"low water at the boiler starves the shared radiator cycle")
 	_check(root.boiler_tend != null,
 			"boiler tending clock feeds heat and domestic hot water")
+
+
+func _story_board_checks() -> void:
+	# Lena's runtime story collage once inferred a wall from the living-room
+	# rectangle.  In 2B that edge is occupied by the bathroom, so the quad
+	# floated on the shower glass.  Its cork backing also shared an id with the
+	# loose papers on her table.  Guard both owners and the join between them.
+	var board: Dictionary = {}
+	var old_id_count := 0
+	var board_count := 0
+	var living_rect: Array = []
+	var bath_rect: Array = []
+	var floor_z := 0.0
+	for floor in root.layout.get("floors", []):
+		if str(floor.get("id", "")) != "F02":
+			continue
+		floor_z = float(floor.get("z", 0.0))
+		for room in floor.get("rooms", []):
+			if str(room.get("id", "")) == "F02_B_MAIN":
+				living_rect = room.get("rect", [])
+			elif str(room.get("id", "")) == "F02_B_BATH":
+				bath_rect = room.get("rect", [])
+		for item in floor.get("furniture", []):
+			var item_id := str(item.get("id", ""))
+			if item_id == "2B_story_patterns":
+				old_id_count += 1
+			elif item_id == "2B_story_pattern_board":
+				board = item
+				board_count += 1
+	_check(board_count == 1 and old_id_count == 1,
+			"Lena's board and loose patterns have unique assembly ids")
+	if board.is_empty() or living_rect.size() < 4 or bath_rect.size() < 4:
+		_check(false, "Lena's pattern-board placement data is complete")
+		return
+	var at := Vector2(float(board.at[0]), float(board.at[1]))
+	var in_living := at.x >= float(living_rect[0]) \
+			and at.x <= float(living_rect[2]) \
+			and at.y >= float(living_rect[1]) \
+			and at.y <= float(living_rect[3])
+	var in_bath := at.x >= float(bath_rect[0]) \
+			and at.x <= float(bath_rect[2]) \
+			and at.y >= float(bath_rect[1]) \
+			and at.y <= float(bath_rect[3])
+	_check(in_living and not in_bath,
+			"Lena's pattern board stays in her dry living/work room")
+	_check(absf(at.x - float(living_rect[0])) < 0.02 \
+			and at.y > 5.90 and at.y < 6.35 \
+			and absf(float(board.get("yaw", 0.0)) + 90.0) < 0.01,
+			"pattern board occupies Lena's clear west-wall pier")
+	var story := root.find_child("ResidentStory_2B", true, false) as StoryDecal
+	var yaw := deg_to_rad(float(board.get("yaw", 0.0)))
+	var front := Vector2(-sin(yaw), cos(yaw))
+	var board_center := float(board.get("z0", 1.0)) \
+			+ float(board.get("H", 0.66)) * 0.5
+	var expected := GameBoot.b2g(
+			[at.x + front.x * 0.033, at.y + front.y * 0.033,
+			floor_z + board_center])
+	_check(story != null and story.global_position.distance_to(expected) < 0.02,
+			"Lena's story collage is seated on its authored cork backing")
+	var memory := root.find_child("MemoryArt_lena_visible_mend", true, false) \
+			as CharacterMemoryArt
+	_check(story != null and memory != null \
+			and story.global_position.distance_to(memory.global_position) > 1.0,
+			"Lena's pattern board clears her existing wall-art composition")
 
 
 func _medicine_cabinet_checks() -> void:

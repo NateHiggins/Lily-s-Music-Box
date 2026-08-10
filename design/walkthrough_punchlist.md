@@ -106,7 +106,6 @@ coordinate before fixing.
 | F02_A_MAIN | TV wedged between sofa back and window, overlapping sill/blinds, no stand | ugly |
 | F02_A_BATH | Gold sconce/decal at ceiling height | wish |
 | F02_B_BATH | Wooden shelf above toilet broken apart — board and dowels hanging diagonally over the mirror | ugly |
-| F02_B_BATH | Pinboard collage floats on the shower glass instead of a wall | ugly |
 | F02_B_KITCHEN | Door trim outlines bare brick (door panel missing) beside a live light switch | ugly |
 | F02_C_MAIN | TV overlaps window blinds; blank tan canvas hangs tilted off the brick wall | ugly |
 | F02_C_BED1 | Picture frame wedged between wardrobe top and ceiling | ugly |

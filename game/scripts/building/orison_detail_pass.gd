@@ -254,6 +254,33 @@ func _build_resident_details(layout: Dictionary, floor_nodes: Dictionary,
 		_cylinder(batches[floor_id], [x - 0.27, y + 0.04, z + 0.16],
 				[0.09, 0.30, 0.09], accent.lightened(0.18))
 		var panel := int(profile.panel)
+		# A named layout backing owns the coordinate. Lena's collage used to
+		# infer an east wall from the living-room rectangle, but 2B's east edge
+		# is occupied by its bathroom; the quad consequently floated on shower
+		# glass. The generator now supplies a real cork board and this pass only
+		# adds its paper face, keeping Blender and runtime on one authored hook.
+		var backing_id := str(profile.get("backing", ""))
+		if backing_id != "":
+			var backing: Dictionary = {}
+			for item in floor.get("furniture", []):
+				if str(item.get("id", "")) == backing_id:
+					backing = item
+					break
+			if backing.is_empty():
+				push_error("resident story backing missing: " + backing_id)
+				continue
+			var board_at: Array = backing.at
+			var board_yaw := deg_to_rad(float(backing.get("yaw", 0.0)))
+			var front := Vector2(-sin(board_yaw), cos(board_yaw))
+			var board_z := float(backing.get("z0", 1.0)) \
+					+ float(backing.get("H", 0.66)) * 0.5
+			var mounted := _add_decal(floor_nodes[floor_id], STORY_ATLAS,
+					panel % 2, panel / 2,
+					[float(board_at[0]) + front.x * 0.033,
+					float(board_at[1]) + front.y * 0.033, z + board_z],
+					board_yaw, Vector2(0.54, 0.54))
+			mounted.name = "ResidentStory_" + unit
+			continue
 		var wall_west := seed % 2 == 0
 		var wall_x := float(rect[0]) + 0.105 if wall_west \
 				else float(rect[2]) - 0.105
@@ -322,10 +349,11 @@ func _emit_batch(parent: Node3D, entries: Array, mesh: PrimitiveMesh,
 
 
 func _add_decal(parent: Node3D, atlas: String, col: int, row: int,
-		position_b: Array, yaw: float, size: Vector2) -> void:
+		position_b: Array, yaw: float, size: Vector2) -> StoryDecal:
 	var decal := StoryDecal.new()
 	decal.setup(atlas, col, row, size)
 	decal.position = GameBoot.b2g(position_b)
 	decal.rotation.y = yaw
 	parent.add_child(decal)
 	decal_count += 1
+	return decal
