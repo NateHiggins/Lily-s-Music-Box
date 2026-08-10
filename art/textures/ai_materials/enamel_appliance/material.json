@@ -1,0 +1,12 @@
+{
+  "material": "enamel_appliance",
+  "source": "art/textures/ai_sources/enamel_appliance_smooth.png",
+  "generator": "ingest_material_sources.py",
+  "meters_per_tile": 0.72,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

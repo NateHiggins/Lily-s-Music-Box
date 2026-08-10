@@ -182,6 +182,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": true
     },
+    "enamel_appliance": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.72,
+      "catalog_mapping": "ai_materials/enamel_appliance",
+      "files": [
+        "T_ai_materials_enamel_appliance_albedo.png",
+        "T_ai_materials_enamel_appliance_rough.png",
+        "T_ai_materials_enamel_appliance_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.72,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "fabric_warm": {
       "alpha": false,
       "canonical_meters_per_tile": 0.6,

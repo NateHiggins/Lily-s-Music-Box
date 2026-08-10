@@ -3,6 +3,7 @@ extends RefCounted
 ## Edit the catalog, mapping or runtime optical policy; never this file.
 const SETS := {
 	'enamel': ["T_library_appliances_aged_enamel_worn_enamel_albedo.png", "T_library_appliances_aged_enamel_worn_enamel_rough.png", "T_library_appliances_aged_enamel_normal.png", 1, 0], # visual lock
+	'enamel_appliance': ["T_ai_materials_enamel_appliance_albedo.png", "T_ai_materials_enamel_appliance_rough.png", "T_ai_materials_enamel_appliance_normal.png", 0.72, 0],
 	'appliance': ["T_library_appliances_aged_enamel_worn_appliance_albedo.png", "T_library_appliances_aged_enamel_worn_appliance_rough.png", "T_library_appliances_aged_enamel_normal.png", 1, 0], # visual lock
 	'metal': ["T_library_appliances_galvanized_metal_worn_metal_albedo.png", "T_library_appliances_galvanized_metal_worn_metal_rough.png", "T_library_appliances_galvanized_metal_normal.png", 0.9, 0.9], # visual lock
 	'chrome': ["T_library_appliances_brushed_steel_albedo.png", "T_library_appliances_brushed_steel_rough.png", "T_library_appliances_brushed_steel_normal.png", 0.8, 1], # visual lock

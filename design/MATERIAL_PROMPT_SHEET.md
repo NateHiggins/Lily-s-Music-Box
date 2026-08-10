@@ -222,9 +222,9 @@ Rough-sawn old-growth structural timber surface, dense straight grain running ho
 Aged unlacquered sheet brass surface, warm gold with uneven brown patina, tarnish clouds, fine multidirectional scratches, small verdigris specks evenly distributed, no unique landmark spots, homogeneous composition. Represents about 25 centimeters of metal, macro detail. Orthographic view, straight-on, flat diffuse lighting, soft even sheen, no mirror reflections, no hotspot, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
-### `enamel_appliance.png` — TILING
+### `enamel_appliance_smooth.png` — TILING (emits `enamel_appliance`)
 ```
-Aged white porcelain enamel surface from a 1930s kitchen appliance, creamy white yellowed unevenly, fine spider-web crazing across the whole surface, cleaning micro-scratch swirls, at most two small chips with thin rust halos, otherwise homogeneous composition with no unique landmarks. Represents about 0.85 meters of enamel. Orthographic view, straight-on, flat diffuse lighting, soft even sheen, no hard reflections, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+Authentic warm ivory vitreous enamel surface from a well-used 1922–1928 domestic gas range. The fired glaze is fundamentally smooth: most of the surface remains calm and continuous, with sparse hairline crazing in only a few small areas, a handful of pinprick dark chips exposing black iron, faint warm cleaning discoloration and extremely subtle hand-polished variation. Never stucco, plaster, concrete, orange peel, pebbled paint or dense full-surface crackle. Represents about 0.72 metres of enamel. Orthographic close crop containing only the material surface, flat diffuse evenly-lit document scan, no highlights, shadows, vignette, gradient, reflected room, baked lighting or directional landmark. Seamless and infinitely wrapping on every edge. Square 1:1, high resolution, no letters, numbers, words, labels, logos, borders, fixtures, handles, perspective or watermark.
 ```
 
 ### `galvanized_aged.png` — TILING

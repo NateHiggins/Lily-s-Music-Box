@@ -8168,6 +8168,11 @@ MATERIAL_CATALOG = {
     "chrome": {"base_color": [0.80, 0.82, 0.85, 1.0], "roughness": 0.12,
                "metallic": 1.0},
     "enamel": {"base_color": [0.91, 0.89, 0.83, 1.0], "roughness": 0.18},
+    # A fired-glass appliance skin with restrained damage. It begins on 4B's
+    # range as an approval specimen; the ambiguous legacy enamel key stays
+    # intact until a warehouse and room render earn family promotion.
+    "enamel_appliance": {"base_color": [0.91, 0.89, 0.83, 1.0],
+                          "roughness": 0.20},
     "bakelite": {"base_color": [0.16, 0.12, 0.10, 1.0], "roughness": 0.30},
     "porcelain": {"base_color": [0.92, 0.93, 0.92, 1.0], "roughness": 0.14},
     # planter clay and potting soil (plant realism pass)

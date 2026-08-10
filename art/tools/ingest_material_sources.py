@@ -78,6 +78,11 @@ SLOTS = {
     "terracotta_pot": (["terracotta"], 0.4, 0.86, 0.08, 3.0),
     "soil_potting": (["soil"], 0.35, 0.95, 0.06, 3.5),
     "neon_porcelain": (["enamel"], 0.6, 0.18, 0.14, 2.0),
+    # Porcelain enamel is fired glass, not plaster. The older generic plate
+    # carries dense edge-to-edge crazing; this stove pilot keeps most of a
+    # 0.72 m range panel calm and lets sparse chips do the ageing work.
+    "enamel_appliance_smooth": (["enamel_appliance"],
+                                 0.72, 0.20, 0.10, 0.75),
     "plywood_sheet": (["plywood"], 1.2, 0.80, 0.14, 3.0),
     "leaf_fall": (["leaf_fall"], 1.5, 0.65, 0.18, 3.5),
     # Wet surfaces are authored as darkened albedo, never as reflections:
@@ -256,7 +261,7 @@ RECOLOR = {"rug_persian_worn": [("rug_cool", 150.0), ("rug_green", 90.0)]}
 # colour. Copying them here keeps that reproducible instead of a manual
 # step somebody has to remember after every regeneration.
 GODOT_STAGE = ("brass_bright", "brass_dull", "bronze", "car_paint",
-               "oak_quartered", "zinc_liner", "copper_aged",
+               "oak_quartered", "enamel_appliance", "zinc_liner", "copper_aged",
                "cast_iron", "soot", "fx_grease", "nickel_plated", "mirror_aged",
                "mica_heater",
                "milk_glass", "bakelite_black", "terrazzo_dark",

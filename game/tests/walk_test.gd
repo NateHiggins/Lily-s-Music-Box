@@ -2171,12 +2171,15 @@ func _prop_mesh_and_boiler_checks() -> void:
 	var family_counts := {
 		"fridge": [0, 0], "stove": [0, 0], "tap": [0, 0], "toaster": [0, 0],
 	}
+	var enamel_pilot_units: Array[String] = []
 	for child in root.get_children():
 		var key := ""
 		if child is FridgeProp:
 			key = "fridge"
 		elif child is StoveProp:
 			key = "stove"
+			if (child as StoveProp).enamel_material_key == "enamel_appliance":
+				enamel_pilot_units.append((child as StoveProp).unit)
 		elif child is TapProp:
 			key = "tap"
 		elif child is ToasterProp:
@@ -2195,6 +2198,8 @@ func _prop_mesh_and_boiler_checks() -> void:
 		_check(count == int(spec[1]) and average <= float(spec[2]),
 				"%s family stays merged (%.1f meshes each across %d)" %
 				[key, average, count])
+	_check(enamel_pilot_units == ["4B"],
+			"fired-enamel approval plate remains isolated to 4B")
 
 	var plant := root.get_node_or_null("B1_BOILER_01") as BoilerProp
 	_check(plant != null, "one functional 1912 coal boiler owns the plant")
