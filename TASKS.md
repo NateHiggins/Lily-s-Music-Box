@@ -208,3 +208,7 @@ Nothing below should start before that ruling.
 - **H17** Research and model the building's period-correct 1928 light switches;
   give every bathroom a reachable switch outside the wet zone whose interaction
   actually toggles that bathroom's complete light circuit and visible emissives.
+- **H18** Completely rebuild the player's terminal as radio-centric signal
+  technology: period furniture around Vantry-advanced tuners, valves, meters,
+  patching, receiver/transmitter controls and a coherent display language;
+  replace the generic modern-computer read while preserving every gameplay verb.
