@@ -1,7 +1,11 @@
 # OPEN TASKS
 
-The shared queue. Everyone working on Orison writes here — the main dev chat,
-Codex, the arcade/compiler session, and whoever picks this up next.
+The shared queue. Everyone working on Orison writes here.
+
+*2026-08-10: the arcade/compiler session took over the Orison work as well.
+Sections A, C, L, N, S, U and the compiler-side items are all held by one
+session now; that is a fact about staffing, not a claim of ownership over the
+queue. Anyone may still add.*
 
 **This is a list of open work, not a log.** Delete a task when it is done; git
 history is the record. If a task is wrong, say so on the line rather than
@@ -210,6 +214,45 @@ they keep their door, schedule, mailbox and place in the web.
 - **L4** Check `LightRig`'s per-storey budget against fixtures going dark. Should
   be performance-positive, but it was written when the cap was 16 and wants
   re-reading rather than assuming.
+
+## U — Unused and dead systems
+
+From `design/AUDIT_UNUSED_SYSTEMS_REPORT.md` (AUDIT 2, run 2026-08-10). **That
+document is the evidence — method, confidence, negative controls. This is the
+queue.** Both P0s in it are already repaired: the monitor/signal-terminal split,
+and the four isolated roof fixtures now terminating at a real riser.
+
+- **U1** `B1_ROOM0_DOOR` is built data no runtime path reads — a control that
+  silently controls nothing. **Owner fiction ruling required:** make
+  `Room0.setup()` consume it as the threshold anchor, or remove it at the
+  generator and state that Room 0 has no basement entrance. *The audit is
+  explicit that deletion must not be chosen silently.* The dream brief does not
+  need it either way: that entrance is not physical.
+- **U2** `creature_index.json` and the harpy/oni assets — 6.2 MB, zero
+  references, and the owner has ruled they are not in the cast. **The audit
+  blocked this on the dream ruling; that blocker is now lifted** — the dream's
+  antagonist is shapeless and drawn from `PoltergeistLibrary`, with no model,
+  rig or animation, so nothing in it reintroduces them. Remaining question is
+  only whether to delete or move them outside `game/` so `all_resources` cannot
+  package them.
+- **U3** Remove the `corridor_light` family — script, registry entry,
+  prop-catalog row and the unreachable generator/switch branches, together, with
+  no warehouse variant. It is an anachronistic non-signal fluorescent fixture
+  that can spawn nowhere. Add a registry audit distinguishing marker-spawned
+  kinds from documented warehouse-only kinds (`mail_bank`, `landmark_entry`,
+  `arcade_cabinet`, `vantry_point` are all legitimately marker-less).
+- **U4** `clock_dials.json` has no consumer and is stale — it names
+  `memphis`/`sunburst` while the runtime uses `vantry_modular`/`sunray_1920`,
+  duplicated in `DIAL_INDEX`. Delete it, or make the clock read it; do not leave
+  a stale second authority.
+- **U5** `resident_decor_profiles.json` — a complete seventeen-household
+  decorating brief with no consumer. It is *valuable prose in the wrong file
+  class*: per `DOCS.md` it is a brief, not game data. **Move it to `design/`**
+  rather than delete.
+- **U6** The `smoke_detector` alias class has no reference of any kind, but
+  external saves may name it. **Decide save compatibility before touching it.**
+- **U7** `ROOF_TANK` is an unregistered marker with no graph node or lookup; the
+  visible tank is separately baked as `watertank` furniture.
 
 ## H — Housekeeping
 

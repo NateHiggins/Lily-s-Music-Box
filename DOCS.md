@@ -27,6 +27,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | **Brief / proposal** | **Not canon until ruled.** Says so at the top. | `design/*_BRIEF.md`, `docs/songbook_brief.md` |
 | **Prompt sheet** | Inputs to asset generation. Historical once used. | `design/*_PROMPTS.md`, `*_PROMPT_SHEET.md` |
 | **Queue** | Open work, one line each. Deleted when done. | `TASKS.md` |
+| **Audit** | Evidence with a method and confidence levels. Findings graduate to the queue; the audit stays as the record | `design/AUDIT_*.md` |
 | **Build guide** | How to build and verify. Mechanics only. | `HANDOFF.md`, `art/README.md`, `game/README.md` |
 
 ## Where to look for…
@@ -36,6 +37,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | What is true about this world | `design/ORISON_BIBLE.md` |
 | Why an object looks forty years early | Bible §VIII.2, the Rule of Signal |
 | What is open right now, and who has it | `TASKS.md` |
+| Whether a system is actually used | `design/AUDIT_UNUSED_SYSTEMS_REPORT.md` |
 | How to build the layout → Blender → Godot chain | `HANDOFF.md` |
 | How to run a test, and which ones exist | `HANDOFF.md`, then `game/tests/` |
 | What phase the art is in | `art/docs/photoreal_target.md` |
@@ -107,3 +109,6 @@ and the reader has no way to tell which one is lying.
   manifest, deliberately unwritten so far.
 - Bible §VI holds eight disputed texts awaiting a ruling. They are disputes, not
   oversights.
+- An audit is not a queue. `AUDIT_UNUSED_SYSTEMS_REPORT.md` carries the evidence
+  and its findings live in `TASKS.md` §U; if the two ever disagree, the audit is
+  the older document and the queue is what is being worked.
