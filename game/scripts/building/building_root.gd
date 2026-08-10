@@ -745,6 +745,10 @@ func _spawn_props() -> void:
 			if prop is MedicineCabinetProp:
 				prop.unit = String(m.get("unit", ""))
 				prop.hinge_side = String(m.get("hinge_side", "left"))
+			# Five owners, five different lamps. The marker names which, because
+			# a lamp with no variant is a lamp nobody chose - see lamp_prop.gd.
+			if prop is LampProp:
+				prop.variant = String(m.get("variant", "landlord_enamel"))
 			if prop is ClockProp:
 				prop.unit = String(m.get("unit", ""))
 				prop.clock_variant = String(m.get("variant", "drop_octagon"))

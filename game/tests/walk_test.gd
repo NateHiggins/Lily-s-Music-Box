@@ -212,6 +212,7 @@ func _run() -> void:
 	_exhaust_fan_checks()
 	_flue_breast_checks()
 	_roof_electrical_checks()
+	_lamp_family_checks()
 	_prop_mesh_and_boiler_checks()
 	_medicine_cabinet_checks()
 	_switch_checks()
@@ -2923,6 +2924,78 @@ func _collect_named_shop_meshes(node: Node, into: Array[MeshInstance3D]) -> void
 	for child in node.get_children():
 		_collect_named_shop_meshes(child, into)
 
+
+
+func _lamp_family_checks() -> void:
+	# Five owners, five silhouettes. The family used to be one articulated
+	# sprung shape shared by all of them, which put a mid-century desk lamp on a
+	# 1927 drafting table and gave the building's best reading corner the same
+	# tin shade as the flat the landlord furnished.
+	var expected := {
+		"B1_NOOK_LAMP": "emeralite",
+		"F02_A_LAMP_01": "office_green",
+		"F03_B_LAMP_01": "bench_friction",
+		"F04_B_LAMP_01": "landlord_enamel",
+		"F05_A_LAMP_01": "architect_counterweight",
+	}
+	var lamps := get_tree().get_nodes_in_group("floor_lights")
+	var found := {}
+	var total_meshes := 0
+	var spot_lit := 0
+	var bound := 0
+	for node in lamps:
+		if not (node is LampProp):
+			continue
+		var lamp: LampProp = node
+		var marker_id := String(lamp.name)
+		found[marker_id] = lamp.variant
+		total_meshes += lamp.find_children("*", "MeshInstance3D", true, false).size()
+		# One light each, and it must be a downward spot rather than an omni:
+		# the point of the pass was to put the light on the work surface, and a
+		# spot is also one shadow map where a cube is six.
+		var lights := lamp.find_children("*", "Light3D", true, false)
+		if lights.size() == 1 and lights[0] is SpotLight3D:
+			if lights[0].rotation_degrees.x < -80.0:
+				spot_lit += 1
+		if lamp.graph_node_id != "" \
+				and AcousticGraphData.nodes.has(lamp.graph_node_id):
+			bound += 1
+
+	_check(found.size() == expected.size(),
+			"all five lamp markers built (%d)" % found.size())
+	var correct := 0
+	for marker_id in expected:
+		if String(found.get(marker_id, "")) == String(expected[marker_id]):
+			correct += 1
+	_check(correct == expected.size(),
+			"every lamp carries its explicit marker variant (%d/%d)"
+			% [correct, expected.size()])
+	_check(spot_lit == found.size(),
+			"every lamp throws one downward spot, not an omni (%d/%d)"
+			% [spot_lit, found.size()])
+	_check(bound == found.size(),
+			"every lamp stays on the electrical graph (%d/%d)"
+			% [bound, found.size()])
+	# The pass traded five cube-shadow omnis for five spots and accepted a few
+	# more meshes for it. Cap the family so "a bit more silhouette" cannot
+	# quietly become a per-lamp modelling budget.
+	_check(total_meshes <= 60,
+			"lamp family stays within 60 visible meshes (%d)" % total_meshes)
+
+	# Omar's used to stand at his own mug, 40 mm above a 0.91 bench top.
+	var omar: Node3D = null
+	for node in lamps:
+		if node is LampProp and String(node.name) == "F03_B_LAMP_01":
+			omar = node
+	if omar != null:
+		var clear := true
+		for other in get_tree().get_nodes_in_group("functional_props"):
+			if other == omar or not (other is Node3D):
+				continue
+			if omar.global_position.distance_to(
+					(other as Node3D).global_position) < 0.22:
+				clear = false
+		_check(clear, "Omar's lamp stands clear of the rest of his bench")
 
 func _check(cond: bool, label: String) -> void:
 	if cond:

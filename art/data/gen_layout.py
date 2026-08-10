@@ -1473,7 +1473,9 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
                   0.45, 0.6, 0.0,
                   1.05, "metal", False)
         mk("monitor", 1, x0 + 1.1 + service_dx, cy - 0.5, 0.76, -90)
-        mk("lamp", 1, x0 + 0.8 + service_dx, cy - 0.4, 0.76)
+        # Small, squared to the desk edge like everything else she owns.
+        mk("lamp", 1, x0 + 0.8 + service_dx, cy - 0.4, 0.76,
+           variant="office_green")
         # the captioner's order: everything squared to the desk edge
         _asm(f, "2A_pinboard", "pinboard", wface + 0.005, cy - 0.45, -90,
              z0=1.05, W=0.95, cards=15, neat=True)
@@ -1539,7 +1541,13 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
                       0.4, 0.28, 0.5 + (i % 2) * 0.46, 0.24,
                       ("metal", "fabric_cool")[i % 2], False)
         chair_box(f, "3B_stool", x0 + 1.3 + bench_dx, y0 + 2.6, "s")
-        mk("lamp", 1, x0 + 1.0 + bench_dx, y0 + 3.5, 0.95)
+        # Rear right corner of the bench top, clear of the mug at 1.00,
+        # the radio at 1.35, the jars at 1.62 and the parts tray at 2.00.
+        # It used to stand at 1.00/3.50 - directly over its own mug - and
+        # 40 mm above a 0.91 top, so it floated. The friction-joint arm
+        # reaches the work from the corner, which is what that lamp is for.
+        mk("lamp", 1, x0 + 2.35 + bench_dx, y0 + 3.62, 0.91,
+           variant="bench_friction")
         # the bench itself, sorted by category like the man sorts his life
         _asm(f, "3B_radio", "radio", x0 + 1.35 + bench_dx,
              y0 + 3.22, 180, z0=0.91)
@@ -1601,7 +1609,13 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
         shelf_unit(f, "5A_planshelf", x0 + 0.4, y0 + 3.55, 1.6, True,
                    h=1.4, books=False, face="n")
         chair_box(f, "5A_stool", cx + 0.7, cy + 1.55, "n")
-        mk("lamp", 1, cx + 0.6, cy + 0.75, 0.83)
+        # Buquet-pattern, nickel-plated brass on a weighted wooden base -
+        # NOT the aluminium version, which VIII.4 forbids outright. Patented
+        # in Paris in February 1927, so hers is weeks old and came through
+        # the practice; per Accord 9 it is already scarred where the arm has
+        # swung into the drafting board a thousand times.
+        mk("lamp", 1, cx + 0.6, cy + 0.75, 0.83,
+           variant="architect_counterweight")
         # plans over contradictory plans: two drifted boards, loose sheets
         # taped between them, and a massing model of this very building
         _asm(f, "5A_pins1", "pinboard", wface + 0.005, y0 + 4.45, -90,
@@ -1850,9 +1864,11 @@ def apartment_4b(z, walls, rooms, markers, furniture):
         {"kind": "radiator", "id": "F04_B_RADIATOR_01", "unit": "4B",
          "pos": [-7.96, 7.48, z], "yaw_deg": -90, "network": "heating",
          "riser": "H-B", "sections": 8},
+        # Whatever the last superintendent left. Stamped enamel, one joint,
+        # and a shade that has been repainted at least once.
         {"kind": "lamp", "id": "F04_B_LAMP_01", "unit": "4B",
          "pos": [-8.15, 6.00, z + 0.76], "yaw_deg": 0,
-         "network": "electrical"},
+         "network": "electrical", "variant": "landlord_enamel"},
         # Keep the historical id: cases and graph routes address it. The kind
         # is intentionally unique so rebuilding this maintenance instrument
         # can never repaint the five domestic picture receivers again.
@@ -4954,7 +4970,10 @@ def _tree_nook(fl, rx, ry):
         "kind": "lamp", "id": "B1_NOOK_LAMP",
         "unit": "ATRIUM", "pos": [round(rx - 0.46, 3), round(ry - 0.90, 3),
                                   round(z + 0.37, 3)],
-        "yaw_deg": 30, "network": "electrical"})
+        "yaw_deg": 30, "network": "electrical",
+        # House property, and the best lamp in the building: cased green
+        # glass on brass. Somebody carried it down here on purpose.
+        "variant": "emeralite"})
 
 
 def atrium_tree(fl):
