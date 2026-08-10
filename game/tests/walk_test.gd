@@ -2252,6 +2252,7 @@ func _medicine_cabinet_checks() -> void:
 	var every_sweep_clear := true
 	var every_stand_clear := true
 	var every_fixture_clear := true
+	var every_tap_revealed := true
 	for cabinet in cabinets:
 		var meshes := _count_meshes(cabinet)
 		total_meshes += meshes
@@ -2266,6 +2267,13 @@ func _medicine_cabinet_checks() -> void:
 				every_sweep_clear = false
 			if not _cabinet_fixture_point_clear(cabinet, point):
 				every_fixture_clear = false
+		var cabinet_box := _world_visual_aabb(cabinet)
+		for child in root.get_children():
+			if child is TapProp and child.unit == cabinet.unit \
+					and child.fixture == "bath_sink":
+				var tap_box := _world_visual_aabb(child)
+				every_tap_revealed = every_tap_revealed \
+						and cabinet_box.position.y - tap_box.end.y >= 0.10
 	_check(every_cabinet_under_cap,
 			"each medicine cabinet stays at or below eight visible meshes")
 	_check(total_meshes <= 184,
@@ -2279,12 +2287,20 @@ func _medicine_cabinet_checks() -> void:
 			"all cabinet leaves clear their basin fittings and sconces")
 	_check(every_stand_clear,
 			"every cabinet opens clear of the worker's basin standing point")
+	_check(every_tap_revealed,
+			"every raised mirror leaves at least 100 mm above visible tapwork")
 
 	var marker_count := 0
 	var structural_count := 0
+	var raised_sconce_count := 0
 	var hinge_sides := {}
 	for floor in root.layout.get("floors", []):
 		for marker in floor.get("markers", []):
+			if String(marker.get("kind", "")) == "sconce_globe" \
+					and String(marker.get("unit", "")) != "":
+				var relative_height := float(marker.pos[2]) - float(floor.z)
+				if absf(relative_height - 2.08) < 0.001:
+					raised_sconce_count += 1
 			if String(marker.get("kind", "")) != "mirror":
 				continue
 			marker_count += 1
@@ -2293,6 +2309,8 @@ func _medicine_cabinet_checks() -> void:
 			hinge_sides[String(marker.get("hinge_side", ""))] = true
 	_check(marker_count == 23 and structural_count == 23,
 			"mirror metadata names wall structure, not a fictitious water path")
+	_check(raised_sconce_count == 23,
+			"all bathroom sconces clear the raised medicine cabinets")
 	_check(hinge_sides.has("left") and hinge_sides.has("right")
 			and hinge_sides.size() == 2,
 			"cabinet markers choose one of both geometry-derived hinge sides")

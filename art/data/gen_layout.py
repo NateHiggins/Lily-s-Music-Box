@@ -485,7 +485,11 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
     if markers is not None:
         markers.append({"kind": "sconce_globe",
                         "id": "%s_LT_SCONCE" % unit,
-                        "unit": unit, "pos": [spos[0], spos[1], z + 1.92],
+                        # At 1.92 m the wall plate occupied the only space the
+                        # cabinet could rise into, leaving its mirror over the
+                        # tapwork. 2.08 m clears the raised cabinet while the
+                        # 85 mm globe still finishes below the bath ceiling.
+                        "unit": unit, "pos": [spos[0], spos[1], z + 2.08],
                         "yaw_deg": syaw, "network": "electrical",
                         "energy": 1.05})
 

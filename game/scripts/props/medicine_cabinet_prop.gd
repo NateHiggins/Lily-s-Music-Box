@@ -15,9 +15,12 @@ extends FunctionalProp
 const W := 0.46
 const H := 0.61
 const DEPTH := 0.095
-const CENTER_Y := 1.305
+## The lower edge sits at 1.20 m: high enough that the two valves and central
+## spout read as plumbing rather than disappearing behind a mirror, while the
+## five-foot worker still sees the centre of the glass almost straight on.
+const CENTER_Y := 1.505
 const DOOR_ANGLE := deg_to_rad(95.0)
-const SHELF_Y := [1.20, 1.39]
+const SHELF_Y := [1.40, 1.59]
 
 var unit := ""
 var hinge_side := "left"
