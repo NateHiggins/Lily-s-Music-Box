@@ -1853,7 +1853,10 @@ def apartment_4b(z, walls, rooms, markers, furniture):
         {"kind": "lamp", "id": "F04_B_LAMP_01", "unit": "4B",
          "pos": [-8.15, 6.00, z + 0.76], "yaw_deg": 0,
          "network": "electrical"},
-        {"kind": "monitor", "id": "F04_B_MONITOR_01", "unit": "4B",
+        # Keep the historical id: cases and graph routes address it. The kind
+        # is intentionally unique so rebuilding this maintenance instrument
+        # can never repaint the five domestic picture receivers again.
+        {"kind": "signal_terminal", "id": "F04_B_MONITOR_01", "unit": "4B",
          "pos": [-8.05, 5.50, z + 0.76], "yaw_deg": 180,
          "network": "electrical"},
         # West of the sink with the mugs. At -9.70 it was 150 mm from the
@@ -7749,7 +7752,7 @@ def acoustic_graph(layout):
                     "ventilation", "ROOF_OPEN", 0.82, (35, 1800), 9)
                 nodes[-1]["riser"] = m.get("riser", "V-X")
                 vent_fans[m.get("riser", "V-X")] = m
-            elif m["kind"] in ("lamp", "monitor", "toaster",
+            elif m["kind"] in ("lamp", "monitor", "signal_terminal", "toaster",
                                "boxfan", "speaker", "kettle",
                                "ceiling_light", "pendant_shade",
                                "flush_dome", "sconce_globe",
@@ -7976,6 +7979,13 @@ PROP_CATALOG = {
                "infection_receptivity": 0.55},
     "monitor": {"minimum_action_interval": 0.06, "maximum_action_rate": 12,
                 "available_mechanical_events": ["flicker", "scan_glitch"],
+                "preferred_subdivision": 2, "timing_drift": 0.0,
+                "response_latency": 0.01, "normal_function_priority": 1.0,
+                "infection_receptivity": 0.8},
+    "signal_terminal": {
+                "minimum_action_interval": 0.06, "maximum_action_rate": 12,
+                "available_mechanical_events": ["scope_flare", "meter_kick",
+                                                "line_annunciate"],
                 "preferred_subdivision": 2, "timing_drift": 0.0,
                 "response_latency": 0.01, "normal_function_priority": 1.0,
                 "infection_receptivity": 0.8},

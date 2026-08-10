@@ -121,6 +121,20 @@
   "normal_function_priority": 1.0,
   "infection_receptivity": 0.8
  },
+ "signal_terminal": {
+  "minimum_action_interval": 0.06,
+  "maximum_action_rate": 12,
+  "available_mechanical_events": [
+   "scope_flare",
+   "meter_kick",
+   "line_annunciate"
+  ],
+  "preferred_subdivision": 2,
+  "timing_drift": 0.0,
+  "response_latency": 0.01,
+  "normal_function_priority": 1.0,
+  "infection_receptivity": 0.8
+ },
  "boxfan": {
   "minimum_action_interval": 0.5,
   "maximum_action_rate": 2,

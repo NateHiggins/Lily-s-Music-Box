@@ -65,3 +65,11 @@ P3 | art/data/gen_layout.py:2349 and 2372; game/data/building_layout.json marker
 4. Remove the corridor-light family and the three demonstrably inert JSON
    authorities in separate commits; creature removal waits on the dream ruling.
 5. Decide external-save compatibility before touching the smoke-detector alias.
+
+## Repair status
+
+- The first P0 was repaired in the subsequent monitor-family split: one
+  `signal_terminal` retains id `F04_B_MONITOR_01`; five ordinary `monitor`
+  receivers remain, including three independently asserted picture plates in
+  6A. Both kinds retain connected acoustic nodes. The roof-node P0 remains
+  open.

@@ -36,6 +36,7 @@ const PROP_SCRIPTS := {
 	"fridge": preload("res://scripts/props/fridge_prop.gd"),
 	"stove": preload("res://scripts/props/stove_prop.gd"),
 	"monitor": preload("res://scripts/props/monitor_prop.gd"),
+	"signal_terminal": preload("res://scripts/props/signal_terminal_prop.gd"),
 	"boxfan": preload("res://scripts/props/boxfan_prop.gd"),
 	"door_anomaly": preload("res://scripts/props/door_anomaly_prop.gd"),
 	"case_door": preload("res://scripts/props/case_door_prop.gd"),

@@ -2072,6 +2072,28 @@ stable binding id, absence of all five modern peripherals, instrument parts,
 ten-mesh count, physical stage response, incoming annunciator, preserved verbs
 and the brass/Bakelite interface palette.
 
+### Monitor-family correction
+
+The first H18 build changed the shared `monitor` class, not a 4B-only owner.
+Built data contains five other markers: one each for Mina and Juno and three
+across Sacha's editing wall. A streaming render caught all three of Sacha's
+displays replaced by complete maintenance consoles while the 4B-only test
+remained green.
+
+The unique instrument is now kind `signal_terminal` and class
+`SignalTerminalProp`; its historical id remains `F04_B_MONITOR_01`, so case,
+virus and acoustic routes do not move. `MonitorProp` again owns the five
+domestic picture receivers. Each marker now builds one compact Bakelite/brass
+display rather than the old class's implicit pair. FAST WalkTest asserts the
+one/five family split and all three 6A picture plates.
+
+- Before correction, three maintenance consoles in 6A:
+  `C:/PleaseRemainOnTheLine/art/renders/audit_unused_systems/b_15_6a_sacha.png`
+- After correction, three domestic picture receivers in 6A:
+  `C:/PleaseRemainOnTheLine/art/renders/monitor_split/after/b_15_6a_sacha.png`
+- 4B after the semantic split, unchanged physical terminal:
+  `C:/PleaseRemainOnTheLine/art/renders/monitor_split/after/stand_-9.55_10.80_-5.50_-90_-7.png`
+
 ## Lavatory porcelain — calm fired-glaze family promotion
 
 The original `porcelain` plate carried dense granular relief and full-surface

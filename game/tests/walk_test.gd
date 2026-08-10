@@ -2561,7 +2561,7 @@ func _switch_checks() -> void:
 ## radio desk; the suite makes sure later clutter cannot quietly put the
 ## keyboard back under it or return the call interface to generic software.
 func _terminal_checks() -> void:
-	var terminal := root.get_node_or_null("F04_B_MONITOR_01") as MonitorProp
+	var terminal := root.get_node_or_null("F04_B_MONITOR_01") as SignalTerminalProp
 	_check(terminal != null, "4B retains its stable signal-terminal binding id")
 	if terminal == null:
 		return
@@ -2601,6 +2601,27 @@ func _terminal_checks() -> void:
 		_check(panel_style != null and panel_style.border_color.r > 0.35
 				and panel_style.bg_color.get_luminance() < 0.05,
 				"call face retains its brass rim and dark Bakelite field")
+	var displays: Array[MonitorProp] = []
+	for child in root.get_children():
+		if child is MonitorProp:
+			displays.append(child)
+	_check(displays.size() == 5,
+			"five domestic picture receivers remain separate from 4B terminal")
+	var sacha_display_count := 0
+	var sacha_picture_plates := 0
+	var connected_displays := 0
+	for display in displays:
+		if not AcousticGraphData.neighbors(display.graph_node_id).is_empty():
+			connected_displays += 1
+		if String(display.name).begins_with("F06_A_MONITOR_"):
+			sacha_display_count += 1
+			if display.find_child("PicturePlate", true, false) != null:
+				sacha_picture_plates += 1
+	_check(sacha_display_count == 3 and sacha_picture_plates == 3,
+			"Sacha retains three picture plates, not three maintenance desks")
+	_check(connected_displays == 5
+			and not AcousticGraphData.neighbors(terminal.graph_node_id).is_empty(),
+			"both display and terminal kinds remain on the electrical graph")
 
 
 func _clock_checks() -> void:
