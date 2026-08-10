@@ -343,6 +343,10 @@ Aged white porcelain enamel appliance surface belonging to a repairman, masking-
 
 ---
 
+## Shower curtain — rubberized cotton duck
+
+Authentic aged cream rubberized cotton duck used as an inexpensive late-1920s shower curtain, fine tightly woven cotton still faintly visible through a thin waxed waterproof face, warm yellowed ivory, very low-contrast vertical handling creases, sparse grey mineral haze and a few tiny brown age flecks, otherwise homogeneous. No curtain outline, folds, rings, rod, hem, seam, printed motif, landmark stain, gradient, vignette, baked lighting, highlight, shadow, room, person or fixture. Represents about 0.50 metres of cloth. Orthographic close crop containing only the material surface, flat diffuse evenly-lit document scan, seamless and infinitely wrapping on every edge. Square 1:1, high resolution, no letters, numbers, words, labels, logos, borders, perspective or watermark.
+
 ## COLOR ANCHORS — absolute references
 
 Append to any prompt for tighter color fidelity: *"average surface

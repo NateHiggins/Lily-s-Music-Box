@@ -406,6 +406,20 @@
       "roughness_multiplier": 0.82,
       "visual_lock": false
     },
+    "shower_duck": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.65,
+      "catalog_mapping": "library/furniture/linen",
+      "files": [
+        "T_library_furniture_linen_albedo.png",
+        "T_library_furniture_linen_rough.png",
+        "T_library_furniture_linen_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.65,
+      "roughness_multiplier": 0.62,
+      "visual_lock": false
+    },
     "soot": {
       "alpha": false,
       "canonical_meters_per_tile": 1.2,

@@ -24,6 +24,7 @@ const SETS := {
 	'wood_dark': ["T_library_furniture_walnut_albedo.png", "T_library_furniture_walnut_rough.png", "T_library_furniture_walnut_normal.png", 1.2, 0], # visual lock
 	'fabric_warm': ["T_library_furniture_upholstery_rust_albedo.png", "T_library_furniture_upholstery_rust_rough.png", "T_library_furniture_upholstery_rust_normal.png", 0.7, 0], # visual lock
 	'linen': ["T_library_furniture_linen_albedo.png", "T_library_furniture_linen_rough.png", "T_library_furniture_linen_normal.png", 0.6, 0], # visual lock
+	'shower_duck': ["T_library_furniture_linen_albedo.png", "T_library_furniture_linen_rough.png", "T_library_furniture_linen_normal.png", 0.65, 0, 0.62],
 	'paper': ["T_library_furniture_aged_paper_albedo.png", "T_library_furniture_aged_paper_rough.png", "T_library_furniture_aged_paper_normal.png", 0.5, 0], # visual lock
 	'trim': ["T_library_architectural_painted_trim_albedo.png", "T_library_architectural_painted_trim_rough.png", "T_library_architectural_painted_trim_normal.png", 1.2, 0], # visual lock
 	'plant': ["T_library_organic_leaf_surface_albedo.png", "T_library_organic_leaf_surface_rough.png", "T_library_organic_leaf_surface_normal.png", 0.5, 0], # visual lock

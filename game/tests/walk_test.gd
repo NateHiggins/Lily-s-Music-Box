@@ -650,9 +650,11 @@ func _plumbing_checks() -> void:
 	# player's compact sink through the same public API maintenance uses.
 	var counts := {"bath_sink": 0, "kitchen_sink": 0, "shower": 0}
 	var player_sink: TapProp = null
+	var player_shower: TapProp = null
 	var incomplete := []
 	var misoriented_lavatories := []
 	var missing_outlets := []
+	var incomplete_curtains := []
 	for child in root.get_children():
 		if child is not TapProp:
 			continue
@@ -668,6 +670,12 @@ func _plumbing_checks() -> void:
 				missing_outlets.append(tap.name)
 		if tap.fixture == "kitchen_sink" and tap.unit == "4B":
 			player_sink = tap
+		if tap.fixture == "shower":
+			if tap._curtain_closed == null or tap._curtain_gathered == null \
+					or tap._curtain_area == null:
+				incomplete_curtains.append(tap.name)
+			if tap.unit == "4B":
+				player_shower = tap
 	_check(counts.bath_sink == 24,
 			"24 complete bath lavatories, including the retail WC")
 	_check(counts.kitchen_sink == 19,
@@ -681,6 +689,11 @@ func _plumbing_checks() -> void:
 	_check(missing_outlets.is_empty(),
 			"every lavatory faucet terminates at a modelled outlet (%s)"
 			% [missing_outlets])
+	_check(incomplete_curtains.is_empty(),
+			"all 23 showers own drawn, gathered and interactive curtain states (%s)"
+			% [incomplete_curtains])
+	_check(MatLib.SETS.has("shower_duck"),
+			"rubberized shower duck resolves through the runtime material contract")
 	var two_b_marks := root.find_children("DomesticMark_2B_*", "", true, false)
 	_check(two_b_marks.size() == 1,
 			"2B retains one high hand smear rather than a repeated pair")
@@ -708,6 +721,17 @@ func _plumbing_checks() -> void:
 				"4B hot valve, cold valve, stopper and stream operate independently")
 		player_sink.set_running(false)
 		player_sink.set_stopper(false)
+	_check(player_shower != null, "4B owns an operable shower curtain")
+	if player_shower:
+		player_shower.set_curtain_open(false)
+		var drawn_visible := player_shower._curtain_closed.visible \
+				and not player_shower._curtain_gathered.visible
+		player_shower.interact_area(player_shower._curtain_area)
+		var gathered_visible := player_shower.is_curtain_open() \
+				and not player_shower._curtain_closed.visible \
+				and player_shower._curtain_gathered.visible
+		_check(drawn_visible and gathered_visible,
+				"4B curtain interaction exchanges the fully drawn and gathered silhouettes")
 
 
 func _toaster_checks() -> void:

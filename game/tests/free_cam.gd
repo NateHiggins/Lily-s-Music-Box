@@ -183,7 +183,9 @@ func _ready() -> void:
 	# visible in the installed room rather than merely true in source.
 	var tap_pose := OS.get_environment("SHOT_TAP_POSE")
 	if tap_pose != "":
-		_pose_taps(root, tap_pose)
+		var pp := tap_pose.split(":")
+		_pose_taps(root, String(pp[0]),
+				String(pp[1]) if pp.size() > 1 else "service")
 		await get_tree().create_timer(0.12).timeout
 	var cabinet_pose := OS.get_environment("SHOT_CABINET_POSE")
 	if cabinet_pose != "":
@@ -343,13 +345,16 @@ func _pose_kettles(node: Node, wanted_unit: String, pose: String) -> void:
 		_pose_kettles(child, wanted_unit, pose)
 
 
-func _pose_taps(node: Node, wanted_unit: String) -> void:
+func _pose_taps(node: Node, wanted_unit: String, pose: String) -> void:
 	if node is TapProp:
 		var tap := node as TapProp
 		if wanted_unit == "*" or tap.unit == wanted_unit:
-			tap.set_service_pose()
+			if tap.fixture == "shower" and pose == "curtain_open":
+				tap.set_curtain_open(true)
+			else:
+				tap.set_service_pose()
 	for child in node.get_children():
-		_pose_taps(child, wanted_unit)
+		_pose_taps(child, wanted_unit, pose)
 
 
 func _pose_cabinets(node: Node, wanted_unit: String) -> void:

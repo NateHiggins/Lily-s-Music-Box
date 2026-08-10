@@ -8124,6 +8124,11 @@ MATERIAL_CATALOG = {
     # lived-in furnishing palette
     "wood_dark": {"base_color": [0.28, 0.20, 0.14, 1.0], "roughness": 0.50},
     "linen": {"base_color": [0.86, 0.85, 0.81, 1.0], "roughness": 0.85},
+    # Rubberized cotton duck on the 1928 shower curtains. It shares the
+    # approved linen weave source, but is staged as a distinct finish because
+    # its waxed face is darker, less absorbent and visibly less matte.
+    "shower_duck": {"base_color": [0.73, 0.68, 0.54, 1.0],
+                    "roughness": 0.62, "metallic": 0.0},
     "paper": {"base_color": [0.90, 0.88, 0.82, 1.0], "roughness": 0.85},
     "countertop": {"base_color": [0.78, 0.75, 0.64, 1.0],
                    "roughness": 0.62},

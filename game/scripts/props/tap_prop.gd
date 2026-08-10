@@ -19,6 +19,7 @@ const NICKEL := Color(0.72, 0.71, 0.67)
 const BRASS := Color(0.55, 0.42, 0.21)
 const IRON := Color(0.17, 0.17, 0.16)
 const LINEN := Color(0.78, 0.76, 0.68)
+const SHOWER_DUCK := Color(0.73, 0.68, 0.54)
 const MINERAL := Color(0.79, 0.76, 0.65)
 const RUST := Color(0.39, 0.18, 0.085)
 
@@ -32,6 +33,7 @@ var porcelain_material_key := "porcelain"
 var drain_side := 1
 var compact_kitchen := false
 var has_drainboard := true
+var warehouse_curtain_open := false
 
 var _hot := false
 var _cold := false
@@ -48,6 +50,10 @@ var _water_full_y := 0.0
 var _water_full_scale := Vector3.ONE
 var _water: AudioStreamPlayer3D
 var _tick: AudioStreamPlayer3D
+var _curtain_closed: Node3D
+var _curtain_gathered: Node3D
+var _curtain_area: Area3D
+var _curtain_is_open := false
 
 
 func warehouse_variants() -> Array[Dictionary]:
@@ -55,8 +61,13 @@ func warehouse_variants() -> Array[Dictionary]:
 	# silhouettes here and the shower only under its own kind avoids the old
 	# 2 kinds x 3 variants duplication.
 	if prop_type == "shower":
-		return [{"label": "shower / 1908 corner receptor",
-				"properties": {"fixture": "shower", "unit": "3B"}}]
+		return [
+			{"label": "shower / curtain drawn",
+				"properties": {"fixture": "shower", "unit": "3B"}},
+			{"label": "shower / curtain gathered",
+				"properties": {"fixture": "shower", "unit": "4B",
+					"warehouse_curtain_open": true}},
+		]
 	return [
 		{"label": "sink / lavatory — legacy granular porcelain",
 				"properties": {"fixture": "bath_sink", "unit": "2B"}},
@@ -91,7 +102,10 @@ func _build_visual() -> void:
 		[BRASS, "brass_dull", Color(0.78, 0.68, 0.44), 0.55],
 		[IRON, "cast_iron", Color(0.33, 0.32, 0.29), 0.68],
 		[LINEN, "linen", Color(0.88, 0.85, 0.75), 0.74],
+		[SHOWER_DUCK, "shower_duck", Color(0.90, 0.84, 0.67), 0.58],
 	])
+	if fixture == "shower":
+		_finish_curtain_material()
 	# Valves, stopper and water remain separate because the player and the
 	# haunting move them. Everything else is fixed enough to merge.
 	merge_static(fixed)
@@ -100,6 +114,12 @@ func _build_visual() -> void:
 	# repeated primitive cost across sixty-six fixtures.
 	for handle in _handles:
 		merge_static(handle)
+	if _curtain_closed:
+		merge_static(_curtain_closed)
+	if _curtain_gathered:
+		merge_static(_curtain_gathered)
+	if fixture == "shower":
+		set_curtain_open(warehouse_curtain_open)
 
 	_water = make_emitter(
 			"shower_water" if fixture == "shower" else "sink_water",
@@ -197,14 +217,7 @@ func _build_shower(parent: Node3D) -> void:
 	var rose := _cyl_on(parent, 0.055, 0.075, 0.035,
 			Vector3(0, 1.855, 0.18), NICKEL)
 	rose.rotation_degrees.x = 180.0
-	# A white-duck curtain on a 25-inch ring. The opening is intentional:
-	# a full opaque wall hid the receptor and felt like collision geometry.
-	_tube_between(parent, Vector3(-0.34, 2.02, -0.32),
-			Vector3(0.34, 2.02, -0.32), 0.009, NICKEL)
-	for x in [-0.31, -0.21, -0.11, -0.01, 0.09]:
-		var fold := _box_on(parent, Vector3(0.095, 1.62, 0.010),
-				Vector3(x, 1.19, -0.315), LINEN)
-		fold.rotation_degrees.y = sin(x * 39.0) * 4.0
+	_build_shower_curtain(parent)
 	_build_stopper(Vector3(0, 0.015, 0.01))
 	_add_use_wear(parent, Vector3(0.25, 0.125, -0.24), true)
 	_stream = _make_stream(Vector3(0, 1.82, 0.18), 1.71, 0.017)
@@ -212,6 +225,139 @@ func _build_shower(parent: Node3D) -> void:
 	_water_full_y = 0.105
 	_basin_water = _make_water_surface(Vector3(0, _water_empty_y, 0),
 			Vector2(0.62, 0.62))
+
+
+func _build_shower_curtain(parent: Node3D) -> void:
+	# A ceiling-hung U rod encloses the three exposed edges regardless of
+	# which room corner receives the receptor. The previous front bar and five
+	# rigid boxes left a 200 mm gap and could never close around a bather.
+	var rod_y := 2.02
+	var left_rear := Vector3(-0.34, rod_y, 0.32)
+	var left_front := Vector3(-0.34, rod_y, -0.32)
+	var right_front := Vector3(0.34, rod_y, -0.32)
+	var right_rear := Vector3(0.34, rod_y, 0.32)
+	_tube_between(parent, left_rear, left_front, 0.009, NICKEL)
+	_tube_between(parent, left_front, right_front, 0.009, NICKEL)
+	_tube_between(parent, right_front, right_rear, 0.009, NICKEL)
+	# Two wall eyes make the rod construction legible instead of allowing a
+	# chrome U to end mysteriously inside the tile.
+	for x in [-0.34, 0.34]:
+		var eye := make_ring(0.030, 0.007, Vector3(x, rod_y, 0.338),
+				NICKEL, 0.38, 0.72, parent)
+		eye.rotation_degrees.x = 90.0
+
+	_curtain_closed = Node3D.new()
+	_curtain_closed.name = "CurtainDrawn"
+	add_child(_curtain_closed)
+	# One continuous rubberized-cotton curtain wraps both returns and the
+	# front. It is three surfaces so each run can carry folds normal to itself,
+	# but merges to one textured draw after construction.
+	_make_curtain_panel(_curtain_closed, left_rear, left_front, 5)
+	_make_curtain_panel(_curtain_closed, left_front, right_front, 7)
+	_make_curtain_panel(_curtain_closed, right_front, right_rear, 5)
+	_add_curtain_rings(_curtain_closed, left_rear, left_front, 4, false)
+	_add_curtain_rings(_curtain_closed, left_front, right_front, 7, true)
+	_add_curtain_rings(_curtain_closed, right_front, right_rear, 4, false)
+
+	_curtain_gathered = Node3D.new()
+	_curtain_gathered.name = "CurtainGathered"
+	add_child(_curtain_gathered)
+	# The open state is a deliberately thick stack at the back return. This
+	# silhouette holds the full cloth volume without simulated drape or a flat
+	# panel shrinking implausibly into nothing.
+	_make_curtain_panel(_curtain_gathered,
+			Vector3(0.245, rod_y, 0.305), right_rear, 8)
+	_add_curtain_rings(_curtain_gathered,
+			Vector3(0.245, rod_y, 0.305), right_rear, 7, true)
+
+	_curtain_area = Area3D.new()
+	_curtain_area.name = "CurtainInteraction"
+	_curtain_area.set_meta("shower_curtain", true)
+	var shape_node := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(0.68, 1.55, 0.10)
+	shape_node.shape = shape
+	shape_node.position = Vector3(0, 1.18, -0.31)
+	_curtain_area.add_child(shape_node)
+	add_child(_curtain_area)
+
+
+func _make_curtain_panel(parent: Node3D, a: Vector3, b: Vector3,
+		folds: int) -> void:
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var span := b - a
+	var horizontal := Vector3(span.x, 0, span.z).normalized()
+	var normal := Vector3(-horizontal.z, 0, horizontal.x)
+	var segments := maxi(8, folds * 4)
+	for i in segments:
+		var u0 := float(i) / segments
+		var u1 := float(i + 1) / segments
+		var wave0 := sin(u0 * folds * TAU) * 0.040
+		var wave1 := sin(u1 * folds * TAU) * 0.040
+		var top0 := a.lerp(b, u0) + normal * wave0 + Vector3(0, -0.055, 0)
+		var top1 := a.lerp(b, u1) + normal * wave1 + Vector3(0, -0.055, 0)
+		# A slightly stronger wave and uneven hem keep the cloth from reading
+		# as architectural panelling while remaining deterministic and static.
+		var low0 := a.lerp(b, u0) + normal * wave0 * 1.35 \
+				+ Vector3(0, -1.62 + sin(u0 * PI * 5.0) * 0.012, 0)
+		var low1 := a.lerp(b, u1) + normal * wave1 * 1.35 \
+				+ Vector3(0, -1.62 + sin(u1 * PI * 5.0) * 0.012, 0)
+		_add_curtain_quad(st, top0, top1, low1, low0, normal, u0, u1)
+	var mesh := MeshInstance3D.new()
+	mesh.name = "RubberizedDuck"
+	mesh.mesh = st.commit()
+	mesh.material_override = _pmat(SHOWER_DUCK)
+	parent.add_child(mesh)
+
+
+func _finish_curtain_material() -> void:
+	# The rejected linen_aged source contained a real fold, so tiling it printed
+	# a horizontal band down every curtain. The approved library linen is a
+	# homogeneous weave and may safely project at physical scale. Mapping its
+	# square once over the full tall drop instead stretched the weave into moire.
+	var cloth := MatLib.get_mat("shower_duck",
+			Color(0.90, 0.84, 0.67), 0.58).duplicate() as StandardMaterial3D
+	cloth.uv1_triplanar = true
+	cloth.normal_scale = 0.14
+	for node in find_children("RubberizedDuck", "MeshInstance3D", true, false):
+		(node as MeshInstance3D).material_override = cloth
+
+
+func _add_curtain_quad(st: SurfaceTool, top0: Vector3, top1: Vector3,
+		low1: Vector3, low0: Vector3, normal: Vector3,
+		u0: float, u1: float) -> void:
+	_add_curtain_triangle(st, top0, top1, low1, normal,
+			Vector2(u0, 0), Vector2(u1, 0), Vector2(u1, 1))
+	_add_curtain_triangle(st, top0, low1, low0, normal,
+			Vector2(u0, 0), Vector2(u1, 1), Vector2(u0, 1))
+	# Duplicate the winding: a curtain must be visible from the receptor and
+	# the room without requiring a special two-sided runtime material.
+	_add_curtain_triangle(st, low1, top1, top0, -normal,
+			Vector2(u1, 1), Vector2(u1, 0), Vector2(u0, 0))
+	_add_curtain_triangle(st, low0, low1, top0, -normal,
+			Vector2(u0, 1), Vector2(u1, 1), Vector2(u0, 0))
+
+
+func _add_curtain_triangle(st: SurfaceTool, a: Vector3, b: Vector3,
+		c: Vector3, normal: Vector3, uv_a: Vector2, uv_b: Vector2,
+		uv_c: Vector2) -> void:
+	for pair in [[a, uv_a], [b, uv_b], [c, uv_c]]:
+		st.set_normal(normal)
+		st.set_uv(pair[1])
+		st.add_vertex(pair[0])
+
+
+func _add_curtain_rings(parent: Node3D, a: Vector3, b: Vector3,
+		count: int, rod_along_x: bool) -> void:
+	for i in count:
+		var t := (float(i) + 0.5) / count
+		var ring := make_ring(0.022, 0.0035,
+				a.lerp(b, t) + Vector3(0, -0.025, 0), NICKEL,
+				0.34, 0.70, parent)
+		ring.rotation_degrees.z = 90.0 if rod_along_x else 0.0
+		if not rod_along_x:
+			ring.rotation_degrees.x = 90.0
 
 
 func _tapered_pedestal(parent: Node3D, top: float) -> void:
@@ -564,9 +710,17 @@ func _tube_between(parent: Node3D, a: Vector3, b: Vector3, radius: float,
 
 
 func interact_prompt() -> String:
+	if fixture == "shower" and not (_hot or _cold):
+		return "[E]  %s the shower curtain" % (
+				"Open" if not _curtain_is_open else "Draw")
 	if _hot or _cold:
 		return "[E]  Turn off the %s" % _fixture_name()
 	return "[E]  Turn on the %s" % _fixture_name()
+
+
+func interact_area(area: Area3D) -> void:
+	if area.has_meta("shower_curtain"):
+		set_curtain_open(not _curtain_is_open)
 
 
 func interact(_player: Node) -> void:
@@ -579,6 +733,27 @@ func interact(_player: Node) -> void:
 	else:
 		set_hot(false)
 		set_cold(false)
+
+
+func set_curtain_open(open: bool) -> void:
+	_curtain_is_open = open
+	if _curtain_closed:
+		_curtain_closed.visible = not open
+	if _curtain_gathered:
+		_curtain_gathered.visible = open
+	if _curtain_area:
+		var shape_node := _curtain_area.get_node_or_null("CollisionShape3D") \
+				as CollisionShape3D
+		if shape_node and shape_node.shape is BoxShape3D:
+			var box := shape_node.shape as BoxShape3D
+			box.size = Vector3(0.18, 1.55, 0.16) if open \
+					else Vector3(0.68, 1.55, 0.10)
+			shape_node.position = Vector3(0.29, 1.18, 0.25) if open \
+					else Vector3(0, 1.18, -0.31)
+
+
+func is_curtain_open() -> bool:
+	return _curtain_is_open
 
 
 func set_hot(on: bool) -> void:

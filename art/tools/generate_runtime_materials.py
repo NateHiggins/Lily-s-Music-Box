@@ -40,6 +40,11 @@ RUNTIME_POLICY = {
     "copper_aged": {"roughness_multiplier": 0.58},
     "porcelain": {}, "porcelain_fixture": {},
     "wood_dark": {}, "fabric_warm": {}, "linen": {},
+    # Deliberate semantic alias, not a visual lock: rubberized duck keeps the
+    # approved clean linen weave but has its own tint and waxed optical policy.
+    # The rejected linen_aged AI plate carried a fixture-sized horizontal fold.
+    "shower_duck": {"roughness_multiplier": 0.62,
+                    "runtime_alias": "linen"},
     "paper": {}, "trim": {}, "plant": {}, "brass_bright": {},
     "bronze": {}, "car_paint": {}, "oak_quartered": {},
     "milk_glass": {}, "bakelite_black": {}, "terrazzo_dark": {},
@@ -90,6 +95,19 @@ def _canonical_files(key: str) -> list[str]:
             for suffix in ("albedo", "rough", "normal")]
 
 
+def _runtime_alias_files(key: str) -> tuple[list[str], float]:
+    """Reuse one approved plate without pretending two finishes are one key."""
+    if key in VISUAL_LOCKS:
+        stem, runtime_mpt = VISUAL_LOCKS[key]
+        normal_stem = re.sub(r"_worn_[^_]+$", "", stem)
+        return ([stem + "_albedo.png", stem + "_rough.png",
+                 normal_stem + "_normal.png"], runtime_mpt)
+    mapped = _read_json(MAPPING).get(key)
+    if not mapped:
+        raise RuntimeError("runtime alias has no catalog mapping: %s" % key)
+    return _canonical_files(key), float(_metadata_for(mapped)["meters_per_tile"])
+
+
 def build_contract() -> dict:
     catalog = _read_json(CATALOG)
     mapping = _read_json(MAPPING)
@@ -105,7 +123,15 @@ def build_contract() -> dict:
             if not mapped:
                 raise RuntimeError("runtime key has no catalog mapping: %s" % key)
             canonical_mpt = float(_metadata_for(mapped)["meters_per_tile"])
-        if key in VISUAL_LOCKS:
+        runtime_alias = policy.get("runtime_alias")
+        if runtime_alias:
+            files, _alias_mpt = _runtime_alias_files(str(runtime_alias))
+            # The semantic key's catalog mapping remains scale authority.
+            # Only the pixels are shared; aliases do not inherit a stale
+            # visual-lock scale from the source key.
+            runtime_mpt = canonical_mpt
+            locked = False
+        elif key in VISUAL_LOCKS:
             stem, runtime_mpt = VISUAL_LOCKS[key]
             normal_stem = re.sub(r"_worn_[^_]+$", "", stem)
             files = [stem + "_albedo.png", stem + "_rough.png",

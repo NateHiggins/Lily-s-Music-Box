@@ -206,9 +206,6 @@ they keep their door, schedule, mailbox and place in the web.
 - **H3** `worldc clean --stale` has no test covering it.
 - **H12** **Unused objects and systems roundup.** Both directions: code that never runs, and — the half that bites — live data resolving to nothing. Precedents to pattern-match: arcade cabinets once spawned unbound and did nothing silently; the flue markers carry `unit: "F02C"`, an id in no namespace. Propose removals, delete nothing; several sessions share this tree. Brief: `design/AUDIT_BRIEF.md`.
 - **H13** **Logical placement audit.** Is each object placed correctly, and does it belong there. Convention traps are listed in the brief (door markers are the hinge jamb; pendant markers are ceiling anchors with a drop). Note placement cannot lean on the router to prove a route is clear — see R6, residents walk through furniture. Brief: `design/AUDIT_BRIEF.md`.
-- **H15** Fully enclose every shower with an operable, properly supported curtain;
-  model the rod, rings, gathered/open states and believable cloth silhouette,
-  then author a period waterproof-fabric texture without relying on cloth physics.
 - **H17** Research and model the building's period-correct 1928 light switches;
   give every bathroom a reachable switch outside the wet zone whose interaction
   actually toggles that bathroom's complete light circuit and visible emissives.
