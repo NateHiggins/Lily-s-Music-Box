@@ -2813,8 +2813,9 @@ def build_floor(floor_id):
                         "pos": [-9.15, 10.70, z], "yaw_deg": 0,
                         "network": "structural"})
     # Semantic junctions anchor the electrical/acoustic graph. They deliberately
-    # spawn no prop: the old corridor_light markers created duplicate fixtures
-    # at floor level underneath the ceiling-mounted dome family.
+    # spawn no prop: the floor-level corridor-light markers they replaced created
+    # duplicate fixtures underneath the ceiling-mounted dome family. That whole
+    # family was removed in 2026-08-10 (AUDIT 2), script and profile included.
     markers.append({"kind": "electrical_junction",
                     "id": "%s_CORRLIGHT_S" % floor_id,
                     "pos": [0.0, -8.3, z + 2.75], "yaw_deg": 0,
@@ -3093,7 +3094,7 @@ COVERAGE_SWITCHES_ADDED = []
 
 LIGHT_KINDS_FOR_SWITCH = ("flush_dome", "pendant_shade", "sconce_globe",
                           "kitchen_linear", "cage_bulb", "chandelier",
-                          "eye_pendant", "ceiling_light", "corridor_light")
+                          "eye_pendant", "ceiling_light")
 
 
 def switch_coverage_pass(floors):
@@ -6931,9 +6932,6 @@ def _validate_placement(layout):
                 continue
             kind = m["kind"]
             px, py, pz = m["pos"]
-            if kind == "corridor_light":
-                problems.append("%s: legacy floor-level corridor light %s"
-                                % (fl["id"], m["id"]))
             # B1 is a 2.8 m storey: its ceiling sits at +2.62, so its
             # fixtures mount ~0.4 lower than the 3.2 m floors above
             clo, chi = (2.40, 2.60) if fl["id"] == "B1" else (2.70, 3.08)
@@ -8000,11 +7998,6 @@ PROP_CATALOG = {
              "preferred_subdivision": 2, "timing_drift": 0.0,
              "response_latency": 0.01, "normal_function_priority": 1.0,
              "infection_receptivity": 0.75},
-    "corridor_light": {"minimum_action_interval": 0.08, "maximum_action_rate": 10,
-                       "available_mechanical_events": ["flicker", "starter_buzz"],
-                       "preferred_subdivision": 2, "timing_drift": 0.02,
-                       "response_latency": 0.02, "normal_function_priority": 1.0,
-                       "infection_receptivity": 0.55},
     "washer": {"minimum_action_interval": 0.45, "maximum_action_rate": 2,
                "available_mechanical_events": ["agitate", "thump", "drain"],
                "preferred_subdivision": 0.5, "timing_drift": 0.05,

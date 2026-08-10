@@ -213,6 +213,7 @@ func _run() -> void:
 	_flue_breast_checks()
 	_roof_electrical_checks()
 	_lamp_family_checks()
+	_prop_registry_checks()
 	_prop_mesh_and_boiler_checks()
 	_medicine_cabinet_checks()
 	_switch_checks()
@@ -2996,6 +2997,55 @@ func _lamp_family_checks() -> void:
 					(other as Node3D).global_position) < 0.22:
 				clear = false
 		_check(clear, "Omar's lamp stands clear of the rest of his bench")
+
+
+## Every registered prop kind must have an owner.
+##
+## `corridor_light` survived a year after its markers were deliberately removed,
+## because the warehouse instantiates every registered kind and so the family
+## still appeared in prop review as a supported object. A registry entry with no
+## marker and no documented reason is release-dead code that looks alive.
+##
+## Kinds legitimately without floor markers are named here, each with the reason.
+## Adding to this list is how you declare intent; forgetting to is how the test
+## catches you.
+const WAREHOUSE_ONLY := {
+	"mail_bank": "one instance, placed by MailBankProp against a wall datum",
+	"landmark_entry": "spawned by the street pass, not by a storey marker",
+	"arcade_cabinet": "spawned by ArcadeRow from `furniture`, not a marker",
+	"vantry_point": "built from the top-level `vantry_points` table",
+}
+
+
+func _prop_registry_checks() -> void:
+	var layout: Dictionary = root.layout
+	var marked := {}
+	for floor_data in layout.get("floors", []):
+		for m in floor_data.get("markers", []):
+			marked[String(m.get("kind", ""))] = true
+
+	var orphans: Array[String] = []
+	var stale_excuses: Array[String] = []
+	# Read off the live root rather than a class_name: building_root.gd
+	# declares none, and a walk test whose script fails to parse does not
+	# fail - it hangs, because nothing is left alive to call quit().
+	for kind in root.PROP_SCRIPTS:
+		var key := String(kind)
+		if marked.has(key):
+			# A kind that has markers does not need an excuse, and keeping a
+			# stale one would mislead the next reader as much as none.
+			if WAREHOUSE_ONLY.has(key):
+				stale_excuses.append(key)
+			continue
+		if not WAREHOUSE_ONLY.has(key):
+			orphans.append(key)
+
+	_check(orphans.is_empty(),
+			"every registered prop kind has markers or a documented owner (%s)"
+			% ("none orphaned" if orphans.is_empty() else ", ".join(orphans)))
+	_check(stale_excuses.is_empty(),
+			"no kind claims warehouse-only status while owning markers (%s)"
+			% ("clean" if stale_excuses.is_empty() else ", ".join(stale_excuses)))
 
 func _check(cond: bool, label: String) -> void:
 	if cond:

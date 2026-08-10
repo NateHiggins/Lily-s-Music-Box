@@ -28,7 +28,6 @@ const FLOOR_SCENES := {
 const PROP_SCRIPTS := {
 	"radiator": preload("res://scripts/props/radiator_prop.gd"),
 	"lamp": preload("res://scripts/props/lamp_prop.gd"),
-	"corridor_light": preload("res://scripts/props/corridor_light_prop.gd"),
 	"washer": preload("res://scripts/props/washer_prop.gd"),
 	"laundry_airer": preload("res://scripts/props/laundry_airer_prop.gd"),
 	"boiler": preload("res://scripts/props/boiler_prop.gd"),

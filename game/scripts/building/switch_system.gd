@@ -21,7 +21,7 @@ var _room_fixtures: Dictionary = {}
 const LIGHT_KINDS := {
 	"flush_dome": true, "pendant_shade": true, "sconce_globe": true,
 	"kitchen_linear": true, "cage_bulb": true, "chandelier": true,
-	"eye_pendant": true, "ceiling_light": true, "corridor_light": true,
+	"eye_pendant": true, "ceiling_light": true,
 }
 
 

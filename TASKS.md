@@ -235,12 +235,6 @@ and the four isolated roof fixtures now terminating at a real riser.
   rig or animation, so nothing in it reintroduces them. Remaining question is
   only whether to delete or move them outside `game/` so `all_resources` cannot
   package them.
-- **U3** Remove the `corridor_light` family — script, registry entry,
-  prop-catalog row and the unreachable generator/switch branches, together, with
-  no warehouse variant. It is an anachronistic non-signal fluorescent fixture
-  that can spawn nowhere. Add a registry audit distinguishing marker-spawned
-  kinds from documented warehouse-only kinds (`mail_bank`, `landmark_entry`,
-  `arcade_cabinet`, `vantry_point` are all legitimately marker-less).
 - **U4** `clock_dials.json` has no consumer and is stale — it names
   `memphis`/`sunburst` while the runtime uses `vantry_modular`/`sunray_1920`,
   duplicated in `DIAL_INDEX`. Delete it, or make the clock read it; do not leave

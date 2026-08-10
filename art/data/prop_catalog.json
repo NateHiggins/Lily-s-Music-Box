@@ -27,19 +27,6 @@
   "normal_function_priority": 1.0,
   "infection_receptivity": 0.75
  },
- "corridor_light": {
-  "minimum_action_interval": 0.08,
-  "maximum_action_rate": 10,
-  "available_mechanical_events": [
-   "flicker",
-   "starter_buzz"
-  ],
-  "preferred_subdivision": 2,
-  "timing_drift": 0.02,
-  "response_latency": 0.02,
-  "normal_function_priority": 1.0,
-  "infection_receptivity": 0.55
- },
  "washer": {
   "minimum_action_interval": 0.45,
   "maximum_action_rate": 2,
