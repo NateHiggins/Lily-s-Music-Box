@@ -144,6 +144,8 @@ and by NPCs. R2 needs a brief before anyone builds.
 - **M3** Compiler textures are 128² at roughly 64 px/m, which is the deeper
   reason features come out large relative to the tile.
 
+- **M4** **Texture appearance audit.** Not "do the textures exist" but *does each material read correctly at the size of the object wearing it*. Materials are triplanar in WORLD space, so a bad `meters_per_tile` shows as brick-sized grain on a doorknob rather than stretched UVs. Sweep the warehouse first (68 displays, 44 kinds, flat-lit, side by side — it is the instrument for this), then spot-check in situ under torch. Method and the four failure modes in `design/AUDIT_BRIEF.md`. *Audit only — propose fixes, change nothing.*
+
 ## H — Housekeeping
 
 - **H2** **`C:\FPSengine01` is not a git repository.** The entire compiler side —
@@ -156,3 +158,5 @@ and by NPCs. R2 needs a brief before anyone builds.
   gap is the only separation. `MAIL_BANK_Y` is a Godot constant and the clock's
   `mount_along` is layout data, so either side can move without the other
   noticing. The mail-bank plan listed this assertion and it did not land.
+- **H12** **Unused objects and systems roundup.** Both directions: code that never runs, and — the half that bites — live data resolving to nothing. Precedents to pattern-match: arcade cabinets once spawned unbound and did nothing silently; the flue markers carry `unit: "F02C"`, an id in no namespace. Propose removals, delete nothing; several sessions share this tree. Brief: `design/AUDIT_BRIEF.md`.
+- **H13** **Logical placement audit.** Is each object placed correctly, and does it belong there. Convention traps are listed in the brief (door markers are the hinge jamb; pendant markers are ceiling anchors with a drop). Note placement cannot lean on the router to prove a route is clear — see R6, residents walk through furniture. Brief: `design/AUDIT_BRIEF.md`.
