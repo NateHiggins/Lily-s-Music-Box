@@ -3274,103 +3274,20 @@ def build_floor_overlay(buf, fid, fl, r):
             (x1, y1, z + th), (x0, y1, z + th))
 
 
-def _add_broken_ceiling_finish(finish, outer, damage, z):
-    """Down-facing plaster around one faceted, non-rectangular tear.
-
-    The first build subtracted each authoring band as a rectangle. It proved
-    the recess but left a nine-step computer silhouette. Joining neighbouring
-    band widths into trapezoids keeps the same cheap data and produces the
-    broken diagonal edge the render actually needs.
-    """
-    dx0, dy0, dx1, dy1 = map(float, damage["rect"])
-    rects = subtract_rect([tuple(outer)], (dx0, dy0, dx1, dy1))
-    for x0, y0, x1, y1 in rects:
-        finish.add_quad((x0, y1, z), (x1, y1, z),
-                        (x1, y0, z), (x0, y0, z))
-    cuts = sorted(damage.get("cuts", []), key=lambda c: float(c[1]))
-    for i, cut in enumerate(cuts):
-        left, y0, right, y1 = map(float, cut)
-        prev = cuts[i - 1] if i else cut
-        nxt = cuts[i + 1] if i + 1 < len(cuts) else cut
-        lb = (float(prev[0]) + left) * 0.5
-        lt = (left + float(nxt[0])) * 0.5
-        rb = (float(prev[2]) + right) * 0.5
-        rt = (right + float(nxt[2])) * 0.5
-        finish.add_quad((dx0, y1, z), (lt, y1, z),
-                        (lb, y0, z), (dx0, y0, z))
-        finish.add_quad((rt, y1, z), (dx1, y1, z),
-                        (dx1, y0, z), (rb, y0, z))
-
-
 def build_ceiling_overlay(buf, fid, face):
     """One generator-owned, downward ceiling face.
 
     These used to be inferred only for the core while the flats borrowed the
     slab above. Keeping the semantic faces in layout data makes ownership
     assertable before Blender and keeps every same-finish face in one buffer.
-
-    Failed plaster is cut from THIS face rather than laid over it as a dark
-    decal.  A recessed backing and real lath therefore catch the room light at
-    different depths.  All damage on a floor still becomes only two additional
-    material buffers; a century of ceiling failure is not permission for one
-    object per crack.
     """
     x0, y0, x1, y1 = face["rect"]
     ztop = float(face["z"])
     mat = face.get("mat", "plaster")
-    finish = buf(fid, "ceiling_%s" % mat, mat)
-    damage = face.get("damage")
-    if damage:
-        _add_broken_ceiling_finish(finish, (x0, y0, x1, y1),
-                                   damage, ztop)
-    else:
-        # Reversed winding: this face looks DOWN into the room.
-        finish.add_quad((x0, y1, ztop), (x1, y1, ztop),
-                        (x1, y0, ztop), (x0, y0, ztop))
-    if not damage:
-        return
-
-    dx0, dy0, dx1, dy1 = map(float, damage["rect"])
-    seed = int(damage.get("seed", 1))
-    if damage.get("wet"):
-        # Water migration extends beyond the place that finally lets go. The
-        # soft alpha plate supplies the tide mark; the hole/lath below supplies
-        # the depth. Clamp it to this room-owned face so no leak crosses a wall.
-        margin = 0.22
-        stain = buf(fid, "wear_ceiling_fx_damp", "fx_damp")
-        sx0, sy0 = max(float(x0), dx0 - margin), max(float(y0), dy0 - margin)
-        sx1, sy1 = min(float(x1), dx1 + margin), min(float(y1), dy1 + margin)
-        stain.add_quad((sx0, sy0, ztop - 0.002),
-                       (sx0, sy1, ztop - 0.002),
-                       (sx1, sy1, ztop - 0.002),
-                       (sx1, sy0, ztop - 0.002))
-    # The black-brown key coat is 34 mm above the finish plane; exposed lath
-    # hangs 9 mm above it. Looking up, that small real recess supplies the
-    # shadow edge the flat fx_damp quad could never make.
-    backing = buf(fid, "ceiling_failed_backing", "char")
-    backing.add_quad((dx0, dy1, ztop + 0.034),
-                     (dx1, dy1, ztop + 0.034),
-                     (dx1, dy0, ztop + 0.034),
-                     (dx0, dy0, ztop + 0.034))
-    lath = buf(fid, "ceiling_exposed_lath", "timber")
-    along_x = seed % 2 == 0
-    pitch = 0.092
-    if along_x:
-        p = dy0 - (dy0 % pitch)
-        while p <= dy1:
-            lath.add_box((dx0 - 0.025, p - 0.014, ztop + 0.009),
-                         (dx1 + 0.025, p + 0.014, ztop + 0.021))
-            p += pitch
-    else:
-        p = dx0 - (dx0 % pitch)
-        while p <= dx1:
-            lath.add_box((p - 0.014, dy0 - 0.025, ztop + 0.009),
-                         (p + 0.014, dy1 + 0.025, ztop + 0.021))
-            p += pitch
-
-    # Do not scatter little plaster rectangles across the lath. That first
-    # attempt rendered as white stickers, not material still caught on keys;
-    # the ragged silhouette and real depth carry the failure more honestly.
+    # Reversed winding: this face looks DOWN into the room.
+    buf(fid, "ceiling_%s" % mat, mat).add_quad(
+        (x0, y1, ztop), (x1, y1, ztop),
+        (x1, y0, ztop), (x0, y0, ztop))
 
 
 def build_vent_register(buf, fid, register):
@@ -3787,50 +3704,6 @@ def build_stair(buf, st):
                       buf(fid, "stairs_ramp-colonly", "stair")):
                 b.add_box((r[0], r[1], part["z"] - 0.18),
                           (r[2], r[3], part["z"]))
-            damage = part.get("soffit_damage")
-            if damage:
-                # Original 1912 plaster soffit under the later terrazzo deck.
-                # It shares the floor's ceiling buffers, so the stair target
-                # costs no special per-landing objects or materials.
-                soffit_z = part["z"] - 0.186
-                finish = buf(fid, "ceiling_plaster", "plaster")
-                _add_broken_ceiling_finish(finish, tuple(r), damage, soffit_z)
-                dx0, dy0, dx1, dy1 = map(float, damage["rect"])
-                if damage.get("wet"):
-                    margin = 0.16
-                    stain = buf(fid, "wear_ceiling_fx_damp", "fx_damp")
-                    stain.add_quad((max(r[0], dx0 - margin),
-                                    max(r[1], dy0 - margin), soffit_z - 0.002),
-                                   (max(r[0], dx0 - margin),
-                                    min(r[3], dy1 + margin), soffit_z - 0.002),
-                                   (min(r[2], dx1 + margin),
-                                    min(r[3], dy1 + margin), soffit_z - 0.002),
-                                   (min(r[2], dx1 + margin),
-                                    max(r[1], dy0 - margin), soffit_z - 0.002))
-                backing = buf(fid, "ceiling_failed_backing", "char")
-                backing.add_quad((dx0, dy1, soffit_z + 0.005),
-                                 (dx1, dy1, soffit_z + 0.005),
-                                 (dx1, dy0, soffit_z + 0.005),
-                                 (dx0, dy0, soffit_z + 0.005))
-                lath = buf(fid, "ceiling_exposed_lath", "timber")
-                seed = int(damage.get("seed", 1))
-                pitch = 0.092
-                if seed % 2 == 0:
-                    p = dy0 - (dy0 % pitch)
-                    while p <= dy1:
-                        lath.add_box((dx0 - 0.018, p - 0.013,
-                                      soffit_z + 0.001),
-                                     (dx1 + 0.018, p + 0.013,
-                                      soffit_z + 0.0035))
-                        p += pitch
-                else:
-                    p = dx0 - (dx0 % pitch)
-                    while p <= dx1:
-                        lath.add_box((p - 0.013, dy0 - 0.018,
-                                      soffit_z + 0.001),
-                                     (p + 0.013, dy1 + 0.018,
-                                      soffit_z + 0.0035))
-                        p += pitch
             if not is_deck:
                 gx0, gx1 = part["guard_span"]
                 yc = r[1] + 0.055 if part["guard_edge"] == "s" \

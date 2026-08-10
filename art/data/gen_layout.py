@@ -2162,84 +2162,8 @@ def slab(floor_id, z, holes):
 
 CEILING_MATERIAL = {
     "corridor": "tin_ceiling", "hall": "tin_ceiling",
-    "lobby": "tin_ceiling",
+    "lobby": "tin_ceiling", "atrium": "tin_ceiling",
 }
-
-
-def _ceiling_damage(fid, room, rect):
-    """Author one believable failed-plaster zone, or none.
-
-    Damage follows water and building history rather than a global grunge
-    percentage.  The stair/light court is original 1912 plaster under a wet
-    skylight; wet rooms fail around old services; the top floor takes roof
-    migration.  Ordinary lower rooms only enter the deal occasionally.
-
-    The nine overlapping tear bands make one irregular opening while the
-    enclosing rect gives Blender a cheap substrate/lath work area.  All of it
-    remains metadata on the current-floor-owned ceiling, so streaming never
-    has to keep the storey above alive again.
-    """
-    if (fid == "ROOF" or
-            (fid == "B1" and room.get("kind") != "atrium") or
-            room.get("kind") in ("corridor", "hall", "lobby")):
-        return None
-    x0, y0, x1, y1 = map(float, rect)
-    width, depth = x1 - x0, y1 - y0
-    kind = room.get("kind", "")
-    if kind == "atrium":
-        if width < 1.05 or depth < 0.55:
-            return None
-    elif width < 1.05 or depth < 0.90:
-        return None
-    rng = random.Random("ceiling-damage:%s:%s" % (fid, room["id"]))
-    chance = 22
-    if room.get("id") == "F04_B_MAIN":
-        # The player lives under this one. It is the closest interior analogue
-        # to the title image and must not depend on a random deal to exist.
-        chance = 100
-    elif kind == "atrium":
-        chance = 100
-    elif fid == "F06":
-        chance = 76
-    elif kind in ("bathroom", "kitchen", "laundry", "boiler"):
-        chance = 58
-    if rng.randrange(100) >= chance:
-        return None
-
-    # A patch occupies enough ceiling to read from the five-foot eye line,
-    # never enough to turn a lived-in room into a roofless ruin.  Atrium zones
-    # are longer because water travels along the old light-court framing.
-    sx = min(width * (0.46 if kind == "atrium" else 0.34),
-             2.15 if kind == "atrium" else 1.45)
-    sy = min(depth * (0.34 if kind == "atrium" else 0.28),
-             1.42 if kind == "atrium" else 1.08)
-    sx = max(0.72, sx)
-    sy = max(0.58, sy)
-    margin_x = min(0.32, max(0.10, (width - sx) * 0.18))
-    margin_y = min(0.32, max(0.10, (depth - sy) * 0.18))
-    cx = rng.uniform(x0 + sx / 2 + margin_x, x1 - sx / 2 - margin_x)
-    cy = rng.uniform(y0 + sy / 2 + margin_y, y1 - sy / 2 - margin_y)
-    bx0, by0, bx1, by1 = cx - sx / 2, cy - sy / 2, cx + sx / 2, cy + sy / 2
-    # Nine overlapping bands make one ragged oval tear. Three broad Boolean
-    # rectangles were tried first and rendered like a tool-cut pixel shape;
-    # these 60-120 mm edge steps are small enough to read as broken plaster at
-    # standing distance without exploding the batched mesh into a contour.
-    cuts = []
-    rows = 9
-    profiles = (0.48, 0.68, 0.84, 0.95, 1.00, 0.93, 0.80, 0.64, 0.44)
-    row_h = sy / rows
-    for row, profile in enumerate(profiles):
-        band_w = sx * profile
-        drift = rng.uniform(-0.075, 0.075) * sx
-        ccx = min(bx1 - band_w / 2, max(bx0 + band_w / 2, cx + drift))
-        yy0 = by0 + row * row_h
-        yy1 = by0 + (row + 1) * row_h
-        cuts.append([ccx - band_w / 2, yy0, ccx + band_w / 2, yy1])
-    return {"rect": [round(v, 3) for v in (bx0, by0, bx1, by1)],
-            "cuts": [[round(v, 3) for v in cut] for cut in cuts],
-            "seed": rng.randrange(1, 100000),
-            "wet": (kind in ("atrium", "bathroom", "kitchen") or
-                    fid == "F06" or room.get("id") == "F04_B_MAIN")}
 
 
 def ceiling_pass(floors):
@@ -2275,32 +2199,18 @@ def ceiling_pass(floors):
             for hole in fl["slabs"][0].get("holes", []):
                 rects = subtract_rect(rects, tuple(hole))
             mat = CEILING_MATERIAL.get(room.get("kind"), "plaster")
-            authored = []
             for i, rect in enumerate(rects):
                 if rect_area(rect) < 0.001:
                     continue
-                face = {
+                fl["ceilings"].append({
                     "id": "%s_CEILING_%s_%02d" %
                           (fid, str(room["id"]).upper(), i),
                     "room": room["id"], "rect": list(rect),
                     "z": ztop, "mat": mat,
-                }
-                fl["ceilings"].append(face)
-                authored.append(face)
+                })
                 total += 1
-            # Nested rooms can split a broad envelope into several faces. Put
-            # the failure on its largest surviving piece rather than cloning
-            # one leak into every fragment.
-            if mat == "plaster" and authored:
-                largest = max(authored, key=lambda f: rect_area(f["rect"]))
-                damage = _ceiling_damage(fid, room, largest["rect"])
-                if damage:
-                    largest["damage"] = damage
             claimed.append(tuple(room["rect"]))
-    damaged = sum(1 for fl in floors for face in fl.get("ceilings", [])
-                  if face.get("damage"))
-    print("ceilings: %d current-floor-owned faces, %d failed-plaster zones" %
-          (total, damaged))
+    print("ceilings: %d current-floor-owned faces" % total)
 
 
 def stair_holes(floor_id):
@@ -6402,17 +6312,9 @@ def stair_geometry(st):
                       "tread": run / (n1 - 1), "n": n1, "axis": "y",
                       "dir": 1, "start": deck_edge, "b0": wx0,
                       "b1": wx0 + w, "rail_side": "hi"})
-        landing_rect = [wx0, land_edge, wx1, wy1]
-        landing = {"kind": "landing", "z": lz,
-                   "rect": landing_rect,
-                   "guard_edge": "s", "guard_span": [wx0 + w, wx1 - w]}
-        # The target image's broken plaster is the underside of these half
-        # landings, not a fictitious lid across the open well. Author the cuts
-        # here so Blender never invents architectural coordinates on its own.
-        landing["soffit_damage"] = _ceiling_damage(
-            lvls[i], {"id": "%s_ATRIUM_HALF" % lvls[i],
-                      "kind": "atrium"}, landing_rect)
-        parts.append(landing)
+        parts.append({"kind": "landing", "z": lz,
+                      "rect": [wx0, land_edge, wx1, wy1],
+                      "guard_edge": "s", "guard_span": [wx0 + w, wx1 - w]})
         # east flight: north landing back south, one level up
         parts.append({"kind": "flight", "z0": lz, "rise": rise,
                       "tread": run / (n2 - 1), "n": n2, "axis": "y",
@@ -6526,7 +6428,6 @@ def _validate_ceilings(layout):
     """Every enclosed room remains covered when the storey above is hidden."""
     problems = []
     floors = layout["floors"]
-    damage_count = 0
     for floor_i, fl in enumerate(floors):
         if fl["id"] == "ROOF":
             continue
@@ -6545,25 +6446,6 @@ def _validate_ceilings(layout):
             if face.get("mat") not in ("plaster", "tin_ceiling"):
                 problems.append("%s names unsupported finish %s" %
                                 (face["id"], face.get("mat")))
-            damage = face.get("damage")
-            if damage:
-                damage_count += 1
-                fx0, fy0, fx1, fy1 = map(float, face["rect"])
-                dx0, dy0, dx1, dy1 = map(float, damage.get("rect", []))
-                if (dx0 < fx0 or dy0 < fy0 or dx1 > fx1 or dy1 > fy1 or
-                        dx1 <= dx0 or dy1 <= dy0):
-                    problems.append("%s damage escaped its ceiling face" %
-                                    face["id"])
-                cuts = damage.get("cuts", [])
-                if len(cuts) != 9:
-                    problems.append("%s needs nine irregular plaster cuts" %
-                                    face["id"])
-                for cut in cuts:
-                    cx0, cy0, cx1, cy1 = map(float, cut)
-                    if (cx0 < dx0 or cy0 < dy0 or cx1 > dx1 or cy1 > dy1 or
-                            cx1 <= cx0 or cy1 <= cy0):
-                        problems.append("%s has an invalid damage cut" %
-                                        face["id"])
         # Subtract the faces from each room. Slab holes are lawful absences;
         # anything left after both operations is a patch of open sky.
         holes = [tuple(h) for h in fl["slabs"][0].get("holes", [])]
@@ -6579,16 +6461,6 @@ def _validate_ceilings(layout):
             if leaked > 0.002:
                 problems.append("%s has %.3f m2 open ceiling" %
                                 (room["id"], leaked))
-    if not 24 <= damage_count <= 70:
-        problems.append("ceiling damage count %d escaped the authored range" %
-                        damage_count)
-    soffits = [p for st in layout.get("stairs", [])
-               for p in st.get("parts", [])
-               if p.get("kind") == "landing" and p.get("guard_span")]
-    damaged_soffits = [p for p in soffits if p.get("soffit_damage")]
-    if len(damaged_soffits) != 7:
-        problems.append("expected seven damaged stair soffits, got %d" %
-                        len(damaged_soffits))
     return problems
 
 
