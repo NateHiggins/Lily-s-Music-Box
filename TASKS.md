@@ -196,7 +196,7 @@ Nothing below should start before that ruling.
   noticing. The mail-bank plan listed this assertion and it did not land.
 - **H12** **Unused objects and systems roundup.** Both directions: code that never runs, and — the half that bites — live data resolving to nothing. Precedents to pattern-match: arcade cabinets once spawned unbound and did nothing silently; the flue markers carry `unit: "F02C"`, an id in no namespace. Propose removals, delete nothing; several sessions share this tree. Brief: `design/AUDIT_BRIEF.md`.
 - **H13** **Logical placement audit.** Is each object placed correctly, and does it belong there. Convention traps are listed in the brief (door markers are the hinge jamb; pendant markers are ceiling anchors with a drop). Note placement cannot lean on the router to prove a route is clear — see R6, residents walk through furniture. Brief: `design/AUDIT_BRIEF.md`.
-- **H14** Re-space the raised bathroom elevation: the sconce, cabinet and ceiling
+- **H14** **Codex:** Re-space the raised bathroom elevation: the sconce, cabinet and ceiling
   line are visually crowded even though the collision audit passes; establish a
   deliberate period wall composition and verify all 23 baths in render.
 - **H15** Fully enclose every shower with an operable, properly supported curtain;
