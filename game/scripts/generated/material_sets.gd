@@ -20,6 +20,7 @@ const SETS := {
 	'zinc_liner': ["T_ai_materials_zinc_liner_albedo.png", "T_ai_materials_zinc_liner_rough.png", "T_ai_materials_zinc_liner_normal.png", 0.55, 0.12, 0.82],
 	'copper_aged': ["T_ai_materials_copper_aged_albedo.png", "T_ai_materials_copper_aged_rough.png", "T_ai_materials_copper_aged_normal.png", 0.4, 0.72, 0.58],
 	'porcelain': ["T_library_furniture_porcelain_albedo.png", "T_library_furniture_porcelain_rough.png", "T_library_furniture_porcelain_normal.png", 0.9, 0], # visual lock
+	'porcelain_fixture': ["T_ai_materials_porcelain_fixture_albedo.png", "T_ai_materials_porcelain_fixture_rough.png", "T_ai_materials_porcelain_fixture_normal.png", 0.4, 0],
 	'wood_dark': ["T_library_furniture_walnut_albedo.png", "T_library_furniture_walnut_rough.png", "T_library_furniture_walnut_normal.png", 1.2, 0], # visual lock
 	'fabric_warm': ["T_library_furniture_upholstery_rust_albedo.png", "T_library_furniture_upholstery_rust_rough.png", "T_library_furniture_upholstery_rust_normal.png", 0.7, 0], # visual lock
 	'linen': ["T_library_furniture_linen_albedo.png", "T_library_furniture_linen_rough.png", "T_library_furniture_linen_normal.png", 0.6, 0], # visual lock

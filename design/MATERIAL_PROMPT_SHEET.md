@@ -237,9 +237,9 @@ Aged galvanized sheet steel surface from old ductwork, dull grey spangled zinc c
 Painted cast iron surface from a 1920s radiator, many coats of metallic silver-bronze paint over an older cream layer, brush-dabbed unevenly, rust freckles bleeding up through the silver evenly across the surface, sand-cast graininess showing under the paint, at most two small chips to black iron, no unique landmark damage, homogeneous composition. Represents about 40 centimeters of painted metal, macro detail. Orthographic view, straight-on, flat diffuse lighting, soft metallic sheen, no hotspot, no shadows, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
 ```
 
-### `porcelain_fixture.png` — TILING
+### `porcelain_fixture_smooth.png` — TILING (emits `porcelain_fixture`)
 ```
-Aged vitreous china surface from a 1920s bathroom fixture, white glaze grown ivory with age, fine network of crazing lines stained pale tan, faint mineral haze as broad even variation, no drain, no fixture edges, no unique landmark cracks, homogeneous composition. Represents about 40 centimeters of glaze, macro detail. Orthographic view, straight-on, flat diffuse lighting, soft even sheen, no hard reflections, base color map only. Seamless, infinitely wrapping edges. Square 1:1 aspect ratio, high resolution, production-ready surface asset.
+Authentic warm ivory vitreous china glaze from a c.1920s New York apartment lavatory. The hard fired surface is overwhelmingly smooth and calm, with extremely subtle diffuse mineral haze, minute pinholes and only a very few isolated short hairline crazing marks. No bowl shape, drain, faucet, fixture edge, circular ring, concentric wear, reflected room, gradient, vignette, baked shadow, hotspot, rust streak, aggregate, plaster, concrete, orange peel, speckled stone, dense crackle or directional landmark. Represents about 0.40 metres of glaze. Orthographic close crop containing only the material surface, flat diffuse evenly-lit document scan, seamless and infinitely wrapping on every edge. Square 1:1, high resolution, no letters, numbers, words, labels, logos, borders, perspective or watermark.
 ```
 
 ### `bakelite.png` — TILING

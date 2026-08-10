@@ -2172,6 +2172,7 @@ func _prop_mesh_and_boiler_checks() -> void:
 		"fridge": [0, 0], "stove": [0, 0], "tap": [0, 0], "toaster": [0, 0],
 	}
 	var fired_enamel_stoves := 0
+	var fired_porcelain_lavatories: Array[String] = []
 	for child in root.get_children():
 		var key := ""
 		if child is FridgeProp:
@@ -2182,6 +2183,10 @@ func _prop_mesh_and_boiler_checks() -> void:
 				fired_enamel_stoves += 1
 		elif child is TapProp:
 			key = "tap"
+			var tap := child as TapProp
+			if tap.fixture == "bath_sink" \
+					and tap.porcelain_material_key == "porcelain_fixture":
+				fired_porcelain_lavatories.append(tap.unit)
 		elif child is ToasterProp:
 			key = "toaster"
 		if key != "":
@@ -2200,6 +2205,8 @@ func _prop_mesh_and_boiler_checks() -> void:
 				[key, average, count])
 	_check(fired_enamel_stoves == 18,
 			"all eighteen ranges use the approved fired-enamel plate")
+	_check(fired_porcelain_lavatories == ["4B"],
+			"only 4B's lavatory uses the calm fired-glaze approval plate")
 
 	var plant := root.get_node_or_null("B1_BOILER_01") as BoilerProp
 	_check(plant != null, "one functional 1912 coal boiler owns the plant")

@@ -121,6 +121,10 @@ SLOTS = {
     # row around the cylinder.
     "rubber_aged": (["rubber_aged"], 0.26, 0.82, 0.12, 2.4),
     "porcelain_fixture": (["porcelain"], 0.4, 0.18, 0.15, 1.5),
+    # The first porcelain source baked a fixture-sized circular landmark and
+    # dense crackle into every tile. Keep that legacy plate stable while this
+    # quiet fired-glaze source is judged on one lavatory.
+    "porcelain_fixture_smooth": (["porcelain_fixture"], 0.4, 0.16, 0.08, 0.55),
     "bakelite": (["bakelite"], 0.3, 0.25, 0.15, 1.5),
     # 11 squares across the sheet; at 1.1 m that is a ~10 cm check,
     # which is what this pattern was actually printed at. At the old
@@ -263,7 +267,7 @@ RECOLOR = {"rug_persian_worn": [("rug_cool", 150.0), ("rug_green", 90.0)]}
 GODOT_STAGE = ("brass_bright", "brass_dull", "bronze", "car_paint",
                "oak_quartered", "enamel_appliance", "zinc_liner", "copper_aged",
                "cast_iron", "soot", "fx_grease", "nickel_plated", "mirror_aged",
-               "mica_heater",
+               "mica_heater", "porcelain_fixture",
                "milk_glass", "bakelite_black", "terrazzo_dark",
                "brass_mesh", "indicator_enamel", "rubber_aged",
                # The shopfront signage is built in GDScript too

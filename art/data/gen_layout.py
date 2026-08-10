@@ -8175,6 +8175,10 @@ MATERIAL_CATALOG = {
                           "roughness": 0.20},
     "bakelite": {"base_color": [0.16, 0.12, 0.10, 1.0], "roughness": 0.30},
     "porcelain": {"base_color": [0.92, 0.93, 0.92, 1.0], "roughness": 0.14},
+    # Calm fired lavatory glaze. The legacy porcelain plate remains available
+    # until the one-fixture render gate proves this does not read as plaster.
+    "porcelain_fixture": {"base_color": [0.92, 0.91, 0.84, 1.0],
+                           "roughness": 0.16},
     # planter clay and potting soil (plant realism pass)
     "terracotta": {"base_color": [0.66, 0.38, 0.26, 1.0], "roughness": 0.72},
     "soil": {"base_color": [0.20, 0.15, 0.11, 1.0], "roughness": 0.95},

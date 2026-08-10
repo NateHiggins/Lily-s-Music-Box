@@ -378,6 +378,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": true
     },
+    "porcelain_fixture": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.4,
+      "catalog_mapping": "ai_materials/porcelain_fixture",
+      "files": [
+        "T_ai_materials_porcelain_fixture_albedo.png",
+        "T_ai_materials_porcelain_fixture_rough.png",
+        "T_ai_materials_porcelain_fixture_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.4,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "rubber_aged": {
       "alpha": false,
       "canonical_meters_per_tile": 0.26,

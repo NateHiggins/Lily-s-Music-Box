@@ -26,6 +26,9 @@ const RUST := Color(0.39, 0.18, 0.085)
 ## remains sink/shower so the possession catalog and water graph stay stable.
 var fixture := "bath_sink"
 var unit := ""
+## Approval gate: only 4B names the new plate until the owner has seen it.
+## Keeping the key on the owner makes the pilot countable in WalkTest.
+var porcelain_material_key := "porcelain"
 var drain_side := 1
 var compact_kitchen := false
 var has_drainboard := true
@@ -55,8 +58,11 @@ func warehouse_variants() -> Array[Dictionary]:
 		return [{"label": "shower / 1908 corner receptor",
 				"properties": {"fixture": "shower", "unit": "3B"}}]
 	return [
-		{"label": "sink / apartment lavatory",
+		{"label": "sink / lavatory — legacy granular porcelain",
 				"properties": {"fixture": "bath_sink", "unit": "2B"}},
+		{"label": "sink / lavatory — calm fired-glaze pilot",
+				"properties": {"fixture": "bath_sink", "unit": "4B",
+					"porcelain_material_key": "porcelain_fixture"}},
 		{"label": "sink / roll-rim kitchen",
 				"properties": {"fixture": "kitchen_sink", "unit": "2B",
 					"has_drainboard": true}},
@@ -64,6 +70,10 @@ func warehouse_variants() -> Array[Dictionary]:
 
 
 func _build_visual() -> void:
+	# 4B is the approval specimen. This branch is deliberately local: changing
+	# the catalog key does not silently repaint the other twenty-two lavatories.
+	if fixture == "bath_sink" and unit == "4B":
+		porcelain_material_key = "porcelain_fixture"
 	var fixed := Node3D.new()
 	fixed.name = "StaticFixture"
 	add_child(fixed)
@@ -75,7 +85,7 @@ func _build_visual() -> void:
 		_build_bath_sink(fixed)
 
 	retexture(self, [
-		[PORCELAIN, "porcelain", Color(0.96, 0.94, 0.86), 0.72],
+		[PORCELAIN, porcelain_material_key, Color(0.96, 0.94, 0.86), 0.72],
 		[ENAMEL, "enamel", Color(0.78, 0.80, 0.75), 0.76],
 		[NICKEL, "nickel_plated", Color(0.93, 0.91, 0.84), 0.42],
 		[BRASS, "brass_dull", Color(0.78, 0.68, 0.44), 0.55],
