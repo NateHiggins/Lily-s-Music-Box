@@ -19,7 +19,7 @@ const NICKEL := Color(0.72, 0.71, 0.67)
 const BRASS := Color(0.55, 0.42, 0.21)
 const IRON := Color(0.17, 0.17, 0.16)
 const LINEN := Color(0.78, 0.76, 0.68)
-const MINERAL := Color(0.67, 0.63, 0.48)
+const MINERAL := Color(0.79, 0.76, 0.65)
 const RUST := Color(0.39, 0.18, 0.085)
 
 ## Set from the marker before `_ready()`. `fixture` is semantic; `prop_type`
@@ -112,7 +112,10 @@ func _build_visual() -> void:
 func _build_bath_sink(parent: Node3D) -> void:
 	# 24-inch enameled lavatory with integral back and apron: the compact,
 	# inexpensive apartment-house type in Mott's 1908 plate 1053.
-	_tapered_pedestal(parent, 0.82)
+	# The bowl floor is 0.66 m. The old pedestal ended at 0.82 m — above the
+	# 0.79 m rim — so its capped flare punched through the basin and z-fought
+	# as a brown-and-white starburst. A pedestal supports the underside.
+	_tapered_pedestal(parent, 0.66)
 	_open_oval_basin(parent, Vector3(0, 0.79, -0.02), 0.61, 0.46, 0.13,
 			PORCELAIN)
 	_box_on(parent, Vector3(0.61, 0.18, 0.045),
@@ -213,6 +216,16 @@ func _open_oval_basin(parent: Node3D, at: Vector3, w: float, d: float,
 	# the bathroom door it read as a complete smaller sink laid over this one.
 	# Real lavatories have one rim. The enamel sides carry the eye down instead.
 	var outer := make_ring(w * 0.5, 0.025, at, color, 0.46, 0.0, parent)
+	outer.name = "RolledRim"
+	# A rolled glazed edge is read by its highlight. Twenty segments were enough
+	# for the silhouette but broke that highlight into visible flats at hand
+	# distance. More vertices cost no draw call after merge_static.
+	var rolled_rim := outer.mesh as TorusMesh
+	# TorusMesh exposes the sweep and tube axes separately. Leaving either at
+	# twenty preserves a scalloped shadow even when the visible silhouette is
+	# smooth, so both are stated rather than trusting a version default.
+	rolled_rim.rings = 48
+	rolled_rim.ring_segments = 48
 	outer.scale.z = d / w
 	_make_oval_bowl(parent, at, w, d, depth, color)
 
@@ -224,9 +237,17 @@ func _make_oval_bowl(parent: Node3D, at: Vector3, w: float, d: float,
 	# grazing practical and make the floor look like a loose second object.
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var segments := 32
+	# Thirty-two is enough to outline a bowl but not to carry a close practical
+	# smoothly across its shallow concave wall. This remains one indexed surface.
+	var segments := 96
+	# Meet the torus at its measured inner ellipse, then sit just below it.
+	# The old top ring sat 2 mm outside the torus's inner edge in X. It was not
+	# the starburst — isolation proved that was the pedestal cap — but two
+	# overlapping glazed skins are still the wrong joint.
+	var rim_inner_x := w * 0.5 - 0.025
+	var rim_inner_z := rim_inner_x * d / w
 	var rings := [
-		Vector3(w * 0.5 - 0.023, -0.006, d * 0.5 - 0.023),
+		Vector3(rim_inner_x - 0.001, -0.007, rim_inner_z - 0.001),
 		Vector3(w * 0.5 - 0.058, -depth * 0.55, d * 0.5 - 0.058),
 		Vector3(w * 0.5 - 0.120, -depth + 0.018, d * 0.5 - 0.115),
 	]
@@ -246,12 +267,14 @@ func _make_oval_bowl(parent: Node3D, at: Vector3, w: float, d: float,
 					sin(a0) * lower.z)
 			var p11 := Vector3(cos(a1) * lower.x, lower.y,
 					sin(a1) * lower.z)
-			var n0 := Vector3(cos(a0) * 0.62, 1.0,
-					sin(a0) * 0.62).normalized()
-			var n1 := Vector3(cos(a1) * 0.62, 1.0,
-					sin(a1) * 0.62).normalized()
+			# This is the INSIDE of a vessel. The old normals pointed outward like
+			# an exterior shell; the glaze highlight belongs on the inward face.
+			var n0 := Vector3(-cos(a0) * 0.62, 1.0,
+					-sin(a0) * 0.62).normalized()
+			var n1 := Vector3(-cos(a1) * 0.62, 1.0,
+					-sin(a1) * 0.62).normalized()
 			# Concave faces use the opposite winding from an outside shell.
-			# Explicit normals keep the enamel lit upward/outward rather than
+			# Explicit normals keep the enamel lit upward/inward rather than
 			# inheriting the reversed triangle's downward normal.
 			_bowl_vertex(st, p00, Vector2(u0, float(row) * 0.42), n0)
 			_bowl_vertex(st, p11, Vector2(u1, float(row + 1) * 0.42), n1)
@@ -423,9 +446,12 @@ func _build_stopper(at: Vector3) -> void:
 func _add_use_wear(parent: Node3D, at: Vector3, wet: bool) -> void:
 	# These marks are placed where water pools and hands abrade. A tiled
 	# texture would repeat them across clean vertical enamel as wallpaper.
-	var mineral := _cyl_on(parent, 0.055, 0.075, 0.003,
+	# Mineral scale is a film on the glaze, not a fitted brown puck. The old
+	# three-millimetre plate was thick enough to cast its own shadow and became
+	# the loudest feature on an otherwise clean lavatory.
+	var mineral := _cyl_on(parent, 0.035, 0.050, 0.0008,
 			at, MINERAL, 0.88, 0.0)
-	mineral.scale.z = 0.55
+	mineral.scale.z = 0.48
 	if wet:
 		var rust := _cyl_on(parent, 0.018, 0.031, 0.003,
 				at + Vector3(0.05, 0.003, -0.025), RUST, 0.83, 0.0)
