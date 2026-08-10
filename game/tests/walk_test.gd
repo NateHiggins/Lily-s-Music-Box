@@ -211,6 +211,7 @@ func _run() -> void:
 	await _boxfan_checks()
 	_exhaust_fan_checks()
 	_flue_breast_checks()
+	_roof_electrical_checks()
 	_prop_mesh_and_boiler_checks()
 	_medicine_cabinet_checks()
 	_switch_checks()
@@ -2148,6 +2149,31 @@ func _flue_breast_checks() -> void:
 		_check(cap != null and absf(moved_z - rest_z - -0.003) < 0.0001,
 				"knock settle retains its render-ruled three-millimetre evidence pose")
 		fittings[0].set_knock_pose(0.0)
+
+
+func _roof_electrical_checks() -> void:
+	# These owners always bound by their stable marker ids, but the generator
+	# once aimed their edges at an imaginary ROOF_CORRLIGHT_S. They reacted in
+	# place while possession stopped dead at the roof, which a node-count test
+	# could not distinguish from a healthy graph.
+	var roof_lights := [
+		"ROOF_LT_DECK",
+		"ROOF_LT_GARDEN",
+		"ROOF_ATRIUM_FRUIT_1",
+		"ROOF_ATRIUM_FRUIT_2",
+	]
+	var connected := 0
+	for node_id in roof_lights:
+		if AcousticGraphData.neighbors(node_id).has("ROOF_ELECTRICAL_RISER"):
+			connected += 1
+	_check(connected == roof_lights.size(),
+			"all four roof fixtures terminate at the real roof riser")
+	_check(AcousticGraphData.neighbors("ROOF_ELECTRICAL_RISER").has(
+			"F06_CORRLIGHT_S"),
+			"roof electrical riser continues down the F06 south chase")
+	var reachable := _graph_reachable("ROOF_LT_DECK")
+	_check(reachable.has("B1_ELECTRICAL_HUB"),
+			"roof possession can propagate through F06 to switchgear")
 
 
 func _graph_reachable(origin: String) -> Dictionary:

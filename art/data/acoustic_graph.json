@@ -6818,7 +6818,8 @@
     "F06_ATRIUM_FRUIT_1",
     "F06_ATRIUM_FRUIT_2",
     "F05_CORRLIGHT_S",
-    "F06_CORRLIGHT_N"
+    "F06_CORRLIGHT_N",
+    "ROOF_ELECTRICAL_RISER"
    ]
   },
   {
@@ -7421,7 +7422,9 @@
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.75,
-   "connections": []
+   "connections": [
+    "ROOF_ELECTRICAL_RISER"
+   ]
   },
   {
    "id": "ROOF_LT_GARDEN",
@@ -7439,7 +7442,9 @@
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.75,
-   "connections": []
+   "connections": [
+    "ROOF_ELECTRICAL_RISER"
+   ]
   },
   {
    "id": "ROOF_ATRIUM_FRUIT_1",
@@ -7457,7 +7462,9 @@
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.75,
-   "connections": []
+   "connections": [
+    "ROOF_ELECTRICAL_RISER"
+   ]
   },
   {
    "id": "ROOF_ATRIUM_FRUIT_2",
@@ -7475,7 +7482,9 @@
    "delay_ms": 4,
    "damping": 0.22,
    "infection_receptivity": 0.75,
-   "connections": []
+   "connections": [
+    "ROOF_ELECTRICAL_RISER"
+   ]
   },
   {
    "id": "B1_ELECTRICAL_HUB",
@@ -7611,6 +7620,30 @@
     "SITE_SHOP_IN1_OTIS___SON",
     "SITE_SHOP_IN2_OTIS___SON",
     "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "ROOF_ELECTRICAL_RISER",
+   "pos": [
+    0.0,
+    -8.3,
+    19.5
+   ],
+   "room": "ROOF_OPEN",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 6,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": [
+    "ROOF_LT_DECK",
+    "ROOF_LT_GARDEN",
+    "ROOF_ATRIUM_FRUIT_1",
+    "ROOF_ATRIUM_FRUIT_2",
+    "F06_CORRLIGHT_S"
    ]
   },
   {

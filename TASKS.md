@@ -185,9 +185,11 @@ Six residents carry cases: Mina, Peter, Juno, Cal, Omar, Mae. Rhea and Nadia
 are the sanctioned expansion. The other twelve are case-less, **not absent** —
 they keep their door, schedule, mailbox and place in the web.
 
-- **C1** Six bespoke case minigames are needed and none exists; the seven
-  implemented minigames are bar and chore games. This is the largest remaining
-  content commitment in the project.
+- **C1** ~~Six bespoke case minigames.~~ **Superseded 2026-08-10:** the target
+  is a mechanism, not a minigame — see `design/PROP_ACTIVITIES.md` §2. Cases
+  express through objects you handle, not through bespoke rules modules. What
+  each of the six cases *does* still needs deciding, but it is hours each rather
+  than days.
 - **C2** Per-resident data is built for 3–5 of the cast on most axes (hero
   models 5, life profiles 3, decor 3, wall art 3). Only animation profiles are
   complete at 18. Decide whether the case six get finished first.

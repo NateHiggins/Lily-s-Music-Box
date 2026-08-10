@@ -54,178 +54,165 @@ Without it these are thirty toys. With it they are a shift.
 
 ---
 
-## 2. The pattern (proven five times now)
+## 2. What makes an interaction rewarding
 
-Every game built this session followed this and it keeps working:
+*Revised 2026-08-10, at the owner's direction: **the target is a fidget spinner,
+not a minigame.** The pleasure is in handling an interesting object — opening a
+cabinet, throwing a switch, feeling a latch give — and it does not need rules, a
+score or a panel to be worth doing.*
 
-1. **Rules in a module** under `scripts/minigames/`, taking plain
-   numbers. No camera, no input, no frame. Testable headless in
-   milliseconds.
-2. **Content in JSON** so it can be retuned while playing without a
-   code change.
-3. **A small physical handle** — the chalk on the rail, the pot of
-   darts, the tray of post. Never a two-metre invisible button.
-4. **An opponent that misses**, where there is one. A solver is a wall.
-5. **Test the invariant that cannot be seen.** Not "does it run" — the
-   thing that fails silently. Reachability in the maze, tiling in the
-   shards, the deck agreeing with the roster in Dead Letters, numbers
-   sorting as numbers on the shelves.
+**The test: would you do it twice, for no reward?**
 
-**Reuse the hand-motion model** (`wander + breath + tremor`, steadies on
-hold, creeps back if held too long). It is in the torch, the darts and
-the pool cue already. Anything requiring a steady hand should feel like
-the same hands.
+If yes, it is built right and needs nothing else. If no, no amount of scoring
+will save it. Six properties decide the answer:
+
+1. **Resistance, then release.** A latch that gives, a valve that takes two
+   hands, a drawer that sticks and then runs. Instant and frictionless is not
+   satisfying; it is a button.
+2. **Discrete states, and a commit.** Open or shut. Lit or out. Never 60%. The
+   moment it *becomes* the other thing is the payoff.
+3. **The sound is the reward** — not accompaniment to it. This building has an
+   acoustic system most games would envy. The click, the clunk and the scrape
+   are the point, and they should be authored before the animation.
+4. **Immediately reversible.** You can shut it and open it again. This is what
+   makes it a fidget rather than an event, and it is the property most often
+   designed away.
+5. **Consequence is optional.** It should be satisfying with no work order and
+   nothing at stake. If it only works because it closes a task, the task is
+   carrying it.
+6. **Visibly a mechanism.** You can see it moves before you touch it. Screws,
+   hinges, a handle worn where hands go.
+
+§VIII.4 already licenses all of it: *everything is repairable — screws, not
+clips, service plates, a schematic pasted inside the lid.* **The player can open
+anything.** That is not flavour text, it is the design brief for this document.
+
+### What this replaces
+
+The previous version sorted props by how big a *game* they deserved, and its top
+tier meant "its own rules module, panel and test, one to two days each". That is
+the wrong axis. A rules module is occasionally justified — Otis, darts and Dead
+Letters are built and good — but it is not the goal, and it should never again
+be what the top tier means.
+
+**Rules modules are the exception now, and they must earn it. The default is a
+mechanism.**
 
 ---
 
 ## 3. Tiers
 
-Not everything deserves a minigame, and a game on every doorknob makes
-the building exhausting to walk through. Four tiers:
-
 | Tier | What it is | Cost |
 |---|---|---|
-| **A — Minigame** | Its own rules module, panel and test | 1–2 days each |
-| **B — Chore loop** | Hold to perform, state changes, work order closes. No panel | Hours |
-| **C — Moment** | One-shot. Says something once and is then scenery | Under an hour |
-| **D — Leave alone** | Ambient. Interaction would cheapen it | — |
+| **Mechanism** | An object with states, resistance and sound. Reversible. No panel, no module, no score. **The default.** | An hour or two |
+| **Mechanism + order** | The same, plus a work order that closes when it reaches a state | Plus minutes |
+| **Linked** | A mechanism whose state is *felt* elsewhere in the building. Rare and expensive; only where the link is perceptible | A day |
+| **Leave alone** | Ambient. Interaction would cheapen it | — |
+
+A building where everything is a button is a building nobody believes in. The
+dark, quiet, useless objects are what make the handled ones feel chosen.
 
 ---
 
-## 4. TIER A — the real minigames
+## 4. The mechanisms worth building
 
-### The kitchen four (the user's own list, and they cohere)
+### THE CRUMB TRAY is the model
 
-**FRIDGE — "What's In There"** (`fridge_prop`, 18 in the building)
-Open it and take stock: what is here, what has turned, what somebody is
-owed. Produces a **shopping list**, which is the errand that sends you
-to the bodega — the loop the user asked for, and the one that ties the
-street to the building.
-*Satire:* every resident's fridge is a biography they did not mean to
-write. Malcolm's is condiments. Teresa's is labelled in a hand that
-expects someone else to read it. **The building's own fridge, in the
-basement, has something in it nobody put there and no date on it.**
-*Implementation:* `fridge_stock.gd` + `larder.json` (there is already a
-`build_larder_labels.py` tool and larder art — use it). Items carry a
-date, an owner and a state. Spoilage advances on the same clock as the
-sky. The list writes into `WorkOrders` and is carried, physically, to
-the bodega.
+**TOASTER** (`toaster_prop`, 1). Pull the tray. It is worse than expected.
+Somebody has never once done this.
 
-**SINK — "Wash and Dry"** (`tap_prop`, 23 sinks + 23 showers)
-A stack of somebody's dishes. Wash, rinse, dry, stack. Rhythm rather
-than puzzle: a good rhythm is fast, a broken one drops something.
-*Satire:* the hot tap runs cold after ninety seconds because the boiler
-is on the other side of the building and has opinions. **The washing-up
-is never yours.**
-*Implementation:* `washing_up.gd`. Water temperature is a live curve
-tied to `boiler_prop` — do the dishes while somebody showers and you
-feel it. That single link is worth more than any amount of scrubbing
-detail.
+The previous version called it "Tier B mechanically — a pull, a state change —
+but promoted to A". That promotion was the mistake, and it is instructive:
+**it was already perfect and the instinct was to make it bigger.** A drawer that
+resists, gives, and reveals something is the entire design, and it is the
+funniest object in the building.
 
-**STOVE — "The Ring That Won't Light"** (`stove_prop`, 17)
-Clean the burners, clear the jets, get all four lighting. One never
-does, and which one is per-flat and permanent.
-*Satire:* the Handbook's procedure for a blocked jet is eleven steps
-and ends "notify management".
-*Implementation:* `stove_service.gd`. Per-burner grime and blockage
-states, a wire-and-blow interaction, an ignition check. Feeds the gas
-smell the building already models.
+Escalating archaeology across emptyings — `crumb_tray.json`, one entry per pull,
+in order — costs almost nothing and is the whole content. One time it is not
+crumbs.
 
-**TOASTER — "The Crumb Tray"** (`toaster_prop`, 1)
-Pull the tray. It is worse than expected. Somebody has never once done
-this.
-*Satire:* the single funniest object in the building and it is already
-the one the case system infects — **an infected toaster whose crumb
-tray has not been emptied since 1919 is doing two jobs at once.**
-*Implementation:* Tier B mechanically (a pull, a state change) but
-promoted to A because it should be a **recurring gag with escalating
-archaeology**: what is in the tray is a small story each time, and one
-time it is not crumbs. `crumb_tray.json`, one entry per emptying, in
-order. Cheap to build, high return.
+**Everything below is judged against the crumb tray.**
 
-### The building's own systems
+### The kitchen
 
-**RADIATOR — "Balancing the Heat"** (`radiator_prop`, 23) — **BEST
-SATIRE IN THE BUILDING**
-Check the pitch, replace fixed-orifice air vents, and leave every supply
-valve fully open or fully shut. A partly closed valve traps condensate in
-this one-pipe system and hammers; it is a fault, not a heat setting. It is a
-genuine constraint puzzle: total heat is fixed, so a faster vent warming 6C
-cools 2B.
-*Satire:* **you cannot win.** Every resident wants their own warmer and
-the total is constant, so every solution generates a complaint from
-somewhere else, and the complaints arrive by telephone — at your desk.
-The Handbook says the system was balanced in 1913 and requires no
-further attention.
-*Implementation:* `heat_balance.gd`. A flow network over the 23
-radiators; installed vent grades, binary supply state and condensate pitch as
-the inputs; per-unit satisfaction plus hiss/hammer faults as the output,
-feeding the call desk's complaint queue. This is the one that
-most deserves its own module: it is a real system, it is legitimately
-hard, and it is the purest expression of the whole joke.
+**FRIDGE** (`fridge_prop`, 18). The door and the weight of it, the shelf, the
+light, other people's handwriting on other people's food. Malcolm's is
+condiments. Teresa's is labelled in a hand that expects someone else to read it.
+The building's own fridge, in the basement, has something in it nobody put there
+and no date on it.
 
-**BOILER — "Keeping It Lit"** (`boiler_prop`, 1, operational)
-Pressure, water level, firebed, draft, coal charge and ash. Runs on a slow
-clock all shift and wants attention at inconvenient moments. There is no
-pilot: this is the original hand-fired coal plant, and the player shovels,
-banks and rakes it rather than pressing a burner reset.
-*Satire:* the boiler is the building's heart and it is older than
-anyone living in it. It has a name on a brass plate and the company
-does not exist.
-*Implementation:* `boiler_tend.gd`. A background state machine that is
-always running whether or not you look, feeding the radiators and the
-hot water. **This is the system the sink and the radiators both hang
-off.** The boiler exposes independent firing and ash doors, a readable water
-glass, pressure gauge and barometric draft control; low water or a neglected
-fire reduces the one finite heat budget rather than merely changing an
-animation.
+*Cut:* the stock-taking system. You do not audit a fridge, you look in it. What
+you saw becomes an errand because you remember it, not because a module produced
+a list.
 
-**VANTRY POINT — "The Chirp"** (`vantry_point_prop`, one per enclosed
-room) — **OPERATIONAL**
-One is chirping. Somewhere. At three in the morning. Find it by ear and
-open its captive grille. There is no battery inside: this is a 1912 Vantry
-house-circuit listening point, a Bakelite-and-brass fire, flood and line-test
-instrument whose signal technology is allowed to be forty years early.
-*Satire:* the player brings a modern dead-battery diagnosis to an apparatus
-that is older than every tenant and more attentive than the landlord.
-*Implementation:* `work_orders.gd` is now the smallest honest maintenance
-spine: it issues, activates, persists and closes this first order.
-`chirp_hunt.gd` direction-finds through the acoustic graph that already
-exists. Quiet faces are batched into three draws per floor; one full owner
-moves between unheard locations. Teresa's point closes a mechanical red
-telltale just before she stops speaking. No LED, battery or boot-time chirp.
+**STOVE** (`stove_prop`, 17). A knob that turns with detents, the tick-tick-tick,
+and either it lights or it does not. One burner per flat never does, permanently.
 
-**WRINGER / AIRER — "Matching"** (`washer_prop`, 2, operational mechanisms;
-`laundry_airer_prop`, 1)
-Two powered wringer washers, two rinse tubs, a ceiling pulley airer and a
-basket of other people's socks. Timing and memory; every match says something
-about who owns them. There is no tumble dryer to turn this into a modern
-laundromat: a garment goes wash, wringer, rinse, wringer, airer, and the game
-uses that physical route.
-*Satire:* laundry is where a building's residents accidentally tell you
-everything about themselves.
-*Already specced in #24.*
+*Cut:* per-burner grime and blockage states. The knob and the ignition are the
+object; a maintenance model underneath is invisible and unfelt.
 
-### The ones already done or specced
+**SINK** (`tap_prop`, 23). Two taps, and the hot one runs cold after ninety
+seconds because the boiler is on the other side of the building and has opinions.
 
-| Prop | Game | State |
-|---|---|---|
-| `darts_prop` | The Rainbow Round | **done** |
-| `point_ball_prop` | Point Ball | **done** |
-| `dead_letters_prop` / `mail_bank_prop` | Dead Letters | **done** |
-| `otis_prop` | Otis | **done** (rules + panel) |
-| `bookshelf_prop` | Shelf sorting | **done** |
-| `songbook_terminal_prop` | Songbook | **Phase 1 done** |
-| `arcade_cabinet_prop` | the received programme (VIII.5.g) | panel built, never played — `TASKS.md` A2 |
+*Cut:* the washing-up rhythm game. **Keep the temperature link** — feeling the
+water change because somebody upstairs started a shower is worth more than any
+amount of scrubbing, and it is a *Linked* mechanism, which is what that tier is
+for.
+
+### The building's own plant
+
+**BOILER** (`boiler_prop`, 1). The best object in the building, and it needs no
+game at all: a firing door and an ash door that both swing, a water glass you
+read by leaning, a pressure gauge, a draft control, a shovel. Bank it, rake it,
+charge it.
+
+It runs on a slow clock whether or not you look, which is what makes coming back
+to it mean something. It has a name on a brass plate and the company does not
+exist.
+
+**RADIATOR** (`radiator_prop`, 23). A supply valve that is only ever fully open
+or fully shut — a partly closed valve traps condensate and hammers, so the binary
+is physical truth rather than a UI simplification. A vent orifice you unscrew and
+swap. A pipe you put a hand on.
+
+*Cut:* the flow network. **The joke does not need the simulation.** "You cannot
+win" holds because warming one flat cools another and the complaint arrives by
+telephone at your desk — and the complaint can simply always arrive. A solver
+buys nothing a scripted grievance does not, at the cost of a day and a system
+nobody can see.
+
+*Keep the satire verbatim:* the Handbook says the system was balanced in 1913 and
+requires no further attention.
+
+**VANTRY POINT** (`vantry_point_prop`, one per enclosed room) — **already built
+and already right.** Find the chirp by ear, open a captive grille, discover there
+is no battery, because it is a 1912 house-circuit listening instrument and not a
+smoke detector. The finding is navigation and the grille is the mechanism. This
+is the template for how the acoustic graph earns its keep.
+
+**WRINGER / AIRER** (`washer_prop`, 2; `laundry_airer_prop`, 1). A garment goes
+wash, wringer, rinse, wringer, airer, and the route is physical — you feed cloth
+through a powered mangle, which is inherently good to do and slightly alarming.
+
+*Cut:* the matching game. Other people's socks characterise them just as well
+sitting in the basket.
+
+### Already built
+
+| Prop | State |
+|---|---|
+| `darts_prop` · `point_ball_prop` · `dead_letters_prop` · `otis_prop` · `bookshelf_prop` | **done** — these are the justified rules modules |
+| `songbook_terminal_prop` | Phase 1 done |
+| `arcade_cabinet_prop` | panel built, never played — `TASKS.md` A2 |
+| `mail_bank_prop` · `vantry_point_prop` | done |
 
 ---
 
-## 5. TIER B — the chores worth keeping
+## 5. The chores worth keeping
 
-Hold to perform, a visible state change, a work order closes. No panel,
-no module — a method on the prop and an entry in the log. Only three of
-these earned their place; the rest of the building's props are better
-as scenery.
+Mechanisms with a work order attached. A method on the prop and an entry in the
+log — no panel, no module. Three earned their place; the rest of the building's
+props are better as scenery.
 
 **THE BULLETIN BOARD** (`lobby_bulletin_board`) — post and remove
 notices. A passive-aggressive war between residents conducted entirely
@@ -264,22 +251,25 @@ objects are what make the interactive ones feel chosen.
 
 ## 8. Recommended order
 
-1. **`WorkOrders` + the Handbook.** Without the spine, everything else
-   is a toy. Half a day.
-2. **`boiler_tend`.** The sink and the radiators both hang off it.
-3. **VANTRY POINT CHIRP.** The first WorkOrders customer is now built on the
-   acoustic graph and the dedicated house signal circuit. Its captive grille
-   makes this the cheapest complete maintenance loop on the list.
-4. **FRIDGE → shopping list → bodega.** The loop the user asked for,
-   and the one that ties the building to the street.
-5. **RADIATOR BALANCE.** The best satire and a genuinely good puzzle.
-6. **The crumb tray**, as a recurring gag, whenever you want a laugh.
-7. Tier B in batches — they are hours each once `WorkOrders` exists.
+1. **The crumb tray.** An hour, and it sets the standard everything else is
+   judged against. Build the *feel* first — resistance, give, sound — and do not
+   move on until pulling it is enjoyable with nothing attached to it.
+2. **`WorkOrders` + the Handbook.** The spine. Without it these are toys.
+3. **The boiler's doors, glass and shovel.** The most tactile object in the
+   building, and the sink and radiators hang off its state.
+4. **Radiator valve and vent.** Two mechanisms, no network.
+5. **Fridge doors**, then the errand that comes from remembering what was in one.
+6. **The stove knob.** Detents and ignition.
+7. The chores in batches, once `WorkOrders` exists.
 
-## 9. One warning
+## 9. Two warnings
 
-Do not build all of Tier A. Six or seven strong ones plus a spread of
-Tier B chores is a full game; thirty modules is a maintenance burden
-that will rot, and rotting is exactly what this document is trying to
-stop. **The fridge, the radiators and the chirp are the three that
-carry the idea.** Everything else is texture.
+**Do not build systems nobody can feel.** The radiator flow network, the fridge
+stock model and the washing-up rhythm were cut for one reason: they were
+simulation the player could not perceive, paid for in days. If a system's output
+is not audible or visible at the object, it is not in the game.
+
+**Do not promote a good mechanism into a bad game.** The crumb tray was already
+right and the instinct was to make it bigger. That instinct is the one this
+document exists to resist. Six or seven strong mechanisms plus a spread of chores
+is a full shift; thirty modules is a maintenance burden that will rot.

@@ -7709,6 +7709,23 @@ def acoustic_graph(layout):
               ("BASEMENT_HEADER_EAST", "BASEMENT_HEADER_WEST")]
     by_riser = {}
     vent_fans = {}
+
+    def electrical_target(floor_id):
+        """The real carrier a powered object reaches on this storey.
+
+        B1 and the reopening lobby terminate at the basement switchgear;
+        residential floors reach the south corridor junction; the roof
+        continues that same chase through a dedicated riser head. The old
+        string-format shortcut invented ROOF_CORRLIGHT_S (and B1/F01
+        equivalents) that were never nodes, so valid fixtures became silent
+        graph islands when invalid edges were discarded below.
+        """
+        if floor_id == "ROOF":
+            return "ROOF_ELECTRICAL_RISER"
+        if floor_id in ("B1", "F01"):
+            return "B1_ELECTRICAL_HUB"
+        return "%s_CORRLIGHT_S" % floor_id
+
     for fl in layout["floors"]:
         radiator_by_unit = {
             m.get("unit", ""): m["id"] for m in fl["markers"]
@@ -7760,17 +7777,13 @@ def acoustic_graph(layout):
                                "eye_pendant", "neon_sign"):
                 add(m["id"], m["pos"], "electrical", m.get("unit", ""), 0.75,
                     (60, 8000), 4)
-                edges.append((m["id"], "%s_CORRLIGHT_S" % fl["id"]))
-                if fl["id"] in ("B1", "F01"):
-                    edges.append((m["id"], "B1_ELECTRICAL_HUB"))
+                edges.append((m["id"], electrical_target(fl["id"])))
             elif m["kind"] == "fridge":
                 if m.get("network") == "electrical":
                     # Only the four monitor-tops have a wire and relay.
                     add(m["id"], m["pos"], "electrical", m.get("unit", ""),
                         0.75, (60, 8000), 4)
-                    edges.append((m["id"], "%s_CORRLIGHT_S" % fl["id"]))
-                    if fl["id"] in ("B1", "F01"):
-                        edges.append((m["id"], "B1_ELECTRICAL_HUB"))
+                    edges.append((m["id"], electrical_target(fl["id"])))
                 else:
                     # Oak, zinc and meltwater: the icebox hears the room
                     # through floorboards and pipe brackets, never a wire.
@@ -7813,6 +7826,13 @@ def acoustic_graph(layout):
         edges.append((s, prev_s))
         edges.append((s, "%s_CORRLIGHT_N" % fid))
         prev_s = s
+    # The 1928 roof circuit rises through the same south chase as the sixth
+    # floor, then terminates in a weatherproof junction below the parapet.
+    # This is graph plant rather than a fifth visible roof fitting: the four
+    # lamps remain the things the player sees and possesses.
+    add("ROOF_ELECTRICAL_RISER", [0.0, -8.3, LEVELS["ROOF"] + 0.30],
+        "electrical", "ROOF_OPEN", 0.55, (100, 9000), 6)
+    edges.append(("ROOF_ELECTRICAL_RISER", "F06_CORRLIGHT_S"))
     # Vantry's house circuit is a signal network, never an electrical-light
     # shortcut.  Cache-friendly stars per floor keep every listening head one
     # hop from its trunk while the seven trunks describe the vertical riser.
@@ -7891,6 +7911,22 @@ def acoustic_graph(layout):
         if a in index and b in index:
             index[a]["connections"].append(b)
             index[b]["connections"].append(a)
+    # A marker-backed node is a live prop contract: BuildingRoot binds the
+    # owner by marker id and directors expect propagation to leave it. Bad
+    # target names used to be dropped silently here, producing a valid JSON
+    # node that could react locally but never transmit. Architectural trunk
+    # nodes are checked by their own topology audits; every spawned marker
+    # that enters this graph must have a carrier, with no anonymous allow-list.
+    marker_ids = {
+        m["id"] for fl in layout["floors"] for m in fl["markers"]
+    }
+    isolated_markers = sorted(
+        node_id for node_id in marker_ids
+        if node_id in index and not index[node_id]["connections"]
+    )
+    if isolated_markers:
+        raise SystemExit("acoustic graph has isolated marker nodes: %s" %
+                         ", ".join(isolated_markers))
     return {"nodes": nodes}
 
 

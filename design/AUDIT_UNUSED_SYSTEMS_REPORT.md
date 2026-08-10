@@ -71,5 +71,9 @@ P3 | art/data/gen_layout.py:2349 and 2372; game/data/building_layout.json marker
 - The first P0 was repaired in the subsequent monitor-family split: one
   `signal_terminal` retains id `F04_B_MONITOR_01`; five ordinary `monitor`
   receivers remain, including three independently asserted picture plates in
-  6A. Both kinds retain connected acoustic nodes. The roof-node P0 remains
-  open.
+  6A. Both kinds retain connected acoustic nodes.
+- The second P0 was repaired by a real `ROOF_ELECTRICAL_RISER` continuing the
+  F06 south chase. All four roof fixtures terminate there, the riser reaches
+  basement switchgear, and graph generation now fails if any marker-backed
+  acoustic node has no connection. The invalid generic `ROOF_CORRLIGHT_S`
+  target no longer exists even transiently.
