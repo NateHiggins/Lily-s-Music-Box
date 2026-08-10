@@ -237,8 +237,6 @@ and the four isolated roof fixtures now terminating at a real riser.
   package them.
 - **U6** The `smoke_detector` alias class has no reference of any kind, but
   external saves may name it. **Decide save compatibility before touching it.**
-- **U7** `ROOF_TANK` is an unregistered marker with no graph node or lookup; the
-  visible tank is separately baked as `watertank` furniture.
 
 ## H — Housekeeping
 

@@ -2365,10 +2365,13 @@ def build_floor(floor_id):
              "z_top": z + bh + 0.16, "t": 0.16, "holes": []})
         rooms.append({"id": "ROOF_OPEN", "rect": [-13.65, -9.65, 13.65, 9.65],
                       "kind": "roof"})
-        markers.append({"kind": "watertank", "id": "ROOF_TANK",
-                        "pos": [-8.0, 6.0, z], "yaw_deg": 0})
         # 1927 roofscape: chimney stack + cap, limestone coping, the
-        # corbelled street cornice, timber water tank, vents, clothesline
+        # corbelled street cornice, timber water tank, vents, clothesline.
+        #
+        # The tank is furniture below, baked at -9.45/4.95. It used to also
+        # carry a `watertank` marker at -8.00/6.00 which owned nothing: the
+        # kind was never registered, no graph node used it, and it sat a metre
+        # and a half from the object it appeared to name (AUDIT 2, U7).
         chimney_block(floor_id, z, walls, 2.2)
         _furn_box(furniture, "chimney_cap", 9.45, 9.00, 1.10, 0.75, 2.2,
                   0.15, "limestone", False)
