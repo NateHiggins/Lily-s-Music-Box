@@ -1947,11 +1947,10 @@ def furnish_4b_detail(furniture, y0, y1, x0):
     fb("coffee_workorder", (-12.05, 3.47, -11.77, 3.67), 0.432, 0.012,
        "paper")
     fb("tv_remote", (-12.47, 3.76, -12.27, 3.83), 0.432, 0.035, "metal")
-    fb("keyboard", (-8.30, 5.35, -8.05, 5.75), 0.762, 0.02, "metal")
-    fb("mouse", (-8.02, 5.50, -7.96, 5.58), 0.762, 0.025, "metal")
-    fb("microphone", (-8.38, 5.95, -8.32, 6.01), 0.762, 0.16, "metal")
-    fb("headset_stand", (-8.40, 5.02, -8.30, 5.12), 0.762, 0.20)
-    fb("power_strip", (-7.92, 4.70, -7.78, 5.05), 0.0, 0.05, "metal")
+    # The Vantry signal desk owns its complete working surface. The old
+    # keyboard, mouse, USB-style microphone, headset stand and power strip
+    # were five modern silhouettes baked underneath its runtime prop; leaving
+    # them here would make a radio console into a skin over a computer desk.
     for px, py in ((-13.40, 6.92), (-12.21, 6.92), (-13.40, 9.42),
                    (-12.21, 9.42)):
         fb("bedpost_%d_%d" % (int(px * 10), int(py * 10)),

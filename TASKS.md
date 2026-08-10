@@ -206,7 +206,3 @@ they keep their door, schedule, mailbox and place in the web.
 - **H3** `worldc clean --stale` has no test covering it.
 - **H12** **Unused objects and systems roundup.** Both directions: code that never runs, and — the half that bites — live data resolving to nothing. Precedents to pattern-match: arcade cabinets once spawned unbound and did nothing silently; the flue markers carry `unit: "F02C"`, an id in no namespace. Propose removals, delete nothing; several sessions share this tree. Brief: `design/AUDIT_BRIEF.md`.
 - **H13** **Logical placement audit.** Is each object placed correctly, and does it belong there. Convention traps are listed in the brief (door markers are the hinge jamb; pendant markers are ceiling anchors with a drop). Note placement cannot lean on the router to prove a route is clear — see R6, residents walk through furniture. Brief: `design/AUDIT_BRIEF.md`.
-- **H18** Completely rebuild the player's terminal as radio-centric signal
-  technology: period furniture around Vantry-advanced tuners, valves, meters,
-  patching, receiver/transmitter controls and a coherent display language;
-  replace the generic modern-computer read while preserving every gameplay verb.

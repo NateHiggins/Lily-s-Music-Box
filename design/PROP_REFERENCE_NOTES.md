@@ -2021,3 +2021,53 @@ restored visible states.
 
 - Final 4B dry-face close view, actual room lighting and torch:
   `C:/PleaseRemainOnTheLine/art/renders/bath_switch_final/stand_-6.035_10.74_-3.78_0_0.png`
+
+## 4B Vantry remote signal desk — a machine, not a modern computer
+
+### Fiction and object comparison
+
+The previous workstation was materially and semantically wrong: two thin flat
+screens, a keyboard, mouse, USB-style microphone, headset stand and power strip
+made the Rule of Signal read as ordinary present-day computing. The replacement
+keeps the load-bearing `F04_B_MONITOR_01` address but makes it a compact Vantry
+receiver/transmitter in a second-hand oak radio cabinet. Signal-bearing parts
+are advanced: circular cathode scope, paired moving-coil meters, valve bank,
+patch field and line annunciator. Everything supporting them remains ordinary
+1928 workmanship: dull stamped brass, black Bakelite, nickel guards, copper
+contacts and a carbon handset.
+
+The physical face witnesses the four existing game verbs rather than inventing
+new ones. Isolate raises the scope, capture moves the meter pair, route advances
+the patching state, and response/outcome settles the instrument. An incoming
+call lights the amber mechanical annunciator and writes to the scope. The old
+marker id remains unchanged because the acoustic graph, virus director and case
+origins all use it as a signal address.
+
+### Modelling and interface correction
+
+The five modern baked peripherals were removed from the F04 Blender layout.
+Fixed cabinet geometry merges by its five existing runtime-safe finishes;
+scope, meter needles, valves and annunciator remain live. The installed owner
+is ten visible meshes, below its fourteen-mesh family cap.
+
+The call interface uses the same object language: near-black Bakelite field,
+dull-brass rim and control stations, green phosphor trace over a graticule, and
+amber unanswered-event marks. The existing case-specific labels and all four
+verbs are unchanged. `SCREENSHOT_CALL_ONLY=1` now reaches the real response
+window directly, so UI art can be judged without first rendering the entire
+documentation suite.
+
+### Render evidence and validation
+
+- Before, twin flat displays and modern peripherals:
+  `C:/PleaseRemainOnTheLine/art/renders/player_terminal_review/before/stand_-9.55_10.80_-5.50_-90_-7.png`
+- After, installed Vantry signal desk under room light:
+  `C:/PleaseRemainOnTheLine/art/renders/player_terminal_review/after_room/stand_-9.55_10.80_-5.50_-90_-7.png`
+- After, live response interface over the installed machine:
+  `C:/PleaseRemainOnTheLine/art/renders/player_terminal_review/ui/b_12_call_response_window.png`
+
+Final generator, Blender build, JSON copy and Godot import completed after the
+last source edit. Art and game layout hashes match. FAST WalkTest checks the
+stable binding id, absence of all five modern peripherals, instrument parts,
+ten-mesh count, physical stage response, incoming annunciator, preserved verbs
+and the brass/Bakelite interface palette.

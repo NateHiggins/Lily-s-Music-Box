@@ -214,6 +214,7 @@ func _run() -> void:
 	_prop_mesh_and_boiler_checks()
 	_medicine_cabinet_checks()
 	_switch_checks()
+	_terminal_checks()
 	_story_board_checks()
 	_clock_checks()
 	_mail_bank_checks()
@@ -2552,6 +2553,53 @@ func _switch_checks() -> void:
 		restored = restored and fixture.powered and fixture.light.visible \
 				and fixture._halo.visible
 	_check(restored, "bathroom circuit restores source, pool and envelope")
+
+
+## H18: the same signal node and call verbs, embodied by an instrument rather
+## than two contemporary monitors. The render decides whether it reads as a
+## radio desk; the suite makes sure later clutter cannot quietly put the
+## keyboard back under it or return the call interface to generic software.
+func _terminal_checks() -> void:
+	var terminal := root.get_node_or_null("F04_B_MONITOR_01") as MonitorProp
+	_check(terminal != null, "4B retains its stable signal-terminal binding id")
+	if terminal == null:
+		return
+	var stale := 0
+	for fl in root.layout.get("floors", []):
+		for fu in fl.get("furniture", []):
+			if str(fu.get("id", "")) in ["4B_keyboard", "4B_mouse",
+					"4B_microphone", "4B_headset_stand", "4B_power_strip"]:
+				stale += 1
+	_check(stale == 0,
+			"modern keyboard, mouse, USB mic, headset stand and strip are gone")
+	_check(terminal.get_node_or_null("FixedInstrument") != null
+			and terminal.find_child("SignalScope", true, false) != null
+			and terminal.find_child("ValveBank", true, false) != null
+			and terminal.find_child("LineAnnunciator", true, false) != null,
+			"terminal owns receiver cabinet, scope, valves and annunciator")
+	_check(terminal._meter_needles.size() == 2,
+			"capture is witnessed by a paired moving-coil meter bank")
+	_check(_count_meshes(terminal) <= 14,
+			"complete signal desk stays within fourteen visible meshes (%d)"
+			% _count_meshes(terminal))
+	terminal.set_console_stage("capture")
+	_check(terminal._scope_mat.emission_energy_multiplier >= 1.25,
+			"call stages drive the physical scope rather than UI alone")
+	terminal.show_incoming_call()
+	_check(terminal.find_child("IncomingCallAlert", true, false) != null
+			and terminal._line_mat.emission_energy_multiplier > 1.0,
+			"incoming call reaches the scope and amber line annunciator")
+	terminal.set_console_stage("idle")
+	var ci := root.call_interface as CallInterface
+	_check(ci != null and ci._header.text.begins_with("VANTRY REMOTE SERVICE")
+			and ci._isolate_btn != null and ci._capture_btn != null
+			and ci._route_btn != null,
+			"radio-console display language preserves isolate, capture and route")
+	if ci:
+		var panel_style := ci._panel.get_theme_stylebox("panel") as StyleBoxFlat
+		_check(panel_style != null and panel_style.border_color.r > 0.35
+				and panel_style.bg_color.get_luminance() < 0.05,
+				"call face retains its brass rim and dark Bakelite field")
 
 
 func _clock_checks() -> void:

@@ -309,8 +309,15 @@ func _run() -> void:
 	# Comma-separated, so a single scene load can re-shoot a whole sequence
 	# instead of paying the load once per frame while iterating on framing.
 	var only := OS.get_environment("SCREENSHOT_ONLY")
+	# Terminal art changes need a real UI render, but rebuilding the complete
+	# documentation suite merely to reach its one call frame costs several
+	# minutes. This keeps the actual game-owned CallInterface path while making
+	# that single verification shot repeatable.
+	var call_only := OS.get_environment("SCREENSHOT_CALL_ONLY") == "1"
 	var wanted := PackedStringArray() if only == "" else only.split(",")
 	for shot in SHOTS:
+		if call_only:
+			break
 		if only != "" and not wanted.has(shot.name):
 			continue
 		AcousticGraphData.set_overlay_visible(shot.overlay, root)
@@ -325,6 +332,10 @@ func _run() -> void:
 
 	# Case 01 at the desk: response window, then the manifested door
 	var ci: CallInterface = root.call_interface
+	# The documentation setup hides every CanvasLayer to keep ordinary room
+	# shots honest. The call frame is the exception: its subject is the real
+	# interface, so restore that layer before entering the desk.
+	ci.visible = true
 	ci.fast = true
 	ci.enter(root.player)
 	await _until_ci(func(): return not ci._isolate_btn.disabled, 15.0)
@@ -335,6 +346,9 @@ func _run() -> void:
 	await _until_ci(func(): return ci.stage == CallInterface.Stage.RESPONSE, 25.0)
 	await _grab(Vector3(-9.0, 11.15, -4.8), Vector3(-8.0, 10.6, -5.6),
 			"b_12_call_response_window")
+	if call_only:
+		get_tree().quit(0)
+		return
 	ci.press_respond("complete")
 	await get_tree().create_timer(4.0).timeout
 	ci.leave()

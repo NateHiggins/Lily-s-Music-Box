@@ -77,6 +77,18 @@ var _blink := 0.0
 var _infection_tween: Tween
 
 
+## The physical desk is deliberately found by its old marker id. `monitor` is
+## no longer a visual description; it is a stable address used by the acoustic
+## graph, the virus director and two cases. Renaming it for neatness would cut
+## the very signal path the new console is meant to make visible.
+func _set_console_stage(next: String) -> void:
+	if world == null:
+		return
+	var terminal := world.get_node_or_null("F04_B_MONITOR_01")
+	if terminal and terminal.has_method("set_console_stage"):
+		terminal.set_console_stage(next)
+
+
 func _ready() -> void:
 	layer = 9
 	# The layer itself stays up and visibility is decided per child. A case
@@ -88,9 +100,17 @@ func _ready() -> void:
 	_panel.position = Vector2(240, 340)
 	_panel.custom_minimum_size = Vector2(800, 330)
 	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0.04, 0.055, 0.07, 0.96)
-	style.border_color = Color(0.16, 0.2, 0.25)
-	style.set_border_width_all(3)
+	style.bg_color = Color(0.025, 0.022, 0.017, 0.97)
+	style.border_color = Color(0.43, 0.34, 0.18)
+	style.set_border_width_all(4)
+	style.corner_radius_top_left = 5
+	style.corner_radius_top_right = 5
+	style.corner_radius_bottom_left = 5
+	style.corner_radius_bottom_right = 5
+	style.content_margin_left = 14.0
+	style.content_margin_right = 14.0
+	style.content_margin_top = 11.0
+	style.content_margin_bottom = 11.0
 	_panel.add_theme_stylebox_override("panel", style)
 	add_child(_panel)
 	var vb := VBoxContainer.new()
@@ -98,7 +118,7 @@ func _ready() -> void:
 	_panel.add_child(vb)
 	_header = Label.new()
 	_header.add_theme_font_size_override("font_size", 13)
-	_header.modulate = Color(0.5, 0.85, 0.8)
+	_header.modulate = Color(0.78, 0.67, 0.38)
 	vb.add_child(_header)
 	_waveform = Control.new()
 	_waveform.custom_minimum_size = Vector2(780, 96)
@@ -116,14 +136,14 @@ func _ready() -> void:
 	_respond_box.visible = false
 	vb.add_child(_respond_box)
 	_prompt_label = Label.new()
-	_prompt_label.modulate = Color(0.95, 0.65, 0.35)
+	_prompt_label.modulate = Color(0.95, 0.58, 0.20)
 	_respond_box.add_child(_prompt_label)
 	_silence_label = Label.new()
-	_silence_label.modulate = Color(0.5, 0.55, 0.6)
+	_silence_label.modulate = Color(0.54, 0.57, 0.47)
 	_silence_label.add_theme_font_size_override("font_size", 11)
 	_hint = Label.new()
 	_hint.add_theme_font_size_override("font_size", 12)
-	_hint.modulate = Color(0.75, 0.8, 0.85)
+	_hint.modulate = Color(0.72, 0.82, 0.63)
 	vb.add_child(_hint)
 	_subtitle = Label.new()
 	_subtitle.add_theme_font_size_override("font_size", 13)
@@ -156,9 +176,40 @@ func _btn(parent: Node, text: String, fn: Callable, disabled := true) -> Button:
 	var b := Button.new()
 	b.text = text
 	b.disabled = disabled
+	b.add_theme_color_override("font_color", Color(0.80, 0.76, 0.61))
+	b.add_theme_color_override("font_hover_color", Color(1.0, 0.88, 0.48))
+	b.add_theme_color_override("font_pressed_color", Color(0.22, 0.16, 0.07))
+	b.add_theme_color_override("font_disabled_color", Color(0.33, 0.32, 0.27))
+	b.add_theme_stylebox_override("normal", _button_plate(
+			Color(0.055, 0.049, 0.038), Color(0.37, 0.31, 0.18)))
+	b.add_theme_stylebox_override("hover", _button_plate(
+			Color(0.095, 0.078, 0.045), Color(0.68, 0.51, 0.20)))
+	b.add_theme_stylebox_override("pressed", _button_plate(
+			Color(0.68, 0.48, 0.16), Color(0.88, 0.70, 0.30)))
+	b.add_theme_stylebox_override("disabled", _button_plate(
+			Color(0.028, 0.027, 0.024), Color(0.18, 0.17, 0.14)))
 	b.pressed.connect(fn)
 	parent.add_child(b)
 	return b
+
+
+## These are engraved control stations, not application buttons. Their broad
+## brass rim echoes the physical faceplate while the dark centre stays quiet
+## enough for case-specific verbs to remain the first thing the player reads.
+func _button_plate(fill: Color, rim: Color) -> StyleBoxFlat:
+	var style := StyleBoxFlat.new()
+	style.bg_color = fill
+	style.border_color = rim
+	style.set_border_width_all(2)
+	style.corner_radius_top_left = 3
+	style.corner_radius_top_right = 3
+	style.corner_radius_bottom_left = 3
+	style.corner_radius_bottom_right = 3
+	style.content_margin_left = 12.0
+	style.content_margin_right = 12.0
+	style.content_margin_top = 5.0
+	style.content_margin_bottom = 5.0
+	return style
 
 
 func _mk_audio(key: String, volume_db: float, autoplay := false) -> AudioStreamPlayer:
@@ -176,15 +227,16 @@ func _mk_audio(key: String, volume_db: float, autoplay := false) -> AudioStreamP
 ## Dress the console for whichever case is next on the line. Nothing here
 ## touches the world; a case only exists once the player sits down.
 func _load_case() -> void:
+	_set_console_stage("idle")
 	_case = CaseLibrary.case_at(case_index)
 	if _case.is_empty():
-		_header.text = "NIGHTLINE REMOTE SUPPORT — NO CALLS WAITING"
+		_header.text = "VANTRY REMOTE SERVICE · NIGHT CIRCUIT — NO LINE WAITING"
 		_hint.text = "The line is quiet. It has not been quiet before."
 		_isolate_btn.disabled = true
 		_capture_btn.disabled = true
 		_route_btn.disabled = true
 		return
-	_header.text = "NIGHTLINE REMOTE SUPPORT — CASE #%s · %s · \"%s\"" % [
+	_header.text = "VANTRY REMOTE SERVICE · NIGHT CIRCUIT — CASE #%s · %s · \"%s\"" % [
 			_case.id, _case.caller, _case.complaint]
 	var tools: Dictionary = _case.tools
 	_isolate_btn.text = tools.isolate
@@ -238,6 +290,7 @@ func enter(player: Node) -> void:
 		_player.call_locked = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_panel.visible = true
+	_set_console_stage("call")
 	_field_banner.visible = false
 	if not _started and not _case.is_empty():
 		_started = true
@@ -383,6 +436,7 @@ func press_isolate(active: bool) -> void:
 	_isolate_btn.set_pressed_no_signal(active)
 	if active and stage == Stage.CALL:
 		stage = Stage.ISOLATION
+		_set_console_stage("isolate")
 		_hint.text = _case.isolate_hint
 		print("[CALL] isolation active")
 
@@ -392,6 +446,7 @@ func press_capture() -> void:
 		return
 	_captured = true
 	stage = Stage.CAPTURE
+	_set_console_stage("capture")
 	_capture_btn.disabled = true
 	_route_btn.disabled = false
 	_hint.text = _case.capture_hint
@@ -403,6 +458,7 @@ func press_route() -> void:
 		return
 	_routed = true
 	stage = Stage.TRANSMISSION
+	_set_console_stage("route")
 	print("[CALL] routing")
 	_seq_route(_run_id)
 
@@ -418,6 +474,7 @@ func _open_response(hint: String) -> void:
 	if stage != Stage.TRANSMISSION:
 		return
 	stage = Stage.RESPONSE
+	_set_console_stage("response")
 	_respond_box.visible = true
 	_hint.text = hint
 	# A case with somewhere to walk to needs a window long enough to walk
@@ -459,6 +516,7 @@ func press_respond(kind: String) -> void:
 		return
 	outcome = kind
 	stage = Stage.OUTCOME
+	_set_console_stage("outcome")
 	_respond_box.visible = false
 	_silence_left = -1.0
 	_close_field()
@@ -474,7 +532,7 @@ func _seq_outcome(kind: String, rid: int) -> void:
 	if rid != _run_id:
 		return
 	_subtitle.text = ""
-	_hint.text = "CASE #%s · CUSTOMER EDUCATED · ISSUE RESOLVED" % _case.id
+	_hint.text = "CASE #%s · LINE RELEASED · CONDITION RECORDED" % _case.id
 	_closed = true
 	call_ended.emit(outcome)
 	print("[CALL] case %s closed (%s)" % [_case.id, outcome])
@@ -532,10 +590,21 @@ func _on_motif_tick(index: int, accent: float, _pitch: float) -> void:
 
 func _draw_waveform() -> void:
 	var size := _waveform.size
-	_waveform.draw_rect(Rect2(Vector2.ZERO, size), Color(0.03, 0.045, 0.06))
+	# The UI is the legible close view of the circular cathode scope on the
+	# desk. A dim graticule and slow phosphor colours make it an instrument,
+	# while preserving the exact event positions the case logic already uses.
+	_waveform.draw_rect(Rect2(Vector2.ZERO, size), Color(0.008, 0.020, 0.014))
+	for i in 9:
+		var grid_x: float = float(i) * size.x / 8.0
+		_waveform.draw_line(Vector2(grid_x, 0), Vector2(grid_x, size.y),
+				Color(0.08, 0.20, 0.12, 0.55), 1.0)
+	for i in 5:
+		var gy: float = float(i) * size.y / 4.0
+		_waveform.draw_line(Vector2(0, gy), Vector2(size.x, gy),
+				Color(0.08, 0.20, 0.12, 0.55), 1.0)
 	var midy := size.y * 0.55
 	_waveform.draw_line(Vector2(4, midy), Vector2(size.x - 4, midy),
-			Color(0.15, 0.22, 0.26), 1.0)
+			Color(0.18, 0.47, 0.27), 1.0)
 	if stage < Stage.CAPTURE:
 		if stage == Stage.IDLE:
 			return
@@ -545,16 +614,16 @@ func _draw_waveform() -> void:
 			var x: float = 6.0 + (ev.t / Conductor.MOTIF_LOOP) * (size.x - 12.0)
 			var h: float = ev.accent * size.y * 0.36
 			_waveform.draw_rect(Rect2(x - 2, midy - h, 4, h * 2),
-					Color(0.34, 0.9, 0.83))
+					Color(0.36, 0.92, 0.48))
 		# the implied event: dashed, blinking, unanswered
-		var gx: float = 6.0 + (Conductor.MOTIF_GAP_T / Conductor.MOTIF_LOOP) \
+		var gap_x: float = 6.0 + (Conductor.MOTIF_GAP_T / Conductor.MOTIF_LOOP) \
 				* (size.x - 12.0)
 		var ga := 0.35 + 0.5 * (0.5 + 0.5 * sin(_blink * 3.0)) \
 				* (1.0 if stage >= Stage.RESPONSE else 0.3)
-		var gcol := Color(0.95, 0.65, 0.35, ga)
+		var gcol := Color(1.0, 0.55, 0.15, ga)
 		var y := midy - size.y * 0.36
 		while y < midy + size.y * 0.36:
-			_waveform.draw_line(Vector2(gx, y), Vector2(gx, y + 4), gcol, 2.0)
+			_waveform.draw_line(Vector2(gap_x, y), Vector2(gap_x, y + 4), gcol, 2.0)
 			y += 8.0
 	for p in _pulses:
 		var ev2: Dictionary = Conductor.motif_events[clampi(p.i, 0,
@@ -562,4 +631,4 @@ func _draw_waveform() -> void:
 		var px: float = 6.0 + (ev2.t / Conductor.MOTIF_LOOP) * (size.x - 12.0)
 		var a: float = (1.0 - p.age / 0.8) * 0.9
 		_waveform.draw_circle(Vector2(px, midy), 3.0 + p.age * 12.0,
-				Color(0.34, 0.9, 0.83, a * 0.5))
+				Color(0.36, 0.92, 0.48, a * 0.5))
