@@ -52,8 +52,9 @@ The game runs on **two case systems, and they are layers, not rivals**:
   entries, one per resident). The building manifests each resident's
   wound as a physical fault. Repair alone never closes a case; honest
   conversation changes the rule. Mina's is complete and voiced; **Peter
-  Wren is the ordained second case; none of the other sixteen shall be
-  built before Peter meets Mina's bar.** *(Ruled 2026-08-02: all case
+  Wren is the ordained second case; none of the other four shall be
+  built before Peter meets Mina's bar. *(Amended 2026-08-10 by §IV.1: the
+  case cast is six, not eighteen.)*** *(Ruled 2026-08-02: all case
   content is TENTATIVE until its gameplay is worked through — cases are
   reviewed for functionality one at a time, with the user.)*
 
@@ -107,23 +108,98 @@ face, and wound. Faces are the four cast boards in
 |---|---|---|---|
 | 1A | **Evelyn Marsh** | retired teacher, plum cardigan, red pencil | care became correction; *good enough can hold* |
 | 1D | **Teresa Vale** | night nurse, navy scrubs, thermos | rest summons alarms; *not every alarm is yours* |
-| 2A | **Mina Vale** | caption editor; 22 years a certified court reporter before her ears began editing — four seconds blank in the record of the State ended that life | everything must be annotated or it doesn't count; *silence does not require annotation* |
+| 2A ● | **Mina Vale** | caption editor; 22 years a certified court reporter before her ears began editing — four seconds blank in the record of the State ended that life | everything must be annotated or it doesn't count; *silence does not require annotation* |
 | 2B | **Lena Ortiz** | seamstress, burgundy knit, shears | mends everyone but her own hem; *visible repairs can hold* |
-| 2C | **Juno Kells** | audio artist, asymmetric crop, recorder | her work was taken and the feedback became load-bearing; *connection requires an open channel* |
+| 2C ● | **Juno Kells** | audio artist, asymmetric crop, recorder | her work was taken and the feedback became load-bearing; *connection requires an open channel* |
 | 3A | **Malcolm Reed** | horticulturist, moss silhouette | kept a cutting alive so a goodbye would not finish; *compost is transformation* |
-| 3B | **Omar Bell** | repair technician, apron of categorized tools | cannot declare anything unrepairable; *some things are not repairable* |
-| 3D | **Rhea Sato** | vocal coach and recording artist, severe bob, tuning fork | her mistakes accumulate as a captive note; *imperfection can be voluntary* |
-| 4A | **Peter Wren** | legal clerk, rumpled brown, overfilled wallet | every uncertainty demands another form; *uncertainty does not prevent action* |
+| 3B ● | **Omar Bell** | repair technician, apron of categorized tools | cannot declare anything unrepairable; *some things are not repairable* |
+| 3D ○ | **Rhea Sato** | vocal coach and recording artist, severe bob, tuning fork | her mistakes accumulate as a captive note; *imperfection can be voluntary* |
+| 4A ● | **Peter Wren** | legal clerk, rumpled brown, overfilled wallet | every uncertainty demands another form; *uncertainty does not prevent action* |
 | 4B | **the player** | night maintenance; the desk is the tidiest thing in the flat | *ruled:* the best way to honor a beginning is with the release of an ending — the player's arc bends toward a release, and the shadow is writing the message |
 | 4C | **Cam Ortiz** | bicycle courier, maroon shell, never fully still | rest reads as collapse; *weight can be shared* |
 | 4C | **Noel Price** | museum preparator, chore coat, archival gloves | preserved the family life into untouchability; *use and change are forms of love* |
 | 4D | **Transient Guests** | a replaceable pair, mismatched luggage | perpetual departure postpones the decision; *departure is a decision* |
-| 5A | **Nadia Quell** | architect; signs the player's welcome letter "Management" | was silenced about violations once; *name the violation* |
-| 5B | **Cal Dwyer** | radio collector, mustard cardigan, hearing aid | perfect tuning preserves moments by preventing them ending; *presence is not preservation* |
+| 5A ○ | **Nadia Quell** | architect; signs the player's welcome letter "Management" | was silenced about violations once; *name the violation* |
+| 5B ● | **Cal Dwyer** | radio collector, mustard cardigan, hearing aid | perfect tuning preserves moments by preventing them ending; *presence is not preservation* |
 | 5C | **Iris Bell** | painter, headscarf, paint-ruined coveralls | imagined audiences hold every brush; *creation need not perform* |
 | 6A | **Sacha Reed** | photographer-documentarian (they/them), camera and adapter tangle | the recording displaced the experience; *experience can precede proof* |
 | 6B | **Jonah Price** | insomniac writer, navy robe, annotated notebook | endings avoided until they bite; *endings do not erase continuation* |
-| 6C | **Mae Kessler** | antiques appraiser, bottle-green coat, white gloves | certainty is not memory; *contradiction is survivable* |
+| 6C ● | **Mae Kessler** | antiques appraiser, bottle-green coat, white gloves | certainty is not memory; *contradiction is survivable* |
+
+
+### IV.1 THE CASE CAST
+
+*Ruled 2026-08-10, at the owner's direction. Governs how many chapters this
+game has. Where the case files, the prop briefs or any plan disagree with it,
+this prevails.*
+
+**Six residents carry cases. The other twelve are case-less, and they are not
+absent.**
+
+| Unit | Case resident | Why this one |
+|---|---|---|
+| 2A ● | **Mina Vale** | complete and voiced; the bar every other case is measured against |
+| 4A ● | **Peter Wren** | the ordained second (§I) |
+| 2C ● | **Juno Kells** | *connection requires an open channel* — distinct from every other wound, and the basement studio is built on her |
+| 5B ● | **Cal Dwyer** | *presence is not preservation* — the strongest of five residents who would not let a thing end, and the Rule of Signal personified |
+| 3B ● | **Omar Bell** | *some things are not repairable* — the direct inverse of the player's job |
+| 6C ● | **Mae Kessler** | *certainty is not memory; contradiction is survivable* — §I's own law, written as a wound |
+
+**Rhea Sato (3D) and Nadia Quell (5A) are the sanctioned expansion**, in that
+order, if six proves thin. Nothing else is added without a further ruling.
+
+#### Why six, and why these
+
+Not budget. **The eighteen wounds are six themes written eighteen times.**
+
+| Theme | Written as |
+|---|---|
+| Will not let a thing end | Malcolm, **Cal**, Noel, Jonah, the Transients |
+| The record displaced the thing | **Mina**, Sacha, **Mae** |
+| Repair as evasion | Evelyn, Lena, **Omar** |
+| Rest reads as failure | Teresa, Cam |
+| Performing for an imagined audience | Rhea, Iris |
+| Its own | **Juno**, Nadia, **Peter** |
+
+Cutting to six keeps one strong voice per theme and loses repetition, not
+range. Five separate residents were refusing to let something finish.
+
+There is a second, harder number behind it: each case carries a bespoke
+minigame, and eighteen bespoke minigames is eighteen games. One is enabled.
+None is built.
+
+#### Case-less is not absent
+
+**Every one of the eighteen remains a tenant of this building**, with a door, a
+light on at the right hour, a schedule, a signature sound, a name on the mail
+bank, and a place in the relationship web. All eighteen animation profiles are
+already authored and none of that work is discarded.
+
+A case is not what makes a resident real. **A case is what makes a resident a
+chapter.**
+
+#### What this ruling does not license
+
+- **Removing a resident from the building.** The mail bank has eighteen
+  occupied boxes and six deliberately empty recesses; the layout, the schedules
+  and the web all assume eighteen people. A building of twelve dark flats is not
+  this building.
+- **Deleting the twelve case designs.** They stay in `reality_cases.json`,
+  `enabled: false`, as the record of what was considered. Promotion needs a
+  ruling; deletion needs a better reason than tidiness.
+- **Treating the twelve as second-class in the fiction.** Nobody in the building
+  knows which of them has a case.
+
+#### Consequences elsewhere
+
+- **§I's sequencing** now reads: none of the other *four* shall be built before
+  Peter meets Mina's bar.
+- **The dream** (`design/ORISON_MAZE_BRIEF.md`, if ruled) draws its pursuer from
+  every unresolved case. Six is authorable where eighteen was not, and it makes
+  the endgame reachable — close all six and only 4B's own is left in the pool.
+
+**● carries a case (§IV.1). ○ sanctioned expansion. Everyone else is a tenant
+of this building without a chapter of their own — case-less, never absent.**
 
 **Confirmed kinship:** Cam is of the Ortiz family (with Lena). All other
 shared surnames — Vale, Reed, Bell, Price — are *open canon* (§VI.5).

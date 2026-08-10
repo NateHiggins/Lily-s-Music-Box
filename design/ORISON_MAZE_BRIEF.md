@@ -146,7 +146,9 @@ signatures: *"They cease only at resolution."* The dream applies the existing la
 to itself. `reality_cases.json` carries `resolution_flags` per case, so the pool
 is already computable — no new state.
 
-- **The pool is every unresolved case.** Eighteen at the start.
+- **The pool is every unresolved case.** Six at the start (§IV.1); the
+  case-less twelve have no poltergeist in the dream, because they have no
+  case to leave unresolved.
 - **One is drawn from it and stays** until that case resolves. It has been
   waiting; it does not rotate nightly.
 - **Closing a case removes it from the pool** — and that is the only way the
@@ -154,7 +156,7 @@ is already computable — no new state.
   conversation it came from*, and something else takes its place.
 - **Repair alone never removes one.** §I is explicit that repair alone never
   closes a case; honest conversation changes the rule. A player who fixes
-  everything and talks to nobody is chased by all eighteen in turn, forever.
+  everything and talks to nobody is chased by all six in turn, forever.
 
 **The player's own is permanently in the pool.** 4B has no case, so there is no
 conversation that resolves it, so it never leaves. §IV says the player's arc
@@ -327,11 +329,12 @@ One-way. Cheap now, and it keeps the option open.
 
 1. **Is the endgame the player's own poltergeist?** The pool rule implies it: if
    every resident's case closes, only 4B's is left, and 4B has no conversation
-   that resolves it. That may be exactly the ending — or it may be a corner the
-   ruling walked into by accident. Owner's call.
+   that resolves it. §IV.1 makes this reachable rather than theoretical — six
+   cases is a campaign that can actually be finished. Owner's call.
 2. **Is the draw from the pool authored or systemic?** Only one case is enabled
-   today (`mina_caption_crisis`) and §I holds the other sixteen behind Peter
-   Wren, so early on the choice is academic. It stops being academic at three.
+   today (`mina_caption_crisis`) and §I holds the other four behind Peter Wren,
+   so early on the choice is academic. With a cast of six it may stay academic —
+   authoring the order outright is now affordable.
 3. **Does a resident's dream poltergeist behave like their waking one**, or is
    the dream where it stops being deniable? The library's signatures are
    "domestic and deniable" on purpose; the dream is the one place that constraint

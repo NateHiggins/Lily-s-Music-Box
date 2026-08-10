@@ -182,6 +182,22 @@ Nothing below should start before that ruling.
   a calm 1920s fired-glaze swatch; pilot on one lavatory and render beside the
   legacy finish before promoting it across the fixture family.
 
+## C — Cast (ruled 2026-08-10, ORISON_BIBLE §IV.1)
+
+Six residents carry cases: Mina, Peter, Juno, Cal, Omar, Mae. Rhea and Nadia
+are the sanctioned expansion. The other twelve are case-less, **not absent** —
+they keep their door, schedule, mailbox and place in the web.
+
+- **C1** Six bespoke case minigames are needed and none exists; the seven
+  implemented minigames are bar and chore games. This is the largest remaining
+  content commitment in the project.
+- **C2** Per-resident data is built for 3–5 of the cast on most axes (hero
+  models 5, life profiles 3, decor 3, wall art 3). Only animation profiles are
+  complete at 18. Decide whether the case six get finished first.
+- **C3** The twelve case-less residents need a defined minimum presence — door,
+  light, schedule, signature sound, mailbox — so "case-less" reads as a person
+  without a chapter rather than an unfinished resident.
+
 ## H — Housekeeping
 
 - **H2** **`C:\FPSengine01` is not a git repository.** The entire compiler side —

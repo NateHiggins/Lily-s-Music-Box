@@ -156,13 +156,14 @@ forgot it owned it.
 
 Three residents have standing here and none of them should get a case out of it
 yet — §I is explicit that Peter Wren is the ordained second case and none of the
-other sixteen are built before he meets Mina's bar. **This proposal adds a place,
-not a case.**
+other four are built before he meets Mina's bar (§I, as amended by §IV.1).
+**This proposal adds a place, not a case.**
 
 - **Juno Kells (2C)** — audio artist; her work was taken and the feedback became
   load-bearing. The studio is where taking happens. When her case is built, this
   room is already standing.
-- **Rhea Sato (3D)** — vocal coach and recording artist; her mistakes accumulate
+- **Rhea Sato (3D)** — *sanctioned expansion under §IV.1, not a case yet.*
+  Vocal coach and recording artist; her mistakes accumulate
   as a captive note. A room that returns more than you sent it is her wound with
   a door on it.
 - **Cal Dwyer (5B)** — radio collector; perfect tuning preserves moments by
@@ -199,7 +200,7 @@ best-made object is also the one they are allowed to open.
 
 ## WHAT THIS PROPOSAL DOES NOT DO
 
-- **No new case.** Per §I, sixteen resident cases wait behind Peter Wren.
+- **No new case.** Per §I and §IV.1, four resident cases wait behind Peter Wren.
 - **No pitch scoring.** The songbook brief rules that out and this does not
   reopen it.
 - **No explanation of the chamber's tail.** Per §VIII.6 and the receiver ruling
