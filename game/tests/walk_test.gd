@@ -2537,9 +2537,17 @@ func _mail_bank_checks() -> void:
 	_check(int(state.mesh_count) <= 16,
 			"batched closed bank stays at or below sixteen meshes (%d)" %
 			int(state.mesh_count))
-	_check(_world_visual_aabb(bank).grow(0.015).intersects(
-			_world_visual_aabb(master)) == false,
+	var bank_box := _world_visual_aabb(bank)
+	var master_box := _world_visual_aabb(master)
+	_check(bank_box.grow(0.015).intersects(master_box) == false,
 			"wider bank clears the Vantry master clock")
+	# Non-intersection is not enough: these owners live in different systems,
+	# so either can drift until the brass nearly kisses while this check stays
+	# green. Preserve the measured 175 mm composition with 25 mm tolerance.
+	var clock_gap := master_box.position.z - bank_box.end.z
+	_check(clock_gap >= 0.150,
+			"mail bank retains 150 mm minimum from lobby master (%.3f m)"
+			% clock_gap)
 	var local_sweep: AABB = state.open_sweep
 	var sweep: AABB = bank.global_transform * local_sweep
 	_check(not sweep.intersects(_world_visual_aabb(master).grow(0.02)),

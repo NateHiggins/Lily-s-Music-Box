@@ -204,12 +204,6 @@ they keep their door, schedule, mailbox and place in the web.
   the world compiler, the providers, the arcade catalog build, the texture
   validation — is unversioned files on disk. `git init` and a first commit.
 - **H3** `worldc clean --stale` has no test covering it.
-- **H9** **Codex:** Nothing defends the **mail bank ↔ lobby clock clearance**. Measured
-  today at 175 mm: the clock spans blender y -9.205..-8.735 and the bank's
-  surround -8.560..-7.200, and they overlap in height (1.715..1.930), so that
-  gap is the only separation. `MAIL_BANK_Y` is a Godot constant and the clock's
-  `mount_along` is layout data, so either side can move without the other
-  noticing. The mail-bank plan listed this assertion and it did not land.
 - **H12** **Unused objects and systems roundup.** Both directions: code that never runs, and — the half that bites — live data resolving to nothing. Precedents to pattern-match: arcade cabinets once spawned unbound and did nothing silently; the flue markers carry `unit: "F02C"`, an id in no namespace. Propose removals, delete nothing; several sessions share this tree. Brief: `design/AUDIT_BRIEF.md`.
 - **H13** **Logical placement audit.** Is each object placed correctly, and does it belong there. Convention traps are listed in the brief (door markers are the hinge jamb; pendant markers are ceiling anchors with a drop). Note placement cannot lean on the router to prove a route is clear — see R6, residents walk through furniture. Brief: `design/AUDIT_BRIEF.md`.
 - **H15** Fully enclose every shower with an operable, properly supported curtain;
