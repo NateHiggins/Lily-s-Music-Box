@@ -136,11 +136,37 @@ That buys an enormous amount for nothing:
   documented problem, and it is the building carrying that person's wound
   through its own wiring. Both true.
 
+### Which one — the pool
+
+*(Ruled 2026-08-10: **any poltergeist not resolved by talking out that
+character's trauma is fair game.**)*
+
+This is not a new rule. `poltergeist_library.gd` already says of the resident
+signatures: *"They cease only at resolution."* The dream applies the existing law
+to itself. `reality_cases.json` carries `resolution_flags` per case, so the pool
+is already computable — no new state.
+
+- **The pool is every unresolved case.** Eighteen at the start.
+- **One is drawn from it and stays** until that case resolves. It has been
+  waiting; it does not rotate nightly.
+- **Closing a case removes it from the pool** — and that is the only way the
+  dream ever changes. You do not escape the thing chasing you. You *finish the
+  conversation it came from*, and something else takes its place.
+- **Repair alone never removes one.** §I is explicit that repair alone never
+  closes a case; honest conversation changes the rule. A player who fixes
+  everything and talks to nobody is chased by all eighteen in turn, forever.
+
+**The player's own is permanently in the pool.** 4B has no case, so there is no
+conversation that resolves it, so it never leaves. §IV says the player's arc
+bends toward a release — which means that if every other case is closed, the last
+thing in the dream is theirs, and the release is the only door out. *That is an
+implication of the ruling rather than a decision; see the open questions.*
+
 Rules, settled:
 
-- **One.** Never two.
+- **One at a time.** Never two.
 - **Unkillable.** No hazard will kill it; that door stays shut.
-- **The same one, night after night.** It has been waiting.
+- **It persists** until its case resolves.
 - **No hiding.** This is short — run or die.
 
 ---
@@ -299,9 +325,14 @@ One-way. Cheap now, and it keeps the option open.
 
 ## OPEN QUESTIONS
 
-1. **Which poltergeist chases the player before the first case is assigned**, and
-   after the last one closes?
-2. **Does the player's own poltergeist ever appear?** 4B has no case; §IV says
-   the player's arc bends toward a release.
-3. **Does the dream ever change after a case closes** — does the thing that was
-   chasing you stop?
+1. **Is the endgame the player's own poltergeist?** The pool rule implies it: if
+   every resident's case closes, only 4B's is left, and 4B has no conversation
+   that resolves it. That may be exactly the ending — or it may be a corner the
+   ruling walked into by accident. Owner's call.
+2. **Is the draw from the pool authored or systemic?** Only one case is enabled
+   today (`mina_caption_crisis`) and §I holds the other sixteen behind Peter
+   Wren, so early on the choice is academic. It stops being academic at three.
+3. **Does a resident's dream poltergeist behave like their waking one**, or is
+   the dream where it stops being deniable? The library's signatures are
+   "domestic and deniable" on purpose; the dream is the one place that constraint
+   does not apply.
