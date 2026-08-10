@@ -1,0 +1,470 @@
+{
+  "materials": {
+    "appliance": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.85,
+      "catalog_mapping": "ai_materials/appliance",
+      "files": [
+        "T_library_appliances_aged_enamel_worn_appliance_albedo.png",
+        "T_library_appliances_aged_enamel_worn_appliance_rough.png",
+        "T_library_appliances_aged_enamel_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "bakelite": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.3,
+      "catalog_mapping": "ai_materials/bakelite",
+      "files": [
+        "T_library_appliances_bakelite_albedo.png",
+        "T_library_appliances_bakelite_rough.png",
+        "T_library_appliances_bakelite_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.35,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "bakelite_black": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.3,
+      "catalog_mapping": "ai_materials/bakelite_black",
+      "files": [
+        "T_ai_materials_bakelite_black_albedo.png",
+        "T_ai_materials_bakelite_black_rough.png",
+        "T_ai_materials_bakelite_black_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.3,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "brass": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.25,
+      "catalog_mapping": "ai_materials/brass",
+      "files": [
+        "T_library_metals_aged_brass_albedo.png",
+        "T_library_metals_aged_brass_rough.png",
+        "T_library_metals_aged_brass_normal.png"
+      ],
+      "metallic": 0.85,
+      "meters_per_tile": 0.5,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "brass_bright": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.35,
+      "catalog_mapping": "ai_materials/brass_bright",
+      "files": [
+        "T_ai_materials_brass_bright_albedo.png",
+        "T_ai_materials_brass_bright_rough.png",
+        "T_ai_materials_brass_bright_normal.png"
+      ],
+      "metallic": 0.85,
+      "meters_per_tile": 0.35,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "brass_dull": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.25,
+      "catalog_mapping": "ai_materials/brass",
+      "files": [
+        "T_ai_materials_brass_dull_albedo.png",
+        "T_ai_materials_brass_dull_rough.png",
+        "T_ai_materials_brass_dull_normal.png"
+      ],
+      "metallic": 0.3,
+      "meters_per_tile": 0.5,
+      "roughness_multiplier": 0.52,
+      "visual_lock": true
+    },
+    "brass_mesh": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.35,
+      "catalog_mapping": "ai_materials/brass_mesh",
+      "files": [
+        "T_ai_materials_brass_mesh_albedo.png",
+        "T_ai_materials_brass_mesh_rough.png",
+        "T_ai_materials_brass_mesh_normal.png"
+      ],
+      "metallic": 0.8,
+      "meters_per_tile": 0.35,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "bronze": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.6,
+      "catalog_mapping": "ai_materials/bronze",
+      "files": [
+        "T_ai_materials_bronze_albedo.png",
+        "T_ai_materials_bronze_rough.png",
+        "T_ai_materials_bronze_normal.png"
+      ],
+      "metallic": 0.75,
+      "meters_per_tile": 0.6,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "car_paint": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "ai_materials/car_paint",
+      "files": [
+        "T_ai_materials_car_paint_albedo.png",
+        "T_ai_materials_car_paint_rough.png",
+        "T_ai_materials_car_paint_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "cast_iron": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.4,
+      "catalog_mapping": "ai_materials/cast_iron",
+      "files": [
+        "T_ai_materials_cast_iron_albedo.png",
+        "T_ai_materials_cast_iron_rough.png",
+        "T_ai_materials_cast_iron_normal.png"
+      ],
+      "metallic": 0.35,
+      "meters_per_tile": 0.4,
+      "roughness_multiplier": 0.6,
+      "visual_lock": false
+    },
+    "chrome": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.8,
+      "catalog_mapping": "ai_materials/chrome",
+      "files": [
+        "T_library_appliances_brushed_steel_albedo.png",
+        "T_library_appliances_brushed_steel_rough.png",
+        "T_library_appliances_brushed_steel_normal.png"
+      ],
+      "metallic": 1.0,
+      "meters_per_tile": 0.8,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "copper_aged": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.4,
+      "catalog_mapping": "ai_materials/copper_aged",
+      "files": [
+        "T_ai_materials_copper_aged_albedo.png",
+        "T_ai_materials_copper_aged_rough.png",
+        "T_ai_materials_copper_aged_normal.png"
+      ],
+      "metallic": 0.72,
+      "meters_per_tile": 0.4,
+      "roughness_multiplier": 0.58,
+      "visual_lock": false
+    },
+    "enamel": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.6,
+      "catalog_mapping": "ai_materials/enamel",
+      "files": [
+        "T_library_appliances_aged_enamel_worn_enamel_albedo.png",
+        "T_library_appliances_aged_enamel_worn_enamel_rough.png",
+        "T_library_appliances_aged_enamel_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "fabric_warm": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.6,
+      "catalog_mapping": "ai_materials/fabric_warm",
+      "files": [
+        "T_library_furniture_upholstery_rust_albedo.png",
+        "T_library_furniture_upholstery_rust_rough.png",
+        "T_library_furniture_upholstery_rust_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.7,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "fx_grease": {
+      "alpha": true,
+      "canonical_meters_per_tile": 0.7,
+      "catalog_mapping": null,
+      "files": [
+        "T_ai_materials_fx_grease_albedo.png",
+        "T_ai_materials_fx_grease_rough.png",
+        "T_ai_materials_fx_grease_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.7,
+      "roughness_multiplier": 0.78,
+      "visual_lock": false
+    },
+    "indicator_enamel": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.5,
+      "catalog_mapping": "ai_materials/indicator_enamel",
+      "files": [
+        "T_ai_materials_indicator_enamel_albedo.png",
+        "T_ai_materials_indicator_enamel_rough.png",
+        "T_ai_materials_indicator_enamel_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.5,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "linen": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.5,
+      "catalog_mapping": "ai_materials/linen",
+      "files": [
+        "T_library_furniture_linen_albedo.png",
+        "T_library_furniture_linen_rough.png",
+        "T_library_furniture_linen_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.6,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "metal": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.8,
+      "catalog_mapping": "ai_materials/metal",
+      "files": [
+        "T_library_appliances_galvanized_metal_worn_metal_albedo.png",
+        "T_library_appliances_galvanized_metal_worn_metal_rough.png",
+        "T_library_appliances_galvanized_metal_normal.png"
+      ],
+      "metallic": 0.9,
+      "meters_per_tile": 0.9,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "mica_heater": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.18,
+      "catalog_mapping": "ai_materials/mica_heater",
+      "files": [
+        "T_ai_materials_mica_heater_albedo.png",
+        "T_ai_materials_mica_heater_rough.png",
+        "T_ai_materials_mica_heater_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.18,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "milk_glass": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.5,
+      "catalog_mapping": "ai_materials/milk_glass",
+      "files": [
+        "T_ai_materials_milk_glass_albedo.png",
+        "T_ai_materials_milk_glass_rough.png",
+        "T_ai_materials_milk_glass_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.5,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "mirror_aged": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.55,
+      "catalog_mapping": "ai_materials/mirror_aged",
+      "files": [
+        "T_ai_materials_mirror_aged_albedo.png",
+        "T_ai_materials_mirror_aged_rough.png",
+        "T_ai_materials_mirror_aged_normal.png"
+      ],
+      "metallic": 0.78,
+      "meters_per_tile": 0.55,
+      "roughness_multiplier": 0.18,
+      "visual_lock": false
+    },
+    "nickel_plated": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.32,
+      "catalog_mapping": "ai_materials/nickel_plated",
+      "files": [
+        "T_ai_materials_nickel_plated_albedo.png",
+        "T_ai_materials_nickel_plated_rough.png",
+        "T_ai_materials_nickel_plated_normal.png"
+      ],
+      "metallic": 0.7,
+      "meters_per_tile": 0.32,
+      "roughness_multiplier": 0.82,
+      "visual_lock": false
+    },
+    "oak_quartered": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.9,
+      "catalog_mapping": "ai_materials/oak_quartered",
+      "files": [
+        "T_ai_materials_oak_quartered_albedo.png",
+        "T_ai_materials_oak_quartered_rough.png",
+        "T_ai_materials_oak_quartered_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.9,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "paper": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.5,
+      "catalog_mapping": "ai_materials/paper",
+      "files": [
+        "T_library_furniture_aged_paper_albedo.png",
+        "T_library_furniture_aged_paper_rough.png",
+        "T_library_furniture_aged_paper_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.5,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "plant": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.4,
+      "catalog_mapping": "ai_materials/plant",
+      "files": [
+        "T_library_organic_leaf_surface_albedo.png",
+        "T_library_organic_leaf_surface_rough.png",
+        "T_library_organic_leaf_surface_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.5,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "porcelain": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.4,
+      "catalog_mapping": "ai_materials/porcelain",
+      "files": [
+        "T_library_furniture_porcelain_albedo.png",
+        "T_library_furniture_porcelain_rough.png",
+        "T_library_furniture_porcelain_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.9,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "rubber_aged": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.26,
+      "catalog_mapping": "ai_materials/rubber_aged",
+      "files": [
+        "T_ai_materials_rubber_aged_albedo.png",
+        "T_ai_materials_rubber_aged_rough.png",
+        "T_ai_materials_rubber_aged_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.26,
+      "roughness_multiplier": 0.82,
+      "visual_lock": false
+    },
+    "soot": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.2,
+      "catalog_mapping": "ai_materials/soot",
+      "files": [
+        "T_ai_materials_soot_worn_soot_albedo.png",
+        "T_ai_materials_soot_worn_soot_rough.png",
+        "T_ai_materials_soot_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.55,
+      "roughness_multiplier": 0.9,
+      "visual_lock": true
+    },
+    "terrazzo_dark": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.2,
+      "catalog_mapping": "ai_materials/terrazzo_dark",
+      "files": [
+        "T_ai_materials_terrazzo_dark_albedo.png",
+        "T_ai_materials_terrazzo_dark_rough.png",
+        "T_ai_materials_terrazzo_dark_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "trim": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.1,
+      "catalog_mapping": "ai_materials/trim",
+      "files": [
+        "T_library_architectural_painted_trim_albedo.png",
+        "T_library_architectural_painted_trim_rough.png",
+        "T_library_architectural_painted_trim_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "wood_dark": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.6,
+      "catalog_mapping": "ai_materials/wood_dark",
+      "files": [
+        "T_library_furniture_walnut_albedo.png",
+        "T_library_furniture_walnut_rough.png",
+        "T_library_furniture_walnut_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "zinc_liner": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.55,
+      "catalog_mapping": "ai_materials/zinc_liner",
+      "files": [
+        "T_ai_materials_zinc_liner_albedo.png",
+        "T_ai_materials_zinc_liner_rough.png",
+        "T_ai_materials_zinc_liner_normal.png"
+      ],
+      "metallic": 0.12,
+      "meters_per_tile": 0.55,
+      "roughness_multiplier": 0.82,
+      "visual_lock": false
+    }
+  },
+  "schema": 1,
+  "visual_locks": [
+    "appliance",
+    "bakelite",
+    "brass",
+    "brass_dull",
+    "chrome",
+    "enamel",
+    "fabric_warm",
+    "linen",
+    "metal",
+    "paper",
+    "plant",
+    "porcelain",
+    "soot",
+    "trim",
+    "wood_dark"
+  ]
+}

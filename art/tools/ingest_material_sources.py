@@ -33,6 +33,8 @@ import zlib
 import numpy as np
 from PIL import Image, ImageFilter
 
+import generate_runtime_materials
+
 ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", ".."))
 SRC = os.path.join(ROOT, "art", "textures", "ai_sources")
 OUT = os.path.join(ROOT, "art", "textures", "ai_materials")
@@ -850,6 +852,14 @@ def _audit(groups, mapping):
                                 "T_ai_materials_%s_%s.png" % (key, suffix))
             if not os.path.isfile(path):
                 errors.append("Godot stage missing: %s/%s" % (key, suffix))
+    # MatLib's generated table is part of this ingest's output, not an
+    # independent registry. Rebuild the expected contract from the catalog
+    # and mapping so a stale GDScript table fails the ordinary --check path.
+    try:
+        contract = generate_runtime_materials.build_contract()
+        errors.extend(generate_runtime_materials.validate(contract))
+    except (OSError, ValueError, RuntimeError) as exc:
+        errors.append("runtime material contract: %s" % exc)
     for error in errors:
         print("ERROR:", error)
     print("checked %d source slots, %d problem(s)" % (len(groups), len(errors)))
@@ -974,6 +984,10 @@ def main() -> None:
     staged = [k for k in stage_keys if stage_for_godot(k, mapping)]
     if staged:
         print("staged for Godot props: %s" % ", ".join(staged))
+    contract_changed = generate_runtime_materials.generate()
+    if contract_changed:
+        print("generated runtime material contract: %s" % ", ".join(
+            os.path.relpath(str(path), ROOT) for path in contract_changed))
     for slot, n, keys in ingested:
         print("ingested %-24s %d gen(s) -> %s"
               % (slot, n, ", ".join(keys)))

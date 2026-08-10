@@ -145,10 +145,6 @@ and by NPCs. R2 needs a brief before anyone builds.
   reason features come out large relative to the tile.
 
 - **M4** **Texture appearance audit.** Not "do the textures exist" but *does each material read correctly at the size of the object wearing it*. Materials are triplanar in WORLD space, so a bad `meters_per_tile` shows as brick-sized grain on a doorknob rather than stretched UVs. Sweep the warehouse first (68 displays, 44 kinds, flat-lit, side by side — it is the instrument for this), then spot-check in situ under torch. Method and the four failure modes in `design/AUDIT_BRIEF.md`. *Audit only — propose fixes, change nothing.*
-- **M5** **Codex — unify the material library authority.** Generate runtime
-  material sets from the ingest/catalog contract, fence current visual locks,
-  and fail on missing files, silent scale drift or shared-cache mutation.
-
 ## H — Housekeeping
 
 - **H2** **`C:\FPSengine01` is not a git repository.** The entire compiler side —

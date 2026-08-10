@@ -236,14 +236,17 @@ func rebuild_books() -> void:
 	var cover_mesh := MeshInstance3D.new()
 	cover_mesh.name = "BatchedCovers"
 	cover_mesh.mesh = covers.commit()
-	var cover_mat := smat("linen", Color.WHITE, 2.0)
+	# MatLib returns shared cached materials. Vertex-colour support belongs to
+	# this book batch only; mutating the cached linen previously changed every
+	# later caller that requested the same key/tint/scale tuple.
+	var cover_mat := smat("linen", Color.WHITE, 2.0).duplicate() as StandardMaterial3D
 	cover_mat.vertex_color_use_as_albedo = true
 	cover_mesh.material_override = cover_mat
 	_books_at.add_child(cover_mesh)
 	var page_mesh := MeshInstance3D.new()
 	page_mesh.name = "BatchedPages"
 	page_mesh.mesh = pages.commit()
-	var page_mat := smat("paper", Color.WHITE, 2.0)
+	var page_mat := smat("paper", Color.WHITE, 2.0).duplicate() as StandardMaterial3D
 	page_mat.vertex_color_use_as_albedo = true
 	page_mesh.material_override = page_mat
 	_books_at.add_child(page_mesh)
