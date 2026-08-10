@@ -48,8 +48,17 @@ func build(layout: Dictionary, root: Node3D) -> int:
 			# cabinet, so the interact ray meets it first.
 			shape.position = Vector3(0, 0, -0.05)
 			body.add_child(shape)
-			var room_id := _room_served(fl, at, yaw)
+			# Bathroom circuits are explicit in generated data. Ordinary plates
+			# retain the geometric fallback, so older layouts and archway coverage
+			# switches remain valid without a parallel hand-authored table.
+			var room_id := str(fu.get("serves_room", ""))
+			if room_id == "":
+				room_id = _room_served(fl, at, yaw)
 			body.set_meta("room_id", room_id)
+			body.set_meta("bathroom_switch",
+					bool(fu.get("bathroom_switch", false)))
+			body.set_meta("wet_clearance",
+					float(fu.get("wet_clearance", -1.0)))
 			# The click is the whole point of a switch. Without it a
 			# plate is a texture you press and a room that changes
 			# behind you.

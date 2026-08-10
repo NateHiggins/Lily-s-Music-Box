@@ -1580,15 +1580,33 @@ def asm_sink_basin(F, p):
 
 
 def asm_switch(F, p):
-    """Bakelite toggle on a two-step molded plate; the smallest identity."""
-    F.box("trim", -0.044, 0.0, -0.066, 0.044, 0.007, 0.066)
-    F.box("trim", -0.030, 0.007, -0.048, 0.030, 0.0125, 0.048)
-    F.box("bakelite", -0.017, 0.0125, -0.028, 0.017, 0.016, 0.028)
-    F.tbox("bakelite", (0.0, 0.014, -0.004), (0.0, 0.034, 0.020),
-           0.011, 0.011)
-    for sz in (-0.054, 0.054):
-        F.box("chrome", -0.0035, 0.007, sz - 0.0035, 0.0035, 0.0095,
-              sz + 0.0035)
+    """The reopening contractor's c.1920 GE-pattern push-button switch.
+
+    The former long Bakelite tumbler was plausible by 1928, but its thick
+    molded trim surround read as a modern plastic switch at player distance.
+    A stamped plate and two distinct buttons are both earlier and clearer:
+    one button remains proud while its mate sits home.  The whole building
+    received the same cheap fitting in the 1928 conversion; individuality
+    comes from the wall and the hands around it, not twenty plate designs.
+    """
+    # 88 x 132 mm is the original plate envelope, only 1.4 mm proud of the
+    # plaster. A shallow rolled rim catches the bathroom sconce without
+    # turning a two-dollar fitting into decorative hardware.
+    F.box("brass_dull", -0.044, 0.0, -0.066, 0.044, 0.0014, 0.066)
+    F.box("brass_dull", -0.040, 0.0014, -0.062, 0.040, 0.0032, 0.062)
+    # GE sold the mechanism with a Bakelite body and buttons. One projects
+    # 7 mm, the other 3 mm: the circuit's state is legible without a label.
+    for z, depth in ((0.021, 0.010), (-0.021, 0.006)):
+        F.cyl("bakelite_black", 0.0, 0.0032, z - 0.006, z + 0.006,
+              0.010, 0.010, 12, sx=1.0)
+        F.box("bakelite_black", -0.010, 0.0032, z - 0.006,
+              0.010, depth, z + 0.006)
+    # Slotted brass fasteners, vertical like the surviving catalogue pieces.
+    for sz in (-0.053, 0.053):
+        F.box("brass_bright", -0.0042, 0.0032, sz - 0.0042,
+              0.0042, 0.0050, sz + 0.0042)
+        F.box("soot", -0.0030, 0.0050, sz - 0.0007,
+              0.0030, 0.0054, sz + 0.0007)
 
 
 def asm_pipe(F, p):
@@ -4165,7 +4183,10 @@ def build():
               % (len(failed), len(floor_cols)))
         sys.exit(1)
 
-    bpy.ops.wm.save_as_mainfile(filepath=BLEND_OUT)
+    # Factory settings do not inherit the artist's "Compress File" checkbox.
+    # Saving without it inflated this deterministic source artefact from about
+    # 12 MB to 57 MB even though the scene only gained the switch surfaces.
+    bpy.ops.wm.save_as_mainfile(filepath=BLEND_OUT, compress=True)
     print("saved", BLEND_OUT)
 
 

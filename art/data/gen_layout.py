@@ -3122,6 +3122,105 @@ def switch_coverage_pass(floors):
             COVERAGE_SWITCHES_ADDED.append(sid)
 
 
+def _switch_served_room(fl, switch):
+    """The generator-side twin of SwitchSystem._room_served().
+
+    Bathroom circuits are authored here rather than rediscovered at runtime.
+    Keeping the old inference as a fallback protects ordinary plates while the
+    wet-room assertion below makes the important twenty-three explicit.
+    """
+    angle = math.radians(switch.get("yaw", 0))
+    px = switch["at"][0] + math.sin(angle) * 0.45
+    py = switch["at"][1] + math.cos(angle) * 0.45
+    hits = []
+    for room in fl.get("rooms", []):
+        x0, y0, x1, y1 = room["rect"]
+        if x0 <= px <= x1 and y0 <= py <= y1:
+            hits.append(((x1 - x0) * (y1 - y0), room["id"]))
+    return min(hits)[1] if hits else ""
+
+
+def bathroom_switch_pass(floors):
+    """Name one safe, reachable circuit owner for every bathroom.
+
+    A plate beside a door was already able to find a room by probing through
+    its wall face, but that made bathroom power depend on a runtime geometric
+    guess.  The primary plate is now versioned in the layout.  Prefer the dry
+    face outside the room where one exists; otherwise use the latch-side plate
+    farthest from the shower. The safety distance is measured from the shower
+    centre less its 460 mm half-envelope, not from the basin: a hand basin is
+    not itself a wet zone, while the curtained shower emphatically is.
+    """
+    count = 0
+    for fl in floors:
+        for room in (r for r in fl.get("rooms", [])
+                     if r.get("kind") == "bathroom"):
+            x0, y0, x1, y1 = room["rect"]
+            showers = [m for m in fl.get("markers", [])
+                       if m.get("kind") == "shower" and m.get("pos")
+                       and x0 - 0.2 <= m["pos"][0] <= x1 + 0.2
+                       and y0 - 0.2 <= m["pos"][1] <= y1 + 0.2]
+            candidates = []
+            for switch in fl.get("furniture", []):
+                if switch.get("asm") != "switch" \
+                        or _switch_served_room(fl, switch) != room["id"]:
+                    continue
+                sx, sy = switch["at"]
+                inside = x0 <= sx <= x1 and y0 <= sy <= y1
+                centre_clear = min((math.hypot(sx - m["pos"][0],
+                                                sy - m["pos"][1])
+                                    for m in showers), default=99.0)
+                wet_clear = centre_clear - 0.46
+                candidates.append((inside, -wet_clear, switch, wet_clear))
+            if not candidates:
+                raise SystemExit("bathroom %s has no reachable light switch"
+                                 % room["id"])
+            # False sorts before True: a corridor/bedroom-side plate wins.
+            inside, _, primary, clearance = sorted(
+                candidates, key=lambda c: (c[0], c[1]))[0]
+            if inside:
+                # Five B-plan doors put the inferred bathroom control on the
+                # wet-room face, where the open leaf covers the hand reaching
+                # for it. The paired plate is already on the dry face. Swap
+                # their circuit ownership rather than adding a third plate or
+                # stealing the adjoining room's only control.
+                stem = primary["id"].rsplit("_", 1)[0]
+                mates = []
+                for switch in fl.get("furniture", []):
+                    sx, sy = switch.get("at", [999.0, 999.0])
+                    if switch.get("asm") != "switch" \
+                            or not switch.get("id", "").startswith(stem + "_") \
+                            or switch is primary \
+                            or (x0 <= sx <= x1 and y0 <= sy <= y1):
+                        continue
+                    mates.append(switch)
+                if not mates:
+                    raise SystemExit("bathroom %s switch is trapped by its "
+                                     "door and has no dry-face mate" % room["id"])
+                mate = min(mates, key=lambda s: math.hypot(
+                    s["at"][0] - primary["at"][0],
+                    s["at"][1] - primary["at"][1]))
+                mate_room = _switch_served_room(fl, mate)
+                if mate_room:
+                    primary["serves_room"] = mate_room
+                primary = mate
+                sx, sy = primary["at"]
+                centre_clear = min((math.hypot(sx - m["pos"][0],
+                                                sy - m["pos"][1])
+                                    for m in showers), default=99.0)
+                clearance = centre_clear - 0.46
+            if clearance < 0.75:
+                raise SystemExit("bathroom %s switch enters wet zone (%.2fm)"
+                                 % (room["id"], clearance))
+            primary["serves_room"] = room["id"]
+            primary["bathroom_switch"] = True
+            primary["wet_clearance"] = round(clearance, 3)
+            count += 1
+    if count != 23:
+        raise SystemExit("bathroom switch count %d != 23" % count)
+    print("bathroom switches: 23 explicit circuits, all clear of wet zones")
+
+
 def _plate_beside_opening(fl, r):
     """Inside the room, beside its widest opening, clear of the swing."""
     x0, y0, x1, y1 = r["rect"]
@@ -8282,6 +8381,7 @@ def main():
     if COVERAGE_SWITCHES_ADDED:
         print("added %d switch plates for rooms reached through archways"
               % len(COVERAGE_SWITCHES_ADDED))
+    bathroom_switch_pass(floors)
     seated = seat_walls_under_the_floor_above(floors)
     if seated:
         print("seated %d wall(s) under the floor above" % seated)

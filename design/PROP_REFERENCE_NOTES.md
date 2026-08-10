@@ -1975,3 +1975,49 @@ raising any authored room light.
   **PASS**. `building_layout.json`, `acoustic_graph.json` and
   `material_catalog.json` are byte-identical between `art/data` and `game/data`
   after the final source edit and rebuild.
+
+## 1928 wall switches — the reopening contractor's one cheap fitting
+
+### Reference comparison
+
+The previous object had the right broad date and the wrong read: a long black
+tumbler nested in two thick cream moldings looked like a modern plastic toggle
+at player distance. Surviving hardware gives a quieter answer. The Smithsonian's
+General Electric push-button wall switch is dated about 1920 and records a
+Bakelite body and buttons, steel yoke, copper contacts and brass screws. A 1928
+Bryant advertisement still shows flush wiring devices and a tumbler switch as
+ordinary catalogue stock; the Science Museum's 1890–1920 group confirms the
+small wall-mounted Bakelite-and-metal scale. The Orison uses the conservative
+GE-pattern pair: available, inexpensive hardware a reopening contractor could
+repeat through the whole address rather than a decorative antique.
+
+- Smithsonian object: `https://americanhistory.si.edu/collections/object/nmah_750894`
+- 1928 Bryant catalogue advertisement: `https://www.worldradiohistory.com/Archive-IRE/20s/IRE-1928-08.pdf`
+- Science Museum reference group: `https://collection.sciencemuseumgroup.org.uk/objects/co36674/electric-light-switches-1890-1920`
+
+The rebuilt fitting is an 88 x 132 mm shallow stamped dull-brass plate, a rolled
+inner step, two black Bakelite buttons with one mechanically proud, and two
+slotted brass fasteners. It uses existing `brass_dull`, `brass_bright`,
+`bakelite_black` and `soot`; no new material or texture plate exists for it.
+
+### Circuit and placement correction
+
+All 23 bathrooms now author one primary switch by room id in generated layout
+data instead of relying on a runtime wall-face guess. The build rejects a
+bathroom without a circuit owner or with a plate less than 750 mm clear of the
+curtained shower envelope. Render verification found the code-only result was
+still wrong in five B-plan bathrooms: the inferred plate sat on the wet-room
+face and 4B's open door occupied the hand reach. Those five paired plates now
+exchange circuit ownership. The dry exterior face controls the bathroom; its
+interior mate inherits the adjoining-room circuit, so no switch or room is lost.
+
+The interaction cuts the complete room fixture list, including direct light,
+bounce, additive halo and bulb emission, then restores the same circuit. FAST
+WalkTest proves 23 unique authored rooms, 23 live interaction bodies, a minimum
+1.27 m wet-zone clearance, non-empty fixture ownership, and both the dark and
+restored visible states.
+
+### Render evidence
+
+- Final 4B dry-face close view, actual room lighting and torch:
+  `C:/PleaseRemainOnTheLine/art/renders/bath_switch_final/stand_-6.035_10.74_-3.78_0_0.png`

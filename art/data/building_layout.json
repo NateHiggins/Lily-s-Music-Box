@@ -11084,7 +11084,10 @@
       6.975
      ],
      "yaw": -90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F01_RESTROOM",
+     "bathroom_switch": true,
+     "wet_clearance": 1.267
     },
     {
      "id": "F01_SW_10_180",
@@ -11114,7 +11117,10 @@
       -4.415
      ],
      "yaw": 90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F01_A_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F01_SW_11_270",
@@ -11164,7 +11170,10 @@
       -4.415
      ],
      "yaw": -90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F01_D_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F01_SW_14_180",
@@ -74890,7 +74899,10 @@
       -4.415
      ],
      "yaw": 90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F02_A_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F02_SW_08_270",
@@ -74910,7 +74922,8 @@
       5.308
      ],
      "yaw": 180,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F02_B_MAIN"
     },
     {
      "id": "F02_SW_09_0",
@@ -74920,7 +74933,10 @@
       5.432
      ],
      "yaw": 0,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F02_B_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.503
     },
     {
      "id": "F02_SW_10_180",
@@ -74980,7 +74996,10 @@
       5.565
      ],
      "yaw": -90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F02_C_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F02_SW_13_180",
@@ -75020,7 +75039,10 @@
       -4.415
      ],
      "yaw": -90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F02_D_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F02_SW_15_180",
@@ -83912,7 +83934,10 @@
       -4.415
      ],
      "yaw": 90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F03_A_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F03_SW_09_270",
@@ -83932,7 +83957,8 @@
       5.308
      ],
      "yaw": 180,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F03_B_MAIN"
     },
     {
      "id": "F03_SW_10_0",
@@ -83942,7 +83968,10 @@
       5.432
      ],
      "yaw": 0,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F03_B_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.503
     },
     {
      "id": "F03_SW_11_90",
@@ -83962,7 +83991,10 @@
       5.565
      ],
      "yaw": -90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F03_C_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F03_SW_12_180",
@@ -84002,7 +84034,10 @@
       -4.415
      ],
      "yaw": -90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F03_D_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F03_SW_14_180",
@@ -94093,7 +94128,10 @@
       -4.415
      ],
      "yaw": 90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F04_A_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F04_SW_09_270",
@@ -94133,7 +94171,10 @@
       4.458
      ],
      "yaw": 180,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F04_B_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.861
     },
     {
      "id": "F04_SW_11_0",
@@ -94143,7 +94184,8 @@
       4.582
      ],
      "yaw": 0,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F04_B_VESTIBULE"
     },
     {
      "id": "F04_SW_12_90",
@@ -94223,7 +94265,10 @@
       5.565
      ],
      "yaw": -90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F04_C_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F04_SW_16_180",
@@ -94263,7 +94308,10 @@
       -4.415
      ],
      "yaw": -90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F04_D_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F04_SW_18_180",
@@ -103161,7 +103209,10 @@
       -4.415
      ],
      "yaw": 90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F05_A_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F05_SW_09_270",
@@ -103181,7 +103232,8 @@
       5.308
      ],
      "yaw": 180,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F05_B_MAIN"
     },
     {
      "id": "F05_SW_10_0",
@@ -103191,7 +103243,10 @@
       5.432
      ],
      "yaw": 0,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F05_B_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.503
     },
     {
      "id": "F05_SW_11_180",
@@ -103251,7 +103306,10 @@
       5.565
      ],
      "yaw": -90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F05_C_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F05_SW_14_180",
@@ -103291,7 +103349,10 @@
       -4.415
      ],
      "yaw": -90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F05_D_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F05_SW_16_180",
@@ -112448,7 +112509,10 @@
       -4.415
      ],
      "yaw": 90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F06_A_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F06_SW_09_270",
@@ -112468,7 +112532,8 @@
       5.308
      ],
      "yaw": 180,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F06_B_MAIN"
     },
     {
      "id": "F06_SW_10_0",
@@ -112478,7 +112543,10 @@
       5.432
      ],
      "yaw": 0,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F06_B_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.503
     },
     {
      "id": "F06_SW_11_180",
@@ -112538,7 +112606,10 @@
       5.565
      ],
      "yaw": -90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F06_C_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F06_SW_14_180",
@@ -112578,7 +112649,10 @@
       -4.415
      ],
      "yaw": -90,
-     "z0": 1.12
+     "z0": 1.12,
+     "serves_room": "F06_D_BATH",
+     "bathroom_switch": true,
+     "wet_clearance": 1.83
     },
     {
      "id": "F06_SW_16_180",

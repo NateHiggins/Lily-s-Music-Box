@@ -5,7 +5,8 @@ var system: Node
 
 
 func interact_prompt() -> String:
-	return "[E]  Light switch"
+	return "[E]  Bathroom light" if get_meta("bathroom_switch", false) \
+			else "[E]  Light switch"
 
 
 func interact(_player: Node) -> void:

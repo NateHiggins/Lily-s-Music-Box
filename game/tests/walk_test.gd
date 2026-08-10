@@ -213,6 +213,7 @@ func _run() -> void:
 	_flue_breast_checks()
 	_prop_mesh_and_boiler_checks()
 	_medicine_cabinet_checks()
+	_switch_checks()
 	_story_board_checks()
 	_clock_checks()
 	_mail_bank_checks()
@@ -2477,6 +2478,80 @@ func _medicine_cabinet_checks() -> void:
 		player_cabinet.set_door_open(false, 0.0)
 		_check(leaf != null and absf(leaf.rotation.y) < 0.001,
 				"cabinet door returns to its measured shut pose")
+
+
+## A bathroom switch is safety hardware before it is set dressing. The layout
+## owns which plate serves which room and proves its dry clearance; runtime
+## must preserve that exact circuit and extinguish both photons and the fake
+## emissive envelope. A source that stops illuminating but keeps glowing is
+## the old phone-screen-behind-its-casing class of false success.
+func _switch_checks() -> void:
+	var authored := 0
+	var explicit_rooms: Dictionary = {}
+	var min_clearance := INF
+	for fl in root.layout.get("floors", []):
+		for fu in fl.get("furniture", []):
+			if not bool(fu.get("bathroom_switch", false)):
+				continue
+			authored += 1
+			var rid := str(fu.get("serves_room", ""))
+			explicit_rooms[rid] = int(explicit_rooms.get(rid, 0)) + 1
+			min_clearance = minf(min_clearance,
+					float(fu.get("wet_clearance", -1.0)))
+	_check(authored == 23 and explicit_rooms.size() == 23,
+			"twenty-three bathrooms own one explicit switch (%d/%d)"
+			% [authored, explicit_rooms.size()])
+	_check(min_clearance >= 0.75,
+			"every bathroom switch clears the shower wet zone (min %.2fm)"
+			% min_clearance)
+
+	var live := 0
+	var all_wired := true
+	var sample: Node = null
+	for body in root.switch_system.get_children():
+		if not bool(body.get_meta("bathroom_switch", false)):
+			continue
+		live += 1
+		var rid := str(body.get_meta("room_id", ""))
+		if not root.switch_system._room_fixtures.has(rid) \
+				or root.switch_system._room_fixtures[rid].is_empty():
+			all_wired = false
+		if rid == "F01_RESTROOM":
+			sample = body
+	_check(live == 23,
+			"all authored bathroom switches are interactive (%d)" % live)
+	_check(all_wired, "every bathroom switch owns a non-empty complete circuit")
+
+	if sample == null:
+		_check(false, "public lavatory switch available for circuit test")
+		return
+	var rid := str(sample.get_meta("room_id"))
+	var wanted: Array = root.switch_system._room_fixtures[rid]
+	var fixtures: Array[LightFixtureProp] = []
+	for fixture in get_tree().get_nodes_in_group("light_fixtures"):
+		if wanted.has(str(fixture.name)) and fixture is LightFixtureProp:
+			fixtures.append(fixture)
+	for fixture in fixtures:
+		fixture.set_powered(true)
+		fixture.set_budget(1.0, false, false)
+	root.switch_system.toggle_room(rid)
+	var dark := not fixtures.is_empty()
+	for fixture in fixtures:
+		dark = dark and not fixture.powered and not fixture.light.visible \
+				and not fixture._halo.visible
+	_check(dark,
+			"bathroom switch kills direct light and visible emissive envelope")
+	root.switch_system.toggle_room(rid)
+	for fixture in fixtures:
+		# LightRig normally restores the current budget on its next frame. Do
+		# it synchronously here so the assertion measures the fixture contract,
+		# not scheduler timing on a four-times-speed headless run.
+		fixture.set_budget(1.0, false, false)
+	var restored := not fixtures.is_empty()
+	for fixture in fixtures:
+		restored = restored and fixture.powered and fixture.light.visible \
+				and fixture._halo.visible
+	_check(restored, "bathroom circuit restores source, pool and envelope")
 
 
 func _clock_checks() -> void:
