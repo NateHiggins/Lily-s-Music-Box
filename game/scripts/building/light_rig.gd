@@ -329,7 +329,7 @@ func _ensure_fixture_tuning(fixture: Node) -> Dictionary:
 	var personality: Dictionary = fixture.get_meta("light_personality", {})
 	var tuning := {
 		"energy_multiplier": 1.0,
-		"range": source.omni_range if source is OmniLight3D else 8.0,
+		"range": _light_reach(source) if source != null else 8.0,
 		"attenuation": source.omni_attenuation if source is OmniLight3D else 1.0,
 		"temperature": _estimate_temperature(source.light_color),
 		"source_size": source.light_size,
@@ -356,13 +356,15 @@ func set_fixture_tuning(fixture: Node, parameter: String, value: float) -> void:
 	match parameter:
 		"energy_multiplier": tuning[parameter] = clampf(value, 0.0, 2.0)
 		"range":
+			# PARAM_RANGE is the same parameter on an omni and a spot, so the
+			# debug sliders reach a desk lamp as well as a ceiling dome.
 			tuning[parameter] = clampf(value, 1.5, 16.0)
-			if source is OmniLight3D:
-				source.omni_range = tuning[parameter]
+			if source != null:
+				source.set_param(Light3D.PARAM_RANGE, tuning[parameter])
 		"attenuation":
 			tuning[parameter] = clampf(value, 0.8, 3.2)
-			if source is OmniLight3D:
-				source.omni_attenuation = tuning[parameter]
+			if source != null:
+				source.set_param(Light3D.PARAM_ATTENUATION, tuning[parameter])
 		"temperature":
 			tuning[parameter] = clampf(value, 1800.0, 6500.0)
 			source.light_color = _temperature_color(tuning[parameter])
@@ -448,7 +450,7 @@ func _process(delta: float) -> void:
 				# from inside the apartment, and the moment corridors were
 				# dimmed to mood the flats went black — the oasis rule
 				# inverted by its own budget arithmetic.
-				var reach: float = fixture.light.omni_range
+				var reach: float = _light_reach(fixture.light)
 				if d2 < reach * reach * 0.55:
 					d2 *= 0.04
 			eligible.append([d2, fixture])
@@ -473,15 +475,36 @@ func _process(delta: float) -> void:
 		# count for what it is emitting this instant, not for what it was
 		# authored at. It answers one tick stale because the fixture applies
 		# its own scale in its own _process — 0.12 s, beneath noticing.
-		if on and source is OmniLight3D and source.visible:
+		# Any lit fixture counts, not only the omnis. Gating this on
+		# OmniLight3D meant a desk lamp two feet from the camera contributed
+		# nothing to the measured exposure it was plainly providing.
+		if on and source != null and source.visible:
 			var d: float = fixture.global_position.distance_to(eye)
-			var reach: float = source.omni_range
+			var reach: float = _light_reach(source)
 			if d < reach:
-				lit += source.light_energy * pow(
-						1.0 - d / reach, source.omni_attenuation)
+				lit += source.light_energy * pow(1.0 - d / reach,
+						source.get_param(Light3D.PARAM_ATTENUATION))
 	room_light = clampf(lit / ROOM_LIT_FULL, 0.0, 1.0)
 	for fixture in off:
 		fixture.set_budget(0.0, false, false)
+
+
+
+## How far a fixture's light actually reaches, whatever kind of light it is.
+##
+## This rig was written when every fixture in the building was an OmniLight3D,
+## and read `omni_range` directly in three places. The first SpotLight3D to
+## arrive - the desk lamps, which point down at the work rather than filling the
+## room - threw `Invalid access to property or key 'omni_range'` and aborted the
+## budget loop partway through, so every fixture sorted after a lamp silently
+## kept its shadows off. The lighting audit went from PASS to 77 failures and
+## the cause was three property reads.
+##
+## `Light3D.PARAM_RANGE` is the same parameter under both names.
+static func _light_reach(source: Light3D) -> float:
+	if source == null:
+		return 0.0
+	return source.get_param(Light3D.PARAM_RANGE)
 
 
 func _is_vertical(fixture: Node) -> bool:
