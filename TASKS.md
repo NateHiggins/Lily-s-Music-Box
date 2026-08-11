@@ -238,6 +238,19 @@ and the four isolated roof fixtures now terminating at a real riser.
 - **U6** The `smoke_detector` alias class has no reference of any kind, but
   external saves may name it. **Decide save compatibility before touching it.**
 
+## P — Performance
+
+- **P1** **The project-wide 16.6 ms frame target is missed at every station**,
+  and by a wide margin: mean station time is **46.25 ms**, street elevation
+  **52.43 ms**, corridor F04 **61.52 ms**. Measured during the shop pass, which
+  found itself flat against its own baseline and correctly filed this as a
+  scene-wide budget problem rather than a shop regression. It has been recorded
+  in `design/SHOP_INTERIOR_INVENTORY.md` and `design/PROP_REFERENCE_NOTES.md`
+  but was never in the queue, so nobody owns it. **Roughly 2.8x over budget.**
+- **P2** Related and still open from `HANDOFF.md`: HLOD and prop LODs are
+  untouched, and the headroom figures were measured on one high-end GPU. Mobile
+  is unproven.
+
 ## H — Housekeeping
 
 - **H2** **`C:\FPSengine01` is not a git repository.** The entire compiler side —
