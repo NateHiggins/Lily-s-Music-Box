@@ -501,7 +501,20 @@ func _run() -> void:
 		for lz in lvls2:
 			if lz <= gy + 0.01:
 				own = lz
-		if gy - own < 1.8:
+		# 1.8 m encodes "hangs from a ceiling", and a wall sconce does not. The
+		# bathroom globe is 1.62 m above its floor because it lights a face at a
+		# mirror, which is exactly where it belongs, and it has been failing this
+		# assertion since the fixtures landed in 5bd15e7 - the bar's sconces only
+		# escaped by being flagged exterior for unrelated reasons.
+		#
+		# The check is still worth making; it is the threshold that was wrong.
+		# What it exists to catch is a fixture whose Y drifted just past a storey
+		# datum and got adopted by the floor above, and such a fixture sits
+		# centimetres over its new datum, not 1.62 m. So wall-mounted families
+		# get a floor that is low enough to be true of a real sconce and high
+		# enough that a punched-through one still fails.
+		var floor_h: float = 0.9 if f5.prop_type == "sconce_globe" else 1.8
+		if gy - own < floor_h:
 			low_fix.append(f5.name)
 	_check(low_fix.is_empty(),
 			"all fixtures ceiling-mounted in their own storey (low: %s)"
