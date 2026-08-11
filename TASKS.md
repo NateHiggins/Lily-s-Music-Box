@@ -48,11 +48,6 @@ Nothing below is blocked on effort; it is blocked on someone choosing.
 
 Ruled in `ORISON_BIBLE.md` VIII.5.g. Docs: `game/docs/arcade_cabinets.md`.
 
-- **A1** `.swcpkg` files almost certainly do **not** ship in an exported build.
-  `export_presets.cfg` has `export_filter="all_resources"` with an empty
-  `include_filter`, and `.swcpkg` has no Godot importer. Expected fix is
-  `include_filter="*.swcpkg"` — **untested**. Export, install, confirm a cabinet
-  still boots. Failure mode is a machine playing in graybox with no error.
 - **A2** Nobody has played one. `arcade_panel.gd` is unproven in the hand: mouse
   capture and restore, ESC, `E`, and whether a 480×360 feed at 2× is aimable.
   Expect tuning, not repair.

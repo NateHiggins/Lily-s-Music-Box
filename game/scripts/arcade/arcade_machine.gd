@@ -139,7 +139,19 @@ func boot(entry: Dictionary, catalog_dir: String) -> bool:
 			package.apply_environment(_environment)
 			_dressed_environment = _environment.environment
 	if package == null:
-		push_warning("ArcadeMachine: %s has no package; running graybox" % _title())
+		# Two different things used to share this line, and only one of them is
+		# fine. A catalog entry with no `package` is graybox on purpose. An entry
+		# that names a package which then fails to load is a broken build, and it
+		# is nearly invisible - the machine plays perfectly, in grey. That is how
+		# an export dropping every .swcpkg looked from the inside: twelve
+		# cabinets, no complaint, and the row's whole joke told straight.
+		if package_rel.is_empty():
+			push_warning("ArcadeMachine: %s ships no package; running graybox" % _title())
+		else:
+			push_error("ArcadeMachine: %s names package '%s' but it did not load; "
+					% [_title(), package_rel]
+					+ "running graybox. In an exported build check that "
+					+ "include_filter carries *.swcpkg.")
 	_lights = []
 	for entity_id in _entities:
 		var entity: SwcEntity = _entities[entity_id]

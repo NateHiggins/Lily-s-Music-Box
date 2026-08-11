@@ -249,6 +249,26 @@ python tools/build_arcade.py --strict --out C:/PleaseRemainOnTheLine/game/assets
 Adding a cabinet is adding a prompt to `prompts/` and re-running. The build fails
 rather than writing a catalog if invariance stops holding.
 
+## Shipping them
+
+`.swcpkg` is not a Godot resource. It has no importer and no `.import` file, so
+`export_filter="all_resources"` walks straight past the whole directory. The
+preset therefore carries an explicit `include_filter="*.swcpkg"`, and **that one
+line is what puts the skins in the build.**
+
+This was worth an hour to prove because of how it fails. The catalog *is* a
+`.json` and does ship, so every cabinet still appears, still boots, still plays
+correctly - in graybox. Twelve machines telling the row's joke straight, with no
+error a player or a tester would see. `ArcadeMachine` now separates the two
+cases: a catalog entry with no `package` is deliberate graybox and warns, while
+an entry naming a package that fails to load is `push_error`.
+
+To check an export rather than trust it, mount the pack from a scratch project -
+`ProjectSettings.load_resource_pack()`, then list
+`res://assets/arcade/packages`. Do not grep the pack for path strings; those
+strings appear in other resources too, and that false positive is what made this
+look fixed when it was not.
+
 ## Cost
 
 One live cabinet is a full 3D world in a SubViewport. Machines build lazily on
