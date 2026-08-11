@@ -400,6 +400,41 @@ rules its five open questions.** Nothing built.
   0.78/0.87/1.0, a cold LED. A 1928 torch is a warm, weak, yellowing bulb with
   a much tighter and dirtier beam. Retune with the model.
 
+## X — The haunting
+
+Audited in `design/ORISON_HAUNTING_AUDIT.md`. Measured, not opined: the
+instinct that something in here does nothing was right, but it is not an idle
+system - **it is more than half the authored content.**
+
+- **X1** **DONE - regated.** 0.12/0.34/0.62/0.86 became 0.10/0.24/0.40/0.62.
+  The ordinary state of this game is **0.23 pressure**, and rung one is defined
+  as "an anomaly small enough to be dismissed" - so every player not deep in a
+  late campaign met this system *only* as things they were meant to dismiss,
+  while `reenact` (47 acts) and `address` (18 acts) went unseen. **54% of the
+  content was behind a wall.** A live case on a call now reaches reenact.
+- **X2** **DONE - being ignored is the steepest term.** `_ignored_streak` went
+  0.06 -> 0.14. It was worth less than standing still, which had the model
+  backwards: every other term rewards a player already paying attention, and
+  this is the only one that represents the building INSISTING. It is also the
+  fairest curve here, because it escalates only for players who are missing
+  things and resets the moment one lands.
+- **X3** **Rebalance toward the undeniable.** 56 of 120 act slots (47%) are
+  whisper, caption or sound; the acts that cannot be missed - vanish, fall,
+  scatter, fault - are **7 of 120, under 6%**. Do not delete whispers; require
+  that **every rung-3 and rung-4 entry contains at least one physical act.** A
+  reenactment made of sound is a radio play.
+- **X4** **Trim 18 ladders to 8.** `PoltergeistLibrary` serves a cast that was
+  cut two-thirds away: §IV.1 ruled six cases plus Rhea and Nadia as sanctioned
+  expansion, and under §III.1 the Tenant attaches to a CASE - so ten ladders,
+  **40 act slots**, belong to residents who cannot be haunted. **Archive, do
+  not delete**: it is good writing and two are already the expansion.
+- **X5** `appliance_fit` is implemented and unreachable from any ladder. Wire
+  it or cut it.
+- **X6** Left alone deliberately: `DomesticWitnessSystem` and
+  `BuildingPersonalityDirector` both looked like trim candidates and neither is.
+  The witness clocks are per-apartment character objects and the personality
+  director is what stops this being a random-number generator.
+
 ## N — The dream (narcolepsy maze)
 
 Proposed in `design/ORISON_MAZE_BRIEF.md`. **Not canon until the owner rules.**

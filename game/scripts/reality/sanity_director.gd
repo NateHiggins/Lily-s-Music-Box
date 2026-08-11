@@ -45,7 +45,20 @@ signal attention_withheld(case_id: String, streak: int)
 const TICK := 1.4
 ## Pressure needed before a rung becomes available at all. Rung four is a
 ## long way up, and is meant to be.
-const TIER_GATE := {1: 0.12, 2: 0.34, 3: 0.62, 4: 0.86}
+## REGATED 2026-08-11 (design/ORISON_HAUNTING_AUDIT.md). Was
+## {1: 0.12, 2: 0.34, 3: 0.62, 4: 0.86}, which put 54% of the authored content
+## behind a wall a normal session never reached.
+##
+## Working the terms in _compute_pressure(): the ordinary state of this game -
+## one live case, no call, a player walking a corridor - is **0.23**, and rung
+## one is defined in PoltergeistLibrary as "an anomaly small enough to be
+## dismissed". So every player who was not deep in a late campaign experienced
+## this system exclusively as things they were meant to be able to dismiss,
+## while `reenact` (47 acts) and `address` (18 acts) sat unseen.
+##
+## Nothing about the ladder's meaning changes here. What changes is that
+## somebody sees it.
+const TIER_GATE := {1: 0.10, 2: 0.24, 3: 0.40, 4: 0.62}
 ## Seconds of quiet owed after an intrusion of each tier.
 const REFRACTORY := {1: 11.0, 2: 19.0, 3: 34.0, 4: 95.0}
 ## How far a resident's own unit can be from the player and still be the one
@@ -265,8 +278,13 @@ func _compute_pressure() -> float:
 	# found something and are working out what it means. That is the moment
 	# worth spending an intrusion on.
 	p += clampf(_gaze_hold / 6.0, 0.0, 0.10)
-	# Repeatedly missing what the building does makes it insist.
-	p += _ignored_streak * 0.06
+	# BEING IGNORED IS THE STEEPEST TERM, and it was not. At 0.06 a streak was
+	# worth less than standing still, which had the model backwards: every
+	# other term rewards a player who is already paying attention, and this is
+	# the only one that represents the building INSISTING. It is also the
+	# fairest curve in the system, because it escalates only for players who
+	# are missing things - notice one and it resets.
+	p += _ignored_streak * 0.14
 	# Campaign memory. A player who has already been addressed four times
 	# meets a building that starts from somewhere worse — the escalation is
 	# across the whole game, not just within a session.
