@@ -2945,8 +2945,13 @@ def light_fixture_markers(fl):
                                  "vestibule": 0.45}.get(r["kind"], 0.30)
         if r["kind"] != "atrium":   # the eye is meant to throw far
             rw, rd = x1 - x0, y1 - y0
-            marker["range"] = round((rw * rw + rd * rd) ** 0.5 / 2.0
-                                    + 0.9, 2)
+            # Reach the far FLOOR corner, not the far corner of the plan. The
+            # fitting hangs at `mount` above the floor, so the distance it
+            # actually has to cover is the 3D diagonal; using the 2D one left
+            # every corner of every room sitting just outside the falloff,
+            # which is most of a room's visible surface.
+            marker["range"] = round(((rw * 0.5) ** 2 + (rd * 0.5) ** 2
+                                     + mount * mount) ** 0.5 + 0.9, 2)
         e_mult = UNIT_LIGHT.get(unit, 0.85 + (sum(ord(c) for c in unit)
                                               % 6) * 0.05) if unit else 1.0
         marker["energy"] = round(ROOM_LIGHT.get(r["kind"], 1.0) * e_mult, 2)

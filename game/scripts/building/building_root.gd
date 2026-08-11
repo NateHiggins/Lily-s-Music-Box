@@ -290,6 +290,7 @@ func _ready() -> void:
 	moon_fill.name = "MoonFill"
 	add_child(moon_fill)
 	moon_fill.build(layout, player)
+	moon_fill._root = self
 	_spawn_reality_controllers()
 	wayfinding_signage = WayfindingSignagePass.new()
 	add_child(wayfinding_signage)

@@ -164,7 +164,20 @@ func _build_visual() -> void:
 	# Circulation fixtures fall off gently so consecutive pools overlap
 	# and a corridor reads to its far end; room fixtures keep the tighter
 	# inverse-square-ish curve that gives interiors their modelling.
-	light.omni_attenuation = 1.35 if navigation_light else 2.0
+	# Falloff, and it is the reason twelve of twenty-eight rooms on F02 rendered
+	# as black frames while LightingAudit passed - the audit counts fixtures and
+	# never measures brightness, so a correctly-mapped room could be unlit.
+	#
+	# 2.0 is a steep curve: it puts a hot pool under the fitting and gives the
+	# rest of the room nothing. Circulation was always exempted at 1.35 and
+	# looked right, which is the tell - the harsh number was only ever applied
+	# where the bible asks for the opposite. "Circulation is DIM and the homes
+	# are WARM" (gen_layout ROOM_LIGHT) cannot survive the homes getting the
+	# tighter light.
+	#
+	# Softening spreads the same bulb through the room instead of making it
+	# brighter, so the peak does not move and nothing blows out.
+	light.omni_attenuation = 1.35 if navigation_light else 1.4
 	light.omni_shadow_mode = OmniLight3D.SHADOW_CUBE
 	# Tight contact shadows. The previous 0.42 normal bias pushed shadows
 	# so far off furniture and trim that they disappeared under ambient fill.

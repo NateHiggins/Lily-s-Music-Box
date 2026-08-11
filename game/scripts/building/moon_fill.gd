@@ -18,6 +18,20 @@ const TINT := Color(0.62, 0.70, 0.86)
 
 var _layout: Dictionary = {}
 var _player: Node3D
+## The building, read live for its `view_override`. A tool sets that AFTER the
+## root has built, so copying it once here would always copy a null.
+##
+## Without this the moon follows the player, the player stays in the lobby, and
+## every screenshot tool photographs rooms the fill has never visited - a
+## switched-off bedroom renders 97% black. That is not what the room looks like
+## in the game, and it cost an afternoon to be sure of.
+var _root: Node3D = null
+
+
+func _anchor() -> Node3D:
+	if _root != null and _root.view_override != null:
+		return _root.view_override
+	return _player
 var _windowed: Array = []      # [floor_z, rect] rooms with exterior glass
 var _accum := 0.0
 
@@ -47,10 +61,11 @@ func build(layout: Dictionary, player: Node3D) -> void:
 
 func _process(delta: float) -> void:
 	_accum += delta
-	if _accum < 0.3 or _player == null:
+	var eye := _anchor()
+	if _accum < 0.3 or eye == null:
 		return
 	_accum = 0.0
-	var p := _player.global_position
+	var p := eye.global_position
 	var bl := Vector3(p.x, -p.z, p.y)          # godot -> blender
 	var lit := false
 	for entry in _windowed:

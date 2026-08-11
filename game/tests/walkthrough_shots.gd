@@ -48,6 +48,16 @@ func _run() -> void:
 	cam.fov = 72
 	add_child(cam)
 	cam.make_current()
+	# Hand the rig this camera. Without it BuildingRoot keeps budgeting light
+	# around the player parked in the lobby while this camera visits every room
+	# in the building, so each room is lit only by its standby floor - and
+	# dwelling fixtures have no standby, only circulation does. The result is
+	# bathrooms and corridors that read normally and living rooms that are 97%
+	# black, which looks exactly like a lighting bug and is not one.
+	#
+	# perf_probe.gd learned this and wrote it down; the lesson never reached the
+	# other camera tools.
+	root.view_override = cam
 	if OS.get_environment("SCREENSHOT_TEST_CAMERA_LIGHT") == "1":
 		var test_light := OmniLight3D.new()
 		test_light.light_energy = 6.0
