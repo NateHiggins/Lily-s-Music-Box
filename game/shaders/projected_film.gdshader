@@ -17,6 +17,34 @@ uniform float flicker_depth : hint_range(0.0, 0.5) = 0.14;
 uniform float grain_amount : hint_range(0.0, 1.0) = 0.32;
 uniform float dust_amount : hint_range(0.0, 1.0) = 0.30;
 uniform float falloff : hint_range(0.0, 2.0) = 0.85;
+// THE APERTURE. A hard rectangle reads as a quad with a texture on it - the
+// straight edge is the single biggest tell that this is geometry and not light.
+// Real condenser optics throw a round-ish pool with a soft, uneven edge, so the
+// gate here is an oval whose rim wanders, and the light falls off toward it
+// rather than stopping.
+uniform float aperture_aspect : hint_range(0.3, 2.0) = 0.70;
+uniform float aperture_soft : hint_range(0.01, 0.6) = 0.30;
+uniform float aperture_wobble : hint_range(0.0, 0.4) = 0.14;
+// THE PLATE. Niepce 1826 and Cornelius 1839 as the reference, not 16 mm. What
+// makes those read as ghosts is exposure time, not grain: an eight-hour plate
+// records only what held still, and the plate's own tarnish sits IN FRONT of
+// the picture rather than tinted into it. Damage occludes; it does not colour.
+//
+// plate = 0 is film. plate = 1 is a silvered plate somebody found in a drawer.
+uniform float plate : hint_range(0.0, 1.0) = 0.0;
+uniform float tarnish : hint_range(0.0, 2.0) = 1.0;
+uniform float plate_lift : hint_range(0.0, 0.5) = 0.10;
+uniform vec3 plate_warm : source_color = vec3(0.78, 0.735, 0.64);
+uniform vec3 plate_cool : source_color = vec3(0.50, 0.555, 0.60);
+// Per-reel character: a bias on the duotone, not a filter over it. Twelve
+// plates in a drawer should feel like twelve afternoons.
+uniform vec3 reel_tint : source_color = vec3(1.0, 1.0, 1.0);
+
+// A fixed scorched hole in the print - somebody's cigarette, or a splice that
+// cooked. It never moves, which is what makes it read as physical.
+uniform float cigar_size : hint_range(0.0, 0.5) = 0.0;
+uniform vec2 cigar_at = vec2(0.5, 0.5);
+
 uniform float mono : hint_range(0.0, 1.0) = 1.0;
 uniform vec3 lamp_tint : source_color = vec3(1.0, 0.93, 0.78);
 uniform float gain : hint_range(0.0, 4.0) = 1.35;
@@ -47,47 +75,6 @@ uniform vec2 burn_origin = vec2(0.42, 0.55);
 uniform float mould : hint_range(0.0, 1.2) = 0.0;
 uniform vec2 mould_origin = vec2(0.22, 0.18);
 
-// THE CIGAR BURN - the changeover cue, not damage.
-//
-// The projectionist's mark: a small circle scratched or punched into the top
-// corner of a print, flashed for about four frames to say "the reel is ending,
-// start the other machine". Two of them, eight seconds apart. Every audience
-// has seen thousands and almost nobody has noticed one, which is exactly the
-// register this whole shader is aiming at.
-//
-// It matters more here than as decoration. A cue means a JOIN, and a print
-// with cues every few seconds is a print assembled out of scraps - which is
-// what these reels are. The mark is the punctuation of a badly edited film,
-// so it should fire often enough to imply the cuts, and never be explained.
-// A fixed scorched hole in the print. Kept separate from the travelling burn
-// because this one never moves - which is the point, and also the problem when
-// it is asked to hide something that does.
-uniform float cigar_size : hint_range(0.0, 0.5) = 0.0;
-uniform vec2 cigar_at = vec2(0.5, 0.5);
-
-// THE PLATE. Niepce 1826 and Cornelius 1839 as the reference, not 16 mm.
-//
-// What makes those images read as ghosts is EXPOSURE TIME, not grain. An
-// eight-hour heliograph records only what held still, so people are absent or
-// smeared, and the plate itself - tarnish, blotch, edge rot - sits IN FRONT of
-// the picture rather than tinted into it. That distinction is the whole look:
-// damage occludes, it does not colour.
-//
-// plate = 0 is film. plate = 1 is a silvered plate somebody found in a drawer.
-uniform float plate : hint_range(0.0, 1.0) = 0.0;
-// Per-reel character. Every plate was toned by a different hand on a different
-// afternoon, so no two are the same colour - and giving each reel its own tone
-// is the cheapest way to make twelve of them feel like twelve objects rather
-// than twelve settings. Kept SUBTLE: this is a bias on a duotone, not a filter.
-uniform vec3 reel_tint : source_color = vec3(1.0, 1.0, 1.0);
-uniform float tarnish : hint_range(0.0, 2.0) = 1.0;
-uniform float plate_lift : hint_range(0.0, 0.5) = 0.10;
-uniform vec3 plate_warm : source_color = vec3(0.78, 0.735, 0.64);
-uniform vec3 plate_cool : source_color = vec3(0.50, 0.555, 0.60);
-
-uniform float cue_period : hint_range(0.0, 30.0) = 0.0;   // 0 = never
-uniform vec2 cue_at = vec2(0.86, 0.12);
-uniform float cue_radius : hint_range(0.0, 0.1) = 0.026;
 
 float hash(vec2 p) {
 	return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
@@ -128,7 +115,9 @@ void fragment() {
 		(vnoise(vec2(0.0, t * 2.3)) - 0.5)) * weave_amount;
 	vec2 uv = UV + weave;
 
-	// Outside the gate there is no picture, only the wall.
+	// Outside the gate there is no picture, only the wall. The sampling clamp
+	// still has to be square - a texture has corners even when the light does
+	// not - but what the audience sees is the oval below.
 	if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) {
 		ALBEDO = vec3(0.0);
 		ALPHA = 0.0;
@@ -154,9 +143,7 @@ void fragment() {
 		float d = hash(floor(uv * vec2(260.0, 150.0)) + t * 37.0);
 		col += step(1.0 - dust_amount * 0.0022, d) * 0.55;
 
-		// The thrown rectangle is never even and never square to the wall.
 		vec2 c = uv - 0.5;
-		col *= 1.0 - falloff * dot(c, c) * 0.9;
 
 		if (plate > 0.001) {
 			float lum = dot(col, vec3(0.299, 0.587, 0.114));
@@ -256,22 +243,30 @@ void fragment() {
 			col = mix(col, vec3(1.0), phole);
 		}
 
-		if (cue_period > 0.01) {
-			// Four frames on, at silent speed, twice per period - the second
-			// cue lands a beat after the first, the way a real changeover pair
-			// does. Aspect-corrected so the mark is a circle on a tall frame.
-			float phase = mod(TIME, cue_period);
-			float on = step(phase, 4.0 / fps)
-					+ step(abs(phase - 0.55), 4.0 / fps * 0.5);
-			if (on > 0.0) {
-				vec2 dxy = (uv - cue_at) * vec2(1.0, 0.56);
-				float cr = length(dxy) + (vnoise(uv * 40.0) - 0.5) * 0.004;
-				float ring = smoothstep(cue_radius, cue_radius * 0.55, cr);
-				col = mix(col, vec3(1.0, 0.94, 0.86), ring * 0.92);
-			}
+		if (cigar_size > 0.001) {
+			float pr = distance(uv, cigar_at) + (vnoise(uv * 22.0) - 0.5) * 0.05;
+			float phole = smoothstep(cigar_size, cigar_size * 0.70, pr);
+			float pscorch = smoothstep(cigar_size * 1.55, cigar_size * 0.80, pr);
+			col = mix(col, vec3(0.38, 0.17, 0.05) * col, pscorch * 0.9);
+			col += vec3(1.0, 0.58, 0.20) * pscorch * (1.0 - phole) * 1.3;
+			col = mix(col, vec3(1.0), phole);
 		}
 
-		ALBEDO = col * f * gain * lamp_tint;
+		// THE APERTURE, applied last so nothing - grain, mould, burn - escapes
+		// past the edge of the light. Two noise scales on the rim: a slow one
+		// that makes the oval lopsided, and a fine one that keeps the edge from
+		// ever reading as a curve somebody drew.
+		vec2 ad = vec2(c.x, c.y * aperture_aspect);
+		float ar = length(ad) * 2.0;
+		float rim = 1.0
+				+ (fbm(uv * 2.6 + 5.0) - 0.5) * aperture_wobble * 2.0
+				+ (vnoise(uv * 14.0) - 0.5) * aperture_wobble * 0.5;
+		float ap = 1.0 - smoothstep(rim - aperture_soft, rim + aperture_soft * 0.35, ar);
+		// Radial falloff inside the pool: brightest at the middle, the way a
+		// condenser actually behaves.
+		ap *= 1.0 - falloff * clamp(ar / max(rim, 0.001), 0.0, 1.0) * 0.55;
+
+		ALBEDO = col * f * gain * lamp_tint * ap;
 		ALPHA = 1.0;
 	}
 }

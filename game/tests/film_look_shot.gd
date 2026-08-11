@@ -105,7 +105,6 @@ func _image(x: float, tex: Texture2D, burn: float, cue: float, raw: bool,
 		mat.set_shader_parameter("gain", 1.0)
 	# A cue is fired continuously here only so it can be photographed; in the
 	# game it is four frames and gone.
-	mat.set_shader_parameter("cue_period", 1000.0 if cue > 0.0 else 0.0)
 	mat.set_shader_parameter("plate", plate)
 	mat.set_shader_parameter("reel_tint", tone)
 	mat.set_shader_parameter("mould", mould)
