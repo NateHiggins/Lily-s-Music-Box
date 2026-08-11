@@ -149,13 +149,34 @@ func _count_meshes(n: Node) -> int:
 ## isolate those repeat submissions from actual visible content and make the
 ## forty-thousand-object corridor actionable instead of mysterious.
 func _diagnose_corridor_submissions() -> void:
+	# Whichever station is currently worst, not whichever was worst when this
+	# was written. PERF_DIAG_STATION takes any substring of a station name;
+	# without it the corridor is kept as the default this was built for.
+	var wanted := OS.get_environment("PERF_DIAG_STATION")
 	var station: Dictionary = STATIONS[2]
-	print("\nPERF DIAG: corridor submission decomposition")
+	if wanted != "":
+		for s in STATIONS:
+			if String(s["name"]).findn(wanted) >= 0:
+				station = s
+				break
+	print("\nPERF DIAG: %s submission decomposition" % station["name"])
 	await _diag_snapshot("baseline", station)
 	# Freeze only BuildingRoot's streaming decision after the corridor has
 	# settled. Otherwise its physics tick quite correctly restores prop and
 	# floor visibility while this diagnostic is trying to suppress them.
 	root.set_physics_process(false)
+
+	# And freeze the cabinets, which stream on _process rather than physics and
+	# so survived that. Every list below is held across an await, and an arcade
+	# machine whose camera has been away long enough gives its whole world back -
+	# lights, meshes and all - leaving this function holding freed references. It
+	# died three snapshots in, twice, before reaching the two that matter most.
+	# Guarding each access would work; not moving the furniture mid-measurement
+	# is better, and a frozen scene is what a benchmark wanted anyway.
+	# Walk the whole tree, not root's children: cabinets are spawned by ArcadeRow
+	# from the layout's furniture and live under their floor node, so the obvious
+	# loop over root.get_children() finds none of them.
+	_freeze_cabinets(root)
 
 	var lights: Array[Light3D] = []
 	_collect_lights(root, lights)
@@ -165,7 +186,8 @@ func _diagnose_corridor_submissions() -> void:
 		light.shadow_enabled = false
 	await _diag_snapshot("all light shadows off", station)
 	for i in lights.size():
-		lights[i].shadow_enabled = light_shadows[i] == 1
+		if is_instance_valid(lights[i]):
+			lights[i].shadow_enabled = light_shadows[i] == 1
 
 	var light_visibility := PackedByteArray()
 	for light in lights:
@@ -173,7 +195,8 @@ func _diagnose_corridor_submissions() -> void:
 		light.visible = false
 	await _diag_snapshot("all illumination hidden", station)
 	for i in lights.size():
-		lights[i].visible = light_visibility[i] == 1
+		if is_instance_valid(lights[i]):
+			lights[i].visible = light_visibility[i] == 1
 
 	var geometry: Array[GeometryInstance3D] = []
 	_collect_geometry(root, geometry)
@@ -195,7 +218,41 @@ func _diagnose_corridor_submissions() -> void:
 			child.visible = false
 	await _diag_snapshot("functional props hidden", station)
 	for i in props.size():
-		props[i].visible = prop_visibility[i] == 1
+		if is_instance_valid(props[i]):
+			props[i].visible = prop_visibility[i] == 1
+
+	# Only 22 of 56 prop scripts call merge_static(), and the census says props
+	# still average 9.1 meshes each. Before anyone spends a week adding merges
+	# family by family, this says what the whole exercise is worth: batch every
+	# prop in place, by material, and re-measure. An upper bound, because it
+	# ignores whether a given family can actually afford to lose its separate
+	# nodes - animated parts, retextured surfaces, anything that moves.
+	#
+	# If it is not draw calls, it is what those calls draw. The atrium submits
+	# ~38M primitives because it sees seven storeys of props at full detail from
+	# twenty metres, and nothing in this project has ever set a visibility range.
+	# Fading props out past 12 m is not a shippable policy - it is the cheapest
+	# possible stand-in for prop LODs, to find out whether that whole avenue is
+	# worth opening before anyone authors a single reduced mesh.
+	var geo2: Array[GeometryInstance3D] = []
+	for child in root.get_children():
+		if child is FunctionalProp:
+			_collect_geometry(child, geo2)
+	for item in geo2:
+		item.visibility_range_end = 12.0
+		item.visibility_range_end_margin = 2.0
+	await _diag_snapshot("props culled past 12 m", station)
+	for item in geo2:
+		if is_instance_valid(item):
+			item.visibility_range_end = 0.0
+
+	# Destructive, so it goes last.
+	var merged := 0
+	for child in root.get_children():
+		if child is FunctionalProp:
+			merged += child.merge_static(child)
+	print("   (merged %d meshes away)" % merged)
+	await _diag_snapshot("every prop batched", station)
 
 
 func _diag_snapshot(label: String, station: Dictionary) -> void:
@@ -262,3 +319,14 @@ func _measure(station: Dictionary) -> void:
 			[station["name"], objs, calls, prims, avg, 1000.0 / avg,
 			"  NOTHING RENDERED" if broken
 			else ("  OVER" if avg > FRAME_BUDGET_MS else "")])
+
+
+## Stop the arcade streaming for the duration of a diagnostic. A machine that
+## unloads mid-run frees lights and meshes the caller is still holding, and it is
+## timing-dependent: at 37 ms a frame two snapshots fit inside the unload delay,
+## at 73 ms they do not, so this failed only on the slower runs.
+func _freeze_cabinets(node: Node) -> void:
+	if node is ArcadeCabinetProp:
+		node.set_process(false)
+	for child in node.get_children():
+		_freeze_cabinets(child)

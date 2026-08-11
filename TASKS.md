@@ -248,10 +248,43 @@ and the four isolated roof fixtures now terminating at a real riser.
   So the gap is about 1.7x, not the 2.8x first filed - real, but a third smaller
   than the record said, and concentrated in one station rather than spread evenly.
   **Start at the atrium.**
-- **P2** Related and still open from `HANDOFF.md`: HLOD and prop LODs are
-  untouched, and the headroom figures were measured on one high-end GPU. Mobile
-  is unproven.
+- **P2** **The atrium decomposed, 2026-08-11** - and two obvious fixes are ruled
+  out. `PERF_DIAG_ONLY=1 PERF_DIAG_STATION=atrium` runs it. Absolute times drift
+  a lot with GPU thermal state across repeated runs, so read the proportions,
+  which held across three runs, and not the milliseconds:
 
+  | toggle | frame time |
+  |---|---|
+  | baseline | — |
+  | all light shadows off | −11 to −19% |
+  | all illumination hidden | −9 to −20% |
+  | all geometry `cast_shadow` off | −24 to −38% |
+  | **all functional props hidden** | **−41 to −63%** |
+  | props culled past 12 m | −15% |
+  | every prop batched by material | ~0 (objects went *up*) |
+
+  **Props are the atrium frame.** But the two things everyone reaches for first
+  do not work:
+  - **Batching is worthless here.** Merging every prop in place removed 2342
+    meshes and changed nothing. Only 22 of 56 prop scripts call `merge_static()`
+    and it is not worth completing that for performance - the cost is not draw
+    call submission. *This retires most of what M-style "reduce draw calls" work
+    would have been.*
+  - **Prop LODs are worth much less than they look.** Culling every prop past
+    12 m recovers 15%, while hiding all props recovers up to 63% - so the cost
+    is in the props **near** the camera, not the seven storeys of them in the
+    distance. The station's own comment ("sees seven storeys at once") has been
+    misleading the diagnosis. Revisit the P2 claim that HLOD is the missing
+    piece before spending anything on it.
+
+  What is left, in order: **`cast_shadow` on props** is the single biggest
+  tractable lever (−24 to −38% with it off entirely, and 85% of all object
+  submissions are shadow re-submissions). A policy of "small props that sit on
+  surfaces do not cast" is the obvious first cut, and it is a **look** decision
+  as much as a perf one, so it wants eyes on before-and-after shots.
+- **P3** Headroom figures come from one high-end GPU (RTX 4080) and vary by more
+  than 2x between runs on it. Mobile is unproven, and the only export preset is
+  Android.
 ## H — Housekeeping
 
 - **H2** **`C:\FPSengine01` is not a git repository.** The entire compiler side —
