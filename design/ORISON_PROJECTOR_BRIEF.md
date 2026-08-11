@@ -24,6 +24,17 @@ of the frame. **The mark moves within a single clip.** A static crop cannot
 follow it, and neither can a static gate mask, which kills the idea of hiding it
 in the projected-look pass.
 
+**Two masking ideas were tried against the footage and both failed on the same
+fact.** A burn that grows over the mark and recedes means burning *permanently*,
+because the mark is in nearly every frame — and a permanent burn is not an
+effect, it is a fault. Placing a burn over it fails too, because the mark
+**wanders through the middle of the picture**: in `ch_01` it starts top-left,
+drifts to dead centre at mid-height, and ends bottom-left. Anything large enough
+to cover that path is large enough to eat the shot.
+
+Both effects were built anyway (§3) because they are worth having on their own
+terms. Neither is a fix.
+
 **Only a clean re-render works**, at whatever aspect §3 settles on. Everything
 else in this brief can be built in parallel; no reel ships until this is done.
 
@@ -95,6 +106,8 @@ how much each contributes:
 | **Silent-speed flicker** | 16–18 fps shutter, not 24. Slightly too fast, slightly strobing. |
 | **Grain and dust** | Sparse, per-frame, brighter than the image. Hairs at the gate edge. |
 | **Splices** | A jump and a frame of white every 20–40 s. Reels were cut and rejoined. |
+| **Cigar burns** | The projectionist's changeover cue: a small circle in the top corner, four frames, twice. Almost nobody consciously notices one, which is why it works. **A cue means a JOIN** — a print with cues every few seconds is a print assembled out of scraps, which is what these reels are. It is the punctuation of a badly edited film. |
+| **Film burn** | The reel stopping in the gate: a bright ring, a brown scorched edge, and a hole that is not a colour but the bare lamp. **Authored, never automatic** — it is what a reel does when it ends, and what the Tenant does when it wants the film to stop being the point. |
 | **Falloff and keystone** | The projected rectangle is brighter at centre and never square to the wall. |
 | **Monochrome, warm** | See §7 — this is a decision, not a default. |
 

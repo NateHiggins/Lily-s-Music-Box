@@ -252,7 +252,16 @@ rules its five open questions.** Nothing built.
   Baby - 9.5 mm was chiefly France and Britain, 16 mm is what Americans used.
   **The screen is no longer part of the prop; the image lands on the room's own
   plaster** and breaks over corners.
-- **F5** The projected-look pass: gate weave first (it does more than anything
+- **F5** **DONE in first pass** - `game/shaders/projected_film.gdshader`, with
+  `tests/FilmLookShot.tscn` to photograph it. `blend_add` is the load-bearing
+  choice: a projector ADDS light to plaster and cannot make it darker, so black
+  in the film is simply the wall, and the room has to be dark for the image to
+  read. Carries gate weave, 17 fps silent flicker, additive grain, dust,
+  falloff, **cigar burns** (the changeover cue - four frames, top corner) and
+  **film burn** (ring, scorch, bare lamp). Still to do: wire it to a
+  VideoStreamPlayer texture rather than a still, and drive `burn` from reel-end
+  and from the Tenant.
+- **F5b** The projected-look pass, remaining: gate weave first (it does more than anything
   else), 16-18 fps silent flicker, sparse dust, a splice jump every 20-40 s,
   falloff and keystone. The projector is also a LIGHT - a flickering beam that
   puts the player's shadow inside the picture.
