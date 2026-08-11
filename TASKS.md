@@ -79,12 +79,18 @@ Ruled in `ORISON_BIBLE.md` VIII.5.g. Docs: `game/docs/arcade_cabinets.md`.
 Ruled in `ORISON_BIBLE.md` III.2. The Harukiya's machine is Scott de
 Martinville's 1857 phonautographe, and the prop is built.
 
-- **G1** **The Songbook can still play a take back, and it must not.** The
-  machine records and cannot reproduce - that is not a limitation, it is the
-  entire point, and it is what makes every unhearable version equally
-  legitimate. `SongbookPanel` currently lets a player keep and replay a take;
-  `MicRecorder` and `SongbookStore` keep working exactly as they are, because
-  capture is not the problem. **Only the listening moves.**
+- **G1** **AMENDED by ruling: a trace plays back, badly.** Reality bends toward
+  the history rather than away from it. `PhonautogramReader` is built: a
+  narrow band (310-2600 Hz, because a bristle in soot writes nothing outside
+  it), lo-fi grit for the optical scan, a boxy little reverb for a cylinder in
+  a wooden case, hand-crank wow that never settles, bristle skips that are
+  SILENT rather than quiet, and **a speed that is guessed fresh on every
+  reading** - including, at one roll in ten, the exact 0.5x error that made
+  Scott sound like a woman in 2008.
+- **G1b** Wire the reader into the playback path. `SongbookPanel` currently
+  replays a take flat; it should go through `PhonautogramReader.attach()`, drive
+  `wow()` per frame and gate on `skipped()`. Capture is untouched -
+  `MicRecorder` and `SongbookStore` keep working exactly as they are.
 - **G2** Playback belongs to the basement studio, which makes S5 better: the
   studio stops being the Songbook's "capture half" and becomes **the only thing
   in the world that can read a trace back**. That is a far stronger reason for

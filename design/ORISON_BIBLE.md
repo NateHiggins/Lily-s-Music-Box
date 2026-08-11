@@ -171,9 +171,24 @@ That is this building's whole subject, built in France in 1857 by a man who
 thought he was solving a clerical problem.
 
 **The ruling.** The Harukiya's machine is a phonautograph. You sing into the
-horn, the cylinder turns, and you get **a line on smoked paper** — a picture of
-your voice that nobody in the bar can play. The Songbook is therefore not a
-library of recordings. **It is a book of traces.**
+horn, the cylinder turns, and you get **a line on smoked paper**. The Songbook
+is therefore not a library of recordings. **It is a book of traces.**
+
+**Amended 2026-08-11: a trace CAN be read back, and it lies about who sang it.**
+The owner ruled that reality bends here — but it bends toward the history
+rather than away from it, because what actually happened is stranger than an
+invention would have been. When First Sounds recovered Scott's 1860 recording
+in 2008 they had the soot and no reference tone, so they had to **guess** how
+fast the crank had been turned. They guessed wrong. The recovered voice was
+celebrated as a woman singing. It was Scott himself, at half speed.
+
+So what the machine gives back is not a voice. It is **a reconstruction of a
+picture of a voice**, and the two things it cannot know are the two that
+matter: how fast the crank was turned, and where the bristle skipped. The speed
+is guessed fresh on every reading. **Play the same trace twice and it may not be
+the same person.** That is not a horror beat somebody invented; it is what the
+record says happened, and it is the cruellest thing this building can do to
+someone trying to identify a voice.
 
 Everything the Songbook already believes survives intact and gets sharper.
 "There are no canonical lyrics; a song is a shape with holes in it, and whatever
