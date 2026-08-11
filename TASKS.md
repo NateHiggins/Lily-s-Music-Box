@@ -194,6 +194,33 @@ is built.
   submission, and **lighting is the dominant term outdoors** (-33%, twice the
   atrium's). Headlamps and lightning are the expensive part, not the vehicles.
 
+## P2 — The Passage (rehousing the shops)
+
+Proposed in `design/ORISON_PASSAGE_BRIEF.md`. **Not canon until the owner rules
+its five open questions.** Nothing built. This supersedes R2's street re-plan if
+it is ruled in, so **do not start R2 until this is decided** - they are two
+answers to the same problem and only one should be built.
+
+- **PS1** Owner ruling. The expensive question is §8.1: all eleven units move,
+  or the cheaper split that keeps the luncheonette, news & cigars and the
+  pawnbroker on the street. *Blocks everything else here, and blocks R2.*
+- **PS2** Naming discipline, decide before any code exists: `arcade` already
+  means the cabinets (`game/scripts/arcade/`, §VIII.5.g). Fiction is "the Vantry
+  Arcade"; **code must be `passage`.** Do not let a second `arcade` into the
+  tree.
+- **PS3** The hall itself: glass barrel vault, iron ribs, eleven units with
+  shopfronts onto the hall. §8.3 - whether the roof is intact, holed, or sheeted
+  over - is the biggest atmosphere decision in the document.
+- **PS4** Pushcarts as the movable middle layer. They are the reason the hall is
+  navigable rather than a corridor, and they must be shoveable.
+- **PS5** **Carrying changes crossing.** The keystone of the loop: a crate slows
+  you, blocks sprint and sits low in frame, so the return leg of an errand is
+  harder than the outbound. Wires the Passage directly to section T with no UI.
+- **PS6** Hours. Shuttered units and chained carts at night, and a 300 ft empty
+  glass hall. Pair with T1's night question.
+- **PS7** Carry R5's two protections across deliberately: the 181 per-shop
+  buffers, and the deliberate NEWS CIGARS inaccessible proprietor side.
+
 ## N — The dream (narcolepsy maze)
 
 Proposed in `design/ORISON_MAZE_BRIEF.md`. **Not canon until the owner rules.**
