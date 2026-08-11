@@ -71,6 +71,15 @@ var _rng := RandomNumberGenerator.new()
 var _player: Node3D
 var _shove_cooldown := 0.0
 var _total_weight := 0.0
+## A small pool of voices, reassigned to whichever vehicles are nearest. The
+## brief's acceptance test is that a player can cross BY EAR with the camera
+## facing a door, and fourteen players would be fourteen voices competing on
+## the worst-performing station in the game. Five is enough: past the nearest
+## few, traffic is a texture rather than a thing you are timing.
+const VOICES := 5
+var _voices: Array[AudioStreamPlayer3D] = []
+var _engine: AudioStreamWAV
+var _hooves: AudioStreamWAV
 
 
 func build(player: Node3D) -> void:
@@ -124,6 +133,21 @@ func build(player: Node3D) -> void:
 	_lamps.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(_lamps)
 
+	# Nothing in PropAudio is a vehicle, so both voices are forged the same way
+	# the phonautogram's traces are. A 1928 motor is a slow irregular putter,
+	# not a modern engine note; a dray is iron rims on stone with hooves over
+	# the top of it.
+	_engine = _forge(2.4, false)
+	_hooves = _forge(2.0, true)
+	for i in VOICES:
+		var v := AudioStreamPlayer3D.new()
+		v.unit_size = 9.0
+		v.max_distance = 46.0
+		v.volume_db = -12.0
+		v.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
+		add_child(v)
+		_voices.append(v)
+
 
 func _process(delta: float) -> void:
 	if _mm == null:
@@ -132,6 +156,7 @@ func _process(delta: float) -> void:
 	_advance(delta)
 	_spawn(delta)
 	_write_instances()
+	_voice_nearest()
 	_check_shove()
 
 
@@ -232,3 +257,75 @@ func _shove(v: Dictionary) -> void:
 	if _player.has_method("stagger"):
 		_player.stagger(Vector3(0, 0, -signf(float(v.dir)) * 3.4))
 	print("[STREET] shoved by a %s" % str(KINDS[int(v.kind)][0]))
+
+
+## Forge a loop. `hooved` gives the rhythmic strike of a walking horse over the
+## rumble; otherwise it is a motor firing unevenly, which is what a 1928 engine
+## sounded like and is also easier to judge distance from than a smooth note.
+func _forge(seconds: float, hooved: bool) -> AudioStreamWAV:
+	var rate := 22050
+	var n := int(rate * seconds)
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 90210 if hooved else 4711
+	var data := PackedByteArray()
+	data.resize(n * 2)
+	var phase := 0.0
+	for i in n:
+		var t := float(i) / float(rate)
+		# The rumble both share: broadband, low, and rolling.
+		var v := (rng.randf() * 2.0 - 1.0) * 0.30
+		phase += TAU * (38.0 if hooved else 27.0) / float(rate)
+		v += sin(phase) * 0.42
+		v += sin(phase * 0.5) * 0.22
+		if hooved:
+			# Four beats a bar, uneven, because a horse is not a metronome.
+			var beat := fposmod(t * 3.1, 1.0)
+			var strike: float = exp(-beat * 34.0) + exp(-fposmod(beat + 0.42, 1.0) * 40.0)
+			v += (rng.randf() * 2.0 - 1.0) * strike * 0.55
+		else:
+			# Firing unevenly: a slow chuff with the odd miss in it.
+			var fire := fposmod(t * 7.3, 1.0)
+			var miss := 0.35 if fposmod(t, 0.83) < 0.1 else 1.0
+			v += exp(-fire * 12.0) * 0.5 * miss
+		var s := int(clampf(v * 8000.0, -32000.0, 32000.0))
+		data[i * 2] = s & 0xFF
+		data[i * 2 + 1] = (s >> 8) & 0xFF
+	var wav := AudioStreamWAV.new()
+	wav.format = AudioStreamWAV.FORMAT_16_BITS
+	wav.mix_rate = rate
+	wav.stereo = false
+	wav.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	wav.loop_end = n
+	wav.data = data
+	return wav
+
+
+## Give the nearest few vehicles a voice and let the rest be silent. Reassigning
+## by distance every frame would chatter, so a voice keeps its vehicle until
+## that vehicle leaves or something gets materially closer.
+func _voice_nearest() -> void:
+	if _player == null or _voices.is_empty():
+		return
+	var here := _player.global_position
+	var order := _live.duplicate()
+	order.sort_custom(func(a, b):
+		return absf(float(a.x) - here.x) < absf(float(b.x) - here.x))
+	for i in _voices.size():
+		var voice := _voices[i]
+		if i >= order.size():
+			voice.stop()
+			continue
+		var v: Dictionary = order[i]
+		var k: Array = KINDS[int(v.kind)]
+		var hooved: bool = str(k[0]) in ["dray", "hansom", "milk_float", "riderless"]
+		var want: AudioStreamWAV = _hooves if hooved else _engine
+		if voice.stream != want:
+			voice.stream = want
+			voice.play()
+		elif not voice.playing:
+			voice.play()
+		var y: float = LANE_WEST if bool(v.lane) else LANE_EAST
+		voice.global_position = GameBoot.b2g([float(v.x), y, 1.0])
+		# Speed reads as pitch, which is most of how a person judges whether
+		# they can make it. Bigger vehicles sit lower.
+		voice.pitch_scale = clampf(float(v.speed) / 6.0, 0.6, 1.5) 				* clampf(3.0 / float(k[1]), 0.55, 1.25)

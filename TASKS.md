@@ -234,7 +234,15 @@ is built.
   nothing**, which is what instancing from the start bought: street elevation
   measures **30.30 ms against the 33.28 ms baseline**, and objects went 14,081
   -> 14,145 for fourteen vehicles.
-- **T2b** **Still to do: it is audible nowhere.** The brief asks that a player
+- **T2b** **Voices built, on FORGED audio - placeholder.** Five
+  `AudioStreamPlayer3D` reassigned to the nearest vehicles each frame (fourteen
+  would be fourteen voices competing on the worst station in the game), pitched
+  by speed and by vehicle size so a lorry sits lower than a car. The loops
+  themselves are synthesised in `_forge()` and **should be deleted the moment
+  real recordings land** - see `design/STREET_AUDIO_SHOPPING_LIST.md`, which
+  lists six sounds, CC0-only, with #1 and #2 alone enough to pass the brief's
+  own test of crossing by ear.
+- **T2b-old** Original note: The brief asks that a player
   can cross by EAR with the camera facing a door, and there is no sound on it
   at all yet. That is the single biggest gap between this and the brief.
 - **T2c** Night readability. Vehicles read as silhouettes with a tail lamp -
