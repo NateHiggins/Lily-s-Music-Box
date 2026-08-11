@@ -35,6 +35,8 @@ var _feed: SubViewport
 var _accum: SubViewport
 var _video: VideoStreamPlayer
 var _beam: SpotLight3D
+## Reel discs, turned while the film runs.
+var _spin: Array[MeshInstance3D] = []
 
 
 func setup(owner_director: Node, unit_id: String, shared: ShaderMaterial) -> void:
@@ -59,37 +61,78 @@ func setup(owner_director: Node, unit_id: String, shared: ShaderMaterial) -> voi
 	_build_screen()
 
 
-## A Kodascope in massing only: lamphouse, lens barrel, and the two arms that
-## carry the reels. The detail lives in the silhouette, because in a dark room
-## that is all anyone will ever see of it.
+## A 16 mm Kodascope, built the way the lamps were: primitives, but enough of
+## them that the silhouette is the machine rather than a suggestion of one.
+##
+## The shape people recognise is three things stacked - a heavy cast foot, a
+## squat body with a lens on the front, and two reels on arms above and behind
+## it. Everything else is detail nobody will name and everybody would miss.
+## It faces local -Z, the same as the beam.
 func _build_body() -> void:
-	var iron := Color(0.10, 0.105, 0.11)
-	var brass := Color(0.42, 0.34, 0.16)
-	_part(Vector3(0.20, 0.22, 0.30), Vector3(0.0, 0.24, 0.06), iron, 0.42)
-	_part(Vector3(0.09, 0.09, 0.14), Vector3(0.0, 0.30, -0.12), brass, 0.30)
-	_part(Vector3(0.26, 0.03, 0.20), Vector3(0.0, 0.12, 0.04), iron, 0.55)
-	# Reel arms: the upper feed and the lower take-up, which is the shape
-	# everyone recognises even when they cannot name the machine.
-	for arm in [[0.44, 1.0], [0.20, -1.0]]:
-		var y: float = float(arm[0])
-		_part(Vector3(0.02, 0.14, 0.02), Vector3(0.0, (y + 0.30) * 0.5, 0.14),
-				iron, 0.40)
-		var reel_mesh := CylinderMesh.new()
-		reel_mesh.top_radius = 0.085
-		reel_mesh.bottom_radius = 0.085
-		reel_mesh.height = 0.014
-		var disc := MeshInstance3D.new()
-		disc.mesh = reel_mesh
-		disc.rotation_degrees = Vector3(90, 0, 0)
-		disc.position = Vector3(0.0, y, 0.14)
-		var mat := StandardMaterial3D.new()
-		mat.albedo_color = Color(0.16, 0.15, 0.14)
-		mat.roughness = 0.6
-		disc.material_override = mat
-		add_child(disc)
+	# Crinkle-black enamel over cast iron. Dark, but not the near-black the
+	# first pass used - at 0.105 albedo the whole machine disappeared into an
+	# unlit room and read as a silhouette with a brass ring on it. Painted iron
+	# still catches a highlight, and the highlight is how you read the shape.
+	var iron := Color(0.185, 0.190, 0.196)
+	var dark := Color(0.130, 0.134, 0.140)
+	var brass := Color(0.52, 0.41, 0.19)
+	var bake := Color(0.155, 0.130, 0.112)
+
+	# --- the cast foot, on two pads so it sits flat on a table that is not
+	_part(Vector3(0.27, 0.026, 0.185), Vector3(0.0, 0.013, 0.02), iron, 0.52)
+	for sx in [-0.105, 0.105]:
+		_part(Vector3(0.042, 0.014, 0.150), Vector3(sx, 0.007, 0.02), dark, 0.75)
+	# The column, not a stalk. At 55 mm across the head looked like a lollipop
+	# on a stick; these machines carry their weight on a broad cast pillar.
+	_part(Vector3(0.090, 0.115, 0.095), Vector3(0.0, 0.072, 0.045), iron, 0.45)
+
+	# --- the head: mechanism in front, lamphouse behind
+	_part(Vector3(0.115, 0.155, 0.115), Vector3(0.0, 0.195, -0.020), iron, 0.40)
+	_part(Vector3(0.135, 0.175, 0.130), Vector3(0.0, 0.205, 0.080), dark, 0.38)
+	# Vents, and they are where the lamp gets out.
+	for i in 6:
+		_part(Vector3(0.10, 0.008, 0.004),
+				Vector3(0.0, 0.145 + float(i) * 0.024, 0.146), bake, 0.9)
+	# The chimney, because the lamp cooked the housing.
+	_part(Vector3(0.055, 0.030, 0.055), Vector3(0.0, 0.305, 0.080), dark, 0.5)
+
+	# --- the lens: barrel, focus collar, front bezel. All along the throw.
+	_barrel(0.030, 0.075, Vector3(0.0, 0.205, -0.115), dark, 0.35, AXIS_Z)
+	_barrel(0.037, 0.020, Vector3(0.0, 0.205, -0.096), brass, 0.28, AXIS_Z)
+	_barrel(0.034, 0.014, Vector3(0.0, 0.205, -0.157), dark, 0.30, AXIS_Z)
+
+	# --- the gate and the two rollers the film runs over
+	_part(Vector3(0.014, 0.055, 0.030), Vector3(0.062, 0.205, -0.030), brass, 0.35)
+	_barrel(0.020, 0.014, Vector3(0.070, 0.255, -0.010), dark, 0.4, AXIS_X)
+	_barrel(0.020, 0.014, Vector3(0.070, 0.150, -0.010), dark, 0.4, AXIS_X)
+
+	# --- controls: speed knob, switch, crank stub
+	_barrel(0.022, 0.016, Vector3(-0.072, 0.230, -0.010), bake, 0.45, AXIS_X)
+	_part(Vector3(0.012, 0.026, 0.010), Vector3(-0.070, 0.160, -0.030), bake, 0.5)
+	_barrel(0.010, 0.030, Vector3(-0.082, 0.195, 0.050), dark, 0.4, AXIS_X)
+
+	# --- the reels. Upper feeds, lower takes up.
+	_reel_arm(Vector3(0.0, 0.400, 0.045), 0.098)
+	_reel_arm(Vector3(0.0, 0.132, 0.152), 0.086)
+
+	# --- cloth-braided flex, the way every appliance in this building leaves
+	_barrel(0.005, 0.16, Vector3(0.0, 0.030, 0.135), bake, 0.85, AXIS_Z)
 
 
-func _part(size: Vector3, at: Vector3, tint: Color, rough: float) -> void:
+## One reel: strut, spindle, two flanges, and the wound film between them. The
+## film is the widest dark band and it is what makes a reel read as loaded.
+func _reel_arm(at: Vector3, radius: float) -> void:
+	var iron := Color(0.105, 0.108, 0.112)
+	var hub := Color(0.14, 0.135, 0.13)
+	_strut(Vector3(0.0, 0.275, 0.070), at, 0.011, iron)
+	_barrel(0.010, 0.050, at, iron, 0.4, AXIS_X)
+	_barrel(radius, 0.004, at + Vector3(-0.018, 0, 0), hub, 0.55, AXIS_X, true)
+	_barrel(radius, 0.004, at + Vector3(0.018, 0, 0), hub, 0.55, AXIS_X, true)
+	_barrel(radius * 0.80, 0.030, at, Color(0.045, 0.040, 0.038), 0.75, AXIS_X, true)
+	_barrel(0.020, 0.040, at, hub, 0.5, AXIS_X, true)
+
+
+func _part(size: Vector3, at: Vector3, tint: Color, rough: float) -> MeshInstance3D:
 	var box := BoxMesh.new()
 	box.size = size
 	var node := MeshInstance3D.new()
@@ -101,6 +144,49 @@ func _part(size: Vector3, at: Vector3, tint: Color, rough: float) -> void:
 	mat.metallic = 0.5
 	node.material_override = mat
 	add_child(node)
+	return node
+
+
+## A cylinder with an explicit axis, because CylinderMesh runs along +Y and
+## almost nothing on this machine does. AXIS_X is the reel spindle (discs read
+## as circles from the side, which is where the player stands), AXIS_Z is the
+## lens and the film rollers.
+enum { AXIS_Y, AXIS_X, AXIS_Z }
+
+
+func _barrel(radius: float, height: float, at: Vector3, tint: Color,
+		rough: float, axis := AXIS_Y, spins := false) -> MeshInstance3D:
+	var mesh := CylinderMesh.new()
+	mesh.top_radius = radius
+	mesh.bottom_radius = radius
+	mesh.height = height
+	mesh.radial_segments = 18
+	var node := MeshInstance3D.new()
+	node.mesh = mesh
+	node.position = at
+	match axis:
+		AXIS_X:
+			node.rotation_degrees = Vector3(0, 0, 90)
+		AXIS_Z:
+			node.rotation_degrees = Vector3(90, 0, 0)
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = tint
+	mat.roughness = rough
+	mat.metallic = 0.55
+	node.material_override = mat
+	add_child(node)
+	if spins:
+		_spin.append(node)
+	return node
+
+
+## A strut between two points. Same lesson the articulated lamps taught: a
+## CylinderMesh rotates about its own centre, so place it at the midpoint and
+## turn its +Y to face the far end rather than guessing a joint position.
+func _strut(a: Vector3, b: Vector3, radius: float, tint: Color) -> void:
+	var dir := b - a
+	var node := _barrel(radius, dir.length(), (a + b) * 0.5, tint, 0.42)
+	node.basis = Basis(Quaternion(Vector3.UP, dir.normalized()))
 
 
 ## The film, then the plate. Same construction as ArcadeMachine._build_phosphor()
@@ -228,3 +314,12 @@ func _aim() -> void:
 	# A hair off the surface, or it z-fights the plaster it is landing on.
 	_screen.global_position = hit.position + hit.normal * 0.02
 	_screen.global_basis = Basis.looking_at(-hit.normal, Vector3.UP)
+
+
+## The reels turn while the film runs, and the take-up is the one that matters:
+## a projector whose spools are still is a projector nobody threaded.
+func _process(delta: float) -> void:
+	if not powered or reel == "":
+		return
+	for disc in _spin:
+		disc.rotate_object_local(Vector3.UP, delta * 2.4)

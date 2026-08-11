@@ -257,10 +257,16 @@ rules its five open questions.** Nothing built.
   sized by throw, so moving a projector moves its picture and one aimed at
   nothing stays dark. Each arrives with a reel already in the gate, picked
   deterministically per unit.
-- **F4b** Remaining on the prop: the projector body is massing only (lamphouse,
-  lens barrel, two reel arms) and wants a real Blender assembly; the reel discs
-  do not turn; and nothing yet stops two machines in one room fighting over the
-  same wall. Original note kept - 16 mm Kodascope, not 9.5 mm Pathé
+- **F4b** **Body built and the reels turn.** ~30 primitives: cast foot on two
+  pads, a broad column, mechanism and lamphouse with six vents and a chimney,
+  lens barrel with a brass focus collar, gate and two film rollers, speed knob,
+  switch, crank stub, both reels on struts with flanges and a dark wound band,
+  and cloth-braided flex. Procedural like the lamps rather than a Blender
+  assembly, which is a deliberate match to `lamp_prop.gd` - revisit only if it
+  needs to appear in the prop warehouse.
+- **F4c** Still open on the prop: nothing stops two machines in one room
+  fighting over the same patch of wall, and the throw does not check whether
+  the surface it found is a wall rather than a wardrobe door that will open. 16 mm Kodascope, not 9.5 mm Pathé
   Baby - 9.5 mm was chiefly France and Britain, 16 mm is what Americans used.
   **The screen is no longer part of the prop; the image lands on the room's own
   plaster** and breaks over corners.
