@@ -221,6 +221,48 @@ answers to the same problem and only one should be built.
 - **PS7** Carry R5's two protections across deliberately: the 181 per-shop
   buffers, and the deliberate NEWS CIGARS inaccessible proprietor side.
 
+## F — Film (projectors instead of televisions)
+
+Proposed in `design/ORISON_PROJECTOR_BRIEF.md`. **Not canon until the owner
+rules its five open questions.** Nothing built.
+
+- **F1** **BLOCKER, and it is not a design question.** Every one of the 37 clips
+  carries a visible "Sora" generator watermark, and **the corner moves between
+  clips**, so no single crop clears the set. They cannot be projected on a wall
+  in 1928 as they stand. Re-render the keepers clean (preferred), crop
+  per-clip, or hide it in the projected-look pass (fragile - it shows on a
+  still). *Blocks everything else in this section.*
+- **F2** Owner ruling on the brief's §7. The one that changes the most is 7.2:
+  the footage is vertical and a 16 mm gate is landscape. Letterbox, crop, or
+  let the gate be the wrong shape.
+- **F3** Pick the set. Twelve proposed in §5, chosen from a contact sheet. The
+  live argument is §5's counter: keep two or three modern clips as LATE finds,
+  because the strangeness lands harder as an exception than as the norm.
+- **F4** `ProjectorProp` replaces `TVProp`. 16 mm Kodascope, not 9.5 mm Pathé
+  Baby - 9.5 mm was chiefly France and Britain, 16 mm is what Americans used.
+  **The screen is no longer part of the prop; the image lands on the room's own
+  plaster** and breaks over corners.
+- **F5** The projected-look pass: gate weave first (it does more than anything
+  else), 16-18 fps silent flicker, sparse dust, a splice jump every 20-40 s,
+  falloff and keystone. The projector is also a LIGHT - a flickering beam that
+  puts the player's shadow inside the picture.
+- **F6** Silent, with a mechanical clatter loop. The clips lose their audio,
+  which is the point: **a film that has always been silent suddenly having sound
+  is the Tenant** (III.1).
+- **F7** Reels as found objects. Every projector arrives with one already in the
+  gate, so nine machines seed nine clips and teach the system without a tutorial.
+  Collection is global. **No completion reward** - if the set needs a prize, the
+  reels were not interesting enough.
+- **F8** `BroadcastDirector` inverts: it shuffles 37 clips today; under reels it
+  plays what the player chose from what they found. The shuffle survives only
+  for the Tenant, which is the difference between the machine you run and the
+  machine that runs itself.
+- **F9** Carry `WalkTest`'s `sets >= 8` duty across to projectors rather than
+  deleting it - it is a floor on the haunting's reach, not a prop count.
+- **F10** Re-examine the nine `TV_UNITS` reasons. Some survive the change and
+  some do not: Teresa's set "runs for company while she sleeps" cannot, because
+  a projector cannot be left running unattended.
+
 ## N — The dream (narcolepsy maze)
 
 Proposed in `design/ORISON_MAZE_BRIEF.md`. **Not canon until the owner rules.**
