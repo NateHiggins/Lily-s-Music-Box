@@ -132,6 +132,7 @@ var arcade_row: ArcadeRow
 var resident_routines: ResidentRoutines
 var switch_system: SwitchSystem
 var moon_fill: MoonFill
+var street_traffic: StreetTraffic
 var shots: ShotCapture
 var heightmaps: HeightmapPass
 var warehouse: PropWarehouse
@@ -286,6 +287,10 @@ func _ready() -> void:
 	switch_system.name = "Switches"
 	add_child(switch_system)
 	switch_system.build(layout, self)
+	# The street is a stream you cross now, not a corridor you walk along.
+	street_traffic = StreetTraffic.new()
+	add_child(street_traffic)
+	street_traffic.build(player)
 	moon_fill = MoonFill.new()
 	moon_fill.name = "MoonFill"
 	add_child(moon_fill)

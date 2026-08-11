@@ -227,11 +227,26 @@ is built.
   but traffic come out of it, is the tram on rails, and does traffic stop at
   night. *Blocks everything else here.* The night question in particular is two
   different games at 3 a.m.
-- **T2** The traffic stream itself: instanced from the start (batching is worth
-  nothing on this station), 95% credible 1928, 5% wrong and never acknowledged.
-  Audible enough to cross by ear with the camera facing a door.
-- **T3** The crossing rules: no death, no damage, no UI, no dedicated crossing
-  point, gaps never longer than ~8 s. A hit is a shove and four seconds.
+- **T2** **BUILT.** `StreetTraffic` - one MultiMesh for every vehicle, scaled
+  and tinted per instance, plus a second for lamps. Ten kinds: dray, motor car,
+  coal lorry, van, hansom, milk float, tram, hearse, and the wrong 5% (one too
+  long for the road, one with no horse and the horse's pace). **It costs
+  nothing**, which is what instancing from the start bought: street elevation
+  measures **30.30 ms against the 33.28 ms baseline**, and objects went 14,081
+  -> 14,145 for fourteen vehicles.
+- **T2b** **Still to do: it is audible nowhere.** The brief asks that a player
+  can cross by EAR with the camera facing a door, and there is no sound on it
+  at all yet. That is the single biggest gap between this and the brief.
+- **T2c** Night readability. Vehicles read as silhouettes with a tail lamp -
+  correct for a dark street, under-read as objects. The cheap fix is a pool of
+  light on the road ahead of each vehicle rather than real headlamps, which T7
+  says not to spend. Lamps are emissive quads, not lights, deliberately.
+- **T3** **ENCODED.** No death, no damage, no UI, no dedicated crossing point.
+  A hit calls `stagger()` on the player with a four-second cooldown and prints
+  what shoved you. `MAX_WAIT` is enforced as a promise rather than hoped for.
+- **T3b** `stagger()` does not exist on the player yet - the shove currently
+  degrades to a no-op plus a log line. Wire it, and keep it a stumble: no
+  damage number, no screen, no sound that reads as a fail state.
 - **T4** The tears, as boundary. When they exist the lateral stage collision at
   x -20.10 / +20.60 retires into them and the street stops having edges.
 - **T5** Re-place the bus shelter at a stop the traffic actually serves. Saved:
