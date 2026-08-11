@@ -264,9 +264,28 @@ rules its five open questions.** Nothing built.
   and cloth-braided flex. Procedural like the lamps rather than a Blender
   assembly, which is a deliberate match to `lamp_prop.gd` - revisit only if it
   needs to appear in the prop warehouse.
-- **F4c** Still open on the prop: nothing stops two machines in one room
-  fighting over the same patch of wall, and the throw does not check whether
-  the surface it found is a wall rather than a wardrobe door that will open. 16 mm Kodascope, not 9.5 mm Pathé
+- **F4c** **CLOSED by ruling 2026-08-11: few machines, never two in a room,
+  never moved.** Both risks were about crowding and mobility and neither can
+  occur. The found-wall throw stands as-is.
+- **F14** **Four projectors, all in case flats** - 2A Mina, 3B Omar, 5B Cal,
+  6C Mae - plus the player's own in 4B. **The rule is that the machine is only
+  in the flat of someone the building is currently about**, which makes it an
+  instrument rather than an appliance and means finding one running is always a
+  sentence. Nine was a television number; a 16 mm projector in a 1928 tenement
+  is a middle-class machine in a working-class flat and every one has to be
+  explicable.
+- **F15** The Harukiya's karaoke set stays a **television** - the last one in
+  the game. People sing at a screen, nobody sings at a wall, and a projector in
+  a bar would fight the room's light all night.
+- **F16** **The haunting no longer reaches through sets, and that needs saying
+  in `poltergeist_library.gd`.** Its header still calls broadcast "the
+  instrument closest to hand: every set in the Orison", which was true when
+  every flat had one murmuring. With five machines that will not carry a
+  haunting, and it does not need to - the Tenant's body is the acoustic graph
+  (III.1), so pipes, wiring and lights reach every room. A rare projector
+  threaded with a reel nobody loaded is a LOUDER sentence, not a weaker one.
+  WalkTest's assertion has already been re-aimed to guard existence rather
+  than reach. 16 mm Kodascope, not 9.5 mm Pathé
   Baby - 9.5 mm was chiefly France and Britain, 16 mm is what Americans used.
   **The screen is no longer part of the prop; the image lands on the room's own
   plaster** and breaks over corners.

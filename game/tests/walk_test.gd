@@ -1554,13 +1554,22 @@ func _broadcast_checks() -> void:
 		return
 	var st: Dictionary = station.stats()
 	_check(int(st.clips) == 37, "all 37 clips catalogued (%d)" % st.clips)
-	# Not decoration, and not a round number picked for comfort. The poltergeist
-	# reaches people through these - poltergeist_library calls broadcast "the
-	# instrument closest to hand: every set in the Orison" - so this is a floor
-	# on a MECHANIC's range, and it is why the austerity pass could not cut sets
-	# the way it cut sofas. Nine households own one, each for a stated reason in
-	# gen_layout's TV_UNITS. Below eight the haunting starts running out of room.
-	_check(int(st.sets) >= 8, "televisions spawned (%d)" % st.sets)
+	# FIVE PROJECTORS AND ONE SET, ruled 2026-08-11. This used to guard eight
+	# televisions as a floor on the haunting's REACH, on the strength of
+	# poltergeist_library calling broadcast "the instrument closest to hand".
+	# That was true when every flat had a set murmuring away; it is not the
+	# design any more.
+	#
+	# A projector is deliberately rare - one only in the flat of a resident the
+	# building is currently about - so the Tenant cannot rely on them and does
+	# not need to. Its body is the acoustic graph (ORISON_BIBLE III.1): the
+	# pipes, the wiring and the lights reach every room, and a projector
+	# threaded with a reel nobody loaded is a much louder sentence precisely
+	# because it is rare.
+	#
+	# So what this now protects is that the machines exist at all, not that
+	# there are enough of them to haunt through.
+	_check(int(st.sets) >= 5, "projection machines spawned (%d)" % st.sets)
 	# Residents watching their own sets legitimately power them at boot —
 	# that is the feature — so boot state is reported, not asserted.
 	print("  [STATION] %d of %d sets on at boot (residents watching)"

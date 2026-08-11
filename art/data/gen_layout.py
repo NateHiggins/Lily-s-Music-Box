@@ -1204,24 +1204,23 @@ SOFA_UNITS = {
     "4C": "the Bell family, four of them",
     "6C": "Mae's, inherited with everything else",
 }
-## Sets are the one item on this page that is NOT purely dressing. The
-## poltergeist reaches people through them - poltergeist_library calls broadcast
-## "the instrument closest to hand: every set in the Orison" - so cutting them to
-## three characterful units quietly halved the range of an existing mechanic and
-## broke WalkTest's `sets >= 12`. The lesson generalises: check what a prop is
-## wired to before deleting it for looking cluttered.
+## PROJECTORS, and there are only four (ruled 2026-08-11). Not televisions - see
+## design/ORISON_PROJECTOR_BRIEF.md - and not one per household.
 ##
-## So sets stay common, but they stop being universal, and every one is a
-## sentence about somebody. Nine households, not twenty-two.
+## Nine was a television number. A set is furniture; a 16 mm projector in a
+## 1928 tenement is a middle-class machine in a working-class flat, and every
+## one of them has to be explicable. Four are, and all four belong to CASE
+## residents, which is the rule: **the machine is only in the flat of someone
+## the building is currently about.** That makes it an instrument rather than
+## an appliance, and it means finding one running is always a sentence.
+##
+## They are fixed. They do not move between rooms, no two share a room, and the
+## throw is authored by where the machine points - so the wall each one uses is
+## a layout decision, not a runtime negotiation.
 TV_UNITS = {
-    "1D": "Teresa sleeps days; it runs for company while she does",
-    "2A": "Mina captions what it says for a living",
-    "3D": "Rhea watches her own playback",
-    "4C": "the Bell family, and it is always on",
-    "4D": "short-term rental - it came with the room",
+    "2A": "Mina captions what a picture says for a living",
+    "3B": "Omar's, and he cannot repair it - which is the wound, exactly",
     "5B": "Cal, who would not let a thing end",
-    "6A": "Sacha lives at monitor level",
-    "6B": "Jonah writes to its light and calls that company",
     "6C": "Mae's, inherited with everything else and never moved",
 }
 DESK_UNITS = {

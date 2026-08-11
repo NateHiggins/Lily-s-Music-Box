@@ -116,15 +116,20 @@ func build(layout: Dictionary, floor_nodes: Dictionary) -> int:
 			# switch one on like a person and the poltergeist that takes them
 			# all keep working untouched - none of that vocabulary ever cared
 			# whether the picture lands on glass or on plaster.
-			var tv := ProjectorProp.new()
+			# The Harukiya's karaoke set stays a SET. People sing at a screen;
+			# nobody sings at a wall, and a projector in a bar would have to
+			# fight the room's own light all night. It is the one television
+			# left in the game and it is the better for being the only one.
+			var karaoke := str(fu.get("id", "")).begins_with("retail_bar")
+			var tv: TVProp = TVProp.new() if karaoke else ProjectorProp.new()
 			tv.setup(self, str(fu.get("id", "tv")).split("_")[0],
 					_shared)
 			# Each machine arrives with one reel already in the gate, so nine
 			# machines seed nine clips and the system teaches itself without a
 			# tutorial. Deterministic per unit: a household's reel is theirs.
-			if clips.size() > 0:
+			if not karaoke and clips.size() > 0:
 				var pick: int = abs(hash(tv.unit)) % clips.size()
-				tv.load_reel(str(clips[pick].get("id", "")))
+				(tv as ProjectorProp).load_reel(str(clips[pick].get("id", "")))
 			var at: Array = fu["at"]
 			# z0 matters now: the Harukiya's karaoke set lives in a
 			# basement 2.8 m below its floor entry in the layout, and
@@ -137,8 +142,9 @@ func build(layout: Dictionary, floor_nodes: Dictionary) -> int:
 			tv.rotation.y = deg_to_rad(float(fu.get("yaw", 0))) + PI
 			floor_nodes[fid].add_child(tv)
 			sets.append(tv)
-	print("[STATION] %d clips, %d sets, all dark" % [clips.size(),
-			sets.size()])
+	var projectors := sets.filter(func(s): return s is ProjectorProp).size()
+	print("[STATION] %d clips, %d machines (%d projectors, %d sets), all dark"
+			% [clips.size(), sets.size(), projectors, sets.size() - projectors])
 	return sets.size()
 
 
