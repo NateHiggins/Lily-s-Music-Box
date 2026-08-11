@@ -22,9 +22,22 @@ uniform float falloff : hint_range(0.0, 2.0) = 0.85;
 // Real condenser optics throw a round-ish pool with a soft, uneven edge, so the
 // gate here is an oval whose rim wanders, and the light falls off toward it
 // rather than stopping.
-uniform float aperture_aspect : hint_range(0.3, 2.0) = 0.70;
-uniform float aperture_soft : hint_range(0.01, 0.6) = 0.30;
-uniform float aperture_wobble : hint_range(0.0, 0.4) = 0.14;
+// Half-extents of the oval as a fraction of the quad. BOTH must be under 0.5
+// or the mask never reaches its threshold on that axis and the quad's own edge
+// does the cutting - which is how the first version kept a straight top and
+// bottom while claiming to be an oval.
+uniform vec2 aperture_half = vec2(0.40, 0.455);
+uniform float aperture_soft : hint_range(0.01, 0.6) = 0.26;
+uniform float aperture_wobble : hint_range(0.0, 0.4) = 0.10;
+
+// EARLY OPTICS. A petzval-era projection lens is a good lens in the middle and
+// gives up entirely at the rim: straight lines bow, the colours stop agreeing
+// with each other, and the focus falls off long before the light does. All
+// three are strongest at the edge of the field, which is what makes the pool
+// feel like something thrown through glass rather than a picture pasted on.
+uniform float barrel : hint_range(-0.4, 0.4) = 0.16;
+uniform float chroma : hint_range(0.0, 0.05) = 0.010;
+uniform float defocus : hint_range(0.0, 0.03) = 0.009;
 // THE PLATE. Niepce 1826 and Cornelius 1839 as the reference, not 16 mm. What
 // makes those read as ghosts is exposure time, not grain: an eight-hour plate
 // records only what held still, and the plate's own tarnish sits IN FRONT of
@@ -122,7 +135,37 @@ void fragment() {
 		ALBEDO = vec3(0.0);
 		ALPHA = 0.0;
 	} else {
-		vec3 col = texture(frame, uv).rgb;
+		// --- the lens ---------------------------------------------------
+		vec2 lc = uv - 0.5;
+		// Normalised distance across the FIELD, not the quad: 1.0 is the rim
+		// of the oval, and everything optical below is driven by it.
+		float rad = length(lc / aperture_half);
+
+		// Barrel: early glass bows straight lines outward.
+		vec2 buv = 0.5 + lc * (1.0 + barrel * dot(lc, lc));
+
+		// Longitudinal chromatic aberration - blue comes to focus shorter than
+		// red, so the channels are sampled at slightly different scales and the
+		// disagreement grows toward the rim.
+		float ca = chroma * rad * rad;
+		vec2 ruv = clamp(0.5 + (buv - 0.5) * (1.0 + ca), vec2(0.0), vec2(1.0));
+		vec2 buv2 = clamp(0.5 + (buv - 0.5) * (1.0 - ca), vec2(0.0), vec2(1.0));
+		vec2 guv = clamp(buv, vec2(0.0), vec2(1.0));
+
+		vec3 col = vec3(texture(frame, ruv).r, texture(frame, guv).g,
+				texture(frame, buv2).b);
+
+		// Field curvature: sharp on axis, mush at the edge. Four taps is
+		// enough because by the time it is visible it is already soft.
+		float soft = smoothstep(0.30, 1.05, rad) * defocus;
+		if (soft > 0.0001) {
+			vec3 blur = vec3(0.0);
+			blur += texture(frame, clamp(guv + vec2(soft, 0.0), vec2(0.0), vec2(1.0))).rgb;
+			blur += texture(frame, clamp(guv - vec2(soft, 0.0), vec2(0.0), vec2(1.0))).rgb;
+			blur += texture(frame, clamp(guv + vec2(0.0, soft), vec2(0.0), vec2(1.0))).rgb;
+			blur += texture(frame, clamp(guv - vec2(0.0, soft), vec2(0.0), vec2(1.0))).rgb;
+			col = mix(col, blur * 0.25, smoothstep(0.30, 1.05, rad));
+		}
 		col = mix(col, vec3(dot(col, vec3(0.299, 0.587, 0.114))), mono);
 
 		// Lamp flicker: a slow beat from the shutter, plus an occasional
@@ -256,15 +299,13 @@ void fragment() {
 		// past the edge of the light. Two noise scales on the rim: a slow one
 		// that makes the oval lopsided, and a fine one that keeps the edge from
 		// ever reading as a curve somebody drew.
-		vec2 ad = vec2(c.x, c.y * aperture_aspect);
-		float ar = length(ad) * 2.0;
 		float rim = 1.0
 				+ (fbm(uv * 2.6 + 5.0) - 0.5) * aperture_wobble * 2.0
 				+ (vnoise(uv * 14.0) - 0.5) * aperture_wobble * 0.5;
-		float ap = 1.0 - smoothstep(rim - aperture_soft, rim + aperture_soft * 0.35, ar);
-		// Radial falloff inside the pool: brightest at the middle, the way a
+		float ap = 1.0 - smoothstep(rim - aperture_soft, rim + aperture_soft * 0.30, rad);
+		// Radial falloff inside the pool: brightest on axis, the way a
 		// condenser actually behaves.
-		ap *= 1.0 - falloff * clamp(ar / max(rim, 0.001), 0.0, 1.0) * 0.55;
+		ap *= 1.0 - falloff * clamp(rad / max(rim, 0.001), 0.0, 1.0) * 0.55;
 
 		ALBEDO = col * f * gain * lamp_tint * ap;
 		ALPHA = 1.0;
