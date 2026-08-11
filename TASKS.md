@@ -298,6 +298,22 @@ rules its five open questions.** Nothing built.
   some do not: Teresa's set "runs for company while she sleeps" cannot, because
   a projector cannot be left running unattended.
 
+## Q — The hand
+
+- **Q1** **Make the carried device a plain torch.** It is currently a phone -
+  `player_controller.gd` builds the beam on `_hand` and comments "The torch is
+  a phone: a blue LED under phosphor". **The on/off already exists and is bound
+  to F**, so this is not a systems job: it is a model swap plus a decision about
+  the default. That default is a ruling - "On from the first frame (ruled
+  2026-08-04): the phone rides lit in the off hand all shift" - so switching it
+  to start dark reverses a documented decision and should be recorded as one.
+  A torch that starts off also changes the first minute of the game and pairs
+  with the L-section lighting work; worth deciding together.
+- **Q2** The beam is tuned for a phone: `light_cull_mask` excludes layer 2 so it
+  does not blow out the back of the handset from 6 cm away, and the colour is
+  0.78/0.87/1.0, a cold LED. A 1928 torch is a warm, weak, yellowing bulb with
+  a much tighter and dirtier beam. Retune with the model.
+
 ## N — The dream (narcolepsy maze)
 
 Proposed in `design/ORISON_MAZE_BRIEF.md`. **Not canon until the owner rules.**

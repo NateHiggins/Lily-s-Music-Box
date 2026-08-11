@@ -48,7 +48,20 @@ func _ready() -> void:
 	_material.emission_energy_multiplier = 0.0
 	_build_visual()
 	_build_echo()
-	_build_label()
+	# NO FLOATING NAMEPLATES (2026-08-11, at the owner's direction). Every case
+	# prop used to hang its own title in the air above itself, so an apartment
+	# read as a museum with the labels left on - "Unassigned Caption Cards",
+	# "Personal Style Guide", "Pencil" - and the text was the first thing the
+	# eye went to in every room it appeared in.
+	#
+	# It added nothing a player needed: these props are already distinguishable
+	# by shape, they already have an interaction prompt when you look at them,
+	# and the austerity pass exists precisely so a nearly empty room can say who
+	# lives there without captions. `_label` stays declared and `_build_label()`
+	# stays written, because the work-order board's plate genuinely wants text
+	# on it and that case can call this directly.
+	if kind == "work_order_board":
+		_build_label()
 	if case_id != "":
 		RealityRules.rule_changed.connect(_on_rule_changed)
 		_apply_rule(RealityRules.effect_for(case_id))
