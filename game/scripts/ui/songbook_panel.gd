@@ -24,7 +24,7 @@ const AMBER := Color(0.96, 0.74, 0.28)
 const IVORY := Color(0.90, 0.94, 0.88)
 const BG := Color(0.035, 0.055, 0.042, 0.97)
 
-enum Mode { MENU, EDIT, CLAP, PERFORM, REVIEW, READING }
+enum Mode { MENU, EDIT, CLAP, PERFORM, REVIEW, READING, OLD }
 
 var song: SongResource
 var mode: int = Mode.MENU
@@ -50,6 +50,10 @@ var _reader: AudioStreamPlayer
 ## PhonautogramReader and ORISON_BIBLE III.2.
 var _read_speed := 1.0
 var _read_t := 0.0
+## Where the reading came from, so lifting the stylus goes back there. Reading
+## a found trace and landing on a review screen for a take you never made is
+## the machine claiming you sang something you did not.
+var _read_from_old := false
 var _rendered: Dictionary = {}
 
 
@@ -138,6 +142,8 @@ func _show_menu() -> void:
 	_line("1    WRITE THE WORDS", GREEN)
 	_line("2    SING IT", GREEN if _has_any_words() else GREEN_DIM)
 	_line("3    WHAT OTHERS LEFT   (%d)" % _version_count(), GREEN_DIM)
+	_line("4    WHAT WAS ALREADY ON IT   (%d)"
+			% PhonautogramForge.found_ids().size(), GREEN_DIM)
 	_line("", GREEN)
 	var written := 0
 	for k in lyrics:
@@ -391,6 +397,34 @@ func _keep() -> void:
 	mode = Mode.MENU
 
 
+## THE TRACES THAT WERE ALREADY HERE (ORISON_BIBLE III.2). Nobody in the bar
+## knows who sang them. The sleeves say almost nothing and the pencil on them is
+## not evidence of anything - somebody wrote "for M." on one, and there are four
+## residents whose name starts with M.
+func _show_old() -> void:
+	mode = Mode.OLD
+	_clear()
+	_line("", GREEN)
+	_line("WHAT WAS ALREADY ON IT.", GREEN, 22)
+	_line("", GREEN, 8)
+	var ids: Array = PhonautogramForge.found_ids()
+	for i in ids.size():
+		_line("%d    %s" % [i + 1, PhonautogramForge.label_of(str(ids[i]))],
+				GREEN_DIM, 15)
+	_line("", GREEN, 10)
+	_line("none of these have a name on them.", GREEN_DIM, 14)
+	_status.text = "Press a number.   ESC to go back."
+
+
+func _read_found(trace_id: String) -> void:
+	_take = PhonautogramForge.forge(trace_id)
+	_read_back()
+	_read_from_old = true
+	# Overwrite the closing line: reading somebody else's trace is a different
+	# sentence from reading your own.
+	_line("nobody alive remembers singing this.", GREEN_DIM, 15)
+
+
 ## Read the trace. NOT playback - the machine never held a recording, only a
 ## line in soot, and what comes out is that line interpreted. It does not know
 ## how fast the crank was turned, so it guesses, and the guess is drawn fresh
@@ -399,6 +433,7 @@ func _keep() -> void:
 func _read_back() -> void:
 	mode = Mode.READING
 	_read_t = 0.0
+	_read_from_old = false
 	if _reader == null:
 		_reader = AudioStreamPlayer.new()
 		add_child(_reader)
@@ -429,7 +464,11 @@ func _read_back() -> void:
 func _stop_reading() -> void:
 	if _reader:
 		_reader.stop()
-	_show_review()
+	if _read_from_old:
+		_take = null      # it was never yours; do not offer to keep it
+		_show_old()
+	else:
+		_show_review()
 
 
 # --------------------------------------------------------------- INPUT
@@ -440,7 +479,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if key == KEY_ESCAPE:
 		match mode:
 			Mode.PERFORM: _stop_perform()
-			Mode.EDIT, Mode.CLAP, Mode.REVIEW: _show_menu()
+			Mode.EDIT, Mode.CLAP, Mode.REVIEW, Mode.OLD: _show_menu()
 			_: close()
 		get_viewport().set_input_as_handled()
 		return
@@ -451,6 +490,13 @@ func _unhandled_input(event: InputEvent) -> void:
 				_show_edit()
 			elif key == KEY_2 and _has_any_words():
 				_show_clap()
+			elif key == KEY_4:
+				_show_old()
+		Mode.OLD:
+			var ids: Array = PhonautogramForge.found_ids()
+			var pick := key - KEY_1
+			if pick >= 0 and pick < ids.size():
+				_read_found(str(ids[pick]))
 		Mode.EDIT:
 			if key == KEY_ENTER or key == KEY_KP_ENTER:
 				if cursor >= song.slots.size() - 1:

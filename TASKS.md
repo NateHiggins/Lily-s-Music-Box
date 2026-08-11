@@ -105,9 +105,21 @@ Martinville's 1857 phonautographe, and the prop is built.
   it down, hear it somewhere else, or never.
 - **G3** A trace is an OBJECT, like a reel: findable, carryable, losable. Some
   are already in the building and the player did not make them.
-- **G4** **The oldest traces have no author.** Something sang into it before
-  anyone currently alive, and the only way to find out what is to go
-  downstairs. This is the hook the whole machine exists to set.
+- **G4** **DONE, and the implementation is the fiction.** Four traces are on the
+  machine when the player arrives, readable from WHAT WAS ALREADY ON IT. They
+  are **synthesised, not recorded** - `PhonautogramForge` derives a line from
+  the trace's identity and turns that line into a pressure wave, which is
+  exactly what First Sounds did in 2008 minus the paper. There is no recording
+  of these because there was never a recording of anything: a phonautogram is a
+  line, and every sound anyone gets from one is a reconstruction. Deterministic,
+  so the line is the only real thing, while the SPEED is still guessed fresh -
+  two people can hear the same trace as two different people.
+- **G4b** The sleeves are the hook and they are deliberately thin: "for M." with
+  four residents whose name starts with M, a WORS sleeve with the date rubbed
+  out, one found behind the pipes, one with no sleeve at all. **Nothing in the
+  bar can resolve any of them.** What the basement studio should be able to do
+  is say something about a trace the bar cannot - a cleaner read, a second
+  voice, a date - and that is the errand.
 - **G5** If a trace is ever heard in the bar, it is not the machine. That is
   the Tenant, and it should be rare enough to be unmistakable.
 
