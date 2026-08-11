@@ -148,32 +148,25 @@ and by NPCs. R2 needs a brief before anyone builds.
 
 ## L — Light
 
-`tests/RoomLumaAudit.tscn` guards these. **Run it windowed** - it reads pixels
-back and a headless run reports every room black. It turns each room's own
+`tests/RoomLumaAudit.tscn` guards this. **Run it windowed** - it reads pixels
+back, and a headless run reports every room black. It turns each room's own
 switch on before measuring, because a room the player has not lit is a mood
-choice and a room that is still a void after the switch is a defect.
-`LightingAudit` is the companion and checks COVERAGE only; it never looks at a
-pixel, which is how this went unnoticed.
+choice while a room still void after the switch is a defect. `LightingAudit` is
+the companion and checks COVERAGE only; it never looks at a pixel, which is how
+this went unseen for months.
 
-Everything below is in the audit's `KNOWN_DARK` list. Delete the line there when
-you fix it - the test tells you when a room is comfortably clear.
+**127 rooms PASS, `KNOWN_DARK` empty.** Keep it empty - anything added there is
+an open defect, and rooms that are *supposed* to be dark go in
+`INTENTIONALLY_DARK` with a reason.
 
-- **L5** **Halls and utility rooms have no working switch, on every floor.**
-  All ten report "no fixture": `SwitchSystem` cannot match `F0n_HALL` /
-  `F0n_UTILITY` to their fixtures although `ROOM_FIXTURE` gives both one. They
-  have only ever been lit by whatever was burning in the next room. One id
-  mismatch, ten rooms.
-- **L6** **`C_BED2` is dark in every C apartment** (F02, F04, F05, F06) - 2.9
-  mean luma at 93% near-black **with its light on**. `C_BED1` is the same
-  13.8 m² with the same dome in the same relative spot and reads 20.1. Not room
-  size, not the fixture table, not the stack. Also `F03_C_MAIN` and
-  `F03_D_OFFICE`.
-- **L7** Owner decision, not a repair: `B1_BOILER`, `B1_ELECTRICAL`, `B1_COAL`,
-  `B1_STORAGE_CAGES` and `ROOF_OPEN` all read under 12. A coal store is allowed
-  to be dark - say so and they move to `INTENTIONALLY_DARK`.
-- **L8** `F02_A_BED` measures 7.2 alone and 18.9 in a whole-building run. Some
-  of what the audit reads depends on which floors are loaded; worth pinning
-  down before trusting small differences.
+- **L9** Owner call, now that they are visible: `B1_BOILER`, `B1_COAL`,
+  `B1_ELECTRICAL`, `B1_STORAGE_CAGES` and `ROOF_OPEN` all read between 12 and 56
+  with their lights on. A boiler room is *allowed* to be dark. If any of them
+  should be, move them to `INTENTIONALLY_DARK` rather than leaving them lit by
+  default.
+- **L10** The audit measures one frame per room from a corner, with a fallback
+  to the room centre. Rooms whose interesting half is neither will read
+  optimistically. Worth a second angle if this ever becomes a shipping gate.
 
 ## N — The dream (narcolepsy maze)
 

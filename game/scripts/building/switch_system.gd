@@ -118,12 +118,26 @@ func _map_fixtures(layout: Dictionary) -> void:
 			var pos: Array = m.get("pos", [])
 			if pos.size() < 2:
 				continue
+			# The SMALLEST containing room, not the first one listed.
+			#
+			# Rooms nest: a hall or a utility closet sits inside the footprint
+			# of something larger, so "first rect containing the point" hands
+			# the hall's own dome to whichever bigger room comes first in the
+			# layout. Every hall and every utility room on every floor - ten
+			# rooms - had no switch of its own, and was lit only by whatever
+			# happened to be burning next door.
+			#
+			# `_room_served` above already resolves switches by smallest area.
+			# The two disagreed, and this one was wrong.
 			var found := ""
+			var best_area := INF
 			for r in fl.get("rooms", []):
 				var rect: Array = r["rect"]
 				if float(rect[0]) <= float(pos[0]) 						and float(pos[0]) <= float(rect[2]) 						and float(rect[1]) <= float(pos[1]) 						and float(pos[1]) <= float(rect[3]):
-					found = str(r["id"])
-					break
+					var area := (float(rect[2]) - float(rect[0])) * (float(rect[3]) - float(rect[1]))
+					if area < best_area:
+						best_area = area
+						found = str(r["id"])
 			if found == "":
 				# Exterior fittings - the marquee, the street lamps - hang
 				# on no room and belong to no plate. Correct, not missing.

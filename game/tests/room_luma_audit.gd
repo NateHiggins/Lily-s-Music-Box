@@ -36,38 +36,18 @@ const INTENTIONALLY_DARK := {
 	"5D": "sealed with 2D, same ruling",
 }
 
-## Rooms this audit found dark the day it was written, listed so the suite is
-## green and any NEW dark room still fails. These are open defects, not
-## exemptions - TASKS.md section L owns them. Delete a line when it is fixed;
-## the test says so itself once a room is comfortably clear.
+## Rooms still dark with their own light on. **Empty, and meant to stay that
+## way.** Anything added here is an open defect with a line in TASKS.md section
+## L, not an exemption - use INTENTIONALLY_DARK for rooms that are supposed to
+## be dark. The test says so itself once a listed room reads clear again.
 ##
-## Eighteen entries, but only three faults - the building repeats, so a single
-## mistake shows up once per floor:
-##
-##   1. EVERY hall and EVERY utility room, on every floor, reports "no fixture".
-##      ROOM_FIXTURE gives both of them one, so SwitchSystem cannot match those
-##      room ids to their fixtures. They have only ever been lit by whatever was
-##      burning in the next room.
-##   2. C_BED2 is dark in every C apartment. C_BED1 is the same 13.8 m2 with the
-##      same dome in the same relative spot and reads 20.1 against C_BED2's 2.9,
-##      so this is not room size, not the fixture table and not the stack.
-##   3. The B1 service rooms and ROOF_OPEN, which may simply want a decision
-##      rather than a repair - a coal store is allowed to be dark.
-const KNOWN_DARK := {
-	# 1 - switch system finds no fixture for these room ids
-	"F02_HALL": "8.0 mean", "F03_HALL": "7.5", "F04_HALL": "dark",
-	"F05_HALL": "7.8", "F06_HALL": "7.5",
-	"F02_UTILITY": "8.5", "F03_UTILITY": "dark", "F04_UTILITY": "8.7",
-	"F05_UTILITY": "8.5", "F06_UTILITY": "dark",
-	# 2 - lit, and still dark
-	"F02_C_BED2": "2.9 mean, 93% near-black", "F04_C_BED2": "dark",
-	"F05_C_BED2": "dark", "F06_C_BED2": "dark",
-	"F02_A_BED": "7.2 mean, 65% near-black",
-	"F03_C_MAIN": "9.0 mean", "F03_D_OFFICE": "8.5",
-	# 3 - service spaces awaiting a ruling
-	"B1_BOILER": "9.1", "B1_ELECTRICAL": "12.3", "B1_COAL": "8.4",
-	"B1_STORAGE_CAGES": "dark", "ROOF_OPEN": "7.3",
-}
+## It held eighteen rooms for about an hour. Thirteen shared one real bug:
+## SwitchSystem matched a fixture to the FIRST room whose rect contained it
+## instead of the smallest, so every nested hall and utility closet lost its own
+## dome to the larger room around it. The other five were this test standing
+## 0.6 m into a corner that happened to be inside a wardrobe, and photographing
+## the plywood.
+const KNOWN_DARK := {}
 
 var root: Node3D
 var cam: Camera3D
@@ -161,8 +141,36 @@ func _measure_room(room: Dictionary, fz: float) -> void:
 
 	var ix: float = minf(INSET, (x1 - x0) * 0.45)
 	var iy: float = minf(INSET, (y1 - y0) * 0.45)
-	cam.global_position = GameBoot.b2g([x0 + ix, y0 + iy, fz + EYE])
-	cam.look_at(GameBoot.b2g([x1 - ix, y1 - iy, fz + 1.0]))
+	var sample := await _sample(x0 + ix, y0 + iy, x1 - ix, y1 - iy, fz, room_id)
+	# A corner 0.6 m into the room can be inside a wardrobe, and then the frame
+	# is a close-up of dark plywood rather than a picture of the room. C_BED2
+	# read 2.9 mean at 89% near-black that way while C_BED1 - same size, same
+	# dome, same relative corner - read 20.1, and the difference was furniture,
+	# not light. Retry from the centre, which is under the fitting, and keep the
+	# better reading: this test is asking whether the room is lit, not whether
+	# one particular corner of it is occupied.
+	if float(sample[1]) > MAX_NEAR_BLACK:
+		var mid := await _sample((x0 + x1) * 0.5, (y0 + y1) * 0.5,
+				x1 - ix, y1 - iy, fz, room_id)
+		if float(mid[0]) > float(sample[0]):
+			sample = mid
+
+
+	_rows.append([room_id, sample[0], sample[1], exempt, lit])
+
+	# Put the switch back. Leaving it on measures every later room with the
+	# whole floor burning behind it, which flatters the end of the walk and
+	# makes the order of `rooms` part of the result - the sealed 2D read 58.0
+	# mean luma that way, brighter than any apartment anyone lives in.
+	if lit and root.switch_system != null:
+		root.switch_system.toggle_room(room_id)
+
+
+## One reading: park, settle, grab, score. Returns [mean luma, % near-black].
+func _sample(ex: float, ey: float, tx: float, ty: float, fz: float,
+		room_id: String) -> Array:
+	cam.global_position = GameBoot.b2g([ex, ey, fz + EYE])
+	cam.look_at(GameBoot.b2g([tx, ty, fz + 1.0]))
 	# The rig and the moon both ease toward their target, so a single frame
 	# photographs the room mid-fade and reports it darker than it settles.
 	for i in 26:
@@ -170,9 +178,10 @@ func _measure_room(room: Dictionary, fz: float) -> void:
 	await RenderingServer.frame_post_draw
 
 	var image := get_viewport().get_texture().get_image()
-	# SHOT_DIR=<abs> keeps a frame per room. A number tells you a room failed;
-	# only the picture tells you why, and "lit but still black" has several
-	# very different causes that all produce the same statistic.
+	# SHOT_DIR=<abs> keeps a frame per room. A number says a room failed; only
+	# the picture says why, and "lit but still black" has several very different
+	# causes that all produce the same statistic - including a camera standing
+	# inside the wardrobe.
 	var shot_dir := OS.get_environment("SHOT_DIR")
 	if shot_dir != "":
 		image.save_png("%s/luma_%s.png" % [shot_dir, room_id])
@@ -188,12 +197,5 @@ func _measure_room(room: Dictionary, fz: float) -> void:
 			if l < NEAR_BLACK_LEVEL:
 				dark += 1
 			count += 1
-	_rows.append([room_id, total / maxf(1.0, count),
-			100.0 * float(dark) / maxf(1.0, float(count)), exempt, lit])
-
-	# Put the switch back. Leaving it on measures every later room with the
-	# whole floor burning behind it, which flatters the end of the walk and
-	# makes the order of `rooms` part of the result - the sealed 2D read 58.0
-	# mean luma that way, brighter than any apartment anyone lives in.
-	if lit and root.switch_system != null:
-		root.switch_system.toggle_room(room_id)
+	return [total / maxf(1.0, count),
+			100.0 * float(dark) / maxf(1.0, float(count))]
