@@ -226,18 +226,28 @@ answers to the same problem and only one should be built.
 Proposed in `design/ORISON_PROJECTOR_BRIEF.md`. **Not canon until the owner
 rules its five open questions.** Nothing built.
 
-- **F1** **BLOCKER, and it is not a design question.** Every one of the 37 clips
-  carries a visible "Sora" generator watermark, and **the corner moves between
-  clips**, so no single crop clears the set. They cannot be projected on a wall
-  in 1928 as they stand. Re-render the keepers clean (preferred), crop
-  per-clip, or hide it in the projected-look pass (fragile - it shows on a
-  still). *Blocks everything else in this section.*
-- **F2** Owner ruling on the brief's §7. The one that changes the most is 7.2:
-  the footage is vertical and a 16 mm gate is landscape. Letterbox, crop, or
-  let the gate be the wrong shape.
-- **F3** Pick the set. Twelve proposed in §5, chosen from a contact sheet. The
-  live argument is §5's counter: keep two or three modern clips as LATE finds,
-  because the strangeness lands harder as an exception than as the norm.
+- **F1** **BLOCKER, and worse than first filed. A crop cannot fix it.**
+  Every clip carries a "Sora" watermark, and testing a crop proved the mark
+  **moves within a single clip** - `ch_01` has it top-left at 1 s and floating
+  mid-frame at the end. A crop of sides 10% / top 9% / bottom 20% cleared all
+  fifteen shortlisted clips on an early frame and `ch_01` still showed it on a
+  late one. That also kills option 3 (hide it in the projected-look pass), for
+  the same reason: you cannot mask a moving target with a static gate.
+  **Only a clean re-render works.** Everything else in this section can proceed
+  in parallel, but no reel ships until this does.
+- **F2** Owner ruling on the brief's §7. 7.2 changes the most: the footage is
+  vertical and a 16 mm gate is landscape. Ruled in principle - "let the gate be
+  the wrong shape" - but the crop numbers above are now evidence for how much
+  frame is available either way.
+- **F3** **Re-curate against motion, not frames.** The twelve in the brief's §5
+  were picked from ONE frame each, and the clips turn out to be multi-shot
+  montages: `ch_36` opens on a colonnade and resolves into a title card reading
+  ALEXANDRA OF MACEDON / INSPIRED BY TRUE ACCOUNTS - a trailer, not a landscape,
+  and an automatic cut. `ch_19` leaves the water for a snorkeller at sunset,
+  `ch_07` leaves the snow, `ch_24` ends on blown white. Five-frame strips for
+  the shortlist exist; the selection has to be redone against them, and the
+  brief's §5 table should be treated as a first pass that has already been
+  partly falsified.
 - **F4** `ProjectorProp` replaces `TVProp`. 16 mm Kodascope, not 9.5 mm Pathé
   Baby - 9.5 mm was chiefly France and Britain, 16 mm is what Americans used.
   **The screen is no longer part of the prop; the image lands on the room's own

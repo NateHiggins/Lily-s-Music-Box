@@ -17,13 +17,15 @@ bottom-left, bottom-right — so no single crop clears the set. Projected onto a
 tenement wall in 1928 it is not a stylistic problem, it is a legal and
 presentational one, and it is the single blocking item in this document.
 
-Options, in order of preference:
-1. **Re-render the keepers without the mark**, at the aspect ratio §3 asks for.
-2. **Per-clip crop**, authored individually. Cheap, lossy, and the vertical
-   frames cannot afford to lose much.
-3. **Patch in the projected-look pass** — the shader already dirties the image,
-   and heavy gate weave plus a hard frame mask can hide a corner. Fragile; the
-   mark will show on a still.
+**Tested 2026-08-11, and options 2 and 3 are dead.** A crop of sides 10% /
+top 9% / bottom 20% cleared the watermark on all fifteen shortlisted clips at
+one second in — and `ch_01` still showed it near the end, floating in the middle
+of the frame. **The mark moves within a single clip.** A static crop cannot
+follow it, and neither can a static gate mask, which kills the idea of hiding it
+in the projected-look pass.
+
+**Only a clean re-render works**, at whatever aspect §3 settles on. Everything
+else in this brief can be built in parallel; no reel ships until this is done.
 
 **They are vertical phone-format, and modern.** Laptops, headphones, podcast
 rigs, contemporary clothing, 3D animation. That is not an accident to fix — see
@@ -136,9 +138,18 @@ carrying changes how you cross.
 
 ## 5. Which clips — a proposed twelve
 
-Chosen by eye from the contact sheet, for footage that survives being made
-grainy, flickering and possibly monochrome, and that reads as *a record of
-something* rather than as a video someone posted.
+**Caveat added 2026-08-11 after checking: this table is a first pass and part
+of it is already wrong.** These were chosen from a single frame each, and the
+clips are multi-shot montages rather than continuous takes. `ch_36` opens on a
+colonnade and resolves into a title card — ALEXANDRA OF MACEDON / INSPIRED BY
+TRUE ACCOUNTS — so it is a trailer, and it is cut. `ch_19` leaves the water for
+a snorkeller at sunset, `ch_07` leaves the snow for a blue-lit interior, `ch_24`
+ends on blown white. **Re-curate against the five-frame strips, not the contact
+sheet.**
+
+Chosen by eye for footage that survives being made grainy, flickering and
+possibly monochrome, and that reads as *a record of something* rather than as a
+video someone posted.
 
 | Reel | What it is | Why it earns a can |
 |---|---|---|
