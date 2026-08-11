@@ -248,7 +248,20 @@ rules its five open questions.** Nothing built.
   the shortlist exist; the selection has to be redone against them, and the
   brief's §5 table should be treated as a first pass that has already been
   partly falsified.
-- **F4** `ProjectorProp` replaces `TVProp`. 16 mm Kodascope, not 9.5 mm Pathé
+- **F4** **DONE.** `ProjectorProp` **extends** `TVProp` rather than replacing
+  it, so `BroadcastDirector.sets`, `set_glow()`, the resident routines that
+  switch one on like a person and the poltergeist that takes them all keep
+  working untouched - none of that vocabulary ever cared whether the picture
+  lands on glass or plaster. The inherited `glass` quad is now the LENS, so
+  `_refresh()` lights it on power for free. **The wall is found, not authored**:
+  the machine rays along its own facing and puts the image where it lands,
+  sized by throw, so moving a projector moves its picture and one aimed at
+  nothing stays dark. Each arrives with a reel already in the gate, picked
+  deterministically per unit.
+- **F4b** Remaining on the prop: the projector body is massing only (lamphouse,
+  lens barrel, two reel arms) and wants a real Blender assembly; the reel discs
+  do not turn; and nothing yet stops two machines in one room fighting over the
+  same wall. Original note kept - 16 mm Kodascope, not 9.5 mm Pathé
   Baby - 9.5 mm was chiefly France and Britain, 16 mm is what Americans used.
   **The screen is no longer part of the prop; the image lands on the room's own
   plaster** and breaks over corners.

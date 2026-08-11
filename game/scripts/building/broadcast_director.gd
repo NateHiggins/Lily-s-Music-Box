@@ -111,9 +111,20 @@ func build(layout: Dictionary, floor_nodes: Dictionary) -> int:
 		for fu in fl.get("furniture", []):
 			if str(fu.get("asm", "")) != "tv":
 				continue
-			var tv := TVProp.new()
+			# PROJECTORS, not sets (ORISON_PROJECTOR_BRIEF). ProjectorProp
+			# extends TVProp, so `sets`, set_glow(), the resident routines that
+			# switch one on like a person and the poltergeist that takes them
+			# all keep working untouched - none of that vocabulary ever cared
+			# whether the picture lands on glass or on plaster.
+			var tv := ProjectorProp.new()
 			tv.setup(self, str(fu.get("id", "tv")).split("_")[0],
 					_shared)
+			# Each machine arrives with one reel already in the gate, so nine
+			# machines seed nine clips and the system teaches itself without a
+			# tutorial. Deterministic per unit: a household's reel is theirs.
+			if clips.size() > 0:
+				var pick: int = abs(hash(tv.unit)) % clips.size()
+				tv.load_reel(str(clips[pick].get("id", "")))
 			var at: Array = fu["at"]
 			# z0 matters now: the Harukiya's karaoke set lives in a
 			# basement 2.8 m below its floor entry in the layout, and
