@@ -149,6 +149,57 @@ making it malicious.
 - **It is not the hum.** Room 0 hums because the building is awake; the hum is a
   vital sign, not a voice.
 
+### III.2 THE PHONAUTOGRAPH — the machine that cannot play back
+
+*Ruled 2026-08-11, at the owner's direction. Replaces the rented karaoke box in
+the Harukiya. Governs the Songbook.*
+
+**Édouard-Léon Scott de Martinville, a Paris printer and bookseller, patented
+the phonautographe in March 1857 — twenty years before Edison.** A horn gathers
+the sound, a diaphragm at its throat carries a stiff bristle, and the bristle
+scratches a line into soot on a hand-cranked cylinder.
+
+**It records. It cannot play back.** Not "badly" — *at all*. Scott built the
+first machine that captured airborne sound and never once heard a thing it
+caught. He was a printer: he expected people would learn to **read** sound the
+way they read writing. Nobody could. His 1860 recording of *Au Clair de la Lune*
+was not heard by anyone until 2008, when researchers scanned the paper
+optically. **A hundred and forty-eight years between the singing and the
+listening.**
+
+That is this building's whole subject, built in France in 1857 by a man who
+thought he was solving a clerical problem.
+
+**The ruling.** The Harukiya's machine is a phonautograph. You sing into the
+horn, the cylinder turns, and you get **a line on smoked paper** — a picture of
+your voice that nobody in the bar can play. The Songbook is therefore not a
+library of recordings. **It is a book of traces.**
+
+Everything the Songbook already believes survives intact and gets sharper.
+"There are no canonical lyrics; a song is a shape with holes in it, and whatever
+the last person sang is as legitimate as whatever the first did" — now every
+one of those versions is unhearable too, which makes the legitimacy real rather
+than polite. Nobody can argue their take was better. Nobody can check.
+
+**What this splits, and why that is a gift.** The bar records and cannot listen.
+**The basement studio is the only place in the world that can read a trace back**
+(§S5 already calls the studio the Songbook's capture half; this makes it the
+*playback* half instead, which is a better reason for it to exist). So a take is
+a journey: sing it upstairs, carry it down, and hear it somewhere else — or
+never, which is also allowed and is the more common outcome.
+
+**Binding consequences:**
+
+- **The bar machine never emits recorded audio. Ever.** If a trace is heard in
+  that room, it is not the machine, and that is the Tenant.
+- **A trace is an object**, like a reel: findable, carryable, losable. Traces
+  the player never made are already in the building.
+- **The oldest traces have no author.** Something sang into it before anyone
+  currently alive, and the only way to find out what is to go downstairs.
+- It is 1857 technology in a building of 1927 objects and forty-years-early
+  signal machines. It is the *oldest* thing in the Orison, and it is the one
+  piece of equipment that does exactly what it claims and nothing more.
+
 ## IV. THE CAST
 
 The full per-resident record — case, life profile, haunt, body factors,

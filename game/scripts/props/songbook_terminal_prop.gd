@@ -1,7 +1,20 @@
 class_name SongbookTerminalProp
 extends FunctionalProp
-## The karaoke terminal in the Harukiya, and the reason any of the
-## Songbook is reachable at all.
+## The phonautograph in the Harukiya, and the reason any of the Songbook is
+## reachable at all. See ORISON_BIBLE III.2.
+##
+## Scott de Martinville, Paris, patented March 1857 - twenty years before
+## Edison. A horn gathers the sound, a diaphragm at its throat carries a stiff
+## bristle, and the bristle scratches a line into soot on a hand-cranked
+## cylinder. **It records and it cannot play back.** Not badly: at all. Scott
+## was a printer and expected people would learn to READ sound the way they read
+## writing. Nobody could, and his 1860 recording was not heard by anyone until
+## 2008, when researchers scanned the paper optically - a hundred and forty-eight
+## years between the singing and the listening.
+##
+## So this machine never emits recorded audio. If a trace is ever heard in this
+## room it is not the machine, and that is the Tenant. Playback belongs to the
+## basement studio, which is the only thing in the world that can read one back.
 ##
 ## Everything under scripts/songbook was written, committed and left
 ## INERT last session — SongResource, the procedural backing, the PA
@@ -24,9 +37,12 @@ signal opened(song_id: String)
 
 const SONG := "last_train_home"
 
-var _screen: MeshInstance3D
-var _screen_mat: StandardMaterial3D
-var _glow: OmniLight3D
+var _cylinder: MeshInstance3D
+var _diaphragm: MeshInstance3D
+var _stylus: MeshInstance3D
+var _crank_hub: MeshInstance3D
+var _crank_arm: MeshInstance3D
+var _crank_knob: MeshInstance3D
 var _hum: AudioStreamPlayer3D
 var _clunk: AudioStreamPlayer3D
 var _t := 0.0
@@ -34,55 +50,75 @@ var _panel: Node
 
 
 func _build_visual() -> void:
-	# The case. Wall-hung, chest height, tilted back a few degrees the
-	# way these always are so the screen faces someone standing.
-	var body := make_box(Vector3(0.52, 0.42, 0.26), Vector3(0, 0.21, 0),
-			Color(0.62, 0.58, 0.47))
-	body.rotation.x = deg_to_rad(-6.0)
-	var bm := body.material_override as StandardMaterial3D
-	bm.roughness = 0.82
-	# Screen surround in the darker functional grey, then the tube.
-	make_box(Vector3(0.40, 0.30, 0.02), Vector3(0, 0.30, 0.135),
-			Color(0.28, 0.27, 0.25))
-	_screen = make_box(Vector3(0.34, 0.24, 0.012),
-			Vector3(0, 0.30, 0.146), Color(0.08, 0.10, 0.09))
-	_screen_mat = _screen.material_override as StandardMaterial3D
-	_screen_mat.emission_enabled = true
-	_screen_mat.emission = Color(0.18, 0.58, 0.34)
-	_screen_mat.emission_energy_multiplier = 0.9
-	_screen_mat.roughness = 0.30
-	# Keypad: twelve keys, because a song is a number here.
-	for r in 4:
-		for c in 3:
-			make_box(Vector3(0.032, 0.022, 0.010),
-					Vector3(-0.055 + c * 0.055, 0.135 - r * 0.030, 0.138),
-					Color(0.74, 0.71, 0.62))
-	# The coin slot nobody has fed since the place changed hands.
-	make_box(Vector3(0.09, 0.014, 0.012), Vector3(0.16, 0.075, 0.138),
-			Color(0.35, 0.34, 0.32))
-	# Mic on its hook, cable wound round the bracket.
-	make_box(Vector3(0.03, 0.03, 0.05), Vector3(-0.30, 0.26, 0.02),
-			Color(0.30, 0.29, 0.28))
-	var mic := make_box(Vector3(0.035, 0.16, 0.035),
-			Vector3(-0.30, 0.18, 0.05), Color(0.14, 0.14, 0.15))
-	mic.rotation.z = deg_to_rad(9.0)
-	make_box(Vector3(0.045, 0.045, 0.045), Vector3(-0.302, 0.262, 0.05),
-			Color(0.42, 0.42, 0.44))          # the grille ball
+	var walnut := Color(0.235, 0.150, 0.090)
+	var brass := Color(0.52, 0.41, 0.19)
+	var iron := Color(0.175, 0.180, 0.186)
+	var soot := Color(0.035, 0.033, 0.032)
 
-	# A green tube in a dark room throws more light than people expect,
-	# and it is the only thing lighting the corner it hangs in.
-	_glow = OmniLight3D.new()
-	_glow.light_color = Color(0.42, 0.92, 0.62)
-	_glow.light_energy = 0.30
-	_glow.omni_range = 2.4
-	_glow.shadow_enabled = false
-	_glow.position = Vector3(0, 0.30, 0.35)
-	add_child(_glow)
+	# The plinth. A cabinetmaker's box with a moulded lip, because in 1857 a
+	# scientific instrument was furniture before it was equipment.
+	var base := make_box(Vector3(0.62, 0.10, 0.34), Vector3(0, 0.05, 0), walnut)
+	(base.material_override as StandardMaterial3D).roughness = 0.55
+	make_box(Vector3(0.66, 0.022, 0.38), Vector3(0, 0.104, 0),
+			walnut.lightened(0.10))
+	for sx in [-0.26, 0.26]:
+		make_cyl(0.028, 0.028, 0.05, Vector3(sx, 0.02, 0), iron, 0.6)
 
-	_hum = make_emitter("hum_loop", -34.0, true)
-	_hum.pitch_scale = 1.65        # a small transformer, not a fridge
-	_hum.max_distance = 6.0
-	_clunk = make_emitter("tick", -10.0)
+	# THE BARREL. Scott's was a section of a barrel - the horn is literally a
+	# cooper's cone, which is why the machine looks like something from a
+	# cellar rather than a laboratory.
+	var horn := make_cyl(0.145, 0.052, 0.30, Vector3(-0.16, 0.30, 0.0),
+			walnut.darkened(0.10), 0.62)
+	horn.rotation.z = deg_to_rad(90.0)
+	# Hoops, the way a barrel is held together.
+	for hx in [-0.27, -0.18, -0.08]:
+		var hoop := make_cyl(0.146 - absf(hx + 0.16) * 0.30,
+				0.146 - absf(hx + 0.16) * 0.30, 0.012,
+				Vector3(hx, 0.30, 0.0), iron, 0.5)
+		hoop.rotation.z = deg_to_rad(90.0)
+	# The throat, and the diaphragm across it.
+	make_cyl(0.055, 0.055, 0.030, Vector3(-0.008, 0.30, 0.0), brass, 0.32)
+	_diaphragm = make_cyl(0.047, 0.047, 0.004, Vector3(0.010, 0.30, 0.0),
+			Color(0.72, 0.68, 0.58), 0.45)
+	_diaphragm.rotation.z = deg_to_rad(90.0)
+
+	# The bristle. A hog's bristle on a lever, and the entire reason any of
+	# this works - it is also the smallest and most fragile thing in the room.
+	_stylus = make_box(Vector3(0.075, 0.004, 0.004),
+			Vector3(0.055, 0.298, 0.0), Color(0.62, 0.58, 0.44))
+
+	# THE CYLINDER, under soot. Lampblack over paper, and the line the bristle
+	# leaves is the only record that will ever exist of anything sung here.
+	_cylinder = make_cyl(0.075, 0.075, 0.22, Vector3(0.155, 0.30, 0.0), soot, 0.92)
+	_cylinder.rotation.x = deg_to_rad(90.0)
+	make_cyl(0.020, 0.020, 0.30, Vector3(0.155, 0.30, 0.0), brass, 0.35).rotation.x = deg_to_rad(90.0)
+	# Carriage and lead screw: the cylinder travels as it turns, or the line
+	# would close a circle and write over itself.
+	make_box(Vector3(0.30, 0.020, 0.020), Vector3(0.155, 0.175, 0.09), iron)
+	make_cyl(0.010, 0.010, 0.28, Vector3(0.155, 0.175, -0.09), brass, 0.4).rotation.z = deg_to_rad(90.0)
+
+	# The crank. Hand-turned, because there is no motor in 1857 and the speed
+	# of the recording is however steadily the person turning it can turn.
+	_crank_hub = make_cyl(0.022, 0.022, 0.030, Vector3(0.155, 0.30, 0.175),
+			brass, 0.35)
+	_crank_hub.rotation.x = deg_to_rad(90.0)
+	var arm := make_box(Vector3(0.016, 0.090, 0.016),
+			Vector3(0.155, 0.345, 0.190), iron)
+	_crank_arm = arm
+	_crank_knob = make_cyl(0.014, 0.014, 0.040,
+			Vector3(0.155, 0.390, 0.190), walnut, 0.5)
+	_crank_knob.rotation.x = deg_to_rad(90.0)
+
+	# The maker's plate. Scott sold these through Rudolph Koenig in Paris, and
+	# an instrument of this date says so in engraved brass.
+	make_box(Vector3(0.10, 0.035, 0.004), Vector3(-0.16, 0.135, 0.172), brass)
+
+	# No screen, no keypad, no coin slot, and no green glow: this machine has
+	# no electricity in it at all. The only light it gets is the room's.
+	_hum = make_emitter("hum_loop", -46.0, true)
+	_hum.pitch_scale = 0.55
+	_hum.max_distance = 3.0
+	_clunk = make_emitter("tick", -12.0)
 
 
 func _ready() -> void:
@@ -121,10 +157,26 @@ func panel_closed() -> void:
 
 func _process(delta: float) -> void:
 	_t += delta
-	if _screen_mat:
-		# Idle attract: the tube breathes, slightly out of step with the
-		# hum, because nothing in this bar is synchronised to anything.
-		var pulse := 0.78 + 0.22 * sin(_t * 1.35)
-		_screen_mat.emission_energy_multiplier = pulse
-	if _glow:
-		_glow.light_energy = 0.24 + 0.10 * sin(_t * 1.35)
+	# Nothing breathes here. The old terminal had a tube that pulsed on idle
+	# and a green glow to light its corner; this machine has no electricity in
+	# it at all, so at rest it is simply a wooden box in whatever light the bar
+	# is giving it. The only thing that ever moves is the cylinder, and only
+	# while somebody is turning the crank.
+	if _panel == null:
+		return
+	var turn := delta * 1.9
+	if _cylinder:
+		_cylinder.rotate_object_local(Vector3.UP, turn)
+	if _crank_hub:
+		_crank_hub.rotate_object_local(Vector3.UP, turn)
+	if _crank_arm:
+		# The arm and knob orbit the hub rather than spinning in place, which
+		# is the difference between a crank and a knob somebody is fiddling.
+		var a := _t * 1.9
+		var r := 0.045
+		_crank_arm.position = Vector3(0.155, 0.30 + cos(a) * r * 0.5,
+				0.190 + sin(a) * r * 0.5)
+		_crank_arm.rotation.z = -a
+		if _crank_knob:
+			_crank_knob.position = Vector3(0.155, 0.30 + cos(a) * r,
+					0.190 + sin(a) * r)

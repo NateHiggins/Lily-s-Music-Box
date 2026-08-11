@@ -74,6 +74,30 @@ Ruled in `ORISON_BIBLE.md` VIII.5.g. Docs: `game/docs/arcade_cabinets.md`.
 - **A10** Every spawned enemy is named `Enemy`, so Godot's rename-on-collision
   makes their degrade thresholds differ slightly. Cosmetic.
 
+## G — The phonautograph
+
+Ruled in `ORISON_BIBLE.md` III.2. The Harukiya's machine is Scott de
+Martinville's 1857 phonautographe, and the prop is built.
+
+- **G1** **The Songbook can still play a take back, and it must not.** The
+  machine records and cannot reproduce - that is not a limitation, it is the
+  entire point, and it is what makes every unhearable version equally
+  legitimate. `SongbookPanel` currently lets a player keep and replay a take;
+  `MicRecorder` and `SongbookStore` keep working exactly as they are, because
+  capture is not the problem. **Only the listening moves.**
+- **G2** Playback belongs to the basement studio, which makes S5 better: the
+  studio stops being the Songbook's "capture half" and becomes **the only thing
+  in the world that can read a trace back**. That is a far stronger reason for
+  a room to exist, and it turns a take into a journey - sing it upstairs, carry
+  it down, hear it somewhere else, or never.
+- **G3** A trace is an OBJECT, like a reel: findable, carryable, losable. Some
+  are already in the building and the player did not make them.
+- **G4** **The oldest traces have no author.** Something sang into it before
+  anyone currently alive, and the only way to find out what is to go
+  downstairs. This is the hook the whole machine exists to set.
+- **G5** If a trace is ever heard in the bar, it is not the machine. That is
+  the Tenant, and it should be rare enough to be unmistakable.
+
 ## S — Basement studio
 
 Proposed in `design/ORISON_STUDIO_BRIEF.md`. Not canon until the owner rules.
