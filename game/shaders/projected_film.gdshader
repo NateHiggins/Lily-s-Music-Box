@@ -47,6 +47,27 @@ uniform vec2 burn_origin = vec2(0.42, 0.55);
 // with cues every few seconds is a print assembled out of scraps - which is
 // what these reels are. The mark is the punctuation of a badly edited film,
 // so it should fire often enough to imply the cuts, and never be explained.
+// A fixed scorched hole in the print. Kept separate from the travelling burn
+// because this one never moves - which is the point, and also the problem when
+// it is asked to hide something that does.
+uniform float cigar_size : hint_range(0.0, 0.5) = 0.0;
+uniform vec2 cigar_at = vec2(0.5, 0.5);
+
+// THE PLATE. Niepce 1826 and Cornelius 1839 as the reference, not 16 mm.
+//
+// What makes those images read as ghosts is EXPOSURE TIME, not grain. An
+// eight-hour heliograph records only what held still, so people are absent or
+// smeared, and the plate itself - tarnish, blotch, edge rot - sits IN FRONT of
+// the picture rather than tinted into it. That distinction is the whole look:
+// damage occludes, it does not colour.
+//
+// plate = 0 is film. plate = 1 is a silvered plate somebody found in a drawer.
+uniform float plate : hint_range(0.0, 1.0) = 0.0;
+uniform float tarnish : hint_range(0.0, 2.0) = 1.0;
+uniform float plate_lift : hint_range(0.0, 0.5) = 0.10;
+uniform vec3 plate_warm : source_color = vec3(0.78, 0.735, 0.64);
+uniform vec3 plate_cool : source_color = vec3(0.50, 0.555, 0.60);
+
 uniform float cue_period : hint_range(0.0, 30.0) = 0.0;   // 0 = never
 uniform vec2 cue_at = vec2(0.86, 0.12);
 uniform float cue_radius : hint_range(0.0, 0.1) = 0.026;
@@ -109,6 +130,48 @@ void fragment() {
 		vec2 c = uv - 0.5;
 		col *= 1.0 - falloff * dot(c, c) * 0.9;
 
+		if (plate > 0.001) {
+			float lum = dot(col, vec3(0.299, 0.587, 0.114));
+			// Tonal compression first. A daguerreotype has no midtones to
+			// speak of - it is a mirror, so it is either bright metal or it is
+			// nothing - and a heliograph is all midtone and no ends. Split the
+			// difference by lifting the floor hard and rolling the top over.
+			float p = smoothstep(0.04, 0.94, lum);
+			p = mix(p, sqrt(p), 0.35);
+			// Roll the top over instead of letting it clip. The first pass ran
+			// straight to white and lost the highlight detail that makes a
+			// plate look like metal rather than like paper.
+			p = p / (1.0 + p * 0.55);
+			p = plate_lift + p * (1.0 - plate_lift) * 1.28;
+
+			// Silver reads warm where it is thick and cool where it is thin,
+			// which is why these plates are never one colour.
+			vec3 metal = mix(plate_cool, plate_warm, smoothstep(0.25, 0.85, p));
+
+			// DAMAGE, IN FRONT. Big soft chemical blotches that lift the
+			// image toward the plate's own tone, plus hard bright flecks and
+			// vertical wipe streaks where it has been cleaned badly.
+			float blot = vnoise(uv * 3.2 + 11.0) * 0.6 + vnoise(uv * 7.9) * 0.4;
+			float bloom = smoothstep(0.52, 0.86, blot) * tarnish;
+			// Wipe streaks: a handful, not a curtain. At 46 columns the first
+			// pass read as rain on a window, which is a weather effect and not
+			// a damaged plate. Cleaning marks are few, uneven and vertical.
+			float streak = smoothstep(0.955, 1.0,
+					vnoise(vec2(uv.x * 11.0, uv.y * 1.3 + 3.0))) * tarnish;
+			float fleck = step(0.9965, hash(floor(uv * vec2(420.0, 700.0)))) * tarnish;
+
+			// The edge of a plate is where the emulsion gave up first.
+			float edge = smoothstep(0.26, 0.52, max(abs(c.x), abs(c.y) * 0.60));
+			float rot = edge * (0.70 + vnoise(uv * 5.5) * 1.15) * tarnish;
+
+			vec3 plated = p * metal;
+			plated = mix(plated, plate_warm * 1.05, clamp(bloom * 0.55, 0.0, 1.0));
+			plated += vec3(1.0, 0.98, 0.94) * (streak * 0.30 + fleck * 0.80);
+			plated = mix(plated, plate_cool * 0.10, clamp(rot, 0.0, 0.92));
+
+			col = mix(col, plated, plate);
+		}
+
 		if (burn > 0.001) {
 			// An irregular front travelling out from one point.
 			float r = distance(uv, burn_origin)
@@ -125,6 +188,15 @@ void fragment() {
 			col += vec3(1.0, 0.62, 0.22) * scorch * (1.0 - hole) * 1.6;
 			// Behind the front there is no film, so there is only the lamp.
 			col = mix(col, vec3(1.0), hole);
+		}
+
+		if (cigar_size > 0.001) {
+			float pr = distance(uv, cigar_at) + (vnoise(uv * 22.0) - 0.5) * 0.05;
+			float phole = smoothstep(cigar_size, cigar_size * 0.70, pr);
+			float pscorch = smoothstep(cigar_size * 1.55, cigar_size * 0.80, pr);
+			col = mix(col, vec3(0.38, 0.17, 0.05) * col, pscorch * 0.9);
+			col += vec3(1.0, 0.58, 0.20) * pscorch * (1.0 - phole) * 1.3;
+			col = mix(col, vec3(1.0), phole);
 		}
 
 		if (cue_period > 0.01) {

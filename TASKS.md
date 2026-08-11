@@ -261,6 +261,22 @@ rules its five open questions.** Nothing built.
   **film burn** (ring, scorch, bare lamp). Still to do: wire it to a
   VideoStreamPlayer texture rather than a still, and drive `burn` from reel-end
   and from the Tenant.
+- **F11** **THE PLATE, and it is the headline.** Ruled from Niepce 1826 /
+  Cornelius 1839: the target is a long-exposure plate, not 16 mm. Built in
+  first pass - `plate`, `tarnish`, `plate_lift`, `plate_warm/cool` in
+  `projected_film.gdshader`. Tonal compression to a mirror, pewter duotone, and
+  damage IN FRONT of the image (blotch, sparse wipe streaks, flecks, edge rot).
+- **F12** **The long exposure is the mechanism and is NOT built yet.** Accumulate
+  the video ~1-2 s so movement smears and only still things resolve - a walking
+  figure loses their head. **Reuse `ArcadeMachine._build_phosphor()`**: same
+  SubViewport + CLEAR_MODE_NEVER + low-alpha black rect, with the decay turned
+  right down. Do not write a second accumulator. Previewed with ffmpeg `tmix`
+  and it is the whole effect.
+- **F13** **Reconsider the machine: magic lantern, not Kodascope.** A lantern
+  projects glass slides, is older than film, is domestic, and matches "some
+  forgotten past". Reels become slides in paper sleeves - a better collectable -
+  and a slide that is not supposed to move at all, moving, is the horror.
+  The 16 mm research stays on file if motion is preferred to breathing.
 - **F5b** The projected-look pass, remaining: gate weave first (it does more than anything
   else), 16-18 fps silent flicker, sparse dust, a splice jump every 20-40 s,
   falloff and keystone. The projector is also a LIGHT - a flickering beam that

@@ -8,10 +8,20 @@ extends Node3D
 ## material lit by a real light, because the whole point of blend_add is that
 ## the image cannot be darker than what it lands on.
 
-## Left to right: the raw frame, the film look, the film look with a changeover
-## cue in the corner, and the reel burning through at the end.
-const BURNS := [0.0, 0.0, 0.0, 0.62]
-const CUES := [0.0, 0.0, 1.0, 0.0]
+## FOUR MOMENTS OF THE SAME CLIP, with ONE burn nailed to the spot the
+## watermark occupies in the first of them. This is the test the owner asked
+## for and it is the only honest way to answer the question: a burn is damage
+## to a piece of film, so it cannot move, and the mark does.
+const FRAMES := ["_wm_12", "_plate_ch_01", "_plate_ch_24", "_plate_ch_06"]
+const BURNS := [0.0, 0.0, 0.0, 0.0]
+const CUES := [0.0, 0.0, 0.0, 0.0]
+## Panel 1 is a single frame with no treatment. 2-4 are 40-frame accumulations
+## - the long exposure - carrying the plate pass.
+const PLATES := [0.0, 1.0, 1.0, 1.0]
+## Measured off frame 12: the Sora mark sits upper-left, and this is sized to
+## swallow it whole.
+const PATCH_AT := Vector2(0.175, 0.075)
+const PATCH_R := 0.0
 
 
 func _ready() -> void:
@@ -25,11 +35,11 @@ func _ready() -> void:
 	env.environment = settings
 	add_child(env)
 
-	var tex: Texture2D = load(OS.get_environment("FILM_FRAME"))
-	for i in BURNS.size():
+	for i in FRAMES.size():
 		var x := (float(i) - 1.5) * 1.28
 		_wall(x)
-		_image(x, tex, float(BURNS[i]), float(CUES[i]), i == 0)
+		var tex: Texture2D = load("res://assets/video/clips/%s.png" % FRAMES[i])
+		_image(x, tex, float(BURNS[i]), float(CUES[i]), i == 0, float(PLATES[i]))
 
 	var cam := Camera3D.new()
 	cam.fov = 50
@@ -54,7 +64,7 @@ func _wall(x: float) -> void:
 	add_child(m)
 
 
-func _image(x: float, tex: Texture2D, burn: float, cue: float, raw: bool) -> void:
+func _image(x: float, tex: Texture2D, burn: float, cue: float, raw: bool, plate: float) -> void:
 	var m := MeshInstance3D.new()
 	var q := QuadMesh.new()
 	q.size = Vector2(1.10, 1.56)
@@ -76,6 +86,16 @@ func _image(x: float, tex: Texture2D, burn: float, cue: float, raw: bool) -> voi
 	# A cue is fired continuously here only so it can be photographed; in the
 	# game it is four frames and gone.
 	mat.set_shader_parameter("cue_period", 1000.0 if cue > 0.0 else 0.0)
+	mat.set_shader_parameter("plate", plate)
+	if plate > 0.0:
+		mat.set_shader_parameter("gain", 1.02)
+		mat.set_shader_parameter("falloff", 1.05)
+		mat.set_shader_parameter("lamp_tint", Color(1.0, 0.97, 0.90))
+	mat.set_shader_parameter("mono", 1.0 if plate > 0.0 else 0.0)
+	mat.set_shader_parameter("grain_amount", 0.18 if plate > 0.0 else 0.32)
+	mat.set_shader_parameter("dust_amount", 0.12 if plate > 0.0 else 0.30)
+	mat.set_shader_parameter("cigar_size", PATCH_R)
+	mat.set_shader_parameter("cigar_at", PATCH_AT)
 	m.material_override = mat
 	m.position = Vector3(x, 0.0, 0.0)
 	add_child(m)

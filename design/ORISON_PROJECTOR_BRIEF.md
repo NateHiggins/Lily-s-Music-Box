@@ -95,6 +95,53 @@ The horror beats write themselves and none of them need new systems:
 
 ---
 
+## 2b. THE PLATE — ruled 2026-08-11, and it changes the machine
+
+*Reference: Niépce's heliograph at Le Gras (1826) and Cornelius's self-portrait
+daguerreotype (1839). The brief was "ghostly projections from some forgotten
+past".*
+
+**What makes those images read as haunted is exposure time, not grain.** Niépce
+needed eight hours; Cornelius sat for minutes. Anything that moved during the
+exposure smeared or never registered at all — so an early photograph is a record
+of *what held still*, and people do not. That is the whole effect and it is
+temporal, not a filter.
+
+So the pass is built in two halves:
+
+**1. The long exposure, which does the work.** Accumulate the video over ~1–2
+seconds so movement becomes a luminous smear and only stationary things resolve.
+A person walking loses their head. A dress becomes a column of light. **The
+project already has this exact machine**: `ArcadeMachine._build_phosphor()`
+accumulates into a SubViewport with `CLEAR_MODE_NEVER`, dimming the previous
+frame with a low-alpha black rect. The plate is the same construction with the
+decay turned right down — a phosphor with a memory of seconds instead of
+milliseconds. Reuse it; do not write a second one.
+
+**2. The plate itself, which sells it.** Tonal compression toward a mirror
+rather than a photograph — crushed floor, rolled highlight, no real midtones —
+a pewter/silver duotone that runs warm where the metal is thick and cool where
+it is thin, and **damage that sits IN FRONT of the picture**: chemical blotch,
+sparse vertical wipe streaks, bright flecks, and edge rot where the emulsion
+gave up first. Damage occludes. It does not tint. That distinction is most of
+the difference between this and a sepia filter.
+
+**This changes the machine, and for the better.** A 16 mm Kodascope shows
+moving film. What is described above is a *still that breathes* — and the
+period-correct device for projecting a still is the **magic lantern**, which is
+older than film, domestic, and exactly "some forgotten past". The reels become
+**glass slides** in paper sleeves, which is a better collectable object than a
+film can, and the horror sharpens: a lantern slide is not supposed to move at
+all, and this one is.
+
+Keep §1's 16 mm research on file — if the owner wants motion rather than
+breathing, Kodascope is still the right answer for an American block.
+
+**One honest consequence.** At this level of degradation the watermark becomes
+the only crisp, high-contrast element in the frame, so the plate pass makes it
+**more** conspicuous, not less. The owner has deprioritised it; noting it here
+so nobody is surprised.
+
 ## 3. The projected look
 
 A shader pass over the video texture, plus the light it casts. In rough order of
