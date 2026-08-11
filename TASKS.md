@@ -248,43 +248,52 @@ and the four isolated roof fixtures now terminating at a real riser.
   So the gap is about 1.7x, not the 2.8x first filed - real, but a third smaller
   than the record said, and concentrated in one station rather than spread evenly.
   **Start at the atrium.**
-- **P2** **The atrium decomposed, 2026-08-11** - and two obvious fixes are ruled
-  out. `PERF_DIAG_ONLY=1 PERF_DIAG_STATION=atrium` runs it. Absolute times drift
-  a lot with GPU thermal state across repeated runs, so read the proportions,
-  which held across three runs, and not the milliseconds:
+- **P2** **The atrium decomposed, 2026-08-11.** `PERF_DIAG_ONLY=1
+  PERF_DIAG_STATION=atrium` runs it. Absolute times swing more than 2x between
+  runs on the same machine and the same build, so read proportions, not
+  milliseconds. Consistent across four runs:
 
-  | toggle | frame time |
-  |---|---|
-  | baseline | — |
-  | all light shadows off | −11 to −19% |
-  | all illumination hidden | −9 to −20% |
-  | all geometry `cast_shadow` off | −24 to −38% |
-  | **all functional props hidden** | **−41 to −63%** |
-  | props culled past 12 m | −15% |
-  | every prop batched by material | ~0 (objects went *up*) |
+  | toggle | frame time | object submissions |
+  |---|---|---|
+  | baseline | — | 27.4k |
+  | all light shadows off | −11 to −19% | 24.2k |
+  | all illumination hidden | −9 to −20% | 22.9k |
+  | all geometry `cast_shadow` off | −24 to −38% | **4.3k** |
+  | **all functional props hidden** | **−41 to −63%** | 6.3k |
+  | **props drawn but not ticking** | **0%** | 27.3k |
+  | props culled past 12 m | −15% | 25.0k |
+  | every prop batched by material | ~0 | 26.4k |
 
-  **Props are the atrium frame.** But the two things everyone reaches for first
-  do not work:
-  - **Batching is worthless here.** Merging every prop in place removed 2342
-    meshes and changed nothing. Only 22 of 56 prop scripts call `merge_static()`
-    and it is not worth completing that for performance - the cost is not draw
-    call submission. *This retires most of what M-style "reduce draw calls" work
-    would have been.*
-  - **Prop LODs are worth much less than they look.** Culling every prop past
-    12 m recovers 15%, while hiding all props recovers up to 63% - so the cost
-    is in the props **near** the camera, not the seven storeys of them in the
-    distance. The station's own comment ("sees seven storeys at once") has been
-    misleading the diagnosis. Revisit the P2 claim that HLOD is the missing
-    piece before spending anything on it.
+  **It is CPU-bound, and the GPU is asleep.** Watched from outside with
+  `nvidia-smi` during a run, the RTX 4080 sits at **210–1200 MHz of 3105**, 12–38
+  W, 19–52% utilisation, 45 °C, through an 80 ms frame. Nothing here is a
+  shader or fill-rate problem, and the 2x run-to-run swing is CPU contention,
+  not thermal.
 
-  What is left, in order: **`cast_shadow` on props** is the single biggest
-  tractable lever (−24 to −38% with it off entirely, and 85% of all object
-  submissions are shadow re-submissions). A policy of "small props that sit on
-  surfaces do not cast" is the obvious first cut, and it is a **look** decision
-  as much as a perf one, so it wants eyes on before-and-after shots.
-- **P3** Headroom figures come from one high-end GPU (RTX 4080) and vary by more
-  than 2x between runs on it. Mobile is unproven, and the only export preset is
-  Android.
+  **Four things are ruled out**, each measured rather than argued:
+  - **User prop scripts are not the cost.** Silencing all 384 `_process`
+    callbacks while leaving every prop drawn changed nothing. *Do not read the
+    `proc` column as script time - it is TIME_PROCESS, the whole process step
+    including engine submission, and misreading it cost an hour.*
+  - **Batching is worthless as implemented.** Merging every prop in place
+    removed 2342 meshes and moved submissions 27.4k → 26.4k. Only 22 of 56 prop
+    scripts call `merge_static()`; finishing that job would buy nothing.
+  - **Prop LODs are worth much less than they look.** Culling past 12 m recovers
+    15% against 63% for hiding props outright, so the cost is the props **near**
+    the camera, not the seven storeys overhead. The station comment ("sees seven
+    storeys at once") has been misleading the diagnosis for a long time.
+  - **Lighting is a minor term.** All shadows off, or all lights hidden, is
+    worth under a fifth.
+
+  **What is left is engine-side submission of prop geometry**, and the one lever
+  that moves it is shadow casting: `cast_shadow` off across all geometry cuts
+  submissions by **84%** (27.4k → 4.3k) for 24–38% of the frame. A policy of
+  "small props that sit on surfaces do not cast" is the first cut. It is a
+  **look** decision as much as a performance one, so it wants before-and-after
+  shots in front of the owner rather than a unilateral change.
+- **P3** Every figure here comes from one RTX 4080, which never leaves idle
+  clocks during the benchmark. Mobile is unproven and the only export preset is
+  Android - where the CPU-bound conclusion is worse news, not better.
 ## H — Housekeeping
 
 - **H2** **`C:\FPSengine01` is not a git repository.** The entire compiler side —

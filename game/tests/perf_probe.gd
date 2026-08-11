@@ -228,6 +228,22 @@ func _diagnose_corridor_submissions() -> void:
 	# ignores whether a given family can actually afford to lose its separate
 	# nodes - animated parts, retextured surfaces, anything that moves.
 	#
+	# THE ONE THAT DISCRIMINATES. Everything above hides geometry, so a saving
+	# could be rendering or could be the script attached to it. This leaves every
+	# prop on screen, exactly as drawn, and only stops it thinking. If the frame
+	# collapses anyway, the atrium is 604 props running _process and no amount of
+	# LOD, batching or shadow policy will touch it.
+	var ticking: Array[Node] = []
+	for child in root.get_children():
+		if child is FunctionalProp and child.is_processing():
+			ticking.append(child)
+			child.set_process(false)
+	print("   (silenced %d prop _process callbacks, all still drawn)" % ticking.size())
+	await _diag_snapshot("props drawn but not ticking", station)
+	for node in ticking:
+		if is_instance_valid(node):
+			node.set_process(true)
+
 	# If it is not draw calls, it is what those calls draw. The atrium submits
 	# ~38M primitives because it sees seven storeys of props at full detail from
 	# twenty metres, and nothing in this project has ever set a visibility range.
@@ -265,13 +281,24 @@ func _diag_snapshot(label: String, station: Dictionary) -> void:
 		await get_tree().process_frame
 		total += 1000.0 / maxf(1.0, Performance.get_monitor(
 				Performance.TIME_FPS))
-	print("   %-28s %7d objs %7d calls %8.2f ms" % [
+	# `proc` is TIME_PROCESS, and it is NOT script time - it is the whole process
+	# step, engine rendering submission included, which is why it tracks the
+	# frame almost exactly. Reading it as "GDScript" led straight to the wrong
+	# conclusion once already; the "props drawn but not ticking" row is what
+	# actually separates the two, and it says user scripts are not the cost.
+	#
+	# Godot 4 exposes no GPU timer to GDScript, so watch the card from outside
+	# with nvidia-smi. Doing that showed an RTX 4080 at 210-1200 MHz of 3105 and
+	# 19-52% utilisation through an 80 ms frame: this is CPU-bound.
+	print("   %-28s %7d objs %7d calls %8.2f ms  (proc %5.2f  phys %5.2f)" % [
 		label,
 		RenderingServer.get_rendering_info(
 				RenderingServer.RENDERING_INFO_TOTAL_OBJECTS_IN_FRAME),
 		RenderingServer.get_rendering_info(
 				RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME),
-		total / 45.0])
+		total / 45.0,
+		Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0,
+		Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS) * 1000.0])
 
 
 func _collect_lights(node: Node, into: Array[Light3D]) -> void:
