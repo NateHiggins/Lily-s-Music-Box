@@ -12,12 +12,30 @@ extends Node3D
 ## watermark occupies in the first of them. This is the test the owner asked
 ## for and it is the only honest way to answer the question: a burn is damage
 ## to a piece of film, so it cannot move, and the mark does.
-const FRAMES := ["_wm_12", "_plate_ch_01", "_plate_ch_24", "_plate_ch_06"]
+## FOUR REELS, not four settings. Each carries its own toning and its own
+## degree of spoilage, because the point of the tint is that twelve plates in a
+## drawer should feel like twelve objects.
+const FRAMES := ["_plate_ch_01", "_plate_ch_24", "_plate_ch_06", "_plate_ch_17"]
 const BURNS := [0.0, 0.0, 0.0, 0.0]
 const CUES := [0.0, 0.0, 0.0, 0.0]
-## Panel 1 is a single frame with no treatment. 2-4 are 40-frame accumulations
-## - the long exposure - carrying the plate pass.
-const PLATES := [0.0, 1.0, 1.0, 1.0]
+const PLATES := [1.0, 1.0, 1.0, 1.0]
+
+## Period toning, all of it real and all of it subtle. Silver is the daguerreo-
+## type default; bitumen is Niepce's heliograph; gold toning ran warm-pink and
+## was sold as archival; selenium goes cool and slightly violet with age.
+const TONES := [
+	Color(1.00, 0.99, 0.97),   # silver, barely toned
+	Color(1.06, 0.98, 0.84),   # bitumen, the yellow that worked
+	Color(0.92, 0.95, 1.05),   # selenium, cool and a little violet
+	Color(1.07, 0.95, 0.93),   # gold toning, warm pink
+]
+## How badly each reel has rotted, and from which corner. A reel with no mould
+## at all is as much a character note as a ruined one.
+const MOULDS := [0.0, 0.62, 0.30, 0.95]
+const MOULD_AT := [
+	Vector2(0.2, 0.2), Vector2(0.16, 0.86),
+	Vector2(0.88, 0.14), Vector2(0.10, 0.12),
+]
 ## Measured off frame 12: the Sora mark sits upper-left, and this is sized to
 ## swallow it whole.
 const PATCH_AT := Vector2(0.175, 0.075)
@@ -39,7 +57,8 @@ func _ready() -> void:
 		var x := (float(i) - 1.5) * 1.28
 		_wall(x)
 		var tex: Texture2D = load("res://assets/video/clips/%s.png" % FRAMES[i])
-		_image(x, tex, float(BURNS[i]), float(CUES[i]), i == 0, float(PLATES[i]))
+		_image(x, tex, float(BURNS[i]), float(CUES[i]), false, float(PLATES[i]),
+				TONES[i], float(MOULDS[i]), MOULD_AT[i])
 
 	var cam := Camera3D.new()
 	cam.fov = 50
@@ -64,7 +83,8 @@ func _wall(x: float) -> void:
 	add_child(m)
 
 
-func _image(x: float, tex: Texture2D, burn: float, cue: float, raw: bool, plate: float) -> void:
+func _image(x: float, tex: Texture2D, burn: float, cue: float, raw: bool,
+		plate: float, tone: Color, mould: float, mould_at: Vector2) -> void:
 	var m := MeshInstance3D.new()
 	var q := QuadMesh.new()
 	q.size = Vector2(1.10, 1.56)
@@ -87,6 +107,9 @@ func _image(x: float, tex: Texture2D, burn: float, cue: float, raw: bool, plate:
 	# game it is four frames and gone.
 	mat.set_shader_parameter("cue_period", 1000.0 if cue > 0.0 else 0.0)
 	mat.set_shader_parameter("plate", plate)
+	mat.set_shader_parameter("reel_tint", tone)
+	mat.set_shader_parameter("mould", mould)
+	mat.set_shader_parameter("mould_origin", mould_at)
 	if plate > 0.0:
 		mat.set_shader_parameter("gain", 1.02)
 		mat.set_shader_parameter("falloff", 1.05)

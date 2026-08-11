@@ -142,6 +142,26 @@ the only crisp, high-contrast element in the frame, so the plate pass makes it
 **more** conspicuous, not less. The owner has deprioritised it; noting it here
 so nobody is surprised.
 
+### 2c. Per-reel character
+
+Three parameters give twelve plates twelve identities without twelve art passes.
+
+**Toning** (`reel_tint`) — a bias on the duotone, never a filter over it. All
+period and all real: **silver**, barely toned, the daguerreotype default;
+**bitumen**, Niépce's warm yellow; **selenium**, cool and faintly violet with
+age; **gold**, warm pink, sold as archival. Keep the shift small — the reels
+should feel like different afternoons, not different films.
+
+**Spoilage** (`mould`, `mould_origin`) — how far the rot has crept and from
+which corner. **A reel with none is as much a character note as a ruined one.**
+Recommended spread across a set of twelve: most between 0.1 and 0.5, two or
+three clean, and exactly one past 0.8 that is barely watchable — that one is a
+find, and the player should feel they got to it too late.
+
+**Damage placement** — the mould origin is a composition decision, not a random
+seed. Creeping in from the corner a face occupies is a different reel from one
+rotting in from empty sky.
+
 ## 3. The projected look
 
 A shader pass over the video texture, plus the light it casts. In rough order of
@@ -155,6 +175,7 @@ how much each contributes:
 | **Splices** | A jump and a frame of white every 20–40 s. Reels were cut and rejoined. |
 | **Cigar burns** | The projectionist's changeover cue: a small circle in the top corner, four frames, twice. Almost nobody consciously notices one, which is why it works. **A cue means a JOIN** — a print with cues every few seconds is a print assembled out of scraps, which is what these reels are. It is the punctuation of a badly edited film. |
 | **Film burn** | The reel stopping in the gate: a bright ring, a brown scorched edge, and a hole that is not a colour but the bare lamp. **Authored, never automatic** — it is what a reel does when it ends, and what the Tenant does when it wants the film to stop being the point. |
+| **Mould** | The per-reel decay, and the one that carries the "forgotten" half of the brief. Fungus eats emulsion in **branching filaments**, so the front is dendritic rather than round, with brown foxing in the halo before the plate is gone. It **blocks** the lamp, so on a projection it is shadow, not fire — the wall shows through where the plate has rotted. Film left in a damp basement does this, and this building has one. |
 | **Falloff and keystone** | The projected rectangle is brighter at centre and never square to the wall. |
 | **Monochrome, warm** | See §7 — this is a decision, not a default. |
 

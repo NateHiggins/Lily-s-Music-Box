@@ -35,6 +35,18 @@ uniform float gain : hint_range(0.0, 4.0) = 1.35;
 uniform float burn : hint_range(0.0, 1.5) = 0.0;
 uniform vec2 burn_origin = vec2(0.42, 0.55);
 
+// MOULD. What actually happens to film left in a damp basement, which this
+// building has one of. Fungus eats the emulsion in branching filaments, so the
+// front is dendritic rather than round, and it BLOCKS the lamp - on a
+// projection that means shadow, not fire. The wall shows through where the
+// plate has rotted.
+//
+// This is the per-reel damage, and it is permanent: a reel arrives already
+// spoiled to its own degree. The bright `burn` above is a separate event -
+// the reel stopping in the gate - and stays for reel-end and for the Tenant.
+uniform float mould : hint_range(0.0, 1.2) = 0.0;
+uniform vec2 mould_origin = vec2(0.22, 0.18);
+
 // THE CIGAR BURN - the changeover cue, not damage.
 //
 // The projectionist's mark: a small circle scratched or punched into the top
@@ -63,6 +75,11 @@ uniform vec2 cigar_at = vec2(0.5, 0.5);
 //
 // plate = 0 is film. plate = 1 is a silvered plate somebody found in a drawer.
 uniform float plate : hint_range(0.0, 1.0) = 0.0;
+// Per-reel character. Every plate was toned by a different hand on a different
+// afternoon, so no two are the same colour - and giving each reel its own tone
+// is the cheapest way to make twelve of them feel like twelve objects rather
+// than twelve settings. Kept SUBTLE: this is a bias on a duotone, not a filter.
+uniform vec3 reel_tint : source_color = vec3(1.0, 1.0, 1.0);
 uniform float tarnish : hint_range(0.0, 2.0) = 1.0;
 uniform float plate_lift : hint_range(0.0, 0.5) = 0.10;
 uniform vec3 plate_warm : source_color = vec3(0.78, 0.735, 0.64);
@@ -82,6 +99,17 @@ float vnoise(vec2 p) {
 	f = f * f * (3.0 - 2.0 * f);
 	return mix(mix(hash(i), hash(i + vec2(1, 0)), f.x),
 			mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), f.x), f.y);
+}
+
+float fbm(vec2 p) {
+	float v = 0.0;
+	float a = 0.52;
+	for (int i = 0; i < 4; i++) {
+		v += a * vnoise(p);
+		p *= 2.07;
+		a *= 0.5;
+	}
+	return v;
 }
 
 void fragment() {
@@ -158,7 +186,16 @@ void fragment() {
 			// a damaged plate. Cleaning marks are few, uneven and vertical.
 			float streak = smoothstep(0.955, 1.0,
 					vnoise(vec2(uv.x * 11.0, uv.y * 1.3 + 3.0))) * tarnish;
-			float fleck = step(0.9965, hash(floor(uv * vec2(420.0, 700.0)))) * tarnish;
+			// Flecks were pure white off a hard step at a 420x700 grid, which
+			// read as salt thrown at the screen - high contrast, uniform
+			// spacing, and the ugliest thing in the frame. Emulsion pits are
+			// SOFT, they are the plate's own colour, and there are not many.
+			vec2 fcell = uv * vec2(150.0, 250.0);
+			vec2 fid = floor(fcell);
+			float fpick = hash(fid);
+			float fdist = length(fract(fcell) - 0.5);
+			float fleck = step(0.982, fpick)
+					* smoothstep(0.42, 0.06, fdist) * tarnish;
 
 			// The edge of a plate is where the emulsion gave up first.
 			float edge = smoothstep(0.26, 0.52, max(abs(c.x), abs(c.y) * 0.60));
@@ -166,10 +203,11 @@ void fragment() {
 
 			vec3 plated = p * metal;
 			plated = mix(plated, plate_warm * 1.05, clamp(bloom * 0.55, 0.0, 1.0));
-			plated += vec3(1.0, 0.98, 0.94) * (streak * 0.30 + fleck * 0.80);
+			// Damage brightens toward the PLATE's tone, never toward white.
+			plated += plate_warm * (streak * 0.22 + fleck * 0.30);
 			plated = mix(plated, plate_cool * 0.10, clamp(rot, 0.0, 0.92));
 
-			col = mix(col, plated, plate);
+			col = mix(col, plated * reel_tint, plate);
 		}
 
 		if (burn > 0.001) {
@@ -188,6 +226,25 @@ void fragment() {
 			col += vec3(1.0, 0.62, 0.22) * scorch * (1.0 - hole) * 1.6;
 			// Behind the front there is no film, so there is only the lamp.
 			col = mix(col, vec3(1.0), hole);
+		}
+
+		if (mould > 0.001) {
+			// A ragged front, plus filaments that run ahead of it. The two
+			// octaves are the whole trick: the low one makes the blotch, the
+			// high one makes it look alive.
+			float mr = distance(uv, mould_origin);
+			float ragged = (fbm(uv * 8.0) - 0.45) * 0.34;
+			float front = mould * 0.62;
+			float body = smoothstep(front + 0.05, front - 0.11, mr + ragged);
+			float filament = smoothstep(0.60, 0.95, fbm(uv * 27.0))
+					* smoothstep(front + 0.22, front - 0.02, mr);
+			float m = clamp(body + filament * 0.75, 0.0, 1.0);
+
+			// Foxing: a brown bloom in the halo, before the emulsion is gone.
+			float halo = clamp(smoothstep(front + 0.18, front - 0.04, mr) - m, 0.0, 1.0);
+			col = mix(col, col * vec3(0.62, 0.44, 0.26), halo * 0.75);
+			// And where it has eaten through there is no plate, so no light.
+			col *= 1.0 - m * 0.94;
 		}
 
 		if (cigar_size > 0.001) {
