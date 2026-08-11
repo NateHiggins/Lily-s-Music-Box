@@ -87,10 +87,17 @@ Martinville's 1857 phonautographe, and the prop is built.
   SILENT rather than quiet, and **a speed that is guessed fresh on every
   reading** - including, at one roll in ten, the exact 0.5x error that made
   Scott sound like a woman in 2008.
-- **G1b** Wire the reader into the playback path. `SongbookPanel` currently
-  replays a take flat; it should go through `PhonautogramReader.attach()`, drive
-  `wow()` per frame and gate on `skipped()`. Capture is untouched -
-  `MicRecorder` and `SongbookStore` keep working exactly as they are.
+- **G1b** **DONE.** READ IT BACK is the fourth option on the review screen, and
+  it was not a re-wire - nothing in the Songbook could play a take at all, so
+  this is the first time anyone can hear one. It goes through the reader's bus,
+  drives `wow_stream()` per frame and drops to silence on `skipped()`. **The
+  machine states the assumption it just made** - "the crank was turned SLOWLY.
+  it is guessing." - because a reading that hid its guess would be a lie rather
+  than a limitation.
+- **G1c** The reading is at the machine, so it uses the non-positional twin.
+  When a trace can be heard from across the bar - or from the stairs, which is
+  the better horror - it wants `attach()`/`wow()` on an
+  `AudioStreamPlayer3D` instead.
 - **G2** Playback belongs to the basement studio, which makes S5 better: the
   studio stops being the Songbook's "capture half" and becomes **the only thing
   in the world that can read a trace back**. That is a far stronger reason for

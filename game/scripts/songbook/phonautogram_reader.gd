@@ -102,6 +102,23 @@ static func guess_speed(trace_id: String, drifting := true) -> float:
 	return 1.0
 
 
+## The non-positional twin, for a reading heard at the machine itself rather
+## than from across the room. Same reader, same guess.
+static func attach_stream(player: AudioStreamPlayer, trace_id: String) -> float:
+	ensure_bus()
+	player.bus = BUS
+	var speed := guess_speed(trace_id)
+	player.pitch_scale = speed
+	return speed
+
+
+static func wow_stream(player: AudioStreamPlayer, base_speed: float,
+		t: float) -> void:
+	var wander := sin(t * 0.7) * 0.020 + sin(t * 2.3 + 1.1) * 0.011
+	wander -= maxf(0.0, sin(t * 0.23)) * 0.014
+	player.pitch_scale = base_speed * (1.0 + wander)
+
+
 ## Send a player through the reader and give it its speed for this reading.
 static func attach(player: AudioStreamPlayer3D, trace_id: String) -> float:
 	ensure_bus()

@@ -24,7 +24,7 @@ const AMBER := Color(0.96, 0.74, 0.28)
 const IVORY := Color(0.90, 0.94, 0.88)
 const BG := Color(0.035, 0.055, 0.042, 0.97)
 
-enum Mode { MENU, EDIT, CLAP, PERFORM, REVIEW }
+enum Mode { MENU, EDIT, CLAP, PERFORM, REVIEW, READING }
 
 var song: SongResource
 var mode: int = Mode.MENU
@@ -44,6 +44,12 @@ var _backing: AudioStreamPlayer
 var _guide: AudioStreamPlayer
 var _mic: MicRecorder
 var _take: AudioStreamWAV
+var _reader: AudioStreamPlayer
+## The speed this reading committed to. Drawn fresh every time, which is why
+## the same trace can come back as a different person - see
+## PhonautogramReader and ORISON_BIBLE III.2.
+var _read_speed := 1.0
+var _read_t := 0.0
 var _rendered: Dictionary = {}
 
 
@@ -367,6 +373,8 @@ func _show_review() -> void:
 	_line("1    KEEP IT", GREEN)
 	_line("2    SING IT AGAIN", GREEN)
 	_line("3    THROW IT AWAY", GREEN_DIM)
+	if _take != null:
+		_line("4    READ IT BACK", GREEN_DIM)
 	_status.text = "nothing leaves this machine unless you keep it."
 
 
@@ -381,6 +389,47 @@ func _keep() -> void:
 			GREEN_DIM, 15)
 	_status.text = "ESC to step away."
 	mode = Mode.MENU
+
+
+## Read the trace. NOT playback - the machine never held a recording, only a
+## line in soot, and what comes out is that line interpreted. It does not know
+## how fast the crank was turned, so it guesses, and the guess is drawn fresh
+## every time. Somebody reading their own take twice can hear two different
+## people, which is exactly what happened to Scott in 2008.
+func _read_back() -> void:
+	mode = Mode.READING
+	_read_t = 0.0
+	if _reader == null:
+		_reader = AudioStreamPlayer.new()
+		add_child(_reader)
+	_reader.stream = _take
+	_read_speed = PhonautogramReader.attach_stream(_reader, "take_%d" % Time.get_ticks_msec())
+	_reader.play()
+
+	_clear()
+	_line("", GREEN)
+	_line("READING THE TRACE.", GREEN, 22)
+	_line("", GREEN, 8)
+	# The machine says what it assumed, because a reading that hid its
+	# assumption would be a lie rather than a limitation.
+	var claim := "the crank was steady."
+	if _read_speed < 0.8:
+		claim = "the crank was turned SLOWLY. it is guessing."
+	elif _read_speed > 1.2:
+		claim = "the crank was turned FAST. it is guessing."
+	elif not is_equal_approx(_read_speed, 1.0):
+		claim = "the crank wandered. it is guessing."
+	_line(claim, GREEN_DIM, 15)
+	_line("", GREEN, 10)
+	_line("this is not what you sang.", GREEN_DIM, 15)
+	_line("it is what the line says you sang.", GREEN_DIM, 15)
+	_status.text = "any key to lift the stylus."
+
+
+func _stop_reading() -> void:
+	if _reader:
+		_reader.stop()
+	_show_review()
 
 
 # --------------------------------------------------------------- INPUT
@@ -422,9 +471,23 @@ func _unhandled_input(event: InputEvent) -> void:
 				_show_clap()
 			elif key == KEY_3:
 				_show_menu()
+			elif key == KEY_4 and _take != null:
+				_read_back()
+		Mode.READING:
+			_stop_reading()
 
 
 func _process(delta: float) -> void:
+	if mode == Mode.READING:
+		_read_t += delta
+		if _reader and _reader.playing:
+			PhonautogramReader.wow_stream(_reader, _read_speed, _read_t)
+			# A skip is SILENT, not quiet: the bristle lifted and nothing was
+			# written, so there is nothing there to make quieter.
+			_reader.volume_db = -60.0 if PhonautogramReader.skipped(_read_t) else 0.0
+		elif _reader and not _reader.playing:
+			_stop_reading()
+		return
 	if mode != Mode.PERFORM:
 		return
 	play_time += delta
