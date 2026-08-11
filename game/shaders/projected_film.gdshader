@@ -1,5 +1,12 @@
 shader_type spatial;
-render_mode blend_add, unshaded, cull_disabled, depth_draw_never;
+render_mode blend_add, unshaded, cull_disabled, depth_draw_never, fog_disabled;
+
+// fog_disabled is not cosmetic, it is the difference between a projection and a
+// glowing rectangle. `unshaded` turns off LIGHTING but Godot still applies fog
+// to the surface, so an additive quad picks up the environment's fog and adds
+// it flat across its whole area - a hard-edged rectangle that survives every
+// aperture, ignores the mask entirely, and is still there when the shader is
+// muted to pure black. Measured at +21.9 luma with gain = 0.
 
 // A 16 mm image thrown onto a wall by a machine that was never very good.
 //

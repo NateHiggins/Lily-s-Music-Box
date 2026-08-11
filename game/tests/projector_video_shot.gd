@@ -23,6 +23,9 @@ const DECAY := 0.055
 const LIVE_ALPHA := 0.5
 const RES := Vector2i(384, 640)
 const FRAMES := 150
+## PROJ_FRAMES shortens a run for A/B checks. A const cannot hold a runtime
+## lookup - that parse error left the scene unable to quit and the run hung.
+var _frames := FRAMES
 
 var _accum: SubViewport
 var _shot_dir := ""
@@ -30,7 +33,14 @@ var _saved := 0
 
 
 func _ready() -> void:
+	# _process is ON by default, so without this the capture starts on frame
+	# zero - before the floor has streamed, before the camera handoff, and
+	# before the plate has accumulated. Every recording so far opened with a
+	# second of the lobby and then cut to the apartment mid-shot.
+	set_process(false)
 	_shot_dir = OS.get_environment("SHOT_DIR")
+	if OS.get_environment("PROJ_FRAMES") != "":
+		_frames = int(OS.get_environment("PROJ_FRAMES"))
 	var reel := OS.get_environment("REEL")
 	if reel == "":
 		reel = "ch_01"
@@ -108,19 +118,34 @@ func _ready() -> void:
 	var mat := ShaderMaterial.new()
 	mat.shader = load("res://shaders/projected_film.gdshader")
 	mat.set_shader_parameter("frame", _accum.get_texture())
+	# Both under 0.41 so the oval closes before the quad edge does.
+	mat.set_shader_parameter("aperture_half", Vector2(0.355, 0.400))
 	mat.set_shader_parameter("plate", 1.0)
 	mat.set_shader_parameter("mono", 1.0)
 	mat.set_shader_parameter("reel_tint", Color(1.06, 0.98, 0.84))
 	mat.set_shader_parameter("mould", 0.42)
 	mat.set_shader_parameter("mould_origin", Vector2(0.14, 0.82))
-	mat.set_shader_parameter("gain", 1.15)
+	# PROJ_MUTE=1 blacks the shader out - the isolation test that found fog.
+	mat.set_shader_parameter("gain", 0.0 if OS.get_environment("PROJ_MUTE") == "1" else 1.15)
 	mat.set_shader_parameter("falloff", 1.05)
 	mat.set_shader_parameter("grain_amount", 0.16)
 	mat.set_shader_parameter("dust_amount", 0.10)
+	# A PROJECTION CANNOT CAST A SHADOW. The quad hangs 2 cm off the plaster and
+	# was still occluding the room's own light, so it stamped a hard rectangle
+	# on the wall that no amount of work on the aperture could remove - the oval
+	# was correct all along and was sitting inside a rectangular shadow.
+	# ArcadeCabinetProp already learned this for its screen; the lesson did not
+	# travel. Anything drawn with blend_add is light, and light does not block.
+	quad.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	quad.material_override = mat
 	quad.position = GameBoot.b2g([-13.62, -1.62, 4.55])
 	quad.rotation.y = PI * 0.5     # QuadMesh faces +Z; turn it to face east
 	add_child(quad)
+	# HIDE_PROJECTION=1 renders the identical shot with the quad switched off.
+	# The only way to tell a rectangle in the SHADER from a rectangle already
+	# painted on that wall is to take the shader away and look again.
+	if OS.get_environment("HIDE_PROJECTION") == "1":
+		quad.visible = false
 
 	# The lamp that is throwing it. Warm, weak, and behind the camera.
 	var lamp := OmniLight3D.new()
@@ -173,6 +198,6 @@ func _process(_delta: float) -> void:
 	get_viewport().get_texture().get_image().save_png(
 			"%s/pv_%04d.png" % [_shot_dir, _saved])
 	_saved += 1
-	if _saved >= FRAMES:
+	if _saved >= _frames:
 		print("[PROJ] %d frames" % _saved)
 		get_tree().quit(0)
