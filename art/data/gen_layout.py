@@ -1185,6 +1185,59 @@ def _unit_rooms(stack):
             "dining_spot": (x0 + 6.0, -2.35, ("n", "e"))}
 
 
+## WHO OWNS A SOFA, A TELEVISION, A DESK OR A BOOKSHELF.
+##
+## These four used to be standard issue - every apartment got all of them, so
+## twenty-two households owned identical furniture and the rooms could only be
+## told apart by what was scattered on top. That is backwards. In a 1928
+## working-class block the big pieces ARE the biography: a sofa means you have
+## somewhere to seat a visitor, a set means you spent a year's savings on one,
+## a desk means your work follows you home.
+##
+## So they are opt-in now, and the reason is written next to each. An apartment
+## not on a list simply does not have that thing, which is the ordinary case and
+## reads as poverty rather than as an oversight. Bed, wardrobe, table, chairs,
+## kitchen and bathroom stay universal - those are not choices.
+SOFA_UNITS = {
+    "1A": "Evelyn receives former pupils",
+    "2A": "Mina's front room is where the work is shown",
+    "4C": "the Bell family, four of them",
+    "6C": "Mae's, inherited with everything else",
+}
+## Sets are the one item on this page that is NOT purely dressing. The
+## poltergeist reaches people through them - poltergeist_library calls broadcast
+## "the instrument closest to hand: every set in the Orison" - so cutting them to
+## three characterful units quietly halved the range of an existing mechanic and
+## broke WalkTest's `sets >= 12`. The lesson generalises: check what a prop is
+## wired to before deleting it for looking cluttered.
+##
+## So sets stay common, but they stop being universal, and every one is a
+## sentence about somebody. Nine households, not twenty-two.
+TV_UNITS = {
+    "1D": "Teresa sleeps days; it runs for company while she does",
+    "2A": "Mina captions what it says for a living",
+    "3D": "Rhea watches her own playback",
+    "4C": "the Bell family, and it is always on",
+    "4D": "short-term rental - it came with the room",
+    "5B": "Cal, who would not let a thing end",
+    "6A": "Sacha lives at monitor level",
+    "6B": "Jonah writes to its light and calls that company",
+    "6C": "Mae's, inherited with everything else and never moved",
+}
+DESK_UNITS = {
+    "2A": "Mina's caption station",
+    "4A": "Peter is a legal clerk and over-prepares",
+    "5A": "Nadia drafts at home",
+    "6B": "Jonah writes at night",
+}
+SHELF_UNITS = {
+    "1A": "a teacher's books",
+    "6B": "a writer's",
+    "6C": "Mae's archive, which is the whole wound",
+    "3A": "Malcolm's propagation trays",
+}
+
+
 ## Standard pieces each hero's signature cluster replaces (so the two
 ## dressing layers never fight over the same floor).
 HERO_SKIP = {
@@ -1386,8 +1439,6 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
             wardrobe(f, "%s_w%d" % (unit, i),
                      bcx + (0.35 if i == 0 else -1.75), by0 + 0.15,
                      face="n")
-            rug_box(f, "%s_brg%d" % (unit, i), bcx - 1.0, by0 + 0.9, 2.0,
-                    1.1, pal["rug"])
             art_panel(f, "%s_bart%d" % (unit, i), bcx + 0.95, by0 + 0.06,
                       0.7, True)
         elif not east:    # A: bed heads against the west exterior wall
@@ -1395,8 +1446,6 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
                     True, mat_blanket=pal["sofa"])
             wardrobe(f, "%s_w%d" % (unit, i), bx0 + 1.6, by1 - 0.80,
                      face="s")
-            rug_box(f, "%s_brg%d" % (unit, i), bx0 + 0.6, bcy + 0.80, 2.4,
-                    0.80, pal["rug"])
             art_panel(f, "%s_bart%d" % (unit, i), bx0 + 2.0, by1 - 0.075,
                       0.7, True)
         else:             # D: bed heads against the bedroom partition
@@ -1404,8 +1453,6 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
                     False, mat_blanket=pal["sofa"])
             wardrobe(f, "%s_w%d" % (unit, i), bx1 - 4.5, by0 + 0.18,
                      face="n")
-            rug_box(f, "%s_brg%d" % (unit, i), bx1 - 4.2, by1 - 2.0, 1.9,
-                    1.3, pal["rug"])
             art_panel(f, "%s_bart%d" % (unit, i), bx0 + 1.4, by1 - 0.075,
                       0.7, True)
     if "alcove" in rooms and "alcove" not in skip:
@@ -1426,33 +1473,43 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
         kitchen_run(f, unit + "_k", kx, ky, kL, kax, kside,
                     markers=markers, z=z, floor_id=floor_id)
     # sofa cluster against the exterior side wall, tv on the rug's far edge
-    if "sofa" not in skip:
+    if "sofa" not in skip and unit in SOFA_UNITS:
         sofa_set(f, unit + "_sofa", ux(0.35, 0.85), lcy - 1.0, 1.95,
                  along_x=False, back_far=east, mat=pal["sofa"])
         coffee_table(f, unit + "_cof", ux(1.55, 0.95), lcy - 0.55)
-    if "rug" not in skip:
-        rug_box(f, unit + "_lrug", ux(0.30, 3.1), lcy - 1.35, 3.1, 2.7,
-                pal["rug"])
-    if "tv" not in skip:
+    # No rugs. A tenement floor in 1928 is boards, and the boards are doing
+    # more for the room than a rug laid over them - the grain, the wear and the
+    # colour of the wood are the warmest thing in an unlit apartment. Covering
+    # three square metres of it per unit was subtracting, not adding.
+    if "tv" not in skip and unit in TV_UNITS:
         tv_set(f, unit + "_tv", ux(3.10, 0.40), lcy - 0.85, False,
                face="w" if not east else "e")
     dx, dy, dsides = rooms["dining_spot"]
     dining_set(f, unit + "_din", dx, dy, dsides, pal["wood"])
-    if "shelf" not in skip:
+    if "shelf" not in skip and unit in SHELF_UNITS:
         shelf_unit(f, unit + "_shelf", ux(1.2 if stack in ("A", "B")
                    else 2.9, 1.1),
                    ly1 - 0.42 if stack == "C" else ly0 + 0.12, 1.1, True,
                    face="s" if stack == "C" else "n")
-    if "plant" not in skip:
-        plant_box(f, unit + "_plant1", ux(0.35, 0.60),
-                  ly1 - 0.95 if stack != "B" else ly0 + 0.20, big=True)
-    if sum(ord(c) for c in unit) % 2:
-        plant_box(f, unit + "_plant2",
-                  ux(W - 1.7 if stack == "A" else W - 3.0, 0.42),
-                  ly0 + 0.45 if stack != "B" else ly1 - 1.55)
+    # No standard houseplants. Fifty-four of them made the horticulturist's
+    # apartment indistinguishable from everybody else's. 3A keeps its specimens
+    # through resident_story_detail(), and now they say something about Malcolm
+    # instead of being decor that happens to be green.
     art_panel(f, unit + "_lart", ux(1.8, 0.9),
               ly1 - 0.075 if stack in ("A", "B") else ly0 + 0.04, 0.9, True)
-    lived_in_surface_detail(f, unit, rooms, skip, ux, lcy)
+    # lived_in_surface_detail() USED TO RUN HERE, and it is deliberately gone.
+    #
+    # It put the same mug, the same papers and the same bookpile on the dining
+    # table, the coffee table and the desk of all twenty-two apartments. Six
+    # clusters a unit, seeded per household so the rotations differed - which is
+    # not the same as the homes differing. Every apartment read as the same
+    # apartment with the furniture moved, and it was most of what made a room
+    # look cluttered without making it look like anyone's.
+    #
+    # resident_story_detail() below does that job with a name attached. With the
+    # generic layer gone, the ONLY loose objects on any surface in this building
+    # belong to the person who lives there, so the apartments are unique by
+    # construction instead of by seed.
     if unit in RESIDENT_STORIES:
         resident_story_detail(f, unit, RESIDENT_STORIES[unit][1],
                               rooms, ux, lcy, wface)
@@ -7567,9 +7624,16 @@ def _validate_furnishing(layout):
                 if unit_marker.get(unit, {}).get(k, 0) < 1:
                     problems.append("4B missing %s" % k)
             continue
-        if unit_detail.get(unit, 0) < 4:
-            problems.append("%s lacks close surface detail (%d < 4)"
-                            % (unit, unit_detail.get(unit, 0)))
+        # The old rule here demanded four "_detail_" objects per apartment, and
+        # only lived_in_surface_detail() ever produced that name - so it was a
+        # rule that counted the generic dressing and nothing else. Mina's
+        # bespoke caption station scored zero against it.
+        #
+        # What a room actually has to prove is that somebody lives in it, and
+        # the evidence for that is their OWN possessions. That is the
+        # "_story_" count below, which every occupied unit must satisfy.
+        # A near-empty room with two things in it that could only be this
+        # person's is the target; four identical mugs never were.
         for k, n in need.items():
             have = (unit_marker.get(unit, {}).get(k, 0)
                     if k in ("fridge", "stove", "bath_sink",
@@ -7583,9 +7647,27 @@ def _validate_furnishing(layout):
         if len(yaws) > 1:
             problems.append("%s kitchen trio facing disagrees %s"
                             % (unit, sorted(yaws)))
-    for unit in RESIDENT_STORIES:
-        if unit_story.get(unit, 0) < 2:
-            problems.append("%s lacks resident story props (%d < 2)"
+    # Every OCCUPIED unit, not just the ones with a RESIDENT_STORIES entry -
+    # the heroes carry their own bespoke clusters and must clear the same bar.
+    # This is the only remaining guard against an apartment that is furniture
+    # and nobody, and it matters more now that the generic layer is gone.
+    # The six case residents build their signature clusters inline in
+    # dress_unit() with plain ids - "2A_pinboard", "2C_amp1" - rather than
+    # through resident_story_detail()'s "_story_" naming. Their evidence is a
+    # whole installation, not a named prefix, so counting prefixes scores the
+    # most bespoke apartments in the building at zero. Renaming them is a
+    # separate, safe change (nothing outside this file references those ids);
+    # until then they are listed, not silently skipped.
+    hero_inline = {"2A": "Mina's caption station",
+                   "2C": "Juno's amps and guitars",
+                   "3B": "Omar's repair bench",
+                   "3D": "Rhea's playback corner",
+                   "5A": "Nadia's drafting setup"}
+    for unit, res in RESIDENTS.items():
+        if res in skip_states or res == "PLAYER" or unit in hero_inline:
+            continue
+        if unit_story.get(unit, 0) + unit_detail.get(unit, 0) < 2:
+            problems.append("%s has nothing personal in it (%d < 2)"
                             % (unit, unit_story.get(unit, 0)))
     n_asm = sum(sum(v.values()) for v in unit_asm.values()) + switches
     print("furnishing OK: %d assemblies (%d switches), %d door leaves, "

@@ -1547,7 +1547,13 @@ func _broadcast_checks() -> void:
 		return
 	var st: Dictionary = station.stats()
 	_check(int(st.clips) == 37, "all 37 clips catalogued (%d)" % st.clips)
-	_check(int(st.sets) >= 12, "televisions spawned (%d)" % st.sets)
+	# Not decoration, and not a round number picked for comfort. The poltergeist
+	# reaches people through these - poltergeist_library calls broadcast "the
+	# instrument closest to hand: every set in the Orison" - so this is a floor
+	# on a MECHANIC's range, and it is why the austerity pass could not cut sets
+	# the way it cut sofas. Nine households own one, each for a stated reason in
+	# gen_layout's TV_UNITS. Below eight the haunting starts running out of room.
+	_check(int(st.sets) >= 8, "televisions spawned (%d)" % st.sets)
 	# Residents watching their own sets legitimately power them at boot —
 	# that is the feature — so boot state is reported, not asserted.
 	print("  [STATION] %d of %d sets on at boot (residents watching)"

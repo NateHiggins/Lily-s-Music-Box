@@ -8631,18 +8631,6 @@
      "W": 1.3
     },
     {
-     "id": "1A_brg0_rug",
-     "rect": [
-      -13.05,
-      -7.15,
-      -10.65,
-      -6.3500000000000005
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_green"
-    },
-    {
      "id": "1A_bart0_art",
      "rect": [
       -11.65,
@@ -8795,27 +8783,6 @@
      "yaw": 197
     },
     {
-     "id": "1A_lrug_rug",
-     "rect": [
-      -13.35,
-      -4.7,
-      -10.25,
-      -2.0
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_green"
-    },
-    {
-     "id": "1A_tv",
-     "asm": "tv",
-     "at": [
-      -10.34,
-      -3.575
-     ],
-     "yaw": 270
-    },
-    {
      "id": "1A_din_t",
      "asm": "table_rect",
      "at": [
@@ -8856,17 +8823,6 @@
      "W": 1.1,
      "H": 1.85,
      "books": true
-    },
-    {
-     "id": "1A_plant1",
-     "asm": "plant",
-     "at": [
-      -13.12,
-      -1.22
-     ],
-     "yaw": 333,
-     "big": true,
-     "species": "aspidistra"
     },
     {
      "id": "1A_lart_art",
@@ -8927,51 +8883,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "1A_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      -8.71,
-      -3.02
-     ],
-     "yaw": 151,
-     "z0": 0.75,
-     "mat": "ceramic"
-    },
-    {
-     "id": "1A_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      -8.67,
-      -3.2
-     ],
-     "yaw": -8,
-     "z0": 0.75,
-     "n": 6,
-     "mess": 0.63
-    },
-    {
-     "id": "1A_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      -11.805,
-      -3.605
-     ],
-     "yaw": -11,
-     "z0": 0.37,
-     "n": 4
-    },
-    {
-     "id": "1A_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      -11.425,
-      -3.685
-     ],
-     "yaw": 139,
-     "z0": 0.37,
-     "mat": "ceramic"
     },
     {
      "id": "1A_story_marked_books",
@@ -9084,18 +8995,6 @@
      ],
      "yaw": 0,
      "W": 1.3
-    },
-    {
-     "id": "1D_brg0_rug",
-     "rect": [
-      9.45,
-      -8.25,
-      11.35,
-      -6.95
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_warm"
     },
     {
      "id": "1D_bart0_art",
@@ -9260,39 +9159,6 @@
      "mat": "brass_dull"
     },
     {
-     "id": "1D_sofa",
-     "asm": "sofa",
-     "at": [
-      12.875,
-      -3.65
-     ],
-     "yaw": 90,
-     "L": 1.95,
-     "mat": "fabric_warm",
-     "leg_mat": "wood_dark"
-    },
-    {
-     "id": "1D_cof",
-     "asm": "coffee",
-     "at": [
-      11.625,
-      -3.9
-     ],
-     "yaw": 308
-    },
-    {
-     "id": "1D_lrug_rug",
-     "rect": [
-      10.25,
-      -4.975,
-      13.35,
-      -2.2749999999999995
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_warm"
-    },
-    {
      "id": "1D_tv",
      "asm": "tv",
      "at": [
@@ -9328,40 +9194,6 @@
       -2.35
      ],
      "yaw": 90
-    },
-    {
-     "id": "1D_shelf",
-     "asm": "shelf",
-     "at": [
-      10.2,
-      -5.98
-     ],
-     "yaw": 0,
-     "W": 1.1,
-     "H": 1.85,
-     "books": true
-    },
-    {
-     "id": "1D_plant1",
-     "asm": "plant",
-     "at": [
-      12.88,
-      -1.77
-     ],
-     "yaw": 132,
-     "big": true,
-     "species": "fern"
-    },
-    {
-     "id": "1D_plant2",
-     "asm": "plant",
-     "at": [
-      8.23,
-      -5.66
-     ],
-     "yaw": 185,
-     "big": false,
-     "species": "fern"
     },
     {
      "id": "1D_lart_art",
@@ -9422,74 +9254,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "1D_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      11.35,
-      -2.27
-     ],
-     "yaw": 325,
-     "z0": 0.75,
-     "mat": "ceramic"
-    },
-    {
-     "id": "1D_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      11.39,
-      -2.45
-     ],
-     "yaw": 4,
-     "z0": 0.75,
-     "n": 4,
-     "mess": 0.15
-    },
-    {
-     "id": "1D_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      11.445,
-      -3.88
-     ],
-     "yaw": 7,
-     "z0": 0.37,
-     "n": 4
-    },
-    {
-     "id": "1D_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      11.825,
-      -3.96
-     ],
-     "yaw": 25,
-     "z0": 0.37,
-     "mat": "porcelain"
-    },
-    {
-     "id": "1D_detail_desk_papers",
-     "asm": "papers",
-     "at": [
-      7.345,
-      -2.0
-     ],
-     "yaw": -90,
-     "z0": 0.74,
-     "n": 6,
-     "mess": 0.43
-    },
-    {
-     "id": "1D_detail_desk_mug",
-     "asm": "mug",
-     "at": [
-      7.185,
-      -1.67
-     ],
-     "yaw": 335,
-     "z0": 0.74,
-     "mat": "ceramic"
     },
     {
      "id": "1D_story_meds",
@@ -67719,32 +67483,12 @@
      "z": 0.0
     },
     {
-     "id": "1D_REST_PRIMARY",
-     "unit": "1D",
-     "socket": "REST_PRIMARY",
-     "at": [
-      12.475,
-      -3.65
-     ],
-     "z": 0.0
-    },
-    {
      "id": "1D_DINING_SURFACE",
      "unit": "1D",
      "socket": "DINING_SURFACE",
      "at": [
       11.51,
       -2.35
-     ],
-     "z": 0.0
-    },
-    {
-     "id": "1D_WORK_ARCHIVE",
-     "unit": "1D",
-     "socket": "WORK_ARCHIVE",
-     "at": [
-      10.2,
-      -5.73
      ],
      "z": 0.0
     },
@@ -70604,18 +70348,6 @@
      "W": 1.3
     },
     {
-     "id": "2A_brg0_rug",
-     "rect": [
-      -13.05,
-      -7.15,
-      -10.65,
-      -6.3500000000000005
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_cool"
-    },
-    {
      "id": "2A_bart0_art",
      "rect": [
       -11.65,
@@ -70778,18 +70510,6 @@
      "yaw": 234
     },
     {
-     "id": "2A_lrug_rug",
-     "rect": [
-      -13.35,
-      -4.7,
-      -10.25,
-      -2.0
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_cool"
-    },
-    {
      "id": "2A_tv",
      "asm": "tv",
      "at": [
@@ -70825,28 +70545,6 @@
       -3.1
      ],
      "yaw": 90
-    },
-    {
-     "id": "2A_plant1",
-     "asm": "plant",
-     "at": [
-      -13.12,
-      -1.22
-     ],
-     "yaw": 26,
-     "big": true,
-     "species": "pothos"
-    },
-    {
-     "id": "2A_plant2",
-     "asm": "plant",
-     "at": [
-      -7.07,
-      -5.66
-     ],
-     "yaw": 79,
-     "big": false,
-     "species": "pothos"
     },
     {
      "id": "2A_lart_art",
@@ -70907,51 +70605,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "2A_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      -8.39,
-      -3.02
-     ],
-     "yaw": 180,
-     "z0": 0.75,
-     "mat": "porcelain"
-    },
-    {
-     "id": "2A_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      -8.67,
-      -3.2
-     ],
-     "yaw": -9,
-     "z0": 0.75,
-     "n": 3,
-     "mess": 0.15
-    },
-    {
-     "id": "2A_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      -11.805,
-      -3.605
-     ],
-     "yaw": 0,
-     "z0": 0.37,
-     "n": 2
-    },
-    {
-     "id": "2A_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      -11.425,
-      -3.685
-     ],
-     "yaw": 180,
-     "z0": 0.37,
-     "mat": "porcelain"
     },
     {
      "id": "2A_desk",
@@ -71220,48 +70873,6 @@
      "mat": "brass_dull"
     },
     {
-     "id": "2B_sofa",
-     "asm": "sofa",
-     "at": [
-      -12.875,
-      4.56
-     ],
-     "yaw": -90,
-     "L": 1.95,
-     "mat": "fabric_green",
-     "leg_mat": "chrome"
-    },
-    {
-     "id": "2B_cof",
-     "asm": "coffee",
-     "at": [
-      -11.625,
-      4.31
-     ],
-     "yaw": 271
-    },
-    {
-     "id": "2B_lrug_rug",
-     "rect": [
-      -13.35,
-      3.235,
-      -10.25,
-      5.9350000000000005
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_warm"
-    },
-    {
-     "id": "2B_tv",
-     "asm": "tv",
-     "at": [
-      -10.34,
-      4.36
-     ],
-     "yaw": 270
-    },
-    {
      "id": "2B_din_t",
      "asm": "table_rect",
      "at": [
@@ -71290,29 +70901,6 @@
       4.6
      ],
      "yaw": 180
-    },
-    {
-     "id": "2B_shelf",
-     "asm": "shelf",
-     "at": [
-      -11.9,
-      2.94
-     ],
-     "yaw": 0,
-     "W": 1.1,
-     "H": 1.85,
-     "books": true
-    },
-    {
-     "id": "2B_plant1",
-     "asm": "plant",
-     "at": [
-      -13.12,
-      3.05
-     ],
-     "yaw": 79,
-     "big": true,
-     "species": "spider"
     },
     {
      "id": "2B_lart_art",
@@ -71373,51 +70961,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "2B_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      -8.09,
-      3.9
-     ],
-     "yaw": 238,
-     "z0": 0.75,
-     "mat": "porcelain"
-    },
-    {
-     "id": "2B_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      -8.37,
-      3.72
-     ],
-     "yaw": 7,
-     "z0": 0.75,
-     "n": 5,
-     "mess": 0.39
-    },
-    {
-     "id": "2B_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      -11.805,
-      4.33
-     ],
-     "yaw": -2,
-     "z0": 0.37,
-     "n": 4
-    },
-    {
-     "id": "2B_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      -11.425,
-      4.25
-     ],
-     "yaw": 262,
-     "z0": 0.37,
-     "mat": "ceramic"
     },
     {
      "id": "2B_story_notions",
@@ -71521,18 +71064,6 @@
      "W": 1.3
     },
     {
-     "id": "2C_brg0_rug",
-     "rect": [
-      6.545,
-      7.15,
-      8.545,
-      8.25
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_warm"
-    },
-    {
      "id": "2C_bart0_art",
      "rect": [
       8.495,
@@ -71622,18 +71153,6 @@
      ],
      "yaw": 0,
      "W": 1.3
-    },
-    {
-     "id": "2C_brg1_rug",
-     "rect": [
-      10.615,
-      7.15,
-      12.615,
-      8.25
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_warm"
     },
     {
      "id": "2C_bart1_art",
@@ -71813,36 +71332,6 @@
      "mat": "brass_dull"
     },
     {
-     "id": "2C_sofa",
-     "asm": "sofa",
-     "at": [
-      12.875,
-      2.66
-     ],
-     "yaw": 90,
-     "L": 1.95,
-     "mat": "fabric_warm",
-     "leg_mat": "wood_dark"
-    },
-    {
-     "id": "2C_cof",
-     "asm": "coffee",
-     "at": [
-      11.625,
-      2.41
-     ],
-     "yaw": 308
-    },
-    {
-     "id": "2C_tv",
-     "asm": "tv",
-     "at": [
-      10.36,
-      2.46
-     ],
-     "yaw": 90
-    },
-    {
      "id": "2C_din_t",
      "asm": "table_round",
      "at": [
@@ -71869,40 +71358,6 @@
       2.22
      ],
      "yaw": -90
-    },
-    {
-     "id": "2C_shelf",
-     "asm": "shelf",
-     "at": [
-      10.2,
-      5.98
-     ],
-     "yaw": 180,
-     "W": 1.1,
-     "H": 1.85,
-     "books": true
-    },
-    {
-     "id": "2C_plant1",
-     "asm": "plant",
-     "at": [
-      12.88,
-      5.48
-     ],
-     "yaw": 132,
-     "big": true,
-     "species": "sansevieria"
-    },
-    {
-     "id": "2C_plant2",
-     "asm": "plant",
-     "at": [
-      8.23,
-      -0.29
-     ],
-     "yaw": 185,
-     "big": false,
-     "species": "sansevieria"
     },
     {
      "id": "2C_lart_art",
@@ -71963,51 +71418,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "2C_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      8.67,
-      2.3
-     ],
-     "yaw": 296,
-     "z0": 0.75,
-     "mat": "porcelain"
-    },
-    {
-     "id": "2C_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      8.39,
-      2.12
-     ],
-     "yaw": 5,
-     "z0": 0.75,
-     "n": 3,
-     "mess": 0.63
-    },
-    {
-     "id": "2C_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      11.445,
-      2.43
-     ],
-     "yaw": -4,
-     "z0": 0.37,
-     "n": 3
-    },
-    {
-     "id": "2C_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      11.825,
-      2.35
-     ],
-     "yaw": 344,
-     "z0": 0.37,
-     "mat": "porcelain"
     },
     {
      "id": "2C_bench",
@@ -76618,32 +76028,12 @@
      "z": 3.2
     },
     {
-     "id": "2B_REST_PRIMARY",
-     "unit": "2B",
-     "socket": "REST_PRIMARY",
-     "at": [
-      -12.475,
-      4.56
-     ],
-     "z": 3.2
-    },
-    {
      "id": "2B_DINING_SURFACE",
      "unit": "2B",
      "socket": "DINING_SURFACE",
      "at": [
       -8.25,
       3.82
-     ],
-     "z": 3.2
-    },
-    {
-     "id": "2B_WORK_ARCHIVE",
-     "unit": "2B",
-     "socket": "WORK_ARCHIVE",
-     "at": [
-      -11.9,
-      3.19
      ],
      "z": 3.2
     },
@@ -76738,32 +76128,12 @@
      "z": 3.2
     },
     {
-     "id": "2C_REST_PRIMARY",
-     "unit": "2C",
-     "socket": "REST_PRIMARY",
-     "at": [
-      12.475,
-      2.66
-     ],
-     "z": 3.2
-    },
-    {
      "id": "2C_DINING_SURFACE",
      "unit": "2C",
      "socket": "DINING_SURFACE",
      "at": [
       8.51,
       2.22
-     ],
-     "z": 3.2
-    },
-    {
-     "id": "2C_WORK_ARCHIVE",
-     "unit": "2C",
-     "socket": "WORK_ARCHIVE",
-     "at": [
-      10.2,
-      5.73
      ],
      "z": 3.2
     },
@@ -79672,18 +79042,6 @@
      "W": 1.3
     },
     {
-     "id": "3A_brg0_rug",
-     "rect": [
-      -13.05,
-      -7.15,
-      -10.65,
-      -6.3500000000000005
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_warm"
-    },
-    {
      "id": "3A_bart0_art",
      "rect": [
       -11.65,
@@ -79825,48 +79183,6 @@
      "mat": "brass_dull"
     },
     {
-     "id": "3A_sofa",
-     "asm": "sofa",
-     "at": [
-      -12.875,
-      -3.375
-     ],
-     "yaw": -90,
-     "L": 1.95,
-     "mat": "fabric_green",
-     "leg_mat": "chrome"
-    },
-    {
-     "id": "3A_cof",
-     "asm": "coffee",
-     "at": [
-      -11.625,
-      -3.625
-     ],
-     "yaw": 271
-    },
-    {
-     "id": "3A_lrug_rug",
-     "rect": [
-      -13.35,
-      -4.7,
-      -10.25,
-      -2.0
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_warm"
-    },
-    {
-     "id": "3A_tv",
-     "asm": "tv",
-     "at": [
-      -10.34,
-      -3.575
-     ],
-     "yaw": 270
-    },
-    {
      "id": "3A_din_t",
      "asm": "table_rect",
      "at": [
@@ -79895,17 +79211,6 @@
       -3.1
      ],
      "yaw": 90
-    },
-    {
-     "id": "3A_plant1",
-     "asm": "plant",
-     "at": [
-      -13.12,
-      -1.22
-     ],
-     "yaw": 79,
-     "big": true,
-     "species": "rubber"
     },
     {
      "id": "3A_lart_art",
@@ -79966,51 +79271,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "3A_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      -8.71,
-      -3.02
-     ],
-     "yaw": 209,
-     "z0": 0.75,
-     "mat": "ceramic"
-    },
-    {
-     "id": "3A_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      -8.67,
-      -3.2
-     ],
-     "yaw": 8,
-     "z0": 0.75,
-     "n": 4,
-     "mess": 0.27
-    },
-    {
-     "id": "3A_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      -11.805,
-      -3.605
-     ],
-     "yaw": 11,
-     "z0": 0.37,
-     "n": 3
-    },
-    {
-     "id": "3A_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      -11.425,
-      -3.685
-     ],
-     "yaw": 221,
-     "z0": 0.37,
-     "mat": "porcelain"
     },
     {
      "id": "3A_story_cuttings",
@@ -80191,48 +79451,6 @@
      "mat": "brass_dull"
     },
     {
-     "id": "3B_sofa",
-     "asm": "sofa",
-     "at": [
-      -12.875,
-      4.56
-     ],
-     "yaw": -90,
-     "L": 1.95,
-     "mat": "fabric_warm",
-     "leg_mat": "wood_dark"
-    },
-    {
-     "id": "3B_cof",
-     "asm": "coffee",
-     "at": [
-      -11.625,
-      4.31
-     ],
-     "yaw": 308
-    },
-    {
-     "id": "3B_lrug_rug",
-     "rect": [
-      -13.35,
-      3.235,
-      -10.25,
-      5.9350000000000005
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_warm"
-    },
-    {
-     "id": "3B_tv",
-     "asm": "tv",
-     "at": [
-      -10.34,
-      4.36
-     ],
-     "yaw": 270
-    },
-    {
      "id": "3B_din_t",
      "asm": "table_round",
      "at": [
@@ -80259,40 +79477,6 @@
       4.6
      ],
      "yaw": 180
-    },
-    {
-     "id": "3B_shelf",
-     "asm": "shelf",
-     "at": [
-      -11.9,
-      2.94
-     ],
-     "yaw": 0,
-     "W": 1.1,
-     "H": 1.85,
-     "books": true
-    },
-    {
-     "id": "3B_plant1",
-     "asm": "plant",
-     "at": [
-      -13.12,
-      3.05
-     ],
-     "yaw": 132,
-     "big": true,
-     "species": "sansevieria"
-    },
-    {
-     "id": "3B_plant2",
-     "asm": "plant",
-     "at": [
-      -8.37,
-      5.09
-     ],
-     "yaw": 185,
-     "big": false,
-     "species": "sansevieria"
     },
     {
      "id": "3B_lart_art",
@@ -80353,51 +79537,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "3B_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      -8.41,
-      3.9
-     ],
-     "yaw": 267,
-     "z0": 0.75,
-     "mat": "ceramic"
-    },
-    {
-     "id": "3B_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      -8.37,
-      3.72
-     ],
-     "yaw": 6,
-     "z0": 0.75,
-     "n": 6,
-     "mess": 0.51
-    },
-    {
-     "id": "3B_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      -11.805,
-      4.33
-     ],
-     "yaw": 9,
-     "z0": 0.37,
-     "n": 2
-    },
-    {
-     "id": "3B_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      -11.425,
-      4.25
-     ],
-     "yaw": 303,
-     "z0": 0.37,
-     "mat": "ceramic"
     },
     {
      "id": "3B_workbench",
@@ -80850,18 +79989,6 @@
      "W": 1.3
     },
     {
-     "id": "3D_brg0_rug",
-     "rect": [
-      9.45,
-      -8.25,
-      11.35,
-      -6.95
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_cool"
-    },
-    {
      "id": "3D_bart0_art",
      "rect": [
       6.91,
@@ -81024,39 +80151,6 @@
      "mat": "brass_dull"
     },
     {
-     "id": "3D_sofa",
-     "asm": "sofa",
-     "at": [
-      12.875,
-      -3.65
-     ],
-     "yaw": 90,
-     "L": 1.95,
-     "mat": "fabric_green",
-     "leg_mat": "chrome"
-    },
-    {
-     "id": "3D_cof",
-     "asm": "coffee",
-     "at": [
-      11.625,
-      -3.9
-     ],
-     "yaw": 22
-    },
-    {
-     "id": "3D_lrug_rug",
-     "rect": [
-      10.25,
-      -4.975,
-      13.35,
-      -2.2749999999999995
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_cool"
-    },
-    {
      "id": "3D_din_t",
      "asm": "table_round",
      "at": [
@@ -81083,40 +80177,6 @@
       -2.35
      ],
      "yaw": 90
-    },
-    {
-     "id": "3D_shelf",
-     "asm": "shelf",
-     "at": [
-      10.2,
-      -5.98
-     ],
-     "yaw": 0,
-     "W": 1.1,
-     "H": 1.85,
-     "books": true
-    },
-    {
-     "id": "3D_plant1",
-     "asm": "plant",
-     "at": [
-      12.88,
-      -1.77
-     ],
-     "yaw": 238,
-     "big": true,
-     "species": "pothos"
-    },
-    {
-     "id": "3D_plant2",
-     "asm": "plant",
-     "at": [
-      8.23,
-      -5.66
-     ],
-     "yaw": 291,
-     "big": false,
-     "species": "pothos"
     },
     {
      "id": "3D_lart_art",
@@ -81177,74 +80237,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "3D_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      11.35,
-      -2.27
-     ],
-     "yaw": 23,
-     "z0": 0.75,
-     "mat": "ceramic"
-    },
-    {
-     "id": "3D_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      11.39,
-      -2.45
-     ],
-     "yaw": 2,
-     "z0": 0.75,
-     "n": 6,
-     "mess": 0.39
-    },
-    {
-     "id": "3D_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      11.445,
-      -3.88
-     ],
-     "yaw": 5,
-     "z0": 0.37,
-     "n": 3
-    },
-    {
-     "id": "3D_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      11.825,
-      -3.96
-     ],
-     "yaw": 107,
-     "z0": 0.37,
-     "mat": "ceramic"
-    },
-    {
-     "id": "3D_detail_desk_papers",
-     "asm": "papers",
-     "at": [
-      7.345,
-      -2.0
-     ],
-     "yaw": -88,
-     "z0": 0.74,
-     "n": 8,
-     "mess": 0.79
-    },
-    {
-     "id": "3D_detail_desk_mug",
-     "asm": "mug",
-     "at": [
-      7.185,
-      -1.67
-     ],
-     "yaw": 37,
-     "z0": 0.74,
-     "mat": "porcelain"
     },
     {
      "id": "3D_booth_w",
@@ -85550,16 +84542,6 @@
      "z": 6.4
     },
     {
-     "id": "3A_REST_PRIMARY",
-     "unit": "3A",
-     "socket": "REST_PRIMARY",
-     "at": [
-      -12.475,
-      -3.375
-     ],
-     "z": 6.4
-    },
-    {
      "id": "3A_DINING_SURFACE",
      "unit": "3A",
      "socket": "DINING_SURFACE",
@@ -85630,32 +84612,12 @@
      "z": 6.4
     },
     {
-     "id": "3B_REST_PRIMARY",
-     "unit": "3B",
-     "socket": "REST_PRIMARY",
-     "at": [
-      -12.475,
-      4.56
-     ],
-     "z": 6.4
-    },
-    {
      "id": "3B_DINING_SURFACE",
      "unit": "3B",
      "socket": "DINING_SURFACE",
      "at": [
       -8.25,
       3.82
-     ],
-     "z": 6.4
-    },
-    {
-     "id": "3B_WORK_ARCHIVE",
-     "unit": "3B",
-     "socket": "WORK_ARCHIVE",
-     "at": [
-      -11.9,
-      3.19
      ],
      "z": 6.4
     },
@@ -85770,32 +84732,12 @@
      "z": 6.4
     },
     {
-     "id": "3D_REST_PRIMARY",
-     "unit": "3D",
-     "socket": "REST_PRIMARY",
-     "at": [
-      12.475,
-      -3.65
-     ],
-     "z": 6.4
-    },
-    {
      "id": "3D_DINING_SURFACE",
      "unit": "3D",
      "socket": "DINING_SURFACE",
      "at": [
       11.51,
       -2.35
-     ],
-     "z": 6.4
-    },
-    {
-     "id": "3D_WORK_ARCHIVE",
-     "unit": "3D",
-     "socket": "WORK_ARCHIVE",
-     "at": [
-      10.2,
-      -5.73
      ],
      "z": 6.4
     },
@@ -89044,18 +87986,6 @@
      "W": 1.3
     },
     {
-     "id": "4A_brg0_rug",
-     "rect": [
-      -13.05,
-      -7.15,
-      -10.65,
-      -6.3500000000000005
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_warm"
-    },
-    {
      "id": "4A_bart0_art",
      "rect": [
       -11.65,
@@ -89197,48 +88127,6 @@
      "mat": "brass_dull"
     },
     {
-     "id": "4A_sofa",
-     "asm": "sofa",
-     "at": [
-      -12.875,
-      -3.375
-     ],
-     "yaw": -90,
-     "L": 1.95,
-     "mat": "fabric_warm",
-     "leg_mat": "wood_dark"
-    },
-    {
-     "id": "4A_cof",
-     "asm": "coffee",
-     "at": [
-      -11.625,
-      -3.625
-     ],
-     "yaw": 308
-    },
-    {
-     "id": "4A_lrug_rug",
-     "rect": [
-      -13.35,
-      -4.7,
-      -10.25,
-      -2.0
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_warm"
-    },
-    {
-     "id": "4A_tv",
-     "asm": "tv",
-     "at": [
-      -10.34,
-      -3.575
-     ],
-     "yaw": 270
-    },
-    {
      "id": "4A_din_t",
      "asm": "table_round",
      "at": [
@@ -89265,28 +88153,6 @@
       -3.1
      ],
      "yaw": 90
-    },
-    {
-     "id": "4A_plant1",
-     "asm": "plant",
-     "at": [
-      -13.12,
-      -1.22
-     ],
-     "yaw": 132,
-     "big": true,
-     "species": "dead"
-    },
-    {
-     "id": "4A_plant2",
-     "asm": "plant",
-     "at": [
-      -7.07,
-      -5.66
-     ],
-     "yaw": 185,
-     "big": false,
-     "species": "dead"
     },
     {
      "id": "4A_lart_art",
@@ -89347,51 +88213,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "4A_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      -8.39,
-      -3.02
-     ],
-     "yaw": 238,
-     "z0": 0.75,
-     "mat": "porcelain"
-    },
-    {
-     "id": "4A_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      -8.67,
-      -3.2
-     ],
-     "yaw": 7,
-     "z0": 0.75,
-     "n": 5,
-     "mess": 0.39
-    },
-    {
-     "id": "4A_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      -11.805,
-      -3.605
-     ],
-     "yaw": -2,
-     "z0": 0.37,
-     "n": 4
-    },
-    {
-     "id": "4A_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      -11.425,
-      -3.685
-     ],
-     "yaw": 262,
-     "z0": 0.37,
-     "mat": "ceramic"
     },
     {
      "id": "4A_story_casebooks",
@@ -90647,18 +89468,6 @@
      "W": 1.3
     },
     {
-     "id": "4C_brg0_rug",
-     "rect": [
-      6.545,
-      7.15,
-      8.545,
-      8.25
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_cool"
-    },
-    {
      "id": "4C_bart0_art",
      "rect": [
       8.495,
@@ -90748,18 +89557,6 @@
      ],
      "yaw": 0,
      "W": 1.3
-    },
-    {
-     "id": "4C_brg1_rug",
-     "rect": [
-      10.615,
-      7.15,
-      12.615,
-      8.25
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_cool"
     },
     {
      "id": "4C_bart1_art",
@@ -90914,18 +89711,6 @@
      "yaw": 22
     },
     {
-     "id": "4C_lrug_rug",
-     "rect": [
-      10.25,
-      1.335,
-      13.35,
-      4.035
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_cool"
-    },
-    {
      "id": "4C_tv",
      "asm": "tv",
      "at": [
@@ -90961,40 +89746,6 @@
       2.22
      ],
      "yaw": -90
-    },
-    {
-     "id": "4C_shelf",
-     "asm": "shelf",
-     "at": [
-      10.2,
-      5.98
-     ],
-     "yaw": 180,
-     "W": 1.1,
-     "H": 1.85,
-     "books": true
-    },
-    {
-     "id": "4C_plant1",
-     "asm": "plant",
-     "at": [
-      12.88,
-      5.48
-     ],
-     "yaw": 238,
-     "big": true,
-     "species": "spider"
-    },
-    {
-     "id": "4C_plant2",
-     "asm": "plant",
-     "at": [
-      8.23,
-      -0.29
-     ],
-     "yaw": 291,
-     "big": false,
-     "species": "spider"
     },
     {
      "id": "4C_lart_art",
@@ -91055,51 +89806,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "4C_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      8.67,
-      2.3
-     ],
-     "yaw": 354,
-     "z0": 0.75,
-     "mat": "porcelain"
-    },
-    {
-     "id": "4C_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      8.39,
-      2.12
-     ],
-     "yaw": 3,
-     "z0": 0.75,
-     "n": 5,
-     "mess": 0.27
-    },
-    {
-     "id": "4C_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      11.445,
-      2.43
-     ],
-     "yaw": -6,
-     "z0": 0.37,
-     "n": 2
-    },
-    {
-     "id": "4C_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      11.825,
-      2.35
-     ],
-     "yaw": 66,
-     "z0": 0.37,
-     "mat": "ceramic"
     },
     {
      "id": "4C_story_schoolbooks",
@@ -91212,18 +89918,6 @@
      ],
      "yaw": 0,
      "W": 1.3
-    },
-    {
-     "id": "4D_brg0_rug",
-     "rect": [
-      9.45,
-      -8.25,
-      11.35,
-      -6.95
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_cool"
     },
     {
      "id": "4D_bart0_art",
@@ -91398,39 +90092,6 @@
      "mat": "brass_dull"
     },
     {
-     "id": "4D_sofa",
-     "asm": "sofa",
-     "at": [
-      12.875,
-      -3.65
-     ],
-     "yaw": 90,
-     "L": 1.95,
-     "mat": "fabric_warm",
-     "leg_mat": "wood_dark"
-    },
-    {
-     "id": "4D_cof",
-     "asm": "coffee",
-     "at": [
-      11.625,
-      -3.9
-     ],
-     "yaw": 59
-    },
-    {
-     "id": "4D_lrug_rug",
-     "rect": [
-      10.25,
-      -4.975,
-      13.35,
-      -2.2749999999999995
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_cool"
-    },
-    {
      "id": "4D_tv",
      "asm": "tv",
      "at": [
@@ -91468,29 +90129,6 @@
       -2.35
      ],
      "yaw": 90
-    },
-    {
-     "id": "4D_shelf",
-     "asm": "shelf",
-     "at": [
-      10.2,
-      -5.98
-     ],
-     "yaw": 0,
-     "W": 1.1,
-     "H": 1.85,
-     "books": true
-    },
-    {
-     "id": "4D_plant1",
-     "asm": "plant",
-     "at": [
-      12.88,
-      -1.77
-     ],
-     "yaw": 291,
-     "big": true,
-     "species": "dead"
     },
     {
      "id": "4D_lart_art",
@@ -91551,74 +90189,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "4D_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      11.67,
-      -2.27
-     ],
-     "yaw": 52,
-     "z0": 0.75,
-     "mat": "porcelain"
-    },
-    {
-     "id": "4D_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      11.39,
-      -2.45
-     ],
-     "yaw": 1,
-     "z0": 0.75,
-     "n": 3,
-     "mess": 0.51
-    },
-    {
-     "id": "4D_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      11.445,
-      -3.88
-     ],
-     "yaw": -8,
-     "z0": 0.37,
-     "n": 4
-    },
-    {
-     "id": "4D_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      11.825,
-      -3.96
-     ],
-     "yaw": 148,
-     "z0": 0.37,
-     "mat": "porcelain"
-    },
-    {
-     "id": "4D_detail_desk_papers",
-     "asm": "papers",
-     "at": [
-      7.345,
-      -2.0
-     ],
-     "yaw": -87,
-     "z0": 0.74,
-     "n": 5,
-     "mess": 0.25
-    },
-    {
-     "id": "4D_detail_desk_mug",
-     "asm": "mug",
-     "at": [
-      7.185,
-      -1.67
-     ],
-     "yaw": 68,
-     "z0": 0.74,
-     "mat": "porcelain"
     },
     {
      "id": "4D_story_city_guides",
@@ -95781,16 +94351,6 @@
      "z": 9.6
     },
     {
-     "id": "4A_REST_PRIMARY",
-     "unit": "4A",
-     "socket": "REST_PRIMARY",
-     "at": [
-      -12.475,
-      -3.375
-     ],
-     "z": 9.6
-    },
-    {
      "id": "4A_DINING_SURFACE",
      "unit": "4A",
      "socket": "DINING_SURFACE",
@@ -95941,16 +94501,6 @@
      "z": 9.6
     },
     {
-     "id": "4C_WORK_ARCHIVE",
-     "unit": "4C",
-     "socket": "WORK_ARCHIVE",
-     "at": [
-      10.2,
-      5.73
-     ],
-     "z": 9.6
-    },
-    {
      "id": "4D_TOILET_SIDE",
      "unit": "4D",
      "socket": "TOILET_SIDE",
@@ -96031,32 +94581,12 @@
      "z": 9.6
     },
     {
-     "id": "4D_REST_PRIMARY",
-     "unit": "4D",
-     "socket": "REST_PRIMARY",
-     "at": [
-      12.475,
-      -3.65
-     ],
-     "z": 9.6
-    },
-    {
      "id": "4D_DINING_SURFACE",
      "unit": "4D",
      "socket": "DINING_SURFACE",
      "at": [
       11.51,
       -2.35
-     ],
-     "z": 9.6
-    },
-    {
-     "id": "4D_WORK_ARCHIVE",
-     "unit": "4D",
-     "socket": "WORK_ARCHIVE",
-     "at": [
-      10.2,
-      -5.73
      ],
      "z": 9.6
     },
@@ -98939,18 +97469,6 @@
      "W": 1.3
     },
     {
-     "id": "5A_brg0_rug",
-     "rect": [
-      -13.05,
-      -7.15,
-      -10.65,
-      -6.3500000000000005
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_green"
-    },
-    {
      "id": "5A_bart0_art",
      "rect": [
       -11.65,
@@ -99092,48 +97610,6 @@
      "mat": "brass_dull"
     },
     {
-     "id": "5A_sofa",
-     "asm": "sofa",
-     "at": [
-      -12.875,
-      -3.375
-     ],
-     "yaw": -90,
-     "L": 1.95,
-     "mat": "fabric_cool",
-     "leg_mat": "wood_dark"
-    },
-    {
-     "id": "5A_cof",
-     "asm": "coffee",
-     "at": [
-      -11.625,
-      -3.625
-     ],
-     "yaw": 345
-    },
-    {
-     "id": "5A_lrug_rug",
-     "rect": [
-      -13.35,
-      -4.7,
-      -10.25,
-      -2.0
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_green"
-    },
-    {
-     "id": "5A_tv",
-     "asm": "tv",
-     "at": [
-      -10.34,
-      -3.575
-     ],
-     "yaw": 270
-    },
-    {
      "id": "5A_din_t",
      "asm": "table_rect",
      "at": [
@@ -99162,17 +97638,6 @@
       -3.1
      ],
      "yaw": 90
-    },
-    {
-     "id": "5A_plant1",
-     "asm": "plant",
-     "at": [
-      -13.12,
-      -1.22
-     ],
-     "yaw": 185,
-     "big": true,
-     "species": "dracaena"
     },
     {
      "id": "5A_lart_art",
@@ -99233,51 +97698,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "5A_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      -8.71,
-      -3.02
-     ],
-     "yaw": 267,
-     "z0": 0.75,
-     "mat": "ceramic"
-    },
-    {
-     "id": "5A_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      -8.67,
-      -3.2
-     ],
-     "yaw": 6,
-     "z0": 0.75,
-     "n": 6,
-     "mess": 0.51
-    },
-    {
-     "id": "5A_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      -11.805,
-      -3.605
-     ],
-     "yaw": 9,
-     "z0": 0.37,
-     "n": 2
-    },
-    {
-     "id": "5A_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      -11.425,
-      -3.685
-     ],
-     "yaw": 303,
-     "z0": 0.37,
-     "mat": "ceramic"
     },
     {
      "id": "5A_plantable",
@@ -99703,39 +98123,6 @@
      "mat": "brass_dull"
     },
     {
-     "id": "5B_sofa",
-     "asm": "sofa",
-     "at": [
-      -12.875,
-      4.56
-     ],
-     "yaw": -90,
-     "L": 1.95,
-     "mat": "fabric_green",
-     "leg_mat": "chrome"
-    },
-    {
-     "id": "5B_cof",
-     "asm": "coffee",
-     "at": [
-      -11.625,
-      4.31
-     ],
-     "yaw": 22
-    },
-    {
-     "id": "5B_lrug_rug",
-     "rect": [
-      -13.35,
-      3.235,
-      -10.25,
-      5.9350000000000005
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_cool"
-    },
-    {
      "id": "5B_tv",
      "asm": "tv",
      "at": [
@@ -99771,40 +98158,6 @@
       4.6
      ],
      "yaw": 180
-    },
-    {
-     "id": "5B_shelf",
-     "asm": "shelf",
-     "at": [
-      -11.9,
-      2.94
-     ],
-     "yaw": 0,
-     "W": 1.1,
-     "H": 1.85,
-     "books": true
-    },
-    {
-     "id": "5B_plant1",
-     "asm": "plant",
-     "at": [
-      -13.12,
-      3.05
-     ],
-     "yaw": 238,
-     "big": true,
-     "species": "sansevieria"
-    },
-    {
-     "id": "5B_plant2",
-     "asm": "plant",
-     "at": [
-      -8.37,
-      5.09
-     ],
-     "yaw": 291,
-     "big": false,
-     "species": "sansevieria"
     },
     {
      "id": "5B_lart_art",
@@ -99865,51 +98218,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "5B_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      -8.41,
-      3.9
-     ],
-     "yaw": 325,
-     "z0": 0.75,
-     "mat": "ceramic"
-    },
-    {
-     "id": "5B_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      -8.37,
-      3.72
-     ],
-     "yaw": 4,
-     "z0": 0.75,
-     "n": 4,
-     "mess": 0.15
-    },
-    {
-     "id": "5B_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      -11.805,
-      4.33
-     ],
-     "yaw": 7,
-     "z0": 0.37,
-     "n": 4
-    },
-    {
-     "id": "5B_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      -11.425,
-      4.25
-     ],
-     "yaw": 25,
-     "z0": 0.37,
-     "mat": "porcelain"
     },
     {
      "id": "5B_story_radio",
@@ -100007,18 +98315,6 @@
      "W": 1.3
     },
     {
-     "id": "5C_brg0_rug",
-     "rect": [
-      6.545,
-      7.15,
-      8.545,
-      8.25
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_cool"
-    },
-    {
      "id": "5C_bart0_art",
      "rect": [
       8.495,
@@ -100108,18 +98404,6 @@
      ],
      "yaw": 0,
      "W": 1.3
-    },
-    {
-     "id": "5C_brg1_rug",
-     "rect": [
-      10.615,
-      7.15,
-      12.615,
-      8.25
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_cool"
     },
     {
      "id": "5C_bart1_art",
@@ -100263,48 +98547,6 @@
      "mat": "brass_dull"
     },
     {
-     "id": "5C_sofa",
-     "asm": "sofa",
-     "at": [
-      12.875,
-      2.66
-     ],
-     "yaw": 90,
-     "L": 1.95,
-     "mat": "fabric_warm",
-     "leg_mat": "wood_dark"
-    },
-    {
-     "id": "5C_cof",
-     "asm": "coffee",
-     "at": [
-      11.625,
-      2.41
-     ],
-     "yaw": 59
-    },
-    {
-     "id": "5C_lrug_rug",
-     "rect": [
-      10.25,
-      1.335,
-      13.35,
-      4.035
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_cool"
-    },
-    {
-     "id": "5C_tv",
-     "asm": "tv",
-     "at": [
-      10.36,
-      2.46
-     ],
-     "yaw": 90
-    },
-    {
      "id": "5C_din_t",
      "asm": "table_rect",
      "at": [
@@ -100333,17 +98575,6 @@
       2.22
      ],
      "yaw": -90
-    },
-    {
-     "id": "5C_plant1",
-     "asm": "plant",
-     "at": [
-      12.88,
-      5.48
-     ],
-     "yaw": 291,
-     "big": true,
-     "species": "fern"
     },
     {
      "id": "5C_lart_art",
@@ -100404,51 +98635,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "5C_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      8.35,
-      2.3
-     ],
-     "yaw": 23,
-     "z0": 0.75,
-     "mat": "ceramic"
-    },
-    {
-     "id": "5C_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      8.39,
-      2.12
-     ],
-     "yaw": 2,
-     "z0": 0.75,
-     "n": 6,
-     "mess": 0.39
-    },
-    {
-     "id": "5C_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      11.445,
-      2.43
-     ],
-     "yaw": 5,
-     "z0": 0.37,
-     "n": 3
-    },
-    {
-     "id": "5C_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      11.825,
-      2.35
-     ],
-     "yaw": 107,
-     "z0": 0.37,
-     "mat": "ceramic"
     },
     {
      "id": "5C_story_solvents",
@@ -104835,16 +103021,6 @@
      "z": 12.8
     },
     {
-     "id": "5A_REST_PRIMARY",
-     "unit": "5A",
-     "socket": "REST_PRIMARY",
-     "at": [
-      -12.475,
-      -3.375
-     ],
-     "z": 12.8
-    },
-    {
      "id": "5A_DINING_SURFACE",
      "unit": "5A",
      "socket": "DINING_SURFACE",
@@ -104935,32 +103111,12 @@
      "z": 12.8
     },
     {
-     "id": "5B_REST_PRIMARY",
-     "unit": "5B",
-     "socket": "REST_PRIMARY",
-     "at": [
-      -12.475,
-      4.56
-     ],
-     "z": 12.8
-    },
-    {
      "id": "5B_DINING_SURFACE",
      "unit": "5B",
      "socket": "DINING_SURFACE",
      "at": [
       -8.25,
       3.82
-     ],
-     "z": 12.8
-    },
-    {
-     "id": "5B_WORK_ARCHIVE",
-     "unit": "5B",
-     "socket": "WORK_ARCHIVE",
-     "at": [
-      -11.9,
-      3.19
      ],
      "z": 12.8
     },
@@ -105051,16 +103207,6 @@
      "at": [
       6.02,
       2.575
-     ],
-     "z": 12.8
-    },
-    {
-     "id": "5C_REST_PRIMARY",
-     "unit": "5C",
-     "socket": "REST_PRIMARY",
-     "at": [
-      12.475,
-      2.66
      ],
      "z": 12.8
     },
@@ -108051,18 +106197,6 @@
      "W": 1.3
     },
     {
-     "id": "6A_brg0_rug",
-     "rect": [
-      -13.05,
-      -7.15,
-      -10.65,
-      -6.3500000000000005
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_cool"
-    },
-    {
      "id": "6A_bart0_art",
      "rect": [
       -11.65,
@@ -108232,17 +106366,6 @@
      "yaw": 90
     },
     {
-     "id": "6A_plant2",
-     "asm": "plant",
-     "at": [
-      -7.07,
-      -5.66
-     ],
-     "yaw": 291,
-     "big": false,
-     "species": "rubber"
-    },
-    {
      "id": "6A_lart_art",
      "rect": [
       -11.85,
@@ -108301,29 +106424,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "6A_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      -8.39,
-      -3.02
-     ],
-     "yaw": 296,
-     "z0": 0.75,
-     "mat": "porcelain"
-    },
-    {
-     "id": "6A_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      -8.67,
-      -3.2
-     ],
-     "yaw": 5,
-     "z0": 0.75,
-     "n": 3,
-     "mess": 0.63
     },
     {
      "id": "6A_deskwall",
@@ -108824,39 +106924,6 @@
      "mat": "brass_dull"
     },
     {
-     "id": "6B_sofa",
-     "asm": "sofa",
-     "at": [
-      -12.875,
-      4.56
-     ],
-     "yaw": -90,
-     "L": 1.95,
-     "mat": "fabric_warm",
-     "leg_mat": "wood_dark"
-    },
-    {
-     "id": "6B_cof",
-     "asm": "coffee",
-     "at": [
-      -11.625,
-      4.31
-     ],
-     "yaw": 59
-    },
-    {
-     "id": "6B_lrug_rug",
-     "rect": [
-      -13.35,
-      3.235,
-      -10.25,
-      5.9350000000000005
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_cool"
-    },
-    {
      "id": "6B_tv",
      "asm": "tv",
      "at": [
@@ -108894,17 +106961,6 @@
       4.6
      ],
      "yaw": 180
-    },
-    {
-     "id": "6B_plant1",
-     "asm": "plant",
-     "at": [
-      -13.12,
-      3.05
-     ],
-     "yaw": 291,
-     "big": true,
-     "species": "aspidistra"
     },
     {
      "id": "6B_lart_art",
@@ -108965,51 +107021,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "6B_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      -8.09,
-      3.9
-     ],
-     "yaw": 354,
-     "z0": 0.75,
-     "mat": "porcelain"
-    },
-    {
-     "id": "6B_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      -8.37,
-      3.72
-     ],
-     "yaw": 3,
-     "z0": 0.75,
-     "n": 5,
-     "mess": 0.27
-    },
-    {
-     "id": "6B_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      -11.805,
-      4.33
-     ],
-     "yaw": -6,
-     "z0": 0.37,
-     "n": 2
-    },
-    {
-     "id": "6B_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      -11.425,
-      4.25
-     ],
-     "yaw": 66,
-     "z0": 0.37,
-     "mat": "ceramic"
     },
     {
      "id": "6B_story_draft",
@@ -109110,18 +107121,6 @@
      "W": 1.3
     },
     {
-     "id": "6C_brg0_rug",
-     "rect": [
-      6.545,
-      7.15,
-      8.545,
-      8.25
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_warm"
-    },
-    {
      "id": "6C_bart0_art",
      "rect": [
       8.495,
@@ -109211,18 +107210,6 @@
      ],
      "yaw": 0,
      "W": 1.3
-    },
-    {
-     "id": "6C_brg1_rug",
-     "rect": [
-      10.615,
-      7.15,
-      12.615,
-      8.25
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_warm"
     },
     {
      "id": "6C_bart1_art",
@@ -109377,18 +107364,6 @@
      "yaw": 96
     },
     {
-     "id": "6C_lrug_rug",
-     "rect": [
-      10.25,
-      1.335,
-      13.35,
-      4.035
-     ],
-     "z0": 0.014,
-     "h": 0.008,
-     "mat": "rug_warm"
-    },
-    {
      "id": "6C_tv",
      "asm": "tv",
      "at": [
@@ -109424,28 +107399,6 @@
       2.22
      ],
      "yaw": -90
-    },
-    {
-     "id": "6C_plant1",
-     "asm": "plant",
-     "at": [
-      12.88,
-      5.48
-     ],
-     "yaw": 344,
-     "big": true,
-     "species": "dracaena"
-    },
-    {
-     "id": "6C_plant2",
-     "asm": "plant",
-     "at": [
-      8.23,
-      -0.29
-     ],
-     "yaw": 37,
-     "big": false,
-     "species": "dracaena"
     },
     {
      "id": "6C_lart_art",
@@ -109506,51 +107459,6 @@
      "z0": 1.3,
      "h": 0.85,
      "mat": "wood_dark"
-    },
-    {
-     "id": "6C_detail_dining_mug",
-     "asm": "mug",
-     "at": [
-      8.67,
-      2.3
-     ],
-     "yaw": 52,
-     "z0": 0.75,
-     "mat": "porcelain"
-    },
-    {
-     "id": "6C_detail_dining_papers",
-     "asm": "papers",
-     "at": [
-      8.39,
-      2.12
-     ],
-     "yaw": 1,
-     "z0": 0.75,
-     "n": 3,
-     "mess": 0.51
-    },
-    {
-     "id": "6C_detail_coffee_books",
-     "asm": "bookpile",
-     "at": [
-      11.445,
-      2.43
-     ],
-     "yaw": -8,
-     "z0": 0.37,
-     "n": 4
-    },
-    {
-     "id": "6C_detail_coffee_mug",
-     "asm": "mug",
-     "at": [
-      11.825,
-      2.35
-     ],
-     "yaw": 148,
-     "z0": 0.37,
-     "mat": "porcelain"
     },
     {
      "id": "6C_story_oddments",
@@ -114141,16 +112049,6 @@
      "at": [
       -5.98,
       6.7
-     ],
-     "z": 16.0
-    },
-    {
-     "id": "6B_REST_PRIMARY",
-     "unit": "6B",
-     "socket": "REST_PRIMARY",
-     "at": [
-      -12.475,
-      4.56
      ],
      "z": 16.0
     },
