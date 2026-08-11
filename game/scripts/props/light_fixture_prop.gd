@@ -23,7 +23,14 @@ const TONE := {  # warm tungsten family, per fixture type
 	"street_lamp": Color(1.0, 0.66, 0.28),
 }
 const ENERGY := {
-	"pendant_shade": 2.1, "flush_dome": 0.9, "sconce_globe": 0.75,
+	# flush_dome ran at 0.9 against the pendant's 2.1, and the two are not
+	# decorative alternatives - ROOM_FIXTURE gives pendants to living rooms and
+	# domes to BEDROOMS, halls and alcoves. So every bedroom in the building was
+	# lit at under half the rate of the room next door, measured with its own
+	# switch on: 2A main 39.7 mean luma, 2A bedroom 5.9, at 78% near-black.
+	# A schoolhouse dome is a bare lamp behind opal glass; it is not a dim
+	# fitting, it is a diffuse one.
+	"pendant_shade": 2.1, "flush_dome": 1.9, "sconce_globe": 1.3,
 	"kitchen_linear": 1.5, "cage_bulb": 1.5, "chandelier": 2.8,
 	"eye_pendant": 2.2, "street_lamp": 3.4,
 }
