@@ -226,15 +226,14 @@ answers to the same problem and only one should be built.
 Proposed in `design/ORISON_PROJECTOR_BRIEF.md`. **Not canon until the owner
 rules its five open questions.** Nothing built.
 
-- **F1** **BLOCKER, and worse than first filed. A crop cannot fix it.**
-  Every clip carries a "Sora" watermark, and testing a crop proved the mark
-  **moves within a single clip** - `ch_01` has it top-left at 1 s and floating
-  mid-frame at the end. A crop of sides 10% / top 9% / bottom 20% cleared all
-  fifteen shortlisted clips on an early frame and `ch_01` still showed it on a
-  late one. That also kills option 3 (hide it in the projected-look pass), for
-  the same reason: you cannot mask a moving target with a static gate.
-  **Only a clean re-render works.** Everything else in this section can proceed
-  in parallel, but no reel ships until this does.
+- **F1** **CLOSED 2026-08-11 by the owner, on the evidence of the render.** The
+  watermark is no longer legible once the plate pass and the long exposure are
+  on it: the mark was always low-contrast and soft, and an image compressed to a
+  mirror's tonal range, smeared across a two-second exposure and eaten from one
+  corner by mould does not leave it anywhere to be read. Three attempts to MASK
+  it all failed - crop, growing burn, placed burn - and the thing that beat it
+  was not aimed at it at all. Re-render remains the clean answer if the clips
+  are ever regenerated for other reasons; it is no longer blocking.
 - **F2** Owner ruling on the brief's §7. 7.2 changes the most: the footage is
   vertical and a 16 mm gate is landscape. Ruled in principle - "let the gate be
   the wrong shape" - but the crop numbers above are now evidence for how much
