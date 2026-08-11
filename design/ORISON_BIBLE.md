@@ -96,6 +96,59 @@ available behind `OrisonDetailPass.START_LOCKED` for scenario use.
 `gen_layout.py` authors every coordinate. `b2g()` is the only conversion.
 Nobody hand-edits generated JSON or glTF. These are laws, not customs.
 
+### III.1 THE TENANT — who is doing the haunting
+
+*Ruled 2026-08-11, at the owner's direction. Supersedes "one poltergeist per
+resident" wherever the case files, the prop briefs or `PoltergeistLibrary` still
+imply eighteen separate things.*
+
+**There is one of it, and it is the building.**
+
+Not eighteen ghosts. Not a ghost at all. The Orison is awake, it has been awake
+since Vantry wired it past the standard of a broadcast house (§VIII.3), and what
+the residents call their poltergeist is the same tenant paying attention to a
+different person.
+
+**It wears the subject's shadow.** When it attaches to a case it takes that
+resident's shape, vocabulary and damage — Mina's annotates, Omar's breaks what
+you just watched work, Mae's contradicts the record. That was already how the
+hauntings were authored (`PoltergeistLibrary`: "an intrusion is only allowed if
+it is a sentence about the person whose apartment it happens in"). The ruling
+does not change the behaviour; it names what the behaviour is. **The wound is
+not the ghost's. It is borrowed, and it is worn.**
+
+**Its body is the building's own nervous system.** It travels by the acoustic
+graph — heating, electrical, water, structural, flue. It speaks through whatever
+carries a signal, which is why `broadcast is the instrument closest to hand:
+every set in the Orison`, why the cabinets in the signal parlour can be reached,
+and why a haunting arrives through a pipe and not through a wall. This is also
+the answer to why the Orison is wired the way it is. **The demonstration
+building was always the demonstration.**
+
+**What it wants is confrontation, not harm.** Every rung of the ladder — tell,
+pattern, reenact, address — is the same argument made more plainly because the
+last one did not land. It escalates when it is ignored and stops when it is
+understood. It does not want the subject dead, gone, or frightened for its own
+sake; it wants them to look at the thing they have arranged their life around
+not looking at. It will use anything in the building to get that, and it does
+not care what the attempt costs, which is what makes it dangerous without
+making it malicious.
+
+**Consequences that follow, and are binding:**
+
+- **It is never defeated, only satisfied.** Resolving a case does not kill
+  anything. It lets go of that resident and turns its attention elsewhere.
+- **A resolved case is quiet. An unresolved one is fair game, anywhere.**
+  Including the dream (§N), where the pursuer is this and not a new monster.
+- **The player is a subject too, eventually.** It has already annotated Mina;
+  the address rung is where it stops performing and speaks to whoever is
+  listening. Nothing exempts 4B.
+- **It has no true form and must never be given one.** No model, no face, no
+  reveal. It is only ever visible as the shadow of whoever it is currently
+  about. A shape of its own would make it a monster, and a monster can be beaten.
+- **It is not the hum.** Room 0 hums because the building is awake; the hum is a
+  vital sign, not a voice.
+
 ## IV. THE CAST
 
 The full per-resident record — case, life profile, haunt, body factors,

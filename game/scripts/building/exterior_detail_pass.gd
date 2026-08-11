@@ -29,8 +29,22 @@ func build(layout: Dictionary, parent: Node3D) -> Dictionary:
 	_build_damage(parent)
 	_build_puddles()
 	_build_city_silhouettes(floor)
-	_build_car_details(floor)
-	_build_arrival_rideshare(parent)
+	# NO PARKED CARS (2026-08-11). Both passes are retained below and both are
+	# unused: _build_car_details() decorated the kerbside rows the generator no
+	# longer emits, and _build_arrival_rideshare() parked the hero car the
+	# player arrived in, plus a 4.7 m collision box called
+	# ArrivalRideshareCollision that a street-wide probe found as one of two
+	# things stopping the player with nothing visible attached to it.
+	#
+	# The carriageway is becoming the thing you cross rather than scenery beside
+	# it, and a parked car fights that on every axis: it hides oncoming traffic
+	# from a player judging a gap, it costs submissions on the worst station in
+	# the game, and a street full of switched-off vehicles reads as a diorama
+	# whatever drives through it.
+	#
+	# The arrival car should come back MOVING - you get out, it pulls away into
+	# the east tear - which is a better first minute than finding it parked
+	# forever outside the door. See design/ORISON_STREET_BRIEF.md.
 	_build_playable_stage(parent)
 	_emit_boxes(parent)
 	_emit_cylinders(parent)
@@ -348,20 +362,34 @@ func _build_playable_stage(parent: Node3D) -> void:
 	# added to the street from here on has to ask the same question:
 	# does the boundary still leave a way to every place the schedules
 	# send a resident?
-	const CROSS_W := 0.10        # crossing gap, west edge
-	const CROSS_E := 7.55        # crossing gap, east edge
+	# THE ROAD IS OPEN NOW (2026-08-11).
+	#
+	# Two boundary segments used to run the length of the carriageway at
+	# y -17.35, leaving one 7.45 m gap at the crossing. The visible near-black
+	# kerb rail that once telegraphed them was deleted as "a wall wearing an
+	# apology"; the collision stayed, so what was left was the apology's wall
+	# with nothing wearing it. A street-wide shape probe found it as the single
+	# largest blocker on the block, 113 hits, and it is the invisible wall the
+	# owner reported walking into.
+	#
+	# It cannot survive the redesign in any case. The carriageway is becoming
+	# the thing the player crosses, at any point along it, judging a gap in live
+	# traffic - and you cannot do that through a fence with one door in it.
+	# The reason not to step into the road is now the road.
+	#
+	# The lateral edges stay for the moment. They are the stage's real limits
+	# and they are honest ones, backed by visible hoarding. They are also
+	# temporary: the tears at either end are meant to replace them, at which
+	# point the street stops having edges and starts having ends.
 	const STAGE_E := 20.60       # east edge, clear of the bodega
 	# The west edge now includes Otis & Son.  Keeping the old -16.15 m
 	# theatre wall made the newly modelled druggist visible but placed its
 	# public door 75 mm beyond the playable world.
 	const STAGE_W := -20.10
-	for seg in [[STAGE_W, CROSS_W], [CROSS_E, STAGE_E]]:
-		var w: float = seg[1] - seg[0]
-		_add_boundary_shape(body, [seg[0] + w * 0.5, -17.35, 0.72],
-				[w, 0.28, 1.44])
+	# Lateral only. The kerb-line segments are gone; see above.
 	_add_boundary_shape(body, [STAGE_W, -13.45, 0.72], [0.30, 7.55, 1.44])
 	_add_boundary_shape(body, [STAGE_E, -13.45, 0.72], [0.30, 7.55, 1.44])
-	boundary_count = 4
+	boundary_count = 2
 	# Side hoardings and battered planters telegraph the lateral stop.
 	for x in [STAGE_W + 0.10, STAGE_E - 0.10]:
 		_box([x, -13.15, 0.83], [0.22, 5.2, 1.66], Color(0.055, 0.062, 0.064))

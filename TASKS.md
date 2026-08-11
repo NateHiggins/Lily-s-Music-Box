@@ -168,6 +168,32 @@ an open defect, and rooms that are *supposed* to be dark go in
   to the room centre. Rooms whose interesting half is neither will read
   optimistically. Worth a second angle if this ever becomes a shipping gate.
 
+## T — The street and its traffic
+
+Proposed in `design/ORISON_STREET_BRIEF.md`. **Not canon until the owner rules
+its four open questions.** The demolition is done and committed; nothing below
+is built.
+
+- **T1** Owner ruling on the brief's §8: does the tear stay loud, does anything
+  but traffic come out of it, is the tram on rails, and does traffic stop at
+  night. *Blocks everything else here.* The night question in particular is two
+  different games at 3 a.m.
+- **T2** The traffic stream itself: instanced from the start (batching is worth
+  nothing on this station), 95% credible 1928, 5% wrong and never acknowledged.
+  Audible enough to cross by ear with the camera facing a door.
+- **T3** The crossing rules: no death, no damage, no UI, no dedicated crossing
+  point, gaps never longer than ~8 s. A hit is a shove and four seconds.
+- **T4** The tears, as boundary. When they exist the lateral stage collision at
+  x -20.10 / +20.60 retires into them and the street stops having edges.
+- **T5** Re-place the bus shelter at a stop the traffic actually serves. Saved:
+  4.4 x 1.4 m, 2.45 m roof, glazed back with centre mullion, timber bench, last
+  at (-12.6, -25.55).
+- **T6** Bring the arrival car back moving - the player gets out, it leaves into
+  the east tear.
+- **T7** Budget first. Street elevation is 33.28 ms against 16.6, CPU-bound on
+  submission, and **lighting is the dominant term outdoors** (-33%, twice the
+  atrium's). Headlamps and lightning are the expensive part, not the vehicles.
+
 ## N — The dream (narcolepsy maze)
 
 Proposed in `design/ORISON_MAZE_BRIEF.md`. **Not canon until the owner rules.**

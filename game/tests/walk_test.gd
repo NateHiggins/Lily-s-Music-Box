@@ -190,7 +190,14 @@ func _run() -> void:
 	_check(hq != null and hq.unlocked_gear_count() >= 1,
 			"headquarters issues the starting inspection tool")
 	var exterior: ExteriorDetailPass = root.exterior_detail_pass
-	_check(exterior != null and exterior.detail_count >= 250,
+	# What this protects is BATCHING, not a quantity of street furniture: every
+	# exterior detail has to arrive through the shared MultiMeshes rather than as
+	# loose nodes. The threshold was 250 and the street carried 201 the moment
+	# the parked cars and the arrival car came out for the traffic redesign - so
+	# the number was silently measuring how much clutter was on the kerb.
+	# 150 still catches the failure it exists for, which is the batch not
+	# building at all.
+	_check(exterior != null and exterior.detail_count >= 150,
 			"exterior finish details stay batched (%d)" %
 			[exterior.detail_count if exterior else 0])
 	_check(exterior != null and exterior.puddle_count == 8,

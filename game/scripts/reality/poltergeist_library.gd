@@ -1,5 +1,20 @@
 class_name PoltergeistLibrary
-## One poltergeist per resident, and not one of them is a ghost.
+## Eighteen personalities, ONE thing wearing them. See ORISON_BIBLE III.1.
+##
+## This file used to open "one poltergeist per resident", which described the
+## data accurately and the fiction wrongly. There is one tenant, it is the
+## building, and what a resident calls their poltergeist is the Orison paying
+## attention to them while wearing their shadow. Nothing below changes shape as
+## a result - each entry was always derived from its resident's own case, which
+## is exactly what "wears the subject's shadow" means in practice - but the
+## entries are costumes, not creatures, and the difference matters at three
+## points: they are never defeated, only satisfied; an unresolved one is fair
+## game anywhere in the building including the dream; and none of them may ever
+## be given a form of its own.
+##
+## What it wants is in III.1 too, and it governs every escalation decision here:
+## it is trying to make the subject face themselves, and it climbs the ladder
+## because the last rung did not land.
 ##
 ## Every personality here is derived from that resident's case in
 ## `reality_cases.json` — its manifestation, its resolution flags, its portal

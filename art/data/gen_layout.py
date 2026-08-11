@@ -6437,54 +6437,24 @@ def _street_furniture(fb, rng):
            0.44, "metal")
     fb("booth", (-12.4, -13.7, -11.5, -12.8), 0.0, 2.3, "metal")
     fb("booth_glass", (-12.3, -13.6, -11.6, -12.9), 0.7, 1.35, "glassish")
-    # Bus shelter, on the SOUTH pavement and well west of the door.
-    # It used to stand at x 2.0..6.4, y -18.0 - which is the middle of
-    # the carriageway, and directly between the Orison's front door and
-    # the bar's. It was authored before the street was widened to a true
-    # 60 ft and never moved with it, so the one crossing a resident
-    # actually needs was blocked by a bus shelter nobody could reach.
-    SH_X, SH_Y = -12.6, -25.55        # south walk, -23.894..-28.316
-    fb("shelter_roof", (SH_X, SH_Y - 1.40, SH_X + 4.4, SH_Y), 2.45, 0.12,
-       "metal")
-    for so in (0.05, 4.25):
-        fb("shelter_post%d" % int(so * 10),
-           (SH_X + so, SH_Y - 1.32, SH_X + so + 0.1, SH_Y - 0.02),
-           0.0, 2.45, "metal")
-    fb("shelter_back", (SH_X + 0.15, SH_Y - 1.35, SH_X + 4.25,
-                        SH_Y - 1.30), 0.45, 1.85, "glassish")
-    fb("shelter_mullion", (SH_X + 2.1, SH_Y - 1.36, SH_X + 2.2,
-                           SH_Y - 1.29), 0.45, 1.85, "metal")
-    fb("shelter_sill", (SH_X + 0.05, SH_Y - 1.37, SH_X + 4.35,
-                        SH_Y - 1.28), 0.36, 0.09, "metal")
-    fb("shelter_head", (SH_X + 0.05, SH_Y - 1.37, SH_X + 4.35,
-                        SH_Y - 1.28), 2.30, 0.11, "metal")
-    fb("shelter_bench", (SH_X + 0.4, SH_Y - 1.22, SH_X + 4.0,
-                         SH_Y - 0.78), 0.42, 0.08, "timber")
-    # parked cars down both kerbs, with gaps where hydrants and the stoop are
-    for i in range(9):
-        cx = -26.0 + i * 6.6
-        if abs(cx + 2.2) < 5.5:
-            continue
-        fb("car%d" % i, (cx, -16.9, cx + 4.4, -15.1), 0.28, 0.95, "metal")
-        fb("cartop%d" % i, (cx + 1.1, -16.7, cx + 3.3, -15.3), 1.23, 0.45,
-           "metal")
-        fb("carglass%d" % i, (cx + 1.15, -16.65, cx + 3.25, -15.35), 1.26,
-           0.38, "glassish")
-    for i in range(7):
-        cx = -21.0 + i * 7.4
-        # This row was parked at y -18.9..-17.4, which after the street
-        # was widened is the middle of the road rather than the south
-        # kerb it is named for - and one of them sat squarely across the
-        # walk to the bar. It parks at the kerb now, and leaves the same
-        # gap at the crossing that the north row already leaves.
-        if abs(cx + 0.6) < 6.2:
-            continue
-        # y0 < y1: an inverted rect makes a degenerate box, and the first
-        # version of this row silently produced nothing at all
-        fb("scar%d" % i, (cx, -23.75, cx + 4.3, -22.25), 0.28, 0.95,
-           "metal")
-        fb("scartop%d" % i, (cx + 1.1, -23.55, cx + 3.2, -22.45), 1.23,
-           0.45, "metal")
+    # THE KERBS ARE EMPTY ON PURPOSE (2026-08-11).
+    #
+    # Sixteen parked cars used to line both sides, plus a bus shelter on the
+    # south walk. All of it is gone, because the carriageway stops being scenery
+    # and becomes the thing you cross: a live stream of traffic entering and
+    # leaving the block at either end. Parked cars would fight that in three
+    # separate ways - they hide oncoming traffic from a player judging a gap,
+    # they cost submissions on the worst-performing station in the game
+    # (street elevation, 33.3 ms against a 16.6 target), and a street where
+    # every vehicle is switched off reads as a diorama no matter what drives
+    # through it.
+    #
+    # THE SHELTER IS NOT CANCELLED, only unplaced. It was 4.4 x 1.4 m with a
+    # 2.45 m roof, a glazed back with a centre mullion and a timber bench, and
+    # it wants to come back at a stop the new traffic actually serves - which
+    # is a decision for the street brief, not for whatever coordinate it
+    # happened to sit on. Its last position was the south walk at
+    # (-12.6, -25.55). See design/ORISON_STREET_BRIEF.md.
     fb("bin1", (12.6, 10.3, 13.6, 11.1), 0.0, 1.1, "metal")
     fb("bin2", (-13.9, 10.3, -12.9, 11.2), 0.0, 1.15, "metal")
     fb("dumpster", (5.4, 10.4, 8.2, 11.9), 0.0, 1.35, "metal")
