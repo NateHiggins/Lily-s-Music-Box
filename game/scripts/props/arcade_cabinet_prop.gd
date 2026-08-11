@@ -97,6 +97,16 @@ var _panel_ui: Node = null
 var _catalog_dir := ArcadeCatalog.DIR
 var _infection := 0.0
 var _live := false
+## Seconds spent beyond UNLOAD_RANGE. Reset by coming anywhere near.
+var _away := 0.0
+
+## Close enough that somebody could plausibly be looking at the screen.
+const LIVE_RANGE := 9.0
+## Far enough that they have left the room, not merely turned around. The gap
+## between the two is the hysteresis; without it a player pacing at nine metres
+## rebuilds a world every few steps.
+const UNLOAD_RANGE := 16.0
+const UNLOAD_DELAY := 8.0
 var _knock := 0.0
 
 
@@ -429,14 +439,50 @@ func _process(delta: float) -> void:
 	var camera := get_viewport().get_camera_3d()
 	if camera == null:
 		return
-	var wanted := camera.global_position.distance_to(global_position) < 9.0
+	var distance := camera.global_position.distance_to(global_position)
+
+	# Leaving is not the same as being gone. A player standing at the bar drifts
+	# either side of the live radius constantly, and re-booting a world costs 96
+	# entities, so the machine is only given back after a real departure: past a
+	# radius well outside the live one, and still out there some seconds later.
+	if distance > UNLOAD_RANGE:
+		_away += delta
+		if _away > UNLOAD_DELAY and machine.is_booted() and not _playing():
+			machine.unload()
+	else:
+		_away = 0.0
+
+	var wanted := distance < LIVE_RANGE
 	if wanted == _live:
 		return
 	_live = wanted
 	if wanted and not machine.is_booted():
-		machine.boot(cabinet, _catalog_dir)
+		_boot()
 	machine.set_live(wanted)
 	_glow.light_energy = 0.22 if wanted else 0.0
+
+
+## Build the world and hang its picture on the glass.
+##
+## The second line is not bookkeeping. `_build_phosphor()` runs inside `boot()`,
+## but the screen material is bound when the prop is built, which is earlier - so
+## `scope_texture()` returned the raw board and the phosphor viewport was built,
+## redrawn every live frame, and shown to nobody. The long-persistence trail that
+## VIII.5.g asks for has never actually been on a cabinet. It is now, and since
+## the texture has to be re-hung after every boot anyway, unloading is free to
+## take the phosphor with it.
+func _boot() -> void:
+	if not machine.boot(cabinet, _catalog_dir):
+		return
+	if _screen_mat != null:
+		_screen_mat.set_shader_parameter("feed", machine.scope_texture())
+
+
+## Whether the panel is open on this machine. Never take a world out from under
+## somebody's hands, however far the camera has wandered - and it does wander,
+## because the panel's camera is not this one.
+func _playing() -> bool:
+	return _panel_ui != null and is_instance_valid(_panel_ui)
 
 
 func interact_prompt() -> String:
@@ -451,7 +497,7 @@ func interact(player: Node) -> void:
 	if _panel_ui and is_instance_valid(_panel_ui):
 		return
 	if not machine.is_booted():
-		machine.boot(cabinet, _catalog_dir)
+		_boot()
 	machine.set_live(true)
 	var script: GDScript = load("res://scripts/ui/arcade_panel.gd")
 	_panel_ui = script.new()

@@ -249,6 +249,29 @@ python tools/build_arcade.py --strict --out C:/PleaseRemainOnTheLine/game/assets
 Adding a cabinet is adding a prompt to `prompts/` and re-running. The build fails
 rather than writing a catalog if invariance stops holding.
 
+## What a row costs
+
+Measured 2026-08-10, because "twelve 3D worlds" sounds alarming and turned out
+not to be the shape of the problem.
+
+**Rendering is bounded by geometry.** The cabinets are scattered one or two per
+venue, and each goes live within 9 m of the camera. Sampling the F01 plane at
+0.25 m, the densest point a player can stand in sees **five** machines, and no
+point sees six. That worst case is a station in `tests/Perf.tscn`: **19.73 ms**
+at 1440p, second cheapest of eight, against 42.05 for the atrium. Five live
+boards cost about what a bedroom costs.
+
+**Memory was not bounded at all**, and that was the real defect. `boot()` had no
+inverse, so a world outlived every reason to keep it: walking away disabled the
+render target and freed nothing. The peak was not how many cabinets were near the
+player but how many they had **ever walked past** - all twelve, at **7.7 MB each,
+92.7 MB**, growing perfectly linearly because nothing is shared between machines.
+`ArcadeMachine.unload()` gives 93% of that back, and the prop calls it once the
+camera has been past `UNLOAD_RANGE` for `UNLOAD_DELAY` seconds - deliberately far
+outside the live radius, because re-booting is 96 entities and a player pacing at
+nine metres must not pay for it. `tests/ArcadeMemoryTest.tscn` holds the ceiling
+and checks a machine still boots afterwards.
+
 ## Shipping them
 
 `.swcpkg` is not a Godot resource. It has no importer and no `.import` file, so

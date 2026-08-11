@@ -51,11 +51,14 @@ Ruled in `ORISON_BIBLE.md` VIII.5.g. Docs: `game/docs/arcade_cabinets.md`.
 - **A2** Nobody has played one. `arcade_panel.gd` is unproven in the hand: mouse
   capture and restore, ESC, `E`, and whether a 480×360 feed at 2× is aimable.
   Expect tuning, not repair.
-- **A3** Machines never free their world. `set_live(false)` stops the board
-  rendering but the built world stays in memory. Needs an unload policy on the
-  same distance gate that governs `set_live`.
-- **A4** Twelve live machines have never been profiled — twelve 3D worlds plus
-  twelve phosphor viewports, gated at 9 m. Measure before adding more.
+- **A4** *Measured 2026-08-10, and the answer is: the arcade is not the problem.*
+  The premise was wrong - the twelve cabinets are scattered one or two per venue,
+  not standing in a row, and sampling the F01 plane at 0.25 m says **no reachable
+  point sees more than five** at the 9 m gate. That worst case is now a perf
+  station: **19.73 ms**, the second cheapest of eight, against 42.05 for the
+  atrium. Five live boards cost about what a bedroom costs. Nothing to do here;
+  spend the effort on **P1** instead.
+
 - **A5** Audio is undifferentiated: attract mode is silent and every machine
   shares one weapon report. The World Bible already carries a `sound_palette`
   per world and nothing consumes it. Probably the highest-value polish left.
@@ -235,13 +238,16 @@ and the four isolated roof fixtures now terminating at a real riser.
 
 ## P — Performance
 
-- **P1** **The project-wide 16.6 ms frame target is missed at every station**,
-  and by a wide margin: mean station time is **46.25 ms**, street elevation
-  **52.43 ms**, corridor F04 **61.52 ms**. Measured during the shop pass, which
-  found itself flat against its own baseline and correctly filed this as a
-  scene-wide budget problem rather than a shop regression. It has been recorded
-  in `design/SHOP_INTERIOR_INVENTORY.md` and `design/PROP_REFERENCE_NOTES.md`
-  but was never in the queue, so nobody owns it. **Roughly 2.8x over budget.**
+- **P1** **Every station is over the 16.6 ms frame target**, all eight, measured
+  2026-08-10 at 1440p. Worst is the **atrium eye at 42.05 ms** (27.8k objects,
+  38.8M primitives) - it sees seven storeys at once and is the only station over
+  40. Then street elevation 32.39, lobby 31.68, corridor F04 29.01. Mean **28.66
+  ms** across the seven original stations.
+  *This supersedes the 46.25 ms mean in `design/SHOP_INTERIOR_INVENTORY.md`,
+  which predates the door-streaming pass; the street alone went 47.11 -> 32.39.*
+  So the gap is about 1.7x, not the 2.8x first filed - real, but a third smaller
+  than the record said, and concentrated in one station rather than spread evenly.
+  **Start at the atrium.**
 - **P2** Related and still open from `HANDOFF.md`: HLOD and prop LODs are
   untouched, and the headroom figures were measured on one high-end GPU. Mobile
   is unproven.

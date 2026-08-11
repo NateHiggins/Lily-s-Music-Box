@@ -42,11 +42,33 @@ func _ready() -> void:
 
 
 func _run(prop: ArcadeCabinetProp, _camera: Camera3D) -> void:
-	await get_tree().create_timer(0.4).timeout
-	if prop.machine != null and not prop.machine.is_booted():
-		prop.machine.boot(prop.cabinet, ArcadeCatalog.DIR)
-	if prop.machine != null:
-		prop.machine.set_live(true)
+	# Booted by the prop's own distance gate, not by hand. The camera stands 1.5 m
+	# away, well inside the live radius, so the shipping path is the photographed
+	# path. Reaching past the prop to machine.boot() is how this shot spent months
+	# showing the raw board while the cabinet in the game showed the same thing
+	# for a different reason - the prop binds the screen material before boot(),
+	# so scope_texture() had no phosphor to return and the trail went nowhere.
+	await get_tree().create_timer(0.6).timeout
+	if prop.machine == null or not prop.machine.is_booted():
+		print("[PROP] the distance gate did not boot the machine")
+		get_tree().quit(1)
+		return
+
+	# A trail is hard to see in a still and easy to lose in a refactor, so assert
+	# the wiring instead of squinting at the photograph: what the glass samples
+	# has to be the phosphor viewport, not the board behind it. These are two
+	# different ViewportTextures and the difference is the whole effect.
+	var feed: Variant = prop._screen_mat.get_shader_parameter("feed")
+	if prop.machine._phosphor == null:
+		print("[PROP] FAIL the machine booted without a phosphor viewport")
+		get_tree().quit(1)
+		return
+	if feed != prop.machine._phosphor.get_texture():
+		print("[PROP] FAIL the glass is sampling the raw board; "
+				+ "the phosphor trail is being rendered and thrown away")
+		get_tree().quit(1)
+		return
+	print("[PROP] feed is the phosphor viewport, trail included")
 	await get_tree().create_timer(2.4).timeout
 	await RenderingServer.frame_post_draw
 

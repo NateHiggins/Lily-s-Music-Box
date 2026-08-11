@@ -40,6 +40,15 @@ const STATIONS := [
 	# west down the whole room, which sees every one of them at once.
 	{"name": "harukiya (16 fixtures)", "pos": Vector3(3.0, -1.39, 34.0),
 	 "look": Vector3(-11.0, -1.9, 33.0)},
+	# THE WORST CASE FOR THE ARCADE. Twelve cabinets are placed across the
+	# building, but they are scattered one or two per venue rather than standing
+	# in a row, and each is gated live at 9 m - so the question is not what
+	# twelve cost, it is what the densest reachable point costs. Solved by
+	# sampling the F01 plane at 0.25 m: five machines see this spot, and no
+	# point sees six. Five 480x360 boards, five phosphor viewports accumulating
+	# on top of them, five 3D worlds stepping their own physics.
+	{"name": "arcade cluster (5 live)", "pos": Vector3(0.15, 1.72, 29.65),
+	 "look": Vector3(3.55, 1.2, 35.35)},
 ]
 
 var root: Node3D
