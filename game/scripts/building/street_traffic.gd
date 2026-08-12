@@ -39,23 +39,29 @@ const MAX_VEHICLES := 14
 ## haunting has to compete with it - so the wrong ones are quiet wrong. The
 ## same dray passing a third time beats a herd of geese and costs nothing.
 const KINDS := [
-	# name, length, width, height, weight, tint
+	# name, length, width, height, weight, tint, cab
+	#
+	# `cab` is what turns a crate into a vehicle: the fraction of the length
+	# taken by a raised body, and how much taller it sits. A dray is a low bed
+	# with a high driver's box at the front; a motor car is one continuous
+	# shape with a slightly raised greenhouse; a tram is all cab. Zero means the
+	# thing genuinely is a box, which is only true of the one that is wrong.
 	# Tints lifted hard from the first pass, which ran 0.045-0.18 and put pure
 	# black rectangles on a dark street - a vehicle you cannot see is not
 	# atmosphere, it is a missing texture. Painted coachwork under a sodium
 	# lamp still returns light, and the shape has to be legible before it can
 	# be threatening.
-	["dray", 4.2, 1.9, 2.3, 22.0, Color(0.34, 0.26, 0.18)],
-	["motor_car", 4.1, 1.7, 1.5, 20.0, Color(0.20, 0.21, 0.24)],
-	["coal_lorry", 6.0, 2.2, 2.6, 14.0, Color(0.26, 0.23, 0.19)],
-	["delivery_van", 4.8, 1.9, 2.2, 13.0, Color(0.30, 0.28, 0.26)],
-	["hansom", 3.2, 1.6, 2.1, 9.0, Color(0.17, 0.16, 0.18)],
-	["milk_float", 3.6, 1.7, 2.0, 8.0, Color(0.52, 0.50, 0.47)],
-	["tram", 9.4, 2.5, 3.1, 5.0, Color(0.36, 0.27, 0.16)],
-	["hearse", 5.2, 1.9, 2.3, 3.0, Color(0.13, 0.125, 0.135)],
+	["dray", 4.2, 1.9, 2.3, 22.0, Color(0.34, 0.26, 0.18), 0.34, 0.55],
+	["motor_car", 4.1, 1.7, 1.5, 20.0, Color(0.20, 0.21, 0.24), 0.46, 0.34],
+	["coal_lorry", 6.0, 2.2, 2.6, 14.0, Color(0.26, 0.23, 0.19), 0.30, 0.42],
+	["delivery_van", 4.8, 1.9, 2.2, 13.0, Color(0.30, 0.28, 0.26), 0.62, 0.30],
+	["hansom", 3.2, 1.6, 2.1, 9.0, Color(0.17, 0.16, 0.18), 0.55, 0.40],
+	["milk_float", 3.6, 1.7, 2.0, 8.0, Color(0.52, 0.50, 0.47), 0.40, 0.34],
+	["tram", 9.4, 2.5, 3.1, 5.0, Color(0.36, 0.27, 0.16), 0.90, 0.16],
+	["hearse", 5.2, 1.9, 2.3, 3.0, Color(0.13, 0.125, 0.135), 0.70, 0.26],
 	# The wrong 5%. Never remarked on by anyone, ever.
-	["too_long", 13.5, 2.3, 2.6, 1.6, Color(0.22, 0.21, 0.20)],
-	["riderless", 4.2, 1.9, 2.3, 1.4, Color(0.33, 0.26, 0.19)],
+	["too_long", 13.5, 2.3, 2.6, 1.6, Color(0.22, 0.21, 0.20), 0.22, 0.30],
+	["riderless", 4.2, 1.9, 2.3, 1.4, Color(0.33, 0.26, 0.19), 0.34, 0.55],
 ]
 
 var _mm: MultiMeshInstance3D
@@ -65,6 +71,12 @@ var _mm: MultiMeshInstance3D
 ## twice the atrium's - and at these distances an emissive quad reads exactly
 ## the same. It is also what makes a black mass become a lorry.
 var _lamps: MultiMeshInstance3D
+## Cabs and wheels, each their own MultiMesh. Four draw calls carry every
+## vehicle on the street, which is still nothing next to what a per-vehicle
+## scene would cost - and a stepped silhouette on four wheels is the whole
+## difference between a lorry and a crate sliding down the road.
+var _cabs: MultiMeshInstance3D
+var _wheels: MultiMeshInstance3D
 var _live: Array[Dictionary] = []
 var _spawn_accum := 0.0
 var _rng := RandomNumberGenerator.new()
@@ -113,6 +125,14 @@ func build(player: Node3D) -> void:
 	_mm.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(_mm)
 
+	_cabs = _make_batch(BoxMesh.new(), MAX_VEHICLES, false)
+	var wheel := CylinderMesh.new()
+	wheel.top_radius = 0.5
+	wheel.bottom_radius = 0.5
+	wheel.height = 1.0
+	wheel.radial_segments = 10
+	_wheels = _make_batch(wheel, MAX_VEHICLES * 4, false)
+
 	var lamp_mesh := QuadMesh.new()
 	lamp_mesh.size = Vector2(0.34, 0.34)
 	var lamp_mat := StandardMaterial3D.new()
@@ -147,6 +167,37 @@ func build(player: Node3D) -> void:
 		v.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
 		add_child(v)
 		_voices.append(v)
+
+
+## One batched, vertex-coloured, shadowless mesh. Everything traffic draws goes
+## through here so the cost of adding a layer stays one draw call.
+func _make_batch(mesh: Mesh, count: int, additive: bool) -> MultiMeshInstance3D:
+	var mat := StandardMaterial3D.new()
+	mat.vertex_color_use_as_albedo = true
+	mat.roughness = 0.66
+	mat.metallic = 0.3
+	if additive:
+		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		mat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	# PrimitiveMesh carries its material on a property; surface_set_material is
+	# ArrayMesh API and silently does nothing here, which would leave every cab
+	# and wheel on the street with the default white material.
+	if mesh is PrimitiveMesh:
+		(mesh as PrimitiveMesh).material = mat
+	else:
+		mesh.surface_set_material(0, mat)
+	var mm := MultiMesh.new()
+	mm.transform_format = MultiMesh.TRANSFORM_3D
+	mm.use_colors = true
+	mm.mesh = mesh
+	mm.instance_count = count
+	mm.visible_instance_count = 0
+	var node := MultiMeshInstance3D.new()
+	node.multimesh = mm
+	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(node)
+	return node
 
 
 func _process(delta: float) -> void:
@@ -208,6 +259,8 @@ func _write_instances() -> void:
 	var n: int = mini(_live.size(), MAX_VEHICLES)
 	mm.visible_instance_count = n
 	_lamps.multimesh.visible_instance_count = n * 2
+	_cabs.multimesh.visible_instance_count = n
+	_wheels.multimesh.visible_instance_count = n * 4
 	for i in n:
 		var v: Dictionary = _live[i]
 		var k: Array = KINDS[int(v.kind)]
@@ -219,6 +272,29 @@ func _write_instances() -> void:
 		var at := GameBoot.b2g([float(v.x), y, height * 0.5])
 		mm.set_instance_transform(i, Transform3D(basis, at))
 		mm.set_instance_color(i, k[5])
+
+		# The cab: a raised block set back from the nose, which is the single
+		# read that says "vehicle" rather than "crate".
+		var cab_len: float = length * float(k[6])
+		var cab_h: float = height * float(k[7])
+		var cm := _cabs.multimesh
+		cm.set_instance_transform(i, Transform3D(
+				Basis().scaled(Vector3(cab_len, cab_h, width * 0.92)),
+				GameBoot.b2g([float(v.x) - float(v.dir) * length * 0.18, y,
+						height + cab_h * 0.5])))
+		cm.set_instance_color(i, Color(k[5]).darkened(0.25))
+
+		# Four wheels, sized to the vehicle and sunk so they meet the road.
+		var wr: float = clampf(height * 0.22, 0.28, 0.52)
+		var wm := _wheels.multimesh
+		for w in 4:
+			var along: float = length * (0.32 if w < 2 else -0.32)
+			var across: float = width * (0.5 if w % 2 == 0 else -0.5)
+			var wb := Basis(Vector3.RIGHT, PI * 0.5).scaled(
+					Vector3(wr * 2.0, width * 0.10, wr * 2.0))
+			wm.set_instance_transform(i * 4 + w, Transform3D(wb,
+					GameBoot.b2g([float(v.x) + along, y + across, wr])))
+			wm.set_instance_color(i * 4 + w, Color(0.09, 0.085, 0.08))
 
 		# Lamps ride at the ends: warm ahead, red behind, and they are the
 		# first thing a player reads when judging a gap in the dark.

@@ -245,7 +245,18 @@ is built.
 - **T2b-old** Original note: The brief asks that a player
   can cross by EAR with the camera facing a door, and there is no sound on it
   at all yet. That is the single biggest gap between this and the brief.
-- **T2c** Night readability. Vehicles read as silhouettes with a tail lamp -
+- **T2c** **Silhouettes built.** Four batches carry all traffic - bodies, cabs,
+  wheels, lamps - so each vehicle is a stepped shape on four wheels rather than
+  a crate sliding down the road, and the `cab` column in `KINDS` differs per
+  kind: a dray is a low bed with a high driver's box, a tram is almost all cab,
+  and the one that is genuinely a featureless box is the one that is wrong.
+- **T2d** **Still under-read at night**, which is the remaining visual gap.
+  Vehicle albedo is 0.13-0.52 and the street is dark enough that they read as
+  masses with a tail lamp. The cheap fix is a pool of light on the road ahead
+  of each vehicle rather than real headlamps (T7 says not to spend on
+  lighting); the other half is that the street lamps do not reach the
+  carriageway.
+- **T2e** Night readability, original note: Vehicles read as silhouettes with a tail lamp -
   correct for a dark street, under-read as objects. The cheap fix is a pool of
   light on the road ahead of each vehicle rather than real headlamps, which T7
   says not to spend. Lamps are emissive quads, not lights, deliberately.
