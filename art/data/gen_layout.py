@@ -22,6 +22,16 @@ from shop_interiors import (SHOPS, SHOPS_N, SHOP_CLEAR, SHOP_H,
                             SHOP_PLAN, SHOP_FLOOR, SHOP_CEIL,
                             build_shop_interiors)
 
+# M0.5 PHASE 2 — THE OLD STREET PARADE IS GONE.
+#
+# SHOPS and SHOPS_N remain the researched identity/width records that Phase 3
+# repacks into the Passage.  They are not street coordinates any more.  Keeping
+# the inactive emission lists explicit makes the subtraction reviewable: a
+# deleted storefront cannot survive because some helper still iterates SHOPS.
+STREET_SHOPS = []
+STREET_SHOPS_N = []
+ACTIVE_SHOPS = STREET_SHOPS + STREET_SHOPS_N
+
 OUT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # ---------------------------------------------------------------- constants
@@ -3750,7 +3760,7 @@ def _south_street_wall():
     """
     rs = random.Random(19270)
     hosts = []
-    for x0, x1, name, trade, _a, _b, _u in SHOPS:
+    for x0, x1, name, trade, _a, _b, _u in STREET_SHOPS:
         tag = "".join(c if c.isalnum() else "_"
                       for c in name.lower()).strip("_")
         if SHOP_BLOCK.get(trade) != "shop_%s" % tag:
@@ -4176,7 +4186,8 @@ def shop_voids():
     that says so from inside.
     """
     out = []
-    for shops, face, sgn in ((SHOPS, SHOP_FACE, 1), (SHOPS_N, BLDG_N, -1)):
+    for shops, face, sgn in ((STREET_SHOPS, SHOP_FACE, 1),
+                             (STREET_SHOPS_N, BLDG_N, -1)):
         for x0, x1, _n, trade, _a, _b, _u in shops:
             depth = SHOP_PLAN.get(trade, (6.0, 0))[0]
             # Away from the street either way: the south row's interior
@@ -4856,13 +4867,15 @@ def storm_pass(fl):
         fb("downrun%d" % i, (dx, -10.5, dx + 0.5, -10.05), 0.005, 0.002,
            "wet_asphalt")
 
-    _storefronts(fb, fl["markers"])
+    _storefronts(fb, fl["markers"], STREET_SHOPS, SHOP_FACE, 1)
     # Street geography is explicit; the extracted module never imports us.
-    build_shop_interiors(fb, fl["markers"], asm, SHOPS, SHOP_FACE, 1)
+    build_shop_interiors(fb, fl["markers"], asm,
+                         STREET_SHOPS, SHOP_FACE, 1)
     # The near side, facing the other way (S = -1). One shop, because
     # one is all the north side has room for — see SHOPS_N.
-    _storefronts(fb, fl["markers"], SHOPS_N, BLDG_N, -1)
-    build_shop_interiors(fb, fl["markers"], asm, SHOPS_N, BLDG_N, -1)
+    _storefronts(fb, fl["markers"], STREET_SHOPS_N, BLDG_N, -1)
+    build_shop_interiors(fb, fl["markers"], asm,
+                         STREET_SHOPS_N, BLDG_N, -1)
 
 
 ## The light court's centrepiece. The stair used to be lit by seven
@@ -6795,7 +6808,7 @@ def _validate_shop_interiors(layout):
              if str(fu.get("batch", "")).startswith("shop_")]
     expected = {"shop_%s" % "".join(
         c if c.isalnum() else "_" for c in name.lower()).strip("_")
-        for _x0, _x1, name, _trade, _a, _b, _use in SHOPS + SHOPS_N}
+        for _x0, _x1, name, _trade, _a, _b, _use in ACTIVE_SHOPS}
     actual = {fu.get("batch") for fu in boxes}
     if actual != expected:
         problems.append("shop batch ownership expected %s, got %s" %
@@ -6808,15 +6821,15 @@ def _validate_shop_interiors(layout):
         problems.append("unowned storm shop box escaped local batching")
     heroes = {fu.get("hero") for fu in boxes if fu.get("hero")}
     expected_heroes = {trade for _x0, _x1, _name, trade, _a, _b, _use
-                       in SHOPS + SHOPS_N} - {"funeral"}
+                       in ACTIVE_SHOPS} - {"funeral"}
     if heroes != expected_heroes:
         problems.append("isolated shop heroes expected %s, got %s" %
                         (sorted(expected_heroes), sorted(heroes)))
     ledgers = [fu for fu in boxes if str(fu.get("id", "")).endswith(
                ("_ledger", "_book"))]
-    if len(ledgers) != 11:
-        problems.append("every shop needs one account book; found %d"
-                        % len(ledgers))
+    if len(ledgers) != len(ACTIVE_SHOPS):
+        problems.append("every active shop needs one account book; expected "
+                        "%d, found %d" % (len(ACTIVE_SHOPS), len(ledgers)))
     laundry = [fu for fu in boxes if fu.get("batch") == "shop_model_laundry"]
     obsolete = [fu["id"] for fu in laundry
                 if "_wash" in fu["id"] or "_dry" in fu["id"]]
@@ -6825,7 +6838,8 @@ def _validate_shop_interiors(layout):
                         % obsolete)
     news_door = next((m for m in f01.get("markers", [])
                       if m.get("id") == "SITE_SHOP_DOOR_NEWS_CIGARS"), {})
-    if news_door.get("leaf") != "locked":
+    if any(trade == "news" for _x0, _x1, _name, trade, _a, _b, _use
+           in ACTIVE_SHOPS) and news_door.get("leaf") != "locked":
         problems.append("news booth proprietor door must stay locked")
     return problems
 
