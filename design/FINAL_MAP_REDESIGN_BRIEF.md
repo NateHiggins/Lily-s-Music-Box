@@ -342,6 +342,46 @@ commits on one branch and `main` must not rest in a no-shop state.
 future table states it. Fix or delete the clobber (§P4) before re-measuring,
 but do not silently switch contracts mid-comparison.
 
+## 10ab. CHECK 2 — probe built, leading candidate named, NOT yet closed
+
+Probe: `game/tests/StreetOwnershipProbe.tscn` + `street_ownership_probe.gd`.
+Walks the built scene and reports every mass whose world AABB intersects the
+street volume (Godot x ±36, y −0.6..6, z 8..32) with a footprint ≥1.6 m². It
+walks `MultiMeshInstance3D` as well, which does **not** inherit
+`MeshInstance3D` — without that branch every traffic vehicle is invisible to
+the probe, which is the exact class of mass this check exists to name. Run:
+**412 records, 0 parse errors** (`own3.log`).
+
+**Method caveat, or the table lies.** The by-owner rollup is dominated by
+merged per-floor buffers whose AABBs span the whole site —
+`F01_furniture_asphalt` reports 220.0 × 0.3 × 148.0 m. Those are the
+documented floor-wide buffers, not objects in frame. Rank by individual node
+and discard anything whose size approaches the site, or the answer is always
+"F01".
+
+**Leading candidate, and it is not traffic.** `SwcGraybox` geometry sits
+inside the street volume:
+
+| node | size m | face m² | material |
+|---|---|---|---|
+| `@MeshInstance3D@26754` | 16.0 × 3.4 × 20.0 | 320.0 | `graybox_ambience_zone`, flat albedo 0.50,0.50,0.62 |
+| `@MeshInstance3D@26755` | 8.0 × 3.4 × 8.0 | 64.0 | `graybox_ambience_zone`, flat |
+| `@MeshInstance3D@26753` | 8.0 × 3.4 × 3.2 | 27.2 | `graybox_trigger_volume`, flat 0.90,0.60,0.20 |
+| several | 4.0 × 0.3 × 4.0 | 16.0 | `graybox_floor` / `graybox_ceiling`, flat |
+| several | 4.0 × 0.3 × 4.0 | 16.0 | `PresentationAnchor`, `worn_flagstone` / `vault_plaster` |
+
+`SwcGraybox` is the arcade/signal-parlour runtime copy
+(`game/scripts/arcade/swc_*.gd`, TASKS §A8). Large **flat-shaded, untextured**
+boxes 3.4 m tall are the right silhouette, size and material for the masses in
+`street_1.png`, and flat-shaded geometry in a night street reads black.
+
+**This is a hypothesis with the right shape. It is NOT proven, and nothing may
+be deleted on it.** To close Check 2: a controlled hide/show render pair with
+`SwcGraybox` suppressed, matched to `street_1.png`'s camera, and the same for
+`PresentationAnchor`. If this is a cabinet's internal world leaking into the
+main scene rather than scenery, the fix is a reparent or a SubViewport — not a
+deletion, and it would also be a live cost at every station.
+
 ## 10b. Two checks outstanding before the subtraction commit
 
 1. Ownership of every black mass in `art/renders/map_before/street_1.png`.
