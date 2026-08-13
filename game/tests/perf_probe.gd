@@ -73,6 +73,16 @@ func _ready() -> void:
 	# invisible until it is already costing frames.
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	Engine.max_fps = 0
+	# And without THIS it measures the wall clock: the day/night director
+	# opens the bar, lights the windows and sends eighteen residents home
+	# in the evening, and interior stations gain thousands of objects
+	# against a morning run (harukiya measured 3,975 objects at 10:00 and
+	# 7,662 at 19:20 on the same build). Every other harness pins the
+	# canonical 03:00; the benchmark was the last one comparing runs
+	# across hours. DAYNIGHT_FORCE still overrides for deliberate
+	# time-of-day measurement.
+	if OS.get_environment("DAYNIGHT_FORCE") == "":
+		OS.set_environment("DAYNIGHT", "0")
 	root = load("res://scenes/building/orison_root.tscn").instantiate()
 	add_child(root)
 	# Pin the comparison in executable code. Environment overrides are applied

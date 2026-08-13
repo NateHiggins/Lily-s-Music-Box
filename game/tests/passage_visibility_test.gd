@@ -16,11 +16,22 @@ func _check(label: String, ok: bool) -> void:
 
 
 func _all_visible(nodes: Array) -> bool:
-	return nodes.all(func(node): return node.visible)
+	return nodes.all(func(node): return node.visible and _submits(node))
 
 
 func _all_hidden(nodes: Array) -> bool:
-	return nodes.all(func(node): return not node.visible)
+	return nodes.all(func(node): return (not node.visible) or (not _submits(node)))
+
+
+## The zone gate suppresses LATE-built nodes via render layers, not
+## `visible` — visibility has other legitimate owners (per-floor passes,
+## glow, cabinet boot) and layers compose with them instead of stomping.
+## "Hidden" for this test means DOES NOT SUBMIT: either owner-hidden or
+## zone-gated to layers == 0.
+func _submits(node: Node) -> bool:
+	if node is VisualInstance3D:
+		return (node as VisualInstance3D).layers != 0
+	return true
 
 
 ## find_children returns DESCENDANTS only, so a leaf geometry owner (the
@@ -35,14 +46,14 @@ func _owner_geometry(owner: Node) -> Array:
 
 func _named_owner_hidden(owner: Node) -> bool:
 	for g in _owner_geometry(owner):
-		if g.is_visible_in_tree():
+		if g.is_visible_in_tree() and _submits(g):
 			return false
 	return true
 
 
 func _named_owner_showing(owner: Node) -> bool:
 	for g in _owner_geometry(owner):
-		if g.is_visible_in_tree():
+		if g.is_visible_in_tree() and _submits(g):
 			return true
 	return false
 

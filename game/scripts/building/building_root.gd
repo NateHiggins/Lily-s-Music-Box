@@ -136,6 +136,11 @@ var passage_foreign_f01_nodes: Array[GeometryInstance3D] = []
 ## true onto geometry somebody else turned off.
 var passage_late_interior_nodes: Array[GeometryInstance3D] = []
 var passage_late_foreign_nodes: Array[GeometryInstance3D] = []
+## Foreign-zone lights, gated like foreign geometry: a hidden zone's lamp
+## still re-renders every caster in its radius into shadow maps nobody
+## can see. The lobby lamps alone carried ~600 casters each at northbound.
+var passage_foreign_lights: Array[Light3D] = []
+var passage_light_saved: Dictionary = {}
 var passage_late_saved: Dictionary = {}
 ## Explicitly shared F01 draws: classified, never toggled by the zone gate.
 ## Deliberate, per node, for one of three reasons — it straddles the portal
@@ -1037,6 +1042,115 @@ func _index_late_f01_geometry() -> void:
 		print("[PASSAGE] late sweep: %d interior, %d foreign, %d shared "
 				% [added["interior"], added["foreign"], added["shared"]]
 				+ "late-built F01 draws registered")
+	_index_root_zone_content()
+
+
+## The F01 sweep covers the floor SUBTREE, and two populations live
+## outside it. Root-parented builders — RailingPolish, WayfindingSignage,
+## the marquee, window glow, the wall-art and case passes — submit their
+## geometry from root, and with occlusion culling removed (2026-08-05)
+## the hall's shell hides none of it: the northbound submission census
+## measured ~850 of 1786 in-frustum objects belonging to the foreign zone
+## through walls. And the zone gate has never touched a LIGHT: the lobby
+## lamps (r=13, ~678 casters each, two shadowed lights per lamp), the
+## entry rakes and the parked player's phone kept re-rendering hundreds
+## of foreign casters into shadow maps nobody inside the hall can see —
+## ~3400 of 5169 visible-pass submissions were shadow re-renders.
+##
+## Same law, two more node populations: classify by the ruled envelope,
+## save/restore on the transition, skip what another system owns.
+func _index_root_zone_content() -> void:
+	var registered := {}
+	for fid in functional_props_by_floor:
+		for p in functional_props_by_floor[fid]:
+			registered[p.get_instance_id()] = true
+	for fid in doors_by_floor:
+		for d in doors_by_floor[fid]:
+			registered[d.get_instance_id()] = true
+	var known := {}
+	for arr: Array in [passage_interior_nodes, passage_shell_nodes,
+			passage_foreign_f01_nodes, passage_late_interior_nodes,
+			passage_late_foreign_nodes, passage_shared_f01_nodes]:
+		for g in arr:
+			if is_instance_valid(g):
+				known[g.get_instance_id()] = true
+	for i in range(passage_foreign_lights.size() - 1, -1, -1):
+		if not is_instance_valid(passage_foreign_lights[i]):
+			passage_foreign_lights.remove_at(i)
+		else:
+			known[passage_foreign_lights[i].get_instance_id()] = true
+
+	var added := {"interior": 0, "foreign": 0, "lights": 0}
+	var floor_set: Array = floor_nodes.values()
+	for child in get_children():
+		if child in floor_set or child == player \
+				or child is Camera3D or child is CanvasLayer:
+			continue
+		# WeatherFX re-centres on the camera every frame — it is wherever
+		# the player is, including the hall, and is never foreign.
+		if child == weather:
+			continue
+		var candidates: Array = child.find_children("*",
+				"GeometryInstance3D", true, false)
+		if child is GeometryInstance3D:
+			candidates.append(child)
+		for candidate in candidates:
+			var geometry := candidate as GeometryInstance3D
+			if geometry == null or known.has(geometry.get_instance_id()):
+				continue
+			if _late_owner_is_dynamic(geometry, self, registered):
+				passage_shared_f01_nodes.append(geometry)
+				continue
+			match _envelope_side(geometry.global_transform
+					* geometry.get_aabb()):
+				1:
+					passage_late_interior_nodes.append(geometry)
+					added["interior"] += 1
+				-1:
+					passage_late_foreign_nodes.append(geometry)
+					added["foreign"] += 1
+				_:
+					passage_shared_f01_nodes.append(geometry)
+
+	# Lights, whole tree: a light is zone-owned by WHERE IT STANDS, not by
+	# what it is parented to (the lobby lamp lights hang inside imported
+	# floor scenes). Skips: anything under the player (the phone travels
+	# with them), lights owned by registered props or Passage actors
+	# (their owners already gate them), and directional lights (the moon
+	# is everyone's).
+	var lights: Array = []
+	_collect_zone_lights(self, lights)
+	for light in lights:
+		if known.has(light.get_instance_id()):
+			continue
+		if light is DirectionalLight3D:
+			continue
+		if player != null and (light == player
+				or player.is_ancestor_of(light)):
+			continue
+		if _late_owner_is_dynamic(light, self, registered):
+			continue
+		var c: Vector3 = light.global_position
+		# Foreign lights only. The Passage's own shop and aisle lights
+		# stay untouched in both zones: hiding them when the player is on
+		# the street would change what glows behind the portal proxy, and
+		# their caster sets are the hall's legitimate local cost.
+		if _envelope_side(AABB(c, Vector3.ZERO)) == -1:
+			passage_foreign_lights.append(light)
+			added["lights"] += 1
+	if added["interior"] + added["foreign"] + added["lights"] > 0:
+		print("[PASSAGE] root sweep: %d interior, %d foreign draws, "
+				% [added["interior"], added["foreign"]]
+				+ "%d foreign lights registered" % added["lights"])
+
+
+func _collect_zone_lights(n: Node, out: Array) -> void:
+	if n is SubViewport:
+		return
+	if n is Light3D:
+		out.append(n)
+	for c in n.get_children():
+		_collect_zone_lights(c, out)
 
 
 ## Ancestry that makes a static zone answer WRONG, not merely uncertain.
@@ -1045,7 +1159,7 @@ func _index_late_f01_geometry() -> void:
 ## the same node two visibility writers. Residents move: their schedules
 ## legitimately reach Passage anchors, so a resident hidden by a static
 ## foreign entry would walk the hall invisibly.
-func _late_owner_is_dynamic(geometry: GeometryInstance3D, floor: Node,
+func _late_owner_is_dynamic(geometry: Node, floor: Node,
 		registered: Dictionary) -> bool:
 	var cursor: Node = geometry
 	while cursor != null and cursor != floor:
@@ -1710,6 +1824,25 @@ func _set_passage_visibility(should_show: bool) -> void:
 	for geometry in passage_late_foreign_nodes:
 		if is_instance_valid(geometry):
 			_zone_toggle(geometry, not should_show)
+	# Lights are gated by SHADOW, not visibility. Their `visible` has other
+	# legitimate writers (day/night, directors) and a save/restore stomped
+	# them — the first treatment run doubled object counts at the interior
+	# stations by re-lighting lamps another system had put out. Nothing
+	# else writes shadow_enabled on non-fixture scene lights, the caster
+	# re-renders are the entire measured cost, and the lamp's LIGHT still
+	# shines identically in both zones, so there is no visual state to
+	# get wrong.
+	for light in passage_foreign_lights:
+		if not is_instance_valid(light):
+			continue
+		var id := light.get_instance_id()
+		if should_show:
+			if not passage_light_saved.has(id):
+				passage_light_saved[id] = light.shadow_enabled
+			light.shadow_enabled = false
+		elif passage_light_saved.has(id):
+			light.shadow_enabled = passage_light_saved[id]
+			passage_light_saved.erase(id)
 	for actor in passage_runtime_nodes:
 		if actor.has_method("set_passage_active"):
 			actor.set_passage_active(should_show)
@@ -1717,13 +1850,26 @@ func _set_passage_visibility(should_show: bool) -> void:
 			actor.visible = should_show
 
 
-func _zone_toggle(geometry: GeometryInstance3D, eligible: bool) -> void:
-	var id := geometry.get_instance_id()
+## LAYERS, not `visible`. Visibility has co-writers — the root-parented
+## passes gate their own children per floor, window glow sleeps quads,
+## cabinets stage their boot — and a visible save/restore stomped them
+## with state captured on the other side of the portal (the treatment
+## runs gained two thousand objects at the F04 corridor from signage
+## forced visible on the wrong floor). Nothing else writes render
+## layers, and layers == 0 removes a node from every camera and every
+## light's shadow pass at once, so the zone gate composes with the
+## owners instead of contending: a node renders when its owner shows it
+## AND the zone allows it.
+func _zone_toggle(node: Node3D, eligible: bool) -> void:
+	var vi := node as VisualInstance3D
+	if vi == null:
+		return
+	var id := vi.get_instance_id()
 	if eligible:
 		if passage_late_saved.has(id):
-			geometry.visible = passage_late_saved[id]
+			vi.layers = passage_late_saved[id]
 			passage_late_saved.erase(id)
 	else:
 		if not passage_late_saved.has(id):
-			passage_late_saved[id] = geometry.visible
-		geometry.visible = false
+			passage_late_saved[id] = vi.layers
+		vi.layers = 0

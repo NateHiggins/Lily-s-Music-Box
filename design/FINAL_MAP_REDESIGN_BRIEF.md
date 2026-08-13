@@ -1102,6 +1102,78 @@ proofs re-run green after profiling: 0 unclassified F01 draws, 32/32
 visibility checks. No production code changed; no visual A/B was needed
 because no treatment survived attribution.
 
+## 10an. SUBMISSION DECOMPOSED 2026-08-13 — the third ownership leak, −3.1 ms banked, and the measured ceiling
+
+`SubmissionCensus.tscn` (committed) attributes the northbound frame with
+`Viewport.get_render_info` for pass-split ground truth and the engine's own
+frustum culler for the census, reconciled in one run. Three findings and a
+harness defect:
+
+**1. The benchmark was measuring the wall clock.** Interior stations gained
+2–3.5k objects between a morning and an evening run of the SAME build —
+the day/night director opens the bar, lights windows, sends residents home
+(harukiya: 3,975 objects at ~10:00, 7,662 at ~19:20). Two false regression
+hunts died in that confound before the bisect found it. `perf_probe` now
+pins `DAYNIGHT=0` like every other harness — which means **every historical
+interior-station number in this brief was DAYTIME and the pinned canonical
+night runs heavier.** The 16.6 gate has never yet been evaluated against
+the game's actual play state until now. (`DAYNIGHT_FORCE` still overrides.)
+
+**2. The third ownership leak.** The F01 sweep covers the floor subtree; a
+root-parented population — RailingPolish, WayfindingSignage, the marquee,
+window glow, wall-art and case passes — was never classified, and with
+occlusion culling removed the shell hides nothing: **867 foreign draws**
+submitted through the hall's walls (~45% of the frustum). And the zone
+gate had never touched a **light**: the lobby lamps (r=13, ~600 casters
+each, two shadowed lights per lamp), the entry rakes and the parked
+player's phone re-rendered foreign casters into shadow maps nobody can
+see — ~3,400 of 5,169 visible-pass submissions were shadow re-renders.
+`_index_root_zone_content()` extends the sweep to both: geometry gated by
+**render layers** (visible has co-writers — the per-floor self-gating
+passes were stomped by a visible save/restore, +2k objects at F04 in the
+first treatment run; layers have no other writer and compose), lights
+gated by **shadow_enabled only** (their illumination is identical in both
+zones, so there is no visual state to get wrong; a visible save/restore
+doubled interior object counts before the mechanism was corrected).
+
+**Paired fresh-process result, clock pinned, 16/16, two runs each:**
+
+| northbound | objs | calls | ms |
+|---|---|---|---|
+| baseline | 8073 / 7980 | 10801 / 10451 | 21.42 / 20.30 |
+| zone-gated | 6570 / 6568 | 8257 / 8404 | 17.57 / 17.97 |
+
+**−3.1 ms, −2,300 calls.** All other stations within same-run noise. Ten of
+eleven station renders at their noise floors; southbound (3.6% of pixels)
+and northbound (2.4%) differ only through the glazing — the foreign zone's
+distant lit windows and skyline, which had leaked through the glass, now
+hide while inside. That is the shipped Passage design decision closing its
+last gap, documented here as the justified visible difference.
+
+**3. The ceiling, measured (SUB_DIAG=1, two runs).** From the gated 14.7 ms
+census floor: all 25 remaining lights' shadows off = **−0.2 ms** — the
+hall's own shadow work is nearly free, so the 16/16 budget is not the
+wall. Shell-only (hide all in-frustum non-shell content) = **−7.8 ms** —
+the remaining frame IS the hall's ~940 beauty draws. Their batching is at
+its contractual maximum: `walk_test.gd:2942` caps any `retail_shop_`
+buffer at 9.0 m, which outlaws the only merge (cross-shop) that could
+recover the residual ~1.2 ms, and LOD popping is a banned visible change.
+**Within the stated constraints, no submission-side candidate flips
+northbound (17.8 vs 16.6).** The remaining options are an owner decision:
+relax the 9 m batch contract for the hall shell's stock, accept the
+±1.2 ms blocker at canonical night, or revisit the target.
+
+Also reverted here: the graft's position-track drop (`344dbb2`) — its only
+live case, cross-generation rigs, ships a personal `_moves.glb` bake and
+never borrows those tracks, so the family path returns to
+longest-proven verbatim. (An inflation regression was briefly attributed
+to the drop and disproven by paired runs; it was the day/night confound.)
+
+Full suite green after the production changes: all focused proofs, the
+eleven-test battery, WalkTest FAST and FULL x8/480 — 0 failures.
+PassageVisibilityTest's hidden-predicate now tests SUBMISSION
+(layers == 0 or owner-hidden), which is what the gate means.
+
 ## 10al. F01 OWNERSHIP LEAK FIXED 2026-08-13 — a correctness bug, worth −3.1 ms
 
 **The defect.** `_index_passage_geometry()` classifies the F01 subtree once,

@@ -91,16 +91,22 @@ static func apply(model_root: Node) -> bool:
 		# the mesh at the waist). Rotations carry the animation; each body
 		# keeps its own skeleton. Only the hips keep their position track,
 		# because that one IS motion — the locomotion bob and root carry.
+		# Position tracks are copied VERBATIM again (the 2026-08-13 drop
+		# is reverted). The drop existed to cure the Grey Elegance corset
+		# — donor joint spacing riding in on borrowed position tracks —
+		# and that case no longer exists: a cross-generation rig ships a
+		# personal <model>_moves.glb bake and never borrows these tracks
+		# at all. For the same-generation family the tracks equal their
+		# own rest, so verbatim is the longest-proven path with one less
+		# special case. (An inflation regression was briefly attributed
+		# to the drop and disproven by paired runs: the inflation was the
+		# benchmark measuring day versus night, fixed by pinning the
+		# clock in perf_probe.)
 		for t in range(anim.get_track_count() - 1, -1, -1):
 			if anim.track_get_type(t) == Animation.TYPE_SCALE_3D:
 				anim.remove_track(t)
 				continue
 			var bone := String(anim.track_get_path(t)).get_slice(":", 1)
-			if anim.track_get_type(t) == Animation.TYPE_POSITION_3D \
-					and bone != "Hips" and bone != "hips" \
-					and bone != "root":
-				anim.remove_track(t)
-				continue
 			anim.track_set_path(t,
 					NodePath("%s:%s" % [skeleton_path, bone]))
 		anim.loop_mode = Animation.LOOP_LINEAR
