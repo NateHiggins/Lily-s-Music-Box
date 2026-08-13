@@ -345,18 +345,10 @@ is built.
 
 ## P2 — The Passage (rehousing the shops)
 
-Proposed in `design/ORISON_PASSAGE_BRIEF.md`. **Not canon until the owner rules
-its five open questions.** Nothing built. This supersedes R2's street re-plan if
-it is ruled in, so **do not start R2 until this is decided** - they are two
-answers to the same problem and only one should be built.
-
-- **PS1** Owner ruling. The expensive question is §8.1: all eleven units move,
-  or the cheaper split that keeps the luncheonette, news & cigars and the
-  pawnbroker on the street. *Blocks everything else here, and blocks R2.*
-- **PS2** Naming discipline, decide before any code exists: `arcade` already
-  means the cabinets (`game/scripts/arcade/`, §VIII.5.g). Fiction is "the Vantry
-  Arcade"; **code must be `passage`.** Do not let a second `arcade` into the
-  tree.
+Ruled as M0.5. Build drawing and measured baseline:
+`design/FINAL_MAP_REDESIGN_BRIEF.md`. All eleven shops move. Code is `passage`;
+fiction remains “the Vantry Arcade.” This supersedes R2's street re-plan: they
+are two answers to the same problem and only this one is built.
 - **PS3** The hall itself: glass barrel vault, iron ribs, eleven units with
   shopfronts onto the hall. §8.3 - whether the roof is intact, holed, or sheeted
   over - is the biggest atmosphere decision in the document.

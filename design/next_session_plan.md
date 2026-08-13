@@ -1,4 +1,4 @@
-# Next session: prove the complete shift before adding more world
+# Next session: finish M0.5, then build the loop spine
 
 *Rewritten 2026-08-13. Sequencing authority beneath
 `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`.*
@@ -15,24 +15,27 @@ narcoleptic dark scramble, wake in 4B, repeat. The core dream function is now
 part of the product. The detailed maze proposal still contains implementation
 questions and must not be treated wholesale as a ruling.
 
-## First work: M0 only
+## First work: close the three M0.5 pre-subtraction checks
 
-Do not begin another prop family, receiver, street landmark, shop expansion or
-case. First establish what the rapidly changing tree actually does.
+Do not begin another prop family, receiver, street landmark or case. The final
+map is a ruled consolidation, not an expansion. Its measured build drawing is
+`design/FINAL_MAP_REDESIGN_BRIEF.md`.
 
-1. Preserve the current dirty work. Inspect every diff; never `git add -A`.
-2. Regenerate only if source/output comparison proves generated data stale.
-3. Run project import and the focused Mina, case, work-order, navigation,
-   schedule, haunting, lighting and save tests that currently exist.
-4. Run FULL WalkTest and the current performance stations.
-5. Play Mina from a fresh save without debug intervention and write the actual
-   state trace: how it starts, where it blocks, which parts are only test-driven,
-   and where shop/dream integration is absent.
-6. Verify that the chosen critical route is physically reachable: 4B, Mina's
-   flat, lobby, elevator/stairs, street and one candidate shop.
-7. Add findings to K1 or a dedicated audit if they require more than one line.
+1. Sweep the south pavement beyond both boundary bodies with a player capsule;
+   record whether the four outlying shops were unreachable or reachable by an
+   unintended walk.
+2. Name the generated/runtime owner of every flat black mass in
+   `art/renders/map_before/street_1.png`. Delete no anonymous geometry.
+3. Produce the top-down build diagram with the ruled portal, narrow throat,
+   expansion point and hall envelope.
 
-## Then: M1 in four reviewable changes
+Then execute M0.5 continuously in the phase order in the final-map brief:
+subtraction; Passage shell and relocation; street finalisation; photoreal finish;
+lock, test and document. The subtraction and construction commits are separate
+rollback points on one continuous branch of work. Do not leave `main` in a
+no-shop state.
+
+## After the M0.5 acceptance gate: M1 in four reviewable changes
 
 1. **K2 — job contract.** Define the one-job data shape and extend `WorkOrders`
    through diagnosis, procurement, repair and closure. No dream code.
@@ -60,13 +63,14 @@ the end to discover that the interaction exists only in tests.
 
 ## The first deliverable to the owner
 
-Return a concise M0 report with:
+Return the M0.5 handoff with:
 
-- current fresh-save path;
-- first hard blocker in the eleven-beat golden shift;
-- exact existing systems to reuse;
-- proposed Mina fault, shop, part and procurement verb;
-- test baseline and performance baseline;
-- files proposed for M1, before editing them.
+- the south-pavement verdict and black-mass ownership;
+- final top-down plan and exact playable boundary;
+- what was removed, moved and retained;
+- zone ownership and visibility evidence;
+- complete route, test and performance results at the pinned light budget;
+- before/after renders;
+- proposed files for M1, before editing the loop spine.
 
 That is the next approval point.

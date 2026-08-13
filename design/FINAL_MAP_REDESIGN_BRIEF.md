@@ -326,13 +326,9 @@ but do not silently switch contracts mid-comparison.
    **Do not delete anonymous geometry before its source is named.**
 3. Top-down diagram: portal, throat, expansion point, hall envelope.
 
-## 10. Owner decisions required (all now closed — see 10a)
+## 10c. Closed owner decisions
 
-1. **Sequencing.** This brief contradicts `a8eda17` (2026-08-13), which ruled
-   M0 → M1 loop spine and said not to begin street or shop expansion work.
-   Both cannot be first. Recommend: map redesign proceeds, and the execution
-   plan + `next_session_plan.md` are rewritten to place it as M1.5, so the
-   next agent does not inherit two contradictory orders.
-2. **Code prefix `passage`** confirmed (D-4), fiction stays "Vantry Arcade".
-3. **Portal at x ≈ 14** — east of the bar's mass — accepted, or the hall goes
-   west of x −12 at the cost of the druggist's north bay.
+- Sequencing is M0 → **M0.5 final map** → M1 loop spine → M2 Mina graybox.
+- Code prefix is `passage`; fiction remains “the Vantry Arcade.”
+- The street portal is centred at x ≈ 14, east of the Harukiya. Its ruled
+  throat and hall envelope are recorded in §10a.

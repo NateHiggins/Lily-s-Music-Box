@@ -263,6 +263,34 @@ previous one “mostly works.”
 **Gate:** a fresh checkout reproduces the baseline, all failures are named, and
 Claude can describe the current golden path without reading source during play.
 
+### M0.5 — Finalise the map substrate
+
+*Inserted by owner ruling 2026-08-13. Build drawing and measured baseline:
+`design/FINAL_MAP_REDESIGN_BRIEF.md`.*
+
+Consolidate the playable world into three separately owned zones before job data
+binds itself to shop anchors that are about to move:
+
+1. **ORISON** — the final apartment building, its required service spaces and
+   controlled exterior proxy.
+2. **STREET** — the compact 1928 crossing, traffic and honest stage boundaries.
+3. **PASSAGE** — the Vantry Arcade in fiction; all eleven researched shops in
+   one enclosed, independently gated commercial hall.
+
+This is bounded subtraction, relocation and optimisation, not world expansion.
+Remove the redundant street parade, identify and remove the black obstruction
+masses, build the ruled portal/throat/hall envelope, preserve all load-bearing
+shop identities and interactions, and introduce real zone ownership. Pin every
+comparison to the production 14-light/8-shadow budget until that contract is
+deliberately changed.
+
+**Gate:** all three zones and the complete errand route are reachable and
+visually final; the Passage does not submit from the street; all eleven shops
+exist exactly once; no obsolete shell, invisible blocker or exposed stage edge
+remains; generated data and focused/full suites are clean; every critical
+performance station meets the recorded target or carries a measured blocker
+that the owner has explicitly accepted.
+
 ### M1 — Build the loop spine
 
 1. Define the data schema for one maintenance job and one shop item.
