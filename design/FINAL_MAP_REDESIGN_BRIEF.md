@@ -272,7 +272,61 @@ new stations).
 - all five generated JSONs synchronized art→game
 - stations within target **with the light budget pinned** (see D-3)
 
-## 10. Owner decisions required
+## 10a. RULED 2026-08-13 — the envelope, measured and settled
+
+Sequencing: this is **M0.5 — Final Map Substrate**, between M0 and M1.
+`M0 baseline → M0.5 final map → M1 loop spine → M2 Mina graybox`. Not M1.5:
+the maintenance-item contract must not bind to shop anchors and visibility
+ownership that are about to be replaced. Bounded consolidation, subtraction
+and optimization only.
+
+**Portal and throat, ruled and checked:**
+
+| element | envelope | check |
+|---|---|---|
+| street portal | x 11.0..17.0 at `BLDG_S −28.316`, 6.0 m | centred x = 14.0 |
+| throat | x 11.0..17.0, south to y −38.4 | **clears Harukiya by 4.60 m in x** |
+| main hall | x 4.0..24.0, y ≤ −38.4 | clears Harukiya rear (−38.2) by 0.20 m |
+
+The throat is the architectural reveal, the acoustic transition and the
+visibility portal: from the street it must stop the engine rendering eleven
+interiors through one doorway.
+
+**Measured blocker, and its resolution.** A hall carrying 47.4 m of frontage
+needs two sides (unit 7.0 + aisle 6.0 + unit 7.0 = 20 m short axis) and ~24 m
+of length. From y −38.4 that reaches **y −62.4**, exceeding `SITE_S = −42.0`
+by **20.4 m**. Shifting east cannot fix a depth problem. Owner granted space
+2026-08-13, so:
+
+- **`SITE_S` extends from −42.0 to −66.0** (`gen_layout.py:3669`). The asphalt
+  sheet already covers to y −82, so this is authored-extent bookkeeping plus
+  moving the vista stops and far skyline back — not new playable street. The
+  hall is enclosed; none of it is walkable from outside the portal.
+- Hall clearance to the Harukiya is exactly the 0.20 m minimum. **Author the
+  hall front at y −38.6 instead of −38.4** for 0.40 m, unless a rendered
+  sightline needs the extra 200 mm.
+
+**The ground the Passage occupies is the ground Phase 2 frees.** The generated
+hosts for pawn (rear y −36.9..−39.7), funeral (−37.9..−40.7) and news
+(−34.9..−37.7) currently stand exactly where the throat runs. Subtraction and
+construction are the same volume, which is why they must be consecutive
+commits on one branch and `main` must not rest in a no-shop state.
+
+**Light budget pinned for all comparisons: 14 lights / 8 shadows**, the value
+`building_root.gd:344-351` actually applies in play. Every station in every
+future table states it. Fix or delete the clobber (§P4) before re-measuring,
+but do not silently switch contracts mid-comparison.
+
+## 10b. Checks outstanding before the subtraction commit
+
+1. South-pavement `RouteProbe` beyond both boundary bodies — settles whether
+   the four out-of-bounds shops are unreachable or reachable by an unintended
+   walk. §4's wording updates with the result.
+2. Ownership of every black mass in `art/renders/map_before/street_1.png`.
+   **Do not delete anonymous geometry before its source is named.**
+3. Top-down diagram: portal, throat, expansion point, hall envelope.
+
+## 10. Owner decisions required (all now closed — see 10a)
 
 1. **Sequencing.** This brief contradicts `a8eda17` (2026-08-13), which ruled
    M0 → M1 loop spine and said not to begin street or shop expansion work.
