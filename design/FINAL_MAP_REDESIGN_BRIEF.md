@@ -1056,6 +1056,52 @@ and that is a per-class profile, not another policy.
 reverted uncommitted — the ~0.65 ms did not justify lifecycle infrastructure
 during M0.5. The findings stand; the code does not exist.)*
 
+## 10am. TICK PROFILE 2026-08-13 — the 5.03 ms never existed. Ceiling is ~1.0 ms.
+
+The commissioned per-class profile (`PropTickProfile.tscn`: northbound
+pinned, 16/16, two runs) measured the prop-tick cost the direct way — every
+ticking prop's `_process` called under a microsecond clock, per class —
+instead of inferring it from frame-time differences. Two findings, the
+second bigger than the first:
+
+**1. No class is expensive.** 425 ticking props across 27 classes cost
+**0.42 / 0.45 ms per frame in total** (runs 1/2). The heaviest class is
+`flush_dome`: 90 props, 0.097 ms *combined*. Per-prop costs run 0.1–3.2 µs.
+The owner's four buckets, attributed: *required-continuous* — none that
+matter (the case/audio-adjacent classes cost ≤0.2 µs each);
+*event/proximity candidates* — signage, monitors (already proven
+pause-safe by the classification pass); *reduced-frequency candidates* —
+the 257 light fixtures, worth 0.27 ms combined; *should-not-process* — the
+hidden set the rejected gate covered, worth ~0.05 ms. *Every bucket is
+economically empty.* No production policy is justified: the largest
+possible win from any prop-tick change is ~1 ms, and most changes risk
+visible behaviour for a fraction of that.
+
+**2. The 5.03 ms ceiling was a measurement artifact, and the evidence was
+in the original log all along.** Silencing ALL prop ticks, measured
+properly against an in-run baseline, recovers **−0.97 / −1.02 ms** (runs
+1/2): ~0.44 ms of script plus ~0.6 ms of per-frame dispatch overhead for
+425 script calls. The old diagnostic's "props drawn but not ticking"
+frame-time delta (−5.03) came from single sequential snapshots in a long
+toggle chain — and its own `proc` column read 27.82 → 26.85, i.e. **−1 ms
+of actual process time**, agreeing with today's number. §10ak trusted the
+frame column over the proc column and §10aj's "worth roughly the whole
+shadow lever" claim compounded it. Both are wrong; this section is the
+correction. The per-class frame-time treatments in the new profile
+demonstrate the artifact directly: one-prop classes "cost" +2 ms by that
+method while the in-run baseline itself drifted 0.5 ms.
+
+**Consequence for M0.5: the northbound gap does not close from prop policy
+of any kind.** The frame floor with every prop tick silenced is ~19.6 ms
+against a 16.6 gate. What remains is submission and lighting — 8.4k
+objects / 10.8k calls at the station, where the diagnostic's real levers
+always were (illumination-off −31%, the banned all-shadows −26%). No
+station flips from here without either a submission-side change (batching,
+LOD) or the owner accepting the measured blocker. Ownership and visibility
+proofs re-run green after profiling: 0 unclassified F01 draws, 32/32
+visibility checks. No production code changed; no visual A/B was needed
+because no treatment survived attribution.
+
 ## 10al. F01 OWNERSHIP LEAK FIXED 2026-08-13 — a correctness bug, worth −3.1 ms
 
 **The defect.** `_index_passage_geometry()` classifies the F01 subtree once,
