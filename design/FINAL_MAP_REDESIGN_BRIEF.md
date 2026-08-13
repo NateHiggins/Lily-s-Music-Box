@@ -992,6 +992,15 @@ architecture — vault, shell, stairs — which is out of scope by instruction.
 **RECOMMENDATION: approve no shadow policy.** Not "adopt the safest": no option
 has a benefit that justifies a visual decision.
 
+**OWNER DECISION 2026-08-13: A, B and A+B are ALL REJECTED.** "A is visually
+free but materially useless. B and A+B fail the visual bar and still do not
+flip a station." The shadow policy, architecture, geometry, lighting and the
+pinned 16/16 budget are therefore unchanged and closed. This section stays as
+the record of *why* — so the next person who notices that shadows look like the
+biggest remaining lever finds the measurement instead of repeating it. The
+lever is real; it is capped at −5.09 ms against a −6.84 gate; that is the whole
+story. Next pass is prop tick gating, below.
+
 **Correction to §10ai, with the runs to back it.** Phase 6 recorded that
 stopping prop ticks "did not produce a stable win". Repeated twice here at
 northbound it is one of the *most* stable levers measured:
@@ -1008,3 +1017,37 @@ same at the roof (−47%) and this brief then generalised it away as "prop
 scripts are not the cost"; they are the cost wherever there is little to draw,
 and the Passage is such a place. **That is where the next measurement belongs,
 not in shadows.**
+
+## 10ak. TICK GATING MEASURED 2026-08-13 — the −19.5% is NOT reachable off-screen
+
+**Correcting §10aj, which is mine and which oversold this.** The diagnostic row
+"props drawn but not ticking" silences **every** FunctionalProp, including the
+ones the player is looking at. It is therefore an upper bound on *all* prop
+CPU, not on *recoverable* CPU, and reading it as a free −19.5% was wrong.
+
+`_apply_visibility` already computes, per prop, whether it can be seen. Wiring
+that decision to `set_process` (opt-in via `FunctionalProp.pauses_offscreen`,
+with an `on_tick_resumed()` hook for decaying accumulators) removes the
+provably wasted work: at the three Passage stations the count of props that are
+**invisible and still ticking** falls **347 → 140**, and the atrium — which
+legitimately sees the whole stack — correctly falls to 0.
+
+**And it buys almost nothing.** Two runs each: northbound 22.58 / 22.99 against
+a 23.44 ±0.42 baseline, about **−0.65 ms**; southbound −0.60; throat −1.08. No
+station flips. (Roof read 26.25 then 18.66 — a 7.6 ms spread on one build, so
+roof ms is unusable at this sample size; the two-run rule is what caught it.)
+
+**Why, measured rather than guessed.** With the gate active the diagnostic was
+re-run: only **187** props are still ticking, and silencing those still
+recovers **5.03 ms** (25.31 → 20.28). So the ~207 props the gate switched off
+were worth ~0.05 ms *between them*, and essentially the entire prop-tick cost
+sits in a small number of **expensive, visible, local** tickers. Off-screen
+gating cannot reach them, and freezing them is the blanket freeze that is
+explicitly out of scope.
+
+**Consequence for M0.5:** the blocker stands. Northbound ≈22.8 ms against a
+16.6 gate. Both levers that looked large — shadows and prop ticks — are now
+measured and neither is reachable: shadows are capped at −5.09 and fail the
+visual bar; tick gating is capped at ~−0.65 without freezing visible props.
+**The next question is which of the 187 still-ticking props cost 27 µs each**,
+and that is a per-class profile, not another policy.
