@@ -218,6 +218,49 @@ and by NPCs. R2 needs a brief before anyone builds.
   and the fix is worth having building-wide, not just on the street.
 
 
+## V — Navigation, access and the play space
+
+Opened 2026-08-13 from the map-redesign Phase 0 measurements
+(`design/FINAL_MAP_REDESIGN_BRIEF.md`). R6 is the parent complaint; these are
+the specific defects behind it, and V1 is the revamp the owner asked for.
+
+- **V1** **Revamp resident pathfinding.** `resident_nav.gd` builds one AStar3D
+  per floor from `building_layout.json` room rects, door markers and leafless
+  wall openings, and **never reads a prop**. R6 is the symptom, this is the
+  job. Wants a brief before code: the router has to learn fittings without
+  becoming a navmesh, because there is no `NavigationRegion3D` or
+  `NavigationAgent3D` anywhere in the project. Today: 336 nodes over 8 floors,
+  57 wall-crossing edges rejected, 314 relinked.
+- **V2** `validate_with_collision()` raycasts **once**, two physics frames
+  after build (`resident_routines.gd:350-354`), against whatever colliders
+  exist at that instant. Props spawned, moved or possessed later are invisible
+  to the graph, and the relink step will happily connect an island through a
+  gap that closes afterwards.
+- **V3** `route()` returns `PackedVector3Array([from])` — stand still — when no
+  wall-safe anchor pair exists (`resident_nav.gd:290-297`), warning once per
+  rounded coordinate pair. A room rect edited without its door marker yields
+  silently frozen residents rather than a failure. Make it loud.
+- **V4** Residents are parented to `floor_nodes[floor_id]` and **never
+  reparented**, so anyone who walks or rides to another storey is culled with
+  their HOME floor. Tests paper over it with `show_all_floors`
+  (`phone_light_shots.gd:24-26`). Every schedule that sends someone to a shop,
+  the bar or the roof exposes it.
+- **V5** **Four shops sit outside the lateral stage boundary.** `STAGE_W`
+  −20.10 / `STAGE_E` +20.60 against a parade running x −32.4..31.6 leaves
+  laundry, cobbler, hardware and photo — **139 m² of fitted, lit interior** —
+  beyond the playable bounds. Sweep `RouteProbe` along the south pavement to
+  settle whether they are unreachable or reachable by a walk nobody intended.
+  Both answers are defects; they need different fixes.
+- **V6** **Black slabs on the critical route.**
+  `art/renders/map_before/street_1.png` shows several large flat black masses
+  across the pavement and carriageway. Every suite is green because none of
+  them look at an outdoor pixel — `RoomLumaAudit` covers rooms only. Identify
+  the geometry, then decide whether the audit grows an exterior station.
+- **V7** Reach versus authored height: the interaction ray is 2.1 m from a
+  1.41 m eye, while measured shop counter tops run 1.05–1.18 and photo's brass
+  top sits at 1.41–1.45, i.e. exactly at the eye line. The build guide states
+  0.90–1.05. Decide which is canon before a Passage reuses those boxes.
+
 ## L — Light
 
 `tests/RoomLumaAudit.tscn` guards this. **Run it windowed** - it reads pixels
@@ -640,6 +683,36 @@ and the four isolated roof fixtures now terminating at a real riser.
 - **P3** Every figure here comes from one RTX 4080, which never leaves idle
   clocks during the benchmark. Mobile is unproven and the only export preset is
   Android - where the CPU-bound conclusion is worse news, not better.
+- **P4** **The budget being measured is not the one documented.**
+  `light_rig.gd:135-156` sets desktop to UNLIMITED (4096) / SHADOW_N (32) and
+  honours `LIGHT_BUDGET`/`SHADOW_BUDGET`, then `building_root.gd:344-351` calls
+  `set_budgets(14, 8)` immediately after `add_child`, clobbering both.
+  README:531-533 documents unlimited/32. Play runs 14/8. Every perf comparison
+  must pin this, and the `LIGHT_BUDGET` sweep documented as the regression
+  method does nothing in play.
+- **P5** `project.godot:60` leaves `occlusion_culling/use_occlusion_culling=true`
+  while no `OccluderInstance3D` is generated anywhere — the pass was removed
+  2026-08-05 because occluders sat coincident with the masonry that made them.
+  A live cost with zero benefit, and a trap for anyone assuming occlusion is
+  doing work a redesign can lean on.
+- **P6** **P2's "user prop scripts are not the cost" is station-specific, and
+  false at the roof.** Measured 2026-08-13 with the same harness: silencing all
+  384 `_process` callbacks while leaving everything drawn is worth ~0% at the
+  atrium and the street, and **−47% at the roof**. The roof draws 2,535 objects
+  — half the harukiya's — and still misses budget at 20.41 ms. Where there is
+  much to draw, submission dominates; where there is little, ungated per-frame
+  work does. Gate prop ticking and `StreetTraffic._process` on visibility.
+- **P7** `_update_floor_visibility()` runs every physics tick, unthrottled, and
+  `_apply_visibility` writes `.visible` unconditionally rather than on change
+  across 8 floors plus ~471 props and ~120 doors (`building_root.gd:1429-1445`)
+  — a per-tick write over ~600 nodes on a frame that is submission-bound.
+- **P8** **No streaming or visibility-zone system exists to configure.** One
+  storey-granular gate keyed off a single position with hardcoded literals
+  (`building_root.gd:1394-1445`); no `VisibilityRange`,
+  `VisibleOnScreenNotifier3D`, HLOD, distance LOD or room gate anywhere in
+  `game/scripts`. The map redesign's three-zone requirement is a new subsystem,
+  not a setting — scope it as one.
+
 ## H — Housekeeping
 
 - **H2** **`C:\FPSengine01` is not a git repository.** The entire compiler side —
@@ -647,3 +720,18 @@ and the four isolated roof fixtures now terminating at a real riser.
   validation — is unversioned files on disk. `git init` and a first commit.
 - **H3** `worldc clean --stale` has no test covering it.
 - **H13** **Logical placement audit.** Is each object placed correctly, and does it belong there. Convention traps are listed in the brief (door markers are the hinge jamb; pendant markers are ceiling anchors with a drop). Note placement cannot lean on the router to prove a route is clear — see R6, residents walk through furniture. Brief: `design/AUDIT_BRIEF.md`.
+- **H14** Doc/code drift on which shops keep the light on, three answers in
+  three places: the build guide says four trades (laundry, diner, news,
+  druggist awning) at `SHOP_INTERIOR_BUILD_GUIDE.md:37-39`;
+  `gen_layout.py:4272-4274` gives leaf `open` to laundry and diner only,
+  `locked` to news and `closed` to the druggist; and a third set (laundry,
+  diner, news, pawn) drives the brighter lamp energies at `:4399`. Pick one.
+- **H15** `shop_entry_test.gd:327-335` proves the NEWS & CIGARS proprietor
+  restriction against **hardcoded world coordinates** (8.925 / 9.72, z
+  26.85..30.45). Move that shop a metre and the assertions quietly become
+  tests of empty pavement instead of failures. Re-anchor them to the marker.
+- **H16** `SafetyNet.exempt_zones` is populated only inside the DEBUG-launch
+  branch (`building_root.gd:452-461`), where `PropWarehouse` registers its
+  hall. Any playable volume added outside the site box reaches release with no
+  exemption and is rescued out of — the failure reads as a dead teleport,
+  which is exactly the bug the comment at `safety_net.gd:33-38` records.
