@@ -1051,3 +1051,80 @@ measured and neither is reachable: shadows are capped at −5.09 and fail the
 visual bar; tick gating is capped at ~−0.65 without freezing visible props.
 **The next question is which of the 187 still-ticking props cost 27 µs each**,
 and that is a per-class profile, not another policy.
+
+*(The tick gate described above was subsequently REJECTED by the owner and
+reverted uncommitted — the ~0.65 ms did not justify lifecycle infrastructure
+during M0.5. The findings stand; the code does not exist.)*
+
+## 10al. F01 OWNERSHIP LEAK FIXED 2026-08-13 — a correctness bug, worth −3.1 ms
+
+**The defect.** `_index_passage_geometry()` classifies the F01 subtree once,
+at `_ready` line ~210 — before VantryPointNetwork, the detail passes, the
+lobby boards, the wall-art catalogs, MaintenanceHeadquarters, the street ends
+and the arcade spawner have constructed anything. Everything they parent into
+F01 landed in no list, so `_set_passage_visibility` could not hide it from
+inside the Passage. Measured at the northbound station
+(`PassageOwnershipAudit.tscn`, camera parked at the perf station, visibility
+settled): **532 visible unclassified draws, ~500 of them shadow casters** —
+the lobby arcade cabinet alone contributed 94, the work-order board 37, the
+sales board 31, plus the bulletin/porter boards, mail bank, MHQ, memory art
+and the street-end dressing. This is the same class of defect §10ai found and
+fixed for the Orison stack (`in_passage` suppressing `outside`), one layer
+down.
+
+**The fix, and why it has the shape it has.** Names cannot classify late
+geometry — a Passage shop cabinet and a lobby cabinet share a naming scheme —
+so the sweep classifies by measured world AABB against the ruled envelope
+(`_envelope_side`, in lockstep with `_point_is_in_passage`): fully inside →
+Passage interior, fully outside → foreign, straddling or dynamic → explicitly
+shared, never silently skipped. Three structural facts, each learned from a
+failed simpler version:
+
+1. **A sweep at the end of `_ready` is not exhaustive** — the arcade spawner
+   boots cabinets asynchronously, and 207 of the 732 late draws did not exist
+   yet when `_ready` returned. The sweep therefore also runs on every zone
+   transition, incrementally, before either zone renders a frame of whatever
+   was built since the last crossing.
+2. **Class ancestry is not ownership.** The first draft exempted anything
+   under a `FunctionalProp` — but the reality props extend it without ever
+   being registered in `functional_props_by_floor`, so nobody gates them and
+   "shared" would have left the second-largest leak standing. The exemption
+   now tests registry membership, plus `NPC_` for residents, whose schedules
+   legitimately reach Passage anchors.
+3. **Late geometry can have another visibility writer** (window glow sleeps
+   quads; cabinets stage their boot; a cabinet going live FREES its old
+   screen — the first windowed run crashed 0xC0000005 on a dead reference).
+   Late-registered nodes are therefore save/restored rather than forced, and
+   the arrays are pruned of dead instances each sweep.
+
+**Result, two runs each, 16/16 pinned, single-variable:**
+
+| northbound | objs | calls | ms |
+|---|---|---|---|
+| before | 8988 / 8992 | 11896 / 11668 | 23.29 / 23.80 |
+| after | 8377 / 8367 | 10848 / 10837 | 20.55 / 20.33 |
+
+**−3.1 ms, −615 objects, −940 calls (−8%), stable to ±0.11 ms across runs.**
+Southbound 15.84 → 13.91/13.56, throat 13.01 → 12.31/11.74. Orison stations
+unchanged within their noise. The audit is now **0 visible unclassified
+draws** (114 interior — the shop cabinets, by position; 614 foreign; 4 shared
+— the two resident sprites), and it is an executable regression: its exit
+code is the leak count.
+
+**Visually nothing legitimate changed:** all eleven stations land at their
+measured noise floors (northbound 0.0% of pixels vs a 0.1% floor;
+`art/renders/passage_ownership/after/` vs the committed
+`shadow_policy/baseline/`). Removal of foreign-zone submissions only.
+
+**Verification:** FinalMapRouteTest, PassageVisibilityTest (extended to 32
+checks: named late-built owners hidden inside, Passage-side late draws
+staying, restore-on-exit to saved state, zero-unclassified inline, aerial
+STREET station outside), PassageFinishTest, PassageNavTest, ShopEntryTest,
+StreetContainmentTest, LightingAudit, ScheduleTest, RealityCaseTest, WalkTest
+FAST, and WalkTest FULL at **x8/480 Hz** (`WALKTEST_SCALE=8`, 46.6 s,
+500 checks, 0 failures) — all PASS.
+
+**M0.5 remains open.** 7/11 stations still miss 16.6 ms; northbound is now
+≈20.4, gap 3.8. The remaining measured lever is the expensive visible/local
+prop classes (187 tickers worth 5.03 ms at northbound) — a per-class profile,
+not begun.

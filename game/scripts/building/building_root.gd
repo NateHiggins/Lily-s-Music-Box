@@ -127,6 +127,25 @@ var passage_shell_nodes: Array[GeometryInstance3D] = []
 ## The shallow `passage_proxy` entrance remains always eligible and is omitted
 ## from both lists deliberately.
 var passage_foreign_f01_nodes: Array[GeometryInstance3D] = []
+## Late-built F01 draws, classified by measured position against the ruled
+## envelope because they did not exist when the name index ran. Kept apart
+## from the early lists because their toggle semantics differ: another
+## system may legitimately toggle these (window glow sleeps quads, cabinets
+## stage their boot), so the zone gate SAVES their visibility when it hides
+## them and RESTORES that saved state on the way back — it never forces
+## true onto geometry somebody else turned off.
+var passage_late_interior_nodes: Array[GeometryInstance3D] = []
+var passage_late_foreign_nodes: Array[GeometryInstance3D] = []
+var passage_late_saved: Dictionary = {}
+## Explicitly shared F01 draws: classified, never toggled by the zone gate.
+## Deliberate, per node, for one of three reasons — it straddles the portal
+## (the site-spanning vantry batch), it moves under another system's
+## authority (residents, whose schedules legitimately reach Passage
+## anchors), or a registered FunctionalProp/DoorProp ancestor already
+## zone-gates it. Exists so the ownership audit can insist on ZERO
+## unclassified draws without forcing a wrong static answer onto a dynamic
+## node.
+var passage_shared_f01_nodes: Array[GeometryInstance3D] = []
 var passage_runtime_nodes: Array[Node3D] = []
 var passage_visible := true
 var passage_finish: Node3D
@@ -500,6 +519,9 @@ func _ready() -> void:
 	print("[BUILDING] %d low-overhead environment details and %d story decals"
 			% [detail_stats.details, detail_stats.decals])
 	print("[BUILDING] %d atmospheric evidence decals" % atmospheric_decals)
+	# LAST, deliberately: every builder above may parent geometry into F01,
+	# and this sweep is only exhaustive if nothing is constructed after it.
+	_index_late_f01_geometry()
 
 
 func _build_environment() -> void:
@@ -934,6 +956,135 @@ func _index_passage_geometry() -> void:
 	print("[PASSAGE] %d interior, %d shell and %d foreign F01 draws indexed" %
 			[passage_interior_nodes.size(), passage_shell_nodes.size(),
 			passage_foreign_f01_nodes.size()])
+
+
+## The name-based index above runs at _ready line ~210, before any late
+## builder has constructed a node — so everything VantryPointNetwork, the
+## detail passes, MaintenanceHeadquarters, the lobby boards, the wall-art
+## catalogs, the arcade spawner and the street ends parent into F01 lands in
+## NO list, and `_set_passage_visibility` cannot touch it. Measured at the
+## northbound station before this sweep existed: 532 visible unclassified
+## draws, ~500 of them shadow casters, submitted from inside a zone that
+## cannot see them (PassageOwnershipAudit.tscn, own_audit_before2.log).
+##
+## Names cannot classify late geometry — a Passage shop cabinet and a lobby
+## cabinet share a naming scheme — but the ruled envelope can: geometry
+## fully inside the throat/hall volume is Passage interior, fully outside is
+## foreign, and anything dynamic or straddling is EXPLICITLY shared rather
+## than silently skipped, so the audit can demand zero unclassified draws.
+##
+## Runs at the end of _ready to front-load the bulk, and again on EVERY
+## zone transition — because construction does not stop at _ready. The
+## arcade spawner boots cabinets asynchronously, so 207 of the 732 late
+## draws did not exist yet when _ready returned; a sweep that runs once can
+## never be exhaustive, and one that runs on each portal crossing is, for
+## everything built by the time the player can see either side. Incremental
+## via the `known` set, so repeat sweeps only pay for what is new.
+func _index_late_f01_geometry() -> void:
+	var floor: Node = floor_nodes.get("F01")
+	if floor == null:
+		return
+	# Late-built geometry can also be late-FREED — a cabinet going live
+	# rebuilds its screen, and the first windowed run crashed 0xC0000005 on
+	# exactly that: a dead reference in these arrays touched during the
+	# transition sweep. Prune the dynamic arrays first, then index.
+	for arr: Array in [passage_late_interior_nodes,
+			passage_late_foreign_nodes, passage_shared_f01_nodes]:
+		for i in range(arr.size() - 1, -1, -1):
+			if not is_instance_valid(arr[i]):
+				arr.remove_at(i)
+	var known := {}
+	for arr: Array in [passage_interior_nodes, passage_shell_nodes,
+			passage_foreign_f01_nodes, passage_late_interior_nodes,
+			passage_late_foreign_nodes, passage_shared_f01_nodes]:
+		for g in arr:
+			if is_instance_valid(g):
+				known[g.get_instance_id()] = true
+	# Membership in the prop registries, not class ancestry: the prop loop
+	# gates exactly what is IN functional_props_by_floor / doors_by_floor.
+	# A node that merely extends FunctionalProp but was never registered
+	# (the reality props) is gated by nobody, and calling it shared would
+	# have left the second-largest leak in place.
+	var registered := {}
+	for fid in functional_props_by_floor:
+		for p in functional_props_by_floor[fid]:
+			registered[p.get_instance_id()] = true
+	for fid in doors_by_floor:
+		for d in doors_by_floor[fid]:
+			registered[d.get_instance_id()] = true
+	var added := {"interior": 0, "foreign": 0, "shared": 0}
+	for candidate in floor.find_children("*", "GeometryInstance3D", true, false):
+		var geometry := candidate as GeometryInstance3D
+		if geometry == null or known.has(geometry.get_instance_id()):
+			continue
+		if String(geometry.name).contains("_retail_passage_proxy_"):
+			continue                # STREET-owned by ruling; never indexed
+		if _late_owner_is_dynamic(geometry, floor, registered):
+			passage_shared_f01_nodes.append(geometry)
+			added["shared"] += 1
+			continue
+		match _envelope_side(geometry.global_transform * geometry.get_aabb()):
+			1:
+				passage_late_interior_nodes.append(geometry)
+				added["interior"] += 1
+			-1:
+				passage_late_foreign_nodes.append(geometry)
+				added["foreign"] += 1
+			_:
+				passage_shared_f01_nodes.append(geometry)
+				added["shared"] += 1
+	if added["interior"] + added["foreign"] + added["shared"] > 0:
+		print("[PASSAGE] late sweep: %d interior, %d foreign, %d shared "
+				% [added["interior"], added["foreign"], added["shared"]]
+				+ "late-built F01 draws registered")
+
+
+## Ancestry that makes a static zone answer WRONG, not merely uncertain.
+## Geometry under a REGISTERED FunctionalProp/DoorProp is already zone-gated
+## per prop by `_apply_visibility`'s prop loop — indexing it here would give
+## the same node two visibility writers. Residents move: their schedules
+## legitimately reach Passage anchors, so a resident hidden by a static
+## foreign entry would walk the hall invisibly.
+func _late_owner_is_dynamic(geometry: GeometryInstance3D, floor: Node,
+		registered: Dictionary) -> bool:
+	var cursor: Node = geometry
+	while cursor != null and cursor != floor:
+		if registered.has(cursor.get_instance_id()):
+			return true
+		if String(cursor.name).begins_with("NPC_"):
+			return true
+		cursor = cursor.get_parent()
+	return false
+
+
+## Which side of the ruled Passage envelope a world AABB sits on:
+## 1 fully inside, -1 fully outside, 0 straddling. The bounds are the same
+## throat and hall boxes as `_point_is_in_passage` — keep them in lockstep,
+## because a probe that names the zone and an index that hides it must not
+## disagree about where the zone is.
+func _envelope_side(world: AABB) -> int:
+	var x0 := world.position.x
+	var x1 := x0 + world.size.x
+	var y0 := world.position.y
+	var y1 := y0 + world.size.y
+	var z0 := world.position.z
+	var z1 := z0 + world.size.z
+	var touches_throat := z1 > 28.316 and z0 <= 38.6 \
+			and x1 > 11.0 and x0 < 17.0
+	var touches_hall := z1 > 38.6 and z0 <= 64.6 \
+			and x1 > 4.0 and x0 < 24.0
+	if not ((touches_throat or touches_hall)
+			and y1 > -0.50 and y0 < 5.80):
+		return -1
+	# The union is L-shaped, so containment depends on which segment the
+	# box occupies: anything reaching into the throat must fit the throat's
+	# narrower x, and a box spanning the seam must fit both.
+	var x_ok := (x0 >= 4.0 and x1 <= 24.0) if z0 >= 38.6 \
+			else (x0 >= 11.0 and x1 <= 17.0)
+	if z0 > 28.316 and z1 <= 64.6 and x_ok \
+			and y0 >= -0.50 and y1 <= 5.80:
+		return 1
+	return 0
 
 
 func _room_on_floor(floor_data: Dictionary, room_id: String) -> Dictionary:
@@ -1538,6 +1689,10 @@ func _point_is_in_passage(p: Vector3) -> bool:
 func _set_passage_visibility(should_show: bool) -> void:
 	if passage_visible == should_show:
 		return
+	# Sweep before toggling, on the transition and only on the transition:
+	# whatever was built asynchronously since the last crossing gets its
+	# ownership decided now, before either zone renders a frame of it.
+	_index_late_f01_geometry()
 	passage_visible = should_show
 	for geometry in passage_interior_nodes:
 		geometry.visible = should_show
@@ -1545,8 +1700,30 @@ func _set_passage_visibility(should_show: bool) -> void:
 		geometry.visible = should_show
 	for geometry in passage_foreign_f01_nodes:
 		geometry.visible = not should_show
+	# Late-built geometry may have another legitimate visibility writer
+	# (window glow sleeps quads, cabinets stage their boot), so the zone
+	# gate saves what it hides and restores exactly that — forcing true
+	# here would wake geometry some other system deliberately put down.
+	for geometry in passage_late_interior_nodes:
+		if is_instance_valid(geometry):
+			_zone_toggle(geometry, should_show)
+	for geometry in passage_late_foreign_nodes:
+		if is_instance_valid(geometry):
+			_zone_toggle(geometry, not should_show)
 	for actor in passage_runtime_nodes:
 		if actor.has_method("set_passage_active"):
 			actor.set_passage_active(should_show)
 		else:
 			actor.visible = should_show
+
+
+func _zone_toggle(geometry: GeometryInstance3D, eligible: bool) -> void:
+	var id := geometry.get_instance_id()
+	if eligible:
+		if passage_late_saved.has(id):
+			geometry.visible = passage_late_saved[id]
+			passage_late_saved.erase(id)
+	else:
+		if not passage_late_saved.has(id):
+			passage_late_saved[id] = geometry.visible
+		geometry.visible = false

@@ -23,6 +23,66 @@ func _all_hidden(nodes: Array) -> bool:
 	return nodes.all(func(node): return not node.visible)
 
 
+## find_children returns DESCENDANTS only, so a leaf geometry owner (the
+## street-end multimeshes) must be tested as its own subtree — the first
+## draft forgot that and reported a leaf as "restored: no" forever.
+func _owner_geometry(owner: Node) -> Array:
+	var out: Array = owner.find_children("*", "GeometryInstance3D", true, false)
+	if owner is GeometryInstance3D:
+		out.append(owner)
+	return out
+
+
+func _named_owner_hidden(owner: Node) -> bool:
+	for g in _owner_geometry(owner):
+		if g.is_visible_in_tree():
+			return false
+	return true
+
+
+func _named_owner_showing(owner: Node) -> bool:
+	for g in _owner_geometry(owner):
+		if g.is_visible_in_tree():
+			return true
+	return false
+
+
+## The audit probe's core claim, inline: with the eye inside the hall, every
+## visible F01 draw belongs to a list. A regression here means a NEW builder
+## started parenting geometry into F01 without the sweep noticing — which is
+## impossible while the sweep runs on the transition, and that is the point.
+func _count_unclassified_visible(root: Node) -> int:
+	var known := {}
+	for arr: Array in [root.passage_interior_nodes, root.passage_shell_nodes,
+			root.passage_foreign_f01_nodes, root.passage_late_interior_nodes,
+			root.passage_late_foreign_nodes, root.passage_shared_f01_nodes]:
+		for g in arr:
+			if is_instance_valid(g):
+				known[g.get_instance_id()] = true
+	var missed := 0
+	for candidate in root.floor_nodes["F01"].find_children(
+			"*", "GeometryInstance3D", true, false):
+		var g := candidate as GeometryInstance3D
+		if g == null or not g.is_visible_in_tree():
+			continue
+		if String(g.name).contains("_retail_passage_proxy_"):
+			continue
+		if known.has(g.get_instance_id()):
+			continue
+		# Zone-owned actors and registered props are gated per node by the
+		# prop loop; their child geometry is classified by that ownership.
+		var cursor: Node = g
+		var owned := false
+		while cursor != null:
+			if cursor.is_in_group("passage_runtime"):
+				owned = true
+				break
+			cursor = cursor.get_parent()
+		if not owned:
+			missed += 1
+	return missed
+
+
 func _ready() -> void:
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
@@ -82,6 +142,51 @@ func _ready() -> void:
 	_check("the giant non-Passage F01 site host is absent inside the hall",
 			root.passage_foreign_f01_nodes.size() > 0
 			and _all_hidden(root.passage_foreign_f01_nodes))
+	# LATE-BUILT F01 geometry — the post-index leak. `_index_passage_geometry`
+	# runs before VantryPointNetwork, the detail passes, the boards, the
+	# wall-art catalogs, MaintenanceHeadquarters, the street ends and the
+	# arcade spawner have constructed anything; before the transition sweep
+	# existed, 532 of their draws (~500 shadow casters) were still submitted
+	# from inside the hall. These checks hold the sweep to its contract.
+	var named_foreign := ["OrisonOriginalSalesBoard", "LobbyBulletinBoard",
+			"RealityMaintenanceHeadquarters", "LobbyMailBank",
+			"Arcade_lobby_cab", "StreetEndHoardingFaces"]
+	var found_named: Array = []
+	for wanted in named_foreign:
+		var node: Node = root.floor_nodes["F01"].find_child(wanted, true, false)
+		_check("late-built %s exists to be owned" % wanted, node != null)
+		if node != null:
+			found_named.append(node)
+	var late_foreign: Array = root.passage_late_foreign_nodes
+	var late_interior: Array = root.passage_late_interior_nodes
+	root._apply_visibility(Vector3(14.0, 1.0, 50.0))
+	_check("late-built foreign F01 draws do not submit inside the hall",
+			late_foreign.size() > 300 and _all_hidden(late_foreign))
+	_check("every named late foreign owner is hidden inside the hall",
+			found_named.all(_named_owner_hidden))
+	_check("late-built Passage-side draws stay submitted inside the hall",
+			late_interior.size() > 100 and _all_visible(late_interior))
+	_check("zero unclassified visible F01 draws inside the hall",
+			_count_unclassified_visible(root) == 0)
+
+	# Leaving restores what the gate saved — to its OWN prior state, not to
+	# a forced true: window glow and cabinet boot own their quads' downtime.
+	root._apply_visibility(Vector3(0.0, 1.0, 9.0))
+	for owner in found_named:
+		if not _named_owner_showing(owner):
+			print("  [restore debug] %s: no visible geometry after exit"
+					% owner.name)
+	_check("leaving PASSAGE restores late foreign geometry",
+			found_named.all(_named_owner_showing))
+	_check("leaving PASSAGE re-hides late Passage-side draws",
+			_all_hidden(late_interior))
+	var stale_saves := 0
+	for id in root.passage_late_saved:
+		var obj: Object = instance_from_id(id)
+		if obj != null and late_foreign.has(obj):
+			stale_saves += 1
+	_check("the zone gate's save table drains on restore", stale_saves == 0)
+
 	root._apply_visibility(Vector3(16.0, 12.0, 34.0))
 	_check("the aerial street-elevation station is not inside PASSAGE",
 			not root.passage_visible and root.floor_nodes["F06"].visible
