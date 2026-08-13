@@ -342,14 +342,16 @@ commits on one branch and `main` must not rest in a no-shop state.
 future table states it. Fix or delete the clobber (§P4) before re-measuring,
 but do not silently switch contracts mid-comparison.
 
-## 10b. Checks outstanding before the subtraction commit
+## 10b. Two checks outstanding before the subtraction commit
 
-1. South-pavement `RouteProbe` beyond both boundary bodies — settles whether
-   the four out-of-bounds shops are unreachable or reachable by an unintended
-   walk. §4's wording updates with the result.
-2. Ownership of every black mass in `art/renders/map_before/street_1.png`.
+1. Ownership of every black mass in `art/renders/map_before/street_1.png`.
    **Do not delete anonymous geometry before its source is named.**
-3. Top-down diagram: portal, throat, expansion point, hall envelope.
+2. Top-down diagram: portal, throat, expansion point, hall envelope.
+
+Check 1 (the south-pavement sweep) is closed in §4. Its containment consequence
+is an ordering rule: build and verify the honest visible street-end replacement
+before retiring `ExteriorStreetStageBoundary`. Do not repair the leak by simply
+extending another invisible collision box across the south walk.
 
 ## 10c. Closed owner decisions
 

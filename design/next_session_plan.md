@@ -15,18 +15,19 @@ narcoleptic dark scramble, wake in 4B, repeat. The core dream function is now
 part of the product. The detailed maze proposal still contains implementation
 questions and must not be treated wholesale as a ruling.
 
-## First work: close the three M0.5 pre-subtraction checks
+## First work: close the two remaining M0.5 pre-subtraction checks
 
 Do not begin another prop family, receiver, street landmark or case. The final
 map is a ruled consolidation, not an expansion. Its measured build drawing is
 `design/FINAL_MAP_REDESIGN_BRIEF.md`.
 
-1. Sweep the south pavement beyond both boundary bodies with a player capsule;
-   record whether the four outlying shops were unreachable or reachable by an
-   unintended walk.
-2. Name the generated/runtime owner of every flat black mass in
+The south-pavement probe is complete: the route leaks to all four outlying
+shops. Do not repeat it. The replacement boundary must be visible architecture
+and must be built and verified before the old partial boundary is retired.
+
+1. Name the generated/runtime owner of every flat black mass in
    `art/renders/map_before/street_1.png`. Delete no anonymous geometry.
-3. Produce the top-down build diagram with the ruled portal, narrow throat,
+2. Produce the top-down build diagram with the ruled portal, narrow throat,
    expansion point and hall envelope.
 
 Then execute M0.5 continuously in the phase order in the final-map brief:
@@ -65,7 +66,7 @@ the end to discover that the interaction exists only in tests.
 
 Return the M0.5 handoff with:
 
-- the south-pavement verdict and black-mass ownership;
+- black-mass ownership and the recorded south-pavement containment verdict;
 - final top-down plan and exact playable boundary;
 - what was removed, moved and retained;
 - zone ownership and visibility evidence;
