@@ -42,11 +42,17 @@ the pavements and quiet local weather over the carriageway; all six capsule
 sweeps stop on named visible owners and the old partial invisible body is gone.
 Do not reopen the still-unruled loud-tear questions while finishing M0.5.
 
-The immediate action is the Passage finish and pushcart layer. Preserve the
-six-metre clear aisle and all eleven proven threshold routes; carts are the
-movable middle layer, not a new fixed maze. Then lock the complete route,
-measure all critical stations at 16 lights / 16 shadows, and document the M0.5
-acceptance gate.
+The Passage finish and pushcart layer are complete. Three loaded handcarts are
+shoveable rigid bodies; brass nosings, edge drainage and wheel wear finish the
+hall in three gated draws. The exact x=14 spine and all four resident shop
+routes remain capsule-clear, and the portal freezes cart physics outside the
+zone.
+
+The immediate action is the complete-route lock and performance acceptance.
+Add the three ruled Passage stations to the harness, measure all critical
+stations at 16 lights / 16 shadows, run the consolidated M0.5 route suite, and
+document the acceptance gate. Do not pull PS5 carrying or PS6 hours forward:
+those belong to the loop and the still-open night ruling, not map substrate.
 
 ## After the M0.5 acceptance gate: M1 in four reviewable changes
 

@@ -82,6 +82,8 @@ const PROP_SCRIPTS := {
 }
 const HEAT_BALANCE_SCRIPT := preload("res://scripts/props/heat_balance.gd")
 const BOILER_TEND_SCRIPT := preload("res://scripts/props/boiler_tend.gd")
+const PASSAGE_FINISH_SCRIPT := preload(
+		"res://scripts/building/passage_finish_pass.gd")
 const NPC_RESIDENTS := [
 	{"unit": "1A", "name": "Evelyn Marsh", "sprite": "evelyn_marsh"},
 	{"unit": "1D", "name": "Teresa Vale", "sprite": "teresa_vale"},
@@ -122,6 +124,7 @@ var passage_interior_nodes: Array[GeometryInstance3D] = []
 var passage_shell_nodes: Array[GeometryInstance3D] = []
 var passage_runtime_nodes: Array[Node3D] = []
 var passage_visible := true
+var passage_finish: Node3D
 ## Marker-built props deliberately remain direct children: several directors
 ## discover them through that stable ownership boundary.  They still need to
 ## ride the same coarse visibility gate as the imported floor, though.  Before
@@ -283,6 +286,15 @@ func _ready() -> void:
 	add_child(exterior_detail_pass)
 	exterior_detail_pass.build(layout, floor_nodes["F01"])
 	exterior_detail_pass.configure_street_lights(self)
+	# The shell is construction; this is the hall's lived, movable layer.
+	# Runtime ownership keeps the rigid handcarts out of the Blender buffers and
+	# lets the portal gate freeze their physics with their rendering.
+	passage_finish = PASSAGE_FINISH_SCRIPT.new()
+	add_child(passage_finish)
+	passage_finish.build(layout)
+	passage_shell_nodes.append_array(passage_finish.geometry_nodes)
+	for cart in passage_finish.pushcarts:
+		passage_runtime_nodes.append(cart)
 	_spawn_npc_placeholders()
 	# Eighteen people with somewhere to be, and a mesh instead of a sprite
 	# for whoever has one yet.
@@ -1504,4 +1516,7 @@ func _set_passage_visibility(should_show: bool) -> void:
 	for geometry in passage_shell_nodes:
 		geometry.visible = should_show
 	for actor in passage_runtime_nodes:
-		actor.visible = should_show
+		if actor.has_method("set_passage_active"):
+			actor.set_passage_active(should_show)
+		else:
+			actor.visible = should_show

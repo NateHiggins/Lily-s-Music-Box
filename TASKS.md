@@ -357,11 +357,12 @@ are two answers to the same problem and only this one is built.
   20 × 26 m hall in `art/renders/map_check3/passage_top_down.*` (`3153ed0`).
 - **PS2 DONE.** The obsolete street parade is the isolated rollback commit
   `e102a41`; Phase 3 immediately rehoused all eleven identities in the Passage.
-- **PS3 SUBSTRATE DONE.** Glass barrel vault, iron ribs, eleven units and a
-  six-metre terrazzo aisle are built. Final weathering and the pushcart layer
-  remain part of the M0.5 finish pass.
-- **PS4** Pushcarts as the movable middle layer. They are the reason the hall is
-  navigable rather than a corridor, and they must be shoveable.
+- **PS3 DONE.** Glass barrel vault, iron ribs, eleven units and a six-metre
+  terrazzo aisle are built. Phase 5 adds eleven brass threshold nosings, paired
+  edge drains and cart-specific wheel wear as three gated finish draws.
+- **PS4 DONE.** Three loaded 1920s handcarts form the movable middle layer.
+  They are real 46 kg rigid bodies, shoveable by player contact or `[E]`, and
+  freeze with their collision disabled whenever STREET owns the frame.
 - **PS5** **Carrying changes crossing.** The keystone of the loop: a crate slows
   you, blocks sprint and sits low in frame, so the return leg of an errand is
   harder than the outbound. Wires the Passage directly to section T with no UI.

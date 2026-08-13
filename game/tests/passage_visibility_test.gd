@@ -46,8 +46,11 @@ func _ready() -> void:
 			interiors.size() > 11)
 	_check("hall and vault produced separately gated shell draws",
 			shell.size() > 0)
-	_check("all 69 Passage doors, signs and lamps are zone-owned",
-			actors.size() == 69)
+	_check("69 marker actors plus three handcarts are zone-owned",
+			actors.size() == 72)
+	_check("three finish draws join the gated shell",
+			get_tree().get_nodes_in_group("passage_finish_geometry").size() == 3
+			and get_tree().get_nodes_in_group("passage_pushcarts").size() == 3)
 	_check("street owns a separate portal-glazing proxy", proxies.size() > 0)
 
 	# The street side of the exact portal plane owns only its shallow proxy.

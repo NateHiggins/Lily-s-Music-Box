@@ -829,3 +829,41 @@ legible in canonical 03:00 production lighting without another light source.
 Phase 4 closes Check 1's containment consequence. It does not close M0.5:
 Passage finish and pushcarts, complete-route lock, and pinned 16/16 performance
 stations remain.
+
+## 10ah. PHASE 5 EXECUTED 2026-08-13 — Passage finish and movable layer
+
+The Vantry Arcade now has the public-hall layer that cannot honestly live in a
+merged Blender buffer:
+
+- three individually physical 1920s handcarts — laundry sacks, market crates
+  and news bundles — parked in threshold gaps on alternating sides;
+- eleven dull-brass threshold nosings derived from the installed door markers;
+- twenty-six cast-iron edge-drain sections under the glass roof; and
+- one transparent batched wheel-wear pass, confined to the cart lanes rather
+  than washing generic grime over the terrazzo.
+
+The finish is three gated draws plus three carts. Each cart is a 46 kg
+`RigidBody3D` with a 0.92 × 1.34 m hull, direct player collision and a deliberate
+`[E] Shove handcart` verb. Cart physics, collision and rendering all freeze when
+STREET owns the frame, so the movable layer does not silently keep simulating
+behind the portal. No real light is added to the pinned 16/16 budget.
+
+The starting layout preserves the exact x = 14 schedule spine and all eleven
+shop approaches. `PassageFinishTest` proves the full 25 m spine capsule-clear,
+moves the loaded market cart 97 mm under one shove, keeps it inside the bounded
+hall, and proves the STREET gate disables and restores all three bodies.
+`PassageNavTest` remains green for all four resident destinations;
+`PassageVisibilityTest` now accounts for 69 marker actors plus three carts and
+the three finish draws.
+
+Rendered evidence is in `art/renders/map_passage_finish/`: one complete middle-
+layer view and close views of all three loads. As in Phase 4, one rejected pass
+is recorded instead of normalised: the first cart sides were 340 mm solid iron
+plates and collapsed into near-black boxes at an angle. The final carts use
+open narrow rails and posts, preserving the load, wheels and floor behind them
+as a legible silhouette.
+
+Phase 5 does not implement PS5 carrying or PS6 hours. Those change the gameplay
+loop and answer an unresolved night-state question respectively; they are not
+smuggled into M0.5's substrate. Complete-route and pinned performance acceptance
+remain before M0.5 closes.
