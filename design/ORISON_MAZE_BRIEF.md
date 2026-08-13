@@ -1,8 +1,12 @@
-# THE DREAM — PROPOSAL
+# THE DREAM — PARTIALLY RULED DESIGN BRIEF
 
-*Filed 2026-08-10. Proposal, not a ruling: nothing below is canon until the owner
-says so. Obeys `ORISON_BIBLE.md` §I (both true) and §VIII (the Rule of Signal
-does not reach here — see "What the dream is exempt from").*
+*Filed 2026-08-10; status amended 2026-08-13. Bible §I.1 now rules the core
+function: narcoleptic onset, a dark terrifying scramble, waking in bed in 4B,
+protected calls/conversations and no loss of committed work. Everything more
+specific below remains a proposal until separately ruled, including procedural
+maze form, death as the only exit, hazard count, run-length curve and the three
+open questions. Obeys `ORISON_BIBLE.md` §I (both true) and §VIII (the Rule of
+Signal does not reach here — see "What the dream is exempt from").*
 
 ---
 

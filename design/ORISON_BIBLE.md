@@ -61,10 +61,30 @@ The game runs on **two case systems, and they are layers, not rivals**:
 The two layers share residents, share the motif, and share one law: **a
 case is weak if it can be solved by the obviously compassionate option.**
 
-A third presence is planned and not yet incarnate: **the player's
-shadow**, which learns a vocabulary from resolved cases and eventually
-attempts one incomplete, contestable message. Its scripture is the
-execution plan, Phase 4.
+A third presence is planned and not yet incarnate: **the player's shadow**,
+which learns a vocabulary from resolved cases and eventually attempts one
+incomplete, contestable message. Its production order lives in the execution
+plan; the one-Tenant ruling in §III.1 prevents it becoming a second monster.
+
+### I.1 THE SHIFT
+
+*Ruled 2026-08-13, at the owner's direction. Product sequencing lives in the
+execution plan; this paragraph binds the fiction it depends on.*
+
+**The player's campaign repeats one night-shift movement:** a building fault is
+discovered or reported; diagnosis sends the player out to the street shops; the
+player returns and repairs the physical problem; the repair earns a conversation
+in which the resident may begin to confront the wound underneath it; and, at a
+dramatic threshold, narcolepsy takes the player. They endure a short, terrifying
+scramble through a dark wrong version of the Orison and wake in bed in 4B. The
+next fault begins the movement again.
+
+The medical condition and the impossible reading remain **both true**. Narcolepsy
+does not create the Tenant and is not itself monstrous. It creates the vulnerable
+interval the Tenant uses. A sleep attack may cost time, position and certainty;
+it may not erase committed work. A call or conversation already in progress
+remains protected. The core movement is ruled; the unruled implementation details
+and open questions in `design/ORISON_MAZE_BRIEF.md` remain proposals.
 
 ## II. THE MOTIF
 

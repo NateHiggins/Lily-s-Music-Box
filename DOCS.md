@@ -36,6 +36,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | If you want to know… | Read |
 |---|---|
 | What is true about this world | `design/ORISON_BIBLE.md` |
+| What the game loop is and which milestone comes next | `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`, then `design/next_session_plan.md` |
 | Why an object looks forty years early | Bible §VIII.2, the Rule of Signal |
 | What is open right now, and who has it | `TASKS.md` |
 | Whether a system is actually used | `design/AUDIT_UNUSED_SYSTEMS_REPORT.md` |
@@ -82,6 +83,10 @@ They agree. See the note in `game/docs/arcade_cabinets.md`.
 ## Three "status" documents, three jobs
 
 They have collided before. They do not overlap:
+
+`design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md` is not a fourth status ledger.
+It defines product direction, milestone order and acceptance gates; it changes
+only when the product plan changes.
 
 - **`art/docs/photoreal_target.md`** — the eight-phase art roadmap and its
   per-phase assessment. Long-lived.

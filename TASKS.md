@@ -16,8 +16,31 @@ quietly removing it.
 - **Add to the bottom of a section.** Ids are permanent — never renumber.
 - **Claim by putting your name in the line.** No name means unclaimed.
 - **Section prefixes exist so two agents adding at once do not collide.**
-  `D` decisions · `A` arcade · `S` studio · `M` materials · `H` housekeeping.
+  `K` core loop · `D` decisions · `A` arcade · `S` studio · `M` materials ·
+  `H` housekeeping; subsystem sections retain their own prefixes.
 - One line each. If it needs a paragraph it needs a brief in `design/`.
+
+---
+
+## K — Core loop / the complete shift
+
+Product authority: `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`. These are
+the immediate executable gates, not a second copy of its milestone status.
+
+- **K1** Run M0 against the current tree: fresh-save Mina state trace, existing
+  tests, warnings, critical-route reachability and performance baseline.
+- **K2** Define one data-authored maintenance job and extend `WorkOrders` through
+  reported/discovered, diagnosed, awaiting-part, repairable, repaired and closed.
+- **K3** Build the narrow errand contract: one maintenance item, one existing
+  shop, one acquisition verb, persistence and consumption; no general inventory.
+- **K4** Add a thin core-loop coordinator for work order → shop → repair →
+  conversation → dream request → bed return; domain systems retain ownership.
+- **K5** Add a deterministic end-to-end graybox test covering every stage and
+  save/load boundary, including protected conversations and preserved repair.
+- **K6** Route Mina's existing case through the complete graybox shift and apply
+  one persistent waking residue.
+- **K7** Create `game/docs/core_loop.md` only after K2–K6 land, documenting the
+  actual state machine, signals, save fields and second-case extension recipe.
 
 ---
 
@@ -471,12 +494,12 @@ system - **it is more than half the authored content.**
 
 ## N — The dream (narcolepsy maze)
 
-Proposed in `design/ORISON_MAZE_BRIEF.md`. **Not canon until the owner rules.**
-Nothing below should start before that ruling.
+The owner ruled the core function on 2026-08-13: narcoleptic onset, a terrifying
+dark scramble and waking in 4B are part of every case loop. The detailed maze
+brief remains a proposal where this ruling is silent.
 
-- **N1** Owner ruling on the brief. Three open questions remain at its foot, all
-  about which poltergeist is in the dream and when. *Blocks everything else in
-  this section.*
+- **N1** Resolve only the three remaining implementation questions at the foot
+  of the brief; they no longer block a graybox onset/scramble/bed-return spine.
 - **N2** Fractal maze generator: one seed per save, generated once at campaign
   start, room archetypes drawn from the Orison's own rooms. Must run the same
   overlap / footprint / door-width / door-swing audit `gen_layout.py` does.
