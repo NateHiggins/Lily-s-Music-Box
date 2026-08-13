@@ -15,7 +15,7 @@ narcoleptic dark scramble, wake in 4B, repeat. The core dream function is now
 part of the product. The detailed maze proposal still contains implementation
 questions and must not be treated wholesale as a ruling.
 
-## First work: execute the M0.5 Passage finish
+## First work: rule the measured M0.5 performance blocker
 
 Do not begin another prop family, receiver, street landmark or case. The final
 map is a ruled consolidation, not an expansion. Its measured build drawing is
@@ -48,11 +48,26 @@ hall in three gated draws. The exact x=14 spine and all four resident shop
 routes remain capsule-clear, and the portal freezes cart physics outside the
 zone.
 
-The immediate action is the complete-route lock and performance acceptance.
-Add the three ruled Passage stations to the harness, measure all critical
-stations at 16 lights / 16 shadows, run the consolidated M0.5 route suite, and
-document the acceptance gate. Do not pull PS5 carrying or PS6 hours forward:
-those belong to the loop and the still-open night ruling, not map substrate.
+The complete-route lock is done. `FinalMapRouteTest` drives the real player
+ORISON → STREET → PASSAGE → HARDWARE PAINT and back on the loaded map. The
+Passage gate now keeps the F01 hall host while excluding the apartment stack,
+non-Passage F01 actors and 170 foreign site draws. The focused route,
+visibility, finish, navigation, shop, containment, FAST walk and lighting
+suites pass; final renders are in `art/renders/map_final_acceptance/`.
+
+The immediate action is an owner ruling, not another spatial edit. At the
+pinned 16/16 budget, the final 11-station run passes 4/11. Passage throat and
+southbound pass; northbound improves 38.37 → 23.97 ms but still misses 16.6,
+and six older stations remain over budget. The measured diagnostic leaves a
+visual policy—especially small/local shadow casting—as the strongest remaining
+lever. Either explicitly accept this measured blocker under the M0.5 gate or
+rule a visual performance pass with before/after review. Do not begin M1 and do
+not pull PS5 carrying or PS6 hours forward until that decision is recorded.
+
+WalkTest FULL is a fresh PASS for the final revision: 48.3 seconds at the
+suite's supported x8 / 480 Hz setting. It preserves capsule displacement per
+step and pauses unrelated resident routines only after the physical route and
+shared-elevator checks, while the stateful Case 02–08 order remains intact.
 
 ## After the M0.5 acceptance gate: M1 in four reviewable changes
 

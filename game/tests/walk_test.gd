@@ -1392,7 +1392,16 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	# Room 0) have been checked against the state Case 01 left. They move
 	# infection around freely, and an earlier version of this ordering
 	# quietly un-manifested the seam before the Room 0 walk reached it.
+	#
+	# The physical route and shared-elevator checks above deliberately run with
+	# residents roaming. Nothing in the remaining case batch observes their
+	# schedules, but leaving eighteen unrelated routines live made this release
+	# gate exceed the mandatory process watchdog. ScheduleTest owns those clocks;
+	# pause them only while the console drives Cases 02-08 in the same order.
+	var routines_were_processing: bool = root.resident_routines.is_processing()
+	root.resident_routines.set_process(false)
 	await _case_network_checks(ci)
+	root.resident_routines.set_process(routines_were_processing)
 	_wall_art_report()
 	_door_glow_checks()
 	await _broadcast_checks()

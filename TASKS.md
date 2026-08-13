@@ -371,6 +371,19 @@ are two answers to the same problem and only this one is built.
 - **PS7 DONE.** Eleven source-owned shop batches import as 263 bounded local
   draws; NEWS CIGARS keeps its inaccessible proprietor side. PassageVisibility,
   PassageNav and ShopEntry all pass on the rebuilt geometry.
+- **PS8 DONE.** The real player now walks one deterministic reversible route
+  ORISON → STREET → PASSAGE → HARDWARE PAINT customer floor. Passage owns F01
+  without submitting the apartment stack, non-Passage F01 actors or 170 foreign
+  site draws; the vertically bounded gate keeps the aerial street station honest.
+- **PS9 OPEN — owner acceptance required.** The pinned 16/16 final run passes
+  4/11 critical stations. Passage throat and southbound meet 16.6 ms; northbound
+  improves 38.37 → 23.97 ms but still fails, and six older stations also fail.
+  No small-prop shadow policy has been smuggled into the map substrate. Accept
+  the measured blocker or rule the visual policy before M0.5 closes and M1 starts.
+- **PS10 DONE.** WalkTest FULL is a fresh PASS in 48.3 seconds at x8 / 480 Hz.
+  Physical walks and shared-elevator contention run before the harness pauses
+  unrelated resident routines for the stateful Case 02–08 batch; case order,
+  timers and consequences remain intact.
 
 ## F — Film (projectors instead of televisions)
 
@@ -718,16 +731,16 @@ and the four isolated roof fixtures now terminating at a real riser.
   — half the harukiya's — and still misses budget at 20.41 ms. Where there is
   much to draw, submission dominates; where there is little, ungated per-frame
   work does. Gate prop ticking and `StreetTraffic._process` on visibility.
-- **P7** `_update_floor_visibility()` runs every physics tick, unthrottled, and
-  `_apply_visibility` writes `.visible` unconditionally rather than on change
-  across 8 floors plus ~471 props and ~120 doors (`building_root.gd:1429-1445`)
-  — a per-tick write over ~600 nodes on a frame that is submission-bound.
-- **P8** **No streaming or visibility-zone system exists to configure.** One
-  storey-granular gate keyed off a single position with hardcoded literals
-  (`building_root.gd:1394-1445`); no `VisibilityRange`,
-  `VisibleOnScreenNotifier3D`, HLOD, distance LOD or room gate anywhere in
-  `game/scripts`. The map redesign's three-zone requirement is a new subsystem,
-  not a setting — scope it as one.
+- **P7 PARTIAL 2026-08-13.** `_update_floor_visibility()` still runs every
+  physics tick and scans the same floors, props and doors, but `_apply_visibility`
+  now writes `.visible` only when the value changes. The scan/throttle remainder
+  is still open; do not quote the old ~600 unconditional writes as current.
+- **P8 PARTIAL 2026-08-13.** The original system was one storey-granular gate,
+  not configurable streaming. M0.5 adds a real PASSAGE ownership envelope: F01
+  hosts the hall while F02–ROOF, non-Passage actors and 170 foreign F01 site
+  draws stay out of its frame; the separate STREET portal proxy stays eligible.
+  ORISON room streaming, HLOD, distance LOD and notifier-based gates still do
+  not exist. This is one proven zone boundary, not a general streaming system.
 
 ## H — Housekeeping
 

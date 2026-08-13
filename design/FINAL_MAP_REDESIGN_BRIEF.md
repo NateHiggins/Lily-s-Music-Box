@@ -867,3 +867,85 @@ Phase 5 does not implement PS5 carrying or PS6 hours. Those change the gameplay
 loop and answer an unresolved night-state question respectively; they are not
 smuggled into M0.5's substrate. Complete-route and pinned performance acceptance
 remain before M0.5 closes.
+
+## 10ai. PHASE 6 EXECUTED 2026-08-13 — route lock and measured blocker
+
+The final three-zone route is now one executable proof rather than a chain of
+local sweeps. `FinalMapRouteTest` drives the real `PlayerController` from the
+Orison lobby, through the landmark entry, across both Street kerbs, through the
+exact portal and throat, down the x = 14 Passage spine and onto HARDWARE
+PAINT's customer floor. It then walks the loaded map back to the lobby. The
+test opens the two real door leaves, uses normal step-and-slide movement, and
+asserts the portal plane, traffic-gap contract and both street-end controls.
+It passes in both directions with zero failures.
+
+That route exposed a zone-ownership defect in the old floor gate. PASSAGE was
+geometrically outside the Orison envelope, so the generic `outside` branch
+submitted the entire eight-floor apartment stack from inside the arcade. F01
+also owns the original site export, making 170 non-Passage geometry draws
+eligible inside the hall. The corrected rule is explicit:
+
+- PASSAGE retains F01 as the imported hall host but hides F02–F06 and ROOF;
+- Passage actors and interiors submit inside, while non-Passage F01 actors and
+  the 170 foreign site draws do not;
+- STREET retains its shallow portal proxy from either side of the plane; and
+- the Passage envelope is vertically bounded at Godot y −0.50..5.80, so the
+  aerial street-elevation benchmark at y 12 remains a STREET/exterior view.
+
+`PassageVisibilityTest` proves all four rules. Visibility assignments are now
+written only when their value changes; the existing per-physics-tick scan is
+still present and is not represented as a complete streaming system.
+
+### Pinned performance acceptance
+
+`Perf.tscn` now owns and prints the resolved **16 light / 16 shadow** budget and
+adds the three production Passage viewpoints used by the render harness. The
+same 11-station run before and after the ownership correction measured:
+
+| station | before ms | corrected ms | 16.6 ms gate |
+|---|---:|---:|---|
+| lobby | 31.55 | 29.90 | FAIL |
+| atrium eye | 42.48 | 40.91 | FAIL |
+| corridor F04 | 27.53 | 26.94 | FAIL |
+| apartment 4B | 18.51 | 19.36 | FAIL |
+| street elevation | 36.39 | 29.55 | FAIL |
+| roof | 20.47 | 19.82 | FAIL |
+| Harukiya | 12.49 | 11.01 | PASS |
+| arcade cluster | 12.47 | 11.47 | PASS |
+| Passage throat reveal | 14.91 | 12.55 | PASS |
+| Passage hall southbound | 18.80 | 15.38 | PASS |
+| Passage hall northbound | 38.37 | 23.97 | FAIL |
+
+Absolute frame time remains noisy on this machine; the gate is evaluated on
+the recorded run, not on a claimed precision the harness does not have. The
+ownership correction is nevertheless material: two of three Passage stations
+now meet target and the northbound view improves 37.5%. A separate northbound
+diagnostic measured 9,153 objects / 12,112 calls at 26.11 ms. Hiding
+illumination reached 17.73 ms; disabling all shadow casting reached 19.47 ms;
+hiding functional props reached 19.22 ms. Stopping prop ticks, 12 m prop culls
+and global prop batching did not produce a stable win. The remaining cost is
+legitimate local content, light, shadow and submission rather than a second
+foreign-zone ownership error.
+
+No small-prop shadow policy is applied here. It changes the look and remains an
+owner decision requiring before/after review. Under the execution-plan gate,
+M0.5 therefore remains **open on an explicit measured blocker**: 7 of 11
+critical stations miss 16.6 ms, including Passage northbound at 23.97 ms. The
+owner must either accept that blocker or choose the visual performance policy
+before M1 begins.
+
+Final-state evidence:
+
+- `art/renders/map_final_acceptance/01_street_portal.png`;
+- `02_throat_reveal.png`, `03_hall_south.png`, `04_hall_north.png`;
+- FinalMapRouteTest, PassageVisibilityTest, PassageFinishTest, PassageNavTest,
+  ShopEntryTest routes, StreetContainmentTest, WalkTest FAST and FULL,
+  RealityCaseTest and LightingAudit: all PASS with zero failures.
+
+WalkTest FULL completes in 48.3 seconds at its supported x8 / 480 Hz setting.
+The scale preserves the canonical capsule displacement per physics step. After
+the physical walks and shared-elevator checks have completed, the harness now
+pauses the eighteen unrelated resident routines while it drives Cases 02–08;
+ScheduleTest owns those clocks, and the case order, timers and stateful
+consequences are unchanged. This replaces the earlier x4 run that reached the
+watchdog before printing a verdict.

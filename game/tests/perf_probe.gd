@@ -11,6 +11,8 @@ extends Node
 ## them. Exit code is the number of stations over budget.
 
 const FRAME_BUDGET_MS := 16.6
+const PINNED_LIGHT_BUDGET := 16
+const PINNED_SHADOW_BUDGET := 16
 const WARMUP := 30
 const SAMPLES := 90
 ## Every station in this building draws thousands of objects. Anything near
@@ -49,6 +51,15 @@ const STATIONS := [
 	# on top of them, five 3D worlds stepping their own physics.
 	{"name": "arcade cluster (5 live)", "pos": Vector3(0.15, 1.72, 29.65),
 	 "look": Vector3(3.55, 1.2, 35.35)},
+	# M0.5 final-map stations. These are the same production viewpoints used
+	# by PassageShot so beauty evidence and performance evidence cannot quietly
+	# measure different ownership states.
+	{"name": "passage throat reveal", "pos": Vector3(14.0, 1.68, 33.2),
+	 "look": Vector3(14.0, 1.52, 48.0)},
+	{"name": "passage hall southbound", "pos": Vector3(14.0, 1.68, 39.5),
+	 "look": Vector3(14.0, 1.48, 61.0)},
+	{"name": "passage hall northbound", "pos": Vector3(14.0, 1.68, 63.6),
+	 "look": Vector3(14.0, 1.48, 42.0)},
 ]
 
 var root: Node3D
@@ -64,6 +75,10 @@ func _ready() -> void:
 	Engine.max_fps = 0
 	root = load("res://scenes/building/orison_root.tscn").instantiate()
 	add_child(root)
+	# Pin the comparison in executable code. Environment overrides are applied
+	# before BuildingRoot's production profile and cannot be trusted as proof of
+	# the resolved value; the benchmark owns the value it reports.
+	root.light_rig.set_budgets(PINNED_LIGHT_BUDGET, PINNED_SHADOW_BUDGET)
 	for c in root.get_children():
 		if c is CanvasLayer:
 			c.visible = false
@@ -77,7 +92,9 @@ func _ready() -> void:
 	# like a large optimization and made every non-lobby station measure the
 	# wrong collection of floors and props.
 	root.view_override = cam
-	print("PERF: viewport %s" % [get_viewport().get_visible_rect().size])
+	print("PERF: viewport %s; resolved light/shadow budget %d/%d" % [
+			get_viewport().get_visible_rect().size,
+			root.light_rig._active_budget, root.light_rig._shadow_budget])
 	# Visit every station once before timing anything. Godot compiles
 	# shaders lazily on first draw, so whichever station goes first
 	# otherwise absorbs the cost of the whole building's materials and

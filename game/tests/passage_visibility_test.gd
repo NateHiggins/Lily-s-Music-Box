@@ -71,6 +71,21 @@ func _ready() -> void:
 	# The expanded hall is bounded, not a broad south-of-building heuristic.
 	root._apply_visibility(Vector3(14.0, 1.0, 50.0))
 	_check("main hall remains inside PASSAGE", root.passage_visible)
+	_check("PASSAGE retains its F01 host but not the Orison apartment stack",
+			root.floor_nodes["F01"].visible
+			and ["F02", "F03", "F04", "F05", "F06", "ROOF"].all(
+					func(fid): return not root.floor_nodes[fid].visible))
+	var foreign_f01: Array = root.functional_props_by_floor.get("F01", []).filter(
+			func(prop): return not prop.is_in_group("passage_runtime"))
+	_check("non-Passage F01 actors do not submit inside the hall",
+			foreign_f01.size() > 0 and _all_hidden(foreign_f01))
+	_check("the giant non-Passage F01 site host is absent inside the hall",
+			root.passage_foreign_f01_nodes.size() > 0
+			and _all_hidden(root.passage_foreign_f01_nodes))
+	root._apply_visibility(Vector3(16.0, 12.0, 34.0))
+	_check("the aerial street-elevation station is not inside PASSAGE",
+			not root.passage_visible and root.floor_nodes["F06"].visible
+			and _all_visible(root.passage_foreign_f01_nodes))
 	root._apply_visibility(Vector3(3.99, 1.0, 50.0))
 	_check("outside the west enclosing fabric is not PASSAGE",
 			not root.passage_visible)

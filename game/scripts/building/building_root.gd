@@ -122,6 +122,11 @@ var floor_nodes: Dictionary = {}
 ## nodes every physics tick.
 var passage_interior_nodes: Array[GeometryInstance3D] = []
 var passage_shell_nodes: Array[GeometryInstance3D] = []
+## F01 also contains the original building and the entire street/site export.
+## From inside PASSAGE those are a foreign zone, not a 220 x 148 m proxy.
+## The shallow `passage_proxy` entrance remains always eligible and is omitted
+## from both lists deliberately.
+var passage_foreign_f01_nodes: Array[GeometryInstance3D] = []
 var passage_runtime_nodes: Array[Node3D] = []
 var passage_visible := true
 var passage_finish: Node3D
@@ -924,8 +929,11 @@ func _index_passage_geometry() -> void:
 			passage_interior_nodes.append(geometry)
 		elif geometry_name.contains("_retail_passage_shell_"):
 			passage_shell_nodes.append(geometry)
-	print("[PASSAGE] %d interior and %d shell draws indexed" %
-			[passage_interior_nodes.size(), passage_shell_nodes.size()])
+		elif not geometry_name.contains("_retail_passage_proxy_"):
+			passage_foreign_f01_nodes.append(geometry)
+	print("[PASSAGE] %d interior, %d shell and %d foreign F01 draws indexed" %
+			[passage_interior_nodes.size(), passage_shell_nodes.size(),
+			passage_foreign_f01_nodes.size()])
 
 
 func _room_on_floor(floor_data: Dictionary, room_id: String) -> Dictionary:
@@ -1468,41 +1476,61 @@ func _update_floor_visibility() -> void:
 
 
 func _apply_visibility(p: Vector3) -> void:
-	_set_passage_visibility(_point_is_in_passage(p))
+	var in_passage := _point_is_in_passage(p)
+	_set_passage_visibility(in_passage)
 	var in_eye := absf(p.x) < 3.7 and p.z > -3.7 and p.z < 6.9
 	# Outside the shell you are looking AT the building, and a
 	# building that renders two storeys is a stage flat. The
 	# envelope is 28 by 20 metres; a metre of margin keeps the
 	# doorway from flickering the stack on and off.
-	var outside := absf(p.x) > 15.2 or absf(p.z) > 11.2
+	# PASSAGE is geometrically south of the old site envelope, but it is not an
+	# exterior camera. Treating it as `outside` submitted all eight Orison floors
+	# through the north end of the glass hall: 16.7k objects northbound versus
+	# 6.5k southbound in the same zone. Its imported shell lives on F01; the
+	# apartment stack is neither visible nor owned here.
+	var outside := not in_passage \
+			and (absf(p.x) > 15.2 or absf(p.z) > 11.2)
 	for fid in floor_nodes:
 		var z: float = layout["meta"]["levels"][fid]
 		var should_show: bool = show_all_floors or in_eye or outside \
 				or absf(p.y - z) < 1.75 or (fid == "ROOF" and p.y > 15.0)
-		floor_nodes[fid].visible = should_show
+		if floor_nodes[fid].visible != should_show:
+			floor_nodes[fid].visible = should_show
 		# Props are root-owned for discovery, not floor-owned for inheritance.
 		# Give them the same active-storey rule: from a corridor or flat there is
 		# no legal view into the kitchen above. The open eye retains the whole
 		# stack; exterior views retain F01's shops and facade fixtures.
 		var show_props: bool = show_all_floors or in_eye \
-				or (outside and fid == "F01") \
+				or ((outside or in_passage) and fid == "F01") \
 				or absf(p.y - z) < 1.75 \
 				or (fid == "ROOF" and p.y > 15.0)
 		for prop in functional_props_by_floor.get(fid, []):
-			prop.visible = show_props and (passage_visible \
-					or not prop.is_in_group("passage_runtime"))
+			var passage_owned: bool = prop.is_in_group("passage_runtime")
+			var zone_visible: bool = show_all_floors \
+					or (passage_owned if in_passage else not passage_owned)
+			var should_show_prop := show_props and zone_visible
+			if prop.visible != should_show_prop:
+				prop.visible = should_show_prop
 		for door in doors_by_floor.get(fid, []):
-			door.visible = show_props and (passage_visible \
-					or not door.is_in_group("passage_runtime"))
+			var passage_owned: bool = door.is_in_group("passage_runtime")
+			var zone_visible: bool = show_all_floors \
+					or (passage_owned if in_passage else not passage_owned)
+			var should_show_door := show_props and zone_visible
+			if door.visible != should_show_door:
+				door.visible = should_show_door
 
 
 ## Godot z is the negation of the ruled Blender y controls.  The portal plane
 ## at z=28.316 belongs to STREET; crossing it enters the 6 m throat, which then
 ## expands into the exact 20 x 26 m hall fixed by Check 3.
 func _point_is_in_passage(p: Vector3) -> bool:
-	var in_throat := p.x >= 11.0 and p.x <= 17.0 \
+	# The glass crown reaches 5.55 m. Without a vertical bound the old aerial
+	# street-elevation benchmark at x=16/z=34/y=12 became a Passage camera and
+	# hid the apartment facade it was explicitly meant to measure.
+	var in_height := p.y >= -0.50 and p.y <= 5.80
+	var in_throat := in_height and p.x >= 11.0 and p.x <= 17.0 \
 			and p.z > 28.316 and p.z <= 38.6
-	var in_hall := p.x >= 4.0 and p.x <= 24.0 \
+	var in_hall := in_height and p.x >= 4.0 and p.x <= 24.0 \
 			and p.z > 38.6 and p.z <= 64.6
 	return in_throat or in_hall
 
@@ -1515,6 +1543,8 @@ func _set_passage_visibility(should_show: bool) -> void:
 		geometry.visible = should_show
 	for geometry in passage_shell_nodes:
 		geometry.visible = should_show
+	for geometry in passage_foreign_f01_nodes:
+		geometry.visible = not should_show
 	for actor in passage_runtime_nodes:
 		if actor.has_method("set_passage_active"):
 			actor.set_passage_active(should_show)
