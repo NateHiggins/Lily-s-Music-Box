@@ -660,7 +660,11 @@ and the four isolated roof fixtures now terminating at a real riser.
   not thermal.
 
   **Four things are ruled out**, each measured rather than argued:
-  - **User prop scripts are not the cost.** Silencing all 384 `_process`
+  - **User prop scripts are not the cost AT THIS STATION.** *Amended
+    2026-08-13 by owner ruling: this is an atrium/street finding, not a
+    building-wide law. The same harness at the ROOF makes silencing ticks
+    worth −47%, the largest lever there. Read the four bullets below as
+    scoped to stations that draw a lot; see §P6.* Silencing all 384 `_process`
     callbacks while leaving every prop drawn changed nothing. *Do not read the
     `proc` column as script time - it is TIME_PROCESS, the whole process step
     including engine submission, and misreading it cost an hour.*
