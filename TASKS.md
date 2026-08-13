@@ -257,11 +257,6 @@ the specific defects behind it, and V1 is the revamp the owner asked for.
   touch the south pavement. A player can stand ~10 m outside the intended
   lateral limit. Containment failure, not inaccessibility — the Phase 4
   boundary rebuild must close the south walk too.
-- **V6** **Black slabs on the critical route.**
-  `art/renders/map_before/street_1.png` shows several large flat black masses
-  across the pavement and carriageway. Every suite is green because none of
-  them look at an outdoor pixel — `RoomLumaAudit` covers rooms only. Identify
-  the geometry, then decide whether the audit grows an exterior station.
 - **V7** Reach versus authored height: the interaction ray is 2.1 m from a
   1.41 m eye, while measured shop counter tops run 1.05–1.18 and photo's brass
   top sits at 1.41–1.45, i.e. exactly at the eye line. The build guide states

@@ -15,22 +15,24 @@ narcoleptic dark scramble, wake in 4B, repeat. The core dream function is now
 part of the product. The detailed maze proposal still contains implementation
 questions and must not be treated wholesale as a ruling.
 
-## First work: close the two remaining M0.5 pre-subtraction checks
+## First work: execute the M0.5 subtraction and construction pair
 
 Do not begin another prop family, receiver, street landmark or case. The final
 map is a ruled consolidation, not an expansion. Its measured build drawing is
 `design/FINAL_MAP_REDESIGN_BRIEF.md`.
 
-The south-pavement probe is complete: the route leaks to all four outlying
-shops. Do not repeat it. The replacement boundary must be visible architecture
-and must be built and verified before the old partial boundary is retired.
+All three pre-subtraction checks are complete. Do not repeat them:
 
-1. Name the generated/runtime owner of every flat black mass in
-   `art/renders/map_before/street_1.png`. Delete no anonymous geometry.
-2. Produce the top-down build diagram with the ruled portal, narrow throat,
-   expansion point and hall envelope.
+1. The south pavement leaks to all four outlying shops. Its replacement must
+   be visible architecture/weather and must be verified before the old partial
+   boundary is retired.
+2. The black masses were stale parked-car and bus-shelter geometry. Check 2 is
+   closed in `FINAL_MAP_REDESIGN_BRIEF.md` §10ac, and commit `782776c` rebuilt
+   the glTFs from current records.
+3. The dimensioned portal/throat/hall control drawing is rendered at
+   `art/renders/map_check3/passage_top_down.png` and recorded in §10ae.
 
-Then execute M0.5 continuously in the phase order in the final-map brief:
+Execute M0.5 continuously in the phase order in the final-map brief:
 subtraction; Passage shell and relocation; street finalisation; photoreal finish;
 lock, test and document. The subtraction and construction commits are separate
 rollback points on one continuous branch of work. Do not leave `main` in a

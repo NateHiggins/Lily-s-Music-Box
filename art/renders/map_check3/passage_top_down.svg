@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1450" viewBox="0 0 1500 1450">
+  <title>Check 3 dimensioned top-down plan for the final Orison, Street and Vantry Arcade substrate</title>
+  <desc>Construction-control drawing in Blender metres. It fixes the Passage portal at x 11 to 17 on y negative 28.316, a 10.284 metre throat, the expansion line at y negative 38.600, and a 20 by 26 metre hall from x 4 to 24 and y negative 38.600 to negative 64.600.</desc>
+  <defs>
+    <pattern id="grid5" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#d8d2c5" stroke-width="1"/>
+    </pattern>
+    <pattern id="demo" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="12" height="12" fill="#ead8d3"/>
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#a14439" stroke-width="4"/>
+    </pattern>
+    <pattern id="closed" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="10" height="10" fill="#e6e1d7"/>
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#bbb3a5" stroke-width="2"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#252a2d"/>
+    </marker>
+    <style>
+      .paper { fill:#f7f3e9; }
+      .ink { fill:#252a2d; }
+      .muted { fill:#66645f; }
+      .small { font: 13px 'Segoe UI', Arial, sans-serif; }
+      .note { font: 15px 'Segoe UI', Arial, sans-serif; }
+      .label { font: 600 16px 'Segoe UI', Arial, sans-serif; letter-spacing:.5px; }
+      .title { font: 600 27px 'Segoe UI', Arial, sans-serif; letter-spacing:1px; }
+      .mono { font: 14px Consolas, 'Courier New', monospace; }
+      .dim { stroke:#252a2d; stroke-width:1.4; fill:none; marker-start:url(#arrow); marker-end:url(#arrow); }
+      .ext { stroke:#77736b; stroke-width:1; fill:none; }
+      .control { stroke:#315e73; stroke-width:2; fill:none; }
+      .passage-edge { stroke:#9b5b16; stroke-width:3; fill:none; }
+      .boundary { stroke:#a14439; stroke-width:2; stroke-dasharray:9 7; fill:none; }
+      .coord { font: 12px Consolas, 'Courier New', monospace; fill:#4c4b47; }
+    </style>
+  </defs>
+
+  <rect class="paper" width="1500" height="1450"/>
+  <text x="50" y="42" class="title ink">CHECK 3 — FINAL MAP SUBSTRATE / DIMENSIONED TOP-DOWN PLAN</text>
+  <text x="50" y="67" class="note muted">Blender metres · X east · Y north · street runs east–west · construction control, not concept art</text>
+
+  <!-- Drawing field: sx = 432 + 16x; sy = 272 - 16y. One metre = 16 px. -->
+  <rect x="80" y="80" width="820" height="1280" fill="url(#grid5)" stroke="#aaa397" stroke-width="1"/>
+
+  <!-- Existing north-side fabric and Orison. -->
+  <rect x="208" y="112" width="448" height="320" fill="#aebfc6" stroke="#315e73" stroke-width="3"/>
+  <text x="432" y="264" text-anchor="middle" class="title ink">ORISON</text>
+  <text x="432" y="288" text-anchor="middle" class="mono ink">x −14.000..14.000</text>
+  <text x="432" y="309" text-anchor="middle" class="mono ink">y −10.000..10.000</text>
+  <rect x="118.4" y="80" width="70.4" height="384" fill="#cbc6ba" stroke="#625f58" stroke-width="2"/>
+  <rect x="675.2" y="80" width="70.4" height="384" fill="#cbc6ba" stroke="#625f58" stroke-width="2"/>
+  <text x="153.6" y="286" transform="rotate(-90 153.6 286)" text-anchor="middle" class="small ink">OTIS &amp; SON HOST / nbr_w</text>
+  <text x="710.4" y="286" transform="rotate(-90 710.4 286)" text-anchor="middle" class="small ink">nbr_e</text>
+
+  <!-- Street section. -->
+  <rect x="80" y="434.848" width="820" height="73.152" fill="#d7c9ad" opacity=".78"/>
+  <rect x="80" y="508" width="820" height="146.304" fill="#555b5e"/>
+  <line x1="80" y1="581.152" x2="900" y2="581.152" stroke="#c8b56a" stroke-width="2" stroke-dasharray="18 12"/>
+  <rect x="80" y="651.904" width="820" height="73.152" fill="#d7c9ad"/>
+  <line x1="80" y1="654.304" x2="900" y2="654.304" stroke="#302f2d" stroke-width="2"/>
+  <line x1="80" y1="725.056" x2="900" y2="725.056" stroke="#302f2d" stroke-width="3"/>
+  <text x="855" y="477" text-anchor="end" class="label ink">NORTH WALK</text>
+  <text x="855" y="586" text-anchor="end" class="label" fill="#f7f3e9">STREET / 30 ft ROADWAY</text>
+  <text x="855" y="696" text-anchor="end" class="label ink">SOUTH WALK</text>
+  <text x="88" y="720" class="coord">BLDG_S / y −28.316</text>
+
+  <!-- Current lateral containment. It applies to the street slice, not the new enclosed hall. -->
+  <line x1="110.4" y1="434.848" x2="110.4" y2="725.056" class="boundary"/>
+  <line x1="761.6" y1="434.848" x2="761.6" y2="725.056" class="boundary"/>
+  <text x="102" y="450" text-anchor="end" class="coord" fill="#8c3029">STAGE_W −20.10</text>
+  <text x="770" y="450" class="coord" fill="#8c3029">STAGE_E +20.60</text>
+
+  <!-- Existing retained south mass. -->
+  <rect x="240" y="725.12" width="294.4" height="158.08" fill="#7d6253" stroke="#40362f" stroke-width="3"/>
+  <text x="387.2" y="792" text-anchor="middle" class="label" fill="#f7f3e9">HARUKIYA / nbr_s2</text>
+  <text x="387.2" y="816" text-anchor="middle" class="mono" fill="#f7f3e9">x −12.0..6.4</text>
+  <text x="387.2" y="837" text-anchor="middle" class="mono" fill="#f7f3e9">y −38.2..−28.32</text>
+
+  <!-- Current host volumes that conflict with the approved throat. Removed with the old shop parade in Phase 2. -->
+  <path d="M555.2 725.056 H596.8 V855.372 H555.2 Z
+           M596.8 725.056 H673.6 V892.022 H596.8 Z
+           M673.6 725.056 H748.8 V892.288 H673.6 Z
+           M748.8 725.056 H768 V860.443 H748.8 Z" fill="url(#demo)" stroke="#a14439" stroke-width="1.5"/>
+  <text x="784" y="754" class="small" fill="#812e28">PHASE 2 CLEARANCE</text>
+  <text x="784" y="772" class="small" fill="#812e28">news / pawn / funeral hosts + filler</text>
+
+  <!-- The approved Passage control geometry. -->
+  <rect x="608" y="725.056" width="96" height="164.544" fill="#e7b865" fill-opacity=".68" class="passage-edge"/>
+  <line x1="608" y1="725.056" x2="704" y2="725.056" stroke="#d78016" stroke-width="9"/>
+  <text x="656" y="708" text-anchor="middle" class="label" fill="#8a4c0d">STREET PORTAL</text>
+  <text x="656" y="807" text-anchor="middle" transform="rotate(-90 656 807)" class="label ink">THROAT · x 11..17</text>
+
+  <rect x="496" y="889.6" width="320" height="416" fill="#ecd39d" fill-opacity=".42" stroke="#9b5b16" stroke-width="4"/>
+  <rect x="496" y="889.6" width="112" height="416" fill="#d79b43" fill-opacity=".32"/>
+  <rect x="608" y="889.6" width="96" height="416" fill="#f5e8c8" stroke="#9b5b16" stroke-width="2"/>
+  <rect x="704" y="889.6" width="112" height="416" fill="#d79b43" fill-opacity=".32"/>
+  <line x1="496" y1="889.6" x2="816" y2="889.6" stroke="#d78016" stroke-width="7"/>
+  <circle cx="608" cy="889.6" r="6" fill="#9b5b16"/>
+  <circle cx="704" cy="889.6" r="6" fill="#9b5b16"/>
+  <text x="656" y="914" text-anchor="middle" class="label" fill="#8a4c0d">EXPANSION LINE / y −38.600</text>
+  <text x="552" y="1095" text-anchor="middle" transform="rotate(-90 552 1095)" class="label ink">WEST SHOP BAND · 7.000 m</text>
+  <text x="656" y="1095" text-anchor="middle" transform="rotate(-90 656 1095)" class="label ink">CENTRAL AISLE · 6.000 m CLEAR</text>
+  <text x="760" y="1095" text-anchor="middle" transform="rotate(-90 760 1095)" class="label ink">EAST SHOP BAND · 7.000 m</text>
+  <text x="656" y="1268" text-anchor="middle" class="label" fill="#8a4c0d">PASSAGE / “THE VANTRY ARCADE”</text>
+  <text x="656" y="1289" text-anchor="middle" class="mono ink">11 shops · 47.4 m net frontage · 52.0 m gross faces</text>
+
+  <!-- Authored site extents. Old limit is shown because current gen_layout still carries it until construction. -->
+  <line x1="80" y1="944" x2="900" y2="944" stroke="#a14439" stroke-width="1.5" stroke-dasharray="5 6"/>
+  <text x="88" y="938" class="coord" fill="#812e28">CURRENT DATA SITE_S −42.000 — MOVE IN PASSAGE CONSTRUCTION</text>
+  <line x1="80" y1="1328" x2="900" y2="1328" class="control" stroke-dasharray="12 7"/>
+  <text x="88" y="1347" class="coord" fill="#315e73">APPROVED SITE_S −66.000</text>
+
+  <!-- Street section dimensions. -->
+  <line x1="94" y1="434.848" x2="94" y2="508" class="dim"/>
+  <text x="84" y="474" text-anchor="end" class="mono ink">4.572</text>
+  <line x1="94" y1="508" x2="94" y2="654.304" class="dim"/>
+  <text x="84" y="586" text-anchor="end" class="mono ink">9.144</text>
+  <line x1="94" y1="651.904" x2="94" y2="725.056" class="dim"/>
+  <text x="84" y="693" text-anchor="end" class="mono ink">4.572</text>
+
+  <!-- Portal and throat dimensions. -->
+  <line x1="608" y1="692" x2="704" y2="692" class="dim"/>
+  <line x1="608" y1="692" x2="608" y2="725.056" class="ext"/>
+  <line x1="704" y1="692" x2="704" y2="725.056" class="ext"/>
+  <text x="656" y="683" text-anchor="middle" class="mono ink">6.000 m</text>
+  <line x1="722" y1="725.056" x2="722" y2="889.6" class="dim"/>
+  <line x1="704" y1="725.056" x2="730" y2="725.056" class="ext"/>
+  <line x1="704" y1="889.6" x2="730" y2="889.6" class="ext"/>
+  <text x="735" y="812" class="mono ink">10.284 m</text>
+
+  <!-- Harukiya rear clearance, exaggerated label with exact endpoints. -->
+  <line x1="480" y1="883.2" x2="480" y2="889.6" class="dim"/>
+  <line x1="480" y1="883.2" x2="496" y2="883.2" class="ext"/>
+  <line x1="480" y1="889.6" x2="496" y2="889.6" class="ext"/>
+  <path d="M477 886.4 L449 872" class="ext"/>
+  <text x="443" y="868" text-anchor="end" class="mono ink">0.400 m CLEAR</text>
+  <text x="443" y="885" text-anchor="end" class="coord">Harukiya rear −38.200</text>
+
+  <!-- Hall dimensions. -->
+  <line x1="496" y1="1370" x2="816" y2="1370" class="dim"/>
+  <line x1="496" y1="1305.6" x2="496" y2="1378" class="ext"/>
+  <line x1="816" y1="1305.6" x2="816" y2="1378" class="ext"/>
+  <text x="656" y="1391" text-anchor="middle" class="mono ink">20.000 m CONTROL WIDTH</text>
+  <line x1="496" y1="1316" x2="608" y2="1316" class="dim"/>
+  <line x1="608" y1="1316" x2="704" y2="1316" class="dim"/>
+  <line x1="704" y1="1316" x2="816" y2="1316" class="dim"/>
+  <text x="552" y="1311" text-anchor="middle" class="mono ink">7.000</text>
+  <text x="656" y="1311" text-anchor="middle" class="mono ink">6.000</text>
+  <text x="760" y="1311" text-anchor="middle" class="mono ink">7.000</text>
+  <line x1="838" y1="889.6" x2="838" y2="1305.6" class="dim"/>
+  <line x1="816" y1="889.6" x2="846" y2="889.6" class="ext"/>
+  <line x1="816" y1="1305.6" x2="846" y2="1305.6" class="ext"/>
+  <text x="852" y="1104" class="mono ink">26.000 m</text>
+  <line x1="870" y1="1305.6" x2="870" y2="1328" class="dim"/>
+  <line x1="816" y1="1305.6" x2="878" y2="1305.6" class="ext"/>
+  <line x1="816" y1="1328" x2="878" y2="1328" class="ext"/>
+  <text x="888" y="1323" text-anchor="end" class="mono ink">1.400 m</text>
+
+  <!-- North arrow and scale. -->
+  <line x1="850" y1="145" x2="850" y2="100" stroke="#252a2d" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="850" y="169" text-anchor="middle" class="label ink">N / +Y</text>
+  <line x1="740" y1="190" x2="820" y2="190" stroke="#252a2d" stroke-width="6"/>
+  <line x1="820" y1="190" x2="900" y2="190" stroke="#a9a296" stroke-width="6"/>
+  <text x="740" y="211" text-anchor="middle" class="coord">0</text>
+  <text x="820" y="211" text-anchor="middle" class="coord">5</text>
+  <text x="900" y="211" text-anchor="middle" class="coord">10 m</text>
+
+  <!-- Control schedule. -->
+  <g transform="translate(950 95)">
+    <rect x="0" y="0" width="500" height="1265" fill="#f0ebdf" stroke="#aaa397" stroke-width="1.5"/>
+    <text x="24" y="38" class="label ink">CONTROL COORDINATES</text>
+    <line x1="24" y1="52" x2="476" y2="52" stroke="#aaa397"/>
+
+    <text x="24" y="84" class="label ink">Portal</text>
+    <text x="24" y="108" class="mono ink">x 11.000..17.000</text>
+    <text x="24" y="130" class="mono ink">y −28.316 · centre x 14.000</text>
+    <text x="24" y="152" class="note muted">6.000 m clear opening in the south street face</text>
+
+    <text x="24" y="196" class="label ink">Throat</text>
+    <text x="24" y="220" class="mono ink">x 11.000..17.000</text>
+    <text x="24" y="242" class="mono ink">y −28.316..−38.600</text>
+    <text x="24" y="264" class="note muted">10.284 m long; same centreline as the aisle</text>
+
+    <text x="24" y="308" class="label ink">Expansion line</text>
+    <text x="24" y="332" class="mono ink">(11.000, −38.600) → (17.000, −38.600)</text>
+    <text x="24" y="354" class="note muted">The visibility and acoustic transition</text>
+
+    <text x="24" y="398" class="label ink">Main hall control envelope</text>
+    <text x="24" y="422" class="mono ink">x 4.000..24.000</text>
+    <text x="24" y="444" class="mono ink">y −38.600..−64.600</text>
+    <text x="24" y="466" class="note muted">20.000 × 26.000 m</text>
+    <text x="24" y="488" class="note muted">7.000 shop + 6.000 aisle + 7.000 shop</text>
+
+    <text x="24" y="532" class="label ink">Clearances and extent</text>
+    <text x="24" y="556" class="mono ink">Harukiya rear y −38.200</text>
+    <text x="24" y="578" class="mono ink">hall front y −38.600 → 0.400 clear</text>
+    <text x="24" y="600" class="mono ink">approved SITE_S y −66.000</text>
+    <text x="24" y="622" class="mono ink">hall rear y −64.600 → 1.400 margin</text>
+
+    <text x="24" y="672" class="label ink">FRONTAGE PROOF</text>
+    <line x1="24" y1="686" x2="476" y2="686" stroke="#aaa397"/>
+    <text x="24" y="718" class="note ink">Two 26 m faces</text>
+    <text x="450" y="718" text-anchor="end" class="mono ink">52.0 m gross</text>
+    <text x="24" y="744" class="note ink">Eleven approved shop bays</text>
+    <text x="450" y="744" text-anchor="end" class="mono ink">47.4 m net</text>
+    <text x="24" y="770" class="note ink">Party/end-wall allowance</text>
+    <text x="450" y="770" text-anchor="end" class="mono ink">4.6 m</text>
+    <text x="24" y="796" class="small muted">The brief’s “~24 m” is the frontage lower bound.</text>
+    <text x="24" y="815" class="small muted">The ruled 26 m envelope carries the walls and ends.</text>
+
+    <text x="24" y="864" class="label ink">PLAYABLE-BOUNDARY CONTRACT</text>
+    <line x1="24" y1="878" x2="476" y2="878" stroke="#aaa397"/>
+    <text x="24" y="910" class="note ink">• Passage play space is portal → throat → hall only.</text>
+    <text x="24" y="936" class="note ink">• Space outside its enclosing fabric is non-playable.</text>
+    <text x="24" y="962" class="note ink">• The throat is the street-to-Passage visibility gate.</text>
+    <text x="24" y="988" class="note ink">• Street ends use visible architecture/weather.</text>
+    <text x="24" y="1014" class="note ink">• Do not extend invisible collision across the south walk.</text>
+    <text x="24" y="1040" class="note ink">• Shop order is not decided by this substrate drawing.</text>
+
+    <text x="24" y="1092" class="label ink">LEGEND</text>
+    <rect x="24" y="1112" width="28" height="18" fill="#aebfc6" stroke="#315e73"/>
+    <text x="64" y="1127" class="note ink">retained Orison fabric</text>
+    <rect x="24" y="1144" width="28" height="18" fill="#7d6253" stroke="#40362f"/>
+    <text x="64" y="1159" class="note ink">retained Harukiya mass</text>
+    <rect x="24" y="1176" width="28" height="18" fill="#ecd39d" stroke="#9b5b16"/>
+    <text x="64" y="1191" class="note ink">approved Passage control envelope</text>
+    <rect x="24" y="1208" width="28" height="18" fill="url(#demo)" stroke="#a14439"/>
+    <text x="64" y="1223" class="note ink">current host volume removed in Phase 2</text>
+    <line x1="24" y1="1250" x2="52" y2="1250" class="boundary"/>
+    <text x="64" y="1255" class="note ink">temporary street-stage collision</text>
+  </g>
+
+  <text x="80" y="1422" class="small muted">Drawing scale: 16 px/m in the SVG source. Coordinate authority remains gen_layout.py; these approved controls enter it in Passage construction.</text>
+</svg>

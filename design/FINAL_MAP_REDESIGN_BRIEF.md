@@ -649,17 +649,53 @@ the rebuild. **Light budget: 16/16, not the 14/8 this brief claimed — see the
 correction in §10a.** Before and after ran under the same budget, so the
 comparisons hold; their label did not.
 
-## 10b. Two checks outstanding before the subtraction commit
+## 10ae. CHECK 3 CLOSED 2026-08-13 — dimensioned construction control
+
+Rendered drawing and editable source:
+
+- `art/renders/map_check3/passage_top_down.png`
+- `art/renders/map_check3/passage_top_down.svg`
+
+The drawing fixes the pre-subtraction substrate in Blender metres:
+
+| control | exact envelope |
+|---|---|
+| street portal | x 11.000..17.000 at y −28.316; centre x 14.000 |
+| throat | x 11.000..17.000, y −28.316..−38.600; 10.284 m long |
+| expansion line | (11.000, −38.600) → (17.000, −38.600) |
+| main hall | x 4.000..24.000, y −38.600..−64.600; 20.000 × 26.000 m |
+| transverse bands | 7.000 m west shops + 6.000 m clear aisle + 7.000 m east shops |
+| retained clearance | Harukiya rear y −38.200 → hall front y −38.600 = 0.400 m |
+| authored extent | hall rear y −64.600 → approved `SITE_S` y −66.000 = 1.400 m |
+
+This selects §10a's instructed −38.600 front rather than its preliminary
+−38.400 line. The earlier “~24 m” is the net-frontage lower bound: 47.4 m of
+approved shop frontage split over two sides. The ruled 26 m envelope supplies
+52.0 m gross face, leaving 4.6 m for party walls and end conditions. It is not
+a second hall size.
+
+The playable Passage boundary is exact at substrate level: portal, throat and
+hall interior only. Space outside the enclosing fabric is not playable. The
+throat is the visibility and acoustic transition, so eleven interiors do not
+submit from the street. Shop order is deliberately not assigned by this
+drawing; Check 3 fixes the substrate without making an unruled merchandising
+decision.
+
+The drawing also carries Check 1's consequence: `STAGE_W` −20.10 and
+`STAGE_E` +20.60 remain shown as temporary street-slice collision. Phase 4
+replaces them with visible architecture/weather. No invisible collision is
+extended across the leaking south walk.
+
+## 10b. Pre-subtraction checks — CLOSED
 
 1. ~~Ownership of every black mass in `art/renders/map_before/street_1.png`.~~
    **CLOSED 2026-08-13, §10ac.** Nothing anonymous was deleted, and nothing
    needs deleting: the masses are already-deleted records surviving in a
    stale build. The rule held and paid — the geometry that looked like a
    subtraction candidate was a rebuild.
-2. Top-down diagram: portal, throat, expansion point, hall envelope.
-   **STILL OPEN — this is Check 3 and it is now the only thing between here
-   and the subtraction commit.** Do not begin shop subtraction before it is
-   rendered, documented and committed.
+2. ~~Top-down diagram: portal, throat, expansion point, hall envelope.~~
+   **CLOSED 2026-08-13, §10ae.** The dimensioned PNG and editable SVG fix the
+   construction controls and exact playable Passage boundary.
 3. ~~Re-run the Blender build so the glTF matches the records.~~ **DONE
    2026-08-13, `782776c`, §10ad.** Baseline retaken at
    `art/renders/map_baseline/`.
@@ -668,6 +704,10 @@ Check 1 (the south-pavement sweep) is closed in §4. Its containment consequence
 is an ordering rule: build and verify the honest visible street-end replacement
 before retiring `ExteriorStreetStageBoundary`. Do not repair the leak by simply
 extending another invisible collision box across the south walk.
+
+**The subtraction gate is now open.** Phase 2 subtraction and Phase 3 Passage
+construction remain consecutive rollback commits on one continuous branch;
+`main` must not rest in a no-shop state.
 
 ## 10c. Closed owner decisions
 
