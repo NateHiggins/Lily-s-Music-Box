@@ -378,7 +378,11 @@ ranking cannot close this check.**
 
 **Closing it takes two stages, not one.** Hide/show per buffer is the only
 *runtime buffer-level* evidence — it says which merged buffer contributes a
-visible mass and nothing more. It cannot recover the source identity of
+visible mass and nothing more. *(SUPERSEDED 2026-08-13 by §10ac: hide/show is
+not the only runtime buffer-level evidence. A false-colour pass answers the
+same question for every pixel in one render, with no differencing and so no
+aligned-pair problem. The two-stage shape of the check was right; the
+instrument for stage one was not. Kept per log-don't-delete.)* It cannot recover the source identity of
 geometry Blender already merged. Buffer identification must therefore be
 followed by source-level provenance: enumerate every generator record feeding
 that floor/category/material, restrict by actual coordinates against the
@@ -431,11 +435,104 @@ be deleted on it.** To close Check 2: a controlled hide/show render pair with
 main scene rather than scenery, the fix is a reparent or a SubViewport — not a
 deletion, and it would also be a live cost at every station.
 
+## 10ac. CHECK 2 CLOSED 2026-08-13 — and the baseline is stale
+
+**Headline: the black masses are sixteen parked cars that the data no longer
+contains.** `888b1dc` (2026-08-11) deleted them, with the bus shelter and the
+arrival rideshare, for the traffic redesign. `game/assets/building/*.gltf`
+was last built 2026-08-10 at commit `7f09557` and has not been rebuilt since,
+so the cars are still in every frame the engine draws. `gen_layout.py` no
+longer emits `site_car*` at all and `walk_test.gd:196` already says they
+"came out for the traffic redesign". They came out of the *records*. They did
+not come out of the *build*.
+
+**Eight commits have changed `building_layout.json` since the glTF was
+built** (`f0bfa74`, `888b1dc`, `3f5278f`, `d53db48`, `e0ab378`, `980bee1`,
+`11e3156`, `334efe7`); 212 furniture records exist in the as-built revision
+and not in current data, 0 the other way. Anything measured from the current
+build describes geometry the data does not have. Re-run Blender before any
+further street measurement and certainly before subtraction — and re-measure
+the M0.5 baseline afterwards, because `art/renders/map_before/street_1.png`
+and `art/renders/map_check2/base/*` both contain phantom cars.
+
+**The instrument** (reusable, committed): `game/tests/StreetIdShot.tscn` +
+`street_id_shot.gd`, read by `tools/street_ownership.py` and
+`tools/street_provenance.py`. From the frozen `street_shot.gd` camera with
+`DAYNIGHT=0` and `StreetTraffic` hidden, every `GeometryInstance3D` sharing
+the camera's `World3D` and `Viewport` gets a unique unshaded colour with fog,
+lighting, tonemap, exposure, glow, SSAO and reflections off, and the frame
+becomes an ownership map. Three properties make it evidence rather than
+illustration:
+
+- **The palette cannot wrap.** 4723 instances render in the main world and a
+  16-step channel grid holds 4095, so the frame is painted in `ceil(n/4095)`
+  passes and merged; id 0 means "named in another pass" and a pixel that is 0
+  in every pass is a reported failure. It was 0 px. A denser grid was
+  measured and rejected: Godot's dark-end sRGB round trip is not exact
+  (nominal 8 lands at 1, 24 at 21, 40 at 38, 56 at 55), so 19 levels per
+  channel would sit inside the round-trip error. 16 steps clear it twofold.
+- **Nothing is unattributed.** 0 px unresolved, 0 px with no legend entry.
+- **The ray builder is checked against the engine.** Stage two reimplements
+  `project_ray_normal`; the shot prints five of the engine's own rays and the
+  reader asserts against them before using any. Worst error 6.0e-07.
+
+**A wrong first reading, logged.** The first pass credited 23% of the frame
+to `WeatherFX/@MeshInstance3D@25804`, a 34 x 26 m quad. It is `_ground_flash`
+(`weather_fx.gd:142`), `BLEND_MODE_ADD` with albedo alpha 0.0 — a surface
+that can only ever brighten and was contributing nothing. The opaque override
+had made it solid and it swallowed the whole carriageway. See-through
+surfaces are now hidden rather than painted (411 of them), so a pixel goes to
+the opaque thing actually being seen. **An opaque override is not a neutral
+substitution.**
+
+**Stage one, buffer ownership of the frame** (`overlay.png`):
+`F01_furniture_metal` 15.7%, `F01_walls_fbrick` 11.9%,
+`F01_furniture_sidewalk_haunted` 11.8%, `F01_furniture_brick_patched` 8.4%,
+`F02_walls_fbrick` 7.8%, `F01_furniture_wet_asphalt` 5.4%,
+`F01_furniture_asphalt` 5.2%, sky 4.2%. 90.9% of the frame is below luma 16,
+so "dark" barely discriminates; what does is luma *spread* inside a mass. The
+featureless slabs all sit at sd ≤ 0.5 against 2–4 for ordinary dark brick.
+
+**Stage two, source records, restricted by coordinate.** Each mass's probe
+pixel cast back through the camera's own ray, against the records the build
+was actually made from:
+
+| mass (bbox) | sd | nearest matching record | t |
+|---|---|---|---|
+| 460,264..605,599 | 0.18 | `site_booth` (metal) — still in current data | 3.64 m |
+| 668,0..1047,630 | 0.47 | `site_car2` — **deleted by 888b1dc** | 3.71 m |
+| 1141,304..1279,467 | 0.23 | `site_scar1` — **deleted by 888b1dc** | 10.45 m |
+| 1243,543..1279,719 | 0.00 | `site_car1` — **deleted by 888b1dc** | 1.98 m |
+| 593,586..692,700 | 0.00 | `retail_street_crate0` (assembly, candidate) | 3.20 m |
+
+Verified in the other direction too: each record's own box projected back
+into screen space lands on the mass it is supposed to explain —
+`site_booth` predicts 459,263..594,603 against a measured 460,264..605,599,
+`site_car2` predicts x 672..1048 against a measured 668..1047. **A record
+that explains a silhouette must also predict where it sits.**
+
+The tall foreground column is the telephone booth, which is authored, wanted,
+and simply unlit. Everything else large and featureless is a phantom. Only
+`retail_street_crate0` remains a candidate rather than an answer: `crate` is
+an assembly whose shape lives in the Blender builder, so it has no box record
+to intersect. If it matters after the rebuild, it needs the unmerged
+diagnostic emit — and it may not survive the rebuild at all.
+
+**Not done, deliberately:** no temporary unmerged production geometry was
+emitted and production batching was not touched. There was no need — the
+coordinate restriction left exactly one matching record per mass.
+
 ## 10b. Two checks outstanding before the subtraction commit
 
-1. Ownership of every black mass in `art/renders/map_before/street_1.png`.
-   **Do not delete anonymous geometry before its source is named.**
+1. ~~Ownership of every black mass in `art/renders/map_before/street_1.png`.~~
+   **CLOSED 2026-08-13, §10ac.** Nothing anonymous was deleted, and nothing
+   needs deleting: the masses are already-deleted records surviving in a
+   stale build. The rule held and paid — the geometry that looked like a
+   subtraction candidate was a rebuild.
 2. Top-down diagram: portal, throat, expansion point, hall envelope.
+3. **NEW, and it blocks both of the above:** re-run the Blender build so the
+   glTF matches the records, then re-render the M0.5 baseline. Subtraction
+   planned against the current build would be planned against phantoms.
 
 Check 1 (the south-pavement sweep) is closed in §4. Its containment consequence
 is an ordering rule: build and verify the honest visible street-end replacement
