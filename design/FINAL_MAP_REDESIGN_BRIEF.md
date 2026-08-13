@@ -359,8 +359,31 @@ documented floor-wide buffers, not objects in frame. Rank by individual node
 and discard anything whose size approaches the site, or the answer is always
 "F01".
 
-**Leading candidate, and it is not traffic.** `SwcGraybox` geometry sits
-inside the street volume:
+**SwcGraybox was a FALSE POSITIVE, caught by world filtering.**
+`arcade_machine.gd:2` `extends SubViewport` and `:82` sets
+`own_world_3d = true`, so every receiver's SWC world lives in its own
+`World3D`. It is in the scene tree and can never draw into the street. The
+probe now prunes `SubViewport` outright and requires a candidate to share the
+street camera's `World3D` and `Viewport` and be `is_visible_in_tree()`.
+Records fell 412 → **254** and SwcGraybox disappeared. Scene-tree membership
+is not render membership; the first draft conflated them.
+
+**The corrected run exposes a harder limit: the masses have no individual
+node.** Every remaining large candidate is a merged per-(floor, category)
+buffer whose AABB spans wherever that category appears on F01 —
+`F01_furniture_timber` 87.4 × 27.7 × 38.1, `F01_furnish_bakelite`
+59.0 × 3.9 × 45.6, and so on. The builder merged the street's boxes into those
+buffers, so "which node is the black slab" has no node-level answer. **AABB
+ranking cannot close this check.** Hide/show per buffer is not merely the best
+evidence, it is the only evidence.
+
+Two materials are worth suppressing first, being the only FLAT (untextured)
+entries among the large candidates: `M_screen` (albedo 0.29,0.31,0.33 — dark
+and flat) and `M_glassish` (0.89,0.93,0.95). Everything else in the top twenty
+is textured and shaded.
+
+*Superseded hypothesis, kept per the log-don't-delete rule:* the original
+SwcGraybox reading was —
 
 | node | size m | face m² | material |
 |---|---|---|---|
