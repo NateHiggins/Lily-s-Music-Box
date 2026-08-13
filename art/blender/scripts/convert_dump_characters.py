@@ -127,9 +127,11 @@ def shrink_textures() -> None:
 def strip_emission() -> None:
     """Meshy wires the albedo into every material's emission at full
     strength, so figures self-illuminate and scene lighting never lands
-    (NPCs read fully lit in a dark corridor). Unhook emission and rein
-    in the doubled specular before export; strip_character_emissive.py
-    applies the same law to files already shipped."""
+    (NPCs read fully lit in a dark corridor). Unhook emission before
+    export; strip_character_emissive.py applies the same law to files
+    already shipped. Models whose mapping carries `keep_emission` skip
+    THIS function only — the specular fix below is a separate Meshy
+    defect and applies to everyone."""
     for mat in bpy.data.materials:
         if not mat.use_nodes:
             continue
@@ -143,6 +145,18 @@ def strip_emission() -> None:
                 for link in list(sock.links):
                     mat.node_tree.links.remove(link)
             node.inputs["Emission Strength"].default_value = 0.0
+
+
+def rein_in_specular() -> None:
+    """Meshy also doubles the specular, which blows out highlights under
+    the grade. Unconditional — a kept emission is a look; a doubled
+    specular is a defect."""
+    for mat in bpy.data.materials:
+        if not mat.use_nodes:
+            continue
+        for node in mat.node_tree.nodes:
+            if node.type != "BSDF_PRINCIPLED":
+                continue
             spec = node.inputs.get("Specular Tint")
             ior_level = node.inputs.get("Specular IOR Level")
             if ior_level is not None and ior_level.default_value > 0.5:
@@ -159,7 +173,7 @@ def export_gltf(out_path: str) -> None:
 
 
 def convert(source: str, out_dir: str, name: str,
-            bake_body: bool = False) -> None:
+            bake_body: bool = False, keep_emission: bool = False) -> None:
     out_path = os.path.join(out_dir, name + ".gltf")
     if os.path.exists(out_path):
         print("skip (exists)", name)
@@ -173,7 +187,15 @@ def convert(source: str, out_dir: str, name: str,
     # FBX unit normalization twice and lost; the exports ship untouched.
     decimate_to_budget()
     shrink_textures()
-    strip_emission()
+    # keep_emission comes from the mapping and is per-model, owner-ruled
+    # (2026-08-13, mina_vale): a kept emission means the figure stays
+    # self-lit in the dark on purpose. strip_character_emissive.py reads
+    # the same flag, so a later sweep of shipped files honours it too.
+    if keep_emission:
+        print("  emission KEPT by mapping flag")
+    else:
+        strip_emission()
+    rein_in_specular()
     export_gltf(out_path)
     # Regenerated textures are ungraded; clear the grade markers so
     # grade_character_textures.py re-runs on them.
@@ -232,7 +254,8 @@ if __name__ == "__main__":
     for slug, spec in mapping["residents"].items():
         convert(spec["source"],
                 os.path.join(ROOT, "game", "assets", "characters", slug),
-                slug, bake_body=True)
+                slug, bake_body=True,
+                keep_emission=bool(spec.get("keep_emission", False)))
     for name, spec in mapping["creatures"].items():
         out_dir = os.path.join(ROOT, "game", "assets", "creatures", name)
         convert(spec["source"], out_dir, name)

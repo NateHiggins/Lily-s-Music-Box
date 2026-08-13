@@ -1,32 +1,93 @@
 {
-  "comment": "Mapping from the 2026-08-02 Meshy character dump to residents, CORRECTED against the visual source of truth: art/concept/characters/CHARACTER_BIBLE.md and its four cast boards. The first mapping was made from role evidence alone and misassigned nine residents; the boards settled every call. Sources live gitignored in art/blender/meshy/<source>/; convert_dump_characters.py builds each hero model at assets/characters/<slug>/<slug>.gltf. Remap and re-run the converter if the boards ever change.",
-  "residents": {
-    "teresa_vale": {"source": "Meshy_AI_Healthcare_Profession_biped", "why": "board 03: navy scrubs, badge, the night nurse"},
-    "mina_vale": {"source": "Meshy_AI_Futuristic_Field_Engi_biped", "why": "boards 01/02: glasses, ochre under teal, lanyard — her authored palette exactly"},
-    "lena_ortiz": {"source": "Meshy_AI_Frontier_Warrior_biped", "why": "board 03: burgundy knit and the notions pouch; the seamstress"},
-    "juno_kells": {"source": "Meshy_AI_Neon_Wave_Operative_biped", "why": "board 01: asymmetric curly crop, washed black; the audio artist"},
-    "malcolm_reed": {"source": "Meshy_AI_Earthbound_Explorer_biped", "why": "board 03: moss and earth tones, the horticulturist"},
-    "omar_bell": {"source": "Meshy_AI_Rugged_Frontiersman_biped", "why": "boards 01/03: mustache and work belt; the repair technician"},
-    "rhea_sato": {"source": "Meshy_AI_Nightshade_Vanguard_biped", "why": "board 02: the severe black/white bob; the vocal coach"},
-    "peter_wren": {"source": "Meshy_AI_Gentleman_in_Suspende_biped", "why": "board 03: the rumpled clerk; suspenders for the brown suit"},
-    "cam_ortiz": {"source": "Meshy_AI_Maroon_Vanguard_biped", "why": "board 02: maroon shell, compact courier build"},
-    "noel_price": {"source": "Meshy_AI_Outland_Ranger_biped", "why": "board 02: auburn bun, navy chore coat, gloves in the chest pocket; the museum preparator"},
-    "transient_guests": {"source": "Meshy_AI_Rugged_Denim_Wanderer_biped", "why": "board 04: the denim half of the transient pair, duffel and all"},
-    "nadia_quell": {"source": "Meshy_AI_Field_Agent_in_Grey_V_biped", "why": "board 02: the long braid and vest, plans under her arm; the architect"},
-    "cal_dwyer": {"source": "Meshy_AI_Old_Man_in_a_Mustard__biped", "why": "board 04: mustard cardigan, hearing aid, radio and cable"},
-    "iris_bell": {"source": "Meshy_AI_Patchwork_Ranger_biped", "why": "board 04: headscarf and paint-splattered coveralls; the painter"},
-    "sacha_reed": {"source": "Meshy_AI_Urban_Vanguard_biped", "why": "board 02: camera and adapter tangle, track-jacket silhouette"},
-    "jonah_price": {"source": "Meshy_AI_Rugged_Stranger_in_Da_biped", "why": "board 04: the navy robe-cardigan and plaid, mug-and-notebook posture"},
-    "mae_kessler": {"source": "Meshy_AI_Emerald_Sentinel_biped", "why": "board 04: silver pageboy, bottle-green, gloves and the cataloged box"}
+ "comment": "Mapping from the 2026-08-02 Meshy character dump to residents, CORRECTED against the visual source of truth: art/concept/characters/CHARACTER_BIBLE.md and its four cast boards. The first mapping was made from role evidence alone and misassigned nine residents; the boards settled every call. Sources live gitignored in art/blender/meshy/<source>/; convert_dump_characters.py builds each hero model at assets/characters/<slug>/<slug>.gltf. Remap and re-run the converter if the boards ever change.",
+ "residents": {
+  "teresa_vale": {
+   "source": "Meshy_AI_Healthcare_Profession_biped",
+   "why": "board 03: navy scrubs, badge, the night nurse"
   },
-  "variants": {
-    "transient_guest_b": {"source": "Meshy_AI_Field_Operator_biped", "why": "board 04 shows the transients as a PAIR — this is the bomber-jacket half, held for the guest-variant pass"}
+  "mina_vale": {
+   "source": "Meshy_AI_Grey_Elegance_biped",
+   "keep_emission": true,
+   "why": "owner-designated FINAL model 2026-08-13, replacing the board-derived Futuristic_Field_Engi pick. keep_emission is deliberate and unique to her: the owner instructed that her self-illumination NOT be stripped, so she reads self-lit where every other figure receives scene light."
   },
-  "creatures": {
-    "harpy": {"source": "Meshy_AI_Lifeguard_Harpy_biped", "why": "wings and talons; red lifeguard kit"},
-    "oni": {"source": "Meshy_AI_Horned_Hellrunner_biped", "why": "horns, red skin, athletic black"}
+  "lena_ortiz": {
+   "source": "Meshy_AI_Frontier_Warrior_biped",
+   "why": "board 03: burgundy knit and the notions pouch; the seamstress"
   },
-  "missing": {
-    "lamia": "Requested but not present in the dump - every non-creature export is a standard biped; no serpent-bodied model found. Drop the zip in Downloads and re-run the pipeline."
+  "juno_kells": {
+   "source": "Meshy_AI_Neon_Wave_Operative_biped",
+   "why": "board 01: asymmetric curly crop, washed black; the audio artist"
+  },
+  "malcolm_reed": {
+   "source": "Meshy_AI_Earthbound_Explorer_biped",
+   "why": "board 03: moss and earth tones, the horticulturist"
+  },
+  "omar_bell": {
+   "source": "Meshy_AI_Rugged_Frontiersman_biped",
+   "why": "boards 01/03: mustache and work belt; the repair technician"
+  },
+  "rhea_sato": {
+   "source": "Meshy_AI_Nightshade_Vanguard_biped",
+   "why": "board 02: the severe black/white bob; the vocal coach"
+  },
+  "peter_wren": {
+   "source": "Meshy_AI_Gentleman_in_Suspende_biped",
+   "why": "board 03: the rumpled clerk; suspenders for the brown suit"
+  },
+  "cam_ortiz": {
+   "source": "Meshy_AI_Maroon_Vanguard_biped",
+   "why": "board 02: maroon shell, compact courier build"
+  },
+  "noel_price": {
+   "source": "Meshy_AI_Outland_Ranger_biped",
+   "why": "board 02: auburn bun, navy chore coat, gloves in the chest pocket; the museum preparator"
+  },
+  "transient_guests": {
+   "source": "Meshy_AI_Rugged_Denim_Wanderer_biped",
+   "why": "board 04: the denim half of the transient pair, duffel and all"
+  },
+  "nadia_quell": {
+   "source": "Meshy_AI_Field_Agent_in_Grey_V_biped",
+   "why": "board 02: the long braid and vest, plans under her arm; the architect"
+  },
+  "cal_dwyer": {
+   "source": "Meshy_AI_Old_Man_in_a_Mustard__biped",
+   "why": "board 04: mustard cardigan, hearing aid, radio and cable"
+  },
+  "iris_bell": {
+   "source": "Meshy_AI_Patchwork_Ranger_biped",
+   "why": "board 04: headscarf and paint-splattered coveralls; the painter"
+  },
+  "sacha_reed": {
+   "source": "Meshy_AI_Urban_Vanguard_biped",
+   "why": "board 02: camera and adapter tangle, track-jacket silhouette"
+  },
+  "jonah_price": {
+   "source": "Meshy_AI_Rugged_Stranger_in_Da_biped",
+   "why": "board 04: the navy robe-cardigan and plaid, mug-and-notebook posture"
+  },
+  "mae_kessler": {
+   "source": "Meshy_AI_Emerald_Sentinel_biped",
+   "why": "board 04: silver pageboy, bottle-green, gloves and the cataloged box"
   }
+ },
+ "variants": {
+  "transient_guest_b": {
+   "source": "Meshy_AI_Field_Operator_biped",
+   "why": "board 04 shows the transients as a PAIR — this is the bomber-jacket half, held for the guest-variant pass"
+  }
+ },
+ "creatures": {
+  "harpy": {
+   "source": "Meshy_AI_Lifeguard_Harpy_biped",
+   "why": "wings and talons; red lifeguard kit"
+  },
+  "oni": {
+   "source": "Meshy_AI_Horned_Hellrunner_biped",
+   "why": "horns, red skin, athletic black"
+  }
+ },
+ "missing": {
+  "lamia": "Requested but not present in the dump - every non-creature export is a standard biped; no serpent-bodied model found. Drop the zip in Downloads and re-run the pipeline."
+ }
 }

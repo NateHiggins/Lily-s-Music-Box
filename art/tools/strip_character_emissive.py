@@ -25,15 +25,18 @@ PATTERNS = [
 ]
 
 
-def strip(path: str) -> bool:
+def strip(path: str, keep_emission: bool = False) -> bool:
     with open(path, encoding="utf-8") as fh:
         doc = json.load(fh)
     changed = False
     for material in doc.get("materials", []):
-        if material.pop("emissiveTexture", None) is not None:
-            changed = True
-        if material.pop("emissiveFactor", None) is not None:
-            changed = True
+        # keep_emission spares only the glow — the doubled specular is a
+        # separate Meshy defect and is clamped for everyone.
+        if not keep_emission:
+            if material.pop("emissiveTexture", None) is not None:
+                changed = True
+            if material.pop("emissiveFactor", None) is not None:
+                changed = True
         specular = material.get("extensions", {}).get(
             "KHR_materials_specular", {})
         factor = specular.get("specularColorFactor")
@@ -46,11 +49,34 @@ def strip(path: str) -> bool:
     return changed
 
 
+def keep_emission_slugs() -> set:
+    """Models whose glow is a decision, not a Meshy artifact. The mapping's
+    `keep_emission` flag (owner-ruled 2026-08-13, mina_vale) is honoured by
+    the converter at export and must be honoured here too, or one manual
+    sweep of shipped files silently undoes it."""
+    mapping_path = os.path.join(ROOT, "game", "data",
+                                "resident_hero_models.json")
+    with open(mapping_path, encoding="utf-8") as fh:
+        mapping = json.load(fh)
+    slugs = set()
+    for section in ("residents", "creatures"):
+        for slug, spec in mapping.get(section, {}).items():
+            if spec.get("keep_emission"):
+                slugs.add(slug)
+    return slugs
+
+
 def main() -> None:
+    exempt = keep_emission_slugs()
     touched = 0
     for pattern in PATTERNS:
         for path in sorted(glob.glob(pattern)):
-            if strip(path):
+            slug = os.path.splitext(os.path.basename(path))[0]
+            kept = slug in exempt
+            if kept:
+                print("glow kept (keep_emission)",
+                      os.path.relpath(path, ROOT))
+            if strip(path, keep_emission=kept):
                 touched += 1
                 print("stripped", os.path.relpath(path, ROOT))
     print("%d files de-glowed" % touched)
