@@ -95,6 +95,7 @@ func _ready() -> void:
 	print("PERF: viewport %s; resolved light/shadow budget %d/%d" % [
 			get_viewport().get_visible_rect().size,
 			root.light_rig._active_budget, root.light_rig._shadow_budget])
+	apply_shadow_policy(root, self)
 	# Visit every station once before timing anything. Godot compiles
 	# shaders lazily on first draw, so whichever station goes first
 	# otherwise absorbs the cost of the whole building's materials and
@@ -159,6 +160,88 @@ func _count_meshes(n: Node) -> int:
 	for c in n.get_children():
 		total += _count_meshes(c)
 	return total
+
+
+## DIAGNOSTIC ONLY — inert unless PERF_SHADOW_OFF is set, so production
+## behaviour is unchanged and no visual policy is committed by measuring one.
+##
+## Takes comma-separated node-name substrings and clears cast_shadow on every
+## matching GeometryInstance3D. Buffers are merged per (floor, category,
+## material), so a token like `_furnish_` selects a SOURCE CATEGORY and
+## `_furnish_porcelain` selects one material within it — which is the finest
+## grain a runtime test can honestly claim. Anything narrower than a buffer
+## has to be proved by splitting the buffer in the builder, not here.
+##
+## `*` matches everything. That is the control, NOT a policy: the brief bans
+## global shadow suppression as a shipping option and allows it only as the
+## upper bound the real policies are scored against.
+##
+## Shared with shadow_policy_shot.gd so the render and the measurement can
+## never be suppressing different sets. Reports what it touched, by buffer,
+## because a number attributed to the wrong category is worse than no number.
+static func apply_shadow_policy(scene_root: Node, ctx: Node) -> Dictionary:
+	var out := {"tokens": "", "instances": 0, "buffers": {}}
+	var spec := OS.get_environment("PERF_SHADOW_OFF")
+	if spec == "":
+		return out
+	# A leading `-` excludes and always wins, so a policy can say "the shop
+	# stock but not the Passage shell" without listing every material. The
+	# shell is architecture and architecture is out of scope by instruction.
+	var tokens: Array[String] = []
+	var block: Array[String] = []
+	for t in spec.split(","):
+		var s := t.strip_edges()
+		if s.begins_with("-"):
+			block.append(s.substr(1))
+		elif s != "":
+			tokens.append(s)
+	if tokens.is_empty():
+		return out
+	var hit := {}
+	var n := _suppress_shadows(scene_root, tokens, hit, block)
+	out["tokens"] = spec
+	out["instances"] = n
+	out["buffers"] = hit
+	var rows: Array = []
+	for k in hit:
+		rows.append([hit[k], k])
+	rows.sort_custom(func(a, b): return a[0] > b[0])
+	print("PERF SHADOW POLICY [%s]: %d instances suppressed across %d buffers"
+			% [spec, n, hit.size()])
+	for r in rows:
+		print("   SHADOW-OFF %-46s x%d" % [r[1], r[0]])
+	if ctx != null:
+		pass
+	return out
+
+
+static func _suppress_shadows(node: Node, tokens: Array[String],
+		hit: Dictionary, block: Array[String]) -> int:
+	# Arcade cabinets own their World3D; their shadows are not in this frame
+	# and suppressing them would change the cabinets rather than the building.
+	if node is SubViewport:
+		return 0
+	var n := 0
+	if node is GeometryInstance3D:
+		var g := node as GeometryInstance3D
+		if g.cast_shadow != GeometryInstance3D.SHADOW_CASTING_SETTING_OFF:
+			var name := String(g.name)
+			var excluded := false
+			for b in block:
+				if name.findn(b) >= 0:
+					excluded = true
+					break
+			if not excluded:
+				for t in tokens:
+					if t == "*" or name.findn(t) >= 0:
+						g.cast_shadow = \
+								GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+						hit[name] = int(hit.get(name, 0)) + 1
+						n += 1
+						break
+	for c in node.get_children():
+		n += _suppress_shadows(c, tokens, hit, block)
+	return n
 
 
 ## RenderingServer's "objects" count is submission work, not scene-tree

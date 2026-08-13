@@ -949,3 +949,62 @@ pauses the eighteen unrelated resident routines while it drives Cases 02–08;
 ScheduleTest owns those clocks, and the case order, timers and stateful
 consequences are unchanged. This replaces the earlier x4 run that reached the
 watchdog before printing a verdict.
+
+## 10aj. SHADOW POLICY REVIEWED 2026-08-13 — real, capped, not enough. NOTHING APPLIED.
+
+Instrument: `PERF_SHADOW_OFF` on `perf_probe.gd`, inert unless set, plus
+`ShadowPolicyShot.tscn`, which reads the station list *and* the suppression
+pass from perf_probe itself so the renders and the measurements can never
+describe different cameras. Evidence: `art/renders/shadow_policy/`.
+
+**Measure the noise before believing a delta.** Two identical baseline runs
+differ by up to ±1.36 ms (atrium) and ±1.24 (roof), and the atrium's *object
+count* swings 11% between identical runs. Two identical baseline **renders**
+differ on **86.1% of lobby pixels** and 19.2% of harukiya's — residents move.
+Draw calls at the Passage stations are stable to ~0.3%. Calls are the signal;
+ms is the estimate.
+
+**Northbound, at the pinned 16/16 budget:**
+
+| policy | calls | ms | vs baseline |
+|---|---|---|---|
+| baseline | 11980 | 23.44 ±0.42 | — |
+| A — all `furnish` props | 11950 | 23.67 | **0, inside noise** |
+| B — shop stock/fittings | 10172 | 22.38 | −1.06 |
+| A+B | 9618 | 21.42 | −2.02 |
+| CONTROL — every shadow off | 6858 | 18.35 | −5.09 |
+
+**No in-scope policy flips a single station.** Baseline fails 7 of 11; A, B and
+A+B each still fail 7. Only the control flips one (4B 19.08 → 14.93) and it
+*still* leaves northbound at 18.35, **1.75 ms over budget**. The ceiling on the
+whole lever is −5.09 and the gate needs −6.84. **Shadow policy cannot pass the
+Passage even taken to the unshippable extreme.**
+
+**The one option that pays materially flattens the arcade.** B changes 75.5% of
+northbound pixels at mean |Δ| 31/255 against a 0.1% noise floor: bays wash out,
+shopfronts stop receding, piers go bright — see
+`compare_passage_hall_northbound.png`. That is the stated reject condition, so
+**B is rejected on its own evidence.** A is visually free (every station at or
+inside its noise floor) and buys nothing where it is needed. Nothing narrower
+helps either: A+B is −2.02 of the −5.09 ceiling and the missing 3.07 is
+architecture — vault, shell, stairs — which is out of scope by instruction.
+
+**RECOMMENDATION: approve no shadow policy.** Not "adopt the safest": no option
+has a benefit that justifies a visual decision.
+
+**Correction to §10ai, with the runs to back it.** Phase 6 recorded that
+stopping prop ticks "did not produce a stable win". Repeated twice here at
+northbound it is one of the *most* stable levers measured:
+
+| | baseline | props drawn but not ticking |
+|---|---|---|
+| run 1 | 25.85 ms | 20.77 ms (−19.7%) |
+| run 2 | 25.80 ms | 20.85 ms (−19.2%) |
+
+Objects and calls are unchanged (9155 / 12404) because nothing stops being
+drawn — it is pure CPU, and therefore **has no visual cost at all**. It is
+worth about what the entire shadow lever is worth, for free. §2 D-1 found the
+same at the roof (−47%) and this brief then generalised it away as "prop
+scripts are not the cost"; they are the cost wherever there is little to draw,
+and the Passage is such a place. **That is where the next measurement belongs,
+not in shadows.**
