@@ -248,9 +248,15 @@ the specific defects behind it, and V1 is the revamp the owner asked for.
 - **V5** **Four shops sit outside the lateral stage boundary.** `STAGE_W`
   −20.10 / `STAGE_E` +20.60 against a parade running x −32.4..31.6 leaves
   laundry, cobbler, hardware and photo — **139 m² of fitted, lit interior** —
-  beyond the playable bounds. Sweep `RouteProbe` along the south pavement to
-  settle whether they are unreachable or reachable by a walk nobody intended.
-  Both answers are defects; they need different fixes.
+  beyond the playable bounds. **ANSWERED 2026-08-13 by `RouteProbe`: they are
+  REACHABLE, and the play space leaks.** The south pavement sweeps walkable
+  end to end to x −30.0 and x +29.5, and all four shop doors are reachable —
+  every approach stops at 94%, on the glazing or on the laundry's own
+  `HingedLeaf`. `ExteriorStreetStageBoundary` is two boxes 7.55 m deep centred
+  at y −13.45; they close the north walk and part of the carriageway and never
+  touch the south pavement. A player can stand ~10 m outside the intended
+  lateral limit. Containment failure, not inaccessibility — the Phase 4
+  boundary rebuild must close the south walk too.
 - **V6** **Black slabs on the critical route.**
   `art/renders/map_before/street_1.png` shows several large flat black masses
   across the pavement and carriageway. Every suite is green because none of

@@ -47,6 +47,50 @@ const LEGS_BODEGA := [
 	[Vector3(12.00, 0.9, 12.60), Vector3(16.60, 0.9, 12.60)],
 	[Vector3(16.60, 0.9, 12.60), Vector3(18.67, 0.9, 12.60)],
 ]
+## M0.5 check 1. Four shops - laundry, cobbler, hardware, photo - have
+## bays outside the lateral stage boundary (STAGE_W -20.10 / STAGE_E
+## +20.60 in Blender x, which is Godot x unchanged). The brief claims
+## they are unreachable. That claim came off boundary DIMENSIONS, and
+## the boundary bodies are only 7.55 m deep in Blender y, centred at
+## y -13.45, so they cover the north walk and part of the carriageway
+## and may not close the SOUTH pavement at all.
+##
+## Blender y -> Godot z is negated by b2g, so the south pavement (walk
+## y -23.744..-28.316) lies at Godot z 23.744..28.316. These sweeps run
+## along its middle, outward past both boundaries.
+const SOUTH_WALK_Z := 26.03
+const LEGS_SOUTH_W := [
+	[Vector3(-18.00, 0.9, SOUTH_WALK_Z), Vector3(-19.50, 0.9, SOUTH_WALK_Z)],
+	[Vector3(-19.50, 0.9, SOUTH_WALK_Z), Vector3(-20.60, 0.9, SOUTH_WALK_Z)],
+	[Vector3(-20.60, 0.9, SOUTH_WALK_Z), Vector3(-22.00, 0.9, SOUTH_WALK_Z)],
+	[Vector3(-22.00, 0.9, SOUTH_WALK_Z), Vector3(-24.00, 0.9, SOUTH_WALK_Z)],
+	[Vector3(-24.00, 0.9, SOUTH_WALK_Z), Vector3(-27.00, 0.9, SOUTH_WALK_Z)],
+	[Vector3(-27.00, 0.9, SOUTH_WALK_Z), Vector3(-30.00, 0.9, SOUTH_WALK_Z)],
+]
+const LEGS_SOUTH_E := [
+	[Vector3(18.00, 0.9, SOUTH_WALK_Z), Vector3(20.00, 0.9, SOUTH_WALK_Z)],
+	[Vector3(20.00, 0.9, SOUTH_WALK_Z), Vector3(21.20, 0.9, SOUTH_WALK_Z)],
+	[Vector3(21.20, 0.9, SOUTH_WALK_Z), Vector3(23.00, 0.9, SOUTH_WALK_Z)],
+	[Vector3(23.00, 0.9, SOUTH_WALK_Z), Vector3(25.00, 0.9, SOUTH_WALK_Z)],
+	[Vector3(25.00, 0.9, SOUTH_WALK_Z), Vector3(27.00, 0.9, SOUTH_WALK_Z)],
+	[Vector3(27.00, 0.9, SOUTH_WALK_Z), Vector3(29.50, 0.9, SOUTH_WALK_Z)],
+]
+## Reaching the pavement is not reaching the shop. Walk each outlying
+## bay's centre line from mid-pavement up to its shopfront face
+## (Blender y -28.316 -> Godot z 28.316), stopping 0.4 m short of the
+## glass so a clear result means "a body can stand at that door".
+const LEGS_LAUNDRY_DOOR := [
+	[Vector3(-29.60, 0.9, SOUTH_WALK_Z), Vector3(-29.60, 0.9, 27.90)],
+]
+const LEGS_COBBLER_DOOR := [
+	[Vector3(-24.00, 0.9, SOUTH_WALK_Z), Vector3(-24.00, 0.9, 27.90)],
+]
+const LEGS_HARDWARE_DOOR := [
+	[Vector3(23.70, 0.9, SOUTH_WALK_Z), Vector3(23.70, 0.9, 27.90)],
+]
+const LEGS_PHOTO_DOOR := [
+	[Vector3(29.00, 0.9, SOUTH_WALK_Z), Vector3(29.00, 0.9, 27.90)],
+]
 
 
 func _ready() -> void:
@@ -66,7 +110,13 @@ func _ready() -> void:
 	for name_and_legs in [["TO THE BAR", LEGS_BAR],
 			["INTO THE BAR ROOM", LEGS_BAR_ROOM],
 			["TO THE BODEGA", LEGS_BODEGA],
-			["IN THE BODEGA DOOR", LEGS_DOOR_IN]]:
+			["IN THE BODEGA DOOR", LEGS_DOOR_IN],
+			["SOUTH WALK, WEST PAST STAGE_W", LEGS_SOUTH_W],
+			["SOUTH WALK, EAST PAST STAGE_E", LEGS_SOUTH_E],
+			["TO MODEL LAUNDRY DOOR", LEGS_LAUNDRY_DOOR],
+			["TO SHOE REBUILDING DOOR", LEGS_COBBLER_DOOR],
+			["TO HARDWARE PAINT DOOR", LEGS_HARDWARE_DOOR],
+			["TO PHOTO SUPPLIES DOOR", LEGS_PHOTO_DOOR]]:
 		print("--- %s ---" % name_and_legs[0])
 		var blocked := false
 		for leg in name_and_legs[1]:

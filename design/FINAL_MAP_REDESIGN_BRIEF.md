@@ -150,11 +150,36 @@ Four shops — laundry, cobbler, hardware, photo, **139 m² of researched,
 fitted, lit interior** — lie wholly outside the lateral bounds. The Passage
 brings all eleven inside one reachable envelope.
 
-*To verify before Phase 2 commits to this: sweep `RouteProbe` along the south
-pavement past both boundary boxes. The boxes are 7.55 m deep in y and may not
-close the south walk, in which case those four are reachable by a walk nobody
-intended rather than unreachable. Either way the consolidation stands; only
-the wording of the justification changes.*
+**CHECK 1 RESULT, measured 2026-08-13 — the claim above was wrong, and the
+truth is worse.** `RouteProbe` (`route_probe.gd`, routes SOUTH WALK WEST /
+EAST and the four door approaches) swept a 0.33 × 1.524 m capsule along the
+south pavement at Godot z 26.03:
+
+| sweep | result |
+|---|---|
+| south walk, x −18.0 → **−30.0** | **walkable end to end** |
+| south walk, x +18.0 → **+29.5** | **walkable end to end** |
+| to MODEL LAUNDRY door | reaches 94%, stops on `SITE_SHOP_DOOR_MODEL_LAUNDRY` HingedLeaf |
+| to SHOE REBUILDING door | reaches 94%, stops on the shopfront glazing |
+| to HARDWARE PAINT door | reaches 94%, stops on the shopfront glazing |
+| to PHOTO SUPPLIES door | reaches 94%, stops on the shopfront glazing |
+
+The four shops are **reachable by a route nobody intended**, not unreachable.
+Every approach stops only where a body should stop — at the glass or on the
+door leaf itself.
+
+**The real defect is that the play space leaks.** `ExteriorStreetStageBoundary`
+is two boxes 7.55 m deep centred at Blender y −13.45: they close the NORTH
+walk and part of the carriageway and do not touch the south pavement at all.
+A player can currently walk to x ±30, roughly 10 m past the intended lateral
+limit, along the front of four shops that the composition never planned to be
+seen up close. This is a containment failure, and it is why the boundary
+rebuild in Phase 4 is load-bearing rather than cosmetic.
+
+*Method note, per the ruling: this was measured, not inferred. The earlier
+"wholly outside the lateral bounds" wording came off boundary dimensions and
+was wrong. The consolidation argument stands unchanged — eleven shops in one
+reachable hall — but its justification is containment, not inaccessibility.*
 
 ---
 
