@@ -12,15 +12,27 @@ func _ready() -> void:
 	var loaded := 0
 	for profile in profiles:
 		var slug: String = profile.slug
+		# The generated cast carries <slug>_rigged.glb with its own baked
+		# clips. A hero-standard resident (mina_vale is the first, owner
+		# ruling 2026-08-13: Grey Elegance is her final model and the old
+		# rigged glb is deleted) ships the motion-free hero gltf instead
+		# and is animated by the library graft — the same path production
+		# takes in AnimatedResident and _upgrade.
 		var path := "res://assets/characters/%s/%s_rigged.glb" % [
 				slug, slug]
+		if not ResourceLoader.exists(path):
+			path = "res://assets/characters/%s/%s.gltf" % [slug, slug]
 		var scene := load(path) as PackedScene
 		if scene == null:
-			_check(false, profile.display + " GLB imports")
+			_check(false, profile.display + " model imports")
 			continue
 		var actor := scene.instantiate()
 		add_child(actor)
 		var player := _find_animation_player(actor)
+		var grafted_early := false
+		if player == null:
+			grafted_early = ResidentMovesLibrary.apply(actor)
+			player = _find_animation_player(actor)
 		var names: Array = player.get_animation_list() if player else []
 		_check(player != null and _contains(names, "idle"),
 				profile.display + " idle imports")
@@ -28,7 +40,9 @@ func _ready() -> void:
 				profile.display + " walk imports")
 		# One skeleton, one retargeted library: every resident can borrow
 		# Evelyn's move set (sit is the role their own two clips lack).
-		_check(ResidentMovesLibrary.apply(actor),
+		# apply() returns false when every clip is already present, so a
+		# hero-standard resident grafted above passes on that first graft.
+		_check(grafted_early or ResidentMovesLibrary.apply(actor),
 				profile.display + " accepts the shared move set")
 		_check(player != null and player.has_animation("clip_06"),
 				profile.display + " can settle (shared clip_06)")

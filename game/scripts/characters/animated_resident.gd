@@ -41,6 +41,13 @@ func _ready() -> void:
 	add_child(_model)
 	_apply_presence_glow(_model)
 	_animation_player = _find_animation_player(_model)
+	# Hero-pipeline models ship motion-free by contract; their clips come
+	# from the shared library, or from a personal <model>_moves.glb bake
+	# when the rig is a newer Meshy generation (mina_vale is the first).
+	# The old generated cast carries its own baked player and skips this.
+	if _animation_player == null:
+		ResidentMovesLibrary.apply(_model)
+		_animation_player = _find_animation_player(_model)
 	_build_interaction()
 	_build_nameplate()
 	RealityCases.case_changed.connect(_on_case_changed)

@@ -229,10 +229,14 @@ work; anything actionable belongs in that file.
   microphones and positional listening on the way down, and right now the
   walk is unguided beyond a banner and the motif playing from the F03
   riser.
-- **Rigged residents are deliberately paused.** 19 rigged GLBs exist and
+- **Rigged residents are deliberately paused.** Rigged GLBs exist and
   import, but `USE_RIGGED_RESIDENTS := false` in `building_root.gd` keeps
   sprite placeholders as the active cast. Flip the one flag to resume.
-  `assets/characters/mina/` is a stale duplicate of `mina_vale/`.
+  Mina is the exception with no rigged glb at all: her Grey Elegance hero
+  model (owner-designated final, 2026-08-13) plus her baked
+  `mina_vale_moves.glb` are her only artifacts — the old generated Mina
+  and the stale `assets/characters/mina/` duplicate were deleted. See
+  `game/docs/mina_character_pipeline.md`.
 - **Wall art placement wants an audit.** The B1 "KNOW YOUR EXIT" sign used
   to render mirrored; the cause was `cull_mode = CULL_DISABLED` on the art
   quad, which draws a reversed copy of the front on the back face, so

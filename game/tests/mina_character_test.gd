@@ -7,8 +7,12 @@ func _ready() -> void:
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	var mina := AnimatedResident.new()
+	# The production standard (owner ruling 2026-08-13): the Grey Elegance
+	# hero model, motion-free by contract, animated by her own baked
+	# library via the AnimatedResident graft. The old generated rigged glb
+	# this test used to load is deleted.
 	mina.setup("Mina Vale", "mina_vale", "2A",
-			"res://assets/characters/mina/mina_vale_rigged.glb")
+			"res://assets/characters/mina_vale/mina_vale.gltf")
 	add_child(mina)
 	await get_tree().process_frame
 	_check(mina._model != null, "rigged Mina scene instantiates")
