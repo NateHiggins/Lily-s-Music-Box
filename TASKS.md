@@ -245,7 +245,7 @@ the specific defects behind it, and V1 is the revamp the owner asked for.
   their HOME floor. Tests paper over it with `show_all_floors`
   (`phone_light_shots.gd:24-26`). Every schedule that sends someone to a shop,
   the bar or the roof exposes it.
-- **V5** **Four shops sit outside the lateral stage boundary.** `STAGE_W`
+- **V5 DONE.** **Four shops sat outside the lateral stage boundary.** `STAGE_W`
   −20.10 / `STAGE_E` +20.60 against a parade running x −32.4..31.6 leaves
   laundry, cobbler, hardware and photo — **139 m² of fitted, lit interior** —
   beyond the playable bounds. **ANSWERED 2026-08-13 by `RouteProbe`: they are
@@ -255,8 +255,9 @@ the specific defects behind it, and V1 is the revamp the owner asked for.
   `HingedLeaf`. `ExteriorStreetStageBoundary` is two boxes 7.55 m deep centred
   at y −13.45; they close the north walk and part of the carriageway and never
   touch the south pavement. A player can stand ~10 m outside the intended
-  lateral limit. Containment failure, not inaccessibility — the Phase 4
-  boundary rebuild must close the south walk too.
+  lateral limit. Containment failure, not inaccessibility. Phase 3 moved all
+  eleven shops into the Passage; Phase 4 replaced the partial boundary with
+  visible hoarding/weather across both complete street sections.
 - **V7** Reach versus authored height: the interaction ray is 2.1 m from a
   1.41 m eye, while measured shop counter tops run 1.05–1.18 and photo's brass
   top sits at 1.41–1.45, i.e. exactly at the eye line. The build guide states
@@ -333,8 +334,10 @@ is built.
 - **T3b** `stagger()` does not exist on the player yet - the shove currently
   degrades to a no-op plus a log line. Wire it, and keep it a stumble: no
   damage number, no screen, no sound that reads as a fail state.
-- **T4** The tears, as boundary. When they exist the lateral stage collision at
-  x -20.10 / +20.60 retires into them and the street stops having edges.
+- **T4 SUBSTRATE DONE.** The partial lateral collision is retired. At exact x
+  −20.10 / +20.60, wet timber works own both pavements and quiet local weather
+  owns the carriageway; `StreetContainmentTest` proves all six lanes. This does
+  not settle T1's loudness, debris, arrivals or night-traffic questions.
 - **T5** Re-place the bus shelter at a stop the traffic actually serves. Saved:
   4.4 x 1.4 m, 2.45 m roof, glazed back with centre mullion, timber bench, last
   at (-12.6, -25.55).

@@ -15,7 +15,7 @@ narcoleptic dark scramble, wake in 4B, repeat. The core dream function is now
 part of the product. The detailed maze proposal still contains implementation
 questions and must not be treated wholesale as a ruling.
 
-## First work: execute M0.5 Phase 4 street finalisation
+## First work: execute the M0.5 Passage finish
 
 Do not begin another prop family, receiver, street landmark or case. The final
 map is a ruled consolidation, not an expansion. Its measured build drawing is
@@ -37,16 +37,16 @@ as consecutive rollback points. All eleven shops now exist once inside the
 ruled envelope, the portal visibility gate is proven, and focused/full suites
 print PASS. Do not repeat or reopen that spatial work.
 
-The immediate action is Phase 4: replace both leaking street ends with visible
-architecture/weather. Build the honest replacement alongside the temporary
-`ExteriorStreetStageBoundary`, render it from the street and both pavements,
-then repeat the capsule sweeps. Retire the old partial invisible boxes only
-after the visible fabric itself contains the south walk. Do not extend another
-unexplained collision box across it.
+Phase 4 is complete. Both exact street-end controls now carry timber works over
+the pavements and quiet local weather over the carriageway; all six capsule
+sweeps stop on named visible owners and the old partial invisible body is gone.
+Do not reopen the still-unruled loud-tear questions while finishing M0.5.
 
-After that: photoreal Passage finish and pushcarts; lock the complete route;
-measure all critical stations at 16 lights / 16 shadows; test and document the
-M0.5 acceptance gate.
+The immediate action is the Passage finish and pushcart layer. Preserve the
+six-metre clear aisle and all eleven proven threshold routes; carts are the
+movable middle layer, not a new fixed maze. Then lock the complete route,
+measure all critical stations at 16 lights / 16 shadows, and document the M0.5
+acceptance gate.
 
 ## After the M0.5 acceptance gate: M1 in four reviewable changes
 

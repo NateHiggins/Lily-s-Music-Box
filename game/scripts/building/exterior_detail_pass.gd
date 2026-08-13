@@ -8,11 +8,17 @@ var decal_count := 0
 var puddle_count := 0
 var faulty_lamp_count := 0
 var boundary_count := 0
+## Collision at the street ends is acceptable only when a visible architectural
+## or weather span owns the same opening.  Kept as records so tests can compare
+## the physical partition with the authored explanation after batching.
+var boundary_visible_spans: Array = []
 
 var _boxes: Array = []
 var _cylinders: Array = []
 var _puddles: Array = []
 var _puddle_material: ShaderMaterial
+
+const STREET_END_PROBE_LAYER := 1 << 20
 
 
 func build(layout: Dictionary, parent: Node3D) -> Dictionary:
@@ -45,7 +51,7 @@ func build(layout: Dictionary, parent: Node3D) -> Dictionary:
 	# The arrival car should come back MOVING - you get out, it pulls away into
 	# the east tear - which is a better first minute than finding it parked
 	# forever outside the door. See design/ORISON_STREET_BRIEF.md.
-	_build_playable_stage(parent)
+	_build_street_ends(parent)
 	_emit_boxes(parent)
 	_emit_cylinders(parent)
 	_emit_puddles(parent)
@@ -257,7 +263,8 @@ func _build_arrival_rideshare(parent: Node3D) -> void:
 	var car_body := StaticBody3D.new()
 	car_body.name = "ArrivalRideshareCollision"
 	parent.add_child(car_body)
-	_add_boundary_shape(car_body, [cx, cy, 0.62], [4.74, 1.84, 1.24])
+	_add_boundary_shape(car_body, "ArrivalRideshareHull",
+			[cx, cy, 0.62], [4.74, 1.84, 1.24], "arrival_rideshare")
 
 
 ## A handful of dark profile cues makes the cheap site blocks read as actual
@@ -338,75 +345,251 @@ func _build_car_identity(index: int, x0: float, x1: float,
 			_box([x0 + 0.16, cy, 0.86], [0.10, width * 0.88, 0.36], ink.darkened(0.08))
 
 
-## The playable exterior is a theatrical street slice. Parked vehicles and
-## construction hoarding explain its edges; collision preserves the view cone
-## before low-detail neighboring blocks can be inspected from behind.
-func _build_playable_stage(parent: Node3D) -> void:
+## The playable exterior ends in construction fabric on both pavements and a
+## dense storm mouth over the carriageway.  This is the quiet common substrate
+## of either future ruling in ORISON_STREET_BRIEF: it does not decide whether a
+## tear is loud, emits debris, stops at night or admits anything but traffic.
+## It does make every centimetre of collision visible and closes Check 1's
+## south-pavement leak without extending another unexplained wall.
+func _build_street_ends(parent: Node3D) -> void:
 	var body := StaticBody3D.new()
-	body.name = "ExteriorStreetStageBoundary"
+	body.name = "StreetEndWeatherBoundary"
+	# Layer 1 is normal player collision.  The extra diagnostic bit lets the
+	# deterministic containment sweep isolate this owner from traffic, kerbs and
+	# neighbouring fabric without changing what a shipped player collides with.
+	body.collision_layer = 1 | STREET_END_PROBE_LAYER
+	body.add_to_group("street_end_boundary")
+	body.set_meta("visible_owner", "construction_works_and_storm_curtain")
 	parent.add_child(body)
-	# THE STAGE HAS TWO DOORS IN IT NOW.
-	#
-	# This boundary was authored when the playable street was the north
-	# pavement and nothing else: one 32 m wall down the middle of the
-	# road, side walls at x +-16.15, and a near-black kerb rail the full
-	# width. Since then the Harukiya opened across the road and the
-	# bodega opened to the east, and route discipline named both of them
-	# legal destinations - so the fence that stopped the player
-	# wandering was also stopping them arriving. It read exactly as
-	# reported: a dark bar lying across the carriageway.
-	#
-	# The mid-road run is now split either side of the crossing, and the
-	# east wall has moved out past the bodega frontage (x 15.2..19.6) so
-	# the shop is inside the stage rather than behind its edge. Anything
-	# added to the street from here on has to ask the same question:
-	# does the boundary still leave a way to every place the schedules
-	# send a resident?
-	# THE ROAD IS OPEN NOW (2026-08-11).
-	#
-	# Two boundary segments used to run the length of the carriageway at
-	# y -17.35, leaving one 7.45 m gap at the crossing. The visible near-black
-	# kerb rail that once telegraphed them was deleted as "a wall wearing an
-	# apology"; the collision stayed, so what was left was the apology's wall
-	# with nothing wearing it. A street-wide shape probe found it as the single
-	# largest blocker on the block, 113 hits, and it is the invisible wall the
-	# owner reported walking into.
-	#
-	# It cannot survive the redesign in any case. The carriageway is becoming
-	# the thing the player crosses, at any point along it, judging a gap in live
-	# traffic - and you cannot do that through a fence with one door in it.
-	# The reason not to step into the road is now the road.
-	#
-	# The lateral edges stay for the moment. They are the stage's real limits
-	# and they are honest ones, backed by visible hoarding. They are also
-	# temporary: the tears at either end are meant to replace them, at which
-	# point the street stops having edges and starts having ends.
-	const STAGE_E := 20.60       # east edge, clear of the bodega
-	# The west edge now includes Otis & Son.  Keeping the old -16.15 m
-	# theatre wall made the newly modelled druggist visible but placed its
-	# public door 75 mm beyond the playable world.
+	# Check 3 retained these two exact controls.  Phase 4 changes their owner,
+	# not their position, so no approved spatial decision is reopened.
+	const STAGE_E := 20.60
 	const STAGE_W := -20.10
-	# Lateral only. The kerb-line segments are gone; see above.
-	_add_boundary_shape(body, [STAGE_W, -13.45, 0.72], [0.30, 7.55, 1.44])
-	_add_boundary_shape(body, [STAGE_E, -13.45, 0.72], [0.30, 7.55, 1.44])
-	boundary_count = 2
-	# Side hoardings and battered planters telegraph the lateral stop.
-	for x in [STAGE_W + 0.10, STAGE_E - 0.10]:
-		_box([x, -13.15, 0.83], [0.22, 5.2, 1.66], Color(0.055, 0.062, 0.064))
-		for y in [-15.2, -13.6, -12.0, -10.8]:
-			_box([x - signf(x) * 0.13, y, 1.15], [0.035, 0.74, 0.035], Color(0.46, 0.24, 0.08))
-	# The near-black kerb rail is GONE. It was a 31.7 m bar of colour
-	# 0.018,0.022,0.024 lying across the carriageway to telegraph the
-	# stage edge, and what it actually read as was a black plane the
-	# player could not get past - which is precisely what it was. The
-	# collision above still holds the edge; the street already explains
-	# itself with hoardings, open trenches and a parked row, and those
-	# are closures a person believes. A bar of near-black is not a
-	# reason, it is a wall wearing an apology.
+	const NORTH_WALK_C := -12.10
+	const NORTH_WALK_D := 5.30      # y -9.45 .. -14.75
+	const ROAD_C := -19.322
+	const ROAD_D := 9.144           # y -14.75 .. -23.894
+	const SOUTH_WALK_C := -26.105
+	const SOUTH_WALK_D := 4.422     # y -23.894 .. -28.316
+
+	for side in [["West", STAGE_W], ["East", STAGE_E]]:
+		var label: String = side[0]
+		var x: float = side[1]
+		# Three physical spans, three visible owners.  The two pavement pieces
+		# are construction hoarding; the live carriageway remains visually open
+		# to traffic but terminates for the player in dense, localised weather.
+		_add_boundary_shape(body, "%sNorthWorks" % label,
+				[x, NORTH_WALK_C, 1.20], [0.36, NORTH_WALK_D, 2.40],
+				"construction_hoarding")
+		_add_boundary_shape(body, "%sStormCore" % label,
+				[x, ROAD_C, 1.20], [0.36, ROAD_D, 2.40],
+				"storm_curtain")
+		_add_boundary_shape(body, "%sSouthWorks" % label,
+				[x, SOUTH_WALK_C, 1.20], [0.36, SOUTH_WALK_D, 2.40],
+				"construction_hoarding")
+
+		for walk in [[NORTH_WALK_C, NORTH_WALK_D, "north"],
+				[SOUTH_WALK_C, SOUTH_WALK_D, "south"]]:
+			var centre: float = walk[0]
+			var depth: float = walk[1]
+			_box([x, centre, 1.20], [0.36, depth, 2.40],
+					Color(0.20, 0.145, 0.075))
+			# Pale, battered timber posts keep the plane readable in production
+			# darkness. They are structure, not a painted warning stripe.
+			for i in range(5):
+				var along := centre - depth * 0.5 + 0.24 \
+						+ (depth - 0.48) * float(i) / 4.0
+				_box([x - signf(x) * 0.22, along, 1.30],
+						[0.10, 0.12, 2.60], Color(0.68, 0.43, 0.15))
+			boundary_visible_spans.append({"side": label.to_lower(),
+					"part": walk[2], "owner": "construction_hoarding",
+					"centre": centre, "depth": depth})
+
+		# The road mouth is framed like temporary works, but not boarded over:
+		# traffic can disappear into the weather instead of driving through a
+		# literal fence.  The renderer pays three transparent local quads per end.
+		for edge in [-14.75, -23.894]:
+			_box([x, edge, 2.70], [0.40, 0.34, 5.40],
+					Color(0.13, 0.115, 0.085))
+		_box([x, ROAD_C, 5.25], [0.40, ROAD_D + 0.34, 0.32],
+				Color(0.13, 0.115, 0.085))
+		_build_street_end_weather(parent, x, label)
+		boundary_visible_spans.append({"side": label.to_lower(),
+				"part": "road", "owner": "storm_curtain",
+				"centre": ROAD_C, "depth": ROAD_D})
+
+	_build_street_end_hoarding_faces(parent)
+	_build_street_end_marker_lamps(parent)
+	boundary_count = body.get_child_count()
 
 
-func _add_boundary_shape(body: StaticBody3D, pos_b: Array, size_b: Array) -> void:
+func _build_street_end_hoarding_faces(parent: Node3D) -> void:
+	# A baked wet-board face lets the architecture read under canonical 03:00
+	# ambient without spending a real light.  The subtle warm pool belongs to
+	# the instanced oil beacon below; it is material response, not illumination.
+	var quad := QuadMesh.new()
+	quad.size = Vector2(1.0, 1.0)
+	var shader := Shader.new()
+	shader.code = """
+shader_type spatial;
+render_mode unshaded, cull_disabled, shadows_disabled;
+
+float rect(vec2 uv, vec2 centre, vec2 half_size) {
+	vec2 inside = 1.0 - step(half_size, abs(uv - centre));
+	return inside.x * inside.y;
+}
+
+void fragment() {
+	float boards = fract(UV.x * 11.0);
+	float seam = smoothstep(0.88, 1.0, boards);
+	float wet = 0.84 + 0.16 * sin(UV.y * 43.0 + floor(UV.x * 11.0));
+	float beacon_pool = 1.0 - smoothstep(0.05, 0.72,
+			distance(UV, vec2(0.5, 0.12)));
+	vec3 timber = mix(vec3(0.055, 0.032, 0.016),
+			vec3(0.18, 0.105, 0.038), wet);
+	timber *= 0.66 + beacon_pool * 0.44;
+	timber = mix(timber, vec3(0.025, 0.018, 0.012), seam * 0.78);
+	float paper = max(rect(UV, vec2(0.32, 0.53), vec2(0.08, 0.12)),
+			rect(UV, vec2(0.69, 0.60), vec2(0.07, 0.10)));
+	vec3 old_paper = vec3(0.34, 0.27, 0.15) * (0.72 + beacon_pool * 0.28);
+	ALBEDO = mix(timber, old_paper, paper);
+}
+"""
+	var material := ShaderMaterial.new()
+	material.shader = shader
+	var multimesh := MultiMesh.new()
+	multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	multimesh.mesh = quad
+	multimesh.instance_count = 4
+	var faces := [[-20.10, -12.10, 5.30], [-20.10, -26.105, 4.422],
+			[20.60, -12.10, 5.30], [20.60, -26.105, 4.422]]
+	for i in faces.size():
+		var row: Array = faces[i]
+		var x: float = row[0]
+		var inward_x := x - signf(x) * 0.205
+		# Scale in the quad's LOCAL axes before rotating its width from Godot X
+		# onto street depth. Basis.scaled() here scales world rows and produced a
+		# one-metre bright strip down the middle of a still-black hoarding.
+		var basis := Basis(Vector3.UP, PI * 0.5) \
+				* Basis.from_scale(Vector3(float(row[2]), 2.38, 1.0))
+		multimesh.set_instance_transform(i, Transform3D(basis,
+				GameBoot.b2g([inward_x, float(row[1]), 1.20])))
+	var instance := MultiMeshInstance3D.new()
+	instance.name = "StreetEndHoardingFaces"
+	instance.multimesh = multimesh
+	instance.material_override = material
+	instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	instance.add_to_group("street_end_architecture")
+	parent.add_child(instance)
+
+
+func _build_street_end_marker_lamps(parent: Node3D) -> void:
+	# Four glow-only work beacons, one draw and zero entries in the 16/16 light
+	# budget. They label the pavement works without casting another shadow map.
+	var sphere := SphereMesh.new()
+	sphere.radius = 0.16
+	sphere.height = 0.32
+	sphere.radial_segments = 10
+	sphere.rings = 5
+	var material := StandardMaterial3D.new()
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.albedo_color = Color(1.0, 0.32, 0.055)
+	material.emission_enabled = true
+	material.emission = Color(1.0, 0.20, 0.025)
+	material.emission_energy_multiplier = 3.2
+	var multimesh := MultiMesh.new()
+	multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	multimesh.mesh = sphere
+	multimesh.instance_count = 4
+	var lamps := [[-20.10, -12.10, 2.34], [-20.10, -26.105, 2.34],
+			[20.60, -12.10, 2.34], [20.60, -26.105, 2.34]]
+	for i in lamps.size():
+		multimesh.set_instance_transform(i,
+				Transform3D(Basis.IDENTITY, GameBoot.b2g(lamps[i])))
+	var instance := MultiMeshInstance3D.new()
+	instance.name = "StreetEndWorkBeacons"
+	instance.multimesh = multimesh
+	instance.material_override = material
+	instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	instance.add_to_group("street_end_architecture")
+	parent.add_child(instance)
+	detail_count += lamps.size()
+
+
+func _build_street_end_weather(parent: Node3D, x: float, label: String) -> void:
+	var end := Node3D.new()
+	end.name = "StreetEndWeather%s" % label
+	end.add_to_group("street_end_weather")
+	end.set_meta("collision_owner", "%sStormCore" % label)
+	parent.add_child(end)
+	var outward := -1.0 if x < 0.0 else 1.0
+	for i in range(3):
+		var curtain := MeshInstance3D.new()
+		curtain.name = "StormCurtain_%s_%02d" % [label, i]
+		var quad := QuadMesh.new()
+		quad.size = Vector2(9.70, 7.80)
+		curtain.mesh = quad
+		curtain.position = GameBoot.b2g(
+				[x + outward * float(i) * 0.32, -19.322, 3.85])
+		curtain.rotation_degrees.y = 90.0
+		curtain.material_override = _street_end_weather_material(
+				(17.0 if label == "West" else 41.0) + float(i) * 9.0)
+		curtain.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		end.add_child(curtain)
+
+
+func _street_end_weather_material(seed: float) -> ShaderMaterial:
+	var shader := Shader.new()
+	shader.code = """
+shader_type spatial;
+render_mode unshaded, blend_mix, cull_disabled, depth_prepass_alpha,
+		shadows_disabled;
+uniform float seed = 0.0;
+
+float hash(vec2 p) {
+	return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+float value_noise(vec2 p) {
+	vec2 i = floor(p);
+	vec2 f = fract(p);
+	f = f * f * (3.0 - 2.0 * f);
+	return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x),
+			mix(hash(i + vec2(0.0, 1.0)),
+				hash(i + vec2(1.0, 1.0)), f.x), f.y);
+}
+
+void fragment() {
+	vec2 uv = UV;
+	float mist = value_noise(vec2(uv.x * 4.2 + TIME * 0.055,
+			uv.y * 2.6 + seed));
+	float lane = floor(uv.x * 104.0);
+	float chosen = step(0.58, hash(vec2(lane, seed)));
+	float phase = fract(uv.y * 24.0 + TIME * 3.4
+			+ hash(vec2(lane + seed, 9.0)));
+	float rain = smoothstep(0.90, 1.0, phase) * chosen;
+	float ground_mist = (1.0 - smoothstep(0.02, 0.72, uv.y))
+			* value_noise(vec2(uv.x * 7.0 - TIME * 0.08, seed + 13.0));
+	float edge = smoothstep(0.0, 0.07, uv.x)
+			* smoothstep(0.0, 0.07, 1.0 - uv.x);
+	vec3 cold = vec3(0.048, 0.068, 0.105);
+	vec3 lift = vec3(0.15, 0.19, 0.25);
+	ALBEDO = mix(cold, lift, clamp(mist * 0.72 + rain * 0.55, 0.0, 1.0));
+	ALPHA = edge * clamp(0.13 + mist * 0.24 + rain * 0.23
+			+ ground_mist * 0.22, 0.0, 0.68);
+}
+"""
+	var material := ShaderMaterial.new()
+	material.shader = shader
+	material.set_shader_parameter("seed", seed)
+	return material
+
+
+func _add_boundary_shape(body: StaticBody3D, shape_name: String,
+		pos_b: Array, size_b: Array, visible_owner: String) -> void:
 	var collision := CollisionShape3D.new()
+	collision.name = shape_name
+	collision.set_meta("visible_owner", visible_owner)
 	var shape := BoxShape3D.new()
 	shape.size = Vector3(size_b[0], size_b[2], size_b[1])
 	collision.shape = shape

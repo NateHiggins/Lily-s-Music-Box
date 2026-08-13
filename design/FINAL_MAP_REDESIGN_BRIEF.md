@@ -780,3 +780,52 @@ Phase 3 does **not** close M0.5. Phase 4 must replace the leaking street ends
 with visible architecture/weather and prove the south pavement contained
 before `ExteriorStreetStageBoundary` retires. Photoreal finish, pushcarts and
 the pinned 16/16 performance stations follow that honest boundary.
+
+## 10ag. PHASE 4 EXECUTED 2026-08-13 — honest street ends
+
+`ExteriorStreetStageBoundary` is retired. Its two 7.55 m-deep shapes covered
+only the north pavement and part of the carriageway, leaving the south pavement
+open to x −30 / +29.5. The replacement retains the approved spatial controls
+`STAGE_W = −20.10` and `STAGE_E = +20.60`; it changes ownership, not location.
+
+Each end now has three named collision spans over the complete street section:
+
+| span | Blender y | visible owner |
+|---|---:|---|
+| north pavement | −9.45..−14.75 | wet timber construction hoarding |
+| carriageway | −14.75..−23.894 | framed local storm curtain |
+| south pavement | −23.894..−28.316 | wet timber construction hoarding |
+
+The four pavement faces are a single local MultiMesh draw with visible plank
+seams, old notices and four instanced oil work beacons. The two road mouths use
+three transparent local weather layers each. Beacons are glow-only geometry:
+Phase 4 adds **zero** real lights and spends nothing from the pinned 16/16
+budget.
+
+This deliberately does not settle `ORISON_STREET_BRIEF.md` §8. There is no
+stinger, dedicated lightning, debris, person, arrival car or traffic-hours
+change. The built result is the brief's quiet fallback — architecture at the
+pavements, weather in the road — and remains compatible with either later
+ruling on whether the street-end tear becomes loud.
+
+Proof:
+
+- `StreetContainmentTest`: PASS, 0 failures. A player-size capsule stops on
+  `StreetEndWeatherBoundary` at both exact x controls in all six lanes; both
+  central pavements remain reachable; all six collision spans name a live
+  rendered owner; the temporary body is absent.
+- `art/renders/map_street_ends/01_west_road_weather.png` and
+  `02_east_road_weather.png`: the framed storm mouths from the carriageway.
+- `03_west_south_works.png` and `04_east_south_works.png`: the formerly
+  leaking south pavement visibly ends at timber works, not empty collision.
+- WalkTest FAST: PASS and exits 0. WalkTest FULL prints PASS before the
+  mandatory 60-second watchdog.
+
+The first visual pass was rejected rather than buried: shaded near-black boards
+collapsed into another anonymous black mass. The final face bakes the oil
+beacon's weak warm response into wet timber, so the architecture remains
+legible in canonical 03:00 production lighting without another light source.
+
+Phase 4 closes Check 1's containment consequence. It does not close M0.5:
+Passage finish and pushcarts, complete-route lock, and pinned 16/16 performance
+stations remain.
