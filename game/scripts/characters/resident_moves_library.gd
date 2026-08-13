@@ -65,11 +65,27 @@ static func apply(model_root: Node) -> bool:
 		# Walk backwards so removals don't shift the indices. Scale tracks
 		# are all 1.0 from the bake and would stomp the canon head-size
 		# pose scale every frame; the bones keep their own proportions.
+		#
+		# Position tracks get the same law, one level further (2026-08-13):
+		# they encode the DONOR's joint spacing, not motion. That was
+		# invisible while every hero rig was the same 2026-08-02 Meshy
+		# generation as Evelyn — her positions equalled their rest — and it
+		# corseted the first model from a newer generation (mina_vale /
+		# Grey_Elegance, whose rig spaces its joints differently: the clips
+		# dragged her joints to Evelyn's spacing every frame and gathered
+		# the mesh at the waist). Rotations carry the animation; each body
+		# keeps its own skeleton. Only the hips keep their position track,
+		# because that one IS motion — the locomotion bob and root carry.
 		for t in range(anim.get_track_count() - 1, -1, -1):
 			if anim.track_get_type(t) == Animation.TYPE_SCALE_3D:
 				anim.remove_track(t)
 				continue
 			var bone := String(anim.track_get_path(t)).get_slice(":", 1)
+			if anim.track_get_type(t) == Animation.TYPE_POSITION_3D \
+					and bone != "Hips" and bone != "hips" \
+					and bone != "root":
+				anim.remove_track(t)
+				continue
 			anim.track_set_path(t,
 					NodePath("%s:%s" % [skeleton_path, bone]))
 		anim.loop_mode = Animation.LOOP_LINEAR
