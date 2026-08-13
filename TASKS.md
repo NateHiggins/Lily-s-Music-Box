@@ -688,10 +688,20 @@ and the four isolated roof fixtures now terminating at a real riser.
 - **P4** **The budget being measured is not the one documented.**
   `light_rig.gd:135-156` sets desktop to UNLIMITED (4096) / SHADOW_N (32) and
   honours `LIGHT_BUDGET`/`SHADOW_BUDGET`, then `building_root.gd:344-351` calls
-  `set_budgets(14, 8)` immediately after `add_child`, clobbering both.
-  README:531-533 documents unlimited/32. Play runs 14/8. Every perf comparison
-  must pin this, and the `LIGHT_BUDGET` sweep documented as the regression
-  method does nothing in play.
+  `set_budgets(...)` immediately after `add_child`, clobbering both.
+  README:531-533 documents unlimited/32. ~~Play runs 14/8.~~ **CORRECTED
+  2026-08-13: play runs 16/16.** `building_root.gd:344` is an if/else and
+  `game_boot.gd:20,22` default `launch_mode` to CINEMATIC and `quality` to 0,
+  so line 348 `set_budgets(16, 16)` is taken and the 14/8 at line 351 is
+  unreachable; only `free_cam`, `lighting_debug_test` and
+  `warehouse_teleport_test` set DEBUG, so no test escapes it either. WalkTest
+  FULL prints "the nearest 16 of 104 eligible fixtures" and "circulation
+  fixtures hold the budget (15 lit)", and 15 lit cannot happen under 14.
+  `bcd6450` (2026-08-02) added the CINEMATIC branch and orphaned the else.
+  Every perf comparison must pin this — at 16/16 — and the `LIGHT_BUDGET`
+  sweep documented as the regression method does nothing in play. Worth
+  fixing first: nothing prints the resolved budget, which is the whole reason
+  a wrong number survived in three documents.
 - **P5** `project.godot:60` leaves `occlusion_culling/use_occlusion_culling=true`
   while no `OccluderInstance3D` is generated anywhere — the pass was removed
   2026-08-05 because occluders sat coincident with the masonry that made them.

@@ -74,8 +74,23 @@ C:/devkit/bin/godot.cmd --headless --path game --import
 C:/devkit/bin/godot.cmd --headless --path game res://tests/WalkTest.tscn
 ```
 
-Two failure modes that waste an hour because they do not look like
+Three failure modes that waste an hour because they do not look like
 errors:
+- **The build silently lags the data.** Step 3 is marked "only needed if
+  walls/furniture/openings changed", so it gets skipped — and nothing ever
+  says the glTFs no longer match the JSONs. On 2026-08-13 the build was
+  eight commits stale: `888b1dc` had deleted sixteen parked cars, the bus
+  shelter and the arrival rideshare from `building_layout.json` on
+  2026-08-11, and every render since had still been drawing them. They
+  read as anonymous black masses and cost most of a check to identify.
+  Before trusting any render or perf number, confirm the build is current:
+  ```sh
+  git log --oneline $(git log -1 --format=%H -- game/assets/building/)..HEAD \
+      -- art/data/building_layout.json
+  ```
+  Empty means current. Any output means re-run step 3 first. A stale build
+  is invisible in-engine — it loads, walks and tests green, because it is a
+  perfectly valid build of the wrong data.
 - **A test whose script will not parse HANGS rather than failing** — no
   output, no exit, until the timeout kills it. A new `class_name` also
   does not exist until Godot rescans. After adding or editing any script

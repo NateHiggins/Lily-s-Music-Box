@@ -337,10 +337,32 @@ hosts for pawn (rear y −36.9..−39.7), funeral (−37.9..−40.7) and news
 construction are the same volume, which is why they must be consecutive
 commits on one branch and `main` must not rest in a no-shop state.
 
-**Light budget pinned for all comparisons: 14 lights / 8 shadows**, the value
-`building_root.gd:344-351` actually applies in play. Every station in every
-future table states it. Fix or delete the clobber (§P4) before re-measuring,
-but do not silently switch contracts mid-comparison.
+~~**Light budget pinned for all comparisons: 14 lights / 8 shadows**, the value
+`building_root.gd:344-351` actually applies in play.~~ **FALSE, corrected
+2026-08-13. The applied budget is 16 lights / 16 shadows.**
+`building_root.gd:344` is an if/else and the CINEMATIC branch is the one
+taken: `game_boot.gd:20` defaults `launch_mode` to `LaunchMode.CINEMATIC` and
+`:22` defaults `quality` to 0, so line 348 `set_budgets(16, 16)` runs and the
+14/8 at line 351 is unreachable under default settings. No test overrides it
+— only `free_cam.gd:49`, `lighting_debug_test.gd:5` and
+`warehouse_teleport_test.gd:14` set `DEBUG`, and none of WalkTest,
+LightingAudit, ShopEntryTest, RealityCaseTest, StreetShot or StreetIdShot is
+among them. The engine agrees: WalkTest FULL prints "the working set is the
+nearest **16** of 104 eligible fixtures", "shadow casters capped at the
+nearest **16**", and "circulation fixtures hold the budget (**15** lit)" —
+15 lit is arithmetically impossible under a 14-light budget. `git blame` puts
+the CINEMATIC branch at `bcd6450`, 2026-08-02, which is when the else branch
+died; the claim above was written against the earlier shape and never
+re-tested. TASKS.md's "Play runs 14/8" is wrong for the same reason.
+
+**So the standing instruction is unchanged in spirit and changed in value:
+every station in every future table states its budget, and that budget is
+16/16 until someone deliberately changes it.** Nothing measured so far is
+invalidated — before and after ran under the same 16/16 — but every table
+labelled 14/8 is mislabelled. Fix or delete the clobber (§P4) before
+re-measuring, and do not silently switch contracts mid-comparison. Note that
+no code path prints the resolved budget, which is why this survived: the
+number was read from source instead of from the engine.
 
 ## 10ab. CHECK 2 — probe built, leading candidate named, NOT yet closed
 
@@ -437,9 +459,14 @@ deletion, and it would also be a live cost at every station.
 
 ## 10ac. CHECK 2 CLOSED 2026-08-13 — and the baseline is stale
 
-**Headline: the black masses are sixteen parked cars that the data no longer
+**Headline: the black masses are parked cars that the data no longer
 contains.** `888b1dc` (2026-08-11) deleted them, with the bus shelter and the
-arrival rideshare, for the traffic redesign. `game/assets/building/*.gltf`
+arrival rideshare, for the traffic redesign. *(Count corrected 2026-08-13:
+`888b1dc`'s own message says "sixteen parked cars" and this brief repeated it
+without counting. The records are **12 vehicle bodies** — `site_car0,1,2,5,6,7,8`
+and `site_scar0,1,4,5,6` — plus 8 bus-shelter parts, 39 box records in all:
+30 metal, 8 glassish, 1 timber. A commit message is a claim with an author,
+not a measurement.)* `game/assets/building/*.gltf`
 was last built 2026-08-10 at commit `7f09557` and has not been rebuilt since,
 so the cars are still in every frame the engine draws. `gen_layout.py` no
 longer emits `site_car*` at all and `walk_test.gd:196` already says they
@@ -522,6 +549,106 @@ diagnostic emit — and it may not survive the rebuild at all.
 emitted and production batching was not touched. There was no need — the
 coordinate restriction left exactly one matching record per mass.
 
+## 10ad. REBUILT 2026-08-13 — and what the rebuild did NOT fix
+
+`782776c`, a standalone rollback commit carrying build products only.
+`gen_layout.py` re-ran and produced all five JSONs **byte-identical** to what
+was already committed, which is the finding restated: the layout data was
+authoritative and current all along and the whole drift was Blender output.
+Blender 5.2, 29 s, 8 floors exported, no `BUILD FAILED`.
+
+**The subtraction reconciles to the vertex.** A box record is 24 vertices.
+The 39 street vehicle and shelter records `888b1dc` removed are 30 metal, 8
+glassish and 1 timber; F01's rebuilt buffers lose exactly 720, 192 and 24.
+`rug_green` and `rug_warm` balance identically and `F01_furniture_rug_green-col`
+disappears outright. F01 falls 332051 → 316044 vertices. No remainder.
+
+One instrument caveat before the table: the before pass painted `ShaderMaterial`
+surfaces opaque because it could not read them, and the after pass detects
+their render modes and hides them (the puddle batch,
+`exterior_detail_pass.gd:504`, is `blend_mix, depth_prepass_alpha` — the
+WeatherFX mistake again at 0.22% of frame). Re-running the after pass with the
+old instrument moves every figure below by less than 0.1 point, so it cannot
+account for an 8.5-point swing, but the two passes are not byte-for-byte the
+same instrument and the table should not pretend otherwise.
+
+| | before (stale) | after (`782776c`) |
+|---|---|---|
+| `F01_furniture_metal` | 15.7% of frame | 7.2% |
+| `F01_furniture_asphalt` | 5.2% | 7.5% |
+| `F01_furniture_wet_asphalt` | 5.4% | 7.6% |
+| largest metal mass | 74179 px (`site_car2`) | 15091 px (`site_lamp_pole4`) |
+
+`site_booth` still owns 460,264..605,599 and still answers to `site_booth` in
+**current** data by ray (3.64 m) and by back-projection (predicted
+459,263..594,603). The remaining tall metal mass is the lamp pole. Everything
+still large and featureless on this street is now authored.
+
+**THE REBUILD BARELY CHANGES THE PICTURE, AND THAT IS THE POINT.** On the only
+valid single-variable pair — `map_check2/id/beauty.png` against
+`id_rebuilt/beauty.png`, traffic hidden in both, clock pinned in both — 6.28%
+of pixels differ at all. Over `site_car2`'s own projected box the region stays
+**100.0% below luma 16**, mean luma 0.13 → 0.27: unlit road at night is as
+black as an unlit car, so deleting the car reveals more black.
+`site_car1` and `site_scar1` do lift (0.39 → 3.74 and 0.38 → 0.95). The booth
+region changes by 0.0%.
+
+**With a negative control, because two renders of one scene are not
+identical.** Rendering the *same* build twice: 0.46% of pixels differ, none by
+more than 2, max channel delta 3 — the beauty frame carries live rain, so a
+beauty A/B is not automatically single-variable. Against that floor the
+rebuild is 6.28% changed, 3.87% by more than 2, max delta 130 — **13.8× the
+noise**. Per region the separation is total: noise 0.0% inside every one of
+`site_car1`, `site_car2`, `site_scar1` and `site_booth`, against signal 60.6%,
+24.7%, 50.1% and 0.0%. The booth is the control that matters — it is the one
+street mass that should not have moved, and it did not.
+
+Two consequences, and the second is the one that matters for M0.5:
+
+1. The proof that the cars are gone is the **ownership map**, not the
+   appearance. A before/after of the lit frame would have shown almost
+   nothing and could have been read as "the rebuild did nothing".
+   `art/renders/map_baseline/rebuild_before_after.png` is that pair, published
+   precisely because it looks unconvincing.
+2. **The street's blackness was never mostly the phantom geometry.** 90.9% of
+   the frame was below luma 16 before and 90.6% after. Naming and removing the
+   masses did not brighten the street, because the street is unlit, not
+   obstructed. Anything in the redesign that assumed clearing geometry would
+   open the view up needs re-planning as a *lighting* problem.
+
+**Baseline superseded.** `art/renders/map_baseline/street_1..4.png` is the
+corrected M0.5 baseline: rebuilt geometry, `DAYNIGHT=0`, traffic live, same
+camera. `art/renders/map_before/` and `art/renders/map_check2/base/` are
+retained as the record of the phantom and **must not be used as comparison
+partners** — `map_before` also predates the clock pin.
+
+**THE REBUILD IS 99.24% NOT ABOUT THE STREET, AND THAT MUST NOT BE BURIED.**
+`782776c` removes 122617 vertices building-wide — F01 −16007, F02 −24349,
+F03 −22713, F04 −26675, F05 −19018, F06 −13855, B1 and ROOF unchanged. The 39
+street records are 39 boxes × 24 = **936 vertices, 0.76% of it**. Every other
+floor shrank *more* than the one that held the cars. The rest is 173 apartment
+furniture records removed by the other five drifted commits, chiefly `3f5278f`
+"Furniture becomes biography: the comfort set is opt-in now" — sofas, rugs,
+plants, TVs, coffee-table clutter across F01–F06. 27 buffers disappear
+outright and 122 change geometry; 0 nodes were added and no node transform
+moved.
+
+That is correct behaviour — the build is *supposed* to match the data — but it
+means this commit is not a street fix. **Every interior visual and perf number
+taken before 2026-08-13 is now stale too**, not just the street ones, and
+anything downstream that assumed apartment dressing is on the earlier level
+needs re-checking against the new build.
+
+Verification: WalkTest **FULL** PASS, 499 checks 0 failures — the default is
+FAST, which skips the physically-walked legs, and those are the ones geometry
+can break. LightingAudit PASS 127 spaces. ShopEntryTest PASS. RealityCaseTest
+PASS. Four "No wall-safe resident route" warnings appear on F03/F04; they are
+standing noise, not new — the same-scene pair (`idmap.log` before,
+`idmap_rebuilt.log` after) reports 363 nav edges cut on both sides, unmoved by
+the rebuild. **Light budget: 16/16, not the 14/8 this brief claimed — see the
+correction in §10a.** Before and after ran under the same budget, so the
+comparisons hold; their label did not.
+
 ## 10b. Two checks outstanding before the subtraction commit
 
 1. ~~Ownership of every black mass in `art/renders/map_before/street_1.png`.~~
@@ -530,9 +657,12 @@ coordinate restriction left exactly one matching record per mass.
    stale build. The rule held and paid — the geometry that looked like a
    subtraction candidate was a rebuild.
 2. Top-down diagram: portal, throat, expansion point, hall envelope.
-3. **NEW, and it blocks both of the above:** re-run the Blender build so the
-   glTF matches the records, then re-render the M0.5 baseline. Subtraction
-   planned against the current build would be planned against phantoms.
+   **STILL OPEN — this is Check 3 and it is now the only thing between here
+   and the subtraction commit.** Do not begin shop subtraction before it is
+   rendered, documented and committed.
+3. ~~Re-run the Blender build so the glTF matches the records.~~ **DONE
+   2026-08-13, `782776c`, §10ad.** Baseline retaken at
+   `art/renders/map_baseline/`.
 
 Check 1 (the south-pavement sweep) is closed in §4. Its containment consequence
 is an ordering rule: build and verify the honest visible street-end replacement

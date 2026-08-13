@@ -184,9 +184,14 @@ func _paint(pass_index: int) -> void:
 		_eligible[i].material_override = m
 
 
-## Anything that is not plain opaque MIX. A ShaderMaterial cannot be read
-## this way, so it is treated as solid and named in the log — if a shader
-## surface ever wins pixels, that answer needs checking by hand.
+## Anything that is not plain opaque MIX. A ShaderMaterial has no
+## transparency property to read, so read its source: a spatial shader is
+## opaque unless it writes ALPHA or declares a non-opaque render mode. That
+## is not cosmetic — the puddle batch (exterior_detail_pass.gd:504) is
+## `blend_mix, depth_prepass_alpha` and was being painted solid, which is
+## the WeatherFX mistake again at 0.22% of the frame instead of 23%.
+## Shaders that survive the test are still named in the log, because
+## "opaque as far as I could tell" is worth being able to audit.
 func _is_see_through(g: GeometryInstance3D) -> bool:
 	for m in _materials_of(g):
 		if m is BaseMaterial3D:
@@ -196,7 +201,20 @@ func _is_see_through(g: GeometryInstance3D) -> bool:
 			if bm.blend_mode != BaseMaterial3D.BLEND_MODE_MIX:
 				return true
 		elif m is ShaderMaterial:
-			print("[IDSHADER] %s" % get_tree().root.get_path_to(g))
+			var sh: Shader = (m as ShaderMaterial).shader
+			var code := sh.code if sh != null else ""
+			print("[IDSHADER] %s%s" % [get_tree().root.get_path_to(g),
+					"  SEE-THROUGH" if _shader_blends(code) else "  opaque"])
+			if _shader_blends(code):
+				return true
+	return false
+
+
+func _shader_blends(code: String) -> bool:
+	for token in ["blend_add", "blend_sub", "blend_mul", "depth_prepass_alpha",
+			"depth_draw_never", "ALPHA", "ALPHA_SCISSOR"]:
+		if code.find(token) >= 0:
+			return true
 	return false
 
 
