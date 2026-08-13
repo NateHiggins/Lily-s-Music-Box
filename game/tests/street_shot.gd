@@ -7,6 +7,12 @@ var _n := 0
 
 func _ready() -> void:
 	set_process(false)
+	# Check-2 evidence ladder: a hide/show pair is only evidence if the
+	# two frames differ by ONE thing. Pin the sky, or the day/night
+	# director reads the wall clock and the pair differs by the hour as
+	# well as by the hidden buffer.
+	if OS.get_environment("DAYNIGHT_FORCE") == "":
+		OS.set_environment("DAYNIGHT", "0")
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	root = load("res://scenes/building/orison_root.tscn").instantiate()
@@ -36,6 +42,18 @@ func _sweep(n: Node) -> void:
 		n.visible = false
 	if n is Label3D:
 		n.visible = false
+	# SHOT_HIDE="a,b,c" hides every node whose name contains any token,
+	# matching free_cam.gd. This is the runtime half of check 2: it can
+	# say WHICH merged buffer contributes a visible mass, and nothing
+	# about which generator record inside that buffer drew it.
+	var hide := OS.get_environment("SHOT_HIDE")
+	if hide != "" and n is Node3D:
+		for token in hide.split(","):
+			var t := token.strip_edges()
+			if t != "" and String(n.name).findn(t) >= 0:
+				(n as Node3D).visible = false
+				print("[HIDE] %s" % n.name)
+				break
 	for c in n.get_children():
 		_sweep(c)
 

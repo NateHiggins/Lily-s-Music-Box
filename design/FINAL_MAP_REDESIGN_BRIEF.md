@@ -374,13 +374,39 @@ buffer whose AABB spans wherever that category appears on F01 —
 `F01_furniture_timber` 87.4 × 27.7 × 38.1, `F01_furnish_bakelite`
 59.0 × 3.9 × 45.6, and so on. The builder merged the street's boxes into those
 buffers, so "which node is the black slab" has no node-level answer. **AABB
-ranking cannot close this check.** Hide/show per buffer is not merely the best
-evidence, it is the only evidence.
+ranking cannot close this check.**
 
-Two materials are worth suppressing first, being the only FLAT (untextured)
-entries among the large candidates: `M_screen` (albedo 0.29,0.31,0.33 — dark
-and flat) and `M_glassish` (0.89,0.93,0.95). Everything else in the top twenty
-is textured and shaded.
+**Closing it takes two stages, not one.** Hide/show per buffer is the only
+*runtime buffer-level* evidence — it says which merged buffer contributes a
+visible mass and nothing more. It cannot recover the source identity of
+geometry Blender already merged. Buffer identification must therefore be
+followed by source-level provenance: enumerate every generator record feeding
+that floor/category/material, restrict by actual coordinates against the
+camera volume, and if several survive, build a TEMPORARY unmerged diagnostic
+of that category alone — source ids as node names, unique unshaded colours,
+rendered from the exact `street_1.png` camera — then match silhouette to id.
+Never commit the diagnostic geometry and never change production batching to
+suit it. **Merged AABB size is not provenance.**
+
+**Evidence ladder, in order.** Identical deterministic frame as baseline;
+`StreetTraffic` hidden as negative control; then `M_screen`; then
+`M_glassish`; then one buffer at a time. Compare aligned pairs only — never
+two frames at different traffic simulation times, and never across a moving
+sky (`street_shot.gd` now pins `DAYNIGHT=0` unless `DAYNIGHT_FORCE` is set,
+so a pair differs by the hidden buffer alone).
+
+**Traffic is back in the suspect pool.** The earlier "not traffic" reading
+rested on SwcGraybox, which is withdrawn, so it carries no weight and traffic
+is tested first.
+
+Material flatness is a **prioritization clue, not silhouette evidence**, and
+the source records prove why: the only F01 layout record using `screen` is
+`storm_shop_radio_service_scope_face` at roughly 0.04 × 0.28 × 0.22 m, which
+cannot individually be a street-sized slab; and `glassish` covers storefront
+panes plus many small display objects, so its broad merged AABB implies no
+large solid pane. Both are worth suppressing early because they are the only
+FLAT entries among the large candidates — `M_screen` at albedo 0.29,0.31,0.33
+and `M_glassish` at 0.89,0.93,0.95 — not because their AABBs are big.
 
 *Superseded hypothesis, kept per the log-don't-delete rule:* the original
 SwcGraybox reading was —
