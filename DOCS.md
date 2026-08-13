@@ -37,6 +37,7 @@ Knowing which kind you are reading tells you how much to trust it.
 |---|---|
 | What is true about this world | `design/ORISON_BIBLE.md` |
 | What the game loop is and which milestone comes next | `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`, then `design/next_session_plan.md` |
+| The final playable map: three zones, the Passage, measured perf baseline | `design/FINAL_MAP_REDESIGN_BRIEF.md` |
 | Why an object looks forty years early | Bible §VIII.2, the Rule of Signal |
 | What is open right now, and who has it | `TASKS.md` |
 | Whether a system is actually used | `design/AUDIT_UNUSED_SYSTEMS_REPORT.md` |
