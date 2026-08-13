@@ -1316,6 +1316,206 @@
    ]
   },
   {
+   "id": "PASSAGE_PORTAL_LT_W",
+   "pos": [
+    11.48,
+    -28.216,
+    2.82
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_PORTAL_LT_E",
+   "pos": [
+    16.52,
+    -28.216,
+    2.82
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_00",
+   "pos": [
+    14.0,
+    -31.2,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_01",
+   "pos": [
+    14.0,
+    -35.0,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_02",
+   "pos": [
+    14.0,
+    -41.0,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_03",
+   "pos": [
+    14.0,
+    -45.0,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_04",
+   "pos": [
+    14.0,
+    -49.0,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_05",
+   "pos": [
+    14.0,
+    -53.0,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_06",
+   "pos": [
+    14.0,
+    -57.0,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_07",
+   "pos": [
+    14.0,
+    -61.0,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
    "id": "F01_BODEGA_LT_0",
    "pos": [
     17.55,
@@ -1761,6 +1961,786 @@
     -10.62,
     -37.1,
     -0.45
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_MODEL_LAUNDRY",
+   "pos": [
+    11.46,
+    -43.825,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+   "pos": [
+    10.05,
+    -42.0,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+   "pos": [
+    7.5,
+    -42.0,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+   "pos": [
+    4.95,
+    -42.0,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_SHOE_REBUILDING",
+   "pos": [
+    11.46,
+    -49.425,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_SHOE_REBUILDING",
+   "pos": [
+    10.05,
+    -47.6,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_SHOE_REBUILDING",
+   "pos": [
+    5.95,
+    -47.6,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_KEYS_CUT",
+   "pos": [
+    11.46,
+    -53.025,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_KEYS_CUT",
+   "pos": [
+    10.05,
+    -52.2,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_KEYS_CUT",
+   "pos": [
+    6.95,
+    -52.2,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_HARDWARE_PAINT",
+   "pos": [
+    11.46,
+    -58.425,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_HARDWARE_PAINT",
+   "pos": [
+    10.05,
+    -56.7,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_HARDWARE_PAINT",
+   "pos": [
+    7.75,
+    -56.7,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN2_HARDWARE_PAINT",
+   "pos": [
+    5.45,
+    -56.7,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_FUNERAL_PARLOUR",
+   "pos": [
+    11.46,
+    -63.025,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+   "pos": [
+    10.05,
+    -61.7,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+   "pos": [
+    7.5,
+    -61.7,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+   "pos": [
+    4.95,
+    -61.7,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_PHOTO_SUPPLIES",
+   "pos": [
+    16.54,
+    -62.975,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+   "pos": [
+    17.95,
+    -61.4,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+   "pos": [
+    22.05,
+    -61.4,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_RADIO_SERVICE",
+   "pos": [
+    16.54,
+    -56.575,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_RADIO_SERVICE",
+   "pos": [
+    17.95,
+    -57.2,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_RADIO_SERVICE",
+   "pos": [
+    21.05,
+    -57.2,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_PAWNBROKER",
+   "pos": [
+    16.54,
+    -51.975,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_PAWNBROKER",
+   "pos": [
+    17.95,
+    -53.3,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_PAWNBROKER",
+   "pos": [
+    22.05,
+    -53.3,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_NEWS_CIGARS",
+   "pos": [
+    16.54,
+    -49.975,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_NEWS_CIGARS",
+   "pos": [
+    17.95,
+    -49.85,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_NEWS_CIGARS",
+   "pos": [
+    20.05,
+    -49.85,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_OTIS___SON",
+   "pos": [
+    16.54,
+    -45.375,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_OTIS___SON",
+   "pos": [
+    17.95,
+    -46.55,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_OTIS___SON",
+   "pos": [
+    20.5,
+    -46.55,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN2_OTIS___SON",
+   "pos": [
+    23.05,
+    -46.55,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_LUNCHEONETTE",
+   "pos": [
+    16.54,
+    -43.375,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_LUNCHEONETTE",
+   "pos": [
+    17.95,
+    -41.8,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_LUNCHEONETTE",
+   "pos": [
+    20.5,
+    -41.8,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN2_LUNCHEONETTE",
+   "pos": [
+    23.05,
+    -41.8,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+   "pos": [
+    22.7,
+    -59.72,
+    2.24
    ],
    "room": "SITE",
    "network": "electrical",
@@ -6777,6 +7757,16 @@
     "F01_D_OFFICE_LT_PENDANT_SHADE",
     "F01_ATRIUM_FRUIT_1",
     "F01_ATRIUM_FRUIT_2",
+    "PASSAGE_PORTAL_LT_W",
+    "PASSAGE_PORTAL_LT_E",
+    "PASSAGE_AISLE_LT_00",
+    "PASSAGE_AISLE_LT_01",
+    "PASSAGE_AISLE_LT_02",
+    "PASSAGE_AISLE_LT_03",
+    "PASSAGE_AISLE_LT_04",
+    "PASSAGE_AISLE_LT_05",
+    "PASSAGE_AISLE_LT_06",
+    "PASSAGE_AISLE_LT_07",
     "F01_BODEGA_LT_0",
     "F01_BODEGA_LT_1",
     "F01_BODEGA_LT_2",
@@ -6800,6 +7790,45 @@
     "F01_BAR_LT_WEST0",
     "F01_BAR_LT_WEST1",
     "F01_BAR_LT_WC",
+    "SITE_SHOP_LT_MODEL_LAUNDRY",
+    "SITE_SHOP_IN0_MODEL_LAUNDRY",
+    "SITE_SHOP_IN1_MODEL_LAUNDRY",
+    "SITE_SHOP_IN2_MODEL_LAUNDRY",
+    "SITE_SHOP_LT_SHOE_REBUILDING",
+    "SITE_SHOP_IN0_SHOE_REBUILDING",
+    "SITE_SHOP_IN1_SHOE_REBUILDING",
+    "SITE_SHOP_LT_KEYS_CUT",
+    "SITE_SHOP_IN0_KEYS_CUT",
+    "SITE_SHOP_IN1_KEYS_CUT",
+    "SITE_SHOP_LT_HARDWARE_PAINT",
+    "SITE_SHOP_IN0_HARDWARE_PAINT",
+    "SITE_SHOP_IN1_HARDWARE_PAINT",
+    "SITE_SHOP_IN2_HARDWARE_PAINT",
+    "SITE_SHOP_LT_FUNERAL_PARLOUR",
+    "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+    "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+    "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+    "SITE_SHOP_LT_PHOTO_SUPPLIES",
+    "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+    "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+    "SITE_SHOP_LT_RADIO_SERVICE",
+    "SITE_SHOP_IN0_RADIO_SERVICE",
+    "SITE_SHOP_IN1_RADIO_SERVICE",
+    "SITE_SHOP_LT_PAWNBROKER",
+    "SITE_SHOP_IN0_PAWNBROKER",
+    "SITE_SHOP_IN1_PAWNBROKER",
+    "SITE_SHOP_LT_NEWS_CIGARS",
+    "SITE_SHOP_IN0_NEWS_CIGARS",
+    "SITE_SHOP_IN1_NEWS_CIGARS",
+    "SITE_SHOP_LT_OTIS___SON",
+    "SITE_SHOP_IN0_OTIS___SON",
+    "SITE_SHOP_IN1_OTIS___SON",
+    "SITE_SHOP_IN2_OTIS___SON",
+    "SITE_SHOP_LT_LUNCHEONETTE",
+    "SITE_SHOP_IN0_LUNCHEONETTE",
+    "SITE_SHOP_IN1_LUNCHEONETTE",
+    "SITE_SHOP_IN2_LUNCHEONETTE",
+    "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
     "F02_CORRLIGHT_S"
    ]
   },

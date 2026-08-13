@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""Static interiors for the eleven shops opposite the Orison.
+"""Static interiors for the eleven shops in the Vantry Arcade.
 
 This module owns the trade tables and the furniture emitter because the shop
-second pass changes them together.  It never imports gen_layout: street
-geography (especially SHOP_FACE, derived from BLDG_S) is passed in explicitly,
-so the block retains one coordinate source of truth and this seam cannot become
-a circular import.
+second pass changes them together.  It never imports gen_layout: the Passage
+packer supplies each shop's face and transform explicitly, so the map retains
+one coordinate source of truth and this seam cannot become a circular import.
 """
 
 SHOPS = [
@@ -77,7 +76,7 @@ SHOP_CEIL = {"diner": "tin_ceiling", "pawn": "tin_ceiling",
 
 
 def build_shop_interiors(fb, mk, asm, shops, face, S=1):
-    """The ten sales floors behind the ten shopfronts.
+    """The eleven sales floors behind the Vantry Arcade shopfronts.
 
     Until now this street was a stage flat: ten beautifully sectioned
     1920s fronts with solid brick 100 mm behind the glass, a lit linen
@@ -146,7 +145,7 @@ def build_shop_interiors(fb, mk, asm, shops, face, S=1):
             # carcass is ArcadeRow's business, off the catalog, in
             # layout order.
             asm("shopcab_%s%d" % (_t, n), "arcade_cab", cx, cy, yaw,
-                variant=variant)
+                variant=variant, batch="shop_%s" % _t)
 
         # ---- the shell ------------------------------------------------
         # FLUSH WITH THE PAVEMENT, and this is not a detail. sidewalk_s

@@ -323,13 +323,30 @@ func _eleven_shop_routes() -> void:
 	_check("NEWS_CIGARS proprietor door exists", news != null)
 	_check("NEWS_CIGARS proprietor door is locked",
 			news != null and news.leaf_state == "locked")
-	# The service shelf is reached from the pavement without crossing the glass.
-	var hatch_fraction := _sweep(Vector3(9.72, 0.02, 26.85),
-			Vector3(9.72, 0.02, 27.72))
-	_check("NEWS_CIGARS pavement hatch is reachable (%d%% clear)" %
-			int(hatch_fraction * 100.0), hatch_fraction >= 0.85)
-	# A body attempting the proprietor's door must meet the locked leaf.
-	var private_fraction := _sweep(Vector3(8.925, 0.02, 27.10),
-			Vector3(8.925, 0.02, 30.45))
-	_check("NEWS_CIGARS proprietor side remains inaccessible",
-			private_fraction < 0.80)
+	if news:
+		# Re-anchored to the installed leaf. The former hardcoded coordinates
+		# silently became empty pavement when the shop moved. Local +X runs
+		# along the frontage; the service opening is 340 mm beyond the leaf.
+		var inward: Vector3 = news.global_basis.z.normalized()
+		var service: Vector3 = news.to_global(
+				Vector3(news.width + 0.34, 0.02, 0.0))
+		# Reach distance is 400 mm in front of the shelf. A body can get there
+		# from the aisle without crossing glass or entering proprietor space.
+		var service_start := service - inward * 2.0
+		var service_reach := service - inward * 0.40
+		service_start.y = 0.02
+		service_reach.y = 0.02
+		var hatch_fraction := _sweep(service_start, service_reach)
+		_check("NEWS_CIGARS service shelf is reachable (%d%% clear)" %
+				int(hatch_fraction * 100.0), hatch_fraction >= 0.999)
+		# The inverse claim uses the same anchor: crossing the locked leaf from
+		# the aisle into the shop must fail.
+		var centre: Vector3 = news.to_global(
+				Vector3(news.width * 0.5, 0.0, 0.0))
+		var private_start := centre - inward * 0.45
+		var private_inside := centre + inward * 1.50
+		private_start.y = 0.02
+		private_inside.y = 0.02
+		var private_fraction := _sweep(private_start, private_inside)
+		_check("NEWS_CIGARS proprietor side remains inaccessible",
+				private_fraction < 0.80)

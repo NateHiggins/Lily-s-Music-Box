@@ -3676,7 +3676,7 @@ def building_operations_pass(floors):
 ## set and not a city. The block now runs far enough that the sightline
 ## dies in masonry long before it reaches the edge.
 SITE_X = 62.0
-SITE_S = -42.0     # behind the south street wall
+SITE_S = -66.0     # approved Passage rear extent; hall ends at -64.6
 SITE_N = 26.0      # back of the alley blocks, north
 
 ## THE STREET SECTION, taken from the real thing.
@@ -3704,6 +3704,15 @@ KERB_S = KERB_N - ROAD_W           # -23.894
 WALK_S = KERB_S + 0.15             # south kerb is 150 mm, like the north
 BLDG_S = WALK_S - WALK_W           # -28.316, the south building line
 ROAD_MID = (KERB_N + KERB_S) * 0.5
+
+# THE PASSAGE — construction controls fixed by Check 3 (3153ed0).
+PASSAGE_PORTAL_W, PASSAGE_PORTAL_E = 11.0, 17.0
+PASSAGE_C = 14.0
+PASSAGE_HALL_W, PASSAGE_HALL_E = 4.0, 24.0
+PASSAGE_HALL_N, PASSAGE_HALL_S = -38.6, -64.6
+PASSAGE_AISLE_W, PASSAGE_AISLE_E = 11.0, 17.0
+PASSAGE_SHOP_D = 7.0
+PASSAGE_END_MARGIN = 0.60
 
 ## Street-wall blocks: (id, rect, height). Heights step irregularly, since
 ## a row of equal parapets reads as one extruded shape rather than as
@@ -3822,7 +3831,9 @@ FAR_SKYLINE = [
     ("far_ne", (44.0, 28.0, 78.0, 56.0), 33.5),
     ("far_e", (74.0, -18.0, 104.0, 16.0), 41.0),
     ("far_se", (52.0, -68.0, 86.0, -40.0), 29.5),
-    ("far_s", (-18.0, -78.0, 22.0, -46.0), 46.5),
+    # Moved behind the approved Passage extent. At -46 it occupied the hall
+    # and the door-swing audit correctly found every eastern shop inside it.
+    ("far_s", (-18.0, -102.0, 22.0, -70.0), 46.5),
     ("far_sw", (-88.0, -62.0, -54.0, -38.0), 31.0),
     ("far_w", (-108.0, -20.0, -78.0, 18.0), 36.5),
 ]
@@ -4100,6 +4111,40 @@ SHOP_FACE = BLDG_S               # the south building line
 ## only frontage left on the whole north side is nbr_w's 4.4 m, directly
 ## west of the Orison's door, and this is it.
 BLDG_N = -12.0                   # nbr_w's face; the walk is SOUTH of it
+
+
+def _pack_passage_line(trades):
+    """Repack researched bay widths along one 26 m hall face.
+
+    The legacy x coordinates are read only for their exact exterior bay width;
+    no old street coordinate survives the result.  Both selected lines total
+    24.8 m, leaving the ruled 600 mm solid end condition at each end.
+    """
+    source = {row[3]: row for row in SHOPS + SHOPS_N}
+    out = []
+    along = PASSAGE_END_MARGIN
+    for trade in trades:
+        old = source[trade]
+        width = old[1] - old[0]
+        out.append((round(along, 3), round(along + width, 3),
+                    old[2], old[3], old[4], old[5], old[6]))
+        along += width
+    assert abs(along - (26.0 - PASSAGE_END_MARGIN)) < 1e-6
+    return out
+
+
+# North to south. Repair trades share the west wall; public/signal trades
+# share the east. The substrate drawing deliberately did not make this choice;
+# construction has to, and this packing preserves every approved bay width.
+PASSAGE_SHOPS_W = _pack_passage_line(
+    ("laundry", "cobbler", "locksmith", "hardware", "funeral"))
+# This list is authored south-to-north because the east wall is a +90 degree
+# rotation of the proven south-facing shop template. Read north-to-south in the
+# hall it is diner, druggist, news, pawn, radio, photo.
+PASSAGE_SHOPS_E = _pack_passage_line(
+    ("photo", "radio", "pawn", "news", "druggist", "diner"))
+ACTIVE_SHOPS = PASSAGE_SHOPS_W + PASSAGE_SHOPS_E
+
 ## Clear height inside a shop, and the slab over it. A 1920s retail
 ## ground floor is TALL — the transom light at 2.45 only makes sense if
 ## there is ceiling above it to throw light at — and the block above
@@ -4431,6 +4476,206 @@ def _storefronts(fb, mk, shops=None, face=None, S=1):
 ## that get plaster are the ones nobody has spent money on since the war.
 
 
+def _passage_rect(rect, face_x, side):
+    """Rotate virtual shop coordinates onto one north-south hall wall."""
+    x0, y0, x1, y1 = rect
+    if side == "w":                 # -90 degrees, north -> east
+        wx = (face_x + y0, face_x + y1)
+        wy = (PASSAGE_HALL_N - x0, PASSAGE_HALL_N - x1)
+    else:                           # +90 degrees, north -> west
+        wx = (face_x - y0, face_x - y1)
+        wy = (PASSAGE_HALL_S + x0, PASSAGE_HALL_S + x1)
+    return (min(wx), min(wy), max(wx), max(wy))
+
+
+class _PassageMarkers:
+    """List-shaped marker sink that applies the same transform as geometry."""
+    def __init__(self, target, face_x, side):
+        self.target = target
+        self.face_x = face_x
+        self.side = side
+
+    def append(self, marker):
+        m = dict(marker)
+        p = marker["pos"]
+        if self.side == "w":
+            m["pos"] = [self.face_x + p[1],
+                        PASSAGE_HALL_N - p[0], p[2]]
+            # Runtime marker props negate Blender yaw. A -90 degree geometry
+            # rotation therefore adds +90 to authored marker yaw.
+            m["yaw_deg"] = (float(marker.get("yaw_deg", 0)) + 90.0) % 360.0
+        else:
+            m["pos"] = [self.face_x - p[1],
+                        PASSAGE_HALL_S + p[0], p[2]]
+            m["yaw_deg"] = (float(marker.get("yaw_deg", 0)) - 90.0) % 360.0
+        m["zone"] = "PASSAGE"
+        self.target.append(m)
+
+
+def _emit_passage_shops(fb, markers, asm):
+    """Rotate the two researched shop lines onto the Passage's side walls."""
+    for side, shops, face_x in (
+            ("w", PASSAGE_SHOPS_W, PASSAGE_AISLE_W),
+            ("e", PASSAGE_SHOPS_E, PASSAGE_AISLE_E)):
+        sink = _PassageMarkers(markers, face_x, side)
+
+        def local_fb(bid, rect, z0, h, mat, batch=None,
+                     _face=face_x, _side=side, **meta):
+            meta["zone"] = "PASSAGE"
+            # _storefronts predates explicit batch ownership and therefore
+            # does not pass one. Recover it here while the source record is
+            # still individual; after Blender merges floor-wide material
+            # buffers there is no honest way to identify these pieces.
+            if batch is None:
+                for _x0, _x1, _name, _trade, _awn, _blade, _use in shops:
+                    shop_tag = "".join(c if c.isalnum() else "_"
+                                       for c in _name.lower()).strip("_")
+                    if bid.startswith("sf_%s_" % shop_tag):
+                        batch = "shop_%s" % shop_tag
+                        break
+            fb(bid, _passage_rect(rect, _face, _side), z0, h, mat,
+               batch=batch, **meta)
+
+        def local_asm(bid, kind, x, y, yaw=0,
+                      _face=face_x, _side=side, **kw):
+            kw["zone"] = "PASSAGE"
+            if _side == "w":
+                asm(bid, kind, _face + y, PASSAGE_HALL_N - x,
+                    yaw - 90.0, **kw)
+            else:
+                asm(bid, kind, _face - y, PASSAGE_HALL_S + x,
+                    yaw + 90.0, **kw)
+
+        _storefronts(local_fb, sink, shops, 0.0, 1)
+        build_shop_interiors(local_fb, sink, local_asm,
+                             shops, 0.0, 1)
+
+
+def _passage_shell(fb, pipe, markers):
+    """The enclosed throat, shop bands and ribbed glass hall substrate."""
+    batch = "passage_shell"
+
+    def b(bid, rect, z0, h, mat):
+        fb("passage_" + bid, rect, z0, h, mat,
+           batch=batch, zone="PASSAGE")
+
+    def proxy(bid, rect, z0, h, mat):
+        fb("passage_proxy_" + bid, rect, z0, h, mat,
+           batch="passage_proxy", zone="STREET")
+
+    # One uninterrupted terrazzo route from the street to the rear wall.
+    b("aisle_floor", (PASSAGE_AISLE_W, PASSAGE_HALL_S,
+                      PASSAGE_AISLE_E, BLDG_S), -0.05, 0.06, "terrazzo")
+
+    # Outer hall and the narrow reveal. The 600 mm end masses consume the
+    # allowance proved by Check 3 and close the side bands around the aisle.
+    b("wall_w", (PASSAGE_HALL_W - 0.22, PASSAGE_HALL_S - 0.22,
+                 PASSAGE_HALL_W, PASSAGE_HALL_N), 0.0, 4.20, "common_brick")
+    b("wall_e", (PASSAGE_HALL_E, PASSAGE_HALL_S - 0.22,
+                 PASSAGE_HALL_E + 0.22, PASSAGE_HALL_N),
+      0.0, 4.20, "common_brick")
+    b("wall_s", (PASSAGE_HALL_W - 0.22, PASSAGE_HALL_S - 0.22,
+                 PASSAGE_HALL_E + 0.22, PASSAGE_HALL_S),
+      0.0, 4.20, "common_brick")
+    for side, x0, x1 in (("w", PASSAGE_HALL_W, PASSAGE_AISLE_W),
+                         ("e", PASSAGE_AISLE_E, PASSAGE_HALL_E)):
+        b("end_n_" + side, (x0, PASSAGE_HALL_N - PASSAGE_END_MARGIN,
+                            x1, PASSAGE_HALL_N), 0.0, 4.20, "common_brick")
+        b("end_s_" + side, (x0, PASSAGE_HALL_S,
+                            x1, PASSAGE_HALL_S + PASSAGE_END_MARGIN),
+          0.0, 4.20, "common_brick")
+
+    b("throat_w", (PASSAGE_PORTAL_W - 0.22, PASSAGE_HALL_N,
+                   PASSAGE_PORTAL_W, BLDG_S), 0.0, 4.20, "common_brick")
+    b("throat_e", (PASSAGE_PORTAL_E, PASSAGE_HALL_N,
+                   PASSAGE_PORTAL_E + 0.22, BLDG_S),
+      0.0, 4.20, "common_brick")
+    b("throat_ceil", (PASSAGE_PORTAL_W - 0.22, PASSAGE_HALL_N,
+                      PASSAGE_PORTAL_E + 0.22, BLDG_S),
+      4.20, 0.18, "plaster_stained")
+    # STREET owns only this shallow glazed entrance proxy. The full throat,
+    # vault and fitted shops are a different set of buffers and disappear at
+    # the portal gate. Two glazed sidelights and a fanlight leave a 2.5 m
+    # central opening, so the containment is visible architecture rather than
+    # a collision plane nobody can explain.
+    proxy("head", (PASSAGE_PORTAL_W - 0.22, BLDG_S - 0.32,
+                   PASSAGE_PORTAL_E + 0.22, BLDG_S + 0.12),
+          3.20, 1.18, "limestone")
+    for side, x0, x1 in (("w", PASSAGE_PORTAL_W + 0.12, PASSAGE_C - 1.25),
+                         ("e", PASSAGE_C + 1.25, PASSAGE_PORTAL_E - 0.12)):
+        proxy("glass_" + side, (x0, BLDG_S - 0.10,
+                                x1, BLDG_S - 0.065),
+              0.18, 2.92, "glassish")
+        for xi, x in enumerate((x0, x1)):
+            proxy("jamb_%s_%d" % (side, xi),
+                  (x - 0.028, BLDG_S - 0.125,
+                   x + 0.028, BLDG_S - 0.04),
+                  0.10, 3.08, "metal")
+    proxy("fanlight", (PASSAGE_C - 1.25, BLDG_S - 0.10,
+                       PASSAGE_C + 1.25, BLDG_S - 0.065),
+          2.58, 0.52, "glassish")
+    proxy("fanlight_rail", (PASSAGE_C - 1.28, BLDG_S - 0.125,
+                            PASSAGE_C + 1.28, BLDG_S - 0.04),
+          2.53, 0.065, "metal")
+    for side, x in (("W", PASSAGE_PORTAL_W + 0.48),
+                    ("E", PASSAGE_PORTAL_E - 0.48)):
+        markers.append({"kind": "cage_bulb",
+                        "id": "PASSAGE_PORTAL_LT_%s" % side,
+                        "unit": "PASSAGE", "pos": [x, BLDG_S + 0.10, 2.82],
+                        "yaw_deg": 0, "network": "electrical",
+                        "range": 6.4, "energy": 1.0,
+                        "navigation": True, "standby": 0.52,
+                        "exterior": True, "zone": "STREET"})
+
+    # Party masonry runs the full seven-metre band. Storefront piers meet it
+    # at the aisle; individual shop back linings stop at their authored depth.
+    for side, shops, x0, x1 in (
+            ("w", PASSAGE_SHOPS_W, PASSAGE_HALL_W, PASSAGE_AISLE_W),
+            ("e", PASSAGE_SHOPS_E, PASSAGE_AISLE_E, PASSAGE_HALL_E)):
+        for i, shop in enumerate(shops[:-1]):
+            y = (PASSAGE_HALL_N - shop[1] if side == "w"
+                 else PASSAGE_HALL_S + shop[1])
+            b("party_%s_%02d" % (side, i),
+              (x0, y - 0.10, x1, y + 0.10), 0.0, SHOP_H, "common_brick")
+
+    # A faceted glass-and-iron barrel. The panels remain separately legible;
+    # the transverse ribs carry the arch silhouette from inside the aisle.
+    for i in range(6):
+        xa = PASSAGE_AISLE_W + i
+        xb = xa + 1.0
+        xm = (xa + xb) * 0.5
+        rise = 2.0 * math.sqrt(max(0.0, 1.0 - ((xm - PASSAGE_C) / 3.0) ** 2))
+        b("vault_glass_%02d" % i,
+          (xa + 0.035, PASSAGE_HALL_S, xb - 0.035, PASSAGE_HALL_N),
+          SHOP_H + rise, 0.035, "glassish")
+    rib_y = PASSAGE_HALL_N - 0.40
+    ri = 0
+    while rib_y > PASSAGE_HALL_S:
+        pts = []
+        for j in range(9):
+            x = PASSAGE_AISLE_W + 6.0 * j / 8.0
+            z = SHOP_H + 2.0 * math.sqrt(
+                max(0.0, 1.0 - ((x - PASSAGE_C) / 3.0) ** 2))
+            pts.append((x, rib_y, z))
+        for j in range(len(pts) - 1):
+            pipe("passage_rib_%02d_%02d" % (ri, j),
+                 pts[j], pts[j + 1], 0.045, "metal",
+                 batch="passage_shell", zone="PASSAGE")
+        rib_y -= 2.0
+        ri += 1
+
+    # The aisle is independently lit; shop lamps remain inside their bays.
+    for i, y in enumerate((-31.2, -35.0, -41.0, -45.0, -49.0,
+                           -53.0, -57.0, -61.0)):
+        markers.append({"kind": "cage_bulb",
+                        "id": "PASSAGE_AISLE_LT_%02d" % i,
+                        "unit": "PASSAGE", "pos": [PASSAGE_C, y, 3.72],
+                        "yaw_deg": 0, "network": "electrical",
+                        "range": 5.4, "energy": 0.76,
+                        "navigation": True, "standby": 0.42,
+                        "exterior": True, "zone": "PASSAGE"})
+
+
 
 
 def site_pass(fl):
@@ -4442,9 +4687,13 @@ def site_pass(fl):
     rng = random.Random(1927)
     lights = []
 
-    def fb(bid, rect, z0, h, mat):
-        furn.append({"id": "site_" + bid, "rect": list(rect), "z0": z0,
-                     "h": h, "mat": mat})
+    def fb(bid, rect, z0, h, mat, batch=None, **meta):
+        entry = {"id": "site_" + bid, "rect": list(rect), "z0": z0,
+                 "h": h, "mat": mat}
+        if batch:
+            entry["batch"] = batch
+        entry.update(meta)
+        furn.append(entry)
 
     def asm(bid, kind, x, y, yaw=0, **kw):
         # exterior: True keeps these off the storey gate the same way the
@@ -4456,12 +4705,16 @@ def site_pass(fl):
         e.update(kw)
         furn.append(e)
 
-    def pipe(bid, p0, p1, r, mat="metal"):
+    def pipe(bid, p0, p1, r, mat="metal", batch=None, **meta):
         # Masts, guys, water-tank legs and the trunk cables. Everything
         # on a roof that is a line rather than a box.
-        furn.append({"id": "site_" + bid, "asm": "pipe",
-                     "at": [p0[0], p0[1]], "yaw": 0, "mat": mat,
-                     "p0": list(p0), "p1": list(p1), "r": r})
+        entry = {"id": "site_" + bid, "asm": "pipe",
+                 "at": [p0[0], p0[1]], "yaw": 0, "mat": mat,
+                 "p0": list(p0), "p1": list(p1), "r": r}
+        if batch:
+            entry["batch"] = batch
+        entry.update(meta)
+        furn.append(entry)
 
     ## Where each finished stage wants its lit windows. Collected as the
     ## masses are built and drawn afterwards, because a setback's windows
@@ -4496,6 +4749,11 @@ def site_pass(fl):
         ground = nxt
     for gi, rect in enumerate(ground):
         fb("ground_%d" % gi, rect, -0.30, 0.28, "asphalt")
+
+    # M0.5's enclosed third zone. It sits on the asphalt substrate but owns
+    # its own floor, walls, roof, lights and collision as one local shell.
+    _passage_shell(fb, pipe, fl["markers"])
+
     # The distant pavement can stay cheap, but the playable frontage is
     # individually poured slabs with settlement, missing corners and open
     # joints. Their top heights vary by centimetres, not a noisy normal map.
@@ -4867,15 +5125,10 @@ def storm_pass(fl):
         fb("downrun%d" % i, (dx, -10.5, dx + 0.5, -10.05), 0.005, 0.002,
            "wet_asphalt")
 
-    _storefronts(fb, fl["markers"], STREET_SHOPS, SHOP_FACE, 1)
-    # Street geography is explicit; the extracted module never imports us.
-    build_shop_interiors(fb, fl["markers"], asm,
-                         STREET_SHOPS, SHOP_FACE, 1)
-    # The near side, facing the other way (S = -1). One shop, because
-    # one is all the north side has room for — see SHOPS_N.
-    _storefronts(fb, fl["markers"], STREET_SHOPS_N, BLDG_N, -1)
-    build_shop_interiors(fb, fl["markers"], asm,
-                         STREET_SHOPS_N, BLDG_N, -1)
+    # Every researched trade now faces the Vantry Arcade's central aisle.
+    # The adapter rotates the proven storefront/interior emitters; no fitting
+    # is rewritten and no old street coordinate survives the transformation.
+    _emit_passage_shops(fb, fl["markers"], asm)
 
 
 ## The light court's centrepiece. The stair used to be lit by seven
@@ -6813,12 +7066,12 @@ def _validate_shop_interiors(layout):
     if actual != expected:
         problems.append("shop batch ownership expected %s, got %s" %
                         (sorted(expected), sorted(actual)))
-    if len(boxes) > 1080:
-        problems.append("shop static boxes %d exceed second-pass cap 1080"
+    if len(boxes) > 1300:
+        problems.append("shop static boxes %d exceed Passage cap 1300"
                         % len(boxes))
     if any(not fu.get("batch") for fu in furniture
-           if str(fu.get("id", "")).startswith("storm_shop_")):
-        problems.append("unowned storm shop box escaped local batching")
+           if str(fu.get("zone", "")) == "PASSAGE"):
+        problems.append("unowned Passage geometry escaped local batching")
     heroes = {fu.get("hero") for fu in boxes if fu.get("hero")}
     expected_heroes = {trade for _x0, _x1, _name, trade, _a, _b, _use
                        in ACTIVE_SHOPS} - {"funeral"}
@@ -7291,10 +7544,22 @@ def _validate_movement(layout):
                 continue
             w = m["w"]
             px, py = m["pos"][0], m["pos"][1]
-            if m["yaw_deg"] == 0:      # wall runs along x; swings +-y
-                sw = (px, py - w, px + w, py + w)
-            else:                      # wall along y
-                sw = (px - w, py, px + w, py + w)
+            # DoorProp's closed leaf is local +X and its default opening turn
+            # is +100 degrees in Godot. Marker yaw is negated at runtime, so
+            # in Blender plan the swept endpoint runs authored yaw -> yaw-100.
+            # Sampling the quarter makes vertical and reversed storefronts as
+            # exact as horizontal apartment doors; the old `yaw != 0` branch
+            # put every vertical swing in the same quadrant.
+            yaw = float(m.get("yaw_deg", 0.0))
+            swept = []
+            for step in range(21):
+                a = math.radians(yaw - 100.0 * step / 20.0)
+                swept.append((px + math.cos(a) * w,
+                              py - math.sin(a) * w))
+            sw = (min([px] + [p[0] for p in swept]),
+                  min([py] + [p[1] for p in swept]),
+                  max([px] + [p[0] for p in swept]),
+                  max([py] + [p[1] for p in swept]))
             tol = 0.08   # leaves may pass within a hand's width
             for oid, bb in obs:
                 if m.get("exterior"):
@@ -7310,6 +7575,8 @@ def _validate_movement(layout):
                              oid.startswith("storm_shop_%s_de" % tag))) or
                            (did.startswith("F01_BAR_") and
                             oid.startswith("retail_bar_")) or
+                           (did == "F01_BODEGA_DOOR" and
+                            oid.startswith("retail_bod_")) or
                            (did == "SITE_SHOP_DOOR_LUNCHEONETTE" and
                             oid.startswith("retail_bar_")) or
                            (did == "SITE_SHOP_DOOR_OTIS___SON" and

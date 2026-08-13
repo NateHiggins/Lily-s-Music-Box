@@ -33,6 +33,15 @@ const PROBE := 0.5
 ## midway between this and the corridor wall.
 const CORE_X := 3.43
 const CORE_Y := 6.93
+## Schedule-facing names mapped to the installed shop-door records.  The
+## marker, not a copied coordinate in the clock system, owns both the aisle
+## approach and the point just inside the threshold.
+const PASSAGE_PLACES := {
+	"hand_laundry": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+	"luncheonette": "SITE_SHOP_DOOR_LUNCHEONETTE",
+	"news_cigars": "SITE_SHOP_DOOR_NEWS_CIGARS",
+	"photo_supplies": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+}
 
 var floors := {}      # floor_id -> {astar: AStar3D, nodes: [...], z: float}
 var level_order: Array[String] = []
@@ -42,6 +51,7 @@ var collision_cut := 0
 var collision_relinked := 0
 var stair_blocked := 0
 var _unreachable_warned := {}
+var passage_anchors: Dictionary = {}
 
 
 func build(layout: Dictionary) -> int:
@@ -52,11 +62,74 @@ func build(layout: Dictionary) -> int:
 	level_order.assign(floors.keys())
 	level_order.sort_custom(func(a: String, b: String) -> bool:
 		return float(floors[a].z) < float(floors[b].z))
+	_index_passage_anchors(layout)
 	print(("[NAV] %d nodes across %d floors; %d stair links; elevator linked; " \
 			+ "%d wall-crossing edges rejected; %d safe links restored") \
 			% [total, floors.size(), maxi(0, level_order.size() - 1),
 					pruned_edges, visibility_edges])
 	return total
+
+
+## Turn each installed leaf marker into two truthful points: an aisle point
+## 450 mm clear of the facade, and a venue point 900 mm inside. NEWS & CIGARS
+## is the deliberate exception: its proprietor door is locked, so its venue
+## is the customer side of the service shelf rather than behind that leaf.
+static func passage_spots(marker: Dictionary) -> Dictionary:
+	var p: Array = marker.get("pos", [0.0, 0.0, 0.0])
+	var yaw := deg_to_rad(float(marker.get("yaw_deg", 0.0)))
+	var width := float(marker.get("w", 0.95))
+	var hinge := Vector2(float(p[0]), float(p[1]))
+	var along := Vector2(cos(yaw), -sin(yaw))
+	var outward := Vector2(sin(yaw), -cos(yaw))
+	var centre := hinge + along * width * 0.5
+	var aisle := centre + outward * 0.45
+	var venue := centre - outward * 0.90
+	if str(marker.get("id", "")) == "SITE_SHOP_DOOR_NEWS_CIGARS":
+		var service := hinge + along * (width + 0.34)
+		venue = service + outward * 0.40
+	return {"aisle": GameBoot.b2g([aisle.x, aisle.y, 0.06]),
+			"venue": GameBoot.b2g([venue.x, venue.y, 0.06])}
+
+
+func _index_passage_anchors(layout: Dictionary) -> void:
+	var wanted := {}
+	for place in PASSAGE_PLACES:
+		wanted[PASSAGE_PLACES[place]] = place
+	for fl in layout.get("floors", []):
+		if str(fl.get("id", "")) != "F01":
+			continue
+		for marker in fl.get("markers", []):
+			var marker_id := str(marker.get("id", ""))
+			if wanted.has(marker_id):
+				passage_anchors[wanted[marker_id]] = passage_spots(marker)
+	print("[NAV] %d schedule anchors installed in PASSAGE" %
+			passage_anchors.size())
+
+
+func has_passage_anchor(place: String) -> bool:
+	return passage_anchors.has(place)
+
+
+func passage_anchor(place: String) -> Vector3:
+	return passage_anchors.get(place, {}).get("venue", Vector3.INF)
+
+
+## The street graph intentionally ends at the portal. Inside, the ruled 6 m
+## aisle is one unambiguous spine; the last leg turns to the customer side of
+## the installed door. These waypoints are derived from the same marker as the
+## venue, then proved against runtime collision by PassageNavTest.
+func passage_route(place: String) -> PackedVector3Array:
+	if not passage_anchors.has(place):
+		return PackedVector3Array()
+	var aisle: Vector3 = passage_anchors[place].aisle
+	var aisle_blender_y := -aisle.z
+	return PackedVector3Array([
+		GameBoot.b2g([14.0, -28.70, 0.06]),
+		GameBoot.b2g([14.0, -34.00, 0.06]),
+		GameBoot.b2g([14.0, -38.90, 0.06]),
+		GameBoot.b2g([14.0, aisle_blender_y, 0.06]),
+		aisle,
+	])
 
 
 func _build_floor(fid: String, fl: Dictionary) -> int:

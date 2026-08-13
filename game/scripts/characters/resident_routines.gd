@@ -237,37 +237,32 @@ const STREET_ROUTES := {
 		Vector2(12.00, -12.60), Vector2(16.60, -12.60),
 		Vector2(18.67, -12.60),
 	],
-	# THE PARADE, over the zebra. Every one of these crosses at x ~3.4,
+	# THE VANTRY ARCADE, over the zebra. Every one crosses at x ~3.4,
 	# which is the crossing in front of the Orison's own door, because
 	# that is the only way over the road — four utility trenches see to
 	# that and a resident stepping into one would be the first thing
-	# anybody noticed. They then walk the far pavement at y -26.6, which
-	# is the middle of it, and turn in at the shop's own door.
+	# anybody noticed. They then walk the far pavement to the one ruled
+	# portal. ResidentNav appends the shared throat/aisle route to the
+	# installed destination door; these arrays stop at that portal.
 	"luncheonette": [
 		Vector2(0.72, -10.70), Vector2(3.40, -13.60),
 		Vector2(3.40, -19.30), Vector2(3.40, -25.10),
-		Vector2(1.20, -26.60), Vector2(-5.60, -26.60),
-		Vector2(-10.40, -26.60), Vector2(-10.40, -27.90),
+		Vector2(8.00, -26.60), Vector2(14.00, -26.60),
 	],
 	"hand_laundry": [
 		Vector2(0.72, -10.70), Vector2(3.40, -13.60),
 		Vector2(3.40, -19.30), Vector2(3.40, -25.10),
-		Vector2(-2.00, -26.60), Vector2(-12.00, -26.60),
-		Vector2(-22.00, -26.60), Vector2(-27.80, -26.60),
-		Vector2(-27.80, -27.90),
+		Vector2(8.00, -26.60), Vector2(14.00, -26.60),
 	],
 	"news_cigars": [
 		Vector2(0.72, -10.70), Vector2(3.40, -13.60),
 		Vector2(3.40, -19.30), Vector2(3.40, -25.10),
-		Vector2(6.00, -26.60), Vector2(8.90, -26.60),
-		Vector2(8.90, -27.90),
+		Vector2(8.00, -26.60), Vector2(14.00, -26.60),
 	],
 	"photo_supplies": [
 		Vector2(0.72, -10.70), Vector2(3.40, -13.60),
 		Vector2(3.40, -19.30), Vector2(3.40, -25.10),
-		Vector2(8.00, -26.60), Vector2(18.00, -26.60),
-		Vector2(26.00, -26.60), Vector2(28.90, -26.60),
-		Vector2(28.90, -27.90),
+		Vector2(8.00, -26.60), Vector2(14.00, -26.60),
 	],
 }
 const STREET_Z := 0.06
@@ -404,10 +399,17 @@ func _venue_spot(actor: Dictionary, directive: Dictionary) -> Vector3:
 func _set_street_route(actor: Dictionary, key: String,
 		homeward: bool) -> void:
 	var pts: Array = STREET_ROUTES[key]
+	var forward := PackedVector3Array()
+	for p: Vector2 in pts:
+		forward.append(GameBoot.b2g([p.x, p.y, STREET_Z]))
+	if nav != null and nav.has_passage_anchor(key):
+		forward.append_array(nav.passage_route(key))
 	var path := PackedVector3Array()
-	for i in pts.size():
-		var p: Vector2 = pts[pts.size() - 1 - i] if homeward else pts[i]
-		path.append(GameBoot.b2g([p.x, p.y, STREET_Z]))
+	if homeward:
+		for i in forward.size():
+			path.append(forward[forward.size() - 1 - i])
+	else:
+		path = forward
 	actor.path = path
 	actor.leg = 0
 	actor.street_homeward = homeward

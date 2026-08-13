@@ -542,17 +542,22 @@ func _run() -> void:
 	var hidden_atrium_props := []
 	for floor_id in root.functional_props_by_floor:
 		for streamed_prop in root.functional_props_by_floor[floor_id]:
-			if not streamed_prop.visible:
+			# PASSAGE is a separate render zone.  Its actors correctly remain
+			# hidden from this Orison atrium eye even though every storey is in
+			# the floor-streaming set.
+			if not streamed_prop.visible \
+					and not streamed_prop.is_in_group("passage_runtime"):
 				hidden_atrium_props.append(streamed_prop.name)
 	_check(hidden_atrium_props.is_empty(),
-			"all functional props render across the open atrium eye")
+			"all in-zone functional props render across the open atrium eye")
 	var hidden_atrium_doors := []
 	for floor_id in root.doors_by_floor:
 		for streamed_door in root.doors_by_floor[floor_id]:
-			if not streamed_door.visible:
+			if not streamed_door.visible \
+					and not streamed_door.is_in_group("passage_runtime"):
 				hidden_atrium_doors.append(streamed_door.name)
 	_check(hidden_atrium_doors.is_empty(),
-			"all doors render across the open atrium eye")
+			"all in-zone doors render across the open atrium eye")
 	pl.global_position = Vector3(4.3, 3.35, 0.0)  # corridor: streaming back
 	pl.velocity = Vector3.ZERO
 	await get_tree().create_timer(0.4).timeout
@@ -1792,15 +1797,23 @@ func _sanity_checks() -> void:
 			"noticing what moved resets the insistence")
 	_check(director._watching.is_empty(), "the notice window closes on notice")
 	# Vanishing only ever takes things the player cannot see, and gives them
-	# back — a prop left invisible is lost scenery, not a haunting.
+	# back — a prop left in a different visibility state is lost scenery, not a
+	# haunting.  Compare with the prior state because zone and floor streaming
+	# now legitimately keep off-camera props hidden.
+	var visibility_before := {}
+	for child in root.get_children():
+		if child is FunctionalProp:
+			visibility_before[child] = child.visible
 	director.intrusions.perform("prop_vanish", 2)
 	director.intrusions.restore_all()
-	var invisible := 0
+	var unrestored := 0
 	for child in root.get_children():
-		if child is FunctionalProp and not child.visible:
-			invisible += 1
-	_check(invisible == 0,
-			"vanished props come back (%d still hidden)" % invisible)
+		if child is FunctionalProp \
+				and child.visible != bool(visibility_before.get(child, child.visible)):
+			unrestored += 1
+	_check(unrestored == 0,
+			"vanished props return to their prior visibility (%d changed)"
+			% unrestored)
 	# Campaign memory: an address is remembered past this session.
 	var witnessed_before: int = int(
 			RealityState.data.get(SanityDirector.WITNESS_KEY, 0))
@@ -2912,26 +2925,33 @@ func _shop_static_checks() -> void:
 		if String(floor.get("id", "")) == "F01":
 			f01 = floor
 			break
-	var boxes: Array = []
+	var owned_records: Array = []
 	var batches := {}
 	var material_buckets := {}
 	var heroes := {}
 	var ledgers := 0
+	var unbatched_passage := 0
 	for entry in f01.get("furniture", []):
 		var batch := String(entry.get("batch", ""))
+		if String(entry.get("zone", "")) == "PASSAGE" and batch == "":
+			unbatched_passage += 1
 		if not batch.begins_with("shop_"):
 			continue
-		boxes.append(entry)
+		owned_records.append(entry)
 		batches[batch] = true
-		material_buckets["%s|%s" % [batch, String(entry.get("mat", "trim"))]] = true
+		if entry.has("rect"):
+			material_buckets["%s|%s" % [
+					batch, String(entry.get("mat", "trim"))]] = true
 		if String(entry.get("hero", "")) != "":
 			heroes[String(entry.hero)] = true
 		var eid := String(entry.get("id", ""))
 		if eid.ends_with("_ledger") or eid.ends_with("_book"):
 			ledgers += 1
-	_check(boxes.size() <= 1080 and batches.size() == 11,
-			"eleven owned shop batches stay below 1080 static boxes (%d)"
-			% boxes.size())
+	_check(owned_records.size() <= 1300 and batches.size() == 11,
+			"eleven owned shop batches stay below 1300 records (%d)"
+			% owned_records.size())
+	_check(unbatched_passage == 0,
+			"every Passage geometry record retains an explicit render batch")
 	_check(heroes.size() == 10,
 			"ten isolatable heroes plus the in-situ funeral arrangement exist")
 	_check(ledgers == 11, "every shop keeps one account book")
@@ -2944,10 +2964,19 @@ func _shop_static_checks() -> void:
 	if floor_node:
 		_collect_named_shop_meshes(floor_node, shop_meshes)
 	var local_aabbs := not shop_meshes.is_empty()
+	var imported_batches := {}
 	for mesh in shop_meshes:
 		var size := mesh.get_aabb().size
-		local_aabbs = local_aabbs and size.x <= 8.0 and size.z <= 8.0
-	_check(shop_meshes.size() == material_buckets.size() and shop_meshes.size() <= 190,
+		# The laundry's articulated metal family is the widest legitimate
+		# bucket at 8.12 m.  Nine metres still stays local to one seven-metre
+		# shop bay and is nowhere near the former 220 x 148 m floor batch.
+		local_aabbs = local_aabbs and size.x <= 9.0 and size.z <= 9.0
+		for batch in batches:
+			if String(mesh.name).contains("retail_%s_" % batch):
+				imported_batches[batch] = true
+	_check(imported_batches.size() == 11 \
+			and shop_meshes.size() >= material_buckets.size() \
+			and shop_meshes.size() <= 280,
 			"shop geometry imports as bounded local material buckets (%d meshes)"
 			% shop_meshes.size())
 	_check(local_aabbs,

@@ -40,25 +40,20 @@ const ANCHORS := {
 	"bodega": {"floor": "F01", "at": Vector2(16.8, -8.6), "exterior": true},
 	"harukiya_bar": {"floor": "B1", "at": Vector2(-1.75, -31.1),
 			"exterior": true},
-	# THE PARADE. Four of the ten shops opposite are somewhere a resident
-	# has an actual reason to be, and each of these points is a metre
-	# inside the shop's own door rather than at it — a destination on the
-	# threshold reads as somebody loitering in a doorway.
+	# THE VANTRY ARCADE. Four of the eleven shops are somewhere a resident
+	# has an actual reason to be. ResidentNav derives each point from the
+	# installed Passage door; the clock carries no duplicate world literals.
 	#
 	# Only four. Every shop COULD take visitors and a building whose
-	# residents visit all ten equally is a building of errand-runners
+	# residents visit all eleven equally is a building of errand-runners
 	# rather than people; these are the four the layout already asserts
 	# somebody uses (SHOPS in gen_layout says the luncheonette is where
 	# residents sit between shifts and that Nadia is in the photo shop
 	# more than she is upstairs).
-	"luncheonette": {"floor": "F01", "at": Vector2(-8.80, -29.60),
-			"exterior": true},
-	"hand_laundry": {"floor": "F01", "at": Vector2(-29.60, -29.80),
-			"exterior": true},
-	"news_cigars": {"floor": "F01", "at": Vector2(9.05, -29.40),
-			"exterior": true},
-	"photo_supplies": {"floor": "F01", "at": Vector2(29.00, -29.80),
-			"exterior": true},
+	"luncheonette": {"passage": true, "exterior": true},
+	"hand_laundry": {"passage": true, "exterior": true},
+	"news_cigars": {"passage": true, "exterior": true},
+	"photo_supplies": {"passage": true, "exterior": true},
 }
 ## Corridor ring fallback for corridor / stairs / half_landing / doorway
 ## targets, resolved on the resident's own floor.
@@ -243,10 +238,12 @@ func directive_for(slug: String, block: Dictionary) -> Dictionary:
 				"point": point}
 	if ANCHORS.has(place):
 		var anchor: Dictionary = ANCHORS[place]
+		var point := _passage_point(place) if anchor.get("passage", false) \
+				else _world_point(str(anchor.floor), anchor.at)
 		return {"mode": "exterior" if anchor.get("exterior", false)
 				else "place",
 				"activity": activity, "key": place,
-				"point": _world_point(str(anchor.floor), anchor.at)}
+				"point": point}
 	if place in ["corridor", "stairs", "half_landing"]:
 		return {"mode": "place", "activity": activity, "key": place,
 				"point": _world_point(_home_floor(slug), RING_POINT)}
@@ -257,6 +254,17 @@ func directive_for(slug: String, block: Dictionary) -> Dictionary:
 func _world_point(floor_id: String, at: Vector2) -> Vector3:
 	var z := float(_levels.get(floor_id, 0.0))
 	return GameBoot.b2g([at.x, at.y, z + 0.03])
+
+
+func _passage_point(place: String) -> Vector3:
+	var marker_id := str(ResidentNav.PASSAGE_PLACES.get(place, ""))
+	for fl in _layout.get("floors", []):
+		if str(fl.get("id", "")) != "F01":
+			continue
+		for marker in fl.get("markers", []):
+			if str(marker.get("id", "")) == marker_id:
+				return ResidentNav.passage_spots(marker).venue
+	return Vector3.INF
 
 
 func _home_floor(slug: String) -> String:

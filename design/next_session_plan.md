@@ -15,7 +15,7 @@ narcoleptic dark scramble, wake in 4B, repeat. The core dream function is now
 part of the product. The detailed maze proposal still contains implementation
 questions and must not be treated wholesale as a ruling.
 
-## First work: execute the M0.5 subtraction and construction pair
+## First work: execute M0.5 Phase 4 street finalisation
 
 Do not begin another prop family, receiver, street landmark or case. The final
 map is a ruled consolidation, not an expansion. Its measured build drawing is
@@ -32,11 +32,21 @@ All three pre-subtraction checks are complete. Do not repeat them:
 3. The dimensioned portal/throat/hall control drawing is rendered at
    `art/renders/map_check3/passage_top_down.png` and recorded in §10ae.
 
-Execute M0.5 continuously in the phase order in the final-map brief:
-subtraction; Passage shell and relocation; street finalisation; photoreal finish;
-lock, test and document. The subtraction and construction commits are separate
-rollback points on one continuous branch of work. Do not leave `main` in a
-no-shop state.
+Phase 2 subtraction (`e102a41`) and Phase 3 Passage construction are complete
+as consecutive rollback points. All eleven shops now exist once inside the
+ruled envelope, the portal visibility gate is proven, and focused/full suites
+print PASS. Do not repeat or reopen that spatial work.
+
+The immediate action is Phase 4: replace both leaking street ends with visible
+architecture/weather. Build the honest replacement alongside the temporary
+`ExteriorStreetStageBoundary`, render it from the street and both pavements,
+then repeat the capsule sweeps. Retire the old partial invisible boxes only
+after the visible fabric itself contains the south walk. Do not extend another
+unexplained collision box across it.
+
+After that: photoreal Passage finish and pushcarts; lock the complete route;
+measure all critical stations at 16 lights / 16 shadows; test and document the
+M0.5 acceptance gate.
 
 ## After the M0.5 acceptance gate: M1 in four reviewable changes
 

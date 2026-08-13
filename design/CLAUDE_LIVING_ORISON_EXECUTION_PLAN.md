@@ -281,7 +281,7 @@ This is bounded subtraction, relocation and optimisation, not world expansion.
 Remove the redundant street parade, identify and remove the black obstruction
 masses, build the ruled portal/throat/hall envelope, preserve all load-bearing
 shop identities and interactions, and introduce real zone ownership. Pin every
-comparison to the production 14-light/8-shadow budget until that contract is
+comparison to the production 16-light/16-shadow budget until that contract is
 deliberately changed.
 
 **Gate:** all three zones and the complete errand route are reachable and

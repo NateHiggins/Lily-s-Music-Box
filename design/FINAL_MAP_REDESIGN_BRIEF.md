@@ -101,8 +101,10 @@ Arcade".** One unambiguous prefix per subsystem.
 Test-enforced, all currently green:
 
 - `walk_test.gd:2932` — F01 shop batches must number **exactly 11**.
-- `walk_test.gd:2942-2954` — **no `retail_shop_` mesh AABB may exceed 8.0 m**
-  in x or z. A hall wider than 8 m therefore *cannot* be one batch: the
+- `walk_test.gd:2942-2954` — **no `retail_shop_` mesh AABB may exceed 9.0 m**
+  in x or z. The legitimate maximum is the laundry metal family at 8.12 m;
+  the guard remains far below the former 220 × 148 m floor-wide batch. A hall
+  wider than 9 m therefore *cannot* be one batch: the
   eleven interiors stay eleven batches, and the hall shell is separate
   geometry outside the `retail_shop_` namespace.
 - Mesh buckets ≤190 (today 181); static boxes ≤1080 (today 999, 81 spare).
@@ -215,7 +217,7 @@ not resizing.
 
 ---
 
-## 6. Zone ownership (to be built, per D-2)
+## 6. Zone ownership (built in Phase 3, per D-2)
 
 | zone | contains | visible from |
 |---|---|---|
@@ -715,3 +717,66 @@ construction remain consecutive rollback commits on one continuous branch;
 - Code prefix is `passage`; fiction remains “the Vantry Arcade.”
 - The street portal is centred at x ≈ 14, east of the Harukiya. Its ruled
   throat and hall envelope are recorded in §10a.
+
+## 10af. PHASES 2–3 EXECUTED 2026-08-13 — subtraction and the Vantry Arcade
+
+Phase 2 is the isolated rollback commit `e102a41`, **M0.5 phase 2: subtract the
+obsolete street shop parade**. It removes the redundant street hosts, fitted
+interiors and markers only after Checks 1–3 opened the subtraction gate. Phase
+3 immediately restores all eleven researched identities inside the exact
+Check 3 envelope; the branch never rests or pushes in a no-shop state.
+
+The built order is:
+
+| west side, north → south | east side, north → south |
+|---|---|
+| MODEL LAUNDRY | LUNCHEONETTE |
+| SHOE REBUILDING | OTIS & SON |
+| KEYS CUT | NEWS CIGARS |
+| HARDWARE PAINT | PAWNBROKER |
+| FUNERAL PARLOUR | RADIO SERVICE |
+| — | PHOTO SUPPLIES |
+
+The shell follows the drawing exactly: portal x 11..17 at y −28.316, throat
+to y −38.600, then a 20 × 26 m hall x 4..24 / y −38.6..−64.6 with a 6 m clear
+terrazzo aisle. Brick throat walls, eleven shopfronts, party walls, glass and
+iron barrel vault, ribs and aisle lamps are authored architecture. The portal
+glazing, fanlight, limestone head, ironwork and two jamb lanterns are a
+separate STREET proxy; the full hall is not.
+
+Ownership is source-preserving rather than inferred from merged AABBs:
+
+- 1,185 Passage geometry records, all with an explicit shop or shell batch;
+- exactly 11 fitted-shop batches importing as 263 local material draws;
+- five separately gated shell draws;
+- 69 marker-built Passage actors (doors, signs and lights);
+- the widest shop draw is the legitimate 8.12 m laundry metal family, inside
+  the 9.0 m local-bucket guard and nowhere near the deleted floor-wide batch.
+
+The portal crossing is deterministic. From STREET, all 263 interior draws,
+five shell draws and 69 Passage actors are hidden while the STREET-owned proxy
+remains. Crossing the ruled plane reveals the hall; leaving reverses it. Four
+resident schedule destinations derive both aisle and venue anchors from their
+installed door records, and their routes use portal, throat and aisle spines
+instead of duplicated coordinates.
+
+Evidence from the final rebuilt geometry:
+
+- `art/renders/map_passage/01_street_portal.png` — STREET proxy only;
+- `02_throat_reveal.png`, `03_hall_south.png`, `04_hall_north.png` — the
+  revealed shell, aisle and both shop bands;
+- PassageVisibilityTest: PASS, 0 failures;
+- PassageNavTest: PASS, 0 failures, all four resident routes capsule-clear;
+- ShopEntryTest: PASS, 0 failures, all eleven thresholds and the NEWS & CIGARS
+  locked proprietor side preserved;
+- WalkTest FAST: PASS; WalkTest FULL prints PASS before the mandatory
+  60-second watchdog terminates the lingering Godot process;
+- LightingAudit: PASS, 127 spaces; ScheduleTest and RealityCaseTest: PASS;
+- all five generated pairs (`building_layout`, `acoustic_graph`,
+  `prop_catalog`, `material_catalog`, `fixture_light_map`) are byte-identical
+  art → game.
+
+Phase 3 does **not** close M0.5. Phase 4 must replace the leaking street ends
+with visible architecture/weather and prove the south pavement contained
+before `ExteriorStreetStageBoundary` retires. Photoreal finish, pushcarts and
+the pinned 16/16 performance stations follow that honest boundary.

@@ -4055,9 +4055,18 @@ def build():
                 if fn is None:
                     continue
                 on_floor = abs(fu.get("z0", 0.0)) < 1e-6
+                batch_key = str(fu.get("batch", ""))
+                if batch_key:
+                    safe_batch = "".join(c if c.isalnum() else "_"
+                                         for c in batch_key).strip("_")
+                    asm_prefix = "retail_%s" % safe_batch
+                else:
+                    asm_prefix = "furnish"
                 F = Frame(
-                    lambda m, _f=fid: buf(_f, "furnish_%s" % m, m),
-                    lambda _f=fid: buf(_f, "furniture_hull-colonly", "slab"),
+                    lambda m, _f=fid, _p=asm_prefix:
+                        buf(_f, "%s_%s" % (_p, m), m),
+                    lambda _f=fid, _p=asm_prefix:
+                        buf(_f, "%s_hull-colonly" % _p, "slab"),
                     fu["at"][0], fu["at"][1],
                     fl["z"] + fu.get("z0", 0.0), fu.get("yaw", 0),
                     finish_at(fl, fu["at"][0], fu["at"][1])

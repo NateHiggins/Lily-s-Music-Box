@@ -350,9 +350,13 @@ Ruled as M0.5. Build drawing and measured baseline:
 `design/FINAL_MAP_REDESIGN_BRIEF.md`. All eleven shops move. Code is `passage`;
 fiction remains “the Vantry Arcade.” This supersedes R2's street re-plan: they
 are two answers to the same problem and only this one is built.
-- **PS3** The hall itself: glass barrel vault, iron ribs, eleven units with
-  shopfronts onto the hall. §8.3 - whether the roof is intact, holed, or sheeted
-  over - is the biggest atmosphere decision in the document.
+- **PS1 DONE.** Check 3 fixes the exact portal, throat, expansion line and
+  20 × 26 m hall in `art/renders/map_check3/passage_top_down.*` (`3153ed0`).
+- **PS2 DONE.** The obsolete street parade is the isolated rollback commit
+  `e102a41`; Phase 3 immediately rehoused all eleven identities in the Passage.
+- **PS3 SUBSTRATE DONE.** Glass barrel vault, iron ribs, eleven units and a
+  six-metre terrazzo aisle are built. Final weathering and the pushcart layer
+  remain part of the M0.5 finish pass.
 - **PS4** Pushcarts as the movable middle layer. They are the reason the hall is
   navigable rather than a corridor, and they must be shoveable.
 - **PS5** **Carrying changes crossing.** The keystone of the loop: a crate slows
@@ -360,8 +364,9 @@ are two answers to the same problem and only this one is built.
   harder than the outbound. Wires the Passage directly to section T with no UI.
 - **PS6** Hours. Shuttered units and chained carts at night, and a 300 ft empty
   glass hall. Pair with T1's night question.
-- **PS7** Carry R5's two protections across deliberately: the 181 per-shop
-  buffers, and the deliberate NEWS CIGARS inaccessible proprietor side.
+- **PS7 DONE.** Eleven source-owned shop batches import as 263 bounded local
+  draws; NEWS CIGARS keeps its inaccessible proprietor side. PassageVisibility,
+  PassageNav and ShopEntry all pass on the rebuilt geometry.
 
 ## F — Film (projectors instead of televisions)
 

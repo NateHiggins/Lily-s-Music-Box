@@ -113,6 +113,15 @@ var call_interface: CallInterface
 var light_rig: LightRig
 var virus_director: VirusSoundDirector
 var floor_nodes: Dictionary = {}
+## The Passage shell remains part of F01's exterior proxy, but its eleven
+## fitted shop batches are a separate render zone.  Imported glTF meshes and
+## marker-built actors have different owners, so both are indexed explicitly.
+## Visibility changes only at the portal instead of rewriting hundreds of
+## nodes every physics tick.
+var passage_interior_nodes: Array[GeometryInstance3D] = []
+var passage_shell_nodes: Array[GeometryInstance3D] = []
+var passage_runtime_nodes: Array[Node3D] = []
+var passage_visible := true
 ## Marker-built props deliberately remain direct children: several directors
 ## discover them through that stable ownership boundary.  They still need to
 ## ride the same coarse visibility gate as the imported floor, though.  Before
@@ -190,6 +199,7 @@ func _ready() -> void:
 		node.name = fid
 		add_child(node)
 		floor_nodes[fid] = node
+	_index_passage_geometry()
 	# Work orders are a gameplay owner, not UI text. The tracker presents their
 	# state, but the state exists before the first customer is constructed.
 	objective_tracker = ObjectiveTracker.new()
@@ -727,6 +737,9 @@ func _spawn_props() -> void:
 				door.rotation.y = deg_to_rad(-float(m.get("yaw_deg", 0)))
 				add_child(door)
 				doors_by_floor[floor_id].append(door)
+				if String(m.get("zone", "")) == "PASSAGE":
+					door.add_to_group("passage_runtime")
+					passage_runtime_nodes.append(door)
 				continue
 			var script: GDScript = PROP_SCRIPTS.get(m["kind"])
 			if script == null:
@@ -876,8 +889,31 @@ func _spawn_props() -> void:
 					else -float(m.get("yaw_deg", 0)))
 			add_child(prop)
 			functional_props_by_floor[floor_id].append(prop)
+			if String(m.get("zone", "")) == "PASSAGE":
+				prop.add_to_group("passage_runtime")
+				passage_runtime_nodes.append(prop)
 			count += 1
 	print("[BUILDING] %d functional props spawned" % count)
+
+
+## Blender keeps the shell and each fitted shop in separately named batches.
+## Retaining that source identity in the glTF is what makes a real zone gate
+## possible; a merged F01 buffer could only be hidden as one indivisible site.
+func _index_passage_geometry() -> void:
+	var floor: Node = floor_nodes.get("F01")
+	if floor == null:
+		return
+	for candidate in floor.find_children("*", "GeometryInstance3D", true, false):
+		var geometry := candidate as GeometryInstance3D
+		if geometry == null:
+			continue
+		var geometry_name := String(geometry.name)
+		if geometry_name.contains("_retail_shop_"):
+			passage_interior_nodes.append(geometry)
+		elif geometry_name.contains("_retail_passage_shell_"):
+			passage_shell_nodes.append(geometry)
+	print("[PASSAGE] %d interior and %d shell draws indexed" %
+			[passage_interior_nodes.size(), passage_shell_nodes.size()])
 
 
 func _room_on_floor(floor_data: Dictionary, room_id: String) -> Dictionary:
@@ -1420,6 +1456,7 @@ func _update_floor_visibility() -> void:
 
 
 func _apply_visibility(p: Vector3) -> void:
+	_set_passage_visibility(_point_is_in_passage(p))
 	var in_eye := absf(p.x) < 3.7 and p.z > -3.7 and p.z < 6.9
 	# Outside the shell you are looking AT the building, and a
 	# building that renders two storeys is a stage flat. The
@@ -1440,6 +1477,31 @@ func _apply_visibility(p: Vector3) -> void:
 				or absf(p.y - z) < 1.75 \
 				or (fid == "ROOF" and p.y > 15.0)
 		for prop in functional_props_by_floor.get(fid, []):
-			prop.visible = show_props
+			prop.visible = show_props and (passage_visible \
+					or not prop.is_in_group("passage_runtime"))
 		for door in doors_by_floor.get(fid, []):
-			door.visible = show_props
+			door.visible = show_props and (passage_visible \
+					or not door.is_in_group("passage_runtime"))
+
+
+## Godot z is the negation of the ruled Blender y controls.  The portal plane
+## at z=28.316 belongs to STREET; crossing it enters the 6 m throat, which then
+## expands into the exact 20 x 26 m hall fixed by Check 3.
+func _point_is_in_passage(p: Vector3) -> bool:
+	var in_throat := p.x >= 11.0 and p.x <= 17.0 \
+			and p.z > 28.316 and p.z <= 38.6
+	var in_hall := p.x >= 4.0 and p.x <= 24.0 \
+			and p.z > 38.6 and p.z <= 64.6
+	return in_throat or in_hall
+
+
+func _set_passage_visibility(should_show: bool) -> void:
+	if passage_visible == should_show:
+		return
+	passage_visible = should_show
+	for geometry in passage_interior_nodes:
+		geometry.visible = should_show
+	for geometry in passage_shell_nodes:
+		geometry.visible = should_show
+	for actor in passage_runtime_nodes:
+		actor.visible = should_show
