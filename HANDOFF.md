@@ -53,19 +53,39 @@ Rebuild steps:
 #    height-aware door-swing audit — a nonzero exit means a real defect)
 cd art/data && python gen_layout.py
 
-# 2. copy the four JSONs into the game
+# 2. copy the five generated JSONs into the game. fixture_light_map is
+#    the one everybody forgets — gen_layout writes it (see the tail of
+#    main()), and a stale copy fails LightingAudit's coverage assertion
+#    with a fixture count that looks like a build defect and is not.
 cp building_layout.json acoustic_graph.json prop_catalog.json \
-   material_catalog.json ../../game/data/
+   material_catalog.json fixture_light_map.json ../../game/data/
 
 # 3. rebuild GLBs — only needed if walls/furniture/openings changed
 #    (marker-only changes skip this). Uses the `bpy` pip wheel (4.5),
 #    or real Blender: blender --background --python art/blender/scripts/build_orison.py
 python art/blender/scripts/build_orison.py
 
-# 4. re-import + run the walk test (Godot 4.5 or 4.7.1)
-godot --headless --path game --import
-godot --headless --path game res://tests/WalkTest.tscn
+# 4. re-import + run the walk test. BARE `godot` FAILS — the user PATH
+#    still points at D:\Python projects\devkit\bin, which no longer
+#    exists. Two working addresses, verified 2026-08-13:
+#      C:\devkit\bin\godot.cmd                     <- prefer this
+#      ./Godot_v4.7.1-stable_win64_console.exe     <- repo root, gitignored
+C:/devkit/bin/godot.cmd --headless --path game --import
+C:/devkit/bin/godot.cmd --headless --path game res://tests/WalkTest.tscn
 ```
+
+Two failure modes that waste an hour because they do not look like
+errors:
+- **A test whose script will not parse HANGS rather than failing** — no
+  output, no exit, until the timeout kills it. A new `class_name` also
+  does not exist until Godot rescans. After adding or editing any script
+  a test loads, run `C:/devkit/bin/godot.cmd --headless --path game
+  --editor --quit` once before the test that references it.
+- **Only one Godot may touch the `.godot` cache at a time.** The user's
+  editor often sits open for days (PID from the project root, no args) —
+  do not kill it, but expect a concurrent headless run to behave
+  strangely rather than to say so. The `_console` build is the one that
+  prints to stdout; the plain exe silently writes nothing.
 
 Conventions that bite if forgotten:
 - Meters, Blender axes (X east, Y north, Z up, street = −Y).
@@ -214,11 +234,27 @@ work; anything actionable belongs in that file.
 ## Working alongside other sessions
 
 More than one agent session works this repo, sometimes in the same
-working tree. Before pushing: `git fetch`, and if both sides changed the
+working tree, and as of 2026-08-13 they are not all Claude — Codex works
+here too. Before pushing: `git fetch`, and if both sides changed the
 same ground, keep the newest user-directed design, port the other side's
 features additively, regenerate artifacts, and prove it with WalkTest.
-Check `git status` before a sweeping `git add -A` — untracked files that
-appeared in the last few minutes are somebody else's work in progress.
+
+**Never `git add -A`.** It is banned outright, not merely discouraged:
+the tree usually carries somebody else's uncommitted generated data,
+`.uid` files and renders, and a sweep commits their half-finished work
+under your message. It has also, once, swept in a 170 MB engine binary
+that the remote then refused. Stage named paths. If a file is dirty and
+you did not touch it, leave it — `TASKS.md` claims are by name on the
+line, and the same courtesy applies to the working tree.
+
+Pushing is the other shared hazard. The remote intermittently answers
+large packs with HTTP 500 / `unexpected disconnect while reading
+sideband packet`, and git rebuilds the whole pack against the pushed
+commit's direct parent, so retrying alone can never converge. Ordinary
+pushes are fine; when one will not land, `tools/push_chunks.py` walks
+the blobs up in 15 MB synthetic commits and `tools/api_push_main.py`
+then recreates the commits SHA-exactly through the Git Data API and
+moves the ref with no pack at all.
 
 ## Defects resolved along the way
 
