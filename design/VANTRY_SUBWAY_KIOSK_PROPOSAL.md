@@ -516,18 +516,19 @@ Regression proof on the final build:
 
 `PERF_GATEWAY_OFF=1` hides exactly the six separate blockout buffers in
 `Perf.tscn`; ordinary runs submit them and production has no toggle.
-Fresh-process canonical-night northbound pairs at 16/16 were:
+Fresh-process canonical-night northbound pairs at 16/16, repeated after the
+final pipe-radius envelope correction and its rebuild, were:
 
 | state | run 1 | run 2 | mean |
 |---|---:|---:|---:|
-| gateway visible | 17.83 ms | 17.97 ms | 17.90 ms |
-| six buffers hidden | 17.99 ms | 17.38 ms | 17.69 ms |
+| gateway visible | 18.39 ms | 17.80 ms | 18.10 ms |
+| six buffers hidden | 17.59 ms | 17.62 ms | 17.61 ms |
 
-The apparent +0.21 ms visible cost is smaller than the hidden condition's
-0.61 ms repeat spread; objects and calls also move in both directions with the
+The apparent +0.49 ms visible cost is smaller than the visible condition's
+0.59 ms repeat spread; objects and calls also move in both directions with the
 live scene. It is not measurable attribution. Both visible runs remain at the
-already accepted approximately 17.8 ms canonical-night blocker, and the gate
-does not change the standing 7/11 station result.
+already accepted canonical-night blocker range, and the gate does not change
+the standing 7/11 station result.
 
 ### 14.5 Next gate
 
