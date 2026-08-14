@@ -29,8 +29,6 @@ the immediate executable gates, not a second copy of its milestone status.
 
 - **K1** Run M0 against the current tree: fresh-save Mina state trace, existing
   tests, warnings, critical-route reachability and performance baseline.
-- **K5** Add a deterministic end-to-end graybox test covering every stage and
-  save/load boundary, including protected conversations and preserved repair.
 - **K6** Route Mina's existing case through the complete graybox shift and apply
   one persistent waking residue.
 - **K7** Create `game/docs/core_loop.md` only after K2–K6 land, documenting the

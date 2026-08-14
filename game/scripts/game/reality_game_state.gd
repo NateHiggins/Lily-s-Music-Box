@@ -10,6 +10,10 @@ const SAVE_PATH := "user://reality_maintenance_save.json"
 
 var data: Dictionary = {}
 var persistence_enabled := true
+## Injectable so a harness can exercise the real save/load path against its
+## own file under user://tests/ without touching the player's save.
+## Production never changes it.
+var save_path := SAVE_PATH
 
 
 func _ready() -> void:
@@ -64,7 +68,7 @@ func commit() -> void:
 
 
 func save_game() -> bool:
-	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	var file := FileAccess.open(save_path, FileAccess.WRITE)
 	if file == null:
 		push_warning("could not write Reality Maintenance save")
 		return false
@@ -74,10 +78,12 @@ func save_game() -> bool:
 
 func load_game() -> void:
 	data = _fresh_data()
-	if not FileAccess.file_exists(SAVE_PATH):
+	if not FileAccess.file_exists(save_path):
+		_announce_loaded()
 		return
-	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
+	var file := FileAccess.open(save_path, FileAccess.READ)
 	if file == null:
+		_announce_loaded()
 		return
 	var parsed: Variant = JSON.parse_string(file.get_as_text())
 	if parsed is Dictionary:
@@ -98,6 +104,13 @@ func load_game() -> void:
 			data.core_loop = {}
 		if int(data.get("version", 0)) < SAVE_VERSION:
 			_migrate()
+	_announce_loaded()
+
+
+## A mid-session load must tell live listeners the world's facts changed;
+## the boot-time load fires before anything connects and is inert.
+func _announce_loaded() -> void:
+	state_changed.emit()
 
 
 func start_new_campaign() -> void:

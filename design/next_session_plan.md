@@ -88,6 +88,21 @@ shared-elevator checks, while the stateful Case 02–08 order remains intact.
 Stop after each acceptance gate and render/play what changed. Do not wait until
 the end to discover that the interaction exists only in tests.
 
+**2026-08-14: M1 IS COMPLETE — the gate is proven.** K2 (`5bc6ea7`, amended
+by owner ruling in `63e925b`: the chirp IS the job), K3 (`2b18a93`) and K4
+(`73a36ea`) landed the spine, and K5's `GoldenLoopTest` proves the gate end
+to end on the production scene: the one authored job (`vantry_chirp_2a`)
+starts by discovery or report, requires the carbon transmitter capsule,
+accepts the physical Vantry repair, requests the earned conversation,
+requests a dream through the coordinator's boundary, and resumes after
+waking at the authored 4B bedside — with the player physically walking
+2A → ORISON → STREET → PASSAGE → HARDWARE PAINT and back, and save/load
+exercised through the real file at all seven loop boundaries. **No
+production dream gameplay, sleep-pressure system or waking residue exists
+yet** — the dream is a requested boundary consumed by a test stub. Next:
+**K6**, routing Mina's existing case through the complete graybox shift
+with one persistent waking residue.
+
 ## Non-negotiable constraints
 
 - Six cases only: Mina, Peter, Juno, Cal, Omar and Mae. Peter is second.
