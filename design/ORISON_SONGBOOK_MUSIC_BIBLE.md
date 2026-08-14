@@ -2,18 +2,35 @@
 
 **PROPOSAL — OWNER REVIEW REQUIRED — NOT YET BINDING CANON.**
 
-*Filed 2026-08-14; revised the same day, twice, to owner direction. First
-correction: the target energy is authentic 2007-era nightcore — sincere,
-euphoric, embarrassing, completely unashamed. Second correction (now
-canon, `ORISON_BIBLE.md` §III.2 as amended by `42e157e`): the two audio
-layers must never be collapsed — **the instrumental catalogue is varied
-and plays at its authored speed; the nightcore artifact is the published
-community version**, reconstructed deliberately too fast at one immutable
-`reconstruction_ratio` per version. This document is written to that
-model. It alters no canon, no code, no data; its companion is
-`ORISON_SONGBOOK_LINEAGE_RESEARCH.md`; the phrase-duel brief
-(`ORISON_SONGBOOK_PHRASE_DUEL_BRIEF.md`) is reconciled at §2, §9 and §16.
-Every track is individually rejectable without collapsing the collection.*
+*Filed 2026-08-14; revised the same day, twice, to owner direction (the
+2007-nightcore register, then the §III.2 two-layer model of `42e157e`);
+revised again 2026-08-14 to the owner's Q1–Q7 rulings, the public-
+microphone launch gate, and the audio-pipeline clarification — recorded
+in §0 and worked through the whole document rather than appended. The
+collection is now the **Director's Twelve**: creatively approved as the
+basis for further writing and auditions, and not yet the worldwide
+production-clear slate. This document alters no canon, no code, no data;
+its companion is `ORISON_SONGBOOK_LINEAGE_RESEARCH.md` (scaffolding, not
+a clearance packet); the phrase-duel brief
+(`ORISON_SONGBOOK_PHRASE_DUEL_BRIEF.md`) is reconciled at §2, §9, §16 and
+inherited as a hard gate at §17. Every track remains individually
+rejectable without collapsing the collection.*
+
+---
+
+## 0. OWNER RULINGS (2026-08-14) — the record of this pass
+
+| Ruling | Decision, in one breath |
+|---|---|
+| **Q1 — the twelve** | Approved as the **Director's Twelve** — creative basis for writing and auditions, **not** the production-clear slate. The four AMBER tracks stay visible as HOLD candidates. Every track must pass a real native-speed **and** returned-speed audio audition; prose cannot prove the 2007 test. Aloha ʻOe, Nobody and Bananas remain, under the conduct terms written into their dossiers |
+| **Q2 — rights** | No US-first fragmented catalogue: the product wants **one worldwide shareable catalogue** so community versions never become territory-incompatible objects. Track 2 is the fourth AMBER; "music GREEN, lyrics AMBER" is **not** established EU clearance (Directive 2011/77/EU last-surviving-author rule) — track 2's EU instrumental status is COUNSEL REVIEW. All four AMBERs carry exact dates in §13 and stay out of generation and procurement until cleared. The all-GREEN audition slate is §12; nothing promotes on paper alone. Prisoner's Song is HOLD on provenance integrity; Daisy Bell would be a **third** waltz, not a second |
+| **Q3 — ratio** | Runtime selection and randomness rejected. Each base owns one audio-directed `house_reconstruction_ratio`, chosen by ear, owner-approved after auditioning representative voices; publishing copies it into the immutable version; retuning never touches old versions; the player never chooses; runtime never infers from BPM. The test stays: does the complete returned take sound sick |
+| **Q4 — instrumental bases** | The playable catalogue is fully instrumental. Ghost leads and lexical ensemble vocals are removed from bases; quiet period guide instruments carry melody; nonlexical room sound may stay. Singer fictions relocate to **seeded house takes** (BASE → SEEDED HOUSE TAKE → RETURN). The player's live vocal is captured with base and room as one complete take; only prerecorded catalogue ghost singers are gone |
+| **Q5 — phrase duel** | Follow-up reconciliation pass approved: per-track slot schema, phrase registers, starter and conversation-earned cards, call/retort opportunities, localization notes. The TV displays only approved phrase-card lyrics — never source-song lyrics as the player's book; localization may use period-plausible idioms |
+| **Q6 — consultation** | Standing production requirement, broadened beyond language: appropriate language/history/cultural review before producing any culturally specific repertoire, provenance or performance direction — explicitly the Japanese, Hawaiian, Yiddish, Black-vaudeville, Spanish and Chinese material. Aloha ʻOe's "hapa haole" framing and the Makai fiction are specifically flagged; the queen's composition is never itself classified hapa haole |
+| **Q7 — credits** | The Listening Line ships bundled as one nondiegetic **Music & Sources** credits surface (also reachable from track detail), with the five separations of §14. The research document is scaffolding; links and identity statements are re-verified before release |
+| **MIC GATE** | The Music Bible inherits the phrase-duel brief's §12 hard launch gate verbatim in force (§17): PRIVATE may prototype; FRIENDS needs consent/mute/block/report/delete; COMMUNITY microphone publication stays disabled until the full audio-safety design is owned; nightcore transformation is not moderation; the phrase-ID fallback is the only public path without it |
+| **SOOT ECHO** | Recorded as a separate nonbinding proposal (§18): optional microphone-reactive haunting, local-only, feature-extraction-only, never speech reproduction. Not implemented |
 
 ---
 
@@ -88,25 +105,41 @@ Boundary consequences:
   reconstruction behavior (the same trace reading as two people on
   two nights). That instability is found-object color only; it never
   applies to published player versions, whose ratio never rerolls.
+- **Sharing is gated, not assumed.** "Everyone who receives it" is
+  the intended end state of the fiction, not implementation
+  permission: microphone audio ships under the §17 tiers (PRIVATE /
+  FRIENDS / COMMUNITY), and COMMUNITY publication of player voice
+  stays disabled until the inherited launch gate is satisfied.
 
-## 3. THE OBJECTS — one pipeline, five things
+## 3. THE OBJECTS — one pipeline, six things
 
 1. **THE SOURCE** — the historical composition: real title, real
    writer, real year, documented public-domain score.
-2. **THE BASE** — the catalogue instrumental: in-fiction a period
-   recording (a named ensemble, a named room, cut to wire, reaching
-   the bar by ordinary hands), authored by us as real audio, played
-   at its own speed. Karaoke skeleton per the songbook brief: lead
-   absent or ghosted, guide quiet, sections and phrase slots defined.
-3. **THE TAKE** — the live performance: singer + base + room, one
-   complete event, physically a trace on smoked paper.
-4. **THE PUBLISHED VERSION** — the take sent through the century
-   jump: one tuned `reconstruction_ratio > 1.0`, tempo and pitch
-   together, stored immutably. Everyone who receives it hears the
-   same gloriously wrong artifact.
-5. **THE FOUND TRACE** — pre-existing soot with authored rules of its
-   own (G4): unstable readers allowed, ambiguity allowed, ownership
-   unknown. Found objects, not pipeline.
+2. **THE BASE** — the catalogue instrumental, **fully instrumental
+   by ruling (Q4)**: in-fiction a period recording session (a named
+   ensemble, a named room, cut to wire, reaching the bar by ordinary
+   hands), authored by us as real audio, played at its own speed. A
+   quiet period-plausible guide instrument carries the melody;
+   handclaps, foot noise, laughter and nonlexical room reactions may
+   remain; **the backing never sings the player's part.**
+3. **THE SEEDED HOUSE TAKE** — a shipped exemplar version: a named
+   fictional resident or period participant singing over the base.
+   This is where the collection's singer fictions live — the voices
+   that used to be ghost leads. Seeded takes demonstrate the social
+   history, seed the binder's genealogy, and obey every rule a
+   player version obeys, including the ratio and the rights policy.
+4. **THE TAKE** — the live performance: the player's (or a seeded
+   singer's) voice + base + room, one complete event, physically a
+   trace on smoked paper.
+5. **THE PUBLISHED VERSION** — the take sent through the century
+   jump: the base's `house_reconstruction_ratio` copied into the
+   immutable version record, tempo and pitch together. Everyone who
+   receives it hears the same gloriously wrong artifact — **and
+   "receives" is governed by the §17 sharing gate**, not by this
+   fiction.
+6. **THE FOUND TRACE** — pre-existing soot with authored rules of
+   its own (G4): unstable readers allowed, ambiguity allowed,
+   ownership unknown. Found objects, not pipeline.
 
 Provenance texture (kept short by owner order): spools wear paper obi
 labels, wrong catalog numbers, hand-wound tails and other people's
@@ -124,7 +157,10 @@ A song enters Volume One only if it clears all six:
 
 1. **THE 2007 TEST, applied to the return.** At its house ratio the
    returned version must rip — anime-still-upload energy, played
-   twice. Unappealable.
+   twice. Unappealable — **and provable only by ear (Q1):** every
+   track must pass an actual audition at native speed and at its
+   returned speed, with representative voices, before production
+   approval. Prose, including this document's, proves nothing.
 2. **Period-available.** Published or commonly sung by 1928; the
    base recording is period-honest. The *return* is the
    impossibility; the songs and the catalogue never are.
@@ -148,7 +184,7 @@ A song enters Volume One only if it clears all six:
 ### 5.1 The base catalogue (native speed, varied on purpose)
 
 Twelve honest period recordings, deliberately spread: parlor waltz,
-after-hours trio, hapa haole quartet, hot dance band with caller,
+after-hours trio, steel-guitar farewell trio, hot dance band,
 laundry-loft duet, settlement-house crowd, pharmacy-counter quintet,
 notary-office deadpan, produce-cart novelty, stairwell torch band,
 bridge-walk string band, seltzer-depot family. House rules:
@@ -164,10 +200,18 @@ bridge-walk string band, seltzer-depot family. House rules:
   reveal them as jungle chop, hardcore kick, hyperpop gag. Some
   tracks take none: an excellent song, played straight, is a
   complete design (owner rule).
-- **Karaoke skeleton behavior** per the brief: lead ghosted or
-  absent, one quiet guide instrument, four-to-eight-bar phrase
-  slots, section metadata. The skeleton must groove at native speed
-  — people spend whole evenings here before anything is published.
+- **Fully instrumental, by ruling (Q4).** No ghost leads, no lexical
+  ensemble vocals anywhere in a playable base: one quiet period-
+  plausible guide instrument carries the melody; claps, foot noise,
+  laughter and wordless room reactions may remain where the session
+  fiction earns them; the backing never sings the player's part.
+  Four-to-eight-bar phrase slots and section metadata per the brief.
+  The skeleton must groove at native speed — people spend whole
+  evenings here before anything is published.
+- **The singer fictions live in seeded house takes** (§3.3): every
+  voice this proposal writes — the wedding tenor, the proprietor's
+  mother, the laundress duet — is a named take *over* its base, not
+  audio *in* it.
 
 ### 5.2 The return (the published version's one transform)
 
@@ -184,9 +228,15 @@ and tempo locked, once, forever. House ratio guidance:
 - **No formant correction. Ever.** The chipmunk is the dialect.
 - **No time-stretch, no independent pitch, no per-listen reroll** —
   all named in canon; the ratio is part of the version's identity.
-- The proposal's per-track "house ratio" is a tuned default for
-  system-seeded versions and a recommendation the runtime may apply
-  to player publications; who finally owns tuning is §16-Q3.
+- **Ratio ownership is ruled (Q3).** Each base owns one
+  `house_reconstruction_ratio`, selected **by ear** by the composer/
+  audio director and approved by the owner after auditioning
+  representative voices over that base. Publishing copies the house
+  value into the immutable version record. If a house value is ever
+  retuned, existing versions keep their stored ratio. The player
+  never chooses it; the runtime never infers it from BPM and never
+  rerolls it. The table's ratios in §10 are **audition starting
+  points**, nothing more.
 - Artifacts to embrace at the return: hiss lifted into a bright
   ribbon, compression pumping against rhythms that grew a kick,
   splices landing mid-word, incident sounds turning comic (a door
@@ -195,6 +245,28 @@ and tempo locked, once, forever. House ratio guidance:
   modernize it — pads, sub-bass, sidechain gloss, de-essing. The
   return is a misreading, not a remix.
 
+### 5.3 The audio pipeline (owner clarification, verbatim in force)
+
+Removing ghost leads does **not** remove the player. The playable
+base is instrumental at native speed; during karaoke the
+phonautograph captures the player's vocal **together with** the
+instrumental and the room. The implementation may retain a dry local
+vocal for latency correction, but the fictional and audible artifact
+is one complete take:
+
+> native instrumental + player vocal + room
+> → phonautogram capture coloration
+> → assembled complete take
+> → the base's fixed `house_reconstruction_ratio` applied to the
+>   whole take
+> → tempo and pitch rise together, no formant correction
+
+The community return therefore contains the player's chipmunked
+voice and the equally accelerated backing. Only prerecorded
+catalogue ghost singers are removed; seeded house takes (§3.3) ride
+the identical pipeline with a fictional singer in the player's
+place.
+
 ## 6. REAL-WORLD ATTRIBUTION — the ethics rules
 
 The research behind this collection is of real artists and scenes —
@@ -202,10 +274,10 @@ disproportionately trans, nonbinary, queer, Black, Brown, immigrant
 and disabled makers, because that is who actually built these
 grammars and communities. The rules for carrying that respectfully:
 
-1. **Nondiegetic attribution ships.** The Listening Line (§14) names
-   the real artists and scenes in the game's extras with links to
-   official listening/purchase pages. Fictionalizing influences
-   without naming them brings light to no one.
+1. **Nondiegetic attribution ships.** The Music & Sources surface
+   (§14) names the real artists and scenes with links to official
+   listening/purchase pages. Fictionalizing influences without
+   naming them brings light to no one.
 2. **No imitation.** No brief names a living artist or describes one
    narrowly enough to commission a copy. Briefs are technique
    language only.
@@ -227,9 +299,10 @@ grammars and communities. The rules for carrying that respectfully:
    inspiration; nobody is an identity label plus a genre.
 8. **Compositions, not recordings.** Sources come from public-domain
    scores; historical recordings are never used, even ancient ones.
-   Base-master vocals (where a ghost lead exists) sing only
-   US-public-domain text; the in-game phrase guide is newly written
-   (no canonical lyrics); dossiers quote at most a title line.
+   Seeded-take vocals sing only cleared public-domain text under the
+   §13 policy; the in-game phrase guide is newly written phrase-card
+   material (no canonical lyrics); dossiers quote at most a title
+   line.
 9. **2007 sincerity, not 2007 mockery.** The upload aesthetic is
    celebrated the way its own communities celebrate it — as pure
    dance music made with total conviction — never as a bit.
@@ -279,8 +352,8 @@ performance sent across a century and returned in the wrong body*
 4. **The lineage is honest about why this lands.** Pitch-shifted
    listening as gendered self-recognition is documented practice in
    the real nightcore and hyperpop communities this collection
-   studies (research doc §§II, IV); the Listening Line says the
-   connection out loud.
+   studies (research doc §§II, IV); the Music & Sources surface
+   says the connection out loud.
 5. **Rhea's case may use the wrongness; nothing may resolve it.**
 
 ## 9. SOCIAL USE — how the bar holds the songs
@@ -302,36 +375,57 @@ performance sent across a century and returned in the wrong body*
 - Traces are social objects — gifting one is intimacy, reading one
   without its singer present is a named faux pas, and the oldest
   spools and traces have no author and everyone has a theory.
-- **Lyric books come from listening** (phrase-duel brief): phrase
-  cards learned from residents' own speech fill the slots, so a
-  song's words are the building talking to itself. The TV guide
-  presents the assembled book; this proposal's slot shapes and
-  prompts are written to host that system without depending on it.
+- **Lyric books come from listening** (phrase-duel brief, approved
+  for the follow-up pass by Q5): phrase cards learned from
+  residents' own speech fill the slots, so a song's words are the
+  building talking to itself. **The television displays only
+  approved phrase-card lyrics — never source-song lyrics as the
+  player's canonical book** — and a localized lyric book may use
+  period-plausible local idioms rather than literal translation.
+  The follow-up pass defines, per Director's track: musical slot
+  schema, compatible phrase registers, starter cards,
+  conversation-earned cards, call/retort opportunities, and
+  localization notes.
+- **Sharing wears the §17 gate.** The binder's fiction of a room
+  where every return is heard by everyone describes the intended
+  end state; the shipped tiers are PRIVATE first, FRIENDS with
+  consent and controls, COMMUNITY only past the launch gate. The
+  social writing above must read true at every tier, including a
+  PRIVATE-only build where the "community" is NPCs and seeded
+  takes.
 - The PA belongs to the room: no DJ, the queue is the binder's
   ribbon, and two people fighting over the ribbon is drama the
   design endorses.
 
-## 10. VOLUME ONE — the twelve
+## 10. THE DIRECTOR'S TWELVE
 
-*Base = native authored speed (what you sing over). Return = at the
-house ratio (what the community hears). All returns land in the
-nightcore register; "affinity" names the one period-plausible habit
-in the base that the return reveals as club grammar.*
+*Approved by Q1 as the creatively preferred collection and the basis
+for further writing and auditions — **not** the worldwide production-
+clear slate. Base = native authored speed (instrumental; what you sing
+over). Return = at the house ratio (audition starting points, Q3).
+STATUS: **AUDITION** = GREEN rights, awaiting the mandatory audio
+audition; **HOLD** = AMBER rights (§13) — visible, creatively retained,
+excluded from generation and procurement until counsel clears.*
 
-| # | ID | Arrangement title | Source (writer, year) | Base | House return | Affinity |
-|---|---|---|---|---|---|---|
-| 1 | track_101 | DREAMLAND (DON'T WAIT UP) | Meet Me Tonight in Dreamland (Friedman/Whitson, 1909) | 3/4, F, 96 | ×1.335 → 128, +5 | none — pure |
-| 2 | track_102 | THE GONDOLA SONG (LIFE IS BRIEF) | Gondola no Uta (Nakayama/Yoshii, 1915) | 2/4, Am, 76 | ×1.414 → 107, +6 | none — pure |
-| 3 | track_103 | ALOHA OE AT CLOSING TIME | Aloha ʻOe (Liliʻuokalani, 1878) | 4/4, G, 84 | ×1.335 → 112, +5 | none — pure |
-| 4 | track_104 | CHARLESTON!!!!! | The Charleston (Johnson/Mack, 1923) | cut-time, B♭, 112 | ×1.414 → 158, +6 | hardcore kick overdub |
-| 5 | track_105 | AIN'T WE GOT FUN (RENT DUE MIX) | Ain't We Got Fun (Whiting/Egan/Kahn, 1921) | 4/4, C, 118 | ×1.335 → 158, +5 | steam-press stomp |
-| 6 | track_106 | KATYUSHA GO!! | Katyusha no Uta (Nakayama/Shimamura/Sōma, 1914) | 2/4, G, 108 | ×1.414 → 153, +6 | none — crowd pure |
-| 7 | track_107 | SOME OF THESE DAYS (YOU'LL MISS ME) | Some of These Days (Brooks, 1910) | 4/4, F, 118 | ×1.335 → 158, +5 | splice-gag edits |
-| 8 | track_108 | NOBODY (AT SPEED) | Nobody (Williams/Rogers, 1905) | 4/4, Cm, 66 | ×1.414 → 93, +6 | doubled rests |
-| 9 | track_109 | YES!! WE HAVE NO BANANAS!! | Yes! We Have No Bananas (Silver/Cohn, 1923) | 4/4, F, 112 | ×1.414 → 158, +6 | none — pure chaos |
-| 10 | track_110 | AFTER YOU'VE GONE (AND LEFT ME CRYING) | After You've Gone (Layton/Creamer, 1918) | 4/4, Dm→F, 120 | ×1.335 → 160, +5 | performed break, chopped |
-| 11 | track_111 | EAST SIDE WEST SIDE (ROUND AND ROUND) | The Sidewalks of New York (Lawlor/Blake, 1894) | 3/4, G, 90 | ×1.414 → 127, +6 | 3/4 break cross-figures |
-| 12 | track_112 | THE ALPHABET SONG (BURNING BRIGHT) | Oyfn Pripetshik (Warshawsky, c. 1899) | 2/4, Dm, 72 | ×1.26 → 91, +4 | brushed halftime break |
+| # | ID | Arrangement title | Source (writer, year) | Base | House return | Affinity | Status |
+|---|---|---|---|---|---|---|---|
+| 1 | track_101 | DREAMLAND (DON'T WAIT UP) | Meet Me Tonight in Dreamland (Friedman/Whitson, 1909) | 3/4, F, 96 | ×1.335 → 128, +5 | none — pure | AUDITION |
+| 2 | track_102 | THE GONDOLA SONG (LIFE IS BRIEF) | Gondola no Uta (Nakayama/Yoshii, 1915) | 2/4, Am, 76 | ×1.414 → 107, +6 | none — pure | **HOLD** (§13) |
+| 3 | track_103 | ALOHA OE AT CLOSING TIME | Aloha ʻOe (Liliʻuokalani, 1878) | 4/4, G, 84 | ×1.335 → 112, +5 | none — pure | AUDITION + consult (Q6) |
+| 4 | track_104 | CHARLESTON!!!!! | The Charleston (Johnson/Mack, 1923) | cut-time, B♭, 112 | ×1.414 → 158, +6 | hardcore kick overdub | AUDITION |
+| 5 | track_105 | AIN'T WE GOT FUN (RENT DUE MIX) | Ain't We Got Fun (Whiting/Egan/Kahn, 1921) | 4/4, C, 118 | ×1.335 → 158, +5 | steam-press stomp | AUDITION |
+| 6 | track_106 | KATYUSHA GO!! | Katyusha no Uta (Nakayama/Shimamura/Sōma, 1914) | 2/4, G, 108 | ×1.414 → 153, +6 | none — crowd pure | AUDITION + consult (Q6) |
+| 7 | track_107 | SOME OF THESE DAYS (YOU'LL MISS ME) | Some of These Days (Brooks, 1910) | 4/4, F, 118 | ×1.335 → 158, +5 | splice-gag edits | **HOLD** (§13) |
+| 8 | track_108 | NOBODY (AT SPEED) | Nobody (Williams/Rogers, 1905) | 4/4, Cm, 66 | ×1.414 → 93, +6 | doubled rests | AUDITION + consult (Q6) |
+| 9 | track_109 | YES!! WE HAVE NO BANANAS!! | Yes! We Have No Bananas (Silver/Cohn, 1923) | 4/4, F, 112 | ×1.414 → 158, +6 | none — pure chaos | **HOLD** (§13) |
+| 10 | track_110 | AFTER YOU'VE GONE (AND LEFT ME CRYING) | After You've Gone (Layton/Creamer, 1918) | 4/4, Dm→F, 120 | ×1.335 → 160, +5 | performed break, chopped | **HOLD** (§13) |
+| 11 | track_111 | EAST SIDE WEST SIDE (ROUND AND ROUND) | The Sidewalks of New York (Lawlor/Blake, 1894) | 3/4, G, 90 | ×1.414 → 127, +6 | 3/4 break cross-figures | AUDITION |
+| 12 | track_112 | THE ALPHABET SONG (BURNING BRIGHT) | Oyfn Pripetshik (Warshawsky, c. 1899) | 2/4, Dm, 72 | ×1.26 → 91, +4 | brushed halftime break | AUDITION + consult (Q6) |
+
+*Consultation (Q6) ultimately covers every track's culturally specific
+material — the "+ consult" marks name the reviews already known to be
+load-bearing (Japanese: 2, 6; Hawaiian: 3; Black-vaudeville: 8, also
+4, 7, 10; Yiddish: 12; and Spanish/Chinese in the reserves).*
 
 Emotional coverage check: dancing (4, 11), joy (5, 6), bad taste (9),
 embarrassment (8, 9), ordinary romance (1), heartbreak (7, 10),
@@ -344,12 +438,18 @@ row in the binder's printed order.
 
 ## 11. THE TWELVE DOSSIERS
 
-*Format: **A. BASE** is the native-speed catalogue instrumental — its
-session fiction and its karaoke-skeleton behavior. **B. THE RETURN** is
-what a published take sounds like at the track's house ratio. Generation
-briefs author the base only; the return is runtime varispeed of the
-whole take and is never separately produced audio. Researched lineage is
-attribution for the Listening Line, never a style instruction.*
+*Format, per Q4: **A. BASE** is the native-speed catalogue instrumental
+— fully instrumental, its session fiction and skeleton behavior.
+**S. SEEDED HOUSE TAKE** is the named fictional singer over that base:
+the relocated vocal provenance, shipped as an exemplar version under
+every player-version rule. **B. THE RETURN** is what a complete take
+sounds like at the house ratio, separating backing-stable effects (true
+of every return of this base) from singer-dependent effects (true of
+the seeded take; a player's voice makes its own). Generation briefs
+author the base — and, for GREEN tracks only, optionally the seeded
+take — the return is runtime varispeed of a whole take and is never
+separately produced audio. Researched lineage is attribution for the
+Music & Sources surface, never a style instruction.*
 
 ---
 
@@ -367,34 +467,44 @@ attribution for the Listening Line, never a style instruction.*
   countdown. Both lives of the song are worth having, which is the
   whole two-layer design in one track.
 
-**A. BASE — 3/4, F major, 96 BPM, 2:41.** In-fiction: "The Dreamland
-Waltz," cut 1926 in the back room of a Corona wedding-photography
-studio by ten wedding-gig regulars — two violins, cornet, trombone,
-clarinet, tuba, banjo, brushed traps, upright piano — with a tenor
-ghost-lead, high, plain, unornamented. Small hard room, cornet-heavy
-balance because the horn player owned the studio. Skeleton: tenor at
-−14 dB as guide; cornet answers promoted between phrases; AABA, 16-bar
-verse, two chorus passes, four chorus slots (8-8-8-10, rise-rise-fall-
-arc). Kept incident: one chair scrape at bar 40; the bench is loose.
+**A. BASE — 3/4, F major, 96 BPM, 2:41, instrumental.** In-fiction:
+"The Dreamland Waltz," cut 1926 in the back room of a Corona wedding-
+photography studio by ten wedding-gig regulars — two violins, cornet,
+trombone, clarinet, tuba, banjo, brushed traps, upright piano. Small
+hard room, cornet-heavy balance because the horn player owned the
+studio. The **cornet is the guide**, carrying the tune plainly between
+its own answer figures; AABA, 16-bar verse, two chorus passes, four
+chorus slots (8-8-8-10, rise-rise-fall-arc). Kept incident: one chair
+scrape at bar 40; the bench is loose.
 
-**B. THE RETURN — ×1.335, +5 → A♭, 128 in a one-beat whirl.** The
-tenor ghost comes back birdlike; the brushes turn to rain; the tuba's
-pulse gets quick enough that the compressor audibly pumps against it.
-The singer — whoever they were — arrives bright, urgent and younger
-than they stood. House habit: fresh returns of Dreamland are played at
-the end of the reveal ceremony, because nothing follows it well.
+**S. SEEDED HOUSE TAKE — "the wedding tenor."** The band's usual
+tenor — high, plain, unornamented — sang the 1909 text over this base
+at the studio the night it was cut; his is the binder's seeded
+Dreamland version, credited only "for the last dance." A GREEN track,
+so the take may be produced once its base passes audition.
+
+**B. THE RETURN — ×1.335, +5 → A♭, 128 in a one-beat whirl.**
+Backing-stable: the brushes turn to rain; the tuba's pulse gets quick
+enough that the compressor audibly pumps against it; the chair scrape
+becomes a tick the regulars pretend is percussion. Singer-dependent:
+the seeded tenor comes back birdlike and urgent, younger than he
+stood; a player's voice makes its own wrongness. House habit: fresh
+returns of Dreamland close the reveal ceremony, because nothing
+follows them well.
 
 - **The television shows:** the four chorus slots with prompt "WHERE
   SHOULD THEY MEET YOU?"; phrase-duel lyric books slot naturally here
   (meeting-places are exactly what residents' speech is full of).
 - **The trace records:** singer loud, band faint and bright, glasses,
   the chair scrape — five different traces all carry it.
-- **Generation brief (base only; no artist names):** record a complete
+- **Generation brief (base; no artist names):** record a complete
   3/4 dance-orchestra performance, 96 BPM, F major, ten pieces as
-  specced, tenor ghost-lead singing the 1909 public-domain text at
-  −14 dB, one small hard room, light era-honest surface noise, no
-  edits, no fade. **Negative constraints:** no modern drums, no
-  synthesis, no reverb beyond the room, no vocal tuning, no click.
+  specced, instrumental, cornet carrying the tune plainly, one small
+  hard room, light era-honest surface noise, no edits, no fade.
+  **Seeded take (after audition):** plain unornamented tenor over
+  that base on the 1909 public-domain text. **Negative
+  constraints:** no modern drums, no synthesis, no reverb beyond
+  the room, no vocal tuning, no click.
 - **Fictional provenance:** recorded by Adeline Percy, 24, night
   operator at the Newtown exchange, who moonlights recording weddings
   on the exchange's test recorder and cut the band she hears every
@@ -428,10 +538,13 @@ the end of the reveal ceremony, because nothing follows it well.
 - **Source:** "Gondola no Uta" — music Nakayama Shinpei, lyrics Yoshii
   Isamu, 1915, Taishō Japan; the "inochi mijikashi" ballad. Score:
   period Japanese sheet editions; Nakayama scholarship (research doc
-  §I). **PD: GREEN for the music** (US 1915; Japan life+50 expired
-  2003, unrevived). Lyrics (Yoshii d. 1960) PD in US/Japan, life+70
-  territories 2031 — the game prints no lyric text; the base's sung
-  ghost-lead is flagged **AMBER for EU** in §13.
+  §I). **PD: HOLD — the fourth AMBER (§13).** US 1915 ✓; Japan clear
+  (life+50 expired 2003, unrevived); but Yoshii d. 1960, and under
+  Directive 2011/77/EU a composition with words created together is
+  protected to the last surviving author — so in life+70 territories
+  the work runs to 2031-01-01 and **even the instrumental's EU
+  status is COUNSEL REVIEW, not an assertion.** No layer is produced
+  until cleared.
 - **Why it belongs:** the Harukiya's own inheritance — the first
   Japanese pop generation's tenderest song: life is brief, fall in
   love, maidens. At native speed it closes throats; returned, a
@@ -439,22 +552,29 @@ the end of the reveal ceremony, because nothing follows it well.
   somehow more honest. Never sung before midnight (§9); the etiquette
   is enforced by looks.
 
-**A. BASE — 2/4, A minor, 76 BPM, 2:24.** In-fiction: cut 1925 in the
-bar itself, after hours — the proprietor's mother, recorded once,
-reluctantly, standing by the door as if to leave; violin; shamisen
-doubling the line an octave under; the bar's upright, soft pedal down.
-Three verses, the third hummed. Skeleton: her voice at −16 dB; violin
-carries; the hummed verse stays fully voiced because the room hums it
-with her and removing it broke every listener the fiction has. Slots:
-three long falls (12-12-14). Kept incident: her breath before verse
-one; the door latch at the end.
+**A. BASE — 2/4, A minor, 76 BPM, 2:24, instrumental.** In-fiction:
+cut 1925 in the bar itself, after hours — violin, shamisen doubling
+the line an octave under, and the bar's upright with the soft pedal
+down, played for a singer the session was *for*. The **violin is the
+guide**. Three verse-shapes, the third played sotto voce as if under
+a hum. Slots: three long falls (12-12-14). Kept incident: a breath
+by the door before verse one; the door latch at the end. **HOLD
+track (§13): no audio of any layer is produced until counsel clears
+it; the fiction below is writing, not procurement.**
 
-**B. THE RETURN — ×1.414, +6 → E♭ minor, 107.** The reluctant
-contralto comes back a bright girl; the shamisen turns to glass; the
-latch becomes a switch-click that ends the version like a light going
-out. Returns of this song are received standing. Nobody has ever
-requested one twice in the same night; once is understood to be the
-correct amount.
+**S. SEEDED HOUSE TAKE — the proprietor's mother.** Recorded once,
+reluctantly, standing by the door as if to leave, singing Yoshii's
+text; the third verse she only hummed, and the room hums it with her
+on every cover since. Hers is the seeded version and the reason for
+the midnight rule. The take's rights ride the track's HOLD.
+
+**B. THE RETURN — ×1.414, +6 → E♭ minor, 107.** Backing-stable: the
+shamisen turns to glass; the latch becomes a switch-click that ends
+every version like a light going out. Singer-dependent: her
+reluctant contralto comes back a bright girl; the hum comes back a
+choir of one. Returns of this song are received standing. Nobody has
+ever requested one twice in the same night; once is understood to be
+the correct amount.
 
 - **The television shows:** the three falling slots and no prompt —
   the guide is famously unhelpful; someone has penciled "just listen
@@ -463,13 +583,13 @@ correct amount.
 - **The trace records:** singer, trio faint, and almost always a
   second low voice, because somebody always joins the hum. Traces of
   this song are never quite solo.
-- **Generation brief:** record an intimate trio-and-contralto
-  performance, 2/4, 76 BPM, A minor, instrumentation as specced, one
-  close dry room mic, singer restrained and plain on the public-
-  domain Japanese text (vocalise where territory clearance is in
-  doubt), no edits, incidental sounds kept. **Negative constraints:**
-  no vibrato coaching, no pads, no reverb tail past the room, no
-  tuning, no "cinematic" anything, no fade.
+- **Generation brief — HOLD (§13): do not produce any layer until
+  counsel clears.** On clearance: record the intimate trio
+  instrumental, 2/4, 76 BPM, A minor, one close dry room mic, no
+  edits, incidental sounds kept; seeded take, after the Q6 Japanese
+  review: restrained plain contralto over that base. **Negative
+  constraints:** no vibrato coaching, no pads, no reverb tail past
+  the room, no tuning, no "cinematic" anything, no fade.
 - **Fictional provenance:** recorded by Kenji Uyeda, 31, piano tuner,
   Flushing, who maintains the bar's upright and set up the recorder
   as a birthday gift for the proprietor; the proprietor put the spool
@@ -501,29 +621,44 @@ correct amount.
   translation preserved at the Hawaiʻi State Archives; UH Mānoa
   digital sheet collection. **PD: GREEN** (1878; d. 1917).
 - **Why it belongs:** the most famous farewell in the world, written
-  as a love song, carried everywhere by the hapa haole circuit —
-  plausibly including a Queens bar with a steel guitar in the house.
-  It is the Harukiya's last-call song at native speed; returned,
-  "farewell to thee" refuses to sit down and be sad, which is what
-  last call at a good bar actually feels like.
+  by Queen Liliʻuokalani as a love song — credited prominently
+  wherever the track appears — and carried across the mainland by
+  touring Hawaiian musicians of the era, plausibly including a
+  Queens bar with a steel guitar in the house. It is the Harukiya's
+  last-call song at native speed; returned, "farewell to thee"
+  refuses to sit down and be sad, which is what last call at a good
+  bar actually feels like. The overthrow and annexation history is
+  stated soberly on the Music & Sources card; nothing about the
+  treatment is tropical kitsch or novelty.
 
-**A. BASE — 4/4, G major, 84 BPM, 2:33.** In-fiction: cut 1924 by a
-stranded two-brother steel-guitar act ("the Makai Brothers" on the
-label; the surname is argued) after their circuit tour collapsed in
-New York — steel guitar, rhythm guitar, ipu heel-and-slap, elder
-brother's baritone ghost-lead, warm and formal. Verse-chorus twice;
-the steel answers every phrase with a full portamento fall. Skeleton:
-baritone to a whisper; the steel is the guide — the singer follows
-the slide the way the room follows a lighter. Kept incident: the
-wire's tail-flap at the very end; the recorder ran out and the flap
-stays.
+**A. BASE — 4/4, G major, 84 BPM, 2:33, instrumental.** In-fiction:
+cut 1924 by a stranded two-brother touring string act ("the Makai
+Brothers" on the label; the surname is argued) after their circuit
+tour collapsed in New York — steel guitar, rhythm guitar, ipu
+heel-and-slap. Verse-chorus twice; the **steel is the guide**,
+answering every phrase with a full portamento fall — the singer
+follows the slide the way the room follows a lighter. Kept incident:
+the wire's tail-flap at the very end; the recorder ran out and the
+flap stays. **Consultation (Q6) before production:** the queen's
+composition is a mele of her own and is never itself classified
+"hapa haole"; whether the *fictional act's repertoire framing* uses
+that term at all, and the whole Makai-family presentation, go to
+Hawaiian-culture review, alongside a no-tropical-novelty rule
+written into the brief below.
 
-**B. THE RETURN — ×1.335, +5 → C major, 112.** The baritone lifts to
-a clear high tenor; the slides go weightless — steel portamento at
-speed is the most beautiful artifact in the catalogue and the reason
-this track exists. The tail-flap returns as a wing-beat. House habit:
-when a return of this plays, the barman brings the lights up on the
-flap, and that is the true last call.
+**S. SEEDED HOUSE TAKE — the elder brother.** His baritone, warm
+and formal, singing the queen's text as the act closed every set;
+the seeded version carries the label's argued surname and no first
+name at all. GREEN rights; production waits on the Q6 review.
+
+**B. THE RETURN — ×1.335, +5 → C major, 112.** Backing-stable: the
+slides go weightless — steel portamento at speed is the most
+beautiful artifact in the catalogue and the reason this track
+exists; the tail-flap returns as a wing-beat. Singer-dependent: the
+seeded baritone lifts to a clear high tenor; a player's farewell
+does whatever their farewell does. House habit: when a return of
+this plays, the barman brings the lights up on the flap, and that
+is the true last call.
 
 - **The television shows:** two slots per chorus (10-10, arc, fall),
   prompt "SAY GOODBYE LIKE YOU MEAN TO COME BACK"; the queen's name
@@ -531,12 +666,14 @@ flap, and that is the true last call.
   many things and not about this.
 - **The trace records:** singer, halo, the room harmonizing the final
   farewell in ragged thirds, last-call glasses, the till drawer.
-- **Generation brief:** record a four-piece hapa haole arrangement,
-  84 BPM, G major, steel answering with true portamento, baritone
-  ghost-lead on the public-domain text, one warm close room, run the
-  wire out at the end. **Negative constraints:** no ukulele strum-
-  wallpaper, no ocean foley, no reverb wash, no tuning, no fade
-  (the flap is the ending).
+- **Generation brief (base; produce only after Q6 review):** record
+  a three-piece instrumental arrangement of the 1878 composition,
+  84 BPM, G major — steel guitar answering with true portamento,
+  rhythm guitar, ipu — one warm close room, run the wire out at the
+  end. **Negative constraints:** no vocals; no ukulele strum-
+  wallpaper; no ocean foley; no "tiki"/exotica gestures of any
+  kind; no reverb wash; no tuning; no fade (the flap is the
+  ending).
 - **Fictional provenance:** recorded at the brothers' rooming house
   by their niece Leilani Makai, 19, wire-counter clerk at a Delancey
   Street novelty shop, who borrowed the shop's demonstrator recorder
@@ -571,25 +708,32 @@ flap, and that is the true last call.
   hardcore record that arrived early. Everyone in the building has a
   Charleston opinion; half are wrong on purpose.
 
-**A. BASE — cut-time, B♭ major, 112 BPM, 2:36.** In-fiction: cut 1926
-at a Harlem dance-hall matinée by the hall's relief band (the
-headliners wouldn't sign the release) — trumpet, trombone, two reeds,
-banjo, tuba, traps — with the floor manager calling steps through a
-megaphone, on the master because he would not stop. Affinity layer:
-a bass-drum four-on-the-floor overdubbed under both drop choruses,
-recorded in the hall's stairwell. Skeleton: this is the binder's one
-**call-track** — no lead to ghost; the megaphone ducks to half and
-the singer takes the caller's role; the room answers "HEY!" where
-the matinée crowd does. Kept incident: crowd bleed; one dancer's
-whistle at bar 60.
+**A. BASE — cut-time, B♭ major, 112 BPM, 2:36, instrumental.**
+In-fiction: cut 1926 at a Harlem dance-hall matinée by the hall's
+relief band (the headliners wouldn't sign the release) — trumpet,
+trombone, two reeds, banjo, tuba, traps. Affinity layer: a bass-drum
+four-on-the-floor overdubbed under both drop choruses, recorded in
+the hall's stairwell. The **trumpet is the guide**. Kept incident:
+nonlexical matinée crowd — stomps, claps, one dancer's whistle at
+bar 60 — per Q4's room-reaction allowance; no words in the base.
+Skeleton: this is the binder's one **call-track**: the slots are the
+caller's lines, and the live singer *is* the caller.
 
-**B. THE RETURN — ×1.414, +6 → E major, 158.** The megaphone calls
-chipmunk into MC hype and the matinée becomes a rave with no further
-assistance; the stairwell kick grits up into a hardcore four; the
-whistle turns piercing and the room whistles back at it. Returns of
-Charleston takes are the loudest objects in the Songbook and the
-binder's fiction says the neighbors have complained about a record
-of people being happy, twice.
+**S. SEEDED HOUSE TAKE — Freddy DeLuca, calling.** The floor
+manager's megaphone patter — the steps, the "AND— STOP," the HEYs
+the matinée crowd answered — lives in the seeded take, recorded the
+same afternoon over the same band. GREEN rights; producible after
+audition.
+
+**B. THE RETURN — ×1.414, +6 → E major, 158.** Backing-stable: the
+stairwell kick grits up into a hardcore four; the whistle turns
+piercing and the room whistles back at it; the claps become sleet.
+Singer-dependent: the seeded megaphone chipmunks into MC hype and
+the matinée becomes a rave with no further assistance; a player-
+caller's return is their own hype record. Returns of Charleston
+takes are the loudest objects in the Songbook, and the binder's
+fiction says the neighbors have complained about a record of people
+being happy, twice.
 
 - **The television shows:** call-and-response slots with the syllable
   map drawn as a dance-step diagram — the guide genuinely teaches
@@ -599,11 +743,14 @@ of people being happy, twice.
   a crowd photograph in soot), stomping that cuts the widest lines
   in the book. The studio hates reading them and says so in the
   margin.
-- **Generation brief:** record a seven-piece hot dance band in cut
-  time at 112, B♭, live caller, genuine small crowd; overdub one
+- **Generation brief (base):** record a seven-piece hot dance band
+  in cut time at 112, B♭, instrumental, with genuine small-crowd
+  room sound (stomps, claps, whistles — no words); overdub one
   acoustic bass-drum four-on-floor pass under the drop choruses.
-  **Negative constraints:** no drum machine, no synth stabs, no
-  library crowd, no swing quantization, no tuning, no polish pass.
+  **Seeded take (after audition + Q6 review):** live megaphone
+  caller over that base. **Negative constraints:** no drum machine,
+  no synth stabs, no library crowd, no swing quantization, no
+  tuning, no polish pass.
 - **Fictional provenance:** recorded by the floor manager himself,
   Freddy DeLuca, 44, who wanted a practice record "faster than the
   fastest kids" — the band gave him loud instead of fast, and the
@@ -642,21 +789,29 @@ of people being happy, twice.
   shift slot. At native speed it shrugs; returned, the shrug becomes
   a pogo and the joke outruns the rent.
 
-**A. BASE — 4/4, C major, 118 BPM, 2:29.** In-fiction: cut 1926 in
-the drying loft of a Bushwick laundry after close — the two
-laundress sisters-in-law who run the pressing line, in call-and-
-answer, over piano, banjo, one clarinet, and the pressing machines
-themselves, whose steam-thump the recordist gave up fighting and let
-keep time (the affinity layer, entirely diegetic). Skeleton: both
-leads ghosted; clarinet guide; paired call/answer slots (7/7); two
-stage mics make it the binder's favorite duet. Kept incident: one
-sister's laugh mid-chorus-two.
+**A. BASE — 4/4, C major, 118 BPM, 2:29, instrumental.** In-fiction:
+cut 1926 in the drying loft of a Bushwick laundry after close —
+piano, banjo, one clarinet, and the pressing machines themselves,
+whose steam-thump the recordist gave up fighting and let keep time
+(the affinity layer, entirely diegetic). The **clarinet is the
+guide**, trading the call and answer with itself; paired call/answer
+slots (7/7); two stage mics make it the binder's favorite duet. Kept
+incident: one laugh mid-chorus-two — nonlexical, allowed, and
+load-bearing.
 
-**B. THE RETURN — ×1.335, +5 → E major, 158.** Two working women
-come back as two bright cartoons of themselves; the steam press
-becomes a kick drum; the laugh becomes a squeak the whole bar waits
-for and imitates half a beat late. The return reveals what the loft
-knew: the laundry was a rave all along.
+**S. SEEDED HOUSE TAKE — Sadie & Bluma Perlman.** The sisters-in-law
+who run the pressing line, in call-and-answer over their own
+machines' record; the laugh is Bluma's. The binder treats their take
+as the founding duet, and every later pair measures itself against
+it. GREEN rights; producible after audition.
+
+**B. THE RETURN — ×1.335, +5 → E major, 158.** Backing-stable: the
+steam press becomes a kick drum; the clarinet turns to tinsel; the
+laugh becomes a squeak the whole bar waits for and imitates half a
+beat late. Singer-dependent: the Perlmans come back as two bright
+cartoons of themselves; any two players inherit the same physics.
+The return reveals what the loft knew: the laundry was a rave all
+along.
 
 - **The television shows:** paired call/answer slots, prompt "WHO'S
   BROKE WITH YOU?"; the guide alternates highlight sides for the
@@ -664,12 +819,13 @@ knew: the laundry was a rave all along.
   the phrase-duel brief's couplets drop straight into it.
 - **The trace records:** two voices interleaved, the squeak arriving
   twice (PA and room), the press-thump underneath like weather.
-- **Generation brief:** record a duet-and-trio performance, 118 BPM,
-  C major, piano/banjo/clarinet plus a rhythmic mechanical thump bed
-  recorded from real machinery, two unpolished women's voices in
-  call-and-answer on the public-domain text. **Negative
-  constraints:** no drum kit, no bass synthesis, no vocal tuning,
-  no laugh removal, no click, no fade.
+- **Generation brief (base):** record piano/banjo/clarinet plus a
+  rhythmic mechanical thump bed from real machinery, 118 BPM,
+  C major, instrumental, clarinet trading the call and answer with
+  itself. **Seeded take (after audition):** two unpolished women's
+  voices in call-and-answer over that base on the public-domain
+  text. **Negative constraints:** no drum kit, no bass synthesis,
+  no vocal tuning, no laugh removal, no click, no fade.
 - **Fictional provenance:** recorded by the sisters-in-law
   themselves, Sadie and Bluma Perlman, 33 and 29, on a recorder
   bought to document pressing-machine faults for the landlord; the
@@ -705,32 +861,40 @@ knew: the laundry was a rave all along.
   song used specifically to keep people at the table. Returned, the
   pentatonic hook becomes a football chant from a gentler planet.
 
-**A. BASE — 2/4, G major (pentatonic melody), 108 BPM, 2:18.**
-In-fiction: cut 1925 at a Lower East Side settlement house by its
-Tuesday-night English-and-music club — eleven voices, mixed ages and
-accents, none trained; piano, violin, tambourine; four verses of
-which the club knows two and hums the difference; self-applause at
-the end, kept. Skeleton: the whole club ducks 6 dB; the singer
-fronts a crowd. Verse slots solo (9-9, rise-fall); the chorus
-arrives with everybody whether the singer likes it or not, which is
-the point.
+**A. BASE — 2/4, G major (pentatonic melody), 108 BPM, 2:18,
+instrumental.** In-fiction: cut 1925 at a Lower East Side settlement
+house on its Tuesday club night — piano, violin, tambourine, played
+for a room that clearly wants to sing; chairs, claps and
+self-applause at the end, kept (nonlexical, allowed). The **violin
+is the guide**. Verse slots solo (9-9, rise-fall); the chorus slot
+is marked EVERYONE and means it.
 
-**B. THE RETURN — ×1.414, +6 → D♭, 153.** Eleven mismatched voices
-come back as one bright crowd; the tambourine turns to sleet; the
-applause returns as a firework. Returns of Katyusha takes are the
-binder's designated cure for a quiet room, deployed by the barman
-with clinical timing.
+**S. SEEDED HOUSE TAKE — the Tuesday club, eleven voices.** Mixed
+ages and accents, none trained, singing the 1914 song of which the
+club knows two verses and hums the difference. The seeded take is
+the binder's proof that a chorus needs no rehearsal, only
+attendance. GREEN rights; producible after audition, with the Q6
+Japanese-material review covering romanization and text.
+
+**B. THE RETURN — ×1.414, +6 → D♭, 153.** Backing-stable: the
+tambourine turns to sleet; the applause returns as a firework.
+Singer-dependent: eleven mismatched voices come back as one bright
+crowd; a lone player fronting the base returns as somebody leading
+a room that hasn't arrived yet, which regulars find funnier.
+Returns of Katyusha takes are the binder's designated cure for a
+quiet room, deployed by the barman with clinical timing.
 
 - **The television shows:** verse slots, then a chorus card reading
   EVERYONE in the largest type the terminal has.
 - **The trace records:** the singer plus however many joined —
   Katyusha traces are census documents; Mae once dated a quarrel
   between two regulars by which of them is absent from a chorus.
-- **Generation brief:** record an eleven-voice amateur unison with
-  piano/violin/tambourine, 2/4 at 108, G major pentatonic per the
-  1914 sheet, honest imprecision, applause kept. **Negative
-  constraints:** no choir plugins, no tuning, no click, no added
-  percussion, no crossfades.
+- **Generation brief (base):** record piano/violin/tambourine, 2/4
+  at 108, G major pentatonic per the 1914 sheet, instrumental, in a
+  room of chairs and claps, self-applause kept. **Seeded take
+  (after audition + Q6 review):** eleven-voice amateur unison over
+  that base, honest imprecision. **Negative constraints:** no choir
+  plugins, no tuning, no click, no added percussion, no crossfades.
 - **Fictional provenance:** recorded by the club's citizenship
   tutor on the settlement's recorder; the spool's obi label lists
   eleven names in four hands. Spool: HENRY ST TUES NIGHT CLUB
@@ -767,27 +931,33 @@ with clinical timing.
   giddier until leaving reads as flight, not loss. The single most
   2007 return in the binder.
 
-**A. BASE — 4/4, F major, 118 BPM, 2:47.** In-fiction: cut 1927
-above a Sixth Avenue pharmacy by the soda-fountain clerk who has
-sung at every counter she's worked — contralto ghost-lead with the
-grain left in, over a hot quintet: cornet, trombone, clarinet,
-piano, traps. Verse-chorus-chorus with a shouted tag. Affinity
-layer, entirely period-mechanical: the recordist's splices — a
-one-bar band rest cut into the master before each "you'll miss me,"
-a stutter-splice on the tag, and one chorus dubbed at half hub-speed
-for two bars, then slammed back (a real wire-dub trick; at native
-speed it reads as the band dropping an octave to lean in). Skeleton:
-lead to a ghost; cornet guide; the rests stay and the room counts
-them with fists on tables. Kept incident: the pharmacy door-bell
-mid-take.
+**A. BASE — 4/4, F major, 118 BPM, 2:47, instrumental.** In-fiction:
+cut 1927 above a Sixth Avenue pharmacy — a hot quintet: cornet,
+trombone, clarinet, piano, traps. Verse-chorus-chorus with a shouted-
+tag slot. Affinity layer, entirely period-mechanical: the recordist's
+splices — a one-bar band rest cut into the master before each
+chorus-title line, a stutter-splice on the tag, and one chorus dubbed
+at half hub-speed for two bars, then slammed back (a real wire-dub
+trick; at native speed it reads as the band dropping an octave to
+lean in). The **cornet is the guide**; the rests stay and the room
+counts them with fists on tables. Kept incident: the pharmacy
+door-bell mid-take. **HOLD track (§13): no layer is produced until
+counsel clears it.**
 
-**B. THE RETURN — ×1.335, +5 → A major, 158.** The contralto comes
-back a glittering alto-plus that undeniably *means it*; the spliced
-rests hit like trapdoors; and the half-speed dub bars return to
-normal pitch while everything around them chipmunks — for two bars
-the singer's real register surfaces inside the return, then the
-glitter slams back. The binder's most imitated moment, and §8's
-wrong-body mechanic as a dance move.
+**S. SEEDED HOUSE TAKE — Ruby Okafor.** The soda-fountain clerk who
+has sung at every counter she's worked, contralto with the grain
+left in, recorded the week she quit — the take does not hide it.
+Her spool went to the ex with one word on the label. Rights ride
+the track's HOLD.
+
+**B. THE RETURN — ×1.335, +5 → A major, 158.** Backing-stable: the
+spliced rests hit like trapdoors; the half-speed dub bars return to
+normal pitch while everything around them chipmunks — two bars of
+true register surfacing inside the glitter, then the slam back; the
+binder's most imitated moment, and §8's wrong-body mechanic as a
+dance move regardless of who sang. Singer-dependent: Ruby's seeded
+take undeniably *means it*; a player's take means whatever they
+brought up the stairs.
 - **Chorus custom (the euphoria note, §10):** on those two bars the
   whole room drops with it, every voice finding its own floor, and
   for two bars nobody's register is anybody's business.
@@ -799,13 +969,14 @@ wrong-body mechanic as a dance move.
 - **The trace records:** the singer alone inside the spliced rests
   (the prettiest lines in the book; two are pinned above the
   machine), the fists counting, the door-bell.
-- **Generation brief:** record a hot-quintet-and-contralto
-  performance, 118 BPM, F major, on the 1910 public-domain text,
-  with a shouted tag; perform the splice tricks physically (cut
-  rests, stutter, two bars dubbed at half hub-speed) — no DAW
-  automation shapes. **Negative constraints:** no gated silence
-  (cut, don't gate), no 808s, no vocal chops, no tuning, no
-  sidechain gloss.
+- **Generation brief — HOLD (§13): do not produce any layer until
+  counsel clears.** On clearance: hot quintet instrumental, 118
+  BPM, F major, splice tricks performed physically (cut rests,
+  stutter, two bars dubbed at half hub-speed) — no DAW automation
+  shapes; seeded take: grained contralto over that base on the
+  1910 text with a shouted tag. **Negative constraints:** no gated
+  silence (cut, don't gate), no 808s, no vocal chops, no tuning,
+  no sidechain gloss.
 - **Fictional provenance:** recorded and spliced by the clerk
   herself, Ruby Okafor, 26, the week she quit that pharmacy; the
   spool went to the ex with no note, and the ex, to their single
@@ -842,25 +1013,34 @@ wrong-body mechanic as a dance move.
   the same length in bars and half the length in breath, so the
   deadpan turns manic without moving a muscle.
 
-**A. BASE — 4/4, C minor, 66 BPM, 2:58.** In-fiction: cut 1926 in a
-notary's office after hours by the notary's clerk, a baritone of
-catastrophic composure — voice, trombone (the only accompanist who
-wouldn't laugh), harmonium, and a metronome the clerk refused to
-turn off ("it keeps me honest"). Affinity layer: the famous rests
-are *doubled* — held twice their notated length, timed by the
-metronome, total commitment. Skeleton: lead pulled entirely (the
-deadpan must be the singer's own); trombone guide; the doubled
-rests stay, black and total. Singing it is a public dare; the
-binder's page is worn soft at the corner. Kept incident: harmonium
-wheeze, office clock, one stifled trombone snort.
+**A. BASE — 4/4, C minor, 66 BPM, 2:58, instrumental.** In-fiction:
+cut 1926 in a notary's office after hours — trombone (the only
+accompanist who wouldn't laugh), harmonium, and a metronome the
+recordist refused to turn off ("it keeps me honest"). Affinity
+layer: the famous rests are *doubled* — held twice their notated
+length, timed by the metronome, total commitment. The **trombone is
+the guide**, straight-faced; the doubled rests stay, black and
+total. Singing it is a public dare; the binder's page is worn soft
+at the corner. Kept incident: harmonium wheeze, office clock, one
+stifled trombone snort. **Performance conduct, ruled (Q1):** the
+craft honored here is Williams' timing; **no blackface imagery, no
+dialect impersonation, no performance mimicry** in any produced
+layer, seeded take, direction or marketing of this track, ever.
 
-**B. THE RETURN — ×1.414, +6 → F♯ minor, 93.** The baritone comes
-back a reedy, wounded tenor — the self-pity gets *younger*, which
-everyone agrees is worse and funnier; the metronome chipmunks into
-a woodblock sprint; and the doubled rests, at speed, land at their
-original notated length — **the return accidentally restores the
-song's true timing**, a joke only Mae has noticed and she is
-saving it.
+**S. SEEDED HOUSE TAKE — Ezra Okun.** The notary's clerk, a
+baritone of catastrophic composure, delivering the 1905 text over
+his own doubled rests as if entering it into the record. GREEN
+rights; producible after audition under the conduct rule above and
+the Q6 Black-vaudeville review.
+
+**B. THE RETURN — ×1.414, +6 → F♯ minor, 93.** Backing-stable: the
+metronome chipmunks into a woodblock sprint, and the doubled rests,
+at speed, land at their original notated length — **the return
+accidentally restores the song's true timing**, a joke only Mae has
+noticed and she is saving it. Singer-dependent: Ezra's baritone
+comes back a reedy, wounded tenor — the self-pity gets *younger*,
+which everyone agrees is worse and funnier; a player's deadpan is
+their own gamble.
 
 - **The television shows:** refrain slots (5-7-5, flat-flat-fall)
   with the rests drawn as long empty brackets and the prompt "WAIT
@@ -869,12 +1049,14 @@ saving it.
 - **The trace records:** the singer, the room's held breath (a
   Nobody trace's gaps are full of tiny glass and cough marks), the
   metronome faint and relentless.
-- **Generation brief:** record voice/trombone/harmonium/metronome,
-  66 BPM, C minor, on the 1905 public-domain text, rests held at
-  double length with total commitment; band cut dead around the
-  final word. **Negative constraints:** no comedy foley, no vocal
-  irony (play it straight), no reverb, no tuning, no shortening
-  the rests, ever.
+- **Generation brief (base):** record trombone/harmonium/metronome,
+  66 BPM, C minor, instrumental, rests held at double length with
+  total commitment; band cut dead around the final phrase. **Seeded
+  take (after audition + Q6 review, under the Q1 conduct rule):**
+  composed baritone over that base on the 1905 public-domain text.
+  **Negative constraints:** no comedy foley, no vocal irony (play
+  it straight), no dialect impersonation or mimicry of any
+  performer, no reverb, no tuning, no shortening the rests, ever.
 - **Fictional provenance:** recorded by Ezra Okun, 38, the
   notary's clerk, who considers the spool a legal instrument ("it
   notarizes the pause") and lost it to the bar in a bet he
@@ -911,21 +1093,30 @@ saving it.
   escape velocity, which is joy. The 2007 test was invented for
   this track.
 
-**A. BASE — 4/4, F major, 112 BPM, 1:58 — the catalogue's shortest
-side, on purpose.** In-fiction: cut 1925 on a Saturday by the
-Anastos brothers, produce men, on a dare from their own customers —
-two untrained baritones in unison-ish, piano, banjo, kazoo
-(contraband; the recordist objected and was outvoted), bicycle
-bell. Verse cut, chorus three times, done. Skeleton: leads ducked;
-the kazoo is the guide — the single worst melody guide in the
-Songbook, defended by the room as sacred. Kept incident:
-everything. This base is the catalogue's honesty benchmark.
+**A. BASE — 4/4, F major, 112 BPM, 1:58, instrumental — the
+catalogue's shortest side, on purpose.** In-fiction: cut 1925 on a
+Saturday at the produce stand — piano, banjo, kazoo (contraband;
+the recordist objected and was outvoted), bicycle bell. Verse cut,
+chorus three times, done. The **kazoo is the guide** — the single
+worst melody guide in the Songbook, defended by the room as sacred.
+Kept incident: everything nonlexical the stand produced. This base
+is the catalogue's honesty benchmark. **Performance conduct, ruled
+(Q1): no ethnic accent, no dialect comedy** — in the seeded take,
+in direction, anywhere; the joke is the sentence, never a voice.
+**HOLD track (§13): no layer is produced until counsel clears it.**
 
-**B. THE RETURN — ×1.414, +6 → B major, 158.** Two grocers come
-back as a cartoon quarrel; the kazoo becomes a weapon; the bicycle
-bell ends the version as a ping from space. Returns of Bananas
-takes are played at birthdays *instead of* the base, loud, while
-the birthday person visibly reconsiders their friendships.
+**S. SEEDED HOUSE TAKE — the Anastos brothers.** Two untrained
+baritones in unison-ish, on a dare from their own customers,
+singing it absolutely straight, which is the whole joke. Rights
+ride the track's HOLD.
+
+**B. THE RETURN — ×1.414, +6 → B major, 158.** Backing-stable: the
+kazoo becomes a weapon; the bicycle bell ends every version as a
+ping from space. Singer-dependent: the brothers come back as a
+cartoon quarrel; the birthday room's own take comes back worse and
+better. Returns of Bananas takes are played at birthdays *instead
+of* the base, loud, while the birthday person visibly reconsiders
+their friendships.
 
 - **The television shows:** chorus slots (11-9-11-9) and the
   prompt "LIST WHAT YOU DO HAVE." — the binder's most-mutated
@@ -936,11 +1127,13 @@ the birthday person visibly reconsiders their friendships.
   the kazoo bleeding through everything. Bananas traces are dense,
   ugly, and the most-requested reads in the studio's ledger, which
   the studio resents.
-- **Generation brief:** record two enthusiastic untrained
-  baritones with piano/banjo/kazoo/bicycle bell, 112 BPM, F major,
-  on the 1923 public-domain text; keep every blemish. **Negative
-  constraints:** no competence, no tuning, no click, no de-essing
-  the kazoo, no irony — they mean it.
+- **Generation brief — HOLD (§13): do not produce any layer until
+  counsel clears.** On clearance: piano/banjo/kazoo/bicycle bell
+  instrumental, 112 BPM, F major, every blemish kept; seeded take:
+  two enthusiastic untrained baritones over that base on the 1923
+  text. **Negative constraints:** no competence, no tuning, no
+  click, no de-essing the kazoo, no irony — they mean it — and
+  per Q1, no ethnic accent or dialect comedy of any kind.
 - **Fictional provenance:** recorded at the stand by Dimitri
   Anastos, 15, the brothers' nephew, on the novelty shop's
   demonstrator (Leilani Makai taught him to thread it and regrets
@@ -980,28 +1173,35 @@ the birthday person visibly reconsiders their friendships.
   break; the return reveals it as jungle. A floor-filler for
   crying people is a civic necessity.
 
-**A. BASE — 4/4, D minor verse to F major chorus, 120 BPM, 3:12 —
-the catalogue's longest side.** In-fiction: cut 1927 in the
-stairwell of a Sugar Hill rooming house (the room with the good
-echo) by a Pullman porter home between runs — his high baritone
-ghost-lead, cornet, piano, guitar, and **the Vaughters break**:
-six bars of his church-drummer cousin Elias Vaughters, brushes
-into sticks, recorded first, alone, in the same stairwell, paid in
-cash and dinner, and *named on the label* (§6's ethics carried in
-the fiction). Affinity layer: the porter re-orders the break by
+**A. BASE — 4/4, D minor verse to F major chorus, 120 BPM, 3:12,
+instrumental — the catalogue's longest side.** In-fiction: cut 1927
+in the stairwell of a Sugar Hill rooming house (the room with the
+good echo) — cornet, piano, guitar, and **the Vaughters break**:
+six bars of church drummer Elias Vaughters, brushes into sticks,
+recorded first, alone, in the same stairwell, paid in cash and
+dinner, and *named on the label* (§6's ethics carried in the
+fiction). Affinity layer: the recordist re-orders the break by
 hand-winding dub passes — displaced snares, one eight-bar halftime
 lay under the title line — a wire-era edit any patient person
-could make. Skeleton: lead to a ghost; cornet guide; the chopped break
-and halftime stay. Kept incident: one el-train pass under the
-bridge section.
+could make. The **cornet is the guide**; the chopped break and
+halftime stay. Kept incident: one el-train pass under the bridge
+section. **HOLD track (§13): no layer is produced until counsel
+clears it.**
 
-**B. THE RETURN — ×1.335, +5 → landing 160.** The break chipmunks
-with the band — grit and all, one acoustic event — and the hand-
-wound chops become, unmistakably, jungle: displaced snares
-cracking bright, the halftime lay turning into a drop, the el
-train tuned by speed into weather. The voice grieves at walking
-pace inside a body doing 160; two tempos in love. Returns of this
-track outnumber the base's own plays on Fridays, per the binder.
+**S. SEEDED HOUSE TAKE — Marcus Vaughters.** The Pullman porter,
+Elias's cousin, high baritone, home between runs, singing the 1918
+text over his own edit — he chopped the drums "so they could miss
+somebody too." Rights ride the track's HOLD.
+
+**B. THE RETURN — ×1.335, +5 → landing 160.** Backing-stable: the
+break chipmunks with the band — grit and all, one acoustic event —
+and the hand-wound chops become, unmistakably, jungle: displaced
+snares cracking bright, the halftime lay turning into a drop, the
+el train tuned by speed into weather. Singer-dependent: Marcus's
+grief walks inside a body doing 160 — two tempos in love; any
+singer inherits that architecture with their own weather. Returns
+of this track outnumber the base's own plays on Fridays, per the
+binder.
 
 - **The television shows:** chorus slots (6-6-8-10, fall-fall-
   rise-arc), the halftime bars marked with a drawn anchor; prompt
@@ -1009,12 +1209,14 @@ track outnumber the base's own plays on Fridays, per the binder.
 - **The trace records:** the singer; the break's crack cutting the
   deepest lines in the book (snare transients bite soot); Friday
   traces of this track outnumber all other days combined.
-- **Generation brief:** record a six-bar acoustic drum break
-  (brushes into sticks) alone in a hard stairwell; separately
-  record voice/cornet/piano/guitar on the 1918 public-domain
-  text, 120 BPM, Dm→F; assemble with hand-edit-style chops
-  (re-order, displace, eight bars halftime under the title line)
-  — splice logic, not DAW quantize. **Negative constraints:** no
+- **Generation brief — HOLD (§13): do not produce any layer until
+  counsel clears.** On clearance: record a six-bar acoustic drum
+  break (brushes into sticks) alone in a hard stairwell;
+  separately record cornet/piano/guitar instrumental, 120 BPM,
+  Dm→F; assemble with hand-edit-style chops (re-order, displace,
+  eight bars halftime under the title line) — splice logic, not
+  DAW quantize; seeded take, after the Q6 review: high baritone
+  over that base on the 1918 text. **Negative constraints:** no
   sampled or recreated famous breaks; no reese or sub synthesis;
   no sirens; no time-stretch; no vocal tuning.
 - **Fictional provenance:** recorded by Marcus Vaughters, 30, the
@@ -1057,25 +1259,30 @@ track outnumber the base's own plays on Fridays, per the binder.
   underneath argues in twelves. "Round and round" becomes
   literal.
 
-**A. BASE — 3/4, G major, 90 BPM, 2:52.** In-fiction: cut 1926 on
-the Queensboro span's pedestrian walk at 2 a.m. (permit: none) by
-a messenger-kid social club with a borrowed recorder — concertina,
-two fiddles, banjo, a skate-wheel case drummed with palms, five
-voices trading lines. Affinity layer: a second pass of the skate-
-case drumming, wound in against the first at a displaced eighth,
-so the waltz carries quiet 12/8 cross-figures — kid-mischief
-polyrhythm, fully period. Skeleton: the five voices duck;
-concertina guide; verse slots trade line-by-line (five singers or
-one doing five voices; both traditions active). Kept incident:
-bridge wind, two vehicle passes, one cop who audibly declines to
-care and is thanked by name.
+**A. BASE — 3/4, G major, 90 BPM, 2:52, instrumental.** In-fiction:
+cut 1926 on the Queensboro span's pedestrian walk at 2 a.m.
+(permit: none) by a messenger-kid social club with a borrowed
+recorder — concertina, two fiddles, banjo, a skate-wheel case
+drummed with palms. Affinity layer: a second pass of the skate-case
+drumming, wound in against the first at a displaced eighth, so the
+waltz carries quiet 12/8 cross-figures — kid-mischief polyrhythm,
+fully period. The **concertina is the guide**; verse slots trade
+line-by-line (five singers or one doing five voices; both
+traditions active). Kept incident: bridge wind, two vehicle passes,
+footsteps of one unbothered patrol.
 
-**B. THE RETURN — ×1.414, +6 → D♭, 127 in three.** Five kids come
-back as one bright gang; the crossed skate-cases become a snare
-argument from nowhere; the wind turns to whistle. Returned, the
-track genuinely *spins* — regulars clear the middle of the floor
-for it, and the turning dance that goes with it was invented by
-Cam, credited to nobody, and is now simply how it is danced.
+**S. SEEDED HOUSE TAKE — the Borough Hall Rollers, five voices.**
+The club's five best trading lines over their own record — and the
+cop who audibly declines to care, thanked by name, lives on this
+take. GREEN rights; producible after audition.
+
+**B. THE RETURN — ×1.414, +6 → D♭, 127 in three.** Backing-stable:
+the crossed skate-cases become a snare argument from nowhere; the
+wind turns to whistle; the track genuinely *spins* — regulars clear
+the middle of the floor for any return of it, and the turning dance
+that goes with it was invented by Cam, credited to nobody, and is
+now simply how it is danced. Singer-dependent: five kids come back
+as one bright gang; a solo player returns as a one-person parade.
 
 - **The television shows:** trade-off slots labeled by club
   nicknames, then a chorus card reading ALL OF YOU; prompt "NAME
@@ -1084,12 +1291,14 @@ Cam, credited to nobody, and is now simply how it is danced.
 - **The trace records:** up to five voices in relay, sway noise
   on the threes, the deep click of the skate case like a
   heartbeat with somewhere to be.
-- **Generation brief:** record a five-voice street-band waltz,
-  90 BPM, G major, on the 1894 public-domain text, outdoors with
-  honest wind and two vehicle passes; overdub a second displaced
-  skate-case pass for 12/8 crosses. **Negative constraints:** no
-  4/4 conversion, no click, no wind removal, no library traffic,
-  no sub-bass, no tuning.
+- **Generation brief (base):** record a street-band waltz
+  instrumental — concertina, two fiddles, banjo, palmed skate-case
+  — 90 BPM, G major, outdoors with honest wind and two vehicle
+  passes; overdub a second displaced skate-case pass for 12/8
+  crosses. **Seeded take (after audition):** five voices trading
+  lines over that base on the 1894 public-domain text. **Negative
+  constraints:** no 4/4 conversion, no click, no wind removal, no
+  library traffic, no sub-bass, no tuning.
 - **Fictional provenance:** recorded by the Borough Hall Rollers
   — eight messenger kids, 14 to 19; treasurer Pearl Wachtel, 16,
   the only one who read the recorder's manual, billed the club
@@ -1130,28 +1339,34 @@ Cam, credited to nobody, and is now simply how it is danced.
   still, which is comedy. The gentlest return in the catalogue,
   chosen so the grandfather comes back *younger*, not silly.
 
-**A. BASE — 2/4, D minor, 72 BPM, 3:05.** In-fiction: cut 1926 in
-the back of a Grand Street seltzer depot by the route family that
-owns it — grandfather's unhurried baritone ghost-lead; his
-daughter's alto shadowing a sixth above on verse two; harmonium;
-mandolin; and the depot's bottle racks, which ring sympathetically
-on G and were left in. Affinity layer: a soft brushed pass on a
-shipping crate, played by the daughter (she learned for this),
-halftime throughout, one displacement per sixteen bars. Skeleton:
-grandfather ducks; the alto shadow stays at half voice (singing
-this alone is not the custom); mandolin guide. The binder marks
-it DUET, GENERATIONS PREFERRED. Kept incident: cart wheels
-outside; the harmonium's leak; the child the record was made for,
-audibly failing to sit still at bar 40, kept by unanimous family
-vote.
+**A. BASE — 2/4, D minor, 72 BPM, 3:05, instrumental.** In-fiction:
+cut 1926 in the back of a Grand Street seltzer depot by the route
+family that owns it — harmonium; mandolin; the depot's bottle
+racks, which ring sympathetically on G and were left in. Affinity
+layer: a soft brushed pass on a shipping crate, played by the
+daughter (she learned for this), halftime throughout, one
+displacement per sixteen bars. The **mandolin is the guide**. The
+binder marks it DUET, GENERATIONS PREFERRED. Kept incident: cart
+wheels outside; the harmonium's leak; the child the record was
+made for, audibly failing to sit still at bar 40, kept by
+unanimous family vote.
+
+**S. SEEDED HOUSE TAKE — Perl & Daughter.** The grandfather's
+unhurried baritone with Chana's alto shadowing a sixth above on
+verse two, singing Warshawsky's text over their own depot record.
+Singing this alone is not the custom, and the seeded take is why.
+GREEN rights; producible after audition, with the Q6 Yiddish-
+material review covering text and pronunciation.
 
 **B. THE RETURN — ×1.26, +4 → F♯ minor, 91.** The catalogue's
-gentlest ratio: the grandfather returns as a young man, the
-bottle racks become a glockenspiel nobody owns, the crate-brush
-halftime turns liquid, and the child's wiggle becomes a giggle
-that half the bar now waits for. Returns of this track are how
-the fiction's parents get *their* children to sit still, which
-the grandfather calls "the bribe, industrialized."
+gentlest ratio. Backing-stable: the bottle racks become a
+glockenspiel nobody owns; the crate-brush halftime turns liquid;
+the child's wiggle becomes a giggle that half the bar now waits
+for. Singer-dependent: the grandfather returns as a young man —
+younger, never silly — and any two players a generation apart
+inherit the same mercy. Returns of this track are how the
+fiction's parents get *their* children to sit still, which the
+grandfather calls "the bribe, industrialized."
 
 - **The television shows:** verse slots (10-10-8, all falling)
   and — uniquely — an alphabet drawn one letter per bar along the
@@ -1160,12 +1375,13 @@ the grandfather calls "the bribe, industrialized."
 - **The trace records:** two voices a generation apart, the brush
   faint, the bottle-glock shimmer — Alphabet traces are instantly
   recognizable in the drawer.
-- **Generation brief:** record baritone-and-alto with harmonium,
-  mandolin, sympathetic glass resonance and a brushed crate
-  halftime pass, 2/4 at 72, D minor, on the public-domain Yiddish
-  text. **Negative constraints:** no klezmer ornament pack, no
-  minor-key melodrama, no strings, no choir, no tuning, no
-  removing the child.
+- **Generation brief (base):** record harmonium, mandolin,
+  sympathetic glass resonance and a brushed crate halftime pass,
+  2/4 at 72, D minor, instrumental. **Seeded take (after Q6
+  review):** baritone-and-alto duet over that base on the
+  public-domain Yiddish text. **Negative constraints:** no klezmer
+  ornament pack, no minor-key melodrama, no strings, no choir, no
+  tuning, no removing the child.
 - **Fictional provenance:** recorded by Chana Perl, 34 — Perl &
   Daughter, Seltzer — so her son would sit for the alphabet the
   way she never did; her father requests the spool by its family
@@ -1190,30 +1406,39 @@ the grandfather calls "the bribe, industrialized."
 
 ---
 
-## 12. SIX RESERVES — short pitches
+## 12. THE RESERVES — the all-GREEN audition slate
+
+*Per Q2, the reserves double as the **all-GREEN audition slate**: if
+counsel holds any AMBER track past its window, replacements come from
+here — but nothing promotes on paper. Promotion requires the Q6
+consultation pass for its material **and** a passed native-speed and
+returned-speed audition, same as any Director's track. Bases are
+instrumental and singer fictions are seeded takes here too.*
 
 1. **DAISY BELL (GO FASTER)** — "Daisy Bell (A Bicycle Built for
    Two)," Harry Dacre, 1892. **GREEN** (Dacre d. 1922). Base: a
    cycling club's parlor waltz with a bell choir of actual bicycle
-   bells. Return ×1.414: the proposal's second 3/4 spin, giddier
-   and dumber than track_111. Reserve because two waltz returns is
-   one too many for Volume One; first substitution when a waltz
-   slot opens. Register: friendship, courtship by committee.
+   bells. Return ×1.414: giddier and dumber than track_111 — but
+   note, corrected by Q2: Volume One already holds **two** 3/4
+   tracks (1 and 11), so Daisy Bell would be a **third** waltz, not
+   a second. Reserve accordingly; substitutes only into a vacated
+   waltz slot. Register: friendship, courtship by committee.
 2. **LA PALOMA (COME BACK TO ME)** — Sebastián Iradier, ~1863.
-   **GREEN** (d. 1865). Base: habanera duo — guitar, voice, one
-   conga-substitute crate — cut in a Chelsea boarding-house
-   kitchen. Return ×1.335: the habanera lilt at speed is halfway
-   to a broken-beat and needs no help. Register: migration,
-   promised returns. Reserve pending a Spanish-language phrase-
-   guide pass done properly.
+   **GREEN** (d. 1865). Base: habanera guitar and crate-tap
+   instrumental cut in a Chelsea boarding-house kitchen; seeded
+   take: one homesick voice. Return ×1.335: the habanera lilt at
+   speed is halfway to a broken-beat and needs no help. Register:
+   migration, promised returns. Reserve pending the Q6 Spanish-
+   language review.
 3. **MOLIHUA (JASMINE ALL NIGHT)** — "Molihua," traditional
    Chinese melody, documented in print since the 18th century
    (Barrow, 1804). **GREEN** (traditional; arrangement ours).
-   Base: erhu, yangqin and a grandmother-granddaughter unison cut
-   above a Mott Street tea shop. Return ×1.26, gentle, per the
-   track_112 rule: elders return younger, never silly. Register:
-   inheritance. Reserve pending a proper consultation pass on
-   romanization and phrase-guide language.
+   Base: erhu and yangqin instrumental cut above a Mott Street tea
+   shop; seeded take: grandmother-granddaughter unison. Return
+   ×1.26, gentle, per the track_112 rule: elders return younger,
+   never silly. Register: inheritance. Reserve pending the Q6
+   Chinese-language review of romanization and phrase-guide
+   language.
 4. **SANTA LUCIA (ROW US HOME)** — Teodoro Cottrau's Neapolitan
    barcarolle, 1849. **GREEN** (d. 1879). Base: a longshoreman
    trio with mandolin and concertina, cut on a pier shed at dawn.
@@ -1223,34 +1448,54 @@ the grandfather calls "the bribe, industrialized."
    track_103.
 5. **THE PRISONER'S SONG (IF I HAD WINGS)** — credited Guy Massey,
    pub. 1924; authorship famously tangled (the Massey/Dalhart
-   family dispute is documented and stated, not smoothed).
-   **GREEN-with-note** (US 1924; credited author d. 1925). Base:
-   a night watchman with a guitar and too much time. Return
-   ×1.335: the self-pity turns weightless; heartbreak slot cover.
-   Reserve because the binder already carries two lonely men
-   (8, 10); rotate in when one rotates out.
+   family dispute is documented, not smoothed). **HOLD, ruled by
+   Q2:** the tangle conflicts with this document's own
+   provenance-integrity rule (the same rule that blocked Tiger
+   Rag), so it is not on the audition slate. It stays written here
+   as the record of what was considered; promotion would need the
+   authorship story resolved honestly first. (US 1924; credited
+   author d. 1925.) Base sketch retained: a night watchman with a
+   guitar and too much time; ×1.335.
 6. **LA GOLONDRINA (THE SWALLOW)** — Narciso Serradell Sevilla,
-   1862. **GREEN** (d. 1910). Base: a Veracruz-born tailor's
-   family trio, harp-guitar and two voices, cut over a Ninth
-   Avenue shop. Return ×1.335: the era's great migration farewell
-   returns as flight itself. Register: exile, tenderness.
-   Reserve as the alternate farewell if track_103's AMBER-free
-   status is ever needed in its slot (it is GREEN; the reserve
-   exists for register balance, not law).
+   1862. **GREEN** (d. 1910). Base: harp-guitar instrumental cut
+   over a Ninth Avenue tailor's shop; seeded take: the Veracruz-
+   born tailor and his sister, two voices. Return ×1.335: the
+   era's great migration farewell returns as flight itself.
+   Register: exile, tenderness. Reserve for register balance
+   behind track_103 (both GREEN); pending the Q6 Spanish-language
+   review.
 
-## 13. LEGAL POLICY AND THE BLOCKED LIST
+## 13. RIGHTS AND TERRITORY (Q2, ruled) AND THE BLOCKED LIST
 
-**Policy.** Primary jurisdiction is US publication ≤1930 (all
-twelve cores are US-PD). Author-death life+70 status is checked
-per track: **GREEN** = clear in US and life+70 territories;
-**AMBER** = US-clear, encumbered somewhere major (named per
-dossier: 2 — EU lyrics only, to 2031; 7 — EU to 2046; 9 — EU to
-2031; 10 — EU to 2049). AMBER ships nowhere without an owner
-territory decision; every AMBER dossier survives demotion to
-reserve without collapsing the collection. Genuinely uncertain
+**Design-risk documentation, not legal advice or final clearance.**
+
+**Policy, as ruled.** The intended product has **one worldwide
+shareable catalogue** — community versions must never become
+territory-incompatible objects, so a US-first fragmented public
+catalogue is rejected. Every core is US-PD (publication ≤1930);
+worldwide status is what gates production. **GREEN** = US and
+life+70 territories clear. **HOLD (AMBER)** = US-clear, encumbered
+in at least one major territory: creatively retained, visible in
+§10, and **excluded from generation and production procurement
+until counsel clears** — the four HOLDs are 2, 7, 9 and 10, and
+track 2 is the fourth AMBER, not an exception. Genuinely uncertain
 status is BLOCKED, not rationalized. Composition and recording
 rights are never conflated: no historical recording is used
 anywhere, so only composition status is in play.
+
+**The four HOLDs, with exact dates:**
+
+| Track | Work | Last-surviving author | Last protected date | First expected PD | Jurisdiction | Status |
+|---|---|---|---|---|---|---|
+| 2 | Gondola no Uta | Yoshii Isamu, d. 1960 (lyricist; composer Nakayama d. 1952) | 2030-12-31 | 2031-01-01 | EU/EEA and other life+70 states | **COUNSEL REVIEW REQUIRED** — per Directive 2011/77/EU, a musical composition with words created together is protected to 70 years after the last surviving of lyricist and composer; "music GREEN, lyrics AMBER" is **not** established EU clearance, and the **instrumental's** EU status is itself a counsel question, not an assertion |
+| 7 | Some of These Days | Shelton Brooks, d. 1975 | 2045-12-31 | 2046-01-01 | EU/EEA and other life+70 states | COUNSEL REVIEW REQUIRED |
+| 9 | Yes! We Have No Bananas | Irving Cohn, d. 1961 (Silver d. 1960) | 2031-12-31 | 2032-01-01 | EU/EEA and other life+70 states | COUNSEL REVIEW REQUIRED |
+| 10 | After You've Gone | Turner Layton, d. 1978 | 2048-12-31 | 2049-01-01 | EU/EEA and other life+70 states | COUNSEL REVIEW REQUIRED |
+
+Dates above use the standard year-end expiry convention and are
+design-risk estimates for counsel to confirm, not clearances. The
+all-GREEN audition slate (§12) stands ready behind every HOLD;
+nothing promotes without consultation and a passed audition.
 
 **Blocked:**
 
@@ -1273,29 +1518,34 @@ anywhere, so only composition status is in play.
   Yiddish inheritance slot is served by track_112, clear
   everywhere.
 
-## 14. THE LISTENING LINE — nondiegetic credits proposal
+## 14. MUSIC & SOURCES — the bundled credits surface (Q7, ruled)
 
-An extras-menu feature (settings/credits tier, alongside the
-music credits the game already owes), explicitly outside the
-fiction. One screen per Volume One track plus one scene overview
-page. Per-track card, top to bottom:
+Not an isolated extras feature: **one nondiegetic "Music & Sources"
+credits surface**, bundled with the game's credits, with the same
+data also reachable from each track's detail page. Explicitly
+outside the fiction. One card per Director's track plus one scene
+overview page. Per-track card, five separations in order:
 
-1. **The song:** real title, writer(s), publication year, one
-   sentence of documented history, and the archival score source
-   (Levy / LoC / NYPL / Hawaiʻi State Archives / Workers Circle,
-   linked).
-2. **The fiction:** the in-game base and its made-up provenance,
-   clearly labeled *"The performers and recordists in the game
-   are fictional."*
-3. **The listening line:** 1-3 real artists or scenes whose
-   documented practice informed the treatment family, each with
-   one concrete sentence about what was learned and an official
-   listen/purchase link (artist site, label page, or artist-run
-   Bandcamp — storefronts only where official pages are gone).
+1. **The real composition:** title, writer(s), publication year,
+   one sentence of documented history, and the archival score
+   source (Levy / LoC / NYPL / Hawaiʻi State Archives / Workers
+   Circle, linked).
+2. **The fiction:** the in-game base, seeded take and made-up
+   provenance, clearly labeled *"The performers and recordists in
+   the game are fictional."*
+3. **The real artists and scenes studied:** 1-3 entries whose
+   documented practice informed the treatment, each with one
+   concrete sentence about what was learned.
 4. **The separation line, verbatim on every card:** *"These
    artists and communities inspired our research. They did not
    participate in this game and do not endorse it. Buy their
    records."*
+5. **Official listening/purchase links** — artist-controlled pages
+   preferred (artist site, label page, artist-run Bandcamp);
+   archival or academic sources replace weak secondary links when
+   practical. Every identity statement and URL is re-verified
+   before release; the research document is scaffolding, never the
+   shipping clearance packet.
 
 Scene overview page: short, plain paragraphs on the nightcore
 upload era, UK breakbeat hardcore/happy hardcore, jungle's Black
@@ -1312,10 +1562,12 @@ typefaces, ratio of each seeded version printed as "returned at
   amended — the horn never plays; returns are terminal/reader
   behavior; the ratio is immutable; found traces alone keep
   instability. §2 carries the boundary table.
-- **Accidental recorded-vocal playback in the bar:** base ghost-
-  leads and returned versions are catalog audio by canon;
-  uncommanded voices remain the Tenant; no dossier plays a
-  singer's clean stem, ever.
+- **Accidental recorded-vocal playback in the bar:** playable
+  bases are instrumental (Q4); the only recorded voices are
+  seeded house takes and player versions played as returned
+  community versions, which is catalog audio by canon;
+  uncommanded voices remain the Tenant; no path plays a singer's
+  clean stem, ever.
 - **WORS/Songbook conflation:** none — WORS is never a source or
   destination for any spool; the WORS catalog's *register* is
   cited for anecdote voice only.
@@ -1332,10 +1584,11 @@ typefaces, ratio of each seeded version printed as "returned at
   entry exists for demographics alone; no fictional participant
   is a tragedy delivery device.
 - **Repetitive structures:** twelve bases span waltz, 2/4 ballad,
-  hapa haole, cut-time stomp, duet, crowd unison, torch quintet,
-  deadpan, novelty, break-led torch, 3/4 street band, family
-  lullaby; returns span ×1.26-×1.414; two tracks share a form
-  only where the social use differs (5/6 crowd energy vs duet).
+  steel-guitar farewell, cut-time stomp, duet, crowd room, torch
+  quintet, deadpan, novelty, break-led torch, 3/4 street band,
+  family lullaby; returns span ×1.26-×1.414; two tracks share a
+  form only where the social use differs (5/6 crowd energy vs
+  duet).
 - **Fictional artists vs real people:** all twenty-odd named
   fictional participants checked against the lineage list for
   accidental portraiture; no name, biography or signature
@@ -1344,36 +1597,128 @@ typefaces, ratio of each seeded version printed as "returned at
   key, tempo, ensemble, room, text source, incident policy and
   negative constraints; no "glitchy," "ethereal," "diverse" or
   "underground" anywhere in a spec.
+- **Instrumental-catalogue compliance (Q4):** every playable base
+  is instrumental with a named guide instrument; every voice in
+  this document belongs to a seeded house take or to the player;
+  nonlexical room sound is itemized where kept.
+- **Audition discipline (Q1):** no track, GREEN or HOLD, is
+  treated as passing the 2007 test on prose; §10 marks every row
+  AUDITION or HOLD and §12's slate obeys the same rule.
+- **Rights discipline (Q2):** four HOLDs with exact dates and
+  COUNSEL REVIEW flags in §13; track 2's instrumental expressly
+  unasserted in the EU; no generation or procurement of HOLD
+  material.
+- **Sharing discipline (MIC GATE):** §17 inherited in force; no
+  section of this document implies COMMUNITY voice publication is
+  currently permitted; the §9 social writing reads true at every
+  tier.
 
-## 16. OPEN QUESTIONS FOR THE OWNER
+## 16. RESOLVED BY RULING, AND WHAT REMAINS OPEN
 
-1. **Q1 — Volume One's twelve as listed?** Each dossier stands
-   alone; strike-throughs collapse nothing. The two Japanese
-   sources (2, 6) are deliberate — the Harukiya's own thread —
-   but the balance is the owner's call.
-2. **Q2 — AMBER territory policy** (§13): accept US-first
-   shipping with AMBERs in, or demote 7/9/10 to reserves and
-   promote 1-3 reserves now?
-3. **Q3 — who owns ratio tuning?** This proposal assumes house
-   ratios for seeded versions and a runtime-tuned ratio for
-   player publications (§III.2 says "tuned" without naming the
-   tuner). Recommend: runtime picks from the §5.2 table weighted
-   by base tempo, stored forever; players never choose directly.
-4. **Q4 — base ghost-lead vocals.** The songbook brief's
-   skeletons are instrumental; this proposal's bases carry
-   ghosted leads at −14/−16 dB (and two crowd tracks carry full
-   ensemble voices). Bless, or order fully instrumental bases
-   with guide instruments only.
-5. **Q5 — the phrase-duel reconciliation** (its brief requires
-   it): this document hosts lyric books in §2/§9 and per-track
-   prompts; the duel brief's card economy should name which
-   Volume One pages seed which starter cards. Proposed here as a
-   follow-up authoring pass, not designed unilaterally.
-6. **Q6 — consultation passes** flagged in reserves 2-3
-   (Spanish-language and Chinese-language phrase-guide/
-   romanization review before promotion). Approve as a standing
-   requirement for any non-English source, including a Japanese
-   pass over tracks 2/6 before production.
-7. **Q7 — the Listening Line's placement** (§14): extras menu as
-   proposed, or bundled with the existing music-credits surface
-   when one ships?
+Q1–Q7 are ruled and recorded in §0; their former open-question
+text is deleted rather than answered in place. What genuinely
+remains open for the owner or a later pass:
+
+1. **Audition logistics.** Who performs the representative-voice
+   auditions (Q1/Q3), on what schedule, and what artifact records
+   a pass — proposed: a short listening memo per track, filed
+   with the dossier, before any base enters production.
+2. **Counsel engagement.** When the §13 COUNSEL REVIEW items go
+   to an actual attorney, and whether the worldwide-catalogue
+   goal (Q2) makes the four HOLDs wait-for-date, license, or
+   substitute decisions.
+3. **The phrase-card authoring pass (Q5).** Approved; unscheduled.
+   Twelve per-track card sets (slot schema, registers, starter
+   cards, earned cards, call/retort, localization notes) are a
+   writing deliverable of their own.
+4. **Consultant selection (Q6).** The standing requirement is
+   ruled; naming reviewers for the Japanese, Hawaiian, Yiddish,
+   Black-vaudeville, Spanish and Chinese material is production
+   staffing, not design.
+5. **SOOT ECHO (§18).** Recorded as a nonbinding proposal;
+   accept, amend or strike.
+
+## 17. PUBLIC MICROPHONE AUDIO — the inherited hard launch gate
+
+*Inherited from `ORISON_SONGBOOK_PHRASE_DUEL_BRIEF.md` §12, by
+owner ruling, and binding on everything in this document. The
+phrase system reduces inappropriate written lyrics; it cannot
+prevent a player from singing different words into the
+microphone, and pitching the result up does not make abusive
+speech safe — it is reversible enough that it must never be
+treated as moderation.*
+
+1. **PRIVATE** local recording may be prototyped, with local
+   storage and deletion controls.
+2. **FRIENDS** sharing requires explicit sender and receiver
+   consent, mute/block, reporting and deletion paths.
+3. **COMMUNITY** microphone publication **stays disabled** until
+   the project actually owns an audio-safety design covering
+   consent, pre-transform analysis of the clean vocal, reporting,
+   blocking, takedown, appeals, retention and age/platform
+   requirements.
+4. Moderation must inspect the clean local stem **before**
+   nightcore reconstruction; the returned artifact is not a
+   usable safety oracle. **Nightcore transformation is not
+   moderation.**
+5. If that infrastructure never ships, community versions may
+   exchange phrase IDs and reconstruct a non-user vocal locally —
+   and may **not** upload arbitrary microphone audio. Curated
+   multiple choice did not solve voice UGC and nothing here
+   implies otherwise.
+
+The fiction of §9 — a room where every return is heard — may
+describe the future community archive; these five rules are the
+product's actual permission structure, and "everyone receives it"
+is never implementation permission. This gate appears in the
+object model (§3.5), the social rules (§9), the self-audit (§15)
+and here, so no reading of this document can miss it.
+
+## 18. SOOT ECHO — a separate, nonbinding proposal
+
+*Optional microphone-reactive haunting. Recorded per owner
+direction as proposal only: fiction, privacy boundary, system
+ownership and proof requirements. Not implemented, not scheduled,
+not canon.*
+
+**The fiction.** The building may remember the *shape* of a sound
+— a rhythm knocked on a table, the cadence of a cough, the rise of
+a hummed line — and answer it later, displaced: a pipe knocks the
+rhythm back from another room; a radiator hums the contour a
+floor away; rain falls briefly in the meter of something said too
+loudly last night. It must never retain or reproduce the
+conversation. The Tenant listens the way the phonautograph writes:
+shape, not words.
+
+**Privacy boundary (hard rules):**
+- Ambient listening requires **separate, explicit opt-in**,
+  distinct from karaoke recording consent.
+- **Local processing only.** No cloud, no transcription, no
+  speech recognition of any kind.
+- A short **volatile ring buffer**; raw audio is discarded
+  immediately after feature extraction and never touches disk.
+- Extracted features only: rhythm, envelope, pitch contour,
+  nonverbal transient class. Features cannot reconstruct speech.
+- Output is generated **only from game-owned sounds**: pipe
+  knocks, radiator tones, rain cadence, telegraph chatter,
+  distant cough-like synthesis. Intelligible player speech is
+  never reproduced, imitated or approximated.
+- Responses are delayed, rare and spatially displaced — never an
+  echo in the moment, never from where the player stands.
+- Respects every protection context: dialogue, calls, saves, and
+  the accessibility options' quiet states.
+- Player controls: disable at any time, an intensity slider, and
+  **Clear Acoustic Memory**, which empties every stored feature.
+
+**System ownership (when built, not now):** feature extraction
+would be a small dedicated service; consumers would be the
+existing haunting owners (the Tenant's intrusion grammar, the
+acoustic graph) — SOOT ECHO supplies *material*, never behavior,
+mirroring how `PoltergeistLibrary` already separates vocabulary
+from staging.
+
+**Proof requirements before any build:** a written privacy review
+against the rules above; a test proving raw audio never persists;
+a test proving no output correlates to lexical content; opt-in,
+disable and Clear Acoustic Memory exercised in the harness; and
+owner sign-off on the fiction's first three authored responses.

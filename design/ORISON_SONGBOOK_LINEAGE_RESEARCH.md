@@ -2,12 +2,22 @@
 
 **PROPOSAL — OWNER REVIEW REQUIRED — NOT YET BINDING CANON.**
 
-*Filed 2026-08-14. Companion to `ORISON_SONGBOOK_MUSIC_BIBLE.md`. This
-is the record of the real-world research behind Volume One: the source
-composers, and the artists and scenes whose documented practice informed
-the treatment design. It exists so the game's Listening Line (Music
-Bible §14) can attribute honestly, so an editor can audit every claim,
-and so nothing real is fictionalized without being named.*
+*Filed 2026-08-14; annotated the same day with the owner's Q1–Q7
+rulings (Music Bible §0). Companion to `ORISON_SONGBOOK_MUSIC_BIBLE.md`.
+This is the record of the real-world research behind the Director's
+Twelve: the source composers, and the artists and scenes whose
+documented practice informed the treatment design. It exists so the
+game's bundled Music & Sources surface (Music Bible §14) can attribute
+honestly, so an editor can audit every claim, and so nothing real is
+fictionalized without being named. **It is scaffolding, not the
+shipping clearance packet** (Q7): before release, every identity
+statement and URL is re-verified, and weak secondary links are replaced
+with archival, academic or artist-controlled sources where practical.
+Consultation (Q6) is a standing production requirement across all
+culturally specific material — Japanese, Hawaiian, Yiddish,
+Black-vaudeville, Spanish-language and Chinese-language — covering
+actual lyrics, romanization, pronunciation, instrumentation, fictional
+biography and credits wording, not merely titles.*
 
 ## 0. METHOD
 
@@ -23,12 +33,12 @@ and so nothing real is fictionalized without being named.*
   the way the artist phrases it. Where the record is thin, the claim is
   omitted (§VII).
 - **Status field:** USED (named in a dossier's lineage), CONTEXT
-  (informs the vocabulary; appears on the Listening Line scene page),
+  (informs the vocabulary; appears on the Music & Sources scene page),
   RESERVE (held for future volumes), or EXCLUDED (with reason).
 - **No recordings are sampled or imitated anywhere in the project.**
   This document is attribution and study, not a source of audio or a
   style instruction. Links were retrieved 2026-08-14; production should
-  re-verify before shipping the Listening Line.
+  re-verify before shipping the Music & Sources surface.
 
 ---
 
@@ -66,7 +76,13 @@ and so nothing real is fictionalized without being named.*
   and note ("Composed at Maunawili 1878") are held by the Hawaiʻi State
   Archives. She was later imprisoned following the 1893 overthrow; the
   song's afterlife is inseparable from the annexation history, which
-  the Listening Line states plainly.
+  the Music & Sources card states soberly, with the queen credited
+  prominently and no tropical or novelty flattening anywhere in the
+  treatment (Q1).
+- **Consultation flag (Q6):** the queen's composition is a mele of her
+  own and is never itself classified "hapa haole"; the dossier's
+  fictional touring-act framing and the Makai-family presentation go
+  to Hawaiian-culture review before any production.
 - **Insight:** a composer of the highest documented care; the
   archival-manuscript standard the whole source layer is held to.
 - Sources: [Hawaiʻi State Archives — Queen's music collection](https://ags.hawaii.gov/archives/online-exhibitions/music-from-the-queens-collection/),
@@ -120,10 +136,15 @@ and so nothing real is fictionalized without being named.*
 - Williams: Bahamian-born, the most celebrated Black comedian of the
   American stage, later the Ziegfeld Follies' first Black star;
   "Nobody" (lyrics Rogers, d. 1930) was his signature — deadpan,
-  half-spoken, built on pauses. His career's documented indignities
-  (performing in blackface convention; barred hotels) are stated on
-  the Listening Line as fact, not decoration; the dossier celebrates
-  the craft.
+  half-spoken, built on pauses. His career's documented conditions
+  (the blackface convention he worked under; barred hotels) are
+  stated on the Music & Sources card as fact, not decoration; the
+  dossier celebrates the craft.
+- **Conduct rule (Q1, binding on production):** no blackface
+  imagery, no dialect impersonation, no performance mimicry of
+  Williams in any produced layer, direction or marketing. The
+  Black-vaudeville material as a whole (tracks 4, 7, 8, 10) sits
+  under the Q6 history review.
 - **Insight:** comic timing as musical architecture — the rest as the
   hook — which the return transform gets to play with honestly.
 - Sources: [Wikipedia — Nobody (1905 song)](https://en.wikipedia.org/wiki/Nobody_(1905_song)),
@@ -138,6 +159,10 @@ and so nothing real is fictionalized without being named.*
   "Yes" — an immigrant's idiom that co-authored a national catchphrase.
 - **Insight:** novelty maximalism with a documented working-class
   origin; the license for bad taste as a load-bearing register.
+- **Conduct rule (Q1):** no ethnic accent, no dialect comedy in any
+  produced layer or direction — the joke is the sentence, never a
+  voice. Legally the track is HOLD outside cleared territories
+  (Music Bible §13).
 - Sources: [Wikipedia](https://en.wikipedia.org/wiki/Yes!_We_Have_No_Bananas),
   [Folk Song and Music Hall history](https://folksongandmusichall.com/index.php/yes-we-have-no-bananas/?print=print).
 - **Status:** USED (track_109).
@@ -234,7 +259,7 @@ and so nothing real is fictionalized without being named.*
   gender expression in hyperpop's trans lineage.
 - **Insight:** §8's design — the wrong body that is sometimes the
   right one — is a documented listening practice, not an invention;
-  the Listening Line says so.
+  the Music & Sources surface says so.
 - Sources: [Dr. Ruth Pearce on 100 gecs/Laura Les](https://ruthpearce.net/tag/laura-les/),
   [trans vocal modulation research overview](https://www.maxmadethat.com/research/transvocalmodulation),
   [Avidly — Notes on 100 Gecs](https://avidly.org/2021/01/14/notes-on-100-gecs/).
@@ -371,7 +396,7 @@ and so nothing real is fictionalized without being named.*
   artists with studio space and education.
 - **Insight:** the contemporary proof that the fast end of the
   continuum is a living Black queer institution-building practice —
-  and the platform model (studio + academy) the Listening Line
+  and the platform model (studio + academy) the Music & Sources surface
   points money toward.
 - Sources: [Mixmag cover feature](https://mixmag.net/feature/sherelle-cover-feature-hooversound-interview-footwork-jungle),
   [DJ Mag longread](https://djmag.com/longreads/sherelle-force-nature),
@@ -403,7 +428,7 @@ and so nothing real is fictionalized without being named.*
   turntables in his twenties.
 - **Insight:** music received as physical vibration rather than
   airborne sound — the closest living practice to this game's
-  trace-in-soot theology, and the reason the Listening Line's scene
+  trace-in-soot theology, and the reason the Music & Sources scene
   page includes felt-sound practice. Practice, not inspiration-story.
 - Sources: [deafrave.com](https://www.deafrave.com/) (official),
   [UKF feature](https://ukf.com/read/we-need-to-talk-about-deaf-rave/),
@@ -429,7 +454,7 @@ and so nothing real is fictionalized without being named.*
   lineage (mentored by Derrick Carter); co-produced on Beyoncé's
   *Renaissance*; NPR-documented as a house-history educator.
 - **Insight:** house/club history carried and taught by the people
-  the history belongs to — the Listening Line's model steward.
+  the history belongs to — the Music & Sources surface's model steward.
 - Sources: [The Quietus interview](https://thequietus.com/articles/24155-honey-dijon-interview),
   [RBMA feature](https://daily.redbullmusicacademy.com/2016/09/honey-dijon-feature/),
   [NPR](https://www.npr.org/2022/12/28/1145779758/serving-house-music-history-with-honey-dijon).
@@ -498,7 +523,7 @@ and so nothing real is fictionalized without being named.*
   §0 standard. RESERVE — verification is a production task, not a
   reason to guess.
 - **The Bert Williams question.** His career is inseparable from
-  the blackface convention of his era; the Listening Line states it
+  the blackface convention of his era; the Music & Sources card states it
   as documented fact with the craft foregrounded. If the owner
   prefers, track_108 survives with the lineage line reduced to the
   composition credits alone. Flagged, not decided unilaterally.
@@ -507,17 +532,34 @@ and so nothing real is fictionalized without being named.*
   ugly ethnic novelty; the dossier keeps the documented origin
   (Silver's own account) and bans dialect comedy from the base's
   vocal direction. Flagged for owner review.
-- **Aloha ʻOe and annexation.** The Listening Line's card states
+- **Aloha ʻOe and annexation.** The Music & Sources card states
   the 1893 overthrow and the queen's imprisonment as documented
   history; the in-game fiction does not dramatize it. Flagged as
   the intended treatment of colonial context: stated, sourced,
   not decorated.
 - **The owner's YouTube reference** is a compilation of other
   people's uploads; it anchors register only. Nothing from it is
-  reproduced, and the Listening Line links scenes and artists, not
+  reproduced, and the Music & Sources surface links scenes and artists, not
   the compilation.
+- **Track 2's EU instrumental status is a counsel question, not a
+  finding.** Under Directive 2011/77/EU a musical composition with
+  words created together is protected to 70 years after the last
+  surviving of lyricist and composer; this research previously
+  implied "music GREEN, lyrics AMBER," which the owner corrected
+  (Q2). Music Bible §13 carries the dated HOLD table; nothing here
+  asserts EU clearance for Gondola no Uta in any layer.
+- **The Prisoner's Song is HOLD, not GREEN-with-note** (Q2): its
+  tangled authorship conflicts with the project's own
+  provenance-integrity rule — the same rule that blocked Tiger Rag
+  — so it is off the audition slate until the authorship story can
+  be told honestly.
+- **Vocal provenance moved, research unmoved:** the Q4 relocation
+  of singer fictions from bases into seeded house takes changes no
+  entry in this document — the real people studied here informed
+  treatments and community practices, never any specific fictional
+  voice.
 - **Link rot risk:** all URLs retrieved 2026-08-14 via live search;
-  the Listening Line build must re-verify every link and prefer
+  the Music & Sources build must re-verify every link and prefer
   artist-controlled pages where any have moved.
 
 ## VIII. COVERAGE SUMMARY
