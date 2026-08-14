@@ -168,6 +168,19 @@ because it is the one view that legitimately sees seven storeys and so
 defeats floor streaming by design. Task #28 carries the measurements and
 the remaining levers.
 
+**Benchmark contract since `ab120dc` (2026-08-14): canonical pinned night
+is the authoritative state.** `Perf.tscn` pins `DAYNIGHT=0` like every
+other harness; before that it measured the wall clock, and interior
+stations swing 2–3.5k objects between day and evening on one build. Every
+perf number recorded above and in older logs is a DAYTIME number — label
+it as such and never compare it directly with canonical-night results.
+M0.5 closed accepted-with-measured-blocker at `ab120dc`: northbound
+≈17.8 ms against the unchanged 16.6 target after three ownership leaks
+were fixed (−3.1 ms) and the remaining ceiling was measured
+(`FINAL_MAP_REDESIGN_BRIEF.md` §10an–§10ao). The 9 m shop-batch contract
+stands; cross-shop batching is deferred to project-wide P1 with its own
+proof burden.
+
 ## Arcade cabinets
 
 The machines in the bar are playable. They are not arcade cabinets — they

@@ -1163,6 +1163,29 @@ northbound (17.8 vs 16.6).** The remaining options are an owner decision:
 relax the 9 m batch contract for the hall shell's stock, accept the
 ±1.2 ms blocker at canonical night, or revisit the target.
 
+## 10ao. M0.5 CLOSED 2026-08-14 — accepted with the measured blocker
+
+**Owner ruling.** M0.5 is **complete**; `ab120dc` is the final production
+checkpoint. The acceptance is earned: the submission decomposition is
+exhaustive within the approved constraints, the recoverable ownership work
+is banked (three leaks: F01 late-built, root-parented, lights — worth
+−3.1 ms at northbound), the remaining ceiling is measured (−0.2 ms in
+local shadows, the rest is the hall's own beauty draws behind the 9 m
+contract), and the full suite is green.
+
+Standing terms of the ruling:
+
+- **Canonical pinned night is the authoritative benchmark state.**
+  Historical interior-station results are DAYTIME numbers, so labeled, and
+  must not be compared directly with canonical-night results.
+- **The 16.6 ms project target is unchanged.** Northbound stands ≈17.8 ms —
+  **≈1.2 ms above target — as a proven, accepted M0.5 blocker.**
+- **The 9 m shop-batch contract stays enforced**: it protects local light
+  selection and bounded AABBs. **Cross-shop batching is deferred to
+  project-wide P1** and requires its own visual, lighting, culling,
+  ownership and interaction proof.
+- **M1 may begin.**
+
 Also reverted here: the graft's position-track drop (`344dbb2`) — its only
 live case, cross-generation rigs, ships a personal `_moves.glb` bake and
 never borrows those tracks, so the family path returns to

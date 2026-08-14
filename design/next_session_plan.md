@@ -1,4 +1,4 @@
-# Next session: finish M0.5, then build the loop spine
+# Next session: M0.5 is closed — build the loop spine (M1)
 
 *Rewritten 2026-08-13. Sequencing authority beneath
 `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`.*
@@ -55,21 +55,26 @@ non-Passage F01 actors and 170 foreign site draws. The focused route,
 visibility, finish, navigation, shop, containment, FAST walk and lighting
 suites pass; final renders are in `art/renders/map_final_acceptance/`.
 
-The immediate action is an owner ruling, not another spatial edit. At the
-pinned 16/16 budget, the final 11-station run passes 4/11. Passage throat and
-southbound pass; northbound improves 38.37 → 23.97 ms but still misses 16.6,
-and six older stations remain over budget. The measured diagnostic leaves a
-visual policy—especially small/local shadow casting—as the strongest remaining
-lever. Either explicitly accept this measured blocker under the M0.5 gate or
-rule a visual performance pass with before/after review. Do not begin M1 and do
-not pull PS5 carrying or PS6 hours forward until that decision is recorded.
+**RULED 2026-08-14: M0.5 IS COMPLETE — accepted with the measured blocker.**
+`ab120dc` is the final production checkpoint. The ruling's standing terms:
+canonical pinned night is the authoritative benchmark state (perf pins
+`DAYNIGHT=0`; all older interior numbers are DAYTIME and not directly
+comparable); the 16.6 ms target is unchanged and **northbound stands
+≈17.8 ms, ≈1.2 ms over, as a proven accepted blocker**; the 9 m shop-batch
+contract remains enforced because it protects local light selection and
+bounded AABBs; cross-shop batching is deferred to project-wide P1 and
+requires its own visual, lighting, culling, ownership and interaction
+proof. The acceptance was earned by measurement: shadow policy (rejected,
+§10aj), prop ticks (falsified, §10am), and the submission decomposition
+with three ownership leaks fixed for −3.1 ms and the residual ceiling
+measured (§10an). **M1 may begin.**
 
 WalkTest FULL is a fresh PASS for the final revision: 48.3 seconds at the
 suite's supported x8 / 480 Hz setting. It preserves capsule displacement per
 step and pauses unrelated resident routines only after the physical route and
 shared-elevator checks, while the stateful Case 02–08 order remains intact.
 
-## After the M0.5 acceptance gate: M1 in four reviewable changes
+## M1 in four reviewable changes (the gate is passed)
 
 1. **K2 — job contract.** Define the one-job data shape and extend `WorkOrders`
    through diagnosis, procurement, repair and closure. No dream code.

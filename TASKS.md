@@ -375,11 +375,20 @@ are two answers to the same problem and only this one is built.
   ORISON → STREET → PASSAGE → HARDWARE PAINT customer floor. Passage owns F01
   without submitting the apartment stack, non-Passage F01 actors or 170 foreign
   site draws; the vertically bounded gate keeps the aerial street station honest.
-- **PS9 OPEN — owner acceptance required.** The pinned 16/16 final run passes
-  4/11 critical stations. Passage throat and southbound meet 16.6 ms; northbound
-  improves 38.37 → 23.97 ms but still fails, and six older stations also fail.
-  No small-prop shadow policy has been smuggled into the map substrate. Accept
-  the measured blocker or rule the visual policy before M0.5 closes and M1 starts.
+- **PS9 CLOSED 2026-08-14 — owner accepted the measured blocker, and M0.5 is
+  COMPLETE.** `ab120dc` is the final production checkpoint. The acceptance was
+  earned, not resigned: shadows, prop ticks and submission were each attributed
+  and their ceilings measured (brief §10aj–§10an); three ownership leaks were
+  found and fixed for −3.1 ms at northbound; and the exhaustive remaining
+  ceiling proves no candidate flips the station within the approved
+  constraints. Northbound stands ≈17.8 ms against the unchanged 16.6 target —
+  **≈1.2 ms over, at canonical pinned night, which is now the authoritative
+  benchmark state** (perf_probe pins DAYNIGHT=0; historical interior numbers
+  are DAYTIME and must not be compared against canonical-night runs). The 9 m
+  shop-batch contract stays enforced — it protects local light selection and
+  bounded AABBs — and **cross-shop batching is deferred to project-wide P1**,
+  where it requires its own visual, lighting, culling, ownership and
+  interaction proof. M1 may begin.
 - **PS10 DONE.** WalkTest FULL is a fresh PASS in 48.3 seconds at x8 / 480 Hz.
   Physical walks and shared-elevator contention run before the harness pauses
   unrelated resident routines for the stateful Case 02–08 batch; case order,
@@ -643,7 +652,15 @@ and the four isolated roof fixtures now terminating at a real riser.
 ## P — Performance
 
 - **P1** **Every station is over the 16.6 ms frame target**, all eight, measured
-  2026-08-10 at 1440p. Worst is the **atrium eye at 42.05 ms** (27.8k objects,
+  2026-08-10 at 1440p. **DAYTIME NUMBERS (labeled 2026-08-14): the benchmark
+  was unpinned until `ab120dc` and these ran in daylight; canonical pinned
+  night is now authoritative and runs heavier at interior stations (harukiya
+  3,975 objects by day, 7,662 by night on one build). Do not compare these
+  directly with canonical-night results.** Cross-shop batching of the Passage
+  hall stock is deferred INTO this project-wide item from M0.5 (owner ruling
+  2026-08-14) and requires its own visual, lighting, culling, ownership and
+  interaction proof; the 9 m per-buffer contract stands meanwhile.
+  Worst is the **atrium eye at 42.05 ms** (27.8k objects,
   38.8M primitives) - it sees seven storeys at once and is the only station over
   40. Then street elevation 32.39, lobby 31.68, corridor F04 29.01. Mean **28.66
   ms** across the seven original stations.
