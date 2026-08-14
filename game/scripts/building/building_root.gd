@@ -180,6 +180,7 @@ var warehouse: PropWarehouse
 var touch: TouchControls
 var phone_carrier: PhoneCarrier
 var weather: WeatherFX
+var day_night_director: DayNightDirector
 var mina_manifestation: MinaCaptionManifestation
 var mina_gameplay: MinaCaseGameplay
 var portal_rule_display: PortalRuleDisplay
@@ -509,9 +510,10 @@ func _ready() -> void:
 	ambient_soundscape.bind_sanity(sanity)
 	weather = WeatherFX.new()
 	weather.name = "WeatherFX"
-	weather.setup(player)
+	weather.setup(player, Callable(self, "weather_exposure_at"))
 	add_child(weather)
 	weather.build_reflections(layout)
+	day_night_director.bind_weather(weather, exterior_detail_pass)
 	touch = TouchControls.new()
 	touch.name = "TouchControls"
 	add_child(touch)
@@ -560,7 +562,7 @@ func _build_environment() -> void:
 	var env := Environment.new()
 	var panorama := load(
 			"res://assets/building/textures/sky/" +
-			"orison_queens_night_half_dome_4k.png") as Texture2D
+			"orison_queens_night_rain_half_dome_4k.png") as Texture2D
 	env.background_mode = Environment.BG_COLOR
 	env.background_color = Color(0.015, 0.02, 0.035)
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
@@ -573,7 +575,11 @@ func _build_environment() -> void:
 	env.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	env.fog_enabled = true
 	env.fog_light_color = Color(0.05, 0.06, 0.10)
-	env.fog_density = 0.014
+	env.fog_mode = Environment.FOG_MODE_DEPTH
+	env.fog_density = 0.86
+	env.fog_depth_begin = 13.0
+	env.fog_depth_end = 50.0
+	env.fog_depth_curve = 1.48
 	env.glow_enabled = true
 	env.glow_intensity = 0.68
 	env.glow_bloom = 0.10
@@ -598,28 +604,60 @@ func _build_environment() -> void:
 	moon.directional_shadow_max_distance = 48.0
 	moon.directional_shadow_fade_start = 0.80
 	add_child(moon)
-	var director := DayNightDirector.new()
-	director.name = "DayNightDirector"
-	add_child(director)
+	day_night_director = DayNightDirector.new()
+	day_night_director.name = "DayNightDirector"
+	add_child(day_night_director)
 	var dome := get_node_or_null("NightSkyHalfDome") as MeshInstance3D
-	director.setup(self, env, moon,
+	day_night_director.setup(self, env, moon,
 			dome.material_override if dome else null)
 
 
 func _build_sky_dome(panorama: Texture2D) -> void:
 	## PanoramaSkyMaterial is unreliable on the Compatibility backend used
-	## by this project. This camera-centered upper-hemisphere projection
-	## keeps the horizon stable from street to roof and never samples a
-	## lower hemisphere. Its quiet zenith band hides polar convergence.
+	## by this project. This camera-centered upper-hemisphere projection keeps
+	## the horizon stable from street to roof and never samples a lower
+	## hemisphere. The two adjacent authored states and a seam-safe procedural
+	## lower cloud deck still cost ONE sky submission: depth comes from drift
+	## and occlusion inside this material, never from a second dome or volume.
 	var shader := Shader.new()
 	shader.code = """
 shader_type spatial;
 render_mode unshaded, cull_front, depth_draw_never, fog_disabled,
 		shadows_disabled;
-uniform sampler2D panorama : source_color, filter_linear_mipmap,
+uniform sampler2D panorama_a : source_color, filter_linear_mipmap,
 		repeat_enable;
-uniform vec3 tint = vec3(1.0);
+uniform sampler2D panorama_b : source_color, filter_linear_mipmap,
+		repeat_enable;
+uniform float sky_blend = 0.0;
 uniform float exposure = 0.76;
+uniform vec3 fog_horizon_color = vec3(0.05, 0.06, 0.10);
+uniform vec3 celestial_direction = vec3(0.0, 0.6, -0.8);
+uniform vec3 celestial_color = vec3(0.60, 0.68, 0.88);
+uniform float celestial_strength = 0.30;
+uniform float celestial_core_radius = 0.038;
+uniform float celestial_halo_radius = 0.31;
+uniform float ray_strength = 0.0;
+uniform float lower_cloud_strength = 0.28;
+uniform float cloud_phase = 0.0;
+uniform float weather_flash = 0.0;
+
+float lower_clouds(float u, float v) {
+	// Integer azimuth frequencies make both moving bands exactly periodic at
+	// the panorama seam. Two slow, opposed drifts give the painted storm a
+	// nearer layer without advertising a rotating texture shell.
+	float p = u * 2.0 * PI;
+	float drift_a = TIME * 0.016 + cloud_phase;
+	float drift_b = TIME * -0.0095 + cloud_phase * 1.71;
+	float broad = sin(p * 3.0 + drift_a + v * 9.0) * 0.50;
+	broad += sin(p * 7.0 + drift_b - v * 15.0) * 0.27;
+	broad += sin(p * 13.0 + drift_a * 0.61 + v * 25.0) * 0.13;
+	// This is the lower deck, not cloud pasted over the skyline: it lives in
+	// the middle elevations and is gone before the authored roofline begins.
+	float altitude = smoothstep(0.12, 0.28, v)
+			* (1.0 - smoothstep(0.70, 0.86, v));
+	return smoothstep(-0.34, 0.43, broad) * altitude;
+}
+
 void fragment() {
 	vec3 direction = normalize(
 			(INV_VIEW_MATRIX * vec4(-VIEW, 0.0)).xyz);
@@ -630,17 +668,47 @@ void fragment() {
 	// immediately so skyline pixels never stretch into vertical bars.
 	float elevation = asin(clamp(direction.y, 0.0, 1.0));
 	float v = 1.0 - elevation / (0.5 * PI);
-	vec3 color = texture(panorama, vec2(u, v)).rgb * exposure * tint;
+	vec4 authored_a = texture(panorama_a, vec2(u, v));
+	vec4 authored_b = texture(panorama_b, vec2(u, v));
+	vec4 authored = mix(authored_a, authored_b, sky_blend);
+	float lower = lower_clouds(u, v) * lower_cloud_strength;
+	float thickness = clamp(authored.a + lower, 0.0, 1.0);
+	vec3 color = authored.rgb * exposure;
+	// The close deck is cooler and slightly darker than the painted upper
+	// cloud. Its changing overlap is the parallax cue.
+	color = mix(color, color * vec3(0.69, 0.73, 0.78), lower * 0.48);
+	float source_angle = acos(clamp(dot(direction,
+			normalize(celestial_direction)), -1.0, 1.0));
+	float halo = 1.0 - smoothstep(celestial_core_radius,
+			celestial_halo_radius, source_angle);
+	float core = 1.0 - smoothstep(0.0, celestial_core_radius, source_angle);
+	float obscured = pow(1.0 - thickness, 2.4);
+	color += celestial_color * celestial_strength
+			* (halo * 0.42 + core * 0.24) * obscured;
+	// Rare, vague fingers belong to the same hidden source. Cloud density
+	// breaks them up; no crisp radial god-ray fan survives the rain.
+	float fingers = pow(max(0.0, sin((u * 18.0 + cloud_phase) * 2.0 * PI)), 12.0);
+	color += celestial_color * ray_strength * fingers * halo
+			* (1.0 - thickness) * 0.18;
+	float horizon_haze = smoothstep(0.78, 0.98, v);
+	color = mix(color, fog_horizon_color, horizon_haze * 0.58);
+	color += celestial_color * weather_flash * (0.09 + (1.0 - thickness) * 0.14);
 	if (direction.y < 0.0) {
 		float haze = smoothstep(0.0, 0.025, -direction.y);
-		color = mix(color, vec3(0.018, 0.025, 0.040), haze);
+		color = mix(color, fog_horizon_color * 0.34, haze);
 	}
 	ALBEDO = color;
 }
 """
 	var material := ShaderMaterial.new()
 	material.shader = shader
-	material.set_shader_parameter("panorama", panorama)
+	material.set_shader_parameter("panorama_a", panorama)
+	material.set_shader_parameter("panorama_b", panorama)
+	var cloud_seed := 19280731
+	if OS.get_environment("WEATHER_SEED").is_valid_int():
+		cloud_seed = int(OS.get_environment("WEATHER_SEED"))
+	material.set_shader_parameter("cloud_phase",
+			float(posmod(cloud_seed, 997)) / 997.0 * TAU)
 	var sphere := SphereMesh.new()
 	sphere.radius = 120.0
 	sphere.height = 240.0
@@ -1821,6 +1889,21 @@ func _point_is_in_passage(p: Vector3) -> bool:
 	var in_hall := in_height and p.x >= 4.0 and p.x <= 24.0 \
 			and p.z > 38.6 and p.z <= 64.6
 	return in_throat or in_hall
+
+
+## The precipitation owner asks the building, rather than inferring exposure
+## from one height. STREET and the open roof get rain; the atrium, apartments,
+## basement and the roofed Vantry Arcade do not. This is deliberately the
+## same Passage predicate as the render/navigation gates.
+func weather_exposure_at(p: Vector3) -> bool:
+	if _point_is_in_passage(p):
+		return false
+	if p.y > 18.25:
+		return p.x >= -14.8 and p.x <= 14.8 \
+				and p.z >= -10.5 and p.z <= 10.5
+	if p.y < -0.45 or p.y > 2.25:
+		return false
+	return absf(p.x) > 14.2 or p.z > 10.4 or p.z < -10.4
 
 
 func _set_passage_visibility(should_show: bool) -> void:

@@ -1,7 +1,8 @@
 # ORISON DRIVING RAIN AND FOUR-STATE SKY
 
-*Owner direction, 2026-08-14. Implementation proposal; no production visual
-has changed yet.*
+*Owner direction, 2026-08-14. Implemented as T8 on 2026-08-14; §17 is the
+as-built proof record. Earlier sections preserve the approved design and its
+acceptance contract.*
 
 ## 1. The picture
 
@@ -599,3 +600,119 @@ The four-state sky should be the second move, using one geography-locked source
 family and one hidden celestial glow synchronized with the existing exterior
 key. Add the fingers of light last. They are the garnish most likely to turn an
 excellent overcast block into a game effect.
+
+## 17. T8 as-built record — 2026-08-14
+
+T8 is complete. The shipped exterior is one continuous overcast storm with
+morning, day, evening and night lighting states. It changes the weather and
+lighting substrate only; the approved three-zone map, two visible street ends,
+traffic cadence and crossing promise are unchanged.
+
+### Sky family and provenance
+
+The production family is:
+
+- `orison_queens_morning_rain_half_dome_4k.png`;
+- `orison_queens_day_rain_half_dome_4k.png`;
+- `orison_queens_evening_rain_half_dome_4k.png`;
+- `orison_queens_night_rain_half_dome_4k.png`.
+
+Each is 4096 × 2048 RGBA. The generated storm-cloud source is retained as
+`orison_queens_storm_overcast_master_source.png`; the deterministic
+`art/tools/build_storm_skies.py` builder restores the accepted Queens lower
+skyline pixel-for-pixel, repairs the cloud/skyline seam, makes all four grades,
+and writes the 1024-pixel review previews. Neither source nor preview is loaded
+by production. Only the two adjacent production panoramas are resident during
+a transition.
+
+`DayNightDirector` is now the sole absolute writer of Environment and the
+existing `ExteriorMoon` directional node, which remains named for compatibility
+but functions as the overcast sky key. `LightRig` supplies gains rather than
+competing absolute values. The dome blends the matched panorama pair, fog
+horizon, hidden celestial glow, restrained cloud-light fingers, and the lower
+cloud stratum in its existing single draw. No new realtime light exists.
+
+### Dynamic lower cloud amendment
+
+The owner added a moving low cloud layer during execution. It is not a second
+dome, particle emitter or transparent card. Two seam-periodic procedural fields
+drift at different, deliberately slow rates inside the existing sky shader,
+modulated by the source texture's optical-thickness alpha and faded out before
+the fixed skyline. This supplies parallax-like depth without a seam, skyline
+swim or extra submission. A fixed-camera day proof separated by 20 seconds
+changes 5.30 percent of sky pixels by more than one level, with maximum channel
+delta 3: movement is measurable but does not look like a texture sliding past.
+
+### Visibility envelope and exposure
+
+The Environment uses bounded depth fog rather than near-camera milk: state
+profiles keep the clear foreground at 13–15 m and finish the dissolve at
+50–56 m, with density 0.80–0.86. One batched roadway ribbon and its two storm
+mouth planes lower contrast around wheels and join the road to the already
+approved end architecture. `ExteriorDetailPass` accepts the same interpolated
+mist palette and lightning flash, so the old boundary curtains no longer read
+as a separate effect.
+
+`BuildingRoot.weather_exposure_at()` is the sole shelter classification.
+STREET, both pavements, the carriageway and open roof are wet; the Orison rooms,
+lobby, atrium beneath intact glazing, apartments, basement and Vantry Arcade
+are dry. Weather follows the production player and cannot infer exposure from
+height alone.
+
+### Rain: rejected versions and final visual
+
+Three implementation attempts were rejected by measurement before the final
+one:
+
+1. 760 near, 170 spatter and 12 debris CPU particles read as a cartoon curtain
+   and added 2.66 ms at the real north-pavement player position.
+2. Reduced CPU counts remained submission-bound and added 2.18 ms.
+3. `GPUParticles3D` still expanded into hundreds of Compatibility submissions;
+   changing particle ownership did not change the renderer's economics.
+
+The accepted airborne rain is two curved instances in one `MultiMesh` draw.
+The shader produces three overlapping exposure scales: fine and middle rain at
+different wind angles, plus a sparser close layer. Column phases, head onset,
+length, width, opacity and tail duration all vary deterministically. Heads and
+tails feather independently; color is desaturated and low-contrast. This is
+the owner-requested realism correction to the earlier bright, upright bars.
+Only 72 cheap ground spatters and eight debris flecks remain as particles. Rain,
+spatter, debris and roadway mist cast no shadows. The completed owner has four
+steady submissions total, one more than the old three-part weather owner and
+well inside the allowance of four additional submissions.
+
+### Performance proof
+
+The real-player `WeatherPerf.tscn` station is the north pavement at 1440p,
+canonical night, 16/16 light budget, 30 warm-up and 120 sampled frames. The
+first accepted batched-rain A/B pair set measured weather at 43.083/41.634 ms
+and its off control at 42.501/41.306 ms: means 42.359 versus 41.904, a
+conservative +0.455 ms. After the final realism-only shader tuning, fresh
+runs measured 40.667/41.071 on and 41.306/42.185 off. The sign inversion is
+runtime noise, not a claimed speed-up; it proves the added shader detail does
+not produce a measurable regression above the earlier conservative result.
+Both results clear the +0.8 ms contract. The established aerial STREET station
+also remained within contract at a conservative +0.775 ms.
+
+### Durable proofs
+
+The fixed render matrix is under `art/renders/weather_sky_t8`: 20 before and
+20 final frames, five stations at each of four hours. `cloud_motion` contains
+the clean fixed-camera 20-second lower-cloud pair. All use
+`WEATHER_SEED=19280731`; the README beside the renders records commands and
+interpretation.
+
+The final production revision passed:
+
+- `WeatherSkyTest` — 31/31, including resources, writer ownership, light count,
+  fog bounds, exposure matrix, batching, seed, traffic promises and street-end
+  survival;
+- `StreetContainmentTest` — PASS;
+- `FinalMapRouteTest` — PASS;
+- `LightingAudit` — 127-space PASS;
+- `PassageVisibilityTest` — 32/32;
+- `PassageOwnershipAudit` — zero visible unclassified F01 draws;
+- `WalkTest FULL` at x8 / 480 Hz — PASS inside the 60-second bound.
+
+One Godot instance ran at a time throughout. The generated sky family, final
+rain, fog, lower cloud and proof harnesses are the T8 production checkpoint.

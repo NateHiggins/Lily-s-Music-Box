@@ -1,116 +1,329 @@
 class_name DayNightDirector
 extends Node
-## Real local time, expressed as weather.
-##
-## The building keeps four looks - drizzly NIGHT, a cold wet DAWN, a
-## DAY that never gets brighter than a dark rainy afternoon, and a
-## bruised TWILIGHT - and blends between them by the actual clock on
-## the player's machine. Per the bible, no state is allowed to resolve
-## the ambiguity: the day is still purgatorial, the rain never quite
-## stops, and the palette stays liminal. This is one node driving the
-## handles the night look already exposed: the Environment, the
-## ExteriorMoon, the sky dome's tint, and the MoonFill's window pools.
-##
-## Determinism: WalkTest sets DAYNIGHT=0 and gets the canonical 03:00
-## night, byte-identical to the pre-director look. DAYNIGHT_FORCE takes
-## "HH:MM" or a state name for renders and debugging.
+## One storm seen at four hours. This node is the sole absolute writer for the
+## Environment and the one exterior directional key. LightRig supplies only
+## owner-facing gains; WeatherFX receives the resolved presentation profile.
 
-## minute-of-day keyframes; each row lerps to the next.
-## [minute, ambient_col, ambient_e, bg_col, fog_col, fog_d,
-##  sun_col, sun_e, sun_elev_deg, sun_az_deg, sky_tint, sky_exposure,
-##  fill_scale]
+const SKY_DIR := "res://assets/building/textures/sky/"
+const SKY_PATHS := {
+	"morning": SKY_DIR + "orison_queens_morning_rain_half_dome_4k.png",
+	"day": SKY_DIR + "orison_queens_day_rain_half_dome_4k.png",
+	"evening": SKY_DIR + "orison_queens_evening_rain_half_dome_4k.png",
+	"night": SKY_DIR + "orison_queens_night_rain_half_dome_4k.png",
+}
+const STATE_MINUTES := {
+	"night": 180,
+	"morning": 420,
+	"dawn": 420,
+	"day": 750,
+	"evening": 1050,
+	"twilight": 1050,
+}
+
+## Profiles repeat at the shoulders so the settled parts of each state hold
+## before a long clock-driven blend to the next. Angles are degrees: azimuth 0
+## is north, 90 east, 180 south, and elevation is above the horizon.
 const KEYS := [
-	[0, Color(0.17, 0.23, 0.42), 0.08, Color(0.015, 0.02, 0.035),
-	 Color(0.05, 0.06, 0.10), 0.014, Color(0.65, 0.70, 0.90), 0.052,
-	 -38.0, 30.0, Color(1.0, 1.0, 1.0), 0.76, 1.0],
-	[330, Color(0.17, 0.23, 0.42), 0.08, Color(0.015, 0.02, 0.035),
-	 Color(0.05, 0.06, 0.10), 0.014, Color(0.65, 0.70, 0.90), 0.052,
-	 -38.0, 30.0, Color(1.0, 1.0, 1.0), 0.76, 1.0],
-	[405, Color(0.38, 0.36, 0.40), 0.13, Color(0.060, 0.065, 0.080),
-	 Color(0.16, 0.15, 0.16), 0.016, Color(0.90, 0.75, 0.62), 0.090,
-	 -12.0, 105.0, Color(1.35, 1.05, 0.90), 0.55, 0.6],
-	[480, Color(0.42, 0.46, 0.50), 0.16, Color(0.100, 0.115, 0.130),
-	 Color(0.22, 0.24, 0.26), 0.018, Color(0.75, 0.78, 0.82), 0.120,
-	 -55.0, 180.0, Color(2.6, 2.7, 2.8), 0.42, 0.35],
-	[960, Color(0.42, 0.46, 0.50), 0.16, Color(0.100, 0.115, 0.130),
-	 Color(0.22, 0.24, 0.26), 0.018, Color(0.75, 0.78, 0.82), 0.120,
-	 -55.0, 180.0, Color(2.6, 2.7, 2.8), 0.42, 0.35],
-	[1050, Color(0.30, 0.26, 0.34), 0.12, Color(0.050, 0.045, 0.075),
-	 Color(0.12, 0.09, 0.13), 0.016, Color(0.95, 0.60, 0.45), 0.070,
-	 -10.0, 255.0, Color(1.50, 0.95, 1.05), 0.50, 0.55],
-	[1140, Color(0.17, 0.23, 0.42), 0.08, Color(0.015, 0.02, 0.035),
-	 Color(0.05, 0.06, 0.10), 0.014, Color(0.65, 0.70, 0.90), 0.052,
-	 -38.0, 30.0, Color(1.0, 1.0, 1.0), 0.76, 1.0],
-	[1440, Color(0.17, 0.23, 0.42), 0.08, Color(0.015, 0.02, 0.035),
-	 Color(0.05, 0.06, 0.10), 0.014, Color(0.65, 0.70, 0.90), 0.052,
-	 -38.0, 30.0, Color(1.0, 1.0, 1.0), 0.76, 1.0],
+	{"minute": 0, "state": "night",
+		"ambient": Color(0.17, 0.23, 0.42), "ambient_e": 0.08,
+		"fog": Color(0.050, 0.060, 0.100), "fog_d": 0.86,
+		"fog_begin": 13.0, "fog_end": 50.0, "fog_curve": 1.48,
+		"key": Color(0.65, 0.70, 0.90), "key_e": 0.052,
+		"elevation": 35.0, "azimuth": 210.0,
+		"sky_e": 0.78, "source": Color(0.58, 0.66, 0.88),
+		"source_e": 0.34, "rays": 0.0, "fill": 1.0,
+		"rain": Color(0.52, 0.63, 0.82, 0.68),
+		"mist": Color(0.060, 0.078, 0.120, 0.34),
+		"atrium": Color(0.055, 0.062, 0.082), "atrium_e": 1.0},
+	{"minute": 330, "state": "night",
+		"ambient": Color(0.17, 0.23, 0.42), "ambient_e": 0.08,
+		"fog": Color(0.050, 0.060, 0.100), "fog_d": 0.86,
+		"fog_begin": 13.0, "fog_end": 50.0, "fog_curve": 1.48,
+		"key": Color(0.65, 0.70, 0.90), "key_e": 0.052,
+		"elevation": 35.0, "azimuth": 210.0,
+		"sky_e": 0.78, "source": Color(0.58, 0.66, 0.88),
+		"source_e": 0.34, "rays": 0.0, "fill": 1.0,
+		"rain": Color(0.52, 0.63, 0.82, 0.68),
+		"mist": Color(0.060, 0.078, 0.120, 0.34),
+		"atrium": Color(0.055, 0.062, 0.082), "atrium_e": 1.0},
+	{"minute": 420, "state": "morning",
+		"ambient": Color(0.39, 0.41, 0.45), "ambient_e": 0.135,
+		"fog": Color(0.19, 0.20, 0.22), "fog_d": 0.86,
+		"fog_begin": 14.0, "fog_end": 52.0, "fog_curve": 1.42,
+		"key": Color(0.91, 0.78, 0.66), "key_e": 0.090,
+		"elevation": 13.0, "azimuth": 105.0,
+		"sky_e": 0.88, "source": Color(1.0, 0.72, 0.49),
+		"source_e": 0.48, "rays": 0.11, "fill": 0.58,
+		"rain": Color(0.69, 0.72, 0.76, 0.72),
+		"mist": Color(0.18, 0.19, 0.21, 0.37),
+		"atrium": Color(0.070, 0.067, 0.071), "atrium_e": 1.05},
+	{"minute": 750, "state": "day",
+		"ambient": Color(0.45, 0.47, 0.49), "ambient_e": 0.17,
+		"fog": Color(0.28, 0.29, 0.30), "fog_d": 0.80,
+		"fog_begin": 15.0, "fog_end": 56.0, "fog_curve": 1.30,
+		"key": Color(0.82, 0.84, 0.86), "key_e": 0.115,
+		"elevation": 53.0, "azimuth": 180.0,
+		"sky_e": 0.94, "source": Color(0.93, 0.94, 0.91),
+		"source_e": 0.42, "rays": 0.0, "fill": 0.34,
+		"rain": Color(0.73, 0.76, 0.78, 0.67),
+		"mist": Color(0.25, 0.26, 0.27, 0.35),
+		"atrium": Color(0.073, 0.076, 0.080), "atrium_e": 1.10},
+	{"minute": 960, "state": "day",
+		"ambient": Color(0.45, 0.47, 0.49), "ambient_e": 0.17,
+		"fog": Color(0.28, 0.29, 0.30), "fog_d": 0.80,
+		"fog_begin": 15.0, "fog_end": 56.0, "fog_curve": 1.30,
+		"key": Color(0.82, 0.84, 0.86), "key_e": 0.115,
+		"elevation": 53.0, "azimuth": 180.0,
+		"sky_e": 0.94, "source": Color(0.93, 0.94, 0.91),
+		"source_e": 0.42, "rays": 0.0, "fill": 0.34,
+		"rain": Color(0.73, 0.76, 0.78, 0.67),
+		"mist": Color(0.25, 0.26, 0.27, 0.35),
+		"atrium": Color(0.073, 0.076, 0.080), "atrium_e": 1.10},
+	{"minute": 1050, "state": "evening",
+		"ambient": Color(0.31, 0.27, 0.35), "ambient_e": 0.125,
+		"fog": Color(0.15, 0.11, 0.16), "fog_d": 0.86,
+		"fog_begin": 13.0, "fog_end": 50.0, "fog_curve": 1.46,
+		"key": Color(0.96, 0.62, 0.45), "key_e": 0.074,
+		"elevation": 11.0, "azimuth": 255.0,
+		"sky_e": 0.84, "source": Color(1.0, 0.57, 0.35),
+		"source_e": 0.52, "rays": 0.12, "fill": 0.55,
+		"rain": Color(0.65, 0.57, 0.69, 0.71),
+		"mist": Color(0.14, 0.10, 0.16, 0.37),
+		"atrium": Color(0.069, 0.054, 0.071), "atrium_e": 1.04},
+	{"minute": 1140, "state": "night",
+		"ambient": Color(0.17, 0.23, 0.42), "ambient_e": 0.08,
+		"fog": Color(0.050, 0.060, 0.100), "fog_d": 0.86,
+		"fog_begin": 13.0, "fog_end": 50.0, "fog_curve": 1.48,
+		"key": Color(0.65, 0.70, 0.90), "key_e": 0.052,
+		"elevation": 35.0, "azimuth": 210.0,
+		"sky_e": 0.78, "source": Color(0.58, 0.66, 0.88),
+		"source_e": 0.34, "rays": 0.0, "fill": 1.0,
+		"rain": Color(0.52, 0.63, 0.82, 0.68),
+		"mist": Color(0.060, 0.078, 0.120, 0.34),
+		"atrium": Color(0.055, 0.062, 0.082), "atrium_e": 1.0},
+	{"minute": 1440, "state": "night",
+		"ambient": Color(0.17, 0.23, 0.42), "ambient_e": 0.08,
+		"fog": Color(0.050, 0.060, 0.100), "fog_d": 0.86,
+		"fog_begin": 13.0, "fog_end": 50.0, "fog_curve": 1.48,
+		"key": Color(0.65, 0.70, 0.90), "key_e": 0.052,
+		"elevation": 35.0, "azimuth": 210.0,
+		"sky_e": 0.78, "source": Color(0.58, 0.66, 0.88),
+		"source_e": 0.34, "rays": 0.0, "fill": 1.0,
+		"rain": Color(0.52, 0.63, 0.82, 0.68),
+		"mist": Color(0.060, 0.078, 0.120, 0.34),
+		"atrium": Color(0.055, 0.062, 0.082), "atrium_e": 1.0},
 ]
-const STATE_MINUTES := {"night": 180, "dawn": 405, "day": 720,
-	"twilight": 1050}
 
 var _root: Node3D
 var _env: Environment
-var _sun: DirectionalLight3D
+var _sky_key: DirectionalLight3D
 var _sky: ShaderMaterial
-var _accum := 9.0               # apply on the first tick
+var _weather: WeatherFX
+var _exterior: ExteriorDetailPass
+var _accum := 9.0
+var _last_minute := 180.0
+var _ambient_gain := 1.0
+var _fog_gain := 1.0
+var _sky_key_gain := 1.0
+var _pair_key := ""
+var _texture_a: Texture2D
+var _texture_b: Texture2D
+var _last_profile: Dictionary = {}
 
 
-func setup(root: Node3D, env: Environment, sun: DirectionalLight3D,
+func setup(root: Node3D, env: Environment, sky_key: DirectionalLight3D,
 		sky_mat: ShaderMaterial) -> void:
 	_root = root
 	_env = env
-	_sun = sun
+	_sky_key = sky_key
 	_sky = sky_mat
+	_env.set_meta("absolute_writer", "DayNightDirector")
+	_sky_key.set_meta("absolute_writer", "DayNightDirector")
+	_apply(_minute_now())
+
+
+func bind_weather(weather: WeatherFX, exterior: ExteriorDetailPass) -> void:
+	_weather = weather
+	_exterior = exterior
+	if not _weather.weather_flash_changed.is_connected(set_weather_flash):
+		_weather.weather_flash_changed.connect(set_weather_flash)
+	_apply(_last_minute)
+
+
+func set_tuning_offsets(ambient_gain: float, fog_gain: float,
+		sky_key_gain: float) -> void:
+	_ambient_gain = clampf(ambient_gain, 0.0, 2.0)
+	_fog_gain = clampf(fog_gain, 0.0, 2.0)
+	_sky_key_gain = clampf(sky_key_gain, 0.0, 2.0)
+	_apply(_last_minute)
+
+
+func set_weather_flash(level: float) -> void:
+	if _sky:
+		_sky.set_shader_parameter("weather_flash", clampf(level, 0.0, 1.0))
+	if _exterior:
+		_exterior.set_weather_flash(level)
+
+
+func resolved_profile() -> Dictionary:
+	return _last_profile.duplicate(true)
+
+
+func state_texture_paths() -> Dictionary:
+	return SKY_PATHS.duplicate()
 
 
 func _minute_now() -> float:
-	var force := OS.get_environment("DAYNIGHT_FORCE")
+	var force := OS.get_environment("DAYNIGHT_FORCE").to_lower()
 	if force != "":
 		if STATE_MINUTES.has(force):
 			return float(STATE_MINUTES[force])
 		var bits := force.split(":")
-		if bits.size() == 2 and bits[0].is_valid_int():
-			return float(int(bits[0]) * 60 + int(bits[1]))
+		if bits.size() == 2 and bits[0].is_valid_int() \
+				and bits[1].is_valid_int():
+			return float(posmod(int(bits[0]) * 60 + int(bits[1]), 1440))
 	if OS.get_environment("DAYNIGHT") == "0":
-		# The canonical hour. Tests live here; so did the whole game
-		# until the sky learned to read a clock.
 		return 180.0
-	var t := Time.get_time_dict_from_system()
-	return float(t.hour * 60 + t.minute) + float(t.second) / 60.0
+	var now := Time.get_time_dict_from_system()
+	return float(now.hour * 60 + now.minute) + float(now.second) / 60.0
 
 
 func _process(delta: float) -> void:
 	_accum += delta
-	if _accum < 8.0:            # a minute of day moves nothing in 8 s
+	if _accum < 8.0:
 		return
 	_accum = 0.0
 	_apply(_minute_now())
 
 
-func _apply(m: float) -> void:
+func _apply(minute: float) -> void:
 	if _env == null:
 		return
-	var a: Array = KEYS[0]
-	var b: Array = KEYS[KEYS.size() - 1]
+	_last_minute = minute
+	var span := _span_at(minute)
+	var a: Dictionary = span.a
+	var b: Dictionary = span.b
+	var t: float = span.t
+	var profile := {
+		"state_a": a.state,
+		"state_b": b.state,
+		"blend": t,
+		"ambient": (a.ambient as Color).lerp(b.ambient, t),
+		"ambient_e": lerpf(a.ambient_e, b.ambient_e, t),
+		"fog": (a.fog as Color).lerp(b.fog, t),
+		"fog_d": lerpf(a.fog_d, b.fog_d, t),
+		"fog_begin": lerpf(a.fog_begin, b.fog_begin, t),
+		"fog_end": lerpf(a.fog_end, b.fog_end, t),
+		"fog_curve": lerpf(a.fog_curve, b.fog_curve, t),
+		"key": (a.key as Color).lerp(b.key, t),
+		"key_e": lerpf(a.key_e, b.key_e, t),
+		"source": (a.source as Color).lerp(b.source, t),
+		"source_e": lerpf(a.source_e, b.source_e, t),
+		"rays": lerpf(a.rays, b.rays, t),
+		"cloud_depth": lerpf(_cloud_depth(str(a.state)),
+				_cloud_depth(str(b.state)), t),
+		"fill": lerpf(a.fill, b.fill, t),
+		"rain": (a.rain as Color).lerp(b.rain, t),
+		"mist": (a.mist as Color).lerp(b.mist, t),
+		"atrium": (a.atrium as Color).lerp(b.atrium, t),
+		"atrium_e": lerpf(a.atrium_e, b.atrium_e, t),
+	}
+	var source_a := _source_direction(a.elevation, a.azimuth)
+	var source_b := _source_direction(b.elevation, b.azimuth)
+	var source_dir := source_a.slerp(source_b, t).normalized()
+
+	_env.fog_mode = Environment.FOG_MODE_DEPTH
+	_env.fog_enabled = true
+	_env.fog_height_density = 0.0
+	_env.ambient_light_color = profile.ambient
+	_env.ambient_light_energy = profile.ambient_e * _ambient_gain
+	_env.background_color = profile.fog.darkened(0.72)
+	_env.fog_light_color = profile.fog
+	_env.fog_density = clampf(profile.fog_d * _fog_gain, 0.0, 1.0)
+	_env.fog_depth_begin = profile.fog_begin
+	_env.fog_depth_end = profile.fog_end
+	_env.fog_depth_curve = profile.fog_curve
+
+	if _sky_key:
+		_sky_key.light_color = profile.key
+		_sky_key.light_energy = profile.key_e * _sky_key_gain
+		_sky_key.look_at(_sky_key.global_position - source_dir, Vector3.UP)
+	if _sky:
+		_set_sky_pair(a.state, b.state)
+		_sky.set_shader_parameter("sky_blend", t)
+		_sky.set_shader_parameter("exposure", lerpf(a.sky_e, b.sky_e, t))
+		_sky.set_shader_parameter("fog_horizon_color", profile.fog)
+		_sky.set_shader_parameter("celestial_direction", source_dir)
+		_sky.set_shader_parameter("celestial_color", profile.source)
+		_sky.set_shader_parameter("celestial_strength", profile.source_e)
+		_sky.set_shader_parameter("celestial_core_radius", deg_to_rad(2.2))
+		_sky.set_shader_parameter("celestial_halo_radius", deg_to_rad(18.0))
+		_sky.set_shader_parameter("lower_cloud_strength", profile.cloud_depth)
+		var rays_enabled := OS.get_environment("WEATHER_RAYS") != "0"
+		_sky.set_shader_parameter("ray_strength",
+				profile.rays if rays_enabled else 0.0)
+	if _weather:
+		_weather.apply_profile(profile)
+	if _exterior:
+		_exterior.set_weather_profile(profile.mist)
+	if _root:
+		if _root.get("moon_fill") != null and _root.moon_fill != null:
+			_root.moon_fill.energy_scale = profile.fill
+		_apply_atrium(profile.atrium, profile.atrium_e)
+	_last_profile = profile
+	_last_profile["source_direction"] = source_dir
+
+
+func _span_at(minute: float) -> Dictionary:
+	var a: Dictionary = KEYS[0]
+	var b: Dictionary = KEYS[KEYS.size() - 1]
 	for i in KEYS.size() - 1:
-		if m >= float(KEYS[i][0]) and m <= float(KEYS[i + 1][0]):
+		if minute >= float(KEYS[i].minute) \
+				and minute <= float(KEYS[i + 1].minute):
 			a = KEYS[i]
 			b = KEYS[i + 1]
 			break
-	var span := float(b[0]) - float(a[0])
-	var t: float = 0.0 if span <= 0.0 else (m - float(a[0])) / span
-	_env.ambient_light_color = (a[1] as Color).lerp(b[1], t)
-	_env.ambient_light_energy = lerpf(a[2], b[2], t)
-	_env.background_color = (a[3] as Color).lerp(b[3], t)
-	_env.fog_light_color = (a[4] as Color).lerp(b[4], t)
-	_env.fog_density = lerpf(a[5], b[5], t)
-	if _sun:
-		_sun.light_color = (a[6] as Color).lerp(b[6], t)
-		_sun.light_energy = lerpf(a[7], b[7], t)
-		_sun.rotation_degrees = Vector3(lerpf(a[8], b[8], t),
-				lerpf(a[9], b[9], t), 0.0)
-	if _sky:
-		_sky.set_shader_parameter("tint", (a[10] as Color).lerp(b[10], t))
-		_sky.set_shader_parameter("exposure", lerpf(a[11], b[11], t))
-	if _root and _root.get("moon_fill") != null:
-		_root.moon_fill.energy_scale = lerpf(a[12], b[12], t)
+	var width := float(b.minute) - float(a.minute)
+	return {"a": a, "b": b,
+		"t": 0.0 if width <= 0.0 else (minute - float(a.minute)) / width}
+
+
+func _set_sky_pair(state_a: String, state_b: String) -> void:
+	var key := state_a + ">" + state_b
+	if key == _pair_key:
+		return
+	_pair_key = key
+	_texture_a = load(SKY_PATHS[state_a]) as Texture2D
+	_texture_b = load(SKY_PATHS[state_b]) as Texture2D
+	_sky.set_shader_parameter("panorama_a", _texture_a)
+	_sky.set_shader_parameter("panorama_b", _texture_b)
+
+
+func _source_direction(elevation_degrees: float,
+		azimuth_degrees: float) -> Vector3:
+	var elevation := deg_to_rad(elevation_degrees)
+	var azimuth := deg_to_rad(azimuth_degrees)
+	var horizontal := cos(elevation)
+	return Vector3(sin(azimuth) * horizontal, sin(elevation),
+			-cos(azimuth) * horizontal)
+
+
+func _cloud_depth(state: String) -> float:
+	match state:
+		"morning": return 0.34
+		"day": return 0.24
+		"evening": return 0.32
+		_: return 0.29
+
+
+func _apply_atrium(color: Color, strength: float) -> void:
+	var shaft := _root.get_node_or_null("AtriumShaft") as MeshInstance3D
+	if shaft and shaft.material_override is StandardMaterial3D:
+		shaft.material_override.albedo_color = Color(
+				color.r * strength, color.g * strength,
+				color.b * strength, 1.0)
+	var mouth := _root.get_node_or_null("AtriumSkylightPool") as MeshInstance3D
+	if mouth and mouth.material_override is StandardMaterial3D:
+		mouth.material_override.albedo_color = Color(
+				color.r * strength * 1.4, color.g * strength * 1.4,
+				color.b * strength * 1.4, 1.0)

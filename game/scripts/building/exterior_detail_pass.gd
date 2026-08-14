@@ -17,6 +17,7 @@ var _boxes: Array = []
 var _cylinders: Array = []
 var _puddles: Array = []
 var _puddle_material: ShaderMaterial
+var _storm_materials: Array[ShaderMaterial] = []
 
 const STREET_END_PROBE_LAYER := 1 << 20
 
@@ -91,6 +92,13 @@ func configure_street_lights(world: Node) -> void:
 func set_weather_flash(level: float) -> void:
 	if _puddle_material:
 		_puddle_material.set_shader_parameter("weather_flash", level)
+	for material in _storm_materials:
+		material.set_shader_parameter("weather_flash", level)
+
+
+func set_weather_profile(mist_color: Color) -> void:
+	for material in _storm_materials:
+		material.set_shader_parameter("storm_color", mist_color)
 
 
 func _build_street_hardware() -> void:
@@ -553,6 +561,8 @@ shader_type spatial;
 render_mode unshaded, blend_mix, cull_disabled, depth_prepass_alpha,
 		shadows_disabled;
 uniform float seed = 0.0;
+uniform vec4 storm_color : source_color = vec4(0.06, 0.08, 0.12, 0.34);
+uniform float weather_flash = 0.0;
 
 float hash(vec2 p) {
 	return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
@@ -580,16 +590,18 @@ void fragment() {
 			* value_noise(vec2(uv.x * 7.0 - TIME * 0.08, seed + 13.0));
 	float edge = smoothstep(0.0, 0.07, uv.x)
 			* smoothstep(0.0, 0.07, 1.0 - uv.x);
-	vec3 cold = vec3(0.048, 0.068, 0.105);
-	vec3 lift = vec3(0.15, 0.19, 0.25);
+	vec3 cold = storm_color.rgb * 0.72;
+	vec3 lift = storm_color.rgb * 2.15
+			+ vec3(weather_flash * 0.16);
 	ALBEDO = mix(cold, lift, clamp(mist * 0.72 + rain * 0.55, 0.0, 1.0));
-	ALPHA = edge * clamp(0.13 + mist * 0.24 + rain * 0.23
+	ALPHA = edge * clamp(storm_color.a * 0.38 + mist * 0.24 + rain * 0.23
 			+ ground_mist * 0.22, 0.0, 0.68);
 }
 """
 	var material := ShaderMaterial.new()
 	material.shader = shader
 	material.set_shader_parameter("seed", seed)
+	_storm_materials.append(material)
 	return material
 
 

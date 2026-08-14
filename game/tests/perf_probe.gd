@@ -102,6 +102,16 @@ func _ready() -> void:
 	# like a large optimization and made every non-lobby station measure the
 	# wrong collection of floors and props.
 	root.view_override = cam
+	var stations: Array = STATIONS
+	var station_filter := OS.get_environment("PERF_STATION")
+	if station_filter != "":
+		stations = STATIONS.filter(func(station):
+			return str(station.name) == station_filter)
+		if stations.is_empty():
+			printerr("PERF: unknown PERF_STATION=%s" % station_filter)
+			get_tree().quit(1)
+			return
+		print("PERF: focused station %s" % station_filter)
 	# Gate A comparison hook. The new host/kiosk blockout is deliberately in a
 	# separate STREET proxy batch, so the same imported build, light state and
 	# live weather can measure it on and off. This is diagnostic only; ordinary
@@ -123,7 +133,7 @@ func _ready() -> void:
 	# shaders lazily on first draw, so whichever station goes first
 	# otherwise absorbs the cost of the whole building's materials and
 	# reports several times its true frame time.
-	for s in STATIONS:
+	for s in stations:
 		cam.global_position = s["pos"]
 		cam.look_at(s["look"])
 		for i in WARMUP:
@@ -135,11 +145,11 @@ func _ready() -> void:
 		return
 	print("%-24s %7s %7s %9s %8s %7s" %
 			["station", "objs", "calls", "prims", "ms", "fps"])
-	for s in STATIONS:
+	for s in stations:
 		await _measure(s)
 	print("PERF RESULT: %s (%d/%d stations over %.1f ms)" %
 			["PASS" if over_budget == 0 else "FAIL", over_budget,
-			STATIONS.size(), FRAME_BUDGET_MS])
+			stations.size(), FRAME_BUDGET_MS])
 	get_tree().quit(over_budget)
 
 

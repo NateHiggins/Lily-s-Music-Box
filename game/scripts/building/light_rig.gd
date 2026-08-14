@@ -114,19 +114,20 @@ var room_light := 0.0
 ## dome four metres off sums to under 0.02, which is the separation this
 ## is calibrated against. Measured, not guessed — see stats().
 const ROOM_LIT_FULL := 0.45
-# Moonlit floor (ruled 2026-08-04): shadows read midnight blue against
-# the warm fixtures and the blue phone torch. Keep in step with
-# building_root._build_environment.
-var ambient_energy := 0.08
-var moon_energy := 0.052
+# DayNightDirector owns the absolute sky values. These debug controls are
+# dimensionless grading gains, so changing the hour cannot be overwritten by
+# the next LightRig tick.
+var ambient_gain := 1.0
+var sky_key_gain := 1.0
 # A bulb should bloom. The threshold used to sit above what the
 # fixtures actually emit, so nothing ever crossed it and the glow
 # system was running with nothing to do.
 var glow_intensity := 0.68
-var fog_density := 0.014
+var fog_gain := 1.0
 var shadow_opacity := 1.0
 var _environment: Environment
 var _moon: DirectionalLight3D
+var _day_night: DayNightDirector
 var _fixture_tuning: Dictionary = {}
 var debug_inspect_enabled := false
 var selected_debug_fixture: Node
@@ -225,6 +226,8 @@ func _bind_environment() -> void:
 			as WorldEnvironment
 	_moon = get_parent().get_node_or_null("ExteriorMoon") \
 			as DirectionalLight3D
+	_day_night = get_parent().get_node_or_null("DayNightDirector") \
+			as DayNightDirector
 	if world:
 		_environment = world.environment
 	apply_tuning()
@@ -233,21 +236,20 @@ func _bind_environment() -> void:
 func set_tuning(parameter: String, value: float) -> void:
 	match parameter:
 		"fixture_gain": fixture_gain = clampf(value, 0.0, 1.5)
-		"ambient_energy": ambient_energy = clampf(value, 0.0, 0.20)
-		"moon_energy": moon_energy = clampf(value, 0.0, 0.30)
+		"ambient_gain": ambient_gain = clampf(value, 0.0, 2.0)
+		"sky_key_gain": sky_key_gain = clampf(value, 0.0, 2.0)
 		"glow_intensity": glow_intensity = clampf(value, 0.0, 1.5)
-		"fog_density": fog_density = clampf(value, 0.0, 0.08)
+		"fog_gain": fog_gain = clampf(value, 0.0, 2.0)
 		"shadow_opacity": shadow_opacity = clampf(value, 0.0, 1.0)
 	apply_tuning()
 
 
 func apply_tuning() -> void:
 	if _environment:
-		_environment.ambient_light_energy = ambient_energy
 		_environment.glow_intensity = glow_intensity
-		_environment.fog_density = fog_density
+	if _day_night:
+		_day_night.set_tuning_offsets(ambient_gain, fog_gain, sky_key_gain)
 	if _moon:
-		_moon.light_energy = moon_energy
 		# Intentionally fixed: lowering energy cannot shorten visible shadows.
 		_moon.directional_shadow_max_distance = 48.0
 		_moon.shadow_opacity = shadow_opacity
@@ -265,10 +267,10 @@ func tuning_snapshot() -> Dictionary:
 		fixtures[str(fixture.name)] = card
 	return {
 		"fixture_gain": fixture_gain,
-		"ambient_energy": ambient_energy,
-		"moon_energy": moon_energy,
+		"ambient_gain": ambient_gain,
+		"sky_key_gain": sky_key_gain,
 		"glow_intensity": glow_intensity,
-		"fog_density": fog_density,
+		"fog_gain": fog_gain,
 		"shadow_opacity": shadow_opacity,
 		"light_budget": _active_budget,
 		"shadow_budget": _shadow_budget,

@@ -366,13 +366,17 @@ is built.
 - **T7** Budget first. Street elevation is 33.28 ms against 16.6, CPU-bound on
   submission, and **lighting is the dominant term outdoors** (-33%, twice the
   atrium's). Headlamps and lightning are the expensive part, not the vehicles.
-- **T8** Execute `design/ORISON_DRIVING_RAIN_SKY_PROPOSAL.md`: make driving
-  overcast rain the canonical exterior, give morning/day/evening/night matched
-  sky variants, dissolve traffic through a fair middle-distance fog envelope,
-  synchronize one cloud-hidden sun/moon glow with the existing exterior key,
-  and trial fake Compatibility-safe fingers of light. Preserve the approved
-  street ends, crossing promise, one-light budget and canonical-night perf
-  contract; the brief's render, motion and automated proof gates bind the work.
+- **T8 DONE.** `design/ORISON_DRIVING_RAIN_SKY_PROPOSAL.md` §17 records the
+  production checkpoint: one geography-locked four-state storm family, slow
+  lower cloud inside the existing sky draw, bounded middle-distance fog, one
+  batched realistic rain draw, roadway mist, one synchronized hidden sky key
+  and restrained cloud-light fingers. Twenty before and twenty final frames
+  plus a fixed-camera cloud-motion pair are under
+  `art/renders/weather_sky_t8`. The real-pavement control measured the weather
+  below the +0.8 ms contract; WeatherSkyTest 31/31, containment, route,
+  lighting, Passage ownership/visibility and WalkTest FULL all pass. Street
+  ends, traffic `MAX_WAIT` / `GAP_SECONDS`, the three-zone map and one-light
+  budget remain unchanged.
 
 ## P2 — The Passage (rehousing the shops)
 

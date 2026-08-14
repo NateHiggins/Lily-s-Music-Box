@@ -1,0 +1,147 @@
+extends Node
+## T8 contract proof: one authoritative weather clock, four production skies,
+## bounded depth fog, deterministic layered rain, and building-owned exposure.
+
+var _fails := 0
+
+
+func _check(label: String, ok: bool) -> void:
+	print("  [%s] %s" % ["ok" if ok else "FAIL", label])
+	if not ok:
+		_fails += 1
+
+
+func _ready() -> void:
+	OS.set_environment("DAYNIGHT_FORCE", "night")
+	OS.set_environment("WEATHER_SEED", "19280731")
+	RealityState.persistence_enabled = false
+	RealityState.reset_campaign_for_tests()
+	var root: Node3D = load(
+			"res://scenes/building/orison_root.tscn").instantiate()
+	add_child(root)
+	await get_tree().create_timer(1.2).timeout
+
+	var director: DayNightDirector = root.day_night_director
+	var paths := director.state_texture_paths() if director else {}
+	_check("the time owner exposes exactly four production sky states",
+			paths.keys().size() == 4 and paths.has("morning")
+			and paths.has("day") and paths.has("evening")
+			and paths.has("night"))
+	for state in ["morning", "day", "evening", "night"]:
+		var resource_path: String = paths.get(state, "")
+		_check("%s sky is a production 4K half-dome" % state,
+				resource_path.ends_with("_rain_half_dome_4k.png")
+				and ResourceLoader.exists(resource_path))
+		var source_path := ProjectSettings.globalize_path(resource_path)
+		var image := Image.load_from_file(source_path)
+		_check("%s sky source is 4096x2048 RGBA" % state,
+				image != null and image.get_width() == 4096
+				and image.get_height() == 2048
+				and image.get_format() == Image.FORMAT_RGBA8)
+
+	var world := root.get_node_or_null("WorldEnvironment") as WorldEnvironment
+	var environment := world.environment if world else null
+	var sky_key := root.get_node_or_null("ExteriorMoon") as DirectionalLight3D
+	_check("DayNightDirector is the Environment absolute writer",
+			environment != null and environment.get_meta("absolute_writer", "")
+			== "DayNightDirector")
+	_check("DayNightDirector is the exterior-key absolute writer",
+			sky_key != null and sky_key.get_meta("absolute_writer", "")
+			== "DayNightDirector")
+	_check("the global storm uses bounded depth fog",
+			environment != null and environment.fog_enabled
+			and environment.fog_mode == Environment.FOG_MODE_DEPTH
+			and environment.fog_depth_begin >= 12.0
+			and environment.fog_depth_begin <= 16.0
+			and environment.fog_depth_end >= 48.0
+			and environment.fog_depth_end <= 58.0
+			and environment.fog_density >= 0.78
+			and environment.fog_density <= 0.90)
+	var directional := _descendants(root).filter(
+			func(node): return node is DirectionalLight3D)
+	_check("the whole world owns one directional exterior key",
+			directional.size() == 1 and directional[0] == sky_key)
+	_check("WeatherFX adds no realtime lights",
+			_descendants(root.weather).all(func(node): return node is not Light3D))
+
+	var dome := root.get_node_or_null("NightSkyHalfDome") as MeshInstance3D
+	var sky_material := dome.material_override as ShaderMaterial if dome else null
+	var sky_code := sky_material.shader.code if sky_material else ""
+	_check("one dome blends only two adjacent panoramas",
+			dome != null and sky_code.count("uniform sampler2D panorama_") == 2)
+	_check("the dynamic lower cloud deck lives in that same sky draw",
+			sky_code.contains("lower_clouds")
+			and sky_code.contains("lower_cloud_strength"))
+	_check("the dome, middle rain and roadway mist cast no shadows",
+			dome.cast_shadow == GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			and root.weather.get_node("DrivingRainMiddle").cast_shadow
+			== GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			and root.weather.get_node("RoadwayMist").cast_shadow
+			== GeometryInstance3D.SHADOW_CASTING_SETTING_OFF)
+
+	_check("north pavement is rain-exposed",
+			root.weather_exposure_at(Vector3(0.0, 0.05, 12.1)))
+	_check("south pavement is rain-exposed",
+			root.weather_exposure_at(Vector3(0.0, 0.05, 26.1)))
+	_check("roadway is rain-exposed",
+			root.weather_exposure_at(Vector3(0.0, 0.05, 19.322)))
+	_check("the open roof is rain-exposed",
+			root.weather_exposure_at(Vector3(0.0, 19.3, 0.0)))
+	_check("the lobby and atrium are dry",
+			not root.weather_exposure_at(Vector3(0.0, 0.05, 0.0)))
+	_check("an upper apartment is dry",
+			not root.weather_exposure_at(Vector3(0.0, 9.65, 0.0)))
+	_check("the Vantry Arcade is dry",
+			not root.weather_exposure_at(Vector3(14.0, 0.05, 45.0)))
+	_check("the basement is dry",
+			not root.weather_exposure_at(Vector3(0.0, -2.75, 0.0)))
+
+	root.player.global_position = Vector3(0.0, 0.05, 19.322)
+	root.weather._process(0.2)
+	var weather_state: Dictionary = root.weather.diagnostic_snapshot()
+	_check("the weather seed and counts are deterministic",
+			weather_state.seed == 19280731
+			and weather_state.near_rain_mode == "procedural_close_shell"
+			and weather_state.spatter_count == 72
+			and weather_state.leaf_count == 8)
+	_check("near and middle rain share one visible batch outdoors",
+			root.weather.get_node("DrivingRainSpatter").emitting
+			and root.weather.get_node("DrivingRainMiddle").visible)
+	root.player.global_position = Vector3(0.0, 0.05, 0.0)
+	root.weather._process(0.2)
+	_check("all player-following precipitation suppresses indoors",
+			not root.weather.get_node("DrivingRainSpatter").emitting
+			and not root.weather.get_node("DrivingRainMiddle").visible)
+
+	_check("traffic's crossing promise remains eight seconds",
+			StreetTraffic.MAX_WAIT == 8.0)
+	_check("traffic's authored safe gap remains 3.4 seconds",
+			StreetTraffic.GAP_SECONDS == 3.4)
+	_check("both ruled street-end weather owners survive",
+			get_tree().get_nodes_in_group("street_end_weather").size() == 2)
+
+	print("[WEATHER SKY TEST] RESULT: %s (%d failures)" % [
+			"PASS" if _fails == 0 else "FAIL", _fails])
+	_stop_audio(root)
+	root.queue_free()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	PropAudio.clear_cache()
+	get_tree().quit(_fails)
+
+
+func _descendants(parent: Node) -> Array[Node]:
+	var found: Array[Node] = []
+	var stack: Array[Node] = [parent]
+	while not stack.is_empty():
+		var node: Node = stack.pop_back()
+		found.append(node)
+		stack.append_array(node.get_children())
+	return found
+
+
+func _stop_audio(node: Node) -> void:
+	if node is AudioStreamPlayer or node is AudioStreamPlayer3D:
+		node.stop()
+	for child in node.get_children():
+		_stop_audio(child)

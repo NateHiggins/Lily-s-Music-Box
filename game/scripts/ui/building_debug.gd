@@ -469,18 +469,18 @@ func _build_device() -> void:
 	grade[_slider(box, "Fixture", 0.0, 1.5, root.light_rig.fixture_gain,
 			func(v): root.light_rig.set_tuning("fixture_gain", v), 0.01)] = \
 			root.light_rig.fixture_gain
-	grade[_slider(box, "Ambient", 0.0, 0.20, root.light_rig.ambient_energy,
-			func(v): root.light_rig.set_tuning("ambient_energy", v), 0.001)] = \
-			root.light_rig.ambient_energy
-	grade[_slider(box, "Moon", 0.0, 0.20, root.light_rig.moon_energy,
-			func(v): root.light_rig.set_tuning("moon_energy", v), 0.001)] = \
-			root.light_rig.moon_energy
+	grade[_slider(box, "Ambient gain", 0.0, 2.0, root.light_rig.ambient_gain,
+			func(v): root.light_rig.set_tuning("ambient_gain", v), 0.01)] = \
+			root.light_rig.ambient_gain
+	grade[_slider(box, "Sky-key gain", 0.0, 2.0, root.light_rig.sky_key_gain,
+			func(v): root.light_rig.set_tuning("sky_key_gain", v), 0.01)] = \
+			root.light_rig.sky_key_gain
 	grade[_slider(box, "Glow", 0.0, 1.2, root.light_rig.glow_intensity,
 			func(v): root.light_rig.set_tuning("glow_intensity", v), 0.01)] = \
 			root.light_rig.glow_intensity
-	grade[_slider(box, "Fog", 0.0, 0.05, root.light_rig.fog_density,
-			func(v): root.light_rig.set_tuning("fog_density", v), 0.001)] = \
-			root.light_rig.fog_density
+	grade[_slider(box, "Fog gain", 0.0, 2.0, root.light_rig.fog_gain,
+			func(v): root.light_rig.set_tuning("fog_gain", v), 0.01)] = \
+			root.light_rig.fog_gain
 	grade[_slider(box, "Shadow", 0.0, 1.0, root.light_rig.shadow_opacity,
 			func(v): root.light_rig.set_tuning("shadow_opacity", v), 0.01)] = \
 			root.light_rig.shadow_opacity
