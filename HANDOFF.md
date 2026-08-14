@@ -91,6 +91,12 @@ errors:
   Empty means current. Any output means re-run step 3 first. A stale build
   is invisible in-engine — it loads, walks and tests green, because it is a
   perfectly valid build of the wrong data.
+- **A changed external `.bin` used to leave Godot's imported scene stale.**
+  Position-only geometry edits can leave the `.gltf` descriptor byte-identical;
+  Godot then reused its cached scene even though the sibling buffer changed.
+  The canonical builder now writes each buffer's SHA-256 into
+  `asset.extras.orison_bin_sha256`, making the descriptor and buffer an atomic
+  import unit. Do not strip that generated metadata.
 - **A test whose script will not parse HANGS rather than failing** — no
   output, no exit, until the timeout kills it. A new `class_name` also
   does not exist until Godot rescans. After adding or editing any script

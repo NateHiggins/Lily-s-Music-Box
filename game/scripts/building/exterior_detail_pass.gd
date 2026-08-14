@@ -460,20 +460,28 @@ void fragment() {
 	var multimesh := MultiMesh.new()
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
 	multimesh.mesh = quad
-	multimesh.instance_count = 4
+	# Each collision board has a finished face on both sides.  The original
+	# four inward faces read correctly from the playable block, but canonical
+	# Vantry approach 02 sees the outward side of EastSouthWorks; there the raw
+	# batched collision box became a five-metre black rectangle.  Eight quads
+	# remain one draw and move no boundary.
+	multimesh.instance_count = 8
 	var faces := [[-20.10, -12.10, 5.30], [-20.10, -26.105, 4.422],
 			[20.60, -12.10, 5.30], [20.60, -26.105, 4.422]]
 	for i in faces.size():
 		var row: Array = faces[i]
 		var x: float = row[0]
-		var inward_x := x - signf(x) * 0.205
 		# Scale in the quad's LOCAL axes before rotating its width from Godot X
 		# onto street depth. Basis.scaled() here scales world rows and produced a
 		# one-metre bright strip down the middle of a still-black hoarding.
 		var basis := Basis(Vector3.UP, PI * 0.5) \
 				* Basis.from_scale(Vector3(float(row[2]), 2.38, 1.0))
-		multimesh.set_instance_transform(i, Transform3D(basis,
-				GameBoot.b2g([inward_x, float(row[1]), 1.20])))
+		for side_index in 2:
+			var face_side := -1.0 if side_index == 0 else 1.0
+			var surface_x := x + signf(x) * 0.205 * face_side
+			multimesh.set_instance_transform(i * 2 + side_index,
+					Transform3D(basis,
+						GameBoot.b2g([surface_x, float(row[1]), 1.20])))
 	var instance := MultiMeshInstance3D.new()
 	instance.name = "StreetEndHoardingFaces"
 	instance.multimesh = multimesh

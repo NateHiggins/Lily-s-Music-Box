@@ -411,13 +411,15 @@ are two answers to the same problem and only this one is built.
 - **PS11** Redesign the jarring STREET → PASSAGE gate under
   `design/VANTRY_GATEWAY_AND_SUBWAY_PROPOSAL.md` and
   `design/VANTRY_SUBWAY_KIOSK_PROPOSAL.md`. Gate A's reversible host/kiosk
-  blockout now passes its exact envelope, visible-collision, ownership, route,
-  FULL-walk, render and same-build performance controls (§14). Next: K0
-  historical exterior finish on that unchanged envelope, specifically solving
-  the unfinished kiosk side's dark east-oblique read without adding a light.
-  Do not cut the pavement, build the shallow stair, add sound/reflected train
-  light or merge away the diagnostic batch until K0's seven approach renders
-  pass. A station, cutscene, route or fourth zone remains rejected.
+  blockout and K0 historical exterior now pass their exact envelope,
+  visible-collision, ownership, route, FULL-walk, seven-view render and
+  same-build performance controls (§§14–15). K0 replaces the stepped shell
+  with iron panels and wire glass, adds unlit `EXIT` / `RAPID TRANSIT`, reuses
+  the same two lights, and fixes the east approach's actual black owner: the
+  unfinished outward face of `EastSouthWorks`, not the kiosk. Next: K1's
+  shallow 6–10-step non-enterable stair diorama inside the already approved
+  kiosk footprint. Sound/reflected train light remain later gates. A station,
+  cutscene, route, interaction or fourth zone remains rejected.
 
 ## F — Film (projectors instead of televisions)
 

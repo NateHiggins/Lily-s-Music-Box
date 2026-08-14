@@ -6268,7 +6268,7 @@
      "id": "PASSAGE_PORTAL_LT_E",
      "unit": "PASSAGE",
      "pos": [
-      16.52,
+      19.88,
       -27.516,
       2.82
      ],
@@ -12313,7 +12313,7 @@
      ],
      "z0": 3.78,
      "h": 0.12,
-     "mat": "metal",
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12332,7 +12332,245 @@
      "zone": "STREET"
     },
     {
-     "id": "site_passage_proxy_kiosk_wainscot_w",
+     "id": "site_passage_proxy_kiosk_panel_w_0",
+     "rect": [
+      18.1,
+      -33.165,
+      18.155,
+      -31.9725
+     ],
+     "z0": 0.3,
+     "h": 0.76,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_e_0",
+     "rect": [
+      19.695,
+      -33.165,
+      19.75,
+      -31.9725
+     ],
+     "z0": 0.3,
+     "h": 0.76,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_stile_w_0",
+     "rect": [
+      18.1,
+      -33.25,
+      18.240000000000002,
+      -33.165
+     ],
+     "z0": 0.2,
+     "h": 0.96,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_stile_e_0",
+     "rect": [
+      19.61,
+      -33.25,
+      19.75,
+      -33.165
+     ],
+     "z0": 0.2,
+     "h": 0.96,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_w_1",
+     "rect": [
+      18.1,
+      -31.8025,
+      18.155,
+      -30.61
+     ],
+     "z0": 0.3,
+     "h": 0.76,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_e_1",
+     "rect": [
+      19.695,
+      -31.8025,
+      19.75,
+      -30.61
+     ],
+     "z0": 0.3,
+     "h": 0.76,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_stile_w_1",
+     "rect": [
+      18.1,
+      -31.8875,
+      18.240000000000002,
+      -31.8025
+     ],
+     "z0": 0.2,
+     "h": 0.96,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_stile_e_1",
+     "rect": [
+      19.61,
+      -31.8875,
+      19.75,
+      -31.8025
+     ],
+     "z0": 0.2,
+     "h": 0.96,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_w_2",
+     "rect": [
+      18.1,
+      -30.439999999999998,
+      18.155,
+      -29.247500000000002
+     ],
+     "z0": 0.3,
+     "h": 0.76,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_e_2",
+     "rect": [
+      19.695,
+      -30.439999999999998,
+      19.75,
+      -29.247500000000002
+     ],
+     "z0": 0.3,
+     "h": 0.76,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_stile_w_2",
+     "rect": [
+      18.1,
+      -30.525,
+      18.240000000000002,
+      -30.439999999999998
+     ],
+     "z0": 0.2,
+     "h": 0.96,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_stile_e_2",
+     "rect": [
+      19.61,
+      -30.525,
+      19.75,
+      -30.439999999999998
+     ],
+     "z0": 0.2,
+     "h": 0.96,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_w_3",
+     "rect": [
+      18.1,
+      -29.0775,
+      18.155,
+      -27.885
+     ],
+     "z0": 0.3,
+     "h": 0.76,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_e_3",
+     "rect": [
+      19.695,
+      -29.0775,
+      19.75,
+      -27.885
+     ],
+     "z0": 0.3,
+     "h": 0.76,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_stile_w_3",
+     "rect": [
+      18.1,
+      -29.1625,
+      18.240000000000002,
+      -29.0775
+     ],
+     "z0": 0.2,
+     "h": 0.96,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_stile_e_3",
+     "rect": [
+      19.61,
+      -29.1625,
+      19.75,
+      -29.0775
+     ],
+     "z0": 0.2,
+     "h": 0.96,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_end_w",
+     "rect": [
+      18.1,
+      -27.885,
+      18.240000000000002,
+      -27.8
+     ],
+     "z0": 0.2,
+     "h": 0.96,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_rail_low_w",
      "rect": [
       18.1,
       -33.25,
@@ -12340,13 +12578,41 @@
       -27.8
      ],
      "z0": 0.2,
-     "h": 0.96,
-     "mat": "metal",
+     "h": 0.1,
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
     {
-     "id": "site_passage_proxy_kiosk_wainscot_e",
+     "id": "site_passage_proxy_kiosk_panel_rail_high_w",
+     "rect": [
+      18.1,
+      -33.25,
+      18.240000000000002,
+      -27.8
+     ],
+     "z0": 1.06,
+     "h": 0.1,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_end_e",
+     "rect": [
+      19.61,
+      -27.885,
+      19.75,
+      -27.8
+     ],
+     "z0": 0.2,
+     "h": 0.96,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_rail_low_e",
      "rect": [
       19.61,
       -33.25,
@@ -12354,8 +12620,22 @@
       -27.8
      ],
      "z0": 0.2,
-     "h": 0.96,
-     "mat": "metal",
+     "h": 0.1,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_panel_rail_high_e",
+     "rect": [
+      19.61,
+      -33.25,
+      19.75,
+      -27.8
+     ],
+     "z0": 1.06,
+     "h": 0.1,
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12411,7 +12691,7 @@
      ],
      "z0": 1.12,
      "h": 1.06,
-     "mat": "metal",
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12425,21 +12705,72 @@
      ],
      "z0": 1.12,
      "h": 1.06,
-     "mat": "metal",
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
     {
-     "id": "site_passage_proxy_kiosk_roof_step_0",
+     "id": "site_passage_proxy_kiosk_glass_rail_w_0",
      "rect": [
       18.1,
-      -33.25,
+      -33.21,
+      18.240000000000002,
+      -31.9275
+     ],
+     "z0": 1.6488,
+     "h": 0.045,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_glass_rail_e_0",
+     "rect": [
+      19.61,
+      -33.21,
       19.75,
+      -31.9275
+     ],
+     "z0": 1.6488,
+     "h": 0.045,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_canopy_glass_0",
+     "rect": [
+      18.155,
+      -33.25,
+      19.695,
       -31.8875
      ],
      "z0": 2.18,
-     "h": 0.075,
-     "mat": "metal",
+     "h": 0.038,
+     "mat": "glassish",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_roof_rib_0",
+     "asm": "pipe",
+     "at": [
+      18.135,
+      -31.9225
+     ],
+     "yaw": 0,
+     "mat": "cast_iron",
+     "p0": [
+      18.135,
+      -31.9225,
+      2.218
+     ],
+     "p1": [
+      19.715,
+      -31.9225,
+      2.218
+     ],
+     "r": 0.028,
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12481,7 +12812,7 @@
      ],
      "z0": 1.12,
      "h": 1.42,
-     "mat": "metal",
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12495,21 +12826,72 @@
      ],
      "z0": 1.12,
      "h": 1.42,
-     "mat": "metal",
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
     {
-     "id": "site_passage_proxy_kiosk_roof_step_1",
+     "id": "site_passage_proxy_kiosk_glass_rail_w_1",
      "rect": [
       18.1,
-      -31.8875,
+      -31.8475,
+      18.240000000000002,
+      -30.564999999999998
+     ],
+     "z0": 1.8359999999999999,
+     "h": 0.045,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_glass_rail_e_1",
+     "rect": [
+      19.61,
+      -31.8475,
       19.75,
+      -30.564999999999998
+     ],
+     "z0": 1.8359999999999999,
+     "h": 0.045,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_canopy_glass_1",
+     "rect": [
+      18.155,
+      -31.8875,
+      19.695,
       -30.525
      ],
      "z0": 2.54,
-     "h": 0.075,
-     "mat": "metal",
+     "h": 0.038,
+     "mat": "glassish",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_roof_rib_1",
+     "asm": "pipe",
+     "at": [
+      18.135,
+      -30.56
+     ],
+     "yaw": 0,
+     "mat": "cast_iron",
+     "p0": [
+      18.135,
+      -30.56,
+      2.578
+     ],
+     "p1": [
+      19.715,
+      -30.56,
+      2.578
+     ],
+     "r": 0.028,
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12551,7 +12933,7 @@
      ],
      "z0": 1.12,
      "h": 1.7799999999999998,
-     "mat": "metal",
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12565,21 +12947,72 @@
      ],
      "z0": 1.12,
      "h": 1.7799999999999998,
-     "mat": "metal",
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
     {
-     "id": "site_passage_proxy_kiosk_roof_step_2",
+     "id": "site_passage_proxy_kiosk_glass_rail_w_2",
      "rect": [
       18.1,
-      -30.525,
+      -30.485,
+      18.240000000000002,
+      -29.2025
+     ],
+     "z0": 2.0232,
+     "h": 0.045,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_glass_rail_e_2",
+     "rect": [
+      19.61,
+      -30.485,
       19.75,
+      -29.2025
+     ],
+     "z0": 2.0232,
+     "h": 0.045,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_canopy_glass_2",
+     "rect": [
+      18.155,
+      -30.525,
+      19.695,
       -29.1625
      ],
      "z0": 2.9,
-     "h": 0.075,
-     "mat": "metal",
+     "h": 0.038,
+     "mat": "glassish",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_roof_rib_2",
+     "asm": "pipe",
+     "at": [
+      18.135,
+      -29.1975
+     ],
+     "yaw": 0,
+     "mat": "cast_iron",
+     "p0": [
+      18.135,
+      -29.1975,
+      2.9379999999999997
+     ],
+     "p1": [
+      19.715,
+      -29.1975,
+      2.9379999999999997
+     ],
+     "r": 0.028,
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12621,7 +13054,7 @@
      ],
      "z0": 1.12,
      "h": 2.12,
-     "mat": "metal",
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12635,21 +13068,72 @@
      ],
      "z0": 1.12,
      "h": 2.12,
-     "mat": "metal",
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
     {
-     "id": "site_passage_proxy_kiosk_roof_step_3",
+     "id": "site_passage_proxy_kiosk_glass_rail_w_3",
      "rect": [
       18.1,
-      -29.1625,
+      -29.122500000000002,
+      18.240000000000002,
+      -27.84
+     ],
+     "z0": 2.2,
+     "h": 0.045,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_glass_rail_e_3",
+     "rect": [
+      19.61,
+      -29.122500000000002,
       19.75,
+      -27.84
+     ],
+     "z0": 2.2,
+     "h": 0.045,
+     "mat": "cast_iron",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_canopy_glass_3",
+     "rect": [
+      18.155,
+      -29.1625,
+      19.695,
       -27.8
      ],
      "z0": 3.24,
-     "h": 0.075,
-     "mat": "metal",
+     "h": 0.038,
+     "mat": "glassish",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_roof_rib_3",
+     "asm": "pipe",
+     "at": [
+      18.135,
+      -27.835
+     ],
+     "yaw": 0,
+     "mat": "cast_iron",
+     "p0": [
+      18.135,
+      -27.835,
+      3.278
+     ],
+     "p1": [
+      19.715,
+      -27.835,
+      3.278
+     ],
+     "r": 0.028,
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12661,7 +13145,7 @@
       -33.215
      ],
      "yaw": 0,
-     "mat": "metal",
+     "mat": "cast_iron",
      "p0": [
       18.17,
       -33.215,
@@ -12684,7 +13168,7 @@
       -33.215
      ],
      "yaw": 0,
-     "mat": "metal",
+     "mat": "cast_iron",
      "p0": [
       19.68,
       -33.215,
@@ -12709,7 +13193,7 @@
      ],
      "z0": 0.2,
      "h": 3.12,
-     "mat": "metal",
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12723,7 +13207,7 @@
      ],
      "z0": 0.2,
      "h": 3.12,
-     "mat": "metal",
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12733,11 +13217,2055 @@
       18.240000000000002,
       -27.88,
       19.61,
-      -27.8
+      -27.818
      ],
      "z0": 2.55,
      "h": 0.55,
      "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_00_0_0",
+     "rect": [
+      19.435000000000002,
+      -27.816,
+      19.4935,
+      -27.8
+     ],
+     "z0": 2.925,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_00_0_1",
+     "rect": [
+      19.36,
+      -27.816,
+      19.4185,
+      -27.8
+     ],
+     "z0": 2.925,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_00_0_2",
+     "rect": [
+      19.285,
+      -27.816,
+      19.343500000000002,
+      -27.8
+     ],
+     "z0": 2.925,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_00_1_0",
+     "rect": [
+      19.435000000000002,
+      -27.816,
+      19.4935,
+      -27.8
+     ],
+     "z0": 2.85,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_00_2_0",
+     "rect": [
+      19.435000000000002,
+      -27.816,
+      19.4935,
+      -27.8
+     ],
+     "z0": 2.775,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_00_2_1",
+     "rect": [
+      19.36,
+      -27.816,
+      19.4185,
+      -27.8
+     ],
+     "z0": 2.775,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_00_3_0",
+     "rect": [
+      19.435000000000002,
+      -27.816,
+      19.4935,
+      -27.8
+     ],
+     "z0": 2.7,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_00_4_0",
+     "rect": [
+      19.435000000000002,
+      -27.816,
+      19.4935,
+      -27.8
+     ],
+     "z0": 2.625,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_00_4_1",
+     "rect": [
+      19.36,
+      -27.816,
+      19.4185,
+      -27.8
+     ],
+     "z0": 2.625,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_00_4_2",
+     "rect": [
+      19.285,
+      -27.816,
+      19.343500000000002,
+      -27.8
+     ],
+     "z0": 2.625,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_01_0_0",
+     "rect": [
+      19.135,
+      -27.816,
+      19.1935,
+      -27.8
+     ],
+     "z0": 2.925,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_01_0_2",
+     "rect": [
+      18.985,
+      -27.816,
+      19.0435,
+      -27.8
+     ],
+     "z0": 2.925,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_01_1_0",
+     "rect": [
+      19.135,
+      -27.816,
+      19.1935,
+      -27.8
+     ],
+     "z0": 2.85,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_01_1_2",
+     "rect": [
+      18.985,
+      -27.816,
+      19.0435,
+      -27.8
+     ],
+     "z0": 2.85,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_01_2_1",
+     "rect": [
+      19.06,
+      -27.816,
+      19.1185,
+      -27.8
+     ],
+     "z0": 2.775,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_01_3_0",
+     "rect": [
+      19.135,
+      -27.816,
+      19.1935,
+      -27.8
+     ],
+     "z0": 2.7,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_01_3_2",
+     "rect": [
+      18.985,
+      -27.816,
+      19.0435,
+      -27.8
+     ],
+     "z0": 2.7,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_01_4_0",
+     "rect": [
+      19.135,
+      -27.816,
+      19.1935,
+      -27.8
+     ],
+     "z0": 2.625,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_01_4_2",
+     "rect": [
+      18.985,
+      -27.816,
+      19.0435,
+      -27.8
+     ],
+     "z0": 2.625,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_02_0_0",
+     "rect": [
+      18.835,
+      -27.816,
+      18.8935,
+      -27.8
+     ],
+     "z0": 2.925,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_02_0_1",
+     "rect": [
+      18.759999999999998,
+      -27.816,
+      18.8185,
+      -27.8
+     ],
+     "z0": 2.925,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_02_0_2",
+     "rect": [
+      18.685,
+      -27.816,
+      18.7435,
+      -27.8
+     ],
+     "z0": 2.925,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_02_1_1",
+     "rect": [
+      18.759999999999998,
+      -27.816,
+      18.8185,
+      -27.8
+     ],
+     "z0": 2.85,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_02_2_1",
+     "rect": [
+      18.759999999999998,
+      -27.816,
+      18.8185,
+      -27.8
+     ],
+     "z0": 2.775,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_02_3_1",
+     "rect": [
+      18.759999999999998,
+      -27.816,
+      18.8185,
+      -27.8
+     ],
+     "z0": 2.7,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_02_4_0",
+     "rect": [
+      18.835,
+      -27.816,
+      18.8935,
+      -27.8
+     ],
+     "z0": 2.625,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_02_4_1",
+     "rect": [
+      18.759999999999998,
+      -27.816,
+      18.8185,
+      -27.8
+     ],
+     "z0": 2.625,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_02_4_2",
+     "rect": [
+      18.685,
+      -27.816,
+      18.7435,
+      -27.8
+     ],
+     "z0": 2.625,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_03_0_0",
+     "rect": [
+      18.535,
+      -27.816,
+      18.5935,
+      -27.8
+     ],
+     "z0": 2.925,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_03_0_1",
+     "rect": [
+      18.459999999999997,
+      -27.816,
+      18.5185,
+      -27.8
+     ],
+     "z0": 2.925,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_03_0_2",
+     "rect": [
+      18.384999999999998,
+      -27.816,
+      18.4435,
+      -27.8
+     ],
+     "z0": 2.925,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_03_1_1",
+     "rect": [
+      18.459999999999997,
+      -27.816,
+      18.5185,
+      -27.8
+     ],
+     "z0": 2.85,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_03_2_1",
+     "rect": [
+      18.459999999999997,
+      -27.816,
+      18.5185,
+      -27.8
+     ],
+     "z0": 2.775,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_03_3_1",
+     "rect": [
+      18.459999999999997,
+      -27.816,
+      18.5185,
+      -27.8
+     ],
+     "z0": 2.7,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_letter_03_4_1",
+     "rect": [
+      18.459999999999997,
+      -27.816,
+      18.5185,
+      -27.8
+     ],
+     "z0": 2.625,
+     "h": 0.058499999999999996,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_plate",
+     "rect": [
+      18.28,
+      -27.875,
+      19.57,
+      -27.818
+     ],
+     "z0": 2.35,
+     "h": 0.145,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_00_0_0",
+     "rect": [
+      19.387,
+      -27.816,
+      19.40377,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_00_0_1",
+     "rect": [
+      19.3655,
+      -27.816,
+      19.382270000000002,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_00_1_0",
+     "rect": [
+      19.387,
+      -27.816,
+      19.40377,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_00_1_2",
+     "rect": [
+      19.344,
+      -27.816,
+      19.360770000000002,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_00_2_0",
+     "rect": [
+      19.387,
+      -27.816,
+      19.40377,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_00_2_1",
+     "rect": [
+      19.3655,
+      -27.816,
+      19.382270000000002,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_00_3_0",
+     "rect": [
+      19.387,
+      -27.816,
+      19.40377,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_00_3_2",
+     "rect": [
+      19.344,
+      -27.816,
+      19.360770000000002,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_00_4_0",
+     "rect": [
+      19.387,
+      -27.816,
+      19.40377,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_00_4_2",
+     "rect": [
+      19.344,
+      -27.816,
+      19.360770000000002,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_01_0_1",
+     "rect": [
+      19.279500000000002,
+      -27.816,
+      19.296270000000003,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_01_1_0",
+     "rect": [
+      19.301000000000002,
+      -27.816,
+      19.317770000000003,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_01_1_2",
+     "rect": [
+      19.258000000000003,
+      -27.816,
+      19.274770000000004,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_01_2_0",
+     "rect": [
+      19.301000000000002,
+      -27.816,
+      19.317770000000003,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_01_2_1",
+     "rect": [
+      19.279500000000002,
+      -27.816,
+      19.296270000000003,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_01_2_2",
+     "rect": [
+      19.258000000000003,
+      -27.816,
+      19.274770000000004,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_01_3_0",
+     "rect": [
+      19.301000000000002,
+      -27.816,
+      19.317770000000003,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_01_3_2",
+     "rect": [
+      19.258000000000003,
+      -27.816,
+      19.274770000000004,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_01_4_0",
+     "rect": [
+      19.301000000000002,
+      -27.816,
+      19.317770000000003,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_01_4_2",
+     "rect": [
+      19.258000000000003,
+      -27.816,
+      19.274770000000004,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_02_0_0",
+     "rect": [
+      19.215000000000003,
+      -27.816,
+      19.231770000000004,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_02_0_1",
+     "rect": [
+      19.193500000000004,
+      -27.816,
+      19.210270000000005,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_02_1_0",
+     "rect": [
+      19.215000000000003,
+      -27.816,
+      19.231770000000004,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_02_1_2",
+     "rect": [
+      19.172000000000004,
+      -27.816,
+      19.188770000000005,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_02_2_0",
+     "rect": [
+      19.215000000000003,
+      -27.816,
+      19.231770000000004,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_02_2_1",
+     "rect": [
+      19.193500000000004,
+      -27.816,
+      19.210270000000005,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_02_3_0",
+     "rect": [
+      19.215000000000003,
+      -27.816,
+      19.231770000000004,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_02_4_0",
+     "rect": [
+      19.215000000000003,
+      -27.816,
+      19.231770000000004,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_03_0_0",
+     "rect": [
+      19.129000000000005,
+      -27.816,
+      19.145770000000006,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_03_0_1",
+     "rect": [
+      19.107500000000005,
+      -27.816,
+      19.124270000000006,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_03_0_2",
+     "rect": [
+      19.086000000000006,
+      -27.816,
+      19.102770000000007,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_03_1_1",
+     "rect": [
+      19.107500000000005,
+      -27.816,
+      19.124270000000006,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_03_2_1",
+     "rect": [
+      19.107500000000005,
+      -27.816,
+      19.124270000000006,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_03_3_1",
+     "rect": [
+      19.107500000000005,
+      -27.816,
+      19.124270000000006,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_03_4_0",
+     "rect": [
+      19.129000000000005,
+      -27.816,
+      19.145770000000006,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_03_4_1",
+     "rect": [
+      19.107500000000005,
+      -27.816,
+      19.124270000000006,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_03_4_2",
+     "rect": [
+      19.086000000000006,
+      -27.816,
+      19.102770000000007,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_04_0_0",
+     "rect": [
+      19.043000000000006,
+      -27.816,
+      19.059770000000007,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_04_0_1",
+     "rect": [
+      19.021500000000007,
+      -27.816,
+      19.038270000000008,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_04_1_0",
+     "rect": [
+      19.043000000000006,
+      -27.816,
+      19.059770000000007,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_04_1_2",
+     "rect": [
+      19.000000000000007,
+      -27.816,
+      19.016770000000008,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_04_2_0",
+     "rect": [
+      19.043000000000006,
+      -27.816,
+      19.059770000000007,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_04_2_2",
+     "rect": [
+      19.000000000000007,
+      -27.816,
+      19.016770000000008,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_04_3_0",
+     "rect": [
+      19.043000000000006,
+      -27.816,
+      19.059770000000007,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_04_3_2",
+     "rect": [
+      19.000000000000007,
+      -27.816,
+      19.016770000000008,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_04_4_0",
+     "rect": [
+      19.043000000000006,
+      -27.816,
+      19.059770000000007,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_04_4_1",
+     "rect": [
+      19.021500000000007,
+      -27.816,
+      19.038270000000008,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_06_0_0",
+     "rect": [
+      18.91400000000001,
+      -27.816,
+      18.93077000000001,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_06_0_1",
+     "rect": [
+      18.89250000000001,
+      -27.816,
+      18.90927000000001,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_06_0_2",
+     "rect": [
+      18.87100000000001,
+      -27.816,
+      18.88777000000001,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_06_1_1",
+     "rect": [
+      18.89250000000001,
+      -27.816,
+      18.90927000000001,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_06_2_1",
+     "rect": [
+      18.89250000000001,
+      -27.816,
+      18.90927000000001,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_06_3_1",
+     "rect": [
+      18.89250000000001,
+      -27.816,
+      18.90927000000001,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_06_4_1",
+     "rect": [
+      18.89250000000001,
+      -27.816,
+      18.90927000000001,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_07_0_0",
+     "rect": [
+      18.82800000000001,
+      -27.816,
+      18.84477000000001,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_07_0_1",
+     "rect": [
+      18.80650000000001,
+      -27.816,
+      18.82327000000001,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_07_1_0",
+     "rect": [
+      18.82800000000001,
+      -27.816,
+      18.84477000000001,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_07_1_2",
+     "rect": [
+      18.78500000000001,
+      -27.816,
+      18.801770000000012,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_07_2_0",
+     "rect": [
+      18.82800000000001,
+      -27.816,
+      18.84477000000001,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_07_2_1",
+     "rect": [
+      18.80650000000001,
+      -27.816,
+      18.82327000000001,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_07_3_0",
+     "rect": [
+      18.82800000000001,
+      -27.816,
+      18.84477000000001,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_07_3_2",
+     "rect": [
+      18.78500000000001,
+      -27.816,
+      18.801770000000012,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_07_4_0",
+     "rect": [
+      18.82800000000001,
+      -27.816,
+      18.84477000000001,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_07_4_2",
+     "rect": [
+      18.78500000000001,
+      -27.816,
+      18.801770000000012,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_08_0_1",
+     "rect": [
+      18.720500000000012,
+      -27.816,
+      18.737270000000013,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_08_1_0",
+     "rect": [
+      18.74200000000001,
+      -27.816,
+      18.758770000000013,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_08_1_2",
+     "rect": [
+      18.699000000000012,
+      -27.816,
+      18.715770000000013,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_08_2_0",
+     "rect": [
+      18.74200000000001,
+      -27.816,
+      18.758770000000013,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_08_2_1",
+     "rect": [
+      18.720500000000012,
+      -27.816,
+      18.737270000000013,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_08_2_2",
+     "rect": [
+      18.699000000000012,
+      -27.816,
+      18.715770000000013,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_08_3_0",
+     "rect": [
+      18.74200000000001,
+      -27.816,
+      18.758770000000013,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_08_3_2",
+     "rect": [
+      18.699000000000012,
+      -27.816,
+      18.715770000000013,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_08_4_0",
+     "rect": [
+      18.74200000000001,
+      -27.816,
+      18.758770000000013,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_08_4_2",
+     "rect": [
+      18.699000000000012,
+      -27.816,
+      18.715770000000013,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_09_0_0",
+     "rect": [
+      18.656000000000013,
+      -27.816,
+      18.672770000000014,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_09_0_2",
+     "rect": [
+      18.613000000000014,
+      -27.816,
+      18.629770000000015,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_09_1_0",
+     "rect": [
+      18.656000000000013,
+      -27.816,
+      18.672770000000014,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_09_1_1",
+     "rect": [
+      18.634500000000013,
+      -27.816,
+      18.651270000000014,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_09_1_2",
+     "rect": [
+      18.613000000000014,
+      -27.816,
+      18.629770000000015,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_09_2_0",
+     "rect": [
+      18.656000000000013,
+      -27.816,
+      18.672770000000014,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_09_2_1",
+     "rect": [
+      18.634500000000013,
+      -27.816,
+      18.651270000000014,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_09_2_2",
+     "rect": [
+      18.613000000000014,
+      -27.816,
+      18.629770000000015,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_09_3_0",
+     "rect": [
+      18.656000000000013,
+      -27.816,
+      18.672770000000014,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_09_3_1",
+     "rect": [
+      18.634500000000013,
+      -27.816,
+      18.651270000000014,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_09_3_2",
+     "rect": [
+      18.613000000000014,
+      -27.816,
+      18.629770000000015,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_09_4_0",
+     "rect": [
+      18.656000000000013,
+      -27.816,
+      18.672770000000014,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_09_4_2",
+     "rect": [
+      18.613000000000014,
+      -27.816,
+      18.629770000000015,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_10_0_1",
+     "rect": [
+      18.548500000000015,
+      -27.816,
+      18.565270000000016,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_10_0_2",
+     "rect": [
+      18.527000000000015,
+      -27.816,
+      18.543770000000016,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_10_1_0",
+     "rect": [
+      18.570000000000014,
+      -27.816,
+      18.586770000000016,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_10_2_1",
+     "rect": [
+      18.548500000000015,
+      -27.816,
+      18.565270000000016,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_10_3_2",
+     "rect": [
+      18.527000000000015,
+      -27.816,
+      18.543770000000016,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_10_4_0",
+     "rect": [
+      18.570000000000014,
+      -27.816,
+      18.586770000000016,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_10_4_1",
+     "rect": [
+      18.548500000000015,
+      -27.816,
+      18.565270000000016,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_11_0_0",
+     "rect": [
+      18.484000000000016,
+      -27.816,
+      18.500770000000017,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_11_0_1",
+     "rect": [
+      18.462500000000016,
+      -27.816,
+      18.479270000000017,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_11_0_2",
+     "rect": [
+      18.441000000000017,
+      -27.816,
+      18.457770000000018,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_11_1_1",
+     "rect": [
+      18.462500000000016,
+      -27.816,
+      18.479270000000017,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_11_2_1",
+     "rect": [
+      18.462500000000016,
+      -27.816,
+      18.479270000000017,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_11_3_1",
+     "rect": [
+      18.462500000000016,
+      -27.816,
+      18.479270000000017,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_11_4_0",
+     "rect": [
+      18.484000000000016,
+      -27.816,
+      18.500770000000017,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_11_4_1",
+     "rect": [
+      18.462500000000016,
+      -27.816,
+      18.479270000000017,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_11_4_2",
+     "rect": [
+      18.441000000000017,
+      -27.816,
+      18.457770000000018,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_12_0_0",
+     "rect": [
+      18.398000000000017,
+      -27.816,
+      18.41477000000002,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_12_0_1",
+     "rect": [
+      18.376500000000018,
+      -27.816,
+      18.39327000000002,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_12_0_2",
+     "rect": [
+      18.355000000000018,
+      -27.816,
+      18.37177000000002,
+      -27.8
+     ],
+     "z0": 2.4579999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_12_1_1",
+     "rect": [
+      18.376500000000018,
+      -27.816,
+      18.39327000000002,
+      -27.8
+     ],
+     "z0": 2.4364999999999997,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_12_2_1",
+     "rect": [
+      18.376500000000018,
+      -27.816,
+      18.39327000000002,
+      -27.8
+     ],
+     "z0": 2.415,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_12_3_1",
+     "rect": [
+      18.376500000000018,
+      -27.816,
+      18.39327000000002,
+      -27.8
+     ],
+     "z0": 2.3935,
+     "h": 0.01677,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_transit_letter_12_4_1",
+     "rect": [
+      18.376500000000018,
+      -27.816,
+      18.39327000000002,
+      -27.8
+     ],
+     "z0": 2.372,
+     "h": 0.01677,
+     "mat": "soot",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12750,8 +15278,8 @@
       -27.82
      ],
      "z0": 0.2,
-     "h": 2.34,
-     "mat": "metal",
+     "h": 2.14,
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12764,8 +15292,8 @@
       -27.82
      ],
      "z0": 0.2,
-     "h": 2.34,
-     "mat": "metal",
+     "h": 2.14,
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12778,8 +15306,8 @@
       -27.82
      ],
      "z0": 0.2,
-     "h": 2.34,
-     "mat": "metal",
+     "h": 2.14,
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12792,8 +15320,8 @@
       -27.82
      ],
      "z0": 0.2,
-     "h": 2.34,
-     "mat": "metal",
+     "h": 2.14,
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12806,8 +15334,8 @@
       -27.82
      ],
      "z0": 0.2,
-     "h": 2.34,
-     "mat": "metal",
+     "h": 2.14,
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12820,8 +15348,8 @@
       -27.82
      ],
      "z0": 0.2,
-     "h": 2.34,
-     "mat": "metal",
+     "h": 2.14,
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12834,8 +15362,8 @@
       -27.82
      ],
      "z0": 0.2,
-     "h": 2.34,
-     "mat": "metal",
+     "h": 2.14,
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12849,7 +15377,7 @@
      ],
      "z0": 0.72,
      "h": 0.055,
-     "mat": "metal",
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12863,7 +15391,7 @@
      ],
      "z0": 1.36,
      "h": 0.055,
-     "mat": "metal",
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12877,21 +15405,21 @@
      ],
      "z0": 2.0,
      "h": 0.055,
-     "mat": "metal",
+     "mat": "cast_iron",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
     {
      "id": "site_passage_proxy_kiosk_head_cap",
      "rect": [
-      18.1,
+      18.155,
       -28.7,
-      19.75,
+      19.695,
       -27.8
      ],
      "z0": 3.3,
-     "h": 0.1,
-     "mat": "metal",
+     "h": 0.055,
+     "mat": "glassish",
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -12903,7 +15431,7 @@
       -28.7
      ],
      "yaw": 0,
-     "mat": "metal",
+     "mat": "cast_iron",
      "p0": [
       18.14,
       -28.7,
@@ -12926,7 +15454,7 @@
       -28.7
      ],
      "yaw": 0,
-     "mat": "metal",
+     "mat": "cast_iron",
      "p0": [
       19.71,
       -28.7,
@@ -12949,7 +15477,7 @@
       -27.84
      ],
      "yaw": 0,
-     "mat": "metal",
+     "mat": "cast_iron",
      "p0": [
       18.14,
       -27.84,
@@ -12972,7 +15500,7 @@
       -27.84
      ],
      "yaw": 0,
-     "mat": "metal",
+     "mat": "cast_iron",
      "p0": [
       19.71,
       -27.84,

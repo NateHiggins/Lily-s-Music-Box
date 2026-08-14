@@ -15,6 +15,7 @@ Run headless:  python -c "import build_orison" (with bpy installed)  or
 Outputs: game/assets/building/*.glb and art/blender/orison_master.blend
 """
 import json
+import hashlib
 import os
 import zlib
 import sys
@@ -4174,6 +4175,26 @@ def build():
                 print("retrying %s after export error: %s" % (path, exc))
                 time.sleep(1.5 * (attempt + 1))
         if last_err is None:
+            # GLTF_SEPARATE keeps geometry in a sibling .bin.  Godot's import
+            # cache fingerprints the .gltf source but not that external buffer,
+            # so a position-only rebuild with an unchanged descriptor can keep
+            # drawing stale geometry indefinitely.  Carry the buffer digest in
+            # asset.extras: it is harmless glTF metadata, changes only when the
+            # exported bytes change, and makes every consumer reimport the
+            # descriptor and its actual buffer as one build product.
+            bin_path = os.path.splitext(path)[0] + ".bin"
+            with open(bin_path, "rb") as bin_file:
+                bin_sha256 = hashlib.sha256(bin_file.read()).hexdigest()
+            with open(path, "r", encoding="utf-8") as gltf_file:
+                gltf_text = gltf_file.read()
+            version_line = '\t\t"version":"2.0"'
+            if gltf_text.count(version_line) != 1:
+                raise RuntimeError("unexpected glTF asset header in %s" % path)
+            digest_line = (version_line + ',\n\t\t"extras":{\n'
+                           '\t\t\t"orison_bin_sha256":"%s"\n\t\t}'
+                           % bin_sha256)
+            with open(path, "w", encoding="utf-8", newline="\n") as gltf_file:
+                gltf_file.write(gltf_text.replace(version_line, digest_line, 1))
             print("exported", path)
         else:
             failed.append((fid, str(last_err)))

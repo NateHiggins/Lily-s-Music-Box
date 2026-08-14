@@ -4627,27 +4627,26 @@ def _passage_shell(fb, pipe, markers):
     proxy("fanlight_rail", (PASSAGE_C - 1.28, BLDG_S - 0.125,
                             PASSAGE_C + 1.28, BLDG_S - 0.04),
           2.53, 0.065, "metal")
-    for side, x in (("W", PASSAGE_PORTAL_W + 0.48),
-                    ("E", PASSAGE_PORTAL_E - 0.48)):
+    for side, pos in (("W", [PASSAGE_PORTAL_W + 0.48,
+                              BLDG_S + 0.80, 2.82]),
+                      # The east member remains one of the same two paid
+                      # fixtures, but K0 mounts it on the exit kiosk's outer
+                      # return.  Its grazing light reveals the iron/panel
+                      # relief that otherwise collapses to a black wedge.
+                      ("E", [19.88, BLDG_S + 0.80, 2.82])):
         markers.append({"kind": "cage_bulb",
                         "id": "PASSAGE_PORTAL_LT_%s" % side,
-                        # Reuse the two existing fixtures on the Gate A host
-                        # plane. Behind the new face they lit only the returns,
-                        # leaving its elevation as the same black billboard the
-                        # facade was meant to remove.
-                        "unit": "PASSAGE", "pos": [x, BLDG_S + 0.80, 2.82],
+                        "unit": "PASSAGE", "pos": pos,
                         "yaw_deg": 0, "network": "electrical",
                         "range": 6.4, "energy": 1.0,
                         "navigation": True, "standby": 0.52,
                         "exterior": True, "zone": "STREET"})
 
-    # Vantry gateway Gate A: a deliberately reversible, low-detail massing
-    # study.  The host facade gives the shallow portal proxy a building to
-    # belong to; the companion volume tests whether a historically narrow
-    # exit kiosk fits in the east residual strip without touching the ruled
-    # six-metre route.  No pavement cut, stair, signage, sound or runtime
-    # owner exists yet.  If the approach renders fail, these records can come
-    # out without unwinding any topology or gameplay.
+    # Vantry gateway Gate A.  The host facade gives the shallow portal proxy a
+    # building to belong to; the companion volume is the K0 exterior of a
+    # historically narrow, exit-only rapid-transit kiosk.  Its high panelled
+    # base, wire-glass canopy and iron ribs finish the accepted silhouette
+    # without cutting the pavement or implying an explorable fourth zone.
     face_y = BLDG_S + 0.70
     face_back = BLDG_S + 0.40
     reveal_back = BLDG_S - 0.10
@@ -4670,7 +4669,7 @@ def _passage_shell(fb, pipe, markers):
     proxy("gateway_hood",
           (PASSAGE_PORTAL_W - 0.18, face_y + 0.08,
            PASSAGE_PORTAL_E + 0.18, face_y + 0.56),
-          3.78, 0.12, "metal")
+          3.78, 0.12, "cast_iron")
 
     # Dimensioned K0 kiosk shell from VANTRY_SUBWAY_KIOSK_PROPOSAL.md §5.
     # x 18.10..19.75 is wholly east of the throat and 0.85 m inside the
@@ -4681,19 +4680,41 @@ def _passage_shell(fb, pipe, markers):
     assert kx0 > PASSAGE_PORTAL_E and kx1 < 20.60
     proxy("kiosk_plinth", (kx0, ky0, kx1, ky1), 0.02, 0.18,
           "limestone")
-    # Opaque wainscot on both long faces, with a dark architectural backstop.
-    proxy("kiosk_wainscot_w", (kx0, ky0, kx0 + 0.14, ky1),
-          0.20, 0.96, "metal")
-    proxy("kiosk_wainscot_e", (kx1 - 0.14, ky0, kx1, ky1),
-          0.20, 0.96, "metal")
+
+    # High, opaque, recessed panels replace the blockout's two featureless
+    # metal slabs.  The shallow relief and rough iron rails catch the existing
+    # overcast world light on the formerly black east oblique; no lamp or
+    # emissive material is involved.  The panels themselves remain the honest
+    # collision surface.
+    bay = (ky1 - ky0) / 4.0
+    for i in range(4):
+        ya, yb = ky0 + bay * i, ky0 + bay * (i + 1)
+        for side, xa, xb in (("w", kx0, kx0 + 0.055),
+                             ("e", kx1 - 0.055, kx1)):
+            proxy("kiosk_panel_%s_%d" % (side, i),
+                  (xa, ya + 0.085, xb, yb - 0.085),
+                  0.30, 0.76, "soot")
+        for side, xa, xb in (("w", kx0, kx0 + 0.14),
+                             ("e", kx1 - 0.14, kx1)):
+            proxy("kiosk_panel_stile_%s_%d" % (side, i),
+                  (xa, ya, xb, ya + 0.085),
+                  0.20, 0.96, "cast_iron")
+    for side, xa, xb in (("w", kx0, kx0 + 0.14),
+                         ("e", kx1 - 0.14, kx1)):
+        proxy("kiosk_panel_end_%s" % side,
+              (xa, ky1 - 0.085, xb, ky1),
+              0.20, 0.96, "cast_iron")
+        proxy("kiosk_panel_rail_low_%s" % side,
+              (xa, ky0, xb, ky1), 0.20, 0.10, "cast_iron")
+        proxy("kiosk_panel_rail_high_%s" % side,
+              (xa, ky0, xb, ky1), 1.06, 0.10, "cast_iron")
     proxy("kiosk_backstop", (kx0 + 0.14, ky0, kx1 - 0.14, ky0 + 0.15),
           0.20, 1.50, "soot")
 
-    # Four stepped glazed bays stand in for the eventual raked enclosure.
-    # The bars trace one continuous slope, so the blockout tests the correct
-    # silhouette without spending production geometry on a roof not yet
-    # visually approved.
-    bay = (ky1 - ky0) / 4.0
+    # Four wire-glass bays rise beneath a continuous iron rake.  The roof is
+    # still assembled from box-safe strips, but making those strips glass and
+    # carrying their seams with transverse ribs removes the old solid stair-
+    # step silhouette.
     roof_z = [1.82, 2.18, 2.54, 2.90, 3.24]
     for i in range(4):
         ya, yb = ky0 + bay * i, ky0 + bay * (i + 1)
@@ -4708,42 +4729,100 @@ def _passage_shell(fb, pipe, markers):
                              ("e", kx1 - 0.14, kx1)):
             proxy("kiosk_post_%s_%d" % (side, i),
                   (x0, yb - 0.045, x1, min(yb + 0.045, ky1)),
-                  1.12, roof_z[i + 1] - 1.12, "metal")
-        proxy("kiosk_roof_step_%d" % i,
-              (kx0, ya, kx1, yb), roof_z[i + 1], 0.075, "metal")
+                  1.12, roof_z[i + 1] - 1.12, "cast_iron")
+        mid_z = 1.16 + glass_h * 0.52
+        for side, x0, x1 in (("w", kx0, kx0 + 0.14),
+                             ("e", kx1 - 0.14, kx1)):
+            proxy("kiosk_glass_rail_%s_%d" % (side, i),
+                  (x0, ya + 0.04, x1, yb - 0.04),
+                  mid_z, 0.045, "cast_iron")
+        proxy("kiosk_canopy_glass_%d" % i,
+              (kx0 + 0.055, ya, kx1 - 0.055, yb),
+              roof_z[i + 1], 0.038, "glassish")
+        proxy_pipe("kiosk_roof_rib_%d" % i,
+                   (kx0 + 0.035, yb - 0.035, roof_z[i + 1] + 0.038),
+                   (kx1 - 0.035, yb - 0.035, roof_z[i + 1] + 0.038),
+                   0.028, "cast_iron")
     for side, x in (("w", kx0 + 0.07), ("e", kx1 - 0.07)):
         proxy_pipe("kiosk_rake_" + side,
                    (x, ky0 + 0.035, roof_z[0]),
                    (x, ky1 - 0.035, roof_z[4]),
-                   0.035, "metal")
+                   0.035, "cast_iron")
 
-    # The tall street head reads as an EXIT object in proportion even before
-    # typography.  Physical bars, not a hidden wall, close the opening.
+    # The tall street head is explicitly an exit.  Physical bars, not a hidden
+    # wall, close the opening.  Tiny box glyphs keep the signs in the same
+    # static source batch: unlit, noninteractive and readable through weather.
     proxy("kiosk_head_w", (kx0, ky1 - 0.24, kx0 + 0.14, ky1),
-          0.20, 3.12, "metal")
+          0.20, 3.12, "cast_iron")
     proxy("kiosk_head_e", (kx1 - 0.14, ky1 - 0.24, kx1, ky1),
-          0.20, 3.12, "metal")
+          0.20, 3.12, "cast_iron")
     proxy("kiosk_exit_band",
-          (kx0 + 0.14, ky1 - 0.08, kx1 - 0.14, ky1),
+          (kx0 + 0.14, ky1 - 0.08, kx1 - 0.14, ky1 - 0.018),
           2.55, 0.55, "limestone")
+
+    glyphs = {
+        "A": ("010", "101", "111", "101", "101"),
+        "D": ("110", "101", "101", "101", "110"),
+        "E": ("111", "100", "110", "100", "111"),
+        "I": ("111", "010", "010", "010", "111"),
+        "N": ("101", "111", "111", "111", "101"),
+        "P": ("110", "101", "110", "100", "100"),
+        "R": ("110", "101", "110", "101", "101"),
+        "S": ("011", "100", "010", "001", "110"),
+        "T": ("111", "010", "010", "010", "010"),
+        "X": ("101", "101", "010", "101", "101"),
+    }
+
+    def kiosk_text(label, text, x0, z0, cell):
+        # The street approach is north of this south-facing sign.  From that
+        # viewpoint screen-left is Blender +X, so both the character order and
+        # each glyph's columns must descend in X.  Preserve x0 as the exact
+        # low bound while deriving the high cursor from the occupied 3-column
+        # grid (the 0.78-cell boxes leave the same breathing room as before).
+        advance_cells = sum(2 if char == " " else 4 for char in text)
+        cursor = x0 + (advance_cells - 1.22) * cell
+        for ci, char in enumerate(text):
+            if char == " ":
+                cursor -= cell * 2.0
+                continue
+            pattern = glyphs[char]
+            for row, pixels in enumerate(pattern):
+                for col, pixel in enumerate(pixels):
+                    if pixel != "1":
+                        continue
+                    proxy("kiosk_%s_%02d_%d_%d" %
+                          (label, ci, row, col),
+                          (cursor - (col + 0.78) * cell, ky1 - 0.016,
+                           cursor - col * cell, ky1),
+                          z0 + (4 - row) * cell,
+                          cell * 0.78, "soot")
+            cursor -= cell * 4.0
+
+    kiosk_text("exit_letter", "EXIT", kx0 + 0.285, 2.625, 0.075)
+    proxy("kiosk_transit_plate",
+          (kx0 + 0.18, ky1 - 0.075, kx1 - 0.18, ky1 - 0.018),
+          2.35, 0.145, "limestone")
+    kiosk_text("transit_letter", "RAPID TRANSIT",
+               kx0 + 0.255, 2.372, 0.0215)
     for i in range(7):
         x = kx0 + 0.22 + i * (kx1 - kx0 - 0.44) / 6.0
         proxy("kiosk_gate_bar_%d" % i,
               (x - 0.024, ky1 - 0.12, x + 0.024, ky1 - 0.02),
-              0.20, 2.34, "metal")
+              0.20, 2.14, "cast_iron")
     for i, z in enumerate((0.72, 1.36, 2.00)):
         proxy("kiosk_gate_rail_%d" % i,
               (kx0 + 0.14, ky1 - 0.12, kx1 - 0.14, ky1 - 0.02),
-              z, 0.055, "metal")
+              z, 0.055, "cast_iron")
     proxy("kiosk_head_cap",
-          (kx0, ky1 - 0.90, kx1, ky1),
-          3.30, 0.10, "metal")
+          (kx0 + 0.055, ky1 - 0.90, kx1 - 0.055, ky1),
+          3.30, 0.055, "glassish")
     peak = ((kx0 + kx1) * 0.5, ky1 - 0.36, 3.67)
     for i, corner in enumerate(((kx0 + 0.04, ky1 - 0.90, 3.40),
                                 (kx1 - 0.04, ky1 - 0.90, 3.40),
                                 (kx0 + 0.04, ky1 - 0.04, 3.40),
                                 (kx1 - 0.04, ky1 - 0.04, 3.40))):
-        proxy_pipe("kiosk_peak_%d" % i, corner, peak, 0.040, "metal")
+        proxy_pipe("kiosk_peak_%d" % i, corner, peak, 0.040,
+                   "cast_iron")
 
     # Party masonry runs the full seven-metre band. Storefront piers meet it
     # at the aisle; individual shop back linings stop at their authored depth.

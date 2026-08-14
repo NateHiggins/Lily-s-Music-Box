@@ -1,6 +1,7 @@
 extends Node
-## Gate A contract: exact source envelope, unchanged portal clearance and
-## visible architectural collision. No stair opening exists in this phase.
+## Gate A/K0 contract: exact source envelope, unchanged portal clearance,
+## historical exit-kiosk finish and visible architectural collision. No stair
+## opening exists in this phase.
 
 const PORTAL_W := 11.0
 const PORTAL_E := 17.0
@@ -28,15 +29,17 @@ func _ready() -> void:
 			"res://data/building_layout.json"))
 	_check("generated layout parses", data is Dictionary)
 	var records: Array = []
+	var floor_markers: Array = []
 	if data is Dictionary:
 		for floor_data: Dictionary in data.get("floors", []):
 			if String(floor_data.get("id", "")) != "F01":
 				continue
+			floor_markers = floor_data.get("markers", [])
 			for item: Dictionary in floor_data.get("furniture", []):
 				if String(item.get("batch", "")) == \
 						"passage_proxy_gateway":
 					records.append(item)
-	_check("Gate A owns exactly 50 source records", records.size() == 50)
+	_check("Gate A/K0 owns exactly 228 source records", records.size() == 228)
 	_check("every Gate A record is STREET-owned", records.all(
 			func(item: Dictionary) -> bool:
 				return String(item.get("zone", "")) == "STREET"))
@@ -47,8 +50,39 @@ func _ready() -> void:
 				or item_id.ends_with("gateway_hood"))
 	var kiosk := records.filter(func(item: Dictionary) -> bool:
 		return String(item.get("id", "")).contains("proxy_kiosk_"))
-	_check("six host records and 44 kiosk records are distinct",
-			host.size() == 6 and kiosk.size() == 44)
+	_check("six host records and 222 kiosk records are distinct",
+			host.size() == 6 and kiosk.size() == 222)
+	var exit_letters := kiosk.filter(func(item: Dictionary) -> bool:
+		return String(item.get("id", "")).contains("kiosk_exit_letter"))
+	var transit_letters := kiosk.filter(func(item: Dictionary) -> bool:
+		return String(item.get("id", "")).contains("kiosk_transit_letter"))
+	_check("K0 carries player-facing geometric EXIT lettering",
+			exit_letters.size() == 35
+			and _letter_mean_x(exit_letters, "exit_letter_00_")
+					> _letter_mean_x(exit_letters, "exit_letter_03_")
+			and _record_x(exit_letters, "exit_letter_00_1_0")
+					> _record_x(exit_letters, "exit_letter_00_0_2"))
+	_check("K0 carries player-facing subordinate RAPID TRANSIT lettering",
+			transit_letters.size() == 110
+			and _letter_mean_x(transit_letters, "transit_letter_00_")
+					> _letter_mean_x(transit_letters, "transit_letter_12_"))
+	_check("K0 roof is four glass strips on four transverse ribs",
+			kiosk.filter(func(item: Dictionary) -> bool:
+				return String(item.get("id", "")).contains(
+						"kiosk_canopy_glass")).size() == 4
+			and kiosk.filter(func(item: Dictionary) -> bool:
+				return String(item.get("id", "")).contains(
+						"kiosk_roof_rib")).size() == 4)
+	_check("K0 kiosk uses no reflective blockout metal",
+			kiosk.all(func(item: Dictionary) -> bool:
+				return String(item.get("mat", "")) != "metal"))
+	var gateway_lights := floor_markers.filter(func(item: Dictionary) -> bool:
+		return String(item.get("id", "")).begins_with("PASSAGE_PORTAL_LT_"))
+	var east_lights := gateway_lights.filter(func(item: Dictionary) -> bool:
+		return String(item.get("id", "")) == "PASSAGE_PORTAL_LT_E" \
+				and item.get("pos", []) == [19.88, -27.516, 2.82])
+	_check("K0 reuses exactly two lights and moves the east one to the kiosk",
+			gateway_lights.size() == 2 and east_lights.size() == 1)
 
 	var bounds := _record_bounds(kiosk)
 	_check("kiosk x envelope is exactly 18.10..19.75",
@@ -71,6 +105,11 @@ func _ready() -> void:
 	add_child(root)
 	await get_tree().create_timer(1.6).timeout
 	await get_tree().physics_frame
+	var hoarding_faces := root.find_child(
+			"StreetEndHoardingFaces", true, false) as MultiMeshInstance3D
+	_check("both sides of all four containment boards are visibly finished",
+			hoarding_faces != null and hoarding_faces.multimesh != null
+			and hoarding_faces.multimesh.instance_count == 8)
 	_space = root.get_viewport().find_world_3d().direct_space_state
 	_capsule.radius = 0.33
 	_capsule.height = 1.524
@@ -86,6 +125,29 @@ func _ready() -> void:
 	print("[VANTRY GATEWAY] RESULT: %s (%d failures)" %
 			["PASS" if _fails == 0 else "FAIL", _fails])
 	get_tree().quit(_fails)
+
+
+func _record_x(records: Array, id_fragment: String) -> float:
+	for item: Dictionary in records:
+		if String(item.get("id", "")).contains(id_fragment):
+			var rect: Array = item.get("rect", [])
+			if rect.size() == 4:
+				return (float(rect[0]) + float(rect[2])) * 0.5
+	return -INF
+
+
+func _letter_mean_x(records: Array, id_fragment: String) -> float:
+	var total := 0.0
+	var count := 0
+	for item: Dictionary in records:
+		if not String(item.get("id", "")).contains(id_fragment):
+			continue
+		var rect: Array = item.get("rect", [])
+		if rect.size() != 4:
+			continue
+		total += (float(rect[0]) + float(rect[2])) * 0.5
+		count += 1
+	return total / float(count) if count > 0 else -INF
 
 
 func _record_bounds(records: Array) -> Vector4:

@@ -75,9 +75,16 @@ func _ready() -> void:
 	add_child(cam)
 	cam.make_current()
 	root.view_override = cam
-	# Identical to street_shot.gd. If that camera moves, move this one.
-	cam.global_position = GameBoot.b2g([-16.0, -13.5, 1.68])
-	cam.look_at(GameBoot.b2g([26.0, -19.6, 1.30]))
+	if OS.get_environment("ID_CAMERA") == "GATEWAY_EAST":
+		# Exact K0 approach 02. This mode exists to attribute the broad dark
+		# silhouette which the beauty frame alone misidentified as the kiosk.
+		cam.fov = 72.0
+		cam.global_position = GameBoot.b2g([24.0, -23.9, 1.68])
+		cam.look_at(GameBoot.b2g([16.0, -28.4, 1.70]))
+	else:
+		# Identical to street_shot.gd. If that camera moves, move this one.
+		cam.global_position = GameBoot.b2g([-16.0, -13.5, 1.68])
+		cam.look_at(GameBoot.b2g([26.0, -19.6, 1.30]))
 	await get_tree().create_timer(3.0).timeout
 
 	var dir := OS.get_environment("SHOT_DIR")
@@ -94,7 +101,7 @@ func _ready() -> void:
 		await get_tree().process_frame
 		await get_tree().process_frame
 		await _save("%s/id_%d.png" % [dir, k])
-	_legend()
+	_legend(dir)
 	_rays(dir)
 	get_tree().quit(0)
 
@@ -175,6 +182,7 @@ func _paint(pass_index: int) -> void:
 				"cls": g.get_class(),
 				"path": String(get_tree().root.get_path_to(g)),
 				"aabb": (g.global_transform * _aabb_of(g)).size,
+				"detail": _instance_detail(g),
 			})
 		var m := StandardMaterial3D.new()
 		m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
@@ -255,6 +263,26 @@ func _aabb_of(g: GeometryInstance3D) -> AABB:
 	return AABB()
 
 
+func _instance_detail(g: GeometryInstance3D) -> String:
+	var parts: Array[String] = []
+	if g is MultiMeshInstance3D:
+		var mm: MultiMesh = (g as MultiMeshInstance3D).multimesh
+		if mm != null:
+			parts.append("instances=%d" % mm.instance_count)
+			if mm.mesh != null:
+				parts.append("mesh=%s" % mm.mesh.resource_name)
+	for mat in _materials_of(g):
+		var label := mat.resource_name
+		if label == "":
+			label = mat.get_class()
+		if mat is StandardMaterial3D:
+			var sm := mat as StandardMaterial3D
+			label += "@%.3f,%.3f,%.3f" % [sm.albedo_color.r,
+					sm.albedo_color.g, sm.albedo_color.b]
+		parts.append("mat=" + label)
+	return ";".join(parts)
+
+
 func _collect(n: Node, out: Array[GeometryInstance3D]) -> void:
 	# SubViewports carry their own World3D (arcade_machine.gd:82). Recursing
 	# into them is what produced the SwcGraybox false positive.
@@ -277,13 +305,18 @@ func _colour(i: int) -> Color:
 			((n / 256) % 16) * 16 + 8)
 
 
-func _legend() -> void:
+func _legend(dir: String) -> void:
 	print("[IDMAP] painted %d instances" % _entries.size())
+	var file := FileAccess.open("%s/legend.tsv" % dir, FileAccess.WRITE)
+	file.store_line("pass\trgb\tclass\taabb\tdetail\tpath")
 	for e in _entries:
 		var c: Color = e["col"]
 		var s: Vector3 = e["aabb"]
-		print("[IDLEG] %d\t%d,%d,%d\t%s\t%.1fx%.1fx%.1f\t%s" % [e["pass"],
-				c.r8, c.g8, c.b8, e["cls"], s.x, s.y, s.z, e["path"]])
+		var line := "%d\t%d,%d,%d\t%s\t%.1fx%.1fx%.1f\t%s\t%s" % [e["pass"],
+				c.r8, c.g8, c.b8, e["cls"], s.x, s.y, s.z, e["detail"],
+				e["path"]]
+		print("[IDLEG] " + line)
+		file.store_line(line)
 
 
 ## Stage two needs the camera's own ray for a chosen pixel. Rather than
@@ -314,6 +347,9 @@ func _rays(dir: String) -> void:
 			extra = f.get_as_text().strip_edges().replace("\n", ";")
 	if extra != "":
 		spec += ";" + extra
+	var hit_file := FileAccess.open("%s/instance_hits.tsv" % dir,
+			FileAccess.WRITE)
+	hit_file.store_line("pixel\tbuffer\tindex\tt\tmin\tsize\tcolor")
 	for item in spec.split(";"):
 		var t := item.strip_edges()
 		if t == "":
@@ -326,3 +362,50 @@ func _rays(dir: String) -> void:
 		var d := cam.project_ray_normal(p)
 		print("[IDRAY] %d,%d\t%.4f,%.4f,%.4f\t%.6f,%.6f,%.6f"
 				% [int(p.x), int(p.y), o.x, o.y, o.z, d.x, d.y, d.z])
+		_record_multimesh_hits(hit_file, p, o, d)
+
+
+func _record_multimesh_hits(file: FileAccess, pixel: Vector2,
+		origin: Vector3, direction: Vector3) -> void:
+	for g in _eligible:
+		if not g is MultiMeshInstance3D:
+			continue
+		var node := g as MultiMeshInstance3D
+		var mm := node.multimesh
+		if mm == null or mm.mesh == null or mm.instance_count != 137:
+			continue
+		for i in mm.instance_count:
+			var box: AABB = (node.global_transform
+					* mm.get_instance_transform(i)) * mm.mesh.get_aabb()
+			var distance := _ray_aabb(origin, direction, box)
+			if distance < 0.0:
+				continue
+			var c := mm.get_instance_color(i)
+			file.store_line("%d,%d\t%s\t%d\t%.4f\t%.3f,%.3f,%.3f\t"
+					% [int(pixel.x), int(pixel.y), node.get_path(), i,
+						distance, box.position.x, box.position.y, box.position.z]
+					+ "%.3f,%.3f,%.3f\t%.3f,%.3f,%.3f" % [box.size.x,
+						box.size.y, box.size.z, c.r, c.g, c.b])
+
+
+func _ray_aabb(origin: Vector3, direction: Vector3, box: AABB) -> float:
+	var t_near := 0.0
+	var t_far := INF
+	for axis in 3:
+		var lo := box.position[axis]
+		var hi := box.end[axis]
+		if absf(direction[axis]) < 0.000001:
+			if origin[axis] < lo or origin[axis] > hi:
+				return -1.0
+			continue
+		var a := (lo - origin[axis]) / direction[axis]
+		var b := (hi - origin[axis]) / direction[axis]
+		if a > b:
+			var swap := a
+			a = b
+			b = swap
+		t_near = maxf(t_near, a)
+		t_far = minf(t_far, b)
+		if t_near > t_far:
+			return -1.0
+	return t_near if t_far >= 0.0 else -1.0

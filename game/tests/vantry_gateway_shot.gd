@@ -17,6 +17,25 @@ func _ready() -> void:
 	root = load("res://scenes/building/orison_root.tscn").instantiate()
 	add_child(root)
 	await get_tree().create_timer(2.0).timeout
+	# Same-build negative control for ambiguous silhouettes.  This never runs
+	# in an ordinary capture or production scene.
+	if OS.get_environment("GATEWAY_OFF") == "1":
+		var hidden := 0
+		for candidate in root.floor_nodes["F01"].find_children(
+				"*", "GeometryInstance3D", true, false):
+			if String(candidate.name).contains(
+					"_retail_passage_proxy_gateway_"):
+				candidate.visible = false
+				hidden += 1
+		print("[VANTRY GATEWAY SHOT] %d gateway buffers hidden" % hidden)
+	if OS.get_environment("PASSAGE_SHELL_OFF") == "1":
+		var hidden_shell := 0
+		for candidate in root.floor_nodes["F01"].find_children(
+				"*", "GeometryInstance3D", true, false):
+			if String(candidate.name).contains("_retail_passage_shell_"):
+				candidate.visible = false
+				hidden_shell += 1
+		print("[VANTRY GATEWAY SHOT] %d shell buffers hidden" % hidden_shell)
 	_hide_capture_ui(get_tree().root)
 	if OS.get_environment("GATEWAY_DRY") == "1" and root.weather != null:
 		root.weather.visible = false

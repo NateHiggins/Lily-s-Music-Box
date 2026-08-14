@@ -545,3 +545,134 @@ Proceed only to **K0 historical exterior finish on the same envelope**:
 Only after that exterior reads correctly at all approaches may a later change
 cut the sealed kiosk footprint and add K1's 6–10-step diorama. A station,
 train, cutscene, interaction prompt and fourth zone remain out of scope.
+
+---
+
+## 15. 2026-08-14 K0 historical exterior execution record
+
+**K0 passes. The kiosk may proceed to K1's shallow stair diorama, subject to
+the unchanged scope limits below.** No pavement opening, stair, station,
+train, sound cue, reflected train light, cutscene, interaction or fourth zone
+was built in this pass.
+
+### 15.1 What was built
+
+The accepted `x 18.10..19.75`, `y -33.25..-27.80` envelope, six-metre portal
+and ownership plane did not move. The source batch now contains 228 records:
+
+- the same six host records, including the deliberately blank Vantry Arcade
+  name band;
+- 222 kiosk records: four recessed soot-and-cast-iron lower panels per side,
+  high rails and stiles, four wire-glass side bays, four transparent canopy
+  strips, continuous iron rakes, transverse roof ribs and the peaked street
+  head;
+- geometric, unlit `EXIT` and subordinate `RAPID TRANSIT` lettering, merged
+  into the existing soot buffer rather than spawning a runtime text owner;
+- a barred, visibly colliding front gate. The gate stops at `z 2.14`; the sign
+  is instruction, not an implied player entrance.
+
+The reflective blockout `metal` is gone from the kiosk. Its five box-material
+families remain `cast_iron`, `common_brick`, `glassish`, `limestone` and
+`soot`; the separately realized pipe geometry remains the sixth buffer. The
+east of the two already-budgeted portal cage bulbs moved from `x 16.52` to the
+kiosk's street head at `x 19.88`. Fixture count, range, energy and the resolved
+16/16 light/shadow budgets are unchanged.
+
+### 15.2 The east mass was not the kiosk
+
+The first K0 beauty pass improved the roof but appeared to leave the large
+east-oblique black rectangle intact. That inherited visual attribution was
+wrong. Two same-build controls establish it:
+
+1. hiding all six `passage_proxy_gateway` buffers removes the complete host
+   and kiosk while the rectangle remains pixel-identical;
+2. hiding all five `passage_shell` buffers also leaves it intact.
+
+The corrected ID pass uses the exact approach-02 camera and resolves every
+sampled rectangle pixel to the 137-instance exterior-detail box buffer. A
+per-instance ray then identifies index 128, world AABB
+`(20.420, 0.000, 23.894) + (0.360, 2.400, 4.422)`: the generated
+`EastSouthWorks` construction-hoarding collision at the accepted `x 20.60`
+stage edge. Its wet-board shader had only an inward quad; camera 02 is outside
+the playable boundary and saw the raw back of the collision box.
+
+`StreetEndHoardingFaces` now carries inward and outward faces for all four
+pavement boards: eight instances in the same one draw. No collision, stage
+edge, light or material family moved. This is the intended visible
+architecture/weather answer to a containment surface, not another invisible
+wall and not subway scope smuggled into the street-end system.
+
+Diagnostic evidence is under
+`art/renders/vantry_gateway_k0/id_east/`; the ordinary shot harness also owns
+bounded `GATEWAY_OFF` and `PASSAGE_SHELL_OFF` controls so this attribution can
+be repeated without changing a build.
+
+### 15.3 Render proof
+
+Final canonical-night evidence is:
+
+- `art/renders/vantry_gateway_k0/dry/` — seven dry approaches;
+- `art/renders/vantry_gateway_k0/weather/` — the same seven cameras with
+  production weather live.
+
+Against the Gate A blockout, K0 changes 11.35% of the front frame, 26.22% of
+the east approach and 9.68% of the road arrival beyond delta 3. In the exact
+east silhouette region, mean luma rises from 2.53 to 17.88; pixels below luma
+16 fall from 98.10% to 60.96%. The result remains appropriately dark but now
+reads as battered boards, posted paper, iron ribs and glass rather than a
+featureless void. Dry/weather pairs remain identical at the front and
+threshold views; the 4.20% east difference is live rain crossing the oblique
+camera, not geometry drift.
+
+### 15.4 Exact proof and regressions
+
+`VantryGatewayTest` passes sixteen source/runtime assertions:
+
+- 228 records, all STREET-owned, split six host / 222 kiosk;
+- both geometric sign strings, four canopy strips and four transverse ribs;
+- no blockout `metal` in the kiosk;
+- exactly two reused portal lights, with the east fixture at the kiosk;
+- exact x/y envelope and no player-height intrusion into `x 11..17`;
+- eight visible faces on the four containment boards;
+- clear portal capsule traversal and visible collision at the kiosk gate and
+  side panels.
+
+The final visual check also caught the initial box-glyph layout reading
+backward from the street approach. The generator now lays both character order
+and glyph columns in the player-facing direction, and the focused test asserts
+that direction rather than merely counting boxes. That correction exposed an
+external-buffer import hazard: its `.bin` changed while the `.gltf` descriptor
+did not, so Godot kept rendering the cached old word. The canonical Blender
+builder now fingerprints every sibling buffer in
+`asset.extras.orison_bin_sha256`; geometry-only rebuilds therefore invalidate
+the imported scene deterministically.
+
+Fresh production-scene regressions are green: `LightingAudit`,
+`StreetContainmentTest`, `PassageVisibilityTest`, `PassageOwnershipAudit`
+(zero visible unclassified F01 draws), `PassageNavTest`, and
+`FinalMapRouteTest` outbound plus loaded return. WalkTest FULL passes at
+`WALKTEST_FULL=1`, `WALKTEST_SCALE=8` in 46.3 seconds on the final canonical
+Blender 4.5 export.
+
+### 15.5 Same-build performance control
+
+At canonical night and the pinned 16/16 budget, one fresh-process pair gives:
+
+| northbound state | objects | calls | ms |
+|---|---:|---:|---:|
+| K0 visible | 6,592 | 8,428 | 17.73 |
+| six gateway buffers hidden | 6,578 | 8,420 | 17.34 |
+
+The apparent 0.39 ms delta is below Gate A's already measured 0.59 ms repeat
+spread. Only eight calls separate the northbound conditions. K0 therefore
+does not create a measurable regression, does not change the accepted 7/11
+canonical-night result, and earns retention of the pipe buffer through K1.
+
+### 15.6 Next gate
+
+K1 may cut only the sealed kiosk footprint and build the proposed 6–10-step
+non-enterable stair diorama: tiled cheeks, iron handrail, landing plane and a
+dark terminus. It must preserve the six-metre route, exact external envelope,
+three-zone world, visible collision and two-light budget, then repeat these
+seven views and focused tests. Sound, reflected train light and any implied
+service below remain later, separately proved gates.
