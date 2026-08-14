@@ -61,8 +61,13 @@ func _ready() -> void:
 			[14.0, -28.316, 1.68], [14.0, -31.2, 1.62])
 	await _capture("07_return_from_throat",
 			[14.0, -33.2, 1.68], [14.0, -26.9, 1.60])
+	# Supplemental K1 proof: remain outside the barred gate and look down the
+	# actual pavement cut. The seven established approaches above do not spend
+	# enough pixels on the finite stair/landing/turn contract to prove it.
+	await _capture("08_stair_detail",
+			[18.62, -26.75, 1.55], [18.92, -30.25, -0.58])
 	print("[VANTRY GATEWAY SHOT] %s" % [
-			"capture failed" if _capture_failed else "7 frames saved"])
+			"capture failed" if _capture_failed else "8 frames saved"])
 	get_tree().quit(1 if _capture_failed else 0)
 
 

@@ -11885,7 +11885,7 @@
      "id": "site_ground_1",
      "rect": [
       -112.0,
-      -28.32,
+      -27.8,
       108.0,
       -10.0
      ],
@@ -11897,6 +11897,30 @@
      "id": "site_ground_2",
      "rect": [
       -112.0,
+      -28.32,
+      18.1,
+      -27.8
+     ],
+     "z0": -0.3,
+     "h": 0.28,
+     "mat": "asphalt"
+    },
+    {
+     "id": "site_ground_3",
+     "rect": [
+      19.75,
+      -28.32,
+      108.0,
+      -27.8
+     ],
+     "z0": -0.3,
+     "h": 0.28,
+     "mat": "asphalt"
+    },
+    {
+     "id": "site_ground_4",
+     "rect": [
+      -112.0,
       -35.8,
       4.3,
       -28.32
@@ -11906,10 +11930,34 @@
      "mat": "asphalt"
     },
     {
-     "id": "site_ground_3",
+     "id": "site_ground_5",
      "rect": [
       5.45,
       -35.8,
+      108.0,
+      -33.25
+     ],
+     "z0": -0.3,
+     "h": 0.28,
+     "mat": "asphalt"
+    },
+    {
+     "id": "site_ground_6",
+     "rect": [
+      5.45,
+      -33.25,
+      18.1,
+      -28.32
+     ],
+     "z0": -0.3,
+     "h": 0.28,
+     "mat": "asphalt"
+    },
+    {
+     "id": "site_ground_7",
+     "rect": [
+      19.75,
+      -33.25,
       108.0,
       -28.32
      ],
@@ -11918,7 +11966,7 @@
      "mat": "asphalt"
     },
     {
-     "id": "site_ground_4",
+     "id": "site_ground_8",
      "rect": [
       -112.0,
       10.0,
@@ -11930,7 +11978,7 @@
      "mat": "asphalt"
     },
     {
-     "id": "site_ground_5",
+     "id": "site_ground_9",
      "rect": [
       -112.0,
       -10.0,
@@ -11942,7 +11990,7 @@
      "mat": "asphalt"
     },
     {
-     "id": "site_ground_6",
+     "id": "site_ground_10",
      "rect": [
       14.0,
       -10.0,
@@ -12318,9 +12366,23 @@
      "zone": "STREET"
     },
     {
-     "id": "site_passage_proxy_kiosk_plinth",
+     "id": "site_passage_proxy_kiosk_plinth_w",
      "rect": [
       18.1,
+      -33.25,
+      18.34,
+      -27.8
+     ],
+     "z0": 0.02,
+     "h": 0.18,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_plinth_e",
+     "rect": [
+      19.51,
       -33.25,
       19.75,
       -27.8
@@ -12328,6 +12390,340 @@
      "z0": 0.02,
      "h": 0.18,
      "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_plinth_s",
+     "rect": [
+      18.34,
+      -33.25,
+      19.51,
+      -33.07
+     ],
+     "z0": 0.02,
+     "h": 0.18,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_stair_00",
+     "rect": [
+      18.4,
+      -28.36,
+      19.45,
+      -27.98
+     ],
+     "z0": -1.34,
+     "h": 1.2000000000000002,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_stair_01",
+     "rect": [
+      18.4,
+      -28.74,
+      19.45,
+      -28.36
+     ],
+     "z0": -1.34,
+     "h": 1.04,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_stair_02",
+     "rect": [
+      18.4,
+      -29.12,
+      19.45,
+      -28.740000000000002
+     ],
+     "z0": -1.34,
+     "h": 0.8800000000000001,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_stair_03",
+     "rect": [
+      18.4,
+      -29.5,
+      19.45,
+      -29.12
+     ],
+     "z0": -1.34,
+     "h": 0.7200000000000001,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_stair_04",
+     "rect": [
+      18.4,
+      -29.88,
+      19.45,
+      -29.5
+     ],
+     "z0": -1.34,
+     "h": 0.56,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_stair_05",
+     "rect": [
+      18.4,
+      -30.259999999999998,
+      19.45,
+      -29.88
+     ],
+     "z0": -1.34,
+     "h": 0.4,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_stair_06",
+     "rect": [
+      18.4,
+      -30.64,
+      19.45,
+      -30.26
+     ],
+     "z0": -1.34,
+     "h": 0.24,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_stair_07",
+     "rect": [
+      18.4,
+      -31.02,
+      19.45,
+      -30.64
+     ],
+     "z0": -1.34,
+     "h": 0.07999999999999985,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_lower_landing",
+     "rect": [
+      18.4,
+      -32.12,
+      19.45,
+      -31.02
+     ],
+     "z0": -1.34,
+     "h": 0.08,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_tiled_cheek_w",
+     "rect": [
+      18.24,
+      -32.12,
+      18.4,
+      -27.98
+     ],
+     "z0": -1.34,
+     "h": 1.54,
+     "mat": "subway_tile",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_tiled_cheek_e",
+     "rect": [
+      19.45,
+      -32.12,
+      19.61,
+      -27.98
+     ],
+     "z0": -1.34,
+     "h": 1.54,
+     "mat": "subway_tile",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_tiled_turn",
+     "rect": [
+      18.24,
+      -32.26,
+      19.15,
+      -32.12
+     ],
+     "z0": -1.34,
+     "h": 1.42,
+     "mat": "subway_tile",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_dark_terminus",
+     "rect": [
+      18.24,
+      -33.1,
+      19.61,
+      -33.03
+     ],
+     "z0": -1.34,
+     "h": 1.42,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_stair_rail_w",
+     "asm": "pipe",
+     "at": [
+      18.36,
+      -28.02
+     ],
+     "yaw": 0,
+     "mat": "cast_iron",
+     "p0": [
+      18.36,
+      -28.02,
+      0.7
+     ],
+     "p1": [
+      18.36,
+      -30.98,
+      -0.42
+     ],
+     "r": 0.026,
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_stair_post_w_0",
+     "asm": "pipe",
+     "at": [
+      18.36,
+      -28.4664
+     ],
+     "yaw": 0,
+     "mat": "cast_iron",
+     "p0": [
+      18.36,
+      -28.4664,
+      -0.2992
+     ],
+     "p1": [
+      18.36,
+      -28.4664,
+      0.5207999999999999
+     ],
+     "r": 0.022,
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_stair_post_w_1",
+     "asm": "pipe",
+     "at": [
+      18.36,
+      -30.4728
+     ],
+     "yaw": 0,
+     "mat": "cast_iron",
+     "p0": [
+      18.36,
+      -30.4728,
+      -1.0384
+     ],
+     "p1": [
+      18.36,
+      -30.4728,
+      -0.21840000000000004
+     ],
+     "r": 0.022,
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_stair_rail_e",
+     "asm": "pipe",
+     "at": [
+      19.49,
+      -28.02
+     ],
+     "yaw": 0,
+     "mat": "cast_iron",
+     "p0": [
+      19.49,
+      -28.02,
+      0.7
+     ],
+     "p1": [
+      19.49,
+      -30.98,
+      -0.42
+     ],
+     "r": 0.026,
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_stair_post_e_0",
+     "asm": "pipe",
+     "at": [
+      19.49,
+      -28.4664
+     ],
+     "yaw": 0,
+     "mat": "cast_iron",
+     "p0": [
+      19.49,
+      -28.4664,
+      -0.2992
+     ],
+     "p1": [
+      19.49,
+      -28.4664,
+      0.5207999999999999
+     ],
+     "r": 0.022,
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_stair_post_e_1",
+     "asm": "pipe",
+     "at": [
+      19.49,
+      -30.4728
+     ],
+     "yaw": 0,
+     "mat": "cast_iron",
+     "p0": [
+      19.49,
+      -30.4728,
+      -1.0384
+     ],
+     "p1": [
+      19.49,
+      -30.4728,
+      -0.21840000000000004
+     ],
+     "r": 0.022,
      "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
@@ -19092,11 +19488,35 @@
      "S": 0.12
     },
     {
-     "id": "site_sidewalk_s",
+     "id": "site_sidewalk_s_w",
      "rect": [
       -62.0,
       -28.316,
+      18.1,
+      -23.744
+     ],
+     "z0": -0.02,
+     "h": 0.03,
+     "mat": "concrete"
+    },
+    {
+     "id": "site_sidewalk_s_e",
+     "rect": [
+      19.75,
+      -28.316,
       62.0,
+      -23.744
+     ],
+     "z0": -0.02,
+     "h": 0.03,
+     "mat": "concrete"
+    },
+    {
+     "id": "site_sidewalk_s_n",
+     "rect": [
+      18.1,
+      -27.8,
+      19.75,
       -23.744
      ],
      "z0": -0.02,

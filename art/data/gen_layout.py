@@ -4643,10 +4643,10 @@ def _passage_shell(fb, pipe, markers):
                         "exterior": True, "zone": "STREET"})
 
     # Vantry gateway Gate A.  The host facade gives the shallow portal proxy a
-    # building to belong to; the companion volume is the K0 exterior of a
-    # historically narrow, exit-only rapid-transit kiosk.  Its high panelled
-    # base, wire-glass canopy and iron ribs finish the accepted silhouette
-    # without cutting the pavement or implying an explorable fourth zone.
+    # building to belong to; the companion volume is the K1 exterior and
+    # shallow below-grade diorama of a historically narrow, exit-only rapid-
+    # transit kiosk.  Its high panelled base, wire-glass canopy and iron ribs
+    # hide the deliberately finite stair without implying a fourth zone.
     face_y = BLDG_S + 0.70
     face_back = BLDG_S + 0.40
     reveal_back = BLDG_S - 0.10
@@ -4678,8 +4678,63 @@ def _passage_shell(fb, pipe, markers):
     kx0, kx1 = 18.10, 19.75
     ky0, ky1 = -33.25, -27.80
     assert kx0 > PASSAGE_PORTAL_E and kx1 < 20.60
-    proxy("kiosk_plinth", (kx0, ky0, kx1, ky1), 0.02, 0.18,
-          "limestone")
+    # The former solid plinth made the exit a scenic box.  K1 keeps a stone
+    # curb around three sides but leaves the street head open over the actual
+    # pavement cut.  The barred gate below remains the visible collision owner.
+    proxy("kiosk_plinth_w", (kx0, ky0, kx0 + 0.24, ky1),
+          0.02, 0.18, "limestone")
+    proxy("kiosk_plinth_e", (kx1 - 0.24, ky0, kx1, ky1),
+          0.02, 0.18, "limestone")
+    proxy("kiosk_plinth_s", (kx0 + 0.24, ky0, kx1 - 0.24, ky0 + 0.18),
+          0.02, 0.18, "limestone")
+
+    # K1 is a finite, non-enterable subway section: eight real 160 mm risers
+    # in a 1.05 m clear stair, a short lower landing and a tiled return that
+    # masks a soot backstop.  There is no platform, tunnel or room beyond it.
+    stair_w, stair_e = 18.40, 19.45
+    stair_n = ky1 - 0.18
+    tread_run = 0.38
+    stair_base = -1.34
+    for i in range(8):
+        tread_n = stair_n - i * tread_run
+        tread_s = tread_n - tread_run
+        tread_top = -0.14 - i * 0.16
+        proxy("kiosk_stair_%02d" % i,
+              (stair_w, tread_s, stair_e, tread_n),
+              stair_base, tread_top - stair_base, "limestone")
+    landing_n = stair_n - 8 * tread_run
+    landing_s = landing_n - 1.10
+    proxy("kiosk_lower_landing",
+          (stair_w, landing_s, stair_e, landing_n),
+          -1.34, 0.08, "limestone")
+    for side, xa, xb in (("w", stair_w - 0.16, stair_w),
+                         ("e", stair_e, stair_e + 0.16)):
+        proxy("kiosk_tiled_cheek_" + side,
+              (xa, landing_s, xb, stair_n),
+              -1.34, 1.54, "subway_tile")
+    # The transverse tiled return leaves only a narrow east-hand suggestion of
+    # a turn.  A full-width soot plane behind it is the authored terminus, not
+    # an omitted station waiting off-camera.
+    proxy("kiosk_tiled_turn",
+          (stair_w - 0.16, landing_s - 0.14, stair_e - 0.30, landing_s),
+          -1.34, 1.42, "subway_tile")
+    proxy("kiosk_dark_terminus",
+          (stair_w - 0.16, ky0 + 0.15, stair_e + 0.16, ky0 + 0.22),
+          -1.34, 1.42, "soot")
+    # Paired iron rails follow the real stair pitch.  Four vertical standards
+    # are enough to read at street distance and stay in the existing pipe draw.
+    for side, x in (("w", stair_w - 0.04), ("e", stair_e + 0.04)):
+        proxy_pipe("kiosk_stair_rail_" + side,
+                   (x, stair_n - 0.04, 0.70),
+                   (x, landing_n + 0.04, -0.42),
+                   0.026, "cast_iron")
+        for pi, frac in enumerate((0.16, 0.82)):
+            py = stair_n + (landing_n - stair_n) * frac
+            tread_z = -0.14 - 1.12 * frac
+            proxy_pipe("kiosk_stair_post_%s_%d" % (side, pi),
+                       (x, py, tread_z + 0.02),
+                       (x, py, tread_z + 0.84),
+                       0.022, "cast_iron")
 
     # High, opaque, recessed panels replace the blockout's two featureless
     # metal slabs.  The shallow relief and rough iron rails catch the existing
@@ -4937,7 +4992,8 @@ def site_pass(fl):
     # Ground is subtracted per hole like the road around the building -
     # anything that opens the earth must register here.
     GROUND_HOLES = [(bx0, by0, bx1, by1),
-                    (4.30, -35.80, 5.45, -28.32)]     # Harukiya shaft
+                    (4.30, -35.80, 5.45, -28.32),     # Harukiya shaft
+                    (18.10, -33.25, 19.75, -27.80)]   # Vantry kiosk stair
     ground = [(gx0, gy0, gx1, gy1)]
     for hole in GROUND_HOLES:
         nxt = []
@@ -5026,8 +5082,17 @@ def site_pass(fl):
          z0=WALK_TOP, exterior=True, S=0.15)
     _asm(furn, "walk_valve_gas", "utility_cover", 6.90, -12.05, 0,
          z0=WALK_TOP, exterior=True, S=0.12)
-    fb("sidewalk_s", (-SITE_X, BLDG_S, SITE_X, WALK_S), -0.02, 0.03,
-       "concrete")
+    # K1 cuts only the 1.65 x 0.516 m pavement tongue under the Vantry exit
+    # kiosk.  Three boxes preserve the exact historic sidewalk everywhere else
+    # while leaving the descending stair genuinely open to the imported scene.
+    kiosk_cut_w, kiosk_cut_e, kiosk_cut_n = 18.10, 19.75, -27.80
+    fb("sidewalk_s_w", (-SITE_X, BLDG_S, kiosk_cut_w, WALK_S),
+       -0.02, 0.03, "concrete")
+    fb("sidewalk_s_e", (kiosk_cut_e, BLDG_S, SITE_X, WALK_S),
+       -0.02, 0.03, "concrete")
+    fb("sidewalk_s_n", (kiosk_cut_w, kiosk_cut_n,
+                         kiosk_cut_e, WALK_S),
+       -0.02, 0.03, "concrete")
     fb("curb_w", (-SITE_X, -14.75, -16.0, -14.60), -0.02, 0.14,
        "concrete")
     fb("curb_e", (16.0, -14.75, SITE_X, -14.60), -0.02, 0.14,

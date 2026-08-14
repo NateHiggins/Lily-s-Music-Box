@@ -568,7 +568,7 @@ and ownership plane did not move. The source batch now contains 228 records:
   head;
 - geometric, unlit `EXIT` and subordinate `RAPID TRANSIT` lettering, merged
   into the existing soot buffer rather than spawning a runtime text owner;
-- a barred, visibly colliding front gate. The gate stops at `z 2.14`; the sign
+- a barred, visibly colliding front gate. The gate stops at `z 2.34`; the sign
   is instruction, not an implied player entrance.
 
 The reflective blockout `metal` is gone from the kiosk. Its five box-material
@@ -676,3 +676,87 @@ dark terminus. It must preserve the six-metre route, exact external envelope,
 three-zone world, visible collision and two-light budget, then repeat these
 seven views and focused tests. Sound, reflected train light and any implied
 service below remain later, separately proved gates.
+
+---
+
+## 16. 2026-08-14 K1 shallow stair execution record
+
+**K1's physical diorama passes. The Vantry route remains the only playable
+route and the subway remains a historical foreground detail, not a fourth
+zone.** Sound and reflected train light were not bundled into this pass; they
+remain optional, separately measured gates.
+
+### 16.1 Exact built section
+
+The approved external envelope remains exactly `x 18.10..19.75`,
+`y -33.25..-27.80`. Inside it, K1 replaces the sealed stone plinth with a
+three-sided curb and cuts only the kiosk footprint through both covering
+substrates: the south sidewalk's overlapping `1.65 x 0.516 m` tongue and the
+asphalt below it. The pavement beside the kiosk remains unchanged.
+
+The finite section is:
+
+- eight real `0.38 m` treads in a `1.05 m` clear stair;
+- `0.16 m` vertical increments, from a first tread at `z -0.14` to the eighth
+  at `z -1.26`, followed by a `1.10 m` lower landing at the same level;
+- two tiled cheeks, a transverse tiled return leaving only a narrow suggestion
+  of an east turn, and a full-width soot backstop inside the accepted kiosk
+  footprint;
+- paired sloping cast-iron rails and four standards in the existing pipe draw;
+- the retained barred gate as the visible, one-way collision owner.
+
+There is no platform, tunnel, station room, train, interaction target,
+cutscene, route edge, service schedule, fourth zone or new real-time light.
+The two already-budgeted Gate A cage bulbs, 16/16 light/shadow budgets and
+six-metre Vantry portal do not move.
+
+The generated Gate A batch now owns 249 records: the unchanged six-record host
+and 243 kiosk records. K1 adds only one material buffer, `subway_tile`; the
+modified limestone, soot and cast-iron pipe work reuse K0 buffers.
+
+### 16.2 Physical and visual proof
+
+`VantryGatewayTest` now proves the exact record count and ownership, eight
+ruled tread positions and heights, 1.05 m clear width, two tiled cheeks, tiled
+turn, finite terminus, two rails, four standards, three-piece south sidewalk,
+unchanged envelope and route clearance. Its production-scene rays hit the
+first stair tread at `y -0.1400` while the adjacent sidewalk remains at
+`y +0.0100`; the gate and wainscot retain visible collision and the portal
+centre remains capsule-clear.
+
+Final evidence is under `art/renders/vantry_gateway_k1/`: eight dry and eight
+weather-live canonical-night frames. Cameras 01–07 repeat K0 exactly. The new
+camera 08 stays on the public pavement and looks through the barred gate, where
+the descending treads, tiled returns, rails, landing and deliberately finite
+dark end all read together. Against K0 dry, the seven established views change
+by 1.53%, 5.52%, 3.53%, 2.98%, 7.25%, 8.15% and 0.001% of pixels beyond delta
+3 respectively: the opening is legible on its street approaches while the
+return view through the actual Vantry throat remains effectively unchanged.
+
+### 16.3 Same-build cost and regressions
+
+At canonical night and the pinned 16/16 budget, one fresh-process pair gives:
+
+| northbound state | objects | calls | ms |
+|---|---:|---:|---:|
+| K1 visible | 6,584 | 8,417 | 17.69 |
+| seven gateway buffers hidden | 6,568 | 8,404 | 17.40 |
+
+The 0.29 ms difference is below Gate A's measured 0.59 ms repeat spread. The
+thirteen-call delta includes the one new tile buffer; K1 does not change the
+accepted 7/11 canonical-night performance ruling.
+
+Fresh production-scene regressions are green: `VantryGatewayTest`,
+`StreetContainmentTest`, `PassageOwnershipAudit` (zero visible unclassified F01
+draws), `PassageVisibilityTest`, `PassageNavTest`, `FinalMapRouteTest` outbound
+and loaded return, and `LightingAudit`. WalkTest FULL passes at
+`WALKTEST_FULL=1`, `WALKTEST_SCALE=8` in 46.4 seconds.
+
+### 16.4 Next map gate
+
+The physical subway-kiosk answer is complete and no longer blocks map work.
+Rare sound and a masked reflected-light suggestion, if pursued, require their
+own authorship, privacy, visual and performance proofs; neither is needed to
+make the exit credible. The next already-approved map/environment package is
+T8, `ORISON_DRIVING_RAIN_SKY_PROPOSAL.md`. Do not reopen the three-zone world
+or turn this shallow section into playable subway content.

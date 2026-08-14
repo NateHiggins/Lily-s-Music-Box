@@ -28,6 +28,7 @@ func _ready() -> void:
 	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(
 			"res://data/building_layout.json"))
 	_check("generated layout parses", data is Dictionary)
+	var floor_furniture: Array = []
 	var records: Array = []
 	var floor_markers: Array = []
 	if data is Dictionary:
@@ -35,11 +36,12 @@ func _ready() -> void:
 			if String(floor_data.get("id", "")) != "F01":
 				continue
 			floor_markers = floor_data.get("markers", [])
-			for item: Dictionary in floor_data.get("furniture", []):
+			floor_furniture = floor_data.get("furniture", [])
+			for item: Dictionary in floor_furniture:
 				if String(item.get("batch", "")) == \
 						"passage_proxy_gateway":
 					records.append(item)
-	_check("Gate A/K0 owns exactly 228 source records", records.size() == 228)
+	_check("Gate A/K1 owns exactly 249 source records", records.size() == 249)
 	_check("every Gate A record is STREET-owned", records.all(
 			func(item: Dictionary) -> bool:
 				return String(item.get("zone", "")) == "STREET"))
@@ -50,8 +52,8 @@ func _ready() -> void:
 				or item_id.ends_with("gateway_hood"))
 	var kiosk := records.filter(func(item: Dictionary) -> bool:
 		return String(item.get("id", "")).contains("proxy_kiosk_"))
-	_check("six host records and 222 kiosk records are distinct",
-			host.size() == 6 and kiosk.size() == 222)
+	_check("six host records and 243 kiosk records are distinct",
+			host.size() == 6 and kiosk.size() == 243)
 	var exit_letters := kiosk.filter(func(item: Dictionary) -> bool:
 		return String(item.get("id", "")).contains("kiosk_exit_letter"))
 	var transit_letters := kiosk.filter(func(item: Dictionary) -> bool:
@@ -76,6 +78,51 @@ func _ready() -> void:
 	_check("K0 kiosk uses no reflective blockout metal",
 			kiosk.all(func(item: Dictionary) -> bool:
 				return String(item.get("mat", "")) != "metal"))
+	var steps := kiosk.filter(func(item: Dictionary) -> bool:
+		var item_id := String(item.get("id", ""))
+		return item_id.contains("kiosk_stair_") \
+				and not item_id.contains("stair_rail") \
+				and not item_id.contains("stair_post"))
+	steps.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		return String(a.get("id", "")) < String(b.get("id", "")))
+	var stair_ruled := steps.size() == 8
+	for i in steps.size():
+		var step: Dictionary = steps[i]
+		var rect: Array = step.get("rect", [])
+		var expected_n := KIOSK_N - 0.18 - i * 0.38
+		var expected_top := -0.14 - i * 0.16
+		stair_ruled = stair_ruled and rect.size() == 4 \
+				and is_equal_approx(float(rect[0]), 18.40) \
+				and is_equal_approx(float(rect[2]), 19.45) \
+				and is_equal_approx(float(rect[1]), expected_n - 0.38) \
+				and is_equal_approx(float(rect[3]), expected_n) \
+				and is_equal_approx(float(step.get("z0", 0.0))
+						+ float(step.get("h", 0.0)), expected_top)
+	_check("K1 owns eight real descending treads in a 1.05 m clear stair",
+			stair_ruled)
+	_check("K1 owns tiled cheeks, masked turn and finite dark terminus",
+			kiosk.filter(func(item: Dictionary) -> bool:
+				return String(item.get("id", "")).contains(
+						"kiosk_tiled_cheek")).size() == 2
+			and kiosk.filter(func(item: Dictionary) -> bool:
+				return String(item.get("id", "")).contains(
+						"kiosk_tiled_turn")).size() == 1
+			and kiosk.filter(func(item: Dictionary) -> bool:
+				return String(item.get("id", "")).contains(
+						"kiosk_dark_terminus")).size() == 1)
+	_check("K1 handrails stay in the existing pipe draw",
+			kiosk.filter(func(item: Dictionary) -> bool:
+				return String(item.get("id", "")).contains(
+						"kiosk_stair_rail")).size() == 2
+			and kiosk.filter(func(item: Dictionary) -> bool:
+				return String(item.get("id", "")).contains(
+						"kiosk_stair_post")).size() == 4)
+	var sidewalk_pieces := floor_furniture.filter(func(item: Dictionary) -> bool:
+		return String(item.get("id", "")).contains("sidewalk_s_"))
+	_check("K1 replaces the solid south sidewalk with three exact cut pieces",
+			sidewalk_pieces.size() == 3
+			and floor_furniture.all(func(item: Dictionary) -> bool:
+				return String(item.get("id", "")) != "site_sidewalk_s"))
 	var gateway_lights := floor_markers.filter(func(item: Dictionary) -> bool:
 		return String(item.get("id", "")).begins_with("PASSAGE_PORTAL_LT_"))
 	var east_lights := gateway_lights.filter(func(item: Dictionary) -> bool:
@@ -122,6 +169,23 @@ func _ready() -> void:
 	_check("the visible kiosk wainscot owns its side collision",
 			_sweep(Vector3(17.30, 0.80, 30.0),
 					Vector3(18.60, 0.80, 30.0)) < 0.999)
+	var stair_hit := _ray_down(Vector3(18.925, 1.0, 28.10))
+	var walk_hit := _ray_down(Vector3(17.80, 1.0, 28.10))
+	var stair_pos: Vector3 = stair_hit.get("position", Vector3.ZERO)
+	var walk_pos: Vector3 = walk_hit.get("position", Vector3.ZERO)
+	var stair_collider: Node = stair_hit.get("collider", null)
+	var walk_collider: Node = walk_hit.get("collider", null)
+	print("[VANTRY K1] cut ray y=%.4f collider=%s; walk y=%.4f collider=%s"
+			% [stair_pos.y,
+				root.get_path_to(stair_collider) if stair_collider != null else "none",
+				walk_pos.y,
+				root.get_path_to(walk_collider) if walk_collider != null else "none"])
+	_check("the pavement is physically cut above the first descending tread",
+			not stair_hit.is_empty()
+			and stair_pos.y < -0.10)
+	_check("the sidewalk beside the kiosk remains at street level",
+			not walk_hit.is_empty()
+			and absf(walk_pos.y - 0.01) < 0.02)
 	print("[VANTRY GATEWAY] RESULT: %s (%d failures)" %
 			["PASS" if _fails == 0 else "FAIL", _fails])
 	get_tree().quit(_fails)
@@ -180,3 +244,10 @@ func _sweep(from: Vector3, to: Vector3) -> float:
 	query.collide_with_areas = false
 	var result := _space.cast_motion(query)
 	return float(result[0]) if result.size() >= 1 else 0.0
+
+
+func _ray_down(at: Vector3) -> Dictionary:
+	var query := PhysicsRayQueryParameters3D.create(
+			at, Vector3(at.x, -2.0, at.z))
+	query.collide_with_areas = false
+	return _space.intersect_ray(query)
