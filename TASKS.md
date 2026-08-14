@@ -393,11 +393,14 @@ are two answers to the same problem and only this one is built.
   unrelated resident routines for the stateful Case 02–08 batch; case order,
   timers and consequences remain intact.
 - **PS11** Redesign the jarring STREET → PASSAGE gate under
-  `design/VANTRY_GATEWAY_AND_SUBWAY_PROPOSAL.md`. Trial the recommended Tier 1
-  civic stair-house facade, shallow STREET-owned vestibule and split reveal
-  before changing elevation. Preserve the exact M0.5 envelope, continuous
-  loaded return route, ownership gate and canonical-night budget; an actual
-  subway, cutscene or sealed transit promise requires a separate owner ruling.
+  `design/VANTRY_GATEWAY_AND_SUBWAY_PROPOSAL.md` and
+  `design/VANTRY_SUBWAY_KIOSK_PROPOSAL.md`. First block out the minimal host
+  facade plus the recommended historically strict, exit-only kiosk in the east
+  residual strip; model only a shallow gated stair and imply rail below through
+  sparse sound/light, never a route or fourth zone. Preserve the exact M0.5
+  envelope, continuous loaded return route, ownership gate and canonical-night
+  budget. The owner's domed entrance form requires an explicit
+  closed/converted-entrance ruling; a station or cutscene remains rejected.
 
 ## F — Film (projectors instead of televisions)
 

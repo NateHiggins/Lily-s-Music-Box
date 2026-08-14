@@ -249,3 +249,20 @@ entrance, makes the Vantry Arcade feel like a deliberately buried piece of the
 city, gives the rain and soundscape a memorable threshold, and preserves every
 approved spatial and gameplay decision. If that render still feels too level,
 Tier 2 is the honest way to add stairs; a train cutscene is not.
+
+---
+
+## 8. 2026-08-14 follow-up — the historical kiosk detail
+
+The owner's period subway image revealed a cheaper companion treatment that
+does not change this recommendation: add a narrow, exit-only rapid-transit
+kiosk in the east residual strip beside the Vantry entrance. The subway exists
+below the map through a shallow gated stair, sparse sound and masked reflected
+light; it never replaces the continuous arcade route.
+
+The complete photo-fidelity, placement, affordance and proof proposal is in
+`design/VANTRY_SUBWAY_KIOSK_PROPOSAL.md`. The kiosk complements but does not
+replace the host facade required in sections 3.1–3.2. The recommended roof is
+the historically distinct peaked-glass exit form. Reusing the owner's domed
+entrance form requires the explicit closed/converted-entrance fiction defined
+there.
