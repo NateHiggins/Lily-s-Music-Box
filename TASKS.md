@@ -94,49 +94,52 @@ Ruled in `ORISON_BIBLE.md` VIII.5.g. Docs: `game/docs/arcade_cabinets.md`.
 Ruled in `ORISON_BIBLE.md` III.2. The Harukiya's machine is Scott de
 Martinville's 1857 phonautographe, and the prop is built.
 
-- **G1** **AMENDED by ruling: a trace plays back, badly.** Reality bends toward
-  the history rather than away from it. `PhonautogramReader` is built: a
-  narrow band (310-2600 Hz, because a bristle in soot writes nothing outside
-  it), lo-fi grit for the optical scan, a boxy little reverb for a cylinder in
-  a wooden case, hand-crank wow that never settles, bristle skips that are
-  SILENT rather than quiet, and **a speed that is guessed fresh on every
-  reading** - including, at one roll in ten, the exact 0.5x error that made
-  Scott sound like a woman in 2008.
-- **G1b** **DONE.** READ IT BACK is the fourth option on the review screen, and
-  it was not a re-wire - nothing in the Songbook could play a take at all, so
-  this is the first time anyone can hear one. It goes through the reader's bus,
-  drives `wow_stream()` per frame and drops to silence on `skipped()`. **The
-  machine states the assumption it just made** - "the crank was turned SLOWLY.
-  it is guessing." - because a reading that hid its guess would be a lie rather
-  than a limitation.
-- **G1c** The reading is at the machine, so it uses the non-positional twin.
-  When a trace can be heard from across the bar - or from the stairs, which is
-  the better horror - it wants `attach()`/`wow()` on an
-  `AudioStreamPlayer3D` instead.
-- **G2** Playback belongs to the basement studio, which makes S5 better: the
-  studio stops being the Songbook's "capture half" and becomes **the only thing
-  in the world that can read a trace back**. That is a far stronger reason for
-  a room to exist, and it turns a take into a journey - sing it upstairs, carry
-  it down, hear it somewhere else, or never.
+- **G1 OWNER CORRECTION — REWORK REQUIRED.** `ORISON_BIBLE.md` III.2 now
+  separates the native-speed instrumental catalogue from the player-made
+  version. The player performs to a varied, unsped backing; publishing sends
+  the complete take through one too-fast varispeed reconstruction, raising
+  tempo and pitch together with no formant correction. That nightcore/chipmunk
+  artifact is what other players hear.
+- **G1a CURRENT CODE IS NOT AUTHORITY.** `PhonautogramReader.GUESSES` rerolls
+  speed in both directions and labels `0.5x` as the 2008 error. First Sounds'
+  documented error was a too-fast reading (two vocal-scale playbacks were at
+  twice the correct speed). Replace random per-listen guessing for player-made
+  versions with one tuned `reconstruction_ratio > 1.0`, stored on the immutable
+  community version. Found traces may retain a separately authored unstable
+  reader; they do not define shared karaoke playback.
+- **G1b REWORK READ IT BACK.** The review option exists, but it currently reads
+  only the dry vocal through a fresh guess. It must audition the same composite
+  reconstruction recipients get: stable base backing plus the recorded vocal,
+  both varisped together. The clean mic stem may stay local for latency and
+  assembly; do not expose it as the shared artifact.
+- **G1c** Playback may be non-positional in the review UI and spatial when a
+  community version is deliberately played in the room. An uncommanded voice
+  is not evidence that the cylinder learned playback.
+- **G2** The basement studio is no longer the only possible playback site. It
+  may own restoration, publication or found-trace work, but community versions
+  must be receivable by everyone playing the game. Reframe S5 after the shared
+  version contract is implemented; do not force the social feature through a
+  basement visit.
 - **G3** A trace is an OBJECT, like a reel: findable, carryable, losable. Some
   are already in the building and the player did not make them.
-- **G4** **DONE, and the implementation is the fiction.** Four traces are on the
+- **G4** **DONE for found traces only.** Four traces are on the
   machine when the player arrives, readable from WHAT WAS ALREADY ON IT. They
   are **synthesised, not recorded** - `PhonautogramForge` derives a line from
   the trace's identity and turns that line into a pressure wave, which is
   exactly what First Sounds did in 2008 minus the paper. There is no recording
   of these because there was never a recording of anything: a phonautogram is a
-  line, and every sound anyone gets from one is a reconstruction. Deterministic,
-  so the line is the only real thing, while the SPEED is still guessed fresh -
-  two people can hear the same trace as two different people.
+  line, and every sound anyone gets from one is a reconstruction. Their
+  unstable/ambiguous read may remain as authored found-object behavior; it must
+  not leak into the immutable player-version contract.
 - **G4b** The sleeves are the hook and they are deliberately thin: "for M." with
   four residents whose name starts with M, a WORS sleeve with the date rubbed
   out, one found behind the pipes, one with no sleeve at all. **Nothing in the
   bar can resolve any of them.** What the basement studio should be able to do
   is say something about a trace the bar cannot - a cleaner read, a second
   voice, a date - and that is the errand.
-- **G5** If a trace is ever heard in the bar, it is not the machine. That is
-  the Tenant, and it should be rare enough to be unmistakable.
+- **G5** If singing is heard in the bar when no terminal or community version
+  is deliberately playing, it is the Tenant. The cylinder itself never emits
+  recorded audio.
 
 ## S — Basement studio
 
@@ -155,10 +158,10 @@ Proposed in `design/ORISON_STUDIO_BRIEF.md`. Not canon until the owner rules.
 - **S4** Studio props and the dead-channel chore: pull the rack, read the
   schematic in the lid, find the dead valve, buy one at the bodega, return.
   *Blocked by S2.*
-- **S5** Connect the studio to the Songbook as its capture half — the bar is
-  where songs mutate, the studio is where a take is fixed. Ghost duets belong in
-  the room that records. No pitch scoring. *Blocked by S4 and the Songbook's own
-  order.*
+- **S5** Reframe the studio as a restoration/publication workspace after G1's
+  shared-version contract lands. The bar is where songs mutate; a basement
+  visit must not gate receiving the community's versions. Ghost duets and found
+  traces may still belong downstairs. No pitch scoring. *Blocked by S4 and G1.*
 
 ## R — The street's shops
 

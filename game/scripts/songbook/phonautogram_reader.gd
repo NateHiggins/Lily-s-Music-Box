@@ -8,10 +8,11 @@ extends RefCounted
 ## history already points, because what actually happened in 2008 is stranger
 ## than any invention would have been.
 ##
-## When First Sounds recovered Scott's 1860 *Au Clair de la Lune*, they had the
-## soot and no reference tone, so they had to GUESS the speed the crank had been
-## turned at. They guessed wrong. The recovered voice sounded like a woman
-## singing, and it was celebrated as such. It was Scott himself, at half speed.
+## When First Sounds first recovered Scott's 1860 *Au Clair de la Lune*, they
+## interpreted the reference timecode too fast. The recovered voice sounded
+## like a woman or adolescent singing; the 2009 correction halved that playback
+## speed, and the likely speaker was Scott. Two related 2008 vocal-scale reads
+## had been played at twice the correct speed.
 ##
 ## So: what comes out of this machine is not a voice, it is a **reconstruction
 ## of a picture of a voice**, and the two things it cannot know are the two
@@ -25,10 +26,10 @@ extends RefCounted
 ##   guess    the SPEED IS A GUESS, drawn fresh on every reading
 ##   skip     the bristle lifted, and there is simply nothing there
 ##
-## The guess is the point. Play the same trace twice and it may not be the same
-## person, which is the cruellest thing this building can do to somebody trying
-## to identify a voice - and it is documented history rather than a horror beat
-## somebody invented.
+## OWNER CORRECTION 2026-08-14: this fresh-guess reader remains valid only for
+## separately authored FOUND traces. A player-made community version owns one
+## immutable too-fast reconstruction_ratio, applied to its complete vocal and
+## backing mix. Do not route published karaoke versions through guess_speed().
 
 const BUS := "Phonautogram"
 
@@ -38,8 +39,8 @@ const GUESSES := [
 	[1.00, 46.0],   # correct, and it still wanders - see `wow`
 	[0.94, 18.0],
 	[1.07, 16.0],
-	[0.50, 10.0],   # the 2008 error: a man becomes a woman
-	[2.00, 6.0],
+	[0.50, 10.0],   # extreme low read for unstable found traces
+	[2.00, 6.0],    # direction of the documented 2008 too-fast error
 	[0.71, 4.0],
 ]
 

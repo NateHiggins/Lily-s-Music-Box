@@ -14,7 +14,9 @@ extends RefCounted
 ## into a pressure wave. Two people reading the same trace get the same line and
 ## therefore the same voice - the line is the only thing that is real - while the
 ## SPEED they read it at is still guessed fresh, so they may not agree on who it
-## was. See PhonautogramReader.
+## was. See PhonautogramReader. This class forges FOUND traces only; the
+## 2026-08-14 owner correction gives player-made community versions one
+## immutable, too-fast reconstruction instead.
 ##
 ## Nothing here tries to sound like a good recording. It is a voice the way a
 ## graph is a voice: a fundamental, a couple of formants that wander, breath, and

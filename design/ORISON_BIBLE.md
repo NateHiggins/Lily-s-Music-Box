@@ -169,10 +169,12 @@ making it malicious.
 - **It is not the hum.** Room 0 hums because the building is awake; the hum is a
   vital sign, not a voice.
 
-### III.2 THE PHONAUTOGRAPH — the machine that cannot play back
+### III.2 THE PHONAUTOGRAPH — it records now; the future plays it too fast
 
 *Ruled 2026-08-11, at the owner's direction. Replaces the rented karaoke box in
-the Harukiya. Governs the Songbook.*
+the Harukiya and governs the Songbook. **Owner correction 2026-08-14:** this
+section supersedes both the catalogue-wide nightcore proposal and the
+fresh-random-speed playback rule.*
 
 **Édouard-Léon Scott de Martinville, a Paris printer and bookseller, patented
 the phonautographe in March 1857 — twenty years before Edison.** A horn gathers
@@ -183,57 +185,72 @@ scratches a line into soot on a hand-cranked cylinder.
 first machine that captured airborne sound and never once heard a thing it
 caught. He was a printer: he expected people would learn to **read** sound the
 way they read writing. Nobody could. His 1860 recording of *Au Clair de la Lune*
-was not heard by anyone until 2008, when researchers scanned the paper
-optically. **A hundred and forty-eight years between the singing and the
-listening.**
+was not heard until researchers optically reconstructed it in 2008. **A hundred
+and forty-eight years between the singing and the listening.**
 
-That is this building's whole subject, built in France in 1857 by a man who
-thought he was solving a clerical problem.
+The famous first interpretation made exactly the useful mistake. First Sounds
+initially read Scott's timecode too fast, producing what sounded like a woman or
+adolescent singing. In 2009 they identified the likely speaker and corrected
+the reference fork from 500 Hz to 250 Hz; two 2008 readings of Scott's vocal
+scale had been played at **twice the correct speed**. The historical error was
+too fast, not half speed. Sources: [First Sounds, Earlier Playbacks](https://www.firstsounds.org/sounds/earlier-playback.php)
+and [Library of Congress, Phonautograms](https://blogs.loc.gov/now-see-hear/2021/08/from-the-recording-registry-phonautograms-c-1853-61/).
 
-**The ruling.** The Harukiya's machine is a phonautograph. You sing into the
-horn, the cylinder turns, and you get **a line on smoked paper**. The Songbook
-is therefore not a library of recordings. **It is a book of traces.**
+That is the Songbook's joke and its social technology: a sincere performance
+sent across a century and returned in the wrong body.
 
-**Amended 2026-08-11: a trace CAN be read back, and it lies about who sang it.**
-The owner ruled that reality bends here — but it bends toward the history
-rather than away from it, because what actually happened is stranger than an
-invention would have been. When First Sounds recovered Scott's 1860 recording
-in 2008 they had the soot and no reference tone, so they had to **guess** how
-fast the crank had been turned. They guessed wrong. The recovered voice was
-celebrated as a woman singing. It was Scott himself, at half speed.
+**The two audio layers are different and must never be collapsed again.**
 
-So what the machine gives back is not a voice. It is **a reconstruction of a
-picture of a voice**, and the two things it cannot know are the two that
-matter: how fast the crank was turned, and where the bristle skipped. The speed
-is guessed fresh on every reading. **Play the same trace twice and it may not be
-the same person.** That is not a horror beat somebody invented; it is what the
-record says happened, and it is the cruellest thing this building can do to
-someone trying to identify a voice.
+1. **The instrumental catalogue is the karaoke material.** Its tracks span a
+   deliberate variety of styles, tempi and emotional registers. Players hear
+   each backing at its authored speed and pitch while writing and performing.
+   The catalogue is not globally nightcore, and a base instrumental is not
+   pre-chipmunked merely because it belongs to the Songbook.
+2. **The player-made take is the phonautographic artifact.** The performance —
+   singer, backing and room together — becomes a line on smoked paper. The
+   implementation may retain a dry vocal and rebuild the mix from the stable
+   base track, but the fiction and the audible result are one complete take.
+3. **Publication is the century jump.** When a player shares that variation,
+   the community Songbook's future-side reader reconstructs the complete take
+   deliberately too fast. Tempo and pitch rise together as real varispeed;
+   there is no formant correction. The backing becomes frantic and the singer
+   becomes funny, bright and unmistakably chipmunked: nightcore as a playback
+   accident, not as the catalogue's genre.
+4. **The mistake becomes part of the version.** A take receives one tuned,
+   too-fast reconstruction rate when it is published. That rate is stored with
+   the immutable version and never rerolled. Everyone who receives that version
+   hears the same gloriously wrong artifact. The system is a shared folk
+   archive, not random pitch roulette.
 
-Everything the Songbook already believes survives intact and gets sharper.
-"There are no canonical lyrics; a song is a shape with holes in it, and whatever
-the last person sang is as legitimate as whatever the first did" — now every
-one of those versions is unhearable too, which makes the legitimacy real rather
-than polite. Nobody can argue their take was better. Nobody can check.
-
-**What this splits, and why that is a gift.** The bar records and cannot listen.
-**The basement studio is the only place in the world that can read a trace back**
-(§S5 already calls the studio the Songbook's capture half; this makes it the
-*playback* half instead, which is a better reason for it to exist). So a take is
-a journey: sing it upstairs, carry it down, and hear it somewhere else — or
-never, which is also allowed and is the more common outcome.
+It does not need to make mechanical sense beyond that. The phonautograph sends
+a picture of a voice forward; the network sends back a dance record made by
+misreading it. The historical provenance earns the conceit. The result still
+has to sound sick.
 
 **Binding consequences:**
 
-- **The bar machine never emits recorded audio. Ever.** If a trace is heard in
-  that room, it is not the machine, and that is the Tenant.
-- **A trace is an object**, like a reel: findable, carryable, losable. Traces
-  the player never made are already in the building.
-- **The oldest traces have no author.** Something sang into it before anyone
-  currently alive, and the only way to find out what is to go downstairs.
+- The local 1857 mechanism still never plays audio. A terminal, reader or
+  community-version playback path may emit a reconstruction; the horn and
+  cylinder do not.
+- **Nightcore is a property of a recorded community version, never a mandatory
+  property of its base instrumental.** Clean backing tracks remain reusable in
+  their native styles.
+- The too-fast transform applies to the complete version, not only the voice.
+  A chipmunk vocal over an untouched backing is the wrong effect.
+- A published version owns an immutable `reconstruction_ratio` greater than
+  1.0. Playback uses it for both tempo and pitch. No time-stretch, independent
+  pitch shift, formant correction or fresh per-listen guess is allowed.
+- The untransformed microphone stem may remain local for assembly and latency
+  correction; community playback and sharing expose the reconstructed version,
+  not a surprise clean recording of the player.
+- **A trace remains an object**, like a reel: findable, carryable, losable.
+  Found historical traces may have separately authored reconstruction rules;
+  they do not define the player-version pipeline.
+- Uncommanded singing in the bar when no Songbook version is playing remains
+  the Tenant.
 - It is 1857 technology in a building of 1927 objects and forty-years-early
-  signal machines. It is the *oldest* thing in the Orison, and it is the one
-  piece of equipment that does exactly what it claims and nothing more.
+  signal machines. It is the oldest thing in the Orison, and the century-long
+  delay is now audible every time players cover one another.
 
 ## IV. THE CAST
 
