@@ -8,10 +8,11 @@ var building: Node3D
 var tracker: ObjectiveTracker
 var intro: VirusSoundDirector
 
-## The authored intro is still a placeholder, but its handoff is canonical:
-## the player's shift begins on the curb beside the car that brought them.
-## Plan coordinates are converted here so exterior staging has one authority.
-const ARRIVAL_POSITION_B := Vector3(2.75, -13.72, 0.10)
+## The shift begins on the south walk, just outside the passenger side of the
+## eastbound car. Looking across the road teaches the complete 30 ft crossing
+## before a word of UI does. Plan coordinates are converted here so exterior
+## staging has one authority.
+const ARRIVAL_POSITION_B := Vector3(-3.60, -24.72, 0.10)
 const ARRIVAL_LOOK_TARGET_B := Vector3(0.0, -9.82, 2.15)
 
 
@@ -35,27 +36,34 @@ func _begin_if_needed() -> void:
 	if get_tree().current_scene != building:
 		return
 	# Ruled 2026-08-04: no seized-camera arrival. A new game starts on the
-	# curb in front of the building, player in control from the first
+	# south kerb facing the building, player in control from the first
 	# frame. The authored thirty-second flyover survives behind
 	# VirusSoundDirector.toggle_intro for scenario use.
+	begin_first_shift()
+
+
+## Public for a deterministic harness as well as the production deferred boot.
+## `intro_complete` is the one-shot fact: loading an existing campaign can
+## restore the curb spawn, but it can never manufacture the car again.
+func begin_first_shift() -> bool:
+	if bool(RealityState.data.get("intro_complete", false)):
+		return false
 	_place_at_arrival()
+	if building and building.street_traffic:
+		building.street_traffic.begin_arrival()
 	RealityState.data.intro_complete = true
 	RealityState.commit()
 	if tracker:
 		tracker.show_objective("FIRST SHIFT — ORISON APARTMENTS",
 				"Report for Realty Maintenance. The extra I is not a typo. " +
 				"The building has left a work order at the lobby terminal.")
+	return true
 
 
 func _on_intro_finished() -> void:
 	if bool(RealityState.data.get("intro_complete", false)):
 		return
-	_place_at_arrival()
-	RealityState.data.intro_complete = true
-	RealityState.commit()
-	if tracker:
-		tracker.show_objective("FIRST SHIFT — WORK ORDER 002-A",
-				"The building has left a work order at the lobby terminal.")
+	begin_first_shift()
 
 
 func _place_at_arrival() -> void:

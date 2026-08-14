@@ -40,8 +40,23 @@ const MAX_VEHICLES := 14
 const TRANSIT_STOP_ID := "south_shelter"
 const TRANSIT_STOP_X := -10.4
 const TRANSIT_STOP_DWELL := 4.5
+## T6's one-shot arrival uses the ordinary traffic batches, but starts tucked
+## against the south kerb. It idles just long enough to make the already-exited
+## player and the car read as one event, then merges into the eastbound lane and
+## is swallowed shortly beyond the authored storm boundary.
+const ARRIVAL_START_X := -4.50
+const ARRIVAL_KERB_Y := -22.55
+const ARRIVAL_HOLD_SECONDS := 1.15
+const ARRIVAL_CRUISE_SPEED := 6.40
+const ARRIVAL_ACCELERATION := 3.80
+const ARRIVAL_MERGE_RATE := 0.72
+const EAST_TEAR_X := 20.60
+const ARRIVAL_DESPAWN_X := 27.0
+const ARRIVAL_TRAFFIC_DELAY := 5.0
 
 signal transit_arrived(stop_id: String, vehicle_kind: String)
+signal arrival_entered_weather
+signal arrival_departed
 
 ## 95% credible 1928, 5% wrong and never acknowledged. Absurd traffic is
 ## charming for ten seconds and then it is a joke that keeps talking, and the
@@ -92,6 +107,8 @@ var _rng := RandomNumberGenerator.new()
 var _player: Node3D
 var _shove_cooldown := 0.0
 var _total_weight := 0.0
+var _arrival_started := false
+var _arrival_finished := false
 ## A small pool of voices, reassigned to whichever vehicles are nearest. The
 ## brief's acceptance test is that a player can cross BY EAR with the camera
 ## facing a door, and fourteen players would be fourteen voices competing on
@@ -103,7 +120,7 @@ var _engine: AudioStreamWAV
 var _hooves: AudioStreamWAV
 
 
-func build(player: Node3D) -> void:
+func build(player: Node3D = null) -> void:
 	name = "StreetTraffic"
 	_player = player
 	_rng.randomize()
@@ -178,6 +195,48 @@ func build(player: Node3D) -> void:
 		_voices.append(v)
 
 
+func bind_player(player: Node3D) -> void:
+	_player = player
+
+
+## The arrival is not a fifth vehicle system and never becomes standing
+## scenery. It temporarily occupies one slot in the same four MultiMeshes as
+## every other road user. Clearing startup traffic gives the first image one
+## readable action; the ordinary stream resumes behind it after five seconds.
+func begin_arrival() -> bool:
+	if _arrival_started or _arrival_finished or _mm == null:
+		return false
+	_arrival_started = true
+	_live.clear()
+	_live.append({
+		"arrival": true,
+		"kind": 1, # motor_car
+		"lane": false,
+		"dir": 1.0,
+		"x": ARRIVAL_START_X,
+		"y": ARRIVAL_KERB_Y,
+		"speed": 0.0,
+		"hold": ARRIVAL_HOLD_SECONDS,
+		"weather_entered": false,
+		"stop_stage": 0,
+		"dwell": 0.0,
+		# Ordinary traffic deliberately reads at distance. The first car is close
+		# enough to need a lower motor silhouette instead of the generic block,
+		# while still using those exact batches.
+		"length": 4.45,
+		"width": 1.72,
+		"height": 0.78,
+		"cab_length": 2.28,
+		"cab_height": 0.72,
+		"cab_offset": -0.06,
+		"body_color": Color(0.10, 0.15, 0.18),
+		"cab_color": Color(0.035, 0.20, 0.21),
+	})
+	_spawn_accum = ARRIVAL_TRAFFIC_DELAY
+	_write_instances()
+	return true
+
+
 ## One batched, vertex-coloured, shadowless mesh. Everything traffic draws goes
 ## through here so the cost of adding a layer stays one draw call.
 func _make_batch(mesh: Mesh, count: int, additive: bool) -> MultiMeshInstance3D:
@@ -224,6 +283,30 @@ func _advance(delta: float) -> void:
 	var kept: Array[Dictionary] = []
 	for v in _live:
 		var remaining := delta
+		if bool(v.get("arrival", false)):
+			var hold_left: float = float(v.get("hold", 0.0)) - delta
+			v.hold = maxf(0.0, hold_left)
+			if hold_left > 0.0:
+				kept.append(v)
+				continue
+			remaining = -hold_left
+			var old_speed: float = float(v.get("speed", 0.0))
+			var new_speed := minf(ARRIVAL_CRUISE_SPEED,
+					old_speed + ARRIVAL_ACCELERATION * remaining)
+			v.speed = new_speed
+			v.x += float(v.dir) * (old_speed + new_speed) * 0.5 * remaining
+			v.y = move_toward(float(v.get("y", ARRIVAL_KERB_Y)),
+					LANE_EAST, ARRIVAL_MERGE_RATE * remaining)
+			if float(v.x) >= EAST_TEAR_X \
+					and not bool(v.get("weather_entered", false)):
+				v.weather_entered = true
+				arrival_entered_weather.emit()
+			if float(v.x) < ARRIVAL_DESPAWN_X:
+				kept.append(v)
+			else:
+				_arrival_finished = true
+				arrival_departed.emit()
+			continue
 		if _serves_transit_stop(v):
 			var stop_stage: int = int(v.get("stop_stage", 0))
 			if stop_stage == 1:
@@ -250,6 +333,10 @@ func _advance(delta: float) -> void:
 		if absf(v.x) < SPAWN_X + 4.0:
 			kept.append(v)
 	_live = kept
+
+
+func _vehicle_y(v: Dictionary) -> float:
+	return float(v.get("y", LANE_WEST if bool(v.lane) else LANE_EAST))
 
 
 func _serves_transit_stop(v: Dictionary) -> bool:
@@ -307,25 +394,28 @@ func _write_instances() -> void:
 	for i in n:
 		var v: Dictionary = _live[i]
 		var k: Array = KINDS[int(v.kind)]
-		var length := float(k[1])
-		var width := float(k[2])
-		var height := float(k[3])
-		var y: float = LANE_WEST if bool(v.lane) else LANE_EAST
+		var length := float(v.get("length", k[1]))
+		var width := float(v.get("width", k[2]))
+		var height := float(v.get("height", k[3]))
+		var y := _vehicle_y(v)
 		var basis := Basis().scaled(Vector3(length, height, width))
 		var at := GameBoot.b2g([float(v.x), y, height * 0.5])
 		mm.set_instance_transform(i, Transform3D(basis, at))
-		mm.set_instance_color(i, k[5])
+		mm.set_instance_color(i, Color(v.get("body_color", k[5])))
 
 		# The cab: a raised block set back from the nose, which is the single
 		# read that says "vehicle" rather than "crate".
-		var cab_len: float = length * float(k[6])
-		var cab_h: float = height * float(k[7])
+		var cab_len := float(v.get("cab_length", length * float(k[6])))
+		var cab_h := float(v.get("cab_height", height * float(k[7])))
+		var cab_offset := float(v.get("cab_offset",
+				-float(v.dir) * length * 0.18))
 		var cm := _cabs.multimesh
 		cm.set_instance_transform(i, Transform3D(
 				Basis().scaled(Vector3(cab_len, cab_h, width * 0.92)),
-				GameBoot.b2g([float(v.x) - float(v.dir) * length * 0.18, y,
+				GameBoot.b2g([float(v.x) + cab_offset, y,
 						height + cab_h * 0.5])))
-		cm.set_instance_color(i, Color(k[5]).darkened(0.25))
+		cm.set_instance_color(i, Color(v.get("cab_color",
+				Color(k[5]).darkened(0.25))))
 
 		# Four wheels, sized to the vehicle and sunk so they meet the road.
 		var wr: float = clampf(height * 0.22, 0.28, 0.52)
@@ -360,12 +450,12 @@ func _check_shove() -> void:
 		return
 	var p := _player.global_position
 	for v in _live:
-		var y: float = LANE_WEST if bool(v.lane) else LANE_EAST
+		var y := _vehicle_y(v)
 		var at := GameBoot.b2g([float(v.x), y, 0.0])
 		var k: Array = KINDS[int(v.kind)]
-		if absf(p.x - at.x) > float(k[1]) * 0.5 + 0.4:
+		if absf(p.x - at.x) > float(v.get("length", k[1])) * 0.5 + 0.4:
 			continue
-		if absf(p.z - at.z) > float(k[2]) * 0.5 + 0.4:
+		if absf(p.z - at.z) > float(v.get("width", k[2])) * 0.5 + 0.4:
 			continue
 		_shove(v)
 		return
@@ -443,8 +533,9 @@ func _voice_nearest() -> void:
 			voice.play()
 		elif not voice.playing:
 			voice.play()
-		var y: float = LANE_WEST if bool(v.lane) else LANE_EAST
+		var y := _vehicle_y(v)
 		voice.global_position = GameBoot.b2g([float(v.x), y, 1.0])
 		# Speed reads as pitch, which is most of how a person judges whether
 		# they can make it. Bigger vehicles sit lower.
-		voice.pitch_scale = clampf(float(v.speed) / 6.0, 0.6, 1.5) 				* clampf(3.0 / float(k[1]), 0.55, 1.25)
+		voice.pitch_scale = clampf(float(v.speed) / 6.0, 0.6, 1.5) \
+				* clampf(3.0 / float(v.get("length", k[1])), 0.55, 1.25)

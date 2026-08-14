@@ -380,8 +380,18 @@ is built.
   barricade stations capsule-clear, and the six-span boundary intact. F01 is
   −10,816 vertices / −17,952 indices / −381,296 bytes; fixed A/B plus a live-
   rain noise control is in `art/renders/road_clearance_t5b/`.
-- **T6** Bring the arrival car back moving - the player gets out, it leaves into
-  the east tear.
+- **T6 DONE.** The first controllable frame now starts on the south kerb beside
+  a low teal-black motor car, facing the full 30 ft crossing and Orison door.
+  It holds 1.15 s without seizing the camera, accelerates to 6.4 m/s, merges
+  into the eastbound lane, crosses the exact x +20.60 storm boundary once and
+  is removed at x +27.00. It reuses the four existing shadowless traffic
+  batches, adds no light or collision, cannot replay after `intro_complete`,
+  and ordinary traffic resumes after a 5 s first-image clearance. The traffic
+  player-reference startup bug is also closed. `ArrivalCarTest` passes; three
+  fixed morning-rain frames are in `art/renders/arrival_car_t6/`. Transit,
+  containment, route, weather, lighting, Passage ownership/visibility and
+  WalkTest FAST all exit green. The single FULL x8/480 attempt produced no
+  result inside the 60 s bound and was terminated; no FULL result is claimed.
 - **T7** Budget first. Street elevation is 33.28 ms against 16.6, CPU-bound on
   submission, and **lighting is the dominant term outdoors** (-33%, twice the
   atrium's). Headlamps and lightning are the expensive part, not the vehicles.

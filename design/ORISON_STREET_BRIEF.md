@@ -129,6 +129,32 @@ introduction to the street's rules than finding the same car parked outside the
 door forever, and it removes the game's most conspicuous piece of standing
 scenery.
 
+### As built — T6 closed 2026-08-14
+
+The first controllable frame now begins on the south walk at (−3.60, −24.72),
+looking across the complete 30 ft carriageway at the Orison entrance. The car is
+already tucked against the kerb beside the player at (−4.50, −22.55). It holds
+for 1.15 seconds—long enough for the relationship to read without taking the
+camera—then accelerates to 6.4 m/s while merging into the eastbound lane. It
+crosses the authored east storm boundary at x +20.60 exactly once and ceases to
+exist at x +27.00. No character, caption or objective acknowledges it.
+
+This is not the deleted static rideshare restored under another name. It has no
+body or collision shape, occupies one ordinary `StreetTraffic` slot, and uses
+the same four shadowless MultiMesh submissions as the rest of the road. A lower
+close-view motor profile and muted teal greenhouse distinguish it without a
+fifth draw owner, light, bespoke scene or permanent object. Random startup
+traffic yields for five seconds so the first action remains legible, then the
+ordinary two-way stream resumes.
+
+`FirstShiftDirector` remains the one-shot campaign owner through the existing
+`intro_complete` fact; `StreetTraffic` owns only the moving vehicle lifecycle.
+The production player is now bound after it actually exists, correcting the
+old null startup reference used by traffic audio and shoves. `ArrivalCarTest`
+proves the spawn, hold, acceleration, lane merge, exact storm crossing, removal,
+non-replay, four-batch budget and absence of the former static hull. The three
+fixed morning-rain proof frames are in `art/renders/arrival_car_t6/`.
+
 ---
 
 ## 6. The bus shelter

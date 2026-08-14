@@ -358,7 +358,7 @@ func _ready() -> void:
 	# The street is a stream you cross now, not a corridor you walk along.
 	street_traffic = StreetTraffic.new()
 	add_child(street_traffic)
-	street_traffic.build(player)
+	street_traffic.build()
 	moon_fill = MoonFill.new()
 	moon_fill.name = "MoonFill"
 	add_child(moon_fill)
@@ -441,6 +441,10 @@ func _ready() -> void:
 	player = PlayerController.new()
 	player.position = GameBoot.b2g([0.0, -9.0, 0.1])  # vestibule
 	add_child(player)
+	# Traffic is constructed earlier with the exterior, before the player exists.
+	# Bind now so its distance voices, shove contract and T6 arrival all share the
+	# real production player instead of the null startup placeholder.
+	street_traffic.bind_player(player)
 	vantry_points.bind_player(player)
 	# The handset, in the hand that was already carrying the torch.
 	# Parented to the camera, so it needs the player in the tree first.
