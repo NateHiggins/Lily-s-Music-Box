@@ -1,5 +1,13 @@
 # THE ORISON SONGBOOK — GEMINI / LYRIA AUDITION PROMPTBOOK
 
+> **SUPERSEDED — 2026-08-14 owner scope ruling (THE HOUSE FIVE).**
+> The launch catalogue is reduced to five tracks and the active
+> generation document is `ORISON_SONGBOOK_GEMINI_LYRIA_HOUSE_FIVE.md`.
+> This book is retained as future-volume reference only: its Group B/C
+> prompts, sparser variants and correction library receive no
+> production attention now, and its rights-hold table remains binding.
+> Do not run prompts from this file.
+
 **AUDITION MATERIAL ONLY — NOT NEW CANON. NOT SHIPPING MASTERS.**
 
 *Filed 2026-08-14 against `ORISON_SONGBOOK_MUSIC_BIBLE.md` at `28c564f`;

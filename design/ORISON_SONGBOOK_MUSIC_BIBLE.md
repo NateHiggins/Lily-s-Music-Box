@@ -31,6 +31,7 @@ rejectable without collapsing the collection.*
 | **Q7 — credits** | The Listening Line ships bundled as one nondiegetic **Music & Sources** credits surface (also reachable from track detail), with the five separations of §14. The research document is scaffolding; links and identity statements are re-verified before release |
 | **MIC GATE** | The Music Bible inherits the phrase-duel brief's §12 hard launch gate verbatim in force (§17): PRIVATE may prototype; FRIENDS needs consent/mute/block/report/delete; COMMUNITY microphone publication stays disabled until the full audio-safety design is owned; nightcore transformation is not moderation; the phrase-ID fallback is the only public path without it |
 | **SOOT ECHO** | Recorded as a separate nonbinding proposal (§18): optional microphone-reactive haunting, local-only, feature-extraction-only, never speech reproduction. Not implemented |
+| **SCOPE — THE HOUSE FIVE** (owner ruling, 2026-08-14) | The launch catalogue is reduced to five tracks — 101 DREAMLAND, 103 ALOHA ʻOE, 104 CHARLESTON, 105 AIN'T WE GOT FUN, 108 NOBODY — the only tracks presently prepared for Gemini generation and implementation (`ORISON_SONGBOOK_GEMINI_LYRIA_HOUSE_FIVE.md`). All five are rights-GREEN. The other seven Director's Twelve dossiers move to **FUTURE VOLUME**: preserved as researched longlist, not deleted or disowned, receiving no prompts, generation, implementation or production attention now. Every HOLD, rights, consultation and provenance warning stands. Consultation nuance, per this ruling: the Q6 reviews for 103/104/108 gate **shipping masters**, not private instrumental auditions |
 
 ---
 
@@ -397,30 +398,36 @@ performance sent across a century and returned in the wrong body*
   ribbon, and two people fighting over the ribbon is drama the
   design endorses.
 
-## 10. THE DIRECTOR'S TWELVE
+## 10. THE DIRECTOR'S TWELVE — and THE HOUSE FIVE within it
 
-*Approved by Q1 as the creatively preferred collection and the basis
-for further writing and auditions — **not** the worldwide production-
-clear slate. Base = native authored speed (instrumental; what you sing
-over). Return = at the house ratio (audition starting points, Q3).
-STATUS: **AUDITION** = GREEN rights, awaiting the mandatory audio
-audition; **HOLD** = AMBER rights (§13) — visible, creatively retained,
-excluded from generation and procurement until counsel clears.*
+*The Director's Twelve remains the researched longlist (Q1). Within
+it, the owner-approved production shortlist is **THE HOUSE FIVE**
+(scope ruling, §0): 101, 103, 104, 105, 108 — five different social
+uses, not five interchangeable songs — and **only the House Five
+proceed to Gemini auditions** (`ORISON_SONGBOOK_GEMINI_LYRIA_
+HOUSE_FIVE.md`). Every other track is **FUTURE VOLUME**: dossier
+preserved in full below, no production attention now. Base = native
+authored speed; Return = at the house ratio (audition starting
+points, Q3). STATUS: **HOUSE FIVE** = in production preparation
+(all rights-GREEN; "+ consult" gates the shipping master, not the
+private audition); **FUTURE VOLUME** = preserved, inactive; **HOLD**
+tracks additionally remain excluded from generation and procurement
+until counsel clears (§13).*
 
 | # | ID | Arrangement title | Source (writer, year) | Base | House return | Affinity | Status |
 |---|---|---|---|---|---|---|---|
-| 1 | track_101 | DREAMLAND (DON'T WAIT UP) | Meet Me Tonight in Dreamland (Friedman/Whitson, 1909) | 3/4, F, 96 | ×1.335 → 128, +5 | none — pure | AUDITION |
-| 2 | track_102 | THE GONDOLA SONG (LIFE IS BRIEF) | Gondola no Uta (Nakayama/Yoshii, 1915) | 2/4, Am, 76 | ×1.414 → 107, +6 | none — pure | **HOLD** (§13) |
-| 3 | track_103 | ALOHA OE AT CLOSING TIME | Aloha ʻOe (Liliʻuokalani, 1878) | 4/4, G, 84 | ×1.335 → 112, +5 | none — pure | AUDITION + consult (Q6) |
-| 4 | track_104 | CHARLESTON!!!!! | The Charleston (Johnson/Mack, 1923) | cut-time, B♭, 112 | ×1.414 → 158, +6 | hardcore kick overdub | AUDITION |
-| 5 | track_105 | AIN'T WE GOT FUN (RENT DUE MIX) | Ain't We Got Fun (Whiting/Egan/Kahn, 1921) | 4/4, C, 118 | ×1.335 → 158, +5 | steam-press stomp | AUDITION |
-| 6 | track_106 | KATYUSHA GO!! | Katyusha no Uta (Nakayama/Shimamura/Sōma, 1914) | 2/4, G, 108 | ×1.414 → 153, +6 | none — crowd pure | AUDITION + consult (Q6) |
-| 7 | track_107 | SOME OF THESE DAYS (YOU'LL MISS ME) | Some of These Days (Brooks, 1910) | 4/4, F, 118 | ×1.335 → 158, +5 | splice-gag edits | **HOLD** (§13) |
-| 8 | track_108 | NOBODY (AT SPEED) | Nobody (Williams/Rogers, 1905) | 4/4, Cm, 66 | ×1.414 → 93, +6 | doubled rests | AUDITION + consult (Q6) |
-| 9 | track_109 | YES!! WE HAVE NO BANANAS!! | Yes! We Have No Bananas (Silver/Cohn, 1923) | 4/4, F, 112 | ×1.414 → 158, +6 | none — pure chaos | **HOLD** (§13) |
-| 10 | track_110 | AFTER YOU'VE GONE (AND LEFT ME CRYING) | After You've Gone (Layton/Creamer, 1918) | 4/4, Dm→F, 120 | ×1.335 → 160, +5 | performed break, chopped | **HOLD** (§13) |
-| 11 | track_111 | EAST SIDE WEST SIDE (ROUND AND ROUND) | The Sidewalks of New York (Lawlor/Blake, 1894) | 3/4, G, 90 | ×1.414 → 127, +6 | 3/4 break cross-figures | AUDITION |
-| 12 | track_112 | THE ALPHABET SONG (BURNING BRIGHT) | Oyfn Pripetshik (Warshawsky, c. 1899) | 2/4, Dm, 72 | ×1.26 → 91, +4 | brushed halftime break | AUDITION + consult (Q6) |
+| 1 | track_101 | DREAMLAND (DON'T WAIT UP) | Meet Me Tonight in Dreamland (Friedman/Whitson, 1909) | 3/4, F, 96 | ×1.335 → 128, +5 | none — pure | **HOUSE FIVE** |
+| 2 | track_102 | THE GONDOLA SONG (LIFE IS BRIEF) | Gondola no Uta (Nakayama/Yoshii, 1915) | 2/4, Am, 76 | ×1.414 → 107, +6 | none — pure | FUTURE VOLUME · **HOLD** (§13) |
+| 3 | track_103 | ALOHA OE AT CLOSING TIME | Aloha ʻOe (Liliʻuokalani, 1878) | 4/4, G, 84 | ×1.335 → 112, +5 | none — pure | **HOUSE FIVE** + consult (Q6, ships) |
+| 4 | track_104 | CHARLESTON!!!!! | The Charleston (Johnson/Mack, 1923) | cut-time, B♭, 112 | ×1.414 → 158, +6 | hardcore kick overdub | **HOUSE FIVE** + consult (Q6, ships) |
+| 5 | track_105 | AIN'T WE GOT FUN (RENT DUE MIX) | Ain't We Got Fun (Whiting/Egan/Kahn, 1921) | 4/4, C, 118 | ×1.335 → 158, +5 | steam-press stomp | **HOUSE FIVE** |
+| 6 | track_106 | KATYUSHA GO!! | Katyusha no Uta (Nakayama/Shimamura/Sōma, 1914) | 2/4, G, 108 | ×1.414 → 153, +6 | none — crowd pure | FUTURE VOLUME |
+| 7 | track_107 | SOME OF THESE DAYS (YOU'LL MISS ME) | Some of These Days (Brooks, 1910) | 4/4, F, 118 | ×1.335 → 158, +5 | splice-gag edits | FUTURE VOLUME · **HOLD** (§13) |
+| 8 | track_108 | NOBODY (AT SPEED) | Nobody (Williams/Rogers, 1905) | 4/4, Cm, 66 | ×1.414 → 93, +6 | doubled rests | **HOUSE FIVE** + consult (Q6, ships) |
+| 9 | track_109 | YES!! WE HAVE NO BANANAS!! | Yes! We Have No Bananas (Silver/Cohn, 1923) | 4/4, F, 112 | ×1.414 → 158, +6 | none — pure chaos | FUTURE VOLUME · **HOLD** (§13) |
+| 10 | track_110 | AFTER YOU'VE GONE (AND LEFT ME CRYING) | After You've Gone (Layton/Creamer, 1918) | 4/4, Dm→F, 120 | ×1.335 → 160, +5 | performed break, chopped | FUTURE VOLUME · **HOLD** (§13) |
+| 11 | track_111 | EAST SIDE WEST SIDE (ROUND AND ROUND) | The Sidewalks of New York (Lawlor/Blake, 1894) | 3/4, G, 90 | ×1.414 → 127, +6 | 3/4 break cross-figures | FUTURE VOLUME |
+| 12 | track_112 | THE ALPHABET SONG (BURNING BRIGHT) | Oyfn Pripetshik (Warshawsky, c. 1899) | 2/4, Dm, 72 | ×1.26 → 91, +4 | brushed halftime break | FUTURE VOLUME |
 
 *Consultation (Q6) ultimately covers every track's culturally specific
 material — the "+ consult" marks name the reviews already known to be
