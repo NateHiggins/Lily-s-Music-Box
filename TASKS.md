@@ -153,6 +153,18 @@ Martinville's 1857 phonautographe, and the prop is built.
   retention and platform/age requirements have an owned design. PRIVATE may be
   the prototype; FRIENDS needs its own controls. Nightcore transformation is
   not moderation.
+- **G7 OWNER RULING NEEDED — THE HOUSE RIG.** The owner asked for a heavy bass
+  beat and ghostly distortion on the returned take ("this is just slightly
+  faster"). Prototypes exist (`art/audio/Moonlight_HAUNTED_FLOOR_x1335/x1414`,
+  2026-08-14, chain documented in the House Five book's audition log), but
+  Music Bible §5.2 currently refuses anything added after the speedup. Rule it:
+  pure varispeed stands, or §5.2 gains one authored house-rig chain (still one
+  immutable ratio, still no formant correction). If adopted, the next pass is
+  arrangement-aware (kick enters at the chorus, drops for the interlude).
+- **G8** Scratch-vocal return test for the Moonlight/Dreamland candidate: a
+  disposable vocal over the full 48k base, one complete take, ×1.335 true
+  varispeed — that judges House Five checklist items 9-10 (the 2007 test).
+  The base-only preview cannot pass or fail a candidate.
 
 ## S — Basement studio
 

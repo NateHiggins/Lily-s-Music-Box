@@ -434,11 +434,43 @@ native and returned versions by plain gain only (measure with
 
 | Track | Candidate filename | Date | PASS/FAIL | Notes |
 |---|---|---|---|---|
-| track_101 DREAMLAND | | | | |
+| track_101 DREAMLAND | `art/audio/Moonlight_on_the_Dance_Floor.mp4` | 2026-08-14 | objective pre-checks PASS; owner ear + scratch-vocal return PENDING | 2:37.7 (spec 2:41); measured 95.7–96.3 BPM in 3/4; clean close; no synth sub; −11.4 LUFS / LRA 7.2. Derived 48k WAV, ×1.335 return preview and haunted-floor prototypes sit beside it. (Earlier candidate `Ribbons_on_the_Banister.mp3`, 58.9 s, ran the superseded hook prompt — retired) |
 | track_103 ALOHA ʻOE | | | | |
 | track_104 CHARLESTON | | | | |
 | track_105 AIN'T WE GOT FUN | | | | |
 | track_108 NOBODY | | | | |
+
+## AUDITION LOG — 2026-08-14, and one open decision
+
+- **Two Gemini candidates processed** (manifests beside each file in
+  `art/audio/`, uncommitted with the audio): *Ribbons on the
+  Banister* (old 30-second hook prompt; retired) and *Moonlight on
+  the Dance Floor* (House Five §1 primary; pre-checks above).
+- **The plain base-only return underwhelmed the owner** ("just
+  slightly faster"): with no voice to chipmunk and no floor under
+  it, an instrumental waltz at ×1.335 reads as tempo, not
+  transformation. Two consequences follow:
+  1. **The scratch-vocal test is still the real audition** — no
+     candidate's checklist items 9–10 are judged until a voice rides
+     the take.
+  2. **OPEN DECISION — THE HOUSE RIG.** The owner asked for ghostly
+     distortion and a heavy bass beat on the return. Prototypes
+     exist (`Moonlight_HAUNTED_FLOOR_x1335/x1414` in `art/audio/`):
+     synthesized kick on every returned beat (55 Hz + click),
+     sidechain pump (ratio 5, ~120 ms release), drive into soft
+     clip, 0.35 Hz pitch-wobble, dark displaced echoes at
+     210/440 ms; sub-60 Hz lifted −28 → −14.5 dB RMS, −9.8 LUFS.
+     This conflicts with Music Bible §5.2 ("the return is a
+     misreading, not a remix" — no post-speedup additions), so it
+     needs an **owner ruling**: keep pure varispeed, or amend to
+     varispeed **+ one authored house-rig chain** (proposed diegetic
+     frame: the far end plays the take back *through the building* —
+     its heartbeat under the floor, its distortion in the wire).
+     Still one immutable ratio, still no formant correction. No
+     canon has been amended pending that ruling; if adopted, the
+     next pass is arrangement-aware treatment (kick enters at the
+     first chorus, drops for the interlude) rather than
+     wall-to-wall.
 
 **Warning:** every Gemini output is audition material until its use
 terms, consultation, provenance and owner approval are resolved.
