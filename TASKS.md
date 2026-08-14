@@ -29,8 +29,6 @@ the immediate executable gates, not a second copy of its milestone status.
 
 - **K1** Run M0 against the current tree: fresh-save Mina state trace, existing
   tests, warnings, critical-route reachability and performance baseline.
-- **K4** Add a thin core-loop coordinator for work order → shop → repair →
-  conversation → dream request → bed return; domain systems retain ownership.
 - **K5** Add a deterministic end-to-end graybox test covering every stage and
   save/load boundary, including protected conversations and preserved repair.
 - **K6** Route Mina's existing case through the complete graybox shift and apply

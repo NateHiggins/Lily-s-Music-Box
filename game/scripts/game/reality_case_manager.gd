@@ -8,6 +8,12 @@ signal work_order_reopened(case_id: String, recurrence: int)
 signal resident_interaction_requested(case_id: String, resident_id: String)
 signal manifestation_broadcast(case_id: String, origin_node: String,
 		intensity: float, recurrence: int)
+## The authoritative rule-change event: a conversation just recorded a NEW
+## flag that the case's data declares as a resolution flag. Ordinary chat
+## flags and duplicate recordings never emit; the dialogue UI closing is
+## not this event and never will be.
+signal conversation_changed_rule(case_id: String, flag: String,
+		state: Dictionary)
 
 const DEFINITIONS_PATH := "res://data/reality_cases.json"
 
@@ -93,7 +99,8 @@ func record_conversation(case_id: String, flag: String,
 	var def := definition(case_id)
 	if state.is_empty() or def.is_empty() or state.resolved:
 		return false
-	if flag not in state.conversation_flags:
+	var newly_recorded: bool = flag not in state.conversation_flags
+	if newly_recorded:
 		state.conversation_flags.append(flag)
 	state.trust = int(state.trust) + trust_delta
 	var required: Array = def.get("resolution_flags", [])
@@ -106,6 +113,9 @@ func record_conversation(case_id: String, flag: String,
 	elif int(state.repair_count) > 0:
 		state.stage = "recognized"
 	_commit_case(case_id)
+	if newly_recorded and flag in required:
+		conversation_changed_rule.emit(case_id, flag,
+				RealityState.case_state(case_id).duplicate(true))
 	return true
 
 

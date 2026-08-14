@@ -193,6 +193,7 @@ var objective_tracker: ObjectiveTracker
 var work_orders: WorkOrders
 var maintenance_inventory: MaintenanceInventory
 var shop_service: MaintenanceShopService
+var core_loop: CoreLoopDirector
 var vantry_points: VantryPointNetwork
 var chirp_hunt: ChirpHunt
 var first_shift_director: FirstShiftDirector
@@ -463,6 +464,13 @@ func _ready() -> void:
 	chirp_hunt.name = "ChirpHunt"
 	add_child(chirp_hunt)
 	chirp_hunt.setup(vantry_points, work_orders, maintenance_inventory)
+	# The thin campaign coordinator: connects the authoritative boundaries
+	# the domain owners above already emit. Needs the player for the
+	# protection flag and the wake return; owns no domain rules.
+	core_loop = CoreLoopDirector.new()
+	core_loop.name = "CoreLoopDirector"
+	add_child(core_loop)
+	core_loop.setup(work_orders, player, layout)
 	var room0 := Room0.new()
 	add_child(room0)
 	var anomaly: DoorAnomalyProp = get_node_or_null("F04_B_DOOR_ANOMALY")

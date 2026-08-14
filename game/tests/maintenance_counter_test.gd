@@ -14,6 +14,7 @@ const POINT := "F02_A_MAIN_VANTRY_POINT"
 var _fails := 0
 var root: Node3D
 var player: PlayerController
+var _dream_requests := 0
 
 
 func _check(label: String, ok: bool) -> void:
@@ -154,9 +155,46 @@ func _ready() -> void:
 			and inventory.is_consumed(ITEM)
 			and not hunt.fault_active())
 
-	print("LOOP TRACE: origin=%s stage=%s evidence=%s repair=%s consumed=%s" % [
-			state.get("origin"), orders.job_stage(JOB), state.evidence,
-			state.repair_result, inventory.is_consumed(ITEM)])
+	# K4: the coordinator carries the shift from repaired to wake on the
+	# same production owners.
+	var director: CoreLoopDirector = root.core_loop
+	director.dream_requested.connect(
+			func(_j: String, _w: Dictionary) -> void: _dream_requests += 1)
+	_check("the repair left the coordinator at conversation-pending",
+			director.boundary() == "conversation_pending")
+	RealityState.ensure_case("mina_caption_crisis", "mina_vale")
+	RealityCases.record_conversation("mina_caption_crisis", "small_talk")
+	_check("an ordinary conversation does not close the job",
+			orders.job_stage(JOB) == "repaired")
+	player.call_locked = true
+	RealityCases.record_conversation(
+			"mina_caption_crisis", "assumptions_are_not_facts")
+	_check("the authoritative rule change closes the repaired job",
+			orders.job_stage(JOB) == "closed"
+			and director.boundary() == "dream_pending")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_check("a protected conversation suppresses dream entry",
+			_dream_requests == 0)
+	player.call_locked = false
+	await get_tree().process_frame
+	_check("the dream request follows once protection lifts",
+			_dream_requests == 1)
+	_check("wake completion accepts the boundary",
+			director.notify_wake_complete())
+	var anchor := director.resolve_return_anchor()
+	_check("wake returns the real player to the authored 4B bedside",
+			not anchor.is_empty()
+			and player.global_position.distance_to(anchor.position) < 0.5)
+	_check("wake preserves the committed shift and the quiet point",
+			orders.job_stage(JOB) == "closed"
+			and inventory.is_consumed(ITEM)
+			and not hunt.fault_active()
+			and network.active_owner.is_repaired())
+
+	print("LOOP TRACE: origin=%s stage=%s boundary=%s evidence=%s repair=%s consumed=%s" % [
+			state.get("origin"), orders.job_stage(JOB), director.boundary(),
+			state.evidence, state.repair_result, inventory.is_consumed(ITEM)])
 	print("[MAINTENANCE COUNTER] RESULT: %s (%d failures)" %
 			["PASS" if _fails == 0 else "FAIL", _fails])
 	get_tree().quit(_fails)
