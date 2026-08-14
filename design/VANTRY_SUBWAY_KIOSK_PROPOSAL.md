@@ -417,3 +417,130 @@ If the domed object in the supplied image is the non-negotiable hero shape,
 approve K2 instead and treat it honestly as a converted/closed entrance. Do
 not combine the domed entrance roof, `ENTRANCE TO TRAINS` invitation and an
 unusable door without the conversion story.
+
+---
+
+## 14. 2026-08-14 Gate A execution record
+
+**Gate A passes as a reversible massing checkpoint. It does not authorize the
+pavement cut, stair diorama, sound, reflected train light or production
+ornament.** The owner accepted the recommendation and authorized continued
+work; the historically strict K1 exit remains the target.
+
+### 14.1 What was built
+
+The generator now owns one separate `passage_proxy_gateway` batch containing
+50 records:
+
+- six records form the Vantry host: two 350 mm brick piers, low parapet,
+  limestone cornice and name band, and a shallow rain hood;
+- 44 records form the kiosk shell: exact
+  `x 18.10..19.75`, `y -33.25..-27.80`, with plinth, high wainscot, segmented
+  glass, raked/peaked roof trace, dark backstop and a visible barred gate;
+- all 50 are explicitly STREET-owned and remain eligible on both sides of the
+  existing Passage ownership plane;
+- the two existing portal cage bulbs moved 0.70 m streetward onto the new
+  facade plane. No fixture, light slot or energy was added.
+
+The batch imports as six buffers rather than the proposed five: the five box
+material families plus the builder's separately realized pipe geometry for the
+rake and peak. The separation is retained during blockout because it permits a
+true same-build performance control. K0/K1 production must either bring this
+back to five or prove that the sixth remains below measurement noise.
+
+### 14.2 The render found and corrected a failure
+
+The first blockout used 6.0 m piers and 1.62 m of solid parapet above the old
+head. At night it became another large black billboard—the defect this work
+was meant to remove—and its outer pier swallowed the east oblique approach.
+It was not accepted.
+
+The surviving revision:
+
+- lowers the pier top to 5.10 m and the parapet to 720 mm;
+- narrows each pier from 500 to 350 mm;
+- trims the hood projection;
+- moves the existing bulbs in front of the face so the masonry, lintel and
+  customer floor are illuminated by the light budget already paid for.
+
+The portal now reads as a capped, recessed piece of architecture from the
+front, road and west approach. The kiosk stays visibly separate and the six
+metre mouth remains dominant. The east approach still turns the unfinished
+kiosk side into a broad dark foreground shape. That is acceptable only for
+Gate A massing: **K0 historical finish must break this side into readable iron,
+wire glass, panel and roof structure before any pavement opening is allowed.**
+
+Rendered evidence:
+
+- `art/renders/vantry_gateway_blockout/after_dry/` — seven canonical-night
+  dry controls: front, east, west, road, before-plane, on-plane and return;
+- `art/renders/vantry_gateway_blockout/after_weather/` — the identical seven
+  camera transforms with production weather enabled;
+- the ruled before frame remains
+  `art/renders/map_final_acceptance/01_street_portal.png`.
+
+Against that before frame, the final dry front changes 26.52% of pixels beyond
+delta 3, at mean absolute channel delta 8.35/255. The share of the complete
+frame below luma 16 falls from 79.79% to 77.68%; below luma 32 falls from
+86.74% to 83.70%. This is a lighting and architecture improvement, not a claim
+that the street has become bright. The dry/weather frontal pair differs by no
+more than 0.01% of pixels beyond delta 3; threshold pairs sit at that floor.
+Oblique weather views differ as expected where live rain crosses the camera.
+
+### 14.3 Exact geometry and gameplay proof
+
+`VantryGatewayTest` executes ten checks against both the generated records and
+the imported collision:
+
+- exactly 50 records, all STREET-owned, split six host / 44 kiosk;
+- exact kiosk x and y envelopes, including the radius of every iron pipe;
+- no player-height record enters the open `x 11..17` route;
+- a player capsule crosses the portal centre unobstructed;
+- the same capsule is stopped by the visible front gate and side wainscot.
+
+It passes 10/10. The terminal roof-post pair initially exceeded the written y
+envelope by 45 mm; this test caught it and the source was clamped before the
+checkpoint.
+
+Regression proof on the final build:
+
+- `PassageVisibilityTest`: PASS, zero failures;
+- `PassageOwnershipAudit`: PASS, nine proxy buffers and zero visible
+  unclassified F01 draws;
+- `StreetContainmentTest`: PASS, zero failures;
+- `PassageNavTest`: PASS, every scheduled shop route capsule-clear;
+- `FinalMapRouteTest`: PASS outbound and loaded return;
+- WalkTest FULL: PASS at `WALKTEST_FULL=1`, `WALKTEST_SCALE=8`, 48.4 seconds.
+
+### 14.4 Performance proof
+
+`PERF_GATEWAY_OFF=1` hides exactly the six separate blockout buffers in
+`Perf.tscn`; ordinary runs submit them and production has no toggle.
+Fresh-process canonical-night northbound pairs at 16/16 were:
+
+| state | run 1 | run 2 | mean |
+|---|---:|---:|---:|
+| gateway visible | 17.83 ms | 17.97 ms | 17.90 ms |
+| six buffers hidden | 17.99 ms | 17.38 ms | 17.69 ms |
+
+The apparent +0.21 ms visible cost is smaller than the hidden condition's
+0.61 ms repeat spread; objects and calls also move in both directions with the
+live scene. It is not measurable attribution. Both visible runs remain at the
+already accepted approximately 17.8 ms canonical-night blocker, and the gate
+does not change the standing 7/11 station result.
+
+### 14.5 Next gate
+
+Proceed only to **K0 historical exterior finish on the same envelope**:
+
+1. replace the stepped grey roof/glass read with the documented exit-type
+   peaked wire-glass canopy, iron posts and high paneled wainscot;
+2. add unlit `EXIT` / subordinate `RAPID TRANSIT` typography and a blank
+   `VANTRY ARCADE` name field for composition testing;
+3. solve the east oblique dark-side failure without a new light;
+4. keep the separate batch until the same-build performance control is taken;
+5. repeat the seven dry/weather renders and the focused proofs.
+
+Only after that exterior reads correctly at all approaches may a later change
+cut the sealed kiosk footprint and add K1's 6–10-step diorama. A station,
+train, cutscene, interaction prompt and fourth zone remain out of scope.

@@ -6251,7 +6251,7 @@
      "unit": "PASSAGE",
      "pos": [
       11.48,
-      -28.215999999999998,
+      -27.516,
       2.82
      ],
      "yaw_deg": 0,
@@ -6269,7 +6269,7 @@
      "unit": "PASSAGE",
      "pos": [
       16.52,
-      -28.215999999999998,
+      -27.516,
       2.82
      ],
      "yaw_deg": 0,
@@ -12231,6 +12231,760 @@
      "h": 0.065,
      "mat": "metal",
      "batch": "passage_proxy",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_gateway_host_pier_w",
+     "rect": [
+      10.65,
+      -28.416,
+      11.0,
+      -27.616
+     ],
+     "z0": 0.0,
+     "h": 5.1,
+     "mat": "common_brick",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_gateway_host_pier_e",
+     "rect": [
+      17.0,
+      -28.416,
+      17.35,
+      -27.616
+     ],
+     "z0": 0.0,
+     "h": 5.1,
+     "mat": "common_brick",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_gateway_host_parapet",
+     "rect": [
+      10.65,
+      -27.916,
+      17.35,
+      -27.616
+     ],
+     "z0": 4.38,
+     "h": 0.72,
+     "mat": "common_brick",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_gateway_host_cornice",
+     "rect": [
+      10.47,
+      -27.695999999999998,
+      17.53,
+      -27.416
+     ],
+     "z0": 5.06,
+     "h": 0.2,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_gateway_name_band",
+     "rect": [
+      11.0,
+      -27.676,
+      17.0,
+      -27.536
+     ],
+     "z0": 3.9,
+     "h": 0.48,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_gateway_hood",
+     "rect": [
+      10.82,
+      -27.536,
+      17.18,
+      -27.056
+     ],
+     "z0": 3.78,
+     "h": 0.12,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_plinth",
+     "rect": [
+      18.1,
+      -33.25,
+      19.75,
+      -27.8
+     ],
+     "z0": 0.02,
+     "h": 0.18,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_wainscot_w",
+     "rect": [
+      18.1,
+      -33.25,
+      18.240000000000002,
+      -27.8
+     ],
+     "z0": 0.2,
+     "h": 0.96,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_wainscot_e",
+     "rect": [
+      19.61,
+      -33.25,
+      19.75,
+      -27.8
+     ],
+     "z0": 0.2,
+     "h": 0.96,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_backstop",
+     "rect": [
+      18.240000000000002,
+      -33.25,
+      19.61,
+      -33.1
+     ],
+     "z0": 0.2,
+     "h": 1.5,
+     "mat": "soot",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_glass_w_0",
+     "rect": [
+      18.240000000000002,
+      -33.21,
+      18.28,
+      -31.9275
+     ],
+     "z0": 1.16,
+     "h": 0.9400000000000003,
+     "mat": "glassish",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_glass_e_0",
+     "rect": [
+      19.57,
+      -33.21,
+      19.61,
+      -31.9275
+     ],
+     "z0": 1.16,
+     "h": 0.9400000000000003,
+     "mat": "glassish",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_post_w_0",
+     "rect": [
+      18.1,
+      -31.9325,
+      18.240000000000002,
+      -31.842499999999998
+     ],
+     "z0": 1.12,
+     "h": 1.06,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_post_e_0",
+     "rect": [
+      19.61,
+      -31.9325,
+      19.75,
+      -31.842499999999998
+     ],
+     "z0": 1.12,
+     "h": 1.06,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_roof_step_0",
+     "rect": [
+      18.1,
+      -33.25,
+      19.75,
+      -31.8875
+     ],
+     "z0": 2.18,
+     "h": 0.075,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_glass_w_1",
+     "rect": [
+      18.240000000000002,
+      -31.8475,
+      18.28,
+      -30.564999999999998
+     ],
+     "z0": 1.16,
+     "h": 1.3,
+     "mat": "glassish",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_glass_e_1",
+     "rect": [
+      19.57,
+      -31.8475,
+      19.61,
+      -30.564999999999998
+     ],
+     "z0": 1.16,
+     "h": 1.3,
+     "mat": "glassish",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_post_w_1",
+     "rect": [
+      18.1,
+      -30.57,
+      18.240000000000002,
+      -30.479999999999997
+     ],
+     "z0": 1.12,
+     "h": 1.42,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_post_e_1",
+     "rect": [
+      19.61,
+      -30.57,
+      19.75,
+      -30.479999999999997
+     ],
+     "z0": 1.12,
+     "h": 1.42,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_roof_step_1",
+     "rect": [
+      18.1,
+      -31.8875,
+      19.75,
+      -30.525
+     ],
+     "z0": 2.54,
+     "h": 0.075,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_glass_w_2",
+     "rect": [
+      18.240000000000002,
+      -30.485,
+      18.28,
+      -29.2025
+     ],
+     "z0": 1.16,
+     "h": 1.66,
+     "mat": "glassish",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_glass_e_2",
+     "rect": [
+      19.57,
+      -30.485,
+      19.61,
+      -29.2025
+     ],
+     "z0": 1.16,
+     "h": 1.66,
+     "mat": "glassish",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_post_w_2",
+     "rect": [
+      18.1,
+      -29.207500000000003,
+      18.240000000000002,
+      -29.1175
+     ],
+     "z0": 1.12,
+     "h": 1.7799999999999998,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_post_e_2",
+     "rect": [
+      19.61,
+      -29.207500000000003,
+      19.75,
+      -29.1175
+     ],
+     "z0": 1.12,
+     "h": 1.7799999999999998,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_roof_step_2",
+     "rect": [
+      18.1,
+      -30.525,
+      19.75,
+      -29.1625
+     ],
+     "z0": 2.9,
+     "h": 0.075,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_glass_w_3",
+     "rect": [
+      18.240000000000002,
+      -29.122500000000002,
+      18.28,
+      -27.84
+     ],
+     "z0": 1.16,
+     "h": 2.0,
+     "mat": "glassish",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_glass_e_3",
+     "rect": [
+      19.57,
+      -29.122500000000002,
+      19.61,
+      -27.84
+     ],
+     "z0": 1.16,
+     "h": 2.0,
+     "mat": "glassish",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_post_w_3",
+     "rect": [
+      18.1,
+      -27.845000000000002,
+      18.240000000000002,
+      -27.8
+     ],
+     "z0": 1.12,
+     "h": 2.12,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_post_e_3",
+     "rect": [
+      19.61,
+      -27.845000000000002,
+      19.75,
+      -27.8
+     ],
+     "z0": 1.12,
+     "h": 2.12,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_roof_step_3",
+     "rect": [
+      18.1,
+      -29.1625,
+      19.75,
+      -27.8
+     ],
+     "z0": 3.24,
+     "h": 0.075,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_rake_w",
+     "asm": "pipe",
+     "at": [
+      18.17,
+      -33.215
+     ],
+     "yaw": 0,
+     "mat": "metal",
+     "p0": [
+      18.17,
+      -33.215,
+      1.82
+     ],
+     "p1": [
+      18.17,
+      -27.835,
+      3.24
+     ],
+     "r": 0.035,
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_rake_e",
+     "asm": "pipe",
+     "at": [
+      19.68,
+      -33.215
+     ],
+     "yaw": 0,
+     "mat": "metal",
+     "p0": [
+      19.68,
+      -33.215,
+      1.82
+     ],
+     "p1": [
+      19.68,
+      -27.835,
+      3.24
+     ],
+     "r": 0.035,
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_head_w",
+     "rect": [
+      18.1,
+      -28.04,
+      18.240000000000002,
+      -27.8
+     ],
+     "z0": 0.2,
+     "h": 3.12,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_head_e",
+     "rect": [
+      19.61,
+      -28.04,
+      19.75,
+      -27.8
+     ],
+     "z0": 0.2,
+     "h": 3.12,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_exit_band",
+     "rect": [
+      18.240000000000002,
+      -27.88,
+      19.61,
+      -27.8
+     ],
+     "z0": 2.55,
+     "h": 0.55,
+     "mat": "limestone",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_gate_bar_0",
+     "rect": [
+      18.296,
+      -27.92,
+      18.344,
+      -27.82
+     ],
+     "z0": 0.2,
+     "h": 2.34,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_gate_bar_1",
+     "rect": [
+      18.497666666666667,
+      -27.92,
+      18.54566666666667,
+      -27.82
+     ],
+     "z0": 0.2,
+     "h": 2.34,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_gate_bar_2",
+     "rect": [
+      18.699333333333332,
+      -27.92,
+      18.747333333333334,
+      -27.82
+     ],
+     "z0": 0.2,
+     "h": 2.34,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_gate_bar_3",
+     "rect": [
+      18.901,
+      -27.92,
+      18.949,
+      -27.82
+     ],
+     "z0": 0.2,
+     "h": 2.34,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_gate_bar_4",
+     "rect": [
+      19.102666666666664,
+      -27.92,
+      19.150666666666666,
+      -27.82
+     ],
+     "z0": 0.2,
+     "h": 2.34,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_gate_bar_5",
+     "rect": [
+      19.304333333333332,
+      -27.92,
+      19.352333333333334,
+      -27.82
+     ],
+     "z0": 0.2,
+     "h": 2.34,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_gate_bar_6",
+     "rect": [
+      19.505999999999997,
+      -27.92,
+      19.554,
+      -27.82
+     ],
+     "z0": 0.2,
+     "h": 2.34,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_gate_rail_0",
+     "rect": [
+      18.240000000000002,
+      -27.92,
+      19.61,
+      -27.82
+     ],
+     "z0": 0.72,
+     "h": 0.055,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_gate_rail_1",
+     "rect": [
+      18.240000000000002,
+      -27.92,
+      19.61,
+      -27.82
+     ],
+     "z0": 1.36,
+     "h": 0.055,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_gate_rail_2",
+     "rect": [
+      18.240000000000002,
+      -27.92,
+      19.61,
+      -27.82
+     ],
+     "z0": 2.0,
+     "h": 0.055,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_head_cap",
+     "rect": [
+      18.1,
+      -28.7,
+      19.75,
+      -27.8
+     ],
+     "z0": 3.3,
+     "h": 0.1,
+     "mat": "metal",
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_peak_0",
+     "asm": "pipe",
+     "at": [
+      18.14,
+      -28.7
+     ],
+     "yaw": 0,
+     "mat": "metal",
+     "p0": [
+      18.14,
+      -28.7,
+      3.4
+     ],
+     "p1": [
+      18.925,
+      -28.16,
+      3.67
+     ],
+     "r": 0.04,
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_peak_1",
+     "asm": "pipe",
+     "at": [
+      19.71,
+      -28.7
+     ],
+     "yaw": 0,
+     "mat": "metal",
+     "p0": [
+      19.71,
+      -28.7,
+      3.4
+     ],
+     "p1": [
+      18.925,
+      -28.16,
+      3.67
+     ],
+     "r": 0.04,
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_peak_2",
+     "asm": "pipe",
+     "at": [
+      18.14,
+      -27.84
+     ],
+     "yaw": 0,
+     "mat": "metal",
+     "p0": [
+      18.14,
+      -27.84,
+      3.4
+     ],
+     "p1": [
+      18.925,
+      -28.16,
+      3.67
+     ],
+     "r": 0.04,
+     "batch": "passage_proxy_gateway",
+     "zone": "STREET"
+    },
+    {
+     "id": "site_passage_proxy_kiosk_peak_3",
+     "asm": "pipe",
+     "at": [
+      19.71,
+      -27.84
+     ],
+     "yaw": 0,
+     "mat": "metal",
+     "p0": [
+      19.71,
+      -27.84,
+      3.4
+     ],
+     "p1": [
+      18.925,
+      -28.16,
+      3.67
+     ],
+     "r": 0.04,
+     "batch": "passage_proxy_gateway",
      "zone": "STREET"
     },
     {

@@ -102,6 +102,19 @@ func _ready() -> void:
 	# like a large optimization and made every non-lobby station measure the
 	# wrong collection of floors and props.
 	root.view_override = cam
+	# Gate A comparison hook. The new host/kiosk blockout is deliberately in a
+	# separate STREET proxy batch, so the same imported build, light state and
+	# live weather can measure it on and off. This is diagnostic only; ordinary
+	# runs submit the gateway and production has no corresponding toggle.
+	if OS.get_environment("PERF_GATEWAY_OFF") == "1":
+		var hidden := 0
+		for candidate in root.floor_nodes["F01"].find_children(
+				"*", "GeometryInstance3D", true, false):
+			if String(candidate.name).contains(
+					"_retail_passage_proxy_gateway_"):
+				candidate.visible = false
+				hidden += 1
+		print("PERF GATEWAY CONTROL: %d blockout buffers hidden" % hidden)
 	print("PERF: viewport %s; resolved light/shadow budget %d/%d" % [
 			get_viewport().get_visible_rect().size,
 			root.light_rig._active_budget, root.light_rig._shadow_budget])
