@@ -338,6 +338,13 @@ is built.
 - **T7** Budget first. Street elevation is 33.28 ms against 16.6, CPU-bound on
   submission, and **lighting is the dominant term outdoors** (-33%, twice the
   atrium's). Headlamps and lightning are the expensive part, not the vehicles.
+- **T8** Execute `design/ORISON_DRIVING_RAIN_SKY_PROPOSAL.md`: make driving
+  overcast rain the canonical exterior, give morning/day/evening/night matched
+  sky variants, dissolve traffic through a fair middle-distance fog envelope,
+  synchronize one cloud-hidden sun/moon glow with the existing exterior key,
+  and trial fake Compatibility-safe fingers of light. Preserve the approved
+  street ends, crossing promise, one-light budget and canonical-night perf
+  contract; the brief's render, motion and automated proof gates bind the work.
 
 ## P2 — The Passage (rehousing the shops)
 
