@@ -214,6 +214,7 @@ func _run() -> void:
 	_toaster_checks()
 	_kettle_fast_checks()
 	_radiator_checks()
+	_maintenance_job_checks()
 	_vantry_checks()
 	await _boxfan_checks()
 	_exhaust_fan_checks()
@@ -925,6 +926,30 @@ func _radiator_checks() -> void:
 	_check(is_equal_approx(root.heat_balance.total_delivered_heat(), total_before),
 			"vent changes redistribute a fixed boiler heat cycle")
 	sample.set_vent_grade(2)
+
+
+func _maintenance_job_checks() -> void:
+	# K2: the data-authored job contract, exercised on the production spine.
+	# The full transition matrix is MaintenanceJobTest's job; this proves the
+	# real building wires the library and runs one legal lifecycle.
+	const JOB := "steam_hammer_2a"
+	var orders: WorkOrders = root.work_orders
+	_check(orders.job_library != null and orders.job_library.is_valid()
+			and orders.job_library.job_ids().size() == 1,
+			"production spine loads the one authored maintenance job")
+	_check(orders.issue_job(JOB, "reported")
+			and not orders.diagnose_job(JOB)
+			and orders.acknowledge_job(JOB)
+			and orders.record_job_evidence(JOB, "hammer_heard_on_cycle")
+			and orders.diagnose_job(JOB)
+			and orders.mark_job_awaiting_part(JOB)
+			and orders.mark_job_repairable(JOB)
+			and orders.record_job_repair(JOB, {"quality": "good"})
+			and orders.close_job(JOB)
+			and orders.job_stage(JOB) == "closed",
+			"graybox job runs its ruled lifecycle in the production scene")
+	_check(orders.status(ChirpHunt.ORDER_ID) == "active",
+			"job lifecycle leaves the chirp hunt customer untouched")
 
 
 func _vantry_checks() -> void:

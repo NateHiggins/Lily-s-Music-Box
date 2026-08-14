@@ -240,6 +240,7 @@ func _ready() -> void:
 	work_orders = WorkOrders.new()
 	work_orders.name = "WorkOrders"
 	work_orders.setup(objective_tracker)
+	work_orders.bind_job_library(MaintenanceJobLibrary.load_default())
 	add_child(work_orders)
 	# The 119 quiet heads are batched by floor. Exactly one full prop is kept
 	# ready to become the current audible/serviceable owner without a blink.

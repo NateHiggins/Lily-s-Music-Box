@@ -1,0 +1,43 @@
+{
+	"schema_version": 1,
+	"jobs": {
+		"steam_hammer_2a": {
+			"title": "WORK ORDER — HAMMER IN 2A",
+			"summary": "The 2A radiator hammers on every boiler cycle. One-pipe steam: a part-closed supply or a failed air vent traps condensate in the run.",
+			"origins": {
+				"reported": {
+					"source": "resident_call",
+					"text": "Mina Vale reports a banging in the pipes, timed, and she cannot annotate it."
+				},
+				"discovered": {
+					"source": "inspection",
+					"inspect_anchor_id": "F02_A_RADIATOR_01"
+				}
+			},
+			"case_id": "mina_caption_crisis",
+			"resident_id": "mina_vale",
+			"unit": "2A",
+			"required_item_id": "vent_orifice_no3",
+			"repair_target_id": "F02_A_RADIATOR_01",
+			"anchor_ids": ["F02_A_RADIATOR_01"],
+			"evidence_flags": [
+				"hammer_heard_on_cycle",
+				"supply_valve_part_closed",
+				"vent_fails_to_seal"
+			],
+			"dream_window": {
+				"eligible_after_stage": "repaired",
+				"protected_contexts": ["call", "conversation"]
+			},
+			"stage_objectives": {
+				"issued": "2A reports steam hammer on every boiler cycle. Take the job.",
+				"acknowledged": "Inspect the radiator in apartment 2A.",
+				"diagnosed": "The air vent will not seal and the supply valve is part closed. A replacement vent orifice is needed.",
+				"awaiting_part": "Obtain a No. 3 vent orifice from the hardware counter.",
+				"repairable": "Fit the vent orifice: supply full open, vent at the far end, check the pitch.",
+				"repaired": "The riser is quiet. Tell Mina the hammer is done.",
+				"closed": "WORK ORDER CLOSED."
+			}
+		}
+	}
+}

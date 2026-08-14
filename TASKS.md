@@ -29,8 +29,6 @@ the immediate executable gates, not a second copy of its milestone status.
 
 - **K1** Run M0 against the current tree: fresh-save Mina state trace, existing
   tests, warnings, critical-route reachability and performance baseline.
-- **K2** Define one data-authored maintenance job and extend `WorkOrders` through
-  reported/discovered, diagnosed, awaiting-part, repairable, repaired and closed.
 - **K3** Build the narrow errand contract: one maintenance item, one existing
   shop, one acquisition verb, persistence and consumption; no general inventory.
 - **K4** Add a thin core-loop coordinator for work order → shop → repair →
