@@ -142,6 +142,44 @@ service that does not run is set dressing; a shelter with a resident waiting
 under it, for something that does arrive, is the cheapest character moment on
 the block.
 
+### As built — T5 closed 2026-08-14
+
+The shelter is back at its saved south-walk origin and ruled envelope: x
+−12.60..−8.20, y −26.95..−25.55, roof z 2.45 m. Its glazed back, centre
+mullion and timber bench survive. Both pedestrian routes survive too: **1.66 m
+clear at the kerb and 1.37 m clear behind the glass**, each proven with the
+production player capsule.
+
+The first proof render caught a defect in the deleted asset rather than hiding
+it: the two records named `post` were 0.10 × 1.30 m solid fins, so both ends
+read as the same unexplained black slabs Check 2 removed. They are now literal
+0.10 × 0.10 m rear corner posts. The shelter owns four bounded
+`transit_shelter` material buffers instead of joining F01's block-wide
+furniture batches; painted cast iron and dull zinc replace near-mirror generic
+metal. This is truthful ownership and a local light-selection AABB, not an
+unshaded beauty override. A small **CARS STOP HERE** enamel board makes the
+stop legible at night and adds no realtime light.
+
+The service is executable. Only an eastbound `tram` stops, once, with its
+centre at x −10.40, emits `transit_arrived("south_shelter", "tram")`, dwells
+4.5 seconds, and resumes east while preserving the unused frame delta.
+Westbound trams and all non-tram traffic pass through. Under the physical roof,
+close rain and spatter suppress while middle-distance rain remains visible;
+leaving the footprint restores the exposed weather.
+
+At canonical-night street elevation, the paired shelter-visible/control run
+was **29.98 / 29.98 ms**. A repeat reversed inside live-scene noise at
+30.02 / 30.46 ms. The exact visual delta is five owners and 14 submissions
+(four local material buffers plus the in-world sign); there is no measurable
+frame-time regression. `TransitShelterTest` passes 20/20. Containment, final
+route, weather/sky, lighting, Passage visibility/ownership and WalkTest FULL
+at x8 / 480 Hz all pass. Fixed day/night proof frames are under
+`art/renders/transit_shelter_t5/approved/`.
+
+T2d remains honest: the instanced traffic silhouettes are still under-read at
+night. T5 proves a real served stop and readable shelter architecture; it does
+not quietly claim to have completed the separate traffic-fidelity work.
+
 ---
 
 ## 7. Budget, before anything is built

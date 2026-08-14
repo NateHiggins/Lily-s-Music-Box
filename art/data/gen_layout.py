@@ -6976,12 +6976,42 @@ def _street_furniture(fb, rng):
     # every vehicle is switched off reads as a diorama no matter what drives
     # through it.
     #
-    # THE SHELTER IS NOT CANCELLED, only unplaced. It was 4.4 x 1.4 m with a
-    # 2.45 m roof, a glazed back with a centre mullion and a timber bench, and
-    # it wants to come back at a stop the new traffic actually serves - which
-    # is a decision for the street brief, not for whatever coordinate it
-    # happened to sit on. Its last position was the south walk at
-    # (-12.6, -25.55). See design/ORISON_STREET_BRIEF.md.
+    # T5: the saved shelter returns on the SOUTH pavement, paired with the
+    # eastbound lane the production tram now actually stops in. The old
+    # position was already the honest one: 1.66 m remains between its open
+    # front and the kerb, 1.37 m remains behind its glazed back, and it is well
+    # west of the Orison/Passage crossing. It is architecture again only after
+    # StreetTraffic gained a real dwell at its centre; without that service it
+    # would still be set dressing. See ORISON_STREET_BRIEF §6.
+    SH_X, SH_Y = -12.6, -25.55        # south walk, -23.894..-28.316
+    # Keep the shelter out of F01's block-wide furniture buffers. Apart from
+    # recording truthful ownership in the glTF name, the bounded AABB lets the
+    # compatibility renderer select the street lights which are actually near
+    # it. Painted cast iron and a dull zinc roof read under the storm sky;
+    # mirror-like generic metal reflected the nearly black environment and
+    # turned the restored architecture into another unexplained black mass.
+    shelter_batch = "transit_shelter"
+    fb("shelter_roof", (SH_X, SH_Y - 1.40, SH_X + 4.4, SH_Y),
+       2.45, 0.12, "zinc_liner", batch=shelter_batch)
+    for so in (0.05, 4.25):
+        fb("shelter_post%d" % int(so * 10),
+           (SH_X + so, SH_Y - 1.32, SH_X + so + 0.1, SH_Y - 1.22),
+           0.0, 2.45, "cast_iron", batch=shelter_batch)
+    fb("shelter_back", (SH_X + 0.15, SH_Y - 1.35, SH_X + 4.25,
+                        SH_Y - 1.30), 0.45, 1.85, "glassish",
+       batch=shelter_batch)
+    fb("shelter_mullion", (SH_X + 2.1, SH_Y - 1.36, SH_X + 2.2,
+                           SH_Y - 1.29), 0.45, 1.85, "cast_iron",
+       batch=shelter_batch)
+    fb("shelter_sill", (SH_X + 0.05, SH_Y - 1.37, SH_X + 4.35,
+                        SH_Y - 1.28), 0.36, 0.09, "cast_iron",
+       batch=shelter_batch)
+    fb("shelter_head", (SH_X + 0.05, SH_Y - 1.37, SH_X + 4.35,
+                        SH_Y - 1.28), 2.30, 0.11, "cast_iron",
+       batch=shelter_batch)
+    fb("shelter_bench", (SH_X + 0.4, SH_Y - 1.22, SH_X + 4.0,
+                         SH_Y - 0.78), 0.42, 0.08, "timber",
+       batch=shelter_batch)
     fb("bin1", (12.6, 10.3, 13.6, 11.1), 0.0, 1.1, "metal")
     fb("bin2", (-13.9, 10.3, -12.9, 11.2), 0.0, 1.15, "metal")
     fb("dumpster", (5.4, 10.4, 8.2, 11.9), 0.0, 1.35, "metal")

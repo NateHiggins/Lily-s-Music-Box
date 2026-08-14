@@ -125,6 +125,25 @@ func _ready() -> void:
 				candidate.visible = false
 				hidden += 1
 		print("PERF GATEWAY CONTROL: %d blockout buffers hidden" % hidden)
+	# T5 comparison hook. The restored shelter is deliberately four local
+	# material buffers plus one in-world sign, so a paired fresh-process run can
+	# price that exact submission cost without rebuilding or touching collision.
+	# The enamel backing is one instance in ExteriorDetailPass's pre-existing box
+	# draw and therefore cannot add a submission; leaving it in the control is
+	# the stricter comparison.
+	if OS.get_environment("PERF_TRANSIT_SHELTER_OFF") == "1":
+		var shelter_hidden := 0
+		for candidate in root.floor_nodes["F01"].find_children(
+				"*", "GeometryInstance3D", true, false):
+			if String(candidate.name).contains("_transit_shelter_"):
+				candidate.visible = false
+				shelter_hidden += 1
+		var sign := root.find_child("TransitShelterStopSign", true, false)
+		if sign:
+			sign.visible = false
+			shelter_hidden += 1
+		print("PERF TRANSIT SHELTER CONTROL: %d visual owners hidden"
+				% shelter_hidden)
 	print("PERF: viewport %s; resolved light/shadow budget %d/%d" % [
 			get_viewport().get_visible_rect().size,
 			root.light_rig._active_budget, root.light_rig._shadow_budget])

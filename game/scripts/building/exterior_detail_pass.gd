@@ -33,6 +33,7 @@ func build(layout: Dictionary, parent: Node3D) -> Dictionary:
 	if floor.is_empty():
 		return {}
 	_build_street_hardware()
+	_build_transit_shelter_sign(parent)
 	_build_damage(parent)
 	_build_puddles()
 	_build_city_silhouettes(floor)
@@ -127,6 +128,31 @@ func _build_street_hardware() -> void:
 	for x in [-20.5, 18.4]:
 		_box([x, -12.20, 0.022], [0.62, 0.44, 0.035],
 				Color(0.12, 0.125, 0.12))
+
+
+func _build_transit_shelter_sign(parent: Node3D) -> void:
+	# The shelter must announce an actual service after dark without spending a
+	# realtime light. A small enamel board joins the existing exterior box
+	# batch; one physical Label3D supplies the period streetcar instruction.
+	# "CARS STOP HERE" is deliberately infrastructure language, not modern
+	# pictographic wayfinding and not a glowing advertisement.
+	_box([-10.4, -25.50, 2.34], [1.28, 0.055, 0.34],
+			Color(0.055, 0.105, 0.095))
+	var label := Label3D.new()
+	label.name = "TransitShelterStopSign"
+	label.text = "CARS STOP HERE"
+	label.font_size = 30
+	label.pixel_size = 0.00145
+	label.modulate = Color(0.91, 0.84, 0.62)
+	label.outline_size = 4
+	label.outline_modulate = Color(0.018, 0.030, 0.026, 0.96)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.no_depth_test = false
+	label.position = GameBoot.b2g([-10.4, -25.465, 2.34])
+	label.rotation_degrees.y = 180.0
+	label.add_to_group("transit_shelter_architecture")
+	parent.add_child(label)
 
 
 func _build_damage(parent: Node3D) -> void:

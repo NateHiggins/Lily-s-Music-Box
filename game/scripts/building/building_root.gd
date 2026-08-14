@@ -510,7 +510,8 @@ func _ready() -> void:
 	ambient_soundscape.bind_sanity(sanity)
 	weather = WeatherFX.new()
 	weather.name = "WeatherFX"
-	weather.setup(player, Callable(self, "weather_exposure_at"))
+	weather.setup(player, Callable(self, "weather_exposure_at"),
+			Callable(self, "weather_cover_at"))
 	add_child(weather)
 	weather.build_reflections(layout)
 	day_night_director.bind_weather(weather, exterior_detail_pass)
@@ -1904,6 +1905,16 @@ func weather_exposure_at(p: Vector3) -> bool:
 	if p.y < -0.45 or p.y > 2.25:
 		return false
 	return absf(p.x) > 14.2 or p.z > 10.4 or p.z < -10.4
+
+
+## Exterior cover is not the same thing as an interior. The T5 transit shelter
+## remains visibly surrounded by STREET rain while its roof suppresses the
+## player-following close streaks and ground spatter. Coordinates are the
+## exact generated 4.4 x 1.4 m footprint, expressed in Godot axes.
+func weather_cover_at(p: Vector3) -> bool:
+	return p.y >= -0.10 and p.y <= 2.57 \
+			and p.x >= -12.60 and p.x <= -8.20 \
+			and p.z >= 25.55 and p.z <= 26.95
 
 
 func _set_passage_visibility(should_show: bool) -> void:

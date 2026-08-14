@@ -358,9 +358,18 @@ is built.
   −20.10 / +20.60, wet timber works own both pavements and quiet local weather
   owns the carriageway; `StreetContainmentTest` proves all six lanes. This does
   not settle T1's loudness, debris, arrivals or night-traffic questions.
-- **T5** Re-place the bus shelter at a stop the traffic actually serves. Saved:
-  4.4 x 1.4 m, 2.45 m roof, glazed back with centre mullion, timber bench, last
-  at (-12.6, -25.55).
+- **T5 DONE.** The 4.4 × 1.4 m shelter is restored at (−12.6, −25.55) with
+  literal 100 mm posts, glazed back, centre mullion, timber bench, bounded
+  local material ownership, physical close-weather cover and a zero-light
+  **CARS STOP HERE** board. Only eastbound trams serve it: one stop at x
+  −10.40, one 4.5 s dwell, then an eastward resume; every opposite-lane or
+  non-tram control passes through. Both pavement bypasses remain capsule-clear.
+  Five visible owners cost 14 submissions and no measurable time at canonical
+  street elevation (29.98 ms visible and hidden; repeat reversed inside noise).
+  `TransitShelterTest` 20/20 plus containment, route, weather, lighting,
+  Passage ownership/visibility and WalkTest FULL x8/480 all pass. Day/night
+  proof: `art/renders/transit_shelter_t5/approved/`. T2d remains open; this
+  task does not mislabel the deliberately crude tram silhouette as finished.
 - **T6** Bring the arrival car back moving - the player gets out, it leaves into
   the east tear.
 - **T7** Budget first. Street elevation is 33.28 ms against 16.6, CPU-bound on

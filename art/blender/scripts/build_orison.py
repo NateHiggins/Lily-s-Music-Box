@@ -677,6 +677,21 @@ def get_material(key):
     return mat
 
 
+def furniture_batch_prefix(batch_key):
+    """Turn an authored batch owner into a stable exported mesh prefix.
+
+    Shop batches predate every other local furniture owner and therefore used
+    to be unconditionally named ``retail_*``.  Transit/site architecture now
+    needs the same bounded AABB for GL Compatibility light selection without
+    lying about ownership in the glTF node name.
+    """
+    safe_batch = "".join(c if c.isalnum() else "_"
+                         for c in str(batch_key)).strip("_")
+    if safe_batch.startswith(("transit_", "site_")):
+        return safe_batch
+    return "retail_%s" % safe_batch
+
+
 # ================================================================ assets
 # Parametric furnishing library. Every piece is an ORIGINAL design in the
 # spirit of an iconic typology (documented in art/docs/furniture_references
@@ -4058,9 +4073,7 @@ def build():
                 on_floor = abs(fu.get("z0", 0.0)) < 1e-6
                 batch_key = str(fu.get("batch", ""))
                 if batch_key:
-                    safe_batch = "".join(c if c.isalnum() else "_"
-                                         for c in batch_key).strip("_")
-                    asm_prefix = "retail_%s" % safe_batch
+                    asm_prefix = furniture_batch_prefix(batch_key)
                 else:
                     asm_prefix = "furnish"
                 F = Frame(
@@ -4097,9 +4110,7 @@ def build():
                 # assigned distant street lights to the mesh before the bulbs
                 # hanging directly over it.  Ownership is emitted by the layout
                 # rather than reconstructed from an ambiguous id prefix.
-                safe_batch = "".join(c if c.isalnum() else "_"
-                                     for c in batch_key).strip("_")
-                cat_prefix = "retail_%s" % safe_batch
+                cat_prefix = furniture_batch_prefix(batch_key)
             elif fu_id0.startswith("retail_bod"):
                 cat_prefix = "retail_bod"
             elif fu_id0.startswith("retail_bar"):

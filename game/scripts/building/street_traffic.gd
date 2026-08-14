@@ -33,6 +33,15 @@ const MAX_WAIT := 8.0
 ## A gap a person can walk through without hurrying.
 const GAP_SECONDS := 3.4
 const MAX_VEHICLES := 14
+## T5's south-pavement shelter spans x -12.6..-8.2. Eastbound trams stop
+## with their centre aligned to it, wait long enough for one unhurried boarding
+## beat, then continue into the east storm mouth. The shelter is therefore a
+## transit place rather than scenery that lies about a service.
+const TRANSIT_STOP_ID := "south_shelter"
+const TRANSIT_STOP_X := -10.4
+const TRANSIT_STOP_DWELL := 4.5
+
+signal transit_arrived(stop_id: String, vehicle_kind: String)
 
 ## 95% credible 1928, 5% wrong and never acknowledged. Absurd traffic is
 ## charming for ten seconds and then it is a joke that keeps talking, and the
@@ -214,10 +223,42 @@ func _process(delta: float) -> void:
 func _advance(delta: float) -> void:
 	var kept: Array[Dictionary] = []
 	for v in _live:
-		v.x += v.dir * v.speed * delta
+		var remaining := delta
+		if _serves_transit_stop(v):
+			var stop_stage: int = int(v.get("stop_stage", 0))
+			if stop_stage == 1:
+				var dwell_left: float = float(v.get("dwell", 0.0)) - delta
+				v.dwell = maxf(0.0, dwell_left)
+				if dwell_left > 0.0:
+					kept.append(v)
+					continue
+				# Preserve the fraction of this frame left after the dwell expires.
+				remaining = -dwell_left
+				v.stop_stage = 2
+			elif stop_stage == 0:
+				var next_x: float = float(v.x) + float(v.dir) \
+						* float(v.speed) * delta
+				if float(v.x) < TRANSIT_STOP_X and next_x >= TRANSIT_STOP_X:
+					v.x = TRANSIT_STOP_X
+					v.stop_stage = 1
+					v.dwell = TRANSIT_STOP_DWELL
+					transit_arrived.emit(TRANSIT_STOP_ID,
+							str(KINDS[int(v.kind)][0]))
+					kept.append(v)
+					continue
+		v.x += v.dir * v.speed * remaining
 		if absf(v.x) < SPAWN_X + 4.0:
 			kept.append(v)
 	_live = kept
+
+
+func _serves_transit_stop(v: Dictionary) -> bool:
+	# The shelter fronts the eastbound lane. Westbound trams and every other
+	# vehicle remain ordinary through traffic.
+	var kind: int = int(v.get("kind", -1))
+	return kind >= 0 and kind < KINDS.size() \
+			and not bool(v.get("lane", true)) \
+			and str(KINDS[kind][0]) == "tram"
 
 
 ## Spawn cadence with a PROMISE in it: if the near lane has been solid for
@@ -234,6 +275,8 @@ func _spawn(delta: float) -> void:
 		"dir": -1.0 if lane_west else 1.0,
 		"x": SPAWN_X if lane_west else -SPAWN_X,
 		"speed": _rng.randf_range(SPEED_MIN, SPEED_MAX),
+		"stop_stage": 0,
+		"dwell": 0.0,
 	}
 	if _live.size() < MAX_VEHICLES:
 		_live.append(v)

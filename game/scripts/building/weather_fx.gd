@@ -29,6 +29,7 @@ var _mist_material: ShaderMaterial
 var _splash_material: StandardMaterial3D
 var _player: Node3D
 var _exposure_query: Callable
+var _cover_query: Callable
 var _t := 0.0
 var _lightning: Node3D
 var _lightning_wait := 16.0
@@ -39,9 +40,11 @@ var _rain_enabled := true
 var _mist_enabled := true
 
 
-func setup(player: Node3D, exposure_query := Callable()) -> void:
+func setup(player: Node3D, exposure_query := Callable(),
+		cover_query := Callable()) -> void:
 	_player = player
 	_exposure_query = exposure_query
+	_cover_query = cover_query
 
 
 func _ready() -> void:
@@ -137,6 +140,12 @@ func is_exposed_at(point: Vector3) -> bool:
 	return false
 
 
+func is_covered_at(point: Vector3) -> bool:
+	if _cover_query.is_valid():
+		return bool(_cover_query.call(point))
+	return false
+
+
 func diagnostic_snapshot() -> Dictionary:
 	return {
 		"seed": _seed,
@@ -146,6 +155,7 @@ func diagnostic_snapshot() -> Dictionary:
 		"rain_enabled": _rain_enabled,
 		"mist_enabled": _mist_enabled,
 		"exposed": is_exposed_at(_player.global_position) if _player else false,
+		"covered": is_covered_at(_player.global_position) if _player else false,
 		"steady_weather_submissions": 4,
 	}
 
@@ -224,6 +234,7 @@ render_mode unshaded, blend_mix, cull_front, depth_prepass_alpha,
 		shadows_disabled;
 uniform vec4 rain_color : source_color = vec4(0.52, 0.63, 0.82, 0.28);
 uniform float seed = 0.0;
+uniform float close_suppression = 0.0;
 varying flat float rain_shell;
 float hash(vec2 n) {
 	return fract(sin(dot(n, vec2(91.73, 37.11)) + seed) * 43758.5453);
@@ -271,7 +282,8 @@ void fragment() {
 			53.0, 0.76, 0.32, 0.78);
 	float is_close = step(0.5, rain_shell);
 	float streak = mix(fine * 0.030 + middle * 0.052,
-			fine * 0.012 + close * 0.086, is_close);
+			(fine * 0.012 + close * 0.086) * (1.0 - close_suppression),
+			is_close);
 	float edge = smoothstep(0.02, 0.12, SCREEN_UV.y)
 			* smoothstep(0.02, 0.14, 1.0 - SCREEN_UV.y);
 	ALBEDO = rain_color.rgb;
@@ -373,12 +385,15 @@ func _process(delta: float) -> void:
 	var at := Vector3(roundf(player_position.x), player_position.y,
 			roundf(player_position.z))
 	var exposed := is_exposed_at(player_position)
+	var covered := exposed and is_covered_at(player_position)
 	_leaves.global_position = at + Vector3(0, LEAF_HEIGHT, 0)
 	_splash.global_position = at + Vector3(0, 0.025, 0)
 	_middle_rain.global_position = at + Vector3(0, 4.0, 0)
-	_splash.emitting = exposed and _rain_enabled
-	_leaves.emitting = exposed and _rain_enabled
+	_splash.emitting = exposed and not covered and _rain_enabled
+	_leaves.emitting = exposed and not covered and _rain_enabled
 	_middle_rain.visible = exposed and _rain_enabled
+	_middle_material.set_shader_parameter("close_suppression",
+			1.0 if covered else 0.0)
 	_road_mist.visible = _mist_enabled
 
 
