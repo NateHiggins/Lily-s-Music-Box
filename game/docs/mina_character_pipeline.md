@@ -29,7 +29,9 @@ can never be correct on her. Instead she carries a personal library:
 
 - `assets/characters/mina_vale/mina_vale_moves.glb` — the full 48-clip
   shared set (Evelyn's role clips + the gesture library) baked onto her
-  own skeleton by `art/blender/scripts/bake_model_moves.py`;
+  own skeleton by `art/blender/scripts/bake_model_moves.py`, plus her
+  model's own raw Walking clip as `mina_vale_Walk` (the `_resolve_clip`
+  suffix wins role lookups, so her gait stays personal);
 - `ResidentMovesLibrary.apply` prefers a `<model>_moves.glb` sitting
   beside any model over the shared libraries;
 - `AnimatedResident` grafts the library when a model ships without an
@@ -40,6 +42,17 @@ Rebake after any model change:
 
     "/c/Program Files/Blender Foundation/Blender 5.2/blender" -b -P \
         art/blender/scripts/bake_model_moves.py -- mina_vale
+
+## The cast follows her (2026-08-14 repopulation)
+
+Mina's pipeline is now the whole cast's: every mapped resident was
+re-converted from its raw dump source (`resident_hero_models.json`,
+board-settled) and carries a personal `<slug>_moves.glb` — the shared
+set baked onto its own rig, plus its own raw Walking clip as
+`<slug>_Walk`. The generated `_rigged.glb/.blend` placeholders are
+retired (this file's owner ruling set the precedent). Evelyn keeps her
+merge hero untouched: she is the bake's convention reference, and
+rebuilding her would move the ground every bake stands on.
 
 ## Behaviour
 

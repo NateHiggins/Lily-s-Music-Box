@@ -12,16 +12,17 @@ func _ready() -> void:
 	var loaded := 0
 	for profile in profiles:
 		var slug: String = profile.slug
-		# The generated cast carries <slug>_rigged.glb with its own baked
-		# clips. A hero-standard resident (mina_vale is the first, owner
-		# ruling 2026-08-13: Grey Elegance is her final model and the old
-		# rigged glb is deleted) ships the motion-free hero gltf instead
-		# and is animated by the library graft — the same path production
-		# takes in AnimatedResident and _upgrade.
-		var path := "res://assets/characters/%s/%s_rigged.glb" % [
-				slug, slug]
+		# The whole cast is hero-standard (2026-08-14 repopulation): each
+		# resident ships the motion-free hero gltf plus a personal
+		# <slug>_moves.glb baked onto its own rig by bake_model_moves.py;
+		# the generated _rigged.glb placeholders are retired. The hero
+		# path is production's (_upgrade prefers the gltf); the _rigged
+		# fallback only catches a future resident whose hero has not been
+		# converted yet.
+		var path := "res://assets/characters/%s/%s.gltf" % [slug, slug]
 		if not ResourceLoader.exists(path):
-			path = "res://assets/characters/%s/%s.gltf" % [slug, slug]
+			path = "res://assets/characters/%s/%s_rigged.glb" % [
+					slug, slug]
 		var scene := load(path) as PackedScene
 		if scene == null:
 			_check(false, profile.display + " model imports")
@@ -38,8 +39,9 @@ func _ready() -> void:
 				profile.display + " idle imports")
 		_check(player != null and _contains(names, "walk"),
 				profile.display + " walk imports")
-		# One skeleton, one retargeted library: every resident can borrow
-		# Evelyn's move set (sit is the role their own two clips lack).
+		# Every resident accepts a move-set graft: hero-standard residents
+		# load their personal <slug>_moves.glb, anything without one
+		# borrows the shared libraries.
 		# apply() returns false when every clip is already present, so a
 		# hero-standard resident grafted above passes on that first graft.
 		_check(grafted_early or ResidentMovesLibrary.apply(actor),

@@ -1,5 +1,14 @@
 # Orison Animated Resident Cast
 
+**STATUS 2026-08-14: the generated low-poly bodies this doc's pipeline
+built are retired** — the cast repopulation replaced them with raw-dump
+hero conversions plus personal baked move libraries (see
+`mina_character_pipeline.md`). The table below survives as the
+characterization brief: it is the authored motion identity each
+resident's REAL animation set must express when the owner generates the
+production rigging/animation pass, and it remains the source of the
+per-resident motion signatures in `resident_animation_profiles.json`.
+
 All 18 residents use the same reproducible low-poly production language and IK
 rig contract, but have individual palettes, proportions, idle performance, and
 walk mechanics. Their animation is characterization rather than neutral motion.

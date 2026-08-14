@@ -27,9 +27,19 @@ and keyed directly; nothing depends on constraint evaluation order.
 Output: <slug>_moves.glb beside the model (the creature convention).
 ResidentMovesLibrary.apply prefers it over the shared library.
 
+The model's OWN raw clips (its Meshy *_Animation_*_withSkin.fbx, found
+via the committed mapping's source folder) ride along as
+<slug>_Walk-style entries. They are already this rig's motion, so their
+reference rest is the source file's own — rest-relative against itself —
+which survives any importer convention differences.
+resident_routines._resolve_clip prefers the _Walk/_Idle suffix, so the
+personal gait wins wherever a role asks for one.
+
     "/c/Program Files/Blender Foundation/Blender 5.2/blender" -b -P \
         art/blender/scripts/bake_model_moves.py -- mina_vale
 """
+import glob
+import json
 import os
 import sys
 
@@ -49,12 +59,31 @@ SOURCES = [
 ]
 OUT = os.path.join(ROOT, "game", "assets", "characters", SLUG,
                    SLUG + "_moves.glb")
+MAPPING = os.path.join(ROOT, "game", "data", "resident_hero_models.json")
+
+
+def own_clip_fbx():
+    """The model's own Meshy animation exports, from its mapped dump
+    folder. Empty when the slug has no mapping entry (evelyn) or the
+    dump is absent on this machine."""
+    try:
+        with open(MAPPING, encoding="utf-8") as fh:
+            spec = json.load(fh).get("residents", {}).get(SLUG)
+    except (OSError, ValueError):
+        spec = None
+    if not spec:
+        return []
+    return sorted(glob.glob(os.path.join(
+        ROOT, "art", "blender", "meshy", spec["source"],
+        "*_Animation_*_withSkin.fbx")))
 
 
 def import_scene(path):
     before = set(bpy.data.objects)
     if path.endswith(".gltf") or path.endswith(".glb"):
         bpy.ops.import_scene.gltf(filepath=path)
+    elif path.endswith(".fbx"):
+        bpy.ops.import_scene.fbx(filepath=path)
     return [o for o in bpy.data.objects if o not in before]
 
 
@@ -154,7 +183,9 @@ def bake_sources(target):
     # convention's A-pose; the target carries the new one's.
     ref_rest = {}
 
-    for source_path in SOURCES:
+    source_list = [(p, False) for p in SOURCES] \
+        + [(p, True) for p in own_clip_fbx()]
+    for source_path, own_rest in source_list:
         actions_before = set(bpy.data.actions)
         source_objects = import_scene(source_path)
         source = armature_of(source_objects)
@@ -164,9 +195,14 @@ def bake_sources(target):
         source_actions = [a for a in bpy.data.actions
                           if a not in actions_before]
         common = [n for n in ordered if n in source.pose.bones]
-        if not ref_rest:
+        if not own_rest and not ref_rest:
             # SOURCES[0] is Evelyn's hero gltf: A-pose, old convention.
             ref_rest = {n: world_rest_q(source, n) for n in common}
+        # The model's own clips bridge at their own file's rest: the same
+        # physical rig on both sides, so rest-relative-to-self is exact
+        # and no cross-generation convention enters the map at all.
+        src_ref = {n: world_rest_q(source, n) for n in common} \
+            if own_rest else ref_rest
 
         # Right-hand delta at the shared A-pose:
         #   target_world = clip_world @ (evelyn_A_rest^-1 @ target_A_rest)
@@ -191,8 +227,8 @@ def bake_sources(target):
         # not skipped. Both rests are armature-space, so neither file's
         # armature-object transform can contaminate the map (the earlier
         # world-space form leaked exactly that).
-        delta = {n: ref_rest[n].inverted() @ t_rest_w[n]
-                 for n in common if n in ref_rest}
+        delta = {n: src_ref[n].inverted() @ t_rest_w[n]
+                 for n in common if n in src_ref}
         common = [n for n in common if n in delta]
         src_hip_rest = source.data.bones["Hips"].matrix_local \
             .translation.copy()
@@ -222,7 +258,24 @@ def bake_sources(target):
 
         for action in source_actions:
             curves = action_curves(action)
-            new_action = bpy.data.actions.new("baked_" + action.name)
+            if own_rest and not curves:
+                continue  # object-track actions carry no pose data
+            out_name = action.name
+            if own_rest:
+                # Meshy fbx action names are junk ("Armature|...|
+                # walking_man|baselayer"); the game wants the
+                # _resolve_clip suffix convention.
+                lowered = action.name.lower()
+                if "walk" in lowered:
+                    out_name = SLUG + "_Walk"
+                elif "run" in lowered:
+                    out_name = SLUG + "_Run"
+                elif "idle" in lowered:
+                    out_name = SLUG + "_Idle"
+                else:
+                    out_name = SLUG + "_" + "".join(
+                        c if c.isalnum() else "_" for c in action.name)
+            new_action = bpy.data.actions.new("baked_" + out_name)
             new_action.use_fake_user = True
             target.animation_data_create()
             target.animation_data.action = new_action

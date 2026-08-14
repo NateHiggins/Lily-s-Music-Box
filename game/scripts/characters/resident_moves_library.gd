@@ -41,9 +41,14 @@ static func apply(model_root: Node) -> bool:
 	# generations do not (mina_vale/Grey_Elegance: 9-34° of rest delta per
 	# bone — borrowed clips corseted, leaned and hunched her). For such a
 	# model, bake_model_moves.py bakes the whole set onto its own rig
-	# through world-space constraints and ships it as <model>_moves.glb
+	# (a rest-relative analytic bake — see that script's docstring for
+	# why constraints were wrong) and ships it as <model>_moves.glb
 	# beside the mesh, the creature convention. A personal library is
-	# complete, so it replaces the shared sources outright.
+	# complete, so it replaces the shared sources outright. As of the
+	# 2026-08-14 cast repopulation EVERY resident ships one, with the
+	# model's own raw gait riding along as <slug>_Walk; the shared
+	# branches below are the fallback for future models, not the cast's
+	# path.
 	var sources: Array[String] = []
 	var own_moves := ""
 	if model_root.scene_file_path != "":

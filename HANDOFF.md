@@ -248,14 +248,16 @@ work; anything actionable belongs in that file.
   microphones and positional listening on the way down, and right now the
   walk is unguided beyond a banner and the motif playing from the F03
   riser.
-- **Rigged residents are deliberately paused.** Rigged GLBs exist and
-  import, but `USE_RIGGED_RESIDENTS := false` in `building_root.gd` keeps
-  sprite placeholders as the active cast. Flip the one flag to resume.
-  Mina is the exception with no rigged glb at all: her Grey Elegance hero
-  model (owner-designated final, 2026-08-13) plus her baked
-  `mina_vale_moves.glb` are her only artifacts — the old generated Mina
-  and the stale `assets/characters/mina/` duplicate were deleted. See
-  `game/docs/mina_character_pipeline.md`.
+- **Rigged residents are LIVE** (`USE_RIGGED_RESIDENTS := true` in
+  `building_root.gd` — an earlier revision of this note said paused;
+  the flag was flipped and the note was not).
+  As of the 2026-08-14 repopulation the whole cast is hero-standard on
+  Mina's pipeline: every mapped resident is its raw-dump hero conversion
+  plus a personal `<slug>_moves.glb` (shared set baked onto its own rig
+  by `bake_model_moves.py`, plus the model's own raw gait as
+  `<slug>_Walk`); the generated `_rigged.glb/.blend` placeholders are
+  retired. Evelyn keeps her merge hero — she is the bake convention
+  reference. See `game/docs/mina_character_pipeline.md`.
 - **Wall art placement wants an audit.** The B1 "KNOW YOUR EXIT" sign used
   to render mirrored; the cause was `cull_mode = CULL_DISABLED` on the art
   quad, which draws a reversed copy of the front on the back face, so
