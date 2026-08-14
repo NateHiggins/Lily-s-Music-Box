@@ -434,7 +434,7 @@ native and returned versions by plain gain only (measure with
 
 | Track | Candidate filename | Date | PASS/FAIL | Notes |
 |---|---|---|---|---|
-| track_101 DREAMLAND | `art/audio/Moonlight_on_the_Dance_Floor.mp4` | 2026-08-14 | objective pre-checks PASS; owner ear + scratch-vocal return PENDING | 2:37.7 (spec 2:41); measured 95.7–96.3 BPM in 3/4; clean close; no synth sub; −11.4 LUFS / LRA 7.2. Derived 48k WAV, ×1.335 return preview and haunted-floor prototypes sit beside it. (Earlier candidate `Ribbons_on_the_Banister.mp3`, 58.9 s, ran the superseded hook prompt — retired) |
+| track_101 DREAMLAND | `art/audio/Moonlight_on_the_Dance_Floor.mp4` | 2026-08-14 | objective pre-checks PASS; owner ear + scratch-vocal return PENDING | 2:37.7 (spec 2:41); measured 95.7–96.3 BPM in 3/4; clean close; no synth sub; −11.4 LUFS / LRA 7.2. Derived 48k WAV, ×1.335 return preview and haunted-floor prototypes sit beside it. (Earlier candidate `Ribbons_on_the_Banister.mp3`, 58.9 s, ran the superseded hook prompt — retired.) Two further outputs from the same session, `The_Clockwork_Waltz.mp4` (11:59) and `Ballroom’s_False_Collapse.mp4` (12:08), were found unlogged and pre-checked: both at Dreamland length but **OFF the 3/4-at-96 spec** (duple/quadruple pulse grids; hotter sub-50 Hz than Moonlight; Clockwork holds a ~2 s mid-piece dropout). If both ran §1, checklist item 2 fails objectively for both — owner confirms which prompt each ran before any verdict. Manifests and ×1.335 previews beside the files |
 | track_103 ALOHA ʻOE | | | | |
 | track_104 CHARLESTON | | | | |
 | track_105 AIN'T WE GOT FUN | | | | |
@@ -471,6 +471,25 @@ native and returned versions by plain gain only (measure with
      next pass is arrangement-aware treatment (kick enters at the
      first chorus, drops for the interlude) rather than
      wall-to-wall.
+
+- **Second processing pass (2026-08-14, later the same day):** two
+  same-session Gemini outputs were found unlogged beside the
+  Moonlight candidate and put through the identical objective
+  pre-checks — `The_Clockwork_Waltz.mp4` (11:59, 2:38.7) and
+  `Ballroom’s_False_Collapse.mp4` (12:08, 2:37.3). Both sit at
+  Dreamland length; **neither measures as a 96 BPM waltz** (onset
+  grids are duple/quadruple: ~0.428 s and ~0.46 s units; the same
+  analysis recovers Moonlight's 95.3 BPM ×3 bar, so the instrument
+  is sound). Both carry noticeably hotter sub-50 Hz than Moonlight
+  (6.1/6.5 dB under full-band vs Moonlight's 13.7, identical
+  measurement); Clockwork holds ~2 s of near-silence at
+  150.5–152.5 s then returns at full level. If both ran §1,
+  checklist item 2 fails objectively for both; the owner confirms
+  which prompt each ran before any verdict is recorded. Manifests
+  with OWNER fields and ×1.335 matched previews sit beside the
+  files. Unrelated: `Three_AM_Radiator.mp4` (2026-08-05, 1:06.7) is
+  a pre-House-Five hook-era orphan, noted for the ledger and left
+  unprocessed.
 
 **Warning:** every Gemini output is audition material until its use
 terms, consultation, provenance and owner approval are resolved.
