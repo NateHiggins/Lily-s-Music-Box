@@ -392,6 +392,12 @@ are two answers to the same problem and only this one is built.
   Physical walks and shared-elevator contention run before the harness pauses
   unrelated resident routines for the stateful Case 02–08 batch; case order,
   timers and consequences remain intact.
+- **PS11** Redesign the jarring STREET → PASSAGE gate under
+  `design/VANTRY_GATEWAY_AND_SUBWAY_PROPOSAL.md`. Trial the recommended Tier 1
+  civic stair-house facade, shallow STREET-owned vestibule and split reveal
+  before changing elevation. Preserve the exact M0.5 envelope, continuous
+  loaded return route, ownership gate and canonical-night budget; an actual
+  subway, cutscene or sealed transit promise requires a separate owner ruling.
 
 ## F — Film (projectors instead of televisions)
 
