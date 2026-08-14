@@ -184,11 +184,16 @@ nobody can see.
 *Keep the satire verbatim:* the Handbook says the system was balanced in 1913 and
 requires no further attention.
 
-**VANTRY POINT** (`vantry_point_prop`, one per enclosed room) — **already built
-and already right.** Find the chirp by ear, open a captive grille, discover there
-is no battery, because it is a 1912 house-circuit listening instrument and not a
-smoke detector. The finding is navigation and the grille is the mechanism. This
-is the template for how the acoustic graph earns its keep.
+**VANTRY POINT** (`vantry_point_prop`, one per enclosed room) — **built, and
+amended 2026-08-14 by owner ruling.** Find the chirp by ear, open a captive
+grille, discover there is no battery, because it is a 1912 house-circuit
+listening instrument and not a smoke detector. The finding is navigation and
+the grille is the mechanism — but inspection now *begins* the repair loop
+rather than ending it: the revealed fault is a failed carbon transmitter
+capsule, the replacement is bought at the hardware counter, and the chirp
+stops when the capsule is seated (`ORISON_BIBLE.md` VIII.5.b, amended). This
+is the template for how the acoustic graph earns its keep, and it is now the
+one authored maintenance job.
 
 ### THE BULBS — the building goes dark on its own
 

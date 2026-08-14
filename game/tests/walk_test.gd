@@ -929,27 +929,19 @@ func _radiator_checks() -> void:
 
 
 func _maintenance_job_checks() -> void:
-	# K2: the data-authored job contract, exercised on the production spine.
-	# The full transition matrix is MaintenanceJobTest's job; this proves the
-	# real building wires the library and runs one legal lifecycle.
-	const JOB := "steam_hammer_2a"
+	# Amended K2/K3: the one authored job IS the chirp hunt. The transition
+	# matrix is MaintenanceJobTest's job and the full production loop is
+	# MaintenanceCounterTest's; this proves the real building wires the
+	# library, authors exactly one job, and carries no live legacy order.
 	var orders: WorkOrders = root.work_orders
 	_check(orders.job_library != null and orders.job_library.is_valid()
-			and orders.job_library.job_ids().size() == 1,
-			"production spine loads the one authored maintenance job")
-	_check(orders.issue_job(JOB, "reported")
-			and not orders.diagnose_job(JOB)
-			and orders.acknowledge_job(JOB)
-			and orders.record_job_evidence(JOB, "hammer_heard_on_cycle")
-			and orders.diagnose_job(JOB)
-			and orders.mark_job_awaiting_part(JOB)
-			and orders.mark_job_repairable(JOB)
-			and orders.record_job_repair(JOB, {"quality": "good"})
-			and orders.close_job(JOB)
-			and orders.job_stage(JOB) == "closed",
-			"graybox job runs its ruled lifecycle in the production scene")
-	_check(orders.status(ChirpHunt.ORDER_ID) == "active",
-			"job lifecycle leaves the chirp hunt customer untouched")
+			and orders.job_library.job_ids()
+					== ([ChirpHunt.JOB_ID] as Array[String]),
+			"production spine loads the one authored job, the chirp hunt")
+	_check(not orders.job_library.has_job("steam_hammer_2a"),
+			"steam_hammer_2a is retired as the graybox job")
+	_check(orders.status(ChirpHunt.LEGACY_ORDER_ID) == "missing",
+			"no live legacy simple order shadows the authored job")
 
 
 func _vantry_checks() -> void:
@@ -968,11 +960,12 @@ func _vantry_checks() -> void:
 	_check(network != null and network.active_mesh_count() <= 6,
 			"movable Vantry owner stays within six meshes (%d)" %
 			[network.active_mesh_count() if network else -1])
-	_check(orders != null and orders.status(ChirpHunt.ORDER_ID) == "active",
-			"minimal WorkOrders spine issues and activates the chirp hunt")
+	_check(orders != null and orders.job_stage(ChirpHunt.JOB_ID) == "missing"
+			and root.chirp_hunt != null and root.chirp_hunt.fault_active(),
+			"the fault chirps before any paperwork exists")
 	_check(root.chirp_hunt != null
-			and root.chirp_hunt.active_point_id == "F06_D_BED_VANTRY_POINT",
-			"chirp hunt caches its authored starting point")
+			and root.chirp_hunt.active_point_id == "F02_A_MAIN_VANTRY_POINT",
+			"chirp hunt sources the authored 2A anchor from job data")
 	var graph_ok := network != null
 	if network:
 		for point_id in network.cached_point_ids():
@@ -1002,13 +995,31 @@ func _vantry_checks() -> void:
 			"Teresa closes the mechanical telltale before the room answers")
 	_check(PropAudio.get_stream("vantry_chirp") != null,
 			"chirp uses an attributed recorded source")
-	# Return the sole owner to the point cached by ChirpHunt. Moving it directly
-	# above tested the network handoff; the director must still reject a grille
-	# that is not its current audio source.
+	# The wrong grille first: the owner still sits at the F04 test point, so
+	# an inspection there must not advance the 2A fault.
+	network.active_owner.interact(root.player)
+	_check(orders.job_stage(ChirpHunt.JOB_ID) == "missing",
+			"only the correct chirping point can begin the diagnosis")
+	# Then the discovered origin at the real point: the amended reveal opens
+	# the grille, finds no battery bay, and BEGINS the repair loop.
 	network.activate(old_id)
 	network.active_owner.interact(root.player)
-	_check(orders.status(ChirpHunt.ORDER_ID) == "closed",
-			"inspecting the active grille closes the first work order")
+	_check(orders.job_stage(ChirpHunt.JOB_ID) == "awaiting_part"
+			and orders.job_state(ChirpHunt.JOB_ID).evidence.size() == 3,
+			"inspection diagnoses the dead capsule and no longer closes the job")
+	_check(root.chirp_hunt.fault_active(),
+			"the fault keeps chirping while the part is awaited")
+	_check(root.shop_service.acquire("carbon_transmitter_capsule",
+			"hardware_paint")
+			and orders.job_stage(ChirpHunt.JOB_ID) == "repairable",
+			"the hardware counter's capsule makes the job repairable")
+	network.active_owner.interact(root.player)
+	_check(orders.job_stage(ChirpHunt.JOB_ID) == "repaired"
+			and root.maintenance_inventory.is_consumed(
+					"carbon_transmitter_capsule")
+			and not root.chirp_hunt.fault_active()
+			and network.active_owner.is_repaired(),
+			"the capsule replacement quiets the point and stops at repaired")
 
 
 func _stop_audio(node: Node) -> void:

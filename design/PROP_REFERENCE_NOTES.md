@@ -993,6 +993,15 @@ grille. Teresa's 1D point uses the same network and closes a mechanical shutter
 before she stops speaking. The old `smoke_detector` name remains a data/class
 alias only.
 
+*Amended 2026-08-14, owner ruling:* the paragraph above records the original
+build; the close-on-inspection behavior is superseded. `WO-VANTRY-001` is
+retired — the fault is now the one data-authored maintenance job
+(`vantry_chirp_2a`, `data/maintenance_jobs.json`), sourced at the 2A living
+room point and bound to Mina's first shift. Inspection diagnoses a failed
+carbon transmitter capsule and opens the errand to the hardware counter;
+the chirp stops only when the capsule is replaced, and legacy saves migrate
+their old order state forward without losing the found-it progress.
+
 ### Materials and texture prompt batch
 
 No material work was required. `bakelite_black`, `brass_mesh`, `copper_aged`

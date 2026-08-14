@@ -18,6 +18,8 @@ const RED := Color(0.878, 0.18, 0.12)
 var point_id := ""
 var room_id := ""
 var work_orders: WorkOrders
+var chirp_hunt: ChirpHunt
+var _repaired := false
 var _body: Node3D
 var _grille: Node3D
 var _telltale: MeshInstance3D
@@ -101,8 +103,14 @@ func bind_order_spine(spine: WorkOrders) -> void:
 	work_orders = spine
 
 
+func bind_chirp_hunt(hunt: ChirpHunt) -> void:
+	chirp_hunt = hunt
+
+
 func play_chirp(strength := 1.0) -> void:
-	if _chirp and work_orders and work_orders.is_active(ChirpHunt.ORDER_ID):
+	# ChirpHunt decides when a chirp is due; the prop only refuses to voice
+	# a fault its own mechanism has already repaired.
+	if _chirp and not _repaired:
 		_chirp.volume_db = lerpf(-25.0, -14.0, clampf(strength, 0.0, 1.0))
 		_chirp.play()
 
@@ -139,14 +147,29 @@ func set_service_pose() -> void:
 	set_grille_open(1.0, 0.0)
 
 
+## The physical outcome of the capsule replacement: line quiet, grille
+## secured, telltale at rest. The lifecycle fact lives in WorkOrders; this
+## is only the body of the repair.
+func set_repaired() -> void:
+	_repaired = true
+	set_chirping(false)
+	set_grille_open(0.0)
+	set_telltale_closed(true)
+
+
+func is_repaired() -> bool:
+	return _repaired
+
+
 func get_service_state() -> Dictionary:
 	return {"grille_open": _grille_open, "telltale_visible":
-			_telltale.visible if _telltale else false, "mesh_count": _mesh_count(self)}
+			_telltale.visible if _telltale else false,
+			"repaired": _repaired, "mesh_count": _mesh_count(self)}
 
 
 func interact_prompt() -> String:
-	if work_orders and work_orders.is_active(ChirpHunt.ORDER_ID):
-		return "[E]  Inspect the chirping Vantry point"
+	if chirp_hunt:
+		return chirp_hunt.prompt_for(point_id)
 	return "[E]  Inspect Vantry point"
 
 

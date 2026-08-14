@@ -6,8 +6,8 @@ extends Node
 ## RealityState autoload. No mocks. The production-scene interaction at the
 ## hardware counter is MaintenanceCounterTest's job.
 
-const JOB := "steam_hammer_2a"
-const ITEM := "vent_orifice_no3"
+const JOB := ChirpHunt.JOB_ID
+const ITEM := "carbon_transmitter_capsule"
 const SHOP := "hardware_paint"
 
 var failures := 0
@@ -88,7 +88,8 @@ func _gate_checks() -> void:
 func _transaction_checks() -> void:
 	work_orders.mark_job_awaiting_part(JOB)
 	_check(shop.pending_item(SHOP) == ITEM
-			and shop.counter_prompt(SHOP) == "[E]  Buy: No. 3 air-vent orifice",
+			and shop.counter_prompt(SHOP)
+					== "[E]  Buy: Carbon transmitter capsule",
 			"awaiting_part opens the counter and its prompt")
 	_check(shop.acquire(ITEM, SHOP), "the valid transaction succeeds")
 	_check(inventory.has_item(ITEM)

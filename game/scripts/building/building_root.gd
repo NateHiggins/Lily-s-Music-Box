@@ -462,7 +462,7 @@ func _ready() -> void:
 	chirp_hunt = ChirpHunt.new()
 	chirp_hunt.name = "ChirpHunt"
 	add_child(chirp_hunt)
-	chirp_hunt.setup(vantry_points, work_orders)
+	chirp_hunt.setup(vantry_points, work_orders, maintenance_inventory)
 	var room0 := Room0.new()
 	add_child(room0)
 	var anomaly: DoorAnomalyProp = get_node_or_null("F04_B_DOOR_ANOMALY")

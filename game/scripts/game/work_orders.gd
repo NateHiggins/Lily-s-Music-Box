@@ -202,6 +202,41 @@ func job_state(job_id: String) -> Dictionary:
 	return _job(job_id).duplicate(true)
 
 
+## Install a job record migrated from an older save shape. Migration only:
+## it refuses to overwrite an existing record, and the record is validated
+## like a restore. The caller owns the mapping; this owns the legality.
+func adopt_job(job_id: String, origin: String, stage: String,
+		evidence: Array) -> bool:
+	if _jobs().has(job_id):
+		return false
+	var record := {
+		"stage": stage, "origin": origin, "evidence": evidence.duplicate(),
+		"repair_result": {},
+		"issued_at": Time.get_unix_time_from_system(),
+		"migrated_from": "legacy_order",
+	}
+	if not _valid_job_record(job_id, record):
+		return false
+	_jobs()[job_id] = record
+	RealityState.commit()
+	_present_job(job_id)
+	var copy: Dictionary = record.duplicate(true)
+	job_issued.emit(job_id, copy)
+	job_stage_changed.emit(job_id, "", stage, copy)
+	return true
+
+
+## Delete a legacy simple order whose fault has been adopted by the
+## data-authored lifecycle. Migration cleanup only.
+func retire_order(order_id: String) -> bool:
+	var orders: Dictionary = RealityState.data.get("work_orders", {})
+	if not orders.has(order_id):
+		return false
+	orders.erase(order_id)
+	RealityState.commit()
+	return true
+
+
 ## Authoritative facts only, as pure data for the K4 persistence wiring.
 ## Objective text and any other presentation is deliberately absent: it is
 ## reconstructed from the job library on restore.

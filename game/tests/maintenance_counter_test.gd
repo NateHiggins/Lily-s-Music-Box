@@ -1,13 +1,15 @@
 extends Node
-## K3 production-scene proof: the acquisition exists as a real interaction at
-## HARDWARE PAINT, not only as a test API. The real player walks from the
-## route-test-proven customer threshold to the counter, the ordinary 2.1 m
-## interact ray finds the counter volume over the authored counter top, and
-## the ordinary interact path performs the buy.
+## Amended K2/K3 production-scene proof: the complete graybox maintenance
+## loop on the real building. The failed Vantry head in 2A chirps, the real
+## inspection diagnoses the dead carbon capsule, the real player walks the
+## proven customer threshold at HARDWARE PAINT and buys the replacement
+## through the ordinary interact ray, and the real point interaction
+## performs the repair — which stops the chirp and does NOT close the job.
 
-const JOB := "steam_hammer_2a"
-const ITEM := "vent_orifice_no3"
+const JOB := ChirpHunt.JOB_ID
+const ITEM := "carbon_transmitter_capsule"
 const SHOP := "hardware_paint"
+const POINT := "F02_A_MAIN_VANTRY_POINT"
 
 var _fails := 0
 var root: Node3D
@@ -48,64 +50,113 @@ func _ready() -> void:
 	player = root.player
 	for cart in get_tree().get_nodes_in_group("passage_pushcarts"):
 		cart.freeze = true
+	var orders: WorkOrders = root.work_orders
+	var hunt: ChirpHunt = root.chirp_hunt
+	var network: VantryPointNetwork = root.vantry_points
+	var inventory: MaintenanceInventory = root.maintenance_inventory
 
+	_check("the chirp hunt sources the authored 2A anchor",
+			hunt.active_point_id == POINT
+			and network.active_point_id == POINT)
+	_check("the fault chirps before any paperwork exists",
+			orders.job_stage(JOB) == "missing" and hunt.fault_active())
+
+	# Repair is impossible without the item: force the repairable stage with
+	# an empty inventory through the public API, then interact.
+	orders.issue_job(JOB, "reported")
+	orders.acknowledge_job(JOB)
+	orders.diagnose_job(JOB)
+	orders.mark_job_awaiting_part(JOB)
+	orders.mark_job_repairable(JOB)
+	network.active_owner.interact(player)
+	_check("repair is impossible without the capsule",
+			orders.job_stage(JOB) == "repairable"
+			and not inventory.is_consumed(ITEM))
+	RealityState.reset_campaign_for_tests()
+
+	# Only the correct chirping point advances the fault.
+	network.activate("F02_A_BED_VANTRY_POINT")
+	network.active_owner.interact(player)
+	_check("a wrong grille is an ordinary inspection, not a diagnosis",
+			orders.job_stage(JOB) == "missing")
+	network.activate(POINT)
+
+	# Reported origin, then the real inspection reveal.
+	_check("Mina's report issues the job", hunt.report()
+			and orders.job_stage(JOB) == "issued")
+	network.active_owner.interact(player)
+	var state := orders.job_state(JOB)
+	_check("inspection converges, diagnoses and enters awaiting_part",
+			orders.job_stage(JOB) == "awaiting_part"
+			and state.evidence == ["chirping_point_located", "no_battery_bay",
+					"carbon_capsule_failed"])
+	_check("inspection no longer closes the job",
+			orders.job_stage(JOB) != "closed" and hunt.fault_active())
+
+	# The errand: proven customer threshold, production interact ray.
 	var counter: Area3D = root.shop_service.counter(SHOP)
-	_check("the shop service builds the HARDWARE PAINT counter point",
-			counter != null and root.shop_service.is_valid())
-	if counter == null:
-		_finish()
-		return
-	_check("the counter stands on the authored counter top",
-			absf(counter.global_position.x - 9.9) < 0.05
-			and absf(counter.global_position.z - 56.2) < 0.05
-			and counter.global_position.y > 1.1)
-
-	# The door the route test proved; enter from its proven customer threshold.
+	_check("the shop counter stands ready", counter != null
+			and counter.interact_prompt()
+					== "[E]  Buy: Carbon transmitter capsule")
 	var door = root.find_child("SITE_SHOP_DOOR_HARDWARE_PAINT", true, false)
 	if door is DoorProp:
 		door.npc_set_open(true)
 	await get_tree().create_timer(0.6).timeout
 	player.global_position = Vector3(10.44, 0.15, 58.425)
 	player.velocity = Vector3.ZERO
-	# The strip east of the counter is the display window; customers stand on
-	# the floor south of the counter's end, just inside the door.
 	_check("the customer floor reaches the counter on foot",
 			await _walk_to(Vector2(10.0, 58.1), "counter approach"))
-
-	# Aim the real camera at the counter volume and use the production ray.
 	var eye := player.camera.global_position
 	var at := counter.global_position
 	player.camera.look_at(Vector3(at.x, minf(at.y, eye.y - 0.1), 57.2))
-	_check("before any open job the counter shows no prompt",
-			counter.interact_prompt() == "")
 	player._try_interact()
-	_check("an interact with no open job grants nothing",
-			not root.maintenance_inventory.has_item(ITEM))
-
-	var orders: WorkOrders = root.work_orders
-	orders.issue_job(JOB, "reported")
-	orders.acknowledge_job(JOB)
-	orders.diagnose_job(JOB)
-	orders.mark_job_awaiting_part(JOB)
-	_check("awaiting_part lights the counter prompt",
-			counter.interact_prompt() == "[E]  Buy: No. 3 air-vent orifice")
-	player._try_interact()
-	_check("the production interact performs the buy",
-			root.maintenance_inventory.has_item(ITEM))
-	_check("the buy drives the job to repairable",
+	_check("the production buy acquires the capsule",
+			inventory.has_item(ITEM))
+	_check("acquisition advances awaiting_part to repairable",
 			orders.job_stage(JOB) == "repairable")
 	player._try_interact()
-	_check("a second interact cannot duplicate the part",
+	_check("a second buy cannot duplicate the capsule",
 			RealityState.data.maintenance_items.size() == 1
-			and not root.maintenance_inventory.is_consumed(ITEM))
-	_check("the satisfied counter goes quiet", counter.interact_prompt() == "")
-	print("COUNTER TRACE: stage=%s item=%s consumed=%s" % [orders.job_stage(JOB),
-			root.maintenance_inventory.has_item(ITEM),
-			root.maintenance_inventory.is_consumed(ITEM)])
-	_finish()
+			and not inventory.is_consumed(ITEM))
 
+	# Return to the point and perform the repair.
+	_check("the point offers the replacement",
+			network.active_owner.interact_prompt()
+					== "[E]  Replace the carbon transmitter capsule")
+	network.active_owner.interact(player)
+	state = orders.job_state(JOB)
+	_check("the repair enters repaired with recorded quality",
+			orders.job_stage(JOB) == "repaired"
+			and str(state.repair_result.quality) == "good")
+	_check("the repair consumes the capsule exactly once",
+			inventory.is_consumed(ITEM) and not inventory.has_item(ITEM))
+	_check("the repaired point is quiet and secured",
+			not hunt.fault_active()
+			and network.active_owner.is_repaired()
+			and float(network.active_owner.get_service_state().grille_open) == 0.0)
+	_check("the job does not close automatically",
+			orders.job_stage(JOB) == "repaired")
+	_check("the repaired objective directs the player back to Mina",
+			orders.job_library.stage_objective(JOB, "repaired").contains("Mina"))
+	network.active_owner.interact(player)
+	_check("a duplicate repair is rejected without mutation",
+			orders.job_stage(JOB) == "repaired"
+			and RealityState.data.maintenance_items.size() == 1)
 
-func _finish() -> void:
+	# The repaired state survives save/load.
+	var saved: Dictionary = JSON.parse_string(JSON.stringify(RealityState.data))
+	RealityState.reset_campaign_for_tests()
+	RealityState.data.merge(saved, true)
+	state = orders.job_state(JOB)
+	_check("repaired state, evidence, inventory and consumption survive save/load",
+			orders.job_stage(JOB) == "repaired"
+			and state.evidence.size() == 3
+			and inventory.is_consumed(ITEM)
+			and not hunt.fault_active())
+
+	print("LOOP TRACE: origin=%s stage=%s evidence=%s repair=%s consumed=%s" % [
+			state.get("origin"), orders.job_stage(JOB), state.evidence,
+			state.repair_result, inventory.is_consumed(ITEM)])
 	print("[MAINTENANCE COUNTER] RESULT: %s (%d failures)" %
 			["PASS" if _fails == 0 else "FAIL", _fails])
 	get_tree().quit(_fails)

@@ -599,6 +599,16 @@ is that it does not have one.
 Both true, per §I: it is a fire detector in an over-wired building, and
 it is an ear the building never stopped using.
 
+*Amended 2026-08-14, at the owner's direction:* the no-battery discovery
+remains canonical, but **inspection now begins the repair loop rather
+than ending it.** What the opened grille actually shows is a mundane
+fault a 1912 instrument can honestly have — a failed carbon transmitter
+capsule and fouled contacts — and the replacement is telephone-service
+stock from the hardware counter. The chirp stops when the capsule is
+replaced, not when it is found. Both readings survive intact: the
+Handbook was still wrong about the battery, and the ear still worked
+the whole time it was asking for service.
+
 **VIII.5.c — THE HEAT IS ONE-PIPE STEAM.** The Orison's 1912 heating has
 one pipe at each radiator carrying steam out and condensate back. A radiator
 has a bottom-fed supply valve that is healthy only fully open or fully shut,
