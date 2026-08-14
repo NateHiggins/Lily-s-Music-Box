@@ -140,6 +140,19 @@ Martinville's 1857 phonautographe, and the prop is built.
 - **G5** If singing is heard in the bar when no terminal or community version
   is deliberately playing, it is the Tenant. The cylinder itself never emits
   recorded audio.
+- **G6 OWNER DIRECTION — PHRASE DUELS.** Design and seed bank are in
+  `design/ORISON_SONGBOOK_PHRASE_DUEL_BRIEF.md`: players learn safe,
+  period-attested phrase cards from dialogue, answer later calls with learned
+  retorts, and construct lyric books from whole-line multiple choices. Public
+  lyric data is phrase ids, never arbitrary text. Start with the `LAST TRAIN
+  HOME` private graybox only after G1's corrected playback contract; do not add
+  inert runtime data before the loader, composer and persistence owner exist.
+- **G6a PUBLIC AUDIO IS A SEPARATE GATE.** Curated phrase ids do not prevent a
+  player from singing other words. `COMMUNITY` microphone sharing remains
+  disabled until consent, clean-stem analysis, report/block, takedown, appeals,
+  retention and platform/age requirements have an owned design. PRIVATE may be
+  the prototype; FRIENDS needs its own controls. Nightcore transformation is
+  not moderation.
 
 ## S — Basement studio
 
