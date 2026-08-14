@@ -31,6 +31,7 @@ func _fresh_data() -> Dictionary:
 		"building_personality": {},
 		"work_orders": {},
 		"maintenance_jobs": {},
+		"maintenance_items": {},
 	}
 
 
@@ -90,6 +91,8 @@ func load_game() -> void:
 			data.work_orders = {}
 		if not data.has("maintenance_jobs"):
 			data.maintenance_jobs = {}
+		if not data.has("maintenance_items"):
+			data.maintenance_items = {}
 		if int(data.get("version", 0)) < SAVE_VERSION:
 			_migrate()
 

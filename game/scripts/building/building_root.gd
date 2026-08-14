@@ -191,6 +191,8 @@ var wayfinding_signage: WayfindingSignagePass
 var maintenance_headquarters: MaintenanceHeadquarters
 var objective_tracker: ObjectiveTracker
 var work_orders: WorkOrders
+var maintenance_inventory: MaintenanceInventory
+var shop_service: MaintenanceShopService
 var vantry_points: VantryPointNetwork
 var chirp_hunt: ChirpHunt
 var first_shift_director: FirstShiftDirector
@@ -242,6 +244,18 @@ func _ready() -> void:
 	work_orders.setup(objective_tracker)
 	work_orders.bind_job_library(MaintenanceJobLibrary.load_default())
 	add_child(work_orders)
+	# The errand half of the spine: item facts and the shop transaction each
+	# keep their own owner; the counter point stands on the shop's authored
+	# counter anchor.
+	maintenance_inventory = MaintenanceInventory.new()
+	maintenance_inventory.name = "MaintenanceInventory"
+	maintenance_inventory.setup()
+	add_child(maintenance_inventory)
+	shop_service = MaintenanceShopService.new()
+	shop_service.name = "MaintenanceShopService"
+	add_child(shop_service)
+	shop_service.setup(maintenance_inventory, work_orders)
+	shop_service.build_counters(layout)
 	# The 119 quiet heads are batched by floor. Exactly one full prop is kept
 	# ready to become the current audible/serviceable owner without a blink.
 	vantry_points = VantryPointNetwork.new()

@@ -184,6 +184,20 @@ func job_stage(job_id: String) -> String:
 	return str(_job(job_id).get("stage", "missing"))
 
 
+## Open jobs currently blocked on this part. The shop service reads this to
+## gate its transaction; nothing here knows what a shop is.
+func jobs_awaiting_part(item_id: String) -> Array[String]:
+	var waiting: Array[String] = []
+	if job_library == null or item_id.is_empty():
+		return waiting
+	for job_id in _jobs():
+		if job_stage(str(job_id)) == "awaiting_part" and str(job_library.job(
+				str(job_id)).get("required_item_id", "")) == item_id:
+			waiting.append(str(job_id))
+	waiting.sort()
+	return waiting
+
+
 func job_state(job_id: String) -> Dictionary:
 	return _job(job_id).duplicate(true)
 
