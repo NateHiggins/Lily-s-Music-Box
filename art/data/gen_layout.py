@@ -6793,44 +6793,14 @@ def retail_pass(fl):
                "exterior": True})
 
     # =================== THE WALLS OF THE WORLD =======================
-    # THE SCAFFOLDING IS GONE (2026-08-08, on request). Three bays of
-    # poles, two boarded decks and four hoardings used to close both ends
-    # of the near pavement, and the whole set piece turned out to be
-    # doing nothing a building was not already doing: nw1's corner sits
-    # at x -20.2 with its face on y -14.2, which leaves 0.40 m of walk —
-    # a gap no 0.60 m capsule fits through — and ne1 does exactly the
-    # same at +20.2. The world ended twice, once by architecture and
-    # once by plywood in front of it.
-    #
-    # So the plywood goes and the architecture keeps the job, which is
-    # the better version of the same rule: you stop because the block
-    # ends, not because somebody boarded it. What it opens is the 4.4 m
-    # of nbr_w frontage immediately west of the Orison's own door — the
-    # north side's only reachable shopfront, and now the druggist.
-    for tag, dx0, dx1, bxx in (("w", -22.6, -19.9, -19.55),
-                               ("e", 19.9, 22.6, 19.55)):
-        fb("dig_%s_pit" % tag, (dx0, -23.7, dx1, -14.9), -0.55, 0.53,
-           "soot")
-        fb("dig_%s_spoil" % tag, (dx0 + 0.4, -18.6, dx1 - 0.4, -16.4),
-           0.0, 0.85, "soil")
-        fb("dig_%s_plank" % tag, (dx0 + 0.8, -21.9, dx1 - 0.8, -21.3),
-           0.02, 0.06, "plywood")
-        for i in range(4):
-            asm("dig_%s_bar%d" % (tag, i), "safety_barrier", bxx,
-                -15.9 - i * 2.1, 90 if tag == "w" else -90)
-    # THE PARADE IS OPEN NOW, and this moves a line that was drawn on
-    # purpose, so it is worth saying why. Route discipline (below) closed
-    # the far pavement "beyond the bar's own block" when the far pavement
-    # was a facade — ten sectioned shopfronts with solid brick behind the
-    # glass and nothing to walk to. It is not that any more: there are
-    # ten sales floors, seven arcade cabinets and ten working doors down
-    # there, and a hoarding at x -6.6 put every one of them out of reach.
-    #
-    # The DISCIPLINE is untouched, only its extent. The roadway still has
-    # four trenches across it and the zebra in front of the Orison's door
-    # is still the only way over; you still cannot wander off the block.
-    # The walkable world simply has a fourth path now — the parade — and
-    # it ends at the two ends of the row rather than in the middle of it.
+    # The final street ends no longer come from the old utility-excavation
+    # set piece. ExteriorDetailPass owns both approved x controls with wet
+    # timber architecture on the pavements and dense local weather across
+    # the carriageway. The four pits, four spoil heaps, two loose planks and
+    # sixteen contractor barricades belonged to an obsolete map whose shops
+    # sat across the road; retaining them fenced live traffic lanes and made
+    # the newer visible boundary read twice. The road is continuous now. The
+    # zebra remains an affordance, not an invisible route constraint.
     fb("hoard_s_w", (-33.20, -28.30, -33.00, -23.95), 0.0, 2.55,
        "plywood")
     fb("hoard_s_e", (32.00, -28.30, 32.20, -23.95), 0.0, 2.55, "plywood")
@@ -6843,40 +6813,9 @@ def retail_pass(fl):
                                   (-17.6, -14.35), (-18.9, -14.35),
                                   (16.6, -12.35), (20.4, -12.35))):
         pipe("bollard%d" % i, (px, py, 0.0), (px, py, 0.95), 0.085)
-    # ---- ROUTE DISCIPLINE: the walkable world is four paths ---------
-    # (1) the Orison's circumference: front walk between the gangways,
-    #     the gangways themselves, the alley behind between the fences;
-    # (2) the crossing to the Harukiya, inside the trench corridor;
-    # (3) the walk east to the bodega;
-    # (4) THE PARADE — the far pavement, the full length of the ten
-    #     shopfronts, added when they stopped being a facade.
-    # Everything else ends diegetically. Two more utility trenches cut
-    # the roadway so the only crossing is STILL the one in front of the
-    # door: opening the far pavement does not open the road, and you
-    # reach the parade by walking over the zebra like anybody else.
-    # walk_w_hoard is gone with the scaffolding it belonged to. It stood
-    # at x -15.55, which is 350 mm west of the Orison's own west wall —
-    # so the near pavement ended the instant you left the building, and
-    # the 4.4 m of shopfront next door had never been reachable at all.
-    for tag, dx0, dx1, bxx in (("mw", -8.4, -6.4, -6.15),
-                               ("me", 10.6, 12.6, 12.85)):
-        fb("dig_%s_pit" % tag, (dx0, -23.7, dx1, -14.9), -0.55, 0.53,
-           "soot")
-        fb("dig_%s_spoil" % tag, (dx0 + 0.3, -19.6, dx1 - 0.3, -17.6),
-           0.0, 0.75, "soil")
-        for i in range(4):
-            asm("dig_%s_bar%d" % (tag, i), "safety_barrier", bxx,
-                -15.9 - i * 2.1, 90 if tag == "mw" else -90)
-    # The inner pair that used to stand at x -6.6 and 10.4 is GONE. They
-    # narrowed the far pavement to the 17 m in front of the bar's own
-    # block, which was right when there was nothing either side of it and
-    # is the single thing that made ten new interiors unreachable. The
-    # outer pair above still ends the world; it just ends it at the ends
-    # of the parade.
-    # THE CROSSING. The route discipline above says the only way over
-    # the road is in front of the door; until now nothing on the ground
-    # said so. Ladder markings from kerb to kerb, aligned on the Orison
-    # entrance and wide enough for two people to pass.
+    # THE CROSSING. Ladder markings from kerb to kerb remain aligned on the
+    # Orison entrance and wide enough for two people to pass. They guide the
+    # player without pretending that heaps and barricades are traffic design.
     for i in range(9):
         zx = 0.55 + i * 0.72
         fb("zebra%d" % i, (zx, KERB_S + 0.10, zx + 0.42, KERB_N - 0.10),
@@ -6887,7 +6826,9 @@ def retail_pass(fl):
     asm("street_crate0", "crate", -13.3, -13.9, 25)
     asm("street_crate1", "crate", -12.9, -13.3, 70)
     asm("street_bottles", "bottles", 12.3, -13.6, 0)
-    asm("street_papers", "papers", 5.2, -24.1, 15)
+    # Loose papers at y -24.1 straddled the south kerb and are retired with
+    # the excavation debris. Pavement-side crates, bottles and bins remain
+    # deliberate frontage dressing and do not enter the carriageway.
     # Bin bags pushed back against the building line. They were sitting
     # at y -13.3, which is the middle of the only walk east to the
     # bodega, and a resident's route should not be an obstacle course.

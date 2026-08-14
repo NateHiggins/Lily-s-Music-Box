@@ -370,6 +370,16 @@ is built.
   Passage ownership/visibility and WalkTest FULL x8/480 all pass. Day/night
   proof: `art/renders/transit_shelter_t5/approved/`. T2d remains open; this
   task does not mislabel the deliberately crude tram silhouette as finished.
+- **T5b DONE — ROAD CLEARED.** The superseded utility-excavation set piece is
+  gone: four trench slabs, four spoil heaps, two loose planks, sixteen striped
+  contractor barricades and one loose-paper assembly. It belonged to the old
+  across-the-road shop layout and was fencing all four traffic lanes after the
+  final x −20.10 / +20.60 timber-and-weather boundary took ownership. The
+  zebra, traffic, shelter, wet-road detail and both visible stage ends remain.
+  `RoadClearanceTest` proves zero obsolete production records, all sixteen old
+  barricade stations capsule-clear, and the six-span boundary intact. F01 is
+  −10,816 vertices / −17,952 indices / −381,296 bytes; fixed A/B plus a live-
+  rain noise control is in `art/renders/road_clearance_t5b/`.
 - **T6** Bring the arrival car back moving - the player gets out, it leaves into
   the east tear.
 - **T7** Budget first. Street elevation is 33.28 ms against 16.6, CPU-bound on

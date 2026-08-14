@@ -180,6 +180,30 @@ T2d remains honest: the instanced traffic silhouettes are still under-read at
 night. T5 proves a real served stop and readable shelter architecture; it does
 not quietly claim to have completed the separate traffic-fidelity work.
 
+### As built — T5b road clearance closed 2026-08-14
+
+The four utility cuts and their sixteen striped barricades are retired. They
+were route-control scenery from the superseded map in which the retail row sat
+across the street; after all eleven shops moved into the Vantry Arcade and the
+final street ends gained their own visible architecture, the excavation no
+longer explained or protected anything. It merely fenced active traffic lanes,
+duplicated the stage boundary, and made the road read as a permanent worksite.
+
+The subtraction is narrow: four trench slabs, four spoil heaps, two loose
+planks and the south-kerb paper scatter leave with the barricades. The zebra
+remains as visual crossing guidance. Drains, manholes, puddles, traffic, the
+served shelter, frontage-side crates/bottles/bins and both x −20.10 / +20.60
+timber-and-storm ends remain. The carriageway is continuous inside those
+controls; this does not reopen the approved three-zone plan or §4's later
+question about how loud the end weather becomes.
+
+The production rebuild removes one merged F01 primitive containing 10,816
+position vertices, 17,952 indices and 381,296 bytes. `RoadClearanceTest`
+proves zero obsolete records, all sixteen former barricade stations clear to
+the production capsule, all eleven zebra records present, and the six authored
+boundary spans intact. Fixed A/B frames and a same-build live-rain control are
+under `art/renders/road_clearance_t5b/`.
+
 ---
 
 ## 7. Budget, before anything is built
