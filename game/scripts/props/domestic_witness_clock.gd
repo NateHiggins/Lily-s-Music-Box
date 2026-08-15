@@ -20,8 +20,10 @@ var _face: Node3D
 var _tell_mark: Node3D
 var _display: Label3D
 var _tick: AudioStreamPlayer3D
+var _inspect_tap: AudioStreamPlayer3D
 var _home_rotation := 0.0
 var _haunt_tween: Tween
+var _inspect_tween: Tween
 var _possessed := false
 ## Printed dial faces. Two atlases in the same cell order, so possession
 ## is a texture swap rather than a rebuild: the wrongness lands on the
@@ -75,6 +77,8 @@ func _build_visual() -> void:
 	_build_collision()
 	_tick = make_emitter("tick", -31.0)
 	_tick.max_distance = 5.5
+	_inspect_tap = make_emitter("tick", -20.0)
+	_inspect_tap.max_distance = 3.2
 	# The witness faces used to be hundreds of individually submitted flat
 	# primitives.  Semantic finishes make them belong to the same material
 	# world as the ordinary clocks, then the immobile carcass collapses by
@@ -418,6 +422,49 @@ func _build_collision() -> void:
 
 func _start_normal_function() -> void:
 	state = PState.OPERATING
+
+
+func interact_prompt() -> String:
+	return "[E]  Inspect familiar clock"
+
+
+## The clock itself owns both readings: ordinary live time and any temporary
+## case-driven disagreement. Inspection acknowledges the glass and movement,
+## but never advances the case or prints its id, resident name or authored tell.
+func interact(_player: Node = null) -> Dictionary:
+	if _inspect_tween and _inspect_tween.is_valid():
+		_inspect_tween.kill()
+	_face.position.z = 0.0
+	_inspect_tap.pitch_scale = 1.08 if _possessed else 0.94
+	_inspect_tap.play()
+	_inspect_tween = create_tween()
+	_inspect_tween.tween_property(_face, "position:z", 0.004, 0.07) \
+			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	_inspect_tween.tween_property(_face, "position:z", 0.0, 0.16) \
+			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	return service_wire_card()
+
+
+## Owner-result-first copy. Three Vantry-synchronised faces are signal
+## instruments; the rest are mechanical clocks. Both branches expose only the
+## condition already visible at the dial and retain researched provenance.
+func service_wire_card() -> Dictionary:
+	var signal_face := style in ["vantry_modular", "nixie", "split_flap"]
+	return {
+		"title": "VANTRY SIGNAL CLOCK" if signal_face \
+				else ("DOMESTIC TABLE CLOCK" if mounting == "table" \
+				else "DOMESTIC WALL CLOCK"),
+		"body": (
+				"A LINE ANNUNCIATOR CAN MAKE DISTANT STATE VISIBLE AT THE RECEIVING STATION STOP"
+				if signal_face else
+				"A SPRING MOVEMENT REGULATES STORED WORK THROUGH AN ESCAPEMENT ONE TOOTH AT A TIME STOP"),
+		"condition": "MOVEMENT %s / READING %s / SETTING RESIDENT-OWNED" % [
+				"LINE SYNCHRONIZED" if signal_face else "RUNNING",
+				"VISIBLY DISTURBED" if _possessed else "LIVE"],
+		"stamp": "SERVICE NOTE",
+		"card_id": "winding_clock",
+		"source_ids": ["R034"] if signal_face else ["R019"],
+	}
 
 
 func _process(delta: float) -> void:

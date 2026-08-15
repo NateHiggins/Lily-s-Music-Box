@@ -980,6 +980,12 @@ it.
     owners, moving controls, sign response and a local spatial pickup cycling
     three shipped bar records. Its return stops only the cabinet; it never
     borrows the unlocatable WORS emitter.
+    All 18 case-driven domestic clocks now own a neutral close inspection:
+    the glass answers with a local tick and movement, while owner-result copy
+    reports only visible live/disturbed condition and never prints a resident,
+    case id, tell or solution. The lobby notice board and original Orison
+    broadside likewise own one assembly-level target each, with a pinned-sheet
+    or brass-fastener response instead of child collisions over every notice.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street

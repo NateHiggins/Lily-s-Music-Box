@@ -2884,6 +2884,19 @@ func _clock_checks() -> void:
 			and corrected.has("travel_alarm") and corrected.has("split_flap")
 			and corrected.has("nixie"),
 			"all five period and signal rulings are instantiated")
+	var inspectable_witnesses := 0
+	var leaked_owner_copy := 0
+	for candidate in witnesses:
+		var witness := candidate as DomesticWitnessClock
+		if witness.get_node_or_null("PrimaryInteraction") is Area3D:
+			inspectable_witnesses += 1
+		var card: Dictionary = witness.service_wire_card()
+		var printed := str(card)
+		if card.is_empty() or printed.contains(witness.case_id) \
+				or printed.contains(witness.resident):
+			leaked_owner_copy += 1
+	_check(inspectable_witnesses == 18 and leaked_owner_copy == 0,
+			"all 18 witness clocks own reachable clue-safe inspection copy")
 	_check(String(placements["cam_tilted_room"].mounting) == "wall"
 			and String(placements["noel_domestic_museum"].mounting) == "table",
 			"4C's two residents spend separate wall and furniture budgets (%s/%s)"
@@ -2895,6 +2908,22 @@ func _mail_bank_checks() -> void:
 	var bank := root.find_child("LobbyMailBank", true, false) as MailBankProp
 	var tray := root.find_child("LobbyPostTray", true, false) as Node3D
 	var master := root.get_node_or_null("F01_LOBBY_CLOCK_01") as ClockProp
+	var bulletin := root.find_child("LobbyBulletinBoard", true, false) \
+			as LobbyBulletinBoard
+	var sales_board := root.find_child("OrisonOriginalSalesBoard", true, false) \
+			as LobbyOrisonAdBoard
+	_check(bulletin != null and sales_board != null
+			and bulletin.get_node_or_null("NoticeBoardInspection") is Area3D
+			and sales_board.get_node_or_null("SalesBoardInspection") is Area3D,
+			"both lobby board assemblies own one foreground inspection target")
+	if bulletin and sales_board:
+		var bulletin_card: Dictionary = bulletin.interact(root.player)
+		var sales_card: Dictionary = sales_board.interact(root.player)
+		_check(bulletin._inspection_tap.playing
+				and sales_board._inspection_tap.playing
+				and bulletin_card.get("card_id", "") == "notice_board"
+				and sales_card.get("card_id", "") == "notice_board",
+				"production lobby boards answer with owner condition and material touch")
 	_check(bank != null and tray != null and master != null,
 			"mail bank, post tray and measured lobby master all exist")
 	if bank == null or tray == null or master == null:

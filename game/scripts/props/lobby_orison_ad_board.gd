@@ -7,12 +7,17 @@ const SOURCE := preload("res://assets/ui/title/orison_original_advert_lobby_v1.p
 
 var _loose_corner: MeshInstance3D
 var _chain: MeshInstance3D
+var _inspection_boss: MeshInstance3D
+var _inspection_boss_rest_z := 0.0
+var _inspection_tap: AudioStreamPlayer3D
+var _inspection_tween: Tween
 var _elapsed := 0.0
 
 
 func _ready() -> void:
 	name = "OrisonOriginalSalesBoard"
 	_build_board()
+	_build_inspection_owner()
 
 
 func _build_board() -> void:
@@ -36,7 +41,11 @@ func _build_board() -> void:
 				Vector3(0, y - signf(y) * 0.075, 0.120), wood)
 	for x in [-0.655, 0.655]:
 		for y in [-0.905, 0.905]:
-			_cylinder("FrameBoss", 0.062, 0.045, Vector3(x, y, 0.125), brass)
+			var boss := _cylinder("FrameBoss", 0.062, 0.045,
+					Vector3(x, y, 0.125), brass)
+			if _inspection_boss == null:
+				_inspection_boss = boss
+				_inspection_boss_rest_z = boss.position.z
 
 	# Isolated advertisement region: none of the title render's wall or frame
 	# is baked onto the modeled object.
@@ -92,6 +101,51 @@ func _build_board() -> void:
 	_chain = _cylinder("DisobedientPullChain", 0.007, 0.62,
 			Vector3(0.82, 0.47, 0.15), brass)
 	_chain.rotation.z = 0.02
+
+
+func _build_inspection_owner() -> void:
+	var area := Area3D.new()
+	area.name = "SalesBoardInspection"
+	area.collision_layer = 1
+	area.collision_mask = 0
+	area.monitoring = false
+	var shape_node := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(1.58, 2.06, 0.28)
+	shape_node.shape = shape
+	area.add_child(shape_node)
+	add_child(area)
+	_inspection_tap = AudioStreamPlayer3D.new()
+	_inspection_tap.stream = PropAudio.get_stream("tick")
+	_inspection_tap.volume_db = -18.0
+	_inspection_tap.max_distance = 3.5
+	add_child(_inspection_tap)
+
+
+func interact_prompt() -> String:
+	return "[E]  Inspect original Orison broadside"
+
+
+func interact(_player: Node = null) -> Dictionary:
+	_inspection_tap.pitch_scale = 0.84
+	_inspection_tap.play()
+	if _inspection_tween and _inspection_tween.is_valid():
+		_inspection_tween.kill()
+	if _inspection_boss:
+		_inspection_boss.position.z = _inspection_boss_rest_z
+		_inspection_tween = create_tween()
+		_inspection_tween.tween_property(_inspection_boss, "position:z",
+				_inspection_boss_rest_z + 0.008, 0.08)
+		_inspection_tween.tween_property(_inspection_boss, "position:z",
+				_inspection_boss_rest_z, 0.18)
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	return PropServiceWire.card("notice_board", {
+		"notice_state": "ORIGINAL BROADSIDE / TWO LATER SERVICE SLIPS",
+		"board_state": "WARPED / FRAME FASTENED",
+	})
 
 
 func _process(delta: float) -> void:

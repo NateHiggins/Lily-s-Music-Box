@@ -228,6 +228,57 @@ func _ready() -> void:
 			and str(jukebox_return_card.get("condition", "")).contains(
 					"COIN RETURN RETURNED"))
 
+	var witness := DomesticWitnessClock.new()
+	witness.configure({"case_id": "TEST_SECRET_CASE", "unit": "9A",
+			"resident": "TEST SECRET RESIDENT", "style": "schoolhouse",
+			"accent": "8e2f38", "tell": "correction", "time": "04:17"})
+	add_child(witness)
+	var witness_card: Dictionary = witness.interact(hand)
+	_check("case-driven clock answers through its own neutral inspection",
+			witness.get_node_or_null("PrimaryInteraction") is Area3D
+			and witness.interact_prompt().contains("Inspect familiar clock")
+			and witness._inspect_tap.playing
+			and witness._inspect_tween.is_running()
+			and witness_card.get("card_id", "") == "winding_clock"
+			and witness_card.get("source_ids", []) == ["R019"]
+			and not str(witness_card).contains("TEST_SECRET_CASE")
+			and not str(witness_card).contains("TEST SECRET RESIDENT"))
+
+	var signal_witness := DomesticWitnessClock.new()
+	signal_witness.configure({"case_id": "TEST_SIGNAL_CASE", "unit": "9B",
+			"resident": "TEST SIGNAL RESIDENT", "style": "vantry_modular",
+			"accent": "7656a8", "tell": "sample_skip", "time": "03:33"})
+	add_child(signal_witness)
+	var signal_card: Dictionary = signal_witness.interact(hand)
+	_check("Vantry-synchronised witness keeps its signal provenance",
+			str(signal_card.get("title", "")).contains("SIGNAL CLOCK")
+			and signal_card.get("source_ids", []) == ["R034"]
+			and str(signal_card.get("condition", "")).contains(
+					"LINE SYNCHRONIZED")
+			and not str(signal_card).contains("TEST_SIGNAL_CASE"))
+
+	var bulletin := LobbyBulletinBoard.new()
+	add_child(bulletin)
+	var bulletin_card: Dictionary = bulletin.interact(hand)
+	_check("lobby notice owner answers with one pinned-sheet touch",
+			bulletin.get_node_or_null("NoticeBoardInspection") is Area3D
+			and bulletin._inspection_tap.playing
+			and bulletin._inspection_tween.is_running()
+			and bulletin_card.get("card_id", "") == "notice_board"
+			and str(bulletin_card.get("condition", "")).contains(
+					"SIX PINNED / TWO OVERFLOW"))
+
+	var sales_board := LobbyOrisonAdBoard.new()
+	add_child(sales_board)
+	var sales_card: Dictionary = sales_board.interact(hand)
+	_check("original sales broadside answers at its real frame",
+			sales_board.get_node_or_null("SalesBoardInspection") is Area3D
+			and sales_board._inspection_tap.playing
+			and sales_board._inspection_tween.is_running()
+			and sales_card.get("card_id", "") == "notice_board"
+			and str(sales_card.get("condition", "")).contains(
+					"ORIGINAL BROADSIDE"))
+
 	await get_tree().create_timer(0.03).timeout
 	await get_tree().process_frame
 	await get_tree().process_frame

@@ -40,6 +40,11 @@ const SPILLED := [
 const NOTE_W := 0.205
 const NOTE_H := 0.256
 
+var _inspection_sheet: MeshInstance3D
+var _inspection_sheet_rest_z := 0.0
+var _inspection_tap: AudioStreamPlayer3D
+var _inspection_tween: Tween
+
 
 func _ready() -> void:
 	name = "LobbyBulletinBoard"
@@ -73,6 +78,7 @@ func _ready() -> void:
 		_notice(spec, 0.024, brass)
 	for spec in SPILLED:
 		_notice(spec, 0.008, brass)
+	_build_inspection_owner(Vector3(1.42, 0.78, 0.20))
 
 
 ## One pinned sheet. The pin is a real head above the paper, because the
@@ -97,6 +103,9 @@ func _notice(spec: Dictionary, depth: float,
 	sheet.position = Vector3(at.x, at.y, depth)
 	sheet.rotation.z = float(spec["tilt"])
 	add_child(sheet)
+	if _inspection_sheet == null:
+		_inspection_sheet = sheet
+		_inspection_sheet_rest_z = depth
 	var pin := MeshInstance3D.new()
 	var head := CylinderMesh.new()
 	head.top_radius = 0.007
@@ -108,6 +117,51 @@ func _notice(spec: Dictionary, depth: float,
 	pin.rotation_degrees.x = 90
 	pin.position = Vector3(at.x, at.y + NOTE_H * 0.5 - 0.014, depth + 0.006)
 	add_child(pin)
+
+
+func _build_inspection_owner(size: Vector3) -> void:
+	var area := Area3D.new()
+	area.name = "NoticeBoardInspection"
+	area.collision_layer = 1
+	area.collision_mask = 0
+	area.monitoring = false
+	var shape_node := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = size
+	shape_node.shape = shape
+	area.add_child(shape_node)
+	add_child(area)
+	_inspection_tap = AudioStreamPlayer3D.new()
+	_inspection_tap.stream = PropAudio.get_stream("tick")
+	_inspection_tap.volume_db = -19.0
+	_inspection_tap.max_distance = 3.5
+	add_child(_inspection_tap)
+
+
+func interact_prompt() -> String:
+	return "[E]  Inspect lobby notices"
+
+
+func interact(_player: Node = null) -> Dictionary:
+	_inspection_tap.pitch_scale = 1.12
+	_inspection_tap.play()
+	if _inspection_tween and _inspection_tween.is_valid():
+		_inspection_tween.kill()
+	if _inspection_sheet:
+		_inspection_sheet.position.z = _inspection_sheet_rest_z
+		_inspection_tween = create_tween()
+		_inspection_tween.tween_property(_inspection_sheet, "position:z",
+				_inspection_sheet_rest_z + 0.006, 0.08)
+		_inspection_tween.tween_property(_inspection_sheet, "position:z",
+				_inspection_sheet_rest_z, 0.18)
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	return PropServiceWire.card("notice_board", {
+		"notice_state": "SIX PINNED / TWO OVERFLOW",
+		"board_state": "CORK DRY / OLD NOTICES RETAINED",
+	})
 
 
 func _finish(c: Color, rough: float, metal: float) -> StandardMaterial3D:
