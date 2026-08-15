@@ -102,6 +102,7 @@ specific player claim, and no cultural representation claim.
 | R049 | D. R. White, [US1342786A Plant-Irrigating Device](https://patents.google.com/patent/US1342786A/en) | Capillary attraction can carry moisture into the earth around roots in a flower pot. | Expired patent; leaf orientation remains case-owned. | dynamic `houseplant` owner result |
 | R050 | A. C. Pegan, [US840800A Locked Coat Hook](https://patents.google.com/patent/US840800A/en) | A wall-secured supporting base and projecting arm carry a garment load. | Expired patent; the additional hook remains case-owned. | dynamic `coat_hook` owner result |
 | R051 | H. E. Warren, [US1283431A Electric Clock System](https://patents.google.com/patent/US1283431A/en) | A synchronous motor can distribute time indications through an alternating-current system and remain regulated against a standard clock. | Expired patent; Vantry's signal, sealed case and permanent four-minute error remain authored fiction. | Vantry `winding_clock` owner result |
+| R052 | William M. Kelly, [US1097332A Paper Fastener](https://patents.google.com/patent/US1097332A/en), and George and William W. Gillespie, [US1369420A Thumb-Tack Tool](https://patents.google.com/patent/US1369420A/en) | Kelly's 1914 fastener clamps a file so loose sheets cannot work into it; the Gillespies' 1921 magazine tool carries, applies and removes thumb tacks at a drawing board. | Expired patents; supports only the fastening mechanics, never the authored paper contents. | `papers`, `pinboard` |
 
 ## 4. Copy audit
 

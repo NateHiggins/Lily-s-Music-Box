@@ -764,6 +764,28 @@ func _plumbing_checks() -> void:
 				and owner.furniture_kind == "jukebox")
 	_check(jukebox_owners.size() == 1,
 			"the baked Passage jukebox regains one local mechanism owner")
+	var paper_owners := get_tree().get_nodes_in_group(
+			"baked_furniture_interactions").filter(func(owner):
+		return owner is BakedFurnitureInteraction \
+				and owner.furniture_kind == "papers")
+	var pinboard_owners := get_tree().get_nodes_in_group(
+			"baked_furniture_interactions").filter(func(owner):
+		return owner is BakedFurnitureInteraction \
+				and owner.furniture_kind == "pinboard")
+	_check(paper_owners.size() == 14 and pinboard_owners.size() == 8,
+			"all 22 baked paper assemblies regain one neutral inspection owner")
+	if not paper_owners.is_empty() and not pinboard_owners.is_empty():
+		var sample_papers := paper_owners[0] as BakedFurnitureInteraction
+		var paper_card: Dictionary = sample_papers.interact(root.player)
+		var sample_pinboard := pinboard_owners[0] as BakedFurnitureInteraction
+		var pinboard_card: Dictionary = sample_pinboard.interact(root.player)
+		_check(sample_papers._paper_tween.is_running()
+				and sample_pinboard._paper_tween.is_running()
+				and paper_card.get("source_ids", []) == ["R052"]
+				and pinboard_card.get("source_ids", []) == ["R052"]
+				and not str(paper_card).contains(sample_papers.record_id)
+				and not str(pinboard_card).contains(sample_pinboard.record_id),
+				"production papers answer physically without exposing source ids")
 	if jukebox_owners.size() == 1:
 		var jukebox := jukebox_owners[0] as BakedFurnitureInteraction
 		var selector := jukebox.get_node("SelectorReach") as PropControlArea

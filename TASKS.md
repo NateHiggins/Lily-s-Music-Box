@@ -1002,6 +1002,14 @@ it.
     without choosing a resident or inventing call state. The Vantry reference
     clock answers through its actual sealed setting cover: a metal rattle and
     sourced line-clock condition, never a false winding or adjustment verb.
+    All 14 baked loose-paper stacks and eight pinboards now have one exact
+    record-aligned inspection owner. One paper corner lifts or one tack presses;
+    no sheet/card receives its own collider. A closed 22-id table reconciles
+    every generated record, including the bodega and Harukiya papers, to
+    clue-safe visible category and authority copy. It never reads Mina/case
+    state or prints paper contents. Period copy now cites William M. Kelly's
+    1914 paper fastener and the Gillespies' 1921 thumb-tack tool directly rather
+    than borrowing apartment-mailbox provenance.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street

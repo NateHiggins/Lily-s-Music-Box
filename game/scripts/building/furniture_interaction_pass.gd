@@ -9,6 +9,8 @@ const ACTIVE_KINDS := {
 	"radio": true,
 	"wardrobe": true,
 	"jukebox": true,
+	"papers": true,
+	"pinboard": true,
 }
 
 var owners: Array[BakedFurnitureInteraction] = []

@@ -14,11 +14,40 @@ const JUKEBOX_TRACKS := [
 	"stripes_of_velvet",
 	"that_was_selection",
 ]
+## The layout id, not nearby case state, owns the neutral description.  This is
+## deliberately a closed table: adding a paper assembly without deciding whose
+## working copy it is must fail the I4 proof instead of printing guessed text.
+const PAPER_OWNER_COPY := {
+	"1A_story_lesson_notes": {"subject": "LESSON NOTES", "authority": "RESIDENT WORKING COPY"},
+	"1A_story_classboard": {"subject": "CLASS NOTICES", "authority": "RESIDENT TEACHING BOARD"},
+	"1D_story_rota": {"subject": "SHIFT ROTA", "authority": "RESIDENT WORKING COPY"},
+	"retail_bod_papers": {"subject": "COUNTER SHEETS", "authority": "BODEGA WORKING COPY"},
+	"retail_bar_lit_paper": {"subject": "LOOSE BAR SHEETS", "authority": "HARUKIYA WORKING COPY"},
+	"2A_pinboard": {"subject": "WORKING CARDS", "authority": "RESIDENT WORKING BOARD"},
+	"2A_papers": {"subject": "WORKING SHEETS", "authority": "RESIDENT COPY WITHHELD"},
+	"2B_story_patterns": {"subject": "PATTERN SHEETS", "authority": "RESIDENT WORKING COPY"},
+	"2B_story_pattern_board": {"subject": "PATTERN BOARD", "authority": "RESIDENT WORKING BOARD"},
+	"3D_lyrics": {"subject": "LYRIC SHEETS", "authority": "RESIDENT WORKING COPY"},
+	"4A_story_briefs": {"subject": "BRIEF SHEETS", "authority": "RESIDENT WORKING COPY"},
+	"4A_story_deadlines": {"subject": "DEADLINE CARDS", "authority": "RESIDENT WORKING BOARD"},
+	"4C_story_drawings": {"subject": "DRAWING SHEETS", "authority": "HOUSEHOLD WORKING COPY"},
+	"4C_story_familyboard": {"subject": "HOUSEHOLD CARDS", "authority": "HOUSEHOLD WORKING BOARD"},
+	"5A_pins1": {"subject": "TENANT NOTICES", "authority": "RESIDENT WORKING BOARD"},
+	"5A_pins2": {"subject": "TENANT NOTES", "authority": "RESIDENT WORKING BOARD"},
+	"5A_papers1": {"subject": "TENANT SHEETS", "authority": "RESIDENT WORKING COPY"},
+	"5A_papers2": {"subject": "REVISION SHEETS", "authority": "RESIDENT WORKING COPY"},
+	"5C_story_studies": {"subject": "COLOUR STUDIES", "authority": "RESIDENT WORKING COPY"},
+	"5C_story_colorboard": {"subject": "COLOUR CARDS", "authority": "RESIDENT WORKING BOARD"},
+	"6A_detail_capture_papers": {"subject": "CONTACT SHEETS", "authority": "RESIDENT WORKING COPY"},
+	"6B_story_draft": {"subject": "DRAFT SHEETS", "authority": "RESIDENT WORKING COPY"},
+}
 
 var furniture_kind := ""
 var record_id := ""
 var owner_unit := ""
 var _record_width := 1.3
+var _record_height := 0.6
+var _record_count := 0
 var _case_wood := "wood_dark"
 var _refilling := false
 var _lever: Node3D
@@ -45,6 +74,11 @@ var _jukebox_coin_return: Node3D
 var _jukebox_sign_material: StandardMaterial3D
 var _jukebox_selector_tween: Tween
 var _jukebox_coin_tween: Tween
+var _paper_profile: Dictionary = {}
+var _paper_touch: Node3D
+var _paper_touch_home := Vector3.ZERO
+var _paper_tap: AudioStreamPlayer3D
+var _paper_tween: Tween
 
 
 func setup(spec: Dictionary) -> void:
@@ -52,7 +86,14 @@ func setup(spec: Dictionary) -> void:
 	record_id = str(spec.get("id", furniture_kind))
 	owner_unit = record_id.get_slice("_", 0)
 	_record_width = float(spec.get("W", 1.3))
+	_record_height = float(spec.get("H", 0.6))
+	_record_count = int(spec.get("cards", 12)) if furniture_kind == "pinboard" \
+			else int(spec.get("n", 6))
 	_case_wood = str(spec.get("case_wood", "wood_dark"))
+	if furniture_kind == "papers" or furniture_kind == "pinboard":
+		_paper_profile = (PAPER_OWNER_COPY.get(record_id, {}) as Dictionary).duplicate()
+		if _paper_profile.is_empty():
+			push_error("Paper interaction lacks authored owner copy: %s" % record_id)
 	name = "Service_%s" % record_id
 	add_to_group("baked_furniture_interactions")
 	set_meta("furniture_record_id", record_id)
@@ -65,7 +106,63 @@ func _ready() -> void:
 		"radio": _build_radio_control()
 		"wardrobe": _build_wardrobe_control()
 		"jukebox": _build_jukebox_control()
+		"papers", "pinboard": _build_paper_control()
 		_: push_error("No baked furniture interaction for %s" % furniture_kind)
+
+
+func _build_paper_control() -> void:
+	if _paper_profile.is_empty():
+		return
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	if furniture_kind == "papers":
+		var stack_top := maxf(0.005, float(maxi(0, _record_count - 1)) * 0.0075 + 0.005)
+		shape.size = Vector3(0.38, maxf(0.10, stack_top + 0.05), 0.42)
+		collision.position = Vector3(0.0, shape.size.y * 0.5, 0.0)
+	else:
+		shape.size = Vector3(_record_width + 0.08, _record_height + 0.08, 0.10)
+		collision.position = Vector3(0.0, _record_height * 0.5, -0.018)
+	collision.shape = shape
+	add_child(collision)
+
+	# The stack/board remains part of the floor buffer.  A single paper corner
+	# or tack head supplies visible hand acknowledgement without child targets
+	# over every sheet.
+	_paper_touch = Node3D.new()
+	_paper_touch.name = "PaperCorner" if furniture_kind == "papers" else "BoardTack"
+	add_child(_paper_touch)
+	var mesh_node := MeshInstance3D.new()
+	if furniture_kind == "papers":
+		var paper_mesh := BoxMesh.new()
+		paper_mesh.size = Vector3(0.11, 0.004, 0.14)
+		mesh_node.mesh = paper_mesh
+		_paper_touch.position = Vector3(0.045,
+				maxf(0.007, float(maxi(0, _record_count - 1)) * 0.0075 + 0.008),
+				-0.065)
+		mesh_node.material_override = MatLib.get_mat("paper",
+				Color(0.80, 0.76, 0.64), 0.82)
+	else:
+		var tack_mesh := CylinderMesh.new()
+		tack_mesh.top_radius = 0.011
+		tack_mesh.bottom_radius = 0.011
+		tack_mesh.height = 0.012
+		tack_mesh.radial_segments = 10
+		mesh_node.mesh = tack_mesh
+		mesh_node.rotation_degrees.x = 90.0
+		_paper_touch.position = Vector3(-_record_width * 0.30,
+				_record_height * 0.72, -0.038)
+		mesh_node.material_override = MatLib.get_mat("brass_dull",
+				Color(0.58, 0.46, 0.25), 0.46)
+	_paper_touch.add_child(mesh_node)
+	_paper_touch_home = _paper_touch.position
+
+	_paper_tap = AudioStreamPlayer3D.new()
+	_paper_tap.name = "PaperHandlingTick"
+	_paper_tap.stream = PropAudio.get_stream("tick")
+	_paper_tap.volume_db = -24.0
+	_paper_tap.unit_size = 1.0
+	_paper_tap.max_distance = 5.0
+	add_child(_paper_tap)
 
 
 func _build_toilet_control() -> void:
@@ -327,6 +424,10 @@ func interact_prompt() -> String:
 				else "[E] Open private wardrobe"
 	if furniture_kind == "jukebox":
 		return control_prompt("selector")
+	if furniture_kind == "papers":
+		return "[E] Inspect working papers"
+	if furniture_kind == "pinboard":
+		return "[E] Inspect pin board"
 	return ""
 
 
@@ -337,6 +438,8 @@ func interact(_player: Node = null) -> Dictionary:
 		return _interact_wardrobe()
 	if furniture_kind == "jukebox":
 		return interact_control("selector", _player)
+	if furniture_kind == "papers" or furniture_kind == "pinboard":
+		return _inspect_paperwork()
 	if furniture_kind != "toilet": return {}
 	if _refilling:
 		# The handle still gives under an impatient second hand, but the stored
@@ -361,6 +464,40 @@ func interact(_player: Node = null) -> Dictionary:
 			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	_flush_tween.tween_interval(2.1)
 	_flush_tween.tween_callback(_finish_refill)
+	return service_wire_card()
+
+
+func _inspect_paperwork() -> Dictionary:
+	if _paper_profile.is_empty() or _paper_touch == null:
+		return {}
+	_paper_tap.pitch_scale = randf_range(0.96, 1.04)
+	_paper_tap.play()
+	if _paper_tween and _paper_tween.is_valid():
+		_paper_tween.kill()
+	_paper_touch.position = _paper_touch_home
+	_paper_touch.rotation = Vector3.ZERO
+	_paper_tween = create_tween()
+	if furniture_kind == "papers":
+		_paper_tween.set_parallel(true)
+		_paper_tween.tween_property(_paper_touch, "position:y",
+				_paper_touch_home.y + 0.014, 0.08) \
+				.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		_paper_tween.tween_property(_paper_touch, "rotation:x",
+				deg_to_rad(-7.0), 0.08) \
+				.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		_paper_tween.chain().tween_property(_paper_touch, "position:y",
+				_paper_touch_home.y, 0.16) \
+				.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		_paper_tween.parallel().tween_property(_paper_touch, "rotation:x",
+				0.0, 0.16) \
+				.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	else:
+		_paper_tween.tween_property(_paper_touch, "position:z",
+				_paper_touch_home.z + 0.010, 0.06) \
+				.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		_paper_tween.tween_property(_paper_touch, "position:z",
+				_paper_touch_home.z, 0.14) \
+				.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	return service_wire_card()
 
 
@@ -475,6 +612,24 @@ func _on_jukebox_finished() -> void:
 
 
 func service_wire_card() -> Dictionary:
+	if furniture_kind == "papers":
+		if _paper_profile.is_empty():
+			return {}
+		return PropServiceWire.card("papers", {
+			"paper_state": "%d SHEETS / %s" % [
+					_record_count, str(_paper_profile.get("subject", ""))],
+			"owner_condition": str(_paper_profile.get("authority", "")),
+		})
+	if furniture_kind == "pinboard":
+		if _paper_profile.is_empty():
+			return {}
+		var notice_count := "EMPTY" if _record_count == 0 \
+				else "%d PINNED" % _record_count
+		return PropServiceWire.card("pinboard", {
+			"notice_state": "%s / %s" % [notice_count,
+					str(_paper_profile.get("subject", ""))],
+			"owner_condition": str(_paper_profile.get("authority", "")),
+		})
 	if furniture_kind == "radio":
 		return PropServiceWire.card("radio", {
 			"power_state": "ON" if _powered else "OFF",

@@ -168,10 +168,10 @@ is stated explicitly.
 | `micstand` | 3 / F01–F03 | Songbook activity owns bar mic only | **RESIST-REFUSE** | Bar mic can be busy/not recording; resident mics are private/connected. Source-aware refusal required. |
 | `mug` | 28 / B1, F01–F06 | — | **INSPECT** | One table-setting cluster; no pickup system. |
 | `nightstand` | 21 / F01–F06 | — | **INSPECT** | Surface condition only; no invented drawer interior. |
-| `papers` | 14 / F01–F06 | Case owner for authored evidence only | **INSPECT** | Never expose case answer in neutral card. |
+| `papers` | 14 / F01–F06 | `FurnitureInteractionPass`; one record-aligned stack owner and lifted corner | **INSPECT** | Landed I4; closed source-id table names only visible working category/authority. No paper text or case answer enters the neutral card. |
 | `partstray` | 2 / F03 | — | **INSPECT** | Named parts tray as one cluster. |
 | `pedalboard` | 1 / F02 | — | **RESIST-REFUSE** | Connected resident rig; footswitch click may answer but does not alter routing. |
-| `pinboard` | 8 / F01, F02, F04, F05 | Case owner where authored | **INSPECT** | One board target; case-safe text source. |
+| `pinboard` | 8 / F01, F02, F04, F05 | `FurnitureInteractionPass`; one board-sized owner and one pressed tack | **INSPECT** | Landed I4; exactly one target per board, including the empty pattern board. Case transitions remain with their existing owners. |
 | `pipe` | 781 / all floors | Radiator/boiler/service endpoints own action | **AMBIENT ARCHITECTURE** | Explicit bulk exclusion; no pipe-by-pipe collision. |
 | `plant` | 28 / B1, F01, F03, roof | — | **INSPECT** | One pot/bed cluster per foreground grouping. |
 | `plantable` | 1 / F05 | — | **OPERATE** | Add soil/planting state only if the existing gardening activity owns it; otherwise an honest refusal. |
@@ -275,6 +275,13 @@ attach one collider to the merged batch and call hundreds of objects covered.
    directory owner depresses a real call button and reports the bell's current
    response, while the Vantry reference clock rattles its sealed setting cover
    and refuses adjustment without interrupting house time.
+   All 14 loose-paper assemblies and eight pinboards now regain one
+   record-aligned `FurnitureInteractionPass` owner. A single top corner lifts
+   or a single tack depresses; there are no per-sheet/card child targets. The
+   closed 22-id attribution table includes the bodega and Harukiya working
+   sheets, reports only visible count/category and public authority, and never
+   reads case state or paper contents. The generator record set must equal that
+   table exactly or the focused proof fails.
 4. Add sparse inspection/refusal zones to the named set heroes in §5–§8.
 5. Leave bulk pipework, fixture meshes, tables, chairs, shell geometry, weather,
    trim, shelf repeats and portal proxies ambient. Count them in the proof; do

@@ -292,6 +292,77 @@ func _ready() -> void:
 			and str(jukebox_return_card.get("condition", "")).contains(
 					"COIN RETURN RETURNED"))
 
+	var layout_file := FileAccess.open(
+			"res://data/building_layout.json", FileAccess.READ)
+	var layout_data: Variant = JSON.parse_string(
+			layout_file.get_as_text() if layout_file else "")
+	var paper_specs: Array[Dictionary] = []
+	var paper_ids := {}
+	var loose_count := 0
+	var board_count := 0
+	if layout_data is Dictionary:
+		for floor_entry in (layout_data as Dictionary).get("floors", []):
+			var floor_spec: Dictionary = floor_entry
+			for furniture_entry in floor_spec.get("furniture", []):
+				var furniture_spec: Dictionary = furniture_entry
+				var paper_kind := str(furniture_spec.get("asm", ""))
+				if paper_kind != "papers" and paper_kind != "pinboard":
+					continue
+				paper_specs.append(furniture_spec.duplicate(true))
+				paper_ids[str(furniture_spec.get("id", ""))] = true
+				if paper_kind == "papers":
+					loose_count += 1
+				else:
+					board_count += 1
+	var copy_ids := {}
+	for copy_id in BakedFurnitureInteraction.PAPER_OWNER_COPY:
+		copy_ids[str(copy_id)] = true
+	_check("paper attribution closes over every generated source record",
+			loose_count == 14 and board_count == 8
+			and paper_ids == copy_ids)
+	var complete_papers := 0
+	var exact_paper_collisions := 0
+	for paper_spec in paper_specs:
+		var paper_owner := BakedFurnitureInteraction.new()
+		paper_owner.setup(paper_spec)
+		add_child(paper_owner)
+		var paper_card: Dictionary = paper_owner.service_wire_card()
+		var collisions := paper_owner.get_children().filter(func(child):
+			return child is CollisionShape3D)
+		if collisions.size() == 1:
+			exact_paper_collisions += 1
+		if not str(paper_card.get("title", "")).is_empty() \
+				and not str(paper_card.get("body", "")).is_empty() \
+				and not str(paper_card.get("condition", "")).is_empty() \
+				and paper_card.get("source_ids", []) == ["R052"] \
+				and not str(paper_card).contains(paper_owner.record_id):
+			complete_papers += 1
+	_check("all 22 paper assemblies have one owner and clue-safe sourced copy",
+			complete_papers == 22 and exact_paper_collisions == 22)
+
+	var papers := BakedFurnitureInteraction.new()
+	papers.setup({"id": "2A_papers", "asm": "papers", "n": 5})
+	add_child(papers)
+	var papers_card: Dictionary = papers.interact(hand)
+	var pinboard := BakedFurnitureInteraction.new()
+	pinboard.setup({"id": "2B_story_pattern_board", "asm": "pinboard",
+			"W": 0.66, "H": 0.66, "cards": 0})
+	add_child(pinboard)
+	var pinboard_card: Dictionary = pinboard.interact(hand)
+	_check("loose sheets lift and report count without printing their words",
+			papers._paper_tap.playing and papers._paper_tween.is_running()
+			and papers_card.get("card_id", "") == "papers"
+			and str(papers_card.get("condition", "")).contains("5 SHEETS")
+			and str(papers_card.get("condition", "")).contains("COPY WITHHELD")
+			and not str(papers_card).contains("Mina")
+			and not str(papers_card).contains("caption"))
+	_check("empty pin board still answers through its one physical tack",
+			pinboard._paper_tap.playing and pinboard._paper_tween.is_running()
+			and pinboard_card.get("card_id", "") == "pinboard"
+			and str(pinboard_card.get("condition", "")).contains("EMPTY")
+			and str(pinboard_card.get("condition", "")).contains(
+					"RESIDENT WORKING BOARD"))
+
 	var witness := DomesticWitnessClock.new()
 	witness.configure({"case_id": "TEST_SECRET_CASE", "unit": "9A",
 			"resident": "TEST SECRET RESIDENT", "style": "schoolhouse",
