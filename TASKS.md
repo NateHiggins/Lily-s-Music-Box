@@ -948,6 +948,74 @@ and the four isolated roof fixtures now terminating at a real riser.
   ORISON room streaming, HLOD, distance LOD and notifier-based gates still do
   not exist. This is one proven zone boundary, not a general streaming system.
 
+## I — Prop and set interaction review / the service wire
+
+Owner ruling 2026-08-15; design contract in `design/PROP_ACTIVITIES.md`,
+“THE SERVICE WIRE ANSWERS BACK.” This is a deliberate production pass, not a
+license to add collision and popups to every wall panel. It enters the queue
+after the currently sequenced dream work unless the owner explicitly promotes
+it.
+
+- **I1 — Inventory before implementation.** Generate a durable
+  `design/PROP_SET_INTERACTION_MATRIX.md` from the current production scene,
+  `building_layout.json`, shop assemblies, `FunctionalProp` subclasses and
+  root-built set pieces. One row per foreground type/hero assembly, with live
+  instance count, location/owner, existing E owner, current reaction, sound,
+  persistence, work-order/case dependencies and one ruled classification:
+  **OPERATE / INSPECT / RESIST-REFUSE / AMBIENT ARCHITECTURE**. Reconcile the
+  current 203 functional E owners, every non-Functional interaction and every
+  visually prominent set hero. Merged buffers are not source provenance; use
+  generator records or an unmerged diagnostic where identity is ambiguous.
+- **I2 — Research and write the period copy.** Create
+  `design/PROP_TRIVIA_RESEARCH.md` as the internal source ledger and one
+  data-driven production book (proposed `game/data/prop_service_wire.json`).
+  Every handled/inspected/refusing row gets a terse original card: honest object
+  name, sourced pre-1929 fact, and state-aware present-condition line. Record
+  source URL/title, access date, supported claim, jurisdiction/cultural review
+  where relevant, and which card consumes it. No unsupported exact prices,
+  dates, quotations or inventor folklore; no copied archival prose; no case or
+  dream spoilers. Resident variants must come from resident/case authority, not
+  demographic shorthand.
+- **I3 — One presenter, no new lifecycle owner.** Build a shared non-modal
+  telegram/service-wire info box using ruled paper, stamp/type typography and
+  economical `STOP` syntax. E must operate the object on the same frame; the
+  card cannot set `call_locked`, steal focus, pause movement or become a second
+  interaction verb. A new card replaces the old one, repeated toggles update the
+  condition, long text wraps safely, and font size/contrast/reduced-typewriter
+  accessibility settings are owned here. No prop-specific Control trees.
+- **I4 — Complete the physical response pass.** For every matrix row not marked
+  ambient, make E answer appropriately. OPERATE receives a reversible mechanism
+  and authored click/clunk/scrape/hum; INSPECT receives a restrained close-look
+  or material/audio acknowledgment; RESIST-REFUSE receives a visible/audible
+  attempted action and specific reason. Preserve existing authoritative owners:
+  the presenter may read refrigerator state, for example, but never open the
+  door itself. No silent prompt, silent failure or generic animation pasted
+  across unrelated mechanisms.
+- **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
+  desk, basement plant and laundry, representative apartments, roof, street
+  furniture and the service set in hand. Give foreground ledgers, counters,
+  crates, repair plates, machines and hero dressing an inspect/refusal contract
+  where movement would be dishonest. Repeated architecture, inaccessible trim,
+  rain dressing and bulk shelf stock stay ambient and must be explicitly counted
+  as such rather than quietly omitted.
+- **I6 — Deterministic proof gate.** Add a production-scene audit that fails on
+  any registered E target without a valid card, any non-ambient matrix row with
+  no reachable collision owner, any OPERATE row with no observable before/after
+  state, or any RESIST-REFUSE row that returns silently. Prove all 18 fridges
+  open and close, seating still releases on the second E, gameplay-bearing props
+  preserve their existing transitions, and saved state reconstructs the correct
+  condition line. The audit prints coverage by class and by zone with zero
+  unattributed foreground heroes.
+- **I7 — Render, usability and performance gate.** Produce paired captures in a
+  kitchen, Passage shop, lobby, basement and street at 16:9, ultrawide and touch
+  scale, including rapid interaction replacement and a long localized line.
+  Prove the card never obscures the crosshair/interaction target or protected UI.
+  The content library and areas add no per-frame prop callbacks; profile the
+  presenter closed, visible and rapidly replaced. Run one Godot at a time under
+  60 seconds: focused interaction audit, service-set test, maintenance counter,
+  relevant case tests and WalkTest FULL x8/480. Document and commit the matrix,
+  research ledger, data, code, captures and exact result before closing I.
+
 ## H — Housekeeping
 
 - **H2** **`C:\FPSengine01` is not a git repository.** The entire compiler side —

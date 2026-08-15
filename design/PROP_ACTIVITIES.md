@@ -1,10 +1,74 @@
 # Every interactive prop, and what you do with it
 
-Audit of all 55 prop scripts in `game/scripts/props/`, recounted
-2026-08-09. Twenty-six currently answer `interact_prompt()`; twenty-nine
-are inert scenery. This proposes an activity for everything worth one, says
-plainly what should be left alone, and gives the implementation for
-each.
+Original audit of all 55 prop scripts in `game/scripts/props/`, recounted
+2026-08-09. Twenty-six then answered `interact_prompt()` and twenty-nine were
+inert scenery. Q6's 2026-08-15 universal-E pass now finds 203 instantiated
+`FunctionalProp`s that publish an authored verb, all with a ray owner; the
+original type-by-type proposals below remain the design audit rather than a
+current implementation count.
+
+## OWNER AMENDMENT 2026-08-15 — THE SERVICE WIRE ANSWERS BACK
+
+Every **authored interaction** acknowledges E twice: the object answers in the
+world, when a physical answer is appropriate, and a small telegram-like service
+card supplies one useful piece of period texture. This is not permission to put
+a button on every brick or turn the building into a museum touchscreen. It is a
+review of foreground props and legible set dressing: if the composition asks the
+player to notice or handle a thing, it must no longer receive a dead E press.
+
+The card is a **non-modal service-wire strip**, not a literal telegram magically
+sent whenever a cupboard opens. It borrows telegram typography, ruled paper,
+stamped headings and terse `STOP` rhythm from the player's superintendent's
+handbook and work-order world. It never sets `call_locked`, never delays the
+mechanism, never takes mouse focus, and a new card replaces rather than stacks
+over the previous one. Desktop, controller and touch all use the same E event.
+
+Each card has three short parts:
+
+1. **THING / PLACE** — the player's honest name for the object and, when useful,
+   its room or proprietor;
+2. **PERIOD FACT** — one or two lines explaining a material, mechanism, trade,
+   domestic habit, price, slang term or maintenance practice available to this
+   world by 1928;
+3. **PRESENT CONDITION** — a state-aware observation: open, shut, hot, empty,
+   jammed, private, recently repaired, humming through the wall.
+
+The voice is compressed and delighted, not encyclopedic. `ONE-PIPE STEAM // AIR
+MUST LEAVE BEFORE STEAM CAN ENTER. STOP.` is useful. A paragraph copied from an
+encyclopedia is not. Exact dates, prices, quotations, inventions and cultural
+claims require a source in the internal research ledger; an attractive fact we
+cannot support is cut. Cards are newly written game text, never pasted archival
+copy. Household-specific lines must come from owned resident/case data rather
+than stereotypes, and no card may leak a case answer or the dream reveal.
+
+### What “everything reacts” means
+
+Every reviewed foreground object receives exactly one classification:
+
+- **OPERATE** — a plausible reversible mechanism answers: door, drawer, latch,
+  switch, valve, lid, winding key, selector. Movement and its authored sound are
+  immediate; the card describes the new condition.
+- **INSPECT** — the thing has no sensible moving part, but E produces a close
+  material/audio acknowledgment and its service card. A ledger, print, crate or
+  worn repair plate can be interesting without pretending to open.
+- **RESIST / REFUSE** — the attempted action is physically meaningful but cannot
+  complete: locked, seized, too hot, occupied, private, connected to live steam.
+  Give it a handle twitch, knock, rattle, voice response or other honest refusal
+  and say why. A silent `false` return is forbidden.
+- **AMBIENT ARCHITECTURE** — brick, floor, repeated trim, inaccessible ceiling
+  plant and visual filler remain outside the E registry. “Everything” does not
+  mean thousands of collision boxes or facts attached to wallpaper repeats.
+
+An interaction that already carries gameplay keeps its existing owner. The
+service card presents state; it does not own inventory, work orders, case flags,
+doors, appliances or persistence. Physical prop scripts continue to own their
+mechanisms. The eventual shared presenter owns only display, debounce and text
+accessibility. Static copy belongs in data, with state tokens supplied read-only
+by the mechanism at the moment E lands.
+
+This amendment extends the fidget-spinner test below rather than repealing it.
+The reaction must still be worth doing twice. The trivia is seasoning and can
+never be used to excuse a dead, frictionless or implausible mechanism.
 
 ---
 
