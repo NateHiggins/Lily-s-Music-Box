@@ -672,18 +672,22 @@ rules its five open questions.** Nothing built.
   attached work lamp and one amber ORDER jewel. Execute
   `design/VANTRY_SERVICE_RADIOPHONE_BRIEF.md`; do not make a modern radio or a
   military prop.
-- **Q2 SCOPE CORRECTED.** Retune the carried beam from the current cold LED
-  (0.78/0.87/1.0) to the radio's ordinary pre-1928 tungsten lamp, making visible
-  lens, beam origin, cull mask, carry pose and dirty warm falloff agree.
-- **Q3** Census every `PhoneCarrier` / `Phone3D` / `PhoneOS`, camera-roll and
-  cart-app consumer; classify retain, migrate, rehome or archive before deleting
-  or disabling anything.
-- **Q4** Add a device-neutral carried-light contract, prove the old handset is
-  a render-identical control through it, then build the ruled service-set model
-  and carrier without instantiating a screen viewport.
-- **Q5** Bind the single ORDER jewel read-only to `WorkOrders` open/closed state
-  and prove reported/discovered origins plus real-file restore; the device may
-  not own or advance lifecycle.
+- **Q2 DONE 2026-08-15.** The carried beam is ordinary warm tungsten; the modeled
+  lens, beam origin, cull mask, carry pose and falloff agree. **L** operates both
+  the real light and its physical lever/rear LAMP jewel.
+- **Q3 DONE.** Every `PhoneCarrier` / `Phone3D` / `PhoneOS`, camera-roll and
+  cart-app consumer is classified in `game/docs/service_set.md`. Production
+  instantiates none of the three; their source remains as measured history.
+- **Q4 DONE.** `PlayerController` owns the device-neutral carried-light contract;
+  `ServiceSetCarrier` carries a modeled, no-screen service set with no viewport
+  inside the prop. Four proof views live in `art/renders/service_set_q4/`.
+- **Q5 DONE.** ORDER reads the aggregate open-work state and never owns or
+  advances lifecycle. Reported/discovered work and persistence remain owned by
+  `WorkOrders` and are covered by their existing focused tests.
+- **Q6 DONE.** The owner-approved rear green NET and red LAMP jewels report only
+  the physical **R** radio/aerial and **L** inspection-lamp circuits. **E** is the
+  universal world verb: seats release on a second press, and all 203 functional
+  interactables (including 18 refrigerators) now own a reachable ray target.
 
 ## X — The haunting
 

@@ -3,13 +3,13 @@
 *Written 2026-08-15 after the owner replaced the carried phone with a radio and
 attached work light.*
 
-**Status: CORE DIRECTION RULED; IMPLEMENTATION PROPOSAL — OWNER REVIEW
-REQUIRED.** The owner has ruled four facts: the object in the player's hand is
-a radio, it carries its own light, it has no screen, and its only display-like
-feedback is a lamp indicating that a work order has been filed. Bible §VIII.5.j
-records those facts. The dimensions, name, control layout, audio behavior and
-migration plan below are the recommended implementation and may be tuned before
-production geometry replaces the current handset.
+**Status: CORE DIRECTION RULED; CONTROL MODEL AND PRODUCTION SWAP LANDED
+2026-08-15.** The owner ruled the radio, attached light, no-screen grammar and
+ORDER indicator, then amended the approved concept with two useful rear service
+telltales. `NET` reports aerial/radio power; `LAMP` reports the work-light
+circuit. Neither carries task information. Bible §VIII.5.j records the binding
+facts; `game/docs/service_set.md` records the implementation and dependency
+census. Radio-audio treatment remains a later pass.
 
 Concept target:
 `art/concept/device/vantry_service_radiophone_v1.png`
@@ -104,6 +104,8 @@ visible as the source of the beam.
 
 ### Back
 
+- one green **NET** jewel, lit only while the aerial powers the radio;
+- one red **LAMP** jewel, lit only while the work-light circuit is on;
 - screwed service plate, not clips;
 - pasted circuit and battery diagram inside;
 - replaceable dry-cell cassette;
@@ -129,8 +131,9 @@ is warm and imperfect: a slightly off-center filament, a dirty reflector edge
 and a hard glass falloff.
 
 The concept sheet is silhouette and material authority, not topology. The
-production model must keep the one-jewel/no-screen rule even if individual
-screws or grille perforations change for batching.
+production model must keep one **task-state** jewel and the no-screen rule even
+if individual screws or grille perforations change. The two later rear jewels
+are circuit telltales, not a second quest display.
 
 ---
 
@@ -161,6 +164,15 @@ It extinguishes on `closed`. It does not blink stage codes, change color, show
 urgency or become a quest arrow. With the current one-job proof there is no
 ambiguity. Before a second simultaneous job can ship, the designer must prove
 that one lamp remains sufficient rather than quietly turning it into Morse UI.
+
+The owner-amended rear pair is just as strict:
+
+- **NET** green — the pull aerial has powered the fixed service net;
+- **LAMP** red — the guarded lamp circuit is closed.
+
+They never report quest stage, signal strength, battery percentage or message
+content. Production maps `R` to the aerial/radio and `L` to the lamp lever;
+touch uses the same `lamp_toggle` action rather than a second code path.
 
 ---
 
@@ -238,23 +250,31 @@ Player input ------------------------> CarriedLight
 - The carrier owns pose and rendering, not radio conversations.
 - Audio owners emit radio treatment; they do not own work orders.
 
-Recommended production names:
+Production names:
 
 ```text
-game/scripts/device/carried_light.gd
 game/scripts/device/service_set_carrier.gd
 game/scripts/device/service_set_prop.gd
-game/scripts/device/service_set_indicator.gd
-game/scripts/audio/service_radio_audio.gd
 game/tests/ServiceSetTest.tscn
 game/tests/ServiceSetShot.tscn
 ```
 
-Names are proposed. The ownership boundaries are the important part.
+The neutral lamp seam landed as public methods on `PlayerController`; it did
+not need a state-duplicating node. Indicator presentation stays inside the prop
+and observes `WorkOrders` plus `RealityState`; radio conversation audio is still
+deferred.
 
 ---
 
 ## BUILD SEQUENCE
+
+Implementation record: steps 1–4 and the production half of step 6 landed on
+2026-08-15. The census is in `game/docs/service_set.md`; four acceptance frames
+are in `art/renders/service_set_q4/`. No old phone source was deleted. Step 5
+(radio treatment for a real call) and the final archive destination remain
+open. The legacy phone's historical render was retained rather than forced
+through the new silhouette; the new owner-approved production frames are the
+visual control for the deliberate replacement.
 
 1. **Dependency census.** Enumerate every production and test consumer of
    `PhoneCarrier`, `Phone3D`, `PhoneOS`, camera roll and cart apps. Classify each

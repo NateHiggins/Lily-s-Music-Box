@@ -35,6 +35,7 @@ func _ready() -> void:
 	AcousticGraphData.network_event.connect(_on_network_event)
 	AcousticGraphData.reality_event.connect(_on_reality_event)
 	_build_visual()
+	_build_primary_interaction()
 	_start_normal_function()
 
 
@@ -44,6 +45,73 @@ func _build_visual() -> void:
 
 func _start_normal_function() -> void:
 	pass
+
+
+## Every functional prop that publishes an E verb must also publish something
+## the player's physics ray can hit. Several appliances had complete animated
+## mechanisms but no CollisionObject at all; their prompts and interact()
+## methods were therefore unreachable in production. Existing authored areas
+## win (curtains, repair points, trays). Only otherwise-unreachable props get
+## this visual-bounds-derived primary area.
+func _build_primary_interaction() -> void:
+	if not has_method("interact") or not has_method("interact_prompt"):
+		return
+	if _has_interaction_area(self):
+		return
+	var bounds := _visual_bounds()
+	if bounds.size.length_squared() < 0.0001:
+		return
+	# Reach slightly proud of fitted collision so the invisible Blender hull
+	# cannot win the ray by a millimetre. It remains an Area, never a movement
+	# blocker.
+	bounds = bounds.grow(0.075)
+	var size := Vector3(
+			clampf(bounds.size.x, 0.16, 2.4),
+			clampf(bounds.size.y, 0.16, 2.4),
+			clampf(bounds.size.z, 0.16, 2.4))
+	var area := Area3D.new()
+	area.name = "PrimaryInteraction"
+	area.collision_layer = 1
+	area.collision_mask = 0
+	area.monitoring = false
+	area.monitorable = true
+	area.add_to_group("functional_interaction_areas")
+	var shape_node := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = size
+	shape_node.shape = shape
+	shape_node.position = bounds.get_center()
+	area.add_child(shape_node)
+	add_child(area)
+
+
+func _has_interaction_area(node: Node) -> bool:
+	for child in node.get_children():
+		if child is Area3D:
+			for grandchild in child.get_children():
+				if grandchild is CollisionShape3D \
+						and (grandchild as CollisionShape3D).shape != null:
+					return true
+		if _has_interaction_area(child):
+			return true
+	return false
+
+
+func _visual_bounds() -> AABB:
+	var found := false
+	var result := AABB()
+	var stack: Array[Node] = [self]
+	while not stack.is_empty():
+		var node: Node = stack.pop_back()
+		for child in node.get_children():
+			stack.append(child)
+		if node is MeshInstance3D and (node as MeshInstance3D).mesh != null:
+			var mesh_node := node as MeshInstance3D
+			var bounds := (global_transform.affine_inverse() \
+					* mesh_node.global_transform) * mesh_node.get_aabb()
+			result = bounds if not found else result.merge(bounds)
+			found = true
+	return result if found else AABB()
 
 
 ## Inspection displays, not gameplay variants. Most props have one honest

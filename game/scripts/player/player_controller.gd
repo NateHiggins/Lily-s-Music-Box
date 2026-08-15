@@ -56,8 +56,13 @@ const COOKIE := 512
 ## both the cookie's blur and the cone edge's softness — see
 ## _measure_throw. Starts mid-range so the first bake is not a jump.
 var _throw := 3.5
-## Set by building_root once the camera exists; the handset rides it.
-var phone_carrier: Node3D
+## Set by building_root once the camera exists; any carried-light model can
+## publish the same beam pose without the controller knowing its object class.
+var carried_device: Node3D
+## A seated interaction is the one world verb allowed through call_locked.
+## Keeping the owner here means E can stand up even after the seat teleports the
+## camera away from the collision volume that originally received the ray.
+var seated_interaction: Node
 var _sway_clock := 0.0
 var _stagger_left := 0.0
 var _stagger_velocity := Vector3.ZERO
@@ -77,12 +82,12 @@ func _ready() -> void:
 	camera.position = Vector3(0, STANDING_EYE, 0)
 	camera.fov = 72.0
 	add_child(camera)
-	# The torch is a phone: a blue LED under phosphor, held low in the
-	# off hand. Weak, cool, wide, and it drags a beat behind the eye —
+	# The service set carries an ordinary tungsten inspection lamp low in the
+	# off hand. Warm, weak, wide, and it drags a beat behind the eye —
 	# the hand pivot is a sibling of the camera and chases it in
 	# _process, so a fast look sweeps the beam late like a carried thing.
 	_hand = Node3D.new()
-	_hand.name = "PhoneHand"
+	_hand.name = "ServiceSetHand"
 	add_child(_hand)
 	flashlight = SpotLight3D.new()
 	# Down from 1.15 (ruled 2026-08-08). The torch was outshining the
@@ -96,14 +101,12 @@ func _ready() -> void:
 	flashlight.spot_angle = 38.0
 	flashlight.spot_angle_attenuation = 1.9
 	flashlight.spot_attenuation = 1.35
-	flashlight.light_color = Color(0.78, 0.87, 1.0)
+	flashlight.light_color = Color(1.0, 0.80, 0.56)
 	flashlight.shadow_enabled = true
-	# On from the first frame (ruled 2026-08-04): the phone rides lit in
-	# the off hand all shift. F still toggles it for the brave.
+	# On from the first frame, but no longer welded on: L operates the guarded
+	# physical lever and every input surface reaches set_lamp_enabled().
 	flashlight.visible = true
-	# The torch lights the building, not the thing holding it. Layer 2
-	# is the handset (see Phone3D.PHONE_LAYER); excluding it stops the
-	# beam blowing out the back of the phone from 6 cm away.
+	# The lamp lights the building, not the isolated object holding it.
 	flashlight.light_cull_mask = 0xFFFFF & ~(1 << 1)
 	_hand.add_child(flashlight)
 	floor_snap_length = 0.4
@@ -112,8 +115,8 @@ func _ready() -> void:
 
 func _build_hud() -> void:
 	# The beam's screen mask sits under the HUD: gl_compatibility ignores
-	# light_projector, so the torch pattern — hotspot, phosphor-blue
-	# fringe, floor spill — multiplies over the frame instead, which is
+	# light_projector, so the torch pattern — hotspot, warm fringe and
+	# floor spill — multiplies over the frame instead, which is
 	# also how a hand-held beam reads on camera. Oversized so its edges
 	# stay offscreen while the sway drifts it.
 	var mask_layer := CanvasLayer.new()
@@ -167,6 +170,10 @@ func _build_hud() -> void:
 ## What the crosshair is looking at, refreshed for the prompt line.
 func _update_prompt() -> void:
 	_prompt.text = ""
+	if is_instance_valid(seated_interaction):
+		if seated_interaction.has_method("interact_prompt"):
+			_prompt.text = seated_interaction.interact_prompt()
+		return
 	if call_locked or (not touch_input
 			and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED):
 		return
@@ -195,18 +202,28 @@ func _update_prompt() -> void:
 
 func _process(_delta: float) -> void:
 	_update_prompt()
-	_carry_phone_light(_delta)
+	_carry_service_light(_delta)
+	# E is the universal physical verb. A seat is deliberately allowed through
+	# call_locked; every other locked panel continues to own its input.
+	if Input.is_action_just_pressed("interact") \
+			and (not call_locked or is_instance_valid(seated_interaction)):
+		use_primary_interaction()
+	# These are physical switches in the hand, not modal UI. They remain usable
+	# while seated or in a protected conversation.
+	if Input.is_action_just_pressed("lamp_toggle"):
+		toggle_lamp()
+	if Input.is_action_just_pressed("radio_toggle") \
+			and carried_device and carried_device.has_method("toggle_radio_power"):
+		carried_device.toggle_radio_power()
 	if call_locked:
 		return
 	# POLLED, not event-driven. An on-screen button presses an action
 	# through Input.action_press(), which sets the action's state but never
 	# manufactures an InputEvent — so anything handled in _unhandled_input
-	# is unreachable from a touchscreen. Interact, the flashlight and
+	# is unreachable from a touchscreen. Interact, the carried lamp and
 	# crouch were all in that dead zone: the HUD button lit up and the
 	# game ignored it. Polling is the one path both a key and a thumb
 	# travel, exactly like movement already does.
-	if Input.is_action_just_pressed("interact"):
-		_try_interact()
 	if Input.is_action_just_pressed("noclip"):
 		noclip = not noclip
 		collision_layer = 0 if noclip else 1
@@ -229,36 +246,36 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
-## The phone chases the eye instead of being bolted to it. Every frame
+## The service set chases the eye instead of being bolted to it. Every frame
 ## the hand pivot slerps toward the camera's aim from just below-right
 ## of it, so a fast turn drags the beam behind the view and lets it
 ## catch up — plus a low breathing sway (bigger while walking) that the
 ## screen mask mirrors at a few pixels' amplitude.
-func _carry_phone_light(delta: float) -> void:
+func _carry_service_light(delta: float) -> void:
 	if _hand == null:
 		return
 	_sway_clock += delta * (2.6 if velocity.length() > 0.5 else 1.0)
-	# THE BEAM LEAVES THE PHONE'S LAMP. The carrier publishes the lamp's
-	# pose in camera space every frame — its position on the back of the
-	# handset, its direction down the handset's own -Z — so the light
+	# THE BEAM LEAVES THE SERVICE SET'S LAMP. The carrier publishes its
+	# pose in camera space every frame — its modeled lens position and
+	# direction down the carried object's own -Z — so the light
 	# goes wherever the hand has turned it, breathing and stride
 	# included. It used to be a spotlight at a fixed offset pointing
 	# level, with its own invented sway, beside a phone that was pitched
 	# somewhere else entirely and had no lamp modelled on it at all.
 	var hold: Transform3D
-	if phone_carrier and phone_carrier.get("beam_valid"):
-		hold = camera.transform * phone_carrier.beam_xform
+	if carried_device and carried_device.get("beam_valid"):
+		hold = camera.transform * carried_device.beam_xform
 		if _light_mask:
-			_light_mask.set_aim(phone_carrier.beam_aim)
+			_light_mask.set_aim(carried_device.beam_aim)
 	else:
-		# No handset in the scene (test rigs, mostly). Keep the old
+		# No carried model in the scene (test rigs, mostly). Keep the old
 		# hand-held offset so the building is still lit.
 		var sway := Vector3(
 				sin(_sway_clock * 1.7) * 0.008,
 				sin(_sway_clock * 3.1) * 0.006, 0.0)
 		hold = camera.transform \
 				* Transform3D(Basis(), Vector3(0.16, -0.19, -0.06) + sway)
-	# Less lag than before: the phone already trails the eye on its own
+	# Less lag than before: the carried object trails the eye on its own
 	# hand-lag, and stacking a second one on the light doubled it.
 	_bake_cookie(delta)
 	var chase := minf(1.0, delta * (16.0 if flashlight.visible else 60.0))
@@ -274,7 +291,7 @@ func _carry_phone_light(delta: float) -> void:
 func _bake_cookie(delta: float) -> void:
 	# The dummy headless renderer can return a non-null ViewportTexture whose
 	# internal RID is null; asking it for an Image prints an engine error before
-	# the empty-image guard below can run. WalkTest does not render a phone beam.
+	# the empty-image guard below can run. WalkTest does not render a carried beam.
 	if _mask_view == null or DisplayServer.get_name() == "headless":
 		return
 	_bake_due -= delta
@@ -342,8 +359,8 @@ func apply_look(rel: Vector2) -> void:
 	camera.rotate_x(-rel.y * MOUSE_SENS)
 	# The hand trails the view. One look path in, one hand lag out, so
 	# a mouse and a dragged thumb can never disagree about it.
-	if phone_carrier and phone_carrier.has_method("apply_look"):
-		phone_carrier.apply_look(rel)
+	if carried_device and carried_device.has_method("apply_look"):
+		carried_device.apply_look(rel)
 	camera.rotation.x = clampf(camera.rotation.x, -1.45, 1.45)
 
 
@@ -352,6 +369,48 @@ func _set_crouched(on: bool) -> void:
 	_capsule.height = CROUCH_HEIGHT if on else STANDING_HEIGHT
 	_shape.position.y = _capsule.height / 2.0
 	camera.position.y = CROUCH_EYE if on else STANDING_EYE
+
+
+## The device-neutral light contract. Keyboard, controller and touch all
+## change this owner; the spotlight, beam plates and physical lever follow.
+func set_lamp_enabled(on: bool) -> void:
+	flashlight.visible = on
+	if _light_mask:
+		_light_mask.visible = on
+	if _mask_view:
+		_mask_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS \
+				if on else SubViewport.UPDATE_DISABLED
+	if carried_device and carried_device.has_method("set_lamp_enabled"):
+		carried_device.set_lamp_enabled(on)
+
+
+func toggle_lamp() -> void:
+	set_lamp_enabled(not flashlight.visible)
+
+
+func lamp_is_enabled() -> bool:
+	return flashlight != null and flashlight.visible
+
+
+func begin_seated_interaction(owner: Node) -> void:
+	seated_interaction = owner
+	call_locked = true
+
+
+func end_seated_interaction(owner: Node = null) -> void:
+	if owner != null and seated_interaction != owner:
+		return
+	seated_interaction = null
+	call_locked = false
+
+
+func use_primary_interaction() -> void:
+	if is_instance_valid(seated_interaction):
+		if seated_interaction.has_method("interact"):
+			seated_interaction.interact(self)
+		return
+	if not call_locked:
+		_try_interact()
 
 
 ## Traffic supplies a world-space carry vector. Keep look and partial steering

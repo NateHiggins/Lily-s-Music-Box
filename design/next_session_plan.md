@@ -1,4 +1,4 @@
-# Next session: replace the carried phone, then prove the light binary
+# Next session: prove the light binary
 
 *Rewritten 2026-08-15. Sequencing authority beneath
 `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`.*
@@ -26,15 +26,15 @@ canonical assembly, dimensioned drawing and audit record live at
 18 source checks, 100/100 deterministic seeds, 0 unresolved. The generated
 audit records the measured seed-independent structure count.
 
-**First execute the carried-device dependency census and neutral light seam in
-`design/VANTRY_SERVICE_RADIOPHONE_BRIEF.md`.** The owner has replaced the phone
-with a no-screen Vantry service radiophone carrying a warm tungsten work lamp
-and one amber ORDER jewel. Do not keep a camera, QWERTY, CRT viewport or private
-screen games in production by renaming `PhoneCarrier`. Delete nothing until
-every consumer is classified and the old handset renders identically through
-the new device-neutral light contract.
+**The carried-device replacement is complete.** Production now carries the
+no-screen Vantry service radiophone through a device-neutral light seam; L
+operates its tungsten lamp, R operates its radio/aerial, ORDER reads open work,
+and the rear NET/LAMP lamps report their own physical circuits. The old phone
+classes remain archived source but are not instantiated. Proof and the complete
+dependency census live in `game/docs/service_set.md` and
+`art/renders/service_set_q4/README.md`.
 
-**Then begin N3 with a disposable control corridor, not production maze art.**
+**Begin N3 with a disposable control corridor, not production maze art.**
 Drive that carried-light contract through one keyboard/controller/touch toggle;
 place one invisible navigation body behind real opaque collision; measure paired
 fixed-seed runs until light-on shortens capture by at least one third, light-off
@@ -48,18 +48,15 @@ dream implementations remain out of scope.
 
 ## Execution order
 
-1. **Q3/Q4 — replace the hand safely.** Audit dependencies, add the
-   device-neutral carried-light seam, build the ruled service-set control prop
-   and stop only when the legacy render remains a measured control.
-2. **N3 — prove the binary.** Build only the disposable light/pursuit corridor
+1. **N3 — prove the binary.** Build only the disposable light/pursuit corridor
    and its fixed-seed measurement harness. Do not call the control silhouette a
    Tenant asset or retain the corridor as production geometry.
-3. **K7 — document the landed spine.** Write `game/docs/core_loop.md` from the
+2. **K7 — document the landed spine.** Write `game/docs/core_loop.md` from the
    K2–K6 code that exists. This is required before a production scene boundary
    is added.
-4. **N4 — build the shared maze runtime.** Consume the N2 catalog and topology;
+3. **N4 — build the shared maze runtime.** Consume the N2 catalog and topology;
    do not copy the drawing's control-pack coordinates into the waking world.
-5. **N5 onward — integrate one vertical slice.** Mina first, then the remaining
+4. **N5 onward — integrate one vertical slice.** Mina first, then the remaining
    case grammars only after the shared substrate passes its gates.
 
 M0.5 and M1 are closed historical milestones. Their detailed proof remains in

@@ -48,6 +48,7 @@ var world: Node = null
 
 var _case: Dictionary = {}
 var _player: Node = null
+var _seat_owner: Node = null
 var _run_id := 0
 var _started := false
 var _closed := false
@@ -284,8 +285,9 @@ func _advance() -> void:
 
 # ------------------------------------------------------------ entry/exit
 
-func enter(player: Node) -> void:
+func enter(player: Node, seat_owner: Node = null) -> void:
 	_player = player
+	_seat_owner = seat_owner
 	if _player:
 		_player.call_locked = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -301,8 +303,12 @@ func enter(player: Node) -> void:
 func leave() -> void:
 	_panel.visible = false
 	if _player:
-		_player.call_locked = false
+		var leaving_player: Node = _player
+		leaving_player.call_locked = false
+		if _seat_owner and _seat_owner.has_method("release_player"):
+			_seat_owner.release_player(leaving_player)
 		_player = null
+		_seat_owner = null
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	# A live field phase is the one reason to keep anything on screen after
 	# the chair is empty: the route is still walking whether or not anyone

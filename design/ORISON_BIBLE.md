@@ -848,13 +848,17 @@ historical lineage are in `design/VANTRY_SERVICE_RADIOPHONE_BRIEF.md`.)*
 The object in the player's hand is a **Vantry portable building-maintenance
 service radiophone with an attached inspection lamp**. It has no screen,
 camera, keypad, keyboard, menu or operating system. Its controls are physical.
-Its only display-like feedback is one amber annunciator jewel indicating that
+Its only **task-state** feedback is one amber annunciator jewel indicating that
 a work order has been filed. That light presents `WorkOrders`; it never owns or
-advances them.
+advances them. Two small owner-approved lamps have been added to the rear by
+later Vantry hands: green **NET** reports that the radio/aerial circuit is on;
+red **LAMP** reports that the inspection-lamp circuit is on. They report their
+own physical controls, not job lifecycle, and do not turn the set into a screen.
 
 The radio chassis earns the Rule of Signal's advance. The attached work lamp
 does not: it is ordinary pre-1928 tungsten, glass, brass and tinned steel, with
-a simple `OFF / ON` contact. The set is heavy because portable batteries are
+a simple `OFF / ON` contact, mapped to **L**; the radio/aerial switch is mapped
+to **R**. The set is heavy because portable batteries are
 still heavy. The old carried phone, its camera and its private screen games are
 superseded fiction and may not remain production dependencies merely because
 their code already exists. They are audited and migrated before subtraction,

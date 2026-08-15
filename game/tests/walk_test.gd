@@ -328,7 +328,7 @@ func _run() -> void:
 	_check(one_sided, "window glows are single-sided (unseen from inside)")
 	_check(not casts, "window glows cast no shadows")
 
-	# --- touch controls: the phone HUD has to drive the same player the
+	# --- touch controls: the service HUD has to drive the same player the
 	# keyboard does, or the Android build is a slideshow you cannot steer
 	var tc: TouchControls = root.touch
 	_check(tc != null, "touch HUD present")

@@ -89,6 +89,20 @@ func is_active(order_id: String) -> bool:
 	return status(order_id) == "active"
 
 
+## Read-only aggregate for physical annunciators. A lamp may present that
+## work exists; it may never own, copy or advance the lifecycle.
+func has_open_work() -> bool:
+	var orders: Dictionary = RealityState.data.get("work_orders", {})
+	for order_id in orders:
+		var order: Variant = orders[order_id]
+		if order is Dictionary and str(order.get("status", "")) != "closed":
+			return true
+	for job_id in _jobs():
+		if job_stage(str(job_id)) != "closed":
+			return true
+	return false
+
+
 func _order(order_id: String) -> Dictionary:
 	var orders: Dictionary = RealityState.data.get("work_orders", {})
 	return orders.get(order_id, {})

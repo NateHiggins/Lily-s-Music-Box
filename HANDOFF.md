@@ -224,12 +224,15 @@ the reveal restriction applies to the **title screen only**; it does not block
 dream design or production. The complete `design/ORISON_MAZE_BRIEF.md` is now
 ruled canon. N2's source catalog, canonical seed-0 assembly, dimensioned drawing
 and 100-seed audit are closed at `art/renders/dream_maze_n2/README.md`; no Godot
-dream scene exists yet. Owner ruling 2026-08-15 replaces the carried phone with
-a no-screen Vantry service radiophone, attached warm work lamp and one amber
-ORDER jewel; the researched migration contract and concept target are in
-`design/VANTRY_SERVICE_RADIOPHONE_BRIEF.md`. Q3/Q4's dependency census and
-device-neutral light seam now precede N3 so pursuit code does not entrench
-`PhoneCarrier`. Wake persists one
+dream scene exists yet. Owner ruling 2026-08-15 replaced the carried phone with
+a no-screen Vantry service radiophone, attached warm work lamp, one amber ORDER
+jewel and the later-added rear NET/LAMP indicators. Q2-Q6 are landed: production
+instantiates `ServiceSetCarrier`, the lamp crosses a device-neutral player seam,
+L toggles the lamp, R toggles the radio/aerial, and no phone screen or viewport
+is instantiated. The dependency census, interaction contract and proof frames
+are in `design/VANTRY_SERVICE_RADIOPHONE_BRIEF.md`, `game/docs/service_set.md`
+and `art/renders/service_set_q4/README.md`. N3 may consume the neutral light
+seam without entrenching the archived phone classes. Wake persists one
 `mina_factual_refrigerator_caption` fact. Its acoustic owner
 is generated marker `F02_2A_FRIDGE_01`; its visible label follows generated
 socket `2A_FRIDGE_FACE`. The before/after acceptance pair and rerun command are

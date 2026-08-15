@@ -5,6 +5,7 @@ extends Area3D
 ## queue is visible from the room, so it names what is waiting.
 
 var call_interface: CallInterface
+var seated_player: PlayerController
 
 
 func _ready() -> void:
@@ -17,6 +18,8 @@ func _ready() -> void:
 
 
 func interact_prompt() -> String:
+	if seated_player:
+		return "[E]  Stand up from the support desk"
 	if call_interface == null:
 		return "[E]  Sit at the support desk"
 	if call_interface.flags.has("desk_double"):
@@ -28,5 +31,23 @@ func interact_prompt() -> String:
 
 
 func interact(player: Node) -> void:
-	if call_interface:
-		call_interface.enter(player)
+	if call_interface == null or not player is PlayerController:
+		return
+	var controller := player as PlayerController
+	if seated_player == controller:
+		call_interface.leave()
+		return
+	if seated_player != null:
+		return
+	seated_player = controller
+	controller.begin_seated_interaction(self)
+	call_interface.enter(controller, self)
+
+
+## Called by CallInterface for both E and Esc exits, so its modal state and the
+## physical chair can never disagree about whether the player has stood up.
+func release_player(player: PlayerController) -> void:
+	if seated_player != player:
+		return
+	seated_player = null
+	player.end_seated_interaction(self)

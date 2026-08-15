@@ -33,7 +33,7 @@ func interact(player: Node) -> void:
 		pc.global_position = _stored_position
 		pc.rotation.y = _stored_yaw
 		pc._set_crouched(false)
-		pc.call_locked = false
+		pc.end_seated_interaction(self)
 		seated = false
 		return
 	_stored_position = pc.global_position
@@ -42,5 +42,5 @@ func interact(player: Node) -> void:
 	pc.rotation.y = 0.0  # face north, into the lobby, like Teresa does
 	pc.velocity = Vector3.ZERO
 	pc._set_crouched(true)
-	pc.call_locked = true
+	pc.begin_seated_interaction(self)
 	seated = true

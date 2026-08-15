@@ -1,6 +1,6 @@
 class_name TouchControls
 extends CanvasLayer
-## Phone controls for a game built around a mouse and a keyboard.
+## Touch controls for a game built around a mouse and a keyboard.
 ##
 ## Movement and the action buttons drive the SAME named actions the desktop
 ## build registers in GameBoot, through Input.action_press/release with a
@@ -88,6 +88,8 @@ func _layout() -> void:
 		_button("JUMP", "jump", Vector2(right - gap, bottom), false),
 		_button("RUN", "run", Vector2(right, bottom - gap), true),
 		_button("CROUCH", "crouch", Vector2(right - gap, bottom - gap), false),
+		_button("LAMP", "lamp_toggle", Vector2(right, bottom - gap * 2.0), false),
+		_button("RADIO", "radio_toggle", Vector2(right - gap, bottom - gap * 2.0), false),
 	]
 	_panel.queue_redraw()
 

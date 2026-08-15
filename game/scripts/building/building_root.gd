@@ -194,7 +194,7 @@ var shots: ShotCapture
 var heightmaps: HeightmapPass
 var warehouse: PropWarehouse
 var touch: TouchControls
-var phone_carrier: PhoneCarrier
+var service_set_carrier: ServiceSetCarrier
 var weather: WeatherFX
 var day_night_director: DayNightDirector
 var mina_manifestation: MinaCaptionManifestation
@@ -477,12 +477,13 @@ func _ready() -> void:
 	# real production player instead of the null startup placeholder.
 	street_traffic.bind_player(player)
 	vantry_points.bind_player(player)
-	# The handset, in the hand that was already carrying the torch.
-	# Parented to the camera, so it needs the player in the tree first.
-	phone_carrier = PhoneCarrier.new()
-	phone_carrier.name = "PhoneCarrier"
-	phone_carrier.setup(player, player.camera)
-	player.phone_carrier = phone_carrier
+	# The no-screen Vantry service radiophone, in the hand already carrying
+	# the work light. PhoneOS and its private viewport are not instantiated.
+	service_set_carrier = ServiceSetCarrier.new()
+	service_set_carrier.name = "ServiceSetCarrier"
+	service_set_carrier.setup(player, player.camera, work_orders)
+	player.carried_device = service_set_carrier
+	player.set_lamp_enabled(true)
 	ambient_soundscape = AmbientSoundscape.new()
 	ambient_soundscape.setup(player)
 	add_child(ambient_soundscape)
@@ -606,7 +607,7 @@ func _build_environment() -> void:
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	# Target look: moonlit. Shadows read as midnight BLUE, not black —
 	# a cool saturated floor under everything, so the tungsten pools and
-	# the phone torch both land as warm/cold contrast against it instead
+	# the service-set lamp both land as warm/cold contrast against it instead
 	# of against a void. Deep enough to keep the pools' authority.
 	env.ambient_light_color = Color(0.17, 0.23, 0.42)
 	env.ambient_light_energy = 0.08
