@@ -986,6 +986,9 @@ it.
     case id, tell or solution. The lobby notice board and original Orison
     broadside likewise own one assembly-level target each, with a pinned-sheet
     or brass-fastener response instead of child collisions over every notice.
+    The maintenance headquarters case wall now has one exact wall-sized target,
+    a brass acknowledgement and live residue count; its slip explicitly says
+    REVIEW ONLY and cannot advance an order or duplicate RealityCases state.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street

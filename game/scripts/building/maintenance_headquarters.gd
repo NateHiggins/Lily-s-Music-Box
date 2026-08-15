@@ -19,6 +19,8 @@ var _trophies: Dictionary = {}
 var _gear_visuals: Array[Node3D] = []
 var _status: Label3D
 var _resolved_count := 0
+var _inspection_tap: AudioStreamPlayer3D
+var _status_tween: Tween
 
 
 func _ready() -> void:
@@ -30,6 +32,7 @@ func _ready() -> void:
 	_build_workbench()
 	_build_gear_wall()
 	_build_case_wall()
+	_build_case_wall_interaction()
 	RealityCases.case_changed.connect(_on_case_changed)
 	RealityState.state_changed.connect(_refresh)
 	_refresh()
@@ -58,15 +61,29 @@ func interact_prompt() -> String:
 		_resolved_count, _trophies.size(), unlocked_gear_count(), GEAR.size()]
 
 
-func interact(_player: Node) -> void:
+func interact(_player: Node = null) -> Dictionary:
 	# The wall is intentionally readable without a modal UI. Interaction
 	# briefly brightens its inventory label so the room acknowledges use.
 	if _status == null:
-		return
+		return {}
+	_inspection_tap.pitch_scale = 0.88 + minf(0.18,
+			float(_resolved_count) * 0.01)
+	_inspection_tap.play()
 	_status.modulate = Color(0.92, 0.83, 0.52)
-	var tween := create_tween()
-	tween.tween_property(_status, "modulate",
+	if _status_tween and _status_tween.is_valid():
+		_status_tween.kill()
+	_status_tween = create_tween()
+	_status_tween.tween_property(_status, "modulate",
 			Color(0.72, 0.77, 0.70), 0.65)
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	return PropServiceWire.card("service_board", {
+		"order_state": "REVIEW ONLY / NOT ADVANCED HERE",
+		"case_state": "%02d/%02d RESIDUE TOKENS SET" % [
+				_resolved_count, _trophies.size()],
+	})
 
 
 func _build_plaque() -> void:
@@ -182,6 +199,30 @@ func _build_case_wall() -> void:
 		_trophies[case_id] = token
 	_status = _label("CASE RESIDUE  00/%02d" % ids.size(),
 			GameBoot.b2g([-13.40, 4.12, 2.37]), PI * 0.5, 22)
+
+
+## One target for the complete case wall, not eighteen trophy colliders. The
+## area sits just proud of the west-wall sockets and reports the owner's live
+## count without becoming a second case ledger or lifecycle authority.
+func _build_case_wall_interaction() -> void:
+	var area := Area3D.new()
+	area.name = "CaseWallInspection"
+	area.collision_layer = 1
+	area.collision_mask = 0
+	area.monitoring = false
+	area.position = GameBoot.b2g([-13.40, 4.02, 1.50])
+	var shape_node := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(0.20, 2.30, 2.35)
+	shape_node.shape = shape
+	area.add_child(shape_node)
+	add_child(area)
+	_inspection_tap = AudioStreamPlayer3D.new()
+	_inspection_tap.stream = PropAudio.get_stream("tick")
+	_inspection_tap.volume_db = -18.0
+	_inspection_tap.max_distance = 4.0
+	_inspection_tap.position = area.position
+	add_child(_inspection_tap)
 
 
 func _refresh() -> void:

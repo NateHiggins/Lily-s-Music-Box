@@ -189,6 +189,14 @@ func _run() -> void:
 			"headquarters has one trophy slot per resident case")
 	_check(hq != null and hq.unlocked_gear_count() >= 1,
 			"headquarters issues the starting inspection tool")
+	if hq:
+		var hq_card: Dictionary = hq.interact(root.player)
+		_check(hq.get_node_or_null("CaseWallInspection") is Area3D
+				and hq._inspection_tap.playing
+				and hq._status_tween.is_running()
+				and hq_card.get("card_id", "") == "service_board"
+				and str(hq_card.get("condition", "")).contains("REVIEW ONLY"),
+				"headquarters case wall is physically reachable and review-only")
 	var exterior: ExteriorDetailPass = root.exterior_detail_pass
 	# What this protects is BATCHING, not a quantity of street furniture: every
 	# exterior detail has to arrive through the shared MultiMeshes rather than as

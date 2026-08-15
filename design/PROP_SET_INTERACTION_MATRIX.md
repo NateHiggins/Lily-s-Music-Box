@@ -264,6 +264,8 @@ attach one collider to the merged batch and call hundreds of objects covered.
    The 18 witness clocks and both lobby board assemblies landed 2026-08-15:
    their existing visual owners now supply the only ray target and condition,
    with case identifiers and resident facts excluded from the returned card.
+   The headquarters case wall uses the same law: one assembly target reads the
+   RealityCases-derived count and identifies itself as review-only.
 4. Add sparse inspection/refusal zones to the named set heroes in §5–§8.
 5. Leave bulk pipework, fixture meshes, tables, chairs, shell geometry, weather,
    trim, shelf repeats and portal proxies ambient. Count them in the proof; do

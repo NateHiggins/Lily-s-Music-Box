@@ -279,6 +279,18 @@ func _ready() -> void:
 			and str(sales_card.get("condition", "")).contains(
 					"ORIGINAL BROADSIDE"))
 
+	var headquarters := MaintenanceHeadquarters.new()
+	add_child(headquarters)
+	var headquarters_card: Dictionary = headquarters.interact(hand)
+	_check("case-wall authority answers without advancing a case",
+			headquarters.get_node_or_null("CaseWallInspection") is Area3D
+			and headquarters._inspection_tap.playing
+			and headquarters._status_tween.is_running()
+			and headquarters_card.get("card_id", "") == "service_board"
+			and str(headquarters_card.get("condition", "")).contains(
+					"REVIEW ONLY / NOT ADVANCED HERE")
+			and headquarters.resolved_trophy_count() == 0)
+
 	await get_tree().create_timer(0.03).timeout
 	await get_tree().process_frame
 	await get_tree().process_frame
