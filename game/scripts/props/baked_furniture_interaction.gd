@@ -8,6 +8,12 @@ extends StaticBody3D
 ## never claims the merged floor mesh as mutable state.
 
 const BRASS := Color(0.58, 0.46, 0.25)
+const MUSIC_CATALOG_PATH := "res://data/music_catalog.json"
+const JUKEBOX_TRACKS := [
+	"wishes_in_the_glass",
+	"stripes_of_velvet",
+	"that_was_selection",
+]
 
 var furniture_kind := ""
 var record_id := ""
@@ -26,6 +32,16 @@ var _control_tween: Tween
 var _wardrobe_handle: Node3D
 var _wardrobe_rattle: AudioStreamPlayer3D
 var _wardrobe_tween: Tween
+var _jukebox_selection := 0
+var _jukebox_title := "NO SELECTION"
+var _jukebox_coin_state := "EMPTY"
+var _jukebox_catalog: Dictionary = {}
+var _jukebox_player: AudioStreamPlayer3D
+var _jukebox_selector: Node3D
+var _jukebox_coin_return: Node3D
+var _jukebox_sign_material: StandardMaterial3D
+var _jukebox_selector_tween: Tween
+var _jukebox_coin_tween: Tween
 
 
 func setup(spec: Dictionary) -> void:
@@ -44,6 +60,7 @@ func _ready() -> void:
 		"toilet": _build_toilet_control()
 		"radio": _build_radio_control()
 		"wardrobe": _build_wardrobe_control()
+		"jukebox": _build_jukebox_control()
 		_: push_error("No baked furniture interaction for %s" % furniture_kind)
 
 
@@ -164,6 +181,109 @@ func _build_wardrobe_control() -> void:
 	add_child(_wardrobe_rattle)
 
 
+func _build_jukebox_control() -> void:
+	# The cabinet and its original ranks of Bakelite buttons remain in the floor
+	# buffer. These two small proud controls give the selection bank and coin
+	# return distinct ray ownership without redrawing the hero furniture.
+	_make_jukebox_area("selector", Vector3(0.0, 0.79, 0.36),
+			Vector3(0.76, 0.18, 0.13))
+	_make_jukebox_area("coin_return", Vector3(0.31, 0.58, 0.36),
+			Vector3(0.17, 0.14, 0.13))
+
+	_jukebox_selector = Node3D.new()
+	_jukebox_selector.name = "SelectionButton"
+	_jukebox_selector.position = Vector3(-0.315, 0.80, 0.337)
+	add_child(_jukebox_selector)
+	var selector_mesh := MeshInstance3D.new()
+	var selector_box := BoxMesh.new()
+	selector_box.size = Vector3(0.06, 0.045, 0.035)
+	selector_mesh.mesh = selector_box
+	var selector_material := StandardMaterial3D.new()
+	selector_material.albedo_color = Color(0.24, 0.055, 0.038)
+	selector_material.roughness = 0.4
+	selector_mesh.material_override = selector_material
+	_jukebox_selector.add_child(selector_mesh)
+
+	_jukebox_coin_return = Node3D.new()
+	_jukebox_coin_return.name = "CoinReturn"
+	_jukebox_coin_return.position = Vector3(0.31, 0.58, 0.337)
+	add_child(_jukebox_coin_return)
+	var return_mesh := MeshInstance3D.new()
+	var return_box := BoxMesh.new()
+	return_box.size = Vector3(0.10, 0.04, 0.04)
+	return_mesh.mesh = return_box
+	var return_material := StandardMaterial3D.new()
+	return_material.albedo_color = Color(0.07, 0.06, 0.05)
+	return_material.metallic = 0.45
+	return_material.roughness = 0.34
+	return_mesh.material_override = return_material
+	_jukebox_coin_return.add_child(return_mesh)
+
+	var sign := MeshInstance3D.new()
+	sign.name = "LiveSelectionGlass"
+	sign.position = Vector3(0.0, 1.16, 0.337)
+	var sign_box := BoxMesh.new()
+	sign_box.size = Vector3(0.80, 0.18, 0.014)
+	sign.mesh = sign_box
+	_jukebox_sign_material = StandardMaterial3D.new()
+	_jukebox_sign_material.albedo_color = Color(0.20, 0.13, 0.08)
+	_jukebox_sign_material.emission_enabled = false
+	_jukebox_sign_material.emission = Color(1.0, 0.43, 0.12)
+	_jukebox_sign_material.emission_energy_multiplier = 1.7
+	sign.material_override = _jukebox_sign_material
+	add_child(sign)
+
+	_control_click = AudioStreamPlayer3D.new()
+	_control_click.name = "SelectorMechanism"
+	_control_click.stream = PropAudio.get_stream("tick")
+	_control_click.volume_db = -13.0
+	_control_click.unit_size = 1.5
+	_control_click.max_distance = 8.0
+	add_child(_control_click)
+	_jukebox_player = AudioStreamPlayer3D.new()
+	_jukebox_player.name = "LocalRecordPickup"
+	_jukebox_player.volume_db = -13.0
+	_jukebox_player.unit_size = 3.0
+	_jukebox_player.max_distance = 20.0
+	_jukebox_player.attenuation_model = \
+			AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
+	add_child(_jukebox_player)
+	_jukebox_player.finished.connect(_on_jukebox_finished)
+	_load_jukebox_catalog()
+	_refresh_jukebox_title()
+
+
+func _make_jukebox_area(control_id: String, at: Vector3,
+		size: Vector3) -> PropControlArea:
+	var area := PropControlArea.new()
+	area.name = "%sReach" % control_id.to_pascal_case()
+	area.configure(control_id)
+	area.position = at
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = size
+	collision.shape = shape
+	area.add_child(collision)
+	add_child(area)
+	return area
+
+
+func _load_jukebox_catalog() -> void:
+	var file := FileAccess.open(MUSIC_CATALOG_PATH, FileAccess.READ)
+	if file == null:
+		push_warning("Jukebox music catalog missing")
+		return
+	var parsed: Variant = JSON.parse_string(file.get_as_text())
+	if parsed is Dictionary:
+		_jukebox_catalog = parsed.get("tracks", {})
+
+
+func _refresh_jukebox_title() -> void:
+	var track_id: String = JUKEBOX_TRACKS[_jukebox_selection]
+	var track: Dictionary = _jukebox_catalog.get(track_id, {})
+	_jukebox_title = str(track.get("title", track_id)).to_upper()
+
+
 func interact_prompt() -> String:
 	if furniture_kind == "toilet":
 		return "[E] Test refilling cistern handle" if _refilling \
@@ -173,6 +293,8 @@ func interact_prompt() -> String:
 				else "[E] Switch valve radio on"
 	if furniture_kind == "wardrobe":
 		return "[E] Try wardrobe handle"
+	if furniture_kind == "jukebox":
+		return control_prompt("selector")
 	return ""
 
 
@@ -181,6 +303,8 @@ func interact(_player: Node = null) -> Dictionary:
 		return _interact_radio()
 	if furniture_kind == "wardrobe":
 		return _interact_wardrobe()
+	if furniture_kind == "jukebox":
+		return interact_control("selector", _player)
 	if furniture_kind != "toilet": return {}
 	if _refilling:
 		# The handle still gives under an impatient second hand, but the stored
@@ -241,6 +365,82 @@ func _interact_wardrobe() -> Dictionary:
 	return service_wire_card()
 
 
+func control_prompt(control_id: String) -> String:
+	if furniture_kind != "jukebox":
+		return ""
+	if control_id == "selector":
+		return "[E] Press next jukebox selection" if _jukebox_player.playing \
+				else "[E] Press jukebox selection"
+	if control_id == "coin_return":
+		return "[E] Pull jukebox coin return" if _jukebox_coin_state == "HELD" \
+				else "[E] Test empty jukebox coin return"
+	return ""
+
+
+func interact_control(control_id: String, _player: Node = null) -> Dictionary:
+	if furniture_kind != "jukebox":
+		return {}
+	if control_id == "selector":
+		return _press_jukebox_selection()
+	if control_id == "coin_return":
+		return _pull_jukebox_coin_return()
+	return {}
+
+
+func _press_jukebox_selection() -> Dictionary:
+	if _jukebox_player.playing:
+		_jukebox_selection = (_jukebox_selection + 1) % JUKEBOX_TRACKS.size()
+		_refresh_jukebox_title()
+	var track_id: String = JUKEBOX_TRACKS[_jukebox_selection]
+	var track: Dictionary = _jukebox_catalog.get(track_id, {})
+	var stream := load(str(track.get("path", ""))) as AudioStream
+	if stream == null:
+		push_warning("Jukebox selection missing: %s" % track_id)
+		return service_wire_card()
+	_jukebox_player.stream = stream
+	_jukebox_player.play()
+	_jukebox_coin_state = "HELD"
+	_jukebox_sign_material.emission_enabled = true
+	_control_click.pitch_scale = 1.08
+	_control_click.play()
+	if _jukebox_selector_tween and _jukebox_selector_tween.is_valid():
+		_jukebox_selector_tween.kill()
+	_jukebox_selector.position.z = 0.337
+	_jukebox_selector_tween = create_tween()
+	_jukebox_selector_tween.tween_property(
+			_jukebox_selector, "position:z", 0.319, 0.06)
+	_jukebox_selector_tween.tween_property(
+			_jukebox_selector, "position:z", 0.337, 0.12) \
+			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	return service_wire_card()
+
+
+func _pull_jukebox_coin_return() -> Dictionary:
+	var had_coin := _jukebox_coin_state == "HELD"
+	if had_coin:
+		_jukebox_player.stop()
+		_jukebox_coin_state = "RETURNED"
+		_jukebox_sign_material.emission_enabled = false
+	_control_click.pitch_scale = 0.88 if had_coin else 0.76
+	_control_click.play()
+	if _jukebox_coin_tween and _jukebox_coin_tween.is_valid():
+		_jukebox_coin_tween.kill()
+	_jukebox_coin_return.position.z = 0.337
+	_jukebox_coin_tween = create_tween()
+	_jukebox_coin_tween.tween_property(
+			_jukebox_coin_return, "position:z", 0.30, 0.08)
+	_jukebox_coin_tween.tween_property(
+			_jukebox_coin_return, "position:z", 0.337, 0.16) \
+			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	return service_wire_card()
+
+
+func _on_jukebox_finished() -> void:
+	_jukebox_coin_state = "SPENT"
+	if _jukebox_sign_material:
+		_jukebox_sign_material.emission_enabled = false
+
+
 func service_wire_card() -> Dictionary:
 	if furniture_kind == "radio":
 		return PropServiceWire.card("radio", {
@@ -252,6 +452,13 @@ func service_wire_card() -> Dictionary:
 		return PropServiceWire.card("wardrobe", {
 			"leaf_state": "CLOSED / HANDLE ANSWERED",
 			"owner_state": "%s RESIDENT / PRIVATE" % owner_unit,
+		})
+	if furniture_kind == "jukebox":
+		return PropServiceWire.card("jukebox", {
+			"coin_state": _jukebox_coin_state,
+			"selection_state": _jukebox_title,
+			"motor_state": "TURNING / LOCAL PICKUP" \
+					if _jukebox_player.playing else "STOPPED",
 		})
 	if furniture_kind != "toilet": return {}
 	return PropServiceWire.card("toilet", {

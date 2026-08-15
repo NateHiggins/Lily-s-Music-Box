@@ -201,6 +201,31 @@ func _ready() -> void:
 			and str(wardrobe_card.get("condition", "")).contains(
 					"2A RESIDENT / PRIVATE"))
 
+	var jukebox := BakedFurnitureInteraction.new()
+	jukebox.setup({"id": "retail_bar_jukebox", "asm": "jukebox"})
+	add_child(jukebox)
+	var selector := jukebox.get_node("SelectorReach") as PropControlArea
+	var coin_return := jukebox.get_node("CoinReturnReach") as PropControlArea
+	var jukebox_play_card: Dictionary = selector.interact(hand)
+	var first_stream := jukebox._jukebox_player.stream
+	var jukebox_next_card: Dictionary = selector.interact(hand)
+	var jukebox_return_card: Dictionary = coin_return.interact(hand)
+	_check("baked jukebox selection plays from its own local pickup",
+			selector.interact_prompt().contains("Press jukebox selection")
+			and first_stream != null
+			and jukebox._jukebox_player.stream != first_stream
+			and jukebox._jukebox_selector_tween.is_running()
+			and jukebox_play_card.get("card_id", "") == "jukebox"
+			and str(jukebox_next_card.get("condition", "")).contains(
+					"TURNING / LOCAL PICKUP"))
+	_check("jukebox coin return stops the local record and answers physically",
+			not jukebox._jukebox_player.playing
+			and not jukebox._jukebox_sign_material.emission_enabled
+			and jukebox._jukebox_coin_tween.is_running()
+			and jukebox_return_card.get("card_id", "") == "jukebox"
+			and str(jukebox_return_card.get("condition", "")).contains(
+					"COIN RETURN RETURNED"))
+
 	await get_tree().create_timer(0.03).timeout
 	await get_tree().process_frame
 	await get_tree().process_frame

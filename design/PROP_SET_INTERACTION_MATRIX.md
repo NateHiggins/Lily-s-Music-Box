@@ -163,7 +163,7 @@ is stated explicitly.
 | `guitar` | 2 / F02 | — | **RESIST-REFUSE** | Private tuned instrument; touch/owner refusal, no generic performance minigame. |
 | `headphones` | 4 / F02, F03, F05, F06 | — | **RESIST-REFUSE** | Connected/private equipment. |
 | `jarrow` | 4 / F02, F03, F06 | — | **INSPECT** | Inspect row/contents label; do not individualize jars. |
-| `jukebox` | 1 / F01 bar | — | **OPERATE** | Add selector/coin-return mechanism and audio response. |
+| `jukebox` | 1 / F01 bar | `FurnitureInteractionPass`; distinct selection bank and coin return, moving caps, live sign and cabinet-local three-record pickup | **OPERATE** | Landed I4; cycles shipped bar records without routing through or stopping the unlocatable WORS emitter. |
 | `kitchen` | 18 / F01–F06 | Appliances/taps own mechanisms | **AMBIENT ARCHITECTURE** | Cabinet run is structural support; do not duplicate appliance rays. |
 | `micstand` | 3 / F01–F03 | Songbook activity owns bar mic only | **RESIST-REFUSE** | Bar mic can be busy/not recording; resident mics are private/connected. Source-aware refusal required. |
 | `mug` | 28 / B1, F01–F06 | — | **INSPECT** | One table-setting cluster; no pickup system. |

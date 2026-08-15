@@ -749,6 +749,25 @@ func _plumbing_checks() -> void:
 				and sample_wardrobe._wardrobe_tween.is_running()
 				and wardrobe_card.get("card_id", "") == "wardrobe",
 				"a production private wardrobe audibly resists at its handle")
+	var jukebox_owners := get_tree().get_nodes_in_group(
+			"baked_furniture_interactions").filter(func(owner):
+		return owner is BakedFurnitureInteraction \
+				and owner.furniture_kind == "jukebox")
+	_check(jukebox_owners.size() == 1,
+			"the baked Passage jukebox regains one local mechanism owner")
+	if jukebox_owners.size() == 1:
+		var jukebox := jukebox_owners[0] as BakedFurnitureInteraction
+		var selector := jukebox.get_node("SelectorReach") as PropControlArea
+		var coin_return := jukebox.get_node("CoinReturnReach") as PropControlArea
+		var play_card: Dictionary = selector.interact(root.player)
+		var return_card: Dictionary = coin_return.interact(root.player)
+		_check(jukebox._jukebox_player.stream != null
+				and not jukebox._jukebox_player.playing
+				and jukebox._jukebox_selector_tween.is_running()
+				and jukebox._jukebox_coin_tween.is_running()
+				and play_card.get("card_id", "") == "jukebox"
+				and return_card.get("card_id", "") == "jukebox",
+				"the production jukebox selects locally and returns its coin")
 	_check(incomplete.is_empty(),
 			"every water fixture owns two valves and a stream (%s)" % [incomplete])
 	_check(misoriented_lavatories.is_empty(),

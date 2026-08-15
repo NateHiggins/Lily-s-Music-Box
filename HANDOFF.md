@@ -148,7 +148,10 @@ Conventions that bite if forgotten:
   switches a baked valve radio on and off without borrowing case state. The
   guard also rattles a record-aligned wardrobe handle and returns resident-
   private copy; this is an interim truthful response, not proof of the still-
-  pending generator split needed for an opening leaf.
+  pending generator split needed for an opening leaf. Finally it proves the
+  Harukiya jukebox's separate selection-bank and coin-return owners: three
+  shipped catalog records play from the cabinet's own spatial pickup and the
+  return stops only that local motor, never the WORS ghost-radio director.
   Unresolved state tokens never print, and the case-owner template cannot leak
   generic copy. Exit code 0 = pass.
 - `game/tests/LightingAudit.tscn` — every space is reachable by light:

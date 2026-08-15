@@ -3,7 +3,12 @@ extends Node
 ## Restores individual mechanism ownership to selected furniture records whose
 ## visible bodies are intentionally merged into the per-floor glTF.
 
-const ACTIVE_KINDS := {"toilet": true, "radio": true, "wardrobe": true}
+const ACTIVE_KINDS := {
+	"toilet": true,
+	"radio": true,
+	"wardrobe": true,
+	"jukebox": true,
+}
 
 var owners: Array[BakedFurnitureInteraction] = []
 

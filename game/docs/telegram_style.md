@@ -148,4 +148,9 @@ brass handle: the leaf audibly resists and the card names the resident boundary
 without exposing contents. This removes a silent target, but it does not satisfy
 the final OPERATE ruling: the visible leaf is still merged into its floor glTF
 and must be split by the furniture generator before it can honestly hinge. I4
-remains open for that split and the rest of the non-ambient matrix.
+remains open for that split and the rest of the non-ambient matrix. The same
+pass restores the Harukiya jukebox as two controls rather than one generic E:
+its selection bank clicks, changes among three existing catalog records, lights
+the sign and plays through a local spatial pickup; its coin return moves, stops
+that cabinet and reports whether a coin was held. It never calls the WORS music
+director, whose wandering unlocatable signal remains a separate fiction.

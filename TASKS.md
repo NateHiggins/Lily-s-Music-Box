@@ -976,6 +976,10 @@ it.
     marked complete as an OPERATE row: their visible leaves remain merged into
     floor glTF buffers, so a generator split and rebuild are still required for
     truthful hinged motion.
+    The Harukiya jukebox now has separate selection-bank and coin-return ray
+    owners, moving controls, sign response and a local spatial pickup cycling
+    three shipped bar records. Its return stops only the cabinet; it never
+    borrows the unlocatable WORS emitter.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street
