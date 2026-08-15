@@ -4,6 +4,7 @@ extends Node
 ## cannot accidentally collapse into the same boolean.
 
 signal state_changed
+signal waking_residue_applied(residue_id: String, facts: Dictionary)
 
 const SAVE_VERSION := 4
 const SAVE_PATH := "user://reality_maintenance_save.json"
@@ -37,6 +38,8 @@ func _fresh_data() -> Dictionary:
 		"maintenance_jobs": {},
 		"maintenance_items": {},
 		"core_loop": {},
+		"waking_residues": {},
+		"last_waking_residue_id": "",
 	}
 
 
@@ -102,6 +105,10 @@ func load_game() -> void:
 			data.maintenance_items = {}
 		if not data.has("core_loop"):
 			data.core_loop = {}
+		if not data.has("waking_residues"):
+			data.waking_residues = {}
+		if not data.has("last_waking_residue_id"):
+			data.last_waking_residue_id = ""
 		if int(data.get("version", 0)) < SAVE_VERSION:
 			_migrate()
 	_announce_loaded()
@@ -127,3 +134,33 @@ func _migrate() -> void:
 func reset_campaign_for_tests() -> void:
 	data = _fresh_data()
 	state_changed.emit()
+
+
+## Waking residues are committed campaign facts, not presentation state. The
+## visual owner reconstructs its label/prop from this record after boot or
+## load. Applying the same residue twice is rejected without mutation.
+func apply_waking_residue(residue_id: String, facts: Dictionary) -> bool:
+	if residue_id.is_empty() or facts.is_empty():
+		return false
+	if not data.has("waking_residues") or data.waking_residues is not Dictionary:
+		data.waking_residues = {}
+	if data.waking_residues.has(residue_id):
+		return false
+	data.waking_residues[residue_id] = facts.duplicate(true)
+	data.last_waking_residue_id = residue_id
+	commit()
+	waking_residue_applied.emit(residue_id,
+			data.waking_residues[residue_id].duplicate(true))
+	return true
+
+
+func has_waking_residue(residue_id: String) -> bool:
+	return data.get("waking_residues", {}) is Dictionary \
+			and data.get("waking_residues", {}).has(residue_id)
+
+
+func waking_residue(residue_id: String) -> Dictionary:
+	var residues: Variant = data.get("waking_residues", {})
+	if residues is not Dictionary:
+		return {}
+	return (residues as Dictionary).get(residue_id, {}).duplicate(true)

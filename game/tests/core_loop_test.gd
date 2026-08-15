@@ -160,6 +160,7 @@ func _reported_golden_loop() -> void:
 	# Repair requests the conversation and does not close the job.
 	inventory.consume(ITEM)
 	work_orders.record_job_repair(JOB, {"quality": "good"})
+	RealityCases.stabilize_case(CASE)
 	_check(director.boundary() == "conversation_pending"
 			and conversation_requests == 1
 			and work_orders.job_stage(JOB) == "repaired",
@@ -178,21 +179,35 @@ func _reported_golden_loop() -> void:
 			and director.boundary() == "conversation_pending",
 			"an ordinary conversation flag does not close the job")
 
-	# The authoritative rule change closes the repaired job, and the dream
-	# request respects the protection flag.
+	# Mina's first conversation and recurrence remain case-owned. The first
+	# rule insight cannot close an only-half-integrated case.
+	RealityCases.record_conversation(CASE, "first_silence_named")
+	_check(RealityCases.reopen_case(CASE)
+			and RealityCases.stabilize_case(CASE),
+			"the case owner carries recurrence and its second stabilization")
+
+	# The complete authoritative rule change closes the repaired job; final
+	# integration, not the first insightful line, opens the dream window.
 	player.call_locked = true
 	RealityCases.record_conversation(CASE, "assumptions_are_not_facts")
+	_check(work_orders.job_stage(JOB) == "repaired"
+			and director.boundary() == "conversation_pending",
+			"the first resolution flag cannot close an incomplete rule")
+	RealityCases.record_conversation(CASE, "silence_can_be_blank")
 	_check(work_orders.job_stage(JOB) == "closed"
-			and director.boundary() == "dream_pending"
+			and director.boundary() == "conversation_complete"
 			and bool(director.loop_state().conversation_complete),
-			"the rule-change event closes the job and arms the dream window")
+			"the complete rule closes the job but still waits for integration")
 	await get_tree().process_frame
 	await get_tree().process_frame
 	_check(dream_requests == 0,
-			"a protected conversation suppresses dream entry")
-	RealityCases.record_conversation(CASE, "silence_can_be_blank")
-	_check(work_orders.job_stage(JOB) == "closed" and dream_requests == 0,
-			"a duplicate rule-change event is idempotent")
+			"conversation completion alone does not request a dream")
+	_check(RealityCases.resolve_case(CASE)
+			and director.boundary() == "dream_pending",
+			"final case integration arms the dream window")
+	await get_tree().process_frame
+	_check(dream_requests == 0,
+			"integration during protection still suppresses dream entry")
 	player.call_locked = false
 	await get_tree().process_frame
 	_check(dream_requests == 1,

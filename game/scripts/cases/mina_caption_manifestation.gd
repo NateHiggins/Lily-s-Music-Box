@@ -4,6 +4,9 @@ extends Node3D
 ## recurrence are separate persistent states before the full minigame lands.
 
 const CASE_ID := "mina_caption_crisis"
+const RESIDUE_ID := "mina_factual_refrigerator_caption"
+const RESIDUE_ANCHOR_ID := "F02_2A_FRIDGE_01"
+const RESIDUE_SOCKET_ID := "2A_FRIDGE_FACE"
 const CAPTIONS := [
 	{"pos": [-11.8, -4.8, 4.45], "noun": "SOFA",
 		"claim": "MINA IS WAITING CORRECTLY"},
@@ -19,6 +22,7 @@ var _labels: Array[Label3D] = []
 var _remote_labels: Dictionary = {}
 var _building: Node3D
 var _resolved_residue: Label3D
+var _core_loop: CoreLoopDirector
 
 
 func setup(building: Node3D) -> void:
@@ -39,9 +43,9 @@ func _ready() -> void:
 		add_child(label)
 		_labels.append(label)
 	_resolved_residue = Label3D.new()
+	_resolved_residue.name = "MinaWakingResidue"
 	_resolved_residue.text = "REFRIGERATOR"
-	_resolved_residue.position = AcousticGraphData.node_pos(
-			"F02_A_FRIDGE_01") + Vector3.UP * 0.75
+	_resolved_residue.position = _residue_display_position()
 	_resolved_residue.font_size = 30
 	_resolved_residue.pixel_size = 0.0022
 	_resolved_residue.modulate = Color(0.68, 0.86, 0.76, 0.72)
@@ -50,7 +54,35 @@ func _ready() -> void:
 	_resolved_residue.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 	add_child(_resolved_residue)
 	RealityCases.case_changed.connect(_on_case_changed)
+	RealityState.state_changed.connect(_on_reality_state_changed)
 	AcousticGraphData.reality_event.connect(_on_reality_event)
+	_apply_state(RealityState.case_state(CASE_ID))
+
+
+func bind_wake(loop: CoreLoopDirector) -> void:
+	_core_loop = loop
+	if not _core_loop.wake_completed.is_connected(_on_wake_completed):
+		_core_loop.wake_completed.connect(_on_wake_completed)
+	# Reconcile a save made at the completed wake boundary before K6 existed.
+	if _core_loop.boundary() == "wake_complete":
+		_on_wake_completed(CoreLoopDirector.RETURN_ANCHOR_ID)
+
+
+func _on_wake_completed(_return_anchor_id: String) -> void:
+	var state := RealityState.case_state(CASE_ID)
+	if not bool(state.get("resolved", false)):
+		return
+	RealityState.apply_waking_residue(RESIDUE_ID, {
+		"case_id": CASE_ID,
+		"source_job_id": "vantry_chirp_2a",
+		"anchor_id": RESIDUE_ANCHOR_ID,
+		"display_socket_id": RESIDUE_SOCKET_ID,
+		"text": "REFRIGERATOR",
+	})
+	_apply_state(state)
+
+
+func _on_reality_state_changed() -> void:
 	_apply_state(RealityState.case_state(CASE_ID))
 
 
@@ -62,7 +94,8 @@ func _on_case_changed(case_id: String, state: Dictionary) -> void:
 func _apply_state(state: Dictionary) -> void:
 	var stage: String = state.get("stage", "unseen")
 	var recurrence := int(state.get("recurrence_count", 0))
-	_resolved_residue.visible = stage == "resolved"
+	_resolved_residue.visible = stage == "resolved" \
+			and RealityState.has_waking_residue(RESIDUE_ID)
 	for index in range(_labels.size()):
 		var label := _labels[index]
 		label.visible = stage not in ["unseen", "stabilized", "resolved"]
@@ -90,7 +123,10 @@ func _on_reality_event(case_id: String, node_id: String, strength: float,
 		return
 	var label := Label3D.new()
 	label.name = "Caption_" + node_id
-	label.global_position = AcousticGraphData.node_pos(node_id) \
+	# This owner sits at world origin, so local and global coordinates agree.
+	# Setting global_position before add_child asks Godot for a transform from a
+	# node that is not in the tree and emits an error during recurrence.
+	label.position = AcousticGraphData.node_pos(node_id) \
 			+ Vector3.UP * 0.72
 	label.font_size = 30
 	label.pixel_size = 0.0022
@@ -129,3 +165,22 @@ func _clear_remote() -> void:
 		if is_instance_valid(label):
 			label.queue_free()
 	_remote_labels.clear()
+
+
+## Acoustic ownership stays on the generated refrigerator marker; visible text
+## sits on the generator's matching face socket so it cannot wind up buried in
+## the appliance's centre. This also follows a future authored kitchen move.
+func _residue_display_position() -> Vector3:
+	if _building != null:
+		for floor: Dictionary in _building.layout.get("floors", []):
+			for socket: Dictionary in floor.get("sockets", []):
+				if str(socket.get("id", "")) != RESIDUE_SOCKET_ID:
+					continue
+				var at: Array = socket.get("at", [])
+				if at.size() >= 2:
+					return GameBoot.b2g([
+							float(at[0]), float(at[1]),
+							float(socket.get("z", floor.get("z", 0.0)))]) \
+							+ Vector3(0.0, 0.75, 0.015)
+	return AcousticGraphData.node_pos(RESIDUE_ANCHOR_ID) \
+			+ Vector3(0.0, 0.75, 0.46)

@@ -1,4 +1,4 @@
-# Next session: M0.5 is closed — build the loop spine (M1)
+# Next session: K6 is closed — document the loop spine (K7)
 
 *Rewritten 2026-08-13. Sequencing authority beneath
 `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`.*
@@ -14,6 +14,23 @@ The owner has ruled the campaign rhythm: issue, shop, repair, conversation,
 narcoleptic dark scramble, wake in 4B, repeat. The core dream function is now
 part of the product. The detailed maze proposal still contains implementation
 questions and must not be treated wholesale as a ruling.
+
+## Immediate next action
+
+**K6 is complete. Begin K7.** Mina's existing Caption Crisis now owns the
+case-specific half of the shipped maintenance shift: the physical Vantry repair
+is its first temporary stabilization; her existing conversation, recurrence,
+second factual calibration and integration follow; only the complete rule
+closes the job, and only final case resolution opens the dream boundary. The
+test dream remains a stub. Wake persists one harmless factual `REFRIGERATOR`
+caption, owned by the real `F02_2A_FRIDGE_01` appliance node and displayed on
+the generated `2A_FRIDGE_FACE` socket.
+
+K7 must now create `game/docs/core_loop.md` from the code that exists: state
+machine, signal ownership, save fields, boundary reconciliation, and the exact
+recipe for adding Peter without copying Mina's case logic into the coordinator.
+Do not begin Peter, a production dream scene, or a second errand while writing
+that contract.
 
 ## First work: rule the measured M0.5 performance blocker
 
@@ -105,11 +122,11 @@ accepts the physical Vantry repair, requests the earned conversation,
 requests a dream through the coordinator's boundary, and resumes after
 waking at the authored 4B bedside — with the player physically walking
 2A → ORISON → STREET → PASSAGE → HARDWARE PAINT and back, and save/load
-exercised through the real file at all seven loop boundaries. **No
-production dream gameplay, sleep-pressure system or waking residue exists
-yet** — the dream is a requested boundary consumed by a test stub. Next:
-**K6**, routing Mina's existing case through the complete graybox shift
-with one persistent waking residue.
+exercised through the real file at all seven loop boundaries. **No production
+dream gameplay or sleep-pressure system exists yet** — the dream is still a
+requested boundary consumed by a test stub. K6 now routes Mina's full existing
+case through that shift and persists its waking residue; the next executable
+gate is **K7**, documentation of the landed spine.
 
 ## Non-negotiable constraints
 

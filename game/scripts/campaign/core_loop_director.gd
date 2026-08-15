@@ -8,8 +8,9 @@ extends Node
 ##   issues the one authored job with reported origin — or recognizes an
 ##   already-discovered job and touches nothing;
 ## - hears the job reach `repaired` and requests the earned conversation;
-## - hears RealityCases' authoritative `conversation_changed_rule` and only
-##   then closes the repaired work order;
+## - hears RealityCases' authoritative `conversation_changed_rule`, closes the
+##   repaired work order only when Mina has earned her complete rule, then
+##   waits for case integration before opening the dream window;
 ## - evaluates the job's data-authored dream window, suppresses the request
 ##   while a call or conversation protects the player (`call_locked`), and
 ##   emits `dream_requested` for the future sleep/dream owner;
@@ -52,8 +53,12 @@ func setup(spine: WorkOrders, the_player: Node3D,
 	RealityCases.resident_interaction_requested.connect(
 			_on_resident_interaction)
 	RealityCases.conversation_changed_rule.connect(_on_rule_changed)
+	RealityCases.case_resolved.connect(_on_case_resolved)
 	set_process(false)
 	_reconcile_boundary()
+	if str(_state().get("boundary", "idle")) == "conversation_complete" \
+			and bool(RealityState.case_state(_case_id()).get("resolved", false)):
+		_evaluate_dream_window()
 	if bool(_state().get("dream_pending", false)):
 		_arm_dream_request()
 
@@ -121,18 +126,31 @@ func _on_job_stage_changed(job_id: String, _from: String, to_stage: String,
 ## unrelated cases, ordinary conversation flags, the dialogue UI closing —
 ## is not this event and is ignored.
 func _on_rule_changed(case_id: String, _flag: String,
-		_case: Dictionary) -> void:
+		case_state: Dictionary) -> void:
 	if case_id != _case_id():
 		return
 	var state := _state()
 	if str(state.boundary) != "conversation_pending" \
-			or work_orders.job_stage(JOB_ID) != "repaired":
+			or work_orders.job_stage(JOB_ID) != "repaired" \
+			or str(case_state.get("stage", "")) != "integration_ready":
 		return
 	if not work_orders.close_job(JOB_ID):
 		return
 	state.conversation_complete = true
 	state.boundary = "conversation_complete"
 	RealityState.commit()
+
+
+## Conversation changes the rule; the case owner's final quiet calibration
+## commits it. The dream is punctuation after that complete sentence, not an
+## interruption between recognition and integration.
+func _on_case_resolved(case_id: String, _case: Dictionary) -> void:
+	if case_id != _case_id():
+		return
+	var state := _state()
+	if str(state.boundary) != "conversation_complete" \
+			or work_orders.job_stage(JOB_ID) != "closed":
+		return
 	_evaluate_dream_window()
 
 

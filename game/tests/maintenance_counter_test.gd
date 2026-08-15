@@ -161,20 +161,37 @@ func _ready() -> void:
 	director.dream_requested.connect(
 			func(_j: String, _w: Dictionary) -> void: _dream_requests += 1)
 	_check("the repair left the coordinator at conversation-pending",
-			director.boundary() == "conversation_pending")
+			director.boundary() == "conversation_pending"
+			and RealityState.case_state("mina_caption_crisis").repair_count == 1)
 	RealityState.ensure_case("mina_caption_crisis", "mina_vale")
 	RealityCases.record_conversation("mina_caption_crisis", "small_talk")
 	_check("an ordinary conversation does not close the job",
 			orders.job_stage(JOB) == "repaired")
+	RealityCases.record_conversation(
+			"mina_caption_crisis", "first_silence_named")
+	_check("Mina's recurrence accepts a second stabilization",
+			RealityCases.reopen_case("mina_caption_crisis")
+			and RealityCases.stabilize_case("mina_caption_crisis"))
 	player.call_locked = true
 	RealityCases.record_conversation(
 			"mina_caption_crisis", "assumptions_are_not_facts")
-	_check("the authoritative rule change closes the repaired job",
+	_check("one resolution flag does not close an incomplete rule",
+			orders.job_stage(JOB) == "repaired"
+			and director.boundary() == "conversation_pending")
+	RealityCases.record_conversation(
+			"mina_caption_crisis", "silence_can_be_blank")
+	_check("the complete rule closes the repaired job",
 			orders.job_stage(JOB) == "closed"
+			and director.boundary() == "conversation_complete")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_check("conversation alone cannot request the dream",
+			_dream_requests == 0)
+	_check("final integration arms the dream window",
+			RealityCases.resolve_case("mina_caption_crisis")
 			and director.boundary() == "dream_pending")
 	await get_tree().process_frame
-	await get_tree().process_frame
-	_check("a protected conversation suppresses dream entry",
+	_check("a protected integration suppresses dream entry",
 			_dream_requests == 0)
 	player.call_locked = false
 	await get_tree().process_frame

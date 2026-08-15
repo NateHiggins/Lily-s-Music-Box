@@ -423,7 +423,7 @@ func _ready() -> void:
 	add_child(mina_manifestation)
 	mina_gameplay = MinaCaseGameplay.new()
 	mina_gameplay.name = "MinaCaseGameplay"
-	mina_gameplay.setup(objective_tracker)
+	mina_gameplay.setup(objective_tracker, work_orders)
 	add_child(mina_gameplay)
 	portal_rule_display = PortalRuleDisplay.new()
 	# East wall of F04 west storage, inset and facing west into the room.
@@ -507,6 +507,7 @@ func _ready() -> void:
 	core_loop.name = "CoreLoopDirector"
 	add_child(core_loop)
 	core_loop.setup(work_orders, player, layout)
+	mina_manifestation.bind_wake(core_loop)
 	var room0 := Room0.new()
 	add_child(room0)
 	var anomaly: DoorAnomalyProp = get_node_or_null("F04_B_DOOR_ANOMALY")

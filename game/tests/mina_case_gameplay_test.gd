@@ -7,6 +7,7 @@ extends Node
 var failures := 0
 var gameplay: MinaCaseGameplay
 var panel: CaseDialoguePanel
+var orders: WorkOrders
 
 
 func _ready() -> void:
@@ -14,19 +15,21 @@ func _ready() -> void:
 	RealityState.reset_campaign_for_tests()
 	var tracker := ObjectiveTracker.new()
 	add_child(tracker)
+	orders = WorkOrders.new()
+	orders.setup(tracker)
+	orders.bind_job_library(MaintenanceJobLibrary.load_default())
+	add_child(orders)
 	gameplay = MinaCaseGameplay.new()
-	gameplay.setup(tracker)
+	gameplay.setup(tracker, orders)
 	add_child(gameplay)
 	await get_tree().process_frame
 	panel = gameplay.dialogue
 
-	# --- visit one: practical repair ---------------------------------------
-	gameplay._accept_work_order()
-	_check(_state().stage == "active", "work-order terminal activates Mina")
-	_repair_round(0)
-	gameplay._use_calibrator()
+	# --- visit one: the one authored practical job -------------------------
+	RealityCases.activate_case("mina_caption_crisis")
+	_repair_job()
 	_check(_state().stage == "stabilized" and _state().repair_count == 1,
-			"first completed inspection temporarily stabilizes case")
+			"the physical Vantry repair temporarily stabilizes Mina's case")
 
 	# --- visit one: first talk; early silence is annotated, not rewarded ---
 	_talk()
@@ -155,6 +158,15 @@ func _repair_round(round: int) -> void:
 				gameplay._evidence_spec(evidence_id).fact]) in \
 				_state().apartment_changes:
 			gameplay._inspect(evidence_id)
+
+
+func _repair_job() -> void:
+	orders.issue_job(MinaCaseGameplay.JOB_ID, "reported")
+	orders.acknowledge_job(MinaCaseGameplay.JOB_ID)
+	orders.diagnose_job(MinaCaseGameplay.JOB_ID)
+	orders.mark_job_awaiting_part(MinaCaseGameplay.JOB_ID)
+	orders.mark_job_repairable(MinaCaseGameplay.JOB_ID)
+	orders.record_job_repair(MinaCaseGameplay.JOB_ID, {"quality": "good"})
 
 
 func _check(ok: bool, label: String) -> void:

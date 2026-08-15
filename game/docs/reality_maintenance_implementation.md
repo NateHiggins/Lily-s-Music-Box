@@ -38,9 +38,15 @@ resident trust, required conversation insights, and a final integration act.
   falling, jumping, and a restrained camera roll.
 - The debug panel exposes Mina's label rules, Peter's topology rules, and Cam's
   tilted gravity for rapid in-building testing.
-- Mina's Caption Crisis is playable from the lobby work-order terminal through
-  two practical repair rounds, building-wide recurrence, two recognition
-  insights, final integration, and a persistent harmless refrigerator caption.
+- Mina's Caption Crisis is routed through the one authored maintenance job.
+  Mina's report or discovery at the chirping 2A Vantry point converges on the
+  same diagnosis, HARDWARE PAINT supplies the carbon transmitter capsule, and
+  replacing it supplies the case's first temporary stabilization. Her existing
+  conversation, recurrence, second factual calibration and final integration
+  complete the case; there is no parallel lobby work-order terminal.
+- The completed shift requests (but does not implement) a dream. Stubbed wake
+  returns the player to 4B and persists one harmless `REFRIGERATOR` caption on
+  Mina's generated refrigerator face socket.
 - Mina's caption round uses physical apartment targets with competing factual
   and interpretive labels. The calibrator rejects claims that exceed directly
   observable evidence.
@@ -66,10 +72,11 @@ resident trust, required conversation insights, and a final integration act.
 
 Mina's prototype real-talk cards have been replaced by an on-screen,
 choice-driven conversation with recoverable unhelpful responses. Recurrence
-no longer fires when the player merely speaks with her: after the first
-temporary repair, the lobby time clock creates a visible shift/visit boundary
-before visit two begins. The second repair unlocks the assumptions/silence
-conversation, followed by a final deliberately blank calibration.
+no longer fires when the player merely speaks with her: after the physical
+Vantry repair supplies the first temporary stabilization, the time clock creates
+a visible shift/visit boundary before visit two begins. The second factual
+caption calibration unlocks the assumptions/silence conversation, followed by
+a final deliberately blank calibration.
 
 Resolving the case writes `SILENCE DOES NOT REQUIRE ANNOTATION` onto the
 physical Accepted Local Exceptions board in fourth-floor west storage. The

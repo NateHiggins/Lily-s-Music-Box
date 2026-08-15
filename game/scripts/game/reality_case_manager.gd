@@ -14,6 +14,10 @@ signal manifestation_broadcast(case_id: String, origin_node: String,
 ## not this event and never will be.
 signal conversation_changed_rule(case_id: String, flag: String,
 		state: Dictionary)
+## Integration has committed and the case's portal rule now exists. This is
+## later than a rule-changing line in conversation and is the only event that
+## may open the post-case dream window.
+signal case_resolved(case_id: String, state: Dictionary)
 
 const DEFINITIONS_PATH := "res://data/reality_cases.json"
 
@@ -138,6 +142,7 @@ func resolve_case(case_id: String) -> bool:
 	RealityState.data.reality_coherence = clampf(
 			float(RealityState.data.reality_coherence) + 0.055, 0.0, 1.0)
 	_commit_case(case_id)
+	case_resolved.emit(case_id, state.duplicate(true))
 	return true
 
 

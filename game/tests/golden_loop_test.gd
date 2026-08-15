@@ -1,10 +1,10 @@
 extends Node
-## K5: the deterministic end-to-end graybox harness for the complete M1
-## loop spine, run against the real production scene and owners — real
+## K5/K6: the deterministic end-to-end graybox harness for the complete Mina
+## shift, run against the real production scene and owners — real
 ## PlayerController, WorkOrders, CoreLoopDirector, ChirpHunt,
 ## VantryPointProp, MaintenanceInventory, shop service, HARDWARE PAINT
-## counter, RealityCaseManager conversation events, the authored 2A
-## detector and the authored 4B bedside.
+## counter, Mina's authored recurrence/dialogue/integration, the factual waking
+## residue, the authored 2A detector and the authored 4B bedside.
 ##
 ## The player physically walks 2A -> ORISON -> STREET -> PASSAGE ->
 ## HARDWARE PAINT and physically back to 2A. The only intentional
@@ -19,11 +19,12 @@ extends Node
 const JOB := ChirpHunt.JOB_ID
 const ITEM := "carbon_transmitter_capsule"
 const CASE := "mina_caption_crisis"
-const SAVE_FILE := "user://tests/k5_golden_loop_save.json"
-const EXPECTED_CHECKS := 65
+const SAVE_FILE := "user://tests/k6_mina_golden_shift_save.json"
+const EXPECTED_CHECKS := 82
 const EXPECTED_BLOCKS: Array[String] = ["origin_convergence", "boundary_idle",
 		"complaint", "inspection", "errand_out", "acquisition", "return_leg",
-		"repair", "conversation", "wake", "cleanup"]
+		"repair", "first_conversation", "recurrence", "integration", "wake",
+		"cleanup"]
 const SIM_SCALE := 3.5
 
 ## Test-only dream stub: subscribes, verifies, records one entry, wakes
@@ -68,7 +69,7 @@ var _player_save_present := false
 
 
 func _ready() -> void:
-	print("[K5] START")
+	print("[K6] START")
 	_watchdog()
 	OS.set_environment("DAYNIGHT", "0")
 	_player_save_present = FileAccess.file_exists(RealityState.SAVE_PATH)
@@ -105,7 +106,9 @@ func _ready() -> void:
 	_acquisition()
 	await _return_leg()
 	_repair()
-	await _conversation()
+	await _first_conversation()
+	await _recurrence()
+	await _integration()
 	await _wake()
 	_cleanup()
 
@@ -113,34 +116,34 @@ func _ready() -> void:
 	_finished = true
 	var blocks_ok := _blocks == EXPECTED_BLOCKS
 	var count_ok := _checks == EXPECTED_CHECKS
-	print("[K5] BLOCKS: %s (%s)" % [_blocks, "ok" if blocks_ok else
+	print("[K6] BLOCKS: %s (%s)" % [_blocks, "ok" if blocks_ok else
 			"EXPECTED %s" % [EXPECTED_BLOCKS]])
-	print("[K5] CHECKS: %d/%d fails=%d" % [_checks, EXPECTED_CHECKS, _fails])
-	print("[K5] TRACE: ", " | ".join(trace))
+	print("[K6] CHECKS: %d/%d fails=%d" % [_checks, EXPECTED_CHECKS, _fails])
+	print("[K6] TRACE: ", " | ".join(trace))
 	var verdict := _fails == 0 and blocks_ok and count_ok
-	print("[K5] COMPLETE: %s" % ("PASS" if verdict else "FAIL"))
+	print("[K6] COMPLETE: %s" % ("PASS" if verdict else "FAIL"))
 	get_tree().quit(0 if verdict else 1)
 
 
 func _watchdog() -> void:
 	await get_tree().create_timer(52.0, true, false, true).timeout
 	if not _finished:
-		printerr("[K5] WATCHDOG: run exceeded its budget — FAIL")
+		printerr("[K6] WATCHDOG: run exceeded its budget — FAIL")
 		get_tree().quit(1)
 
 
 func _block(name: String) -> void:
 	_blocks.append(name)
-	print("[K5 BLOCK] ", name)
+	print("[K6 BLOCK] ", name)
 
 
 func _check(label: String, ok: bool) -> void:
 	_checks += 1
 	if ok:
-		print("  [k5 ok] ", label)
+		print("  [k6 ok] ", label)
 	else:
 		_fails += 1
-		printerr("  [K5 FAIL] ", label)
+		printerr("  [K6 FAIL] ", label)
 
 
 func _walk_to(target: Vector2, label: String) -> bool:
@@ -380,6 +383,10 @@ func _return_leg() -> void:
 
 func _repair() -> void:
 	_block("repair")
+	# The complete physical route is already proved. Freeze unrelated resident
+	# schedules before the dialogue-length K6 extension so their clock-driven
+	# trips cannot add nondeterministic navigation warnings to this case proof.
+	root.resident_routines.set_process(false)
 	_aim_and_interact(_detector().global_position + Vector3(0, -0.05, 0))
 	var state := work_orders.job_state(JOB)
 	_check("the production ray performs the repair at the point",
@@ -393,44 +400,126 @@ func _repair() -> void:
 			director.boundary() == "conversation_pending"
 			and conversation_requests == 1
 			and work_orders.job_stage(JOB) == "repaired")
+	var case_state := RealityState.case_state(CASE)
+	_check("the physical repair is Mina's first temporary stabilization",
+			str(case_state.get("stage")) == "stabilized"
+			and int(case_state.get("repair_count")) == 1
+			and bool(case_state.get("recurrence_pending")))
 	_checkpoint("conversation_pending")
 	_check("restore does not re-request the conversation",
 			conversation_requests == 1)
 
 
-func _conversation() -> void:
-	_block("conversation")
-	# Ordinary completion first: the conversation owner locks and releases,
-	# and nothing closes or arms.
-	_dialogue().present("MINA", "(an ordinary exchange about the weather)",
-			[{"text": "[Leave.]", "action": Callable()}])
-	_check("the ordinary conversation genuinely locks the player",
-			player.call_locked)
-	_dialogue().choose(0)
+func _first_conversation() -> void:
+	_block("first_conversation")
+	_check("no recurrence letter exists before Mina's first earned talk",
+			not root.mina_gameplay.letter.enabled)
+	RealityCases.interact_with_resident("mina_vale")
+	_check("the actual first-stable conversation opens under protection",
+			player.call_locked and _dialogue().current_node_id == "fs_open")
+	_dialogue().choose(0) # challenge the caption -> fs_push
+	_dialogue().choose(0) # silence is not evidence -> fs_named
+	_dialogue().choose(0) # end the authored node
 	await get_tree().process_frame
-	await get_tree().process_frame
-	_check("ordinary completion cannot close the job or arm the dream",
-			not player.call_locked
-			and work_orders.job_stage(JOB) == "repaired"
+	var state := RealityState.case_state(CASE)
+	_check("Mina records the first insight and enables the visit boundary",
+			"first_silence_named" in state.conversation_flags
+			and root.mina_gameplay.shift_clock.enabled
+			and not player.call_locked)
+	_check("the first talk cannot close the repair or request a dream",
+			work_orders.job_stage(JOB) == "repaired"
 			and director.boundary() == "conversation_pending"
 			and stub.entries == 0)
-	# The rule-changing conversation, protected by the real owner's lock.
-	RealityState.ensure_case(CASE, "mina_vale")
-	RealityCases.interact_with_resident("mina_vale")
-	_check("the rule conversation genuinely locks the player",
+
+
+func _recurrence() -> void:
+	_block("recurrence")
+	root.mina_gameplay.shift_clock.interact(player)
+	_check("the authored time clock protects the visit transition",
 			player.call_locked)
-	RealityCases.record_conversation(CASE, "assumptions_are_not_facts")
-	_check("the rule change lands while the conversation protects the player",
-			player.call_locked and work_orders.job_stage(JOB) == "closed"
+	await get_tree().create_timer(2.6).timeout
+	var state := RealityState.case_state(CASE)
+	_check("the unresolved symptom recurs and leaves Mina's letter",
+			str(state.stage) == "reopened"
+			and int(state.recurrence_count) == 1
+			and root.mina_gameplay.letter.enabled
+			and not player.call_locked)
+	for index in range(root.mina_gameplay.evidence_nodes.size()):
+		var spec: Dictionary = MinaCaseGameplay.EVIDENCE[index]
+		var expected := "caption_1_%s=%s" % [spec.id, spec.fact]
+		while expected not in state.apartment_changes:
+			root.mina_gameplay.evidence_nodes[index].interact(player)
+	_check("the production caption objects accept three factual observations",
+			root.mina_gameplay._inspection_count(state) == 3)
+	root.mina_gameplay.console.interact(player)
+	state = RealityState.case_state(CASE)
+	_check("the recurrence calibration supplies the second stabilization",
+			str(state.stage) == "stabilized"
+			and int(state.repair_count) == 2
+			and bool(state.recurrence_pending))
+	_check("the objective now directs the player to Mina, not another part",
+			root.objective_tracker._title.text == "2A — REAL TALK")
+
+
+func _integration() -> void:
+	_block("integration")
+	RealityCases.interact_with_resident("mina_vale")
+	_check("the actual real-talk entry opens under protection",
+			player.call_locked and _dialogue().current_node_id == "rt_open")
+	_dialogue().choose(0) # two captions are guesses -> rt_guess
+	_dialogue().choose(0) # assumptions are not facts -> rt_afact
+	_check("the first complete-rule flag is earned but cannot close alone",
+			"assumptions_are_not_facts" in
+					RealityState.case_state(CASE).conversation_flags
+			and work_orders.job_stage(JOB) == "repaired"
+			and director.boundary() == "conversation_pending")
+	_dialogue().choose_silence() # listen -> rt_court_door
+	_dialogue().choose(0) # what changed? -> rt_court2
+	_dialogue().choose(0) # what did the record show? -> rt_blank
+	_dialogue().choose(0) # the blank never said that -> rt_heart
+	_check("the authored conversation reaches Mina's four-second wound",
+			_dialogue().current_node_id == "rt_heart")
+	_dialogue().choose_silence() # the mechanic is the answer -> rt_earned
+	var state := RealityState.case_state(CASE)
+	_check("earned silence completes the rule and closes only the job",
+			"silence_can_be_blank" in state.conversation_flags
+			and str(state.stage) == "integration_ready"
+			and work_orders.job_stage(JOB) == "closed"
+			and director.boundary() == "conversation_complete"
+			and player.call_locked)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_check("the dream cannot interrupt Mina before integration",
+			stub.entries == 0)
+	_dialogue().choose(0) # end rt_earned
+	await get_tree().process_frame
+	_check("the real-talk panel releases without arming the dream",
+			not player.call_locked and stub.entries == 0)
+
+	RealityCases.interact_with_resident("mina_vale")
+	_check("the authored integration exchange is still a protected action",
+			player.call_locked and _dialogue().current_node_id == "int_open")
+	_dialogue().choose_silence() # int_beat, invokes quiet_beat
+	_check("Mina and the player leave the deliberate quiet beat unfilled",
+			_dialogue().current_node_id == "int_beat"
+			and root.mina_gameplay._feedback != ""
+			and player.call_locked)
+	_dialogue().choose(0)
+	await get_tree().process_frame
+	_check("the integration conversation releases before the final action",
+			not player.call_locked and stub.entries == 0)
+	root.mina_gameplay.console.interact(player)
+	state = RealityState.case_state(CASE)
+	_check("the final silent calibration resolves Mina and arms punctuation",
+			bool(state.resolved)
+			and "Silence does not require annotation" in
+					RealityState.data.portal_rules
+			and work_orders.job_stage(JOB) == "closed"
 			and director.boundary() == "dream_pending")
 	await get_tree().process_frame
 	await get_tree().process_frame
-	_check("no dream request emits during protection", stub.entries == 0)
-	await _drain_dialogue()
-	await get_tree().process_frame
-	await get_tree().process_frame
-	_check("the deferred dream request emits exactly once after release",
-			not player.call_locked and stub.entries == 1)
+	_check("the resolved shift requests its dream exactly once",
+			stub.entries == 1)
 	_check("the request carries the authored job and window",
 			stub.seen_job == JOB and stub.seen_window
 					== work_orders.job_library.job(JOB).get("dream_window"))
@@ -458,7 +547,21 @@ func _wake() -> void:
 			and inventory.is_consumed(ITEM)
 			and _detector().is_repaired()
 			and float(_detector().get_service_state().grille_open) == 0.0
-			and not root.chirp_hunt.fault_active())
+			and not root.chirp_hunt.fault_active()
+			and bool(RealityState.case_state(CASE).resolved))
+	var residue := RealityState.waking_residue(
+			MinaCaptionManifestation.RESIDUE_ID)
+	_check("wake applies one factual residue at Mina's authored refrigerator",
+			str(RealityState.data.last_waking_residue_id)
+					== MinaCaptionManifestation.RESIDUE_ID
+			and AcousticGraphData.nodes.has(
+					MinaCaptionManifestation.RESIDUE_ANCHOR_ID)
+			and str(residue.get("case_id")) == CASE
+			and str(residue.get("anchor_id"))
+					== MinaCaptionManifestation.RESIDUE_ANCHOR_ID
+			and str(residue.get("display_socket_id"))
+					== MinaCaptionManifestation.RESIDUE_SOCKET_ID
+			and root.mina_manifestation._resolved_residue.visible)
 	var parked := player.global_position
 	_check("duplicate wake attempts are rejected without mutation",
 			not stub.enter_and_wake()
@@ -477,6 +580,11 @@ func _wake() -> void:
 			# The body settles onto the floor across the checkpoint frames;
 			# what must not happen is a teleport away from the bedside.
 			and player.global_position.distance_to(parked) < 0.5)
+	_check("the waking residue survives the real save boundary exactly once",
+			RealityState.data.waking_residues.size() == 1
+			and RealityState.has_waking_residue(
+					MinaCaptionManifestation.RESIDUE_ID)
+			and root.mina_manifestation._resolved_residue.visible)
 
 
 func _cleanup() -> void:
@@ -484,7 +592,7 @@ func _cleanup() -> void:
 	var resolved := ProjectSettings.globalize_path(SAVE_FILE)
 	var test_dir := ProjectSettings.globalize_path("user://tests")
 	var contained := resolved.begins_with(test_dir) \
-			and resolved.ends_with("k5_golden_loop_save.json") \
+			and resolved.ends_with("k6_mina_golden_shift_save.json") \
 			and FileAccess.file_exists(SAVE_FILE)
 	_check("the test save resolved inside the dedicated test directory",
 			contained)

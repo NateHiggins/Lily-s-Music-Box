@@ -212,6 +212,19 @@ same-build diagnostic is `PASSAGE_HOURS_OFF=1`; it forces the open/day shop
 state only and must never ship as gameplay configuration. Evidence and its
 measurement caveat live in `art/renders/passage_hours_ps6/README.md`.
 
+**Core-loop verification since K6 (2026-08-15).**
+`GoldenLoopTest.tscn` is the authoritative continuous Mina-shift harness. It
+drives 82 checks in one production scene: report/discovery convergence,
+inspection, the walked HARDWARE PAINT errand and return, repair, Mina's first
+conversation, recurrence, second factual calibration, complete-rule
+conversation, integration, dream request, stubbed wake, and real-file
+save/load at every boundary. The dream is still a request consumed by a test
+stub; this is not permission to reveal or build the production dream world.
+Wake persists one `mina_factual_refrigerator_caption` fact. Its acoustic owner
+is generated marker `F02_2A_FRIDGE_01`; its visible label follows generated
+socket `2A_FRIDGE_FACE`. The before/after acceptance pair and rerun command are
+recorded in `art/renders/mina_k6_waking_residue/README.md`.
+
 ## Arcade cabinets
 
 The machines in the bar are playable. They are not arcade cabinets — they

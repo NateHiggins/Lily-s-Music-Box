@@ -1,9 +1,12 @@
 class_name MinaCaseGameplay
 extends Node3D
-## Complete first-pass playable flow for Caption Crisis: accept, inspect,
-## calibrate, recur, re-inspect, talk honestly, and integrate.
+## Mina's case-specific half of the golden shift. WorkOrders owns the one
+## practical job; this owner translates its completed Vantry repair into the
+## first temporary stabilization, then keeps Mina's existing recurrence,
+## earned conversation and integration mechanics.
 
 const CASE_ID := "mina_caption_crisis"
+const JOB_ID := "vantry_chirp_2a"
 const DIALOGUE_TREE_PATH := "res://data/case01_dialogue.json"
 const VOICE_DIR := "res://assets/audio/voice/"
 const EVIDENCE := [
@@ -19,8 +22,8 @@ const EVIDENCE := [
 ]
 
 var tracker: ObjectiveTracker
+var work_orders: WorkOrders
 var dialogue_tree: Dictionary = {}
-var terminal: CaseInteractable
 var letter: CaseInteractable
 var console: CaseInteractable
 var shift_clock: CaseInteractable
@@ -33,12 +36,15 @@ var _visit_label: Label
 var _voice: AudioStreamPlayer3D
 
 
-func setup(objective_tracker: ObjectiveTracker) -> void:
+func setup(objective_tracker: ObjectiveTracker,
+		order_spine: WorkOrders = null) -> void:
 	tracker = objective_tracker
+	work_orders = order_spine
+	if work_orders != null:
+		work_orders.job_stage_changed.connect(_on_job_stage_changed)
 
 
 func _ready() -> void:
-	_build_terminal()
 	_build_apartment_targets()
 	_build_dialogue()
 	_build_visit_boundary()
@@ -46,16 +52,9 @@ func _ready() -> void:
 	RealityCases.case_changed.connect(_on_case_changed)
 	RealityCases.resident_interaction_requested.connect(
 			_on_resident_interaction)
+	RealityState.state_changed.connect(_on_reality_state_changed)
+	_reconcile_physical_repair()
 	_refresh()
-
-
-func _build_terminal() -> void:
-	terminal = CaseInteractable.new()
-	terminal.setup("WORK ORDER 002-A", "Accept Caption Crisis work order",
-			_accept_work_order, Color(0.20, 0.31, 0.27),
-			Vector3(0.72, 0.62, 0.12))
-	terminal.position = GameBoot.b2g([-2.6, -7.3, 0.95])
-	add_child(terminal)
 
 
 func _build_apartment_targets() -> void:
@@ -185,8 +184,28 @@ func _read_letter() -> void:
 			[{"text": "[Fold it back up.]", "action": Callable()}])
 
 
-func _accept_work_order() -> void:
-	RealityCases.activate_case(CASE_ID)
+func _on_job_stage_changed(job_id: String, _from: String, to_stage: String,
+		_job: Dictionary) -> void:
+	if job_id == JOB_ID and to_stage == "repaired":
+		_reconcile_physical_repair()
+
+
+## The carbon-capsule repair is the first practical intervention in Mina's
+## case. This is case translation, not a second lifecycle: WorkOrders remains
+## the only owner of the repair and RealityCases remains the only owner of
+## stabilization. A restored repaired job is reconciled idempotently.
+func _reconcile_physical_repair() -> void:
+	if work_orders == null \
+			or work_orders.job_stage(JOB_ID) not in ["repaired", "closed"]:
+		return
+	var state := RealityState.case_state(CASE_ID)
+	if state.is_empty():
+		state = RealityState.ensure_case(CASE_ID, "mina_vale")
+	if bool(state.get("resolved", false)) or int(state.get("repair_count", 0)) > 0:
+		return
+	if str(state.get("stage", "unseen")) == "unseen":
+		RealityCases.activate_case(CASE_ID)
+	RealityCases.stabilize_case(CASE_ID)
 
 
 func _inspect(evidence_id: String) -> void:
@@ -317,6 +336,11 @@ func _on_case_changed(changed_case: String, _state: Dictionary) -> void:
 		_refresh()
 
 
+func _on_reality_state_changed() -> void:
+	_reconcile_physical_repair()
+	_refresh()
+
+
 func _refresh() -> void:
 	var state := RealityState.case_state(CASE_ID)
 	if state.is_empty():
@@ -326,7 +350,6 @@ func _refresh() -> void:
 	var inspected := _inspection_count(state)
 	var awaiting_shift := repairs == 1 \
 			and bool(state.get("recurrence_pending", false))
-	terminal.set_enabled(stage == "unseen")
 	var inspecting := stage in ["active", "reopened", "recognized", "resistant"] \
 			and not awaiting_shift
 	for item in evidence_nodes:
@@ -344,7 +367,7 @@ func _refresh() -> void:
 			or "first_silence_misread" in flags))
 	if stage == "unseen":
 		tracker.show_objective("REALTY MAINTENANCE",
-				"Check the lobby work-order terminal.")
+				"Listen for a fault or speak with the resident who reported it.")
 	elif awaiting_shift:
 		tracker.show_objective("2A — TEMPORARILY STABLE",
 				("Speak with Mina. The underlying problem has not been resolved."
