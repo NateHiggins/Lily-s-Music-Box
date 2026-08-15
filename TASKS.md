@@ -499,8 +499,19 @@ are two answers to the same problem and only this one is built.
 - **PS5** **Carrying changes crossing.** The keystone of the loop: a crate slows
   you, blocks sprint and sits low in frame, so the return leg of an errand is
   harder than the outbound. Wires the Passage directly to section T with no UI.
-- **PS6** Hours. Shuttered units and chained carts at night, and a 300 ft empty
-  glass hall. Pair with T1's night question.
+- **PS6 DONE.** At canonical 03:00, ten ordinary units are dark behind
+  source-positioned sliding iron lattice grilles and all three public
+  handcarts are frozen behind visible frame chains. HARDWARE PAINT is the one
+  night-service exception: Mina's proved maintenance shift buys the carbon
+  transmitter capsule there, so closing it would break the full loop. From
+  06:30 to 02:00 all eleven circuits return, the grilles fold against their
+  piers, their collision disappears and the carts are released. The complete
+  state is three bounded MultiMesh draws plus ten real barriers; shopfront
+  coordinates exist only as `passage_shop_hours` generator markers.
+  `PassageHoursTest` (15/15), Passage navigation/entry/visibility/ownership,
+  LightingAudit, GoldenLoopTest (65/65) and WalkTest FULL all pass. Canonical
+  before/night/day renders and the same-build focused performance control are
+  in `art/renders/passage_hours_ps6/`.
 - **PS7 DONE.** Eleven source-owned shop batches import as 263 bounded local
   draws; NEWS CIGARS keeps its inaccessible proprietor side. PassageVisibility,
   PassageNav and ShopEntry all pass on the rebuilt geometry.

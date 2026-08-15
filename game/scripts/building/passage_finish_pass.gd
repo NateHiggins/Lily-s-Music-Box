@@ -5,9 +5,12 @@ extends Node3D
 ## that can move, be repaired or accumulate after construction.
 
 const PUSH_CART_SCRIPT := preload("res://scripts/props/passage_pushcart.gd")
+const HOURS_SCRIPT := preload(
+		"res://scripts/building/passage_hours_director.gd")
 
 var geometry_nodes: Array[GeometryInstance3D] = []
 var pushcarts: Array[Node3D] = []
+var hours_director: PassageHoursDirector
 
 
 func build(layout: Dictionary) -> Dictionary:
@@ -16,7 +19,11 @@ func build(layout: Dictionary) -> Dictionary:
 	_build_edge_drains()
 	_build_floor_wear()
 	_build_pushcarts()
-	print("[PASSAGE FINISH] %d gated draws, %d shoveable handcarts" %
+	hours_director = HOURS_SCRIPT.new()
+	add_child(hours_director)
+	hours_director.build(get_parent() as Node3D, layout, pushcarts)
+	geometry_nodes.append_array(hours_director.geometry_nodes)
+	print("[PASSAGE FINISH] %d gated draws, %d handcarts, hours active" %
 			[geometry_nodes.size(), pushcarts.size()])
 	return {"draws": geometry_nodes.size(), "pushcarts": pushcarts.size()}
 

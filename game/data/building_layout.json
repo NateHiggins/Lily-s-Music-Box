@@ -6965,6 +6965,22 @@
      "finish_variant": 0
     },
     {
+     "kind": "passage_shop_hours",
+     "id": "SITE_SHOP_HOURS_MODEL_LAUNDRY",
+     "pos": [
+      10.88,
+      -42.0,
+      0.06
+     ],
+     "yaw_deg": 90.0,
+     "w": 5.32,
+     "h": 2.38,
+     "trade": "laundry",
+     "shop_name": "MODEL LAUNDRY",
+     "exterior": true,
+     "zone": "PASSAGE"
+    },
+    {
      "kind": "shop_sign",
      "id": "SITE_SHOP_SIGN_MODEL_LAUNDRY",
      "unit": "SITE",
@@ -7078,6 +7094,22 @@
      "finish_variant": 0
     },
     {
+     "kind": "passage_shop_hours",
+     "id": "SITE_SHOP_HOURS_SHOE_REBUILDING",
+     "pos": [
+      10.88,
+      -47.6,
+      0.06
+     ],
+     "yaw_deg": 90.0,
+     "w": 5.32,
+     "h": 2.38,
+     "trade": "cobbler",
+     "shop_name": "SHOE REBUILDING",
+     "exterior": true,
+     "zone": "PASSAGE"
+    },
+    {
      "kind": "shop_sign",
      "id": "SITE_SHOP_SIGN_SHOE_REBUILDING",
      "unit": "SITE",
@@ -7173,6 +7205,22 @@
      "finish_variant": 0
     },
     {
+     "kind": "passage_shop_hours",
+     "id": "SITE_SHOP_HOURS_KEYS_CUT",
+     "pos": [
+      10.88,
+      -52.2,
+      0.06
+     ],
+     "yaw_deg": 90.0,
+     "w": 3.3199999999999994,
+     "h": 2.38,
+     "trade": "locksmith",
+     "shop_name": "KEYS CUT",
+     "exterior": true,
+     "zone": "PASSAGE"
+    },
+    {
      "kind": "shop_sign",
      "id": "SITE_SHOP_SIGN_KEYS_CUT",
      "unit": "SITE",
@@ -7266,6 +7314,22 @@
      "zone": "PASSAGE",
      "subtype": "storefront",
      "finish_variant": 1
+    },
+    {
+     "kind": "passage_shop_hours",
+     "id": "SITE_SHOP_HOURS_HARDWARE_PAINT",
+     "pos": [
+      10.88,
+      -56.7,
+      0.06
+     ],
+     "yaw_deg": 90.0,
+     "w": 5.12,
+     "h": 2.38,
+     "trade": "hardware",
+     "shop_name": "HARDWARE PAINT",
+     "exterior": true,
+     "zone": "PASSAGE"
     },
     {
      "kind": "shop_sign",
@@ -7381,6 +7445,22 @@
      "finish_variant": 0
     },
     {
+     "kind": "passage_shop_hours",
+     "id": "SITE_SHOP_HOURS_FUNERAL_PARLOUR",
+     "pos": [
+      10.88,
+      -61.7,
+      0.06
+     ],
+     "yaw_deg": 90.0,
+     "w": 4.319999999999998,
+     "h": 2.38,
+     "trade": "funeral",
+     "shop_name": "FUNERAL PARLOUR",
+     "exterior": true,
+     "zone": "PASSAGE"
+    },
+    {
      "kind": "shop_sign",
      "id": "SITE_SHOP_SIGN_FUNERAL_PARLOUR",
      "unit": "SITE",
@@ -7494,6 +7574,22 @@
      "finish_variant": 0
     },
     {
+     "kind": "passage_shop_hours",
+     "id": "SITE_SHOP_HOURS_PHOTO_SUPPLIES",
+     "pos": [
+      17.12,
+      -61.39999999999999,
+      0.06
+     ],
+     "yaw_deg": 270.0,
+     "w": 4.92,
+     "h": 2.38,
+     "trade": "photo",
+     "shop_name": "PHOTO SUPPLIES",
+     "exterior": true,
+     "zone": "PASSAGE"
+    },
+    {
      "kind": "shop_sign",
      "id": "SITE_SHOP_SIGN_PHOTO_SUPPLIES",
      "unit": "SITE",
@@ -7587,6 +7683,22 @@
      "zone": "PASSAGE",
      "subtype": "storefront",
      "finish_variant": 2
+    },
+    {
+     "kind": "passage_shop_hours",
+     "id": "SITE_SHOP_HOURS_RADIO_SERVICE",
+     "pos": [
+      17.12,
+      -57.199999999999996,
+      0.06
+     ],
+     "yaw_deg": 270.0,
+     "w": 2.92,
+     "h": 2.38,
+     "trade": "radio",
+     "shop_name": "RADIO SERVICE",
+     "exterior": true,
+     "zone": "PASSAGE"
     },
     {
      "kind": "shop_sign",
@@ -7684,6 +7796,22 @@
      "finish_variant": 2
     },
     {
+     "kind": "passage_shop_hours",
+     "id": "SITE_SHOP_HOURS_PAWNBROKER",
+     "pos": [
+      17.12,
+      -53.3,
+      0.06
+     ],
+     "yaw_deg": 270.0,
+     "w": 4.319999999999999,
+     "h": 2.38,
+     "trade": "pawn",
+     "shop_name": "PAWNBROKER",
+     "exterior": true,
+     "zone": "PASSAGE"
+    },
+    {
      "kind": "shop_sign",
      "id": "SITE_SHOP_SIGN_PAWNBROKER",
      "unit": "SITE",
@@ -7779,6 +7907,22 @@
      "finish_variant": 2
     },
     {
+     "kind": "passage_shop_hours",
+     "id": "SITE_SHOP_HOURS_NEWS_CIGARS",
+     "pos": [
+      17.12,
+      -49.849999999999994,
+      0.06
+     ],
+     "yaw_deg": 270.0,
+     "w": 2.0200000000000005,
+     "h": 2.38,
+     "trade": "news",
+     "shop_name": "NEWS CIGARS",
+     "exterior": true,
+     "zone": "PASSAGE"
+    },
+    {
      "kind": "shop_sign",
      "id": "SITE_SHOP_SIGN_NEWS_CIGARS",
      "unit": "SITE",
@@ -7872,6 +8016,22 @@
      "zone": "PASSAGE",
      "subtype": "storefront",
      "finish_variant": 2
+    },
+    {
+     "kind": "passage_shop_hours",
+     "id": "SITE_SHOP_HOURS_OTIS___SON",
+     "pos": [
+      17.12,
+      -46.55,
+      0.06
+     ],
+     "yaw_deg": 270.0,
+     "w": 4.019999999999999,
+     "h": 2.38,
+     "trade": "druggist",
+     "shop_name": "OTIS & SON",
+     "exterior": true,
+     "zone": "PASSAGE"
     },
     {
      "kind": "shop_sign",
@@ -7985,6 +8145,22 @@
      "zone": "PASSAGE",
      "subtype": "storefront",
      "finish_variant": 2
+    },
+    {
+     "kind": "passage_shop_hours",
+     "id": "SITE_SHOP_HOURS_LUNCHEONETTE",
+     "pos": [
+      17.12,
+      -41.8,
+      0.06
+     ],
+     "yaw_deg": 270.0,
+     "w": 4.919999999999999,
+     "h": 2.38,
+     "trade": "diner",
+     "shop_name": "LUNCHEONETTE",
+     "exterior": true,
+     "zone": "PASSAGE"
     },
     {
      "kind": "shop_sign",

@@ -34,7 +34,9 @@ func _ready() -> void:
 			[13.35, -52.6, 1.34], [15.0, -54.8, 0.70])
 	await _capture("04_news_cart_northbound",
 			[15.0, -62.9, 1.46], [13.0, -60.2, 0.68])
-	print("[PASSAGE FINISH SHOT] 4 frames saved")
+	await _capture("05_cart_restraint_detail",
+			[14.25, -53.55, 1.38], [15.0, -54.82, 1.02])
+	print("[PASSAGE FINISH SHOT] 5 frames saved")
 	get_tree().quit(0)
 
 

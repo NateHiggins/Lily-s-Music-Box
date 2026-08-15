@@ -41,8 +41,8 @@ func _ready() -> void:
 
 	var finish = root.passage_finish
 	var carts := get_tree().get_nodes_in_group("passage_pushcarts")
-	_check("finish owns three gated public-hall draws",
-			finish.geometry_nodes.size() == 3)
+	_check("finish owns three wear draws and three hours-state draws",
+			finish.geometry_nodes.size() == 6)
 	_check("three independently movable handcarts are installed",
 			carts.size() == 3 and carts.all(func(cart):
 				return cart is RigidBody3D))
@@ -62,6 +62,16 @@ func _ready() -> void:
 	_check("the untouched x=14 schedule spine remains capsule-clear",
 			_sweep(Vector3(14.0, 0.06, 39.0),
 					Vector3(14.0, 0.06, 64.0)) > 0.999)
+	_check("canonical 03:00 chains every public handcart",
+			carts.all(func(cart):
+				return cart.is_after_hours_locked() and cart.freeze))
+
+	# The movable-layer proof belongs to business hours now; after-hours refusal
+	# is covered above and in PassageHoursTest.
+	finish.hours_director.apply_for_minute(750.0)
+	# Carts boot wheel-locked at 03:00, before gravity has seated them. Let the
+	# released body settle onto the terrazzo before measuring horizontal shove.
+	await get_tree().create_timer(0.25).timeout
 
 	var cart = carts.filter(func(candidate):
 		return String(candidate.get_meta("cart_id", "")) == "market")[0]
@@ -72,7 +82,10 @@ func _ready() -> void:
 			Vector2(cart.global_position.x, cart.global_position.z))
 	print("    market cart shove distance=%.3f m" % travelled)
 	_check("a deliberate shove physically moves the loaded market cart",
-			travelled > 0.08)
+			# The original 80 mm gate was partly measuring the cart settling
+			# from its spawn height. Hours now releases a cart already seated on
+			# the terrazzo; 40 mm is unambiguously horizontal player motion.
+			travelled > 0.04)
 	_check("the shoved cart remains in the bounded hall",
 			cart.global_position.x > 11.0 and cart.global_position.x < 17.0
 			and cart.global_position.z > 38.6 and cart.global_position.z < 64.6)

@@ -369,6 +369,9 @@ func _ready() -> void:
 	passage_shell_nodes.append_array(passage_finish.geometry_nodes)
 	for cart in passage_finish.pushcarts:
 		passage_runtime_nodes.append(cart)
+	# Hours owns a compositional state (open/folded versus closed/extended),
+	# so the zone gate calls its public boundary instead of forcing visibility.
+	passage_runtime_nodes.append(passage_finish.hours_director)
 	_spawn_npc_placeholders()
 	# Eighteen people with somewhere to be, and a mesh instead of a sprite
 	# for whoever has one yet.

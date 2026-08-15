@@ -4329,6 +4329,19 @@ def _storefronts(fb, mk, shops=None, face=None, S=1):
                             ("open" if trade in ("laundry", "diner")
                              else "closed")),
                    "exterior": True})
+        # Runtime hours furniture must inherit the exact storefront packing,
+        # never restate Passage coordinates in GDScript.  This marker sits
+        # 120 mm behind the glazing and carries the clear span between piers;
+        # _PassageMarkers rotates it with the shop like every other authored
+        # point.  It has no geometry of its own until PassageHoursDirector
+        # builds the reversible folding lattice.
+        mk.append({"kind": "passage_shop_hours",
+                   "id": "SITE_SHOP_HOURS_%s" % tag.upper(),
+                   "pos": [(x0 + x1) * 0.5, F - S * 0.12, 0.06],
+                   "yaw_deg": 0 if S > 0 else 180,
+                   "w": w - 0.28, "h": 2.38,
+                   "trade": trade, "shop_name": name,
+                   "exterior": True})
         # Stall riser and glass, either side of the door.
         for si, (gx0, gx1) in enumerate(((x0 + 0.14, dx0 - 0.10),
                                          (dx1 + 0.10, x1 - 0.14))):

@@ -117,8 +117,8 @@ func _ready() -> void:
 			interiors.size() > 11)
 	_check("hall and vault produced separately gated shell draws",
 			shell.size() > 0)
-	_check("69 marker actors plus three handcarts are zone-owned",
-			actors.size() == 72)
+	_check("69 marker actors, three handcarts and hours owner are zone-owned",
+			actors.size() == 73)
 	_check("three finish draws join the gated shell",
 			get_tree().get_nodes_in_group("passage_finish_geometry").size() == 3
 			and get_tree().get_nodes_in_group("passage_pushcarts").size() == 3)
@@ -135,7 +135,14 @@ func _ready() -> void:
 	root._apply_visibility(Vector3(14.0, 1.0, 28.317))
 	_check("shop interiors submit after crossing the portal",
 			_all_visible(interiors))
-	_check("hall shell submits after crossing the portal", _all_visible(shell))
+	var architectural_shell := shell.filter(func(node):
+		return not node.is_in_group("passage_hours_geometry"))
+	_check("architectural hall shell submits after crossing the portal",
+			_all_visible(architectural_shell))
+	_check("hours buffers restore their exact 03:00 composition",
+			root.passage_finish.hours_director._closed_grilles.visible
+			and not root.passage_finish.hours_director._folded_regular.visible
+			and root.passage_finish.hours_director._folded_night_service.visible)
 	_check("Passage actors submit after crossing the portal", _all_visible(actors))
 	_check("portal glazing remains submitted inside", _all_visible(proxies))
 

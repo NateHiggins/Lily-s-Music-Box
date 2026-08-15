@@ -48,6 +48,14 @@ hall in three gated draws. The exact x=14 spine and all four resident shop
 routes remain capsule-clear, and the portal freezes cart physics outside the
 zone.
 
+PS6 hours are also complete. At the canonical 03:00 shift, ten shops close
+behind internal sliding lattice grilles, their circuits go dark and the three
+carts are visibly chained. HARDWARE PAINT is the deliberate night-service
+exception required by the proved Mina errand; it is not an accidental open
+bay. Day state reverses all three effects. Do not replace this with opaque
+modern shutters or close the exception without changing and re-proving the
+gameplay loop.
+
 The complete-route lock is done. `FinalMapRouteTest` drives the real player
 ORISON → STREET → PASSAGE → HARDWARE PAINT and back on the loaded map. The
 Passage gate now keeps the F01 hall host while excluding the apartment stack,

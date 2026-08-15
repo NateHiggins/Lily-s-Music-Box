@@ -192,6 +192,17 @@ were fixed (−3.1 ms) and the remaining ceiling was measured
 stands; cross-shop batching is deferred to project-wide P1 with its own
 proof burden.
 
+**Passage hours contract since PS6 (2026-08-15).** Canonical 03:00 means ten
+closed Vantry units, ten dark shop circuits and three chained/frozen carts.
+HARDWARE PAINT alone remains lit, open and collidable because K3/K5's shipped
+night maintenance loop physically buys its required part there. At 06:30 the
+ten internal scissor grilles fold back, every shop circuit returns and carts
+are released; ordinary closing begins at 02:00. Coordinates are generated
+`passage_shop_hours` markers, not duplicated runtime literals. The retained
+same-build diagnostic is `PASSAGE_HOURS_OFF=1`; it forces the open/day shop
+state only and must never ship as gameplay configuration. Evidence and its
+measurement caveat live in `art/renders/passage_hours_ps6/README.md`.
+
 ## Arcade cabinets
 
 The machines in the bar are playable. They are not arcade cabinets — they

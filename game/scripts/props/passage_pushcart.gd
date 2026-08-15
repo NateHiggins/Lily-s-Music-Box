@@ -9,7 +9,10 @@ const SHOVE_IMPULSE := 46.0
 
 var cart_id := ""
 var cargo := "empty"
-var _active := true
+var _passage_active := true
+var _after_hours_locked := false
+var _night_chain: MultiMeshInstance3D
+var _night_lock: MeshInstance3D
 
 
 func setup(id_: String, cargo_: String) -> void:
@@ -27,6 +30,7 @@ func setup(id_: String, cargo_: String) -> void:
 	set_meta("cargo", cargo)
 	_build_collision()
 	_build_visual()
+	_build_night_chain()
 
 
 func _build_collision() -> void:
@@ -104,17 +108,21 @@ func _build_visual() -> void:
 
 
 func interact_prompt() -> String:
+	if _after_hours_locked:
+		return "Handcart chained for the night"
 	return "[E]  Shove handcart"
 
 
 func interact(player: Node) -> void:
+	if _after_hours_locked:
+		return
 	if not player is Node3D:
 		return
 	shove_from((player as Node3D).global_position)
 
 
 func shove_from(source: Vector3) -> void:
-	if not _active:
+	if not _passage_active or _after_hours_locked:
 		return
 	var direction := global_position - source
 	direction.y = 0.0
@@ -128,11 +136,74 @@ func shove_from(source: Vector3) -> void:
 
 
 func set_passage_active(active: bool) -> void:
-	_active = active
+	_passage_active = active
 	visible = active
-	freeze = not active
 	collision_layer = 1 if active else 0
 	collision_mask = 1 if active else 0
+	_refresh_restraint()
+
+
+func set_after_hours_locked(locked: bool) -> void:
+	_after_hours_locked = locked
+	_refresh_restraint()
+
+
+func is_after_hours_locked() -> bool:
+	return _after_hours_locked
+
+
+func _refresh_restraint() -> void:
+	freeze = not _passage_active or _after_hours_locked
+	if _night_chain:
+		_night_chain.visible = _after_hours_locked
+	if _night_lock:
+		_night_lock.visible = _after_hours_locked
+
+
+func _build_night_chain() -> void:
+	# The chain passes through both end-frame uprights rather than lying loose
+	# on the cargo. It hangs on the aisle end of the parked carts so
+	# the night restraint remains legible above the black undercarriage.
+	# Fourteen alternating low-poly links still share one draw.
+	var link := TorusMesh.new()
+	link.inner_radius = 0.030
+	link.outer_radius = 0.058
+	link.rings = 8
+	link.ring_segments = 6
+	var multimesh := MultiMesh.new()
+	multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	multimesh.mesh = link
+	multimesh.instance_count = 14
+	for i in 14:
+		var t := float(i) / 13.0
+		var position := Vector3(lerpf(-0.43, 0.43, t),
+				0.91 - 0.17 * sin(t * PI), -0.655)
+		# One link faces out into the aisle, the next turns ninety degrees
+		# through it. This also keeps half the chain readable from oblique views.
+		var basis := Basis(Vector3.RIGHT, PI * 0.5)
+		if i % 2 == 1:
+			basis = Basis(Vector3.FORWARD, PI * 0.5)
+		multimesh.set_instance_transform(i, Transform3D(basis, position))
+	_night_chain = MultiMeshInstance3D.new()
+	_night_chain.name = "AfterHoursLoadChain"
+	_night_chain.multimesh = multimesh
+	_night_chain.material_override = MatLib.get_mat("nickel_plated",
+			Color(0.50, 0.47, 0.37), 0.50)
+	_night_chain.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+	_night_chain.visible = false
+	_night_chain.add_to_group("passage_cart_chains")
+	add_child(_night_chain)
+	var lock_mesh := BoxMesh.new()
+	lock_mesh.size = Vector3(0.13, 0.16, 0.055)
+	_night_lock = MeshInstance3D.new()
+	_night_lock.name = "AfterHoursPadlock"
+	_night_lock.mesh = lock_mesh
+	_night_lock.position = Vector3(0.0, 0.70, -0.685)
+	_night_lock.material_override = MatLib.get_mat("brass_dull",
+			Color(0.62, 0.48, 0.21), 0.48)
+	_night_lock.visible = false
+	_night_lock.add_to_group("passage_cart_chains")
+	add_child(_night_lock)
 
 
 func _box(parent: Node3D, size: Vector3, at: Vector3,

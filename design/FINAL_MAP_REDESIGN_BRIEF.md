@@ -1269,3 +1269,47 @@ FAST, and WalkTest FULL at **x8/480 Hz** (`WALKTEST_SCALE=8`, 46.6 s,
 ≈20.4, gap 3.8. The remaining measured lever is the expensive visible/local
 prop classes (187 tickers worth 5.03 ms at northbound) — a per-class profile,
 not begun.
+
+## 10ap. PS6 EXECUTED 2026-08-15 — the Vantry Arcade after hours
+
+**The fiction and the gameplay agree.** Canonical play begins at 03:00. Ten
+ordinary units are then closed and dark; HARDWARE PAINT alone keeps night
+service because the complete Mina maintenance loop physically buys the carbon
+transmitter capsule at that counter. A universal close would strand the only
+proved errand. The exception is therefore a legible story fact, not a test
+escape hatch: one warm bay at the far end of an otherwise empty glass hall.
+
+**The enclosure is period architecture.** Each ordinary shop receives an
+internally mounted sliding/folding iron lattice grille: repeated scissor cells,
+side tracks and a low lock rail, open enough to retain the plate-glass depth.
+This follows the documented sliding lattice gates at the 1894 Hepworth's
+Arcade and the period cast-iron/plate-glass arcade family, rather than importing
+an opaque modern roller shutter. At 06:30 each grille folds into a narrow pier
+packet; ordinary closing begins at 02:00. The eleven shopfront positions and
+clear widths come only from generated `passage_shop_hours` records beside the
+door markers. Runtime adds three bounded MultiMesh draws and ten after-hours
+collision planes; it does not duplicate the shop coordinates or rebuild the
+glTF for marker-only data.
+
+**The carts share the same clock.** All three rigid handcarts freeze at night,
+show a heavy alternating-link chain through the end-frame uprights and refuse
+both body and interact shoves. Day releases them and hides the restraints.
+STREET ownership suppresses the hours geometry and its collision without
+changing the saved clock state.
+
+**Proof.** `PassageHoursTest` is the exact 15-check state machine: eleven
+markers, ten-plus-one split, three draws, ten barriers, shop circuits, three
+cart restraints, full day reversal and STREET/PASSAGE composition. It passes
+with PassageFinishTest, PassageNavTest, ShopEntryTest, PassageVisibilityTest,
+the zero-unclassified PassageOwnershipAudit, LightingAudit, GoldenLoopTest
+(65/65 through the real night shop and return leg) and WalkTest FULL. Five
+canonical before/night/day views are recorded under
+`art/renders/passage_hours_ps6/`.
+
+The focused northbound same-build control is informative, not a new M0.5 gate:
+two fresh production processes measured 16.70 / 16.17 ms (mean 16.44), while
+`PASSAGE_HOURS_OFF=1` measured 17.62 / 17.55 ms (mean 17.59). Live resident
+submission counts drifted between processes, so the −1.15 ms mean is not used
+as source attribution; the executable three-draw/ten-circuit census is the
+structural proof. The feature does not relax the standing 9 m shop-batch
+contract or reopen M0.5's accepted benchmark ruling.
