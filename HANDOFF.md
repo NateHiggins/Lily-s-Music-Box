@@ -224,8 +224,12 @@ the reveal restriction applies to the **title screen only**; it does not block
 dream design or production. The complete `design/ORISON_MAZE_BRIEF.md` is now
 ruled canon. N2's source catalog, canonical seed-0 assembly, dimensioned drawing
 and 100-seed audit are closed at `art/renders/dream_maze_n2/README.md`; no Godot
-dream scene exists yet, and N3's light/pursuit control corridor is next. Wake
-persists one
+dream scene exists yet. Owner ruling 2026-08-15 replaces the carried phone with
+a no-screen Vantry service radiophone, attached warm work lamp and one amber
+ORDER jewel; the researched migration contract and concept target are in
+`design/VANTRY_SERVICE_RADIOPHONE_BRIEF.md`. Q3/Q4's dependency census and
+device-neutral light seam now precede N3 so pursuit code does not entrench
+`PhoneCarrier`. Wake persists one
 `mina_factual_refrigerator_caption` fact. Its acoustic owner
 is generated marker `F02_2A_FRIDGE_01`; its visible label follows generated
 socket `2A_FRIDGE_FACE`. The before/after acceptance pair and rerun command are

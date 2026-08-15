@@ -52,6 +52,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | The machines in the bar | `game/docs/arcade_cabinets.md`, ruled in Bible §VIII.5.g |
 | The proposed basement studio | `design/ORISON_STUDIO_BRIEF.md` *(proposal)* |
 | The narcolepsy dream / the maze | `design/ORISON_MAZE_BRIEF.md` *(ruled production design)* |
+| The no-screen radio and attached work light in the player's hand | `design/VANTRY_SERVICE_RADIOPHONE_BRIEF.md` *(core ruled; implementation proposal)* |
 | How sound moves through the building | `game/data/acoustic_graph.json`, `game/docs/sanity_system.md` |
 | Why a texture tiles badly | `art/tools/ingest_material_sources.py`, and the compiler's `docs/provider-api.md` |
 | What clothes people wear | `design/ORISON_WARDROBE_BIBLE.md` |
@@ -111,8 +112,10 @@ and the reader has no way to tell which one is lying.
 
 ## Known gaps in the documentation itself
 
-- The eleven shops, the phone OS and the case network have reference docs of
-  uneven depth; `design/SHOP_INTERIOR_BUILD_GUIDE.md` is the fullest.
+- The eleven shops, the superseded phone OS and the case network have reference
+  docs of uneven depth. The carried-device migration authority is now
+  `design/VANTRY_SERVICE_RADIOPHONE_BRIEF.md`; the old phone documents remain
+  historical inputs until Q3 classifies every consumer.
 - `docs/harukiya_reference_notes.md` owes an asset manifest and an interaction
   manifest, deliberately unwritten so far.
 - Bible §VI holds eight disputed texts awaiting a ruling. They are disputes, not

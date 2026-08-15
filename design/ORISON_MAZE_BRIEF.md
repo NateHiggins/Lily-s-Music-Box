@@ -19,7 +19,7 @@ now binds the implementation details that connect those laws.
 ## THE ONE-LINE CASE
 
 **After a case is integrated, sleep takes the player into a deterministic wrong
-Orison: their phone light reveals the way and tells the Tenant where they are;
+Orison: their service-radio lamp reveals the way and tells the Tenant where they are;
 the Tenant wears the departing case's shadow; capture or a building hazard ends
 the passage; the player wakes in 4B with one quiet fact left behind.**
 
@@ -114,7 +114,7 @@ enter. It does not own the maze.
 
 - Mina's first onset is always gradual so the player can learn the language:
   peripheral contrast falls, the field narrows slightly, the mix loses high
-  frequencies, the phone beam lags, and the Room 0 hum becomes perceptible.
+  frequencies, the service lamp lags, and the Room 0 hum becomes perceptible.
 - Later case profiles may permit sudden onset. The campaign seed chooses between
   permitted onset forms; it does not roll continuously during ordinary play.
 - The accessibility setting **Always warn before sleep** forces gradual onset
@@ -163,7 +163,7 @@ impossible return—not melted walls or generic dream particles.
 | ID | Waking source dimensions | Dream work |
 |---|---|---|
 | `D00_4B_THRESHOLD` | 4B vestibule, 2.20 × 1.25 m | One entrance, every time; the room behind is absent |
-| `D01_F04_LONG_HALL` | 2.08 m corridor width; 19.30 m from three true bays | Establishes the phone-light rule and the receding practical |
+| `D01_F04_LONG_HALL` | 2.08 m corridor width; 19.30 m from three true bays | Establishes the service-lamp rule and the receding practical |
 | `D02_DOGLEG_STAIR` | 6.32 × 6.32 m well; 1.70 m flights; 3.20 m rise | Goes up honestly, arrives at a lower floor number |
 | `D03_LIFT_VOID` | 4.10 × 3.50 m hall; 2.15 × 2.20 m shaft; 0.91 m door | One working door, one open shaft, chain and draught hazard |
 | `D04_BATHROOM_PROCESSION` | four 2.20 × 2.40 m bathrooms in a 9.60 m run | Four locally exact bathrooms sharing one impossible wet wall |
@@ -217,11 +217,12 @@ the dream generator may reference its source records but may not write them.
 
 ## THE LIGHT IS THE GAME
 
-The player brings the same physical phone and cool lamp into the dream. No new
-magic lantern appears and no tutorial panel explains it. The existing controller
-already owns the phone light and its carried lag, but its commented keyboard
-toggle is not currently wired. The first prototype must add one public toggle
-path shared by keyboard, controller and touch before balancing pursuit.
+The player brings the same physical Vantry service radiophone and attached warm
+tungsten lamp into the dream. No new magic lantern appears and no tutorial panel
+explains it. The current controller still owns legacy phone-beam behavior and
+carried lag; the replacement must first put that state behind one device-neutral
+public light contract. The first prototype then drives that contract through one
+toggle path shared by keyboard, controller and touch before balancing pursuit.
 
 | State | What the player gains | What the Tenant gains |
 |---|---|---|
@@ -243,10 +244,10 @@ Balance by outcomes, not lore numbers:
   not attract through opaque architecture.
 - Repeated toggling has no stamina cost and no arbitrary cooldown. The risk of
   giving away a new position is the cost.
-- The phone never flickers at photosensitive frequencies. Case pressure changes
+- The service lamp never flickers at photosensitive frequencies. Case pressure changes
   intensity slowly or cuts it cleanly.
 
-The screen remains readable enough to move with the light off: black level keeps
+The world remains readable enough to move with the light off: black level keeps
 the nearest floor silhouette, and the receding practical supplies a vague
 orientation. “Off” means navigation by sound and memory, not a black video file.
 
@@ -259,14 +260,14 @@ The dream does not buy a monster model.
 - One invisible navigation body owns position, last-known target, hearing and
   capture distance.
 - A **shadows-only proxy** borrows the current subject's broad silhouette. It
-  casts onto walls and floor when the phone beam finds the right angle, but the
+  casts onto walls and floor when the service lamp finds the right angle, but the
   proxy itself never renders. No face, eyes, hands, texture or reveal exists.
 - Case effects occur in the architecture: captions, stamps, feedback, broken
   appliances, radio fragments or contradictory labels. They are not particle
   costumes wrapped around a humanoid.
 - The Tenant never uses the resident's speaking voice. It borrows rhythm,
   vocabulary and signal carriers from `PoltergeistLibrary`.
-- Capture is the phone beam being occluded at intimate distance, the case sound
+- Capture is the service-lamp beam being occluded at intimate distance, the case sound
   reaching its missing fifth position and the image cutting to black. There is
   no attack animation and no creature close-up.
 
@@ -293,7 +294,7 @@ outcome, but all are dream outcomes and all wake the same living character.
 
 Eight hazards are provisioned across the full saved maze. Mina teaches only
 three. Every hazard has a sound that precedes danger, a visible confirmation
-under the phone light and one reconstructable cause. “The player understands in
+under the service lamp and one reconstructable cause. “The player understands in
 the half-second before impact” remains the fairness bar.
 
 | Hazard | Kind | Sound in darkness | Lit confirmation | Result |
@@ -321,14 +322,14 @@ always the answer.
 
 ## THE SIX CASE GRAMMARS
 
-All six use the same movement, phone and pursuit code. A profile changes room
+All six use the same movement, service-set and pursuit code. A profile changes room
 behavior, signals and authored substitutions—not controls or manager logic.
 
 | Case | What the wrong building does | What light changes | Truth the player can recognise |
 |---|---|---|---|
 | Mina — Caption Crisis | nouns appear on surfaces, then expand into claims about the player | illumination gives each visible thing another annotation; darkness leaves the blank alone | silence does not require annotation |
 | Peter — Form Corridor | reversing at a junction duplicates the pending corridor and stamps another door | light reveals instructions but also makes every hesitation legible | uncertainty does not prevent action |
-| Juno — Feedback Tetris | open signal paths echo into solid acoustic partitions | the lit phone is one clean channel; frantic toggling feeds delayed copies | connection requires an open channel |
+| Juno — Feedback Tetris | open signal paths echo into solid acoustic partitions | the lit service set is one clean channel; frantic toggling feeds delayed copies | connection requires an open channel |
 | Cal — Memory Radio | receiver fragments hold rooms in moments that have already ended | dwelling on a lit receiver loops it; darkness lets the phrase finish and the door release | presence is not preservation |
 | Omar — Unrepairable | every revisited machine returns with a new impossible fault | inspection reveals the damage but cannot restore it; moving on preserves distance | some things are not repairable |
 | Mae — Contradictory Antiques | left and right routes present incompatible histories and rejoin at the same object | light shows one provenance, darkness lets the other remain audible | contradiction is survivable |
@@ -349,7 +350,7 @@ the player masters either.
 | Time / station | Image and sound | Intended learning |
 |---|---|---|
 | onset, 2–3 s | waking mix narrows after Mina's resolved conversation; committed state is already saved | this is happening after the work, not undoing it |
-| 0–5 s, `D00` | player opens their eyes standing at the 4B threshold; phone already lit; a warm 4B practical waits ahead where 4B cannot be | move toward recognition; no tutorial text |
+| 0–5 s, `D00` | player opens their eyes standing at the 4B threshold; service lamp already lit; a warm 4B practical waits ahead where 4B cannot be | move toward recognition; no tutorial text |
 | 5–11 s, `D01` | beam reveals `DOOR`, `FLOOR`, `PLAYER`; label clicks answer behind; a borrowed shadow crosses one transverse wall | light supplies knowledge and position to the Tenant |
 | 11–17 s, `D03` | elevator door stands open; draught and chain come from below; stair connector remains acoustically dry | sound can veto a visually inviting route |
 | 17–20 s, `D04` | a locally exact bathroom is followed by the same wet wall again; a hollow runner gives one dry creak ahead | global layout is wrong; sprint is not always safe |
@@ -390,7 +391,7 @@ is real; character progression inside the dream is not.
 
 ### Image
 
-- Soot black, wet plaster, dull brass, phosphor-blue phone light and one distant
+- Soot black, wet plaster, dull brass, warm dirty service-lamp light and one distant
   tungsten practical. Each case receives one restrained accent, never a rainbow
   supernatural grade.
 - Surfaces remain material, dirty and plausible at touch distance. No floating
@@ -405,7 +406,7 @@ is real; character progression inside the dream is not.
 
 ### Sound
 
-- Mix order: immediate hazard, Tenant bearing, phone/light response, route cue,
+- Mix order: immediate hazard, Tenant bearing, radio/lamp response, route cue,
   Room 0 hum, case grammar, room tone.
 - The four-part motif remains short — short — pause — long — missing. Capture
   cuts on the absent fifth position; it does not complete the theology with a
@@ -554,7 +555,7 @@ claim is implied; that begins at Gate B.
 ### Gate E — image, audio and performance
 
 - A/B renders prove no module pop is visible across its intended occlusion.
-- Phone-on, phone-off, hazard and capture frames remain readable at production
+- Lamp-on, lamp-off, hazard and capture frames remain readable at production
   black levels without exposing a Tenant model.
 - Stereo and accessibility-caption cue tests pass.
 - The isolated dream scene meets 16.6 ms at its critical stations on the pinned
@@ -564,7 +565,7 @@ claim is implied; that begins at Gate B.
 
 At least four of five first-time players can say, without being told:
 
-1. the phone light helped them see and helped the thing find them;
+1. the service lamp helped them see and helped the thing find them;
 2. why their first hazard or capture happened;
 3. that the maze was the Orison arranged impossibly; and
 4. one Mina truth about labels, assumptions or blank silence.

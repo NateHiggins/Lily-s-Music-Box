@@ -667,19 +667,23 @@ rules its five open questions.** Nothing built.
 
 ## Q — The hand
 
-- **Q1** **Make the carried device a plain torch.** It is currently a phone -
-  `player_controller.gd` builds the beam on `_hand` and comments "The torch is
-  a phone: a blue LED under phosphor". **The on/off already exists and is bound
-  to F**, so this is not a systems job: it is a model swap plus a decision about
-  the default. That default is a ruling - "On from the first frame (ruled
-  2026-08-04): the phone rides lit in the off hand all shift" - so switching it
-  to start dark reverses a documented decision and should be recorded as one.
-  A torch that starts off also changes the first minute of the game and pairs
-  with the L-section lighting work; worth deciding together.
-- **Q2** The beam is tuned for a phone: `light_cull_mask` excludes layer 2 so it
-  does not blow out the back of the handset from 6 cm away, and the colour is
-  0.78/0.87/1.0, a cold LED. A 1928 torch is a warm, weak, yellowing bulb with
-  a much tighter and dirtier beam. Retune with the model.
+- **Q1 SUPERSEDED 2026-08-15.** The owner rejected both the phone and the plain
+  torch: Bible §VIII.5.j now rules a no-screen Vantry service radiophone with an
+  attached work lamp and one amber ORDER jewel. Execute
+  `design/VANTRY_SERVICE_RADIOPHONE_BRIEF.md`; do not make a modern radio or a
+  military prop.
+- **Q2 SCOPE CORRECTED.** Retune the carried beam from the current cold LED
+  (0.78/0.87/1.0) to the radio's ordinary pre-1928 tungsten lamp, making visible
+  lens, beam origin, cull mask, carry pose and dirty warm falloff agree.
+- **Q3** Census every `PhoneCarrier` / `Phone3D` / `PhoneOS`, camera-roll and
+  cart-app consumer; classify retain, migrate, rehome or archive before deleting
+  or disabling anything.
+- **Q4** Add a device-neutral carried-light contract, prove the old handset is
+  a render-identical control through it, then build the ruled service-set model
+  and carrier without instantiating a screen viewport.
+- **Q5** Bind the single ORDER jewel read-only to `WorkOrders` open/closed state
+  and prove reported/discovered origins plus real-file restore; the device may
+  not own or advance lifecycle.
 
 ## X — The haunting
 
@@ -727,9 +731,10 @@ seed-independent diversity measurement, 18 live provenance checks and 0
 unresolved. K7 remains open; dream design does
 not silently close the core-loop documentation.
 
-- **N3** Build the disposable light/pursuit control corridor first. Wire the
-  existing phone lamp through one keyboard/controller/touch toggle; prove light
-  on shortens capture by at least one third, light off buys six seconds, and
+- **N3** After Q4's neutral light seam, build the disposable light/pursuit
+  control corridor. Drive the service-set lamp through one shared
+  keyboard/controller/touch toggle; prove light on shortens capture by at least
+  one third, light off buys six seconds, and
   acquisition never crosses an opaque wall.
 - **N4** Add the minimal campaign scene boundary and persistence contract:
   waking and dream worlds never render/simulate together; real-file restore at

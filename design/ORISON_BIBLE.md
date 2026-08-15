@@ -579,7 +579,7 @@ world.
 | **Cloth-braided cable is status** | Good flats have woven silk flex in colours; poor ones have rubber gone stiff and tape | Wealth reads through wiring, not furniture |
 | **Valves are a consumable** | Glass tubes sold at the bodega beside the cigarettes, in printed sleeves, six for a dollar | A shop stocking valves says everything about this world in one shelf |
 | **Recording is cheap; photography is dear** | Everyone has a means of recording sound. A photograph is an occasion | **Inverted from ours.** The building remembers in sound, and its people have almost no pictures of each other |
-| **Batteries are enormous** | Wet cells in a wooden case under the stairs. Nothing is portable that does not have to be | Explains why the player's handset is a brick and always has been |
+| **Batteries are enormous** | Wet cells in a wooden case under the stairs. Nothing is portable that does not have to be | Explains why the player's service radiophone is a brick and always has been |
 | **Dial-less telephones** | Most flats cannot dial. You lift the handset and an operator answers | **The operator is the player.** Job creep is structural: you are the only way anyone in this building reaches anyone else |
 | **Ice and coal, still** | Iceboxes, coal chutes, a stove that has to be lit | The kitchen is 1890. The parlour is 1970. Same flat |
 | **No aluminium, no stainless** | Tin, enamel, cast iron, copper, brass. A dented enamel bowl, not a shiny one | Kills every modern-kitchen instinct in one line |
@@ -841,6 +841,25 @@ message, and the Rule of Signal gives it no licence beyond its period. The
 system is ordinary reopening-era plant threaded through surviving 1912
 fabric — exactly the seam §VIII.5.h says the building is made from.
 
+**VIII.5.j — THE PLAYER CARRIES A SERVICE RADIO, NOT A PHONE.**
+*(Ruled 2026-08-15, at the owner's direction. The implementation proposal and
+historical lineage are in `design/VANTRY_SERVICE_RADIOPHONE_BRIEF.md`.)*
+
+The object in the player's hand is a **Vantry portable building-maintenance
+service radiophone with an attached inspection lamp**. It has no screen,
+camera, keypad, keyboard, menu or operating system. Its controls are physical.
+Its only display-like feedback is one amber annunciator jewel indicating that
+a work order has been filed. That light presents `WorkOrders`; it never owns or
+advances them.
+
+The radio chassis earns the Rule of Signal's advance. The attached work lamp
+does not: it is ordinary pre-1928 tungsten, glass, brass and tinned steel, with
+a simple `OFF / ON` contact. The set is heavy because portable batteries are
+still heavy. The old carried phone, its camera and its private screen games are
+superseded fiction and may not remain production dependencies merely because
+their code already exists. They are audited and migrated before subtraction,
+not silently deleted.
+
 ### VIII.6 What this does not license
 
 **The divergence is not a licence for anachronism at will.** The rule of
@@ -871,8 +890,8 @@ previews the next unresolved resident.
 
 The space is one deterministic ten-module ring built from locally faithful
 Orison rooms and globally impossible connections. The same campaign seed keeps
-it learnable. The phone light is the single continuous decision: it reveals the
-route and hazards while giving the Tenant a target; darkness breaks visual
+it learnable. The service-set lamp is the single continuous decision: it reveals
+the route and hazards while giving the Tenant a target; darkness breaks visual
 acquisition but never becomes an indefinite hiding state. There is one Tenant,
 represented only through a borrowed shadows-only silhouette, architecture and
 sound. It has no model, face, attack animation or true form.
