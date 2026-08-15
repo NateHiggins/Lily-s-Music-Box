@@ -30,22 +30,22 @@ func _ready() -> void:
 		var actor := scene.instantiate()
 		add_child(actor)
 		var player := _find_animation_player(actor)
-		var grafted_early := false
+		# Every resident accepts a move-set graft: hero-standard residents
+		# load their personal <slug>_moves.glb, anything without one (the
+		# donor Evelyn) borrows the shared libraries. Graft BEFORE the
+		# idle/walk checks — a motion-free hero has no player until the
+		# graft brings one, and Evelyn's own ten clips carry no "idle"
+		# name until the gesture library lands on top. Production runs
+		# the same graft-then-play order in _upgrade/AnimatedResident.
+		var grafted := ResidentMovesLibrary.apply(actor)
 		if player == null:
-			grafted_early = ResidentMovesLibrary.apply(actor)
 			player = _find_animation_player(actor)
 		var names: Array = player.get_animation_list() if player else []
 		_check(player != null and _contains(names, "idle"),
 				profile.display + " idle imports")
 		_check(player != null and _contains(names, "walk"),
 				profile.display + " walk imports")
-		# Every resident accepts a move-set graft: hero-standard residents
-		# load their personal <slug>_moves.glb, anything without one
-		# borrows the shared libraries.
-		# apply() returns false when every clip is already present, so a
-		# hero-standard resident grafted above passes on that first graft.
-		_check(grafted_early or ResidentMovesLibrary.apply(actor),
-				profile.display + " accepts the shared move set")
+		_check(grafted, profile.display + " accepts the shared move set")
 		_check(player != null and player.has_animation("clip_06"),
 				profile.display + " can settle (shared clip_06)")
 		# Imported rigs retain their authored transforms. Runtime scale hacks
