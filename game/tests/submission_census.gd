@@ -1,13 +1,15 @@
 extends Node
-## WHAT the northbound station actually submits, attributed four ways:
+## WHAT a selected performance station can submit, attributed four ways:
 ## render pass (beauty vs shadow), zone/owner, generated prefix, and
 ## material/surface identity — measured, not inferred from toggles.
 ##
 ##     godot --path game --resolution 2560x1440 res://tests/SubmissionCensus.tscn
 ##
 ## Two instruments, reconciled against each other in one run:
-##  - Viewport.get_render_info splits objects/draw calls between the
-##    VISIBLE pass and the SHADOW passes — the ground truth totals.
+##  - Viewport.get_render_info asks for VISIBLE and SHADOW pass totals. Some
+##    Compatibility builds collapse every call into VISIBLE and return zero for
+##    SHADOW; that backend result is detected and labelled, never presented as
+##    a successful reconciliation.
 ##  - A frustum census (RenderingServer.instances_cull_convex, the same
 ##    culler the engine uses) walks every GeometryInstance3D that can
 ##    reach the frame and counts its surfaces (a surface is a draw call
@@ -77,6 +79,11 @@ func _ready() -> void:
 			root.light_rig._active_budget, root.light_rig._shadow_budget])
 	print("[SUB] PASS SPLIT  visible %d obj / %d calls   shadow %d obj / %d calls"
 			% [vis_obj, vis_calls, sh_obj, sh_calls])
+	var split_available := sh_obj > 0 or sh_calls > 0
+	if not split_available:
+		print("[SUB] PASS SPLIT UNAVAILABLE on %s: VISIBLE is backend-total; "
+				% RenderingServer.get_current_rendering_method()
+				+ "SHADOW is zero and must not be treated as ground truth")
 
 	# The frustum set, per the engine's own culler.
 	var world := vp.find_world_3d()
@@ -119,8 +126,13 @@ func _ready() -> void:
 	print("[SUB] FRUSTUM  %d objs / %d surfaces (%d transparent); casters %d objs / %d surfaces"
 			% [frustum_objs, frustum_surfaces, transparent_surfaces,
 			caster_objs, caster_surfaces])
-	print("[SUB] reconciliation: census surfaces %d vs measured visible calls %d"
-			% [frustum_surfaces, vis_calls])
+	if split_available:
+		print("[SUB] reconciliation: census surfaces %d vs measured visible calls %d"
+				% [frustum_surfaces, vis_calls])
+	else:
+		print("[SUB] non-reconciliation: %d frustum beauty surfaces vs %d "
+				% [frustum_surfaces, vis_calls]
+				+ "backend-total calls (including repeated passes)")
 
 	var rows: Array = []
 	for k in per_owner:

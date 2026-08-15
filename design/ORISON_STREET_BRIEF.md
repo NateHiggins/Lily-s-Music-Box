@@ -352,6 +352,19 @@ not claimed as causal. `PassageVisibilityTest` proves same-region suppression,
 portal invalidation and the all-floor override. The full map route and WalkTest
 FAST/FULL at x8/480 remain green. No render changed, so no beauty A/B was made.
 
+P5's adjacent “empty occlusion pass” lead was also tested and falsified. The
+production tree owns exactly zero `OccluderInstance3D` nodes, but fresh street
+runs measured 28.79/29.08 ms with project occlusion enabled and 28.79 ms with it
+disabled on the same build. The enabled controls' render populations differed,
+so the spread is noise; Godot already short-circuits the empty system. The
+project setting remains enabled for any future properly proved occluders.
+
+That pass also corrected an instrument claim: on the current Compatibility
+backend, `Viewport.get_render_info` reports all calls under VISIBLE and zero
+under SHADOW. `SubmissionCensus` still provides a useful frustum/owner and
+light-overlap census, but now marks its render-pass split unavailable and does
+not pretend the frustum surfaces reconcile to a backend-total call count.
+
 ---
 
 ## 8. Owner rulings, reconciled from the built street 2026-08-14

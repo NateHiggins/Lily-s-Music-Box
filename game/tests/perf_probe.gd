@@ -85,6 +85,14 @@ func _ready() -> void:
 		OS.set_environment("DAYNIGHT", "0")
 	root = load("res://scenes/building/orison_root.tscn").instantiate()
 	add_child(root)
+	# P5 same-build control. The project requests CPU/Embree occlusion culling,
+	# but currently authors zero OccluderInstance3D nodes. This switch prices the
+	# empty pass without changing a project setting between builds.
+	if OS.get_environment("PERF_OCCLUSION_OFF") == "1":
+		get_viewport().use_occlusion_culling = false
+		print("PERF OCCLUSION CONTROL: disabled; %d OccluderInstance3D nodes"
+				% root.find_children(
+						"*", "OccluderInstance3D", true, false).size())
 	# Pin the comparison in executable code. Environment overrides are applied
 	# before BuildingRoot's production profile and cannot be trusted as proof of
 	# the resolved value; the benchmark owns the value it reports.

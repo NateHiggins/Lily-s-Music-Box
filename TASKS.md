@@ -838,11 +838,17 @@ and the four isolated roof fixtures now terminating at a real riser.
   sweep documented as the regression method does nothing in play. Worth
   fixing first: nothing prints the resolved budget, which is the whole reason
   a wrong number survived in three documents.
-- **P5** `project.godot:60` leaves `occlusion_culling/use_occlusion_culling=true`
-  while no `OccluderInstance3D` is generated anywhere — the pass was removed
-  2026-08-05 because occluders sat coincident with the masonry that made them.
-  A live cost with zero benefit, and a trap for anyone assuming occlusion is
-  doing work a redesign can lean on.
+- **P5 CLOSED — FALSE POSITIVE 2026-08-14.** `project.godot:60` does leave
+  occlusion culling enabled while the production tree contains exactly zero
+  `OccluderInstance3D` nodes, but the assumed empty-pass cost is not measurable:
+  current canonical-night street runs were 28.79/29.08 ms enabled and 28.79 ms
+  disabled with `PERF_OCCLUSION_OFF=1`. Render populations drifted between the
+  enabled controls, so even the 0.29 ms spread is noise rather than a saving.
+  Godot short-circuits the empty system; the setting and WalkTest contract stay
+  unchanged, ready for a future proved non-self-occluding solution. Also found:
+  this Compatibility backend collapses `Viewport.get_render_info` calls into
+  VISIBLE and reports zero SHADOW calls. `SubmissionCensus` now labels that as
+  unavailable instead of claiming a false pass reconciliation.
 - **P6** **P2's "user prop scripts are not the cost" is station-specific, and
   false at the roof.** Measured 2026-08-13 with the same harness: silencing all
   384 `_process` callbacks while leaving everything drawn is worth ~0% at the
