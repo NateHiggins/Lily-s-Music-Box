@@ -460,6 +460,13 @@ func _process(delta: float) -> void:
 	var eligible: Array = []
 	var off: Array = []
 	for fixture in _controlled_lights():
+		# A local task-lamp key is an authoritative open contact, not a request
+		# to draw a black light.  Do not spend one of the sixteen slots on it;
+		# set_budget(0) below still keeps the LightRig's side of the contract.
+		if fixture.has_method("is_locally_enabled") \
+				and not bool(fixture.call("is_locally_enabled")):
+			off.append(fixture)
+			continue
 		if _is_vertical(fixture) or _fixture_floor(fixture) == active_floor:
 			var d2: float = fixture.global_position.distance_squared_to(eye)
 			if "navigation_light" in fixture and fixture.navigation_light:

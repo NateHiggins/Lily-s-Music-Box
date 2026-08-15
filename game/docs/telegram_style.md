@@ -132,5 +132,7 @@ and the HARDWARE PAINT counter taps and returns an inspect card when no order is
 eligible. The second batch gives every laundry control its own ray owner: washer
 lid, safety release, wringer feed, fill cocks and drain each operate only their
 named mechanism; the airer rope cleat raises/lowers the rack while the rinse
-stand answers without pretending to be another switch. I4 remains open for the
-rest of the non-ambient matrix.
+stand answers without pretending to be another switch. All five authored task
+lamps now own a local Bakelite key: it clicks, turns, interrupts only that lamp,
+and remains authoritative when the central LightRig reapplies its budget. I4
+remains open for the rest of the non-ambient matrix.

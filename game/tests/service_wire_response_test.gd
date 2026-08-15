@@ -124,6 +124,21 @@ func _ready() -> void:
 			and rinse_card.get("card_id", "") == "laundry_airer"
 			and str(airer_card.get("condition", "")).contains("LOW HEADROOM"))
 
+	var lamp := LampProp.new()
+	lamp.name = "TestTaskLamp"
+	lamp.variant = "office_green"
+	add_child(lamp)
+	var lamp_card: Dictionary = lamp.interact(hand)
+	lamp.set_budget(1.0, false, true)
+	_check("local lamp key survives the central lighting budget",
+			lamp.get_node_or_null("PrimaryInteraction") is Area3D
+			and lamp.interact_prompt().contains("Turn task lamp on")
+			and not lamp.is_locally_enabled() and not lamp.light.visible
+			and lamp.state == FunctionalProp.PState.OFF
+			and lamp._switch_click.playing and lamp._switch_tween.is_running()
+			and lamp_card.get("card_id", "") == "lamp"
+			and str(lamp_card.get("condition", "")).contains("CONTROL OFF"))
+
 	await get_tree().create_timer(0.03).timeout
 	await get_tree().process_frame
 	await get_tree().process_frame

@@ -13,8 +13,9 @@ extends FunctionalProp
 ## advanced. Nadia's is merely *new*, which is its own kind of statement, and
 ## Accord 9 marks it anyway.
 ##
-## No interaction. `PROP_ACTIVITIES.md` §6 leaves lights alone deliberately, and
-## bulb renewal (§4) is a fixture chore rather than a lamp one.
+## A hand-reachable lamp owns its own key switch.  Room plates still own fixed
+## fixtures; this local contact only interrupts the task lamp and survives the
+## LightRig's budget passes.
 
 ## Set from the marker before `_ready()`. Every marker carries one explicitly;
 ## the fallback is the cheap one, because an unmarked lamp in this building is
@@ -29,6 +30,10 @@ var _phase := 0.0
 var _drift_depth := 0.015
 var _drift_speed := 0.71
 var _spec: Dictionary = {}
+var _local_enabled := true
+var _switch_key: Node3D
+var _switch_click: AudioStreamPlayer3D
+var _switch_tween: Tween
 ## Where the bulb actually ended up, filled in by the articulated builds. The
 ## upright shades leave it at zero and fall back to the spec.
 var _head := Vector3.ZERO
@@ -99,7 +104,13 @@ func _build_visual() -> void:
 		"architect_counterweight": _build_architect()
 		_: _build_landlord()
 
+	_build_key_switch()
+	# The body never articulates during play.  Keep the key independent, but
+	# repay its one moving draw by batching every unchanged finish beneath it.
+	merge_static(_switch_key)
+	merge_static(self, [_switch_key])
 	_install_light(seed)
+	_switch_click = make_emitter("tick", -20.0)
 	add_to_group("floor_lights")
 
 
@@ -269,6 +280,22 @@ func _socket_and_cord(at: Vector3, upright: bool) -> void:
 	cord.rotation_degrees = Vector3(9, 0, 4)
 
 
+## One small Bakelite key at the base.  It is intentionally independent of
+## the five silhouettes: different owners chose different lamps, but each
+## reachable local contact has the same single honest job.
+func _build_key_switch() -> void:
+	_switch_key = Node3D.new()
+	_switch_key.name = "LocalKeySwitch"
+	_switch_key.position = Vector3(0.060, 0.037, -0.045)
+	add_child(_switch_key)
+	var stem := make_cyl(0.010, 0.010, 0.026, Vector3.ZERO,
+			_BAKELITE, 0.46, 0.0, _switch_key)
+	stem.rotation_degrees.x = 90.0
+	var key := make_box(Vector3(0.045, 0.012, 0.018),
+			Vector3(0, 0, -0.018), _BAKELITE)
+	key.reparent(_switch_key, false)
+
+
 func _install_light(seed: int) -> void:
 	light = SpotLight3D.new()
 	var tone: Color = _spec["tone"]
@@ -316,11 +343,53 @@ func warehouse_variants() -> Array[Dictionary]:
 
 
 func _start_normal_function() -> void:
-	state = PState.OPERATING
+	state = PState.OPERATING if _local_enabled else PState.OFF
+
+
+func interact_prompt() -> String:
+	return "[E] Turn task lamp off" if _local_enabled \
+			else "[E] Turn task lamp on"
+
+
+func interact(_player: Node = null) -> Dictionary:
+	set_local_enabled(not _local_enabled)
+	return service_wire_card()
+
+
+func set_local_enabled(enabled: bool, animate := true) -> void:
+	_local_enabled = enabled
+	state = PState.OPERATING if enabled else PState.OFF
+	if light != null:
+		light.visible = enabled and _target_scale > 0.001
+		light.light_energy = _base_energy * _target_scale if enabled else 0.0
+	if _switch_click != null:
+		_switch_click.pitch_scale = 1.04 if enabled else 0.94
+		_switch_click.play()
+	if _switch_tween and _switch_tween.is_valid():
+		_switch_tween.kill()
+	var target := deg_to_rad(32.0 if enabled else -32.0)
+	if not animate:
+		_switch_key.rotation.y = target
+		return
+	_switch_tween = create_tween()
+	_switch_tween.tween_property(_switch_key, "rotation:y", target, 0.12) \
+			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+
+
+func is_locally_enabled() -> bool:
+	return _local_enabled
+
+
+func service_wire_card() -> Dictionary:
+	return PropServiceWire.card("lamp", {
+		"switch_state": "ON" if _local_enabled else "OFF",
+		"lamp_state": "LIT" if light != null and light.visible else (
+				"BUDGET STANDBY" if _local_enabled else "DARK"),
+	})
 
 
 func _perform_synced_event(_index: int, accent: float, _pitch: float) -> void:
-	if _target_scale <= 0.0 or light == null:
+	if not _local_enabled or _target_scale <= 0.0 or light == null:
 		return
 	light.light_energy = _base_energy * (1.0 + accent * 0.9)
 	create_tween().tween_property(light, "light_energy", _base_energy, 0.25)
@@ -330,13 +399,13 @@ func set_budget(scale: float, _with_bounce: bool, with_shadow: bool) -> void:
 	_target_scale = scale
 	if light == null:
 		return
-	light.visible = scale > 0.001
+	light.visible = _local_enabled and scale > 0.001
 	light.shadow_enabled = with_shadow
-	light.light_energy = _base_energy * scale
+	light.light_energy = _base_energy * scale if _local_enabled else 0.0
 
 
 func _process(_delta: float) -> void:
-	if light == null or _target_scale <= 0.0:
+	if light == null or not _local_enabled or _target_scale <= 0.0:
 		return
 	var t := Time.get_ticks_msec() * 0.001 + _phase
 	var filament := 1.0 + sin(t * _drift_speed) * _drift_depth \
