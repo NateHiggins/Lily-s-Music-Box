@@ -23,12 +23,22 @@ extends Node
 const PERF := preload("res://tests/perf_probe.gd")
 const WARMUP := 30
 const SAMPLES := 45
+const PLAYABLE_STREET := {
+	"name": "street north pavement (player at lens)",
+	"pos": Vector3(-16.0, 1.68, 13.5),
+	"look": Vector3(26.0, 1.30, 19.6),
+	"player_at_lens": true,
+}
 
 var root: Node3D
 var cam: Camera3D
+var _hold_orison_core_shadows := false
 
 
 func _ready() -> void:
+	# Diagnostic controls run after production light owners each frame, so their
+	# state cannot be silently overwritten between the toggle and render submit.
+	process_priority = 1000
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	Engine.max_fps = 0
 	OS.set_environment("DAYNIGHT", "0")
@@ -48,6 +58,8 @@ func _ready() -> void:
 	cam.make_current()
 	root.view_override = cam
 	var station: Dictionary = PERF.STATIONS[10]
+	if OS.get_environment("SUB_PLAYABLE_STREET") == "1":
+		station = PLAYABLE_STREET
 	var wanted := OS.get_environment("SUB_STATION")
 	if wanted != "":
 		for s in PERF.STATIONS:
@@ -56,8 +68,29 @@ func _ready() -> void:
 				break
 	cam.global_position = station["pos"]
 	cam.look_at(station["look"])
+	if bool(station.get("player_at_lens", false)):
+		root.player.global_position = cam.global_position - Vector3(
+				0.0, PlayerController.STANDING_EYE, 0.0)
+		root.player.velocity = Vector3.ZERO
+		root.player.set_physics_process(false)
+		# This station models ordinary play, not a flying diagnostic camera.
+		# BuildingRoot streams from the controller's feet in production. Leaving
+		# the camera override active asks it about eye height instead, which sits
+		# inside the 1.75 m overlap band for F02 and submits a second storey that
+		# the real player never sees here. LightRig independently derives feet
+		# height from a detached camera, so clearing this is correct for both.
+		root.view_override = null
 	for i in WARMUP:
 		await get_tree().process_frame
+	# A stationary attribution run may freeze the already-resolved fixture
+	# ranking so a shadow-only control cannot be overwritten by LightRig's next
+	# 0.2 s update. Use the same freeze in its fresh-process baseline.
+	if OS.get_environment("SUB_FREEZE_LIGHTS") == "1" \
+			or OS.get_environment("SUB_ORISON_CORE_SHADOWS_OFF") == "1":
+		root.light_rig.set_process(false)
+	if OS.get_environment("SUB_ORISON_CORE_SHADOWS_OFF") == "1":
+		_hold_orison_core_shadows = true
+		_suppress_orison_core_light_shadows(root)
 
 	# Ground truth: pass-split totals and frame time.
 	var vp := get_viewport()
@@ -101,7 +134,7 @@ func _ready() -> void:
 	var caster_surfaces := 0
 	var transparent_surfaces := 0
 	for g in geo:
-		if not g.is_visible_in_tree():
+		if not _submits(g):
 			continue
 		if not inside.has(g.get_instance_id()):
 			continue
@@ -161,7 +194,7 @@ func _ready() -> void:
 		var n_casters := 0
 		var n_surf := 0
 		for g in geo:
-			if not g.is_visible_in_tree():
+			if not _submits(g):
 				continue
 			if g.cast_shadow == GeometryInstance3D.SHADOW_CASTING_SETTING_OFF:
 				continue
@@ -191,7 +224,7 @@ func _ready() -> void:
 	print("[SUB] root-parented frustum owners vs the envelope:")
 	var seen := {}
 	for g in geo:
-		if not g.is_visible_in_tree() or not inside.has(g.get_instance_id()):
+		if not _submits(g) or not inside.has(g.get_instance_id()):
 			continue
 		var top: Node = g
 		while top.get_parent() != null and top.get_parent() != root:
@@ -230,7 +263,7 @@ func _ready() -> void:
 			light.shadow_enabled = true
 		var hidden: Array = []
 		for g in geo:
-			if g.is_visible_in_tree() and inside.has(g.get_instance_id()) \
+			if _submits(g) and inside.has(g.get_instance_id()) \
 					and not root.passage_shell_nodes.has(g):
 				hidden.append(g)
 				g.visible = false
@@ -253,6 +286,11 @@ func _ready() -> void:
 		print("[SUB] DIAG base %.2f | local shadows off (%d lights) %.2f | shell-only %.2f | both %.2f"
 				% [base, toggled.size(), no_shadow, shell_only, neither_ms])
 	get_tree().quit(0)
+
+
+func _process(_delta: float) -> void:
+	if _hold_orison_core_shadows and root != null:
+		_suppress_orison_core_light_shadows(root, false)
 
 
 func _ms() -> float:
@@ -323,6 +361,46 @@ func _aabb_of(g: Node) -> AABB:
 	return AABB()
 
 
+## `visible` is only one of the two zone-gate writers. Root-parented runtime
+## builders retain their authored visibility and are composed out by setting
+## render layers to zero. Counting those nodes as frame submissions produced
+## a plausible-looking but false list of Passage cabinets in a STREET frame.
+func _submits(g: GeometryInstance3D) -> bool:
+	return g.is_visible_in_tree() and g.layers != 0
+
+
+## Narrow outdoor-lighting candidate: preserve every light, but remove shadow
+## maps from sources physically inside the Orison shell. Entry/facade sources,
+## the player's phone, the moon and Passage lights all lie outside this box.
+func _suppress_orison_core_light_shadows(scene_root: Node,
+		report := true) -> int:
+	var pending: Array[Node] = [scene_root]
+	var suppressed := 0
+	var names: Array[String] = []
+	while not pending.is_empty():
+		var node: Node = pending.pop_back()
+		if node is SubViewport:
+			continue
+		if node is Light3D and not (node is DirectionalLight3D):
+			var light := node as Light3D
+			var p := light.global_position
+			if light.shadow_enabled \
+					and absf(p.x) <= LightRig.ORISON_CORE_HALF_X \
+					and absf(p.z) <= LightRig.ORISON_CORE_HALF_Z:
+				light.shadow_enabled = false
+				suppressed += 1
+				if report:
+					names.append("%s/%s" % [light.get_parent().name,
+							light.name])
+		for child in node.get_children():
+			pending.append(child)
+	if report:
+		print("[SUB] ORISON-CORE LIGHT SHADOW CONTROL: %d lights suppressed"
+				% suppressed)
+		print("[SUB]   " + ", ".join(names))
+	return suppressed
+
+
 func _collect(n: Node, out: Array) -> void:
 	if n is SubViewport:
 		return
@@ -333,6 +411,11 @@ func _collect(n: Node, out: Array) -> void:
 
 
 func _lights(n: Node, out: Array) -> void:
+	# Arcade cabinets own an isolated World3D. Their four `lamp_*` lights have
+	# plausible world coordinates but cannot illuminate or shadow this viewport;
+	# counting them recreated the SwcGraybox false positive in a new form.
+	if n is SubViewport:
+		return
 	if n is Light3D:
 		out.append(n)
 	for c in n.get_children():

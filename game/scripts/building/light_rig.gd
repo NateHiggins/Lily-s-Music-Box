@@ -79,6 +79,12 @@ const NAV_WEIGHT := 0.15
 ## street elevation. Gating either by "its" floor switches off a light you
 ## are plainly looking at.
 const VERTICAL_FIXTURES := ["eye_pendant", "street_lamp"]
+## The occupied Orison shell, including the streaming margin. When the player
+## is out in STREET, these sources may still illuminate windows and the open
+## door, but their shadow maps mostly re-render a sealed interior into an
+## exterior frame. The light survives; only that off-zone caster work stops.
+const ORISON_CORE_HALF_X := 15.2
+const ORISON_CORE_HALF_Z := 11.2
 const LEVELS := {
 	"B1": -2.8, "F01": 0.0, "F02": 3.2, "F03": 6.4,
 	"F04": 9.6, "F05": 12.8, "F06": 16.0, "ROOF": 19.2,
@@ -133,6 +139,10 @@ var debug_inspect_enabled := false
 var selected_debug_fixture: Node
 var _debug_handles: Dictionary = {}
 var _provenance: Dictionary = {}
+## Same-build A/B only. Ordinary play never sets this; forcing core shadows on
+## outside reproduces the pre-T7b submission set without reverting production.
+var _street_core_shadow_gate_enabled := \
+		OS.get_environment("PERF_STREET_CORE_SHADOWS_ON") != "1"
 ## THE BUDGET IS OFF ON DESKTOP (2026-08-08). Every fixture that passes
 ## the storey gate is lit, and the ranking below now only decides which
 ## ones get SHADOWS. The constants above are kept because they are the
@@ -168,6 +178,8 @@ func _ready() -> void:
 		_active_budget = maxi(1, int(lit))
 	if shad != "":
 		_shadow_budget = clampi(int(shad), 0, _active_budget)
+	if not _street_core_shadow_gate_enabled:
+		print("PERF STREET CORE SHADOW CONTROL: production gate disabled")
 	_bind_environment()
 	_load_provenance()
 	call_deferred("_build_debug_handles")
@@ -436,6 +448,13 @@ func _process(delta: float) -> void:
 			occupied_height = body.global_position.y
 	active_floor = _floor_at_height(occupied_height)
 	var eye := cam.global_position
+	var occupied := Vector3(eye.x, occupied_height, eye.z)
+	var building := get_parent()
+	var street_exterior := _street_core_shadow_gate_enabled \
+			and occupied_height >= -0.45 \
+			and occupied_height <= 2.25 \
+			and building.has_method("weather_exposure_at") \
+			and bool(building.call("weather_exposure_at", occupied))
 	# gate by storey, then rank the survivors so the per-object cap is spent
 	# on what the camera is actually standing among
 	var eligible: Array = []
@@ -465,9 +484,12 @@ func _process(delta: float) -> void:
 		var fixture: Node = eligible[i][1]
 		var tuning := _ensure_fixture_tuning(fixture)
 		var local_gain := float(tuning.energy_multiplier)
-		fixture.set_budget(fixture_gain * local_gain if on else 0.0, false,
-				i < _shadow_budget)
 		var source: Light3D = fixture.light
+		var source_in_core := source != null \
+				and absf(source.global_position.x) <= ORISON_CORE_HALF_X \
+				and absf(source.global_position.z) <= ORISON_CORE_HALF_Z
+		fixture.set_budget(fixture_gain * local_gain if on else 0.0, false,
+				i < _shadow_budget and not (street_exterior and source_in_core))
 		if source:
 			source.shadow_opacity = shadow_opacity \
 					* float(tuning.shadow_opacity)

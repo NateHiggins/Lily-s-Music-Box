@@ -694,6 +694,17 @@ not produce a measurable regression above the earlier conservative result.
 Both results clear the +0.8 ms contract. The established aerial STREET station
 also remained within contract at a conservative +0.775 ms.
 
+**2026-08-14 absolute-baseline correction.** The weather A/B deltas above
+remain valid because both sides used the same stream state, but their absolute
+frame totals are not production-player baselines. The probe left a detached
+camera in `BuildingRoot.view_override`; its 1.68 m eye height admitted F02
+through the 1.75 m overlap where production streams from the controller's
+0.27 m feet. `WeatherPerf` now moves the player to the lens and clears the
+override. The first corrected production frame was 35.680 ms / 19,897 objects /
+25,235 calls. T7b's subsequent STREET/core shadow ownership pass brings that
+same lens to 26.486/27.042 ms; see `ORISON_STREET_BRIEF.md` §7. The correction
+does not alter or reprice T8's weather delta.
+
 ### Durable proofs
 
 The fixed render matrix is under `art/renders/weather_sky_t8`: 20 before and

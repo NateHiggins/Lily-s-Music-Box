@@ -421,7 +421,21 @@ emerges (no expelled debris or people); the rail-less tram is the authored wrong
   0.207 ms/full scan, **0.204 ms avoided per stable physics tick**. A fresh
   same-build frame pair read 28.79 ms cached / 29.58 ms old scan, but differed
   by 647 render objects, so the 0.79 ms is explicitly not claimed as causal.
-  The remaining street gap is render submission/lighting, not this script loop.
+  T7b then measured the actual playable north pavement, correcting two probe
+  defects first: a detached eye-height override admitted F02, and the census
+  counted render-layer-zero zone content plus lights inside arcade SubViewports.
+  At the clean lens, Orison-core fixture shadows were the submission leak.
+  `LightRig` now keeps their illumination but declines their shadow maps only
+  while the player is physically in STREET; entry/facade lights, the phone,
+  moon and Passage retain shadows, and ORISON restores the ranked shadow budget
+  on entry. Same-build fresh-process controls are 35.929/36.486 ms versus
+  26.486/27.042 production: **36.208 -> 26.764 ms (-9.444 ms, -26.1%)**,
+  with mean calls **25,309 -> 12,207 (-51.8%)**. A paused same-process A/A/B
+  render proves the small visible delta without hiding live-rain noise under a
+  false zero; evidence is `art/renders/street_core_shadow_t7b/paired/`.
+  LightingAudit passes the outside suppression, exterior preservation and
+  inside restore. The remaining playable-street gap is still 10.16 ms, so T7
+  remains partial and no 16.6-ms closure is claimed.
 - **T8 DONE.** `design/ORISON_DRIVING_RAIN_SKY_PROPOSAL.md` §17 records the
   production checkpoint: one geography-locked four-state storm family, slow
   lower cloud inside the existing sky draw, bounded middle-distance fog, one

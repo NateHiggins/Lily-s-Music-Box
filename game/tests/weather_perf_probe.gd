@@ -31,9 +31,12 @@ func _ready() -> void:
 	camera.global_position = EYE
 	camera.look_at(LOOK)
 	camera.make_current()
-	root.view_override = camera
 	root.player.global_position = EYE - Vector3(0.0,
 			PlayerController.STANDING_EYE, 0.0)
+	# This is a production-player benchmark: BuildingRoot must stream from the
+	# controller's feet, as it does in play. A detached-camera override streams
+	# from eye height and accidentally admits F02 through the floor overlap band.
+	root.view_override = null
 	root.player.set_physics_process(false)
 	for i in WARMUP:
 		await get_tree().process_frame

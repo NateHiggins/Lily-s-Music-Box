@@ -365,6 +365,56 @@ under SHADOW. `SubmissionCensus` still provides a useful frustum/owner and
 light-overlap census, but now marks its render-pass split unavailable and does
 not pretend the frustum surfaces reconcile to a backend-total call count.
 
+### As built — T7b STREET/core shadow ownership, 2026-08-14
+
+The historical aerial elevation is not the playable street. A new north-
+pavement lens parks the production player at `(-16.0, 0.27, 13.5)` under the
+camera at `(-16.0, 1.68, 13.5)`, looking east along the traffic stream. Its
+first run exposed two probe errors before any policy was judged:
+
+- `WeatherPerf` and the new census left `BuildingRoot.view_override` on the
+  detached camera. Streaming therefore answered from 1.68 m eye height, inside
+  F02's 1.75 m overlap, instead of the controller's feet as production does;
+- the census equated `visible` with submission, counting root-owned geometry
+  already composed out by render layers, and recursed into arcade SubViewports,
+  reviving the already-falsified isolated-World3D light attribution.
+
+Corrected, the production lens measured 35.680 ms, 19,897 objects and 25,235
+calls. Its 2,651 frustum beauty surfaces could not explain the backend total;
+the remainder was repeated light work. Eleven budgeted fixture sources stood
+inside the Orison shell while the player stood in STREET. They still need to
+shine through windows and the open door, but their shadow maps re-rendered the
+sealed interior into the outdoor frame.
+
+T7b composes that ownership inside `LightRig`: at low STREET height, as proved
+by `BuildingRoot.weather_exposure_at`, a source inside the Orison's exact
+absolute-x <= 15.2 / absolute-z <= 11.2 streaming bounds keeps its energy and
+visibility but does not receive a shadow slot. Exterior entry/facade sources,
+the player's phone,
+the directional moon, Passage sources and every fixture seen from ORISON are
+unchanged. No hide/show list or stale saved state exists; the ordinary ranked
+budget restores core shadows on the first update after entry.
+
+The retained same-build control `PERF_STREET_CORE_SHADOWS_ON=1` measured:
+
+| playable north pavement, 1440p, canonical night | objects | calls | ms |
+|---|---:|---:|---:|
+| old state A/B | 19,900 / 20,072 | 25,248 / 25,370 | 35.929 / 36.486 |
+| production A/B | 10,401 / 9,741 | 12,530 / 11,883 | 26.486 / 27.042 |
+| mean change | -49.6% | **-51.8%** | **-9.444 ms (-26.1%)** |
+
+The visual proof is a paused same-process A/A/B, not unrelated beauty frames:
+`art/renders/street_core_shadow_t7b/paired/`. Live GPU rain still moves in the
+pause, so the repeated control records its floor. The treatment's mean absolute
+pixel delta is 0.1208/255 against 0.0646/255 control noise; the true difference
+is small and localized around the distant lit entrance recess, with no lost
+light pool or flattened facade depth at the playable lens. `LightingAudit`
+proves core fixtures exist and lose shadows outside, a local exterior caster
+survives, and ranked core shadows return inside.
+
+The result is large and shippable, but not a target flip: 26.764 ms still misses
+16.6 by 10.16 ms. T7 remains open on the remaining submission work.
+
 ---
 
 ## 8. Owner rulings, reconciled from the built street 2026-08-14

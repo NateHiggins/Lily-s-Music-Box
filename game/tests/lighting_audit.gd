@@ -76,6 +76,7 @@ func _audit() -> void:
 			"all omni lights use visible contact-shadow settings")
 	_check(dead_navigation_fixtures == 0,
 			"every navigation fixture has an authored standby contribution")
+	_audit_street_shadow_gate(fixtures)
 	for fl in root.layout["floors"]:
 		var floor_id: String = fl["id"]
 		var floor_y: float = float(fl["z"])
@@ -154,6 +155,45 @@ func _cleanup() -> void:
 	await get_tree().process_frame
 	PropAudio.clear_cache()
 	await get_tree().process_frame
+
+
+func _audit_street_shadow_gate(fixtures: Array) -> void:
+	# Production player/lens together on the north pavement. The exterior gate
+	# must preserve illumination and exterior shadows while declining only the
+	# Orison core's off-zone shadow maps.
+	cam.global_position = Vector3(-16.0, 1.68, 13.5)
+	root.player.global_position = cam.global_position - Vector3(0.0,
+			PlayerController.STANDING_EYE, 0.0)
+	root.light_rig._accum = LightRig.INTERVAL
+	root.light_rig._process(LightRig.INTERVAL)
+	var core_fixtures: Array = fixtures.filter(func(fixture):
+		var source: Light3D = fixture.light
+		return source != null \
+				and absf(source.global_position.x) <= LightRig.ORISON_CORE_HALF_X \
+				and absf(source.global_position.z) <= LightRig.ORISON_CORE_HALF_Z)
+	var exterior_lit: Array = fixtures.filter(func(fixture):
+		var source: Light3D = fixture.light
+		return source != null and source.visible and source.light_energy > 0.05 \
+				and (absf(source.global_position.x) > LightRig.ORISON_CORE_HALF_X \
+				or absf(source.global_position.z) > LightRig.ORISON_CORE_HALF_Z))
+	_check(not core_fixtures.is_empty(),
+			"STREET finds authored Orison-core fixtures to gate")
+	_check(core_fixtures.all(
+			func(fixture): return not fixture.light.shadow_enabled),
+			"STREET suppresses only Orison-core fixture shadow maps")
+	_check(exterior_lit.any(func(fixture): return fixture.light.shadow_enabled),
+			"STREET retains a local exterior fixture shadow caster")
+
+	# Walk back into the lobby: the same owner restores the ordinary ranked
+	# shadow budget on its next update, with no saved-state table to go stale.
+	cam.global_position = Vector3(-0.4, 1.68, 9.1)
+	root.player.global_position = cam.global_position - Vector3(0.0,
+			PlayerController.STANDING_EYE, 0.0)
+	root.light_rig._accum = LightRig.INTERVAL
+	root.light_rig._process(LightRig.INTERVAL)
+	_check(core_fixtures.any(
+			func(fixture): return fixture.light.shadow_enabled),
+			"entering ORISON restores ranked core fixture shadows")
 
 
 func _stop_audio(node: Node) -> void:
