@@ -175,7 +175,7 @@ is stated explicitly.
 | `pipe` | 781 / all floors | Radiator/boiler/service endpoints own action | **AMBIENT ARCHITECTURE** | Explicit bulk exclusion; no pipe-by-pipe collision. |
 | `plant` | 28 / B1, F01, F03, roof | — | **INSPECT** | One pot/bed cluster per foreground grouping. |
 | `plantable` | 1 / F05 | — | **OPERATE** | Add soil/planting state only if the existing gardening activity owns it; otherwise an honest refusal. |
-| `radio` | 5 / F03, F05, F06 | — | **OPERATE** | Add power/tuning controls; separate from the player's service set. |
+| `radio` | 5 / F03, F05, F06 | `FurnitureInteractionPass`; record-aligned local knob, switch click and valve-programme bed | **OPERATE** | Landed I4; reversible power stays separate from both the carried service set and case-anomaly props. |
 | `reeldeck` | 2 / F02, F03 | — | **RESIST-REFUSE** | Private threaded media; controls answer but playback remains owner/case gated. |
 | `shelf` | 25 / B1, F01–F06 | Bookshelf overlays only cover eight authored shelves | **INSPECT** | One target per foreground shelf run; bulk shop stock ambient. |
 | `sitemodel` | 1 / F05 | — | **INSPECT** | Named model is a hero object, not traffic architecture. |

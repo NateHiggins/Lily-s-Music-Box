@@ -724,6 +724,18 @@ func _plumbing_checks() -> void:
 		_check(sample_cistern._refilling and sample_cistern._water.playing
 				and cistern_card.get("card_id", "") == "toilet",
 				"a production cistern handle flushes, sounds and reports refill")
+	var radio_owners := get_tree().get_nodes_in_group(
+			"baked_furniture_interactions").filter(func(owner):
+		return owner is BakedFurnitureInteraction \
+				and owner.furniture_kind == "radio")
+	_check(radio_owners.size() == 5,
+			"all five baked valve radios regain one local control owner")
+	if radio_owners.size() == 5:
+		var sample_radio := radio_owners[0] as BakedFurnitureInteraction
+		var radio_card: Dictionary = sample_radio.interact(root.player)
+		_check(sample_radio._powered and sample_radio._radio_bed.playing
+				and radio_card.get("card_id", "") == "radio",
+				"a production valve radio switches on, sounds and reports state")
 	_check(incomplete.is_empty(),
 			"every water fixture owns two valves and a stream (%s)" % [incomplete])
 	_check(misoriented_lavatories.is_empty(),

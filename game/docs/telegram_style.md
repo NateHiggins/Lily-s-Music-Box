@@ -140,5 +140,7 @@ than a false universal power switch: the knob and picture answer locally while
 the case-bearing electrical signal remains live. The furniture interaction pass
 also restores one lever, ray owner and water cycle to each of the 24 close-
 coupled closets baked into the floor geometry; a second press during refill
-gives at the handle but cannot restart the cycle. I4 remains open for the rest
-of the non-ambient matrix.
+gives at the handle but cannot restart the cycle. The same record-aligned pass
+restores a local knob to all five baked valve radios; their click, quiet
+programme bed and ON/OFF condition are reversible without touching the separate
+case-anomaly owners. I4 remains open for the rest of the non-ambient matrix.

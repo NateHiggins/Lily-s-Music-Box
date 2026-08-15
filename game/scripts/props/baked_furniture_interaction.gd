@@ -16,6 +16,11 @@ var _lever: Node3D
 var _water: AudioStreamPlayer3D
 var _flush_tween: Tween
 var _busy_tween: Tween
+var _powered := false
+var _radio_knob: Node3D
+var _radio_bed: AudioStreamPlayer3D
+var _control_click: AudioStreamPlayer3D
+var _control_tween: Tween
 
 
 func setup(spec: Dictionary) -> void:
@@ -30,6 +35,7 @@ func setup(spec: Dictionary) -> void:
 func _ready() -> void:
 	match furniture_kind:
 		"toilet": _build_toilet_control()
+		"radio": _build_radio_control()
 		_: push_error("No baked furniture interaction for %s" % furniture_kind)
 
 
@@ -68,16 +74,64 @@ func _build_toilet_control() -> void:
 	add_child(_water)
 
 
+func _build_radio_control() -> void:
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(0.48, 0.34, 0.34)
+	collision.shape = shape
+	collision.position = Vector3(0, 0.14, -0.02)
+	add_child(collision)
+
+	# One knob sits a few millimetres proud of the baked right-hand control.
+	# The cabinet, dial strip and grille remain in the floor buffer.
+	_radio_knob = Node3D.new()
+	_radio_knob.name = "PowerTuningKnob"
+	_radio_knob.position = Vector3(0.14, 0.062, -0.139)
+	add_child(_radio_knob)
+	var mesh_node := MeshInstance3D.new()
+	var mesh := CylinderMesh.new()
+	mesh.top_radius = 0.017
+	mesh.bottom_radius = 0.017
+	mesh.height = 0.026
+	mesh.radial_segments = 10
+	mesh_node.mesh = mesh
+	mesh_node.rotation_degrees.x = 90.0
+	var material := StandardMaterial3D.new()
+	material.albedo_color = Color(0.08, 0.065, 0.052)
+	material.roughness = 0.43
+	mesh_node.material_override = material
+	_radio_knob.add_child(mesh_node)
+
+	_control_click = AudioStreamPlayer3D.new()
+	_control_click.name = "RadioSwitchClick"
+	_control_click.stream = PropAudio.get_stream("tick")
+	_control_click.volume_db = -20.0
+	_control_click.unit_size = 1.2
+	_control_click.max_distance = 6.0
+	add_child(_control_click)
+	_radio_bed = AudioStreamPlayer3D.new()
+	_radio_bed.name = "ValveProgramme"
+	_radio_bed.stream = PropAudio.get_stream("murmur_loop")
+	_radio_bed.volume_db = -28.0
+	_radio_bed.unit_size = 1.4
+	_radio_bed.max_distance = 7.0
+	add_child(_radio_bed)
+
+
 func interact_prompt() -> String:
 	if furniture_kind == "toilet":
 		return "[E] Test refilling cistern handle" if _refilling \
 				else "[E] Flush water closet"
+	if furniture_kind == "radio":
+		return "[E] Switch valve radio off" if _powered \
+				else "[E] Switch valve radio on"
 	return ""
 
 
 func interact(_player: Node = null) -> Dictionary:
-	if furniture_kind != "toilet":
-		return {}
+	if furniture_kind == "radio":
+		return _interact_radio()
+	if furniture_kind != "toilet": return {}
 	if _refilling:
 		# The handle still gives under an impatient second hand, but the stored
 		# water and refill clock are not restarted.
@@ -104,9 +158,31 @@ func interact(_player: Node = null) -> Dictionary:
 	return service_wire_card()
 
 
+func _interact_radio() -> Dictionary:
+	_powered = not _powered
+	_control_click.pitch_scale = 1.05 if _powered else 0.94
+	_control_click.play()
+	if _powered:
+		_radio_bed.play()
+	else:
+		_radio_bed.stop()
+	if _control_tween and _control_tween.is_valid():
+		_control_tween.kill()
+	_control_tween = create_tween()
+	_control_tween.tween_property(_radio_knob, "rotation:z",
+			deg_to_rad(42.0 if _powered else 0.0), 0.16) \
+			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	return service_wire_card()
+
+
 func service_wire_card() -> Dictionary:
-	if furniture_kind != "toilet":
-		return {}
+	if furniture_kind == "radio":
+		return PropServiceWire.card("radio", {
+			"power_state": "ON" if _powered else "OFF",
+			"tuning_state": "MID-BAND",
+			"programme_state": "DISTANT SPEECH" if _powered else "SILENT",
+		})
+	if furniture_kind != "toilet": return {}
 	return PropServiceWire.card("toilet", {
 		"cistern_state": "REFILLING" if _refilling else "FULL",
 		"flush_state": "RUNNING" if _refilling else "READY",

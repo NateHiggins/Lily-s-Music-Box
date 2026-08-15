@@ -969,6 +969,8 @@ it.
     All 24 baked close-coupled closets regain one record-aligned cistern handle,
     one water cycle and truthful FULL/REFILLING copy without duplicating the
     porcelain floor geometry.
+    All five baked valve radios regain a local knob, click, quiet programme bed
+    and reversible power condition; case-anomaly props remain separate owners.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street

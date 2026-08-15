@@ -172,6 +172,21 @@ func _ready() -> void:
 			and str(flush_card.get("title", "")) == "CISTERN WATER CLOSET"
 			and str(flush_card.get("condition", "")).contains("REFILLING"))
 
+	var radio := BakedFurnitureInteraction.new()
+	radio.setup({"id": "TEST_radio", "asm": "radio"})
+	add_child(radio)
+	var radio_on_card: Dictionary = radio.interact(hand)
+	var radio_off_card: Dictionary = radio.interact(hand)
+	_check("baked valve radio owns a reversible physical switch",
+			radio.interact_prompt().contains("Switch valve radio on")
+			and not radio._powered and not radio._radio_bed.playing
+			and radio._control_click.playing
+			and radio._control_tween.is_running()
+			and radio_on_card.get("card_id", "") == "radio"
+			and str(radio_on_card.get("condition", "")).contains("POWER ON")
+			and str(radio_on_card.get("condition", "")).contains("DISTANT SPEECH")
+			and str(radio_off_card.get("condition", "")).contains("POWER OFF"))
+
 	await get_tree().create_timer(0.03).timeout
 	await get_tree().process_frame
 	await get_tree().process_frame
