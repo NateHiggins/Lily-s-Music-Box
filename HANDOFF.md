@@ -21,6 +21,13 @@ Audio Virus* was this project's prototype name and survives as the case
 layer's fiction, not as the title. Design docs live in
 `design/` and `art/docs/`; per-case content in the Case Network docs.
 
+**Current title theme (owner ruling 2026-08-15):** Clockwork Waltz, provisionally.
+The menu ships both complete records: `ESCAPEMENT FAILURE ×1.414` opens on the
+cold stairwell face, then the untouched 2:38.7 original opens the 1928 sales
+plate; either may be selected and completed streams alternate automatically.
+No title import loops. Exact masters, hashes, trims and tests are recorded in
+`game/docs/title_screen.md`.
+
 Three top-level projects:
 
 | Path | What |
