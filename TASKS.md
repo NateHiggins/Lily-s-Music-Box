@@ -361,12 +361,18 @@ is built.
   collision, stop rule, dialogue or permanent scenery. `PianoRepairTruckTest`
   passes; production-street frames are under `art/renders/piano_repair_truck/`.
   This does not pretend to close T2d's street-wide night-lighting problem.
-- **T3** **ENCODED.** No death, no damage, no UI, no dedicated crossing point.
-  A hit calls `stagger()` on the player with a four-second cooldown and prints
-  what shoved you. `MAX_WAIT` is enforced as a promise rather than hoped for.
-- **T3b** `stagger()` does not exist on the player yet - the shove currently
-  degrades to a no-op plus a log line. Wire it, and keep it a stumble: no
-  damage number, no screen, no sound that reads as a fail state.
+- **T3 DONE.** No death, damage, UI or dedicated crossing point. A hit now
+  carries the real player with the vehicle for 0.72 s, damps rather than removes
+  steering, gives the camera one restrained 4.9° roll and recovers without an
+  input. Look remains live. Traffic owns four seconds of repeat immunity, so
+  contacts cannot stack into a launch; calls and noclip cancel/reject the state.
+  The carry vector follows world X, correcting the old cross-lane axis error.
+  There is no health state, get-up prompt, fail screen or bespoke impact audio.
+  `MAX_WAIT` remains an enforced promise rather than a tendency.
+- **T3b DONE.** `PlayerController.stagger()` is the narrow public contract;
+  `StreetStaggerTest` drives it through production `StreetTraffic` and proves
+  displacement, recovery, retained look, non-stacking, protection and the
+  absence of damage state.
 - **T4 SUBSTRATE DONE.** The partial lateral collision is retired. At exact x
   −20.10 / +20.60, wet timber works own both pavements and quiet local weather
   owns the carriageway; `StreetContainmentTest` proves all six lanes. This does

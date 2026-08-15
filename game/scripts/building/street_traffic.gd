@@ -613,7 +613,9 @@ func _check_shove() -> void:
 func _shove(v: Dictionary) -> void:
 	_shove_cooldown = 4.0
 	if _player.has_method("stagger"):
-		_player.stagger(Vector3(0, 0, -signf(float(v.dir)) * 3.4))
+		# Traffic moves on world X. Carry the player with the vehicle rather
+		# than kicking them sideways across an unrelated lane axis.
+		_player.stagger(Vector3(signf(float(v.dir)) * 3.4, 0, 0))
 	print("[STREET] shoved by a %s" % str(KINDS[int(v.kind)][0]))
 
 

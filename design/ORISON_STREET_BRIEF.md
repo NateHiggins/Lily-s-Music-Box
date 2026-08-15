@@ -58,6 +58,22 @@ This is the fidget doctrine from `PROP_ACTIVITIES.md` applied to a street:
 *would you do it twice, for no reward?* Crossing a live road is one of the few
 motions that passes that test on its own.
 
+### As built — traffic contact, 2026-08-14
+
+The shove is now physical and deliberately small. `StreetTraffic` carries the
+player in the vehicle's actual world-X direction at 3.4 m/s; the old placeholder
+vector pointed across the lanes and is retired. `PlayerController.stagger()`
+blends that carry with reduced—but never removed—steering for 0.72 seconds,
+adds a restrained 4.9° camera roll, and settles automatically. Mouse/touch look
+is never seized and there is no get-up input.
+
+The street, not the player, owns four seconds of repeat immunity. A second hit
+inside it cannot stack into a launch. Entering a protected call or noclip clears
+the residual carry rather than suspending it for later. No health, damage,
+failure UI, bespoke impact sound or persistent state was introduced.
+`StreetStaggerTest` drives the production traffic contact and proves direction,
+displacement, recovery, non-stacking and both protection seams.
+
 ---
 
 ## 3. The traffic

@@ -15,6 +15,12 @@ const RUN := 4.6
 const CROUCH_SPEED := 1.4
 const GRAVITY := 9.8
 const MOUSE_SENS := 0.0023
+## A road impact is an interruption, never a failure state. The vehicle carries
+## the body for less than a second; StreetTraffic owns the four-second immunity.
+const STAGGER_SECONDS := 0.72
+const STAGGER_DECEL := 5.2
+const STAGGER_INPUT_DAMP := 0.76
+const STAGGER_ROLL := 0.085
 
 var camera: Camera3D
 var flashlight: SpotLight3D
@@ -53,6 +59,9 @@ var _throw := 3.5
 ## Set by building_root once the camera exists; the handset rides it.
 var phone_carrier: Node3D
 var _sway_clock := 0.0
+var _stagger_left := 0.0
+var _stagger_velocity := Vector3.ZERO
+var _stagger_roll := 0.0
 
 
 func _ready() -> void:
@@ -202,6 +211,8 @@ func _process(_delta: float) -> void:
 		noclip = not noclip
 		collision_layer = 0 if noclip else 1
 		collision_mask = 0 if noclip else 1
+		if noclip:
+			_clear_stagger()
 	if Input.is_action_just_pressed("crouch"):
 		_set_crouched(not crouched)
 
@@ -343,9 +354,35 @@ func _set_crouched(on: bool) -> void:
 	camera.position.y = CROUCH_EYE if on else STANDING_EYE
 
 
+## Traffic supplies a world-space carry vector. Keep look and partial steering
+## alive throughout: this is a wet-pavement stumble, not a stun or cutscene.
+func stagger(push: Vector3) -> bool:
+	if call_locked or noclip or _stagger_left > 0.0:
+		return false
+	var horizontal := Vector3(push.x, 0.0, push.z)
+	if not horizontal.is_finite() or horizontal.length_squared() < 0.01:
+		return false
+	_stagger_velocity = horizontal.limit_length(4.2)
+	_stagger_left = STAGGER_SECONDS
+	var side := _stagger_velocity.dot(global_transform.basis.x)
+	if absf(side) < 0.05:
+		side = _stagger_velocity.x + _stagger_velocity.z
+	_stagger_roll = -signf(side) * STAGGER_ROLL
+	return true
+
+
+func _clear_stagger() -> void:
+	_stagger_left = 0.0
+	_stagger_velocity = Vector3.ZERO
+	_stagger_roll = 0.0
+
+
 func _physics_process(delta: float) -> void:
 	if call_locked:
 		velocity = Vector3.ZERO
+		_clear_stagger()
+		camera.rotation.z = lerpf(camera.rotation.z, 0.0,
+				minf(1.0, delta * 10.0))
 		return
 	var wish := autopilot
 	if wish == Vector3.ZERO:
@@ -353,6 +390,7 @@ func _physics_process(delta: float) -> void:
 				"move_forward", "move_back")
 		wish = (transform.basis * Vector3(input.x, 0, input.y))
 	if noclip:
+		_clear_stagger()
 		var up := Input.get_action_strength("jump") \
 				- Input.get_action_strength("crouch")
 		global_position += (wish * 6.0 + Vector3.UP * up * 4.0) * delta
@@ -365,12 +403,15 @@ func _physics_process(delta: float) -> void:
 			or gravity_direction.length_squared() < 0.25:
 		gravity_direction = Vector3.DOWN
 	up_direction = -gravity_direction
+	var stagger_weight := clampf(_stagger_left / STAGGER_SECONDS, 0.0, 1.0)
 	camera.rotation.z = lerpf(camera.rotation.z,
-			-gravity_direction.x * 0.42, minf(1.0, delta * 2.5))
+			-gravity_direction.x * 0.42 + _stagger_roll * stagger_weight,
+			minf(1.0, delta * (10.0 if _stagger_left > 0.0 else 4.5)))
 	var speed := CROUCH_SPEED if crouched \
 			else (RUN if Input.is_action_pressed("run") else WALK)
-	velocity.x = wish.x * speed
-	velocity.z = wish.z * speed
+	var input_gain := 1.0 - stagger_weight * STAGGER_INPUT_DAMP
+	velocity.x = wish.x * speed * input_gain + _stagger_velocity.x
+	velocity.z = wish.z * speed * input_gain + _stagger_velocity.z
 	if not is_on_floor():
 		velocity += gravity_direction * GRAVITY * delta
 	elif Input.is_action_just_pressed("jump"):
@@ -382,6 +423,13 @@ func _physics_process(delta: float) -> void:
 	if gravity_direction.dot(Vector3.DOWN) > 0.98:
 		_try_step_up(delta)
 	move_and_slide()
+	if _stagger_left > 0.0:
+		_stagger_left = maxf(0.0, _stagger_left - delta)
+		_stagger_velocity = _stagger_velocity.move_toward(
+				Vector3.ZERO, STAGGER_DECEL * delta)
+		if _stagger_left <= 0.0:
+			_stagger_velocity = Vector3.ZERO
+			_stagger_roll = 0.0
 
 
 func _reality_gravity() -> Vector3:
