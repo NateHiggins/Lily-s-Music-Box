@@ -736,6 +736,19 @@ func _plumbing_checks() -> void:
 		_check(sample_radio._powered and sample_radio._radio_bed.playing
 				and radio_card.get("card_id", "") == "radio",
 				"a production valve radio switches on, sounds and reports state")
+	var wardrobe_owners := get_tree().get_nodes_in_group(
+			"baked_furniture_interactions").filter(func(owner):
+		return owner is BakedFurnitureInteraction \
+				and owner.furniture_kind == "wardrobe")
+	_check(wardrobe_owners.size() == 21,
+			"all 21 baked wardrobes regain one resident-owned handle")
+	if wardrobe_owners.size() == 21:
+		var sample_wardrobe := wardrobe_owners[0] as BakedFurnitureInteraction
+		var wardrobe_card: Dictionary = sample_wardrobe.interact(root.player)
+		_check(sample_wardrobe._wardrobe_rattle.playing
+				and sample_wardrobe._wardrobe_tween.is_running()
+				and wardrobe_card.get("card_id", "") == "wardrobe",
+				"a production private wardrobe audibly resists at its handle")
 	_check(incomplete.is_empty(),
 			"every water fixture owns two valves and a stream (%s)" % [incomplete])
 	_check(misoriented_lavatories.is_empty(),

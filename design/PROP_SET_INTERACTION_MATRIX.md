@@ -190,7 +190,7 @@ is stated explicitly.
 | `tv` | 6 / F01–F06 | One `TVProp` + five `ProjectorProp` owners | **OPERATE** | Fully mapped despite mixed physical presentation. |
 | `utility_cover` | 2 / F01 | — | **RESIST-REFUSE** | Gas/water covers are bolted service access. |
 | `vault_lights` | 2 / F01 | `VaultLightGlow` visual | **AMBIENT ARCHITECTURE** | Fully mapped as entry lighting. |
-| `wardrobe` | 21 / F01–F06 | — | **OPERATE** | Add hinged leaf/handle with resident-owned contents never exposed as generic loot. |
+| `wardrobe` | 21 / F01–F06 | `FurnitureInteractionPass`; record-aligned handle visibly/audibly resists and identifies the resident-private boundary | **OPERATE — OPEN** | Interim I4 response landed, so none are silent. Final ruling still requires the generator to split the baked leaf before truthful hinged motion; contents never become generic loot. |
 | `watering_can` | 2 / roof | — | **INSPECT** | Current fill/condition; operate only after a gardening owner exists. |
 | `workbench` | 1 / F03 | — | **INSPECT** | One bench target; tools remain arranged, not collectible. |
 

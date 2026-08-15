@@ -971,6 +971,11 @@ it.
     porcelain floor geometry.
     All five baked valve radios regain a local knob, click, quiet programme bed
     and reversible power condition; case-anomaly props remain separate owners.
+    All 21 baked wardrobes now answer at a record-aligned brass handle with an
+    audible resisting leaf and resident-private copy. This is deliberately not
+    marked complete as an OPERATE row: their visible leaves remain merged into
+    floor glTF buffers, so a generator split and rebuild are still required for
+    truthful hinged motion.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street

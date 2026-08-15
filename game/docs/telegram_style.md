@@ -143,4 +143,9 @@ coupled closets baked into the floor geometry; a second press during refill
 gives at the handle but cannot restart the cycle. The same record-aligned pass
 restores a local knob to all five baked valve radios; their click, quiet
 programme bed and ON/OFF condition are reversible without touching the separate
-case-anomaly owners. I4 remains open for the rest of the non-ambient matrix.
+case-anomaly owners. All 21 baked wardrobes now answer through a record-aligned
+brass handle: the leaf audibly resists and the card names the resident boundary
+without exposing contents. This removes a silent target, but it does not satisfy
+the final OPERATE ruling: the visible leaf is still merged into its floor glTF
+and must be split by the furniture generator before it can honestly hinge. I4
+remains open for that split and the rest of the non-ambient matrix.

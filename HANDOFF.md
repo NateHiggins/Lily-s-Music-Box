@@ -145,7 +145,10 @@ Conventions that bite if forgotten:
   survive central light-budget passes and the five domestic picture receivers
   tune without erasing a case signal. It also operates an overlaid cistern
   handle and proves an impatient second press cannot restart its refill, then
-  switches a baked valve radio on and off without borrowing case state.
+  switches a baked valve radio on and off without borrowing case state. The
+  guard also rattles a record-aligned wardrobe handle and returns resident-
+  private copy; this is an interim truthful response, not proof of the still-
+  pending generator split needed for an opening leaf.
   Unresolved state tokens never print, and the case-owner template cannot leak
   generic copy. Exit code 0 = pass.
 - `game/tests/LightingAudit.tscn` — every space is reachable by light:

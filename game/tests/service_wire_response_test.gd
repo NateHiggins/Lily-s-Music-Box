@@ -187,6 +187,20 @@ func _ready() -> void:
 			and str(radio_on_card.get("condition", "")).contains("DISTANT SPEECH")
 			and str(radio_off_card.get("condition", "")).contains("POWER OFF"))
 
+	var wardrobe := BakedFurnitureInteraction.new()
+	wardrobe.setup({"id": "2A_w0_wardrobe", "asm": "wardrobe", "W": 1.3})
+	add_child(wardrobe)
+	var wardrobe_card: Dictionary = wardrobe.interact(hand)
+	_check("baked private wardrobe refuses through its own handle",
+			wardrobe.interact_prompt().contains("Try wardrobe handle")
+			and wardrobe._wardrobe_rattle.playing
+			and wardrobe._wardrobe_tween.is_running()
+			and wardrobe_card.get("card_id", "") == "wardrobe"
+			and str(wardrobe_card.get("condition", "")).contains(
+					"HANDLE ANSWERED")
+			and str(wardrobe_card.get("condition", "")).contains(
+					"2A RESIDENT / PRIVATE"))
+
 	await get_tree().create_timer(0.03).timeout
 	await get_tree().process_frame
 	await get_tree().process_frame
