@@ -47,6 +47,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Who lives in a flat and what their wound is | Bible §IV, then `game/docs/resident_character_cast.md` |
 | How a prop should be built | `design/PROP_ART_BRIEF.md`, `design/PROP_REFERENCE_NOTES.md` |
 | What a prop *does* | `design/PROP_ACTIVITIES.md` |
+| How the complete maintenance/case/dream-request loop is wired | `game/docs/core_loop.md` |
 | How the bar works | `docs/harukiya_reference_notes.md` |
 | How the karaoke/song system works | `docs/songbook_brief.md` |
 | The machines in the bar | `game/docs/arcade_cabinets.md`, ruled in Bible §VIII.5.g |

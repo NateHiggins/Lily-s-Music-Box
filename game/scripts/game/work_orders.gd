@@ -6,7 +6,8 @@ extends Node
 ##
 ## - **Simple orders** (`issue`/`activate`/`close`): the original minimal
 ##   contract, kept for code-issued customers with no diagnosis, part or
-##   repair — the chirp hunt and the 4B clock. Unchanged.
+##   repair — currently the 4B clock. The old chirp order is accepted only at
+##   the migration seam below; its live fault now uses the authored lifecycle.
 ## - **Maintenance jobs** (`issue_job` …): the ruled M1 lifecycle for jobs
 ##   authored in `data/maintenance_jobs.json` —
 ##   issued → acknowledged → diagnosed → awaiting_part → repairable →

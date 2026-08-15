@@ -1,4 +1,4 @@
-# Next session: document the landed loop, then open the dream boundary
+# Next session: open the dream boundary
 
 *Rewritten 2026-08-15. Sequencing authority beneath
 `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`.*
@@ -43,25 +43,31 @@ touch LAMP reach the same public owner. The capsule is diagnostic
 `SHADOWS_ONLY`, never a Tenant asset. Exact proof is in
 `art/renders/dream_light_n3/README.md`.
 
-**Execute K7 next.** Write `game/docs/core_loop.md` from the K2–K6 code that
-exists, including authoritative owners, signal graph, transition table,
-persistence boundaries and the complete Mina trace. Only after that document
-matches code may N4 change the campaign scene boundary. Peter, a second errand
-and six parallel dream implementations remain out of scope.
+**K7 is complete.** `game/docs/core_loop.md` now records the code-backed owner
+table, maintenance transition graph, coordinator boundaries, exact signal and
+save contracts, complete Mina trace and the required generalization before a
+second case. It also records two easily missed limits: the coordinator is still
+hardwired to Mina's one job, and `conversation_requested` has no production
+dialogue subscriber. Do not treat either seam as broader than the code.
+
+**Execute N4 next.** Add the minimal shared campaign scene boundary and its
+real-file persistence contract. Waking and dream worlds must never render or
+simulate together; restore at armed, entered, active, return-pending and awake
+must reconcile forward without duplicating the Mina residue or resurrecting a
+closed job/spent capsule. This is scene ownership and persistence only: no
+production Tenant behavior, Mina hazard pass, sleep-pressure scheduler, Peter,
+second errand or parallel case implementation belongs in N4.
 
 ## Execution order
 
-1. **K7 — document the landed spine.** Write `game/docs/core_loop.md` from the
-   K2–K6 code that exists. This is required before a production scene boundary
-   is added.
-2. **N4 — build the shared maze runtime.** Consume the N2 catalog and topology;
+1. **N4 — build the shared maze runtime.** Consume the N2 catalog and topology;
    do not copy the drawing's control-pack coordinates into the waking world.
-3. **N5 onward — integrate one vertical slice.** Mina first, then the remaining
+2. **N5 onward — integrate one vertical slice.** Mina first, then the remaining
    case grammars only after the shared substrate passes its gates.
 
 M0.5 and M1 are closed historical milestones. Their detailed proof remains in
 `design/FINAL_MAP_REDESIGN_BRIEF.md`, `TASKS.md` and `HANDOFF.md`; do not rerun,
-reinterpret or reopen them while executing K7.
+reinterpret or reopen them while executing N4.
 
 ## Non-negotiable constraints
 
@@ -80,8 +86,10 @@ reinterpret or reopen them while executing K7.
 
 ## The next deliverable to the owner
 
-Return `game/docs/core_loop.md` with the code-backed transition graph, exact
-signal owners, save/restore boundary table and one complete Mina shift trace.
-Resolve any doc/code disagreement from source and tests rather than copying old
-reports. Production maze art, case dressing and campaign integration remain
-outside K7.
+Return one minimal N4 boundary with a single active scene world, explicit
+`armed → entered → active → return_pending → awake` facts, a test-only dream
+payload if needed, and real-file proof at every boundary. The production waking
+scene must unload or stop before the dream becomes active, and the dream must
+unload before 4B is rebuilt. Preserve the closed job, spent capsule, resolved
+case and one waking residue across every restore. Production Tenant behavior,
+hazards, sleep pressure and case dressing remain outside N4.

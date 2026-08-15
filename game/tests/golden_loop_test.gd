@@ -20,7 +20,7 @@ const JOB := ChirpHunt.JOB_ID
 const ITEM := "carbon_transmitter_capsule"
 const CASE := "mina_caption_crisis"
 const SAVE_FILE := "user://tests/k6_mina_golden_shift_save.json"
-const EXPECTED_CHECKS := 82
+const EXPECTED_CHECKS := 87
 const EXPECTED_BLOCKS: Array[String] = ["origin_convergence", "boundary_idle",
 		"complaint", "inspection", "errand_out", "acquisition", "return_leg",
 		"repair", "first_conversation", "recurrence", "integration", "wake",
@@ -487,6 +487,13 @@ func _integration() -> void:
 			and work_orders.job_stage(JOB) == "closed"
 			and director.boundary() == "conversation_complete"
 			and player.call_locked)
+	_checkpoint("conversation_complete")
+	_check("restore at conversation-complete still waits for integration",
+			work_orders.job_stage(JOB) == "closed"
+			and director.boundary() == "conversation_complete"
+			and bool(director.loop_state().conversation_complete)
+			and player.call_locked
+			and stub.entries == 0)
 	await get_tree().process_frame
 	await get_tree().process_frame
 	_check("the dream cannot interrupt Mina before integration",

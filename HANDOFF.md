@@ -213,8 +213,14 @@ state only and must never ship as gameplay configuration. Evidence and its
 measurement caveat live in `art/renders/passage_hours_ps6/README.md`.
 
 **Core-loop verification since K6 (2026-08-15).**
+`game/docs/core_loop.md` is the authoritative K2–K6 subsystem reference: exact
+owners, maintenance and coordinator state machines, signal contract, save
+fields, complete Mina trace and the safe extension recipe. It is written from
+the landed source, including the current single-job coordinator limit. Keep
+build commands here and behavior there.
+
 `GoldenLoopTest.tscn` is the authoritative continuous Mina-shift harness. It
-drives 82 checks in one production scene: report/discovery convergence,
+drives 87 checks in one production scene: report/discovery convergence,
 inspection, the walked HARDWARE PAINT errand and return, repair, Mina's first
 conversation, recurrence, second factual calibration, complete-rule
 conversation, integration, dream request, stubbed wake, and real-file
@@ -238,8 +244,9 @@ and 11.225 s extinguished capture medians across eleven paired seeds (69.8%
 shorter on; 7.800 s bought off); real collision blocks acquisition, and L / left
 shoulder / touch LAMP converge on the public owner. The control pack, raw data,
 dimensioned drawing and beauty proof are in
-`art/renders/dream_light_n3/README.md`. K7 is the next required item; no N4
-campaign boundary exists yet. Wake persists one
+`art/renders/dream_light_n3/README.md`. K7 now records the landed loop in
+`game/docs/core_loop.md`; N4 is the next required item and no N4 campaign
+boundary exists yet. Wake persists one
 `mina_factual_refrigerator_caption` fact. Its acoustic owner
 is generated marker `F02_2A_FRIDGE_01`; its visible label follows generated
 socket `2A_FRIDGE_FACE`. The before/after acceptance pair and rerun command are

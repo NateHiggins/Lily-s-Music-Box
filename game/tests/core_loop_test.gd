@@ -198,6 +198,13 @@ func _reported_golden_loop() -> void:
 			and director.boundary() == "conversation_complete"
 			and bool(director.loop_state().conversation_complete),
 			"the complete rule closes the job but still waits for integration")
+	_mark("conversation_complete")
+	_roundtrip()
+	_check(work_orders.job_stage(JOB) == "closed"
+			and director.boundary() == "conversation_complete"
+			and bool(director.loop_state().conversation_complete)
+			and dream_requests == 0,
+			"save/load at conversation-complete waits for integration")
 	await get_tree().process_frame
 	await get_tree().process_frame
 	_check(dream_requests == 0,

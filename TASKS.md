@@ -29,9 +29,6 @@ the immediate executable gates, not a second copy of its milestone status.
 
 - **K1** Run M0 against the current tree: fresh-save Mina state trace, existing
   tests, warnings, critical-route reachability and performance baseline.
-- **K7** Create `game/docs/core_loop.md` only after K2–K6 land, documenting the
-  actual state machine, signals, save fields and second-case extension recipe.
-
 ---
 
 ## D — Needs a decision from the owner
