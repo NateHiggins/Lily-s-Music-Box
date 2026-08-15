@@ -997,6 +997,11 @@ it.
     Case authority cancels any restrained handling motion before applying its
     own tell, so inspection introduces neither a second truth store nor a
     competing animation owner.
+    The front directory's existing assembly owner now depresses one real call
+    button, rings on every press and distinguishes SOUNDED from STILL RINGING
+    without choosing a resident or inventing call state. The Vantry reference
+    clock answers through its actual sealed setting cover: a metal rattle and
+    sourced line-clock condition, never a false winding or adjustment verb.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street

@@ -101,6 +101,7 @@ specific player claim, and no cultural representation claim.
 | R048 | G. W. Campbell, [US1482733A Typewriting Machine](https://patents.google.com/patent/US1482733A/en) | Key levers swing type bars to print through a ribbon against the front of a platen. | Expired patent; unsolicited words remain case-owned. | dynamic `typewriter` owner result |
 | R049 | D. R. White, [US1342786A Plant-Irrigating Device](https://patents.google.com/patent/US1342786A/en) | Capillary attraction can carry moisture into the earth around roots in a flower pot. | Expired patent; leaf orientation remains case-owned. | dynamic `houseplant` owner result |
 | R050 | A. C. Pegan, [US840800A Locked Coat Hook](https://patents.google.com/patent/US840800A/en) | A wall-secured supporting base and projecting arm carry a garment load. | Expired patent; the additional hook remains case-owned. | dynamic `coat_hook` owner result |
+| R051 | H. E. Warren, [US1283431A Electric Clock System](https://patents.google.com/patent/US1283431A/en) | A synchronous motor can distribute time indications through an alternating-current system and remain regulated against a standard clock. | Expired patent; Vantry's signal, sealed case and permanent four-minute error remain authored fiction. | Vantry `winding_clock` owner result |
 
 ## 4. Copy audit
 

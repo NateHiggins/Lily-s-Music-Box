@@ -2951,6 +2951,9 @@ func _mail_bank_checks() -> void:
 			as LobbyBulletinBoard
 	var sales_board := root.find_child("OrisonOriginalSalesBoard", true, false) \
 			as LobbyOrisonAdBoard
+	var directory: WayfindingSignagePass = root.wayfinding_signage
+	var directory_area := directory.find_child(
+			"DirectoryDoorbellArea", true, false) as Area3D
 	_check(bulletin != null and sales_board != null
 			and bulletin.get_node_or_null("NoticeBoardInspection") is Area3D
 			and sales_board.get_node_or_null("SalesBoardInspection") is Area3D,
@@ -2963,6 +2966,18 @@ func _mail_bank_checks() -> void:
 				and bulletin_card.get("card_id", "") == "notice_board"
 				and sales_card.get("card_id", "") == "notice_board",
 				"production lobby boards answer with owner condition and material touch")
+	var directory_card: Dictionary = directory.interact_area(directory_area)
+	var master_card: Dictionary = master.interact(root.player) if master else {}
+	_check(directory_area != null and directory._bell.playing
+			and directory._bell_tween.is_running()
+			and directory_card.get("card_id", "") == "buzzer",
+			"production directory owns one sounding call-button response")
+	_check(master != null and master._service_touch.playing
+			and master._cover_tween.is_running()
+			and master_card.get("source_ids", []) == ["R051"]
+			and str(master_card.get("condition", "")).contains(
+					"SETTING COVER SEALED"),
+			"Vantry master resists through its sealed setting cover")
 	_check(bank != null and tray != null and master != null,
 			"mail bank, post tray and measured lobby master all exist")
 	if bank == null or tray == null or master == null:

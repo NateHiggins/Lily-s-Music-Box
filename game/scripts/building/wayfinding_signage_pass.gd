@@ -50,6 +50,10 @@ var _dark_brass: StandardMaterial3D
 var _enamel: StandardMaterial3D
 var _luminous: StandardMaterial3D
 var _bell: AudioStreamPlayer3D
+var _bell_button: MeshInstance3D
+var _bell_button_rest := Vector3.ZERO
+var _bell_tween: Tween
+var _last_bell_state := "READY"
 var apartment_numbers := 0
 var floor_directories := 0
 var fire_signs := 0
@@ -207,7 +211,14 @@ func _directory_panel(root: Node3D, title: String, rows: Array,
 				15, 0.00088, Color(0.10, 0.085, 0.06), false,
 				HORIZONTAL_ALIGNMENT_LEFT)
 		if with_buttons:
-			_cylinder(root, 0.015, 0.018, Vector3(0.275, y, 0.052), _brass)
+			var button := _cylinder(root, 0.015, 0.018,
+					Vector3(0.275, y, 0.052), _brass)
+			# One assembly-level interaction owns the call circuit. Keep one
+			# actual button separate as its physical response instead of adding
+			# eighteen duplicate gameplay targets to the directory.
+			if index == rows.size() / 2:
+				_bell_button = button
+				_bell_button_rest = button.position
 	_add_screws(root, 0.295, height * 0.5 - 0.025)
 
 
@@ -261,14 +272,43 @@ func _build_front_directory() -> void:
 	panel.add_child(_bell)
 
 
-func interact_area(area: Area3D) -> void:
-	if area.name == "DirectoryDoorbellArea" and _bell and not _bell.playing:
+func interact_area(area: Area3D) -> Dictionary:
+	if area.name != "DirectoryDoorbellArea" or _bell == null:
+		return {}
+	_press_directory_button()
+	if not _bell.playing:
 		_bell.pitch_scale = 0.88
 		_bell.play()
+		_last_bell_state = "SOUNDED"
+	else:
+		_last_bell_state = "STILL RINGING"
+	return service_wire_card()
 
 
 func interact_prompt() -> String:
-	return "Ring directory buzzer"
+	return "[E]  Ring directory buzzer"
+
+
+func service_wire_card() -> Dictionary:
+	return PropServiceWire.card("buzzer", {
+		"button_state": "RETURNING" if _bell_tween \
+				and _bell_tween.is_running() else "READY",
+		"bell_state": _last_bell_state,
+	})
+
+
+func _press_directory_button() -> void:
+	if _bell_button == null:
+		return
+	if _bell_tween and _bell_tween.is_valid():
+		_bell_tween.kill()
+	_bell_button.position = _bell_button_rest
+	_bell_tween = create_tween()
+	_bell_tween.tween_property(_bell_button, "position:z",
+			_bell_button_rest.z - 0.009, 0.055)
+	_bell_tween.tween_property(_bell_button, "position:z",
+			_bell_button_rest.z, 0.13) \
+			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
 func _metal(color: Color, metallic: float, roughness: float) -> StandardMaterial3D:

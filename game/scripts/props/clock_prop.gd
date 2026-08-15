@@ -36,6 +36,10 @@ var _minute: Node3D
 var _second: Node3D
 var _pendulum: Node3D
 var _tick: AudioStreamPlayer3D
+var _service_touch: AudioStreamPlayer3D
+var _master_cover: MeshInstance3D
+var _cover_tween: Tween
+var _cover_rest := Vector3.ZERO
 var _acc := 0.0
 var _motion_time := 0.0
 var _winding := false
@@ -81,6 +85,8 @@ func _build_visual() -> void:
 		merge_static(_pendulum)
 	_tick = make_emitter("tick", -29.0 if clock_variant == "vantry_master" else -26.0)
 	_tick.max_distance = 8.0
+	_service_touch = make_emitter("tick", -18.0)
+	_service_touch.max_distance = 3.4
 
 
 func _build_drop_octagon(fixed: Node3D) -> void:
@@ -145,8 +151,12 @@ func _build_master(fixed: Node3D) -> void:
 		var screw := _cyl(fixed, 0.007, 0.007, 0.005,
 				Vector3(sin(a) * 0.207, cos(a) * 0.207, 0.065), NICKEL)
 		screw.rotation_degrees.x = 90
-	_box(fixed, Vector3(0.064, 0.030, 0.010),
+	# The setting cover stays outside the merged case because it is the one
+	# truthful thing a hand can test. It rattles but cannot expose or adjust the
+	# authoritative house-time mechanism.
+	_master_cover = make_box(Vector3(0.064, 0.030, 0.010),
 			Vector3(0, -0.176, 0.063), BRASS)
+	_cover_rest = _master_cover.position
 
 
 func _build_marks(fixed: Node3D, radius: float, depth: float) -> void:
@@ -282,7 +292,7 @@ func _show_time() -> void:
 
 func interact_prompt() -> String:
 	if clock_variant == "vantry_master":
-		return "The Vantry reference clock is sealed"
+		return "[E]  Try sealed Vantry setting cover"
 	if _winding:
 		return "Hold E — winding…"
 	if spring_reserve >= 0.95:
@@ -290,13 +300,54 @@ func interact_prompt() -> String:
 	return "Hold E — wind the clock"
 
 
-func interact(player: Node) -> void:
-	if clock_variant == "vantry_master" or _winding:
-		return
+func interact(player: Node) -> Dictionary:
+	if clock_variant == "vantry_master":
+		_service_touch.pitch_scale = 0.74
+		_service_touch.play()
+		_rattle_master_cover()
+		return service_wire_card()
+	if _winding:
+		_service_touch.pitch_scale = 1.08
+		_service_touch.play()
+		return service_wire_card()
+	_service_touch.pitch_scale = 0.92
+	_service_touch.play()
 	if player == null:
 		finish_winding()
-		return
+		return service_wire_card()
 	_hold_to_wind()
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	if clock_variant == "vantry_master":
+		return {
+			"title": "VANTRY REFERENCE CLOCK",
+			"body": "A SYNCHRONOUS MOTOR CAN DISTRIBUTE ONE TIME INDICATION THROUGH AN ALTERNATING-CURRENT SYSTEM STOP",
+			"condition": "MOVEMENT LINE SYNCHRONIZED / SETTING COVER SEALED / READING FOUR MINUTES FAST",
+			"stamp": "SERVICE NOTE",
+			"card_id": "winding_clock",
+			"source_ids": ["R051"],
+		}
+	return PropServiceWire.card("winding_clock", {
+		"movement_state": "RUNNING" if spring_reserve > 0.0 else "STOPPED",
+		"reserve_state": "%d PERCENT" % roundi(spring_reserve * 100.0),
+	})
+
+
+func _rattle_master_cover() -> void:
+	if _master_cover == null:
+		return
+	if _cover_tween and _cover_tween.is_valid():
+		_cover_tween.kill()
+	_master_cover.position = _cover_rest
+	_cover_tween = create_tween()
+	_cover_tween.tween_property(_master_cover, "position:z",
+			_cover_rest.z - 0.004, 0.055)
+	_cover_tween.tween_property(_master_cover, "position:z",
+			_cover_rest.z + 0.002, 0.07)
+	_cover_tween.tween_property(_master_cover, "position:z",
+			_cover_rest.z, 0.09)
 
 
 func _hold_to_wind() -> void:

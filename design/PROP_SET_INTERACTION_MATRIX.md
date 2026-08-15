@@ -56,7 +56,7 @@ counts; generator records supply provenance.
 | Box fans | 4 / F02, F04–F06 | `BoxFanProp`; cycles 0–3 unless possession owns it | Electrical hum | Runtime / possession state | **OPERATE** | Card reports selector position and whether the control is refusing. |
 | F03 utility case door | 1 / F03 | `CaseDoorProp`; **current E is a silent no-op** | None | Runtime / later case | **RESIST-REFUSE** | Required fix: latch/leaf attempt plus a specific locked or held reason. |
 | 4B windable clock | 1 / F04 | `ClockProp`; hold E winds spring and can close its work order | Metal tick | WorkOrders / Conductor | **OPERATE** | Keep hold interaction; card reports reserve and movement condition. |
-| Vantry reference clock | 1 / F01 | `ClockProp`; sealed master refuses winding | Metal tick | Runtime / Conductor | **RESIST-REFUSE** | Add a small key/latch attempt; explain the sealed reference case. |
+| Vantry reference clock | 1 / F01 | `ClockProp`; sealed setting cover rattles but cannot adjust house time | Metal tick | Runtime / Conductor | **RESIST-REFUSE** | Landed I4: the real cover supplies the refusal response and identifies line synchronisation and the visible four-minute error. |
 | Darts board | 1 / B1 bar | `DartsProp`; opens Rainbow Round activity | Metal clink | Runtime / activity | **OPERATE** | Card identifies board material/rules without delaying activity. |
 | Dead-letter table | 1 / F01 | `DeadLettersProp`; opens sorting activity | Paper rustle | Runtime / mail activity | **OPERATE** | State line reports unsorted/handled condition. |
 | Room 0 anomaly door | 1 / F04 | `DoorAnomalyProp`; enters only while manifested | Visual pulse | Conductor / Room0 | **OPERATE** | Contextual prompt/card only while manifest; never reveal the dream. |
@@ -80,7 +80,7 @@ counts; generator records supply provenance.
 | Maintenance headquarters wall | 1 / F01 office | `MaintenanceHeadquarters`; status lettering brightens | None | RealityState / RealityCases | **INSPECT** | Add material acknowledgement and case-safe card. |
 | Room 0 interior seam | 1 / hidden root | `Room0`; E returns its occupant | Hum, collapse flash | Runtime / Conductor | **OPERATE** | Remains contextual and outside ordinary exploration copy. |
 | Room light switches | 215 / all floors | `SwitchPlate`; toggle click then room-light request | Metal toggle click | Runtime / lighting system | **OPERATE** | Card reads circuit/fixture result; dead circuits still click honestly. |
-| Lobby directory buzzer | 1 / F01 | `WayfindingSignagePass`; rings bell | Elevator bell | Runtime / RealityCases | **OPERATE** | Add button travel and a concise current-response line. |
+| Lobby directory buzzer | 1 / F01 | `WayfindingSignagePass`; one call button travels and rings the bell on every press | Elevator bell | Runtime / RealityCases | **OPERATE** | Landed I4: one assembly owner reports button return and sounded/still-ringing state; it selects no resident and adds no call state. |
 | 4B support desk chair | 1 / F04 | `DeskZone`; sit/stand and open/leave call interface | None | Runtime / call system | **OPERATE** | Add chair/receiver sound; second E must continue to release. |
 | Case-specific object zones | 6 / F01, F02, F04 | `CaseInteractable`; invokes case-owned callable; one is currently disabled | Case-owned | RealityCases | **OPERATE** | Presenter reads case result only; no duplicated flags. Disabled zone must refuse or vanish. |
 | HARDWARE PAINT counter | 1 / Passage | `MaintenanceShopCounter`; contextual part acquisition | None | Inventory + WorkOrders through shop service | **OPERATE** | Add counter acknowledgement/card only when job service is valid. |
@@ -271,6 +271,10 @@ attach one collider to the merged batch and call hundreds of objects covered.
    target, a local material response and a provenance-backed field slip; the
    card reports only AT REST or VISIBLY ALTERED. A case intrusion cancels the
    restrained handling motion before applying its authoritative tell.
+   The lobby's two remaining signal mechanisms also answer physically: its
+   directory owner depresses a real call button and reports the bell's current
+   response, while the Vantry reference clock rattles its sealed setting cover
+   and refuses adjustment without interrupting house time.
 4. Add sparse inspection/refusal zones to the named set heroes in §5–§8.
 5. Leave bulk pipework, fixture meshes, tables, chairs, shell geometry, weather,
    trim, shelf repeats and portal proxies ambient. Count them in the proof; do

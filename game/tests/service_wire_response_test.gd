@@ -321,6 +321,37 @@ func _ready() -> void:
 					"LINE SYNCHRONIZED")
 			and not str(signal_card).contains("TEST_SIGNAL_CASE"))
 
+	var master_clock := ClockProp.new()
+	master_clock.unit = "LOBBY"
+	master_clock.clock_variant = "vantry_master"
+	add_child(master_clock)
+	var master_card: Dictionary = master_clock.interact(hand)
+	_check("sealed Vantry master resists through its actual setting cover",
+			master_clock.interact_prompt().contains("Try sealed")
+			and master_clock._service_touch.playing
+			and master_clock._cover_tween.is_running()
+			and master_card.get("card_id", "") == "winding_clock"
+			and master_card.get("source_ids", []) == ["R051"]
+			and str(master_card.get("condition", "")).contains(
+					"SETTING COVER SEALED")
+			and master_clock.displayed_offset_minutes() == 4.0)
+
+	var directory := WayfindingSignagePass.new()
+	add_child(directory)
+	directory._build_materials()
+	directory._build_front_directory()
+	var directory_area := directory.find_child(
+			"DirectoryDoorbellArea", true, false) as Area3D
+	var directory_card: Dictionary = directory.interact_area(directory_area)
+	var busy_directory_card: Dictionary = directory.interact_area(directory_area)
+	_check("directory call button travels and answers on every press",
+			directory_area != null and directory._bell_button != null
+			and directory._bell.playing and directory._bell_tween.is_running()
+			and directory_card.get("card_id", "") == "buzzer"
+			and str(directory_card.get("condition", "")).contains("SOUNDED")
+			and str(busy_directory_card.get("condition", "")).contains(
+					"STILL RINGING"))
+
 	var bulletin := LobbyBulletinBoard.new()
 	add_child(bulletin)
 	var bulletin_card: Dictionary = bulletin.interact(hand)
