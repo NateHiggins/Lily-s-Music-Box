@@ -46,8 +46,9 @@ func _ready() -> void:
 	await get_tree().process_frame
 	_check("two trucks share one sign draw owner and four panel instances",
 			traffic.find_children("*", "MultiMeshInstance3D", false, false).size()
-					== 5
-			and traffic._piano_signs.multimesh.visible_instance_count == 4)
+					== 6
+			and traffic._piano_signs.multimesh.visible_instance_count == 4
+			and traffic._headlight_pools.multimesh.visible_instance_count == 2)
 	_check("the painted panels are dull geometry, not lights or shadow casters",
 			traffic._piano_signs.cast_shadow
 					== GeometryInstance3D.SHADOW_CASTING_SETTING_OFF

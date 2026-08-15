@@ -114,7 +114,32 @@ the same complete sign, not a redrawn approximation. `PianoRepairTruckTest`
 proves the envelope, rarity, imported source, one-batch/two-face ownership,
 opposite-lane motion and unchanged crossing/arrival contracts. Fixed morning
 and day rain frames are under `art/renders/piano_repair_truck/`. This addition
-does not close T2d: all traffic still shares the known under-lit carriageway.
+did not itself close T2d; the shared traffic pass immediately below does.
+
+### As built — night traffic readability, 2026-08-14
+
+The under-lit carriageway stays under-lit. Each moving road user instead owns
+one restrained piece of information on the surface immediately ahead of it: a
+5.2 × 1.55 m warm reflection from two period lamps, widening, overlapping and
+breaking across the wet paving until it reads as one imperfect pool. It marks
+the nose, direction and closing speed without pretending to illuminate nearby
+architecture or turning the vehicle body self-luminous.
+
+All visible reflections share one `TrafficWetHeadlightPools` MultiMesh. It is
+unshaded additive geometry 35 mm above the road, casts no shadow, contains no
+`Light3D`, and submits zero instances when the street is empty. The lamp faces
+remain the original emissive quads. This is the entire T2d spend; street lamps,
+the 16/16 lighting budget, traffic cadence, tram stop and shove rules are
+unchanged.
+
+`TrafficNightReadabilityTest` proves the one-batch ownership, bounded size and
+alpha, opposite-lane placement, zero-light/shadow rule, empty-street behavior
+and unchanged crossing contracts. Canonical-night control/control/final frames
+are in `art/renders/traffic_night_readability_t2d/`; the repeated control makes
+the live-rain difference explicit. At the focused 1440p street station the
+pool-hidden and production runs measured 29.99 and 30.29 ms respectively, while
+their independent runtime populations differed by 10 objects and 15 calls.
+That delta is inside run noise; the deterministic cost is one shared draw.
 
 ---
 
@@ -168,9 +193,9 @@ exist at x +27.00. No character, caption or objective acknowledges it.
 
 This is not the deleted static rideshare restored under another name. It has no
 body or collision shape, occupies one ordinary `StreetTraffic` slot, and uses
-the same four shadowless MultiMesh submissions as the rest of the road. A lower
-close-view motor profile and muted teal greenhouse distinguish it without a
-fifth draw owner, light, bespoke scene or permanent object. Random startup
+the same shared shadowless MultiMesh submissions as the rest of the road. A
+lower close-view motor profile and muted teal greenhouse distinguish it without
+a bespoke draw owner, light, scene or permanent object. Random startup
 traffic yields for five seconds so the first action remains legible, then the
 ordinary two-way stream resumes.
 
@@ -179,7 +204,7 @@ ordinary two-way stream resumes.
 The production player is now bound after it actually exists, correcting the
 old null startup reference used by traffic audio and shoves. `ArrivalCarTest`
 proves the spawn, hold, acceleration, lane merge, exact storm crossing, removal,
-non-replay, four-batch budget and absence of the former static hull. The three
+non-replay, shared-batch budget and absence of the former static hull. The three
 fixed morning-rain proof frames are in `art/renders/arrival_car_t6/`.
 
 ---
@@ -229,9 +254,9 @@ route, weather/sky, lighting, Passage visibility/ownership and WalkTest FULL
 at x8 / 480 Hz all pass. Fixed day/night proof frames are under
 `art/renders/transit_shelter_t5/approved/`.
 
-T2d remains honest: the instanced traffic silhouettes are still under-read at
-night. T5 proves a real served stop and readable shelter architecture; it does
-not quietly claim to have completed the separate traffic-fidelity work.
+At the T5 checkpoint T2d remained honest: the instanced traffic silhouettes
+were still under-read at night. T5 proved a real served stop and readable
+shelter architecture; the later traffic-readability pass above owns that fix.
 
 ### As built — T5b road clearance closed 2026-08-14
 

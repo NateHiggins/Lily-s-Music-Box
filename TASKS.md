@@ -333,21 +333,25 @@ is built.
 - **T2b-old** Original note: The brief asks that a player
   can cross by EAR with the camera facing a door, and there is no sound on it
   at all yet. That is the single biggest gap between this and the brief.
-- **T2c** **Silhouettes built.** Four batches carry all traffic - bodies, cabs,
-  wheels, lamps - so each vehicle is a stepped shape on four wheels rather than
-  a crate sliding down the road, and the `cab` column in `KINDS` differs per
-  kind: a dray is a low bed with a high driver's box, a tram is almost all cab,
-  and the one that is genuinely a featureless box is the one that is wrong.
-- **T2d** **Still under-read at night**, which is the remaining visual gap.
-  Vehicle albedo is 0.13-0.52 and the street is dark enough that they read as
-  masses with a tail lamp. The cheap fix is a pool of light on the road ahead
-  of each vehicle rather than real headlamps (T7 says not to spend on
-  lighting); the other half is that the street lamps do not reach the
-  carriageway.
-- **T2e** Night readability, original note: Vehicles read as silhouettes with a tail lamp -
-  correct for a dark street, under-read as objects. The cheap fix is a pool of
-  light on the road ahead of each vehicle rather than real headlamps, which T7
-  says not to spend. Lamps are emissive quads, not lights, deliberately.
+- **T2c** **Silhouettes built.** Four original batches carry bodies, cabs,
+  wheels and lamps, so each vehicle is a stepped shape on four wheels rather
+  than a crate sliding down the road. T2d adds one shared wet-road reflection
+  batch, and T2f adds one sign batch only when that rare truck is present.
+- **T2d DONE — NIGHT TRAFFIC READABILITY.** Every live vehicle now paints one
+  5.2 × 1.55 m broken tungsten reflection ahead of its nose. The whole stream
+  shares one shadowless `TrafficWetHeadlightPools` MultiMesh; an empty road
+  submits zero instances. It is a soft additive reading cue on the wet paving,
+  not illumination: zero `Light3D`, zero shadow, no body self-emission and no
+  brighter street lamps. Twin sources widen and dissolve inside a broad noisy
+  pool instead of reading as clean game stripes. Fixed canonical-night
+  control/control/final frames live in
+  `art/renders/traffic_night_readability_t2d/`; the duplicate control records
+  live-rain variance. `TrafficNightReadabilityTest` passes. A focused 1440p
+  fresh-process pair measured 29.99 ms hidden versus 30.29 ms live while the
+  runtime population itself differed by 10 objects / 15 calls, so the delta is
+  inside run noise; the structural cost is exactly the one shared draw.
+- **T2e** **SUBSUMED BY T2d.** Lamps remain emissive quads and the new roadway
+  response remains an additive batched reflection; neither is a realtime light.
 - **T2f DONE — WE TUNA PIANOS.** A rare 1928 one-ton piano-repair box truck
   joins the ordinary two-way stream at 2.0 / 99.0 selection weight. Its deep
   teal rear box and separate low cab stay inside 5.8 × 2.05 × 2.30 m; two dull
@@ -393,9 +397,10 @@ is built.
   a low teal-black motor car, facing the full 30 ft crossing and Orison door.
   It holds 1.15 s without seizing the camera, accelerates to 6.4 m/s, merges
   into the eastbound lane, crosses the exact x +20.60 storm boundary once and
-  is removed at x +27.00. It reuses the four existing shadowless traffic
-  batches, adds no light or collision, cannot replay after `intro_complete`,
-  and ordinary traffic resumes after a 5 s first-image clearance. The traffic
+  is removed at x +27.00. It reuses the shared shadowless traffic batches,
+  including T2d's wet-road response, adds no light or collision, cannot replay
+  after `intro_complete`, and ordinary traffic resumes after a 5 s first-image
+  clearance. The traffic
   player-reference startup bug is also closed. `ArrivalCarTest` passes; three
   fixed morning-rain frames are in `art/renders/arrival_car_t6/`. Transit,
   containment, route, weather, lighting, Passage ownership/visibility and

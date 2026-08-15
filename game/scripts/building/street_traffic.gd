@@ -2,10 +2,9 @@ class_name StreetTraffic
 extends Node3D
 ## The stream you cross. See design/ORISON_STREET_BRIEF.md §2-§3.
 ##
-## ONE DRAW CALL FOR ALL OF IT. Street elevation is the second-worst station in
-## the game at 33.28 ms against a 16.6 target, and it is CPU-bound on submission
-## rather than on the GPU (TASKS P2) - so every vehicle is an instance in a
-## single MultiMesh, scaled and tinted per instance. A dray and a coal lorry are
+## ONE BATCHED STREAM. Street elevation remains over the 16.6 target and is
+## CPU-bound on submission rather than on the GPU (TASKS P2), so every visual
+## layer is one MultiMesh shared by every vehicle. A dray and a coal lorry are
 ## the same box at different sizes, which at night on a wet road is also true.
 ##
 ## THE CROSSING IS A TEXTURE, NOT A CHALLENGE. This is the constraint that
@@ -56,6 +55,11 @@ const ARRIVAL_TRAFFIC_DELAY := 5.0
 const PIANO_REPAIR_KIND := 8
 const PIANO_REPAIR_SIGN := \
 		"res://assets/building/textures/traffic/we_tuna_pianos_sign.png"
+## A reflected beam painted onto the wet carriageway, not illumination. The
+## whole stream shares one shadowless batch; this is T2d's readability spend.
+const HEADLIGHT_POOL_LENGTH := 5.2
+const HEADLIGHT_POOL_WIDTH := 1.55
+const HEADLIGHT_POOL_ALPHA := 0.13
 
 signal transit_arrived(stop_id: String, vehicle_kind: String)
 signal arrival_entered_weather
@@ -108,6 +112,8 @@ var _cabs: MultiMeshInstance3D
 var _wheels: MultiMeshInstance3D
 var _piano_signs: MultiMeshInstance3D
 var _piano_sign_origins: Array[Vector3] = []
+var _headlight_pools: MultiMeshInstance3D
+var _headlight_pool_origins: Array[Vector3] = []
 var _live: Array[Dictionary] = []
 var _spawn_accum := 0.0
 var _rng := RandomNumberGenerator.new()
@@ -166,6 +172,7 @@ func build(player: Node3D = null) -> void:
 	wheel.radial_segments = 10
 	_wheels = _make_batch(wheel, MAX_VEHICLES * 4, false)
 	_build_piano_sign_batch()
+	_build_headlight_pool_batch()
 
 	var lamp_mesh := QuadMesh.new()
 	lamp_mesh.size = Vector2(0.34, 0.34)
@@ -224,13 +231,78 @@ func _build_piano_sign_batch() -> void:
 	add_child(_piano_signs)
 
 
+func _build_headlight_pool_batch() -> void:
+	var quad := QuadMesh.new()
+	quad.size = Vector2.ONE
+	var shader := Shader.new()
+	shader.code = """
+shader_type spatial;
+render_mode unshaded, blend_add, cull_disabled, depth_draw_never,
+		shadows_disabled;
+
+float hash(vec2 p) {
+	return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+float value_noise(vec2 p) {
+	vec2 i = floor(p);
+	vec2 f = fract(p);
+	f = f * f * (3.0 - 2.0 * f);
+	return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x),
+			mix(hash(i + vec2(0.0, 1.0)),
+				hash(i + vec2(1.0, 1.0)), f.x), f.y);
+}
+
+void fragment() {
+	// One soft wet-road reflection with the two lamp sources only faintly
+	// legible inside it. UV.x begins at the vehicle and follows its travel.
+	float spread = mix(0.12, 0.34, UV.x);
+	float separation = mix(0.15, 0.075, UV.x);
+	float left_trace = 1.0 - smoothstep(spread * 0.18, spread,
+			abs(UV.y - (0.5 - separation)));
+	float right_trace = 1.0 - smoothstep(spread * 0.18, spread,
+			abs(UV.y - (0.5 + separation)));
+	float paired = max(left_trace, right_trace);
+	float broad_width = mix(0.22, 0.47, UV.x);
+	float broad = 1.0 - smoothstep(broad_width * 0.32, broad_width,
+			abs(UV.y - 0.5));
+	float beam = mix(broad, paired, 0.24);
+	float near_feather = smoothstep(0.0, 0.075, UV.x);
+	float distance_fade = 1.0 - smoothstep(0.18, 1.0, UV.x);
+	float side_feather = 1.0 - smoothstep(0.42, 0.50, abs(UV.y - 0.5));
+	// Low-frequency breakup prevents the pool reading as a clean game decal.
+	// It is fixed in the beam so this layer never becomes another rain system.
+	float wet_breakup = mix(0.54, 1.0, value_noise(
+			vec2(UV.x * 19.0, UV.y * 6.0 + 13.0)));
+	ALBEDO = COLOR.rgb;
+	ALPHA = COLOR.a * beam * near_feather * distance_fade
+			* side_feather * wet_breakup;
+}
+"""
+	var material := ShaderMaterial.new()
+	material.shader = shader
+	quad.material = material
+	var multimesh := MultiMesh.new()
+	multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	multimesh.use_colors = true
+	multimesh.mesh = quad
+	multimesh.instance_count = MAX_VEHICLES
+	multimesh.visible_instance_count = 0
+	_headlight_pools = MultiMeshInstance3D.new()
+	_headlight_pools.name = "TrafficWetHeadlightPools"
+	_headlight_pools.multimesh = multimesh
+	_headlight_pools.cast_shadow = \
+			GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(_headlight_pools)
+
+
 func bind_player(player: Node3D) -> void:
 	_player = player
 
 
-## The arrival is not a fifth vehicle system and never becomes standing
-## scenery. It temporarily occupies one slot in the same four MultiMeshes as
-## every other road user. Clearing startup traffic gives the first image one
+## The arrival is not a second vehicle system and never becomes standing
+## scenery. It occupies one slot in the same shared MultiMeshes as every other
+## road user. Clearing startup traffic gives the first image one
 ## readable action; the ordinary stream resumes behind it after five seconds.
 func begin_arrival() -> bool:
 	if _arrival_started or _arrival_finished or _mm == null:
@@ -416,13 +488,16 @@ func _pick() -> int:
 func _write_instances() -> void:
 	var mm := _mm.multimesh
 	var sign_mm := _piano_signs.multimesh
+	var pool_mm := _headlight_pools.multimesh
 	var sign_count := 0
 	_piano_sign_origins.clear()
+	_headlight_pool_origins.clear()
 	var n: int = mini(_live.size(), MAX_VEHICLES)
 	mm.visible_instance_count = n
 	_lamps.multimesh.visible_instance_count = n * 2
 	_cabs.multimesh.visible_instance_count = n
 	_wheels.multimesh.visible_instance_count = n * 4
+	_headlight_pools.multimesh.visible_instance_count = n
 	for i in n:
 		var v: Dictionary = _live[i]
 		var k: Array = KINDS[int(v.kind)]
@@ -480,6 +555,21 @@ func _write_instances() -> void:
 				Vector3(0.6, 0.6, 0.6)),
 				GameBoot.b2g([tail, y, height * 0.38])))
 		lm.set_instance_color(i * 2 + 1, Color(0.85, 0.10, 0.06))
+
+		# A real lamp would multiply the street's dominant cost. On rain-dark
+		# paving the information the player needs is the warm reflection: where
+		# the nose is, which way it points, and how quickly it is arriving.
+		var pool_x := nose + float(v.dir) * HEADLIGHT_POOL_LENGTH * 0.48
+		var pool_origin := GameBoot.b2g([pool_x, y, 0.035])
+		var pool_x_axis := Vector3(float(v.dir) * HEADLIGHT_POOL_LENGTH,
+				0.0, 0.0)
+		var pool_y_axis := Vector3(0.0, 0.0,
+				-float(v.dir) * HEADLIGHT_POOL_WIDTH)
+		pool_mm.set_instance_transform(i, Transform3D(Basis(pool_x_axis,
+				pool_y_axis, Vector3.UP), pool_origin))
+		pool_mm.set_instance_color(i, Color(1.0, 0.76, 0.52,
+				HEADLIGHT_POOL_ALPHA))
+		_headlight_pool_origins.append(pool_origin)
 
 		# The approved enamel advertisement rides as two dull painted panels,
 		# never as emissive UI. Both sides share one MultiMesh draw across every

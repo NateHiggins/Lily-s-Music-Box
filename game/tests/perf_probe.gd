@@ -144,6 +144,11 @@ func _ready() -> void:
 			shelter_hidden += 1
 		print("PERF TRANSIT SHELTER CONTROL: %d visual owners hidden"
 				% shelter_hidden)
+	# T2d comparison hook. Production keeps one shared wet-road reflection
+	# batch; this removes only that draw so a fresh-process pair can price it.
+	if OS.get_environment("PERF_TRAFFIC_POOLS_OFF") == "1":
+		root.street_traffic._headlight_pools.visible = false
+		print("PERF TRAFFIC POOL CONTROL: one shared draw hidden")
 	print("PERF: viewport %s; resolved light/shadow budget %d/%d" % [
 			get_viewport().get_visible_rect().size,
 			root.light_rig._active_budget, root.light_rig._shadow_budget])

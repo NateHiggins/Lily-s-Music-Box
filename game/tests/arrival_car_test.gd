@@ -46,11 +46,12 @@ func _ready() -> void:
 			and bool(traffic._live[0].get("arrival", false))
 			and str(StreetTraffic.KINDS[int(traffic._live[0].kind)][0])
 					== "motor_car")
-	_check("arrival submits only the four baseline traffic batches",
+	_check("arrival reuses the shared traffic batches without a bespoke owner",
 			traffic._mm.multimesh.visible_instance_count == 1
 			and traffic._cabs.multimesh.visible_instance_count == 1
 			and traffic._wheels.multimesh.visible_instance_count == 4
 			and traffic._lamps.multimesh.visible_instance_count == 2
+			and traffic._headlight_pools.multimesh.visible_instance_count == 1
 			and traffic._piano_signs.multimesh.visible_instance_count == 0)
 
 	var start_x: float = float(traffic._live[0].x)
