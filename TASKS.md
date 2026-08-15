@@ -413,7 +413,7 @@ emerges (no expelled debris or people); the rail-less tram is the authored wrong
   containment, route, weather, lighting, Passage ownership/visibility and
   WalkTest FAST all exit green. The single FULL x8/480 attempt produced no
   result inside the 60 s bound and was terminated; no FULL result is claimed.
-- **T7 PARTIAL.** The current canonical-night street elevation is 29.30 ms
+- **T7 DONE.** The historical canonical-night street elevation was 29.30 ms
   against 16.6, still CPU-bound on submission. T7a closes P7's safe script-side
   remainder: the floor/prop/door gate now evaluates an exact eight-storey
   region signature and skips the ~734-actor scan until a visibility boundary
@@ -445,9 +445,29 @@ emerges (no expelled debris or people); the rail-less tram is the authored wrong
   (-20.5%)**. Exact production A/A/B frames at three street viewpoints live
   in `art/renders/street_core_geometry_t7c/production_pair/`; entry, windows,
   neon and facade architecture remain intact. `StreetCoreVisibilityTest`
-  passes 16/16, including direct STREET/PASSAGE transitions. The remaining
-  playable-street gap is **6.23 ms**, so T7 remains partial and no 16.6-ms
-  closure is claimed.
+  passes 16/16, including direct STREET/PASSAGE transitions. That pass appeared
+  to leave a 6.23 ms gap, but T7d found both the final ownership leak and a
+  benchmark-window defect. The approved Harukiya mass is a second F01 interior
+  at x -12.0..6.4 / z 28.32..38.2; T7c's central rectangle never owned it.
+  A dimensioned second prism now gates its 264 enclosed draws while retaining
+  the street face and restoring exact layers on the descent into the bar.
+  `StreetCoreVisibilityTest` passes 20/20. T7e batches each neon letter's fixed
+  tube/support/boot primitives per finish without merging the letter animation
+  unit: the focused proof is 285 -> 51 draws, exact AABBs and working drop/
+  restore; the street census moves the Orison blade 202 -> 46 and tenant sign
+  98 -> 20 visible objects.
+
+  `WeatherPerf` now warms 120 frames and reports both direct wall-clock time
+  and Godot's rolling FPS monitor. At 30 frames the monitor still included
+  startup/shader history, so the absolute 22.832 ms T7c remainder was not a
+  settled frame; its same-build relative improvement remains valid. With both
+  new retained controls on, fresh direct clocks are 17.850/17.649 ms; production
+  is **15.905/15.530 ms** (mean **17.750 -> 15.718, -2.032 ms / -11.4%**),
+  objects 6,743 -> 5,554 and calls 7,938 -> 6,481. The independent rolling
+  monitor also passes at 16.035/15.950 ms. Exact three-view proof lives in
+  `art/renders/street_harukiya_t7d/production_pair/` and
+  `art/renders/street_neon_batch_t7e/`. The real playable street therefore
+  clears 16.6 ms with **0.88 ms direct-clock headroom**; T7 is closed.
 - **T8 DONE.** `design/ORISON_DRIVING_RAIN_SKY_PROPOSAL.md` §17 records the
   production checkpoint: one geography-locked four-state storm family, slow
   lower cloud inside the existing sky draw, bounded middle-distance fog, one

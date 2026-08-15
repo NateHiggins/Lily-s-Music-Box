@@ -3,7 +3,11 @@ extends Node
 ## production player stands at the lens so near rain, middle rain, mist and
 ## the sky all contribute to the timed frame.
 
-const WARMUP := 30
+## Performance.TIME_FPS is a rolling monitor. Thirty frames let shader/startup
+## work remain in that window and overstated the settled playable street by
+## 5-7 ms versus a direct frame clock. Give both clocks two seconds to settle
+## and report them together so neither can silently substitute for the other.
+const WARMUP := 120
 const SAMPLES := 120
 const EYE := Vector3(-16.0, 1.68, 13.5)
 const LOOK := Vector3(26.0, 1.30, 19.6)
@@ -40,12 +44,16 @@ func _ready() -> void:
 	root.player.set_physics_process(false)
 	for i in WARMUP:
 		await get_tree().process_frame
-	var total := 0.0
+	var monitor_total := 0.0
+	var direct_total := 0.0
 	for i in SAMPLES:
+		var started := Time.get_ticks_usec()
 		await get_tree().process_frame
-		total += 1000.0 / maxf(1.0, Performance.get_monitor(
+		direct_total += (Time.get_ticks_usec() - started) / 1000.0
+		monitor_total += 1000.0 / maxf(1.0, Performance.get_monitor(
 				Performance.TIME_FPS))
-	var average := total / SAMPLES
+	var monitor_average := monitor_total / SAMPLES
+	var direct_average := direct_total / SAMPLES
 	var objects := RenderingServer.get_rendering_info(
 			RenderingServer.RENDERING_INFO_TOTAL_OBJECTS_IN_FRAME)
 	var calls := RenderingServer.get_rendering_info(
@@ -55,6 +63,6 @@ func _ready() -> void:
 	var state: Dictionary = root.weather.diagnostic_snapshot()
 	print("[WEATHER PERF] rain=%s mist=%s exposed=%s objects=%d calls=%d "
 			% [state.rain_enabled, state.mist_enabled, state.exposed,
-			objects, calls] + "primitives=%d average_ms=%.3f" %
-			[primitives, average])
+			objects, calls] + "primitives=%d direct_ms=%.3f monitor_ms=%.3f" %
+			[primitives, direct_average, monitor_average])
 	get_tree().quit(0 if objects > 500 and state.exposed else 1)

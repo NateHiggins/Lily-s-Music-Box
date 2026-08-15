@@ -164,6 +164,12 @@ var passage_finish: Node3D
 ## owners, the landmark entry, WindowGlow and moving residents remain eligible.
 var street_core_nodes: Array[GeometryInstance3D] = []
 var street_core_visible := true
+## Same-build control for T7d. The Harukiya is a canonical below-grade F01
+## wing south of the central Orison core; its complete ruled mass is known from
+## FINAL_MAP_REDESIGN_BRIEF §5. Production streams its enclosed contents with
+## the core, while this control restores only that wing for A/B measurement.
+var _street_harukiya_gate_enabled := \
+		OS.get_environment("PERF_STREET_HARUKIYA_GEOMETRY_ON") != "1"
 ## Marker-built props deliberately remain direct children: several directors
 ## discover them through that stable ownership boundary.  They still need to
 ## ride the same coarse visibility gate as the imported floor, though.  Before
@@ -1288,7 +1294,7 @@ func _index_street_core_geometry() -> void:
 			continue
 		if _has_moving_resident_ancestor(geometry):
 			continue
-		if not _fully_in_street_core(geometry):
+		if not _is_street_hidden_geometry(geometry):
 			continue
 		street_core_nodes.append(geometry)
 		added += 1
@@ -1311,7 +1317,7 @@ func _street_core_protected_geometry() -> Dictionary:
 		_collect_street_geometry(owner, owned)
 		var boundary_owned := String(owner.name) == "F01_DOOR_06"
 		for geometry in owned:
-			if not _fully_in_street_core(geometry):
+			if not _is_street_hidden_geometry(geometry):
 				boundary_owned = true
 				break
 		if boundary_owned:
@@ -1359,6 +1365,26 @@ func _fully_in_street_core(geometry: GeometryInstance3D) -> bool:
 			and lo.z > -LightRig.ORISON_CORE_HALF_Z \
 			and hi.z < LightRig.ORISON_CORE_HALF_Z \
 			and lo.y >= -0.50 and hi.y <= 2.80
+
+
+## Harukiya's approved Blender envelope is x -12.0..6.4,
+## y -38.2..-28.32, which maps to Godot z 28.32..38.2. Keep the exact street
+## face and entrance reveal eligible by requiring 0.28 m of depth; anything
+## touching another mass boundary remains visible. The lower y bound includes
+## the sunken bar floor and stage without admitting substrate below it.
+func _fully_in_harukiya_core(geometry: GeometryInstance3D) -> bool:
+	var world: AABB = geometry.global_transform * geometry.get_aabb()
+	var lo := world.position
+	var hi := world.end
+	return lo.x > -12.0 and hi.x < 6.4 \
+			and lo.z > 28.60 and hi.z < 38.20 \
+			and lo.y >= -3.35 and hi.y <= 2.80
+
+
+func _is_street_hidden_geometry(geometry: GeometryInstance3D) -> bool:
+	return _fully_in_street_core(geometry) \
+			or (_street_harukiya_gate_enabled \
+					and _fully_in_harukiya_core(geometry))
 
 
 func _collect_zone_lights(n: Node, out: Array) -> void:

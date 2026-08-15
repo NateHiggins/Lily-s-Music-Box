@@ -13,7 +13,11 @@ func _ready() -> void:
 	await get_tree().create_timer(1.5).timeout
 	root._index_street_core_geometry()
 	var core: Array = root.street_core_nodes
-	_check("a material enclosed-F01 population is indexed", core.size() > 1000)
+	_check("both enclosed F01 masses produce a material index", core.size() > 1300)
+	var harukiya_core: Array = core.filter(func(geometry):
+		return root._fully_in_harukiya_core(geometry))
+	_check("the ruled Harukiya prism contributes its own population",
+			harukiya_core.size() > 250)
 
 	var original_layers := {}
 	for geometry in core:
@@ -32,7 +36,17 @@ func _ready() -> void:
 	var neon: Node = root.find_child("F01_NEON_TENANT", true, false)
 	var neon_geometry := _geometry_under(neon)
 	_check("a facade-touching compound neon owner stays atomic",
-			neon_geometry.size() > 20 and _none_indexed(neon_geometry, core))
+			neon_geometry.size() > 5 and _none_indexed(neon_geometry, core))
+	var bar_stage: Node = root.find_child("F01_BAR_STAGE_SIGN", true, false)
+	var bar_stage_geometry := _geometry_under(bar_stage)
+	_check("the deep Harukiya stage sign is enclosed, not exterior",
+			not bar_stage_geometry.is_empty()
+			and _all_indexed(bar_stage_geometry, core))
+	var bar_front: Node = root.find_child("F01_BAR_SIGNAGE", true, false)
+	var bar_front_geometry := _geometry_under(bar_front)
+	_check("Harukiya street-face signage remains eligible",
+			not bar_front_geometry.is_empty()
+			and _none_indexed(bar_front_geometry, core))
 	var resident_geometry: Array = []
 	for node in root.find_children("NPC_*", "Node3D", true, false):
 		resident_geometry.append_array(_geometry_under(node))
@@ -48,7 +62,13 @@ func _ready() -> void:
 			_all_layers(core, 0))
 	_check("entry, WindowGlow and complete neon remain eligible outdoors",
 			_all_nonzero(entry_geometry) and _all_nonzero(glow_geometry)
-			and _all_nonzero(neon_geometry))
+			and _all_nonzero(neon_geometry)
+			and _all_nonzero(bar_front_geometry))
+
+	var bar_interior := Vector3(3.0, -1.39, 34.0)
+	root._apply_visibility(bar_interior)
+	_check("descending into Harukiya restores its complete interior",
+			root.street_core_visible and _layers_match(core, original_layers))
 
 	var lobby := Vector3(0.0, 0.27, 9.0)
 	root._apply_visibility(lobby)
@@ -103,6 +123,10 @@ func _collect(node: Node, out: Array) -> void:
 
 func _none_indexed(geometry: Array, core: Array) -> bool:
 	return geometry.all(func(node): return not core.has(node))
+
+
+func _all_indexed(geometry: Array, core: Array) -> bool:
+	return geometry.all(func(node): return core.has(node))
 
 
 func _all_layers(geometry: Array, wanted: int) -> bool:

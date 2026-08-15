@@ -112,8 +112,10 @@ with one persistent waking residue.
 - The dream never erases committed work.
 - `gen_layout.py` owns coordinates; generated JSON/GLB is never hand-edited.
 - Visual work gets before/after renders in production lighting and streaming.
-- Performance is a release feature. The measured CPU/submission problem remains
-  open and must be checked whenever critical-route geometry is added.
+- Performance is a release feature. The playable STREET gate closed at T7's
+  settled 15.718 ms direct mean; project-wide P1 and the accepted Passage-night
+  blocker remain distinct, and every critical-route addition must re-run its
+  owning station rather than borrowing the STREET result.
 
 ## The first deliverable to the owner
 

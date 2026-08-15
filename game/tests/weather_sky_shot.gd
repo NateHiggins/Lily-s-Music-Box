@@ -39,16 +39,26 @@ func _ready() -> void:
 	root.view_override = cam
 	root.player.set_physics_process(false)
 	var requested := OS.get_environment("SHOT_STATION")
+	var destructive_pair := OS.get_environment("WEATHER_CORE_SHADOW_PAIR") == "1" \
+			or OS.get_environment("WEATHER_STREET_CORE_PAIR") == "1" \
+			or OS.get_environment("WEATHER_HARUKIYA_PAIR") == "1"
+	if destructive_pair and requested == "":
+		push_error("A destructive A/A/B mode requires one SHOT_STATION; "
+				+ "its final state cannot become the next station's control")
+		get_tree().quit(1)
+		return
 	var captured := 0
 	var captures_per_station := 3 \
 			if OS.get_environment("WEATHER_CORE_SHADOW_PAIR") == "1" \
-			or OS.get_environment("WEATHER_STREET_CORE_PAIR") == "1" else 1
+			or OS.get_environment("WEATHER_STREET_CORE_PAIR") == "1" \
+			or OS.get_environment("WEATHER_HARUKIYA_PAIR") == "1" else 1
 	for station: Dictionary in STATIONS:
 		if requested != "" and requested != station.name:
 			continue
 		await _capture_blender(station.name, station.pos, station.look)
 		captured += captures_per_station
-	if requested == "" or requested == "04_roof_skyline":
+	var street_only := OS.get_environment("SHOT_STREET_ONLY") == "1"
+	if not street_only and (requested == "" or requested == "04_roof_skyline"):
 		await _capture_godot("04_roof_skyline",
 				Vector3(-6.0, 21.4, 9.5), Vector3(-6.0, 19.8, 60.0))
 		captured += captures_per_station
@@ -60,7 +70,7 @@ func _ready() -> void:
 			await _capture_godot("04b_roof_cloud_plus_%ds" % int(motion_seconds),
 					Vector3(-6.0, 21.4, 9.5), Vector3(-6.0, 19.8, 60.0))
 			captured += captures_per_station
-	if requested == "" or requested == "05_atrium_skylight":
+	if not street_only and (requested == "" or requested == "05_atrium_skylight"):
 		await _capture_godot("05_atrium_skylight",
 				Vector3(0.0, 1.75, 1.58), Vector3(0.12, 15.0, 0.10))
 		captured += captures_per_station
@@ -110,6 +120,18 @@ func _capture_godot(label: String, eye: Vector3, target: Vector3) -> void:
 		await _save_current_frame(label + "_control_a")
 		await _save_current_frame(label + "_control_b")
 		_suppress_street_core_geometry(root)
+		await _save_current_frame(label + "_final")
+		get_tree().paused = false
+		return
+	# T7d isolates the second, dimensioned Harukiya prism from T7c's existing
+	# central-core gate. Start with PERF_STREET_HARUKIYA_GEOMETRY_ON=1.
+	if OS.get_environment("WEATHER_HARUKIYA_PAIR") == "1":
+		process_mode = Node.PROCESS_MODE_ALWAYS
+		root.light_rig.set_process(false)
+		get_tree().paused = true
+		await _save_current_frame(label + "_control_a")
+		await _save_current_frame(label + "_control_b")
+		_suppress_harukiya_geometry(root)
 		await _save_current_frame(label + "_final")
 		get_tree().paused = false
 		return
@@ -190,4 +212,21 @@ func _suppress_street_core_geometry(_scene_root: Node) -> int:
 			geometry.layers = 0
 			suppressed += 1
 	print("[WEATHER SKY SHOT] STREET-core geometry off: %d objects" % suppressed)
+	return suppressed
+
+
+func _suppress_harukiya_geometry(_scene_root: Node) -> int:
+	# Let the production index classify the wing with its normal compound-owner
+	# protections, then touch only nodes inside the new prism. Existing T7c
+	# core nodes are already gated in the control frames and remain untouched.
+	root._street_harukiya_gate_enabled = true
+	root._index_street_core_geometry()
+	var suppressed := 0
+	for geometry in root.street_core_nodes:
+		if is_instance_valid(geometry) \
+				and root._fully_in_harukiya_core(geometry) \
+				and geometry.layers != 0:
+			geometry.layers = 0
+			suppressed += 1
+	print("[WEATHER SKY SHOT] Harukiya geometry off: %d objects" % suppressed)
 	return suppressed

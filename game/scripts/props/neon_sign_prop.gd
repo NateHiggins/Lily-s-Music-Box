@@ -102,6 +102,10 @@ var _tube_mat: StandardMaterial3D
 var _dead_mat: StandardMaterial3D
 var _glow: OmniLight3D
 var _letters: Array[Node3D] = []
+## Every holder on every face. `_letters` remains the authored drop-animation
+## set (one logical face for a blade); this array is only a batching boundary.
+var _letter_geometry: Array[Node3D] = []
+var _letters_batched := false
 var _boards: Array[Node3D] = []
 var _bulb_mat: StandardMaterial3D
 var _surge := 0.0
@@ -134,6 +138,8 @@ func _build_visual() -> void:
 		_build_blade(n)
 	else:
 		_build_wall_cabinet(n)
+	if OS.get_environment("PERF_NEON_LETTER_BATCHING_OFF") != "1":
+		batch_letter_geometry()
 
 	_glow = OmniLight3D.new()
 	_glow.light_color = tint
@@ -189,6 +195,7 @@ func _build_blade(n: int) -> void:
 			# stacked top-down, so the first letter sits highest
 			holder.position = Vector3(0.0, run * 0.5 - (i + 0.5) * pitch, 0.0)
 			board.add_child(holder)
+			_letter_geometry.append(holder)
 			if side < 0.0:
 				_letters.append(holder)
 			var lit: bool = i != _dead_letter
@@ -275,6 +282,7 @@ func _build_wall_cabinet(n: int) -> void:
 		holder.position = Vector3(-run * 0.5 + (i + 0.5) * pitch, 0.0, 0.0)
 		add_child(holder)
 		_letters.append(holder)
+		_letter_geometry.append(holder)
 		var lit: bool = i != _dead_letter
 		for stroke in GLYPHS.get(sign_text[i], []):
 			_tube(holder, stroke, lit)
@@ -282,6 +290,21 @@ func _build_wall_cabinet(n: int) -> void:
 	_build_transformer(Vector3(half_x - 0.16, -half_y - 0.17, -0.12),
 			dark, edge)
 	merge_static(self, _letters)
+
+
+## A letter remains the animation unit, but its bent tube, supports and
+## electrode boots never move independently. Collapse those primitives to one
+## draw per finish. Public only so the paused same-build proof can start from
+## the retained unbatched control and invoke the exact production operation.
+func batch_letter_geometry() -> int:
+	if _letters_batched:
+		return 0
+	var removed := 0
+	for holder in _letter_geometry:
+		if is_instance_valid(holder):
+			removed += merge_static(holder)
+	_letters_batched = true
+	return removed
 
 
 # -------------------------------------------------------------- hardware

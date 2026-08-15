@@ -133,6 +133,11 @@ Conventions that bite if forgotten:
 - `game/tests/Perf.tscn` — six worst-case camera stations, reporting
   objects/draw calls/primitives and frame time. Must run **windowed**;
   headless reports zeroes, which the probe fails on rather than passing.
+- `game/tests/WeatherPerf.tscn` — the production-player north-pavement gate at
+  2560x1440, canonical night and 16/16 lighting. Since 2026-08-15 it warms 120
+  frames and reports both direct wall-clock and Godot's rolling FPS monitor;
+  do not compare its settled values to older 30-frame rolling-only logs. T7
+  closes at 15.718 ms direct / 15.993 ms monitor means on the RTX 4080.
 - `game/tests/Screenshot.tscn` — renders documentation stills into
   `SHOT_DIR`; needs a real window, so run it **without** `--headless`.
   `SCREENSHOT_ONLY` takes a comma-separated list of shot names to

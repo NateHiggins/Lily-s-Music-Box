@@ -461,8 +461,77 @@ The remaining differences are low-level illumination/shadow changes at the
 window and entry apertures caused by removing their impossible behind-wall
 casters, plus live-rain variance.
 
-This banks another real submission win but does not close T7: the authoritative
-mean is 22.832 ms, still **6.23 ms above 16.6**.
+This banked another real submission win. Its reported 22.832 ms remainder was
+later found to be a not-yet-settled rolling-monitor value; §7d records the
+instrument correction and the final target result without erasing this pass's
+valid same-build relative attribution.
+
+### As built — T7d/T7e final STREET submission closure, 2026-08-15
+
+T7c's box described the central Orison shell but not the canonical Harukiya
+wing. The final-map brief already dimensions that mass exactly in Blender as
+x -12.0..6.4 / y -38.2..-28.32. In Godot it is a second F01 prism at
+z 28.32..38.2, with a sunken floor. The production cut begins 0.28 m behind
+the street plane (z > 28.60), so the bar entrance, sign and architectural
+reveal remain eligible; complete AABBs inside x -12.0..6.4, z 28.60..38.20,
+y -3.35..2.80 join the existing compositional layer gate. Boundary contact,
+compound functional owners, moving residents and exact layer restoration obey
+the same T7c law. Descending to the playable bar at y -1.39 restores the entire
+wing. `PERF_STREET_HARUKIYA_GEOMETRY_ON=1` retains the isolated control.
+
+This removes 264 enclosed objects in the final batched build. With T7e held
+constant, two fresh settled controls versus production measure:
+
+| playable north pavement | objects | calls | direct ms | rolling monitor ms |
+|---|---:|---:|---:|---:|
+| Harukiya gate open A/B | 5,874 / 5,873 | 6,828 / 6,829 | 16.056 / 16.213 | 16.352 / 16.129 |
+| production A/B | 5,557 / 5,550 | 6,481 / 6,480 | 15.905 / 15.530 | 16.035 / 15.950 |
+| mean change | -320 | -348 | **-0.417 ms** | **-0.248 ms** |
+
+The second recoverable owner was visible, not hidden: the facade's two
+procedural neon signs. Each stroke, glass support and electrode boot was a
+separate primitive submission even though those parts never move relative to
+their letter. T7e merges fixed geometry **within each letter** by finish. It
+does not merge letters, faces or signs: infection can still drop a logical
+letter, the dead tube keeps its own material, and the existing glow and
+business-hours behavior remain. `PERF_NEON_LETTER_BATCHING_OFF=1` is the
+same-build control. `NeonBatchTest` proves 285 -> 51 draws on a blade and wall
+cabinet, exact per-letter local AABBs, emissive-material survival, idempotence,
+and drop/restore animation. At the street lens the Orison blade falls
+202 -> 46 objects and the tenant wall sign 98 -> 20.
+
+With T7d held constant, unbatched direct controls are 16.923/16.673 ms against
+the 15.905/15.530 production pair: **16.798 -> 15.718 ms (-1.081 ms)**.
+Together, the two retained controls reconstruct the pre-pass state:
+
+| playable north pavement, 1440p, night, 16/16 | objects | calls | direct ms | rolling monitor ms |
+|---|---:|---:|---:|---:|
+| both controls A/B | 6,741 / 6,744 | 7,936 / 7,939 | 17.850 / 17.649 | 17.889 / 17.965 |
+| production A/B | 5,557 / 5,550 | 6,481 / 6,480 | 15.905 / 15.530 | 16.035 / 15.950 |
+| mean change | **-17.6%** | **-18.4%** | **-2.032 ms (-11.4%)** | **-1.934 ms** |
+
+The performance instrument itself needed one correction. `WeatherPerf` used
+30 warmup frames and then averaged `Performance.TIME_FPS`, a rolling monitor
+whose window still contained scene startup and shader work. It now warms 120
+frames and reports both a direct microsecond clock around every settled frame
+and the rolling monitor. On production those independent answers converge to
+15.718 and 15.993 ms. The former clears 16.6 by 0.88 ms; the latter by 0.61 ms.
+The old absolute T7b/T7c frame values remain historical instrument outputs;
+their same-build deltas remain useful, but the supposed 6.23 ms final gap was
+not settled runtime.
+
+Visual proof is split by what can be honestly controlled. Harukiya uses three
+fresh, single-station paused A/A/B runs at
+`art/renders/street_harukiya_t7d/production_pair/`. Neon static batching must
+happen during construction; mutating a resident sign later causes a transient
+renderer/light-atlas rebuild, so its proof uses two independent unbatched
+controls and one production process at
+`art/renders/street_neon_batch_t7e/`, plus the exact focused geometry test.
+All tube strokes, dead-letter state, cabinet hardware, masonry wash, entry
+architecture and light pools survive. `StreetCoreVisibilityTest` is 20/20.
+
+**T7 is complete.** The actual playable north pavement passes the 16.6 ms
+release gate at the ruled resolution, time state and 16/16 lighting budget.
 
 ---
 

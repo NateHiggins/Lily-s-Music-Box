@@ -208,8 +208,8 @@ func _ready() -> void:
 				n_casters += 1
 				n_surf += _surface_count(g)
 		var lp: Vector3 = light.global_position
-		shadow_rows.append([n_surf, String(light.get_parent().name) + "/"
-				+ String(light.name), light.get_class(), n_casters, radius,
+		shadow_rows.append([n_surf, String(root.get_path_to(light)),
+				light.get_class(), n_casters, radius,
 				"(%.1f, %.1f, %.1f)" % [lp.x, lp.y, lp.z]])
 	shadow_rows.sort_custom(func(a, b): return a[0] > b[0])
 	print("[SUB] %d shadowed lights in tree; caster overlap per light:"

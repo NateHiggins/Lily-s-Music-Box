@@ -173,7 +173,11 @@ func _audit_street_shadow_gate(fixtures: Array) -> void:
 				and absf(source.global_position.z) <= LightRig.ORISON_CORE_HALF_Z)
 	var exterior_lit: Array = fixtures.filter(func(fixture):
 		var source: Light3D = fixture.light
-		return source != null and source.visible and source.light_energy > 0.05 \
+		# LightRig writes budget visibility/shadow synchronously; each fixture
+		# lerps energy on its following process tick. Requiring residual energy
+		# here made this ownership assertion depend on which lamp was active at
+		# the audit's previous camera position.
+		return source != null and source.visible \
 				and (absf(source.global_position.x) > LightRig.ORISON_CORE_HALF_X \
 				or absf(source.global_position.z) > LightRig.ORISON_CORE_HALF_Z))
 	_check(not core_fixtures.is_empty(),
