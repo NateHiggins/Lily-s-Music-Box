@@ -950,16 +950,6 @@ license to add collision and popups to every wall panel. It enters the queue
 after the currently sequenced dream work unless the owner explicitly promotes
 it.
 
-- **I1 — Inventory before implementation.** Generate a durable
-  `design/PROP_SET_INTERACTION_MATRIX.md` from the current production scene,
-  `building_layout.json`, shop assemblies, `FunctionalProp` subclasses and
-  root-built set pieces. One row per foreground type/hero assembly, with live
-  instance count, location/owner, existing E owner, current reaction, sound,
-  persistence, work-order/case dependencies and one ruled classification:
-  **OPERATE / INSPECT / RESIST-REFUSE / AMBIENT ARCHITECTURE**. Reconcile the
-  current 203 functional E owners, every non-Functional interaction and every
-  visually prominent set hero. Merged buffers are not source provenance; use
-  generator records or an unmerged diagnostic where identity is ambiguous.
 - **I2 — Research and write the period copy.** Create
   `design/PROP_TRIVIA_RESEARCH.md` as the internal source ledger and one
   data-driven production book (proposed `game/data/prop_service_wire.json`).

@@ -1,0 +1,3680 @@
+{
+	"schema": 1,
+	"generated_utc": "2026-08-15T19:44:51",
+	"scene": "res://scenes/building/orison_root.tscn",
+	"summary": {
+		"functional_instances": 203,
+		"functional_families": 21,
+		"nonfunctional_instances": 645,
+		"nonfunctional_families": 19,
+		"functional_with_cards": 203,
+		"nonfunctional_with_cards": 6,
+		"functional_prompting_instances": 201,
+		"nonfunctional_prompting_instances": 382
+	},
+	"functional_interactions": [
+		{
+			"key": "res://scripts/props/arcade_cabinet_prop.gd::monitor",
+			"class": "ArcadeCabinetProp",
+			"script": "res://scripts/props/arcade_cabinet_prop.gd",
+			"prop_type": "monitor",
+			"instances": 12,
+			"names": [
+				"Arcade_b1_laundry_cab",
+				"Arcade_common_cab",
+				"Arcade_lobby_cab",
+				"Arcade_retail_bar_cab01",
+				"Arcade_retail_bar_cab02",
+				"Arcade_storm_shopcab_model_laundry0",
+				"Arcade_storm_shopcab_photo_supplies0",
+				"Arcade_storm_shopcab_radio_service0",
+				"Arcade_storm_shopcab_pawnbroker0",
+				"Arcade_storm_shopcab_news_cigars0"
+			],
+			"floors": [
+				"B1",
+				"F01"
+			],
+			"prompts": [
+				"[E]  SOMETHING IN THE HALL",
+				"[E]  OPERATIONS",
+				"[E]  STEP SEQUENCE",
+				"[E]  NIGHT MAIL",
+				"[E]  COUNTY LEAGUE",
+				"[E]  THE THOUSAND",
+				"[E]  TOWER OF ASH",
+				"[E]  OUTER RIM"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 102,
+			"audio_players": 2,
+			"audio_streams": [],
+			"service_wire_cards": 12,
+			"prompting_instances": 12,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/boiler_prop.gd::boiler",
+			"class": "BoilerProp",
+			"script": "res://scripts/props/boiler_prop.gd",
+			"prop_type": "boiler",
+			"instances": 1,
+			"names": [
+				"B1_BOILER_01"
+			],
+			"floors": [
+				"B1"
+			],
+			"prompts": [
+				"[E]  Open firing door"
+			],
+			"interaction_entry": "interact_area",
+			"area_shapes": 5,
+			"audio_players": 3,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/mechanical_hum_loop.ogg",
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg",
+				"res://assets/audio/freesound/processed/mechanical/building_thud.ogg"
+			],
+			"service_wire_cards": 1,
+			"prompting_instances": 1,
+			"persistence": true,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/bookshelf_prop.gd::bookshelf",
+			"class": "BookshelfProp",
+			"script": "res://scripts/props/bookshelf_prop.gd",
+			"prop_type": "bookshelf",
+			"instances": 8,
+			"names": [
+				"F02_2A_BOOKSHELF_01",
+				"F03_3A_BOOKSHELF_01",
+				"F04_4A_BOOKSHELF_01",
+				"F05_5A_BOOKSHELF_01",
+				"F05_5C_BOOKSHELF_01",
+				"F06_6A_BOOKSHELF_01",
+				"F06_6B_BOOKSHELF_01",
+				"F06_6C_BOOKSHELF_01"
+			],
+			"floors": [
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"prompts": [
+				"[E]  Mina's books  —  wants tidying",
+				"[E]  Malcolm's books  —  in order",
+				"[E]  Peter's books  —  in order",
+				"[E]  Nadia's books  —  wants tidying",
+				"[E]  Iris's books  —  wants tidying",
+				"[E]  Sacha's books  —  wants tidying",
+				"[E]  Jonah's books  —  wants tidying",
+				"[E]  Mae's books  —  wants tidying"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 8,
+			"audio_players": 8,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg"
+			],
+			"service_wire_cards": 8,
+			"prompting_instances": 8,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/boxfan_prop.gd::boxfan",
+			"class": "BoxFanProp",
+			"script": "res://scripts/props/boxfan_prop.gd",
+			"prop_type": "boxfan",
+			"instances": 4,
+			"names": [
+				"F02_C_BOXFAN_01",
+				"F04_B_BOXFAN_01",
+				"F05_C_BOXFAN_01",
+				"F06_A_BOXFAN_01"
+			],
+			"floors": [
+				"F02",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"prompts": [
+				"[E]  Fan speed 1 — turn to 2"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 4,
+			"audio_players": 4,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/electrical_buzz_loop.ogg"
+			],
+			"service_wire_cards": 4,
+			"prompting_instances": 4,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/case_door_prop.gd::case_door",
+			"class": "CaseDoorProp",
+			"script": "res://scripts/props/case_door_prop.gd",
+			"prop_type": "case_door",
+			"instances": 1,
+			"names": [
+				"F03_UTILITY_ANOMALY"
+			],
+			"floors": [
+				"F03"
+			],
+			"prompts": [],
+			"interaction_entry": "interact",
+			"area_shapes": 1,
+			"audio_players": 0,
+			"audio_streams": [],
+			"service_wire_cards": 1,
+			"prompting_instances": 0,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/clock_prop.gd::wall_clock",
+			"class": "ClockProp",
+			"script": "res://scripts/props/clock_prop.gd",
+			"prop_type": "wall_clock",
+			"instances": 2,
+			"names": [
+				"F01_LOBBY_CLOCK_01",
+				"F04_B_CLOCK_01"
+			],
+			"floors": [
+				"F02",
+				"F04"
+			],
+			"prompts": [
+				"The Vantry reference clock is sealed",
+				"Hold E — wind the clock"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 2,
+			"audio_players": 2,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg"
+			],
+			"service_wire_cards": 2,
+			"prompting_instances": 2,
+			"persistence": false,
+			"dependencies": [
+				"work_orders",
+				"conductor"
+			]
+		},
+		{
+			"key": "res://scripts/props/darts_prop.gd::darts",
+			"class": "DartsProp",
+			"script": "res://scripts/props/darts_prop.gd",
+			"prop_type": "darts",
+			"instances": 1,
+			"names": [
+				"F01_BAR_DARTS"
+			],
+			"floors": [
+				"B1"
+			],
+			"prompts": [
+				"[E]  The Rainbow Round"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 1,
+			"audio_players": 1,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg"
+			],
+			"service_wire_cards": 1,
+			"prompting_instances": 1,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/dead_letters_prop.gd::dead_letters",
+			"class": "DeadLettersProp",
+			"script": "res://scripts/props/dead_letters_prop.gd",
+			"prop_type": "dead_letters",
+			"instances": 1,
+			"names": [
+				"LobbyPostTray"
+			],
+			"floors": [
+				"F01"
+			],
+			"prompts": [
+				"[E]  Sort the post"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 1,
+			"audio_players": 1,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg"
+			],
+			"service_wire_cards": 1,
+			"prompting_instances": 1,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/door_anomaly_prop.gd::door_anomaly",
+			"class": "DoorAnomalyProp",
+			"script": "res://scripts/props/door_anomaly_prop.gd",
+			"prop_type": "door_anomaly",
+			"instances": 1,
+			"names": [
+				"F04_B_DOOR_ANOMALY"
+			],
+			"floors": [
+				"F04"
+			],
+			"prompts": [],
+			"interaction_entry": "interact",
+			"area_shapes": 1,
+			"audio_players": 0,
+			"audio_streams": [],
+			"service_wire_cards": 1,
+			"prompting_instances": 0,
+			"persistence": false,
+			"dependencies": [
+				"conductor"
+			]
+		},
+		{
+			"key": "res://scripts/props/fridge_prop.gd::fridge",
+			"class": "FridgeProp",
+			"script": "res://scripts/props/fridge_prop.gd",
+			"prop_type": "fridge",
+			"instances": 18,
+			"names": [
+				"F01_1A_FRIDGE_01",
+				"F01_1D_FRIDGE_01",
+				"F02_2A_FRIDGE_01",
+				"F02_2B_FRIDGE_01",
+				"F02_2C_FRIDGE_01",
+				"F03_3A_FRIDGE_01",
+				"F03_3B_FRIDGE_01",
+				"F03_3D_FRIDGE_01",
+				"F04_4A_FRIDGE_01",
+				"F04_B_FRIDGE_01"
+			],
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"prompts": [
+				"[E]  Open the monitor-top",
+				"[E]  Open the icebox"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 18,
+			"audio_players": 54,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/mechanical_hum_loop.ogg",
+				"res://assets/audio/freesound/processed/mechanical/timber_creak.ogg",
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg",
+				"res://assets/audio/freesound/processed/events/water_droplets.wav"
+			],
+			"service_wire_cards": 18,
+			"prompting_instances": 18,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/kettle_prop.gd::kettle",
+			"class": "KettleProp",
+			"script": "res://scripts/props/kettle_prop.gd",
+			"prop_type": "kettle",
+			"instances": 6,
+			"names": [
+				"F01_1A_KETTLE_01",
+				"F01_1D_KETTLE_01",
+				"F03_3D_KETTLE_01",
+				"F04_B_KETTLE_01",
+				"F04_4C_KETTLE_01",
+				"F06_6C_KETTLE_01"
+			],
+			"floors": [
+				"F01",
+				"F03",
+				"F04",
+				"F06"
+			],
+			"prompts": [
+				"[E]  Put the kettle on"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 6,
+			"audio_players": 18,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg",
+				"res://assets/audio/freesound/processed/mechanical/pressure_whistle_loop.ogg",
+				"res://assets/audio/freesound/processed/mechanical/mechanical_hum_loop.ogg"
+			],
+			"service_wire_cards": 6,
+			"prompting_instances": 6,
+			"persistence": false,
+			"dependencies": [
+				"conductor"
+			]
+		},
+		{
+			"key": "res://scripts/props/medicine_cabinet_prop.gd::mirror",
+			"class": "MedicineCabinetProp",
+			"script": "res://scripts/props/medicine_cabinet_prop.gd",
+			"prop_type": "mirror",
+			"instances": 23,
+			"names": [
+				"F01_F01WC_MIRROR_01",
+				"F01_1A_MIRROR_01",
+				"F01_1D_MIRROR_01",
+				"F02_2A_MIRROR_01",
+				"F02_2B_MIRROR_01",
+				"F02_2C_MIRROR_01",
+				"F02_2D_MIRROR_01",
+				"F03_3A_MIRROR_01",
+				"F03_3B_MIRROR_01",
+				"F03_3C_MIRROR_01"
+			],
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"prompts": [
+				"[E]  Open the cabinet"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 23,
+			"audio_players": 23,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/events/door_squeak.wav"
+			],
+			"service_wire_cards": 23,
+			"prompting_instances": 23,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/otis_prop.gd::otis",
+			"class": "OtisProp",
+			"script": "res://scripts/props/otis_prop.gd",
+			"prop_type": "otis",
+			"instances": 1,
+			"names": [
+				"LobbyPorterBoard"
+			],
+			"floors": [
+				"F01"
+			],
+			"prompts": [
+				"[E]  Work the lift"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 1,
+			"audio_players": 1,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg"
+			],
+			"service_wire_cards": 1,
+			"prompting_instances": 1,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/point_ball_prop.gd::point_ball",
+			"class": "PointBallProp",
+			"script": "res://scripts/props/point_ball_prop.gd",
+			"prop_type": "point_ball",
+			"instances": 1,
+			"names": [
+				"F01_BAR_POOL"
+			],
+			"floors": [
+				"B1"
+			],
+			"prompts": [
+				"[E]  Point Ball  —  they took the 8"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 1,
+			"audio_players": 1,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg"
+			],
+			"service_wire_cards": 1,
+			"prompting_instances": 1,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/radiator_prop.gd::radiator",
+			"class": "RadiatorProp",
+			"script": "res://scripts/props/radiator_prop.gd",
+			"prop_type": "radiator",
+			"instances": 23,
+			"names": [
+				"F01_LOBBY_RADIATOR_01",
+				"F01_A_RADIATOR_01",
+				"F01_D_RADIATOR_01",
+				"F02_A_RADIATOR_01",
+				"F02_B_RADIATOR_01",
+				"F02_C_RADIATOR_01",
+				"F02_D_RADIATOR_01",
+				"F03_A_RADIATOR_01",
+				"F03_B_RADIATOR_01",
+				"F03_C_RADIATOR_01"
+			],
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"prompts": [
+				"[E]  Service radiator fittings"
+			],
+			"interaction_entry": "interact_area",
+			"area_shapes": 46,
+			"audio_players": 69,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/events/radiator_whistle.ogg",
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg",
+				"res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg"
+			],
+			"service_wire_cards": 23,
+			"prompting_instances": 23,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/songbook_terminal_prop.gd::songbook_terminal",
+			"class": "SongbookTerminalProp",
+			"script": "res://scripts/props/songbook_terminal_prop.gd",
+			"prop_type": "songbook_terminal",
+			"instances": 1,
+			"names": [
+				"F01_BAR_SONGBOOK"
+			],
+			"floors": [
+				"B1"
+			],
+			"prompts": [
+				"[E]  LAST TRAIN HOME  —  the songbook"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 1,
+			"audio_players": 2,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg",
+				"res://assets/audio/freesound/processed/mechanical/mechanical_hum_loop.ogg"
+			],
+			"service_wire_cards": 1,
+			"prompting_instances": 1,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/stove_prop.gd::stove",
+			"class": "StoveProp",
+			"script": "res://scripts/props/stove_prop.gd",
+			"prop_type": "stove",
+			"instances": 18,
+			"names": [
+				"F01_1A_STOVE_01",
+				"F01_1D_STOVE_01",
+				"F02_2A_STOVE_01",
+				"F02_2B_STOVE_01",
+				"F02_2C_STOVE_01",
+				"F03_3A_STOVE_01",
+				"F03_3B_STOVE_01",
+				"F03_3D_STOVE_01",
+				"F04_4A_STOVE_01",
+				"F04_B_STOVE_01"
+			],
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"prompts": [
+				"[E]  Open the oven"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 18,
+			"audio_players": 36,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/mechanical_hum_loop.ogg",
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg"
+			],
+			"service_wire_cards": 18,
+			"prompting_instances": 18,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/tap_prop.gd::shower",
+			"class": "TapProp",
+			"script": "res://scripts/props/tap_prop.gd",
+			"prop_type": "shower",
+			"instances": 23,
+			"names": [
+				"F01_F01WC_SHOWER_01",
+				"F01_1A_SHOWER_01",
+				"F01_1D_SHOWER_01",
+				"F02_2A_SHOWER_01",
+				"F02_2B_SHOWER_01",
+				"F02_2C_SHOWER_01",
+				"F02_2D_SHOWER_01",
+				"F03_3A_SHOWER_01",
+				"F03_3B_SHOWER_01",
+				"F03_3C_SHOWER_01"
+			],
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"prompts": [
+				"[E]  Open the shower curtain"
+			],
+			"interaction_entry": "interact_area",
+			"area_shapes": 23,
+			"audio_players": 46,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg",
+				"res://assets/audio/freesound/processed/props/shower_water.ogg"
+			],
+			"service_wire_cards": 23,
+			"prompting_instances": 23,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/tap_prop.gd::sink",
+			"class": "TapProp",
+			"script": "res://scripts/props/tap_prop.gd",
+			"prop_type": "sink",
+			"instances": 43,
+			"names": [
+				"F01_F01WC_SINK_01",
+				"F01_common_KITCHEN_SINK_01",
+				"F01_1A_SINK_01",
+				"F01_1A_KITCHEN_SINK_01",
+				"F01_1D_SINK_01",
+				"F01_1D_KITCHEN_SINK_01",
+				"F01_BAR_WC_SINK_01",
+				"F02_2A_SINK_01",
+				"F02_2A_KITCHEN_SINK_01",
+				"F02_2B_SINK_01"
+			],
+			"floors": [
+				"F01",
+				"B1",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"prompts": [
+				"[E]  Turn on the basin tap",
+				"[E]  Turn on the kitchen tap"
+			],
+			"interaction_entry": "interact_area",
+			"area_shapes": 43,
+			"audio_players": 86,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg",
+				"res://assets/audio/freesound/processed/props/sink_water.ogg"
+			],
+			"service_wire_cards": 43,
+			"prompting_instances": 43,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/toaster_prop.gd::toaster",
+			"class": "ToasterProp",
+			"script": "res://scripts/props/toaster_prop.gd",
+			"prop_type": "toaster",
+			"instances": 14,
+			"names": [
+				"F01_1A_TOASTER_01",
+				"F01_1D_TOASTER_01",
+				"F02_2A_TOASTER_01",
+				"F02_2B_TOASTER_01",
+				"F03_3A_TOASTER_01",
+				"F03_3B_TOASTER_01",
+				"F03_3D_TOASTER_01",
+				"F04_4A_TOASTER_01",
+				"F04_B_TOASTER_01",
+				"F04_4C_TOASTER_01"
+			],
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"prompts": [
+				"[E]  Press the carriage lever"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 14,
+			"audio_players": 42,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg",
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg",
+				"res://assets/audio/freesound/processed/mechanical/mechanical_hum_loop.ogg"
+			],
+			"service_wire_cards": 14,
+			"prompting_instances": 14,
+			"persistence": false,
+			"dependencies": [
+				"conductor"
+			]
+		},
+		{
+			"key": "res://scripts/props/vantry_point_prop.gd::vantry_point",
+			"class": "VantryPointProp",
+			"script": "res://scripts/props/vantry_point_prop.gd",
+			"prop_type": "vantry_point",
+			"instances": 1,
+			"names": [
+				"ActiveVantryPoint"
+			],
+			"floors": [
+				"F02"
+			],
+			"prompts": [
+				"[E]  Inspect the chirping Vantry point"
+			],
+			"interaction_entry": "interact_area",
+			"area_shapes": 1,
+			"audio_players": 1,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/vantry_line_chirp.ogg"
+			],
+			"service_wire_cards": 1,
+			"prompting_instances": 1,
+			"persistence": false,
+			"dependencies": [
+				"work_orders"
+			]
+		}
+	],
+	"nonfunctional_interactions": [
+		{
+			"key": "res://scripts/building/light_debug_handle.gd",
+			"class": "LightDebugHandle",
+			"script": "res://scripts/building/light_debug_handle.gd",
+			"prop_type": "",
+			"instances": 260,
+			"names": [
+				"DebugLightHandle"
+			],
+			"floors": [
+				"F01",
+				"B1",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06",
+				"ROOF",
+				"ROOT"
+			],
+			"prompts": [],
+			"interaction_entry": "interact",
+			"area_shapes": 260,
+			"audio_players": 0,
+			"audio_streams": [],
+			"service_wire_cards": 0,
+			"prompting_instances": 0,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/building/maintenance_headquarters.gd",
+			"class": "MaintenanceHeadquarters",
+			"script": "res://scripts/building/maintenance_headquarters.gd",
+			"prop_type": "",
+			"instances": 1,
+			"names": [
+				"RealityMaintenanceHeadquarters"
+			],
+			"floors": [
+				"F01"
+			],
+			"prompts": [
+				"[E]  Review case wall — 0/18 resolved, 1/6 tools issued"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 0,
+			"audio_players": 0,
+			"audio_streams": [],
+			"service_wire_cards": 0,
+			"prompting_instances": 1,
+			"persistence": true,
+			"dependencies": [
+				"reality_state",
+				"reality_cases"
+			]
+		},
+		{
+			"key": "res://scripts/building/room0.gd",
+			"class": "Room0",
+			"script": "res://scripts/building/room0.gd",
+			"prop_type": "",
+			"instances": 1,
+			"names": [
+				"@Node3D@25965"
+			],
+			"floors": [
+				"ROOT"
+			],
+			"prompts": [],
+			"interaction_entry": "interact",
+			"area_shapes": 7,
+			"audio_players": 1,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/mechanical_hum_loop.ogg"
+			],
+			"service_wire_cards": 0,
+			"prompting_instances": 0,
+			"persistence": false,
+			"dependencies": [
+				"conductor"
+			]
+		},
+		{
+			"key": "res://scripts/building/switch_plate.gd",
+			"class": "StaticBody3D",
+			"script": "res://scripts/building/switch_plate.gd",
+			"prop_type": "",
+			"instances": 215,
+			"names": [
+				"SW_B1_SW_01_180",
+				"SW_B1_SW_01_0",
+				"SW_B1_SW_02_180",
+				"SW_B1_SW_03_90",
+				"SW_B1_SW_03_270",
+				"SW_B1_SW_04_90",
+				"SW_B1_SW_04_270",
+				"SW_B1_SW_05_90",
+				"SW_B1_SW_05_270",
+				"SW_B1_SW_06_90"
+			],
+			"floors": [
+				"B1",
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06",
+				"ROOF"
+			],
+			"prompts": [
+				"[E]  Light switch",
+				"[E]  Bathroom light"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 215,
+			"audio_players": 215,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg"
+			],
+			"service_wire_cards": 0,
+			"prompting_instances": 215,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/building/wayfinding_signage_pass.gd",
+			"class": "WayfindingSignagePass",
+			"script": "res://scripts/building/wayfinding_signage_pass.gd",
+			"prop_type": "",
+			"instances": 1,
+			"names": [
+				"WayfindingSignage"
+			],
+			"floors": [
+				"F01"
+			],
+			"prompts": [
+				"Ring directory buzzer"
+			],
+			"interaction_entry": "interact_area",
+			"area_shapes": 1,
+			"audio_players": 1,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/elevator_bell.ogg"
+			],
+			"service_wire_cards": 0,
+			"prompting_instances": 1,
+			"persistence": false,
+			"dependencies": [
+				"reality_cases"
+			]
+		},
+		{
+			"key": "res://scripts/call/desk_zone.gd",
+			"class": "DeskZone",
+			"script": "res://scripts/call/desk_zone.gd",
+			"prop_type": "",
+			"instances": 1,
+			"names": [
+				"F04_B_DESK_ZONE"
+			],
+			"floors": [
+				"F04"
+			],
+			"prompts": [
+				"[E]  Sit at the support desk"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 1,
+			"audio_players": 0,
+			"audio_streams": [],
+			"service_wire_cards": 0,
+			"prompting_instances": 1,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/cases/case_interactable.gd",
+			"class": "CaseInteractable",
+			"script": "res://scripts/cases/case_interactable.gd",
+			"prop_type": "",
+			"instances": 6,
+			"names": [
+				"Caption_Cards",
+				"Personal_Style_Guide",
+				"Redaction_Pencil",
+				"CAPTION_CALIBRATOR",
+				"TIME_CLOCK",
+				"PROVISIONAL_TESTIMONY"
+			],
+			"floors": [
+				"F02",
+				"F01",
+				"F04"
+			],
+			"prompts": [
+				"Change caption on Caption Cards",
+				"Change caption on Personal Style Guide",
+				"Change caption on Redaction Pencil",
+				"Run caption calibration",
+				"Clock out and return for visit two"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 6,
+			"audio_players": 0,
+			"audio_streams": [],
+			"service_wire_cards": 0,
+			"prompting_instances": 5,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/characters/animated_resident.gd",
+			"class": "AnimatedResident",
+			"script": "res://scripts/characters/animated_resident.gd",
+			"prop_type": "",
+			"instances": 18,
+			"names": [
+				"NPC_evelyn_marsh",
+				"NPC_teresa_vale",
+				"NPC_mina_vale",
+				"NPC_lena_ortiz",
+				"NPC_juno_kells",
+				"NPC_malcolm_reed",
+				"NPC_omar_bell",
+				"NPC_rhea_sato",
+				"NPC_peter_wren",
+				"NPC_cam_ortiz"
+			],
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"prompts": [
+				"[E]  Speak with Evelyn Marsh",
+				"[E]  Speak with Teresa Vale",
+				"[E]  Speak with Mina Vale",
+				"[E]  Speak with Lena Ortiz",
+				"[E]  Speak with Juno Kells",
+				"[E]  Speak with Malcolm Reed",
+				"[E]  Speak with Omar Bell",
+				"[E]  Speak with Rhea Sato"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 36,
+			"audio_players": 0,
+			"audio_streams": [],
+			"service_wire_cards": 0,
+			"prompting_instances": 18,
+			"persistence": true,
+			"dependencies": [
+				"reality_state",
+				"reality_cases"
+			]
+		},
+		{
+			"key": "res://scripts/game/maintenance_shop_counter.gd",
+			"class": "MaintenanceShopCounter",
+			"script": "res://scripts/game/maintenance_shop_counter.gd",
+			"prop_type": "",
+			"instances": 1,
+			"names": [
+				"ShopCounter_hardware_paint"
+			],
+			"floors": [
+				"F01"
+			],
+			"prompts": [],
+			"interaction_entry": "interact",
+			"area_shapes": 1,
+			"audio_players": 0,
+			"audio_streams": [],
+			"service_wire_cards": 0,
+			"prompting_instances": 0,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/bar_seat_zone.gd",
+			"class": "BarSeatZone",
+			"script": "res://scripts/props/bar_seat_zone.gd",
+			"prop_type": "",
+			"instances": 3,
+			"names": [
+				"BAR_SEAT_0",
+				"BAR_SEAT_1",
+				"BAR_SEAT_2"
+			],
+			"floors": [
+				"B1"
+			],
+			"prompts": [
+				"[E]  Sit down"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 3,
+			"audio_players": 0,
+			"audio_streams": [],
+			"service_wire_cards": 0,
+			"prompting_instances": 3,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/bench_zone.gd",
+			"class": "LobbyBenchZone",
+			"script": "res://scripts/props/bench_zone.gd",
+			"prop_type": "",
+			"instances": 1,
+			"names": [
+				"LobbyBenchZone"
+			],
+			"floors": [
+				"F01"
+			],
+			"prompts": [
+				"[E]  Sit on the bench"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 1,
+			"audio_players": 0,
+			"audio_streams": [],
+			"service_wire_cards": 0,
+			"prompting_instances": 1,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/door_prop.gd",
+			"class": "DoorProp",
+			"script": "res://scripts/props/door_prop.gd",
+			"prop_type": "",
+			"instances": 119,
+			"names": [
+				"B1_DOOR_01",
+				"B1_DOOR_02",
+				"B1_DOOR_03",
+				"B1_DOOR_04",
+				"B1_DOOR_05",
+				"B1_DOOR_06",
+				"B1_DOOR_07",
+				"F01_DOOR_01",
+				"F01_DOOR_02",
+				"F01_DOOR_03"
+			],
+			"floors": [
+				"B1",
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06",
+				"ROOF"
+			],
+			"prompts": [
+				"[E]  Open door",
+				"[E]  Close door",
+				"[E]  Locked"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 119,
+			"audio_players": 238,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/events/door_squeak.wav",
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg"
+			],
+			"service_wire_cards": 0,
+			"prompting_instances": 119,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/inspectable_zone.gd",
+			"class": "InspectableZone",
+			"script": "res://scripts/props/inspectable_zone.gd",
+			"prop_type": "",
+			"instances": 6,
+			"names": [
+				"BAR_PIC_0",
+				"BAR_PIC_1",
+				"BAR_PIC_2",
+				"BAR_BARREL_3",
+				"BAR_BARREL_4",
+				"BAR_POOL_TABLE"
+			],
+			"floors": [
+				"F01",
+				"B1"
+			],
+			"prompts": [
+				"[E]  Look at the framed block",
+				"[E]  Look at the opening-night photo",
+				"[E]  Look at the signed portrait",
+				"[E]  Look at the west barrel",
+				"[E]  Look at the east barrel",
+				"[E]  Look at the pool table"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 6,
+			"audio_players": 0,
+			"audio_streams": [],
+			"service_wire_cards": 6,
+			"prompting_instances": 6,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/landmark_entry_door.gd",
+			"class": "LandmarkEntryDoor",
+			"script": "res://scripts/props/landmark_entry_door.gd",
+			"prop_type": "",
+			"instances": 1,
+			"names": [
+				"F01_DOOR_06"
+			],
+			"floors": [
+				"F01"
+			],
+			"prompts": [
+				"[E]  Open door"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 1,
+			"audio_players": 2,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/events/door_squeak.wav",
+				"res://assets/audio/freesound/processed/mechanical/building_thud.ogg"
+			],
+			"service_wire_cards": 0,
+			"prompting_instances": 1,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/mail_bank_prop.gd",
+			"class": "MailBankProp",
+			"script": "res://scripts/props/mail_bank_prop.gd",
+			"prop_type": "",
+			"instances": 1,
+			"names": [
+				"LobbyMailBank"
+			],
+			"floors": [
+				"F01"
+			],
+			"prompts": [
+				"Check box 4B — 2 waiting"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 1,
+			"audio_players": 0,
+			"audio_streams": [],
+			"service_wire_cards": 0,
+			"prompting_instances": 1,
+			"persistence": true,
+			"dependencies": [
+				"reality_state"
+			]
+		},
+		{
+			"key": "res://scripts/props/mail_box_zone.gd",
+			"class": "StaticBody3D",
+			"script": "res://scripts/props/mail_box_zone.gd",
+			"prop_type": "",
+			"instances": 1,
+			"names": [
+				"PlayerBox"
+			],
+			"floors": [
+				"F01"
+			],
+			"prompts": [
+				"Check box 4B — 2 waiting"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 1,
+			"audio_players": 0,
+			"audio_streams": [],
+			"service_wire_cards": 0,
+			"prompting_instances": 1,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/passage_pushcart.gd",
+			"class": "PassagePushcart",
+			"script": "res://scripts/props/passage_pushcart.gd",
+			"prop_type": "",
+			"instances": 3,
+			"names": [
+				"PassagePushcart_laundry",
+				"PassagePushcart_market",
+				"PassagePushcart_news"
+			],
+			"floors": [
+				"F01"
+			],
+			"prompts": [
+				"Handcart chained for the night"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 3,
+			"audio_players": 0,
+			"audio_streams": [],
+			"service_wire_cards": 0,
+			"prompting_instances": 3,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/projector_prop.gd",
+			"class": "ProjectorProp",
+			"script": "res://scripts/props/projector_prop.gd",
+			"prop_type": "",
+			"instances": 5,
+			"names": [
+				"Projector_2A",
+				"Projector_3B",
+				"Projector_4B",
+				"Projector_5B",
+				"Projector_6C"
+			],
+			"floors": [
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"prompts": [
+				"[E]  Run the projector"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 5,
+			"audio_players": 5,
+			"audio_streams": [],
+			"service_wire_cards": 0,
+			"prompting_instances": 5,
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/tv_prop.gd",
+			"class": "TVProp",
+			"script": "res://scripts/props/tv_prop.gd",
+			"prop_type": "",
+			"instances": 1,
+			"names": [
+				"TV_retail"
+			],
+			"floors": [
+				"F01"
+			],
+			"prompts": [
+				"[E]  Turn the television on"
+			],
+			"interaction_entry": "interact",
+			"area_shapes": 1,
+			"audio_players": 1,
+			"audio_streams": [],
+			"service_wire_cards": 0,
+			"prompting_instances": 1,
+			"persistence": false,
+			"dependencies": []
+		}
+	],
+	"scripted_visuals_without_interaction": [
+		{
+			"key": "res://scripts/props/bodega_signage_prop.gd",
+			"class": "BodegaSignageProp",
+			"script": "res://scripts/props/bodega_signage_prop.gd",
+			"instances": 1,
+			"names": [
+				"F01_BODEGA_SIGNAGE"
+			],
+			"floors": [
+				"F02"
+			],
+			"geometry": 11,
+			"audio_players": 0,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/building_entry_sign.gd",
+			"class": "BuildingEntrySign",
+			"script": "res://scripts/props/building_entry_sign.gd",
+			"instances": 1,
+			"names": [
+				"FrontDoorExteriorSign"
+			],
+			"floors": [
+				"F01"
+			],
+			"geometry": 9,
+			"audio_players": 0,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/ceiling_light_prop.gd",
+			"class": "CeilingLightProp",
+			"script": "res://scripts/props/ceiling_light_prop.gd",
+			"instances": 1,
+			"names": [
+				"F04_B_CEILLIGHT_01"
+			],
+			"floors": [
+				"F05"
+			],
+			"geometry": 3,
+			"audio_players": 0,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/character_memory_art.gd",
+			"class": "CharacterMemoryArt",
+			"script": "res://scripts/props/character_memory_art.gd",
+			"instances": 73,
+			"names": [
+				"MemoryArt_basement_know_your_exit",
+				"MemoryArt_laundry_black_cherry",
+				"MemoryArt_evelyn_retirement",
+				"MemoryArt_teresa_night_shift",
+				"WallArt_evelyn_good_enough",
+				"WallArt_teresa_quiet_please",
+				"MemoryArt_lobby_orison_1928",
+				"MemoryArt_first_our_queens",
+				"MemoryArt_evelyn_liberte",
+				"MemoryArt_teresa_cherry"
+			],
+			"floors": [
+				"B1",
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06",
+				"ROOF"
+			],
+			"geometry": 367,
+			"audio_players": 0,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/domestic_witness_clock.gd",
+			"class": "DomesticWitnessClock",
+			"script": "res://scripts/props/domestic_witness_clock.gd",
+			"instances": 18,
+			"names": [
+				"DomesticWitness_evelyn_paper_jam",
+				"DomesticWitness_teresa_call_bells",
+				"DomesticWitness_mina_caption_crisis",
+				"DomesticWitness_lena_unraveling",
+				"DomesticWitness_juno_feedback_tetris",
+				"DomesticWitness_malcolm_memory_plants",
+				"DomesticWitness_omar_unrepairable",
+				"DomesticWitness_rhea_bad_karaoke",
+				"DomesticWitness_peter_form_corridor",
+				"DomesticWitness_cam_tilted_room"
+			],
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"geometry": 173,
+			"audio_players": 18,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg"
+			],
+			"persistence": true,
+			"dependencies": [
+				"conductor"
+			]
+		},
+		{
+			"key": "res://scripts/props/entrance_marquee_dress.gd",
+			"class": "EntranceMarqueeDress",
+			"script": "res://scripts/props/entrance_marquee_dress.gd",
+			"instances": 1,
+			"names": [
+				"EntranceMarqueeDress"
+			],
+			"floors": [
+				"F01"
+			],
+			"geometry": 35,
+			"audio_players": 0,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/exhaust_fan_prop.gd",
+			"class": "ExhaustFanProp",
+			"script": "res://scripts/props/exhaust_fan_prop.gd",
+			"instances": 4,
+			"names": [
+				"ROOF_VENT_FAN_A",
+				"ROOF_VENT_FAN_B",
+				"ROOF_VENT_FAN_C",
+				"ROOF_VENT_FAN_D"
+			],
+			"floors": [
+				"ROOF"
+			],
+			"geometry": 32,
+			"audio_players": 27,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/mechanical_hum_loop.ogg"
+			],
+			"persistence": false,
+			"dependencies": [
+				"acoustic_graph"
+			]
+		},
+		{
+			"key": "res://scripts/props/flue_breast_prop.gd",
+			"class": "FlueBreastProp",
+			"script": "res://scripts/props/flue_breast_prop.gd",
+			"instances": 5,
+			"names": [
+				"F02_FLUE_BREAST",
+				"F03_FLUE_BREAST",
+				"F04_FLUE_BREAST",
+				"F05_FLUE_BREAST",
+				"F06_FLUE_BREAST"
+			],
+			"floors": [
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"geometry": 15,
+			"audio_players": 10,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/mechanical_hum_loop.ogg",
+				"res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg"
+			],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/harukiya_signage_prop.gd",
+			"class": "HarukiyaSignageProp",
+			"script": "res://scripts/props/harukiya_signage_prop.gd",
+			"instances": 1,
+			"names": [
+				"F01_BAR_SIGNAGE"
+			],
+			"floors": [
+				"F02"
+			],
+			"geometry": 47,
+			"audio_players": 0,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/lamp_prop.gd",
+			"class": "LampProp",
+			"script": "res://scripts/props/lamp_prop.gd",
+			"instances": 5,
+			"names": [
+				"B1_NOOK_LAMP",
+				"F02_A_LAMP_01",
+				"F03_B_LAMP_01",
+				"F04_B_LAMP_01",
+				"F05_A_LAMP_01"
+			],
+			"floors": [
+				"B1",
+				"F02",
+				"F03",
+				"F04",
+				"F05"
+			],
+			"geometry": 61,
+			"audio_players": 0,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/laundry_airer_prop.gd",
+			"class": "LaundryAirerProp",
+			"script": "res://scripts/props/laundry_airer_prop.gd",
+			"instances": 1,
+			"names": [
+				"B1_LAUNDRY_AIRER_01"
+			],
+			"floors": [
+				"B1"
+			],
+			"geometry": 6,
+			"audio_players": 1,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg"
+			],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/light_fixture_prop.gd",
+			"class": "LightFixtureProp",
+			"script": "res://scripts/props/light_fixture_prop.gd",
+			"instances": 254,
+			"names": [
+				"B1_CORRIDOR_DOME_01",
+				"B1_CORRIDOR_DOME_02",
+				"B1_CORRIDOR_DOME_03",
+				"B1_CORRIDOR_DOME_04",
+				"B1_CORRIDOR_DOME_05",
+				"B1_CORRIDOR_DOME_06",
+				"B1_CORRIDOR_DOME_07",
+				"B1_CORRIDOR_DOME_08",
+				"B1_STORAGE_CAGES_LT_CAGE_BULB",
+				"B1_LAUNDRY_LT_CAGE_BULB"
+			],
+			"floors": [
+				"F01",
+				"B1",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06",
+				"ROOF",
+				"ROOT"
+			],
+			"geometry": 1925,
+			"audio_players": 1,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/props/streetlamp_buzz.ogg"
+			],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/lobby_bulletin_board.gd",
+			"class": "LobbyBulletinBoard",
+			"script": "res://scripts/props/lobby_bulletin_board.gd",
+			"instances": 1,
+			"names": [
+				"LobbyBulletinBoard"
+			],
+			"floors": [
+				"F01"
+			],
+			"geometry": 23,
+			"audio_players": 0,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/lobby_orison_ad_board.gd",
+			"class": "LobbyOrisonAdBoard",
+			"script": "res://scripts/props/lobby_orison_ad_board.gd",
+			"instances": 1,
+			"names": [
+				"OrisonOriginalSalesBoard"
+			],
+			"floors": [
+				"F01"
+			],
+			"geometry": 31,
+			"audio_players": 0,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/monitor_prop.gd",
+			"class": "MonitorProp",
+			"script": "res://scripts/props/monitor_prop.gd",
+			"instances": 5,
+			"names": [
+				"F02_A_MONITOR_01",
+				"F02_C_MONITOR_01",
+				"F06_A_MONITOR_01",
+				"F06_A_MONITOR_02",
+				"F06_A_MONITOR_03"
+			],
+			"floors": [
+				"F02",
+				"F06"
+			],
+			"geometry": 15,
+			"audio_players": 0,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": [
+				"conductor"
+			]
+		},
+		{
+			"key": "res://scripts/props/neon_sign_prop.gd",
+			"class": "NeonSignProp",
+			"script": "res://scripts/props/neon_sign_prop.gd",
+			"instances": 3,
+			"names": [
+				"F01_NEON_BLADE",
+				"F01_NEON_TENANT",
+				"F01_BAR_STAGE_SIGN"
+			],
+			"floors": [
+				"F03",
+				"F02",
+				"F01"
+			],
+			"geometry": 95,
+			"audio_players": 0,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": [
+				"conductor"
+			]
+		},
+		{
+			"key": "res://scripts/props/possessed_domestic_prop.gd",
+			"class": "PossessedDomesticProp",
+			"script": "res://scripts/props/possessed_domestic_prop.gd",
+			"instances": 19,
+			"names": [
+				"DomesticAnomaly_evelyn_mirror",
+				"DomesticAnomaly_mina_intercom",
+				"DomesticAnomaly_lena_coat_hook",
+				"DomesticAnomaly_juno_speaker",
+				"DomesticAnomaly_malcolm_plant",
+				"DomesticAnomaly_omar_outlet",
+				"DomesticAnomaly_rhea_telephone",
+				"DomesticAnomaly_peter_thermostat",
+				"DomesticAnomaly_cam_noel_chain",
+				"DomesticAnomaly_guest_luggage_scale"
+			],
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"geometry": 93,
+			"audio_players": 19,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg"
+			],
+			"persistence": true,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/shop_sign_prop.gd",
+			"class": "ShopSignProp",
+			"script": "res://scripts/props/shop_sign_prop.gd",
+			"instances": 11,
+			"names": [
+				"SITE_SHOP_SIGN_MODEL_LAUNDRY",
+				"SITE_SHOP_SIGN_SHOE_REBUILDING",
+				"SITE_SHOP_SIGN_KEYS_CUT",
+				"SITE_SHOP_SIGN_HARDWARE_PAINT",
+				"SITE_SHOP_SIGN_FUNERAL_PARLOUR",
+				"SITE_SHOP_SIGN_PHOTO_SUPPLIES",
+				"SITE_SHOP_SIGN_RADIO_SERVICE",
+				"SITE_SHOP_SIGN_PAWNBROKER",
+				"SITE_SHOP_SIGN_NEWS_CIGARS",
+				"SITE_SHOP_SIGN_OTIS___SON"
+			],
+			"floors": [
+				"F02"
+			],
+			"geometry": 32,
+			"audio_players": 0,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/signal_terminal_prop.gd",
+			"class": "SignalTerminalProp",
+			"script": "res://scripts/props/signal_terminal_prop.gd",
+			"instances": 1,
+			"names": [
+				"F04_B_MONITOR_01"
+			],
+			"floors": [
+				"F04"
+			],
+			"geometry": 10,
+			"audio_players": 0,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": [
+				"conductor"
+			]
+		},
+		{
+			"key": "res://scripts/props/speaker_prop.gd",
+			"class": "SpeakerProp",
+			"script": "res://scripts/props/speaker_prop.gd",
+			"instances": 7,
+			"names": [
+				"F01_BODEGA_RADIO",
+				"F01_KARAOKE_SPK_0",
+				"F01_KARAOKE_SPK_1",
+				"F02_C_SPEAKER_01",
+				"F02_C_SPEAKER_02",
+				"F03_D_SPEAKER_01",
+				"F03_D_SPEAKER_02"
+			],
+			"floors": [
+				"F01",
+				"B1",
+				"F02",
+				"F03"
+			],
+			"geometry": 63,
+			"audio_players": 15,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg",
+				"res://assets/audio/freesound/processed/mechanical/electrical_buzz_loop.ogg",
+				"res://assets/audio/freesound/processed/mechanical/line_murmur_loop.ogg"
+			],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/vault_light_glow.gd",
+			"class": "VaultLightGlow",
+			"script": "res://scripts/props/vault_light_glow.gd",
+			"instances": 2,
+			"names": [
+				"@Node3D@25407",
+				"@Node3D@25429"
+			],
+			"floors": [
+				"F01"
+			],
+			"geometry": 40,
+			"audio_players": 0,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/props/washer_prop.gd",
+			"class": "WasherProp",
+			"script": "res://scripts/props/washer_prop.gd",
+			"instances": 2,
+			"names": [
+				"B1_WASHER_01",
+				"B1_WASHER_02"
+			],
+			"floors": [
+				"B1"
+			],
+			"geometry": 28,
+			"audio_players": 4,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/building_thud.ogg",
+				"res://assets/audio/freesound/processed/mechanical/washer_agitate_loop.ogg"
+			],
+			"persistence": false,
+			"dependencies": [
+				"conductor"
+			]
+		}
+	],
+	"scripted_set_systems": [
+		{
+			"key": "res://scripts/building/street_traffic.gd",
+			"class": "StreetTraffic",
+			"script": "res://scripts/building/street_traffic.gd",
+			"instances": 1,
+			"names": [
+				"StreetTraffic"
+			],
+			"floors": [
+				"F01"
+			],
+			"geometry": 6,
+			"audio_players": 5,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/building/weather_fx.gd",
+			"class": "WeatherFX",
+			"script": "res://scripts/building/weather_fx.gd",
+			"instances": 1,
+			"names": [
+				"WeatherFX"
+			],
+			"floors": [
+				"F01"
+			],
+			"geometry": 12,
+			"audio_players": 0,
+			"audio_streams": [],
+			"persistence": false,
+			"dependencies": []
+		},
+		{
+			"key": "res://scripts/device/service_set_prop.gd",
+			"class": "ServiceSetProp",
+			"script": "res://scripts/device/service_set_prop.gd",
+			"instances": 1,
+			"names": [
+				"VantryServiceSet"
+			],
+			"floors": [
+				"F01"
+			],
+			"geometry": 87,
+			"audio_players": 2,
+			"audio_streams": [
+				"res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg",
+				"res://assets/audio/freesound/processed/mechanical/metal_tick.ogg"
+			],
+			"persistence": true,
+			"dependencies": [
+				"work_orders",
+				"reality_state"
+			]
+		}
+	],
+	"layout_marker_kinds": [
+		{
+			"key": "bar_signage",
+			"instances": 1,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"F01_BAR_SIGNAGE"
+			]
+		},
+		{
+			"key": "bodega_signage",
+			"instances": 1,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"F01_BODEGA_SIGNAGE"
+			]
+		},
+		{
+			"key": "boiler",
+			"instances": 1,
+			"floors": [
+				"B1"
+			],
+			"examples": [
+				"B1_BOILER_01"
+			]
+		},
+		{
+			"key": "bookshelf",
+			"instances": 8,
+			"floors": [
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F02_2A_BOOKSHELF_01",
+				"F03_3A_BOOKSHELF_01",
+				"F04_4A_BOOKSHELF_01",
+				"F05_5A_BOOKSHELF_01",
+				"F05_5C_BOOKSHELF_01",
+				"F06_6A_BOOKSHELF_01",
+				"F06_6B_BOOKSHELF_01",
+				"F06_6C_BOOKSHELF_01"
+			]
+		},
+		{
+			"key": "boxfan",
+			"instances": 4,
+			"floors": [
+				"F02",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F02_C_BOXFAN_01",
+				"F04_B_BOXFAN_01",
+				"F05_C_BOXFAN_01",
+				"F06_A_BOXFAN_01"
+			]
+		},
+		{
+			"key": "cage_bulb",
+			"instances": 76,
+			"floors": [
+				"B1",
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06",
+				"ROOF"
+			],
+			"examples": [
+				"B1_STORAGE_CAGES_LT_CAGE_BULB",
+				"B1_LAUNDRY_LT_CAGE_BULB",
+				"B1_BOILER_LT_CAGE_BULB",
+				"B1_ELECTRICAL_LT_CAGE_BULB",
+				"B1_UTILITY_LT_CAGE_BULB",
+				"B1_COAL_LT_CAGE_BULB",
+				"F01_STORAGE_C_LT_CAGE_BULB",
+				"F01_UTILITY_LT_CAGE_BULB"
+			]
+		},
+		{
+			"key": "case_door",
+			"instances": 1,
+			"floors": [
+				"F03"
+			],
+			"examples": [
+				"F03_UTILITY_ANOMALY"
+			]
+		},
+		{
+			"key": "ceiling_light",
+			"instances": 1,
+			"floors": [
+				"F04"
+			],
+			"examples": [
+				"F04_B_CEILLIGHT_01"
+			]
+		},
+		{
+			"key": "chandelier",
+			"instances": 1,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"F01_LOBBY_LT_CHANDELIER"
+			]
+		},
+		{
+			"key": "darts",
+			"instances": 1,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"F01_BAR_DARTS"
+			]
+		},
+		{
+			"key": "desk_zone",
+			"instances": 1,
+			"floors": [
+				"F04"
+			],
+			"examples": [
+				"F04_B_DESK_ZONE"
+			]
+		},
+		{
+			"key": "door",
+			"instances": 120,
+			"floors": [
+				"B1",
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06",
+				"ROOF"
+			],
+			"examples": [
+				"B1_DOOR_01",
+				"B1_DOOR_02",
+				"B1_DOOR_03",
+				"B1_DOOR_04",
+				"B1_DOOR_05",
+				"B1_DOOR_06",
+				"B1_DOOR_07",
+				"F01_DOOR_01"
+			]
+		},
+		{
+			"key": "door_anomaly",
+			"instances": 1,
+			"floors": [
+				"F04"
+			],
+			"examples": [
+				"F04_B_DOOR_ANOMALY"
+			]
+		},
+		{
+			"key": "electrical_junction",
+			"instances": 10,
+			"floors": [
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F02_CORRLIGHT_S",
+				"F02_CORRLIGHT_N",
+				"F03_CORRLIGHT_S",
+				"F03_CORRLIGHT_N",
+				"F04_CORRLIGHT_S",
+				"F04_CORRLIGHT_N",
+				"F05_CORRLIGHT_S",
+				"F05_CORRLIGHT_N"
+			]
+		},
+		{
+			"key": "exhaust_fan",
+			"instances": 4,
+			"floors": [
+				"ROOF"
+			],
+			"examples": [
+				"ROOF_VENT_FAN_A",
+				"ROOF_VENT_FAN_B",
+				"ROOF_VENT_FAN_C",
+				"ROOF_VENT_FAN_D"
+			]
+		},
+		{
+			"key": "eye_pendant",
+			"instances": 16,
+			"floors": [
+				"B1",
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06",
+				"ROOF"
+			],
+			"examples": [
+				"B1_ATRIUM_FRUIT_1",
+				"B1_ATRIUM_FRUIT_2",
+				"F01_ATRIUM_FRUIT_1",
+				"F01_ATRIUM_FRUIT_2",
+				"F02_ATRIUM_FRUIT_1",
+				"F02_ATRIUM_FRUIT_2",
+				"F03_ATRIUM_FRUIT_1",
+				"F03_ATRIUM_FRUIT_2"
+			]
+		},
+		{
+			"key": "flue_breast",
+			"instances": 5,
+			"floors": [
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F02_FLUE_BREAST",
+				"F03_FLUE_BREAST",
+				"F04_FLUE_BREAST",
+				"F05_FLUE_BREAST",
+				"F06_FLUE_BREAST"
+			]
+		},
+		{
+			"key": "flush_dome",
+			"instances": 90,
+			"floors": [
+				"B1",
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"B1_CORRIDOR_DOME_01",
+				"B1_CORRIDOR_DOME_02",
+				"B1_CORRIDOR_DOME_03",
+				"B1_CORRIDOR_DOME_04",
+				"B1_CORRIDOR_DOME_05",
+				"B1_CORRIDOR_DOME_06",
+				"B1_CORRIDOR_DOME_07",
+				"B1_CORRIDOR_DOME_08"
+			]
+		},
+		{
+			"key": "fridge",
+			"instances": 18,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F01_1A_FRIDGE_01",
+				"F01_1D_FRIDGE_01",
+				"F02_2A_FRIDGE_01",
+				"F02_2B_FRIDGE_01",
+				"F02_2C_FRIDGE_01",
+				"F03_3A_FRIDGE_01",
+				"F03_3B_FRIDGE_01",
+				"F03_3D_FRIDGE_01"
+			]
+		},
+		{
+			"key": "kettle",
+			"instances": 6,
+			"floors": [
+				"F01",
+				"F03",
+				"F04",
+				"F06"
+			],
+			"examples": [
+				"F01_1A_KETTLE_01",
+				"F01_1D_KETTLE_01",
+				"F03_3D_KETTLE_01",
+				"F04_B_KETTLE_01",
+				"F04_4C_KETTLE_01",
+				"F06_6C_KETTLE_01"
+			]
+		},
+		{
+			"key": "kitchen_linear",
+			"instances": 10,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F01_BODEGA_LT_0",
+				"F01_BODEGA_LT_1",
+				"F01_BODEGA_LT_2",
+				"F01_BAR_LT_CAN0",
+				"F01_BAR_LT_CAN1",
+				"F02_B_KITCHEN_LT_KITCHEN_LINEAR",
+				"F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+				"F04_B_KITCHEN_LT_KITCHEN_LINEAR"
+			]
+		},
+		{
+			"key": "lamp",
+			"instances": 5,
+			"floors": [
+				"B1",
+				"F02",
+				"F03",
+				"F04",
+				"F05"
+			],
+			"examples": [
+				"B1_NOOK_LAMP",
+				"F02_A_LAMP_01",
+				"F03_B_LAMP_01",
+				"F04_B_LAMP_01",
+				"F05_A_LAMP_01"
+			]
+		},
+		{
+			"key": "laundry_airer",
+			"instances": 1,
+			"floors": [
+				"B1"
+			],
+			"examples": [
+				"B1_LAUNDRY_AIRER_01"
+			]
+		},
+		{
+			"key": "mirror",
+			"instances": 23,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F01_F01WC_MIRROR_01",
+				"F01_1A_MIRROR_01",
+				"F01_1D_MIRROR_01",
+				"F02_2A_MIRROR_01",
+				"F02_2B_MIRROR_01",
+				"F02_2C_MIRROR_01",
+				"F02_2D_MIRROR_01",
+				"F03_3A_MIRROR_01"
+			]
+		},
+		{
+			"key": "monitor",
+			"instances": 5,
+			"floors": [
+				"F02",
+				"F06"
+			],
+			"examples": [
+				"F02_A_MONITOR_01",
+				"F02_C_MONITOR_01",
+				"F06_A_MONITOR_01",
+				"F06_A_MONITOR_02",
+				"F06_A_MONITOR_03"
+			]
+		},
+		{
+			"key": "neon_sign",
+			"instances": 3,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"F01_NEON_BLADE",
+				"F01_NEON_TENANT",
+				"F01_BAR_STAGE_SIGN"
+			]
+		},
+		{
+			"key": "passage_shop_hours",
+			"instances": 11,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"SITE_SHOP_HOURS_MODEL_LAUNDRY",
+				"SITE_SHOP_HOURS_SHOE_REBUILDING",
+				"SITE_SHOP_HOURS_KEYS_CUT",
+				"SITE_SHOP_HOURS_HARDWARE_PAINT",
+				"SITE_SHOP_HOURS_FUNERAL_PARLOUR",
+				"SITE_SHOP_HOURS_PHOTO_SUPPLIES",
+				"SITE_SHOP_HOURS_RADIO_SERVICE",
+				"SITE_SHOP_HOURS_PAWNBROKER"
+			]
+		},
+		{
+			"key": "pendant_shade",
+			"instances": 29,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F01_COMMON_B_LT_PENDANT_SHADE",
+				"F01_OFFICE_LT_PENDANT_SHADE",
+				"F01_A_MAIN_LT_PENDANT_SHADE",
+				"F01_D_MAIN_LT_PENDANT_SHADE",
+				"F01_D_OFFICE_LT_PENDANT_SHADE",
+				"F01_BAR_LT_POOL",
+				"F01_BAR_LT_TAB0",
+				"F01_BAR_LT_TAB1"
+			]
+		},
+		{
+			"key": "point_ball",
+			"instances": 1,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"F01_BAR_POOL"
+			]
+		},
+		{
+			"key": "porch_deck",
+			"instances": 5,
+			"floors": [
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F02_PORCH_DECK",
+				"F03_PORCH_DECK",
+				"F04_PORCH_DECK",
+				"F05_PORCH_DECK",
+				"F06_PORCH_DECK"
+			]
+		},
+		{
+			"key": "radiator",
+			"instances": 23,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F01_LOBBY_RADIATOR_01",
+				"F01_A_RADIATOR_01",
+				"F01_D_RADIATOR_01",
+				"F02_A_RADIATOR_01",
+				"F02_B_RADIATOR_01",
+				"F02_C_RADIATOR_01",
+				"F02_D_RADIATOR_01",
+				"F03_A_RADIATOR_01"
+			]
+		},
+		{
+			"key": "room0_threshold",
+			"instances": 1,
+			"floors": [
+				"B1"
+			],
+			"examples": [
+				"B1_ROOM0_DOOR"
+			]
+		},
+		{
+			"key": "sconce_globe",
+			"instances": 27,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F01WC_LT_SCONCE",
+				"1A_LT_SCONCE",
+				"1D_LT_SCONCE",
+				"F01_BAR_LT_DECK0",
+				"F01_BAR_LT_DECK1",
+				"F01_BAR_LT_WEST0",
+				"F01_BAR_LT_WEST1",
+				"2A_LT_SCONCE"
+			]
+		},
+		{
+			"key": "shop_sign",
+			"instances": 11,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"SITE_SHOP_SIGN_MODEL_LAUNDRY",
+				"SITE_SHOP_SIGN_SHOE_REBUILDING",
+				"SITE_SHOP_SIGN_KEYS_CUT",
+				"SITE_SHOP_SIGN_HARDWARE_PAINT",
+				"SITE_SHOP_SIGN_FUNERAL_PARLOUR",
+				"SITE_SHOP_SIGN_PHOTO_SUPPLIES",
+				"SITE_SHOP_SIGN_RADIO_SERVICE",
+				"SITE_SHOP_SIGN_PAWNBROKER"
+			]
+		},
+		{
+			"key": "shower",
+			"instances": 23,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F01_F01WC_SHOWER_01",
+				"F01_1A_SHOWER_01",
+				"F01_1D_SHOWER_01",
+				"F02_2A_SHOWER_01",
+				"F02_2B_SHOWER_01",
+				"F02_2C_SHOWER_01",
+				"F02_2D_SHOWER_01",
+				"F03_3A_SHOWER_01"
+			]
+		},
+		{
+			"key": "signal_terminal",
+			"instances": 1,
+			"floors": [
+				"F04"
+			],
+			"examples": [
+				"F04_B_MONITOR_01"
+			]
+		},
+		{
+			"key": "sink",
+			"instances": 43,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F01_F01WC_SINK_01",
+				"F01_common_KITCHEN_SINK_01",
+				"F01_1A_SINK_01",
+				"F01_1A_KITCHEN_SINK_01",
+				"F01_1D_SINK_01",
+				"F01_1D_KITCHEN_SINK_01",
+				"F01_BAR_WC_SINK_01",
+				"F02_2A_SINK_01"
+			]
+		},
+		{
+			"key": "songbook_terminal",
+			"instances": 1,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"F01_BAR_SONGBOOK"
+			]
+		},
+		{
+			"key": "speaker",
+			"instances": 7,
+			"floors": [
+				"F01",
+				"F02",
+				"F03"
+			],
+			"examples": [
+				"F01_BODEGA_RADIO",
+				"F01_KARAOKE_SPK_0",
+				"F01_KARAOKE_SPK_1",
+				"F02_C_SPEAKER_01",
+				"F02_C_SPEAKER_02",
+				"F03_D_SPEAKER_01",
+				"F03_D_SPEAKER_02"
+			]
+		},
+		{
+			"key": "stove",
+			"instances": 18,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F01_1A_STOVE_01",
+				"F01_1D_STOVE_01",
+				"F02_2A_STOVE_01",
+				"F02_2B_STOVE_01",
+				"F02_2C_STOVE_01",
+				"F03_3A_STOVE_01",
+				"F03_3B_STOVE_01",
+				"F03_3D_STOVE_01"
+			]
+		},
+		{
+			"key": "street_lamp",
+			"instances": 5,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"F01_STREETLAMP_03",
+				"F01_STREETLAMP_04",
+				"F01_STREETLAMP_06",
+				"F01_STREETLAMP_07",
+				"F01_STREETLAMP_08"
+			]
+		},
+		{
+			"key": "toaster",
+			"instances": 14,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F01_1A_TOASTER_01",
+				"F01_1D_TOASTER_01",
+				"F02_2A_TOASTER_01",
+				"F02_2B_TOASTER_01",
+				"F03_3A_TOASTER_01",
+				"F03_3B_TOASTER_01",
+				"F03_3D_TOASTER_01",
+				"F04_4A_TOASTER_01"
+			]
+		},
+		{
+			"key": "wall_clock",
+			"instances": 2,
+			"floors": [
+				"F01",
+				"F04"
+			],
+			"examples": [
+				"F01_LOBBY_CLOCK_01",
+				"F04_B_CLOCK_01"
+			]
+		},
+		{
+			"key": "washer",
+			"instances": 2,
+			"floors": [
+				"B1"
+			],
+			"examples": [
+				"B1_WASHER_01",
+				"B1_WASHER_02"
+			]
+		}
+	],
+	"layout_assemblies": [
+		{
+			"key": "amp",
+			"instances": 2,
+			"floors": [
+				"F02"
+			],
+			"examples": [
+				"2C_amp1",
+				"2C_amp2"
+			]
+		},
+		{
+			"key": "arcade_cab",
+			"instances": 12,
+			"floors": [
+				"B1",
+				"F01"
+			],
+			"examples": [
+				"b1_laundry_cab",
+				"common_cab",
+				"lobby_cab",
+				"retail_bar_cab01",
+				"retail_bar_cab02",
+				"storm_shopcab_model_laundry0",
+				"storm_shopcab_photo_supplies0",
+				"storm_shopcab_radio_service0"
+			]
+		},
+		{
+			"key": "bed",
+			"instances": 21,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"1A_bed0",
+				"1D_bed0",
+				"2A_bed0",
+				"2B_abed",
+				"2C_bed0",
+				"2C_bed1",
+				"3A_bed0",
+				"3B_abed"
+			]
+		},
+		{
+			"key": "bench",
+			"instances": 5,
+			"floors": [
+				"B1",
+				"F01",
+				"ROOF"
+			],
+			"examples": [
+				"b1_laundry_bench",
+				"lobby_bench_w",
+				"lobby_bench_e",
+				"common_bench",
+				"roof_bench"
+			]
+		},
+		{
+			"key": "bookpile",
+			"instances": 10,
+			"floors": [
+				"B1",
+				"F01",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"nook_pile",
+				"1A_story_marked_books",
+				"3B_manuals",
+				"3D_tapepile",
+				"4A_story_casebooks",
+				"4C_story_schoolbooks",
+				"4D_story_city_guides",
+				"5A_floorstack"
+			]
+		},
+		{
+			"key": "bottles",
+			"instances": 13,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"1D_story_meds",
+				"retail_bod_bottles",
+				"retail_bar_lit_bott",
+				"retail_bar_bott0",
+				"retail_bar_bott1",
+				"retail_bar_bott2",
+				"retail_bar_bott3",
+				"retail_street_bottles"
+			]
+		},
+		{
+			"key": "cablecoil",
+			"instances": 6,
+			"floors": [
+				"F02",
+				"F03",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"2C_coil1",
+				"2C_coil2",
+				"3B_coil",
+				"5B_story_lead",
+				"6A_coil1",
+				"6A_coil2"
+			]
+		},
+		{
+			"key": "chair",
+			"instances": 60,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06",
+				"ROOF"
+			],
+			"examples": [
+				"F01_office_dkch",
+				"common_ch0",
+				"common_chn0",
+				"common_ch1",
+				"common_chn1",
+				"common_ch2",
+				"common_chn2",
+				"1A_din_dc1"
+			]
+		},
+		{
+			"key": "coal_chute",
+			"instances": 1,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"walk_coal_chute"
+			]
+		},
+		{
+			"key": "coal_heap",
+			"instances": 1,
+			"floors": [
+				"B1"
+			],
+			"examples": [
+				"b1_coal_heap"
+			]
+		},
+		{
+			"key": "coffee",
+			"instances": 7,
+			"floors": [
+				"B1",
+				"F01",
+				"F02",
+				"F04",
+				"F06",
+				"ROOF"
+			],
+			"examples": [
+				"nook_table",
+				"1A_cof",
+				"2A_cof",
+				"4B_coffee",
+				"4C_cof",
+				"6C_cof",
+				"roof_table"
+			]
+		},
+		{
+			"key": "couch",
+			"instances": 3,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"retail_bar_banq0",
+				"retail_bar_banq1",
+				"retail_bar_banq2"
+			]
+		},
+		{
+			"key": "crate",
+			"instances": 60,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06",
+				"ROOF"
+			],
+			"examples": [
+				"retail_bod_crate0",
+				"retail_bar_lit_crate",
+				"retail_street_crate0",
+				"retail_street_crate1",
+				"2C_crate1",
+				"2C_crate2",
+				"2C_crate3",
+				"F02_wstor_cr0_0"
+			]
+		},
+		{
+			"key": "desk",
+			"instances": 5,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04"
+			],
+			"examples": [
+				"F01_office",
+				"1D_odesk",
+				"2A_desk",
+				"3D_odesk",
+				"4D_odesk"
+			]
+		},
+		{
+			"key": "dishrack",
+			"instances": 19,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"common_k_kdishrack",
+				"1A_k_kdishrack",
+				"1D_k_kdishrack",
+				"2A_k_kdishrack",
+				"2B_k_kdishrack",
+				"2C_k_kdishrack",
+				"3A_k_kdishrack",
+				"3B_k_kdishrack"
+			]
+		},
+		{
+			"key": "entrance_marquee",
+			"instances": 1,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"entry_marquee"
+			]
+		},
+		{
+			"key": "fire_escape",
+			"instances": 3,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"ops_fire_escape_rear_e",
+				"ops_fire_escape_side_w",
+				"ops_fire_escape_side_e"
+			]
+		},
+		{
+			"key": "guitar",
+			"instances": 2,
+			"floors": [
+				"F02"
+			],
+			"examples": [
+				"2C_guitar1",
+				"2C_guitar2"
+			]
+		},
+		{
+			"key": "headphones",
+			"instances": 4,
+			"floors": [
+				"F02",
+				"F03",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"2A_phones",
+				"3D_phones",
+				"5B_story_headphones",
+				"6A_phones"
+			]
+		},
+		{
+			"key": "jarrow",
+			"instances": 4,
+			"floors": [
+				"F02",
+				"F03",
+				"F06"
+			],
+			"examples": [
+				"2B_story_notions",
+				"3A_story_seed_jars",
+				"3B_jars",
+				"6C_story_oddments"
+			]
+		},
+		{
+			"key": "jukebox",
+			"instances": 1,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"retail_bar_jukebox"
+			]
+		},
+		{
+			"key": "kitchen",
+			"instances": 18,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"common_k",
+				"1A_k",
+				"1D_k",
+				"2A_k",
+				"2B_k",
+				"2C_k",
+				"3A_k",
+				"3B_k"
+			]
+		},
+		{
+			"key": "micstand",
+			"instances": 3,
+			"floors": [
+				"F01",
+				"F02",
+				"F03"
+			],
+			"examples": [
+				"retail_bar_mic",
+				"2C_mic",
+				"3D_mic"
+			]
+		},
+		{
+			"key": "mug",
+			"instances": 28,
+			"floors": [
+				"B1",
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"nook_mug",
+				"common_k_kmug",
+				"1A_story_tea",
+				"1D_story_coffee",
+				"retail_bar_bmug0",
+				"retail_bar_bmug1",
+				"retail_bar_bmug2",
+				"2A_k_kmug"
+			]
+		},
+		{
+			"key": "nightstand",
+			"instances": 21,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"1A_bed0_ns",
+				"1D_bed0_ns",
+				"2A_bed0_ns",
+				"2B_abed_ns",
+				"2C_bed0_ns",
+				"2C_bed1_ns",
+				"3A_bed0_ns",
+				"3B_abed_ns"
+			]
+		},
+		{
+			"key": "papers",
+			"instances": 14,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"1A_story_lesson_notes",
+				"1D_story_rota",
+				"retail_bod_papers",
+				"retail_bar_lit_paper",
+				"2A_papers",
+				"2B_story_patterns",
+				"3D_lyrics",
+				"4A_story_briefs"
+			]
+		},
+		{
+			"key": "partstray",
+			"instances": 2,
+			"floors": [
+				"F03"
+			],
+			"examples": [
+				"3B_tray1",
+				"3B_tray2"
+			]
+		},
+		{
+			"key": "pedalboard",
+			"instances": 1,
+			"floors": [
+				"F02"
+			],
+			"examples": [
+				"2C_pedals"
+			]
+		},
+		{
+			"key": "pinboard",
+			"instances": 8,
+			"floors": [
+				"F01",
+				"F02",
+				"F04",
+				"F05"
+			],
+			"examples": [
+				"1A_story_classboard",
+				"2A_pinboard",
+				"2B_story_pattern_board",
+				"4A_story_deadlines",
+				"4C_story_familyboard",
+				"5A_pins1",
+				"5A_pins2",
+				"5C_story_colorboard"
+			]
+		},
+		{
+			"key": "pipe",
+			"instances": 781,
+			"floors": [
+				"B1",
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06",
+				"ROOF"
+			],
+			"examples": [
+				"B1_chute",
+				"b1_header",
+				"b1_spur",
+				"b1_boilerriser",
+				"b1_boiler_breeching",
+				"b1_main_-5",
+				"b1_cond_-5",
+				"b1_main_4"
+			]
+		},
+		{
+			"key": "plant",
+			"instances": 28,
+			"floors": [
+				"B1",
+				"F01",
+				"F03",
+				"ROOF"
+			],
+			"examples": [
+				"nook_plant",
+				"lobby_plant",
+				"retail_bar_palm0",
+				"retail_bar_palm1",
+				"retail_bar_palm2",
+				"3A_story_specimen",
+				"roof_veg0",
+				"roof_veg1"
+			]
+		},
+		{
+			"key": "plantable",
+			"instances": 1,
+			"floors": [
+				"F05"
+			],
+			"examples": [
+				"5A_plantable"
+			]
+		},
+		{
+			"key": "radio",
+			"instances": 5,
+			"floors": [
+				"F03",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"3B_radio",
+				"5B_k_hob_radio0",
+				"5B_k_hob_radio1",
+				"5B_story_radio",
+				"6C_story_old_radio"
+			]
+		},
+		{
+			"key": "reeldeck",
+			"instances": 2,
+			"floors": [
+				"F02",
+				"F03"
+			],
+			"examples": [
+				"2A_deck",
+				"3D_deck"
+			]
+		},
+		{
+			"key": "shelf",
+			"instances": 25,
+			"floors": [
+				"B1",
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"nook_books",
+				"f01_pkg0",
+				"f01_pkg1",
+				"f01_store0",
+				"f01_store1",
+				"f01_store2",
+				"1A_shelf",
+				"1D_oshelf"
+			]
+		},
+		{
+			"key": "sitemodel",
+			"instances": 1,
+			"floors": [
+				"F05"
+			],
+			"examples": [
+				"5A_model"
+			]
+		},
+		{
+			"key": "sofa",
+			"instances": 5,
+			"floors": [
+				"F01",
+				"F02",
+				"F04",
+				"F06"
+			],
+			"examples": [
+				"1A_sofa",
+				"2A_sofa",
+				"4B_couch",
+				"4C_sofa",
+				"6C_sofa"
+			]
+		},
+		{
+			"key": "softbox",
+			"instances": 2,
+			"floors": [
+				"F06"
+			],
+			"examples": [
+				"6A_soft1",
+				"6A_soft2"
+			]
+		},
+		{
+			"key": "switch",
+			"instances": 215,
+			"floors": [
+				"B1",
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06",
+				"ROOF"
+			],
+			"examples": [
+				"B1_SW_01_180",
+				"B1_SW_01_0",
+				"B1_SW_02_180",
+				"B1_SW_03_90",
+				"B1_SW_03_270",
+				"B1_SW_04_90",
+				"B1_SW_04_270",
+				"B1_SW_05_90"
+			]
+		},
+		{
+			"key": "table_rect",
+			"instances": 10,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"common_table",
+				"1A_din_t",
+				"2B_din_t",
+				"3A_din_t",
+				"3D_console",
+				"4D_din_t",
+				"5A_din_t",
+				"5A_modtable"
+			]
+		},
+		{
+			"key": "table_round",
+			"instances": 13,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"1D_din_t",
+				"retail_bar_tab0",
+				"retail_bar_tab1",
+				"retail_bar_tab2",
+				"2A_din_t",
+				"2C_din_t",
+				"3B_din_t",
+				"3D_din_t"
+			]
+		},
+		{
+			"key": "toilet",
+			"instances": 24,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"F01WC_wc",
+				"1A_wc",
+				"1D_wc",
+				"retail_bar_wc_toilet",
+				"2A_wc",
+				"2B_wc",
+				"2C_wc",
+				"2D_wc"
+			]
+		},
+		{
+			"key": "toolboard",
+			"instances": 1,
+			"floors": [
+				"F03"
+			],
+			"examples": [
+				"3B_toolboard"
+			]
+		},
+		{
+			"key": "tripod",
+			"instances": 1,
+			"floors": [
+				"F06"
+			],
+			"examples": [
+				"6A_tripod"
+			]
+		},
+		{
+			"key": "tv",
+			"instances": 6,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"retail_bar_tv",
+				"2A_tv",
+				"3B_tv",
+				"4B_tv",
+				"5B_tv",
+				"6C_tv"
+			]
+		},
+		{
+			"key": "utility_cover",
+			"instances": 2,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"walk_valve_water",
+				"walk_valve_gas"
+			]
+		},
+		{
+			"key": "vault_lights",
+			"instances": 2,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"walk_vault_lights",
+				"walk_vault_lights_e"
+			]
+		},
+		{
+			"key": "wardrobe",
+			"instances": 21,
+			"floors": [
+				"F01",
+				"F02",
+				"F03",
+				"F04",
+				"F05",
+				"F06"
+			],
+			"examples": [
+				"1A_w0_wardrobe",
+				"1D_w0_wardrobe",
+				"2A_w0_wardrobe",
+				"2B_aw_wardrobe",
+				"2C_w0_wardrobe",
+				"2C_w1_wardrobe",
+				"3A_w0_wardrobe",
+				"3B_aw_wardrobe"
+			]
+		},
+		{
+			"key": "watering_can",
+			"instances": 2,
+			"floors": [
+				"ROOF"
+			],
+			"examples": [
+				"roof_can",
+				"roof_can2"
+			]
+		},
+		{
+			"key": "workbench",
+			"instances": 1,
+			"floors": [
+				"F03"
+			],
+			"examples": [
+				"3B_workbench"
+			]
+		}
+	],
+	"layout_render_batches": [
+		{
+			"key": "passage_proxy",
+			"instances": 9,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"site_passage_proxy_head",
+				"site_passage_proxy_glass_w",
+				"site_passage_proxy_jamb_w_0",
+				"site_passage_proxy_jamb_w_1",
+				"site_passage_proxy_glass_e",
+				"site_passage_proxy_jamb_e_0",
+				"site_passage_proxy_jamb_e_1",
+				"site_passage_proxy_fanlight"
+			]
+		},
+		{
+			"key": "passage_proxy_gateway",
+			"instances": 249,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"site_passage_proxy_gateway_host_pier_w",
+				"site_passage_proxy_gateway_host_pier_e",
+				"site_passage_proxy_gateway_host_parapet",
+				"site_passage_proxy_gateway_host_cornice",
+				"site_passage_proxy_gateway_name_band",
+				"site_passage_proxy_gateway_hood",
+				"site_passage_proxy_kiosk_plinth_w",
+				"site_passage_proxy_kiosk_plinth_e"
+			]
+		},
+		{
+			"key": "passage_shell",
+			"instances": 130,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"site_passage_aisle_floor",
+				"site_passage_wall_w",
+				"site_passage_wall_e",
+				"site_passage_wall_s",
+				"site_passage_end_n_w",
+				"site_passage_end_s_w",
+				"site_passage_end_n_e",
+				"site_passage_end_s_e"
+			]
+		},
+		{
+			"key": "shop_funeral_parlour",
+			"instances": 88,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"storm_sf_funeral_parlour_pier208",
+				"storm_sf_funeral_parlour_pier252",
+				"storm_sf_funeral_parlour_jamb_w",
+				"storm_sf_funeral_parlour_jamb_e",
+				"storm_sf_funeral_parlour_doorhead",
+				"storm_sf_funeral_parlour_stall0",
+				"storm_sf_funeral_parlour_glass0",
+				"storm_sf_funeral_parlour_mull0_1"
+			]
+		},
+		{
+			"key": "shop_hardware_paint",
+			"instances": 195,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"storm_sf_hardware_paint_pier154",
+				"storm_sf_hardware_paint_pier206",
+				"storm_sf_hardware_paint_jamb_w",
+				"storm_sf_hardware_paint_jamb_e",
+				"storm_sf_hardware_paint_doorhead",
+				"storm_sf_hardware_paint_stall0",
+				"storm_sf_hardware_paint_glass0",
+				"storm_sf_hardware_paint_mull0_1"
+			]
+		},
+		{
+			"key": "shop_keys_cut",
+			"instances": 155,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"storm_sf_keys_cut_pier118",
+				"storm_sf_keys_cut_pier152",
+				"storm_sf_keys_cut_jamb_w",
+				"storm_sf_keys_cut_jamb_e",
+				"storm_sf_keys_cut_doorhead",
+				"storm_sf_keys_cut_stall0",
+				"storm_sf_keys_cut_glass0",
+				"storm_sf_keys_cut_mull0_1"
+			]
+		},
+		{
+			"key": "shop_luncheonette",
+			"instances": 80,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"storm_sf_luncheonette_pier202",
+				"storm_sf_luncheonette_pier252",
+				"storm_sf_luncheonette_jamb_w",
+				"storm_sf_luncheonette_jamb_e",
+				"storm_sf_luncheonette_doorhead",
+				"storm_sf_luncheonette_stall1",
+				"storm_sf_luncheonette_glass1",
+				"storm_sf_luncheonette_mull1_1"
+			]
+		},
+		{
+			"key": "shop_model_laundry",
+			"instances": 130,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"storm_sf_model_laundry_pier6",
+				"storm_sf_model_laundry_pier60",
+				"storm_sf_model_laundry_jamb_w",
+				"storm_sf_model_laundry_jamb_e",
+				"storm_sf_model_laundry_doorhead",
+				"storm_sf_model_laundry_stall0",
+				"storm_sf_model_laundry_glass0",
+				"storm_sf_model_laundry_mull0_1"
+			]
+		},
+		{
+			"key": "shop_news_cigars",
+			"instances": 60,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"storm_sf_news_cigars_pier136",
+				"storm_sf_news_cigars_pier157",
+				"storm_sf_news_cigars_jamb_w",
+				"storm_sf_news_cigars_jamb_e",
+				"storm_sf_news_cigars_doorhead",
+				"storm_sf_news_cigars_stall1",
+				"storm_sf_news_cigars_glass1",
+				"storm_sf_news_cigars_transom"
+			]
+		},
+		{
+			"key": "shop_otis___son",
+			"instances": 153,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"storm_sf_otis___son_pier159",
+				"storm_sf_otis___son_pier200",
+				"storm_sf_otis___son_jamb_w",
+				"storm_sf_otis___son_jamb_e",
+				"storm_sf_otis___son_doorhead",
+				"storm_sf_otis___son_stall0",
+				"storm_sf_otis___son_glass0",
+				"storm_sf_otis___son_mull0_1"
+			]
+		},
+		{
+			"key": "shop_pawnbroker",
+			"instances": 87,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"storm_sf_pawnbroker_pier90",
+				"storm_sf_pawnbroker_pier134",
+				"storm_sf_pawnbroker_jamb_w",
+				"storm_sf_pawnbroker_jamb_e",
+				"storm_sf_pawnbroker_doorhead",
+				"storm_sf_pawnbroker_stall0",
+				"storm_sf_pawnbroker_glass0",
+				"storm_sf_pawnbroker_mull0_1"
+			]
+		},
+		{
+			"key": "shop_photo_supplies",
+			"instances": 89,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"storm_sf_photo_supplies_pier6",
+				"storm_sf_photo_supplies_pier56",
+				"storm_sf_photo_supplies_jamb_w",
+				"storm_sf_photo_supplies_jamb_e",
+				"storm_sf_photo_supplies_doorhead",
+				"storm_sf_photo_supplies_stall1",
+				"storm_sf_photo_supplies_glass1",
+				"storm_sf_photo_supplies_mull1_1"
+			]
+		},
+		{
+			"key": "shop_radio_service",
+			"instances": 74,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"storm_sf_radio_service_pier58",
+				"storm_sf_radio_service_pier88",
+				"storm_sf_radio_service_jamb_w",
+				"storm_sf_radio_service_jamb_e",
+				"storm_sf_radio_service_doorhead",
+				"storm_sf_radio_service_stall0",
+				"storm_sf_radio_service_glass0",
+				"storm_sf_radio_service_transom"
+			]
+		},
+		{
+			"key": "shop_shoe_rebuilding",
+			"instances": 74,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"storm_sf_shoe_rebuilding_pier62",
+				"storm_sf_shoe_rebuilding_pier116",
+				"storm_sf_shoe_rebuilding_jamb_w",
+				"storm_sf_shoe_rebuilding_jamb_e",
+				"storm_sf_shoe_rebuilding_doorhead",
+				"storm_sf_shoe_rebuilding_stall0",
+				"storm_sf_shoe_rebuilding_glass0",
+				"storm_sf_shoe_rebuilding_mull0_1"
+			]
+		},
+		{
+			"key": "transit_shelter",
+			"instances": 8,
+			"floors": [
+				"F01"
+			],
+			"examples": [
+				"site_shelter_roof",
+				"site_shelter_post0",
+				"site_shelter_post42",
+				"site_shelter_back",
+				"site_shelter_mullion",
+				"site_shelter_sill",
+				"site_shelter_head",
+				"site_shelter_bench"
+			]
+		}
+	]
+}
