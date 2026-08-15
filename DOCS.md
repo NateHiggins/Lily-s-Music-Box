@@ -48,6 +48,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | How a prop should be built | `design/PROP_ART_BRIEF.md`, `design/PROP_REFERENCE_NOTES.md` |
 | What a prop *does* | `design/PROP_ACTIVITIES.md` |
 | Which foreground props and set heroes receive E, inspection, refusal or stay ambient | `design/PROP_SET_INTERACTION_MATRIX.md` |
+| Where service-wire object facts and card sources live | `design/PROP_TRIVIA_RESEARCH.md`, then `game/data/prop_service_wire.json` |
 | How the complete maintenance/case/dream-request loop is wired | `game/docs/core_loop.md` |
 | How the bar works | `docs/harukiya_reference_notes.md` |
 | How the karaoke/song system works | `docs/songbook_brief.md` |

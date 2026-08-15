@@ -950,16 +950,6 @@ license to add collision and popups to every wall panel. It enters the queue
 after the currently sequenced dream work unless the owner explicitly promotes
 it.
 
-- **I2 — Research and write the period copy.** Create
-  `design/PROP_TRIVIA_RESEARCH.md` as the internal source ledger and one
-  data-driven production book (proposed `game/data/prop_service_wire.json`).
-  Every handled/inspected/refusing row gets a terse original card: honest object
-  name, sourced pre-1929 fact, and state-aware present-condition line. Record
-  source URL/title, access date, supported claim, jurisdiction/cultural review
-  where relevant, and which card consumes it. No unsupported exact prices,
-  dates, quotations or inventor folklore; no copied archival prose; no case or
-  dream spoilers. Resident variants must come from resident/case authority, not
-  demographic shorthand.
 - **I4 — Complete the physical response pass.** For every matrix row not marked
   ambient, make E answer appropriately. OPERATE receives a reversible mechanism
   and authored click/clunk/scrape/hum; INSPECT receives a restrained close-look

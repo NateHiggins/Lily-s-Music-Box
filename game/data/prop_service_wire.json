@@ -1,0 +1,614 @@
+{
+  "schema": 1,
+  "status": "PRODUCTION COPY BOOK — FACT TEXT APPROVED FOR IMPLEMENTATION; STATE VALUES REMAIN OWNER-SUPPLIED",
+  "period_cutoff": "1928-12-31",
+  "research_ledger": "design/PROP_TRIVIA_RESEARCH.md",
+  "rules": {
+    "presenter_owns_state": false,
+    "fallback_allowed_for_registered_rows": false,
+    "resident_variant_authority": "resident_or_case_owner_only",
+    "condition_tokens": "Owners replace brace tokens from public read-only state. Unresolved tokens invalidate a card.",
+    "body_style": "Original telegram prose. STOP is punctuation, not archival quotation."
+  },
+  "cards": {
+    "signal_cabinet": {
+      "title": "COIN SIGNAL CABINET",
+      "body": "EARLY COIN MACHINES PUT A LISTENING TUBE OR HORN BEHIND ONE PAID MECHANICAL CHOICE STOP",
+      "conditions": {"default": "RECEIVER {receiver_state} / PROGRAMME {programme_state}"},
+      "source_ids": ["R009", "R010"]
+    },
+    "boiler": {
+      "title": "SECTIONAL COAL BOILER",
+      "body": "THE WATER GLASS SHOWS THE BOILER LEVEL DIRECTLY WHILE DRAFT AND COAL GOVERN THE FIRE STOP",
+      "conditions": {"default": "FIRE {fire_state} / DRAFT {draft_state} / WATER GLASS {gauge_state}"},
+      "source_ids": ["R022"]
+    },
+    "sectional_bookcase": {
+      "title": "SECTIONAL BOOKCASE",
+      "body": "EACH GLAZED SECTION CAN BE STACKED OR MOVED WITHOUT EMPTYING A TALL FIXED CASE STOP",
+      "conditions": {"default": "GLASS LEAF {leaf_state} / ORDER {order_state}"},
+      "source_ids": ["R020"]
+    },
+    "electric_fan": {
+      "title": "GUARDED ELECTRIC FAN",
+      "body": "THIS PERIOD TYPE COMBINES A CAST-IRON BASE STEEL GUARD AND MICARTA INSULATING PARTS STOP",
+      "conditions": {"default": "SELECTOR {selector_state} / MOTOR {motor_state}"},
+      "source_ids": ["R002"]
+    },
+    "service_door": {
+      "title": "SERVICE DOOR",
+      "body": "A MORTISE LOCK HIDES ITS WORKING CASE INSIDE THE LEAF WHILE THE KEEPER WAITS IN THE FRAME STOP",
+      "conditions": {"default": "LEAF {leaf_state} / LATCH {latch_state}"},
+      "source_ids": ["R040"]
+    },
+    "winding_clock": {
+      "title": "SPRING WALL CLOCK",
+      "body": "THE KEY STORES WORK IN A SPRING AND THE ESCAPEMENT SPENDS IT ONE TOOTH AT A TIME STOP",
+      "conditions": {"default": "MOVEMENT {movement_state} / RESERVE {reserve_state}"},
+      "source_ids": ["R019"]
+    },
+    "dartboard": {
+      "title": "BRISTLE DART BOARD",
+      "body": "A PERIOD PATENT PRESSED BRISTLES INTO A COMPACT TARGET FACE SO POINTS ENTERED BETWEEN FIBRES STOP",
+      "conditions": {"default": "FACE {face_state} / ROUND {activity_state}"},
+      "source_ids": ["R015"]
+    },
+    "paper_sort": {
+      "title": "SORTING TABLE",
+      "body": "POSTAL WORK SORTS PAPER BY DESTINATION BEFORE THE NEXT HAND OR ROUTE CAN CLAIM IT STOP",
+      "conditions": {"default": "PAPERS {paper_state} / SORT {activity_state}"},
+      "source_ids": ["R018"]
+    },
+    "threshold_door": {
+      "title": "UNSET THRESHOLD",
+      "body": "A DOOR STILL NEEDS A LEAF FRAME HINGES AND A WORKING LATCH EVEN WHEN THE OPENING LOOKS WRONG STOP",
+      "conditions": {"default": "THRESHOLD {threshold_state} / PASSAGE {passage_state}"},
+      "source_ids": ["R040"]
+    },
+    "icebox": {
+      "title": "OAK AND ZINC ICE BOX",
+      "body": "ICE RIDES ABOVE THE FOOD SO COLD AIR CAN SETTLE THROUGH THE CABINET AND MELT WATER FALLS BELOW STOP",
+      "conditions": {"default": "MAIN LEAF {main_leaf_state} / ICE LEAF {ice_leaf_state} / PAN {drip_pan_state}"},
+      "source_ids": ["R001"]
+    },
+    "kettle": {
+      "title": "ELECTRIC KETTLE",
+      "body": "THE IMMERSED ELEMENT PUTS HEAT INTO THE WATER INSTEAD OF FIRST HEATING A STOVE PLATE STOP",
+      "conditions": {"default": "ELEMENT {element_state} / WATER {water_state}"},
+      "source_ids": ["R005"]
+    },
+    "medicine_cabinet": {
+      "title": "ENAMEL MEDICINE CABINET",
+      "body": "THE MIRROR IS ALSO THE DOOR SO A SHALLOW WALL CASE CAN KEEP SMALL ARTICLES OFF THE BASIN STOP",
+      "conditions": {"default": "MIRROR LEAF {leaf_state} / INTERIOR {interior_state}"},
+      "source_ids": ["R025"]
+    },
+    "elevator_indicator": {
+      "title": "ELEVATOR SIGNAL PANEL",
+      "body": "BANKED LIFTS USED CALL SIGNALS TO ANNOUNCE WHICH CAR SHOULD ANSWER THE WAITING PASSENGER STOP",
+      "conditions": {"default": "CALL {call_state} / INDICATOR {indicator_state}"},
+      "source_ids": ["R014"]
+    },
+    "billiard_table": {
+      "title": "POINT BALL TABLE",
+      "body": "CUSHIONS RETURN A BALL BY ELASTIC RUBBER UNDER CLOTH WHILE SLATE KEEPS THE BED TRUE STOP",
+      "conditions": {"default": "CLOTH {cloth_state} / SET {ball_state} / GAME {activity_state}"},
+      "source_ids": ["R027"]
+    },
+    "radiator": {
+      "title": "ONE-PIPE STEAM RADIATOR",
+      "body": "THE SUPPLY VALVE ADMITS STEAM WHILE THE SMALL AIR VENT MUST LET DISPLACED AIR ESCAPE STOP",
+      "conditions": {"default": "SUPPLY {valve_state} / AIR VENT {vent_state} / HEAT {heat_state}"},
+      "source_ids": ["R038"]
+    },
+    "cylinder_machine": {
+      "title": "CYLINDER RECORDING MACHINE",
+      "body": "SOUND VIBRATIONS DRIVE A STYLUS THROUGH A DIAPHRAGM AND CUT A HILL-AND-DALE TRACE STOP",
+      "conditions": {"default": "CYLINDER {cylinder_state} / CRANK {crank_state} / TAKE {take_state}"},
+      "source_ids": ["R009", "R010"]
+    },
+    "gas_range": {
+      "title": "ENAMEL GAS RANGE",
+      "body": "A PERIOD COOKER GROUPED OVEN GRILL AND HOB RINGS BEHIND WASHABLE ENAMELLED SURFACES STOP",
+      "conditions": {"default": "OVEN {oven_state} / BURNERS {burner_state} / GAS {gas_state}"},
+      "source_ids": ["R006"]
+    },
+    "shower": {
+      "title": "BATH SHOWER FITTING",
+      "body": "SEPARATE VALVES MIX HOT AND COLD WATER BEFORE THE RISER DELIVERS IT ABOVE THE BATH STOP",
+      "conditions": {"default": "CURTAIN {curtain_state} / WATER {water_state} / MIX {mix_state}"},
+      "source_ids": ["R026"]
+    },
+    "basin": {
+      "title": "BASIN FITTINGS",
+      "body": "TWO SUPPLIES MEET AT THE BASIN WHILE A STOPPER TURNS THE BOWL INTO ITS OWN SMALL RESERVOIR STOP",
+      "conditions": {"default": "VALVES {valve_state} / FLOW {water_state} / STOPPER {stopper_state}"},
+      "source_ids": ["R026"]
+    },
+    "toaster": {
+      "title": "AUTOMATIC POP-UP TOASTER",
+      "body": "THE 1926 HOME TOASTMASTER HEATED BOTH SIDES THEN CUT POWER AND RAISED THE BREAD STOP",
+      "conditions": {"default": "CARRIAGE {carriage_state} / ELEMENTS {element_state}"},
+      "source_ids": ["R003", "R004"]
+    },
+    "carbon_point": {
+      "title": "CARBON TRANSMITTER POINT",
+      "body": "A DIAPHRAGM VARIES PRESSURE ON CARBON SO SOUND BECOMES A CHANGING ELECTRICAL CURRENT STOP",
+      "conditions": {"default": "GRILLE {grille_state} / CAPSULE {capsule_state} / LINE {line_state}"},
+      "source_ids": ["R023"]
+    },
+    "service_board": {
+      "title": "SERVICE HEADQUARTERS BOARD",
+      "body": "A WALL BOARD KEEPS ORDERS VISIBLE TO EVERY SHIFT WITHOUT MAKING ONE LEDGER LEAVE THE OFFICE STOP",
+      "conditions": {"default": "ORDERS {order_state} / CASE COPY {case_state}"},
+      "source_ids": ["R018"]
+    },
+    "light_switch": {
+      "title": "PORCELAIN LIGHT SWITCH",
+      "body": "THE EXPOSED TOGGLE MOVES A SNAP CONTACT WHILE PORCELAIN KEEPS LIVE PARTS FROM THE WALL STOP",
+      "conditions": {"default": "TOGGLE {switch_state} / CIRCUIT {circuit_state} / LAMPS {fixture_state}"},
+      "source_ids": ["R024"]
+    },
+    "buzzer": {
+      "title": "DIRECTORY CALL BUTTON",
+      "body": "A MOMENTARY BUTTON CLOSES THE BELL CIRCUIT ONLY WHILE A VISITOR PRESSES IT STOP",
+      "conditions": {"default": "BUTTON {button_state} / BELL {bell_state}"},
+      "source_ids": ["R014"]
+    },
+    "seat": {
+      "title": "PUBLIC SEAT",
+      "body": "A SOUND CHAIR SPREADS WEIGHT THROUGH SEAT RAILS INTO ITS LEGS INSTEAD OF ASKING THE BACK TO CARRY IT STOP",
+      "conditions": {"default": "SEAT {seat_state} / OCCUPANCY {occupancy_state}"},
+      "source_ids": ["R029"]
+    },
+    "case_object": {
+      "title": "{owner_title}",
+      "body": "{owner_period_fact}",
+      "conditions": {"default": "{owner_condition}"},
+      "source_ids": [],
+      "presentable": false,
+      "requires_owner_fields": ["title", "body", "condition", "source_ids"]
+    },
+    "hardware_counter": {
+      "title": "HARDWARE COUNTER",
+      "body": "TRADE COUNTERS KEEP THE SAMPLE ABOVE WHILE STOCK AND THE ORDER BOOK REMAIN ON THE CLERK SIDE STOP",
+      "conditions": {"default": "SERVICE {service_state} / REQUIRED PART {part_state}"},
+      "source_ids": ["R028"]
+    },
+    "door": {
+      "title": "MORTISED TIMBER DOOR",
+      "body": "HINGES CARRY THE LEAF BUT THE LATCH NOSE AND FRAME KEEPER DECIDE WHETHER IT STAYS SHUT STOP",
+      "conditions": {"default": "LEAF {leaf_state} / LATCH {latch_state} / ACCESS {access_state}"},
+      "source_ids": ["R021"]
+    },
+    "landmark_door": {
+      "title": "ORISON ENTRANCE DOOR",
+      "body": "A HEAVY PUBLIC LEAF USES A CLOSER TO SPEND ITS RETURN SLOWLY INSTEAD OF SLAMMING THE FRAME STOP",
+      "conditions": {"default": "LEAF {leaf_state} / CLOSER {closer_state} / LATCH {latch_state}"},
+      "source_ids": ["R028"]
+    },
+    "heritage_display": {
+      "title": "HARUKIYA DISPLAY",
+      "body": "A SHOP DISPLAY IS READ AS ONE ARRANGEMENT EVEN WHEN GLASS PAPER METAL AND TIMBER EACH AGE DIFFERENTLY STOP",
+      "conditions": {"default": "DISPLAY {display_state} / OWNER NOTE {owner_condition}"},
+      "source_ids": ["R041"]
+    },
+    "mail_bank": {
+      "title": "APARTMENT LETTER BOX",
+      "body": "A LOCKED TENANT COMPARTMENT RECEIVES MAIL THROUGH A COMMON BUILDING BANK WITHOUT OPENING THE PRIVATE LEAF STOP",
+      "conditions": {"default": "BOX 4B {leaf_state} / MAIL {mail_state}"},
+      "source_ids": ["R018"]
+    },
+    "pushcart": {
+      "title": "PASSAGE HANDCART",
+      "body": "SMALL STEEL-TYRED WHEELS TRADE A QUIET RIDE FOR A LOAD THAT CAN TURN INSIDE A NARROW SHOP HALL STOP",
+      "conditions": {"default": "CART {cart_state} / CHAIN {chain_state} / HOURS {hours_state}"},
+      "source_ids": ["R030"]
+    },
+    "projector": {
+      "title": "SIXTEEN-MILLIMETRE PROJECTOR",
+      "body": "KODAK INTRODUCED 16MM SAFETY FILM WITH THE CINE-KODAK CAMERA AND KODASCOPE PROJECTOR IN 1923 STOP",
+      "conditions": {"default": "REEL {reel_state} / LAMP {lamp_state} / IMAGE {image_state}"},
+      "source_ids": ["R007"]
+    },
+    "television": {
+      "title": "EXPERIMENTAL RECEIVER",
+      "body": "MECHANICAL TELEVISION SCANS A PICTURE INTO LINES THEN REBUILDS THOSE LINES IN STEP AT THE RECEIVER STOP",
+      "conditions": {"default": "POWER {power_state} / TUNING {tuning_state} / PICTURE {picture_state}"},
+      "source_ids": ["R031"]
+    },
+    "shop_sign": {
+      "title": "SHOPFRONT SIGN",
+      "body": "ENAMEL AND PAINT TURN A TRADESMAN'S NAME INTO WEATHER-RESISTING STREET DIRECTIONS STOP",
+      "conditions": {"default": "FACE {face_state} / LIGHT {light_state} / HOURS {hours_state}"},
+      "source_ids": ["R028"]
+    },
+    "wall_art": {
+      "title": "FRAMED WORK",
+      "body": "A PAPER OR PHOTOGRAPH NEEDS A BACK BOARD AND GLAZING SO THE FRAME DOES NOT BECOME ITS WEATHER STOP",
+      "conditions": {"default": "FRAME {frame_state} / GLAZING {glass_state} / OWNER NOTE {owner_condition}"},
+      "source_ids": ["R032"]
+    },
+    "marquee": {
+      "title": "ENTRANCE MARQUEE",
+      "body": "A CANOPY THROWS RAIN CLEAR OF THE DOOR WHILE ITS BRACKETS RETURN THE LOAD TO THE BUILDING FACE STOP",
+      "conditions": {"default": "ROOF {roof_state} / BRACKETS {bracket_state} / LIGHTS {light_state}"},
+      "source_ids": ["R028"]
+    },
+    "exhaust_fan": {
+      "title": "GUARDED EXHAUST FAN",
+      "body": "A PERIOD SAFETY GUARD LETS AIR REACH THE FAN WHILE KEEPING HANDS AND LOOSE MATERIAL FROM THE BLADES STOP",
+      "conditions": {"default": "GUARD {guard_state} / MOTOR {motor_state} / SERVICE ACCESS {access_state}"},
+      "source_ids": ["R037"]
+    },
+    "flue": {
+      "title": "CHIMNEY THIMBLE",
+      "body": "THE METAL THIMBLE SLEEVES A HOT STOVEPIPE THROUGH MASONRY WITHOUT ASKING THE PLASTER TO BE A FLUE STOP",
+      "conditions": {"default": "MASONRY {masonry_state} / THIMBLE {thimble_state} / DRAFT {draft_state}"},
+      "source_ids": ["R039"]
+    },
+    "lamp": {
+      "title": "LOCAL ELECTRIC LAMP",
+      "body": "A KEY OR PULL SWITCH PUTS THE CONTACT AT THE FIXTURE SO ONE POOL OF LIGHT CAN ANSWER LOCALLY STOP",
+      "conditions": {"default": "CONTROL {switch_state} / LAMP {lamp_state}"},
+      "source_ids": ["R024"]
+    },
+    "laundry_airer": {
+      "title": "CEILING CLOTHES AIRER",
+      "body": "PULLEYS LOWER THE RACK FOR LOADING THEN RAISE WASHING INTO WARMER AIR AND OUT OF THE WALKWAY STOP",
+      "conditions": {"default": "RACK {rack_state} / ROPE {rope_state} / CLEARANCE {clearance_state}"},
+      "source_ids": ["R013"]
+    },
+    "notice_board": {
+      "title": "PUBLIC NOTICE BOARD",
+      "body": "PINS LET ONE NOTICE REPLACE ANOTHER WITHOUT PASTING EACH NEW ORDER TO THE BUILDING STOP",
+      "conditions": {"default": "NOTICES {notice_state} / BOARD {board_state}"},
+      "source_ids": ["R018"]
+    },
+    "neon": {
+      "title": "NEON SHOP SIGN",
+      "body": "NEON TUBING REACHED AMERICAN COMMERCIAL SIGNS IN 1923 AND COULD BEND LIGHT INTO LETTERS STOP",
+      "conditions": {"default": "TUBING {tube_state} / TRANSFORMER {transformer_state}"},
+      "source_ids": ["R008"]
+    },
+    "speaker": {
+      "title": "HORN LOUDSPEAKER",
+      "body": "A DIAPHRAGM MAKES THE SOUND AND A HORN COUPLES ITS SMALL MOTION TO MORE AIR STOP",
+      "conditions": {"default": "CONE OR DIAPHRAGM {driver_state} / LINE {line_state}"},
+      "source_ids": ["R033"]
+    },
+    "washer": {
+      "title": "WRINGER WASHER",
+      "body": "THE SWINGING WRINGER TAKES THE WET LOAD AFTER AGITATION AND MUST BEAR THE STRAIN OF ITS ROLLS STOP",
+      "conditions": {"default": "LID {lid_state} / TUB {tub_state} / WRINGER {wringer_state} / DRAIN {drain_state}"},
+      "source_ids": ["R012"]
+    },
+    "service_set": {
+      "title": "VANTRY SERVICE SET",
+      "body": "TELEPHONE SYSTEMS USED A LINE LAMP OR ANNUNCIATOR TO MAKE A DISTANT CALL VISIBLE AT THE RECEIVING STATION STOP",
+      "conditions": {"default": "SET {power_state} / RADIO {radio_state} / LAMP {lamp_state} / WIRE {wire_state}"},
+      "source_ids": ["R034"]
+    },
+    "private_electrical_rig": {
+      "title": "CONNECTED ELECTRICAL RIG",
+      "body": "PLUGS CORDS AND SWITCHES FORM ONE LIVE CIRCUIT EVEN WHEN ITS BOXES LOOK LIKE SEPARATE OBJECTS STOP",
+      "conditions": {"default": "CONNECTION {connection_state} / PERMISSION {access_state}"},
+      "source_ids": ["R024"]
+    },
+    "bed": {
+      "title": "IRON BEDSTEAD",
+      "body": "THE FRAME HOLDS SPRING AND MATTRESS AS SEPARATE LAYERS SO EACH CAN BE AIRED OR REPLACED STOP",
+      "conditions": {"default": "FRAME {frame_state} / BEDDING {bedding_state} / OWNER {owner_state}"},
+      "source_ids": ["R029"]
+    },
+    "loose_books": {
+      "title": "BOOK PILE",
+      "body": "A CLOSED BOOK STILL SHOWS ITS USE IN A BROKEN SPINE DUSTED TOP AND THE ORDER OF THE PILE STOP",
+      "conditions": {"default": "PILE {pile_state} / OWNER NOTE {owner_condition}"},
+      "source_ids": ["R020"]
+    },
+    "bottle_cluster": {
+      "title": "BOTTLE GROUP",
+      "body": "CORK CROWN OR STOPPER MUST FIT THE NECK BECAUSE THE VESSEL BODY CANNOT SEAL ITSELF STOP",
+      "conditions": {"default": "VESSELS {vessel_state} / CLOSURES {closure_state}"},
+      "source_ids": ["R029"]
+    },
+    "coal_access": {
+      "title": "COAL CHUTE",
+      "body": "THE CHUTE MOVES FUEL FROM STREET LEVEL TO THE CELLAR WITHOUT CARRYING EACH SCUTTLE DOWNSTAIRS STOP",
+      "conditions": {"default": "HATCH {hatch_state} / CHUTE {chute_state} / ACCESS {access_state}"},
+      "source_ids": ["R022"]
+    },
+    "coal": {
+      "title": "BOILER COAL",
+      "body": "LUMP SIZE AND DRAFT DECIDE WHETHER A HAND-FIRED BED BREATHES EVENLY OR CLINKERS OVER STOP",
+      "conditions": {"default": "PILE {pile_state} / FUEL {fuel_state}"},
+      "source_ids": ["R022"]
+    },
+    "table_service": {
+      "title": "TABLE SERVICE",
+      "body": "A CUP RACK OR TRAY KEEPS WET CERAMIC OFF THE WORK SURFACE WHILE AIR REACHES EVERY PIECE STOP",
+      "conditions": {"default": "SETTING {setting_state} / WASH {wash_state}"},
+      "source_ids": ["R029"]
+    },
+    "crate": {
+      "title": "TIMBER SHIPPING CRATE",
+      "body": "NAILED BOARDS MAKE A REPAIRABLE SHIPPING SHELL WHOSE MARKS MATTER MORE THAN ITS FURNITURE STOP",
+      "conditions": {"default": "STACK {stack_state} / MARKS {mark_state}"},
+      "source_ids": ["R029"]
+    },
+    "desk": {
+      "title": "WORK DESK",
+      "body": "THE WRITING SURFACE IS PUBLIC TO THE EYE BUT DRAWERS REMAIN THEIR OWNER'S CLOSED ORDER STOP",
+      "conditions": {"default": "SURFACE {surface_state} / OWNER {owner_state}"},
+      "source_ids": ["R029"]
+    },
+    "instrument": {
+      "title": "TUNED INSTRUMENT",
+      "body": "STRINGS BRIDGE AND SOUNDING BODY SHARE ONE ADJUSTMENT SO A CARELESS HAND CAN UNDO ANOTHER PLAYER'S WORK STOP",
+      "conditions": {"default": "INSTRUMENT {instrument_state} / CONNECTION {connection_state} / PERMISSION {access_state}"},
+      "source_ids": ["R035"]
+    },
+    "jar_row": {
+      "title": "LABELLED JAR ROW",
+      "body": "A REPEATED JAR MAKES ITS PAPER LABEL THE DIFFERENCE BETWEEN STOCK AND A GUESS STOP",
+      "conditions": {"default": "JARS {vessel_state} / LABELS {label_state}"},
+      "source_ids": ["R029"]
+    },
+    "jukebox": {
+      "title": "COIN PHONOGRAPH",
+      "body": "COIN-OPERATED PHONOGRAPHS PUT A MECHANICAL CHOICE OF RECORDED MUSIC INTO A PUBLIC ROOM STOP",
+      "conditions": {"default": "COIN RETURN {coin_state} / SELECTION {selection_state} / MOTOR {motor_state}"},
+      "source_ids": ["R009", "R010"]
+    },
+    "microphone": {
+      "title": "CARBON MICROPHONE",
+      "body": "A CARBON TRANSMITTER NEEDS A COMPLETE CIRCUIT AND STEADY DIAPHRAGM PRESSURE BEFORE IT CAN CARRY A VOICE STOP",
+      "conditions": {"default": "LINE {line_state} / SESSION {session_state} / PERMISSION {access_state}"},
+      "source_ids": ["R023"]
+    },
+    "nightstand": {
+      "title": "BEDSIDE TABLE",
+      "body": "A SMALL TABLE KEEPS LAMP CLOCK AND WATER WITHIN REACH WITHOUT MAKING THE BED FRAME CARRY THEM STOP",
+      "conditions": {"default": "SURFACE {surface_state} / OWNER {owner_state}"},
+      "source_ids": ["R029"]
+    },
+    "papers": {
+      "title": "WORKING PAPERS",
+      "body": "FOLD ORDER PENCIL PRESSURE AND PIN HOLES CAN REPORT USE WITHOUT GIVING AWAY WHAT THE WORDS SAY STOP",
+      "conditions": {"default": "PAPERS {paper_state} / AUTHORITY {owner_condition}"},
+      "source_ids": ["R018"]
+    },
+    "parts_tray": {
+      "title": "PARTS TRAY",
+      "body": "DIVIDED TRAYS KEEP SMALL FASTENERS VISIBLE AND STOP ONE REPAIR FROM BORROWING ANOTHER'S PIECES STOP",
+      "conditions": {"default": "COMPARTMENTS {tray_state} / OWNER {owner_state}"},
+      "source_ids": ["R028"]
+    },
+    "pinboard": {
+      "title": "PIN BOARD",
+      "body": "A PIN HOLDS ONE SHEET AT A SINGLE POINT SO THE NOTICE CAN BE MOVED WITHOUT PASTE STOP",
+      "conditions": {"default": "NOTICES {notice_state} / AUTHORITY {owner_condition}"},
+      "source_ids": ["R018"]
+    },
+    "plant": {
+      "title": "POTTED PLANT",
+      "body": "A DRAINAGE HOLE LETS EXCESS WATER LEAVE THE ROOT ZONE INSTEAD OF TURNING THE POT INTO A BASIN STOP",
+      "conditions": {"default": "SOIL {soil_state} / LEAVES {plant_state}"},
+      "source_ids": ["R029"]
+    },
+    "planting_table": {
+      "title": "POTTING TABLE",
+      "body": "A RAISED SOIL BED KEEPS MIXING AND PLANTING WORK OFF THE FLOOR AND WITHIN BOTH HANDS STOP",
+      "conditions": {"default": "SOIL {soil_state} / PLANTING {activity_state}"},
+      "source_ids": ["R029"]
+    },
+    "radio": {
+      "title": "VALVE RADIO RECEIVER",
+      "body": "TUNING SELECTS ONE FREQUENCY WHILE VALVES AMPLIFY A SIGNAL TOO SMALL TO DRIVE THE LOUDSPEAKER DIRECTLY STOP",
+      "conditions": {"default": "POWER {power_state} / TUNING {tuning_state} / PROGRAMME {programme_state}"},
+      "source_ids": ["R033"]
+    },
+    "shelf": {
+      "title": "STOCK SHELF",
+      "body": "A SHELF REPORTS LOAD THROUGH SAG DUST LINES AND THE EMPTY SHAPES LEFT WHEN STOCK MOVES STOP",
+      "conditions": {"default": "RUN {shelf_state} / STOCK {stock_state}"},
+      "source_ids": ["R028"]
+    },
+    "site_model": {
+      "title": "BUILDING MODEL",
+      "body": "A SCALE MODEL MAKES ROOMS AND ROUTES LEGIBLE TO THE HAND BEFORE THE FULL-SIZE BUILDING CAN MOVE STOP",
+      "conditions": {"default": "MODEL {model_state} / LABEL {label_state}"},
+      "source_ids": ["R028"]
+    },
+    "studio_lamp": {
+      "title": "STUDIO FLOOD LAMP",
+      "body": "A LARGE REFLECTOR SPREADS A HOT LAMP INTO BROAD LIGHT WHILE STAND AND CABLE KEEP THE BEAM IN PLACE STOP",
+      "conditions": {"default": "LAMP {lamp_state} / HEAT {heat_state} / PERMISSION {access_state}"},
+      "source_ids": ["R036"]
+    },
+    "toilet": {
+      "title": "HIGH CISTERN WATER CLOSET",
+      "body": "THE HANDLE RELEASES STORED CISTERN WATER THEN A FLOAT CLOSES THE INLET WHEN THE TANK REFILLS STOP",
+      "conditions": {"default": "CISTERN {cistern_state} / FLUSH {flush_state}"},
+      "source_ids": ["R017"]
+    },
+    "toolboard": {
+      "title": "FITTED TOOL BOARD",
+      "body": "A MARKED PLACE FOR EACH TOOL MAKES THE MISSING ONE VISIBLE BEFORE THE NEXT JOB STARTS STOP",
+      "conditions": {"default": "TOOLS {tool_state} / BOARD {board_state}"},
+      "source_ids": ["R028"]
+    },
+    "tripod": {
+      "title": "LOCKED CAMERA TRIPOD",
+      "body": "THREE LEGS FIND A PLANE ON AN UNEVEN FLOOR BUT ONE SHIFTED FOOT CAN SPOIL THE AIM STOP",
+      "conditions": {"default": "LEGS {leg_state} / HEAD {head_state} / PERMISSION {access_state}"},
+      "source_ids": ["R036"]
+    },
+    "utility_cover": {
+      "title": "BOLTED UTILITY COVER",
+      "body": "A BOLTED PLATE GIVES A FITTER ACCESS TO THE SERVICE WHILE KEEPING ORDINARY HANDS OUT STOP",
+      "conditions": {"default": "FASTENERS {fastener_state} / SERVICE {service_state} / ACCESS {access_state}"},
+      "source_ids": ["R028"]
+    },
+    "wardrobe": {
+      "title": "TIMBER WARDROBE",
+      "body": "A FULL-LENGTH HANGING CASE LETS CLOTHES KEEP THEIR SHAPE WITHOUT TURNING THEM INTO PUBLIC STOCK STOP",
+      "conditions": {"default": "LEAF {leaf_state} / OWNER {owner_state}"},
+      "source_ids": ["R029"]
+    },
+    "watering_can": {
+      "title": "WATERING CAN",
+      "body": "THE ROSE BREAKS ONE HEAVY STREAM INTO SMALLER DROPS THAT DISTURB LESS SOIL STOP",
+      "conditions": {"default": "CAN {vessel_state} / WATER {water_state} / ROSE {rose_state}"},
+      "source_ids": ["R029"]
+    },
+    "workbench": {
+      "title": "FITTER'S WORKBENCH",
+      "body": "A THICK TOP TAKES CLAMPING AND BLOWS SO THE REPAIR DOES NOT ASK THE FINISHED OBJECT TO BE ITS OWN BENCH STOP",
+      "conditions": {"default": "BENCH {bench_state} / JOB {owner_state}"},
+      "source_ids": ["R028"]
+    },
+    "hydrant": {
+      "title": "MUNICIPAL FIRE HYDRANT",
+      "body": "THE OPERATING SPINDLE WORKS A VALVE BELOW WHILE DRAINAGE HELPS EMPTY THE CASING AFTER SHUTOFF STOP",
+      "conditions": {"default": "CAPS {cap_state} / MAIN VALVE {valve_state} / ACCESS {access_state}"},
+      "source_ids": ["R016"]
+    },
+    "postal_box": {
+      "title": "STREET LETTER BOX",
+      "body": "THE SLOT ACCEPTS A SEALED LETTER BUT THE COLLECTION DOOR BELONGS TO THE POSTAL KEY STOP",
+      "conditions": {"default": "SLOT {slot_state} / COLLECTION {collection_state}"},
+      "source_ids": ["R018"]
+    },
+    "news_box": {
+      "title": "COIN NEWSPAPER BOX",
+      "body": "PERIOD DISPENSERS USED A COIN CONTROL AND EJECTOR TO RELEASE FOLDED PAPERS ONE AT A TIME STOP",
+      "conditions": {"default": "COIN {coin_state} / DOOR {door_state} / STOCK {stock_state}"},
+      "source_ids": ["R011"]
+    },
+    "street_booth": {
+      "title": "STREET CALL BOOTH",
+      "body": "THE BOOTH GIVES A PUBLIC TRANSMITTER RECEIVER AND BELL ENOUGH SHELTER TO MAKE ONE PRIVATE CALL STOP",
+      "conditions": {"default": "DOOR {door_state} / RECEIVER {receiver_state} / LINE {line_state}"},
+      "source_ids": ["R023", "R034"]
+    },
+    "refuse_container": {
+      "title": "MUNICIPAL REFUSE BIN",
+      "body": "A FITTED LID KEEPS RAIN OUT AND LOOSE PAPER IN WITHOUT TURNING COLLECTION WASTE INTO PUBLIC STOCK STOP",
+      "conditions": {"default": "LID {lid_state} / COLLECTION {collection_state}"},
+      "source_ids": ["R029"]
+    }
+  },
+  "matrix_rows": [
+    {"id":"3.signal_cabinets","label":"Signal-parlour cabinets","class":"OPERATE","card_id":"signal_cabinet"},
+    {"id":"3.boiler","label":"Boiler","class":"OPERATE","card_id":"boiler"},
+    {"id":"3.bookshelves","label":"Resident bookshelves","class":"OPERATE","card_id":"sectional_bookcase"},
+    {"id":"3.box_fans","label":"Box fans","class":"OPERATE","card_id":"electric_fan"},
+    {"id":"3.case_door","label":"F03 utility case door","class":"RESIST-REFUSE","card_id":"service_door"},
+    {"id":"3.clock_4b","label":"4B windable clock","class":"OPERATE","card_id":"winding_clock"},
+    {"id":"3.clock_reference","label":"Vantry reference clock","class":"RESIST-REFUSE","card_id":"winding_clock"},
+    {"id":"3.darts","label":"Darts board","class":"OPERATE","card_id":"dartboard"},
+    {"id":"3.dead_letters","label":"Dead-letter table","class":"OPERATE","card_id":"paper_sort"},
+    {"id":"3.anomaly_door","label":"Room 0 anomaly door","class":"OPERATE","card_id":"threshold_door"},
+    {"id":"3.iceboxes","label":"Iceboxes and monitor-tops","class":"OPERATE","card_id":"icebox"},
+    {"id":"3.kettles","label":"Kettles","class":"OPERATE","card_id":"kettle"},
+    {"id":"3.medicine_cabinets","label":"Mirror medicine cabinets","class":"OPERATE","card_id":"medicine_cabinet"},
+    {"id":"3.otis","label":"Otis indicator/control","class":"OPERATE","card_id":"elevator_indicator"},
+    {"id":"3.point_ball","label":"Point Ball table","class":"OPERATE","card_id":"billiard_table"},
+    {"id":"3.radiators","label":"Radiators","class":"OPERATE","card_id":"radiator"},
+    {"id":"3.songbook","label":"Songbook phonograph terminal","class":"OPERATE","card_id":"cylinder_machine"},
+    {"id":"3.ranges","label":"Gas ranges","class":"OPERATE","card_id":"gas_range"},
+    {"id":"3.showers","label":"Shower curtains","class":"OPERATE","card_id":"shower"},
+    {"id":"3.taps","label":"Basin and kitchen taps","class":"OPERATE","card_id":"basin"},
+    {"id":"3.toasters","label":"Toasters","class":"OPERATE","card_id":"toaster"},
+    {"id":"3.vantry_point","label":"Mina 2A Vantry point","class":"OPERATE","card_id":"carbon_point"},
+
+    {"id":"4.maintenance_hq","label":"Maintenance headquarters wall","class":"INSPECT","card_id":"service_board"},
+    {"id":"4.room0_seam","label":"Room 0 interior seam","class":"OPERATE","card_id":"threshold_door"},
+    {"id":"4.light_switches","label":"Room light switches","class":"OPERATE","card_id":"light_switch"},
+    {"id":"4.directory_buzzer","label":"Lobby directory buzzer","class":"OPERATE","card_id":"buzzer"},
+    {"id":"4.desk_chair","label":"4B support desk chair","class":"OPERATE","card_id":"seat"},
+    {"id":"4.case_zones","label":"Case-specific object zones","class":"OPERATE","card_id":"case_object","copy_mode":"owner_result_first"},
+    {"id":"4.hardware_counter","label":"HARDWARE PAINT counter","class":"OPERATE","card_id":"hardware_counter"},
+    {"id":"4.bar_stools","label":"Harukiya bar stools","class":"OPERATE","card_id":"seat"},
+    {"id":"4.lobby_bench","label":"Lobby bench seat","class":"OPERATE","card_id":"seat"},
+    {"id":"4.doors","label":"Ordinary operable doors","class":"OPERATE","card_id":"door"},
+    {"id":"4.locked_doors","label":"Locked doors","class":"RESIST-REFUSE","card_id":"door"},
+    {"id":"4.landmark_door","label":"Landmark Orison entrance leaf","class":"OPERATE","card_id":"landmark_door"},
+    {"id":"4.harukiya_lookpoints","label":"Harukiya look-points","class":"INSPECT","card_id":"heritage_display","copy_mode":"owner_result_first"},
+    {"id":"4.mail_bank","label":"Box 4B mail bank","class":"OPERATE","card_id":"mail_bank"},
+    {"id":"4.handcarts","label":"Passage handcarts","class":"OPERATE","card_id":"pushcart"},
+    {"id":"4.projectors","label":"Apartment projectors","class":"OPERATE","card_id":"projector"},
+    {"id":"4.television","label":"Harukiya television","class":"OPERATE","card_id":"television"},
+
+    {"id":"5.bodega_sign","label":"Bodega fascia/signage","class":"INSPECT","card_id":"shop_sign"},
+    {"id":"5.entry_sign","label":"Orison building-entry sign","class":"INSPECT","card_id":"shop_sign"},
+    {"id":"5.wall_art","label":"Character/case/found wall art","class":"INSPECT","card_id":"wall_art","copy_mode":"owner_result_first"},
+    {"id":"5.witness_clocks","label":"Domestic witness clocks","class":"INSPECT","card_id":"winding_clock","copy_mode":"owner_result_first"},
+    {"id":"5.marquee","label":"Entrance marquee dress","class":"INSPECT","card_id":"marquee"},
+    {"id":"5.exhaust_fans","label":"Roof exhaust fans","class":"RESIST-REFUSE","card_id":"exhaust_fan"},
+    {"id":"5.flues","label":"Flue breasts","class":"INSPECT","card_id":"flue"},
+    {"id":"5.harukiya_sign","label":"Harukiya signage assembly","class":"INSPECT","card_id":"shop_sign"},
+    {"id":"5.lamps","label":"Table/floor lamps","class":"OPERATE","card_id":"lamp"},
+    {"id":"5.airer","label":"Laundry ceiling airer","class":"OPERATE","card_id":"laundry_airer"},
+    {"id":"5.bulletin","label":"Lobby bulletin board","class":"INSPECT","card_id":"notice_board"},
+    {"id":"5.orison_ad","label":"Lobby Orison advertisement","class":"INSPECT","card_id":"notice_board"},
+    {"id":"5.monitors","label":"CRT monitor props","class":"OPERATE","card_id":"television"},
+    {"id":"5.neon","label":"Neon signs","class":"INSPECT","card_id":"neon"},
+    {"id":"5.possessed_props","label":"Possessed domestic mechanisms","class":"INSPECT","card_id":"case_object","copy_mode":"owner_result_first"},
+    {"id":"5.shop_signs","label":"Eleven shop signs","class":"INSPECT","card_id":"shop_sign"},
+    {"id":"5.speakers","label":"Speakers","class":"INSPECT","card_id":"speaker"},
+    {"id":"5.washers","label":"Laundry washers","class":"OPERATE","card_id":"washer"},
+    {"id":"5.service_set","label":"Carried Vantry service set","class":"OPERATE","card_id":"service_set"},
+
+    {"id":"6.amp","label":"amp","class":"RESIST-REFUSE","card_id":"private_electrical_rig"},
+    {"id":"6.arcade_cab","label":"arcade_cab","class":"OPERATE","card_id":"signal_cabinet"},
+    {"id":"6.bed","label":"bed","class":"INSPECT","card_id":"bed","copy_mode":"owner_result_first"},
+    {"id":"6.bench","label":"bench","class":"OPERATE","card_id":"seat"},
+    {"id":"6.bookpile","label":"bookpile","class":"INSPECT","card_id":"loose_books","copy_mode":"owner_result_first"},
+    {"id":"6.bottles","label":"bottles","class":"INSPECT","card_id":"bottle_cluster"},
+    {"id":"6.cablecoil","label":"cablecoil","class":"RESIST-REFUSE","card_id":"private_electrical_rig"},
+    {"id":"6.coal_chute","label":"coal_chute","class":"RESIST-REFUSE","card_id":"coal_access"},
+    {"id":"6.coal_heap","label":"coal_heap","class":"INSPECT","card_id":"coal"},
+    {"id":"6.coffee","label":"coffee","class":"INSPECT","card_id":"table_service"},
+    {"id":"6.crate","label":"crate","class":"INSPECT","card_id":"crate"},
+    {"id":"6.desk","label":"desk","class":"INSPECT","card_id":"desk","copy_mode":"owner_result_first"},
+    {"id":"6.dishrack","label":"dishrack","class":"INSPECT","card_id":"table_service"},
+    {"id":"6.entrance_marquee","label":"entrance_marquee","class":"INSPECT","card_id":"marquee"},
+    {"id":"6.guitar","label":"guitar","class":"RESIST-REFUSE","card_id":"instrument","copy_mode":"owner_result_first"},
+    {"id":"6.headphones","label":"headphones","class":"RESIST-REFUSE","card_id":"private_electrical_rig","copy_mode":"owner_result_first"},
+    {"id":"6.jarrow","label":"jarrow","class":"INSPECT","card_id":"jar_row"},
+    {"id":"6.jukebox","label":"jukebox","class":"OPERATE","card_id":"jukebox"},
+    {"id":"6.micstand","label":"micstand","class":"RESIST-REFUSE","card_id":"microphone","copy_mode":"owner_result_first"},
+    {"id":"6.mug","label":"mug","class":"INSPECT","card_id":"table_service"},
+    {"id":"6.nightstand","label":"nightstand","class":"INSPECT","card_id":"nightstand","copy_mode":"owner_result_first"},
+    {"id":"6.papers","label":"papers","class":"INSPECT","card_id":"papers","copy_mode":"owner_result_first"},
+    {"id":"6.partstray","label":"partstray","class":"INSPECT","card_id":"parts_tray"},
+    {"id":"6.pedalboard","label":"pedalboard","class":"RESIST-REFUSE","card_id":"private_electrical_rig","copy_mode":"owner_result_first"},
+    {"id":"6.pinboard","label":"pinboard","class":"INSPECT","card_id":"pinboard","copy_mode":"owner_result_first"},
+    {"id":"6.plant","label":"plant","class":"INSPECT","card_id":"plant"},
+    {"id":"6.plantable","label":"plantable","class":"OPERATE","card_id":"planting_table","copy_mode":"owner_result_first"},
+    {"id":"6.radio","label":"radio","class":"OPERATE","card_id":"radio","copy_mode":"owner_result_first"},
+    {"id":"6.reeldeck","label":"reeldeck","class":"RESIST-REFUSE","card_id":"private_electrical_rig","copy_mode":"owner_result_first"},
+    {"id":"6.shelf","label":"shelf","class":"INSPECT","card_id":"shelf"},
+    {"id":"6.sitemodel","label":"sitemodel","class":"INSPECT","card_id":"site_model"},
+    {"id":"6.softbox","label":"softbox","class":"RESIST-REFUSE","card_id":"studio_lamp"},
+    {"id":"6.switch","label":"switch","class":"OPERATE","card_id":"light_switch"},
+    {"id":"6.toilet","label":"toilet","class":"OPERATE","card_id":"toilet"},
+    {"id":"6.toolboard","label":"toolboard","class":"INSPECT","card_id":"toolboard"},
+    {"id":"6.tripod","label":"tripod","class":"RESIST-REFUSE","card_id":"tripod"},
+    {"id":"6.tv","label":"tv","class":"OPERATE","card_id":"television"},
+    {"id":"6.utility_cover","label":"utility_cover","class":"RESIST-REFUSE","card_id":"utility_cover"},
+    {"id":"6.wardrobe","label":"wardrobe","class":"OPERATE","card_id":"wardrobe","copy_mode":"owner_result_first"},
+    {"id":"6.watering_can","label":"watering_can","class":"INSPECT","card_id":"watering_can"},
+    {"id":"6.workbench","label":"workbench","class":"INSPECT","card_id":"workbench"},
+
+    {"id":"8.hydrant","label":"Hydrant","class":"RESIST-REFUSE","card_id":"hydrant"},
+    {"id":"8.postal_box","label":"Postal box","class":"INSPECT","card_id":"postal_box"},
+    {"id":"8.news_boxes","label":"Three news boxes","class":"RESIST-REFUSE","card_id":"news_box"},
+    {"id":"8.street_bench","label":"Street bench","class":"OPERATE","card_id":"seat"},
+    {"id":"8.call_booth","label":"Call booth","class":"OPERATE","card_id":"street_booth"},
+    {"id":"8.refuse","label":"Bins and dumpster","class":"INSPECT","card_id":"refuse_container"}
+  ]
+}

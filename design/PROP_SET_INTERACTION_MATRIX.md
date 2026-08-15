@@ -4,7 +4,9 @@
 owner amendment “THE SERVICE WIRE ANSWERS BACK” in `PROP_ACTIVITIES.md`. It
 records what is actually in the production scene at `b318d84`, then rules what
 each foreground family is allowed to become. It is not a claim that the later
-I2/I4/I5/I6 implementation passes are already complete.
+I4/I5/I6 implementation passes are already complete. I2's researched copy book
+landed on 2026-08-15 in `game/data/prop_service_wire.json`, with its source
+ledger in `PROP_TRIVIA_RESEARCH.md`.
 
 The machine-readable evidence is
 `art/renders/prop_interaction_i1/live_inventory.json`. Re-run instructions and
@@ -264,6 +266,9 @@ attach one collider to the merged batch and call hundreds of objects covered.
    trim, shelf repeats and portal proxies ambient. Count them in the proof; do
    not manufacture interactions to improve a percentage.
 
-I2 supplies researched copy. I4 supplies physical answers. I5 proves the
-foreground selection in situ. I6 turns this document's rulings into executable
-coverage, reach, state-change and non-silent-refusal gates.
+I2 supplies researched copy. Its machine-readable registry names all 105
+non-ambient rows with stable ids: 50 OPERATE, 38 INSPECT and 17 RESIST-REFUSE.
+Those ids are the coverage keys for I4–I6; table labels above remain the human
+review surface. I4 supplies physical answers. I5 proves the foreground
+selection in situ. I6 turns this document's rulings into executable coverage,
+reach, state-change and non-silent-refusal gates.
