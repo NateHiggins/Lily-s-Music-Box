@@ -32,6 +32,7 @@ func _ready() -> void:
 	var player: PlayerController = root.player
 	var carrier: ServiceSetCarrier = root.service_set_carrier
 	var device: ServiceSetProp = carrier.device if carrier else null
+	var telegram: TelegramHud = player.telegram_hud
 	_check("production owns one Vantry service-set carrier",
 			carrier != null and player.carried_device == carrier)
 	_check("production instantiates no PhoneCarrier or Phone3D",
@@ -40,6 +41,12 @@ func _ready() -> void:
 			device != null and _count_subviewports(device) == 0)
 	_check("the model contains a real control-scale assembly",
 			device != null and _count_geometry(device) >= 70)
+	_check("one shared non-modal telegram presenter belongs to the player",
+			telegram != null and telegram.layer == 9 and not player.call_locked)
+	_check("the core HUD uses the licensed service-wire type family",
+			player._prompt.get_theme_font("font") == TelegramStyle.BOLD_FONT
+			and root.objective_tracker._title.get_theme_font("font") \
+			== TelegramStyle.BOLD_FONT)
 	_check("the back owns NET and LAMP modified indicators",
 			device != null and device._net_material != null
 			and device._lamp_indicator_material != null)
@@ -76,6 +83,16 @@ func _ready() -> void:
 			not device.radio_powered and device._aerial.scale.y < 0.2
 			and not device._net_material.emission_enabled)
 	carrier.set_radio_powered(true)
+	var print_before := device.printed_count
+	_check("a powered set advances a physical field slip",
+			carrier.print_telegram_card("Proof object")
+			and device.printed_count == print_before + 1
+			and device._receipt_root.visible)
+	carrier.set_radio_powered(false)
+	_check("radio OFF suppresses paper and never invents a screen fallback",
+			not carrier.print_telegram_card("Must not print")
+			and device.printed_count == print_before + 1)
+	carrier.set_radio_powered(true)
 	await get_tree().create_timer(0.35).timeout
 	_check("radio ON extends the aerial and restores NET",
 			device.radio_powered and device._aerial.scale.y > 0.95
@@ -110,7 +127,7 @@ func _ready() -> void:
 	_check("every functional prop that publishes E has a collision owner",
 			interactable_count > 40 and missing_area.is_empty())
 	if not missing_area.is_empty():
-		print("    missing interaction areas: %s" % missing_area)
+		print("    missing interaction areas: %s" % str(missing_area))
 
 	var fridge := root.find_child("F04_B_FRIDGE_01", true, false) as FridgeProp
 	if fridge:
@@ -122,9 +139,16 @@ func _ready() -> void:
 		player._try_interact()
 		await get_tree().create_timer(0.65).timeout
 		_check("a real production E ray opens the 4B icebox", fridge._open)
+		_check("the same E produces one state-reading field copy",
+				telegram.serial > 0
+				and str(telegram.last_card.get("title", "")) == "FRIDGE"
+				and device.printed_count > print_before + 1
+				and not player.call_locked)
 		player._try_interact()
 		await get_tree().create_timer(0.65).timeout
 		_check("the same production E ray closes it again", not fridge._open)
+		_check("rapid replacement reuses the one presenter",
+				telegram.serial >= 2 and telegram._paper.visible)
 	else:
 		_check("the authored 4B refrigerator is present", false)
 
@@ -154,6 +178,15 @@ func _ready() -> void:
 				and player.seated_interaction == null)
 	else:
 		_check("the authored support desk exists", false)
+
+	var inspection := InspectableZone.new()
+	inspection.setup("Old programme card", ["THE INK HAS OUTLIVED THE HAND STOP"])
+	var inspection_card := inspection.interact(player)
+	_check("existing look-at copy routes through the telegram card contract",
+			str(inspection_card.get("title", "")) == "Old programme card"
+			and str(inspection_card.get("body", "")).ends_with("STOP")
+			and inspection.get_child_count() == 1)
+	inspection.free()
 
 	print("[SERVICE SET] interactions=%d fridges=%d result=%s" % [
 			interactable_count, fridges.size(), "PASS" if _fails == 0 else "FAIL"])

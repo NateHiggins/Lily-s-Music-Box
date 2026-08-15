@@ -8,7 +8,7 @@ and Bible §VIII.5.j.*
 
 | Verb | Desktop | Touch / remappable action | Physical result |
 |---|---|---|---|
-| Interact | `E` | `interact` | uses the first authored world mechanism under the 2.1 m eye ray; while seated it operates the remembered seat instead of trying to reacquire a ray behind the player |
+| Interact | `E` | `interact` | uses the first authored world mechanism under the 2.1 m eye ray; while seated it operates the remembered seat instead of trying to reacquire a ray behind the player; after a non-modal object response, a powered set advances a service-wire field slip |
 | Work lamp | `L` | `lamp_toggle` / `LAMP` | moves the guarded two-state lever, changes the real SpotLight3D, beam plates and rear `LAMP` jewel together |
 | Radio power | `R` | `radio_toggle` / `RADIO` | pushes the aerial home or pulls it out and changes the rear `NET` jewel |
 
@@ -35,6 +35,19 @@ battery percentage or messages. `ORDER` remains the sole task-state display.
 `ServiceSetProp` listens to both WorkOrders transition signals and
 `RealityState.state_changed`, so live transitions and mid-session restore both
 recompute the aggregate. It owns no order copy and calls no lifecycle method.
+
+## The field-slip printer
+
+The owner-approved later modification is a brass platen in the crown, beside
+the aerial. It advances a small textured paper ticket after an authoritative E
+interaction. `ServiceSetCarrier.print_telegram_card()` delegates only the feed
+motion and returns false when the radio is off; `PlayerController` then withholds
+the enlarged HUD copy. The interacted object has already run in either case.
+
+The physical slip contains only a serial and truncated object heading at carried
+resolution. `TelegramHud` presents the full observation. Neither surface is a
+screen, and neither may call back into the object or WorkOrders. Typography,
+layout, texture and copy boundaries are in `game/docs/telegram_style.md`.
 
 ## Production ownership
 
@@ -100,12 +113,15 @@ the support interface through the same release path.
 
 - `ServiceSetTest.tscn`: production scene; no PhoneCarrier/Phone3D instance,
   no screen viewport in the prop, lamp/radio/ORDER transitions, 18/18 cold-box
-  areas, a real 4B fridge ray open and close, 203/203 functional E owners, bench
-  release and support-desk release.
+  areas, powered/off field-slip behavior, shared non-modal telegram, a real 4B
+  fridge ray open and close, 203/203 functional E owners, bench release and
+  support-desk release.
 - `ServiceSetShot.tscn`: carried lamp on/off, front ORDER and rear modification
   renders under production lighting.
+- `TelegramStyleShot.tscn`: production HUD hierarchy and physical crown slip.
 - `WalkTest.tscn` at `WALKTEST_SCALE=8`: PASS at 480 Hz after the interaction
   areas and seat changes.
 
 Proof renders and exact commands are in
-`art/renders/service_set_q4/README.md`.
+`art/renders/service_set_q4/README.md` and
+`art/renders/telegram_style_i3/README.md`.

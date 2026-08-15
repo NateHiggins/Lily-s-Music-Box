@@ -58,6 +58,10 @@ func radio_is_powered() -> bool:
 	return device != null and device.radio_powered
 
 
+func print_telegram_card(title: String) -> bool:
+	return device != null and device.print_telegram_card(title)
+
+
 ## Proof-only turntable poses. Production always leaves this at zero.
 func set_proof_pose(side: int) -> void:
 	_proof_pose = clampi(side, 0, 2)

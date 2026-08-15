@@ -25,6 +25,8 @@ const STAGGER_ROLL := 0.085
 var camera: Camera3D
 var flashlight: SpotLight3D
 var _prompt: Label
+var _prompt_panel: PanelContainer
+var telegram_hud: TelegramHud
 var noclip := false
 var crouched := false
 ## True while seated at the support desk: movement and look are frozen and
@@ -175,19 +177,35 @@ func _build_hud() -> void:
 	dot.color = Color(0.9, 0.92, 0.95, 0.55)
 	dot.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(dot)
+	_prompt_panel = PanelContainer.new()
+	_prompt_panel.name = "InteractionPromptSlip"
+	_prompt_panel.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	_prompt_panel.offset_left = -190
+	_prompt_panel.offset_top = -58
+	_prompt_panel.offset_right = 190
+	_prompt_panel.offset_bottom = -18
+	_prompt_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_prompt_panel.add_theme_stylebox_override("panel", TelegramStyle.ink_tag())
+	layer.add_child(_prompt_panel)
 	_prompt = Label.new()
-	_prompt.position = Vector2(560, 384)
-	_prompt.add_theme_font_size_override("font_size", 14)
-	_prompt.modulate = Color(0.85, 0.9, 0.92)
-	layer.add_child(_prompt)
+	_prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_prompt.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_prompt.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	TelegramStyle.apply(_prompt, 15, true, Color("ead9b4"))
+	_prompt_panel.add_child(_prompt)
+	telegram_hud = TelegramHud.new()
+	telegram_hud.name = "TelegramHud"
+	add_child(telegram_hud)
 
 
 ## What the crosshair is looking at, refreshed for the prompt line.
 func _update_prompt() -> void:
 	_prompt.text = ""
+	_prompt_panel.visible = false
 	if is_instance_valid(seated_interaction):
 		if seated_interaction.has_method("interact_prompt"):
 			_prompt.text = seated_interaction.interact_prompt()
+			_prompt_panel.visible = _prompt.text != ""
 		return
 	if call_locked or (not touch_input
 			and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED):
@@ -203,14 +221,17 @@ func _update_prompt() -> void:
 	if hit.collider is Area3D:
 		if hit.collider.has_meta("call_level"):
 			_prompt.text = "[E]  Call elevator"
+			_prompt_panel.visible = true
 			return
 		if hit.collider.has_meta("cabin_panel"):
 			_prompt.text = "[E]  Select next floor"
+			_prompt_panel.visible = true
 			return
 	var node: Node = hit.collider
 	while node:
 		if node.has_method("interact_prompt"):
 			_prompt.text = node.interact_prompt()
+			_prompt_panel.visible = _prompt.text != ""
 			return
 		node = node.get_parent()
 
@@ -547,9 +568,29 @@ func _try_interact() -> void:
 	var node: Node = hit.collider
 	while node:
 		if hit.collider is Area3D and node.has_method("interact_area"):
-			node.interact_area(hit.collider)
+			var area_result: Variant = node.call("interact_area", hit.collider)
+			_present_interaction_telegram(node, area_result)
 			return
 		if node.has_method("interact"):
-			node.interact(self)
+			var result: Variant = node.call("interact", self)
+			_present_interaction_telegram(node, result)
 			return
 		node = node.get_parent()
+
+
+## Presentation follows the authoritative interaction; it cannot make a prop
+## respond, open a job or acquire an item. Protected/modal interactions suppress
+## the slip so a field note can never cover dialogue or a call surface.
+func _present_interaction_telegram(owner: Node, result: Variant) -> void:
+	if telegram_hud == null or call_locked or not is_instance_valid(owner):
+		return
+	var card := TelegramHud.card_from_interaction(owner, result)
+	if card.is_empty() or str(card.get("body", "")).strip_edges() == "":
+		return
+	if carried_device == null \
+			or not carried_device.has_method("print_telegram_card"):
+		return
+	if not bool(carried_device.call("print_telegram_card",
+			str(card.get("title", "FIELD COPY")))):
+		return
+	telegram_hud.present(card)

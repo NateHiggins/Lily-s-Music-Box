@@ -33,6 +33,12 @@ var _order_material: StandardMaterial3D
 var _net_material: StandardMaterial3D
 var _lamp_indicator_material: StandardMaterial3D
 var _lamp_glass_material: StandardMaterial3D
+var _receipt_root: Node3D
+var _receipt_label: Label3D
+var _receipt_tween: Tween
+var _printer_tick: AudioStreamPlayer
+var _printer_feed: AudioStreamPlayer
+var printed_count := 0
 
 
 func _ready() -> void:
@@ -68,6 +74,36 @@ func set_radio_powered(on: bool, animate := true) -> void:
 
 func toggle_radio_power() -> void:
 	set_radio_powered(not radio_powered)
+
+
+## A powered set advances one physical field slip. The HUD enlarges the same
+## copy for legibility; this modeled paper is the fiction, not a hidden screen.
+func print_telegram_card(title: String) -> bool:
+	if not radio_powered or _receipt_root == null:
+		return false
+	printed_count += 1
+	_receipt_label.text = "WIRE %04d\n%s" % [printed_count,
+			title.to_upper().left(16)]
+	if _receipt_tween:
+		_receipt_tween.kill()
+	_receipt_root.visible = true
+	_receipt_root.scale.y = 0.025
+	if _printer_tick and _printer_tick.stream:
+		_printer_tick.play()
+	_receipt_tween = create_tween()
+	_receipt_tween.tween_property(_receipt_root, "scale:y", 1.0,
+			0.30).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	_receipt_tween.tween_callback(_play_feed)
+	_receipt_tween.tween_interval(2.35)
+	_receipt_tween.tween_property(_receipt_root, "scale:y", 0.025,
+			0.18).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	_receipt_tween.tween_callback(func(): _receipt_root.visible = false)
+	return true
+
+
+func _play_feed() -> void:
+	if _printer_feed and _printer_feed.stream:
+		_printer_feed.play()
 
 
 func set_lamp_enabled(on: bool, animate := true) -> void:
@@ -137,6 +173,10 @@ func _build_model() -> void:
 	var ceramic := _mat(CERAMIC, 0.76)
 	var grille := _mat(Color("100d0b"), 0.84)
 	var paper := _mat(Color("b8a77f"), 0.88)
+	var telegram_paper := _mat(Color.WHITE, 0.96)
+	telegram_paper.albedo_texture = load(
+			"res://assets/ui/telegram/telegram_paper_stock_v1.png")
+	telegram_paper.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 
 	# Compression-moulded case, raised end caps and the screwed rear hatch.
 	_box(BODY, Vector3.ZERO, phenolic)
@@ -177,6 +217,34 @@ func _build_model() -> void:
 			front_z - 0.001), brass)
 	_label("VANTRY & CO.\nMODEL No. 4", Vector3(0, -0.089,
 			front_z - 0.003), 0.00027, Color("21170d"), true)
+
+	# The 1940s service-wire modification: a narrow platen slot in the crown.
+	# It emits paper, never pixels. A slip rises into the carrier's view after
+	# an object has already answered the hand.
+	_box(Vector3(0.069, 0.008, 0.006), Vector3(0, 0.111,
+			front_z - 0.003), worn_brass)
+	_box(Vector3(0.054, 0.002, 0.007), Vector3(0, 0.113,
+			front_z - 0.006), grille)
+	_label("WIRE", Vector3(0.015, 0.103, front_z - 0.007), 0.00025,
+			Color("21170d"), true)
+	_receipt_root = Node3D.new()
+	_receipt_root.name = "FieldSlip"
+	_receipt_root.position = Vector3(0, 0.114, front_z - 0.009)
+	_receipt_root.visible = false
+	add_child(_receipt_root)
+	_box(Vector3(0.058, 0.068, 0.0007), Vector3(0, 0.034, 0),
+			telegram_paper, _receipt_root)
+	_receipt_label = _label("WIRE 0000", Vector3(0, 0.031, -0.0012),
+			0.00019, Color("261f19"), true, Vector3.ZERO, _receipt_root)
+	_printer_tick = AudioStreamPlayer.new()
+	_printer_tick.stream = PropAudio.get_stream("tick")
+	_printer_tick.volume_db = -13.0
+	add_child(_printer_tick)
+	_printer_feed = AudioStreamPlayer.new()
+	_printer_feed.stream = PropAudio.get_stream("pop")
+	_printer_feed.volume_db = -18.0
+	_printer_feed.pitch_scale = 1.7
+	add_child(_printer_feed)
 
 	# BACK, facing the carrier: a later linesman's modification. NET tells the
 	# worker that the aerial really closed the radio circuit; LAMP confirms the
@@ -327,9 +395,11 @@ func _torus(radius: float, tube: float, at: Vector3, material: Material,
 
 
 func _label(value: String, at: Vector3, pixel: float, color: Color,
-		front_face: bool, rotation_degrees := Vector3.ZERO) -> Label3D:
+		front_face: bool, rotation_degrees := Vector3.ZERO,
+		parent: Node3D = self) -> Label3D:
 	var label := Label3D.new()
 	label.text = value
+	TelegramStyle.apply_world(label, true)
 	label.font_size = 32
 	label.pixel_size = pixel
 	label.modulate = color
@@ -338,7 +408,7 @@ func _label(value: String, at: Vector3, pixel: float, color: Color,
 	label.position = at
 	label.rotation_degrees = rotation_degrees + (Vector3(0, 180, 0)
 			if front_face else Vector3.ZERO)
-	add_child(label)
+	parent.add_child(label)
 	return label
 
 

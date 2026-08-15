@@ -11,24 +11,23 @@ func _ready() -> void:
 	layer = 6
 	_panel = PanelContainer.new()
 	_panel.position = Vector2(22, 22)
-	_panel.custom_minimum_size = Vector2(330, 0)
+	_panel.custom_minimum_size = Vector2(360, 0)
+	_panel.add_theme_stylebox_override("panel", TelegramStyle.paper_panel(0.94))
 	add_child(_panel)
 	var stack := VBoxContainer.new()
 	_panel.add_child(stack)
 	_title = Label.new()
-	_title.add_theme_font_size_override("font_size", 13)
-	_title.modulate = Color(0.66, 0.88, 0.78)
+	TelegramStyle.apply(_title, 13, true, TelegramStyle.SERVICE_TEAL)
 	stack.add_child(_title)
 	_objective = Label.new()
-	_objective.add_theme_font_size_override("font_size", 12)
+	TelegramStyle.apply(_objective, 13, false, TelegramStyle.CARBON)
 	_objective.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_objective.modulate = Color(0.88, 0.88, 0.82)
 	stack.add_child(_objective)
 	clear()
 
 
 func show_objective(title_text: String, objective_text: String) -> void:
-	_title.text = title_text
+	_title.text = "WORK ORDER / %s" % title_text.to_upper()
 	_objective.text = objective_text
 	_panel.visible = true
 

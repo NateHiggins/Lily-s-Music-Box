@@ -864,6 +864,28 @@ superseded fiction and may not remain production dependencies merely because
 their code already exists. They are audited and migrated before subtraction,
 not silently deleted.
 
+**VIII.5.k — THE SERVICE WIRE PRINTS PAPER.**
+*(Ruled 2026-08-15, at the owner's direction. The landed visual and behavioral
+contract is `game/docs/telegram_style.md`.)*
+
+The radiophone's later Vantry modification includes a narrow mechanical field-
+slip printer. After the player operates or examines an object, a powered set
+may advance a little telegram receipt and present that same paper enlarged for
+legibility. This is not a screen and not a second interaction verb: **E acts on
+the thing first**, the slip only reports what that authoritative owner returned,
+and switching the radio off suppresses the paper without suppressing the thing.
+It may never lock movement, steal focus, pause play, advance work or case state,
+or cover a protected conversation.
+
+This ruled paper, carbon ink, service stamp and typewritten hierarchy are the
+house grammar for HUD and institutional text in the waking world. Work orders,
+interaction prompts, service notices, machine plates and object observations
+belong to it. Human speech, subtitles, resident handwriting, shop identities
+and culturally specific lettering keep their own voices; the building's filing
+system is not permitted to impersonate a person. Trivia printed by the system
+must be sourced, terse and spoiler-safe. Typography and texture can unify the
+record, but they cannot launder invented history into fact.
+
 ### VIII.6 What this does not license
 
 **The divergence is not a licence for anachronism at will.** The rule of

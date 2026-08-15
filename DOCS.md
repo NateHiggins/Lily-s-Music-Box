@@ -54,6 +54,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | The proposed basement studio | `design/ORISON_STUDIO_BRIEF.md` *(proposal)* |
 | The narcolepsy dream / the maze | `design/ORISON_MAZE_BRIEF.md` *(ruled production design)*, then `game/docs/dream_boundary.md` for the landed scene/save seam and `game/docs/dream_onset.md` for the protected onset owner |
 | The no-screen radio and attached work light in the player's hand | `design/VANTRY_SERVICE_RADIOPHONE_BRIEF.md`, `game/docs/service_set.md` *(ruled and landed)* |
+| The HUD, telegram paper, type hierarchy and institutional world text | Bible §VIII.5.k, then `game/docs/telegram_style.md` *(ruled and landed)* |
 | How sound moves through the building | `game/data/acoustic_graph.json`, `game/docs/sanity_system.md` |
 | Why a texture tiles badly | `art/tools/ingest_material_sources.py`, and the compiler's `docs/provider-api.md` |
 | What clothes people wear | `design/ORISON_WARDROBE_BIBLE.md` |

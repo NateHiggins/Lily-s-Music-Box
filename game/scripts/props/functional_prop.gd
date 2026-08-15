@@ -129,6 +129,22 @@ func warehouse_rotation_y() -> float:
 	return 0.0
 
 
+## Temporary universal field slip until I2's researched object book supplies
+## type-specific copy. This reports only the mechanism's own current public
+## state; it invents no provenance and never advances that state.
+func service_wire_card() -> Dictionary:
+	var display := prop_type.replace("_", " ").strip_edges().to_upper()
+	var state_names: Array = PState.keys()
+	var condition: String = str(state_names[state]) if state >= 0 \
+			and state < state_names.size() else "UNKNOWN"
+	return {
+		"title": display,
+		"body": "MECHANISM ANSWERED TO HAND STOP CONDITION RECORDED STOP",
+		"condition": "PRESENT CONDITION / %s" % condition,
+		"stamp": "SERVICE NOTE",
+	}
+
+
 func _on_motif_event(index: int, accent: float, pitch: float) -> void:
 	_receive(index, accent, pitch, 1.0)
 

@@ -970,13 +970,6 @@ it.
   dates, quotations or inventor folklore; no copied archival prose; no case or
   dream spoilers. Resident variants must come from resident/case authority, not
   demographic shorthand.
-- **I3 — One presenter, no new lifecycle owner.** Build a shared non-modal
-  telegram/service-wire info box using ruled paper, stamp/type typography and
-  economical `STOP` syntax. E must operate the object on the same frame; the
-  card cannot set `call_locked`, steal focus, pause movement or become a second
-  interaction verb. A new card replaces the old one, repeated toggles update the
-  condition, long text wraps safely, and font size/contrast/reduced-typewriter
-  accessibility settings are owned here. No prop-specific Control trees.
 - **I4 — Complete the physical response pass.** For every matrix row not marked
   ambient, make E answer appropriately. OPERATE receives a reversible mechanism
   and authored click/clunk/scrape/hum; INSPECT receives a restrained close-look
