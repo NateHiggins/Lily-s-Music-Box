@@ -415,6 +415,55 @@ survives, and ranked core shadows return inside.
 The result is large and shippable, but not a target flip: 26.764 ms still misses
 16.6 by 10.16 ms. T7 remains open on the remaining submission work.
 
+### As built — T7c enclosed-F01 STREET gate, 2026-08-15
+
+The T7b census still showed about 2,650 beauty surfaces and 12,000 backend
+calls after the core-light shadow maps were removed. A reversible spatial cut
+identified the next ownership failure: low STREET submitted more than a
+thousand F01 draws whose complete world AABBs sat behind the Orison shell.
+They included imported interior buffers and late-built dressing that no legal
+outdoor camera can see, yet every surviving exterior, phone and moon shadow
+pass continued to render them.
+
+The production gate indexes only geometry wholly inside absolute-x 15.2,
+absolute-z 11.2 and low F01 height -0.50..2.80 m. Boundary contact preserves a
+draw. Compound functional props and doors are classified as owners rather than
+as loose child meshes, so a neon word or multi-leaf door cannot be sheared.
+The authored `F01_DOOR_06` street entry, all `WindowGlow` cards, the runtime
+entry/marquee assemblies and moving `NPC_` residents are protected explicitly.
+Imported or static interior geometry is removed from render layers only while
+the occupied point is low STREET; entering Orison or using the aerial station
+restores its exact authored layer.
+
+Many of these nodes are also foreign to PASSAGE. A pair of independent
+save/restore tables would be wrong at a direct portal transition: the second
+gate could restore a node the first still owns as hidden. `_zone_toggle` now
+stores one authored layer and a set of named blockers; it restores only when
+the set is empty. `StreetCoreVisibilityTest` proves all 16 ownership and
+transition rules, including STREET -> PASSAGE -> STREET -> ORISON on a measured
+overlap node. `PassageVisibilityTest` retains its full existing contract.
+
+The same-build retained control is
+`PERF_STREET_CORE_GEOMETRY_ON=1`. At 1440p, canonical night, 16/16:
+
+| playable north pavement | objects | calls | ms |
+|---|---:|---:|---:|
+| previous state A/B | 9,735 / 9,740 | 11,864 / 11,881 | 26.735 / 26.252 |
+| production A/B | 8,198 / 8,202 | 9,433 / 9,433 | 22.870 / 22.794 |
+| mean change | **-15.8%** | **-20.5%** | **-3.662 ms (-13.8%)** |
+
+Exact production A/A/B frames at north pavement, south elevation and east
+road mouth are in `art/renders/street_core_geometry_t7c/production_pair/`.
+GPU rain continues during pause, so each station carries its own control-noise
+floor. No named facade element disappears: WindowGlow, the closed entry door,
+complete cyan/pink neon, marquee, light pools and exterior depth all survive.
+The remaining differences are low-level illumination/shadow changes at the
+window and entry apertures caused by removing their impossible behind-wall
+casters, plus live-rain variance.
+
+This banks another real submission win but does not close T7: the authoritative
+mean is 22.832 ms, still **6.23 ms above 16.6**.
+
 ---
 
 ## 8. Owner rulings, reconciled from the built street 2026-08-14

@@ -141,7 +141,12 @@ var passage_late_foreign_nodes: Array[GeometryInstance3D] = []
 ## can see. The lobby lamps alone carried ~600 casters each at northbound.
 var passage_foreign_lights: Array[Light3D] = []
 var passage_light_saved: Dictionary = {}
+## Shared authored-layer table for every spatial render gate. Passage was the
+## first consumer, hence the historical name; STREET now composes a second
+## blocker over many of the same F01 nodes. `_zone_layer_blocks` prevents one
+## gate from restoring a node while the other still owns it as hidden.
 var passage_late_saved: Dictionary = {}
+var _zone_layer_blocks: Dictionary = {}
 ## Explicitly shared F01 draws: classified, never toggled by the zone gate.
 ## Deliberate, per node, for one of three reasons — it straddles the portal
 ## (the site-spanning vantry batch), it moves under another system's
@@ -154,6 +159,11 @@ var passage_shared_f01_nodes: Array[GeometryInstance3D] = []
 var passage_runtime_nodes: Array[Node3D] = []
 var passage_visible := true
 var passage_finish: Node3D
+## Low STREET never has a legal sightline to geometry wholly enclosed by the
+## F01 shell. These nodes are indexed spatially, while facade-touching compound
+## owners, the landmark entry, WindowGlow and moving residents remain eligible.
+var street_core_nodes: Array[GeometryInstance3D] = []
+var street_core_visible := true
 ## Marker-built props deliberately remain direct children: several directors
 ## discover them through that stable ownership boundary.  They still need to
 ## ride the same coarse visibility gate as the imported floor, though.  Before
@@ -569,6 +579,7 @@ func _ready() -> void:
 	# LAST, deliberately: every builder above may parent geometry into F01,
 	# and this sweep is only exhaustive if nothing is constructed after it.
 	_index_late_f01_geometry()
+	_index_street_core_geometry()
 
 
 func _build_environment() -> void:
@@ -1252,6 +1263,104 @@ func _index_root_zone_content() -> void:
 				+ "%d foreign lights registered" % added["lights"])
 
 
+## Indexes the low-F01 content that is provably behind the Orison shell from
+## STREET. Classification is by the complete world AABB, never its centre: any
+## geometry touching a facade boundary remains eligible. Compound functional
+## props and doors are atomic owners, so one exterior child retains the whole
+## assembly instead of shearing letters from neon or leaves from joinery.
+func _index_street_core_geometry() -> void:
+	for i in range(street_core_nodes.size() - 1, -1, -1):
+		if not is_instance_valid(street_core_nodes[i]):
+			street_core_nodes.remove_at(i)
+	var known := {}
+	for geometry in street_core_nodes:
+		known[geometry.get_instance_id()] = true
+	var protected := _street_core_protected_geometry()
+	var candidates: Array[GeometryInstance3D] = []
+	_collect_street_geometry(self, candidates)
+	var added := 0
+	for geometry in candidates:
+		if known.has(geometry.get_instance_id()) \
+				or protected.has(geometry.get_instance_id()):
+			continue
+		if player != null and (geometry == player
+				or player.is_ancestor_of(geometry)):
+			continue
+		if _has_moving_resident_ancestor(geometry):
+			continue
+		if not _fully_in_street_core(geometry):
+			continue
+		street_core_nodes.append(geometry)
+		added += 1
+	if added > 0:
+		print("[STREET] %d enclosed F01 draws indexed" % added)
+
+
+func _street_core_protected_geometry() -> Dictionary:
+	var protected := {}
+	# These cards are the designed view of occupied rooms from outdoors.
+	if window_glow != null:
+		_protect_street_geometry(window_glow, protected)
+	var owners: Array = []
+	for fid in functional_props_by_floor:
+		owners.append_array(functional_props_by_floor[fid])
+	for fid in doors_by_floor:
+		owners.append_array(doors_by_floor[fid])
+	for owner in owners:
+		var owned: Array[GeometryInstance3D] = []
+		_collect_street_geometry(owner, owned)
+		var boundary_owned := String(owner.name) == "F01_DOOR_06"
+		for geometry in owned:
+			if not _fully_in_street_core(geometry):
+				boundary_owned = true
+				break
+		if boundary_owned:
+			for geometry in owned:
+				protected[geometry.get_instance_id()] = true
+	# Both are explicit exterior architecture assembled at runtime.
+	for child in get_children():
+		if String(child.name) in ["EntranceMarqueeDress", "BuildingEntrySign"]:
+			_protect_street_geometry(child, protected)
+	return protected
+
+
+func _protect_street_geometry(owner: Node, protected: Dictionary) -> void:
+	var owned: Array[GeometryInstance3D] = []
+	_collect_street_geometry(owner, owned)
+	for geometry in owned:
+		protected[geometry.get_instance_id()] = true
+
+
+func _collect_street_geometry(node: Node,
+		out: Array[GeometryInstance3D]) -> void:
+	if node is SubViewport:
+		return
+	if node is GeometryInstance3D:
+		out.append(node)
+	for child in node.get_children():
+		_collect_street_geometry(child, out)
+
+
+func _has_moving_resident_ancestor(node: Node) -> bool:
+	var cursor := node
+	while cursor != null and cursor != self:
+		if String(cursor.name).begins_with("NPC_"):
+			return true
+		cursor = cursor.get_parent()
+	return false
+
+
+func _fully_in_street_core(geometry: GeometryInstance3D) -> bool:
+	var world: AABB = geometry.global_transform * geometry.get_aabb()
+	var lo := world.position
+	var hi := world.end
+	return lo.x > -LightRig.ORISON_CORE_HALF_X \
+			and hi.x < LightRig.ORISON_CORE_HALF_X \
+			and lo.z > -LightRig.ORISON_CORE_HALF_Z \
+			and hi.z < LightRig.ORISON_CORE_HALF_Z \
+			and lo.y >= -0.50 and hi.y <= 2.80
+
+
 func _collect_zone_lights(n: Node, out: Array) -> void:
 	if n is SubViewport:
 		return
@@ -1861,11 +1970,13 @@ func _visibility_signature(p: Vector3) -> int:
 	var in_eye := absf(p.x) < 3.7 and p.z > -3.7 and p.z < 6.9
 	var outside := not in_passage \
 			and (absf(p.x) > 15.2 or absf(p.z) > 11.2)
+	var low_street := _point_is_low_street(p)
 	var key := (1 if show_all_floors else 0) \
 			| ((1 if in_passage else 0) << 1) \
 			| ((1 if in_eye else 0) << 2) \
-			| ((1 if outside else 0) << 3)
-	var bit := 4
+			| ((1 if outside else 0) << 3) \
+			| ((1 if low_street else 0) << 4)
+	var bit := 5
 	for fid in floor_nodes:
 		var z: float = layout["meta"]["levels"][fid]
 		var floor_visible: bool = show_all_floors or in_eye or outside \
@@ -1887,6 +1998,10 @@ func _apply_visibility(p: Vector3) -> void:
 	_visibility_key = _visibility_signature(p)
 	_visibility_apply_count += 1
 	var in_passage := _point_is_in_passage(p)
+	# Restore STREET's blocker before Passage decides its own eligibility. The
+	# shared layer-block table keeps direct portal transitions correct in either
+	# direction even where both gates own the same F01 node.
+	_set_street_core_visibility(not _point_is_low_street(p))
 	_set_passage_visibility(in_passage)
 	var in_eye := absf(p.x) < 3.7 and p.z > -3.7 and p.z < 6.9
 	# Outside the shell you are looking AT the building, and a
@@ -1960,6 +2075,15 @@ func weather_exposure_at(p: Vector3) -> bool:
 	return absf(p.x) > 14.2 or p.z > 10.4 or p.z < -10.4
 
 
+func _point_is_low_street(p: Vector3) -> bool:
+	# Retained same-build control for T7c measurement and A/A/B renders.
+	if OS.get_environment("PERF_STREET_CORE_GEOMETRY_ON") == "1":
+		return false
+	return not _point_is_in_passage(p) \
+			and p.y >= -0.45 and p.y <= 2.25 \
+			and (absf(p.x) > 15.2 or absf(p.z) > 11.2)
+
+
 ## Exterior cover is not the same thing as an interior. The T5 transit shelter
 ## remains visibly surrounded by STREET rain while its roof suppresses the
 ## player-following close streaks and ground spatter. Coordinates are the
@@ -2020,6 +2144,19 @@ func _set_passage_visibility(should_show: bool) -> void:
 			actor.visible = should_show
 
 
+func _set_street_core_visibility(should_show: bool) -> void:
+	if street_core_visible == should_show:
+		return
+	# A transition is the deterministic late-build sweep. Gameplay takes several
+	# seconds to reach the pavement, but async arcade screens are still handled
+	# rather than being assumed complete after `_ready`.
+	_index_street_core_geometry()
+	street_core_visible = should_show
+	for geometry in street_core_nodes:
+		if is_instance_valid(geometry):
+			_zone_toggle(geometry, should_show, "street_core")
+
+
 ## LAYERS, not `visible`. Visibility has co-writers — the root-parented
 ## passes gate their own children per floor, window glow sleeps quads,
 ## cabinets stage their boot — and a visible save/restore stomped them
@@ -2030,16 +2167,24 @@ func _set_passage_visibility(should_show: bool) -> void:
 ## light's shadow pass at once, so the zone gate composes with the
 ## owners instead of contending: a node renders when its owner shows it
 ## AND the zone allows it.
-func _zone_toggle(node: Node3D, eligible: bool) -> void:
+func _zone_toggle(node: Node3D, eligible: bool,
+		blocker := "passage") -> void:
 	var vi := node as VisualInstance3D
 	if vi == null:
 		return
 	var id := vi.get_instance_id()
+	var blocks: Dictionary = _zone_layer_blocks.get(id, {})
 	if eligible:
+		blocks.erase(blocker)
+	else:
+		if not passage_late_saved.has(id):
+			passage_late_saved[id] = vi.layers
+		blocks[blocker] = true
+	if blocks.is_empty():
+		_zone_layer_blocks.erase(id)
 		if passage_late_saved.has(id):
 			vi.layers = passage_late_saved[id]
 			passage_late_saved.erase(id)
 	else:
-		if not passage_late_saved.has(id):
-			passage_late_saved[id] = vi.layers
+		_zone_layer_blocks[id] = blocks
 		vi.layers = 0

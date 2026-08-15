@@ -41,7 +41,8 @@ func _ready() -> void:
 	var requested := OS.get_environment("SHOT_STATION")
 	var captured := 0
 	var captures_per_station := 3 \
-			if OS.get_environment("WEATHER_CORE_SHADOW_PAIR") == "1" else 1
+			if OS.get_environment("WEATHER_CORE_SHADOW_PAIR") == "1" \
+			or OS.get_environment("WEATHER_STREET_CORE_PAIR") == "1" else 1
 	for station: Dictionary in STATIONS:
 		if requested != "" and requested != station.name:
 			continue
@@ -97,6 +98,18 @@ func _capture_godot(label: String, eye: Vector3, target: Vector3) -> void:
 		await _save_current_frame(label + "_control_a")
 		await _save_current_frame(label + "_control_b")
 		_suppress_orison_core_light_shadows(root)
+		await _save_current_frame(label + "_final")
+		get_tree().paused = false
+		return
+	# Same-process production proof for T7c. The retained control environment
+	# keeps the gate open for A/A; the final applies BuildingRoot's exact index.
+	if OS.get_environment("WEATHER_STREET_CORE_PAIR") == "1":
+		process_mode = Node.PROCESS_MODE_ALWAYS
+		root.light_rig.set_process(false)
+		get_tree().paused = true
+		await _save_current_frame(label + "_control_a")
+		await _save_current_frame(label + "_control_b")
+		_suppress_street_core_geometry(root)
 		await _save_current_frame(label + "_final")
 		get_tree().paused = false
 		return
@@ -164,4 +177,17 @@ func _suppress_orison_core_light_shadows(scene_root: Node,
 	if report:
 		print("[WEATHER SKY SHOT] ORISON-core shadows off: %d lights"
 				% suppressed)
+	return suppressed
+
+
+func _suppress_street_core_geometry(_scene_root: Node) -> int:
+	# Reuse the production index rather than cloning its ownership law into the
+	# visual instrument. Start this pair with PERF_STREET_CORE_GEOMETRY_ON=1.
+	root._index_street_core_geometry()
+	var suppressed := 0
+	for geometry in root.street_core_nodes:
+		if is_instance_valid(geometry) and geometry.layers != 0:
+			geometry.layers = 0
+			suppressed += 1
+	print("[WEATHER SKY SHOT] STREET-core geometry off: %d objects" % suppressed)
 	return suppressed

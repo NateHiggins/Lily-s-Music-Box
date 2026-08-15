@@ -434,8 +434,20 @@ emerges (no expelled debris or people); the rail-less tram is the authored wrong
   render proves the small visible delta without hiding live-rain noise under a
   false zero; evidence is `art/renders/street_core_shadow_t7b/paired/`.
   LightingAudit passes the outside suppression, exterior preservation and
-  inside restore. The remaining playable-street gap is still 10.16 ms, so T7
-  remains partial and no 16.6-ms closure is claimed.
+  inside restore. T7c then removes a second ownership leak: low STREET was
+  still submitting 1,150 F01 draws wholly enclosed by the Orison shell. The
+  new spatial index gates only complete AABBs behind the shell; WindowGlow,
+  the landmark entry, facade-touching compound props and moving residents are
+  explicitly protected. Its layer blocker composes with PASSAGE instead of
+  allowing either zone to restore the other's hidden geometry. Same-build
+  controls are 26.735/26.252 ms versus 22.870/22.794 production: **26.494 ->
+  22.832 ms (-3.662 ms, -13.8%)**, with mean calls **11,873 -> 9,433
+  (-20.5%)**. Exact production A/A/B frames at three street viewpoints live
+  in `art/renders/street_core_geometry_t7c/production_pair/`; entry, windows,
+  neon and facade architecture remain intact. `StreetCoreVisibilityTest`
+  passes 16/16, including direct STREET/PASSAGE transitions. The remaining
+  playable-street gap is **6.23 ms**, so T7 remains partial and no 16.6-ms
+  closure is claimed.
 - **T8 DONE.** `design/ORISON_DRIVING_RAIN_SKY_PROPOSAL.md` §17 records the
   production checkpoint: one geography-locked four-state storm family, slow
   lower cloud inside the existing sky draw, bounded middle-distance fog, one
