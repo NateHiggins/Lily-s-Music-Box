@@ -21,6 +21,9 @@ const T := 0.05
 var revealed := false
 
 var _leaf: Node3D
+var _knob: MeshInstance3D
+var _rattle: AudioStreamPlayer3D
+var _rattle_tween: Tween
 
 
 func _build_visual() -> void:
@@ -44,10 +47,11 @@ func _build_visual() -> void:
 				Vector3(0.0, oy, T / 2 + 0.004), Color.WHITE)
 		inset.material_override = frame
 		inset.reparent(_leaf)
-	var knob := make_cyl(0.028, 0.028, 0.05,
+	_knob = make_cyl(0.028, 0.028, 0.05,
 			Vector3(W / 2 - 0.09, 1.02, T / 2 + 0.03), Color.WHITE)
-	knob.material_override = smat("brass", Color(0.68, 0.55, 0.24))
-	knob.reparent(_leaf)
+	_knob.material_override = smat("brass", Color(0.68, 0.55, 0.24))
+	_knob.reparent(_leaf)
+	_rattle = make_emitter("tick", -9.0)
 	_leaf.visible = false
 
 
@@ -66,14 +70,32 @@ func is_revealed() -> bool:
 func interact_prompt() -> String:
 	if not revealed:
 		return ""
-	return "[E]  Omar: \"Not without a work order\""
+	return "[E]  Try the utility latch"
 
 
-func interact(_player: Node) -> void:
-	# Deliberately does nothing. The door being shut is the point; opening
-	# it belongs to a later case, and a locked door the player keeps
-	# walking past does more work than one that opens on the first night.
-	pass
+func interact(_player: Node) -> Dictionary:
+	if not revealed:
+		return {}
+	# The refusal is physical: the knob gives, the mortised latch does not.
+	# Opening remains owned by a later case; this response adds no key quest.
+	if _rattle:
+		_rattle.pitch_scale = 0.82
+		_rattle.play()
+	if _rattle_tween:
+		_rattle_tween.kill()
+	_knob.rotation.z = 0.0
+	_rattle_tween = create_tween()
+	_rattle_tween.tween_property(_knob, "rotation:z", -0.24, 0.07)
+	_rattle_tween.tween_property(_knob, "rotation:z", 0.0, 0.11) \
+			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	return PropServiceWire.card("service_door", {
+		"leaf_state": "SHUT",
+		"latch_state": "LOCKED / NO WORK ORDER",
+	})
 
 
 func _start_normal_function() -> void:

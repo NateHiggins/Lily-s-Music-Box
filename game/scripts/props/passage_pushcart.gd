@@ -13,6 +13,8 @@ var _passage_active := true
 var _after_hours_locked := false
 var _night_chain: MultiMeshInstance3D
 var _night_lock: MeshInstance3D
+var _chain_rattle: AudioStreamPlayer3D
+var _chain_tween: Tween
 
 
 func setup(id_: String, cargo_: String) -> void:
@@ -31,6 +33,12 @@ func setup(id_: String, cargo_: String) -> void:
 	_build_collision()
 	_build_visual()
 	_build_night_chain()
+	_chain_rattle = AudioStreamPlayer3D.new()
+	_chain_rattle.stream = PropAudio.get_stream("tick")
+	_chain_rattle.volume_db = -8.0
+	_chain_rattle.unit_size = 4.0
+	_chain_rattle.max_distance = 24.0
+	add_child(_chain_rattle)
 
 
 func _build_collision() -> void:
@@ -109,16 +117,43 @@ func _build_visual() -> void:
 
 func interact_prompt() -> String:
 	if _after_hours_locked:
-		return "Handcart chained for the night"
+		return "[E]  Rattle chained handcart"
 	return "[E]  Shove handcart"
 
 
-func interact(player: Node) -> void:
+func interact(player: Node) -> Dictionary:
 	if _after_hours_locked:
-		return
+		_rattle_chain()
+		return service_wire_card()
 	if not player is Node3D:
-		return
+		return service_wire_card()
 	shove_from((player as Node3D).global_position)
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	return PropServiceWire.card("pushcart", {
+		"cart_state": "FROZEN" if _after_hours_locked else "FREE ON WHEELS",
+		"chain_state": "PADLOCKED" if _after_hours_locked else "STOWED",
+		"hours_state": "AFTER HOURS" if _after_hours_locked else "TRADING HOURS",
+	})
+
+
+func _rattle_chain() -> void:
+	if _chain_rattle:
+		_chain_rattle.pitch_scale = 0.76
+		_chain_rattle.play()
+	if _chain_tween:
+		_chain_tween.kill()
+	_night_chain.rotation.z = 0.0
+	_night_lock.rotation.z = 0.0
+	_chain_tween = create_tween()
+	_chain_tween.tween_property(_night_chain, "rotation:z", 0.055, 0.05)
+	_chain_tween.parallel().tween_property(_night_lock, "rotation:z", -0.07, 0.05)
+	_chain_tween.tween_property(_night_chain, "rotation:z", -0.035, 0.06)
+	_chain_tween.parallel().tween_property(_night_lock, "rotation:z", 0.04, 0.06)
+	_chain_tween.tween_property(_night_chain, "rotation:z", 0.0, 0.08)
+	_chain_tween.parallel().tween_property(_night_lock, "rotation:z", 0.0, 0.08)
 
 
 func shove_from(source: Vector3) -> void:

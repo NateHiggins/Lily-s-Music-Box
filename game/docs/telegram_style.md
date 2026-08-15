@@ -111,6 +111,9 @@ Files:
 - `TelegramStyle`: assets, palette, paper/tag StyleBoxes and font application.
 - `TelegramHud`: one non-modal presenter, responsive placement, replacement,
   wrapping, duration and reduced-typewriter behavior.
+- `PropServiceWire`: one cached, read-only formatter for the researched object
+  book. Mechanism owners supply state tokens after acting; unresolved tokens,
+  non-presentable case templates and unknown cards return no slip.
 - `PlayerController`: calls the presenter only after the real interaction and
   only if the powered carried device prints successfully.
 - `ServiceSetProp`: modeled crown platen, physical textured slip, feed motion
@@ -121,3 +124,9 @@ Files:
 font ownership, real refrigerator reaction before the field copy, replacement,
 non-locking behavior and existing inspection routing. The production capture is
 `art/renders/telegram_style_i3/telegram_service_wire.png`.
+
+The first I4 response batch is proven by `ServiceWireResponseTest.tscn`: the
+F03 utility latch gives and clicks without opening, after-hours Passage chains
+rattle without moving their cart, a busy toaster answers without restarting,
+and the HARDWARE PAINT counter taps and returns an inspect card when no order is
+eligible. I4 remains open for the rest of the non-ambient matrix.

@@ -14,6 +14,7 @@ signal crumb_tray_changed(open: bool)
 
 const LEVER_TRAVEL := 0.046
 const TRAY_TRAVEL := 0.160
+const LEVER_HOME_X := 0.137
 
 const NICKEL := Color(0.72, 0.70, 0.66)
 const BAKELITE := Color(0.141, 0.125, 0.114)
@@ -40,6 +41,7 @@ var _click: AudioStreamPlayer3D
 var _pop: AudioStreamPlayer3D
 var _release_on_next_event := false
 var cycles_completed := 0
+var _busy_tween: Tween
 
 
 func _build_visual() -> void:
@@ -185,7 +187,7 @@ func _build_controls(parent: Node3D) -> void:
 	# dial was the wrong mechanism as well as the wrong decade.
 	_lever = Node3D.new()
 	_lever.name = "CarriageLever"
-	_lever.position = Vector3(0.137, 0.137, 0.002)
+	_lever.position = Vector3(LEVER_HOME_X, 0.137, 0.002)
 	add_child(_lever)
 	_box_on(_lever, Vector3(0.034, 0.015, 0.026), Vector3.ZERO, BAKELITE)
 	var lever_pin := _cyl_on(_lever, 0.006, 0.006, 0.018,
@@ -287,11 +289,53 @@ func _tube_between(parent: Node3D, a: Vector3, b: Vector3, radius: float,
 
 
 func interact_prompt() -> String:
-	return "[E]  Press the carriage lever" if state == PState.IDLE else ""
+	return "[E]  Press the carriage lever" if state == PState.IDLE \
+			else "[E]  Test the latched carriage"
 
 
-func interact(_player: Node) -> void:
-	start_cycle()
+func interact(_player: Node) -> Dictionary:
+	if state == PState.IDLE:
+		start_cycle()
+	else:
+		_busy_response()
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	var carriage := "RAISED"
+	var elements := "COLD"
+	match state:
+		PState.STARTING:
+			carriage = "DESCENDING"
+			elements = "ENERGIZING"
+		PState.OPERATING:
+			carriage = "LATCHED"
+			elements = "HEATING"
+		PState.COMPLETING:
+			carriage = "RELEASING"
+			elements = "COOLING"
+		PState.FAULT:
+			carriage = "HELD"
+			elements = "FAULT"
+	return PropServiceWire.card("toaster", {
+		"carriage_state": carriage,
+		"element_state": elements,
+	})
+
+
+func _busy_response() -> void:
+	if _click:
+		_click.pitch_scale = 0.72
+		_click.play()
+	if _busy_tween:
+		_busy_tween.kill()
+	# A repeated impatient hand cannot ratchet the lever sideways by killing a
+	# previous response tween at its extreme.
+	_lever.position.x = LEVER_HOME_X
+	_busy_tween = create_tween()
+	_busy_tween.tween_property(_lever, "position:x", LEVER_HOME_X - 0.004, 0.045)
+	_busy_tween.tween_property(_lever, "position:x", LEVER_HOME_X + 0.003, 0.045)
+	_busy_tween.tween_property(_lever, "position:x", LEVER_HOME_X, 0.06)
 
 
 func _start_normal_function() -> void:
