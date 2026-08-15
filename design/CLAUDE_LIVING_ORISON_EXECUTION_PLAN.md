@@ -51,7 +51,7 @@ The project already owns most of the expensive world:
   systems and a measured audit identifying what players currently fail to see.
 - Physical prop mechanisms, material infrastructure, audio sources, shops and a
   bodega capable of supporting maintenance errands.
-- A ruled dream premise and a detailed proposal, but no production dream loop.
+- A ruled dream premise and production design, but no production dream loop.
 - Strong visual density with a measured CPU/submission performance problem,
   especially in the atrium and on Android-class hardware.
 
@@ -204,7 +204,7 @@ Do not make one god-director. Orchestration and domain state stay separate.
 | Carried maintenance items | small `MaintenanceInventory` service | Parts and tools only; do not build a general RPG inventory |
 | Shop stock / transactions | `game/data/shop_inventory.json` plus one shop service | Item provenance and acquisition verb; geometry remains layout-owned |
 | Narcolepsy and transition | `SleepPressureDirector` in `game/scripts/dream/` | Accumulates pressure, respects protected windows, requests entry |
-| Dream run | `DreamDirector` and its scene | Owns entry, light binary, pursuit, death/wake and residue handoff |
+| Dream run | `DreamDirector` and its scene | Owns entry, light binary, pursuit, capture/hazard wake and residue handoff |
 | Waking haunting | existing sanity / Tenant / intrusion owners | They provide pressure and case grammar; they do not advance quests |
 | Presentation | objective, dialogue, interaction and subtitle UI | Presents authoritative state; never owns progression |
 
@@ -349,13 +349,14 @@ and can explain why the practical repair did not by itself solve the case.
 
 1. Prototype and approve the light-on/visible versus light-off/safer binary.
 2. Reuse Orison room vocabulary with local coherence and global wrongness.
-3. Bind the pursuer to the active unresolved case under the one-Tenant ruling.
-4. Give every hazard an audible tell and understandable death.
+3. Bind the pursuer to the just-integrated case's release print under the
+   one-Tenant ruling; never preview the next unresolved case.
+4. Give every hazard an audible tell and understandable wake outcome.
 5. Protect calls, conversations and committed repair work from onset loss.
 6. Ship gradual-only onset accessibility and mix safeguards.
 7. Tune the first run to end before mastery; later campaign stages lengthen it.
 
-**Gate:** first-time players are frightened, know why they died within half a
+**Gate:** first-time players are frightened, know why the passage ended within half a
 second, wake in 4B without lost progress, and recognise one case truth in the run.
 
 ### M6 — AAA vertical-slice polish
@@ -453,7 +454,7 @@ is the log.
 | Product direction, milestone order, definition of done | this document |
 | Immediate next sequence | `design/next_session_plan.md` |
 | Open executable work | `TASKS.md` |
-| Detailed dream proposal | `design/ORISON_MAZE_BRIEF.md` |
+| Ruled dream production design | `design/ORISON_MAZE_BRIEF.md` |
 | What props do | `design/PROP_ACTIVITIES.md` |
 | Actual subsystem behavior | `game/docs/` next to the subsystem |
 | Build and verification mechanics | `HANDOFF.md` |
@@ -461,7 +462,7 @@ is the log.
 
 When the loop spine lands, add `game/docs/core_loop.md` documenting the actual
 state machine, signal contract, save fields and extension recipe. Do not write
-that reference document from this proposal before the code exists.
+that reference document from this execution plan before the code exists.
 
 ---
 

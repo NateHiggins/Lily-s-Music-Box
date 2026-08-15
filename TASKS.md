@@ -719,20 +719,14 @@ system - **it is more than half the authored content.**
 ## N — The dream (narcolepsy maze)
 
 The owner ruled the core function on 2026-08-13: narcoleptic onset, a terrifying
-dark scramble and waking in 4B are part of every case loop. The detailed maze
-brief was replaced on 2026-08-15 with a complete production proposal after the
-owner clarified that dream secrecy applies to the **title screen only**. K7 is
-still open; dream design does not silently close the core-loop documentation.
+dark scramble and waking in 4B are part of every case loop. On 2026-08-15 the
+owner approved the complete production design and clarified that dream secrecy
+applies to the **title screen only**. N2's dimensioned ten-module substrate is
+closed at `art/renders/dream_maze_n2/README.md`: 100/100 deterministic seeds,
+seed-independent diversity measurement, 18 live provenance checks and 0
+unresolved. K7 remains open; dream design does
+not silently close the core-loop documentation.
 
-- **N1** Owner review of the five rulings requested by
-  `design/ORISON_MAZE_BRIEF.md`: release-print case binding, capture rather than
-  death language, deterministic ten-module ring, 28–90 second curve, and the
-  player's own shadow held for endgame. Paper measurement and a disposable
-  control corridor do not need to wait; final content and canon do.
-- **N2** Produce the exact dimensioned top-down drawing and source catalog for
-  `D00`–`D09`, then make 100 seeds pass overlap, connector, capsule, step,
-  swing, reachability, hazard-route and stable-hash audits. No free-form room
-  generation and no hand-edited generated output.
 - **N3** Build the disposable light/pursuit control corridor first. Wire the
   existing phone lamp through one keyboard/controller/touch toggle; prove light
   on shortens capture by at least one third, light off buys six seconds, and
@@ -756,9 +750,6 @@ still open; dream design does not silently close the core-loop documentation.
   isolated-scene gate.
 - **N9** Use Peter as the shared-profile proof. Change content, pursuit grammar
   and case truth without forking the maze, director, hazard or save owners.
-- **N10** If the proposal is ruled canon, record the dream's Rule of Signal
-  exemption and the release-print supersession in `ORISON_BIBLE.md`; do not
-  alter canon while it remains owner-review material.
 
 ## M — Materials and textures
 

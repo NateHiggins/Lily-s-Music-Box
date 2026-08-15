@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1400" viewBox="0 0 1800 1400">
+  <title>N2 dimensioned control drawing for the ruled Orison dream maze</title>
+  <desc>Topology and source-faithful module footprints in metres for canonical seed 0. Control packing is non-overlapping but is not runtime world placement.</desc>
+  <defs>
+    <pattern id="grid10" width="108" height="108" patternUnits="userSpaceOnUse"><path d="M108 0H0V108" fill="none" stroke="#ddd7ca" stroke-width="1"/></pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#272b2d"/></marker>
+    <style>
+      .paper{fill:#f7f3e9}.ink{fill:#272b2d}.muted{fill:#66645f}.title{font:600 27px 'Segoe UI',Arial,sans-serif;letter-spacing:1px}.label{font:600 15px 'Segoe UI',Arial,sans-serif}.note{font:14px 'Segoe UI',Arial,sans-serif}.small{font:12px 'Segoe UI',Arial,sans-serif}.mono{font:13px Consolas,'Courier New',monospace}.edge{fill:none;stroke:#42555e;stroke-width:2;marker-end:url(#arrow)}.fold{fill:none;stroke:#8b3e34;stroke-width:2.5;stroke-dasharray:8 6;marker-end:url(#arrow)}.module{stroke:#35434a;stroke-width:1.6}.connector{fill:#f7f3e9;stroke:#315e73;stroke-width:2}.hazard{stroke:#a43e34;stroke-width:2}.dim{stroke:#272b2d;stroke-width:1.2;fill:none;marker-start:url(#arrow);marker-end:url(#arrow)}.ext{stroke:#77736b;stroke-width:1}.panel{fill:none;stroke:#aaa397;stroke-width:1.2}
+    </style>
+  </defs>
+  <rect class="paper" width="1800" height="1400"/>
+  <text x="55" y="48" class="title ink">N2 — ORISON DREAM MAZE / DIMENSIONED MODULE CONTROL</text>
+  <text x="55" y="74" class="note muted">metres · source-faithful footprints · deterministic topology · canonical seed 0 · construction control, not concept art</text>
+  <rect x="45" y="95" width="1350" height="390" class="panel"/>
+  <text x="65" y="122" class="label ink">DIRECTED CAMPAIGN TOPOLOGY</text>
+  <path d="M161 215C177.5 215 177.5 215 194 215" class="edge"/>
+  <path d="M326 215C347.5 215 347.5 295 369 295" class="edge"/>
+  <path d="M326 215C347.5 215 347.5 135 369 135" class="edge"/>
+  <path d="M501 295C522.5 295 522.5 215 544 215" class="edge"/>
+  <path d="M501 135C522.5 135 522.5 215 544 215" class="edge"/>
+  <path d="M676 215C697.5 215 697.5 215 719 215" class="edge"/>
+  <path d="M851 215C872.5 215 872.5 135 894 135" class="edge"/>
+  <path d="M851 215C872.5 215 872.5 295 894 295" class="edge"/>
+  <path d="M1026 135C1047.5 135 1047.5 215 1069 215" class="edge"/>
+  <path d="M1026 295C1047.5 295 1047.5 215 1069 215" class="edge"/>
+  <path d="M1201 215C1217.5 215 1217.5 215 1234 215" class="edge"/>
+  <path d="M1300 252V430H260V253" class="fold"/>
+  <text x="780" y="452" text-anchor="middle" class="small" fill="#8b3e34">D09 RETURNS BEHIND D01 — UNLOCK SLOT 6</text>
+  <g transform="translate(29 177)">
+    <rect width="132" height="76" rx="7" fill="#cfdce2" class="module"/>
+    <text x="66" y="23" text-anchor="middle" class="label ink">D00</text>
+    <text x="66" y="43" text-anchor="middle" class="small ink">4B THRESHOLD</text>
+    <text x="66" y="62" text-anchor="middle" class="mono ink">2.20 × 1.25 m · S1</text>
+  </g>
+  <g transform="translate(194 177)">
+    <rect width="132" height="76" rx="7" fill="#cfdce2" class="module"/>
+    <text x="66" y="23" text-anchor="middle" class="label ink">D01</text>
+    <text x="66" y="43" text-anchor="middle" class="small ink">F04 LONG HALL</text>
+    <text x="66" y="62" text-anchor="middle" class="mono ink">19.30 × 2.08 m · S1</text>
+  </g>
+  <g transform="translate(369 257)">
+    <rect width="132" height="76" rx="7" fill="#d9d3e7" class="module"/>
+    <text x="66" y="23" text-anchor="middle" class="label ink">D02</text>
+    <text x="66" y="43" text-anchor="middle" class="small ink">DOG-LEG STAIR</text>
+    <text x="66" y="62" text-anchor="middle" class="mono ink">6.32 × 6.32 m · S2</text>
+  </g>
+  <g transform="translate(369 97)">
+    <rect width="132" height="76" rx="7" fill="#cfdce2" class="module"/>
+    <text x="66" y="23" text-anchor="middle" class="label ink">D03</text>
+    <text x="66" y="43" text-anchor="middle" class="small ink">LIFT VOID</text>
+    <text x="66" y="62" text-anchor="middle" class="mono ink">4.10 × 3.50 m · S1</text>
+  </g>
+  <g transform="translate(544 177)">
+    <rect width="132" height="76" rx="7" fill="#cfdce2" class="module"/>
+    <text x="66" y="23" text-anchor="middle" class="label ink">D04</text>
+    <text x="66" y="43" text-anchor="middle" class="small ink">BATHROOM RUN</text>
+    <text x="66" y="62" text-anchor="middle" class="mono ink">9.60 × 2.20 m · S1</text>
+  </g>
+  <g transform="translate(719 177)">
+    <rect width="132" height="76" rx="7" fill="#cfdce2" class="module"/>
+    <text x="66" y="23" text-anchor="middle" class="label ink">D05</text>
+    <text x="66" y="43" text-anchor="middle" class="small ink">SERVICE RISER</text>
+    <text x="66" y="62" text-anchor="middle" class="mono ink">6.50 × 2.08 m · S1</text>
+  </g>
+  <g transform="translate(894 97)">
+    <rect width="132" height="76" rx="7" fill="#d8dfc4" class="module"/>
+    <text x="66" y="23" text-anchor="middle" class="label ink">D06</text>
+    <text x="66" y="43" text-anchor="middle" class="small ink">PLANT ROOMS</text>
+    <text x="66" y="62" text-anchor="middle" class="mono ink">17.51 × 8.14 m · S3</text>
+  </g>
+  <g transform="translate(894 257)">
+    <rect width="132" height="76" rx="7" fill="#ead8b7" class="module"/>
+    <text x="66" y="23" text-anchor="middle" class="label ink">D07</text>
+    <text x="66" y="43" text-anchor="middle" class="small ink">LIGHT-COURT WALK</text>
+    <text x="66" y="62" text-anchor="middle" class="mono ink">6.32 × 6.32 m · S4</text>
+  </g>
+  <g transform="translate(1069 177)">
+    <rect width="132" height="76" rx="7" fill="#dfc9c6" class="module"/>
+    <text x="66" y="23" text-anchor="middle" class="label ink">D08</text>
+    <text x="66" y="43" text-anchor="middle" class="small ink">CASE ECHO</text>
+    <text x="66" y="62" text-anchor="middle" class="mono ink">8.14 × 5.80 m · S5</text>
+  </g>
+  <g transform="translate(1234 177)">
+    <rect width="132" height="76" rx="7" fill="#c9c5bd" class="module"/>
+    <text x="66" y="23" text-anchor="middle" class="label ink">D09</text>
+    <text x="66" y="43" text-anchor="middle" class="small ink">RETURN HALL</text>
+    <text x="66" y="62" text-anchor="middle" class="mono ink">6.50 × 2.08 m · S6</text>
+  </g>
+  <rect x="45" y="515" width="1120" height="760" fill="url(#grid10)" class="panel"/>
+  <text x="65" y="545" class="label ink">SOURCE-FOOTPRINT CONTROL PACKING — 10.8 px/m · X east · Y north</text>
+  <text x="65" y="566" class="small muted">Every rectangle is to scale. Packing proves non-overlap for both seeded branch handings; topology above governs connections.</text>
+  <rect x="76.00" y="1007.10" width="23.76" height="13.50" fill="#cfdce2" class="module"/>
+  <line x1="87.88" y1="1020.60" x2="87.88" y2="1027.60" class="ext"/>
+  <text x="87.88" y="1037.60" text-anchor="middle" class="label ink">D00</text>
+  <text x="87.88" y="1051.60" text-anchor="middle" class="small ink">2.20 × 1.25</text>
+  <circle cx="76.00" cy="1013.85" r="4" class="connector"/>
+  <circle cx="99.76" cy="1013.85" r="4" class="connector"/>
+  <rect x="119.20" y="998.14" width="208.44" height="22.46" fill="#cfdce2" class="module"/>
+  <line x1="223.42" y1="998.14" x2="223.42" y2="997.14" class="ext"/>
+  <text x="223.42" y="979.14" text-anchor="middle" class="label ink">D01</text>
+  <text x="223.42" y="993.14" text-anchor="middle" class="small ink">19.30 × 2.08</text>
+  <circle cx="119.20" cy="1009.37" r="4" class="connector"/>
+  <circle cx="310.90" cy="998.14" r="4" class="connector"/>
+  <circle cx="310.90" cy="1020.60" r="4" class="connector"/>
+  <circle cx="132.70" cy="1020.60" r="4" class="connector"/>
+  <rect x="378.40" y="1103.54" width="68.26" height="68.26" fill="#d9d3e7" class="module"/>
+  <text x="412.53" y="1135.67" text-anchor="middle" class="label ink">D02</text>
+  <text x="412.53" y="1152.67" text-anchor="middle" class="small ink">6.32 × 6.32</text>
+  <circle cx="412.53" cy="1171.80" r="4" class="connector"/>
+  <circle cx="446.66" cy="1137.67" r="4" class="connector"/>
+  <rect x="378.40" y="896.40" width="44.28" height="37.80" fill="#cfdce2" class="module"/>
+  <line x1="400.54" y1="896.40" x2="400.54" y2="895.40" class="ext"/>
+  <text x="400.54" y="877.40" text-anchor="middle" class="label ink">D03</text>
+  <text x="400.54" y="891.40" text-anchor="middle" class="small ink">4.10 × 3.50</text>
+  <circle cx="400.54" cy="896.40" r="4" class="connector"/>
+  <circle cx="422.68" cy="915.30" r="4" class="connector"/>
+  <rect x="497.20" y="996.84" width="103.68" height="23.76" fill="#cfdce2" class="module"/>
+  <line x1="549.04" y1="996.84" x2="549.04" y2="995.84" class="ext"/>
+  <text x="549.04" y="977.84" text-anchor="middle" class="label ink">D04</text>
+  <text x="549.04" y="991.84" text-anchor="middle" class="small ink">9.60 × 2.20</text>
+  <circle cx="497.20" cy="1002.78" r="4" class="connector"/>
+  <circle cx="497.20" cy="1014.66" r="4" class="connector"/>
+  <circle cx="600.88" cy="1008.72" r="4" class="connector"/>
+  <rect x="637.60" y="998.14" width="70.20" height="22.46" fill="#cfdce2" class="module"/>
+  <line x1="672.70" y1="998.14" x2="672.70" y2="997.14" class="ext"/>
+  <text x="672.70" y="979.14" text-anchor="middle" class="label ink">D05</text>
+  <text x="672.70" y="993.14" text-anchor="middle" class="small ink">6.50 × 2.08</text>
+  <circle cx="637.60" cy="1009.37" r="4" class="connector"/>
+  <circle cx="695.92" cy="998.14" r="4" class="connector"/>
+  <circle cx="695.92" cy="1020.60" r="4" class="connector"/>
+  <rect x="756.40" y="846.29" width="189.11" height="87.91" fill="#d8dfc4" class="module"/>
+  <text x="850.95" y="888.24" text-anchor="middle" class="label ink">D06</text>
+  <text x="850.95" y="905.24" text-anchor="middle" class="small ink">17.51 × 8.14</text>
+  <circle cx="850.95" cy="934.20" r="4" class="connector"/>
+  <circle cx="756.40" cy="890.24" r="4" class="connector"/>
+  <rect x="756.40" y="1146.74" width="68.26" height="68.26" fill="#ead8b7" class="module"/>
+  <text x="790.53" y="1178.87" text-anchor="middle" class="label ink">D07</text>
+  <text x="790.53" y="1195.87" text-anchor="middle" class="small ink">6.32 × 6.32</text>
+  <circle cx="790.53" cy="1146.74" r="4" class="connector"/>
+  <circle cx="756.40" cy="1180.87" r="4" class="connector"/>
+  <rect x="983.20" y="957.96" width="87.91" height="62.64" fill="#dfc9c6" class="module"/>
+  <text x="1027.16" y="987.28" text-anchor="middle" class="label ink">D08</text>
+  <text x="1027.16" y="1004.28" text-anchor="middle" class="small ink">8.14 × 5.80</text>
+  <circle cx="1071.11" cy="973.08" r="4" class="connector"/>
+  <circle cx="1071.11" cy="1005.48" r="4" class="connector"/>
+  <circle cx="1027.16" cy="1020.60" r="4" class="connector"/>
+  <rect x="994.00" y="1149.34" width="70.20" height="22.46" fill="#c9c5bd" class="module"/>
+  <line x1="1029.10" y1="1149.34" x2="1029.10" y2="1148.34" class="ext"/>
+  <text x="1029.10" y="1130.34" text-anchor="middle" class="label ink">D09</text>
+  <text x="1029.10" y="1144.34" text-anchor="middle" class="small ink">6.50 × 2.08</text>
+  <circle cx="1029.10" cy="1149.34" r="4" class="connector"/>
+  <circle cx="994.00" cy="1160.57" r="4" class="connector"/>
+  <path d="M193.04 1004.37L203.04 1014.37M203.04 1004.37L193.04 1014.37" class="hazard"/>
+  <text x="206.04" y="1002.37" class="small" fill="#8b3e34">H1</text>
+  <path d="M390.14 910.30L400.14 920.30M400.14 910.30L390.14 920.30" class="hazard"/>
+  <text x="376.14" y="907.30" class="small" fill="#8b3e34">H2</text>
+  <path d="M407.42 910.30L417.42 920.30M417.42 910.30L407.42 920.30" class="hazard"/>
+  <text x="420.42" y="930.30" class="small" fill="#8b3e34">H3</text>
+  <path d="M667.70 1004.37L677.70 1014.37M677.70 1004.37L667.70 1014.37" class="hazard"/>
+  <text x="680.70" y="1025.37" class="small" fill="#8b3e34">H4</text>
+  <path d="M897.31 885.24L907.31 895.24M907.31 885.24L897.31 895.24" class="hazard"/>
+  <text x="910.31" y="883.24" class="small" fill="#8b3e34">H5</text>
+  <path d="M794.71 885.24L804.71 895.24M804.71 885.24L794.71 895.24" class="hazard"/>
+  <text x="807.71" y="883.24" class="small" fill="#8b3e34">H6</text>
+  <path d="M785.53 1175.87L795.53 1185.87M795.53 1175.87L785.53 1185.87" class="hazard"/>
+  <text x="798.53" y="1173.87" class="small" fill="#8b3e34">H7</text>
+  <path d="M1045.16 1155.57L1055.16 1165.57M1055.16 1155.57L1045.16 1165.57" class="hazard"/>
+  <text x="1058.16" y="1153.57" class="small" fill="#8b3e34">H8</text>
+  <line x1="76.00" y1="1260.00" x2="1071.11" y2="1260.00" class="dim"/>
+  <text x="573.56" y="1280.00" text-anchor="middle" class="mono ink">CONTROL PACK 92.14 m</text>
+  <line x1="1105.11" y1="846.29" x2="1105.11" y2="1215.00" class="dim"/>
+  <text x="1119.11" y="1030.64" class="mono ink">34.14 m</text>
+  <line x1="75" y1="1248" x2="183" y2="1248" stroke="#272b2d" stroke-width="6"/>
+  <text x="75" y="1267" text-anchor="middle" class="small ink">0</text>
+  <text x="183" y="1267" text-anchor="middle" class="small ink">10 m</text>
+  <circle cx="255" cy="1248" r="4" class="connector"/><text x="267" y="1253" class="small ink">0.91 m connector</text>
+  <path d="M400 1243l10 10m0-10l-10 10" class="hazard"/><text x="418" y="1253" class="small ink">hazard socket</text>
+  <g transform="translate(1190 515)">
+    <rect width="565" height="760" fill="#f0ebdf" stroke="#aaa397" stroke-width="1.2"/>
+    <text x="22" y="34" class="label ink">CONTROL SCHEDULE</text>
+    <text x="22" y="62" class="mono ink">seed 0 · SHA-256 e0b8461695996f5cc101…</text>
+    <text x="22" y="85" class="note ink">100/100 seeds · 100 stable · 100 structures</text>
+    <text x="22" y="108" class="note ink">10 modules · 12 directed edges · 8 hazards</text>
+    <text x="22" y="131" class="note ink">18 source-provenance checks · 0 unresolved</text>
+    <line x1="22" y1="148" x2="543" y2="148" stroke="#aaa397"/>
+    <text x="22" y="176" class="label ink">RULED CLEARANCES</text>
+    <text x="22" y="200" class="mono ink">door       0.910 m</text>
+    <text x="22" y="222" class="mono ink">capsule    0.660 m</text>
+    <text x="22" y="244" class="mono ink">clearance  0.250 m total</text>
+    <text x="22" y="266" class="mono ink">ceiling    3.015 m</text>
+    <text x="22" y="288" class="mono ink">run caps   28 / 38 / 50 / 62 / 76 / 90 s</text>
+    <line x1="22" y1="306" x2="543" y2="306" stroke="#aaa397"/>
+    <text x="22" y="334" class="label ink">HAZARD SOCKETS</text>
+    <text x="22" y="358" class="mono ink">H1  hollow_runner / D01</text>
+    <text x="22" y="380" class="mono ink">H2  open_lift_void / D03</text>
+    <text x="22" y="402" class="mono ink">H3  counterweight_passage / D03</text>
+    <text x="22" y="424" class="mono ink">H4  vantry_signal_trunk / D05</text>
+    <text x="22" y="446" class="mono ink">H5  laundry_mangle_belt / D06</text>
+    <text x="22" y="468" class="mono ink">H6  boiler_relief_sweep / D06</text>
+    <text x="22" y="490" class="mono ink">H7  breathing_partition / D07</text>
+    <text x="22" y="512" class="mono ink">H8  fire_door_return / D09</text>
+    <line x1="22" y1="536" x2="543" y2="536" stroke="#aaa397"/>
+    <text x="22" y="564" class="label ink">PROVENANCE</text>
+    <text x="22" y="588" class="small ink">building_layout.json owns rooms, stair, shaft and ceilings.</text>
+    <text x="22" y="609" class="small ink">PlayerController owns the 0.66 m capsule.</text>
+    <text x="22" y="630" class="small ink">This sheet owns no waking coordinates.</text>
+    <text x="22" y="651" class="small ink">Control packing is not runtime placement.</text>
+  </g>
+  <text x="55" y="1335" class="note muted">AUDIT: source rects / atrium / elevator / clear ceiling / capsule · connector span / margin / swing · hazard clearance / warning · graph reachability by slot · stable seed hash</text>
+  <text x="55" y="1362" class="note muted">Generated by art/data/gen_dream_maze.py. Edit game/data/dream_module_catalog.json or the waking source; never hand-edit generated JSON/SVG/PNG.</text>
+</svg>

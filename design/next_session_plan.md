@@ -1,6 +1,6 @@
-# Next session: the dream maze is designed — rule it before production
+# Next session: N2 is closed — prove the light/pursuit binary (N3)
 
-*Rewritten 2026-08-13. Sequencing authority beneath
+*Rewritten 2026-08-15. Sequencing authority beneath
 `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`.*
 
 ## Read first
@@ -17,122 +17,49 @@ does not prohibit designing or building the production dream.
 
 ## Immediate next action
 
-**K6 is complete. Review the replacement `design/ORISON_MAZE_BRIEF.md`.** It now
-specifies the exact Mina run, deterministic ten-module ring, light/pursuit
-contract, shadows-only Tenant presentation, eight hazards, six case grammars,
-accessibility, ownership, save transaction, proposed files and proof gates.
-It also names the real contradiction created by the landed seam: K6 requests
-the dream after Mina resolves, while the old proposal selected only unresolved
-cases. Its recommended resolution is a one-passage **release print** of the case
-just integrated, quiet after wake and never a spoiler for the next case.
+**The full `design/ORISON_MAZE_BRIEF.md` is ruled. N2 is complete.** The owner
+approved the release-print case binding, capture rather than death, deterministic
+ten-module ring, 28–90 second curve and the player's own shadow held for
+endgame. The Bible and execution plan carry the ruling. The source catalog,
+canonical assembly, dimensioned drawing and audit record live at
+`art/renders/dream_maze_n2/README.md`: 10 modules, 12 directed edges, 8 hazards,
+18 source checks, 100/100 deterministic seeds, 0 unresolved. The generated
+audit records the measured seed-independent structure count.
 
-The five owner rulings requested at the foot of that brief are now the immediate
-approval point. After approval, execute N2's dimensioned module drawing and N3's
-disposable light/pursuit control corridor before building final dream content.
-K7 remains open and should document the landed K2–K6 loop contract before the
-campaign scene boundary is changed; Peter, a second errand and six parallel
+**Begin N3 with a disposable control corridor, not production maze art.** Wire
+the existing phone lamp through one keyboard/controller/touch public toggle;
+place one invisible navigation body behind real opaque collision; measure paired
+fixed-seed runs until light-on shortens capture by at least one third, light-off
+buys at least six seconds after acquisition, and no target acquisition crosses
+an opaque wall. The shadows-only proxy may be a diagnostic silhouette, but no
+canonical monster model, case content, onset or CampaignShell belongs in N3.
+
+K7 remains open and must document the landed K2–K6 loop contract before N4
+changes the campaign scene boundary. Peter, a second errand and six parallel
 dream implementations remain out of scope.
 
-## First work: rule the measured M0.5 performance blocker
+## Execution order
 
-Do not begin another prop family, receiver, street landmark or case. The final
-map is a ruled consolidation, not an expansion. Its measured build drawing is
-`design/FINAL_MAP_REDESIGN_BRIEF.md`.
+1. **N3 — prove the binary.** Build only the disposable light/pursuit corridor
+   and its fixed-seed measurement harness. Do not call the control silhouette a
+   Tenant asset or retain the corridor as production geometry.
+2. **K7 — document the landed spine.** Write `game/docs/core_loop.md` from the
+   K2–K6 code that exists. This is required before a production scene boundary
+   is added.
+3. **N4 — build the shared maze runtime.** Consume the N2 catalog and topology;
+   do not copy the drawing's control-pack coordinates into the waking world.
+4. **N5 onward — integrate one vertical slice.** Mina first, then the remaining
+   case grammars only after the shared substrate passes its gates.
 
-All three pre-subtraction checks are complete. Do not repeat them:
-
-1. The south pavement leaks to all four outlying shops. Its replacement must
-   be visible architecture/weather and must be verified before the old partial
-   boundary is retired.
-2. The black masses were stale parked-car and bus-shelter geometry. Check 2 is
-   closed in `FINAL_MAP_REDESIGN_BRIEF.md` §10ac, and commit `782776c` rebuilt
-   the glTFs from current records.
-3. The dimensioned portal/throat/hall control drawing is rendered at
-   `art/renders/map_check3/passage_top_down.png` and recorded in §10ae.
-
-Phase 2 subtraction (`e102a41`) and Phase 3 Passage construction are complete
-as consecutive rollback points. All eleven shops now exist once inside the
-ruled envelope, the portal visibility gate is proven, and focused/full suites
-print PASS. Do not repeat or reopen that spatial work.
-
-Phase 4 is complete. Both exact street-end controls now carry timber works over
-the pavements and quiet local weather over the carriageway; all six capsule
-sweeps stop on named visible owners and the old partial invisible body is gone.
-Do not reopen the still-unruled loud-tear questions while finishing M0.5.
-
-The Passage finish and pushcart layer are complete. Three loaded handcarts are
-shoveable rigid bodies; brass nosings, edge drainage and wheel wear finish the
-hall in three gated draws. The exact x=14 spine and all four resident shop
-routes remain capsule-clear, and the portal freezes cart physics outside the
-zone.
-
-PS6 hours are also complete. At the canonical 03:00 shift, ten shops close
-behind internal sliding lattice grilles, their circuits go dark and the three
-carts are visibly chained. HARDWARE PAINT is the deliberate night-service
-exception required by the proved Mina errand; it is not an accidental open
-bay. Day state reverses all three effects. Do not replace this with opaque
-modern shutters or close the exception without changing and re-proving the
-gameplay loop.
-
-The complete-route lock is done. `FinalMapRouteTest` drives the real player
-ORISON → STREET → PASSAGE → HARDWARE PAINT and back on the loaded map. The
-Passage gate now keeps the F01 hall host while excluding the apartment stack,
-non-Passage F01 actors and 170 foreign site draws. The focused route,
-visibility, finish, navigation, shop, containment, FAST walk and lighting
-suites pass; final renders are in `art/renders/map_final_acceptance/`.
-
-**RULED 2026-08-14: M0.5 IS COMPLETE — accepted with the measured blocker.**
-`ab120dc` is the final production checkpoint. The ruling's standing terms:
-canonical pinned night is the authoritative benchmark state (perf pins
-`DAYNIGHT=0`; all older interior numbers are DAYTIME and not directly
-comparable); the 16.6 ms target is unchanged and **northbound stands
-≈17.8 ms, ≈1.2 ms over, as a proven accepted blocker**; the 9 m shop-batch
-contract remains enforced because it protects local light selection and
-bounded AABBs; cross-shop batching is deferred to project-wide P1 and
-requires its own visual, lighting, culling, ownership and interaction
-proof. The acceptance was earned by measurement: shadow policy (rejected,
-§10aj), prop ticks (falsified, §10am), and the submission decomposition
-with three ownership leaks fixed for −3.1 ms and the residual ceiling
-measured (§10an). **M1 may begin.**
-
-WalkTest FULL is a fresh PASS for the final revision: 48.3 seconds at the
-suite's supported x8 / 480 Hz setting. It preserves capsule displacement per
-step and pauses unrelated resident routines only after the physical route and
-shared-elevator checks, while the stateful Case 02–08 order remains intact.
-
-## M1 in four reviewable changes (the gate is passed)
-
-1. **K2 — job contract.** Define the one-job data shape and extend `WorkOrders`
-   through diagnosis, procurement, repair and closure. No dream code.
-2. **K3 — errand contract.** Add one maintenance item and one shop acquisition
-   path. No general RPG inventory and no second shop.
-3. **K4 — orchestration.** Add the thin core-loop coordinator and persistence
-   boundaries. It listens; it does not absorb domain logic.
-4. **K5 — proof.** Add a deterministic end-to-end test that exercises the full
-   graybox loop including dream request and bed return stubs.
-
-Stop after each acceptance gate and render/play what changed. Do not wait until
-the end to discover that the interaction exists only in tests.
-
-**2026-08-14: M1 IS COMPLETE — the gate is proven.** K2 (`5bc6ea7`, amended
-by owner ruling in `63e925b`: the chirp IS the job), K3 (`2b18a93`) and K4
-(`73a36ea`) landed the spine, and K5's `GoldenLoopTest` proves the gate end
-to end on the production scene: the one authored job (`vantry_chirp_2a`)
-starts by discovery or report, requires the carbon transmitter capsule,
-accepts the physical Vantry repair, requests the earned conversation,
-requests a dream through the coordinator's boundary, and resumes after
-waking at the authored 4B bedside — with the player physically walking
-2A → ORISON → STREET → PASSAGE → HARDWARE PAINT and back, and save/load
-exercised through the real file at all seven loop boundaries. **No production
-dream gameplay or sleep-pressure system exists yet** — the dream is still a
-requested boundary consumed by a test stub. K6 now routes Mina's full existing
-case through that shift and persists its waking residue; the next executable
-gate is **K7**, documentation of the landed spine.
+M0.5 and M1 are closed historical milestones. Their detailed proof remains in
+`design/FINAL_MAP_REDESIGN_BRIEF.md`, `TASKS.md` and `HANDOFF.md`; do not rerun,
+reinterpret or reopen them while executing N3.
 
 ## Non-negotiable constraints
 
 - Six cases only: Mina, Peter, Juno, Cal, Omar and Mae. Peter is second.
-- One Tenant, wearing the active subject's wound. No new monster or true form.
+- One Tenant, wearing the just-integrated subject's release print in each
+  campaign dream. No new monster or true form.
 - Repair changes symptoms; honest conversation changes the rule.
 - A call or conversation in progress protects the player from sleep onset.
 - The dream never erases committed work.
@@ -143,16 +70,9 @@ gate is **K7**, documentation of the landed spine.
   blocker remain distinct, and every critical-route addition must re-run its
   owning station rather than borrowing the STREET result.
 
-## The first deliverable to the owner
+## The next deliverable to the owner
 
-Return the M0.5 handoff with:
-
-- black-mass ownership and the recorded south-pavement containment verdict;
-- final top-down plan and exact playable boundary;
-- what was removed, moved and retained;
-- zone ownership and visibility evidence;
-- complete route, test and performance results at the pinned light budget;
-- before/after renders;
-- proposed files for M1, before editing the loop spine.
-
-That is the next approval point.
+Return the N3 control result with the exact corridor geometry, phone-light input
+path, acquisition rule, opaque-wall proof, fixed seeds, capture-time pairs and
+the measured light-on/light-off delta. Report failures honestly. Production maze
+art, case dressing and campaign integration wait for that evidence.

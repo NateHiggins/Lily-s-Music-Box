@@ -221,8 +221,11 @@ conversation, integration, dream request, stubbed wake, and real-file
 save/load at every boundary. The dream is still a request consumed by a test
 stub, so no production dream gameplay exists yet. Owner correction 2026-08-15:
 the reveal restriction applies to the **title screen only**; it does not block
-dream design or production. The executable proposal is
-`design/ORISON_MAZE_BRIEF.md`. Wake persists one
+dream design or production. The complete `design/ORISON_MAZE_BRIEF.md` is now
+ruled canon. N2's source catalog, canonical seed-0 assembly, dimensioned drawing
+and 100-seed audit are closed at `art/renders/dream_maze_n2/README.md`; no Godot
+dream scene exists yet, and N3's light/pursuit control corridor is next. Wake
+persists one
 `mina_factual_refrigerator_caption` fact. Its acoustic owner
 is generated marker `F02_2A_FRIDGE_01`; its visible label follows generated
 socket `2A_FRIDGE_FACE`. The before/after acceptance pair and rerun command are

@@ -1,18 +1,18 @@
-# THE DREAM MAZE — PRODUCTION DESIGN PROPOSAL
+# THE DREAM MAZE — RULED PRODUCTION DESIGN
 
-*Replaces the 2026-08-10 exploratory brief. Revised 2026-08-15 after the owner
+*Replaces the 2026-08-10 exploratory brief. Ruled 2026-08-15 after the owner
 clarified that “the dream world is our reveal” is a title-screen spoiler rule,
 not a prohibition on designing or building dream play. The title must remain in
 the waking world. The dream itself must now be designed, tested and eventually
 shipped.*
 
-**Status: OWNER REVIEW REQUIRED — NOT YET BINDING CANON.** Bible §I.1 already
-rules narcoleptic onset, a short terrifying dark scramble, waking in bed in 4B,
-protected calls/conversations and no loss of committed work. Bible §III.1 rules
-one Tenant, no true form, wearing a subject's shadow. This document turns those
-laws into one executable production proposal. Where it changes the older
-proposal—especially the pursuer selection, free-form generation and “death”
-language—it says so explicitly.
+**Status: APPROVED — BINDING PRODUCTION DESIGN.** On 2026-08-15 the owner
+approved all five rulings formerly requested at the foot of this document:
+release-print case binding; capture/fall/contact rather than player-death
+language; the deterministic ten-module ring; the 28/38/50/62/76/90 campaign
+curve; and the player's own shadow held for endgame design. Bible §I.1 already
+rules the core shift; Bible §III.1 rules one Tenant, no true form. This document
+now binds the implementation details that connect those laws.
 
 ---
 
@@ -46,7 +46,9 @@ the violent punctuation mark at the end of a completed shift.
 - The title screen remains entirely waking-world and spoiler-safe. That is the
   complete scope of the reveal restriction.
 
-Everything below is the recommended implementation until the owner rules it.
+Everything below is the approved implementation. Changes require a new owner
+ruling and measured replacement evidence; a convenient prototype result does
+not silently rewrite the contract.
 
 ---
 
@@ -492,8 +494,10 @@ game/tests/DreamMazeGenerationTest.tscn
 game/tests/DreamLightTest.tscn
 game/tests/DreamLoopTest.tscn
 game/tests/DreamMazeShot.tscn
+art/data/gen_dream_maze.py
+art/data/dream_maze_layout.json          # generated control assembly
+art/renders/dream_maze_n2/dream_maze_top_down.svg
 art/blender/build_dream_modules.py
-art/data/dream_maze_layout.json          # generated output
 ```
 
 Do not create six scenes, six directors or six pursuer scripts. Mina proves the
@@ -504,7 +508,15 @@ profiles become production work.
 
 ## ACCEPTANCE GATES
 
-### Gate A — deterministic space
+### Gate A — deterministic space — COMPLETE 2026-08-15
+
+N2 closed this gate at canonical seed 0. The source catalog, generated assembly,
+dimensioned drawing and reproduction record live at
+`art/renders/dream_maze_n2/README.md`. Result: 10 modules, 12 directed edges,
+8 hazard sockets, 18 live source-provenance checks, 100/100 deterministic
+seeds and 0 unresolved findings. The reproduction record reports structural
+diversity with the seed value excluded from its identity hash. No Godot runtime
+claim is implied; that begins at Gate B.
 
 - 100 generated seeds pass overlap, connector, capsule, step, swing,
   reachability, hazard-route and stable-hash audits.
@@ -562,17 +574,19 @@ chase is frightening.
 
 ---
 
-## DECISIONS THIS PROPOSAL ASKS THE OWNER TO RULE
+## OWNER RULING — 2026-08-15
 
-1. Approve the **release print**: the just-integrated case owns its campaign
-   dream, then remains quiet after wake.
-2. Approve **capture/fall/contact → wake** instead of calling the living player
-   dead or displaying a failure screen.
-3. Approve the deterministic ten-module ring instead of unconstrained fractal
+All five production decisions are approved:
+
+1. The just-integrated case owns its one **release-print** campaign dream and is
+   quiet after wake.
+2. Capture, fall or contact wakes the living player; there is no death or
+   failure screen.
+3. The maze is the deterministic ten-module ring, not unconstrained fractal
    room generation.
-4. Approve a 28-second Mina cap and the 28/38/50/62/76/90 campaign curve.
-5. Keep the player's own shadow for endgame design rather than putting it into
-   the six-case production scope now.
+4. Campaign ceilings are 28 / 38 / 50 / 62 / 76 / 90 seconds.
+5. The player's own shadow remains endgame material outside the six-case build.
 
-None of these questions blocks paper layout, module measurement or a disposable
-light/pursuit control corridor. They do block canon wording and final content.
+This ruling closed design review. N2's measured module substrate closed Gate A
+later the same day and opened N3's disposable light/pursuit control corridor. It
+does not waive any remaining acceptance gate above.

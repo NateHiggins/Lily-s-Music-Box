@@ -83,8 +83,9 @@ The medical condition and the impossible reading remain **both true**. Narcoleps
 does not create the Tenant and is not itself monstrous. It creates the vulnerable
 interval the Tenant uses. A sleep attack may cost time, position and certainty;
 it may not erase committed work. A call or conversation already in progress
-remains protected. The core movement is ruled; the unruled implementation details
-and open questions in `design/ORISON_MAZE_BRIEF.md` remain proposals.
+remains protected. The core movement is ruled. The production implementation in
+`design/ORISON_MAZE_BRIEF.md` was ruled in full on 2026-08-15; §IX records the
+canon consequences without duplicating its construction contract.
 
 ## II. THE MOTIF
 
@@ -158,8 +159,10 @@ making it malicious.
 
 - **It is never defeated, only satisfied.** Resolving a case does not kill
   anything. It lets go of that resident and turns its attention elsewhere.
-- **A resolved case is quiet. An unresolved one is fair game, anywhere.**
-  Including the dream (§N), where the pursuer is this and not a new monster.
+- **A resolved case is quiet. An unresolved one is fair game, anywhere.** The
+  six campaign dreams are the narrow exception described by §IX: a final release
+  print during the act of letting go, not a renewed waking manifestation. The
+  pursuer there is still this Tenant and never a new monster.
 - **The player is a subject too, eventually.** It has already annotated Mina;
   the address rung is where it stops performing and speaks to whoever is
   listening. Nothing exempts 4B.
@@ -849,3 +852,38 @@ And per Accord 9, **ordinary decay still outranks spectacle**. A world
 forty years ahead in signal is not a world of gleaming devices — it is a
 world where the gleaming device is twenty years old, has been repaired
 by four people, and sits on a table with a wonky leg.
+
+## IX. THE DREAM MAZE
+
+*Ruled 2026-08-15, at the owner's direction. Construction detail and proof
+gates live in `design/ORISON_MAZE_BRIEF.md`.*
+
+**The restriction that “the dream world is our reveal” binds the title screen,
+not production.** Menus and promotional hero art remain in the waking ORISON /
+STREET / PASSAGE world. The campaign itself enters and shows the dream after the
+player earns it through the complete first shift.
+
+Each completed case ends in one involuntary **release-print dream**. The Tenant
+wears the shadow and wound grammar of the case that has just integrated while it
+lets that subject go. This is the last image of the transition, not a reopened
+case: after the player wakes, the resolved case remains quiet. No campaign dream
+previews the next unresolved resident.
+
+The space is one deterministic ten-module ring built from locally faithful
+Orison rooms and globally impossible connections. The same campaign seed keeps
+it learnable. The phone light is the single continuous decision: it reveals the
+route and hazards while giving the Tenant a target; darkness breaks visual
+acquisition but never becomes an indefinite hiding state. There is one Tenant,
+represented only through a borrowed shadows-only silhouette, architecture and
+sound. It has no model, face, attack animation or true form.
+
+The player does not die in the dream. Capture, falling or contact with a hazard
+cuts the passage and wakes the same living person at the authored 4B bedside,
+without a failure screen or loss of committed work. Campaign run ceilings are
+28, 38, 50, 62, 76 and 90 seconds. The player's own shadow is reserved for
+endgame design outside the six-case production scope.
+
+**The Rule of Signal does not bind the dream.** It may reuse and transform
+Orison architecture, signals and anachronistic language because it is not the
+waking building. The exemption is one-way: the waking Orison never advertises,
+explains or confirms dream geography.

@@ -1,0 +1,214 @@
+{
+  "meta": {
+    "title": "Orison dream maze module catalog",
+    "version": 1,
+    "units": "metres",
+    "ruled": "2026-08-15",
+    "authority": "design/ORISON_MAZE_BRIEF.md",
+    "source_layout": "art/data/building_layout.json",
+    "note": "Source-authored module facts only. Generated assembly output belongs in art/data/dream_maze_layout.json and is never edited here."
+  },
+  "constants": {
+    "clear_ceiling_m": 3.015,
+    "connector_width_m": 0.91,
+    "connector_height_m": 2.13,
+    "player_capsule_diameter_m": 0.66,
+    "player_run_speed_mps": 4.6,
+    "minimum_connector_margin_m": 0.10,
+    "minimum_warning_s": 0.50,
+    "campaign_run_ceilings_s": [28, 38, 50, 62, 76, 90]
+  },
+  "modules": {
+    "D00_4B_THRESHOLD": {
+      "unlock_slot": 1,
+      "footprint_m": [2.20, 1.25],
+      "source": {
+        "derivation": "exact 4B vestibule footprint",
+        "records": [
+          {"kind": "room", "floor": "F04", "id": "F04_B_VESTIBULE", "rect_m": [-7.71, 3.27, -5.51, 4.52]}
+        ]
+      },
+      "connectors": [
+        {"id": "entry", "side": "west", "offset_m": 0.625, "width_m": 0.91, "height_m": 2.13, "swing": "none"},
+        {"id": "out", "side": "east", "offset_m": 0.625, "width_m": 0.91, "height_m": 2.13, "swing": "in", "swing_depth_m": 0.91}
+      ],
+      "hazard_sockets": []
+    },
+    "D01_F04_LONG_HALL": {
+      "unlock_slot": 1,
+      "footprint_m": [19.30, 2.08],
+      "detail_repeat_range": [3, 5],
+      "source": {
+        "derivation": "full 19.30 m F04 corridor extent reduced to one authored 2.08 m side bay",
+        "records": [
+          {"kind": "room", "floor": "F04", "id": "F04_CORRIDOR", "rect_m": [-5.33, -9.65, 5.33, 9.65]}
+        ]
+      },
+      "connectors": [
+        {"id": "in", "side": "west", "offset_m": 1.04, "width_m": 0.91, "height_m": 2.13, "swing": "none"},
+        {"id": "stair_branch", "side": "north", "offset_m": 17.75, "width_m": 0.91, "height_m": 2.13, "swing": "out", "swing_depth_m": 0.91},
+        {"id": "lift_branch", "side": "south", "offset_m": 17.75, "width_m": 0.91, "height_m": 2.13, "swing": "out", "swing_depth_m": 0.91},
+        {"id": "return", "side": "south", "offset_m": 1.25, "width_m": 0.91, "height_m": 2.13, "swing": "in", "swing_depth_m": 0.91}
+      ],
+      "hazard_sockets": [
+        {"id": "hollow_runner", "kind": "conditional", "position_m": [12.00, 1.04], "clearance_radius_m": 0.35, "tell_radius_m": 4.60, "minimum_warning_s": 0.75}
+      ]
+    },
+    "D02_DOGLEG_STAIR": {
+      "unlock_slot": 2,
+      "footprint_m": [6.32, 6.32],
+      "vertical_rise_m": 3.20,
+      "source": {
+        "derivation": "exact atrium well and authored flight width",
+        "records": [
+          {"kind": "stairs", "id": "atrium", "well_m": [-3.16, -3.16, 3.16, 3.16], "width_m": 1.70}
+        ]
+      },
+      "connectors": [
+        {"id": "in", "side": "south", "offset_m": 3.16, "width_m": 0.91, "height_m": 2.13, "swing": "none"},
+        {"id": "out", "side": "east", "offset_m": 3.16, "width_m": 0.91, "height_m": 2.13, "swing": "none"}
+      ],
+      "hazard_sockets": []
+    },
+    "D03_LIFT_VOID": {
+      "unlock_slot": 1,
+      "footprint_m": [4.10, 3.50],
+      "source": {
+        "derivation": "exact F04 hall footprint carrying the exact elevator shaft and door",
+        "records": [
+          {"kind": "room", "floor": "F04", "id": "F04_HALL", "rect_m": [-3.25, -6.75, 0.85, -3.25]},
+          {"kind": "elevator", "shaft_m": [0.85, -6.75, 3.00, -4.55], "door_width_m": 0.91}
+        ]
+      },
+      "connectors": [
+        {"id": "in", "side": "north", "offset_m": 2.05, "width_m": 0.91, "height_m": 2.13, "swing": "in", "swing_depth_m": 0.91},
+        {"id": "out", "side": "east", "offset_m": 1.75, "width_m": 0.91, "height_m": 2.13, "swing": "none"}
+      ],
+      "hazard_sockets": [
+        {"id": "open_lift_void", "kind": "positional", "position_m": [1.55, 1.75], "clearance_radius_m": 0.45, "tell_radius_m": 5.50, "minimum_warning_s": 0.90},
+        {"id": "counterweight_passage", "kind": "rhythmic", "position_m": [3.15, 1.75], "clearance_radius_m": 0.40, "tell_radius_m": 4.60, "minimum_warning_s": 0.75}
+      ]
+    },
+    "D04_BATHROOM_PROCESSION": {
+      "unlock_slot": 1,
+      "footprint_m": [9.60, 2.20],
+      "source": {
+        "derivation": "four exact 2.20 × 2.40 m bathrooms placed end to end along one impossible wet wall",
+        "records": [
+          {"kind": "room", "floor": "F04", "id": "F04_A_BATH", "rect_m": [-7.71, -6.19, -5.51, -3.79]},
+          {"kind": "room", "floor": "F04", "id": "F04_B_BATH", "rect_m": [-7.71, 4.52, -5.51, 6.92]},
+          {"kind": "room", "floor": "F04", "id": "F04_C_BATH", "rect_m": [5.51, 3.79, 7.71, 6.19]},
+          {"kind": "room", "floor": "F04", "id": "F04_D_BATH", "rect_m": [5.51, -6.19, 7.71, -3.79]}
+        ]
+      },
+      "connectors": [
+        {"id": "stair_in", "side": "west", "offset_m": 1.65, "width_m": 0.91, "height_m": 2.13, "swing": "in", "swing_depth_m": 0.91},
+        {"id": "lift_in", "side": "west", "offset_m": 0.55, "width_m": 0.91, "height_m": 2.13, "swing": "in", "swing_depth_m": 0.91},
+        {"id": "out", "side": "east", "offset_m": 1.10, "width_m": 0.91, "height_m": 2.13, "swing": "out", "swing_depth_m": 0.91}
+      ],
+      "hazard_sockets": []
+    },
+    "D05_SERVICE_RISER": {
+      "unlock_slot": 1,
+      "footprint_m": [6.50, 2.08],
+      "source": {
+        "derivation": "one exact 2.08 × 6.50 m corridor bay fitted with waking heating, water and signal carriers",
+        "records": [
+          {"kind": "room", "floor": "F04", "id": "F04_CORRIDOR", "rect_m": [-5.33, -9.65, 5.33, 9.65]}
+        ]
+      },
+      "connectors": [
+        {"id": "in", "side": "west", "offset_m": 1.04, "width_m": 0.91, "height_m": 2.13, "swing": "none"},
+        {"id": "plant_branch", "side": "north", "offset_m": 5.40, "width_m": 0.91, "height_m": 2.13, "swing": "out", "swing_depth_m": 0.91},
+        {"id": "court_branch", "side": "south", "offset_m": 5.40, "width_m": 0.91, "height_m": 2.13, "swing": "out", "swing_depth_m": 0.91}
+      ],
+      "hazard_sockets": [
+        {"id": "vantry_signal_trunk", "kind": "conditional", "position_m": [3.25, 1.04], "clearance_radius_m": 0.35, "tell_radius_m": 5.50, "minimum_warning_s": 0.90}
+      ]
+    },
+    "D06_LAUNDRY_BOILER": {
+      "unlock_slot": 3,
+      "footprint_m": [17.51, 8.14],
+      "source": {
+        "derivation": "exact B1 laundry and boiler footprints joined end to end without resizing either room",
+        "records": [
+          {"kind": "room", "floor": "B1", "id": "B1_LAUNDRY", "rect_m": [-13.65, 2.67, -5.51, 9.65]},
+          {"kind": "room", "floor": "B1", "id": "B1_BOILER", "rect_m": [5.51, -0.88, 13.65, 9.65]}
+        ]
+      },
+      "connectors": [
+        {"id": "in", "side": "south", "offset_m": 8.755, "width_m": 0.91, "height_m": 2.13, "swing": "in", "swing_depth_m": 0.91},
+        {"id": "out", "side": "west", "offset_m": 4.07, "width_m": 0.91, "height_m": 2.13, "swing": "out", "swing_depth_m": 0.91}
+      ],
+      "hazard_sockets": [
+        {"id": "laundry_mangle_belt", "kind": "triggered", "position_m": [4.00, 4.07], "clearance_radius_m": 0.45, "tell_radius_m": 5.50, "minimum_warning_s": 0.90},
+        {"id": "boiler_relief_sweep", "kind": "rhythmic", "position_m": [13.50, 4.07], "clearance_radius_m": 0.45, "tell_radius_m": 6.00, "minimum_warning_s": 1.00}
+      ]
+    },
+    "D07_LIGHT_COURT_WALK": {
+      "unlock_slot": 4,
+      "footprint_m": [6.32, 6.32],
+      "clear_walk_m": 1.70,
+      "source": {
+        "derivation": "exact atrium well extent with the authored 1.70 m stair/landing clear width reused as walk",
+        "records": [
+          {"kind": "stairs", "id": "atrium", "well_m": [-3.16, -3.16, 3.16, 3.16], "width_m": 1.70}
+        ]
+      },
+      "connectors": [
+        {"id": "in", "side": "north", "offset_m": 3.16, "width_m": 0.91, "height_m": 2.13, "swing": "none"},
+        {"id": "out", "side": "west", "offset_m": 3.16, "width_m": 0.91, "height_m": 2.13, "swing": "none"}
+      ],
+      "hazard_sockets": [
+        {"id": "breathing_partition", "kind": "positional_rhythmic", "position_m": [3.16, 3.16], "clearance_radius_m": 0.45, "tell_radius_m": 5.50, "minimum_warning_s": 0.90}
+      ]
+    },
+    "D08_CASE_ECHO": {
+      "unlock_slot": 5,
+      "footprint_m": [8.14, 5.80],
+      "source": {
+        "derivation": "exact 2A main-room envelope; each case substitutes only its ruled grammar",
+        "records": [
+          {"kind": "room", "floor": "F02", "id": "F02_A_MAIN", "rect_m": [-13.65, -6.25, -5.51, -0.45]}
+        ]
+      },
+      "connectors": [
+        {"id": "plant_in", "side": "east", "offset_m": 4.40, "width_m": 0.91, "height_m": 2.13, "swing": "in", "swing_depth_m": 0.91},
+        {"id": "court_in", "side": "east", "offset_m": 1.40, "width_m": 0.91, "height_m": 2.13, "swing": "in", "swing_depth_m": 0.91},
+        {"id": "out", "side": "south", "offset_m": 4.07, "width_m": 0.91, "height_m": 2.13, "swing": "out", "swing_depth_m": 0.91}
+      ],
+      "hazard_sockets": []
+    },
+    "D09_RETURN_HALL": {
+      "unlock_slot": 6,
+      "footprint_m": [6.50, 2.08],
+      "source": {
+        "derivation": "one exact 2.08 × 6.50 m F04 corridor bay returning behind D01",
+        "records": [
+          {"kind": "room", "floor": "F04", "id": "F04_CORRIDOR", "rect_m": [-5.33, -9.65, 5.33, 9.65]}
+        ]
+      },
+      "connectors": [
+        {"id": "in", "side": "north", "offset_m": 3.25, "width_m": 0.91, "height_m": 2.13, "swing": "in", "swing_depth_m": 0.91},
+        {"id": "return", "side": "west", "offset_m": 1.04, "width_m": 0.91, "height_m": 2.13, "swing": "out", "swing_depth_m": 0.91}
+      ],
+      "hazard_sockets": [
+        {"id": "fire_door_return", "kind": "triggered", "position_m": [5.20, 1.04], "clearance_radius_m": 0.35, "tell_radius_m": 4.60, "minimum_warning_s": 0.75}
+      ]
+    }
+  },
+  "topology": [
+    {"id": "E00", "from": ["D00_4B_THRESHOLD", "out"], "to": ["D01_F04_LONG_HALL", "in"], "unlock_slot": 1},
+    {"id": "E01_STAIR", "from": ["D01_F04_LONG_HALL", "stair_branch"], "to": ["D02_DOGLEG_STAIR", "in"], "unlock_slot": 2},
+    {"id": "E01_LIFT", "from": ["D01_F04_LONG_HALL", "lift_branch"], "to": ["D03_LIFT_VOID", "in"], "unlock_slot": 1},
+    {"id": "E02", "from": ["D02_DOGLEG_STAIR", "out"], "to": ["D04_BATHROOM_PROCESSION", "stair_in"], "unlock_slot": 2},
+    {"id": "E03", "from": ["D03_LIFT_VOID", "out"], "to": ["D04_BATHROOM_PROCESSION", "lift_in"], "unlock_slot": 1},
+    {"id": "E04", "from": ["D04_BATHROOM_PROCESSION", "out"], "to": ["D05_SERVICE_RISER", "in"], "unlock_slot": 1},
+    {"id": "E05_PLANT", "from": ["D05_SERVICE_RISER", "plant_branch"], "to": ["D06_LAUNDRY_BOILER", "in"], "unlock_slot": 3},
+    {"id": "E05_COURT", "from": ["D05_SERVICE_RISER", "court_branch"], "to": ["D07_LIGHT_COURT_WALK", "in"], "unlock_slot": 4},
+    {"id": "E06", "from": ["D06_LAUNDRY_BOILER", "out"], "to": ["D08_CASE_ECHO", "plant_in"], "unlock_slot": 5},
+    {"id": "E07", "from": ["D07_LIGHT_COURT_WALK", "out"], "to": ["D08_CASE_ECHO", "court_in"], "unlock_slot": 5},
+    {"id": "E08", "from": ["D08_CASE_ECHO", "out"], "to": ["D09_RETURN_HALL", "in"], "unlock_slot": 6},
+    {"id": "E09_FOLD", "from": ["D09_RETURN_HALL", "return"], "to": ["D01_F04_LONG_HALL", "return"], "unlock_slot": 6}
+  ]
+}
