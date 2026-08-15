@@ -348,6 +348,15 @@ is built.
   correct for a dark street, under-read as objects. The cheap fix is a pool of
   light on the road ahead of each vehicle rather than real headlamps, which T7
   says not to spend. Lamps are emissive quads, not lights, deliberately.
+- **T2f DONE — WE TUNA PIANOS.** A rare 1928 one-ton piano-repair box truck
+  joins the ordinary two-way stream at 2.0 / 99.0 selection weight. Its deep
+  teal rear box and separate low cab stay inside 5.8 × 2.05 × 2.30 m; two dull
+  painted panels carry the approved shark-and-mustachioed-tuna advertisement.
+  Every visible repair truck shares one shadowless sign MultiMesh, so the exact
+  cost is one draw owner and two panel instances only while present—zero light,
+  collision, stop rule, dialogue or permanent scenery. `PianoRepairTruckTest`
+  passes; production-street frames are under `art/renders/piano_repair_truck/`.
+  This does not pretend to close T2d's street-wide night-lighting problem.
 - **T3** **ENCODED.** No death, no damage, no UI, no dedicated crossing point.
   A hit calls `stagger()` on the player with a four-second cooldown and prints
   what shoved you. `MAX_WAIT` is enforced as a promise rather than hoped for.

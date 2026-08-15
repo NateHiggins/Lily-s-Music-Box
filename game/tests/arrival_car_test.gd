@@ -46,13 +46,12 @@ func _ready() -> void:
 			and bool(traffic._live[0].get("arrival", false))
 			and str(StreetTraffic.KINDS[int(traffic._live[0].kind)][0])
 					== "motor_car")
-	_check("arrival reuses the four traffic batches without a fifth draw owner",
-			traffic.find_children("*", "MultiMeshInstance3D", false, false).size()
-					== 4
-			and traffic._mm.multimesh.visible_instance_count == 1
+	_check("arrival submits only the four baseline traffic batches",
+			traffic._mm.multimesh.visible_instance_count == 1
 			and traffic._cabs.multimesh.visible_instance_count == 1
 			and traffic._wheels.multimesh.visible_instance_count == 4
-			and traffic._lamps.multimesh.visible_instance_count == 2)
+			and traffic._lamps.multimesh.visible_instance_count == 2
+			and traffic._piano_signs.multimesh.visible_instance_count == 0)
 
 	var start_x: float = float(traffic._live[0].x)
 	traffic._advance(StreetTraffic.ARRIVAL_HOLD_SECONDS - 0.05)

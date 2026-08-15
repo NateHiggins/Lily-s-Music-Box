@@ -89,6 +89,33 @@ worth more than any effect.
 camera facing the door they are about to open. That is what makes it a texture
 rather than a minigame — it can be done without looking.
 
+### As built — WE TUNA PIANOS trade truck, 2026-08-14
+
+One piece of ordinary commercial traffic is allowed to be funnier on its own
+merits: a battered 1928 one-ton piano-repair box truck in oxidised teal, cream
+and vermilion. Its coachwork is 5.8 × 2.05 × 2.30 m and carries the approved
+painted advertisement—a shark playing a baby grand by swinging a uniformed,
+mustachioed tuna across the keys—under the exact legend **WE TUNA PIANOS**.
+Nobody comments because it is an advertisement, not an anomaly.
+
+The production traffic version keeps the concept's identifying silhouette and
+sideboards without pretending a close-view concept model is free. Body, cab,
+wheels and lamps stay in the existing traffic MultiMeshes. Both sign faces for
+every repair truck share one additional shadowless, non-emissive MultiMesh that
+has zero visible instances when the kind is absent. The truck has 2.0 of 99.0
+selection weight (~2.02%), follows ordinary lane speed and direction, never
+serves the tram stop, and owns no light, collision, parked state or scene.
+
+The approved sign is at
+`art/concept/advertisements/we_tuna_pianos_truck_logo_v1.png`; the vehicle
+design sheet is at
+`art/concept/vehicles/we_tuna_pianos_repair_truck_v1.png`. The runtime panel is
+the same complete sign, not a redrawn approximation. `PianoRepairTruckTest`
+proves the envelope, rarity, imported source, one-batch/two-face ownership,
+opposite-lane motion and unchanged crossing/arrival contracts. Fixed morning
+and day rain frames are under `art/renders/piano_repair_truck/`. This addition
+does not close T2d: all traffic still shares the known under-lit carriageway.
+
 ---
 
 ## 4. The ends of the street

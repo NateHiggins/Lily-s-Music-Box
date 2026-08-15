@@ -53,6 +53,9 @@ const ARRIVAL_MERGE_RATE := 0.72
 const EAST_TEAR_X := 20.60
 const ARRIVAL_DESPAWN_X := 27.0
 const ARRIVAL_TRAFFIC_DELAY := 5.0
+const PIANO_REPAIR_KIND := 8
+const PIANO_REPAIR_SIGN := \
+		"res://assets/building/textures/traffic/we_tuna_pianos_sign.png"
 
 signal transit_arrived(stop_id: String, vehicle_kind: String)
 signal arrival_entered_weather
@@ -83,6 +86,9 @@ const KINDS := [
 	["milk_float", 3.6, 1.7, 2.0, 8.0, Color(0.52, 0.50, 0.47), 0.40, 0.34],
 	["tram", 9.4, 2.5, 3.1, 5.0, Color(0.36, 0.27, 0.16), 0.90, 0.16],
 	["hearse", 5.2, 1.9, 2.3, 3.0, Color(0.13, 0.125, 0.135), 0.70, 0.26],
+	# A real trade truck with an unreasonable sign. Nothing comments.
+	["piano_repair", 5.8, 2.05, 2.30, 2.0,
+			Color(0.12, 0.29, 0.30), 0.28, 0.38],
 	# The wrong 5%. Never remarked on by anyone, ever.
 	["too_long", 13.5, 2.3, 2.6, 1.6, Color(0.22, 0.21, 0.20), 0.22, 0.30],
 	["riderless", 4.2, 1.9, 2.3, 1.4, Color(0.33, 0.26, 0.19), 0.34, 0.55],
@@ -95,12 +101,13 @@ var _mm: MultiMeshInstance3D
 ## twice the atrium's - and at these distances an emissive quad reads exactly
 ## the same. It is also what makes a black mass become a lorry.
 var _lamps: MultiMeshInstance3D
-## Cabs and wheels, each their own MultiMesh. Four draw calls carry every
-## vehicle on the street, which is still nothing next to what a per-vehicle
-## scene would cost - and a stepped silhouette on four wheels is the whole
-## difference between a lorry and a crate sliding down the road.
+## Cabs and wheels, each their own MultiMesh. Four baseline draw calls carry
+## every vehicle on the street. The piano repair truck adds one sign-panel batch
+## only while one is present; it does not turn into a per-vehicle scene.
 var _cabs: MultiMeshInstance3D
 var _wheels: MultiMeshInstance3D
+var _piano_signs: MultiMeshInstance3D
+var _piano_sign_origins: Array[Vector3] = []
 var _live: Array[Dictionary] = []
 var _spawn_accum := 0.0
 var _rng := RandomNumberGenerator.new()
@@ -158,6 +165,7 @@ func build(player: Node3D = null) -> void:
 	wheel.height = 1.0
 	wheel.radial_segments = 10
 	_wheels = _make_batch(wheel, MAX_VEHICLES * 4, false)
+	_build_piano_sign_batch()
 
 	var lamp_mesh := QuadMesh.new()
 	lamp_mesh.size = Vector2(0.34, 0.34)
@@ -193,6 +201,27 @@ func build(player: Node3D = null) -> void:
 		v.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
 		add_child(v)
 		_voices.append(v)
+
+
+func _build_piano_sign_batch() -> void:
+	var panel := QuadMesh.new()
+	panel.size = Vector2(3.15, 1.55)
+	var material := StandardMaterial3D.new()
+	material.albedo_texture = load(PIANO_REPAIR_SIGN) as Texture2D
+	material.roughness = 0.88
+	material.metallic = 0.05
+	material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	panel.material = material
+	var multimesh := MultiMesh.new()
+	multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	multimesh.mesh = panel
+	multimesh.instance_count = MAX_VEHICLES * 2
+	multimesh.visible_instance_count = 0
+	_piano_signs = MultiMeshInstance3D.new()
+	_piano_signs.name = "PianoRepairSigns"
+	_piano_signs.multimesh = multimesh
+	_piano_signs.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(_piano_signs)
 
 
 func bind_player(player: Node3D) -> void:
@@ -386,6 +415,9 @@ func _pick() -> int:
 
 func _write_instances() -> void:
 	var mm := _mm.multimesh
+	var sign_mm := _piano_signs.multimesh
+	var sign_count := 0
+	_piano_sign_origins.clear()
 	var n: int = mini(_live.size(), MAX_VEHICLES)
 	mm.visible_instance_count = n
 	_lamps.multimesh.visible_instance_count = n * 2
@@ -398,22 +430,29 @@ func _write_instances() -> void:
 		var width := float(v.get("width", k[2]))
 		var height := float(v.get("height", k[3]))
 		var y := _vehicle_y(v)
-		var basis := Basis().scaled(Vector3(length, height, width))
-		var at := GameBoot.b2g([float(v.x), y, height * 0.5])
+		var is_piano_repair := str(k[0]) == "piano_repair"
+		var body_length := 3.70 if is_piano_repair else length
+		var body_offset := -float(v.dir) * 0.85 if is_piano_repair else 0.0
+		var body_x: float = float(v.x) + body_offset
+		var basis := Basis().scaled(Vector3(body_length, height, width))
+		var at := GameBoot.b2g([body_x, y, height * 0.5])
 		mm.set_instance_transform(i, Transform3D(basis, at))
 		mm.set_instance_color(i, Color(v.get("body_color", k[5])))
 
 		# The cab: a raised block set back from the nose, which is the single
 		# read that says "vehicle" rather than "crate".
-		var cab_len := float(v.get("cab_length", length * float(k[6])))
-		var cab_h := float(v.get("cab_height", height * float(k[7])))
-		var cab_offset := float(v.get("cab_offset",
-				-float(v.dir) * length * 0.18))
+		var cab_len := 1.65 if is_piano_repair \
+				else float(v.get("cab_length", length * float(k[6])))
+		var cab_h := 1.65 if is_piano_repair \
+				else float(v.get("cab_height", height * float(k[7])))
+		var cab_offset := float(v.dir) * 1.72 if is_piano_repair \
+				else float(v.get("cab_offset", -float(v.dir) * length * 0.18))
+		var cab_base := 0.35 if is_piano_repair else height
 		var cm := _cabs.multimesh
 		cm.set_instance_transform(i, Transform3D(
 				Basis().scaled(Vector3(cab_len, cab_h, width * 0.92)),
 				GameBoot.b2g([float(v.x) + cab_offset, y,
-						height + cab_h * 0.5])))
+						cab_base + cab_h * 0.5])))
 		cm.set_instance_color(i, Color(v.get("cab_color",
 				Color(k[5]).darkened(0.25))))
 
@@ -441,6 +480,26 @@ func _write_instances() -> void:
 				Vector3(0.6, 0.6, 0.6)),
 				GameBoot.b2g([tail, y, height * 0.38])))
 		lm.set_instance_color(i * 2 + 1, Color(0.85, 0.10, 0.06))
+
+		# The approved enamel advertisement rides as two dull painted panels,
+		# never as emissive UI. Both sides share one MultiMesh draw across every
+		# repair truck in the stream.
+		if is_piano_repair:
+			var panel_x := body_x
+			var panel_z := 1.28
+			var south_y := y - width * 0.505
+			var north_y := y + width * 0.505
+			var south_origin := GameBoot.b2g([panel_x, south_y, panel_z])
+			var north_origin := GameBoot.b2g([panel_x, north_y, panel_z])
+			sign_mm.set_instance_transform(sign_count, Transform3D(Basis(),
+					south_origin))
+			_piano_sign_origins.append(south_origin)
+			sign_count += 1
+			sign_mm.set_instance_transform(sign_count, Transform3D(
+					Basis(Vector3.UP, PI), north_origin))
+			_piano_sign_origins.append(north_origin)
+			sign_count += 1
+	_piano_signs.multimesh.visible_instance_count = sign_count
 
 
 ## A hit is a shove. No damage, no death, no screen, no sound cue that reads as
