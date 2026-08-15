@@ -107,9 +107,12 @@ func _validate_job(job_id: String, record: Dictionary) -> void:
 	for field in ["title", "summary", "repair_target_id"]:
 		if str(record.get(field, "")).is_empty():
 			errors.append("%s: %s must be a non-empty string" % [job_id, field])
-	for field in ["case_id", "resident_id", "unit", "required_item_id"]:
+	for field in ["case_id", "resident_id", "unit", "required_item_id",
+			"dream_profile_id"]:
 		if record.get(field) is not String:
 			errors.append("%s: %s must be a string" % [job_id, field])
+	if str(record.get("dream_profile_id", "")).is_empty():
+		errors.append("%s: dream_profile_id must be a non-empty string" % job_id)
 	_validate_origins(job_id, record.get("origins"))
 	_validate_string_array(job_id, "anchor_ids", record.get("anchor_ids"))
 	_validate_string_array(job_id, "evidence_flags", record.get("evidence_flags"))

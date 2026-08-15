@@ -22,7 +22,8 @@ const JOYPAD_ACTIONS := {
 }
 
 const SETTINGS_PATH := "user://orison_settings.cfg"
-const GAME_SCENE := "res://scenes/building/orison_root.tscn"
+const BUILDING_SCENE := "res://scenes/building/orison_root.tscn"
+const GAME_SCENE := "res://scenes/campaign/CampaignShell.tscn"
 
 enum LaunchMode { CINEMATIC, DEBUG }
 

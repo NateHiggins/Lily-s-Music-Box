@@ -228,7 +228,7 @@ func _legacy_orders_unchanged() -> void:
 			and work_orders.close("WO-TEST-001")
 			and work_orders.status("WO-TEST-001") == "closed"
 			and not work_orders.activate("WO-TEST-001"),
-			"the minimal order contract the chirp hunt uses is unchanged")
+			"the minimal order contract for the 4B clock remains unchanged")
 
 
 func _check(ok: bool, label: String) -> void:

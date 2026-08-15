@@ -33,7 +33,8 @@ class DreamStub:
 	extends RefCounted
 	var entries := 0
 	var wakes := 0
-	var seen_job := ""
+	var seen_case := ""
+	var seen_profile := ""
 	var seen_window: Dictionary = {}
 	var director: CoreLoopDirector
 
@@ -41,9 +42,11 @@ class DreamStub:
 		director = loop_director
 		director.dream_requested.connect(_on_dream_requested)
 
-	func _on_dream_requested(job_id: String, window: Dictionary) -> void:
+	func _on_dream_requested(case_id: String, profile_id: String,
+			window: Dictionary) -> void:
 		entries += 1
-		seen_job = job_id
+		seen_case = case_id
+		seen_profile = profile_id
 		seen_window = window.duplicate(true)
 
 	func enter_and_wake() -> bool:
@@ -527,8 +530,11 @@ func _integration() -> void:
 	await get_tree().process_frame
 	_check("the resolved shift requests its dream exactly once",
 			stub.entries == 1)
-	_check("the request carries the authored job and window",
-			stub.seen_job == JOB and stub.seen_window
+	_check("the request carries the authored case, profile and window",
+			stub.seen_case == CASE
+			and stub.seen_profile == str(work_orders.job_library.job(
+					JOB).get("dream_profile_id"))
+			and stub.seen_window
 					== work_orders.job_library.job(JOB).get("dream_window"))
 	_checkpoint("dream_pending")
 	await get_tree().process_frame

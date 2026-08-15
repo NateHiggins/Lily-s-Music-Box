@@ -38,6 +38,8 @@ func _fresh_data() -> Dictionary:
 		"maintenance_jobs": {},
 		"maintenance_items": {},
 		"core_loop": {},
+		"dream_seed": _new_dream_seed(),
+		"dream": {},
 		"waking_residues": {},
 		"last_waking_residue_id": "",
 	}
@@ -105,6 +107,10 @@ func load_game() -> void:
 			data.maintenance_items = {}
 		if not data.has("core_loop"):
 			data.core_loop = {}
+		if not data.has("dream_seed"):
+			data.dream_seed = _new_dream_seed()
+		if not data.has("dream"):
+			data.dream = {}
 		if not data.has("waking_residues"):
 			data.waking_residues = {}
 		if not data.has("last_waking_residue_id"):
@@ -134,6 +140,19 @@ func _migrate() -> void:
 func reset_campaign_for_tests() -> void:
 	data = _fresh_data()
 	state_changed.emit()
+
+
+## One exact 64-bit seed per campaign, stored as sixteen hexadecimal digits.
+## JSON numbers cannot preserve every 64-bit integer; a string can. Runtime
+## owners pass these same bits through without numeric conversion.
+func _new_dream_seed() -> String:
+	var rng := RandomNumberGenerator.new()
+	rng.seed = int(Time.get_unix_time_from_system() * 1000000.0) \
+			^ Time.get_ticks_usec()
+	var high := int(rng.randi())
+	var low := int(rng.randi())
+	var encoded := "%08x%08x" % [high, low]
+	return "0000000000000001" if encoded == "0000000000000000" else encoded
 
 
 ## Waking residues are committed campaign facts, not presentation state. The

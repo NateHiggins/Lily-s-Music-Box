@@ -14,8 +14,10 @@ a dream request only after integration, and returns from the current test dream
 stub to the authored 4B bedside. The wake applies one persistent factual
 refrigerator caption.
 
-There is no production dream scene yet. `CoreLoopDirector.dream_requested` is
-the handoff that N4 will consume; K6 proves it with a test-only subscriber.
+N4 now supplies the production campaign boundary and a reconstruction-only
+DreamMazeRoot payload. There is still no playable dream geometry, onset,
+pursuit or hazard. `DreamDirector` consumes the earned request and remains
+`armed` in waking Orison until N5's SleepPressureDirector owns entry timing.
 
 ## Authority by owner
 
@@ -31,6 +33,7 @@ the handoff that N4 will consume; K6 proves it with a test-only subscriber.
 | `RealityCaseManager` | Case stage, repair count, recurrence, conversation flags, resolution and the resulting portal rule | Work-order closure or physical repair |
 | `MinaCaseGameplay` | Mina's evidence interactions, dialogue entry, visit boundary, calibration and the translation from the first completed repair to case stabilization | Maintenance lifecycle or orchestration facts |
 | `CoreLoopDirector` | Connecting authoritative events, the six coarse loop boundaries, protected dream request and safe wake return | Lifecycle rules, transactions, fault behavior, dialogue, case truth, sleep pressure, dream gameplay or presentation |
+| `CampaignShell` / `DreamDirector` | The exclusive waking/dream WorldSlot, forward-only dream transaction and rebuild-before-wake order | Onset timing, topology, pursuit, hazards, case truth or work lifecycle |
 | `ObjectiveTracker` | Presenting the current title and instruction | Owning or advancing any state |
 | `RealityState` | The shared JSON save file and committed campaign facts | Domain rules for those facts |
 | `MinaCaptionManifestation` | Mina's visible manifestation and the one idempotent waking residue applied after wake | Case resolution or wake orchestration |
@@ -82,7 +85,7 @@ stays `job_open` while WorkOrders moves from `issued` through `repairable`.
 | `job_open` | the job exists | WorkOrders emits its transition to `repaired` |
 | `conversation_pending` | the physical repair is committed | `RealityCases.conversation_changed_rule` reports Mina's complete resolution rule while the job is still repaired |
 | `conversation_complete` | CoreLoopDirector successfully closes the repaired job | `RealityCases.case_resolved` commits final integration and the authored dream window passes |
-| `dream_pending` | the integrated case has an eligible dream window | the future dream owner calls `notify_wake_complete()` |
+| `dream_pending` | the integrated case has an eligible dream window | DreamDirector completes its return transaction and calls `notify_wake_complete()` |
 | `wake_complete` | wake is accepted and the player is returned to the authored bedside | terminal for this one-job implementation |
 
 ```mermaid
@@ -101,7 +104,7 @@ flowchart TD
     RC -->|"conversation_changed_rule"| CL
     CL -->|"close_job"| WO
     RC -->|"case_resolved"| CL
-    CL -->|"dream_requested"| DD["N4 dream boundary — not yet production"]
+    CL -->|"dream_requested"| DD["DreamDirector / CampaignShell"]
     DD -->|"notify_wake_complete"| CL
     CL -->|"wake_completed"| MM["MinaCaptionManifestation"]
 ```
@@ -118,7 +121,7 @@ Exact public signals:
 | `conversation_changed_rule(case_id, flag, state)` | RealityCaseManager | CoreLoopDirector; emitted only for a newly added, data-declared resolution flag |
 | `case_resolved(case_id, state)` | RealityCaseManager | CoreLoopDirector opens the post-case dream window |
 | `conversation_requested(case_id, resident_id)` | CoreLoopDirector | currently a tested orchestration seam with no production dialogue subscriber; the player starts Mina's earned conversation through ordinary resident interaction |
-| `dream_requested(job_id, window)` | CoreLoopDirector | test-only stub today; N4 must become the production consumer |
+| `dream_requested(case_id, profile_id, window)` | CoreLoopDirector | DreamDirector; identity is data-authored and no longer inferred from the fixed job id |
 | `wake_completed(anchor_id)` | CoreLoopDirector | MinaCaptionManifestation applies/reconciles the waking residue |
 
 Closing a dialogue panel is not a rule change. Recording an ordinary or
@@ -153,9 +156,12 @@ duplicate flag is not a rule change. Repair alone is not case resolution.
    portal rule, `Silence does not require annotation`.
 7. Case resolution evaluates the job's dream window. While `player.call_locked`
    is true the request stays armed but cannot emit. Once protection releases,
-   `dream_requested(vantry_chirp_2a, window)` emits exactly once for that
-   arming.
-8. The current K6 test stub calls `notify_wake_complete()`. The coordinator
+   `dream_requested(mina_caption_crisis, mina_release_print, window)` emits
+   exactly once for that arming. DreamDirector persists it but N4 does not enter
+   before N5 supplies safe onset timing.
+8. K6's direct-building harness still uses a test stub. N4's production
+   CampaignShell instead rebuilds waking Orison and lets DreamDirector call
+   `notify_wake_complete()` during its return transaction. The coordinator
    returns the player to the bedside derived from the unique F04 `bed` furniture
    record, preserves all job/case/item facts, and emits `wake_completed`.
    MinaCaptionManifestation then commits the one
@@ -175,6 +181,7 @@ rebuilt from facts rather than saved as copies.
 | `maintenance_items[item_id]` | `shop_id`, `consumed`, `acquired_at`; `consumed_at` after use | Inventory restore validates shape/provenance; spent records remain instead of being deleted, so load cannot mint the item again |
 | `cases[case_id]` | case stage, repairs, recurrence, intensity, trust, conversation flags, apartment changes, pending/resolved flags | RealityCaseManager remains the only rule owner; MinaCaseGameplay idempotently translates an already repaired job into its first stabilization |
 | `core_loop` | `active_job_id`, `boundary`, `conversation_requested`, `conversation_complete`, `dream_pending`, `safe_return_anchor` | Defaults self-heal; setup reconciles a pre-existing job; conversation requests do not duplicate; a new session re-arms one pending dream request |
+| `dream_seed` / `dream` | exact 16-hex-digit campaign seed; phase, active flag, case/profile/window, copied `seed_hex`, maze revision and outcome | CampaignShell reconstructs only waking or dream; entered/active restart at D00; return-pending reconciles forward and clears last |
 | `waking_residues[residue_id]` | case/job provenance, generated anchor/socket ids and text | `apply_waking_residue` refuses duplicate ids; manifestation reconstructs the label after boot/load |
 | `last_waking_residue_id` | most recently applied residue id | presentation lookup only |
 
@@ -220,9 +227,10 @@ or any other second case is enabled.
    flag may close a repaired job only when that case is genuinely
    `integration_ready`. The later `case_resolved` event, not UI closure, opens
    its dream window.
-7. Give N4's shared dream boundary the job/case profile and a safe authored
+7. Give the shared dream boundary the job/case profile and a safe authored
    return anchor. Case content may change maze grammar and waking residue;
-   scene ownership, persistence and wake acceptance stay shared.
+   scene ownership, persistence and wake acceptance stay shared. See
+   `game/docs/dream_boundary.md` for the landed N4 contract.
 8. Extend focused tests first: schema rejection, both origins, every legal and
    illegal transition, wrong-shop/item refusal, duplicate calls, rule-change
    filtering, protection, each real-file save boundary and wake idempotence.
@@ -240,6 +248,8 @@ or any other second case is enabled.
 - `MaintenanceJobTest.tscn`, `MaintenanceErrandTest.tscn` and
   `MaintenanceCounterTest.tscn` isolate lifecycle, transaction and physical
   interaction failures when the larger trace points at one boundary.
+- `DreamBoundaryTest.tscn` destroys and real-file-restores the persistent
+  campaign shell at armed, entered, active, return-pending and awake.
 
 Fresh K7 proof on 2026-08-15: CoreLoopTest passed 28/28 focused checks with
 `idle | job_open | awaiting_part | repairable | conversation_pending |

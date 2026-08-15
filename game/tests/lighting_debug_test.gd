@@ -3,7 +3,7 @@ extends Node
 
 func _ready() -> void:
 	GameBoot.launch_mode = GameBoot.LaunchMode.DEBUG
-	var scene := load(GameBoot.GAME_SCENE) as PackedScene
+	var scene := load(GameBoot.BUILDING_SCENE) as PackedScene
 	var building := scene.instantiate()
 	add_child(building)
 	await get_tree().process_frame

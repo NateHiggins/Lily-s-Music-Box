@@ -13,7 +13,7 @@ extends Node
 ##   waits for case integration before opening the dream window;
 ## - evaluates the job's data-authored dream window, suppresses the request
 ##   while a call or conversation protects the player (`call_locked`), and
-##   emits `dream_requested` for the future sleep/dream owner;
+##   emits the data-authored case/profile request to DreamDirector;
 ## - accepts the wake boundary and returns the player to the authored 4B
 ##   bedside anchor without undoing any committed work.
 ##
@@ -27,7 +27,7 @@ extends Node
 ## its domain owner on restore.
 
 signal conversation_requested(case_id: String, resident_id: String)
-signal dream_requested(job_id: String, window: Dictionary)
+signal dream_requested(case_id: String, profile_id: String, window: Dictionary)
 signal wake_completed(anchor_id: String)
 
 const JOB_ID := ChirpHunt.JOB_ID
@@ -46,14 +46,22 @@ var _dream_request_sent := false
 
 func setup(spine: WorkOrders, the_player: Node3D,
 		building_layout: Dictionary) -> void:
+	if work_orders != null and is_instance_valid(work_orders) \
+			and work_orders.job_stage_changed.is_connected(_on_job_stage_changed):
+		work_orders.job_stage_changed.disconnect(_on_job_stage_changed)
 	work_orders = spine
 	player = the_player
 	layout = building_layout
-	work_orders.job_stage_changed.connect(_on_job_stage_changed)
-	RealityCases.resident_interaction_requested.connect(
-			_on_resident_interaction)
-	RealityCases.conversation_changed_rule.connect(_on_rule_changed)
-	RealityCases.case_resolved.connect(_on_case_resolved)
+	if not work_orders.job_stage_changed.is_connected(_on_job_stage_changed):
+		work_orders.job_stage_changed.connect(_on_job_stage_changed)
+	if not RealityCases.resident_interaction_requested.is_connected(
+			_on_resident_interaction):
+		RealityCases.resident_interaction_requested.connect(
+				_on_resident_interaction)
+	if not RealityCases.conversation_changed_rule.is_connected(_on_rule_changed):
+		RealityCases.conversation_changed_rule.connect(_on_rule_changed)
+	if not RealityCases.case_resolved.is_connected(_on_case_resolved):
+		RealityCases.case_resolved.connect(_on_case_resolved)
 	set_process(false)
 	_reconcile_boundary()
 	if str(_state().get("boundary", "idle")) == "conversation_complete" \
@@ -84,16 +92,35 @@ func loop_state() -> Dictionary:
 	return _state().duplicate(true)
 
 
+## The campaign shell keeps this coordinator while replacing the world. Drop
+## only scene-owned references and their signal; committed loop facts remain.
+func detach_world() -> void:
+	if work_orders != null and is_instance_valid(work_orders) \
+			and work_orders.job_stage_changed.is_connected(_on_job_stage_changed):
+		work_orders.job_stage_changed.disconnect(_on_job_stage_changed)
+	work_orders = null
+	player = null
+	layout = {}
+	set_process(false)
+
+
 func _case_id() -> String:
-	if work_orders.job_library == null:
+	if work_orders == null or work_orders.job_library == null:
 		return ""
 	return str(work_orders.job_library.job(JOB_ID).get("case_id", ""))
 
 
 func _resident_id() -> String:
-	if work_orders.job_library == null:
+	if work_orders == null or work_orders.job_library == null:
 		return ""
 	return str(work_orders.job_library.job(JOB_ID).get("resident_id", ""))
+
+
+func _dream_profile_id() -> String:
+	if work_orders == null or work_orders.job_library == null:
+		return ""
+	return str(work_orders.job_library.job(JOB_ID).get(
+			"dream_profile_id", ""))
 
 
 ## Mina's complaint arrives through the existing interaction event. A
@@ -184,11 +211,18 @@ func _process(_delta: float) -> void:
 	if _dream_request_sent or not bool(_state().get("dream_pending", false)):
 		set_process(false)
 		return
+	# A persistent shell can remove a waking world between frames. Its
+	# WorkOrders owner may already be gone even though this coordinator's
+	# teardown is still queued.
+	if work_orders == null or not is_instance_valid(work_orders) \
+			or work_orders.job_library == null:
+		set_process(false)
+		return
 	if _protected():
 		return
 	_dream_request_sent = true
 	set_process(false)
-	dream_requested.emit(JOB_ID,
+	dream_requested.emit(_case_id(), _dream_profile_id(),
 			work_orders.job_library.job(JOB_ID).get("dream_window", {}))
 
 
@@ -196,7 +230,8 @@ func _protected() -> bool:
 	return player != null and bool(player.get("call_locked"))
 
 
-## The wake boundary, called by the future dream owner (K5 stubs it). Moves
+## The wake boundary, called by DreamDirector after waking Orison is rebuilt
+## (the direct-building K6 harness uses a stub). Moves
 ## the player to the authored bedside anchor and flips orchestration facts;
 ## repair, consumption, evidence, conversation and closure are other
 ## owners' committed work and are not touched.

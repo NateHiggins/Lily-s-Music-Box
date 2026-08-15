@@ -65,7 +65,8 @@ func _fresh_director() -> void:
 	director.conversation_requested.connect(
 			func(_c: String, _r: String) -> void: conversation_requests += 1)
 	director.dream_requested.connect(
-			func(_j: String, _w: Dictionary) -> void: dream_requests += 1)
+			func(_c: String, _p: String, _w: Dictionary) -> void:
+				dream_requests += 1)
 	director.wake_completed.connect(
 			func(_a: String) -> void: wakes += 1)
 

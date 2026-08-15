@@ -159,7 +159,8 @@ func _ready() -> void:
 	# same production owners.
 	var director: CoreLoopDirector = root.core_loop
 	director.dream_requested.connect(
-			func(_j: String, _w: Dictionary) -> void: _dream_requests += 1)
+			func(_c: String, _p: String, _w: Dictionary) -> void:
+				_dream_requests += 1)
 	_check("the repair left the coordinator at conversation-pending",
 			director.boundary() == "conversation_pending"
 			and RealityState.case_state("mina_caption_crisis").repair_count == 1)

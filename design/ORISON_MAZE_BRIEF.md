@@ -473,6 +473,16 @@ case, repair, shop, dialogue, pursuit or hazard rules.
 5. Loading during that final transaction reconciles forward to the bedside.
    It cannot duplicate residue, resurrect an item or reopen a case.
 
+**N4 closed this substrate on 2026-08-15.** `CampaignShell` now keeps one
+persistent CoreLoopDirector and DreamDirector around an exclusive one-child
+WorldSlot. `DreamBoundaryTest.tscn` passes 34/34 checks using the real JSON path
+at armed, entered, active, return-pending and awake, including same-seed D00
+reconstruction, production BuildingRoot injection and one idempotent Mina
+residue. The exact 64-bit campaign seed is stored as sixteen hexadecimal digits
+so JSON cannot round it. Production intentionally remains armed in waking
+Orison until N5's SleepPressureDirector calls entry; DreamMazeRoot currently
+contains only the boundary payload, not production maze geometry.
+
 Signals remain narrow: `dream_requested(case_id, profile_id, window)`,
 `dream_entered(case_id, seed)`, `dream_ended(case_id, outcome)` and the existing
 `waking_residue_applied`. No dream owner advances WorkOrders or RealityCases.

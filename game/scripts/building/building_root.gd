@@ -501,13 +501,19 @@ func _ready() -> void:
 	chirp_hunt.name = "ChirpHunt"
 	add_child(chirp_hunt)
 	chirp_hunt.setup(vantry_points, work_orders, maintenance_inventory)
-	# The thin campaign coordinator: connects the authoritative boundaries
-	# the domain owners above already emit. Needs the player for the
-	# protection flag and the wake return; owns no domain rules.
-	core_loop = CoreLoopDirector.new()
-	core_loop.name = "CoreLoopDirector"
-	add_child(core_loop)
-	core_loop.setup(work_orders, player, layout)
+	# Production's CampaignShell keeps the coordinator while this entire world
+	# is replaced. Focused scenes and historical tests that instantiate the
+	# building directly retain a local coordinator with the same contract.
+	var shell := get_tree().get_first_node_in_group("campaign_shell")
+	if shell != null and shell.is_ancestor_of(self) \
+			and shell.has_method("bind_waking_services"):
+		core_loop = shell.call("bind_waking_services",
+				work_orders, player, layout) as CoreLoopDirector
+	else:
+		core_loop = CoreLoopDirector.new()
+		core_loop.name = "CoreLoopDirector"
+		add_child(core_loop)
+		core_loop.setup(work_orders, player, layout)
 	mina_manifestation.bind_wake(core_loop)
 	var room0 := Room0.new()
 	add_child(room0)

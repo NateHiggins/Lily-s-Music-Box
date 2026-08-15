@@ -244,9 +244,12 @@ and 11.225 s extinguished capture medians across eleven paired seeds (69.8%
 shorter on; 7.800 s bought off); real collision blocks acquisition, and L / left
 shoulder / touch LAMP converge on the public owner. The control pack, raw data,
 dimensioned drawing and beauty proof are in
-`art/renders/dream_light_n3/README.md`. K7 now records the landed loop in
-`game/docs/core_loop.md`; N4 is the next required item and no N4 campaign
-boundary exists yet. Wake persists one
+`art/renders/dream_light_n3/README.md`. K7 records the landed loop in
+`game/docs/core_loop.md`. N4 now boots production through CampaignShell and
+proves its five forward-only real-file phases in `DreamBoundaryTest.tscn`; the
+exact scene/save contract is `game/docs/dream_boundary.md`. The current
+DreamMazeRoot is a D00 marker payload, not playable maze art, and production
+stops safely at `armed` until N5 owns onset. Wake persists one
 `mina_factual_refrigerator_caption` fact. Its acoustic owner
 is generated marker `F02_2A_FRIDGE_01`; its visible label follows generated
 socket `2A_FRIDGE_FACE`. The before/after acceptance pair and rerun command are

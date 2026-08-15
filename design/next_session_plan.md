@@ -1,4 +1,4 @@
-# Next session: open the dream boundary
+# Next session: build safe sleep onset
 
 *Rewritten 2026-08-15. Sequencing authority beneath
 `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`.*
@@ -50,24 +50,33 @@ second case. It also records two easily missed limits: the coordinator is still
 hardwired to Mina's one job, and `conversation_requested` has no production
 dialogue subscriber. Do not treat either seam as broader than the code.
 
-**Execute N4 next.** Add the minimal shared campaign scene boundary and its
-real-file persistence contract. Waking and dream worlds must never render or
-simulate together; restore at armed, entered, active, return-pending and awake
-must reconcile forward without duplicating the Mina residue or resurrecting a
-closed job/spent capsule. This is scene ownership and persistence only: no
-production Tenant behavior, Mina hazard pass, sleep-pressure scheduler, Peter,
-second errand or parallel case implementation belongs in N4.
+**N4 is complete.** Production now boots through a persistent CampaignShell
+holding one CoreLoopDirector, one DreamDirector and a one-child WorldSlot.
+Waking Orison and DreamMazeRoot never coexist in-tree. The saved transaction
+reconciles forward from armed, entered, active, return-pending and awake; the
+campaign seed is an exact sixteen-digit hexadecimal fact; case/profile identity
+comes from job data. DreamMazeRoot is only a D00 reconstruction payload, not
+maze art. Full source-backed behavior and the 34/34 real-file proof are in
+`game/docs/dream_boundary.md`.
+
+**Execute N5 next.** Implement one `SleepPressureDirector` in CampaignShell.
+Mina is gradual; later data profiles may permit sudden onset; the existing
+engaged/protection flag delays but never cancels an armed request; entry waits
+for a stable floor and never begins in traffic, an elevator seam or a physics
+fall. Ship Always-warn-before-sleep in the first pass. N5 alone may call
+`DreamDirector.enter_armed_dream()` in production. No Tenant, hazard, maze-art,
+Peter or second case implementation belongs in N5.
 
 ## Execution order
 
-1. **N4 — build the shared maze runtime.** Consume the N2 catalog and topology;
-   do not copy the drawing's control-pack coordinates into the waking world.
-2. **N5 onward — integrate one vertical slice.** Mina first, then the remaining
+1. **N5 — build safe onset.** Preserve the N4 scene transaction and add only
+   pressure, warning, protection and stable-floor entry policy.
+2. **N6 onward — integrate one vertical slice.** Mina first, then the remaining
    case grammars only after the shared substrate passes its gates.
 
 M0.5 and M1 are closed historical milestones. Their detailed proof remains in
 `design/FINAL_MAP_REDESIGN_BRIEF.md`, `TASKS.md` and `HANDOFF.md`; do not rerun,
-reinterpret or reopen them while executing N4.
+reinterpret or reopen them while executing N5.
 
 ## Non-negotiable constraints
 
@@ -86,10 +95,9 @@ reinterpret or reopen them while executing N4.
 
 ## The next deliverable to the owner
 
-Return one minimal N4 boundary with a single active scene world, explicit
-`armed → entered → active → return_pending → awake` facts, a test-only dream
-payload if needed, and real-file proof at every boundary. The production waking
-scene must unload or stop before the dream becomes active, and the dream must
-unload before 4B is rebuilt. Preserve the closed job, spent capsule, resolved
-case and one waking residue across every restore. Production Tenant behavior,
-hazards, sleep pressure and case dressing remain outside N4.
+Return one shared SleepPressureDirector with Mina's gradual onset, the
+Always-warn accessibility override, existing protection and stable-floor gates,
+and a deterministic proof that an armed request waits through each unsafe
+context then enters exactly once. Preserve N4's one-world and real-file
+contracts. Production Tenant behavior, hazards, maze geometry and case dressing
+remain outside N5.

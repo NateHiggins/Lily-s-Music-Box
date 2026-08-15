@@ -741,10 +741,6 @@ not silently close the core-loop documentation.
   shoulder and touch LAMP share `PlayerController.toggle_lamp()`. The diagnostic
   capsule casts shadows only and never renders in beauty. Proof, raw CSV and the
   exact drawing: `art/renders/dream_light_n3/README.md`.
-- **N4** Add the minimal campaign scene boundary and persistence contract:
-  waking and dream worlds never render/simulate together; real-file restore at
-  armed, entered, active, return-pending and awake boundaries reconciles forward
-  without duplicating residue or resurrecting work.
 - **N5** Implement `SleepPressureDirector`: Mina gradual first, later profiles
   may permit sudden onset, protected interactions delay entry, stable-floor
   safety prevents transition seams, and Always-warn accessibility ships now.
