@@ -22,11 +22,13 @@ layer's fiction, not as the title. Design docs live in
 `design/` and `art/docs/`; per-case content in the Case Network docs.
 
 **Current title theme (owner ruling 2026-08-15):** Clockwork Waltz, provisionally.
-The menu ships both complete records: `ESCAPEMENT FAILURE ×1.414` opens on the
-cold stairwell face, then the untouched 2:38.7 original opens the 1928 sales
-plate; either may be selected and completed streams alternate automatically.
-No title import loops. Exact masters, hashes, trims and tests are recorded in
-`game/docs/title_screen.md`.
+The untouched 2:38.7 original opens; `ESCAPEMENT FAILURE ×1.414` is its optional
+second record, and completed streams alternate automatically. Both play over
+one rain-soaked waking-world hero joining ORISON, STREET and the Vantry Arcade
+through mundane infrastructure and maintenance work. Owner spoiler ruling:
+**the dream world is the reveal**, so the title contains no dream geography,
+entity or impossible architecture. No title import loops. Exact masters,
+hashes, trims and tests are recorded in `game/docs/title_screen.md`.
 
 Three top-level projects:
 

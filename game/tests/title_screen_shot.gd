@@ -1,6 +1,7 @@
 extends Node
-## Two-face production evidence. TITLE_SCREEN_SILENT suppresses playback only;
-## the exact imported streams, timing labels and automatic alternation remain.
+## Production evidence for both records over the one spoiler-safe waking-world
+## hero. TITLE_SCREEN_SILENT suppresses playback only; the exact imported
+## streams, timing labels and automatic alternation remain.
 
 
 func _ready() -> void:
@@ -9,11 +10,11 @@ func _ready() -> void:
 			"res://scenes/ui/title_screen.tscn").instantiate()
 	add_child(screen)
 	await get_tree().create_timer(1.2).timeout
-	await _capture("01_escapement_failure")
-	screen._start_track(1, true)
+	await _capture("03_grand_mundane_original")
+	screen._start_track(0, true)
 	await get_tree().create_timer(0.4).timeout
-	await _capture("02_original_session")
-	print("[TITLE SHOT] two full-record faces saved")
+	await _capture("04_grand_mundane_return")
+	print("[TITLE SHOT] waking-world hero with both full records saved")
 	get_tree().quit(0)
 
 

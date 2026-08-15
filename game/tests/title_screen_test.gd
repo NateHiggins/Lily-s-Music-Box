@@ -1,6 +1,6 @@
 extends Node
-## Exact title contract: both full masters, returned-first alternation, and the
-## two visual records remain independently selectable without touching boot.
+## Exact title contract: one waking-world hero, both full masters, original
+## first, and returned/original alternation without touching boot.
 
 var _fails := 0
 
@@ -29,29 +29,27 @@ func _ready() -> void:
 			is_equal_approx(screen._tracks[1].get_length(), 158.731625))
 	_check("neither imported master hides an internal loop",
 			not screen._tracks[0].loop and not screen._tracks[1].loop)
-	_check("the returned reconstruction is the opening theme",
+	_check("the untouched original is the opening theme",
+			screen._current_track == 1
+			and screen._record_label.text == "THE CLOCKWORK WALTZ")
+	_check("the opening title exposes the returned-record choice",
+			screen._record_button.text == "HEAR THE RETURN")
+	_check("one waking-world hero contains the complete three-zone scope",
+			screen._hero_art.texture.resource_path.ends_with(
+				"orison_grand_mundane_title_v1.png"))
+
+	screen._start_track(0, true)
+	await get_tree().process_frame
+	_check("the optional return never replaces the waking-world hero",
 			screen._current_track == 0
 			and screen._record_label.text == "ESCAPEMENT FAILURE"
-			and screen._returned_art.modulate.a > 0.99)
-	_check("the opening title exposes the original-record choice",
-			screen._record_button.text == "HEAR THE 1928 ORIGINAL")
-	_check("the decorative mechanism exists beneath interactive UI",
-			screen._veil.get_script().resource_path \
-			== "res://scripts/ui/title_clockwork_veil.gd"
-			and screen._veil.mouse_filter == Control.MOUSE_FILTER_IGNORE)
-
-	screen._start_track(1, true)
+			and screen._hero_art.visible)
+	_check("the returned record offers the original master",
+			screen._record_button.text == "PLAY THE ORIGINAL MASTER")
+	screen._on_track_finished(0)
 	await get_tree().process_frame
-	_check("the original record selects the sales-plate face",
-			screen._current_track == 1
-			and screen._record_label.text == "THE CLOCKWORK WALTZ"
-			and screen._returned_art.modulate.a < 0.01)
-	_check("the original face offers the authored return",
-			screen._record_button.text == "RETURN IT TOO FAST")
-	screen._on_track_finished(1)
-	await get_tree().process_frame
-	_check("a completed original alternates to the full returned master",
-			screen._current_track == 0)
+	_check("a completed return alternates to the full original master",
+			screen._current_track == 1)
 	_check("silent proof starts no hidden audio players",
 			screen._players.all(func(player): return not player.playing))
 

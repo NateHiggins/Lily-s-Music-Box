@@ -1,24 +1,20 @@
 class_name OrisonTitleScreen
 extends Control
-## The title has two records and two faces of the same building. The returned
-## reconstruction opens on the impossible stairwell; the untouched 1928 waltz
-## opens on Vantry's exhausted sales plate. Neither recording is excerpted or
-## looped. When one finishes, the other begins from its first frame.
+## The waking world is allowed grandeur; the dream remains the reveal. One
+## rain-soaked hero joins the Orison, STREET and Vantry Arcade through mundane
+## work. The untouched waltz opens; its returned reconstruction is the second
+## record. Neither is excerpted or looped.
 
-const RETURNED_ART := preload(
-		"res://assets/ui/title/orison_stairwell_title_v2.png")
-const ORIGINAL_ART := preload(
-		"res://assets/ui/title/orison_original_advert_lobby_v1.png")
+const HERO_ART := preload(
+		"res://assets/ui/title/orison_grand_mundane_title_v1.png")
 const RETURNED_THEME := preload(
 		"res://assets/audio/music/title/clockwork_waltz_escapement_failure.ogg")
 const ORIGINAL_THEME := preload(
 		"res://assets/audio/music/title/clockwork_waltz_original.ogg")
-const VEIL_SCRIPT := preload("res://scripts/ui/title_clockwork_veil.gd")
 
 const TRACK_RETURNED := 0
 const TRACK_ORIGINAL := 1
 const TRACK_TRIM_DB := [-8.0, -6.5]
-const ART_CROSSFADE_SECONDS := 1.8
 
 var _tracks: Array[AudioStream] = [RETURNED_THEME, ORIGINAL_THEME]
 var _track_names := [
@@ -30,10 +26,8 @@ var _track_notes := [
 	"ORIGINAL SESSION  ·  1928",
 ]
 
-var _original_art: TextureRect
-var _returned_art: TextureRect
+var _hero_art: TextureRect
 var _shade: TextureRect
-var _veil: Control
 var _settings_panel: PanelContainer
 var _quality: OptionButton
 var _fullscreen: CheckBox
@@ -45,11 +39,10 @@ var _record_progress: ProgressBar
 var _record_button: Button
 var _players: Array[AudioStreamPlayer] = []
 var _music_fade: Tween
-var _art_fade: Tween
 var _elapsed := 0.0
 var _contact_left := 0.0
 var _next_contact := 9.0
-var _current_track := TRACK_RETURNED
+var _current_track := TRACK_ORIGINAL
 var _leaving := false
 
 
@@ -64,12 +57,11 @@ func _ready() -> void:
 
 
 func _build_backdrop() -> void:
-	_original_art = _art_layer("OriginalSalesPlate", ORIGINAL_ART)
-	_returned_art = _art_layer("ReturnedStairwell", RETURNED_ART)
-	add_child(_original_art)
-	add_child(_returned_art)
+	_hero_art = _art_layer("GrandMundaneWakingWorld", HERO_ART)
+	add_child(_hero_art)
 
-	# A horizontal falloff protects the menu without flattening the stairwell.
+	# A horizontal falloff protects the menu without flattening the wet street
+	# and illuminated arcade beneath it.
 	var gradient := Gradient.new()
 	gradient.offsets = PackedFloat32Array([0.0, 0.48, 1.0])
 	gradient.colors = PackedColorArray([
@@ -90,13 +82,6 @@ func _build_backdrop() -> void:
 	_shade.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	_shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_shade)
-
-	_veil = VEIL_SCRIPT.new()
-	_veil.name = "ClockworkVeil"
-	_veil.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	_veil.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(_veil)
-
 
 func _art_layer(label: String, texture: Texture2D) -> TextureRect:
 	var art := TextureRect.new()
@@ -265,7 +250,7 @@ func _build_music() -> void:
 				_music_fade.kill()
 			if not _players.is_empty():
 				_players[_current_track].volume_db = _music_db(_current_track))
-	_start_track(TRACK_RETURNED, true)
+	_start_track(TRACK_ORIGINAL, true)
 
 
 func _start_track(index: int, immediate := false) -> void:
@@ -283,28 +268,17 @@ func _start_track(index: int, immediate := false) -> void:
 	_music_fade = create_tween()
 	_music_fade.tween_property(player, "volume_db", _music_db(index),
 			0.01 if immediate else 0.8)
-	_set_record_presentation(index, immediate)
+	_set_record_presentation(index)
 
 
-func _set_record_presentation(index: int, immediate: bool) -> void:
+func _set_record_presentation(index: int) -> void:
 	_record_label.text = _track_names[index]
 	_record_note.text = _track_notes[index]
-	_record_button.text = "HEAR THE 1928 ORIGINAL" \
-			if index == TRACK_RETURNED else "RETURN IT TOO FAST"
+	_record_button.text = "PLAY THE ORIGINAL MASTER" \
+			if index == TRACK_RETURNED else "HEAR THE RETURN"
 	_record_progress.value = 0.0
 	var duration := _tracks[index].get_length()
 	_record_time.text = "00:00 / %s" % _format_time(duration)
-	var returned_alpha := 1.0 if index == TRACK_RETURNED else 0.0
-	if _art_fade and _art_fade.is_valid():
-		_art_fade.kill()
-	if immediate:
-		_returned_art.modulate.a = returned_alpha
-	else:
-		_art_fade = create_tween()
-		_art_fade.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		_art_fade.tween_property(_returned_art, "modulate:a",
-				returned_alpha, ART_CROSSFADE_SECONDS)
-	_veil.set_record_state(index == TRACK_RETURNED)
 
 
 func _toggle_record() -> void:
@@ -388,8 +362,7 @@ func _save_settings() -> void:
 
 func _place_backdrop() -> void:
 	var viewport_size := get_viewport_rect().size
-	for art in [_original_art, _returned_art]:
-		art.pivot_offset = viewport_size * 0.5
+	_hero_art.pivot_offset = viewport_size * 0.5
 
 
 func _process(delta: float) -> void:
@@ -402,8 +375,7 @@ func _process(delta: float) -> void:
 	# Slow optical breathing follows neither the beat nor the waltz bar. The
 	# single contact cough interrupts it at an irregular interval.
 	var zoom := 1.018 + sin(_elapsed * 0.085) * 0.006
-	_returned_art.scale = Vector2.ONE * (zoom + (0.002 if _contact_left > 0 else 0.0))
-	_original_art.scale = Vector2.ONE * (1.010 + sin(_elapsed * 0.052) * 0.004)
+	_hero_art.scale = Vector2.ONE * (zoom + (0.002 if _contact_left > 0 else 0.0))
 	if _players.is_empty():
 		return
 	var player := _players[_current_track]

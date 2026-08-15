@@ -16,16 +16,20 @@ func _ready() -> void:
 	var screen = load("res://scenes/ui/title_screen.tscn").instantiate()
 	add_child(screen)
 	await get_tree().create_timer(0.25).timeout
-	_check("Escapement Failure really starts, not merely labels itself",
-			screen._players[0].playing and not screen._players[1].playing)
-	screen._players[0].seek(screen._tracks[0].get_length() - 0.08)
+	_check("the original waltz really starts, not merely labels itself",
+			screen._players[1].playing and not screen._players[0].playing)
+	screen._players[1].seek(screen._tracks[1].get_length() - 0.08)
 	await get_tree().create_timer(0.35).timeout
-	_check("the complete returned stream hands off to the original",
-			screen._current_track == 1 and screen._players[1].playing)
-	_check("the finished returned player is stopped",
-			not screen._players[0].playing)
+	_check("the complete original stream hands off to the return",
+			screen._current_track == 0 and screen._players[0].playing)
+	_check("the finished original player is stopped",
+			not screen._players[1].playing)
 	for player in screen._players:
 		player.stop()
+	# Godot releases a freshly-created Vorbis playback object on the audio
+	# thread, not synchronously with stop().  Give that thread one short turn
+	# before freeing the title screen so a passing proof also exits cleanly.
+	await get_tree().create_timer(0.20).timeout
 	screen.queue_free()
 	await get_tree().process_frame
 	await get_tree().process_frame

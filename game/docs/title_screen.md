@@ -12,17 +12,25 @@ The title presents two complete, separately selectable records:
 
 Both shipped streams are 48 kHz stereo Ogg Vorbis at FFmpeg quality 8. Nothing
 is excerpted, faded into a loop, pitch-corrected or layered over the other
-record. The returned reconstruction opens the title. When either complete
-stream ends, the other starts from zero. `HEAR THE 1928 ORIGINAL` and `RETURN
-IT TOO FAST` provide the same transition on demand. Per-track trims compensate
-for their measured 1.53 LU loudness difference without changing the masters.
+record. The untouched original opens the title. When either complete stream
+ends, the other starts from zero. `HEAR THE RETURN` and `PLAY THE ORIGINAL
+MASTER` provide the same transition on demand. Per-track trims compensate for
+their measured 1.53 LU loudness difference without changing the masters.
 
-The two visual faces are also existing production art, not newly invented
-canon. Escapement Failure uses `orison_stairwell_title_v2.png` with the quiet
-clockwork diagram; the original uses `orison_original_advert_lobby_v1.png`.
-The menu title is the actual project title, *Please Remain On The Line*.
+Owner correction, 2026-08-15: **the dream world is the reveal.** The title
+therefore uses one record-independent waking-world hero,
+`orison_grand_mundane_title_v1.png`. It makes the approved three-zone scope
+grand through things the player can already encounter: the seven-storey
+Orison, driving rain and roadway, a historical transit-style kiosk, the lit
+Vantry Arcade, an off-hook telephone, a work order, a toolbox and a maintenance
+worker crossing between them. It contains no dream geography, Tenant,
+impossible architecture, supernatural figure or preview of dream play. The
+fantasy is entirely composition, scale, weather and light applied to mundane
+work. Selecting a record never changes the image. The menu title is the actual
+project title, *Please Remain On The Line*.
 
 `TitleScreenTest.tscn` proves full durations, loop flags, opening selection,
-visual selection and alternation. `TitleScreenAudioTest.tscn` proves actual
-playback and the finished-signal handoff. The two production renders live in
-`art/renders/title_clockwork_theme/`.
+single-hero invariance and alternation. `TitleScreenAudioTest.tscn` proves
+actual playback and the finished-signal handoff. Production renders live in
+`art/renders/title_clockwork_theme/`; the superseded first redesign remains
+there as decision history.
