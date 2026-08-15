@@ -971,11 +971,11 @@ it.
     porcelain floor geometry.
     All five baked valve radios regain a local knob, click, quiet programme bed
     and reversible power condition; case-anomaly props remain separate owners.
-    All 21 baked wardrobes now answer at a record-aligned brass handle with an
-    audible resisting leaf and resident-private copy. This is deliberately not
-    marked complete as an OPERATE row: their visible leaves remain merged into
-    floor glTF buffers, so a generator split and rebuild are still required for
-    truthful hinged motion.
+    All 21 wardrobes now own their actual paired doors at runtime. The rebuilt
+    floor glTFs contain a hollow cabinet, rail and non-loot resident garments,
+    but no duplicate baked leaves; E opens/closes both textured leaves with a
+    creak and resident-private copy. The closed/open production pair lives in
+    `art/renders/wardrobe_split_i4/`.
     The Harukiya jukebox now has separate selection-bank and coin-return ray
     owners, moving controls, sign response and a local spatial pickup cycling
     three shipped bar records. Its return stops only the cabinet; it never

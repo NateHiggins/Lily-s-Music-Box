@@ -188,16 +188,18 @@ func _ready() -> void:
 			and str(radio_off_card.get("condition", "")).contains("POWER OFF"))
 
 	var wardrobe := BakedFurnitureInteraction.new()
-	wardrobe.setup({"id": "2A_w0_wardrobe", "asm": "wardrobe", "W": 1.3})
+	wardrobe.setup({"id": "2A_w0_wardrobe", "asm": "wardrobe", "W": 1.3,
+			"case_wood": "oak_quartered"})
 	add_child(wardrobe)
 	var wardrobe_card: Dictionary = wardrobe.interact(hand)
-	_check("baked private wardrobe refuses through its own handle",
-			wardrobe.interact_prompt().contains("Try wardrobe handle")
+	_check("split private wardrobe opens through its own hinged leaves",
+			wardrobe.interact_prompt().contains("Close private wardrobe")
+			and wardrobe._wardrobe_open
 			and wardrobe._wardrobe_rattle.playing
 			and wardrobe._wardrobe_tween.is_running()
 			and wardrobe_card.get("card_id", "") == "wardrobe"
 			and str(wardrobe_card.get("condition", "")).contains(
-					"HANDLE ANSWERED")
+					"LEAF OPEN")
 			and str(wardrobe_card.get("condition", "")).contains(
 					"2A RESIDENT / PRIVATE"))
 
@@ -229,16 +231,23 @@ func _ready() -> void:
 	await get_tree().create_timer(0.03).timeout
 	await get_tree().process_frame
 	await get_tree().process_frame
-	print("    motion latch=%.4f chain=%.4f lock=%.4f lid=%.4f airer=%.4f" % [
+	print("    motion latch=%.4f chain=%.4f lock=%.4f lid=%.4f airer=%.4f wardrobe=%.4f" % [
 			case_door._knob.rotation.z, cart._night_chain.rotation.z,
 			cart._night_lock.rotation.z, washer._lid.rotation.x,
-			airer._rack.position.y])
+			airer._rack.position.y, wardrobe._wardrobe_left_leaf.rotation.y])
 	_check("case latch and cart chain visibly moved",
 			absf(case_door._knob.rotation.z) > 0.001
 			and (absf(cart._night_chain.rotation.z) > 0.001
 					or absf(cart._night_lock.rotation.z) > 0.001)
 			and absf(washer._lid.rotation.x) > 0.001
-			and airer._rack.position.y < 1.98)
+			and airer._rack.position.y < 1.98
+			and absf(wardrobe._wardrobe_left_leaf.rotation.y) > 0.001)
+	var closed_wardrobe_card: Dictionary = wardrobe.interact(hand)
+	_check("private wardrobe closes through the same authoritative leaves",
+			not wardrobe._wardrobe_open
+			and wardrobe.interact_prompt().contains("Open private wardrobe")
+			and str(closed_wardrobe_card.get("condition", "")).contains(
+					"LEAF CLOSED"))
 
 	print("[SERVICE WIRE RESPONSE] RESULT: %s (%d failures)" % [
 			"PASS" if _fails == 0 else "FAIL", _fails])

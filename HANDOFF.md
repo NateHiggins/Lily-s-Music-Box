@@ -146,12 +146,16 @@ Conventions that bite if forgotten:
   tune without erasing a case signal. It also operates an overlaid cistern
   handle and proves an impatient second press cannot restart its refill, then
   switches a baked valve radio on and off without borrowing case state. The
-  guard also rattles a record-aligned wardrobe handle and returns resident-
-  private copy; this is an interim truthful response, not proof of the still-
-  pending generator split needed for an opening leaf. Finally it proves the
+  guard also opens and closes the two authoritative wardrobe leaves and returns
+  resident-private copy. The closed/open production pair is in
+  `art/renders/wardrobe_split_i4/`; Blender no longer bakes a second pair of
+  doors behind them. Finally the guard proves the
   Harukiya jukebox's separate selection-bank and coin-return owners: three
   shipped catalog records play from the cabinet's own spatial pickup and the
   return stops only that local motor, never the WORS ghost-radio director.
+- `game/tests/WardrobeInteractionShot.tscn` — paired production visual proof
+  for the 21-record wardrobe generator/runtime split. It frames 4A closed and
+  open and prints both final hinge angles. Exit code 0 = both frames saved.
   Unresolved state tokens never print, and the case-owner template cannot leak
   generic copy. Exit code 0 = pass.
 - `game/tests/LightingAudit.tscn` — every space is reachable by light:

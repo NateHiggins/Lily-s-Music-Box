@@ -741,14 +741,15 @@ func _plumbing_checks() -> void:
 		return owner is BakedFurnitureInteraction \
 				and owner.furniture_kind == "wardrobe")
 	_check(wardrobe_owners.size() == 21,
-			"all 21 baked wardrobes regain one resident-owned handle")
+			"all 21 wardrobe records own one paired-leaf mechanism")
 	if wardrobe_owners.size() == 21:
 		var sample_wardrobe := wardrobe_owners[0] as BakedFurnitureInteraction
 		var wardrobe_card: Dictionary = sample_wardrobe.interact(root.player)
 		_check(sample_wardrobe._wardrobe_rattle.playing
 				and sample_wardrobe._wardrobe_tween.is_running()
+				and sample_wardrobe._wardrobe_open
 				and wardrobe_card.get("card_id", "") == "wardrobe",
-				"a production private wardrobe audibly resists at its handle")
+				"a production private wardrobe opens its split hinged leaves")
 	var jukebox_owners := get_tree().get_nodes_in_group(
 			"baked_furniture_interactions").filter(func(owner):
 		return owner is BakedFurnitureInteraction \

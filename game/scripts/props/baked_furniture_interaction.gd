@@ -19,6 +19,7 @@ var furniture_kind := ""
 var record_id := ""
 var owner_unit := ""
 var _record_width := 1.3
+var _case_wood := "wood_dark"
 var _refilling := false
 var _lever: Node3D
 var _water: AudioStreamPlayer3D
@@ -29,9 +30,11 @@ var _radio_knob: Node3D
 var _radio_bed: AudioStreamPlayer3D
 var _control_click: AudioStreamPlayer3D
 var _control_tween: Tween
-var _wardrobe_handle: Node3D
+var _wardrobe_left_leaf: Node3D
+var _wardrobe_right_leaf: Node3D
 var _wardrobe_rattle: AudioStreamPlayer3D
 var _wardrobe_tween: Tween
+var _wardrobe_open := false
 var _jukebox_selection := 0
 var _jukebox_title := "NO SELECTION"
 var _jukebox_coin_state := "EMPTY"
@@ -49,6 +52,7 @@ func setup(spec: Dictionary) -> void:
 	record_id = str(spec.get("id", furniture_kind))
 	owner_unit = record_id.get_slice("_", 0)
 	_record_width = float(spec.get("W", 1.3))
+	_case_wood = str(spec.get("case_wood", "wood_dark"))
 	name = "Service_%s" % record_id
 	add_to_group("baked_furniture_interactions")
 	set_meta("furniture_record_id", record_id)
@@ -151,26 +155,8 @@ func _build_wardrobe_control() -> void:
 	collision.position = Vector3(0, 0.98, 0)
 	add_child(collision)
 
-	# The leaf is still part of the merged floor buffer.  A proud duplicate
-	# knob makes the attempted hand movement legible without drawing a false
-	# second door over it.
-	_wardrobe_handle = Node3D.new()
-	_wardrobe_handle.name = "WardrobeHandle"
-	_wardrobe_handle.position = Vector3(0.075, 0.945, -0.337)
-	add_child(_wardrobe_handle)
-	var mesh_node := MeshInstance3D.new()
-	var mesh := CylinderMesh.new()
-	mesh.top_radius = 0.012
-	mesh.bottom_radius = 0.016
-	mesh.height = 0.05
-	mesh.radial_segments = 8
-	mesh_node.mesh = mesh
-	var material := StandardMaterial3D.new()
-	material.albedo_color = BRASS
-	material.metallic = 0.74
-	material.roughness = 0.36
-	mesh_node.material_override = material
-	_wardrobe_handle.add_child(mesh_node)
+	_wardrobe_left_leaf = _build_wardrobe_leaf(-1.0)
+	_wardrobe_right_leaf = _build_wardrobe_leaf(1.0)
 
 	_wardrobe_rattle = AudioStreamPlayer3D.new()
 	_wardrobe_rattle.name = "PrivateLeafRattle"
@@ -179,6 +165,51 @@ func _build_wardrobe_control() -> void:
 	_wardrobe_rattle.unit_size = 1.4
 	_wardrobe_rattle.max_distance = 7.0
 	add_child(_wardrobe_rattle)
+
+
+func _build_wardrobe_leaf(side: float) -> Node3D:
+	var leaf_width := _record_width * 0.5 - 0.047
+	var hinge_x := side * (_record_width * 0.5 - 0.035)
+	var pivot := Node3D.new()
+	pivot.name = "LeftLeaf" if side < 0.0 else "RightLeaf"
+	pivot.position = Vector3(hinge_x, 0.10, -0.305)
+	add_child(pivot)
+	var centre_x := leaf_width * 0.5 * -side
+	var leaf := MeshInstance3D.new()
+	leaf.name = "FramedLeaf"
+	var leaf_box := BoxMesh.new()
+	leaf_box.size = Vector3(leaf_width, 1.72, 0.025)
+	leaf.mesh = leaf_box
+	leaf.position = Vector3(centre_x, 0.86, 0.0)
+	leaf.material_override = MatLib.get_mat(_case_wood, Color(0.82, 0.76, 0.68),
+			0.82)
+	pivot.add_child(leaf)
+	var panel := MeshInstance3D.new()
+	panel.name = "RaisedPanel"
+	var panel_box := BoxMesh.new()
+	panel_box.size = Vector3(leaf_width - 0.10, 1.46, 0.014)
+	panel.mesh = panel_box
+	panel.position = Vector3(centre_x, 0.85, -0.019)
+	# A floor-board texture on this tall face produced a hard horizontal phase
+	# break. Raised panels are the same suite timber, merely darker and tighter.
+	panel.material_override = MatLib.get_mat(_case_wood,
+			Color(0.62, 0.56, 0.48), 0.62)
+	pivot.add_child(panel)
+	var knob := MeshInstance3D.new()
+	knob.name = "BrassKnob"
+	var knob_mesh := CylinderMesh.new()
+	knob_mesh.top_radius = 0.012
+	knob_mesh.bottom_radius = 0.016
+	knob_mesh.height = 0.05
+	knob_mesh.radial_segments = 8
+	knob.mesh = knob_mesh
+	knob.rotation_degrees.x = 90.0
+	knob.position = Vector3((0.075 - hinge_x) if side > 0.0 \
+			else (-0.075 - hinge_x), 0.845, -0.04)
+	knob.material_override = MatLib.get_mat("brass_dull",
+			Color(0.72, 0.61, 0.38), 0.42)
+	pivot.add_child(knob)
+	return pivot
 
 
 func _build_jukebox_control() -> void:
@@ -292,7 +323,8 @@ func interact_prompt() -> String:
 		return "[E] Switch valve radio off" if _powered \
 				else "[E] Switch valve radio on"
 	if furniture_kind == "wardrobe":
-		return "[E] Try wardrobe handle"
+		return "[E] Close private wardrobe" if _wardrobe_open \
+				else "[E] Open private wardrobe"
 	if furniture_kind == "jukebox":
 		return control_prompt("selector")
 	return ""
@@ -350,18 +382,19 @@ func _interact_radio() -> Dictionary:
 
 
 func _interact_wardrobe() -> Dictionary:
+	_wardrobe_open = not _wardrobe_open
 	_wardrobe_rattle.pitch_scale = randf_range(0.94, 1.04)
 	_wardrobe_rattle.play()
 	if _wardrobe_tween and _wardrobe_tween.is_valid():
 		_wardrobe_tween.kill()
-	_wardrobe_handle.rotation.z = 0.0
 	_wardrobe_tween = create_tween()
-	_wardrobe_tween.tween_property(_wardrobe_handle, "rotation:z",
-			deg_to_rad(-13.0), 0.07).set_trans(Tween.TRANS_QUAD)
-	_wardrobe_tween.tween_property(_wardrobe_handle, "rotation:z",
-			deg_to_rad(7.0), 0.09).set_trans(Tween.TRANS_QUAD)
-	_wardrobe_tween.tween_property(_wardrobe_handle, "rotation:z", 0.0, 0.11) \
-			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	_wardrobe_tween.set_parallel(true)
+	_wardrobe_tween.tween_property(_wardrobe_left_leaf, "rotation:y",
+			deg_to_rad(92.0) if _wardrobe_open else 0.0, 0.46) \
+			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	_wardrobe_tween.tween_property(_wardrobe_right_leaf, "rotation:y",
+			deg_to_rad(-92.0) if _wardrobe_open else 0.0, 0.46) \
+			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	return service_wire_card()
 
 
@@ -450,7 +483,7 @@ func service_wire_card() -> Dictionary:
 		})
 	if furniture_kind == "wardrobe":
 		return PropServiceWire.card("wardrobe", {
-			"leaf_state": "CLOSED / HANDLE ANSWERED",
+			"leaf_state": "OPEN" if _wardrobe_open else "CLOSED",
 			"owner_state": "%s RESIDENT / PRIVATE" % owner_unit,
 		})
 	if furniture_kind == "jukebox":

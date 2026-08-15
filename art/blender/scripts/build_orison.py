@@ -921,29 +921,56 @@ def case_wood(p):
     bedroom suite agrees with itself: a bed, its nightstand and the
     wardrobe beside it are one purchase, not three coincidences.
     """
+    if p.get("case_wood") in ("oak_quartered", "wood_dark"):
+        return p["case_wood"]
     ident = str(p.get("id", ""))
     unit = ident.split("_", 1)[0] if "_" in ident else ident
     return "oak_quartered" if zlib.crc32(unit.encode()) & 1 else "wood_dark"
 
 
 def asm_wardrobe(F, p):
-    """Armoire spirit: plinth, framed doors, cornice, turned knobs."""
+    """Armoire spirit: plinth, cabinet, cornice and resident garments.
+
+    The two framed leaves and their knobs are runtime-owned moving parts. They
+    must not also survive in these merged floor buffers: duplicating them here
+    makes an apparently opening door leave a second closed door behind.
+    """
     W, d = p.get("W", 1.30), 0.62
-    F.box(case_wood(p), -W / 2, -d / 2, 0.0, W / 2, d / 2, 0.07)
-    F.box(case_wood(p), -W / 2 + 0.02, -d / 2 + 0.02, 0.07, W / 2 - 0.02,
-          d / 2 - 0.03, 1.86)
-    F.box(case_wood(p), -W / 2 - 0.03, -d / 2 - 0.01, 1.86, W / 2 + 0.03,
-          d / 2 + 0.03, 1.91)
-    F.box(case_wood(p), -W / 2 - 0.015, -d / 2, 1.91, W / 2 + 0.015,
-          d / 2 + 0.015, 1.945)
+    wood = case_wood(p)
+    F.box(wood, -W / 2, -d / 2, 0.0, W / 2, d / 2, 0.07)
+    # A real hollow carcass, not the old solid block revealed when the doors
+    # move: back, two cheeks, bottom and top remain static and batch cleanly.
+    F.box(wood, -W / 2 + 0.02, -d / 2 + 0.02, 0.07,
+          W / 2 - 0.02, -d / 2 + 0.055, 1.86)
     for sx_ in (-1, 1):
-        x0 = 0.012 if sx_ > 0 else -W / 2 + 0.035
-        x1 = W / 2 - 0.035 if sx_ > 0 else -0.012
-        F.box(case_wood(p), x0, d / 2 - 0.03, 0.10, x1, d / 2 - 0.005, 1.82)
-        F.box("floor_oak", x0 + 0.05, d / 2 - 0.012, 0.22, x1 - 0.05,
-              d / 2 + 0.002, 1.68)          # raised door panel
-        F.lathe("brass", sx_ * 0.075, d / 2 + 0.012,
-                [(0.006, 0.92), (0.016, 0.945), (0.010, 0.97)], 8)
+        x0 = -W / 2 + 0.02 if sx_ < 0 else W / 2 - 0.07
+        F.box(wood, x0, -d / 2 + 0.02, 0.07, x0 + 0.05,
+              d / 2 - 0.03, 1.86)
+    F.box(wood, -W / 2 + 0.02, -d / 2 + 0.02, 0.07,
+          W / 2 - 0.02, d / 2 - 0.03, 0.12)
+    F.box(wood, -W / 2 + 0.02, -d / 2 + 0.02, 1.81,
+          W / 2 - 0.02, d / 2 - 0.03, 1.86)
+    F.box(wood, -0.018, -d / 2 + 0.04, 0.12, 0.018,
+          d / 2 - 0.05, 1.81)
+    F.box(wood, -W / 2 + 0.055, -d / 2 + 0.055, 0.43,
+          W / 2 - 0.055, d / 2 - 0.08, 0.475)
+    F.tube("metal", (-W / 2 + 0.10, 0.02, 1.61),
+           (W / 2 - 0.10, 0.02, 1.61), 0.012, 8)
+    # A few owned garment silhouettes make an opened cabinet truthful without
+    # turning private clothing into inventory or a generic loot container.
+    seed = str(p.get("id", "wardrobe"))
+    garment_mats = ("fabric_warm", "fabric_cool", "fabric_green", "linen")
+    for i, gx in enumerate((-0.38, -0.13, 0.13, 0.38)):
+        mat = garment_mats[(hash_str(seed) + i * 3) % len(garment_mats)]
+        hem = _jit(seed, i + 41, 0.55, 0.82)
+        half_w = _jit(seed, i + 51, 0.085, 0.115)
+        F.box(mat, gx - half_w, -0.01, hem, gx + half_w, 0.105, 1.53)
+        F.tbox("metal", (gx, 0.02, 1.53), (gx, 0.02, 1.60),
+               half_w * 1.75, 0.008)
+    F.box(wood, -W / 2 - 0.03, -d / 2 - 0.01, 1.86, W / 2 + 0.03,
+          d / 2 + 0.03, 1.91)
+    F.box(wood, -W / 2 - 0.015, -d / 2, 1.91, W / 2 + 0.015,
+          d / 2 + 0.015, 1.945)
     F.hull(-W / 2 - 0.03, -d / 2, 0.0, W / 2 + 0.03, d / 2 + 0.03, 1.95)
 
 

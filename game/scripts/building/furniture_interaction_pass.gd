@@ -1,7 +1,8 @@
 class_name FurnitureInteractionPass
 extends Node
 ## Restores individual mechanism ownership to selected furniture records whose
-## visible bodies are intentionally merged into the per-floor glTF.
+## static bodies are intentionally merged into the per-floor glTF. A generator
+## may omit the moving part itself, as the wardrobe source does for its leaves.
 
 const ACTIVE_KINDS := {
 	"toilet": true,

@@ -17,6 +17,7 @@ import json
 import math
 import os
 import random
+import zlib
 
 from shop_interiors import (SHOPS, SHOPS_N, SHOP_CLEAR, SHOP_H,
                             SHOP_PLAN, SHOP_FLOOR, SHOP_CEIL,
@@ -509,12 +510,15 @@ def bath_fixtures(furniture, unit, rect, edge, markers=None, z=0.0):
 
 
 def wardrobe(furniture, unit, x, y, along_x=True, face="n"):
+    ident = unit + "_wardrobe"
+    suite = ident.split("_", 1)[0]
+    wood = "oak_quartered" if zlib.crc32(suite.encode()) & 1 else "wood_dark"
     if along_x:
-        _asm(furniture, unit + "_wardrobe", "wardrobe", x + 0.65, y + 0.31,
-             FACE_YAW[face], W=1.30)
+        _asm(furniture, ident, "wardrobe", x + 0.65, y + 0.31,
+             FACE_YAW[face], W=1.30, case_wood=wood)
     else:
-        _asm(furniture, unit + "_wardrobe", "wardrobe", x + 0.31, y + 0.65,
-             FACE_YAW[face], W=1.30)
+        _asm(furniture, ident, "wardrobe", x + 0.31, y + 0.65,
+             FACE_YAW[face], W=1.30, case_wood=wood)
 
 
 # ------------------------------------------------- furniture assemblies

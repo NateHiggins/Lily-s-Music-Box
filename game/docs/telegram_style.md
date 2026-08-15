@@ -143,13 +143,13 @@ coupled closets baked into the floor geometry; a second press during refill
 gives at the handle but cannot restart the cycle. The same record-aligned pass
 restores a local knob to all five baked valve radios; their click, quiet
 programme bed and ON/OFF condition are reversible without touching the separate
-case-anomaly owners. All 21 baked wardrobes now answer through a record-aligned
-brass handle: the leaf audibly resists and the card names the resident boundary
-without exposing contents. This removes a silent target, but it does not satisfy
-the final OPERATE ruling: the visible leaf is still merged into its floor glTF
-and must be split by the furniture generator before it can honestly hinge. I4
-remains open for that split and the rest of the non-ambient matrix. The same
-pass restores the Harukiya jukebox as two controls rather than one generic E:
+case-anomaly owners. All 21 wardrobes now have true paired leaves: the generator
+keeps only a hollow carcass, rail and resident-owned garment silhouettes in the
+merged floor buffers, while the record-aligned runtime owner draws and hinges
+the only doors. E opens and closes them with a creak; the card names the resident
+boundary and nothing inside becomes inventory. The paired proof is
+`art/renders/wardrobe_split_i4/`. The same pass restores the Harukiya jukebox as
+two controls rather than one generic E:
 its selection bank clicks, changes among three existing catalog records, lights
 the sign and plays through a local spatial pickup; its coin return moves, stops
 that cabinet and reports whether a coin was held. It never calls the WORS music
