@@ -81,16 +81,62 @@ func _ready() -> void:
 			and str(counter_card.get("condition", "")).contains(
 					"NO OPEN ORDER"))
 
+	var washer := WasherProp.new()
+	washer.name = "TestWasher"
+	add_child(washer)
+	var lid_area := washer.get_node("LidReach") as PropControlArea
+	var release_area := washer.get_node("ReleaseReach") as PropControlArea
+	var wringer_area := washer.get_node("FeedReach") as PropControlArea
+	var fill_area := washer.get_node("CocksReach") as PropControlArea
+	var drain_area := washer.get_node("DrainReach") as PropControlArea
+	var lid_card: Dictionary = lid_area.interact(hand)
+	release_area.interact(hand)
+	wringer_area.interact(hand)
+	var drain_card: Dictionary = drain_area.interact(hand)
+	var fill_card: Dictionary = fill_area.interact(hand)
+	_check("washer controls remain separate ray owners",
+			lid_area.interact_prompt().contains("Close washer lid")
+			and release_area.interact_prompt().contains("safety release")
+			and wringer_area.interact_prompt().contains("Stop wringer rolls")
+			and fill_area.interact_prompt().contains("Close washer fill cocks")
+			and drain_area.interact_prompt().contains("Open washer drain"))
+	_check("washer controls change only their physical mechanism",
+			washer._lid_tween.is_running()
+			and washer._roller_gap == 0.040
+			and washer._wringer_running
+			and not washer._drain_open and washer._water.visible
+			and lid_card.get("card_id", "") == "washer"
+			and str(drain_card.get("condition", "")).contains("DRAIN OPEN")
+			and str(fill_card.get("condition", "")).contains("DRAIN CLOSED"))
+
+	var airer := LaundryAirerProp.new()
+	airer.name = "TestAirer"
+	add_child(airer)
+	var rope_area := airer.get_node("AirerReach") as PropControlArea
+	var rinse_area := airer.get_node("RinseReach") as PropControlArea
+	var airer_card: Dictionary = rope_area.interact(hand)
+	var rinse_card: Dictionary = rinse_area.interact(hand)
+	_check("airer cleat lowers the rack while rinse stand only answers",
+			rope_area.interact_prompt().contains("Raise ceiling airer")
+			and rinse_area.interact_prompt().contains("Inspect rinse stand")
+			and airer.is_airer_lowered() and airer._rack_tween.is_running()
+			and airer_card.get("card_id", "") == "laundry_airer"
+			and rinse_card.get("card_id", "") == "laundry_airer"
+			and str(airer_card.get("condition", "")).contains("LOW HEADROOM"))
+
 	await get_tree().create_timer(0.03).timeout
 	await get_tree().process_frame
 	await get_tree().process_frame
-	print("    motion latch=%.4f chain=%.4f lock=%.4f" % [
+	print("    motion latch=%.4f chain=%.4f lock=%.4f lid=%.4f airer=%.4f" % [
 			case_door._knob.rotation.z, cart._night_chain.rotation.z,
-			cart._night_lock.rotation.z])
+			cart._night_lock.rotation.z, washer._lid.rotation.x,
+			airer._rack.position.y])
 	_check("case latch and cart chain visibly moved",
 			absf(case_door._knob.rotation.z) > 0.001
 			and (absf(cart._night_chain.rotation.z) > 0.001
-					or absf(cart._night_lock.rotation.z) > 0.001))
+					or absf(cart._night_lock.rotation.z) > 0.001)
+			and absf(washer._lid.rotation.x) > 0.001
+			and airer._rack.position.y < 1.98)
 
 	print("[SERVICE WIRE RESPONSE] RESULT: %s (%d failures)" % [
 			"PASS" if _fails == 0 else "FAIL", _fails])

@@ -958,6 +958,11 @@ it.
   the presenter may read refrigerator state, for example, but never open the
   door itself. No silent prompt, silent failure or generic animation pasted
   across unrelated mechanisms.
+  - **LANDED 2026-08-15:** the first dishonest-silence batch now answers
+    (F03 utility latch, chained Passage carts, busy toaster and jobless HARDWARE
+    PAINT counter). The laundry batch follows the actual machine: five separate
+    washer controls plus the airer cleat and a non-operating rinse inspection.
+    `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street
   furniture and the service set in hand. Give foreground ledgers, counters,

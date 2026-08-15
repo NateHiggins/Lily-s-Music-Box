@@ -129,4 +129,8 @@ The first I4 response batch is proven by `ServiceWireResponseTest.tscn`: the
 F03 utility latch gives and clicks without opening, after-hours Passage chains
 rattle without moving their cart, a busy toaster answers without restarting,
 and the HARDWARE PAINT counter taps and returns an inspect card when no order is
-eligible. I4 remains open for the rest of the non-ambient matrix.
+eligible. The second batch gives every laundry control its own ray owner: washer
+lid, safety release, wringer feed, fill cocks and drain each operate only their
+named mechanism; the airer rope cleat raises/lowers the rack while the rinse
+stand answers without pretending to be another switch. I4 remains open for the
+rest of the non-ambient matrix.

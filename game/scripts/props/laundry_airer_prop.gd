@@ -133,6 +133,33 @@ func is_airer_lowered() -> bool:
 	return _lowered
 
 
+func control_prompt(control_id: String) -> String:
+	if control_id == "airer":
+		return "[E] Raise ceiling airer" if _lowered \
+				else "[E] Lower ceiling airer"
+	if control_id == "rinse":
+		return "[E] Inspect rinse stand"
+	return ""
+
+
+func interact_control(control_id: String, _player: Node = null) -> Dictionary:
+	if control_id == "airer":
+		set_airer_lowered(not _lowered)
+	elif control_id != "rinse":
+		return {}
+	_settle.pitch_scale = 0.92 if _lowered else 1.04
+	_settle.play()
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	return PropServiceWire.card("laundry_airer", {
+		"rack_state": "LOWERED" if _lowered else "RAISED",
+		"rope_state": "PAID OUT" if _lowered else "CLEATED",
+		"clearance_state": "LOW HEADROOM" if _lowered else "WALKWAY CLEAR",
+	})
+
+
 func _perform_synced_event(_index: int, accent: float, _pitch: float) -> void:
 	# The rack settles one centimetre without being commanded. At low infection
 	# it is exactly the kind of movement a player can blame on wet rope.
@@ -146,8 +173,9 @@ func _perform_synced_event(_index: int, accent: float, _pitch: float) -> void:
 
 
 func _service_area(area_name: String, at: Vector3, size: Vector3) -> void:
-	var area := Area3D.new()
+	var area := PropControlArea.new()
 	area.name = area_name
+	area.configure("airer" if area_name == "AirerReach" else "rinse")
 	var collision := CollisionShape3D.new()
 	var shape := BoxShape3D.new()
 	shape.size = size

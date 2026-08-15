@@ -26,11 +26,15 @@ var _release_bar: Node3D
 var _water: MeshInstance3D
 var _agitate: AudioStreamPlayer3D
 var _thump: AudioStreamPlayer3D
+var _control_click: AudioStreamPlayer3D
 var _lid_tween: Tween
 var _yoke_tween: Tween
+var _lid_open := false
 var _roller_gap := 0.0
 var _wringer_running := false
 var _release_warning := 0.0
+var _fill_open := false
+var _drain_open := false
 
 
 func warehouse_variants() -> Array[Dictionary]:
@@ -143,14 +147,20 @@ func _build_visual() -> void:
 	collision.position = Vector3(0, 0.42, 0)
 	body.add_child(collision)
 	add_child(body)
-	_service_area("LidReach", Vector3(0, 0.91, -0.38), Vector3(0.62, 0.28, 0.34))
-	_service_area("ReleaseReach", Vector3(0, 1.13, -0.38), Vector3(0.56, 0.25, 0.32))
-	_service_area("FeedReach", Vector3(0, 1.02, -0.48), Vector3(0.54, 0.34, 0.34))
-	_service_area("CocksReach", Vector3(0, 0.94, 0.38), Vector3(0.48, 0.28, 0.28))
-	_service_area("DrainReach", Vector3(0.31, 0.30, 0.24), Vector3(0.25, 0.38, 0.30))
+	_control_area("LidReach", "lid", Vector3(0, 0.91, -0.38),
+			Vector3(0.62, 0.28, 0.34))
+	_control_area("ReleaseReach", "release", Vector3(0, 1.13, -0.38),
+			Vector3(0.56, 0.25, 0.32))
+	_control_area("FeedReach", "wringer", Vector3(0, 1.02, -0.48),
+			Vector3(0.54, 0.34, 0.34))
+	_control_area("CocksReach", "fill", Vector3(0, 0.94, 0.38),
+			Vector3(0.48, 0.28, 0.28))
+	_control_area("DrainReach", "drain", Vector3(0.31, 0.30, 0.24),
+			Vector3(0.25, 0.38, 0.30))
 
 	_agitate = make_emitter("agitate_loop", -23.0, true)
 	_thump = make_emitter("thud", -17.0)
+	_control_click = make_emitter("tick", -18.0)
 
 
 func _build_wringer() -> void:
@@ -207,6 +217,7 @@ func _start_normal_function() -> void:
 
 
 func set_lid_open(open: bool, duration := 0.35) -> void:
+	_lid_open = open
 	if _lid_tween and _lid_tween.is_valid():
 		_lid_tween.kill()
 	var target := deg_to_rad(-82.0 if open else 0.0)
@@ -249,6 +260,7 @@ func set_agitating(running: bool) -> void:
 
 
 func set_draining(draining: bool) -> void:
+	_drain_open = draining
 	_water.visible = not draining
 
 
@@ -265,7 +277,7 @@ func set_service_pose() -> void:
 
 func get_service_state() -> Dictionary:
 	return {
-		"lid_open": absf(_lid.rotation.x) > 0.5,
+		"lid_open": _lid_open,
 		"wringer_angle": rad_to_deg(_yoke.rotation.y),
 		"roller_gap": _roller_gap,
 		"running": _wringer_running,
@@ -273,6 +285,59 @@ func get_service_state() -> Dictionary:
 	}
 
 
+func control_prompt(control_id: String) -> String:
+	match control_id:
+		"lid":
+			return "[E] Close washer lid" if _lid_open \
+					else "[E] Open washer lid"
+		"release":
+			return "[E] Press wringer safety release"
+		"wringer":
+			return "[E] Stop wringer rolls" if _wringer_running \
+					else "[E] Start wringer rolls"
+		"fill":
+			return "[E] Close washer fill cocks" if _fill_open \
+					else "[E] Open washer fill cocks"
+		"drain":
+			return "[E] Close washer drain" if _drain_open \
+					else "[E] Open washer drain"
+	return ""
+
+
+func interact_control(control_id: String, _player: Node = null) -> Dictionary:
+	_control_click.pitch_scale = rng.randf_range(0.93, 1.07)
+	_control_click.play()
+	match control_id:
+		"lid":
+			set_lid_open(not _lid_open)
+		"release":
+			trigger_safety_release()
+		"wringer":
+			set_wringer_running(not _wringer_running)
+		"fill":
+			_fill_open = not _fill_open
+			_drain_open = false
+			_water.visible = true
+		"drain":
+			set_draining(not _drain_open)
+			if _drain_open:
+				_fill_open = false
+		_:
+			return {}
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	var tub_state := "EMPTY" if not _water.visible else (
+			"AGITATING" if state == PState.OPERATING else "FILLED")
+	var wringer_state := "RUNNING" if _wringer_running else (
+			"RELEASED" if _roller_gap >= 0.035 else "STOPPED")
+	return PropServiceWire.card("washer", {
+		"lid_state": "OPEN" if _lid_open else "CLOSED",
+		"tub_state": tub_state,
+		"wringer_state": wringer_state,
+		"drain_state": "OPEN" if _drain_open else "CLOSED",
+	})
 func _perform_synced_event(_index: int, accent: float, _pitch: float) -> void:
 	# The release gives before the impossible empty wring. It is small enough
 	# to leave the player unsure until the rollers answer on the beat.
@@ -299,9 +364,11 @@ func _process(delta: float) -> void:
 				clampf(delta * 8.0, 0.0, 1.0))
 
 
-func _service_area(area_name: String, at: Vector3, size: Vector3) -> void:
-	var area := Area3D.new()
+func _control_area(area_name: String, control_id: String,
+		at: Vector3, size: Vector3) -> void:
+	var area := PropControlArea.new()
 	area.name = area_name
+	area.configure(control_id)
 	var collision := CollisionShape3D.new()
 	var shape := BoxShape3D.new()
 	shape.size = size

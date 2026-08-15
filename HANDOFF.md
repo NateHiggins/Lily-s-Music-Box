@@ -138,10 +138,11 @@ Conventions that bite if forgotten:
   driven end to end including their consequences. Exit code 0 = all pass.
   **Run this before every commit.**
 - `game/tests/ServiceWireResponseTest.tscn` — focused I4 guard for the
-  researched copy loader and the first four formerly silent targets: utility
-  case latch, chained Passage carts, busy toaster and contextual hardware
-  counter. It also proves unresolved state tokens and the case-owner template
-  cannot leak generic copy. Exit code 0 = pass.
+  researched copy loader, the first four formerly silent targets (utility case
+  latch, chained Passage carts, busy toaster and contextual hardware counter),
+  and the laundry control split (lid, safety release, wringer, fill, drain,
+  airer cleat and rinse stand). It also proves unresolved state tokens and the
+  case-owner template cannot leak generic copy. Exit code 0 = pass.
 - `game/tests/LightingAudit.tscn` — every space is reachable by light:
   127 spaces, 11 intentionally ambient/dark. Exit code 0 = pass.
 - `game/tests/Perf.tscn` — six worst-case camera stations, reporting
