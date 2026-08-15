@@ -508,7 +508,8 @@ func _ready() -> void:
 	if shell != null and shell.is_ancestor_of(self) \
 			and shell.has_method("bind_waking_services"):
 		core_loop = shell.call("bind_waking_services",
-				work_orders, player, layout) as CoreLoopDirector
+				work_orders, player, layout, elevator,
+				street_traffic) as CoreLoopDirector
 	else:
 		core_loop = CoreLoopDirector.new()
 		core_loop.name = "CoreLoopDirector"

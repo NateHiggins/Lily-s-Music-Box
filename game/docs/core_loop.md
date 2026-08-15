@@ -14,10 +14,10 @@ a dream request only after integration, and returns from the current test dream
 stub to the authored 4B bedside. The wake applies one persistent factual
 refrigerator caption.
 
-N4 now supplies the production campaign boundary and a reconstruction-only
-DreamMazeRoot payload. There is still no playable dream geometry, onset,
-pursuit or hazard. `DreamDirector` consumes the earned request and remains
-`armed` in waking Orison until N5's SleepPressureDirector owns entry timing.
+N4 supplies the production campaign boundary and a reconstruction-only
+DreamMazeRoot payload. N5 supplies protected, saved gradual onset and is the
+sole production entry caller. There is still no playable dream geometry,
+pursuit or hazard.
 
 ## Authority by owner
 
@@ -34,6 +34,7 @@ pursuit or hazard. `DreamDirector` consumes the earned request and remains
 | `MinaCaseGameplay` | Mina's evidence interactions, dialogue entry, visit boundary, calibration and the translation from the first completed repair to case stabilization | Maintenance lifecycle or orchestration facts |
 | `CoreLoopDirector` | Connecting authoritative events, the six coarse loop boundaries, protected dream request and safe wake return | Lifecycle rules, transactions, fault behavior, dialogue, case truth, sleep pressure, dream gameplay or presentation |
 | `CampaignShell` / `DreamDirector` | The exclusive waking/dream WorldSlot, forward-only dream transaction and rebuild-before-wake order | Onset timing, topology, pursuit, hazards, case truth or work lifecycle |
+| `SleepPressureDirector` | Seeded onset form, saved warning progress, protected/stable entry and the one production call into DreamDirector | Case eligibility, cure mechanics, maze, Tenant, hazards or work lifecycle |
 | `ObjectiveTracker` | Presenting the current title and instruction | Owning or advancing any state |
 | `RealityState` | The shared JSON save file and committed campaign facts | Domain rules for those facts |
 | `MinaCaptionManifestation` | Mina's visible manifestation and the one idempotent waking residue applied after wake | Case resolution or wake orchestration |
@@ -157,8 +158,9 @@ duplicate flag is not a rule change. Repair alone is not case resolution.
 7. Case resolution evaluates the job's dream window. While `player.call_locked`
    is true the request stays armed but cannot emit. Once protection releases,
    `dream_requested(mina_caption_crisis, mina_release_print, window)` emits
-   exactly once for that arming. DreamDirector persists it but N4 does not enter
-   before N5 supplies safe onset timing.
+   exactly once for that arming. DreamDirector persists it; SleepPressureDirector
+   then pauses through engagement, unstable footing, the lift seam or traffic,
+   completes the authored warning and requests entry exactly once.
 8. K6's direct-building harness still uses a test stub. N4's production
    CampaignShell instead rebuilds waking Orison and lets DreamDirector call
    `notify_wake_complete()` during its return transaction. The coordinator
@@ -182,6 +184,7 @@ rebuilt from facts rather than saved as copies.
 | `cases[case_id]` | case stage, repairs, recurrence, intensity, trust, conversation flags, apartment changes, pending/resolved flags | RealityCaseManager remains the only rule owner; MinaCaseGameplay idempotently translates an already repaired job into its first stabilization |
 | `core_loop` | `active_job_id`, `boundary`, `conversation_requested`, `conversation_complete`, `dream_pending`, `safe_return_anchor` | Defaults self-heal; setup reconciles a pre-existing job; conversation requests do not duplicate; a new session re-arms one pending dream request |
 | `dream_seed` / `dream` | exact 16-hex-digit campaign seed; phase, active flag, case/profile/window, copied `seed_hex`, maze revision and outcome | CampaignShell reconstructs only waking or dream; entered/active restart at D00; return-pending reconciles forward and clears last |
+| `sleep_pressure` | selected onset form, elapsed seconds and whether warning began | SleepPressureDirector resumes the exact warning; transient safety block reasons are reconstructed, not saved |
 | `waking_residues[residue_id]` | case/job provenance, generated anchor/socket ids and text | `apply_waking_residue` refuses duplicate ids; manifestation reconstructs the label after boot/load |
 | `last_waking_residue_id` | most recently applied residue id | presentation lookup only |
 

@@ -472,9 +472,10 @@ kind of cost is invisible until something profiles it.
 ```
 scenes/campaign/CampaignShell.tscn persistent one-world campaign boundary
 scenes/building/orison_root.tscn   thin root; building_root.gd assembles
-scenes/dream/DreamMazeRoot.tscn    N4 reconstruction payload; no maze art yet
+scenes/dream/DreamMazeRoot.tscn    reconstruction payload; no maze art yet
 scripts/building/                  assembly, elevator
-scripts/dream/                     scene transaction and exclusive WorldSlot
+scripts/dream/                     scene transaction, exclusive WorldSlot,
+                                   protected sleep onset
 scripts/audio/                     conductor clock, acoustic graph, synth
 scripts/props/                     FunctionalProp base + radiator, lamp,
                                    corridor light, washer, boiler

@@ -7,9 +7,9 @@
 
 N4 adds the persistent campaign shell and the forward-only dream transaction.
 It does not add sleep-pressure timing, onset presentation, maze geometry,
-pursuit, hazards or a playable dream. A completed Mina shift now arms the
-boundary and remains safely in waking Orison. N5's SleepPressureDirector will
-be the first production owner allowed to call `enter_armed_dream()`.
+pursuit, hazards or a playable dream. A completed Mina shift arms the boundary;
+N5's SleepPressureDirector is now the sole production owner allowed to call
+`enter_armed_dream()` after its warning and safety gates.
 
 `DreamMazeRoot.tscn` is deliberately only a boundary payload with a
 `D00_4B_THRESHOLD` marker and the saved reconstruction context. It is not a
@@ -39,7 +39,7 @@ the rebuilt owners on return.
 | Phase | Durable meaning | Active WorldSlot child | Legal next operation |
 |---|---|---|---|
 | `awake` | no dream transaction is open | waking | an eligible `dream_requested` arms identity |
-| `armed` | case/profile/window and exact campaign seed are committed | waking | N5 calls `enter_armed_dream()` after protected onset and stable-floor checks |
+| `armed` | case/profile/window and exact campaign seed are committed | waking | SleepPressureDirector calls `enter_armed_dream()` after protected onset and stable-floor checks |
 | `entered` | `active=true` and reconstruction identity committed before replacement | waking for at most the deferred swap boundary | CampaignShell replaces waking with dream |
 | `active` | DreamMazeRoot is the sole world; a load reconstructs at D00 | dream | `end_dream(capture\|fall\|contact)` |
 | `return_pending` | outcome committed before replacement; return transaction incomplete | dream until deferred swap, then waking | rebuild Orison, accept CoreLoop wake, apply residue, clear last |
@@ -94,8 +94,8 @@ services have rebound.
 
 ## Restore rules
 
-- `armed`: rebuild waking Orison and remain armed. A repeated request is
-  ignored; entry waits for N5.
+- `armed`: rebuild waking Orison and resume the saved N5 onset. A repeated
+  request is ignored; protection or unsafe footing pauses rather than cancels.
 - `entered`: build DreamMazeRoot directly, promote to `active`, start at D00.
 - `active`: rebuild DreamMazeRoot with the same case/profile/seed/revision and
   start at D00. A chase frame is never reconstructed.
@@ -115,7 +115,7 @@ DreamMazeRoot, CoreLoopDirector, WorkOrders, MaintenanceInventory and
 RealityState. Its lightweight waking payload omits only the rendered building;
 the final block instantiates the real production CampaignShell and OrisonRoot.
 
-The test passes 34/34 checks in 14.1 seconds. At each of `armed`, `entered`,
+The N4 test originally passed 34/34 checks in 14.1 seconds. At each of `armed`, `entered`,
 `active`, `return_pending` and `awake` it writes the real JSON file under
 `user://tests/`, destroys the live shell and campaign data, reloads, and proves
 the required reconstruction. It also proves one WorldSlot child, same-seed D00
@@ -132,6 +132,10 @@ Godot's invalid unsigned-high-bit to signed-int conversion after the PASS
 assertions. The runtime conversion was removed, the seed now remains exact hex
 through save, context and signal, and the same high-bit control passes with no
 script error.
+
+N5 extends the same test to 36/36 with direct production carriageway and lift
+seam checks; its deterministic N4 clock remains deliberately manual. Full onset
+behavior is documented in `game/docs/dream_onset.md`.
 
 Regression proof on the same source: CoreLoopTest PASS; MaintenanceJobTest
 PASS; MaintenanceCounterTest PASS; GoldenLoopTest 87/87 PASS; LightingDebugTest

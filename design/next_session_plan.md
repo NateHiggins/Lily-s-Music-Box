@@ -1,4 +1,4 @@
-# Next session: build safe sleep onset
+# Next session: give Mina's release print a pursuer
 
 *Rewritten 2026-08-15. Sequencing authority beneath
 `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`.*
@@ -56,27 +56,38 @@ Waking Orison and DreamMazeRoot never coexist in-tree. The saved transaction
 reconciles forward from armed, entered, active, return-pending and awake; the
 campaign seed is an exact sixteen-digit hexadecimal fact; case/profile identity
 comes from job data. DreamMazeRoot is only a D00 reconstruction payload, not
-maze art. Full source-backed behavior and the 34/34 real-file proof are in
+maze art. Full source-backed behavior and the original 34/34 real-file proof,
+now extended to 36/36 by N5's production safety checks, are in
 `game/docs/dream_boundary.md`.
 
-**Execute N5 next.** Implement one `SleepPressureDirector` in CampaignShell.
-Mina is gradual; later data profiles may permit sudden onset; the existing
-engaged/protection flag delays but never cancels an armed request; entry waits
-for a stable floor and never begins in traffic, an elevator seam or a physics
-fall. Ship Always-warn-before-sleep in the first pass. N5 alone may call
-`DreamDirector.enter_armed_dream()` in production. No Tenant, hazard, maze-art,
-Peter or second case implementation belongs in N5.
+**N5 is complete.** CampaignShell now keeps one SleepPressureDirector. Mina's
+profile is a 2.60-second gradual warning; later dual-form profiles choose once
+from the exact campaign seed; Always warn before sleep forces gradual. The
+existing engaged flag and owner-supplied body, lift and traffic gates pause but
+never cancel pressure. Midpoint real-file restore and one-entry proof pass
+20/20; the production visual pair is measured in
+`art/renders/dream_onset_n5/README.md`. The source contract is
+`game/docs/dream_onset.md`.
+
+**Execute N6 next.** Implement Mina's release-print pursuit profile in the real
+DreamMazeRoot using one invisible navigation body and a `SHADOWS_ONLY` borrowed
+silhouette. The Tenant has no mesh, face, attack animation, teleport or new
+true form. Reuse N3's measured light-acquisition contract and N2's generated
+graph; do not add hazards yet. N6 must prove the silhouette never enters beauty,
+opaque module collision blocks acquisition, lamp state changes pursuit through
+the existing public owner, and capture reaches DreamDirector's existing outcome
+seam without inventing a failure state.
 
 ## Execution order
 
-1. **N5 — build safe onset.** Preserve the N4 scene transaction and add only
-   pressure, warning, protection and stable-floor entry policy.
-2. **N6 onward — integrate one vertical slice.** Mina first, then the remaining
+1. **N6 — land Mina's shared-profile pursuit.** Preserve N2's graph, N3's light
+   binary, N4's scene transaction and N5's onset owner.
+2. **N7 onward — integrate one vertical slice.** Mina first, then the remaining
    case grammars only after the shared substrate passes its gates.
 
 M0.5 and M1 are closed historical milestones. Their detailed proof remains in
 `design/FINAL_MAP_REDESIGN_BRIEF.md`, `TASKS.md` and `HANDOFF.md`; do not rerun,
-reinterpret or reopen them while executing N5.
+reinterpret or reopen them while executing N6.
 
 ## Non-negotiable constraints
 
@@ -95,9 +106,9 @@ reinterpret or reopen them while executing N5.
 
 ## The next deliverable to the owner
 
-Return one shared SleepPressureDirector with Mina's gradual onset, the
-Always-warn accessibility override, existing protection and stable-floor gates,
-and a deterministic proof that an armed request waits through each unsafe
-context then enters exactly once. Preserve N4's one-world and real-file
-contracts. Production Tenant behavior, hazards, maze geometry and case dressing
-remain outside N5.
+Return one Mina release-print pursuit running through the shared dream owner:
+one invisible navigation body, one borrowed shadows-only silhouette, no visible
+Tenant model, and deterministic light/collision/capture proof in the real dream
+scene. Preserve N4's one-world/save transaction and N5's sole onset call. Mina's
+three audible hazards, wake outcomes, Peter and all later case profiles remain
+outside N6.

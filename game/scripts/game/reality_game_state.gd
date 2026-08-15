@@ -40,6 +40,7 @@ func _fresh_data() -> Dictionary:
 		"core_loop": {},
 		"dream_seed": _new_dream_seed(),
 		"dream": {},
+		"sleep_pressure": {},
 		"waking_residues": {},
 		"last_waking_residue_id": "",
 	}
@@ -111,6 +112,8 @@ func load_game() -> void:
 			data.dream_seed = _new_dream_seed()
 		if not data.has("dream"):
 			data.dream = {}
+		if not data.has("sleep_pressure"):
+			data.sleep_pressure = {}
 		if not data.has("waking_residues"):
 			data.waking_residues = {}
 		if not data.has("last_waking_residue_id"):

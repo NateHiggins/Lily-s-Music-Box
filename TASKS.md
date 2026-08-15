@@ -729,8 +729,8 @@ owner approved the complete production design and clarified that dream secrecy
 applies to the **title screen only**. N2's dimensioned ten-module substrate is
 closed at `art/renders/dream_maze_n2/README.md`: 100/100 deterministic seeds,
 seed-independent diversity measurement, 18 live provenance checks and 0
-unresolved. K7 remains open; dream design does
-not silently close the core-loop documentation.
+unresolved. K7's source-backed loop contract is closed in
+`game/docs/core_loop.md`; dream design did not silently close it.
 
 - **N3 DONE 2026-08-15.** The disposable 42.00 × 3.20 × 3.00 m control corridor
   closes Gate B without becoming production maze art. Eleven paired fixed seeds:
@@ -741,9 +741,6 @@ not silently close the core-loop documentation.
   shoulder and touch LAMP share `PlayerController.toggle_lamp()`. The diagnostic
   capsule casts shadows only and never renders in beauty. Proof, raw CSV and the
   exact drawing: `art/renders/dream_light_n3/README.md`.
-- **N5** Implement `SleepPressureDirector`: Mina gradual first, later profiles
-  may permit sudden onset, protected interactions delay entry, stable-floor
-  safety prevents transition seams, and Always-warn accessibility ships now.
 - **N6** Implement the Mina maze profile using one invisible navigation body and
   a shadows-only borrowed silhouette. No monster mesh, face, attack animation,
   teleport, case-specific director or new Tenant.

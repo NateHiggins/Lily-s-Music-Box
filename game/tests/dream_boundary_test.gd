@@ -138,6 +138,8 @@ func _spawn_test_shell() -> void:
 	shell.name = "CampaignShellUnderTest"
 	shell.waking_scene_path = "res://tests/DreamBoundaryWakingStub.tscn"
 	shell.dream_scene_path = "res://scenes/dream/DreamMazeRoot.tscn"
+	# N4 proves the boundary transaction, not N5's onset clock.
+	shell.sleep_manual_clock = true
 	add_child(shell)
 	await get_tree().process_frame
 	await get_tree().process_frame
@@ -216,6 +218,18 @@ func _production_shell_smoke() -> void:
 	_check("production BuildingRoot binds the shell's persistent coordinator",
 			root != null and root.get("core_loop") == shell.core_loop
 			and shell.core_loop.get_parent() == shell)
+	_check("production traffic owns the authored carriageway sleep gate",
+			root != null
+			and root.street_traffic.blocks_sleep_entry(
+					GameBoot.b2g([0.0, -19.0, 0.2]))
+			and not root.street_traffic.blocks_sleep_entry(
+					GameBoot.b2g([0.0, -13.5, 0.2])))
+	_check("production elevator owns its car and threshold sleep gate",
+			root != null
+			and root.elevator.blocks_sleep_entry(
+					root.elevator.global_position + Vector3(0.0, 0.2, 0.0))
+			and not root.elevator.blocks_sleep_entry(
+					root.elevator.global_position + Vector3(2.0, 0.2, 0.0)))
 	_check("the production waking smoke preserves the completed facts",
 			_facts_intact(true) and residue_signals == 1)
 	_destroy_shell()

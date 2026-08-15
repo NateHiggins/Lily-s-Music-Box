@@ -40,6 +40,8 @@ var _cabin_lamps: Dictionary = {}  # level -> cab button material
 var _gate: Node3D
 var _needle: Node3D
 var _dome: StandardMaterial3D
+var _sleep_half_width := 0.0
+var _sleep_rear_z := 0.0
 
 
 func setup(elevator_data: Dictionary) -> void:
@@ -57,6 +59,8 @@ func setup(elevator_data: Dictionary) -> void:
 	add_child(_cabin)
 	var cw: float = float(elevator_data["cabin"][0])
 	var cd: float = float(elevator_data["cabin"][1])
+	_sleep_half_width = cw * 0.5 + PlayerController.BODY_RADIUS
+	_sleep_rear_z = -cd * 0.5 - PlayerController.BODY_RADIUS
 	_add_cabin_box(Vector3(cw, 0.12, cd), Vector3(0, 0.06, 0))          # floor
 	_add_cabin_box(Vector3(cw, 0.08, cd), Vector3(0, 2.28, 0))          # ceiling
 	_add_cabin_box(Vector3(0.05, 2.2, cd), Vector3(-cw / 2, 1.16, 0))   # west
@@ -563,6 +567,16 @@ func npc_request(level: String) -> bool:
 func is_ready_at(level: String) -> bool:
 	return current == level and state == S.IDLE \
 			and float(_doors[level]["t"]) >= 0.98
+
+
+## The lift owns the geometry of its car and threshold. Even an idle car is a
+## scene seam: replacing the world while the capsule overlaps its kinematic
+## floor or landing gate is never a valid sleep entry.
+func blocks_sleep_entry(world_position: Vector3) -> bool:
+	var local := to_local(world_position)
+	return absf(local.x) <= _sleep_half_width \
+			and local.z >= _sleep_rear_z \
+			and local.z <= FRONT_Z + PlayerController.BODY_RADIUS + 0.20
 
 
 func _physics_process(delta: float) -> void:

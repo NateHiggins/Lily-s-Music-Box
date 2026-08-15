@@ -6,12 +6,30 @@ extends Node3D
 class StubPlayer:
 	extends CharacterBody3D
 	var call_locked := false
+	var stable_floor := true
+	var onset_progress := 0.0
+
+	func sleep_entry_body_is_stable() -> bool:
+		return stable_floor
+
+	func set_sleep_onset_progress(value: float) -> void:
+		onset_progress = value
+
+
+class StubSafetyGate:
+	extends Node
+	var blocked := false
+
+	func blocks_sleep_entry(_world_position: Vector3) -> bool:
+		return blocked
 
 const RESIDUE_ID := "mina_factual_refrigerator_caption"
 
 var work_orders: WorkOrders
 var inventory: MaintenanceInventory
 var player: StubPlayer
+var elevator_gate: StubSafetyGate
+var traffic_gate: StubSafetyGate
 var core_loop: CoreLoopDirector
 var layout := {"floors": [{"id": "F04", "z": 9.6, "furniture": [{
 		"id": "bed", "rect": [-7.2, 3.5, -5.9, 4.4]
@@ -32,10 +50,17 @@ func _ready() -> void:
 	player = StubPlayer.new()
 	player.name = "Player"
 	add_child(player)
+	elevator_gate = StubSafetyGate.new()
+	elevator_gate.name = "ElevatorGate"
+	add_child(elevator_gate)
+	traffic_gate = StubSafetyGate.new()
+	traffic_gate.name = "TrafficGate"
+	add_child(traffic_gate)
 	var shell := get_tree().get_first_node_in_group(
 			"campaign_shell") as CampaignShell
 	assert(shell != null and shell.is_ancestor_of(self))
-	core_loop = shell.bind_waking_services(work_orders, player, layout)
+	core_loop = shell.bind_waking_services(work_orders, player, layout,
+			elevator_gate, traffic_gate)
 	if not core_loop.wake_completed.is_connected(_on_wake_completed):
 		core_loop.wake_completed.connect(_on_wake_completed)
 	# Same idempotent boot/load reconciliation as MinaCaptionManifestation.

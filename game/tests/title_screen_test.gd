@@ -37,6 +37,11 @@ func _ready() -> void:
 	_check("one waking-world hero contains the complete three-zone scope",
 			screen._hero_art.texture.resource_path.ends_with(
 				"orison_grand_mundane_title_v1.png"))
+	_check("building services exposes the first-build sleep warning option",
+			screen._always_warn != null
+			and screen._always_warn.name == "AlwaysWarnBeforeSleep"
+			and screen._always_warn.button_pressed == bool(
+					GameBoot.settings.always_warn_before_sleep))
 
 	screen._start_track(0, true)
 	await get_tree().process_frame

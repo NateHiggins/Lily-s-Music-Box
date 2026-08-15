@@ -43,6 +43,10 @@ func _ready() -> void:
 	_check("the back owns NET and LAMP modified indicators",
 			device != null and device._net_material != null
 			and device._lamp_indicator_material != null)
+	player.set_sleep_onset_progress(0.75)
+	_check("sleep presentation reaches the real carried-lamp lag owner",
+			is_equal_approx(carrier._sleep_onset, 0.75))
+	player.set_sleep_onset_progress(0.0)
 
 	_check("radio and work lamp boot in their physical ON states",
 			device.radio_powered and player.lamp_is_enabled()

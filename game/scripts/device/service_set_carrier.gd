@@ -21,6 +21,7 @@ var _life := 0.0
 var _bob := 0.0
 var _sway := Vector2.ZERO
 var _proof_pose := 0
+var _sleep_onset := 0.0
 
 
 func setup(player: PlayerController, camera: Camera3D,
@@ -63,8 +64,13 @@ func set_proof_pose(side: int) -> void:
 
 
 func apply_look(relative: Vector2) -> void:
-	_sway.x = clampf(_sway.x - relative.x * 0.018, -6.0, 6.0)
-	_sway.y = clampf(_sway.y - relative.y * 0.014, -4.0, 4.0)
+	var drag := lerpf(1.0, 1.55, _sleep_onset)
+	_sway.x = clampf(_sway.x - relative.x * 0.018 * drag, -7.5, 7.5)
+	_sway.y = clampf(_sway.y - relative.y * 0.014 * drag, -5.0, 5.0)
+
+
+func set_sleep_onset_progress(value: float) -> void:
+	_sleep_onset = clampf(value, 0.0, 1.0)
 
 
 func _build_overlay_pass(camera: Camera3D) -> void:
@@ -148,7 +154,10 @@ func _process(delta: float) -> void:
 	var speed := Vector3(_player.velocity.x, 0.0,
 			_player.velocity.z).length() if _player else 0.0
 	_bob += delta * (2.1 + speed * 2.2)
-	_sway = _sway.lerp(Vector2.ZERO, minf(1.0, delta * 5.0))
+	# During gradual onset the weight in the player's hand answers late. The
+	# lamp is still controllable and truthful; only its physical recovery drags.
+	var sway_recovery := lerpf(5.0, 1.65, _sleep_onset)
+	_sway = _sway.lerp(Vector2.ZERO, minf(1.0, delta * sway_recovery))
 	if _pass_cam and _pass_src:
 		_pass_cam.fov = _pass_src.fov
 

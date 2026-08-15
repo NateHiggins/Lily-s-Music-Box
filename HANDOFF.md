@@ -224,13 +224,15 @@ drives 87 checks in one production scene: report/discovery convergence,
 inspection, the walked HARDWARE PAINT errand and return, repair, Mina's first
 conversation, recurrence, second factual calibration, complete-rule
 conversation, integration, dream request, stubbed wake, and real-file
-save/load at every boundary. The dream is still a request consumed by a test
-stub, so no production dream gameplay exists yet. Owner correction 2026-08-15:
+save/load at every boundary. That direct-building harness still consumes the
+dream request with a test stub; production now owns the N4 scene transaction
+and N5 onset, but no playable maze/pursuit exists yet. Owner correction 2026-08-15:
 the reveal restriction applies to the **title screen only**; it does not block
 dream design or production. The complete `design/ORISON_MAZE_BRIEF.md` is now
 ruled canon. N2's source catalog, canonical seed-0 assembly, dimensioned drawing
-and 100-seed audit are closed at `art/renders/dream_maze_n2/README.md`; no Godot
-dream scene exists yet. Owner ruling 2026-08-15 replaced the carried phone with
+and 100-seed audit are closed at `art/renders/dream_maze_n2/README.md`; the
+current Godot DreamMazeRoot is a D00-only reconstruction payload. Owner ruling
+2026-08-15 replaced the carried phone with
 a no-screen Vantry service radiophone, attached warm work lamp, one amber ORDER
 jewel and the later-added rear NET/LAMP indicators. Q2-Q6 are landed: production
 instantiates `ServiceSetCarrier`, the lamp crosses a device-neutral player seam,
@@ -248,8 +250,14 @@ dimensioned drawing and beauty proof are in
 `game/docs/core_loop.md`. N4 now boots production through CampaignShell and
 proves its five forward-only real-file phases in `DreamBoundaryTest.tscn`; the
 exact scene/save contract is `game/docs/dream_boundary.md`. The current
-DreamMazeRoot is a D00 marker payload, not playable maze art, and production
-stops safely at `armed` until N5 owns onset. Wake persists one
+DreamMazeRoot is a D00 marker payload, not playable maze art. N5 now gives
+CampaignShell one persistent SleepPressureDirector: Mina's authored 2.60-second
+gradual warning, exact mid-onset real-file restore, the shipped Always-warn
+option, and pause-without-cancel gates for `call_locked`, unstable floor, the
+real lift seam and the permanent carriageway. It is the sole production caller
+of dream entry. The 20/20 contract and A/A/B/C visual proof are in
+`game/docs/dream_onset.md` and `art/renders/dream_onset_n5/README.md`; N6 is the
+next dream item. Wake persists one
 `mina_factual_refrigerator_caption` fact. Its acoustic owner
 is generated marker `F02_2A_FRIDGE_01`; its visible label follows generated
 socket `2A_FRIDGE_FACE`. The before/after acceptance pair and rerun command are

@@ -483,6 +483,16 @@ so JSON cannot round it. Production intentionally remains armed in waking
 Orison until N5's SleepPressureDirector calls entry; DreamMazeRoot currently
 contains only the boundary payload, not production maze geometry.
 
+**N5 closed protected onset on 2026-08-15.** One persistent
+`SleepPressureDirector` now selects an authored onset form once from the exact
+campaign seed, with Mina fixed to a 2.60-second gradual form and the shipped
+Always-warn setting able to force gradual for later profiles. The existing
+`call_locked` authority, the real player floor state, and narrow elevator and
+traffic owner queries pause but never cancel the request. Real-file midpoint
+restore and one-entry proof pass 20/20; production A/A/B/C frames and measured
+pixel deltas are recorded in `art/renders/dream_onset_n5/README.md`. N5 adds no
+maze art, Tenant or hazard.
+
 Signals remain narrow: `dream_requested(case_id, profile_id, window)`,
 `dream_entered(case_id, seed)`, `dream_ended(case_id, outcome)` and the existing
 `waking_residue_applied`. No dream owner advances WorkOrders or RealityCases.

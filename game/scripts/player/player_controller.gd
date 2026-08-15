@@ -69,6 +69,21 @@ var _stagger_velocity := Vector3.ZERO
 var _stagger_roll := 0.0
 
 
+## SleepPressureDirector asks the body owner whether replacing the waking
+## world is physically safe. Engagement, traffic and elevator seams remain
+## separate gates owned by their own systems.
+func sleep_entry_body_is_stable() -> bool:
+	return not noclip and is_on_floor() and absf(velocity.y) < 0.35 \
+			and _stagger_left <= 0.0 and global_position.is_finite()
+
+
+## Presentation only. The controller forwards onset pressure to the modeled
+## service set; it does not decide whether or when sleep begins.
+func set_sleep_onset_progress(value: float) -> void:
+	if carried_device and carried_device.has_method("set_sleep_onset_progress"):
+		carried_device.set_sleep_onset_progress(clampf(value, 0.0, 1.0))
+
+
 func _ready() -> void:
 	add_to_group("player_controller")
 	_capsule = CapsuleShape3D.new()

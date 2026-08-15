@@ -24,6 +24,12 @@ extends Node3D
 const LANE_WEST := -17.0
 const LANE_EAST := -21.8
 const SPAWN_X := 52.0
+## The permanent traffic stream can repopulate a clear-looking gap between
+## frames. Sleep therefore treats the complete carriageway, not just current
+## vehicle boxes, as unsafe. These are the authored kerb faces in layout space
+## converted to Godot's +Z south axis.
+const CARRIAGEWAY_NORTH_Z := 14.55
+const CARRIAGEWAY_SOUTH_Z := 24.10
 ## Slow. Slow traffic is more readable, more crossable, more 1928 and cheaper.
 const SPEED_MIN := 4.2
 const SPEED_MAX := 7.6
@@ -298,6 +304,12 @@ void fragment() {
 
 func bind_player(player: Node3D) -> void:
 	_player = player
+
+
+func blocks_sleep_entry(world_position: Vector3) -> bool:
+	return absf(world_position.x) <= SPAWN_X + 2.0 \
+			and world_position.z >= CARRIAGEWAY_NORTH_Z \
+			and world_position.z <= CARRIAGEWAY_SOUTH_Z
 
 
 ## The arrival is not a second vehicle system and never becomes standing

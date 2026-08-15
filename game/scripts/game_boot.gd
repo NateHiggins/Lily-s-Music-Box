@@ -32,6 +32,9 @@ var settings := {
 	"quality": 0, # 0 cinematic, 1 balanced
 	"fullscreen": false,
 	"master_volume": 0.82,
+	# Accessibility: later case profiles may allow a sudden sleep attack, but
+	# this forces the same legible gradual warning Mina teaches first.
+	"always_warn_before_sleep": false,
 	# Measured once by the Songbook's clap check and kept for good.
 	# _load_settings only reads keys that already exist here, so a
 	# setting absent from this dict is a setting that never persists.

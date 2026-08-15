@@ -31,6 +31,7 @@ var _shade: TextureRect
 var _settings_panel: PanelContainer
 var _quality: OptionButton
 var _fullscreen: CheckBox
+var _always_warn: CheckBox
 var _volume: HSlider
 var _record_label: Label
 var _record_note: Label
@@ -224,6 +225,14 @@ func _build_settings() -> void:
 	_fullscreen.button_pressed = bool(GameBoot.settings.get(
 			"fullscreen", false))
 	box.add_child(_fullscreen)
+	_always_warn = CheckBox.new()
+	_always_warn.name = "AlwaysWarnBeforeSleep"
+	_always_warn.text = "ALWAYS WARN BEFORE SLEEP"
+	_always_warn.tooltip_text = \
+			"Use the gradual warning for every sleep onset."
+	_always_warn.button_pressed = bool(GameBoot.settings.get(
+			"always_warn_before_sleep", false))
+	box.add_child(_always_warn)
 	box.add_child(_label("MASTER VOLUME", 12, Color(0.61, 0.60, 0.55)))
 	_volume = HSlider.new()
 	_volume.min_value = 0.0
@@ -355,6 +364,7 @@ func _debug_game() -> void:
 func _save_settings() -> void:
 	GameBoot.settings.quality = _quality.selected
 	GameBoot.settings.fullscreen = _fullscreen.button_pressed
+	GameBoot.settings.always_warn_before_sleep = _always_warn.button_pressed
 	GameBoot.settings.master_volume = _volume.value
 	GameBoot.save_settings()
 	_settings_panel.visible = false
