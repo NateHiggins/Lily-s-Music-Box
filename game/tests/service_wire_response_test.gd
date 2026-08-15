@@ -139,6 +139,22 @@ func _ready() -> void:
 			and lamp_card.get("card_id", "") == "lamp"
 			and str(lamp_card.get("condition", "")).contains("CONTROL OFF"))
 
+	var receiver := MonitorProp.new()
+	receiver.name = "TestCaseReceiver"
+	receiver.graph_node_id = "F02_A_MONITOR_01"
+	add_child(receiver)
+	var receiver_card: Dictionary = receiver.interact(hand)
+	_check("line receiver tunes locally without erasing case signal",
+			receiver.get_node_or_null("PrimaryInteraction") is Area3D
+			and receiver.interact_prompt().contains("Widen receiver tuning")
+			and receiver.state == FunctionalProp.PState.OPERATING
+			and receiver._narrow_tuning
+			and receiver._tuning_click.playing
+			and receiver._tuning_tween.is_running()
+			and receiver_card.get("card_id", "") == "television"
+			and str(receiver_card.get("condition", "")).contains("POWER LINE LIVE")
+			and str(receiver_card.get("condition", "")).contains("TUNING NARROW"))
+
 	await get_tree().create_timer(0.03).timeout
 	await get_tree().process_frame
 	await get_tree().process_frame

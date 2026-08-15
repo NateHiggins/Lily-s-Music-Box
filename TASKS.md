@@ -964,6 +964,8 @@ it.
     washer controls plus the airer cleat and a non-operating rinse inspection.
     All five task lamps now have a local key that the central LightRig cannot
     turn back on or charge against the active-light budget while open.
+    All five line-fed picture receivers now operate their tuning knob while
+    preserving the case-bearing signal instead of offering a false power cut.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street
