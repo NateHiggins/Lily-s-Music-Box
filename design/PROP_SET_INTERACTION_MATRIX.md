@@ -124,7 +124,7 @@ owner instead of placing two ray targets on one physical object.
 | Lobby Orison advertisement | 1 / F01 | `LobbyOrisonAdBoard`; 31-piece authored board, no E | — | **INSPECT** | One look-point; service wire must not repeat all ad copy. |
 | CRT monitor props | 5 / F02, F06 | `MonitorProp`; case/conductor-driven display, no E | Case owner where authored | **OPERATE** | Add physical power/tuning control or specific protected refusal by source; preserve case control. |
 | Neon signs | 3 / F01–F03 ownership bands | `NeonSignProp`; Conductor-driven light, no E | — | **INSPECT** | One frontage target per hero sign; transformers are not player toggles. |
-| Possessed domestic mechanisms | 19 / apartments | `PossessedDomesticProp`; case-driven movement/tick, persistent case state | Six case zones cover only authored actions | **INSPECT** | Map every foreground source to case or neutral inspection; service wire never names the cause. |
+| Possessed domestic mechanisms | 19 / apartments | `PossessedDomesticProp`; case-driven movement/tick, persistent case state | Same `PossessedDomesticProp`; one neutral inspection target per mechanism | **INSPECT** | Landed I4: all 16 kinds answer with a local material sound and complete owner-result copy; visible movement is restrained and case authority pre-empts it. No card names a case, resident, tell or cause. |
 | Eleven shop signs | 11 / Passage | `ShopSignProp`; per-shop sign geometry, no E | — | **INSPECT** | One target per shopfront sign; hours plaque may share only if one physical reach reads both. |
 | 4B signal terminal visual | 1 / F04 | `SignalTerminalProp`; Conductor-driven visual, no direct E | `DeskZone` | **AMBIENT ARCHITECTURE** | Supporting geometry of the desk interaction, not a second target. |
 | Speakers | 7 / F01–F03 | `SpeakerProp`; pipe knock, buzz or line murmur, no E | — | **INSPECT** | Reachable cabinet/grille gets inspect; elevated PA child meshes stay ambient. |
@@ -266,6 +266,11 @@ attach one collider to the merged batch and call hundreds of objects covered.
    with case identifiers and resident facts excluded from the returned card.
    The headquarters case wall uses the same law: one assembly target reads the
    RealityCases-derived count and identifies itself as review-only.
+   All 19 possessed domestic mechanisms now reuse their existing
+   `PossessedDomesticProp` owner. The 16 physical kinds receive one neutral ray
+   target, a local material response and a provenance-backed field slip; the
+   card reports only AT REST or VISIBLY ALTERED. A case intrusion cancels the
+   restrained handling motion before applying its authoritative tell.
 4. Add sparse inspection/refusal zones to the named set heroes in §5–§8.
 5. Leave bulk pipework, fixture meshes, tables, chairs, shell geometry, weather,
    trim, shelf repeats and portal proxies ambient. Count them in the proof; do

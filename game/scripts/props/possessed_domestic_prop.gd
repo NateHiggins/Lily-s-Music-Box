@@ -14,9 +14,101 @@ var _moving: Node3D
 var _indicator: MeshInstance3D
 var _display: Label3D
 var _sound: AudioStreamPlayer3D
+var _inspect_sound: AudioStreamPlayer3D
 var _home := Transform3D.IDENTITY
 var _busy := false
 var _tween: Tween
+var _inspect_tween: Tween
+var _inspect_target: Node3D
+var _inspect_rest_position := Vector3.ZERO
+var _inspect_rest_rotation := Vector3.ZERO
+
+## Complete owner-result copy for the case-bearing domestic layer. These are
+## not fallbacks: each visible mechanism has its own reviewed mechanical fact,
+## condition noun and research provenance. The case id, tell and resident never
+## enter this table or the returned field slip.
+const INSPECTION_COPY := {
+	"mirror": {
+		"title": "FRAMED DOMESTIC MIRROR",
+		"body": "GLASS AND BACKING ARE HELD AS SEPARATE LAYERS INSIDE THE FRAME STOP",
+		"condition_noun": "REFLECTION", "source_ids": ["R032"],
+		"sound": "tick", "pitch": 1.18},
+	"intercom": {
+		"title": "VANTRY APARTMENT INTERCOM",
+		"body": "CALL SIGNAL AND SPEAKING FITTING ARE SEPARATE PARTS OF THE SAME APARTMENT LINE STOP",
+		"condition_noun": "HANDSET", "source_ids": ["R023", "R034"],
+		"sound": "tick", "pitch": 0.92},
+	"coat_hook": {
+		"title": "WALL-MOUNTED COAT HOOK",
+		"body": "A SUPPORTING ARM RETURNS THE GARMENT LOAD THROUGH ITS BASE INTO THE WALL STOP",
+		"condition_noun": "HOOK COUNT", "source_ids": ["R050"],
+		"sound": "creak", "pitch": 1.25},
+	"smart_speaker": {
+		"title": "VANTRY DIAPHRAGM RECEIVER",
+		"body": "A DIAPHRAGM MAKES THE SOUND AND ITS CABINET COUPLES THAT SMALL MOTION TO MORE AIR STOP",
+		"condition_noun": "DIAPHRAGM", "source_ids": ["R033"],
+		"sound": "tick", "pitch": 1.05},
+	"houseplant": {
+		"title": "POTTED HOUSE PLANT",
+		"body": "CAPILLARY ACTION CAN CARRY MOISTURE INTO THE EARTH AROUND A PLANT'S ROOTS STOP",
+		"condition_noun": "LEAF SET", "source_ids": ["R049"],
+		"sound": "creak", "pitch": 1.15},
+	"power_outlet": {
+		"title": "TWO-POINT WALL RECEPTACLE",
+		"body": "AN INSULATING SOCKET HOLDS SPRING CONTACTS WHERE THE PLUG TERMINALS MEET THEM STOP",
+		"condition_noun": "INDICATOR", "source_ids": ["R045"],
+		"sound": "tick", "pitch": 1.20},
+	"telephone": {
+		"title": "CARBON TELEPHONE SET",
+		"body": "DIAPHRAGM PRESSURE ON CARBON VARIES THE CURRENT CARRIED BY THE SPEAKING LINE STOP",
+		"condition_noun": "HANDSET", "source_ids": ["R023"],
+		"sound": "tick", "pitch": 0.86},
+	"thermostat": {
+		"title": "ADJUSTABLE SIGNAL THERMOSTAT",
+		"body": "A THERMOSTAT IN A SIGNAL CIRCUIT CAN RESPOND AT AN ADJUSTED TEMPERATURE STOP",
+		"condition_noun": "READOUT", "source_ids": ["R042"],
+		"sound": "tick", "pitch": 1.12},
+	"door_chain": {
+		"title": "CHAIN DOOR FASTENING",
+		"body": "A CHAIN FASTENING LIMITS THE LEAF TO A PARTIAL OPENING UNTIL ITS LATCH IS RELEASED STOP",
+		"condition_noun": "CHAIN", "source_ids": ["R046"],
+		"sound": "tick", "pitch": 0.78},
+	"luggage_scale": {
+		"title": "GRADUATED LUGGAGE SCALE",
+		"body": "A GRADUATED CHART AND INDEX POINTER MAKE THE WEIGHING MECHANISM'S RESULT VISIBLE STOP",
+		"condition_noun": "POINTER", "source_ids": ["R044"],
+		"sound": "tick", "pitch": 0.98},
+	"spirit_level": {
+		"title": "PROTECTED SPIRIT LEVEL",
+		"body": "A BUBBLE GLASS SITS IN AN ADJUSTED HOLDER THAT PROTECTS IT FROM BREAKAGE STOP",
+		"condition_noun": "BUBBLE", "source_ids": ["R043"],
+		"sound": "tick", "pitch": 1.24},
+	"table_radio": {
+		"title": "VALVE TABLE RECEIVER",
+		"body": "A TUNED RECEIVER COMBINES VALVES AERIAL SUPPLY AND A DIAPHRAGM-DRIVEN SPEAKER STOP",
+		"condition_noun": "TUNING", "source_ids": ["R033"],
+		"sound": "tick", "pitch": 0.82},
+	"picture_frame": {
+		"title": "GLAZED PICTURE FRAME",
+		"body": "GLAZING AND BACKING HOLD THE PICTURE AS SEPARATE LAYERS INSIDE THE FRAME STOP",
+		"condition_noun": "SUBJECT", "source_ids": ["R032"],
+		"sound": "creak", "pitch": 1.20},
+	"security_camera": {
+		"title": "VANTRY CAMERA MOUNT",
+		"body": "A CAMERA SUPPORT CAN SWING ITS INSTRUMENT IN HORIZONTAL AND VERTICAL PLANES STOP",
+		"condition_noun": "AIM", "source_ids": ["R047"],
+		"sound": "tick", "pitch": 0.90},
+	"typewriter": {
+		"title": "FRONT-STRIKE TYPEWRITER",
+		"body": "KEY LEVERS SWING TYPE BARS UP TO PRINT THROUGH RIBBON AGAINST THE PLATEN STOP",
+		"condition_noun": "CARRIAGE", "source_ids": ["R048"],
+		"sound": "tick", "pitch": 1.32},
+	"key_bowl": {
+		"title": "HOUSEHOLD KEY BOWL",
+		"body": "A SHALLOW VESSEL KEEPS SMALL HOUSEHOLD HARDWARE VISIBLE INSTEAD OF STACKED STOP",
+		"condition_noun": "CONTENTS", "source_ids": ["R029"],
+		"sound": "tick", "pitch": 1.18},
+}
 
 
 func configure(spec: Dictionary) -> void:
@@ -63,6 +155,9 @@ func _build_visual() -> void:
 	_build_collision()
 	_sound = make_emitter("tick", -34.0)
 	_sound.max_distance = 4.5
+	var copy: Dictionary = INSPECTION_COPY.get(kind, {})
+	_inspect_sound = make_emitter(str(copy.get("sound", "tick")), -20.0)
+	_inspect_sound.max_distance = 3.2
 
 
 func _build_mirror() -> void:
@@ -204,10 +299,89 @@ func _build_collision() -> void:
 func _start_normal_function() -> void: state = PState.OPERATING
 
 
+func interact_prompt() -> String:
+	var copy: Dictionary = INSPECTION_COPY.get(kind, {})
+	if copy.is_empty():
+		return ""
+	return "[E]  Inspect %s" % str(copy.title).to_lower()
+
+
+## Inspection belongs to the same object the sanity system moves. It can make a
+## quiet material response and report the visible rest state, but cannot invoke
+## a tell, select a case or mutate RealityState.
+func interact(_player: Node = null) -> Dictionary:
+	var copy: Dictionary = INSPECTION_COPY.get(kind, {})
+	if copy.is_empty():
+		return {}
+	_inspect_sound.pitch_scale = float(copy.get("pitch", 1.0))
+	_inspect_sound.play()
+	_acknowledge_inspection()
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	var copy: Dictionary = INSPECTION_COPY.get(kind, {})
+	if copy.is_empty():
+		return {}
+	var sources: Array = copy.get("source_ids", [])
+	return {
+		"title": str(copy.title),
+		"body": str(copy.body),
+		"condition": "%s %s / HANDLING INSPECTION ONLY" % [
+				str(copy.condition_noun),
+				"VISIBLY ALTERED" if _busy else "AT REST"],
+		"stamp": "SERVICE NOTE",
+		"card_id": "case_object",
+		"source_ids": sources.duplicate(),
+	}
+
+
+func _acknowledge_inspection() -> void:
+	_cancel_inspection_motion()
+	if _busy or _moving == null:
+		return
+	var offset := Vector3.ZERO
+	var turn := Vector3.ZERO
+	match kind:
+		"mirror": offset.z = 0.002
+		"intercom": turn.z = -0.025
+		"houseplant": turn.y = 0.030
+		"telephone": offset.y = 0.004
+		"door_chain": offset.y = -0.004
+		"spirit_level": turn.z = 0.014
+		"table_radio": turn.z = 0.080
+		"picture_frame": turn.y = 0.010
+		"security_camera": turn.y = 0.022
+		"typewriter": offset.x = 0.006
+		_: return  # a local material tap is the complete restrained response
+	_inspect_target = _moving
+	_inspect_rest_position = _moving.position
+	_inspect_rest_rotation = _moving.rotation
+	_inspect_tween = create_tween()
+	_inspect_tween.tween_property(_moving, "position",
+			_inspect_rest_position + offset, 0.07)
+	_inspect_tween.parallel().tween_property(_moving, "rotation",
+			_inspect_rest_rotation + turn, 0.07)
+	_inspect_tween.tween_property(_moving, "position",
+			_inspect_rest_position, 0.16)
+	_inspect_tween.parallel().tween_property(_moving, "rotation",
+			_inspect_rest_rotation, 0.16)
+
+
+func _cancel_inspection_motion() -> void:
+	if _inspect_tween and _inspect_tween.is_valid():
+		_inspect_tween.kill()
+	if is_instance_valid(_inspect_target):
+		_inspect_target.position = _inspect_rest_position
+		_inspect_target.rotation = _inspect_rest_rotation
+	_inspect_target = null
+
+
 func stage_haunt(case_id: String, tier: int, player: Node3D) -> bool:
 	if (not relay_all and not case_ids.has(case_id)) or _busy: return false
 	if _watched(player) and tier < 4:
 		_sound.pitch_scale = 0.72; _sound.play(); return true
+	_cancel_inspection_motion()
 	_busy = true; state = PState.INFECTED
 	if _tween: _tween.kill()
 	_tween = create_tween()

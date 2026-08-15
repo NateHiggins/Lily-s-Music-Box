@@ -26,6 +26,70 @@ func _ready() -> void:
 	hand.name = "TestHand"
 	add_child(hand)
 
+	var anomaly_file := FileAccess.open(
+			"res://data/domestic_anomaly_props.json", FileAccess.READ)
+	var anomaly_book: Variant = JSON.parse_string(
+			anomaly_file.get_as_text() if anomaly_file else "")
+	var anomaly_specs: Array = anomaly_book.get("props", []) \
+			if anomaly_book is Dictionary else []
+	var anomaly_kinds := {}
+	var anomaly_complete := 0
+	var anomaly_reactive := 0
+	var anomaly_clue_leaks := 0
+	var radio_sample: PossessedDomesticProp
+	for entry in anomaly_specs:
+		var spec: Dictionary = entry
+		var anomaly := PossessedDomesticProp.new()
+		anomaly.configure(spec)
+		add_child(anomaly)
+		anomaly_kinds[anomaly.kind] = true
+		var card: Dictionary = anomaly.interact(hand)
+		var source_ids: Variant = card.get("source_ids", [])
+		if anomaly.get_node_or_null("PrimaryInteraction") is Area3D \
+				and not str(card.get("title", "")).is_empty() \
+				and not str(card.get("body", "")).is_empty() \
+				and not str(card.get("condition", "")).is_empty() \
+				and source_ids is Array and not source_ids.is_empty() \
+				and card.get("card_id", "") == "case_object":
+			anomaly_complete += 1
+		if anomaly._inspect_sound.playing:
+			anomaly_reactive += 1
+		var printed := str(card)
+		if printed.contains(anomaly.prop_id) or printed.contains(anomaly.tell):
+			anomaly_clue_leaks += 1
+		for case_id in anomaly.case_ids:
+			if printed.contains(str(case_id)):
+				anomaly_clue_leaks += 1
+		if anomaly.kind == "table_radio":
+			radio_sample = anomaly
+	_check("all authored domestic anomalies have exact owner inspections",
+			anomaly_specs.size() == 19 and anomaly_kinds.size() == 16
+			and PossessedDomesticProp.INSPECTION_COPY.size() == 16
+			and anomaly_complete == 19)
+	_check("domestic anomaly inspections answer without disclosing clues",
+			anomaly_reactive == 19 and anomaly_clue_leaks == 0)
+	_check("movable anomaly acknowledges the hand before case authority",
+			radio_sample != null and radio_sample._inspect_tween != null
+			and radio_sample._inspect_tween.is_running())
+	if radio_sample:
+		var intrusion_started := radio_sample.stage_haunt(
+				str(radio_sample.case_ids[0]), 4, hand)
+		_check("case motion pre-empts the neutral handling response",
+				intrusion_started and radio_sample._busy
+				and not radio_sample._inspect_tween.is_running()
+				and radio_sample._display.text == "YESTERDAY")
+		if radio_sample._tween:
+			radio_sample._tween.kill()
+		radio_sample._restore()
+		radio_sample._busy = true
+		var altered_card := radio_sample.service_wire_card()
+		_check("busy anomaly reports appearance without naming its cause",
+				str(altered_card.get("condition", "")).contains(
+						"VISIBLY ALTERED")
+				and not str(altered_card).contains(radio_sample.tell)
+				and not str(altered_card).contains(radio_sample.prop_id))
+		radio_sample._busy = false
+
 	var case_door := CaseDoorProp.new()
 	case_door.name = "TestCaseDoor"
 	add_child(case_door)

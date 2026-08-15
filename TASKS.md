@@ -989,6 +989,14 @@ it.
     The maintenance headquarters case wall now has one exact wall-sized target,
     a brass acknowledgement and live residue count; its slip explicitly says
     REVIEW ONLY and cannot advance an order or duplicate RealityCases state.
+    All 19 possessed domestic mechanisms now answer through the same owner that
+    stages and restores their case movement. Sixteen distinct physical kinds
+    share no generic copy: each has a researched mechanism fact, source ids and
+    a local material response. Returned condition is limited to AT REST or
+    VISIBLY ALTERED; case ids, resident names, tells and causes are excluded.
+    Case authority cancels any restrained handling motion before applying its
+    own tell, so inspection introduces neither a second truth store nor a
+    competing animation owner.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street

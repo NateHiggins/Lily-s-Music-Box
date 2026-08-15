@@ -1831,6 +1831,37 @@ func _sanity_checks() -> void:
 	_check(incomplete == 0,
 			"every poltergeist has all four rungs (%d missing)" % incomplete)
 
+	# The case-bearing mechanisms keep the physical object as their sole
+	# foreground owner. Inspection may describe the mechanism and its visible
+	# state, but must not serialize any of the case-routing keys beside it.
+	var anomaly_nodes := get_tree().get_nodes_in_group(
+			"possessed_domestic_props")
+	var anomaly_kinds := {}
+	var anomaly_incomplete := 0
+	var anomaly_clue_leaks := 0
+	for candidate in anomaly_nodes:
+		var anomaly := candidate as PossessedDomesticProp
+		anomaly_kinds[anomaly.kind] = true
+		var card: Dictionary = anomaly.service_wire_card()
+		var sources: Variant = card.get("source_ids", [])
+		if not (anomaly.get_node_or_null("PrimaryInteraction") is Area3D) \
+				or str(card.get("title", "")).is_empty() \
+				or str(card.get("body", "")).is_empty() \
+				or str(card.get("condition", "")).is_empty() \
+				or not (sources is Array) or sources.is_empty():
+			anomaly_incomplete += 1
+		var printed := str(card)
+		if printed.contains(anomaly.prop_id) or printed.contains(anomaly.tell):
+			anomaly_clue_leaks += 1
+		for case_id in anomaly.case_ids:
+			if printed.contains(str(case_id)):
+				anomaly_clue_leaks += 1
+	_check(anomaly_nodes.size() == 19 and anomaly_kinds.size() == 16
+			and PossessedDomesticProp.INSPECTION_COPY.size() == 16,
+			"all nineteen domestic anomalies resolve through sixteen owned mechanisms")
+	_check(anomaly_incomplete == 0 and anomaly_clue_leaks == 0,
+			"domestic anomaly cards are complete and reveal no routing keys")
+
 	# --- borrowing, not damaging. Force a rung that possesses props, then
 	# prove the building goes back exactly as it was.
 	root.player.global_position = Vector3(-9.5, 11.25, -4.8)  # 4B, dressed

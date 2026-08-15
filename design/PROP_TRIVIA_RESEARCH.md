@@ -92,6 +92,15 @@ specific player claim, and no cultural representation claim.
 | R039 | H. E. Shurtleff, [US1321675A Chimney Thimble](https://patents.google.com/patent/US1321675/en) | A metal thimble sleeves and supports a stove or furnace pipe where it enters chimney masonry. | Expired patent; no claim that masonry itself opens. | `flue` |
 | R040 | Historic New England, [Russwin product brochure, 1920s](https://www.historicnewengland.org/explore/collections-access/gusn/314539) | Mortised locks, handles and checks are separate builder-hardware components mounted between leaf and frame. | Museum catalogue record; lock reason and threshold state remain authoritative game facts. | `service_door`, `threshold_door` |
 | R041 | A. G. Stephens, [US1390000A Sanitary Display Case](https://patents.google.com/patent/US1390000A/en) | Glass display separates customer inspection from dealer access and keeps an arranged stock visibly grouped. | Expired patent. Harukiya wording, goods and family provenance require their existing fiction owner/consultation; this source supports glass-display mechanics only. | `heritage_display` |
+| R042 | G. W. Williamson, [US1363072A Thermostat](https://patents.google.com/patent/US1363072A/en) | An adjustable thermostat could sit in an alarm or signal circuit and respond when a selected temperature was reached. | Expired patent; the impossible `DENIED` state remains case-owned fiction. | dynamic `thermostat` owner result |
+| R043 | W. J. Neidl, [US1362813A Spirit-Level and Plumb](https://patents.google.com/patent/US1362813A/en) | A bubble glass sits in an adjusted holder whose plate and protective construction reduce breakage. | Expired patent; false-level behavior remains case-owned. | dynamic `spirit_level` owner result |
+| R044 | W. Timson, [US1398708A Weighing Scale](https://patents.google.com/patent/US1398708A/en) | A graduated chart and index pointer make the result of a mechanical weighing system visible. | Expired patent; infinity and departure meaning remain case-owned. | dynamic `luggage_scale` owner result |
+| R045 | M. Herskovitz, [US1162921A Attachment Plug](https://patents.google.com/patent/US1162921A/en) and B. F. Muldoon, [US1915070A Receptacle for Electric Plugs](https://patents.google.com/patent/US1915070A/en) | Standard plug sockets predate the setting; an insulating socket can carry spring contacts where plug terminals meet them. | Expired patents; the latter was filed 1928-09-05 and is used only for construction, not its later grant date. Impossible-live state remains case-owned. | dynamic `power_outlet` owner result |
+| R046 | G. C. Setchell and W. W. Higgins, [US194473A Chain-Fastening Latches](https://patents.google.com/patent/US194473A/en) and G. F. Tadini, [US1065636A Safety Lock](https://patents.google.com/patent/US1065636A/en) | A chain fastening between door and frame limits the leaf to a partial opening until released. | Expired patents; Cam/Noel direction and sealing behavior remain case-owned. | dynamic `door_chain` owner result |
+| R047 | R. W. Pittman, [US1386025A Tripod for Cameras](https://patents.google.com/patent/US1386025A/en) | A camera support could swing its instrument in horizontal and vertical planes while the support remained planted. | Expired patent; the Vantry camera and delayed tracking remain Rule-of-Signal fiction. | dynamic `security_camera` owner result |
+| R048 | G. W. Campbell, [US1482733A Typewriting Machine](https://patents.google.com/patent/US1482733A/en) | Key levers swing type bars to print through a ribbon against the front of a platen. | Expired patent; unsolicited words remain case-owned. | dynamic `typewriter` owner result |
+| R049 | D. R. White, [US1342786A Plant-Irrigating Device](https://patents.google.com/patent/US1342786A/en) | Capillary attraction can carry moisture into the earth around roots in a flower pot. | Expired patent; leaf orientation remains case-owned. | dynamic `houseplant` owner result |
+| R050 | A. C. Pegan, [US840800A Locked Coat Hook](https://patents.google.com/patent/US840800A/en) | A wall-secured supporting base and projecting arm carry a garment load. | Expired patent; the additional hook remains case-owned. | dynamic `coat_hook` owner result |
 
 ## 4. Copy audit
 
@@ -105,6 +114,13 @@ Several rows intentionally share a card because they are the same object at
 two provenance layers: for example the live signal-parlour cabinets and
 generator `arcade_cab` records, or the live wall switches and generator
 `switch` records. That is reconciliation, not duplicate coverage.
+
+The case-bearing domestic mechanisms are the corresponding dynamic exception:
+their `PossessedDomesticProp` owner supplies the complete title, fact,
+condition and source list from a closed kind table. The generic `case_object`
+record remains non-presentable. The returned condition may say only whether
+the visible mechanism is at rest or visibly altered; ids, tells, residents and
+causes are outside the copy boundary.
 
 ## 5. Deferred implementation proof
 
