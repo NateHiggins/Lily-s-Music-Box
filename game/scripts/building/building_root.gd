@@ -213,6 +213,18 @@ var boiler_tend
 var affected_prop_count := 0
 var reality_controllers: Dictionary = {}
 var show_all_floors := false
+## Coarse visibility is region state, not continuous motion.  The camera can
+## move hundreds of physics ticks inside one room, pavement or Passage segment
+## without changing a single floor/prop/door answer.  Keep the last exact
+## answer so those ticks do not rescan every registered actor.  Direct calls to
+## `_apply_visibility()` remain authoritative (the focused tests and camera
+## tools use them), and changing `show_all_floors` is part of the key.
+var _visibility_key := -1
+var _visibility_apply_count := 0
+## Same-build performance control. Inert unless the focused benchmark asks for
+## the old every-tick scan explicitly; production and ordinary tests cache.
+var _visibility_cache_enabled := \
+		OS.get_environment("PERF_VISIBILITY_CACHE_OFF") != "1"
 
 
 func _ready() -> void:
@@ -1828,15 +1840,52 @@ var view_override: Node3D
 
 
 func _update_floor_visibility() -> void:
+	var eye: Vector3
 	if view_override != null and is_instance_valid(view_override):
-		_apply_visibility(view_override.global_position)
+		eye = view_override.global_position
+	elif player != null:
+		eye = player.global_position
+	else:
 		return
-	if player == null:
+	var key := _visibility_signature(eye)
+	if _visibility_cache_enabled and key == _visibility_key:
 		return
-	_apply_visibility(player.global_position)
+	_apply_visibility(eye)
+
+
+## Packs every boolean that `_apply_visibility()` can derive from a viewpoint.
+## This still checks the eight authored storey elevations, but replaces the
+## old per-tick walk over ~600 props and 120 doors with eight cheap comparisons.
+func _visibility_signature(p: Vector3) -> int:
+	var in_passage := _point_is_in_passage(p)
+	var in_eye := absf(p.x) < 3.7 and p.z > -3.7 and p.z < 6.9
+	var outside := not in_passage \
+			and (absf(p.x) > 15.2 or absf(p.z) > 11.2)
+	var key := (1 if show_all_floors else 0) \
+			| ((1 if in_passage else 0) << 1) \
+			| ((1 if in_eye else 0) << 2) \
+			| ((1 if outside else 0) << 3)
+	var bit := 4
+	for fid in floor_nodes:
+		var z: float = layout["meta"]["levels"][fid]
+		var floor_visible: bool = show_all_floors or in_eye or outside \
+				or absf(p.y - z) < 1.75 \
+				or (fid == "ROOF" and p.y > 15.0)
+		var props_visible: bool = show_all_floors or in_eye \
+				or ((outside or in_passage) and fid == "F01") \
+				or absf(p.y - z) < 1.75 \
+				or (fid == "ROOF" and p.y > 15.0)
+		key |= (1 if floor_visible else 0) << bit
+		key |= (1 if props_visible else 0) << (bit + 1)
+		bit += 2
+	return key
 
 
 func _apply_visibility(p: Vector3) -> void:
+	# Explicit callers always apply, even when the derived region is unchanged.
+	# Record the answer afterward so the next ordinary physics tick can skip.
+	_visibility_key = _visibility_signature(p)
+	_visibility_apply_count += 1
 	var in_passage := _point_is_in_passage(p)
 	_set_passage_visibility(in_passage)
 	var in_eye := absf(p.x) < 3.7 and p.z > -3.7 and p.z < 6.9

@@ -206,6 +206,53 @@ func _ready() -> void:
 	_check("outside the west enclosing fabric is not PASSAGE",
 			not root.passage_visible)
 
+	# The streaming answer changes at boundaries, not for every centimetre of
+	# motion. Production physics therefore caches the exact region signature;
+	# direct `_apply_visibility()` probes above remain authoritative.
+	root.view_override = null
+	root.show_all_floors = false
+	root.player.global_position = Vector3(4.3, 3.35, 0.0)
+	root._visibility_key = -1
+	root._visibility_apply_count = 0
+	root._update_floor_visibility()
+	var first_apply: int = root._visibility_apply_count
+	root.player.global_position += Vector3(0.05, 0.0, 0.05)
+	root._update_floor_visibility()
+	_check("motion inside one visibility region does not rescan every actor",
+			first_apply == 1 and root._visibility_apply_count == first_apply)
+	root.player.global_position = Vector3(14.0, 1.0, 50.0)
+	root._update_floor_visibility()
+	_check("crossing into PASSAGE invalidates the visibility cache",
+			root._visibility_apply_count == first_apply + 1
+			and root.passage_visible)
+	root.show_all_floors = true
+	root._update_floor_visibility()
+	_check("the all-floors override invalidates the visibility cache",
+			root._visibility_apply_count == first_apply + 2
+			and root.floor_nodes.values().all(
+					func(floor): return floor.visible))
+
+	# Direct attribution: no frames advance inside these loops, so weather,
+	# residents, traffic and renderer population cannot be mistaken for the
+	# script cost. The timing is reported, not asserted; the structural cache
+	# behavior above is the deterministic contract.
+	const PROFILE_ITERATIONS := 500
+	var profile_eye := Vector3(16.0, 12.0, 34.0)
+	var signature_start := Time.get_ticks_usec()
+	for i in PROFILE_ITERATIONS:
+		root._visibility_signature(profile_eye)
+	var signature_usec := Time.get_ticks_usec() - signature_start
+	var scan_start := Time.get_ticks_usec()
+	for i in PROFILE_ITERATIONS:
+		root._apply_visibility(profile_eye)
+	var scan_usec := Time.get_ticks_usec() - scan_start
+	print("[PASSAGE VISIBILITY] direct profile: %.3f ms/signature, "
+			% (float(signature_usec) / PROFILE_ITERATIONS / 1000.0)
+			+ "%.3f ms/full scan, %.3f ms avoided"
+			% [float(scan_usec) / PROFILE_ITERATIONS / 1000.0,
+					float(scan_usec - signature_usec)
+					/ PROFILE_ITERATIONS / 1000.0])
+
 	print("[PASSAGE VISIBILITY] RESULT: %s (%d failures)" %
 			["PASS" if _fails == 0 else "FAIL", _fails])
 	get_tree().quit(_fails)

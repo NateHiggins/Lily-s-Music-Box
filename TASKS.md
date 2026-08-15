@@ -307,14 +307,15 @@ an open defect, and rooms that are *supposed* to be dark go in
 
 ## T — The street and its traffic
 
-Proposed in `design/ORISON_STREET_BRIEF.md`. **Not canon until the owner rules
-its four open questions.** The demolition is done and committed; nothing below
-is built.
+Ruled and built under `design/ORISON_STREET_BRIEF.md`. The owner's later weather,
+road-clearance and night-readability directions supersede the brief's four old
+questions: the ends are quiet dense storm rather than loud tears; only traffic
+emerges (no expelled debris or people); the rail-less tram is the authored wrong
+5%; and traffic continues at night.
 
-- **T1** Owner ruling on the brief's §8: does the tear stay loud, does anything
-  but traffic come out of it, is the tram on rails, and does traffic stop at
-  night. *Blocks everything else here.* The night question in particular is two
-  different games at 3 a.m.
+- **T1 DONE — BUILT RULINGS RECONCILED.** §8 now records the four decisions
+  already present in production. This is documentation of the approved street,
+  not a new spatial or fiction decision.
 - **T2** **BUILT.** `StreetTraffic` - one MultiMesh for every vehicle, scaled
   and tinted per instance, plus a second for lamps. Ten kinds: dray, motor car,
   coal lorry, van, hansom, milk float, tram, hearse, and the wrong 5% (one too
@@ -412,9 +413,15 @@ is built.
   containment, route, weather, lighting, Passage ownership/visibility and
   WalkTest FAST all exit green. The single FULL x8/480 attempt produced no
   result inside the 60 s bound and was terminated; no FULL result is claimed.
-- **T7** Budget first. Street elevation is 33.28 ms against 16.6, CPU-bound on
-  submission, and **lighting is the dominant term outdoors** (-33%, twice the
-  atrium's). Headlamps and lightning are the expensive part, not the vehicles.
+- **T7 PARTIAL.** The current canonical-night street elevation is 29.30 ms
+  against 16.6, still CPU-bound on submission. T7a closes P7's safe script-side
+  remainder: the floor/prop/door gate now evaluates an exact eight-storey
+  region signature and skips the ~734-actor scan until a visibility boundary
+  changes. Direct in-scene attribution measures 0.003 ms/signature versus
+  0.207 ms/full scan, **0.204 ms avoided per stable physics tick**. A fresh
+  same-build frame pair read 28.79 ms cached / 29.58 ms old scan, but differed
+  by 647 render objects, so the 0.79 ms is explicitly not claimed as causal.
+  The remaining street gap is render submission/lighting, not this script loop.
 - **T8 DONE.** `design/ORISON_DRIVING_RAIN_SKY_PROPOSAL.md` §17 records the
   production checkpoint: one geography-locked four-state storm family, slow
   lower cloud inside the existing sky draw, bounded middle-distance fog, one
@@ -843,10 +850,16 @@ and the four isolated roof fixtures now terminating at a real riser.
   — half the harukiya's — and still misses budget at 20.41 ms. Where there is
   much to draw, submission dominates; where there is little, ungated per-frame
   work does. Gate prop ticking and `StreetTraffic._process` on visibility.
-- **P7 PARTIAL 2026-08-13.** `_update_floor_visibility()` still runs every
-  physics tick and scans the same floors, props and doors, but `_apply_visibility`
-  now writes `.visible` only when the value changes. The scan/throttle remainder
-  is still open; do not quote the old ~600 unconditional writes as current.
+- **P7 DONE 2026-08-14.** `_update_floor_visibility()` now packs every derived
+  Passage/atrium/exterior/all-floor and per-storey shell/actor answer into one
+  exact region signature. Stable movement checks eight elevations and skips the
+  old ~614-prop / 120-door scan; crossing any real boundary or changing
+  `show_all_floors` reapplies immediately, while explicit diagnostic calls still
+  force the gate. The production-scene microprofile is 0.003 ms/signature versus
+  0.207 ms/full scan (0.204 ms avoided per stable physics tick). Same-build
+  `PERF_VISIBILITY_CACHE_OFF=1` is the retained control. PassageVisibility 35/35,
+  FinalMapRoute both directions, and WalkTest FAST/FULL x8/480 pass. The noisy
+  28.79/29.58 ms street frame pair is only corroboration, not the attribution.
 - **P8 PARTIAL 2026-08-13.** The original system was one storey-granular gate,
   not configurable streaming. M0.5 adds a real PASSAGE ownership envelope: F01
   hosts the hall while F02–ROOF, non-Passage actors and 170 foreign F01 site

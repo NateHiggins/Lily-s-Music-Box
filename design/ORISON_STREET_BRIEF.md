@@ -164,6 +164,11 @@ That delta is inside run noise; the deterministic cost is one shared draw.
 The owner's proposal: a tear in the universe at either end, swirling, lightning,
 debris, never explained.
 
+**Superseded by the built ruling in §8 and T8.** The impossible boundary remains,
+but its shipped expression is quiet storm, hoarding and middle-distance loss—not
+a loud vortex that ejects debris. The discussion below is retained as the design
+path that identified that volume risk, not as current implementation authority.
+
 **The intent is right and the volume is the risk.** A visible impossible thing
 that nobody reacts to is a strong statement of the world's rules, and it answers
 the question an endless street would otherwise keep asking. But it would also be
@@ -324,15 +329,46 @@ draw calls.
 Removing the parked cars has already bought some of this back. The budget for
 the moving stream should be set from a measurement, not spent and then measured.
 
+### As built — T7a stable-region visibility gate, 2026-08-14
+
+The current canonical-night street-elevation station is **29.30 ms**, not the
+33.28 ms pre-construction baseline above. It still misses 16.6 and remains a
+submission/lighting problem; T7a does not claim to close that gap.
+
+One unrelated CPU remainder was safe to bank. `BuildingRoot` used to scan about
+614 registered props and 120 doors every physics tick even while the player or
+camera remained inside one visibility region. It now packs the exact answer—
+Passage, atrium eye, exterior, all-floor override, and shell/actor visibility
+for every authored storey—into a region signature. The signature is recomputed
+continuously; the actor scan runs only when that answer changes. Direct
+`_apply_visibility()` calls remain authoritative for tools and focused tests.
+
+The production-scene microprofile, with no frames advancing between samples,
+measures **0.003 ms per signature versus 0.207 ms per full scan: 0.204 ms
+avoided per stable physics tick**. A fresh same-build control using
+`PERF_VISIBILITY_CACHE_OFF=1` measured 28.79 ms cached and 29.58 ms with the old
+scan, but the frames differed by 647 render objects; that noisy 0.79 ms delta is
+not claimed as causal. `PassageVisibilityTest` proves same-region suppression,
+portal invalidation and the all-floor override. The full map route and WalkTest
+FAST/FULL at x8/480 remain green. No render changed, so no beauty A/B was made.
+
 ---
 
-## 8. Open questions for the owner
+## 8. Owner rulings, reconciled from the built street 2026-08-14
 
-1. **Does the tear stay loud?** §4 recommends yes, with staged indifference.
-2. **Does anything come out of it besides traffic?** Debris is proposed. Weather
-   is proposed. A person is not — that is a much bigger ruling.
-3. **Is the tram on rails?** Rails in the road are a strong period read and a
-   permanent piece of geometry down the middle of the frogger lane.
-4. **Does traffic stop at night?** A street that empties gives the building's
-   nights their silence back; a street that never stops is more oppressive.
-   Either is defensible and they are very different games at 3 a.m.
+The four questions in the original proposal are no longer open. Later direct
+owner instructions and their accepted production proofs answer them:
+
+1. **No loud tear.** The impossible ends are the densest parts of the same
+   driving storm: visible hoarding, wet timber and weather swallowing the middle
+   distance. No stinger, vortex or lightning portal announces a boundary.
+2. **Traffic and weather emerge; debris and people do not.** T5b removes the old
+   excavation debris rather than replenishing it. Ordinary vehicles—including
+   the one-time arrival car—appear from and disappear into the storm.
+3. **The tram has no rails.** That is the brief's authored wrong 5%, retained
+   without comment. Do not add permanent rail geometry to the crossing lane.
+4. **Traffic continues at night.** T2d exists specifically to make that stream
+   readable on the wet road at canonical night. Night does not empty the street.
+
+These are a record of the approved map already in production, not permission to
+reopen the three-zone layout or the street-end architecture.
