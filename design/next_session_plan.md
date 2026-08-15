@@ -1,4 +1,4 @@
-# Next session: K6 is closed — document the loop spine (K7)
+# Next session: the dream maze is designed — rule it before production
 
 *Rewritten 2026-08-13. Sequencing authority beneath
 `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`.*
@@ -11,26 +11,27 @@
 4. `HANDOFF.md` for build/test mechanics
 
 The owner has ruled the campaign rhythm: issue, shop, repair, conversation,
-narcoleptic dark scramble, wake in 4B, repeat. The core dream function is now
-part of the product. The detailed maze proposal still contains implementation
-questions and must not be treated wholesale as a ruling.
+narcoleptic dark scramble, wake in 4B, repeat. The owner clarified on 2026-08-15
+that “the dream world is our reveal” constrains the **title screen only**. It
+does not prohibit designing or building the production dream.
 
 ## Immediate next action
 
-**K6 is complete. Begin K7.** Mina's existing Caption Crisis now owns the
-case-specific half of the shipped maintenance shift: the physical Vantry repair
-is its first temporary stabilization; her existing conversation, recurrence,
-second factual calibration and integration follow; only the complete rule
-closes the job, and only final case resolution opens the dream boundary. The
-test dream remains a stub. Wake persists one harmless factual `REFRIGERATOR`
-caption, owned by the real `F02_2A_FRIDGE_01` appliance node and displayed on
-the generated `2A_FRIDGE_FACE` socket.
+**K6 is complete. Review the replacement `design/ORISON_MAZE_BRIEF.md`.** It now
+specifies the exact Mina run, deterministic ten-module ring, light/pursuit
+contract, shadows-only Tenant presentation, eight hazards, six case grammars,
+accessibility, ownership, save transaction, proposed files and proof gates.
+It also names the real contradiction created by the landed seam: K6 requests
+the dream after Mina resolves, while the old proposal selected only unresolved
+cases. Its recommended resolution is a one-passage **release print** of the case
+just integrated, quiet after wake and never a spoiler for the next case.
 
-K7 must now create `game/docs/core_loop.md` from the code that exists: state
-machine, signal ownership, save fields, boundary reconciliation, and the exact
-recipe for adding Peter without copying Mina's case logic into the coordinator.
-Do not begin Peter, a production dream scene, or a second errand while writing
-that contract.
+The five owner rulings requested at the foot of that brief are now the immediate
+approval point. After approval, execute N2's dimensioned module drawing and N3's
+disposable light/pursuit control corridor before building final dream content.
+K7 remains open and should document the landed K2–K6 loop contract before the
+campaign scene boundary is changed; Peter, a second errand and six parallel
+dream implementations remain out of scope.
 
 ## First work: rule the measured M0.5 performance blocker
 

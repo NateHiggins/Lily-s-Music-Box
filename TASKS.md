@@ -720,25 +720,45 @@ system - **it is more than half the authored content.**
 
 The owner ruled the core function on 2026-08-13: narcoleptic onset, a terrifying
 dark scramble and waking in 4B are part of every case loop. The detailed maze
-brief remains a proposal where this ruling is silent.
+brief was replaced on 2026-08-15 with a complete production proposal after the
+owner clarified that dream secrecy applies to the **title screen only**. K7 is
+still open; dream design does not silently close the core-loop documentation.
 
-- **N1** Resolve only the three remaining implementation questions at the foot
-  of the brief; they no longer block a graybox onset/scramble/bed-return spine.
-- **N2** Fractal maze generator: one seed per save, generated once at campaign
-  start, room archetypes drawn from the Orison's own rooms. Must run the same
-  overlap / footprint / door-width / door-swing audit `gen_layout.py` does.
-- **N3** Narcolepsy onset system in the waking game: gradual and sudden, weak
-  resistance, cataplexy on strong emotion, and the accessibility option forcing
-  all onsets to be gradual.
-- **N4** The light binary — on to see hazards and be found, off to be safe and
-  blind. This is the entire verb set and wants prototyping before anything else
-  is built around it.
-- **N5** Eight hazards across positional, triggered, rhythmic and conditional,
-  each with an audible tell that survives the light being off.
-- **N6** Bind the pursuer to `PoltergeistLibrary` so the thing in the dream is
-  the current case's poltergeist, not a new monster.
-- **N7** If ruled canon, add the Rule of Signal exemption to `ORISON_BIBLE.md`
-  so the dream is not later read as a violation of §VIII.
+- **N1** Owner review of the five rulings requested by
+  `design/ORISON_MAZE_BRIEF.md`: release-print case binding, capture rather than
+  death language, deterministic ten-module ring, 28–90 second curve, and the
+  player's own shadow held for endgame. Paper measurement and a disposable
+  control corridor do not need to wait; final content and canon do.
+- **N2** Produce the exact dimensioned top-down drawing and source catalog for
+  `D00`–`D09`, then make 100 seeds pass overlap, connector, capsule, step,
+  swing, reachability, hazard-route and stable-hash audits. No free-form room
+  generation and no hand-edited generated output.
+- **N3** Build the disposable light/pursuit control corridor first. Wire the
+  existing phone lamp through one keyboard/controller/touch toggle; prove light
+  on shortens capture by at least one third, light off buys six seconds, and
+  acquisition never crosses an opaque wall.
+- **N4** Add the minimal campaign scene boundary and persistence contract:
+  waking and dream worlds never render/simulate together; real-file restore at
+  armed, entered, active, return-pending and awake boundaries reconciles forward
+  without duplicating residue or resurrecting work.
+- **N5** Implement `SleepPressureDirector`: Mina gradual first, later profiles
+  may permit sudden onset, protected interactions delay entry, stable-floor
+  safety prevents transition seams, and Always-warn accessibility ships now.
+- **N6** Implement the Mina maze profile using one invisible navigation body and
+  a shadows-only borrowed silhouette. No monster mesh, face, attack animation,
+  teleport, case-specific director or new Tenant.
+- **N7** Implement Mina's three audible hazards—lift void, Vantry signal trunk
+  and hollow runner—and prove bearing/type identification before contact. The
+  five later hazards remain data sockets until the first run passes.
+- **N8** Close the production Mina passage: 14–28 seconds, complete K6 state in,
+  capture/fall/contact out, rebuilt waking scene, authored 4B bedside, existing
+  factual refrigerator residue, accessibility variants, renders and 16.6 ms
+  isolated-scene gate.
+- **N9** Use Peter as the shared-profile proof. Change content, pursuit grammar
+  and case truth without forking the maze, director, hazard or save owners.
+- **N10** If the proposal is ruled canon, record the dream's Rule of Signal
+  exemption and the release-print supersession in `ORISON_BIBLE.md`; do not
+  alter canon while it remains owner-review material.
 
 ## M — Materials and textures
 

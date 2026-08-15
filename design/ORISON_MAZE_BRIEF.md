@@ -1,345 +1,578 @@
-# THE DREAM — PARTIALLY RULED DESIGN BRIEF
+# THE DREAM MAZE — PRODUCTION DESIGN PROPOSAL
 
-*Filed 2026-08-10; status amended 2026-08-13. Bible §I.1 now rules the core
-function: narcoleptic onset, a dark terrifying scramble, waking in bed in 4B,
-protected calls/conversations and no loss of committed work. Everything more
-specific below remains a proposal until separately ruled, including procedural
-maze form, death as the only exit, hazard count, run-length curve and the three
-open questions. Obeys `ORISON_BIBLE.md` §I (both true) and §VIII (the Rule of
-Signal does not reach here — see "What the dream is exempt from").*
+*Replaces the 2026-08-10 exploratory brief. Revised 2026-08-15 after the owner
+clarified that “the dream world is our reveal” is a title-screen spoiler rule,
+not a prohibition on designing or building dream play. The title must remain in
+the waking world. The dream itself must now be designed, tested and eventually
+shipped.*
+
+**Status: OWNER REVIEW REQUIRED — NOT YET BINDING CANON.** Bible §I.1 already
+rules narcoleptic onset, a short terrifying dark scramble, waking in bed in 4B,
+protected calls/conversations and no loss of committed work. Bible §III.1 rules
+one Tenant, no true form, wearing a subject's shadow. This document turns those
+laws into one executable production proposal. Where it changes the older
+proposal—especially the pursuer selection, free-form generation and “death”
+language—it says so explicitly.
 
 ---
 
 ## THE ONE-LINE CASE
 
-**The player is narcoleptic. When they go down, they wake somewhere that is
-almost the Orison, in the dark, with something already coming — and the only
-way out is to die and wake up in bed.**
+**After a case is integrated, sleep takes the player into a deterministic wrong
+Orison: their phone light reveals the way and tells the Tenant where they are;
+the Tenant wears the departing case's shadow; capture or a building hazard ends
+the passage; the player wakes in 4B with one quiet fact left behind.**
 
-Then the phone rings, and there is a new case.
+The dream is not a second campaign and not a preview on the title screen. It is
+the violent punctuation mark at the end of a completed shift.
 
 ---
 
-## THE LOOP
+## WHAT IS ALREADY RULED
 
+- The waking condition and the impossible reading remain **both true**.
+- Narcolepsy creates a vulnerable interval. It does not create the Tenant and is
+  not itself evil, monstrous or a punishment.
+- Entry is involuntary and dramatically scheduled. It is not a level selected
+  from a menu.
+- A call or conversation already in progress is protected. Protection delays an
+  eligible onset; it does not erase the request.
+- Committed work, case truth, inventory consumption and repair results survive.
+- The player wakes at the authored bedside in 4B.
+- There is one Tenant. It has no body or true form and cannot be killed. It may
+  only wear the current subject's shadow and wound grammar.
+- The dream may borrow the Orison. The waking Orison never previews, explains or
+  confirms the dream.
+- The title screen remains entirely waking-world and spoiler-safe. That is the
+  complete scope of the reveal restriction.
+
+Everything below is the recommended implementation until the owner rules it.
+
+---
+
+## THE SHIPPED LOOP AND THE OLD PURSUER CONTRADICTION
+
+The first brief selected a pursuer from unresolved cases. The production K6
+seam now requests Mina's dream only **after** her complete rule is earned, her
+case integrates and the work order closes. At that moment Mina is no longer an
+active unresolved case. Selecting a different unresolved case would spoil the
+next chapter; pretending Mina is still unresolved would violate the case state.
+
+### Recommended resolution: the release print
+
+Each campaign dream is bound to the case that has just integrated.
+
+1. The Tenant has been satisfied and is letting go of that subject.
+2. The dream is the last image left in the vulnerable transition—the **release
+   print**—not a renewed waking manifestation.
+3. The Tenant may wear the just-resolved subject's silhouette and grammar for
+   this one passage. After wake, that case is quiet.
+4. Unresolved cases remain fair game for waking intrusions. A later proposal may
+   use them for unscheduled ambient dreams, but the six campaign dreams do not.
+5. No dream advertises a case the player has not met.
+
+This preserves “a resolved case is quiet” in the waking world, gives the dream
+the concentrated truth required by the execution plan, and matches the actual
+K6 event order. The future dream request must carry stable `case_id` and
+`dream_profile_id` fields; `DreamDirector` must never infer Mina from a hardcoded
+job id.
+
+The player's own shadow remains an endgame possibility, not part of the six-case
+implementation and not decided here.
+
+---
+
+## THE EXPERIENCE CONTRACT
+
+Every campaign dream must deliver five things and then leave:
+
+1. **Recognition.** At arm's length, this is indisputably the Orison.
+2. **Global wrongness.** The route makes architectural sense one room at a time
+   and cannot possibly make sense as a building.
+3. **One continuous decision.** Light on gives information and gives the player
+   away; light off buys uncertainty and demands listening.
+4. **One case truth.** The environment behaves according to the subject's wound,
+   without restaging their dialogue or turning trauma into a boss gimmick.
+5. **A hard wake.** There is no loot, score, game-over screen or victory pose.
+   The player opens their eyes in 4B and finds one deniable residue.
+
+The target emotion is not “solve the maze.” It is **I know this building, I am
+getting better at surviving it, and there still is nowhere to arrive.**
+
+---
+
+## ONSET — A CONDITION, NOT A HORROR SWITCH
+
+`SleepPressureDirector` owns readiness and transition. It receives an authored
+eligible window from the core loop, accumulates no case or quest rules, respects
+the player's existing protected-interaction flag and asks `DreamDirector` to
+enter. It does not own the maze.
+
+### First production behavior
+
+- Mina's first onset is always gradual so the player can learn the language:
+  peripheral contrast falls, the field narrows slightly, the mix loses high
+  frequencies, the phone beam lags, and the Room 0 hum becomes perceptible.
+- Later case profiles may permit sudden onset. The campaign seed chooses between
+  permitted onset forms; it does not roll continuously during ordinary play.
+- The accessibility setting **Always warn before sleep** forces gradual onset
+  for every case without changing progression.
+- Calls, dialogue, transaction panels and physical repair commits remain
+  protected through the authoritative engaged flag. Onset begins only after the
+  protected action finishes and its state commits.
+- The transition never drops the player into moving traffic, an elevator seam or
+  an unresolved physics fall. If eligibility arrives there, the request remains
+  armed until the body is on a stable floor. This is safety, not a cure mechanic.
+- Cold water, button mashing, sprinting and “willpower” do not cancel an attack.
+  The game does not teach a false cure.
+
+### Medical representation guardrail
+
+Symptoms vary; not every person with narcolepsy has every symptom. The first
+slice uses excessive sleepiness, sleep attacks and sleep/wake hallucination. It
+must not automatically equate emotional intensity with cataplexy unless the
+protagonist is explicitly characterised that way after lived-experience and
+clinical review. Sleep paralysis may be a brief wake presentation, but it must
+be skippable and must never be required to understand what happened.
+
+Reference baseline, not a substitute for consultation:
+
+- NHS, “Narcolepsy”: <https://www.nhs.uk/conditions/narcolepsy/>
+- NHS, “Narcolepsy — Symptoms”: <https://www.nhs.uk/conditions/narcolepsy/symptoms/>
+
+---
+
+## THE MAZE: AUTHORED ROOMS, SYSTEMIC ASSEMBLY
+
+The first brief proposed unconstrained fractal generation. That is visually
+tempting and production-hostile: arbitrary geometry makes collision, acoustics,
+lighting, culling and fair hazards difficult to prove. The replacement is a
+small authored module kit assembled into a deterministic graph.
+
+**Local truth is authored. Global impossibility is assembled.**
+
+Every module is a measured extraction or reconstruction of a real Orison space.
+Its skirting, wallpaper, door dimensions, pipe runs, hardware and wear remain
+photo-faithful. Wrongness comes from connections, repetition, scale rhythm and
+impossible return—not melted walls or generic dream particles.
+
+### The ten-module vocabulary
+
+| ID | Waking source dimensions | Dream work |
+|---|---|---|
+| `D00_4B_THRESHOLD` | 4B vestibule, 2.20 × 1.25 m | One entrance, every time; the room behind is absent |
+| `D01_F04_LONG_HALL` | 2.08 m corridor width; 19.30 m from three true bays | Establishes the phone-light rule and the receding practical |
+| `D02_DOGLEG_STAIR` | 6.32 × 6.32 m well; 1.70 m flights; 3.20 m rise | Goes up honestly, arrives at a lower floor number |
+| `D03_LIFT_VOID` | 4.10 × 3.50 m hall; 2.15 × 2.20 m shaft; 0.91 m door | One working door, one open shaft, chain and draught hazard |
+| `D04_BATHROOM_PROCESSION` | four 2.20 × 2.40 m bathrooms in a 9.60 m run | Four locally exact bathrooms sharing one impossible wet wall |
+| `D05_SERVICE_RISER` | 2.08 × 6.50 m corridor bay | Narrow listening room; heating, water and signal separate audibly |
+| `D06_LAUNDRY_BOILER` | laundry 8.14 × 6.98 m; boiler 8.14 × 10.53 m | Machinery rhythm, steam hazard and long occluded turns |
+| `D07_LIGHT_COURT_WALK` | 6.32 × 6.32 m well; 1.70 m clear walk | Interior exterior: windows face rooms that cannot occupy the volume |
+| `D08_CASE_ECHO` | 2A main-room source, 8.14 × 5.80 m | One small case-authored substitution, never a full duplicate apartment |
+| `D09_RETURN_HALL` | 2.08 × 6.50 m corridor bay | Looks like arrival; physically returns to `D01` from the wrong side |
+
+All flat modules retain the waking 3.015 m clear ceiling. Ordinary connectors
+retain the authored 0.91 m door opening; the player capsule is 0.66 m wide. No
+dream connector is narrowed below waking code merely to manufacture tension.
+
+The base graph is a ring with one seeded branch, not a cloud of random rooms:
+
+```text
+ D00 → D01 → ┬→ D02 ─┐
+             └→ D03 ─┴→ D04 → D05 → ┬→ D06 ─┐
+                                      └→ D07 ─┴→ D08 → D09
+                                               ↑          │
+                                               └── D01 ←──┘
 ```
-   the waking building
-         │
-         │  sleep takes them — gradually, or without warning
-         ▼
-   THE DREAM        10 seconds early in the campaign · 90 seconds late
-         │          run, turn, and decide about the light
-         │
-         │  a hazard, or the thing behind you
-         ▼
-   awake in bed     always in bed, however far they got, wherever they fell
-         │
-         ▼
-   the phone rings — a new issue, called in
+
+- `D02` and `D03` exchange left/right presentation by seed and reconverge.
+- `D06` and `D07` exchange order by seed and reconverge.
+- `D09` joins the back of `D01` with valid physical geometry. The player does
+  not teleport; the impossible loop is visible only after they recognise it.
+- Mina's first run exposes `D00`, `D01`, `D03`, `D04` and `D05`. Later campaign
+  budgets expose more of the same saved building; only the final slot reaches
+  `D09` and recognises the complete fold.
+- A warm 4B practical appears one connector ahead. It never slides away in view;
+  the lit fixture changes only while a wall or closing door occludes it.
+
+### What the seed may and may not change
+
+One 64-bit dream seed is created with the campaign and never rerolled. It may
+choose branch handedness, repeated-door count within authored limits, hazard
+sockets, material repetition and which valid connector carries the next light.
+It may not change door dimensions, invent coordinates, overlap modules, block
+the only traversable connector or make an audible tell point the wrong way.
+
+Source data belongs in `game/data/dream_module_catalog.json`. A generator reads
+that catalog and emits the assembled graph and compact dream assets. Generated
+outputs are never hand-edited. The generator exits nonzero for overlap,
+unmatched connector, insufficient capsule clearance, bad step height, invalid
+door swing, unreachable module, inaudible hazard route or unstable seed hash.
+The waking `gen_layout.py` remains the sole owner of waking-world coordinates;
+the dream generator may reference its source records but may not write them.
+
+---
+
+## THE LIGHT IS THE GAME
+
+The player brings the same physical phone and cool lamp into the dream. No new
+magic lantern appears and no tutorial panel explains it. The existing controller
+already owns the phone light and its carried lag, but its commented keyboard
+toggle is not currently wired. The first prototype must add one public toggle
+path shared by keyboard, controller and touch before balancing pursuit.
+
+| State | What the player gains | What the Tenant gains |
+|---|---|---|
+| **Light on** | floor edges, hazards, connectors, case marks | a fresh target, a faster route and a shadow to cast |
+| **Light off** | time and broken line-of-sight | the last known point plus the player's footsteps |
+
+Darkness is safer, never safe. Turning the lamp off breaks visual acquisition
+and decays pursuit confidence; the Tenant continues toward the last light splash
+and listens for movement. There is no hiding state, closet prompt or stealth
+meter. Standing still in darkness delays capture but cannot make the run endless.
+
+Balance by outcomes, not lore numbers:
+
+- On a straight control corridor, leaving the light on must reduce median
+  survival by at least one third.
+- Turning it off after acquisition must buy a clearly audible six seconds or
+  more on Mina's run.
+- The beam may attract from its splash on a wall through an open doorway; it may
+  not attract through opaque architecture.
+- Repeated toggling has no stamina cost and no arbitrary cooldown. The risk of
+  giving away a new position is the cost.
+- The phone never flickers at photosensitive frequencies. Case pressure changes
+  intensity slowly or cuts it cleanly.
+
+The screen remains readable enough to move with the light off: black level keeps
+the nearest floor silhouette, and the receding practical supplies a vague
+orientation. “Off” means navigation by sound and memory, not a black video file.
+
+---
+
+## THE TENANT: A NAVIGATION BODY WITH NO BODY
+
+The dream does not buy a monster model.
+
+- One invisible navigation body owns position, last-known target, hearing and
+  capture distance.
+- A **shadows-only proxy** borrows the current subject's broad silhouette. It
+  casts onto walls and floor when the phone beam finds the right angle, but the
+  proxy itself never renders. No face, eyes, hands, texture or reveal exists.
+- Case effects occur in the architecture: captions, stamps, feedback, broken
+  appliances, radio fragments or contradictory labels. They are not particle
+  costumes wrapped around a humanoid.
+- The Tenant never uses the resident's speaking voice. It borrows rhythm,
+  vocabulary and signal carriers from `PoltergeistLibrary`.
+- Capture is the phone beam being occluded at intimate distance, the case sound
+  reaching its missing fifth position and the image cutting to black. There is
+  no attack animation and no creature close-up.
+
+This realizes “wears the subject's shadow” literally while preventing a
+temporary graybox mesh from becoming a canonical true form.
+
+### Pursuit contract
+
+The Tenant is slower and less certain without a light target, faster once a lit
+surface acquires the player, and always capable of finishing the run. It follows
+the validated navigation graph; it does not teleport behind the camera or cross
+closed collision. If the authored time cap expires, the terminal fold places
+the player back on the known ring with the Tenant legitimately occupying the
+shorter converging route. The topology closes the distance; rubber-banding does
+not.
+
+Being caught is called **capture** in code and tests, not player death. A fall,
+electrical contact or crushing hazard produces a different `dream_ended`
+outcome, but all are dream outcomes and all wake the same living character.
+
+---
+
+## EIGHT FIXED HAZARDS
+
+Eight hazards are provisioned across the full saved maze. Mina teaches only
+three. Every hazard has a sound that precedes danger, a visible confirmation
+under the phone light and one reconstructable cause. “The player understands in
+the half-second before impact” remains the fairness bar.
+
+| Hazard | Kind | Sound in darkness | Lit confirmation | Result |
+|---|---|---|---|---|
+| Open lift void | positional | deep draught, loose chain below | absent car and sill edge | fall → wake |
+| Vantry signal trunk | conditional | carbon hiss and rising electrical beat | arc reaches toward the lit beam splash | contact → wake |
+| Hollow runner | conditional | one dry creak two steps ahead | bowed boards and split tack line | running breaks it; walking crosses |
+| Boiler relief sweep | rhythmic | three pipe knocks, then pressure hiss | white steam crosses one lane | contact → wake |
+| Counterweight passage | rhythmic | cable climbs, brake strikes twice | shadow traverses the shaft opening | impact/stagger, then pursuit |
+| Fire-door return | triggered | hinge scrape before latch | door begins closing behind | route closes; pursuit continues |
+| Laundry mangle belt | triggered | belt slap at a fixed interval | rollers pull a hanging sheet across path | contact → wake |
+| Breathing partition | positional/rhythmic | plaster grit moves left to right | corridor narrows on the same cycle | crush → wake |
+
+The acoustic graph logic is reusable; the current `acoustic_graph.json` is not.
+It is tied to waking-world ids and coordinates. The dream generator must emit a
+small graph using the same network, delay and damping schema, then feed it to a
+shared route planner. Claiming the waking graph already solves dream acoustics
+would be false.
+
+Mina's run uses the open lift void, signal trunk and hollow runner. One teaches
+position, one teaches light consequence, and one teaches that sprint is not
+always the answer.
+
+---
+
+## THE SIX CASE GRAMMARS
+
+All six use the same movement, phone and pursuit code. A profile changes room
+behavior, signals and authored substitutions—not controls or manager logic.
+
+| Case | What the wrong building does | What light changes | Truth the player can recognise |
+|---|---|---|---|
+| Mina — Caption Crisis | nouns appear on surfaces, then expand into claims about the player | illumination gives each visible thing another annotation; darkness leaves the blank alone | silence does not require annotation |
+| Peter — Form Corridor | reversing at a junction duplicates the pending corridor and stamps another door | light reveals instructions but also makes every hesitation legible | uncertainty does not prevent action |
+| Juno — Feedback Tetris | open signal paths echo into solid acoustic partitions | the lit phone is one clean channel; frantic toggling feeds delayed copies | connection requires an open channel |
+| Cal — Memory Radio | receiver fragments hold rooms in moments that have already ended | dwelling on a lit receiver loops it; darkness lets the phrase finish and the door release | presence is not preservation |
+| Omar — Unrepairable | every revisited machine returns with a new impossible fault | inspection reveals the damage but cannot restore it; moving on preserves distance | some things are not repairable |
+| Mae — Contradictory Antiques | left and right routes present incompatible histories and rejoin at the same object | light shows one provenance, darkness lets the other remain audible | contradiction is survivable |
+
+These are navigation and pursuit grammars, not six minigames. No dream adds an
+inventory, dialogue choice, repair interaction or bespoke control. Peter remains
+the second case. The order of Juno, Cal, Omar and Mae remains an owner decision,
+so run length belongs to campaign slot data rather than case code.
+
+---
+
+## MINA'S FIRST RUN — EXACT PLAYABLE SCRIPT
+
+Target: **14–28 seconds**, with a first-time median of 22–26. The cap is long
+enough to learn one decision and two audible hazards, short enough to end before
+the player masters either.
+
+| Time / station | Image and sound | Intended learning |
+|---|---|---|
+| onset, 2–3 s | waking mix narrows after Mina's resolved conversation; committed state is already saved | this is happening after the work, not undoing it |
+| 0–5 s, `D00` | player opens their eyes standing at the 4B threshold; phone already lit; a warm 4B practical waits ahead where 4B cannot be | move toward recognition; no tutorial text |
+| 5–11 s, `D01` | beam reveals `DOOR`, `FLOOR`, `PLAYER`; label clicks answer behind; a borrowed shadow crosses one transverse wall | light supplies knowledge and position to the Tenant |
+| 11–17 s, `D03` | elevator door stands open; draught and chain come from below; stair connector remains acoustically dry | sound can veto a visually inviting route |
+| 17–20 s, `D04` | a locally exact bathroom is followed by the same wet wall again; a hollow runner gives one dry creak ahead | global layout is wrong; sprint is not always safe |
+| 20–26 s, `D05` | Vantry trunk hum rises; its arc reaches only while the beam paints the conduit; darkness leaves a clean narrow passage | light can activate the danger it reveals |
+| 26–28 s, riser end | the warm practical turns on beyond a sealed grille; captions become assertions; the Tenant reaches the service branch from the shorter side | the guiding light was never a reachable exit |
+| wake | black, one absent fifth beat, eyes open at the authored 4B bedside; no failure screen; K6's factual `REFRIGERATOR` residue remains | the passage counted without becoming proof |
+
+If the player keeps the light on or chooses the shaft, the run ends earlier. If
+they play cleanly, the service graph—not a speed cheat—delivers the final
+capture. Refusing the last grille is valid; the approaching signal eventually
+reaches them. There is no fake door interaction and no invisible timer
+displayed. The complete `D09` fold is held for the final campaign run, when the
+player has enough learned geography for recognition to hurt.
+
+---
+
+## CAMPAIGN LENGTH WITHOUT META-PROGRESSION
+
+Nothing is earned or carried inside the maze. The saved seed makes the building
+learnable; case order opens a longer authored budget.
+
+| Campaign slot | Maximum run | New demand |
+|---:|---:|---|
+| 1 — Mina | 28 s | light acquisition, shaft, signal trunk |
+| 2 — Peter | 38 s | first branch and hesitation grammar |
+| 3 | 50 s | first rhythmic hazard |
+| 4 | 62 s | `D06`/`D07` order becomes legible |
+| 5 | 76 s | two hazards can interact with pursuit |
+| 6 | 90 s | complete ring and terminal return are recognisable |
+
+Performance does not lengthen the leash. There is no best time, distance,
+unlock, shortcut, collected object or resident congratulation. Player knowledge
+is real; character progression inside the dream is not.
+
+---
+
+## VISUAL AND AUDIO LANGUAGE
+
+### Image
+
+- Soot black, wet plaster, dull brass, phosphor-blue phone light and one distant
+  tungsten practical. Each case receives one restrained accent, never a rainbow
+  supernatural grade.
+- Surfaces remain material, dirty and plausible at touch distance. No floating
+  rocks, occult writing, fantasy sky, generic smoke monster or corridor made of
+  particles.
+- Repetition is architectural: too many identical doors, one wallpaper seam
+  returning, the same worn stair edge above itself.
+- Wrongness happens across occlusion. A room may change while a door closes; it
+  does not visibly pop or melt in front of the camera.
+- No strobe, forced camera roll, fisheye sprint effect or chromatic-aberration
+  assault. Terror comes from space, signal and pursuit.
+
+### Sound
+
+- Mix order: immediate hazard, Tenant bearing, phone/light response, route cue,
+  Room 0 hum, case grammar, room tone.
+- The four-part motif remains short — short — pause — long — missing. Capture
+  cuts on the absent fifth position; it does not complete the theology with a
+  stock impact.
+- Hazard cues are spatial sources and remain localisable on ordinary stereo.
+  Headphones may improve them but are never required.
+- The Room 0 hum is a vital sign, not the Tenant's voice.
+- Silence is mixed. Turning the light off removes visual certainty, not every
+  sound bed.
+
+---
+
+## ACCESSIBILITY IS PART OF THE FIRST BUILD
+
+- **Always warn before sleep:** forces gradual onset.
+- **Dream pursuit — Reduced:** slows acquisition and capture while preserving
+  the light relationship and the same topology.
+- **Dream pursuit — Transition only:** a 10–12 second hazard-free passage ends
+  in the same wake and residue for players who cannot use a chase.
+- **Directional danger captions:** optional concise cues such as
+  `[CHAIN BELOW — LEFT]`; these are accessibility presentation, not diegetic
+  Mina captions.
+- **High-contrast edges:** lifts immediate floor/shaft separation without
+  brightening the entire scene.
+- **No flashing:** default and non-negotiable; light effects cut or breathe
+  below hazardous frequencies.
+- **Motion comfort:** no forced head roll, violent FOV pulse or compulsory wake
+  paralysis. Any bedside immobility beat is skippable.
+
+All three pursuit modes produce the same campaign state. Horror intensity is
+not a difficulty gate and never changes what the player is allowed to know.
+
+---
+
+## OWNERSHIP AND SAVE CONTRACT
+
+| Concern | Owner | Saved facts |
+|---|---|---|
+| case/job eligibility | existing `CoreLoopDirector` and job data | existing `dream_pending`, case and job facts |
+| onset timing/protection | new `SleepPressureDirector` | pressure seed/state and armed request only |
+| scene transition/run/outcome | new `DreamDirector` | active flag, case/profile id, maze seed/revision, ending outcome |
+| topology | `DreamMazeBuilder` plus generated module data | campaign seed; never live node transforms |
+| pursuit | `DreamPursuer` reading a profile and graph | no transform or confidence save |
+| hazards | data-authored sockets and one shared hazard base | no per-run persistence |
+| waking residue | existing `RealityState.apply_waking_residue` | stable residue id and factual payload |
+
+The clean scene boundary is a small persistent `CampaignShell` containing the
+loop, sleep and dream coordinators plus a replaceable `WorldSlot`. `BuildingRoot`
+and `DreamMazeRoot` do not render or simulate together. This avoids hiding a
+full eight-floor building behind the dream and avoids placing the maze at an
+invented far-away coordinate in the waking `World3D`. The shell contains no
+case, repair, shop, dialogue, pursuit or hazard rules.
+
+### Save/load boundaries
+
+1. `dream_requested` armed but protected: restore the armed onset once.
+2. On entry: commit `dream.active`, case/profile id, seed and maze revision
+   before replacing the waking world.
+3. Loading an active dream reconstructs the same graph and restarts at `D00`.
+   It does not attempt to serialize a chase frame.
+4. On ending: commit outcome and `return_pending`; apply the stable residue
+   idempotently; rebuild the waking world; call the existing wake boundary;
+   clear `return_pending` last.
+5. Loading during that final transaction reconciles forward to the bedside.
+   It cannot duplicate residue, resurrect an item or reopen a case.
+
+Signals remain narrow: `dream_requested(case_id, profile_id, window)`,
+`dream_entered(case_id, seed)`, `dream_ended(case_id, outcome)` and the existing
+`waking_residue_applied`. No dream owner advances WorkOrders or RealityCases.
+
+---
+
+## PROPOSED FILES — FIRST MINA GRAYBOX ONLY
+
+```text
+game/data/dream_module_catalog.json
+game/data/dream_profiles.json
+game/scripts/dream/sleep_pressure_director.gd
+game/scripts/dream/dream_director.gd
+game/scripts/dream/dream_maze_builder.gd
+game/scripts/dream/dream_pursuer.gd
+game/scripts/dream/dream_hazard.gd
+game/scenes/dream/DreamMazeRoot.tscn
+game/scenes/campaign/CampaignShell.tscn
+game/tests/DreamMazeGenerationTest.tscn
+game/tests/DreamLightTest.tscn
+game/tests/DreamLoopTest.tscn
+game/tests/DreamMazeShot.tscn
+art/blender/build_dream_modules.py
+art/data/dream_maze_layout.json          # generated output
 ```
 
-Death is the only exit. There is nowhere to get to. **The feeling of progress is
-purgatory** — and the building is not lying about that, because there is no
-destination and never was.
+Do not create six scenes, six directors or six pursuer scripts. Mina proves the
+shared contract; Peter proves the profile seam; only then do the remaining four
+profiles become production work.
 
 ---
 
-## WHY NARCOLEPSY IS THE ENGINE, NOT THE FRAMING
+## ACCEPTANCE GATES
 
-§I sets one law: **both true.** Every explanation must be true and neither may
-win. Until now that has been held by authorial discipline. The condition makes it
-structural:
+### Gate A — deterministic space
 
-> The dream is a hypnagogic hallucination — a real, documented symptom.
-> The dream is the building showing what it keeps.
+- 100 generated seeds pass overlap, connector, capsule, step, swing,
+  reachability, hazard-route and stable-hash audits.
+- Repeating one seed produces byte-identical graph data.
+- A top-down drawing dimensions every module, connector and hazard socket.
 
-Neither reading can be dislodged, because the condition explains it completely
-and explains nothing. **This is the cleanest expression of §I in the project.**
+### Gate B — the light decision
 
-It also explains the premise. Narcolepsy makes ordinary employment hard. This
-person took a job where you work alone, at night, in the building you live in, in
-exchange for rent. Nobody sensible designs that job. Someone would accept it.
+- In paired deterministic runs, light-on shortens capture by at least one third.
+- Light-off buys at least six seconds after acquisition without producing an
+  indefinite safe state.
+- Acquisition never crosses an opaque wall; the shadows-only proxy never renders
+  directly in beauty frames.
+- Keyboard, controller and touch drive the same public light toggle.
 
-**Play the condition straight.** Real narcolepsy carries excessive daytime
-sleepiness, sudden sleep attacks, cataplexy, sleep paralysis and hypnagogic
-hallucination. The real symptom set is richer than anything we would invent, and
-treating a disability accurately is both more respectful and more frightening
-than treating it as a device. It is named in the game and part of a lived life,
-not a reveal.
+### Gate C — fair darkness
 
-### Onset
+- In blinded tests, each of Mina's three hazards is identified by bearing and
+  type before contact in at least 80% of trials.
+- Every impact log includes the tell start, player distance, light state and
+  causal hazard id.
+- Directional-caption mode conveys the same information without revealing
+  hidden geometry.
 
-- **Gradual** is a warning and therefore a choice: desaturation, the field
-  narrowing, a low-pass creeping over the mix, the torch dimming, the building's
-  hum rising underneath. In a game about sound, *the mix going wrong* is the most
-  legible possible tell.
-- **Sudden** has no warning at all.
-- **Resistance is weak and brief.** The player can push back for a moment —
-  stand up, move, cold water — and it buys seconds, not safety. It must never
-  read as a cure.
-- **Cataplexy** is the cruel one and belongs in the design: strong emotion drops
-  you. The player's job is being present for people on their worst night, so the
-  moments that land hardest are the moments most likely to take them.
+### Gate D — the complete Mina passage
 
-**They must fear it happening.** That is the design target for the waking game,
-and it is achieved by surprise, not by frequency.
+- One continuous production run enters after the complete Mina case, preserves
+  every K6 fact, traverses the real dream scene, ends, rebuilds the waking scene
+  and returns to the authored 4B bedside with one residue.
+- Real-file save/load passes at armed, entered, active, return-pending and awake
+  boundaries.
+- Reported and discovered job origins converge on the same dream profile.
+- Capture, shaft and electrical outcomes all wake without a game-over state.
 
-### A call in progress protects them
+### Gate E — image, audio and performance
 
-*(Ruled 2026-08-10.)* Once a call has started, sleep holds off. The job is the
-one safe place, which is worth more than the cruelty of taking someone
-mid-sentence — and it obeys the rule that an attack may cost time, position and
-dignity but never work.
+- A/B renders prove no module pop is visible across its intended occlusion.
+- Phone-on, phone-off, hazard and capture frames remain readable at production
+  black levels without exposing a Tenant model.
+- Stereo and accessibility-caption cue tests pass.
+- The isolated dream scene meets 16.6 ms at its critical stations on the pinned
+  renderer, and an Android-class device is tested before calling the slice done.
 
-**It delays; it does not cancel.** Pressure accumulates through the call and
-fires when the handset goes down. So the shape of it is: the conversation lands,
-the player feels it land, they hang up — and then they go down, because feeling
-it is what drops them. The dread moves into the aftermath, which is a better
-place for it, and there is no exploit in staying on the line.
+### Gate F — fresh players
 
-**Accessibility valve: ship an option forcing every onset to be gradual.** It
-keeps the mechanic and removes the ambush, and it costs one boolean.
+At least four of five first-time players can say, without being told:
 
----
+1. the phone light helped them see and helped the thing find them;
+2. why their first hazard or capture happened;
+3. that the maze was the Orison arranged impossibly; and
+4. one Mina truth about labels, assumptions or blank silence.
 
-## THE LIGHT IS THE ENTIRE GAME
-
-There is no UI. There is a light source. Everything the player decides comes down
-to one binary, held continuously:
-
-| | You can see | It can find you |
-|---|---|---|
-| **Light on** | hazards, corners, the way through | **yes — the light attracts it** |
-| **Light off** | nothing; you navigate by sound | no |
-
-That is the whole verb set: run, turn, and decide about the light. It is enough,
-because the decision is live every second and both answers are bad.
-
-**This is why the hazards must teach through sound** — see below. With the light
-off, hearing is the only sense left, and the acoustic graph is already built.
+If they call it “the narcolepsy monster,” representation has failed even if the
+chase is frightening.
 
 ---
 
-## THE THING THAT FOLLOWS
+## DECISIONS THIS PROPOSAL ASKS THE OWNER TO RULE
 
-**It is the poltergeist — and it is the poltergeist of the case the player is
-currently working.**
+1. Approve the **release print**: the just-integrated case owns its campaign
+   dream, then remains quiet after wake.
+2. Approve **capture/fall/contact → wake** instead of calling the living player
+   dead or displaying a failure screen.
+3. Approve the deterministic ten-module ring instead of unconstrained fractal
+   room generation.
+4. Approve a 28-second Mina cap and the 28/38/50/62/76/90 campaign curve.
+5. Keep the player's own shadow for endgame design rather than putting it into
+   the six-case production scope now.
 
-`poltergeist_library.gd` already defines one per resident, each derived from that
-resident's case: its manifestation, its resolution flags, its portal rule.
-"Nothing is invented." So the thing in the dream is not a monster. It is **this
-week's resident's wound, given a shape and a direction.**
-
-That buys an enormous amount for nothing:
-
-- The dream changes character per case with **no new content** — the library
-  already describes how each one behaves.
-- It explains the loop's ending. You are pursued by the next case before you are
-  assigned it, and then the phone rings.
-- It keeps §I intact. The thing chasing you is a hallucination of a person's
-  documented problem, and it is the building carrying that person's wound
-  through its own wiring. Both true.
-
-### Which one — the pool
-
-*(Ruled 2026-08-10: **any poltergeist not resolved by talking out that
-character's trauma is fair game.**)*
-
-This is not a new rule. `poltergeist_library.gd` already says of the resident
-signatures: *"They cease only at resolution."* The dream applies the existing law
-to itself. `reality_cases.json` carries `resolution_flags` per case, so the pool
-is already computable — no new state.
-
-- **The pool is every unresolved case.** Six at the start (§IV.1); the
-  case-less twelve have no poltergeist in the dream, because they have no
-  case to leave unresolved.
-- **One is drawn from it and stays** until that case resolves. It has been
-  waiting; it does not rotate nightly.
-- **Closing a case removes it from the pool** — and that is the only way the
-  dream ever changes. You do not escape the thing chasing you. You *finish the
-  conversation it came from*, and something else takes its place.
-- **Repair alone never removes one.** §I is explicit that repair alone never
-  closes a case; honest conversation changes the rule. A player who fixes
-  everything and talks to nobody is chased by all six in turn, forever.
-
-**The player's own is permanently in the pool.** 4B has no case, so there is no
-conversation that resolves it, so it never leaves. §IV says the player's arc
-bends toward a release — which means that if every other case is closed, the last
-thing in the dream is theirs, and the release is the only door out. *That is an
-implication of the ruling rather than a decision; see the open questions.*
-
-Rules, settled:
-
-- **One at a time.** Never two.
-- **Unkillable.** No hazard will kill it; that door stays shut.
-- **It persists** until its case resolves.
-- **No hiding.** This is short — run or die.
-
----
-
-## THE MAZE
-
-**A fractalised apartment building: everything is correct close up, and nothing
-about the larger layout makes sense.**
-
-Local coherence, global incoherence. A door, a skirting board, a light switch and
-a floorboard are all exactly right at arm's length. The corridor they are in
-returns to itself. The stair goes up and arrives below. A hallway of nothing but
-bathrooms.
-
-**This is why it is generated rather than authored.** A fractal layout cannot be
-hand-built sensibly, and — unusually — it cannot look "wrong", because wrongness
-is the specification. The usual objection to procedural space, that it reads as
-generated, does not apply when generated is the intended reading.
-
-- **Room archetypes come from the Orison itself.** The real flats, corridors,
-  landings and service spaces, used as vocabulary. Reuse the assets *wrongly*:
-  the same wallpaper at twice the scale, thirty identical doors in a row, a
-  landing that appears four times. Cheaper than new art and considerably more
-  disturbing, because the player half-recognises all of it.
-- **One entrance.** Wherever the player fell asleep, the dream starts in the
-  same place, so that recognition compounds.
-- **The seed is fixed per save.** Generated once, at campaign start,
-  deterministically. Your building is nobody else's and it is the same building
-  every night — which is what makes hazards learnable at all.
-- **It should run the same audit `gen_layout.py` does** — overlap, footprint,
-  door width, door swing — and exit nonzero on a real defect.
-
-### A light that escapes you
-
-There is something ahead, and it is receding. It gives every run a direction
-without giving it a destination, and it is honest: the player is not being
-cheated of an exit, because the absence of an exit is the subject.
-
----
-
-## HAZARDS
-
-**Eight, fixed for the save.** Learnable because they never move.
-
-The rule that makes a hazard fair: **in the half second before it kills you, you
-must understand why.** If the player cannot reconstruct the cause, it is not a
-hazard, it is a dice roll, and they will stop learning and start hoping.
-
-Which collides with darkness — so:
-
-### Everything teaches through sound
-
-The torch cone is a few metres of information and the hazard is usually outside
-it. With the light off there is no cone at all. So every hazard announces itself
-on a channel darkness does not take away, and the acoustic graph already models
-propagation through heating, electrical, water, structural and flue.
-
-- The open shaft has a **draught**, and a big empty volume sounds nothing like a
-  corridor.
-- The floor that gives **creaks differently one step before** it goes.
-- The live thing **hums**, and the hum arrives through the wall before the room does.
-- The thing that sweeps a corridor is **audible from the far end**, on a rhythm.
-
-The player can also **make noise deliberately** to bait the poltergeist onto a
-different network. The system for this exists and is currently idle.
-
-### Four kinds
-
-| Kind | What is learned | Example |
-|---|---|---|
-| **Positional** | *where* | the open lift shaft, a missing floor, a live rail |
-| **Triggered** | *what not to touch* | a tread that gives, a door that locks behind |
-| **Rhythmic** | *when* | something that crosses a corridor on a cycle |
-| **Conditional** | *how* | only dangerous if entered at a run; only if the light is on |
-
-The **conditional** ones are the most valuable. A corridor that only kills you if
-you came into it at speed teaches the player they must sometimes stop *while
-being pursued* — the hardest thing to do, and the best thing to learn. It is also
-what stops the pursuit and the hazards from being two systems stacked on each
-other rather than one system arguing with itself.
-
-Introduce them gradually. At ten seconds a run the player meets one.
-
----
-
-## PROGRESS IS AUTHORED, NOT EARNED
-
-**Nothing persists.** No unlocks, no items, no shortcuts, no meta-progression, no
-save state beyond the seed. The player gets better; the character does not.
-
-So the leash is lengthened by the **campaign**, not by maze performance:
-
-| | Run length | What it is |
-|---|---|---|
-| Early | ~10 seconds | wake, panic, three corners, dead. Disorientation, not mastery |
-| Late | ~90 seconds | long enough to have learned the first rooms and to be losing the next |
-
-The player is allowed further as the story proceeds, and they never earn it. That
-is the correct feeling for purgatory and it should not be softened.
-
-### The world never acknowledges improvement, and that is the point
-
-*(Ruled 2026-08-10: the feeling of not making progress is the design.)*
-
-Nothing congratulates the player. No counter, no distance, no best-ever, no
-resident remarking that they look rested. The character is not getting anywhere,
-because there is nowhere, and the game must never imply otherwise.
-
-One distinction to hold on to while building it, because it is easy to lose:
-**the player's own mastery still has to be perceptible to the player.** They
-learn the first rooms, they recognise a corridor, they last ninety seconds where
-they used to last ten. That improvement is real and felt — and the world's
-refusal to acknowledge it is what makes this purgatory rather than noise. If
-neither the character nor the player can perceive anything changing, the loop
-stops being oppressive and becomes tedious.
-
-Nothing needs to be added to achieve it; the run-length curve and room
-recognition deliver it on their own. The instruction is only: **do not author
-against it.**
-
----
-
-## WHAT THE DREAM IS EXEMPT FROM
-
-**The Rule of Signal does not reach here.** §VIII binds the waking building:
-signal devices are forty years early, everything else is 1927 and second-hand.
-The dream is not the building and is not bound. That exemption is what buys the
-surreal, and it should be stated in the Bible if this is ruled canon, so nobody
-later reads the dream as a violation.
-
-The dream may reference the Orison; **the Orison never references the dream.**
-One-way. Cheap now, and it keeps the option open.
-
----
-
-## WHAT THIS IS NOT
-
-- **Not an extraction loop.** Nothing is carried out.
-- **Not combat.** Nothing can be killed, including the pursuer.
-- **Not stealth.** There is no hiding. Run or die.
-- **Not a mode.** The player never chooses to enter it.
-- **Not a puzzle.** There is no solution, because there is no exit.
-
----
-
-## PRODUCTION
-
-- **Separate scene, same project.** Reuses the prop system, the light rig, the
-  torch, the acoustic graph and the poltergeist library. No new subsystems.
-- **Shapeless costs nothing.** No character model, no rig, no animation, no
-  faces. Silhouette, darkness, mass and sound.
-- **Asset reuse is the art direction, not a saving.** New art would be worse.
-- Ten-second runs mean the whole early game is affordable to iterate on.
-
----
-
-## OPEN QUESTIONS
-
-1. **Is the endgame the player's own poltergeist?** The pool rule implies it: if
-   every resident's case closes, only 4B's is left, and 4B has no conversation
-   that resolves it. §IV.1 makes this reachable rather than theoretical — six
-   cases is a campaign that can actually be finished. Owner's call.
-2. **Is the draw from the pool authored or systemic?** Only one case is enabled
-   today (`mina_caption_crisis`) and §I holds the other four behind Peter Wren,
-   so early on the choice is academic. With a cast of six it may stay academic —
-   authoring the order outright is now affordable.
-3. **Does a resident's dream poltergeist behave like their waking one**, or is
-   the dream where it stops being deniable? The library's signatures are
-   "domestic and deniable" on purpose; the dream is the one place that constraint
-   does not apply.
+None of these questions blocks paper layout, module measurement or a disposable
+light/pursuit control corridor. They do block canon wording and final content.
