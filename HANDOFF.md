@@ -143,8 +143,10 @@ Conventions that bite if forgotten:
   and the laundry control split (lid, safety release, wringer, fill, drain,
   airer cleat and rinse stand). It also proves the five task lamps' local keys
   survive central light-budget passes and the five domestic picture receivers
-  tune without erasing a case signal. Unresolved state tokens never print, and
-  the case-owner template cannot leak generic copy. Exit code 0 = pass.
+  tune without erasing a case signal. It also operates an overlaid cistern
+  handle and proves an impatient second press cannot restart its refill.
+  Unresolved state tokens never print, and the case-owner template cannot leak
+  generic copy. Exit code 0 = pass.
 - `game/tests/LightingAudit.tscn` — every space is reachable by light:
   127 spaces, 11 intentionally ambient/dark. Exit code 0 = pass.
 - `game/tests/Perf.tscn` — six worst-case camera stations, reporting

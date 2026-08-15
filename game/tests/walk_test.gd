@@ -712,6 +712,18 @@ func _plumbing_checks() -> void:
 	_check(counts.kitchen_sink == 19,
 			"19 complete kitchen sinks, including 4B and common kitchen")
 	_check(counts.shower == 23, "23 complete shower receptors")
+	var cistern_owners := get_tree().get_nodes_in_group(
+			"baked_furniture_interactions").filter(func(owner):
+		return owner is BakedFurnitureInteraction \
+				and owner.furniture_kind == "toilet")
+	_check(cistern_owners.size() == 24,
+			"all 24 baked water closets regain one cistern-handle owner")
+	if cistern_owners.size() == 24:
+		var sample_cistern := cistern_owners[0] as BakedFurnitureInteraction
+		var cistern_card: Dictionary = sample_cistern.interact(root.player)
+		_check(sample_cistern._refilling and sample_cistern._water.playing
+				and cistern_card.get("card_id", "") == "toilet",
+				"a production cistern handle flushes, sounds and reports refill")
 	_check(incomplete.is_empty(),
 			"every water fixture owns two valves and a stream (%s)" % [incomplete])
 	_check(misoriented_lavatories.is_empty(),

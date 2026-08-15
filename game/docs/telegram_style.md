@@ -137,5 +137,8 @@ lamps now own a local Bakelite key: it clicks, turns, interrupts only that lamp,
 and remains authoritative when the central LightRig reapplies its budget. The
 five line-fed domestic picture receivers now expose their tuning knob rather
 than a false universal power switch: the knob and picture answer locally while
-the case-bearing electrical signal remains live. I4 remains open for the rest
+the case-bearing electrical signal remains live. The furniture interaction pass
+also restores one lever, ray owner and water cycle to each of the 24 close-
+coupled closets baked into the floor geometry; a second press during refill
+gives at the handle but cannot restart the cycle. I4 remains open for the rest
 of the non-ambient matrix.

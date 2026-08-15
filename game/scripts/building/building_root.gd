@@ -84,6 +84,8 @@ const HEAT_BALANCE_SCRIPT := preload("res://scripts/props/heat_balance.gd")
 const BOILER_TEND_SCRIPT := preload("res://scripts/props/boiler_tend.gd")
 const PASSAGE_FINISH_SCRIPT := preload(
 		"res://scripts/building/passage_finish_pass.gd")
+const FURNITURE_INTERACTION_SCRIPT := preload(
+		"res://scripts/building/furniture_interaction_pass.gd")
 const NPC_RESIDENTS := [
 	{"unit": "1A", "name": "Evelyn Marsh", "sprite": "evelyn_marsh"},
 	{"unit": "1D", "name": "Teresa Vale", "sprite": "teresa_vale"},
@@ -222,6 +224,7 @@ var fourth_wall: FourthWallLayer
 var ambient_soundscape: AmbientSoundscape
 var music_director: OrisonMusicDirector
 var domestic_witnesses: DomesticWitnessSystem
+var furniture_interactions: FurnitureInteractionPass
 ## One finite steam cycle shared by all twenty-three radiators. Props expose
 ## fittings; this model owns the consequence of changing one of them.
 var heat_balance
@@ -345,6 +348,13 @@ func _ready() -> void:
 	# could unknowingly hang a frame through a clock face.
 	WallArtLaw.clear_reservations()
 	_spawn_props()
+	# Furniture bodies remain baked into the floor glTF. Restore only the
+	# individually generated mechanisms that need an E owner; the overlay pass
+	# reads the same records and never edits or duplicates the porcelain/body.
+	furniture_interactions = FURNITURE_INTERACTION_SCRIPT.new()
+	furniture_interactions.name = "FurnitureInteractions"
+	add_child(furniture_interactions)
+	furniture_interactions.build(layout, floor_nodes)
 	# One physical coal plant feeds both systems. The props remain individually
 	# interactable; this clock is only the shared consequence of tending them.
 	var plant := get_node_or_null("B1_BOILER_01") as BoilerProp

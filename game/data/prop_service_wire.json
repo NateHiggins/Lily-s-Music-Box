@@ -428,7 +428,7 @@
       "source_ids": ["R036"]
     },
     "toilet": {
-      "title": "HIGH CISTERN WATER CLOSET",
+      "title": "CISTERN WATER CLOSET",
       "body": "THE HANDLE RELEASES STORED CISTERN WATER THEN A FLOAT CLOSES THE INLET WHEN THE TANK REFILLS STOP",
       "conditions": {"default": "CISTERN {cistern_state} / FLUSH {flush_state}"},
       "source_ids": ["R017"]

@@ -966,6 +966,9 @@ it.
     turn back on or charge against the active-light budget while open.
     All five line-fed picture receivers now operate their tuning knob while
     preserving the case-bearing signal instead of offering a false power cut.
+    All 24 baked close-coupled closets regain one record-aligned cistern handle,
+    one water cycle and truthful FULL/REFILLING copy without duplicating the
+    porcelain floor geometry.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street

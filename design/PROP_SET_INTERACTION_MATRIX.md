@@ -184,7 +184,7 @@ is stated explicitly.
 | `switch` | 215 / all floors | 215 `SwitchPlate` owners | **OPERATE** | Fully mapped. |
 | `table_rect` | 10 / F01–F06 | Activity owners only where authored | **AMBIENT ARCHITECTURE** | Supporting surface; foreground contents own inspection. |
 | `table_round` | 13 / F01–F06 | Activity owners only where authored | **AMBIENT ARCHITECTURE** | Supporting surface. |
-| `toilet` | 24 / F01–F06 | — | **OPERATE** | Add cistern handle/flush response; no bodily-needs system implied. |
+| `toilet` | 24 / F01–F06 | `FurnitureInteractionPass`; record-aligned cistern handle, finite refill and impatient-handle response | **OPERATE** | Landed I4; close-coupled porcelain remains baked, no bodily-needs system implied. |
 | `toolboard` | 1 / F03 | — | **INSPECT** | Named tool arrangement; inventory does not transfer. |
 | `tripod` | 1 / F06 | — | **RESIST-REFUSE** | Set/locked/private rig. |
 | `tv` | 6 / F01–F06 | One `TVProp` + five `ProjectorProp` owners | **OPERATE** | Fully mapped despite mixed physical presentation. |

@@ -155,6 +155,23 @@ func _ready() -> void:
 			and str(receiver_card.get("condition", "")).contains("POWER LINE LIVE")
 			and str(receiver_card.get("condition", "")).contains("TUNING NARROW"))
 
+	var cistern := BakedFurnitureInteraction.new()
+	cistern.setup({"id": "TEST_wc", "asm": "toilet"})
+	add_child(cistern)
+	var flush_card: Dictionary = cistern.interact(hand)
+	var flush_cycle := cistern._flush_tween
+	var busy_flush_card: Dictionary = cistern.interact(hand)
+	_check("baked water closet regains one physical cistern owner",
+			cistern.interact_prompt().contains("refilling cistern handle")
+			and cistern._refilling and cistern._water.playing
+			and cistern._flush_tween == flush_cycle
+			and cistern._flush_tween.is_running()
+			and cistern._busy_tween.is_running()
+			and flush_card.get("card_id", "") == "toilet"
+			and busy_flush_card.get("card_id", "") == "toilet"
+			and str(flush_card.get("title", "")) == "CISTERN WATER CLOSET"
+			and str(flush_card.get("condition", "")).contains("REFILLING"))
+
 	await get_tree().create_timer(0.03).timeout
 	await get_tree().process_frame
 	await get_tree().process_frame
