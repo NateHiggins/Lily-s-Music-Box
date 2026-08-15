@@ -232,7 +232,14 @@ L toggles the lamp, R toggles the radio/aerial, and no phone screen or viewport
 is instantiated. The dependency census, interaction contract and proof frames
 are in `design/VANTRY_SERVICE_RADIOPHONE_BRIEF.md`, `game/docs/service_set.md`
 and `art/renders/service_set_q4/README.md`. N3 may consume the neutral light
-seam without entrenching the archived phone classes. Wake persists one
+seam without entrenching the archived phone classes. **N3 is now closed:** its
+disposable 42 × 3.2 × 3 m corridor measured 3.425 s lamp-on, 11.358 s lamp-off
+and 11.225 s extinguished capture medians across eleven paired seeds (69.8%
+shorter on; 7.800 s bought off); real collision blocks acquisition, and L / left
+shoulder / touch LAMP converge on the public owner. The control pack, raw data,
+dimensioned drawing and beauty proof are in
+`art/renders/dream_light_n3/README.md`. K7 is the next required item; no N4
+campaign boundary exists yet. Wake persists one
 `mina_factual_refrigerator_caption` fact. Its acoustic owner
 is generated marker `F02_2A_FRIDGE_01`; its visible label follows generated
 socket `2A_FRIDGE_FACE`. The before/after acceptance pair and rerun command are

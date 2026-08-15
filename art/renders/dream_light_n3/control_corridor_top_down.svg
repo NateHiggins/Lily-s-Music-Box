@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#b99c58"/>
+    </marker>
+    <style>
+      .bg{fill:#11141a}.wall{fill:#343842}.void{fill:#171a21}.line{stroke:#d2bc82;stroke-width:2;fill:none}
+      .dim{stroke:#b99c58;stroke-width:1.5;marker-start:url(#arrow);marker-end:url(#arrow)}
+      .label{font:16px monospace;fill:#e4d7b0}.small{font:13px monospace;fill:#aeb7c8}
+      .tenant{fill:#07080a;stroke:#c3a45c;stroke-width:2}.target{fill:#e29c54;stroke:#ffe0a3;stroke-width:2}
+      .blocked{stroke:#d8614f;stroke-width:3;stroke-dasharray:8 6}.clear{stroke:#67b984;stroke-width:3;stroke-dasharray:8 6}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="430"/>
+  <text class="label" x="40" y="36">N3 DISPOSABLE LIGHT / PURSUIT CONTROL — TOP DOWN — METRES</text>
+
+  <!-- 20 px per metre: 42 m long x 3.2 m clear -->
+  <rect class="wall" x="80" y="112" width="840" height="72"/>
+  <rect class="void" x="80" y="116" width="840" height="64"/>
+  <line class="dim" x1="80" y1="88" x2="920" y2="88"/>
+  <text class="label" x="455" y="78">42.00 m</text>
+  <line class="dim" x1="52" y1="116" x2="52" y2="180"/>
+  <text class="label" x="18" y="153" transform="rotate(-90 18,153)">3.20 m clear</text>
+  <text class="small" x="80" y="210">clear height 3.00 m // plates 0.20 m // closed end walls</text>
+
+  <circle class="tenant" cx="100" cy="148" r="9"/>
+  <text class="small" x="84" y="236">BODY z=1.00</text>
+  <circle class="target" cx="240" cy="148" r="9"/>
+  <text class="small" x="205" y="258">TARGET z=8.00</text>
+  <line class="line" x1="252" y1="148" x2="875" y2="148" marker-end="url(#arrow)"/>
+  <text class="small" x="470" y="140">4.60 m/s // stop z=40.00</text>
+  <line class="dim" x1="100" y1="285" x2="240" y2="285"/>
+  <text class="small" x="139" y="307">7.00 m start gap</text>
+
+  <text class="label" x="965" y="86">OPAQUE SENSOR CELL</text>
+  <rect class="wall" x="1040" y="120" width="7" height="60"/>
+  <circle class="tenant" cx="1006" cy="150" r="8"/>
+  <circle class="target" cx="1081" cy="150" r="8"/>
+  <line class="blocked" x1="1015" y1="150" x2="1072" y2="150"/>
+  <text class="small" x="964" y="205">z=0: BLOCKED</text>
+  <circle class="target" cx="1081" cy="242" r="8"/>
+  <line class="clear" x1="1015" y1="150" x2="1072" y2="237"/>
+  <text class="small" x="964" y="274">z=4.60: CLEAR</text>
+  <text class="small" x="964" y="300">wall 0.35 × 2.80 × 3.00</text>
+
+  <text class="small" x="40" y="380">TIMING CELL AND WALL CELL ARE PHYSICALLY SEPARATE // ONE SHADOWS-ONLY CAPSULE IS DIAGNOSTIC, NOT CANON</text>
+  <text class="small" x="40" y="405">capture radius 0.75 m // fixed step 120 Hz // eleven paired seeds</text>
+</svg>

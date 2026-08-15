@@ -1,4 +1,4 @@
-# Next session: prove the light binary
+# Next session: document the landed loop, then open the dream boundary
 
 *Rewritten 2026-08-15. Sequencing authority beneath
 `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`.*
@@ -34,34 +34,34 @@ classes remain archived source but are not instantiated. Proof and the complete
 dependency census live in `game/docs/service_set.md` and
 `art/renders/service_set_q4/README.md`.
 
-**Begin N3 with a disposable control corridor, not production maze art.**
-Drive that carried-light contract through one keyboard/controller/touch toggle;
-place one invisible navigation body behind real opaque collision; measure paired
-fixed-seed runs until light-on shortens capture by at least one third, light-off
-buys at least six seconds after acquisition, and no target acquisition crosses
-an opaque wall. The shadows-only proxy may be a diagnostic silhouette, but no
-canonical monster model, case content, onset or CampaignShell belongs in N3.
+**N3 is complete; Gate B is closed.** The disposable 42.00 × 3.20 × 3.00 m
+control corridor measured eleven paired fixed seeds: 3.425 s lamp-on, 11.358 s
+lamp-off and 11.225 s extinguished-after-acquisition medians. Light-on shortens
+survival 69.8%; turning it off buys 7.800 s; real opaque collision blocks
+acquisition; darkness always still captures. L, controller left shoulder and
+touch LAMP reach the same public owner. The capsule is diagnostic
+`SHADOWS_ONLY`, never a Tenant asset. Exact proof is in
+`art/renders/dream_light_n3/README.md`.
 
-K7 remains open and must document the landed K2–K6 loop contract before N4
-changes the campaign scene boundary. Peter, a second errand and six parallel
-dream implementations remain out of scope.
+**Execute K7 next.** Write `game/docs/core_loop.md` from the K2–K6 code that
+exists, including authoritative owners, signal graph, transition table,
+persistence boundaries and the complete Mina trace. Only after that document
+matches code may N4 change the campaign scene boundary. Peter, a second errand
+and six parallel dream implementations remain out of scope.
 
 ## Execution order
 
-1. **N3 — prove the binary.** Build only the disposable light/pursuit corridor
-   and its fixed-seed measurement harness. Do not call the control silhouette a
-   Tenant asset or retain the corridor as production geometry.
-2. **K7 — document the landed spine.** Write `game/docs/core_loop.md` from the
+1. **K7 — document the landed spine.** Write `game/docs/core_loop.md` from the
    K2–K6 code that exists. This is required before a production scene boundary
    is added.
-3. **N4 — build the shared maze runtime.** Consume the N2 catalog and topology;
+2. **N4 — build the shared maze runtime.** Consume the N2 catalog and topology;
    do not copy the drawing's control-pack coordinates into the waking world.
-4. **N5 onward — integrate one vertical slice.** Mina first, then the remaining
+3. **N5 onward — integrate one vertical slice.** Mina first, then the remaining
    case grammars only after the shared substrate passes its gates.
 
 M0.5 and M1 are closed historical milestones. Their detailed proof remains in
 `design/FINAL_MAP_REDESIGN_BRIEF.md`, `TASKS.md` and `HANDOFF.md`; do not rerun,
-reinterpret or reopen them while executing N3.
+reinterpret or reopen them while executing K7.
 
 ## Non-negotiable constraints
 
@@ -80,8 +80,8 @@ reinterpret or reopen them while executing N3.
 
 ## The next deliverable to the owner
 
-Return the device migration control and N3 result with the exact corridor
-geometry, carried-light input path, acquisition rule, opaque-wall proof, fixed
-seeds, capture-time pairs and
-the measured light-on/light-off delta. Report failures honestly. Production maze
-art, case dressing and campaign integration wait for that evidence.
+Return `game/docs/core_loop.md` with the code-backed transition graph, exact
+signal owners, save/restore boundary table and one complete Mina shift trace.
+Resolve any doc/code disagreement from source and tests rather than copying old
+reports. Production maze art, case dressing and campaign integration remain
+outside K7.

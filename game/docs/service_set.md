@@ -12,6 +12,11 @@ and Bible §VIII.5.j.*
 | Work lamp | `L` | `lamp_toggle` / `LAMP` | moves the guarded two-state lever, changes the real SpotLight3D, beam plates and rear `LAMP` jewel together |
 | Radio power | `R` | `radio_toggle` / `RADIO` | pushes the aerial home or pulls it out and changes the rear `NET` jewel |
 
+Controller shoulders feed those same actions: left shoulder operates the lamp
+and right shoulder operates the radio/aerial. N3 proves keyboard, controller and
+touch converge on the one public lamp owner; there is no controller-specific
+dream behavior.
+
 The work lamp and radio are physical controls and remain available during a
 protected conversation. `E` is the only world-interaction verb. Locked modal
 interfaces continue to own their other input.

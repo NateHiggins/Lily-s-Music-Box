@@ -51,7 +51,7 @@ func _ready() -> void:
 	add_child(_panel)
 	get_viewport().size_changed.connect(_layout)
 	_layout()
-	# A phone has no keyboard; a desktop run keeps its mouse and only shows
+	# A touch device has no keyboard; a desktop run keeps its mouse and only shows
 	# this when asked for, so the HUD can be checked without a device.
 	set_enabled(OS.has_feature("mobile"))
 
@@ -80,7 +80,7 @@ func _layout() -> void:
 	# the modal toggles stacked above them.
 	# Only RUN latches. It is the one HELD action — the player polls
 	# is_action_pressed for it — and pinning a thumb down to jog is
-	# miserable. Crouch and the flashlight are toggles the player flips on
+	# miserable. Crouch and the carried lamp are toggles the player flips on
 	# the press edge, so a plain tap does exactly what tapping the key
 	# does; latching those would take two taps to mean one.
 	_buttons = [

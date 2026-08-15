@@ -735,11 +735,15 @@ seed-independent diversity measurement, 18 live provenance checks and 0
 unresolved. K7 remains open; dream design does
 not silently close the core-loop documentation.
 
-- **N3** After Q4's neutral light seam, build the disposable light/pursuit
-  control corridor. Drive the service-set lamp through one shared
-  keyboard/controller/touch toggle; prove light on shortens capture by at least
-  one third, light off buys six seconds, and
-  acquisition never crosses an opaque wall.
+- **N3 DONE 2026-08-15.** The disposable 42.00 × 3.20 × 3.00 m control corridor
+  closes Gate B without becoming production maze art. Eleven paired fixed seeds:
+  lamp-on median 3.425 s, lamp-off 11.358 s, extinguished after acquisition
+  11.225 s — **69.8% shorter** with light on and **7.800 s bought** by switching
+  off. Real opaque collision blocks acquisition; an open end permits it;
+  darkness never creates an indefinite safe state. Keyboard L, controller left
+  shoulder and touch LAMP share `PlayerController.toggle_lamp()`. The diagnostic
+  capsule casts shadows only and never renders in beauty. Proof, raw CSV and the
+  exact drawing: `art/renders/dream_light_n3/README.md`.
 - **N4** Add the minimal campaign scene boundary and persistence contract:
   waking and dream worlds never render/simulate together; real-file restore at
   armed, entered, active, return-pending and awake boundaries reconciles forward

@@ -13,6 +13,14 @@ const ACTIONS := {
 	"intro": KEY_F2,
 }
 
+## Shoulder switches remain reachable while both thumbs steer and look. They
+## feed the same named actions as keyboard and touch; PlayerController never
+## branches on input device.
+const JOYPAD_ACTIONS := {
+	"lamp_toggle": JOY_BUTTON_LEFT_SHOULDER,
+	"radio_toggle": JOY_BUTTON_RIGHT_SHOULDER,
+}
+
 const SETTINGS_PATH := "user://orison_settings.cfg"
 const GAME_SCENE := "res://scenes/building/orison_root.tscn"
 
@@ -36,9 +44,20 @@ func _ready() -> void:
 	for action in ACTIONS:
 		if not InputMap.has_action(action):
 			InputMap.add_action(action)
-			var ev := InputEventKey.new()
-			ev.physical_keycode = ACTIONS[action]
-			InputMap.action_add_event(action, ev)
+		var key_event := InputEventKey.new()
+		key_event.physical_keycode = ACTIONS[action]
+		_ensure_action_event(action, key_event)
+	for action in JOYPAD_ACTIONS:
+		if not InputMap.has_action(action):
+			InputMap.add_action(action)
+		var button_event := InputEventJoypadButton.new()
+		button_event.button_index = JOYPAD_ACTIONS[action]
+		_ensure_action_event(action, button_event)
+
+
+func _ensure_action_event(action: StringName, event: InputEvent) -> void:
+	if not InputMap.action_has_event(action, event):
+		InputMap.action_add_event(action, event)
 
 
 func begin_game(mode: LaunchMode, new_campaign := false) -> void:

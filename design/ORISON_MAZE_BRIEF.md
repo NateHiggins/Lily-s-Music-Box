@@ -219,10 +219,10 @@ the dream generator may reference its source records but may not write them.
 
 The player brings the same physical Vantry service radiophone and attached warm
 tungsten lamp into the dream. No new magic lantern appears and no tutorial panel
-explains it. The current controller still owns legacy phone-beam behavior and
-carried lag; the replacement must first put that state behind one device-neutral
-public light contract. The first prototype then drives that contract through one
-toggle path shared by keyboard, controller and touch before balancing pursuit.
+explains it. Q4 replaced the legacy phone dependency with the device-neutral
+service-set light contract while retaining honest carried lag. N3 now proves
+that contract through one toggle path shared by keyboard, controller and touch
+before any production pursuit is built.
 
 | State | What the player gains | What the Tenant gains |
 |---|---|---|
@@ -524,7 +524,18 @@ claim is implied; that begins at Gate B.
 - Repeating one seed produces byte-identical graph data.
 - A top-down drawing dimensions every module, connector and hazard socket.
 
-### Gate B — the light decision
+### Gate B — the light decision — COMPLETE 2026-08-15
+
+N3 closed this gate in a disposable 42.00 × 3.20 × 3.00 m control corridor,
+not production maze art. Across eleven paired fixed seeds, median capture is
+3.425 s with the lamp held on, 11.358 s held off, and 11.225 s when extinguished
+after acquisition: light-on shortens survival by 69.8%, and switching off buys
+7.800 s. A separate real `StaticBody3D` wall blocks acquisition while its open
+end permits it. Keyboard L, controller left shoulder and touch LAMP reach the
+same `PlayerController.toggle_lamp()` owner. The only diagnostic figure is a
+`SHADOWS_ONLY` capsule and never enters the beauty pass. Exact geometry, raw
+per-seed results, corrected black-level renders and the rejected first-run
+failure are recorded in `art/renders/dream_light_n3/README.md`.
 
 - In paired deterministic runs, light-on shortens capture by at least one third.
 - Light-off buys at least six seconds after acquisition without producing an
