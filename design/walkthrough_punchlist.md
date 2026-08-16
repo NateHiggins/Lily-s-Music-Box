@@ -4,6 +4,65 @@ Live log for the room-by-room pass. One line per finding:
 `room | symptom | severity` — severity is `blocker` (breaks play),
 `ugly` (wrong but survivable), or `wish` (make it better).
 
+## 2026-08-15 walk — method and caveats
+
+Two full WalkthroughShots passes (183 stills each): one in production
+lighting (mood truth) and one with `SCREENSHOT_TEST_CAMERA_LIGHT=1`
+(placement truth). **The camera-light pass is only partially effective
+now**: the merged per-floor meshes keep 16 lights by AABB overlap, so on
+busy floors the camera omni is dropped and F02_D/F05_D unit interiors
+render black in BOTH passes — those rooms need an in-engine look with
+their own switches on (RoomLumaAudit's method) before trusting them.
+Build was verified current against `building_layout.json` (fcaaf64 is
+marker-attribute-only). Stills in session scratchpad `walkthrough/` and
+`walkthrough_lit/`.
+
+**Resolved since 08-01, verified by render:** blinds/window offset
+(spot-checked clean everywhere reviewed); WSTOR white slab+cube — F05/F06
+now shelved and crated; F04_D giant white mass and F04_B white box —
+both units furnished (photo, radio desk, grandfather clock); F01_HALL
+white rectangle over the stair opening gone; "OUR QUEENS" poster sits on
+its pier; bathrooms rebuilt (pedestal sinks, tile, mirrors, sconces);
+F05_A_MAIN reads as a lived room (kitchen, Marian print, desk lamp);
+B1_LAUNDRY wringer bank + airer read correctly; F03_A_BATH restructured
+(no toilet-in-shower at the reviewed angle).
+
+**Shot-rig gaps found this walk (fix in walkthrough_shots.gd, not the map):**
+broadcast/radio caption overlay ("THE BUILDING SELECTED — …") burns into
+frames — a caption owner added since 08-01 that the rig's CanvasLayer
+hide + fourth_wall/sanity silencing doesn't cover; resident nameplates
+render in shots; the F04_ATRIUM camera stands inside the shaft wall
+(black wedge fills a third of the frame). The F04/F06 atrium
+"translucent smears" are NOT defects — authored shadow-figures plus real
+baluster shadows, confirmed in the lit pass.
+
+### Persisting from 08-01
+
+| room | symptom | severity |
+|---|---|---|
+| ROOF | black monolith sign structure + angled arm still render 100% black against a lit skyline — unchanged from the 08-01 "billboard/HVAC black faces" item | ugly |
+| B1_ATRIUM | light-well chase tube still crosses the stair balustrade diagonally and passes the reading nook | ugly |
+| F01_A_BED, F06_D_BED | window frames still glazed with brick (pane shows wall) | ugly |
+| F06_D unit | still the unfinished set: pale untextured furniture masses, slab bed with no bedding, brick window | ugly |
+| F01_LOBBY | second mail rack (wooden, rear wall under the clock) alongside the functional brass bank — looks like the "old generated mailbank" 08-02 item, confirm in-engine which is which | ugly |
+| B1_COAL | improved (whitewash, hopper mass has form) but the bin is an untextured gray primitive and there is still no coal or grime | wish |
+| B1_STORAGE_CAGES | near-void in production light with its switch state as-is — this is the open L9 owner call, logged here only as walk confirmation | — |
+
+### New findings 2026-08-15
+
+| room | symptom | severity |
+|---|---|---|
+| several floors | recurring small unlit black blob prop on floors/rugs (F01_HALL tile, F03_D_MAIN threshold rug, F04_B_MAIN rug) — unidentifiable in every sighting; if it is a hat/cat/bag it needs a material, if not it needs deleting | ugly |
+| corridors/units | residents read as pure-black cutouts in otherwise lit spaces (F02_CORRIDOR stair figure, F04_D_MAIN guest) while the same cast lights correctly elsewhere (F05_A Nadia) — likely the character mesh losing the room's light budget; consider a small character fill/rim or budget priority | ugly |
+| baths | medicine-cabinet mirror faces render as pure black voids (F03_A_BATH, F04_A_BATH) — compatibility renderer has no reflections, but a dark-gray brushed material would read as tarnished glass instead of a hole | wish |
+| F02/F06_ATRIUM | empty black picture frame sits at skirting level on the atrium wall (frame with no art, floor height) — either art that lost its mount or a frame that lost its art | ugly |
+| F03_A_BATH | small black chip/box floats at the ceiling corner over the doorway | wish |
+| F01_OFFICE | photographic print floats at an angle under the desk shelf edge, attached to nothing | wish |
+| F04_D_MAIN | tan cabinet panel above the TV juts diagonally off the wall face | wish |
+| F04_B_MAIN | dark blue slab leans against the right wall by the shelf — untextured, reads as a prop that lost its material | wish |
+| F02_D unit | still unjudgeable: black in both passes (see caveat) — the 08-01 "entirely unfurnished, confirm vacancy is intentional" question is STILL open | wish |
+| F05_D_MAIN, F06_C_MAIN | unjudgeable this walk (light-budget caveat) — carry to an in-engine pass | — |
+
 ## 2026-08-01 walk — method and caveats
 
 Walked by rendered evidence: `res://tests/WalkthroughShots.tscn` (new,
