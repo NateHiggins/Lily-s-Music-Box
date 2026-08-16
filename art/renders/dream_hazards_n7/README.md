@@ -26,7 +26,7 @@ in the same frame commit once.
 | fall | real gravity through real missing floor | DreamHazardTest block E |
 
 `DreamHazardTest` passes 30/30 across five blocks. `DreamPerceptionTest`
-passes 15/15. `DreamPursuitTest` 39/39 and `DreamBoundaryTest` 36/36 are
+passes 19/19. `DreamPursuitTest` 39/39 and `DreamBoundaryTest` 36/36 are
 unchanged by this work.
 
 ## The fairness sweep
@@ -98,10 +98,15 @@ a script at all.
   `DreamHazardField.unfair_impacts()` reduces the whole question to one list
   that must stay empty.
 - ~~Directional-caption mode conveys the same information without revealing
-  hidden geometry.~~ **Closed at the data layer.** Perception rows carry an
-  eight-sector bearing and a cue, never a distance, a module id or a position,
-  and the direction is restated whenever the sector it names stops being true.
-  The on-screen presentation and its settings key are still to build.
+  hidden geometry.~~ **Closed.** Perception rows carry an eight-sector bearing
+  and a cue, never a distance, a module id or a position, and the direction is
+  restated whenever the sector it names stops being true. `DreamCaptionLayer`
+  renders each tell as exactly the cue and the sector, capped at three
+  readable lines, under the `dream_directional_captions` setting — off by
+  default, because the mix already carries this and the dream's grammar is
+  listening. `DreamPerceptionTest` block I proves the setting defaults off,
+  the layer is wired to the field's signal, and no rendered line contains a
+  digit, a module id or a distance.
 - **In blinded tests, each of Mina's three hazards is identified by bearing
   and type before contact in at least 80% of trials. — NOT CLOSED, and not
   closeable here.** This is a human playtest. `DreamPerceptionTest` proves the
@@ -111,6 +116,17 @@ a script at all.
   instead of their perception. The three cues are mutually distinguishable —
   `TRUNK HISS`, `CHAIN BELOW`, `DRY CREAK` — which is the identification
   channel, but whether players *do* identify them is theirs to answer.
+
+## A flake this work exposed
+
+`DreamPursuitTest`'s restore check allowed the Tenant 0.35 m of drift after a
+reload. But the restored world is live the moment it enters the tree, so the
+Tenant is already walking while the reload's frames pass — the window was a
+race against how long the reload took, and it lost once under the extra build
+work. The drift is now bounded by the pursuer's own clock: a reconstruction
+can only have moved as far as it has had time to walk, while a restored chase
+frame would be metres away with `elapsed_s` still at zero. That is the
+invariant the check was named for. Three consecutive clean runs.
 
 ## Still open in N7
 
@@ -122,7 +138,6 @@ a script at all.
   invalidates Gate A, so the engineering read is to amend the script. That is
   a fiction change and belongs to the owner.
 - The trunk's lit beam-splash confirmation.
-- Caption presentation and its settings key under `GameBoot.settings`.
 - The production dream `WorldEnvironment` and receding practical.
 - Frames. This README records numbers only; no beauty pass has been shot of
   the hazards, and Gate E's A/B work is untouched.

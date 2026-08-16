@@ -558,8 +558,8 @@ bug that reading it had not: the sector table named left as right, because
 table reads clockwise. Every directional caption was mirrored.
 
 N7 steps remaining: the hollow runner's effect, the trunk's lit beam-splash
-confirmation, on-screen caption presentation and its `GameBoot.settings` key,
-and the production dream WorldEnvironment with its receding practical.
+confirmation, and the production dream WorldEnvironment with its receding
+practical.
 
 The hollow runner is blocked on one owner decision, not on engineering. The
 catalog places its socket in `D01_F04_LONG_HALL`; §"MINA'S FIRST RUN" scripts
@@ -657,8 +657,11 @@ failure are recorded in `art/renders/dream_light_n3/README.md`.
 - **Closed at the data layer.** Directional-caption mode conveys the same
   information without revealing hidden geometry: rows carry an eight-sector
   bearing and a cue, never a distance, module id or position, and the
-  direction is restated whenever the sector it names stops being true. The
-  on-screen presentation and its settings key are still to build.
+  direction is restated whenever the sector it names stops being true.
+  `DreamCaptionLayer` renders each tell as the cue and the sector and nothing
+  else, capped at three readable lines, under the
+  `dream_directional_captions` setting — off by default, because the mix
+  already carries this and the dream's grammar is listening.
 
 Sixty approaches at the 4.6 m/s run speed, twenty bearings per hazard, walked
 from the previous room in through the chain door: all warned, all fair, all
