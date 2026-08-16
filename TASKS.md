@@ -1483,6 +1483,23 @@ it.
   two gameplay suites, and the first suspect (`1f8faa0`, chosen by recency and
   subject-matter plausibility) was innocent. Bisect; do not profile the
   commit list for likely-looking culprits.
+- **H21 FLAKY TEST FIXED 2026-08-16 — and the diagnosis is the lesson.**
+  `ServiceWireResponseTest`'s "case latch and cart chain visibly moved"
+  went red at random on an unchanged build (measured over three runs:
+  0.0029 pass, 0.0000 fail, 0.0034 pass). Cause: the knob **rattles and
+  comes home** — `case_door_prop` tweens it 0 → −0.24 in 0.07 s and back
+  to 0.0 in 0.11 s — so its *resting value is exactly the value that
+  fails*, and any single sample races a 0.18 s round trip. Polling until
+  it crossed the threshold did not fix it either, which is what proved
+  the tween sometimes never runs rather than merely running late. Now
+  sampled every frame across the rattle window with the assertion on the
+  **peak**, which is also the contract the check is named for: "visibly
+  moved" is a claim about whether motion happened, not about where a knob
+  is sitting when someone looks. Five consecutive passes, peak stable at
+  0.017–0.020 against a 0.001 threshold (was 3× margin, now 18×).
+  **A flaky test is worse than a failing one**, because it teaches the
+  next person to shrug at red — and this one nearly got blamed on an
+  unrelated edit that happened to be in the tree when it fired.
 - **H2** **`C:\FPSengine01` is not a git repository.** The entire compiler side —
   the world compiler, the providers, the arcade catalog build, the texture
   validation — is unversioned files on disk. `git init` and a first commit.

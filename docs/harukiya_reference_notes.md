@@ -141,11 +141,14 @@ Nothing existing may be removed to make room for grandeur. If a proposed
 object would displace the barrels, the signboard or the lantern, the
 object loses.
 
-### A0.5 HELD PENDING A CONSUMER SWEEP
+### A0.5 APPLIED 2026-08-16, AFTER THE CONSUMER SWEEP CLEARED THEM
 
-Two amendments are drafted but **not applied**, because a repo-wide sweep
-for dependants is still running and a canon edit that silently breaks a
-test is the failure mode this ledger exists to prevent:
+Both were drafted, held while a repo-wide sweep looked for dependants,
+and applied once it reported. The sweep's finding was that the six
+modern items have **zero hard consumers** — nothing in the generator,
+the baked layout, any test or any build validator builds a sprinkler, a
+smoke detector, a GFCI outlet, a POS, a security camera or the 35-year
+timeline — and that the dates **split** rather than sharing one answer:
 
 - **The NYC ADAPTATION timeline is stale.** Its sprinkler line, smoke
   detector, GFCI outlets, modern POS, security camera and "35 years of
@@ -154,11 +157,26 @@ test is the failure mode this ledger exists to prevent:
   receivers, jukebox — are expected to survive intact under the Bible's
   existing rule that signal-reproducing technology is native here rather
   than anachronistic; the building-code retrofits need re-dating.
-- **In-world dates that cannot exist**: the bar describes "this block in
-  1948" and "the bar under its first name, 1962", and three jukebox
-  tracks are dated 1999–2008. Either re-date them or file them under the
-  same undated-arrival phenomenon as the receivers. The sweep decides
-  which is consistent.
+- **The jukebox tracks (1999, 2007, 2008) STAY DATED**, filed under the
+  phenomenon rather than corrected. The precedent is already canon and
+  already load-bearing: WORS 1610 broadcasts out of the laundry room from
+  1962 to 1999 with the transmitter never found, and the Bible says of
+  the receivers that *"a machine built in 1919 receiving a programme from
+  1987 is not a contradiction in a building where the year does not
+  advance — it is Tuesday."* A jukebox is a signal machine; its records
+  arrive the same way the broadcasts do. `resident_schedules.json` also
+  already carries a live in-world anniversary for the 1977 blackout, so
+  the game is committed to this reading whether or not the bar is.
+- **The two photographs ARE re-dated**, because they are a different
+  claim. A signal arriving from a year that has not happened is the
+  phenomenon; a *framed photograph* of it is stale copy from the
+  pre-1928 pinning, and promoting an error to canon is not the same as
+  authoring one. "This block in 1948" becomes 1913 — the year after the
+  Orison went up, before the demolition — and "under its first name,
+  1962" becomes 1919. Both keep the copy's real job, which is the bar
+  showing the player its own history. *If the owner would rather they
+  were uncanny, it is a two-string revert and a much better idea than
+  leaving it ambiguous.*
 
 ---
 
@@ -203,11 +221,30 @@ test is the failure mode this ledger exists to prevent:
   wired mics + one cheap wireless, cheap stands, two modest PA
   speakers, compact mixer, battered song terminal, the obsolete
   printed binder, a grimy remote.
-- Code retrofits: EXIT sign, emergency light, extinguisher, sprinkler
-  line, smoke detector, GFCI outlets at wet service, modern POS,
-  security camera, capacity sign, handwash sign.
-- 35 years of American operation: NYC tap handles, quarters not yen in
-  the dead arcade token, English graffiti strata over older layers.
+- Code retrofits, **re-dated to 1928 (amendment A0.5, 2026-08-16)**:
+  EXIT sign, emergency light, a soda-acid extinguisher on its bracket,
+  the fire department's capacity notice, a knife switch and fuse board
+  at the service end, a floor drain, a handwash notice over the sink.
+  *Struck as written for a contemporary fiction the 1928 ruling
+  overwrote: sprinkler line, smoke detector, GFCI outlets, modern POS,
+  security camera. A cash register stays — a register is not a POS.*
+- **The signal machines are NOT anachronisms and none of them move.**
+  ORISON_BIBLE §VIII.2, the Rule of Signal, is the whole test: *"Does it
+  carry, capture, switch, store or reproduce a signal? If YES — it is
+  uncannily advanced. Forty years early... If NO — it is 1927, and
+  probably second-hand."* The karaoke rig, the song terminal, the two
+  receivers and the jukebox are all YES, so they are native to this
+  world rather than imported from ours. And the rule's second half is
+  the fit-out's own justification: everything that does *not* carry a
+  signal in this room is second-hand, which is exactly A0.3.
+- **The operating timeline, corrected.** "35 years of American
+  operation" was written for a contemporary setting. The bar has run
+  since the building's first life, survived the 1927 partial demolition
+  and reopened with the Orison in 1928 — sixteen years, not thirty-five,
+  which is still long enough for graffiti strata, layered bills and a
+  token slot with the wrong coins in it. NYC tap handles stay; quarters
+  and not yen in the dead slot stay, and read better against sixteen
+  years than thirty-five.
 - Restroom: one tiny customer WC (door, commercial lock, toilet, sink,
   exposed plumbing, mirror, exhaust, floor drain, mismatched repairs).
 

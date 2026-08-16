@@ -14,12 +14,23 @@ func build(root: Node3D) -> int:
 	# -- three of the gallery wall's frames, on the north run above the
 	# backbar. The rest of the wall is scatter; these are the ones worth
 	# stopping at.
+	#
+	# RE-DATED 2026-08-16 (ledger amendment A0.5). These read 1948 and
+	# 1962 -- stale copy from before the 1928 pinning, which had the bar
+	# telling the player its history in the wrong century. They are NOT
+	# the same case as the jukebox's 1999-2008 records: a signal arriving
+	# from a year that has not happened is the Rule of Signal doing its
+	# job (see WORS 1610, broadcasting 1962-1999 with the transmitter
+	# never found), but a framed PHOTOGRAPH of it is just an error, and
+	# promoting an error to canon is not the same as authoring one.
+	# 1913 is the year after the Orison went up; 1919 is the bar under
+	# its first name, before the 1927 demolition it survived.
 	var pictures := [
 		[-3.55, -1.10, "the framed block",
-			["A framed photograph: this block in 1948, the Orison already old in it. The bar is not in the picture. The stairs down to it are.",
+			["A framed photograph: this block in 1913, the Orison a year old in it. The bar is not in the picture. The stairs down to it are.",
 			"Someone has inked a small x on one window of the tower. Fourth floor."]],
 		[0.35, -1.25, "the opening-night photo",
-			["The bar under its first name, 1962 - work jackets around the pool table. The felt was green then.",
+			["The bar under its first name, 1919 - work jackets around the pool table. The felt was green then.",
 			"Nobody in the photograph is looking at the camera. Everyone is looking at the door."]],
 		[2.65, -0.70, "the signed portrait",
 			["A signed publicity photo of a singer nobody can place. The signature has outlived the name.",

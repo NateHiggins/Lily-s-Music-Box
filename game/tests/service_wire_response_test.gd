@@ -593,17 +593,37 @@ func _ready() -> void:
 					"REVIEW ONLY / NOT ADVANCED HERE")
 			and headquarters.resolved_trophy_count() == 0)
 
-	await get_tree().create_timer(0.03).timeout
-	await get_tree().process_frame
-	await get_tree().process_frame
-	print("    motion latch=%.4f chain=%.4f lock=%.4f lid=%.4f airer=%.4f wardrobe=%.4f" % [
-			case_door._knob.rotation.z, cart._night_chain.rotation.z,
-			cart._night_lock.rotation.z, washer._lid.rotation.x,
+	# MEASURE THE PEAK, NOT AN INSTANT. This asserted the latch had
+	# turned by sampling `_knob.rotation.z` once after a fixed 0.03 s,
+	# and went red at random on an unchanged build (measured: 0.0029
+	# pass, 0.0000 fail, 0.0034 pass over three runs).
+	#
+	# The cause is that the knob RATTLES AND COMES HOME -- case_door_prop
+	# tweens it 0 -> -0.24 in 0.07 s and back to 0.0 in 0.11 s -- so its
+	# resting value is exactly the value that fails, and any single
+	# sample is a race against a 0.18 s round trip. Polling until it
+	# exceeded the threshold did not help either, which is what proved
+	# the tween sometimes never runs at all rather than merely running
+	# late.
+	#
+	# So sample every frame across the whole rattle window and assert on
+	# the PEAK. That is also the contract the check is named for: "visibly
+	# moved" is a claim about whether motion happened, not about where a
+	# knob happens to be sitting when someone looks.
+	var peak_latch := 0.0
+	var peak_chain := 0.0
+	var peak_lock := 0.0
+	for _spin in range(24):
+		peak_latch = maxf(peak_latch, absf(case_door._knob.rotation.z))
+		peak_chain = maxf(peak_chain, absf(cart._night_chain.rotation.z))
+		peak_lock = maxf(peak_lock, absf(cart._night_lock.rotation.z))
+		await get_tree().process_frame
+	print("    motion peak_latch=%.4f peak_chain=%.4f peak_lock=%.4f lid=%.4f airer=%.4f wardrobe=%.4f" % [
+			peak_latch, peak_chain, peak_lock, washer._lid.rotation.x,
 			airer._rack.position.y, wardrobe._wardrobe_left_leaf.rotation.y])
 	_check("case latch and cart chain visibly moved",
-			absf(case_door._knob.rotation.z) > 0.001
-			and (absf(cart._night_chain.rotation.z) > 0.001
-					or absf(cart._night_lock.rotation.z) > 0.001)
+			peak_latch > 0.001
+			and (peak_chain > 0.001 or peak_lock > 0.001)
 			and absf(washer._lid.rotation.x) > 0.001
 			and airer._rack.position.y < 1.98
 			and absf(wardrobe._wardrobe_left_leaf.rotation.y) > 0.001)
