@@ -249,12 +249,26 @@ aggregate, instantly rewarding in the hand.**
   the existing schedule clock rather than adding a second one. Persist
   state per anchor id as a small integer and reconstruct visuals from a
   seed — never serialise a stain's transform.
-- **E6 CHORES ARE WEATHER; AUTHORED JOBS ARE SPINE.** Enforce in code, not
-  intent: an ambient chore never advances a case, issues a work order,
-  satisfies a job stage or appears as case work on the ORDER device. If a
-  chore ever becomes required to progress, promote it to an authored job
-  with a data record. A player must be able to ignore the whole system and
-  lose nothing but the building's dignity.
+- **E6 SUPERSEDED BY OWNER RULING 2026-08-16 — RESIDENTS FILE THE WORK
+  ORDERS.** The first draft said ambient chores may never issue a work
+  order. Too clean: in a real building people complain. Residents now
+  react to observed condition by **filing work orders filtered through
+  personality**, which gives the whole system a voice in the interface the
+  player already carries instead of inventing a new one. Two classes share
+  one `WorkOrders` lifecycle, separated by BINDING not mechanism: an
+  authored case job comes from `MaintenanceJobLibrary`, binds to a case and
+  may advance it; a resident-filed ambient order binds to a place and a
+  fault, closes, improves the building, and **never advances a case, never
+  satisfies an authored job stage, never gates progress**. Promote to an
+  authored job the moment one becomes required.
+  Personality is the cheapest characterisation available: the fastidious
+  one files about a landing scuff within a day and files again; the stoic
+  one waits until the radiator is stone cold in February and apologises;
+  the furious one files immediately about the wrong fault; the invisible
+  one never files at all, so the player only learns how bad it got by
+  going up there. The inbox becomes a portrait of the residents as much as
+  of the building — a first-ever order from someone who never complains
+  should be alarming.
 - **E7 MINIMUM PROVABLE SLICE, arcade-V1 discipline.** One corridor, one
   grime type, one mop, one bulb: seeded anchors in one MultiMesh with the
   station re-measured, a mop stroke that clears an instance **in the same
@@ -272,10 +286,47 @@ aggregate, instantly rewarding in the hand.**
   the system exists to create with a glance at a corner of the screen.
   Applies to HUD, the ORDER device and any menu. Residents noticing is
   allowed (E8b); arithmetic is not.
-- **E8b STILL OPEN** (brief §9): does dirt cluster where the fiction says
-  or spread evenly; do residents react to a maintained floor; how far does
-  "appliance repair" go before it sprawls; and does degradation advance
-  per shift rather than per hour.
+- **E9 OWNER RULING 2026-08-16 — PURGATORY, AND MURPHY'S LAW IS A
+  DIRECTOR.** *"This is purgatory. Apply Murphy's law and make it part of
+  the horror."* This promotes entropy from a chore layer to a **horror
+  system** and settles the Sisyphean question at the level of metaphysics
+  rather than tuning: the building never comes right because that is the
+  condition of the place, not because someone picked a decay rate.
+  Sisyphus is not badly balanced; he is in the correct location.
+  **The architecture the ruling implies — "when this happens is a gameplay
+  decision":** *the simulation loads the gun, a director fires it.* The
+  resident-traffic model decides what is ELIGIBLE to fail and how close it
+  is; it never decides when. A separate owner, of the same family as the
+  existing sleep-pressure and dream directors, picks the moment for
+  dramatic effect. Pure simulation is arbitrary, pure scripting is
+  predictable; this is neither, and it is tunable without touching wear.
+  **The discipline that stops it becoming punishment:** Murphy's Law must
+  be *dramatically* timed, never *punitively* timed. Test every instance
+  by whether it makes a better story or merely a longer walk. It must
+  never invalidate committed work, never undo a repair already made, and
+  never fire during a protected interaction — `call_locked` and the dream
+  boundary already define those windows and it respects them exactly as
+  sleep onset does.
+- **E10 OWNER RULING 2026-08-16 — APPLIANCES HAVE THREE STATES:** working
+  → **functional but failing** → dead. The middle state is the whole
+  point: it is the warning, the thing a maintenance worker is supposed to
+  catch, and the thing Murphy's Law is allowed to punish you for ignoring.
+  A radiator that knocks before it dies is a fair building; one that
+  simply dies is a cruel one — the maze brief's fairness bar ("the player
+  understands in the half-second before impact") applies here in slow
+  motion. It also makes neglect legible as sound and behaviour long before
+  it is legible as failure, which is free horror: the building complains
+  for weeks before it stops.
+- **E11 OWNER RULING 2026-08-16 — DIRT DOES BOTH.** A general grime accrues
+  everywhere as the honest baseline of a working building, **and** it
+  clusters where the fiction says: the bar after a night, the laundry, the
+  stair everyone actually uses. Two layers, not a choice. Ambient means no
+  surface is exempt and the mop always has somewhere to go; clustered is
+  where the drama and the evidence-reading live. Separate MultiMesh
+  instance sets with separate thresholds, so ambient stays coarse and
+  cheap while the hot spots carry detail.
+- **E8b STILL OPEN** (brief §9): does degradation advance per shift rather
+  than per hour — the last unruled question.
 
 ## S — Basement studio
 

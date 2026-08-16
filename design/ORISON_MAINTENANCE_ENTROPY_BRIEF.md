@@ -205,37 +205,152 @@ scene and unshippable in the building.
   performance-*positive*, which makes it the cheapest possible first
   slice.
 
-## 6. What this must not do to the core loop
+## 6. Residents file the work orders — and personality decides who
 
-The authored maintenance job (`MaintenanceJobLibrary`, WorkOrders, one
-job per case) is the **spine**. Ambient chores are the **weather**. The
-distinction has to be enforced in code, not just intended:
+**Owner ruling 2026-08-16, and it supersedes this section's first
+draft.** The original said ambient chores must never issue a work order.
+That was too clean. What actually happens in a building is that *people
+complain*, and the ruling is that **residents react to the building's
+condition by filing work orders, filtered through personality**.
 
-- Ambient chores **never** advance a case, never issue a work order,
-  never satisfy a job stage, and never appear on the ORDER device as
-  case work.
-- Authored jobs are always singular, named, and consequential; chores are
-  always plural, anonymous, and optional.
-- If a chore ever becomes required to progress, it has stopped being
-  weather and must be promoted to an authored job with a data record.
+This is a better design than either extreme, because it makes the
+degradation system speak in the game's existing voice — the ORDER device
+the player already carries — without collapsing chores into cases.
 
-The player should be able to ignore the entire system for a whole
-campaign and lose nothing but the building's dignity — which is itself
-the point, and should be *noticed* by residents rather than scored.
+### Two classes of work order, one lifecycle
 
-## 7. The Orison thread, held back
+`WorkOrders` already owns a full lifecycle (issued → acknowledged →
+diagnosed → awaiting part → repairable → repaired → closed). Ambient
+orders live in exactly that lifecycle and are real work. What separates
+them from the spine is **binding, not mechanism**:
 
-The horror is not the mechanic. Restraint, and only after the honest
-system is loved:
+| | authored case job | resident-filed ambient order |
+|---|---|---|
+| origin | `MaintenanceJobLibrary` data record | a resident reacting to observed condition |
+| bound to | a case, a resident, a dream window | a place and a fault |
+| on completion | may advance the case, earn a conversation | closes; the building improves; nothing else |
+| if ignored | the campaign waits | the building degrades and residents escalate |
+| count | one at a time, named | many, plural, ordinary |
+
+The hard line stays where it matters: **an ambient order never advances a
+case, never satisfies an authored job stage, and never gates progress.**
+If one ever becomes required, it gets promoted to an authored job with a
+data record. But it may absolutely appear on the ORDER device, be
+acknowledged, be closed, and be *how the player learns what the building
+needs*.
+
+### Personality is the filter, and it is free characterisation
+
+Eighteen residents already carry identities, routines and life profiles.
+Who files, how fast, about what, and in what words is the cheapest
+characterisation this project will ever get — it costs a few fields per
+resident and it makes the inbox itself a portrait:
+
+- **The fastidious one** files about a scuff on the landing within a day,
+  in complete sentences, and files again when it is not done.
+- **The stoic one** does not file at all until the radiator is stone cold
+  in February, and then apologises for the trouble.
+- **The furious one** files immediately, in capitals, about the wrong
+  fault.
+- **The frightened one** files about the noise but not about the door.
+- **The invisible one** never files, and the player only finds out how
+  bad it got by going up there — which is a whole story told by an
+  *absence* of work orders.
+
+Two consequences worth designing to. First, the **inbox becomes a
+diagnostic instrument for the residents, not just the building**: a
+sudden first-ever order from someone who never complains is alarming.
+Second, the same fault reported by different people is a different
+sentence, so the player learns the house by reading its mail.
+
+The player can still ignore the entire system for a campaign and lose
+nothing but the building's dignity — and now also the residents' patience,
+which is the correct currency for it.
+
+## 7. Purgatory, and Murphy's Law as a director
+
+**Owner ruling 2026-08-16:** *"This is purgatory. Apply Murphy's law and
+make it part of the horror."*
+
+This promotes the entropy system from a chore layer to **a horror
+system**, and it resolves §2's Sisyphean question at the level of
+metaphysics rather than tuning. The building never comes right because
+*that is the condition of the place*, not because a designer picked a
+decay rate. Sisyphus is not badly balanced. He is in the correct
+location.
+
+### The simulation loads the gun; the director fires it
+
+The other half of the ruling — *"when this happens is a gameplay
+decision"* — is the safeguard, and it gives the architecture its shape:
+
+> **Wear accumulates by simulation. Failure is timed by a director.**
+
+The resident-traffic model (§3) decides *what is eligible* to fail and
+how close it is. It never decides *when*. A separate owner — the same
+kind of thing as the existing sleep-pressure and dream directors —
+chooses the moment to cash an eligible fault in, and chooses it for
+dramatic effect.
+
+That single split buys everything:
+
+- Pure simulation is frustrating and arbitrary; pure scripting is
+  predictable. This is neither.
+- Failures land where they mean something, and the player can *feel* the
+  timing, which is the horror.
+- It is tunable without touching the wear model.
+
+### Murphy's Law, written as a design rule
+
+Anything that can go wrong will — **at the moment it costs most**:
+
+- The stairwell bulb dies as you start down, not while you are standing
+  under it with a spare in your hand.
+- The boiler fails on the coldest authored night, and the residents who
+  file about it are the ones you have not met.
+- The lift goes out while you are carrying the crate up (PS5 already
+  makes carrying the hard leg of an errand).
+- The WC clogs during the resident's worst hour, so the fault and the
+  crisis arrive as one knock.
+- The part you need is the one HARDWARE PAINT is out of, and the shop
+  closes at 02:00 — which the hours system already enforces.
+
+**The discipline that keeps this from becoming punishment:** Murphy's Law
+must be *dramatically* timed, never *punitively* timed. The test for any
+instance is whether it makes a better story or merely a longer walk. It
+must never invalidate committed work, never undo a repair the player has
+already made, and never fire during a protected interaction — the
+`call_locked` flag and the dream boundary already define those windows
+and it must respect them exactly as sleep onset does.
+
+### Three appliance states, not two
+
+**Owner ruling:** appliances are **working → functional but failing →
+dead**. The middle state is the whole point: it is the warning, the thing
+a maintenance worker is supposed to catch, and the thing Murphy's Law
+gets to punish you for ignoring. A radiator that knocks before it dies is
+a fair building. One that simply dies is a cruel one — and the fairness
+bar the maze brief already sets ("the player understands in the
+half-second before impact") applies here in slow motion.
+
+It also means neglect is legible as *sound and behaviour* before it is
+legible as failure, which is free horror: the building complains for
+weeks before it stops.
+
+### The uncanny layer, still held back
+
+Restraint, and only after the honest system is loved:
 
 - A stain that returns in the same shape after being cleaned three times.
 - One bulb on a landing that burns out only when nobody is on the stair.
 - A room that is already clean when the player arrives to clean it.
 - The mop bucket's water darker than the floor accounted for.
+- A work order filed by a resident for a fault that has not happened yet.
 
-None of these ship in the first slice. All of them are free once the
-substrate exists, which is the argument for building the substrate
-honestly first.
+None of these ship in the first slice. All of them are nearly free once
+the substrate exists, which is the argument for building the substrate
+honestly first — and note that the last one only became possible because
+residents file orders (§6). The systems compound.
 
 ## 8. Minimum provable slice
 
@@ -258,13 +373,20 @@ If that slice is not satisfying, no amount of breadth will save it.
 
 ## 9. Open rulings for the owner
 
-1. **Does dirt have opinions?** Should degradation cluster where the
-   fiction says it should (the bar after a night, the laundry, the stair
-   everyone uses) or spread evenly? Clustering is better drama and more
-   work.
-2. **Do residents react?** A visibly maintained floor changing what
-   people say is the cheapest possible reward and the strongest — but it
-   touches the case/dialogue systems, which are spine.
+1. **Does dirt have opinions?** **RULED 2026-08-16: BOTH LAYERS.**
+   A general grime accrues everywhere — the honest baseline of a working
+   building — *and* it clusters where the fiction says it should: the bar
+   after a night, the laundry, the stair everyone actually uses. Two
+   layers, not a choice between them. The ambient layer means no surface
+   is ever exempt and the mop always has somewhere to go; the clustered
+   layer is where the drama and the evidence-reading live (§3). In
+   MultiMesh terms these are separate instance sets with separate
+   thresholds, so the ambient one can be coarse and cheap while the hot
+   spots carry the detail.
+2. **Do residents react?** **RULED 2026-08-16: YES, BY FILING WORK
+   ORDERS, FILTERED THROUGH PERSONALITY.** See §6, which was rewritten
+   around this — it is the ruling that gives the whole system a voice in
+   the game's existing interface instead of a new one.
 3. **Is there a score?** **RULED 2026-08-16: NO.** No percentage, no
    meter, no completion figure, anywhere — HUD, ORDER device or menu. The
    building's condition is legible only by *looking at it*. A number
@@ -273,8 +395,10 @@ If that slice is not satisfying, no amount of breadth will save it.
    and it would replace the evidence-reading this whole system is built
    to create with a glance at the corner of the screen. Residents
    noticing remains open (ruling 2); arithmetic does not.
-4. **How far does "appliance repair" go?** There is a real risk of
-   sprawl. Recommend a fixed verb set (§3) that all appliances map into,
-   rather than bespoke minigames per device.
+4. **How far does "appliance repair" go?** **RULED 2026-08-16: THREE
+   STATES — working, functional but failing, dead** (§7). Every appliance
+   maps into the fixed verb set of §4; no bespoke minigame per device.
+   The middle state is the design's warning shot and the thing Murphy's
+   Law is allowed to punish you for ignoring.
 5. **Night shift only, or always?** Degradation advancing per *shift*
    rather than per *hour* fits the loop already ruled.
