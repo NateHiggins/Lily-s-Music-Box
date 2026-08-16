@@ -33,6 +33,9 @@ var plan: Dictionary = {}
 var player: PlayerController
 var pursuer: DreamPursuer
 var hazards: DreamHazardField
+## Kept so a harness can re-arm the field for a fresh trial without
+## reloading the profile or rebuilding the world.
+var profile_hazards: Dictionary = {}
 var maze_built := false
 
 
@@ -94,7 +97,8 @@ func _build_world() -> void:
 	# builder places every socket in the chain; the profile's allowlist
 	# is what arms three of them for Mina.
 	hazards = DreamHazardField.new()
-	hazards.setup(plan, profile.get("hazards", {}), player)
+	profile_hazards = profile.get("hazards", {})
+	hazards.setup(plan, profile_hazards, player)
 
 
 func _physics_process(delta: float) -> void:

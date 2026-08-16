@@ -27,6 +27,9 @@ var elapsed_s := 0.0
 var perception_log: Array[Dictionary] = []
 ## Every contact, with its realised warning. One row per impact.
 var impact_log: Array[Dictionary] = []
+## Last sector stated per hazard, so a caption is repeated only when the
+## direction it names has actually changed.
+var _last_sector: Dictionary = {}
 
 
 ## `profile_hazards` is the case's own block: an `allow` list and a
@@ -40,6 +43,7 @@ func setup(plan: Dictionary, profile_hazards: Dictionary,
 	hazards.clear()
 	perception_log.clear()
 	impact_log.clear()
+	_last_sector.clear()
 	elapsed_s = 0.0
 	var allow: Array = profile_hazards.get("allow", [])
 	var tuning: Dictionary = profile_hazards.get("tuning", {})
@@ -69,18 +73,26 @@ func advance_fixed(delta: float) -> String:
 		var was_silent: bool = hazard.tell_started_s < 0.0
 		var result := hazard.evaluate(player.global_position, lamp_on,
 				speed, elapsed_s)
-		if was_silent and hazard.tell_started_s >= 0.0:
+		if hazard.tell_started_s >= 0.0 and not hazard.contacted:
 			var bearing := _bearing_to(hazard.position)
-			perception_log.append({
-				"at_s": hazard.tell_started_s,
-				"hazard_id": hazard.id,
-				"kind": hazard.kind,
-				"bearing_deg": bearing,
-				"sector": bearing_sector(bearing),
-				"caption": hazard.caption,
-				"lamp_on": lamp_on,
-			})
-			tell_started.emit(hazard.id, bearing, hazard.caption)
+			var sector := bearing_sector(bearing)
+			# A direction stated once goes stale the moment the player turns
+			# or walks past it. Re-state whenever the sector actually
+			# changes -- and only then, so the caption channel stays quiet
+			# enough to read.
+			if was_silent or sector != str(_last_sector.get(hazard.id, "")):
+				_last_sector[hazard.id] = sector
+				perception_log.append({
+					"at_s": elapsed_s,
+					"hazard_id": hazard.id,
+					"kind": hazard.kind,
+					"bearing_deg": bearing,
+					"sector": sector,
+					"caption": hazard.caption,
+					"lamp_on": lamp_on,
+					"first": was_silent,
+				})
+				tell_started.emit(hazard.id, bearing, hazard.caption)
 		if hazard.contacted and hazard.contact_s == elapsed_s:
 			impact_log.append(hazard.impact_record(lamp_on))
 			hazard_contact.emit(hazard.id, result)
@@ -102,7 +114,12 @@ func _bearing_to(point: Vector3) -> float:
 		return 0.0
 	var forward := -player.global_transform.basis.z
 	forward = Vector3(forward.x, 0.0, forward.z).normalized()
-	var angle := rad_to_deg(forward.signed_angle_to(to.normalized(),
+	# NEGATED DELIBERATELY. Vector3.signed_angle_to about +Y is positive
+	# counter-clockwise seen from above, which is a turn to the player's
+	# LEFT. The sector table below reads clockwise from AHEAD, so without
+	# this flip a danger on the left is captioned RIGHT -- worse than no
+	# caption at all, and the reason this is measured rather than assumed.
+	var angle := -rad_to_deg(forward.signed_angle_to(to.normalized(),
 			Vector3.UP))
 	return fmod(angle + 360.0, 360.0)
 
