@@ -836,7 +836,14 @@ are two answers to the same problem and only this one is built.
   `art/renders/vantry_arcade_v3b/README.md`. **Open, not ours:** the kiosk
   footprint overlaps the in-flight W1 flank wall band in plan — predates this
   and belongs to the W1/K0 reconciliation.
-  **PS12a HELD CODE — THE WHOLE RECONSTRUCTION IS UNCOMMITTED.** V1+V2+V3+V3b
+  **PS12a HOLD RELEASED 2026-08-16 (`f7963af`).** The generator, the
+  regenerated JSONs and all eight rebuilt GLBs are committed; a clean
+  checkout now builds the reconstructed arcade and the rebuilt Harukiya.
+  About 39 of the 1163 added lines are the parallel session's W1 street
+  wall, disclosed in the commit message rather than swept in silently —
+  every test ran against that combined tree and passed. If that session
+  reshapes W1 it merges normally on top. Historical note follows.
+  **PS12a (was) HELD CODE — THE WHOLE RECONSTRUCTION WAS UNCOMMITTED.** V1+V2+V3+V3b
   live only in the working tree's `art/data/gen_layout.py` and
   `shop_interiors.py`, because those files also carry the parallel street-wall
   session's in-flight W1 upper storey and publishing another lane's WIP is
