@@ -310,7 +310,12 @@ system balances itself against the story with no tuning at all.
 **Where this touches other work.** `LightRig` carried a per-storey light budget
 for the compatibility renderer; burnt-out fixtures reduce the live count rather
 than raising it, so this is performance-positive — but the rig should be checked
-rather than assumed. `door_glow` and `window_glow` model who is awake, and as the
+rather than assumed. *(Checked 2026-08-16: the desktop budget is gone —
+`max_lights_per_object` is 128 and `light_rig.gd` takes `UNLIMITED` on desktop,
+so a burnt-out fixture no longer frees a scarce slot there. It still does on
+mobile, which keeps its budget. The conclusion survives either way, since a
+dead fixture is also one fewer shadow caster, and shadows are now the scarce
+resource. See HANDOFF.md.)* `door_glow` and `window_glow` model who is awake, and as the
 corridors go dark those become the dominant light in the building: the place
 reads as inhabited by everyone except you.
 

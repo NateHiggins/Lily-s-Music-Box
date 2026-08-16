@@ -285,6 +285,32 @@ an open defect, and rooms that are *supposed* to be dark go in
 - **L10** The audit measures one frame per room from a corner, with a fallback
   to the room centre. Rooms whose interesting half is neither will read
   optimistically. Worth a second angle if this ever becomes a shipping gate.
+- **L11 STALE DIAGNOSIS TO RE-MEASURE — the 16-light cap is gone.**
+  `max_lights_per_object` is 128 (was 16) and `light_rig.gd` takes
+  `UNLIMITED = 4096` on desktop, so nothing can evict a fixture by AABB
+  overlap there any more. `design/walkthrough_punchlist.md` still blames that
+  mechanism for F02_D/F05_D unit interiors rendering black in BOTH
+  WalkthroughShots passes. Re-run both passes: either those stills are now
+  correct and the punchlist item closes, or the black rooms have a different
+  cause the cap explanation has been hiding for months. Do not close it by
+  argument. Prose corrected in place 2026-08-16 across `photoreal_target.md`,
+  `walkthrough_punchlist.md`, `PROP_ACTIVITIES.md`, `FINAL_MAP_REDESIGN_BRIEF`
+  §10ab, `gen_layout.py` and `exterior_detail_pass.gd`; the current-state
+  authority is HANDOFF.md. **Historical "measured at 16/16" tables are
+  accurate records of test conditions — never rewrite those.**
+- **L12 THE MOBILE LIGHT BUDGET IS STILL UNMEASURED.** Desktop dropped its
+  budget on evidence; mobile kept `ACTIVE_N_MOBILE` / `SHADOW_N_MOBILE` purely
+  because a tiler pays per fragment and nobody has put a phone in front of it
+  (`light_rig.gd`, see #20). That is the honest position, not a finding. It
+  wants confirming on hardware through the debug-panel sliders, and until it
+  is, no mobile lighting claim in any doc is measured.
+- **L13 SHADOWS ARE NOW THE SCARCE CURRENCY, and no doc says so yet.**
+  `positional_shadow/atlas_size=8192` subdivides per caster, so every added
+  shadow-casting fixture shrinks every existing shadow — raising the caster
+  count while leaving the atlas fixed is how you make shadows worse by asking
+  for more of them. New fixtures should default to `shadow_enabled = false`
+  and earn a caster slot explicitly. Worth an owner ruling on a standing
+  shadow policy before V4 lighting spends any.
 
 ## T — The street and its traffic
 
@@ -580,6 +606,24 @@ are two answers to the same problem and only this one is built.
   `art/renders/vantry_arcade_v3b/README.md`. **Open, not ours:** the kiosk
   footprint overlaps the in-flight W1 flank wall band in plan — predates this
   and belongs to the W1/K0 reconciliation.
+  **PS12a HELD CODE — THE WHOLE RECONSTRUCTION IS UNCOMMITTED.** V1+V2+V3+V3b
+  live only in the working tree's `art/data/gen_layout.py` and
+  `shop_interiors.py`, because those files also carry the parallel street-wall
+  session's in-flight W1 upper storey and publishing another lane's WIP is
+  banned. Everything else (records, renders, shot harnesses, test contracts,
+  the `nocol` builder change) is committed. **The moment W1 lands, commit the
+  generator hunks** — until then the repo builds the pre-reconstruction arcade
+  from a clean checkout, and every render in `vantry_arcade_v1/v2/v3/v3b` is
+  ahead of the committed generator. Verified integrated: both change sets
+  coexist and the full battery passes on the combined tree.
+  **PS12b KIOSK / W1 FLANK OVERLAP — not ours.** The subway kiosk footprint
+  (now x 18.55..20.20) overlaps the in-flight W1 flank wall band
+  (x 17.35..20.60, y −28.42..−27.92) in plan. It predates the V3b respacing
+  and is unchanged by it. Belongs to whoever reconciles W1 with K0/K1; flagged
+  in `art/renders/vantry_arcade_v3b/README.md`, deliberately untouched.
+  **PS12c STREET ELEVATION IS STILL OVER GATE** at 25.80 ms vs 16.6 (pinned
+  night). Pre-existing, unchanged by the reconstruction — the arcade's own
+  three stations all pass. Belongs to project-wide P1, not to this lane.
   Next: V4 lighting hierarchy
   (bronze needs light to read; rear rooms get their half-light; the
   night-jewel state), V5 use/aging, V6 abnormalities + perf.

@@ -195,8 +195,15 @@ Status markers reflect main as of 2026-07-30.
    just behind the glazing, single-sided and facing out, so it reads from
    the sidewalk and is invisible from the room (you see its culled back
    face and the real night beyond). It is deliberately NOT a light —
-   lighting is gated to one storey by the per-object cap, which is why
-   the building used to read derelict from outside. What each window
+   lighting is gated to one storey by LightRig's storey gate, which is why
+   the building used to read derelict from outside. *(Corrected
+   2026-08-16: this sentence used to blame the per-object light cap. That
+   cap was raised 16 → 128 and the desktop budget removed entirely; the
+   gate that remains is LightRig's own storey gate, kept because a whole
+   building of live fixtures is a submission cost, not a light cost. The
+   unshaded-quad decision is unchanged and still right — it is one draw
+   instead of hundreds of lights, and draw calls are the real bottleneck.
+   See HANDOFF.md.)* What each window
    shows comes from the room behind it, so the building tells the truth:
    2D sealed and 5D burnt stay black, vacant 3C and the 6D crate store
    are unlit, kitchens run cooler than living rooms, and a third of the

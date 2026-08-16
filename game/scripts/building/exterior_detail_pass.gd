@@ -526,8 +526,12 @@ void fragment() {
 
 
 func _build_street_end_marker_lamps(parent: Node3D) -> void:
-	# Four glow-only work beacons, one draw and zero entries in the 16/16 light
-	# budget. They label the pavement works without casting another shadow map.
+	# Four glow-only work beacons, one draw and zero real fixtures. They label
+	# the pavement works without casting another shadow map.
+	# (2026-08-16: this said "zero entries in the 16/16 light budget". That
+	# budget is gone on desktop — the cap is 128 and LightRig takes UNLIMITED.
+	# The decision stands on its second clause, which was always the stronger
+	# one: shadow casters are still scarce, and one draw still beats four.)
 	var sphere := SphereMesh.new()
 	sphere.radius = 0.16
 	sphere.height = 0.32

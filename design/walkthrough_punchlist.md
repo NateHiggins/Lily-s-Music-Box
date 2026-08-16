@@ -8,11 +8,20 @@ Live log for the room-by-room pass. One line per finding:
 
 Two full WalkthroughShots passes (183 stills each): one in production
 lighting (mood truth) and one with `SCREENSHOT_TEST_CAMERA_LIGHT=1`
-(placement truth). **The camera-light pass is only partially effective
-now**: the merged per-floor meshes keep 16 lights by AABB overlap, so on
-busy floors the camera omni is dropped and F02_D/F05_D unit interiors
-render black in BOTH passes — those rooms need an in-engine look with
-their own switches on (RoomLumaAudit's method) before trusting them.
+(placement truth). **The camera-light pass was only partially effective**:
+the merged per-floor meshes kept 16 lights by AABB overlap, so on busy
+floors the camera omni was dropped and F02_D/F05_D unit interiors rendered
+black in BOTH passes — those rooms needed an in-engine look with their own
+switches on (RoomLumaAudit's method) before trusting them.
+
+> **STALE DIAGNOSIS, 2026-08-16 — do not act on the paragraph above until
+> it is re-measured.** Its whole mechanism has been removed:
+> `max_lights_per_object` went 16 → 128 and LightRig's desktop budget went
+> to `UNLIMITED`, so the camera omni can no longer be evicted by AABB
+> overlap on a busy floor. Either those stills are now correct and this
+> item is closed, or the black rooms have a *different* cause that the
+> light-cap explanation has been hiding. Re-run both passes before
+> trusting either outcome. Tracked as TASKS §L11.
 Build was verified current against `building_layout.json` (fcaaf64 is
 marker-attribute-only). Stills in session scratchpad `walkthrough/` and
 `walkthrough_lit/`.

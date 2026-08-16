@@ -359,7 +359,15 @@ re-tested. TASKS.md's "Play runs 14/8" is wrong for the same reason.
 
 **So the standing instruction is unchanged in spirit and changed in value:
 every station in every future table states its budget, and that budget is
-16/16 until someone deliberately changes it.** Nothing measured so far is
+16/16 until someone deliberately changes it.**
+
+> **Somebody deliberately changed it.** `max_lights_per_object` is now 128
+> and `light_rig.gd` takes `UNLIMITED = 4096` on desktop; only mobile still
+> rations. Every measurement recorded in this brief remains valid — it was
+> taken under the 16/16 the tables state, which is exactly why the standing
+> instruction to label the budget was right. New tables must state the
+> budget they actually ran under, not inherit 16/16 from here. Noted
+> 2026-08-16; the current-state authority is HANDOFF.md. Nothing measured so far is
 invalidated — before and after ran under the same 16/16 — but every table
 labelled 14/8 is mislabelled. Fix or delete the clobber (§P4) before
 re-measuring, and do not silently switch contracts mid-comparison. Note that

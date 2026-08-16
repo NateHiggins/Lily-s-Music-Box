@@ -327,6 +327,30 @@ work; anything actionable belongs in that file.
   started. The light-leak pass is done (`door_glow.gd`) — under-door spill
   and leaf seams, one batched mesh, agreeing with the window pass about who
   is awake. Transoms are not faked because the geometry has none.
+- **THE 16-LIGHT CAP IS GONE, and a lot of prose still says otherwise.**
+  Read this before repeating any "per-object cap" or "16/16 budget" claim
+  you find in the docs. `project.godot` sets
+  `limits/opengl/max_lights_per_object=128` (raised from the Compatibility
+  default of 16, which was the sole reason LightRig rationed: a storey's
+  walls merge into ONE mesh, so a 28 × 20 m plate overlapping 40 fixtures
+  kept an arbitrary 16 and a lit corridor went black at its far end).
+  `light_rig.gd` then took the desktop budget off entirely —
+  `UNLIMITED = 4096` — once the frame proved submission-bound rather than
+  light-bound; `ACTIVE_N = 14` survives only because `LIGHT_BUDGET=14
+  SHADOW_BUDGET=8` reproduces the pre-removal rig for re-measurement.
+  **Mobile still rations** and is still unmeasured on real hardware.
+  Consequences worth internalising: real lights are cheap on desktop, so
+  the scarce currency is SHADOWS — `positional_shadow/atlas_size=8192`
+  subdivides per caster, so every new shadow-casting fixture shrinks every
+  existing shadow, and new fixtures should default to `shadow_enabled =
+  false` unless they earn it. Draw calls remain the real bottleneck.
+  Historical tables that say "measured at 16/16" are accurate records of
+  how a measurement was taken and must not be rewritten; only live claims
+  that the cap constrains authoring today are wrong. Corrected in place
+  2026-08-16 at `art/docs/photoreal_target.md`,
+  `design/walkthrough_punchlist.md`, `design/PROP_ACTIVITIES.md`,
+  `design/FINAL_MAP_REDESIGN_BRIEF.md` §10ab, `art/data/gen_layout.py`
+  and `exterior_detail_pass.gd`. See TASKS §L11–L12.
 - **HLOD and prop LODs (phase 7 remainder).** Untouched. The headroom
   above is measured on one high-end GPU only — mid-range is unproven.
   The coarse floor-visibility stand-in in `building_root.gd` is still a
