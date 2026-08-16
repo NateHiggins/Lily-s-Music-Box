@@ -44,6 +44,21 @@ SHOPS_N = [
 
 SHOP_CLEAR, SHOP_H = 3.30, 3.55
 
+## V2 of the arcade reconstruction (VANTRY_ARCADE_RECONSTRUCTION_BRIEF):
+## every sales floor now shows a real room behind it. The fittings own
+## the bottom 2.3 m of every back wall, so the shared device is the one
+## the period actually used over a stock partition: a BORROWED LIGHT — a
+## glazed strip above the fittings, through which the rear room's upper
+## volume, shelving tops and far doorway read in half-light. Only the
+## funeral parlour earns a floor-level opening: its chapel is already
+## promised by the data, and a curtained doorway is how a chapel joins
+## a front room. The shell's wall band and the rooms themselves are
+## emitted by gen_layout at these same coordinates.
+REAR_LIGHT_Z0, REAR_LIGHT_Z1 = 2.35, 3.05
+REAR_LIGHT_MARGIN = 0.55
+FUNERAL_DOOR_OFF = 0.85          # from the west party face
+REAR_DOOR_W, REAR_DOOR_H = 0.91, 2.08
+
 SHOP_PLAN = {
     #            depth  cabs
     "laundry":  (7.00,  1),
@@ -162,8 +177,44 @@ def build_shop_interiors(fb, mk, asm, shops, face, S=1):
         b("ceil", (ix0, by, ix1, F), CLR, SHOP_H - CLR,
           SHOP_CEIL.get(trade, "plaster"))
         # Back wall lined, side walls left as the party brick they are.
-        b("back", (ix0, by, ix1, by + 0.06), 0.01, CLR - 0.05,
-          "plaster_stained")
+        # The lining is no longer one blind slab: a borrowed light sits
+        # above the fittings, and the funeral parlour's chapel doorway
+        # pierces it at floor level. What shows through is the rear room
+        # gen_layout builds behind this wall.
+        gl_x0, gl_x1 = ix0 + REAR_LIGHT_MARGIN, ix1 - REAR_LIGHT_MARGIN
+        if trade == "funeral":
+            dx0 = ix0 + FUNERAL_DOOR_OFF
+            dx1 = dx0 + REAR_DOOR_W
+            b("back_lo_w", (ix0, by, dx0, by + 0.06), 0.01,
+              REAR_LIGHT_Z0 - 0.01, "plaster_stained")
+            b("back_lo_e", (dx1, by, ix1, by + 0.06), 0.01,
+              REAR_LIGHT_Z0 - 0.01, "plaster_stained")
+            b("back_lo_lintel", (dx0, by, dx1, by + 0.06),
+              REAR_DOOR_H + 0.01, REAR_LIGHT_Z0 - REAR_DOOR_H - 0.01,
+              "plaster_stained")
+            b("chapel_head", (dx0 - 0.06, by, dx1 + 0.06, by + 0.075),
+              REAR_DOOR_H - 0.01, 0.10, "wood_dark")
+        else:
+            b("back_lo", (ix0, by, ix1, by + 0.06), 0.01,
+              REAR_LIGHT_Z0 - 0.01, "plaster_stained")
+        b("back_hi", (ix0, by, ix1, by + 0.06), REAR_LIGHT_Z1,
+          CLR - 0.04 - REAR_LIGHT_Z1, "plaster_stained")
+        b("back_jamb_w", (ix0, by, gl_x0, by + 0.06), REAR_LIGHT_Z0,
+          REAR_LIGHT_Z1 - REAR_LIGHT_Z0, "plaster_stained")
+        b("back_jamb_e", (gl_x1, by, ix1, by + 0.06), REAR_LIGHT_Z0,
+          REAR_LIGHT_Z1 - REAR_LIGHT_Z0, "plaster_stained")
+        b("borrowed_sill", (gl_x0 - 0.04, by, gl_x1 + 0.04, by + 0.07),
+          REAR_LIGHT_Z0 - 0.05, 0.05, "trim")
+        b("borrowed_head", (gl_x0 - 0.04, by, gl_x1 + 0.04, by + 0.07),
+          REAR_LIGHT_Z1, 0.05, "trim")
+        b("borrowed_glass", (gl_x0, by + 0.015, gl_x1, by + 0.045),
+          REAR_LIGHT_Z0, REAR_LIGHT_Z1 - REAR_LIGHT_Z0, "glassish")
+        span = gl_x1 - gl_x0
+        for mi in range(1, 4):
+            mx = gl_x0 + span * mi / 4.0
+            b("borrowed_muntin%d" % mi, (mx - 0.02, by, mx + 0.02,
+                                         by + 0.065),
+              REAR_LIGHT_Z0, REAR_LIGHT_Z1 - REAR_LIGHT_Z0, "trim")
         # A dado all round, which is what stops a shop reading as a
         # cardboard box: trolleys, boot heels and crates all hit the
         # bottom metre of a wall and every shop of this date protected it.
@@ -754,9 +805,15 @@ def build_shop_interiors(fb, mk, asm, shops, face, S=1):
                   "wood_dark")
             b("bier", (mid - 1.30, by + 1.28, mid + 1.30, by + 2.00),
               0.69, 0.10, "wood_dark")
-            # Pleated, as alternating depths, so they read as cloth.
+            # Pleated, as alternating depths, so they read as cloth. The
+            # run parts at the chapel doorway (V2): a curtained opening,
+            # not a curtained wall.
+            _door_x0 = ix0 + FUNERAL_DOOR_OFF - 0.06
+            _door_x1 = ix0 + FUNERAL_DOOR_OFF + REAR_DOOR_W + 0.06
             for i in range(14):
                 dx = ix0 + 0.20 + i * (ix1 - ix0 - 0.40) / 14.0
+                if dx + 0.16 > _door_x0 and dx < _door_x1:
+                    continue
                 dd = 0.10 if i % 2 else 0.17
                 b("drape%d" % i, (dx, by + 0.13, dx + 0.16, by + 0.13 + dd),
                   0.05, 2.85, "vinyl_oxblood")

@@ -494,29 +494,9 @@
   {
    "id": "B1_ATRIUM_FRUIT_1",
    "pos": [
-    -0.075,
-    0.781,
-    -1.869
-   ],
-   "room": "B1",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "B1_ELECTRICAL_HUB"
-   ]
-  },
-  {
-   "id": "B1_ATRIUM_FRUIT_2",
-   "pos": [
-    0.466,
-    0.718,
-    -0.424
+    0.48,
+    0.212,
+    -1.408
    ],
    "room": "B1",
    "network": "electrical",
@@ -1278,29 +1258,9 @@
   {
    "id": "F01_ATRIUM_FRUIT_1",
    "pos": [
-    -0.18,
-    -0.48,
-    1.207
-   ],
-   "room": "F01",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "B1_ELECTRICAL_HUB"
-   ]
-  },
-  {
-   "id": "F01_ATRIUM_FRUIT_2",
-   "pos": [
-    1.063,
-    -0.352,
-    2.319
+    0.311,
+    -0.611,
+    1.392
    ],
    "room": "F01",
    "network": "electrical",
@@ -1338,7 +1298,7 @@
   {
    "id": "PASSAGE_PORTAL_LT_E",
    "pos": [
-    19.88,
+    20.33,
     -27.516,
     2.82
    ],
@@ -1696,6 +1656,26 @@
    ]
   },
   {
+   "id": "F01_BAR_LT_WELL",
+   "pos": [
+    -2.6,
+    -33.4,
+    1.6
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
    "id": "F01_BAR_LT_STAIR",
    "pos": [
     5.3,
@@ -1900,6 +1880,26 @@
    "pos": [
     3.92,
     -33.2,
+    -1.3
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_DECK2",
+   "pos": [
+    3.92,
+    -32.05,
     -1.3
    ],
    "room": "SITE",
@@ -3234,7 +3234,6 @@
     "F02_HALL_LT_FLUSH_DOME",
     "F02_UTILITY_LT_CAGE_BULB",
     "F02_ATRIUM_FRUIT_1",
-    "F02_ATRIUM_FRUIT_2",
     "B1_ELECTRICAL_HUB",
     "F02_CORRLIGHT_N",
     "F03_CORRLIGHT_S"
@@ -3643,29 +3642,9 @@
   {
    "id": "F02_ATRIUM_FRUIT_1",
    "pos": [
-    -0.079,
-    -1.175,
-    4.269
-   ],
-   "room": "F02",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "F02_CORRLIGHT_S"
-   ]
-  },
-  {
-   "id": "F02_ATRIUM_FRUIT_2",
-   "pos": [
-    0.071,
-    0.307,
-    5.595
+    1.23,
+    -0.483,
+    4.592
    ],
    "room": "F02",
    "network": "electrical",
@@ -4142,7 +4121,6 @@
     "F03_HALL_LT_FLUSH_DOME",
     "F03_UTILITY_LT_CAGE_BULB",
     "F03_ATRIUM_FRUIT_1",
-    "F03_ATRIUM_FRUIT_2",
     "F02_CORRLIGHT_S",
     "F03_CORRLIGHT_N",
     "F04_CORRLIGHT_S"
@@ -4631,29 +4609,9 @@
   {
    "id": "F03_ATRIUM_FRUIT_1",
    "pos": [
-    -1.206,
-    -0.377,
-    7.548
-   ],
-   "room": "F03",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "F03_CORRLIGHT_S"
-   ]
-  },
-  {
-   "id": "F03_ATRIUM_FRUIT_2",
-   "pos": [
-    0.29,
-    0.478,
-    8.792
+    -0.545,
+    -0.878,
+    7.792
    ],
    "room": "F03",
    "network": "electrical",
@@ -5233,7 +5191,6 @@
     "F04_HALL_LT_FLUSH_DOME",
     "F04_UTILITY_LT_CAGE_BULB",
     "F04_ATRIUM_FRUIT_1",
-    "F04_ATRIUM_FRUIT_2",
     "F03_CORRLIGHT_S",
     "F04_CORRLIGHT_N",
     "F05_CORRLIGHT_S"
@@ -5682,29 +5639,9 @@
   {
    "id": "F04_ATRIUM_FRUIT_1",
    "pos": [
-    -0.783,
-    0.813,
-    10.64
-   ],
-   "room": "F04",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "F04_CORRLIGHT_S"
-   ]
-  },
-  {
-   "id": "F04_ATRIUM_FRUIT_2",
-   "pos": [
-    -0.709,
-    0.886,
-    11.86
+    0.803,
+    0.221,
+    10.992
    ],
    "room": "F04",
    "network": "electrical",
@@ -6093,7 +6030,6 @@
     "F05_HALL_LT_FLUSH_DOME",
     "F05_UTILITY_LT_CAGE_BULB",
     "F05_ATRIUM_FRUIT_1",
-    "F05_ATRIUM_FRUIT_2",
     "F04_CORRLIGHT_S",
     "F05_CORRLIGHT_N",
     "F06_CORRLIGHT_S"
@@ -6502,29 +6438,9 @@
   {
    "id": "F05_ATRIUM_FRUIT_1",
    "pos": [
-    0.941,
-    1.21,
-    13.659
-   ],
-   "room": "F05",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "F05_CORRLIGHT_S"
-   ]
-  },
-  {
-   "id": "F05_ATRIUM_FRUIT_2",
-   "pos": [
-    0.998,
-    -0.849,
-    15.161
+    0.554,
+    -0.61,
+    14.192
    ],
    "room": "F05",
    "network": "electrical",
@@ -7016,7 +6932,6 @@
     "F06_HALL_LT_FLUSH_DOME",
     "F06_UTILITY_LT_CAGE_BULB",
     "F06_ATRIUM_FRUIT_1",
-    "F06_ATRIUM_FRUIT_2",
     "F05_CORRLIGHT_S",
     "F06_CORRLIGHT_N",
     "ROOF_ELECTRICAL_RISER"
@@ -7485,29 +7400,9 @@
   {
    "id": "F06_ATRIUM_FRUIT_1",
    "pos": [
-    0.289,
-    0.156,
-    17.017
-   ],
-   "room": "F06",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "F06_CORRLIGHT_S"
-   ]
-  },
-  {
-   "id": "F06_ATRIUM_FRUIT_2",
-   "pos": [
-    -0.824,
-    -0.846,
-    18.252
+    0.614,
+    -0.318,
+    17.392
    ],
    "room": "F06",
    "network": "electrical",
@@ -7649,29 +7544,9 @@
   {
    "id": "ROOF_ATRIUM_FRUIT_1",
    "pos": [
-    0.105,
-    0.438,
-    19.846
-   ],
-   "room": "ROOF",
-   "network": "electrical",
-   "frequency_band": [
-    60,
-    8000
-   ],
-   "delay_ms": 4,
-   "damping": 0.22,
-   "infection_receptivity": 0.75,
-   "connections": [
-    "ROOF_ELECTRICAL_RISER"
-   ]
-  },
-  {
-   "id": "ROOF_ATRIUM_FRUIT_2",
-   "pos": [
-    -1.268,
-    -0.23,
-    20.311
+    -0.247,
+    -1.08,
+    19.948
    ],
    "room": "ROOF",
    "network": "electrical",
@@ -7722,7 +7597,6 @@
     "B1_COAL_LT_CAGE_BULB",
     "B1_NOOK_LAMP",
     "B1_ATRIUM_FRUIT_1",
-    "B1_ATRIUM_FRUIT_2",
     "F01_NEON_BLADE",
     "F01_NEON_TENANT",
     "F01_MARQUEE_LT_01",
@@ -7756,7 +7630,6 @@
     "F01_D_MAIN_LT_PENDANT_SHADE",
     "F01_D_OFFICE_LT_PENDANT_SHADE",
     "F01_ATRIUM_FRUIT_1",
-    "F01_ATRIUM_FRUIT_2",
     "PASSAGE_PORTAL_LT_W",
     "PASSAGE_PORTAL_LT_E",
     "PASSAGE_AISLE_LT_00",
@@ -7776,6 +7649,7 @@
     "F01_BAR_STAGE_SIGN",
     "F01_BAR_LT_DARTS",
     "F01_BAR_LT_LOBBY",
+    "F01_BAR_LT_WELL",
     "F01_BAR_LT_STAIR",
     "F01_BAR_LT_CAN0",
     "F01_BAR_LT_CAN1",
@@ -7787,6 +7661,7 @@
     "F01_BAR_LT_STAGE1",
     "F01_BAR_LT_DECK0",
     "F01_BAR_LT_DECK1",
+    "F01_BAR_LT_DECK2",
     "F01_BAR_LT_WEST0",
     "F01_BAR_LT_WEST1",
     "F01_BAR_LT_WC",
@@ -7852,7 +7727,6 @@
     "ROOF_LT_DECK",
     "ROOF_LT_GARDEN",
     "ROOF_ATRIUM_FRUIT_1",
-    "ROOF_ATRIUM_FRUIT_2",
     "F06_CORRLIGHT_S"
    ]
   },
@@ -8885,7 +8759,7 @@
    "id": "F02_CORRIDOR_VANTRY_POINT",
    "pos": [
     -0.38,
-    -0.31,
+    0.31,
     6.22
    ],
    "room": "F02_CORRIDOR",
@@ -9264,8 +9138,8 @@
   {
    "id": "F03_CORRIDOR_VANTRY_POINT",
    "pos": [
-    -0.38,
-    -0.31,
+    0.38,
+    0.31,
     9.42
    ],
    "room": "F03_CORRIDOR",
@@ -9684,7 +9558,7 @@
   {
    "id": "F04_CORRIDOR_VANTRY_POINT",
    "pos": [
-    0.38,
+    -0.38,
     -0.31,
     12.62
    ],
@@ -10445,7 +10319,7 @@
    "id": "F06_CORRIDOR_VANTRY_POINT",
    "pos": [
     -0.38,
-    -0.31,
+    0.31,
     19.02
    ],
    "room": "F06_CORRIDOR",

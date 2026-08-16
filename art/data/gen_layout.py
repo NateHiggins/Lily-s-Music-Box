@@ -21,7 +21,10 @@ import zlib
 
 from shop_interiors import (SHOPS, SHOPS_N, SHOP_CLEAR, SHOP_H,
                             SHOP_PLAN, SHOP_FLOOR, SHOP_CEIL,
-                            build_shop_interiors)
+                            build_shop_interiors,
+                            REAR_LIGHT_Z0, REAR_LIGHT_Z1,
+                            REAR_LIGHT_MARGIN, FUNERAL_DOOR_OFF,
+                            REAR_DOOR_W, REAR_DOOR_H)
 
 # M0.5 PHASE 2 — THE OLD STREET PARADE IS GONE.
 #
@@ -4280,6 +4283,18 @@ SHOP_TRIM = {
     "photo":    ("plaster_stained", "felt_violet"),
     "druggist": ("limestone", "book_teal"),
 }
+## V3 (arcade reconstruction): the glazing FRAME is its own tier. A
+## lease that could afford it ran bronze members in front of whatever
+## masonry the building gave it; the newer signal trades bought nickel;
+## everyone else painted wood. Body and accent above stay untouched —
+## this is the metal the hand actually touches.
+SHOP_FRAME = {
+    "druggist": "bronze", "funeral": "bronze", "pawn": "bronze",
+    "photo": "nickel_plated", "radio": "nickel_plated",
+}
+## Opal (acid-etched) transom lights for the two fronts that would
+## have paid for them; everyone else keeps clear wired glass.
+SHOP_OPAL_TRANSOM = ("druggist", "funeral")
 
 
 def _storefronts(fb, mk, shops=None, face=None, S=1):
@@ -4373,17 +4388,35 @@ def _storefronts(fb, mk, shops=None, face=None, S=1):
             fbn("sf_%s_glass%d" % (tag, si), (gx0 + 0.04, F + S * 0.06,
                                              gx1 - 0.04, F + S * 0.12),
                SILL, GLASS - SILL, "glassish")
+            # V3: the frame tier. Framed fronts carry a metal sill cap
+            # over the stall riser and a head stop under the transom —
+            # the members a customer's hand and eye actually meet.
+            frame = SHOP_FRAME.get(trade)
+            if frame:
+                fbn("sf_%s_sillcap%d" % (tag, si),
+                   (gx0, F + S * 0.015, gx1, F + S * 0.155),
+                   SILL - 0.035, 0.035, frame)
+                fbn("sf_%s_headstop%d" % (tag, si),
+                   (gx0, F + S * 0.015, gx1, F + S * 0.155),
+                   GLASS, 0.035, frame)
             # Mullions every 900, because plate glass came in sheets.
             n = max(1, int((gx1 - gx0) / 0.90))
             for m in range(1, n):
                 mx = gx0 + (gx1 - gx0) * m / n
                 fbn("sf_%s_mull%d_%d" % (tag, si, m),
                    (mx - 0.03, F + S * 0.02, mx + 0.03, F + S * 0.16),
-                   SILL, GLASS - SILL, body)
+                   SILL, GLASS - SILL, frame if frame else body)
         # Transom over the whole front, then the sign band.
         fbn("sf_%s_transom" % tag, (x0 + 0.14, F + S * 0.02, x1 - 0.14,
                                    F + S * 0.14), GLASS, TRANS - GLASS,
-           "glassish")
+           "milk_glass" if trade in SHOP_OPAL_TRANSOM else "glassish")
+        # V3: the tenant plaque — engraved brass beside the door, on
+        # whichever side the door left free.
+        door_left = trade in ("diner", "news", "photo")
+        plq0 = (dx0 - 0.34) if not door_left else (dx1 + 0.16)
+        fbn("sf_%s_plaque" % tag, (plq0, F + S * 0.020, plq0 + 0.18,
+                                   F + S * 0.048), 1.32, 0.26,
+           "brass_bright")
         fbn("sf_%s_band" % tag, (x0, F - S * 0.04, x1, F + S * 0.22), TRANS,
            SIGN - TRANS, body)
         fbn("sf_%s_sign" % tag, (x0 + 0.22, F + S * 0.20, x1 - 0.22,
@@ -4589,13 +4622,13 @@ def _emit_passage_shops(fb, markers, asm):
                              shops, 0.0, 1)
 
 
-def _passage_shell(fb, pipe, markers):
+def _passage_shell(fb, pipe, markers, lights):
     """The enclosed throat, shop bands and ribbed glass hall substrate."""
     batch = "passage_shell"
 
-    def b(bid, rect, z0, h, mat):
+    def b(bid, rect, z0, h, mat, **meta):
         fb("passage_" + bid, rect, z0, h, mat,
-           batch=batch, zone="PASSAGE")
+           batch=batch, zone="PASSAGE", **meta)
 
     def proxy(bid, rect, z0, h, mat):
         proxy_batch = ("passage_proxy_gateway"
@@ -4617,11 +4650,52 @@ def _passage_shell(fb, pipe, markers):
 
     # Outer hall and the narrow reveal. The 600 mm end masses consume the
     # allowance proved by Check 3 and close the side bands around the aisle.
-    b("wall_w", (PASSAGE_HALL_W - 0.22, PASSAGE_HALL_S - 0.22,
-                 PASSAGE_HALL_W, PASSAGE_HALL_N), 0.0, 4.20, "common_brick")
-    b("wall_e", (PASSAGE_HALL_E, PASSAGE_HALL_S - 0.22,
-                 PASSAGE_HALL_E + 0.22, PASSAGE_HALL_N),
-      0.0, 4.20, "common_brick")
+    # V2 (arcade reconstruction): the outer hall walls are banded, not
+    # blind. Each shop's borrowed light pierces the band between 2.35
+    # and 3.05 so the rear rooms behind the band read from the sales
+    # floors; the funeral parlour's chapel doorway additionally pierces
+    # the lower slab. Solids between openings stay common brick.
+    def _banded_wall(side_tag, wx0, wx1, rows, hall_y_of):
+        def seg(bid, a_lo, a_hi, z0, h):
+            if a_hi - a_lo < 0.015:
+                return
+            ya, yb = sorted((hall_y_of(a_lo), hall_y_of(a_hi)))
+            b("wall_%s_%s" % (side_tag, bid), (wx0, ya, wx1, yb),
+              z0, h, "common_brick")
+        glass_spans = []
+        for row in rows:
+            glass_spans.append((row[0] + 0.10 + REAR_LIGHT_MARGIN,
+                                row[1] - 0.10 - REAR_LIGHT_MARGIN))
+        # lower slab: solid except the one chapel doorway
+        door_span = None
+        for row in rows:
+            if str(row[3]) == "funeral":
+                d0 = row[0] + 0.10 + FUNERAL_DOOR_OFF
+                door_span = (d0, d0 + REAR_DOOR_W)
+        if door_span is None:
+            seg("lo", -0.25, 26.25, 0.0, REAR_LIGHT_Z0)
+        else:
+            seg("lo_a", -0.25, door_span[0], 0.0, REAR_LIGHT_Z0)
+            seg("lo_b", door_span[1], 26.25, 0.0, REAR_LIGHT_Z0)
+            seg("lo_lintel", door_span[0], door_span[1],
+                REAR_DOOR_H + 0.01, REAR_LIGHT_Z0 - REAR_DOOR_H - 0.01)
+        # band: solid between the borrowed lights
+        cursor = -0.25
+        for gi, (g0, g1) in enumerate(sorted(glass_spans)):
+            seg("band_%02d" % gi, cursor, g0, REAR_LIGHT_Z0,
+                REAR_LIGHT_Z1 - REAR_LIGHT_Z0)
+            cursor = g1
+        seg("band_end", cursor, 26.25, REAR_LIGHT_Z0,
+            REAR_LIGHT_Z1 - REAR_LIGHT_Z0)
+        # upper slab to the historic wall head
+        seg("hi", -0.25, 26.25, REAR_LIGHT_Z1, 4.20 - REAR_LIGHT_Z1)
+
+    _banded_wall("w", PASSAGE_HALL_W - 0.22, PASSAGE_HALL_W,
+                 PASSAGE_SHOPS_W,
+                 lambda a: PASSAGE_HALL_N - a)
+    _banded_wall("e", PASSAGE_HALL_E, PASSAGE_HALL_E + 0.22,
+                 PASSAGE_SHOPS_E,
+                 lambda a: PASSAGE_HALL_S + a)
     b("wall_s", (PASSAGE_HALL_W - 0.22, PASSAGE_HALL_S - 0.22,
                  PASSAGE_HALL_E + 0.22, PASSAGE_HALL_S),
       0.0, 4.20, "common_brick")
@@ -4671,7 +4745,7 @@ def _passage_shell(fb, pipe, markers):
                       # fixtures, but K0 mounts it on the exit kiosk's outer
                       # return.  Its grazing light reveals the iron/panel
                       # relief that otherwise collapses to a black wedge.
-                      ("E", [19.88, BLDG_S + 0.80, 2.82])):
+                      ("E", [20.33, BLDG_S + 0.80, 2.82])):
         markers.append({"kind": "cage_bulb",
                         "id": "PASSAGE_PORTAL_LT_%s" % side,
                         "unit": "PASSAGE", "pos": pos,
@@ -4709,13 +4783,195 @@ def _passage_shell(fb, pipe, markers):
            PASSAGE_PORTAL_E + 0.18, face_y + 0.56),
           3.78, 0.12, "cast_iron")
 
+    # THE FRONTISPIECE (arcade reconstruction V1): the portal stops being
+    # a hole in a flat host and becomes the building's ceremonial front —
+    # engaged limestone piers, a two-storey blind archivolt of stepped
+    # voussoirs breaking into the upper wall, keystone, spandrel
+    # medallions and a crowning cartouche. Same batch, same materials;
+    # the composition is geometry, not paint.
+    for pn, (pxa, pxb) in enumerate(((9.95, 10.55), (17.45, 18.05))):
+        proxy("frontis_pier_base_%d" % pn,
+              (pxa - 0.06, reveal_back, pxb + 0.06, face_y + 0.34),
+              0.0, 0.60, "limestone")
+        proxy("frontis_pier_%d" % pn,
+              (pxa, reveal_back, pxb, face_y + 0.30), 0.60, 4.30,
+              "limestone")
+        proxy("frontis_pier_cap_%d" % pn,
+              (pxa - 0.08, reveal_back, pxb + 0.08, face_y + 0.38),
+              4.90, 0.16, "limestone")
+        proxy("frontis_pier_urn_%d" % pn,
+              (pxa + 0.10, face_back - 0.10, pxb - 0.10, face_y + 0.10),
+              5.06, 0.46, "limestone")
+    # Sixteen oversized voussoirs overlap along the arc so the archivolt
+    # reads as one continuous stone band — eleven spaced blocks read as
+    # floating crumbs with dark brick grinning through the joints.
+    arch_r = 3.05
+    arch_cz = 3.95
+    for k in range(16):
+        ang = math.radians(8.0 + 164.0 * (k + 0.5) / 16.0)
+        vx = PASSAGE_C - arch_r * math.cos(ang)
+        vz = arch_cz + arch_r * math.sin(ang)
+        proxy("frontis_voussoir_%02d" % k,
+              (vx - 0.34, face_y - 0.06, vx + 0.34, face_y + 0.26),
+              vz - 0.34, 0.68, "limestone")
+    proxy("frontis_keystone",
+          (PASSAGE_C - 0.30, face_y - 0.06, PASSAGE_C + 0.30,
+           face_y + 0.34), 6.72, 0.92, "limestone")
+    for sn, sx in enumerate((11.70, 16.30)):
+        proxy("frontis_spandrel_%d" % sn,
+              (sx - 0.30, face_y - 0.04, sx + 0.30, face_y + 0.18),
+              5.30, 0.60, "limestone")
+    proxy("frontis_cartouche_field",
+          (PASSAGE_C - 0.46, face_y - 0.04, PASSAGE_C + 0.46,
+           face_y + 0.22), 7.68, 0.90, "limestone")
+    proxy("frontis_cartouche_shield",
+          (PASSAGE_C - 0.28, face_y - 0.02, PASSAGE_C + 0.28,
+           face_y + 0.30), 7.84, 0.58, "limestone")
+
+    # W1 of the street wall (design/STREET_WALL_PROPOSAL.md): the host's
+    # missing upper storey. One two-storey masonry frontage from the
+    # Harukiya's east party wall at x 6.4 to the stage edge at 20.6, so
+    # the portal belongs to a block instead of floating under open sky
+    # (survey finding A) and the flanking strips stop being placeholder
+    # slabs and bare air (findings B and C's street face). Everything
+    # joins the existing gateway proxy batch; face brick is the only
+    # material new to it, and the lit windows are the same unshaded-quad
+    # records the city backdrop uses — zero new lights.
+    W1_W, W1_E = 6.40, 20.60
+    UP_BASE = 5.26              # top of the existing host cornice
+    UP_TOP = 9.20               # frieze line under the new cornice
+    ROW_SILLS = (5.95, 7.65)    # two upper rows of sashes
+    WIN_H = 1.40
+    WIN_W = 1.15
+    wall_front = face_back      # 300 mm behind the host piers' relief
+    wall_back = reveal_back
+
+    # Ground-storey flank faces carry the band to the pavement on both
+    # sides of the host; the kiosk stands proud of the east face the way
+    # a street kiosk should. W3 later carves real shopfronts into the
+    # west run — until then it is honest plain brick.
+    for side, gx0, gx1 in (("w", W1_W, host_w), ("e", host_e, W1_E)):
+        proxy("gateway_flank_" + side,
+              (gx0, wall_back, gx1, wall_front), 0.0, UP_BASE,
+              "common_brick")
+        # continue the host cornice line across the flanks
+        proxy("gateway_flank_string_" + side,
+              (gx0, wall_front - 0.04, gx1, wall_front + 0.10),
+              5.06, 0.20, "limestone")
+
+    # The upper wall is segmented around real window openings with one
+    # soot backing plane behind them: 90 mm of true reveal reads as
+    # depth the way a painted inset never can.
+    n_win = 7
+    span = W1_E - W1_W
+    centers = [W1_W + span * (i + 0.5) / n_win for i in range(n_win)]
+    # The reconstruction's frontispiece owns the middle of the upper
+    # wall: the three central bays give up their sashes so the blind
+    # arch rises on solid masonry, leaving two fenestrated wings.
+    centers = [c for c in centers if not (10.90 < c < 17.10)]
+    for bi, (bz0, bz1) in enumerate(
+            ((UP_BASE, ROW_SILLS[0]),
+             (ROW_SILLS[0] + WIN_H, ROW_SILLS[1]),
+             (ROW_SILLS[1] + WIN_H, UP_TOP))):
+        proxy("gateway_upper_band_%d" % bi,
+              (W1_W, wall_back, W1_E, wall_front), bz0, bz1 - bz0,
+              "face_brick")
+    pier_edges = [W1_W]
+    for c in centers:
+        pier_edges += [c - WIN_W / 2.0, c + WIN_W / 2.0]
+    pier_edges.append(W1_E)
+    for ri, sill in enumerate(ROW_SILLS):
+        for pi in range(0, len(pier_edges), 2):
+            proxy("gateway_upper_pier_%d_%d" % (ri, pi),
+                  (pier_edges[pi], wall_back, pier_edges[pi + 1],
+                   wall_front), sill, WIN_H, "face_brick")
+        for wi, c in enumerate(centers):
+            proxy("gateway_upper_sill_%d_%d" % (ri, wi),
+                  (c - WIN_W / 2.0 - 0.06, wall_front - 0.04,
+                   c + WIN_W / 2.0 + 0.06, wall_front + 0.05),
+                  sill - 0.07, 0.09, "limestone")
+    proxy("gateway_upper_backing",
+          (W1_W, wall_back - 0.06, W1_E, wall_back),
+          UP_BASE, UP_TOP - UP_BASE, "soot")
+
+    # Crown: cornice, parapet and coping close the skyline the way §3.1
+    # of the gateway proposal drew it.
+    proxy("gateway_upper_cornice",
+          (W1_W - 0.10, wall_front - 0.10, W1_E + 0.10,
+           wall_front + 0.18), UP_TOP, 0.22, "limestone")
+    proxy("gateway_upper_parapet",
+          (W1_W, wall_back, W1_E, wall_front - 0.04),
+          UP_TOP + 0.22, 0.48, "common_brick")
+    proxy("gateway_upper_coping",
+          (W1_W - 0.04, wall_back - 0.02, W1_E + 0.04, wall_front),
+          UP_TOP + 0.70, 0.08, "limestone")
+    # The skyline was a flat parapet line; a building this sure of
+    # itself crowns its own axis. Center attic over the frontispiece,
+    # stepped, with its own coping.
+    proxy("frontis_attic",
+          (PASSAGE_C - 1.80, wall_back, PASSAGE_C + 1.80,
+           wall_front + 0.04), UP_TOP + 0.22, 0.86, "common_brick")
+    proxy("frontis_attic_panel",
+          (PASSAGE_C - 1.30, wall_front - 0.06, PASSAGE_C + 1.30,
+           wall_front + 0.10), UP_TOP + 0.38, 0.52, "limestone")
+    proxy("frontis_attic_coping",
+          (PASSAGE_C - 1.92, wall_back - 0.02, PASSAGE_C + 1.92,
+           wall_front + 0.08), UP_TOP + 1.08, 0.12, "limestone")
+    proxy("frontis_attic_step",
+          (PASSAGE_C - 0.70, wall_back, PASSAGE_C + 0.70,
+           wall_front + 0.02), UP_TOP + 1.20, 0.34, "limestone")
+
+    # §3.1's rain logic: the storm needs iron to strike and a path down.
+    for dx in (W1_W + 0.30, W1_E - 0.30):
+        proxy_pipe("gateway_downpipe_%d" % int(dx * 10),
+                   (dx, wall_front + 0.10, UP_TOP + 0.18),
+                   (dx, wall_front + 0.10, 0.10), 0.055, "cast_iron")
+
+    # Lit sashes on the block's own upstairs, sparse and clustered like
+    # the backdrop's (a facade is not a switchboard). Same data records,
+    # same unshaded quads, no Light3D.
+    wrng = random.Random(192808)
+    for ri, sill in enumerate(ROW_SILLS):
+        for c in centers:
+            if wrng.random() >= 0.34:
+                continue
+            lights.append({
+                "pos": [round(c, 3), round(wall_front - 0.02, 3),
+                        round(sill + WIN_H * 0.5, 3)],
+                "size": [WIN_W * 0.86, WIN_H * 0.88], "yaw": 180,
+                "warm": wrng.random() < 0.8,
+                "energy": round(wrng.uniform(0.5, 1.1), 2)})
+
     # Dimensioned K0 kiosk shell from VANTRY_SUBWAY_KIOSK_PROPOSAL.md §5.
-    # x 18.10..19.75 is wholly east of the throat and 0.85 m inside the
-    # accepted +20.60 stage edge.  Its y run follows the throat so the high
-    # opaque/glazed enclosure can later conceal a shallow stair termination.
-    kx0, kx1 = 18.10, 19.75
+    # RESPACED 2026-08-16 by the arcade reconstruction.
+    #
+    # K1 placed the kiosk at 18.10 against a bare portal, keeping 1.10 m of
+    # clear pavement to x 17.00 so "the broad arcade mouth stays visually
+    # and physically unambiguous".  V3 then built the frontispiece into that
+    # clearance: the engaged east pier lands at 17.45..18.05, its base
+    # oversails to 18.11 and its cap to 18.13.  Pier base and kiosk plinth
+    # therefore INTERPENETRATED by 10 mm.  It was found by measuring the
+    # flank, not by looking at a render, because at night two limestone
+    # masses 50 mm apart simply read as one lump.
+    #
+    # The east flank is 2.47 m between the cap face and the approved 20.60
+    # stage edge.  A 1.65 m kiosk centred in it leaves balanced ~0.4 m
+    # reveals, which reads as an intended gap where 0.05 m read as an
+    # accident.  The proposal's own remedy for an east-strip conflict is to
+    # mirror the kiosk into the west residual strip; that is deliberately
+    # NOT taken, because the parallel street-wall work reserves the west run
+    # for its W3 shopfronts.  Its y run still follows the throat so the high
+    # opaque/glazed enclosure conceals the shallow stair termination.
+    #
+    # The asserts guard the REVEALS now, not just containment: this class of
+    # bug returns the moment a later phase widens the frontispiece again.
+    FRONTIS_CAP_E = 18.13          # V3 east pier cap outer face
+    kx0, kx1 = 18.55, 20.20
     ky0, ky1 = -33.25, -27.80
     assert kx0 > PASSAGE_PORTAL_E and kx1 < 20.60
+    assert kx0 - FRONTIS_CAP_E > 0.30,         "subway kiosk crowds the arcade frontispiece (%.3f m)" % (
+            kx0 - FRONTIS_CAP_E)
+    assert 20.60 - kx1 > 0.30,         "subway kiosk crowds the east stage edge (%.3f m)" % (20.60 - kx1)
     # The former solid plinth made the exit a scenic box.  K1 keeps a stone
     # curb around three sides but leaves the street head open over the actual
     # pavement cut.  The barred gate below remains the visible collision owner.
@@ -4729,7 +4985,7 @@ def _passage_shell(fb, pipe, markers):
     # K1 is a finite, non-enterable subway section: eight real 160 mm risers
     # in a 1.05 m clear stair, a short lower landing and a tiled return that
     # masks a soot backstop.  There is no platform, tunnel or room beyond it.
-    stair_w, stair_e = 18.40, 19.45
+    stair_w, stair_e = 18.85, 19.90
     stair_n = ky1 - 0.18
     tread_run = 0.38
     stair_base = -1.34
@@ -4928,31 +5184,475 @@ def _passage_shell(fb, pipe, markers):
             b("party_%s_%02d" % (side, i),
               (x0, y - 0.10, x1, y + 0.10), 0.0, SHOP_H, "common_brick")
 
-    # A faceted glass-and-iron barrel. The panels remain separately legible;
-    # the transverse ribs carry the arch silhouette from inside the aisle.
-    for i in range(6):
-        xa = PASSAGE_AISLE_W + i
-        xb = xa + 1.0
-        xm = (xa + xb) * 0.5
-        rise = 2.0 * math.sqrt(max(0.0, 1.0 - ((xm - PASSAGE_C) / 3.0) ** 2))
-        b("vault_glass_%02d" % i,
-          (xa + 0.035, PASSAGE_HALL_S, xb - 0.035, PASSAGE_HALL_N),
-          SHOP_H + rise, 0.035, "glassish")
+    # ------------------------------------------------------------------
+    # THE NAVE RAISED — V1 of the arcade reconstruction
+    # (design/VANTRY_ARCADE_RECONSTRUCTION_BRIEF.md). The old barrel
+    # sprang at SHOP_H and peaked at 5.55: a shed. The 1926 section puts
+    # a continuous limestone entablature over the storefronts, a plaster
+    # clerestory order on each side's own party rhythm, and respring the
+    # faceted glass barrel at 7.20 to a 9.90 apex — with a stepped glass
+    # lantern and the four-faced pendant clock marking the crossing.
+    # Every aisle edge, shop bay, threshold, grille marker and light id
+    # stays exactly where M0.5 proved it; the building grows upward.
+    SPRING = 7.20
+    NAVE_RISE = 2.70
+    CROSS_Y = (PASSAGE_HALL_N + PASSAGE_HALL_S) * 0.5
+    LANT_S, LANT_N = CROSS_Y - 3.0, CROSS_Y + 3.0
+
+    def vault_z(x):
+        return SPRING + NAVE_RISE * math.sqrt(
+            max(0.0, 1.0 - ((x - PASSAGE_C) / 3.0) ** 2))
+
+    # The clerestory order, one side at a time, each on its own party
+    # rhythm — the two faces disagree the way two rows of leases do.
+    for side, shops in (("w", PASSAGE_SHOPS_W), ("e", PASSAGE_SHOPS_E)):
+        if side == "w":
+            wx0, wx1 = PASSAGE_AISLE_W - 0.28, PASSAGE_AISLE_W
+            proud = PASSAGE_AISLE_W + 0.12
+            backx0, backx1 = wx0 - 0.10, wx0 - 0.04
+        else:
+            wx0, wx1 = PASSAGE_AISLE_E, PASSAGE_AISLE_E + 0.28
+            proud = PASSAGE_AISLE_E - 0.12
+            backx0, backx1 = wx1 + 0.04, wx1 + 0.10
+        px0, px1 = (min(wx0, proud), max(wx1, proud))
+
+        def hall_y(a, _s=side):
+            return (PASSAGE_HALL_N - a) if _s == "w" \
+                else (PASSAGE_HALL_S + a)
+
+        # The continuous entablature over the shopfronts: architrave,
+        # frieze, cornice. It is what makes eleven leases one building.
+        y_lo = min(hall_y(0.0), hall_y(26.0))
+        y_hi = max(hall_y(0.0), hall_y(26.0))
+        b("nave_architrave_" + side, (px0, y_lo, px1, y_hi),
+          SHOP_H, 0.24, "limestone")
+        b("nave_frieze_" + side, (wx0, y_lo, wx1, y_hi),
+          SHOP_H + 0.24, 0.42, "plaster")
+        b("nave_cornice_" + side, (px0, y_lo, px1, y_hi),
+          SHOP_H + 0.66, 0.18, "limestone")
+        band0 = SHOP_H + 0.84                     # 4.39
+        b("nave_impost_" + side, (px0, y_lo, px1, y_hi),
+          SPRING - 0.26, 0.26, "limestone")
+
+        bounds = [PASSAGE_END_MARGIN] \
+            + [row[1] for row in shops[:-1]] \
+            + [26.0 - PASSAGE_END_MARGIN]
+        for bi, a in enumerate(bounds):
+            yc = hall_y(a)
+            b("nave_pilaster_%s_%02d" % (side, bi),
+              (px0, yc - 0.23, px1, yc + 0.23),
+              band0, SPRING - 0.26 - band0, "plaster")
+            b("nave_pilaster_cap_%s_%02d" % (side, bi),
+              (px0, yc - 0.27, px1, yc + 0.27),
+              SPRING - 0.40, 0.14, "limestone")
+        for bi in range(len(bounds) - 1):
+            ya, yb = sorted((hall_y(bounds[bi]), hall_y(bounds[bi + 1])))
+            ya, yb = ya + 0.23, yb - 0.23
+            width = yb - ya
+            win = min(2.60, max(1.20, width - 1.30))
+            wy0 = (ya + yb) * 0.5 - win * 0.5
+            wy1 = wy0 + win
+            # sill band, head band, and the fills beside the light
+            b("nave_sillband_%s_%02d" % (side, bi), (wx0, ya, wx1, yb),
+              band0, 0.76, "plaster")
+            b("nave_headband_%s_%02d" % (side, bi), (wx0, ya, wx1, yb),
+              band0 + 1.96, SPRING - 0.26 - (band0 + 1.96), "plaster")
+            b("nave_fill_a_%s_%02d" % (side, bi), (wx0, ya, wx1, wy0),
+              band0 + 0.76, 1.20, "plaster")
+            b("nave_fill_b_%s_%02d" % (side, bi), (wx0, wy1, wx1, yb),
+              band0 + 0.76, 1.20, "plaster")
+            # the clerestory light itself: sill, glass, one stepped
+            # upper pane — flattened classical turning geometric
+            b("nave_winsill_%s_%02d" % (side, bi),
+              (px0, wy0 - 0.06, px1, wy1 + 0.06),
+              band0 + 0.64, 0.12, "limestone")
+            b("nave_winglass_%s_%02d" % (side, bi),
+              ((wx0 + wx1) * 0.5 - 0.03, wy0,
+               (wx0 + wx1) * 0.5 + 0.03, wy1),
+              band0 + 0.76, 1.20, "glassish")
+            step = min(1.30, win - 0.60)
+            sy0 = (wy0 + wy1) * 0.5 - step * 0.5
+            b("nave_winstep_%s_%02d" % (side, bi),
+              ((wx0 + wx1) * 0.5 - 0.03, sy0,
+               (wx0 + wx1) * 0.5 + 0.03, sy0 + step),
+              band0 + 1.44, 0.42, "glassish")
+            b("nave_winback_%s_%02d" % (side, bi),
+              (backx0, wy0 - 0.10, backx1, wy1 + 0.10),
+              band0 + 0.60, 1.60, "soot")
+
+    # The faceted glass barrel, resprung. Panels stay separately legible;
+    # the crossing bay is left open for the lantern.
+    for i in range(10):
+        xa = PASSAGE_AISLE_W + 0.6 * i
+        xb = xa + 0.6
+        zi = vault_z((xa + xb) * 0.5)
+        for seg, (yy0, yy1) in enumerate(((PASSAGE_HALL_S, LANT_S),
+                                          (LANT_N, PASSAGE_HALL_N))):
+            b("vault_glass_%02d_%d" % (i, seg),
+              (xa + 0.025, yy0, xb - 0.025, yy1), zi, 0.035, "glassish")
+    for side, gx in (("w", PASSAGE_AISLE_W - 0.06),
+                     ("e", PASSAGE_AISLE_E - 0.18)):
+        b("vault_gutter_" + side, (gx, PASSAGE_HALL_S, gx + 0.24,
+                                   PASSAGE_HALL_N),
+          SPRING - 0.14, 0.28, "cast_iron")
+    for seg, (yy0, yy1) in enumerate(((PASSAGE_HALL_S + 0.1, LANT_S),
+                                      (LANT_N, PASSAGE_HALL_N - 0.1))):
+        pipe("passage_ridge_%d" % seg,
+             (PASSAGE_C, yy0, SPRING + NAVE_RISE + 0.05),
+             (PASSAGE_C, yy1, SPRING + NAVE_RISE + 0.05),
+             0.055, "cast_iron", batch="passage_shell", zone="PASSAGE")
+
     rib_y = PASSAGE_HALL_N - 0.40
     ri = 0
     while rib_y > PASSAGE_HALL_S:
-        pts = []
-        for j in range(9):
-            x = PASSAGE_AISLE_W + 6.0 * j / 8.0
-            z = SHOP_H + 2.0 * math.sqrt(
-                max(0.0, 1.0 - ((x - PASSAGE_C) / 3.0) ** 2))
-            pts.append((x, rib_y, z))
-        for j in range(len(pts) - 1):
-            pipe("passage_rib_%02d_%02d" % (ri, j),
-                 pts[j], pts[j + 1], 0.045, "metal",
-                 batch="passage_shell", zone="PASSAGE")
+        if not (LANT_S < rib_y < LANT_N):
+            pts = []
+            for j in range(17):
+                x = PASSAGE_AISLE_W + 6.0 * j / 16.0
+                pts.append((x, rib_y, vault_z(x)))
+            for j in range(len(pts) - 1):
+                pipe("passage_rib_%02d_%02d" % (ri, j),
+                     pts[j], pts[j + 1], 0.045, "metal",
+                     batch="passage_shell", zone="PASSAGE")
         rib_y -= 2.0
         ri += 1
+
+    # THE CROSSING: a stepped glass lantern over the mid-hall bay, and
+    # the four-faced pendant clock beneath it. The postcard.
+    for yd, dia_y in (("s", LANT_S), ("n", LANT_N)):
+        for k, (dx0, dx1, dz0, dz1) in enumerate((
+                (PASSAGE_AISLE_W, PASSAGE_AISLE_E, SPRING, 8.40),
+                (PASSAGE_C - 2.2, PASSAGE_C + 2.2, 8.40, 9.30),
+                (PASSAGE_C - 1.3, PASSAGE_C + 1.3, 9.30, 9.92))):
+            b("lantern_diaphragm_%s_%d" % (yd, k),
+              (dx0, dia_y - 0.03, dx1, dia_y + 0.03),
+              dz0, dz1 - dz0, "glassish")
+    curb0, curb1 = PASSAGE_AISLE_W - 0.10, PASSAGE_AISLE_E + 0.10
+    b("lantern_curb_w", (curb0, LANT_S - 0.24, curb0 + 0.24,
+                         LANT_N + 0.24), 9.92, 0.24, "cast_iron")
+    b("lantern_curb_e", (curb1 - 0.24, LANT_S - 0.24, curb1,
+                         LANT_N + 0.24), 9.92, 0.24, "cast_iron")
+    b("lantern_curb_s", (curb0, LANT_S - 0.24, curb1, LANT_S),
+      9.92, 0.24, "cast_iron")
+    b("lantern_curb_n", (curb0, LANT_N, curb1, LANT_N + 0.24),
+      9.92, 0.24, "cast_iron")
+    for gi, (gx0, gy0, gx1, gy1) in enumerate((
+            (curb0 + 0.05, LANT_S - 0.19, curb0 + 0.10, LANT_N + 0.19),
+            (curb1 - 0.10, LANT_S - 0.19, curb1 - 0.05, LANT_N + 0.19),
+            (curb0 + 0.05, LANT_S - 0.19, curb1 - 0.05, LANT_S - 0.14),
+            (curb0 + 0.05, LANT_N + 0.14, curb1 - 0.05, LANT_N + 0.19))):
+        b("lantern_glass_%d" % gi, (gx0, gy0, gx1, gy1),
+          10.16, 0.80, "glassish")
+    for ci, (cx, cy) in enumerate(((curb0 + 0.12, LANT_S - 0.12),
+                                   (curb1 - 0.12, LANT_S - 0.12),
+                                   (curb0 + 0.12, LANT_N + 0.12),
+                                   (curb1 - 0.12, LANT_N + 0.12))):
+        pipe("lantern_post_%d" % ci, (cx, cy, 10.16), (cx, cy, 10.98),
+             0.045, "cast_iron", batch="passage_shell", zone="PASSAGE")
+    for si, inset in enumerate((0.0, 0.7, 1.4)):
+        b("lantern_cap_%d" % si,
+          (curb0 + inset, LANT_S - 0.24 + inset,
+           curb1 - inset, LANT_N + 0.24 - inset),
+          10.96 + 0.16 * si, 0.16, "cast_iron")
+    b("lantern_cap_light", (PASSAGE_C - 0.9, CROSS_Y - 0.9,
+                            PASSAGE_C + 0.9, CROSS_Y + 0.9),
+      11.44, 0.06, "milk_glass")
+    pipe("lantern_mast", (PASSAGE_C, CROSS_Y, 11.50),
+         (PASSAGE_C, CROSS_Y, 12.10), 0.035, "cast_iron",
+         batch="passage_shell", zone="PASSAGE")
+
+    # The clock everyone arranges to meet under.
+    pipe("crossing_clock_stem", (PASSAGE_C, CROSS_Y, 10.90),
+         (PASSAGE_C, CROSS_Y, 6.52), 0.030, "cast_iron",
+         batch="passage_shell", zone="PASSAGE")
+    b("crossing_clock_body", (PASSAGE_C - 0.28, CROSS_Y - 0.28,
+                              PASSAGE_C + 0.28, CROSS_Y + 0.28),
+      5.90, 0.62, "bakelite_black")
+    b("crossing_clock_face_ns", (PASSAGE_C - 0.24, CROSS_Y - 0.31,
+                                 PASSAGE_C + 0.24, CROSS_Y + 0.31),
+      5.96, 0.50, "milk_glass")
+    b("crossing_clock_face_ew", (PASSAGE_C - 0.31, CROSS_Y - 0.24,
+                                 PASSAGE_C + 0.31, CROSS_Y + 0.24),
+      5.96, 0.50, "milk_glass")
+    for zi, zz in enumerate((5.84, 6.52)):
+        b("crossing_clock_band_%d" % zi,
+          (PASSAGE_C - 0.30, CROSS_Y - 0.30,
+           PASSAGE_C + 0.30, CROSS_Y + 0.30), zz, 0.06, "brass_dull")
+    pipe("crossing_clock_drop", (PASSAGE_C, CROSS_Y, 5.66),
+         (PASSAGE_C, CROSS_Y, 5.84), 0.05, "brass_dull",
+         batch="passage_shell", zone="PASSAGE")
+
+    # Pendant stems: the eight existing aisle bulbs keep their exact ids
+    # and positions; they simply stop floating. Short stems under the
+    # throat's 4.20 lid, long drops from the vault in the hall.
+    for i, y in enumerate((-31.2, -35.0, -41.0, -45.0, -49.0,
+                           -53.0, -57.0, -61.0)):
+        top = 4.20 if y > PASSAGE_HALL_N else vault_z(PASSAGE_C) - 0.05
+        pipe("aisle_pendant_%02d" % i, (PASSAGE_C, y, top),
+             (PASSAGE_C, y, 3.95), 0.020, "cast_iron",
+             batch="passage_shell", zone="PASSAGE")
+        b("aisle_pendant_canopy_%02d" % i,
+          (PASSAGE_C - 0.09, y - 0.09, PASSAGE_C + 0.09, y + 0.09),
+          3.88, 0.07, "brass_dull")
+
+    # Nave gables. North dies against the street block's masonry; south
+    # is the terminating frontispiece the whole axis aims at, with a
+    # stepped lunette that will one day be lit from a room that cannot
+    # exist. Solid for now; the light is a later phase's decision.
+    for gname, gy0, gy1, with_lunette in (
+            ("n", PASSAGE_HALL_N - 0.24, PASSAGE_HALL_N, False),
+            ("s", PASSAGE_HALL_S, PASSAGE_HALL_S + 0.24, True)):
+        steps = ((PASSAGE_AISLE_W, PASSAGE_AISLE_E, 4.20, 7.20),
+                 (PASSAGE_C - 2.4, PASSAGE_C + 2.4, 7.20, 8.30),
+                 (PASSAGE_C - 1.5, PASSAGE_C + 1.5, 8.30, 9.20),
+                 (PASSAGE_C - 0.7, PASSAGE_C + 0.7, 9.20, 9.90))
+        if not with_lunette:
+            for k, (sx0, sx1, sz0, sz1) in enumerate(steps):
+                b("nave_gable_%s_%d" % (gname, k),
+                  (sx0, gy0, sx1, gy1), sz0, sz1 - sz0, "plaster")
+            continue
+        # south: same silhouette, pierced by the stepped lunette
+        b("nave_gable_s_base", (PASSAGE_AISLE_W, gy0, PASSAGE_AISLE_E,
+                                gy1), 4.20, 1.00, "plaster")
+        b("nave_gable_s_wa", (PASSAGE_AISLE_W, gy0, PASSAGE_C - 1.6,
+                              gy1), 5.20, 2.00, "plaster")
+        b("nave_gable_s_wb", (PASSAGE_C + 1.6, gy0, PASSAGE_AISLE_E,
+                              gy1), 5.20, 2.00, "plaster")
+        b("nave_gable_s_head", (PASSAGE_C - 2.4, gy0, PASSAGE_C + 2.4,
+                                gy1), 8.00, 0.30, "plaster")
+        b("nave_gable_s_stepa", (PASSAGE_C - 2.4, gy0, PASSAGE_C - 1.1,
+                                 gy1), 7.20, 0.80, "plaster")
+        b("nave_gable_s_stepb", (PASSAGE_C + 1.1, gy0, PASSAGE_C + 2.4,
+                                 gy1), 7.20, 0.80, "plaster")
+        b("nave_gable_s_crown1", (PASSAGE_C - 1.5, gy0, PASSAGE_C + 1.5,
+                                  gy1), 8.30, 0.90, "plaster")
+        b("nave_gable_s_crown2", (PASSAGE_C - 0.7, gy0, PASSAGE_C + 0.7,
+                                  gy1), 9.20, 0.70, "plaster")
+        b("nave_lunette_a", (PASSAGE_C - 1.6, gy0 + 0.06,
+                             PASSAGE_C + 1.6, gy1 - 0.06),
+          5.20, 2.00, "glassish")
+        b("nave_lunette_b", (PASSAGE_C - 1.1, gy0 + 0.06,
+                             PASSAGE_C + 1.1, gy1 - 0.06),
+          7.20, 0.80, "glassish")
+        b("nave_lunette_sill", (PASSAGE_C - 1.72, gy0 - 0.06,
+                                PASSAGE_C + 1.72, gy1 + 0.06),
+          5.06, 0.14, "limestone")
+        # OUTBOARD, and this was a real bug from V1 until 2026-08-16.
+        # The gable occupies y gy0..gy1 and the aisle is NORTH of it, so a
+        # backing plate authored at gy1 + 0.08 hangs in the room BETWEEN
+        # the viewer and its own glass: the lunette has been fully
+        # occluded by its blackout since the day it was built, which is
+        # why no night frame ever showed it. The clerestory got this
+        # right (backx0 = wx0 - 0.10, outboard); the lunette did not.
+        # Caught by an adversarial review of the V4 lighting plan, which
+        # went looking for something to light and found nothing visible.
+        b("nave_lunette_back", (PASSAGE_C - 1.7, gy0 - 0.14,
+                                PASSAGE_C + 1.7, gy0 - 0.08),
+          5.10, 3.00, "soot")
+
+    # The south frontispiece at floor level: paired limestone pilasters,
+    # the building directory, and a kick base. The thing you walk toward
+    # for twenty-six metres.
+    fy0, fy1 = PASSAGE_HALL_S, PASSAGE_HALL_S + 0.26
+    for pn, (px_a, px_b) in enumerate(((10.55, 11.01), (16.99, 17.45))):
+        b("terminus_pilaster_%d" % pn, (px_a, fy0, px_b, fy1),
+          0.0, 4.20, "limestone")
+        b("terminus_pilaster_cap_%d" % pn,
+          (px_a - 0.05, fy0, px_b + 0.05, fy1 + 0.05),
+          3.92, 0.16, "limestone")
+    # Everything on the axis stays within 0.24 m of the wall face: the
+    # x=14 schedule spine's swept capsule reaches to 0.27 m short of the
+    # wall, and a directory is a shallow bronze-trimmed case, not a
+    # kiosk. Depth on this wall is relief, never obstruction.
+    b("terminus_base_band", (PASSAGE_AISLE_W, fy0, PASSAGE_AISLE_E,
+                             fy0 + 0.24), 0.0, 0.28, "limestone")
+    b("terminus_directory_back", (12.55, fy0, 15.45, fy0 + 0.14),
+      0.95, 1.86, "wood_dark")
+    b("terminus_directory_face", (12.67, fy0, 15.33, fy0 + 0.16),
+      1.07, 1.58, "paper")
+    for fi, (fx0, fz0, fx1, fz1) in enumerate((
+            (12.55, 2.75, 15.45, 2.81), (12.55, 0.89, 15.45, 0.95),
+            (12.55, 0.95, 12.61, 2.75), (15.39, 0.95, 15.45, 2.75))):
+        b("terminus_directory_trim_%d" % fi, (fx0, fy0, fx1, fy0 + 0.17),
+          fz0, fz1 - fz0, "brass_dull")
+    b("terminus_directory_head", (12.45, fy0, 15.55, fy0 + 0.20),
+      2.81, 0.30, "limestone")
+
+    # Aisle inlays: dark terrazzo borders down both edges and the
+    # crossing medallion under the clock — 4 mm proud of the field, the
+    # way a real border sits a hair over a worn walking surface.
+    for side, bx0 in (("w", PASSAGE_AISLE_W + 0.02),
+                      ("e", PASSAGE_AISLE_E - 0.34)):
+        b("aisle_border_" + side, (bx0, PASSAGE_HALL_S, bx0 + 0.32,
+                                   PASSAGE_HALL_N), -0.044, 0.058,
+          "terrazzo_dark", nocol=True)
+    b("crossing_medallion_a", (12.90, CROSS_Y - 1.10, 15.10,
+                               CROSS_Y + 1.10), -0.042, 0.058,
+      "terrazzo_dark", nocol=True)
+    b("crossing_medallion_b", (13.60, CROSS_Y - 0.40, 14.40,
+                               CROSS_Y + 0.40), -0.040, 0.058,
+      "brass_dull", nocol=True)
+    b("crossing_medallion_c", (13.85, CROSS_Y - 0.15, 14.15,
+                               CROSS_Y + 0.15), -0.038, 0.058,
+      "terrazzo", nocol=True)
+
+    # The throat becomes a vestibule: coffer ribs under its lid and a
+    # mosaic threshold band with a brass edge exactly on the expansion
+    # line — compression, then release into the nave.
+    for li, lx in enumerate((12.05, 15.81)):
+        b("throat_coffer_long_%d" % li,
+          (lx, PASSAGE_HALL_N + 0.20, lx + 0.14, BLDG_S - 0.20),
+          4.04, 0.16, "trim")
+    cy = PASSAGE_HALL_N + 1.10
+    ci = 0
+    while cy < BLDG_S - 0.9:
+        b("throat_coffer_cross_%02d" % ci,
+          (PASSAGE_PORTAL_W + 0.20, cy, PASSAGE_PORTAL_E - 0.20,
+           cy + 0.14), 4.04, 0.16, "trim")
+        cy += 1.70
+        ci += 1
+    b("throat_threshold", (PASSAGE_AISLE_W, PASSAGE_HALL_N - 0.02,
+                           PASSAGE_AISLE_E, PASSAGE_HALL_N + 0.30),
+      -0.044, 0.058, "terrazzo_dark", nocol=True)
+    b("throat_threshold_brass", (PASSAGE_AISLE_W,
+                                 PASSAGE_HALL_N + 0.30,
+                                 PASSAGE_AISLE_E,
+                                 PASSAGE_HALL_N + 0.36),
+      -0.040, 0.056, "brass_dull", nocol=True)
+
+    # ------------------------------------------------------------------
+    # V2 — THE ROOMS BEHIND. Every sales floor's borrowed light looks
+    # into a real stock room beyond the band wall: same storey height,
+    # a far lining with a darker service doorway beyond it, shelving
+    # and stock in half-light — the layered sightline the brief demands
+    # (glass, goods, counter, glass again, room, doorway, dark). The
+    # rooms are view-only under the Check 3 playable contract: the one
+    # floor-level opening, the funeral chapel, is barred by a chancel
+    # rail. Each room joins its shop's own bounded batch so the 9 m
+    # light-selection contract keeps holding.
+    REAR_DEPTH = 2.60
+    for side, rows in (("w", PASSAGE_SHOPS_W), ("e", PASSAGE_SHOPS_E)):
+        if side == "w":
+            rx1 = PASSAGE_HALL_W - 0.22
+            rx0 = rx1 - REAR_DEPTH
+            lx0, lx1 = rx0, rx0 + 0.06
+            sootx0, sootx1 = rx0 - 0.10, rx0 - 0.04
+            shelf_x0, shelf_x1 = rx0 + 0.06, rx0 + 0.42
+
+            def hall_y(a):
+                return PASSAGE_HALL_N - a
+        else:
+            rx0 = PASSAGE_HALL_E + 0.22
+            rx1 = rx0 + REAR_DEPTH
+            lx0, lx1 = rx1 - 0.06, rx1
+            sootx0, sootx1 = rx1 + 0.04, rx1 + 0.10
+            shelf_x0, shelf_x1 = rx1 - 0.42, rx1 - 0.06
+
+            def hall_y(a):
+                return PASSAGE_HALL_S + a
+        for row in rows:
+            tag = "".join(c if c.isalnum() else "_"
+                          for c in str(row[2]).lower()).strip("_")
+            trade = str(row[3])
+            ya, yb = sorted((hall_y(row[0] + 0.10),
+                             hall_y(row[1] - 0.10)))
+
+            def rb(sub, rect, z0, h, mat, _t=tag):
+                fb("rear_%s_%s" % (_t, sub), rect, z0, h, mat,
+                   batch="shop_%s" % _t, zone="PASSAGE")
+
+            rb("floor", (rx0, ya, rx1, yb), -0.05, 0.06, "concrete")
+            rb("ceil", (rx0, ya, rx1, yb), 3.10, 0.18, "plaster")
+            rb("party_a", (rx0, ya, rx1, ya + 0.06), 0.01, 3.09,
+               "plaster")
+            rb("party_b", (rx0, yb - 0.06, rx1, yb), 0.01, 3.09,
+               "plaster")
+            dmid = (ya + yb) * 0.5
+            d0, d1 = dmid - 0.45, dmid + 0.45
+            rb("far_a", (lx0, ya, lx1, d0), 0.01, 3.09, "plaster")
+            rb("far_b", (lx0, d1, lx1, yb), 0.01, 3.09, "plaster")
+            rb("far_lintel", (lx0, d0, lx1, d1), 1.99, 1.11,
+               "plaster")
+            # The dark beyond the doorway is a real half-metre service
+            # vestibule that light falls off inside, not a painted
+            # backdrop — the city-window soot plate read as a lit
+            # facade through the opening. Shell batch: structural
+            # service fabric, so the shop's bounded AABB stays 10.24.
+            if side == "w":
+                vx_far, vx_near = rx0 - 0.55, rx0
+                vpx0, vpx1 = rx0 - 0.61, rx0 - 0.55
+            else:
+                vx_near, vx_far = rx1, rx1 + 0.55
+                vpx0, vpx1 = rx1 + 0.55, rx1 + 0.61
+            vlo, vhi = min(vx_far, vx_near), max(vx_far, vx_near)
+            b("svc_%s_floor" % tag, (vlo, d0 - 0.06, vhi, d1 + 0.06),
+              -0.05, 0.06, "concrete")
+            b("svc_%s_cheek_a" % tag, (vlo, d0 - 0.06, vhi, d0),
+              0.01, 2.09, "plaster_stained")
+            b("svc_%s_cheek_b" % tag, (vlo, d1, vhi, d1 + 0.06),
+              0.01, 2.09, "plaster_stained")
+            b("svc_%s_head" % tag, (vlo, d0 - 0.06, vhi, d1 + 0.06),
+              1.99, 0.11, "plaster_stained")
+            b("svc_%s_end" % tag, (vpx0, d0 - 0.06, vpx1, d1 + 0.06),
+              0.01, 2.09, "wood_dark")
+
+            if trade == "funeral":
+                # The chapel the shop data has promised all along.
+                da = row[0] + 0.10 + FUNERAL_DOOR_OFF
+                dya, dyb = sorted((hall_y(da), hall_y(da + REAR_DOOR_W)))
+                rail_x0 = rx1 - 0.12
+                rb("chapel_rail", (rail_x0, dya - 0.05, rail_x0 + 0.05,
+                                   dyb + 0.05), 0.01, 0.92, "wood_dark")
+                rb("chapel_rail_cap", (rail_x0 - 0.02, dya - 0.08,
+                                       rail_x0 + 0.07, dyb + 0.08),
+                   0.93, 0.05, "oak_quartered")
+                rb("chapel_plinth", ((rx0 + rx1) * 0.5 - 0.55, dmid - 0.4,
+                                     (rx0 + rx1) * 0.5 + 0.55, dmid + 0.4),
+                   0.01, 0.34, "wood_dark")
+                for pi, poff in enumerate((-0.95, 0.85)):
+                    rb("chapel_pew%d" % pi,
+                       (rx0 + 0.35, dmid + poff, rx1 - 0.55,
+                        dmid + poff + 0.42), 0.42, 0.08, "wood_dark")
+                    rb("chapel_pewback%d" % pi,
+                       (rx0 + 0.35, dmid + poff + 0.36, rx1 - 0.55,
+                        dmid + poff + 0.42), 0.50, 0.48, "wood_dark")
+                for di, doff in enumerate((0.20, yb - ya - 0.86)):
+                    rb("chapel_drape%d" % di,
+                       (lx1, ya + doff, lx1 + 0.03, ya + doff + 0.66),
+                       0.20, 2.40, "linen")
+                continue
+
+            # Stock in half-light: one shelving run on the longer side
+            # of the service doorway, and a crate stack in the corner.
+            runs = []
+            if d0 - ya > 1.15:
+                runs.append((ya + 0.22, d0 - 0.14))
+            if yb - d1 > 1.15:
+                runs.append((d1 + 0.14, yb - 0.22))
+            for si, (sy0, sy1) in enumerate(runs[:1]):
+                for ui, uy in enumerate((sy0, (sy0 + sy1) * 0.5,
+                                         sy1 - 0.05)):
+                    rb("shelf_up%d_%d" % (si, ui),
+                       (shelf_x0, uy, shelf_x0 + 0.05, uy + 0.05),
+                       0.01, 2.40, "wood_dark")
+                for zi, zz in enumerate((0.45, 1.05, 1.65, 2.25)):
+                    rb("shelf%d_%d" % (si, zi),
+                       (shelf_x0, sy0, shelf_x1, sy1), zz, 0.045,
+                       "wood_dark")
+                for bi in range(3):
+                    bx0 = shelf_x0 + 0.02 + (bi % 2) * 0.30
+                    byy = sy0 + 0.18 + bi * 0.52
+                    if byy + 0.42 < sy1:
+                        rb("stock%d" % bi, (bx0, byy, bx0 + 0.34,
+                                            byy + 0.42),
+                           0.50 + (bi % 3) * 0.60, 0.30, "paper")
+            crate_y = yb - 0.75 if runs and runs[0][0] < dmid else ya + 0.15
+            rb("crate_a", ((rx0 + rx1) * 0.5 - 0.3, crate_y,
+                           (rx0 + rx1) * 0.5 + 0.22, crate_y + 0.52),
+               0.01, 0.40, "wood_dark")
+            rb("crate_b", ((rx0 + rx1) * 0.5 - 0.22, crate_y + 0.05,
+                           (rx0 + rx1) * 0.5 + 0.14, crate_y + 0.47),
+               0.41, 0.34, "wood_dark")
 
     # The aisle is independently lit; shop lamps remain inside their bays.
     for i, y in enumerate((-31.2, -35.0, -41.0, -45.0, -49.0,
@@ -5030,8 +5730,12 @@ def site_pass(fl):
     # Ground is subtracted per hole like the road around the building -
     # anything that opens the earth must register here.
     GROUND_HOLES = [(bx0, by0, bx1, by1),
-                    (4.30, -35.80, 5.45, -28.32),     # Harukiya shaft
-                    (18.10, -33.25, 19.75, -27.80)]   # Vantry kiosk stair
+                    (4.30, -35.80, 5.90, -28.32),     # Harukiya shaft (1.60 clear, B1)
+                    # B4: the bar's two-storey well. Without this the
+                    # asphalt sheet (top -0.02) becomes a black lid
+                    # hanging two metres over the tables.
+                    (-5.60, -35.90, 0.60, -31.00),    # Harukiya well
+                    (18.55, -33.25, 20.20, -27.80)]   # Vantry kiosk stair
     ground = [(gx0, gy0, gx1, gy1)]
     for hole in GROUND_HOLES:
         nxt = []
@@ -5043,7 +5747,7 @@ def site_pass(fl):
 
     # M0.5's enclosed third zone. It sits on the asphalt substrate but owns
     # its own floor, walls, roof, lights and collision as one local shell.
-    _passage_shell(fb, pipe, fl["markers"])
+    _passage_shell(fb, pipe, fl["markers"], lights)
 
     # The distant pavement can stay cheap, but the playable frontage is
     # individually poured slabs with settlement, missing corners and open
@@ -5123,7 +5827,7 @@ def site_pass(fl):
     # K1 cuts only the 1.65 x 0.516 m pavement tongue under the Vantry exit
     # kiosk.  Three boxes preserve the exact historic sidewalk everywhere else
     # while leaving the descending stair genuinely open to the imported scene.
-    kiosk_cut_w, kiosk_cut_e, kiosk_cut_n = 18.10, 19.75, -27.80
+    kiosk_cut_w, kiosk_cut_e, kiosk_cut_n = 18.55, 20.20, -27.80
     fb("sidewalk_s_w", (-SITE_X, BLDG_S, kiosk_cut_w, WALK_S),
        -0.02, 0.03, "concrete")
     fb("sidewalk_s_e", (kiosk_cut_e, BLDG_S, SITE_X, WALK_S),
@@ -5283,8 +5987,12 @@ def site_pass(fl):
 
 ## Lit windows on the neighbours, as DATA. Godot turns each into one
 ## unshaded quad — the same trick the Orison's own windows use. Real lights
-## here would be dozens of omnis competing for the per-object cap the
-## LightRig exists to ration, to light rooms nobody can enter.
+## here would be dozens of omnis submitted to light rooms nobody can enter.
+## (2026-08-16: this used to say they would "compete for the per-object cap
+## the LightRig exists to ration". That cap is 128 now and the desktop
+## budget is gone, so the cap argument is dead — but the decision is not.
+## Draw calls are the actual bottleneck, mobile still rations, and a room
+## nobody can enter does not deserve a fixture at any price.)
 def _city_windows(fb, lights, rng, bid, rect, hgt, storey=3.4,
                   min_z=0.0):
     x0, y0, x1, y1 = rect
@@ -5655,22 +6363,47 @@ def atrium_tree(fl):
                   TREE_BASE + 0.02], 0.055)
         _tree_nook(fl, bx, by)
 
-    # ---- branches and their fruit. Two per storey, thrown to opposite
-    # sides so the crown stays balanced over the well.
-    for k in range(2):
-        h = lo + (hi - lo) * (0.34 + 0.42 * k)
+    # ---- branches and their lanterns.
+    #
+    # HALVED AND COMPOSED, owner direction 2026-08-16: "remove half of
+    # those lights and redesign it to be more period appropriate".
+    #
+    # It used to throw TWO branches per storey at a random angle, a random
+    # reach and a random rise — sixteen lights in all, scattered. Random
+    # placement is what read as un-period: 1928 decorative metalwork is
+    # composed, not grown. Edgar Brandt's foliate ironwork of exactly
+    # these years is rigorously symmetrical however organic its motifs
+    # are; a piece commissioned for a light court would have been set out
+    # by a draughtsman, and the eye reads that difference immediately
+    # even when it cannot name it.
+    #
+    # So: ONE bracket per storey, at a constant height within the slice,
+    # a constant reach, and a constant rise, alternating to opposite
+    # sides floor by floor. Going up the well you now read a deliberate
+    # rhythm — left, right, left — instead of a scatter. The trunk still
+    # wanders (that is the piece's character and stays), the brass pads,
+    # twigs, root flare and the reading nook at its base are untouched.
+    #
+    # Eight lanterns instead of sixteen, which is also what pays for the
+    # global budget raise: the court was the one perf station that
+    # measurably charged for extra lights.
+    slice_index = int(round((lo - TREE_BASE) / max(F2F, 0.01)))
+    for k in range(1):
+        h = lo + (hi - lo) * 0.46
         if h > TREE_TOP - 0.4:
             continue
         tx, ty = _tree_at(h)
-        ang = rng.uniform(0, math.tau) + k * math.pi
-        reach = rng.uniform(0.62, 1.00)
-        # elbow partway out, so the branch bends instead of spiking
+        # Set out, not rolled: successive storeys face opposite ways, and
+        # the quarter-turn keeps the column from reading as a flat ladder
+        # when you look straight up it.
+        ang = math.pi * slice_index + math.pi * 0.5 * (slice_index % 2)
+        reach = 0.86
         ex = tx + math.cos(ang) * reach * 0.55
         ey = ty + math.sin(ang) * reach * 0.55
-        ez = h + rng.uniform(0.10, 0.30)
+        ez = h + 0.20
         px = tx + math.cos(ang) * reach
         py = ty + math.sin(ang) * reach
-        pz = ez + rng.uniform(-0.05, 0.18)
+        pz = ez + 0.06
         tube("br%d_a" % k, [tx, ty, h], [ex, ey, ez], 0.045)
         tube("br%d_b" % k, [ex, ey, ez], [px, py, pz], 0.028)
         for j in range(2):      # twigs, for silhouette
@@ -6168,7 +6901,28 @@ def retail_pass(fl):
     FLR = -2.80                       # basement floor top
     DECK = FLR + 0.18                 # the raised lounge
     STAGE_Z = FLR + 0.22
-    SH_W, SH_E = 4.30, 5.45           # stair shaft, 1.15 clear
+    # B1, OWNER RULING 2026-08-16: the descent widens from 1.15 m to 1.60.
+    #
+    # The evidence ledger records the film's circulation as "minimum
+    # ~850 mm, generally 950-1200 mm. Never generous", and that character
+    # is kept -- what changes is only that TWO PEOPLE CAN PASS, which
+    # reads generous relative to the film and remains tight by any other
+    # standard. Filed NYC ADAPTATION, with the same precedent the
+    # 2026-08-07 rebuild used to take the room 6.8 -> 9.2 m deep.
+    #
+    # Widened EAST only. Going west would eat the 0.30 m threshold
+    # between the room's slab (RX1 4.00) and the vestibule, which is the
+    # strip `bar_threshold` fills -- and a 150 mm threshold reads as a
+    # mistake. East leaves 0.20 m of `bar_fill_e` brick to the block edge
+    # at KX1 6.4, and the shaft keeps its full 0.30 m teal lining, which
+    # is canonical ("the stairwell must own its skin").
+    #
+    # Everything else derives: treads, lobby, vestibule, mat, the south
+    # fill, the lintel and the signboard all span SH_W..SH_E. The ONE
+    # hard-coded duplicate is the GROUND_HOLES entry that cuts the street
+    # asphalt over the shaft -- it is edited in lockstep below, and if it
+    # is ever missed the pavement grows a lid over the stairwell.
+    SH_W, SH_E = 4.30, 5.90           # stair shaft, 1.60 clear
 
     # ground storey: infill everywhere but the lobby/shaft slot
     # The fills stop at the shaft LINING. The first cut ran them to the
@@ -6181,6 +6935,41 @@ def retail_pass(fl):
     # solid block behind it, which is the whole fault this pass exists to
     # fix, reappearing one function away. Cut the same void out of the
     # fill that site_pass cuts out of the block above it.
+    # ================= THE WELL (B4) =================================
+    # The commission asked for a much larger room. The footprint cannot
+    # give it -- the canon mass is fixed and the whole plan can gain
+    # 2.7% -- so the room grows in SECTION, which is also the reading the
+    # evidence supports: the ledger files the 2.65 m field under INFERRED
+    # while the CANONICAL low element is the counter canopy at 1.76 m.
+    # The low ceiling is therefore a condition over the counter, not a
+    # constant over the room (ledger amendment A0.1).
+    #
+    # So the middle of the room is opened two storeys into the block's
+    # own brick. You stand at the counter under a canopy at 1.76 and a
+    # ceiling at 2.65; three paces out the room goes up to 5.32 m clear.
+    # Compression and release, which is the film's instinct rather than a
+    # departure from it.
+    #
+    # THE FOUR THINGS THAT MAKE THIS LEGAL, each of which was a blocker:
+    #  * the top face may reach 2.80 and NOT ONE MILLIMETRE MORE. The
+    #    street-cull gate is a whole-AABB test with `hi.y <= 2.80`; a
+    #    slab that overshoots drags its buffer out of the index and the
+    #    room's new upper volume renders through the pavement.
+    #  * the shaft must clear the luncheonette's void above the west end
+    #    (x -11.4..-6.2), or the well opens into the diner's floor. It
+    #    starts at -5.60.
+    #  * it must clear the counter and its canopy to the north (-30.28),
+    #    so the canopy zone keeps the low ceiling that is canon. It stops
+    #    at -31.00, 0.72 m short.
+    #  * GROUND_HOLES must be cut to match, or the street asphalt sheet
+    #    (top -0.02) becomes the visible lid of the well -- a black plane
+    #    hanging two metres over the tables.
+    WELL_X0, WELL_X1 = -5.60, 0.60
+    WELL_Y0, WELL_Y1 = -35.90, -31.00
+    WELL_TOP = 2.80                    # the gate ceiling, inclusive
+    WELL_UNDER = WELL_TOP - 0.28       # slab soffit at 2.52
+    WELL = (WELL_X0, WELL_Y0, WELL_X1, WELL_Y1)
+
     fill_w = [(KX0, -38.2, RX1, FACE)]
     for _blk, hole in shop_voids():
         if _blk == "nbr_s2":
@@ -6188,8 +6977,19 @@ def retail_pass(fl):
             for r in fill_w:
                 nxt += subtract_rect([r], hole)
             fill_w = nxt
+    # The shaft is cut out of the block's own brick for the full height;
+    # the brick ABOVE the well is put back below, so the block keeps its
+    # mass and only the void is new.
+    _well_cut = []
+    for r in fill_w:
+        _well_cut += subtract_rect([r], WELL)
+    fill_w = _well_cut
     for _i, _r in enumerate(fill_w):
         fb("bar_fill_w%d" % _i, _r, 0.0, 3.55, "common_brick")
+    # brick over the well, and the slab that closes it
+    fb("bar_well_over", WELL, WELL_TOP, 3.55 - WELL_TOP, "common_brick")
+    fb("bar_well_slab", WELL, WELL_UNDER, WELL_TOP - WELL_UNDER,
+       "plaster_stained")
     fb("bar_fill_e", (SH_E + 0.30, -38.2, KX1, FACE), 0.0, 3.55,
        "common_brick")
     fb("bar_fill_s", (SH_W, -38.2, SH_E, -35.80), 0.0, 3.55,
@@ -6210,6 +7010,124 @@ def retail_pass(fl):
        "quarry_tile")
     fb("bar_mat", (SH_W + 0.10, -34.60, SH_E - 0.10, -34.10), FLR,
        0.012, "rug_warm")
+
+    # ================= B2: THE DESCENT'S ACCUMULATION ================
+    # The owner called this "one of the most important artistic
+    # opportunities in the redesign" and asked for Akira-style detritus.
+    # It is not a stylistic borrowing: littered treads, a soiled red rug
+    # and layered graffiti are CANONICAL, straight off Otomo's stairwell
+    # frame, and this is the thing widening the stair was for.
+    #
+    # THE RULE THAT KEEPS IT FROM BEING MESS. Every object here belongs
+    # to somebody and answers one of: the bar overflowing, the building
+    # working, or the street posting. Nothing is decorative rubbish; a
+    # thing is here because a person put it down and never came back.
+    #
+    # THE LANE IS SACRED. The shaft is 1.60 m clear and the capsule is
+    # 0.66. Accumulation is held east of x 5.28, leaving 0.98 m of clear
+    # walking width the whole way down -- more than the descent had in
+    # total before B1. Nothing stacks ON the flight itself, because a
+    # crate on a stair falls down it; the flight gets flat litter and
+    # wall-hung layers, and the mass piles at the two landings where a
+    # person would actually abandon it.
+    ACC_E = SH_E - 0.02              # against the east lining
+    ACC_W = 5.28                     # the sacred lane's east edge
+
+    def acc(bid, rect, z0, h, mat):
+        fb("bar_acc_" + bid, rect, z0, h, mat)
+
+    # ---- THE STREET LOBBY: what the outside leaves behind -----------
+    # Bill-posting: nobody asked, everybody does it, and the layers are
+    # the point -- three plies, each smaller and prouder of the wall.
+    for i, (py0, py1, pz, dep) in enumerate((
+            (-29.85, -29.05, 0.62, 0.010),
+            (-29.72, -29.20, 0.74, 0.017),
+            (-29.60, -29.32, 0.96, 0.024))):
+        acc("bill%d" % i, (ACC_E - dep, py0, ACC_E, py1), pz, 0.62,
+            "paper")
+    # An umbrella stand nobody empties, and the drip ring under it.
+    acc("umb_stand", (5.46, -28.86, 5.74, -28.58), 0.01, 0.52,
+        "cast_iron")
+    acc("umb_ring", (5.40, -28.92, 5.80, -28.52), 0.005, 0.006,
+        "soot")
+    # Bundled newspapers, tied, waiting for a collection that is late.
+    for i, bz in enumerate((0.01, 0.13)):
+        acc("news%d" % i, (5.34, -29.98, 5.86, -29.62), bz, 0.12,
+            "paper")
+    acc("news_twine", (5.52, -29.98, 5.60, -29.62), 0.01, 0.25,
+        "linen")
+
+    # ---- THE FLIGHT: wall layers and flat litter only ---------------
+    # Painted-over signage: an older tenant's name under the teal, the
+    # paint too thin to hide it.
+    acc("ghost_sign", (ACC_E - 0.008, -31.30, ACC_E, -30.42), -0.62,
+        0.46, "wallpaper_old")
+    # A dead neon fragment on its bracket -- the tube long gone, the
+    # transformer still bolted up, still cabled to nothing.
+    acc("neon_box", (5.62, -31.92, 5.86, -31.62), -0.95, 0.22,
+        "bakelite_black")
+    pipe("bar_acc_neon_flex", (5.74, -31.62, -0.86),
+         (5.74, -31.20, -0.74), 0.012, "rubber_aged")
+    # The building's own wiring, surface-run and added to in three
+    # different decades, which is why it is three different gauges.
+    for i, (cz, rad) in enumerate(((-0.30, 0.022), (-0.38, 0.014),
+                                    (-0.44, 0.009))):
+        pipe("bar_acc_cond%d" % i, (ACC_E - 0.05, -30.05, cz),
+             (ACC_E - 0.05, -33.70, cz - 2.10), rad, "metal")
+    # Litter on the treads. Flat, east side, never in the lane: a
+    # flattened cup, a handbill somebody dropped coming down, a bottle
+    # cap trodden into the tile.
+    for i, (ly, lx0, lw, lm) in enumerate((
+            (-30.62, 5.44, 0.16, "paper"),
+            (-31.34, 5.58, 0.11, "metal"),
+            (-32.08, 5.36, 0.22, "paper"),
+            (-32.71, 5.62, 0.09, "metal"),
+            (-33.30, 5.40, 0.19, "paper"))):
+        _top = -0.175 * (int((-30.00 - ly) / 0.27) + 1)
+        acc("litter%d" % i, (lx0, ly - lw * 0.5, lx0 + lw,
+                             ly + lw * 0.5), _top, 0.006, lm)
+
+    # ---- THE FOOT: where the bar puts what it cannot throw out ------
+    # Empty crates, stacked two high and one askew, because the last
+    # person carrying them was tired.
+    for i, (cy, cz, inset) in enumerate(((-35.34, FLR, 0.00),
+                                          (-34.92, FLR, 0.00),
+                                          (-35.28, FLR + 0.31, 0.06))):
+        acc("crate%d" % i, (ACC_W + inset, cy, ACC_E - inset,
+                            cy + 0.40), cz, 0.30, "timber")
+    # Bottles in the top crate, and two that never made it back.
+    for i, bx in enumerate((5.36, 5.48, 5.60, 5.72)):
+        acc("bott%d" % i, (bx, -35.22, bx + 0.07, -35.15),
+            FLR + 0.61, 0.26, "glassish")
+    for i, (bx, by) in enumerate(((5.33, -34.80), (5.41, -34.68))):
+        acc("bottfell%d" % i, (bx, by, bx + 0.24, by + 0.07),
+            FLR, 0.07, "glassish")
+    # A rolled rug on end -- the one that used to be at the door, kept
+    # because it might do for the stage, standing against the lining.
+    pipe("bar_acc_rug_roll", (5.70, -34.34, FLR),
+         (5.66, -34.34, FLR + 1.32), 0.13, "rug_warm")
+    # Folded chairs, stacked flat, from a night that needed more seats.
+    for i in range(3):
+        acc("chair%d" % i, (ACC_W + 0.04, -34.06 - i * 0.015,
+                            ACC_E - 0.10, -33.62 - i * 0.015),
+            FLR + i * 0.055, 0.05, "timber")
+    # THE MOP AND BUCKET, which is the caretaker's and is the one object
+    # here that is not abandoned: it is waiting for the next shift, and
+    # it is the same tool the entropy proposal hands the player.
+    acc("bucket", (5.32, -35.72, 5.60, -35.44), FLR, 0.30,
+        "metal")
+    pipe("bar_acc_mop", (5.46, -35.58, FLR + 0.22),
+         (5.62, -35.58, FLR + 1.42), 0.017, "timber")
+    acc("mop_head", (5.40, -35.66, 5.54, -35.50), FLR + 0.20, 0.16,
+        "linen")
+    # A hand truck folded against the wall, and the maintenance tag on
+    # its handle that nobody has signed since the year before last.
+    acc("truck_bed", (5.56, -36.10, 5.86, -35.86), FLR, 0.05,
+        "cast_iron")
+    pipe("bar_acc_truck_frame", (5.71, -35.98, FLR),
+         (5.71, -36.06, FLR + 1.18), 0.020, "cast_iron")
+    acc("truck_tag", (5.66, -36.10, 5.78, -36.08), FLR + 1.02, 0.09,
+        "paper")
     # THE THRESHOLD HAD NO FLOOR. The room's slab stops at x 4.00 and
     # the vestibule's starts at 4.30, so the 30 cm of doorway between
     # them was a hole — and a body that will not walk over a hole stops
@@ -6258,6 +7176,11 @@ def retail_pass(fl):
             for r in bar_ceil:
                 nxt += subtract_rect([r], hole)
             bar_ceil = nxt
+    # The ceiling is holed over the well; its cut edges become the rim.
+    _ceil_cut = []
+    for _r in bar_ceil:
+        _ceil_cut += subtract_rect([_r], WELL)
+    bar_ceil = _ceil_cut
     for _i, _r in enumerate(bar_ceil):
         fb("bar_ceil%d" % _i, _r, -0.15, 0.43, "soot")
     fb("bar_wall_w", (RX0 - 0.30, RY0 - 0.30, RX0, RY1 + 0.05), -2.87,
@@ -6291,7 +7214,28 @@ def retail_pass(fl):
     # A step up, a railing of turned balusters, and banquettes round
     # low tables: the study's "friendlier" half, and the reason the bar
     # now has somewhere to sit that is not a stool.
-    LD_X0, LD_Y0, LD_Y1 = 1.80, -37.60, -32.00
+    # B3, OWNER OBJECTIVE 2026-08-16: the lounge was too crowded, and
+    # measurement said how badly. The deck was 2.20 m deep and its south
+    # half offered 2.65 m of east wall to two canonical arcade cabinets
+    # AND two banquettes -- 4.46 m of furniture wanting 2.65 m of wall,
+    # so the cabinet at -36.30 and banquette 0 interpenetrated, and the
+    # jukebox at (2.35, -37.35) stood inside table 0's footprint. None of
+    # it was caught because couch and jukebox assemblies carry no
+    # registered footprint, so the overlap audit cannot see them.
+    #
+    # The room is bought from the NORTH, not the west. Widening the deck
+    # westward was tried first and rejected by measurement: the deck's
+    # west edge at 1.80 is what leaves the crossing route from (1.50,
+    # -32.80) to the pool table walkable, and that crossing is the whole
+    # reason the room was widened in the first place on 2026-08-08. Any
+    # depth taken for the lounge comes straight out of the one thing the
+    # room already struggles to do, so the deck keeps its 2.20 m and
+    # grows 0.25 m north instead -- stopping at -31.75, which holds
+    # 0.35 m of clearance off the counter route at y -31.40.
+    #
+    # The real gain is not floor area, it is DENSITY: the south deck
+    # stops competing with itself.
+    LD_X0, LD_Y0, LD_Y1 = 1.80, -37.60, -31.75
     # NOTCHED AT THE DOOR. The deck used to run unbroken past the red
     # door, so you came in off the stair straight into a vertical 180 mm
     # lip across the whole width of the opening — and the controller has
@@ -6342,42 +7286,130 @@ def retail_pass(fl):
     # stayed blocked through a hinge fix, a swing fix, a threshold slab
     # and a notched deck. Furniture was the last thing anyone suspected
     # and the first thing standing there.
-    for i, (by, ln) in enumerate(((-37.20, 1.50), (-35.85, 1.40),
-                                  (-32.85, 1.30))):
+    # THE SOUTH DECK IS THE ARCADE CORNER AND THE NORTH DECK IS THE
+    # LOUNGE. They were fighting over one wall; now each has its own.
+    # The cabinets do not move -- "immediately left on entering" is the
+    # canonical placement and the corner is built around them instead of
+    # squeezed past them.
+    #
+    # Three banquettes on 3.00 m of north deck, and the third turned to
+    # face the other two across the tables: a conversation pit rather
+    # than a rank of seats staring at a wall, which is what the extra
+    # depth is for. Tables move west with the seating so the gap between
+    # a banquette's front and its own table is a place for knees rather
+    # than the 50 mm it measured before.
+    for i, (by, ln) in enumerate(((-33.30, 0.95), (-32.20, 0.95))):
         asm("bar_banq%d" % i, "couch", RX1 - 0.42, by, 270, z0=DECK,
             variant=i, L=ln)
-        fb("bar_btab%d" % i, (2.30, by - 0.42, 3.10, by + 0.42),
+        fb("bar_btab%d" % i, (2.05, by - 0.42, 2.85, by + 0.42),
            DECK + 0.38, 0.05, "wood_dark")
-        asm("bar_bmug%d" % i, "mug", 2.70, by + 0.10, 0, z0=DECK + 0.43)
+        asm("bar_bmug%d" % i, "mug", 2.45, by + 0.10, 0, z0=DECK + 0.43)
+    # The turned one, backed onto the new west edge, facing its
+    # neighbours over the tables.
+    # The third banquette turns to face the other two across the tables:
+    # a conversation pit instead of a rank of seats staring at a wall.
+    asm("bar_banq2", "couch", LD_X0 + 0.50, -32.75, 90, z0=DECK,
+        variant=2, L=1.00)
 
     # -- ARCADE CORNER, immediately left of the red door (canonical).
     # Still the first thing on your left, now standing on the deck.
     asm("bar_cab01", "arcade_cab", 3.55, -35.35, 270, z0=DECK, variant=0)
     asm("bar_cab02", "arcade_cab", 3.55, -36.30, 270, z0=DECK, variant=1)
-    asm("bar_jukebox", "jukebox", 2.35, -37.35, 180, z0=DECK)
+    # THE JUKEBOX GETS A WALL AND A CLEARANCE. It used to stand inside
+    # table 0's footprint -- an overlap nothing caught, because couch and
+    # jukebox assemblies carry no registered footprint and the overlap
+    # audit cannot see them. It now backs onto the deck's south end wall
+    # facing north up the lounge, with the two receivers on the east wall
+    # beside it and clear floor in front: visible the moment you come off
+    # the stair, approachable from three sides, blocking nothing. A local
+    # shrine, which is what was asked for, rather than a cabinet wedged
+    # behind a table.
+    asm("bar_jukebox", "jukebox", 2.85, -37.30, 0, z0=DECK)
 
     # -- BAR, north long wall: backbar / aisle / counter with red trim
+    # ============== B6: THE COUNTER AND THE BACKBAR ==================
+    # The commission wants the bar to be the room's hero. Ledger
+    # amendment A0.3 says how it is allowed to be grand in a Queens
+    # cellar in 1928: the fit-out is INHERITED, not commissioned -- the
+    # tenant took it out of a closed hotel bar, twenty years old on
+    # arrival, cut down to fit a room it was never drawn for.
+    #
+    # And A0.4 sets the price of every phase that adds fabric: it must
+    # say what it adds on the Japanese side in the same breath, because
+    # this room's identity is three objects and grandeur would erase it
+    # by arithmetic rather than by anyone deciding to.
+    #
+    # THE SALVAGED MIRROR GOES IN ONE BAY, NOT ACROSS THE BACK -- and
+    # this is the good constraint, not a compromise. The canonical
+    # crowded gallery runs the north wall from x -4.30 to 3.80, and a
+    # continuous mirror would erase eleven authored frames. The only bay
+    # the gallery does not reach is west of -4.30, so that is where the
+    # hotel's mirror ended up: it did not fit, and a room furnished from
+    # salvage is a room where things are where they fit. The rest of the
+    # backbar keeps the photographs as its back wall, which is a better
+    # bar anyway.
+    # HOW FAR WEST THE COUNTER MAY GO IS SET BY THE POOL TABLE, not by
+    # taste. A cue is 1.45 m and the room already ruled that a table you
+    # cannot stand back from is scenery, so shop_entry_test sweeps a lane
+    # off all four rails. Running the counter out to -6.00 was tried and
+    # took two of them: the north-rail lane (x -9.30..-5.60 at y -29.80)
+    # and the east-end lane (x -5.50) both pass through the counter's own
+    # depth. With the capsule at 0.33 the counter must start east of
+    # -5.17, so it starts at -5.10 and the cue keeps its swing.
+    BB_X0, BB_X1 = -5.10, 1.20         # the lengthened run, 6.30 m
     for bi, bz in enumerate((-1.60, -1.10, -0.65)):
-        fb("bar_bshelf%d" % bi, (-4.30, RY1 - 0.24, 0.90, RY1 - 0.02),
+        fb("bar_bshelf%d" % bi, (BB_X0, RY1 - 0.24, BB_X1, RY1 - 0.02),
            bz, 0.04, "timber")
-    for i, bx in enumerate((-3.9, -2.4, -0.9, 0.3)):
+    # The hotel mirror, in the one bay it fits, foxed and desilvering.
+    fb("bar_bmirror", (BB_X0 + 0.05, RY1 - 0.05, -4.38, RY1 - 0.02),
+       -1.54, 0.84, "mirror_aged")
+    fb("bar_bmirror_frame", (BB_X0, RY1 - 0.07, -4.30, RY1 - 0.02),
+       -1.62, 1.00, "oak_quartered")
+    for i, bx in enumerate((-3.9, -2.4, -0.9, 0.3, 0.9)):
         asm("bar_bott%d" % i, "bottles", bx, RY1 - 0.14, 180, z0=-1.56)
+    # THE BARRELS KEEP THE CENTRE, and now they stand on something.
+    # Two rope-bound sake barrels are the only Japanese object inside
+    # this room, and they were floating: pipes at z -0.72 with nothing
+    # under them, which Accord 11 forbids and nobody had noticed. They
+    # get the backbar's centre bay and a real shelf, so the axis of the
+    # hero object is theirs and the inherited mirror is off to one side.
+    # That is A0.4 answered in geometry rather than in prose.
+    fb("bar_barrel_shelf", (-3.55, RY1 - 0.30, -0.15, RY1 - 0.02),
+       -1.14, 0.06, "timber")
     for i, (b0, b1) in enumerate(((-3.40, -2.50), (-1.20, -0.30))):
         pipe("bar_barrel%d" % i, (b0, RY1 - 0.16, -0.72),
              (b1, RY1 - 0.16, -0.72), 0.36, "timber")
-    fb("bar_counter", (-4.30, -30.28, 0.90, -29.60), FLR, 1.02,
+        # the brewery's rope binding, and the plaited crown over it
+        for r, ry in enumerate((b0 + 0.14, (b0 + b1) * 0.5, b1 - 0.14)):
+            pipe("bar_barrel%d_rope%d" % (i, r),
+                 (ry, RY1 - 0.16, -1.06), (ry, RY1 - 0.16, -0.38),
+                 0.038, "linen")
+    # THE MASU SHELF. Square cedar cups, stacked in threes -- the thing
+    # a Japanese bar has that a hotel backbar never did, at the working
+    # end where the barman actually reaches.
+    fb("bar_masu_shelf", (0.05, RY1 - 0.26, 1.15, RY1 - 0.02),
+       -1.32, 0.04, "timber")
+    for i, mx in enumerate((0.14, 0.44, 0.74)):
+        for k in range(3):
+            fb("bar_masu%d_%d" % (i, k),
+               (mx, RY1 - 0.22, mx + 0.20, RY1 - 0.06),
+               -1.28 + k * 0.075, 0.07, "oak_quartered")
+    fb("bar_counter", (BB_X0, -30.28, BB_X1, -29.60), FLR, 1.02,
        "wood_dark")
-    fb("bar_counter_top", (-4.36, -30.34, 0.96, -29.54), -1.78, 0.06,
-       "countertop")
+    fb("bar_counter_top", (BB_X0 - 0.06, -30.34, BB_X1 + 0.06, -29.54),
+       -1.78, 0.06, "countertop")
     # the aggressive red trim, canonical
-    fb("bar_trim_front", (-4.36, -30.36, 0.96, -30.28), -1.92, 0.20,
-       "lacquer_red")
-    fb("bar_trim_ends_w", (-4.36, -30.36, -4.28, -29.54), -1.92, 0.20,
-       "lacquer_red")
-    pipe("bar_footrail", (-4.1, -30.55, -2.42), (0.7, -30.55, -2.42),
-         0.024, "brass")
-    fb("bar_canopy", (-4.45, -30.45, 1.05, -29.45), -0.98, 0.40,
-       "fabric_warm")
+    fb("bar_trim_front", (BB_X0 - 0.06, -30.36, BB_X1 + 0.06, -30.28),
+       -1.92, 0.20, "lacquer_red")
+    fb("bar_trim_ends_w", (BB_X0 - 0.06, -30.36, BB_X0 + 0.02, -29.54),
+       -1.92, 0.20, "lacquer_red")
+    pipe("bar_footrail", (BB_X0 + 0.20, -30.55, -2.42),
+         (BB_X1 - 0.20, -30.55, -2.42), 0.024, "brass")
+    # THE CANOPY GROWS IN PLAN AND ITS Z IS FROZEN. Its 1.76 m underside
+    # is the canonical low element of this room -- not the ceiling -- and
+    # is the one number here that may not move by a millimetre.
+    fb("bar_canopy", (BB_X0 - 0.15, -30.45, BB_X1 + 0.25, -29.45),
+       -0.98, 0.40, "fabric_warm")
     for eid, rect in (("f", (-4.45, -30.51, 1.05, -30.45)),
                       ("w", (-4.51, -30.51, -4.45, -29.45)),
                       ("e", (1.05, -30.51, 1.11, -29.45))):
@@ -6667,10 +7699,18 @@ def retail_pass(fl):
     # written for precisely this: a door that must not sweep whoever is
     # standing in the vestibule. It now parks along the room's east wall
     # and the shaft stays clear.
+    # THE RED DOOR IS FINALLY RED. `variant: 1` selects the battered red
+    # enamel added to DoorProp._build_service on 2026-08-16. The leaf is
+    # canonically "battered painted red steel" and Otomo's composition is
+    # teal offset by red, but _build_service painted every service leaf
+    # galvanized grey and ignored finish_variant, so the single warmest
+    # note at the bottom of the teal descent has been missing since the
+    # descent was built. No test caught it because no test asserts a
+    # colour. See docs/harukiya_reference_notes.md.
     mk.append({"kind": "door", "id": "F01_BAR_RED_DOOR",
                "pos": [4.15, -33.95, FLR], "yaw_deg": 90, "w": 0.90,
                "h": 2.05, "leaf": "closed", "swing": "out",
-               "exterior": True})
+               "finish_variant": 1, "exterior": True})
     # THE SONGBOOK TERMINAL. Wall-hung on the west side within sight of
     # the stage, chest height, facing back into the room — a rented
     # karaoke box, which is how every bar of this kind has one without
@@ -6729,14 +7769,39 @@ def retail_pass(fl):
     # each long wall, two on the stage. You read the room by the pools,
     # and the dark between them is the point.
     #
-    # Sixteen fixtures against LightRig's budget of fourteen: standing
-    # anywhere in the room the two that lose are the street lobby and
-    # the stair bulb, which are up the shaft behind you and correct to
-    # drop. That is the intended margin and not an accident.
+    # Sixteen fixtures against a budget that was fourteen when this was
+    # written: standing anywhere in the room the two that lost were the
+    # street lobby and the stair bulb, up the shaft behind you and
+    # correct to drop. (2026-08-16: the runtime budget is 64 now, so
+    # nothing in this room loses any more -- see TASKS L14. The margin
+    # reasoning is kept because it is still how to think about which
+    # fixture should lose if a budget ever binds again.)
     mk.append({"kind": "cage_bulb", "id": "F01_BAR_LT_LOBBY",
                "unit": "SITE", "pos": [4.875, -29.30, 2.30],
                "yaw_deg": 0, "network": "electrical", "range": 3.5,
                "energy": 0.46, "navigation": True, "standby": 0.35,
+               "exterior": True})
+    # THE WELL'S OWN LAMP (B4). Five metres of brick shaft opened over
+    # the table floor and nothing lit it, so the room got taller and the
+    # player could not tell. One caged bulb hung deep into it on a flex
+    # from the slab soffit: it grazes the upper brick so the height
+    # reads, and it hangs where nobody will ever change it, which is the
+    # good kind of unreachable.
+    #
+    # Obeys the doctrine rather than breaking it -- this is not a wash
+    # over the room, it is one small warm source you can point at, and
+    # the dark between it and the table pendants below is still the
+    # point. navigation:false deliberately: it is not a circulation
+    # light and nav weighting would have it outranking fixtures people
+    # actually stand under. Its z 1.60 sits well under the 3.80 m storey
+    # cliff, so it resolves to F01 with the rest of the room instead of
+    # going dark whenever the player is in the bar.
+    pipe("bar_well_flex", (-2.60, -33.40, WELL_UNDER),
+         (-2.60, -33.40, 1.66), 0.010, "rubber_aged")
+    mk.append({"kind": "cage_bulb", "id": "F01_BAR_LT_WELL",
+               "unit": "SITE", "pos": [-2.60, -33.40, 1.60],
+               "yaw_deg": 0, "network": "electrical",
+               "energy": 0.40, "navigation": False, "standby": 0.30,
                "exterior": True})
     mk.append({"kind": "cage_bulb", "id": "F01_BAR_LT_STAIR",
                "unit": "SITE", "pos": [5.30, -32.60, 0.55],
@@ -6784,6 +7849,16 @@ def retail_pass(fl):
     # puts the diffuser 0.685 m over the table — where a pendant hung
     # over people actually goes — and just above the eye line.
     for i, (tx, ty, _s) in enumerate(TABLES):
+        # A PENDANT IN THE WELL NEEDS A REAL DROP. pendant_shade builds a
+        # fixed 0.55 m cord from its marker, which was already floating
+        # 0.47 m under the old slab -- a defect nobody saw because the
+        # ceiling was dark and close. Over the well it would hang from
+        # five metres of nothing, so the two inside the shaft get a rod
+        # from the slab soffit down to the fitting. Accord 11: nothing
+        # floats, everything terminates.
+        if WELL_X0 < tx < WELL_X1 and WELL_Y0 < ty < WELL_Y1:
+            pipe("bar_tabrod%d" % i, (tx, ty, WELL_UNDER),
+                 (tx, ty, -0.62), 0.016, "metal")
         mk.append({"kind": "pendant_shade",
                    "id": "F01_BAR_LT_TAB%d" % i, "unit": "SITE",
                    "pos": [tx, ty, -0.62], "yaw_deg": 0,
@@ -6801,7 +7876,11 @@ def retail_pass(fl):
     # put a light over each end of the lounge instead of over its
     # midpoint. Facing back into the room (yaw 270) off the wall at
     # RX1 = 4.00.
-    for i, dy in enumerate((-36.60, -33.20)):
+    # B3 moved the lounge north to -31.75 and made the south deck the
+    # arcade corner, so the pair became a three: one over the corner's
+    # machines, one over each end of the lounge. Still "over the ends,
+    # never the midpoint" -- the doctrine, unchanged.
+    for i, dy in enumerate((-36.60, -33.20, -32.05)):
         mk.append({"kind": "sconce_globe", "id": "F01_BAR_LT_DECK%d" % i,
                    "unit": "SITE", "pos": [3.92, dy, -1.30],
                    "yaw_deg": 270, "network": "electrical", "range": 3.4,
@@ -7337,8 +8416,12 @@ def _validate_shop_interiors(layout):
     if actual != expected:
         problems.append("shop batch ownership expected %s, got %s" %
                         (sorted(expected), sorted(actual)))
-    if len(boxes) > 1300:
-        problems.append("shop static boxes %d exceed Passage cap 1300"
+    # Raised 1300 -> 1550 for the arcade reconstruction's V2 (2026-08-16):
+    # eleven rear rooms behind the borrowed lights added ~180 owned boxes
+    # (measured 1480 after). The alarm stays tight on purpose — V3 tenant
+    # differentiation raises it again deliberately or not at all.
+    if len(boxes) > 1550:
+        problems.append("shop static boxes %d exceed Passage cap 1550"
                         % len(boxes))
     if any(not fu.get("batch") for fu in furniture
            if str(fu.get("zone", "")) == "PASSAGE"):
