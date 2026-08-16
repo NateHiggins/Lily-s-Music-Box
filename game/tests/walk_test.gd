@@ -2264,6 +2264,9 @@ func _exhaust_fan_checks() -> void:
 	var max_meshes := 0
 	var duct_mouths := 0
 	var serviceable := true
+	var response_complete := 0
+	var response_rays := 0
+	var space := get_viewport().world_3d.direct_space_state
 	for child in root.get_children():
 		if child is ExhaustFanProp:
 			var fan := child as ExhaustFanProp
@@ -2276,6 +2279,32 @@ func _exhaust_fan_checks() -> void:
 			serviceable = serviceable \
 					and fan.get_node_or_null("ServicePlateReach") is Marker3D \
 					and fan.get_node_or_null("BeltGuardReach") is Marker3D
+			var running_before := fan.is_running()
+			var card: Dictionary = fan.interact(root.player)
+			var area := fan.get_node_or_null("BeltGuardInspection") as Area3D
+			if area != null and area.get_child_count() == 1 \
+					and area.get_child(0) is CollisionShape3D \
+					and fan._service_rattle.playing \
+					and fan.is_running() == running_before \
+					and card.get("card_id", "") == "exhaust_fan" \
+					and card.get("source_ids", []) == ["R037"] \
+					and str(card.get("condition", "")).contains(
+							"SERVICE ISOLATION REQUIRED"):
+				response_complete += 1
+				var target := (area.get_child(0) as CollisionShape3D).global_position
+				var front := -fan.global_transform.basis.z.normalized()
+				var origin := target + front * 0.80
+				origin.y = fan.global_position.y + 1.41
+				var ray := PhysicsRayQueryParameters3D.create(origin, target)
+				ray.collide_with_areas = true
+				var hit := space.intersect_ray(ray)
+				if not hit.is_empty() and hit.collider == area:
+					response_rays += 1
+				else:
+					print("ROOF FAN RAY MISS %s distance=%.3f hit=%s at=%s" % [
+							fan.name, origin.distance_to(target),
+							hit.collider.name if not hit.is_empty() else "CLEAR",
+							hit.position if not hit.is_empty() else Vector3.ZERO])
 	_check(fans.size() == 4 and ["V-A", "V-B", "V-C", "V-D"].all(
 			func(riser): return risers.has(riser)),
 			"four roof ventilators own the bathroom risers")
@@ -2285,6 +2314,8 @@ func _exhaust_fan_checks() -> void:
 	_check(fans.all(func(fan): return fan.global_position.y > 19.0),
 			"all ventilation motors remain on the roof")
 	_check(serviceable, "roof belt guards and service plates remain findable")
+	_check(response_complete == 4 and response_rays == 4,
+			"all four roof belt guards audibly refuse live service on a real ray")
 	_check(root.get_node_or_null("F04_B_EXHFAN_01") == null,
 			"4B no longer owns an anachronistic private extractor")
 
@@ -2328,6 +2359,9 @@ func _flue_breast_checks() -> void:
 	var ids_unchanged := true
 	var metadata_clean := true
 	var seated := true
+	var response_complete := 0
+	var response_rays := 0
+	var space := get_viewport().world_3d.direct_space_state
 	for child in root.get_children():
 		if child is FlueBreastProp:
 			var fitting := child as FlueBreastProp
@@ -2347,6 +2381,32 @@ func _flue_breast_checks() -> void:
 			var floor_y := float(root.layout.meta.levels.get(fid, 0.0))
 			var expected := GameBoot.b2g([10.0, 9.10, floor_y])
 			seated = seated and fitting.global_position.distance_to(expected) < 0.012
+			var cap_before := fitting._cap.transform
+			var card: Dictionary = fitting.interact(root.player)
+			var area := fitting.get_node_or_null("ThimbleInspection") as Area3D
+			if area != null and area.get_child_count() == 1 \
+					and area.get_child(0) is CollisionShape3D \
+					and fitting._inspection_tap.playing \
+					and fitting._cap.transform == cap_before \
+					and card.get("card_id", "") == "flue" \
+					and card.get("source_ids", []) == ["R039"] \
+					and str(card.get("condition", "")).contains(
+							"NO OPEN ROOM PATH"):
+				response_complete += 1
+				var target := (area.get_child(0) as CollisionShape3D).global_position
+				var front := -fitting.global_transform.basis.z.normalized()
+				var origin := target + front * 0.75
+				origin.y = floor_y + 1.41
+				var ray := PhysicsRayQueryParameters3D.create(origin, target)
+				ray.collide_with_areas = true
+				var hit := space.intersect_ray(ray)
+				if not hit.is_empty() and hit.collider == area:
+					response_rays += 1
+				else:
+					print("FLUE RAY MISS %s distance=%.3f hit=%s at=%s" % [
+							fitting.name, origin.distance_to(target),
+							hit.collider.name if not hit.is_empty() else "CLEAR",
+							hit.position if not hit.is_empty() else Vector3.ZERO])
 	_check(fittings.size() == 5,
 			"five C-stack bedrooms retain sealed chimney thimbles")
 	_check(ids_unchanged,
@@ -2357,6 +2417,8 @@ func _flue_breast_checks() -> void:
 	_check(max_meshes <= 3 and total_meshes <= 15,
 			"sealed thimbles stay at three meshes each / 15 total (%d / %d)" %
 			[max_meshes, total_meshes])
+	_check(response_complete == 5 and response_rays == 5,
+			"all five sealed thimbles answer without pretending masonry opens")
 	if not fittings.is_empty():
 		var cap := fittings[0].get_node_or_null("ClosurePlate") as Node3D
 		fittings[0].set_knock_pose(0.0)

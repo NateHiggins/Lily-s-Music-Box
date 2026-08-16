@@ -19,6 +19,7 @@ var _cap: Node3D
 var _knock: AudioStreamPlayer3D
 var _draft: AudioStreamPlayer3D
 var _settle: Tween
+var _inspection_tap: AudioStreamPlayer3D
 
 
 func warehouse_variants() -> Array[Dictionary]:
@@ -96,6 +97,45 @@ func _build_visual() -> void:
 	_draft = make_emitter("hum_loop", -60.0, true)
 	_draft.pitch_scale = 0.35
 	_draft.max_distance = 10.0
+	_inspection_tap = make_emitter("tick", -21.0)
+	_inspection_tap.pitch_scale = 0.58
+
+
+## One shallow target covers the removable iron thimble only.  The surrounding
+## chimney breast remains masonry and never acquires a false opening verb.
+func _build_primary_interaction() -> void:
+	var area := Area3D.new()
+	area.name = "ThimbleInspection"
+	area.collision_layer = 1
+	area.collision_mask = 0
+	area.monitoring = false
+	area.monitorable = true
+	area.add_to_group("functional_interaction_areas")
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(0.44, 0.44, 0.18)
+	collision.shape = shape
+	collision.position = Vector3(0.0, CENTRE_Y, -0.14)
+	area.add_child(collision)
+	add_child(area)
+
+
+func interact_prompt() -> String:
+	return "[E]  Inspect sealed chimney thimble"
+
+
+func interact(_player: Node) -> Dictionary:
+	if _inspection_tap:
+		_inspection_tap.play()
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	return PropServiceWire.card("flue", {
+		"masonry_state": "PLASTER SEALED / SOOT BLOOM PRESENT",
+		"thimble_state": "CAST-IRON RINGS / CLOSURE SEATED",
+		"draft_state": "RESONANCE PRESENT / NO OPEN ROOM PATH",
+	})
 
 
 func _start_normal_function() -> void:

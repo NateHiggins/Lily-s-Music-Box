@@ -26,6 +26,7 @@ var _duct_emitters: Array[AudioStreamPlayer3D] = []
 var _rpm := 0.0
 var _target_rpm := 0.0
 var _motif_kick := 0.0
+var _service_rattle: AudioStreamPlayer3D
 
 
 func _build_visual() -> void:
@@ -82,7 +83,48 @@ func _build_visual() -> void:
 
 	_motor_hum = make_emitter("hum_loop", -80.0, false)
 	_motor_hum.pitch_scale = _base_pitch()
+	_service_rattle = make_emitter("tick", -17.0)
+	_service_rattle.pitch_scale = 0.68
 	_build_duct_emitters()
+
+
+## Service is intentionally refused at the existing belt-guard anchor, not at
+## the moving rotor or the inaccessible rain cap.  The automatic cycle remains
+## the only ordinary owner of motor state.
+func _build_primary_interaction() -> void:
+	var area := Area3D.new()
+	area.name = "BeltGuardInspection"
+	area.collision_layer = 1
+	area.collision_mask = 0
+	area.monitoring = false
+	area.monitorable = true
+	area.add_to_group("functional_interaction_areas")
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(0.24, 0.44, 0.18)
+	collision.shape = shape
+	collision.position = Vector3(0.31, 0.42, -0.18)
+	area.add_child(collision)
+	add_child(area)
+
+
+func interact_prompt() -> String:
+	return "[E]  Try guarded roof ventilator"
+
+
+func interact(_player: Node) -> Dictionary:
+	if _service_rattle:
+		_service_rattle.play()
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	return PropServiceWire.card("exhaust_fan", {
+		"guard_state": "BELT CASE FAST / FAN GUARD IN PLACE",
+		"motor_state": "RUNNING ON AUTOMATIC CYCLE" if is_running() \
+				else "BETWEEN AUTOMATIC CYCLES",
+		"access_state": "SERVICE ISOLATION REQUIRED / DO NOT OPEN LIVE",
+	})
 
 
 func _build_rotor() -> void:

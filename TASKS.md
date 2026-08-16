@@ -1041,6 +1041,14 @@ it.
     collisions on glazing, fittings, letters or cresting. Its iron tap and
     R028 card report the rain-shedding prismatic tray, seated returns/tie rods
     and fixed two-lamp/fascia-wash arrangement without adding a light switch.
+    Roof service now respects its existing endpoints. Each of the four central
+    ventilators refuses at its named belt guard with a casing rattle, live/idle
+    automatic-cycle state and an isolation requirement; E never starts or
+    stops the motor, and rotors/rain caps remain ambient. Each of the five
+    C-stack chimney breasts answers only at its removable iron thimble, reports
+    sealed plaster/rings/resonance, and leaves both masonry and the
+    Conductor-owned three-millimetre knock pose untouched. R037/R039 source the
+    two families and production rays prove all nine authored endpoints.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street
