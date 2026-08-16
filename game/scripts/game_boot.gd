@@ -35,6 +35,13 @@ var settings := {
 	# Accessibility: later case profiles may allow a sudden sleep attack, but
 	# this forces the same legible gradual warning Mina teaches first.
 	"always_warn_before_sleep": false,
+	# Accessibility: writes each hazard tell on screen as its cue and one of
+	# eight sectors relative to the player's facing. Never a distance or a
+	# room name -- a caption player must get what the ear gets and no more,
+	# or the light decision the dream is built on stops costing anything.
+	# Off by default: the mix already carries this, and the dream's grammar
+	# is listening.
+	"dream_directional_captions": false,
 	# Measured once by the Songbook's clap check and kept for good.
 	# _load_settings only reads keys that already exist here, so a
 	# setting absent from this dict is a setting that never persists.

@@ -14,10 +14,12 @@ a dream request only after integration, and returns from the current test dream
 stub to the authored 4B bedside. The wake applies one persistent factual
 refrigerator caption.
 
-N4 supplies the production campaign boundary and a reconstruction-only
-DreamMazeRoot payload. N5 supplies protected, saved gradual onset and is the
-sole production entry caller. There is still no playable dream geometry,
-pursuit or hazard.
+N4 supplies the production campaign boundary and the DreamMazeRoot payload.
+N5 supplies protected, saved gradual onset and is the sole production entry
+caller. N6 added assembled maze geometry and the Tenant; N7 added the three
+endings — capture, the authored run ceiling, and hazards — behind one latched
+outcome funnel. What the dream still lacks is presentation: caption display,
+the production WorldEnvironment, and a beauty pass.
 
 ## Authority by owner
 

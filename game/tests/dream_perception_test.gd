@@ -17,6 +17,7 @@ extends Node
 ##      actually in, from any facing
 ##   H. the three cues are mutually distinguishable, and the perception
 ##      channel is measured for what it leaks
+##   I. the on-screen caption is opt-in, and says only what the ear says
 ##
 ## Nothing here reads the plan, a socket or a module id when judging what a
 ## player could know. It reads DreamHazardField.perception_log and nothing
@@ -26,7 +27,7 @@ const SEED_HEX := "f123456789abcdef"
 const PROFILE := "mina_release_print"
 const CASE := "mina_caption_crisis"
 const TRIALS := 20
-const EXPECTED_CHECKS := 15
+const EXPECTED_CHECKS := 19
 const DT := 1.0 / 120.0
 const RUN_SPEED := 4.6
 
@@ -48,6 +49,7 @@ func _ready() -> void:
 	_block_f_approaches()
 	_block_g_bearings()
 	_block_h_channel()
+	_block_i_captions()
 	_print_report()
 	if checks != EXPECTED_CHECKS:
 		failures += 1
@@ -373,6 +375,51 @@ func _channel_leaks_nothing() -> bool:
 		if not row.has("sector") or str(row.sector).is_empty():
 			return false
 		if row.has("module") or row.has("position") or row.has("distance_m"):
+			return false
+	return true
+
+
+# --- I: the caption a player can actually read ------------------------
+
+func _block_i_captions() -> void:
+	var layer: DreamCaptionLayer = root.captions
+	_check("the dream carries a caption layer wired to the hazard field",
+			layer != null and root.hazards.tell_started.is_connected(
+					layer._on_tell))
+	_check("directional captions are OFF until a player asks for them",
+			DreamCaptionLayer.SETTING_KEY in GameBoot.settings
+			and not bool(GameBoot.settings[DreamCaptionLayer.SETTING_KEY])
+			and not layer.enabled)
+
+	# Turn it on and drive the real signal path, not a private method.
+	layer.enabled = true
+	for row in root.hazards.perception_log:
+		layer._on_tell(str(row.hazard_id), float(row.bearing_deg),
+				str(row.caption))
+	var lines: Array[String] = []
+	for child in layer._rows.get_children():
+		lines.append((child as Label).text)
+	_check("every line is a cue and a sector, and nothing else",
+			not lines.is_empty() and _lines_are_clean(lines))
+	_check("the screen never fills past what a player can read",
+			lines.size() <= DreamCaptionLayer.MAX_LINES)
+	_end_block("I", 19)
+
+
+## A caption player must get what the ear gets and no more. A distance or a
+## room name here would hand them a map a hearing player never receives --
+## an advantage, not an accommodation, and it would make the lamp free.
+func _lines_are_clean(lines: Array[String]) -> bool:
+	const SECTORS := ["AHEAD", "AHEAD RIGHT", "RIGHT", "BEHIND RIGHT",
+			"BEHIND", "BEHIND LEFT", "LEFT", "AHEAD LEFT"]
+	for line in lines:
+		for ch in line:
+			if ch.is_valid_int():
+				return false
+		if line.contains("D0") or line.contains(" m"):
+			return false
+		var parts := line.split(" — ")
+		if parts.size() != 2 or not SECTORS.has(parts[1]):
 			return false
 	return true
 

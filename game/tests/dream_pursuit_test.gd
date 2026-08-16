@@ -457,14 +457,25 @@ func _reload_restores_at_d00() -> bool:
 	RealityState.load_game()
 	await _spawn_shell()
 	var live := shell.active_world as DreamMazeRoot
-	return shell.world_kind() == "dream" \
-			and shell.dream_director.phase() == "active" \
-			and live != null and live.maze_built \
-			and live.player.position.distance_to(live.start_marker.position) \
-					< 0.35 \
-			and Vector3(live.plan.spawn_pursuer[0], 0.0,
-					live.plan.spawn_pursuer[1]).distance_to(
-					live.pursuer.position) < 0.35
+	if shell.world_kind() != "dream" \
+			or shell.dream_director.phase() != "active" \
+			or live == null or not live.maze_built \
+			or live.player.position.distance_to(
+					live.start_marker.position) >= 0.35:
+		return false
+	# The restored world is live the moment it enters the tree, so the Tenant
+	# is already walking while these frames pass. A fixed 0.35 m window was
+	# therefore a race against how long the reload took. Bound the drift by
+	# the pursuer's OWN clock instead: a reconstruction can only have moved
+	# as far as it has had time to walk, whereas a restored chase frame would
+	# be metres away with elapsed_s still at zero.
+	var params := live.pursuer.run_parameters()
+	var top: float = maxf(float(params.lit_speed_mps),
+			float(params.dark_speed_mps))
+	var allowance: float = 0.35 + live.pursuer.elapsed_s * top
+	return Vector3(live.plan.spawn_pursuer[0], 0.0,
+			live.plan.spawn_pursuer[1]).distance_to(
+			live.pursuer.position) < allowance
 
 
 func _seed_completed_shift() -> void:

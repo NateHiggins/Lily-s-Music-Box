@@ -36,6 +36,9 @@ var hazards: DreamHazardField
 ## Kept so a harness can re-arm the field for a fresh trial without
 ## reloading the profile or rebuilding the world.
 var profile_hazards: Dictionary = {}
+## Accessibility text for the hazard tells. Present always, silent unless the
+## player has turned the setting on.
+var captions: DreamCaptionLayer
 var maze_built := false
 
 
@@ -99,6 +102,10 @@ func _build_world() -> void:
 	hazards = DreamHazardField.new()
 	profile_hazards = profile.get("hazards", {})
 	hazards.setup(plan, profile_hazards, player)
+	captions = DreamCaptionLayer.new()
+	captions.name = "DreamCaptionLayer"
+	add_child(captions)
+	captions.listen_to(hazards)
 
 
 func _physics_process(delta: float) -> void:
