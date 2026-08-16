@@ -457,9 +457,23 @@ func _ready() -> void:
 	add_child(light_rig)
 	if GameBoot.launch_mode == GameBoot.LaunchMode.CINEMATIC \
 			and int(GameBoot.settings.get("quality", 0)) == 0:
-		# Maximum GL Compatibility profile. Sixteen is the renderer's actual
-		# per-object ceiling, so requesting more would only reshuffle winners.
-		light_rig.set_budgets(16, 16)
+		# SIXTY-FOUR LIGHTS, SIXTEEN SHADOWS (owner direction 2026-08-16).
+		#
+		# This said sixteen, justified as "the renderer's actual per-object
+		# ceiling, so requesting more would only reshuffle winners". That
+		# ceiling became 128 when project.godot was raised, and the budget
+		# was never re-derived — partly because the documented LIGHT_BUDGET
+		# sweep silently no-opped against this very call (see TASKS P8a).
+		# With the sweep repaired, measurement said extra lights are free at
+		# every station except the light court, which charged ~3 ms from 16
+		# to 64 because it sees seven storeys of fixtures at once. The court
+		# has since had its lantern count halved (atrium_tree, sixteen
+		# "fruit" to eight composed brackets), which is what pays for this.
+		#
+		# Shadows stay at sixteen and are a different currency: the
+		# positional atlas is a fixed 8192 that subdivides per caster, so
+		# raising this number makes every shadow smaller. See TASKS L13.
+		light_rig.set_budgets(64, 16)
 	else:
 		# Known-safe development profile retained from the live debug controls.
 		light_rig.set_budgets(14, 8)

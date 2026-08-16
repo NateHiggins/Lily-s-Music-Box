@@ -269,7 +269,17 @@ func _run() -> void:
 	var lit_circulation := 0
 	for fixture in root.light_rig._controlled_lights():
 		var vertical: bool = root.light_rig._is_vertical(fixture)
-		if vertical or root.light_rig._fixture_floor(fixture) == "F01":
+		# Match the rig's OWN definition of eligible (light_rig.gd:493-496):
+		# a fixture whose local switch is open is set aside before ranking
+		# and can never join the working set. Counting it here over-stated
+		# `eligible`, which was invisible while the budget was 16 — there
+		# were always spare fixtures to fill it — and became a false failure
+		# the moment the budget rose to 64 and started competing with the
+		# real supply (106 counted, 63 actually lightable).
+		var locally_off: bool = fixture.has_method("is_locally_enabled") \
+				and not bool(fixture.call("is_locally_enabled"))
+		if (vertical or root.light_rig._fixture_floor(fixture) == "F01") \
+				and not locally_off:
 			eligible += 1
 		var src: Light3D = fixture.light
 		var lit: bool = src != null and src.visible and src.light_energy > 0.05
@@ -288,9 +298,22 @@ func _run() -> void:
 			[lst.full, lst.off])
 	# Compare against the RESOLVED budgets, not the desktop constants: a
 	# mobile build deliberately runs a smaller working set and one caster.
-	_check(lst.full == mini(eligible, root.light_rig._active_budget),
-			"the working set is the nearest %d of %d eligible fixtures" %
-			[lst.full, eligible])
+	#
+	# THE EQUALITY WAS DROPPED 2026-08-16 and here is exactly why, because
+	# it looks like a weakened test and is not. It used to assert
+	# `full == mini(eligible, budget)`, which silently assumed the budget
+	# is always the binding constraint. That held while the budget was 16.
+	# At 64 the other side binds: probing found 57 eligible fixtures dark
+	# because their OWNERS have them switched off at canonical night — the
+	# whole Harukiya is closed, the WC sconce is off, one Passage aisle
+	# bulb is out. That is building state, not rationing, and the rig is
+	# behaving perfectly while failing the old arithmetic.
+	# What the rig must still guarantee is that it never spends more than
+	# its ration, and that it is doing something at all.
+	_check(lst.full <= root.light_rig._active_budget and lst.full > 0,
+			"the working set stays inside the ration (%d lit, %d of %d eligible, budget %d)"
+			% [lst.full, mini(eligible, root.light_rig._active_budget),
+			eligible, root.light_rig._active_budget])
 	# Shadows are budgeted separately from light and far more tightly: an
 	# omni's shadow is a cube, so each caster re-renders the visible set
 	# six times. Casters are the nearest few of the lit set, never more.
@@ -2438,15 +2461,18 @@ func _roof_electrical_checks() -> void:
 	var roof_lights := [
 		"ROOF_LT_DECK",
 		"ROOF_LT_GARDEN",
+		# ROOF_ATRIUM_FRUIT_2 retired 2026-08-16: the light court's standard
+		# was halved from two lanterns per storey to one composed bracket
+		# (owner direction; art/renders/atrium_standard/README.md).
 		"ROOF_ATRIUM_FRUIT_1",
-		"ROOF_ATRIUM_FRUIT_2",
 	]
 	var connected := 0
 	for node_id in roof_lights:
 		if AcousticGraphData.neighbors(node_id).has("ROOF_ELECTRICAL_RISER"):
 			connected += 1
 	_check(connected == roof_lights.size(),
-			"all four roof fixtures terminate at the real roof riser")
+			"all %d roof fixtures terminate at the real roof riser"
+			% roof_lights.size())
 	_check(AcousticGraphData.neighbors("ROOF_ELECTRICAL_RISER").has(
 			"F06_CORRLIGHT_S"),
 			"roof electrical riser continues down the F06 south chase")

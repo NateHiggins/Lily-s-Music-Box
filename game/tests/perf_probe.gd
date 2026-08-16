@@ -11,7 +11,24 @@ extends Node
 ## them. Exit code is the number of stations over budget.
 
 const FRAME_BUDGET_MS := 16.6
-const PINNED_LIGHT_BUDGET := 16
+## PINNED TO WHAT SHIPS, and it must be kept that way.
+##
+## The pin exists so before/after pairs are comparable, and it was set to
+## 16 because production was 16. Production became 64 on 2026-08-16 (owner
+## direction; see building_root's set_budgets and TASKS P8), and a pin that
+## no longer tracks production stops measuring the game and starts
+## measuring a configuration nobody plays — the more dangerous failure,
+## because it still produces confident numbers.
+##
+## **Tables recorded before 2026-08-16 ran at 16/16 and are NOT directly
+## comparable to anything measured after it.** Same discipline as the
+## DAYTIME vs canonical-pinned-night split already recorded in
+## design/FINAL_MAP_REDESIGN_BRIEF.md — state the budget in every table.
+## To reproduce a historical figure, sweep it back: LIGHT_BUDGET=16.
+const PINNED_LIGHT_BUDGET := 64
+## Shadows are a separate and still-scarce currency: the positional atlas
+## is a fixed 8192 that subdivides per caster, so raising this shrinks
+## every shadow in the frame. It stays at sixteen. See TASKS L13.
 const PINNED_SHADOW_BUDGET := 16
 const WARMUP := 30
 const SAMPLES := 90
