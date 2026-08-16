@@ -3220,8 +3220,11 @@ func _shop_static_checks() -> void:
 		var eid := String(entry.get("id", ""))
 		if eid.ends_with("_ledger") or eid.ends_with("_book"):
 			ledgers += 1
-	_check(owned_records.size() <= 1300 and batches.size() == 11,
-			"eleven owned shop batches stay below 1300 records (%d)"
+	# 1300 -> 1550 for the arcade reconstruction's V2 rear rooms
+	# (2026-08-16, ~180 boxes across eleven shops); the generator's
+	# _validate_shop_interiors alarm moved in step.
+	_check(owned_records.size() <= 1550 and batches.size() == 11,
+			"eleven owned shop batches stay below 1550 records (%d)"
 			% owned_records.size())
 	_check(unbatched_passage == 0,
 			"every Passage geometry record retains an explicit render batch")
@@ -3239,16 +3242,18 @@ func _shop_static_checks() -> void:
 	var imported_batches := {}
 	for mesh in shop_meshes:
 		var size := mesh.get_aabb().size
-		# The laundry's articulated metal family is the widest legitimate
-		# bucket at 8.12 m.  Nine metres still stays local to one seven-metre
-		# shop bay and is nowhere near the former 220 x 148 m floor batch.
-		local_aabbs = local_aabbs and size.x <= 9.0 and size.z <= 9.0
+		# The widest legitimate bucket is now a shop plus its V2 rear
+		# room: service-doorway soot to aisle fascia measures 10.24 m
+		# (probed 2026-08-16, five families between 10.18 and 10.24).
+		# Ten and a half metres still stays local to one bay and is
+		# nowhere near the former 220 x 148 m floor batch.
+		local_aabbs = local_aabbs and size.x <= 10.5 and size.z <= 10.5
 		for batch in batches:
 			if String(mesh.name).contains("retail_%s_" % batch):
 				imported_batches[batch] = true
 	_check(imported_batches.size() == 11 \
 			and shop_meshes.size() >= material_buckets.size() \
-			and shop_meshes.size() <= 280,
+			and shop_meshes.size() <= 310,
 			"shop geometry imports as bounded local material buckets (%d meshes)"
 			% shop_meshes.size())
 	_check(local_aabbs,

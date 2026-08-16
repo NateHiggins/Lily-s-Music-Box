@@ -552,8 +552,16 @@ are two answers to the same problem and only this one is built.
   `gen_layout.py` hunks + regenerated JSON/GLBs are HELD uncommitted pending
   the parallel session's in-flight W1 street wall in the same file (never
   publish another lane's WIP); commit V1 code immediately after W1 lands.
-  Next: V2 shops-as-real-rooms, V3 storefront families + daylight exterior
-  review, V4 lighting hierarchy, V5 use/aging, V6 abnormalities + perf.
+  **V2 (the rooms behind) is BUILT and verified locally** (2026-08-16):
+  eleven rear stock rooms + borrowed lights over every back wall, the
+  funeral chapel with parted drapes and chancel rail, service vestibules
+  with real light-falloff darkness; battery + WalkTest FULL PASS,
+  northbound 13.20 ms; content alarms deliberately raised (1300→1550
+  records, AABB gate 9.0→10.5, mesh cap 280→310) with measurements in the
+  comments. Record: `art/renders/vantry_arcade_v2/README.md`. V2 generator
+  hunks (gen_layout.py + shop_interiors.py) join the V1 hold. Next: V3
+  storefront families + daylight exterior review, V4 lighting hierarchy,
+  V5 use/aging, V6 abnormalities + perf reconciliation.
 
 ## F — Film (projectors instead of televisions)
 
