@@ -54,6 +54,9 @@ var _read_t := 0.0
 ## a found trace and landing on a review screen for a take you never made is
 ## the machine claiming you sang something you did not.
 var _read_from_old := false
+## TASKS.md G1a: true while READING plays a found trace through the guessing
+## reader; false while it plays the take's immutable composite reconstruction.
+var _read_is_trace := true
 var _rendered: Dictionary = {}
 
 
@@ -425,19 +428,23 @@ func _read_found(trace_id: String) -> void:
 	_line("nobody alive remembers singing this.", GREEN_DIM, 15)
 
 
-## Read the trace. NOT playback - the machine never held a recording, only a
-## line in soot, and what comes out is that line interpreted. It does not know
-## how fast the crank was turned, so it guesses, and the guess is drawn fresh
-## every time. Somebody reading their own take twice can hear two different
-## people, which is exactly what happened to Scott in 2008.
+## Read a FOUND trace. NOT playback - the machine never held a recording, only
+## a line in soot, and what comes out is that line interpreted. It does not
+## know how fast the crank was turned, so it guesses, and the guess is drawn
+## fresh every time. Somebody reading the same trace twice can hear two
+## different people, which is exactly what happened to Scott in 2008.
+## TASKS.md G1a: this guessing reader serves found traces ONLY - the player's
+## own take auditions through _read_back_take(), the immutable reconstruction.
 func _read_back() -> void:
 	mode = Mode.READING
 	_read_t = 0.0
 	_read_from_old = false
+	_read_is_trace = true
 	if _reader == null:
 		_reader = AudioStreamPlayer.new()
 		add_child(_reader)
 	_reader.stream = _take
+	_reader.volume_db = 0.0
 	_read_speed = PhonautogramReader.attach_stream(_reader, "take_%d" % Time.get_ticks_msec())
 	_reader.play()
 
@@ -461,12 +468,65 @@ func _read_back() -> void:
 	_status.text = "any key to lift the stylus."
 
 
+## TASKS.md G1b: READ IT BACK auditions the same composite reconstruction
+## recipients get - the stable backing plus the recorded vocal, both varisped
+## together at the song's one immutable ratio. No fresh guess, no wow, no
+## skips: every reading of a version agrees with every other, which is the
+## entire difference between a published version and a found trace. The dry
+## mic stem stays local (it is assembly material, never the shared artifact),
+## and per G1c the review is non-positional at the machine.
+func _read_back_take() -> void:
+	mode = Mode.READING
+	_read_t = 0.0
+	_read_from_old = false
+	_read_is_trace = false
+	if _rendered.is_empty():
+		_rendered = SongSynth.render()
+	BarPA.ensure_bus()
+	if _reader == null:
+		_reader = AudioStreamPlayer.new()
+		add_child(_reader)
+	if _backing == null:
+		_backing = AudioStreamPlayer.new()
+		add_child(_backing)
+	var ratio := song.return_ratio
+	_read_speed = ratio
+	_backing.stream = _rendered["backing"]
+	_backing.bus = BarPA.BUS
+	_backing.pitch_scale = ratio
+	_reader.stream = _take
+	_reader.bus = BarPA.BUS
+	_reader.volume_db = 0.0
+	_reader.pitch_scale = ratio
+	_backing.play()
+	_reader.play()
+
+	_clear()
+	_line("", GREEN)
+	_line("THE RECONSTRUCTION.", GREEN, 22)
+	_line("", GREEN, 8)
+	_line("the machine reads the whole take back too fast.", GREEN_DIM, 15)
+	_line("the same amount every time. it does not guess.", GREEN_DIM, 15)
+	_line("", GREEN, 10)
+	_line("this is what everyone else hears.", GREEN_DIM, 15)
+	_status.text = "any key to lift the stylus."
+
+
 func _stop_reading() -> void:
 	if _reader:
 		_reader.stop()
+		_reader.pitch_scale = 1.0
+		_reader.volume_db = 0.0
+	if _backing and not _read_is_trace:
+		_backing.stop()
+		_backing.pitch_scale = 1.0
 	if _read_from_old:
 		_take = null      # it was never yours; do not offer to keep it
 		_show_old()
+	elif mode == Mode.READING:
+		# Lifting the stylus on your own take returns you to its review -
+		# the reading used to strand the panel in READING with no way back.
+		_show_review()
 	else:
 		_show_review()
 
@@ -518,7 +578,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			elif key == KEY_3:
 				_show_menu()
 			elif key == KEY_4 and _take != null:
-				_read_back()
+				_read_back_take()
 		Mode.READING:
 			_stop_reading()
 
@@ -526,13 +586,21 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if mode == Mode.READING:
 		_read_t += delta
-		if _reader and _reader.playing:
-			PhonautogramReader.wow_stream(_reader, _read_speed, _read_t)
-			# A skip is SILENT, not quiet: the bristle lifted and nothing was
-			# written, so there is nothing there to make quieter.
-			_reader.volume_db = -60.0 if PhonautogramReader.skipped(_read_t) else 0.0
-		elif _reader and not _reader.playing:
-			_stop_reading()
+		if _read_is_trace:
+			if _reader and _reader.playing:
+				PhonautogramReader.wow_stream(_reader, _read_speed, _read_t)
+				# A skip is SILENT, not quiet: the bristle lifted and nothing
+				# was written, so there is nothing there to make quieter.
+				_reader.volume_db = -60.0 if PhonautogramReader.skipped(_read_t) else 0.0
+			elif _reader and not _reader.playing:
+				_stop_reading()
+		else:
+			# The composite reconstruction is stable by contract (G1a): no
+			# wow, no skips, no per-frame interference at all. Just wait for
+			# both halves of the take to run out.
+			if _reader and not _reader.playing \
+					and _backing and not _backing.playing:
+				_stop_reading()
 		return
 	if mode != Mode.PERFORM:
 		return

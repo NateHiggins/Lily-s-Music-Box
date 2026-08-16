@@ -24,6 +24,11 @@ var duration := 0.0
 var chords: Array = []
 var sections: Array = []       # [{name, start_time, end_time}]
 var slots: Array = []          # [{id, section, start_time, end_time, ...}]
+## TASKS.md G1a: the one too-fast varispeed every published version of this
+## song is reconstructed at. Tuned per song in data (Music Bible §5: ×1.335
+## is the center; two tracks are specced at ×1.414); always > 1.0 — the
+## documented 2008 error was a too-fast reading, never a slow one.
+var return_ratio := 1.335
 
 
 static func load_song(song_id: String) -> SongResource:
@@ -46,6 +51,7 @@ static func load_song(song_id: String) -> SongResource:
 	song.chords = data.get("chords", [])
 	song.sections = data.get("sections", [])
 	song.slots = data.get("phrase_slots", [])
+	song.return_ratio = maxf(1.001, float(data.get("return_ratio", 1.335)))
 	return song
 
 

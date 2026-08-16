@@ -53,6 +53,12 @@ static func save_version(song: SongResource, lyrics: Dictionary,
 		"strict_meter": strict_meter,
 		"created": Time.get_datetime_string_from_system(),
 		"vocal_stem": vocal_path,
+		# TASKS.md G1a: the version's one immutable too-fast reconstruction.
+		# Recipients hear base + vocal varisped together at exactly this
+		# ratio, every listen, forever. Never route a published version
+		# through PhonautogramReader.guess_speed() - the fresh-guess reader
+		# is a found-trace instrument.
+		"reconstruction_ratio": song.return_ratio,
 		"publish": publish,
 		# The brief scores culture, not pitch. These start at zero and
 		# are moved by other people, which is the whole idea.

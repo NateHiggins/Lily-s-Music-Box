@@ -132,6 +132,40 @@ func _run() -> void:
 	_check("a line the counter disliked is stored exactly as typed",
 			saved == long_line)
 
+	# ---- THE RECONSTRUCTION (TASKS.md G1a/G1b) ----------------------
+	# A kept version carries one immutable too-fast ratio, and READ IT
+	# BACK auditions the composite - backing and vocal varisped together
+	# at exactly that ratio, never through the guessing reader.
+	var kept: Dictionary = after[0]
+	var stored_ratio := float(kept.get("reconstruction_ratio", 0.0))
+	_check("a kept version stores one reconstruction_ratio > 1.0 (%0.3f)"
+			% stored_ratio, stored_ratio > 1.0)
+	_check("the stored ratio is the song's authored return (%0.3f)"
+			% song.return_ratio,
+			is_equal_approx(stored_ratio, song.return_ratio))
+
+	# A short silent take stands in for the mic the test rig lacks.
+	var fake := AudioStreamWAV.new()
+	fake.format = AudioStreamWAV.FORMAT_16_BITS
+	fake.mix_rate = 44100
+	fake.data = PackedByteArray()
+	fake.data.resize(44100)      # half a second of silence, 16-bit mono
+	panel._take = fake
+	panel._read_back_take()
+	_check("READ IT BACK plays the composite, not a fresh guess",
+			not panel._read_is_trace)
+	_check("the vocal rides at the immutable ratio",
+			is_equal_approx(panel._reader.pitch_scale, song.return_ratio))
+	_check("the backing rides at the same ratio",
+			panel._backing != null and is_equal_approx(
+			panel._backing.pitch_scale, song.return_ratio))
+	_check("both halves share one bus - the take is one artifact",
+			panel._reader.bus == panel._backing.bus)
+	panel._stop_reading()
+	_check("lifting the stylus returns to the take's review",
+			panel.mode == panel.Mode.REVIEW)
+	panel._take = null
+
 	# ---- LEAVING ----------------------------------------------------
 	panel.close()
 	await get_tree().process_frame

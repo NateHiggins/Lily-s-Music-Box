@@ -89,24 +89,15 @@ Ruled in `ORISON_BIBLE.md` VIII.5.g. Docs: `game/docs/arcade_cabinets.md`.
 Ruled in `ORISON_BIBLE.md` III.2. The Harukiya's machine is Scott de
 Martinville's 1857 phonautographe, and the prop is built.
 
-- **G1 OWNER CORRECTION — REWORK REQUIRED.** `ORISON_BIBLE.md` III.2 now
-  separates the native-speed instrumental catalogue from the player-made
-  version. The player performs to a varied, unsped backing; publishing sends
-  the complete take through one too-fast varispeed reconstruction, raising
-  tempo and pitch together with no formant correction. That nightcore/chipmunk
-  artifact is what other players hear.
-- **G1a CURRENT CODE IS NOT AUTHORITY.** `PhonautogramReader.GUESSES` rerolls
-  speed in both directions and labels `0.5x` as the 2008 error. First Sounds'
-  documented error was a too-fast reading (two vocal-scale playbacks were at
-  twice the correct speed). Replace random per-listen guessing for player-made
-  versions with one tuned `reconstruction_ratio > 1.0`, stored on the immutable
-  community version. Found traces may retain a separately authored unstable
-  reader; they do not define shared karaoke playback.
-- **G1b REWORK READ IT BACK.** The review option exists, but it currently reads
-  only the dry vocal through a fresh guess. It must audition the same composite
-  reconstruction recipients get: stable base backing plus the recorded vocal,
-  both varisped together. The clean mic stem may stay local for latency and
-  assembly; do not expose it as the shared artifact.
+- **G1 LOCAL CONTRACT LANDED 2026-08-15; the shared side remains.** The ruled
+  III.2 split is now enforced where it exists: `SongResource.return_ratio`
+  (data-tuned, > 1.0, default ×1.335), stored immutably as
+  `reconstruction_ratio` on every kept version, and READ IT BACK auditions the
+  composite recipients get — backing + vocal varisped together, no guess, no
+  wow, one bus (`SongbookTest` proves all of it). `PhonautogramReader`'s
+  fresh-guess reader now serves found traces only. What G1 still needs is the
+  cross-player delivery of versions — that is G2's reframe plus G6a's gates,
+  not more local playback work.
 - **G1c** Playback may be non-positional in the review UI and spatial when a
   community version is deliberately played in the room. An uncommanded voice
   is not evidence that the cylinder learned playback.
