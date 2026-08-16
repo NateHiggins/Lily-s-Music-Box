@@ -467,6 +467,11 @@ func _ready() -> void:
 	add_child(elevator)
 	elevator.setup(layout["elevator"])
 	resident_routines.bind_elevator(elevator)
+	# TASKS.md V4: give the routines the same floor nodes the visibility
+	# gate drives, so a resident who walks or rides to another storey is
+	# reparented to the floor they occupy instead of being culled with the
+	# one they left.
+	resident_routines.bind_floors(floor_nodes)
 	# The archetype timetables, driving the routines off the same clock
 	# the sky reads. Inert under DAYNIGHT=0 so the tests' canonical 03:00
 	# building keeps its exact pre-schedule behaviour.

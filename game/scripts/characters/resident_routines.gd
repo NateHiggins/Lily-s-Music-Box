@@ -281,6 +281,10 @@ var _layout: Dictionary = {}
 var _rng := RandomNumberGenerator.new()
 var _couch: Dictionary = {}     # unit -> sofa position
 var _tv: Dictionary = {}        # unit -> television position
+## floor_id -> the same floor Node3D the visibility gate shows and hides.
+## Empty until building_root calls bind_floors; everything degrades to the
+## old home-floor parenting without it (TASKS.md V4).
+var _floor_nodes: Dictionary = {}
 
 
 func build(layout: Dictionary, residents: Array) -> int:
@@ -351,6 +355,33 @@ func _validate_nav_when_settled() -> void:
 
 func bind_elevator(lift: OrisonElevator) -> void:
 	elevator = lift
+
+
+## TASKS.md V4: residents spawn under their HOME storey's floor node, and
+## nothing ever moved them, so anyone who walked or rode to another storey
+## was culled with the floor they left - visible through walls from the
+## right stairwell, invisible in the room they were actually standing in.
+## The fix is parental, not visual: bind the same floor_nodes dictionary the
+## visibility gate drives, and keep each actor under the storey it occupies.
+func bind_floors(nodes: Dictionary) -> void:
+	_floor_nodes = nodes
+
+
+func _keep_floor_parent(actor: Dictionary) -> void:
+	if _floor_nodes.is_empty() or nav == null:
+		return
+	var node: Node3D = actor.node
+	if not is_instance_valid(node) or not node.is_inside_tree():
+		return
+	var fid := nav.floor_at(node.global_position.y)
+	if fid == "" or not _floor_nodes.has(fid):
+		return
+	var want: Node = _floor_nodes[fid]
+	if node.get_parent() == want:
+		return
+	# Node.reparent keeps the global transform, so the walk continues from
+	# exactly where it was - only the culling ancestry changes.
+	node.reparent(want)
 
 
 ## The ScheduleDirector's hand. Stores the directive and hurries the
@@ -605,6 +636,7 @@ func _process(delta: float) -> void:
 	for actor in actors:
 		_step(actor, delta)
 		_yield_to_player(actor, delta)
+		_keep_floor_parent(actor)
 
 
 func _yield_to_player(actor: Dictionary, delta: float) -> void:

@@ -246,11 +246,6 @@ the specific defects behind it, and V1 is the revamp the owner asked for.
   exist at that instant. Props spawned, moved or possessed later are invisible
   to the graph, and the relink step will happily connect an island through a
   gap that closes afterwards.
-- **V4** Residents are parented to `floor_nodes[floor_id]` and **never
-  reparented**, so anyone who walks or rides to another storey is culled with
-  their HOME floor. Tests paper over it with `show_all_floors`
-  (`phone_light_shots.gd:24-26`). Every schedule that sends someone to a shop,
-  the bar or the roof exposes it.
 - **V5 DONE.** **Four shops sat outside the lateral stage boundary.** `STAGE_W`
   −20.10 / `STAGE_E` +20.60 against a parade running x −32.4..31.6 leaves
   laundry, cobbler, hardware and photo — **139 m² of fitted, lit interior** —
