@@ -83,10 +83,24 @@ starts at the D01 west end.
 ## Regression on the same source
 
 DreamPursuitTest 39/39 PASS; DreamBoundaryTest 36/36 PASS; CoreLoopTest
-PASS. GoldenLoopTest currently FAILS two K6 objective-title checks — this
-failure reproduces on clean origin/main with all N6 work stashed (verified
-by paired run 2026-08-15), predates N6, and is flagged as its own task; the
-prime suspect is the case-object interaction rework in `1f8faa0`.
+PASS. GoldenLoopTest failed two K6 objective-title checks at the time of
+this run — proven pre-existing by a paired run with all N6 work stashed
+(2026-08-15) and flagged as its own task.
+
+**RESOLVED 2026-08-16, and my attribution above was wrong.** I named
+`1f8faa0` as prime suspect; it is innocent. The culprit was `b318d84`
+("Adopt the service-wire telegram interface"), which taught
+`ObjectiveTracker` to prefix `"WORK ORDER / "` onto titles the job library
+already authors whole — so every heading stuttered on screen ("WORK ORDER
+/ WORK ORDER 001 — THE CHIRP"). `game/docs/core_loop.md` gives the tracker
+presentation and explicitly not authoring, so the production side was the
+wrong one and the test expectation was right. The same line had also been
+failing `MaintenanceJobTest`, a second suite nobody had connected to it.
+Fixed on `66a00f3`, merged here; GoldenLoopTest is 87/87 and green in this
+tree alongside the N6 work. The lesson worth keeping: I picked the suspect
+by recency and subject-matter plausibility rather than by bisecting, and
+the real culprit was a *styling* commit nobody would associate with case
+objectives.
 
 ## Reproduce
 

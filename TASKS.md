@@ -1149,6 +1149,27 @@ it.
 
 ## H — Housekeeping
 
+- **H20 PRESENTER SWEEP AFTER THE TELEGRAM RESTYLE — DONE 2026-08-16, one
+  nit left.** `b318d84` restyled several presenters in one pass and gave
+  `ObjectiveTracker` a fabricated `"WORK ORDER / "` prefix on titles the job
+  library already authors whole, which reddened GoldenLoopTest and
+  MaintenanceJobTest and shipped only because the restyle's own test asserted
+  the *font* and not the *text* (`service_set_test.gd:48`). Fixed on `66a00f3`.
+  Every other text path that commit touched has now been audited: the only
+  other `LABEL / VALUE` construction is `"PRESENT CONDITION / %s"` on a bare
+  state name in `functional_prop.gd`, which is the idiom used **correctly** —
+  a label added to a value, not to an already-labelled heading. No further
+  stutter bug exists. **The one open nit:** `service_set_prop.gd:85` composes
+  the modeled paper slip as `"WIRE %04d\n%s" % [n, title.to_upper().left(16)]`,
+  and 16 characters truncates "WORK ORDER 001 — THE CHIRP" to "WORK ORDER 001
+  —", trailing off on a dangling em-dash. Truncation on a narrow physical slip
+  is right; stopping on punctuation is not. Trim to the last word boundary, or
+  rule that the slip carries only the work-order number. Cosmetic, needs an
+  owner's eye on the rendered prop rather than a guess.
+  **The general lesson, worth more than the fix:** a styling commit reddened
+  two gameplay suites, and the first suspect (`1f8faa0`, chosen by recency and
+  subject-matter plausibility) was innocent. Bisect; do not profile the
+  commit list for likely-looking culprits.
 - **H2** **`C:\FPSengine01` is not a git repository.** The entire compiler side —
   the world compiler, the providers, the arcade catalog build, the texture
   validation — is unversioned files on disk. `git init` and a first commit.

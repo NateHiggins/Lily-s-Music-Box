@@ -80,6 +80,31 @@ python art/blender/scripts/build_orison.py
 #      C:\devkit\bin\godot.cmd                     <- prefer this
 #      ./Godot_v4.7.1-stable_win64_console.exe     <- repo root, gitignored
 C:/devkit/bin/godot.cmd --headless --path game --import
+```
+
+**RUN THAT IMPORT ONCE PER WORKTREE BEFORE ANY TEST, or you will debug a
+codebase that is not broken.** `.godot/` is gitignored, so a fresh
+`git worktree` has no global script-class cache. Every test scene then
+dies in a cascade that reads exactly like rot:
+
+```
+Parse Error: Identifier "ChirpHunt" / "PoltergeistLibrary" not declared
+Could not find type "PlayerController" / "WorkOrders" / "DoorProp"
+Failed to instantiate an autoload, script 'acoustic_graph.gd' does not
+    inherit from 'Node'
+```
+
+The run never reaches a single check and spams one `_process` error
+(~13k lines) until an external timeout kills it at exit 124. Nothing is
+wrong with the code. Do not debug those parse errors, and never judge a
+bug report "unreproducible" from this state — it is the single most
+convincing false negative in this repo. The import takes a couple of
+minutes and exits 0. Side effect on the shared tree: it writes ~51
+untracked `*.uid` files, which are NOT gitignored (the repo tracks `.uid`
+generally). Leave them; never `git add -A`.
+(Recorded 2026-08-16 from the parallel session that hit it.)
+
+```
 C:/devkit/bin/godot.cmd --headless --path game res://tests/WalkTest.tscn
 ```
 
@@ -288,8 +313,11 @@ acquisition, the real lamp owner gates pursuit (6.450 s on / 10.742 s off /
 10.600 s extinguished captures at the fixed seed, 0 route violations), and
 capture reaches `end_dream("capture")` through the shell. Record and frames:
 `art/renders/dream_pursuit_n6/README.md`. N7, the integrated vertical slice,
-is the next dream item. GoldenLoopTest's two K6 objective-title checks fail
-on clean origin (pre-N6, suspect `1f8faa0`) and are flagged separately. Wake
+is the next dream item. GoldenLoopTest's two K6 objective-title checks failed
+on clean origin at that time; **resolved 2026-08-16 on `66a00f3`** — the
+cause was `b318d84`'s telegram restyle prefixing `"WORK ORDER / "` onto
+titles the job library already authors, not the `1f8faa0` I had suspected.
+87/87 green again. Wake
 persists one
 `mina_factual_refrigerator_caption` fact. Its acoustic owner
 is generated marker `F02_2A_FRIDGE_01`; its visible label follows generated
