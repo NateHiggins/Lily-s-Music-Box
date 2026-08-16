@@ -890,23 +890,15 @@ and the four isolated roof fixtures now terminating at a real riser.
 - **P3** Every figure here comes from one RTX 4080, which never leaves idle
   clocks during the benchmark. Mobile is unproven and the only export preset is
   Android - where the CPU-bound conclusion is worse news, not better.
-- **P4** **The budget being measured is not the one documented.**
-  `light_rig.gd:135-156` sets desktop to UNLIMITED (4096) / SHADOW_N (32) and
-  honours `LIGHT_BUDGET`/`SHADOW_BUDGET`, then `building_root.gd:344-351` calls
-  `set_budgets(...)` immediately after `add_child`, clobbering both.
-  README:531-533 documents unlimited/32. ~~Play runs 14/8.~~ **CORRECTED
-  2026-08-13: play runs 16/16.** `building_root.gd:344` is an if/else and
-  `game_boot.gd:20,22` default `launch_mode` to CINEMATIC and `quality` to 0,
-  so line 348 `set_budgets(16, 16)` is taken and the 14/8 at line 351 is
-  unreachable; only `free_cam`, `lighting_debug_test` and
-  `warehouse_teleport_test` set DEBUG, so no test escapes it either. WalkTest
-  FULL prints "the nearest 16 of 104 eligible fixtures" and "circulation
-  fixtures hold the budget (15 lit)", and 15 lit cannot happen under 14.
-  `bcd6450` (2026-08-02) added the CINEMATIC branch and orphaned the else.
-  Every perf comparison must pin this — at 16/16 — and the `LIGHT_BUDGET`
-  sweep documented as the regression method does nothing in play. Worth
-  fixing first: nothing prints the resolved budget, which is the whole reason
-  a wrong number survived in three documents.
+- **P4** **The 16/16 clobber remains undecided.** The visibility half closed
+  2026-08-15: `LightRig.set_budgets` now prints the resolved pair at boot, and
+  `game/README.md` documents that production resolves 16/16 via
+  `building_root.gd`'s CINEMATIC branch (the code default UNLIMITED/32 never
+  survives boot; corrected finding 2026-08-13, WalkTest's "nearest 16 of 104"
+  is the observable). Still open: `bcd6450`'s orphaned else (`set_budgets(14,
+  8)` is unreachable — no launch mode reaches it), and whether 16/16 is the
+  *intended* desktop profile or an accident of the CINEMATIC default — that is
+  a perf/look decision belonging with P1's measurements, not a doc fix.
 - **P5 CLOSED — FALSE POSITIVE 2026-08-14.** `project.godot:60` does leave
   occlusion culling enabled while the production tree contains exactly zero
   `OccluderInstance3D` nodes, but the assumed empty-pass cost is not measurable:

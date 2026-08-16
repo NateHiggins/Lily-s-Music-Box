@@ -386,12 +386,16 @@ accents), a six-arm brass chandelier in the lobby, and long-drop globe
 pendants down the atrium eye. Every fixture is a conductor body
 (filament class: motif events surge the envelope and sway the drops).
 Light quality is faked ray tracing on the compatibility renderer, by
-design: on desktop a LightRig now lights **every** fixture on the active
-storey (the budget that once kept only the nearest 14 came off in the
-light-budget pass — it cost nothing measurable, because this frame is
-submission-bound rather than light-bound), the nearest six gain a dim
-floor-tinted counter-light that fakes the first bounce, and the nearest
-32 eligible fixtures cast sticky, Compatibility-safe cubemap shadows.
+design: `LightRig`'s own desktop default is unbudgeted (4096 lights /
+32 shadow casters, from the light-budget pass), **but production boot
+resolves to 16 active / 16 shadow** — `building_root.gd`'s CINEMATIC
+branch calls `set_budgets(16, 16)` immediately after the rig is added
+(TASKS.md P4, corrected 2026-08-13; WalkTest's "nearest 16 of 104
+eligible fixtures" is the observable). The rig prints the resolved
+pair at boot, so a perf log always carries the budget it measured.
+The nearest six fixtures gain a dim floor-tinted counter-light that
+fakes the first bounce, and the nearest eligible fixtures cast
+sticky, Compatibility-safe cubemap shadows.
 Mobile still rations: `ACTIVE_N_MOBILE` 12 lights, `SHADOW_N_MOBILE` 4.
 Every fixture family participates, and a short distance cutoff
 prevents lights in adjacent rooms from stealing the shadow budget. The
@@ -532,11 +536,13 @@ are excluded by name in the preset. If you add a sky texture and reference
 it dynamically, add it to the preset's `exclude_filter` allowlist logic or
 it will be excluded by pattern.
 
-**Tuning the light budget on device.** There is no desktop budget any
-more — desktop takes `UNLIMITED` (4096) lights and `SHADOW_N` 32, and the
-sweeps behind that decision are in the light-budget pass. **Mobile is the
-only platform that still rations**, and it starts at 12 lights / 4 shadow
-casters. The first values (8
+**Tuning the light budget on device.** Desktop's *code default* is
+`UNLIMITED` (4096) lights and `SHADOW_N` 32 (the sweeps behind that
+decision are in the light-budget pass), **but production boot clobbers
+it to 16/16** via `building_root.gd`'s CINEMATIC branch — see TASKS.md
+P4; every perf comparison must pin that resolved pair, and the rig now
+prints it at boot. **Mobile rations further**, starting at 12 lights /
+4 shadow casters. The first values (8
 and 1) were reasoned about rather than measured and read flat and half-lit
 on real hardware — one caster is not enough shadow to model a room. The
 debug panel carries **Light budget** and **Shadow budget** sliders next to

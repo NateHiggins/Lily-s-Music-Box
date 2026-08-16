@@ -325,6 +325,11 @@ func _report_authored_lights() -> void:
 func set_budgets(lights: int, shadows: int) -> void:
 	_active_budget = maxi(1, lights)
 	_shadow_budget = clampi(shadows, 0, _active_budget)
+	# TASKS.md P4: a wrong budget number survived in three documents because
+	# nothing ever printed the one actually in force. Every caller and every
+	# perf log now gets the resolved pair on the record.
+	print("[LIGHT RIG] budgets resolved: %d active / %d shadow"
+			% [_active_budget, _shadow_budget])
 
 
 func debug_fixtures() -> Array:
