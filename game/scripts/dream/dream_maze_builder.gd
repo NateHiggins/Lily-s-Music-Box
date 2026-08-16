@@ -48,6 +48,7 @@ static func assemble(catalog: Dictionary, seed_hex: String,
 		"doors": [],
 		"spawn_player": [0.0, 0.0],
 		"spawn_pursuer": [0.0, 0.0],
+		"hazards": [],
 		"defects": [],
 	}
 	var modules: Dictionary = catalog.get("modules", {})
@@ -132,6 +133,43 @@ static func assemble(catalog: Dictionary, seed_hex: String,
 
 	for id in chain_ids:
 		plan.modules.append({"id": id, "rect": rects[id]})
+
+	# N7: HAZARD SOCKETS BECOME PLAN SPACE. The catalog has authored eight
+	# of these since N2 and nothing has ever read them. Every socket of
+	# every placed module is emitted -- the builder gets no profile and
+	# stays a pure function of (catalog, seed_hex, slot); WHICH hazards a
+	# case actually runs is the profile's business, not the geometry's.
+	#
+	# They go in their own list and never into plan.doors: build_geometry
+	# cuts a real 0.91 m opening through every door aperture, so a hazard
+	# in that list would saw a hole in a sealed wall.
+	for id in chain_ids:
+		var module: Dictionary = modules[id]
+		var fp: Array = module.footprint_m
+		var r: Array = rects[id]
+		for socket in module.get("hazard_sockets", []):
+			var local: Array = socket.get("position_m", [])
+			if local.size() < 2:
+				plan.defects.append("hazard socket %s has no local point"
+						% str(socket.get("id", "?")))
+				continue
+			# Mirroring is the assembly's one seed freedom and it flips
+			# the module about its own depth axis, so a socket's offset
+			# measures from the far edge instead of the near one.
+			var oz: float = float(local[1])
+			if mirrored:
+				oz = float(fp[1]) - float(local[1])
+			plan.hazards.append({
+				"id": str(socket.get("id", "")),
+				"kind": str(socket.get("kind", "")),
+				"module": id,
+				"position": [r[0] + float(local[0]), r[1] + oz],
+				"clearance_radius_m": float(socket.get(
+						"clearance_radius_m", 0.35)),
+				"tell_radius_m": float(socket.get("tell_radius_m", 4.60)),
+				"minimum_warning_s": float(socket.get(
+						"minimum_warning_s", 0.50)),
+			})
 
 	# Non-overlap is a hard guarantee, not a hope: strictly positive shared
 	# area between any two clear footprints is a defect.
