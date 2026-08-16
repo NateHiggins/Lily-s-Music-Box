@@ -241,6 +241,7 @@ func _run() -> void:
 	_shop_sign_checks()
 	_neon_sign_checks()
 	_hero_signage_checks()
+	_entrance_marquee_check()
 	if not _full:
 		await _finish("FAST")
 		return
@@ -3335,6 +3336,37 @@ func _hero_signage_checks() -> void:
 			"bodega, Harukiya and Orison plaque own sourced assembly answers")
 	_check(ray_hits == 3,
 			"all three hero sign assemblies win a standing production ray")
+
+
+func _entrance_marquee_check() -> void:
+	var marquee: EntranceMarqueeDress = root.find_child(
+			"EntranceMarqueeDress", true, false) \
+			as EntranceMarqueeDress
+	var area: Area3D = marquee.get_node_or_null(
+			"MarqueeInspection") as Area3D \
+			if marquee else null
+	var card: Dictionary = marquee.interact(root.player) if marquee else {}
+	var complete: bool = area != null and area.get_child_count() == 1 \
+			and area.get_child(0) is CollisionShape3D \
+			and card.get("card_id", "") == "marquee" \
+			and card.get("source_ids", []) == ["R028"]
+	var ray_hit := false
+	if complete:
+		var target := (area.get_child(0) as CollisionShape3D).global_position
+		var face := marquee.global_transform.basis.z.normalized()
+		var origin := target + face * 0.95
+		origin.y = 1.41
+		var ray := PhysicsRayQueryParameters3D.create(origin, target)
+		ray.collide_with_areas = true
+		var hit := get_viewport().world_3d.direct_space_state.intersect_ray(ray)
+		ray_hit = not hit.is_empty() and hit.collider == area
+		if not ray_hit:
+			print("MARQUEE RAY MISS distance=%.3f origin=%s target=%s hit=%s at=%s" % [
+					origin.distance_to(target), origin, target,
+					hit.collider.name if not hit.is_empty() else "CLEAR",
+					hit.position if not hit.is_empty() else Vector3.ZERO])
+	_check(complete and ray_hit,
+			"the complete entrance marquee answers from one standing look-point")
 
 
 func _collect_named_shop_meshes(node: Node, into: Array[MeshInstance3D]) -> void:

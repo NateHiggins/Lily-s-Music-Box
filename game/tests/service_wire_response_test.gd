@@ -267,6 +267,20 @@ func _ready() -> void:
 			and str(entry_card.get("condition", "")).contains(
 					"FOUR BRONZE SCREWS SEATED"))
 
+	var marquee := EntranceMarqueeDress.new()
+	add_child(marquee)
+	var marquee_card: Dictionary = marquee.interact(hand)
+	var marquee_area := marquee.get_node_or_null("MarqueeInspection") as Area3D
+	_check("the complete entrance marquee owns one sourced look-point",
+			marquee_area != null and marquee_area.get_child_count() == 1
+			and marquee._inspection_tap.playing
+			and marquee_card.get("card_id", "") == "marquee"
+			and marquee_card.get("source_ids", []) == ["R028"]
+			and str(marquee_card.get("condition", "")).contains(
+					"PRISMATIC GLASS TRAY")
+			and str(marquee_card.get("condition", "")).contains(
+					"TIE RODS SEATED"))
+
 	var washer := WasherProp.new()
 	washer.name = "TestWasher"
 	add_child(washer)

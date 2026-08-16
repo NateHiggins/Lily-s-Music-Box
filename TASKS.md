@@ -1036,6 +1036,11 @@ it.
     director; the Orison identity plaque has an exact bronze-face target kept
     physically distinct from the landmark door. Each gives a material-local
     tap, one R028-sourced slip, and no letter, bulb, screw or kanji child owns E.
+    The entrance marquee likewise answers as one assembly: a shallow look-plane
+    sits proud of the outboard fascia at a standing angle, rather than putting
+    collisions on glazing, fittings, letters or cresting. Its iron tap and
+    R028 card report the rain-shedding prismatic tray, seated returns/tie rods
+    and fixed two-lamp/fascia-wash arrangement without adding a light switch.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street

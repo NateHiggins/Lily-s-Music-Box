@@ -20,6 +20,8 @@ const PROJ := 1.80          # canopy projection, must match the assembly
 const GLASS_Z := 3.395      # top of the glazed deck
 const FASCIA_Y := 1.93      # bronze name panel, outboard of the front rail
 
+var _inspection_tap: AudioStreamPlayer3D
+
 
 func _ready() -> void:
 	name = "EntranceMarqueeDress"
@@ -27,6 +29,56 @@ func _ready() -> void:
 	_soffit_wash()
 	_fascia_wash()
 	_nameplate()
+	_build_interaction()
+	_inspection_tap = AudioStreamPlayer3D.new()
+	_inspection_tap.name = "MarqueeBracketTap"
+	_inspection_tap.stream = PropAudio.get_stream("tick")
+	_inspection_tap.volume_db = -19.0
+	_inspection_tap.pitch_scale = 0.72
+	_inspection_tap.unit_size = 3.2
+	_inspection_tap.max_distance = 20.0
+	add_child(_inspection_tap)
+
+
+## The imported canopy and this runtime light dress are one set hero.  A
+## single shallow plane on the outboard fascia lets the worker inspect that
+## assembly from under the rain hood; fittings, letters, glass panes and
+## ornament do not become separate targets.
+func _build_interaction() -> void:
+	var area := Area3D.new()
+	area.name = "MarqueeInspection"
+	area.collision_layer = 1
+	area.collision_mask = 0
+	area.monitoring = false
+	area.monitorable = true
+	area.add_to_group("functional_interaction_areas")
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(2.30, 0.44, 0.24)
+	collision.shape = shape
+	# Proud of the imported fascia, but below the lettering: a look-point at a
+	# plausible standing angle rather than an impossible reach to the glazing.
+	collision.position = Vector3(0.0, 2.75, 2.05)
+	area.add_child(collision)
+	add_child(area)
+
+
+func interact_prompt() -> String:
+	return "[E]  Inspect Orison entrance marquee"
+
+
+func interact(_player: Node) -> Dictionary:
+	if _inspection_tap:
+		_inspection_tap.play()
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	return PropServiceWire.card("marquee", {
+		"roof_state": "PRISMATIC GLASS TRAY / RAIN SHEDDING",
+		"bracket_state": "IRON RETURNS AND TIE RODS SEATED",
+		"light_state": "TWO SOFFIT LAMPS / FASCIA WASH LIT",
+	})
 
 
 ## Two lamps sitting in the tray, under the glass. Prismatic glass was
