@@ -1023,6 +1023,12 @@ it.
     trade remain generator facts; OPEN/CLOSED/NIGHT SERVICE and LIT/DARK are
     read through `PassageHoursDirector`'s public presentation boundary, so the
     sign neither copies the schedule rule nor invents stock, prices or economy.
+    The ORISON blade, DRUGS wall cabinet and HARUKIYA stage neon now each own
+    one reachable service inspection. The tall blade's target is its actual
+    low transformer box; wall forms use one bounded frontage target, never
+    glyph collisions. Copy reports live/dark glass, visible dead/dropout runs
+    and transformer condition from the sign owner. Inspection is read-only and
+    cannot compete with business-hours or Conductor control of the circuit.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street

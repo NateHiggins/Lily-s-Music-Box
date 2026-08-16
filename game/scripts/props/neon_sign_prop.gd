@@ -151,6 +151,59 @@ func _build_visual() -> void:
 	add_child(_glow)
 
 
+## The building blade is several metres tall, so a whole-sign bounds proxy
+## would put its centre beyond the player's 2.1 m ray.  The actual service
+## point is the low transformer box.  Wall cabinets keep one central frontage
+## target.  In both forms every tube, bulb and glyph remains part of ONE sign
+## owner rather than becoming its own collision.
+func _build_primary_interaction() -> void:
+	var area := Area3D.new()
+	area.name = "NeonSignInspection"
+	area.collision_layer = 1
+	area.collision_mask = 0
+	area.monitoring = false
+	area.monitorable = true
+	area.add_to_group("functional_interaction_areas")
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	if vertical:
+		var pitch := (5.0 + GAP_DOWN) * CELL
+		var half_y := float(sign_text.length()) * pitch * 0.5 + 0.20
+		collision.position = Vector3(0.0, -half_y - 0.30, 0.58)
+		shape.size = Vector3(0.48, 0.56, 0.56)
+	else:
+		collision.position = Vector3(0.0, -0.10, 0.18)
+		shape.size = Vector3(2.40, 1.28, 0.40)
+	collision.shape = shape
+	area.add_child(collision)
+	add_child(area)
+
+
+func interact_prompt() -> String:
+	return "[E]  Inspect %s neon" % sign_text
+
+
+## Inspection is deliberately observational.  Business hours and the
+## conductor already own the circuit; pointing the service set at the sign
+## must not become a second switch or manufacture a diagnostic surge.
+func interact(_player: Node) -> Dictionary:
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	var tube_state := "%s / %s" % [sign_text,
+			"LIT" if _lit else "DARK GLASS"]
+	if _dropped >= 0:
+		tube_state += " / MOMENTARY DROPOUT"
+	elif _dead_letter >= 0:
+		tube_state += " / ONE DEAD RUN"
+	return PropServiceWire.card("neon", {
+		"tube_state": tube_state,
+		"transformer_state": "%s / SERVICE ONLY" % (
+				"ENERGIZED" if _lit else "DE-ENERGIZED"),
+	})
+
+
 # ------------------------------------------------------------ the blade
 
 ## A double-sided board standing off the wall on a bracket, faces pointing

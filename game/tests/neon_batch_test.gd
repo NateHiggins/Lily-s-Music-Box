@@ -58,6 +58,30 @@ func _ready() -> void:
 	_check("the emissive tube material survives the merge",
 			_has_material(blade, blade._tube_mat)
 			and _has_material(wall, wall._tube_mat))
+	var blade_lit := blade._lit
+	var blade_surge := blade._surge
+	var blade_drop := blade._dropped
+	var blade_card: Dictionary = blade.interact(null)
+	var wall_card: Dictionary = wall.interact(null)
+	_check("each complete neon form owns one bounded inspection target",
+			blade.get_node_or_null("NeonSignInspection") is Area3D
+			and wall.get_node_or_null("NeonSignInspection") is Area3D
+			and blade.get_node("NeonSignInspection").get_child_count() == 1
+			and wall.get_node("NeonSignInspection").get_child_count() == 1)
+	_check("neon inspection returns sourced live mechanism copy",
+			blade_card.get("card_id", "") == "neon"
+			and wall_card.get("card_id", "") == "neon"
+			and blade_card.get("source_ids", []) == ["R008"]
+			and str(blade_card.get("condition", "")).contains("ORISON")
+			and str(wall_card.get("condition", "")).contains("DRUGS"))
+	_check("inspection cannot switch or surge the conductor-owned sign",
+			blade._lit == blade_lit and blade._surge == blade_surge
+			and blade._dropped == blade_drop)
+	wall.set_lit(false)
+	var dark_card := wall.service_wire_card()
+	_check("dark business-hours state remains visible glass, not absence",
+			str(dark_card.get("condition", "")).contains("DARK GLASS")
+			and str(dark_card.get("condition", "")).contains("DE-ENERGIZED"))
 
 	var now := Time.get_ticks_msec() / 1000.0
 	blade._dropped = 0

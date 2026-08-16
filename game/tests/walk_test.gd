@@ -239,6 +239,7 @@ func _run() -> void:
 	_mail_bank_checks()
 	_shop_static_checks()
 	_shop_sign_checks()
+	_neon_sign_checks()
 	if not _full:
 		await _finish("FAST")
 		return
@@ -3222,6 +3223,55 @@ func _shop_sign_checks() -> void:
 			"all eleven Passage signs own one sourced reactive target")
 	_check(ordinary_closed == 10 and night_service == 1,
 			"sign copy agrees with the canonical 03:00 shop-light state")
+
+
+func _neon_sign_checks() -> void:
+	var signs: Array[NeonSignProp] = []
+	for child in root.get_children():
+		if child is NeonSignProp:
+			signs.append(child)
+	var ids := {}
+	var complete := 0
+	var ray_hits := 0
+	var vertical_count := 0
+	var space := get_viewport().world_3d.direct_space_state
+	for sign in signs:
+		ids[sign.name] = true
+		vertical_count += 1 if sign.vertical else 0
+		var area := sign.get_node_or_null("NeonSignInspection") as Area3D
+		var lit_before := sign._lit
+		var surge_before := sign._surge
+		var drop_before := sign._dropped
+		var card: Dictionary = sign.interact(root.player)
+		if area != null and area.get_child_count() == 1 \
+				and card.get("card_id", "") == "neon" \
+				and card.get("source_ids", []) == ["R008"] \
+				and str(card.get("condition", "")).contains(sign.sign_text) \
+				and sign._lit == lit_before and sign._surge == surge_before \
+				and sign._dropped == drop_before:
+			complete += 1
+		if area:
+			var face := sign.global_transform.basis.z.normalized()
+			var target := (area.get_child(0) as CollisionShape3D).global_position
+			var origin := target + face * (
+					0.40 if sign.vertical else 0.60)
+			origin.y = -1.39 if sign.name == "F01_BAR_STAGE_SIGN" else 1.41
+			var ray := PhysicsRayQueryParameters3D.create(origin, target)
+			ray.collide_with_areas = true
+			var hit := space.intersect_ray(ray)
+			if not hit.is_empty() and hit.collider == area:
+				ray_hits += 1
+			else:
+				print("NEON RAY MISS %s distance=%.3f origin=%s target=%s hit=%s at=%s" % [
+						sign.name, origin.distance_to(target),
+						origin, target,
+						hit.collider.name if not hit.is_empty() else "CLEAR",
+						hit.position if not hit.is_empty() else Vector3.ZERO])
+	_check(signs.size() == 3 and ids.size() == 3 and vertical_count == 1
+			and complete == 3,
+			"all three neon signs own one read-only sourced inspection")
+	_check(ray_hits == 3,
+			"street, tenant and stage neon service points win a 2.1 m ray")
 
 
 func _collect_named_shop_meshes(node: Node, into: Array[MeshInstance3D]) -> void:
