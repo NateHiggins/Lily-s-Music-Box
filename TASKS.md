@@ -540,6 +540,20 @@ are two answers to the same problem and only this one is built.
   and same-build performance control pass in proposal §16. Sound/reflected
   train light remain optional later gates; the next map/environment package is
   T8. A station, cutscene, route, interaction or fourth zone remains rejected.
+- **PS12 OWNER COMMISSION 2026-08-16 — THE ARCADE RECONSTRUCTION.** Rebuild
+  the Vantry Arcade as a grand 1926 commercial building (Windsor Arcade
+  ancestry). Authority: `design/VANTRY_ARCADE_RECONSTRUCTION_BRIEF.md`,
+  phases V1–V6. **V1 (the nave raised) is BUILT and verified locally**:
+  9.90 m ribbed glass nave, clerestory order, crossing lantern + pendant
+  clock, south terminus + directory, throat vestibule, street frontispiece;
+  full Passage battery + WalkTest FULL PASS; northbound measured **13.03 ms**
+  at canonical pinned night — the PS9 accepted blocker station now passes the
+  16.6 gate. Record: `art/renders/vantry_arcade_v1/README.md`. The V1
+  `gen_layout.py` hunks + regenerated JSON/GLBs are HELD uncommitted pending
+  the parallel session's in-flight W1 street wall in the same file (never
+  publish another lane's WIP); commit V1 code immediately after W1 lands.
+  Next: V2 shops-as-real-rooms, V3 storefront families + daylight exterior
+  review, V4 lighting hierarchy, V5 use/aging, V6 abnormalities + perf.
 
 ## F — Film (projectors instead of televisions)
 

@@ -4155,8 +4155,13 @@ def build():
                 # landscape on every stair sign. A sign face is enamel.
                 fmat = "indicator_enamel"
             # one buffer per material: a shared buffer would weld every
-            # piece on the floor into the first item's material
-            buf(fid, "%s_%s-col" % (cat_prefix, fmat), fmat).add_box(
+            # piece on the floor into the first item's material.
+            # nocol entries (floor inlays, flush borders) render without
+            # a trimesh, the same contract as the wear decals: a 4 mm
+            # terrazzo border must never be a thing a capsule can hit.
+            col_suffix = "" if fu.get("nocol") else "-col"
+            buf(fid, "%s_%s%s" % (cat_prefix, fmat, col_suffix),
+                fmat).add_box(
                 (r[0], r[1], z0), (r[2], r[3], z0 + fu["h"]))
         for m in fl["markers"]:
             e = bpy.data.objects.new("MK_%s" % m["id"], None)
