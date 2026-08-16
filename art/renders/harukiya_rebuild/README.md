@@ -171,3 +171,46 @@ is kept, because it is still how to decide which fixture *should* lose if
 a budget ever binds again.
 
 LightingAudit, WalkTest FULL, ShopEntry and StreetCoreVisibility all pass.
+
+
+## B6 — the counter, and what the identity floor bought (`b6_counter/`)
+
+The commission wants the bar to be the room's hero. **Ledger A0.3** says
+how it may be grand in a Queens cellar in 1928: the fit-out is
+*inherited*, taken out of a closed hotel bar, twenty years old on arrival
+and cut down for a room it was never drawn for. **Ledger A0.4** sets the
+price: any phase adding fabric must say what it adds on the Japanese side
+in the same breath.
+
+**Both constraints made this better, not smaller.**
+
+- **The counter runs 6.30 m**, up from 5.20 — with its canopy grown in
+  plan and its z **frozen at −0.98**, because that 1.76 m underside is
+  the canonical low element of this room and the one number here that
+  may not move.
+- **The salvaged mirror sits in one bay, not across the back.** The
+  canonical crowded gallery runs the north wall from x −4.30 to 3.80, so
+  a continuous mirror would erase eleven authored frames. The only bay it
+  can occupy is west of the gallery — so that is where the hotel's mirror
+  ended up. *It didn't fit, and a room furnished from salvage is a room
+  where things are where they fit.* The rest of the backbar keeps the
+  photographs as its back wall, which is a better bar anyway.
+- **The barrels take the centre, and finally stand on something.** Two
+  rope-bound sake barrels are the only Japanese object inside this room,
+  and they were *floating* — pipes at z −0.72 with nothing beneath them,
+  which Accord 11 forbids and nobody had caught. They now have the
+  backbar's centre bay, a real shelf, and their brewery rope bindings. So
+  the hero object's axis is theirs and the inherited mirror is off to one
+  side: **A0.4 answered in geometry rather than in prose.**
+- **A masu shelf** — square cedar cups stacked in threes at the working
+  end, the thing a Japanese bar has that a hotel backbar never did.
+
+**How far west the counter may go is set by the pool table, not by
+taste.** Running it to −6.00 was tried and took two cue-lane sweeps: a
+cue is 1.45 m, and the room already ruled that *a table you cannot stand
+back from is scenery*. With the capsule at 0.33 the counter must start
+east of −5.17, so it starts at −5.10 and the cue keeps its swing.
+
+**Verified:** WalkTest FULL, ShopEntry (all four rail lanes and every
+crossing), StreetCoreVisibility, LightingAudit, ServiceWireResponse. Bar
+station 10.60 ms against the 16.6 gate.
