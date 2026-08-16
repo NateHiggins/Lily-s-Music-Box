@@ -30,7 +30,14 @@ func _ready() -> void:
 	await _snap("03_foot_and_red_door", [5.10, -34.30, -2.10], [4.15, -34.40, -2.10])
 	# Street mouth of the shaft.
 	await _snap("04_street_mouth", [5.10, -25.60, 1.60], [5.10, -30.00, 0.20])
-	print("[HARUKIYA SHOT] 4 frames saved")
+	# B3: the arcade corner from the foot of the stair - jukebox against
+	# the south wall, the two receivers on the east wall beside it.
+	await _snap("05_arcade_corner", [3.30, -34.30, -1.95], [2.60, -37.30, -2.30])
+	# B3: the lounge, looking south down the deck at the conversation pit.
+	await _snap("06_lounge", [2.50, -30.60, -1.95], [2.80, -33.60, -2.35])
+	# The room from the door, so the whole plan reads at once.
+	await _snap("07_room_from_door", [3.60, -34.42, -1.95], [-6.00, -33.20, -2.20])
+	print("[HARUKIYA SHOT] 7 frames saved")
 	get_tree().quit(0)
 
 
