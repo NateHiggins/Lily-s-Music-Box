@@ -285,10 +285,9 @@ an open defect, and rooms that are *supposed* to be dark go in
 - **L10** The audit measures one frame per room from a corner, with a fallback
   to the room centre. Rooms whose interesting half is neither will read
   optimistically. Worth a second angle if this ever becomes a shipping gate.
-- **L11 STALE DIAGNOSIS TO RE-MEASURE — the 16-light cap is gone.**
-  `max_lights_per_object` is 128 (was 16) and `light_rig.gd` takes
-  `UNLIMITED = 4096` on desktop, so nothing can evict a fixture by AABB
-  overlap there any more. `design/walkthrough_punchlist.md` still blames that
+- **L11 STALE DIAGNOSIS TO RE-MEASURE — the per-object cap is gone (but
+  the runtime budget is not; see L14).** `max_lights_per_object` is 128
+  (was 16), so nothing can evict a fixture by AABB overlap any more. `design/walkthrough_punchlist.md` still blames that
   mechanism for F02_D/F05_D unit interiors rendering black in BOTH
   WalkthroughShots passes. Re-run both passes: either those stills are now
   correct and the punchlist item closes, or the black rooms have a different
@@ -304,6 +303,27 @@ an open defect, and rooms that are *supposed* to be dark go in
   (`light_rig.gd`, see #20). That is the honest position, not a finding. It
   wants confirming on hardware through the debug-panel sliders, and until it
   is, no mobile lighting claim in any doc is measured.
+- **L14 THE RUNTIME LIGHT BUDGET IS 16/16 AND `UNLIMITED` IS DEAD TEXT.**
+  Found 2026-08-16 by an adversarial review of a V4 lighting plan, after I
+  had already written the opposite into HANDOFF from reading constants
+  instead of callers. `light_rig.gd` declares `UNLIMITED = 4096` and its
+  header narrates a desktop budget removal — but `building_root.gd:456-465`
+  calls `set_budgets(16, 16)` (cinematic max quality) or `set_budgets(14, 8)`
+  (every other path) immediately after constructing the rig, on every boot.
+  There is no branch that leaves it unlimited. Empirically, every run prints
+  `[LIGHT RIG] budgets resolved: 16 active / 16 shadow`.
+  **Consequences:** real lights are scarce after all — sixteen active, and a
+  new one EVICTS an existing one, so any lighting design must name its
+  victim. The "measured at 16/16" tables across the docs were describing the
+  live budget, not just a test condition; only the mechanism they blamed was
+  stale. **Cleanup owed:** delete or correct `light_rig.gd`'s dead
+  `UNLIMITED` narration and `building_root.gd:460-461`'s comment that
+  "sixteen is the renderer's actual per-object ceiling" (it is 128) — a file
+  that argues against its own caller is how this survived. And the rig
+  already knows the lesson: it prints the resolved pair precisely because "a
+  wrong budget number survived in three documents because nothing ever
+  printed the one actually in force" (`light_rig.gd:328-330`). Read the
+  print, never the constant.
 - **L13 SHADOWS ARE THE SCARCE CURRENCY — RULED AND ENFORCED 2026-08-16.**
   `positional_shadow/atlas_size=8192` subdivides per caster, so every added
   shadow-casting fixture shrinks every existing shadow — raising the caster

@@ -355,23 +355,33 @@ work; anything actionable belongs in that file.
   started. The light-leak pass is done (`door_glow.gd`) — under-door spill
   and leaf seams, one batched mesh, agreeing with the window pass about who
   is awake. Transoms are not faked because the geometry has none.
-- **THE 16-LIGHT CAP IS GONE, and a lot of prose still says otherwise.**
-  Read this before repeating any "per-object cap" or "16/16 budget" claim
-  you find in the docs. `project.godot` sets
-  `limits/opengl/max_lights_per_object=128` (raised from the Compatibility
-  default of 16, which was the sole reason LightRig rationed: a storey's
-  walls merge into ONE mesh, so a 28 × 20 m plate overlapping 40 fixtures
-  kept an arbitrary 16 and a lit corridor went black at its far end).
-  `light_rig.gd` then took the desktop budget off entirely —
-  `UNLIMITED = 4096` — once the frame proved submission-bound rather than
-  light-bound; `ACTIVE_N = 14` survives only because `LIGHT_BUDGET=14
-  SHADOW_BUDGET=8` reproduces the pre-removal rig for re-measurement.
-  **Mobile still rations** and is still unmeasured on real hardware.
-  Consequences worth internalising: real lights are cheap on desktop, so
-  the scarce currency is SHADOWS — `positional_shadow/atlas_size=8192`
-  subdivides per caster, so every new shadow-casting fixture shrinks every
-  existing shadow, and new fixtures should default to `shadow_enabled =
-  false` unless they earn it. Draw calls remain the real bottleneck.
+- **THE LIGHT BUDGET, IN THE ONLY ORDER THAT IS TRUE.** There are three
+  layers here and reading any one of them alone gives you a wrong answer.
+  I got this wrong twice in one day; the empirical check is at the bottom
+  and it settles it in four seconds.
+  1. **Engine per-object cap: 128.** `project.godot` sets
+     `limits/opengl/max_lights_per_object=128`, raised from the
+     Compatibility default of 16. That raise was real and load-bearing: a
+     storey's walls merge into ONE mesh, so a 28 × 20 m plate overlapping
+     40 fixtures used to keep an arbitrary 16 and a lit corridor went
+     black at its far end. That failure is fixed and cannot return.
+  2. **`light_rig.gd`'s `UNLIMITED = 4096` IS DEAD TEXT.** Its header
+     narrates a desktop budget removal that never reaches production.
+  3. **`building_root.gd:456-465` overrides it on EVERY boot** —
+     `set_budgets(16, 16)` on the cinematic max-quality path,
+     `set_budgets(14, 8)` otherwise. There is no branch that leaves the
+     rig unlimited.
+  **So real lights ARE scarce: sixteen active, sixteen shadow, and every
+  new one evicts an existing one.** All those "measured at 16/16" tables
+  were therefore accurate about the *live* budget, not merely about a test
+  condition — what was stale in them was only the *mechanism* they blamed
+  (the per-object cap, now 128). Shadows are scarcer still, because
+  `positional_shadow/atlas_size=8192` also subdivides per caster, so each
+  one shrinks all the others. Draw calls remain the real frame bottleneck.
+  **Never infer this from constants or comments — print it.** Every run
+  logs the resolved pair, and the rig logs it precisely because a wrong
+  budget once survived in three documents (`light_rig.gd:328-330`):
+  `[LIGHT RIG] budgets resolved: 16 active / 16 shadow`
   **Standing shadow policy, owner ruling 2026-08-16:** a new fixture ships
   with `shadow_enabled = false` and has to earn a caster slot. Authored
   fixtures obey by construction (LightRig ranks and grants through
