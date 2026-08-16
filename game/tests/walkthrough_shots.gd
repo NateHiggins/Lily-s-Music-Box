@@ -27,10 +27,22 @@ func _ready() -> void:
 		_dir = OS.get_user_data_dir()
 	root = load("res://scenes/building/orison_root.tscn").instantiate()
 	add_child(root)
-	for c in root.get_children():
+	# Recursive: overlay owners live at any depth (the music director's
+	# station bug is a CanvasLayer child of a director two levels down, and
+	# it burned "THE BUILDING SELECTED" into 2026-08-15 walk frames).
+	_hide_overlays(root)
+	_run()
+
+
+func _hide_overlays(node: Node) -> void:
+	for c in node.get_children():
 		if c is CanvasLayer:
 			c.visible = false
-	_run()
+		elif c is Label3D and c.name == "Nameplate":
+			# Resident nameplates are debug furniture; a walkthrough judges
+			# the room, not the cast list.
+			c.visible = false
+		_hide_overlays(c)
 
 
 func _run() -> void:
@@ -93,6 +105,22 @@ func _corner_clear(pt: Array, room: Dictionary, rooms: Array) -> bool:
 	return true
 
 
+## Room rects say nothing about geometry: the F04 atrium corner stands
+## inside the light-well enclosure, and a wardrobe parked at a corner
+## swallows the camera whole (both artifacts of the 08-01 and 08-15
+## walks). A corner is only usable if a small sphere at eye height
+## touches no collider.
+func _corner_open(pt: Array, fz: float) -> bool:
+	var space := get_viewport().get_world_3d().direct_space_state
+	var shape := SphereShape3D.new()
+	shape.radius = 0.22
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = shape
+	query.transform = Transform3D(Basis.IDENTITY,
+			GameBoot.b2g([pt[0], pt[1], fz + EYE]))
+	return space.intersect_shape(query, 1).is_empty()
+
+
 func _shoot_room(room: Dictionary, rooms: Array, fz: float) -> void:
 	var rect: Array = room["rect"]
 	var x0 := float(rect[0])
@@ -118,6 +146,8 @@ func _shoot_room(room: Dictionary, rooms: Array, fz: float) -> void:
 		var eye_from: Array = corners[pair[0]]
 		var eye_to: Array = corners[pair[1]]
 		if not _corner_clear(eye_from, room, rooms):
+			continue
+		if not _corner_open(eye_from, fz):
 			continue
 		var pos: Vector3 = GameBoot.b2g([eye_from[0], eye_from[1], fz + EYE])
 		var look: Vector3 = GameBoot.b2g([eye_to[0], eye_to[1], fz + 1.0])

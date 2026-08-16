@@ -42,9 +42,9 @@ baluster shadows, confirmed in the lit pass.
 |---|---|---|
 | ROOF | black monolith sign structure + angled arm still render 100% black against a lit skyline — unchanged from the 08-01 "billboard/HVAC black faces" item | ugly |
 | B1_ATRIUM | light-well chase tube still crosses the stair balustrade diagonally and passes the reading nook | ugly |
-| F01_A_BED, F06_D_BED | window frames still glazed with brick (pane shows wall) | ugly |
+| F01_A_BED, F06_D_BED | ~~window frames glazed with brick~~ FIXED 2026-08-16: the middle-band street/rear walls in `exterior()` spanned the full face and ran a second windowless wall coincident with the stack end walls — 23 apertures bricked over building-wide. Clamped to ±XAW (their own comment's intent); the B1 areaway door pass re-anchored to the shorter wall; layout sweep now finds 0 blocked apertures and the rebuilt F06_D_BED shows city light through glass | resolved |
 | F06_D unit | still the unfinished set: pale untextured furniture masses, slab bed with no bedding, brick window | ugly |
-| F01_LOBBY | second mail rack (wooden, rear wall under the clock) alongside the functional brass bank — looks like the "old generated mailbank" 08-02 item, confirm in-engine which is which | ugly |
+| F01_LOBBY | ~~second mail rack~~ IDENTIFIED 2026-08-16 by probe: the lattice under the lobby clock is the elevator's CarGate scissor grille — correct furniture. The old generated mailbank was already removed at the generator (its comment survives at gen_layout ~:2704) | resolved |
 | B1_COAL | improved (whitewash, hopper mass has form) but the bin is an untextured gray primitive and there is still no coal or grime | wish |
 | B1_STORAGE_CAGES | near-void in production light with its switch state as-is — this is the open L9 owner call, logged here only as walk confirmation | — |
 
@@ -52,14 +52,14 @@ baluster shadows, confirmed in the lit pass.
 
 | room | symptom | severity |
 |---|---|---|
-| several floors | recurring small unlit black blob prop on floors/rugs (F01_HALL tile, F03_D_MAIN threshold rug, F04_B_MAIN rug) — unidentifiable in every sighting; if it is a hat/cat/bag it needs a material, if not it needs deleting | ugly |
+| several floors | ~~recurring small unlit black blob prop~~ IDENTIFIED 2026-08-15 by probe: `DomesticAnomaly_player_smart_speaker` and siblings — authored case-anomaly props (impossible modern objects, meant to be dismissable per X1). A black cylinder is the correct read; not a defect. Legibility tuning is an owner-taste call | resolved |
 | corridors/units | residents read as pure-black cutouts in otherwise lit spaces (F02_CORRIDOR stair figure, F04_D_MAIN guest) while the same cast lights correctly elsewhere (F05_A Nadia) — likely the character mesh losing the room's light budget; consider a small character fill/rim or budget priority | ugly |
 | baths | medicine-cabinet mirror faces render as pure black voids (F03_A_BATH, F04_A_BATH) — compatibility renderer has no reflections, but a dark-gray brushed material would read as tarnished glass instead of a hole | wish |
 | F02/F06_ATRIUM | empty black picture frame sits at skirting level on the atrium wall (frame with no art, floor height) — either art that lost its mount or a frame that lost its art | ugly |
 | F03_A_BATH | small black chip/box floats at the ceiling corner over the doorway | wish |
-| F01_OFFICE | photographic print floats at an angle under the desk shelf edge, attached to nothing | wish |
+| F01_OFFICE | ~~photographic print floats under the desk shelf edge~~ FIXED 2026-08-15: `FoundPrint_office_magazine` in `found_art_catalog.json` was anchored at (-11.8, 4.4, 0.845) — open air 0.75 m off the desk; moved onto the desk top at (-12.45, 3.55, 0.742) | resolved |
 | F04_D_MAIN | tan cabinet panel above the TV juts diagonally off the wall face | wish |
-| F04_B_MAIN | dark blue slab leans against the right wall by the shelf — untextured, reads as a prop that lost its material | wish |
+| F04_B_MAIN | ~~dark blue slab by the shelf~~ IDENTIFIED 2026-08-16 by probe: `DomesticMark_4B_0/1` — authored haunting wall-marks, working as designed | resolved |
 | F02_D unit | still unjudgeable: black in both passes (see caveat) — the 08-01 "entirely unfurnished, confirm vacancy is intentional" question is STILL open | wish |
 | F05_D_MAIN, F06_C_MAIN | unjudgeable this walk (light-budget caveat) — carry to an in-engine pass | — |
 

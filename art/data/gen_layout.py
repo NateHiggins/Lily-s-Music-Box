@@ -2211,21 +2211,28 @@ def exterior(floor_id, z, walls):
             end_openings.append(door(abs(-8.30 - x0), DOOR_INT))
         walls.append(wall((x0, eyl), (x1, eyl), t, h, z, end_openings,
                           mat="face_brick" if street else "common_brick"))
-    # street / rear walls across the middle band (corridor ends)
+    # Street / rear walls across the middle band (corridor ends) ONLY.
+    # These used to span the full -X_IN..X_IN face, running a second,
+    # windowless wall coincident with the four stack end walls above —
+    # which bricked over every wing-end window aperture from behind (23
+    # windows building-wide read as "glazed with brick" in the 2026-08-15
+    # walkthrough). The stack end walls already own the envelope on the
+    # wing spans, on the same line at the same thickness and materials,
+    # so the middle band stops at ±XAW and the corner joint is flush.
     mid_spec = WIN_B1 if floor_id == "B1" else WIN
-    s_open = [window(X_IN - 2.5, mid_spec), window(X_IN + 2.5, mid_spec)]
+    s_open = [window(XAW - 2.5, mid_spec), window(XAW + 2.5, mid_spec)]
     if floor_id == "F01":
-        s_open.append(door(X_IN, DOOR_ENTRY, swing="out"))  # street egress
+        s_open.append(door(XAW, DOOR_ENTRY, swing="out"))  # street egress
     # The B1 street wall must stop under the F01 slab or its above-grade
     # continuation curbs the entrance shut (the water table dresses the
     # exposed base instead). Kept as a hint; seat_walls_under_the_floor_
     # above() is what actually guarantees it, for every wall down here.
     hs = 2.78 if floor_id == "B1" else h
-    walls.append(wall((-X_IN, -(10.0 - off)), (X_IN, -(10.0 - off)), t, hs,
+    walls.append(wall((-XAW, -(10.0 - off)), (XAW, -(10.0 - off)), t, hs,
                       z, s_open, mat="face_brick"))
-    walls.append(wall((-X_IN, 10.0 - off), (X_IN, 10.0 - off), t, h, z,
-                      [window(X_IN - 2.5, mid_spec),
-                       window(X_IN + 2.5, mid_spec)],
+    walls.append(wall((-XAW, 10.0 - off), (XAW, 10.0 - off), t, h, z,
+                      [window(XAW - 2.5, mid_spec),
+                       window(XAW + 2.5, mid_spec)],
                       mat="common_brick"))
 
 
@@ -3574,15 +3581,17 @@ def building_operations_pass(floors):
 
     # A real cellar has its own exterior route. Cut the center of the rear
     # B1 wall before door markers are collected, then build the sunken
-    # areaway and stairs up to alley grade.
+    # areaway and stairs up to alley grade. The rear middle band spans
+    # ±XAW since the double-wall fix (exterior()), so the door sits at XAW
+    # along it — the same abs x=0 the areaway above was built around.
     rear_y = 10.0 - ext_t("B1") / 2.0
     for w in b1["walls"]:
         if (w["mat"] == "common_brick" and
                 abs(w["a"][1] - rear_y) < 0.01 and
                 abs(w["b"][1] - rear_y) < 0.01 and
-                abs(w["a"][0] + X_IN) < 0.01 and
-                abs(w["b"][0] - X_IN) < 0.01):
-            w["openings"].append(door(X_IN, DOOR_SERV, "closed", "out"))
+                abs(w["a"][0] + XAW) < 0.01 and
+                abs(w["b"][0] - XAW) < 0.01):
+            w["openings"].append(door(XAW, DOOR_SERV, "closed", "out"))
             break
 
     def box(fl, bid, rect, z0, h, mat="concrete"):
