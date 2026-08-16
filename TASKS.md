@@ -1138,6 +1138,33 @@ and the four isolated roof fixtures now terminating at a real riser.
 - **U6** The `smoke_detector` alias class has no reference of any kind, but
   external saves may name it. **Decide save compatibility before touching it.**
 
+## PRIORITY — OWNER RULING 2026-08-16
+
+> **"Don't stress mobile stuff right now, let's make a working game
+> first."**
+
+Standing until reversed, and it re-sorts several open items:
+
+- **Mobile is deprioritised, not abandoned.** L12 (the unmeasured mobile
+  light budget) stops being a blocker and becomes a note. `light_rig.gd`
+  keeps `ACTIVE_N_MOBILE` and its rationing — nothing is ripped out —
+  but no decision waits on a phone any more.
+- **Desktop-only trades are now takeable.** The first consequence landed
+  immediately: the shadow atlas was refused at 16384 earlier the same day
+  *solely* because it costs 1024 MB of VRAM against an unmeasured mobile
+  budget. With that objection withdrawn it is taken — free in frame time,
+  and it doubles every shadow's linear resolution while giving the caster
+  budget real headroom. `project.godot` carries the reasoning and the way
+  back (`atlas_16_bits=true` halves it to 512 MB).
+- **Completeness beats polish.** Work that makes a shift playable
+  end-to-end outranks work that makes an existing room better. In
+  practice that puts **N7** — Mina's hazards, the run cap, the three wake
+  outcomes — ahead of the Harukiya's remaining phases and ahead of the
+  rest of the P8 sweep.
+- **When mobile returns**, the first three things to re-measure are the
+  atlas, `ACTIVE_N_MOBILE`, and every "measured" claim in the docs that
+  was actually an argument (see L12).
+
 ## P — Performance
 
 - **P8 OWNER DIRECTION 2026-08-16 — AUDIT EVERY LIMIT FOR FOSSILS. Are we
