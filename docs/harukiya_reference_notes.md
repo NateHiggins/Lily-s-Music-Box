@@ -63,6 +63,105 @@ changed is what a New York operator did with a bigger cellar.
 
 ---
 
+## 0. AMENDMENTS FOR THE 1928 REBUILD (owner authority, 2026-08-16)
+
+*The owner commissioned an expansion of this room and then instructed:
+"please edit the canon to meet our practical needs." A ten-agent audit
+found the commission's first objective physically unmeetable in plan and
+found four ledger claims blocking the rest. These amendments answer them.
+The ledger's method is unchanged — every entry still files under one of
+the four headings, and nothing moves between headings silently. Full
+audit and blocker list: `design/HARUKIYA_RECONSTRUCTION_BRIEF.md`.*
+
+### A0.1 THE LOW CEILING IS A CONDITION OVER THE COUNTER, NOT A CONSTANT
+
+The ledger already files "~2.65 m floor-to-structural-ceiling" under
+**INFERRED**, and separately files the **canonical** low element as the
+huge canopy/soffit over the counter with its continuous light strip —
+1.76 m clear in the built room. Those are different claims, and the
+identity list's "the low ceiling" has been read as the first when the
+evidence only supports the second.
+
+**Ruled: the canopy is canon; the 2.65 m field is not.** The low ceiling
+is a *condition you feel where you drink* — over the counter, the raised
+lounge, the west bay and the stage, where it stays exactly 2.65 m clear
+and the canopy stays exactly 1.76 m. The **middle of the room may open**.
+
+This is what makes the commission possible at all. The room's footprint
+is locked inside a fixed canon mass and can gain **+2.7%**; the section
+can gain **+47%** by reclaiming brick above the room that is the bar's
+own generated fabric. You stay under a low lid at the bar and the room
+goes up two storeys three paces out — compression and release, which is
+the film's own instinct rather than a departure from it.
+
+### A0.2 THE STAIR WIDENS; THE DESCENT STAYS MEAN
+
+The ledger's "circulation: minimum ~850 mm, generally 950–1200 mm. Never
+generous" is **retained as the room's character** and struck as a
+dimensional rule for the stair alone. Owner ruling: the shaft widens from
+1.15 m to **approximately 1.6 m** — enough that two people pass, which
+reads generous *relative to the film* while remaining tight by any other
+standard. Everything else about the descent gets denser, not roomier:
+this is NYC ADAPTATION, with the same precedent the 2026-08-07 rebuild
+used when it took the room from 6.8 to 9.2 m deep.
+
+### A0.3 THE FIT-OUT IS SECOND-HAND, AND THAT IS THE WHOLE TRICK
+
+The commission wants 1928 metropolitan grandeur — mahogany, a leaded
+mirror, a brass foot rail, a coved plaster ceiling — in a Queens cellar,
+without retro cosplay. **Ruled: the grand fabric is inherited, not
+commissioned.** The tenant fitted this room out from a closed hotel bar:
+everything twenty years old when it arrived, cut down to fit, repaired by
+four different people, and none of it originally drawn for this room. The
+block's own pawnbroker "sells what the building needs".
+
+This buys the grandeur honestly *and* solves A0.4, because it makes the
+two aesthetics legible **as two** instead of blending them into mush.
+
+### A0.4 WHOSE ROOM THIS IS, AND THE FLOOR UNDER ITS JAPANESE CONTENT
+
+No document stated it, so it is stated here. **The Harukiya is
+Japanese-run.** The grand fabric is second-hand American and inherited
+(A0.3); the things that are *theirs* are the things they brought and the
+things they maintain — the signboard, the lantern, the barrels, the
+service at the counter, what gets sung and when.
+
+**The floor, which exists because the audit predicted the failure
+exactly:** the room's Japanese content is three objects today, and adding
+178 m³ of coffered ceiling and mirrored backbar would drive that share
+toward zero *without anyone deciding to remove anything* — identity
+erased by arithmetic. So:
+
+> **Japanese content scales with the room.** Any phase that adds volume
+> or fabric must state what it adds on this side of the ledger in the
+> same breath. A phase that adds only inherited American fabric is
+> incomplete, not neutral.
+
+Nothing existing may be removed to make room for grandeur. If a proposed
+object would displace the barrels, the signboard or the lantern, the
+object loses.
+
+### A0.5 HELD PENDING A CONSUMER SWEEP
+
+Two amendments are drafted but **not applied**, because a repo-wide sweep
+for dependants is still running and a canon edit that silently breaks a
+test is the failure mode this ledger exists to prevent:
+
+- **The NYC ADAPTATION timeline is stale.** Its sprinkler line, smoke
+  detector, GFCI outlets, modern POS, security camera and "35 years of
+  American operation" were written for a contemporary-set fiction that
+  the 1928 ruling silently overwrote. The signal machines — karaoke,
+  receivers, jukebox — are expected to survive intact under the Bible's
+  existing rule that signal-reproducing technology is native here rather
+  than anachronistic; the building-code retrofits need re-dating.
+- **In-world dates that cannot exist**: the bar describes "this block in
+  1948" and "the bar under its first name, 1962", and three jukebox
+  tracks are dated 1999–2008. Either re-date them or file them under the
+  same undated-arrival phenomenon as the receivers. The sweep decides
+  which is consistent.
+
+---
+
 ## I. EVIDENCE LEDGER
 
 ### CANONICAL
