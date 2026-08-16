@@ -156,6 +156,10 @@ Martinville's 1857 phonautographe, and the prop is built.
   pure varispeed stands, or §5.2 gains one authored house-rig chain (still one
   immutable ratio, still no formant correction). If adopted, the next pass is
   arrangement-aware (kick enters at the chorus, drops for the interlude).
+  This is now a direct A/B by ear: the title screen's shipped
+  `clockwork_waltz_escapement_failure.ogg` (pure varispeed ×1.414, per
+  `game/docs/title_screen.md`) vs `Moonlight_HAUNTED_FLOOR_x1335.mp3` (rigged).
+  Bridge sequencing through 2026-08-20: `design/ORISON_SONGBOOK_BRIDGE_PLAN.md`.
 - **G8** Scratch-vocal return test for the Moonlight/Dreamland candidate: a
   disposable vocal over the full 48k base, one complete take, ×1.335 true
   varispeed — that judges House Five checklist items 9-10 (the 2007 test).

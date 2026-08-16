@@ -472,6 +472,33 @@ native and returned versions by plain gain only (measure with
      first chorus, drops for the interlude) rather than
      wall-to-wall.
 
+### Addendum — 2026-08-15
+
+- **A second processing pass found two more takes** from the same
+  2026-08-14 Gemini session, both full length near the Dreamland
+  duration but **off-spec in meter** (duple pulses, no 96-BPM waltz
+  lattice): `The_Clockwork_Waltz` (2:38.7) and
+  `Ballroom's_False_Collapse` (2:37.3). Manifests sit beside them in
+  `art/audio/`.
+- **The Clockwork Waltz was promoted, not rejected.** Owner ruling
+  2026-08-15: it is the **provisional title theme** — untouched
+  original opens; `ESCAPEMENT FAILURE ×1.414`, a pure-varispeed
+  return with nothing added after the speedup, is the optional
+  second record. Masters, hashes and playback tests live in
+  `game/docs/title_screen.md`. Its Dreamland meter failure is moot;
+  it is out of the track_101 audition.
+- **The shipped title return doubles as the G7 reference.** Because
+  ESCAPEMENT FAILURE is §5.2-clean, the house-rig ruling is now a
+  direct A/B by ear: `clockwork_waltz_escapement_failure.ogg` (pure)
+  vs `Moonlight_HAUNTED_FLOOR_x1335.mp3` (rigged).
+- **Ballroom's False Collapse is unassigned** — disposition pending
+  (retire / FUTURE VOLUME texture reference / alternate title
+  record).
+- Moonlight remains the **only live track_101 candidate**; nothing
+  above changes its pending ear verdict or the scratch-vocal test.
+- Sequencing through 2026-08-20 (outside support model paused):
+  `design/ORISON_SONGBOOK_BRIDGE_PLAN.md`.
+
 - **Second processing pass (2026-08-14, later the same day):** two
   same-session Gemini outputs were found unlogged beside the
   Moonlight candidate and put through the identical objective
