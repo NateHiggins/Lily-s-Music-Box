@@ -2,26 +2,30 @@
 
 *Rewritten 2026-08-16 after N7 landed. Read this first.*
 
-## The single most valuable next piece of work
+## Gate D is joined — 2026-08-16
 
-**Gate D: join the two halves of the dream.** They both exist and have never
-been connected.
+`GateDJoinTest.tscn` closes the seam this file used to lead with. It plays the
+Mina shift inside a real `CampaignShell` and lets the production path carry it
+into the real dream: **69/69 checks, 17 blocks, 37 seconds**, consecutive runs
+reaching the same committed outcome (`capture`), world sequence
+`waking -> dream -> waking`. `GoldenLoopTest` is untouched and still 87/87.
 
-`GoldenLoopTest.tscn` plays the whole Mina shift (87/87) but instantiates
-`scenes/building/orison_root.tscn` directly and answers the dream request with
-a test-only `DreamStub`. `DreamPursuitTest.tscn` runs the real CampaignShell,
-the real maze, the Tenant and a real capture through to wake — but reaches
-that state via `_seed_completed_shift()`, writing the finished job facts
-straight into RealityState instead of earning them.
+Three of Gate D's four bullets are closed; the fourth is partially closed
+(capture wakes clean end-to-end; `fall` and `contact` are proven at the funnel
+by `DreamHazardTest` but have not been driven through a played shift). See the
+Gate D entry in `ORISON_MAZE_BRIEF.md` for the scoring and for the two traps
+the join exposed.
 
-The seam is small: `CampaignShell.waking_scene_path` already defaults to the
-same `orison_root.tscn` GoldenLoopTest instantiates standalone. Spawn the
-shift's world through a CampaignShell, drop the stub, let the production
-SleepPressureDirector call entry.
+## What is worth doing next
 
-Do this as a NEW harness, not an edit to GoldenLoopTest. That test is the
-authoritative waking-side proof and was repaired recently by a parallel
-session; destabilising it to gain dream coverage is a bad trade.
+1. **The remaining Gate D outcome coverage.** Drive `fall` and `contact`
+   through a played shift to a rebuilt bedside. All three outcomes share one
+   latched funnel so the risk is low — but low risk is not measured. Cheapest
+   route is a profile/seed variant of `GateDJoinTest` rather than a new file.
+2. **The hollow runner**, once the owner rules on the module conflict below.
+3. **The trunk's lit beam-splash confirmation** and the production dream
+   `WorldEnvironment` — the last two N7 items, both presentation.
+4. **Gate E** (image, audio, performance) is entirely untouched.
 
 ## Where N7 got to
 

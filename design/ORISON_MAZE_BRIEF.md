@@ -679,11 +679,16 @@ graph is built it must **attenuate** hazard tells across a wall and must not
 **silence** them, or Gate C breaks on the day it lands. Re-run
 `DreamPerceptionTest.tscn` as that work's acceptance check.
 
-### Gate D — the complete Mina passage — THE ONE REMAINING SEAM
+### Gate D — the complete Mina passage — JOINED 2026-08-16
 
-**Both halves exist and have never been joined.** This is the largest single
-piece of remaining work in the dream, and it is a wiring problem rather than a
-design one.
+**The two halves are now connected.** `GateDJoinTest.tscn` plays the Mina
+shift inside a real `CampaignShell` and lets the production path carry it into
+the real dream: 69/69 checks across 17 blocks, 37 seconds, consecutive runs
+reaching the same committed outcome (`capture`). World sequence
+`waking -> dream -> waking`. `GoldenLoopTest` is untouched and still 87/87.
+
+What follows is the record of what the seam was, because it explains the
+harness's shape.
 
 - `GoldenLoopTest.tscn` runs the whole continuous Mina shift and passes 87/87,
   but it instantiates `scenes/building/orison_root.tscn` **directly** and
@@ -712,15 +717,58 @@ a parallel session, and destabilising it to gain dream coverage would be a bad
 trade. Its 87 checks should keep proving the waking shift; a Gate D harness
 should prove the join.
 
-Gate D's own bullets, unchanged:
+Gate D's four bullets, scored honestly:
 
-- One continuous production run enters after the complete Mina case, preserves
-  every K6 fact, traverses the real dream scene, ends, rebuilds the waking scene
-  and returns to the authored 4B bedside with one residue.
-- Real-file save/load passes at armed, entered, active, return-pending and awake
-  boundaries.
-- Reported and discovered job origins converge on the same dream profile.
-- Capture, shaft and electrical outcomes all wake without a game-over state.
+- ~~One continuous production run enters after the complete Mina case,
+  preserves every K6 fact, traverses the real dream scene, ends, rebuilds the
+  waking scene and returns to the authored 4B bedside with one residue.~~
+  **CLOSED.** The strongest part is the rebuilt world: the point reads
+  repaired and the fault reads quiet because `ChirpHunt.setup()` reconciled
+  them from the committed job stage, in a world built after the one that did
+  the repair had been freed. That is the record reconstructing the building.
+- **Owned elsewhere.** Real-file save/load at armed, entered, active,
+  return-pending and awake is `DreamBoundaryTest` (36/36). Gate D takes the
+  three checkpoints that bracket the join —
+  `conversation_complete | dream_pending | wake_complete` — rather than
+  re-proving persistence breadth `GoldenLoopTest` already owns.
+- ~~Reported and discovered job origins converge on the same dream
+  profile.~~ **CLOSED, with its limit stated.** Gate D opens on a throwaway
+  campaign played from the *discovered* origin, proves it converges on the
+  same job in the same stage without duplication, records the profile that
+  job names, discards the campaign, and then asserts at arm time that the id
+  the *reported* origin actually delivered into `DreamDirector.context()` is
+  that same profile. The profile is read from the job rather than derived
+  from how the job started, so the origin cannot change it. What is not done
+  is playing the discovered origin all the way to a second real entry; that
+  needs a second full shift and does not fit the budget.
+- **PARTIALLY CLOSED.** Capture, shaft and electrical outcomes all wake
+  without a game-over state. The joined run reaches **capture** and wakes
+  clean. `DreamHazardTest` proves `fall` and `contact` commit through the same
+  latched funnel, but neither has yet been driven through a played shift to a
+  rebuilt bedside. All three are one funnel, so the risk is low — but "low
+  risk" is not "measured".
+
+**What the join actually cost, recorded because it was not obvious.** The
+production onset clock cannot be used here. Onset is 2.60 sim-seconds, which
+at `SIM_SCALE` is 0.74 wall seconds after the case resolves — and at that
+moment every one of `SleepPressureDirector`'s five gates passes, because the
+body is parked at the 2A ceiling point, outside the elevator column and the
+traffic band, with `call_locked` already false. So the dream enters in the
+middle of the harness's own post-arm assertions and `CampaignShell` frees the
+waking world underneath them. It is deterministic, not a race, and it
+surfaces as a use-after-free far from its cause. `sleep_manual_clock` lets the
+harness say when; `advance_for_test` still runs the exact production
+`_advance` body, all five gates, and the real `enter_armed_dream()`. The only
+proof surrendered is that engine delta drives the clock, which
+`SleepPressureTest` already owns.
+
+Two smaller traps, both recorded so the next harness does not re-find them:
+`DreamBoundaryTest._exclusive()` counts the `waking_world` group, which only
+the boundary *stub* joins — the real `OrisonRoot` joins `building_root`, so
+copying that helper reports a false failure on a correct join. And
+`CampaignShell` removes and `free()`s a world immediately rather than
+deferring, so every world-owned reference must be re-acquired through
+`world_changed` rather than cached.
 
 ### Gate E — image, audio and performance
 

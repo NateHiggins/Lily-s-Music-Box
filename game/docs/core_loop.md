@@ -264,6 +264,12 @@ or any other second case is enabled.
   whether it met the margin the socket owes, and whether the direction stated
   is the direction the danger is in. It is Gate C's machine half only; the
   gate's identification bullet is a human playtest.
+- `GateDJoinTest.tscn` is the joined run: the Mina shift played inside a real
+  CampaignShell, carried by the production path into the real dream, ended
+  through DreamMazeRoot's own outcome funnel, and returned to the authored 4B
+  bedside in a REBUILT waking Orison. It deliberately does not re-prove the
+  walked errand route, the engine-delta onset clock, the pursuit timing curve
+  or persistence breadth; each has an owner above.
 
 Fresh K7 proof on 2026-08-15: CoreLoopTest passed 28/28 focused checks with
 `idle | job_open | awaiting_part | repairable | conversation_pending |
