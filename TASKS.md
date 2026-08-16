@@ -199,6 +199,76 @@ between headings silently.
   counter, the barrels and crowded pictures behind the backbar, the violet
   felt, and light that only ever comes from something you can point at.
 
+## E — Entropy: the building gets dirty (owner direction 2026-08-16)
+
+Design orientation, not yet a build. Brief:
+`design/ORISON_MAINTENANCE_ENTROPY_BRIEF.md` (PROPOSAL — owner review
+required). The pitch: dynamic grime, litter, burnt bulbs, wall damage,
+clogged WCs, dripping taps and simple appliance faults, all restorable by
+a maintenance worker with immediate visual feedback — **Sisyphean in
+aggregate, instantly rewarding in the hand.**
+
+- **E1 THE ARCHITECTURE IS THE SECOND SENTENCE, not the first.** The
+  owner's follow-up is the real design: *strip the authored decal spread
+  so the building is pristine, then simulate resident action and let the
+  damage fall out of it.* Today wear is authored — `build_wear_decals()`
+  bakes it into the glTF and `AtmosphericDecalPass` places residue from
+  rules and unit hashes — so a designer decides the floor looks used.
+  Under E1 the condition of the building becomes the **output of the
+  eighteen residents already running routines, schedules, navigation and
+  240 life sockets**. The building then tells the truth by itself: the
+  stair people actually use wears, the corridor outside a struggling
+  resident reads differently, and a case that changes behaviour changes
+  the wear without anyone authoring it.
+- **E2 "PRISTINE" DOES NOT MEAN "NEW" — do not strip the wrong layer.**
+  The Orison is 1912, reopened 1928: sixteen years old at game start and
+  never new during play. **Inherited patina stays baked** (the dished
+  marble tread, the rail polished gold at hand height, wallpaper faded
+  from the window) because that is architecture. **Accrued grime gets
+  simulated.** The test: *could a person with a mop, a bulb and an
+  afternoon undo it?* Yes → simulation. No → architecture.
+- **E3 BURN-IN GENERATES THE PAST WITH THE SAME MACHINE.** Day one must
+  not look sterile, but the answer is not to author a starting mess — it
+  is to run the simulation forward for some weeks of unattended resident
+  traffic and open on its output. One machine makes history and present,
+  every mark still has a cause, and "how long the building went
+  unattended" becomes a free difficulty dial.
+- **E4 THE DRAW-CALL TRAP, named before anyone hits it.** One node per
+  stain is hundreds of draws in the exact currency this frame is poorest
+  in. Build on `MultiMeshInstance3D` per (surface class × floor), toggling
+  instances — PS6's after-hours grilles already prove the shape at 1360
+  instances. The surface recipe is solved too: `story_decal.gd` (atlas
+  region → cached ImageTexture → QuadMesh, ALPHA_SCISSOR 0.08, shadows
+  off). Godot's `Decal` node is not used anywhere here and this project
+  renders on gl_compatibility — but **re-test before relying on either
+  answer**, per the `light_projector` lesson that a documented engine
+  limitation is a claim with a date on it.
+- **E5 THE SIMULATION IS COARSE.** An accumulation model, not a footstep
+  model: residents tick counters on authored anchors, a mark appears when
+  a counter crosses a threshold, and the whole thing advances per shift on
+  the existing schedule clock rather than adding a second one. Persist
+  state per anchor id as a small integer and reconstruct visuals from a
+  seed — never serialise a stain's transform.
+- **E6 CHORES ARE WEATHER; AUTHORED JOBS ARE SPINE.** Enforce in code, not
+  intent: an ambient chore never advances a case, issues a work order,
+  satisfies a job stage or appears as case work on the ORDER device. If a
+  chore ever becomes required to progress, promote it to an authored job
+  with a data record. A player must be able to ignore the whole system and
+  lose nothing but the building's dignity.
+- **E7 MINIMUM PROVABLE SLICE, arcade-V1 discipline.** One corridor, one
+  grime type, one mop, one bulb: seeded anchors in one MultiMesh with the
+  station re-measured, a mop stroke that clears an instance **in the same
+  frame**, a bulb replaced from stock bought at HARDWARE PAINT (closing
+  the loop through the existing errand system), survival through real-file
+  save/load, and re-soiling only across a sleep boundary — never in view.
+  If that slice is not satisfying, breadth will not save it.
+- **E8 OPEN RULINGS** (brief §9): does dirt cluster where the fiction says
+  or spread evenly; do residents react to a maintained floor; **is there a
+  score** (recommendation: emphatically no — no meter, no percentage, the
+  building's condition legible only by looking at it); how far does
+  "appliance repair" go before it sprawls; and does degradation advance
+  per shift rather than per hour.
+
 ## S — Basement studio
 
 Proposed in `design/ORISON_STUDIO_BRIEF.md`. Not canon until the owner rules.
