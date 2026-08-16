@@ -136,3 +136,38 @@ ceiling was dark and close.
 but the sixth is apartment 4B at 17.03 (was 15.95), eight floors away
 and straddling the gate, in a run where the roof simultaneously improved
 3 ms. That is this machine's noise band, not the well.
+
+
+## B5 — the well gets its lamp (`b5_light/`)
+
+Opening 5.3 m of brick shaft made the room taller and left no way for the
+player to know it: the void read as a dark opening. One caged bulb now
+hangs deep into it on a flex from the slab soffit, grazing the upper
+brick so the height reads, and hanging where nobody will ever change it —
+the good kind of unreachable.
+
+**It obeys the doctrine rather than breaking it.** The room's rule is
+*small warm sources hung close over people, and nothing lighting the room
+in general; you read the room by the pools and the dark between them is
+the point.* This is not a wash — it is one source you can point at, and
+the dark between it and the table pendants below is still the point.
+
+`navigation: false` deliberately: it is not a circulation light, and nav
+weighting (which multiplies squared distance by 0.15) would have it
+outranking fixtures people actually stand under. Its z 1.60 sits well
+under the 3.80 m storey cliff, so it resolves to F01 with the rest of the
+room rather than going dark whenever the player is in the bar — the
+failure the arcade's lighting audit flagged as a class.
+
+B3 also moved the lounge north past its light, so the deck sconces went
+from two to three: one over the arcade corner's machines, one over each
+end of the lounge. Still *over the ends, never the midpoint* — the
+doctrine, unchanged.
+
+Stale note corrected in the same pass: the lighting block still reasoned
+against "LightRig's budget of fourteen". The runtime budget is 64 now
+(TASKS L14), so nothing in this room loses any more. The margin reasoning
+is kept, because it is still how to decide which fixture *should* lose if
+a budget ever binds again.
+
+LightingAudit, WalkTest FULL, ShopEntry and StreetCoreVisibility all pass.
