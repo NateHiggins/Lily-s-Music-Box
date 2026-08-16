@@ -6,9 +6,15 @@ extends OmniLight3D
 ## which is also why the basement stays properly dark.
 ##
 ## ONE light, deliberately. A baked fill per room would be two dozen extra
-## omnis per storey against a 16-per-object cap that is already rationed;
-## a single roamer costs what one lamp costs and nobody can see two rooms'
-## fills at once through 1927 masonry anyway.
+## omnis per storey; a single roamer costs what one lamp costs and nobody
+## can see two rooms' fills at once through 1927 masonry anyway.
+##
+## (2026-08-16: this used to justify itself with "a 16-per-object cap that
+## is already rationed". The cap is 128 now and LightRig takes UNLIMITED on
+## desktop, so that argument is dead. The decision is not: mobile still
+## rations, two dozen omnis per storey is a submission cost on the side of
+## the frame that is actually bottlenecked, and the masonry argument never
+## depended on a renderer setting at all.)
 
 const ENERGY := 0.16
 ## Day/night: the director dims the window pools toward daylight, when

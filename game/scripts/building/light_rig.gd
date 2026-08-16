@@ -460,13 +460,16 @@ func _process(delta: float) -> void:
 			and occupied_height <= 2.25 \
 			and building.has_method("weather_exposure_at") \
 			and bool(building.call("weather_exposure_at", occupied))
-	# gate by storey, then rank the survivors so the per-object cap is spent
-	# on what the camera is actually standing among
+	# Gate by storey, then rank the survivors so a BUDGET is spent on what the
+	# camera is actually standing among. Desktop no longer has one to spend
+	# (see the header: cap 128, UNLIMITED) and the ranking is inert there;
+	# mobile still rations and the order is what decides who gets it.
 	var eligible: Array = []
 	var off: Array = []
 	for fixture in _controlled_lights():
 		# A local task-lamp key is an authoritative open contact, not a request
-		# to draw a black light.  Do not spend one of the sixteen slots on it;
+		# to draw a black light.  Do not spend a mobile budget slot on it
+		# (this said "one of the sixteen slots" before the cap went to 128);
 		# set_budget(0) below still keeps the LightRig's side of the contract.
 		if fixture.has_method("is_locally_enabled") \
 				and not bool(fixture.call("is_locally_enabled")):
