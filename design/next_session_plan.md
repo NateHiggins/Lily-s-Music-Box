@@ -1,7 +1,7 @@
-# Next session: give Mina's release print a pursuer
+# Next session: integrate Mina's vertical slice
 
-*Rewritten 2026-08-15. Sequencing authority beneath
-`design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`.*
+*Rewritten 2026-08-15; updated the same day after N6 landed. Sequencing
+authority beneath `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`.*
 
 ## Read first
 
@@ -69,21 +69,42 @@ never cancel pressure. Midpoint real-file restore and one-entry proof pass
 `art/renders/dream_onset_n5/README.md`. The source contract is
 `game/docs/dream_onset.md`.
 
-**Execute N6 next.** Implement Mina's release-print pursuit profile in the real
-DreamMazeRoot using one invisible navigation body and a `SHADOWS_ONLY` borrowed
-silhouette. The Tenant has no mesh, face, attack animation, teleport or new
-true form. Reuse N3's measured light-acquisition contract and N2's generated
-graph; do not add hazards yet. N6 must prove the silhouette never enters beauty,
-opaque module collision blocks acquisition, lamp state changes pursuit through
-the existing public owner, and capture reaches DreamDirector's existing outcome
-seam without inventing a failure state.
+**N6 is complete.** The production DreamMazeRoot now assembles its campaign
+slot's module chain from the N2 catalog and the exact campaign seed
+(`DreamMazeBuilder`; slot 1 = `D00→D01→D03→D04→D05`, real opaque graybox
+collision, one seed-bit handedness, later-slot connectors sealed), spawns the
+dream body as the real PlayerController with the lit service lamp, and runs
+`DreamPursuer`: one invisible navigation body wearing `mina_vale` forced
+shadows-only, moving through per-door approach waypoints on the validated
+graph, driven by N3's unchanged measured contract seeded once from the
+campaign seed. The 39/39 exact-count proof (`DreamPursuitTest.tscn`) covers
+all four ruled points — silhouette never in beauty, walls block acquisition,
+the real lamp owner gates pursuit (6.450 s on / 10.742 s off / 10.600 s
+extinguished captures at the fixed seed; 0 route violations), capture commits
+`end_dream("capture")` through the shell — plus mid-pursuit restore at D00.
+Record and production frames: `art/renders/dream_pursuit_n6/README.md`.
+Pursuit numbers are data in `game/data/dream_profiles.json`. Hazards, the
+terminal fold, run caps, dream audio and case captions were deliberately
+excluded. Known upstream regression: GoldenLoopTest fails two K6
+objective-title checks on clean origin (pre-N6, suspect `1f8faa0`); it is
+flagged as a separate task and must be green again before Gate D work leans
+on that harness.
+
+**Execute N7 next.** Integrate one Mina vertical slice on the landed
+substrate: Mina's three ruled hazards (open lift void, Vantry signal trunk,
+hollow runner — each with its darkness tell, lit confirmation and
+reconstructable cause), the slot-1 run cap with the terminal fold placing the
+Tenant on the shorter converging route, the receding in-maze practical one
+connector ahead, and the wake outcomes for capture, fall and contact all
+reaching the existing seam. Gate C's fairness measures (tell-before-contact
+logging) come with the hazards; do not start Gate E polish or Peter.
 
 ## Execution order
 
-1. **N6 — land Mina's shared-profile pursuit.** Preserve N2's graph, N3's light
-   binary, N4's scene transaction and N5's onset owner.
-2. **N7 onward — integrate one vertical slice.** Mina first, then the remaining
-   case grammars only after the shared substrate passes its gates.
+1. **N7 — integrate Mina's vertical slice.** Preserve N2's graph, N3's light
+   binary, N4's scene transaction, N5's onset owner and N6's pursuit contract.
+2. **N8 onward — remaining case grammars** only after the shared substrate
+   passes Gate C and Gate D on Mina.
 
 M0.5 and M1 are closed historical milestones. Their detailed proof remains in
 `design/FINAL_MAP_REDESIGN_BRIEF.md`, `TASKS.md` and `HANDOFF.md`; do not rerun,
@@ -106,9 +127,9 @@ reinterpret or reopen them while executing N6.
 
 ## The next deliverable to the owner
 
-Return one Mina release-print pursuit running through the shared dream owner:
-one invisible navigation body, one borrowed shadows-only silhouette, no visible
-Tenant model, and deterministic light/collision/capture proof in the real dream
-scene. Preserve N4's one-world/save transaction and N5's sole onset call. Mina's
-three audible hazards, wake outcomes, Peter and all later case profiles remain
-outside N6.
+Return one complete playable Mina dream passage: enter after the complete
+shift, survive or fail against the pursuit and her three audible hazards,
+and wake in 4B with one residue — capture, fall and contact all reaching the
+same existing outcome seam, the slot-1 cap closing the run through the
+terminal fold, and Gate C's tell/impact logging proving the darkness is
+fair. Peter and all later case profiles remain outside N7.

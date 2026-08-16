@@ -3,9 +3,20 @@
 	"profiles": {
 		"mina_release_print": {
 			"case_id": "mina_caption_crisis",
+			"campaign_slot": 1,
 			"onset": {
 				"allowed_forms": ["gradual"],
 				"gradual_seconds": 2.6
+			},
+			"pursuit": {
+				"silhouette_resident": "mina_vale",
+				"lit_speed_mps": 6.35,
+				"lit_speed_jitter_mps": 0.12,
+				"dark_speed_mps": 3.35,
+				"dark_speed_jitter_mps": 0.08,
+				"hearing_period_s": 0.72,
+				"hearing_period_jitter_s": 0.08,
+				"capture_radius_m": 0.75
 			}
 		}
 	}

@@ -246,8 +246,8 @@ inspection, the walked HARDWARE PAINT errand and return, repair, Mina's first
 conversation, recurrence, second factual calibration, complete-rule
 conversation, integration, dream request, stubbed wake, and real-file
 save/load at every boundary. That direct-building harness still consumes the
-dream request with a test stub; production now owns the N4 scene transaction
-and N5 onset, but no playable maze/pursuit exists yet. Owner correction 2026-08-15:
+dream request with a test stub; production now owns the N4 scene transaction,
+N5 onset and the N6 maze assembly and pursuit. Owner correction 2026-08-15:
 the reveal restriction applies to the **title screen only**; it does not block
 dream design or production. The complete `design/ORISON_MAZE_BRIEF.md` is now
 ruled canon. N2's source catalog, canonical seed-0 assembly, dimensioned drawing
@@ -270,15 +270,27 @@ dimensioned drawing and beauty proof are in
 `art/renders/dream_light_n3/README.md`. K7 records the landed loop in
 `game/docs/core_loop.md`. N4 now boots production through CampaignShell and
 proves its five forward-only real-file phases in `DreamBoundaryTest.tscn`; the
-exact scene/save contract is `game/docs/dream_boundary.md`. The current
-DreamMazeRoot is a D00 marker payload, not playable maze art. N5 now gives
+exact scene/save contract is `game/docs/dream_boundary.md`. DreamMazeRoot now
+assembles its slot's module chain from the N2 catalog and the exact campaign
+seed, spawns the dream body with the real service lamp, and runs the
+shadows-only release-print pursuit. N5 now gives
 CampaignShell one persistent SleepPressureDirector: Mina's authored 2.60-second
 gradual warning, exact mid-onset real-file restore, the shipped Always-warn
 option, and pause-without-cancel gates for `call_locked`, unstable floor, the
 real lift seam and the permanent carriageway. It is the sole production caller
 of dream entry. The 20/20 contract and A/A/B/C visual proof are in
-`game/docs/dream_onset.md` and `art/renders/dream_onset_n5/README.md`; N6 is the
-next dream item. Wake persists one
+`game/docs/dream_onset.md` and `art/renders/dream_onset_n5/README.md`.
+**N6 is now closed:** the runtime maze (slot-1 chain `D00→D01→D03→D04→D05`
+from the catalog and seed, real opaque graybox collision, sealed later-slot
+connectors) and Mina's release-print pursuit landed with a 39/39 exact-count
+proof — the `mina_vale` silhouette never enters beauty, module walls block
+acquisition, the real lamp owner gates pursuit (6.450 s on / 10.742 s off /
+10.600 s extinguished captures at the fixed seed, 0 route violations), and
+capture reaches `end_dream("capture")` through the shell. Record and frames:
+`art/renders/dream_pursuit_n6/README.md`. N7, the integrated vertical slice,
+is the next dream item. GoldenLoopTest's two K6 objective-title checks fail
+on clean origin (pre-N6, suspect `1f8faa0`) and are flagged separately. Wake
+persists one
 `mina_factual_refrigerator_caption` fact. Its acoustic owner
 is generated marker `F02_2A_FRIDGE_01`; its visible label follows generated
 socket `2A_FRIDGE_FACE`. The before/after acceptance pair and rerun command are
