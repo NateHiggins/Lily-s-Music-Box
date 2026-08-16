@@ -34,7 +34,13 @@ RUNTIME_POLICY = {
     "brass": {},
     "brass_dull": {"roughness_multiplier": 0.52},
     "nickel_plated": {"roughness_multiplier": 0.82},
-    "mirror_aged": {"roughness_multiplier": 0.18},
+    # Tarnished silvering, not polished chrome: with no reflections on the
+    # Compatibility renderer, metallic 0.78 / roughness 0.18 rendered every
+    # medicine-cabinet mirror as a black void (the flat-metal lesson — the
+    # surface reflects the room's light away from the eye). Worn mercury
+    # glass behaves like its haze: metallic drops in the manifest (0.35)
+    # and the roughness response rises here.
+    "mirror_aged": {"roughness_multiplier": 0.45},
     "mica_heater": {}, "rubber_aged": {"roughness_multiplier": 0.82},
     "zinc_liner": {"roughness_multiplier": 0.82},
     "copper_aged": {"roughness_multiplier": 0.58},

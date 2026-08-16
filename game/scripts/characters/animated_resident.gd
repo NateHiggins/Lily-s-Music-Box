@@ -77,6 +77,14 @@ func _glow_material(material: Material) -> void:
 	var standard := material as StandardMaterial3D
 	if standard == null:
 		return
+	# Meshy hero exports omit metallicFactor, and glTF defaults it to 1.0:
+	# a fully metallic body reflects the room's one warm light away from
+	# the eye and renders as a black cutout inside a visibly lit room (the
+	# 2026-08-15 walkthrough's black-resident family — same physics as the
+	# kitchen flat-metal lesson). People are cloth and skin: dielectric.
+	if standard.metallic > 0.5:
+		standard.metallic = 0.0
+		standard.roughness = maxf(standard.roughness, 0.65)
 	standard.emission_enabled = true
 	standard.emission = PRESENCE_GLOW
 	standard.emission_energy_multiplier = 1.0

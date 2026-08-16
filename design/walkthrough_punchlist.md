@@ -40,7 +40,7 @@ baluster shadows, confirmed in the lit pass.
 
 | room | symptom | severity |
 |---|---|---|
-| ROOF | black monolith sign structure + angled arm still render 100% black against a lit skyline — unchanged from the 08-01 "billboard/HVAC black faces" item | ugly |
+| ROOF | ~~black monolith + angled arm~~ FIXED 2026-08-16: the "monolith" was the near clothespost — authored `metal` (metallic 0.9) reflects the night away and renders 0,0,0 (the flat-metal lesson). Clotheposts, line and tank legs now `cast_iron`; the billboard's 0.055 soot-black backing lifted to weathered timber in `found_art_pass.gd`. Re-render shows speckled iron catching the skyline | resolved |
 | B1_ATRIUM | light-well chase tube still crosses the stair balustrade diagonally and passes the reading nook | ugly |
 | F01_A_BED, F06_D_BED | ~~window frames glazed with brick~~ FIXED 2026-08-16: the middle-band street/rear walls in `exterior()` spanned the full face and ran a second windowless wall coincident with the stack end walls — 23 apertures bricked over building-wide. Clamped to ±XAW (their own comment's intent); the B1 areaway door pass re-anchored to the shorter wall; layout sweep now finds 0 blocked apertures and the rebuilt F06_D_BED shows city light through glass | resolved |
 | F06_D unit | still the unfinished set: pale untextured furniture masses, slab bed with no bedding, brick window | ugly |
@@ -53,8 +53,8 @@ baluster shadows, confirmed in the lit pass.
 | room | symptom | severity |
 |---|---|---|
 | several floors | ~~recurring small unlit black blob prop~~ IDENTIFIED 2026-08-15 by probe: `DomesticAnomaly_player_smart_speaker` and siblings — authored case-anomaly props (impossible modern objects, meant to be dismissable per X1). A black cylinder is the correct read; not a defect. Legibility tuning is an owner-taste call | resolved |
-| corridors/units | residents read as pure-black cutouts in otherwise lit spaces (F02_CORRIDOR stair figure, F04_D_MAIN guest) while the same cast lights correctly elsewhere (F05_A Nadia) — likely the character mesh losing the room's light budget; consider a small character fill/rim or budget priority | ugly |
-| baths | medicine-cabinet mirror faces render as pure black voids (F03_A_BATH, F04_A_BATH) — compatibility renderer has no reflections, but a dark-gray brushed material would read as tarnished glass instead of a hole | wish |
+| corridors/units | ~~residents read as pure-black cutouts~~ FIXED 2026-08-16: every Meshy hero GLTF omits `metallicFactor` and glTF defaults it to **1.0** — fully metallic people reflect the room light away. Both spawn paths (AnimatedResident presence-glow walk, routines `_upgrade`) now clamp metallic>0.5 to dielectric; probe confirms all residents at metallic 0.00 in the live tree | resolved |
+| baths | ~~mirror faces render as black voids~~ FIXED 2026-08-16 at the material's true author (gen_layout MATERIAL_CATALOG → material_catalog.json → runtime manifest → material_sets.gd): `mirror_aged` retuned 0.78/0.18 metallic/rough → 0.35/0.45 — worn mercury glass reads by its haze. Chain regenerated end to end | resolved |
 | F02/F06_ATRIUM | empty black picture frame sits at skirting level on the atrium wall (frame with no art, floor height) — either art that lost its mount or a frame that lost its art | ugly |
 | F03_A_BATH | small black chip/box floats at the ceiling corner over the doorway | wish |
 | F01_OFFICE | ~~photographic print floats under the desk shelf edge~~ FIXED 2026-08-15: `FoundPrint_office_magazine` in `found_art_catalog.json` was anchored at (-11.8, 4.4, 0.845) — open air 0.75 m off the desk; moved onto the desk top at (-12.45, 3.55, 0.742) | resolved |

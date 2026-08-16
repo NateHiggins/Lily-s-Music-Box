@@ -14,7 +14,7 @@ const SETS := {
 	'brass': ["T_library_metals_aged_brass_albedo.png", "T_library_metals_aged_brass_rough.png", "T_library_metals_aged_brass_normal.png", 0.5, 0.85], # visual lock
 	'brass_dull': ["T_ai_materials_brass_dull_albedo.png", "T_ai_materials_brass_dull_rough.png", "T_ai_materials_brass_dull_normal.png", 0.5, 0.3, 0.52], # visual lock
 	'nickel_plated': ["T_ai_materials_nickel_plated_albedo.png", "T_ai_materials_nickel_plated_rough.png", "T_ai_materials_nickel_plated_normal.png", 0.32, 0.7, 0.82],
-	'mirror_aged': ["T_ai_materials_mirror_aged_albedo.png", "T_ai_materials_mirror_aged_rough.png", "T_ai_materials_mirror_aged_normal.png", 0.55, 0.78, 0.18],
+	'mirror_aged': ["T_ai_materials_mirror_aged_albedo.png", "T_ai_materials_mirror_aged_rough.png", "T_ai_materials_mirror_aged_normal.png", 0.55, 0.35, 0.45],
 	'mica_heater': ["T_ai_materials_mica_heater_albedo.png", "T_ai_materials_mica_heater_rough.png", "T_ai_materials_mica_heater_normal.png", 0.18, 0],
 	'rubber_aged': ["T_ai_materials_rubber_aged_albedo.png", "T_ai_materials_rubber_aged_rough.png", "T_ai_materials_rubber_aged_normal.png", 0.26, 0, 0.82],
 	'zinc_liner': ["T_ai_materials_zinc_liner_albedo.png", "T_ai_materials_zinc_liner_rough.png", "T_ai_materials_zinc_liner_normal.png", 0.55, 0.12, 0.82],

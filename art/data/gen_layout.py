@@ -2464,10 +2464,15 @@ def build_floor(floor_id):
                       -10.04 - i * 0.03, 28.08 + i * 0.06,
                       0.08 + i * 0.03, -0.55 + i * 0.15, 0.13,
                       "limestone" if i == 2 else "face_brick", False)
+        # cast_iron, not "metal": polished-steel metallic 0.9 on outdoor
+        # posts reflects the night away from the eye and renders 0,0,0
+        # (the kitchen brass-bar lesson; the 08-15 walk's roof "monolith"
+        # was the near clothespost doing exactly this). Weathered exterior
+        # ironwork behaves like its oxide.
         for lx, ly in ((-9.2, 5.2), (-6.9, 5.2), (-9.2, 6.9), (-6.9, 6.9)):
             _furn_box(furniture, "tankleg_%d_%d" % (int(lx * 10),
-                      int(ly * 10)), lx, ly, 0.22, 0.22, 0.0, 1.6, "metal",
-                      False)
+                      int(ly * 10)), lx, ly, 0.22, 0.22, 0.0, 1.6,
+                      "cast_iron", False)
         _furn_box(furniture, "watertank", -9.45, 4.95, 2.80, 2.20, 1.6,
                   2.3, "timber", False)
         # The four anonymous boxes were the right infrastructure count and
@@ -2487,9 +2492,9 @@ def build_floor(floor_id):
             })
         for px_ in (-12.5, -7.5):
             _furn_box(furniture, "clothespost_%d" % int(px_), px_, -8.6,
-                      0.1, 0.1, 0.0, 2.1, "metal", False)
+                      0.1, 0.1, 0.0, 2.1, "cast_iron", False)
         _furn_box(furniture, "clothesline", -12.45, -8.58, 5.0, 0.03,
-                  1.95, 0.02, "metal", False)
+                  1.95, 0.02, "cast_iron", False)
         # The skylight itself. The monitor was open-topped, so the "light
         # from the skylight" had no skylight to come from: a steel-ribbed
         # glazed cap closes it and gives the shaft something to start at.
@@ -8828,8 +8833,12 @@ MATERIAL_CATALOG = {
     # Back-silvered glass is not generic architectural glazing. Compatibility
     # has no planar reflection, so damp clouding and pinprick silver loss have
     # to carry the read without baking a reflected room into the surface.
+    # Retuned 2026-08-16 (walkthrough): metallic 0.78 / roughness 0.18 made
+    # every cabinet mirror a black void at night — with no reflections, a
+    # near-polished metal reflects the room's light away from the eye (the
+    # flat-metal lesson). Worn mercury glass reads by its haze instead.
     "mirror_aged": {"base_color": [0.68, 0.69, 0.67, 1.0],
-                    "roughness": 0.18, "metallic": 0.78},
+                    "roughness": 0.45, "metallic": 0.35},
     # Natural mica sheet carrying the 1-A-1's resistance wire. It is a
     # mineral insulator, not ceramic and not a glowing surface by itself;
     # the GDScript wire geometry owns the mutable emission.

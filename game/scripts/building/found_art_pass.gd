@@ -90,9 +90,13 @@ func _place_billboard(spec: Dictionary) -> void:
 			float(spec.get("height", 2.4)))
 	var backing_mesh := BoxMesh.new()
 	backing_mesh.size = Vector3(size.x + 0.16, size.y + 0.16, 0.10)
+	# Weathered timber gray-brown, not soot-black: at 0.055 albedo the
+	# board's back and posts rendered as a 100%-black hole against the lit
+	# skyline in every roof still since 08-01. A billboard back is dirty
+	# timber, and dirty timber still catches the city's light.
 	var backing_mat := StandardMaterial3D.new()
-	backing_mat.albedo_color = Color(0.055, 0.05, 0.045)
-	backing_mat.roughness = 0.82
+	backing_mat.albedo_color = Color(0.21, 0.185, 0.16)
+	backing_mat.roughness = 0.85
 	var backing := MeshInstance3D.new()
 	backing.mesh = backing_mesh
 	backing.material_override = backing_mat

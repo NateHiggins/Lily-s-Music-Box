@@ -530,6 +530,14 @@ func _upgrade(node: Node3D, slug: String) -> bool:
 			child.visible = false
 	for mesh in _meshes(figure):
 		mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+		# glTF defaults an omitted metallicFactor to 1.0, and the Meshy
+		# hero exports omit it — a fully metallic body renders as a black
+		# cutout in a lit room. Same clamp AnimatedResident applies.
+		for s in range(mesh.get_surface_override_material_count()):
+			var standard := mesh.get_active_material(s) as StandardMaterial3D
+			if standard and standard.metallic > 0.5:
+				standard.metallic = 0.0
+				standard.roughness = maxf(standard.roughness, 0.65)
 	# Everything Meshy ships is a loop except the one-shots, and a clip that
 	# plays once and freezes reads as the character dying. Looping is the
 	# safe default until each clip is identified and classified. (Carried
