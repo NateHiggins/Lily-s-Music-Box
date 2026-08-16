@@ -460,6 +460,13 @@ emerges (no expelled debris or people); the rail-less tram is the authored wrong
   lighting, Passage ownership/visibility and WalkTest FULL all pass. Street
   ends, traffic `MAX_WAIT` / `GAP_SECONDS`, the three-zone map and one-light
   budget remain unchanged.
+- **T9 PROPOSED — the street wall.** `design/STREET_WALL_PROPOSAL.md`: frame
+  the arcade gate (its K0 host is one storey short, per the gateway
+  proposal's own §3.1) and close the facade ring around the play area —
+  three-layer system, eight-station survey evidence in
+  `art/renders/street_facade_survey_v1/`, +0.5 ms perf contract, phases
+  W1–W4. Awaits owner ruling on §6 (west-strip character, ghost-sign copy,
+  lintel carry); W1/W2/W4 are not blocked by fiction questions.
 
 ## P2 — The Passage (rehousing the shops)
 
