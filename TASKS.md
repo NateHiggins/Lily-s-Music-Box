@@ -567,7 +567,20 @@ are two answers to the same problem and only this one is built.
   crowning the skyline); PassageVisibilityTest now pins DAYNIGHT=0 itself
   after a wall-clock flake (went red purely because the machine crossed
   2 AM). Battery + WalkTest FULL PASS, northbound 13.54 ms. Record:
-  `art/renders/vantry_arcade_v3/README.md`. Next: V4 lighting hierarchy
+  `art/renders/vantry_arcade_v3/README.md`.
+  **V3b (street respacing) is BUILT and verified locally** (2026-08-16, owner
+  direction "space the arcade on the street better, move the subway exit"):
+  measuring the east flank found V3's frontispiece pier base and the K1 kiosk
+  plinth **interpenetrating** by 10x620x160 mm — a stale clearance, since K1
+  measured its 1.10 m from the bare portal before anything projected from the
+  face. The kiosk moved 18.10→18.55 for balanced 0.42/0.40 reveals, taking its
+  stair, GROUND_HOLES entry, pavement cut and approach light with it; the
+  assert now guards the reveals so the bug returns as a build failure. Full
+  battery + WalkTest FULL + StreetContainment PASS. Record:
+  `art/renders/vantry_arcade_v3b/README.md`. **Open, not ours:** the kiosk
+  footprint overlaps the in-flight W1 flank wall band in plan — predates this
+  and belongs to the W1/K0 reconciliation.
+  Next: V4 lighting hierarchy
   (bronze needs light to read; rear rooms get their half-light; the
   night-jewel state), V5 use/aging, V6 abnormalities + perf.
 
