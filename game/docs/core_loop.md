@@ -257,6 +257,11 @@ or any other second case is enabled.
   route; `DreamHazardTest.tscn` proves the three ways a run ends — the latched
   outcome funnel, the authored run ceiling, and hazard contact — including the
   measured warning every impact actually got.
+- `DreamPerceptionTest.tscn` walks sixty approaches, twenty per hazard, and
+  measures what a player would have been told: whether the warning arrived,
+  whether it met the margin the socket owes, and whether the direction stated
+  is the direction the danger is in. It is Gate C's machine half only; the
+  gate's identification bullet is a human playtest.
 
 Fresh K7 proof on 2026-08-15: CoreLoopTest passed 28/28 focused checks with
 `idle | job_open | awaiting_part | repairable | conversation_pending |

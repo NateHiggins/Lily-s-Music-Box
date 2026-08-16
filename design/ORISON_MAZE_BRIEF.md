@@ -551,10 +551,15 @@ have earned. Mina's profile allowlist arms three of the four placed sockets;
 the slot-3 rhythmic counterweight sits in her D03 unarmed, which is how a
 shared catalog serves six cases.
 
-N7 steps 9–13 remain: the hollow runner, the trunk's lit beam-splash
-confirmation, caption presentation and its settings key, the Gate C blinded
-identification harness (20 trials, 16 to pass), the production dream
-WorldEnvironment and receding practical, and the render README.
+The Gate C machine harness and the N7 render record landed the same day; see
+the Gate C entry above. Measuring the perception channel also caught a live
+bug that reading it had not: the sector table named left as right, because
+`Vector3.signed_angle_to` about +Y is positive counter-clockwise while the
+table reads clockwise. Every directional caption was mirrored.
+
+N7 steps remaining: the hollow runner's effect, the trunk's lit beam-splash
+confirmation, on-screen caption presentation and its `GameBoot.settings` key,
+and the production dream WorldEnvironment with its receding practical.
 
 The hollow runner is blocked on one owner decision, not on engineering. The
 catalog places its socket in `D01_F04_LONG_HALL`; §"MINA'S FIRST RUN" scripts
@@ -633,14 +638,43 @@ failure are recorded in `art/renders/dream_light_n3/README.md`.
   directly in beauty frames.
 - Keyboard, controller and touch drive the same public light toggle.
 
-### Gate C — fair darkness
+### Gate C — fair darkness — TWO OF THREE CLOSED 2026-08-16
 
-- In blinded tests, each of Mina's three hazards is identified by bearing and
-  type before contact in at least 80% of trials.
-- Every impact log includes the tell start, player distance, light state and
-  causal hazard id.
-- Directional-caption mode conveys the same information without revealing
-  hidden geometry.
+- **NOT CLOSED, and not closeable by a script.** In blinded tests, each of
+  Mina's three hazards is identified by bearing and type before contact in at
+  least 80% of trials. This is a human playtest. `DreamPerceptionTest.tscn`
+  proves the *precondition* — that from all sixty approaches there was
+  something honest to identify, correctly aimed, in time — and holds itself to
+  100% rather than 80%, because if the machine side is imperfect the human
+  number measures our bugs instead of their perception. The three cues are
+  mutually distinguishable (`TRUNK HISS`, `CHAIN BELOW`, `DRY CREAK`); whether
+  players *do* identify them is theirs to answer.
+- **Closed.** Every impact log includes the tell start, player distance, light
+  state and causal hazard id. `DreamHazard.impact_record()` carries all of
+  them plus the realised and owed warnings, and
+  `DreamHazardField.unfair_impacts()` reduces the question to one list that
+  must stay empty.
+- **Closed at the data layer.** Directional-caption mode conveys the same
+  information without revealing hidden geometry: rows carry an eight-sector
+  bearing and a cue, never a distance, module id or position, and the
+  direction is restated whenever the sector it names stops being true. The
+  on-screen presentation and its settings key are still to build.
+
+Sixty approaches at the 4.6 m/s run speed, twenty bearings per hazard, walked
+from the previous room in through the chain door: all warned, all fair, all
+bearing-true, worst margins 1.12 / 1.58 / 0.92 s against 0.90 / 0.90 / 0.75 s
+owed. Full numbers in `art/renders/dream_hazards_n7/README.md`.
+
+**Binding constraint discovered here, on the dream acoustic graph.** The
+authored tell radii (4.6–5.5 m) are larger than the modules that hold them
+(3.5–4.1 m deep), so a tell is a room-entry event rather than a proximity one,
+and a warning can only be measured as time actually walked. At a run, 0.90 s
+of warning needs 4.14 m of runway and no room is that deep — so the trunk and
+the void were first heard from an *adjacent* room in 20 of 20 approaches each.
+They are fair because the sound crosses the wall. When the dream acoustic
+graph is built it must **attenuate** hazard tells across a wall and must not
+**silence** them, or Gate C breaks on the day it lands. Re-run
+`DreamPerceptionTest.tscn` as that work's acceptance check.
 
 ### Gate D — the complete Mina passage
 
