@@ -20,6 +20,47 @@ Everything derived cleanly. The one trap was a hard-coded duplicate: the
 `GROUND_HOLES` entry cutting street asphalt over the shaft. Miss it and
 the pavement grows a lid over the stairwell.
 
+## B2 — the descent accumulates (`b2_diorama/`)
+
+The owner called this "one of the most important artistic opportunities
+in the redesign". It is also the least invented thing in the rebuild:
+littered treads, a soiled red rug and layered graffiti are **canonical**,
+straight off Otomo's stairwell frame. Widening the stair in B1 is what
+made room for it.
+
+**38 pieces, and the rule that keeps it from being mess:** every object
+belongs to somebody and answers one of three owners — *the bar
+overflowing*, *the building working*, or *the street posting*. Nothing is
+decorative rubbish; a thing is there because a person put it down and did
+not come back.
+
+- **Street lobby** — three plies of fly-posting, each smaller and prouder
+  of the wall than the last; an umbrella stand nobody empties and the
+  drip ring under it; newspapers bundled for a collection that is late.
+- **The flight** — an older tenant's name ghosting through paint too thin
+  to hide it; a dead neon fragment whose tube is long gone and whose
+  transformer is still bolted up and still cabled to nothing; the
+  building's own surface wiring in three gauges from three decades; and
+  flat litter on the treads, east side, never in the lane.
+- **The foot** — empty crates stacked two high and one askew, because the
+  last person carrying them was tired; bottles in the top crate and two
+  that never made it back; a rolled rug on end, kept because it might do
+  for the stage; folded chairs from a night that needed more seats; a
+  hand truck with a maintenance tag nobody has signed since the year
+  before last.
+- **The mop and bucket** — the one object here that is not abandoned. It
+  is waiting for the next shift, and it is the same tool the entropy
+  proposal puts in the player's hands.
+
+**Nothing stacks on the flight itself**, because a crate on a stair falls
+down it. The mass piles at the two landings, where a person would
+actually abandon it, and the flight gets wall layers and flat litter.
+
+**The lane is sacred.** Accumulation is held east of x 5.28, leaving
+**0.98 m of clear walking width** the whole way down — wider than the
+entire descent was before B1. Verified by measurement: max intrusion
+0.000 m.
+
 ## B3 — the lounge decompresses (`b3_lounge/`)
 
 The crowding was measurable, not impressionistic. The south deck offered
