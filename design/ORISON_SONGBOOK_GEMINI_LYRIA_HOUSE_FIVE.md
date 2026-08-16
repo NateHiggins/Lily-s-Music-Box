@@ -430,6 +430,14 @@ never use formant correction, never use `atempo`. Loudness-match
 native and returned versions by plain gain only (measure with
 `ffmpeg -i file.wav -af ebur128 -f null -`, apply `volume=XdB`).
 
+*Both steps are tooled as of 2026-08-15 and self-tested against this
+book's recorded numbers: `art/audio/songbook_scratch_return.py`
+(complete take → matched return + listening copy; optional `--rig`
+stays non-canon pending G7) and
+`art/audio/songbook_candidate_precheck.py` (Gemini .mp4 → objective
+pre-checks, ×1.335 matched preview, MANIFEST scaffold; per-track
+specs via `--spec-duration/--spec-bpm/--spec-meter`).*
+
 ## RESULTS
 
 | Track | Candidate filename | Date | PASS/FAIL | Notes |
