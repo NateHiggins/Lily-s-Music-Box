@@ -559,9 +559,17 @@ are two answers to the same problem and only this one is built.
   northbound 13.20 ms; content alarms deliberately raised (1300→1550
   records, AABB gate 9.0→10.5, mesh cap 280→310) with measurements in the
   comments. Record: `art/renders/vantry_arcade_v2/README.md`. V2 generator
-  hunks (gen_layout.py + shop_interiors.py) join the V1 hold. Next: V3
-  storefront families + daylight exterior review, V4 lighting hierarchy,
-  V5 use/aging, V6 abnormalities + perf reconciliation.
+  hunks (gen_layout.py + shop_interiors.py) join the V1 hold.
+  **V3 (frames, plaques, the face) is BUILT and verified locally**
+  (2026-08-16): bronze/nickel glazing families + opal transoms + brass
+  tenant plaques per trade; daylight elevation review passed after two
+  fixes (continuous sixteen-voussoir archivolt, stepped center attic
+  crowning the skyline); PassageVisibilityTest now pins DAYNIGHT=0 itself
+  after a wall-clock flake (went red purely because the machine crossed
+  2 AM). Battery + WalkTest FULL PASS, northbound 13.54 ms. Record:
+  `art/renders/vantry_arcade_v3/README.md`. Next: V4 lighting hierarchy
+  (bronze needs light to read; rear rooms get their half-light; the
+  night-jewel state), V5 use/aging, V6 abnormalities + perf.
 
 ## F — Film (projectors instead of televisions)
 

@@ -95,6 +95,11 @@ func _count_unclassified_visible(root: Node) -> int:
 
 
 func _ready() -> void:
+	# The 03:00 composition assertions require the canonical clock. Without
+	# this pin the test follows the real wall clock and fails in the
+	# 06:30-02:00 trading window — found 2026-08-16 when a green battery
+	# went red between runs purely because the machine crossed 2 AM.
+	OS.set_environment("DAYNIGHT", "0")
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	var root = load("res://scenes/building/orison_root.tscn").instantiate()
