@@ -78,7 +78,11 @@ func _build_world() -> void:
 	# forever. Slot 1 is Mina's 28 seconds.
 	var ceilings: Array = constants.get("campaign_run_ceilings_s", [])
 	run_cap_s = float(ceilings[slot - 1]) if slot >= 1 			and slot <= ceilings.size() else 0.0
-	DreamMazeBuilder.build_geometry(self, plan, clear_ceiling)
+	# The allowlist must be read BEFORE the geometry, because the geometry
+	# depends on it: only an armed void gets its mouth cut.
+	profile_hazards = profile.get("hazards", {})
+	DreamMazeBuilder.build_geometry(self, plan, clear_ceiling,
+			profile_hazards.get("allow", []))
 	maze_built = true
 
 	var spawn: Array = plan.spawn_player
@@ -100,7 +104,6 @@ func _build_world() -> void:
 	# builder places every socket in the chain; the profile's allowlist
 	# is what arms three of them for Mina.
 	hazards = DreamHazardField.new()
-	profile_hazards = profile.get("hazards", {})
 	hazards.setup(plan, profile_hazards, player)
 	captions = DreamCaptionLayer.new()
 	captions.name = "DreamCaptionLayer"

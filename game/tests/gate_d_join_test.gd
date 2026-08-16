@@ -54,7 +54,7 @@ const SIM_SCALE := 3.5
 ## 70 on the capture run, 72 on the steered runs: steering adds the
 ## armed-hazard and Tenant-parked checks, and this file refuses to let a block
 ## quietly change size.
-const EXPECTED_CHECKS := 70
+const EXPECTED_CHECKS := 69
 const EXPECTED_BLOCKS: Array[String] = ["shell_boot", "origin_convergence",
 		"boundary_idle",
 		"complaint", "inspection", "acquisition", "repair",
@@ -275,10 +275,15 @@ func _origin_convergence() -> void:
 	_check("Mina's complaint recognizes it without duplicating the job",
 			str(state.origin) == "discovered"
 			and str(state.stage) == "awaiting_part")
+	# The convergence that is actually measurable is the JOB: the discovered
+	# path could in principle have issued a different one. The profile is then
+	# a property of that job, read from the library by CoreLoopDirector, and
+	# the origin has no way to influence it.
 	discovered_profile = str(work_orders.job_library.job(JOB).get(
 			"dream_profile_id"))
-	_check("the discovered origin names a real dream profile",
-			not discovered_profile.is_empty()
+	_check("the discovered origin issued this job, and it names a profile",
+			work_orders.job_stage(JOB) != "missing"
+			and not discovered_profile.is_empty()
 			and armed_count == 0)
 	# Discard the throwaway campaign, then re-pin: reset_campaign_for_tests
 	# re-rolls the dream seed on every call.
@@ -493,9 +498,11 @@ func _arm() -> void:
 					JOB).get("dream_profile_id"))
 			and ctx.window == work_orders.job_library.job(JOB).get(
 					"dream_window")
-			and str(ctx.seed_hex) == FIXED_SEED_HEX)
-	_check("both origins converge on the profile the transaction carries",
-			not discovered_profile.is_empty()
+			and str(ctx.seed_hex) == FIXED_SEED_HEX
+			# NOT a separate check: comparing ctx.profile_id to
+			# discovered_profile would be an identity, since both resolve to
+			# the same job-library field. The convergence proved above is the
+			# job; the profile following from it is structural.
 			and str(ctx.profile_id) == discovered_profile)
 	# Assert the wake precondition now, while it is still cheap to diagnose:
 	# if this is ever false, notify_wake_complete() refuses much later and the
@@ -756,6 +763,10 @@ func _cleanup() -> void:
 			contained)
 	if contained:
 		DirAccess.remove_absolute(resolved)
+	# Disarm BEFORE re-aiming at the player's real save. quit() only requests
+	# an exit at end of frame, so any commit() from a still-live node between
+	# these two lines would overwrite a real save with test campaign state.
+	RealityState.persistence_enabled = false
 	RealityState.save_path = RealityState.SAVE_PATH
 	_check("the test save file is removed and the player save untouched",
 			not FileAccess.file_exists(SAVE_FILE)

@@ -450,32 +450,71 @@ func _destroy_shell() -> void:
 
 
 func _reload_restores_at_d00() -> bool:
+	# ESTABLISH THE PREMISE FIRST. Saving two frames after entry and then
+	# observing a body near spawn proves nothing -- it never left. Run real
+	# physics until the Tenant is demonstrably mid-pursuit, and assert that,
+	# so the reload has an actual chase frame to refuse to restore.
+	var live := shell.active_world as DreamMazeRoot
+	var spawn := Vector3(live.plan.spawn_pursuer[0], 0.0,
+			live.plan.spawn_pursuer[1])
+	for i in range(220):
+		await get_tree().physics_frame
+		if live.pursuer.elapsed_s > 2.0 				and live.pursuer.position.distance_to(spawn) > 2.0:
+			break
+	if live.pursuer.elapsed_s <= 2.0 			or live.pursuer.position.distance_to(spawn) <= 2.0:
+		print("    [N6] premise not met: clock %.2f, drift %.2f"
+				% [live.pursuer.elapsed_s,
+				live.pursuer.position.distance_to(spawn)])
+		return false
+
+	print("    [N6] premise ok: clock=%.2f drift=%.2f"
+			% [live.pursuer.elapsed_s,
+			live.pursuer.position.distance_to(spawn)])
 	if not RealityState.save_game():
+		print("    [N6] save_game refused")
 		return false
 	_destroy_shell()
 	RealityState.reset_campaign_for_tests()
 	RealityState.load_game()
 	await _spawn_shell()
-	var live := shell.active_world as DreamMazeRoot
-	if shell.world_kind() != "dream" \
-			or shell.dream_director.phase() != "active" \
-			or live == null or not live.maze_built \
-			or live.player.position.distance_to(
+	live = shell.active_world as DreamMazeRoot
+	if shell.world_kind() != "dream" 			or shell.dream_director.phase() != "active" 			or live == null or not live.maze_built 			or live.player.position.distance_to(
 					live.start_marker.position) >= 0.35:
+		print("    [N6] restore gate: kind=%s phase=%s built=%s body=%.2f"
+				% [shell.world_kind(), shell.dream_director.phase(),
+				live != null and live.maze_built,
+				999.0 if live == null else live.player.position.distance_to(
+						live.start_marker.position)])
 		return false
-	# The restored world is live the moment it enters the tree, so the Tenant
-	# is already walking while these frames pass. A fixed 0.35 m window was
-	# therefore a race against how long the reload took. Bound the drift by
-	# the pursuer's OWN clock instead: a reconstruction can only have moved
-	# as far as it has had time to walk, whereas a restored chase frame would
-	# be metres away with elapsed_s still at zero.
-	var params := live.pursuer.run_parameters()
-	var top: float = maxf(float(params.lit_speed_mps),
-			float(params.dark_speed_mps))
-	var allowance: float = 0.35 + live.pursuer.elapsed_s * top
-	return Vector3(live.plan.spawn_pursuer[0], 0.0,
-			live.plan.spawn_pursuer[1]).distance_to(
-			live.pursuer.position) < allowance
+	# THE ACTUAL INVARIANT: the restored world reconstructed the pursuit from
+	# the plan rather than resuming a serialized chase. A fresh run has a
+	# near-zero clock, has acquired nobody, and stands at the plan's spawn.
+	#
+	# An earlier version bounded the drift by `elapsed_s * top_speed`, which
+	# is precisely the pursuer's own displacement bound -- so it could not
+	# fail, and a coherently serialized chase frame would have passed it
+	# silently. The clock is the falsifiable part and it carries the check.
+	var fresh_spawn := Vector3(live.plan.spawn_pursuer[0], 0.0,
+			live.plan.spawn_pursuer[1])
+	print("    [N6] restored clock=%.3f acquired=%s captured=%s drift=%.3f"
+			% [live.pursuer.elapsed_s, live.pursuer.acquired,
+			live.pursuer.is_captured,
+			fresh_spawn.distance_to(live.pursuer.position)])
+	# The CLOCK is what makes this falsifiable, and it carries the check: the
+	# chase frame measured above ran 2.02 s, so a restore that resumed one
+	# would read seconds here rather than a sixth of one.
+	#
+	# The drift bound is then a plain constant, deliberately not derived from
+	# elapsed_s -- deriving it was the previous mistake, because
+	# `elapsed_s * top_speed` IS the pursuer's own displacement bound and can
+	# never be exceeded. 1.60 m is the most a body can cover in the 0.20 s the
+	# clock permits at the 6.27 m/s lit speed, plus slack; the real chase frame
+	# above sat 6.74 m out and would fail this on its own.
+	return live.pursuer.elapsed_s < 0.20 \
+			and not live.pursuer.acquired \
+			and not live.pursuer.is_captured \
+			and live.pursuer.capture_time_s < 0.0 \
+			and fresh_spawn.distance_to(live.pursuer.position) < 1.60
 
 
 func _seed_completed_shift() -> void:

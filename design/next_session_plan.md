@@ -10,10 +10,39 @@ into the real dream: **69/69 checks, 17 blocks, 37 seconds**, consecutive runs
 reaching the same committed outcome (`capture`), world sequence
 `waking -> dream -> waking`. `GoldenLoopTest` is untouched and still 87/87.
 
-**All four of Gate D's bullets are now closed.** Each ending is driven
+**Three of Gate D's four bullets are closed and the fourth is measured in
+part.** (An adversarial review corrected the earlier "all four" claim: the
+origin-convergence check compared two expressions that resolve to the same
+job-library field, so it could not fail. The job convergence is measured; the
+profile following from it is structural. See the Gate D entry.) Each ending is driven
 through its own played shift via `GATE_D_OUTCOME`: `capture` 70/70 in 37 s,
-`contact` 72/72 in 34 s, `fall` 72/72 in 35 s. See the Gate D entry in
-`ORISON_MAZE_BRIEF.md` for the scoring and the three traps the join exposed.
+`contact` 71/71 in 35 s, `fall` 71/71 in 34 s. See the Gate D entry in
+`ORISON_MAZE_BRIEF.md` for the scoring and the traps the join exposed.
+
+## Read this before trusting a number in the dream docs
+
+On 2026-08-16 seven skeptics were run against the claims this work wrote into
+the design documents, told to refute rather than confirm. They found real
+things, all now fixed and recorded in place:
+
+- Gate C's "twenty bearings per hazard" was **one approach replayed twenty
+  times** - the sweep discarded its bearing argument. Fixed; the coverage
+  check now counts distinct tell positions instead of loop iterations.
+- The acoustic-graph constraint was right for the **wrong reason**. "No room
+  is that deep" was false (D05 is 6.50 m, D01 is 19.30 m). The real reason is
+  that sockets sit mid-room; the doorway margins are now measured at 0.52 s
+  and 0.19 s against 0.90 s owed.
+- The DreamPursuitTest flake "fix" was a **tautology** - bounding drift by
+  `elapsed_s * top_speed` is the pursuer's own displacement bound. Rewritten
+  to establish its premise and test the clock.
+- `floor_holes` cut a void mouth for **unarmed** sockets, so a future profile
+  placing D03 without arming the void would drop the player into a sealed
+  shaft in a run that could not end. Now gated on the profile allowlist.
+- `_cleanup()` re-aimed `save_path` at the player's real save while
+  persistence was still enabled. Now disarmed first.
+
+The lesson worth keeping: every one of these passed its own test suite. The
+adversarial pass is what found them.
 
 ## What is worth doing next
 

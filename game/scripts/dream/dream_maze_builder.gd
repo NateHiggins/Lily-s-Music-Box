@@ -190,8 +190,14 @@ static func assemble(catalog: Dictionary, seed_hex: String,
 ## walls of real opaque StaticBody3D collision, and each chain door cut
 ## through its shared wall as two jambs and a lintel. Sealed connectors of
 ## later slots stay solid wall, which is the authored "sealed grille" state.
+## `armed` is the profile's hazard allowlist. It is REQUIRED for correctness,
+## not decoration: plan.hazards holds every socket of every placed module,
+## while DreamHazardField arms only the allowed ones. Cutting a mouth for an
+## unarmed void would leave a real 6 m shaft that no hazard can attribute, so
+## the body falls into a sealed pit in a run that has no way to end. Geometry
+## and arming must come from one decision. An empty array arms nothing.
 static func build_geometry(parent: Node3D, plan: Dictionary,
-		clear_ceiling: float) -> void:
+		clear_ceiling: float, armed: Array = []) -> void:
 	var architecture := Node3D.new()
 	architecture.name = "ModuleArchitecture"
 	parent.add_child(architecture)
@@ -205,7 +211,7 @@ static func build_geometry(parent: Node3D, plan: Dictionary,
 	# teleports an outcome. Everything else about the void follows from that.
 	var slabs: Array = [[bounds[0] - margin, bounds[1] - margin,
 			bounds[2] + margin, bounds[3] + margin]]
-	var holes := floor_holes(plan)
+	var holes := floor_holes(plan, armed)
 	for hole in holes:
 		slabs = _subtract_rect(slabs, hole)
 	var slab_index := 0
@@ -282,10 +288,12 @@ const FALL_TRIGGER_Y := -0.90
 ## floor -- the opening you would have stepped through if the car were there.
 ##
 ## Deriving it means the catalog SHA is untouched and Gate A stays valid.
-static func floor_holes(plan: Dictionary) -> Array:
+static func floor_holes(plan: Dictionary, armed: Array = []) -> Array:
 	var holes: Array = []
 	for record in plan.get("hazards", []):
 		if str(record.get("kind", "")) != "positional":
+			continue
+		if not armed.has(str(record.get("id", ""))):
 			continue
 		var p: Array = record.get("position", [])
 		if p.size() < 2:

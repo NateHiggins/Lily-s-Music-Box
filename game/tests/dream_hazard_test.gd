@@ -18,7 +18,7 @@ const SEED_HEX := "f123456789abcdef"
 const ALT_SEED_HEX := "f123456789abcdee"
 const PROFILE := "mina_release_print"
 const CASE := "mina_caption_crisis"
-const EXPECTED_CHECKS := 30
+const EXPECTED_CHECKS := 31
 const DT := 1.0 / 120.0
 
 var failures := 0
@@ -197,7 +197,14 @@ func _block_e_void() -> void:
 	await get_tree().process_frame
 	root = await _spawn_root()
 	root.autonomous = false
-	var holes := DreamMazeBuilder.floor_holes(root.plan)
+	var allow: Array = root.profile_hazards.get("allow", [])
+	var holes := DreamMazeBuilder.floor_holes(root.plan, allow)
+	# An unarmed socket must cut NOTHING: a mouth with no hazard behind it is
+	# a sealed pit the run cannot end in.
+	_check("an unarmed socket cuts no mouth at all",
+			DreamMazeBuilder.floor_holes(root.plan, []).is_empty()
+			and DreamMazeBuilder.floor_holes(root.plan,
+					["counterweight_passage"]).is_empty())
 	_check("exactly one mouth is cut, and it is a lift doorway wide",
 			holes.size() == 1
 			and absf(holes[0][2] - holes[0][0] - 0.90) < 0.001
@@ -259,7 +266,7 @@ func _block_e_void() -> void:
 			and str(rec.hazard_id) == "open_lift_void"
 			and str(rec.outcome) == "fall"
 			and root.hazards.unfair_impacts().is_empty())
-	_end_block("E", 30)
+	_end_block("E", 31)
 
 
 ## Is there a built floor slab under this point? Read from the real scene the

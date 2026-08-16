@@ -534,10 +534,13 @@ ways and each is fair:
   out, and the player falls through real missing floor under real gravity.
   The hazard only reads the result. Nothing about the void is authored twice:
   its mouth is derived from the socket's own `clearance_radius_m` of 0.45,
-  which is half the 0.91 connector width, so the opening is a lift doorway
-  laid into the floor — the one you would have stepped through if the car
-  were there. Deriving rather than authoring leaves the catalog SHA untouched
-  and Gate A valid. The Tenant translates in XZ without gravity, so a shadow
+  spent as a half-side to give a 0.90 m square — near enough the 0.91 m
+  connector width to read as a lift doorway laid into the floor, the one you
+  would have stepped through if the car were there. (Half of 0.91 is 0.455,
+  not 0.45; the 10 mm is inert against a 0.66 m capsule, but the two numbers
+  are not the same number and this document should not say they are.)
+  Deriving rather than authoring leaves the catalog SHA untouched, so N2's
+  Gate A audit still describes the shipped catalog. The Tenant translates in XZ without gravity, so a shadow
   crosses the open shaft mouth without falling in, which is correct for what
   the Tenant is.
 
@@ -663,28 +666,48 @@ failure are recorded in `art/renders/dream_light_n3/README.md`.
   `dream_directional_captions` setting — off by default, because the mix
   already carries this and the dream's grammar is listening.
 
-Sixty approaches at the 4.6 m/s run speed, twenty bearings per hazard, walked
-from the previous room in through the chain door: all warned, all fair, all
-bearing-true, worst margins 1.12 / 1.58 / 0.92 s against 0.90 / 0.90 / 0.75 s
-owed. Full numbers in `art/renders/dream_hazards_n7/README.md`.
+Three measurements per hazard, all warned, all fair, all bearing-true. The
+routed approach a player really makes gives 1.12 / 1.58 / 0.92 s against
+0.90 / 0.90 / 0.75 s owed. Ten in-room bearings each locate the best in-room
+margin at 1.12 / 1.09 / 0.92 s. Full numbers, and a correction to how this
+paragraph first read, in `art/renders/dream_hazards_n7/README.md`.
 
-**Binding constraint discovered here, on the dream acoustic graph.** The
-authored tell radii (4.6–5.5 m) are larger than the modules that hold them
-(3.5–4.1 m deep), so a tell is a room-entry event rather than a proximity one,
-and a warning can only be measured as time actually walked. At a run, 0.90 s
-of warning needs 4.14 m of runway and no room is that deep — so the trunk and
-the void were first heard from an *adjacent* room in 20 of 20 approaches each.
-They are fair because the sound crosses the wall. When the dream acoustic
-graph is built it must **attenuate** hazard tells across a wall and must not
-**silence** them, or Gate C breaks on the day it lands. Re-run
-`DreamPerceptionTest.tscn` as that work's acceptance check.
+*This section previously claimed "sixty approaches, twenty bearings per
+hazard". It was one approach replayed twenty times: the sweep's route
+discarded its bearing argument on every path slot 1 actually takes. Corrected
+2026-08-16 after adversarial review.*
+
+**Binding constraint, on the dream acoustic graph.** The authored tell radii
+(4.6–5.5 m) exceed the rooms' short axes, so a tell is a room-entry event
+rather than a proximity one and a warning can only be measured as time
+actually walked.
+
+The constraint holds, but the first reasoning given for it here was wrong and
+is corrected. It claimed "no room is that deep", which described
+`D03_LIFT_VOID` (4.10 — 3.50) and silently generalised:
+`D05_SERVICE_RISER` is 6.50 — 2.08 and `D01_F04_LONG_HALL` is
+19.30 — 2.08, and every room here is long enough on its long axis to
+spend its whole tell radius. The real reason is that **the sockets sit
+mid-room**, so the walk from a doorway to a socket is short however long the
+room is.
+
+That is now measured directly rather than inferred. With the tell occluded to
+the hazard's own room, a player crossing the threshold gets **0.52 s** at the
+trunk and **0.19 s** at the void, against the 0.90 s their sockets owe. Only
+the hollow runner, whose socket sits 12 m down the long hall, clears its bar
+from its own threshold at 0.92 s.
+
+So when the dream-scoped graph is built it must **attenuate** hazard tells
+across a wall and must not **silence** them, or Gate C breaks on the day it
+lands. `DreamPerceptionTest.tscn` recomputes the doorway margins every run and
+prints an OCCLUSION VERDICT line; it is that work's acceptance check.
 
 ### Gate D — the complete Mina passage — CLOSED 2026-08-16
 
 **The two halves are now connected.** `GateDJoinTest.tscn` plays the Mina
 shift inside a real `CampaignShell` and lets the production path carry it into
-the real dream. Three runs, one per ending: `capture` 70/70 in 37 s,
-`contact` 72/72 in 34 s, `fall` 72/72 in 35 s — each a full played shift to
+the real dream. Three runs, one per ending: `capture` 69/69 in 38 s,
+`contact` 71/71 in 35 s, `fall` 71/71 in 34 s — each a full played shift to
 its own rebuilt bedside, all inside the documented 60 s bound. World sequence
 `waking -> dream -> waking`. `GoldenLoopTest` is untouched and still 87/87.
 
@@ -732,21 +755,27 @@ Gate D's four bullets, scored honestly:
   three checkpoints that bracket the join —
   `conversation_complete | dream_pending | wake_complete` — rather than
   re-proving persistence breadth `GoldenLoopTest` already owns.
-- ~~Reported and discovered job origins converge on the same dream
-  profile.~~ **CLOSED, with its limit stated.** Gate D opens on a throwaway
-  campaign played from the *discovered* origin, proves it converges on the
-  same job in the same stage without duplication, records the profile that
-  job names, discards the campaign, and then asserts at arm time that the id
-  the *reported* origin actually delivered into `DreamDirector.context()` is
-  that same profile. The profile is read from the job rather than derived
-  from how the job started, so the origin cannot change it. What is not done
-  is playing the discovered origin all the way to a second real entry; that
-  needs a second full shift and does not fit the budget.
+- **Reported and discovered job origins converge on the same dream profile — MEASURED IN PART, STRUCTURAL IN PART.** Gate D opens on a throwaway
+  campaign played from the *discovered* origin and proves the measurable
+  half: that it issues and converges on the **same job** in the same stage
+  without duplication. The profile then follows from that job, because
+  `CoreLoopDirector` reads `dream_profile_id` out of the job library and the
+  origin has no path to influence it.
+
+  An earlier version of this entry claimed the bullet CLOSED on a check
+  comparing `ctx.profile_id` against the profile the discovered run recorded.
+  Adversarial review showed both sides resolve to the same job-library field
+  on the same object, so that check could not fail; the very argument offered
+  for its sufficiency ("the profile is read from the job, so the origin
+  cannot change it") is the reason it was unfalsifiable. It has been folded
+  into the arm-time assertion and the wording corrected. Genuinely closing
+  this needs the discovered origin played to a second real entry, which is a
+  second full shift and does not fit the run budget.
 - ~~Capture, shaft and electrical outcomes all wake without a game-over
   state.~~ **CLOSED, all three measured.** `GateDJoinTest` takes a
   `GATE_D_OUTCOME` environment variable and drives each ending through its own
-  played shift to its own rebuilt bedside: `capture` 70/70 in 37 s, `contact`
-  72/72 in 34 s, `fall` 72/72 in 35 s. None is a game-over; each wakes at the
+  played shift to its own rebuilt bedside: `capture` 69/69 in 38 s, `contact`
+  71/71 in 35 s, `fall` 71/71 in 34 s. None is a game-over; each wakes at the
   authored 4B bedside with the residue intact. The steered runs teleport
   *near* the socket and then walk in under the production controller — the
   same split the waking half uses, where travel between beats is a teleport
