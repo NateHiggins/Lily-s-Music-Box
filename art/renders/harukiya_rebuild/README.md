@@ -54,11 +54,44 @@ attempt and was right to.
 PASS. Harukiya perf station **10.45 ms** against the 16.6 gate — slightly
 faster than before the work.
 
-## Not yet built
+## B4 — the section opens (`b4_well/`)
 
-The section — reclaiming the brick above the room for the 5.17 m well
-and its +47% volume — is the commission's headline and carries most of
-the audit's blockers (the ground plane is not cut over the room, the
-walls die at the old ceiling line, ceiling services and table pendants
-would hang from nothing, the street-cull gate caps the slab at z 2.80).
-It needs its own pass.
+The commission's headline, and the answer to "much larger" that the
+geometry actually permits. The footprint can gain 2.7%; the **section**
+gains a two-storey well over the table floor.
+
+`WELL = (-5.60, -35.90, 0.60, -31.00)`, cut out of the block's own
+brick, slab soffit at **2.52** over a floor at −2.80: **5.32 m clear**
+where there was 2.65. You stand at the counter under a canopy at 1.76
+and a ceiling at 2.65; three paces out the room goes up two storeys.
+
+**All four blockers handled, each of which would have shipped a defect:**
+
+- **The slab top is 2.80 and not one millimetre more.** The street-cull
+  gate is a whole-AABB test with `hi.y <= 2.80`; overshoot and the
+  buffer drops out of the index and the new upper volume renders
+  *through the pavement*.
+- **The shaft clears the luncheonette's void** above the west end
+  (x −11.4..−6.2) — it starts at −5.60. Otherwise the well opens into
+  the diner's floor.
+- **It stops 0.72 m short of the counter** (−31.00 vs −30.28), so the
+  canopy zone keeps the low ceiling that is canon.
+- **`GROUND_HOLES` is cut to match.** Without it the street asphalt
+  sheet (top −0.02) becomes a black lid hanging two metres over the
+  tables — the sweep found this and it was real in the code exactly as
+  described.
+
+**Two things resolved themselves well.** The ceiling services run
+wall-to-wall, so opening the void turns them into a service bridge
+crossing at the old ceiling line — they terminate at both ends, so
+Accord 11 holds and the room gains a visible datum saying *the ceiling
+was here and they took it away*. And the two table pendants inside the
+shaft got real drop rods from the slab soffit; they had been floating
+0.47 m under the old slab all along, a defect nobody saw because the
+ceiling was dark and close.
+
+**Measured:** the bar station reads **9.98 ms** against the 16.6 gate —
+*faster* than before the rebuild began (11.0). Stations-over went 5→6,
+but the sixth is apartment 4B at 17.03 (was 15.95), eight floors away
+and straddling the gate, in a run where the roof simultaneously improved
+3 ms. That is this machine's noise band, not the well.
