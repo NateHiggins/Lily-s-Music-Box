@@ -262,10 +262,18 @@ aggregate, instantly rewarding in the hand.**
   the loop through the existing errand system), survival through real-file
   save/load, and re-soiling only across a sleep boundary — never in view.
   If that slice is not satisfying, breadth will not save it.
-- **E8 OPEN RULINGS** (brief §9): does dirt cluster where the fiction says
-  or spread evenly; do residents react to a maintained floor; **is there a
-  score** (recommendation: emphatically no — no meter, no percentage, the
-  building's condition legible only by looking at it); how far does
+- **E8a OWNER RULING 2026-08-16 — THERE IS NO SCORE.** No meter, no
+  percentage, no completion figure, no "building condition: 62%". The
+  state of the Orison is legible **only by looking at it**. This is the
+  one place where a UI number would destroy the entire feeling: a
+  percentage converts a building you are caring for into a task you are
+  failing, tells the player the global victory is theoretically available
+  when E2's whole design says it is not, and replaces the evidence-reading
+  the system exists to create with a glance at a corner of the screen.
+  Applies to HUD, the ORDER device and any menu. Residents noticing is
+  allowed (E8b); arithmetic is not.
+- **E8b STILL OPEN** (brief §9): does dirt cluster where the fiction says
+  or spread evenly; do residents react to a maintained floor; how far does
   "appliance repair" go before it sprawls; and does degradation advance
   per shift rather than per hour.
 

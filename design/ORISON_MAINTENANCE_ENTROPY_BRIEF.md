@@ -265,10 +265,14 @@ If that slice is not satisfying, no amount of breadth will save it.
 2. **Do residents react?** A visibly maintained floor changing what
    people say is the cheapest possible reward and the strongest — but it
    touches the case/dialogue systems, which are spine.
-3. **Is there a score?** The recommendation is emphatically no: no
-   percentage, no meter, no completion. The building's condition should
-   be legible only by *looking at it*. This is the one place where a UI
-   number would destroy the entire feeling.
+3. **Is there a score?** **RULED 2026-08-16: NO.** No percentage, no
+   meter, no completion figure, anywhere — HUD, ORDER device or menu. The
+   building's condition is legible only by *looking at it*. A number
+   would convert a building you are caring for into a task you are
+   failing; it would advertise a global victory that §2 exists to deny;
+   and it would replace the evidence-reading this whole system is built
+   to create with a glance at the corner of the screen. Residents
+   noticing remains open (ruling 2); arithmetic does not.
 4. **How far does "appliance repair" go?** There is a real risk of
    sprawl. Recommend a fixed verb set (§3) that all appliances map into,
    rather than bespoke minigames per device.
