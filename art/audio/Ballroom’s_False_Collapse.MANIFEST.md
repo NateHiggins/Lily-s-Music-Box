@@ -54,6 +54,13 @@ production decision:       OWNER: —
   master (gain only).
 - `Ballroom’s_False_Collapse.NIGHTCORE_PREVIEW_x1335.mp3` — 256 kbps
   listening copy of the matched return preview.
+- `..._base_return_x1414_PREVIEW{,_matched}.wav` /
+  `..._NIGHTCORE_PREVIEW_x1414.mp3` — added 2026-08-15 for the Day-4
+  **alternate title record** option: the title's second-record
+  convention is pure varispeed ×1.414 (ESCAPEMENT FAILURE), so the
+  disposition audition needs this ratio, not ×1.335. True varispeed
+  (111.2 s = 157.30/1.414), gain-matched −0.8 dB to the native
+  master (gain only).
 
 **Preview caveat:** this is the BACKING alone at ×1.335. Checklist
 items 9–10 are judged only on base + scratch vocal as one complete
