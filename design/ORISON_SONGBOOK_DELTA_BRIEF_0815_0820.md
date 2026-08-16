@@ -42,6 +42,14 @@ f2caedc era) plus this file. Append entries; do not rewrite history.*
   `..._NIGHTCORE_PREVIEW_x1414.mp3`, gain-matched −0.8 dB. Manifest updated.
   Disposition itself remains the owner's Day-4 call.
 
+- **G1a/G1b landed in the game runtime** (`9c22581`): `SongResource` carries a
+  data-tuned `return_ratio` (> 1.0, default ×1.335); every kept version stores
+  it as an immutable `reconstruction_ratio`; READ IT BACK now auditions the
+  composite recipients get (backing + vocal varisped together, one bus, no
+  guess/wow/skip). The fresh-guess `PhonautogramReader` serves found traces
+  only. `SongbookTest` 22/22. G1's remaining scope is cross-player version
+  delivery (G2 reframe + G6a gates).
+
 ## Still pending (update as they land)
 
 - G7 ruling · Moonlight ears/OWNER fields · scratch vocal (the three gates).
