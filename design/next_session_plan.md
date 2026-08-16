@@ -85,10 +85,15 @@ extinguished captures at the fixed seed; 0 route violations), capture commits
 Record and production frames: `art/renders/dream_pursuit_n6/README.md`.
 Pursuit numbers are data in `game/data/dream_profiles.json`. Hazards, the
 terminal fold, run caps, dream audio and case captions were deliberately
-excluded. Known upstream regression: GoldenLoopTest fails two K6
-objective-title checks on clean origin (pre-N6, suspect `1f8faa0`); it is
-flagged as a separate task and must be green again before Gate D work leans
-on that harness.
+excluded. Resolved upstream regression: the two K6 objective-title checks
+failed from `b318d84` ("Adopt the service-wire telegram interface"), not
+`1f8faa0` — that restyle made `ObjectiveTracker.show_objective` prepend a
+fixed `"WORK ORDER / "` label to titles the job library already authors
+whole, so the tracker relabelled content it does not own ("WORK ORDER /
+WORK ORDER 001 — THE CHIRP", "WORK ORDER / CASE CLOSED — MINA VALE"). The
+tracker now presents the authored title verbatim, keeping the restyle's
+casing and paper-panel styling. GoldenLoopTest is 87/87 again, and the same
+prefix had also been failing `MaintenanceJobTest`, which passes again too.
 
 **Execute N7 next.** Integrate one Mina vertical slice on the landed
 substrate: Mina's three ruled hazards (open lift void, Vantry signal trunk,
