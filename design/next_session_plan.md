@@ -1,3 +1,73 @@
+# NEXT SESSION — START HERE
+
+*Rewritten 2026-08-16 after N7 landed. Read this first.*
+
+## The single most valuable next piece of work
+
+**Gate D: join the two halves of the dream.** They both exist and have never
+been connected.
+
+`GoldenLoopTest.tscn` plays the whole Mina shift (87/87) but instantiates
+`scenes/building/orison_root.tscn` directly and answers the dream request with
+a test-only `DreamStub`. `DreamPursuitTest.tscn` runs the real CampaignShell,
+the real maze, the Tenant and a real capture through to wake — but reaches
+that state via `_seed_completed_shift()`, writing the finished job facts
+straight into RealityState instead of earning them.
+
+The seam is small: `CampaignShell.waking_scene_path` already defaults to the
+same `orison_root.tscn` GoldenLoopTest instantiates standalone. Spawn the
+shift's world through a CampaignShell, drop the stub, let the production
+SleepPressureDirector call entry.
+
+Do this as a NEW harness, not an edit to GoldenLoopTest. That test is the
+authoritative waking-side proof and was repaired recently by a parallel
+session; destabilising it to gain dream coverage is a bad trade.
+
+## Where N7 got to
+
+Landed and green: one latched outcome funnel, the authored 28 s run ceiling,
+hazards emitted from catalog sockets, the Vantry trunk (condition `lamp_on` —
+light activates the danger it reveals), the open lift void as a real hole in
+the real floor resolved by real gravity, the eight-sector caption channel, and
+`DreamCaptionLayer` behind the `dream_directional_captions` setting.
+
+| Test | Result |
+|---|---|
+| `DreamHazardTest.tscn` | 30/30 |
+| `DreamPerceptionTest.tscn` | 19/19 |
+| `DreamPursuitTest.tscn` | 39/39 |
+| `DreamBoundaryTest.tscn` | 36/36 |
+| `GoldenLoopTest.tscn` | 87/87 |
+
+Numbers and findings: `art/renders/dream_hazards_n7/README.md`.
+
+Gate C: two of three bullets closed. The identification bullet is a human
+blinded playtest and no script closes it — `DreamPerceptionTest` proves the
+precondition at 100% instead.
+
+## Two owner decisions still blocking work
+
+1. **The hollow runner's module.** The catalog places its socket in
+   `D01_F04_LONG_HALL`; the brief's §"MINA'S FIRST RUN" script says D04, which
+   has no sockets at all. Moving the socket changes the catalog SHA and
+   invalidates Gate A, so the engineering read is to amend the script. That is
+   a fiction change and belongs to the owner. Its effect (what a broken board
+   actually *does*) is also unspecified — its profile outcome is `""`, so it
+   does not end a run.
+2. **E8b:** degradation per shift or per hour, for the entropy system.
+
+## One constraint later work must not break
+
+The trunk and the void are fair **because** their tells cross a wall — they
+were first heard from an adjacent room in 20 of 20 approaches. When the dream
+acoustic graph is built it must attenuate hazard tells across a wall and must
+NOT silence them, or Gate C breaks the day it lands. Re-run
+`DreamPerceptionTest.tscn` as that work's acceptance check.
+
+---
+
+## Previous plan, retained for reference
+
 # Next session: integrate Mina's vertical slice
 
 *Rewritten 2026-08-15; updated the same day after N6 landed. Sequencing

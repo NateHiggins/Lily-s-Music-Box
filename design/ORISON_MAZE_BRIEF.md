@@ -679,7 +679,40 @@ graph is built it must **attenuate** hazard tells across a wall and must not
 **silence** them, or Gate C breaks on the day it lands. Re-run
 `DreamPerceptionTest.tscn` as that work's acceptance check.
 
-### Gate D — the complete Mina passage
+### Gate D — the complete Mina passage — THE ONE REMAINING SEAM
+
+**Both halves exist and have never been joined.** This is the largest single
+piece of remaining work in the dream, and it is a wiring problem rather than a
+design one.
+
+- `GoldenLoopTest.tscn` runs the whole continuous Mina shift and passes 87/87,
+  but it instantiates `scenes/building/orison_root.tscn` **directly** and
+  answers the dream request with a test-only `DreamStub` that records one
+  entry and calls `notify_wake_complete()`. Its own comment is honest about
+  this: "No production dream mechanics." The stub predates N4.
+- `DreamPursuitTest.tscn` runs the real `CampaignShell`, the real
+  `DreamDirector` entry, the assembled maze, the Tenant and a real capture
+  through to wake — but it reaches that state through
+  `_seed_completed_shift()`, which writes the finished job facts straight into
+  `RealityState` rather than earning them by playing the shift.
+
+So no test yet walks the whole thing: shift played, dream entered for real,
+passage traversed, waking world rebuilt, bedside reached.
+
+The seam is small, which is the good news. `CampaignShell.waking_scene_path`
+defaults to `res://scenes/building/orison_root.tscn` — **the same scene
+GoldenLoopTest already instantiates standalone**. Joining them means spawning
+the golden loop's world through a `CampaignShell` instead of directly, then
+deleting the stub and letting the production `SleepPressureDirector` call
+entry. Nothing needs redesigning for that to be possible.
+
+Recommended as a new harness rather than an edit to `GoldenLoopTest`:
+that test is the authoritative waking-side proof, it was repaired recently by
+a parallel session, and destabilising it to gain dream coverage would be a bad
+trade. Its 87 checks should keep proving the waking shift; a Gate D harness
+should prove the join.
+
+Gate D's own bullets, unchanged:
 
 - One continuous production run enters after the complete Mina case, preserves
   every K6 fact, traverses the real dream scene, ends, rebuilds the waking scene
