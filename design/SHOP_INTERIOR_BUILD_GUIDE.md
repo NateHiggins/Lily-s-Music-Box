@@ -35,8 +35,16 @@ to a guess.
 Shared: **3.30 m clear height** with the slab above to 3.55. Floor
 finish at 0.01, flush with the pavement. Party walls are raw brick, so
 any plaster or panelling is something the trade added. Doors are 0.95
-wide, hinged at the jamb; the four trades that keep the light on
-(laundry, diner, news, plus the druggist's awning) have theirs open.
+wide, hinged at the jamb. Which doors stand open and which lamps burn
+brighter are two different generator facts (H14 reconciliation,
+2026-08-15 — this paragraph used to give a third answer): the leaf is
+`open` for **laundry and diner** only, `locked` for the news booth
+(its narrow leaf is the proprietor's door; the public are served
+through the pavement hatch), `closed` for the rest; the brighter
+"openish" lamp energies belong to **laundry, diner, news and pawn**.
+Both are authored in `gen_layout.py` and neither is an hours rule:
+since PS6, `PassageHoursDirector` owns open/closed and lit/dark by
+hour, with HARDWARE PAINT the sole night-service exception.
 
 **NEWS & CIGARS IS 8.4 m².** It is not a small shop, it is a *booth*.
 Do not attempt a room in it. See §IV.6.

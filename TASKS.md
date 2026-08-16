@@ -255,10 +255,6 @@ the specific defects behind it, and V1 is the revamp the owner asked for.
   exist at that instant. Props spawned, moved or possessed later are invisible
   to the graph, and the relink step will happily connect an island through a
   gap that closes afterwards.
-- **V3** `route()` returns `PackedVector3Array([from])` — stand still — when no
-  wall-safe anchor pair exists (`resident_nav.gd:290-297`), warning once per
-  rounded coordinate pair. A room rect edited without its door marker yields
-  silently frozen residents rather than a failure. Make it loud.
 - **V4** Residents are parented to `floor_nodes[floor_id]` and **never
   reparented**, so anyone who walks or rides to another storey is culled with
   their HOME floor. Tests paper over it with `show_all_floors`
@@ -1086,18 +1082,3 @@ it.
   validation — is unversioned files on disk. `git init` and a first commit.
 - **H3** `worldc clean --stale` has no test covering it.
 - **H13** **Logical placement audit.** Is each object placed correctly, and does it belong there. Convention traps are listed in the brief (door markers are the hinge jamb; pendant markers are ceiling anchors with a drop). Note placement cannot lean on the router to prove a route is clear — see R6, residents walk through furniture. Brief: `design/AUDIT_BRIEF.md`.
-- **H14** Doc/code drift on which shops keep the light on, three answers in
-  three places: the build guide says four trades (laundry, diner, news,
-  druggist awning) at `SHOP_INTERIOR_BUILD_GUIDE.md:37-39`;
-  `gen_layout.py:4272-4274` gives leaf `open` to laundry and diner only,
-  `locked` to news and `closed` to the druggist; and a third set (laundry,
-  diner, news, pawn) drives the brighter lamp energies at `:4399`. Pick one.
-- **H15** `shop_entry_test.gd:327-335` proves the NEWS & CIGARS proprietor
-  restriction against **hardcoded world coordinates** (8.925 / 9.72, z
-  26.85..30.45). Move that shop a metre and the assertions quietly become
-  tests of empty pavement instead of failures. Re-anchor them to the marker.
-- **H16** `SafetyNet.exempt_zones` is populated only inside the DEBUG-launch
-  branch (`building_root.gd:452-461`), where `PropWarehouse` registers its
-  hall. Any playable volume added outside the site box reaches release with no
-  exemption and is rescued out of — the failure reads as a dead teleport,
-  which is exactly the bug the comment at `safety_net.gd:33-38` records.

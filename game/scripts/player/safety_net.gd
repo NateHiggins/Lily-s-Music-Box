@@ -106,6 +106,16 @@ func _lost(p: Vector3) -> bool:
 
 
 func _rescue(from: Vector3) -> void:
+	# A rescue from a position the player was genuinely STANDING at is not a
+	# fall — it is almost certainly a playable volume outside SITE_LIMIT that
+	# never registered in exempt_zones. Left silent, that failure reads as a
+	# dead teleport button (the prop warehouse found this the hard way; see
+	# the comment on exempt_zones). Name the cause loudly instead.
+	if player.is_on_floor() and from.y > FLOOR_OF_THE_WORLD \
+			and is_finite(from.x) and is_finite(from.y) and is_finite(from.z):
+		push_error("[SAFETY NET] rescued a player standing on real floor at "
+				+ "%s - an off-site volume is probably missing from " % from
+				+ "exempt_zones")
 	player.velocity = Vector3.ZERO
 	player.global_position = anchor
 	recoveries += 1

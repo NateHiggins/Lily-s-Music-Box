@@ -54,6 +54,16 @@ var _unreachable_warned := {}
 var passage_anchors: Dictionary = {}
 
 
+# TASKS.md V3: the distinct (floor, from, to) route failures seen so far.
+# Zero on a healthy build; a harness may assert on it directly.
+func unreachable_route_count() -> int:
+	return _unreachable_warned.size()
+
+
+func unreachable_route_keys() -> Array:
+	return _unreachable_warned.keys()
+
+
 func build(layout: Dictionary) -> int:
 	var total := 0
 	for fl in layout["floors"]:
@@ -361,10 +371,14 @@ func route(from: Vector3, to: Vector3) -> PackedVector3Array:
 	var a := pair.x
 	var b := pair.y
 	if a < 0 or b < 0:
+		# TASKS.md V3: a silently frozen resident reads as idle animation,
+		# not as the routing failure it is. push_error keeps a red line in
+		# every headless log, and the tally lets any harness assert zero
+		# without this file knowing about the harness.
 		var warning_key := "%s:%d:%d" % [fid, roundi(from.x), roundi(to.x)]
 		if not _unreachable_warned.has(warning_key):
 			_unreachable_warned[warning_key] = true
-			push_warning("No wall-safe resident route on %s: %s -> %s" \
+			push_error("No wall-safe resident route on %s: %s -> %s" \
 					% [fid, from, to])
 		# Standing still is preferable to walking through somebody's wall.
 		return PackedVector3Array([from])
