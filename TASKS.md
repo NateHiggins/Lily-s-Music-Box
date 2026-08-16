@@ -1208,6 +1208,32 @@ and the four isolated roof fixtures now terminating at a real riser.
   atrium.** Confirm with the two-run house protocol before raising anything,
   and consider whether the budget should be raised globally or the atrium
   should keep a local cap.
+- **P8b FIRST SWEEP RESULTS 2026-08-16 — one dial spent, one refused.**
+  Paired runs at canonical pinned night, two samples per setting, same
+  eleven stations.
+  **MSAA 4x → 8x: SPENT.** Measured free — every station at or below
+  baseline on the second sample (the first sample's +1.9 ms at two
+  stations was this machine's familiar noise, and the second run put
+  those same stations at 38.65 and 10.10 against baselines of 39.01 and
+  10.18). It is the right dial to spend a free win on: the frame is
+  submission-bound, not fill-bound, and this building is nothing but
+  hard architectural edges that crawl at 720p.
+  **Shadow atlas 8192 → 16384: REFUSED, and the refusal is the more
+  useful result.** Also free in frame time — but a 16384 atlas at 32
+  bits is **1024 MB of VRAM** against 256 MB at 8192, and *the frame
+  timer cannot see that*. The project still targets mobile and that
+  budget is unmeasured (L12), so this is the wrong risk to take on a
+  number nobody has checked on a device. Revisit with
+  `atlas_16_bits=true` (512 MB) or a real phone.
+  **The refinement to P8's principle, learned here:** "raise what is
+  free" is not enough, because *free in the instrument you happen to be
+  holding* is not the same as free. Frame time misses VRAM, and
+  submission cost is the opposite trap — `weather_fx.gd`'s own header
+  warns that Compatibility "expands each particle into a costly
+  submission", so `SPATTER_COUNT` is one of the few dials that hits the
+  bottleneck directly and must NOT be raised on the "GPU is free"
+  argument. Sort the remaining list by which resource each dial actually
+  spends before touching any of them.
 - **P1** **Every station is over the 16.6 ms frame target**, all eight, measured
   2026-08-10 at 1440p. **DAYTIME NUMBERS (labeled 2026-08-14): the benchmark
   was unpinned until `ab120dc` and these ran in daylight; canonical pinned

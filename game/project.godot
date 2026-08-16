@@ -75,7 +75,13 @@ occlusion_culling/use_occlusion_culling=true
 ; MSAA 4x. The single biggest one. This building is nothing but hard
 ; architectural edges — balusters, window bars, railing details, the
 ; fire escape — and at 720p they crawl.
-anti_aliasing/quality/msaa_3d=2
+; P8 SWEEP 2026-08-16: 4x -> 8x, measured free. The frame is
+; submission-bound rather than fill-bound (identical times at 720p,
+; 1080p and 1440p), so MSAA lands in time the CPU is already spending;
+; paired runs showed every station at or below baseline. This building
+; is nothing but hard architectural edges and they crawl at 720p, so it
+; is exactly the dial worth spending a free win on.
+anti_aliasing/quality/msaa_3d=3
 ; 16x anisotropic. Corridor floors and the street are read at grazing
 ; angles almost exclusively, which is the exact case trilinear blurs to
 ; mush and this fixes.
@@ -84,6 +90,15 @@ textures/default_filters/anisotropic_filtering_level=4
 ; this at 4096 while raising the caster count is how you make shadows
 ; worse by asking for more of them: the atlas subdivides per caster, so
 ; every extra shadow shrinks all the others.
+; P8 SWEEP 2026-08-16: 16384 was measured and REJECTED, which is a
+; result worth keeping. It is free in frame time -- paired runs at
+; canonical pinned night put every station at or below baseline on the
+; second sample, so run one's +1.9 ms was this machine's noise -- but a
+; 16384 atlas at 32 bits is 1024 MB of VRAM against 256 MB at 8192, and
+; the frame timer cannot see that. The project still targets mobile and
+; that budget is unmeasured (TASKS L12), so this is the wrong risk to
+; take on a number nobody has checked on a device. Revisit with either
+; atlas_16_bits=true (512 MB) or a real phone.
 lights_and_shadows/positional_shadow/atlas_size=8192
 lights_and_shadows/directional_shadow/size=8192
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
