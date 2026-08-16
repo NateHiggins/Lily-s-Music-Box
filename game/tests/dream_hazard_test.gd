@@ -1,0 +1,286 @@
+extends Node
+## N7: the passage ends, and it ends fairly.
+##
+## Four things proved here, in the order they were built:
+##   A. one outcome funnel, latched, and the N6 capture path unchanged
+##   B. the 28 s slot ceiling closes a run the player is surviving
+##   C. the builder's hazard sockets land where the catalog authored them
+##   D. the Vantry trunk is a real conditional danger, and every impact
+##      got at least the warning its socket promised
+##
+## Harness integrity follows the N6 idiom: exact check count, a counted
+## sentinel closing every block, deterministic fixed-rate stepping, and a
+## nonzero exit on any failure.
+
+const SEED_HEX := "f123456789abcdef"
+const ALT_SEED_HEX := "f123456789abcdee"
+const PROFILE := "mina_release_print"
+const CASE := "mina_caption_crisis"
+const EXPECTED_CHECKS := 23
+const DT := 1.0 / 120.0
+
+var failures := 0
+var checks := 0
+var root: DreamMazeRoot
+var _finished := false
+
+
+func _ready() -> void:
+	print("[N7] START")
+	_watchdog()
+	await _block_a_funnel()
+	await _block_b_cap()
+	_block_c_sockets()
+	await _block_d_trunk()
+	if checks != EXPECTED_CHECKS:
+		failures += 1
+		printerr("[N7] HARNESS FAIL: %d checks ran, %d expected"
+				% [checks, EXPECTED_CHECKS])
+	_finished = true
+	print("DREAM HAZARD TEST: %s (%d checks)" % [
+			"PASS" if failures == 0 else "FAIL %d" % failures, checks])
+	get_tree().quit(failures)
+
+
+func _watchdog() -> void:
+	await get_tree().create_timer(50.0, true, false, true).timeout
+	if not _finished:
+		printerr("[N7] WATCHDOG: exceeded 50 seconds — FAIL")
+		get_tree().quit(1)
+
+
+# --- A: the outcome funnel -------------------------------------------
+
+func _block_a_funnel() -> void:
+	root = await _spawn_root()
+	_check("the dream world builds with a hazard field",
+			root.maze_built and root.hazards != null)
+	_check("only the case's allowed hazards are armed",
+			root.hazards.hazards.size() == 3)
+	var armed: Array[String] = []
+	for h in root.hazards.hazards:
+		armed.append(h.id)
+	armed.sort()
+	_check("the slot-3 rhythmic counterweight is placed but NOT armed",
+			armed == ["hollow_runner", "open_lift_void",
+					"vantry_signal_trunk"]
+			and (root.plan.hazards as Array).size() == 4)
+	# No shell here, so the commit must refuse rather than half-succeed.
+	_check("an outcome cannot commit without the transaction owner",
+			not root._commit_outcome("contact")
+			and not root._outcome_committed)
+	_end_block("A", 4)
+
+
+# --- B: the run cap ---------------------------------------------------
+
+func _block_b_cap() -> void:
+	_check("the slot's authored ceiling is read from the catalog",
+			absf(root.run_cap_s - 28.0) < 0.001)
+	root.autonomous = false
+	root.player.set_physics_process(false)
+	# Park the player mid-chain and let the clock run out on them.
+	var d01 := _rect("D01_F04_LONG_HALL")
+	root.player.position = Vector3(d01[0] + 6.0, 0.0,
+			(d01[1] + d01[3]) * 0.5)
+	var before := JSON.stringify(root.pursuer.run_parameters())
+	var start_at: Vector3 = root.pursuer.position
+	root.run_elapsed_s = 27.9
+	root.autonomous = true
+	for i in range(30):
+		await get_tree().physics_frame
+		if root.run_elapsed_s >= root.run_cap_s:
+			break
+	root.autonomous = false
+	_check("the ceiling expires and folds the pursuit",
+			root.run_elapsed_s >= 28.0
+			and root.pursuer.position != start_at)
+	_check("the fold puts the Tenant on real graph space, not in a wall",
+			DreamMazeBuilder.nav_module_at(root.plan,
+					root.pursuer.position.x, root.pursuer.position.z) != "")
+	_check("the fold does not reroll the seeded pursuit",
+			JSON.stringify(root.pursuer.run_parameters()) == before)
+	var frozen_from := root.run_elapsed_s
+	for i in range(6):
+		await get_tree().physics_frame
+	_check("a non-autonomous world never advances the clock",
+			absf(root.run_elapsed_s - frozen_from) < 0.0001)
+	_end_block("B", 9)
+
+
+# --- C: the sockets ---------------------------------------------------
+
+func _block_c_sockets() -> void:
+	var catalog := DreamMazeBuilder.load_catalog()
+	var mirrored := DreamMazeBuilder.assemble(catalog, SEED_HEX, 1)
+	var straight := DreamMazeBuilder.assemble(catalog, ALT_SEED_HEX, 1)
+	_check("both hands assemble four sockets with no defects",
+			(mirrored.hazards as Array).size() == 4
+			and (straight.hazards as Array).size() == 4
+			and (mirrored.defects as Array).is_empty()
+			and (straight.defects as Array).is_empty())
+	_check("hazards never enter the door list that cuts real openings",
+			(mirrored.doors as Array).size() == 4
+			and (straight.doors as Array).size() == 4)
+	_check("the trunk lands on the catalog's authored point, unmirrored",
+			_at(straight, "vantry_signal_trunk", 35.450, 4.165))
+	_check("the seed's mirror flips it about its module's depth axis",
+			_at(mirrored, "vantry_signal_trunk", 35.450, -2.915)
+			and _at(mirrored, "open_lift_void", 19.650, -2.365))
+	_check("the socket's authored radii survive into the plan",
+			_radii(mirrored, "vantry_signal_trunk", 0.35, 5.50, 0.90))
+	_end_block("C", 14)
+
+
+# --- D: the trunk, and the fairness bar -------------------------------
+
+func _block_d_trunk() -> void:
+	root.queue_free()
+	await get_tree().process_frame
+	root = await _spawn_root()
+	root.autonomous = false
+	root.player.set_physics_process(false)
+	var trunk := _hazard("vantry_signal_trunk")
+	_check("the trunk is armed and silent before anyone is near it",
+			trunk != null and trunk.tell_started_s < 0.0)
+
+	# Walk in from well outside the tell radius, lamp OFF.
+	root.player.set_lamp_enabled(false)
+	_place(trunk.position + Vector3(7.5, 0.0, 0.0))
+	var heard_at := -1.0
+	for i in range(400):
+		_step_toward(trunk.position, 4.6 * DT)
+		root.hazards.advance_fixed(DT)
+		if heard_at < 0.0 and trunk.tell_started_s >= 0.0:
+			heard_at = trunk.tell_started_s
+		if _flat_distance(trunk.position) < 0.10:
+			break
+	_check("the tell fires in darkness, before the danger is even live",
+			heard_at >= 0.0 and not root.hazards.perception_log.is_empty())
+	_check("standing on an unlit trunk is survivable, which is the lesson",
+			not trunk.contacted and root.hazards.impact_log.is_empty())
+
+	# Same spot, lamp ON: the arc reaches for the beam.
+	root.player.set_lamp_enabled(true)
+	root.hazards.advance_fixed(DT)
+	_check("the same spot with the lamp on ends the run by contact",
+			trunk.contacted and root.hazards.impact_log.size() == 1)
+	var rec: Dictionary = root.hazards.impact_log[0]
+	_check("the impact record carries the whole fairness story",
+			str(rec.hazard_id) == "vantry_signal_trunk"
+			and bool(rec.lamp_on)
+			and str(rec.outcome) == "contact"
+			and float(rec.tell_start_s) >= 0.0
+			and float(rec.contact_s) > float(rec.tell_start_s))
+	_check("the player got at least the warning the socket promised",
+			root.hazards.unfair_impacts().is_empty()
+			and float(rec.realised_warning_s)
+					>= float(rec.minimum_warning_s))
+	_check("the perception log names a bearing sector and never a distance",
+			_captions_leak_nothing())
+	_check("contact is one of the three legal outcomes",
+			DreamHazard.NONE == ""
+			and str(rec.outcome) in DreamDirector.OUTCOMES)
+	_check("a contacted hazard does not fire twice",
+			root.hazards.advance_fixed(DT) == DreamHazard.NONE
+			and root.hazards.impact_log.size() == 1)
+	_end_block("D", 23)
+
+
+func _captions_leak_nothing() -> bool:
+	for row in root.hazards.perception_log:
+		var sector := str(row.get("sector", ""))
+		if sector == "":
+			return false
+		var caption := str(row.get("caption", ""))
+		for ch in caption:
+			if ch.is_valid_int():
+				return false
+		if caption.contains("D0") or caption.contains("m "):
+			return false
+	return true
+
+
+# --- helpers ----------------------------------------------------------
+
+func _spawn_root() -> DreamMazeRoot:
+	var scene := load("res://scenes/dream/DreamMazeRoot.tscn") as PackedScene
+	var next := scene.instantiate() as DreamMazeRoot
+	next.autonomous = false
+	next.configure_dream({
+		"case_id": CASE, "profile_id": PROFILE, "window": {},
+		"seed_hex": SEED_HEX, "maze_revision": 1, "outcome": "",
+	})
+	add_child(next)
+	await get_tree().process_frame
+	return next
+
+
+func _hazard(hid: String) -> DreamHazard:
+	for h in root.hazards.hazards:
+		if h.id == hid:
+			return h
+	return null
+
+
+func _rect(id: String) -> Array:
+	for entry in root.plan.modules:
+		if str(entry.id) == id:
+			return entry.rect
+	return [0.0, 0.0, 0.0, 0.0]
+
+
+func _at(plan: Dictionary, hid: String, x: float, z: float) -> bool:
+	for h in plan.hazards:
+		if str(h.id) == hid:
+			return absf(float(h.position[0]) - x) < 0.002 \
+					and absf(float(h.position[1]) - z) < 0.002
+	return false
+
+
+func _radii(plan: Dictionary, hid: String, clear: float, tell: float,
+		warn: float) -> bool:
+	for h in plan.hazards:
+		if str(h.id) == hid:
+			return absf(float(h.clearance_radius_m) - clear) < 0.001 \
+					and absf(float(h.tell_radius_m) - tell) < 0.001 \
+					and absf(float(h.minimum_warning_s) - warn) < 0.001
+	return false
+
+
+func _place(at: Vector3) -> void:
+	root.player.position = Vector3(at.x, root.player.position.y, at.z)
+
+
+func _flat_distance(to: Vector3) -> float:
+	var p := root.player.global_position
+	return Vector3(p.x, 0.0, p.z).distance_to(
+			Vector3(to.x, 0.0, to.z))
+
+
+func _step_toward(goal: Vector3, budget: float) -> void:
+	var p := root.player.position
+	var leg := Vector3(goal.x - p.x, 0.0, goal.z - p.z)
+	if leg.length() <= budget:
+		_place(goal)
+		return
+	_place(p + leg.normalized() * budget)
+
+
+func _end_block(label: String, expected_total: int) -> void:
+	if checks != expected_total:
+		failures += 1
+		printerr("[N7] BLOCK %s SENTINEL FAIL: %d checks, %d expected"
+				% [label, checks, expected_total])
+	else:
+		print("[N7] block %s complete (%d/%d)" % [label, checks,
+				EXPECTED_CHECKS])
+
+
+func _check(label: String, ok: bool) -> void:
+	checks += 1
+	if ok:
+		print("  [hazard ok] ", label)
+	else:
+		failures += 1
+		printerr("  [HAZARD FAIL] ", label)

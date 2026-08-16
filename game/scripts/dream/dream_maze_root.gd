@@ -32,6 +32,7 @@ var start_marker: Marker3D
 var plan: Dictionary = {}
 var player: PlayerController
 var pursuer: DreamPursuer
+var hazards: DreamHazardField
 var maze_built := false
 
 
@@ -89,12 +90,23 @@ func _build_world() -> void:
 	pursuer.setup(plan, profile.get("pursuit", {}), player, seed_hex)
 	pursuer.captured.connect(_on_captured)
 
+	# The hazards the CASE runs, not the ones the geometry offers. The
+	# builder places every socket in the chain; the profile's allowlist
+	# is what arms three of them for Mina.
+	hazards = DreamHazardField.new()
+	hazards.setup(plan, profile.get("hazards", {}), player)
+
 
 func _physics_process(delta: float) -> void:
 	if not autonomous or _outcome_committed:
 		return
 	if pursuer != null and not pursuer.is_captured:
 		pursuer.advance_fixed(delta)
+	if hazards != null:
+		var hit := hazards.advance_fixed(delta)
+		if hit != DreamHazard.NONE:
+			_commit_outcome(hit)
+			return
 	if run_cap_s <= 0.0:
 		return
 	run_elapsed_s += delta

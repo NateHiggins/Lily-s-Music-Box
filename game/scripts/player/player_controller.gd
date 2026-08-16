@@ -420,6 +420,15 @@ func set_lamp_enabled(on: bool) -> void:
 		carried_device.set_lamp_enabled(on)
 
 
+## Ground speed, read from the body AFTER move_and_slide rather than
+## from the run action. The hollow runner breaks under a run and holds
+## under a walk, and the input is the wrong source twice over: it is true
+## while you are pinned against a wall at zero speed, and false while you
+## are still carrying a sprint's momentum.
+func planar_speed() -> float:
+	return Vector2(velocity.x, velocity.z).length()
+
+
 func toggle_lamp() -> void:
 	set_lamp_enabled(not flashlight.visible)
 

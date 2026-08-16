@@ -253,6 +253,10 @@ or any other second case is enabled.
   interaction failures when the larger trace points at one boundary.
 - `DreamBoundaryTest.tscn` destroys and real-file-restores the persistent
   campaign shell at armed, entered, active, return-pending and awake.
+- `DreamPursuitTest.tscn` proves the assembled maze and the Tenant's seeded
+  route; `DreamHazardTest.tscn` proves the three ways a run ends — the latched
+  outcome funnel, the authored run ceiling, and hazard contact — including the
+  measured warning every impact actually got.
 
 Fresh K7 proof on 2026-08-15: CoreLoopTest passed 28/28 focused checks with
 `idle | job_open | awaiting_part | repairable | conversation_pending |

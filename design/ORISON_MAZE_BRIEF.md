@@ -475,7 +475,7 @@ case, repair, shop, dialogue, pursuit or hazard rules.
 
 **N4 closed this substrate on 2026-08-15.** `CampaignShell` now keeps one
 persistent CoreLoopDirector and DreamDirector around an exclusive one-child
-WorldSlot. `DreamBoundaryTest.tscn` passes 34/34 checks using the real JSON path
+WorldSlot. `DreamBoundaryTest.tscn` passes 36/36 checks using the real JSON path
 at armed, entered, active, return-pending and awake, including same-seed D00
 reconstruction, production BuildingRoot injection and one idempotent Mina
 residue. The exact 64-bit campaign seed is stored as sixteen hexadecimal digits
@@ -492,6 +492,57 @@ traffic owner queries pause but never cancel the request. Real-file midpoint
 restore and one-entry proof pass 20/20; production A/A/B/C frames and measured
 pixel deltas are recorded in `art/renders/dream_onset_n5/README.md`. N5 adds no
 maze art, Tenant or hazard.
+
+**N6 closed the maze and the Tenant on 2026-08-15.** `DreamMazeBuilder`
+assembles the N2 catalog into runtime geometry, and `DreamPursuer` walks the
+chain as an invisible CharacterBody3D wearing the `mina_vale` mesh forced to
+`SHADOW_CASTING_SETTING_SHADOWS_ONLY` — the Tenant is a shadow with a
+collision body, never a visible figure. Its pursuit contract is seeded once
+from the exact campaign seed, so a reloaded dream chases identically.
+`DreamPursuitTest.tscn` passes 39/39. Door approach waypoints were added after
+the pursuer oscillated in openings; passed waypoints are pruned so a route
+never doubles back.
+
+**N7 opened the ending on 2026-08-16, steps 1–6.** The run can now end three
+ways and each is fair:
+
+- **One funnel.** `DreamMazeRoot._commit_outcome()` is the single exit. It
+  latches, so a simultaneous capture and contact cannot double-commit, and it
+  refuses outright rather than half-succeeding when no CampaignShell owns the
+  transaction.
+- **A clock.** The slot's authored ceiling (28 s for Mina) is read from the
+  catalog, and expiry folds the pursuit — the Tenant is re-placed on a chain
+  waypoint ahead of the player rather than the run simply stopping. The fold
+  re-places without rerolling the seeded contract.
+- **Hazards in the plan.** `DreamMazeBuilder` emits `plan.hazards` from
+  catalog sockets, mirroring the local point about its module's depth axis
+  when the seed mirrors the module. Hazards never enter the door list, so a
+  socket can never cut a real opening.
+- **The fairness contract.** `DreamHazard` runs tell → condition → contact in
+  that fixed order. The tell is **unconditional**: you hear the trunk whether
+  or not your lamp is on and whether or not the danger is currently live. A
+  hazard that could contact before its tell started would be a bug by
+  construction.
+- **The Vantry signal trunk** is the first live hazard and the one that proves
+  the pattern. Its condition is `lamp_on` — the arc reaches for the beam, so
+  darkness leaves a clean narrow passage. This is the ruled lesson of §"THE
+  LIGHT IS THE GAME" made mechanical: light can activate the danger it
+  reveals.
+
+`DreamHazardTest.tscn` passes 23/23 across four blocks, and measures the
+fairness bar rather than asserting it: every impact records when its tell
+started, how far away the player was, and the realised warning in seconds,
+and `unfair_impacts()` answers Gate C's question as one list that must stay
+empty. Perception rows carry an eight-sector bearing and never a distance, so
+directional captions convey what the ear conveys and nothing the eye could not
+have earned. Mina's profile allowlist arms three of the four placed sockets;
+the slot-3 rhythmic counterweight sits in her D03 unarmed, which is how a
+shared catalog serves six cases.
+
+N7 steps 7–13 remain: beam-splash upgrade, the open lift void's real floor
+hole, the hollow runner, caption presentation and its settings key, the Gate C
+blinded identification harness (20 trials, 16 to pass), the production dream
+WorldEnvironment and receding practical, and the render README.
 
 Signals remain narrow: `dream_requested(case_id, profile_id, window)`,
 `dream_entered(case_id, seed)`, `dream_ended(case_id, outcome)` and the existing
