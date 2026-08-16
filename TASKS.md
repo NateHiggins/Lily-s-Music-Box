@@ -156,6 +156,49 @@ Martinville's 1857 phonautographe, and the prop is built.
   varispeed — that judges House Five checklist items 9-10 (the 2007 test).
   The base-only preview cannot pass or fail a candidate.
 
+## B — The Harukiya rebuild (owner commission 2026-08-16)
+
+Commission: do for the bar what the arcade got — substantially larger and
+taller, a generous stair procession, a dense Akira-style detritus diorama on
+the stair and landing, a decompressed couch/jukebox pocket, real social
+sub-zones, back-of-house logic, ceiling architecture, layered light, traces
+of use, and subtle Orison unease. A superb 1928 metropolitan bar-lounge.
+
+**THE CANON THIS SITS ON.** `docs/harukiya_reference_notes.md` is a formal
+evidence ledger with four headings — CANONICAL (visible in the Akira film or
+surviving production art), INFERRED, NYC ADAPTATION, GAMEPLAY NECESSITY. The
+bar IS Otomo's Harukiya, transplanted. **The owner's requested detritus is
+therefore a restoration, not an invention:** littered treads, teal walls and
+a soiled red rug are CANONICAL, from the stairwell frame. Every move this
+rebuild makes gets filed under one of those four headings, and nothing moves
+between headings silently.
+
+- **B1 OWNER RULING 2026-08-16 — THE STAIR WIDENS MODESTLY, AND THE
+  COMPRESSION STAYS.** The ledger records canonical circulation as "minimum
+  ~850 mm, generally 950–1200 mm. **Never generous.**" The film's bar is
+  cramped on purpose, so a fully generous procession would erase character
+  the ledger protects. Three options were put to the owner; the ruling is the
+  middle one: **widen the 1.15 m stair to roughly 1.6 m** — enough that two
+  people pass, which reads generous *relative to the film* — and keep the
+  descent tight and dense so that arrival is still compression, with release
+  happening when the room opens. File as NYC ADAPTATION, with precedent: the
+  2026-08-07 rebuild already took the room 6.8 → 9.2 m deep under that same
+  heading ("what a New York operator did with a bigger cellar").
+- **B2** The detritus diorama on the widened stair and landing. Density is
+  the deliverable, but the owner's own bar applies: layered, meaningful
+  accumulation implying use, neglect, improvisation, hidden labor or former
+  glamour — never "messy as a substitute for design."
+- **B3** Decompress the couch and jukebox pocket. Measure the failing gaps
+  before moving anything; the jukebox should read as a local shrine, framed
+  and approachable, not jammed.
+- **B4** Room expansion, sub-zones, bar/backbar presence, back-of-house,
+  ceiling architecture, materials, lighting, traces of use, unease — the
+  remaining commission, sequenced after B1–B3.
+- **B5** Preserve absolutely: the teal descent, the red steel door, the two
+  arcade cabinets immediately left of the entrance, the deep canopy over the
+  counter, the barrels and crowded pictures behind the backbar, the violet
+  felt, and light that only ever comes from something you can point at.
+
 ## S — Basement studio
 
 Proposed in `design/ORISON_STUDIO_BRIEF.md`. Not canon until the owner rules.
@@ -931,6 +974,74 @@ and the four isolated roof fixtures now terminating at a real riser.
 
 ## P — Performance
 
+- **P8 OWNER DIRECTION 2026-08-16 — AUDIT EVERY LIMIT FOR FOSSILS. Are we
+  actually spending what we have?** The prompt was: make sure we have
+  maximised our light, shadow "and any other parameter — number of raindrops
+  or whatever — and are not erring toward unnecessarily low limits."
+  **The instinct is already vindicated.** `building_root.gd:460-461` sets the
+  16/16 light budget under the comment *"Sixteen is the renderer's actual
+  per-object ceiling, so requesting more would only reshuffle winners."* That
+  ceiling is **128** and has been for some time (L14). The budget was derived
+  from a constraint that has since expired, and nobody re-derived it — so the
+  arcade, the bar and every future room have been rationing sixteen lights
+  for a reason that no longer exists.
+  **The principle to apply everywhere:** a limit chosen for a reason that has
+  expired is not a limit, it is a fossil. Each one below gets the same four
+  questions — what is the value, what argument set it, is that argument still
+  true, and what does measurement say the headroom is *now*.
+  **The lever that makes this worth doing:** `project.godot`'s own measured
+  note — frame time is IDENTICAL at 720p, 1080p and 1440p, so the frame is
+  **submission-bound, not fill-bound**. Anything capped to protect the GPU is
+  therefore capped against a bottleneck this game does not have, and is very
+  likely free. Anything capped to protect DRAW CALLS is real and must stay
+  earned by measurement.
+  **The sweep list** (extend it; each needs its resolved value printed, not
+  inferred — see L14 for why): the 16/16 and 14/8 light/shadow budgets and
+  the dead `UNLIMITED` path; `max_lights_per_object` 128; positional and
+  directional shadow atlas 8192 and both soft-filter qualities; MSAA and
+  anisotropic (`project.godot` already calls these "bought for nothing" —
+  confirm still true); rain and weather particle counts; the storm/sky
+  quality dials; prop tick rate and the 12 m prop cull; occlusion-culling
+  parameters; the 9 m shop-batch contract; texture and hero-model budgets
+  (40k tri / 1K); the torch cookie (`COOKIE 512`, `BAKE_EVERY 0.10`); the
+  arcade feed resolution (480x360 at 2x); LightRig's `ACTIVE_N_MOBILE`
+  (unmeasured, L12); city-backdrop lit-window counts; resident count and
+  routine tick rates; dream-maze module and hazard budgets.
+  **Method, so this does not become a spending spree:** raise one dial at a
+  time, re-run its owning perf station at canonical pinned night, and keep
+  the raise only if it is visible AND costs nothing measurable. Record every
+  result including the null ones — "measured, no headroom" is as valuable as
+  a win, and is what stops the next session re-asking. Mobile is exempt from
+  optimism until somebody measures a phone (L12).
+- **P8a THE MEASURING INSTRUMENT WAS BROKEN — FIXED 2026-08-16, and this is
+  why P8 exists at all.** `light_rig.gd` documents `LIGHT_BUDGET=14
+  SHADOW_BUDGET=8` as the sweep for answering "is this budget actually
+  costing anything?" — but `_ready()` read those env vars and `BuildingRoot`
+  then called `set_budgets()` immediately after `add_child`, discarding them
+  on every run. **The project's own method for re-deriving the light budget
+  silently did nothing**, which is precisely how a budget justified by an
+  expired per-object ceiling survived unexamined. `set_budgets` now lets an
+  explicit sweep win and prints `[LIGHT RIG] sweep override: N active / M
+  shadow`; with no env set, production resolves 16/16 exactly as before and
+  LightingAudit passes. **A measurement tool that quietly no-ops is worse
+  than no tool** — when auditing the rest of the P8 list, verify each dial
+  actually moves before trusting a null result.
+  **First indicative sweep** (canonical pinned night, 1280x720, single runs,
+  so treat as direction not verdict — this machine is noisy and the house
+  standard is fresh-process, 30 warm-up / 120 sampled, two runs each):
+  | station | 16/16 | 32/16 | 64/16 |
+  |---|---:|---:|---:|
+  | atrium eye | 37.17 | 38.93 | 40.25 |
+  | harukiya | 13.28 | 12.77 | 11.80 |
+  | passage northbound | 14.26 | 16.97 | 13.61 |
+  Harukiya and northbound move non-monotonically, i.e. noise — no evidence
+  of cost there. The **atrium is monotonic** (+3.1 ms from 16 to 64) and is
+  the one station that plausibly pays, which fits: it sees seven storeys of
+  fixtures at once and is already the worst station in the game at 37 ms.
+  Provisional read: **more lights look close to free everywhere except the
+  atrium.** Confirm with the two-run house protocol before raising anything,
+  and consider whether the budget should be raised globally or the atrium
+  should keep a local cap.
 - **P1** **Every station is over the 16.6 ms frame target**, all eight, measured
   2026-08-10 at 1440p. **DAYTIME NUMBERS (labeled 2026-08-14): the benchmark
   was unpinned until `ab120dc` and these ran in daylight; canonical pinned

@@ -322,7 +322,26 @@ func _report_authored_lights() -> void:
 			"profiles steady/breathe/mains/beat/dropout=%s" % [profiles])
 
 
+## AN EXPLICIT SWEEP BEATS THE HARDCODED DEFAULT, and it did not until
+## 2026-08-16. `_ready` reads LIGHT_BUDGET/SHADOW_BUDGET, but BuildingRoot
+## calls this immediately after `add_child`, so the env values were read and
+## then silently discarded on every run. The documented way to answer "is
+## this budget actually costing anything?" therefore did nothing at all —
+## which is the reason nobody ever re-derived the 16/16, and the reason the
+## comment justifying it still cites a per-object ceiling of sixteen that
+## has since become 128. A measurement tool that quietly no-ops is worse
+## than no tool. The sweep now wins; production, which sets no env, is
+## unchanged.
 func set_budgets(lights: int, shadows: int) -> void:
+	var lit := OS.get_environment("LIGHT_BUDGET")
+	var shad := OS.get_environment("SHADOW_BUDGET")
+	if lit != "" or shad != "":
+		_active_budget = maxi(1, int(lit)) if lit != "" else _active_budget
+		_shadow_budget = clampi(int(shad), 0, _active_budget) \
+				if shad != "" else mini(_shadow_budget, _active_budget)
+		print("[LIGHT RIG] sweep override: %d active / %d shadow"
+				% [_active_budget, _shadow_budget])
+		return
 	_active_budget = maxi(1, lights)
 	_shadow_budget = clampi(shadows, 0, _active_budget)
 	# TASKS.md P4: a wrong budget number survived in three documents because
