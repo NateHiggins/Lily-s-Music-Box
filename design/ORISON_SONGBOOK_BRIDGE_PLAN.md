@@ -63,7 +63,12 @@ Everything downstream of these three is same-day agent work.
   the complete take (base + vocal + room as recorded), cut the ×1.335
   true-varispeed return, gain-matched preview, and — per the G7 ruling — the
   rigged master or nothing. This is the project's first honest 2007-test
-  material.
+  material. *The whole agent step is staged as
+  `art/audio/songbook_scratch_return.py` (2026-08-15): one command from
+  base + vocal to matched return + listening copy, self-tested to reproduce
+  the 08-14 Moonlight preview exactly (118.100 s, −0.5 dB match); its `--rig`
+  flag approximates the HAUNTED_FLOOR chain at −10.6 LUFS and stays non-canon
+  pending G7.*
 - **Day 2 — verdict, next generation.** Owner plays the return twice
   (items 9–10). If Dreamland passes, owner generates track_105 (AIN'T WE GOT
   FUN — no consultation gate) from House Five §4; if it fails, regenerate 101
