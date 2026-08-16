@@ -38,9 +38,12 @@ func _hide_overlays(node: Node) -> void:
 	for c in node.get_children():
 		if c is CanvasLayer:
 			c.visible = false
-		elif c is Label3D and c.name == "Nameplate":
+		elif c is Label3D and (c.name == "Nameplate"
+				or node.is_in_group("resident_placeholders")):
 			# Resident nameplates are debug furniture; a walkthrough judges
-			# the room, not the cast list.
+			# the room, not the cast list. NPCPlaceholder names its plate;
+			# AnimatedResident's is an anonymous Label3D child, so the
+			# parent's group is the reliable signal.
 			c.visible = false
 		_hide_overlays(c)
 
@@ -127,6 +130,17 @@ func _shoot_room(room: Dictionary, rooms: Array, fz: float) -> void:
 	var y0 := float(rect[1])
 	var x1 := float(rect[2])
 	var y1 := float(rect[3])
+	# Flip the room's own switch for its frames (RoomLumaAudit's method,
+	# ported 2026-08-16): the old camera-omni crutch is dropped for busy
+	# floors by the 16-lights-per-merged-mesh cap, which left F02_D and
+	# F05_D black in BOTH walk passes. A room's own fixture is inside its
+	# kept sixteen. toggle_room returns the state it moved to, so one more
+	# call restores a room that happened to start on.
+	var flipped := false
+	if "switch_system" in root and root.switch_system != null:
+		flipped = root.switch_system.toggle_room(str(room["id"]))
+		if not flipped:
+			root.switch_system.toggle_room(str(room["id"]))
 	var area := (x1 - x0) * (y1 - y0)
 	# Inset never past the room centre, however narrow the room is.
 	var ix: float = min(INSET, (x1 - x0) * 0.45)
@@ -162,6 +176,9 @@ func _shoot_room(room: Dictionary, rooms: Array, fz: float) -> void:
 		await _grab(GameBoot.b2g([cx, cy, fz + EYE]),
 				GameBoot.b2g([x1 - ix, y1 - iy, fz + 1.0]),
 				"wt_%s" % str(room["id"]))
+	# Put the switch back so later rooms' frames keep honest spill.
+	if flipped:
+		root.switch_system.toggle_room(str(room["id"]))
 
 
 func _grab(pos: Vector3, look: Vector3, shot_name: String) -> void:

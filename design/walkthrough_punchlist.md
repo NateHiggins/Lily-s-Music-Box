@@ -61,7 +61,7 @@ baluster shadows, confirmed in the lit pass.
 | F04_D_MAIN | tan cabinet panel above the TV juts diagonally off the wall face | wish |
 | F04_B_MAIN | ~~dark blue slab by the shelf~~ IDENTIFIED 2026-08-16 by probe: `DomesticMark_4B_0/1` — authored haunting wall-marks, working as designed | resolved |
 | F02_D unit | ~~confirm vacancy is intentional~~ ANSWERED 2026-08-16: the unit status table rules 2D "sealed" — the emptiness is canon, question closed | resolved |
-| F05_D_MAIN, F06_C_MAIN | unjudgeable this walk (light-budget caveat) — carry to an in-engine pass | — |
+| F05_D_MAIN, F06_C_MAIN | ~~unjudgeable (light-budget caveat)~~ CLOSED 2026-08-16: the rig now flips each room's own switch (RoomLumaAudit's method) instead of leaning on the capped camera omni. F05_D stays dark **by design** — "vacant (fire damage)", and fire-gutted 5D hangs no fixture; F06_C re-shot judgeable and clean | resolved |
 
 ## 2026-08-01 walk — method and caveats
 
