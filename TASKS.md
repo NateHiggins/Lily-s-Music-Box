@@ -1010,6 +1010,13 @@ it.
     state or prints paper contents. Period copy now cites William M. Kelly's
     1914 paper fastener and the Gillespies' 1921 thumb-tack tool directly rather
     than borrowing apartment-mailbox provenance.
+    Mina's six case-specific targets now answer through their authoritative
+    callbacks: the wrapper performs a distinct card, book, pencil, calibrator,
+    time-clock or letter touch, calls the existing action exactly once and
+    forwards only its result dictionary. Mina still owns every caption,
+    calibration, visit and resolution transition. The unavailable letter keeps
+    no prompt and no collision until recurrence enables it. Five direct period
+    patents source the object facts; no presenter or wrapper gained a case flag.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street

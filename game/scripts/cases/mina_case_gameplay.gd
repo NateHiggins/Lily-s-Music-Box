@@ -20,6 +20,38 @@ const EVIDENCE := [
 	 "at": [-10.0, -5.35, 4.25], "fact": "PENCIL",
 	 "choices": ["PENCIL", "JUDGMENT", "EXPLANATION"]},
 ]
+const CASE_OBJECT_COPY := {
+	"caption_cards": {
+		"title": "CAPTION INDEX CARDS",
+		"body": "A 1912 VISIBLE INDEX OVERLAPPED CARDS WHILE LEAVING EACH PROJECTING EDGE READY TO READ STOP",
+		"source_ids": ["R053"],
+	},
+	"style_guide": {
+		"title": "PERSONAL STYLE GUIDE",
+		"body": "A 1911 TUBULAR BINDING JOINED SHEETS TO COVERS WHILE LETTING THE BOOK OPEN SUBSTANTIALLY FLAT STOP",
+		"source_ids": ["R054"],
+	},
+	"redaction_pencil": {
+		"title": "MAGAZINE LEAD PENCIL",
+		"body": "A 1915 LEAD PENCIL STORED SPARE LEADS IN ITS BODY AND FED THE POINT ALONG ITS CENTRE LINE STOP",
+		"source_ids": ["R055"],
+	},
+	"calibrator": {
+		"title": "CAPTION CALIBRATOR",
+		"body": "CARBON TRANSMITTER PRESSURE CHANGES LINE RESISTANCE WHILE LAMPS AND ANNUNCIATORS REPORT A SEPARATE SIGNAL STOP",
+		"source_ids": ["R023", "R034"],
+	},
+	"time_clock": {
+		"title": "IN AND OUT CLOCK",
+		"body": "A 1928 RECORDER TOOK ONE EMPLOYEE CARD AND MOVED EACH HANDLE-STAMPED ENTRY OR EXIT TO ITS NEXT POSITION STOP",
+		"source_ids": ["R056"],
+	},
+	"letter": {
+		"title": "FOLDED LETTER SHEET",
+		"body": "A 1902 LETTER SHEET COULD BE WRITTEN FIRST THEN FOLDED INTO ITS OWN ENVELOPE FORM STOP",
+		"source_ids": ["R057"],
+	},
+}
 
 var tracker: ObjectiveTracker
 var work_orders: WorkOrders
@@ -62,15 +94,17 @@ func _build_apartment_targets() -> void:
 		var item := CaseInteractable.new()
 		var evidence_id: String = spec.id
 		item.setup(spec.name, "Change caption on " + spec.name,
-				func(): _inspect(evidence_id),
-				Color(0.32, 0.27, 0.20))
+				func(): return _inspect(evidence_id),
+				Color(0.32, 0.27, 0.20), Vector3(0.34, 0.16, 0.24),
+				{"caption_cards": "cards", "style_guide": "book",
+				"redaction_pencil": "pencil"}.get(evidence_id, "cards"))
 		item.position = GameBoot.b2g(spec.at)
 		add_child(item)
 		evidence_nodes.append(item)
 	console = CaseInteractable.new()
 	console.setup("CAPTION CALIBRATOR", "Run caption calibration",
 			_use_calibrator, Color(0.16, 0.31, 0.36),
-			Vector3(0.48, 0.42, 0.26))
+			Vector3(0.48, 0.42, 0.26), "calibrator")
 	console.position = GameBoot.b2g([-9.35, -2.05, 4.20])
 	add_child(console)
 
@@ -128,7 +162,7 @@ func _build_visit_boundary() -> void:
 	shift_clock = CaseInteractable.new()
 	shift_clock.setup("TIME CLOCK", "Clock out and return for visit two",
 			_advance_visit, Color(0.18, 0.21, 0.19),
-			Vector3(0.38, 0.54, 0.16))
+			Vector3(0.38, 0.54, 0.16), "time_clock")
 	shift_clock.position = GameBoot.b2g([-3.55, -7.35, 0.92])
 	add_child(shift_clock)
 	var layer := CanvasLayer.new()
@@ -158,14 +192,15 @@ func _build_letter() -> void:
 	letter = CaseInteractable.new()
 	letter.setup("PROVISIONAL TESTIMONY",
 			"Read the letter slid under your door", _read_letter,
-			Color(0.86, 0.84, 0.78), Vector3(0.24, 0.012, 0.32))
+			Color(0.86, 0.84, 0.78), Vector3(0.24, 0.012, 0.32),
+			"letter")
 	letter.position = GameBoot.b2g([-5.95, 3.90, 9.6])
 	letter.rotation.y = 0.22
 	add_child(letter)
 	letter.set_enabled(false)
 
 
-func _read_letter() -> void:
+func _read_letter() -> Dictionary:
 	var state := RealityState.case_state(CASE_ID)
 	var text: String
 	if bool(state.get("resolved", false)):
@@ -182,6 +217,8 @@ func _read_letter() -> void:
 				+ "annotated them in the margin. Draft five will not. — M.V."
 	dialogue.present("A LETTER, SLID UNDER THE DOOR", text,
 			[{"text": "[Fold it back up.]", "action": Callable()}])
+	return _case_object_card("letter", "DRAFT %d OPEN / CASE TEXT PRESENTED" %
+			(5 if bool(state.get("resolved", false)) else 4))
 
 
 func _on_job_stage_changed(job_id: String, _from: String, to_stage: String,
@@ -208,14 +245,14 @@ func _reconcile_physical_repair() -> void:
 	RealityCases.stabilize_case(CASE_ID)
 
 
-func _inspect(evidence_id: String) -> void:
+func _inspect(evidence_id: String) -> Dictionary:
 	var state := RealityState.case_state(CASE_ID)
 	if state.is_empty():
-		return
+		return _case_object_card(evidence_id, "CASE INACTIVE / NO CHANGE")
 	var round := int(state.get("recurrence_count", 0))
 	var spec := _evidence_spec(evidence_id)
 	if spec.is_empty():
-		return
+		return {}
 	var key := "%d_%s" % [round, evidence_id]
 	var index: int = (int(_choice_indices.get(key, -1)) + 1) \
 			% spec.choices.size()
@@ -229,23 +266,31 @@ func _inspect(evidence_id: String) -> void:
 	_feedback = "%s now reads: %s" % [spec.name, selected]
 	RealityState.commit()
 	_refresh()
+	return _case_object_card(evidence_id,
+			"CAPTION %s / CASE OWNER COMMITTED" % selected)
 
 
-func _use_calibrator() -> void:
+func _use_calibrator() -> Dictionary:
 	var state := RealityState.case_state(CASE_ID)
 	if state.is_empty():
-		return
+		return _case_object_card("calibrator", "LINE IDLE / NO CASE CHANGE")
 	if state.stage == "integration_ready":
 		RealityCases.resolve_case(CASE_ID)
-		return
+		return _case_object_card("calibrator",
+				"CALIBRATION ACCEPTED / CASE OWNER RESOLVED")
 	if state.stage not in ["active", "reopened", "recognized", "resistant"]:
-		return
+		return _case_object_card("calibrator",
+				"CONTROL GUARDED / CURRENT STAGE REFUSED")
 	if _inspection_count(state) < EVIDENCE.size():
 		_feedback = "Calibration rejected: some captions claim more than is observable."
 		_refresh()
-		return
+		return _case_object_card("calibrator",
+				"CALIBRATION REJECTED / %d OF %d FACTUAL" % [
+						_inspection_count(state), EVIDENCE.size()])
 	_feedback = ""
 	RealityCases.stabilize_case(CASE_ID)
+	return _case_object_card("calibrator",
+			"CALIBRATION ACCEPTED / CASE OWNER STABILIZED")
 
 
 func _on_resident_interaction(case_id: String, resident_id: String) -> void:
@@ -285,7 +330,7 @@ func _leave_quiet_beat() -> void:
 	_refresh()
 
 
-func _advance_visit() -> void:
+func _advance_visit() -> Dictionary:
 	shift_clock.set_enabled(false)
 	_visit_label.text = "VISIT TWO  ·  11:43 PM\nSAME COMPLAINT, DIFFERENT WORDING"
 	var player := get_tree().get_first_node_in_group(
@@ -302,6 +347,23 @@ func _advance_visit() -> void:
 	tween.tween_callback(func():
 		if player:
 			player.call_locked = false)
+	return _case_object_card("time_clock",
+			"CARD STAMPED / VISIT BOUNDARY ACCEPTED")
+
+
+func _case_object_card(object_id: String, condition: String) -> Dictionary:
+	var copy: Dictionary = CASE_OBJECT_COPY.get(object_id, {})
+	if copy.is_empty() or condition.is_empty():
+		return {}
+	var sources: Array = copy.get("source_ids", [])
+	return {
+		"title": str(copy.get("title", "")),
+		"body": str(copy.get("body", "")),
+		"condition": condition,
+		"stamp": "SERVICE NOTE",
+		"card_id": "case_object",
+		"source_ids": sources.duplicate(),
+	}
 
 
 func _inspection_count(state: Dictionary) -> int:

@@ -103,6 +103,11 @@ specific player claim, and no cultural representation claim.
 | R050 | A. C. Pegan, [US840800A Locked Coat Hook](https://patents.google.com/patent/US840800A/en) | A wall-secured supporting base and projecting arm carry a garment load. | Expired patent; the additional hook remains case-owned. | dynamic `coat_hook` owner result |
 | R051 | H. E. Warren, [US1283431A Electric Clock System](https://patents.google.com/patent/US1283431A/en) | A synchronous motor can distribute time indications through an alternating-current system and remain regulated against a standard clock. | Expired patent; Vantry's signal, sealed case and permanent four-minute error remain authored fiction. | Vantry `winding_clock` owner result |
 | R052 | William M. Kelly, [US1097332A Paper Fastener](https://patents.google.com/patent/US1097332A/en), and George and William W. Gillespie, [US1369420A Thumb-Tack Tool](https://patents.google.com/patent/US1369420A/en) | Kelly's 1914 fastener clamps a file so loose sheets cannot work into it; the Gillespies' 1921 magazine tool carries, applies and removes thumb tacks at a drawing board. | Expired patents; supports only the fastening mechanics, never the authored paper contents. | `papers`, `pinboard` |
+| R053 | Irving Fisher, [US1048058A Index or File](https://patents.google.com/patent/US1048058A/en) | Overlapping flat cards can leave their projecting portions immediately visible while keeping a compact, adjustable index. | Expired patent; Mina's captions and choices remain case-owned fiction. | Mina caption-card owner result |
+| R054 | Charles R. Duryea and Frederick Reuter, [US998283A Binding for Books](https://patents.google.com/patent/US998283A/en) | A tubular binding strip can join the sheets, back and covers while retaining enough flexibility for the book to open substantially flat. | Expired patent; supports binding construction only, not the guide's authored rules. | Mina style-guide owner result |
+| R055 | Charles R. Keeran, [US1130741A Lead-Pencil](https://patents.google.com/patent/US1130741A/en) | A permanent pencil body can store spare leads and use its magazine/follower to feed lead along the centre line without side strain. | Expired patent; Mina's redaction use remains case-owned fiction. | Mina pencil owner result |
+| R056 | Joseph William Miles, [US1664523A In and Out Machine](https://patents.google.com/patent/US1664523A/en) | A 1928 recorder accepted one employee card at a time; a hand lever recorded entry or exit while the mechanism advanced successive records to their proper positions. | Expired patent; the two-visit boundary is game-owned, not a historical labor claim. | Mina time-clock owner result |
+| R057 | Andrew Jackson Arendell, [US709952A Envelope](https://patents.google.com/patent/US709952A/en) | A rectangular letter sheet could be written first, then folded along ruled sections and flaps into its own envelope form. | Expired patent; Mina's letter contents and delivery under the door remain authored fiction. | Mina letter owner result |
 
 ## 4. Copy audit
 
@@ -123,6 +128,12 @@ condition and source list from a closed kind table. The generic `case_object`
 record remains non-presentable. The returned condition may say only whether
 the visible mechanism is at rest or visibly altered; ids, tells, residents and
 causes are outside the copy boundary.
+
+Mina's six `CaseInteractable` targets are the other dynamic exception. The
+wrapper performs a physical touch and returns only the dictionary produced by
+the case callback. The case owner supplies one of six closed, sourced object
+profiles and the actual outcome after it has acted; the wrapper and presenter
+own no caption choice, visit boundary, resolution rule or fallback copy.
 
 ## 5. Deferred implementation proof
 

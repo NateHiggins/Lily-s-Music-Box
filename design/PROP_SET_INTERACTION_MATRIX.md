@@ -82,7 +82,7 @@ counts; generator records supply provenance.
 | Room light switches | 215 / all floors | `SwitchPlate`; toggle click then room-light request | Metal toggle click | Runtime / lighting system | **OPERATE** | Card reads circuit/fixture result; dead circuits still click honestly. |
 | Lobby directory buzzer | 1 / F01 | `WayfindingSignagePass`; one call button travels and rings the bell on every press | Elevator bell | Runtime / RealityCases | **OPERATE** | Landed I4: one assembly owner reports button return and sounded/still-ringing state; it selects no resident and adds no call state. |
 | 4B support desk chair | 1 / F04 | `DeskZone`; sit/stand and open/leave call interface | None | Runtime / call system | **OPERATE** | Add chair/receiver sound; second E must continue to release. |
-| Case-specific object zones | 6 / F01, F02, F04 | `CaseInteractable`; invokes case-owned callable; one is currently disabled | Case-owned | RealityCases | **OPERATE** | Presenter reads case result only; no duplicated flags. Disabled zone must refuse or vanish. |
+| Case-specific object zones | 6 / F01, F02, F04 | `CaseInteractable`; kind-specific card/book/pencil/control/clock/letter touch, then forwards the case callback result | Metal/paper handling tick | RealityCases | **OPERATE** | Landed I4: Mina alone returns each outcome dictionary; wrapper owns no flags. Disabled letter has no prompt or collision until the case enables it. |
 | HARDWARE PAINT counter | 1 / Passage | `MaintenanceShopCounter`; contextual part acquisition | None | Inventory + WorkOrders through shop service | **OPERATE** | Add counter acknowledgement/card only when job service is valid. |
 | Harukiya bar stools | 3 / B1 | `BarSeatZone`; first E seats, second stands | None | Runtime | **OPERATE** | Add seat scrape; preserve occupied refusal and release. |
 | Lobby bench seat | 1 / F01 | `LobbyBenchZone`; first E seats, second stands | None | Runtime | **OPERATE** | Add upholstery/wood response; preserve release. |
@@ -282,6 +282,12 @@ attach one collider to the merged batch and call hundreds of objects covered.
    sheets, reports only visible count/category and public authority, and never
    reads case state or paper contents. The generator record set must equal that
    table exactly or the focused proof fails.
+   Mina's six case-object zones now obey the same owner-result law. The wrapper
+   supplies only a kind-specific material touch, invokes the existing callable
+   once, and forwards its dictionary; Mina's owner determines caption,
+   calibration, visit and letter outcomes. The unavailable letter remains
+   invisible with collision disabled. Five direct period patent sources ground
+   the six object facts without moving any flag into the presenter.
 4. Add sparse inspection/refusal zones to the named set heroes in §5–§8.
 5. Leave bulk pipework, fixture meshes, tables, chairs, shell geometry, weather,
    trim, shelf repeats and portal proxies ambient. Count them in the proof; do
