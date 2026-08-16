@@ -200,9 +200,20 @@ static func build_geometry(parent: Node3D, plan: Dictionary,
 
 	var bounds := _plan_bounds(plan)
 	var margin := WALL_T
-	_solid_box(architecture, "DreamFloor", floor_mat,
-			[bounds[0] - margin, bounds[1] - margin,
-			bounds[2] + margin, bounds[3] + margin], -WALL_T, 0.0)
+	# The floor is one slab with the void mouths taken out of it, so a fall is
+	# real physics through real missing floor rather than a radius that
+	# teleports an outcome. Everything else about the void follows from that.
+	var slabs: Array = [[bounds[0] - margin, bounds[1] - margin,
+			bounds[2] + margin, bounds[3] + margin]]
+	var holes := floor_holes(plan)
+	for hole in holes:
+		slabs = _subtract_rect(slabs, hole)
+	var slab_index := 0
+	for slab in slabs:
+		slab_index += 1
+		_solid_box(architecture, "DreamFloor%02d" % slab_index, floor_mat,
+				slab, -WALL_T, 0.0)
+	_build_shafts(architecture, holes, wall_mat)
 	_solid_box(architecture, "DreamCeiling", wall_mat,
 			[bounds[0] - margin, bounds[1] - margin,
 			bounds[2] + margin, bounds[3] + margin],
@@ -249,6 +260,90 @@ static func build_geometry(parent: Node3D, plan: Dictionary,
 		index += 1
 		_solid_box(architecture, "Lintel%02d" % index, wall_mat, aperture,
 				float(_door_height(plan)), clear_ceiling)
+
+
+## How deep a void reads before the fall is called. The player never lands:
+## the outcome commits well above this, and the pit floor exists only so a
+## runaway body has something to stop on.
+const SHAFT_DEPTH := 6.0
+## A body whose feet pass this far below the floor plane is falling and is
+## not coming back. Deep enough that a step down a lintel or a physics
+## jitter can never read as a fall, shallow enough to commit while the drop
+## still feels like the player's own mistake.
+const FALL_TRIGGER_Y := -0.90
+
+
+## The floor openings a plan requires, as rects.
+##
+## Derived, never authored: a socket whose kind is exactly `positional` is a
+## hazard whose danger IS its place, and the only such socket in the catalog
+## is the open lift void. Its `clearance_radius_m` of 0.45 is half the 0.91
+## connector width, so the mouth this cuts is a lift doorway laid into the
+## floor -- the opening you would have stepped through if the car were there.
+##
+## Deriving it means the catalog SHA is untouched and Gate A stays valid.
+static func floor_holes(plan: Dictionary) -> Array:
+	var holes: Array = []
+	for record in plan.get("hazards", []):
+		if str(record.get("kind", "")) != "positional":
+			continue
+		var p: Array = record.get("position", [])
+		if p.size() < 2:
+			continue
+		var half := float(record.get("clearance_radius_m", 0.45))
+		holes.append([float(p[0]) - half, float(p[1]) - half,
+				float(p[0]) + half, float(p[1]) + half])
+	return holes
+
+
+## Line each mouth with a shaft so a fall reads as a shaft and not as the
+## world running out. Sides are inset by their own thickness so they never
+## narrow the opening the player can fall through.
+static func _build_shafts(parent: Node3D, holes: Array,
+		material: Material) -> void:
+	var index := 0
+	for hole in holes:
+		index += 1
+		var t := WALL_T
+		_solid_box(parent, "ShaftPit%02d" % index, material,
+				[hole[0] - t, hole[1] - t, hole[2] + t, hole[3] + t],
+				-SHAFT_DEPTH - t, -SHAFT_DEPTH)
+		_solid_box(parent, "ShaftW%02d" % index, material,
+				[hole[0] - t, hole[1] - t, hole[0], hole[3] + t],
+				-SHAFT_DEPTH, -WALL_T)
+		_solid_box(parent, "ShaftE%02d" % index, material,
+				[hole[2], hole[1] - t, hole[2] + t, hole[3] + t],
+				-SHAFT_DEPTH, -WALL_T)
+		_solid_box(parent, "ShaftN%02d" % index, material,
+				[hole[0], hole[1] - t, hole[2], hole[1]],
+				-SHAFT_DEPTH, -WALL_T)
+		_solid_box(parent, "ShaftS%02d" % index, material,
+				[hole[0], hole[3], hole[2], hole[3] + t],
+				-SHAFT_DEPTH, -WALL_T)
+
+
+## Remove a rect from a set of rects, returning the remainder as up to four
+## bands per box. Same law as the door cut above: keep what does not overlap,
+## split what does, never emit a zero-area piece.
+static func _subtract_rect(boxes: Array, hole: Array) -> Array:
+	var out: Array = []
+	for box in boxes:
+		if not _rects_overlap(box, hole):
+			out.append(box)
+			continue
+		var inner_x0 := maxf(box[0], hole[0])
+		var inner_x1 := minf(box[2], hole[2])
+		if box[1] < hole[1]:
+			out.append([box[0], box[1], box[2], hole[1]])
+		if box[3] > hole[3]:
+			out.append([box[0], hole[3], box[2], box[3]])
+		var band_y0 := maxf(box[1], hole[1])
+		var band_y1 := minf(box[3], hole[3])
+		if box[0] < inner_x0:
+			out.append([box[0], band_y0, inner_x0, band_y1])
+		if box[2] > inner_x1:
+			out.append([inner_x1, band_y0, box[2], band_y1])
+	return out
 
 
 ## Which module's clear footprint contains the point; empty when outside all.

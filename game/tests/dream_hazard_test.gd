@@ -7,6 +7,8 @@ extends Node
 ##   C. the builder's hazard sockets land where the catalog authored them
 ##   D. the Vantry trunk is a real conditional danger, and every impact
 ##      got at least the warning its socket promised
+##   E. the lift void is a real hole in the real floor, and gravity — not a
+##      radius — is what ends the run over it
 ##
 ## Harness integrity follows the N6 idiom: exact check count, a counted
 ## sentinel closing every block, deterministic fixed-rate stepping, and a
@@ -16,7 +18,7 @@ const SEED_HEX := "f123456789abcdef"
 const ALT_SEED_HEX := "f123456789abcdee"
 const PROFILE := "mina_release_print"
 const CASE := "mina_caption_crisis"
-const EXPECTED_CHECKS := 23
+const EXPECTED_CHECKS := 30
 const DT := 1.0 / 120.0
 
 var failures := 0
@@ -32,6 +34,7 @@ func _ready() -> void:
 	await _block_b_cap()
 	_block_c_sockets()
 	await _block_d_trunk()
+	await _block_e_void()
 	if checks != EXPECTED_CHECKS:
 		failures += 1
 		printerr("[N7] HARNESS FAIL: %d checks ran, %d expected"
@@ -185,6 +188,98 @@ func _block_d_trunk() -> void:
 			root.hazards.advance_fixed(DT) == DreamHazard.NONE
 			and root.hazards.impact_log.size() == 1)
 	_end_block("D", 23)
+
+
+# --- E: the void, resolved by gravity ---------------------------------
+
+func _block_e_void() -> void:
+	root.queue_free()
+	await get_tree().process_frame
+	root = await _spawn_root()
+	root.autonomous = false
+	var holes := DreamMazeBuilder.floor_holes(root.plan)
+	_check("exactly one mouth is cut, and it is a lift doorway wide",
+			holes.size() == 1
+			and absf(holes[0][2] - holes[0][0] - 0.90) < 0.001
+			and absf(holes[0][3] - holes[0][1] - 0.90) < 0.001)
+
+	var void_h := _hazard("open_lift_void")
+	var mod := _rect(void_h.module)
+	var hole: Array = holes[0]
+	var margins := [hole[0] - mod[0], mod[2] - hole[2],
+			hole[1] - mod[1], mod[3] - hole[3]]
+	var tightest := INF
+	for m in margins:
+		tightest = minf(tightest, float(m))
+	_check("the mouth leaves a body's width on every side of its module",
+			tightest >= 0.66)
+
+	var clear_of_doors := true
+	for door in root.plan.doors:
+		if DreamMazeBuilder._rects_overlap(hole, door.aperture):
+			clear_of_doors = false
+	_check("no mouth eats a doorway the chain has to pass through",
+			clear_of_doors)
+	_check("the floor is genuinely absent there and present beside it",
+			not _floor_covers(void_h.position.x, void_h.position.z)
+			and _floor_covers(void_h.position.x + 1.2, void_h.position.z)
+			and _floor_covers(void_h.position.x, void_h.position.z - 1.4))
+
+	# Approach on solid floor with physics parked: the draught reaches you
+	# well before the sill does, and standing beside the mouth is safe.
+	root.player.set_physics_process(false)
+	root.player.set_lamp_enabled(false)
+	_place(void_h.position + Vector3(6.0, 0.0, 0.0))
+	for i in range(300):
+		_step_toward(void_h.position + Vector3(1.05, 0.0, 0.0), 4.6 * DT)
+		root.hazards.advance_fixed(DT)
+		if _flat_distance(void_h.position) <= 1.06:
+			break
+	_check("the draught arrives long before the sill, and the sill holds",
+			void_h.tell_started_s >= 0.0 and not void_h.contacted)
+
+	# Now step over the mouth and let real gravity finish the sentence.
+	root.player.set_physics_process(true)
+	root.player.velocity = Vector3.ZERO
+	root.player.position = Vector3(void_h.position.x, 0.30,
+			void_h.position.z)
+	var outcome := ""
+	for i in range(240):
+		await get_tree().physics_frame
+		outcome = root.hazards.advance_fixed(DT)
+		if outcome != DreamHazard.NONE:
+			break
+	_check("real gravity through the real hole ends the run as a fall",
+			outcome == "fall"
+			and root.player.global_position.y
+					< DreamMazeBuilder.FALL_TRIGGER_Y)
+	var rec: Dictionary = root.hazards.impact_log[0]
+	_check("the fall is recorded, attributed and fair",
+			root.hazards.impact_log.size() == 1
+			and str(rec.hazard_id) == "open_lift_void"
+			and str(rec.outcome) == "fall"
+			and root.hazards.unfair_impacts().is_empty())
+	_end_block("E", 30)
+
+
+## Is there a built floor slab under this point? Read from the real scene the
+## builder produced, not from the plan, so the check can catch a slab that was
+## computed correctly and then emitted wrong.
+func _floor_covers(x: float, z: float) -> bool:
+	var architecture := root.find_child("ModuleArchitecture", true, false)
+	if architecture == null:
+		return false
+	for child in architecture.get_children():
+		if not child.name.begins_with("DreamFloor"):
+			continue
+		var shape_node := child.get_child(0) as CollisionShape3D
+		var box := shape_node.shape as BoxShape3D
+		var c: Vector3 = child.position
+		if x >= c.x - box.size.x * 0.5 and x <= c.x + box.size.x * 0.5 \
+				and z >= c.z - box.size.z * 0.5 \
+				and z <= c.z + box.size.z * 0.5:
+			return true
+	return false
 
 
 func _captions_leak_nothing() -> bool:

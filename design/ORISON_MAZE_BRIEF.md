@@ -528,8 +528,20 @@ ways and each is fair:
   darkness leaves a clean narrow passage. This is the ruled lesson of §"THE
   LIGHT IS THE GAME" made mechanical: light can activate the danger it
   reveals.
+- **The open lift void is a hole, not a radius.** The builder subtracts its
+  mouth from the floor slab with the same rectangle cut the doors use, lines
+  the shaft below so a fall reads as a shaft rather than as the world running
+  out, and the player falls through real missing floor under real gravity.
+  The hazard only reads the result. Nothing about the void is authored twice:
+  its mouth is derived from the socket's own `clearance_radius_m` of 0.45,
+  which is half the 0.91 connector width, so the opening is a lift doorway
+  laid into the floor — the one you would have stepped through if the car
+  were there. Deriving rather than authoring leaves the catalog SHA untouched
+  and Gate A valid. The Tenant translates in XZ without gravity, so a shadow
+  crosses the open shaft mouth without falling in, which is correct for what
+  the Tenant is.
 
-`DreamHazardTest.tscn` passes 23/23 across four blocks, and measures the
+`DreamHazardTest.tscn` passes 30/30 across five blocks, and measures the
 fairness bar rather than asserting it: every impact records when its tell
 started, how far away the player was, and the realised warning in seconds,
 and `unfair_impacts()` answers Gate C's question as one list that must stay
@@ -539,10 +551,16 @@ have earned. Mina's profile allowlist arms three of the four placed sockets;
 the slot-3 rhythmic counterweight sits in her D03 unarmed, which is how a
 shared catalog serves six cases.
 
-N7 steps 7–13 remain: beam-splash upgrade, the open lift void's real floor
-hole, the hollow runner, caption presentation and its settings key, the Gate C
-blinded identification harness (20 trials, 16 to pass), the production dream
+N7 steps 9–13 remain: the hollow runner, the trunk's lit beam-splash
+confirmation, caption presentation and its settings key, the Gate C blinded
+identification harness (20 trials, 16 to pass), the production dream
 WorldEnvironment and receding practical, and the render README.
+
+The hollow runner is blocked on one owner decision, not on engineering. The
+catalog places its socket in `D01_F04_LONG_HALL`; §"MINA'S FIRST RUN" scripts
+it in D04, which has no sockets at all. Moving the socket would change the
+catalog SHA and invalidate Gate A, so the engineering read is to amend the
+script to D01. That is a fiction change and belongs to the owner.
 
 Signals remain narrow: `dream_requested(case_id, profile_id, window)`,
 `dream_entered(case_id, seed)`, `dream_ended(case_id, outcome)` and the existing

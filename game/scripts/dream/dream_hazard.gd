@@ -27,6 +27,9 @@ var position := Vector3.ZERO
 var clearance_radius := 0.35
 var tell_radius := 4.60
 var minimum_warning_s := 0.50
+## True for a hazard whose mouth the builder cut out of the floor. Such a
+## hazard is resolved by gravity, not by proximity — see evaluate().
+var falls_through := false
 
 ## From the profile, not the catalog: what this does to a case's run.
 var outcome := ""
@@ -50,6 +53,10 @@ func configure(record: Dictionary, tuning: Dictionary) -> void:
 	var p: Array = record.get("position", [0.0, 0.0])
 	position = Vector3(float(p[0]), 0.0, float(p[1]))
 	clearance_radius = float(record.get("clearance_radius_m", 0.35))
+	# The same rule the builder used to decide what to cut, read from the
+	# same field, so geometry and behaviour can never disagree about which
+	# hazards are holes.
+	falls_through = kind == "positional"
 	tell_radius = float(record.get("tell_radius_m", 4.60))
 	minimum_warning_s = float(record.get("minimum_warning_s", 0.50))
 	outcome = str(tuning.get("outcome", ""))
@@ -80,6 +87,20 @@ func evaluate(player_pos: Vector3, lamp_on: bool, speed: float,
 	if tell_started_s < 0.0 and d <= tell_radius:
 		tell_started_s = elapsed
 		tell_distance = d
+
+	# A void does not "contact" anyone. The builder cut its mouth out of the
+	# floor, so the player falls through real missing floor under real
+	# gravity, and this only reads the result. Attribution is generous enough
+	# to cover the square mouth's corners, which sit outside the clearance
+	# circle, and a body below the trigger is necessarily inside a shaft.
+	if falls_through:
+		if player_pos.y > DreamMazeBuilder.FALL_TRIGGER_Y:
+			return NONE
+		if d > clearance_radius * 1.5:
+			return NONE
+		contacted = true
+		contact_s = elapsed
+		return outcome
 
 	if d > clearance_radius:
 		return NONE
