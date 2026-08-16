@@ -136,8 +136,29 @@ func _build_domestic(is_entry: bool) -> void:
 		arm.rotation.z = -0.16
 
 
+## A SERVICE LEAF MAY BE PAINTED, and one of these two is canonically red.
+##
+## This built every exterior_service door in galvanized grey and ignored
+## `finish_variant` entirely, so the Harukiya's door — specified in the
+## evidence ledger as "battered painted **red steel**", with Otomo's
+## teal-offset-by-red named as the staircase composition
+## (docs/harukiya_reference_notes.md) — has been rendering grey since it
+## was built. A canonical element was quietly absent and no test looked,
+## because no test asserts a colour. Found by the bar audit, 2026-08-16.
+##
+## Variant 0 keeps the galvanized finish for the plain service leaf.
+## Variant 1 is oxblood-red enamel gone chalky: still obviously steel,
+## still battered, never a bright pillarbox.
+const SERVICE_FINISHES: Array[Color] = [
+	Color(0.48, 0.50, 0.47),        # 0 — galvanized, unpainted
+	Color(0.44, 0.13, 0.11),        # 1 — battered red enamel
+]
+
+
 func _build_service() -> void:
-	var galvanized := MatLib.get_mat("metal", Color(0.48, 0.50, 0.47))
+	var leaf_tint: Color = SERVICE_FINISHES[
+			finish_variant % SERVICE_FINISHES.size()]
+	var galvanized := MatLib.get_mat("metal", leaf_tint)
 	var iron := MatLib.get_mat("cast_iron", Color(0.36, 0.35, 0.32))
 	_box(_body, Vector3(width - 0.02, height - 0.02, 0.052),
 			Vector3(width * 0.5, height * 0.5, 0), galvanized)

@@ -184,6 +184,35 @@ between headings silently.
   happening when the room opens. File as NYC ADAPTATION, with precedent: the
   2026-08-07 rebuild already took the room 6.8 → 9.2 m deep under that same
   heading ("what a New York operator did with a bigger cellar").
+- **B1a AUDIT COMPLETE 2026-08-16 — AND THE FOOTPRINT CANNOT GROW.** A
+  ten-agent audit surveyed the room, stair, social pocket, gameplay
+  wiring, envelope and identity ledger, produced a fourteen-phase plan,
+  and attacked it from three sides. **Two lenses returned UNSOUND, 18
+  blockers.** Findings and the gating decisions:
+  `design/HARUKIYA_RECONSTRUCTION_BRIEF.md`.
+  **The headline:** the canon mass (`nbr_s2`, x −12.0..6.4,
+  y −38.2..−28.32) is fixed and total plan gain is **+3.88 m², +2.7%** —
+  the first objective cannot be met in plan. It CAN be met in section:
+  the 3.55 m of generated brick above the room is the bar's own fabric
+  and can stop being generated, giving three heights (2.65 m canonical
+  low over counter/lounge/stage, 3.90 m middle, **5.17 m well** over the
+  table floor) for **+47% volume, 556 m³ against 377.9**. Hard stops:
+  `site_nbr_s2_soffit` z 3.33 (structural, not ours) and the whole-AABB
+  strict-inequality street gate at z 2.80.
+  **Do not cut geometry until the §5 rulings land** — one of them
+  (identity dilution) changes what gets built, and the identity reviewer's
+  verdict was that the plan named that risk and then committed it in every
+  phase.
+- **B1b THE RED DOOR WAS NOT RED — FIXED 2026-08-16.** Canon says
+  "battered painted red steel" and names Otomo's teal-offset-by-red as the
+  staircase composition, but `DoorProp._build_service()` painted every
+  `exterior_service` leaf galvanized grey and ignored `finish_variant`
+  entirely. The warmest note at the foot of the teal descent had been
+  missing since the descent was built, and no test caught it because no
+  test asserts a colour. `SERVICE_FINISHES` now carries variant 1 (oxblood
+  enamel gone chalky, never pillarbox) and the marker selects it. WalkTest
+  FULL and ShopEntryTest pass. **This needed no ruling: canon was explicit
+  and the code disagreed with it.**
 - **B2** The detritus diorama on the widened stair and landing. Density is
   the deliverable, but the owner's own bar applies: layered, meaningful
   accumulation implying use, neglect, improvisation, hidden labor or former
