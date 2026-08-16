@@ -26,8 +26,13 @@ func _ready() -> void:
 	clear()
 
 
+## The tracker presents the title its owner authored; it never relabels it.
+## Every production caller supplies a complete, self-labelling heading
+## ("WORK ORDER 001 — THE CHIRP", "CASE CLOSED — MINA VALE"), so a fixed
+## "WORK ORDER /" prefix here both stuttered and mis-titled non-work-order
+## headings. Casing stays a presentation choice, as in TelegramHud.
 func show_objective(title_text: String, objective_text: String) -> void:
-	_title.text = "WORK ORDER / %s" % title_text.to_upper()
+	_title.text = title_text.to_upper()
 	_objective.text = objective_text
 	_panel.visible = true
 
