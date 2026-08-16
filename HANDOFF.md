@@ -372,6 +372,13 @@ work; anything actionable belongs in that file.
   subdivides per caster, so every new shadow-casting fixture shrinks every
   existing shadow, and new fixtures should default to `shadow_enabled =
   false` unless they earn it. Draw calls remain the real bottleneck.
+  **Standing shadow policy, owner ruling 2026-08-16:** a new fixture ships
+  with `shadow_enabled = false` and has to earn a caster slot. Authored
+  fixtures obey by construction (LightRig ranks and grants through
+  `LightFixtureProp.set_budget`); ad-hoc lights built in scripts are the
+  population that creeps, and LightingAudit now gates them at
+  `UNGOVERNED_CASTER_BUDGET = 8`, measured. Raising it is allowed and
+  expected — it must just be a deliberate edit naming the new caster.
   Historical tables that say "measured at 16/16" are accurate records of
   how a measurement was taken and must not be rewritten; only live claims
   that the cap constrains authoring today are wrong. Corrected in place

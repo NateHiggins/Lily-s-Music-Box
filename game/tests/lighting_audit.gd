@@ -76,6 +76,7 @@ func _audit() -> void:
 			"all omni lights use visible contact-shadow settings")
 	_check(dead_navigation_fixtures == 0,
 			"every navigation fixture has an authored standby contribution")
+	_audit_ungoverned_shadow_casters()
 	_audit_street_shadow_gate(fixtures)
 	for fl in root.layout["floors"]:
 		var floor_id: String = fl["id"]
@@ -155,6 +156,62 @@ func _cleanup() -> void:
 	await get_tree().process_frame
 	PropAudio.clear_cache()
 	await get_tree().process_frame
+
+
+## THE STANDING SHADOW POLICY — owner ruling 2026-08-16.
+##
+## Real lights stopped being scarce when `max_lights_per_object` went
+## 16 -> 128 and LightRig's desktop budget went to UNLIMITED. Shadows did
+## not: `positional_shadow/atlas_size` is a fixed 8192 that SUBDIVIDES PER
+## CASTER, so every added caster shrinks every existing shadow. Raising the
+## caster count while leaving the atlas fixed is how you make shadows worse
+## by asking for more of them.
+##
+## So the ruling is: a new fixture ships with `shadow_enabled = false` and
+## has to EARN a caster slot. Authored fixtures already obey this by
+## construction — LightRig ranks them and grants shadow through
+## `LightFixtureProp.set_budget(..., with_shadow)`, so they cannot creep.
+## The population that CAN creep is the ad-hoc one: lights built directly
+## in scripts, which answer to nobody. This gate counts exactly those.
+##
+## Raising the number is allowed and is the point — but it must be a
+## deliberate edit with the new caster named here, not a silent drift.
+const UNGOVERNED_CASTER_BUDGET := 8
+## Measured 2026-08-16 in the production scene: the exterior moon, the
+## player's carried service lamp, the entry composition rake, one more
+## composition spot, and four street lamp omnis.
+
+
+func _audit_ungoverned_shadow_casters() -> void:
+	var ungoverned: Array[String] = []
+	for light in _all_lights(root):
+		if not light.shadow_enabled:
+			continue
+		var ancestor: Node = light
+		var governed := false
+		while ancestor != null:
+			if ancestor is LightFixtureProp:
+				governed = true
+				break
+			ancestor = ancestor.get_parent()
+		if not governed:
+			ungoverned.append(light.name)
+	if ungoverned.size() > UNGOVERNED_CASTER_BUDGET:
+		ungoverned.sort()
+		print("  [shadow policy] ungoverned casters: %s"
+				% ", ".join(ungoverned))
+	_check(ungoverned.size() <= UNGOVERNED_CASTER_BUDGET,
+			"ad-hoc shadow casters stay within the ruled budget (%d/%d)"
+			% [ungoverned.size(), UNGOVERNED_CASTER_BUDGET])
+
+
+func _all_lights(node: Node) -> Array[Light3D]:
+	var out: Array[Light3D] = []
+	if node is Light3D:
+		out.append(node)
+	for child in node.get_children():
+		out.append_array(_all_lights(child))
+	return out
 
 
 func _audit_street_shadow_gate(fixtures: Array) -> void:

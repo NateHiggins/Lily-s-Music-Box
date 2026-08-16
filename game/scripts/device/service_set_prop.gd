@@ -82,8 +82,11 @@ func print_telegram_card(title: String) -> bool:
 	if not radio_powered or _receipt_root == null:
 		return false
 	printed_count += 1
+	# TelegramStyle.fit_slip stops at a word boundary instead of wherever
+	# sixteen characters happen to land; a slip that ends on a dangling
+	# em-dash reads as a bug rather than as a short strip of paper.
 	_receipt_label.text = "WIRE %04d\n%s" % [printed_count,
-			title.to_upper().left(16)]
+			TelegramStyle.fit_slip(title.to_upper())]
 	if _receipt_tween:
 		_receipt_tween.kill()
 	_receipt_root.visible = true

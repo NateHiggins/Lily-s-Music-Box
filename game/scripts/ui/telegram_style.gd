@@ -18,6 +18,40 @@ const ORDER_AMBER := Color("a95f24")
 const OLD_RED := Color("813a31")
 
 
+## Fit an authored heading onto a narrow physical slip WITHOUT stopping
+## mid-word or on punctuation. A hard `.left(16)` turned
+## "WORK ORDER 001 — THE CHIRP" into "WORK ORDER 001 —", which trails off
+## on a dangling em-dash and reads as a rendering fault rather than as a
+## short strip of paper. Truncation is right — the slip really is that
+## narrow — but a slip stops at a word, so this backs up to the last
+## boundary and drops any separator left hanging at the end.
+##
+## The owner ruled 2026-08-16: trim to the word boundary rather than
+## reducing the slip to its work-order number, because the number alone
+## loses the one thing the player is scanning the slip for.
+const SLIP_SEPARATORS := "-–—/:;,.·|"
+
+
+static func fit_slip(text: String, limit := 16) -> String:
+	var clean := text.strip_edges()
+	if clean.length() <= limit:
+		return _trim_separator(clean)
+	var cut := clean.substr(0, limit)
+	var space := cut.rfind(" ")
+	# No boundary at all inside the limit means one long word: a hard cut
+	# is then the only honest option, and it does not dangle a separator.
+	if space > 0:
+		cut = cut.substr(0, space)
+	return _trim_separator(cut)
+
+
+static func _trim_separator(text: String) -> String:
+	var out := text.strip_edges()
+	while out.length() > 0 and SLIP_SEPARATORS.contains(out.right(1)):
+		out = out.substr(0, out.length() - 1).strip_edges()
+	return out
+
+
 static func paper_panel(alpha := 1.0) -> StyleBoxTexture:
 	var style := StyleBoxTexture.new()
 	style.texture = PAPER

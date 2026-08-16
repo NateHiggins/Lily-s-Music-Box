@@ -304,13 +304,22 @@ an open defect, and rooms that are *supposed* to be dark go in
   (`light_rig.gd`, see #20). That is the honest position, not a finding. It
   wants confirming on hardware through the debug-panel sliders, and until it
   is, no mobile lighting claim in any doc is measured.
-- **L13 SHADOWS ARE NOW THE SCARCE CURRENCY, and no doc says so yet.**
+- **L13 SHADOWS ARE THE SCARCE CURRENCY — RULED AND ENFORCED 2026-08-16.**
   `positional_shadow/atlas_size=8192` subdivides per caster, so every added
   shadow-casting fixture shrinks every existing shadow — raising the caster
   count while leaving the atlas fixed is how you make shadows worse by asking
-  for more of them. New fixtures should default to `shadow_enabled = false`
-  and earn a caster slot explicitly. Worth an owner ruling on a standing
-  shadow policy before V4 lighting spends any.
+  for more of them. **Owner ruling: a new fixture ships with
+  `shadow_enabled = false` and has to earn a caster slot.**
+  Authored fixtures already obey this by construction: LightRig ranks them and
+  grants shadow through `LightFixtureProp.set_budget(..., with_shadow)`, so
+  they cannot creep. The population that *can* creep is ad-hoc lights built
+  directly in scripts, which answer to nobody — measured at **8** in the
+  production scene (exterior moon, the carried service lamp, the entry
+  composition rake, one further composition spot, four street-lamp omnis)
+  against 16 LightRig-governed fixtures. LightingAudit now gates exactly that
+  population (`UNGOVERNED_CASTER_BUDGET`); raising it is allowed and is the
+  point, but it must be a deliberate edit naming the new caster, not drift.
+  V4 lighting spends against this rule.
 
 ## T — The street and its traffic
 
@@ -1163,9 +1172,17 @@ it.
   the modeled paper slip as `"WIRE %04d\n%s" % [n, title.to_upper().left(16)]`,
   and 16 characters truncates "WORK ORDER 001 — THE CHIRP" to "WORK ORDER 001
   —", trailing off on a dangling em-dash. Truncation on a narrow physical slip
-  is right; stopping on punctuation is not. Trim to the last word boundary, or
-  rule that the slip carries only the work-order number. Cosmetic, needs an
-  owner's eye on the rendered prop rather than a guess.
+  is right; stopping on punctuation is not. **RULED AND FIXED 2026-08-16:**
+  trim to the last word boundary rather than reducing the slip to its number,
+  because the number alone loses the thing the player is scanning for. The
+  trim lives in `TelegramStyle.fit_slip()` — the class that exists for exactly
+  this typographic grammar — and drops any separator left dangling at the cut:
+  "WORK ORDER 001 — THE CHIRP" now reads "WORK ORDER 001", "CASE CLOSED —
+  MINA VALE" reads "CASE CLOSED". A single long word still hard-cuts, which is
+  the only honest option and dangles nothing. Note the HUD is a *different*
+  and already-correct path: it uses Godot's `OVERRUN_TRIM_ELLIPSIS`, so its
+  mid-word cut is signalled by the ellipsis. The slip's manual cut was the
+  only unsignalled one.
   **The general lesson, worth more than the fix:** a styling commit reddened
   two gameplay suites, and the first suspect (`1f8faa0`, chosen by recency and
   subject-matter plausibility) was innocent. Bisect; do not profile the
