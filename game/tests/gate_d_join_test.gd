@@ -51,7 +51,10 @@ const CASE := "mina_caption_crisis"
 const FIXED_SEED_HEX := "f123456789abcdef"
 const SAVE_FILE := "user://tests/gate_d_join_save.json"
 const SIM_SCALE := 3.5
-const EXPECTED_CHECKS := 69
+## 70 on the capture run, 72 on the steered runs: steering adds the
+## armed-hazard and Tenant-parked checks, and this file refuses to let a block
+## quietly change size.
+const EXPECTED_CHECKS := 70
 const EXPECTED_BLOCKS: Array[String] = ["shell_boot", "origin_convergence",
 		"boundary_idle",
 		"complaint", "inspection", "acquisition", "repair",
@@ -88,6 +91,9 @@ var _player_save_present := false
 ## The profile the DISCOVERED origin converges on, compared at arm time
 ## against the one the REPORTED origin actually delivers.
 var discovered_profile := ""
+## Which ending this invocation drives. All three share one latched funnel,
+## but "they share a latch" is an argument, not a measurement.
+var want_outcome := "capture"
 
 
 func _ready() -> void:
@@ -111,6 +117,10 @@ func _ready() -> void:
 	# DreamDirector copies it into the context at ARM time. Pin it or the maze
 	# is a different maze on every run and a capture time means nothing.
 	RealityState.data.dream_seed = FIXED_SEED_HEX
+	var asked := OS.get_environment("GATE_D_OUTCOME")
+	if asked in DreamDirector.OUTCOMES:
+		want_outcome = asked
+	print("[GATE D] TARGET OUTCOME: %s" % want_outcome)
 
 	await _spawn_shell()
 	Engine.time_scale = SIM_SCALE
@@ -138,11 +148,11 @@ func _ready() -> void:
 	Engine.physics_ticks_per_second = 60
 	_finished = true
 	var blocks_ok := _blocks == EXPECTED_BLOCKS
-	var count_ok := _checks == EXPECTED_CHECKS
+	var expect := EXPECTED_CHECKS + (0 if want_outcome == "capture" else 2)
+	var count_ok := _checks == expect
 	print("[GATE D] BLOCKS: %s (%s)" % [_blocks, "ok" if blocks_ok else
 			"EXPECTED %s" % [EXPECTED_BLOCKS]])
-	print("[GATE D] CHECKS: %d/%d fails=%d" % [_checks, EXPECTED_CHECKS,
-			_fails])
+	print("[GATE D] CHECKS: %d/%d fails=%d" % [_checks, expect, _fails])
 	print("[GATE D] TRACE: ", " | ".join(trace))
 	print("[GATE D] WORLDS: ", " -> ".join(world_sequence))
 	print("[GATE D] OUTCOME: %s" % ended_outcome)
@@ -555,13 +565,15 @@ func _dream_traverse() -> void:
 	# maze.autonomous is left alone deliberately. DreamMazeRoot's own
 	# _physics_process drives the pursuer, the hazards and the run ceiling,
 	# and its group+ancestor lookup calls shell.dream_director.end_dream() —
-	# THAT call is the seam Gate D exists to prove. Forcing a capture here
-	# would prove the plumbing while skipping the thing under test.
+	# THAT call is the seam Gate D exists to prove. Forcing an outcome from
+	# outside would prove the plumbing while skipping the thing under test.
 	for i in range(30):
 		await get_tree().physics_frame
 	_check("the dream body stands on real dream floor",
 			maze != null and maze.player != null
 			and maze.player.is_on_floor())
+	if want_outcome != "capture":
+		await _steer_to_hazard()
 	var reached := false
 	for i in range(2200):
 		await get_tree().physics_frame
@@ -569,8 +581,9 @@ func _dream_traverse() -> void:
 			reached = true
 			break
 	if not reached:
-		printerr("  [GATE D debug] phase=%s worlds=%s maze=%s"
-				% [shell.dream_director.phase(), world_sequence, maze])
+		printerr("  [GATE D debug] want=%s phase=%s worlds=%s"
+				% [want_outcome, shell.dream_director.phase(),
+				world_sequence])
 		if maze != null and maze.pursuer != null:
 			printerr("  [GATE D debug] captured=%s elapsed=%.2f cap=%.2f"
 					% [maze.pursuer.is_captured, maze.run_elapsed_s,
@@ -578,8 +591,82 @@ func _dream_traverse() -> void:
 	_check("the passage ends on its own through the production seam",
 			reached and ended_count == 1
 			and ended_outcome in DreamDirector.OUTCOMES)
+	_check("the ending reached is the one this run set out to reach",
+			ended_outcome == want_outcome)
 	_check("the committed outcome is the one the dream actually reached",
 			str(RealityState.data.dream.outcome) == ended_outcome)
+
+
+## Walk the dream body into the hazard this run is proving.
+##
+## Capture needs no steering: stand still and the Tenant arrives. The other
+## two endings sit at authored sockets the body has to actually reach, so
+## this teleports NEAR the socket and then WALKS IN under the production
+## controller — the same split the waking half of this harness uses, where
+## travel between beats is a teleport but every interaction is real.
+##
+## The Tenant is parked at the chain's START first, not at its own spawn.
+## Capture and the hazards share one latch, so whichever arrives first wins,
+## and this run has to be able to reach the ending it was asked for — capture
+## is already proven three ways over.
+##
+## Parking it at its own spawn was the first attempt and it was exactly wrong:
+## `_far_spawn` places the Tenant in the LAST chain module, and the trunk's
+## D05_SERVICE_RISER is at that end of the chain. The approach point came out
+## 0.80 m from the Tenant against a 0.75 m capture radius, so the run was
+## captured on the first physics frame after the teleport, every time. D00 is
+## the other end of the chain and the only reliably distant place to put it.
+func _steer_to_hazard() -> void:
+	var target_id := "vantry_signal_trunk" if want_outcome == "contact" 			else "open_lift_void"
+	var hazard: DreamHazard = null
+	for h in maze.hazards.hazards:
+		if h.id == target_id:
+			hazard = h
+	_check("the hazard this run is proving is armed in the built maze",
+			hazard != null and maze.hazards.hazards.size() == 3)
+	if hazard == null:
+		return
+	var start: Array = maze.plan.spawn_player
+	maze.pursuer.reset_run(Vector3(start[0], 0.0, start[1]))
+	# The trunk's arc reaches for the beam, so contact requires the lamp on;
+	# the dream body already carries it lit from the threshold. The void
+	# needs no light at all — it needs gravity.
+	maze.player.set_lamp_enabled(want_outcome == "contact")
+	# A fixed offset is not safe: +X from the trunk lands inside D05's wall,
+	# so the body walks into plaster until the run ceiling folds the pursuit
+	# and the Tenant takes the run instead. Probe for an approach that is
+	# actually inside the hazard's own module.
+	var approach := _walkable_approach(hazard)
+	maze.player.global_position = Vector3(approach.x,
+			maze.player.global_position.y, approach.z)
+	maze.player.velocity = Vector3.ZERO
+	# The Tenant must be far enough that it cannot decide this run. Assert it
+	# rather than hope: a capture radius is 0.75 m and this is the check that
+	# would have caught the first attempt immediately.
+	_check("the Tenant is parked clear of the hazard under test",
+			maze.pursuer.position.distance_to(maze.player.global_position)
+					> 8.0)
+	for i in range(20):
+		await get_tree().physics_frame
+		if shell.dream_director.phase() != "active":
+			printerr("  [steer] dream ended during settle at frame %d" % i)
+			return
+	var into := (hazard.position - maze.player.global_position).normalized()
+	maze.player.autopilot = Vector3(into.x, 0.0, into.z)
+
+
+
+## A standing point 1.7 m from the socket that is still real floor in the
+## hazard's own module, so the walk in crosses room rather than wall.
+func _walkable_approach(hazard: DreamHazard) -> Vector3:
+	var home := DreamMazeBuilder.nav_module_at(maze.plan,
+			hazard.position.x, hazard.position.z)
+	for step in range(16):
+		var a := TAU * float(step) / 16.0
+		var probe := hazard.position + Vector3(cos(a), 0.0, sin(a)) * 1.7
+		if DreamMazeBuilder.nav_module_at(maze.plan, probe.x, probe.z) == home:
+			return probe
+	return hazard.position
 
 
 func _wake() -> void:

@@ -10,22 +10,23 @@ into the real dream: **69/69 checks, 17 blocks, 37 seconds**, consecutive runs
 reaching the same committed outcome (`capture`), world sequence
 `waking -> dream -> waking`. `GoldenLoopTest` is untouched and still 87/87.
 
-Three of Gate D's four bullets are closed; the fourth is partially closed
-(capture wakes clean end-to-end; `fall` and `contact` are proven at the funnel
-by `DreamHazardTest` but have not been driven through a played shift). See the
-Gate D entry in `ORISON_MAZE_BRIEF.md` for the scoring and for the two traps
-the join exposed.
+**All four of Gate D's bullets are now closed.** Each ending is driven
+through its own played shift via `GATE_D_OUTCOME`: `capture` 70/70 in 37 s,
+`contact` 72/72 in 34 s, `fall` 72/72 in 35 s. See the Gate D entry in
+`ORISON_MAZE_BRIEF.md` for the scoring and the three traps the join exposed.
 
 ## What is worth doing next
 
-1. **The remaining Gate D outcome coverage.** Drive `fall` and `contact`
-   through a played shift to a rebuilt bedside. All three outcomes share one
-   latched funnel so the risk is low — but low risk is not measured. Cheapest
-   route is a profile/seed variant of `GateDJoinTest` rather than a new file.
-2. **The hollow runner**, once the owner rules on the module conflict below.
-3. **The trunk's lit beam-splash confirmation** and the production dream
-   `WorldEnvironment` — the last two N7 items, both presentation.
-4. **Gate E** (image, audio, performance) is entirely untouched.
+1. **The hollow runner**, once the owner rules on the module conflict below.
+   It is the last unimplemented hazard of Mina's three.
+2. **The trunk's lit beam-splash confirmation** and the production dream
+   `WorldEnvironment` with its receding practical — the last two N7 items,
+   both presentation rather than mechanism.
+3. **Gate E** (image, audio, performance) is entirely untouched, and is now
+   the largest unstarted block of dream work. It wants A/B occlusion renders,
+   readable black levels, stereo and caption cue tests, and a 16.6 ms
+   measurement at the dream's critical stations.
+4. **Gate F** is five first-time players, and cannot be done by us at all.
 
 ## Where N7 got to
 

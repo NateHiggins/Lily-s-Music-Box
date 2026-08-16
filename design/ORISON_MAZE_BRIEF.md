@@ -679,12 +679,13 @@ graph is built it must **attenuate** hazard tells across a wall and must not
 **silence** them, or Gate C breaks on the day it lands. Re-run
 `DreamPerceptionTest.tscn` as that work's acceptance check.
 
-### Gate D — the complete Mina passage — JOINED 2026-08-16
+### Gate D — the complete Mina passage — CLOSED 2026-08-16
 
 **The two halves are now connected.** `GateDJoinTest.tscn` plays the Mina
 shift inside a real `CampaignShell` and lets the production path carry it into
-the real dream: 69/69 checks across 17 blocks, 37 seconds, consecutive runs
-reaching the same committed outcome (`capture`). World sequence
+the real dream. Three runs, one per ending: `capture` 70/70 in 37 s,
+`contact` 72/72 in 34 s, `fall` 72/72 in 35 s — each a full played shift to
+its own rebuilt bedside, all inside the documented 60 s bound. World sequence
 `waking -> dream -> waking`. `GoldenLoopTest` is untouched and still 87/87.
 
 What follows is the record of what the seam was, because it explains the
@@ -741,12 +742,24 @@ Gate D's four bullets, scored honestly:
   from how the job started, so the origin cannot change it. What is not done
   is playing the discovered origin all the way to a second real entry; that
   needs a second full shift and does not fit the budget.
-- **PARTIALLY CLOSED.** Capture, shaft and electrical outcomes all wake
-  without a game-over state. The joined run reaches **capture** and wakes
-  clean. `DreamHazardTest` proves `fall` and `contact` commit through the same
-  latched funnel, but neither has yet been driven through a played shift to a
-  rebuilt bedside. All three are one funnel, so the risk is low — but "low
-  risk" is not "measured".
+- ~~Capture, shaft and electrical outcomes all wake without a game-over
+  state.~~ **CLOSED, all three measured.** `GateDJoinTest` takes a
+  `GATE_D_OUTCOME` environment variable and drives each ending through its own
+  played shift to its own rebuilt bedside: `capture` 70/70 in 37 s, `contact`
+  72/72 in 34 s, `fall` 72/72 in 35 s. None is a game-over; each wakes at the
+  authored 4B bedside with the residue intact. The steered runs teleport
+  *near* the socket and then walk in under the production controller — the
+  same split the waking half uses, where travel between beats is a teleport
+  but every interaction is real.
+
+  Parking the Tenant for a steered run is not decoration. Capture and the
+  hazards share one latch, so the first arrival wins. The first attempt parked
+  it at its own `_far_spawn`, which places it in the LAST chain module — and
+  the trunk's `D05_SERVICE_RISER` is at that end, so the approach point came
+  out **0.80 m** from the Tenant against a **0.75 m** capture radius and the
+  run was captured on the first physics frame after the teleport, every time.
+  It is now parked at D00, the other end of the chain, and the harness
+  asserts the separation rather than assuming it.
 
 **What the join actually cost, recorded because it was not obvious.** The
 production onset clock cannot be used here. Onset is 2.60 sim-seconds, which
