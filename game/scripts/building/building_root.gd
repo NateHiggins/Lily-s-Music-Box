@@ -382,6 +382,11 @@ func _ready() -> void:
 	# Hours owns a compositional state (open/folded versus closed/extended),
 	# so the zone gate calls its public boundary instead of forcing visibility.
 	passage_runtime_nodes.append(passage_finish.hours_director)
+	# Shop signs are read-only presenters of that same state.  Bind the owner
+	# after it exists; no sign duplicates or infers the hours rule from its id.
+	for floor_prop in functional_props_by_floor.get("F01", []):
+		if floor_prop is ShopSignProp:
+			floor_prop.bind_hours_director(passage_finish.hours_director)
 	_spawn_npc_placeholders()
 	# Eighteen people with somewhere to be, and a mesh instead of a sprite
 	# for whoever has one yet.
@@ -1031,6 +1036,8 @@ func _spawn_props() -> void:
 				# All of it comes off the marker so that adding a shop to
 				# SHOPS in gen_layout is the entire job — see the prop.
 				prop.sign_text = String(m.get("text", "SHOP"))
+				prop.shop_name = String(m.get("shop_name", prop.sign_text))
+				prop.trade = String(m.get("trade", ""))
 				prop.sub_text = String(m.get("sub", ""))
 				prop.blade_text = String(m.get("blade_text", ""))
 				prop.blade_dx = float(m.get("blade_dx", 0.0))

@@ -37,6 +37,43 @@ func _ready() -> void:
 				return node is MultiMeshInstance3D))
 	_check("canonical 03:00 resolves to AFTER_HOURS",
 			hours.is_after_hours())
+	_check("ordinary storefront signs read CLOSED and DARK from hours owner",
+			hours.sign_status_for_trade("laundry") == {
+				"hours_state": "CLOSED", "light_state": "DARK"})
+	_check("hardware sign alone reads NIGHT SERVICE and LIT",
+			hours.sign_status_for_trade("hardware") == {
+				"hours_state": "NIGHT SERVICE", "light_state": "LIT"})
+	var sign_rays := 0
+	var sign_cards := 0
+	var space := get_viewport().world_3d.direct_space_state
+	for candidate in root.get_children():
+		if not candidate is ShopSignProp:
+			continue
+		var sign := candidate as ShopSignProp
+		var face := sign.global_transform.basis.z.normalized()
+		# A worker's eye 1.1 m below and 1.25 m out from the fascia: a
+		# plausible standing reach, and safely inside the player's 2.1 m ray.
+		var ray := PhysicsRayQueryParameters3D.create(
+				sign.global_position + face * 1.25 + Vector3.DOWN * 1.1,
+				sign.global_position - face * 0.15)
+		ray.collide_with_areas = true
+		var hit := space.intersect_ray(ray)
+		var area := sign.get_node_or_null("ShopSignInspection") as Area3D
+		if not hit.is_empty() and hit.collider == area:
+			sign_rays += 1
+		else:
+			print("    sign ray miss %s face=%s origin=%s hit=%s at=%s parent=%s" % [
+					sign.shop_name, face, ray.from,
+					hit.collider.name if not hit.is_empty() else "CLEAR",
+					hit.position if not hit.is_empty() else Vector3.ZERO,
+					hit.collider.get_parent().name if not hit.is_empty() \
+						and hit.collider.get_parent() else "NONE"])
+		var card: Dictionary = sign.interact(root.player)
+		if card.get("card_id", "") == "shop_sign" \
+				and str(card.get("condition", "")).contains(sign.shop_name):
+			sign_cards += 1
+	_check("all eleven complete signs win a plausible production ray",
+			sign_rays == 11 and sign_cards == 11)
 	_check("ten lattices extend while only the hardware packet stays folded",
 			hours._closed_grilles.visible
 			and not hours._folded_regular.visible

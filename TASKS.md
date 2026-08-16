@@ -1017,6 +1017,12 @@ it.
     calibration, visit and resolution transition. The unavailable letter keeps
     no prompt and no collision until recurrence enables it. Five direct period
     patents source the object facts; no presenter or wrapper gained a case flag.
+    All eleven Vantry Arcade storefront signs now own one fascia-sized ray
+    target, never a collision per word or glyph. Inspection gives the fixed
+    assembly a brief enamel-lettering glint and a local tap. Shop name and
+    trade remain generator facts; OPEN/CLOSED/NIGHT SERVICE and LIT/DARK are
+    read through `PassageHoursDirector`'s public presentation boundary, so the
+    sign neither copies the schedule rule nor invents stock, prices or economy.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street

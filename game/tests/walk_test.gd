@@ -238,6 +238,7 @@ func _run() -> void:
 	_clock_checks()
 	_mail_bank_checks()
 	_shop_static_checks()
+	_shop_sign_checks()
 	if not _full:
 		await _finish("FAST")
 		return
@@ -3162,7 +3163,6 @@ func _shop_static_checks() -> void:
 	_check(heroes.size() == 10,
 			"ten isolatable heroes plus the in-situ funeral arrangement exist")
 	_check(ledgers == 11, "every shop keeps one account book")
-
 	# Imported mesh names, not source assumptions. Every local material bucket
 	# must remain smaller than a shop; the old floor-wide mesh was 220 x 148 m
 	# and silently lost its own lamps to GL Compatibility's per-object cap.
@@ -3188,6 +3188,40 @@ func _shop_static_checks() -> void:
 			% shop_meshes.size())
 	_check(local_aabbs,
 			"no shop bucket regresses to the block-wide lighting AABB")
+
+
+func _shop_sign_checks() -> void:
+	var signs: Array[ShopSignProp] = []
+	for child in root.get_children():
+		if child is ShopSignProp:
+			signs.append(child)
+	var names := {}
+	var complete := 0
+	var ordinary_closed := 0
+	var night_service := 0
+	for sign in signs:
+		names[sign.shop_name] = true
+		var area := sign.get_node_or_null("ShopSignInspection") as Area3D
+		var card: Dictionary = sign.interact(root.player)
+		var condition := str(card.get("condition", ""))
+		if area != null and area.get_child_count() >= 1 \
+				and area.get_children().all(func(child):
+					return child is CollisionShape3D) \
+				and card.get("card_id", "") == "shop_sign" \
+				and card.get("source_ids", []) == ["R028"] \
+				and condition.contains(sign.shop_name) \
+				and sign._sign_tap.playing and sign._glint_tween.is_running():
+			complete += 1
+		if sign.trade == "hardware" and condition.contains(
+				"LIGHT LIT / HOURS NIGHT SERVICE"):
+			night_service += 1
+		elif sign.trade != "hardware" and condition.contains(
+				"LIGHT DARK / HOURS CLOSED"):
+			ordinary_closed += 1
+	_check(signs.size() == 11 and names.size() == 11 and complete == 11,
+			"all eleven Passage signs own one sourced reactive target")
+	_check(ordinary_closed == 10 and night_service == 1,
+			"sign copy agrees with the canonical 03:00 shop-light state")
 
 
 func _collect_named_shop_meshes(node: Node, into: Array[MeshInstance3D]) -> void:

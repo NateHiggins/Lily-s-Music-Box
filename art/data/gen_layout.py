@@ -4398,6 +4398,10 @@ def _storefronts(fb, mk, shops=None, face=None, S=1):
                    "unit": "SITE",
                    "pos": sign_pos, "compact": awning,
                    "yaw_deg": 180 if S > 0 else 0, "text": name,
+                   # The sign is also the player's one readable owner for
+                   # the shopfront.  Keep the trade beside the lettering so
+                   # its live hours answer does not reverse-engineer an id.
+                   "trade": trade, "shop_name": name,
                    "sub": SHOP_SUB.get(trade, ""),
                    "tint": SHOP_LETTER.get(trade, [0.9, 0.86, 0.74]),
                    "blade_text": SHOP_BLADE.get(trade, "") if blade else "",

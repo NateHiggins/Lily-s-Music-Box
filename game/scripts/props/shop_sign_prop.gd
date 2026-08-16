@@ -21,6 +21,8 @@ extends FunctionalProp
 ## file does not change.
 
 var sign_text := "SHOP"
+var shop_name := "SHOP"
+var trade := ""
 var sub_text := ""
 var blade_text := ""
 var blade_dx := 0.0
@@ -34,6 +36,12 @@ var half_width := 2.4
 ## the blade, which is the only thing readable from up the street once
 ## an awning is in the way, stays exactly where it is.
 var compact := false
+
+var _hours_director: PassageHoursDirector
+var _lettering: Array[Label3D] = []
+var _lettering_colours: Array[Color] = []
+var _sign_tap: AudioStreamPlayer3D
+var _glint_tween: Tween
 
 const BAND_Z := 0.03          # proud of the board, or it z-fights it
 
@@ -62,6 +70,7 @@ func _build_visual() -> void:
 	name_label.outline_modulate = Color(0.06, 0.05, 0.05, 0.85)
 	name_label.position = Vector3(0, 0.045 if compact else 0.06, BAND_Z)
 	add_child(name_label)
+	_register_lettering(name_label)
 
 	if sub_text != "":
 		# The trade line. Every shop of this date carried one and it is
@@ -80,6 +89,7 @@ func _build_visual() -> void:
 		sub.outline_modulate = Color(0.06, 0.05, 0.05, 0.8)
 		sub.position = Vector3(0, -0.075 if compact else -0.13, BAND_Z)
 		add_child(sub)
+		_register_lettering(sub)
 
 	# THE BLADE, both faces. A blade sign exists to be read from up the
 	# street rather than from in front of the shop — which is the only
@@ -105,3 +115,91 @@ func _build_visual() -> void:
 			blade.position = Vector3(blade_dx + side * 0.05, 0.30, 0.52)
 			blade.rotation_degrees = Vector3(0, side * 90.0, 0)
 			add_child(blade)
+			_register_lettering(blade)
+	_sign_tap = make_emitter("tick", -22.0)
+
+
+## Label3D has no MeshInstance bounds, while the imported fascia board is
+## owned by the shop batch.  One bounded Area follows the actual sign band;
+## the letters and projecting blade never become individual targets.
+func _build_primary_interaction() -> void:
+	var area := Area3D.new()
+	area.name = "ShopSignInspection"
+	area.collision_layer = 1
+	area.collision_mask = 0
+	area.monitoring = false
+	area.monitorable = true
+	area.add_to_group("functional_interaction_areas")
+	var collision := CollisionShape3D.new()
+	collision.name = "FasciaShape"
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(clampf(half_width * 2.0, 0.8, 5.8),
+			0.34 if compact else 0.54, 0.16)
+	collision.shape = shape
+	# NEWS CIGARS' dark timber fascia reaches 70 mm farther into the hall
+	# than the lettering marker.  Put every inspection face a consistent
+	# 140 mm proud so the visible board cannot swallow E before its owner.
+	collision.position.z = 0.14
+	area.add_child(collision)
+	if not blade_text.is_empty():
+		# The projecting blade is part of this same sign owner.  Its baked
+		# shopfront collision can otherwise win the ray before the fascia on
+		# a narrow bay (NEWS CIGARS proved the miss).  A second SHAPE on the
+		# same Area covers the real panel; it is not a second interaction.
+		var blade_collision := CollisionShape3D.new()
+		blade_collision.name = "BladeShape"
+		var blade_shape := BoxShape3D.new()
+		blade_shape.size = Vector3(0.20, 0.82, 1.12)
+		blade_collision.shape = blade_shape
+		blade_collision.position = Vector3(blade_dx, 0.30, 0.52)
+		area.add_child(blade_collision)
+	add_child(area)
+
+
+func bind_hours_director(owner: PassageHoursDirector) -> void:
+	_hours_director = owner
+
+
+func interact_prompt() -> String:
+	return "[E]  Inspect %s sign" % shop_name
+
+
+func interact(_player: Node) -> Dictionary:
+	if _sign_tap:
+		_sign_tap.pitch_scale = 1.08
+		_sign_tap.play()
+	_glint()
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	var status := {"hours_state": "UNPOSTED", "light_state": "UNCONFIRMED"}
+	if is_instance_valid(_hours_director):
+		status = _hours_director.sign_status_for_trade(trade)
+	return PropServiceWire.card("shop_sign", {
+		"face_state": "%s / LETTERING SOUND" % shop_name.to_upper(),
+		"light_state": status.light_state,
+		"hours_state": status.hours_state,
+	})
+
+
+func _register_lettering(label: Label3D) -> void:
+	_lettering.append(label)
+	_lettering_colours.append(label.modulate)
+
+
+## Inspection does not operate a sign or invent a loose board.  A narrow
+## enamel glint is the honest visible acknowledgement for a fixed fascia.
+func _glint() -> void:
+	if _glint_tween and _glint_tween.is_valid():
+		_glint_tween.kill()
+	for i in _lettering.size():
+		_lettering[i].modulate = _lettering_colours[i]
+	_glint_tween = create_tween().set_parallel(true)
+	for i in _lettering.size():
+		_glint_tween.tween_property(_lettering[i], "modulate",
+				_lettering_colours[i].lerp(Color.WHITE, 0.72), 0.07)
+	_glint_tween.chain().set_parallel(true)
+	for i in _lettering.size():
+		_glint_tween.tween_property(_lettering[i], "modulate",
+				_lettering_colours[i], 0.18)

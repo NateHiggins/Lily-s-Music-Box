@@ -93,6 +93,16 @@ func is_after_hours() -> bool:
 	return _after_hours
 
 
+## Read-only storefront presentation boundary.  Signs may report the same
+## state that already owns grilles and lamps without learning the hours rule.
+func sign_status_for_trade(trade: String) -> Dictionary:
+	if not _after_hours:
+		return {"hours_state": "OPEN", "light_state": "LIT"}
+	if trade == NIGHT_SERVICE_TRADE:
+		return {"hours_state": "NIGHT SERVICE", "light_state": "LIT"}
+	return {"hours_state": "CLOSED", "light_state": "DARK"}
+
+
 func set_passage_active(active: bool) -> void:
 	_passage_active = active
 	visible = active

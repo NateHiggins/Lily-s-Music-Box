@@ -145,6 +145,67 @@ func _ready() -> void:
 			and str(counter_card.get("condition", "")).contains(
 					"NO OPEN ORDER"))
 
+	# One owner per storefront, never one target per glyph.  Build the exact
+	# generated set so a twelfth shop or a missing trade cannot enter silently.
+	var sign_layout_file := FileAccess.open(
+			"res://data/building_layout.json", FileAccess.READ)
+	var sign_layout: Variant = JSON.parse_string(
+			sign_layout_file.get_as_text() if sign_layout_file else "")
+	var sign_specs: Array[Dictionary] = []
+	if sign_layout is Dictionary:
+		for floor_entry in (sign_layout as Dictionary).get("floors", []):
+			for marker_entry in (floor_entry as Dictionary).get("markers", []):
+				var marker: Dictionary = marker_entry
+				if str(marker.get("kind", "")) == "shop_sign":
+					sign_specs.append(marker)
+	var sign_hours := PassageHoursDirector.new()
+	add_child(sign_hours)
+	sign_hours.apply_for_minute(180.0)
+	sign_hours.set_process(false)
+	var sign_names := {}
+	var complete_signs := 0
+	var reactive_signs := 0
+	var ordinary_closed := 0
+	var night_service := 0
+	for spec in sign_specs:
+		var sign := ShopSignProp.new()
+		sign.sign_text = str(spec.get("text", "SHOP"))
+		sign.shop_name = str(spec.get("shop_name", sign.sign_text))
+		sign.trade = str(spec.get("trade", ""))
+		sign.sub_text = str(spec.get("sub", ""))
+		sign.blade_text = str(spec.get("blade_text", ""))
+		sign.blade_dx = float(spec.get("blade_dx", 0.0))
+		sign.half_width = float(spec.get("half_width", 2.4))
+		sign.compact = bool(spec.get("compact", false))
+		sign.bind_hours_director(sign_hours)
+		add_child(sign)
+		sign_names[sign.shop_name] = true
+		var sign_card: Dictionary = sign.interact(hand)
+		var sign_area := sign.get_node_or_null("ShopSignInspection") as Area3D
+		var expected_shapes := 2 if not sign.blade_text.is_empty() else 1
+		if sign_area != null \
+				and sign_area.get_child_count() == expected_shapes \
+				and sign_area.get_children().all(func(child):
+					return child is CollisionShape3D) \
+				and sign_card.get("card_id", "") == "shop_sign" \
+				and sign_card.get("source_ids", []) == ["R028"] \
+				and str(sign_card.get("condition", "")).contains(sign.shop_name):
+			complete_signs += 1
+		if sign._sign_tap.playing and sign._glint_tween.is_running():
+			reactive_signs += 1
+		var condition := str(sign_card.get("condition", ""))
+		if sign.trade == "hardware" and condition.contains(
+				"LIGHT LIT / HOURS NIGHT SERVICE"):
+			night_service += 1
+		elif sign.trade != "hardware" and condition.contains(
+				"LIGHT DARK / HOURS CLOSED"):
+			ordinary_closed += 1
+	_check("all eleven shop signs own one complete sign-level inspection area",
+			sign_specs.size() == 11 and sign_names.size() == 11
+			and complete_signs == 11 and reactive_signs == 11)
+	_check("shop signs present the hours owner's canonical night state",
+			ordinary_closed == 10 and night_service == 1)
+
 	var washer := WasherProp.new()
 	washer.name = "TestWasher"
 	add_child(washer)
