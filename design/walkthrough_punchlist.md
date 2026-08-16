@@ -14,14 +14,36 @@ floors the camera omni was dropped and F02_D/F05_D unit interiors rendered
 black in BOTH passes — those rooms needed an in-engine look with their own
 switches on (RoomLumaAudit's method) before trusting them.
 
-> **STALE DIAGNOSIS, 2026-08-16 — do not act on the paragraph above until
-> it is re-measured.** Its whole mechanism has been removed:
-> `max_lights_per_object` went 16 → 128 and LightRig's desktop budget went
-> to `UNLIMITED`, so the camera omni can no longer be evicted by AABB
-> overlap on a busy floor. Either those stills are now correct and this
-> item is closed, or the black rooms have a *different* cause that the
-> light-cap explanation has been hiding. Re-run both passes before
-> trusting either outcome. Tracked as TASKS §L11.
+> **CLOSED 2026-08-16 — RE-MEASURED, AND THE ROOMS ARE FINE.** The
+> paragraph above was correct about the mechanism and was simply never
+> re-run after the mechanism was removed. `max_lights_per_object` went
+> 16 → 128, so the camera omni can no longer be evicted by AABB overlap
+> on a busy floor.
+>
+> `RoomLumaAudit` measured both floors rather than eyeballing stills,
+> which is the right instrument — it reads pixels back and reports mean
+> luma and the share below near-black, against thresholds set from
+> measurement (a lit room fails above 55% near-black or below mean 9.0):
+>
+> | room | mean luma | near-black |
+> |---|---:|---:|
+> | F02_D_BED | 20.0 | 39.8% |
+> | F02_D_OFFICE | 27.8 | 6.4% |
+> | F02_D_MAIN | 33.1 | 0.2% |
+> | F02_D_BATH | 58.9 | 0.2% |
+> | F05_D_BED | 19.2 | 42.8% |
+> | F05_D_OFFICE | 28.4 | 6.2% |
+> | F05_D_MAIN | 37.3 | 0.2% |
+> | F05_D_BATH | 53.1 | 0.2% |
+>
+> Both floors report **PASS** (20 rooms, 4 exempt). The D units are
+> readable; the bedrooms sit highest on near-black at ~40% but are well
+> inside the bar and are the dimmest rooms by design rather than by
+> defect. Nothing was hiding behind the cap explanation.
+>
+> One observation left rather than a defect: three of the four D rooms
+> per floor report *no fixture* and are readable on spill and window glow
+> alone. Both audits accept that, so it is recorded and not chased.
 Build was verified current against `building_layout.json` (fcaaf64 is
 marker-attribute-only). Stills in session scratchpad `walkthrough/` and
 `walkthrough_lit/`.

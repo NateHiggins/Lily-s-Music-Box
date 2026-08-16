@@ -486,18 +486,19 @@ an open defect, and rooms that are *supposed* to be dark go in
 - **L10** The audit measures one frame per room from a corner, with a fallback
   to the room centre. Rooms whose interesting half is neither will read
   optimistically. Worth a second angle if this ever becomes a shipping gate.
-- **L11 STALE DIAGNOSIS TO RE-MEASURE — the per-object cap is gone (but
-  the runtime budget is not; see L14).** `max_lights_per_object` is 128
-  (was 16), so nothing can evict a fixture by AABB overlap any more. `design/walkthrough_punchlist.md` still blames that
-  mechanism for F02_D/F05_D unit interiors rendering black in BOTH
-  WalkthroughShots passes. Re-run both passes: either those stills are now
-  correct and the punchlist item closes, or the black rooms have a different
-  cause the cap explanation has been hiding for months. Do not close it by
-  argument. Prose corrected in place 2026-08-16 across `photoreal_target.md`,
-  `walkthrough_punchlist.md`, `PROP_ACTIVITIES.md`, `FINAL_MAP_REDESIGN_BRIEF`
-  §10ab, `gen_layout.py` and `exterior_detail_pass.gd`; the current-state
-  authority is HANDOFF.md. **Historical "measured at 16/16" tables are
-  accurate records of test conditions — never rewrite those.**
+- **L11 CLOSED 2026-08-16 — re-measured, and nothing was hiding.** The
+  walkthrough punchlist blamed the 16-light per-object cap for F02_D and
+  F05_D rendering black. It was right about the mechanism and was simply
+  never re-run after the cap went to 128. `RoomLumaAudit` (which reads
+  pixels back, unlike LightingAudit, which never looks at one) reports
+  **PASS on both floors**, 20 rooms each, 4 exempt: the D units measure
+  0.2–42.8% near-black against a 55% ceiling and mean luma 19–59 against
+  a floor of 9. The prose is closed out with the table.
+  **The lesson for the rest of P8:** a fossil can hide a *fixed* problem
+  as easily as a live one, and the only way to tell is to re-measure.
+  Observation left, not chased: three of four D rooms per floor carry no
+  fixture and are readable on spill and window glow alone; both audits
+  accept it.
 - **L12 THE MOBILE LIGHT BUDGET IS STILL UNMEASURED.** Desktop dropped its
   budget on evidence; mobile kept `ACTIVE_N_MOBILE` / `SHADOW_N_MOBILE` purely
   because a tiler pays per fragment and nobody has put a phone in front of it
