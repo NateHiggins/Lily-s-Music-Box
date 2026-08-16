@@ -3,7 +3,7 @@
 		"generator":"Khronos glTF Blender I/O v5.2.39",
 		"version":"2.0",
 		"extras":{
-			"orison_bin_sha256":"f88e220bff6dfef87e01ebb97aa857a3f3fac9309f28422f6e7c95fb27b79c4f"
+			"orison_bin_sha256":"700b556799474898700b5ee0e010b13fa5cd522f74c79f9220307c0823663280"
 		}
 	},
 	"extensionsUsed":[
@@ -6708,11 +6708,11 @@
 		{
 			"bufferView":237,
 			"componentType":5126,
-			"count":360,
+			"count":552,
 			"max":[
-				-5.329999923706055,
-				17.06999969482422,
-				-10.050000190734863
+				12.0600004196167,
+				17.700000762939453,
+				9.050000190734863
 			],
 			"min":[
 				-10.600000381469727,
@@ -6724,25 +6724,25 @@
 		{
 			"bufferView":238,
 			"componentType":5126,
-			"count":360,
+			"count":552,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":239,
 			"componentType":5126,
-			"count":360,
+			"count":552,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":240,
 			"componentType":5123,
-			"count":540,
+			"count":828,
 			"type":"SCALAR"
 		},
 		{
 			"bufferView":241,
 			"componentType":5126,
-			"count":4488,
+			"count":4296,
 			"max":[
 				13.8100004196167,
 				18.600000381469727,
@@ -6750,7 +6750,7 @@
 			],
 			"min":[
 				-13.75,
-				16,
+				16.719999313354492,
 				-9.8100004196167
 			],
 			"type":"VEC3"
@@ -6758,19 +6758,19 @@
 		{
 			"bufferView":242,
 			"componentType":5126,
-			"count":4488,
+			"count":4296,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":243,
 			"componentType":5126,
-			"count":4488,
+			"count":4296,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":244,
 			"componentType":5123,
-			"count":6732,
+			"count":6444,
 			"type":"SCALAR"
 		},
 		{
@@ -9177,50 +9177,50 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":4320,
+			"byteLength":6624,
 			"byteOffset":2095808,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":4320,
-			"byteOffset":2100128,
+			"byteLength":6624,
+			"byteOffset":2102432,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2880,
-			"byteOffset":2104448,
+			"byteLength":4416,
+			"byteOffset":2109056,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1080,
-			"byteOffset":2107328,
+			"byteLength":1656,
+			"byteOffset":2113472,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":53856,
-			"byteOffset":2108408,
+			"byteLength":51552,
+			"byteOffset":2115128,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":53856,
-			"byteOffset":2162264,
+			"byteLength":51552,
+			"byteOffset":2166680,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":35904,
-			"byteOffset":2216120,
+			"byteLength":34368,
+			"byteOffset":2218232,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":13464,
-			"byteOffset":2252024,
+			"byteLength":12888,
+			"byteOffset":2252600,
 			"target":34963
 		},
 		{

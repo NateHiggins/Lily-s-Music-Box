@@ -1428,8 +1428,11 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
         spots_6d = ((0.35, 0.6), (1.55, 0.6), (2.75, 0.6), (3.95, 0.6),
                     (0.35, 2.2), (1.55, 2.2), (4.35, 2.2), (5.55, 2.2))
         for i, (ox, oy) in enumerate(spots_6d):
+            # timber, not trim: cream-painted woodwork on a storage crate
+            # read as untextured placeholder masses in the 08-15 walk.
+            # A landlord's crates are raw boards.
             _furn_box(f, "6D_crate%d" % i, x0 + ox, y0 + oy, 1.0, 1.0,
-                      0.0, 0.9 + 0.4 * ((i * 7) % 3), "trim", False)
+                      0.0, 0.9 + 0.4 * ((i * 7) % 3), "timber", False)
         shelf_unit(f, "6D_rack1", x0 + 0.5, y1 - 1.0, 1.6, True,
                    books=False, face="s")
         shelf_unit(f, "6D_rack2", x0 + 2.4, y1 - 1.0, 1.6, True,

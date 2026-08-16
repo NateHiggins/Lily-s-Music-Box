@@ -41,9 +41,9 @@ baluster shadows, confirmed in the lit pass.
 | room | symptom | severity |
 |---|---|---|
 | ROOF | ~~black monolith + angled arm~~ FIXED 2026-08-16: the "monolith" was the near clothespost — authored `metal` (metallic 0.9) reflects the night away and renders 0,0,0 (the flat-metal lesson). Clotheposts, line and tank legs now `cast_iron`; the billboard's 0.055 soot-black backing lifted to weathered timber in `found_art_pass.gd`. Re-render shows speckled iron catching the skyline | resolved |
-| B1_ATRIUM | light-well chase tube still crosses the stair balustrade diagonally and passes the reading nook | ugly |
+| B1_ATRIUM | IDENTIFIED 2026-08-16: the "chase tube" is the commissioned light-tree trunk (gen_layout tree pass; the reading nook is authored at its base and WalkTest stations there). Remaining question is narrow and owner-taste: whether the trunk's curve may physically touch the balustrade/nook furniture, or must clear them. Not a defect to move unilaterally | owner |
 | F01_A_BED, F06_D_BED | ~~window frames glazed with brick~~ FIXED 2026-08-16: the middle-band street/rear walls in `exterior()` spanned the full face and ran a second windowless wall coincident with the stack end walls — 23 apertures bricked over building-wide. Clamped to ±XAW (their own comment's intent); the B1 areaway door pass re-anchored to the shorter wall; layout sweep now finds 0 blocked apertures and the rebuilt F06_D_BED shows city light through glass | resolved |
-| F06_D unit | still the unfinished set: pale untextured furniture masses, slab bed with no bedding, brick window | ugly |
+| F06_D unit | ~~unfinished set~~ IDENTIFIED 2026-08-16: 6D is authored "landlord storage" (unit status table) — the pale masses are its crate grid, which wore `trim` (painted-woodwork cream) and read as placeholders. Crates now `timber`; racks/rolled rug unchanged. The window was the double-wall fix, already landed | resolved |
 | F01_LOBBY | ~~second mail rack~~ IDENTIFIED 2026-08-16 by probe: the lattice under the lobby clock is the elevator's CarGate scissor grille — correct furniture. The old generated mailbank was already removed at the generator (its comment survives at gen_layout ~:2704) | resolved |
 | B1_COAL | improved (whitewash, hopper mass has form) but the bin is an untextured gray primitive and there is still no coal or grime | wish |
 | B1_STORAGE_CAGES | near-void in production light with its switch state as-is — this is the open L9 owner call, logged here only as walk confirmation | — |
@@ -60,7 +60,7 @@ baluster shadows, confirmed in the lit pass.
 | F01_OFFICE | ~~photographic print floats under the desk shelf edge~~ FIXED 2026-08-15: `FoundPrint_office_magazine` in `found_art_catalog.json` was anchored at (-11.8, 4.4, 0.845) — open air 0.75 m off the desk; moved onto the desk top at (-12.45, 3.55, 0.742) | resolved |
 | F04_D_MAIN | tan cabinet panel above the TV juts diagonally off the wall face | wish |
 | F04_B_MAIN | ~~dark blue slab by the shelf~~ IDENTIFIED 2026-08-16 by probe: `DomesticMark_4B_0/1` — authored haunting wall-marks, working as designed | resolved |
-| F02_D unit | still unjudgeable: black in both passes (see caveat) — the 08-01 "entirely unfurnished, confirm vacancy is intentional" question is STILL open | wish |
+| F02_D unit | ~~confirm vacancy is intentional~~ ANSWERED 2026-08-16: the unit status table rules 2D "sealed" — the emptiness is canon, question closed | resolved |
 | F05_D_MAIN, F06_C_MAIN | unjudgeable this walk (light-budget caveat) — carry to an in-engine pass | — |
 
 ## 2026-08-01 walk — method and caveats
