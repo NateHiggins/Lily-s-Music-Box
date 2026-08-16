@@ -2,6 +2,8 @@ class_name BuildingEntrySign
 extends Node3D
 ## Exterior bronze-and-enamel identity plaque beside the street entrance.
 
+var _inspection_tap: AudioStreamPlayer3D
+
 
 func _ready() -> void:
 	name = "FrontDoorExteriorSign"
@@ -34,6 +36,53 @@ func _ready() -> void:
 			Vector3(0, -0.13, 0.031), 17)
 	_add_label("REALTY MAINTENANCE",
 			Vector3(0, -0.235, 0.031), 12, Color(0.68, 0.55, 0.32))
+	_build_interaction()
+	_inspection_tap = AudioStreamPlayer3D.new()
+	_inspection_tap.name = "PlaqueTap"
+	_inspection_tap.stream = PropAudio.get_stream("tick")
+	_inspection_tap.volume_db = -21.0
+	_inspection_tap.pitch_scale = 0.82
+	_inspection_tap.unit_size = 2.5
+	_inspection_tap.max_distance = 16.0
+	add_child(_inspection_tap)
+
+
+## The plaque remains distinct from the adjacent entrance-door verb.  Its
+## interaction plane is only as large as the bronze assembly and sits proud of
+## the face, so opening the door cannot accidentally become inspecting text.
+func _build_interaction() -> void:
+	var area := Area3D.new()
+	area.name = "BuildingPlaqueInspection"
+	area.collision_layer = 1
+	area.collision_mask = 0
+	area.monitoring = false
+	area.monitorable = true
+	area.add_to_group("functional_interaction_areas")
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(0.94, 0.66, 0.18)
+	collision.shape = shape
+	collision.position = Vector3(0.0, 0.0, 0.10)
+	area.add_child(collision)
+	add_child(area)
+
+
+func interact_prompt() -> String:
+	return "[E]  Inspect Orison entrance plaque"
+
+
+func interact(_player: Node) -> Dictionary:
+	if _inspection_tap:
+		_inspection_tap.play()
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	return PropServiceWire.card("building_plaque", {
+		"face_state": "THE ORISON / BRONZE AND ENAMEL / EST. 1928",
+		"fastener_state": "FOUR BRONZE SCREWS SEATED",
+		"entrance_state": "RESIDENT ENTRY / REALTY MAINTENANCE",
+	})
 
 
 func _add_label(value: String, at: Vector3, size: int,

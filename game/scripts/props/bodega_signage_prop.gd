@@ -21,6 +21,8 @@ const ACRYLIC := Color(0.93, 0.91, 0.84)
 
 var _cabinet_mats: Array[StandardMaterial3D] = []
 var _time := 0.0
+var _cabinet_dropped := false
+var _inspection_tap: AudioStreamPlayer3D
 
 
 func _build_visual() -> void:
@@ -90,6 +92,48 @@ func _build_visual() -> void:
 	glow.omni_range = 2.2
 	glow.shadow_enabled = false
 	add_child(glow)
+	_inspection_tap = make_emitter("tick", -20.0)
+	_inspection_tap.pitch_scale = 1.12
+
+
+## One complete fascia, one owner.  The broad valance is the readable thing
+## from the sidewalk; the projecting cabinet and every line of type remain
+## child geometry, never independent E targets.
+func _build_primary_interaction() -> void:
+	var area := Area3D.new()
+	area.name = "BodegaSignInspection"
+	area.collision_layer = 1
+	area.collision_mask = 0
+	area.monitoring = false
+	area.monitorable = true
+	area.add_to_group("functional_interaction_areas")
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(4.45, 0.64, 0.24)
+	collision.shape = shape
+	# Slightly proud of the canvas valance so its imported awning cannot eat E.
+	collision.position = Vector3(0.0, -0.32, 1.19)
+	area.add_child(collision)
+	add_child(area)
+
+
+func interact_prompt() -> String:
+	return "[E]  Inspect HALF BAKED shop sign"
+
+
+func interact(_player: Node) -> Dictionary:
+	if _inspection_tap:
+		_inspection_tap.play()
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	return PropServiceWire.card("shop_sign", {
+		"face_state": "HALF BAKED / BACKLIT VINYL AND PROJECTING ACRYLIC",
+		"light_state": "CABINET DROPOUT" if _cabinet_dropped \
+				else "VALANCE AND CABINET LIT",
+		"hours_state": "OPEN 24 HOURS",
+	})
 
 
 func _process(delta: float) -> void:
@@ -98,5 +142,6 @@ func _process(delta: float) -> void:
 	# every few minutes, dimming the acrylic to a quarter, then recovers.
 	var gate := pow(maxf(0.0, sin(_time * 0.031 + 1.3)), 60.0)
 	var chatter := 0.25 if gate > 0.5 and sin(_time * 31.0) > -0.2 else 1.0
+	_cabinet_dropped = chatter < 1.0
 	for pm in _cabinet_mats:
 		pm.emission_energy_multiplier = 1.05 * chatter

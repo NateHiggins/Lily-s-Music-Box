@@ -219,8 +219,14 @@
     },
     "shop_sign": {
       "title": "SHOPFRONT SIGN",
-      "body": "ENAMEL AND PAINT TURN A TRADESMAN'S NAME INTO WEATHER-RESISTING STREET DIRECTIONS STOP",
+      "body": "PAINT METAL GLASS OR VINYL TURN A TRADESMAN'S NAME INTO WEATHER-RESISTING STREET DIRECTIONS STOP",
       "conditions": {"default": "FACE {face_state} / LIGHT {light_state} / HOURS {hours_state}"},
+      "source_ids": ["R028"]
+    },
+    "building_plaque": {
+      "title": "BUILDING IDENTITY PLAQUE",
+      "body": "A FIXED METAL PLAQUE KEEPS A BUILDING NAME AT THE ENTRANCE WITHOUT ASKING PAINTED LETTERS TO TAKE THE WEATHER STOP",
+      "conditions": {"default": "FACE {face_state} / FASTENERS {fastener_state} / ENTRANCE {entrance_state}"},
       "source_ids": ["R028"]
     },
     "wall_art": {
@@ -543,7 +549,7 @@
     {"id":"4.television","label":"Harukiya television","class":"OPERATE","card_id":"television"},
 
     {"id":"5.bodega_sign","label":"Bodega fascia/signage","class":"INSPECT","card_id":"shop_sign"},
-    {"id":"5.entry_sign","label":"Orison building-entry sign","class":"INSPECT","card_id":"shop_sign"},
+    {"id":"5.entry_sign","label":"Orison building-entry sign","class":"INSPECT","card_id":"building_plaque"},
     {"id":"5.wall_art","label":"Character/case/found wall art","class":"INSPECT","card_id":"wall_art","copy_mode":"owner_result_first"},
     {"id":"5.witness_clocks","label":"Domestic witness clocks","class":"INSPECT","card_id":"winding_clock","copy_mode":"owner_result_first"},
     {"id":"5.marquee","label":"Entrance marquee dress","class":"INSPECT","card_id":"marquee"},

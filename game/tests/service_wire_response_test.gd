@@ -206,6 +206,67 @@ func _ready() -> void:
 	_check("shop signs present the hours owner's canonical night state",
 			ordinary_closed == 10 and night_service == 1)
 
+	# The three non-neon hero sign assemblies each get one owner-level target.
+	# Their children remain visual details: no letter, lamp, screw or kanji stroke
+	# can consume E independently.
+	var bodega_sign := BodegaSignageProp.new()
+	add_child(bodega_sign)
+	var bodega_card: Dictionary = bodega_sign.interact(hand)
+	var bodega_area := bodega_sign.get_node_or_null(
+			"BodegaSignInspection") as Area3D
+	_check("the complete bodega fascia owns one sourced inspection",
+			bodega_area != null and bodega_area.get_child_count() == 1
+			and bodega_sign._inspection_tap.playing
+			and bodega_card.get("card_id", "") == "shop_sign"
+			and bodega_card.get("source_ids", []) == ["R028"]
+			and str(bodega_card.get("condition", "")).contains("HALF BAKED")
+			and str(bodega_card.get("condition", "")).contains(
+					"OPEN 24 HOURS"))
+	bodega_sign._cabinet_dropped = true
+	_check("the bodega card reports its real cabinet dropout",
+			str(bodega_sign.service_wire_card().get(
+					"condition", "")).contains("CABINET DROPOUT"))
+
+	var bar_sign := HarukiyaSignageProp.new()
+	add_child(bar_sign)
+	var bar_area := bar_sign.get_node_or_null(
+			"HarukiyaSignInspection") as Area3D
+	var open_card: Dictionary = bar_sign.interact(hand)
+	bar_sign.set_bar_state(1)
+	var after_card := bar_sign.service_wire_card()
+	bar_sign.set_bar_state(2)
+	var closed_card := bar_sign.service_wire_card()
+	_check("the complete Harukiya frontage owns one sourced inspection",
+			bar_area != null and bar_area.get_child_count() == 1
+			and bar_sign._inspection_tap.playing
+			and open_card.get("card_id", "") == "shop_sign"
+			and open_card.get("source_ids", []) == ["R028"]
+			and str(open_card.get("condition", "")).contains("HARUKIYA"))
+	_check("Harukiya copy follows its existing three-state hours owner",
+			str(open_card.get("condition", "")).contains("HOURS OPEN")
+			and str(after_card.get("condition", "")).contains(
+					"HOURS AFTER HOURS")
+			and str(after_card.get("condition", "")).contains(
+					"LANTERN HANGING DARK")
+			and str(closed_card.get("condition", "")).contains(
+					"HOURS CLOSED")
+			and str(closed_card.get("condition", "")).contains(
+					"LANTERN TAKEN IN"))
+
+	var entry_sign := BuildingEntrySign.new()
+	add_child(entry_sign)
+	var entry_card: Dictionary = entry_sign.interact(hand)
+	var entry_area := entry_sign.get_node_or_null(
+			"BuildingPlaqueInspection") as Area3D
+	_check("the Orison identity plaque stays distinct from its door",
+			entry_area != null and entry_area.get_child_count() == 1
+			and entry_sign._inspection_tap.playing
+			and entry_card.get("card_id", "") == "building_plaque"
+			and entry_card.get("source_ids", []) == ["R028"]
+			and str(entry_card.get("condition", "")).contains("THE ORISON")
+			and str(entry_card.get("condition", "")).contains(
+					"FOUR BRONZE SCREWS SEATED"))
+
 	var washer := WasherProp.new()
 	washer.name = "TestWasher"
 	add_child(washer)

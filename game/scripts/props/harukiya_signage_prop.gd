@@ -58,6 +58,8 @@ var _spots: Array[SpotLight3D] = []
 var _gooseneck_mats: Array[StandardMaterial3D] = []
 var _arrow_mats: Array[StandardMaterial3D] = []
 var _time := 0.0
+var _bar_state := 0
+var _inspection_tap: AudioStreamPlayer3D
 
 
 func _build_visual() -> void:
@@ -169,6 +171,52 @@ func _build_visual() -> void:
 	bar_label.modulate = CREAM
 	bar_label.position = Vector3(-0.95, -1.13, 0.03)
 	add_child(bar_label)
+	_inspection_tap = make_emitter("creak", -23.0)
+	_inspection_tap.pitch_scale = 1.18
+
+
+## The low arrow is the hand-height service/read point for the complete
+## frontage assembly.  Kanji strokes, bulbs, board lamps and the lantern stay
+## child geometry of this one owner.
+func _build_primary_interaction() -> void:
+	var area := Area3D.new()
+	area.name = "HarukiyaSignInspection"
+	area.collision_layer = 1
+	area.collision_mask = 0
+	area.monitoring = false
+	area.monitorable = true
+	area.add_to_group("functional_interaction_areas")
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(0.44, 1.18, 0.30)
+	collision.shape = shape
+	collision.position = Vector3(-0.95, -0.72, 0.17)
+	area.add_child(collision)
+	add_child(area)
+
+
+func interact_prompt() -> String:
+	return "[E]  Inspect Harukiya frontage sign"
+
+
+func interact(_player: Node) -> Dictionary:
+	if _inspection_tap:
+		_inspection_tap.play()
+	return service_wire_card()
+
+
+func service_wire_card() -> Dictionary:
+	var hours: String = ["OPEN", "AFTER HOURS", "CLOSED"][_bar_state]
+	var light: String = "BOARD LAMPS AND LANTERN LIT / TWO ARROW BULBS DEAD"
+	if _bar_state == 1:
+		light = "DARK / LANTERN HANGING DARK"
+	elif _bar_state == 2:
+		light = "DARK / LANTERN TAKEN IN"
+	return PropServiceWire.card("shop_sign", {
+		"face_state": "HARUKIYA / PAINTED TIMBER / DOWN ARROW",
+		"light_state": light,
+		"hours_state": hours,
+	})
 
 
 func _paint_stroke(cell_x: float, s: Array) -> void:
@@ -189,6 +237,7 @@ func _paint_stroke(cell_x: float, s: Array) -> void:
 
 ## 0 = OPEN, 1 = AFTER_HOURS (lantern hangs dark), 2 = CLOSED (taken in).
 func set_bar_state(bar_state: int) -> void:
+	_bar_state = clampi(bar_state, 0, 2)
 	var open := bar_state == 0
 	_lantern_pivot.visible = bar_state != 2
 	_lantern_mat.emission_energy_multiplier = 1.7 if open else 0.0

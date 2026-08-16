@@ -240,6 +240,7 @@ func _run() -> void:
 	_shop_static_checks()
 	_shop_sign_checks()
 	_neon_sign_checks()
+	_hero_signage_checks()
 	if not _full:
 		await _finish("FAST")
 		return
@@ -3272,6 +3273,68 @@ func _neon_sign_checks() -> void:
 			"all three neon signs own one read-only sourced inspection")
 	_check(ray_hits == 3,
 			"street, tenant and stage neon service points win a 2.1 m ray")
+
+
+func _hero_signage_checks() -> void:
+	var owners: Array[Node3D] = []
+	var areas: Array[Area3D] = []
+	var cards: Array[Dictionary] = []
+	var bodega := root.find_child("F01_BODEGA_SIGNAGE", true, false) \
+			as BodegaSignageProp
+	var harukiya := root.find_child("F01_BAR_SIGNAGE", true, false) \
+			as HarukiyaSignageProp
+	var entry: BuildingEntrySign
+	for child in root.get_children():
+		if child is BuildingEntrySign:
+			entry = child
+			break
+	if bodega:
+		owners.append(bodega)
+		areas.append(bodega.get_node_or_null(
+				"BodegaSignInspection") as Area3D)
+		cards.append(bodega.interact(root.player))
+	if harukiya:
+		owners.append(harukiya)
+		areas.append(harukiya.get_node_or_null(
+				"HarukiyaSignInspection") as Area3D)
+		cards.append(harukiya.interact(root.player))
+	if entry:
+		owners.append(entry)
+		areas.append(entry.get_node_or_null(
+				"BuildingPlaqueInspection") as Area3D)
+		cards.append(entry.interact(root.player))
+	var complete := owners.size() == 3 and areas.size() == 3 \
+			and cards.size() == 3
+	var ray_hits := 0
+	var space := get_viewport().world_3d.direct_space_state
+	for index in owners.size():
+		var owner := owners[index]
+		var area := areas[index]
+		var card := cards[index]
+		if area == null or area.get_child_count() != 1 \
+				or not area.get_child(0) is CollisionShape3D \
+				or str(card.get("body", "")).is_empty() \
+				or card.get("source_ids", []) != ["R028"]:
+			complete = false
+			continue
+		var target := (area.get_child(0) as CollisionShape3D).global_position
+		var face := owner.global_transform.basis.z.normalized()
+		var origin := target + face * 1.15
+		origin.y = 1.41
+		var ray := PhysicsRayQueryParameters3D.create(origin, target)
+		ray.collide_with_areas = true
+		var hit := space.intersect_ray(ray)
+		if not hit.is_empty() and hit.collider == area:
+			ray_hits += 1
+		else:
+			print("HERO SIGN RAY MISS %s distance=%.3f origin=%s target=%s hit=%s at=%s" % [
+					owner.name, origin.distance_to(target), origin, target,
+					hit.collider.name if not hit.is_empty() else "CLEAR",
+					hit.position if not hit.is_empty() else Vector3.ZERO])
+	_check(complete,
+			"bodega, Harukiya and Orison plaque own sourced assembly answers")
+	_check(ray_hits == 3,
+			"all three hero sign assemblies win a standing production ray")
 
 
 func _collect_named_shop_meshes(node: Node, into: Array[MeshInstance3D]) -> void:

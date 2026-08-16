@@ -1029,6 +1029,13 @@ it.
     glyph collisions. Copy reports live/dark glass, visible dead/dropout runs
     and transformer condition from the sign owner. Inspection is read-only and
     cannot compete with business-hours or Conductor control of the circuit.
+    The remaining three hero sign owners now answer at assembly scale. HALF
+    BAKED uses one valance plane and reports its real fluorescent dropout plus
+    authored 24-hour condition; Harukiya uses its low arrow as the service
+    point while its card follows the existing OPEN / AFTER HOURS / CLOSED
+    director; the Orison identity plaque has an exact bronze-face target kept
+    physically distinct from the landmark door. Each gives a material-local
+    tap, one R028-sourced slip, and no letter, bulb, screw or kanji child owns E.
     `ServiceWireResponseTest.tscn` is the focused proof. I4 remains open.
 - **I5 — Set-piece coverage.** Audit the eleven Passage shops, lobby/service
   desk, basement plant and laundry, representative apartments, roof, street
