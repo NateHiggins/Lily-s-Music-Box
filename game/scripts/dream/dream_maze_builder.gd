@@ -207,9 +207,12 @@ static func build_geometry(parent: Node3D, plan: Dictionary,
 	# and in a maze whose job is to lose you, the pattern says what a thing IS.
 	var wall_mat := _material(Color("272a31"), 0.94, MOTIF_SPIRAL)
 	var floor_mat := _material(Color("343139"), 0.90, MOTIF_MOSAIC)
-	# The ceiling is the frieze's vast ivory field: nearly unornamented, and
-	# quiet on purpose so the walls and the floor can speak.
-	var ceiling_mat := _material(Color("2b2b31"), 0.92, MOTIF_IVORY)
+	# THE CEILING IS NOT A CEILING. Owner direction: canopy mixed with open
+	# starfield. The tendrils close overhead in thickets and part into voids
+	# with stars in them, so a corridor with a roof reads as a corridor with a
+	# NIGHT over it. Overhead is the one surface a player never navigates by,
+	# which is exactly where the world can afford to stop being a building.
+	var ceiling_mat := _material(Color("2b2b31"), 0.92, MOTIF_CANOPY)
 	# Doors wear the robe of Expectation — stacked chevrons, sharp and
 	# directional, because an opening should announce itself as a way THROUGH.
 	var door_mat := _material(Color("2a2730"), 0.86, MOTIF_TRIANGLE)
@@ -588,7 +591,7 @@ static func _solid_box(parent: Node3D, node_name: String, material: Material,
 ## Motif ids, mirrored from dream_klimt.gdshader. Kept as plain ints rather
 ## than an enum because the shader uniform is an int and a mismatch here would
 ## silently paint a floor with a ceiling's pattern.
-const MOTIF_IVORY := 0
+const MOTIF_CANOPY := 0
 const MOTIF_SPIRAL := 1
 const MOTIF_MOSAIC := 2
 const MOTIF_TRIANGLE := 3
@@ -625,7 +628,7 @@ static func _klimt_material(color: Color, roughness: float,
 	match motif:
 		MOTIF_MOSAIC:
 			scale = 5.5
-		MOTIF_IVORY:
+		MOTIF_CANOPY:
 			scale = 4.0
 		MOTIF_TRIANGLE:
 			scale = 6.0

@@ -98,6 +98,11 @@ const DREAM_LAMP_ENERGY := 3.2
 ## this frame is submission-bound. See _build_motes().
 const MOTE_COUNT := 110
 
+## Fewer than the motes and much faster. Same submission caution: Compatibility
+## turns every particle into a draw, and TASKS.md P8b bars particle counts from
+## the "the GPU is free" rule.
+const JEWEL_RAIN_COUNT := 64
+
 
 func configure_dream(context: Dictionary) -> void:
 	dream_context = context.duplicate(true)
@@ -183,6 +188,7 @@ func _build_world() -> void:
 	_build_practicals()
 	_build_hazard_visuals()
 	_build_motes()
+	_build_jewel_rain()
 	_collect_molten_materials()
 
 
@@ -249,7 +255,13 @@ func _build_environment() -> void:
 	# 95.3% of pixels at or below 3/255 with this line absent, which is pitch
 	# black by any reading.
 	environment.tonemap_mode = Environment.TONE_MAPPER_ACES
-	environment.tonemap_white = 3.2
+	# HOLD DETAIL AT THE CORE (owner ruling). ACES with a low white point clips
+	# early, so the middle of every molten pool went to flat white and the
+	# ornament vanished exactly where the light was best. Raising the white
+	# point compresses the highlights instead of clipping them: the pool stays
+	# the brightest thing in frame and keeps its figure all the way through,
+	# which is the whole point of gold having a pattern on it.
+	environment.tonemap_white = 11.0
 	# GLOW IS THE HALF OF THIS THAT SELLS THE GOLD. Leaf is metal, so the only
 	# thing it does is throw the lamp back — and a specular highlight with no
 	# bloom around it reads as a white pixel rather than as light off leaf.
@@ -463,6 +475,72 @@ func _hazard_position(hazard_id: String) -> Vector3:
 		if hazard.id == hazard_id:
 			return hazard.position
 	return player.global_position
+
+
+## JEWELS FALLING OUT OF THE CANOPY.
+##
+## Owner direction: coloured jewels in gold settings that drip from the
+## tendrils as particle rain and splatter into mosaic tiles on the ground.
+##
+## That closes a loop the world did not have before. The canopy and the walls
+## carry stones in bezels; this is those stones coming loose; and the floor's
+## mosaic carries jewel-coloured tiles clustered in splash fields, so what is
+## underfoot is visibly what fell. The player is walking on the ceiling's
+## shed ornament.
+##
+## Falling FAST is what separates this from the motes. Dust hangs; a dropped
+## stone goes. They are also bigger, fewer and coloured rather than gold, so
+## the two systems never read as one.
+##
+## Shaded, like the motes, because the ambient is disabled: a jewel outside the
+## beam receives no light and is simply not there. You only ever see the rain
+## you are lighting, which means the canopy is shedding constantly and you
+## catch it in fragments.
+func _build_jewel_rain() -> void:
+	if player == null:
+		return
+	var rain := CPUParticles3D.new()
+	rain.name = "DreamJewelRain"
+	rain.amount = JEWEL_RAIN_COUNT
+	rain.lifetime = 3.4
+	rain.preprocess = 2.0
+	rain.randomness = 1.0
+	rain.local_coords = false
+	rain.emission_shape = CPUParticles3D.EMISSION_SHAPE_BOX
+	# A wide, thin sheet at canopy height: they come off the ceiling, not out
+	# of a point above the player's head.
+	rain.emission_box_extents = Vector3(3.6, 0.12, 3.6)
+	rain.position = Vector3(0.0, CLEAR_CEILING_M - 0.35, 0.0)
+	rain.direction = Vector3(0.0, -1.0, 0.0)
+	rain.spread = 6.0
+	rain.gravity = Vector3(0.0, -2.6, 0.0)
+	rain.initial_velocity_min = 0.15
+	rain.initial_velocity_max = 0.55
+	rain.scale_amount_min = 0.012
+	rain.scale_amount_max = 0.034
+	var quad := QuadMesh.new()
+	quad.size = Vector2.ONE
+	rain.mesh = quad
+	var mat := StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_PER_PIXEL
+	mat.albedo_color = Color(1.0, 1.0, 1.0)
+	# Glass, not leaf: a hard little highlight and no metal at all.
+	mat.metallic = 0.0
+	mat.roughness = 0.12
+	mat.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.vertex_color_use_as_albedo = true
+	mat.disable_receive_shadows = true
+	rain.material_override = mat
+	# The three stones the frieze actually uses, so the rain is the same
+	# jewellery the walls are wearing.
+	var ramp := Gradient.new()
+	ramp.set_color(0, Color(0.180, 0.404, 0.360))
+	ramp.set_color(1, Color(0.451, 0.098, 0.106))
+	ramp.add_point(0.5, Color(0.145, 0.216, 0.463))
+	rain.color_ramp = ramp
+	rain.draw_order = CPUParticles3D.DRAW_ORDER_VIEW_DEPTH
+	player.add_child(rain)
 
 
 ## THE GOLD HAS TO KNOW WHERE THE LAMP IS.

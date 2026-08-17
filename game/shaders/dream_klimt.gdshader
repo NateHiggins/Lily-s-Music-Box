@@ -28,7 +28,7 @@ render_mode blend_mix, cull_back, diffuse_burley, specular_schlick_ggx;
 // where you are looking — and being lit is what is hunting you.
 
 // ---------------------------------------------------------------- motifs ---
-#define MOTIF_IVORY 0
+#define MOTIF_CANOPY 0
 #define MOTIF_SPIRAL 1
 #define MOTIF_MOSAIC 2
 #define MOTIF_TRIANGLE 3
@@ -114,6 +114,21 @@ uniform float breathe_depth : hint_range(0.0, 1.0) = 0.75;
 // look back at.
 uniform float drift_speed : hint_range(0.0, 0.2) = 0.014;
 
+// ------------------------------------------------------------- the jewels ---
+// Coloured stones in gold settings, hung in the tendrils. They are the one
+// place the palette is allowed to sing, and they are the source of the floor:
+// what drips off the canopy is what the mosaic underfoot is made of.
+uniform float jewel_density : hint_range(0.0, 1.0) = 0.30;
+uniform float jewel_gleam : hint_range(0.0, 2.0) = 0.85;
+
+// -------------------------------------------------------- canopy and sky ---
+// The ceiling is not a ceiling. It is tree canopy opening onto starfield: the
+// tendrils close overhead in thickets and part into voids with stars in them,
+// so a corridor with a roof reads as a corridor with a NIGHT over it.
+uniform float canopy_close : hint_range(0.0, 1.0) = 0.52;
+uniform float star_density : hint_range(0.0, 1.0) = 0.55;
+uniform vec3 star_colour : source_color = vec3(0.86, 0.90, 1.0);
+
 varying vec3 v_world;
 varying vec3 v_normal;
 
@@ -181,6 +196,27 @@ vec3 sample_reflected_world(vec3 r) {
 	// image exists.
 	vec3 studio = fake_env(d, gold_mid * 1.35, bole);
 	return max(studio, plate);
+}
+
+// A STONE IN A SETTING. A coloured cabochon inside a gold bezel, which is how
+// every jewel in the frieze is drawn -- never a bare dot of colour, always a
+// metal ring holding something. The ring is what makes it read as jewellery
+// rather than as confetti.
+// Returns coverage in .x, the metal bezel in .y, and which stone in .z.
+vec3 jewel(vec2 q, float cell_size, float density) {
+	vec2 g = q / cell_size;
+	vec2 c = floor(g);
+	float h = hash21(c);
+	if (h > density) {
+		return vec3(0.0);
+	}
+	vec2 f = fract(g) - 0.5;
+	f += (vec2(fract(h * 31.7), fract(h * 71.3)) - 0.5) * 0.34;
+	float r = length(f);
+	float size = 0.16 + fract(h * 13.1) * 0.13;
+	float stone = smoothstep(size, size * 0.72, r);
+	float bezel = smoothstep(size * 1.34, size * 1.05, r) - stone;
+	return vec3(stone, max(bezel, 0.0), fract(h * 97.3));
 }
 
 float hash21(vec2 p) {
@@ -280,22 +316,49 @@ void fragment() {
 	float ink_mask = 0.0;
 	vec3 accent = accent_teal;
 	float accent_mask = 0.0;
+	// Stones read as glass, not as metal: they take their own gleam and must
+	// not be handed the leaf's molten treatment.
+	float jewel_face = 0.0;
+	// Stars carry their own light. Nothing else here does.
+	float sky_glow = 0.0;
 
-	if (motif == MOTIF_IVORY) {
-		// THE FIELD. Almost nothing: a warm ground with the faintest tooth and
-		// the occasional fleck of leaf. Its whole job is to be quiet so the
-		// other surfaces can speak, which is what a ceiling should do.
-		// The quiet field, and quiet has to mean DARK here. A literal cream
-		// ground next to melted gold reads as a flat lit panel -- a bright
-		// featureless rectangle, which is the one thing a ceiling must never
-		// be in a room whose whole subject is what the lamp finds. So the
-		// ivory survives as a tint on near-black, and the field is carried by
-		// rare flecks of leaf rather than by its own value.
-		float grain = hash21(floor(q * 26.0));
-		albedo = mix(ivory, ivory * 0.94, grain) * ground_dark * 0.35;
-		float fleck = step(0.9955, hash21(floor(q * 9.0)));
-		leaf = fleck;
-		albedo = mix(albedo, gold_mid, fleck);
+	if (motif == MOTIF_CANOPY) {
+		// CANOPY OPENING ONTO NIGHT. A low-frequency field decides where the
+		// tree closes overhead and where it parts; the thickets get tendrils,
+		// the gaps get sky. Overhead is the one surface a player never has to
+		// navigate by, so it is where the world can afford to stop being a
+		// building at all.
+		float cover = smoothstep(0.38, 0.70,
+				fbm(q * 0.30 + vec2(TIME * drift_speed * 0.4, 0.0)));
+		cover = mix(cover, 1.0, canopy_close * 0.35);
+		vec2 local = fract(q * 0.42) - 0.5;
+		float h = hash21(floor(q * 0.42));
+		float branch = clamp(
+				spiral_line(local, 2.0 + h * 3.0, 0.13, 0.075)
+				+ spiral_line(local * 2.2 + 0.4, 2.0, 0.15, 0.09) * 0.55,
+				0.0, 1.0);
+		branch *= cover;
+		// THE STARS. Points, not areas, and they carry their own faint light --
+		// the single exception to "gold is never emissive", because a star IS a
+		// light and not a leaf. They only appear where the canopy has parted.
+		float sky = 1.0 - cover;
+		float star_cell = hash21(floor(q * 34.0));
+		float star = step(1.0 - star_density * 0.035, star_cell) * sky;
+		float twinkle = 0.6 + 0.4 * sin(TIME * 0.7 + star_cell * 40.0);
+		albedo = mix(ivory * ground_dark * 0.18, gold_mid, branch);
+		albedo = mix(albedo, star_colour, star);
+		leaf = branch;
+		sky_glow = star * twinkle;
+		// Jewels hang in the thickets, never in the open sky.
+		vec3 jw = jewel(q, 0.30, jewel_density * cover);
+		if (jw.x + jw.y > 0.0) {
+			vec3 stone = jw.z > 0.66 ? accent_oxblood
+					: (jw.z > 0.33 ? accent_lapis : accent_teal);
+			albedo = mix(albedo, stone, jw.x);
+			albedo = mix(albedo, gold_pale, jw.y);
+			leaf = max(leaf, jw.y);
+			jewel_face = jw.x;
+		}
 	} else if (motif == MOTIF_SPIRAL) {
 		// THE TREE. Coils on an ivory ground, in two sizes so the wall has a
 		// hierarchy rather than one repeating curl.
@@ -314,8 +377,19 @@ void fragment() {
 		albedo = mix(albedo, gold_pale, smoothstep(0.75, 1.0, tendril));
 		// The frieze hangs small dark buds and eyes off the branches.
 		ink_mask = step(0.972, hash21(floor(q * 3.1)));
-		accent_mask = step(0.986, hash21(floor(q * 2.3 + 11.0)));
 		accent = accent_teal;
+		// STONES IN THE TENDRILS. Hung where the tree is dense, so the jewels
+		// belong to the branches rather than being scattered over them -- and
+		// so there is somewhere for them to fall FROM.
+		vec3 jw = jewel(q, 0.26, jewel_density * (0.35 + tendril * 0.9));
+		if (jw.x + jw.y > 0.0) {
+			vec3 stone = jw.z > 0.66 ? accent_oxblood
+					: (jw.z > 0.33 ? accent_lapis : accent_teal);
+			albedo = mix(albedo, stone, jw.x);
+			albedo = mix(albedo, gold_pale, jw.y);
+			leaf = max(leaf, jw.y);
+			jewel_face = jw.x;
+		}
 	} else if (motif == MOTIF_MOSAIC) {
 		// THE TEXTILE, underfoot. Mostly gold, some ink, a little cream —
 		// the ratio is what keeps a floor readable while still being ornament.
@@ -332,8 +406,18 @@ void fragment() {
 		albedo = mix(bole * ground_dark, block, m);
 		leaf = m * step(tone, 0.74) * 0.95;
 		ink_mask = m * step(0.74, tone) * step(tone, 0.93);
-		accent_mask = m * step(0.975, hash21(floor(q / 0.09) + 3.7));
 		accent = accent_oxblood;
+		// WHERE THE DRIPS LANDED AND SET. Jewel-coloured tiles, clustered by a
+		// low-frequency splash field rather than sprinkled evenly, so the floor
+		// reads as having been rained on in places. The mosaic underfoot is
+		// made of what fell off the canopy.
+		float splash = smoothstep(0.46, 0.78, fbm(q * 0.55 + 19.0));
+		float set_stone = m * step(0.62, hash21(floor(q / 0.09) + 3.7)) * splash;
+		float which = hash21(floor(q / 0.09) + 77.0);
+		vec3 stone = which > 0.66 ? accent_oxblood
+				: (which > 0.33 ? accent_lapis : accent_teal);
+		albedo = mix(albedo, stone, set_stone);
+		jewel_face = max(jewel_face, set_stone * 0.7);
 	} else if (motif == MOTIF_TRIANGLE) {
 		// THE ROBE OF EXPECTATION, on the doors. Directional and hard-edged,
 		// so an opening announces itself as a thing you go THROUGH.
@@ -423,6 +507,11 @@ void fragment() {
 	vec3 refl = reflect(-normalize(VIEW), bumped);
 	vec3 env = sample_reflected_world(refl);
 
+	// A stone is not leaf and must not melt: glass has its own hard little
+	// highlight and no flow at all, which is what separates a jewel from a
+	// puddle of gold beside it.
+	molten *= 1.0 - jewel_face;
+
 	ALBEDO = mix(albedo * breath,
 			albedo * breath * 0.85 + gold_mid * 0.22, molten);
 	METALLIC = mix(metal * gold_metallic, 0.95, molten);
@@ -431,10 +520,21 @@ void fragment() {
 	// surface reads as liquid rather than as a shinier wall.
 	ROUGHNESS = mix(mix(ground_roughness, gold_roughness, metal), 0.14,
 			molten);
+	ROUGHNESS = mix(ROUGHNESS, 0.08, jewel_face);
+	SPECULAR = mix(SPECULAR, 1.0, jewel_face * 0.8);
 	NORMAL = mix(n, bumped, molten);
 	// The reflection rides on EMISSION because Compatibility gives a shader no
 	// other way to put an environment on a surface. It is gated by `molten`,
 	// which is gated by heat, so it appears only where the lamp is -- the gold
 	// still cannot glow on its own.
-	EMISSION = albedo * metal * leaf_ember + env * molten * 0.30;
+	// HOLD DETAIL AT THE CORE (owner ruling). The reflection used to run away
+	// with the highlight and blow the middle of every molten pool to flat
+	// white. Compressing it through its own reciprocal keeps the pool bright
+	// while leaving the pattern legible right through the hottest part -- the
+	// point being that molten gold has FIGURE in it, and a blown core has none.
+	vec3 lit = env * molten * 0.62;
+	lit = lit / (1.0 + lit * 0.85);
+	EMISSION = albedo * metal * leaf_ember + lit
+			+ star_colour * sky_glow * 0.55
+			+ albedo * jewel_face * jewel_gleam * 0.16;
 }
