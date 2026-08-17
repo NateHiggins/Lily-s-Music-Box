@@ -88,7 +88,18 @@ implementation and not decided here.
 
 Every campaign dream must deliver five things and then leave:
 
-1. **Recognition.** At arm's length, this is indisputably the Orison.
+1. **Recognition — AMENDED 2026-08-17.** This used to read "at arm's length,
+   this is indisputably the Orison", and the rule-of-cool ruling retires that
+   clause. It is worth being honest about what the trade costs, because the
+   clause was not decoration: the dream was frightening *because* it was your
+   building, and a generic gilded dreamscape is not frightening at all.
+   Recognition now lives in the BONES rather than the surface. The module
+   footprints, the 2.08 m corridor width, the 0.91 m door openings, the 3.015 m
+   clear ceiling, the stair that climbs honestly and arrives at a lower floor —
+   all measured from the real Orison and all unchanged. You do not recognise
+   the wallpaper any more. You recognise the *dimensions*, which is the more
+   unsettling half: it is the right size to be home, and nothing else about it
+   is.
 2. **Global wrongness.** The route makes architectural sense one room at a time
    and cannot possibly make sense as a building.
 3. **One continuous decision.** Light on gives information and gives the player
@@ -412,20 +423,106 @@ is real; character progression inside the dream is not.
 
 ## VISUAL AND AUDIO LANGUAGE
 
-### Image
+### Image — OWNER RULING 2026-08-17: COOL IS THE DEFAULT
 
-- Soot black, wet plaster, dull brass, warm dirty service-lamp light and one distant
-  tungsten practical. Each case receives one restrained accent, never a rainbow
-  supernatural grade.
-- Surfaces remain material, dirty and plausible at touch distance. No floating
-  rocks, occult writing, fantasy sky, generic smoke monster or corridor made of
-  particles.
-- Repetition is architectural: too many identical doors, one wallpaper seam
-  returning, the same worn stair edge above itself.
-- Wrongness happens across occlusion. A room may change while a door closes; it
-  does not visibly pop or melt in front of the camera.
-- No strobe, forced camera roll, fisheye sprint effect or chromatic-aberration
-  assault. Terror comes from space, signal and pursuit.
+**THIS SECTION IS SUPERSEDED AND THE SUPERSESSION IS DELIBERATE.** On
+2026-08-17 the owner ruled, in order: *this is a demonstration project of what
+we can create, the rule of cool is key — make it good, not correct*; *let the
+maze breathe, make it unsettling, disorienting, like a funhouse made to
+distract and terrorize*; *rewrite our design to default to cool across the
+board*; and *make the whites map to a molten golden liquid reflection*.
+
+That retires, by name, the restraint language that stood here: soot black and
+dull brass as the palette, the ban on anything past one restrained accent, the
+requirement that surfaces stay dirty and plausible at touch distance, and the
+arm's-length recognition clause in §THE EXPERIENCE CONTRACT. The old text is
+not wrong about horror. It is a different game, and it is no longer the one
+being built.
+
+**THE FRIEZE IS THE WORLD.** The dream is Klimt's Stoclet Frieze — *The Tree
+of Life, Expectation and Fulfilment* — taken apart and hung on the
+architecture. The load-bearing fact about that painting is that it is not one
+texture: it is five pattern languages sharing one palette, each bounded by flat
+ground so none degrades into wallpaper. So each surface class wears exactly
+one, and the assignment is functional rather than decorative:
+
+| Surface | Motif | Why |
+|---|---|---|
+| walls | spiral tendrils | the tree: gold *line*, a wire that coils — structure, not fill |
+| floor | mosaic blocks | the textile, underfoot |
+| ceiling | canopy over starfield | the tree closes overhead in thickets and parts onto night |
+| doors | chevrons | Expectation's robe: sharp, directional, a way *through* |
+| hazards | concentric eyes | Fulfilment's robe — the watching mark, reserved for what can hurt you |
+
+The reason for one motif per class rather than one skin everywhere is that
+**ornament stops being decoration and becomes wayfinding.** In a maze whose
+entire job is to lose you, the pattern says what a thing *is* — and if a
+surface is watching you, it is because it is dangerous.
+
+**ONE DEPARTURE FROM THE PAINTING, DELIBERATE.** The frieze is gold on cream.
+Rendered literally under one hot lamp, that cream ground is the brightest thing
+in frame and blows to white the instant the beam touches it. So the VALUE
+structure inverts while the hue structure does not: Klimt's marks, palette and
+bounding rules on a dark ground, so the leaf is the bright thing. That is what
+*barely lit by a guttering lamp* requires, and it is how gilding reads at night.
+
+**THE GOLD IS METALLIC, NEVER EMISSIVE.** Gold leaf is not a light source; it
+is a mirror with a colour. Emission would have been easier and would have
+destroyed the game, because a world that glows needs no lamp and the light
+decision is the one mechanic this passage is built on. There is no ambient at
+all, and beyond the lamp's pool is pitch blackness. The consequence is the
+point: **the world is only beautiful where you are looking, and being lit is
+what is hunting you.**
+
+The one sanctioned exception is the stars in the canopy's open spaces. A star
+is a light and not a leaf.
+
+**THE WHITES ARE MOLTEN.** Every pale area is liquid metal. Under the beam the
+ornament's own coordinates flow, the surface beads and re-forms, and roughness
+collapses toward a mirror; away from it, the gold is cold and solid. What the
+molten metal reflects is a world that exists nowhere in the scene — the Orison
+as Klimt would have painted it, its residents gold-robed and facing you, one of
+them without a face. See `KLIMT_REFLECTED_WORLD_PROMPTS.md`. Because the
+reflection is gated on lamp proximity, **the dead are visible exactly and only
+when you are spending the light that draws the Tenant.**
+
+**SUBSTANCE FLOWS; STRUCTURE DOES NOT.** This narrows the old rule rather than
+deleting it, because half of that rule was fairness and not taste. Topology
+still changes only across occlusion: rooms, connectors and route never
+rearrange in view, and a player must never lose a way out because the building
+moved while they were looking at it. Surface may move in view. Substance flows,
+structure does not.
+
+**THE MAZE BREATHES.** Dense ornament against bare ground, never uniform
+clothing. This is Klimt's own bounding rule and it is also the only way the
+wayfinding claim above can be true: signal requires ground, and a corridor
+ornamented edge to edge is not ornamented at all — it is textured, and texture
+is noise. Bare ground is not unfinished. It is the silence the ornament is
+measured against.
+
+**IT IS A FUNHOUSE, BUILT TO DISTRACT AND TERRORISE.** The maze is not a
+neutral space that happens to be wrong; it is a made thing with an intention
+toward the person inside it. The domain drifts, so the wall you looked away
+from is not quite the wall you look back at. Jewels in gold settings hang in
+the tendrils, shed as rain, and set into the floor's mosaic — so the ground
+underfoot is visibly what fell off the ceiling.
+
+**THESE TWO RULES ARE NOT RESTRAINT AND ARE NOT SUPERSEDED.** They are safety
+and accessibility, they survive every ruling above, and no appeal to the rule
+of cool reaches them:
+
+- **No strobe, and no flashing at photosensitive frequencies.** Every animated
+  element here — the ornament's breath, the domain drift, the melt, the
+  starlight, the lamp's own warm-up and pop — runs well under a hertz or is a
+  single transient on a deliberate player action, and the lamp's transient is
+  rate-limited so that mashing the switch cannot produce a flicker.
+- **No forced camera roll, fisheye sprint effect or chromatic-aberration
+  assault.** Disorientation is bought with space, ornament and pursuit, never
+  by taking the camera away from the player.
+
+Repetition remains architectural: too many identical doors, one seam
+returning, the same worn stair edge above itself. That was never restraint —
+it is the maze's whole method.
 
 ### Sound
 
