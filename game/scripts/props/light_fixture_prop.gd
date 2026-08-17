@@ -534,6 +534,18 @@ func set_powered(on: bool) -> void:
 		set_budget(0.0, false, false)
 
 
+## The rig asks this before a fixture is allowed into the ranking
+## (light_rig.gd:493-496). LampProp answered it and LightFixtureProp never
+## did, so a shop light the hours director had switched OFF still entered the
+## contest, still won an index, and -- because set_budget writes
+## shadow_enabled from that index BEFORE zeroing the scale for an unpowered
+## fixture -- still held a shadow map while emitting nothing. Measured at the
+## four arcade stations: 0 / 2 / 5 / 3 shadow maps held by dark bulbs, taken
+## from lanterns that had something to show.
+func is_locally_enabled() -> bool:
+	return powered and _state_gain > 0.001
+
+
 func set_budget(scale: float, with_bounce: bool, with_shadow: bool) -> void:
 	if not powered:
 		scale = 0.0
