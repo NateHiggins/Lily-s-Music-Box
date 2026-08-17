@@ -83,7 +83,7 @@ baluster shadows, confirmed in the lit pass.
 
 | room | symptom | severity |
 |---|---|---|
-| C_BED1 / C_BED2, F02–F06 | Ten bedrooms with **no exterior aperture at all**. Counting dressed apertures after the blinds fix, every C unit has exactly ONE window in the whole flat (A units 2, B and D units 3). `remove_partition_crossing_windows()` (gen_layout ~:8195) deletes any facade opening a perpendicular interior partition cuts through, and C's bedroom partition lands exactly on its rear aperture. The deletion is correct as a local rule; the defect is that `exterior()`/`_unit_rooms()` never re-site the lost window, so the room ends up windowless rather than differently-windowed. NOT the blinds bug and not fixed by it | blocker |
+| C_BED1 / C_BED2, F02–F06 | ~~Ten bedrooms with no exterior aperture at all~~ FIXED 2026-08-16. `remove_partition_crossing_windows()` deleted any facade opening a perpendicular partition cut through and stopped there — but the partition is what is wrong for the window, not the room's need of daylight, and C's bedroom partition lands squarely on its rear aperture. A crossed window now SLIDES along its own facade, in 0.05 m steps outward from where it was authored, to the nearest slot that clears every partition, every other opening and both wall ends; only a window with no legal slot within 2.60 m is removed. Facade audit now reports **removed 0** where it used to delete 16, exterior windows go 80 -> 96, and the blinds pass dresses 66 where it dressed 50. New `_validate_daylight()` asserts the rule that actually matters — no habitable room owning a piece of facade is left dark — and reports 0 | resolved |
 | F01 1B / 1C | Neither unit receives a single blind, i.e. neither has a dressed aperture. Likely the same cause as the C-stack row above, or ground-floor shopfront geometry; unverified | wish |
 
 ### New findings 2026-08-15
@@ -288,8 +288,14 @@ families are:
 1. ~~Wall art misplacement~~ **CLOSED 2026-08-16** — see its row. Every
    suspicion listed here was confirmed, and the centreline-versus-face
    prediction was the largest single family (89 of 125).
-2. **Ten windowless C-stack bedrooms** (new row above) — the only blocker
-   still open.
+2. ~~Ten windowless C-stack bedrooms~~ **CLOSED 2026-08-16** — see its row.
+
+**No blockers remain open.** What is left is 50 "ugly" and 36 "wish" rows.
+Several look like families rather than individual bugs, and the three fixed
+today all turned out to be exactly that — worth diagnosing before touching:
+the faucet-detachment set (F01_A, F03_A/B, F04_A/B, F05_A/B), the towel-bar
+overrun set (F02–F05 C/D baths), the sticky-note/plaque decals sitting at
+ceiling height, and the wardrobe-in-front-of-window set.
 
 The lesson from the blinds, worth applying to the wall art before touching
 it: **a centreline is not a face.** Both owners committed that same mistake

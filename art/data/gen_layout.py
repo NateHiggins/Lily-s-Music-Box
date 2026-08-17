@@ -8192,15 +8192,68 @@ def stair_geometry(st):
 
 # ---------------------------------------------------------------- validation
 
+## Jamb clearance between a window reveal and anything it must not graze.
+WIN_JAMB_CLEAR = 0.10
+## How far a window may be slid along its own facade before the move stops
+## serving the room it was cut for and starts lighting the neighbour instead.
+WIN_SLIDE_MAX = 2.60
+
+
+def _facade_partitions(fl, ew, vertical, ax, ay, start):
+    """Along-wall positions where a perpendicular partition meets this facade."""
+    hits = []
+    for iw in fl["walls"]:
+        if iw is ew:
+            continue
+        ix0, iy0 = iw["a"]
+        ix1, iy1 = iw["b"]
+        if (abs(ix1 - ix0) < 1e-6) == vertical:
+            continue
+        if vertical:
+            reaches = min(ix0, ix1) - 0.35 <= ax <= max(ix0, ix1) + 0.35
+            at = iy0
+        else:
+            reaches = min(iy0, iy1) - 0.35 <= ay <= max(iy0, iy1) + 0.35
+            at = ix0
+        if reaches:
+            hits.append(at - start)
+    return hits
+
+
+def _slot_is_clear(centre, width, parts, others, run):
+    """Can a window of `width` sit centred here without grazing anything?"""
+    half = width / 2.0 + WIN_JAMB_CLEAR
+    if centre - half < 0.05 or centre + half > run - 0.05:
+        return False
+    for pa in parts:
+        if centre - half < pa < centre + half:
+            return False
+    for oc, ow in others:
+        if abs(centre - oc) < half + ow / 2.0:
+            return False
+    return True
+
+
 def remove_partition_crossing_windows(fl):
-    """Remove facade windows whose opening is cut through by a perpendicular
-    interior partition.
+    """Re-site facade windows a perpendicular partition cuts through, and
+    remove only the ones with nowhere to go.
 
     Exterior openings are established before apartment room walls, so a
     purely local facade rule cannot know where bedrooms, baths and offices
     eventually meet the shell. This post-layout pass compares every exterior
     window span with every perpendicular wall that actually reaches that
-    facade. A small trim clearance prevents jambs from grazing partitions.
+    facade.
+
+    IT USED TO DELETE AND STOP THERE, and deletion is only half a rule: the
+    partition is what is wrong for the window, not the room's need of
+    daylight. Ten bedrooms ended up with no exterior aperture at all -- both
+    C-stack bedrooms on every floor F02 to F06 -- because C's bedroom
+    partition lands squarely on its rear aperture and nothing put the window
+    back. A window that cannot stay where it was cut now slides along its own
+    facade to the nearest position that clears every partition, every other
+    opening and both wall ends. Only a window with no legal slot within
+    WIN_SLIDE_MAX is removed, and that is now the rare case rather than the
+    only case.
     """
     if fl["id"] in ("B1", "ROOF"):
         return 0
@@ -8215,37 +8268,40 @@ def remove_partition_crossing_windows(fl):
         if not exterior_wall:
             continue
         start = min(ay, by) if vertical else min(ax, bx)
+        run = abs(by - ay) if vertical else abs(bx - ax)
+        parts = _facade_partitions(fl, ew, vertical, ax, ay, start)
         kept = []
         for opening in ew["openings"]:
             if opening["type"] != "window":
                 kept.append(opening)
                 continue
-            lo = start + opening["at"] - opening["w"] / 2.0 - 0.10
-            hi = start + opening["at"] + opening["w"] / 2.0 + 0.10
-            crossed = False
-            for iw in walls:
-                if iw is ew:
-                    continue
-                ix0, iy0 = iw["a"]
-                ix1, iy1 = iw["b"]
-                i_vertical = abs(ix1 - ix0) < 1e-6
-                if vertical == i_vertical:
-                    continue
-                if vertical:
-                    reaches = min(ix0, ix1) - 0.35 <= ax <= \
-                              max(ix0, ix1) + 0.35
-                    partition_at = iy0
-                else:
-                    reaches = min(iy0, iy1) - 0.35 <= ay <= \
-                              max(iy0, iy1) + 0.35
-                    partition_at = ix0
-                if reaches and lo < partition_at < hi:
-                    crossed = True
-                    break
-            if crossed:
-                removed += 1
-            else:
+            # every other opening on this wall, as (centre, width)
+            others = [(o["at"], o["w"]) for o in ew["openings"]
+                      if o is not opening]
+            centre = opening["at"]
+            width = opening["w"]
+            if _slot_is_clear(centre, width, parts, others, run):
                 kept.append(opening)
+                continue
+            # Walk outwards from the authored position and take the first
+            # legal slot on either side, so the window moves as little as it
+            # can and keeps the facade's rhythm as nearly as possible.
+            moved = None
+            step = 0.05
+            probe = step
+            while probe <= WIN_SLIDE_MAX:
+                for cand in (centre - probe, centre + probe):
+                    if _slot_is_clear(cand, width, parts, others, run):
+                        moved = cand
+                        break
+                if moved is not None:
+                    break
+                probe += step
+            if moved is None:
+                removed += 1
+                continue
+            opening["at"] = round(moved, 3)
+            kept.append(opening)
         ew["openings"] = kept
     return removed
 
@@ -8275,6 +8331,7 @@ def validate(layout):
     problems += _validate_movement(layout)
     problems += _validate_placement(layout)
     problems += _validate_blinds(layout)
+    problems += _validate_daylight(layout)
     problems += _validate_vantry_points(layout)
     problems += _validate_kettles(layout)
     problems += _validate_boxfans(layout)
@@ -8373,6 +8430,55 @@ def _validate_blinds(layout):
                 problems.append(
                     "blind %s head tops at %.3f, aperture head is %.3f"
                     % (bid, float(b["z0"]) + float(b["h"]), head))
+    return problems
+
+
+def _validate_daylight(layout):
+    """No habitable room that owns a piece of facade is left without a window.
+
+    The rule this guards is not "windows exist" but "the room the window was
+    cut for still has one". A facade pass that deletes a partition-crossed
+    opening satisfies every local check and still leaves a bedroom in the
+    dark, which is how ten of them shipped.
+    """
+    problems = []
+    habitable = ("_BED", "_MAIN", "_KITCHEN", "_OFFICE", "_ALCOVE")
+    for fl in layout["floors"]:
+        if fl["id"] in ("B1", "ROOF"):
+            continue
+        for r in fl["rooms"]:
+            rid = str(r["id"])
+            if not any(h in rid.upper() for h in habitable):
+                continue
+            x0, y0, x1, y1 = r["rect"]
+            touches = False
+            lit = False
+            for w in fl["walls"]:
+                ax, ay = w["a"]
+                bx, by = w["b"]
+                vertical = abs(bx - ax) < 1e-6
+                if vertical and abs(ax) <= 13.5:
+                    continue
+                if not vertical and abs(ay) <= 9.5:
+                    continue
+                if vertical and not (abs(ax - x0) < 0.6
+                                     or abs(ax - x1) < 0.6):
+                    continue
+                if not vertical and not (abs(ay - y0) < 0.6
+                                         or abs(ay - y1) < 0.6):
+                    continue
+                touches = True
+                lo = min(ay, by) if vertical else min(ax, bx)
+                span = (y0, y1) if vertical else (x0, x1)
+                for o in w.get("openings", []):
+                    if o.get("type") != "window":
+                        continue
+                    at = lo + float(o["at"])
+                    if span[0] - 0.2 <= at <= span[1] + 0.2:
+                        lit = True
+            if touches and not lit:
+                problems.append("%s/%s owns facade but has no window"
+                                % (fl["id"], rid))
     return problems
 
 def _validate_ceilings(layout):
