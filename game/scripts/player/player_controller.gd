@@ -623,7 +623,29 @@ func set_lamp_base_energy(value: float) -> void:
 func lamp_pose() -> Dictionary:
 	if flashlight == null:
 		return {}
+	# THE SPLASH, RAYCAST HERE rather than inherited from the cookie bake. It
+	# used to come from `_bake_cookie()`, which returns early when headless and
+	# when the mask viewport is gone -- and the dream turns the mask off, so it
+	# silently stayed at the world origin. It has no business depending on a
+	# texture bake; it is a fact about where the lamp is pointing.
+	var origin: Vector3 = flashlight.global_position
+	var aim: Vector3 = -flashlight.global_transform.basis.z.normalized()
+	var landing: Vector3 = origin + aim * flashlight.spot_range
+	var space := get_world_3d().direct_space_state
+	if space != null:
+		# EXCLUDE THE BODY, and use the query that does. A first version built
+		# an excluded query and then passed a different, unexcluded one -- so
+		# the ray hit the player's own capsule at zero distance and the splash
+		# sat at their feet, which is indistinguishable from "the lamp is
+		# pointing at nothing" and rendered as a black frame.
+		var q := PhysicsRayQueryParameters3D.create(origin, landing)
+		q.exclude = [get_rid()]
+		var hit := space.intersect_ray(q)
+		if not hit.is_empty():
+			landing = hit.position
+	beam_splash = landing
 	return {
+		"splash": landing,
 		"origin": flashlight.global_position,
 		# Godot lights face -Z.
 		"dir": -flashlight.global_transform.basis.z.normalized(),

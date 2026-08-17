@@ -88,7 +88,11 @@ const DREAM_LIFT_FLOOR := 0.0
 ## and above 1.0 it falls off faster than physical inverse-square, which is
 ## what makes the edge of the pool arrive quickly rather than fading out over
 ## metres. Narrower and hotter, so what it does find is brilliant.
-const DREAM_LAMP_RANGE := 4.6
+## Owner: "i think the lamp needs more range." It was pulled to 4.6 to stop a
+## torch handing over the whole 19.30 m hall, but the shader now falls the
+## response off on its own curve, so the hard range cut is doing less work than
+## it was and can afford to reach further.
+const DREAM_LAMP_RANGE := 8.5
 const DREAM_LAMP_ATTENUATION := 1.9
 const DREAM_LAMP_ANGLE := 40.0
 const DREAM_LAMP_ANGLE_ATTENUATION := 2.4
@@ -98,6 +102,9 @@ const DREAM_LAMP_SHADOW_ENERGY := 1.1
 
 ## Deliberately small: Compatibility turns every particle into a submission and
 ## this frame is submission-bound. See _build_motes().
+## Off while the surface treatment is being settled. See _build_world().
+const PARTICLES_ENABLED := false
+
 const MOTE_COUNT := 110
 
 ## Fewer than the motes and much faster. Same submission caution: Compatibility
@@ -196,8 +203,19 @@ func _build_world() -> void:
 	# will want exactly this and nothing else in the build does it.
 	_build_practicals()
 	_build_hazard_visuals()
-	_build_motes()
-	_build_jewel_rain()
+	# PARTICLES ARE OFF. Owner: "there are still tons of light prisms, they
+	# also seem to be the particles" -> "remove the particles for now".
+	#
+	# Both systems draw QuadMesh billboards with additive blending, and a
+	# billboarded quad that fails to face the camera is a flat rectangle of
+	# light sitting in world space -- which is exactly the artifact being
+	# hunted. Left built but not spawned rather than deleted: the systems
+	# themselves are sound and the jewel loop (canopy sheds -> rain falls ->
+	# mosaic sets) is a design the world still wants back once the surface
+	# is settled and they can be re-introduced one at a time against it.
+	if PARTICLES_ENABLED:
+		_build_motes()
+		_build_jewel_rain()
 	_collect_molten_materials()
 
 
@@ -603,6 +621,7 @@ func _update_molten() -> void:
 	# it. It is dim now, because it is no longer what lights the world.
 	for material in _molten_materials:
 		material.set_shader_parameter("lamp_origin", pose.origin)
+		material.set_shader_parameter("lamp_splash", pose.splash)
 		material.set_shader_parameter("lamp_dir", pose.dir)
 		material.set_shader_parameter("lamp_reach", pose.range)
 		material.set_shader_parameter("lamp_cos_outer",

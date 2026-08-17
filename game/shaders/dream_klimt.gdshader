@@ -115,6 +115,13 @@ uniform float breathe_speed : hint_range(0.0, 0.4) = 0.05;
 // the beam is touching. Look away and it cools and forgets.
 uniform vec3 lamp_origin = vec3(0.0);
 uniform vec3 lamp_dir = vec3(0.0, 0.0, -1.0);
+// WHERE THE BEAM ACTUALLY LANDS, raycast on the CPU and handed over as ONE
+// POINT. This was previously derived per fragment by projecting the fragment
+// onto the beam axis, which makes `rad` the perpendicular distance from the
+// AXIS -- so the melt was an infinite cylinder running down the beam instead
+// of a pool on a wall, and every face the cylinder passed through lit up whole.
+// Those were the rectangular prisms of light.
+uniform vec3 lamp_splash = vec3(0.0);
 uniform float lamp_reach = 4.6;
 uniform float lamp_cos_outer = 0.86;
 // How much of the cone's edge is falloff rather than hard boundary. A hard
@@ -125,7 +132,7 @@ uniform float lamp_energy = 1.0;
 // wall segments it landed on, so every face was entirely inside the pool and
 // the falloff read as a rectangle -- the box's own edges standing in for a
 // boundary the melt never reached.
-uniform float melt_radius : hint_range(0.2, 12.0) = 1.35;
+uniform float melt_radius : hint_range(0.2, 12.0) = 1.9;
 uniform float melt_flow : hint_range(0.0, 3.0) = 1.0;
 // BEATEN LEAF IS NEVER FLAT, and this is the fix for the rectangles. A flat
 // face has one normal, so its reflection vector is nearly constant across the
@@ -169,6 +176,27 @@ uniform float ripple_depth : hint_range(0.0, 2.0) = 0.85;
 // inward toward the centre, at the centre it is unchanged, and the eye reads
 // the whole patch as a depression.
 uniform float dish_depth : hint_range(0.0, 3.0) = 1.35;
+
+// THE BOWL IS THE ONLY MIRROR. Owner ruling, and it is the physically honest
+// model as well as the better-looking one: molten metal is a mirror, and solid
+// metal a few centimetres away is not -- it is just hot, and hot metal GLOWS
+// FROM INSIDE.
+//
+// Before this the reflection was gated on the whole cone, so every flat face
+// the beam touched took a broad patch of environment. A flat face reflects one
+// narrow solid angle, so that patch was near-constant across the face and
+// landed as a rectangle -- the "rectangular prisms of light". Confining the
+// mirror to the dish removes every large flat reflective area in the scene,
+// which is what was producing them.
+uniform float bowl_tightness : hint_range(0.5, 8.0) = 2.6;
+// Partially masked, never a clean disc: a disturbed liquid surface only
+// mirrors where it happens to be flat at that instant.
+uniform float bowl_breakup : hint_range(0.0, 1.0) = 0.62;
+// Incandescence. What the gold does everywhere the bowl is not: glows with the
+// heat it is taking, deep ember at the edge of the beam through to pale gold
+// where it is about to run.
+uniform vec3 ember_cold : source_color = vec3(0.420, 0.105, 0.030);
+uniform vec3 ember_hot : source_color = vec3(1.0, 0.62, 0.22);
 uniform float melt_amount : hint_range(0.0, 1.0) = 1.0;
 // How liquid a surface is ever allowed to get. Below 1.0 on purpose: the
 // pattern has to survive its own melting.
@@ -396,9 +424,7 @@ void fragment() {
 	float facing = clamp(dot(n, -ray), 0.0, 1.0);
 	facing = mix(0.35, 1.0, facing);
 	float heat = cone * reach * facing;
-	// The splash -- where the beam's axis meets this surface -- is still what
-	// the rings travel out from, and it is derived here rather than raycast.
-	vec3 splash = lamp_origin + lamp_dir * (along * dot(ray, lamp_dir));
+	vec3 splash = lamp_splash;
 	heat = pow(heat, 1.7) * clamp(lamp_energy, 0.0, 4.0) * melt_amount;
 
 	// THE FLOW. Domain warp, animated, scaled by heat -- so the ornament is
@@ -615,6 +641,10 @@ void fragment() {
 	// which erases the very ornament the melt is supposed to be happening TO.
 	// Gold that has melted into a featureless pool is just a highlight.
 	float molten = min(metal * heat, MOLTEN_CEILING);
+	// How far out of the bowl this fragment is, 0 at the splash and 1 at the
+	// rim. Declared here because both the normal's dish and the reflection's
+	// extent are cut from it.
+	float dish_r = clamp(rad / max(0.25, melt_radius), 0.0, 1.0);
 	float woken = smoothstep(0.02, 0.55, heat);
 
 	// NO TANGENT FRAME EXISTS -- this is triplanar on untextured boxes, so
@@ -650,13 +680,30 @@ void fragment() {
 	// than as a dark ring.
 	vec3 to_centre = splash - v_world;
 	to_centre -= n * dot(to_centre, n);
-	float dish_r = clamp(rad / max(0.25, melt_radius), 0.0, 1.0);
+	dish_r = clamp(rad / max(0.25, melt_radius), 0.0, 1.0);
 	float lip = sin(dish_r * PI);
 	vec3 dish = vec3(0.0);
 	if (length(to_centre) > 0.0001) {
 		dish = normalize(to_centre) * lip * dish_depth * molten;
 	}
-	vec3 bumped = normalize(n + relief + wave + dish
+	// THE REFLECTION AS RELIEF. Owner: "like the melting gold is flowing and
+	// rippling in the relief shape of the reflection."
+	//
+	// So the plate is not paint on the metal, it is EMBOSSED IN it. Three
+	// luminance taps give the image's slope and the surface rises and falls
+	// along it, which means a face in the reflected world arrives as a
+	// face-shaped swell in the gold, moving as the pool moves.
+	//
+	// It is also why the image reads at all on a patch this small. As colour
+	// it was competing with the ornament and losing; as topography it deforms
+	// the ornament instead, and the eye reads deformation long before it reads
+	// a tint.
+	vec3 LUMA = vec3(0.299, 0.587, 0.114);
+	float pl0 = dot(sample_reflected_world(q, living), LUMA);
+	float plx = dot(sample_reflected_world(q + vec2(0.06, 0.0), living), LUMA);
+	float ply = dot(sample_reflected_world(q + vec2(0.0, 0.06), living), LUMA);
+	vec3 emboss = (tan_a * (plx - pl0) + tan_b * (ply - pl0)) * 16.0 * molten;
+	vec3 bumped = normalize(n + relief + wave + dish + emboss
 			+ (tan_a * (hx - h0) + tan_b * (hy - h0)) * 42.0 * molten);
 
 	vec3 refl = reflect(-normalize(VIEW), bumped);
@@ -690,7 +737,11 @@ void fragment() {
 	// arm's length from a wall it blows the frame white. This is the level at
 	// which a surface reads as answering the beam rather than as a lamp in its
 	// own right.
-	float wake_glow = woken * (0.05 + 0.26 * heat);
+	// The incandescence is now the ONLY thing lighting the world outside the
+	// bowl, so it carries the whole frame rather than trimming an already-lit
+	// one. 0.05/0.26 was set when the renderer's light was still doing the
+	// work and left the corridor at the threshold of visible.
+	float wake_glow = woken * (0.18 + 1.15 * heat);
 	METALLIC = mix(metal * gold_metallic, 0.95, molten);
 	SPECULAR = mix(mix(0.25, 0.85, metal), 0.9, molten);
 	// A mirror is smooth. The collapse toward zero roughness is most of why the
@@ -709,11 +760,26 @@ void fragment() {
 	// white. Compressing it through its own reciprocal keeps the pool bright
 	// while leaving the pattern legible right through the hottest part -- the
 	// point being that molten gold has FIGURE in it, and a blown core has none.
-	// Gated on WOKEN rather than on the melt, so the figures resolve as the
-	// beam finds them instead of only in the hottest centre of the pool.
-	vec3 lit = env * woken * heat * 0.9;
-	lit = lit / (1.0 + lit * 0.85);
-	EMISSION = warm * wake_glow + albedo * metal * leaf_ember + lit
+	// THE BOWL, and nothing else, is reflective. Tight around the splash and
+	// broken up, so it reads as a patch of disturbed liquid rather than as a
+	// polished disc someone installed in the wall.
+	float bowl = molten * pow(clamp(1.0 - dish_r, 0.0, 1.0), bowl_tightness);
+	float patchy = mix(1.0, fbm(v_world.xz * 5.5 + vec2(ft * 0.4, -ft * 0.3)),
+			bowl_breakup);
+	bowl *= patchy;
+	vec3 reflection = env * bowl * 1.35;
+
+	// EVERYTHING ELSE GLOWS FROM WITHIN and fades to black. This is the gold
+	// taking heat off the beam rather than catching its light: ember at the
+	// cold edge of the cone, running up to pale gold where the metal is about
+	// to give. It is emission, so it owes nothing to the renderer's lights,
+	// and it falls off with the cone to pure darkness.
+	vec3 incandescent = mix(ember_cold, ember_hot, smoothstep(0.0, 0.7, heat));
+	incandescent = mix(incandescent, gold_pale, smoothstep(0.7, 1.0, heat));
+	// The leaf carries the incandescence; the ground between it stays dark, so
+	// the ornament is what glows and the bed it sits on is what fades.
+	EMISSION = incandescent * wake_glow * (0.35 + 0.65 * leaf)
+			+ reflection
 			+ star_colour * sky_glow * 0.55
 			+ albedo * jewel_face * jewel_gleam * 0.16;
 }
