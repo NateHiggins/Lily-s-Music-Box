@@ -24,18 +24,22 @@ func _ready() -> void:
 	get_tree().quit(0)
 
 
+## THE SCENE NOW BRINGS ITS OWN LIGHT, so this harness stopped bringing any.
+##
+## Until 2026-08-17 this function built a WorldEnvironment and two OmniLight3Ds
+## before photographing anything, because production had none of the three:
+## `CampaignShell` frees the waking world that owns the waking environment, and
+## `DreamMazeRoot` built no replacement. The controls were honestly named —
+## `RecedingOrientationControl`, `NearestFloorBlackLevelControl` — but the
+## consequence was that N6's proof frames demonstrated navigable darkness in a
+## scene no player could enter, and the real one was pure black
+## (`art/renders/dream_env_n7/before/`).
+##
+## `DreamMazeRoot` now owns a WorldEnvironment, a carried black level and the
+## ruled receding practical. Keeping the controls here would double every one
+## of them and leave these frames just as unlike production as before, in the
+## other direction.
 func _build_world() -> void:
-	var environment := Environment.new()
-	environment.background_mode = Environment.BG_COLOR
-	environment.background_color = Color("05070d")
-	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	environment.ambient_light_color = Color("1d2740")
-	environment.ambient_light_energy = 0.18
-	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
-	var world_environment := WorldEnvironment.new()
-	world_environment.environment = environment
-	add_child(world_environment)
-
 	var scene := load("res://scenes/dream/DreamMazeRoot.tscn") as PackedScene
 	_root = scene.instantiate() as DreamMazeRoot
 	_root.autonomous = false
@@ -65,24 +69,8 @@ func _build_world() -> void:
 	_root.player.rotation.y = -PI / 2.0
 	_root.pursuer.reset_run(Vector3(wall_x - 1.2, 0.0, hall_z))
 
-	# Shot-scene orientation controls, as in N3: the ruled light-off state is
-	# navigable darkness, not a black video file.
-	var receding_practical := OmniLight3D.new()
-	receding_practical.name = "RecedingOrientationControl"
-	receding_practical.position = Vector3(wall_x - 0.4, 1.65, hall_z)
-	receding_practical.light_color = Color("71809c")
-	receding_practical.light_energy = 0.72
-	receding_practical.omni_range = 9.5
-	receding_practical.shadow_enabled = false
-	add_child(receding_practical)
-	var black_level_floor := OmniLight3D.new()
-	black_level_floor.name = "NearestFloorBlackLevelControl"
-	black_level_floor.position = Vector3(wall_x - 4.4, 0.28, hall_z)
-	black_level_floor.light_color = Color("35415c")
-	black_level_floor.light_energy = 0.48
-	black_level_floor.omni_range = 9.0
-	black_level_floor.shadow_enabled = false
-	add_child(black_level_floor)
+	# No orientation controls. The scene owns its black level and its receding
+	# practical now; see the note on _build_world.
 
 	_root.player.camera.make_current()
 
