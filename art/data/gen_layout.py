@@ -8332,6 +8332,7 @@ def validate(layout):
     problems += _validate_placement(layout)
     problems += _validate_blinds(layout)
     problems += _validate_daylight(layout)
+    problems += _validate_bath_rails(layout)
     problems += _validate_vantry_points(layout)
     problems += _validate_kettles(layout)
     problems += _validate_boxfans(layout)
@@ -8479,6 +8480,209 @@ def _validate_daylight(layout):
             if touches and not lit:
                 problems.append("%s/%s owns facade but has no window"
                                 % (fl["id"], rid))
+    return problems
+
+
+## How far a towel bar's centre stands off the finished wall face. A rail on
+## brackets projects about this much; the number is the bar's, not a room's.
+RAIL_PROJ = 0.075
+## Clear space a rail keeps from a door or window reveal, and from the wall
+## ends. Matches the jamb build_orison actually draws.
+RAIL_CLEAR = 0.06
+
+
+def reseat_bath_rails(fl):
+    """Put every towel rail on its wall's real face and inside a clear run.
+
+    bath_fixtures() derives the rail from the ROOM RECT -- `x0 + 0.10`,
+    `x1 - 0.10` -- and a room rect edge is not a wall face. Measured across
+    the 23 emitted rails that produced THREE different standoffs (0.028,
+    0.128 and 0.178 m from the face, depending on which wall family the room
+    happened to sit in) and left 13 rails crossing a door or window reveal.
+    It is the same mistake as the blinds and the wall art, in a third owner.
+
+    bath_fixtures cannot fix it itself: it receives the furniture list and
+    never the walls, so it has nothing to measure against. This runs after
+    the walls exist, the way the facade window pass does, and moves the rail
+    and its towel together as one object.
+    """
+    moved = 0
+    for rail in list(fl["furniture"]):
+        rid = str(rail.get("id", ""))
+        if not rid.endswith("_trail") or "rect" not in rail:
+            continue
+        towel = None
+        for other in fl["furniture"]:
+            if str(other.get("id", "")) == rid[:-6] + "_towel":
+                towel = other
+                break
+        r = rail["rect"]
+        vertical = (r[3] - r[1]) > (r[2] - r[0])
+        cross = (r[0] + r[2]) * 0.5 if vertical else (r[1] + r[3]) * 0.5
+        span0, span1 = (r[1], r[3]) if vertical else (r[0], r[2])
+        length = span1 - span0
+
+        best = None
+        for w in fl["walls"]:
+            ax, ay = w["a"]
+            bx, by = w["b"]
+            if (abs(bx - ax) < 1e-6) != vertical:
+                continue
+            cl = ax if vertical else ay
+            lo = min(ay, by) if vertical else min(ax, bx)
+            hi = max(ay, by) if vertical else max(ax, bx)
+            if hi < span0 - 0.10 or lo > span1 + 0.10:
+                continue
+            d = abs(cross - cl)
+            if best is None or d < best[0]:
+                best = (d, w, cl, float(w.get("t", 0.12)), lo, hi)
+        if best is None:
+            continue
+        _d, w, cl, t, lo, hi = best
+
+        # The room side is whichever side the rail is already on.
+        sign = 1.0 if cross > cl else -1.0
+        seat = cl + sign * (t * 0.5 + RAIL_PROJ)
+
+        # Slide the run clear of every opening on this wall and of both ends.
+        blocked = []
+        for o in w.get("openings", []):
+            at = lo + float(o["at"])
+            half = float(o["w"]) * 0.5 + RAIL_CLEAR
+            blocked.append((at - half, at + half))
+        start = span0
+        limit_lo = lo + RAIL_CLEAR
+        limit_hi = hi - RAIL_CLEAR - length
+        if limit_hi < limit_lo:
+            continue
+        start = min(max(start, limit_lo), limit_hi)
+
+        def _clear(a):
+            for b0, b1 in blocked:
+                if a < b1 and a + length > b0:
+                    return False
+            return True
+
+        if not _clear(start):
+            found = None
+            probe = 0.05
+            while probe <= 3.0:
+                for cand in (start - probe, start + probe):
+                    if limit_lo <= cand <= limit_hi and _clear(cand):
+                        found = cand
+                        break
+                if found is not None:
+                    break
+                probe += 0.05
+            if found is None:
+                # A SHORTER BAR IS THE RIGHT ANSWER IN A TIGHT BATH, not a
+                # bar left overhanging its wall. 4B's own bathroom is the
+                # case: a 2.20 m wall with a 0.81 m door leaves 0.575 m of
+                # clear run against a 0.62 m rail, so the full-length bar had
+                # nowhere legal and used to be left poking 20 mm past the
+                # wall's end. Shrink to fit, down to a bar still worth having.
+                for shorter in (0.55, 0.50, 0.45, 0.40):
+                    lim_hi2 = hi - RAIL_CLEAR - shorter
+                    if lim_hi2 < limit_lo:
+                        continue
+                    hit = None
+                    step = limit_lo
+                    while step <= lim_hi2 + 1e-9:
+                        ok = True
+                        for b0, b1 in blocked:
+                            if step < b1 and step + shorter > b0:
+                                ok = False
+                                break
+                        if ok:
+                            hit = step
+                            break
+                        step += 0.05
+                    if hit is not None:
+                        found = hit
+                        length = shorter
+                        limit_hi = lim_hi2
+                        break
+            if found is None:
+                continue
+            start = found
+
+        shrink = (span1 - span0) - length
+        if vertical:
+            dx = (seat - cross)
+            dy = (start - span0)
+        else:
+            dx = (start - span0)
+            dy = (seat - cross)
+        for box in (rail, towel):
+            if box is None or "rect" not in box:
+                continue
+            q = box["rect"]
+            box["rect"] = [round(q[0] + dx, 4), round(q[1] + dy, 4),
+                           round(q[2] + dx, 4), round(q[3] + dy, 4)]
+        if shrink > 1e-6:
+            # trim the rail, and the towel with it so it still hangs inboard
+            q = rail["rect"]
+            if vertical:
+                rail["rect"] = [q[0], q[1], q[2], round(q[3] - shrink, 4)]
+            else:
+                rail["rect"] = [q[0], q[1], round(q[2] - shrink, 4), q[3]]
+            if towel is not None and "rect" in towel:
+                u = towel["rect"]
+                trim = min(shrink, (u[3] - u[1]) if vertical
+                           else (u[2] - u[0]) - 0.12)
+                if trim > 0.0:
+                    if vertical:
+                        towel["rect"] = [u[0], u[1], u[2],
+                                         round(u[3] - trim, 4)]
+                    else:
+                        towel["rect"] = [u[0], u[1], round(u[2] - trim, 4),
+                                         u[3]]
+        rail["mount"] = {"cross": round(cl, 4), "t": round(t, 4),
+                         "side": 1 if sign > 0 else -1}
+        moved += 1
+    return moved
+
+
+def _validate_bath_rails(layout):
+    """Every towel rail stands off its own wall by one number, and no rail
+    crosses a reveal. Both read from the wall record the rail records.
+    """
+    problems = []
+    for fl in layout["floors"]:
+        for rail in fl["furniture"]:
+            rid = str(rail.get("id", ""))
+            if not rid.endswith("_trail"):
+                continue
+            if "mount" not in rail:
+                # A rail the pass declined to seat is exactly the one worth
+                # hearing about; skipping it here is how 4B's overhang stayed
+                # invisible after 22 of 23 rails were corrected.
+                problems.append("rail %s was never seated on a wall" % rid)
+                continue
+            m = rail["mount"]
+            r = rail["rect"]
+            vertical = (r[3] - r[1]) > (r[2] - r[0])
+            cross = (r[0] + r[2]) * 0.5 if vertical else (r[1] + r[3]) * 0.5
+            face = float(m["cross"]) + m["side"] * float(m["t"]) * 0.5
+            proj = (cross - face) * m["side"]
+            if abs(proj - RAIL_PROJ) > 0.005:
+                problems.append("rail %s projects %.3f m, not %.3f"
+                                % (rid, proj, RAIL_PROJ))
+            for w in fl["walls"]:
+                ax, ay = w["a"]
+                bx, by = w["b"]
+                if (abs(bx - ax) < 1e-6) != vertical:
+                    continue
+                if abs((ax if vertical else ay) - float(m["cross"])) > 0.001:
+                    continue
+                lo = min(ay, by) if vertical else min(ax, bx)
+                s0, s1 = (r[1], r[3]) if vertical else (r[0], r[2])
+                for o in w.get("openings", []):
+                    at = lo + float(o["at"])
+                    half = float(o["w"]) * 0.5
+                    if s0 < at + half and s1 > at - half:
+                        problems.append("rail %s crosses a %s reveal"
+                                        % (rid, o.get("type", "opening")))
     return problems
 
 def _validate_ceilings(layout):
@@ -10345,6 +10549,11 @@ def main():
               ("B1", "F01", "F02", "F03", "F04", "F05", "F06", "ROOF")]
     removed_windows = sum(remove_partition_crossing_windows(fl)
                           for fl in floors)
+    # Towel rails re-seat here for the same reason blinds hang late: they
+    # need the finished walls and their openings, and bath_fixtures() is
+    # handed neither.
+    reseated_rails = sum(reseat_bath_rails(fl) for fl in floors)
+    print("bath rails: %d re-seated onto their wall face" % reseated_rails)
     # Blinds hang LAST, after the facade audit. Windows are still being
     # deleted at this point - eighteen of them cross partitions and get
     # pulled - and a blind authored earlier would be left covering a
