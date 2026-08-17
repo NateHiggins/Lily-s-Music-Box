@@ -253,20 +253,31 @@ func _build_barriers() -> void:
 		barrier_shapes.append(node)
 
 
+## Every light a shop owns, not just the one over its door.
+##
+## The sweep used to rewrite SITE_SHOP_HOURS_* -> SITE_SHOP_LT_* and stop
+## there, so eleven of the arcade's forty-seven bulbs knew the hour and the
+## other twenty-eight did not. At 03:00 the signs read DARK, the grilles were
+## drawn across the fronts, and behind them every sales floor and back room
+## was still fully lit — a closed shop blazing through its own shutter.
+const SHOP_LIGHT_PREFIXES := ["SITE_SHOP_LT_", "SITE_SHOP_IN0_",
+		"SITE_SHOP_IN1_", "SITE_SHOP_IN2_", "SITE_SHOP_DARKROOM_"]
+
+
 func _apply_shop_lights() -> void:
 	if _root == null:
 		return
 	for spec in shop_specs:
-		var light_id := String(spec.id).replace(
-				"SITE_SHOP_HOURS_", "SITE_SHOP_LT_")
-		var fixture := _root.get_node_or_null(NodePath(light_id)) \
-				as LightFixtureProp
-		if fixture == null:
-			continue
+		var trade := String(spec.id).replace("SITE_SHOP_HOURS_", "")
 		var on := not _after_hours \
 				or String(spec.trade) == NIGHT_SERVICE_TRADE
-		fixture.set_state_gain(1.0 if on else 0.0)
-		fixture.set_powered(on)
+		for prefix in SHOP_LIGHT_PREFIXES:
+			var fixture := _root.get_node_or_null(
+					NodePath(prefix + trade)) as LightFixtureProp
+			if fixture == null:
+				continue
+			fixture.set_state_gain(1.0 if on else 0.0)
+			fixture.set_powered(on)
 
 
 func _refresh_visibility_and_collision() -> void:
