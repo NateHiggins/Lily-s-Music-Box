@@ -127,6 +127,22 @@ func _build_visual() -> void:
 	_tick = make_emitter("tick", -27.0)
 
 
+## How far a wall valve's mounting plate sits IN FRONT of the splashback it
+## comes through. Negative because the escutcheon reaches ~15 mm rearward, so
+## a small forward offset still buries its back edge in the enamel and the
+## fitting reads as penetrating rather than floating.
+##
+## This is the kitchen sink's long-standing relationship, promoted to a shared
+## constant. It was `d * 0.5 - 0.035` against a face at `d * 0.5 - 0.0215`,
+## i.e. exactly -0.0135, and it was correct there while the lavatory used an
+## unrelated literal.
+const VALVE_SEAT_DZ := -0.0135
+
+## Recorded per fixture so a test can check the geometry instead of a boolean.
+var _panel_front_z := 0.0
+var _valve_mount_z := 0.0
+
+
 func _build_bath_sink(parent: Node3D) -> void:
 	# 24-inch enameled lavatory with integral back and apron: the compact,
 	# inexpensive apartment-house type in Mott's 1908 plate 1053.
@@ -136,12 +152,23 @@ func _build_bath_sink(parent: Node3D) -> void:
 	_tapered_pedestal(parent, 0.66)
 	_open_oval_basin(parent, Vector3(0, 0.79, -0.02), 0.61, 0.46, 0.13,
 			PORCELAIN)
-	_box_on(parent, Vector3(0.61, 0.18, 0.045),
-			Vector3(0, 0.87, 0.205), PORCELAIN)
+	var panel_d := 0.045
+	var panel_c := 0.205
+	_box_on(parent, Vector3(0.61, 0.18, panel_d),
+			Vector3(0, 0.87, panel_c), PORCELAIN)
 	# These are wall valves through the integral porcelain back, not taps set
 	# into a horizontal deck. The old false flag turned both crosses edge-on;
 	# from the doorway they read as unexplained rectangular pegs.
-	var mount := Vector3(0, 0.91, 0.105)
+	#
+	# THE FLAG WAS FIXED AND THE COORDINATE WAS NOT. z stayed at 0.105, a deck
+	# position, while the back's front face is at 0.1825 -- so both valves and
+	# the whole bridge hung 64 mm out in the air in front of the porcelain
+	# they are supposed to pierce, in all 24 lavatories. Derive it from the
+	# panel instead, by the same rule the kitchen sink has always used, so the
+	# two cannot drift apart again.
+	_panel_front_z = panel_c - panel_d * 0.5
+	_valve_mount_z = _panel_front_z + VALVE_SEAT_DZ
+	var mount := Vector3(0, 0.91, _valve_mount_z)
 	_build_pair_taps(mount, 0.18, true)
 	# A cheap 1920s bridge lavatory fitting still explains how water reaches
 	# its centre spout. The exposed manifold and union keep the faucet from
@@ -172,13 +199,17 @@ func _build_kitchen_sink(parent: Node3D) -> void:
 	var d := 0.38 if compact_kitchen else 0.46
 	var top := 0.905 if compact_kitchen else 0.90
 	_open_rect_basin(parent, Vector3(0, top, 0), w, d, 0.15, ENAMEL)
-	_box_on(parent, Vector3(w + 0.03, 0.16, 0.035),
-			Vector3(0, top + 0.075, d * 0.5 - 0.004), ENAMEL)
+	var panel_d := 0.035
+	var panel_c := d * 0.5 - 0.004
+	_box_on(parent, Vector3(w + 0.03, 0.16, panel_d),
+			Vector3(0, top + 0.075, panel_c), ENAMEL)
+	_panel_front_z = panel_c - panel_d * 0.5
 	# Centre the valve penetrations inside the 160 mm integral back. At +170 mm
 	# the escutcheons floated above its top edge; +110 mm keeps each mounting
 	# plate visibly borne by enamel while leaving hand clearance over the rim.
 	var mount_y := top + 0.11
-	_build_pair_taps(Vector3(0, mount_y, d * 0.5 - 0.035), 0.19, true)
+	_valve_mount_z = _panel_front_z + VALVE_SEAT_DZ
+	_build_pair_taps(Vector3(0, mount_y, _valve_mount_z), 0.19, true)
 	# A bridge joins the two wall valves and gives the central riser a
 	# mechanical origin. Without it the gooseneck was just a nickel pole
 	# descending from nowhere when the player stood square to the run.

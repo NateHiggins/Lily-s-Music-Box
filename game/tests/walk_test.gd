@@ -719,6 +719,10 @@ func _plumbing_checks() -> void:
 	var player_shower: TapProp = null
 	var incomplete := []
 	var misoriented_lavatories := []
+	# Seating is a DISTANCE, and the old check tested a boolean. Collect the
+	# gap between each wall-valve fixture's mount and its own splashback face
+	# so the assertion can compare geometry.
+	var valve_seat := {}
 	var missing_outlets := []
 	var incomplete_curtains := []
 	for child in root.get_children():
@@ -729,6 +733,11 @@ func _plumbing_checks() -> void:
 			counts[tap.fixture] += 1
 		if tap._handles.size() != 2 or tap._stream == null:
 			incomplete.append(tap.name)
+		if tap.fixture in ["bath_sink", "kitchen_sink"]:
+			if not valve_seat.has(tap.fixture):
+				valve_seat[tap.fixture] = []
+			valve_seat[tap.fixture].append(
+					tap._valve_mount_z - tap._panel_front_z)
 		if tap.fixture == "bath_sink":
 			if tap._handle_wall_mounted != [true, true]:
 				misoriented_lavatories.append(tap.name)
@@ -828,6 +837,28 @@ func _plumbing_checks() -> void:
 				"the production jukebox selects locally and returns its coin")
 	_check(incomplete.is_empty(),
 			"every water fixture owns two valves and a stream (%s)" % [incomplete])
+	# THE CHECK THAT WOULD HAVE CAUGHT IT. The flag test above passed for a
+	# year while the lavatory's valves hung 64 mm out in front of the
+	# porcelain, because 3b04597 corrected the flag and left the coordinate.
+	# A boolean cannot see a distance. Both wall-valve fixtures must seat
+	# their valves the same way against their OWN splashback -- no literal,
+	# just the two families agreeing, which is false the moment either drifts.
+	var seats_agree := valve_seat.has("bath_sink") 			and valve_seat.has("kitchen_sink")
+	var seat_spread := 0.0
+	if seats_agree:
+		var all_seats: Array = []
+		all_seats.append_array(valve_seat["bath_sink"])
+		all_seats.append_array(valve_seat["kitchen_sink"])
+		var lo: float = all_seats[0]
+		var hi: float = all_seats[0]
+		for v in all_seats:
+			lo = minf(lo, float(v))
+			hi = maxf(hi, float(v))
+		seat_spread = hi - lo
+		seats_agree = seat_spread < 0.005
+	_check(seats_agree,
+			"every wall valve seats against its own splashback alike (spread %.4f m)"
+					% seat_spread)
 	_check(misoriented_lavatories.is_empty(),
 			"lavatory cross handles face the room from the integral back (%s)"
 			% [misoriented_lavatories])
