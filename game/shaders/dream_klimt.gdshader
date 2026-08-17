@@ -36,6 +36,38 @@ render_mode blend_mix, cull_back, diffuse_burley, specular_schlick_ggx;
 #define MOTIF_FLOWERBED 5
 uniform int motif : hint_range(0, 5) = 1;
 
+// ================================================ THE REAL SURFACE, FIRST ===
+// Owner: "the pattern is way too regular and too much of the environment is
+// revealed as a simple hallway. can we use this shader as a filter over the
+// normal texture system?"
+//
+// Yes, and it is the better architecture -- it also puts back something the
+// original brief demanded and the procedural pass had quietly thrown away:
+// "at arm's length, this is indisputably the Orison." A generated spiral field
+// can never deliver that, because it is not the building; it is a pattern the
+// building has been replaced BY. Photographed plaster is.
+//
+// So the base is the real material library -- 1024px albedo, normal and
+// roughness per surface, the same plaster, tin ceiling and terrazzo the waking
+// Orison names in its own catalog -- and everything this shader used to draw
+// becomes a FILTER consuming it. The dream is now the Orison being eaten
+// rather than a golden corridor that resembles one.
+//
+// It also fixes the regularity outright. The irregularity is photographic now:
+// real stains, real trowel marks, real wear. No amount of fbm buys that.
+uniform sampler2D base_albedo : source_color, filter_linear_mipmap,
+		repeat_enable;
+uniform sampler2D base_normal : hint_normal, filter_linear_mipmap,
+		repeat_enable;
+uniform sampler2D base_rough : hint_default_white, filter_linear_mipmap,
+		repeat_enable;
+// Real-world size of one texture tile, so a 1024px plaster sheet is about a
+// metre of wall rather than an arbitrary UV repeat.
+uniform float base_tile_m : hint_range(0.1, 8.0) = 1.15;
+// How much of the frame is still the real building versus the gold that is
+// consuming it. This is the dial the whole look now turns on.
+uniform float consumed : hint_range(0.0, 1.0) = 0.55;
+
 // --------------------------------------------------------------- palette ---
 // Read off the frieze rather than invented. The cream is the ground of the
 // whole painting; the golds run from a dark bole through leaf to a pale
@@ -546,6 +578,14 @@ void fragment() {
 	}
 	q += drift + (warp + vec2(living, living * 0.7)) * heat * 0.55;
 
+	// THE BUILDING, SAMPLED FIRST. Triplanar because these are untextured
+	// boxes with no UVs worth using -- the same projection the ornament uses,
+	// so surface and filter are in register.
+	vec2 bt = q / max(0.05, base_tile_m * pattern_scale) * 6.0;
+	vec3 surface = texture(base_albedo, bt).rgb;
+	float surface_rough = texture(base_rough, bt).r;
+	vec3 surface_n = texture(base_normal, bt).rgb * 2.0 - 1.0;
+
 	vec3 albedo = ivory;
 	float leaf = 0.0;
 	float ink_mask = 0.0;
@@ -554,6 +594,9 @@ void fragment() {
 	// Stones read as glass, not as metal: they take their own gleam and must
 	// not be handed the leaf's molten treatment.
 	float jewel_face = 0.0;
+	// How far this fragment has been consumed. Set below, used at the bottom
+	// to keep unconsumed plaster from behaving like metal.
+	float metal_hint = 0.0;
 	// Stars carry their own light. Nothing else here does.
 	float sky_glow = 0.0;
 
@@ -710,6 +753,30 @@ void fragment() {
 	ink_mask *= bare;
 	accent_mask *= bare;
 
+	// ============================================ THE BUILDING UNDERNEATH ===
+	// The motif above produced the GOLD. Here it meets the real surface, and
+	// what decides between them is entropy: a slow field that says how far
+	// this patch of the Orison has already been eaten.
+	//
+	// Entropy is high where the ornament is dense, so the gold is not painted
+	// ON the building -- it is what the building turns INTO, and the tendrils
+	// are the front line of it. Away from them the plaster is just plaster,
+	// dark and cold and real.
+	float rot = fbm(v_world.xz * 0.28 + vec2(TIME * 0.006, 0.0));
+	float eaten = clamp(consumed * (0.35 + 1.3 * leaf) + rot * 0.45 - 0.2,
+			0.0, 1.0);
+	// The lamp accelerates it. Looking at a thing is what consumes it here,
+	// which is the ruled cruelty of this world made material.
+	eaten = clamp(eaten + heat * 0.45, 0.0, 1.0);
+
+	// Under the gold, the real wall -- darkened, because the dream is lit by
+	// one lamp and plaster is not a light source.
+	vec3 real_wall = surface * 0.55;
+	albedo = mix(real_wall, albedo, eaten);
+	// The leaf only counts where the surface has actually turned.
+	leaf *= eaten;
+	metal_hint = eaten;
+
 	// ===================================================== THE PAINT ========
 	// Applied AFTER the motif has chosen its colours and BEFORE the melt, so
 	// the paint is what the ornament is made of rather than a film over it.
@@ -856,7 +923,13 @@ void fragment() {
 			+ tan_b * ((by.x - b0.x) + (sy - s0) * 0.5))
 			* impasto * paint_amount * 6.0;
 
-	vec3 bumped = normalize(n + relief + wave + dish + emboss + paint_relief
+	// The real surface's own relief, fading out as the gold takes over -- so a
+	// wall stops being trowelled plaster and becomes beaten metal rather than
+	// wearing both at once.
+	vec3 surface_relief = (tan_a * surface_n.x + tan_b * surface_n.y)
+			* (1.0 - metal_hint) * 1.4;
+	vec3 bumped = normalize(n + surface_relief + relief + wave + dish + emboss
+			+ paint_relief
 			+ (tan_a * (hx - h0) + tan_b * (hy - h0)) * 42.0 * molten);
 
 	vec3 refl = reflect(-normalize(VIEW), bumped);
@@ -895,11 +968,15 @@ void fragment() {
 	// one. 0.05/0.26 was set when the renderer's light was still doing the
 	// work and left the corridor at the threshold of visible.
 	float wake_glow = woken * (0.18 + 1.15 * heat);
-	METALLIC = mix(metal * gold_metallic, 0.95, molten);
+	METALLIC = mix(metal * gold_metallic * metal_hint, 0.95, molten);
 	SPECULAR = mix(mix(0.25, 0.85, metal), 0.9, molten);
 	// A mirror is smooth. The collapse toward zero roughness is most of why the
 	// surface reads as liquid rather than as a shinier wall.
-	ROUGHNESS = mix(mix(ground_roughness, gold_roughness, metal), 0.14,
+	// Real roughness where the wall is still a wall; the gold's own where it
+	// has turned. Plaster that shines like leaf is the fastest way to lose the
+	// building entirely.
+	float base_r = mix(surface_rough, ground_roughness, 0.35);
+	ROUGHNESS = mix(mix(base_r, gold_roughness, metal * metal_hint), 0.14,
 			molten);
 	ROUGHNESS = mix(ROUGHNESS, 0.08, jewel_face);
 	SPECULAR = mix(SPECULAR, 1.0, jewel_face * 0.8);

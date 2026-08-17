@@ -639,6 +639,27 @@ static func _klimt_material(color: Color, roughness: float,
 		MOTIF_EYE:
 			scale = 5.0
 	material.set_shader_parameter("pattern_scale", scale)
+	# THE REAL SURFACE UNDER THE GOLD. The dream modules are measured
+	# extractions of real Orison rooms, so they take the same materials the
+	# waking building names in its own catalog -- plaster on the walls, tin on
+	# the ceiling, terrazzo underfoot. The Klimt pass is a filter consuming
+	# them, not a replacement for them.
+	var surface := "plaster"
+	match motif:
+		MOTIF_MOSAIC:
+			surface = "terrazzo"
+		MOTIF_CANOPY:
+			surface = "tin_ceiling"
+		MOTIF_TRIANGLE:
+			surface = "timber"
+		MOTIF_EYE:
+			surface = "plaster_stained"
+	for slot in [["base_albedo", "albedo"], ["base_normal", "normal"],
+			["base_rough", "roughness"]]:
+		var tex: Texture2D = load("res://assets/dream/surfaces/%s/%s.png"
+				% [surface, slot[1]])
+		if tex != null:
+			material.set_shader_parameter(str(slot[0]), tex)
 	# THE WORLD IN THE REFLECTION. Generated 2026-08-17 against
 	# design/KLIMT_REFLECTED_WORLD_PROMPTS.md: the residents of the Orison in
 	# gold mosaic robes, faces and hands painted, one figure without a face.
