@@ -2374,14 +2374,36 @@ def ceiling_pass(floors):
     faces, this lets a later room-specific finish replace plaster honestly.
     """
     order = ["B1", "F01", "F02", "F03", "F04", "F05", "F06", "ROOF"]
+    by_id = {f["id"]: f for f in floors}
     total = 0
     for fl in floors:
         fl["ceilings"] = []
         fid = fl["id"]
         if fid == "ROOF":
             continue
-        above = LEVELS[order[order.index(fid) + 1]]
+        above_id = order[order.index(fid) + 1]
+        above = LEVELS[above_id]
         ztop = round(above - SLAB_T - 0.005, 3)
+        # A ceiling is the UNDERSIDE OF THE SLAB ABOVE IT, so the openings it
+        # must be cut by are the ones in THAT slab -- not the ones in the floor
+        # this record is filed under. Those are different sets, and reading the
+        # wrong one sealed 40.44 m2 of real opening.
+        #
+        # From F01 up the two sets happen to be identical: the atrium well, the
+        # lift shaft and the flue punch every storey, so the mistake was
+        # invisible and stayed invisible. B1 is where they part. Its own slab is
+        # the ground and carries no holes at all, while F01's slab overhead
+        # carries all three -- so B1's ceiling capped the atrium well with a
+        # 39.94 m2 sheet of pressed tin and the switchback stair climbed out of
+        # the basement into a lid.
+        #
+        # Frame and measurement:
+        # art/renders/ceiling_streaming/audit_2026-08-17/. The guard that keeps
+        # it shut is CeilingStreamingAudit.tscn, which compares every ceiling
+        # face against the slab above it and fails on any overlap.
+        holes_above = []
+        for slab in by_id.get(above_id, {}).get("slabs", []):
+            holes_above.extend(slab.get("holes", []) or [])
         claimed = []
         rooms = sorted((r for r in fl.get("rooms", [])
                         if r.get("kind") != "roof"),
@@ -2390,7 +2412,7 @@ def ceiling_pass(floors):
             rects = [tuple(room["rect"])]
             for prior in claimed:
                 rects = subtract_rect(rects, prior)
-            for hole in fl["slabs"][0].get("holes", []):
+            for hole in holes_above:
                 rects = subtract_rect(rects, tuple(hole))
             mat = _ceiling_material(fid, room)
             for i, rect in enumerate(rects):
@@ -8743,7 +8765,19 @@ def _validate_ceilings(layout):
                                 (face["id"], face.get("mat")))
         # Subtract the faces from each room. Slab holes are lawful absences;
         # anything left after both operations is a patch of open sky.
-        holes = [tuple(h) for h in fl["slabs"][0].get("holes", [])]
+        #
+        # The lawful absences belong to the slab ABOVE, for the same reason
+        # `expected_z` above is taken from the next floor: that slab IS this
+        # room's soffit. This line used to read `fl["slabs"][0]`, the storey's
+        # own floor, and `ceiling_pass()` made the identical substitution --
+        # so the generator and its validator held one wrong idea between them
+        # and agreed with each other about it. B1's ceiling sealed the atrium
+        # well and the flue, and this check certified it closed, because a
+        # sealed opening is exactly what "no open ceiling" looks like when you
+        # are subtracting the wrong holes.
+        holes = []
+        for slab in floors[floor_i + 1].get("slabs", []):
+            holes.extend(tuple(h) for h in slab.get("holes", []) or [])
         for room in fl.get("rooms", []):
             if room.get("kind") == "roof":
                 continue

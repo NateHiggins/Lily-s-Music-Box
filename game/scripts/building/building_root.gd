@@ -2319,7 +2319,12 @@ func _visibility_signature(p: Vector3) -> int:
 	var bit := 5
 	for fid in floor_nodes:
 		var z: float = layout["meta"]["levels"][fid]
+		# Must stay identical to `_apply_visibility`'s `should_show`, including
+		# the Passage term: this key is the cache's whole claim that nothing
+		# changed, and a signature that models a different rule than the one
+		# applied would skip a frame that needed applying.
 		var floor_visible: bool = show_all_floors or in_eye or outside \
+				or (in_passage and fid == "F01") \
 				or absf(p.y - z) < 1.75 \
 				or (fid == "ROOF" and p.y > 15.0)
 		var props_visible: bool = show_all_floors or in_eye \
@@ -2357,7 +2362,21 @@ func _apply_visibility(p: Vector3) -> void:
 			and (absf(p.x) > 15.2 or absf(p.z) > 11.2)
 	for fid in floor_nodes:
 		var z: float = layout["meta"]["levels"][fid]
+		# `in_passage` belongs here for the same reason it belongs in the prop
+		# rule below, and its absence was a real defect rather than a spare
+		# clause. The Passage hall IS F01 — its shell, vault and shopfronts are
+		# parented into that floor node — while `_point_is_in_passage` admits an
+		# eye anywhere from -0.50 to 5.80 m, because the glass crown reaches
+		# 5.55. Between 1.75 and 5.80 the storey rule therefore culled the floor
+		# out from under a zone that was still reporting itself active, and
+		# Godot's hierarchical visibility took the whole arcade down with it.
+		# The props escaped, being root-owned and already exempted one clause
+		# down, which is why the symptom was an aisle pendant hanging alone in
+		# the night sky rather than an obviously empty frame. Costs nothing at
+		# standing height: a body's origin is its feet, so a player in the hall
+		# already satisfied the 1.75 window and this term never fires for them.
 		var should_show: bool = show_all_floors or in_eye or outside \
+				or (in_passage and fid == "F01") \
 				or absf(p.y - z) < 1.75 or (fid == "ROOF" and p.y > 15.0)
 		if floor_nodes[fid].visible != should_show:
 			floor_nodes[fid].visible = should_show

@@ -3667,7 +3667,43 @@
       -3.25,
       -3.25,
       3.25,
+      -3.16
+     ],
+     "z": -0.185,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "B1_CEILING_B1_ATRIUM_01",
+     "room": "B1_ATRIUM",
+     "rect": [
+      -3.25,
+      3.16,
+      3.25,
       3.25
+     ],
+     "z": -0.185,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "B1_CEILING_B1_ATRIUM_02",
+     "room": "B1_ATRIUM",
+     "rect": [
+      -3.25,
+      -3.16,
+      -3.16,
+      3.16
+     ],
+     "z": -0.185,
+     "mat": "tin_ceiling"
+    },
+    {
+     "id": "B1_CEILING_B1_ATRIUM_03",
+     "room": "B1_ATRIUM",
+     "rect": [
+      3.16,
+      -3.16,
+      3.25,
+      3.16
      ],
      "z": -0.185,
      "mat": "tin_ceiling"
@@ -3727,13 +3763,37 @@
       5.51,
       2.7,
       13.65,
-      9.65
+      9.1
      ],
      "z": -0.185,
      "mat": "plaster_stained"
     },
     {
      "id": "B1_CEILING_B1_BOILER_02",
+     "room": "B1_BOILER",
+     "rect": [
+      5.51,
+      9.1,
+      9.55,
+      9.65
+     ],
+     "z": -0.185,
+     "mat": "plaster_stained"
+    },
+    {
+     "id": "B1_CEILING_B1_BOILER_03",
+     "room": "B1_BOILER",
+     "rect": [
+      10.45,
+      9.1,
+      13.65,
+      9.65
+     ],
+     "z": -0.185,
+     "mat": "plaster_stained"
+    },
+    {
+     "id": "B1_CEILING_B1_BOILER_04",
      "room": "B1_BOILER",
      "rect": [
       5.51,

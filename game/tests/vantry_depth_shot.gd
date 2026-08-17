@@ -50,21 +50,24 @@ func _ready() -> void:
 	# were in this very structure.
 	await _capture("05_crossing_lantern_up",
 			[14.0, -51.6, 1.60], [14.0, -51.4, 9.60])
-	# UNRESOLVED, and left in deliberately so the next person starts from a
-	# frame rather than from nothing. Three placements were tried inside the
-	# aisle -- y -55.0, then -60.2, both looking up at the south gable where
-	# gen_layout puts the lunette (PASSAGE_HALL_S = -64.6, glass at z
-	# 5.20..7.20). All three return NIGHT SKY with a single aisle pendant
-	# hanging in it, which means the nave vault does not roof this end of the
-	# hall and there is nothing between the camera and the horizon.
+	# RESOLVED 2026-08-17, and the answer was in the camera, not the building.
+	# This station used to sit at z 2.00 and return NIGHT SKY with a single
+	# aisle pendant hanging in it, which was read as the nave vault failing to
+	# roof this end of the hall. It was not. BuildingRoot's storey rule showed
+	# a floor only within 1.75 m of its elevation, the whole Passage is
+	# parented into F01, and 2.00 > 1.75 — so the camera culled the arcade out
+	# from under itself. The pendant survived because props are root-owned and
+	# were already exempted in the Passage; the vault was not. Every other
+	# station here stands at 1.50..1.62 and never crossed the line, which is
+	# why exactly one of six failed.
 	#
-	# So either the lunette is not reachable by eye from the aisle at all --
-	# which would matter for V4, since PassageLunetteKey is lighting something
-	# no player can see -- or the gable sits somewhere other than where the
-	# generator's south-gable loop implies. Worth settling before any more
-	# light is spent on it.
-	await _capture("06_south_gable_lunette_UNRESOLVED",
-			[14.0, -60.2, 2.00], [14.0, -64.5, 6.20])
+	# The floor rule now carries the same Passage term the prop rule always
+	# had, so this frame no longer depends on staying under 1.75. It is kept
+	# at 1.60 anyway: that is where a 5'0" body's eye actually is, and a
+	# station should photograph what a player can stand and see.
+	# CeilingStreamingAudit.tscn holds the measurement and the paired frames.
+	await _capture("06_south_gable_lunette",
+			[14.0, -58.0, 1.60], [14.0, -64.5, 5.80])
 	print("[VANTRY DEPTH SHOT] 6 frames saved")
 	get_tree().quit(0)
 
