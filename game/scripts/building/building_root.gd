@@ -718,19 +718,94 @@ uniform float celestial_core_radius = 0.038;
 uniform float celestial_halo_radius = 0.31;
 uniform float ray_strength = 0.0;
 uniform float lower_cloud_strength = 0.28;
+uniform float high_cloud_strength = 0.22;
 uniform float cloud_phase = 0.0;
 uniform float weather_flash = 0.0;
+
+// Hash value noise. No sampler: weather_sky_test pins the shader to exactly
+// two panorama_* samplers, and the road-mist shader already proves hash noise
+// compiles and runs on this renderer. It also costs no VRAM and no import.
+float hash3(vec3 p) {
+	return fract(sin(dot(p, vec3(91.73, 37.11, 141.7))) * 43758.5453);
+}
+
+float vnoise3(vec3 p) {
+	vec3 i = floor(p);
+	vec3 f = fract(p);
+	f = f * f * (3.0 - 2.0 * f);
+	float n000 = hash3(i + vec3(0.0, 0.0, 0.0));
+	float n100 = hash3(i + vec3(1.0, 0.0, 0.0));
+	float n010 = hash3(i + vec3(0.0, 1.0, 0.0));
+	float n110 = hash3(i + vec3(1.0, 1.0, 0.0));
+	float n001 = hash3(i + vec3(0.0, 0.0, 1.0));
+	float n101 = hash3(i + vec3(1.0, 0.0, 1.0));
+	float n011 = hash3(i + vec3(0.0, 1.0, 1.0));
+	float n111 = hash3(i + vec3(1.0, 1.0, 1.0));
+	return mix(mix(mix(n000, n100, f.x), mix(n010, n110, f.x), f.y),
+			mix(mix(n001, n101, f.x), mix(n011, n111, f.x), f.y), f.z);
+}
+
+// Lacunarity 2.03 rather than 2.0 so the octaves never lock into a lattice
+// and print a visible grid overhead.
+float fbm3(vec3 p, int octaves) {
+	float a = 0.5;
+	float sum = 0.0;
+	for (int k = 0; k < octaves; k++) {
+		sum += a * vnoise3(p);
+		p *= 2.03;
+		a *= 0.52;
+	}
+	return sum;
+}
+
+// Project a view direction onto a flat cloud slab at a notional altitude.
+// This is what makes the strata read as a CEILING rather than a painted
+// shell: features stretch toward the horizon and are largest directly
+// overhead, which is exactly where the panorama has to go soft.
+vec3 slab(vec3 d, float floor_y) {
+	return d / max(d.y, floor_y);
+}
+
+// The high veil. It owns the zenith now. The authored plate is deliberately
+// blurred overhead by the pole LOD, and the panorama's own top rows are a
+// near-constant convergence band, so without this the sky directly above the
+// player carries no detail at all -- which is the whole complaint.
+float high_veil(vec3 direction) {
+	// Frequency matters more than it looks. The slab coordinate at the zenith
+	// is barely a unit long, so a scale near 1 puts ONE noise feature across
+	// the whole visible sky and reads as a flat wash -- which is the thing
+	// this layer exists to prevent. 5.2 gives cells a few degrees across
+	// overhead, stretching toward the horizon as the slab divides out.
+	// ANISOTROPIC. Isotropic fbm makes round cells, and round pale cells
+	// overhead read as cotton wool, not cirrus. Cirrus is drawn out by wind
+	// shear, so stretch the sample 4.6:1 along the drift axis and the same
+	// noise becomes streaks.
+	vec3 plate = slab(direction, 0.06) * vec3(1.0, 1.0, 4.6);
+	float n = fbm3(plate * 4.4
+			+ vec3(TIME * 0.0035 + cloud_phase, 0.0, TIME * 0.0021), 4);
+	float fine = fbm3(plate * 11.0
+			+ vec3(TIME * 0.0052, 0.0, TIME * -0.0031), 3);
+	// A wide ramp, not a threshold. The veil should never reach full opacity
+	// anywhere -- it is thin ice miles up, and anything with a hard edge
+	// stops being that.
+	return smoothstep(0.18, 0.86, n * 0.80 + fine * 0.26);
+}
 
 float lower_clouds(float u, float v) {
 	// Integer azimuth frequencies make both moving bands exactly periodic at
 	// the panorama seam. Two slow, opposed drifts give the painted storm a
 	// nearer layer without advertising a rotating texture shell.
-	float p = u * 2.0 * PI;
-	float drift_a = TIME * 0.016 + cloud_phase;
-	float drift_b = TIME * -0.0095 + cloud_phase * 1.71;
-	float broad = sin(p * 3.0 + drift_a + v * 9.0) * 0.50;
-	broad += sin(p * 7.0 + drift_b - v * 15.0) * 0.27;
-	broad += sin(p * 13.0 + drift_a * 0.61 + v * 25.0) * 0.13;
+	// Was three summed sines, which read as a rotating shell because that is
+	// what it was. The name stays -- weather_sky_test pins it -- but the body
+	// is now slab-projected fbm, drifting on its own vector.
+	float elev = (1.0 - v) * 0.5 * PI;
+	float horiz = cos(elev);
+	vec3 direction = vec3(cos((u - 0.5) * 2.0 * PI) * horiz, sin(elev),
+			sin((u - 0.5) * 2.0 * PI) * horiz);
+	vec3 plate = slab(direction, 0.14);
+	float broad = fbm3(plate * 1.35
+			+ vec3(TIME * -0.0130 + cloud_phase, 0.0, TIME * 0.0074), 3);
+	broad = broad * 2.0 - 0.72;
 	// This is the lower deck, not cloud pasted over the skyline: it lives in
 	// the middle elevations and is gone before the authored roofline begins.
 	float altitude = smoothstep(0.12, 0.28, v)
@@ -748,12 +823,64 @@ void fragment() {
 	// immediately so skyline pixels never stretch into vertical bars.
 	float elevation = asin(clamp(direction.y, 0.0, 1.0));
 	float v = 1.0 - elevation / (0.5 * PI);
-	vec4 authored_a = texture(panorama_a, vec2(u, v));
-	vec4 authored_b = texture(panorama_b, vec2(u, v));
+	// THE ZENITH. Three separate faults met directly overhead and together
+	// made a smooth pucker ringed by cloud snapping back on.
+	//
+	// (1) Both samplers repeat on BOTH axes, so the bilinear tap at v=0 wrapped
+	// to row 2047 and put a dark dot at the exact pole. u must still wrap for
+	// the panorama seam and Godot has no per-axis hint, so clamp v instead.
+	const float SKY_TEXEL_V = 1.0 / 2048.0;
+	v = clamp(v, SKY_TEXEL_V * 0.5, 1.0 - SKY_TEXEL_V * 0.5);
+	// (2) Equirectangular has a projection singularity at the pole: 4096
+	// texels span 360 degrees of azimuth but only 360*sin(theta) degrees of
+	// arc, so tangential density runs 11.4 texels/deg at the horizon and 206
+	// at 3.2 degrees off vertical -- an 18:1 minification the hardware's
+	// screen-space derivatives cannot resolve, because they are undefined
+	// there. -log2(sin_theta) IS that minification, so compute the mip level
+	// rather than letting the GPU guess it.
+	float sin_theta = max(sqrt(max(0.0, 1.0 - direction.y * direction.y)),
+			1e-4);
+	float pole_lod = clamp(-log2(sin_theta), 0.0, 7.0);
+	vec4 authored_a = textureLod(panorama_a, vec2(u, v), pole_lod);
+	vec4 authored_b = textureLod(panorama_b, vec2(u, v), pole_lod);
+	// (3) AND THE FAN IS GEOMETRIC, NOT A FILTERING ARTEFACT. Every azimuth
+	// collapses onto one point at the pole, so a radial pinwheel survives any
+	// amount of blurring -- verified by forcing lod 6 across the whole dome,
+	// which turned the sky to soup and left the fan perfectly intact.
+	//
+	// So stop sampling the plate up there. Row 0 of every authored panorama is
+	// already the azimuthal MEAN of its top band -- measured std across all
+	// 4096 columns is exactly 0.000 -- so it is the correct cap colour and
+	// costs nothing to lose. Sampling that one constant row gives a clean
+	// disc with no convergence, crossfading out to real cloud by ~17 degrees.
+	// The high veil then puts detail back over the cap.
+	float cap_v = SKY_TEXEL_V * 0.5;
+	vec4 cap_a = textureLod(panorama_a, vec2(u, cap_v), 0.0);
+	vec4 cap_b = textureLod(panorama_b, vec2(u, cap_v), 0.0);
+	// Wide, because the fan is the projection of the plate's REAL detail and
+	// extends far past the flattened band. Cap dominates to ~20 degrees off
+	// vertical and the plate is fully back by ~40; the veil below carries the
+	// overhead structure across that whole span, and it has no pole to
+	// converge on because it is projected onto a flat slab.
+	float zen = smoothstep(0.05, 0.64, sin_theta);
+	authored_a = mix(cap_a, authored_a, zen);
+	authored_b = mix(cap_b, authored_b, zen);
 	vec4 authored = mix(authored_a, authored_b, sky_blend);
 	float lower = lower_clouds(u, v) * lower_cloud_strength;
-	float thickness = clamp(authored.a + lower, 0.0, 1.0);
+	// The veil is masked BY the storm deck, so the two read as separate
+	// altitudes: where the lower deck is solid the high cloud is hidden
+	// behind it, which is the parallax cue doing the work a second shell
+	// would otherwise have to.
+	// Lifted toward the zenith in exact compensation for the plate fading
+	// out: overhead the veil IS the sky, at the horizon it is a thin gauze.
+	float veil = high_veil(direction)
+			* high_cloud_strength * (1.0 + (1.0 - zen) * 1.35)
+			* (1.0 - lower * 0.65);
+	float thickness = clamp(authored.a + lower + veil * 0.5, 0.0, 1.0);
 	vec3 color = authored.rgb * exposure;
+	// A veil lightens and desaturates rather than darkening: it is thin ice
+	// crystal miles up catching whatever light there is, not rain-bearing.
+	color = mix(color, mix(color, celestial_color * 0.86, 0.5), veil);
 	// The close deck is cooler and slightly darker than the painted upper
 	// cloud. Its changing overlap is the parallax cue.
 	color = mix(color, color * vec3(0.69, 0.73, 0.78), lower * 0.48);
