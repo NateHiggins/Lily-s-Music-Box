@@ -68,7 +68,7 @@ uniform float ground_dark : hint_range(0.0, 1.0) = 0.22;
 // ----------------------------------------------------------------- shape ---
 uniform float pattern_scale : hint_range(0.2, 40.0) = 7.0;
 uniform float ink_weight : hint_range(0.0, 1.0) = 0.55;
-uniform float accent_amount : hint_range(0.0, 1.0) = 0.45;
+uniform float accent_amount : hint_range(0.0, 1.0) = 0.80;
 uniform float gold_metallic : hint_range(0.0, 1.0) = 0.28;
 uniform float gold_roughness : hint_range(0.0, 1.0) = 0.16;
 uniform float ground_roughness : hint_range(0.0, 1.0) = 0.88;
@@ -197,6 +197,47 @@ uniform float bowl_breakup : hint_range(0.0, 1.0) = 0.62;
 // where it is about to run.
 uniform vec3 ember_cold : source_color = vec3(0.420, 0.105, 0.030);
 uniform vec3 ember_hot : source_color = vec3(1.0, 0.62, 0.22);
+
+// ============================================================== THE PAINT ===
+// Owner: "i need it to look painted with liquid metal gold and oil paint,
+// being actively reshaped by ghosts of the past and flights of fantasy, fresh
+// and vibrant with unreality."
+//
+// Procedural line-work alone cannot get there. A drawn spiral is a diagram of
+// an ornament; what makes a Klimt panel is that the ornament is MADE OF
+// something -- leaf laid in squares that do not quite meet, oil dragged in
+// loaded strokes that hold their own edge, cracks opening across both as they
+// age. All of that is material rather than pattern, so it goes in as its own
+// layers underneath the motifs rather than as more motifs.
+//
+// Five layers, each doing a job no other one can:
+//   BRUSH        directional strokes that break colour and carry impasto
+//   LEAF SEAMS   the square sheets gold is actually applied in
+//   CRAQUELURE   the crack network across aged leaf and paint
+//   GLAZE        slow hue drift, so no two square metres are the same gold
+//   GHOSTS       the reflected world surfacing through the surface
+uniform float paint_amount : hint_range(0.0, 1.0) = 0.85;
+// Stroke scale and how hard the paint stands off the panel.
+uniform float brush_scale : hint_range(1.0, 60.0) = 22.0;
+uniform float impasto : hint_range(0.0, 4.0) = 1.6;
+// Gold is beaten into squares roughly 80 mm across and laid overlapping. The
+// seams catch light differently and are most of why real gilding has a grid
+// you can only see at an angle.
+uniform float leaf_sheet_m : hint_range(0.02, 0.5) = 0.085;
+uniform float leaf_seam_strength : hint_range(0.0, 1.0) = 0.55;
+uniform float craquelure : hint_range(0.0, 1.0) = 0.45;
+// Hue drift across the panel. "Fresh and vibrant with unreality" is mostly
+// this: a single flat gold reads as plastic, and a gold that wanders through
+// green-gold, rose-gold and bronze reads as pigment.
+uniform float glaze_drift : hint_range(0.0, 1.0) = 0.62;
+uniform vec3 glaze_a : source_color = vec3(0.36, 0.62, 0.30);
+uniform vec3 glaze_b : source_color = vec3(0.72, 0.28, 0.42);
+uniform vec3 glaze_c : source_color = vec3(0.22, 0.42, 0.78);
+// THE GHOSTS. The residents surfacing through the ornament, unbidden and
+// nowhere near the lamp -- flights of fantasy rather than reflection. Slow,
+// large, and never quite resolving.
+uniform float ghost_amount : hint_range(0.0, 1.0) = 0.72;
+uniform float ghost_scale : hint_range(0.005, 0.2) = 0.020;
 uniform float melt_amount : hint_range(0.0, 1.0) = 1.0;
 // How liquid a surface is ever allowed to get. Below 1.0 on purpose: the
 // pattern has to survive its own melting.
@@ -343,6 +384,51 @@ vec3 jewel(vec2 q, float cell_size, float density) {
 	return vec3(stone, max(bezel, 0.0), fract(h * 97.3));
 }
 
+
+// A FLOW FIELD FOR THE BRUSH. Strokes must follow something or they read as
+// noise; a painter's hand follows the form. Two octaves of angle noise give a
+// field that curls around the panel, and every stroke lies along it.
+vec2 brush_dir(vec2 q) {
+	float a = fbm(q * 0.35) * TAU * 2.0 + fbm(q * 0.9 + 4.1) * 2.0;
+	return vec2(cos(a), sin(a));
+}
+
+// LOADED STROKES. Sampling along the flow direction and against it gives a
+// smeared, ridged field -- long in the direction of travel, sharp across it,
+// which is what a bristle actually leaves. Returns the stroke body in .x and
+// its ridge (the raised edge where paint piles up) in .y.
+vec2 brush(vec2 q, float scale) {
+	vec2 dir = brush_dir(q * 0.5);
+	vec2 across = vec2(-dir.y, dir.x);
+	// Stretched along the stroke, compressed across it.
+	vec2 sq = vec2(dot(q, dir) * 0.22, dot(q, across)) * scale;
+	float body = fbm(sq);
+	float ridge = 1.0 - abs(fract(sq.y * 0.5) * 2.0 - 1.0);
+	ridge = pow(clamp(ridge, 0.0, 1.0), 3.0);
+	return vec2(body, ridge * smoothstep(0.35, 0.75, body));
+}
+
+// THE SHEETS. Gold leaf arrives in squares and is laid by hand overlapping, so
+// the panel carries a faint grid of doubled edges. Returns seam proximity.
+float leaf_seams(vec2 q, float sheet) {
+	vec2 g = q / sheet;
+	// Each row and column is nudged, because no gilder lays a true grid.
+	g.x += hash21(vec2(floor(g.y), 3.0)) * 0.22;
+	g.y += hash21(vec2(floor(g.x), 7.0)) * 0.22;
+	vec2 f = abs(fract(g) - 0.5);
+	float seam = max(smoothstep(0.46, 0.5, f.x), smoothstep(0.46, 0.5, f.y));
+	return seam;
+}
+
+// CRAQUELURE. Ridged noise makes a connected network of thin dark lines --
+// close enough to the way a gesso ground cracks under leaf, and far cheaper
+// than a Voronoi.
+float cracks(vec2 q) {
+	float n = fbm(q * 3.7);
+	float ridged = 1.0 - abs(n * 2.0 - 1.0);
+	float fine = 1.0 - abs(fbm(q * 9.1 + 2.7) * 2.0 - 1.0);
+	return pow(clamp(ridged * 0.65 + fine * 0.45, 0.0, 1.0), 9.0);
+}
 
 float spiral_line(vec2 q, float turns, float spacing, float width) {
 	float a = atan(q.y, q.x) / TAU + 0.5;
@@ -624,6 +710,54 @@ void fragment() {
 	ink_mask *= bare;
 	accent_mask *= bare;
 
+	// ===================================================== THE PAINT ========
+	// Applied AFTER the motif has chosen its colours and BEFORE the melt, so
+	// the paint is what the ornament is made of rather than a film over it.
+	vec2 pq = q * 0.9;
+	vec2 br = brush(pq, brush_scale * 0.05);
+	float seam = leaf_seams(pq * 0.5, leaf_sheet_m * 12.0);
+	float crack = cracks(pq * 0.7);
+
+	// GLAZE. Three thin colours drifting across the panel at different rates,
+	// so the gold wanders green, rose and bronze instead of sitting at one
+	// hue. This is most of "vibrant with unreality".
+	float g1 = fbm(v_world.xz * 0.55 + vec2(TIME * 0.004, 0.0));
+	float g2 = fbm(v_world.xz * 0.38 + vec2(0.0, TIME * 0.003) + 9.3);
+	vec3 glaze = mix(glaze_a, glaze_b, smoothstep(0.35, 0.65, g1));
+	glaze = mix(glaze, glaze_c, smoothstep(0.45, 0.8, g2));
+	// MIXED, not multiplied. A glaze that multiplies a gold albedo returns
+	// gold, which is why the first pass stayed monochrome no matter how hard
+	// it was pushed. Displacing the hue toward the glaze -- while keeping the
+	// original's luminance so the ornament's drawing survives -- is what makes
+	// a panel wander green-gold to rose to bronze across a few metres.
+	float keep_lum = dot(albedo, vec3(0.299, 0.587, 0.114));
+	vec3 tinted = glaze * (0.35 + 1.5 * keep_lum);
+	albedo = mix(albedo, tinted, glaze_drift * paint_amount);
+
+	// The stroke breaks the colour: paint is never one value across a mark,
+	// it is loaded at the start of the stroke and starved at the end.
+	albedo *= mix(1.0, 0.55 + 0.9 * br.x, paint_amount);
+	// Raised paint catches the light and reads pale; the ridge is where the
+	// bristle piled it up.
+	albedo = mix(albedo, albedo + gold_pale * 0.45, br.y * paint_amount);
+	// Seams and cracks are DARK, always: they are places the ground shows
+	// through, and they are what stop the surface reading as a print.
+	albedo = mix(albedo, albedo * 0.45, seam * leaf_seam_strength
+			* paint_amount);
+	albedo = mix(albedo, albedo * 0.30, crack * craquelure * paint_amount);
+
+	// GHOSTS OF THE PAST. The residents surfacing through the panel, large and
+	// slow and unrelated to the lamp -- so the world is being reshaped by them
+	// rather than merely reflecting them. Deliberately never resolving: they
+	// arrive as a tonal swell in the ornament and sink again.
+	vec2 gq = v_world.xz * ghost_scale + vec2(TIME * 0.0035, TIME * 0.0021);
+	vec3 ghost = texture(reflected_world, gq).rgb;
+	float ghost_lum = dot(ghost, vec3(0.299, 0.587, 0.114));
+	float surfacing = smoothstep(0.22, 0.72, ghost_lum)
+			* (0.55 + 0.45 * sin(TIME * 0.11 + v_world.x * 0.2));
+	albedo = mix(albedo, albedo * 0.6 + ghost * 1.1,
+			surfacing * ghost_amount);
+
 	// One breath across everything, well under a hertz, so the leaf is never
 	// quite still and never flickers.
 	float breath = 0.94 + 0.06 * sin(t * TAU + v_world.x * 0.15);
@@ -703,7 +837,26 @@ void fragment() {
 	float plx = dot(sample_reflected_world(q + vec2(0.06, 0.0), living), LUMA);
 	float ply = dot(sample_reflected_world(q + vec2(0.0, 0.06), living), LUMA);
 	vec3 emboss = (tan_a * (plx - pl0) + tan_b * (ply - pl0)) * 16.0 * molten;
-	vec3 bumped = normalize(n + relief + wave + dish + emboss
+	// IMPASTO. The stroke ridges, the leaf seams and the cracks all stand off
+	// the panel, so the surface has a texture the light rakes across even
+	// where nothing is melting. This is the difference between a painted
+	// surface and a printed one.
+	vec2 bq = q * 0.9;
+	float be = 0.05;
+	vec2 b0 = brush(bq, brush_scale * 0.05);
+	vec2 bx = brush(bq + vec2(be, 0.0), brush_scale * 0.05);
+	vec2 by = brush(bq + vec2(0.0, be), brush_scale * 0.05);
+	float s0 = leaf_seams(bq * 0.5, leaf_sheet_m * 12.0)
+			+ cracks(bq * 0.7) * 1.6;
+	float sx = leaf_seams((bq + vec2(be, 0.0)) * 0.5, leaf_sheet_m * 12.0)
+			+ cracks((bq + vec2(be, 0.0)) * 0.7) * 1.6;
+	float sy = leaf_seams((bq + vec2(0.0, be)) * 0.5, leaf_sheet_m * 12.0)
+			+ cracks((bq + vec2(0.0, be)) * 0.7) * 1.6;
+	vec3 paint_relief = (tan_a * ((bx.x - b0.x) + (sx - s0) * 0.5)
+			+ tan_b * ((by.x - b0.x) + (sy - s0) * 0.5))
+			* impasto * paint_amount * 6.0;
+
+	vec3 bumped = normalize(n + relief + wave + dish + emboss + paint_relief
 			+ (tan_a * (hx - h0) + tan_b * (hy - h0)) * 42.0 * molten);
 
 	vec3 refl = reflect(-normalize(VIEW), bumped);
@@ -778,7 +931,12 @@ void fragment() {
 	incandescent = mix(incandescent, gold_pale, smoothstep(0.7, 1.0, heat));
 	// The leaf carries the incandescence; the ground between it stays dark, so
 	// the ornament is what glows and the bed it sits on is what fades.
-	EMISSION = incandescent * wake_glow * (0.35 + 0.65 * leaf)
+	// Half ember, half the panel's OWN colour. A fixed ember ramp added over
+	// everything was quietly averaging the world back to gold whatever the
+	// glaze did underneath it -- the surface was varying and the light coming
+	// off it was not.
+	vec3 glow_colour = mix(incandescent, albedo * 2.2, 0.55);
+	EMISSION = glow_colour * wake_glow * (0.35 + 0.65 * leaf)
 			+ reflection
 			+ star_colour * sky_glow * 0.55
 			+ albedo * jewel_face * jewel_gleam * 0.16;
