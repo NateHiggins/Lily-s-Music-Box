@@ -46,16 +46,30 @@ adversarial pass is what found them.
 
 ## What is worth doing next
 
-1. **The hollow runner**, once the owner rules on the module conflict below.
-   It is the last unimplemented hazard of Mina's three.
-2. **The trunk's lit beam-splash confirmation** and the production dream
-   `WorldEnvironment` with its receding practical — the last two N7 items,
-   both presentation rather than mechanism.
-3. **Gate E** (image, audio, performance) is entirely untouched, and is now
+~~1. **The hollow runner**~~ **DONE 2026-08-17.** The owner ruled "change the
+   fiction", so §"MINA'S FIRST RUN" now scripts it into D01 where the
+   catalog's socket always was; the catalog, its SHA and Gate A are untouched.
+   Its effect was the other half of the question and was never specified:
+   a broken board **staggers the player and hands the Tenant their position**,
+   using `PlayerController.stagger()` and `DreamPursuer.last_known_position`,
+   both of which already existed. The run does not end — the real cost of
+   sprinting is that the thing chasing you now knows where the noise came
+   from. `DreamHazardTest` block F, 42/42.
+
+~~2. **The production dream `WorldEnvironment`**~~ **DONE 2026-08-17**, with
+   the carried black level and the receding practical. It was not polish: the
+   dream had shipped with no environment at all, so lamp-off was literally a
+   black frame, and the harness that photographed it built its own environment
+   and two control lights. `art/renders/dream_env_n7/README.md`.
+
+1. **The trunk's lit beam-splash confirmation** is the last N7 item.
+2. **Gate E** (image, audio, performance) is entirely untouched, and is now
    the largest unstarted block of dream work. It wants A/B occlusion renders,
    readable black levels, stereo and caption cue tests, and a 16.6 ms
-   measurement at the dream's critical stations.
-4. **Gate F** is five first-time players, and cannot be done by us at all.
+   measurement at the dream's critical stations. Note that **no dream perf
+   station exists in `Perf.tscn`**, and N7's new lights are draws nothing has
+   priced.
+3. **Gate F** is five first-time players, and cannot be done by us at all.
 
 ## Where N7 got to
 
@@ -79,15 +93,14 @@ Gate C: two of three bullets closed. The identification bullet is a human
 blinded playtest and no script closes it — `DreamPerceptionTest` proves the
 precondition at 100% instead.
 
-## Two owner decisions still blocking work
+## One owner decision still blocking work
 
-1. **The hollow runner's module.** The catalog places its socket in
-   `D01_F04_LONG_HALL`; the brief's §"MINA'S FIRST RUN" script says D04, which
-   has no sockets at all. Moving the socket changes the catalog SHA and
-   invalidates Gate A, so the engineering read is to amend the script. That is
-   a fiction change and belongs to the owner. Its effect (what a broken board
-   actually *does*) is also unspecified — its profile outcome is `""`, so it
-   does not end a run.
+1. ~~**The hollow runner's module.**~~ **RULED 2026-08-17: "change the
+   fiction".** The script was amended to D01, where the catalog's socket
+   always sat, leaving the catalog SHA and Gate A untouched. The amendment and
+   its reasoning are recorded in place in §"MINA'S FIRST RUN". The second half
+   — what a broken board actually *does*, which was equally unspecified — is
+   implemented and guarded: stagger plus the Tenant learning your position.
 2. **E8b:** degradation per shift or per hour, for the entropy system.
 
 ## One constraint later work must not break

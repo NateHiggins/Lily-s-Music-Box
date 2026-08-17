@@ -1,7 +1,7 @@
 extends Node
 ## N7: the passage ends, and it ends fairly.
 ##
-## Four things proved here, in the order they were built:
+## Six things proved here, in the order they were built:
 ##   A. one outcome funnel, latched, and the N6 capture path unchanged
 ##   B. the 28 s slot ceiling closes a run the player is surviving
 ##   C. the builder's hazard sockets land where the catalog authored them
@@ -9,6 +9,8 @@ extends Node
 ##      got at least the warning its socket promised
 ##   E. the lift void is a real hole in the real floor, and gravity — not a
 ##      radius — is what ends the run over it
+##   F. the hollow runner breaks under a sprint and holds under a walk, and
+##      what breaking DOES is a stumble and a noise, not an ending
 ##
 ## Harness integrity follows the N6 idiom: exact check count, a counted
 ## sentinel closing every block, deterministic fixed-rate stepping, and a
@@ -18,7 +20,7 @@ const SEED_HEX := "f123456789abcdef"
 const ALT_SEED_HEX := "f123456789abcdee"
 const PROFILE := "mina_release_print"
 const CASE := "mina_caption_crisis"
-const EXPECTED_CHECKS := 31
+const EXPECTED_CHECKS := 42
 const DT := 1.0 / 120.0
 
 var failures := 0
@@ -35,6 +37,7 @@ func _ready() -> void:
 	_block_c_sockets()
 	await _block_d_trunk()
 	await _block_e_void()
+	await _block_f_runner()
 	if checks != EXPECTED_CHECKS:
 		failures += 1
 		printerr("[N7] HARNESS FAIL: %d checks ran, %d expected"
@@ -304,6 +307,81 @@ func _captions_leak_nothing() -> bool:
 
 
 # --- helpers ----------------------------------------------------------
+
+# --- F: the hollow runner --------------------------------------------
+#
+# The only one of Mina's three whose consequence is not death. Its lesson is
+# "sprint is not always the answer", so the whole hazard is the difference
+# between two speeds across the same boards — which means a test that only
+# ever walks onto it, or only ever runs, proves nothing at all.
+#
+# `planar_speed()` reads `velocity`, so the speed is set directly here. The
+# body's physics is off for the same reason it is off in every other block:
+# these checks are about the hazard's decision, not about locomotion.
+
+func _block_f_runner() -> void:
+	root.queue_free()
+	await get_tree().process_frame
+	root = await _spawn_root()
+	root.autonomous = false
+	root.player.set_physics_process(false)
+	var runner := _hazard("hollow_runner")
+	_check("the runner is armed, and it is the one in the long hall",
+			runner != null and runner.module == "D01_F04_LONG_HALL")
+
+	# WALKING. Start OUTSIDE the tell radius — taken from the hazard rather
+	# than typed, so this still approaches from silence if the socket is ever
+	# re-authored — and walk in at 1.4 m/s.
+	#
+	# The iteration budget is derived too. A first version stepped 400 times
+	# at 1.4 m/s, which is 4.67 m, from 6.5 m out: the walk stopped short of
+	# the boards and the "sprint breaks it" check failed against a hazard that
+	# was working correctly. A loop that cannot reach its subject fails in the
+	# same shape as a broken hazard.
+	var walk_mps := 1.4
+	var approach: float = runner.tell_radius + 1.0
+	var steps := int(ceil(approach / walk_mps / DT)) + 60
+	root.player.velocity = Vector3(walk_mps, 0.0, 0.0)
+	_place(runner.position + Vector3(approach, 0.0, 0.0))
+	_check("the approach begins in silence, outside the tell",
+			runner.tell_started_s < 0.0)
+	for i in range(steps):
+		_step_toward(runner.position, walk_mps * DT)
+		root.hazards.advance_fixed(DT)
+		if _flat_distance(runner.position) < 0.05:
+			break
+	_check("and the walk actually reached the boards",
+			_flat_distance(runner.position) <= runner.clearance_radius)
+	_check("one dry creak arrives before the boards do",
+			runner.tell_started_s >= 0.0)
+	_check("walking across the runner crosses it, which is the lesson",
+			not runner.contacted and root.hazards.impact_log.is_empty())
+
+	# RUNNING, from the same spot. Nothing moves but the speed.
+	var known_before: Vector3 = root.pursuer.last_known_position
+	root.pursuer.last_known_position = Vector3(999.0, 0.0, 999.0)
+	root.player.velocity = Vector3(runner.break_speed_mps + 0.4, 0.0, 0.0)
+	root.hazards.advance_fixed(DT)
+	_check("the same boards at a sprint give way",
+			runner.contacted and root.hazards.impact_log.size() == 1)
+	var rec: Dictionary = root.hazards.impact_log[0]
+	_check("breaking a board is not one of the three endings",
+			str(rec.outcome) == "" and not root._outcome_committed)
+	_check("the boards were still fair about it",
+			root.hazards.unfair_impacts().is_empty()
+			and float(rec.realised_warning_s)
+					>= float(rec.minimum_warning_s))
+	# The two halves of what breaking actually DOES.
+	_check("the floor gives way under the sprint and the sprint ends",
+			root.player._stagger_left > 0.0)
+	_check("and the loudest noise in the passage tells the Tenant where",
+			root.pursuer.last_known_position.distance_to(
+					Vector3(root.player.global_position.x, 0.0,
+							root.player.global_position.z)) < 0.05)
+	_check("the run is still alive to be lost some other way",
+			not root._outcome_committed and known_before != Vector3.INF)
+	_end_block("F", 42)
+
 
 func _spawn_root() -> DreamMazeRoot:
 	var scene := load("res://scenes/dream/DreamMazeRoot.tscn") as PackedScene

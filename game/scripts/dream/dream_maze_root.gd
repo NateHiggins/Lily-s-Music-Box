@@ -52,6 +52,11 @@ var _lit_practical := -1
 const PRACTICAL_Y := 1.95
 const PRACTICAL_SETBACK_M := 1.5
 
+## How hard the floor gives way. `PlayerController.stagger()` clamps its push
+## to 4.2 m/s, so this is well inside what the body already accepts from every
+## other stagger in the game — the runner is a stumble, not a launch.
+const STUMBLE_PUSH_MPS := 2.6
+
 
 func configure_dream(context: Dictionary) -> void:
 	dream_context = context.duplicate(true)
@@ -117,6 +122,7 @@ func _build_world() -> void:
 	# is what arms three of them for Mina.
 	hazards = DreamHazardField.new()
 	hazards.setup(plan, profile_hazards, player)
+	hazards.hazard_contact.connect(_on_hazard_contact)
 	captions = DreamCaptionLayer.new()
 	captions.name = "DreamCaptionLayer"
 	add_child(captions)
@@ -172,6 +178,63 @@ func _build_environment() -> void:
 	world_environment.name = "DreamEnvironment"
 	world_environment.environment = environment
 	add_child(world_environment)
+
+
+## What a broken board actually DOES.
+##
+## `DreamHazardField.advance_fixed()` returns an outcome only when the run
+## should end, but it emits `hazard_contact` for every impact — its comment
+## says "DreamMazeRoot decides what to do with it", and this is that decision.
+## A hazard carrying `outcome ""` is not a hazard that does nothing; it is one
+## whose consequence is not death.
+##
+## Mina's hollow runner is the only one so far. §"MINA'S FIRST RUN" gives it
+## one lesson — *sprint is not always the answer* — and the hazard table gives
+## it one behaviour: "running breaks it; walking crosses". Its profile already
+## carried `condition: running` and `break_speed_mps: 3.8`, so the board
+## already knew when to break. Nothing had ever said what breaking did.
+##
+## It does two things, both with mechanisms that already existed, because the
+## brief bars the dream from adding bespoke controls:
+##
+##   1. `PlayerController.stagger()` — the boards give way, the sprint ends.
+##      That is the whole lesson, paid immediately and physically.
+##   2. The Tenant is handed the position. A board breaking under a running
+##      body is the loudest thing in the passage, and `DreamPursuer` already
+##      navigates to `last_known_position`; the pursuit contract has it moving
+##      to the last known point and listening for movement. So the real cost
+##      of sprinting is not the stumble, it is that the thing chasing you now
+##      knows exactly where the noise came from.
+##
+## The run does not end, no outcome is committed, and the latch is untouched —
+## a stagger cannot race a capture.
+##
+## LATER HAZARDS WILL NOT ALL WANT THIS. The eight-hazard table has two more
+## non-terminal entries with different consequences: the counterweight passage
+## is "impact/stagger, then pursuit", which is this; the fire-door return is
+## "route closes; pursuit continues", which is not. When either lands it needs
+## its own branch rather than inheriting the runner's.
+func _on_hazard_contact(hazard_id: String, outcome: String) -> void:
+	if outcome != DreamHazard.NONE:
+		return
+	if player == null or not is_instance_valid(player):
+		return
+	# Away from the board, along the way the body was already travelling, so
+	# the stumble reads as the floor giving way underneath rather than as a
+	# push from somewhere.
+	var away := _flat(player.global_position - _hazard_position(hazard_id))
+	if away.length() < 0.05:
+		away = -_flat(player.global_transform.basis.z)
+	player.stagger(away.normalized() * STUMBLE_PUSH_MPS)
+	if pursuer != null and is_instance_valid(pursuer):
+		pursuer.last_known_position = _flat(player.global_position)
+
+
+func _hazard_position(hazard_id: String) -> Vector3:
+	for hazard in hazards.hazards:
+		if hazard.id == hazard_id:
+			return hazard.position
+	return player.global_position
 
 
 ## THE BLACK LEVEL. "The world remains readable enough to move with the light

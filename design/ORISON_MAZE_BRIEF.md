@@ -351,12 +351,35 @@ the player masters either.
 |---|---|---|
 | onset, 2–3 s | waking mix narrows after Mina's resolved conversation; committed state is already saved | this is happening after the work, not undoing it |
 | 0–5 s, `D00` | player opens their eyes standing at the 4B threshold; service lamp already lit; a warm 4B practical waits ahead where 4B cannot be | move toward recognition; no tutorial text |
-| 5–11 s, `D01` | beam reveals `DOOR`, `FLOOR`, `PLAYER`; label clicks answer behind; a borrowed shadow crosses one transverse wall | light supplies knowledge and position to the Tenant |
+| 5–11 s, `D01` | beam reveals `DOOR`, `FLOOR`, `PLAYER`; label clicks answer behind; a borrowed shadow crosses one transverse wall; twelve metres down the hall a hollow runner gives one dry creak two steps ahead | light supplies knowledge and position to the Tenant; sprint is not always safe |
 | 11–17 s, `D03` | elevator door stands open; draught and chain come from below; stair connector remains acoustically dry | sound can veto a visually inviting route |
-| 17–20 s, `D04` | a locally exact bathroom is followed by the same wet wall again; a hollow runner gives one dry creak ahead | global layout is wrong; sprint is not always safe |
+| 17–20 s, `D04` | a locally exact bathroom is followed by the same wet wall again | global layout is wrong |
 | 20–26 s, `D05` | Vantry trunk hum rises; its arc reaches only while the beam paints the conduit; darkness leaves a clean narrow passage | light can activate the danger it reveals |
 | 26–28 s, riser end | the warm practical turns on beyond a sealed grille; captions become assertions; the Tenant reaches the service branch from the shorter side | the guiding light was never a reachable exit |
 | wake | black, one absent fifth beat, eyes open at the authored 4B bedside; no failure screen; K6's factual `REFRIGERATOR` residue remains | the passage counted without becoming proof |
+
+**AMENDED 2026-08-17 — the hollow runner moves from D04 to D01, by owner
+ruling ("change the fiction").** This table used to script the runner into
+`D04_BATHROOM_PROCESSION`. The N2 catalog places its socket in
+`D01_F04_LONG_HALL`, and D04 carries no hazard sockets at all, so the script
+and the built maze disagreed and the hazard could not be implemented from
+either.
+
+The catalog is the harder thing to move: its SHA is what Gate A's audit
+describes, so re-siting the socket would invalidate a closed gate to satisfy a
+sentence. The owner ruled the sentence changes instead.
+
+It is also the better fiction, which is why the ruling was cheap. The runner's
+lesson is *sprint is not always the answer*, and D01 is the only module long
+enough to tempt a sprint — 19.30 m of straight hall, with the socket twelve
+metres down it. D04 is a 9.60 m run of four bathrooms whose own lesson is that
+the layout is impossible; a board breaking there would have competed with it.
+The two hazards now sit where their lessons do, and `D01`'s row teaches both
+halves of the light decision and the sprint in the one place the player has
+room to make either mistake.
+
+Nothing else moves. The socket, the catalog, Gate A's audit and the 0.90 s
+warning the runner owes are all untouched; only this table was wrong.
 
 If the player keeps the light on or chooses the shaft, the run ends earlier. If
 they play cleanly, the service graph—not a speed cheat—delivers the final
@@ -560,15 +583,25 @@ bug that reading it had not: the sector table named left as right, because
 `Vector3.signed_angle_to` about +Y is positive counter-clockwise while the
 table reads clockwise. Every directional caption was mirrored.
 
-N7 steps remaining: the hollow runner's effect, the trunk's lit beam-splash
-confirmation, and the production dream WorldEnvironment with its receding
-practical.
+**The production dream WorldEnvironment landed 2026-08-17**, along with the
+carried black level and the ruled receding practical, and the finding that
+came with it is worth keeping: the dream had shipped with no environment at
+all, because `CampaignShell` frees the waking world that owns one and
+`DreamMazeRoot` built no replacement. Lamp-off was literally a black frame —
+the thing §"THE LIGHT IS THE GAME" forbids in those words. It went unseen
+because `dream_pursuit_shot.gd` built its own environment and two OmniLights
+frankly named `RecedingOrientationControl` and `NearestFloorBlackLevelControl`
+before photographing anything, so N6's proof frames demonstrated navigable
+darkness in a scene no player could enter. Record and paired frames:
+`art/renders/dream_env_n7/README.md`.
 
-The hollow runner is blocked on one owner decision, not on engineering. The
-catalog places its socket in `D01_F04_LONG_HALL`; §"MINA'S FIRST RUN" scripts
-it in D04, which has no sockets at all. Moving the socket would change the
-catalog SHA and invalidate Gate A, so the engineering read is to amend the
-script to D01. That is a fiction change and belongs to the owner.
+**The hollow runner's module was ruled 2026-08-17.** The owner chose "change
+the fiction": §"MINA'S FIRST RUN" now scripts the runner into D01, where the
+catalog's socket has always been, and the catalog, its SHA and Gate A's audit
+are untouched. See the amendment note in that section for why D01 is also the
+better home for the lesson.
+
+N7 steps remaining: the trunk's lit beam-splash confirmation.
 
 Signals remain narrow: `dream_requested(case_id, profile_id, window)`,
 `dream_entered(case_id, seed)`, `dream_ended(case_id, outcome)` and the existing
