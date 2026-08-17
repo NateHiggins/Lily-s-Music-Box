@@ -1756,6 +1756,23 @@ func _build_passage_light_pass() -> void:
 	lunette.shadow_enabled = false
 	pass_root.add_child(lunette)
 
+	# 3. INSIDE the lantern drum. The station added to VantryDepthShot
+	#    immediately showed the crossing lantern reading as a BLACK SQUARE in
+	#    the ceiling at midday, with bright glazed roof either side of it: the
+	#    diaphragms are `glassish`, an opaque material with a 0.35/0.45/0.5
+	#    base colour, and nothing was lighting them from within. A lantern
+	#    that is darker than the roof around it is not a lantern.
+	#
+	#    The shaft above sits BELOW the diaphragms and aims down, so it lights
+	#    the floor and never the lantern. This one lives in the drum, where a
+	#    real one's lamp would be, and lights the glazing from inside.
+	var drum := OmniLight3D.new()
+	drum.name = "PassageLanternDrum"
+	drum.position = Vector3(14.0, 10.50, 51.6)
+	drum.omni_range = 6.0
+	drum.shadow_enabled = false
+	pass_root.add_child(drum)
+
 	_passage_light_pass = pass_root
 	passage_runtime_nodes.append(pass_root)
 	_tune_passage_lights()
@@ -1777,6 +1794,15 @@ func _tune_passage_lights() -> void:
 		shaft.light_color = Color(0.86, 0.89, 0.98).lerp(
 				Color(0.62, 0.70, 0.92), 1.0 - day_weight)
 		shaft.light_energy = lerpf(0.12, 0.90, day_weight)
+	var drum := _passage_light_pass.get_node_or_null(
+			"PassageLanternDrum") as OmniLight3D
+	if drum:
+		# Bright by day so the lantern is the brightest thing overhead, and
+		# never fully out: a glass lantern over a covered arcade catches
+		# streetlight and sky even at three in the morning.
+		drum.light_color = Color(0.94, 0.95, 1.00).lerp(
+				Color(0.74, 0.80, 0.96), 1.0 - day_weight)
+		drum.light_energy = lerpf(0.55, 2.30, day_weight)
 	var lunette := _passage_light_pass.get_node_or_null(
 			"PassageLunetteKey") as SpotLight3D
 	if lunette:

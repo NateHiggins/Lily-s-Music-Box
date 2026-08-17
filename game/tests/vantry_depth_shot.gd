@@ -42,7 +42,17 @@ func _ready() -> void:
 	# Oblique down the aisle: repeated borrowed lights over the fascias.
 	await _capture("04_aisle_oblique",
 			[15.6, -42.5, 1.60], [10.4, -57.5, 2.45])
-	print("[VANTRY DEPTH SHOT] 4 frames saved")
+	# THE TWO THINGS NOTHING HAS EVER LOOKED AT. Every station above aims
+	# along the aisle or into a shopfront, which is how the lunette stayed
+	# fully occluded by its own backing plate from V1 until 2026-08-16 and
+	# how V4's crossing shaft could have shipped doing nothing. Three
+	# separate defects this week hid behind an absent camera; two of them
+	# were in this very structure.
+	await _capture("05_crossing_lantern_up",
+			[14.0, -51.6, 1.60], [14.0, -51.4, 9.60])
+	await _capture("06_south_gable_lunette",
+			[14.0, -55.0, 3.20], [14.0, -64.4, 6.10])
+	print("[VANTRY DEPTH SHOT] 6 frames saved")
 	get_tree().quit(0)
 
 
