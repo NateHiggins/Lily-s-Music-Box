@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/wall_art_law_test.gd" id="1_wa"]
+
+[node name="WallArtLawTest" type="Node"]
+script = ExtResource("1_wa")

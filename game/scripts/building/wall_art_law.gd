@@ -12,13 +12,23 @@ extends RefCounted
 ## opening check therefore never fired, which is how frames ended up
 ## bridging doorways. This version reads the key that exists.
 
-# The generated corridor cap is the high picture rail at 1.55 m (the old
-# value, 1.08, described the panel field and put the rail through every
-# frame). Hall art belongs wholly above it.
-const RAIL_TOP := 1.56
-const ART_HALF_H := 0.34   # conservative half-height for clearance tests
+# The rail cap, read off the thing that builds it rather than guessed.
+# build_orison.py tops the dado at 1.32 (:2902), caps it to 1.36 (:2946) and
+# rides a bullnose bead at dado_top + 0.035 (:2958), so 1.355 is the highest
+# millwork a piece has to clear. The old 1.56 was 0.20 m of invented height,
+# and it is why hall pieces ended up flush against ceiling trim and clipped
+# into the elevator door surround -- the law was pushing them there.
+const RAIL_TOP := 1.355
+## The character-art quad is 0.72 m square, so its half-height is 0.36. The
+## old 0.34 was described as "conservative" but is the opposite: understating
+## the piece makes every clearance test pass more easily.
+const ART_HALF_H := 0.36
 const ART_HALF_W := 0.38
 const VISUAL_GAP := 0.18
+## How far a hook stands off the plaster. It has to exceed the trim: window
+## and door casings stand 0.020 proud of the face (build_orison :3049) and the
+## dado cap and its bead stand further still.
+const STANDOFF := 0.055
 
 # A hook is not legal merely because the wall exists. The whole building is
 # assembled in one pass, so remember occupied wall bands as each character
@@ -49,6 +59,7 @@ static func legal_spot(floor_data: Dictionary, room: Dictionary,
 	var hang_height := maxf(height, RAIL_TOP + half_height + 0.06) \
 			if _room_has_rail(room) else height
 	for wall in walls_order:
+		var want_horizontal: bool = wall in ["north", "south"]
 		for along in alongs:
 			var x := lerpf(float(rect[0]), float(rect[2]), float(along))
 			var y := lerpf(float(rect[1]), float(rect[3]), float(along))
@@ -71,8 +82,19 @@ static func legal_spot(floor_data: Dictionary, room: Dictionary,
 					x = float(rect[0]) + 0.105
 					bx = float(rect[0]) - 0.08
 					yaw = PI * 0.5
-			if not wall_backs(floor_data, bx, by, hang_height, half_height):
+			# WHICH wall, not merely whether one exists. The 0.105 above is a
+			# guess measured from a room rect, and a room rect edge is not one
+			# thing: STACK_RECTS are interior faces while partition rects sit
+			# on centrelines, so a single inset lands proud on one wall and
+			# inside the brick on the next. Once the backing wall is known,
+			# its own thickness gives the face and the guess is discarded.
+			var backing := backing_wall(floor_data, bx, by, hang_height,
+					half_height, half_width, want_horizontal)
+			if backing.is_empty():
 				continue
+			var seated := _seat(backing, rect, x, y, want_horizontal)
+			x = seated.x
+			y = seated.y
 			if furniture_blocks(floor_data, x, y, hang_height,
 					half_width, half_height):
 				continue
@@ -87,6 +109,19 @@ static func legal_spot(floor_data: Dictionary, room: Dictionary,
 			return {"ok": true, "x": x, "y": y, "yaw": yaw, "wall": wall,
 					"height": hang_height}
 	return {"ok": false}
+
+
+## Move a hook from its guessed position onto the real plaster face of the
+## wall that backs it, standing STANDOFF clear on the room's side.
+static func _seat(wall: Dictionary, rect: Array, x: float, y: float,
+		horizontal: bool) -> Vector2:
+	var t := float(wall.get("t", 0.12))
+	var cl := float(wall["a"][1]) if horizontal else float(wall["a"][0])
+	var room_c := (float(rect[1]) + float(rect[3])) * 0.5 if horizontal \
+			else (float(rect[0]) + float(rect[2])) * 0.5
+	var inward := 1.0 if room_c > cl else -1.0
+	var seat := cl + inward * (t * 0.5 + STANDOFF)
+	return Vector2(x, seat) if horizontal else Vector2(seat, y)
 
 
 static func furniture_blocks(floor_data: Dictionary, px: float,
@@ -117,6 +152,19 @@ static func furniture_blocks(floor_data: Dictionary, px: float,
 			if height + half_height >= low and height - half_height <= high \
 					and Vector2(px, py).distance_to(Vector2(
 						float(p0[0]), float(p0[1]))) <= radius:
+				return true
+		# Assemblies carry `at`/`W`/`D`/`H` and no rect, and this test used to
+		# skip them entirely -- 702 of the building's 6766 furniture records,
+		# one in ten, invisible to the only collision check art gets. Crates,
+		# racks and cabinets were all free to swallow a frame.
+		if fu.has("asm") and fu.has("at") and not fu.has("rect"):
+			var at: Array = fu["at"]
+			var az1 := z0 + float(fu.get("H", fu.get("h", 0.0)))
+			var ahw := float(fu.get("W", 0.3)) * 0.5 + half_width
+			var ahd := float(fu.get("D", 0.3)) * 0.5 + half_width
+			if height + half_height >= z0 and height - half_height <= az1 \
+					and absf(px - float(at[0])) <= ahw \
+					and absf(py - float(at[1])) <= ahd:
 				return true
 	return false
 
@@ -175,28 +223,55 @@ static func _room_has_rail(room: Dictionary) -> bool:
 	return str(room.get("kind", "")) in ["corridor", "hall", "lobby"]
 
 
-## True when a real wall stands at (px, py) and no opening's frame swings
-## through the band the art would occupy.
+## Backwards-compatible boolean form.
 static func wall_backs(floor_data: Dictionary, px: float, py: float,
 		height: float, half_height := ART_HALF_H) -> bool:
+	return not backing_wall(floor_data, px, py, height, half_height,
+			0.0, true).is_empty() \
+			or not backing_wall(floor_data, px, py, height, half_height,
+			0.0, false).is_empty()
+
+
+## The wall that actually backs (px, py), or {} when none does.
+##
+## Three things this now gets right that the boolean version did not.
+## ORIENTATION: a north-facing piece needs an east-west wall behind it, and
+## without that gate a perpendicular wall passing near the probe validated the
+## hook and the frame hung at right angles to its own backing.
+## EXTENT: the thickness pad was applied ALONG the run as well as across it,
+## so a wall endorsed a hook up to `t/2 + 0.06` past its own end. The piece's
+## own half-width is what has to fit, and it must fit inside.
+## FACE: the caller needs the wall, not a yes, or it cannot find the plaster.
+static func backing_wall(floor_data: Dictionary, px: float, py: float,
+		height: float, half_height := ART_HALF_H, half_width := 0.0,
+		want_horizontal := true) -> Dictionary:
+	# NEAREST, not first. Iteration order is the generator's, not the room's,
+	# so "the first wall that validates" can be a parallel wall further off,
+	# and the hook is then seated onto a face it was never probing.
+	var best: Dictionary = {}
+	var best_d := 1e9
 	for w in floor_data.get("walls", []):
 		var ax: float = float(w["a"][0])
 		var ay: float = float(w["a"][1])
 		var bx: float = float(w["b"][0])
 		var by: float = float(w["b"][1])
-		var pad: float = float(w.get("t", 0.12)) / 2.0 + 0.06
+		var horizontal := absf(by - ay) < 0.001
+		if horizontal != want_horizontal:
+			continue
+		var cross_pad: float = float(w.get("t", 0.12)) / 2.0 + 0.06
 		var hit := false
-		if absf(by - ay) < 0.001:
-			hit = minf(ax, bx) - pad <= px and px <= maxf(ax, bx) + pad \
-					and absf(py - ay) <= pad
+		if horizontal:
+			hit = minf(ax, bx) + half_width <= px \
+					and px <= maxf(ax, bx) - half_width \
+					and absf(py - ay) <= cross_pad
 		else:
-			hit = minf(ay, by) - pad <= py and py <= maxf(ay, by) + pad \
-					and absf(px - ax) <= pad
+			hit = minf(ay, by) + half_width <= py \
+					and py <= maxf(ay, by) - half_width \
+					and absf(px - ax) <= cross_pad
 		if not hit:
 			continue
 		# Inside the wall — but not hanging over a doorway or window: any
 		# opening whose frame crosses the art band disqualifies this spot.
-		var horizontal := absf(by - ay) < 0.001
 		var along := (px - minf(ax, bx)) if horizontal else (py - minf(ay, by))
 		var clear := true
 		for c in w.get("openings", []):
@@ -207,10 +282,30 @@ static func wall_backs(floor_data: Dictionary, px: float, py: float,
 			if sill <= height + half_height \
 					and sill + float(c.get("h", 0.0)) >= height - half_height:
 				clear = false
-		# A railed wall also refuses pieces that would cross its cap.
+		# A railed wall refuses pieces that would cross its cap -- but only on
+		# the face that actually carries the band. build_orison records
+		# `wains_side` and lays the dado on that side alone, "so the bedroom
+		# next door keeps its plaster"; refusing both faces threw away legal
+		# wall on the plaster side of every tiled bathroom partition.
 		if clear and bool(w.get("wainscot", false)) \
 				and height - half_height < RAIL_TOP:
-			clear = false
-		if clear:
-			return true
-	return false
+			var side: Variant = w.get("wains_side")
+			var banded := true
+			if side != null and str(side) != "":
+				# THE PROBE SITS OUTSIDE THE ROOM by design, beyond the
+				# rect edge, so its side of the centreline is the OPPOSITE of
+				# the side the art hangs on. Reading the band from it inverts
+				# the test and refuses exactly the faces it should allow.
+				var cl := ay if horizontal else ax
+				var pc := py if horizontal else px
+				banded = (float(side) > 0.0) != (pc > cl)
+			if banded:
+				clear = false
+		if not clear:
+			continue
+		var wcl := float(w["a"][1]) if horizontal else float(w["a"][0])
+		var wd := absf((py if horizontal else px) - wcl)
+		if wd < best_d:
+			best_d = wd
+			best = w
+	return best

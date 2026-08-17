@@ -135,7 +135,7 @@ coordinate before fixing.
 | lobby | ~~old generated wood mailbank on the south wall~~ STALE: the generated mailbank was already removed at the generator (its comment survives near gen_layout ~:2704). The lattice under the lobby clock is the elevator CarGate scissor grille, correct furniture; the remaining brass bank is placed at runtime by `orison_detail_pass.gd` on the EAST wall, not the south | resolved |
 | F01 office | title-image plaque (maintenance_headquarters._build_plaque) — remove from world, retool the concept | ugly |
 | foyer | bench is decorative and on the wrong side of the entry door — move across, add sit affordance, move Teresa's haunt with it | ugly |
-| all floors | wall art misplacement family: pieces off-wall, floating, or crossing the mid-wall picture rail — full placement audit + a loud test | blocker |
+| all floors | ~~wall art misplacement family~~ FIXED 2026-08-16. Same class as the blinds: `legal_spot` inset a flat 0.105 m from a `room.rect` edge, but STACK_RECTS are interior FACES while partition rects sit on CENTRELINES, so one constant could not mean one thing. The law now finds the backing wall first and seats the hook off its real face. Four more defects fell out with it: `wall_backs` applied its thickness pad ALONG the run as well as across, endorsing hooks past a wall's own end and never testing the piece's own width; it had no orientation gate, so a perpendicular wall could validate a hook and the frame hung at right angles to its backing; `RAIL_TOP` was 1.56 against a dado the builder tops at 1.32 with a bead at 1.355, i.e. 0.20 m of invented height pushing hall pieces into the ceiling trim and the elevator surround; and `furniture_blocks` saw only `rect` and `p0/p1` records, missing all 702 `asm` assemblies (1 in 10 of the building's furniture). The wainscot refusal also ignored `wains_side`, refusing the plaster face of every tiled partition. New `WallArtLawTest.tscn` drives the real law over every room and judges what it accepted using build_orison's numbers, not the law's own: **125 violations before (89 buried, 14 overhang, 11 furniture, 6 orientation, 5 opening), 0 after**. Counts unchanged at 20/20/8; found-art walls 18 -> 17, the one loss being a piece now correctly refused rather than hung illegally | resolved |
 | stairway | half-landings share/lack art — each of the seven landings needs a unique piece | wish |
 | 1A / cast | Evelyn's original Meshy model stands 1.80 m while the height-baked hero cast bases at 1.70 m — canon 0.96 says ~1.63. She reads tall against her neighbors; bake her too (she is also the biped move-library donor, so update DONOR_HIPS when rescaling her file) | wish |
 
@@ -285,15 +285,11 @@ coordinate before fixing.
 slab+cube~~ BOTH CLOSED 2026-08-16 (see their rows). The remaining blocker
 families are:
 
-1. **Wall art misplacement** (`game/scripts/building/wall_art_law.gd`) —
-   diagnosed but NOT fixed. It is the same class of bug the blinds turned out
-   to be: `legal_spot` insets a flat 0.105 m from a `room.rect` edge, but
-   `STACK_RECTS` are interior FACES while partition rects sit on CENTRELINES,
-   so one constant cannot mean one thing. Also suspect: `RAIL_TOP` 1.56
-   against a dado the builder tops at 1.32–1.379, a wainscot refusal that
-   ignores which face carries the dado, and an along-wall pad that never
-   tests the piece's own edges against the wall's extent.
-2. **Ten windowless C-stack bedrooms** (new row above).
+1. ~~Wall art misplacement~~ **CLOSED 2026-08-16** — see its row. Every
+   suspicion listed here was confirmed, and the centreline-versus-face
+   prediction was the largest single family (89 of 125).
+2. **Ten windowless C-stack bedrooms** (new row above) — the only blocker
+   still open.
 
 The lesson from the blinds, worth applying to the wall art before touching
 it: **a centreline is not a face.** Both owners committed that same mistake
