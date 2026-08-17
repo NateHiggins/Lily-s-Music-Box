@@ -1022,11 +1022,15 @@ def lived_in_surface_detail(f, unit, rooms, skip, ux, lcy):
 WIN_TOP = 2.55   # window head (sill 0.85 + h 1.70)
 
 
-def blind_stack(f, uid, x, y, along_x, seed):
+def blind_stack(f, uid, x, y, along_x, seed, top=None, sill=None):
     """One venetian blind: head rail at the window top, slats descending
     to a per-window drop (someone half-raised theirs), each blind tilted
     more or less open — thick slats at tight pitch read shut, thin slats
     at open pitch let the night through."""
+    if top is None:
+        top = WIN_TOP
+    if sill is None:
+        sill = top - 1.70
     h = sum(ord(c) * 13 for c in seed)
     drop = 0.35 + (h % 7) / 6.0 * 0.60          # 0.35..0.95 of the window
     tilt = ((h // 7) % 5) / 4.0                 # 0 open .. 1 closed
@@ -1038,32 +1042,47 @@ def blind_stack(f, uid, x, y, along_x, seed):
     # Nine stacks could descend through the 1.00 m court sill and through
     # the counter/range beneath it. Cap the shared generator at the sill;
     # trimming 4B alone would leave the same physical fault in eight flats.
-    n = min(n, int((WIN_TOP - 0.06 - WIN_COURT["sill"]) / pitch))
+    # Clamp to THIS window's own sill. The old clamp used
+    # WIN_COURT["sill"], a constant referenced nowhere else in this file
+    # describing a court window the building does not contain, so every
+    # blind was trimmed against a fiction instead of its own opening.
+    n = min(n, int((top - 0.06 - sill) / pitch))
+    # The head rail hangs just UNDER the aperture head, not level with it:
+    # build_orison runs a head casing through top-0.06..top, and a rail at
+    # `top` is buried in the lintel.
+    head_z = top - 0.05
     if along_x:
-        _furn_box(f, uid + "_head", x, y, 1.34, 0.06, WIN_TOP, 0.05,
+        _furn_box(f, uid + "_head", x, y, 1.34, 0.06, head_z, 0.05,
                   "trim", False)
         for k in range(n):
             _furn_box(f, "%s_s%d" % (uid, k), x + 0.02, y + 0.005, 1.30,
-                      depth, WIN_TOP - 0.06 - k * pitch, slat_h, "trim",
+                      depth, head_z - 0.06 - k * pitch, slat_h, "trim",
                       False)
         _furn_box(f, uid + "_rail", x + 0.02, y, 1.30, 0.05,
-                  WIN_TOP - 0.06 - n * pitch, 0.03, "trim", False)
+                  head_z - 0.06 - n * pitch, 0.03, "trim", False)
     else:
-        _furn_box(f, uid + "_head", x, y, 0.06, 1.34, WIN_TOP, 0.05,
+        _furn_box(f, uid + "_head", x, y, 0.06, 1.34, head_z, 0.05,
                   "trim", False)
         for k in range(n):
             _furn_box(f, "%s_s%d" % (uid, k), x + 0.005, y + 0.02, depth,
-                      1.30, WIN_TOP - 0.06 - k * pitch, slat_h, "trim",
+                      1.30, head_z - 0.06 - k * pitch, slat_h, "trim",
                       False)
         _furn_box(f, uid + "_rail", x, y + 0.02, 0.05, 1.30,
-                  WIN_TOP - 0.06 - n * pitch, 0.03, "trim", False)
+                  head_z - 0.06 - n * pitch, 0.03, "trim", False)
 
 
 def unit_windows(walls, x0, y0, x1, y1, z):
     """Every window opening whose glass stands on this unit's envelope.
 
     Walls carry their openings; the dressing pass used to ignore them and
-    guess. Returns (cx, cy, width, along_x) in plan coordinates.
+    guess. Returns (cx, cy, width, along_x, thickness, sill, head) in plan
+    coordinates.
+
+    THE CROSS COORDINATE IS A CENTRELINE, NOT A FACE. That was the whole of
+    the blinds blocker: the caller inset a flat 0.10 from this value as
+    though it were plaster, so every generic blind in the building stood
+    inside the brick. The thickness now travels with it so the caller can
+    find the face it actually needs.
     """
     found = []
     if not walls:
@@ -1086,7 +1105,9 @@ def unit_windows(walls, x0, y0, x1, y1, z):
             if not (x0 - 0.35 <= cx <= x1 + 0.35
                     and y0 - 0.35 <= cy <= y1 + 0.35):
                 continue
-            found.append((cx, cy, float(o["w"]), horizontal))
+            found.append((cx, cy, float(o["w"]), horizontal,
+                          float(w["t"]), float(o["sill"]),
+                          float(o["sill"]) + float(o["h"])))
     return found
 
 
@@ -1141,6 +1162,26 @@ def west_storage(floor_id, z, f):
               0.72, 0.34, 0.0, 0.62, "cast_iron", False)
 
 
+## An inside-mounted head rail stands clear of the plaster by a hand's
+## width. build_orison runs window casings 0.020 proud of the face, so the
+## clearance has to exceed that or the rail fouls the trim.
+BLIND_CLEAR = 0.10
+BLIND_D = 0.06
+
+
+def _mount(centreline, thickness, inward):
+    """MIN-corner coordinate for a blind hung inside a wall's face.
+
+    `centreline` is what unit_windows reports; the face is half a thickness
+    inboard of it. blind_stack grows +cross from the corner it is given, so
+    a blind on the negative side must be pulled back by its own depth or it
+    grows into the wall it is hanging on.
+    """
+    face = centreline + inward * thickness * 0.5
+    edge = face + inward * BLIND_CLEAR
+    return edge if inward > 0 else edge - BLIND_D
+
+
 def blinds_for_unit(f, unit, stack, walls=None, z=0.0):
     """Hang a blind INSIDE each real window.
 
@@ -1155,19 +1196,19 @@ def blinds_for_unit(f, unit, stack, walls=None, z=0.0):
     windows = unit_windows(walls, x0, y0, x1, y1, z)
     if not windows:
         return 0
-    for wi, (cx, cy, ww, horizontal) in enumerate(windows):
+    for wi, (cx, cy, ww, horizontal, wt, sill, head) in enumerate(windows):
         # inward is toward the apartment's middle
         mx, my = (x0 + x1) * 0.5, (y0 + y1) * 0.5
         # blind_stack takes a MIN corner and the blind is 1.34 wide, so
         # the centring offset is half the blind, not half the window
         if horizontal:
             bx = cx - 0.67
-            by = cy + (0.10 if my > cy else -0.10)
+            by = _mount(cy, wt, 1.0 if my > cy else -1.0)
         else:
-            bx = cx + (0.10 if mx > cx else -0.10)
+            bx = _mount(cx, wt, 1.0 if mx > cx else -1.0)
             by = cy - 0.67
         blind_stack(f, "%s_bl%d" % (unit, wi), bx, by, horizontal,
-                    unit + str(wi))
+                    unit + str(wi), top=head, sill=sill)
     return len(windows)
 
 
@@ -2030,11 +2071,13 @@ def furnish_4b_detail(furniture, y0, y1, x0):
     # enough to stop before the range cheek at -9.55.
     _asm(furniture, "4B_dishrack", "dishrack", -9.605, 9.285, 0,
          z0=0.905, W=0.07, D=0.25, n=4)
-    for wi, wc in enumerate((y0 + (y1 - y0) * 0.30,
-                             y0 + (y1 - y0) * 0.70)):
-        blind_stack(furniture, "4B_blw%d" % wi, -13.58, wc - 0.67, False,
-                    "4B" + str(wi))
-    blind_stack(furniture, "4B_blr", -10.25, 9.52, True, "4Br")
+    # 4B's blinds were hand-authored here at 30%/70% of the flat's length --
+    # the exact "fixed fractions of the apartment rectangle" that
+    # blinds_for_unit's docstring names as the bug it exists to fix. Since
+    # that pass covers every real aperture, these were a second blind
+    # z-fighting inside the same window of the player's own flat
+    # (4B_blw0_head and 4B_bl0_head shared the identical y span
+    # [4.094, 5.434], 0.17 m apart in x). The generic pass owns 4B now.
     fb("rug", (-12.40, 3.40, -8.70, 6.00), 0.0, 0.015, "rug_warm")
     # Coffee-table residue: one mug, a folded work order and the remote. Their
     # asymmetry gives the director tiny objects the player can doubt moved.
@@ -8231,6 +8274,7 @@ def validate(layout):
     problems += _validate_furnishing(layout)
     problems += _validate_movement(layout)
     problems += _validate_placement(layout)
+    problems += _validate_blinds(layout)
     problems += _validate_vantry_points(layout)
     problems += _validate_kettles(layout)
     problems += _validate_boxfans(layout)
@@ -8241,6 +8285,95 @@ def validate(layout):
     problems += life_pass(layout["floors"])
     return problems
 
+
+
+def _validate_blinds(layout):
+    """Every blind hangs INSIDE its own window, on the room side of the wall.
+
+    This exists because the fix it guards shipped once already and regressed
+    on the other axis. A rewrite corrected the along-wall placement -- blinds
+    had been at fixed 30%/70% fractions of each flat, which is only ever
+    accidentally where a window is -- and in the same change introduced a
+    cross-axis fault: unit_windows reports a wall CENTRELINE and the caller
+    inset a flat 0.10 m from it as though it were the plaster face. All fifty
+    generic blinds in the building stood buried in the brick, and the
+    verification at the time measured only the axis that had been fixed.
+
+    So this checks the axis nobody looked at, and reads every number from the
+    wall and the opening rather than from a literal. A test that hard-codes
+    2.55 or 0.41 reproduces the very assumption it is supposed to catch.
+    """
+    problems = []
+    for fl in layout["floors"]:
+        walls = [w for w in fl["walls"] if w.get("cat", "walls") == "walls"]
+        heads = [b for b in fl["furniture"]
+                 if str(b.get("id", "")).endswith("_head")
+                 and "_bl" in str(b.get("id", ""))]
+        claimed = {}
+        for b in heads:
+            bid = b["id"]
+            x0, y0, x1, y1 = b["rect"]
+            along_x = (x1 - x0) > (y1 - y0)
+            best = None
+            for w in walls:
+                (ax, ay), (bx, by) = w["a"], w["b"]
+                horizontal = abs(by - ay) < 1e-6
+                if horizontal != along_x:
+                    continue
+                cl = ay if horizontal else ax
+                lo = min(ax, bx) if horizontal else min(ay, by)
+                # Cross-axis proximity first. Without it a blind can adopt
+                # a parallel wall on the far side of the building whose
+                # opening happens to line up along the run, and then report
+                # a nineteen-metre "float" that is really a mismatch.
+                cross_c = (y0 + y1) * 0.5 if horizontal else (x0 + x1) * 0.5
+                if abs(cl - cross_c) > float(w["t"]) * 0.5 + 0.40:
+                    continue
+                for o in w.get("openings", []):
+                    if o.get("type", "") != "window":
+                        continue
+                    at = lo + float(o["at"])
+                    ctr = (x0 + x1) * 0.5 if horizontal else (y0 + y1) * 0.5
+                    d = abs(at - ctr)
+                    if best is None or d < best[0]:
+                        best = (d, w, o, cl, float(w["t"]))
+            if best is None:
+                problems.append("blind %s adopts no window" % bid)
+                continue
+            d, w, o, cl, t = best
+            # ADOPTION: the blind is centred on a real opening.
+            if d > 0.05:
+                problems.append("blind %s is %.3f m off its window centre"
+                                % (bid, d))
+            # UNIQUENESS: one blind per opening.
+            key = (id(w), float(o["at"]))
+            if key in claimed:
+                problems.append("blind %s doubles up on %s's window"
+                                % (bid, claimed[key]))
+            else:
+                claimed[key] = bid
+            # SIDE: the whole head is on the room side of the interior face,
+            # by a clearance that admits the casing without floating.
+            near, far = (x0, x1) if not along_x else (y0, y1)
+            in_pos = cl + t * 0.5
+            in_neg = cl - t * 0.5
+            gap_pos = near - in_pos
+            gap_neg = in_neg - far
+            gap = gap_pos if gap_pos > gap_neg else gap_neg
+            if gap < 0.03:
+                problems.append(
+                    "blind %s stands %.3f m from the wall face (buried or "
+                    "flush; centreline %.3f, t %.3f)" % (bid, gap, cl, t))
+            elif gap > 0.30:
+                problems.append("blind %s floats %.3f m off its wall"
+                                % (bid, gap))
+            # HEAD HEIGHT: hung at the aperture head, not the room ceiling.
+            head = float(o["sill"]) + float(o["h"])
+            if abs(float(b["z0"]) + float(b["h"]) - head) > 0.02:
+                problems.append(
+                    "blind %s head tops at %.3f, aperture head is %.3f"
+                    % (bid, float(b["z0"]) + float(b["h"]), head))
+    return problems
 
 def _validate_ceilings(layout):
     """Every enclosed room remains covered when the storey above is hidden."""

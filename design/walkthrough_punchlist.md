@@ -79,6 +79,13 @@ baluster shadows, confirmed in the lit pass.
 | B1_COAL | improved (whitewash, hopper mass has form) but the bin is an untextured gray primitive and there is still no coal or grime | wish |
 | B1_STORAGE_CAGES | near-void in production light with its switch state as-is — this is the open L9 owner call, logged here only as walk confirmation | — |
 
+### New findings 2026-08-16 (surfaced while fixing the blinds)
+
+| room | symptom | severity |
+|---|---|---|
+| C_BED1 / C_BED2, F02–F06 | Ten bedrooms with **no exterior aperture at all**. Counting dressed apertures after the blinds fix, every C unit has exactly ONE window in the whole flat (A units 2, B and D units 3). `remove_partition_crossing_windows()` (gen_layout ~:8195) deletes any facade opening a perpendicular interior partition cuts through, and C's bedroom partition lands exactly on its rear aperture. The deletion is correct as a local rule; the defect is that `exterior()`/`_unit_rooms()` never re-site the lost window, so the room ends up windowless rather than differently-windowed. NOT the blinds bug and not fixed by it | blocker |
+| F01 1B / 1C | Neither unit receives a single blind, i.e. neither has a dressed aperture. Likely the same cause as the C-stack row above, or ground-floor shopfront geometry; unverified | wish |
+
 ### New findings 2026-08-15
 
 | room | symptom | severity |
@@ -125,7 +132,7 @@ coordinate before fixing.
 
 | room | symptom | severity |
 |---|---|---|
-| lobby | old generated wood mailbank still on the south wall — superseded by the functional brass bank; remove asm + marker from gen_layout and regen | ugly |
+| lobby | ~~old generated wood mailbank on the south wall~~ STALE: the generated mailbank was already removed at the generator (its comment survives near gen_layout ~:2704). The lattice under the lobby clock is the elevator CarGate scissor grille, correct furniture; the remaining brass bank is placed at runtime by `orison_detail_pass.gd` on the EAST wall, not the south | resolved |
 | F01 office | title-image plaque (maintenance_headquarters._build_plaque) — remove from world, retool the concept | ugly |
 | foyer | bench is decorative and on the wrong side of the entry door — move across, add sit affordance, move Teresa's haunt with it | ugly |
 | all floors | wall art misplacement family: pieces off-wall, floating, or crossing the mid-wall picture rail — full placement audit + a loud test | blocker |
@@ -136,10 +143,10 @@ coordinate before fixing.
 
 | room | symptom | severity |
 |---|---|---|
-| all bedrooms/kitchens | Blinds decoupled from windows: slats on bare brick with no frame, overshooting frames, or floating at ceiling height (F01 A/D_BED, F02 A_BED+B_KITCHEN+C_BED1, F03 A_BED, F04 A_BED+C_BED1+D_BED+B_KITCHEN, F05 A_BED+B_KITCHEN+C_BED1+D_BED, F06 A_BED+B_KITCHEN+C_BED1) — one placement offset in the window-dressing pass, not 15 bugs | blocker |
-| several bedrooms | Windows glazed with brick — panes show wall texture, no glass (F01_COMMON_B, F02_D_BED, F05_D_BED, F06_D_BED) | ugly |
+| all bedrooms/kitchens | ~~Blinds decoupled from windows~~ FIXED 2026-08-16. The row's stated cause was wrong, which is why it survived one fix already: `unit_windows()` reports a wall CENTRELINE, and `blinds_for_unit()` inset a flat 0.10 m from it as though it were the plaster face, so all 50 generic blinds stood inside the brick (F01 1A_bl0_head spanned x[-13.695,-13.635] against an interior face at -13.590, t=0.41 - 0.045 m buried). An earlier rewrite had corrected the ALONG-wall axis and introduced this cross-axis fault in the same change, and its verification measured only the axis it had fixed. Thickness now travels out of `unit_windows`; `_mount()` places off the face; the head rail hangs under the aperture head instead of level with it (z0 2.55 -> 2.50); the drop clamp reads the window's own sill instead of `WIN_COURT["sill"]`, a constant describing a court window this building does not contain. New `_validate_blinds()` in gen_layout asserts adoption, side, clearance, head height and uniqueness from the wall and opening records rather than from literals: **112 violations before, 0 after** | resolved |
+| several bedrooms | ~~Windows glazed with brick~~ SUPERSEDED by 9acc1d6, the same `exterior()` +/-XAW clamp that closed the F01_A_BED / F06_D_BED row above: the second windowless wall running coincident with the stack end walls bricked over 23 apertures building-wide, and the layout sweep now reports 0 blocked. Re-walk before reopening | resolved |
 | several bedrooms | Wardrobe parked directly in front of a window (F01_A_BED, F03_A/D_BED, F04_D_BED, F02_A_BED) or crowding a doorway (F02_B_MAIN, F03_B_ALCOVE, F06_B_MAIN) | ugly |
-| WSTOR F02–F06 | West storage: hard-edged untextured white slab covering most of the floor plus a bare white cube mid-room, every floor (F04 slab fills the walkable space) | blocker |
+| WSTOR F02–F06 | ~~untextured white slab + bare cube~~ FIXED by a534c7c/f7963af, verified 2026-08-16: F04 WSTOR now emits 55 `crate` assemblies plus materialed linen/rug/cast-iron pieces, and no large-footprint unmaterialed box survives anywhere in the WSTOR set. (The crates report no `mat` in the layout because assemblies carry their material in build_orison, not in the record — that is not the white-surface signature it resembles) | resolved |
 | HALL F01–F05 | Blank pure-white rectangle floating in/above the stair opening (also corridor-wall white boxes F02/F03, ROOF sign face, B1 above the exit poster) — see decal hypothesis above | ugly |
 | all UTILITY | Duct/chase column freestanding mid-room, stops short of floor and/or ceiling, pendant lamp clipping into its face (B1, F02–F06) | ugly |
 | A/B BATH all floors | Faucet hardware detached, floating above/behind the basin (F01_A, F03_A/B, F04_A/B, F05_A/B) | ugly |
@@ -199,7 +206,7 @@ coordinate before fixing.
 | F02_B_KITCHEN | Door trim outlines bare brick (door panel missing) beside a live light switch | ugly |
 | F02_C_MAIN | TV overlaps window blinds; blank tan canvas hangs tilted off the brick wall | ugly |
 | F02_C_BED1 | Picture frame wedged between wardrobe top and ceiling | ugly |
-| F02_D_MAIN | Unit 2D entirely unfurnished (main/bed/office bare, no ceiling fixtures) — confirm vacancy is intentional | wish |
+| F02_D_MAIN | ~~Unit 2D entirely unfurnished~~ ANSWERED: the unit status table rules 2D "sealed", so the emptiness is canon. Duplicate of the row answered under the 08-15 walk | resolved |
 | F02_D_OFFICE | Dark geometry pokes through the right wall edge; floor sliver past the baseboard in the corner | wish |
 | F02_HALL | Bridge painting hangs into the stair opening, overlapping the interior brick window | ugly |
 | F02_ATRIUM | Beige lamp shade floats mid-air with no cord/arm to the brass pole | ugly |
@@ -274,9 +281,24 @@ coordinate before fixing.
 
 ## Triage (proposed, not yet actioned)
 
-**Fix-first (blockers):** the blinds/window offset (one systemic fix),
-WSTOR white slab+cube (one prop, five floors). Both look like single
-data-side fixes in gen_layout's furnishing pass.
+**Fix-first (blockers):** ~~the blinds/window offset, WSTOR white
+slab+cube~~ BOTH CLOSED 2026-08-16 (see their rows). The remaining blocker
+families are:
+
+1. **Wall art misplacement** (`game/scripts/building/wall_art_law.gd`) —
+   diagnosed but NOT fixed. It is the same class of bug the blinds turned out
+   to be: `legal_spot` insets a flat 0.105 m from a `room.rect` edge, but
+   `STACK_RECTS` are interior FACES while partition rects sit on CENTRELINES,
+   so one constant cannot mean one thing. Also suspect: `RAIL_TOP` 1.56
+   against a dado the builder tops at 1.32–1.379, a wainscot refusal that
+   ignores which face carries the dado, and an along-wall pad that never
+   tests the piece's own edges against the wall's extent.
+2. **Ten windowless C-stack bedrooms** (new row above).
+
+The lesson from the blinds, worth applying to the wall art before touching
+it: **a centreline is not a face.** Both owners committed that same mistake
+independently, and the blinds version survived a previous fix because the
+verification measured only the axis that had been repaired.
 
 **Coordinate with parallel session before touching:** white decal quads
 (hall/corridor/roof/B1), ceiling scuff decals (F06), socket prop labels,
