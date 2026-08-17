@@ -70,9 +70,11 @@ cp building_layout.json acoustic_graph.json prop_catalog.json \
    material_catalog.json fixture_light_map.json ../../game/data/
 
 # 3. rebuild GLBs — only needed if walls/furniture/openings changed
-#    (marker-only changes skip this). Uses the `bpy` pip wheel (4.5),
-#    or real Blender: blender --background --python art/blender/scripts/build_orison.py
-python art/blender/scripts/build_orison.py
+#    (marker-only changes skip this). THE `bpy` PIP WHEEL IS NOT INSTALLED
+#    on this machine (verified 2026-08-16) - `python build_orison.py` dies
+#    on `ModuleNotFoundError: No module named 'bpy'`. Use real Blender; 5.2
+#    works despite the script's "4.5" docstring, and takes ~41 s:
+"/c/Program Files/Blender Foundation/Blender 5.2/blender" -b -P art/blender/scripts/build_orison.py
 
 # 4. re-import + run the walk test. BARE `godot` FAILS — the user PATH
 #    still points at D:\Python projects\devkit\bin, which no longer
