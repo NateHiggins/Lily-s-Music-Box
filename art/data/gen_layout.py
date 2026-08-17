@@ -1511,7 +1511,16 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
         else:             # D: bed heads against the bedroom partition
             bed_set(f, "%s_bed%d" % (unit, i), bx1 - 2.0, by1 - 2.15,
                     False, mat_blanket=pal["sofa"])
-            wardrobe(f, "%s_w%d" % (unit, i), bx1 - 4.5, by0 + 0.18,
+            # 6.30, not 4.50. At 4.50 the carcass sat x[9.15,10.45] against
+            # a window spanning x[8.90,10.26] and covered 1.105 m of its
+            # 1.35 m -- 82% of the only daylight in 1D, 3D and 4D, on a wall
+            # 0.10 m from the glass. The furnishing pass picks a wall from
+            # the room rect and never consults the openings on it, which is
+            # the same blindness the blinds, the art and the towel rails each
+            # turned out to have. Destination measured clear of every other
+            # prop on all three floors, and it clears the window's west jamb
+            # by 0.25 m.
+            wardrobe(f, "%s_w%d" % (unit, i), bx1 - 6.30, by0 + 0.18,
                      face="n")
             art_panel(f, "%s_bart%d" % (unit, i), bx0 + 1.4, by1 - 0.075,
                       0.7, True)
