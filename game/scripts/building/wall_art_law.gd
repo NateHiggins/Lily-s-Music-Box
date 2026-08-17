@@ -95,6 +95,8 @@ static func legal_spot(floor_data: Dictionary, room: Dictionary,
 			var seated := _seat(backing, rect, x, y, want_horizontal)
 			x = seated.x
 			y = seated.y
+			if nested_room_blocks(floor_data, room, x, y):
+				continue
 			if furniture_blocks(floor_data, x, y, hang_height,
 					half_width, half_height):
 				continue
@@ -123,6 +125,36 @@ static func _seat(wall: Dictionary, rect: Array, x: float, y: float,
 	var seat := cl + inward * (t * 0.5 + STANDOFF)
 	return Vector2(x, seat) if horizontal else Vector2(seat, y)
 
+
+
+## Is (x, y) really inside `room`, or inside something carved out of it?
+##
+## A unit's MAIN rect is NESTED: the bathroom is cut out of the living room
+## but the living rect is never subtracted, and ceiling_pass in the generator
+## documents exactly this and handles it by subtraction. Any placer that
+## measures "0.105 inside my east wall" off the raw living rect lands inside
+## the bathroom wherever the two share that edge -- which on the A/B stacks is
+## the east edge and on C/D the west, at X_IN = +/-5.51 / +/-7.71.
+##
+## This has been fixed twice as a one-unit special case and never generalised,
+## so it is a shared helper now. Smallest containing rect wins: if that is not
+## the room we were placing for, the spot belongs to the neighbour.
+static func nested_room_blocks(floor_data: Dictionary, room: Dictionary,
+		x: float, y: float) -> bool:
+	var want := str(room.get("id", ""))
+	var best := ""
+	var best_area := INF
+	for r in floor_data.get("rooms", []):
+		var q: Array = r.get("rect", [])
+		if q.size() < 4:
+			continue
+		if x < float(q[0]) or x > float(q[2]) 				or y < float(q[1]) or y > float(q[3]):
+			continue
+		var area := (float(q[2]) - float(q[0])) * (float(q[3]) - float(q[1]))
+		if area < best_area:
+			best_area = area
+			best = str(r.get("id", ""))
+	return best != "" and best != want
 
 static func furniture_blocks(floor_data: Dictionary, px: float,
 		py: float, height: float, half_width := ART_HALF_W,

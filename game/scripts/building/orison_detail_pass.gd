@@ -214,6 +214,7 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 
 func _build_resident_details(layout: Dictionary, floor_nodes: Dictionary,
 		batches: Dictionary) -> void:
+	var rehung := 0
 	var file := FileAccess.open(PROFILE_PATH, FileAccess.READ)
 	if file == null:
 		push_warning("resident story-detail catalog missing")
@@ -286,11 +287,31 @@ func _build_resident_details(layout: Dictionary, floor_nodes: Dictionary,
 				else float(rect[2]) - 0.105
 		var wall_y := lerpf(float(rect[1]), float(rect[3]),
 				clampf(0.30 + slot * 0.16, 0.18, 0.78))
+		# A LIVING RECT CONTAINS ITS OWN BATHROOM. The bath is carved out of
+		# the living room but the rect is never subtracted, so "0.105 inside
+		# my east wall" is a point inside the bath wherever the two share
+		# that edge — and eight residents' stories were pinned to the far
+		# side of a bathroom wall. Try the other hand, then decline: this
+		# pass has no fallback ladder, and an unhung story beats one hung in
+		# the neighbour's shower.
+		if WallArtLaw.nested_room_blocks(floor, room, wall_x, wall_y):
+			rehung += 1
+			wall_west = not wall_west
+			wall_x = float(rect[0]) + 0.105 if wall_west \
+					else float(rect[2]) - 0.105
+			if WallArtLaw.nested_room_blocks(floor, room, wall_x, wall_y):
+				push_warning("no living-room wall for %s's story" % unit)
+				continue
 		_add_decal(floor_nodes[floor_id], STORY_ATLAS,
 				panel % 2, panel / 2,
 				[wall_x, wall_y, z + 1.34],
 				PI * 0.5 if wall_west else -PI * 0.5,
 				Vector2(0.54, 0.54))
+
+
+	if rehung > 0:
+		print("[BUILDING] %d resident stories rehung off a bathroom wall"
+				% rehung)
 
 
 func _living_room(floor: Dictionary, unit: String) -> Dictionary:
