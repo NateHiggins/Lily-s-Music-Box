@@ -562,6 +562,15 @@ func lamp_is_enabled() -> bool:
 	return _lamp_on
 
 
+## A world may re-rate the carried lamp. The warm-up and pop settle back to
+## whatever this says, so a re-ranged lamp does not snap to the waking value
+## the moment its filament finishes coming up.
+func set_lamp_base_energy(value: float) -> void:
+	_lamp_base_energy = maxf(0.0, value)
+	if flashlight and _lamp_phase <= 0.0 and _lamp_on:
+		flashlight.light_energy = _lamp_base_energy
+
+
 ## Tell the beam's screen mask that this world lights itself.
 ##
 ## The mask dims everything outside the beam, and how far it may dim is set by

@@ -201,8 +201,20 @@ static func build_geometry(parent: Node3D, plan: Dictionary,
 	var architecture := Node3D.new()
 	architecture.name = "ModuleArchitecture"
 	parent.add_child(architecture)
-	var wall_mat := _material(Color("272a31"), 0.94)
-	var floor_mat := _material(Color("343139"), 0.90)
+	# ONE MOTIF PER SURFACE CLASS. The Stoclet Frieze is five pattern languages
+	# sharing a palette, not one texture, so each thing the maze is made of
+	# wears its own: the ornament becomes wayfinding rather than decoration,
+	# and in a maze whose job is to lose you, the pattern says what a thing IS.
+	var wall_mat := _material(Color("272a31"), 0.94, MOTIF_SPIRAL)
+	var floor_mat := _material(Color("343139"), 0.90, MOTIF_MOSAIC)
+	# The ceiling is the frieze's vast ivory field: nearly unornamented, and
+	# quiet on purpose so the walls and the floor can speak.
+	var ceiling_mat := _material(Color("2b2b31"), 0.92, MOTIF_IVORY)
+	# Doors wear the robe of Expectation — stacked chevrons, sharp and
+	# directional, because an opening should announce itself as a way THROUGH.
+	var door_mat := _material(Color("2a2730"), 0.86, MOTIF_TRIANGLE)
+	# A shaft is a hazard you can fall into, so it takes the watching eyes.
+	var shaft_mat := _material(Color("1d1a20"), 0.90, MOTIF_EYE)
 
 	var bounds := _plan_bounds(plan)
 	var margin := WALL_T
@@ -219,8 +231,8 @@ static func build_geometry(parent: Node3D, plan: Dictionary,
 		slab_index += 1
 		_solid_box(architecture, "DreamFloor%02d" % slab_index, floor_mat,
 				slab, -WALL_T, 0.0)
-	_build_shafts(architecture, holes, wall_mat)
-	_solid_box(architecture, "DreamCeiling", wall_mat,
+	_build_shafts(architecture, holes, shaft_mat)
+	_solid_box(architecture, "DreamCeiling", ceiling_mat,
 			[bounds[0] - margin, bounds[1] - margin,
 			bounds[2] + margin, bounds[3] + margin],
 			clear_ceiling, clear_ceiling + WALL_T)
@@ -264,7 +276,7 @@ static func build_geometry(parent: Node3D, plan: Dictionary,
 	index = 0
 	for aperture in lintel_jobs:
 		index += 1
-		_solid_box(architecture, "Lintel%02d" % index, wall_mat, aperture,
+		_solid_box(architecture, "Lintel%02d" % index, door_mat, aperture,
 				float(_door_height(plan)), clear_ceiling)
 
 
@@ -573,8 +585,51 @@ static func _solid_box(parent: Node3D, node_name: String, material: Material,
 	return body
 
 
-static func _material(color: Color, roughness: float) -> StandardMaterial3D:
+## Motif ids, mirrored from dream_klimt.gdshader. Kept as plain ints rather
+## than an enum because the shader uniform is an int and a mismatch here would
+## silently paint a floor with a ceiling's pattern.
+const MOTIF_IVORY := 0
+const MOTIF_SPIRAL := 1
+const MOTIF_MOSAIC := 2
+const MOTIF_TRIANGLE := 3
+const MOTIF_EYE := 4
+const MOTIF_FLOWERBED := 5
+
+
+static func _material(color: Color, roughness: float,
+		motif: int = MOTIF_SPIRAL) -> Material:
+	# GOLD IS THE DEFAULT NOW. Owner ruling 2026-08-17: "this is a
+	# demonstration project of what we can create, the rule of cool is key.
+	# Make it good, not correct." The graybox is kept only as a control for
+	# renders and perf comparison — `DREAM_PLAIN=1`.
+	if OS.get_environment("DREAM_PLAIN") != "1":
+		return _klimt_material(color, roughness, motif)
 	var material := StandardMaterial3D.new()
 	material.albedo_color = color
 	material.roughness = roughness
+	return material
+
+
+## Gold leaf over the same geometry. The ground colour is carried through from
+## the graybox so a wall and a floor stay distinguishable in the dark, where
+## the ornament is not lit and the ground is all there is.
+static func _klimt_material(color: Color, roughness: float,
+		motif: int) -> ShaderMaterial:
+	var material := ShaderMaterial.new()
+	material.shader = load("res://shaders/dream_klimt.gdshader")
+	material.set_shader_parameter("motif", motif)
+	material.set_shader_parameter("ground_roughness", roughness)
+	# Each language wants its own mark size. The frieze's coils are large and
+	# structural; its mosaic is tiny and dense; the chevrons sit between.
+	var scale := 7.0
+	match motif:
+		MOTIF_MOSAIC:
+			scale = 5.5
+		MOTIF_IVORY:
+			scale = 4.0
+		MOTIF_TRIANGLE:
+			scale = 6.0
+		MOTIF_EYE:
+			scale = 5.0
+	material.set_shader_parameter("pattern_scale", scale)
 	return material

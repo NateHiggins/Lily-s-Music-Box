@@ -70,7 +70,30 @@ const SPLASH_Y := 0.16
 const CLEAR_CEILING_M := 3.015
 ## How lit this world tells the beam mask it is. Not 1.0: the torch must stay
 ## the reason you can see, and the vignette is most of why it feels carried.
-const DREAM_LIFT_FLOOR := 0.72
+## Back to zero with the ambient gone: there is no longer a floor for the mask
+## to crush, and the vignette at full strength is more of the dramatic falloff
+## the owner asked for rather than less.
+const DREAM_LIFT_FLOOR := 0.0
+
+## THE GUTTERING LAMP. In the waking Orison the service lamp throws 7.5 m,
+## because a maintenance man wants to see the end of a corridor. In the dream
+## it is the only light there is, and a torch that reaches the far wall of a
+## 19.30 m hall shows you the whole hall — which hands over the maze, kills the
+## claustrophobia and makes the gold uniform instead of found.
+##
+## So it is pulled to a POOL. Range is the hard cut; attenuation is the shape,
+## and above 1.0 it falls off faster than physical inverse-square, which is
+## what makes the edge of the pool arrive quickly rather than fading out over
+## metres. Narrower and hotter, so what it does find is brilliant.
+const DREAM_LAMP_RANGE := 4.6
+const DREAM_LAMP_ATTENUATION := 1.9
+const DREAM_LAMP_ANGLE := 40.0
+const DREAM_LAMP_ANGLE_ATTENUATION := 2.4
+const DREAM_LAMP_ENERGY := 3.2
+
+## Deliberately small: Compatibility turns every particle into a submission and
+## this frame is submission-bound. See _build_motes().
+const MOTE_COUNT := 110
 
 
 func configure_dream(context: Dictionary) -> void:
@@ -131,6 +154,7 @@ func _build_world() -> void:
 	# to a fifth outside the beam -- switching the lamp ON would darken the
 	# frame. See PlayerController.set_world_lift_floor().
 	player.set_world_lift_floor(DREAM_LIFT_FLOOR)
+	_make_lamp_local()
 
 	pursuer = DreamPursuer.new()
 	add_child(pursuer)
@@ -148,9 +172,14 @@ func _build_world() -> void:
 	add_child(captions)
 	captions.listen_to(hazards)
 
-	_build_black_level()
+	# NO BLACK LEVEL. It existed to keep "the nearest floor silhouette" under
+	# the superseded ruling; carrying a lamp that lights the floor around you
+	# is precisely the dropoff the owner has now asked to remove. The function
+	# is kept, unused, because the accessibility mode "High-contrast edges"
+	# will want exactly this and nothing else in the build does it.
 	_build_practicals()
 	_build_hazard_visuals()
+	_build_motes()
 
 
 ## The dream's own environment, because the world that owned one was freed.
@@ -191,8 +220,17 @@ func _build_environment() -> void:
 	# silhouette rather than nothing, and it is deliberately COOL so the
 	# carried tungsten lamp reads warm against it — the brief's soot black
 	# and warm dirty service-lamp light.
-	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	environment.ambient_light_color = Color("1d2740")
+	# NO AMBIENT. Owner ruling 2026-08-17, reversing the "dark, not pitch black"
+	# call made earlier the same day: "i want a dramatic dark dropoff and
+	# pitch blackness beyond".
+	#
+	# That earlier ruling was made against a flat graybox, where the only
+	# alternative to ambient was a black screen. It does not survive the Klimt
+	# pass: gold leaf under a tight lamp is brilliant, so the contrast is
+	# carried by the SURFACE now and an ambient floor only greys the void and
+	# flattens the drop. Pitch black beyond the pool is the point — it is what
+	# makes the pool worth anything.
+	environment.ambient_light_source = Environment.AMBIENT_SOURCE_DISABLED
 	# SKY CONTRIBUTION DEFAULTS TO 1.0, AND THAT IS WHY THE AMBIENT DID
 	# NOTHING. With `AMBIENT_SOURCE_COLOR` Godot still blends the ambient
 	# between `ambient_light_color` and the SKY by this ratio, and at the
@@ -206,9 +244,30 @@ func _build_environment() -> void:
 	# was weighting at zero. Measured: the dream hall with the lamp off ran at
 	# 95.3% of pixels at or below 3/255 with this line absent, which is pitch
 	# black by any reading.
-	environment.ambient_light_sky_contribution = 0.0
-	environment.ambient_light_energy = 8.0
-	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
+	environment.tonemap_mode = Environment.TONE_MAPPER_ACES
+	environment.tonemap_white = 3.2
+	# GLOW IS THE HALF OF THIS THAT SELLS THE GOLD. Leaf is metal, so the only
+	# thing it does is throw the lamp back — and a specular highlight with no
+	# bloom around it reads as a white pixel rather than as light off leaf.
+	# The threshold sits above the ambient floor so the DARK stays dark: only
+	# what the beam actually wakes is allowed to bloom.
+	environment.glow_enabled = true
+	environment.glow_intensity = 1.15
+	environment.glow_strength = 1.05
+	environment.glow_bloom = 0.22
+	environment.glow_hdr_threshold = 0.72
+	environment.glow_hdr_scale = 2.6
+	environment.glow_blend_mode = Environment.GLOW_BLEND_MODE_SCREEN
+	# The near-field bloom is the shimmer; the wide one is the halo the whole
+	# corridor gets when the beam finds a rich patch of ornament.
+	environment.set("glow_levels/2", 0.9)
+	environment.set("glow_levels/3", 0.7)
+	environment.set("glow_levels/5", 0.45)
+	# One restrained push, not a grade: the gold gains a little, the black
+	# ground does not shift hue.
+	environment.adjustment_enabled = true
+	environment.adjustment_saturation = 1.18
+	environment.adjustment_contrast = 1.06
 	var world_environment := WorldEnvironment.new()
 	world_environment.name = "DreamEnvironment"
 	world_environment.environment = environment
@@ -400,6 +459,87 @@ func _hazard_position(hazard_id: String) -> Vector3:
 		if hazard.id == hazard_id:
 			return hazard.position
 	return player.global_position
+
+
+## GOLD IN THE AIR, VISIBLE ONLY WHERE THE LAMP FINDS IT.
+##
+## The single cheapest thing that turns a lit pool into a lit VOLUME: without
+## motes the beam is a bright patch on a wall, and with them it is a shaft of
+## light you are standing inside. It is also the same idea as the walls —
+## suspended leaf that does nothing until the lamp reaches it.
+##
+## SHADED, and that is the whole trick. The owner's ruling disabled ambient
+## entirely (see _build_environment), so a shaded particle outside the beam
+## receives no light at all and is simply black — "only visible in the beam"
+## costs nothing and needs no cone test in a shader. Inside the cone the spot
+## lights it like any other surface.
+##
+## CPUParticles3D, not GPU, and the reason is measured rather than taste:
+## weather_fx.gd's header records that Compatibility "expands each particle
+## into a costly submission", the rain proposal records that moving the same
+## effect to GPUParticles3D "did not change the renderer's economics", and
+## TASKS.md P8b specifically exempts particle counts from the project's
+## otherwise-standing "raise every limit, the GPU is free" direction. So the
+## count is deliberately small and the quads are tiny.
+func _build_motes() -> void:
+	if player == null:
+		return
+	var motes := CPUParticles3D.new()
+	motes.name = "DreamMotes"
+	motes.amount = MOTE_COUNT
+	motes.lifetime = 9.0
+	motes.preprocess = 6.0
+	motes.randomness = 1.0
+	motes.local_coords = false
+	# A box around the body rather than a point: dust is already in the room,
+	# it is not being emitted by the player.
+	motes.emission_shape = CPUParticles3D.EMISSION_SHAPE_BOX
+	motes.emission_box_extents = Vector3(3.2, 1.7, 3.2)
+	motes.position = Vector3(0.0, 1.2, 0.0)
+	# Barely moving. Real dust in still air falls slower than it drifts, and
+	# anything faster than this reads immediately as snow.
+	motes.gravity = Vector3(0.0, -0.012, 0.0)
+	motes.initial_velocity_min = 0.01
+	motes.initial_velocity_max = 0.055
+	motes.damping_min = 0.02
+	motes.damping_max = 0.08
+	motes.scale_amount_min = 0.006
+	motes.scale_amount_max = 0.018
+	var quad := QuadMesh.new()
+	quad.size = Vector2.ONE
+	motes.mesh = quad
+	var mat := StandardMaterial3D.new()
+	# Shaded: the lamp is what makes them exist. See the note above.
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_PER_PIXEL
+	mat.albedo_color = Color(1.0, 0.86, 0.58)
+	mat.metallic = 0.0
+	mat.roughness = 0.55
+	mat.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	mat.vertex_color_use_as_albedo = true
+	# A mote is a speck of leaf, not a caster. Sixteen shadow slots are not
+	# being spent on dust.
+	mat.disable_receive_shadows = true
+	motes.material_override = mat
+	motes.draw_order = CPUParticles3D.DRAW_ORDER_VIEW_DEPTH
+	player.add_child(motes)
+
+
+## Pull the carried lamp down to a pool. See the constants above.
+##
+## The lamp keeps its own warm-up and pop: this changes the reach, never the
+## switch, so N3's measured light contract is untouched.
+func _make_lamp_local() -> void:
+	if player == null or player.flashlight == null:
+		return
+	player.flashlight.spot_range = DREAM_LAMP_RANGE
+	player.flashlight.spot_attenuation = DREAM_LAMP_ATTENUATION
+	player.flashlight.spot_angle = DREAM_LAMP_ANGLE
+	player.flashlight.spot_angle_attenuation = DREAM_LAMP_ANGLE_ATTENUATION
+	player.flashlight.light_energy = DREAM_LAMP_ENERGY
+	# The warm-up settles back to THIS, not to the waking lamp's output.
+	player.set_lamp_base_energy(DREAM_LAMP_ENERGY)
 
 
 ## THE BLACK LEVEL. "The world remains readable enough to move with the light
