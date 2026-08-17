@@ -57,6 +57,21 @@ const PRACTICAL_SETBACK_M := 1.5
 ## other stagger in the game — the runner is a stumble, not a launch.
 const STUMBLE_PUSH_MPS := 2.6
 
+## The conduit and the arc it throws. See _build_hazard_visuals().
+var _arcs: Array[Dictionary] = []
+## Chest height: where a conduit's arc would find a body, and where the beam
+## splash it reaches for actually lands.
+const ARC_Y := 1.20
+## Where the beam splash lands: the floor just in front of the conduit.
+const SPLASH_Y := 0.16
+## The riser runs the module's full clear height. Read from the catalog at
+## build time in `_build_world`; this is the catalog's own default and only
+## stands in if that lookup is ever absent.
+const CLEAR_CEILING_M := 3.015
+## How lit this world tells the beam mask it is. Not 1.0: the torch must stay
+## the reason you can see, and the vignette is most of why it feels carried.
+const DREAM_LIFT_FLOOR := 0.72
+
 
 func configure_dream(context: Dictionary) -> void:
 	dream_context = context.duplicate(true)
@@ -111,6 +126,11 @@ func _build_world() -> void:
 	player.position = start_marker.position
 	add_child(player)
 	player.set_lamp_enabled(true)
+	# The dream has no LightRig, so nothing would otherwise tell the beam's
+	# screen mask that this world is lit at all and it would crush the ambient
+	# to a fifth outside the beam -- switching the lamp ON would darken the
+	# frame. See PlayerController.set_world_lift_floor().
+	player.set_world_lift_floor(DREAM_LIFT_FLOOR)
 
 	pursuer = DreamPursuer.new()
 	add_child(pursuer)
@@ -130,6 +150,7 @@ func _build_world() -> void:
 
 	_build_black_level()
 	_build_practicals()
+	_build_hazard_visuals()
 
 
 ## The dream's own environment, because the world that owned one was freed.
@@ -172,12 +193,156 @@ func _build_environment() -> void:
 	# and warm dirty service-lamp light.
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	environment.ambient_light_color = Color("1d2740")
-	environment.ambient_light_energy = 0.18
+	# SKY CONTRIBUTION DEFAULTS TO 1.0, AND THAT IS WHY THE AMBIENT DID
+	# NOTHING. With `AMBIENT_SOURCE_COLOR` Godot still blends the ambient
+	# between `ambient_light_color` and the SKY by this ratio, and at the
+	# default the colour is worth nothing at all — against a `BG_COLOR`
+	# background there is no sky to take it from either, so the term
+	# evaluated to zero.
+	#
+	# That is why raising `ambient_light_energy` appeared to do nothing when
+	# this landed, and why the harness's own environment had never lifted the
+	# black level in the first place. Both were setting a colour the renderer
+	# was weighting at zero. Measured: the dream hall with the lamp off ran at
+	# 95.3% of pixels at or below 3/255 with this line absent, which is pitch
+	# black by any reading.
+	environment.ambient_light_sky_contribution = 0.0
+	environment.ambient_light_energy = 8.0
 	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	var world_environment := WorldEnvironment.new()
 	world_environment.name = "DreamEnvironment"
 	world_environment.environment = environment
 	add_child(world_environment)
+
+
+## THE TRUNK YOU CAN SEE, AND THE ARC THAT REACHES FOR YOUR BEAM.
+##
+## Gate C's fairness contract wants three things from every hazard: a sound
+## that precedes the danger, ONE VISIBLE CONFIRMATION UNDER THE SERVICE LAMP,
+## and one reconstructable cause. The trunk had the first — `TRUNK HISS`,
+## unconditional, measured — and neither of the others. It was an invisible
+## point in an empty corridor that killed you if your lamp happened to be on.
+## Its mechanism was proved (`DreamHazardTest` block D) and its *reason* was
+## not visible to anybody.
+##
+## So the socket gets a conduit, which is the reconstructable cause — a real
+## riser standing floor to ceiling where the catalog put the hazard — and the
+## conduit gets an arc, which is the confirmation. §"EIGHT FIXED HAZARDS"
+## words it exactly: "arc reaches toward the lit beam splash".
+##
+## WHEN IT REACHES IS DERIVED, NOT CHOSEN. The arc lives inside the socket's
+## own authored `tell_radius`, so the sound and the sight describe the same
+## neighbourhood and the pairing is legible: you hear the hiss whatever you
+## do, and if your lamp is on you watch the arc reach. Turn the lamp off and
+## it lets go. That is §"THE LIGHT IS THE GAME" made visible instead of
+## merely lethal — light can activate the danger it reveals, and now you can
+## see it happening rather than reconstructing it afterwards.
+##
+## It RAMPS with proximity and never strobes. The brief bans flashing outright
+## and makes it non-negotiable, so the arc grows smoothly out of the conduit
+## and brightens as it closes; nothing here blinks.
+func _build_hazard_visuals() -> void:
+	for hazard in hazards.hazards:
+		if hazard.condition != "lamp_on":
+			continue
+		var conduit := MeshInstance3D.new()
+		conduit.name = "DreamConduit_%s" % hazard.id
+		var riser := BoxMesh.new()
+		riser.size = Vector3(0.16, CLEAR_CEILING_M, 0.16)
+		conduit.mesh = riser
+		conduit.material_override = _dull_metal()
+		conduit.position = Vector3(hazard.position.x,
+				CLEAR_CEILING_M * 0.5, hazard.position.z)
+		add_child(conduit)
+
+		var arc := MeshInstance3D.new()
+		arc.name = "DreamArc_%s" % hazard.id
+		var spark := BoxMesh.new()
+		# Built one metre long down -Z and scaled per frame, so the mesh is
+		# authored once and only the transform moves.
+		spark.size = Vector3(0.05, 0.05, 1.0)
+		arc.mesh = spark
+		arc.material_override = _arc_material()
+		arc.visible = false
+		add_child(arc)
+
+		var glow := OmniLight3D.new()
+		glow.name = "DreamArcGlow_%s" % hazard.id
+		glow.light_color = Color("9fd4ff")
+		glow.omni_range = 3.0
+		glow.shadow_enabled = false
+		glow.visible = false
+		add_child(glow)
+
+		_arcs.append({"hazard": hazard, "arc": arc, "glow": glow})
+
+
+func _dull_metal() -> StandardMaterial3D:
+	var material := StandardMaterial3D.new()
+	material.albedo_color = Color("1b1d22")
+	material.roughness = 0.62
+	material.metallic = 0.55
+	return material
+
+
+func _arc_material() -> StandardMaterial3D:
+	var material := StandardMaterial3D.new()
+	material.albedo_color = Color("cfe8ff")
+	material.emission_enabled = true
+	material.emission = Color("9fd4ff")
+	material.emission_energy_multiplier = 1.5
+	# The arc is not a surface anyone should be able to read a shadow off.
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	return material
+
+
+## Reach for the beam, or let go. Runs every physics frame beside the
+## practical, and reads the same lamp the hazard's own condition reads so the
+## picture can never disagree with the rule.
+func _update_hazard_visuals() -> void:
+	if _arcs.is_empty() or player == null:
+		return
+	var lamp_on: bool = player.has_method("lamp_is_enabled") \
+			and bool(player.call("lamp_is_enabled"))
+	for entry in _arcs:
+		var hazard: DreamHazard = entry.hazard
+		var arc: MeshInstance3D = entry.arc
+		var glow: OmniLight3D = entry.glow
+		var root_point := Vector3(hazard.position.x, ARC_Y, hazard.position.z)
+		var to_player := _flat(player.global_position) - _flat(root_point)
+		var distance := to_player.length()
+		# Dead once it has fired: an arc still groping at a corpse is a
+		# different scene than the one this is for.
+		var live: bool = lamp_on and not hazard.contacted \
+				and distance <= hazard.tell_radius and distance > 0.01
+		if not live:
+			arc.visible = false
+			glow.visible = false
+			continue
+		# Nearer means longer and brighter, smoothly. At the tell edge it is a
+		# twitch at the conduit; at the clearance it has crossed to the body.
+		var closeness: float = clampf(
+				1.0 - (distance - hazard.clearance_radius)
+				/ maxf(0.01, hazard.tell_radius - hazard.clearance_radius),
+				0.0, 1.0)
+		# IT REACHES FOR THE SPLASH, NOT FOR THE EYE, and the difference is
+		# the whole frame. Aiming the arc at the player points it straight
+		# down the camera axis, where a 0.05 m emissive rod is seen end-on as
+		# a blown-out blob that says nothing (the first attempt, and the first
+		# render killed it). §"EIGHT FIXED HAZARDS" says "arc reaches toward
+		# the lit beam splash" — the splash is on the floor and the wall in
+		# front of the conduit, so the arc runs DOWN and OUT to meet it and is
+		# read in profile, which is what an arc looks like.
+		var reach: float = maxf(0.12, distance * closeness)
+		var landing := root_point + to_player.normalized() * reach
+		landing.y = SPLASH_Y
+		arc.visible = true
+		arc.global_position = (root_point + landing) * 0.5
+		arc.look_at(landing)
+		arc.scale = Vector3(1.0, 1.0, root_point.distance_to(landing))
+		glow.visible = true
+		glow.global_position = landing
+		glow.light_energy = 0.18 + 0.55 * closeness
 
 
 ## What a broken board actually DOES.
@@ -380,6 +545,7 @@ func _practical_is_visible(index: int) -> bool:
 func _physics_process(delta: float) -> void:
 	if maze_built:
 		_update_practical()
+		_update_hazard_visuals()
 	if not autonomous or _outcome_committed:
 		return
 	if pursuer != null and not pursuer.is_captured:

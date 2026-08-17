@@ -119,6 +119,54 @@ light can lag behind "one connector ahead" until a wall intervenes. That is the
 conservative failure and the right one, and it is a design question rather than
 a bug if the lag ever reads as the light being lost.
 
+## DARK, NOT PITCH BLACK — corrected 2026-08-17 after owner review
+
+The first landing was still black. Measured on the frames rather than judged
+by eye:
+
+| frame | mean | median | pixels at or below 3/255 |
+|---|---:|---:|---:|
+| hall lamp-off, before any of this | 0.0 | 0 | **100%** |
+| hall lamp-off, first attempt | 1.0 | 1 | **95.3%** |
+| hall lamp-off, now | 15.5 | 15 | **0%** |
+
+Two real defects were behind it, and neither was a tuning value.
+
+**1. The ambient was never applied at all.** `ambient_light_sky_contribution`
+defaults to **1.0**, so with `AMBIENT_SOURCE_COLOR` Godot still blends the
+ambient toward the SKY — and against a `BG_COLOR` background there is no sky,
+so the term evaluated to zero. Raising `ambient_light_energy` did nothing
+because the colour it scaled was weighted out. This is also why the old
+harness's environment had never lifted anything: it had the same line missing.
+Fixed, and the energy then set from measurement rather than taste.
+
+**2. The beam mask crushed what was left, and inverted the lamp.** The torch's
+screen mask multiplies over the frame, and how far it may dim is set by how
+much light `LightRig` reports. The dream has no LightRig, so it reported
+nothing, the vignette sat at its darkest 0.18, and the ambient outside the
+beam was multiplied to a fifth. Switching the lamp **ON** took the frame from
+median 12 to median 3 with 68% of it at or below 3/255 — a torch that darkened
+the room, against a ruled contract that says light on gives information.
+
+A world that lights itself can now say so (`PlayerController.set_world_lift_floor`,
+`DREAM_LIFT_FLOOR = 0.72`). Not 1.0: the torch has to stay the reason you can
+see, and the vignette is most of why it feels carried. Waking Orison never
+calls it and still answers entirely to its own fixtures — `WalkTest` and
+`GoldenLoopTest` confirm it is unchanged there.
+
+Final, all four frames at **0%** below 3/255:
+
+| frame | mean | median | p95 | max |
+|---|---:|---:|---:|---:|
+| hall lamp on | 10.1 | 9 | 19 | 135 |
+| hall lamp off | 15.5 | 15 | 19 | 136 |
+| threshold lamp on | 18.4 | 12 | 43 | 150 |
+| threshold lamp off | 23.0 | 21 | 28 | 141 |
+
+The lamp still reads as the information source — its beam is the max in every
+frame, and at the threshold it lifts p95 from 28 to 43 — while nothing in the
+passage is a hole in the screen any more.
+
 ## Frames
 
 | file | |

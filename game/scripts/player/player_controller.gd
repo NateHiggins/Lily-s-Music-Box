@@ -562,6 +562,21 @@ func lamp_is_enabled() -> bool:
 	return _lamp_on
 
 
+## Tell the beam's screen mask that this world lights itself.
+##
+## The mask dims everything outside the beam, and how far it may dim is set by
+## how much light the LightRig reports. A world without a rig reports nothing
+## and gets the darkest vignette there is, which is wrong for the dream: it
+## lights itself, and crushing its ambient made switching the lamp ON darken
+## the frame. Waking Orison never calls this.
+func set_world_lift_floor(value: float) -> void:
+	var lift: float = clampf(value, 0.0, 1.0)
+	if _light_mask:
+		_light_mask.floor_lift = lift
+	if _cookie_mask:
+		_cookie_mask.floor_lift = lift
+
+
 ## Two transients, built rather than shipped, because the project already
 ## synthesises its traffic and its songbook rather than carrying wavs for them
 ## (`street_traffic.gd`, `song_synth.gd`) and a lamp switch is a far smaller

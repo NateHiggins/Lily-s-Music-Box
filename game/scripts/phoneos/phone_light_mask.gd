@@ -61,6 +61,9 @@ var _w_cracked := 0.0
 var _w_haze := 0.0
 var _surge := 0.0
 var _lift := 0.0
+## Minimum room lift for a world that lights itself without a LightRig.
+## See the note in the update loop; the waking building leaves it at zero.
+var floor_lift := 0.0
 var _t := 0.0
 var _aim := Vector2.ZERO
 var _cookie_mode := false
@@ -207,6 +210,18 @@ func _process(delta: float) -> void:
 	var room := 0.0
 	if _rig and "room_light" in _rig:
 		room = clampf(float(_rig.room_light), 0.0, 1.0)
+	# A ROOM WITH NO LIGHTRIG STILL HAS LIGHT. The rig measures authored
+	# fixtures, and the dream has none — it lights itself from an ambient
+	# floor, a carried black level and one receding practical. With nothing
+	# reporting, `room` stayed 0, the vignette sat at its darkest 0.18, and
+	# the ambient outside the beam was multiplied down to a fifth of itself:
+	# switching the lamp ON made the frame DARKER overall (median 12 -> 3,
+	# with 68% of it at or below 3/255). A torch does not darken a room, and
+	# the ruled contract is that light ON gives information.
+	#
+	# So a world that lights itself can say so. Waking Orison never sets this
+	# and keeps answering entirely to its own fixtures.
+	room = maxf(room, floor_lift)
 	_lift = move_toward(_lift, room, delta * LIFT_CHASE)
 
 	# The hand. A slow figure-of-eight that speeds up as you walk, so
