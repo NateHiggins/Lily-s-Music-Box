@@ -9,6 +9,9 @@ const INSTITUTIONAL := ROOT + "institutional_wear_atlas.png"
 const UNCANNY := ROOT + "uncanny_trace_atlas.png"
 
 var decal_count := 0
+## Marks that had nowhere legal to hang. Reported so a rise shows up as a number
+## rather than as an absence nobody notices.
+var declined_count := 0
 
 
 func build(layout: Dictionary, floor_nodes: Dictionary) -> int:
@@ -22,32 +25,48 @@ func build(layout: Dictionary, floor_nodes: Dictionary) -> int:
 		_add_institutional_layer(parent, floor_id, z)
 		for room in floor.get("rooms", []):
 			if room.get("kind", "") == "living" and room.get("unit", "") != "":
-				var unit := str(room.get("unit", ""))
-				if unit == "2B":
-					# 2B's living rectangle contains its bathroom. Both inferred east-
-					# wall marks consequently landed together behind the lavatory and
-					# repeated the same hand smear. Preserve the higher approved mark
-					# exactly; do not relocate or regenerate it.
-					var base_seed := absi(unit.hash())
-					var high_variant := (0 if base_seed % 5
-							> (base_seed + 7919) % 5 else 1)
-					_add_domestic_mark(parent, room, z, high_variant)
-				else:
-					_add_domestic_mark(parent, room, z, 0)
-					_add_domestic_mark(parent, room, z, 1)
+				# THE 2B SPECIAL CASE USED TO LIVE HERE and is deliberately gone.
+				# It suppressed one of 2B's two marks because both were landing
+				# behind that unit's lavatory - which was this bug, diagnosed
+				# correctly and then fixed for exactly one unit. The same
+				# nesting hits thirteen quads across seven baths, so the
+				# exception is now the rule and `_add_domestic_mark` declines on
+				# its own. Third time this family has been patched per-unit
+				# (b519e35, 3b04597, and here); first time it has been
+				# generalised.
+				_add_domestic_mark(parent, floor, room, z, 0)
+				_add_domestic_mark(parent, floor, room, z, 1)
 		_add_uncanny_mark(parent, floor_id, z)
 	return decal_count
 
 
-func _add_domestic_mark(parent: Node3D, room: Dictionary, z: float,
-		variant: int) -> void:
+## A MAIN ROOM RECT IS NESTED. The bathroom is carved out of the living room and
+## the living rect is never subtracted - gen_layout's ceiling_pass documents this
+## and handles it by subtraction; the decal passes did not. So inferring a wall
+## position from the raw living rect lands inside the bath wherever the two share
+## that edge: the east edge on the A/B stacks, the west on C/D.
+##
+## The edge is real wall. The room on the far side of it at that y is a lavatory,
+## which is why nobody wants a hand smear there.
+##
+## Try the hand the seed chose, flip to the other, and if both are inside
+## somebody else's room, DECLINE. An unhung mark beats one in a neighbour's
+## shower, and 44 candidates only need to lose a few.
+func _add_domestic_mark(parent: Node3D, floor_data: Dictionary,
+		room: Dictionary, z: float, variant: int) -> void:
 	var rect: Array = room.rect
 	var unit: String = room.unit
 	var seed := absi(unit.hash()) + variant * 7919
 	var west := (seed + variant) % 2 == 0
-	var x := float(rect[0]) + 0.102 if west else float(rect[2]) - 0.102
 	var y := lerpf(float(rect[1]), float(rect[3]),
 			0.27 + float(seed % 37) / 100.0)
+	var x := float(rect[0]) + 0.102 if west else float(rect[2]) - 0.102
+	if WallArtLaw.nested_room_blocks(floor_data, room, x, y):
+		west = not west
+		x = float(rect[0]) + 0.102 if west else float(rect[2]) - 0.102
+		if WallArtLaw.nested_room_blocks(floor_data, room, x, y):
+			declined_count += 1
+			return
 	var tile := (seed + variant) % 4
 	# Mostly mundane: moved-picture ghosts, hand grease, water tide marks.
 	var decal := _add(parent, DOMESTIC, tile % 2, tile / 2,

@@ -870,9 +870,48 @@ func _plumbing_checks() -> void:
 			% [incomplete_curtains])
 	_check(MatLib.SETS.has("shower_duck"),
 			"rubberized shower duck resolves through the runtime material contract")
-	var two_b_marks := root.find_children("DomesticMark_2B_*", "", true, false)
-	_check(two_b_marks.size() == 1,
-			"2B retains one high hand smear rather than a repeated pair")
+	# NO DOMESTIC MARK STANDS IN ANOTHER ROOM. This replaces a check that 2B
+	# carried exactly ONE mark, which froze a workaround rather than a
+	# requirement: 2B was capped at one because both of its marks were landing
+	# behind that unit's lavatory, and capping the count hid the cause. The same
+	# nesting misplaced thirteen quads across seven baths - a living rect
+	# contains its own bathroom and is never subtracted, which gen_layout's
+	# ceiling_pass documents and handles and the decal passes did not.
+	#
+	# With WallArtLaw.nested_room_blocks() consulted, 2B legally gets BOTH marks
+	# back on the other hand, so the old assertion now fails on the fix. What
+	# the pass actually owes is stated here instead, for all forty-four.
+	var stray_marks: Array[String] = []
+	for floor_data in GameBoot.layout.get("floors", []):
+		for mark in root.find_children("DomesticMark_*", "", true, false):
+			var unit := str(mark.name).split("_")[1]
+			var want := ""
+			for r in floor_data.get("rooms", []):
+				if str(r.get("unit", "")) == unit 						and str(r.get("kind", "")) == "living":
+					want = str(r.get("id", ""))
+			if want == "":
+				continue
+			var bl := Vector3(mark.global_position.x, -mark.global_position.z,
+					mark.global_position.y)
+			var host := ""
+			var best := INF
+			for r in floor_data.get("rooms", []):
+				var q: Array = r.get("rect", [])
+				if q.size() < 4:
+					continue
+				if bl.x < float(q[0]) or bl.x > float(q[2]):
+					continue
+				if bl.y < float(q[1]) or bl.y > float(q[3]):
+					continue
+				var area := (float(q[2]) - float(q[0])) * (float(q[3]) - float(q[1]))
+				if area < best:
+					best = area
+					host = str(r.get("id", ""))
+			if host != "" and host != want:
+				stray_marks.append("%s in %s" % [mark.name, host])
+	_check(stray_marks.is_empty(),
+			"no domestic mark hangs in a neighbour's room (%s)"
+			% ("clean" if stray_marks.is_empty() else ", ".join(stray_marks)))
 
 	var water_markers := 0
 	var wrong_network := []
