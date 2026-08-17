@@ -47,6 +47,14 @@ func _ready() -> void:
 			cl.visible = false
 			stripped += 1
 		print("[DREAM ENV] MASK CONTROL: %d overlay nodes hidden" % stripped)
+	# DIAGNOSTIC: suppress the receding practicals. They are omni lights bright
+	# enough to light a whole wall segment now that no ambient competes.
+	if OS.get_environment("DREAM_NO_PRACTICAL") == "1":
+		for pr in _root._practicals:
+			pr.visible = false
+		_root.set_physics_process(false)
+		print("[DREAM ENV] PRACTICAL CONTROL: %d suppressed"
+				% _root._practicals.size())
 	var control := OS.get_environment("DREAM_ENV_CONTROL") == "1"
 	if control:
 		_strip_environment()
@@ -254,4 +262,8 @@ func _capture(file_name: String, lamp_on: bool) -> void:
 	await RenderingServer.frame_post_draw
 	var image := get_viewport().get_texture().get_image()
 	image.save_png(_out.path_join(file_name + ".png"))
-	print("   saved %s" % file_name)
+	var pose: Dictionary = _root.player.lamp_pose()
+	print("   saved %-30s origin=%s dir=%s cam_fwd=%s" % [file_name,
+			str(pose.get("origin", Vector3.ZERO)).pad_decimals(2),
+			str(pose.get("dir", Vector3.ZERO)),
+			str(-_root.player.camera.global_transform.basis.z)])

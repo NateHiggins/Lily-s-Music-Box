@@ -101,8 +101,25 @@ uniform float breathe_speed : hint_range(0.0, 0.4) = 0.05;
 // lamp wraps the pool around whatever is nearest the player's hand, which put
 // gold on walls the beam was not pointing at. `lamp_origin` is the fixture
 // itself, kept only so the falloff can fade with how far the beam has thrown.
-uniform vec3 lamp_pos = vec3(0.0);
+// THE LAMP IS A CONE THIS SHADER EVALUATES, NOT A LIGHT THAT FALLS ON IT.
+//
+// Owner direction: "instead of casting a light it makes the shaders animate
+// and react." So what arrives is the lamp's POSE -- where it is, which way it
+// points, how wide and how far -- and the surface decides for itself what to
+// do about being looked at. Nothing here depends on the renderer's lighting,
+// which is what was delivering flat per-face reflections and rectangular
+// patches: a spotlight in Compatibility shades a box, and a box shades flat.
+//
+// It is also the truer idea. The gold is not lit by the lamp; it WAKES under
+// it. Ornament resolves, metal softens and runs, rings travel out from where
+// the beam is touching. Look away and it cools and forgets.
 uniform vec3 lamp_origin = vec3(0.0);
+uniform vec3 lamp_dir = vec3(0.0, 0.0, -1.0);
+uniform float lamp_reach = 4.6;
+uniform float lamp_cos_outer = 0.86;
+// How much of the cone's edge is falloff rather than hard boundary. A hard
+// edge reads as a stencil; this is a lamp in a wire cage.
+uniform float lamp_edge_soft : hint_range(0.01, 1.0) = 0.42;
 uniform float lamp_energy = 1.0;
 // SMALL, or the circle is never seen. At 4.6 m the disc was wider than the
 // wall segments it landed on, so every face was entirely inside the pool and
@@ -137,6 +154,21 @@ uniform float pool_character : hint_range(0.0, 1.0) = 0.62;
 uniform float ripple_rate : hint_range(0.0, 6.0) = 2.1;
 uniform float ripple_scale : hint_range(0.0, 40.0) = 13.0;
 uniform float ripple_depth : hint_range(0.0, 2.0) = 0.85;
+// THE DISH. Owner: "make the melted part of the wall the lamp points at
+// concave, not flat."
+//
+// Metal under heat slumps: the middle goes first and runs, and what is left is
+// a bowl with a lip. Flat-but-shiny reads as varnish; a dish reads as
+// something that has actually GIVEN WAY, and it is the difference between a
+// wall with a highlight on it and a wall that is failing while you look at it.
+//
+// The geometry cannot move -- these are static boxes and the collision has to
+// stay honest, because a player must never be able to walk into a hole that is
+// only a shader. So the concavity lives entirely in the NORMAL: the surface
+// lies about its shape and the light believes it. At the rim the normal tilts
+// inward toward the centre, at the centre it is unchanged, and the eye reads
+// the whole patch as a depression.
+uniform float dish_depth : hint_range(0.0, 3.0) = 1.35;
 uniform float melt_amount : hint_range(0.0, 1.0) = 1.0;
 // How liquid a surface is ever allowed to get. Below 1.0 on purpose: the
 // pattern has to survive its own melting.
@@ -238,19 +270,29 @@ uniform sampler2D reflected_world : source_color, hint_default_black,
 		filter_linear_mipmap, repeat_enable;
 uniform float reflected_world_gain : hint_range(0.0, 4.0) = 1.0;
 
-vec3 sample_reflected_world(vec3 r) {
-	vec3 d = normalize(r);
-	// Equirectangular lookup. The world turns slowly with the domain drift, so
-	// what the gold remembers is never quite in the same place twice.
-	vec2 uv = vec2(atan(d.z, d.x) / TAU + 0.5 + TIME * drift_speed * 0.35,
-			acos(clamp(d.y, -1.0, 1.0)) / PI);
-	vec3 plate = texture(reflected_world, uv).rgb * reflected_world_gain;
-	// The procedural studio, kept as the floor under the plate: a hot band
-	// above falling to dark, so bare metal still reads as metal before any
-	// image exists.
-	vec3 studio = fake_env(d, gold_mid * 1.35, bole);
-	return max(studio, plate);
+// THE WORLD IN THE GOLD -- PROJECTED, NOT MIRRORED, AND THAT IS A CORRECTION.
+//
+// This sampled the plate by the REFLECTION VECTOR for several passes and never
+// produced a recognisable thing, because the physics is against it: a flat
+// surface reflects a very narrow cone of directions, so a mirror lookup
+// stretches a few pixels of a 1774x887 plate across a whole wall. That is a
+// smooth gradient by construction. No amount of gain or ripple recovers a face
+// from it, and I spent passes trying.
+//
+// So the plate is PROJECTED onto the surface instead, triplanar like the
+// ornament, and warped by the same flow that melts the gold. The concept is
+// intact and arguably sharpened: the residents are IN the metal rather than
+// reflected in it, they are still visible only where the lamp has woken the
+// surface, and they still cannot be walked to. What changes is that you can
+// now see who they are.
+vec3 sample_reflected_world(vec2 q, float flow) {
+	// Scaled so a figure is roughly body height on the wall rather than
+	// microscopic: the plate is a frieze and wants to read at frieze size.
+	vec2 uv = q * 0.055 + vec2(0.5, 0.5);
+	uv += vec2(flow, flow * 0.6) * 0.06;
+	return texture(reflected_world, uv).rgb * reflected_world_gain;
 }
+
 
 // A STONE IN A SETTING. A coloured cabochon inside a gold bezel, which is how
 // every jewel in the frieze is drawn -- never a bare dot of colour, always a
@@ -273,9 +315,7 @@ vec3 jewel(vec2 q, float cell_size, float density) {
 	return vec3(stone, max(bezel, 0.0), fract(h * 97.3));
 }
 
-// THE TENDRIL. An Archimedean coil drawn as a LINE, which is the whole
-// character of the tree: Klimt's branches are not filled shapes, they are a
-// wire that turns and turns. Bands fall out of comparing radius against angle.
+
 float spiral_line(vec2 q, float turns, float spacing, float width) {
 	float a = atan(q.y, q.x) / TAU + 0.5;
 	float r = length(q);
@@ -335,21 +375,30 @@ void fragment() {
 	// HEAT: how close this fragment is to the lamp. Everything molten is gated
 	// on it, so the gold liquefies only where the light actually lands and the
 	// rest of the corridor stays solid, cold and dark.
-	// A CIRCULAR DROPOFF CENTRED ON THE SPLASH. Radius shrinks as the beam
-	// throws further, because a cone landing close makes a small bright disc
-	// and the same cone landing down a corridor makes a wide faint one --
-	// which is how a real lamp behaves and is most of why this reads as light
-	// on a surface rather than as a glow attached to the player.
-	float throw_m = max(0.5, distance(lamp_origin, lamp_pos));
-	float disc = melt_radius * clamp(0.55 + throw_m * 0.16, 0.5, 1.7);
-	float heat = clamp(1.0 - distance(v_world, lamp_pos) / disc, 0.0, 1.0);
-	// The edge of the pool is broken up before it is shaped, so the ragged
-	// boundary is in the falloff itself rather than painted on afterwards.
-	// Two scales: a slow wander that makes the pool asymmetric, and a finer
-	// break-up that keeps its rim from ever reading as an arc.
-	float ragged = fbm(v_world.xz * 1.4 + vec2(TIME * 0.05, 0.0)) - 0.5;
-	ragged += (fbm(v_world.xz * 4.1 - vec2(0.0, TIME * 0.03)) - 0.5) * 0.5;
-	heat = clamp(heat + ragged * pool_character * 0.42, 0.0, 1.0);
+	// THE CONE, EVALUATED HERE. Distance falloff along the beam, angular
+	// falloff across it, and the product is how awake this patch of surface
+	// is. Because it is analytic it is continuous across every box in the
+	// maze -- there are no per-object lighting decisions left to produce a
+	// rectangle.
+	vec3 to_frag = v_world - lamp_origin;
+	float along = length(to_frag);
+	vec3 ray = along > 0.0001 ? to_frag / along : vec3(0.0, 0.0, -1.0);
+	float cone = smoothstep(lamp_cos_outer,
+			mix(lamp_cos_outer, 1.0, lamp_edge_soft), dot(ray, lamp_dir));
+	// Linear, not squared. Squared over a 4.6 m reach left a wall at 2.6 m
+	// sitting at 19% and reading as black, while the floor a metre under the
+	// lamp burned -- the beam lit the player's shoes and nothing they were
+	// looking at.
+	float reach = 1.0 - clamp(along / max(0.5, lamp_reach), 0.0, 1.0);
+	reach = pow(reach, 0.65);
+	// Facing matters: a surface edge-on to the beam wakes less than one square
+	// to it, which is what keeps a corridor from lighting like a tunnel.
+	float facing = clamp(dot(n, -ray), 0.0, 1.0);
+	facing = mix(0.35, 1.0, facing);
+	float heat = cone * reach * facing;
+	// The splash -- where the beam's axis meets this surface -- is still what
+	// the rings travel out from, and it is derived here rather than raycast.
+	vec3 splash = lamp_origin + lamp_dir * (along * dot(ray, lamp_dir));
 	heat = pow(heat, 1.7) * clamp(lamp_energy, 0.0, 4.0) * melt_amount;
 
 	// THE FLOW. Domain warp, animated, scaled by heat -- so the ornament is
@@ -361,8 +410,8 @@ void fragment() {
 	// go: this is the mark that says HEAT rather than "wet". The phase is a
 	// function of world distance from the splash, so the rings stay pinned to
 	// the point the beam is touching even while the player moves.
-	float rad = distance(v_world, lamp_pos);
-	float ring_fade = clamp(1.0 - rad / max(0.5, disc), 0.0, 1.0);
+	float rad = distance(v_world, splash);
+	float ring_fade = clamp(1.0 - rad / max(0.5, melt_radius), 0.0, 1.0);
 	float rings_out = sin(rad * ripple_scale - TIME * ripple_rate)
 			* ring_fade * ring_fade;
 	// And a slow churn under them, so the metal is moving even where the rings
@@ -566,6 +615,7 @@ void fragment() {
 	// which erases the very ornament the melt is supposed to be happening TO.
 	// Gold that has melted into a featureless pool is just a highlight.
 	float molten = min(metal * heat, MOLTEN_CEILING);
+	float woken = smoothstep(0.02, 0.55, heat);
 
 	// NO TANGENT FRAME EXISTS -- this is triplanar on untextured boxes, so
 	// NORMAL_MAP is unavailable and a tangent-space perturbation would be
@@ -592,19 +642,55 @@ void fragment() {
 	// itself is undulating and the light moves across the swell.
 	vec3 wave = (tan_a * rings_out + tan_b * churn) * 1.9 * molten
 			* ripple_depth;
-	vec3 bumped = normalize(n + relief + wave
+
+	// THE DISH. Direction from this fragment back toward the splash, flattened
+	// into the surface, so every point on the rim leans in toward the middle.
+	// Strength peaks at the rim and falls to nothing at dead centre -- which
+	// is what a bowl's normals actually do, and why this reads as depth rather
+	// than as a dark ring.
+	vec3 to_centre = splash - v_world;
+	to_centre -= n * dot(to_centre, n);
+	float dish_r = clamp(rad / max(0.25, melt_radius), 0.0, 1.0);
+	float lip = sin(dish_r * PI);
+	vec3 dish = vec3(0.0);
+	if (length(to_centre) > 0.0001) {
+		dish = normalize(to_centre) * lip * dish_depth * molten;
+	}
+	vec3 bumped = normalize(n + relief + wave + dish
 			+ (tan_a * (hx - h0) + tan_b * (hy - h0)) * 42.0 * molten);
 
 	vec3 refl = reflect(-normalize(VIEW), bumped);
-	vec3 env = sample_reflected_world(refl);
+	vec3 env = sample_reflected_world(q, living);
 
 	// A stone is not leaf and must not melt: glass has its own hard little
 	// highlight and no flow at all, which is what separates a jewel from a
 	// puddle of gold beside it.
 	molten *= 1.0 - jewel_face;
 
-	ALBEDO = mix(albedo * breath,
+	// THE WAKING. This is the shader doing what the light used to: the
+	// ornament is nearly absent on cold surface and resolves as the cone
+	// finds it, so sweeping the beam does not reveal a lit wall -- it brings
+	// a wall INTO EXISTENCE and lets it fall back out.
+	vec3 cold = albedo * 0.06;
+	vec3 warm = mix(albedo * breath,
 			albedo * breath * 0.85 + gold_mid * 0.22, molten);
+	// THE WAKING IS EMISSIVE, and it has to be. The cone response was
+	// modulating ALBEDO, which the renderer then multiplies by the actual
+	// light -- and the actual light is now deliberately dim, because the
+	// shader took its job. So the surface was being darkened twice and the
+	// whole world went black.
+	//
+	// If the lamp WAKES the gold rather than lighting it, then the waking is
+	// the surface's own output. The SpotLight3D keeps only the one job no
+	// shader can do -- casting the Tenant's borrowed shadow -- and everything
+	// visible here is the metal answering for itself.
+	ALBEDO = mix(cold, warm, woken);
+	// Modest. The waking is what makes the gold visible at all now, so it is
+	// tempting to push it -- but emission is not attenuated by anything and at
+	// arm's length from a wall it blows the frame white. This is the level at
+	// which a surface reads as answering the beam rather than as a lamp in its
+	// own right.
+	float wake_glow = woken * (0.05 + 0.26 * heat);
 	METALLIC = mix(metal * gold_metallic, 0.95, molten);
 	SPECULAR = mix(mix(0.25, 0.85, metal), 0.9, molten);
 	// A mirror is smooth. The collapse toward zero roughness is most of why the
@@ -623,9 +709,11 @@ void fragment() {
 	// white. Compressing it through its own reciprocal keeps the pool bright
 	// while leaving the pattern legible right through the hottest part -- the
 	// point being that molten gold has FIGURE in it, and a blown core has none.
-	vec3 lit = env * molten * 0.34;
+	// Gated on WOKEN rather than on the melt, so the figures resolve as the
+	// beam finds them instead of only in the hottest centre of the pool.
+	vec3 lit = env * woken * heat * 0.9;
 	lit = lit / (1.0 + lit * 0.85);
-	EMISSION = albedo * metal * leaf_ember + lit
+	EMISSION = warm * wake_glow + albedo * metal * leaf_ember + lit
 			+ star_colour * sky_glow * 0.55
 			+ albedo * jewel_face * jewel_gleam * 0.16;
 }

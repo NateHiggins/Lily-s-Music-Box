@@ -43,6 +43,13 @@ var _shape: CollisionShape3D
 var _capsule: CapsuleShape3D
 var _hand: Node3D
 var _light_mask: PhoneLightMask
+## Whether this WORLD permits the screen-space beam plate at all. The dream
+## does not. Held separately from the lamp's own on/off because
+## `set_lamp_enabled()` shows and hides the plate with the switch, and a world
+## that has refused it must not have that refusal undone by the next toggle --
+## which is exactly what was happening: the dream turned the plate off at
+## build, and the first lamp toggle turned it straight back on.
+var _beam_mask_allowed := true
 var _cookie_mask: PhoneLightMask
 var _mask_view: SubViewport
 var _cookie: ImageTexture
@@ -476,10 +483,10 @@ func set_lamp_enabled(on: bool) -> void:
 	var changed := on != _lamp_on
 	_lamp_on = on
 	if _light_mask:
-		_light_mask.visible = on
+		_light_mask.visible = on and _beam_mask_allowed
 	if _mask_view:
 		_mask_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS \
-				if on else SubViewport.UPDATE_DISABLED
+				if on and _beam_mask_allowed else SubViewport.UPDATE_DISABLED
 	if carried_device and carried_device.has_method("set_lamp_enabled"):
 		carried_device.set_lamp_enabled(on)
 	if not changed:
@@ -600,12 +607,51 @@ func set_lamp_base_energy(value: float) -> void:
 ##
 ## So a world can decline it. The 3D SpotLight3D is untouched and still does
 ## all the actual lighting; only the screen plate goes.
+## THE LAMP AS A POSE, published every frame and coupled to nothing.
+##
+## `beam_splash` used to be computed inside `_bake_cookie()`, which returns
+## early when headless AND when the mask viewport is gone -- and the dream
+## deliberately turns the mask off. So the splash silently stayed at the world
+## ORIGIN, the dream's melt centred itself on (0,0,0), and whichever boxes
+## happened to sit near the origin lit up as rectangles while the ceiling, the
+## floor and the falling jewels stayed dark. Three separate bug reports, one
+## uninitialised vector.
+##
+## The pose is now published on its own, from the light's own transform, with
+## no dependency on cookies, masks or viewports. Anything that wants to know
+## where the lamp is pointing can ask.
+func lamp_pose() -> Dictionary:
+	if flashlight == null:
+		return {}
+	return {
+		"origin": flashlight.global_position,
+		# Godot lights face -Z.
+		"dir": -flashlight.global_transform.basis.z.normalized(),
+		"range": flashlight.spot_range,
+		"angle_deg": flashlight.spot_angle,
+		"energy": flashlight.light_energy if _lamp_on
+				or flashlight.visible else 0.0,
+		"on": _lamp_on,
+	}
+
+
 func set_beam_mask_enabled(on: bool) -> void:
+	_beam_mask_allowed = on
+	# The whole CanvasLayer, not just the plate on it. Hiding the PhoneLightMask
+	# alone left its layer drawing, which is why a band of it survived across
+	# the top of every dream frame after the plate itself was switched off.
 	if _light_mask:
 		_light_mask.visible = on
+		var layer := _light_mask.get_parent() as CanvasLayer
+		if layer:
+			layer.visible = on
 	if _mask_view:
 		_mask_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS \
 				if on else SubViewport.UPDATE_DISABLED
+	# The projector is the same plate baked onto the light. A world that has
+	# refused the screen version does not want the 3D one either.
+	if not on and flashlight:
+		flashlight.light_projector = null
 
 
 ## Tell the beam's screen mask that this world lights itself.

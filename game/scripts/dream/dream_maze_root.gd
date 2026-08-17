@@ -92,7 +92,9 @@ const DREAM_LAMP_RANGE := 4.6
 const DREAM_LAMP_ATTENUATION := 1.9
 const DREAM_LAMP_ANGLE := 40.0
 const DREAM_LAMP_ANGLE_ATTENUATION := 2.4
-const DREAM_LAMP_ENERGY := 3.2
+## The 3D light is now a shadow-caster and little else; the surface response
+## is the shader's. Kept high enough that the borrowed silhouette still reads.
+const DREAM_LAMP_SHADOW_ENERGY := 1.1
 
 ## Deliberately small: Compatibility turns every particle into a submission and
 ## this frame is submission-bound. See _build_motes().
@@ -580,28 +582,32 @@ func _collect_molten_materials() -> void:
 
 
 func _update_molten() -> void:
-	if _molten_materials.is_empty() or player == null \
-			or player.flashlight == null:
+	if _molten_materials.is_empty() or player == null:
 		return
-	# The lamp's own node, not the body: the light is carried in the off hand
-	# and the pool is centred on the fixture rather than on the player's feet.
-	# THE SPLASH, not the lamp. Owner direction: the reflection is a circular
-	# dropoff centred on where the light hits the surface. Centring it on the
-	# lamp instead put the pool on whatever happened to be nearest the player's
-	# hand, which is why it kept appearing on surfaces the beam was not even
-	# pointing at.
-	var at: Vector3 = player.beam_splash
-	# Energy carries the warm-up and the pop straight into the metal, so the
-	# gold runs as the filament comes up and freezes as it dies. Nothing extra
-	# is needed to animate that -- it falls out of the lamp already being
-	# animated.
-	var energy: float = player.flashlight.light_energy \
-			if player.lamp_is_enabled() or player.flashlight.visible else 0.0
+	var pose: Dictionary = player.lamp_pose()
+	if pose.is_empty():
+		return
+	# THE LAMP DOES NOT LIGHT THE GOLD, IT WAKES IT. Owner direction: "instead
+	# of casting a light it makes the shaders animate and react."
+	#
+	# So what crosses this boundary is a POSE, not an illumination: where the
+	# lamp is, which way it points, how wide and how far it reaches, and how
+	# hard it is burning. The shader evaluates the cone itself and decides what
+	# the surface does about it -- melts, ripples, reveals its ornament. That
+	# removes the renderer's lighting from the question entirely, which is what
+	# was producing flat per-face reflections and rectangular patches.
+	#
+	# The SpotLight3D stays, and stays doing exactly one job: casting the
+	# Tenant's borrowed shadow. That is a ruled requirement (N3/N6 -- the
+	# silhouette exists only as a shadow the lamp finds) and no shader can do
+	# it. It is dim now, because it is no longer what lights the world.
 	for material in _molten_materials:
-		material.set_shader_parameter("lamp_pos", at)
-		material.set_shader_parameter("lamp_origin",
-				player.flashlight.global_position)
-		material.set_shader_parameter("lamp_energy", energy)
+		material.set_shader_parameter("lamp_origin", pose.origin)
+		material.set_shader_parameter("lamp_dir", pose.dir)
+		material.set_shader_parameter("lamp_reach", pose.range)
+		material.set_shader_parameter("lamp_cos_outer",
+				cos(deg_to_rad(float(pose.angle_deg))))
+		material.set_shader_parameter("lamp_energy", pose.energy)
 
 
 ## GOLD IN THE AIR, VISIBLE ONLY WHERE THE LAMP FINDS IT.
@@ -680,9 +686,12 @@ func _make_lamp_local() -> void:
 	player.flashlight.spot_attenuation = DREAM_LAMP_ATTENUATION
 	player.flashlight.spot_angle = DREAM_LAMP_ANGLE
 	player.flashlight.spot_angle_attenuation = DREAM_LAMP_ANGLE_ATTENUATION
-	player.flashlight.light_energy = DREAM_LAMP_ENERGY
+	# Dim, because it no longer lights the world -- the shader does. What it
+	# still does, and what nothing else can, is cast the Tenant's borrowed
+	# shadow, which is a ruled requirement rather than a decoration.
+	player.flashlight.light_energy = DREAM_LAMP_SHADOW_ENERGY
 	# The warm-up settles back to THIS, not to the waking lamp's output.
-	player.set_lamp_base_energy(DREAM_LAMP_ENERGY)
+	player.set_lamp_base_energy(DREAM_LAMP_SHADOW_ENERGY)
 
 
 ## THE BLACK LEVEL. "The world remains readable enough to move with the light
