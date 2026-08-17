@@ -1773,6 +1773,22 @@ func _build_passage_light_pass() -> void:
 	drum.shadow_enabled = false
 	pass_root.add_child(drum)
 
+	# 4. UNDER the diaphragms, inside the well. The drum omni above lights
+	#    the TOP of the glazing, and the face the player sees from the aisle
+	#    is the underside -- which is why the first attempt lifted the panel
+	#    out of black but left it dimmer than the roof beside it. A lantern
+	#    reads bright because its own glass is bright toward you.
+	#
+	#    Two, spread across the well rather than one at its centre, so the
+	#    coffered underside gets modelling instead of a single hot spot.
+	for wi in range(2):
+		var well := OmniLight3D.new()
+		well.name = "PassageLanternWell%d" % wi
+		well.position = Vector3(14.0, 9.55, 51.6 + (1.6 if wi == 0 else -1.6))
+		well.omni_range = 7.5
+		well.shadow_enabled = false
+		pass_root.add_child(well)
+
 	_passage_light_pass = pass_root
 	passage_runtime_nodes.append(pass_root)
 	_tune_passage_lights()
@@ -1802,7 +1818,14 @@ func _tune_passage_lights() -> void:
 		# streetlight and sky even at three in the morning.
 		drum.light_color = Color(0.94, 0.95, 1.00).lerp(
 				Color(0.74, 0.80, 0.96), 1.0 - day_weight)
-		drum.light_energy = lerpf(0.55, 2.30, day_weight)
+		drum.light_energy = lerpf(0.90, 3.60, day_weight)
+	for wi in range(2):
+		var well := _passage_light_pass.get_node_or_null(
+				"PassageLanternWell%d" % wi) as OmniLight3D
+		if well:
+			well.light_color = Color(0.96, 0.96, 1.00).lerp(
+					Color(0.80, 0.85, 0.98), 1.0 - day_weight)
+			well.light_energy = lerpf(0.70, 2.60, day_weight)
 	var lunette := _passage_light_pass.get_node_or_null(
 			"PassageLunetteKey") as SpotLight3D
 	if lunette:
