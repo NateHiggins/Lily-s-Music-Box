@@ -96,10 +96,47 @@ uniform float breathe_speed : hint_range(0.0, 0.4) = 0.05;
 // only thing a mirror can show you IS that light. It also keeps the mechanic
 // intact, because the reflection cannot exist where the lamp is not -- the
 // gold still has to be found.
+// WHERE THE BEAM LANDS, and the reflection is a disc around it. `lamp_pos`
+// is the splash point on the surface, NOT the lamp: a sphere centred on the
+// lamp wraps the pool around whatever is nearest the player's hand, which put
+// gold on walls the beam was not pointing at. `lamp_origin` is the fixture
+// itself, kept only so the falloff can fade with how far the beam has thrown.
 uniform vec3 lamp_pos = vec3(0.0);
+uniform vec3 lamp_origin = vec3(0.0);
 uniform float lamp_energy = 1.0;
-uniform float melt_radius : hint_range(0.5, 12.0) = 4.6;
+// SMALL, or the circle is never seen. At 4.6 m the disc was wider than the
+// wall segments it landed on, so every face was entirely inside the pool and
+// the falloff read as a rectangle -- the box's own edges standing in for a
+// boundary the melt never reached.
+uniform float melt_radius : hint_range(0.2, 12.0) = 1.35;
 uniform float melt_flow : hint_range(0.0, 3.0) = 1.0;
+// BEATEN LEAF IS NEVER FLAT, and this is the fix for the rectangles. A flat
+// face has one normal, so its reflection vector is nearly constant across the
+// whole face and the environment lands on it as ONE FLAT PATCH OF COLOUR --
+// which is exactly the "weird rectangular frames" the light was arriving in.
+// Every box in the maze was showing a single sample of the sky.
+//
+// So the surface carries a permanent micro-relief, independent of the melt:
+// hammer marks, the tooth of gesso under leaf, the unevenness of a hand-laid
+// sheet. It costs one fbm and it is what makes a wall a surface rather than a
+// polygon.
+uniform float leaf_relief : hint_range(0.0, 1.0) = 0.55;
+// THE POOL EDGE. A spotlight cone is a perfect circle and reads as a stencil.
+// Breaking the falloff with noise gives the light a ragged, guttering edge
+// where it meets the geometry -- the lamp is a dirty tungsten bulb in a wire
+// cage, not a projector.
+uniform float pool_character : hint_range(0.0, 1.0) = 0.62;
+// THE BEAM IS HEAT. Owner: "like the lantern beam is heat melting the surface
+// into a rippling living surface that animates."
+//
+// So the melt is not a static wet patch, it is a surface under a blowtorch:
+// rings travel OUTWARD from the splash the way heat spreads through metal,
+// and a slow churn crawls underneath them so the pool is never twice the same
+// shape. Both are gated on the disc, so the instant the beam moves the old
+// pool cools and stops moving -- what animates is what is being heated NOW.
+uniform float ripple_rate : hint_range(0.0, 6.0) = 2.1;
+uniform float ripple_scale : hint_range(0.0, 40.0) = 13.0;
+uniform float ripple_depth : hint_range(0.0, 2.0) = 0.85;
 uniform float melt_amount : hint_range(0.0, 1.0) = 1.0;
 // How liquid a surface is ever allowed to get. Below 1.0 on purpose: the
 // pattern has to survive its own melting.
@@ -298,8 +335,21 @@ void fragment() {
 	// HEAT: how close this fragment is to the lamp. Everything molten is gated
 	// on it, so the gold liquefies only where the light actually lands and the
 	// rest of the corridor stays solid, cold and dark.
-	float heat = clamp(1.0 - distance(v_world, lamp_pos) / melt_radius,
-			0.0, 1.0);
+	// A CIRCULAR DROPOFF CENTRED ON THE SPLASH. Radius shrinks as the beam
+	// throws further, because a cone landing close makes a small bright disc
+	// and the same cone landing down a corridor makes a wide faint one --
+	// which is how a real lamp behaves and is most of why this reads as light
+	// on a surface rather than as a glow attached to the player.
+	float throw_m = max(0.5, distance(lamp_origin, lamp_pos));
+	float disc = melt_radius * clamp(0.55 + throw_m * 0.16, 0.5, 1.7);
+	float heat = clamp(1.0 - distance(v_world, lamp_pos) / disc, 0.0, 1.0);
+	// The edge of the pool is broken up before it is shaped, so the ragged
+	// boundary is in the falloff itself rather than painted on afterwards.
+	// Two scales: a slow wander that makes the pool asymmetric, and a finer
+	// break-up that keeps its rim from ever reading as an arc.
+	float ragged = fbm(v_world.xz * 1.4 + vec2(TIME * 0.05, 0.0)) - 0.5;
+	ragged += (fbm(v_world.xz * 4.1 - vec2(0.0, TIME * 0.03)) - 0.5) * 0.5;
+	heat = clamp(heat + ragged * pool_character * 0.42, 0.0, 1.0);
 	heat = pow(heat, 1.7) * clamp(lamp_energy, 0.0, 4.0) * melt_amount;
 
 	// THE FLOW. Domain warp, animated, scaled by heat -- so the ornament is
@@ -307,6 +357,19 @@ void fragment() {
 	// "melts and morphs when light hits it" means in a shader: the pattern's
 	// own coordinates are what liquefy.
 	float ft = TIME * melt_flow;
+	// RINGS OUT OF THE SPLASH. Radial, travelling outward, and fading as they
+	// go: this is the mark that says HEAT rather than "wet". The phase is a
+	// function of world distance from the splash, so the rings stay pinned to
+	// the point the beam is touching even while the player moves.
+	float rad = distance(v_world, lamp_pos);
+	float ring_fade = clamp(1.0 - rad / max(0.5, disc), 0.0, 1.0);
+	float rings_out = sin(rad * ripple_scale - TIME * ripple_rate)
+			* ring_fade * ring_fade;
+	// And a slow churn under them, so the metal is moving even where the rings
+	// have passed. Two octaves at different rates never repeat visibly.
+	float churn = fbm(v_world.xz * 3.1 + vec2(ft * 0.31, -ft * 0.24)) - 0.5;
+	churn += (fbm(v_world.xz * 7.7 - vec2(ft * 0.19, ft * 0.27)) - 0.5) * 0.5;
+	float living = (rings_out * 0.7 + churn * 1.3) * ripple_depth;
 	vec2 warp = vec2(
 			fbm(p.xz * 0.9 + vec2(ft * 0.21, ft * 0.13)),
 			fbm(p.xz * 0.9 + vec2(7.3 - ft * 0.17, 2.1 + ft * 0.11))) - 0.5;
@@ -320,7 +383,7 @@ void fragment() {
 	} else if (w.x > w.z) {
 		q = p.zy;
 	}
-	q += drift + warp * heat * 0.55;
+	q += drift + (warp + vec2(living, living * 0.7)) * heat * 0.55;
 
 	vec3 albedo = ivory;
 	float leaf = 0.0;
@@ -516,7 +579,20 @@ void fragment() {
 	float h0 = fbm(fp);
 	float hx = fbm(fp + vec2(e, 0.0));
 	float hy = fbm(fp + vec2(0.0, e));
-	vec3 bumped = normalize(n
+	// The relief is ALWAYS present and the flow rides on top of it. Without
+	// the first term the reflection has nothing to vary across and returns to
+	// flat rectangles the moment the melt fades.
+	vec2 rp = p.xz * 6.5;
+	float r0 = fbm(rp);
+	float rx = fbm(rp + vec2(e, 0.0));
+	float ry = fbm(rp + vec2(0.0, e));
+	vec3 relief = (tan_a * (rx - r0) + tan_b * (ry - r0)) * 26.0 * leaf_relief;
+	// The living term goes into the NORMAL as well as the pattern. Without
+	// this the ornament slides around on a flat plate; with it the plate
+	// itself is undulating and the light moves across the swell.
+	vec3 wave = (tan_a * rings_out + tan_b * churn) * 1.9 * molten
+			* ripple_depth;
+	vec3 bumped = normalize(n + relief + wave
 			+ (tan_a * (hx - h0) + tan_b * (hy - h0)) * 42.0 * molten);
 
 	vec3 refl = reflect(-normalize(VIEW), bumped);
@@ -547,7 +623,7 @@ void fragment() {
 	// white. Compressing it through its own reciprocal keeps the pool bright
 	// while leaving the pattern legible right through the hottest part -- the
 	// point being that molten gold has FIGURE in it, and a blown core has none.
-	vec3 lit = env * molten * 0.62;
+	vec3 lit = env * molten * 0.34;
 	lit = lit / (1.0 + lit * 0.85);
 	EMISSION = albedo * metal * leaf_ember + lit
 			+ star_colour * sky_glow * 0.55

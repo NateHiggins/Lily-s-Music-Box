@@ -162,6 +162,13 @@ func _build_world() -> void:
 	# to a fifth outside the beam -- switching the lamp ON would darken the
 	# frame. See PlayerController.set_world_lift_floor().
 	player.set_world_lift_floor(DREAM_LIFT_FLOOR)
+	# THE SCREEN PLATE GOES. The gold answers the beam on the surface now, so
+	# the carried mask is a second account of the same lamp -- and being an
+	# oversized screen-space rect, it laid a flat lit rectangle across every
+	# frame that followed the camera instead of the geometry. Owner spotted it;
+	# a paired render with the overlay hidden confirmed it outright
+	# (art/renders/dream_klimt/_nomask/). The SpotLight3D is untouched.
+	player.set_beam_mask_enabled(false)
 	_make_lamp_local()
 
 	pursuer = DreamPursuer.new()
@@ -578,7 +585,12 @@ func _update_molten() -> void:
 		return
 	# The lamp's own node, not the body: the light is carried in the off hand
 	# and the pool is centred on the fixture rather than on the player's feet.
-	var at := player.flashlight.global_position
+	# THE SPLASH, not the lamp. Owner direction: the reflection is a circular
+	# dropoff centred on where the light hits the surface. Centring it on the
+	# lamp instead put the pool on whatever happened to be nearest the player's
+	# hand, which is why it kept appearing on surfaces the beam was not even
+	# pointing at.
+	var at: Vector3 = player.beam_splash
 	# Energy carries the warm-up and the pop straight into the metal, so the
 	# gold runs as the filament comes up and freezes as it dies. Nothing extra
 	# is needed to animate that -- it falls out of the lamp already being
@@ -587,6 +599,8 @@ func _update_molten() -> void:
 			if player.lamp_is_enabled() or player.flashlight.visible else 0.0
 	for material in _molten_materials:
 		material.set_shader_parameter("lamp_pos", at)
+		material.set_shader_parameter("lamp_origin",
+				player.flashlight.global_position)
 		material.set_shader_parameter("lamp_energy", energy)
 
 

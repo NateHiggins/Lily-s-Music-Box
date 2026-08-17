@@ -58,6 +58,8 @@ const COOKIE := 512
 ## both the cookie's blur and the cone edge's softness — see
 ## _measure_throw. Starts mid-range so the first bake is not a jump.
 var _throw := 3.5
+## World-space point where the carried beam lands. See _measure_throw().
+var beam_splash := Vector3.ZERO
 ## Set by building_root once the camera exists; any carried-light model can
 ## publish the same beam pose without the controller knowing its object class.
 var carried_device: Node3D
@@ -417,6 +419,16 @@ func _measure_throw() -> void:
 	# eye adjusting, fast enough that it has finished by the time you
 	# have finished turning.
 	_throw = lerpf(_throw, found, 0.34)
+	# WHERE THE BEAM ACTUALLY LANDS, in world space. The raycast above already
+	# knew this and threw it away, keeping only the distance for the cookie
+	# blur. The dream's molten gold needs the POINT: the melt is a circular
+	# pool centred on the splash, not a sphere centred on the lamp, and those
+	# are different the moment the beam is not pointing at your feet.
+	#
+	# Taken from the eased throw rather than the raw hit so the splash inherits
+	# the same settling the blur has -- otherwise the pool snaps across a
+	# doorway while the beam's own softness lags behind it.
+	beam_splash = origin - flashlight.global_transform.basis.z * _throw
 	if _cookie_mask:
 		_cookie_mask.set_throw(_throw, reach)
 	# The CONE EDGE softens with the same argument as the pattern inside
@@ -569,6 +581,31 @@ func set_lamp_base_energy(value: float) -> void:
 	_lamp_base_energy = maxf(0.0, value)
 	if flashlight and _lamp_phase <= 0.0 and _lamp_on:
 		flashlight.light_energy = _lamp_base_energy
+
+
+## Put the carried beam's SCREEN-SPACE mask away entirely.
+##
+## `PhoneLightMask` multiplies a torch plate over the whole frame. In the
+## waking Orison that is most of what makes the lamp feel carried, and it is
+## correct there: the beam is a screen effect because the building is lit by
+## its own fixtures and the torch is a lens on top of them.
+##
+## In the dream it is wrong twice. The Klimt shader already answers the beam ON
+## THE SURFACE -- the gold melts, ripples and reflects where the light lands --
+## so the screen plate is a second, contradictory account of the same lamp. And
+## because it is an oversized screen-space rect, it lays a flat lit RECTANGLE
+## across the frame that follows the camera rather than the geometry, washing
+## the ornament out and reading as a rendering artifact. It is the thing that
+## was ruining the shots.
+##
+## So a world can decline it. The 3D SpotLight3D is untouched and still does
+## all the actual lighting; only the screen plate goes.
+func set_beam_mask_enabled(on: bool) -> void:
+	if _light_mask:
+		_light_mask.visible = on
+	if _mask_view:
+		_mask_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS \
+				if on else SubViewport.UPDATE_DISABLED
 
 
 ## Tell the beam's screen mask that this world lights itself.

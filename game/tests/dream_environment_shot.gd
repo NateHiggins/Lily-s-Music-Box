@@ -35,6 +35,18 @@ func _ready() -> void:
 		_out = OS.get_user_data_dir()
 	DirAccess.make_dir_recursive_absolute(_out)
 	await _build()
+	# DIAGNOSTIC: strip the carried beam's screen-space mask. It is a
+	# CanvasLayer that multiplies over the whole frame, and the owner suspects
+	# it of laying a rectangle across these shots.
+	if OS.get_environment("DREAM_NO_MASK") == "1":
+		var stripped := 0
+		for m in _root.player.find_children("*", "Control", true, false):
+			m.visible = false
+			stripped += 1
+		for cl in _root.player.find_children("*", "CanvasLayer", true, false):
+			cl.visible = false
+			stripped += 1
+		print("[DREAM ENV] MASK CONTROL: %d overlay nodes hidden" % stripped)
 	var control := OS.get_environment("DREAM_ENV_CONTROL") == "1"
 	if control:
 		_strip_environment()
