@@ -122,8 +122,18 @@ func _ready() -> void:
 			interiors.size() > 11)
 	_check("hall and vault produced separately gated shell draws",
 			shell.size() > 0)
-	_check("69 marker actors, three handcarts and hours owner are zone-owned",
-			actors.size() == 73)
+	# 69 marker actors + 3 handcarts + the hours owner + the V4 passage light
+	# pass, which `fdfa560` added to passage_runtime_nodes on 2026-08-17 so the
+	# zone gate would hide its lanterns with everything else. The count was
+	# authored at 73 by PS6 on 2026-08-15 and nothing updated it, so this check
+	# has been failing on a correct build ever since.
+	#
+	# Printing the count is the actual repair. A bare `== 73` that reports only
+	# FAIL tells the next reader nothing about whether the building gained an
+	# actor or lost one, which is the only thing they need to know.
+	_check("69 marker actors, 3 handcarts, hours owner and the V4 light "
+			+ "pass are zone-owned (%d)" % actors.size(),
+			actors.size() == 74)
 	_check("three finish draws join the gated shell",
 			get_tree().get_nodes_in_group("passage_finish_geometry").size() == 3
 			and get_tree().get_nodes_in_group("passage_pushcarts").size() == 3)
