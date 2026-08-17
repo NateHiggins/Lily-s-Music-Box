@@ -263,21 +263,89 @@ func _build_barriers() -> void:
 const SHOP_LIGHT_PREFIXES := ["SITE_SHOP_LT_", "SITE_SHOP_IN0_",
 		"SITE_SHOP_IN1_", "SITE_SHOP_IN2_", "SITE_SHOP_DARKROOM_"]
 
+## The fixture a closed shop leaves burning, chosen from where it stands.
+##
+## Marker positions, read from the layout rather than assumed: the aisle runs
+## at x 14-16, the shopfront threshold at 16.5-17.1, and then IN0 at 17.95 --
+## about 1.4 m inside the glass, at 2.92 m. IN1 and IN2 are at 20.5-23.05,
+## which is stock and rear. LT at 16.54 is OUTSIDE the glass line: it is the
+## fascia, and a fascia light is advertising.
+##
+## So a closed shop puts out its sign and keeps one light burning inside the
+## front, which is both what a night security light IS and the thing that can
+## be seen from the aisle through goods, glass and drawn grille. It also feeds
+## the layered sightline V2 was accepted on, from the dark side.
+const NIGHT_SECURITY_FIXTURE := "SITE_SHOP_IN0_"
+
+## How much of it burns, by trade. Owner ruling 2026-08-17: "light the closed
+## shops as realism determines. when instructions collide, favor realism."
+##
+## Realism does not mean a uniform bulb in every shop -- that is just the
+## blazing shutter of `38aba16` at lower wattage. It means what each trade
+## would really leave on at three in the morning, and the answer is graded by
+## what is inside worth watching:
+##
+##   pawn      a strongroom trade; the display light is effectively insurance
+##   druggist  night bell and a locked poisons cabinet; the traditional lamp
+##   locksmith keys, blanks and a safe: a security trade watching itself
+##   funeral   a chapel of rest keeps a low vigil light, which is custom
+##             rather than security, and reads warmer and dimmer for it
+##   news      tobacco behind the counter is the stock worth taking
+##   diner     the counter light every luncheonette leaves for the cleaner
+##   photo     film and cameras, but the DARKROOM stays dark -- it is a
+##             darkroom, and a lit one is a ruined shelf of paper
+##   radio     a workshop of other people's sets, half of them in pieces
+##   laundry   other people's shirts; nobody breaks in for shirts
+##   cobbler   the same, with lasts
+##
+## HARDWARE PAINT is absent deliberately: it is NIGHT_SERVICE_TRADE and stays
+## fully lit and open, which no security light should be confused with.
+const NIGHT_SECURITY_GAIN := {
+	"pawn": 0.35,
+	"druggist": 0.30,
+	"locksmith": 0.25,
+	"funeral": 0.22,
+	"news": 0.20,
+	"diner": 0.20,
+	"photo": 0.18,
+	"radio": 0.15,
+	"laundry": 0.12,
+	"cobbler": 0.12,
+}
+
 
 func _apply_shop_lights() -> void:
 	if _root == null:
 		return
 	for spec in shop_specs:
-		var trade := String(spec.id).replace("SITE_SHOP_HOURS_", "")
-		var on := not _after_hours \
-				or String(spec.trade) == NIGHT_SERVICE_TRADE
+		# The node suffix is the shopfront's NAME (PAWNBROKER); `spec.trade`
+		# is its TRADE (pawn). They are not the same key and the security
+		# table is keyed by the trade.
+		var suffix := String(spec.id).replace("SITE_SHOP_HOURS_", "")
+		var trade := String(spec.trade)
+		var trading := not _after_hours or trade == NIGHT_SERVICE_TRADE
+		var night_gain: float = NIGHT_SECURITY_GAIN.get(trade, 0.0)
 		for prefix in SHOP_LIGHT_PREFIXES:
 			var fixture := _root.get_node_or_null(
-					NodePath(prefix + trade)) as LightFixtureProp
+					NodePath(prefix + suffix)) as LightFixtureProp
 			if fixture == null:
 				continue
-			fixture.set_state_gain(1.0 if on else 0.0)
-			fixture.set_powered(on)
+			var gain := 1.0
+			if not trading:
+				gain = night_gain if prefix == NIGHT_SECURITY_FIXTURE \
+						else 0.0
+			fixture.set_state_gain(gain)
+			# A security light burns, so unlike a switched-off bulb it does
+			# enter the rig's ranking -- but it declines the shadow slot that
+			# ranking would buy it. A 12-35% bulb behind a drawn grille has no
+			# business throwing an architectural shadow down the nave. This is
+			# an image decision and not a budget one: measured over a full
+			# station run these lights cost nothing outside the noise band.
+			fixture.wants_shadow = trading
+			# Still gated on the gain, not on the hour. An unpowered fixture
+			# is kept out of the ranking entirely, which is what stops a dark
+			# bulb holding a shadow slot (`bbdeb78`).
+			fixture.set_powered(gain > 0.0)
 
 
 func _refresh_visibility_and_collision() -> void:

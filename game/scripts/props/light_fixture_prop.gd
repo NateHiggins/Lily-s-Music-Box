@@ -527,6 +527,29 @@ func _start_normal_function() -> void:
 ## can afford.
 var powered := true
 
+## Whether this fixture should be allowed to spend one of the sixteen shadow
+## slots when the rig ranks it near the camera.
+##
+## `powered` and the budget already decide whether a light BURNS. This decides
+## something separate: whether it is worth an entry in the positional atlas,
+## which is a fixed 8192 subdividing per caster, so every slot granted shrinks
+## every other shadow in the frame (TASKS L13).
+##
+## Default true, because an ordinary room light casts. It is turned off for
+## fixtures that burn at a fraction of their authored output — an arcade shop's
+## overnight security bulb is the first — where a sharp architectural shadow
+## thrown down the nave is wrong to look at.
+##
+## The justification is the IMAGE, not the frame. An earlier draft of this
+## comment claimed the ten arcade security lights cost 2,566 draw calls and
+## 3.61 ms at passage northbound. They do not. That figure came from the
+## diagnostic row that turns off EVERY light's shadow in the scene, and
+## attributing the whole scene's shadow cost to the ten fixtures under
+## suspicion was wrong. Measured properly, over a full eleven-station run
+## against the same run without them, the security lights cost nothing
+## outside the noise band (arcade +0.86, passage northbound -0.42 ms).
+var wants_shadow := true
+
 
 func set_powered(on: bool) -> void:
 	powered = on

@@ -522,8 +522,14 @@ func _process(delta: float) -> void:
 		var source_in_core := source != null \
 				and absf(source.global_position.x) <= ORISON_CORE_HALF_X \
 				and absf(source.global_position.z) <= ORISON_CORE_HALF_Z
+		# A fixture may decline the shadow slot its rank would have bought it.
+		# Read defensively: not everything in this list is a LightFixtureProp,
+		# and a missing property must mean "casts", never "silently stops".
+		var declared: Variant = fixture.get("wants_shadow")
+		var wants_shadow: bool = declared == null or bool(declared)
 		fixture.set_budget(fixture_gain * local_gain if on else 0.0, false,
-				i < _shadow_budget and not (street_exterior and source_in_core))
+				i < _shadow_budget and wants_shadow \
+				and not (street_exterior and source_in_core))
 		if source:
 			source.shadow_opacity = shadow_opacity \
 					* float(tuning.shadow_opacity)
