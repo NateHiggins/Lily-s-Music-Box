@@ -105,12 +105,17 @@ it cannot catch a shared sign error. The real external anchor for handedness
 is block G, which pins four hardcoded sector names against four cardinal
 facings. That check is what holds the convention.
 
-**2. The authored tell radii are larger than the rooms that hold them.** The
-sockets carry 4.6–5.5 m tells; the modules are 3.5–4.1 m deep. The tell is
-therefore a room-entry event, not a proximity event. That is arguably the
-better feel — you cross a threshold and the room tells you what is in it — but
-it means a warning can only be measured as time actually walked, never as
-radius arithmetic.
+**2. The authored tell radii exceed the rooms' SHORT axes.** The sockets carry
+4.6–5.5 m tells. `D03_LIFT_VOID` is 4.10 x 3.50, and `D05_SERVICE_RISER`
+and `D01_F04_LONG_HALL` are only 2.08 m across even though they run 6.50 m and
+19.30 m long. So on most bearings the tell is a room-entry event rather than a
+proximity one. That is arguably the better feel — you cross a threshold and
+the room tells you what is in it — but it means a warning can only be
+measured as time actually walked, never as radius arithmetic.
+
+*(An earlier version of this item said "the modules are 3.5–4.1 m deep",
+which is D03's footprint generalised to all three. See the correction section
+above.)*
 
 **3. The through-wall tell is load-bearing - but not for the reason first
 given here.** The original reasoning was that no room is deep enough to hold a
@@ -130,12 +135,16 @@ clears its own bar from its own threshold.
 
 ## What is measured but not claimed
 
-Forty of sixty first tells arrived from outside the hazard's own room. Sound
-through a wall is honest; a *bearing* through a wall points at plaster. The
-caption is still directionally correct — it names where the danger is, and the
-player walks toward the door rather than the wall — but the graph above is the
-principled fix and it does not exist yet. Recorded here rather than quietly
-passed.
+On the routed approach the trunk and the void are always first heard from
+outside their own room, because their sockets sit mid-room and the chain
+brings you in through a door. Sound through a wall is honest; a *bearing*
+through a wall points at plaster. The caption stays directionally correct — it names where the danger is, and the player walks toward the door
+rather than the wall — but the acoustic graph above is the principled fix
+and it does not exist yet. Recorded here rather than quietly passed.
+
+*(This paragraph previously read "forty of sixty first tells", a count taken
+from the collapsed sweep. With the sweep corrected the honest statement is
+categorical, not a tally.)*
 
 ## Gate C status — the honest reading
 

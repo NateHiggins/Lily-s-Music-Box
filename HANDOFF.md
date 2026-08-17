@@ -312,8 +312,48 @@ proof — the `mina_vale` silhouette never enters beauty, module walls block
 acquisition, the real lamp owner gates pursuit (6.450 s on / 10.742 s off /
 10.600 s extinguished captures at the fixed seed, 0 route violations), and
 capture reaches `end_dream("capture")` through the shell. Record and frames:
-`art/renders/dream_pursuit_n6/README.md`. N7, the integrated vertical slice,
-is the next dream item. GoldenLoopTest's two K6 objective-title checks failed
+`art/renders/dream_pursuit_n6/README.md`.
+
+**N7 is now closed, and with it Gate D.** The run can end three ways through
+one latched funnel in `DreamMazeRoot._commit_outcome()`: capture, the slot's
+authored 28 s ceiling, and hazards. The Vantry trunk's condition is `lamp_on`
+(the arc reaches for the beam, so light activates the danger it reveals) and
+the open lift void is a real hole subtracted from the floor slab, resolved by
+real gravity rather than by a radius. `DreamCaptionLayer` writes each tell as
+a cue and one of eight sectors and nothing else, under the opt-in
+`dream_directional_captions` setting.
+
+`GateDJoinTest.tscn` closes the seam that had gone unnoticed because both
+sides of it were green: `GoldenLoopTest` played the whole shift but answered
+the dream request with a test-only stub predating N4, while
+`DreamPursuitTest` ran the real maze but wrote finished job facts straight
+into `RealityState` instead of earning them. Gate D now plays the shift inside
+a real `CampaignShell` and carries it into the real dream, once per ending:
+`capture` 69/69, `contact` 71/71, `fall` 71/71, each about 35 s and each
+returning to the authored 4B bedside in a REBUILT waking Orison. Set
+`GATE_D_OUTCOME` to choose the ending.
+
+Two things a future harness should not rediscover the hard way. The production
+onset clock cannot be used in a joined test: onset is 2.60 sim-seconds, or
+0.74 wall seconds after the case resolves, and every gate passes at that
+moment, so the dream enters mid-assertion and the shell frees the waking world
+underneath it — use `sleep_manual_clock`. And `DreamBoundaryTest._exclusive()`
+counts the `waking_world` group, which only the boundary *stub* joins; the
+real `OrisonRoot` joins `building_root`, so copying that helper reports a
+false failure on a correct join.
+
+Numbers, and a recorded correction to several claims that an adversarial
+review found overstated, are in `art/renders/dream_hazards_n7/README.md`. The
+one binding constraint to carry forward: the dream acoustic graph, when built,
+must **attenuate** hazard tells across a wall and must not **silence** them —
+occluded to its own room the trunk gives 0.52 s and the void 0.19 s against
+the 0.90 s their sockets owe. `DreamPerceptionTest` prints that verdict every
+run and is that work's acceptance check.
+
+The next dream items are all presentation: the hollow runner's effect (blocked
+on an owner ruling — the catalog puts its socket in `D01_F04_LONG_HALL` while
+the brief's script says D04, which has no sockets), the trunk's lit
+beam-splash, and the production dream `WorldEnvironment`. Gate E is untouched. GoldenLoopTest's two K6 objective-title checks failed
 on clean origin at that time; **resolved 2026-08-16 on `66a00f3`** — the
 cause was `b318d84`'s telegram restyle prefixing `"WORK ORDER / "` onto
 titles the job library already authors, not the `1f8faa0` I had suspected.
