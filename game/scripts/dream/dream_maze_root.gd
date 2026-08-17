@@ -261,7 +261,13 @@ func _build_environment() -> void:
 	# point compresses the highlights instead of clipping them: the pool stays
 	# the brightest thing in frame and keeps its figure all the way through,
 	# which is the whole point of gold having a pattern on it.
-	environment.tonemap_white = 11.0
+	# A MIDDLE, because 11.0 overcorrected. At 3.2 ACES clipped and every
+	# molten pool went flat white; at 11.0 nothing clips but the whole lit
+	# range is compressed into so narrow a band that the ORNAMENT flattens
+	# too -- the pattern was still being drawn and could no longer be seen.
+	# Trading a blown core for a flat one is not holding detail. 5.2 keeps the
+	# highlight off the ceiling while leaving the leaf its contrast.
+	environment.tonemap_white = 5.2
 	# GLOW IS THE HALF OF THIS THAT SELLS THE GOLD. Leaf is metal, so the only
 	# thing it does is throw the lamp back — and a specular highlight with no
 	# bloom around it reads as a white pixel rather than as light off leaf.

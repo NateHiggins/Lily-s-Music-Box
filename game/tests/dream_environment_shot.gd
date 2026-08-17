@@ -49,9 +49,56 @@ func _ready() -> void:
 	print("[DREAM ENVIRONMENT SHOT] 4 frames%s" %
 			("  (CONTROL: environment stripped)" if control else ""))
 	if not control:
+		_audit_shader_compiled()
 		await _audit_practical()
 	print("[DREAM ENVIRONMENT SHOT] %d findings" % _findings)
 	get_tree().quit(_findings)
+
+
+## A SHADER THAT FAILS TO COMPILE DOES NOT SAY SO, IT JUST DISAPPEARS.
+##
+## Godot logs SHADER ERROR to stderr and then renders the FALLBACK material --
+## a plain lit surface that looks like a lighting problem rather than a missing
+## shader. On 2026-08-17 the Klimt shader carried two compile errors (a forward
+## reference to hash21, and a `const` with no type) and this harness went on
+## reporting "4 frames saved" for several passes while photographing the
+## fallback. Real tuning decisions were made against an image the shader was
+## not drawing.
+##
+## So the harness now asks the question directly. `get_shader_uniform_list()`
+## returns the uniforms the compiled shader actually exposes; on a shader that
+## failed to build it comes back empty, which is a fact a render cannot hide.
+func _audit_shader_compiled() -> void:
+	print("
+=== SHADER COMPILED? ===")
+	var checked := 0
+	var broken := 0
+	for node in _root.find_children("*", "GeometryInstance3D", true, false):
+		var geometry := node as GeometryInstance3D
+		if geometry == null:
+			continue
+		var material := geometry.material_override as ShaderMaterial
+		if material == null or material.shader == null:
+			continue
+		checked += 1
+		var uniforms: Array = material.shader.get_shader_uniform_list()
+		if uniforms.is_empty():
+			broken += 1
+			printerr("   FAILED TO COMPILE: %s on %s"
+					% [material.shader.resource_path, geometry.name])
+	print("shader materials checked : %d" % checked)
+	print("failed to compile        : %d" % broken)
+	if checked == 0:
+		_findings += 1
+		print("FAIL: no ShaderMaterial found at all -- the Klimt pass is not "
+				+ "reaching the geometry.")
+	elif broken > 0:
+		_findings += 1
+		print("FAIL: the frames above are the FALLBACK material, not the "
+				+ "shader. Do not tune against them.")
+	else:
+		print("PASS: every Klimt material compiled and is what was "
+				+ "photographed.")
 
 
 ## THE RULE THAT IS EASY TO WRITE AND EASY TO BREAK.

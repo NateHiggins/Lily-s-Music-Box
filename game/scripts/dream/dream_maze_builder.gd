@@ -591,6 +591,10 @@ static func _solid_box(parent: Node3D, node_name: String, material: Material,
 ## Motif ids, mirrored from dream_klimt.gdshader. Kept as plain ints rather
 ## than an enum because the shader uniform is an int and a mismatch here would
 ## silently paint a floor with a ceiling's pattern.
+## The equirectangular plate the molten gold mirrors. 2:1, and it must stay
+## 2:1 -- the shader samples it with atan/acos and any other ratio swims.
+const REFLECTED_WORLD_PATH := "res://assets/dream/klimt_reflected_world_v1.png"
+
 const MOTIF_CANOPY := 0
 const MOTIF_SPIRAL := 1
 const MOTIF_MOSAIC := 2
@@ -635,4 +639,13 @@ static func _klimt_material(color: Color, roughness: float,
 		MOTIF_EYE:
 			scale = 5.0
 	material.set_shader_parameter("pattern_scale", scale)
+	# THE WORLD IN THE REFLECTION. Generated 2026-08-17 against
+	# design/KLIMT_REFLECTED_WORLD_PROMPTS.md: the residents of the Orison in
+	# gold mosaic robes, faces and hands painted, one figure without a face.
+	# It exists in no scene, has no geometry and cannot be walked to -- it is
+	# sampled ONLY by the reflection vector of molten metal, so the only way to
+	# see who lived here is to melt a wall with your lamp and catch the angle.
+	var plate: Texture2D = load(REFLECTED_WORLD_PATH)
+	if plate != null:
+		material.set_shader_parameter("reflected_world", plate)
 	return material

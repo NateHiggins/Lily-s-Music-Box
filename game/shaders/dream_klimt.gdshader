@@ -101,6 +101,9 @@ uniform float lamp_energy = 1.0;
 uniform float melt_radius : hint_range(0.5, 12.0) = 4.6;
 uniform float melt_flow : hint_range(0.0, 3.0) = 1.0;
 uniform float melt_amount : hint_range(0.0, 1.0) = 1.0;
+// How liquid a surface is ever allowed to get. Below 1.0 on purpose: the
+// pattern has to survive its own melting.
+const float MOLTEN_CEILING = 0.62;
 
 // --------------------------------------------------------- the breathing ---
 // "Let the maze breathe." The frieze's power is dense ornament against BARE
@@ -139,6 +142,20 @@ void vertex() {
 
 // Cheap value noise and a two-octave fbm. Enough for flow and for the
 // breathing field; nothing here needs gradient noise.
+// DEFINED FIRST, and it has to be. GLSL has no forward declarations, so a
+// helper must appear above every function that calls it. `jewel()` was
+// written above this one and calls it on its first line, which made the
+// whole shader fail to compile -- and a spatial shader that fails to
+// compile does not announce itself, it just falls back to a default
+// material. Every 'washed out' frame between then and now was the
+// FALLBACK being photographed, not a lighting problem, and several
+// passes of tuning were spent on an image the shader was not drawing.
+float hash21(vec2 p) {
+	p = fract(p * vec2(233.34, 851.73));
+	p += dot(p, p + 23.45);
+	return fract(p.x * p.y);
+}
+
 float vnoise(vec2 p) {
 	vec2 i = floor(p);
 	vec2 f = fract(p);
@@ -217,12 +234,6 @@ vec3 jewel(vec2 q, float cell_size, float density) {
 	float stone = smoothstep(size, size * 0.72, r);
 	float bezel = smoothstep(size * 1.34, size * 1.05, r) - stone;
 	return vec3(stone, max(bezel, 0.0), fract(h * 97.3));
-}
-
-float hash21(vec2 p) {
-	p = fract(p * vec2(233.34, 851.73));
-	p += dot(p, p + 23.45);
-	return fract(p.x * p.y);
 }
 
 // THE TENDRIL. An Archimedean coil drawn as a LINE, which is the whole
@@ -487,7 +498,11 @@ void fragment() {
 	// being a patterned solid and becomes liquid: the normal is perturbed by the
 	// same flow that warped the pattern, roughness collapses toward a mirror,
 	// and the fake environment is sampled through the result.
-	float molten = metal * heat;
+	// CAPPED, so a surface never fully liquefies. At full melt the normal is
+	// smoothed, roughness collapses and the reflection swamps the albedo --
+	// which erases the very ornament the melt is supposed to be happening TO.
+	// Gold that has melted into a featureless pool is just a highlight.
+	float molten = min(metal * heat, MOLTEN_CEILING);
 
 	// NO TANGENT FRAME EXISTS -- this is triplanar on untextured boxes, so
 	// NORMAL_MAP is unavailable and a tangent-space perturbation would be
