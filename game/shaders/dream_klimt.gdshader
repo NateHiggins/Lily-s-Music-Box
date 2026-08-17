@@ -79,12 +79,108 @@ uniform float leaf_ember : hint_range(0.0, 0.30) = 0.05;
 // Sub-hertz. The brief bans flashing outright and makes it non-negotiable.
 uniform float breathe_speed : hint_range(0.0, 0.4) = 0.05;
 
+// ------------------------------------------------------------- the melt ---
+// MOLTEN GOLD, AND THE PROBLEM IT HAS TO SOLVE FIRST.
+//
+// Owner: "make the whites map to a molten golden liquid reflection, like
+// things are actually made of gold that melts and morphs when light hits it."
+//
+// Metal reflects its environment. This world HAS no environment -- no sky, no
+// reflection probe, ambient disabled by ruling -- so a high-metallic surface
+// here is a mirror of nothing and renders black. That has already bitten this
+// shader once; see the note on gold_metallic.
+//
+// So the thing the gold reflects is THE LAMP. A procedural environment is
+// evaluated per fragment and gated by proximity to the lamp, which is both the
+// cheap answer and the honest one: in a black corridor with one light, the
+// only thing a mirror can show you IS that light. It also keeps the mechanic
+// intact, because the reflection cannot exist where the lamp is not -- the
+// gold still has to be found.
+uniform vec3 lamp_pos = vec3(0.0);
+uniform float lamp_energy = 1.0;
+uniform float melt_radius : hint_range(0.5, 12.0) = 4.6;
+uniform float melt_flow : hint_range(0.0, 3.0) = 1.0;
+uniform float melt_amount : hint_range(0.0, 1.0) = 1.0;
+
+// --------------------------------------------------------- the breathing ---
+// "Let the maze breathe." The frieze's power is dense ornament against BARE
+// ground -- the tree has empty cream around it, and uniform clothing is what
+// turns ornament into wallpaper. A low-frequency field opens and closes the
+// leaf so a wall runs from thicket to nothing and back.
+uniform float breathe_scale : hint_range(0.01, 2.0) = 0.16;
+uniform float breathe_depth : hint_range(0.0, 1.0) = 0.75;
+// The whole domain drifts, slowly, always. This is the funhouse: sub-hertz,
+// never a flicker, but the wall you looked away from is not quite the wall you
+// look back at.
+uniform float drift_speed : hint_range(0.0, 0.2) = 0.014;
+
 varying vec3 v_world;
 varying vec3 v_normal;
 
 void vertex() {
 	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	v_normal = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
+}
+
+// Cheap value noise and a two-octave fbm. Enough for flow and for the
+// breathing field; nothing here needs gradient noise.
+float vnoise(vec2 p) {
+	vec2 i = floor(p);
+	vec2 f = fract(p);
+	f = f * f * (3.0 - 2.0 * f);
+	float a = fract(sin(dot(i, vec2(127.1, 311.7))) * 43758.5453);
+	float b = fract(sin(dot(i + vec2(1.0, 0.0), vec2(127.1, 311.7))) * 43758.5453);
+	float c = fract(sin(dot(i + vec2(0.0, 1.0), vec2(127.1, 311.7))) * 43758.5453);
+	float d = fract(sin(dot(i + vec2(1.0, 1.0), vec2(127.1, 311.7))) * 43758.5453);
+	return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+}
+
+float fbm(vec2 p) {
+	return vnoise(p) * 0.62 + vnoise(p * 2.17 + 5.2) * 0.38;
+}
+
+// THE FAKE ENVIRONMENT. A studio in a function: a hot band above falling to
+// dark below, with a tight highlight at the top. Sampling it by the reflection
+// vector gives metal something to be a mirror OF, and gating the result on
+// lamp proximity means the only thing it ever mirrors is the lamp.
+vec3 fake_env(vec3 r, vec3 hot, vec3 cool) {
+	float up = r.y * 0.5 + 0.5;
+	vec3 c = mix(cool * 0.12, hot, smoothstep(0.30, 0.92, up));
+	c += hot * pow(smoothstep(0.62, 1.0, up), 5.0) * 0.9;
+	return c;
+}
+
+// THE WORLD THAT ONLY EXISTS IN THE REFLECTION.
+//
+// Owner: "create an elaborate image prompt for the klimt world that only
+// exists in the reflection in the molten gold."
+//
+// The corridor you walk is bare gilded architecture. The world the gold
+// REMEMBERS -- the residents, the rooms as Klimt would have painted them, the
+// Tenant among them -- exists nowhere in the scene graph. It is an
+// equirectangular plate sampled only by the reflection vector of molten metal,
+// so the only way to see it is to melt a surface with your lamp and catch it
+// at the right angle. Look directly and there is nothing there.
+//
+// `reflected_world` is unset until the plate is generated
+// (design/KLIMT_REFLECTED_WORLD_PROMPTS.md), and the procedural studio below
+// stands in meanwhile so the metal always has something to mirror.
+uniform sampler2D reflected_world : source_color, hint_default_black,
+		filter_linear_mipmap, repeat_enable;
+uniform float reflected_world_gain : hint_range(0.0, 4.0) = 1.0;
+
+vec3 sample_reflected_world(vec3 r) {
+	vec3 d = normalize(r);
+	// Equirectangular lookup. The world turns slowly with the domain drift, so
+	// what the gold remembers is never quite in the same place twice.
+	vec2 uv = vec2(atan(d.z, d.x) / TAU + 0.5 + TIME * drift_speed * 0.35,
+			acos(clamp(d.y, -1.0, 1.0)) / PI);
+	vec3 plate = texture(reflected_world, uv).rgb * reflected_world_gain;
+	// The procedural studio, kept as the floor under the plate: a hot band
+	// above falling to dark, so bare metal still reads as metal before any
+	// image exists.
+	vec3 studio = fake_env(d, gold_mid * 1.35, bole);
+	return max(studio, plate);
 }
 
 float hash21(vec2 p) {
@@ -152,6 +248,23 @@ void fragment() {
 	vec3 p = v_world * pattern_scale;
 	float t = TIME * breathe_speed;
 
+	// HEAT: how close this fragment is to the lamp. Everything molten is gated
+	// on it, so the gold liquefies only where the light actually lands and the
+	// rest of the corridor stays solid, cold and dark.
+	float heat = clamp(1.0 - distance(v_world, lamp_pos) / melt_radius,
+			0.0, 1.0);
+	heat = pow(heat, 1.7) * clamp(lamp_energy, 0.0, 4.0) * melt_amount;
+
+	// THE FLOW. Domain warp, animated, scaled by heat -- so the ornament is
+	// crisp where it is cold and runs where the light is on it. That is what
+	// "melts and morphs when light hits it" means in a shader: the pattern's
+	// own coordinates are what liquefy.
+	float ft = TIME * melt_flow;
+	vec2 warp = vec2(
+			fbm(p.xz * 0.9 + vec2(ft * 0.21, ft * 0.13)),
+			fbm(p.xz * 0.9 + vec2(7.3 - ft * 0.17, 2.1 + ft * 0.11))) - 0.5;
+	vec2 drift = vec2(TIME * drift_speed, TIME * drift_speed * 0.61);
+
 	// Sample the DOMINANT plane only. Blending three planes of line work turns
 	// a spiral into a smear; the frieze's marks are crisp and have to stay so.
 	vec2 q = p.xy;
@@ -160,6 +273,7 @@ void fragment() {
 	} else if (w.x > w.z) {
 		q = p.zy;
 	}
+	q += drift + warp * heat * 0.55;
 
 	vec3 albedo = ivory;
 	float leaf = 0.0;
@@ -171,10 +285,16 @@ void fragment() {
 		// THE FIELD. Almost nothing: a warm ground with the faintest tooth and
 		// the occasional fleck of leaf. Its whole job is to be quiet so the
 		// other surfaces can speak, which is what a ceiling should do.
+		// The quiet field, and quiet has to mean DARK here. A literal cream
+		// ground next to melted gold reads as a flat lit panel -- a bright
+		// featureless rectangle, which is the one thing a ceiling must never
+		// be in a room whose whole subject is what the lamp finds. So the
+		// ivory survives as a tint on near-black, and the field is carried by
+		// rare flecks of leaf rather than by its own value.
 		float grain = hash21(floor(q * 26.0));
-		albedo = mix(ivory, ivory * 0.94, grain) * ground_dark;
-		float fleck = step(0.985, hash21(floor(q * 5.0)));
-		leaf = fleck * 0.7;
+		albedo = mix(ivory, ivory * 0.94, grain) * ground_dark * 0.35;
+		float fleck = step(0.9955, hash21(floor(q * 9.0)));
+		leaf = fleck;
 		albedo = mix(albedo, gold_mid, fleck);
 	} else if (motif == MOTIF_SPIRAL) {
 		// THE TREE. Coils on an ivory ground, in two sizes so the wall has a
@@ -259,6 +379,18 @@ void fragment() {
 		leaf = dot_mask * step(0.56, h) * step(h, 0.78);
 	}
 
+	// THE MAZE BREATHES. A low-frequency field opens and closes the ornament so
+	// a wall runs from thicket to bare ground and back, which is how the frieze
+	// itself is composed -- dense marks against empty cream. Uniform clothing is
+	// what turns ornament into wallpaper.
+	float open = fbm(v_world.xz * breathe_scale
+			+ vec2(0.0, TIME * drift_speed * 0.5));
+	open = smoothstep(0.34, 0.72, open);
+	float bare = 1.0 - breathe_depth * (1.0 - open);
+	leaf *= bare;
+	ink_mask *= bare;
+	accent_mask *= bare;
+
 	// One breath across everything, well under a hertz, so the leaf is never
 	// quite still and never flickers.
 	float breath = 0.94 + 0.06 * sin(t * TAU + v_world.x * 0.15);
@@ -267,9 +399,42 @@ void fragment() {
 	albedo = mix(albedo, ink, ink_mask * ink_weight);
 	float metal = leaf * (1.0 - ink_mask);
 
-	ALBEDO = albedo * breath;
-	METALLIC = metal * gold_metallic;
-	SPECULAR = mix(0.25, 0.95, metal);
-	ROUGHNESS = mix(ground_roughness, gold_roughness, metal);
-	EMISSION = albedo * metal * leaf_ember;
+	// THE MELT. Where the lamp is close and the surface is leaf, the gold stops
+	// being a patterned solid and becomes liquid: the normal is perturbed by the
+	// same flow that warped the pattern, roughness collapses toward a mirror,
+	// and the fake environment is sampled through the result.
+	float molten = metal * heat;
+
+	// NO TANGENT FRAME EXISTS -- this is triplanar on untextured boxes, so
+	// NORMAL_MAP is unavailable and a tangent-space perturbation would be
+	// meaningless. Build an arbitrary orthonormal basis from the normal instead.
+	// Arbitrary is fine: flow on a pool of metal has no preferred direction.
+	vec3 up_ref = abs(n.y) < 0.9 ? vec3(0.0, 1.0, 0.0) : vec3(1.0, 0.0, 0.0);
+	vec3 tan_a = normalize(cross(up_ref, n));
+	vec3 tan_b = cross(n, tan_a);
+	float e = 0.06;
+	vec2 fp = p.xz * 1.7 + vec2(ft * 0.23, ft * 0.19);
+	float h0 = fbm(fp);
+	float hx = fbm(fp + vec2(e, 0.0));
+	float hy = fbm(fp + vec2(0.0, e));
+	vec3 bumped = normalize(n
+			+ (tan_a * (hx - h0) + tan_b * (hy - h0)) * 42.0 * molten);
+
+	vec3 refl = reflect(-normalize(VIEW), bumped);
+	vec3 env = sample_reflected_world(refl);
+
+	ALBEDO = mix(albedo * breath,
+			albedo * breath * 0.85 + gold_mid * 0.22, molten);
+	METALLIC = mix(metal * gold_metallic, 0.95, molten);
+	SPECULAR = mix(mix(0.25, 0.85, metal), 0.9, molten);
+	// A mirror is smooth. The collapse toward zero roughness is most of why the
+	// surface reads as liquid rather than as a shinier wall.
+	ROUGHNESS = mix(mix(ground_roughness, gold_roughness, metal), 0.14,
+			molten);
+	NORMAL = mix(n, bumped, molten);
+	// The reflection rides on EMISSION because Compatibility gives a shader no
+	// other way to put an environment on a surface. It is gated by `molten`,
+	// which is gated by heat, so it appears only where the lamp is -- the gold
+	// still cannot glow on its own.
+	EMISSION = albedo * metal * leaf_ember + env * molten * 0.30;
 }

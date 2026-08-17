@@ -59,6 +59,9 @@ const STUMBLE_PUSH_MPS := 2.6
 
 ## The conduit and the arc it throws. See _build_hazard_visuals().
 var _arcs: Array[Dictionary] = []
+## Every Klimt material in the world, so the lamp can be pushed into all of
+## them each frame. See _collect_molten_materials().
+var _molten_materials: Array[ShaderMaterial] = []
 ## Chest height: where a conduit's arc would find a body, and where the beam
 ## splash it reaches for actually lands.
 const ARC_Y := 1.20
@@ -180,6 +183,7 @@ func _build_world() -> void:
 	_build_practicals()
 	_build_hazard_visuals()
 	_build_motes()
+	_collect_molten_materials()
 
 
 ## The dream's own environment, because the world that owned one was freed.
@@ -252,10 +256,10 @@ func _build_environment() -> void:
 	# The threshold sits above the ambient floor so the DARK stays dark: only
 	# what the beam actually wakes is allowed to bloom.
 	environment.glow_enabled = true
-	environment.glow_intensity = 1.15
+	environment.glow_intensity = 0.85
 	environment.glow_strength = 1.05
 	environment.glow_bloom = 0.22
-	environment.glow_hdr_threshold = 0.72
+	environment.glow_hdr_threshold = 0.90
 	environment.glow_hdr_scale = 2.6
 	environment.glow_blend_mode = Environment.GLOW_BLEND_MODE_SCREEN
 	# The near-field bloom is the shimmer; the wide one is the halo the whole
@@ -459,6 +463,47 @@ func _hazard_position(hazard_id: String) -> Vector3:
 		if hazard.id == hazard_id:
 			return hazard.position
 	return player.global_position
+
+
+## THE GOLD HAS TO KNOW WHERE THE LAMP IS.
+##
+## A fragment shader cannot see a light's position, and the molten term is
+## entirely a function of it: gold only liquefies where the beam lands. There
+## are three ways to tell it and this takes the plainest — cache every
+## ShaderMaterial the builder made and push the lamp's world position and
+## output into each one per frame.
+##
+## Registered global shader parameters would be tidier, but they live in
+## project.godot and would be a project-wide edit for a dream-only effect. The
+## cost here is a handful of materials times two setters, which is nothing
+## against a frame this project has already proved is submission-bound.
+func _collect_molten_materials() -> void:
+	_molten_materials.clear()
+	for node in find_children("*", "GeometryInstance3D", true, false):
+		var geometry := node as GeometryInstance3D
+		if geometry == null:
+			continue
+		var material := geometry.material_override as ShaderMaterial
+		if material != null and not _molten_materials.has(material):
+			_molten_materials.append(material)
+
+
+func _update_molten() -> void:
+	if _molten_materials.is_empty() or player == null \
+			or player.flashlight == null:
+		return
+	# The lamp's own node, not the body: the light is carried in the off hand
+	# and the pool is centred on the fixture rather than on the player's feet.
+	var at := player.flashlight.global_position
+	# Energy carries the warm-up and the pop straight into the metal, so the
+	# gold runs as the filament comes up and freezes as it dies. Nothing extra
+	# is needed to animate that -- it falls out of the lamp already being
+	# animated.
+	var energy: float = player.flashlight.light_energy \
+			if player.lamp_is_enabled() or player.flashlight.visible else 0.0
+	for material in _molten_materials:
+		material.set_shader_parameter("lamp_pos", at)
+		material.set_shader_parameter("lamp_energy", energy)
 
 
 ## GOLD IN THE AIR, VISIBLE ONLY WHERE THE LAMP FINDS IT.
@@ -686,6 +731,7 @@ func _physics_process(delta: float) -> void:
 	if maze_built:
 		_update_practical()
 		_update_hazard_visuals()
+		_update_molten()
 	if not autonomous or _outcome_committed:
 		return
 	if pursuer != null and not pursuer.is_captured:
