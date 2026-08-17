@@ -1,6 +1,13 @@
 # Godot per-machine caches
 .godot/
 *.import
+# ...except the sky plates. Their import settings are not incidental: with
+# mipmaps off, the equirect pole minifies 18-57x, the samplers' own
+# filter_linear_mipmap hint has nothing to filter with, and the textureLod
+# call that computes the pole's mip level silently returns level 0. The
+# setting has to travel with the repo or the zenith fix half-reverts on any
+# fresh checkout. Committing .import is standard Godot practice anyway.
+!game/assets/building/textures/sky/orison_queens_*_half_dome_4k.png.import
 *.blend1
 __pycache__/
 *.pyc
