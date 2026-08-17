@@ -66,6 +66,36 @@ var carried_device: Node3D
 ## camera away from the collision volume that originally received the ray.
 var seated_interaction: Node
 var _sway_clock := 0.0
+## The switch's position. The filament lags it; the rules never do.
+var _lamp_on := true
+var _lamp_phase := 0.0
+var _lamp_phase_total := 0.0
+var _lamp_last_transient := -99.0
+var _lamp_base_energy := 0.74
+var _lamp_audio: AudioStreamPlayer
+var _lamp_on_wav: AudioStreamWAV
+var _lamp_off_wav: AudioStreamWAV
+
+## How long the filament takes to come up, and to let go. The rise is the
+## slower of the two by four to one, which is what makes the off read as a
+## pop rather than as a fade.
+const LAMP_WARM_S := 0.52
+const LAMP_POP_S := 0.24
+## The cold-filament inrush, as a fraction of settled output. Small on
+## purpose: this is a bloom, not a flashbulb.
+const LAMP_INRUSH := 0.26
+## The dying flare, and how much of the pop it occupies.
+const LAMP_POP_FLARE := 0.70
+const LAMP_POP_FLARE_FRACTION := 0.34
+## Below this gap between toggles the transient is skipped entirely. The
+## switch is never gated — see set_lamp_enabled() for why the two are
+## different currencies.
+const LAMP_TRANSIENT_MIN_GAP := 0.55
+## Cold tungsten is red before it is white, both on the way up and on the way
+## out. The settled colour is the one the lamp was authored with.
+const LAMP_COLD_COLOR := Color(1.0, 0.42, 0.16)
+const LAMP_SETTLED_COLOR := Color(1.0, 0.80, 0.56)
+
 var _stagger_left := 0.0
 var _stagger_velocity := Vector3.ZERO
 var _stagger_roll := 0.0
@@ -126,6 +156,16 @@ func _ready() -> void:
 	# The lamp lights the building, not the isolated object holding it.
 	flashlight.light_cull_mask = 0xFFFFF & ~(1 << 1)
 	_hand.add_child(flashlight)
+	_lamp_base_energy = flashlight.light_energy
+	# Non-positional: this is a lever under the player's own thumb, not a
+	# sound in the room. The Tenant hears nothing of it either way — pursuit
+	# reads the lamp's STATE through lamp_is_enabled(), never its noise.
+	_lamp_audio = AudioStreamPlayer.new()
+	_lamp_audio.name = "LampSwitch"
+	_lamp_audio.bus = "Master"
+	add_child(_lamp_audio)
+	_lamp_on_wav = _lamp_stream(true)
+	_lamp_off_wav = _lamp_stream(false)
 	floor_snap_length = 0.4
 	_build_hud()
 
@@ -238,6 +278,7 @@ func _update_prompt() -> void:
 
 func _process(_delta: float) -> void:
 	_update_prompt()
+	_advance_lamp(_delta)
 	_carry_service_light(_delta)
 	# E is the universal physical verb. A seat is deliberately allowed through
 	# call_locked; every other locked panel continues to own its input.
@@ -409,8 +450,19 @@ func _set_crouched(on: bool) -> void:
 
 ## The device-neutral light contract. Keyboard, controller and touch all
 ## change this owner; the spotlight, beam plates and physical lever follow.
+## THE LOGICAL STATE FLIPS ON THIS LINE. Everything below it is picture and
+## sound, and none of it may reach the rules.
+##
+## `lamp_is_enabled()` used to answer `flashlight.visible`, which was fine
+## while the lamp was a boolean. It is not fine now that switching off has a
+## tail: the Vantry trunk's condition is `lamp_on`, and `DreamPursuer`
+## acquires through `lamp_finds_target()`, so a filament still visibly dying
+## for 160 ms would have kept killing the player and feeding the Tenant for
+## 160 ms after they turned it off. N3 measured that switching off buys 7.800
+## seconds; a visual flourish is not allowed to spend any of them.
 func set_lamp_enabled(on: bool) -> void:
-	flashlight.visible = on
+	var changed := on != _lamp_on
+	_lamp_on = on
 	if _light_mask:
 		_light_mask.visible = on
 	if _mask_view:
@@ -418,6 +470,78 @@ func set_lamp_enabled(on: bool) -> void:
 				if on else SubViewport.UPDATE_DISABLED
 	if carried_device and carried_device.has_method("set_lamp_enabled"):
 		carried_device.set_lamp_enabled(on)
+	if not changed:
+		# A NO-OP MUST BE A NO-OP. This used to zero `_lamp_phase` and force
+		# `visible`, so any caller re-asserting the state the lamp was already
+		# in — and several do, on entry and on device sync — cancelled a
+		# transient mid-flight. The pop was dying two frames in, which read as
+		# the curve being wrong rather than as something else stepping on it.
+		if _lamp_phase <= 0.0:
+			flashlight.visible = on
+		return
+	# NO STROBE, AND NO COOLDOWN EITHER. The brief bans flashing outright and
+	# separately guarantees that "repeated toggling has no stamina cost and no
+	# arbitrary cooldown", so the two rules have to be honoured in different
+	# currencies: the SWITCH always works instantly, and only the TRANSIENT is
+	# rate-limited. Mash the key and the lamp still obeys every press; it just
+	# stops blooming and popping, which is the part that could flicker.
+	var now := float(Time.get_ticks_msec()) / 1000.0
+	var quiet: bool = now - _lamp_last_transient < LAMP_TRANSIENT_MIN_GAP
+	_lamp_last_transient = now
+	if on:
+		flashlight.visible = true
+	if quiet:
+		_lamp_phase = 0.0
+		flashlight.visible = on
+		flashlight.light_energy = _lamp_base_energy if on else 0.0
+		flashlight.light_color = LAMP_SETTLED_COLOR
+		return
+	_lamp_phase = LAMP_WARM_S if on else LAMP_POP_S
+	_lamp_phase_total = _lamp_phase
+	_play_lamp_sound(on)
+
+
+## The tungsten cycle, and it is not a fade.
+##
+## A cold filament is a low resistance, so switching on draws an inrush and the
+## lamp overshoots before it settles — the characteristic bloom. It comes up
+## through the colour as well as the brightness: cold tungsten glows red, then
+## amber, then reaches its working warm white, and the whole run takes about
+## half a second in a small hand lamp.
+##
+## Switching off is the same physics backwards and faster, which is why it
+## POPS. The filament flares for a few tens of milliseconds as the current
+## collapses, then falls dark down the same colour ramp it came up.
+func _advance_lamp(delta: float) -> void:
+	if flashlight == null:
+		return
+	if _lamp_phase <= 0.0:
+		if flashlight.visible != _lamp_on:
+			flashlight.visible = _lamp_on
+		if _lamp_on:
+			flashlight.light_energy = _lamp_base_energy
+			flashlight.light_color = LAMP_SETTLED_COLOR
+		return
+	_lamp_phase = maxf(0.0, _lamp_phase - delta)
+	var done: float = 1.0 - _lamp_phase / maxf(0.0001, _lamp_phase_total)
+	if _lamp_on:
+		# Rise fast, overshoot, settle. `ease` with a <1 curve front-loads the
+		# climb the way an inrush does; the overshoot decays out of it.
+		var climb: float = ease(done, 0.25)
+		var overshoot: float = LAMP_INRUSH * sin(done * PI) * (1.0 - done)
+		flashlight.light_energy = _lamp_base_energy * (climb + overshoot)
+		flashlight.light_color = LAMP_COLD_COLOR.lerp(
+				LAMP_SETTLED_COLOR, ease(done, 0.55))
+	else:
+		# The flare, then the collapse. Both inside LAMP_POP_S.
+		var flare: float = 1.0 - minf(1.0, done / LAMP_POP_FLARE_FRACTION)
+		var fall: float = 1.0 - done
+		flashlight.light_energy = _lamp_base_energy \
+				* (fall * fall + LAMP_POP_FLARE * flare)
+		flashlight.light_color = LAMP_SETTLED_COLOR.lerp(
+				LAMP_COLD_COLOR, ease(done, 0.7))
+		if _lamp_phase <= 0.0:
+			flashlight.visible = false
 
 
 ## Ground speed, read from the body AFTER move_and_slide rather than
@@ -430,11 +554,73 @@ func planar_speed() -> float:
 
 
 func toggle_lamp() -> void:
-	set_lamp_enabled(not flashlight.visible)
+	set_lamp_enabled(not _lamp_on)
 
 
+## The switch's position, never the filament's. See set_lamp_enabled().
 func lamp_is_enabled() -> bool:
-	return flashlight != null and flashlight.visible
+	return _lamp_on
+
+
+## Two transients, built rather than shipped, because the project already
+## synthesises its traffic and its songbook rather than carrying wavs for them
+## (`street_traffic.gd`, `song_synth.gd`) and a lamp switch is a far smaller
+## piece of sound than either.
+##
+## ON is two events that overlap: the physical switch — a hard, dry contact
+## click, because this is a lever on a service set and not a soft button — and
+## then the filament finding its note, a low hum that swells in over the same
+## half second the light takes to warm.
+##
+## OFF is one event and it is meant to be startling: the contact breaks, the
+## filament flares and lets go, and the body of the sound is a short low thud
+## with the click on top of it. It is the loudest thing the lamp ever does, so
+## it lands as a decision rather than as a UI beep.
+func _lamp_stream(on: bool) -> AudioStreamWAV:
+	var rate := 22050
+	var seconds: float = 0.62 if on else 0.26
+	var n := int(rate * seconds)
+	var data := PackedByteArray()
+	data.resize(n * 2)
+	var rng := RandomNumberGenerator.new()
+	# Fixed: the lamp sounds like itself every time, and a test that renders
+	# audio gets the same bytes on every machine.
+	rng.seed = 0x1A3F if on else 0x2B7E
+	for i in n:
+		var t := float(i) / float(rate)
+		var v := 0.0
+		if on:
+			# The contact: a few milliseconds of dry noise, gone almost at
+			# once.
+			v += (rng.randf() * 2.0 - 1.0) * exp(-t * 220.0) * 0.85
+			# The filament: a low note swelling in and settling, with a
+			# little mains texture on it.
+			var swell: float = clampf(t / 0.34, 0.0, 1.0)
+			v += sin(TAU * 104.0 * t) * swell * 0.16 * exp(-t * 1.1)
+			v += sin(TAU * 156.0 * t) * swell * 0.07 * exp(-t * 1.6)
+		else:
+			# The pop: hard attack, low body, quick decay.
+			v += (rng.randf() * 2.0 - 1.0) * exp(-t * 130.0) * 0.9
+			v += sin(TAU * 88.0 * t) * exp(-t * 26.0) * 0.75
+			v += sin(TAU * 143.0 * t) * exp(-t * 40.0) * 0.35
+		var s := int(clampf(v * 11000.0, -32000.0, 32000.0))
+		data[i * 2] = s & 0xFF
+		data[i * 2 + 1] = (s >> 8) & 0xFF
+	var wav := AudioStreamWAV.new()
+	wav.format = AudioStreamWAV.FORMAT_16_BITS
+	wav.mix_rate = rate
+	wav.stereo = false
+	wav.data = data
+	return wav
+
+
+func _play_lamp_sound(on: bool) -> void:
+	if _lamp_audio == null:
+		return
+	_lamp_audio.stream = _lamp_on_wav if on else _lamp_off_wav
+	# The pop is the loud one on purpose.
+	_lamp_audio.volume_db = -9.0 if on else -3.0
+	_lamp_audio.play()
 
 
 func begin_seated_interaction(owner: Node) -> void:
