@@ -3801,6 +3801,44 @@ def build_stair(buf, st):
 ## the 5D burn fanning up its walls. These are positioned decal quads
 ## (unit UVs, alpha textures) — the spatial damage the tile-global
 ## overlay pass can't express.
+
+def ceiling_at(fl, x, y):
+    """Height of the plaster ceiling over a plan point.
+
+    The sibling of finish_at, and it exists for the same reason: painted-on
+    things should ask what they are painted on. Ceiling wear was authored
+    against a hard-coded `z + 3.0` while ceiling_pass actually puts the
+    plaster at `above - SLAB_T - 0.005`. On F01-F06 that is 3.015, so the
+    decal hung 15 mm below its own ceiling. In B1 the ceiling is only 2.615
+    above the floor, so `z + 3.0` put the decal 385 mm ABOVE the plaster --
+    inside the slab, invisible, and not obviously broken from any station
+    anyone ever shot.
+    """
+    if not fl:
+        return 3.015
+    best = None
+    best_area = None
+    for c in fl.get("ceilings", []):
+        r = c.get("rect")
+        if not r or len(r) < 4:
+            continue
+        if x < r[0] or x > r[2] or y < r[1] or y > r[3]:
+            continue
+        area = (r[2] - r[0]) * (r[3] - r[1])
+        if best_area is None or area < best_area:
+            best_area = area
+            best = float(c.get("z", 0.0))
+    if best is not None:
+        return best - float(fl.get("z", 0.0))
+    # No ceiling record over this point. The layout carries the generator's
+    # own constants in its meta block, so read them rather than restate them
+    # -- restating them is how three conventions came to exist.
+    meta = LAYOUT.get("meta", {}) if isinstance(LAYOUT, dict) else {}
+    f2f = float(meta.get("floor_to_floor", 3.20))
+    slab = float(meta.get("slab_t", 0.18))
+    return f2f - slab - 0.005
+
+
 def build_wear_decals(buf, fl):
     fid = fl["id"]
     z = fl["z"]
@@ -3852,7 +3890,7 @@ def build_wear_decals(buf, fl):
     def ceiling_quad(mat, x0, y0, x1, y1, drop=0.018):
         """Down-facing translucent damage just below the plaster ceiling."""
         b = buf(fid, "wear_ceiling_" + mat, mat)
-        zc = z + 3.0 - drop
+        zc = z + ceiling_at(fl, (x0 + x1) * 0.5, (y0 + y1) * 0.5) - drop
         b.add_quad((x0, y0, zc), (x0, y1, zc),
                    (x1, y1, zc), (x1, y0, zc))
 

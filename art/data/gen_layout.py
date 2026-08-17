@@ -8694,6 +8694,30 @@ def _validate_bath_rails(layout):
                                         % (rid, o.get("type", "opening")))
     return problems
 
+
+def _ceiling_z(fl, x, y):
+    """The plaster ceiling height over a plan point, from the record that
+    built it. Anything hung on the ceiling asks this instead of restating
+    the arithmetic -- three separate restatements is how the fittings ended
+    up at three different heights.
+    """
+    best = None
+    best_area = None
+    for c in fl.get("ceilings", []):
+        r = c.get("rect")
+        if not r or len(r) < 4:
+            continue
+        if x < r[0] or x > r[2] or y < r[1] or y > r[3]:
+            continue
+        area = (r[2] - r[0]) * (r[3] - r[1])
+        if best_area is None or area < best_area:
+            best_area = area
+            best = float(c["z"])
+    if best is not None:
+        return best
+    return float(fl["z"]) + WALL_H - 0.005
+
+
 def _validate_ceilings(layout):
     """Every enclosed room remains covered when the storey above is hidden."""
     problems = []
@@ -9767,8 +9791,13 @@ def ventilation_register_pass(floors):
             rec = {
                 "id": rid, "floor": fl["id"], "room": room["id"],
                 "unit": unit, "riser": "V-%s" % letter,
+                # WALL_H - 0.022 was a THIRD ceiling convention. ceiling_pass
+                # puts the plaster at `above - SLAB_T - 0.005`, which is
+                # WALL_H - 0.005, so a register hung on WALL_H - 0.022 sat
+                # 17 mm below its own ceiling on every floor. Read the room's
+                # actual ceiling and sit the register's top face on it.
                 "pos": [round(px, 3), round(py, 3),
-                        round(float(fl["z"]) + WALL_H - 0.022, 3)],
+                        round(_ceiling_z(fl, px, py) - 0.017, 3)],
                 "yaw_deg": 90 if letter in "BC" else 0,
                 "network": "ventilation",
             }
