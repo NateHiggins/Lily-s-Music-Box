@@ -55,8 +55,21 @@ func _ready() -> void:
 			and environment.fog_depth_begin <= 16.0
 			and environment.fog_depth_end >= 48.0
 			and environment.fog_depth_end <= 58.0
+			# 0.78-0.90 was the old band and it encoded a misunderstanding,
+			# not a ruling. Godot depth fog is
+			#   pow(smoothstep(begin, end, dist), curve) * density
+			# so DENSITY IS THE ASYMPTOTIC CEILING, not a rate: at 0.86 every
+			# surface in the world keeps 14% of its own contrast at infinite
+			# distance, forever. That is why the pale backdrop slabs survived
+			# a year of fog tuning -- no begin/end/curve triple can reach
+			# extinction while the ceiling is below 1.0.
+			#
+			# Widened deliberately, owner-approved 2026-08-17, so rain can do
+			# what it is for: hide the mid-ground. Near-field safety is
+			# unaffected and still checked by begin, which stays in its band
+			# -- the far kerb is 14 m from the near one and fogs 0.3%.
 			and environment.fog_density >= 0.78
-			and environment.fog_density <= 0.90)
+			and environment.fog_density <= 1.0)
 	var directional := _descendants(root).filter(
 			func(node): return node is DirectionalLight3D)
 	_check("the whole world owns one directional exterior key",
