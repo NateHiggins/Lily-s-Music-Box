@@ -50,8 +50,21 @@ func _ready() -> void:
 	# were in this very structure.
 	await _capture("05_crossing_lantern_up",
 			[14.0, -51.6, 1.60], [14.0, -51.4, 9.60])
-	await _capture("06_south_gable_lunette",
-			[14.0, -55.0, 3.20], [14.0, -64.4, 6.10])
+	# UNRESOLVED, and left in deliberately so the next person starts from a
+	# frame rather than from nothing. Three placements were tried inside the
+	# aisle -- y -55.0, then -60.2, both looking up at the south gable where
+	# gen_layout puts the lunette (PASSAGE_HALL_S = -64.6, glass at z
+	# 5.20..7.20). All three return NIGHT SKY with a single aisle pendant
+	# hanging in it, which means the nave vault does not roof this end of the
+	# hall and there is nothing between the camera and the horizon.
+	#
+	# So either the lunette is not reachable by eye from the aisle at all --
+	# which would matter for V4, since PassageLunetteKey is lighting something
+	# no player can see -- or the gable sits somewhere other than where the
+	# generator's south-gable loop implies. Worth settling before any more
+	# light is spent on it.
+	await _capture("06_south_gable_lunette_UNRESOLVED",
+			[14.0, -60.2, 2.00], [14.0, -64.5, 6.20])
 	print("[VANTRY DEPTH SHOT] 6 frames saved")
 	get_tree().quit(0)
 
