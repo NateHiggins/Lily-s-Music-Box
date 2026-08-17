@@ -159,6 +159,7 @@ var _zone_layer_blocks: Dictionary = {}
 ## node.
 var passage_shared_f01_nodes: Array[GeometryInstance3D] = []
 var passage_runtime_nodes: Array[Node3D] = []
+var _passage_light_pass: Node3D
 var passage_visible := true
 var passage_finish: Node3D
 ## Low STREET never has a legal sightline to geometry wholly enclosed by the
@@ -382,6 +383,7 @@ func _ready() -> void:
 	# Hours owns a compositional state (open/folded versus closed/extended),
 	# so the zone gate calls its public boundary instead of forcing visibility.
 	passage_runtime_nodes.append(passage_finish.hours_director)
+	_build_passage_light_pass()
 	# Shop signs are read-only presenters of that same state.  Bind the owner
 	# after it exists; no sign duplicates or infers the hours rule from its id.
 	for floor_prop in functional_props_by_floor.get("F01", []):
@@ -593,6 +595,16 @@ func _ready() -> void:
 	add_child(weather)
 	weather.build_reflections(layout)
 	day_night_director.bind_weather(weather, exterior_detail_pass)
+	# DayNightDirector carries no signal -- resolved_profile() is a pull API --
+	# so the passage pass polls it. Slowly: the hour moves in minutes and two
+	# spot uniforms are not worth a per-frame visit.
+	var sky_tick := Timer.new()
+	sky_tick.name = "PassageLightTick"
+	sky_tick.wait_time = 2.0
+	sky_tick.autostart = true
+	sky_tick.timeout.connect(_tune_passage_lights)
+	add_child(sky_tick)
+	_tune_passage_lights()
 	touch = TouchControls.new()
 	touch.name = "TouchControls"
 	add_child(touch)
@@ -1695,6 +1707,84 @@ func _spawn_landing_art() -> void:
 		art.rotation.y = PI
 		count += 1
 	print("[BUILDING] %d stair-landing pieces hung" % count)
+
+
+## V4: the two lights the arcade cannot get from the governed rig.
+##
+## Both are UNGOVERNED on purpose -- not in group "light_fixtures", so they
+## take none of the 64 rank slots and none of the 16 shadow slots -- and both
+## are SHADOWLESS, which on gl_compatibility means per-object ALU in the base
+## pass rather than a second submission. On a submission-bound frame that is
+## close to free. They still count against the renderer's per-object 128,
+## which has 2x slack.
+##
+## They live in passage_runtime_nodes so the zone gate hides them whole the
+## moment the player leaves the arcade.
+func _build_passage_light_pass() -> void:
+	var pass_root := Node3D.new()
+	pass_root.name = "PassageLightPass"
+	add_child(pass_root)
+
+	# 1. The crossing shaft. Daylight down the lantern well, which the
+	#    authored plate cannot supply because it is a texture on a dome.
+	var shaft := SpotLight3D.new()
+	shaft.name = "PassageCrossingShaft"
+	shaft.position = Vector3(14.0, 9.80, 51.6)
+	shaft.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
+	shaft.spot_angle = 42.0
+	shaft.spot_range = 11.0
+	shaft.shadow_enabled = false
+	pass_root.add_child(shaft)
+
+	# 2. The lunette. It sits in the 0.14 m cavity between its own glass and
+	#    the soot blackout that was moved OUTBOARD on 2026-08-16 -- until then
+	#    the plate hung between the viewer and the glass and the lunette had
+	#    been fully occluded since V1, which is why no night frame ever showed
+	#    it. Aimed north, up the aisle.
+	#
+	#    Ungoverned is not a convenience here. At y 6.30 the rig's storey rule
+	#    resolves F02 and would gate this off for every player standing on
+	#    F01, i.e. always. A light nobody can reach, that stays lit, is the
+	#    brief's first sanctioned abnormality; escaping the storey rule is
+	#    how it earns that rather than by a name-prefix trick.
+	var lunette := SpotLight3D.new()
+	lunette.name = "PassageLunetteKey"
+	lunette.position = Vector3(14.0, 6.30, 64.61)
+	lunette.rotation_degrees = Vector3(-6.0, 180.0, 0.0)
+	lunette.spot_angle = 38.0
+	lunette.spot_range = 14.0
+	lunette.shadow_enabled = false
+	pass_root.add_child(lunette)
+
+	_passage_light_pass = pass_root
+	passage_runtime_nodes.append(pass_root)
+	_tune_passage_lights()
+
+
+## Both lights follow the hour through DayNightDirector's own pull API, which
+## has existed with zero callers.
+func _tune_passage_lights() -> void:
+	if _passage_light_pass == null or day_night_director == null:
+		return
+	var profile: Dictionary = day_night_director.resolved_profile()
+	if profile.is_empty():
+		return
+	var sky: Color = profile.get("fog", Color(0.2, 0.22, 0.26))
+	var day_weight := clampf(sky.get_luminance() * 3.4, 0.0, 1.0)
+	var shaft := _passage_light_pass.get_node_or_null(
+			"PassageCrossingShaft") as SpotLight3D
+	if shaft:
+		shaft.light_color = Color(0.86, 0.89, 0.98).lerp(
+				Color(0.62, 0.70, 0.92), 1.0 - day_weight)
+		shaft.light_energy = lerpf(0.12, 0.90, day_weight)
+	var lunette := _passage_light_pass.get_node_or_null(
+			"PassageLunetteKey") as SpotLight3D
+	if lunette:
+		# The lunette does NOT follow the hour down. It is the thing that is
+		# always lit and cannot be reached.
+		lunette.light_color = Color(0.98, 0.86, 0.58)
+		lunette.light_energy = 1.25
+
 
 func _spawn_npc_placeholders() -> void:
 	var count := 0

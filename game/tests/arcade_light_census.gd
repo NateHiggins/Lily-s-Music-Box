@@ -50,6 +50,19 @@ func _ready() -> void:
 	# lanterns lost. Both of these must be zero.
 	_check("no powered-off fixture holds a shadow map (worst %d)"
 			% worst_dead_shadow, worst_dead_shadow == 0)
+	# The two ungoverned V4 spots must EXIST, be shadowless, and be outside
+	# the rig's ration -- that last part is the whole reason they can exist.
+	var pass_root := root.get_node_or_null("PassageLightPass")
+	var shaft := pass_root.get_node_or_null("PassageCrossingShaft") 			if pass_root else null
+	var lun := pass_root.get_node_or_null("PassageLunetteKey") 			if pass_root else null
+	var governed := get_tree().get_nodes_in_group("light_fixtures")
+	_check("both V4 spots exist, shadowless, and ungoverned",
+			shaft != null and lun != null
+			and not shaft.shadow_enabled and not lun.shadow_enabled
+			and not governed.has(shaft) and not governed.has(lun))
+	print("  shaft energy %.2f  lunette energy %.2f"
+			% [shaft.light_energy if shaft else -1.0,
+			lun.light_energy if lun else -1.0])
 	_finished = true
 	print("ARCADE LIGHT CENSUS: %s (%d checks)" % [
 			"PASS" if failures == 0 else "FAIL %d" % failures, checks])
