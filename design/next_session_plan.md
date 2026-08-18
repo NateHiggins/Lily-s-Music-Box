@@ -1,6 +1,141 @@
 # NEXT SESSION — START HERE
 
-*Rewritten 2026-08-16 after N7 landed. Read this first.*
+*Rewritten 2026-08-17. The dream world was rebuilt from its foundations; read
+this and then `game/scripts/dream/dream_atlas.gd` top-to-bottom — its header is
+the design.*
+
+## THE RULING THAT GOVERNS EVERYTHING NOW
+
+> "this is a demonstration project of what we can create, the rule of cool is
+> key. Make it good, not correct."
+
+and then
+
+> "the fractal is the dream world. it contains multitudes."
+
+A persistent, convoluted Orison **being actively forgotten and misremembered by
+the ghosts that inhabit it**, entered at a random point each night. The
+ten-module ring is SUPERSEDED. `ORISON_MAZE_BRIEF.md` §"VISUAL AND AUDIO
+LANGUAGE" is rewritten to match.
+
+**Two rules survive every ruling** and are marked as such in that document: no
+flashing at photosensitive frequencies, and no forced camera roll, fisheye or
+chromatic assault. Those are safety and accessibility, not taste.
+
+## What landed
+
+`DreamAtlas` (`f7b729f`, `e8e6fe2`) — the fractal generator, 19/19 in
+`DreamAtlasTest.tscn`. Three properties, each asserted:
+
+- **Identity comes from the PATH, not a position.** Room = hash(seed, door
+  sequence). Infinite, deterministic, and needs *no storage* — decay is a pure
+  function of (seed, room id, nights). 1000 walks, 0 collisions.
+- **The building does not close.** Local placement only; a loop does not return
+  you. The test asserts non-closure *explicitly*, because it is the property
+  most likely to be accidentally "fixed" by a refactor adding global placement
+  — and that fix would take the whole thesis with it.
+- **Misremembering is not randomness.** Six named memory faults arriving in
+  DECAY ORDER (repetition, conflation, scale, confabulation, recursion,
+  blanking), so a room's condition is readable from its symptoms and the
+  building stays learnable. 2000 rooms, 0 ordering violations.
+
+**Golden vectors are pinned.** `mix64` and six salts name every room in every
+campaign; changing any of them silently renames the whole building for every
+save, with no error and no crash. If block E fails, the question is never "what
+is the new number" — it is "what did I change, and put it back".
+
+## The next piece, and it is the larger half
+
+Nothing builds geometry from the atlas yet. `DreamMazeRoot` still assembles the
+old linear chain and `DreamMazeBuilder` states outright that it handles linear
+chains only.
+
+1. `DreamRoomBuilder` — one room, one entry door, placed relative to the door
+   you came through; a rolling pocket built ahead and freed behind.
+2. Pocket adjacency replacing `chain_route`.
+3. The six faults expressed as actual space.
+
+**A contract audit already exists and is accurate — use it rather than redoing
+it.** Across 206 checks only ~33 are topology-bound. Boundary 34/36, GateDJoin
+68/69, Hazard 34/42, Pursuit 27/39, Perception 9/20 survive verbatim. "Starts
+at D00" is exactly 4 checks in 3 files.
+
+- **Retire:** `assemble()`'s chain walk, global placement, `_far_spawn`,
+  `_plan_bounds`; the global non-overlap guarantee (downgrade to "no two rooms
+  in the LIVE POCKET overlap"); pursuit block A; Gate A's *assembly* half only.
+- **Keep — this is the salvage:** `_solid_box`, the door cut, `_door_record`,
+  `_connector`, `_opposite`, `_subtract_rect`, `_build_shafts`, `floor_holes`,
+  `_material`/`_klimt_material`, `seed_halves`. All already room-local or
+  per-joint; `_door_record` is literally "place relative to the door", inverted.
+- **Gate A's catalog half gains weight** — its SHA is now the only authored
+  geometric fact left in the dream. The catalog is the vocabulary the fractal
+  speaks.
+- **Needs a save key:** `spawn_path(night)` is only reproducible if the night
+  index is durable. `RealityState` has `dream_seed` and no night count.
+
+**A fairness bug the ring could never have had:** SCALE drift (0.80–1.22×)
+makes Gate C's owed-warning margins (0.52 / 0.19 / 0.92 s) a **per-room
+constraint the builder must enforce**, not measured constants. A room that
+shrinks a fifth can put a hazard closer to its doorway than the warning it
+owes. Build the clamp; do not discover this in a playtest.
+
+## Two new tasks, neither started — `TASKS.md` §M
+
+**M-AUDIT — material use.** The obvious framing is wrong and the task says so:
+the 227-material PBR library *is* shipped (195 of them as `T_ai_materials_*`).
+The gap is binding and exploitation — **105 catalog entries and not one
+references a texture**, 41 source directories ship no albedo under their own
+name, 15 shipped albedos have no normal, and height maps are authored for all
+227 with one consumer. Deliver a table and a promotion order.
+
+**M-COVER — rethink coverage.** Tiling is not carrying it any more; triplanar
+repeats read as repeats. M1's supertile deferral predates both the dream shader
+and the fractal and should be reopened rather than inherited. The free option
+is already sitting there: `DreamAtlas` computes a stable per-room id and
+nothing downstream uses it to vary texture. Bring frames, not adjectives.
+
+## Still unpriced, and say so rather than guessing
+
+There is **no dream perf station** in `game/tests/perf_probe.gd`. The shader is
+now heavy (a dozen-odd fbm calls per pixel) and two particle systems are
+written but disabled. Nothing has measured any of it. This frame is
+submission-bound rather than fill-bound (`TASKS.md` §P) so it is *probably*
+fine — "probably" is doing real work in that sentence.
+
+## Five lessons from the rebuild, all the same lesson
+
+The instrument was the broken thing rather than the subject, five times: an
+ambient that was never applied (`ambient_light_sky_contribution` defaults to
+1.0), a beam mask nobody had told about the room, **a shader that had not
+compiled for hours while the harness reported "4 frames saved"** — Godot falls
+back to a default material silently and it looks exactly like a lighting
+problem — a melt that was a *cylinder* down the beam axis rather than a pool on
+a wall, and a duplicate Godot instance skewing the machine underneath
+everything.
+
+So: grep for `SHADER ERROR` after every shader edit **before** looking at the
+picture. `DreamEnvironmentShot` now asserts compilation via
+`get_shader_uniform_list()` and says outright when frames are the fallback. And
+never tune coupled values against each other — fix one reference frame and
+change one thing.
+
+## Walk it
+
+```bash
+godot --path game res://tests/DreamWalk.tscn
+```
+
+`F` identifies whatever is under the crosshair — node, class, material, shader,
+and whether it *compiled*. `1`-`6` isolate a surface class, `TAB` hides
+non-architecture, `0` restores. Built because three fixed viewpoints are the
+right instrument for a regression and the wrong one for a hunt.
+
+---
+
+# PREVIOUS PICKUP — the waking Orison (2026-08-16)
+
+*Still accurate for everything outside the dream. Kept because Gate D, the
+skeptic pass and the perf shape below are all live facts.*
 
 ## Gate D is joined — 2026-08-16
 

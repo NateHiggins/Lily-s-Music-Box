@@ -1083,6 +1083,62 @@ unresolved. K7's source-backed loop contract is closed in
 - **M3** Compiler textures are 128² at roughly 64 px/m, which is the deeper
   reason features come out large relative to the tile.
 
+### M-AUDIT — material use audit (owner request 2026-08-17, not started)
+
+**Counted before writing this, because the obvious claim was wrong.** The PBR
+library IS shipped: `art/textures/ai_materials` holds 227 material directories
+(albedo / normal / roughness / height at 1024², plus `material.json`), and
+`game/assets/building/textures` carries 327 `*_albedo.png` of which 195 are
+`T_ai_materials_*`. The gap is not delivery, it is *binding and exploitation*.
+
+Four concrete holes, each already measured:
+
+- **105 catalog entries, zero textures.** Every entry in
+  `game/data/material_catalog.json` is flat `base_color` + `roughness` — not
+  one references a map. The catalog is read only by the build side
+  (`gen_layout.py`, `build_orison.py`, `generate_runtime_materials.py`) and by
+  **no runtime `.gd` at all**. So the question is which of the 105 have a full
+  PBR set sitting in `ai_materials` under a matching name, unused.
+- **41 source directories ship no albedo under their own name.** Authored,
+  converted, and then dropped somewhere in the promotion path.
+- **15 shipped albedos have no matching normal.** Those surfaces are lit as if
+  flat regardless of what the material claims.
+- **Height maps are authored for all 227 and sampled by almost nothing.**
+  `heightmap_pass.gd` is the only consumer. Parallax or even a displacement
+  hint on the hero surfaces is free detail already paid for.
+
+Deliver a **table and a promotion order**, not a survey: material, does a PBR
+set exist, is it shipped, is it bound, what is missing, and the draw/VRAM cost
+of promoting it. The waking Orison probably wants this more than the dream
+does — `game/assets/dream/surfaces/` already promoted five (plaster,
+plaster_stained, terrazzo, timber, tin_ceiling) and the difference is visible.
+
+### M-COVER — rethink coverage (owner request 2026-08-17, not started)
+
+> "rethinking our general coverage solutions as the tiling is not doing for me
+> anymore in many cases."
+
+Current surfaces are triplanar-projected repeats and they **read** as repeats.
+M1 above proposed supertiles and was deferred on VRAM; that decision predates
+both the dream shader and the fractal, and should be reopened rather than
+inherited. Consider and *cost* each:
+
+- Triplanar with per-axis scale and rotation jitter (cheapest, no new VRAM).
+- Stochastic / hex-tiling to kill visible repetition outright — three samples
+  per surface, so price it against §P's submission-bound frame before falling
+  in love with it.
+- Detail maps at a second frequency, so close-up and mid-distance do not share
+  a feature size. This is M3's problem stated as a solution.
+- Per-room UV seeds, so no two rooms tile identically.
+- Decal-driven variation over a plain base (`atmospheric_decal_pass.gd` already
+  exists and is the template).
+- **The free one: the fractal already hashes a per-room id.** `DreamAtlas`
+  computes a stable 64-bit identity per room and nothing downstream uses it for
+  texture variation. A per-room seed is sitting there costing nothing.
+
+Bring frames, not adjectives. Two shots of the same corridor under each option
+beats any amount of argument about which sounds better.
+
 ## C — Cast (ruled 2026-08-10, ORISON_BIBLE §IV.1)
 
 Six residents carry cases: Mina, Peter, Juno, Cal, Omar, Mae. Rhea and Nadia
