@@ -59,6 +59,8 @@ func _ready() -> void:
 	_block_g_budget()
 	_stage("H branching")
 	_block_h_branching()
+	_stage("I routing")
+	_block_i_routing()
 	_stage("done")
 	print("[ROOMS] CHECKS: %d/%d fails=%d"
 			% [checks - failures, checks, failures])
@@ -133,11 +135,16 @@ func _block_b_pocket() -> void:
 	var dead_ends := 0
 	var seen := {}
 	var deepest := 0
+	var stranded := 0
 	for step in 60:
 		b.advance(_rooms, path)
 		visited += 1
 		deepest = maxi(deepest, path.size())
 		overlaps += _count_overlaps(b)
+		var s := _count_stranded(b)
+		if s > 0 and stranded == 0:
+			_dump_pocket(b, step, DreamRoomBuilder.key_of(path))
+		stranded += s
 		var room := b.room_at_key(DreamRoomBuilder.key_of(path))
 		if room.is_empty():
 			break
@@ -177,6 +184,12 @@ func _block_b_pocket() -> void:
 			% [seen.size(), deepest], seen.size() >= 30 and deepest >= 10)
 	_check("no two rooms in the live pocket ever overlapped (%d)" % overlaps,
 			overlaps == 0)
+	# Connectivity is not a property of one lucky pocket. Checked at every
+	# step of the walk, because the pocket is rebuilt on every threshold
+	# crossing and a room stranded for even one frame is a frame in which the
+	# pursuer would route straight through a wall.
+	_check("no live room was ever stranded from the rest (%d)" % stranded,
+			stranded == 0)
 	# A sealed door is the pressure valve for the guarantee above. It is
 	# allowed to be zero on this route, but it must never be negative and the
 	# counter must be live, so a future regression that opens doors into
@@ -188,6 +201,31 @@ func _block_b_pocket() -> void:
 	_check("the pocket stayed bounded (%d rooms live)" % b.live_rooms().size(),
 			b.live_rooms().size() <= 1 + DreamRoomBuilder.TRAIL_LEN
 					+ DreamAtlas.MAX_DOORS)
+
+
+func _dump_pocket(b: DreamRoomBuilder, step: int, here: String) -> void:
+	print("[ROOMS] !! first stranding at step %d, player in %s" % [step, here])
+	for room in b.live_rooms():
+		var bits := PackedStringArray()
+		for door in room.doors:
+			var to := str(door.leads_to)
+			var mark := "sealed" if bool(door.sealed) \
+					else ("->%s" % to if b.room_at_key(to).size() > 0
+					else ("dangling(%s)" % to if to != "" else "unset"))
+			bits.append("d%d:%s" % [int(door.index), mark])
+		print("[ROOMS]    %-12s %s" % [str(room.key), " ".join(bits)])
+
+
+## Ordered pairs of live rooms with no route between them.
+func _count_stranded(b: DreamRoomBuilder) -> int:
+	var rooms := b.live_rooms()
+	var n := 0
+	for a in rooms:
+		for c in rooms:
+			if str(a.key) != str(c.key) \
+					and b.route(str(a.key), str(c.key)).is_empty():
+				n += 1
+	return n
 
 
 func _count_overlaps(b: DreamRoomBuilder) -> int:
@@ -436,6 +474,161 @@ func _block_h_branching() -> void:
 	var branching := 400 - int(got.get(1, 0)) - int(got.get(2, 0))
 	_check("at least a third of rooms offer a real choice (%d of 400)"
 			% branching, branching >= 133)
+
+
+# --- I: pocket adjacency, which replaces chain_route -------------------
+
+## The pursuer assigns `position` directly and never calls move_and_slide, so
+## the waypoint list is the ONLY thing between it and walking through a wall.
+## That makes the segment-containment check below the most load-bearing
+## assertion in this file: everything else here is about the building being
+## right, and this one is about a body not leaving it.
+func _block_i_routing() -> void:
+	var b := _builder()
+	var nav := Node3D.new()
+	nav.name = "NavPocket"
+	add_child(nav)
+	# Walk a little way in so the pocket holds a trail as well as neighbours.
+	var path := PackedInt32Array()
+	for i in 5:
+		b.advance(nav, path)
+		var here := b.room_at_key(DreamRoomBuilder.key_of(path))
+		var onward := DreamRoomBuilder.passable_doors(here)
+		var took := false
+		for door in onward:
+			if int(door.index) != 0:
+				path = DreamAtlas.step(path, int(door.index))
+				took = true
+				break
+		if not took:
+			break
+	b.advance(nav, path)
+
+	var rooms := b.live_rooms()
+	_check("the pocket has something to route over (%d rooms)" % rooms.size(),
+			rooms.size() >= 3)
+
+	# Every room's own centre resolves to that room.
+	var centred := 0
+	for room in rooms:
+		var r: Array = room.rect
+		if b.nav_room_at((r[0] + r[2]) * 0.5, (r[1] + r[3]) * 0.5) \
+				== str(room.key):
+			centred += 1
+	_check("every live room's centre resolves to itself (%d/%d)"
+			% [centred, rooms.size()], centred == rooms.size())
+
+	# A body standing in an aperture must still have a room. Without the
+	# door-strip tolerance it loses one on every threshold crossing, which is
+	# precisely when the straight-line fallback would cut architecture.
+	var in_doors := 0
+	var door_total := 0
+	for room in rooms:
+		for door in DreamRoomBuilder.passable_doors(room):
+			var a: Array = door.aperture
+			door_total += 1
+			if b.nav_room_at((a[0] + a[2]) * 0.5, (a[1] + a[3]) * 0.5) != "":
+				in_doors += 1
+	_check("a body in a doorway still has a room (%d/%d apertures)"
+			% [in_doors, door_total], door_total > 0 and in_doors == door_total)
+
+	# Route between every ordered pair that is connected at all.
+	var routed := 0
+	var unreachable := 0
+	var unstable := 0
+	var breaches := 0
+	var worst_gap := 0.0
+	for from_room in rooms:
+		for to_room in rooms:
+			if str(from_room.key) == str(to_room.key):
+				continue
+			var legs := b.route(str(from_room.key), str(to_room.key))
+			if legs.is_empty():
+				unreachable += 1
+				continue
+			routed += 1
+			# STABILITY. Two identical calls must give an identical answer or
+			# the body oscillates in a doorway between equal alternatives.
+			if str(legs) != str(b.route(str(from_room.key),
+					str(to_room.key))):
+				unstable += 1
+			# Waypoints arrive as one near/centre/far triple per door.
+			if legs.size() % 3 != 0:
+				breaches += 1
+			var chain: Array = [_centre_of(from_room)]
+			chain.append_array(legs)
+			chain.append(_centre_of(to_room))
+			var gap := _worst_breach(b, chain)
+			if gap > 0.0:
+				breaches += 1
+				worst_gap = maxf(worst_gap, gap)
+	# EVERY LIVE ROOM MUST REACH EVERY OTHER. The pocket is the current room,
+	# its neighbours and the trail behind it, so it is connected by
+	# construction -- and an unreachable pair is not a missing convenience,
+	# it is the pursuer being handed an empty route, which it takes as
+	# licence to walk a straight line to the player through whatever is in
+	# the way.
+	_check("every live room can reach every other (%d routed, %d unreachable)"
+			% [routed, unreachable], routed > 0 and unreachable == 0)
+	_check("a route is the same answer twice (%d unstable)" % unstable,
+			unstable == 0)
+	# THE ONE THAT MATTERS.
+	_check("no route segment ever leaves architecture (%d breaches, " \
+			% breaches + "worst %.3f m outside)" % worst_gap, breaches == 0)
+
+	_check("routing to yourself is no route",
+			b.route(str(rooms[0].key), str(rooms[0].key)).is_empty())
+	_check("routing to a room that is not live is no route",
+			b.route(str(rooms[0].key), "@9.9.9.9.9").is_empty())
+
+	# The pursuer's origin: behind the player, resolvable, and not on top
+	# of them.
+	var here_key := DreamRoomBuilder.key_of(path)
+	var spawn := b.pursuer_spawn(here_key)
+	_check("the pursuer has somewhere to start", spawn.size() == 2)
+	if spawn.size() == 2:
+		var at := b.nav_room_at(spawn[0], spawn[1])
+		_check("and it is inside a live room (%s)" % at, at != "")
+		_check("and it is not the room the player is standing in",
+				at != here_key)
+
+
+func _centre_of(room: Dictionary) -> Vector3:
+	var r: Array = room.rect
+	return Vector3((r[0] + r[2]) * 0.5, 0.0, (r[1] + r[3]) * 0.5)
+
+
+## Walk every segment of a route and return how far the worst sample strays
+## outside all live rooms and all open apertures. Zero means the whole path
+## stayed inside real space.
+func _worst_breach(b: DreamRoomBuilder, chain: Array) -> float:
+	var worst := 0.0
+	for i in range(chain.size() - 1):
+		var a: Vector3 = chain[i]
+		var c: Vector3 = chain[i + 1]
+		var steps := maxi(2, int(a.distance_to(c) / 0.20))
+		for s in range(steps + 1):
+			var p := a.lerp(c, float(s) / float(steps))
+			worst = maxf(worst, _outside_by(b, p))
+	return worst
+
+
+## How far this point is outside every live room and every open aperture, in
+## metres. Rooms are tested with a small tolerance because a waypoint sitting
+## exactly on a boundary is legitimate.
+func _outside_by(b: DreamRoomBuilder, p: Vector3) -> float:
+	var best := INF
+	for room in b.live_rooms():
+		best = minf(best, _outside_rect(room.rect, p))
+		for door in DreamRoomBuilder.passable_doors(room):
+			best = minf(best, _outside_rect(door.aperture, p))
+	return 0.0 if best <= 0.02 else best
+
+
+func _outside_rect(r: Array, p: Vector3) -> float:
+	var dx := maxf(maxf(float(r[0]) - p.x, p.x - float(r[2])), 0.0)
+	var dz := maxf(maxf(float(r[1]) - p.z, p.z - float(r[3])), 0.0)
+	return sqrt(dx * dx + dz * dz)
 
 
 # --- harness ----------------------------------------------------------

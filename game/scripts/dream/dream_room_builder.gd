@@ -156,11 +156,20 @@ func setup(dream_atlas: DreamAtlas, hazard_allowlist: Array = []) -> void:
 ## A path is a room's name; this is that name as a dictionary key. Dots rather
 ## than raw concatenation because door indices reach 3 and "1,2" must never
 ## collide with "12".
+##
+## The "@" is not decoration. The room the player wakes in has an EMPTY path,
+## so without a prefix its key is the empty string -- and the empty string is
+## also how every other part of this file says "no room": an unset leads_to, a
+## nav lookup that found nothing, a child with no parent. Conflating those cost
+## an afternoon: children of the waking room silently never linked back to it,
+## which stranded it from the pocket, and a stranded room hands the pursuer an
+## empty route, which it takes as licence to walk a straight line through the
+## walls. A room's name must never be the same string as no room's name.
 static func key_of(path: PackedInt32Array) -> String:
 	var parts := PackedStringArray()
 	for step in path:
 		parts.append(str(step))
-	return ".".join(parts)
+	return "@" + ".".join(parts)
 
 
 # ── LOCAL FRAME ───────────────────────────────────────────────────────────
@@ -569,7 +578,7 @@ func advance(parent: Node3D, path: PackedInt32Array) -> void:
 		var neighbour := neighbour_path(room, int(door.index))
 		var nkey := key_of(neighbour)
 		if not _live.has(nkey):
-			if not _ensure_room(parent, neighbour, exit_join(door)):
+			if not _ensure_room(parent, neighbour, exit_join(door), here):
 				# No room fits here without eating a live one.
 				door.sealed = true
 				door.leads_to = ""
@@ -618,10 +627,19 @@ func neighbour_path(room: Dictionary, index: int) -> PackedInt32Array:
 ## cannot exist here without overlapping something already live, which is the
 ## caller's cue to seal the door instead.
 func _ensure_room(parent: Node3D, path: PackedInt32Array,
-		entry: Dictionary) -> bool:
+		entry: Dictionary, from_key: String = "") -> bool:
 	var room := describe(path, entry)
 	if _overlaps_live(room):
 		return false
+	# LINK IT BOTH WAYS AT PLACEMENT. Only the room the player is standing in
+	# gets its doors resolved by advance(), so without this a neighbour knows
+	# nothing about the room that built it and route() cannot get OUT of it.
+	# That is not a cosmetic gap: the pursuer takes an empty route as licence
+	# to walk a straight line to the player, and a straight line goes through
+	# walls. The joint is one shared aperture, so the reciprocal is a fact
+	# about the geometry, not a convenience.
+	if not from_key.is_empty() and not (room.doors as Array).is_empty():
+		room.doors[0].leads_to = from_key
 	_live[room.key] = room
 	_nodes[room.key] = build(parent, room)
 	return true
@@ -703,6 +721,169 @@ func room_at(x: float, z: float) -> Dictionary:
 		if x >= r[0] and x <= r[2] and z >= r[1] and z <= r[3]:
 			return _live[k]
 	return {}
+
+
+# ── POCKET ADJACENCY ──────────────────────────────────────────────────────
+#
+# What replaces DreamMazeBuilder.chain_route. That function was not a graph
+# search: it turned plan.modules into an ordered id list, found both endpoints'
+# INDICES and walked the integer range between them, so the chain order WAS the
+# adjacency relation. A pocket has no order, so the relation has to be carried
+# explicitly -- which the doors already do, in `leads_to`.
+#
+# Three properties this owes the pursuer, and none of them are optional:
+#
+#  1. IT IS CALLED EVERY PHYSICS FRAME, per body, with no memoisation
+#     (dream_pursuer.gd _advance_along_route re-derives the whole route from
+#     scratch each step). The pocket is at most a handful of rooms, so a
+#     breadth-first walk over it is cheaper than the dictionary lookups the
+#     old index arithmetic needed. Nothing here caches, so nothing here can
+#     go stale when a room is freed.
+#  2. IT MUST BE STABLE FRAME TO FRAME. The same (from, to) must give the
+#     same route every time or the body stalls in a doorway oscillating
+#     between two equal-length answers. Doors are visited in index order and
+#     the first arrival wins, so the walk is a pure function of the pocket.
+#  3. EVERY CONSECUTIVE PAIR OF WAYPOINTS MUST LIE INSIDE ONE CONVEX RECT OR
+#     ONE APERTURE. The pursuer assigns `position` directly and never calls
+#     move_and_slide, so this list is the only thing between it and walking
+#     through a wall. Hence the near/centre/far triple per door, unchanged
+#     from _door_waypoints: a body deep in a room squares up to the opening
+#     before it goes through instead of clipping the jamb beside it.
+
+
+## Which live room contains this point, by key. The 0.06 m door-strip
+## tolerance and the near-side bias are carried over verbatim from
+## DreamMazeBuilder.nav_module_at and are not cosmetic: a body standing in an
+## aperture belongs to the room it is leaving, and without that a body loses
+## its room on every threshold crossing -- exactly when the straight-line
+## fallback in the pursuer is most dangerous.
+func nav_room_at(x: float, z: float) -> String:
+	var strict := room_at(x, z)
+	if not strict.is_empty():
+		return str(strict.key)
+	for k in _live:
+		for door in _live[k].doors:
+			if bool(door.sealed):
+				continue
+			var a: Array = door.aperture
+			if x >= a[0] - 0.06 and x <= a[2] + 0.06 \
+					and z >= a[1] - 0.06 and z <= a[3] + 0.06:
+				return str(k)
+	return ""
+
+
+## The three waypoints that carry a body through one door: square up inside
+## the near room, cross the aperture, arrive inside the far room.
+func _door_waypoints(door: Dictionary) -> Array:
+	var inside: Array = door.inside
+	var point: Array = door.point
+	var near := Vector2(inside[0], inside[1])
+	var face := Vector2(point[0], point[1])
+	# The door's outward normal, recovered rather than stored: `point` is the
+	# far face of the shared wall and `inside` is DOOR_INSIDE_M back from the
+	# near face, so the difference is the normal times a known positive
+	# length. Deriving it keeps the door record JSON-stable.
+	var out := (face - near).normalized()
+	var a: Array = door.aperture
+	var centre := Vector3((a[0] + a[2]) * 0.5, 0.0, (a[1] + a[3]) * 0.5)
+	var far := face + out * DOOR_INSIDE_M
+	return [Vector3(near.x, 0.0, near.y), centre, Vector3(far.x, 0.0, far.y)]
+
+
+## Waypoints from one live room to another, in travel order, NOT including the
+## goal itself -- the caller appends that, which is the contract chain_route
+## already had with the pursuer. Empty when either end is not live, when they
+## are the same room, or when no sequence of open doors connects them.
+func route(from_key: String, to_key: String) -> Array:
+	if from_key == to_key or not _live.has(from_key) \
+			or not _live.has(to_key):
+		return []
+	# Breadth-first over open doors. First arrival wins and doors are taken in
+	# index order, so the answer is the same on every frame and every machine.
+	var came_from := {from_key: ""}
+	var frontier: Array[String] = [from_key]
+	var found := false
+	while not frontier.is_empty() and not found:
+		var next: Array[String] = []
+		for key in frontier:
+			for door in _live[key].doors:
+				if bool(door.sealed):
+					continue
+				var to := str(door.leads_to)
+				if to.is_empty() or came_from.has(to) or not _live.has(to):
+					continue
+				came_from[to] = key
+				if to == to_key:
+					found = true
+					break
+				next.append(to)
+			if found:
+				break
+		frontier = next
+	if not found:
+		return []
+	# Unwind, then walk it forwards emitting the door each hop goes through.
+	var chain: Array[String] = [to_key]
+	var cursor := to_key
+	while str(came_from[cursor]) != "":
+		cursor = str(came_from[cursor])
+		chain.push_front(cursor)
+	var waypoints: Array = []
+	for i in range(chain.size() - 1):
+		var door := _door_between(chain[i], chain[i + 1])
+		if door.is_empty():
+			return []
+		waypoints.append_array(_door_waypoints(door))
+	return waypoints
+
+
+## The open door of `a` that leads to `b`, as `a` sees it. Direction matters:
+## the near/far waypoints are built from the door record's own room, so taking
+## `b`'s copy of the same joint would walk the body backwards through it.
+func _door_between(a: String, b: String) -> Dictionary:
+	if not _live.has(a):
+		return {}
+	for door in _live[a].doors:
+		if not bool(door.sealed) and str(door.leads_to) == b:
+			return door
+	return {}
+
+
+## WHERE THE THING THAT HUNTS YOU BEGINS. The chain builder put it at the far
+## end of the terminal module; a building that never closes has no terminal
+## module, and _far_spawn cannot be ported.
+##
+## What the pursuer actually requires of a spawn is not terminality (see
+## dream_pursuer.gd: it heads for the player from the first physics frame, and
+## there is no patrol phase to hide a bad choice behind). It requires a point
+## that resolves to a live room, is well clear of the capture radius, and is
+## far enough away by ROUTE -- not by line of sight -- that the lit/dark speed
+## difference still decides the passage.
+##
+## So it starts BEHIND: the oldest room still on the trail, which is the room
+## the player has most recently finished with. That is reproducible, always
+## exists, and is the reading the fiction wants -- the thing that follows you
+## comes from where you have already been, not from where you are going.
+## Spawning it ahead would be _cap_fold's endgame applied at t=0, which
+## collapses the run ceiling and destroys the lamp decision.
+func pursuer_spawn(player_key: String) -> Array:
+	var pick := ""
+	for k in _trail:
+		if str(k) != player_key and _live.has(k):
+			pick = str(k)
+			break
+	if pick.is_empty():
+		# First room of the passage: nothing is behind yet. Take a branch the
+		# player has not walked instead, preferring the last door -- the one
+		# they are least likely to have been looking through.
+		var here: Dictionary = _live.get(player_key, {})
+		for door in passable_doors(here):
+			if int(door.index) != 0 and _live.has(str(door.leads_to)):
+				pick = str(door.leads_to)
+	if pick.is_empty() or not _live.has(pick):
+		return []
+	var r: Array = _live[pick].rect
+	return [(r[0] + r[2]) * 0.5, (r[1] + r[3]) * 0.5]
 
 
 # ── GEOMETRY ──────────────────────────────────────────────────────────────
