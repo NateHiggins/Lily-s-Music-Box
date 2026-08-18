@@ -23,6 +23,11 @@ extends Node
 const SEED_HEX := "f123456789abcdef"
 const OTHER_SEED := "0123456789abcdef"
 
+## Pinned 2026-08-17 from the committed generator. See _block_e_golden.
+const GOLDEN_MIX := 5200473954009329611
+const GOLDEN_ROOT := 5556579809797176643
+const GOLDEN_WALK := 2605370776228155153
+
 var failures := 0
 var checks := 0
 
@@ -33,6 +38,7 @@ func _ready() -> void:
 	_block_b_no_closure()
 	_block_c_forgetting()
 	_block_d_spawn()
+	_block_e_golden()
 	print("[ATLAS] CHECKS: %d/%d fails=%d" % [checks - failures, checks, failures])
 	print("DREAM ATLAS TEST: %s" % ["PASS" if failures == 0 else "FAIL"])
 	get_tree().quit(failures)
@@ -186,6 +192,45 @@ func _block_d_spawn() -> void:
 			% distinct.size(), distinct.size() >= 38)
 	_check("and never at the same root, because there is no entrance",
 			a.spawn_path(1).size() >= 3)
+
+
+# --- E: the golden vectors --------------------------------------------
+#
+# THE ROOM NAMES ARE A PUBLIC FACT AND MUST NEVER MOVE.
+#
+# Every room in every campaign is named by `mix64` and a handful of salts.
+# Changing any of them -- even "tidying" a constant -- silently renames the
+# entire building for every existing save: the player's learned geography
+# becomes someone else's. There is no error and no crash; the world is just
+# quietly replaced.
+#
+# So the exact values are pinned here. If this block fails, the question is
+# never "what should the new number be" -- it is "what did I change, and put
+# it back".
+func _block_e_golden() -> void:
+	var a := DreamAtlas.new()
+	a.setup(SEED_HEX, 0)
+	_check("mix64 is exactly what it was (%d)" % DreamAtlas.mix64(1, 2),
+			DreamAtlas.mix64(1, 2) == GOLDEN_MIX)
+	var root := a.room_id(PackedInt32Array([]))
+	_check("the root room of the canonical seed is unchanged (%d)" % root,
+			root == GOLDEN_ROOT)
+	var walk := a.room_id(PackedInt32Array([1, 0, 2]))
+	_check("and the room three doors in is unchanged (%d)" % walk,
+			walk == GOLDEN_WALK)
+	# Door indices must be reachable: a spawn path that names a door the room
+	# does not have is a room the walk cannot reproduce.
+	var bad := 0
+	for night in range(1, 60):
+		var p := a.spawn_path(night)
+		var partial := PackedInt32Array()
+		for step in p:
+			var here := a.room(partial)
+			if step >= int(here.doors):
+				bad += 1
+			partial.append(step)
+	_check("every spawn path uses doors that exist (%d violations)" % bad,
+			bad == 0)
 
 
 func _check(label: String, ok: bool) -> void:

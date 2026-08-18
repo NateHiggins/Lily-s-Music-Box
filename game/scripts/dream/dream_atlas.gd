@@ -257,10 +257,17 @@ func spawn_path(night: int) -> PackedInt32Array:
 	var h := mix64(mix64(seed_hi, seed_lo), night * 0x9E37 + 17)
 	# A handful of steps in, so the player never wakes at a root they could
 	# come to recognise as an entrance. There is no entrance.
-	var steps := 3 + int(float(absi(h) % 5))
+	var steps := 3 + int(absi(h) % 5)
 	for i in steps:
 		h = mix64(h, i + 1)
-		out.append(absi(h) % MAX_DOORS)
+		# EACH DOOR INDEX MUST EXIST IN THE ROOM IT LEAVES. Rooms carry 2 to 4
+		# doors, so picking blindly from 0..MAX_DOORS-1 can name a fourth door
+		# in a two-door room -- a path to a room reachable only through a
+		# doorway that was never built. It would have surfaced as a player
+		# waking somewhere the walk cannot reproduce, which is the one thing
+		# this design cannot afford to get wrong.
+		var here := room(out)
+		out.append(absi(h) % maxi(1, int(here.doors)))
 	return out
 
 
