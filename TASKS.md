@@ -912,6 +912,78 @@ Not started, not costed. It is a generator pass in `gen_layout.py`, which owns
 all coordinates, so it regenerates the layout and rebuilds — no hand-edited
 geometry.
 
+### W-SHOW — the window treatments come and go with where you stand
+
+Owner, 2026-08-18: *"when i look at the orison from the street the treatment on
+all the lower windows disapear, when i stand next to the building the top
+floors disapear but the window treatments appear."*
+
+Both halves are explained by mechanisms already in the file, and both are the
+same family as the ceiling bug and the traffic bug — a visibility rule that is
+right for what it was written about and wrong for something else that fell
+inside it.
+
+**Where the treatments live.** Venetian blinds are emitted by `blind_stack()`
+in `gen_layout.py` through `_furn_box(..., "trim", False)`, so they are FLOOR
+geometry in `F0x_furnish_trim`, not runtime props. That matters: the prop rule
+does not govern them, the floor rule and the street-core sweep do.
+
+**Why the lower ones vanish from the street.** `_apply_visibility` calls
+`_set_street_core_visibility(not _point_is_low_street(p))`, and that sweep
+indexes any F01 geometry reading as enclosed and zeroes its layers. F01 is the
+lower storey. The blinds behind F01's glass are enclosed F01 draws by that
+test, so standing on the carriageway removes them — exactly the mechanism that
+was removing StreetTraffic until it was added to the protected list. The
+protected set already contains `window_glow` under the comment "These cards are
+the designed view of occupied rooms from outdoors", which is the same argument
+for the blinds and was never extended to them.
+
+**Why the top floors vanish when you step close, and the treatments return.**
+Adjacent to the building the eye stops satisfying `_point_is_low_street`, so
+the street core is restored and the treatments come back. In the same step the
+eye can stop being classified `outside`, and the floor rule falls through to
+`absf(p.y - z) < 1.75` — the active-storey window — which keeps the storey at
+your feet and culls the ones above it. The two symptoms are one boundary
+crossing, seen from both sides.
+
+**The asymmetry worth deciding on.** Floors get `outside` unconditionally;
+props get `(outside or in_passage) and fid == "F01"`. So an exterior view keeps
+every floor's shell but only F01's props. That is deliberate and commented, and
+it is the right shape for a submission budget that no longer applies under
+§DP's ruling. Whether it should now open to every floor is an owner call, not a
+silent edit.
+
+NOT FIXED. The rule above it carries a long comment about a previous defect it
+was written to cure, and it is not a thing to edit blind at the end of a
+session without a frame to check against. The fix is almost certainly one line
+in `_street_core_protected_geometry()` — the same shape as the StreetTraffic
+fix — plus a decision on the prop clause.
+
+### W-JOINERY — the window parts read as computer generated, and here is why
+
+Owner, same message: *"the textures on all the window parts need updating and
+the geometry reads as computer generated."*
+
+Measured rather than taken on faith, and the cause is specific:
+
+- **Every blind slat is a box.** `blind_stack()` emits `_furn_box` per slat —
+  a rectangular prism with six flat faces and hard 90° arrises. A real venetian
+  slat is a shallow crowned section with a rolled edge, and the crown is the
+  entire reason a stack of them reads as slats rather than as a comb: it
+  catches a gradient along its width. A box cannot.
+- **They are painted in `trim`.** The same material as every skirting,
+  architrave and picture rail in the building. So an aluminium or basswood
+  slat, which should be faintly translucent when backlit and dusty on its
+  upper face, has the optical behaviour of painted joinery. Backlighting is not
+  incidental here — these are the surfaces `window_glow` lights from behind.
+- **There is no joinery to texture at all**, which is W-GLAZE: 116 glazed
+  openings with no frame, sash, sill or reveal. "The textures on all the window
+  parts need updating" is partly a request to texture parts that do not exist.
+
+So the two entries are one job and should be done together: build the joinery
+(W-GLAZE), give the slats a crowned profile instead of a box, and give blind
+and sash their own materials instead of borrowing `trim`.
+
 ## P2 — The Passage (rehousing the shops)
 
 Ruled as M0.5. Build drawing and measured baseline:
