@@ -838,6 +838,44 @@ for street objects, whether it fires on being looked at or on not being looked
 at, and whether the rear doors change with the flank or stay correct so the two
 disagree.
 
+### W-GLAZE — the apartment windows have no glass (diagnosed 2026-08-18)
+
+Owner: *"some of the windows on the orison are missing their treatment and
+glass entirely."* Correct, and it is not "some" — it is **every apartment
+window in the building**.
+
+**The cause, and it is one missing pass rather than a bug.** The wall records
+carry real window openings; `unit_windows()` in `gen_layout.py` reads them
+straight off the walls and its own docstring says it returns "every window
+opening whose glass stands on this unit's envelope". The dressing pass that
+consumes it then builds exactly one thing: a blind. Nothing else is emitted at
+a window position anywhere in the file.
+
+Counted in `building_layout.json`, the only records at apartment window
+positions are `*_bl#_s#` slats (1,086 of them), `*_bl#_head` and `*_bl#_rail`.
+There is no glazing record, no frame, no sill, no reveal. The openings are
+holes in the brick with a roller blind hanging in front of them.
+
+`F0x_glazing` DOES exist and is `M_glassish` — but that is the stair, the
+atrium and the shopfronts. It has never covered the apartments.
+
+**What a window needs, in the order it would be built:** a lining to the
+reveal so the opening stops being a raw hole in the wall thickness; a sill
+inside and a weathered one outside; the frame and its sash meeting rails; the
+glazing itself; and only then the blind that is currently the whole window.
+`unit_windows()` already returns `(cx, cy, width, along_x, thickness, sill,
+head)` — every number the job needs, including the wall thickness the blinds
+blocker was fixed to carry.
+
+**Why this is worth more than it looks.** These are the surfaces `window_glow`
+lights from outside, and §T's whole conceit is a building read from the street
+at night. A lit rectangle with no frame and no glass is the difference between
+a window and a hole, and it is on every elevation of the building.
+
+Not started, not costed. It is a generator pass in `gen_layout.py`, which owns
+all coordinates, so it regenerates the layout and rebuilds — no hand-edited
+geometry.
+
 ## P2 — The Passage (rehousing the shops)
 
 Ruled as M0.5. Build drawing and measured baseline:
