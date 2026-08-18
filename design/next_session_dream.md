@@ -115,6 +115,64 @@ dereferenced — they ERROR rather than fail, taking their blocks with them.
 
 ---
 
+## WHAT CHANGED THIS SESSION (2026-08-18, later)
+
+**Workstream A is built and the flag question is untouched.** `heat` no longer
+decides what has been converted.
+
+- **`DreamExposureField`** (`game/scripts/dream/dream_exposure_field.gd`) — a
+  coarse world-space volume, 0.5 m voxels, 48 m tile, that only ever goes up
+  while a room is real. Written by the lamp by DWELL (6 s dead-centre converts
+  a surface), seeded per room from `decay(id, depth)` and `aspect(id, salt)`,
+  zeroed when the pocket forgets the room. It TILES rather than following the
+  player, which is only sound because the pocket owns stamp/clear — that
+  lifecycle is load-bearing, not bookkeeping.
+- **`DreamExposureTest`** — 27 checks, green on both paths, pure data and
+  headless in under a second.
+- **The shader** reads it as `front`: a domain-warped fbm threshold with a
+  ridged term so filaments run ahead of the mass. `lamp_reveal_gain` is
+  RETIRED (its meaning no longer exists); the dormant-scar lock moved to
+  `exposure_gain` and is a hard `step`, because a smoothstep against noise
+  leaked a few percent of gold into scars.
+- **`room_exposure(key)` exists and nothing reads it yet.** That is the free
+  half of THE_TENANT.md §3 — she should avoid the rooms where she is most
+  uncovered — and it is now a one-line lookup rather than a system.
+
+**THE DREAM FRAME HAS NOW BEEN MEASURED**, `PERF_DREAM=1` in `perf_probe.gd`:
+
+| | ms | draw calls | fps @1440p |
+|---|---|---|---|
+| before | 1.71 | 45 | 583 |
+| after | 1.90 | **45** | 527 |
+
+**~15 ms of headroom, and the field cost zero submissions.** This is the
+number the tentacles get to spend. Note the probe's inherited `TIME_FPS`
+averaging cannot resolve a 2 ms frame — the dream branch times on ticks, and
+any new station at this speed must too.
+
+### TWO THINGS THE RENDERS SAY, AND BOTH BLOCK AN ACCEPTANCE ITEM
+
+1. **The frontier is organic and you cannot see that it is.** `front` is doing
+   what workstream B asks, but the dominant edge in any lit frame is still the
+   MELT BOWL — `molten`, `dish_r`, `bowl`, all gated on instantaneous `heat` —
+   and it is a hard ellipse. "A frontier no viewer would describe as the edge
+   of a torch beam" is not met, and the fix is not in the exposure path: it is
+   that the melt's own extent needs the same noise treatment, or needs to be
+   bounded by `front` rather than by `rad`.
+2. **The unlit control cannot be photographed at all.** `00_unlit_before` is
+   black — 0.04 mean luminance. The dream ships no `WorldEnvironment` and
+   `project.godot` sets no `default_environment` (see the header of
+   `dream_environment_shot.gd`, which found this first and is worth re-reading
+   before anything is done about it). So "the same corridor, unlit, must be
+   photographable as an ordinary derelict apartment hallway" is currently
+   unreachable for reasons that have nothing to do with the surface. It is
+   pre-existing and it is now the oldest unmet item on the acceptance list.
+
+Evidence: `art/renders/dream_exposure/`. 04 is the acceptance frame; 00 against
+05 is the controlled persistence pair.
+
+---
+
 ## THE WORK, IN ORDER
 
 ### 1. THE SURFACE REDESIGN — the biggest gap between vision and build
