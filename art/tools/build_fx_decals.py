@@ -32,9 +32,10 @@ because they are multiplied over whatever they land on; the grease and
 patch decals carry a colour because they are deposits, not shadows.
 """
 import os
+import zlib
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageFilter
 
 ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", ".."))
 OUT = os.path.join(ROOT, "art", "textures", "generated", "fx")
@@ -61,6 +62,56 @@ RGB = {
     "age_damp":    (44, 46, 38),
 }
 DEFAULT_RGB = (10, 9, 11)
+
+# ===================================================== MATTER VS LIGHTING ===
+# Owner, 2026-08-18: "i want to replace the shader only textures with full
+# ones."
+#
+# These plates were flat colour plus an alpha mask: a grease stain was one
+# uniform brown, and — the part that actually mattered — a deposit could not
+# change the ROUGHNESS of the surface it sat on. That is most of why they read
+# as stickers. Grease and damp are the glossiest things in a room; scorch and
+# a plaster repair are the mattest; a century of feet POLISHES a floor. All of
+# that is roughness, and none of it was expressible.
+#
+# So each deposit now ships a roughness and a normal beside its albedo.
+#
+# TWO PLATES ARE DELIBERATELY EXCLUDED. `ao_strip` and `shadow_blob` are not
+# matter, they are fake lighting — a wall/floor junction darkener and a contact
+# shadow. Giving those a normal would emboss a surface that has nothing on it,
+# and giving them a roughness would make a shadow change how the floor
+# reflects, which is exactly the tell that gives painted-on lighting away. They
+# stay pure multiply. The rule is: if you could scrape it off with a knife it
+# gets maps, and if you could not, it does not.
+ROUGH = {
+    # Deposits that are WETTER than the wall they sit on.
+    "wear_grease": 0.18,   # rendered fat, the glossiest thing in the building
+    "age_damp":    0.34,   # water in plaster, dark and slightly sheened
+    # Feet do not roughen a floor, they burnish it.
+    "wear_traffic": 0.30,
+    # Deposits that are DRIER than the wall.
+    "wear_drip":   0.52,   # mineral run, chalky where it has dried
+    "wear_scuff":  0.68,   # abraded, broken surface
+    "age_patch":   0.88,   # unpainted repair plaster, the mattest thing here
+    "wear_burn":   0.94,   # char scatters light in every direction
+}
+
+# How far the deposit stands off the wall, in normal-map strength. A repair is
+# trowelled proud of the plaster; grease is a film with almost no thickness.
+RELIEF = {
+    "age_patch":   1.00,
+    "wear_burn":   0.55,   # blistered, but scorch is mostly IN the surface
+    "wear_drip":   0.45,   # runs stand off a little
+    "age_damp":    0.20,   # swelling, barely
+    "wear_scuff":  0.30,
+    "wear_traffic": 0.10,  # worn INTO the floor, not onto it
+    "wear_grease": 0.12,
+}
+
+# How much the albedo varies across the deposit. A flat colour is the other
+# half of the sticker problem: real deposits are denser at their centre and
+# thinner at the edge, and blotchy throughout.
+MOTTLE = 0.45
 
 
 def rng(seed):
@@ -90,17 +141,75 @@ def radial(size, cx=0.5, cy=0.5, r=0.5, soft=1.0):
     return np.clip(1.0 - d ** soft, 0.0, 1.0)
 
 
+def _normal_from_height(height, strength):
+    """Tangent-space normal from a height field, OpenGL +Y convention.
+
+    +Y because that is what every other map in this project uses and what
+    Godot expects without `normal_map_invert_y`; an audit confirmed all 988
+    importers agree, and this must not be the one file that disagrees.
+    """
+    # np.gradient returns d/drow, d/dcol. Row is +V, which points DOWN in
+    # image space, so the row gradient is negated to get +Y up.
+    gy, gx = np.gradient(height.astype(np.float64))
+    nx = -gx * strength * 8.0
+    ny = gy * strength * 8.0
+    nz = np.ones_like(nx)
+    length = np.sqrt(nx * nx + ny * ny + nz * nz)
+    return np.dstack([nx / length, ny / length, nz / length])
+
+
 def write(name, alpha01, size=None):
-    """Alpha in 0..1, scaled to this decal's entry in ALPHA."""
+    """Alpha in 0..1, scaled to this decal's entry in ALPHA.
+
+    Deposits also get a roughness and a normal; see the MATTER VS LIGHTING
+    note above for why `ao_strip` and `shadow_blob` do not.
+    """
     a = np.clip(alpha01, 0.0, 1.0) * ALPHA[name]
     h, w = a.shape
-    rgb = np.zeros((h, w, 3), dtype=np.uint8)
-    rgb[:, :] = RGB.get(name, DEFAULT_RGB)
-    img = np.dstack([rgb, (a * 255).astype(np.uint8)])
     os.makedirs(OUT, exist_ok=True)
+
+    base = np.array(RGB.get(name, DEFAULT_RGB), dtype=np.float64)
+    is_deposit = name in ROUGH
+    if is_deposit:
+        # Mottle the colour so the deposit is not one flat value. Seeded from
+        # a CRC of the name, NOT Python's hash(): string hashing is salted per
+        # process, so hash() would repaint every deposit differently on every
+        # run and leave a diff nobody could explain.
+        mottle = noise(zlib.crc32(name.encode()) % 9973, max(h, w),
+                       octaves=5)[:h, :w]
+        gain = 1.0 + (mottle - 0.5) * 2.0 * MOTTLE
+        rgb = np.clip(base[None, None, :] * gain[:, :, None], 0, 255)
+    else:
+        rgb = np.broadcast_to(base, (h, w, 3))
+    img = np.dstack([rgb.astype(np.uint8), (a * 255).astype(np.uint8)])
     Image.fromarray(img, "RGBA").save(os.path.join(OUT, name + ".png"))
-    print("  %-14s %-10s peak %.0f%%" % (name, "%dx%d" % (w, h),
-                                         ALPHA[name] * 100))
+
+    if not is_deposit:
+        print("  %-14s %-10s peak %.0f%%  (lighting, no maps)"
+              % (name, "%dx%d" % (w, h), ALPHA[name] * 100))
+        return
+
+    # ROUGHNESS. White is the surface's own roughness untouched, so the plate
+    # only says what it changes: it drives toward the deposit's value in
+    # proportion to how present the deposit is. Where the decal is
+    # transparent, the wall keeps whatever roughness it already had.
+    coverage = np.clip(alpha01, 0.0, 1.0)
+    rough = 1.0 - coverage * (1.0 - ROUGH[name])
+    Image.fromarray((np.clip(rough, 0, 1) * 255).astype(np.uint8), "L").save(
+        os.path.join(OUT, name + "_rough.png"))
+
+    # NORMAL, from the coverage field read as thickness, blurred once so the
+    # relief is the deposit's FORM rather than the noise's pixel grain.
+    smooth = np.asarray(
+        Image.fromarray((coverage * 255).astype(np.uint8)).filter(
+            ImageFilter.GaussianBlur(1.6)), dtype=np.float64) / 255.0
+    n = _normal_from_height(smooth, RELIEF.get(name, 0.4))
+    Image.fromarray(((n * 0.5 + 0.5) * 255).astype(np.uint8), "RGB").save(
+        os.path.join(OUT, name + "_normal.png"))
+
+    print("  %-14s %-10s peak %.0f%%  rough %.2f  relief %.2f"
+          % (name, "%dx%d" % (w, h), ALPHA[name] * 100,
+             ROUGH[name], RELIEF.get(name, 0.4)))
 
 
 def build_ao_strip():

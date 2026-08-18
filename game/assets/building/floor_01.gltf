@@ -3779,181 +3779,153 @@
 		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
-			},
 			"name":"M_fx_damp",
+			"normalTexture":{
+				"index":199,
+				"scale":0.2800000011920929
+			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":199
+					"index":200
 				},
-				"metallicFactor":0
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":201
+				}
 			}
 		},
 		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
-			},
 			"name":"M_fx_drip",
+			"normalTexture":{
+				"index":202,
+				"scale":0.2800000011920929
+			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":200
+					"index":203
 				},
-				"metallicFactor":0
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":204
+				}
 			}
 		},
 		{
 			"name":"M_indicator_enamel",
 			"normalTexture":{
-				"index":201,
+				"index":205,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":202
+					"index":206
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":203
+					"index":207
 				}
 			}
 		},
 		{
 			"name":"M_leaf_fall_b",
 			"normalTexture":{
-				"index":204,
+				"index":208,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":205
+					"index":209
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":206
+					"index":210
 				}
 			}
 		},
 		{
 			"name":"M_limestone_b",
 			"normalTexture":{
-				"index":207,
+				"index":211,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":208
+					"index":212
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":209
+					"index":213
 				}
 			}
 		},
 		{
 			"name":"M_linoleum_b",
 			"normalTexture":{
-				"index":210,
+				"index":214,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":211
+					"index":215
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":212
+					"index":216
 				}
 			}
 		},
 		{
 			"name":"M_puddle_b",
 			"normalTexture":{
-				"index":213,
+				"index":217,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":214
+					"index":218
 				},
 				"metallicFactor":0.3499999940395355,
 				"metallicRoughnessTexture":{
-					"index":215
+					"index":219
 				}
 			}
 		},
 		{
 			"name":"M_sidewalk_grout_b",
 			"normalTexture":{
-				"index":216,
+				"index":220,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":217
+					"index":221
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":218
+					"index":222
 				}
 			}
 		},
 		{
 			"name":"M_sidewalk_haunted_b",
 			"normalTexture":{
-				"index":219,
+				"index":223,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":220
+					"index":224
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":221
+					"index":225
 				}
 			}
 		},
 		{
 			"name":"M_wet_asphalt_b",
-			"normalTexture":{
-				"index":222,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":223
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":224
-				}
-			}
-		},
-		{
-			"alphaMode":"BLEND",
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
-			},
-			"name":"M_fx_ao",
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":225
-				},
-				"metallicFactor":0
-			}
-		},
-		{
-			"name":"M_bar_wall_b",
 			"normalTexture":{
 				"index":226,
 				"scale":0.3499999940395355
@@ -3969,246 +3941,6 @@
 			}
 		},
 		{
-			"name":"M_bar_wall_red_b",
-			"normalTexture":{
-				"index":229,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":230
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":231
-				}
-			}
-		},
-		{
-			"name":"M_mirror_aged",
-			"normalTexture":{
-				"index":232,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":233
-				},
-				"metallicFactor":0.3499999940395355,
-				"metallicRoughnessTexture":{
-					"index":234
-				}
-			}
-		},
-		{
-			"name":"M_quarry_tile_b",
-			"normalTexture":{
-				"index":235,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":236
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":237
-				}
-			}
-		},
-		{
-			"name":"M_wallpaper_old",
-			"normalTexture":{
-				"index":238,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":239
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":240
-				}
-			}
-		},
-		{
-			"name":"M_awning_vinyl",
-			"normalTexture":{
-				"index":241,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":242
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":243
-				}
-			}
-		},
-		{
-			"name":"M_subway_tile_b",
-			"normalTexture":{
-				"index":244,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":245
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":246
-				}
-			}
-		},
-		{
-			"name":"M_terrazzo_dark",
-			"normalTexture":{
-				"index":247,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":248
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":249
-				}
-			}
-		},
-		{
-			"name":"M_wainscot_b",
-			"normalTexture":{
-				"index":250,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":251
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":252
-				}
-			}
-		},
-		{
-			"name":"M_marble_lobby_b",
-			"normalTexture":{
-				"index":253,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":254
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":255
-				}
-			}
-		},
-		{
-			"name":"M_zinc_liner",
-			"normalTexture":{
-				"index":256,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":257
-				},
-				"metallicFactor":0.11999999731779099,
-				"metallicRoughnessTexture":{
-					"index":258
-				}
-			}
-		},
-		{
-			"name":"M_appliance_b",
-			"normalTexture":{
-				"index":259,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":260
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":261
-				}
-			}
-		},
-		{
-			"name":"M_copper_aged",
-			"normalTexture":{
-				"index":262,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":263
-				},
-				"metallicFactor":0.7200000286102295,
-				"metallicRoughnessTexture":{
-					"index":264
-				}
-			}
-		},
-		{
-			"name":"M_stair_b",
-			"normalTexture":{
-				"index":265,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":266
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":267
-				}
-			}
-		},
-		{
-			"name":"M_baluster_b",
-			"normalTexture":{
-				"index":268,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":269
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":270
-				}
-			}
-		},
-		{
-			"name":"M_landing",
-			"normalTexture":{
-				"index":271,
-				"scale":0.3499999940395355
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":272
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":273
-				}
-			}
-		},
-		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
 			"extensions":{
@@ -4216,16 +3948,256 @@
 					"specularFactor":0
 				}
 			},
-			"name":"M_fx_ceiling_soffit_failed",
+			"name":"M_fx_ao",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":274
+					"index":229
 				},
 				"metallicFactor":0
 			}
 		},
 		{
-			"name":"M_stair_treads",
+			"name":"M_bar_wall_b",
+			"normalTexture":{
+				"index":230,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":231
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":232
+				}
+			}
+		},
+		{
+			"name":"M_bar_wall_red_b",
+			"normalTexture":{
+				"index":233,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":234
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":235
+				}
+			}
+		},
+		{
+			"name":"M_mirror_aged",
+			"normalTexture":{
+				"index":236,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":237
+				},
+				"metallicFactor":0.3499999940395355,
+				"metallicRoughnessTexture":{
+					"index":238
+				}
+			}
+		},
+		{
+			"name":"M_quarry_tile_b",
+			"normalTexture":{
+				"index":239,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":240
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":241
+				}
+			}
+		},
+		{
+			"name":"M_wallpaper_old",
+			"normalTexture":{
+				"index":242,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":243
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":244
+				}
+			}
+		},
+		{
+			"name":"M_awning_vinyl",
+			"normalTexture":{
+				"index":245,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":246
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":247
+				}
+			}
+		},
+		{
+			"name":"M_subway_tile_b",
+			"normalTexture":{
+				"index":248,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":249
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":250
+				}
+			}
+		},
+		{
+			"name":"M_terrazzo_dark",
+			"normalTexture":{
+				"index":251,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":252
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":253
+				}
+			}
+		},
+		{
+			"name":"M_wainscot_b",
+			"normalTexture":{
+				"index":254,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":255
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":256
+				}
+			}
+		},
+		{
+			"name":"M_marble_lobby_b",
+			"normalTexture":{
+				"index":257,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":258
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":259
+				}
+			}
+		},
+		{
+			"name":"M_zinc_liner",
+			"normalTexture":{
+				"index":260,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":261
+				},
+				"metallicFactor":0.11999999731779099,
+				"metallicRoughnessTexture":{
+					"index":262
+				}
+			}
+		},
+		{
+			"name":"M_appliance_b",
+			"normalTexture":{
+				"index":263,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":264
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":265
+				}
+			}
+		},
+		{
+			"name":"M_copper_aged",
+			"normalTexture":{
+				"index":266,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":267
+				},
+				"metallicFactor":0.7200000286102295,
+				"metallicRoughnessTexture":{
+					"index":268
+				}
+			}
+		},
+		{
+			"name":"M_stair_b",
+			"normalTexture":{
+				"index":269,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":270
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":271
+				}
+			}
+		},
+		{
+			"name":"M_baluster_b",
+			"normalTexture":{
+				"index":272,
+				"scale":0.3499999940395355
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":273
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":274
+				}
+			}
+		},
+		{
+			"name":"M_landing",
 			"normalTexture":{
 				"index":275,
 				"scale":0.3499999940395355
@@ -4248,7 +4220,7 @@
 					"specularFactor":0
 				}
 			},
-			"name":"M_fx_grease",
+			"name":"M_fx_ceiling_soffit_failed",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":278
@@ -4257,35 +4229,73 @@
 			}
 		},
 		{
-			"alphaMode":"BLEND",
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
+			"name":"M_stair_treads",
+			"normalTexture":{
+				"index":279,
+				"scale":0.3499999940395355
 			},
-			"name":"M_fx_scuff",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":279
+					"index":280
 				},
-				"metallicFactor":0
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":281
+				}
 			}
 		},
 		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
+			"name":"M_fx_grease",
+			"normalTexture":{
+				"index":282,
+				"scale":0.2800000011920929
 			},
-			"name":"M_fx_traffic",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":280
+					"index":283
 				},
-				"metallicFactor":0
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":284
+				}
+			}
+		},
+		{
+			"alphaMode":"BLEND",
+			"doubleSided":true,
+			"name":"M_fx_scuff",
+			"normalTexture":{
+				"index":285,
+				"scale":0.2800000011920929
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":286
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":287
+				}
+			}
+		},
+		{
+			"alphaMode":"BLEND",
+			"doubleSided":true,
+			"name":"M_fx_traffic",
+			"normalTexture":{
+				"index":288,
+				"scale":0.2800000011920929
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":289
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":290
+				}
 			}
 		}
 	],
@@ -12821,6 +12831,46 @@
 		{
 			"sampler":0,
 			"source":280
+		},
+		{
+			"sampler":0,
+			"source":281
+		},
+		{
+			"sampler":0,
+			"source":282
+		},
+		{
+			"sampler":0,
+			"source":283
+		},
+		{
+			"sampler":0,
+			"source":284
+		},
+		{
+			"sampler":0,
+			"source":285
+		},
+		{
+			"sampler":0,
+			"source":286
+		},
+		{
+			"sampler":0,
+			"source":287
+		},
+		{
+			"sampler":0,
+			"source":288
+		},
+		{
+			"sampler":0,
+			"source":289
+		},
+		{
+			"sampler":0,
+			"source":290
 		}
 	],
 	"images":[
@@ -13821,13 +13871,33 @@
 		},
 		{
 			"mimeType":"image/png",
+			"name":"T_fx_fx_damp_normal",
+			"uri":"textures/T_fx_fx_damp_normal.png"
+		},
+		{
+			"mimeType":"image/png",
 			"name":"T_fx_fx_damp",
 			"uri":"textures/T_fx_fx_damp.png"
 		},
 		{
 			"mimeType":"image/png",
+			"name":"T_fx_fx_damp_rough",
+			"uri":"textures/T_fx_fx_damp_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_drip_normal",
+			"uri":"textures/T_fx_fx_drip_normal.png"
+		},
+		{
+			"mimeType":"image/png",
 			"name":"T_fx_fx_drip",
 			"uri":"textures/T_fx_fx_drip.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_drip_rough",
+			"uri":"textures/T_fx_fx_drip_rough.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -14216,8 +14286,23 @@
 		},
 		{
 			"mimeType":"image/png",
+			"name":"T_fx_fx_grease_normal",
+			"uri":"textures/T_fx_fx_grease_normal.png"
+		},
+		{
+			"mimeType":"image/png",
 			"name":"T_fx_fx_grease",
 			"uri":"textures/T_fx_fx_grease.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_grease_rough",
+			"uri":"textures/T_fx_fx_grease_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_scuff_normal",
+			"uri":"textures/T_fx_fx_scuff_normal.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -14226,8 +14311,23 @@
 		},
 		{
 			"mimeType":"image/png",
+			"name":"T_fx_fx_scuff_rough",
+			"uri":"textures/T_fx_fx_scuff_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_traffic_normal",
+			"uri":"textures/T_fx_fx_traffic_normal.png"
+		},
+		{
+			"mimeType":"image/png",
 			"name":"T_fx_fx_traffic",
 			"uri":"textures/T_fx_fx_traffic.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_traffic_rough",
+			"uri":"textures/T_fx_fx_traffic_rough.png"
 		}
 	],
 	"accessors":[

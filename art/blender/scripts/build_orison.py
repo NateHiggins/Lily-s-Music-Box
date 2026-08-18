@@ -634,15 +634,56 @@ def get_material(key):
         if hasattr(mat, "use_transparency_overlap"):
             mat.use_transparency_overlap = False
     if key in FX_TEX:
-        # baked-GI decal: albedo alpha does all the work, no reflections
-        img = _image(os.path.join(TEX_ROOT, *FX_TEX[key].split("/")),
-                     "fx", key, True)
+        rel = FX_TEX[key]
+        img = _image(os.path.join(TEX_ROOT, *rel.split("/")), "fx", key, True)
         tex = nt.nodes.new("ShaderNodeTexImage")
         tex.image = img
+        tex.location = (-420, 300)
         nt.links.new(tex.outputs["Color"], bsdf.inputs["Base Color"])
         nt.links.new(tex.outputs["Alpha"], bsdf.inputs["Alpha"])
-        bsdf.inputs["Roughness"].default_value = 1.0
-        bsdf.inputs["Specular IOR Level"].default_value = 0.0
+
+        # A DEPOSIT IS MATTER; A SHADOW IS NOT.
+        #
+        # This branch used to pin Roughness to 1.0 and Specular to 0.0 for
+        # every decal, which made all nine of them pure darkening: a grease
+        # stain could not be glossier than the wall behind it, and a plaster
+        # repair could not be chalkier. That is most of why they read as
+        # stickers rather than as dirt. Roughness is the channel that says
+        # "wet", and it was nailed shut.
+        #
+        # build_fx_decals.py now emits `_rough` and `_normal` beside the seven
+        # plates that are actually substances. `ao_strip` and `shadow_blob`
+        # deliberately have none -- they are fake lighting, and a shadow that
+        # changed how the floor reflected would give itself away instantly --
+        # so they fall through to the old flat behaviour, which is correct for
+        # them and only for them.
+        stem = rel.rsplit(".", 1)[0]
+        r_rel, n_rel = stem + "_rough.png", stem + "_normal.png"
+        r_abs = os.path.join(TEX_ROOT, *r_rel.split("/"))
+        n_abs = os.path.join(TEX_ROOT, *n_rel.split("/"))
+        if os.path.exists(r_abs) and os.path.exists(n_abs):
+            rough = nt.nodes.new("ShaderNodeTexImage")
+            rough.name = rough.label = "roughness"
+            rough.image = _image(r_abs, "fx", key + "_rough", False)
+            rough.location = (-420, 20)
+            nt.links.new(rough.outputs["Color"], bsdf.inputs["Roughness"])
+            nrm_tex = nt.nodes.new("ShaderNodeTexImage")
+            nrm_tex.name = nrm_tex.label = "normal"
+            nrm_tex.image = _image(n_abs, "fx", key + "_normal", False)
+            nrm_tex.location = (-420, -260)
+            nrm = nt.nodes.new("ShaderNodeNormalMap")
+            # Held well below the surface maps' own 0.42: a decal's relief has
+            # to be felt at the stain's edge without embossing a rectangle
+            # where the quad ends.
+            nrm.inputs["Strength"].default_value = 0.28
+            nrm.location = (-160, -260)
+            nt.links.new(nrm_tex.outputs["Color"], nrm.inputs["Color"])
+            nt.links.new(nrm.outputs["Normal"], bsdf.inputs["Normal"])
+            # Specular comes back, or the roughness map has nothing to modulate.
+            bsdf.inputs["Specular IOR Level"].default_value = 0.5
+        else:
+            bsdf.inputs["Roughness"].default_value = 1.0
+            bsdf.inputs["Specular IOR Level"].default_value = 0.0
         mat.blend_method = "BLEND"
         mat.use_backface_culling = key not in TWO_SIDED             and not key.startswith("fx_")
         _mat_cache[key] = mat

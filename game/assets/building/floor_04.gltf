@@ -1318,96 +1318,98 @@
 		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
-			},
 			"name":"M_fx_patch",
+			"normalTexture":{
+				"index":142,
+				"scale":0.2800000011920929
+			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":142
+					"index":143
 				},
-				"metallicFactor":0
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":144
+				}
 			}
 		},
 		{
 			"name":"M_indicator_enamel",
 			"normalTexture":{
-				"index":143,
+				"index":145,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":144
+					"index":146
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":145
+					"index":147
 				}
 			}
 		},
 		{
 			"name":"M_linoleum_b",
 			"normalTexture":{
-				"index":146,
+				"index":148,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":147
+					"index":149
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":148
+					"index":150
 				}
 			}
 		},
 		{
 			"name":"M_rug_cool",
 			"normalTexture":{
-				"index":149,
+				"index":151,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":150
+					"index":152
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":151
+					"index":153
 				}
 			}
 		},
 		{
 			"name":"M_rug_warm",
 			"normalTexture":{
-				"index":152,
+				"index":154,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":153
+					"index":155
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":154
+					"index":156
 				}
 			}
 		},
 		{
 			"name":"M_subway_tile_b",
 			"normalTexture":{
-				"index":155,
+				"index":157,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":156
+					"index":158
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":157
+					"index":159
 				}
 			}
 		},
@@ -1422,7 +1424,7 @@
 			"name":"M_fx_ao",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":158
+					"index":160
 				},
 				"metallicFactor":0
 			}
@@ -1430,64 +1432,64 @@
 		{
 			"name":"M_stair_b",
 			"normalTexture":{
-				"index":159,
+				"index":161,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":160
+					"index":162
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":161
+					"index":163
 				}
 			}
 		},
 		{
 			"name":"M_baluster_b",
 			"normalTexture":{
-				"index":162,
+				"index":164,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":163
+					"index":165
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":164
+					"index":166
 				}
 			}
 		},
 		{
 			"name":"M_landing",
 			"normalTexture":{
-				"index":165,
+				"index":167,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":166
+					"index":168
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":167
+					"index":169
 				}
 			}
 		},
 		{
 			"name":"M_handrail_wood_b",
 			"normalTexture":{
-				"index":168,
+				"index":170,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":169
+					"index":171
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":170
+					"index":172
 				}
 			}
 		},
@@ -1502,7 +1504,7 @@
 			"name":"M_fx_ceiling_soffit_failed",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":171
+					"index":173
 				},
 				"metallicFactor":0
 			}
@@ -1510,145 +1512,153 @@
 		{
 			"name":"M_stair_treads",
 			"normalTexture":{
-				"index":172,
+				"index":174,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":173
+					"index":175
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":174
+					"index":176
 				}
 			}
 		},
 		{
 			"name":"M_limestone_b",
 			"normalTexture":{
-				"index":175,
+				"index":177,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":176
+					"index":178
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":177
+					"index":179
 				}
 			}
 		},
 		{
 			"name":"M_wainscot",
 			"normalTexture":{
-				"index":178,
+				"index":180,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":179
+					"index":181
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":180
+					"index":182
 				}
 			}
 		},
 		{
 			"name":"M_common_brick_b",
 			"normalTexture":{
-				"index":181,
+				"index":183,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":182
+					"index":184
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":183
+					"index":185
 				}
 			}
 		},
 		{
 			"name":"M_face_brick_b",
 			"normalTexture":{
-				"index":184,
+				"index":186,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":185
+					"index":187
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":186
-				}
-			}
-		},
-		{
-			"alphaMode":"BLEND",
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
-			},
-			"name":"M_fx_drip",
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":187
-				},
-				"metallicFactor":0
-			}
-		},
-		{
-			"alphaMode":"BLEND",
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
-			},
-			"name":"M_fx_grease",
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
 					"index":188
-				},
-				"metallicFactor":0
+				}
 			}
 		},
 		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
+			"name":"M_fx_drip",
+			"normalTexture":{
+				"index":189,
+				"scale":0.2800000011920929
 			},
-			"name":"M_fx_scuff",
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":189
-				},
-				"metallicFactor":0
-			}
-		},
-		{
-			"alphaMode":"BLEND",
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
-			},
-			"name":"M_fx_traffic",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":190
 				},
-				"metallicFactor":0
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":191
+				}
+			}
+		},
+		{
+			"alphaMode":"BLEND",
+			"doubleSided":true,
+			"name":"M_fx_grease",
+			"normalTexture":{
+				"index":192,
+				"scale":0.2800000011920929
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":193
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":194
+				}
+			}
+		},
+		{
+			"alphaMode":"BLEND",
+			"doubleSided":true,
+			"name":"M_fx_scuff",
+			"normalTexture":{
+				"index":195,
+				"scale":0.2800000011920929
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":196
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":197
+				}
+			}
+		},
+		{
+			"alphaMode":"BLEND",
+			"doubleSided":true,
+			"name":"M_fx_traffic",
+			"normalTexture":{
+				"index":198,
+				"scale":0.2800000011920929
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":199
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":200
+				}
 			}
 		}
 	],
@@ -3717,6 +3727,14 @@
 		},
 		{
 			"sampler":0,
+			"source":165
+		},
+		{
+			"sampler":0,
+			"source":166
+		},
+		{
+			"sampler":0,
 			"source":51
 		},
 		{
@@ -3726,14 +3744,6 @@
 		{
 			"sampler":0,
 			"source":53
-		},
-		{
-			"sampler":0,
-			"source":165
-		},
-		{
-			"sampler":0,
-			"source":166
 		},
 		{
 			"sampler":0,
@@ -3818,6 +3828,46 @@
 		{
 			"sampler":0,
 			"source":187
+		},
+		{
+			"sampler":0,
+			"source":188
+		},
+		{
+			"sampler":0,
+			"source":189
+		},
+		{
+			"sampler":0,
+			"source":190
+		},
+		{
+			"sampler":0,
+			"source":191
+		},
+		{
+			"sampler":0,
+			"source":192
+		},
+		{
+			"sampler":0,
+			"source":193
+		},
+		{
+			"sampler":0,
+			"source":194
+		},
+		{
+			"sampler":0,
+			"source":195
+		},
+		{
+			"sampler":0,
+			"source":196
+		},
+		{
+			"sampler":0,
+			"source":197
 		}
 	],
 	"images":[
@@ -4533,8 +4583,18 @@
 		},
 		{
 			"mimeType":"image/png",
+			"name":"T_fx_fx_patch_normal",
+			"uri":"textures/T_fx_fx_patch_normal.png"
+		},
+		{
+			"mimeType":"image/png",
 			"name":"T_fx_fx_patch",
 			"uri":"textures/T_fx_fx_patch.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_patch_rough",
+			"uri":"textures/T_fx_fx_patch_rough.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -4743,8 +4803,23 @@
 		},
 		{
 			"mimeType":"image/png",
+			"name":"T_fx_fx_drip_normal",
+			"uri":"textures/T_fx_fx_drip_normal.png"
+		},
+		{
+			"mimeType":"image/png",
 			"name":"T_fx_fx_drip",
 			"uri":"textures/T_fx_fx_drip.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_drip_rough",
+			"uri":"textures/T_fx_fx_drip_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_grease_normal",
+			"uri":"textures/T_fx_fx_grease_normal.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -4753,13 +4828,38 @@
 		},
 		{
 			"mimeType":"image/png",
+			"name":"T_fx_fx_grease_rough",
+			"uri":"textures/T_fx_fx_grease_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_scuff_normal",
+			"uri":"textures/T_fx_fx_scuff_normal.png"
+		},
+		{
+			"mimeType":"image/png",
 			"name":"T_fx_fx_scuff",
 			"uri":"textures/T_fx_fx_scuff.png"
 		},
 		{
 			"mimeType":"image/png",
+			"name":"T_fx_fx_scuff_rough",
+			"uri":"textures/T_fx_fx_scuff_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_traffic_normal",
+			"uri":"textures/T_fx_fx_traffic_normal.png"
+		},
+		{
+			"mimeType":"image/png",
 			"name":"T_fx_fx_traffic",
 			"uri":"textures/T_fx_fx_traffic.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_traffic_rough",
+			"uri":"textures/T_fx_fx_traffic_rough.png"
 		}
 	],
 	"accessors":[

@@ -1440,49 +1440,55 @@
 		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
-			},
 			"name":"M_fx_drip",
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":174
-				},
-				"metallicFactor":0
-			}
-		},
-		{
-			"alphaMode":"BLEND",
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
+			"normalTexture":{
+				"index":174,
+				"scale":0.2800000011920929
 			},
-			"name":"M_fx_grease",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":175
 				},
-				"metallicFactor":0
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":176
+				}
 			}
 		},
 		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
+			"name":"M_fx_grease",
+			"normalTexture":{
+				"index":177,
+				"scale":0.2800000011920929
 			},
-			"name":"M_fx_scuff",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":176
+					"index":178
 				},
-				"metallicFactor":0
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":179
+				}
+			}
+		},
+		{
+			"alphaMode":"BLEND",
+			"doubleSided":true,
+			"name":"M_fx_scuff",
+			"normalTexture":{
+				"index":180,
+				"scale":0.2800000011920929
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":181
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":182
+				}
 			}
 		}
 	],
@@ -3358,6 +3364,30 @@
 		{
 			"sampler":0,
 			"source":170
+		},
+		{
+			"sampler":0,
+			"source":171
+		},
+		{
+			"sampler":0,
+			"source":172
+		},
+		{
+			"sampler":0,
+			"source":173
+		},
+		{
+			"sampler":0,
+			"source":174
+		},
+		{
+			"sampler":0,
+			"source":175
+		},
+		{
+			"sampler":0,
+			"source":176
 		}
 	],
 	"images":[
@@ -4203,8 +4233,23 @@
 		},
 		{
 			"mimeType":"image/png",
+			"name":"T_fx_fx_drip_normal",
+			"uri":"textures/T_fx_fx_drip_normal.png"
+		},
+		{
+			"mimeType":"image/png",
 			"name":"T_fx_fx_drip",
 			"uri":"textures/T_fx_fx_drip.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_drip_rough",
+			"uri":"textures/T_fx_fx_drip_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_grease_normal",
+			"uri":"textures/T_fx_fx_grease_normal.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -4213,8 +4258,23 @@
 		},
 		{
 			"mimeType":"image/png",
+			"name":"T_fx_fx_grease_rough",
+			"uri":"textures/T_fx_fx_grease_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_scuff_normal",
+			"uri":"textures/T_fx_fx_scuff_normal.png"
+		},
+		{
+			"mimeType":"image/png",
 			"name":"T_fx_fx_scuff",
 			"uri":"textures/T_fx_fx_scuff.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_scuff_rough",
+			"uri":"textures/T_fx_fx_scuff_rough.png"
 		}
 	],
 	"accessors":[

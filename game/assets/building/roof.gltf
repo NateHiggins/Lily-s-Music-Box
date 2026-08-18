@@ -851,49 +851,55 @@
 		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
-			},
 			"name":"M_fx_drip",
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":95
-				},
-				"metallicFactor":0
-			}
-		},
-		{
-			"alphaMode":"BLEND",
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
+			"normalTexture":{
+				"index":95,
+				"scale":0.2800000011920929
 			},
-			"name":"M_fx_scuff",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":96
 				},
-				"metallicFactor":0
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":97
+				}
 			}
 		},
 		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
+			"name":"M_fx_scuff",
+			"normalTexture":{
+				"index":98,
+				"scale":0.2800000011920929
 			},
-			"name":"M_fx_traffic",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":97
+					"index":99
 				},
-				"metallicFactor":0
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":100
+				}
+			}
+		},
+		{
+			"alphaMode":"BLEND",
+			"doubleSided":true,
+			"name":"M_fx_traffic",
+			"normalTexture":{
+				"index":101,
+				"scale":0.2800000011920929
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":102
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":103
+				}
 			}
 		}
 	],
@@ -2075,6 +2081,30 @@
 		{
 			"sampler":0,
 			"source":97
+		},
+		{
+			"sampler":0,
+			"source":98
+		},
+		{
+			"sampler":0,
+			"source":99
+		},
+		{
+			"sampler":0,
+			"source":100
+		},
+		{
+			"sampler":0,
+			"source":101
+		},
+		{
+			"sampler":0,
+			"source":102
+		},
+		{
+			"sampler":0,
+			"source":103
 		}
 	],
 	"images":[
@@ -2555,8 +2585,23 @@
 		},
 		{
 			"mimeType":"image/png",
+			"name":"T_fx_fx_drip_normal",
+			"uri":"textures/T_fx_fx_drip_normal.png"
+		},
+		{
+			"mimeType":"image/png",
 			"name":"T_fx_fx_drip",
 			"uri":"textures/T_fx_fx_drip.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_drip_rough",
+			"uri":"textures/T_fx_fx_drip_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_scuff_normal",
+			"uri":"textures/T_fx_fx_scuff_normal.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -2565,8 +2610,23 @@
 		},
 		{
 			"mimeType":"image/png",
+			"name":"T_fx_fx_scuff_rough",
+			"uri":"textures/T_fx_fx_scuff_rough.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_traffic_normal",
+			"uri":"textures/T_fx_fx_traffic_normal.png"
+		},
+		{
+			"mimeType":"image/png",
 			"name":"T_fx_fx_traffic",
 			"uri":"textures/T_fx_fx_traffic.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_traffic_rough",
+			"uri":"textures/T_fx_fx_traffic_rough.png"
 		}
 	],
 	"accessors":[
