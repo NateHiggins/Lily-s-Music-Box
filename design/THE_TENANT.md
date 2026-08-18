@@ -89,18 +89,63 @@ she used to be and is not any more. The building keeps the mark.
    Nothing new needs building; the field the shader already requires becomes
    her behaviour as well as her appearance.
 
-4. **Capture is not a kill and must not read as one.** The vocabulary is
-   already "capture / fall / contact" rather than death language, and the
-   ruling that there is no failure state stands. She reaches you and the
-   passage ends. Consider whether the moment should be gentler than the
-   approach — that the horror is in being pursued and the contact itself is
-   almost tender is a stronger ending than a jump scare, and it is the one the
-   metaphor asks for.
+4. **Capture is an embrace.** Ruled 2026-08-18 — see the next section.
 
 5. **"Wanted" is a waking-world hook that does not exist yet.** Somewhere in
    the Orison there should be a notice, a complaint, a piece of building
    correspondence about an indecency the reader will not be able to place. It
    should never explain her.
+
+---
+
+## THE EMBRACE — how a passage ends
+
+Owner ruling 2026-08-18: *"lets have it ambiguous, like the player is being
+embraced and taken within the poltergeist."*
+
+Capture is not a kill, not a jump scare, and not a rescue. She reaches the
+player and takes them **inside** her, and the game never says what that was.
+
+**It has no direction.** She does not lunge in from somewhere. Gold closes over
+the frame from every edge at once — top, sides, floor, and from behind the
+camera — because being enclosed by a body of more dimensions is not something
+that arrives along an axis. There is nothing to turn and face. Nothing enters
+frame; frame *becomes* interior.
+
+**The lamp stays lit.** This is the strongest single image available and it
+costs nothing: the player's light is still burning, still working, still
+pointed where they aimed it — and there is only gold in front of it. Their one
+tool is intact and there is nothing left to use it on. Do not knock the lamp
+away, do not cut to black on contact.
+
+**The room gets small.** The corridor's reverb collapses to a very close,
+very short acoustic — the sound of being inside something rather than in a
+building. The case sound reaches its missing fifth position here.
+
+**Her eyes close.** Every eye that has been tracking the player shuts as the
+gold arrives. She does not watch this happen. That is the same shame that makes
+the lamp a deterrent, and it is what keeps the moment from reading as a
+predator finishing a hunt.
+
+**It is warm.** Not cold, not wet, not visceral. Whatever else this is, it is
+not a wound.
+
+**Slow, and never a strobe.** The gold closing in is a slow iris over roughly a
+second and a half. This is the moment the photosensitivity rule is most likely
+to be broken by someone reaching for impact; it is not negotiable.
+
+**And then 4B, with one deniable residue.** The existing wake contract already
+carries the ambiguity — the player opens their eyes at the authored bedside and
+finds one quiet fact that could have an ordinary explanation. Nothing anywhere
+should later confirm whether she was taking something, keeping something safe,
+or simply holding the first thing that ever stayed still long enough to be
+held. The player is allowed to decide. The game is not.
+
+**Implementation note.** `DreamMazeRoot._on_captured` currently commits the
+outcome and nothing else; there is no capture presentation built at all. This
+section is the spec for it, and the eye-closing beat depends on eyes existing
+as elements, which is workstream F of
+`design/DREAM_SURFACE_REDESIGN_BRIEF.md`.
 
 ---
 

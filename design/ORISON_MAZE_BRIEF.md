@@ -278,9 +278,13 @@ The dream does not buy a monster model.
   costumes wrapped around a humanoid.
 - The Tenant never uses the resident's speaking voice. She borrows rhythm,
   vocabulary and signal carriers from `PoltergeistLibrary`.
-- Capture is the service-lamp beam being occluded at intimate distance, the case sound
-  reaching its missing fifth position and the image cutting to black. There is
-  no attack animation and no creature close-up.
+- Capture is an EMBRACE, and it is deliberately ambiguous. Owner ruling
+  2026-08-18: "lets have it ambiguous, like the player is being embraced and
+  taken within the poltergeist." There is no attack animation, no creature
+  close-up and no lunge — she encloses rather than strikes, from every edge of
+  the frame at once, because an embrace by a body of more dimensions has no
+  direction it can come from. The case sound reaches its missing fifth
+  position. The full staging is in `design/THE_TENANT.md`.
 
 This realizes “wears the subject's shadow” literally while preventing a
 temporary graybox mesh from becoming a canonical true form.
