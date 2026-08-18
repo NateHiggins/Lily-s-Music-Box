@@ -67,6 +67,15 @@ uniform float base_tile_m : hint_range(0.1, 8.0) = 1.15;
 // How much of the frame is still the real building versus the gold that is
 // consuming it. This is the dial the whole look now turns on.
 uniform float consumed : hint_range(0.0, 1.0) = 0.55;
+// How much of the latent gold shows with no lamp on it. Deliberately low but
+// never zero: the world has to stay navigable in the dark (owner ruling
+// 2026-08-18), and a surface at flat zero reveal is a black shape with no
+// grain to read a corner by. This is what the black level actually lights.
+uniform float unlit_reveal : hint_range(0.0, 1.0) = 0.22;
+// How hard the beam pushes the dream through the real building. Above 1.0 so
+// the cone reaches full reveal before its own falloff ends -- the gold should
+// arrive with the light rather than lagging behind its brightest point.
+uniform float lamp_reveal_gain : hint_range(0.0, 4.0) = 2.6;
 
 // --------------------------------------------------------------- palette ---
 // Read off the frieze rather than invented. The cream is the ground of the
@@ -783,11 +792,28 @@ void fragment() {
 	// are the front line of it. Away from them the plaster is just plaster,
 	// dark and cold and real.
 	float rot = fbm(v_world.xz * 0.28 + vec2(TIME * 0.006, 0.0));
-	float eaten = clamp(consumed * (0.35 + 1.3 * leaf) + rot * 0.45 - 0.2,
+	// How much gold this fragment COULD become. Entropy is high where the
+	// ornament is dense, so the dream is latent in the building's own
+	// pattern rather than painted over it.
+	float latent = clamp(consumed * (0.35 + 1.3 * leaf) + rot * 0.45 - 0.2,
 			0.0, 1.0);
-	// The lamp accelerates it. Looking at a thing is what consumes it here,
-	// which is the ruled cruelty of this world made material.
-	eaten = clamp(eaten + heat * 0.45, 0.0, 1.0);
+	// THE LAMP IS WHAT MAKES THE DREAM WIN. Owner ruling 2026-08-18: "the
+	// light should make the dream shader overcome the 'reality shader' making
+	// the underlying weird gold matrix reveal itself."
+	//
+	// This used to be `eaten + heat * 0.45` on top of a 0.55 baseline, so the
+	// gold was mostly already there and the lamp only warmed it. Now the
+	// latent gold is scaled BY the lamp: unlit, `unlit_reveal` of it shows and
+	// the surface reads as the real Orison -- plaster, terrazzo, tin, dark and
+	// cold and navigable by the black level alone. Where the beam falls, the
+	// dream overcomes the real building and the matrix underneath comes up.
+	//
+	// It multiplies rather than adds, which matters: light cannot manufacture
+	// gold where the building has no ornament to turn into, so the tendrils
+	// stay the front line and a blank wall stays a blank wall however hard it
+	// is lit.
+	float eaten = clamp(latent * (unlit_reveal
+			+ (1.0 - unlit_reveal) * heat * lamp_reveal_gain), 0.0, 1.0);
 
 	// Under the gold, the real wall -- darkened, because the dream is lit by
 	// one lamp and plaster is not a light source.

@@ -130,8 +130,14 @@ func _block_b_world() -> void:
 	# passage rather than the spawn doing it.
 	_check("the pursuer spawns inside the building, far off, with N3's numbers",
 			_pursuer_start_is_sound()
-			and absf(float(parameters.lit_speed_mps) - 6.35) <= 0.12001
-			and absf(float(parameters.dark_speed_mps) - 3.35) <= 0.08001
+			# THE TWO SPEEDS SWAPPED SIDES. Owner ruling 2026-08-18: the light
+			# is a deterrent, not a beacon. Lit is now the SLOW one -- 3.35
+			# against a 4.6 m/s run, so a lit player can outpace it -- and
+			# dark is the 6.35 that cannot be outrun. The numbers themselves
+			# are still N3's measured pair; only which condition selects them
+			# has changed.
+			and absf(float(parameters.lit_speed_mps) - 3.35) <= 0.08001
+			and absf(float(parameters.dark_speed_mps) - 6.35) <= 0.12001
 			and absf(float(parameters.hearing_period_s) - 0.72) <= 0.08001
 			and absf(float(parameters.capture_radius_m) - 0.75) < 0.0001)
 	var architecture := root.get_node_or_null("ModuleArchitecture")
@@ -279,10 +285,39 @@ func _block_e_light_binary() -> void:
 			% [capture_ext, _route_violations])
 	_check("the lit maze run captures", capture_on > 0.0)
 	_check("the dark maze run still always captures", capture_off > 0.0)
-	_check("light-on shortens capture by at least one third in the real maze",
-			capture_on <= capture_off * 0.667)
-	_check("extinguishing after acquisition buys real audible time",
-			capture_ext > 0.0 and capture_ext - capture_on >= 3.0)
+	# THE LAMP BINARY, INVERTED BY OWNER RULING 2026-08-18. It used to assert
+	# that light-on SHORTENED capture by a third: the lamp was what gave the
+	# player away and the dark was the only refuge. The ruling reverses the
+	# sides -- "i want the world reacting to the light being a deterrent" -- so
+	# the light now holds the Tenant off and the dark is what lets it close.
+	# The decision is still continuous and still costly, because the cost of
+	# light moved from the Tenant to the BUILDING: the trunk's `lamp_on`
+	# condition, and the gold overcoming the real Orison wherever the beam
+	# falls. What must never be true, on either side of the ruling, is that one
+	# lamp state is simply free.
+	# THE THRESHOLDS ARE SET FROM MEASUREMENT, AND THE MEASUREMENT IS WORTH
+	# RECORDING. The old check demanded light SHORTEN capture by a third
+	# (x0.667). Inverting it symmetrically to x1.5 was a guess and it failed:
+	# the real deterrent measures x1.37 on the chain (9.11 s lit against
+	# 6.67 s dark), because the two effects are not mirror images. Dark also
+	# loses time to the hearing period -- the Tenant only refreshes where you
+	# are every 0.72 s -- so the dark run is slower than its raw 6.35 m/s
+	# suggests, which compresses the gap the lamp can open.
+	#
+	# So the deterrent is real but MILDER than the beacon it replaced. If the
+	# owner wants light to feel like genuine sanctuary rather than a reprieve,
+	# the lever is the lit speed (now 3.35) rather than this number. Set with
+	# margin below what was measured so a real regression still trips it.
+	_check("light-on lengthens capture by at least a quarter in the real maze",
+			capture_on >= capture_off * 1.25)
+	# RELATIVE, not a count of seconds. An absolute margin is a statement about
+	# ROOM SIZE as much as about the lamp: the chain measures this down a
+	# 19.30 m hall and the fractal down whatever the longest live room happens
+	# to be, so the same mechanic yields 2.5 s on one and 1.3 s on the other
+	# while the proportion barely moves (0.53 and 0.55 of the lit time). The
+	# proportion is the thing the ruling is about.
+	_check("extinguishing hands the Tenant real time back",
+			capture_ext > 0.0 and capture_ext <= capture_on * 0.8)
 	_check("paired runs reuse one seeded parameter set, unrerolled",
 			JSON.stringify(root.pursuer.run_parameters()) == parameters)
 	_check("the body never leaves the validated graph space",
@@ -385,12 +420,25 @@ func _block_f_outcome_seam() -> void:
 ## public owner that long after first acquisition.
 func _measured_run(lamp_on: bool, extinguish_after: float) -> float:
 	var plan: Dictionary = root.plan
-	var d01 := _rect(plan, CHAIN[1])
+	# THE LONGEST ROOM IN THE PLAN, whatever it is called. This used to name
+	# D01_F04_LONG_HALL, which does not exist in a building whose rooms are
+	# named by path -- _rect answered the miss with a ZERO RECT and both bodies
+	# were placed at the world origin, outside every room. The pursuer then had
+	# no route at all, walked a straight line to the player through whatever
+	# was in the way, and captured in about three seconds no matter what the
+	# lamp was doing. That produced 701 route violations and three identical
+	# capture times, and it read exactly like a runtime bug in the pocket --
+	# while the builder's own route suite reported zero breaches over every
+	# pair of live rooms, which is what said the fault was here instead.
+	var hall := _longest_room(plan)
+	var run_axis: float = hall[2] - hall[0]
+	var mid: float = (hall[1] + hall[3]) * 0.5
 	root.player.set_lamp_enabled(lamp_on)
-	root.player.position = Vector3(d01[0] + 8.0, 0.0, (d01[1] + d01[3]) * 0.5)
-	root.pursuer.reset_run(Vector3(d01[0] + 0.3, 0.0,
-			(d01[1] + d01[3]) * 0.5))
-	var goal := Vector3(plan.spawn_pursuer[0], 0.0, plan.spawn_pursuer[1])
+	root.player.position = Vector3(hall[0] + run_axis * 0.6, 0.0, mid)
+	root.pursuer.reset_run(Vector3(hall[0] + 0.4, 0.0, mid))
+	# Away from the Tenant, along the room's own long axis, so the measurement
+	# is of a chase rather than of a collision.
+	var goal := Vector3(hall[2] - 0.4, 0.0, mid)
 	var extinguished := extinguish_after < 0.0
 	var elapsed := 0.0
 	while elapsed < RUN_CAP_S and not root.pursuer.is_captured:
@@ -682,6 +730,20 @@ func _pursuer_start_is_sound() -> bool:
 		return false
 	return theirs != mine \
 			and at.distance_to(root.player.position) > 0.75 * 4.0
+
+
+## The room with the greatest x-extent in the plan: the longest straight run a
+## chase can be measured along, on either world.
+func _longest_room(plan: Dictionary) -> Array:
+	var best: Array = [0.0, 0.0, 1.0, 1.0]
+	var best_len := -1.0
+	for entry in plan.get("modules", []):
+		var r: Array = entry.rect
+		var length: float = float(r[2]) - float(r[0])
+		if length > best_len:
+			best_len = length
+			best = r
+	return best
 
 
 ## The first door in the plan cut along x -- a join between two rooms stacked

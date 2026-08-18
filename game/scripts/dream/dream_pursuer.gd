@@ -165,8 +165,27 @@ func advance_fixed(delta: float) -> void:
 				last_known_position = target
 			_hearing_due_s += _hearing_period_s
 
-	var speed := _lit_speed_mps if clear_light and acquired \
-			else _dark_speed_mps
+	# THE LIGHT IS A DETERRENT. Owner ruling 2026-08-18: "remove the light
+	# causing capture thing, i want the world reacting to the light being a
+	# deterrent but the world needs to be navigatable without the light on."
+	#
+	# This inverts N3 and the brief's "light on gives information and gives the
+	# player away". It used to read `_lit_speed_mps if clear_light and
+	# acquired`, with lit at 6.35 m/s against a 4.6 m/s run -- so switching the
+	# lamp on made the Tenant strictly faster than the player could run, and
+	# light was the thing that got you caught.
+	#
+	# Now the light HOLDS IT OFF, and the cost of using it is that the building
+	# answers: the trunk's `condition: lamp_on` and the surfaces the shader
+	# wakes are the world reacting. So the continuous decision survives intact
+	# and only changes sides -- lamp on keeps the Tenant back and rouses the
+	# room; lamp off quiets the room and lets the Tenant close.
+	#
+	# `acquired` is deliberately no longer part of this. It still records that
+	# the Tenant knows where the player is, which is what the hearing pings and
+	# last_known_position are for, but knowing must not also mean moving
+	# faster: that was the second half of light causing capture.
+	var speed := _lit_speed_mps if clear_light else _dark_speed_mps
 	_advance_along_route(speed * delta)
 	if _flat(position).distance_to(target) <= _capture_radius_m:
 		is_captured = true

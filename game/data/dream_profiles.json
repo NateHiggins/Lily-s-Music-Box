@@ -1,49 +1,49 @@
 {
-	"schema_version": 1,
-	"profiles": {
-		"mina_release_print": {
-			"case_id": "mina_caption_crisis",
-			"campaign_slot": 1,
-			"onset": {
-				"allowed_forms": [
-					"gradual"
-				],
-				"gradual_seconds": 2.6
-			},
-			"pursuit": {
-				"silhouette_resident": "mina_vale",
-				"lit_speed_mps": 6.35,
-				"lit_speed_jitter_mps": 0.12,
-				"dark_speed_mps": 3.35,
-				"dark_speed_jitter_mps": 0.08,
-				"hearing_period_s": 0.72,
-				"hearing_period_jitter_s": 0.08,
-				"capture_radius_m": 0.75
-			},
-			"hazards": {
-				"allow": [
-					"open_lift_void",
-					"vantry_signal_trunk",
-					"hollow_runner"
-				],
-				"tuning": {
-					"open_lift_void": {
-						"outcome": "fall",
-						"caption": "CHAIN BELOW"
-					},
-					"vantry_signal_trunk": {
-						"outcome": "contact",
-						"caption": "TRUNK HISS",
-						"condition": "lamp_on"
-					},
-					"hollow_runner": {
-						"outcome": "",
-						"caption": "DRY CREAK",
-						"condition": "running",
-						"break_speed_mps": 3.8
-					}
-				}
-			}
-		}
-	}
+  "schema_version": 1,
+  "profiles": {
+    "mina_release_print": {
+      "case_id": "mina_caption_crisis",
+      "campaign_slot": 1,
+      "onset": {
+        "allowed_forms": [
+          "gradual"
+        ],
+        "gradual_seconds": 2.6
+      },
+      "pursuit": {
+        "silhouette_resident": "mina_vale",
+        "lit_speed_mps": 3.35,
+        "lit_speed_jitter_mps": 0.08,
+        "dark_speed_mps": 6.35,
+        "dark_speed_jitter_mps": 0.12,
+        "hearing_period_s": 0.72,
+        "hearing_period_jitter_s": 0.08,
+        "capture_radius_m": 0.75
+      },
+      "hazards": {
+        "allow": [
+          "open_lift_void",
+          "vantry_signal_trunk",
+          "hollow_runner"
+        ],
+        "tuning": {
+          "open_lift_void": {
+            "outcome": "fall",
+            "caption": "CHAIN BELOW"
+          },
+          "vantry_signal_trunk": {
+            "outcome": "contact",
+            "caption": "TRUNK HISS",
+            "condition": "lamp_on"
+          },
+          "hollow_runner": {
+            "outcome": "",
+            "caption": "DRY CREAK",
+            "condition": "running",
+            "break_speed_mps": 3.8
+          }
+        }
+      }
+    }
+  }
 }

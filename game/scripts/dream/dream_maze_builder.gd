@@ -639,6 +639,28 @@ static func _klimt_material(color: Color, roughness: float,
 		MOTIF_EYE:
 			scale = 5.0
 	material.set_shader_parameter("pattern_scale", scale)
+	# WHAT THE LAMP IS FOR, BEYOND SEEING. Owner ruling 2026-08-18: "the dream
+	# light reveals hazards and geometry that is not perceivable without it."
+	#
+	# `unlit_reveal` is how much of a surface's latent gold shows with no beam
+	# on it, so lowering it for one class makes that class effectively absent
+	# in the dark and present in the light. The watching eyes are the maze's
+	# own word for danger -- they wear MOTIF_EYE, and so do the shafts -- so a
+	# hazard is now something the player can only SEE by spending light on it.
+	#
+	# That is the whole trade the passage turns on, and it now runs both ways:
+	# the lamp holds the Tenant off and shows you the hole in the floor, and it
+	# also wakes what the building does about being looked at (the trunk's
+	# `lamp_on` condition). Dark hides the hole and quiets the trunk, and lets
+	# the Tenant close at a speed no one can outrun.
+	#
+	# Not zero. A void you cannot perceive at all is a trapdoor, and the fall
+	# has to remain the player's own mistake -- the tell still sounds in the
+	# dark, and this leaves just enough grain to read an edge against.
+	var unlit := 0.22
+	if motif == MOTIF_EYE:
+		unlit = 0.05
+	material.set_shader_parameter("unlit_reveal", unlit)
 	# THE REAL SURFACE UNDER THE GOLD. The dream modules are measured
 	# extractions of real Orison rooms, so they take the same materials the
 	# waking building names in its own catalog -- plaster on the walls, tin on
