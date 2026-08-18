@@ -197,6 +197,10 @@ func advance_fixed(delta: float) -> void:
 ## service lamp must be on AND an unobstructed physics line must exist.
 ## Module walls are real layer-1 collision, so acquisition can never cross
 ## opaque architecture.
+##
+## "Finds" is the right word and "acquires" is not, now that the Tenant is
+## characterised (design/THE_TENANT.md): the lamp does not target her, it
+## EXPOSES her. What follows is not her locking on, it is her being seen.
 func lamp_finds_target() -> bool:
 	if player == null or not player.has_method("lamp_is_enabled") \
 			or not player.call("lamp_is_enabled"):

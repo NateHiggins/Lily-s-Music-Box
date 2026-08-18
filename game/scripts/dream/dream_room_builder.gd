@@ -961,7 +961,7 @@ func _door_between(a: String, b: String) -> Dictionary:
 ## comes from where you have already been, not from where you are going.
 ## Spawning it ahead would be _cap_fold's endgame applied at t=0, which
 ## collapses the run ceiling and destroys the lamp decision.
-## AND IT MUST BE FAR. The chain put the Tenant five modules away, at the far
+## AND SHE MUST START FAR. The chain put the Tenant five modules away, at the far
 ## end of the terminal room. The first version of this put it at the CENTRE of
 ## the nearest room behind, which on the opening frame of a passage is a single
 ## doorway from a player who has not moved yet -- and it caught them before the

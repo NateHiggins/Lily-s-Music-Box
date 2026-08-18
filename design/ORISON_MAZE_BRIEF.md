@@ -39,8 +39,8 @@ the violent punctuation mark at the end of a completed shift.
   eligible onset; it does not erase the request.
 - Committed work, case truth, inventory consumption and repair results survive.
 - The player wakes at the authored bedside in 4B.
-- There is one Tenant. It has no body or true form and cannot be killed. It may
-  only wear the current subject's shadow and wound grammar.
+- There is one Tenant. She has no body or true form and cannot be killed. She
+  may only wear the current subject's shadow and wound grammar.
 - The dream may borrow the Orison. The waking Orison never previews, explains or
   confirms the dream.
 - The title screen remains entirely waking-world and spoiler-safe. That is the
@@ -276,7 +276,7 @@ The dream does not buy a monster model.
 - Case effects occur in the architecture: captions, stamps, feedback, broken
   appliances, radio fragments or contradictory labels. They are not particle
   costumes wrapped around a humanoid.
-- The Tenant never uses the resident's speaking voice. It borrows rhythm,
+- The Tenant never uses the resident's speaking voice. She borrows rhythm,
   vocabulary and signal carriers from `PoltergeistLibrary`.
 - Capture is the service-lamp beam being occluded at intimate distance, the case sound
   reaching its missing fifth position and the image cutting to black. There is
@@ -284,6 +284,16 @@ The dream does not buy a monster model.
 
 This realizes “wears the subject's shadow” literally while preventing a
 temporary graybox mesh from becoming a canonical true form.
+
+**Who she is, ruled 2026-08-18: see `design/THE_TENANT.md`.** She is a
+higher-dimensional consciousness, she/her, wanted for public indecency,
+extremely dangerous, easily embarrassed. That characterisation is not colour
+laid over this section — it is the reason for it. "No true form" stops being an
+asset-budget decision and becomes the fact that she has no shape this world
+will let her hold, which is why she is always wearing the borrowed outline of a
+woman who has just been resolved and released. The light deterrent ruled the
+same day is the same fact from the other side: the lamp does not hurt her, it
+exposes her, and she withdraws because being seen like this is unbearable.
 
 ### Pursuit contract
 
