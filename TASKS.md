@@ -1234,12 +1234,21 @@ geometry is stair balusters.** Meanwhile `F0x_floors_concrete`,
 `F0x_stairs_soffit_failed`, every `F01_retail_shop_*_fx_shadow` and
 `F0x_finish_*_w10` are **two triangles each**.
 
-Under the no-budget ruling the question is *not* whether we can afford the
-balusters. It is whether those triangles are buying a turned baluster the
-player can actually see, or a smooth-shaded cylinder spending them on nothing.
-**Answer that first** — it is one read of the baluster generator in
-`gen_layout.py` — because if it is the latter, the same spend buys a real
-lathe profile and the answer generalises to every other repeated element.
+**ANSWERED 2026-08-18, and it goes the other way.** The spend is earned.
+`_baluster()` at `build_orison.py:3526` builds a square die at each end, two
+turned vase profiles by `add_lathe`, a twisted square centre given a quarter
+turn per 120 mm, and a cast brass collar at the foot where the iron enters the
+shoe rail. `BAL_PITCH` is 0.115 m — four-and-a-half inch centres, so no 100 mm
+sphere passes, which is the actual code requirement for a guard. The handrail
+beside it is a moulded four-course section, not a bar. The comment records the
+reason it was built this way: without the collar the old 36 mm sticks "read as
+dowels".
+
+So the balusters are not a budget to raid — **they are the standard the rest of
+the building should be measured against.** That inverts the plan below. The
+question for every other family is no longer "what can we afford", it is "why
+is this not built to the standard the stair already reached". A shopfront that
+is two triangles is not thrift, it is an outlier.
 
 #### The seven families, and their state
 
@@ -1289,6 +1298,29 @@ findings. Treat each as an open question with a known starting point.
    appear to be unused; **vertex colours** for grime and wear cost zero textures
    and zero draw calls; **emission** for signage, dials and the elevator call
    light; and the tiling-breakup question already open as M-COVER.
+
+#### What the first verification pass actually showed (2026-08-18)
+
+Shots taken at the street and the atrium, `SHOT_DIR` and `DAYNIGHT_FORCE`
+being the two environment variables the harnesses read (`street_shot.gd:66`,
+`day_night_director.gd:177`, which accepts `HH:MM`).
+
+- **The glass maps are bound and imported, and this scene cannot prove them.**
+  `M_glassish` carries `metallicRoughnessTexture` and `normalTexture` in
+  floor_01's glTF and Godot imports clean. But the street renders under a
+  uniform overcast sky, and a uniform sky reflected off a slightly bent surface
+  is still uniform — the drawn-glass waviness has nothing to bend. It needs a
+  shot where glass reflects something *structured*: a lit interior seen from
+  the street after dark, or a shopfront facing the building opposite. Until
+  such a frame exists the glass work is unproven, not proven.
+- **The atrium shows large translucent planes across the frame, and they are
+  PRE-EXISTING.** Compared against the committed
+  `art/renders/atrium_standard/after/03_court_base.png`, which has the same
+  marble slab hanging semi-transparent over the stair. So not a regression from
+  the material work — but it is accepted-and-committed rather than correct, and
+  a court you appear to view through a hanging pane is worth someone deciding
+  about deliberately. Note the comparison is not clean on colour: the committed
+  frame was shot on a different clock.
 
 #### How we will know it worked
 

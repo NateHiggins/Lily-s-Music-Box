@@ -696,10 +696,15 @@ def get_material(key):
         # changed how the floor reflected would give itself away instantly --
         # so they fall through to the old flat behaviour, which is correct for
         # them and only for them.
-        stem = rel.rsplit(".", 1)[0]
-        r_rel, n_rel = stem + "_rough.png", stem + "_normal.png"
-        r_abs = os.path.join(TEX_ROOT, *r_rel.split("/"))
-        n_abs = os.path.join(TEX_ROOT, *n_rel.split("/"))
+        # Companions always live in generated/fx/ beside the derived plates,
+        # whatever directory the albedo itself came from. That matters for the
+        # one FX plate that is AUTHORED rather than generated -- the failed
+        # ceiling soffit, whose albedo is an ai_sources image -- so it can pick
+        # up derived maps without derived files being written into a source
+        # directory.
+        stem = os.path.basename(rel).rsplit(".", 1)[0]
+        r_abs = os.path.join(TEX_ROOT, "generated", "fx", stem + "_rough.png")
+        n_abs = os.path.join(TEX_ROOT, "generated", "fx", stem + "_normal.png")
         if os.path.exists(r_abs) and os.path.exists(n_abs):
             rough = nt.nodes.new("ShaderNodeTexImage")
             rough.name = rough.label = "roughness"

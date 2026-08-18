@@ -1569,112 +1569,114 @@
 		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0
-				}
-			},
 			"name":"M_fx_ceiling_soffit_failed",
+			"normalTexture":{
+				"index":184,
+				"scale":0.2800000011920929
+			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":184
+					"index":185
 				},
-				"metallicFactor":0
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":186
+				}
 			}
 		},
 		{
 			"name":"M_stair_treads",
 			"normalTexture":{
-				"index":185,
+				"index":187,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":186
+					"index":188
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":187
+					"index":189
 				}
 			}
 		},
 		{
 			"name":"M_limestone",
 			"normalTexture":{
-				"index":188,
+				"index":190,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":189
+					"index":191
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":190
+					"index":192
 				}
 			}
 		},
 		{
 			"name":"M_subway_tile",
 			"normalTexture":{
-				"index":191,
+				"index":193,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":192
+					"index":194
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":193
+					"index":195
 				}
 			}
 		},
 		{
 			"name":"M_wainscot_d",
 			"normalTexture":{
-				"index":194,
+				"index":196,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":195
+					"index":197
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":196
+					"index":198
 				}
 			}
 		},
 		{
 			"name":"M_common_brick",
 			"normalTexture":{
-				"index":197,
+				"index":199,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":198
+					"index":200
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":199
+					"index":201
 				}
 			}
 		},
 		{
 			"name":"M_face_brick",
 			"normalTexture":{
-				"index":200,
+				"index":202,
 				"scale":0.3499999940395355
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":201
+					"index":203
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":202
+					"index":204
 				}
 			}
 		},
@@ -1683,16 +1685,16 @@
 			"doubleSided":true,
 			"name":"M_fx_drip",
 			"normalTexture":{
-				"index":203,
+				"index":205,
 				"scale":0.2800000011920929
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":204
+					"index":206
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":205
+					"index":207
 				}
 			}
 		},
@@ -1701,16 +1703,16 @@
 			"doubleSided":true,
 			"name":"M_fx_grease",
 			"normalTexture":{
-				"index":206,
+				"index":208,
 				"scale":0.2800000011920929
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":207
+					"index":209
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":208
+					"index":210
 				}
 			}
 		},
@@ -1719,16 +1721,16 @@
 			"doubleSided":true,
 			"name":"M_fx_scuff",
 			"normalTexture":{
-				"index":209,
+				"index":211,
 				"scale":0.2800000011920929
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":210
+					"index":212
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":211
+					"index":213
 				}
 			}
 		},
@@ -1737,16 +1739,16 @@
 			"doubleSided":true,
 			"name":"M_fx_traffic",
 			"normalTexture":{
-				"index":212,
+				"index":214,
 				"scale":0.2800000011920929
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":213
+					"index":215
 				},
 				"metallicFactor":0,
 				"metallicRoughnessTexture":{
-					"index":214
+					"index":216
 				}
 			}
 		}
@@ -4069,6 +4071,14 @@
 		{
 			"sampler":0,
 			"source":211
+		},
+		{
+			"sampler":0,
+			"source":212
+		},
+		{
+			"sampler":0,
+			"source":213
 		}
 	],
 	"images":[
@@ -4979,8 +4989,18 @@
 		},
 		{
 			"mimeType":"image/png",
+			"name":"T_fx_fx_ceiling_soffit_failed_normal",
+			"uri":"textures/T_fx_fx_ceiling_soffit_failed_normal.png"
+		},
+		{
+			"mimeType":"image/png",
 			"name":"T_fx_fx_ceiling_soffit_failed",
 			"uri":"textures/T_fx_fx_ceiling_soffit_failed.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"T_fx_fx_ceiling_soffit_failed_rough",
+			"uri":"textures/T_fx_fx_ceiling_soffit_failed_rough.png"
 		},
 		{
 			"mimeType":"image/png",

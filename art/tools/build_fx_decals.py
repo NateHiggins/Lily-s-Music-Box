@@ -406,6 +406,44 @@ def build_age_damp():
     write("age_damp", a * np.clip(body / 0.05, 0, 1))
 
 
+def build_authored_companions():
+    """Derive maps for the FX plates that are PAINTED rather than generated.
+
+    `fx_ceiling_soffit_failed` is the only one: its albedo is an authored
+    ai_sources image, so there is no alpha field here to read thickness from
+    and nothing above builds it. It appears on seven of the eight floors, which
+    makes it the most widespread untextured surface left in the building.
+
+    A failed soffit is lath and broken plaster hanging out of a ceiling. It is
+    the roughest thing in the Orison and it has real depth, so both maps are
+    derived from the plate's own luminance: dark is a hole and light is intact
+    plaster still keyed to the lath.
+    """
+    src = os.path.join(ROOT, "art", "textures", "ai_sources",
+                       "ceiling_soffit_failed_v1.png")
+    if not os.path.exists(src):
+        print("  ceiling_soffit_failed  SKIPPED, plate not found")
+        return
+    img = Image.open(src).convert("RGB")
+    lum = np.asarray(img, dtype=np.float64) @ np.array([0.299, 0.587, 0.114])
+    lum /= 255.0
+    # Blur before differentiating, or the normal is the JPEG grain rather than
+    # the broken edges of the plaster.
+    smooth = np.asarray(
+        Image.fromarray((lum * 255).astype(np.uint8)).filter(
+            ImageFilter.GaussianBlur(2.0)), dtype=np.float64) / 255.0
+    n = _normal_from_height(smooth, 0.9)
+    Image.fromarray(((n * 0.5 + 0.5) * 255).astype(np.uint8), "RGB").save(
+        os.path.join(OUT, "ceiling_soffit_failed_v1_normal.png"))
+    # 0.72 where the plaster survives up to 0.98 in the exposed cavity: nothing
+    # about a hole in a ceiling is glossy, and the darkest part is the deepest.
+    rough = 0.98 - 0.26 * np.clip(smooth, 0.0, 1.0)
+    Image.fromarray((rough * 255).astype(np.uint8), "L").save(
+        os.path.join(OUT, "ceiling_soffit_failed_v1_rough.png"))
+    print("  %-22s %-10s rough 0.72-0.98  relief 0.90 (authored plate)"
+          % ("ceiling_soffit", "%dx%d" % img.size))
+
+
 def main():
     print("fx decals -> %s" % os.path.relpath(OUT, ROOT))
     build_ao_strip()
@@ -417,6 +455,7 @@ def main():
     build_wear_burn()
     build_age_patch()
     build_age_damp()
+    build_authored_companions()
     lo, hi = min(ALPHA.values()), max(ALPHA.values())
     print("opacity range %.0f%%-%.0f%% (spread %.1fx, was 17x)"
           % (lo * 100, hi * 100, hi / lo))
