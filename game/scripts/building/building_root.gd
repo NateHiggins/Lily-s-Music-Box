@@ -1510,9 +1510,20 @@ func _street_core_protected_geometry() -> Dictionary:
 		if boundary_owned:
 			for geometry in owned:
 				protected[geometry.get_instance_id()] = true
-	# Both are explicit exterior architecture assembled at runtime.
+	# Explicit exterior architecture assembled at runtime.
+	#
+	# StreetTraffic belongs here and its absence was a real bug: the sweep
+	# indexes any F01 geometry that reads as enclosed, the traffic multimeshes
+	# sit at carriageway height inside that test, and so every vehicle had its
+	# layers zeroed at exactly the moment the player stepped onto the pavement.
+	# The stream you are meant to cross was visible from everywhere except the
+	# kerb. It hid rather than vanished visibly, because `_zone_toggle` writes
+	# `layers = 0` and leaves `visible` alone — so the node reports itself
+	# visible, with a populated multimesh, drawing nothing. Worth remembering
+	# the next time something "is definitely there" and is not on screen.
 	for child in get_children():
-		if String(child.name) in ["EntranceMarqueeDress", "BuildingEntrySign"]:
+		if String(child.name) in ["EntranceMarqueeDress", "BuildingEntrySign",
+				"StreetTraffic"]:
 			_protect_street_geometry(child, protected)
 	return protected
 
