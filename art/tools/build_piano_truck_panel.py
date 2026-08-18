@@ -32,8 +32,11 @@ SIGN = os.path.join(ROOT, "game", "assets", "building", "textures", "traffic",
                     "we_tuna_pianos_sign.png")
 OUT = os.path.join(ROOT, "game", "assets", "building", "textures", "traffic")
 
-# The box side measured off the decimated mesh: x -0.90..2.70, z 1.00..2.05.
-PANEL_M = (3.60, 1.05)
+# The box side measured off the decimated mesh: x -0.90..2.70, z 0.80..2.05.
+# The lower bound was 1.00 and had to come down: the box carries on below that
+# to the chassis, and those faces fell through to the side projection, which
+# painted a mirrored strip of lettering under the plate.
+PANEL_M = (3.60, 1.25)
 PX_PER_M = 560
 # Read off the CAB so the panel belongs to the truck it is bolted to. Measured
 # in the render rather than guessed: the cab bonnet sits at (48, 57, 58) and the

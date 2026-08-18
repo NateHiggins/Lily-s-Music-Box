@@ -127,66 +127,106 @@ def main():
     if abs(lo2) > 1e-4:
         raise SystemExit("base is not on z=0 after the move: %.5f" % lo2)
 
-    # --- the signwritten panel -------------------------------------------
-    # The one surface decimation ruins is the box side: it is the only broad
-    # flat area on the model, so it is the only place where collapsing across
-    # the atlas's island seams has room to smear. Everything else -- cab,
-    # mudguards, running board, spoked wheels -- survives intact.
+    # --- project the body, keep the sign as a plate -----------------------
+    # Two findings forced this shape, and both were settled by rendering
+    # rather than reasoning:
     #
-    # It cannot be repaired in the atlas because there is no contiguous region
-    # there that is "the side of the truck". So those faces are lifted onto
-    # their own material with a plain planar projection, and given the approved
-    # sign plate on painted coachwork (art/tools/build_piano_truck_panel.py).
-    panel_img = bpy.data.images.load(
-        os.path.join(TEX_DIR, "T_piano_truck_panel.png"), check_existing=True)
-    panel_mat = bpy.data.materials.new("piano_truck_panel")
-    panel_mat.use_nodes = True
-    pnt = panel_mat.node_tree
-    pbsdf = pnt.nodes["Principled BSDF"]
-    ptex = pnt.nodes.new("ShaderNodeTexImage")
-    ptex.image = panel_img
-    # EXTEND, not REPEAT. Faces are chosen by their centre lying inside the
-    # panel but their VERTICES can sit outside it, so a few loops land at
-    # v > 1 -- and with repeat wrapping that draws a second, sliced sign along
-    # the bottom edge of the box. Clamping the UVs below handles it too; this
-    # is the belt to that pair of braces.
-    ptex.extension = 'EXTEND'
-    pnt.links.new(ptex.outputs["Color"], pbsdf.inputs["Base Color"])
-    pbsdf.inputs["Roughness"].default_value = 0.38
-    pbsdf.inputs["Metallic"].default_value = 0.0
-    me.materials.append(panel_mat)
-    panel_index = len(me.materials) - 1
+    # 1. The Meshy atlas cannot be used. Its lettering is gibberish at EVERY
+    #    triangle budget -- tested at 12 k, 120 k and 400 k, reading "...UN A O"
+    #    in all three. So the body is projected from the drawn elevation
+    #    instead, which lands every painted detail the art has: bonnet louvres,
+    #    cab roundel, mudguards, the lot.
+    #
+    # 2. The elevation cannot supply the sign on BOTH flanks. Mirroring the
+    #    plate to face the other way mirrors its lettering with it -- they are
+    #    the same operation, which is why four combinations of plate and UV
+    #    collapsed into two states, aligned-and-mirrored or readable-and-
+    #    misaligned. A real signwritten truck reads forward on both sides
+    #    because it is PAINTED, not reflected, and no flip of one image can
+    #    imitate that.
+    #
+    # So: projection carries the body, and the box side keeps the composed
+    # plate, which is already correct on both flanks because it is drawn per
+    # side rather than mirrored. The plate is assigned last and wins.
+    def _plate(name, filename, rough):
+        img = bpy.data.images.load(os.path.join(TEX_DIR, filename),
+                                   check_existing=True)
+        mat = bpy.data.materials.new(name)
+        mat.use_nodes = True
+        nt = mat.node_tree
+        bsdf = nt.nodes["Principled BSDF"]
+        tex = nt.nodes.new("ShaderNodeTexImage")
+        tex.image = img
+        tex.extension = 'EXTEND'
+        nt.links.new(tex.outputs["Color"], bsdf.inputs["Base Color"])
+        bsdf.inputs["Roughness"].default_value = rough
+        bsdf.inputs["Metallic"].default_value = 0.0
+        return mat
+
+    me.materials.clear()
+    me.materials.append(_plate("piano_truck_side", "T_piano_truck_side.png", 0.44))
+    me.materials.append(_plate("piano_truck_rear", "T_piano_truck_rear.png", 0.44))
+    me.materials.append(_plate("piano_truck_paint", "T_piano_truck_paint.png", 0.52))
+    me.materials.append(_plate("piano_truck_panel", "T_piano_truck_panel.png", 0.38))
+    MAT_SIDE, MAT_REAR, MAT_PAINT, MAT_PANEL = 0, 1, 2, 3
 
     import bmesh
     bm = bmesh.new()
     bm.from_mesh(me)
     uv = bm.loops.layers.uv.active
-    x0, x1 = -0.90, 2.70
-    z0, z1 = 1.00, 2.05
-    painted = 0
+    lo = [min(v.co[i] for v in bm.verts) for i in range(3)]
+    hi = [max(v.co[i] for v in bm.verts) for i in range(3)]
+    span = [max(1e-6, hi[i] - lo[i]) for i in range(3)]
+    # The box side, measured off the mesh: this is the plate's territory.
+    px0, px1 = -0.90, 2.70
+    pz0, pz1 = 0.80, 2.05
+    counts = {MAT_SIDE: 0, MAT_REAR: 0, MAT_PAINT: 0, MAT_PANEL: 0}
     for f in bm.faces:
-        if abs(f.normal.y) <= 0.9:
-            continue
+        n = f.normal
+        ax, ay, az = abs(n.x), abs(n.y), abs(n.z)
         c = f.calc_center_median()
-        if not (x0 <= c.x <= x1 and z0 <= c.z <= z1):
-            continue
-        f.material_index = panel_index
-        for loop in f.loops:
-            co = loop.vert.co
-            u = (co.x - x0) / (x1 - x0)
-            v = (co.z - z0) / (z1 - z0)
-            # Mirror on the far side, or the lettering reads backwards from
-            # the opposite pavement -- which is exactly the sort of thing that
-            # ships because nobody walks round the far side of a moving truck.
-            if f.normal.y > 0.0:
-                u = 1.0 - u
-            loop[uv].uv = (min(1.0, max(0.0, u)), min(1.0, max(0.0, v)))
-        painted += 1
+        sideways = ay >= ax and ay >= az
+        if sideways and px0 <= c.x <= px1 and pz0 <= c.z <= pz1:
+            f.material_index = MAT_PANEL
+            for loop in f.loops:
+                co = loop.vert.co
+                u = (co.x - px0) / (px1 - px0)
+                v = (co.z - pz0) / (pz1 - pz0)
+                if n.y > 0.0:
+                    u = 1.0 - u
+                loop[uv].uv = (min(1.0, max(0.0, u)), min(1.0, max(0.0, v)))
+        elif sideways:
+            f.material_index = MAT_SIDE
+            for loop in f.loops:
+                co = loop.vert.co
+                # build_piano_truck_projection.py mirrors the plate at source,
+                # so its nose is at u=0 and the mesh's nose is at -X: the two
+                # run the same way and u = t aligns them. Whichever flank ends
+                # up with mirrored body detail no longer matters much, because
+                # the one thing that must read -- the sign -- is the plate
+                # above, drawn per side rather than reflected.
+                u = (co.x - lo[0]) / span[0]
+                if n.y > 0.0:
+                    u = 1.0 - u
+                v = (co.z - lo[2]) / span[2]
+                loop[uv].uv = (min(1.0, max(0.0, u)), min(1.0, max(0.0, v)))
+        elif ax >= az and n.x > 0.0:
+            f.material_index = MAT_REAR
+            for loop in f.loops:
+                co = loop.vert.co
+                u = (co.y - lo[1]) / span[1]
+                v = (co.z - lo[2]) / span[2]
+                loop[uv].uv = (min(1.0, max(0.0, u)), min(1.0, max(0.0, v)))
+        else:
+            f.material_index = MAT_PAINT
+        counts[f.material_index] += 1
     bm.to_mesh(me)
     bm.free()
     me.update()
     me.validate(verbose=False)
-    log("panel: %d faces lifted onto their own material and projected" % painted)
+    log("projected: %d side, %d rear, %d paint, %d sign plate"
+        % (counts[MAT_SIDE], counts[MAT_REAR], counts[MAT_PAINT],
+           counts[MAT_PANEL]))
 
     # --- textures ---------------------------------------------------------
     os.makedirs(TEX_DIR, exist_ok=True)
@@ -198,7 +238,7 @@ def main():
         # already on disk. This pass resizes everything it finds to a SQUARE,
         # which silently crushed the plate and re-exported it under a
         # generated name.
-        if img.name.startswith("T_piano_truck_panel"):
+        if img.name.startswith("T_piano_truck_"):
             continue
         target = ALBEDO_PX if max(img.size) >= 8192 else COMPANION_PX
         if max(img.size) > target:
