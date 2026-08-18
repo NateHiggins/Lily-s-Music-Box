@@ -215,6 +215,31 @@ func _block_d_spawn() -> void:
 			a.room_id(a.spawn_path(0)) != other.room_id(other.spawn_path(0)))
 	_check("and never at the same root, because there is no entrance",
 			a.spawn_path(1).size() >= 3)
+	# OWNER RULING 2026-08-18: the maze's structure follows the case. A new
+	# case is a different building, not the same one redressed -- and the same
+	# case must rebuild identically or a reload would land the player in a
+	# world that no longer exists.
+	var mina := DreamAtlas.new()
+	mina.setup(SEED_HEX, 5, "mina_caption_crisis")
+	var other_case := DreamAtlas.new()
+	other_case.setup(SEED_HEX, 5, "noel_projection_crisis")
+	var walk := PackedInt32Array([1, 0, 2, 2, 1])
+	_check("a different case is a different building on the same seed",
+			mina.room_id(walk) != other_case.room_id(walk))
+	_check("and it wakes the player somewhere else entirely",
+			mina.room_id(mina.spawn_path(1))
+			!= other_case.room_id(other_case.spawn_path(1)))
+	var mina_again := DreamAtlas.new()
+	mina_again.setup(SEED_HEX, 5, "mina_caption_crisis")
+	_check("the same case rebuilds the same building, exactly",
+			str(mina.room(walk)) == str(mina_again.room(walk))
+			and str(mina.spawn_path(1)) == str(mina_again.spawn_path(1)))
+	# Block E's golden vectors pin the building the SEED ALONE names, and they
+	# are taken from an atlas set up with no case. Naming a case must therefore
+	# be a real departure from that building rather than a no-op, or the case
+	# is not informing anything.
+	_check("naming a case actually departs from the unnamed building",
+			a.room_id(walk) != mina.room_id(walk))
 
 
 # --- E: the golden vectors --------------------------------------------

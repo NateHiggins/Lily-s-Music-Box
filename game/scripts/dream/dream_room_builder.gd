@@ -961,24 +961,53 @@ func _door_between(a: String, b: String) -> Dictionary:
 ## comes from where you have already been, not from where you are going.
 ## Spawning it ahead would be _cap_fold's endgame applied at t=0, which
 ## collapses the run ceiling and destroys the lamp decision.
+## AND IT MUST BE FAR. The chain put the Tenant five modules away, at the far
+## end of the terminal room. The first version of this put it at the CENTRE of
+## the nearest room behind, which on the opening frame of a passage is a single
+## doorway from a player who has not moved yet -- and it caught them before the
+## lamp decision could express itself at all. Two of Gate-adjacent pursuit's
+## measurements (light-on shortening capture by a third, extinguishing buying
+## audible time) simply cannot be measured if the passage is over first.
+##
+## The pocket cannot offer five rooms, but it does not have to: rooms here run
+## up to 19.3 m, so the FAR CORNER of the furthest live room is a comparable
+## distance to what the chain gave. So candidates are ranked by how far their
+## furthest standable point is from the player, and the trail is preferred
+## only among equals -- being behind matters, but not more than being far
+## enough away that the passage is decided by the chase.
 func pursuer_spawn(player_key: String) -> Array:
-	var pick := ""
-	for k in _trail:
-		if str(k) != player_key and _live.has(k):
-			pick = str(k)
-			break
-	if pick.is_empty():
-		# First room of the passage: nothing is behind yet. Take a branch the
-		# player has not walked instead, preferring the last door -- the one
-		# they are least likely to have been looking through.
-		var here: Dictionary = _live.get(player_key, {})
-		for door in passable_doors(here):
-			if int(door.index) != 0 and _live.has(str(door.leads_to)):
-				pick = str(door.leads_to)
-	if pick.is_empty() or not _live.has(pick):
+	var here: Dictionary = _live.get(player_key, {})
+	if here.is_empty():
 		return []
-	var r: Array = _live[pick].rect
-	return [(r[0] + r[2]) * 0.5, (r[1] + r[3]) * 0.5]
+	var hr: Array = here.rect
+	var from := Vector2((hr[0] + hr[2]) * 0.5, (hr[1] + hr[3]) * 0.5)
+	var best: Array = []
+	var best_score := -1.0
+	for k in _live:
+		if str(k) == player_key:
+			continue
+		var r: Array = _live[k].rect
+		# The corner of this room furthest from the player, pulled inside by
+		# more than the body radius so the spawn is standable rather than in
+		# a wall.
+		var inset := 0.6
+		var x0: float = float(r[0]) + inset
+		var x1: float = float(r[2]) - inset
+		var z0: float = float(r[1]) + inset
+		var z1: float = float(r[3]) - inset
+		if x1 <= x0 or z1 <= z0:
+			continue
+		var px: float = x0 if absf(x0 - from.x) > absf(x1 - from.x) else x1
+		var pz: float = z0 if absf(z0 - from.y) > absf(z1 - from.y) else z1
+		var score := Vector2(px, pz).distance_to(from)
+		# Behind beats ahead at equal distance: the thing that follows you
+		# comes from where you have already been.
+		if _trail.has(str(k)):
+			score += 0.5
+		if score > best_score:
+			best_score = score
+			best = [px, pz]
+	return best
 
 
 # ── THE POCKET AS A PLAN ──────────────────────────────────────────────────

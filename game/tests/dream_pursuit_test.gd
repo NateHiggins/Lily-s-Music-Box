@@ -105,24 +105,47 @@ func _block_b_world() -> void:
 	root = await _spawn_root(FIXED_SEED_HEX)
 	var first_stringify := JSON.stringify(root.plan)
 	var first_parameters := JSON.stringify(root.pursuer.run_parameters())
-	_check("the production scene assembles the maze at D00",
-			root.maze_built and root.start_module_id() == CHAIN[0]
+	# The literal D00 is retired (owner ruling 2026-08-18): the passage begins
+	# wherever the case's seed put it. What this always meant is that the
+	# marker and the plan agree about where the body starts -- disagreement
+	# there puts the player somewhere the world was not built for.
+	_check("the production scene assembles the maze at its own waking room",
+			root.maze_built and not root.start_module_id().is_empty()
 			and root.start_marker.position.distance_to(Vector3(
 					root.plan.spawn_player[0], 0.0,
 					root.plan.spawn_player[1])) < 0.001)
 	_check("the dream body is the real controller with the lamp lit",
 			root.player is PlayerController and root.player.lamp_is_enabled()
-			and _inside_module(root.plan, CHAIN[0], root.player.position))
+			and _inside_module(root.plan, root.start_module_id(),
+					root.player.position))
 	var parameters: Dictionary = root.pursuer.run_parameters()
-	_check("the pursuer spawns deep in the terminal module with N3's numbers",
-			_inside_module(root.plan, CHAIN[4], root.pursuer.position)
+	# "DEEP IN THE TERMINAL MODULE" IS RETIRED, and by construction rather than
+	# by concession. Owner ruling 2026-08-18: "the building is a fractal so
+	# they are always deep in it." There is no terminal room to be deep in and
+	# no shallow end to be at -- every room is arbitrarily far inside an
+	# infinite building, so naming a module was only ever a proxy for the two
+	# things that actually matter, and both are asserted directly here: the
+	# Tenant starts inside real architecture rather than nowhere, and it starts
+	# far enough away that the lit/dark speed difference still decides the
+	# passage rather than the spawn doing it.
+	_check("the pursuer spawns inside the building, far off, with N3's numbers",
+			_pursuer_start_is_sound()
 			and absf(float(parameters.lit_speed_mps) - 6.35) <= 0.12001
 			and absf(float(parameters.dark_speed_mps) - 3.35) <= 0.08001
 			and absf(float(parameters.hearing_period_s) - 0.72) <= 0.08001
 			and absf(float(parameters.capture_radius_m) - 0.75) < 0.0001)
 	var architecture := root.get_node_or_null("ModuleArchitecture")
-	_check("real opaque architecture exists, floor to lintel",
-			architecture != null and architecture.get_child_count() > 20)
+	# Counted by DESCENDANT, not by immediate child. The chain hung every wall,
+	# floor and lintel directly off this node; the pocket hangs a node per room
+	# and the bodies inside those. Immediate children therefore counted the
+	# building on one path and counted the ROOMS on the other, which is five --
+	# and the check reported that no architecture existed. It was always asking
+	# how much opaque collision there is, so it now counts that.
+	var solids := 0
+	if architecture != null:
+		solids = _count_bodies(architecture)
+	_check("real opaque architecture exists, floor to lintel (%d bodies)"
+			% solids, architecture != null and solids > 20)
 	for i in range(30):
 		await get_tree().physics_frame
 	_check("the dream body stands on the module floor",
@@ -186,9 +209,26 @@ func _block_d_occlusion() -> void:
 	root.autonomous = false
 	# From here the body is scripted: measurement owns every transform.
 	root.player.set_physics_process(false)
-	var door := _door_between(root.plan, CHAIN[1], CHAIN[2])
-	var d01 := _rect(root.plan, CHAIN[1])
-	var d03 := _rect(root.plan, CHAIN[2])
+	# ANY SHARED WALL WILL DO. This used to name D01 and D03 and take the door
+	# between them, which does not exist in a building whose rooms are named by
+	# path -- _door_between returned an empty dictionary and the block ERRORED
+	# on the next line rather than failing, taking its remaining checks with it
+	# and tripping the block sentinel. What is under test is that opaque
+	# collision blocks acquisition, and one real wall proves that as well as a
+	# named one. The axis matters and is asserted rather than assumed: the
+	# geometry below offsets both bodies along x and separates them along z, so
+	# it needs a join cut along x.
+	var door := _joined_pair(root.plan)
+	if door.is_empty():
+		# Not a _check: block D pins its own count at 23 and an extra
+		# assertion here would trip the sentinel on every healthy run. Both
+		# builders always produce an x-cut join, so this is a shout, not a
+		# branch the suite is expected to take.
+		printerr("  [N6] no x-cut join in the plan; block D cannot run")
+		failures += 1
+		return
+	var d01 := _rect(root.plan, str(door.from))
+	var d03 := _rect(root.plan, str(door.to))
 	var aperture: Array = door.aperture
 	var door_x: float = (aperture[0] + aperture[2]) * 0.5
 	var toward_d03: float = signf((d03[1] + d03[3]) * 0.5
@@ -622,6 +662,52 @@ func _door_between(plan: Dictionary, a: String, b: String) -> Dictionary:
 
 func _inside_module(plan: Dictionary, id: String, at: Vector3) -> bool:
 	return DreamMazeBuilder.module_at(plan, at.x, at.z) == id
+
+
+## What "spawns deep" was ever really guaranteeing, now that there is no
+## terminal room to name. Two things, and neither mentions a module id:
+##
+##   1. The Tenant starts INSIDE real architecture. A body outside every room
+##      resolves to no room, and DreamPursuer treats an empty route as licence
+##      to walk a straight line to the player, through whatever is in the way.
+##   2. It starts far enough off that the passage is decided by the lamp and
+##      the chase, not by the spawn. Well outside the 0.75 m capture radius,
+##      and not in the player's own room.
+func _pursuer_start_is_sound() -> bool:
+	var at := root.pursuer.position
+	var mine := DreamMazeBuilder.nav_module_at(root.plan,
+			root.player.position.x, root.player.position.z)
+	var theirs := DreamMazeBuilder.nav_module_at(root.plan, at.x, at.z)
+	if theirs.is_empty():
+		return false
+	return theirs != mine \
+			and at.distance_to(root.player.position) > 0.75 * 4.0
+
+
+## The first door in the plan cut along x -- a join between two rooms stacked
+## along z -- with both of its rooms present. Path-agnostic: on the chain it
+## finds the same kind of joint the old CHAIN[1]/CHAIN[2] pair named.
+func _joined_pair(plan: Dictionary) -> Dictionary:
+	for door in plan.get("doors", []):
+		if str(door.get("axis", "")) != "x":
+			continue
+		# _rect answers a miss with a zero rect rather than an empty array,
+		# so presence is measured by area.
+		var a := _rect(plan, str(door.from))
+		var b := _rect(plan, str(door.to))
+		if float(a[2]) - float(a[0]) <= 0.0 or float(b[2]) - float(b[0]) <= 0.0:
+			continue
+		return door
+	return {}
+
+
+## Every opaque body under a node, however deep. The two builders nest
+## differently and neither nesting is wrong.
+func _count_bodies(node: Node) -> int:
+	var n := 1 if node is StaticBody3D else 0
+	for child in node.get_children():
+		n += _count_bodies(child)
+	return n
 
 
 func _collect(node: Node, into: Array[GeometryInstance3D]) -> void:

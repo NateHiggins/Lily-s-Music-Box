@@ -104,10 +104,29 @@ var _catalog: Dictionary = {}
 var _rooms: Array = []
 
 
-func setup(seed_hex: String, nights: int) -> void:
+## `case_key` is the case (or the poltergeist attachment) this dream belongs
+## to. Owner ruling 2026-08-18: "the structure and character of the maze and
+## the poltergeist is informed by the current case/poltergeist npc attachment.
+## when that changes a new start is chosen."
+##
+## So the case is folded into the campaign seed and the BUILDING ITSELF
+## changes with it. Not a re-dressing of one maze -- a different maze, with
+## different rooms in different places, because it is a different mind
+## misremembering the same Orison. The campaign seed still separates one
+## playthrough from another; the case separates one haunting from the next
+## within it.
+##
+## An empty case_key leaves the seed exactly as it was, which is what keeps the
+## golden vectors in DreamAtlasTest block E meaningful: they pin the building
+## the seed alone names, and every case is a deterministic departure from it.
+func setup(seed_hex: String, nights: int, case_key: String = "") -> void:
 	var halves := DreamMazeBuilder.seed_halves(seed_hex)
 	seed_hi = halves[0]
 	seed_lo = halves[1]
+	if not case_key.is_empty():
+		var folded := fold_key(case_key)
+		seed_hi = mix64(seed_hi, folded)
+		seed_lo = mix64(seed_lo, folded ^ 0x5BF03635)
 	dreams_had = maxi(0, nights)
 	_catalog = DreamMazeBuilder.load_catalog()
 	_rooms = []
@@ -127,6 +146,18 @@ static func mix64(a: int, b: int) -> int:
 	h ^= h >> 29
 	h *= 0xC4CEB9FE
 	h ^= h >> 32
+	return h
+
+
+## A string folded to 64 bits, written out here for the same reason mix64 is:
+## String.hash() was re-implemented from memory once in this project and
+## produced confident wrong numbers for a day. A case id that hashed
+## differently on two machines would build two different buildings from one
+## save, and nothing would report it.
+static func fold_key(text: String) -> int:
+	var h := 0x9E3779B97F4A7C15
+	for i in text.length():
+		h = mix64(h, text.unicode_at(i) + 0x165667B1)
 	return h
 
 

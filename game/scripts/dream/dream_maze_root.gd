@@ -37,6 +37,9 @@ var rooms: DreamRoomBuilder
 ## present.
 var _here_path := PackedInt32Array()
 var _here_key := ""
+## Where the pocket's rooms hang. Named to match the chain builder's own
+## container so anything looking for the building finds it on either path.
+var _architecture: Node3D
 var player: PlayerController
 var pursuer: DreamPursuer
 var hazards: DreamHazardField
@@ -161,7 +164,15 @@ func _build_fractal(seed_hex: String) -> bool:
 	# The two clocks the director stamped onto this passage. `night_index` is
 	# how forgotten the building is; `spawn_anchor` is where the campaign
 	# wakes, and it holds until a case is solved (owner ruling 2026-08-18).
-	atlas.setup(seed_hex, int(dream_context.get("night_index", 0)))
+	# WHICH HAUNTING THIS IS. Owner ruling 2026-08-18: the maze's structure and
+	# character follow the case and its poltergeist attachment, and a new case
+	# is a new building rather than the same one redressed. The case id is the
+	# stable identity of that attachment; the profile carries its CHARACTER
+	# already (the borrowed silhouette, the lit and dark speeds, the hearing
+	# period, and which hazards arm with what tuning), so structure is the half
+	# that was missing.
+	atlas.setup(seed_hex, int(dream_context.get("night_index", 0)),
+			str(dream_context.get("case_id", "")))
 	rooms = DreamRoomBuilder.new()
 	rooms.setup(atlas, profile_hazards.get("allow", []))
 	_here_path = atlas.spawn_path(int(dream_context.get("spawn_anchor", 0)))
@@ -169,7 +180,17 @@ func _build_fractal(seed_hex: String) -> bool:
 	# Before the first advance, so the geometry is cut knowing this room will
 	# never arm. See DreamRoomBuilder.waking_key.
 	rooms.waking_key = _here_key
-	rooms.advance(self, _here_path)
+	# SAME CONTAINER NAME THE CHAIN USES. DreamMazeBuilder.build_geometry puts
+	# every wall, floor and lintel under a node called ModuleArchitecture, and
+	# harnesses, tests and the walk tool all reach for it by that name to
+	# separate the building from the props. Parenting the pocket's rooms
+	# straight onto the root would have hidden the architecture from every one
+	# of them -- a difference with no upside, found by a check that asked
+	# whether opaque architecture existed at all and was told no.
+	_architecture = Node3D.new()
+	_architecture.name = "ModuleArchitecture"
+	add_child(_architecture)
+	rooms.advance(_architecture, _here_path)
 	if rooms.room_at_key(_here_key).is_empty():
 		push_error("dream fractal could not place the waking room")
 		plan = {"defects": ["fractal spawn unplaceable"]}
@@ -195,7 +216,7 @@ func _follow_player() -> void:
 		return
 	_here_key = at
 	_here_path = moved
-	rooms.advance(self, _here_path)
+	rooms.advance(_architecture, _here_path)
 	rooms.write_plan(plan, _here_key)
 	# Re-arm rather than re-setup: setup() would zero the run clock every
 	# fairness number is measured against. See DreamHazardField.rearm.
