@@ -627,6 +627,45 @@ def get_material(key):
         if "Transmission Weight" in bsdf.inputs:
             bsdf.inputs["Transmission Weight"].default_value = 0.0
         bsdf.inputs["Alpha"].default_value = 0.16
+
+        # THE TWO MAPS THAT MAKE OLD GLASS LOOK OLD.
+        #
+        # Colour and alpha above stay exactly as tuned -- that is the part
+        # that survives gl_compatibility and it is not to be relitigated here.
+        # What is added is the surface itself.
+        #
+        # Float glass did not exist until 1959, so every pane in this building
+        # is drawn or cylinder glass: faint vertical draw lines from the ribbon
+        # being pulled, and a slow waviness from uneven cooling. You never see
+        # the ripple, you see what it does to the REFLECTION as you walk past,
+        # and that motion is most of what reads as a period window. A roughness
+        # value cannot do it; only a normal can.
+        #
+        # The roughness map then puts the dirt where dirt actually goes -- the
+        # perimeter and the corners, against the putty line, where nobody
+        # wipes. A single 0.06 across the sheet says "cleaned this morning,
+        # edge to edge", which no window in the Orison has been.
+        g_base = os.path.join(TEX_ROOT, "generated", "glass")
+        g_rough = os.path.join(g_base, "roughness.png")
+        g_normal = os.path.join(g_base, "normal.png")
+        if os.path.exists(g_rough) and os.path.exists(g_normal):
+            gr = nt.nodes.new("ShaderNodeTexImage")
+            gr.name = gr.label = "roughness"
+            gr.image = _image(g_rough, "glass", "rough", False)
+            gr.location = (-420, 20)
+            nt.links.new(gr.outputs["Color"], bsdf.inputs["Roughness"])
+            gn_tex = nt.nodes.new("ShaderNodeTexImage")
+            gn_tex.name = gn_tex.label = "normal"
+            gn_tex.image = _image(g_normal, "glass", "normal", False)
+            gn_tex.location = (-420, -260)
+            gn = nt.nodes.new("ShaderNodeNormalMap")
+            # Stronger than the decals' 0.28 and weaker than a wall's 0.42.
+            # Glass has no texture to speak of, but the deviation it does have
+            # is the whole point, and reflections amplify it.
+            gn.inputs["Strength"].default_value = 0.55
+            gn.location = (-160, -260)
+            nt.links.new(gn_tex.outputs["Color"], gn.inputs["Color"])
+            nt.links.new(gn.outputs["Normal"], bsdf.inputs["Normal"])
         if hasattr(mat, "surface_render_method"):
             mat.surface_render_method = "BLENDED"
         elif hasattr(mat, "blend_method"):
