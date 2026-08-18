@@ -1191,9 +1191,26 @@ succeed and silently leave them uncompressed. If a desktop ever does struggle,
 that file is where to reverse this, and it is the single largest lever
 available.
 
-**Not yet verified: whether the shimmer is visibly gone.** The settings are
-right and the re-import ran; nobody has looked at a frame. Take a before/after
-at a grazing-angle corridor stand from `art/renders/insitu/shots.md`.
+**VERIFIED 2026-08-18, with a control.** Evidence and method in
+`art/renders/mipmap_verify/`. Flipping `mipmaps/generate=false` back on all 119
+sidecars and re-importing moves **2.0–13.5% of pixels, max delta 62** against a
+measured noise floor of **0.08–0.40%, max delta 15** — two runs of an identical
+build. Thirty to a hundred and seventy times the floor.
+
+Measuring the floor was not ceremony. The first pass showed ~13.5% for both this
+and the glass A/B, which is exactly what a nondeterministic scene looks like —
+traffic moving, weather drifting — and would have made both results worthless.
+The scene turned out to be essentially deterministic. **Never report an A/B in
+this project without shooting the same build twice first**; §P has already been
+burned once by a perf "regression" that replication showed was noise.
+
+The symptom is not staircase aliasing, it is speckle and a warm colour bias:
+without a mip chain a minified texture never averages its texels, so it sparkles
+and drifts off its true mean because the dark joints are missed by the sample
+points. What is NOT established is which surface improved — the difference
+window is street pavement, whose own materials come through the glTF and were
+always mipped, so the change must arrive via MatLib-textured props in the same
+pixels. That attribution was not traced.
 
 ### DP — the detail pass: making every object match its target
 
@@ -1332,14 +1349,16 @@ Shots taken at the street and the atrium, `SHOT_DIR` and `DAYNIGHT_FORCE`
 being the two environment variables the harnesses read (`street_shot.gd:66`,
 `day_night_director.gd:177`, which accepts `HH:MM`).
 
-- **The glass maps are bound and imported, and this scene cannot prove them.**
-  `M_glassish` carries `metallicRoughnessTexture` and `normalTexture` in
-  floor_01's glTF and Godot imports clean. But the street renders under a
-  uniform overcast sky, and a uniform sky reflected off a slightly bent surface
-  is still uniform — the drawn-glass waviness has nothing to bend. It needs a
-  shot where glass reflects something *structured*: a lit interior seen from
-  the street after dark, or a shopfront facing the building opposite. Until
-  such a frame exists the glass work is unproven, not proven.
+- **The glass maps ARE doing work — measured 2026-08-18, previously recorded
+  here as unproven.** Flattening `generated/glass/normal.png` to a neutral
+  (128,128,255), re-importing and re-shooting the same dusk stand moves
+  **7.0–14.0% of pixels, max delta 62** against a 0.08–0.40% noise floor. So the
+  drawn-glass waviness is not decorative-but-inert; it changes the frame.
+  What was true and stays true is that it is SUBTLE BY EYE at night, and the
+  earlier reasoning for why is still right — a uniform overcast sky reflected
+  off a slightly bent surface is still uniform. It has most to give in a frame
+  where glass reflects something structured. The A/B is how to check it without
+  waiting for that frame: swap the map for a flat one, re-import, difference.
 - **The atrium's "translucent hanging planes" ARE NOT TRANSPARENT AND ARE NOT A
   BUG. Recorded because I was wrong about it and the next person will be too.**
   Looking up the light court, large terrazzo and marble wedges appear to have
