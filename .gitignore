@@ -8,6 +8,12 @@
 # setting has to travel with the repo or the zenith fix half-reverts on any
 # fresh checkout. Committing .import is standard Godot practice anyway.
 !game/assets/building/textures/sky/orison_queens_*_half_dome_4k.png.import
+# ...and the 101 textures MatLib loads at runtime, force-tracked for the same
+# reason. Godot only re-imports a texture with mipmaps once the EDITOR sees it
+# on a 3D material, and MatLib binds these by load() at runtime, so the editor
+# never sees them: on a fresh checkout Godot regenerates their .import with
+# mipmaps off and the grazing-angle shimmer comes straight back. Kept by
+# `git add -f`; see TASKS.md MP and art/tools/fix_runtime_texture_imports.py.
 *.blend1
 __pycache__/
 *.pyc

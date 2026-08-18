@@ -1083,35 +1083,48 @@ unresolved. K7's source-backed loop contract is closed in
 - **M3** Compiler textures are 128² at roughly 64 px/m, which is the deeper
   reason features come out large relative to the tile.
 
-### M-AUDIT — material use audit (owner request 2026-08-17, not started)
+### M-AUDIT — material use audit (2026-08-17) — RAN, AND OVERTURNED ITS OWN PREMISE
 
-**Counted before writing this, because the obvious claim was wrong.** The PBR
-library IS shipped: `art/textures/ai_materials` holds 227 material directories
-(albedo / normal / roughness / height at 1024², plus `material.json`), and
-`game/assets/building/textures` carries 327 `*_albedo.png` of which 195 are
-`T_ai_materials_*`. The gap is not delivery, it is *binding and exploitation*.
+**This entry previously claimed the pipeline had a hole. It does not, and the
+claim was mine.** It was written from counts taken over the wrong sets, and a
+six-lens audit plus direct measurement killed it. Recorded here in full rather
+than quietly deleted, because the shape of the mistake is worth keeping.
 
-Four concrete holes, each already measured:
+What is actually true, each number computed:
 
-- **105 catalog entries, zero textures.** Every entry in
-  `game/data/material_catalog.json` is flat `base_color` + `roughness` — not
-  one references a map. The catalog is read only by the build side
-  (`gen_layout.py`, `build_orison.py`, `generate_runtime_materials.py`) and by
-  **no runtime `.gd` at all**. So the question is which of the 105 have a full
-  PBR set sitting in `ai_materials` under a matching name, unused.
-- **41 source directories ship no albedo under their own name.** Authored,
-  converted, and then dropped somewhere in the promotion path.
-- **15 shipped albedos have no matching normal.** Those surfaces are lit as if
-  flat regardless of what the material claims.
-- **Height maps are authored for all 227 and sampled by almost nothing.**
-  `heightmap_pass.gd` is the only consumer. Parallax or even a displacement
-  hint on the hero surfaces is free detail already paid for.
+- **The building is fully textured.** `build_orison.py:555` wires albedo (sRGB),
+  roughness (non-colour) and a tangent normal map into every material before
+  export. Of 249 catalog materials — 105 authored plus 144 `_b`/`_c`/`_d`
+  variants auto-expanded at `build_orison.py:61` — **237 map to a real texture
+  set and 12 are deliberately shader-only** (`glassish`, `screen`, the `fx_*`
+  family). Zero missing maps, zero unmapped, zero orphans. It cannot silently
+  degrade: `_validate_texture_catalog()` at `build_orison.py:117` checks
+  coverage in both directions and `SystemExit`s the build.
+- **There are two texture routes, not one.** Blender-built architecture is
+  textured through the glTF. GDScript-built props go
+  `GODOT_STAGE` (24 keys) → `T_ai_materials_*` → `RUNTIME_POLICY` (35) →
+  `MatLib`. `GODOT_STAGE`'s own comment says why it is small — it lists
+  surfaces that live *only* on GDScript props, which the Blender build never
+  sees. It was never meant to carry the building.
+- **No prop falls back to flat colour.** All 27 distinct material names
+  requested across 178 request sites resolve to a textured set. The one dynamic
+  site that could miss handles it deliberately: `elevator.gd:257` checks
+  `albedo_texture != null` and builds its own rather than mutating the shared
+  cached instance.
+- The library is **not** uniformly 1024². `SHIP_PX` is albedo/normal 1024,
+  roughness/height 512; 27 directories ship odd sizes (317², 322², 350², 690²,
+  902², 972²).
+- Normal maps are correctly OpenGL +Y across all 988 importers. That fear was
+  unfounded; do not re-raise it.
 
-Deliver a **table and a promotion order**, not a survey: material, does a PBR
-set exist, is it shipped, is it bound, what is missing, and the draw/VRAM cost
-of promoting it. The waking Orison probably wants this more than the dream
-does — `game/assets/dream/surfaces/` already promoted five (plaster,
-plaster_stained, terrazzo, timber, tin_ceiling) and the difference is visible.
+**The lesson, which is the fifth time this project has learned it: the
+instrument was broken, not the subject.** "105 catalog entries carry no texture
+reference" is true and means nothing — the build side is exactly where that
+catalog should be read, and it wires real textures from it. Before reporting a
+pipeline as broken, find the path that *does* work and prove the surface is
+flat on screen.
+
+The audit did find one real defect, and it is a picture defect. See MP below.
 
 ### M-COVER — rethink coverage (owner request 2026-08-17, not started)
 
@@ -1138,6 +1151,153 @@ inherited. Consider and *cost* each:
 
 Bring frames, not adjectives. Two shots of the same corridor under each option
 beats any amount of argument about which sounds better.
+
+### MP — the unmipped runtime textures (FIXED 2026-08-17, verify before trusting)
+
+**The one real defect the audit found, and it was making the game look worse,
+not slower.**
+
+Godot decides a texture's import settings when it first sees the file, and
+ships `detect_3d/compress_to=1` — "the first time you notice this on a 3D
+material, re-import it properly". That detection runs **in the editor**.
+`MatLib` never puts a texture on a material in the editor; it calls `load()` at
+runtime from a generated table. So the editor never noticed, `detect_3d` never
+fired, and **90 of the 101 textures every runtime prop material uses kept their
+2D defaults: `mipmaps/generate=false`.**
+
+No mip chain is a picture problem before it is a memory one. A 1024² albedo
+sampled at distance with no mips aliases, and on the triplanar surfaces MatLib
+builds — corridor floors, the street — that reads as crawling shimmer whenever
+the camera moves. It also silently voided
+`textures/default_filters/anisotropic_filtering_level=4`: anisotropic filtering
+selects *between mip levels*, so with no mips the 16× this project believes it
+is spending, and which `project.godot:85` argues for specifically because
+"corridor floors and the street are read at grazing angles almost exclusively",
+was doing **nothing at all** on those surfaces.
+
+Fixed by `art/tools/fix_runtime_texture_imports.py`, which derives its file list
+from `material_sets.gd` so a material added to `RUNTIME_POLICY` tomorrow is
+covered without anyone remembering this tool exists. 90 sidecars repaired, 90
+re-imported, `--check` now passes 101/101.
+
+**What was deliberately NOT done, and why.** The audit recommended
+`compress/mode=2` to recover ~223 MB of VRAM. That is real and we are not doing
+it, on the owner's ruling of 2026-08-17: *"dont worry about budget until we hit
+performance issues on a desktop."* Block compression is lossy; at zero budget
+pressure lossless is simply the better picture. It also sidesteps the 27
+referenced textures whose dimensions are not multiples of four — block
+compression cannot accept those, so a fix that flipped `mode=2` would appear to
+succeed and silently leave them uncompressed. If a desktop ever does struggle,
+that file is where to reverse this, and it is the single largest lever
+available.
+
+**Not yet verified: whether the shimmer is visibly gone.** The settings are
+right and the re-import ran; nobody has looked at a frame. Take a before/after
+at a grazing-angle corridor stand from `art/renders/insitu/shots.md`.
+
+### DP — the detail pass: making every object match its target
+
+Owner, 2026-08-17: *"add detail to all objects to better match their targets,
+both texture magic and improving the meshes with detail."* Fidelity, not
+levels-of-detail — nothing here is about decimation.
+
+**THE GOVERNING RULE, and do not quietly reintroduce a budget.** Owner ruling,
+same day: *"dont worry about budget until we hit performance issues on a
+desktop."* Detail is chosen by what an object needs to look like the thing it
+is. Costs are recorded so that *if* a desktop ever struggles we know where the
+weight went — they are not a filter. The background fact that makes this
+comfortable is §P: the frame is submission-bound rather than fill-bound, so
+geometry added inside a mesh that already exists and already has a material has
+historically been close to free.
+
+**The trigger condition is unmonitored.** Nobody has measured this build's frame
+on a desktop, so "until we hit performance issues" cannot fire. Before the pass
+goes far, add one standing desktop measurement — a dream station in
+`game/tests/perf_probe.gd` and one lobby station, recorded per session. Without
+it the ruling has no off-switch.
+
+#### The measured geometry, which is lopsided
+
+Parsed from the accessors in `game/assets/building/*.gltf`:
+
+| file | triangles | meshes | materials |
+|---|---|---|---|
+| floor_01 (lobby + retail street) | 175,086 | 529 | 101 |
+| floor_02–06 | ~80,000 each | ~100 | ~70 |
+| floor_b1 | 38,984 | 83 | 65 |
+| roof | 26,364 | 56 | 37 |
+| **whole building** | **642,362** | | |
+
+**`F0x_stairs_bal` is 26,832 triangles on every single floor.** With B1 (17,784)
+and ROOF (7,800) that is ~187,000 triangles — **29% of the entire building's
+geometry is stair balusters.** Meanwhile `F0x_floors_concrete`,
+`F0x_stairs_soffit_failed`, every `F01_retail_shop_*_fx_shadow` and
+`F0x_finish_*_w10` are **two triangles each**.
+
+Under the no-budget ruling the question is *not* whether we can afford the
+balusters. It is whether those triangles are buying a turned baluster the
+player can actually see, or a smooth-shaded cylinder spending them on nothing.
+**Answer that first** — it is one read of the baluster generator in
+`gen_layout.py` — because if it is the latter, the same spend buys a real
+lathe profile and the answer generalises to every other repeated element.
+
+#### The seven families, and their state
+
+The per-family audit **did not complete** — it was killed mid-run by an account
+spend limit, so what follows is the frame and the measurements, not the
+findings. Treat each as an open question with a known starting point.
+
+1. **Stairs and circulation** — the baluster question above; treads, nosings,
+   risers, stringers, newels, and whatever `F0x_stairs_soffit_failed` (2 tris)
+   is meant to be. The banister is a *motif* — there is a track called
+   *Ribbons on the Banister* — so it earns real geometry.
+2. **The architectural shell** — walls, floors, ceilings, openings. Carries the
+   most screen area of anything. Key question: does any edge have a chamfer?
+   Perfectly sharp edges are the loudest "this is untextured CG" signal there
+   is, and a chamfer is nearly free inside a mesh that already exists. Then:
+   door frames, stops, reveals, hardware; window sills, jambs, glazing bars;
+   baseboards and picture rails as geometry rather than a texture stripe.
+3. **GDScript props** (~60 scripts) — built from primitives: 75 `BoxMesh`, 50
+   `CylinderMesh`, 40 `QuadMesh`, 23 `SphereMesh`, 11 `TorusMesh`, against only
+   27 `SurfaceTool` and 5 `ArrayMesh`. What sells a period object is chamfers,
+   panel lines, feet, handles, hinges, fasteners, grilles, a cord and plug, a
+   maker's plate, and slight asymmetry. Almost none of that survives a box.
+4. **The street and shopfronts** — floor_01 is the heaviest floor and holds the
+   retail street, yet every `F01_retail_shop_*_fx_shadow` is 2 triangles. Do
+   the five named trades (laundry, news/cigars, pawnbroker, photo supplies,
+   radio service) read as different trades from outside, or as one box with a
+   different sign? Signage: flat quad or dimensional — raised letters, neon
+   tube, light box?
+5. **Furniture and fittings** — already batched per material
+   (`F01_furnish_metal` 23,996 tris, `F02_furnish_wood_dark` 8,128,
+   `ROOF_furnish_plant` 7,056), which is the one-material-per-buffer constraint
+   at work and means adding detail to an existing piece is close to free. Does
+   the furniture express *whose apartment this is*, or is every flat the same
+   kit?
+6. **Light, service and the building's guts** — fixtures, radiators, pipe runs,
+   registers, switches, the boiler, the elevator. Small, close to the eye, and
+   the things that make a building read as a building rather than a set:
+   escutcheons, pipe hangers, valve bodies, register louvres, switch plates,
+   chain pulls, bulb and filament shape. Silhouette is silhouette — texture
+   cannot fake any of it.
+7. **Texture magic** — what the surfaces are *not* doing. MP above is the first
+   instalment. Still open, each needing a compatibility check before it is
+   promised: **height maps** are authored for all 227 materials and
+   `heightmap_pass.gd` is their only consumer — the height map never enters the
+   MatLib path at all; **detail maps** at a second UV frequency
+   (`detail_enabled`) are the standard cure for "reads as a repeat up close" and
+   appear to be unused; **vertex colours** for grime and wear cost zero textures
+   and zero draw calls; **emission** for signage, dials and the elevator call
+   light; and the tiling-breakup question already open as M-COVER.
+
+#### How we will know it worked
+
+The in-situ practice already exists — `art/renders/insitu/shots.md` is 156 lines
+of logged camera stands, and there are named review shots (`bookshelf_review`,
+`boxfan_review`) showing the habit. Pick a stand per family, shoot it before,
+shoot it after, and judge the pass on frames. `gen_layout.py` owns all
+coordinates; generated `.json`/`.gltf` are never hand-edited, so geometry
+changes go in there or in `build_orison.py`, then regenerate and re-import.
 
 ## C — Cast (ruled 2026-08-10, ORISON_BIBLE §IV.1)
 
