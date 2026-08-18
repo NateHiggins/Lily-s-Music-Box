@@ -59,6 +59,18 @@ const EAST_TEAR_X := 20.60
 const ARRIVAL_DESPAWN_X := 27.0
 const ARRIVAL_TRAFFIC_DELAY := 5.0
 const PIANO_REPAIR_KIND := 8
+## THE ONE VEHICLE THAT IS A REAL MESH.
+##
+## Every other kind is a box, a raised cab block and four cylinders, which is
+## the right answer for traffic read at speed in the dark. The piano truck is
+## the exception because it is the rarest kind in the table (weight 2.0 of 95)
+## and the only one the fiction names, so it is the one worth looking at.
+##
+## Built by art/blender/scripts/build_traffic_vehicle.py from the Meshy source:
+## 1.96 M triangles decimated to 12 k, scaled to the KINDS[8] dimensions below
+## rather than the other way round, origin at the centre of the footprint so it
+## sits ON the carriageway instead of half through it.
+const PIANO_TRUCK_MESH := "res://assets/vehicles/piano_truck.glb"
 const PIANO_REPAIR_SIGN := \
 		"res://assets/building/textures/traffic/we_tuna_pianos_sign.png"
 ## A reflected beam painted onto the wet carriageway, not illumination. The
@@ -117,6 +129,12 @@ var _lamps: MultiMeshInstance3D
 var _cabs: MultiMeshInstance3D
 var _wheels: MultiMeshInstance3D
 var _piano_signs: MultiMeshInstance3D
+var _piano_truck: MultiMeshInstance3D
+## True once the mesh has loaded. If it has not, the truck falls back to the
+## box assembly every other vehicle uses -- a missing asset should cost the
+## detail, never the vehicle, because the gap the player judges is made of
+## these and one that fails to draw is one they walk into.
+var _piano_truck_ready := false
 var _piano_sign_origins: Array[Vector3] = []
 var _headlight_pools: MultiMeshInstance3D
 var _headlight_pool_origins: Array[Vector3] = []
@@ -178,6 +196,7 @@ func build(player: Node3D = null) -> void:
 	wheel.radial_segments = 10
 	_wheels = _make_batch(wheel, MAX_VEHICLES * 4, false)
 	_build_piano_sign_batch()
+	_build_piano_truck_batch()
 	_build_headlight_pool_batch()
 
 	var lamp_mesh := QuadMesh.new()
@@ -381,6 +400,46 @@ func _make_batch(mesh: Mesh, count: int, additive: bool) -> MultiMeshInstance3D:
 	return node
 
 
+## Lift the mesh out of the exported scene and hand it to a MultiMesh.
+##
+## The GLB is a PackedScene, so it is instantiated once at build time, the mesh
+## taken off its MeshInstance3D, and the instance thrown away. Nothing of the
+## scene survives into the frame; only the Mesh resource does, shared by every
+## truck on the street.
+func _build_piano_truck_batch() -> void:
+	var packed := load(PIANO_TRUCK_MESH) as PackedScene
+	if packed == null:
+		push_warning("piano truck mesh missing: %s" % PIANO_TRUCK_MESH)
+		return
+	var root := packed.instantiate()
+	var mesh: Mesh = null
+	var stack: Array[Node] = [root]
+	while not stack.is_empty():
+		var node: Node = stack.pop_back()
+		if node is MeshInstance3D and (node as MeshInstance3D).mesh != null:
+			mesh = (node as MeshInstance3D).mesh
+			break
+		for child in node.get_children():
+			stack.append(child)
+	root.free()
+	if mesh == null:
+		push_warning("piano truck GLB carries no mesh")
+		return
+	var mm := MultiMesh.new()
+	mm.transform_format = MultiMesh.TRANSFORM_3D
+	# No per-instance colour: this one is painted, and tinting a photographed
+	# surface with the box palette would undo the reason it is here.
+	mm.mesh = mesh
+	mm.instance_count = MAX_VEHICLES
+	mm.visible_instance_count = 0
+	_piano_truck = MultiMeshInstance3D.new()
+	_piano_truck.name = "PianoTruckBodies"
+	_piano_truck.multimesh = mm
+	_piano_truck.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(_piano_truck)
+	_piano_truck_ready = true
+
+
 func _process(delta: float) -> void:
 	if _mm == null:
 		return
@@ -502,6 +561,7 @@ func _write_instances() -> void:
 	var sign_mm := _piano_signs.multimesh
 	var pool_mm := _headlight_pools.multimesh
 	var sign_count := 0
+	var truck_count := 0
 	_piano_sign_origins.clear()
 	_headlight_pool_origins.clear()
 	var n: int = mini(_live.size(), MAX_VEHICLES)
@@ -518,13 +578,34 @@ func _write_instances() -> void:
 		var height := float(v.get("height", k[3]))
 		var y := _vehicle_y(v)
 		var is_piano_repair := str(k[0]) == "piano_repair"
+		# When the real mesh is available the box assembly stands down for this
+		# vehicle: body, cab and wheels collapse to nothing and the mesh is
+		# written instead. Collapsing rather than reordering keeps every other
+		# instance index aligned across the five batches, which is the whole
+		# reason those batches are cheap.
+		var use_mesh := is_piano_repair and _piano_truck_ready
 		var body_length := 3.70 if is_piano_repair else length
 		var body_offset := -float(v.dir) * 0.85 if is_piano_repair else 0.0
 		var body_x: float = float(v.x) + body_offset
 		var basis := Basis().scaled(Vector3(body_length, height, width))
 		var at := GameBoot.b2g([body_x, y, height * 0.5])
+		if use_mesh:
+			basis = Basis().scaled(Vector3.ZERO)
 		mm.set_instance_transform(i, Transform3D(basis, at))
 		mm.set_instance_color(i, Color(v.get("body_color", k[5])))
+		if use_mesh:
+			# The mesh is modelled NOSE ALONG -X -- the box body occupies the
+			# positive half, which is why the panel projection in
+			# build_traffic_vehicle.py runs x -0.90..2.70. So a vehicle
+			# travelling -X needs no turn and one travelling +X is turned
+			# about. Getting this backwards drives the truck in reverse down
+			# the street with its tail lamp leading, which is exactly what the
+			# first wiring did.
+			var yaw: float = PI if float(v.dir) > 0.0 else 0.0
+			_piano_truck.multimesh.set_instance_transform(truck_count,
+					Transform3D(Basis(Vector3.UP, yaw),
+							GameBoot.b2g([float(v.x), y, 0.0])))
+			truck_count += 1
 
 		# The cab: a raised block set back from the nose, which is the single
 		# read that says "vehicle" rather than "crate".
@@ -536,8 +617,9 @@ func _write_instances() -> void:
 				else float(v.get("cab_offset", -float(v.dir) * length * 0.18))
 		var cab_base := 0.35 if is_piano_repair else height
 		var cm := _cabs.multimesh
-		cm.set_instance_transform(i, Transform3D(
-				Basis().scaled(Vector3(cab_len, cab_h, width * 0.92)),
+		var cab_basis := Basis().scaled(Vector3.ZERO) if use_mesh \
+				else Basis().scaled(Vector3(cab_len, cab_h, width * 0.92))
+		cm.set_instance_transform(i, Transform3D(cab_basis,
 				GameBoot.b2g([float(v.x) + cab_offset, y,
 						cab_base + cab_h * 0.5])))
 		cm.set_instance_color(i, Color(v.get("cab_color",
@@ -549,8 +631,9 @@ func _write_instances() -> void:
 		for w in 4:
 			var along: float = length * (0.32 if w < 2 else -0.32)
 			var across: float = width * (0.5 if w % 2 == 0 else -0.5)
-			var wb := Basis(Vector3.RIGHT, PI * 0.5).scaled(
-					Vector3(wr * 2.0, width * 0.10, wr * 2.0))
+			var wb := Basis().scaled(Vector3.ZERO) if use_mesh \
+					else Basis(Vector3.RIGHT, PI * 0.5).scaled(
+							Vector3(wr * 2.0, width * 0.10, wr * 2.0))
 			wm.set_instance_transform(i * 4 + w, Transform3D(wb,
 					GameBoot.b2g([float(v.x) + along, y + across, wr])))
 			wm.set_instance_color(i * 4 + w, Color(0.09, 0.085, 0.08))
@@ -586,7 +669,7 @@ func _write_instances() -> void:
 		# The approved enamel advertisement rides as two dull painted panels,
 		# never as emissive UI. Both sides share one MultiMesh draw across every
 		# repair truck in the stream.
-		if is_piano_repair:
+		if is_piano_repair and not use_mesh:
 			var panel_x := body_x
 			var panel_z := 1.28
 			var south_y := y - width * 0.505
@@ -602,6 +685,8 @@ func _write_instances() -> void:
 			_piano_sign_origins.append(north_origin)
 			sign_count += 1
 	_piano_signs.multimesh.visible_instance_count = sign_count
+	if _piano_truck_ready:
+		_piano_truck.multimesh.visible_instance_count = truck_count
 
 
 ## A hit is a shove. No damage, no death, no screen, no sound cue that reads as
