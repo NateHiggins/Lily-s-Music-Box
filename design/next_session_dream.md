@@ -175,13 +175,22 @@ the chain apart is its own change with its own blast radius.
 
 ### TWO THINGS THE RENDERS SAY, AND BOTH BLOCK AN ACCEPTANCE ITEM
 
-1. **The frontier is organic and you cannot see that it is.** `front` is doing
-   what workstream B asks, but the dominant edge in any lit frame is still the
-   MELT BOWL — `molten`, `dish_r`, `bowl`, all gated on instantaneous `heat` —
-   and it is a hard ellipse. "A frontier no viewer would describe as the edge
-   of a torch beam" is not met, and the fix is not in the exposure path: it is
-   that the melt's own extent needs the same noise treatment, or needs to be
-   bounded by `front` rather than by `rad`.
+1. **The frontier is fine. The VOCABULARY is what is missing.** An earlier
+   draft of this section said the growth front was invisible under the melt
+   bowl's hard ellipse and sent the reader to go and noise-warp `dish_r`.
+   That was wrong, and acting on it would have cost a session: read
+   `art/renders/dream_exposure/01_lit_2s.png`, where the conversion boundaries
+   on both walls are soft, blobby and lichen-edged. The bright ellipse in
+   `04_beam_moved` is the beam pool falling on surface that is ALREADY
+   converted — a torch doing what a torch does — not the gold/plaster
+   frontier.
+
+   What those frames are not is **Klimt**. The ornament reads as swirled
+   wood-grain in red and olive, and the plates are tight gold spirals, grouted
+   tesserae, embossed medallions, dark inlay eyes. That is workstream C
+   (relief, not paint) and workstream F (eyes as elements), exactly as the
+   brief already says: the shader "is a good surface filter and a bad
+   organism". **Start there, not at the frontier.**
 2. **The unlit control cannot be photographed at all.** `00_unlit_before` is
    black — 0.04 mean luminance. The dream ships no `WorldEnvironment` and
    `project.godot` sets no `default_environment` (see the header of
