@@ -1,7 +1,7 @@
 extends Node
 ## THE ACCEPTANCE FRAMES FOR WORKSTREAM A, photographed rather than asserted.
 ##
-##     SHOT_DIR=<abs> DREAM_FRACTAL=1 godot --path game \
+##     SHOT_DIR=<abs> godot --path game \
 ##             res://tests/DreamExposureShot.tscn
 ##
 ## DREAM_SURFACE_REDESIGN_BRIEF.md ends with an acceptance list that is
@@ -62,8 +62,7 @@ func _ready() -> void:
 		get_tree().quit(1)
 		return
 	_aim_at_a_wall()
-	print("[EXPOSURE SHOT] %s  out=%s" % [
-			"FRACTAL" if DreamMazeRoot.fractal_enabled() else "chain", _out])
+	print("[EXPOSURE SHOT] out=%s" % _out)
 	_report_binding()
 	# The level of cooled gold is set from measurement rather than taste:
 	# sweep this and read the frame luminance back out.

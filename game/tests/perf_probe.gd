@@ -84,7 +84,7 @@ const STATIONS := [
 ## PERF_DREAM=1 measures the dream instead of the building.
 ##
 ##   godot --path game --resolution 2560x1440 res://tests/Perf.tscn
-##   PERF_DREAM=1 DREAM_FRACTAL=1 godot --path game ... res://tests/Perf.tscn
+##   PERF_DREAM=1 godot --path game ... res://tests/Perf.tscn
 ##
 ## Added 2026-08-18 because nothing had ever measured this frame, and the
 ## surface redesign is about to put the first genuinely expensive thing in it
@@ -620,8 +620,7 @@ func _run_dream() -> void:
 		printerr("PERF DREAM: no player; the passage did not build")
 		get_tree().quit(1)
 		return
-	print("PERF DREAM: %s  seed %s  case %s  viewport %s" % [
-			"FRACTAL" if DreamMazeRoot.fractal_enabled() else "chain",
+	print("PERF DREAM: seed %s  case %s  viewport %s" % [
 			DREAM_SEED_HEX, DREAM_CASE,
 			get_viewport().get_visible_rect().size])
 	_report_dream_census()

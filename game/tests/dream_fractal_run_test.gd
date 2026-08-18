@@ -1,12 +1,13 @@
 extends Node
 ## THE FRACTAL AS THE LIVE DREAM, not as a builder in a jar.
 ##
-##     DREAM_FRACTAL=1 C:/devkit/bin/godot.cmd --headless --path game \
+##     C:/devkit/bin/godot.cmd --headless --path game \
 ##         res://tests/DreamFractalRunTest.tscn
 ##
 ## Exit code is the failure count. WITHOUT the environment flag this suite
 ## skips every check and passes trivially, because the world it is written
-## against is not the one that gets built -- see DreamMazeRoot.fractal_enabled.
+## against is not the one that gets built. The DREAM_FRACTAL flag this suite
+## was written behind is gone: the pocket is the only world there is now.
 ##
 ## DreamRoomBuilderTest proves the pocket is correct on its own. This proves
 ## the RUNTIME agrees with it: that DreamMazeRoot builds the fractal instead of
@@ -33,11 +34,6 @@ var _finished := false
 
 func _ready() -> void:
 	print("[FRACTAL] START")
-	if not DreamMazeRoot.fractal_enabled():
-		print("[FRACTAL] DREAM_FRACTAL is not 1; the chain is the world.")
-		print("DREAM FRACTAL RUN TEST: SKIPPED")
-		get_tree().quit(0)
-		return
 	_watchdog()
 	await _block_a_builds()
 	await _block_b_threshold()

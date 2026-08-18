@@ -483,7 +483,7 @@ func _hazard(socket: String) -> DreamHazard:
 ## and every caller already has a `!= null` check for that.
 func _ensure_socket(socket: String, hops: int = 30) -> DreamHazard:
 	var found := _hazard(socket)
-	if found != null or not DreamMazeRoot.fractal_enabled():
+	if found != null:
 		return found
 	for hop in range(hops):
 		var here := root.rooms.room_at(root.player.position.x,
