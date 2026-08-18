@@ -25,6 +25,39 @@ const FLOOR_SCENES := {
 	"F06": "res://assets/building/floor_06.gltf",
 	"ROOF": "res://assets/building/roof.gltf",
 }
+## WHERE THE BUILDING STOPS, for the rule that decides whether you are
+## looking AT it or standing IN it.
+##
+## This test used to borrow LightRig's 15.2 x 11.2 street-core envelope, and
+## the owner found the hole that left: the shell is 14.05 x 10.05, so a band
+## of pavement more than a metre wide ran right along every facade in which
+## the eye was neither `outside` nor on any interior storey. The rule fell
+## through to the active-storey window `absf(p.y - z) < 1.75`, which keeps
+## the floor at your feet and culls every floor above it — "when i stand
+## next to the building the top floors disapear". You could not see the
+## building you were leaning on.
+##
+## 150 mm clear of the masonry is enough margin to keep a doorway from
+## toggling the stack, which is all the old metre was ever buying, and it is
+## narrow enough that nowhere a body can stand outside the shell reads as
+## inside it. The rear porch decks at |z| 10.05..11.35 sat inside the old
+## band too, so a fire escape hung off a building that was not there.
+const OUTSIDE_HALF_X := 14.2
+const OUTSIDE_HALF_Z := 10.2
+## Floor batches that ARE the building seen from outdoors, and so can never be
+## classed as enclosed content by the street-core sweep.
+##
+## Matched as SUBSTRINGS of the batch name, not as whole names, and that is
+## deliberate. Giving the slats their own material — which W-JOINERY asks for,
+## because a rolled aluminium slat is not skirting-board paint — moved them out
+## of the floor-wide `furniture_trim` batch, whose extent reached z 37.57 into
+## the Passage and so had always failed the containment test by accident. The
+## moment they had an honest extent of their own they became enclosed content
+## and vanished from the street: the fix for one half of the owner's report
+## created the other half. An exact-name list would have to be extended every
+## time a window part is given a material, and the day it is not is the day the
+## windows lose something again.
+const ENVELOPE_BATCHES := ["glazing", "stone_trim", "sash", "blind"]
 const PROP_SCRIPTS := {
 	"radiator": preload("res://scripts/props/radiator_prop.gd"),
 	"lamp": preload("res://scripts/props/lamp_prop.gd"),
@@ -1494,6 +1527,28 @@ func _street_core_protected_geometry() -> Dictionary:
 	# These cards are the designed view of occupied rooms from outdoors.
 	if window_glow != null:
 		_protect_street_geometry(window_glow, protected)
+	# THE WINDOWS THEMSELVES, by the identical argument one line above.
+	#
+	# The owner reported the lower windows losing "their treatment and glass
+	# entirely" from the carriageway. They were: `F01_glazing` and
+	# `F01_stone_trim` are whole-floor batches whose extents sit inside the
+	# 15.2 x 11.2 core envelope — the core is the STREET REGION and the building
+	# stands within it — so both were indexed as enclosed content and layered
+	# off. That is every pane of ground-floor glass plus every limestone jamb,
+	# head, projecting sill and sash meeting rail on the ground storey, leaving
+	# each opening a raw hole in the brick with a blind hanging in it.
+	#
+	# Only F01 is ever caught, because every storey above it sills higher than
+	# the envelope's 2.80 m ceiling. The class is named rather than the instance
+	# anyway: a batch carrying the building's own glazing and joinery IS the
+	# exterior view of it, whichever floor it belongs to.
+	for fid in floor_nodes:
+		for child in floor_nodes[fid].get_children():
+			var suffix := String(child.name).trim_prefix(fid + "_")
+			for token in ENVELOPE_BATCHES:
+				if suffix.contains(token):
+					_protect_street_geometry(child, protected)
+					break
 	var owners: Array = []
 	for fid in functional_props_by_floor:
 		owners.append_array(functional_props_by_floor[fid])
@@ -1554,8 +1609,47 @@ func _has_moving_resident_ancestor(node: Node) -> bool:
 	return false
 
 
+## AN AABB NOBODY COULD MEASURE IS NOT EVIDENCE OF ENCLOSURE.
+##
+## Under the HEADLESS dummy renderer every MultiMeshInstance3D and particle
+## node reports an EMPTY box from `get_aabb()`, because the dummy storage
+## keeps no instance transforms to compute one from. An empty box sitting at
+## the node's own origin then passes the containment test below trivially —
+## lo == hi == (0,0,0) is inside any envelope that spans the origin — so a
+## headless run indexed forty-one draws as enclosed F01 content that a real
+## run does not, among them the street-end hoardings and work beacons at
+## |x| ~ 20 m, the driving rain, the roadway mist and every Vantry point
+## batch in the building.
+##
+## MEASURED BOTH WAYS BEFORE BELIEVING EITHER. Under Vulkan the same nodes
+## report real extents and are classified correctly, so this was the
+## instrument rather than the game — no player has ever lost the hoardings.
+## The guard stays because every automated harness in this project runs
+## headless, and a gate that hides forty-one street draws only when it is
+## being watched is a measurement waiting to be believed.
+##
+## Reconstructing the extent from the multimesh's own instance transforms
+## was tried and does not work: the dummy renderer returns identity for
+## every one of them, so the reconstruction lands the whole batch on the
+## origin, which is where the trouble was. Unmeasurable therefore means NOT
+## enclosed, because the safe answer for a visibility blocker is to leave a
+## draw it cannot place alone.
+func _measured_world_aabb(geometry: GeometryInstance3D) -> AABB:
+	var local: AABB = geometry.get_aabb()
+	if local.size.length_squared() <= 0.0:
+		if geometry is GPUParticles3D:
+			local = (geometry as GPUParticles3D).visibility_aabb
+		elif geometry is CPUParticles3D:
+			local = (geometry as CPUParticles3D).visibility_aabb
+	if local.size.length_squared() <= 0.0:
+		return AABB()
+	return geometry.global_transform * local
+
+
 func _fully_in_street_core(geometry: GeometryInstance3D) -> bool:
-	var world: AABB = geometry.global_transform * geometry.get_aabb()
+	var world := _measured_world_aabb(geometry)
+	if world.size.length_squared() <= 0.0:
+		return false
 	var lo := world.position
 	var hi := world.end
 	return lo.x > -LightRig.ORISON_CORE_HALF_X \
@@ -1571,7 +1665,9 @@ func _fully_in_street_core(geometry: GeometryInstance3D) -> bool:
 ## touching another mass boundary remains visible. The lower y bound includes
 ## the sunken bar floor and stage without admitting substrate below it.
 func _fully_in_harukiya_core(geometry: GeometryInstance3D) -> bool:
-	var world: AABB = geometry.global_transform * geometry.get_aabb()
+	var world := _measured_world_aabb(geometry)
+	if world.size.length_squared() <= 0.0:
+		return false
 	var lo := world.position
 	var hi := world.end
 	return lo.x > -12.0 and hi.x < 6.4 \
@@ -2320,7 +2416,7 @@ func _visibility_signature(p: Vector3) -> int:
 	var in_passage := _point_is_in_passage(p)
 	var in_eye := absf(p.x) < 3.7 and p.z > -3.7 and p.z < 6.9
 	var outside := not in_passage \
-			and (absf(p.x) > 15.2 or absf(p.z) > 11.2)
+			and (absf(p.x) > OUTSIDE_HALF_X or absf(p.z) > OUTSIDE_HALF_Z)
 	var low_street := _point_is_low_street(p)
 	var key := (1 if show_all_floors else 0) \
 			| ((1 if in_passage else 0) << 1) \
@@ -2338,8 +2434,8 @@ func _visibility_signature(p: Vector3) -> int:
 				or (in_passage and fid == "F01") \
 				or absf(p.y - z) < 1.75 \
 				or (fid == "ROOF" and p.y > 15.0)
-		var props_visible: bool = show_all_floors or in_eye \
-				or ((outside or in_passage) and fid == "F01") \
+		var props_visible: bool = show_all_floors or in_eye or outside \
+				or (in_passage and fid == "F01") \
 				or absf(p.y - z) < 1.75 \
 				or (fid == "ROOF" and p.y > 15.0)
 		key |= (1 if floor_visible else 0) << bit
@@ -2361,16 +2457,16 @@ func _apply_visibility(p: Vector3) -> void:
 	_set_passage_visibility(in_passage)
 	var in_eye := absf(p.x) < 3.7 and p.z > -3.7 and p.z < 6.9
 	# Outside the shell you are looking AT the building, and a
-	# building that renders two storeys is a stage flat. The
-	# envelope is 28 by 20 metres; a metre of margin keeps the
-	# doorway from flickering the stack on and off.
+	# building that renders two storeys is a stage flat. The envelope is 28
+	# by 20 metres and the margin is 150 mm — see OUTSIDE_HALF_X for what
+	# the old metre of it was costing along every facade.
 	# PASSAGE is geometrically south of the old site envelope, but it is not an
 	# exterior camera. Treating it as `outside` submitted all eight Orison floors
 	# through the north end of the glass hall: 16.7k objects northbound versus
 	# 6.5k southbound in the same zone. Its imported shell lives on F01; the
 	# apartment stack is neither visible nor owned here.
 	var outside := not in_passage \
-			and (absf(p.x) > 15.2 or absf(p.z) > 11.2)
+			and (absf(p.x) > OUTSIDE_HALF_X or absf(p.z) > OUTSIDE_HALF_Z)
 	for fid in floor_nodes:
 		var z: float = layout["meta"]["levels"][fid]
 		# `in_passage` belongs here for the same reason it belongs in the prop
@@ -2393,10 +2489,19 @@ func _apply_visibility(p: Vector3) -> void:
 			floor_nodes[fid].visible = should_show
 		# Props are root-owned for discovery, not floor-owned for inheritance.
 		# Give them the same active-storey rule: from a corridor or flat there is
-		# no legal view into the kitchen above. The open eye retains the whole
-		# stack; exterior views retain F01's shops and facade fixtures.
-		var show_props: bool = show_all_floors or in_eye \
-				or ((outside or in_passage) and fid == "F01") \
+		# no legal view into the kitchen above.
+		#
+		# The exterior term used to read `(outside or in_passage) and fid ==
+		# "F01"`, so a view from the street kept every floor's SHELL and only the
+		# ground floor's CONTENTS: a lit apartment three storeys up was an empty
+		# room behind glass. That asymmetry was sized for a submission budget
+		# §DP's ruling retired ("dont worry about budget until we hit performance
+		# issues on a desktop"), and the owner opened it to every floor on
+		# 2026-08-18. The exterior clause now matches the floor rule exactly. The
+		# Passage term stays F01-only because the Passage IS F01, and that clause
+		# is about its own hall rather than the apartment stack above it.
+		var show_props: bool = show_all_floors or in_eye or outside \
+				or (in_passage and fid == "F01") \
 				or absf(p.y - z) < 1.75 \
 				or (fid == "ROOF" and p.y > 15.0)
 		for prop in functional_props_by_floor.get(fid, []):

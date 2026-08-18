@@ -33,6 +33,41 @@ func _ready() -> void:
 	var glow_geometry := _geometry_under(root.window_glow)
 	_check("WindowGlow remains the exterior occupied-room view",
 			not glow_geometry.is_empty() and _none_indexed(glow_geometry, core))
+	# The owner's report: the lower windows lose "their treatment and glass
+	# entirely" from the carriageway. Both whole-floor batches sit inside the
+	# 15.2 x 11.2 core envelope, so both were indexed and layered off, taking
+	# every ground-floor pane and every limestone jamb, head, projecting sill
+	# and sash meeting rail with them.
+	var envelope: Array = []
+	for batch in ["F01_glazing", "F01_stone_trim"]:
+		var node: Node = root.floor_nodes["F01"].get_node_or_null(batch)
+		_check("%s is a real draw to argue about" % batch,
+				node is GeometryInstance3D)
+		if node is GeometryInstance3D:
+			envelope.append(node)
+	_check("the ground floor's glass and joinery are never enclosed content",
+			envelope.size() == 2 and _none_indexed(envelope, core))
+	# And they survive only because they are named. The core envelope is the
+	# STREET REGION, 15.2 x 11.2, and the building stands inside it, so the
+	# geometric test on its own still calls both batches enclosed. Deleting
+	# the protection because "nothing indexes them anyway" puts the owner's
+	# raw holes in the brick straight back.
+	_check("the containment test alone would still swallow both batches",
+			envelope.size() == 2 and envelope.all(func(node):
+				return root._fully_in_street_core(node)))
+	# A multimesh or particle node reports an EMPTY aabb here, and an empty box
+	# at the origin passes any containment test that spans the origin. That is
+	# how the street-end hoardings at |x| ~ 20 m came to be indexed as enclosed
+	# F01 content. Nothing unmeasurable may be classed as enclosed.
+	var degenerate: Array = core.filter(func(geometry):
+		return root._measured_world_aabb(geometry).size.length_squared() <= 0.0)
+	_check("nothing is indexed on an extent nobody computed",
+			degenerate.is_empty())
+	var street_end: Array = []
+	for node in root.get_tree().get_nodes_in_group("street_end_architecture"):
+		street_end.append_array(_geometry_under(node))
+	_check("the street-end works stay visible from the street they close",
+			street_end.size() >= 2 and _none_indexed(street_end, core))
 	var neon: Node = root.find_child("F01_NEON_TENANT", true, false)
 	var neon_geometry := _geometry_under(neon)
 	_check("a facade-touching compound neon owner stays atomic",
@@ -64,6 +99,10 @@ func _ready() -> void:
 			_all_nonzero(entry_geometry) and _all_nonzero(glow_geometry)
 			and _all_nonzero(neon_geometry)
 			and _all_nonzero(bar_front_geometry))
+	_check("the windows keep their glass and joinery from the carriageway",
+			envelope.size() == 2 and _all_nonzero(envelope))
+	_check("the street-end works are lit from the carriageway",
+			not street_end.is_empty() and _all_nonzero(street_end))
 
 	var bar_interior := Vector3(3.0, -1.39, 34.0)
 	root._apply_visibility(bar_interior)

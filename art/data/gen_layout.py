@@ -1022,11 +1022,36 @@ def lived_in_surface_detail(f, unit, rooms, skip, ux, lcy):
 WIN_TOP = 2.55   # window head (sill 0.85 + h 1.70)
 
 
+BLIND_CHORD = 0.050   # a venetian slat is 50 mm wide and stays 50 mm wide
+BLIND_THICK = 0.004   # rolled stock, thickened enough to survive a normal map
+BLIND_CROWN = 0.006   # the rise at the middle of the chord
+BLIND_W = 1.13        # head rail: the daylight between the frame jambs
+BLIND_SLAT_L = 1.10   # slats run just short of the rail, as they are hung
+
+
 def blind_stack(f, uid, x, y, along_x, seed, top=None, sill=None):
     """One venetian blind: head rail at the window top, slats descending
-    to a per-window drop (someone half-raised theirs), each blind tilted
-    more or less open — thick slats at tight pitch read shut, thin slats
-    at open pitch let the night through."""
+    to a per-window drop (someone half-raised theirs), each blind turned
+    more or less open — shut slats overlap and stop the night, open ones
+    lie flat and let it through.
+
+    TWO THINGS WERE WRONG HERE and they were the same thing twice.
+
+    A slat is a FIXED 50 mm chord that ROTATES. This kept the chord level
+    and changed the box's aspect instead — 10 mm tall by 50 deep when open,
+    34 by 28 when shut — so a closed blind was a stack of tall thin posts
+    standing on edge rather than a stack of turned slats, and no lighting
+    could have made it read otherwise. It now carries its tilt as an angle
+    and the builder turns the section.
+
+    And the pitch ran BACKWARDS to the docstring above it, which used to
+    promise "thick slats at tight pitch read shut": `pitch = 0.055 + 0.02 *
+    tilt` opened the spacing as the slats closed, so a shut blind covered
+    45% of its own window and every blind in the building was see-through.
+    Cords do not move when you turn the wand — the pitch is fixed by the
+    ladder — but it is the one number that decides whether shut looks shut,
+    so it now tightens with the turn instead of loosening.
+    """
     if top is None:
         top = WIN_TOP
     if sill is None:
@@ -1034,9 +1059,14 @@ def blind_stack(f, uid, x, y, along_x, seed, top=None, sill=None):
     h = sum(ord(c) * 13 for c in seed)
     drop = 0.35 + (h % 7) / 6.0 * 0.60          # 0.35..0.95 of the window
     tilt = ((h // 7) % 5) / 4.0                 # 0 open .. 1 closed
-    pitch = 0.055 + 0.02 * tilt
-    slat_h = 0.010 + 0.024 * tilt
-    depth = 0.05 - 0.022 * tilt
+    pitch = 0.062 - 0.016 * tilt
+    tilt_deg = 74.0 * tilt
+    rad = tilt_deg * math.pi / 180.0
+    # The AABB a turned slat actually occupies, which is what the furniture
+    # record has to report: nearly flat when open, nearly upright when shut.
+    slat_h = BLIND_CHORD * math.sin(rad) + BLIND_THICK * math.cos(rad) \
+        + BLIND_CROWN * math.cos(rad)
+    depth = BLIND_CHORD * math.cos(rad) + BLIND_THICK * math.sin(rad)
     n = int(1.70 * drop / pitch)
     # A blind is fixed to the window, not to the room's idea of gravity.
     # Nine stacks could descend through the 1.00 m court sill and through
@@ -1046,29 +1076,47 @@ def blind_stack(f, uid, x, y, along_x, seed, top=None, sill=None):
     # WIN_COURT["sill"], a constant referenced nowhere else in this file
     # describing a court window the building does not contain, so every
     # blind was trimmed against a fiction instead of its own opening.
-    n = min(n, int((top - 0.06 - sill) / pitch))
+    n = min(n, int((top - 0.155 - sill) / pitch))
     # The head rail hangs just UNDER the aperture head, not level with it:
     # build_orison runs a head casing through top-0.06..top, and a rail at
     # `top` is buried in the lintel.
-    head_z = top - 0.05
+    # Under the frame head, not level with the aperture head: build_orison
+    # runs a reveal lining through top-0.05..top and a frame head immediately
+    # under it, and a rail at `top` is buried in both.
+    head_z = top - 0.155
+
+    def _slat(fid, sx, sy, w, d, z0):
+        """A slat carries its own section. `rect`/`h` stay the honest AABB so
+        anything reading furniture as boxes still gets a box; `slat` is what
+        build_orison turns into a crowned, tilted ribbon.
+
+        The crown is the entire reason a stack of these reads as slats rather
+        than as a comb: it catches a gradient across its width, and no texture
+        resolution can put that gradient on a flat face."""
+        f.append({"id": fid, "rect": [sx, sy, sx + w, sy + d], "z0": z0,
+                  "h": slat_h, "mat": "blind_slat",
+                  "slat": {"along_x": along_x, "tilt_deg": tilt_deg,
+                           "chord": BLIND_CHORD, "thick": BLIND_THICK,
+                           "crown": BLIND_CROWN}})
+
     if along_x:
-        _furn_box(f, uid + "_head", x, y, 1.34, 0.06, head_z, 0.05,
-                  "trim", False)
+        _furn_box(f, uid + "_head", x, y, BLIND_W, 0.06, head_z, 0.05,
+                  "blind_slat", False)
         for k in range(n):
-            _furn_box(f, "%s_s%d" % (uid, k), x + 0.02, y + 0.005, 1.30,
-                      depth, head_z - 0.06 - k * pitch, slat_h, "trim",
-                      False)
-        _furn_box(f, uid + "_rail", x + 0.02, y, 1.30, 0.05,
-                  head_z - 0.06 - n * pitch, 0.03, "trim", False)
+            _slat("%s_s%d" % (uid, k), x + 0.015,
+                  y + 0.005 + (0.05 - depth) * 0.5, BLIND_SLAT_L, depth,
+                  head_z - 0.06 - k * pitch)
+        _furn_box(f, uid + "_rail", x + 0.015, y, BLIND_SLAT_L, 0.05,
+                  head_z - 0.06 - n * pitch, 0.03, "blind_slat", False)
     else:
-        _furn_box(f, uid + "_head", x, y, 0.06, 1.34, head_z, 0.05,
-                  "trim", False)
+        _furn_box(f, uid + "_head", x, y, 0.06, BLIND_W, head_z, 0.05,
+                  "blind_slat", False)
         for k in range(n):
-            _furn_box(f, "%s_s%d" % (uid, k), x + 0.005, y + 0.02, depth,
-                      1.30, head_z - 0.06 - k * pitch, slat_h, "trim",
-                      False)
-        _furn_box(f, uid + "_rail", x, y + 0.02, 0.05, 1.30,
-                  head_z - 0.06 - n * pitch, 0.03, "trim", False)
+            _slat("%s_s%d" % (uid, k),
+                  x + 0.005 + (0.05 - depth) * 0.5, y + 0.015, depth,
+                  BLIND_SLAT_L, head_z - 0.06 - k * pitch)
+        _furn_box(f, uid + "_rail", x, y + 0.015, 0.05, BLIND_SLAT_L,
+                  head_z - 0.06 - n * pitch, 0.03, "blind_slat", False)
 
 
 def unit_windows(walls, x0, y0, x1, y1, z):
@@ -1165,20 +1213,36 @@ def west_storage(floor_id, z, f):
 ## An inside-mounted head rail stands clear of the plaster by a hand's
 ## width. build_orison runs window casings 0.020 proud of the face, so the
 ## clearance has to exceed that or the rail fouls the trim.
-BLIND_CLEAR = 0.10
+# 30 mm behind the sash, which is where a venetian is actually fixed: to the
+# frame or to the head of the reveal, not to the room.
+BLIND_BEHIND_SASH = 0.030
+# The frame's roomward face, as build_orison places it: ht - 0.105 from the
+# wall centreline, on the street side of it.
+BLIND_FRAME_INSET = 0.105
 BLIND_D = 0.06
 
 
 def _mount(centreline, thickness, inward):
-    """MIN-corner coordinate for a blind hung inside a wall's face.
+    """MIN-corner coordinate for a blind hung inside a wall's reveal.
 
-    `centreline` is what unit_windows reports; the face is half a thickness
-    inboard of it. blind_stack grows +cross from the corner it is given, so
-    a blind on the negative side must be pulled back by its own depth or it
-    grows into the wall it is hanging on.
+    OWNER, 2026-08-18: *"blinds dont seem to be rendered from outside"*. They
+    were rendering; they were 450 mm behind the facade. This used to read
+    `face + inward * 0.10` — a hand's width INTO THE ROOM past the inner
+    plaster — which was the only sane place for it while the opening was a
+    bare hole with nothing else in it. Now the reveal is lined and there is a
+    frame in a rebate, so a blind that far back is behind 350 mm of masonry
+    reveal, and from the pavement the lintel occludes exactly the top of the
+    window where the blind hangs. You could see the treatment from inside the
+    flat and never from the street, which is the half that matters: §T is a
+    building read from the carriageway.
+
+    It now hangs off the frame, 30 mm clear of the sash, which is also where
+    a real one is screwed. blind_stack grows +cross from the corner it is
+    given, so a blind on the negative side must be pulled back by its own
+    depth or it grows into the wall it is hanging on.
     """
-    face = centreline + inward * thickness * 0.5
-    edge = face + inward * BLIND_CLEAR
+    inset = thickness * 0.5 - BLIND_FRAME_INSET - BLIND_BEHIND_SASH
+    edge = centreline - inward * inset
     return edge if inward > 0 else edge - BLIND_D
 
 
@@ -1199,14 +1263,18 @@ def blinds_for_unit(f, unit, stack, walls=None, z=0.0):
     for wi, (cx, cy, ww, horizontal, wt, sill, head) in enumerate(windows):
         # inward is toward the apartment's middle
         mx, my = (x0 + x1) * 0.5, (y0 + y1) * 0.5
-        # blind_stack takes a MIN corner and the blind is 1.34 wide, so
-        # the centring offset is half the blind, not half the window
+        # blind_stack takes a MIN corner and the blind is BLIND_W wide, so
+        # the centring offset is half the blind, not half the window. A blind
+        # hung INSIDE the reveal is cut to the daylight between the frame
+        # jambs — 1.35 opening less two 50 mm linings less two 52 mm frame
+        # members — where the old face-mounted one could be wider than the
+        # hole it covered.
         if horizontal:
-            bx = cx - 0.67
+            bx = cx - BLIND_W * 0.5
             by = _mount(cy, wt, 1.0 if my > cy else -1.0)
         else:
             bx = _mount(cx, wt, 1.0 if mx > cx else -1.0)
-            by = cy - 0.67
+            by = cy - BLIND_W * 0.5
         blind_stack(f, "%s_bl%d" % (unit, wi), bx, by, horizontal,
                     unit + str(wi), top=head, sill=sill)
     return len(windows)
@@ -8441,27 +8509,48 @@ def _validate_blinds(layout):
                                 % (bid, claimed[key]))
             else:
                 claimed[key] = bid
-            # SIDE: the whole head is on the room side of the interior face,
-            # by a clearance that admits the casing without floating.
-            near, far = (x0, x1) if not along_x else (y0, y1)
-            in_pos = cl + t * 0.5
-            in_neg = cl - t * 0.5
-            gap_pos = near - in_pos
-            gap_neg = in_neg - far
-            gap = gap_pos if gap_pos > gap_neg else gap_neg
-            if gap < 0.03:
+            # DEPTH: the blind hangs IN THE REVEAL, clear of the sash and
+            # clear of the inner plaster.
+            #
+            # This rule used to require the head to stand at least 30 mm
+            # PAST the interior face, and it was right for the window it was
+            # written about: an unlined hole with a bare pane in the middle
+            # of it, where the only place a blind could go was the room. The
+            # owner reported the consequence once the reveal was lined and a
+            # frame went into the rebate — "blinds dont seem to be rendered
+            # from outside". They rendered. They sat 450 mm behind the
+            # facade, where the lintel occludes them from any pavement eye.
+            #
+            # So the band is now measured from the CENTRELINE and bounded on
+            # both sides: past the frame's roomward face, and not out past
+            # the plaster. Both bounds are load-bearing — through the frame
+            # is a blind inside the glass, and past the plaster is the
+            # defect this replaces.
+            mid = (y0 + y1) * 0.5 if along_x else (x0 + x1) * 0.5
+            inward = 1.0 if mid > cl else -1.0
+            edge = (y0 if inward > 0 else y1) if along_x \
+                else (x0 if inward > 0 else x1)
+            offset = (edge - cl) * inward
+            free = t * 0.5 - BLIND_FRAME_INSET
+            if offset > free - 0.005:
                 problems.append(
-                    "blind %s stands %.3f m from the wall face (buried or "
-                    "flush; centreline %.3f, t %.3f)" % (bid, gap, cl, t))
-            elif gap > 0.30:
-                problems.append("blind %s floats %.3f m off its wall"
-                                % (bid, gap))
-            # HEAD HEIGHT: hung at the aperture head, not the room ceiling.
+                    "blind %s sits %.3f m from the centreline, at or through "
+                    "the sash at %.3f (t %.3f)" % (bid, offset, free, t))
+            elif offset < free - BLIND_BEHIND_SASH - 0.06 - 0.005:
+                problems.append(
+                    "blind %s sits %.3f m from the centreline, deeper than "
+                    "the reveal allows (sash at %.3f, t %.3f)"
+                    % (bid, offset, free, t))
+            # HEAD HEIGHT: under the frame head, not level with the aperture
+            # head, where build_orison's reveal lining and frame head both
+            # already are. A rail at `top` is buried in two other members.
             head = float(o["sill"]) + float(o["h"])
-            if abs(float(b["z0"]) + float(b["h"]) - head) > 0.02:
+            drop_to = head - float(b["z0"]) - float(b["h"])
+            if drop_to < 0.10 or drop_to > 0.20:
                 problems.append(
-                    "blind %s head tops at %.3f, aperture head is %.3f"
-                    % (bid, float(b["z0"]) + float(b["h"]), head))
+                    "blind %s head tops %.3f m under the aperture head at "
+                    "%.3f; the frame head wants 0.10..0.20"
+                    % (bid, drop_to, head))
     return problems
 
 
@@ -10395,6 +10484,17 @@ MATERIAL_CATALOG = {
     "sidewalk_grout": {"base_color": [0.075, 0.065, 0.055, 1.0],
                          "roughness": 0.93},
     "trim": {"base_color": [0.85, 0.83, 0.77, 1.0], "roughness": 0.45},
+    # THE WINDOW PARTS, WHICH ARE NOT SKIRTING BOARD. Owner, 2026-08-18:
+    # "the textures on all the window parts need updating". Sash and slat both
+    # borrowed `trim`, the paint on every architrave and picture rail in the
+    # building, so a sash that lives on the wet side of the wall behaved like
+    # interior joinery and a rolled aluminium slat behaved like painted wood.
+    # Both are lit FROM BEHIND by window_glow, which is the one condition
+    # where the difference is not subtle. Plates come from
+    # art/tools/build_window_joinery_maps.py.
+    "sash": {"base_color": [0.82, 0.80, 0.745, 1.0], "roughness": 0.42},
+    "blind_slat": {"base_color": [0.855, 0.845, 0.805, 1.0],
+                   "roughness": 0.30},
     "floor_oak": {"base_color": [0.45, 0.33, 0.22, 1.0], "roughness": 0.55},
     "terrazzo": {"base_color": [0.72, 0.70, 0.66, 1.0], "roughness": 0.40},
     # Sourced from the AI material library (ai_materials/), placed by

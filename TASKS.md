@@ -838,151 +838,126 @@ for street objects, whether it fires on being looked at or on not being looked
 at, and whether the rear doors change with the flank or stay correct so the two
 disagree.
 
-### W-GLAZE — the apartment windows have no glass (diagnosed 2026-08-18)
+### W-GLAZE / W-SHOW / W-JOINERY — the apartment windows (DONE 2026-08-18)
 
-Owner: *"some of the windows on the orison are missing their treatment and
-glass entirely."* Correct, and it is not "some" — it is **every apartment
-window in the building**.
+One job in three entries, all closed. Frames, measurements and the full
+argument: `art/renders/windows_w1/README.md`. The owner's five separate
+complaints had five separate causes; every one is fixed and measured.
 
-**The cause, and it is one missing pass rather than a bug.** The wall records
-carry real window openings; `unit_windows()` in `gen_layout.py` reads them
-straight off the walls and its own docstring says it returns "every window
-opening whose glass stands on this unit's envelope". The dressing pass that
-consumes it then builds exactly one thing: a blind. Nothing else is emitted at
-a window position anywhere in the file.
+**THE ENTRY THAT STOOD HERE WAS WRONG ABOUT ITS OWN HEADLINE.** It said "There
+is glass. There is no joinery." There was always joinery: `build_wall()` emits
+two jambs, a head, a projecting cill and a sash meeting rail per glazed
+opening, plus a soldier lintel. Measured before touching anything —
+`F02_stone_trim-col` is 996 tris = 83 boxes = 16 windows x 5 parts + 1 door x 3.
+**That is the fifth count in this project taken over the wrong set**, and the
+reason is worth keeping: those parts are generated in `build_orison.py` from
+`walls[].openings[]` and never enter `building_layout.json`, which is where the
+earlier pass looked. The blinds ARE in that file, so the blinds were all it
+found. Lesson 4 of the last session, again, in the entry written to record
+lesson 4.
 
-Counted in `building_layout.json`, the only records at apartment window
-positions are `*_bl#_s#` slats (1,086 of them), `*_bl#_head` and `*_bl#_rail`.
-There is no glazing record, no frame, no sill, no reveal. The openings are
-holes in the brick with a roller blind hanging in front of them.
+**What was actually absent**, and it is the real answer to "reads as computer
+generated": every window part was a rectangular prism SYMMETRICAL ABOUT THE
+WALL CENTRELINE, because `box()` cannot build anything else. The cill projected
+as far into the room as onto the street; the reveal was undressed; the glass
+was one bare sheet in the middle of 350 mm of brick with a single rail across
+it and no frame, no stiles, no sashes and no putty line.
 
-**CORRECTION, 2026-08-18, same day: the sentence that stood here was wrong.**
-It said `F0x_glazing` was "the stair, the atrium and the shopfronts" and had
-never covered the apartments. That was asserted without checking. Every floor
-carries `F0x_glazing-col` at 192 triangles — and in Godot's glTF convention
-`-col` renders AND collides (`-colonly` is the invisible one), so that is 96
-quads of real glass per storey, building-wide. The transparent-draw census
-saw them too: `F0x_glazing`, `M_glassish`, an 874 m³ AABB per floor.
+**Built**, per glazed opening, outside to in: reveal lining, outer architrave
+30 mm proud, label mould over the head, a cill that projects onto the street
+and dies into the wall inside, with a sloped wash (`add_hex`) and a throating
+under its nose, interior window board and architrave in timber, the frame in
+its rebate, then a 1-over-1 double hung whose two sashes run in SEPARATE
+PLANES. Mullions divide anything wider than 1.45 m, which the three 5.40 m
+bands needed and never had. `off_box`/`off_hex` are the new primitives: a box
+that is not symmetrical about the wall, and a box that can be sloped.
 
-So the owner's follow-up — *"i was referring to the outer windows on the
-orison from the exterior as well"* — lands on a narrower and more accurate
-fault than the one first written here. **There is glass. There is no
-joinery.** The panes are flush rectangles set straight into brick with no
-frame, no sash, no sill, no reveal and no lintel, which is why they read as
-holes with something shiny in them rather than as windows, from the street and
-from the room alike. The blinds are the only window furniture in the building.
+**The 56 decorative alcoves were checked and are correct as built.** Their
+comment promises "a finished reveal and sill, never glazing", and
+`build_orison.py:3130` gives them exactly four plaster returns lining the
+aperture and nothing else. Nothing to do; recorded so nobody checks twice.
 
-**SETTLED, and it sizes the job.** The building carries **172 window openings**
-in `walls[].openings[]`, of which **56 are `decorative_alcove`** — and those
-are deliberately unglazed; `gen_layout.py:2147` says an alcove "gets a finished
-reveal and sill, never glazing". That leaves **116 glazed openings**.
+**W-SHOW had three causes, not one, and none of them was the blinds.**
 
-The glazing geometry matches them exactly. The panes are BOXES, not quads, at
-12 triangles each: 192 tris per storey is 16 boxes, and every storey has 24
-openings minus 8 alcoves = 16 glazed. The roof's 48 tris are 4 boxes against 4
-openings, no alcoves.
+1. `F01_glazing` and `F01_stone_trim` are whole-floor batches whose AABBs sit
+   inside the 15.2 x 11.2 street-core envelope — **the core is the STREET
+   REGION and the building stands inside it** — so the sweep indexed them as
+   enclosed content and zeroed their layers from the carriageway. Now named in
+   `ENVELOPE_BATCHES` by the identical argument the list already made for
+   `window_glow`. Matched as SUBSTRINGS, which turned out to be load-bearing
+   within the hour: giving the slats their own material moved them out of
+   `furniture_trim`, whose extent reached z 37.57 into the Passage and had
+   therefore always failed the containment test BY ACCIDENT.
+2. `outside` asked `> 15.2 / 11.2` while the shell is 14.05 / 10.05, leaving a
+   metre-wide band of pavement along every facade where the eye was neither
+   outside nor on an interior storey — so the rule fell through to
+   `absf(p.y - z) < 1.75` and culled the whole stack. `OUTSIDE_HALF_X/Z` are
+   14.2 / 10.2 now. The rear porch decks sat in that band too.
+3. The prop clause, **ruled open by the owner on 2026-08-18**: exterior views
+   now keep every floor's props, not only F01's.
 
-| | B1–F06 (×7) | ROOF | total |
-|---|---|---|---|
-| openings | 24 each | 4 | 172 |
-| decorative alcoves | 8 each | 0 | 56 |
-| glazed openings | 16 each | 4 | **116** |
-| panes in geometry | 16 each | 4 | **116** |
+The previous commit blamed the blinds for W-SHOW. It was wrong — measured
+in-engine, `F01_furnish_trim` was never street-core eligible.
 
-So no pane is missing and "some of the windows" is not literal — every window
-that should have glass has glass. **The entire fault is the absent joinery**,
-which makes this a bounded generator pass rather than an investigation: 116
-openings want a frame, sash, sill and reveal, and the 56 alcoves want checking
-against the reveal and sill their own code comment promises them.
+**W-JOINERY's premise was also wrong, in a way that strengthens it.** It argued
+from "these are the surfaces `window_glow` lights from behind".
+`window_glow.OWN_WINDOW_PANELS := false` has been the ruling since 2026-08-05:
+the Orison shows its own structure, lit by its REAL interior fixtures, and only
+the neighbours get emissive panels. A real light behind a crowned slat is a
+better reason to build the crown than a fake one was.
 
-**What a window needs, in the order it would be built:** a lining to the
-reveal so the opening stops being a raw hole in the wall thickness; a sill
-inside and a weathered one outside; the frame and its sash meeting rails; the
-glazing itself; and only then the blind that is currently the whole window.
-`unit_windows()` already returns `(cx, cy, width, along_x, thickness, sill,
-head)` — every number the job needs, including the wall thickness the blinds
-blocker was fixed to carry.
+**Slats** are crowned sections, four spans across a fixed 50 mm chord, and they
+turn: the old model held the chord level and changed the box's aspect instead,
+so a closed blind was a stack of tall thin posts on edge. Its pitch also ran
+BACKWARDS to its own docstring — `0.055 + 0.02 * tilt` opened the spacing as
+the slats closed, so a shut blind covered 45% of its window.
 
-**Why this is worth more than it looks.** These are the surfaces `window_glow`
-lights from outside, and §T's whole conceit is a building read from the street
-at night. A lit rectangle with no frame and no glass is the difference between
-a window and a hole, and it is on every elevation of the building.
+**"blinds dont seem to be rendered from outside"** (owner, same day, after the
+first frames). They rendered; they hung 450 mm behind the facade, a hand's
+width into the room past the inner plaster, which was the only sane place while
+the opening was a bare hole. Once the reveal was lined the lintel occluded them
+from every pavement eye. They now hang off the frame, 30 mm clear of the sash,
+cut to the daylight width (1.13 m — the old blind was WIDER than the hole it
+covered). `gen_layout`'s two blind validation rules encoded the old mounting
+and caught this in 132 places before a frame was taken; both were re-stated to
+assert the new geometry rather than relaxed.
 
-Not started, not costed. It is a generator pass in `gen_layout.py`, which owns
-all coordinates, so it regenerates the layout and rebuilds — no hand-edited
-geometry.
+`sash` and `blind_slat` are their own catalog materials, plated by
+`art/tools/build_window_joinery_maps.py`. **They belong in gen_layout's `MATS`,
+not in `material_catalog.json`** — that file is generated, and the comment at
+`gen_layout.py:10496` says so; hand-editing it cost one Blender run here.
 
-### W-SHOW — the window treatments come and go with where you stand
+**Cost, recorded not filtered (§DP):** 637,166 -> 715,550 render triangles
+(+12.3%) and **1161 -> 1181 draws (+20)**, which is the axis §P's frame is
+actually bound on. Collision +11,952 from the sash frames; slats do not
+collide. The §DP trigger is still unmonitored — nobody has measured this build
+on a desktop, so "dont worry about budget until we hit performance issues"
+still has no off-switch.
 
-Owner, 2026-08-18: *"when i look at the orison from the street the treatment on
-all the lower windows disapear, when i stand next to the building the top
-floors disapear but the window treatments appear."*
+**Regression net:** `StreetCoreVisibilityTest` 28/28 (up from 20, six checks
+added), `PassageVisibilityTest` green, `WindowShot` 4/4 with a 0.000% control
+noise floor against 11.8-31.5% at every station.
 
-Both halves are explained by mechanisms already in the file, and both are the
-same family as the ceiling bug and the traffic bug — a visibility rule that is
-right for what it was written about and wrong for something else that fell
-inside it.
+#### The instrument was the broken thing again, and this one is a trap for the next person
 
-**Where the treatments live.** Venetian blinds are emitted by `blind_stack()`
-in `gen_layout.py` through `_furn_box(..., "trim", False)`, so they are FLOOR
-geometry in `F0x_furnish_trim`, not runtime props. That matters: the prop rule
-does not govern them, the floor rule and the street-core sweep do.
+Diagnosing the visibility bug HEADLESS showed 41 draws indexed as enclosed on
+an extent nobody had computed: the street-end hoardings at |x| ~ 20 m, the
+driving rain, the roadway mist, every Vantry point batch. **Under Vulkan the
+same nodes report real extents and are classified correctly** — no player has
+ever lost the hoardings. The dummy renderer keeps no multimesh instance
+transforms, so `get_aabb()` returns an empty box at the node's origin, and an
+empty box at the origin is inside any envelope that spans the origin.
 
-**Why the lower ones vanish from the street.** `_apply_visibility` calls
-`_set_street_core_visibility(not _point_is_low_street(p))`, and that sweep
-indexes any F01 geometry reading as enclosed and zeroes its layers. F01 is the
-lower storey. The blinds behind F01's glass are enclosed F01 draws by that
-test, so standing on the carriageway removes them — exactly the mechanism that
-was removing StreetTraffic until it was added to the protected list. The
-protected set already contains `window_glow` under the comment "These cards are
-the designed view of occupied rooms from outdoors", which is the same argument
-for the blinds and was never extended to them.
+`_measured_world_aabb()` now refuses to classify anything it cannot place,
+because every automated harness in this project runs headless and a gate that
+hides forty-one street draws only when it is being watched is a measurement
+waiting to be believed. Reconstructing the extent from the multimesh's own
+instance transforms was tried and does NOT work: the dummy renderer returns
+identity for every one of them.
 
-**Why the top floors vanish when you step close, and the treatments return.**
-Adjacent to the building the eye stops satisfying `_point_is_low_street`, so
-the street core is restored and the treatments come back. In the same step the
-eye can stop being classified `outside`, and the floor rule falls through to
-`absf(p.y - z) < 1.75` — the active-storey window — which keeps the storey at
-your feet and culls the ones above it. The two symptoms are one boundary
-crossing, seen from both sides.
-
-**The asymmetry worth deciding on.** Floors get `outside` unconditionally;
-props get `(outside or in_passage) and fid == "F01"`. So an exterior view keeps
-every floor's shell but only F01's props. That is deliberate and commented, and
-it is the right shape for a submission budget that no longer applies under
-§DP's ruling. Whether it should now open to every floor is an owner call, not a
-silent edit.
-
-NOT FIXED. The rule above it carries a long comment about a previous defect it
-was written to cure, and it is not a thing to edit blind at the end of a
-session without a frame to check against. The fix is almost certainly one line
-in `_street_core_protected_geometry()` — the same shape as the StreetTraffic
-fix — plus a decision on the prop clause.
-
-### W-JOINERY — the window parts read as computer generated, and here is why
-
-Owner, same message: *"the textures on all the window parts need updating and
-the geometry reads as computer generated."*
-
-Measured rather than taken on faith, and the cause is specific:
-
-- **Every blind slat is a box.** `blind_stack()` emits `_furn_box` per slat —
-  a rectangular prism with six flat faces and hard 90° arrises. A real venetian
-  slat is a shallow crowned section with a rolled edge, and the crown is the
-  entire reason a stack of them reads as slats rather than as a comb: it
-  catches a gradient along its width. A box cannot.
-- **They are painted in `trim`.** The same material as every skirting,
-  architrave and picture rail in the building. So an aluminium or basswood
-  slat, which should be faintly translucent when backlit and dusty on its
-  upper face, has the optical behaviour of painted joinery. Backlighting is not
-  incidental here — these are the surfaces `window_glow` lights from behind.
-- **There is no joinery to texture at all**, which is W-GLAZE: 116 glazed
-  openings with no frame, sash, sill or reveal. "The textures on all the window
-  parts need updating" is partly a request to texture parts that do not exist.
-
-So the two entries are one job and should be done together: build the joinery
-(W-GLAZE), give the slats a crowned profile instead of a box, and give blind
-and sash their own materials instead of borrowing `trim`.
+This also explains the StreetTraffic fix of 2026-08-18 as the workaround it
+was — right about the symptom, never reached the cause, which is why it did not
+generalise to the six batches that arrived after it.
 
 ## P2 — The Passage (rehousing the shops)
 

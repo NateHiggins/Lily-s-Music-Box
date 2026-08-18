@@ -2947,11 +2947,85 @@ def subtract_rect(rects, hole):
     return out
 
 
+def build_blind_slat(target, fu, rect, z0):
+    """One venetian slat as the crowned, turned section it really is.
+
+    W-JOINERY, measured rather than asserted: every slat in the building was
+    a rectangular prism with six flat faces and hard 90 degree arrises. A real
+    slat is a shallow CROWNED section, and the crown is the whole reason a
+    stack of them reads as slats rather than as a comb — it catches a gradient
+    across its width, which no texture resolution can put on a flat face.
+
+    Four spans across the 50 mm chord, because three leaves the middle two
+    samples of a parabola almost equal and the result is a trapezoid wearing a
+    curve's name. The rise is 6 mm, which is what a slat that has been opened
+    and shut for forty years actually has.
+
+    These are also the surfaces `window_glow` lights FROM BEHIND, so the
+    section is closed rather than a single sheet: a backlit ribbon with no
+    thickness has no dark edge, and the dark edge between one slat and the
+    next is most of what a blind is from the street.
+    """
+    spec = fu["slat"]
+    along_x = bool(spec.get("along_x", True))
+    chord = float(spec.get("chord", 0.050))
+    thick = float(spec.get("thick", 0.004))
+    crown = float(spec.get("crown", 0.006))
+    rad = math.radians(float(spec.get("tilt_deg", 0.0)))
+    cs, sn = math.cos(rad), math.sin(rad)
+    # Centre of the slat's own AABB: the record reports the box the turned
+    # section occupies, so the section is rebuilt about that centre.
+    cx = (rect[0] + rect[2]) * 0.5
+    cy = (rect[1] + rect[3]) * 0.5
+    cz = z0 + float(fu.get("h", thick)) * 0.5
+    # Length comes from the record, not from a constant: the slats were cut
+    # narrower when the blind moved inside the reveal, and a builder holding
+    # its own copy of the number would have gone on making them 1.30 long
+    # inside a 1.13 rail.
+    span = (rect[2] - rect[0]) if along_x else (rect[3] - rect[1])
+    half = span * 0.5
+    SPANS = 4
+
+    def section(u):
+        """(across, up) of the outer and inner faces at chord position u."""
+        n = crown * (1.0 - (2.0 * u / chord) ** 2)
+        a, b = u * cs - n * sn, u * sn + n * cs
+        return (a, b), (a + sn * thick, b - cs * thick)
+
+    for i in range(SPANS):
+        u0 = -chord * 0.5 + chord * i / SPANS
+        u1 = -chord * 0.5 + chord * (i + 1) / SPANS
+        (o0, n0), (o1, n1) = section(u0), section(u1)
+        quad = [o0, o1, n1, n0]
+        ring0, ring1 = [], []
+        for (a, b) in quad:
+            if along_x:
+                ring0.append((cx - half, cy + a, cz + b))
+                ring1.append((cx + half, cy + a, cz + b))
+            else:
+                ring0.append((cx + a, cy - half, cz + b))
+                ring1.append((cx + a, cy + half, cz + b))
+        # WINDING IS DECIDED HERE. The (chord, extrusion) frame is
+        # left-handed for slats running the other way and again past 45
+        # degrees of turn, and an inverted slat is backface-culled into a
+        # hole in the blind rather than into an obvious mistake.
+        v0, v1, v3, v4 = ring0[0], ring0[1], ring0[3], ring1[0]
+        e1 = (v1[0] - v0[0], v1[1] - v0[1], v1[2] - v0[2])
+        e3 = (v3[0] - v0[0], v3[1] - v0[1], v3[2] - v0[2])
+        e4 = (v4[0] - v0[0], v4[1] - v0[1], v4[2] - v0[2])
+        cross = (e1[1] * e3[2] - e1[2] * e3[1],
+                 e1[2] * e3[0] - e1[0] * e3[2],
+                 e1[0] * e3[1] - e1[1] * e3[0])
+        if cross[0] * e4[0] + cross[1] * e4[1] + cross[2] * e4[2] < 0.0:
+            ring0, ring1 = ring1, ring0
+        target.add_hex(ring0 + ring1)
+
+
 def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
-               stone_buf=None, ao_buf=None, fl=None):
+               stone_buf=None, ao_buf=None, fl=None, sash_buf=None):
     """Wall run with openings, thickness centered on the a->b line.
-    Door openings get jamb/head trim; windows get a frame, sill lip and a
-    collidable glass pane. Detail pass (unless details=False): baseboards
+    Door openings get jamb/head trim; windows get the full joinery of
+    `window_joinery` below. Detail pass (unless details=False): baseboards
     and a top cornice on both faces, plus a wainscot band with dado cap on
     walls flagged wainscot (corridors, cores, stairwell).
     """
@@ -2982,6 +3056,44 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
 
     def seg_box(d0, d1, z0, z1):
         box(buf, d0, d1, z0, z1, t)
+
+    def off_box(bf, d0, d1, z0, z1, c0, c1):
+        """Box spanning c0..c1 ACROSS the wall, measured from the
+        centreline rather than centred on it.
+
+        `box` above can only build things symmetrical about the wall's
+        middle, which is why every window part in this file used to be
+        symmetrical about it — including a stone cill that projected as far
+        into the room as it did onto the street, and a pane of glass
+        floating 175 mm inside 350 mm of brick with nothing holding it.
+        A window is an assembly with a front and a back."""
+        lo, hi = (c0, c1) if c0 < c1 else (c1, c0)
+        if horizontal:
+            bf.add_box((start + d0, cross + lo, z + z0),
+                       (start + d1, cross + hi, z + z1))
+        else:
+            bf.add_box((cross + lo, start + d0, z + z0),
+                       (cross + hi, start + d1, z + z1))
+
+    def off_hex(bf, quad, z_lo, z_hi):
+        """Hexahedron over a (d, c) quad with per-corner top and bottom
+        heights — a box that can be sloped, which is the whole difference
+        between a stone cill and a stone shelf.
+
+        WINDING IS FIXED HERE, NOT BY THE CALLER. The (d, c) frame is
+        left-handed for walls running the other way and again for the far
+        face of the wall, and a reversed hexahedron is inside-out geometry
+        that reads as a hole in the building rather than as a mistake."""
+        pts = [((start + dd, cross + cc) if horizontal
+                else (cross + cc, start + dd)) for (dd, cc) in quad]
+        area = 0.0
+        for i in range(4):
+            x0, y0 = pts[i]
+            x1, y1 = pts[(i + 1) % 4]
+            area += x0 * y1 - x1 * y0
+        order = list(range(4)) if area > 0 else list(range(3, -1, -1))
+        bf.add_hex([(pts[i][0], pts[i][1], z + z_lo[i]) for i in order]
+                   + [(pts[i][0], pts[i][1], z + z_hi[i]) for i in order])
 
     details = w.get("details", True) and h > 2.0 and trim_buf is not None
     wains = w.get("wainscot", False) and wains_buf is not None
@@ -3104,6 +3216,165 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
                                 (pts[2][0], pts[2][1], zq),
                                 (pts[3][0], pts[3][1], zq))
 
+    def window_joinery(o, d0, d1, top, surround):
+        """Everything a window is besides the hole it sits in.
+
+        WHAT WAS HERE BEFORE, and it was not nothing: two jambs, a head, a
+        projecting cill and a meeting rail, all in limestone, plus a soldier
+        course over it. TASKS.md recorded "there is glass and there is no
+        joinery"; the joinery was measured out of F02_stone_trim-col at 83
+        boxes — 16 windows times five parts, plus one door — so that entry was
+        another count taken over the wrong set (the parts are generated here,
+        from walls[].openings[], and never appear in building_layout.json,
+        which is where they were looked for).
+
+        What was actually absent is the reason it read as computer generated:
+        every part was a rectangular prism SYMMETRICAL ABOUT THE WALL'S
+        CENTRELINE, because `box` cannot build anything else. So the cill was a
+        slab projecting equally into the room and onto the street, the reveal
+        was undressed, and the glass was one bare sheet in the middle of the
+        wall with a single rail across it and no frame, no stiles, no sash and
+        no putty line. A hole with something shiny in it, which is what the
+        owner reported from both sides.
+
+        Built here in the order a builder would, outside to in:
+        reveal lining, outer architrave, label mould, weathered cill with its
+        throating, interior window board and architrave, the frame in its
+        rebate, and only then the sashes and their glass.
+        """
+        s0 = float(o["sill"])
+        ow, oh = d1 - d0, top - s0
+        ht = t / 2.0
+        # The exterior side is the one that is NOT the furred interior face.
+        # Interior lights (the four in plaster on the roof) have no outside at
+        # all, so they take +1 and are dressed to one side only, which is what
+        # a borrowed light really is.
+        ex = -w["in_side"] if w.get("in_side") else 1
+        RL, AW = 0.05, 0.105
+
+        # 1. REVEAL LINING. Full depth of the wall, barely proud of either
+        # face: the opening stops being a raw edge of brick.
+        off_box(surround, d0, d0 + RL, s0, top, -ht - 0.012, ht + 0.012)
+        off_box(surround, d1 - RL, d1, s0, top, -ht - 0.012, ht + 0.012)
+        off_box(surround, d0, d1, top - RL, top, -ht - 0.012, ht + 0.012)
+
+        # 2. OUTER ARCHITRAVE, standing 30 mm proud of the facade so the
+        # opening has an edge for raking light to break on. Flush dressing is
+        # most of what made these read as printed on.
+        a0, a1 = max(d0 - AW, 0.0), min(d1 + AW, length)
+        c_o0, c_o1 = ex * ht, ex * (ht + 0.030)
+        off_box(surround, a0, d0 + 0.012, s0 - 0.02, top + AW, c_o0, c_o1)
+        off_box(surround, d1 - 0.012, a1, s0 - 0.02, top + AW, c_o0, c_o1)
+        off_box(surround, a0, a1, top, top + AW, c_o0, c_o1)
+
+        # 3. LABEL MOULD over the head. It keeps rain off the joinery, and on
+        # an elevation it is the line that says window rather than aperture.
+        hood_top = top + AW
+        if ow >= 1.0:
+            hood_top = min(top + AW + 0.05, h)
+            off_box(surround, max(a0 - 0.045, 0.0), min(a1 + 0.045, length),
+                    top + AW, hood_top, c_o0, ex * (ht + 0.075))
+
+        # 4. CILL. It projects ONTO THE STREET and dies into the wall inside,
+        # its top falls away from the glass, and a throating under the nose
+        # gives the water somewhere to leave. The old one did none of the
+        # three: a flat slab, level, projecting both ways.
+        CP = 0.095
+        k0, k1 = max(d0 - 0.075, 0.0), min(d1 + 0.075, length)
+        cl, ch = -ex * (ht - 0.02), ex * (ht + CP)
+        off_box(surround, k0, k1, s0 - 0.075, s0 - 0.018, cl, ch)
+        off_hex(surround, [(k0, cl), (k1, cl), (k1, ch), (k0, ch)],
+                [s0 - 0.020] * 4,
+                [s0 + 0.010, s0 + 0.010, s0 - 0.014, s0 - 0.014])
+        off_box(surround, k0, k1, s0 - 0.098, s0 - 0.075,
+                ex * (ht + 0.030), ex * (ht + CP - 0.012))
+
+        # 5. INSIDE THE ROOM this is timber, not stone: a window board on the
+        # sill and a cased architrave round the opening.
+        ci = -ex * ht
+        off_box(trim_buf, d0 - 0.03, d1 + 0.03, s0 - 0.035, s0,
+                -ex * (ht - 0.05), -ex * (ht + 0.055))
+        for j0, j1 in ((max(d0 - 0.06, 0.0), d0 + 0.012),
+                       (d1 - 0.012, min(d1 + 0.06, length))):
+            off_box(trim_buf, j0, j1, s0 - 0.035, top + 0.06,
+                    ci, -ex * (ht + 0.022))
+        off_box(trim_buf, max(d0 - 0.06, 0.0), min(d1 + 0.06, length),
+                top, top + 0.06, ci, -ex * (ht + 0.022))
+
+        # 6. THE FRAME, set 20 mm back in the reveal where a frame goes. This
+        # is the piece that has never existed anywhere in the building.
+        target = sash_buf if sash_buf is not None else trim_buf
+        fo, fi = ex * (ht - 0.020), ex * (ht - 0.105)
+        g0, g1 = d0 + RL, d1 - RL
+        gz0, gz1 = s0, top - RL
+        FW = 0.052
+        off_box(target, g0, g1, gz1 - FW, gz1, fo, fi)
+        off_box(target, g0, g0 + FW, gz0, gz1, fo, fi)
+        off_box(target, g1 - FW, g1, gz0, gz1, fo, fi)
+        off_box(target, g0, g1, gz0, gz0 + 0.046, fo, fi)
+
+        l0, l1 = g0 + FW, g1 - FW
+        lz0, lz1 = gz0 + 0.046, gz1 - FW
+        if l1 - l0 < 0.14 or lz1 - lz0 < 0.14:
+            return
+
+        # 7. MULLIONS. A 5.40 m band with one meeting rail across it is not a
+        # window, and three of those exist. Nothing gets a light wider than a
+        # sash could actually be built.
+        MW = 0.058
+        n_lights = 1
+        while (l1 - l0 - MW * (n_lights - 1)) / n_lights > 1.45:
+            n_lights += 1
+        edges = [l0 + (l1 - l0) * i / n_lights for i in range(n_lights + 1)]
+        for i in range(1, n_lights):
+            off_box(target, edges[i] - MW / 2, edges[i] + MW / 2,
+                    lz0, lz1, fo, fi)
+        for i in range(n_lights):
+            la = edges[i] + (MW / 2 if i else 0.0)
+            lb = edges[i + 1] - (MW / 2 if i < n_lights - 1 else 0.0)
+            window_light(target, la, lb, lz0, lz1, fo, fi)
+
+    def window_light(target, a, b, z0, z1, fo, fi):
+        """One light: a 1-over-1 double hung where there is height for one,
+        a single fixed sash where there is not.
+
+        The two sashes run in SEPARATE PLANES, the upper outboard of the
+        lower, because that is what makes a double hung a double hung and it
+        is what puts the two meeting rails against each other in the middle of
+        the opening. A single plane with a rail drawn across it — the old
+        version — is a fixed sheet wearing a costume."""
+        SR = 0.042
+        up0, up1 = fo, fo + (fi - fo) * 0.52
+        lo0, lo1 = fo + (fi - fo) * 0.48, fi
+
+        def pane(pa, pb, pz0, pz1, c0, c1):
+            if glass_buf is None:
+                return
+            mid = (c0 + c1) * 0.5
+            # Glazed INTO the rebate: the sheet runs on past the rails, which
+            # is what gives a pane a putty line instead of a cut edge.
+            off_box(glass_buf, pa + 0.010, pb - 0.010,
+                    pz0 - 0.008, pz1 + 0.008, mid - 0.007, mid + 0.007)
+
+        if z1 - z0 >= 0.80:
+            mz = (z0 + z1) * 0.5
+            off_box(target, a, b, z0, z0 + 0.075, lo0, lo1)
+            off_box(target, a, b, mz - 0.040, mz + 0.006, lo0, lo1)
+            off_box(target, a, a + SR, z0, mz + 0.006, lo0, lo1)
+            off_box(target, b - SR, b, z0, mz + 0.006, lo0, lo1)
+            off_box(target, a, b, z1 - 0.055, z1, up0, up1)
+            off_box(target, a, b, mz - 0.006, mz + 0.040, up0, up1)
+            off_box(target, a, a + SR, mz - 0.006, z1, up0, up1)
+            off_box(target, b - SR, b, mz - 0.006, z1, up0, up1)
+            pane(a, b, z0 + 0.075, mz, lo0, lo1)
+            pane(a, b, mz, z1 - 0.055, up0, up1)
+        else:
+            off_box(target, a, b, z0, z0 + 0.045, lo0, lo1)
+            off_box(target, a, b, z1 - 0.045, z1, lo0, lo1)
+            off_box(target, a, a + SR, z0, z1, lo0, lo1)
+            off_box(target, b - SR, b, z0, z1, lo0, lo1)
+            pane(a, b, z0 + 0.045, z1 - 0.045, lo0, lo1)
+
     openings = sorted(w["openings"], key=lambda o: o["at"])
     cursor = 0.0
     d_cursor = 0.0
@@ -3141,23 +3412,13 @@ def build_wall(buf, w, trim_buf=None, glass_buf=None, wains_buf=None,
                 for dd0, dd1 in ((d0, d0 + 0.018), (d1 - 0.018, d1)):
                     box(trim_buf, dd0, dd1, o["sill"], top, t - 0.004)
             else:
-                box(surround, d0, d0 + 0.06, o["sill"], top, ft)
-                box(surround, d1 - 0.06, d1, o["sill"], top, ft)
-                box(surround, d0, d1, top - 0.06, top, ft)
-                # projecting sill (limestone on masonry)
-                box(surround, max(d0 - 0.04, 0.0), min(d1 + 0.04, length),
-                    o["sill"] - 0.04, o["sill"] + 0.02, t + 0.10)
-                if is_brick:  # soldier-course lintel proud of the face
-                    box(buf, d0 - 0.02, d1 + 0.02, top + 0.06,
-                        min(top + 0.26, h), t + 0.05)
-                if glass_buf is not None and not o.get("decorative_alcove"):
-                    box(glass_buf, d0 + 0.05, d1 - 0.05, o["sill"] + 0.05,
-                        top - 0.05, 0.02)
-                    # 1-over-1 double-hung meeting rail
-                    box(surround, d0 + 0.04, d1 - 0.04,
-                        o["sill"] + (top - o["sill"]) * 0.5 - 0.02,
-                        o["sill"] + (top - o["sill"]) * 0.5 + 0.02,
-                        t + 0.05)
+                window_joinery(o, d0, d1, top, surround)
+                if is_brick:
+                    # Soldier course, lifted clear of the label mould it used
+                    # to run straight through.
+                    soldier = top + 0.155 if (d1 - d0) >= 1.0 else top + 0.105
+                    box(buf, d0 - 0.02, d1 + 0.02, soldier,
+                        min(soldier + 0.20, h), t + 0.05)
         cursor = d1
     if cursor < length:
         seg_box(cursor, length, 0.0, h)
@@ -4221,7 +4482,8 @@ def build():
                                                        "wainscot"),
                            w.get("wains_mat", "wainscot")),
                        buf(fid, "stone_trim-col", "limestone"),
-                       buf(fid, "fx_ao_decal", "fx_ao"), fl)
+                       buf(fid, "fx_ao_decal", "fx_ao"), fl,
+                       buf(fid, "sash-col", "sash"))
             if w["mat"] in ("brick", "common_brick", "face_brick") \
                     and w.get("in_side") and w.get("finish_texture"):
                 finish_id = w["finish_texture"]
@@ -4287,6 +4549,10 @@ def build():
                 cat_prefix = "retail_bar"
             elif fu_id0.startswith("retail_"):
                 cat_prefix = "retail_site"
+            if "slat" in fu:
+                build_blind_slat(
+                    buf(fid, "%s_%s" % (cat_prefix, fmat), fmat), fu, r, z0)
+                continue
             if fmat == "art":
                 fu_id = str(fu.get("id", ""))
                 if fu_id.endswith("_art"):
