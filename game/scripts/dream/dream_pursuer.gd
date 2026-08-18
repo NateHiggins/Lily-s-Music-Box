@@ -45,6 +45,12 @@ var _last_target_position := Vector3.ZERO
 var _target_was_moving := false
 
 
+## The fractal, when the world is one. Null on the chain path, and every use
+## of it below falls back to the chain helpers -- so this file works unchanged
+## against either world rather than being ported to the new one.
+var rooms: DreamRoomBuilder
+
+
 func setup(maze_plan: Dictionary, pursuit_profile: Dictionary,
 		target_player: Node3D, seed_hex: String) -> void:
 	plan = maze_plan
@@ -230,11 +236,19 @@ func run_parameters() -> Dictionary:
 func _advance_along_route(budget: float) -> void:
 	var here := _flat(position)
 	var goal := _flat(last_known_position)
-	var my_module := DreamMazeBuilder.nav_module_at(plan, here.x, here.z)
-	var goal_module := DreamMazeBuilder.nav_module_at(plan, goal.x, goal.z)
+	# ROUTE OVER WHATEVER THE WORLD IS. The chain resolved a room by its
+	# module id and joined two of them by index arithmetic; the pocket
+	# resolves by path key and walks its doors. Both answer the same two
+	# questions and both return the same near/centre/far waypoint shape, so
+	# the prune loop below and everything after it is untouched.
+	var my_module := rooms.nav_room_at(here.x, here.z) if rooms != null \
+			else DreamMazeBuilder.nav_module_at(plan, here.x, here.z)
+	var goal_module := rooms.nav_room_at(goal.x, goal.z) if rooms != null \
+			else DreamMazeBuilder.nav_module_at(plan, goal.x, goal.z)
 	var waypoints: Array = []
 	if my_module != "" and goal_module != "" and my_module != goal_module:
-		waypoints = DreamMazeBuilder.chain_route(plan, my_module, goal_module)
+		waypoints = rooms.route(my_module, goal_module) if rooms != null \
+				else DreamMazeBuilder.chain_route(plan, my_module, goal_module)
 	waypoints.append(goal)
 	# The route is recomputed every step, so waypoints already passed must be
 	# pruned or the body walks back to them forever at a doorway.

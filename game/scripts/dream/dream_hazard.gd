@@ -21,6 +21,10 @@ extends RefCounted
 const NONE := ""
 
 var id := ""
+## The catalog socket this instance came from. See configure(): `id` is which
+## hazard, `socket` is which KIND of hazard, and the fractal is what separated
+## them.
+var socket := ""
 var kind := ""
 var module := ""
 var position := Vector3.ZERO
@@ -48,6 +52,15 @@ var tell_distance := 0.0
 
 func configure(record: Dictionary, tuning: Dictionary) -> void:
 	id = str(record.get("id", ""))
+	# WHICH CATALOG SOCKET THIS IS, as distinct from WHICH INSTANCE OF IT.
+	# The chain placed every module at most once, so a socket id named exactly
+	# one hazard in the world and the two were the same fact. The fractal can
+	# have three live rooms all remembering D03, and then "open_lift_void"
+	# names three different holes in three different floors. `id` stays unique
+	# so a tell, a contact and a caption can never be attributed to the wrong
+	# one; `socket` is what the profile's allowlist and tuning are written
+	# against. On the chain path they are identical and nothing changes.
+	socket = str(record.get("socket", record.get("id", "")))
 	kind = str(record.get("kind", ""))
 	module = str(record.get("module", ""))
 	var p: Array = record.get("position", [0.0, 0.0])

@@ -760,6 +760,30 @@ func live_rooms() -> Array:
 	return _live.values()
 
 
+## A standable point just inside this room's entry door -- the doorway the
+## player came in through. Falls back to the room centre for the waking room,
+## which was entered through nothing. Used by the run-cap fold, which needs a
+## real place behind the body rather than an invented one.
+func entry_waypoint(key: String) -> Vector3:
+	var room: Dictionary = _live.get(key, {})
+	if room.is_empty():
+		return Vector3.ZERO
+	for door in room.doors:
+		if int(door.index) == 0 and not bool(door.sealed):
+			var inside: Array = door.inside
+			return Vector3(inside[0], 0.0, inside[1])
+	var r: Array = room.rect
+	return Vector3((r[0] + r[2]) * 0.5, 0.0, (r[1] + r[3]) * 0.5)
+
+
+## The path a live room was reached by. Empty for the waking room, which was
+## reached by nothing, and also empty for a room that is not live -- callers
+## that need to tell those apart should ask room_at_key first.
+func path_of(key: String) -> PackedInt32Array:
+	var room: Dictionary = _live.get(key, {})
+	return room.path if room.has("path") else PackedInt32Array()
+
+
 ## One live room by its name, or an empty dictionary if the building has
 ## already forgotten it. The empty return is the interesting one: it is how a
 ## caller asks "is the way back still there".
@@ -936,6 +960,73 @@ func pursuer_spawn(player_key: String) -> Array:
 		return []
 	var r: Array = _live[pick].rect
 	return [(r[0] + r[2]) * 0.5, (r[1] + r[3]) * 0.5]
+
+
+# ── THE POCKET AS A PLAN ──────────────────────────────────────────────────
+
+## Write the live pocket into `plan` IN PLACE, in the shape DreamMazeRoot and
+## everything downstream of it already reads.
+##
+## In place, and that is not a style choice. DreamPursuer takes `plan` by
+## reference once at setup and DreamMazeRoot assigns it exactly once; nothing
+## ever re-hands it over. Building a fresh dictionary each time the pocket
+## rolled would leave the pursuer routing against the first one forever, and
+## it would keep working -- against a building that no longer exists.
+##
+## Field by field, this is the closed set the chain builder emitted:
+##   modules      the live rooms, `id` now a path key rather than a module id.
+##                Unique among live rooms, which module ids no longer are.
+##   doors        open doors only. A sealed door is wall and must not appear,
+##                or routing will try to walk through it.
+##   hazards      every armed socket of every live room, `id` made unique per
+##                room and `socket` carrying the catalog name.
+##   spawn_player where the atlas says this campaign wakes.
+##   spawn_pursuer  behind the player, on the trail. See pursuer_spawn().
+##   defects      MUST be present and empty. DreamMazeRoot treats a missing
+##                key as ["unbuilt"] and bails before building anything.
+##   mirrored/edges/slot/seed_hex  emitted by the chain builder and read by
+##                nothing; not carried forward.
+func write_plan(plan: Dictionary, player_key: String) -> void:
+	var modules: Array = []
+	var doors: Array = []
+	var hazards: Array = []
+	for key in _live:
+		var room: Dictionary = _live[key]
+		modules.append({"id": str(key), "rect": room.rect})
+		for door in room.doors:
+			if bool(door.sealed) or str(door.leads_to).is_empty():
+				continue
+			doors.append({
+				"from": str(key),
+				"to": str(door.leads_to),
+				"axis": str(door.axis),
+				"aperture": door.aperture,
+				"width": float(door.width),
+				"height": float(door.height),
+				"clear_ceiling": float(door.clear_ceiling),
+			})
+		for record in room.hazards:
+			var socket := str(record.id)
+			if not armed.has(socket):
+				continue
+			var copy: Dictionary = record.duplicate(true)
+			copy["socket"] = socket
+			copy["id"] = "%s%s" % [socket, str(key)]
+			copy["module"] = str(key)
+			hazards.append(copy)
+	plan["modules"] = modules
+	plan["doors"] = doors
+	plan["hazards"] = hazards
+	plan["defects"] = []
+	var here: Dictionary = _live.get(player_key, {})
+	if not here.is_empty():
+		var r: Array = here.rect
+		plan["spawn_player"] = [(r[0] + r[2]) * 0.5, (r[1] + r[3]) * 0.5]
+	var far := pursuer_spawn(player_key)
+	if not far.is_empty():
+		plan["spawn_pursuer"] = far
+	elif not plan.has("spawn_pursuer"):
+		plan["spawn_pursuer"] = plan.get("spawn_player", [0.0, 0.0])
 
 
 # ── GEOMETRY ──────────────────────────────────────────────────────────────

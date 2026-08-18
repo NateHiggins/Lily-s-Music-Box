@@ -30,6 +30,13 @@ var _outcome_committed := false
 var dream_context: Dictionary = {}
 var start_marker: Marker3D
 var plan: Dictionary = {}
+## The fractal, when it is the world. Null on the chain path.
+var rooms: DreamRoomBuilder
+## Which room the body is in, as a path and as its key. Only meaningful on the
+## fractal path; the chain has no such notion because every module is always
+## present.
+var _here_path := PackedInt32Array()
+var _here_key := ""
 var player: PlayerController
 var pursuer: DreamPursuer
 var hazards: DreamHazardField
@@ -126,7 +133,107 @@ func _ready() -> void:
 
 
 func start_module_id() -> String:
+	if fractal_enabled() and not _here_key.is_empty():
+		return _here_key
 	return START_MODULE_ID
+
+
+## THE FRACTAL IS OPT-IN WHILE IT IS BEING BROUGHT UP, AND THIS IS TEMPORARY.
+##
+## The ruled dream world is the fractal (owner, 2026-08-17: "the fractal is the
+## dream world. it contains multitudes"). The linear chain it replaces is still
+## the default here for exactly one reason: roughly a third of the 206 checks
+## across five suites are written against chain facts -- module ids, chain
+## indices, global placement -- and flipping the default before those are
+## re-authored would turn a readable set of failures into one silent
+## push_error and a null player. The flag lets the fractal be built, walked and
+## measured against the real runtime while main stays green, and it should be
+## deleted the moment the suites are moved over.
+static func fractal_enabled() -> bool:
+	return OS.get_environment("DREAM_FRACTAL") == "1"
+
+
+## Build the pocket and hand it to the plan. Returns false when the world could
+## not be made, in which case the caller must not continue: a plan with no
+## rooms would put the body at the origin, outside everything.
+func _build_fractal(seed_hex: String) -> bool:
+	var atlas := DreamAtlas.new()
+	# The two clocks the director stamped onto this passage. `night_index` is
+	# how forgotten the building is; `spawn_anchor` is where the campaign
+	# wakes, and it holds until a case is solved (owner ruling 2026-08-18).
+	atlas.setup(seed_hex, int(dream_context.get("night_index", 0)))
+	rooms = DreamRoomBuilder.new()
+	rooms.setup(atlas, profile_hazards.get("allow", []))
+	_here_path = atlas.spawn_path(int(dream_context.get("spawn_anchor", 0)))
+	_here_key = DreamRoomBuilder.key_of(_here_path)
+	rooms.advance(self, _here_path)
+	if rooms.room_at_key(_here_key).is_empty():
+		push_error("dream fractal could not place the waking room")
+		plan = {"defects": ["fractal spawn unplaceable"]}
+		return false
+	# In place from here on: the pursuer takes this dictionary by reference
+	# once and nothing ever re-hands it over.
+	plan = {}
+	rooms.write_plan(plan, _here_key)
+	return true
+
+
+## Roll the pocket when the body crosses into a different room. The pocket is
+## short-term memory, so this is also the moment rooms behind are forgotten and
+## the space they held is reclaimed.
+func _follow_player() -> void:
+	if rooms == null or player == null or _here_key.is_empty():
+		return
+	var at := rooms.nav_room_at(player.position.x, player.position.z)
+	if at.is_empty() or at == _here_key:
+		return
+	var moved := rooms.path_of(at)
+	if moved.is_empty() and at != DreamRoomBuilder.key_of(PackedInt32Array()):
+		return
+	_here_key = at
+	_here_path = moved
+	rooms.advance(self, _here_path)
+	rooms.write_plan(plan, _here_key)
+	# Re-arm rather than re-setup: setup() would zero the run clock every
+	# fairness number is measured against. See DreamHazardField.rearm.
+	if hazards != null:
+		hazards.rearm(plan, profile_hazards)
+	_rebuild_practicals()
+	_collect_molten_materials()
+	_carry_pursuer()
+
+
+## THE TENANT IS NOT IN THE BUILDING. IT IS IN THE DREAM.
+##
+## The pocket is short-term memory, so a player who keeps walking forward will
+## eventually have the room the Tenant was standing in forgotten out from under
+## it. On the chain that could not happen — every module existed for the whole
+## passage — and the consequence here is severe rather than cosmetic: a body
+## outside every live room resolves to no room, and DreamPursuer takes an empty
+## route as licence to walk a straight line to the player, through whatever
+## architecture is in the way.
+##
+## So when the building forgets where it was, it is simply somewhere else: on
+## the trail, behind the player, exactly where a pursuer_spawn would put it.
+##
+## THIS IS A MECHANIC AND IT WANTS AN OWNER RULING. Outrunning the building's
+## memory now buys distance — push forward hard enough and the thing chasing
+## you is put back behind you. It is bounded (the slot's run ceiling is 28 s
+## for Mina, and _cap_fold closes the passage regardless), and it gives the
+## player a reason to go ON rather than to backtrack, which is the direction
+## the brief wants them pushed. But it is a real reprieve that the ring never
+## offered, and it should be a decision rather than a side effect.
+func _carry_pursuer() -> void:
+	if pursuer == null or rooms == null or pursuer.is_captured:
+		return
+	if rooms.nav_room_at(pursuer.position.x, pursuer.position.z) != "":
+		return
+	var behind := rooms.pursuer_spawn(_here_key)
+	if behind.is_empty():
+		return
+	# Position only. reset_run would zero the pursuit clock, and being
+	# forgotten is not the same event as the run cap folding.
+	pursuer.position = Vector3(behind[0], 0.0, behind[1])
 
 
 func _build_world() -> void:
@@ -137,12 +244,20 @@ func _build_world() -> void:
 	var seed_hex := str(dream_context.get("seed_hex", ""))
 	var slot := int(profile.get("campaign_slot", 1))
 	var catalog := DreamMazeBuilder.load_catalog()
-	plan = DreamMazeBuilder.assemble(catalog, seed_hex, slot)
+	var constants: Dictionary = catalog.get("constants", {})
+	# The allowlist has to be known before any geometry, on either path: only
+	# an armed void gets its mouth cut, and the fractal's fairness clamp only
+	# pays for hazards that can actually fire.
+	profile_hazards = profile.get("hazards", {})
+	if fractal_enabled():
+		if not _build_fractal(seed_hex):
+			return
+	else:
+		plan = DreamMazeBuilder.assemble(catalog, seed_hex, slot)
 	if not (plan.get("defects", ["unbuilt"]) as Array).is_empty():
 		push_error("dream maze assembly defects: %s" % str(plan.defects))
 		return
 	_build_environment()
-	var constants: Dictionary = catalog.get("constants", {})
 	var clear_ceiling := float(constants.get("clear_ceiling_m", 3.015))
 	# THE RUN CEILING IS AUTHORED AND HAS NEVER BEEN READ. The catalog
 	# carries campaign_run_ceilings_s [28, 38, 50, 62, 76, 90] and no
@@ -150,11 +265,9 @@ func _build_world() -> void:
 	# forever. Slot 1 is Mina's 28 seconds.
 	var ceilings: Array = constants.get("campaign_run_ceilings_s", [])
 	run_cap_s = float(ceilings[slot - 1]) if slot >= 1 			and slot <= ceilings.size() else 0.0
-	# The allowlist must be read BEFORE the geometry, because the geometry
-	# depends on it: only an armed void gets its mouth cut.
-	profile_hazards = profile.get("hazards", {})
-	DreamMazeBuilder.build_geometry(self, plan, clear_ceiling,
-			profile_hazards.get("allow", []))
+	if not fractal_enabled():
+		DreamMazeBuilder.build_geometry(self, plan, clear_ceiling,
+				profile_hazards.get("allow", []))
 	maze_built = true
 
 	var spawn: Array = plan.spawn_player
@@ -182,6 +295,8 @@ func _build_world() -> void:
 
 	pursuer = DreamPursuer.new()
 	add_child(pursuer)
+	# Before setup: setup reads spawn_pursuer and computes its first route.
+	pursuer.rooms = rooms
 	pursuer.setup(plan, profile.get("pursuit", {}), player, seed_hex)
 	pursuer.captured.connect(_on_captured)
 
@@ -779,12 +894,22 @@ func _build_practicals() -> void:
 	# by chain position. The fixture belongs just through it: aperture centre,
 	# stepped into the room beyond, so it reads from the near side as a warm
 	# room you have not reached.
+	# The room beyond is found BY NAME, not by chain position. `plan.doors[i]
+	# .to` already says which room the opening leads to, and taking
+	# `plan.modules[i + 1]` instead only worked because the chain guaranteed
+	# door i joined module i to module i+1. The fractal has no such ordering
+	# -- the doors of one room lead in four directions at once -- and the
+	# index form would read a neighbour's rect for a door that has nothing to
+	# do with it, or run off the end of the array. The lookup below is
+	# identical on the chain and correct on the pocket.
 	for i in plan.doors.size():
 		var aperture: Array = plan.doors[i].aperture
 		var mouth := Vector3(
 				(float(aperture[0]) + float(aperture[2])) * 0.5, PRACTICAL_Y,
 				(float(aperture[1]) + float(aperture[3])) * 0.5)
-		var beyond: Array = plan.modules[i + 1].rect
+		var beyond := _rect_of(str(plan.doors[i].to))
+		if beyond.is_empty():
+			continue
 		var inward := Vector3(
 				(float(beyond[0]) + float(beyond[2])) * 0.5, PRACTICAL_Y,
 				(float(beyond[1]) + float(beyond[3])) * 0.5) - mouth
@@ -803,6 +928,39 @@ func _build_practicals() -> void:
 		_practicals.append(practical)
 
 
+## One room's clear footprint by name, or empty if the plan has no such room.
+## Empty is a real answer in the fractal: a door can lead to a room that has
+## since been freed from the pocket.
+func _rect_of(id: String) -> Array:
+	for entry in plan.get("modules", []):
+		if str(entry.id) == id:
+			return entry.rect
+	return []
+
+
+## The index in `_practicals` of the first fixture standing beyond a door out
+## of `id`, or -1 when that room has none. Practicals are built in plan.doors
+## order, so the two lists index alike.
+func _first_door_from(id: String) -> int:
+	for i in plan.get("doors", []).size():
+		if str(plan.doors[i].from) == id:
+			return i
+	return -1
+
+
+## The pocket moved, so the fixtures beyond its doors have to move with it.
+## Rebuilt wholesale rather than diffed: a room is a handful of doors and this
+## happens on a threshold crossing, not per frame. The lit index is dropped so
+## _update_practical picks again from the room the body is now in.
+func _rebuild_practicals() -> void:
+	for practical in _practicals:
+		if is_instance_valid(practical):
+			practical.queue_free()
+	_practicals.clear()
+	_lit_practical = -1
+	_build_practicals()
+
+
 ## Which module the body is standing in, or -1 outside them all.
 func _module_index_at(p: Vector3) -> int:
 	for i in plan.modules.size():
@@ -817,15 +975,30 @@ func _module_index_at(p: Vector3) -> int:
 func _update_practical() -> void:
 	if _practicals.is_empty() or player == null:
 		return
-	var here := _module_index_at(player.global_position)
-	if here < 0:
+	var wanted := -1
+	if fractal_enabled():
+		# THE LIGHT PICKS A DOOR. The chain could say "practical i stands
+		# beyond door i, so your module index is your fixture" because there
+		# was one way on. A room in the fractal offers two to four, so the
+		# fixture is the first door out of the room the body is actually in --
+		# which turns the guiding light from a corridor marker into a LURE.
+		# It is still exactly one, it is still beyond an opening the player
+		# has not reached, and now it is also an opinion about which way to
+		# go, in a building that will not confirm it.
+		wanted = _first_door_from(_here_key)
+	else:
+		var here := _module_index_at(player.global_position)
+		if here < 0:
+			return
+		# Practical `i` stands beyond door `i`, the connector out of module
+		# `i`. So the body's own module index IS the fixture it should be
+		# walking toward. The last module has no door ahead and keeps the
+		# previous one lit, which is the ruled ending: the guiding light was
+		# never a reachable exit, and at the riser end it burns beyond a
+		# sealed grille.
+		wanted = mini(here, _practicals.size() - 1)
+	if wanted < 0 or wanted >= _practicals.size():
 		return
-	# Practical `i` stands beyond door `i`, the connector out of module `i`.
-	# So the body's own module index IS the fixture it should be walking
-	# toward. The last module has no door ahead and keeps the previous one
-	# lit, which is the ruled ending: the guiding light was never a reachable
-	# exit, and at the riser end it burns beyond a sealed grille.
-	var wanted: int = mini(here, _practicals.size() - 1)
 	if wanted == _lit_practical:
 		return
 	# The first one is free: nothing is burning yet, so nothing can be seen to
@@ -855,6 +1028,11 @@ func _practical_is_visible(index: int) -> bool:
 
 func _physics_process(delta: float) -> void:
 	if maze_built:
+		# BEFORE anything reads the plan this frame. Crossing a threshold
+		# rebuilds the pocket, and the practicals, hazards and molten
+		# materials all key off rooms that may have just been forgotten.
+		if fractal_enabled():
+			_follow_player()
 		_update_practical()
 		_update_hazard_visuals()
 		_update_molten()
@@ -886,6 +1064,18 @@ func _physics_process(delta: float) -> void:
 ## final campaign slot and to a ring Mina's chain does not reach.
 func _cap_fold() -> void:
 	if pursuer == null or player == null or _outcome_committed:
+		return
+	if fractal_enabled():
+		# NO TERMINAL MODULE TO FOLD TOWARD. The chain could name D05 as the
+		# far end of a route that had one; a building that does not close has
+		# no last room, so the fold instead brings the Tenant to the doorway
+		# the body came in through -- behind them, in the room they are
+		# standing in. That is still topology closing the distance rather than
+		# rubber-banding: it is a real place, reachable by a real route, and
+		# it is the one place the player cannot already be looking at.
+		var behind := rooms.entry_waypoint(_here_key) if rooms != null \
+				else Vector3.ZERO
+		pursuer.reset_run(_flat(behind))
 		return
 	var here := DreamMazeBuilder.nav_module_at(
 			plan, player.position.x, player.position.z)

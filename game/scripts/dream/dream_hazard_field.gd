@@ -48,12 +48,48 @@ func setup(plan: Dictionary, profile_hazards: Dictionary,
 	var allow: Array = profile_hazards.get("allow", [])
 	var tuning: Dictionary = profile_hazards.get("tuning", {})
 	for record in plan.get("hazards", []):
-		var hid := str(record.get("id", ""))
-		if not allow.has(hid):
+		# Arm and tune on the SOCKET, identify on the id. They are the same
+		# string on the chain path; the fractal can place one catalog socket
+		# in several live rooms at once, and the allowlist is written against
+		# the socket, not against the instance.
+		var socket := str(record.get("socket", record.get("id", "")))
+		if not allow.has(socket):
 			continue
 		var hazard := DreamHazard.new()
-		hazard.configure(record, tuning.get(hid, {}))
+		hazard.configure(record, tuning.get(socket, {}))
 		hazards.append(hazard)
+
+
+## Re-arm against a CHANGED pocket without restarting the run.
+##
+## setup() cannot be used for this. It zeroes elapsed_s and clears both logs,
+## and elapsed_s is the run clock every realised-warning number in Gate C is
+## measured against -- re-calling it whenever a room was built or freed would
+## silently reset the clock mid-passage and make the fairness evidence
+## meaningless. So this keeps the clock, keeps the logs, and keeps the LIVE
+## HAZARD OBJECTS for records that are still present, because a hazard that
+## has already started telling must go on telling rather than begin again the
+## moment the player crosses a threshold.
+func rearm(plan: Dictionary, profile_hazards: Dictionary) -> void:
+	var allow: Array = profile_hazards.get("allow", [])
+	var tuning: Dictionary = profile_hazards.get("tuning", {})
+	var wanted := {}
+	for record in plan.get("hazards", []):
+		var socket := str(record.get("socket", record.get("id", "")))
+		if allow.has(socket):
+			wanted[str(record.get("id", ""))] = record
+	var kept: Array[DreamHazard] = []
+	for hazard in hazards:
+		if wanted.has(hazard.id):
+			kept.append(hazard)
+			wanted.erase(hazard.id)
+	for hid in wanted:
+		var record: Dictionary = wanted[hid]
+		var hazard := DreamHazard.new()
+		hazard.configure(record, tuning.get(str(record.get("socket",
+				record.get("id", ""))), {}))
+		kept.append(hazard)
+	hazards = kept
 
 
 ## One deterministic step. Returns "" or the outcome of the first hazard
