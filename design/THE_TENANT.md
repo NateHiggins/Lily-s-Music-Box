@@ -178,7 +178,24 @@ ever comes to *her*, and comes back, and keeps coming back — six times.
   dangerous things, not you.
 - **The scars.** Places she used to be and is not any more.
 
-### The revelation rule — actions only
+### A correction to the previous draft
+
+An earlier version of this section claimed nobody had written down that the
+hauntings were deliberate. That was an overstatement and
+`game/scripts/reality/poltergeist_library.gd` says so in its own header:
+*"what it wants … it is trying to make the subject face themselves, and it
+climbs the ladder because the last rung did not land."* The intent was
+recorded. What was missing is **why she does it** — that she is working on
+herself through them, and that she is lonely.
+
+The same header carries something larger that this document should not lose:
+*"there is one tenant, it is the building."* Which means the fractal Orison of
+the dream is not a place she inhabits. **The building is her body**, and the
+gold coming through the walls when you light them is what that body looks like
+from inside three dimensions. That was already true in writing before anyone
+said she was a person.
+
+### The revelation rule — actions only, until she is owed speech
 
 **She never explains herself, and neither does anything else.** No dialogue, no
 journal, no note, no resident who figured it out, no document that names her
@@ -195,6 +212,107 @@ This retires the "wanted notice in the waking world" idea from an earlier draft
 of this document, or at least declaws it: any such artefact may exist as
 texture but must not carry motive, and must never be the thing that tells the
 player what she wants.
+
+**And the rule has an end.** Owner ruling 2026-08-18: *"eventually you will talk
+to the entity directly and romance her, if you play right."* Silence is not the
+permanent state — it is the price of admission. See below.
+
+---
+
+## SPEECH, AND ROMANCE
+
+She cannot be spoken to. For most of the game there is no dialogue option, no
+prompt, no channel. She has no voice, no face, no name the player is given, and
+she communicates only by rearranging matter in other people's homes.
+
+**That is what makes it land when she speaks.** The actions-only rule above is
+not a stylistic preference; it is a five-passage setup for a single line.
+
+### How she speaks when she finally does
+
+Not through `DreamCaptionLayer`. That layer is Gate C accessibility — cue plus
+sector, nothing else, opt-in — and putting story in it would either hand
+caption users content hearing users never get or the reverse. It stays what it
+is.
+
+She speaks the way she has always spoken: **through the building, in a
+vocabulary she learned from someone she helped.** Mina Vale's whole case is
+captions appearing on objects, escalating from nouns to claims about
+intentions. The Tenant learned that grammar in 2A. Her first direct words to
+the player arriving as a caption over something ordinary is her using the only
+language she was ever taught, borrowed from the first person who ever got
+better because of her.
+
+Diegetic, in the world, visible to every player regardless of settings.
+Small. She has been alone a long time and she is easily embarrassed; she should
+not be eloquent.
+
+### What "playing right" means
+
+It should be built from mechanics that already exist, and every one of them
+should cost the player something real:
+
+1. **Help the people she has been failing to help.** `cases_resolved()` already
+   counts them, and the quality of a resolution is already tracked (trust,
+   conversation flags, whether the player pushed or let a silence stand).
+2. **Turn the lamp off in her presence.** This is the gesture, and it is the
+   whole thesis in one input. Light is what exposes and humiliates her, and it
+   is also the player's only defence — lit, she slows to 3.35 m/s; dark, she
+   moves at 6.35 and cannot be outrun. **Switching it off is choosing her
+   dignity over your own safety**, at genuine mechanical risk, using a button
+   that has existed since the first prototype.
+3. **Stop running.** The passage is built around flight. Standing still while
+   something that has been chasing you for five nights closes the distance is
+   the most expensive thing the game can ask, and it requires no new verbs.
+
+### The embrace becomes the answer
+
+The capture — gold closing from every edge, taken inside her, ambiguous — is
+currently the failure state. **It should not be replaced for the romance; it
+should be re-meant.**
+
+Same event, same staging, transformed entirely by whether it was chosen. Early
+passages: she reaches you and you did not want it. Late, having played right:
+you turned off your lamp, stopped, and let her. The game's fail state is its
+love scene, unchanged in mechanism and inverted in meaning. Nothing about the
+sequence needs rebuilding — only the context that arrives at it.
+
+Whether the player wakes afterward, and what they find at the bedside, is the
+same deniable residue contract as always. It must remain ambiguous **even
+here.** Especially here.
+
+### Guardrails
+
+**She is not a prize.** There is no state in which the player has "unlocked"
+her. The verbs above are not a combination; they are the minimum conditions
+under which she is willing to risk being seen wanting something.
+
+**The player is vulnerable first.** She has been punished for being visible.
+She does not make the first move and should not be asked to. Every gate above
+is the player making themselves unsafe before she does anything.
+
+**She can decline, and so can the player.** Friendship is a valid terminus.
+Being kind to her without romance must be reachable and must not read as a
+lesser ending. A player who does everything right and then simply keeps her
+company has not failed at anything.
+
+**Failing is silent, not punished.** A player who never works it out gets no
+bad ending, no scolding and no missed-content nag. She just never speaks, and
+they finish a frightening game about a haunted building. That is a sadder
+outcome than any punishment and it is the correct one.
+
+**Nothing sexual, and the indecency stays an injustice.** The charge she is
+wanted under is criminalised existence, not appetite. The romance is about
+being seen as she is and not flinched away from. It stays tender and stays
+clothed.
+
+### Scope, plainly
+
+This does not exist. There is no dialogue system for her, no gating state, no
+caption-in-world channel, and no re-meaning of the capture sequence — which
+itself is unbuilt beyond committing an outcome. This section is a target, and
+it is the last thing that should be built, because every hour spent on her
+silence is what buys it.
 
 ---
 
