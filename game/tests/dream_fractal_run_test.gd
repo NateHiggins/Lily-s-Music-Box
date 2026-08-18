@@ -98,6 +98,26 @@ func _block_a_builds() -> void:
 		seen[hid] = true
 	_check("no two live hazards share an id (%d duplicates)" % dupes,
 			dupes == 0)
+	# YOU MUST NOT WAKE INSIDE A HAZARD. The chain never had to ask -- it
+	# always began at D00, which carries no sockets -- so nothing anywhere
+	# checked it. The fractal wakes the player wherever the seed points, and a
+	# waking room holding the lift void would drop them through the floor in
+	# the first frame of the dream, with no warning and no chance to act.
+	var worst := INF
+	var owed_by := ""
+	for hazard in root.hazards.hazards:
+		var owed: float = hazard.clearance_radius \
+				+ 4.6 * hazard.minimum_warning_s
+		var gap := Vector2(root.player.position.x - hazard.position.x,
+				root.player.position.z - hazard.position.z).length() - owed
+		if gap < worst:
+			worst = gap
+			owed_by = hazard.socket
+	_check("the waking place owes no hazard warning it cannot pay " \
+			+ "(worst %.2f m spare, %s)"
+			% [0.0 if worst == INF else worst,
+			owed_by if owed_by != "" else "no armed hazard"],
+			worst == INF or worst >= 0.0)
 	_check("and the armed ones still carry their catalog socket",
 			root.hazards == null or root.hazards.hazards.is_empty()
 			or str(root.hazards.hazards[0].socket) != "")

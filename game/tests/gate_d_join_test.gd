@@ -551,9 +551,14 @@ func _dream_entry() -> void:
 			and shell.world_child_count() == 1
 			and entered_count == 1
 			and world_sequence == ["waking", "dream"])
+	# The literal D00 was retired by the owner ruling of 2026-08-18 -- the
+	# waking room is now wherever the campaign seed put this case, and there
+	# is no entrance to name. What this check was ever really asking is that
+	# a REAL maze got built rather than a boundary payload: a named starting
+	# room, a Tenant, a hazard field and a run ceiling.
 	_check("the dream that built is the production maze, not a payload",
 			maze != null and maze.maze_built
-			and maze.start_module_id() == "D00_4B_THRESHOLD"
+			and not maze.start_module_id().is_empty()
 			and maze.pursuer != null and maze.hazards != null
 			and maze.run_cap_s > 0.0)
 	_check("the maze was assembled from the shift's own committed seed",

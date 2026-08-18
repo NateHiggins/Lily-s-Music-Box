@@ -166,6 +166,9 @@ func _build_fractal(seed_hex: String) -> bool:
 	rooms.setup(atlas, profile_hazards.get("allow", []))
 	_here_path = atlas.spawn_path(int(dream_context.get("spawn_anchor", 0)))
 	_here_key = DreamRoomBuilder.key_of(_here_path)
+	# Before the first advance, so the geometry is cut knowing this room will
+	# never arm. See DreamRoomBuilder.waking_key.
+	rooms.waking_key = _here_key
 	rooms.advance(self, _here_path)
 	if rooms.room_at_key(_here_key).is_empty():
 		push_error("dream fractal could not place the waking room")

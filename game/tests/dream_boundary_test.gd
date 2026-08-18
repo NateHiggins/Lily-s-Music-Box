@@ -76,12 +76,12 @@ func _ready() -> void:
 	_check("the waking place survives a reload unchanged",
 			int(shell.dream_director.context().spawn_anchor) == anchor)
 	_check("entered restore reconstructs the dream as the only world",
-			_exclusive("dream") and _dream_restarts_at_d00()
+			_exclusive("dream") and _dream_restarts_identically()
 			and _facts_intact(false))
 	var first_dream_id := shell.active_world.get_instance_id()
 	await _reload("active", "active")
-	_check("active restore rebuilds the same identity at D00, not a chase frame",
-			_exclusive("dream") and _dream_restarts_at_d00()
+	_check("active restore rebuilds the same identity in the same room, not a chase frame",
+			_exclusive("dream") and _dream_restarts_identically()
 			and shell.active_world.get_instance_id() != first_dream_id
 			and str(shell.dream_director.dream_state().seed_hex)
 					== FIXED_SEED_HEX)
@@ -205,9 +205,32 @@ func _exclusive(expected: String) -> bool:
 			and dream == (1 if expected == "dream" else 0)
 
 
-func _dream_restarts_at_d00() -> bool:
+## The room a restored dream restarts in must be THE SAME ROOM, every time,
+## and never a live chase frame.
+##
+## This used to read `start_module_id() == "D00_4B_THRESHOLD"`. Owner ruling
+## 2026-08-18 retired that: "each new game start at a random seed location in
+## the maze until a case is solved and a new start position is chosen." There
+## is no entrance to name any more.
+##
+## What the boundary contract actually needed was never the literal D00 -- it
+## was RECONSTRUCTION: reload the same committed transaction and you must get
+## the same world back. So the first answer is remembered and every later one
+## is held to it, which is a strictly stronger check than comparing against a
+## constant, and it is the same check on both worlds.
+var _restart_room := ""
+
+
+func _dream_restarts_identically() -> bool:
 	var root := shell.active_world as DreamMazeRoot
-	return root != null and root.start_module_id() == "D00_4B_THRESHOLD" \
+	if root == null:
+		return false
+	var room := root.start_module_id()
+	if room.is_empty():
+		return false
+	if _restart_room.is_empty():
+		_restart_room = room
+	return room == _restart_room \
 			and str(root.dream_context.get("case_id")) == CASE \
 			and str(root.dream_context.get("profile_id")) == PROFILE \
 			and str(root.dream_context.get("seed_hex")) == FIXED_SEED_HEX

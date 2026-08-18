@@ -131,6 +131,25 @@ var door_h := 2.13
 ## decision, and the fairness clamp must only pay for hazards that can fire.
 var armed: Array = []
 
+## THE ROOM YOU OPEN YOUR EYES IN DOES NOT ARM.
+##
+## Every other room's fairness rests on the APPROACH. A hazard's tell is not
+## occluded, so it crosses the wall and starts sounding while the player is
+## still in the previous room, walking toward the door -- that approach is
+## where the owed seconds are actually spent, and it is why six of the eight
+## authored sockets survive Gate C despite being short at their own doorway.
+##
+## The waking room has no approach. The player is not walking in; they are
+## simply there, with the whole of their warning already behind them. Moving
+## the spawn cannot fix it either: the room the seed picked for this campaign
+## may be D05, 2.08 m deep with the signal trunk at its centre, where no point
+## at all clears the 4.49 m that socket owes.
+##
+## So it does not arm, and the geometry agrees -- no mouth is cut for a void
+## that cannot fire. One quiet room in an infinite building, and the player
+## gets a moment before the dream starts hunting them.
+var waking_key := ""
+
 ## key -> room record. The pocket. Never the building.
 var _live: Dictionary = {}
 ## key -> Node3D of built geometry, parallel to _live.
@@ -964,6 +983,72 @@ func pursuer_spawn(player_key: String) -> Array:
 
 # ── THE POCKET AS A PLAN ──────────────────────────────────────────────────
 
+## WHERE IN THE WAKING ROOM IT IS SAFE TO OPEN YOUR EYES.
+##
+## The chain never had to ask: the passage always began at D00, and D00 carries
+## no hazard sockets. The fractal wakes the player in whatever room the seed
+## picked, and that room may hold the lift void or the signal trunk -- so the
+## room centre, which is what the chain used, can be inside a hazard's
+## clearance radius. The player then falls or is burned in the first frame of
+## the dream, having been given no warning at all and no chance to act. It is
+## the least fair thing this world could possibly do, and it is invisible until
+## the seed happens to pick such a room.
+##
+## The waking room owes the player exactly what every other room owes them:
+## clearance plus the seconds of warning the socket promises, at running speed.
+## That is the same owed radius the fairness clamp protects, so the two agree
+## by construction rather than by coincidence.
+##
+## Sampled on a fixed grid rather than solved, because the answer only has to
+## be good and deterministic, and a grid is both. If nothing clears the owed
+## radius the furthest point still wins -- a bad waking spot in a cramped room
+## is survivable, and refusing to place the player at all is not.
+func safe_spawn(room: Dictionary) -> Array:
+	var r: Array = room.rect
+	var live: Array = []
+	if str(room.get("key", "")) != waking_key:
+		# The waking room does not arm at all, so there is nothing here to
+		# stand clear of. Asking anyway would warn about a hazard that will
+		# never fire.
+		for record in room.hazards:
+			if armed.has(str(record.id)):
+				live.append(record)
+	var centre := [(r[0] + r[2]) * 0.5, (r[1] + r[3]) * 0.5]
+	if live.is_empty():
+		return centre
+	# Keep the body off the walls by more than its own radius.
+	var inset := 0.6
+	var x0: float = float(r[0]) + inset
+	var x1: float = float(r[2]) - inset
+	var z0: float = float(r[1]) + inset
+	var z1: float = float(r[3]) - inset
+	if x1 <= x0 or z1 <= z0:
+		return centre
+	var best := centre
+	var best_clear := -1.0
+	for ix in 7:
+		for iz in 7:
+			var p := Vector2(lerpf(x0, x1, float(ix) / 6.0),
+					lerpf(z0, z1, float(iz) / 6.0))
+			var clear := INF
+			for record in live:
+				var h: Array = record.position
+				var owed := float(record.clearance_radius_m) \
+						+ run_speed * float(record.minimum_warning_s)
+				# Measured as a shortfall against what THIS socket owes, so a
+				# generous hazard and a tight one are compared fairly rather
+				# than by raw metres.
+				clear = minf(clear, p.distance_to(Vector2(h[0], h[1])) - owed)
+			if clear > best_clear:
+				best_clear = clear
+				best = [p.x, p.y]
+	if best_clear < 0.0:
+		push_warning(("dream: waking room %s cannot give full owed warning "
+				+ "from any spawn point (short by %.2f m)")
+				% [str(room.key), -best_clear])
+	return best
+
+
 ## Write the live pocket into `plan` IN PLACE, in the shape DreamMazeRoot and
 ## everything downstream of it already reads.
 ##
@@ -1007,7 +1092,7 @@ func write_plan(plan: Dictionary, player_key: String) -> void:
 			})
 		for record in room.hazards:
 			var socket := str(record.id)
-			if not armed.has(socket):
+			if not armed.has(socket) or str(key) == waking_key:
 				continue
 			var copy: Dictionary = record.duplicate(true)
 			copy["socket"] = socket
@@ -1020,8 +1105,7 @@ func write_plan(plan: Dictionary, player_key: String) -> void:
 	plan["defects"] = []
 	var here: Dictionary = _live.get(player_key, {})
 	if not here.is_empty():
-		var r: Array = here.rect
-		plan["spawn_player"] = [(r[0] + r[2]) * 0.5, (r[1] + r[3]) * 0.5]
+		plan["spawn_player"] = safe_spawn(here)
 	var far := pursuer_spawn(player_key)
 	if not far.is_empty():
 		plan["spawn_pursuer"] = far
@@ -1129,6 +1213,12 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 ## IS its place, and only an armed one gets a real hole cut for it.
 func _room_holes(room: Dictionary) -> Array:
 	var holes: Array = []
+	if str(room.get("key", "")) == waking_key:
+		# Geometry and arming must come from one decision, exactly as
+		# DreamMazeBuilder.build_geometry argues: cutting a mouth for a void
+		# that will never be armed leaves a real 6 m shaft nothing can
+		# attribute, and the body falls into a pit in a run with no way to end.
+		return holes
 	for record in room.hazards:
 		if str(record.get("kind", "")) != "positional":
 			continue

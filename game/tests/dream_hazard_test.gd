@@ -396,9 +396,18 @@ func _spawn_root() -> DreamMazeRoot:
 	return next
 
 
-func _hazard(hid: String) -> DreamHazard:
+## Find an armed hazard by its CATALOG SOCKET, not by its instance id.
+##
+## They were the same string while the chain placed each module at most once.
+## The fractal can hold several live rooms all remembering D03, so `id` is now
+## unique per room and only `socket` names the authored thing this suite is
+## actually asking about. Matching on `id` returned null here, and every caller
+## dereferences the result — so the blocks did not fail, they errored, which is
+## a worse outcome than a red check because it takes the rest of the block with
+## it. Falls back to `id` so a record without a socket still resolves.
+func _hazard(socket: String) -> DreamHazard:
 	for h in root.hazards.hazards:
-		if h.id == hid:
+		if h.socket == socket or h.id == socket:
 			return h
 	return null
 
