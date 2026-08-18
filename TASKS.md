@@ -872,11 +872,28 @@ frame, no sash, no sill, no reveal and no lintel, which is why they read as
 holes with something shiny in them rather than as windows, from the street and
 from the room alike. The blinds are the only window furniture in the building.
 
-NOT ESTABLISHED, and it should be before work starts: whether 96 quads per
-storey actually covers every opening, or only some of them. The opening
-records are nested differently from the shape assumed when counting, so the
-ratio of panes to openings is unknown — and "some of the windows" in the
-original report may be literal.
+**SETTLED, and it sizes the job.** The building carries **172 window openings**
+in `walls[].openings[]`, of which **56 are `decorative_alcove`** — and those
+are deliberately unglazed; `gen_layout.py:2147` says an alcove "gets a finished
+reveal and sill, never glazing". That leaves **116 glazed openings**.
+
+The glazing geometry matches them exactly. The panes are BOXES, not quads, at
+12 triangles each: 192 tris per storey is 16 boxes, and every storey has 24
+openings minus 8 alcoves = 16 glazed. The roof's 48 tris are 4 boxes against 4
+openings, no alcoves.
+
+| | B1–F06 (×7) | ROOF | total |
+|---|---|---|---|
+| openings | 24 each | 4 | 172 |
+| decorative alcoves | 8 each | 0 | 56 |
+| glazed openings | 16 each | 4 | **116** |
+| panes in geometry | 16 each | 4 | **116** |
+
+So no pane is missing and "some of the windows" is not literal — every window
+that should have glass has glass. **The entire fault is the absent joinery**,
+which makes this a bounded generator pass rather than an investigation: 116
+openings want a frame, sash, sill and reveal, and the 56 alcoves want checking
+against the reveal and sill their own code comment promises them.
 
 **What a window needs, in the order it would be built:** a lining to the
 reveal so the opening stops being a raw hole in the wall thickness; a sill
