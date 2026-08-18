@@ -308,7 +308,19 @@ static func floor_holes(plan: Dictionary, armed: Array = []) -> Array:
 	for record in plan.get("hazards", []):
 		if str(record.get("kind", "")) != "positional":
 			continue
-		if not armed.has(str(record.get("id", ""))):
+		# BY SOCKET OR BY ID, because the two builders name hazards
+		# differently and this function predates the second one. The chain's
+		# records ARE their socket -- one module, one instance -- while the
+		# pocket has to disambiguate the same socket appearing in several live
+		# rooms, so DreamRoomBuilder.write_plan emits id = socket + room key
+		# and keeps the bare socket alongside it.
+		#
+		# Matching only on id therefore cut no mouths at all on the fractal:
+		# an allowlist of catalog socket names can never equal
+		# "open_lift_void@1.3.2". The floor stayed solid over every armed void
+		# and the failure presented as four unrelated hazard faults.
+		if not (armed.has(str(record.get("id", "")))
+				or armed.has(str(record.get("socket", "")))):
 			continue
 		var p: Array = record.get("position", [])
 		if p.size() < 2:

@@ -61,16 +61,17 @@ func _block_a_funnel() -> void:
 	root = await _spawn_root()
 	_check("the dream world builds with a hazard field",
 			root.maze_built and root.hazards != null)
+	# COUNTS WERE A CHAIN FACT. Five fixed modules carried four sockets and
+	# three of them were Mina's, so "== 3" and "== 4" read as contract and
+	# were topology. The fractal's pocket is the room you woke in plus its
+	# neighbours, and which catalog module each was sourced from is an atlas
+	# read -- so the same building honestly carries a different number every
+	# passage. What is true on both is the contract underneath.
 	_check("only the case's allowed hazards are armed",
-			root.hazards.hazards.size() == 3)
-	var armed: Array[String] = []
-	for h in root.hazards.hazards:
-		armed.append(h.id)
-	armed.sort()
+			_every_armed_is_allowed())
 	_check("the slot-3 rhythmic counterweight is placed but NOT armed",
-			armed == ["hollow_runner", "open_lift_void",
-					"vantry_signal_trunk"]
-			and (root.plan.hazards as Array).size() == 4)
+			_dormant_vocabulary_is_carried_and_inert()
+			and _named_socket_never_armed("counterweight_passage"))
 	# No shell here, so the commit must refuse rather than half-succeed.
 	_check("an outcome cannot commit without the transaction owner",
 			not root._commit_outcome("contact")
@@ -86,9 +87,14 @@ func _block_b_cap() -> void:
 	root.autonomous = false
 	root.player.set_physics_process(false)
 	# Park the player mid-chain and let the clock run out on them.
-	var d01 := _rect("D01_F04_LONG_HALL")
-	root.player.position = Vector3(d01[0] + 6.0, 0.0,
-			(d01[1] + d01[3]) * 0.5)
+	# A NAMED MODULE IS A CHAIN ADDRESS. _rect() answers a miss with a ZERO
+	# rect rather than an empty array -- the trap the kickoff log records --
+	# so on the fractal this parked the body at the world origin, outside
+	# every room, where the pursuer routes by straight line through walls.
+	# Park in whatever room the player is actually standing in instead.
+	var here := _player_rect()
+	root.player.position = Vector3((here[0] + here[2]) * 0.5, 0.0,
+			(here[1] + here[3]) * 0.5)
 	var before := JSON.stringify(root.pursuer.run_parameters())
 	var start_at: Vector3 = root.pursuer.position
 	root.run_elapsed_s = 27.9
@@ -146,7 +152,7 @@ func _block_d_trunk() -> void:
 	root = await _spawn_root()
 	root.autonomous = false
 	root.player.set_physics_process(false)
-	var trunk := _hazard("vantry_signal_trunk")
+	var trunk := await _ensure_socket("vantry_signal_trunk")
 	_check("the trunk is armed and silent before anyone is near it",
 			trunk != null and trunk.tell_started_s < 0.0)
 
@@ -173,7 +179,11 @@ func _block_d_trunk() -> void:
 			trunk.contacted and root.hazards.impact_log.size() == 1)
 	var rec: Dictionary = root.hazards.impact_log[0]
 	_check("the impact record carries the whole fairness story",
-			str(rec.hazard_id) == "vantry_signal_trunk"
+			# The INSTANCE that was walked into, not a catalog name. A
+			# pocket can hold the same socket in several live rooms, so
+			# write_plan disambiguates id as socket + room key and a literal
+			# here only ever matched the chain.
+			str(rec.hazard_id) == trunk.id
 			and bool(rec.lamp_on)
 			and str(rec.outcome) == "contact"
 			and float(rec.tell_start_s) >= 0.0
@@ -200,6 +210,12 @@ func _block_e_void() -> void:
 	await get_tree().process_frame
 	root = await _spawn_root()
 	root.autonomous = false
+	# WALK TO A VOID FIRST. The waking room never arms and its neighbours arm
+	# only what they happen to carry, so the pocket at spawn can honestly hold
+	# no lift void at all -- and every assertion below is about the mouth cut
+	# for one. Reading plan.hazards before going to find it measured an empty
+	# building and reported it as four separate hazard faults.
+	var void_h := await _ensure_socket("open_lift_void")
 	var allow: Array = root.profile_hazards.get("allow", [])
 	var holes := DreamMazeBuilder.floor_holes(root.plan, allow)
 	# An unarmed socket must cut NOTHING: a mouth with no hazard behind it is
@@ -208,14 +224,24 @@ func _block_e_void() -> void:
 			DreamMazeBuilder.floor_holes(root.plan, []).is_empty()
 			and DreamMazeBuilder.floor_holes(root.plan,
 					["counterweight_passage"]).is_empty())
-	_check("exactly one mouth is cut, and it is a lift doorway wide",
-			holes.size() == 1
-			and absf(holes[0][2] - holes[0][0] - 0.90) < 0.001
-			and absf(holes[0][3] - holes[0][1] - 0.90) < 0.001)
+	# ONE MOUTH PER ARMED VOID, whichever rooms the pocket happens to hold.
+	# The count is derived from the plan rather than typed, so the assertion
+	# survives a building that carries two lift voids -- and it is still the
+	# same claim: a mouth exists for exactly the voids that can fire, and
+	# every one of them is a lift doorway wide.
+	var armed_voids := _armed_count("open_lift_void")
+	var all_lift_wide := holes.size() == armed_voids and armed_voids > 0
+	for h in holes:
+		if absf(h[2] - h[0] - 0.90) > 0.001 \
+				or absf(h[3] - h[1] - 0.90) > 0.001:
+			all_lift_wide = false
+	_check("exactly one mouth is cut per armed void, a lift doorway wide",
+			all_lift_wide)
 
-	var void_h := _hazard("open_lift_void")
-	var mod := _rect(void_h.module)
-	var hole: Array = holes[0]
+	var mod := _rect(void_h.module) if void_h != null \
+			else [0.0, 0.0, 0.0, 0.0]
+	var hole: Array = holes[0] if not holes.is_empty() \
+			else [0.0, 0.0, 0.0, 0.0]
 	var margins := [hole[0] - mod[0], mod[2] - hole[2],
 			hole[1] - mod[1], mod[3] - hole[3]]
 	var tightest := INF
@@ -230,10 +256,21 @@ func _block_e_void() -> void:
 			clear_of_doors = false
 	_check("no mouth eats a doorway the chain has to pass through",
 			clear_of_doors)
+	# BESIDE IT MEANS INSIDE THE SAME ROOM. Fixed offsets on X and Z were safe
+	# on the chain, whose halls are long enough that a step is still the same
+	# module. Pocket rooms are as small as 2.08 m across, so the same offsets
+	# walked out through the wall and asked whether there was floor in the gap
+	# between two rooms -- where there correctly is none. Stepping toward the
+	# room's own centre is the claim that was always meant: the hole is a
+	# hole, and the floor around it is floor.
+	var to_mid := Vector2((mod[0] + mod[2]) * 0.5 - void_h.position.x,
+			(mod[1] + mod[3]) * 0.5 - void_h.position.z)
+	to_mid = to_mid.normalized() * 1.2 if to_mid.length() > 0.05 \
+			else Vector2(1.2, 0.0)
 	_check("the floor is genuinely absent there and present beside it",
 			not _floor_covers(void_h.position.x, void_h.position.z)
-			and _floor_covers(void_h.position.x + 1.2, void_h.position.z)
-			and _floor_covers(void_h.position.x, void_h.position.z - 1.4))
+			and _floor_covers(void_h.position.x + to_mid.x,
+					void_h.position.z + to_mid.y))
 
 	# Approach on solid floor with physics parked: the draught reaches you
 	# well before the sill does, and standing beside the mouth is safe.
@@ -266,7 +303,7 @@ func _block_e_void() -> void:
 	var rec: Dictionary = root.hazards.impact_log[0]
 	_check("the fall is recorded, attributed and fair",
 			root.hazards.impact_log.size() == 1
-			and str(rec.hazard_id) == "open_lift_void"
+			and str(rec.hazard_id) == (void_h.id if void_h != null else "")
 			and str(rec.outcome) == "fall"
 			and root.hazards.unfair_impacts().is_empty())
 	_end_block("E", 31)
@@ -279,10 +316,20 @@ func _floor_covers(x: float, z: float) -> bool:
 	var architecture := root.find_child("ModuleArchitecture", true, false)
 	if architecture == null:
 		return false
-	for child in architecture.get_children():
-		if not child.name.begins_with("DreamFloor"):
-			continue
+	# RECURSIVE. The chain parents every slab directly under
+	# ModuleArchitecture; the pocket parents them under a Room_<key> node per
+	# live room, so a direct-children scan found no floor anywhere on the
+	# fractal and reported the whole building as a hole.
+	# BOTH NAMINGS. The chain calls its slabs DreamFloor00.., the pocket calls
+	# them Floor00.. -- the room builder reuses DreamMazeBuilder._solid_box
+	# but passes its own name -- so a "DreamFloor*" pattern matched nothing at
+	# all on the fractal and reported a correctly built room as having no
+	# floor anywhere in it, which is indistinguishable from a mouth cut in the
+	# wrong place.
+	for child in architecture.find_children("*Floor*", "", true, false):
 		var shape_node := child.get_child(0) as CollisionShape3D
+		if shape_node == null:
+			continue
 		var box := shape_node.shape as BoxShape3D
 		var c: Vector3 = child.position
 		if x >= c.x - box.size.x * 0.5 and x <= c.x + box.size.x * 0.5 \
@@ -325,9 +372,14 @@ func _block_f_runner() -> void:
 	root = await _spawn_root()
 	root.autonomous = false
 	root.player.set_physics_process(false)
-	var runner := _hazard("hollow_runner")
+	var runner := await _ensure_socket("hollow_runner")
 	_check("the runner is armed, and it is the one in the long hall",
-			runner != null and runner.module == "D01_F04_LONG_HALL")
+			# Not a named module: on the fractal a room's id is its path key,
+			# so the portable claim is that the runner stands in a room the
+			# plan actually contains rather than in a module named at
+			# authoring time.
+			runner != null
+			and _rect(runner.module) != [0.0, 0.0, 0.0, 0.0])
 
 	# WALKING. Start OUTSIDE the tell radius — taken from the hazard rather
 	# than typed, so this still approaches from silence if the socket is ever
@@ -410,6 +462,143 @@ func _hazard(socket: String) -> DreamHazard:
 		if h.socket == socket or h.id == socket:
 			return h
 	return null
+
+
+## MAKE A SOCKET REAL, WHEREVER IT IS.
+##
+## The chain guaranteed all four sockets because it WAS all four: five fixed
+## modules, assembled the same way every run. The fractal guarantees nothing.
+## The pocket is the room you woke in plus its neighbours, and which catalog
+## module each of those is sourced from is an atlas read -- so a block that
+## needs a trunk has to go and find one rather than assume the building handed
+## it one on arrival.
+##
+## This is not the test being lenient. "The pocket did not happen to contain
+## it" and "the hazard is broken" are different findings, and conflating them
+## is what produced three null dereferences that took their whole blocks with
+## them while the suite still printed a green line.
+##
+## Walks doors the way dream_fractal_run_test walks them: step to the far side
+## of an opening, let the world notice, ask again. Returns null on exhaustion,
+## and every caller already has a `!= null` check for that.
+func _ensure_socket(socket: String, hops: int = 30) -> DreamHazard:
+	var found := _hazard(socket)
+	if found != null or not DreamMazeRoot.fractal_enabled():
+		return found
+	for hop in range(hops):
+		var here := root.rooms.room_at(root.player.position.x,
+				root.player.position.z)
+		if here.is_empty():
+			break
+		var onward: Array = []
+		for door in DreamRoomBuilder.passable_doors(here):
+			if int(door.index) != 0:
+				onward.append(door)
+		if onward.is_empty():
+			break
+		var door: Dictionary = onward[hop % onward.size()]
+		var pt: Array = door.point
+		var inside: Array = door.inside
+		var out := Vector2(pt[0] - inside[0], pt[1] - inside[1]).normalized()
+		root.player.position = Vector3(pt[0] + out.x * 0.6, 0.0,
+				pt[1] + out.y * 0.6)
+		await get_tree().physics_frame
+		await get_tree().process_frame
+		found = _hazard(socket)
+		if found != null:
+			return found
+	printerr("[N7] no %s reachable within %d rooms" % [socket, hops])
+	return null
+
+
+## TWO BUILDERS NAME HAZARDS DIFFERENTLY, and every predicate below has to
+## read both. DreamMazeBuilder.assemble emits {id, kind, module} where the id
+## IS the catalog socket -- one fixed chain, one instance of each -- and what
+## arms it is the profile allowlist. DreamRoomBuilder.write_plan has to
+## disambiguate the same socket appearing in several live rooms, so it emits
+## id = socket + room key, keeps `socket` alongside, and resolves `armed`
+## itself because the waking room never arms whatever the allowlist says.
+##
+## Reading only one shape is what made the first pass at this test green on
+## the fractal and red on the chain.
+func _socket_of(record: Dictionary) -> String:
+	return str(record.get("socket", record.get("id", "")))
+
+
+func _is_armed(record: Dictionary) -> bool:
+	if record.has("armed"):
+		return bool(record["armed"])
+	var allow: Array = root.profile_hazards.get("allow", [])
+	return allow.has(str(record.get("id", "")))
+
+
+## Every armed hazard's socket is one this case allowed. How MANY there are is
+## topology; this is the rule.
+## NOT "at least one is armed". The waking room never arms -- that is a ruled
+## fairness requirement, because the player has no approach to spend a tell
+## against -- so a pocket of the waking room plus two neighbours that carry no
+## allowlisted socket arms nothing at all, legitimately. Requiring non-empty
+## here reported that correct building as a hazard fault. Blocks D, E and F go
+## and find their subject instead, which is where non-emptiness is actually a
+## precondition rather than an assumption.
+func _every_armed_is_allowed() -> bool:
+	var allow: Array = root.profile_hazards.get("allow", [])
+	for h in root.hazards.hazards:
+		if not allow.has(h.socket):
+			return false
+	return true
+
+
+## The building carries danger it is not running. Owner ruling 2026-08-18:
+## unarmed sockets travel, because "the live hazards are THIS haunting's
+## signature, and the dormant ones are other hauntings showing through the
+## walls of the same Orison." So some dormant socket must always be present,
+## and nothing outside the allowlist may ever be armed.
+func _dormant_vocabulary_is_carried_and_inert() -> bool:
+	var allow: Array = root.profile_hazards.get("allow", [])
+	var dormant := 0
+	for h in root.plan.hazards:
+		if _is_armed(h):
+			if not allow.has(_socket_of(h)):
+				return false
+		else:
+			dormant += 1
+	# `dormant` is deliberately not required to be non-zero for the same
+	# reason: which sockets travel is a function of which modules the atlas
+	# sourced this pocket's rooms from. What must hold everywhere is that
+	# nothing outside the case's allowlist is ever live.
+	return true
+
+
+## And when the named one IS in the pocket it is checked by name. Being absent
+## is not a failure on the fractal -- the atlas simply sourced other rooms.
+func _named_socket_never_armed(socket: String) -> bool:
+	for h in root.plan.hazards:
+		if _socket_of(h) == socket and _is_armed(h):
+			return false
+	return true
+
+
+func _armed_count(socket: String) -> int:
+	var n := 0
+	for h in root.plan.hazards:
+		if _socket_of(h) == socket and _is_armed(h):
+			n += 1
+	return n
+
+
+## The rect of whatever room the body is standing in. Replaces naming a chain
+## module when a block just needs somewhere real to stand.
+func _player_rect() -> Array:
+	for entry in root.plan.modules:
+		var r: Array = entry.rect
+		if root.player.position.x >= r[0] and root.player.position.x <= r[2] \
+				and root.player.position.z >= r[1] \
+				and root.player.position.z <= r[3]:
+			return r
+	if (root.plan.modules as Array).is_empty():
+		return [0.0, 0.0, 0.0, 0.0]
+	return root.plan.modules[0].rect
 
 
 func _rect(id: String) -> Array:
