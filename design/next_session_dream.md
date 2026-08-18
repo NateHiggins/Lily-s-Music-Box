@@ -95,30 +95,27 @@ is a different building**.
 
 ## TEST MATRIX — the state you must not regress
 
-| Suite | chain (default) | `DREAM_FRACTAL=1` |
-|---|---|---|
-| DreamAtlasTest | PASS 22/22 | PASS |
-| DreamBoundaryTest | PASS 39 | PASS |
-| DreamPursuitTest | PASS 39 | PASS |
-| GateDJoinTest | PASS 69/69 | PASS |
-| DreamRoomBuilderTest | PASS 175/175 | PASS |
-| DreamFractalRunTest | SKIPPED | PASS 20/20 |
-| **DreamHazardTest** | PASS 42 | **FAIL 6** |
+**There is one world now.** `DREAM_FRACTAL` is deleted and the pocket is the
+only dream there is, so the matrix has one column.
 
-`DreamHazardTest` on the fractal is the **only** thing between here and
-deleting the flag. Its five named failures are chain-topology assertions, and
-the contract question they turned on is already ruled: unarmed sockets ARE
-carried now, so "the counterweight is placed but NOT armed" should pass once
-the count expectations stop assuming a fixed five-module chain. Three script
-errors in that run are `_hazard()`-style lookups that return null and get
-dereferenced — they ERROR rather than fail, taking their blocks with them.
+| Suite | verdict |
+|---|---|
+| DreamAtlasTest | PASS |
+| DreamBoundaryTest | PASS 39 |
+| DreamPursuitTest | PASS 39 |
+| GateDJoinTest | PASS 69/69 |
+| DreamRoomBuilderTest | PASS |
+| DreamFractalRunTest | PASS (no longer skips) |
+| DreamHazardTest | PASS 42 |
+| DreamExposureTest | PASS 27 |
 
----
+All eight green, zero script errors. **Grep every run anyway** — the rule below
+cost this session two more hours and it caught both of them.
 
 ## WHAT CHANGED THIS SESSION (2026-08-18, later)
 
-**Workstream A is built and the flag question is untouched.** `heat` no longer
-decides what has been converted.
+**Workstream A is built and the flag is gone.** `heat` no longer decides what
+has been converted, and there is no longer a second dream to keep working.
 
 - **`DreamExposureField`** (`game/scripts/dream/dream_exposure_field.gd`) — a
   coarse world-space volume, 0.5 m voxels, 48 m tile, that only ever goes up
@@ -149,6 +146,32 @@ decides what has been converted.
 number the tentacles get to spend. Note the probe's inherited `TIME_FPS`
 averaging cannot resolve a 2 ms frame — the dream branch times on ticks, and
 any new station at this speed must too.
+
+### THE FLAG IS DELETED, AND WHAT IT LEFT BEHIND
+
+`DreamHazardTest` is green on the pocket. Its five named failures were chain
+topology — fixed counts, a named module, a literal hazard id — and the three
+script errors were their consequence, not a separate fault: one null hazard
+dereferenced took its whole block with it, so the suite ran 18 of 42 checks
+and still printed a line.
+
+Two of those turned out to be production bugs rather than test bugs:
+
+- **`floor_holes()` matched only on `id`.** The chain's hazard id IS its
+  catalog socket; `write_plan` emits `id = socket + room key` because a pocket
+  can hold one socket in several live rooms. An allowlist of socket names can
+  never equal `open_lift_void@1.3.2`, so **the floor stayed solid over every
+  armed void.** It matches socket or id now.
+- **`_floor_covers` looked for the wrong node name in the wrong place.** The
+  chain names slabs `DreamFloor00..` directly under `ModuleArchitecture`; the
+  pocket names them `Floor00..` under a `Room_<key>` node.
+
+**Left behind deliberately, for an owner call:** `DreamMazeBuilder` still holds
+`assemble()`, `build_geometry()`, `chain_route()` and `nav_module_at()`, and
+production no longer reaches any of them. They are not deleted, because the
+same file holds every geometry primitive, the Klimt materials, the catalog
+loader and `floor_holes()`, all of which `DreamRoomBuilder` depends on. Pulling
+the chain apart is its own change with its own blast radius.
 
 ### TWO THINGS THE RENDERS SAY, AND BOTH BLOCK AN ACCEPTANCE ITEM
 
@@ -194,15 +217,16 @@ and gold in the albedo of a flat surface. Volumetric tentacles that occupy the
 corridor and cross in front of the camera are geometry, not a fragment term.
 That is the real distance left to travel.
 
-### 2. ADD THE DREAM PERF STATION FIRST
+### 2. ~~ADD THE DREAM PERF STATION FIRST~~ — DONE
 `game/tests/perf_probe.gd` has no dream station and nothing has ever measured
 this frame. Per-pixel GPU work is free here (TASKS.md §P — submission-bound,
 not fill-bound); **draw submissions are not**. The tentacles are the first
 thing in this whole direction with a real submission cost. Measure before they
 land, not after.
 
-### 3. MOVE `DreamHazardTest` AND DELETE THE FLAG
-`DreamMazeRoot.fractal_enabled()` is explicitly temporary and says so.
+### 3. ~~MOVE `DreamHazardTest` AND DELETE THE FLAG~~ — DONE
+Both. See above. The next structural question in this direction is whether the
+now-unreferenced chain assembly comes out of `DreamMazeBuilder`.
 
 ### 4. PRICE RECURSION BEFORE BUILDING IT
 Nothing in the project does nested enterable space. 29 of 400 deep rooms ask
