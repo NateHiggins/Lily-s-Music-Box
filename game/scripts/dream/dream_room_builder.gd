@@ -217,13 +217,45 @@ static func side_after_rot(local_side: String, r: int) -> String:
 func describe(path: PackedInt32Array, entry: Dictionary = {}) -> Dictionary:
 	var atlas_room := atlas.room(path)
 	var source := str(atlas_room.source)
-	var module: Dictionary = catalog.get("modules", {}).get(source, {})
 
 	# Recover the room's shape before SCALE touched it, so the clamp has an
 	# authored quantity to protect. CONFLATION leaves scale at 1.0, so this is
 	# exact for both faults rather than only for SCALE.
 	var drift := float(atlas_room.scale)
 	var unit_size: Vector2 = (atlas_room.size as Vector2) / maxf(drift, 0.0001)
+
+	# REPETITION, MADE OF SPACE RATHER THAN OF A FLAG.
+	#
+	# The atlas names this fault and cannot express it: it picks a room's
+	# source module from the room's own id, so the "near-copy of the corridor
+	# you already walked" was drawing an unrelated room out of the catalog and
+	# the fault was completely invisible. Only the builder is in a position to
+	# fix that, because only the builder knows what the previous room WAS --
+	# and it learns it through the door, which is the one thing that crosses
+	# between two rooms.
+	#
+	# So a repeating room is genuinely built from the previous room's module
+	# and the previous room's size. What differs is the thing the atlas varies
+	# per room and cannot help varying: where the doors are, since those come
+	# off this room's own id. That is exactly the brief's "differing in one
+	# detail you cannot name" -- the shape is the shape you just walked, and
+	# the way out has moved.
+	var repeated := false
+	if bool(atlas_room.repeats_previous) \
+			and not str(entry.get("from_source", "")).is_empty():
+		var prior := str(entry.from_source)
+		if catalog.get("modules", {}).has(prior):
+			source = prior
+			# The previous room's own shape, conflation included, not the
+			# catalog's idea of what that module measures.
+			unit_size = entry.get("from_unit", unit_size) as Vector2
+			# Inherit the previous room's drift too. A copy that is a fifth
+			# larger reads as a different room, which is the one thing this
+			# fault must not do.
+			drift = float(entry.get("from_scale", 1.0))
+			repeated = true
+
+	var module: Dictionary = catalog.get("modules", {}).get(source, {})
 
 	var want_doors := int(atlas_room.doors)
 	var sockets: Array = []
@@ -266,6 +298,7 @@ func describe(path: PackedInt32Array, entry: Dictionary = {}) -> Dictionary:
 		"id": int(atlas_room.id),
 		"depth": int(atlas_room.depth),
 		"source": source,
+		"repeated": repeated,
 		"conflated_with": str(atlas_room.conflated_with),
 		"fault": int(atlas_room.fault),
 		"fault_name": DreamAtlas.fault_name(atlas_room.fault),
@@ -408,9 +441,28 @@ func _make_door(index: int, local_side: String, offset: float, size: Vector2,
 ## The join to hand a neighbour: the side of THIS room the door sits on, and
 ## the world point its far face reaches. The neighbour's entry aperture centre
 ## lands exactly here, which is what makes the pair share one real wall.
-static func exit_join(door: Dictionary) -> Dictionary:
+##
+## It also carries WHAT THIS ROOM WAS. REPETITION needs it: a room that is a
+## near-copy of the one before it can only be built by something that knows
+## what the one before it was, and the door is the only thing that crosses
+## between them.
+static func exit_join(room: Dictionary, door: Dictionary) -> Dictionary:
 	var p: Array = door.point
-	return {"side": str(door.side), "point": Vector2(p[0], p[1])}
+	var scale := float(room.get("scale", 1.0))
+	return {
+		"side": str(door.side),
+		"point": Vector2(p[0], p[1]),
+		"from_source": str(room.get("source", "")),
+		"from_scale": scale,
+		# The previous room's shape BEFORE its own drift, carried rather than
+		# looked up again. A conflated room is one module wearing another
+		# module's proportions, so its footprint is not its source module's
+		# footprint -- and a copy that re-derived the shape from the catalog
+		# would silently un-conflate it and come out a different size than the
+		# room it is supposed to be repeating.
+		"from_unit": (room.get("size", Vector2.ZERO) as Vector2)
+				/ maxf(scale, 0.0001),
+	}
 
 
 # ── HAZARDS AND THE FAIRNESS CLAMP ────────────────────────────────────────
@@ -578,7 +630,7 @@ func advance(parent: Node3D, path: PackedInt32Array) -> void:
 		var neighbour := neighbour_path(room, int(door.index))
 		var nkey := key_of(neighbour)
 		if not _live.has(nkey):
-			if not _ensure_room(parent, neighbour, exit_join(door), here):
+			if not _ensure_room(parent, neighbour, exit_join(room, door), here):
 				# No room fits here without eating a live one.
 				door.sealed = true
 				door.leads_to = ""
@@ -964,11 +1016,20 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 		i += 1
 		DreamMazeBuilder._solid_box(node, "Wall%02d" % i, wall_mat, box,
 				0.0, clear_ceiling)
-	i = 0
-	for aperture in lintels:
-		i += 1
-		DreamMazeBuilder._solid_box(node, "Lintel%02d" % i, door_mat,
-				aperture, door_h, clear_ceiling)
+	# BLANKING, MADE OF SPACE. "Doors without frames" is the brief's own
+	# phrase, and in this builder a door's frame IS the lintel -- the box that
+	# fills the wall from the 2.13 m head up to the ceiling. A blanked room
+	# simply does not get one, so its openings run floor to ceiling: a gap in
+	# a wall rather than a doorway, which reads as a room that has forgotten
+	# what a door looks like and kept only the hole. It is also the only fault
+	# that makes a room CHEAPER, which is right -- nothing was added, something
+	# stopped being there.
+	if not bool(room.get("blank", false)):
+		i = 0
+		for aperture in lintels:
+			i += 1
+			DreamMazeBuilder._solid_box(node, "Lintel%02d" % i, door_mat,
+					aperture, door_h, clear_ceiling)
 	return node
 
 

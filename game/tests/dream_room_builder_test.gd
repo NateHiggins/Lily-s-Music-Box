@@ -29,6 +29,19 @@ extends Node
 ##      gives less doorway warning than the authored module gave it or than
 ##      it is owed, whichever is less.
 ##   F. THE SAME NAME BUILDS THE SAME ROOM, on any machine, forever.
+##   G. WHAT A ROOM COSTS, recorded rather than asserted, so a change to it
+##      shows up in a diff.
+##   H. THE BUILDING BRANCHES. The geometry honours the door count the atlas
+##      asked for; a fractal that mostly makes corridors is not the one the
+##      brief describes.
+##   I. POCKET ADJACENCY. Every live room reaches every other, a route is the
+##      same answer twice, and no segment of one ever leaves architecture.
+##      That last is the most load-bearing check here: the pursuer moves by
+##      assigning position and never calls move_and_slide, so the waypoint
+##      list is the only thing between it and walking through a wall.
+##   J. THE FAULTS ARE MADE OF SPACE. A flag carried in a dictionary and
+##      never built is not a fault, it is a note about one. RECURSION is the
+##      exception and says so in its own output rather than passing quietly.
 
 const SEED_HEX := "f123456789abcdef"
 const ARMED := ["open_lift_void", "vantry_signal_trunk", "hollow_runner"]
@@ -61,6 +74,8 @@ func _ready() -> void:
 	_block_h_branching()
 	_stage("I routing")
 	_block_i_routing()
+	_stage("J faults as space")
+	_block_j_faults()
 	_stage("done")
 	print("[ROOMS] CHECKS: %d/%d fails=%d"
 			% [checks - failures, checks, failures])
@@ -92,7 +107,7 @@ func _block_a_join() -> void:
 		var parent := b.describe(path)
 		for door in parent.doors:
 			var child := b.describe(DreamAtlas.step(path, int(door.index)),
-					DreamRoomBuilder.exit_join(door))
+					DreamRoomBuilder.exit_join(parent, door))
 			if child.doors.is_empty():
 				continue
 			var entry: Dictionary = child.doors[0]
@@ -629,6 +644,137 @@ func _outside_rect(r: Array, p: Vector3) -> float:
 	var dx := maxf(maxf(float(r[0]) - p.x, p.x - float(r[2])), 0.0)
 	var dz := maxf(maxf(float(r[1]) - p.z, p.z - float(r[3])), 0.0)
 	return sqrt(dx * dx + dz * dz)
+
+
+# --- J: the faults expressed as actual space ---------------------------
+
+## The atlas NAMES six ways memory fails. A flag carried in a dictionary and
+## never built is not a fault, it is a note about one, so each of these checks
+## asks the same question: can the player see it from inside the room?
+func _block_j_faults() -> void:
+	var b := _builder(9)
+	var plot := Node3D.new()
+	plot.name = "FaultPocket"
+	add_child(plot)
+
+	# REPETITION. The room must genuinely BE the previous room's module at the
+	# previous room's size -- not merely flagged as repeating.
+	var repeats := 0
+	var wrong_source := 0
+	var wrong_size := 0
+	var moved_doors := 0
+	var clamped_copies := 0
+	for i in 600:
+		var path := PackedInt32Array([i % 4, (i / 4) % 4, (i / 16) % 5])
+		var parent := b.describe(path)
+		for door in parent.doors:
+			var child := b.describe(DreamAtlas.step(path, int(door.index)),
+					DreamRoomBuilder.exit_join(parent, door))
+			if not bool(child.get("repeated", false)):
+				continue
+			repeats += 1
+			if str(child.source) != str(parent.source):
+				wrong_source += 1
+			# Compare shape only where nothing else was entitled to move it.
+			# A repeating room inherits the previous room's drift, but the
+			# fairness clamp and the entry-door floor both outrank cosmetic
+			# fidelity: if the inherited module carries an armed hazard the
+			# clamp will widen the copy, and a copy that is a little larger
+			# is a far better outcome than a hazard closer to a doorway than
+			# the warning it owes.
+			if absf(float(child.scale) - float(parent.scale)) > 0.0001:
+				clamped_copies += 1
+			elif ((child.size as Vector2)
+					- (parent.size as Vector2)).length() > 0.001:
+				wrong_size += 1
+			if not child.doors.is_empty() and not parent.doors.is_empty() \
+					and absf(float(child.doors[0].inside[0])
+					- float(parent.doors[0].inside[0])) > 0.001:
+				moved_doors += 1
+	_check("REPETITION actually happens (%d rooms)" % repeats, repeats > 0)
+	_check("a repeating room is built from the previous room's module (%d wrong)"
+			% wrong_source, wrong_source == 0)
+	_check("and at the previous room's size (%d wrong, %d overruled by the "
+			% [wrong_size, clamped_copies] + "fairness clamp)",
+			wrong_size == 0)
+	# The brief's "differing in one detail you cannot name": same shape, and
+	# the way out has moved. If the doors matched too it would not be a
+	# near-copy, it would be the same room.
+	_check("but its doors have moved (%d of %d)" % [moved_doors, repeats],
+			moved_doors > 0)
+
+	# BLANKING. A blanked room is a shape with holes in it: no lintels, so its
+	# openings run floor to ceiling, and no hazards.
+	# BLANKING needs decay >= 0.90, and decay is capped by how DEEP the room
+	# is as well as by how many nights have passed: at depth 4 after 9 nights
+	# the most any room can reach is about 0.88, so the fault is literally
+	# unreachable near where the player woke. That is the atlas working as
+	# designed -- "far rooms are less rehearsed and therefore worse
+	# remembered" -- and it means the end state of forgetting is something the
+	# player can only find by pushing in. Sampling it needs a deep walk and a
+	# long campaign.
+	var deep := _builder(30)
+	var blank_lintels := 0
+	var blank_rooms := 0
+	var dressed_lintels := 0
+	var dressed_rooms := 0
+	for i in 400:
+		var path := PackedInt32Array([i % 5, (i / 5) % 5, (i / 25) % 5, 2,
+				1, 0, 3, 2, 1, 0, 2, 3])
+		var room := deep.describe(path)
+		var node := deep.build(plot, room)
+		var lintels := 0
+		for child in node.get_children():
+			if str(child.name).begins_with("Lintel"):
+				lintels += 1
+		if bool(room.blank):
+			blank_rooms += 1
+			blank_lintels += lintels
+			if not room.hazards.is_empty():
+				blank_lintels += 100
+		else:
+			dressed_rooms += 1
+			dressed_lintels += lintels
+		node.free()
+	_check("BLANKING actually happens (%d rooms)" % blank_rooms,
+			blank_rooms > 0)
+	_check("a blanked room has no door frames and no hazards (%d found)"
+			% blank_lintels, blank_lintels == 0)
+	_check("a remembered room still has them (%d frames over %d rooms)"
+			% [dressed_lintels, dressed_rooms], dressed_lintels > 0)
+
+	# CONFABULATION adds a door the plan does not have -- the only fault that
+	# makes the building larger than the building. The atlas grants the extra
+	# door; this confirms the geometry actually carries it rather than
+	# dropping it on a wall too short to hold one.
+	var confab := 0
+	var confab_doors := 0
+	for i in 400:
+		var path := PackedInt32Array([i % 4, (i / 4) % 5, (i / 20) % 5, 1])
+		var room := b.describe(path)
+		if int(room.fault) != DreamAtlas.Fault.CONFABULATION:
+			continue
+		confab += 1
+		if int(room.doors.size()) >= 3:
+			confab_doors += 1
+	_check("CONFABULATION rooms are built with the doors it invents (%d/%d)"
+			% [confab_doors, confab], confab > 0 and confab_doors == confab)
+
+	# RECURSION is NOT expressed, and this says so out loud rather than
+	# leaving a silent gap that reads as done. The atlas produces the flag;
+	# nothing in this builder makes an enterable smaller copy of a room, and
+	# nothing anywhere in the project does nested space, so its cost is
+	# genuinely unmeasured rather than merely unimplemented.
+	var recursive := 0
+	for i in 400:
+		var room := b.describe(PackedInt32Array([i % 5, (i / 5) % 5,
+				(i / 25) % 5, 3]))
+		if bool(room.recursive):
+			recursive += 1
+	print("[ROOMS] RECURSION: %d of 400 rooms ask for it; the builder does "
+			% recursive + "not yet express it. UNPRICED.")
+	_check("the atlas does produce RECURSION for a builder to answer later",
+			recursive > 0)
 
 
 # --- harness ----------------------------------------------------------
