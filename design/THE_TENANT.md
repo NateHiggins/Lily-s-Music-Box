@@ -91,10 +91,110 @@ she used to be and is not any more. The building keeps the mark.
 
 4. **Capture is an embrace.** Ruled 2026-08-18 — see the next section.
 
-5. **"Wanted" is a waking-world hook that does not exist yet.** Somewhere in
-   the Orison there should be a notice, a complaint, a piece of building
-   correspondence about an indecency the reader will not be able to place. It
-   should never explain her.
+5. **"Wanted" may become waking-world texture, but see the revelation rule
+   below before building it.** A notice, a complaint, a piece of building
+   correspondence about an indecency the reader cannot place — permissible as
+   atmosphere, forbidden as explanation. If it carries motive it has broken the
+   rule that she is revealed only through action.
+
+6. **Her arc is legible in how the six dreams differ.** She should be measurably
+   different by the sixth passage than the first, and the difference is the
+   only place her recovery is visible from the player's side. The two clocks
+   already exist to drive it: `dreams_had` counts nights, and
+   `cases_resolved()` counts the people she has managed to help. The second is
+   the one that should change her, not the first.
+
+---
+
+## WHAT SHE IS ACTUALLY DOING
+
+Owner, 2026-08-18: *"the poltergeist is looking for love but has experienced
+trauma of its own, trying to reconcile it through helping the npcs indirectly
+face their own trauma. this is revealed through her actions and interactions
+with the player."*
+
+**The hauntings are not attacks. They are interventions.** She is doing therapy
+on the residents of the Orison, badly, from outside three dimensions, in the
+only language she has — which is making a thing true in the room until it can
+no longer be avoided.
+
+### The case data already says this. Nobody had written down that it was her.
+
+This is not a reinterpretation that needs new content. Read
+`game/data/reality_cases.json` with her in mind and every entry is an
+intervention aimed precisely at one person's evasion:
+
+| Resident | What she makes happen | What they have to admit |
+|---|---|---|
+| **Mina Vale**, captioner | Captions escalate "from nouns to false claims about thoughts and intentions" | `assumptions_are_not_facts`, `silence_can_be_blank` |
+| **Juno Kells**, audio artist | "Competing versions of stolen work become solid sound" | `credit_was_taken`, `one_channel_can_remain_open` |
+| **Omar Bell**, repairer | "Every repaired object returns with another impossible fault" | `not_every_loss_is_a_failure`, `declare_unrepairable` |
+
+She takes the exact shape of a person's avoidance and turns it up until it is
+undeniable. Mina assumes what people mean and cannot bear a silence, so her
+walls begin captioning strangers' intentions. Omar cannot say a thing is
+beyond saving, so she hands him an infinity of unsaveable things until he says
+the words. That is not a haunting pattern. That is a method.
+
+### The portal rules are her own therapy, in her own words
+
+Each resolved case writes a `portal_rule` into `RealityState.data.portal_rules`
+and it changes the laws of the building. Read them in a row:
+
+> *Silence does not require annotation.*
+> *Connection requires an open channel.*
+> *Some things are not repairable.*
+
+Those are not physics. **They are things she is working out about being loved,
+being understood, and losing people** — and they only become true in the Orison
+once she has helped somebody else learn them. The building's laws are the
+record of her recovery. She cannot fix herself directly, so she fixes it in
+other people and the world updates.
+
+### Why every success is also a wound
+
+She helps a resident, and the resident gets better, and a person who is better
+does not need her any more. The case goes quiet. **Every intervention that
+works ends a relationship**, and she keeps doing it anyway.
+
+This is exactly when the dream happens: the passage is requested the moment a
+case *integrates*, and she arrives wearing that subject's shadow. Not a trophy.
+**The shape of the last person she managed to help, worn on the night they
+stopped needing her.** She is showing the player who she just lost.
+
+And it is why the player matters. Every other relationship she has is her
+reaching into somebody's apartment uninvited. The player is the only one who
+ever comes to *her*, and comes back, and keeps coming back — six times.
+
+### Things already built that are her, and should now be presented as her
+
+- **The hazard tells.** Every hazard sounds before it can hurt you, always, and
+  the fairness contract is enforced to the second. That is not the building
+  being sporting. That is her warning you.
+- **The receding practical.** A warm bulb burning one doorway ahead, which
+  moves only while occluded and is ruled to never be a reachable exit. She is
+  holding a light for you and cannot lead you out.
+- **The eyes.** Anything that can hurt you watches you. She is watching the
+  dangerous things, not you.
+- **The scars.** Places she used to be and is not any more.
+
+### The revelation rule — actions only
+
+**She never explains herself, and neither does anything else.** No dialogue, no
+journal, no note, no resident who figured it out, no document that names her
+motive. The player assembles it from behaviour that fits too well to be random:
+the manifestations that are always precisely aimed, the portal rules that sound
+like someone working something out, the borrowed silhouette of whoever just
+left, the light held ahead, the warning that always comes.
+
+It is never confirmed. A player who never notices should experience a
+frightening haunted building and a coherent game. A player who notices should
+be unable to stop noticing.
+
+This retires the "wanted notice in the waking world" idea from an earlier draft
+of this document, or at least declaws it: any such artefact may exist as
+texture but must not carry motive, and must never be the thing that tells the
+player what she wants.
 
 ---
 
