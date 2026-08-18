@@ -155,7 +155,16 @@ static func mix64(a: int, b: int) -> int:
 ## differently on two machines would build two different buildings from one
 ## save, and nothing would report it.
 static func fold_key(text: String) -> int:
-	var h := 0x9E3779B97F4A7C15
+	# GDScript integers are SIGNED 64-bit and the literal has to fit. The
+	# first version of this seeded with 0x9E3779B97F4A7C15 -- the 64-bit
+	# golden-ratio constant, which is 1.14e19 and therefore larger than
+	# int64's 9.22e18 ceiling. Godot reported "Cannot represent ... as a
+	# 64-bit signed integer" and DreamAtlas stopped loading for any caller
+	# that named a case, which took the dream world with it: the boundary
+	# suite failed nine checks on the fractal path and the failures looked
+	# like a topology problem rather than an arithmetic one. This constant is
+	# the same kind of odd, high-entropy seed and it fits.
+	var h := 0x165667B19E3779F9
 	for i in text.length():
 		h = mix64(h, text.unicode_at(i) + 0x165667B1)
 	return h

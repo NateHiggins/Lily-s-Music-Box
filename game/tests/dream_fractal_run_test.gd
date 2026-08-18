@@ -122,6 +122,60 @@ func _block_a_builds() -> void:
 			root.hazards == null or root.hazards.hazards.is_empty()
 			or str(root.hazards.hazards[0].socket) != "")
 
+	# DORMANT SOCKETS: the danger this building remembers from other nights.
+	# Owner ruling 2026-08-18. They travel in the plan and they are visible,
+	# and the whole risk of showing them is that a player might mistake one
+	# for a live hazard -- so what is asserted here is that they are inert in
+	# every way that could ever hurt someone.
+	var dormant := 0
+	var live := 0
+	for record in root.plan.hazards:
+		if bool(record.get("armed", false)):
+			live += 1
+		else:
+			dormant += 1
+	print("[FRACTAL] hazards in plan: %d live, %d dormant" % [live, dormant])
+	_check("the plan carries the building's whole danger vocabulary (%d dormant)"
+			% dormant, dormant > 0)
+	# 1. A scar can never fire. The field arms on the profile allowlist, so a
+	#    dormant socket must produce no DreamHazard at all.
+	var armed_ids := {}
+	for hazard in root.hazards.hazards:
+		armed_ids[hazard.id] = true
+	var firing_scars := 0
+	for record in root.plan.hazards:
+		if not bool(record.get("armed", false)) \
+				and armed_ids.has(str(record.id)):
+			firing_scars += 1
+	_check("no dormant socket ever became a live hazard (%d)" % firing_scars,
+			firing_scars == 0)
+	# 2. A scar is never a hole. Cutting the floor for a socket nothing can
+	#    attribute would leave a real 6 m shaft with no way to end the run --
+	#    the exact argument DreamMazeBuilder.build_geometry makes for taking
+	#    the allowlist in the first place.
+	var scar_holes := 0
+	for room in root.rooms.live_rooms():
+		for hole in root.rooms._room_holes(room):
+			scar_holes += 1
+	var armed_positional := 0
+	for hazard in root.hazards.hazards:
+		if hazard.falls_through:
+			armed_positional += 1
+	_check("only armed voids cut the floor (%d holes, %d armed positional)"
+			% [scar_holes, armed_positional], scar_holes == armed_positional)
+	# 3. A scar is not solid. It is a mark on the floor, not a thing to walk
+	#    into, so it must carry no collision.
+	var solid_scars := 0
+	for room in root.rooms.live_rooms():
+		var node: Node3D = root.rooms._nodes.get(str(room.key))
+		if node == null or not is_instance_valid(node):
+			continue
+		for child in node.get_children():
+			if str(child.name).begins_with("Scar") and child is CollisionObject3D:
+				solid_scars += 1
+	_check("a scar is a mark, not an obstacle (%d solid)" % solid_scars,
+			solid_scars == 0)
+
 
 # --- B: the pocket rolls under a moving body --------------------------
 

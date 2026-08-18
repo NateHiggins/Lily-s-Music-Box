@@ -598,8 +598,20 @@ func _reload_restores_at_d00() -> bool:
 	# never be exceeded. 1.60 m is the most a body can cover in the 0.20 s the
 	# clock permits at the 6.27 m/s lit speed, plus slack; the real chase frame
 	# above sat 6.74 m out and would fail this on its own.
+	#
+	# `acquired` is NOT part of this any more, and dropping it is a
+	# consequence of two rulings rather than a relaxation. It used to be
+	# evidence, because acquisition meant the lamp had given the player away
+	# and the Tenant had gone to 6.35 m/s; a fresh run could not plausibly have
+	# it. Since 2026-08-18 the light is a DETERRENT -- acquisition selects the
+	# SLOW speed and means only that the thing knows where you are -- and the
+	# Tenant no longer starts five modules back but at the far corner of a
+	# nearby room, from which a doorway can give it a clear line on the first
+	# frame. So `acquired` after a sixth of a second is now a fact about the
+	# spawn's sightline, not about a resumed chase, and asserting it would be
+	# asserting the old mechanic. The clock and the drift still carry the
+	# check, and the chase frame above (2.02 s, 6.64 m out) fails both.
 	return live.pursuer.elapsed_s < 0.20 \
-			and not live.pursuer.acquired \
 			and not live.pursuer.is_captured \
 			and live.pursuer.capture_time_s < 0.0 \
 			and fresh_spawn.distance_to(live.pursuer.position) < 1.60

@@ -1121,12 +1121,21 @@ func write_plan(plan: Dictionary, player_key: String) -> void:
 			})
 		for record in room.hazards:
 			var socket := str(record.id)
-			if not armed.has(socket) or str(key) == waking_key:
-				continue
+			# DORMANT SOCKETS TRAVEL TOO. Owner ruling 2026-08-18. A socket
+			# this case did not allow has no tuning, so it has no outcome, no
+			# caption and no trigger condition -- it is inert by construction
+			# rather than by suppression, and DreamHazardField filters it out
+			# so no DreamHazard is ever made for it and _room_holes never cuts
+			# for it. What carrying it buys is that the building keeps the
+			# whole of its danger vocabulary: the live hazards are THIS
+			# haunting's signature, and the dormant ones are other hauntings
+			# showing through the walls of the same Orison.
+			var live := armed.has(socket) and str(key) != waking_key
 			var copy: Dictionary = record.duplicate(true)
 			copy["socket"] = socket
 			copy["id"] = "%s%s" % [socket, str(key)]
 			copy["module"] = str(key)
+			copy["armed"] = live
 			hazards.append(copy)
 	plan["modules"] = modules
 	plan["doors"] = doors
@@ -1134,7 +1143,21 @@ func write_plan(plan: Dictionary, player_key: String) -> void:
 	plan["defects"] = []
 	var here: Dictionary = _live.get(player_key, {})
 	if not here.is_empty():
-		plan["spawn_player"] = safe_spawn(here)
+		# THE HAZARD-CLEARANCE SEARCH IS FOR THE WAKING ROOM ONLY. Every other
+		# room is entered through a door, with the approach the tell needs, so
+		# there is nothing to stand clear of -- running safe_spawn on them
+		# warned that a room could not pay a warning nobody was owed.
+		#
+		# It still writes the key on every call. An earlier attempt to skip
+		# the write entirely once it was set could leave spawn_player ABSENT,
+		# and DreamMazeRoot reads it directly and unguarded -- the boundary
+		# suite went from clean to nine failures on that alone.
+		if str(player_key) == waking_key:
+			plan["spawn_player"] = safe_spawn(here)
+		else:
+			var r: Array = here.rect
+			plan["spawn_player"] = [(r[0] + r[2]) * 0.5,
+					(r[1] + r[3]) * 0.5]
 	var far := pursuer_spawn(player_key)
 	if not far.is_empty():
 		plan["spawn_pursuer"] = far
@@ -1178,6 +1201,7 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 		DreamMazeBuilder._solid_box(node, "Floor%02d" % i, floor_mat, piece,
 				-WALL_T, 0.0)
 	DreamMazeBuilder._build_shafts(node, holes, shaft_mat)
+	_build_scars(node, room)
 	DreamMazeBuilder._solid_box(node, "Ceiling", ceiling_mat, slab,
 			clear_ceiling, clear_ceiling + WALL_T)
 
@@ -1235,6 +1259,43 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 			DreamMazeBuilder._solid_box(node, "Lintel%02d" % i, door_mat,
 					aperture, door_h, clear_ceiling)
 	return node
+
+
+## THE SCARS. Where a hazard would be if this were somebody else's night.
+##
+## A live hazard and a dormant one wear the same motif -- the watching eyes,
+## which is this maze's own word for danger -- so on their own they would be
+## indistinguishable, and a hazard you can SEE and misjudge is worse than one
+## you cannot see at all. What tells them apart is the ruling of 2026-08-18
+## about what light does: the lamp makes the dream overcome the real building.
+##
+## So a live hazard is the dream showing through, and wakes into gold when the
+## beam finds it. A scar never does. Its material is pinned to zero reveal at
+## any light level, so however much lamp is spent on it, it stays what the real
+## Orison has underneath -- stained plaster, dark and cold and flat. The
+## distinction is not a label the player has to learn; it is the one rule they
+## have already been taught by every other surface in the building.
+##
+## No collision, and it is thin enough to walk over without a step. A scar is
+## a mark on the floor, not a thing in the room.
+func _build_scars(parent: Node3D, room: Dictionary) -> void:
+	var index := 0
+	for record in room.hazards:
+		if armed.has(str(record.id)) and str(room.get("key", "")) != waking_key:
+			continue
+		var p: Array = record.position
+		var half := float(record.clearance_radius_m)
+		index += 1
+		var mesh := MeshInstance3D.new()
+		mesh.name = "Scar%02d" % index
+		var box := BoxMesh.new()
+		box.size = Vector3(half * 2.0, 0.012, half * 2.0)
+		mesh.mesh = box
+		# Just proud of the floor plane, so it never z-fights the slab.
+		mesh.position = Vector3(float(p[0]), 0.006, float(p[1]))
+		mesh.material_override = DreamMazeBuilder._material(
+				Color("1d1a20"), 0.94, DreamMazeBuilder.MOTIF_EYE, true)
+		parent.add_child(mesh)
 
 
 ## Same derivation as DreamMazeBuilder.floor_holes and for the same reason:

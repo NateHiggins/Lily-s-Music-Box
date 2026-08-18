@@ -604,13 +604,13 @@ const MOTIF_FLOWERBED := 5
 
 
 static func _material(color: Color, roughness: float,
-		motif: int = MOTIF_SPIRAL) -> Material:
+		motif: int = MOTIF_SPIRAL, dormant: bool = false) -> Material:
 	# GOLD IS THE DEFAULT NOW. Owner ruling 2026-08-17: "this is a
 	# demonstration project of what we can create, the rule of cool is key.
 	# Make it good, not correct." The graybox is kept only as a control for
 	# renders and perf comparison — `DREAM_PLAIN=1`.
 	if OS.get_environment("DREAM_PLAIN") != "1":
-		return _klimt_material(color, roughness, motif)
+		return _klimt_material(color, roughness, motif, dormant)
 	var material := StandardMaterial3D.new()
 	material.albedo_color = color
 	material.roughness = roughness
@@ -621,7 +621,7 @@ static func _material(color: Color, roughness: float,
 ## the graybox so a wall and a floor stay distinguishable in the dark, where
 ## the ornament is not lit and the ground is all there is.
 static func _klimt_material(color: Color, roughness: float,
-		motif: int) -> ShaderMaterial:
+		motif: int, dormant: bool = false) -> ShaderMaterial:
 	var material := ShaderMaterial.new()
 	material.shader = load("res://shaders/dream_klimt.gdshader")
 	material.set_shader_parameter("motif", motif)
@@ -660,7 +660,12 @@ static func _klimt_material(color: Color, roughness: float,
 	var unlit := 0.22
 	if motif == MOTIF_EYE:
 		unlit = 0.05
+	if dormant:
+		# A SCAR, NOT A THREAT. See _dormant_material.
+		unlit = 0.0
 	material.set_shader_parameter("unlit_reveal", unlit)
+	if dormant:
+		material.set_shader_parameter("lamp_reveal_gain", 0.0)
 	# THE REAL SURFACE UNDER THE GOLD. The dream modules are measured
 	# extractions of real Orison rooms, so they take the same materials the
 	# waking building names in its own catalog -- plaster on the walls, tin on
