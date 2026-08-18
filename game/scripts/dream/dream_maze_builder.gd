@@ -665,7 +665,14 @@ static func _klimt_material(color: Color, roughness: float,
 		unlit = 0.0
 	material.set_shader_parameter("unlit_reveal", unlit)
 	if dormant:
-		material.set_shader_parameter("lamp_reveal_gain", 0.0)
+		# THE SCAR LOCK. `lamp_reveal_gain` was retired with the instantaneous
+		# reveal it named -- conversion is now read from DreamExposureField --
+		# so the zero that keeps a scar dead moves onto the uniform that
+		# actually gates it. dream_klimt.gdshader turns this exact value into
+		# a hard step rather than a small multiplier, because "never turn gold
+		# at any light level" is a ruled requirement and a smoothstep against
+		# noise leaks a few percent in its darkest valleys.
+		material.set_shader_parameter("exposure_gain", 0.0)
 	# THE REAL SURFACE UNDER THE GOLD. The dream modules are measured
 	# extractions of real Orison rooms, so they take the same materials the
 	# waking building names in its own catalog -- plaster on the walls, tin on

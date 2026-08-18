@@ -72,6 +72,22 @@ var _arcs: Array[Dictionary] = []
 ## Every Klimt material in the world, so the lamp can be pushed into all of
 ## them each frame. See _collect_molten_materials().
 var _molten_materials: Array[ShaderMaterial] = []
+
+## THE GOLD THAT STAYS. See dream_exposure_field.gd -- this is workstream A of
+## the surface brief, and the reason it lives on the root rather than in the
+## shader is that the same field is read by two very different consumers: the
+## Klimt materials sample it per pixel, and the pursuer reads room_exposure()
+## to decide where she is least willing to go.
+var exposure: DreamExposureField
+## The GPU's copy. One sampler3D shared by every Klimt material, so this adds
+## no draw submissions on a frame that is submission-bound.
+var _exposure_tex: ImageTexture3D
+## The field is written at a fixed low rate rather than per frame. Nothing in
+## it moves fast: CONVERT_PER_S takes six seconds of held beam to finish a
+## surface, so fifteen updates a second is far more resolution than the effect
+## has, and it keeps the CPU cone walk off the per-frame budget.
+const EXPOSURE_HZ := 15.0
+var _exposure_due := 0.0
 ## Chest height: where a conduit's arc would find a body, and where the beam
 ## splash it reaches for actually lands.
 const ARC_Y := 1.20
@@ -175,6 +191,10 @@ func _build_fractal(seed_hex: String) -> bool:
 			str(dream_context.get("case_id", "")))
 	rooms = DreamRoomBuilder.new()
 	rooms.setup(atlas, profile_hazards.get("allow", []))
+	# Before advance(). The pocket owns stamping and clearing because it is
+	# the only thing that knows when a room stops being real, and that
+	# lifecycle is what makes the field's tiling sound.
+	rooms.exposure = exposure
 	_here_path = atlas.spawn_path(int(dream_context.get("spawn_anchor", 0)))
 	_here_key = DreamRoomBuilder.key_of(_here_path)
 	# Before the first advance, so the geometry is cut knowing this room will
@@ -273,11 +293,18 @@ func _build_world() -> void:
 	# an armed void gets its mouth cut, and the fractal's fairness clamp only
 	# pays for hazards that can actually fire.
 	profile_hazards = profile.get("hazards", {})
+	# BEFORE ANY GEOMETRY ON EITHER PATH. The fractal stamps rooms as it
+	# places them, inside _build_fractal, so a field created after that call
+	# would miss the whole waking pocket and the player would open their eyes
+	# in the one room the building had never heard of.
+	exposure = DreamExposureField.new()
+	_exposure_tex = exposure.make_texture()
 	if fractal_enabled():
 		if not _build_fractal(seed_hex):
 			return
 	else:
 		plan = DreamMazeBuilder.assemble(catalog, seed_hex, slot)
+		_stamp_chain_exposure()
 	if not (plan.get("defects", ["unbuilt"]) as Array).is_empty():
 		push_error("dream maze assembly defects: %s" % str(plan.defects))
 		return
@@ -736,6 +763,66 @@ func _collect_molten_materials() -> void:
 		var material := geometry.material_override as ShaderMaterial
 		if material != null and not _molten_materials.has(material):
 			_molten_materials.append(material)
+			# THE FIELD'S BINDING IS CONSTANT AND GOES IN HERE, not in
+			# _update_molten. The texture object and the tile size never
+			# change for the life of the passage -- only the bytes inside the
+			# texture do, and those are pushed by the field's own upload. A
+			# per-frame set_shader_parameter for an unchanging sampler is
+			# thirty-odd redundant RenderingServer calls a frame on a frame
+			# whose whole documented problem is submission count.
+			material.set_shader_parameter("exposure_tex", _exposure_tex)
+			material.set_shader_parameter("exposure_extent",
+					DreamExposureField.EXTENT_M)
+			material.set_shader_parameter("exposure_height",
+					DreamExposureField.HEIGHT_M)
+
+
+## THE LAMP WRITING INTO THE BUILDING, at a fixed rate.
+##
+## `dt` is the interval that actually elapsed rather than the frame delta, so
+## DreamExposureField's conversion rate stays denominated in seconds of dwell
+## and does not silently change if EXPOSURE_HZ is retuned.
+##
+## Nothing here runs when the lamp is off: lamp_pose() reports zero energy for
+## a dark lamp and add_lamp early-returns on it, which is the correct reading
+## of the mechanic as well as the cheap one. In the dark she is simply herself
+## and nothing is being uncovered.
+func _update_exposure(delta: float) -> void:
+	if exposure == null or player == null:
+		return
+	_exposure_due += delta
+	var period := 1.0 / EXPOSURE_HZ
+	if _exposure_due < period:
+		return
+	var dt := _exposure_due
+	_exposure_due = 0.0
+	var pose: Dictionary = player.lamp_pose()
+	if not pose.is_empty():
+		exposure.add_lamp(pose.origin, pose.dir, float(pose.range),
+				cos(deg_to_rad(float(pose.angle_deg))), float(pose.energy),
+				dt)
+	# Unconditional, and NOT folded into the branch above. The field also
+	# moves when the pocket does -- a room stamping its decay baseline or
+	# being forgotten -- and those happen on threshold crossings with the lamp
+	# possibly off. upload() is itself gated on the field's dirty flag, so
+	# calling it every tick costs a boolean when nothing changed.
+	exposure.upload(_exposure_tex)
+
+
+## The chain path, which has no atlas and therefore no decay and no per-room
+## seed. Its five modules exist for the whole passage and none is ever
+## forgotten, so they are stamped once at a zero baseline: on this path the
+## field carries the lamp's accumulation and nothing else.
+##
+## That is correct rather than degraded. "How forgotten is this room" is a
+## fractal question -- DreamAtlas.decay() reads nights and depth-from-spawn,
+## and the chain has neither.
+func _stamp_chain_exposure() -> void:
+	if exposure == null:
+		return
+	for module in plan.get("modules", []):
+		exposure.stamp_room(str(module.get("id", "")),
+				module.get("rect", []), 0.0, 0.0)
 
 
 func _update_molten() -> void:
@@ -1059,6 +1146,7 @@ func _physics_process(delta: float) -> void:
 			_follow_player()
 		_update_practical()
 		_update_hazard_visuals()
+		_update_exposure(delta)
 		_update_molten()
 	if not autonomous or _outcome_committed:
 		return

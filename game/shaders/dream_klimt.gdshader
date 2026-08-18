@@ -72,10 +72,104 @@ uniform float consumed : hint_range(0.0, 1.0) = 0.55;
 // 2026-08-18), and a surface at flat zero reveal is a black shape with no
 // grain to read a corner by. This is what the black level actually lights.
 uniform float unlit_reveal : hint_range(0.0, 1.0) = 0.22;
-// How hard the beam pushes the dream through the real building. Above 1.0 so
-// the cone reaches full reveal before its own falloff ends -- the gold should
-// arrive with the light rather than lagging behind its brightest point.
-uniform float lamp_reveal_gain : hint_range(0.0, 4.0) = 2.6;
+
+// ============================================== THE EXPOSURE FIELD ==========
+// WHAT THE LAMP HAS ALREADY TAKEN, AND DOES NOT GIVE BACK.
+//
+// Workstream A of design/DREAM_SURFACE_REDESIGN_BRIEF.md, whose diagnosis of
+// what used to be here is exact: "Exposure is instantaneous, not accumulated.
+// `heat` is recomputed every frame from the lamp cone, so gold appears while
+// lit and vanishes when the beam moves. Every plate shows the opposite: the
+// conversion STAYS."
+//
+// So the conversion no longer reads the cone. It reads a coarse world-space
+// volume that DreamExposureField accumulates on the CPU -- written by the lamp
+// by dwell, seeded per room by DreamAtlas.decay(), and zeroed only when the
+// pocket forgets the room it belongs to. `heat` still exists and still does
+// the thing it was always right about: the MELT, which is the live beam
+// heating metal and correctly stops when the beam leaves.
+//
+// hint_default_black is load-bearing, not tidiness. An unbound sampler in
+// Godot defaults to WHITE, and white here means "every surface fully
+// converted" -- so any path that builds a Klimt material without a field
+// (every headless suite, the shot harnesses, DreamWalk before the root
+// finishes) would render a solid gold building and look like a shader bug
+// rather than a missing binding. Black fails to the real Orison.
+uniform sampler3D exposure_tex : filter_linear, repeat_enable,
+		hint_default_black;
+// The tile, in metres. XZ wrap; see dream_exposure_field.gd for why the field
+// tiles instead of following the player.
+uniform float exposure_extent = 48.0;
+uniform float exposure_height = 4.0;
+// How hard the field pushes the dream through the real building.
+//
+// THIS REPLACES `lamp_reveal_gain`, which is retired rather than renamed: its
+// meaning ("how hard the CONE pushes") no longer exists, and a uniform that
+// keeps its name while changing what it multiplies is how a tuning value
+// silently stops meaning what every comment around it says.
+//
+// It also carries the dormant lock. DreamMazeBuilder sets it to zero on scar
+// materials, and `responds` below turns that into a hard gate rather than a
+// small number -- "Dormant scars must stay visibly dead: they never turn gold
+// at any light level" is a ruled requirement, and a smoothstep against noise
+// leaks a few percent of gold in its darkest valleys, which is not zero.
+uniform float exposure_gain : hint_range(0.0, 4.0) = 1.0;
+// THE FRONTIER, and workstream B in one line: "Threshold the exposure field
+// through domain-warped fbm so the boundary bulges and creeps." These are the
+// shape of that threshold.
+//
+// `front_scale` is in world metres and NOT in pattern units, so the growth
+// front keeps its real-world size when a surface class retunes pattern_scale
+// -- the mass creeping across a wall and the mass creeping across the floor
+// beside it have to be the same organism at the same scale or the corner
+// gives it away.
+uniform float front_scale : hint_range(0.05, 4.0) = 0.55;
+uniform float front_warp : hint_range(0.0, 3.0) = 1.15;
+// How narrow the transition is. Small, because the plates show a ragged but
+// CRISP edge -- tesserae stop, plaster starts. The raggedness comes from the
+// noise the threshold is taken against, not from blurring the boundary.
+uniform float growth_soft : hint_range(0.001, 0.5) = 0.085;
+// A little conversion before the field has really arrived, so a surface the
+// beam has merely crossed is touched rather than untouched.
+uniform float growth_bias : hint_range(-0.5, 0.5) = 0.05;
+// FILAMENTS RUNNING AHEAD OF THE MASS. Ridged noise has thin, connected,
+// low-lying valleys, so mixing it into the threshold field converts narrow
+// tendrils well before the bulk around them -- which is what "it should read
+// as spreading, with fine filaments running ahead of the main mass" asks for,
+// and what separates lichen from a stain.
+uniform float filament_reach : hint_range(0.0, 1.0) = 0.42;
+// WHAT COOLED GOLD LOOKS LIKE WITH NO BEAM ON IT.
+//
+// The brief's acceptance list wants "gold that persists after the beam has
+// moved away", and persistence nobody can see is not persistence: everything
+// visible in this shader is carried by EMISSION gated on `woken`, which is
+// gated on the live cone, so converted-but-unlit gold would render at
+// `albedo * 0.06` and be indistinguishable from the plaster it replaced.
+//
+// This is deliberately far below the lit value. The constraint that "gold is
+// metallic, never emissive" is really the ruling that THE LAMP IS A DECISION,
+// and it survives: lighting a converted wall is still worth an order of
+// magnitude more than not. What this buys is that you can see you already
+// took it.
+//
+// SET FROM MEASUREMENT, WITH THE RATIO STATED -- the kickoff log's rule, and
+// the first value here broke it. 0.075 was a guess, and the acceptance frame
+// it produced was black: mean frame luminance 0.05 against 0.03 for a room
+// that had never been lit, which is not a difference anyone can see.
+//
+// Swept at 0.075 / 1.5 / 4.0 through DreamExposureShot and read back off the
+// PNGs (art/renders/dream_exposure/sweep_*):
+//
+//   glow   unlit-converted   lit      ratio
+//   0.075       0.03         5.22     invisible
+//   1.50        0.74         7.40     ~10%
+//   4.00       15.15        16.73     ~91%  -- the lamp stops mattering
+//
+// 4.0 renders a room you have already swept as brightly with the lamp off as
+// with it on, which would retire the one decision the whole passage turns on.
+// 1.5 is an order of magnitude below the lit surface: legible enough that you
+// can see you already took this wall, dim enough that you still want the beam.
+uniform float settled_glow : hint_range(0.0, 6.0) = 1.5;
 
 // --------------------------------------------------------------- palette ---
 // Read off the frieze rather than invented. The cream is the ground of the
@@ -797,23 +891,86 @@ void fragment() {
 	// pattern rather than painted over it.
 	float latent = clamp(consumed * (0.35 + 1.3 * leaf) + rot * 0.45 - 0.2,
 			0.0, 1.0);
-	// THE LAMP IS WHAT MAKES THE DREAM WIN. Owner ruling 2026-08-18: "the
+
+	// ============================================ THE EXPOSURE FIELD ========
+	// HOW MUCH OF HER HAS BEEN UNCOVERED HERE. See the uniform block above.
+	//
+	// A world-space read, which is the same decision the triplanar sampling
+	// already made and for the same reason: the ornament has to run
+	// CONTINUOUSLY from one module into the next, and the mass growing
+	// through a wall and the mass growing across the floor it meets are one
+	// organism. Nothing about this is per-object, so nothing about it has to
+	// be unwrapped on geometry that is generated at runtime.
+	//
+	// X and Z wrap with the sampler. Y is clamped to the middle of the first
+	// and last layers by hand: the field is a single storey and a ceiling
+	// bleeding onto a floor through the repeat would be a coordinate bug
+	// wearing the costume of an effect.
+	float ex_y = clamp(v_world.y / max(0.001, exposure_height),
+			0.0625, 0.9375);
+	float field = texture(exposure_tex, vec3(v_world.x / exposure_extent,
+			v_world.z / exposure_extent, ex_y)).r;
+
+	// THE GROWTH FRONT. Domain-warped fbm, thresholded against how far the
+	// conversion has advanced -- so the boundary is an iso-contour of noise
+	// rather than the rim of a cone, and it BULGES AND RETREATS as it grows
+	// because that is what a noise contour does when you raise its level.
+	//
+	// In metres, deliberately: `front_scale` multiplies v_world directly and
+	// not `p`, so the organism keeps one size across surface classes that
+	// each retune pattern_scale for their own ornament.
+	// Every local here is front_-prefixed. `fp` and `ridge` are both already
+	// taken further down fragment() by the melt's height-gradient sampling,
+	// and GLSL redefinition in the same scope is a compile error -- which
+	// Godot answers by silently falling back to a default material, so the
+	// build still runs and the world renders untextured. That is the exact
+	// trap the kickoff log records twice; the only reason it was caught here
+	// is that the run was grepped rather than believed.
+	vec2 front_q = v_world.xz * front_scale;
+	vec2 front_wobble = vec2(fbm(front_q + vec2(3.1, 7.7)),
+			fbm(front_q * 1.13 + vec2(-5.3, 1.9))) - 0.5;
+	vec2 front_p = front_q + front_wobble * front_warp;
+	float front_mass = fbm(front_p);
+	// Ridged: valleys are thin and connected where the plain noise's are
+	// round and isolated. Multiplying pulls those channels DOWN, and a lower
+	// threshold converts sooner -- so the tendrils arrive first and the bulk
+	// follows them, rather than the mass advancing as a blob with a rough
+	// edge.
+	float front_ridge = abs(fbm(front_p * 3.7) * 2.0 - 1.0);
+	float front_gate = mix(front_mass, front_mass * front_ridge,
+			filament_reach);
+	// A hard gate, not a small multiplier. See exposure_gain's comment: a
+	// scar has to be dead at EVERY light level, and smoothstep against noise
+	// leaks in its darkest valleys.
+	float responds = step(0.0001, exposure_gain);
+	float advance = clamp(field * exposure_gain, 0.0, 1.0);
+	float front = responds * smoothstep(-growth_soft, growth_soft,
+			advance + growth_bias - front_gate);
+	// THE DREAM WINS WHERE IT HAS ALREADY WON. Owner ruling 2026-08-18: "the
 	// light should make the dream shader overcome the 'reality shader' making
-	// the underlying weird gold matrix reveal itself."
+	// the underlying weird gold matrix reveal itself." That ruling stands --
+	// what changed is that winning is now a RECORD rather than a state.
 	//
-	// This used to be `eaten + heat * 0.45` on top of a 0.55 baseline, so the
-	// gold was mostly already there and the lamp only warmed it. Now the
-	// latent gold is scaled BY the lamp: unlit, `unlit_reveal` of it shows and
-	// the surface reads as the real Orison -- plaster, terrazzo, tin, dark and
-	// cold and navigable by the black level alone. Where the beam falls, the
-	// dream overcomes the real building and the matrix underneath comes up.
+	// The line here used to be
 	//
-	// It multiplies rather than adds, which matters: light cannot manufacture
-	// gold where the building has no ornament to turn into, so the tendrils
-	// stay the front line and a blank wall stays a blank wall however hard it
-	// is lit.
+	//   latent * (unlit_reveal + (1 - unlit_reveal) * heat * lamp_reveal_gain)
+	//
+	// and `heat` is the live cone, so the gold arrived with the beam and left
+	// with it. The whole surface redesign turns on that being wrong. `front`
+	// is the same quantity taken against the accumulated field instead, so
+	// the beam still causes the conversion and no longer owns it.
+	//
+	// `unlit_reveal` keeps its meaning exactly -- what shows where the field
+	// has NOT reached -- and therefore keeps both behaviours it was carrying:
+	// the eyes are near-invisible unlit so a hazard costs light to see, and a
+	// scar at zero shows nothing ever.
+	//
+	// It still multiplies `latent` rather than adding, which still matters:
+	// exposure cannot manufacture gold where the building has no ornament to
+	// turn into, so a blank wall stays a blank wall however long it is held
+	// in the beam.
 	float eaten = clamp(latent * (unlit_reveal
-			+ (1.0 - unlit_reveal) * heat * lamp_reveal_gain), 0.0, 1.0);
+			+ (1.0 - unlit_reveal) * front), 0.0, 1.0);
 
 	// Under the gold, the real wall -- darkened, because the dream is lit by
 	// one lamp and plaster is not a light source.
@@ -1014,6 +1171,11 @@ void fragment() {
 	// one. 0.05/0.26 was set when the renderer's light was still doing the
 	// work and left the corridor at the threshold of visible.
 	float wake_glow = woken * (0.18 + 1.15 * heat);
+	// COOLED GOLD. What the beam already converted, with no beam on it now.
+	// Gated on (1 - woken) so it hands over to the waking rather than adding
+	// to it -- lit gold is lit gold, and this is only ever the answer to
+	// "what does the wall behind me look like now".
+	float settled = eaten * (1.0 - woken) * settled_glow;
 	METALLIC = mix(metal * gold_metallic * metal_hint, 0.95, molten);
 	SPECULAR = mix(mix(0.25, 0.85, metal), 0.9, molten);
 	// A mirror is smooth. The collapse toward zero roughness is most of why the
@@ -1060,6 +1222,10 @@ void fragment() {
 	// off it was not.
 	vec3 glow_colour = mix(incandescent, albedo * 2.2, 0.55);
 	EMISSION = glow_colour * wake_glow * (0.35 + 0.65 * leaf)
+			// THE PERSISTENCE, MADE VISIBLE. Weighted by `leaf` the same way
+			// the waking is, so what stays behind is the ORNAMENT catching a
+			// little light and not a uniform wash over the whole panel.
+			+ albedo * settled * (0.35 + 0.65 * leaf)
 			+ reflection
 			+ star_colour * sky_glow * 0.55
 			+ albedo * jewel_face * jewel_gleam * 0.16;

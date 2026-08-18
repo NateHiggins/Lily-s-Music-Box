@@ -79,9 +79,56 @@ const STATIONS := [
 	 "look": Vector3(14.0, 1.48, 42.0)},
 ]
 
+## ────────────────────────────────────────────────────── THE DREAM ─────
+##
+## PERF_DREAM=1 measures the dream instead of the building.
+##
+##   godot --path game --resolution 2560x1440 res://tests/Perf.tscn
+##   PERF_DREAM=1 DREAM_FRACTAL=1 godot --path game ... res://tests/Perf.tscn
+##
+## Added 2026-08-18 because nothing had ever measured this frame, and the
+## surface redesign is about to put the first genuinely expensive thing in it
+## (DREAM_SURFACE_REDESIGN_BRIEF.md workstream E, the tentacles). Measuring
+## after they land tells you the total and not the delta, which is the number
+## that decides whether they can stay.
+##
+## IT IS NOT A NEW STATION IN THE BUILDING LIST. The dream is a different
+## scene with a different root, so it gets its own branch rather than a row --
+## but the same reporting format, the same warmup, the same sample count and
+## the same budget, so the two tables can be read side by side.
+##
+## THREE THINGS MAKE THIS MEASURE THE RIGHT FRAME:
+##
+## 1. THE PLAYER IS THE CAMERA. The whole look is lamp-relative -- every
+##    Klimt material is fed `lamp_pose()` per frame and the shader evaluates
+##    the cone itself -- so a free camera parked in the corridor with no lamp
+##    on it would photograph a black hallway and report the cost of one.
+##
+## 2. LAMP OFF AND LAMP ON ARE SEPARATE ROWS. That switch is the axis the
+##    surface work moves along: unlit is the real building and lit is the
+##    dream overcoming it. A single averaged number would hide the whole
+##    effect being priced.
+##
+## 3. THE YAW IS CHOSEN BY MEASUREMENT, NOT BY HAND. Room sizes and door
+##    placement come from the atlas, so a hard-coded look vector stops
+##    pointing at anything the day a salt changes. The probe sweeps eight
+##    yaws from the waking spawn and keeps the one submitting the most draw
+##    calls -- "the worst view from where you wake", which stays the worst
+##    view across a reseed.
+const DREAM_SEED_HEX := "f123456789abcdef"
+const DREAM_CASE := "mina_caption_crisis"
+const DREAM_PROFILE := "mina_release_print"
+## The building's floor is 500 objects. A pocket is eight rooms of boxes and
+## legitimately draws two orders of magnitude less, so MIN_OBJECTS would fail
+## a healthy dream. This is the same guard at the dream's scale: below it, the
+## pocket did not build and an empty frame is being reported as a fast one.
+const DREAM_MIN_OBJECTS := 12
+const DREAM_YAW_SAMPLES := 8
+
 var root: Node3D
 var cam: Camera3D
 var over_budget := 0
+var _dream: DreamMazeRoot
 
 
 func _ready() -> void:
@@ -90,6 +137,9 @@ func _ready() -> void:
 	# invisible until it is already costing frames.
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	Engine.max_fps = 0
+	if OS.get_environment("PERF_DREAM") == "1":
+		await _run_dream()
+		return
 	# And without THIS it measures the wall clock: the day/night director
 	# opens the bar, lights the windows and sends eighteen residents home
 	# in the evening, and interior stations gain thousands of objects
@@ -539,3 +589,175 @@ func _freeze_cabinets(node: Node) -> void:
 		node.set_process(false)
 	for child in node.get_children():
 		_freeze_cabinets(child)
+
+
+## THE DREAM, MEASURED. See the PERF_DREAM block at the top for why this is a
+## branch rather than another row in STATIONS.
+func _run_dream() -> void:
+	# Same isolation every dream harness uses: the probe must not write a
+	# campaign, and it must not inherit one either -- `dreams_had` feeds
+	# DreamAtlas.decay(), so a stale save would silently measure a different
+	# building than the one the table claims.
+	RealityState.persistence_enabled = false
+	RealityState.reset_campaign_for_tests()
+	var scene := load("res://scenes/dream/DreamMazeRoot.tscn") as PackedScene
+	_dream = scene.instantiate() as DreamMazeRoot
+	_dream.configure_dream({
+		"case_id": DREAM_CASE, "profile_id": DREAM_PROFILE, "window": {},
+		"seed_hex": DREAM_SEED_HEX, "maze_revision": 1, "outcome": "",
+	})
+	add_child(_dream)
+	await get_tree().process_frame
+	# NOT AUTONOMOUS. The 28 s slot ceiling would fold the passage in the
+	# middle of the sample window, and a pursuer that reaches the parked body
+	# commits an outcome and ends the run -- both of which read as a frame
+	# time cliff rather than as what they are.
+	_dream.autonomous = false
+	for c in _dream.get_children():
+		if c is CanvasLayer:
+			c.visible = false
+	if _dream.player == null:
+		printerr("PERF DREAM: no player; the passage did not build")
+		get_tree().quit(1)
+		return
+	print("PERF DREAM: %s  seed %s  case %s  viewport %s" % [
+			"FRACTAL" if DreamMazeRoot.fractal_enabled() else "chain",
+			DREAM_SEED_HEX, DREAM_CASE,
+			get_viewport().get_visible_rect().size])
+	_report_dream_census()
+	var spawn: Vector3 = _dream.player.position
+	var stations: Array = [{"name": "waking room", "pos": spawn}]
+	var deep := _dream_deepest(spawn)
+	if deep != spawn:
+		stations.append({"name": "deep pocket", "pos": deep})
+	# Shader compilation is lazy and lands on whoever draws first. Burn it
+	# here, lamp ON, so the molten path is compiled before anything is timed.
+	_dream.player.set_lamp_enabled(true)
+	for st in stations:
+		_dream.player.position = st["pos"]
+		for i in WARMUP:
+			await get_tree().process_frame
+	print("%-24s %7s %7s %9s %8s %7s" %
+			["station", "objs", "calls", "prims", "ms", "fps"])
+	for st in stations:
+		var yaw: float = await _dream_worst_yaw(st["pos"])
+		for lamp in [false, true]:
+			await _measure_dream("%s %s" % [st["name"],
+					"lamp on" if lamp else "lamp off"], st["pos"], yaw, lamp)
+	print("PERF RESULT: %s (%d/%d dream stations over %.1f ms)" %
+			["PASS" if over_budget == 0 else "FAIL", over_budget,
+			stations.size() * 2, FRAME_BUDGET_MS])
+	get_tree().quit(over_budget)
+
+
+## What the pocket is actually made of. The building's census counts meshes
+## per floor; the dream's interesting axis is how many of its submissions
+## carry the Klimt shader, because that is the population every new surface
+## feature multiplies against.
+func _report_dream_census() -> void:
+	var geometry := 0
+	var shaded := 0
+	var by_motif := {}
+	for node in _dream.find_children("*", "GeometryInstance3D", true, false):
+		var g := node as GeometryInstance3D
+		if g == null:
+			continue
+		geometry += 1
+		var m := g.material_override as ShaderMaterial
+		if m == null:
+			continue
+		shaded += 1
+		var motif := str(m.get_shader_parameter("motif"))
+		by_motif[motif] = int(by_motif.get(motif, 0)) + 1
+	print("PERF DREAM census: %d GeometryInstance3D, %d Klimt-shaded, "
+			% [geometry, shaded]
+			+ "%d distinct materials, by motif %s"
+			% [_dream._molten_materials.size(), str(by_motif)])
+
+
+## The centre of the live room furthest from where the player woke. On the
+## fractal that is the far edge of the pocket; on the chain it is the far end
+## of the walk. Read off plan.modules, which both paths write.
+func _dream_deepest(spawn: Vector3) -> Vector3:
+	var best := spawn
+	var best_d := 0.0
+	for module in _dream.plan.get("modules", []):
+		var r: Array = module.get("rect", [])
+		if r.size() < 4:
+			continue
+		var centre := Vector3((float(r[0]) + float(r[2])) * 0.5, spawn.y,
+				(float(r[1]) + float(r[3])) * 0.5)
+		var d := centre.distance_to(spawn)
+		if d > best_d:
+			best_d = d
+			best = centre
+	return best
+
+
+## THE WORST VIEW FROM A POINT, FOUND RATHER THAN ASSERTED. Sweeps yaws and
+## keeps whichever submits the most draw calls. A hard-coded look vector goes
+## stale the first time a placement salt moves; this does not.
+func _dream_worst_yaw(at: Vector3) -> float:
+	_dream.player.position = at
+	var best_yaw := 0.0
+	var best_calls := -1
+	for i in DREAM_YAW_SAMPLES:
+		var yaw := TAU * float(i) / float(DREAM_YAW_SAMPLES)
+		_dream.player.rotation.y = yaw
+		_dream.player.camera.rotation.x = 0.0
+		# Two frames: one to submit the new view, one to read a count that is
+		# not still the previous yaw's.
+		await get_tree().process_frame
+		await get_tree().process_frame
+		var calls := RenderingServer.get_rendering_info(
+				RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME)
+		if calls > best_calls:
+			best_calls = calls
+			best_yaw = yaw
+	return best_yaw
+
+
+func _measure_dream(name: String, at: Vector3, yaw: float,
+		lamp: bool) -> void:
+	_dream.player.position = at
+	_dream.player.rotation.y = yaw
+	_dream.player.camera.rotation.x = 0.0
+	_dream.player.set_lamp_enabled(lamp)
+	# The lamp warms up and pops rather than snapping, and the molten
+	# materials are fed from its pose, so the first frames after a toggle are
+	# a transient. WARMUP is long enough to be past it.
+	for i in WARMUP:
+		await get_tree().process_frame
+	# WALL CLOCK, NOT Performance.TIME_FPS.
+	#
+	# The building's _measure() averages 1000/TIME_FPS over the sample
+	# window, and that works there because the building spends 15-30 ms a
+	# frame, so 90 samples is two-plus seconds and the monitor -- which is a
+	# smoothed counter updated about once a second -- moves several times
+	# inside it.
+	#
+	# The dream is far cheaper, and that method breaks outright at this
+	# speed: 90 frames at 2.6 ms is 0.23 s, the monitor never updates inside
+	# the window, and every row reports whatever the counter happened to be
+	# holding on entry. The first run of this station printed 15.15 ms for
+	# three consecutive rows and had the emptier view measuring SLOWER than
+	# the fuller one, which is what sent me looking.
+	#
+	# Ticks around the loop have no smoothing and no update interval.
+	var t0 := Time.get_ticks_usec()
+	for i in SAMPLES:
+		await get_tree().process_frame
+	var avg := float(Time.get_ticks_usec() - t0) / float(SAMPLES) / 1000.0
+	var objs := RenderingServer.get_rendering_info(
+			RenderingServer.RENDERING_INFO_TOTAL_OBJECTS_IN_FRAME)
+	var calls := RenderingServer.get_rendering_info(
+			RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME)
+	var prims := RenderingServer.get_rendering_info(
+			RenderingServer.RENDERING_INFO_TOTAL_PRIMITIVES_IN_FRAME)
+	var broken: bool = objs < DREAM_MIN_OBJECTS
+	if avg > FRAME_BUDGET_MS or broken:
+		over_budget += 1
+	print("%-24s %7d %7d %9d %8.2f %7.1f%s" %
+			[name, objs, calls, prims, avg, 1000.0 / avg,
+			"  NOTHING RENDERED" if broken
+			else ("  OVER" if avg > FRAME_BUDGET_MS else "")])

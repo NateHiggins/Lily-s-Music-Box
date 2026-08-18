@@ -150,6 +150,23 @@ var armed: Array = []
 ## gets a moment before the dream starts hunting them.
 var waking_key := ""
 
+## WHERE THE GOLD IS KEPT. Optional: every headless suite in this subsystem
+## builds rooms without one and must keep working, so every touch of it is
+## guarded.
+##
+## When it IS set, the pocket owns its lifecycle -- a room stamps its baseline
+## on entry and zeroes on exit -- and that is not bookkeeping, it is what
+## makes DreamExposureField's tiling sound. See that file: the field wraps
+## every 48 m and is only safe because "rooms are stamped when built and
+## zeroed when freed, so a region wrapping back into use was cleared by
+## whoever left it." The pocket is the only thing that knows when that
+## happens, so the pocket is where it has to be done.
+##
+## It is also the brief's own ruling made literal (workstream A): "Rooms
+## leaving the pocket may lose it. That is correct and thematically right: the
+## building forgets what you did to it once it forgets the room."
+var exposure: DreamExposureField
+
 ## key -> room record. The pocket. Never the building.
 var _live: Dictionary = {}
 ## key -> Node3D of built geometry, parallel to _live.
@@ -712,8 +729,27 @@ func _ensure_room(parent: Node3D, path: PackedInt32Array,
 	if not from_key.is_empty() and not (room.doors as Array).is_empty():
 		room.doors[0].leads_to = from_key
 	_live[room.key] = room
+	_stamp_exposure(room)
 	_nodes[room.key] = build(parent, room)
 	return true
+
+
+## Lay this room's exposure baseline the moment it becomes real.
+##
+## Both terms come straight off the record the atlas already produced. `decay`
+## is "how far gone this room is" -- nights compounded and distance from where
+## you woke -- which is the brief's ask that the surface evolve "as time in the
+## maze continues AND light is cast"; the lamp supplies the second term later.
+##
+## The seed is aspect(id, salt), the same call every other per-room property in
+## this subsystem comes through, so the blotching is a pure read of the room's
+## identity rather than a rolled value. Two rooms at one decay therefore grow
+## differently, and the same room grows identically on every replay of a save.
+func _stamp_exposure(room: Dictionary) -> void:
+	if exposure == null or atlas == null:
+		return
+	exposure.stamp_room(str(room.key), room.rect, float(room.decay),
+			atlas.aspect(int(room.id), DreamExposureField.SALT_EXPOSURE))
 
 
 ## THE ONE SPATIAL GUARANTEE LEFT. Not "no two rooms in the building overlap"
@@ -747,6 +783,10 @@ func _clear() -> void:
 
 
 func _free_room(key: String) -> void:
+	# The gold goes with the room. Not a cleanup step -- it is the mechanic:
+	# the building forgets what you did to it once it forgets the room.
+	if exposure != null:
+		exposure.clear_room(key)
 	if _nodes.has(key):
 		var node: Node3D = _nodes[key]
 		if is_instance_valid(node):
