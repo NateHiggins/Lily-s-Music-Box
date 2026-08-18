@@ -70,6 +70,20 @@ func ensure_case(case_id: String, resident_id: String) -> Dictionary:
 	return data.cases[case_id]
 
 
+## HOW MANY CASES THIS CAMPAIGN HAS PUT DOWN. Owner ruling 2026-08-18: the
+## place the player wakes in the dream holds still until a case is solved, and
+## then moves. So this is the dream's spawn anchor, and it is DERIVED rather
+## than counted into a key of its own -- `resolved` is already set in exactly
+## one place (RealityCaseManager._resolve), and a parallel counter would be
+## free to drift away from it with no error and no way to notice.
+func cases_resolved() -> int:
+	var n := 0
+	for case_id in (data.get("cases", {}) as Dictionary):
+		if bool((data.cases[case_id] as Dictionary).get("resolved", false)):
+			n += 1
+	return n
+
+
 func case_state(case_id: String) -> Dictionary:
 	return data.cases.get(case_id, {})
 

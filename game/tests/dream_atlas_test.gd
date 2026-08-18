@@ -177,19 +177,42 @@ func _block_c_forgetting() -> void:
 			kinds >= 4)
 
 
-# --- D: you wake somewhere else every night ---------------------------
+# --- D: where you wake, and how long it holds -------------------------
+#
+# Owner ruling 2026-08-18: "each new game start at a random seed location in
+# the maze until a case is solved and a new start position is chosen." The
+# argument to spawn_path is therefore the resolved-case count, not a night
+# count, and the two properties below are the ruling in full: it does not move
+# while the case stands, and it does move when the case falls.
 
 func _block_d_spawn() -> void:
 	var a := DreamAtlas.new()
 	a.setup(SEED_HEX, 5)
 	var first := a.spawn_path(1)
-	_check("a reload puts you back where you woke",
-			a.room_id(first) == a.room_id(a.spawn_path(1)))
+	# THE HALF THAT MAKES A PASSAGE RETRYABLE. Same anchor, same room, every
+	# time -- a reload, or a second attempt at the same case, wakes the player
+	# exactly where they woke before. Without this the one place they could
+	# have come to know would be the least stable thing in the building.
+	_check("the waking place does not move while the case stands",
+			a.room_id(first) == a.room_id(a.spawn_path(1))
+			and str(first) == str(a.spawn_path(1)))
+	# THE HALF THAT MAKES IT A NEW DREAM. Solving a case moves it.
+	_check("solving a case moves it",
+			a.room_id(a.spawn_path(1)) != a.room_id(a.spawn_path(2)))
 	var distinct := {}
-	for night in range(1, 41):
-		distinct[a.room_id(a.spawn_path(night))] = true
-	_check("forty nights wake you in forty different places (%d)"
+	for anchor in range(1, 41):
+		distinct[a.room_id(a.spawn_path(anchor))] = true
+	_check("forty cases wake you in forty different places (%d)"
 			% distinct.size(), distinct.size() >= 38)
+	# A NEW GAME IS A NEW PLACE. Anchor zero is where a fresh campaign starts,
+	# and it must be as real a room as any other rather than a special case
+	# that quietly falls back to the root.
+	_check("a new campaign wakes somewhere the seed picked",
+			a.spawn_path(0).size() >= 3)
+	var other := DreamAtlas.new()
+	other.setup(OTHER_SEED, 5)
+	_check("and a different campaign seed wakes somewhere else entirely",
+			a.room_id(a.spawn_path(0)) != other.room_id(other.spawn_path(0)))
 	_check("and never at the same root, because there is no entrance",
 			a.spawn_path(1).size() >= 3)
 

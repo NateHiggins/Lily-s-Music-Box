@@ -249,12 +249,31 @@ func room(path: PackedInt32Array) -> Dictionary:
 	}
 
 
-## WHERE THE PLAYER WAKES, and it is different every night. Derived from the
-## seed and the night index so a reload puts them back in the same place, and
-## the next dream does not.
-func spawn_path(night: int) -> PackedInt32Array:
+## WHERE THE PLAYER WAKES. Derived from the campaign seed and an ANCHOR index,
+## so a reload puts them back in the same place.
+##
+## Owner ruling 2026-08-18 fixes what the anchor counts, and it is not nights:
+## "each new game start at a random seed location in the maze until a case is
+## solved and a new start position is chosen." The anchor is therefore the
+## number of cases the campaign has resolved. A new game starts somewhere the
+## seed picked; that place holds for as long as the case does; solving one
+## moves it.
+##
+## Keying it to nights instead would have moved the player on every re-entry,
+## which is the opposite of the intent -- a passage retried is the same
+## passage, and waking somewhere new each attempt would make the one place the
+## player could have come to know the least stable thing in the building.
+##
+## This also settles the collision between DreamMazeRoot's "every rebuild
+## starts at D00" and this file's "there is no entrance". There is no
+## entrance; there is a place the seed put you this case.
+##
+## THE ARITHMETIC BELOW IS A GOLDEN VECTOR. Only the MEANING of the argument
+## changed with the ruling. Touching the mix would move every existing save's
+## waking room with no error.
+func spawn_path(anchor: int) -> PackedInt32Array:
 	var out := PackedInt32Array()
-	var h := mix64(mix64(seed_hi, seed_lo), night * 0x9E37 + 17)
+	var h := mix64(mix64(seed_hi, seed_lo), anchor * 0x9E37 + 17)
 	# A handful of steps in, so the player never wakes at a root they could
 	# come to recognise as an entrance. There is no entrance.
 	var steps := 3 + int(absi(h) % 5)

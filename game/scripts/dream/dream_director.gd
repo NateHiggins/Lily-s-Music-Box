@@ -46,6 +46,8 @@ func context() -> Dictionary:
 		# The other half of the dream's reconstruction identity. seed_hex says
 		# WHICH building; this says how far gone it is.
 		"night_index": int(state.get("night_index", 0)),
+		# Which room the fractal wakes them in: DreamAtlas.spawn_path(anchor).
+		"spawn_anchor": int(state.get("spawn_anchor", 0)),
 		"outcome": str(state.outcome),
 	}
 
@@ -77,6 +79,7 @@ func _on_dream_requested(case_id: String, profile_id: String,
 	# an armed request that never fires must not consume one, or the building
 	# would rot on a schedule the player never dreamed.
 	state.night_index = -1
+	state.spawn_anchor = -1
 	state.outcome = ""
 	RealityState.commit()
 	dream_armed.emit(case_id, profile_id)
@@ -100,6 +103,16 @@ func enter_armed_dream() -> bool:
 	if int(state.get("night_index", -1)) < 0:
 		state.night_index = int(RealityState.data.get("dreams_had", 0))
 		RealityState.data.dreams_had = int(state.night_index) + 1
+	# WHERE THEY WAKE, which is a different clock from how forgotten the
+	# building is. Owner ruling 2026-08-18: the waking place holds until a
+	# case is solved. Decay still counts nights, because that is what decay
+	# is; the spawn counts cases, because that is what the ruling says. The
+	# two only agree while every dream resolves a case, and they must not be
+	# collapsed into one number on the strength of that coincidence -- a
+	# retried passage, or the ambient dreams the brief leaves open, separate
+	# them immediately.
+	if int(state.get("spawn_anchor", -1)) < 0:
+		state.spawn_anchor = RealityState.cases_resolved()
 	RealityState.commit()
 	world_swap_requested.emit("dream")
 	return true
@@ -179,6 +192,7 @@ func _state() -> Dictionary:
 		"seed_hex": str(RealityState.data.get("dream_seed", "")),
 		"maze_revision": 0,
 		"night_index": -1,
+		"spawn_anchor": -1,
 		"outcome": "",
 	})
 	if str(state.phase) not in PHASES or state.window is not Dictionary:
@@ -187,6 +201,7 @@ func _state() -> Dictionary:
 			"phase": "awake", "active": false, "case_id": "",
 			"profile_id": "", "window": {},
 			"seed_hex": str(RealityState.data.get("dream_seed", "")),
-			"maze_revision": 0, "night_index": -1, "outcome": "",
+			"maze_revision": 0, "night_index": -1, "spawn_anchor": -1,
+				"outcome": "",
 		})
 	return state

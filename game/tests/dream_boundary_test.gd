@@ -56,7 +56,25 @@ func _ready() -> void:
 			shell.dream_director.enter_armed_dream()
 			and shell.dream_director.phase() == "entered"
 			and shell.world_kind() == "waking")
+	# OWNER RULING 2026-08-18: the place the player wakes in the fractal holds
+	# still until a case is solved, and then moves. The anchor is therefore
+	# the resolved-case count, stamped onto the passage at entry -- not read
+	# live, or a case resolving mid-dream would move the floor under them.
+	var anchor := int(shell.dream_director.context().spawn_anchor)
+	_check("entry stamps the waking place from the resolved-case count "
+			+ "(anchor %d, %d resolved)" % [anchor,
+			RealityState.cases_resolved()],
+			anchor == RealityState.cases_resolved() and anchor >= 1)
+	# Two clocks, not one. They agree only while every dream resolves a case,
+	# and collapsing them on that coincidence is the bug this check exists to
+	# catch: a retried passage must wake in the same room and yet find the
+	# building a night more forgotten.
+	_check("the waking place and the decay clock are separate facts",
+			shell.dream_director.context().has("night_index")
+			and shell.dream_director.context().has("spawn_anchor"))
 	await _reload("entered", "active")
+	_check("the waking place survives a reload unchanged",
+			int(shell.dream_director.context().spawn_anchor) == anchor)
 	_check("entered restore reconstructs the dream as the only world",
 			_exclusive("dream") and _dream_restarts_at_d00()
 			and _facts_intact(false))
