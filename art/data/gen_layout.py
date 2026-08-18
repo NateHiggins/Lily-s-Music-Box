@@ -8010,10 +8010,10 @@ def retail_pass(fl):
     for i in range(9):
         zx = 0.55 + i * 0.72
         fb("zebra%d" % i, (zx, KERB_S + 0.10, zx + 0.42, KERB_N - 0.10),
-           0.002, 0.006, "linen")
+           0.002, 0.006, "road_paint")
     for tag, zy in (("n", KERB_N - 0.12), ("s", KERB_S + 0.06)):
         fb("zebra_bar_%s" % tag, (0.35, zy, 6.85, zy + 0.06), 0.002,
-           0.006, "linen")
+           0.006, "road_paint")
     asm("street_crate0", "crate", -13.3, -13.9, 25)
     asm("street_crate1", "crate", -12.9, -13.3, 70)
     asm("street_bottles", "bottles", 12.3, -13.6, 0)
@@ -10583,6 +10583,17 @@ MATERIAL_CATALOG = {
     "leaf_fall": {"base_color": [0.42, 0.28, 0.13, 1.0], "roughness": 0.65},
     "safety_orange": {"base_color": [0.88, 0.22, 0.035, 1.0],
                       "roughness": 0.62},
+    # ROAD MARKING, and the reason it is its own material rather than a
+    # borrowed pale one: the crossing was drawn in `linen`, an actual woven
+    # fabric, and at six metres across the twill is legible. The weave's
+    # chevrons run across each bar, so the crossing wore a herringbone
+    # perpendicular to itself -- reported as "the crosswalk pattern is 90 deg
+    # off", and the geometry was never off at all. Its texture set is
+    # deliberately ISOTROPIC (art/tools/build_road_paint.py): a marking
+    # material with a grain can always be applied a quarter turn out, on a bar
+    # that runs one way and a stop line that runs the other.
+    "road_paint": {"base_color": [0.78, 0.77, 0.72, 1.0],
+                   "roughness": 0.62},
     # ---- the retail and bar batch (2026-08-07) -----------------------
     # Ten surfaces that stood on flat colour until the textures landed.
     # Base colours here are the fallback the build uses if a material
