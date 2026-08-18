@@ -1218,21 +1218,27 @@ it the ruling has no off-switch.
 
 #### The measured geometry, which is lopsided
 
-Parsed from the accessors in `game/assets/building/*.gltf`:
+Parsed from the accessors in `game/assets/building/*.gltf`. **Corrected
+2026-08-18: the first pass counted collision meshes as geometry.** Anything
+whose name ends `-col` or `-colonly` is a collision hull that is never drawn,
+and there are a lot of them — floor_01 alone carries 47,244 collision triangles
+against 127,842 rendered.
 
-| file | triangles | meshes | materials |
-|---|---|---|---|
-| floor_01 (lobby + retail street) | 175,086 | 529 | 101 |
-| floor_02–06 | ~80,000 each | ~100 | ~70 |
-| floor_b1 | 38,984 | 83 | 65 |
-| roof | 26,364 | 56 | 37 |
-| **whole building** | **642,362** | | |
+| file | render tris | collision tris |
+|---|---|---|
+| floor_01 (lobby + retail street) | 127,842 | 47,244 |
+| floor_02 | 72,492 | 8,148 |
+| floor_03 | 73,228 | 7,992 |
+| floor_04 | 73,658 | 8,328 |
+| floor_05 | 70,776 | 8,220 |
+| floor_06 | 70,386 | 8,700 |
+| floor_b1 | 34,940 | 4,044 |
+| roof | 23,676 | 2,688 |
+| **total** | **546,998** | **95,364** |
 
-**`F0x_stairs_bal` is 26,832 triangles on every single floor.** With B1 (17,784)
-and ROOF (7,800) that is ~187,000 triangles — **29% of the entire building's
-geometry is stair balusters.** Meanwhile `F0x_floors_concrete`,
-`F0x_stairs_soffit_failed`, every `F01_retail_shop_*_fx_shadow` and
-`F0x_finish_*_w10` are **two triangles each**.
+**`F0x_stairs_bal` totals 186,576 rendered triangles — 34.1% of everything the
+building draws.** That is higher than the 29% first quoted, because the
+denominator was wrong in the other direction.
 
 **ANSWERED 2026-08-18, and it goes the other way.** The spend is earned.
 `_baluster()` at `build_orison.py:3526` builds a square die at each end, two
@@ -1247,8 +1253,12 @@ dowels".
 So the balusters are not a budget to raid — **they are the standard the rest of
 the building should be measured against.** That inverts the plan below. The
 question for every other family is no longer "what can we afford", it is "why
-is this not built to the standard the stair already reached". A shopfront that
-is two triangles is not thrift, it is an outlier.
+is this not built to the standard the stair already reached".
+
+**But not via the "2-triangle shopfront", which was my misreading and is
+withdrawn.** The 2-triangle meshes named `F01_retail_shop_*_fx_shadow` are
+CONTACT SHADOW DECALS, one quad each, doing exactly the job a contact shadow
+should. The shopfronts themselves are measured below.
 
 #### The seven families, and their state
 
@@ -1271,12 +1281,29 @@ findings. Treat each as an open question with a known starting point.
    27 `SurfaceTool` and 5 `ArrayMesh`. What sells a period object is chamfers,
    panel lines, feet, handles, hinges, fasteners, grilles, a cord and plug, a
    maker's plate, and slight asymmetry. Almost none of that survives a box.
-4. **The street and shopfronts** — floor_01 is the heaviest floor and holds the
-   retail street, yet every `F01_retail_shop_*_fx_shadow` is 2 triangles. Do
-   the five named trades (laundry, news/cigars, pawnbroker, photo supplies,
-   radio service) read as different trades from outside, or as one box with a
-   different sign? Signage: flat quad or dimensional — raised letters, neon
-   tube, light box?
+4. **The street and shopfronts — MEASURED 2026-08-18, and the answer is "same
+   box, different sign".** Rendered triangles per shopfront: `news_cigars` 274,
+   `photo_supplies` 274, `radio_service` 274, `model_laundry` 274,
+   `pawnbroker` 286, `luncheonette` 560. Four are identical to the triangle,
+   and their material buffers differ only by a `metal`→`chrome` swap. So the
+   question DP asked has a numeric answer.
+
+   **That is partly correct architecture and should not simply be "fixed".**
+   Every trade comes out of one generator (`gen_layout.py:4375`) building one
+   section: a 550 mm stall riser, plate glass to 2.05, a transom to 2.45, a
+   sign band to 3.10. A real parade built at one time WOULD share a shopfront
+   system, and the comment there is explicit that these are sections rather
+   than painted flats. The trades are meant to be told apart by signage,
+   awning, blade sign and materials, not by different carpentry.
+
+   So the work is not "make six different shopfronts". It is: does the
+   differentiation that exists actually read from the pavement, and what is
+   the cheapest addition that carries trade identity? The candidates, none yet
+   costed — glazing subdivision (a photographer's window is not a
+   luncheonette's), what is IN the window, stallriser finish per trade, and
+   whether signage is a flat quad or has dimension. 274 triangles for an entire
+   shopfront next to 26,832 for one floor of balusters is the disproportion
+   DP is about, and this is where it bites hardest.
 5. **Furniture and fittings** — already batched per material
    (`F01_furnish_metal` 23,996 tris, `F02_furnish_wood_dark` 8,128,
    `ROOF_furnish_plant` 7,056), which is the one-material-per-buffer constraint
