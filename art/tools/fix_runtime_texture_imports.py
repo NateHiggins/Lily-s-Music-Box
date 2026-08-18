@@ -55,6 +55,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 GDSCRIPT = ROOT / "game/scripts/generated/material_sets.gd"
 TEXTURES = ROOT / "game/assets/building/textures"
+# The dream's surfaces have the same disease for the same reason: they are bound
+# at runtime by dream_maze_builder.gd, one per Klimt motif, so the editor never
+# sees them on a 3D material either. Worse there than in the waking building --
+# dream_klimt.gdshader declares filter_linear_mipmap on all three samplers, so
+# it is explicitly asking for a mip chain that does not exist. It also blocks
+# the stochastic/hex tiling on the coverage list, which needs textureGrad
+# against real mips or it looks worse than the repetition it replaces.
+DREAM = ROOT / "game/assets/dream"
 
 # The settings this tool owns. Anything not named here is left as Godot wrote
 # it -- this is a repair, not a second import-settings authority.
@@ -64,15 +72,22 @@ WANT = {
 }
 
 
-def referenced_textures() -> list[str]:
-    """Every PNG the generated material table names.
+def sidecars() -> list[Path]:
+    """Every .import this tool owns: the runtime prop set, plus the dream.
 
-    Derived from the generated file rather than a list kept here, so a material
-    added to RUNTIME_POLICY tomorrow is covered without anyone remembering to
-    update this tool.
+    The prop list is read out of the GENERATED material table rather than kept
+    here, so a material added to RUNTIME_POLICY tomorrow is covered without
+    anyone remembering this tool exists. The dream is taken wholesale because
+    everything under it is bound at runtime by definition.
     """
+    found: list[Path] = []
     text = GDSCRIPT.read_text(encoding="utf-8")
-    return sorted(set(re.findall(r'"([^"]+\.png)"', text)))
+    for name in sorted(set(re.findall(r'"([^"]+\.png)"', text))):
+        found.append(TEXTURES / (name + ".import"))
+    if DREAM.is_dir():
+        found.extend(sorted(DREAM.rglob("*.png.import")))
+        found.extend(sorted(DREAM.rglob("*.jpg.import")))
+    return found
 
 
 def patch(path: Path) -> bool:
@@ -95,14 +110,14 @@ def patch(path: Path) -> bool:
 
 def main() -> int:
     check_only = "--check" in sys.argv
-    names = referenced_textures()
+    names = sidecars()
     if not names:
-        print("no textures referenced by %s -- has it been generated?" % GDSCRIPT)
+        print("nothing to check -- has %s been generated?" % GDSCRIPT)
         return 1
 
     missing, wrong, fixed = [], [], []
-    for name in names:
-        sidecar = TEXTURES / (name + ".import")
+    for sidecar in names:
+        name = sidecar.name
         if not sidecar.is_file():
             missing.append(name)
             continue

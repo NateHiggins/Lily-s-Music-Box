@@ -579,9 +579,29 @@ void fragment() {
 	q += drift + (warp + vec2(living, living * 0.7)) * heat * 0.55;
 
 	// THE BUILDING, SAMPLED FIRST. Triplanar because these are untextured
-	// boxes with no UVs worth using -- the same projection the ornament uses,
-	// so surface and filter are in register.
-	vec2 bt = q / max(0.05, base_tile_m * pattern_scale) * 6.0;
+	// boxes with no UVs worth using -- the same axis choice the ornament uses,
+	// so surface and filter stay in register.
+	//
+	// Projected from the RAW world position, NOT from p. This used to read
+	// `q / (base_tile_m * pattern_scale) * 6.0`, and since q descends from
+	// `p = v_world * pattern_scale` the term appeared in both numerator and
+	// denominator and cancelled outright. What survived was `6.0 * v_world /
+	// base_tile_m`: every 1024px sheet pinned to 19.2 cm of wall whatever
+	// base_tile_m claimed, about 101 repeats along the 19.3 m hall. The
+	// uniform's own comment promised "about a metre". A photograph repeating
+	// five times a metre is not read as a photograph, it is read as tiling --
+	// which is exactly the complaint this filter was built to answer.
+	vec2 base_q = v_world.xy;
+	if (w.y > w.x && w.y > w.z) {
+		base_q = v_world.xz;
+	} else if (w.x > w.z) {
+		base_q = v_world.zy;
+	}
+	// The melt still drags the photograph with it, but converted back into
+	// metres: drift and warp were accumulated in pattern units.
+	base_q += (drift + (warp + vec2(living, living * 0.7)) * heat * 0.55)
+			/ max(0.001, pattern_scale);
+	vec2 bt = base_q / max(0.05, base_tile_m);
 	vec3 surface = texture(base_albedo, bt).rgb;
 	float surface_rough = texture(base_rough, bt).r;
 	vec3 surface_n = texture(base_normal, bt).rgb * 2.0 - 1.0;
