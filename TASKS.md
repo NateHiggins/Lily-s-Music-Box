@@ -856,8 +856,27 @@ positions are `*_bl#_s#` slats (1,086 of them), `*_bl#_head` and `*_bl#_rail`.
 There is no glazing record, no frame, no sill, no reveal. The openings are
 holes in the brick with a roller blind hanging in front of them.
 
-`F0x_glazing` DOES exist and is `M_glassish` — but that is the stair, the
-atrium and the shopfronts. It has never covered the apartments.
+**CORRECTION, 2026-08-18, same day: the sentence that stood here was wrong.**
+It said `F0x_glazing` was "the stair, the atrium and the shopfronts" and had
+never covered the apartments. That was asserted without checking. Every floor
+carries `F0x_glazing-col` at 192 triangles — and in Godot's glTF convention
+`-col` renders AND collides (`-colonly` is the invisible one), so that is 96
+quads of real glass per storey, building-wide. The transparent-draw census
+saw them too: `F0x_glazing`, `M_glassish`, an 874 m³ AABB per floor.
+
+So the owner's follow-up — *"i was referring to the outer windows on the
+orison from the exterior as well"* — lands on a narrower and more accurate
+fault than the one first written here. **There is glass. There is no
+joinery.** The panes are flush rectangles set straight into brick with no
+frame, no sash, no sill, no reveal and no lintel, which is why they read as
+holes with something shiny in them rather than as windows, from the street and
+from the room alike. The blinds are the only window furniture in the building.
+
+NOT ESTABLISHED, and it should be before work starts: whether 96 quads per
+storey actually covers every opening, or only some of them. The opening
+records are nested differently from the shape assumed when counting, so the
+ratio of panes to openings is unknown — and "some of the windows" in the
+original report may be literal.
 
 **What a window needs, in the order it would be built:** a lining to the
 reveal so the opening stops being a raw hole in the wall thickness; a sill
