@@ -588,7 +588,27 @@ def get_material(key):
                 # century stripped the plaster, the quad vanishes and the
                 # masonry behind it shows. Clip, not blend — torn plaster
                 # has an edge, not a fade.
-                nt.links.new(node.outputs["Alpha"], bsdf.inputs["Alpha"])
+                #
+                # AND IT HAS TO BE SAID IN NODES, NOT IN SETTINGS. The
+                # blend_method / surface_render_method / alpha_threshold set
+                # below are what this used to rely on, and as of Blender 4.2
+                # the glTF exporter ignores every one of them:
+                # search_node_tree.py says outright "Alpha mode is determined
+                # by the nodes too (previously it used the Eevee
+                # blend_method)". So all ten wall finishes were exporting
+                # alphaMode BLEND while this comment claimed CLIP, and ten
+                # semi-transparent sheets hung across the atrium with the
+                # stair visible through them.
+                #
+                # A Math:ROUND on the alpha is the pattern detect_alpha_clip()
+                # recognises, and it yields MASK at cutoff 0.5 — the same 0.5
+                # alpha_threshold asks for below, now actually honoured.
+                clip = nt.nodes.new("ShaderNodeMath")
+                clip.operation = "ROUND"
+                clip.name = clip.label = "alpha_clip"
+                clip.location = (-160, 300)
+                nt.links.new(node.outputs["Alpha"], clip.inputs[0])
+                nt.links.new(clip.outputs["Value"], bsdf.inputs["Alpha"])
             elif kind == "roughness":
                 nt.links.new(node.outputs["Color"], bsdf.inputs["Roughness"])
             else:

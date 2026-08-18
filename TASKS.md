@@ -1313,14 +1313,20 @@ being the two environment variables the harnesses read (`street_shot.gd:66`,
   shot where glass reflects something *structured*: a lit interior seen from
   the street after dark, or a shopfront facing the building opposite. Until
   such a frame exists the glass work is unproven, not proven.
-- **The atrium shows large translucent planes across the frame, and they are
-  PRE-EXISTING.** Compared against the committed
-  `art/renders/atrium_standard/after/03_court_base.png`, which has the same
-  marble slab hanging semi-transparent over the stair. So not a regression from
-  the material work — but it is accepted-and-committed rather than correct, and
-  a court you appear to view through a hanging pane is worth someone deciding
-  about deliberately. Note the comparison is not clean on colour: the committed
-  frame was shot on a different clock.
+- **The atrium's "translucent hanging planes" ARE NOT TRANSPARENT AND ARE NOT A
+  BUG. Recorded because I was wrong about it and the next person will be too.**
+  Looking up the light court, large terrazzo and marble wedges appear to have
+  the stair visible through them. They do not. Every one of the 1270 transparent
+  draws in the scene was hidden at once and the wedges came back
+  pixel-identical — mean delta 1.78 over the frame. They are opaque floor slabs
+  and soffits seen from below in a dim court, with real railings standing in
+  front of them. A low-contrast frame at 3 a.m. reads as translucency when it is
+  only darkness.
+  The test that settles this kind of question quickly: walk the tree, hide every
+  `MeshInstance3D` whose material's `transparency != TRANSPARENCY_DISABLED`,
+  re-shoot, and difference the two. If the thing survives, it was never
+  transparent. Hiding candidates one at a time (glazing, the atrium shaft,
+  `fx_shadow`) only ever narrows; hiding the whole class decides.
 
 #### How we will know it worked
 
