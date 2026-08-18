@@ -725,6 +725,119 @@ emerges (no expelled debris or people); the rail-less tram is the authored wrong
   W1–W4. Awaits owner ruling on §6 (west-strip character, ghost-sign copy,
   lintel carry); W1/W2/W4 are not blocked by fiction questions.
 
+### T-ENDS — one railway, two bottlenecks (owner proposal 2026-08-18)
+
+Owner: *"lets have one end of the street limited by an overpass that runs close
+to but slightly offset from 90 deg over the road? that would limit sightline in
+that direction"* — and then, to find the other end an equivalent reason to
+bottleneck view and traffic.
+
+**This supersedes the atmospheric answer, and that is the point.** §4 of
+`ORISON_STREET_BRIEF.md` records the owner's "tear in the universe" proposal
+staged down to "quiet storm, hoarding and middle-distance loss". Haze is what
+you use when the world runs out; architecture is what you use when it carries
+on somewhere you are not going. The second reads better and costs less
+apology — and it retires the hoarding at x −20.10 / +20.60 that the brief
+itself calls honest and temporary.
+
+**THE PROPOSAL: it is all one railway.** An elevated line flies over the east
+end; the same line comes down to grade and crosses at the west. One piece of
+world, one material family — riveted steel, creosoted timber, ballast, soot —
+built twice. The Orison is caught between two crossings of one railway, and the
+reason you cannot leave is infrastructure rather than metaphysics, which is
+exactly the register §4 was reaching for when it warned that a screaming portal
+spends the quiet the game runs on.
+
+#### Why the skew is the whole idea, and 90° would not do
+
+At a right angle the bents line up in perspective. From somewhere on the
+pavement you get a clean shot straight down the line of columns and out the far
+side, which is the one thing a terminator must never give you. **On a skew the
+columns never align from any standing point on the street** — each hides a
+different slice of what is behind it, and the occlusion holds as you walk.
+
+It also breaks the street's own symmetry for free. The corridor is 16.3 m from
+building line to building line (`BLDG_N` −12.0 to `BLDG_S` −28.316). At **79°**
+the deck meets the north line **3.2 m** along the street from where it meets the
+south, so the two pavements terminate at different points and the soffit reads
+as a long trapezoid rather than a band. That asymmetry is what says the
+right-of-way predates the street and did not care about it.
+
+#### Where they go, and the systems payoff that decides it
+
+`SPAWN_X` is 52.0 and vehicles are dropped past 56 (`street_traffic.gd:26`).
+**Put both structures at that radius and they hide the spawn.** Traffic
+currently pops into existence in open view at x ±52; under a viaduct's shadow
+and behind a standing freight cut it *arrives from somewhere*. That is the
+strongest argument for the whole proposal and it costs nothing extra.
+
+- **EAST, the viaduct** — deck soffit ~6.2 m clear over the carriageway, deck
+  ~1.4 m, so ~7.6 m to the parapet. The `ne` blocks run 11.5–21.5 m, so it
+  threads *between* buildings rather than over them. Bents just inside each
+  kerb; with the skew the north bent stands 3.2 m along the street from the
+  south one. A train crossing is a moving occluder and a sound with no visible
+  cause from the pavement.
+- **WEST, the level crossing** — the same line at grade at about x −50, where
+  `nw4` is already the *sooted* block, which is what stands next to a goods
+  yard. Gates, a gateman's shanty, a signal, rails and ballast laid across the
+  asphalt. **A standing freight cut is the total occluder**: boxcars parked
+  across the crossing close the view completely and can leave.
+
+#### What it gives the traffic system, which already wants it
+
+The gap the player judges is currently produced by `MAX_WAIT` and
+`GAP_SECONDS` — a promise with no cause. **Gates give it one.** When the gates
+drop, traffic queues and then releases in a bunch, which is both a legible
+reason for the gap and a better rhythm than a random one. The brief's §2 says
+the crossing should be a texture rather than a challenge; a level crossing at
+the end of the street is how a real road produces that texture.
+
+#### Open questions for the owner
+
+- Which end takes which. The soot on `nw4` argues for the yard in the west and
+  is the only evidence either way.
+- Whether a train is ever *seen* on the viaduct, or only heard. Only heard is
+  cheaper, quieter and probably better.
+- Whether the freight cut is scheduled or permanent. Scheduled costs a system;
+  permanent is a wall wearing a good disguise, which the brief has already
+  rejected once in another form.
+
+#### Not costed
+
+Nothing here is priced. It is new geometry at both ends of the heaviest floor
+in the game, and §DP's rule applies — cost is recorded, not used as a veto —
+but nobody has measured it and this entry should not pretend otherwise.
+
+### T-GHOST — the truck's garbled skin as a haunting (owner idea 2026-08-18)
+
+Owner, on being shown the repaired piano truck: *"the director can briefly
+remove the fixed panel to reveal the garbled art to cause confusion and
+disorientation to a viewer, unsure of what they saw."*
+
+**The defect is already the asset, and it is already loaded.** The Meshy atlas
+whose lettering is gibberish at every triangle budget is still on the mesh; the
+readable sign is a separate material assigned last over 379 faces
+(`build_traffic_vehicle.py`). Swapping that one material back reveals the
+unreadable original underneath, on a vehicle already moving past at speed.
+
+Why it is worth building: it is the cheapest possible haunting. No new asset,
+no new system, one material swap on an object the player is not studying. And
+it fails in the right direction — a viewer who catches it cannot check, because
+the truck has gone, and the next one is correct. That is the register the whole
+game works in, and unlike a flicker or a stinger it points at nothing.
+
+**Accessibility, which is not negotiable and is easy to get wrong here.** The
+brief bans flashing at photosensitive frequencies outright. A material swap
+that returns within a frame or two IS a flash. So: the reveal holds for a
+readable interval (of the order of a second, not a frame), happens at most once
+per vehicle, and never repeats on a cadence. It should read as *doubt*, not as
+strobe.
+
+Owner decisions still open: whether the haunting director already has a hook
+for street objects, whether it fires on being looked at or on not being looked
+at, and whether the rear doors change with the flank or stay correct so the two
+disagree.
+
 ## P2 — The Passage (rehousing the shops)
 
 Ruled as M0.5. Build drawing and measured baseline:
