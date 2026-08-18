@@ -43,6 +43,9 @@ func context() -> Dictionary:
 		"window": (state.window as Dictionary).duplicate(true),
 		"seed_hex": str(state.seed_hex),
 		"maze_revision": int(state.maze_revision),
+		# The other half of the dream's reconstruction identity. seed_hex says
+		# WHICH building; this says how far gone it is.
+		"night_index": int(state.get("night_index", 0)),
 		"outcome": str(state.outcome),
 	}
 
@@ -70,6 +73,10 @@ func _on_dream_requested(case_id: String, profile_id: String,
 	state.window = window.duplicate(true)
 	state.seed_hex = seed_hex
 	state.maze_revision = revision
+	# Unstamped until this passage actually enters. Arming is not a night --
+	# an armed request that never fires must not consume one, or the building
+	# would rot on a schedule the player never dreamed.
+	state.night_index = -1
 	state.outcome = ""
 	RealityState.commit()
 	dream_armed.emit(case_id, profile_id)
@@ -84,6 +91,15 @@ func enter_armed_dream() -> bool:
 		return false
 	state.phase = "entered"
 	state.active = true
+	# WHICH NIGHT THIS IS, fixed here and never again. The fractal's decay is
+	# a function of the night count, so the count has to be stamped onto the
+	# passage BEFORE the world is built, not read live from the campaign
+	# total: reloading into an active dream re-enters this state, and a
+	# counter still ticking would hand the reconstruction a differently
+	# rotted building than the one the player was standing in.
+	if int(state.get("night_index", -1)) < 0:
+		state.night_index = int(RealityState.data.get("dreams_had", 0))
+		RealityState.data.dreams_had = int(state.night_index) + 1
 	RealityState.commit()
 	world_swap_requested.emit("dream")
 	return true
@@ -162,6 +178,7 @@ func _state() -> Dictionary:
 		"window": {},
 		"seed_hex": str(RealityState.data.get("dream_seed", "")),
 		"maze_revision": 0,
+		"night_index": -1,
 		"outcome": "",
 	})
 	if str(state.phase) not in PHASES or state.window is not Dictionary:
@@ -170,6 +187,6 @@ func _state() -> Dictionary:
 			"phase": "awake", "active": false, "case_id": "",
 			"profile_id": "", "window": {},
 			"seed_hex": str(RealityState.data.get("dream_seed", "")),
-			"maze_revision": 0, "outcome": "",
+			"maze_revision": 0, "night_index": -1, "outcome": "",
 		})
 	return state

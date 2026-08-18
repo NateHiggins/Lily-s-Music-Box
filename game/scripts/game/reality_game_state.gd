@@ -39,6 +39,13 @@ func _fresh_data() -> Dictionary:
 		"maintenance_items": {},
 		"core_loop": {},
 		"dream_seed": _new_dream_seed(),
+		# HOW MANY NIGHTS THIS CAMPAIGN HAS HAD. The fractal Orison decays as
+		# a pure function of (seed, room, nights) and stores no map, so this
+		# single integer is the whole of its persistence -- without it the
+		# building cannot be reconstructed on a reload, and DreamAtlas
+		# .spawn_path(night) cannot put the player back where they woke.
+		# Stamped per passage by DreamDirector.enter_armed_dream().
+		"dreams_had": 0,
 		"dream": {},
 		"sleep_pressure": {},
 		"waking_residues": {},
@@ -110,6 +117,13 @@ func load_game() -> void:
 			data.core_loop = {}
 		if not data.has("dream_seed"):
 			data.dream_seed = _new_dream_seed()
+		# Additive key, backfilled like every other one here rather than
+		# through a SAVE_VERSION bump. Zero is the honest default: a save from
+		# before the fractal existed has no night count to recover, and
+		# starting the building sharp is the reading that cannot surprise a
+		# returning player with a world that has already rotted.
+		if not data.has("dreams_had"):
+			data.dreams_had = 0
 		if not data.has("dream"):
 			data.dream = {}
 		if not data.has("sleep_pressure"):
