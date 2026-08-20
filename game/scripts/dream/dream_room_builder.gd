@@ -126,6 +126,8 @@ const SALT_DOOR_OFFSET := 0x0FF5E7
 ## its real approaches. They do not alter room identity, placement or doors.
 const SALT_VIEW_FAULT_VANTAGE := 0x71E7A63E
 const SALT_VIEW_FAULT_ROLL := 0x71E79011
+## Juno's feedback chooses among already-real joints. Golden once shipped.
+const SALT_CHANNEL_PARTITION := 0xC4A66E1
 
 ## Bisection steps for the fairness clamp. A fixed count rather than a
 ## tolerance loop, so the result is bit-identical on every machine.
@@ -148,6 +150,7 @@ var profile_grammar: Dictionary = {}
 ## A physics frame can ask about the same threshold more than once while the
 ## capsule straddles it. One crossing earns one consequence.
 var _last_profile_transition := ""
+var _profile_partitions: Array[Dictionary] = []
 
 ## THE ROOM YOU OPEN YOUR EYES IN DOES NOT ARM.
 ##
@@ -203,6 +206,7 @@ func setup(dream_atlas: DreamAtlas, hazard_allowlist: Array = [],
 	armed = hazard_allowlist
 	profile_grammar = case_grammar.duplicate(true)
 	_last_profile_transition = ""
+	_profile_partitions.clear()
 	var constants: Dictionary = catalog.get("constants", {})
 	clear_ceiling = float(constants.get("clear_ceiling_m", 3.015))
 	run_speed = float(constants.get("player_run_speed_mps", 4.6))
@@ -277,6 +281,99 @@ func apply_profile_transition(parent: Node3D, from_key: String,
 		"doors_after": replacement.size(),
 		"form_stamps": int(to_room.form_stamps),
 	}
+
+
+## Turn one live aperture into load-bearing feedback. Both reciprocal records
+## change together because the joint, not either room's drawing, is the fact.
+func congeal_channel_partition(_parent: Node3D, player_key: String,
+		player_position: Vector3, pursuer_key: String, ordinal: int) -> Dictionary:
+	var event_name := str(profile_grammar.get("channel_echo_event", ""))
+	var maximum := int(profile_grammar.get("max_partitions", 0))
+	if event_name.is_empty() or maximum <= 0 \
+			or _profile_partitions.size() >= maximum:
+		return {}
+	var candidates: Array[Dictionary] = []
+	var keys: Array = _live.keys()
+	keys.sort()
+	for key_value in keys:
+		var key := str(key_value)
+		var room: Dictionary = _live[key]
+		for door in room.doors:
+			if bool(door.get("sealed", false)) or bool(door.get("partitioned", false)):
+				continue
+			var other_key := str(door.get("leads_to", ""))
+			if other_key.is_empty() or not _live.has(other_key) or key > other_key:
+				continue
+			if key == player_key and int(door.get("index", -1)) == 0:
+				continue
+			var reciprocal := _door_to_any(other_key, key)
+			if reciprocal.is_empty() or bool(reciprocal.get("sealed", false)):
+				continue
+			var aperture: Array = door.get("aperture", [])
+			if aperture.size() >= 4:
+				var centre := Vector2((float(aperture[0]) + float(aperture[2])) * 0.5,
+						(float(aperture[1]) + float(aperture[3])) * 0.5)
+				if Vector2(player_position.x, player_position.z).distance_to(centre) < 1.0:
+					continue
+			if key == player_key and passable_doors(room).size() <= 1:
+				continue
+			if other_key == player_key and passable_doors(_live[other_key]).size() <= 1:
+				continue
+			door.sealed = true
+			reciprocal.sealed = true
+			var route_safe := pursuer_key == player_key \
+					or not route(pursuer_key, player_key).is_empty()
+			door.sealed = false
+			reciprocal.sealed = false
+			if not route_safe:
+				continue
+			candidates.append({"key": key, "other": other_key, "door": door,
+					"reciprocal": reciprocal, "score": atlas.aspect(int(room.id),
+					SALT_CHANNEL_PARTITION + ordinal * 0x101)})
+	if candidates.is_empty():
+		return {}
+	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		return float(a.score) < float(b.score))
+	var chosen: Dictionary = candidates[0]
+	for record in [chosen.door, chosen.reciprocal]:
+		record["sealed"] = true
+		record["partitioned"] = true
+		record["partition_ordinal"] = ordinal
+	_profile_partitions.append({"key": str(chosen.key),
+			"other": str(chosen.other), "ordinal": ordinal})
+	_rebuild(_live[str(chosen.key)])
+	_rebuild(_live[str(chosen.other)])
+	return {"event": event_name, "from": str(chosen.key),
+			"to": str(chosen.other), "ordinal": ordinal}
+
+
+func release_oldest_channel_partition() -> Dictionary:
+	_prune_profile_partitions()
+	if _profile_partitions.is_empty():
+		return {}
+	var entry: Dictionary = _profile_partitions.pop_front()
+	var key := str(entry.key)
+	var other := str(entry.other)
+	if not _live.has(key) or not _live.has(other):
+		return {}
+	var first := _door_to_any(key, other)
+	var second := _door_to_any(other, key)
+	if first.is_empty() or second.is_empty() \
+			or not bool(first.get("partitioned", false)) \
+			or not bool(second.get("partitioned", false)):
+		return {}
+	for record in [first, second]:
+		record["sealed"] = false
+		record["partitioned"] = false
+		record.erase("partition_ordinal")
+	_rebuild(_live[key])
+	_rebuild(_live[other])
+	return {"from": key, "to": other, "ordinal": int(entry.ordinal)}
+
+
+func channel_partition_count() -> int:
+	_prune_profile_partitions()
+	return _profile_partitions.size()
 
 
 ## A path is a room's name; this is that name as a dictionary key. Dots rather
@@ -744,6 +841,14 @@ func advance(parent: Node3D, path: PackedInt32Array) -> void:
 	var changed := false
 	for door in room.doors:
 		var was_sealed := bool(door.sealed)
+		if bool(door.get("partitioned", false)):
+			# The wall remembers both faces while it is load-bearing. Keeping the
+			# reciprocal room live does not make the joint passable; it prevents
+			# advance() from erasing the very wall the player must outlast.
+			var held := str(door.get("leads_to", ""))
+			if not held.is_empty() and _live.has(held):
+				keep[held] = true
+			continue
 		if int(door.index) == 0 and (room.path as PackedInt32Array).size() > 0:
 			var back := key_of(_parent_path(room.path))
 			if _live.has(back):
@@ -884,6 +989,15 @@ func _free_room(key: String) -> void:
 			node.queue_free()
 		_nodes.erase(key)
 	_live.erase(key)
+	_prune_profile_partitions()
+
+
+func _prune_profile_partitions() -> void:
+	var kept: Array[Dictionary] = []
+	for entry in _profile_partitions:
+		if _live.has(str(entry.key)) and _live.has(str(entry.other)):
+			kept.append(entry)
+	_profile_partitions = kept
 
 
 ## Rebuild one room's geometry after its doors changed state. Cheap enough to
@@ -1162,6 +1276,15 @@ func _door_between(a: String, b: String) -> Dictionary:
 		return {}
 	for door in _live[a].doors:
 		if not bool(door.sealed) and str(door.leads_to) == b:
+			return door
+	return {}
+
+
+func _door_to_any(a: String, b: String) -> Dictionary:
+	if not _live.has(a):
+		return {}
+	for door in _live[a].doors:
+		if str(door.get("leads_to", "")) == b:
 			return door
 	return {}
 
@@ -1504,10 +1627,51 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 			DreamMazeBuilder._solid_box(node, "Lintel%02d" % i, door_mat,
 					aperture, door_h, clear_ceiling)
 	_build_profile_form_stamp(node, room)
+	_build_channel_partition_skin(node, room)
 	_build_orison_interior(node, room)
 	_build_orison_furnishing(node, room)
 	_build_lineage_body(node, room)
 	return node
+
+
+## A partition is still the ordinary wall collision above, but its visible
+## face is compressed signal: dark speaker cloth and four delayed brass traces.
+## These two batches own no collision, navigation, timing or danger.
+func _build_channel_partition_skin(parent: Node3D, room: Dictionary) -> void:
+	var cloth := StandardMaterial3D.new()
+	cloth.albedo_color = Color("170f1c")
+	cloth.roughness = 0.98
+	var trace := StandardMaterial3D.new()
+	trace.albedo_color = Color("a67c2e")
+	trace.metallic = 0.72
+	trace.roughness = 0.36
+	var panels: Array[Dictionary] = []
+	var traces: Array[Dictionary] = []
+	for door in room.get("doors", []):
+		if not bool(door.get("partitioned", false)):
+			continue
+		var point: Array = door.point
+		var inside: Array = door.inside
+		var inward := Vector3(float(inside[0]) - float(point[0]), 0.0,
+				float(inside[1]) - float(point[1])).normalized()
+		var along := Vector3(-inward.z, 0.0, inward.x)
+		var centre := Vector3(float(point[0]), 0.0, float(point[1])) \
+				+ inward * (WALL_T + 0.018)
+		var panel_size := Vector3(0.018, door_h - 0.10, door_w - 0.10) \
+				if absf(inward.x) > 0.5 \
+				else Vector3(door_w - 0.10, door_h - 0.10, 0.018)
+		panels.append({"size": panel_size,
+				"at": centre + Vector3.UP * (door_h * 0.5)})
+		for i in 4:
+			var width := door_w * (0.78 - float(i) * 0.13)
+			var y := 0.43 + float(i) * 0.39
+			var trace_size := Vector3(0.026, 0.018, width) \
+					if absf(inward.x) > 0.5 else Vector3(width, 0.018, 0.026)
+			traces.append({"size": trace_size,
+					"at": centre + inward * 0.016 + Vector3.UP * y
+							+ along * (0.025 if i % 2 == 0 else -0.025)})
+	_profile_stamp_instances(parent, "ChannelEchoCloth", cloth, panels)
+	_profile_stamp_instances(parent, "ChannelEchoTraces", trace, traces)
 
 
 ## Peter's duplicate is still an Orison corridor, so the evidence belongs to

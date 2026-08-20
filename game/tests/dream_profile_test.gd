@@ -12,6 +12,8 @@ const PETER_CASE := "peter_form_corridor"
 const PETER_PROFILE := "peter_release_print"
 const MINA_CASE := "mina_caption_crisis"
 const MINA_PROFILE := "mina_release_print"
+const JUNO_CASE := "juno_feedback_tetris"
+const JUNO_PROFILE := "juno_release_print"
 const PROFILE_PATH := "res://data/dream_profiles.json"
 const CASE_PATH := "res://data/reality_cases.json"
 
@@ -38,8 +40,9 @@ func _run() -> void:
 func _data_contract(profiles: Dictionary) -> void:
 	var peter: Dictionary = profiles.get(PETER_PROFILE, {})
 	var mina: Dictionary = profiles.get(MINA_PROFILE, {})
-	_check("the shared book contains Mina and Peter",
-			not mina.is_empty() and not peter.is_empty())
+	var juno: Dictionary = profiles.get(JUNO_PROFILE, {})
+	_check("the shared book contains Mina, Peter and Juno",
+			not mina.is_empty() and not peter.is_empty() and not juno.is_empty())
 	_check("Peter is the second campaign profile",
 			str(peter.get("case_id", "")) == PETER_CASE
 			and int(peter.get("campaign_slot", 0)) == 2)
@@ -63,6 +66,21 @@ func _data_contract(profiles: Dictionary) -> void:
 			and str(truth.get("rule_id", "")) == "proceed_uncertain")
 	_check("Peter does not inherit Mina's three armed hazards",
 			(peter.get("hazards", {}) as Dictionary).get("allow", []).is_empty())
+	var juno_maze: Dictionary = juno.get("maze", {})
+	var juno_pursuit: Dictionary = juno.get("pursuit", {})
+	var juno_case: Dictionary = cases.get(JUNO_CASE, {})
+	_check("Juno is slot three and carries the ruled sentence without theft",
+			str(juno.get("case_id", "")) == JUNO_CASE
+			and int(juno.get("campaign_slot", 0)) == 3
+			and str((juno.get("truth", {}) as Dictionary).get("statement", ""))
+					== str(juno_case.get("portal_rule", "")))
+	_check("Juno's shared attention names her generic spatial event",
+			str(juno_pursuit.get("attention_event", ""))
+					== str(juno_maze.get("channel_echo_event", ""))
+			and not str(juno_maze.get("channel_echo_event", "")).is_empty())
+	_check("Juno adds no form corridor and inherits no Mina hazards",
+			not juno_maze.has("junction_reverse_event")
+			and (juno.get("hazards", {}) as Dictionary).get("allow", []).is_empty())
 
 
 func _root_contract() -> void:
@@ -132,6 +150,26 @@ func _root_contract() -> void:
 	mina.queue_free()
 	await get_tree().process_frame
 
+	var juno := await _spawn_root(JUNO_CASE, JUNO_PROFILE)
+	_check("slot three reads the authored 50-second ceiling",
+			is_equal_approx(juno.run_cap_s, 50.0))
+	_check("the shared pursuer borrows Juno and arms no foreign hazard",
+			juno.pursuer.silhouette_source == "juno_kells"
+			and juno.hazards.hazards.is_empty())
+	var event_count_before := int(juno.pursuer.run_parameters().profile_event_count)
+	juno.advance_profile_grammar(4.2, true)
+	_check("the first open channel congeals one shared partition",
+			juno.rooms.channel_partition_count() == 1
+			and int(juno.pursuer.run_parameters().profile_event_count)
+					== event_count_before + 1)
+	juno.advance_profile_grammar(4.2, true)
+	_check("one sustained channel releases the oldest partition without attention",
+			juno.rooms.channel_partition_count() == 0
+			and int(juno.pursuer.run_parameters().profile_event_count)
+					== event_count_before + 1)
+	juno.queue_free()
+	await get_tree().process_frame
+
 
 func _grammar_contract(profiles: Dictionary) -> void:
 	var peter: Dictionary = profiles.get(PETER_PROFILE, {})
@@ -190,6 +228,58 @@ func _grammar_contract(profiles: Dictionary) -> void:
 			and int(builder.room_at_key(to_key).get("form_stamps", 0)) == 1)
 	plot.queue_free()
 	await get_tree().process_frame
+
+	var juno: Dictionary = profiles.get(JUNO_PROFILE, {})
+	var juno_atlas := DreamAtlas.new()
+	juno_atlas.setup(SEED_HEX, 3, JUNO_CASE)
+	var juno_builder := DreamRoomBuilder.new()
+	juno_builder.setup(juno_atlas, [], juno.get("maze", {}))
+	var juno_plot := Node3D.new()
+	add_child(juno_plot)
+	juno_builder.advance(juno_plot, PackedInt32Array())
+	var player_key := DreamRoomBuilder.key_of(PackedInt32Array())
+	var live := juno_builder.live_rooms()
+	var pursuer_key := str(live[-1].key)
+	if pursuer_key == player_key and live.size() > 1:
+		pursuer_key = str(live[0].key)
+	var player_room := juno_builder.room_at_key(player_key)
+	var rect: Array = player_room.rect
+	var player_position := Vector3((float(rect[0]) + float(rect[2])) * 0.5,
+			0.0, (float(rect[1]) + float(rect[3])) * 0.5)
+	var partition := juno_builder.congeal_channel_partition(juno_plot,
+			player_key, player_position, pursuer_key, 1)
+	_check("Juno seals one deterministic reciprocal joint",
+			not partition.is_empty() and juno_builder.channel_partition_count() == 1
+			and _joint_partitioned_both(juno_builder, str(partition.from),
+					str(partition.to)))
+	juno_builder.advance(juno_plot, juno_builder.path_of(player_key))
+	_check("ordinary pocket advance cannot reopen load-bearing feedback",
+			_joint_partitioned_both(juno_builder, str(partition.get("from", "")),
+					str(partition.get("to", ""))))
+	var released := juno_builder.release_oldest_channel_partition()
+	_check("sustained release clears both sides of only the partitioned joint",
+			not released.is_empty() and juno_builder.channel_partition_count() == 0
+			and _joint_open_both(juno_builder, str(released.from), str(released.to)))
+	juno_plot.queue_free()
+	await get_tree().process_frame
+
+
+func _joint_partitioned_both(builder: DreamRoomBuilder, a: String, b: String) -> bool:
+	var first: Dictionary = builder.call("_door_to_any", a, b)
+	var second: Dictionary = builder.call("_door_to_any", b, a)
+	return not first.is_empty() and not second.is_empty() \
+			and bool(first.get("sealed", false)) and bool(second.get("sealed", false)) \
+			and bool(first.get("partitioned", false)) \
+			and bool(second.get("partitioned", false))
+
+
+func _joint_open_both(builder: DreamRoomBuilder, a: String, b: String) -> bool:
+	var first: Dictionary = builder.call("_door_to_any", a, b)
+	var second: Dictionary = builder.call("_door_to_any", b, a)
+	return not first.is_empty() and not second.is_empty() \
+			and not bool(first.get("sealed", true)) and not bool(second.get("sealed", true)) \
+			and not bool(first.get("partitioned", true)) \
+			and not bool(second.get("partitioned", true))
 
 
 func _door_prefix_unchanged(before: Array, after: Array) -> bool:

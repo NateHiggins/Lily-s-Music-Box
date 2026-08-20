@@ -51,8 +51,9 @@ unchanged outcome after the held final frame. Proof:
 against the real fractal pocket. N9's Peter shared-profile proof is now closed:
 one slot-2 data profile changes the shared room and pursuit grammar without a
 fork, with 28/28 focused checks and production proof at
-`art/renders/dream_profile_n9/README.md`. Do not silently choose the next case:
-the order of Juno, Cal, Omar and Mae remains an explicit owner decision.
+`art/renders/dream_profile_n9/README.md`. The owner ruled Juno third on
+2026-08-20, and N12 now proves her delayed feedback partitions through the same
+owners. Cal, Omar and Mae remain an explicit owner-order decision.
 
 The parallel street lane's paused coachwork pass is now a bounded T2g
 checkpoint with focused contracts and A/A evidence. It does not own the next

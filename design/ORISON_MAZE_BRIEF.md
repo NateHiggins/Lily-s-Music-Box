@@ -365,8 +365,9 @@ behavior, signals and authored substitutions—not controls or manager logic.
 
 These are navigation and pursuit grammars, not six minigames. No dream adds an
 inventory, dialogue choice, repair interaction or bespoke control. Peter remains
-the second case. The order of Juno, Cal, Omar and Mae remains an owner decision,
-so run length belongs to campaign slot data rather than case code.
+the second case. **Owner ruling 2026-08-20: Juno is third.** Cal, Omar and Mae
+remain an owner-order decision, so run length belongs to campaign slot data
+rather than case code.
 
 **N9 implementation checkpoint — 2026-08-20.** Peter now proves this seam in
 production. One slot-2 profile supplies dual onset, the 38-second cap, Peter's
@@ -380,6 +381,19 @@ attention event are measured no-ops. Peter carries no Mina hazard allowlist,
 and no maze, director, pursuer, hazard or save owner was forked. This is a
 shared-profile proof, not completion of Peter's waking case. Exact evidence:
 `art/renders/dream_profile_n9/README.md` and `DreamProfileTest` 28/28.
+
+**N12 implementation checkpoint — 2026-08-20.** Juno proves a timed topology
+verb through the same owners. The already-open lamp channel schedules one
+four-beat-plus-missing-slot interval; its delayed echo seals one safe live joint
+on both reciprocal room records and presents compressed speaker cloth with four
+brass traces. Each new wall refreshes the shared Tenant's ordinary last-known
+position exactly once. Holding the one channel open for a second interval
+releases the oldest wall without another attention event. The builder refuses a
+joint that would strand the body, intersect it, or disconnect Tenant from player;
+ordinary pocket advance cannot reopen the partition. Mina and Peter remain
+no-ops, Juno arms no Mina hazard, and no director, maze, pursuer, hazard, save or
+control owner was added. This is still downstream dream-profile proof, not
+Juno's waking case. Evidence: `art/renders/dream_profile_juno_n12/README.md`.
 
 ---
 

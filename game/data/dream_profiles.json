@@ -85,6 +85,30 @@
         "rule_id": "proceed_uncertain",
         "statement": "Uncertainty does not prevent action"
       }
+    },
+    "juno_release_print": {
+      "case_id": "juno_feedback_tetris",
+      "campaign_slot": 3,
+      "onset": {"allowed_forms": ["gradual", "sudden"], "gradual_seconds": 2.4, "sudden_seconds": 0.7},
+      "pursuit": {
+        "silhouette_resident": "juno_kells",
+        "lit_speed_mps": 3.25,
+        "lit_speed_jitter_mps": 0.08,
+        "dark_speed_mps": 6.2,
+        "dark_speed_jitter_mps": 0.12,
+        "hearing_period_s": 0.52,
+        "hearing_period_jitter_s": 0.06,
+        "capture_radius_m": 0.75,
+        "attention_event": "channel_echo_congealed"
+      },
+      "hazards": {"allow": [], "tuning": {}},
+      "maze": {
+        "channel_echo_event": "channel_echo_congealed",
+        "echo_delay_s": 4.166667,
+        "settle_after_s": 8.333333,
+        "max_partitions": 3
+      },
+      "truth": {"rule_id": "open_channel", "statement": "Connection requires an open channel"}
     }
   }
 }

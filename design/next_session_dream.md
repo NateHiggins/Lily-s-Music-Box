@@ -112,8 +112,8 @@ landed. N9's Peter shared-profile proof is closed too: slot 2 changes onset,
 run ceiling, release print, shared-pursuit attention, room grammar and case
 truth from data; a real junction reversal adds one paper-stamped door to the
 unchanged remembered room. Proof: `art/renders/dream_profile_n9/README.md`.
-Do not silently select the next of Juno, Cal, Omar and Mae; the maze brief
-keeps their order as an owner decision.
+The owner ruled Juno third on 2026-08-20. N12 now proves her timed shared-profile
+topology verb; Cal, Omar and Mae remain an owner-order decision.
 
 **The pre-existing perception proof debt is closed.**
 `DreamPerceptionTest.tscn` no longer asks the initial pocket for all three

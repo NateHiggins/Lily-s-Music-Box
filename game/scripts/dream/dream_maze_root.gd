@@ -59,6 +59,10 @@ var profile_hazards: Dictionary = {}
 ## as pursuit and hazards; neither creates a case-specific owner.
 var profile_grammar: Dictionary = {}
 var profile_truth: Dictionary = {}
+var _channel_was_open := false
+var _channel_sustain_s := 0.0
+var _channel_echo_due: Array[float] = []
+var _channel_echo_ordinal := 0
 ## Accessibility text for the hazard tells. Present always, silent unless the
 ## player has turned the setting on.
 var captions: DreamCaptionLayer
@@ -392,6 +396,7 @@ func _build_world() -> void:
 	player.position = start_marker.position
 	add_child(player)
 	player.set_lamp_enabled(true)
+	_setup_channel_grammar()
 	# The dream has no LightRig, so nothing would otherwise tell the beam's
 	# screen mask that this world is lit at all and it would crush the ambient
 	# to a fifth outside the beam -- switching the lamp ON would darken the
@@ -1416,6 +1421,7 @@ func _physics_process(delta: float) -> void:
 		_update_molten()
 	if not autonomous or _outcome_committed:
 		return
+	advance_profile_grammar(delta, player.lamp_is_enabled())
 	if pursuer != null and not pursuer.is_captured:
 		pursuer.advance_fixed(delta)
 	if _embrace_active or _outcome_committed:
@@ -1430,6 +1436,59 @@ func _physics_process(delta: float) -> void:
 	run_elapsed_s += delta
 	if run_elapsed_s >= run_cap_s:
 		_cap_fold()
+
+
+func _setup_channel_grammar() -> void:
+	_channel_was_open = false
+	_channel_sustain_s = 0.0
+	_channel_echo_due.clear()
+	_channel_echo_ordinal = 0
+	if not str(profile_grammar.get("channel_echo_event", "")).is_empty():
+		_channel_was_open = true
+		_channel_echo_due.append(float(profile_grammar.get("echo_delay_s", 0.0)))
+
+
+## Deterministic public step for the focused harness. Production calls it once
+## per autonomous physics frame; the root owns time, never door records.
+func advance_profile_grammar(delta: float, channel_open: bool) -> void:
+	if rooms == null or str(profile_grammar.get("channel_echo_event", "")).is_empty():
+		return
+	if channel_open and not _channel_was_open:
+		_channel_echo_due.append(float(profile_grammar.get("echo_delay_s", 0.0)))
+	if not channel_open:
+		_channel_sustain_s = 0.0
+	elif _channel_was_open:
+		_channel_sustain_s += delta
+	_channel_was_open = channel_open
+	for i in range(_channel_echo_due.size() - 1, -1, -1):
+		_channel_echo_due[i] -= delta
+		if _channel_echo_due[i] > 0.0:
+			continue
+		_channel_echo_due.remove_at(i)
+		_channel_echo_ordinal += 1
+		var pursuer_key := rooms.nav_room_at(pursuer.position.x, pursuer.position.z) \
+				if pursuer != null else ""
+		var event := rooms.congeal_channel_partition(_architecture, _here_key,
+				player.position, pursuer_key, _channel_echo_ordinal)
+		if not event.is_empty():
+			_refresh_profile_topology()
+			if pursuer != null:
+				pursuer.notify_profile_event(str(event.get("event", "")))
+	var settle := float(profile_grammar.get("settle_after_s", 0.0))
+	if channel_open and settle > 0.0 and _channel_sustain_s >= settle:
+		_channel_sustain_s -= settle
+		if not rooms.release_oldest_channel_partition().is_empty():
+			_refresh_profile_topology()
+
+
+func _refresh_profile_topology() -> void:
+	rooms.advance(_architecture, _here_path)
+	rooms.write_plan(plan, _here_key)
+	if hazards != null:
+		hazards.rearm(plan, profile_hazards)
+		_rebuild_hazard_growth()
+	_rebuild_practicals()
+	_collect_molten_materials()
 
 
 ## THE CAP CLOSES THE RUN BY TOPOLOGY, NOT BY CHEATING. When the slot's

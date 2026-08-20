@@ -62,8 +62,9 @@ owners Mina uses. A junction reversal returns the same remembered room with
 one more deterministic, paper-stamped door; Mina is a measured no-op. Proof and
 28/28 focused checks live at `art/renders/dream_profile_n9/README.md`. This is
 the dream-profile seam only, not a claim that Peter's waking case loop exists.
-The next of Juno/Cal/Omar/Mae remains the owner-order decision recorded in the
-maze brief.
+The owner ruled Juno third on 2026-08-20. N12's shared profile makes delayed
+feedback physically load-bearing, then releases the oldest partition when one
+channel remains open. Cal/Omar/Mae remain the owner-order decision.
 
 Three top-level projects:
 

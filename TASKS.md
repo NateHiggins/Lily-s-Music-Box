@@ -1473,9 +1473,20 @@ unresolved. K7's source-backed loop contract is closed in
   controls. Focused contract 31/31; final integration results and exact 1440p
   price are in `art/renders/dream_embrace_v1/README.md`. N7's stale
   `DreamPerceptionTest` is repaired above and N9's Peter profile proof is closed
-  above. The order of Juno, Cal, Omar and Mae remains the explicit owner
-  decision in the maze brief; friendship/romance and chosen re-meaning remain
-  last.
+  above. The owner ruled Juno third; Cal, Omar and Mae remain the explicit
+  owner-order decision. Friendship/romance and chosen re-meaning remain last.
+- **N12 DONE 2026-08-20 — JUNO MAKES FEEDBACK LOAD-BEARING.** Slot 3 carries
+  Juno's 50-second ceiling, dual onset, borrowed silhouette, distinct shared
+  pursuit tuning and exact truth “Connection requires an open channel.” The
+  initially open lamp channel schedules one delayed echo; a safe live joint
+  becomes a reciprocal solid partition with compressed speaker cloth and four
+  brass traces. Congeal refreshes shared Tenant attention once, while a sustained
+  channel releases the FIFO-oldest partition silently. Mina and Peter remain
+  no-ops, Juno arms no Mina hazards, and no case-specific runtime or save owner
+  was added. Profile 38/38, RoomBuilder 175/175, Pursuit 39/39, Hazard 42/42 and
+  Boundary 39/39 pass. The 1440p A/B is 6.60x its A/A motion floor. Proof:
+  `art/renders/dream_profile_juno_n12/README.md`. This is dream-profile proof,
+  not a waking Juno case.
 - **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
   heredity and visible anatomy: bounded parent/child genomes, brood knots,
   parent umbilicals, prospective child helices, open birth-frames and sealed
