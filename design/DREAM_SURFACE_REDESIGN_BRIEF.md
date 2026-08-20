@@ -395,7 +395,22 @@ Stage 3+ replaces a wall panel with a torn-edge hole plus a recessed volume.
   broken lath and plaster shards, plus rubble on the floor.
 - The eye at the vanishing point can live in the interior-mapped layer.
 
-### E. TENTACLES — the only genuinely expensive item
+### E. TENTACLES — LANDED 2026-08-20, and it was not expensive
+Three intrusion limbs erupt from the dominant breach and cross the room — the
+overhead arc, floor run and low drape of the stage-4 plate — inside the SAME
+batched growth surface, so they add **zero draw submissions at any reach**
+(A/C control: 12/21 calls identical with limbs retracted and fully grown,
+`art/renders/dream_intrusion_v1/README.md`). Extent is a vertex-stage
+function of one `intrusion_reach` uniform that `DreamMazeRoot` derives from
+the durable field at the breach anchor — the same sample the reflected light
+reads — and beyond the front the tube collapses to a hair-fine filament
+rather than vanishing. Sustained proximity (0.7 s grace) to a grown limb
+commits the capture through the landed R8 embrace; centerlines are mirrored
+onto the source hazard as `embrace_paths`; no collision object, no second
+combat system. Deferred deliberately: discrete eyes ON the limb surfaces
+(workstream F's stage-4 item) need an eye/limb coupled collapse channel and
+are a small follow-up, not part of this landing. The original workstream text
+follows for the record.
 Splined tubes with ribbed, filigreed, eye-studded surfaces, emerging from a
 breach and crossing the room.
 - Their extent and motion are a monotonic function of the same durable exposure

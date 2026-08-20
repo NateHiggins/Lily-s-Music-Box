@@ -36,7 +36,24 @@ func _ready() -> void:
 	await _capture("02_furnished_breach_motion", 150)
 	_settle_lamp(false)
 	await _capture("03_furnished_breach_dark_live", 75)
-	print("[DREAM TARGET SHOT] 3 frames, findings=%d" % failures)
+	# DREAM_SHOT_INTRUSION=1 continues into the owner's 2026-08-20 tentacle
+	# ramp: the same staged breach, the durable field driven to half and then
+	# full reach, and the proof pair that the limbs are dark-live -- the last
+	# frame turns the lamp off on a fully grown body and it must still be
+	# there, wine-dark with its faint afterglow, under the returned gold
+	# light rather than the beam.
+	if OS.get_environment("DREAM_SHOT_INTRUSION") == "1":
+		_settle_lamp(true)
+		_seed_intrusion(2.6)
+		await _capture("04_intrusion_half_reach", 90)
+		_seed_intrusion(18.0)
+		await _capture("05_intrusion_full_lamp_on", 90)
+		_settle_lamp(false)
+		await _capture("06_intrusion_full_dark_live", 90)
+		print("[DREAM TARGET SHOT] intrusion reach=%.3f limbs=%d"
+				% [float(root.get("_intrusion_reach")),
+				(root.get("_intrusion_paths") as Array).size()])
+	print("[DREAM TARGET SHOT] frames done, findings=%d" % failures)
 	get_tree().quit(failures)
 
 
@@ -216,6 +233,25 @@ func _seed_ruled_dwell() -> void:
 	root.call("_update_molten")
 	print("[DREAM TARGET SHOT] phase dwell=%.2f exposure=%.4f->%.4f" % [
 			dwell_s, before, root.exposure.sample(centre)])
+
+
+## Drive the durable field at the breach anchor by the stated seconds of
+## dead-centre dwell, exactly the way the perf probe's R5 hook does, then let
+## the production owner derive reach, light and phase from it.
+func _seed_intrusion(dwell_s: float) -> void:
+	var growth := root.get("_hazard_growth") as MeshInstance3D
+	var breach: Dictionary = growth.get_meta("breach_record", {}) 			if growth != null else {}
+	if breach.is_empty() or root.exposure == null:
+		failures += 1
+		printerr("[DREAM TARGET SHOT] no governed breach to seed")
+		return
+	var centre: Vector3 = breach.get("center", Vector3.ZERO)
+	var normal: Vector3 = breach.get("normal", Vector3.FORWARD)
+	root.exposure.add_lamp(centre - normal * 1.25, normal, 2.5,
+			cos(deg_to_rad(34.0)), 1.0, dwell_s)
+	root.exposure.upload(root.get("_exposure_tex") as ImageTexture3D)
+	root.call("_update_intrusion", 0.0)
+	root.call("_update_phase_reflected_light")
 
 
 func _capture(file_name: String, frames: int) -> void:

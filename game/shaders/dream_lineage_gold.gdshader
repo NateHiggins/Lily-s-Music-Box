@@ -47,6 +47,15 @@ uniform int portal_debug_view : hint_range(0, 2) = 0;
 // central view disappears. One uniform moves all eye vertices in the existing
 // batch; no lid node or draw is created for the cinematic.
 uniform float embrace_amount : hint_range(0.0, 1.0) = 0.0;
+// How much of each intrusion limb currently exists, 0 retracted .. 1 full
+// crossing. Pushed by DreamMazeRoot from the SAME durable-field sample that
+// drives the reflected gold light, rather than sampled here from
+// exposure_tex, so the CPU's embrace-proximity evaluation and this vertex
+// stage can never disagree about how much limb is real. Beyond the grown
+// fraction the tube collapses to a hair-fine filament instead of vanishing:
+// nothing pops when exposure rises, and the filament is the brief's own
+// "running ahead of the main mass".
+uniform float intrusion_reach : hint_range(0.0, 1.0) = 0.0;
 
 uniform float gene_phase = 0.0;
 uniform float dark_glow = 0.018;
@@ -91,9 +100,11 @@ void vertex() {
 	float slow = TIME * 6.28318530718 * motion_hz;
 	float anatomy_class = CUSTOM0.a;
 	// Normalised class ids survive every backend's vertex-attribute path:
-	// 0 body, .25 eye, .50 false-depth face, .625 living rim, .75 plaster,
-	// 1.0 timber lath.
+	// 0 body, .25 eye, .375 intrusion limb, .50 false-depth face,
+	// .625 living rim, .75 plaster, 1.0 timber lath. The eye window is
+	// +-0.10 and every other window +-0.045, so .375 collides with nothing.
 	float eye_flag = 1.0 - step(0.10, abs(anatomy_class - 0.25));
+	float limb_flag = 1.0 - step(0.045, abs(anatomy_class - 0.375));
 	float breach_flag = 1.0 - step(0.045, abs(anatomy_class - 0.50));
 	float rim_flag = 1.0 - step(0.045, abs(anatomy_class - 0.625));
 	float plaster_flag = 1.0 - step(0.045, abs(anatomy_class - 0.75));
@@ -129,6 +140,31 @@ void vertex() {
 			VERTEX += (eye_side * side_look + eye_up * up_look)
 					* CUSTOM2.a * 0.28 * mobile_iris;
 		}
+	}
+	if (limb_flag > 0.5) {
+		// THE LIMB GROWS OUT OF THE RECORD, NOT OUT OF THE BEAM. CUSTOM3.a is
+		// this ring's 0..1 station along the limb; the uniform says how much
+		// of the limb the durable field has earned. Grown rings keep their
+		// authored thickness; beyond the front the same centerline survives
+		// at six percent radius -- torso-thick down to hair-fine, exactly the
+		// plate's anatomy -- so the limb visibly EXTENDS as exposure rises
+		// and never pops or retracts with the lamp.
+		float along = CUSTOM3.a;
+		vec3 ring_center = CUSTOM0.xyz;
+		float grown = 1.0 - smoothstep(intrusion_reach,
+				intrusion_reach + 0.07, along);
+		float thickness = mix(0.06, 1.0, grown);
+		VERTEX = ring_center + (VERTEX - ring_center) * thickness;
+		// Slow reach-scaled sway, largest at the free end. Both terms sit far
+		// under the photosensitivity bar: motion_hz is 0.13, so the fastest
+		// component here completes a cycle in about eleven seconds.
+		vec3 sway_dir = normalize(CUSTOM1.xyz);
+		float limb_phase = CUSTOM1.a * 6.28318530718;
+		float amp = CUSTOM2.a * along * intrusion_reach;
+		VERTEX += sway_dir * sin(slow * 0.70 + limb_phase + along * 2.7)
+				* amp;
+		VERTEX.y += cos(slow * 0.47 + limb_phase * 1.3 + along * 3.4)
+				* amp * 0.45;
 	}
 	VERTEX.x += sin(slow + phase + VERTEX.y * 1.7) * 0.045
 			* flex * motion_gain;

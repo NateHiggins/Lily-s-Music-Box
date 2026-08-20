@@ -25,6 +25,45 @@ const EYE_STATES := [
 		"closed", "half_lidded", "half_lidded", "half_lidded", "open"]
 const EYE_OPENNESS := [0.10, 0.38, 0.52, 0.64, 0.88]
 
+## THE INTRUSION LIMBS -- workstream E, and the owner amplification of
+## 2026-08-20 made geometry: "the warping gold resolves in animated gold
+## tentacles that intrude in the space ... and embrace the player if they get
+## too close." Three limbs erupt from the dominant breach mouth and cross the
+## room -- an overhead arc, a floor run and a low drape, echoing the stage-4
+## plate -- inside the SAME batched surface, so however far they reach the
+## whole body remains one draw submission.
+##
+## THEIR EXTENT IS NOT BUILT HERE. The centerlines are authored at full
+## length; how much of each limb exists at any moment is the durable exposure
+## field's decision, applied in the lineage shader's vertex stage from one
+## `intrusion_reach` uniform that DreamMazeRoot derives from the SAME field
+## sample the reflected gold light already uses. Beyond the grown fraction the
+## tube collapses to a hair-fine filament rather than vanishing -- the brief's
+## "fine filaments running ahead of the main mass", and the reason nothing
+## ever pops when exposure rises.
+##
+## DANGER OWNERSHIP, decided deliberately. These limbs are NOT hazard contact
+## paths: touching one is not a wound, it is HER -- the ruled consequence is
+## the capture, presented through the landed R8 embrace. So the centerlines
+## are recorded on this mesh's meta and mirrored onto the source hazard as
+## `embrace_paths` for attribution, while `DreamMazeRoot` performs the one
+## proximity evaluation next to the embrace it triggers. No CollisionObject3D,
+## no damage volume, no second combat system -- and `DreamHazardField` keeps
+## sole ownership of every hazard outcome exactly as ruled.
+const INTRUSION_LIMBS := 3
+const INTRUSION_STEPS := 16
+const INTRUSION_SIDES := 12
+const INTRUSION_ROOT_RADIUS_M := 0.30
+const INTRUSION_TIP_RADIUS_M := 0.045
+## Vertex anatomy class for limbs. The registered ids are 0 body, .25 eye,
+## .50 false-depth face, .625 living rim, .75 plaster, 1.0 lath; .375 sits
+## outside every existing tolerance window (eye is +-0.10, the rest +-0.045).
+const INTRUSION_CLASS := 0.375
+## Centerline samples are clamped this far inside the room's clear footprint,
+## so a limb can drape along a wall but never pierces one. The measured bones
+## stay the waking Orison's whatever grows through them.
+const INTRUSION_MARGIN_M := 0.34
+
 
 func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 	name = "DreamHazardGrowth"
@@ -44,6 +83,9 @@ func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 	var membrane_count := 0
 	var capillary_count := 0
 	var breach_record: Dictionary = {}
+	var breach_owner: DreamHazard = null
+	var breach_rect: Array = []
+	var breach_seed := 0
 	var prepared: Array[Dictionary] = []
 	for hazard in live_hazards:
 		hazard.set_contact_paths([], 0.0)
@@ -89,6 +131,20 @@ func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 		capillary_count += int(built.capillaries)
 		if owns_dominant_breach:
 			breach_record = built.breach_record
+			breach_owner = built_hazard
+			breach_rect = built_rect
+			breach_seed = built_seed
+	# The limbs go into the same SurfaceTool as everything above, before
+	# commit, so the batch stays one surface and one submission.
+	var intrusion_record: Dictionary = {}
+	if not breach_record.is_empty():
+		intrusion_record = _append_intrusion_limbs(tool, breach_record,
+				breach_rect, breach_seed)
+		if breach_owner != null:
+			breach_owner.set_meta("embrace_paths",
+					intrusion_record.get("limbs", []))
+			breach_owner.set_meta("embrace_owner",
+					"DreamMazeRoot/DreamEmbrace")
 	if ids.is_empty():
 		mesh = null
 		visible = false
@@ -139,6 +195,11 @@ func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 	set_meta("max_sway_m", 0.045)
 	set_meta("material_layers", PackedStringArray([
 			"subsurface_tissue", "wet_microfilm", "living_gold"]))
+	set_meta("intrusion_record", intrusion_record)
+	set_meta("intrusion_limbs",
+			(intrusion_record.get("limbs", []) as Array).size())
+	set_meta("intrusion_owner", "DreamExposureField/DreamMazeRoot")
+	set_meta("intrusion_consequence", "capture_via_R8_embrace")
 	set_meta("surfaces", mesh.get_surface_count() if mesh != null else 0)
 
 
@@ -535,6 +596,144 @@ func _append_dominant_breach(tool: SurfaceTool, hazard: DreamHazard,
 		"vanishing_point_eye": true,
 		"navigation": "authoritative_wall_intact",
 	}
+
+
+## Three full-length limb centerlines out of the breach mouth, and their
+## geometry. Deterministic from the breach owner's seed: the same pocket
+## rebuild grows the same limbs, which is what lets the CPU's embrace
+## evaluation and the GPU's grown fraction agree about a body neither of them
+## owns alone.
+func _append_intrusion_limbs(tool: SurfaceTool, breach: Dictionary,
+		rect: Array, seed: int) -> Dictionary:
+	var center: Vector3 = breach.get("center", Vector3.ZERO)
+	var inward: Vector3 = (breach.get("normal", Vector3.FORWARD) as Vector3) \
+			.normalized()
+	var side: Vector3 = (breach.get("side", Vector3.RIGHT) as Vector3) \
+			.normalized()
+	var limbs: Array = []
+	for limb_index in INTRUSION_LIMBS:
+		var n0 := _breach_noise(seed + 4099, limb_index)
+		var n1 := _breach_noise(seed + 4423, limb_index)
+		var n2 := _breach_noise(seed + 4831, limb_index)
+		var mouth := center \
+				+ side * ((n0 - 0.5) * BREACH_HALF_WIDTH_M * 1.15) \
+				+ Vector3.UP * ((n1 - 0.5) * BREACH_HALF_HEIGHT_M * 0.9)
+		# Three archetypes from the stage-4 plate: an overhead arc, a floor
+		# run, a low drape. Reach and lateral drift then vary per seed so two
+		# buildings never grow the same body.
+		var reach_len := 2.1 + n2 * 2.3
+		var lateral := side * ((n1 - 0.5) * 2.4)
+		var apex_y := float([2.30 + n0 * 0.35, 1.05 + 0.30 * n0,
+				1.50 + 0.25 * n2][limb_index % 3])
+		var tip_y := float([1.10 + 0.45 * n2, 0.24, 0.40][limb_index % 3])
+		var p0 := mouth
+		var p1 := mouth + inward * (reach_len * 0.34) + lateral * 0.30
+		p1.y = lerpf(mouth.y, apex_y, 0.62)
+		var p2 := mouth + inward * (reach_len * 0.74) + lateral * 0.80
+		p2.y = apex_y
+		var p3 := mouth + inward * reach_len + lateral
+		p3.y = tip_y
+		var points := PackedVector3Array()
+		for step in INTRUSION_STEPS + 1:
+			var t := float(step) / float(INTRUSION_STEPS)
+			points.append(_clamp_into_room(
+					_bezier(p0, p1, p2, p3, t), rect))
+		# Sway is perpendicular to the eruption so the limb rocks across the
+		# corridor rather than pumping in and out of its own wall.
+		var sway_dir := inward.cross(Vector3.UP).normalized()
+		if sway_dir.length() < 0.5:
+			sway_dir = side
+		sway_dir = (sway_dir * (1.0 if n2 > 0.5 else -1.0)
+				+ Vector3.UP * 0.35).normalized()
+		_append_limb_tube(tool, points, n0, mouth, sway_dir,
+				0.09 + 0.07 * n1)
+		limbs.append(points)
+	return {
+		"anchor": center + inward * 0.12,
+		"limbs": limbs,
+		"root_radius_m": INTRUSION_ROOT_RADIUS_M,
+		"tip_radius_m": INTRUSION_TIP_RADIUS_M,
+		"class": INTRUSION_CLASS,
+		"steps": INTRUSION_STEPS,
+		"hazard_id": str(breach.get("hazard_id", "")),
+		"module": str(breach.get("module", "")),
+		"consequence": "capture_via_R8_embrace",
+	}
+
+
+func _clamp_into_room(p: Vector3, rect: Array) -> Vector3:
+	if rect.size() < 4:
+		return p
+	return Vector3(
+			clampf(p.x, float(rect[0]) + INTRUSION_MARGIN_M,
+					float(rect[2]) - INTRUSION_MARGIN_M),
+			clampf(p.y, 0.16, CLEAR_CEILING_M - 0.22),
+			clampf(p.z, float(rect[1]) + INTRUSION_MARGIN_M,
+					float(rect[3]) - INTRUSION_MARGIN_M))
+
+
+## A limb tube whose vertices carry what the vertex stage needs to grow it:
+## per-ring centre (CUSTOM0.xyz + the .375 class), sway frame (CUSTOM1/2),
+## and the ring's own 0..1 position along the limb (CUSTOM3.a). COLOR keeps
+## the batch's established meaning exactly -- r flex, g phase, b tissue --
+## because b also selects eye shading in the fragment and a limb tip that
+## drifted up the blue channel would render as a pupil.
+func _append_limb_tube(tool: SurfaceTool, points: PackedVector3Array,
+		phase: float, anchor: Vector3, sway_dir: Vector3,
+		sway_amp_m: float) -> void:
+	if points.size() < 2:
+		return
+	var last := points.size() - 1
+	for ring in last:
+		var t0 := float(ring) / float(last)
+		var t1 := float(ring + 1) / float(last)
+		var a := points[ring]
+		var b := points[ring + 1]
+		var pulse0 := 0.86 + 0.11 * sin(t0 * TAU * 3.0 + phase * TAU) \
+				+ 0.05 * sin(t0 * TAU * 7.0 - phase * 4.0)
+		var pulse1 := 0.86 + 0.11 * sin(t1 * TAU * 3.0 + phase * TAU) \
+				+ 0.05 * sin(t1 * TAU * 7.0 - phase * 4.0)
+		var ra := lerpf(INTRUSION_ROOT_RADIUS_M, INTRUSION_TIP_RADIUS_M,
+				pow(t0, 0.78)) * pulse0
+		var rb := lerpf(INTRUSION_ROOT_RADIUS_M, INTRUSION_TIP_RADIUS_M,
+				pow(t1, 0.78)) * pulse1
+		var tangent := (b - a).normalized()
+		var ring_side := tangent.cross(Vector3.UP)
+		if ring_side.length() < 0.001:
+			ring_side = tangent.cross(Vector3.RIGHT)
+		ring_side = ring_side.normalized()
+		var ring_up := ring_side.cross(tangent).normalized()
+		var custom0_a := Color(a.x, a.y, a.z, INTRUSION_CLASS)
+		var custom0_b := Color(b.x, b.y, b.z, INTRUSION_CLASS)
+		var custom1 := Color(sway_dir.x, sway_dir.y, sway_dir.z, phase)
+		var custom2 := Color(anchor.x, anchor.y, anchor.z, sway_amp_m)
+		var custom3_a := Color(0.0, 0.0, 0.0, t0)
+		var custom3_b := Color(0.0, 0.0, 0.0, t1)
+		var color_a := Color(0.22 * sin(t0 * PI), phase, 0.0, 1.0)
+		var color_b := Color(0.22 * sin(t1 * PI), phase, 0.0, 1.0)
+		for side_index in INTRUSION_SIDES:
+			var angle0 := TAU * float(side_index) / float(INTRUSION_SIDES)
+			var angle1 := TAU * float(side_index + 1) \
+					/ float(INTRUSION_SIDES)
+			var n0 := ring_side * cos(angle0) + ring_up * sin(angle0)
+			var n1 := ring_side * cos(angle1) + ring_up * sin(angle1)
+			var lobe0 := 1.0 + 0.09 * sin(angle0 * 3.0 + phase * TAU)
+			var lobe1 := 1.0 + 0.09 * sin(angle1 * 3.0 + phase * TAU)
+			var quad_normal := (n0 + n1).normalized()
+			for corner in [
+					[a + n0 * ra * lobe0, color_a, custom0_a, custom3_a],
+					[b + n0 * rb * lobe0, color_b, custom0_b, custom3_b],
+					[b + n1 * rb * lobe1, color_b, custom0_b, custom3_b],
+					[a + n0 * ra * lobe0, color_a, custom0_a, custom3_a],
+					[b + n1 * rb * lobe1, color_b, custom0_b, custom3_b],
+					[a + n1 * ra * lobe1, color_a, custom0_a, custom3_a]]:
+				tool.set_normal(quad_normal)
+				tool.set_color(corner[1])
+				tool.set_custom(0, corner[2])
+				tool.set_custom(1, custom1)
+				tool.set_custom(2, custom2)
+				tool.set_custom(3, corner[3])
+				tool.add_vertex(corner[0])
 
 
 func _breach_noise(seed: int, index: int) -> float:

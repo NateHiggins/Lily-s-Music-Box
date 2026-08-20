@@ -286,6 +286,38 @@ number the tentacles get to spend. Note the probe's inherited `TIME_FPS`
 averaging cannot resolve a 2 ms frame — the dream branch times on ticks, and
 any new station at this speed must too.
 
+### 2026-08-20, LATER: THE RECURSION PRICE HAS NUMBERS, AND THE INTRUSION LANDED
+
+**The recursion probe ran** (`DreamRecursionPrice.tscn`, 14,400 rooms across
+5 seeds x 3 cases x 3 nights x 8 depth bands):
+
+| depth | share recursive | could nest |
+|---|---|---|
+| 1–3 | **0.0%** | — |
+| 5 | 1.2% | 90% |
+| 8 | 2.8% | 92% |
+| 14 | 6.1% | 97% |
+| ALL | 2.5% | 94% |
+
+Geometry is NOT the blocker — 94% of flagged rooms could hold the smallest
+authored module (2.20 x 1.25 m needs a 2.60 x 2.56 m clear span). R7's
+depth-zero ruling therefore rests entirely on its stated contract argument
+(enterable nesting duplicates Atlas traversal and demands a second
+collision/navigation/pursuit contract), and the incidence curve supports it:
+a first-night player at chain depths never meets the fault at all. The
+verdict stands; the numbers are now under it.
+
+**Workstream E is landed.** Three exposure-ramped intrusion limbs from the
+dominant breach, in the same one growth surface, zero added submissions at
+any reach, sustained-proximity capture through the R8 embrace, dark-live
+with the ruled wine afterglow. Proof: `art/renders/dream_intrusion_v1/`
+(frames + A/A/B numbers) and `dream_surface_target_test.gd` — 105/105, with
+the intrusion contract's 13 checks. Two traps recorded there: the harness
+freezes the root's physics for its still-world contracts, so anything
+awaiting `physics_frame` must re-enable it; and the pursuer must be re-parked
+during proximity windows because her own capture fires the same presentation
+the limb check asserts on.
+
 ### THE FLAG IS DELETED, AND WHAT IT LEFT BEHIND
 
 `DreamHazardTest` is green on the pocket. Its five named failures were chain

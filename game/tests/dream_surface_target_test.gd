@@ -6,7 +6,7 @@ extends Node
 ## growth maps back to the existing hazard owner, and furnishing contains only
 ## extracted production meshes rather than waking gameplay systems.
 
-const EXPECTED_CHECKS := 92
+const EXPECTED_CHECKS := 105
 const HazardGrowthScript := preload(
 		"res://scripts/dream/dream_hazard_growth.gd")
 
@@ -25,6 +25,7 @@ func _ready() -> void:
 	_portal_contract()
 	_interior_contract()
 	_furnishing_contract()
+	await _intrusion_contract()
 	if checks != EXPECTED_CHECKS:
 		failures += 1
 		printerr("[DREAM TARGET] HARNESS FAIL: %d checks, expected %d"
@@ -844,6 +845,185 @@ func _furnishing_contract() -> void:
 			armed_records += 1
 	_check("growth adds no second hazard population",
 			root.hazards.hazards.size() == armed_records)
+
+
+## OWNER 2026-08-20: "animated gold tentacles that intrude in the space ...
+## and embrace the player if they get too close." Thirteen facts the render
+## cannot prove: the limbs live in the same one surface, stay inside the
+## measured bones, grow from the durable field and nothing else, agree
+## between CPU and GPU by construction, and commit only the ruled capture --
+## through the landed R8 embrace, after sustained proximity, never from a
+## parked harness body and never below the reach floor.
+##
+## The block runs LAST and settles the pocket around the breach room before
+## its proximity half, because standing at the breach means crossing rooms,
+## crossing rooms rebuilds the growth, and a rebuilt growth may put the
+## dominant breach on a different wall. Every handle is re-read after the
+## world has finished reacting; a test that kept its stale pointers would be
+## measuring geometry that is no longer on screen.
+func _intrusion_contract() -> void:
+	var growth := root.get("_hazard_growth") as MeshInstance3D
+	var record: Dictionary = growth.get_meta("intrusion_record", {}) \
+			if growth != null else {}
+	var limbs: Array = record.get("limbs", [])
+	_check("the dominant breach resolves into plural intrusion limbs",
+			int(growth.get_meta("breaches", 0)) == 1 and limbs.size() >= 2)
+	_check("the limbs joined the one batched surface, not a new draw",
+			growth != null and growth.mesh != null
+			and growth.mesh.get_surface_count() == 1)
+
+	var rect := _module_rect(str(record.get("module", "")))
+	var inside := not limbs.is_empty() and rect.size() == 4
+	var anchored := inside
+	var anchor: Vector3 = record.get("anchor", Vector3.ZERO)
+	for limb_variant in limbs:
+		var limb := limb_variant as PackedVector3Array
+		if limb.size() < 8:
+			inside = false
+			continue
+		for point in limb:
+			if point.x < float(rect[0]) - 0.01 \
+					or point.x > float(rect[2]) + 0.01 \
+					or point.z < float(rect[1]) - 0.01 \
+					or point.z > float(rect[3]) + 0.01 \
+					or point.y < 0.10 or point.y > 3.02:
+				inside = false
+		if limb[0].distance_to(anchor) > 2.2:
+			anchored = false
+	_check("every limb point stays inside its room's measured bones", inside)
+	_check("every limb erupts from the breach mouth", anchored)
+	_check("the centerlines are mirrored onto the source hazard",
+			_embrace_paths_on_hazard(str(record.get("hazard_id", "")),
+					limbs.size()))
+
+	# THE REACH IS THE FIELD'S NUMBER. Not asserted from a fresh field -- the
+	# phase contract above has already spent lamp on this building, which is
+	# the realistic state -- but as exact agreement with the shared sample,
+	# and as monotonicity under further dwell.
+	root.call("_update_intrusion", 0.0)
+	var before := float(root.get("_intrusion_reach"))
+	var expected := smoothstep(DreamMazeRoot.INTRUSION_REACH_FIELD_LO,
+			DreamMazeRoot.INTRUSION_REACH_FIELD_HI,
+			root.exposure.sample(anchor))
+	_check("the reach is exactly the durable field through the one mapping",
+			absf(before - expected) < 0.001)
+	var breach: Dictionary = growth.get_meta("breach_record", {})
+	var centre: Vector3 = breach.get("center", Vector3.ZERO)
+	var normal: Vector3 = breach.get("normal", Vector3.FORWARD)
+	root.exposure.add_lamp(centre - normal * 1.25, normal, 2.5,
+			cos(deg_to_rad(34.0)), 1.0, 2.5)
+	root.call("_update_intrusion", 0.0)
+	var partial := float(root.get("_intrusion_reach"))
+	root.exposure.add_lamp(centre - normal * 1.25, normal, 2.5,
+			cos(deg_to_rad(34.0)), 1.0, 18.0)
+	root.call("_update_intrusion", 0.0)
+	var saturated := float(root.get("_intrusion_reach"))
+	_check("further dwell never lowers the reach",
+			partial >= before and saturated >= partial)
+	_check("a saturated breach extends the limbs fully", saturated > 0.8)
+	var material := growth.material_override as ShaderMaterial
+	_check("the shader is handed the same number the CPU uses",
+			material != null and absf(float(material.get_shader_parameter(
+					"intrusion_reach")) - saturated) < 0.001)
+
+	# THE EMBRACE. Move to the breach room, let the pocket finish reacting,
+	# then re-read everything: the growth was just rebuilt and the breach may
+	# be a different wall of a different room now.
+	root.player.position = Vector3(centre.x - normal.x * 1.2, 0.0,
+			centre.z - normal.z * 1.2) + Vector3(normal.x, 0.0, normal.z) * 2.4
+	for i in 3:
+		await get_tree().physics_frame
+	growth = root.get("_hazard_growth") as MeshInstance3D
+	record = growth.get_meta("intrusion_record", {}) if growth != null else {}
+	limbs = record.get("limbs", [])
+	breach = growth.get_meta("breach_record", {})
+	centre = breach.get("center", Vector3.ZERO)
+	normal = breach.get("normal", Vector3.FORWARD)
+	root.exposure.add_lamp(centre - normal * 1.25, normal, 2.5,
+			cos(deg_to_rad(34.0)), 1.0, 18.0)
+	root.call("_update_intrusion", 0.0)
+	var reach := float(root.get("_intrusion_reach"))
+	var grab := _lowest_grown_point(limbs, reach)
+	root.player.position = Vector3(grab.x, 0.0, grab.z)
+	root.player.set_lamp_enabled(true)
+	for i in 30:
+		root.call("_update_intrusion", 1.0 / 60.0)
+	_check("a non-autonomous world never begins the embrace",
+			not bool(root.get("_embrace_active")))
+	# THE HARNESS FROZE THE ROOT. _build() calls root.set_physics_process(
+	# false) so the earlier contracts can measure a still world -- which
+	# also silently freezes _update_intrusion, and the first version of this
+	# block spent one hundred eighty physics frames awaiting a callback that
+	# was never going to run. The proximity half needs the real loop.
+	root.set_physics_process(true)
+	# Autonomous, but shorter than the grace window. The pursuer is re-parked
+	# every frame: her own capture fires this same presentation, and a test of
+	# the limbs must not be able to pass because SHE arrived.
+	root.autonomous = true
+	for i in 18:
+		_park_pursuer_far()
+		await get_tree().physics_frame
+	root.autonomous = false
+	_check("brushing the limb for less than the grace is survivable",
+			not bool(root.get("_embrace_active")))
+	# And sustained: the ruled consequence, through the ruled presentation.
+	var presented: Array = []
+	root.capture_presentation_started.connect(
+			func() -> void: presented.append(true), CONNECT_ONE_SHOT)
+	root.autonomous = true
+	for i in 180:
+		_park_pursuer_far()
+		root.player.position = Vector3(grab.x, 0.0, grab.z)
+		await get_tree().physics_frame
+		if not presented.is_empty():
+			break
+	print("[DREAM TARGET] intrusion: reach=%.3f grace=%.2f limbs=%d"
+			% [float(root.get("_intrusion_reach")),
+			float(root.get("_embrace_grace")),
+			(root.get("_intrusion_paths") as Array).size()])
+	_check("staying in reach commits the capture through the R8 embrace",
+			not presented.is_empty() and bool(root.get("_embrace_active")))
+	_check("the embrace froze the world the moment it began",
+			not root.autonomous)
+
+
+func _module_rect(module_id: String) -> Array:
+	for entry in root.plan.get("modules", []):
+		if str(entry.get("id", "")) == module_id:
+			return entry.get("rect", [])
+	return []
+
+
+func _embrace_paths_on_hazard(hazard_id: String, expected: int) -> bool:
+	for hazard in root.hazards.hazards:
+		if hazard.id == hazard_id:
+			var paths: Array = hazard.get_meta("embrace_paths", [])
+			return paths.size() == expected
+	return false
+
+
+## The grown centerline point nearest the capsule's mid height, so the parked
+## body genuinely stands in a limb rather than under one.
+func _lowest_grown_point(limbs: Array, reach: float) -> Vector3:
+	var best := Vector3.ZERO
+	var best_score := INF
+	for limb_variant in limbs:
+		var limb := limb_variant as PackedVector3Array
+		if limb.size() < 2:
+			continue
+		var grown_last := int(floor(reach * float(limb.size() - 1)))
+		for i in grown_last + 1:
+			var score := absf(limb[i].y - 0.9)
+			if score < best_score:
+				best_score = score
+				best = limb[i]
+	return best
+
+
+func _park_pursuer_far() -> void:
+	if root.pursuer != null and not root.pursuer.is_captured:
+		root.pursuer.position = root.player.position \
+				+ Vector3(60.0, 0.0, 0.0)
 
 
 func _check(label: String, ok: bool) -> void:

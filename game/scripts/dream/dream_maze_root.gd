@@ -89,6 +89,44 @@ var _hazard_growth: MeshInstance3D
 ## the durable field and never casts a shadow. A zero-energy node is retained
 ## below threshold so the light itself never pops in and out of ownership.
 var _phase_reflected_light: OmniLight3D
+
+## THE INTRUSION, AND THE EMBRACE IT CAN COMMIT. Owner 2026-08-20: the
+## warping gold resolves into animated tentacles that intrude into the room
+## "and embrace the player if they get too close." The limbs are built by
+## DreamHazardGrowth into its one batched surface; what lives here is the
+## other half of the ruling -- how much of them EXISTS, and what proximity
+## means.
+##
+## One number owns both. `_intrusion_reach` is derived from the durable
+## exposure field at the breach anchor -- the same sample the reflected gold
+## light reads -- pushed to the lineage shader as one uniform, and used
+## unchanged by the CPU proximity test. Shader and danger cannot disagree,
+## because neither ever computes its own copy.
+##
+## Proximity commits the CAPTURE, through the landed R8 embrace, not a hazard
+## outcome: the limbs are her, and touching her has always ended the passage
+## the same one way. DreamHazardField keeps sole ownership of every hazard
+## outcome; no collision object, no damage volume, no second combat system.
+## The grace window exists so brushing past a limb in flight is survivable --
+## the embrace takes a player who STAYS in reach, which at these speeds is a
+## choice.
+var _intrusion_paths: Array = []
+var _intrusion_anchor := Vector3.ZERO
+var _intrusion_reach := 0.0
+var _embrace_grace := 0.0
+## Field value at which limbs begin to leave the breach, and the value of a
+## full crossing. The low end sits above the reflected light's first return
+## (0.28) so the room is already answering before anything moves in it.
+const INTRUSION_REACH_FIELD_LO := 0.30
+const INTRUSION_REACH_FIELD_HI := 0.85
+## No embrace below this much limb: a stub at the breach mouth does not read
+## as a traversable obstacle and must not act like one.
+const EMBRACE_MIN_REACH := 0.55
+## "Too close", measured centerline to the player capsule's axis. Root tubes
+## are 0.30 m and sway up to ~0.16 m, so this is a hand's width beyond the
+## surface at the thickest point -- an embrace, not a hitscan.
+const EMBRACE_RADIUS_M := 0.78
+const EMBRACE_GRACE_S := 0.7
 var _phase_reflected_sample := Vector3.ZERO
 const PHASE_LIGHT_THRESHOLD_LOW := 0.78
 const PHASE_LIGHT_THRESHOLD_HIGH := 0.96
@@ -461,6 +499,7 @@ func _build_hazard_growth() -> void:
 	_hazard_growth.layers = \
 			DreamViewPortalScript.HAZARD_PRESENTATION_LAYER
 	add_child(_hazard_growth)
+	_cache_intrusion()
 	_build_phase_reflected_light()
 	_build_view_portal()
 
@@ -512,6 +551,75 @@ func _build_view_portal() -> void:
 			"none_authoritative_wall_intact")
 	_hazard_growth.set_meta("view_portal_debug_views", PackedStringArray([
 			"beauty", "portal_id", "recursion_depth"]))
+
+
+## Pull the limb centerlines the growth just built. Rebuilt whenever the
+## growth is -- every pocket change -- so the paths always describe the mesh
+## that is actually on screen.
+func _cache_intrusion() -> void:
+	_intrusion_paths = []
+	_intrusion_anchor = Vector3.ZERO
+	_embrace_grace = 0.0
+	if _hazard_growth == null:
+		return
+	var record: Dictionary = _hazard_growth.get_meta("intrusion_record", {})
+	if record.is_empty():
+		return
+	_intrusion_anchor = record.get("anchor", Vector3.ZERO)
+	_intrusion_paths = record.get("limbs", [])
+
+
+## The one reach number, and the one proximity meaning. Runs every physics
+## frame beside the hazard evaluation it deliberately is not part of.
+func _update_intrusion(delta: float) -> void:
+	if _intrusion_paths.is_empty() or exposure == null:
+		return
+	var retained := exposure.sample(_intrusion_anchor)
+	var reach := smoothstep(INTRUSION_REACH_FIELD_LO,
+			INTRUSION_REACH_FIELD_HI, retained)
+	if absf(reach - _intrusion_reach) > 0.002:
+		_intrusion_reach = reach
+		if _hazard_growth != null:
+			var material := _hazard_growth.material_override as ShaderMaterial
+			if material != null:
+				material.set_shader_parameter("intrusion_reach", reach)
+	# The embrace half. Gated exactly as the hazard advance is: a parked
+	# harness body (autonomous false) is never grabbed, and a world that has
+	# already begun ending cannot begin ending again.
+	if not autonomous or _embrace_active or _outcome_committed \
+			or player == null or reach < EMBRACE_MIN_REACH:
+		_embrace_grace = 0.0
+		return
+	if _player_touches_intrusion(reach):
+		_embrace_grace += delta
+		if _embrace_grace >= EMBRACE_GRACE_S:
+			_begin_embrace()
+	else:
+		# Hard zero rather than decay: "sustained" means continuous, and a
+		# player weaving between limbs is running, not staying.
+		_embrace_grace = 0.0
+
+
+## Player capsule against every GROWN limb segment. The same capsule numbers
+## and segment mathematics DreamHazard uses for contact tubes, against only
+## the fraction of each centerline the reach has made real -- the hair-fine
+## filament beyond the front is visual and must stay harmless.
+func _player_touches_intrusion(reach: float) -> bool:
+	var p := player.global_position
+	var body_a := p + Vector3.UP * 0.33
+	var body_b := p + Vector3.UP * (1.524 - 0.33)
+	var contact_r := EMBRACE_RADIUS_M
+	var contact_r2 := contact_r * contact_r
+	for path_variant in _intrusion_paths:
+		var path := path_variant as PackedVector3Array
+		if path.size() < 2:
+			continue
+		var grown_last := int(floor(reach * float(path.size() - 1)))
+		for i in grown_last:
+			if DreamHazard._segment_distance_squared(body_a, body_b,
+					path[i], path[i + 1]) <= contact_r2:
+				return true
+	return false
 
 
 func _update_view_portal() -> void:
@@ -1304,6 +1412,7 @@ func _physics_process(delta: float) -> void:
 		_update_practical()
 		_update_hazard_visuals()
 		_update_exposure(delta)
+		_update_intrusion(delta)
 		_update_molten()
 	if not autonomous or _outcome_committed:
 		return
