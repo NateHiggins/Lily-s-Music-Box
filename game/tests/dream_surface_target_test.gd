@@ -6,7 +6,7 @@ extends Node
 ## growth maps back to the existing hazard owner, and furnishing contains only
 ## extracted production meshes rather than waking gameplay systems.
 
-const EXPECTED_CHECKS := 59
+const EXPECTED_CHECKS := 71
 const HazardGrowthScript := preload(
 		"res://scripts/dream/dream_hazard_growth.gd")
 
@@ -21,6 +21,7 @@ func _ready() -> void:
 	await _build()
 	_growth_contract()
 	_breach_contract()
+	_phase_contract()
 	_interior_contract()
 	_furnishing_contract()
 	if checks != EXPECTED_CHECKS:
@@ -385,6 +386,82 @@ func _breach_contract() -> void:
 	duplicate.free()
 
 
+func _phase_contract() -> void:
+	var growth := root.get("_hazard_growth") as MeshInstance3D
+	var breach: Dictionary = growth.get_meta("breach_record", {}) \
+			if growth != null else {}
+	var material := growth.material_override as ShaderMaterial \
+			if growth != null else null
+	_check("R5 licenses exactly ordinary rupture and living-gold states",
+			growth != null and growth.get_meta("phase_states", PackedStringArray())
+			== PackedStringArray([
+			"ordinary_orison", "rupture", "living_gold"]))
+	_check("the durable exposure field alone owns the phase transition",
+			growth != null and str(growth.get_meta("phase_owner", ""))
+			== "DreamExposureField"
+			and str(growth.get_meta("phase_transition", ""))
+			== "continuous_material_ordered_reveal_v1")
+	_check("rupture and gold thresholds are explicit ordered ranges",
+			material != null and material.get_shader_parameter(
+			"phase_stage_thresholds") == Vector4(0.10, 0.34, 0.48, 0.78)
+			and material.get_shader_parameter("phase_gold_thresholds")
+			== Vector2(0.70, 0.92))
+	_check("phase diagnostics ship available but off",
+			material != null
+			and int(material.get_shader_parameter("phase_debug_view")) == 0)
+	_check("the aperture warp and cooled-gold luminance stay bounded",
+			material != null
+			and str(growth.get_meta("phase_warp", ""))
+			== "aperture_local_rotational_v1"
+			and float(material.get_shader_parameter("phase_warp_max_uv"))
+			<= 0.0851
+			and float(material.get_shader_parameter("phase_gold_afterglow")) > 0.0
+			and float(material.get_shader_parameter("phase_gold_afterglow"))
+			<= 0.161)
+	var centre: Vector3 = breach.get("center", Vector3.ZERO)
+	var normal: Vector3 = breach.get("normal", Vector3.FORWARD)
+	var reflected_lights := root.get_tree().get_nodes_in_group(
+			"dream_reflected_gold")
+	var reflected := reflected_lights[0] as OmniLight3D \
+			if reflected_lights.size() == 1 else null
+	_check("one room-local reflected-gold light is governed and shadowless",
+			reflected != null and reflected.get_parent() == root
+			and str(reflected.get_meta("owner", "")) == "DreamExposureField"
+			and bool(reflected.get_meta("room_local", false))
+			and not reflected.shadow_enabled
+			and reflected.omni_range <= 3.201
+			and float(reflected.get_meta("max_energy", 1.0)) <= 0.421)
+	var before := root.exposure.sample(centre)
+	var light_before := reflected.light_energy if reflected != null else -1.0
+	var mesh_before := growth.mesh
+	root.exposure.add_lamp(centre - normal * 1.25, normal, 2.5,
+			cos(deg_to_rad(34.0)), 1.0, 3.0)
+	var mid := root.exposure.sample(centre)
+	root.exposure.add_lamp(centre - normal * 1.25, normal, 2.5,
+			cos(deg_to_rad(34.0)), 1.0, 12.0)
+	var after := root.exposure.sample(centre)
+	root.call("_update_phase_reflected_light")
+	var light_after := reflected.light_energy if reflected != null else -1.0
+	_check("one real dwell crosses the same field from latent through gold",
+			before < mid and mid < after and after >= 0.90)
+	_check("reflected world light rises only at retained high exposure",
+			is_zero_approx(light_before) and light_after > 0.0
+			and light_after <= 0.421)
+	var held := root.exposure.sample(centre)
+	root.exposure.upload(root.get("_exposure_tex") as ImageTexture3D)
+	_check("the phase remains after the lamp writer stops",
+			is_equal_approx(root.exposure.sample(centre), held))
+	_check("phase advancement never rebuilds or toggles breach geometry",
+			growth.visible and growth.mesh == mesh_before
+			and growth.mesh.get_surface_count() == 1)
+	root.player.set_lamp_enabled(false)
+	root.call("_update_phase_reflected_light")
+	_check("reflected gold persists independently of the inspection lamp",
+			is_equal_approx(reflected.light_energy, light_after))
+	print("[DREAM TARGET] R5 exposure %.4f -> %.4f -> %.4f, retained %.4f" % [
+			before, mid, after, held])
+
+
 func _rect_for(room_id: String) -> Array:
 	for entry in root.plan.get("modules", []):
 		if str(entry.get("id", "")) == room_id:
@@ -435,6 +512,7 @@ func _interior_contract() -> void:
 	var interior_materials_bound := true
 	var shell_materials_bound := true
 	var relief_meter_bounded := true
+	var phase_controller_shared := true
 	for interior in interiors:
 		var key := str(interior.get_meta("room_key", ""))
 		var room: Dictionary = root.rooms.room_at_key(key)
@@ -504,6 +582,12 @@ func _interior_contract() -> void:
 						"medallion_relief_m")) <= 0.0421 \
 						and int(material.get_shader_parameter(
 						"surface_debug_view")) in [0, 1, 2, 3]
+				phase_controller_shared = phase_controller_shared \
+						and material.get_shader_parameter(
+						"phase_stage_thresholds") \
+						== Vector4(0.10, 0.34, 0.48, 0.78) \
+						and material.get_shader_parameter(
+						"phase_gold_thresholds") == Vector2(0.70, 0.92)
 		# The collision shells stay authoritative; their child render meshes now
 		# share the room bounds but identify the architectural class they own.
 		var expected_shell_classes := {
@@ -542,6 +626,12 @@ func _interior_contract() -> void:
 					"architecture_clear_ceiling")), 3.015) \
 					and float(shell_material.get_shader_parameter(
 					"architecture_pull")) > 0.0
+			phase_controller_shared = phase_controller_shared \
+					and shell_material.get_shader_parameter(
+					"phase_stage_thresholds") \
+					== Vector4(0.10, 0.34, 0.48, 0.78) \
+					and shell_material.get_shader_parameter(
+					"phase_gold_thresholds") == Vector2(0.70, 0.92)
 	_check("every remembered nonblank room has historic millwork relief",
 			nonblank > 0 and described == nonblank)
 	_check("blanking also removes the descriptive architectural relief",
@@ -566,6 +656,8 @@ func _interior_contract() -> void:
 			shell_materials_bound)
 	_check("parallax relief stays shallow meter-valued and diagnostically switchable",
 			relief_meter_bounded)
+	_check("architecture and anatomy share the one R5 transition controller",
+			phase_controller_shared)
 
 
 func _furnishing_contract() -> void:

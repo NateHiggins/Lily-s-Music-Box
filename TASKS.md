@@ -1412,9 +1412,22 @@ unresolved. K7's source-backed loop contract is closed in
   perf remains 0/4 over budget, 2.16 ms worst and 172 calls worst. WalkTest
   FAST and FULL x8/480 both pass, with inherited logged diagnostics. Proof:
   `art/renders/dream_rendering_r4/README.md`.
-  **Immediate pickup: R5 bounded exposure/phase/warp states. Any breach reveal
-  must be continuous material state, never geometry popping. R6 remains the
-  first view-only portal gate; RECURSION remains unlicensed.**
+  R4 handed off to the bounded R5 exposure/phase/warp pass recorded below;
+  its ruling against geometry popping remains in force.
+  **R5 LANDED 2026-08-20.** Architecture and anatomy now share one durable
+  exposure controller: 0.10→0.34 infection, 0.48→0.78 rupture and 0.70→0.92
+  flesh-to-living-gold. The R4 wound is always submitted and opens by stable
+  ordered material coverage—no node, mesh, surface, collision or hazard pops.
+  One rotational distortion field falls to zero at the tear and is capped at
+  0.085 local UV. At retained 0.78→0.96 exposure, one 0.42-energy / 3.2 m
+  shadowless room-local light returns gold independently of the current lamp.
+  Target 71/71, RoomBuilder 175/175, Hazard 42/42, Lineage 21/21 and WalkTest
+  FAST/FULL x8/480 pass. Fresh target-pocket perf control/exposed keeps exact
+  object/call counts and remains 0/8 over 16.6 ms. Proof:
+  `art/renders/dream_rendering_r5/README.md`.
+  **Immediate pickup: R6 one view-only portal proof.** It may show another
+  authored view but cannot add an enterable route, second topology owner or
+  RECURSION. R7 remains the separate ownership decision for either escalation.
 - **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
   heredity and visible anatomy: bounded parent/child genomes, brood knots,
   parent umbilicals, prospective child helices, open birth-frames and sealed

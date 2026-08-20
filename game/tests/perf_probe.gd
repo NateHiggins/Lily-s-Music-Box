@@ -620,6 +620,11 @@ func _run_dream() -> void:
 		printerr("PERF DREAM: no player; the passage did not build")
 		get_tree().quit(1)
 		return
+	if OS.get_environment("PERF_DREAM_PHASE_TARGET") == "1":
+		_stage_dream_phase_target()
+		await get_tree().process_frame
+	if OS.get_environment("PERF_DREAM_EXPOSED") == "1":
+		_seed_dream_reflected_gold()
 	print("PERF DREAM: seed %s  case %s  viewport %s" % [
 			DREAM_SEED_HEX, DREAM_CASE,
 			get_viewport().get_visible_rect().size])
@@ -634,6 +639,7 @@ func _run_dream() -> void:
 	_dream.player.set_lamp_enabled(true)
 	for st in stations:
 		_dream.player.position = st["pos"]
+		_dream.call("_update_molten")
 		for i in WARMUP:
 			await get_tree().process_frame
 	print("%-24s %7s %7s %9s %8s %7s" %
@@ -647,6 +653,64 @@ func _run_dream() -> void:
 			["PASS" if over_budget == 0 else "FAIL", over_budget,
 			stations.size() * 2, FRAME_BUDGET_MS])
 	get_tree().quit(over_budget)
+
+
+## R5 A/B hook: pay for the one governed room light at its maximum without
+## changing the benchmark topology or inventing a showcase source. The real
+## field writes the real breach voxel and the production owner derives energy.
+func _seed_dream_reflected_gold() -> void:
+	var growth := _dream.get("_hazard_growth") as MeshInstance3D
+	var breach: Dictionary = growth.get_meta("breach_record", {}) \
+			if growth != null else {}
+	if breach.is_empty() or _dream.exposure == null:
+		printerr("PERF DREAM EXPOSED: no governed breach")
+		return
+	var centre: Vector3 = breach.get("center", Vector3.ZERO)
+	var normal: Vector3 = breach.get("normal", Vector3.FORWARD)
+	_dream.exposure.add_lamp(centre - normal * 1.25, normal, 2.5,
+			cos(deg_to_rad(34.0)), 1.0, 18.0)
+	_dream.exposure.upload(_dream.get("_exposure_tex") as ImageTexture3D)
+	_dream.call("_update_phase_reflected_light")
+	var light := _dream.get("_phase_reflected_light") as OmniLight3D
+	print("PERF DREAM EXPOSED: field=%.3f energy=%.3f range=%.2f shadow=%s" % [
+			_dream.exposure.sample(centre),
+			light.light_energy if light != null else -1.0,
+			light.omni_range if light != null else -1.0,
+			str(light.shadow_enabled) if light != null else "missing"])
+
+
+func _stage_dream_phase_target() -> void:
+	var atlas: DreamAtlas = _dream.rooms.atlas
+	var queue: Array[PackedInt32Array] = [PackedInt32Array()]
+	var chosen := PackedInt32Array()
+	while not queue.is_empty():
+		var path: PackedInt32Array = queue.pop_front()
+		var room: Dictionary = atlas.room(path)
+		if str(room.source) == "D01_F04_LONG_HALL":
+			chosen = path
+			break
+		if path.size() < 8:
+			for door_index in int(room.doors):
+				queue.append(DreamAtlas.step(path, door_index))
+	if chosen.is_empty():
+		printerr("PERF DREAM PHASE TARGET: no ruled long hall")
+		return
+	var key := DreamRoomBuilder.key_of(chosen)
+	_dream.rooms.advance(_dream.get("_architecture") as Node3D, chosen)
+	_dream.rooms.write_plan(_dream.plan, key)
+	_dream.set("_here_path", chosen)
+	_dream.set("_here_key", key)
+	_dream.hazards.rearm(_dream.plan, _dream.profile_hazards)
+	_dream.call("_rebuild_practicals")
+	_dream.call("_rebuild_hazard_growth")
+	_dream.call("_collect_molten_materials")
+	_dream.set_physics_process(false)
+	var staged := _dream.rooms.room_at_key(key)
+	if not staged.is_empty():
+		var rect: Array = staged.get("rect", [])
+		_dream.player.position = Vector3((float(rect[0]) + float(rect[2])) * 0.5,
+				_dream.player.position.y,
+				(float(rect[1]) + float(rect[3])) * 0.5)
 
 
 ## What the pocket is actually made of. The building's census counts meshes
@@ -712,6 +776,7 @@ func _dream_worst_yaw(at: Vector3) -> float:
 		var yaw := TAU * float(i) / float(DREAM_YAW_SAMPLES)
 		_dream.player.rotation.y = yaw
 		_dream.player.camera.rotation.x = 0.0
+		_dream.call("_update_molten")
 		# Two frames: one to submit the new view, one to read a count that is
 		# not still the previous yaw's.
 		await get_tree().process_frame
@@ -730,6 +795,7 @@ func _measure_dream(name: String, at: Vector3, yaw: float,
 	_dream.player.rotation.y = yaw
 	_dream.player.camera.rotation.x = 0.0
 	_dream.player.set_lamp_enabled(lamp)
+	_dream.call("_update_molten")
 	# The lamp warms up and pops rather than snapping, and the molten
 	# materials are fed from its pose, so the first frames after a toggle are
 	# a transient. WARMUP is long enough to be past it.

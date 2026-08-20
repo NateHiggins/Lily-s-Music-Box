@@ -2,6 +2,7 @@ shader_type spatial;
 render_mode unshaded, cull_back;
 
 #include "res://shaders/dream_corruption_layers.gdshaderinc"
+#include "res://shaders/dream_phase_transition.gdshaderinc"
 
 // THE BODY'S OWN GOLD, LIT ANALYTICALLY BY THE SERVICE LAMP.
 //
@@ -22,13 +23,18 @@ uniform float lamp_reach = 8.5;
 uniform float lamp_cos_outer = 0.766;
 uniform float lamp_energy = 0.0;
 
-// DreamMazeRoot binds the shared field to every ShaderMaterial. The lineage
-// does not grow from it in this slice, but exposed ancestry returns a little
-// more colour than untouched ancestry. The lamp is still a hard gate.
+// DreamMazeRoot binds the shared field to every ShaderMaterial. R5 makes this
+// the sole owner of rupture reveal and tissue-to-gold transmutation. The live
+// lamp still wakes specular motion; it no longer decides whether the wound
+// exists.
 uniform sampler3D exposure_tex : filter_linear, repeat_enable,
 		hint_default_black;
 uniform float exposure_extent = 48.0;
 uniform float exposure_height = 4.0;
+uniform vec4 phase_stage_thresholds = vec4(0.10, 0.34, 0.48, 0.78);
+uniform vec2 phase_gold_thresholds = vec2(0.70, 0.92);
+uniform float phase_warp_max_uv : hint_range(0.0, 0.12) = 0.085;
+uniform float phase_gold_afterglow : hint_range(0.0, 0.35) = 0.16;
 
 uniform float gene_phase = 0.0;
 uniform float dark_glow = 0.018;
@@ -43,6 +49,8 @@ uniform float wet_specular_gain : hint_range(0.0, 3.0) = 1.15;
 uniform float gold_vessel_width : hint_range(0.72, 0.98) = 0.925;
 uniform int eye_debug_view : hint_range(0, 2) = 0;
 uniform int breach_debug_view : hint_range(0, 2) = 0;
+// 1 shows infection/rupture/gold, 2 isolates the bounded aperture warp field.
+uniform int phase_debug_view : hint_range(0, 2) = 0;
 
 varying vec3 v_world;
 varying vec3 v_normal;
@@ -71,9 +79,15 @@ void vertex() {
 	float slow = TIME * 6.28318530718 * motion_hz;
 	float anatomy_class = CUSTOM0.a;
 	// Normalised class ids survive every backend's vertex-attribute path:
-	// 0 body, .25 eye, .50 false-depth face, .75 plaster, 1.0 timber lath.
+	// 0 body, .25 eye, .50 false-depth face, .625 living rim, .75 plaster,
+	// 1.0 timber lath.
 	float eye_flag = 1.0 - step(0.10, abs(anatomy_class - 0.25));
-	float breach_flag = 1.0 - step(0.10, abs(anatomy_class - 0.50));
+	float breach_flag = 1.0 - step(0.045, abs(anatomy_class - 0.50));
+	float rim_flag = 1.0 - step(0.045, abs(anatomy_class - 0.625));
+	float plaster_flag = 1.0 - step(0.045, abs(anatomy_class - 0.75));
+	float lath_flag = 1.0 - step(0.045, abs(anatomy_class - 1.0));
+	float breach_part = max(max(breach_flag, rim_flag),
+			max(plaster_flag, lath_flag));
 	if (eye_flag > 0.5) {
 		vec3 eye_center = CUSTOM0.xyz;
 		vec3 eye_side = normalize(CUSTOM1.xyz);
@@ -113,15 +127,15 @@ void vertex() {
 	v_normal = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
 	v_gene = COLOR;
 	v_eye_state = vec4(eye_flag, CUSTOM1.a, CUSTOM3.y, CUSTOM3.a);
-	v_breach_state = vec4(breach_flag, CUSTOM1.a, CUSTOM2.a, CUSTOM3.a);
+	v_breach_state = vec4(breach_part, CUSTOM1.a, CUSTOM2.a, CUSTOM3.a);
 	v_breach_center = (MODEL_MATRIX * vec4(CUSTOM0.xyz, 1.0)).xyz;
-	v_breach_side = breach_flag > 0.5
+	v_breach_side = breach_part > 0.5
 			? normalize((MODEL_MATRIX * vec4(CUSTOM1.xyz, 0.0)).xyz)
 			: vec3(1.0, 0.0, 0.0);
-	v_breach_up = breach_flag > 0.5
+	v_breach_up = breach_part > 0.5
 			? normalize((MODEL_MATRIX * vec4(CUSTOM2.xyz, 0.0)).xyz)
 			: vec3(0.0, 1.0, 0.0);
-	v_breach_normal = breach_flag > 0.5
+	v_breach_normal = breach_part > 0.5
 			? normalize((MODEL_MATRIX * vec4(CUSTOM3.xyz, 0.0)).xyz)
 			: vec3(0.0, 0.0, 1.0);
 	v_anatomy_class = anatomy_class;
@@ -205,6 +219,8 @@ void fragment() {
 			0.0625, 0.9375);
 	float exposed = texture(exposure_tex, vec3(v_world.x / exposure_extent,
 			v_world.z / exposure_extent, ex_y)).r;
+	vec4 phase_state = dream_phase_state(exposed, phase_stage_thresholds,
+			phase_gold_thresholds);
 	float hammered = 0.78 + 0.22 * sin((v_world.x + v_world.z) * 31.0
 			+ v_world.y * 19.0 + gene_phase);
 	vec3 old_gold = vec3(0.10, 0.055, 0.012);
@@ -212,7 +228,7 @@ void fragment() {
 	vec3 pale_leaf = vec3(1.08, 0.82, 0.38);
 	vec3 alloy = mix(old_gold, warm_gold,
 			clamp(0.42 + exposed * 0.48 + hammered * 0.20, 0.0, 1.0));
-	vec3 reflected = alloy * diffuse * (0.85 + hammered * 0.22)
+	vec3 reflected_gold = alloy * diffuse * (0.85 + hammered * 0.22)
 			+ pale_leaf * specular * 1.15;
 	// THREE MATERIAL LAYERS, ONE SURFACE.  The include supplies masks rather
 	// than a finished colour so later breach and phase shaders can share the
@@ -248,7 +264,12 @@ void fragment() {
 			* wet_specular_gain * 0.34
 			+ mix(warm_gold, pale_leaf, vein * 0.46) * vein
 			* (0.38 + diffuse * 0.44 + specular * 0.96);
-	reflected = mix(reflected, living_tissue, clamp(organic_mix, 0.0, 1.0));
+	// The only licensed R5 phase: the same tissue becomes the same living gold
+	// the architecture exposes. It is a continuum, not a second material.
+	living_tissue = mix(living_tissue, reflected_gold * 1.08,
+			phase_state.z * 0.76);
+	vec3 reflected = mix(reflected_gold, living_tissue,
+			clamp(organic_mix, 0.0, 1.0));
 
 	float eye_sclera = v_eye_state.x * smoothstep(0.22, 0.285, v_gene.b)
 			* (1.0 - smoothstep(0.38, 0.52, v_gene.b));
@@ -276,6 +297,9 @@ void fragment() {
 	dormant = mix(dormant, vec3(0.31, 0.17, 0.055), eye_sclera);
 	dormant = mix(dormant, vec3(0.54, 0.25, 0.035), eye_shell);
 	dormant = mix(dormant, vec3(0.025, 0.002, 0.008), pupil);
+	vec3 cooled_phase_gold = alloy * phase_gold_afterglow
+			* (0.72 + hammered * 0.28);
+	dormant = mix(dormant, cooled_phase_gold, phase_state.z * 0.72);
 	vec3 dark_body = dormant * max(0.0, dark_glow);
 	vec3 lit_body = reflected * awake * 2.45;
 	ALBEDO = dark_body * mix(1.0, 1.80, clamp(organic_mix, 0.0, 1.0))
@@ -288,15 +312,31 @@ void fragment() {
 	// aggressively.  The multiplier affects only the organism's own pixels:
 	// it cannot cast light onto the room, so raising it restores the ruled
 	// silhouette without inventing a second practical or waking the gold.
-	EMISSION = dark_body * 0.55 + lit_body * 0.035;
+	EMISSION = dark_body * 0.55 + lit_body * 0.035
+			+ cooled_phase_gold * phase_state.z
+			* (0.035 + vein * 0.065);
 
 	// ARCHITECTURE TORN INTO THE BODY. Class .75 is shattered plaster/rubble;
 	// class 1.0 is exposed lath. They are real geometry but stay dim enough that
 	// the wine tissue remains the corruption rather than a clean construction
 	// diagram. Class .50 is the one opaque face carrying false interior depth.
-	float breach_flag = 1.0 - step(0.10, abs(v_anatomy_class - 0.50));
-	float plaster_flag = 1.0 - step(0.10, abs(v_anatomy_class - 0.75));
-	float lath_flag = 1.0 - step(0.10, abs(v_anatomy_class - 1.0));
+	float breach_flag = 1.0 - step(0.045, abs(v_anatomy_class - 0.50));
+	float rim_flag = 1.0 - step(0.045, abs(v_anatomy_class - 0.625));
+	float plaster_flag = 1.0 - step(0.045, abs(v_anatomy_class - 0.75));
+	float lath_flag = 1.0 - step(0.045, abs(v_anatomy_class - 1.0));
+	float breach_part = max(max(breach_flag, rim_flag),
+			max(plaster_flag, lath_flag));
+	vec3 breach_rel = v_world - v_breach_center;
+	vec2 breach_uv = vec2(dot(breach_rel, v_breach_side)
+			/ max(v_breach_state.y, 0.001),
+			dot(breach_rel, v_breach_up) / max(v_breach_state.z, 0.001));
+	float reveal_threshold = dream_phase_reveal_threshold(breach_uv, v_world,
+			v_breach_state.w);
+	if (breach_part > 0.5 && phase_state.y < reveal_threshold) {
+		// Ordered material coverage exposes the intact wall already behind the
+		// always-submitted wound. No node, mesh or collision ever toggles.
+		discard;
+	}
 	vec3 old_plaster = vec3(0.28, 0.205, 0.145);
 	vec3 split_lath = vec3(0.24, 0.095, 0.026);
 	vec3 plaster_colour = old_plaster * (0.25 + awake * (0.66 + diffuse));
@@ -309,13 +349,14 @@ void fragment() {
 	EMISSION = mix(EMISSION, split_lath * 0.008, lath_flag);
 
 	vec4 breach_pattern = vec4(0.0);
+	float local_warp_support = 0.0;
 	if (breach_flag > 0.5) {
 		// The nine recession taps are paid only on the small aperture face,
 		// never across the tentacles and wall grafts sharing this material.
-		vec3 breach_rel = v_world - v_breach_center;
-		vec2 breach_uv = vec2(dot(breach_rel, v_breach_side)
-				/ max(v_breach_state.y, 0.001),
-				dot(breach_rel, v_breach_up) / max(v_breach_state.z, 0.001));
+		local_warp_support = (1.0 - smoothstep(0.28, 1.12,
+				length(breach_uv))) * phase_state.w;
+		breach_uv = dream_phase_bounded_warp(breach_uv, phase_state.w,
+				phase_warp_max_uv, v_breach_state.w, TIME);
 		float face_view = max(abs(dot(view_dir, v_breach_normal)), 0.16);
 		vec2 view_shift = vec2(dot(view_dir, v_breach_side),
 				dot(view_dir, v_breach_up)) / face_view;
@@ -323,7 +364,8 @@ void fragment() {
 				v_breach_state.w);
 	}
 	vec3 tunnel_dark = vec3(0.0035, 0.0010, 0.0065)
-			+ vec3(0.18, 0.075, 0.012) * breach_pattern.x * 0.24;
+			+ vec3(0.18, 0.075, 0.012) * breach_pattern.x * 0.24
+			+ warm_gold * breach_pattern.x * phase_state.z * 0.16;
 	vec3 tunnel_lit = vec3(0.007, 0.002, 0.011)
 			+ mix(warm_gold * 0.72, vec3(0.92, 0.62, 0.22),
 			breach_pattern.w)
@@ -377,5 +419,17 @@ void fragment() {
 		}
 		ALBEDO = debug_colour;
 		EMISSION = debug_colour * 0.45;
+	}
+	if (phase_debug_view > 0) {
+		vec3 debug_colour = vec3(0.004, 0.003, 0.006);
+		if (phase_debug_view == 1) {
+			debug_colour = vec3(phase_state.z, phase_state.y, phase_state.x);
+		} else {
+			debug_colour = vec3(local_warp_support,
+					local_warp_support * 0.32, 1.0 - local_warp_support)
+					* breach_flag;
+		}
+		ALBEDO = debug_colour;
+		EMISSION = debug_colour * 0.52;
 	}
 }

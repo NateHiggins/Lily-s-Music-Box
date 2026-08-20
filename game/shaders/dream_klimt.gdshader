@@ -2,6 +2,7 @@ shader_type spatial;
 render_mode blend_mix, cull_back, diffuse_burley, specular_schlick_ggx;
 
 #include "res://shaders/dream_architecture_relief.gdshaderinc"
+#include "res://shaders/dream_phase_transition.gdshaderinc"
 
 // THE STOCLET FRIEZE, TAKEN APART AND HUNG ON THE ARCHITECTURE.
 //
@@ -116,6 +117,12 @@ uniform float exposure_height = 4.0;
 // at any light level" is a ruled requirement, and a smoothstep against noise
 // leaks a few percent of gold in its darkest valleys, which is not zero.
 uniform float exposure_gain : hint_range(0.0, 4.0) = 1.0;
+// R5: one transition controller for the real Orison and the body under it.
+// The first pair preserves R2's architectural onset; the second pair owns the
+// rupture.  The later pair is the only currently licensed material phase:
+// flesh into persistent living gold. Frost/liquid/embrace remain proposals.
+uniform vec4 phase_stage_thresholds = vec4(0.10, 0.34, 0.48, 0.78);
+uniform vec2 phase_gold_thresholds = vec2(0.70, 0.92);
 // THE FRONTIER, and workstream B in one line: "Threshold the exposure field
 // through domain-warped fbm so the boundary bulges and creeps." These are the
 // shape of that threshold.
@@ -970,6 +977,8 @@ void fragment() {
 	float responds = step(0.0001, exposure_gain);
 	float advance = clamp(field * exposure_gain + architecture_drive,
 			0.0, 1.0);
+	vec4 phase_state = dream_phase_state(advance, phase_stage_thresholds,
+			phase_gold_thresholds);
 	float front = responds * smoothstep(-growth_soft, growth_soft,
 			advance + growth_bias - front_gate);
 	// THE DREAM WINS WHERE IT HAS ALREADY WON. Owner ruling 2026-08-18: "the
@@ -1000,9 +1009,9 @@ void fragment() {
 	// Stage bands share the same drive as the growth front. Architectural
 	// seams can invite a stage earlier, but cannot create a second field or
 	// bypass the dormant-scar lock.
-	float relief_stage_one = responds * smoothstep(0.10, 0.34, advance)
+	float relief_stage_one = responds * phase_state.x
 			* smoothstep(0.015, 0.20, eaten);
-	float relief_stage_two = responds * smoothstep(0.48, 0.78, advance)
+	float relief_stage_two = responds * phase_state.y
 			* smoothstep(0.16, 0.50, eaten);
 
 	// Under the gold, the real wall -- darkened, because the dream is lit by

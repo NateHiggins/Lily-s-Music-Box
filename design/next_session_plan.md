@@ -30,10 +30,13 @@ exactly one bounded camera tracker remain in the existing one hazard surface
 hazard-provenant Atlas-wall wound carries real torn plaster/lath/rubble and a
 32 m apparent angular/cabled interior on one wall-thin face in the existing
 growth draw, while the authoritative wall collision stays intact
-(`art/renders/dream_rendering_r4/README.md`). The immediate task is R5,
-bounded exposure/phase/warp states: reveal the breach continuously without
-geometry popping, then price governed reflected-gold world light. R6 remains
-the first view-only portal. RECURSION is measured but not licensed, and the
+(`art/renders/dream_rendering_r4/README.md`). R5 is now landed: the same wound
+arrives continuously from retained exposure, shares one Orison/rupture/
+living-gold transition controller, confines slow warp to the aperture and
+returns one measured 0.42-energy / 3.2 m shadowless world light only at high
+retained exposure (`art/renders/dream_rendering_r5/README.md`). The immediate
+task is R6, one view-only portal proof. It cannot be enterable. RECURSION is
+measured but not licensed, and the
 embrace still follows the eyes rather than preceding them.
 
 The parallel street lane's paused coachwork pass is now a bounded T2g

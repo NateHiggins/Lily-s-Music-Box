@@ -223,6 +223,23 @@ proof are recorded at `art/renders/dream_rendering_r4/README.md`. R5, bounded
 phase/warp state and a continuous exposure-owned reveal, is now the pickup.
 R4 does not license a view portal or RECURSION.
 
+**Implementation checkpoint — 2026-08-20, R5 durable phase and local warp.**
+R5 is landed. `DreamExposureField` now drives one shared material continuum in
+both the real-Orison skin and the body underneath: infection 0.10→0.34,
+rupture 0.48→0.78, and the only licensed secondary phase—flesh becoming living
+gold—at 0.70→0.92. The R4 wound's geometry remains permanently submitted.
+Stable ordered material coverage opens it from the centre through rim,
+plaster, lath and rubble, so the intact wall is the genuine latent state and
+no geometry, collision or hazard toggles. One slow rotational field is bounded
+to the aperture, capped at 0.085 local UV and falls to zero at the tear.
+At retained exposure 0.78→0.96 one room-local, shadowless 3.2 m light rises to
+0.42 energy and remains independent of the current inspection lamp. A fresh
+target-pocket maximum-light A/B retained exact object/call counts and measured
+within run noise, with 0/8 rows over 16.6 ms. Production progression,
+diagnostics and proofs are at `art/renders/dream_rendering_r5/README.md`. R6 is
+now the first permitted view-only portal proof. Enterable space, the embrace
+and RECURSION remain unlicensed.
+
 ---
 
 ## WHAT THE PLATES SHOW — FOUR STAGES OF ONE SURFACE

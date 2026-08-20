@@ -127,6 +127,14 @@ func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 	set_meta("breach_navigation", "false_depth_wall_intact")
 	set_meta("breach_debug_views", PackedStringArray([
 			"beauty", "surface_ownership", "recession_bands"]))
+	set_meta("phase_states", PackedStringArray([
+			"ordinary_orison", "rupture", "living_gold"]))
+	set_meta("phase_owner", "DreamExposureField")
+	set_meta("phase_transition", "continuous_material_ordered_reveal_v1")
+	set_meta("phase_warp", "aperture_local_rotational_v1")
+	set_meta("phase_stage_thresholds", Vector4(0.10, 0.34, 0.48, 0.78))
+	set_meta("phase_gold_thresholds", Vector2(0.70, 0.92))
+	set_meta("phase_warp_max_uv", 0.085)
 	set_meta("motion_hz", 0.13)
 	set_meta("max_sway_m", 0.045)
 	set_meta("material_layers", PackedStringArray([
@@ -430,12 +438,13 @@ func _append_dominant_breach(tool: SurfaceTool, hazard: DreamHazard,
 	# Broken plaster is not a shader mask: the uneven annulus changes the
 	# outline, depth and shadow of the wall wound. Alternating protrusion keeps
 	# the edge from reading as a clean decorative oval.
-	var plaster_custom := Color(0.0, 0.0, 0.0, 0.75)
+	var plaster_custom := Color(center.x, center.y, center.z, 0.75)
 	for segment in BREACH_SEGMENTS:
 		var next := (segment + 1) % BREACH_SEGMENTS
 		_breach_quad(tool, inner[segment] + normal * 0.012,
 				outer[segment], outer[next], inner[next] + normal * 0.012,
-				normal, Color(0.0, phase, 0.12, 1.0), plaster_custom)
+				normal, Color(0.0, phase, 0.12, 1.0), plaster_custom,
+				aperture_custom1, aperture_custom2, aperture_custom3)
 	# The organism has swollen through the exposed edge as one continuous,
 	# uneven lip. A previous lobe-per-segment version read as gemstones pinned
 	# around a portal; the closed tube makes the same real silhouette read as a
@@ -445,6 +454,7 @@ func _append_dominant_breach(tool: SurfaceTool, hazard: DreamHazard,
 		rim_path.append(inner[segment].lerp(outer[segment], 0.38)
 				+ normal * 0.026)
 	var rim_segments := 0
+	var rim_custom := Color(center.x, center.y, center.z, 0.625)
 	for segment in BREACH_SEGMENTS:
 		# Three exposed plaster gaps stop the lip becoming a decorative portal
 		# frame. Radius also changes at every fracture.
@@ -456,12 +466,13 @@ func _append_dominant_breach(tool: SurfaceTool, hazard: DreamHazard,
 		_append_tube_segment(tool, rim_path[segment], rim_path[next], r0, r1,
 				float(segment) / float(BREACH_SEGMENTS),
 				float(next) / float(BREACH_SEGMENTS),
-				fmod(phase + 0.143, 1.0))
+				fmod(phase + 0.143, 1.0), rim_custom, aperture_custom1,
+				aperture_custom2, aperture_custom3)
 		rim_segments += 1
 
 	# Plaster has torn away from real timber lath. Each row is broken at the
 	# middle so the mapped tunnel keeps a legible vanishing point.
-	var lath_custom := Color(0.0, 0.0, 0.0, 1.0)
+	var lath_custom := Color(center.x, center.y, center.z, 1.0)
 	var lath_pieces := 0
 	for row in 3:
 		var row_y := -0.64 + float(row) * 0.62
@@ -476,13 +487,15 @@ func _append_dominant_breach(tool: SurfaceTool, hazard: DreamHazard,
 				+ normal * 0.038,
 				side, Vector3.UP, normal,
 				Vector3(absf(left_inner - left_outer) * 0.5, 0.024, 0.022),
-				Color(0.0, phase, 0.24, 1.0), lath_custom)
+				Color(0.0, phase, 0.24, 1.0), lath_custom,
+				aperture_custom1, aperture_custom2, aperture_custom3)
 		_append_breach_box(tool,
 				center + side * right_center + Vector3.UP * row_y
 				+ normal * 0.038,
 				side, Vector3.UP, normal,
 				Vector3(absf(right_outer - right_inner) * 0.5, 0.024, 0.022),
-				Color(0.0, phase, 0.24, 1.0), lath_custom)
+				Color(0.0, phase, 0.24, 1.0), lath_custom,
+				aperture_custom1, aperture_custom2, aperture_custom3)
 		lath_pieces += 2
 
 	# Shallow, fist-sized debris says the wall tore toward the player while
@@ -498,7 +511,8 @@ func _append_dominant_breach(tool: SurfaceTool, hazard: DreamHazard,
 				Vector3(0.075 + 0.035 * _breach_noise(seed + 2551, piece),
 				0.035 + 0.025 * _breach_noise(seed + 3011, piece),
 				0.055 + 0.040 * _breach_noise(seed + 3557, piece)),
-				0.12, phase, plaster_custom)
+				0.12, phase, plaster_custom, aperture_custom1,
+				aperture_custom2, aperture_custom3)
 		rubble_pieces += 1
 
 	return {
@@ -736,7 +750,11 @@ func _append_tube(tool: SurfaceTool, points: Array[Vector3], radius: float,
 
 
 func _append_tube_segment(tool: SurfaceTool, a: Vector3, b: Vector3,
-		ra: float, rb: float, t0: float, t1: float, phase: float) -> void:
+		ra: float, rb: float, t0: float, t1: float, phase: float,
+		custom0: Color = Color(0.0, 0.0, 0.0, 0.0),
+		custom1: Color = Color(0.0, 0.0, 0.0, 0.0),
+		custom2: Color = Color(0.0, 0.0, 0.0, 0.0),
+		custom3: Color = Color(0.0, 0.0, 0.0, 0.0)) -> void:
 	var tangent := (b - a).normalized()
 	var side := tangent.cross(Vector3.UP)
 	if side.length() < 0.001:
@@ -756,7 +774,8 @@ func _append_tube_segment(tool: SurfaceTool, a: Vector3, b: Vector3,
 				b + n1 * rb * lobe1, a + n1 * ra * lobe1,
 				(n0 + n1).normalized(),
 				Color(flex0, phase, 0.0, 1.0),
-				Color(flex1, phase, 0.0, 1.0))
+				Color(flex1, phase, 0.0, 1.0), custom0, custom1, custom2,
+				custom3)
 
 
 func _append_eye(tool: SurfaceTool, center: Vector3, look: Vector3,
@@ -878,14 +897,20 @@ func _breach_triangle(tool: SurfaceTool, a: Vector3, b: Vector3,
 
 func _breach_quad(tool: SurfaceTool, a: Vector3, b: Vector3, c: Vector3,
 		d: Vector3, wanted_normal: Vector3, color: Color,
-		custom0: Color) -> void:
-	_breach_triangle(tool, a, b, c, wanted_normal, color, custom0)
-	_breach_triangle(tool, a, c, d, wanted_normal, color, custom0)
+		custom0: Color, custom1: Color = Color(0.0, 0.0, 0.0, 0.0),
+		custom2: Color = Color(0.0, 0.0, 0.0, 0.0),
+		custom3: Color = Color(0.0, 0.0, 0.0, 0.0)) -> void:
+	_breach_triangle(tool, a, b, c, wanted_normal, color, custom0, custom1,
+			custom2, custom3)
+	_breach_triangle(tool, a, c, d, wanted_normal, color, custom0, custom1,
+			custom2, custom3)
 
 
 func _append_breach_box(tool: SurfaceTool, center: Vector3, side: Vector3,
 		up: Vector3, normal: Vector3, half_size: Vector3, color: Color,
-		custom0: Color) -> void:
+		custom0: Color, custom1: Color = Color(0.0, 0.0, 0.0, 0.0),
+		custom2: Color = Color(0.0, 0.0, 0.0, 0.0),
+		custom3: Color = Color(0.0, 0.0, 0.0, 0.0)) -> void:
 	var sx := side * half_size.x
 	var uy := up * half_size.y
 	var nz := normal * half_size.z
@@ -897,12 +922,18 @@ func _append_breach_box(tool: SurfaceTool, center: Vector3, side: Vector3,
 	var p101 := center + sx - uy + nz
 	var p110 := center + sx + uy - nz
 	var p111 := center + sx + uy + nz
-	_breach_quad(tool, p001, p101, p111, p011, normal, color, custom0)
-	_breach_quad(tool, p100, p000, p010, p110, -normal, color, custom0)
-	_breach_quad(tool, p101, p100, p110, p111, side, color, custom0)
-	_breach_quad(tool, p000, p001, p011, p010, -side, color, custom0)
-	_breach_quad(tool, p011, p111, p110, p010, up, color, custom0)
-	_breach_quad(tool, p000, p100, p101, p001, -up, color, custom0)
+	_breach_quad(tool, p001, p101, p111, p011, normal, color, custom0,
+			custom1, custom2, custom3)
+	_breach_quad(tool, p100, p000, p010, p110, -normal, color, custom0,
+			custom1, custom2, custom3)
+	_breach_quad(tool, p101, p100, p110, p111, side, color, custom0,
+			custom1, custom2, custom3)
+	_breach_quad(tool, p000, p001, p011, p010, -side, color, custom0,
+			custom1, custom2, custom3)
+	_breach_quad(tool, p011, p111, p110, p010, up, color, custom0,
+			custom1, custom2, custom3)
+	_breach_quad(tool, p000, p100, p101, p001, -up, color, custom0,
+			custom1, custom2, custom3)
 
 
 func _room_rect(plan: Dictionary, room_id: String) -> Array:

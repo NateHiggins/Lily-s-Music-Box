@@ -74,6 +74,15 @@ var _arcs: Array[Dictionary] = []
 ## One batched organic surface for the pocket's hazards that remain live in
 ## darkness. Contact stays in DreamHazardField; this is its bodily evidence.
 var _hazard_growth: MeshInstance3D
+## R5's one governed world light. It is fixed to the dominant wound, reads only
+## the durable field and never casts a shadow. A zero-energy node is retained
+## below threshold so the light itself never pops in and out of ownership.
+var _phase_reflected_light: OmniLight3D
+var _phase_reflected_sample := Vector3.ZERO
+const PHASE_LIGHT_THRESHOLD_LOW := 0.78
+const PHASE_LIGHT_THRESHOLD_HIGH := 0.96
+const PHASE_LIGHT_MAX_ENERGY := 0.42
+const PHASE_LIGHT_RANGE_M := 3.2
 ## Every Klimt material in the world, so the lamp can be pushed into all of
 ## them each frame. See _collect_molten_materials().
 var _molten_materials: Array[ShaderMaterial] = []
@@ -393,15 +402,23 @@ func _build_hazard_growth() -> void:
 	material.set_shader_parameter("tissue_transmission", 0.54)
 	material.set_shader_parameter("wet_specular_gain", 1.15)
 	material.set_shader_parameter("gold_vessel_width", 0.958)
+	material.set_shader_parameter("phase_stage_thresholds",
+			Vector4(0.10, 0.34, 0.48, 0.78))
+	material.set_shader_parameter("phase_gold_thresholds", Vector2(0.70, 0.92))
+	material.set_shader_parameter("phase_warp_max_uv", 0.085)
+	material.set_shader_parameter("phase_gold_afterglow", 0.16)
 	material.set_shader_parameter("eye_debug_view", clampi(OS.get_environment(
 			"DREAM_EYE_DEBUG").to_int(), 0, 2))
 	material.set_shader_parameter("breach_debug_view", clampi(
 			OS.get_environment("DREAM_BREACH_DEBUG").to_int(), 0, 2))
+	material.set_shader_parameter("phase_debug_view", clampi(
+			OS.get_environment("DREAM_PHASE_DEBUG").to_int(), 0, 2))
 	material.set_shader_parameter("motion_phase",
 			float(absi(str(dream_context.get("seed_hex", "")).hash()) & 4095)
 			/ 4095.0 * TAU)
 	_hazard_growth.material_override = material
 	add_child(_hazard_growth)
+	_build_phase_reflected_light()
 
 
 func _rebuild_hazard_growth() -> void:
@@ -409,6 +426,53 @@ func _rebuild_hazard_growth() -> void:
 		_hazard_growth.free()
 	_hazard_growth = null
 	_build_hazard_growth()
+
+
+## High exposure gives some light back, but it does not turn the gold into a
+## light source and it does not borrow the inspection cone. One shadowless
+## OmniLight3D sits just inside the same Atlas wall as the dominant wound. Its
+## range cannot leave the local room composition, and its energy is a smooth
+## function of the field value which also owns the material phase.
+func _build_phase_reflected_light() -> void:
+	if _phase_reflected_light != null \
+			and is_instance_valid(_phase_reflected_light):
+		_phase_reflected_light.free()
+	_phase_reflected_light = null
+	_phase_reflected_sample = Vector3.ZERO
+	if _hazard_growth == null:
+		return
+	var breach: Dictionary = _hazard_growth.get_meta("breach_record", {})
+	if breach.is_empty():
+		return
+	var centre: Vector3 = breach.get("center", Vector3.ZERO)
+	var inward: Vector3 = breach.get("normal", Vector3.FORWARD)
+	_phase_reflected_sample = centre
+	_phase_reflected_light = OmniLight3D.new()
+	_phase_reflected_light.name = "DreamReflectedGold"
+	_phase_reflected_light.position = centre + inward * 0.34
+	_phase_reflected_light.light_color = Color(1.0, 0.48, 0.10)
+	_phase_reflected_light.light_energy = 0.0
+	_phase_reflected_light.omni_range = PHASE_LIGHT_RANGE_M
+	_phase_reflected_light.omni_attenuation = 1.85
+	_phase_reflected_light.shadow_enabled = false
+	_phase_reflected_light.set_meta("owner", "DreamExposureField")
+	_phase_reflected_light.set_meta("thresholds", Vector2(
+			PHASE_LIGHT_THRESHOLD_LOW, PHASE_LIGHT_THRESHOLD_HIGH))
+	_phase_reflected_light.set_meta("max_energy", PHASE_LIGHT_MAX_ENERGY)
+	_phase_reflected_light.set_meta("room_local", true)
+	_phase_reflected_light.add_to_group("dream_reflected_gold")
+	add_child(_phase_reflected_light)
+	_update_phase_reflected_light()
+
+
+func _update_phase_reflected_light() -> void:
+	if _phase_reflected_light == null \
+			or not is_instance_valid(_phase_reflected_light) or exposure == null:
+		return
+	var retained := exposure.sample(_phase_reflected_sample)
+	var returned := smoothstep(PHASE_LIGHT_THRESHOLD_LOW,
+			PHASE_LIGHT_THRESHOLD_HIGH, retained)
+	_phase_reflected_light.light_energy = returned * PHASE_LIGHT_MAX_ENERGY
 
 
 ## The dream's own environment, because the world that owned one was freed.
@@ -838,6 +902,7 @@ func _update_exposure(delta: float) -> void:
 
 
 func _update_molten() -> void:
+	_update_phase_reflected_light()
 	if _molten_materials.is_empty() or player == null:
 		return
 	var pose: Dictionary = player.lamp_pose()

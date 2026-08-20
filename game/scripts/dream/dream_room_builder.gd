@@ -1353,6 +1353,10 @@ static func configure_architecture_material(material: Material, rect: Array,
 	shader_material.set_shader_parameter("tessera_relief_m", tessera_m)
 	shader_material.set_shader_parameter("medallion_relief_m", medallion_m)
 	shader_material.set_shader_parameter("relief_parallax", 0.62)
+	shader_material.set_shader_parameter("phase_stage_thresholds",
+			Vector4(0.10, 0.34, 0.48, 0.78))
+	shader_material.set_shader_parameter("phase_gold_thresholds",
+			Vector2(0.70, 0.92))
 	var debug_value := clampi(OS.get_environment(
 			"DREAM_SURFACE_DEBUG").to_int(), 0, 3)
 	shader_material.set_shader_parameter("surface_debug_view", debug_value)

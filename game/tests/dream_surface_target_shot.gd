@@ -14,6 +14,7 @@ const SEED_HEX := "f123456789abcdef"
 var root: DreamMazeRoot
 var out_dir := ""
 var failures := 0
+var breach_record: Dictionary = {}
 
 
 func _ready() -> void:
@@ -111,6 +112,7 @@ func _stage_camera() -> DreamHazard:
 			if growth != null else {}
 	if breach.is_empty():
 		return null
+	breach_record = breach
 	var chosen: DreamHazard = null
 	for hazard in root.hazards.hazards:
 		if hazard.id == str(breach.get("hazard_id", "")):
@@ -194,7 +196,10 @@ func _settle_lamp(on: bool) -> void:
 ## bypassed.
 func _seed_ruled_dwell() -> void:
 	var dwell_s := OS.get_environment("DREAM_TARGET_DWELL_S").to_float()
+	var centre: Vector3 = breach_record.get("center", Vector3.ZERO)
+	var before := root.exposure.sample(centre) if root.exposure != null else 0.0
 	if dwell_s <= 0.0 or root.exposure == null:
+		print("[DREAM TARGET SHOT] phase dwell=0.00 exposure=%.4f" % before)
 		return
 	var pose: Dictionary = root.player.lamp_pose()
 	if pose.is_empty():
@@ -203,6 +208,8 @@ func _seed_ruled_dwell() -> void:
 			cos(deg_to_rad(float(pose.angle_deg))), float(pose.energy), dwell_s)
 	root.exposure.upload(root.get("_exposure_tex") as ImageTexture3D)
 	root.call("_update_molten")
+	print("[DREAM TARGET SHOT] phase dwell=%.2f exposure=%.4f->%.4f" % [
+			dwell_s, before, root.exposure.sample(centre)])
 
 
 func _capture(file_name: String, frames: int) -> void:
