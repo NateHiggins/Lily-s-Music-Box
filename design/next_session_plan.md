@@ -39,10 +39,13 @@ landed too: one 384 × 672 camera shares the existing world and shows an
 already-live Atlas room through the wound with an odd quarter-turn. Its camera
 excludes the wound layer, so recursion depth is exactly zero; it adds no room,
 route, collision, hazard, light or interaction and leaves the wall solid
-(`art/renders/dream_rendering_r6/README.md`). The immediate task is R7's owner
-decision: whether depth-one recursion or an enterable fault earns a separate
-proof at all. Depth 2–4 remains measured but unlicensed, and the embrace still
-follows the eyes rather than preceding them.
+(`art/renders/dream_rendering_r6/README.md`). R7 is closed at depth zero:
+recursive rendering adds no decision and enterable nesting duplicates Atlas
+traversal while demanding a second collision/navigation/pursuit contract.
+Reopen it only for a new case verb the Atlas cannot express. The immediate
+dream task is now the ruled capture/embrace: gold closes from every edge over
+1.5 s, the lamp remains lit, all eyes close, the acoustic room becomes close
+and warm, and the existing 4B wake/residue boundary receives the outcome.
 
 The parallel street lane's paused coachwork pass is now a bounded T2g
 checkpoint with focused contracts and A/A evidence. It does not own the next

@@ -103,9 +103,12 @@ the camera excludes the wound layer, so recursion depth is exactly zero. It
 adds no room, route, collision, hazard, light or interaction. Exact production
 and diagnostic proof lives in `art/renders/dream_rendering_r4/README.md`
 through `art/renders/dream_rendering_r6/README.md`; focused contracts and
-WalkTest FAST/FULL x8/480 pass. **R7 is now a decision, not an automatic build:**
-keep this view-only answer, or separately license depth-one recursion and/or an
-enterable fault only after naming its play value. Depth 2–4 remains unlicensed.
+WalkTest FAST/FULL x8/480 pass. **R7 is closed at depth zero.** Recursive
+rendering adds no player decision; enterable nesting duplicates the Atlas's
+existing non-Euclidean traversal and would demand a second collision,
+navigation, pursuit and recovery contract. Reopen only if a later case names a
+new verb or consequence the Atlas cannot express. The immediate production
+pickup is §5, the ruled embrace.
 
 **Pre-existing proof debt found during this pass:**
 `DreamPerceptionTest.tscn` is still a chain-era harness. It asks the initial

@@ -141,7 +141,9 @@ space. It does not need to make the player sick to prove it is impossible.
 ## Boundary with RECURSION and surface work C–F
 
 This does **not** implement the atlas's `RECURSION` fault. That fault promises
-an enterable smaller copy of the room; it remains priced and unbuilt. The
+an enterable smaller copy of the room; R7 subsequently ruled it priced and
+unbuilt at this production scope. It may reopen only for a case mechanic with
+a new verb or consequence that the existing Atlas cannot express. The
 reproductive path is ancestry across ordinary thresholds, not a semantic
 rename for a nested room.
 

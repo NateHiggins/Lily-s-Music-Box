@@ -261,6 +261,21 @@ this depth-zero impossible view as the complete answer, or separately license
 a depth-one recursive and/or enterable fault with explicit play value. Neither
 escalation is implied by R6.
 
+**Owner-design ruling — 2026-08-20, R7 closes at depth zero.** Do not build a
+recursive or enterable breach in this production pass. The Atlas already makes
+non-Euclidean ancestry into traversable play: thresholds create kin, the live
+pocket forgets ancestors, and the next ordinary doorway is never guaranteed to
+close in Euclidean space. An enterable smaller room would repeat that promise
+while adding a second collision, navigation, pursuit and recovery contract.
+Depth-one rendering without traversal would add another live pass but no new
+player decision. R6's sideways, already-live view is therefore the complete
+breach answer: an impossible perception that never lies about the next
+footstep. The measured RECURSION fault stays available as research, not queued
+production. It may be reopened only by a later case mechanic that names a new
+verb or consequence which the current Atlas cannot express. Surface redesign
+R1–R7 is complete; the next dependent production beat is the already-ruled
+capture/embrace, now that the eyes and highest exposure state exist.
+
 ---
 
 ## WHAT THE PLATES SHOW — FOUR STAGES OF ONE SURFACE

@@ -43,10 +43,13 @@ high exposure. R6 opens its centre onto one already-live Atlas room through a
 bounded shared-world camera, turned one odd quarter-turn. The camera excludes
 the sampling wound, making recursion depth zero; it creates no room, route,
 collision, light, interaction or danger, and the real wall remains solid. The
-immediate task is the R7 owner decision: keep the view-only answer, license one
-depth-one recursion proof, license an enterable fault with explicit play value,
-or neither. Depth 2–4 remains unlicensed. `DreamAtlas` remains topology owner
-and `DreamHazard` remains danger owner.
+R7 rules that depth-zero view complete: recursive rendering adds cost without a
+new decision, while enterable nesting repeats the Atlas's existing traversal
+promise and would create a second collision/navigation/pursuit contract. Reopen
+only for a later case mechanic with a genuinely new verb or consequence. The
+immediate dream task is the ruled capture/embrace presentation in
+`THE_TENANT.md`, now that eyes and the high exposure state exist. `DreamAtlas`
+remains topology owner and `DreamHazard` remains danger owner.
 
 Three top-level projects:
 

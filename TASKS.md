@@ -1436,10 +1436,15 @@ unresolved. K7's source-backed loop contract is closed in
   and WalkTest FAST/FULL x8/480 pass. The exact aperture-facing price is
   +0.18 ms lamp-off / +0.29 ms lamp-on, 0/4 over 16.6 ms. Proof:
   `art/renders/dream_rendering_r6/README.md`.
-  **Immediate pickup: R7 owner decision.** Decide whether this depth-zero
-  impossible view is complete, or whether depth-one recursion and/or an
-  enterable fault has enough explicit gameplay value to license another pass.
-  Do not infer either escalation from R6 and do not build depth 2–4 first.
+  **R7 CLOSED 2026-08-20 — DEPTH ZERO IS THE ANSWER.** No recursive or
+  enterable breach is licensed. The Atlas already turns reproductive ancestry
+  into traversal; nested entry would duplicate that play while creating a
+  second collision/navigation/pursuit contract, and another rendered depth
+  would add cost without a decision. Reopen only if a later case names a new
+  verb or consequence the Atlas cannot express. The surface redesign queue is
+  complete. **Immediate pickup: the ruled capture/embrace presentation** in
+  `THE_TENANT.md`: 1.5 s, gold from every edge, lamp stays lit, eyes close,
+  close warm acoustics, then the existing 4B wake/residue boundary.
 - **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
   heredity and visible anatomy: bounded parent/child genomes, brood knots,
   parent umbilicals, prospective child helices, open birth-frames and sealed
