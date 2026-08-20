@@ -15,6 +15,7 @@ var root: DreamMazeRoot
 var out_dir := ""
 var failures := 0
 var breach_record: Dictionary = {}
+var portal_feed_dumped := false
 
 
 func _ready() -> void:
@@ -162,6 +163,11 @@ func _stage_camera() -> DreamHazard:
 	# This proof freezes that process, so settle the real spotlight on the same
 	# focal point once instead of leaving it aimed at its pre-teleport pose.
 	root.player.flashlight.look_at(focus, Vector3.UP)
+	# Production physics lights the first receding practical before the player
+	# can inspect this room. The proof freezes physics immediately after its
+	# teleport, so advance that same production owner once rather than leaving
+	# the R6 destination uniquely black in the capture harness.
+	root.call("_update_practical")
 	root.player.set_process(false)
 	root.set_physics_process(false)
 	return chosen
@@ -219,6 +225,16 @@ func _capture(file_name: String, frames: int) -> void:
 		# lamp pose to the real materials. Shader TIME continues independently.
 		root.call("_update_molten")
 	await RenderingServer.frame_post_draw
+	if not portal_feed_dumped \
+			and OS.get_environment("DREAM_PORTAL_FEED_DUMP") == "1":
+		var portal := root.get("_view_portal") as SubViewport
+		if portal != null and portal.get_texture() != null:
+			var portal_image := portal.get_texture().get_image()
+			var portal_path := out_dir.path_join("00_portal_feed_debug.png")
+			if portal_image != null and not portal_image.is_empty() \
+					and portal_image.save_png(portal_path) == OK:
+				portal_feed_dumped = true
+				print("[DREAM TARGET SHOT] saved %s" % portal_path)
 	var image := get_viewport().get_texture().get_image()
 	var path := out_dir.path_join(file_name + ".png")
 	var error := image.save_png(path)

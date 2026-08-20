@@ -15,6 +15,8 @@ const START_MODULE_ID := "D00_4B_THRESHOLD"
 const PROFILES_PATH := "res://data/dream_profiles.json"
 const DreamHazardGrowthScript := preload(
 		"res://scripts/dream/dream_hazard_growth.gd")
+const DreamViewPortalScript := preload(
+		"res://scripts/dream/dream_view_portal.gd")
 
 ## Tests drive pursuit steps manually when false.
 var autonomous := true
@@ -83,6 +85,10 @@ const PHASE_LIGHT_THRESHOLD_LOW := 0.78
 const PHASE_LIGHT_THRESHOLD_HIGH := 0.96
 const PHASE_LIGHT_MAX_ENERGY := 0.42
 const PHASE_LIGHT_RANGE_M := 3.2
+## R6's renderer is a consumer of an already-live RoomBuilder destination. It
+## shares this world and owns only one camera; no room or route hangs below it.
+var _view_portal: SubViewport
+var _view_portal_fault: Dictionary = {}
 ## Every Klimt material in the world, so the lamp can be pushed into all of
 ## them each frame. See _collect_molten_materials().
 var _molten_materials: Array[ShaderMaterial] = []
@@ -413,19 +419,79 @@ func _build_hazard_growth() -> void:
 			OS.get_environment("DREAM_BREACH_DEBUG").to_int(), 0, 2))
 	material.set_shader_parameter("phase_debug_view", clampi(
 			OS.get_environment("DREAM_PHASE_DEBUG").to_int(), 0, 2))
+	material.set_shader_parameter("portal_active", 0.0)
+	material.set_shader_parameter("portal_phase_thresholds",
+			Vector2(DreamViewPortalScript.PHASE_THRESHOLD_LOW,
+			DreamViewPortalScript.PHASE_THRESHOLD_HIGH))
+	material.set_shader_parameter("portal_debug_view", clampi(
+			OS.get_environment("DREAM_PORTAL_DEBUG").to_int(), 0, 2))
 	material.set_shader_parameter("motion_phase",
 			float(absi(str(dream_context.get("seed_hex", "")).hash()) & 4095)
 			/ 4095.0 * TAU)
 	_hazard_growth.material_override = material
+	# The main camera sees every layer. The R6 camera excludes this one so the
+	# surface sampling its feed can never appear inside that feed.
+	_hazard_growth.layers = \
+			DreamViewPortalScript.HAZARD_PRESENTATION_LAYER
 	add_child(_hazard_growth)
 	_build_phase_reflected_light()
+	_build_view_portal()
 
 
 func _rebuild_hazard_growth() -> void:
+	_free_view_portal()
 	if _hazard_growth != null and is_instance_valid(_hazard_growth):
 		_hazard_growth.free()
 	_hazard_growth = null
 	_build_hazard_growth()
+
+
+func _free_view_portal() -> void:
+	if _view_portal != null and is_instance_valid(_view_portal):
+		_view_portal.free()
+	_view_portal = null
+	_view_portal_fault = {}
+
+
+## R6: one Atlas/RoomBuilder-authored view into a room the bounded pocket has
+## already built. The SubViewport shares this World3D; it cannot carry a room,
+## collision, danger or navigation owner. The existing aperture remains the
+## only presentation face and its real wall remains the only physical answer.
+func _build_view_portal() -> void:
+	_free_view_portal()
+	if _hazard_growth == null or rooms == null \
+			or OS.get_environment("DREAM_VIEW_PORTAL_OFF") == "1":
+		return
+	var breach: Dictionary = _hazard_growth.get_meta("breach_record", {})
+	if breach.is_empty():
+		return
+	_view_portal_fault = rooms.view_fault(str(breach.get("module", "")))
+	if _view_portal_fault.is_empty():
+		return
+	var material := _hazard_growth.material_override as ShaderMaterial
+	if material == null:
+		_view_portal_fault = {}
+		return
+	_view_portal = DreamViewPortalScript.new()
+	add_child(_view_portal)
+	_view_portal.call("configure", get_world_3d(), _view_portal_fault,
+			breach, material, exposure)
+	_hazard_growth.set_meta("view_portal_record", _view_portal_fault)
+	_hazard_growth.set_meta("view_portal_owner",
+			"DreamAtlas/DreamRoomBuilder")
+	_hazard_growth.set_meta("view_portal_rendering",
+			"shared_world_existing_room_v1")
+	_hazard_growth.set_meta("view_portal_navigation",
+			"none_authoritative_wall_intact")
+	_hazard_growth.set_meta("view_portal_debug_views", PackedStringArray([
+			"beauty", "portal_id", "recursion_depth"]))
+
+
+func _update_view_portal() -> void:
+	if _view_portal == null or not is_instance_valid(_view_portal) \
+			or player == null:
+		return
+	_view_portal.call("update_view", player.camera)
 
 
 ## High exposure gives some light back, but it does not turn the gold into a
@@ -903,6 +969,7 @@ func _update_exposure(delta: float) -> void:
 
 func _update_molten() -> void:
 	_update_phase_reflected_light()
+	_update_view_portal()
 	if _molten_materials.is_empty() or player == null:
 		return
 	var pose: Dictionary = player.lamp_pose()

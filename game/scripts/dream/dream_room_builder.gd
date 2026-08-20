@@ -121,6 +121,11 @@ const CORNER_MARGIN_M := 0.10
 const SALT_ENTRY_OFFSET := 0x0E17A1
 const SALT_DOOR_SIDE := 0x5DEA11
 const SALT_DOOR_OFFSET := 0x0FF5E7
+## R6 does not let the renderer invent whatever view happens to look good.
+## These salts let the topology owner select one already-live room and one of
+## its real approaches. They do not alter room identity, placement or doors.
+const SALT_VIEW_FAULT_VANTAGE := 0x71E7A63E
+const SALT_VIEW_FAULT_ROLL := 0x71E79011
 
 ## Bisection steps for the fairness clamp. A fixed count rather than a
 ## tolerance loop, so the result is bit-identical on every machine.
@@ -824,6 +829,97 @@ func _rebuild(room: Dictionary) -> void:
 ## plan.modules, and the thing pocket adjacency will route over.
 func live_rooms() -> Array:
 	return _live.values()
+
+
+## ONE WINDOW INTO SOMETHING THE POCKET ALREADY REMEMBERS.
+##
+## The renderer may consume this record but may not choose its own destination.
+## Candidates are the rooms already held by the bounded pocket, so the result
+## cannot create topology, keep a forgotten room alive or name an unbuilt
+## space. The destination is deliberately not linked to the source: this is a
+## view fault, not a graph edge. Its odd quarter-turn belongs to the image only;
+## the player, gravity, collision and navigation remain in the source room.
+func view_fault(source_key: String) -> Dictionary:
+	var source: Dictionary = _live.get(source_key, {})
+	if source.is_empty() or atlas == null:
+		return {}
+	var candidates: Array[String] = []
+	# The first real door is already the receding practical's authored lure.
+	# Looking through the wound therefore shows a place the player can know is
+	# real, while the odd orientation says the VIEW is the violation. This list
+	# follows the source's door order; no renderer-facing aesthetic score may
+	# choose a more convenient room.
+	for door_value in source.get("doors", []):
+		var door: Dictionary = door_value
+		var key := str(door.get("leads_to", ""))
+		if not bool(door.get("sealed", false)) and not key.is_empty() \
+				and key != source_key and _live.has(key) \
+				and not candidates.has(key):
+			candidates.append(key)
+	# A source can be a surviving trail room whose own door record was sealed
+	# before its neighbour was retained. The fault still cannot invent space:
+	# the deterministic fallback is another room already held by the pocket.
+	if candidates.is_empty():
+		for key_value in _live.keys():
+			var key := str(key_value)
+			if key != source_key:
+				candidates.append(key)
+		candidates.sort()
+	if candidates.is_empty():
+		return {}
+	var destination_key := candidates[0]
+	var destination: Dictionary = _live[destination_key]
+	var rect: Array = destination.get("rect", [])
+	if rect.size() < 4:
+		return {}
+	var target := Vector3((float(rect[0]) + float(rect[2])) * 0.5, 1.38,
+			(float(rect[1]) + float(rect[3])) * 0.5)
+	var vantage := target
+	var open_doors := passable_doors(destination)
+	if not open_doors.is_empty():
+		var vantage_pick := int(atlas.aspect(int(destination.id),
+				SALT_VIEW_FAULT_VANTAGE) * float(open_doors.size()))
+		vantage_pick = clampi(vantage_pick, 0, open_doors.size() - 1)
+		var inside: Array = (open_doors[vantage_pick] as Dictionary).get(
+				"inside", [])
+		if inside.size() >= 2:
+			vantage = Vector3(float(inside[0]), 1.38, float(inside[1]))
+	if vantage.distance_to(target) < 0.35:
+		# The waking room can have no meaningful entry. Use a real point inside
+		# its footprint rather than manufacturing a doorway for the camera.
+		vantage = Vector3(lerpf(float(rect[0]), float(rect[2]), 0.22), 1.38,
+				lerpf(float(rect[1]), float(rect[3]), 0.22))
+	else:
+		# Clear the doorway's wall thickness and casing before taking the view.
+		# The camera is still inside the same authored room; this merely stops a
+		# 56-degree portrait lens from spending most of its frame on the jamb.
+		vantage = vantage.move_toward(target,
+				minf(1.20, vantage.distance_to(target) * 0.22))
+	var forward := target - vantage
+	forward.y = 0.0
+	if forward.length() < 0.01:
+		forward = Vector3.FORWARD
+	else:
+		forward = forward.normalized()
+	var roll_pick := atlas.aspect(int(source.id), SALT_VIEW_FAULT_ROLL)
+	var quarter_turns := 1 if roll_pick < 0.5 else 3
+	return {
+		"id": "view/%s/%s" % [source_key, destination_key],
+		"owner": "DreamAtlas/DreamRoomBuilder",
+		"source_key": source_key,
+		"source_path": (source.path as PackedInt32Array).duplicate(),
+		"source_room_id": int(source.id),
+		"destination_key": destination_key,
+		"destination_path": (destination.path as PackedInt32Array).duplicate(),
+		"destination_room_id": int(destination.id),
+		"destination_source": str(destination.source),
+		"destination_origin": vantage,
+		"destination_forward": forward,
+		"orientation_quarters": quarter_turns,
+		"recursion_depth": 0,
+		"render_source": "shared_world_existing_room",
+		"navigation": "none_authoritative_wall_intact",
+	}
 
 
 ## A standable point just inside this room's entry door -- the doorway the

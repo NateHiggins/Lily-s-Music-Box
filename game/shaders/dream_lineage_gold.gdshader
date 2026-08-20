@@ -35,6 +35,14 @@ uniform vec4 phase_stage_thresholds = vec4(0.10, 0.34, 0.48, 0.78);
 uniform vec2 phase_gold_thresholds = vec2(0.70, 0.92);
 uniform float phase_warp_max_uv : hint_range(0.0, 0.12) = 0.085;
 uniform float phase_gold_afterglow : hint_range(0.0, 0.35) = 0.16;
+// R6 binds one shared-World3D camera. The feed is composited only on the
+// existing aperture class and only after the same durable field reaches its
+// high state. Depth remains zero because that camera excludes this surface.
+uniform sampler2D portal_view : source_color, filter_linear;
+uniform float portal_active : hint_range(0.0, 1.0) = 0.0;
+uniform vec2 portal_phase_thresholds = vec2(0.88, 0.98);
+// 1 isolates the portal id/coverage; 2 reports the sole permitted depth zero.
+uniform int portal_debug_view : hint_range(0, 2) = 0;
 
 uniform float gene_phase = 0.0;
 uniform float dark_glow = 0.018;
@@ -350,6 +358,8 @@ void fragment() {
 
 	vec4 breach_pattern = vec4(0.0);
 	float local_warp_support = 0.0;
+	float portal_mix = 0.0;
+	vec3 portal_colour = vec3(0.0);
 	if (breach_flag > 0.5) {
 		// The nine recession taps are paid only on the small aperture face,
 		// never across the tentacles and wall grafts sharing this material.
@@ -362,6 +372,24 @@ void fragment() {
 				dot(view_dir, v_breach_up)) / face_view;
 		breach_pattern = breach_interior(breach_uv, view_shift,
 				v_breach_state.w);
+		// The irregular triangle fan is the aperture mask. A narrow inner fade
+		// preserves the R4 false-depth lattice at the torn edge, so the live
+		// room reads as being beyond a wound rather than pasted onto an oval.
+		float portal_phase = smoothstep(portal_phase_thresholds.x,
+				portal_phase_thresholds.y, exposed) * portal_active;
+		float portal_inset = 1.0 - smoothstep(0.82, 1.12,
+				length(breach_uv));
+		portal_mix = portal_phase * portal_inset;
+		if (portal_active > 0.5) {
+			vec2 portal_uv = clamp(breach_uv * 0.5 + vec2(0.5),
+					vec2(0.002), vec2(0.998));
+			// ViewportTexture's image origin is opposite the local wall frame.
+			portal_uv.y = 1.0 - portal_uv.y;
+			portal_colour = texture(portal_view, portal_uv).rgb;
+			// Retain the room's photographed values while biasing the impossible
+			// view slightly toward the organism's plum/antique-gold invariant.
+			portal_colour *= vec3(0.96, 0.88, 1.03);
+		}
 	}
 	vec3 tunnel_dark = vec3(0.0035, 0.0010, 0.0065)
 			+ vec3(0.18, 0.075, 0.012) * breach_pattern.x * 0.24
@@ -379,6 +407,10 @@ void fragment() {
 	ALBEDO = mix(ALBEDO, tunnel_dark + tunnel_lit, breach_flag);
 	EMISSION = mix(EMISSION,
 			tunnel_dark * 0.46 + tunnel_lit * 0.038, breach_flag);
+	ALBEDO = mix(ALBEDO, portal_colour * 0.92,
+			portal_mix * breach_flag);
+	EMISSION = mix(EMISSION, portal_colour * 0.025,
+			portal_mix * breach_flag);
 
 	// Production diagnosis: view 1 shows resting aperture (ochre to bone) and
 	// singles the direct tracker in magenta; view 2 identifies authored gaze
@@ -431,5 +463,20 @@ void fragment() {
 		}
 		ALBEDO = debug_colour;
 		EMISSION = debug_colour * 0.52;
+	}
+	if (portal_debug_view > 0) {
+		vec3 debug_colour = vec3(0.002, 0.002, 0.004);
+		if (breach_flag > 0.5) {
+			if (portal_debug_view == 1) {
+				debug_colour = mix(vec3(0.035, 0.015, 0.075),
+						vec3(0.05, 0.92, 1.0), portal_mix);
+			} else {
+				// Blue is depth zero. No green/yellow/red recursive layers can
+				// exist in the R6 renderer or this diagnostic.
+				debug_colour = vec3(0.08, 0.20, 0.92) * portal_mix;
+			}
+		}
+		ALBEDO = debug_colour;
+		EMISSION = debug_colour * 0.48;
 	}
 }

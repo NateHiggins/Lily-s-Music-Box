@@ -34,10 +34,15 @@ growth draw, while the authoritative wall collision stays intact
 arrives continuously from retained exposure, shares one Orison/rupture/
 living-gold transition controller, confines slow warp to the aperture and
 returns one measured 0.42-energy / 3.2 m shadowless world light only at high
-retained exposure (`art/renders/dream_rendering_r5/README.md`). The immediate
-task is R6, one view-only portal proof. It cannot be enterable. RECURSION is
-measured but not licensed, and the
-embrace still follows the eyes rather than preceding them.
+retained exposure (`art/renders/dream_rendering_r5/README.md`). R6 is now
+landed too: one 384 × 672 camera shares the existing world and shows an
+already-live Atlas room through the wound with an odd quarter-turn. Its camera
+excludes the wound layer, so recursion depth is exactly zero; it adds no room,
+route, collision, hazard, light or interaction and leaves the wall solid
+(`art/renders/dream_rendering_r6/README.md`). The immediate task is R7's owner
+decision: whether depth-one recursion or an enterable fault earns a separate
+proof at all. Depth 2–4 remains measured but unlicensed, and the embrace still
+follows the eyes rather than preceding them.
 
 The parallel street lane's paused coachwork pass is now a bounded T2g
 checkpoint with focused contracts and A/A evidence. It does not own the next

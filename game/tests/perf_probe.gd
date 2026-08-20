@@ -631,21 +631,31 @@ func _run_dream() -> void:
 	_report_dream_census()
 	var spawn: Vector3 = _dream.player.position
 	var stations: Array = [{"name": "waking room", "pos": spawn}]
-	var deep := _dream_deepest(spawn)
-	if deep != spawn:
-		stations.append({"name": "deep pocket", "pos": deep})
+	if OS.get_environment("PERF_DREAM_PORTAL_TARGET") == "1":
+		var portal_station := _dream_portal_station()
+		if not portal_station.is_empty():
+			stations = [portal_station]
+	else:
+		var deep := _dream_deepest(spawn)
+		if deep != spawn:
+			stations.append({"name": "deep pocket", "pos": deep})
 	# Shader compilation is lazy and lands on whoever draws first. Burn it
 	# here, lamp ON, so the molten path is compiled before anything is timed.
 	_dream.player.set_lamp_enabled(true)
 	for st in stations:
 		_dream.player.position = st["pos"]
+		if st.has("yaw"):
+			_dream.player.rotation.y = float(st.yaw)
+			_dream.player.camera.rotation.x = 0.0
 		_dream.call("_update_molten")
 		for i in WARMUP:
 			await get_tree().process_frame
 	print("%-24s %7s %7s %9s %8s %7s" %
 			["station", "objs", "calls", "prims", "ms", "fps"])
 	for st in stations:
-		var yaw: float = await _dream_worst_yaw(st["pos"])
+		var yaw := float(st.get("yaw", NAN))
+		if not is_finite(yaw):
+			yaw = await _dream_worst_yaw(st["pos"])
 		for lamp in [false, true]:
 			await _measure_dream("%s %s" % [st["name"],
 					"lamp on" if lamp else "lamp off"], st["pos"], yaw, lamp)
@@ -711,6 +721,32 @@ func _stage_dream_phase_target() -> void:
 		_dream.player.position = Vector3((float(rect[0]) + float(rect[2])) * 0.5,
 				_dream.player.position.y,
 				(float(rect[1]) + float(rect[3])) * 0.5)
+
+
+## R6's exact price station: the production player stands inside the wound's
+## source room and faces the real aperture, so the shared-world SubViewport is
+## awake for the entire sample instead of being averaged away by a yaw sweep.
+func _dream_portal_station() -> Dictionary:
+	var growth := _dream.get("_hazard_growth") as MeshInstance3D
+	var breach: Dictionary = growth.get_meta("breach_record", {}) \
+			if growth != null else {}
+	if breach.is_empty():
+		printerr("PERF DREAM PORTAL: no governed breach")
+		return {}
+	var centre: Vector3 = breach.get("center", Vector3.ZERO)
+	var normal: Vector3 = breach.get("normal", Vector3.FORWARD)
+	var side: Vector3 = breach.get("side", Vector3.RIGHT)
+	var position := centre + normal * 1.55 + side * 0.28
+	position.y = _dream.player.position.y
+	var look := centre - position
+	look.y = 0.0
+	var yaw := atan2(look.x, -look.z) if look.length() > 0.01 else 0.0
+	var portal_fault: Dictionary = _dream.get("_view_portal_fault")
+	print("PERF DREAM PORTAL: %s -> %s at %s" % [
+			str(portal_fault.get("source_key", "off")),
+			str(portal_fault.get("destination_key", "off")),
+			str(position)])
+	return {"name": "view portal", "pos": position, "yaw": yaw}
 
 
 ## What the pocket is actually made of. The building's census counts meshes

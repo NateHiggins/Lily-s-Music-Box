@@ -30,8 +30,8 @@ through mundane infrastructure and maintenance work. Owner spoiler ruling:
 entity or impossible architecture. No title import loops. Exact masters,
 hashes, trims and tests are recorded in `game/docs/title_screen.md`.
 
-**Dream rendering checkpoint (2026-08-20):** R1–R5 of the production surface
-redesign are landed through `art/renders/dream_rendering_r5/README.md`. The
+**Dream rendering checkpoint (2026-08-20):** R1–R6 of the production surface
+redesign are landed through `art/renders/dream_rendering_r6/README.md`. The
 current target pocket is a recognisable furnished Orison invaded by one
 dark-live hazard surface: layered tissue/wet/gold, architecture-bound relief,
 the seeded eye family, and one hazard-provenant torn Atlas-wall breach whose
@@ -39,8 +39,13 @@ flat shader interior reads 32 m deep while the real wall collision remains
 intact. R5 now reveals that wound continuously from durable exposure, shares
 one Orison/rupture/living-gold controller, confines warp to 0.085 aperture UV,
 and returns one measured 0.42-energy / 3.2 m shadowless gold light at retained
-high exposure. The immediate task is R6's one view-only portal proof;
-enterable space and RECURSION remain unlicensed. `DreamAtlas` remains topology owner
+high exposure. R6 opens its centre onto one already-live Atlas room through a
+bounded shared-world camera, turned one odd quarter-turn. The camera excludes
+the sampling wound, making recursion depth zero; it creates no room, route,
+collision, light, interaction or danger, and the real wall remains solid. The
+immediate task is the R7 owner decision: keep the view-only answer, license one
+depth-one recursion proof, license an enterable fault with explicit play value,
+or neither. Depth 2–4 remains unlicensed. `DreamAtlas` remains topology owner
 and `DreamHazard` remains danger owner.
 
 Three top-level projects:

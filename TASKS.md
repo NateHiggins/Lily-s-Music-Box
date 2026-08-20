@@ -1425,9 +1425,21 @@ unresolved. K7's source-backed loop contract is closed in
   FAST/FULL x8/480 pass. Fresh target-pocket perf control/exposed keeps exact
   object/call counts and remains 0/8 over 16.6 ms. Proof:
   `art/renders/dream_rendering_r5/README.md`.
-  **Immediate pickup: R6 one view-only portal proof.** It may show another
-  authored view but cannot add an enterable route, second topology owner or
-  RECURSION. R7 remains the separate ownership decision for either escalation.
+  **R6 LANDED 2026-08-20.** One bounded 384 × 672 shared-world view now opens
+  inside the existing wound only at retained high exposure. RoomBuilder owns
+  the deterministic already-live destination and odd quarter-turn; the portal
+  owns one camera and no room, graph edge, navigation, collision, light, sound,
+  interaction or danger. Excluding presentation layer 20 from that camera
+  makes recursion depth provably zero while the main camera still sees the
+  one-surface wound. The real wall and collision remain intact. Target 92/92,
+  RoomBuilder 175/175, Hazard 42/42, Lineage 21/21, Atlas 26/26, Fractal 24/24
+  and WalkTest FAST/FULL x8/480 pass. The exact aperture-facing price is
+  +0.18 ms lamp-off / +0.29 ms lamp-on, 0/4 over 16.6 ms. Proof:
+  `art/renders/dream_rendering_r6/README.md`.
+  **Immediate pickup: R7 owner decision.** Decide whether this depth-zero
+  impossible view is complete, or whether depth-one recursion and/or an
+  enterable fault has enough explicit gameplay value to license another pass.
+  Do not infer either escalation from R6 and do not build depth 2–4 first.
 - **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
   heredity and visible anatomy: bounded parent/child genomes, brood knots,
   parent umbilicals, prospective child helices, open birth-frames and sealed

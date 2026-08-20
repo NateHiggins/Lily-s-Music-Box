@@ -240,6 +240,27 @@ diagnostics and proofs are at `art/renders/dream_rendering_r5/README.md`. R6 is
 now the first permitted view-only portal proof. Enterable space, the embrace
 and RECURSION remain unlicensed.
 
+**Implementation checkpoint — 2026-08-20, R6 view-only fault.** R6 is landed.
+One deterministic wound now opens at retained exposure 0.88→0.98 onto another
+room already live in the bounded Atlas pocket. `DreamRoomBuilder` selects that
+destination from the source room's first real door and authors a 90°/270°
+image roll; the renderer cannot choose or build a prettier room. One bounded
+384 × 672 `SubViewport` and one camera share the production `World3D`. The
+camera excludes the wound's presentation layer, so the sampled surface cannot
+reappear in its own feed: recursion depth and maximum depth are both zero. It
+sleeps unless the aperture is exposed, close and in useful view. The existing
+one-surface wound, R4 false-depth edge, wall geometry and authoritative
+collision remain intact; no room, graph edge, navigation, interaction, light,
+sound, damage or hazard owner was added. The portal-camera material read is
+selected only by its visible-layer mask and cannot illuminate or mutate the
+shared world. Exact target-pocket A/B measured +0.18 ms lamp-off and +0.29 ms
+lamp-on, with 0/4 rows over 16.6 ms. Production, ID and depth-zero renders,
+corrected readings and proof are at
+`art/renders/dream_rendering_r6/README.md`. R7 is now an owner decision: keep
+this depth-zero impossible view as the complete answer, or separately license
+a depth-one recursive and/or enterable fault with explicit play value. Neither
+escalation is implied by R6.
+
 ---
 
 ## WHAT THE PLATES SHOW — FOUR STAGES OF ONE SURFACE

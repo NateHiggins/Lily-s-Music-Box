@@ -1337,6 +1337,19 @@ void fragment() {
 			+ reflection
 			+ star_colour * sky_glow * 0.55
 			+ albedo * jewel_face * jewel_gleam * 0.16;
+	// R6 CAMERA-LOCAL READABILITY. The view portal's shared-world camera is
+	// the only camera which excludes presentation layer 20. That bit is a
+	// render-pass identity, not a new material state: it lets the existing room
+	// renderer expose photographed plaster and cooled ornament inside the tiny
+	// secondary view without placing a helper light in the world the player can
+	// later walk into. The main camera includes the layer and receives exactly
+	// the pre-R6 output above.
+	float portal_camera = (CAMERA_VISIBLE_LAYERS & uint(524288)) == uint(0)
+			? 1.0 : 0.0;
+	vec3 portal_read = albedo * (1.08 + leaf * 0.32)
+			+ gold_mid * leaf * eaten * 0.24;
+	ALBEDO = mix(ALBEDO, max(ALBEDO, portal_read), portal_camera);
+	EMISSION += portal_read * portal_camera * 0.28;
 	if (surface_debug_view == 1) {
 		ALBEDO = vec3(architecture_mask);
 		EMISSION = vec3(architecture_mask) * 1.20;

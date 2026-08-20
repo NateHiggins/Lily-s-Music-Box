@@ -6,7 +6,7 @@ extends Node
 ## growth maps back to the existing hazard owner, and furnishing contains only
 ## extracted production meshes rather than waking gameplay systems.
 
-const EXPECTED_CHECKS := 71
+const EXPECTED_CHECKS := 92
 const HazardGrowthScript := preload(
 		"res://scripts/dream/dream_hazard_growth.gd")
 
@@ -22,6 +22,7 @@ func _ready() -> void:
 	_growth_contract()
 	_breach_contract()
 	_phase_contract()
+	_portal_contract()
 	_interior_contract()
 	_furnishing_contract()
 	if checks != EXPECTED_CHECKS:
@@ -367,7 +368,7 @@ func _breach_contract() -> void:
 			== "authoritative_wall_intact"
 			and str(growth.get_meta("breach_navigation", ""))
 			== "false_depth_wall_intact")
-	_check("no viewport camera or second rendered world hides behind the wound",
+	_check("the wound mesh itself owns no viewport camera or rendered world",
 			growth.find_children("*", "SubViewport", true, false).is_empty()
 			and growth.find_children("*", "Camera3D", true, false).is_empty()
 			and growth.get_world_3d() == root.get_world_3d())
@@ -460,6 +461,143 @@ func _phase_contract() -> void:
 			is_equal_approx(reflected.light_energy, light_after))
 	print("[DREAM TARGET] R5 exposure %.4f -> %.4f -> %.4f, retained %.4f" % [
 			before, mid, after, held])
+
+
+func _portal_contract() -> void:
+	var growth := root.get("_hazard_growth") as MeshInstance3D
+	var breach: Dictionary = growth.get_meta("breach_record", {}) \
+			if growth != null else {}
+	var fault: Dictionary = root.get("_view_portal_fault")
+	var portals := get_tree().get_nodes_in_group("dream_view_portal")
+	var portal := portals[0] as SubViewport if portals.size() == 1 else null
+	var material := growth.material_override as ShaderMaterial \
+			if growth != null else null
+	_check("R6 builds exactly one bounded view consumer",
+			portal != null and portal == root.get("_view_portal")
+			and bool(portal.get_meta("view_only", false)))
+	_check("the view is a root sibling sharing the production World3D",
+			portal != null and portal.get_parent() == root
+			and not portal.own_world_3d
+			and portal.world_3d == root.get_world_3d())
+	var portal_cameras := portal.find_children("*", "Camera3D", true, false) \
+			if portal != null else []
+	var portal_camera := portal_cameras[0] as Camera3D \
+			if portal_cameras.size() == 1 else null
+	_check("one camera and no room node exist beneath the view",
+			portal_camera != null and portal_camera.current
+			and portal.find_children("Room_*", "Node3D", true, false).is_empty())
+	_check("the feed is a bounded portrait target rather than another screen",
+			portal != null and portal.size == Vector2i(384, 672)
+			and portal.size.x * portal.size.y <= 258048)
+	var hazard_layer := 1 << 19
+	_check("the feed excludes the sampling wound while the player still sees it",
+			portal_camera != null and growth.layers == hazard_layer
+			and (portal_camera.cull_mask & hazard_layer) == 0
+			and (root.player.camera.cull_mask & hazard_layer) != 0)
+	_check("the topology owners author the view fault, not the renderer",
+			str(fault.get("owner", "")) == "DreamAtlas/DreamRoomBuilder"
+			and fault == growth.get_meta("view_portal_record", {})
+			and str(growth.get_meta("view_portal_owner", ""))
+			== "DreamAtlas/DreamRoomBuilder")
+	_check("the wound is the named source and cannot look at itself",
+			str(fault.get("source_key", "")) == str(breach.get("module", ""))
+			and str(fault.get("destination_key", ""))
+			!= str(fault.get("source_key", "")))
+	var destination: Dictionary = root.rooms.room_at_key(str(
+			fault.get("destination_key", "")))
+	_check("the destination is one already-live rendered Atlas room",
+			not destination.is_empty()
+			and destination.path == fault.get("destination_path",
+			PackedInt32Array())
+			and str(destination.source) == str(fault.get(
+			"destination_source", ""))
+			and str(fault.get("render_source", ""))
+			== "shared_world_existing_room")
+	var source := root.rooms.room_at_key(str(fault.get("source_key", "")))
+	var first_real_destination := ""
+	for door_value in source.get("doors", []):
+		var door: Dictionary = door_value
+		if not bool(door.get("sealed", false)) \
+				and not str(door.get("leads_to", "")).is_empty():
+			first_real_destination = str(door.leads_to)
+			break
+	_check("the fault looks through the source room's first real doorway",
+			not first_real_destination.is_empty()
+			and str(fault.get("destination_key", "")) == first_real_destination)
+	var plan_doors_before: int = (root.plan.get("doors", []) as Array).size()
+	var repeated_fault := root.rooms.view_fault(str(fault.get("source_key", "")))
+	_check("the same live pocket reproduces the exact view record",
+			repeated_fault == fault)
+	_check("asking for a view mutates no door or navigation graph",
+			root.plan.get("doors", []).size() == plan_doors_before
+			and str(fault.get("navigation", ""))
+			== "none_authoritative_wall_intact")
+	_check("the image alone carries one deterministic quarter-turn violation",
+			int(fault.get("orientation_quarters", 0)) in [1, 3]
+			and (fault.get("destination_forward", Vector3.ZERO) as Vector3)
+			.length() > 0.99)
+	_check("R6 is depth zero with no recursive budget hidden in the node",
+			int(fault.get("recursion_depth", -1)) == 0
+			and portal != null
+			and int(portal.get_meta("recursion_depth", -1)) == 0
+			and int(portal.get_meta("max_recursion_depth", -1)) == 0)
+	var forbidden := 0
+	if portal != null:
+		forbidden += portal.find_children("*", "CollisionObject3D", true,
+				false).size()
+		forbidden += portal.find_children("*", "Light3D", true, false).size()
+		forbidden += portal.find_children("*", "AudioStreamPlayer3D", true,
+				false).size()
+	_check("the view owns no collision danger light sound or interaction",
+			forbidden == 0)
+	_check("the existing one-surface material receives only the view texture",
+			material != null and float(material.get_shader_parameter(
+			"portal_active")) == 1.0
+			and material.get_shader_parameter("portal_view") is Texture2D
+			and growth.mesh.get_surface_count() == 1)
+	_check("portal phase and diagnostics ship explicit but off",
+			material != null and material.get_shader_parameter(
+			"portal_phase_thresholds") == Vector2(0.88, 0.98)
+			and int(material.get_shader_parameter("portal_debug_view")) == 0
+			and growth.get_meta("view_portal_debug_views", PackedStringArray())
+			== PackedStringArray(["beauty", "portal_id", "recursion_depth"]))
+	_check("camera-local readability is bounded and cannot light the world",
+			portal_camera != null
+			and portal_camera.attributes is CameraAttributesPractical
+			and (portal_camera.attributes as CameraAttributesPractical)
+			.exposure_multiplier <= 3.201)
+	var sleeping_mode := portal.render_target_update_mode \
+			if portal != null else -1
+	_check("the secondary renderer sleeps before a useful high-state view",
+			sleeping_mode == SubViewport.UPDATE_DISABLED)
+	var centre: Vector3 = breach.get("center", Vector3.ZERO)
+	var normal: Vector3 = breach.get("normal", Vector3.FORWARD)
+	root.exposure.add_lamp(centre - normal * 1.25, normal, 2.5,
+			cos(deg_to_rad(34.0)), 1.0, 8.0)
+	root.exposure.upload(root.get("_exposure_tex") as ImageTexture3D)
+	root.player.global_position = centre + normal * 1.25
+	root.player.camera.look_at(centre, Vector3.UP)
+	root.call("_update_view_portal")
+	_check("retained high exposure and a useful view wake the one renderer",
+			portal != null and portal.render_target_update_mode
+			== SubViewport.UPDATE_ALWAYS
+			and bool(portal.get_meta("last_visible", false))
+			and float(portal.get_meta("last_exposure", 0.0)) >= 0.98)
+	_check("the deferred ViewportTexture binding resolved before activation",
+			portal != null and bool(portal.call("texture_is_bound")))
+	var wall_hit: Dictionary = {}
+	if not breach.is_empty():
+		wall_hit = root.get_world_3d().direct_space_state.intersect_ray(
+				PhysicsRayQueryParameters3D.create(
+				centre + normal * 0.48, centre - normal * 0.48))
+	_check("opening the view leaves mesh surface and wall collision unchanged",
+			growth.mesh.get_surface_count() == 1 and not wall_hit.is_empty())
+	print("[DREAM TARGET] R6 %s -> %s, roll=%d, shared=%s, %s" % [
+			str(fault.get("source_key", "")),
+			str(fault.get("destination_key", "")),
+			int(fault.get("orientation_quarters", 0)),
+			str(portal.world_3d == root.get_world_3d()) if portal != null else "false",
+			str(portal.size) if portal != null else "missing"])
 
 
 func _rect_for(room_id: String) -> Array:
