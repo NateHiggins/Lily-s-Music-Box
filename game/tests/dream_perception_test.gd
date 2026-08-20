@@ -52,7 +52,7 @@ func _ready() -> void:
 	root.autonomous = false
 	root.player.set_physics_process(false)
 	await _block_f_approaches()
-	_block_g_bearings()
+	await _block_g_bearings()
 	_block_h_channel()
 	_block_i_captions()
 	_print_report()
@@ -67,9 +67,9 @@ func _ready() -> void:
 
 
 func _watchdog() -> void:
-	await get_tree().create_timer(90.0, true, false, true).timeout
+	await get_tree().create_timer(55.0, true, false, true).timeout
 	if not _finished:
-		printerr("[GATE C] WATCHDOG: exceeded 90 seconds — FAIL")
+		printerr("[GATE C] WATCHDOG: exceeded 55 seconds — FAIL")
 		get_tree().quit(1)
 
 
@@ -78,6 +78,7 @@ func _watchdog() -> void:
 func _block_f_approaches() -> void:
 	for hazard_id in ["vantry_signal_trunk", "open_lift_void",
 			"hollow_runner"]:
+		await _ensure_socket(hazard_id)
 		report[hazard_id] = await _sweep(hazard_id)
 	for hazard_id in report:
 		var r: Dictionary = report[hazard_id]
@@ -116,10 +117,7 @@ func _block_f_approaches() -> void:
 	var occlusion_safe := true
 	for hazard_id in report:
 		var r: Dictionary = report[hazard_id]
-		var owed := 0.0
-		for h in root.hazards.hazards:
-			if h.id == hazard_id:
-				owed = h.minimum_warning_s
+		var owed := float(r.minimum_warning_s)
 		if float(r.door_margin) < owed:
 			occlusion_safe = false
 		print("  [GATE C] %s: from its own doorway %.2f s against %.2f s owed"
@@ -128,9 +126,9 @@ func _block_f_approaches() -> void:
 			+ "be fair" if occlusion_safe else "a room-local tell would NOT "
 			+ "be fair -- the graph must attenuate, not silence"))
 	_check("whether a room-local tell suffices is measured, not assumed",
-			report.vantry_signal_trunk.door_margin >= 0.0
-			and report.open_lift_void.door_margin >= 0.0
-			and report.hollow_runner.door_margin >= 0.0)
+			float(report.vantry_signal_trunk.door_margin) >= 0.0
+			and float(report.open_lift_void.door_margin) >= 0.0
+			and float(report.hollow_runner.door_margin) >= 0.0)
 	_end_block("F", 11)
 
 
@@ -155,13 +153,16 @@ func _sweep(hazard_id: String) -> Dictionary:
 	var tallies := {"tested": 0, "warned": 0, "fair": 0, "ahead": 0,
 			"through_wall": 0, "worst_margin": 999.0, "true_sector": 0,
 			"in_room_best": 0.0, "in_room_fair": 0, "in_room_tested": 0,
-			"door_margin": -1.0, "captions": {},
+			"door_margin": -1.0, "minimum_warning_s": 0.0, "captions": {},
 			"tell_spots": {}, "distinct_tells": 0}
 	for trial in range(TRIALS):
 		var bearing := TAU * float(trial) / float(TRIALS)
 		var ray := Vector3(cos(bearing), 0.0, sin(bearing))
 		root.hazards.setup(root.plan, root.profile_hazards, root.player)
 		var hazard := _hazard(hazard_id)
+		if hazard == null:
+			return tallies
+		tallies.minimum_warning_s = hazard.minimum_warning_s
 		var start := _farthest_walkable(hazard.position, ray,
 				hazard.tell_radius + 2.0)
 		var runway := start.distance_to(hazard.position)
@@ -194,7 +195,7 @@ func _sweep(hazard_id: String) -> Dictionary:
 			_face(goal)
 			_step_toward(goal, RUN_SPEED * DT)
 			root.hazards.advance_fixed(DT)
-			var row := _first_row(hazard_id) if told_at < 0.0 else {}
+			var row := _first_row(hazard.id) if told_at < 0.0 else {}
 			if not row.is_empty():
 				told_at = float(row.at_s)
 				told_sector = str(row.sector)
@@ -256,13 +257,10 @@ func _sweep(hazard_id: String) -> Dictionary:
 func _door_margin(hazard: DreamHazard) -> float:
 	var home := DreamMazeBuilder.nav_module_at(root.plan,
 			hazard.position.x, hazard.position.z)
-	var chain: Array[String] = []
-	for entry in root.plan.modules:
-		chain.append(str(entry.id))
-	var idx := chain.find(home)
-	if idx <= 0:
+	var prior := _entry_neighbor(home)
+	if prior.is_empty():
 		return -1.0
-	var legs := DreamMazeBuilder.chain_route(root.plan, chain[idx - 1], home)
+	var legs := root.rooms.route(prior, home)
 	if legs.is_empty():
 		return -1.0
 	# The last waypoint of the route into this module is the far side of its
@@ -299,15 +297,10 @@ func _in_room_margin(hazard: DreamHazard, start: Vector3) -> float:
 ## when the hazard's module has no predecessor to come from.
 func _approach_route(in_room: Vector3, hazard_pos: Vector3,
 		home: String) -> Array:
-	# plan.modules is emitted in chain order; there is no separate chain key.
-	var chain: Array[String] = []
-	for entry in root.plan.modules:
-		chain.append(str(entry.id))
-	var idx := chain.find(home)
-	if idx <= 0:
+	var prior := _entry_neighbor(home)
+	if prior.is_empty():
 		return [in_room, hazard_pos]
-	var prior := str(chain[idx - 1])
-	var legs := DreamMazeBuilder.chain_route(root.plan, prior, home)
+	var legs := root.rooms.route(prior, home)
 	if legs.is_empty():
 		return [in_room, hazard_pos]
 	# Stand at the far corner of the previous room from its exit door, so the
@@ -329,6 +322,33 @@ func _approach_route(in_room: Vector3, hazard_pos: Vector3,
 	route.append(in_room)
 	route.append(hazard_pos)
 	return route
+
+
+## The pocket has ancestry rather than a typed chain. Prefer its real entry
+## door (index zero), falling back to any currently live open neighbour. This
+## preserves the old measurement—warning from the room before the hazard—while
+## letting topology keep its current owner.
+func _entry_neighbor(home: String) -> String:
+	var room := _room_record(home)
+	if room.is_empty():
+		return ""
+	var fallback := ""
+	for door in DreamRoomBuilder.passable_doors(room):
+		var to := str(door.get("leads_to", ""))
+		if to.is_empty() or _room_record(to).is_empty():
+			continue
+		if fallback.is_empty():
+			fallback = to
+		if int(door.get("index", -1)) == 0:
+			return to
+	return fallback
+
+
+func _room_record(key: String) -> Dictionary:
+	for room in root.rooms.live_rooms():
+		if str(room.get("key", "")) == key:
+			return room
+	return {}
 
 
 func _rect(id: String) -> Array:
@@ -369,8 +389,16 @@ func _true_sector(at: Vector3) -> String:
 # --- G: the sector tells the truth ------------------------------------
 
 func _block_g_bearings() -> void:
+	await _ensure_socket("vantry_signal_trunk")
 	root.hazards.setup(root.plan, root.profile_hazards, root.player)
 	var hazard := _hazard("vantry_signal_trunk")
+	if hazard == null:
+		_check("the sector follows the player's facing, not the world's axes",
+				false)
+		_check("every sector name is a direction and never a measurement",
+				_sectors_are_directions())
+		_end_block("G", 13)
+		return
 	# Stand a fixed distance away and turn on the spot. What the player is
 	# told must follow their facing, because that is the only frame a
 	# direction means anything in.
@@ -568,10 +596,60 @@ func _spawn_root() -> DreamMazeRoot:
 	return next
 
 
+## Catalog socket and live instance id are deliberately separate in the
+## fractal pocket: one source room can occur more than once. Tests ask for the
+## authored danger by socket, then keep the unique instance id for its log.
 func _hazard(hid: String) -> DreamHazard:
 	for h in root.hazards.hazards:
-		if h.id == hid:
+		if h.socket == hid or h.id == hid:
 			return h
+	return null
+
+
+## The bounded pocket contains the waking room and its live neighbours, not a
+## fixed chain containing all three Mina sockets. A focused test therefore
+## locates a deterministic Atlas path whose real source owns the requested
+## socket, then asks DreamRoomBuilder to advance and write the pocket exactly as
+## play would. No hazard record or geometry is injected by the harness.
+func _ensure_socket(socket: String, rooms_examined: int = 2400) -> DreamHazard:
+	var found := _hazard(socket)
+	if found != null:
+		return found
+	var source_by_socket := {
+		"vantry_signal_trunk": "D05_SERVICE_RISER",
+		"open_lift_void": "D03_LIFT_VOID",
+		"hollow_runner": "D01_F04_LONG_HALL",
+	}
+	var wanted := str(source_by_socket.get(socket, ""))
+	var queue: Array[PackedInt32Array] = [PackedInt32Array()]
+	var examined := 0
+	while not queue.is_empty() and examined < rooms_examined:
+		var path: PackedInt32Array = queue.pop_front()
+		var room: Dictionary = root.rooms.atlas.room(path)
+		if path.size() > 0 and str(room.get("source", "")) == wanted:
+			var architecture := root.get("_architecture") as Node3D
+			root.rooms.advance(architecture, path)
+			var key := DreamRoomBuilder.key_of(path)
+			root.rooms.write_plan(root.plan, key)
+			root.set("_here_path", path)
+			root.set("_here_key", key)
+			# The harness will author its own trial starts below. For the one
+			# frame needed to publish the pocket, stand at its real entry rather
+			# than asking the waking-spawn fairness diagnostic about a mid-run
+			# room and manufacturing an irrelevant warning.
+			root.player.position = root.rooms.entry_waypoint(key)
+			root.hazards.rearm(root.plan, root.profile_hazards)
+			await get_tree().process_frame
+			found = _hazard(socket)
+			if found != null:
+				return found
+		for door_index in int(room.get("doors", 0)):
+			if path.size() >= 9:
+				break
+			queue.append(DreamAtlas.step(path, door_index))
+		examined += 1
+	printerr("[GATE C] no %s source staged in %d Atlas rooms" % [
+			socket, rooms_examined])
 	return null
 
 

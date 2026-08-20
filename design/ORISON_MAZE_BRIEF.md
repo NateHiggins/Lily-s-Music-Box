@@ -613,7 +613,7 @@ case, repair, shop, dialogue, pursuit or hazard rules.
 
 **N4 closed this substrate on 2026-08-15.** `CampaignShell` now keeps one
 persistent CoreLoopDirector and DreamDirector around an exclusive one-child
-WorldSlot. `DreamBoundaryTest.tscn` passes 36/36 checks using the real JSON path
+WorldSlot. `DreamBoundaryTest.tscn` now passes 39/39 checks using the real JSON path
 at armed, entered, active, return-pending and awake, including same-seed D00
 reconstruction, production BuildingRoot injection and one idempotent Mina
 residue. The exact 64-bit campaign seed is stored as sixteen hexadecimal digits
@@ -682,7 +682,7 @@ ways and each is fair:
   crosses the open shaft mouth without falling in, which is correct for what
   the Tenant is.
 
-`DreamHazardTest.tscn` passes 30/30 across five blocks, and measures the
+`DreamHazardTest.tscn` now passes 42/42 across its expanded blocks, and measures the
 fairness bar rather than asserting it: every impact records when its tell
 started, how far away the player was, and the realised warning in seconds,
 and `unfair_impacts()` answers Gate C's question as one list that must stay
@@ -814,11 +814,16 @@ failure are recorded in `art/renders/dream_light_n3/README.md`.
   `dream_directional_captions` setting — off by default, because the mix
   already carries this and the dream's grammar is listening.
 
-Three measurements per hazard, all warned, all fair, all bearing-true. The
-routed approach a player really makes gives 1.12 / 1.58 / 0.92 s against
-0.90 / 0.90 / 0.75 s owed. Ten in-room bearings each locate the best in-room
-margin at 1.12 / 1.09 / 0.92 s. Full numbers, and a correction to how this
-paragraph first read, in `art/renders/dream_hazards_n7/README.md`.
+Twenty approaches per hazard now execute, all warned, all fair and all
+bearing-true. The repaired harness finds each authored source through
+deterministic Atlas ancestry, stages the real pocket by socket and retains the
+unique live hazard id for its log; it injects neither a danger nor geometry.
+The routed approach a player really makes gives worst margins of
+1.16 / 1.13 / 0.93 s against 0.90 / 0.90 / 0.75 s owed. The best in-room
+margins are 0.98 / 1.09 / 0.92 s. Full original numbers, and the correction to
+how this paragraph first read, remain in
+`art/renders/dream_hazards_n7/README.md`; these pocket-era values supersede the
+chain-era rows.
 
 *This section previously claimed "sixty approaches, twenty bearings per
 hazard". It was one approach replayed twenty times: the sweep's route
@@ -840,15 +845,17 @@ mid-room**, so the walk from a doorway to a socket is short however long the
 room is.
 
 That is now measured directly rather than inferred. With the tell occluded to
-the hazard's own room, a player crossing the threshold gets **0.52 s** at the
-trunk and **0.19 s** at the void, against the 0.90 s their sockets owe. Only
+the hazard's own room, a player crossing the threshold gets **0.65 s** at the
+trunk and **0.13 s** at the void, against the 0.90 s their sockets owe. Only
 the hollow runner, whose socket sits 12 m down the long hall, clears its bar
 from its own threshold at 0.92 s.
 
 So when the dream-scoped graph is built it must **attenuate** hazard tells
 across a wall and must not **silence** them, or Gate C breaks on the day it
-lands. `DreamPerceptionTest.tscn` recomputes the doorway margins every run and
-prints an OCCLUSION VERDICT line; it is that work's acceptance check.
+lands. `DreamPerceptionTest.tscn` stages deterministic real socket instances,
+recomputes the doorway margins every run and prints an OCCLUSION VERDICT line;
+it is that work's acceptance check. Gate C's 80% blinded-human identification
+bullet remains open; this script proves only its machine precondition.
 
 ### Gate D — the complete Mina passage — CLOSED 2026-08-16
 
@@ -899,7 +906,7 @@ Gate D's four bullets, scored honestly:
   them from the committed job stage, in a world built after the one that did
   the repair had been freed. That is the record reconstructing the building.
 - **Owned elsewhere.** Real-file save/load at armed, entered, active,
-  return-pending and awake is `DreamBoundaryTest` (36/36). Gate D takes the
+  return-pending and awake is `DreamBoundaryTest` (39/39). Gate D takes the
   three checkpoints that bracket the join —
   `conversation_complete | dream_pending | wake_complete` — rather than
   re-proving persistence breadth `GoldenLoopTest` already owns.

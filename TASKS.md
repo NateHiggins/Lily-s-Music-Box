@@ -1306,12 +1306,15 @@ unresolved. K7's source-backed loop contract is closed in
   collision and route without adding a monster mesh or combat owner.
 - **N7 DONE.** The lift void, Vantry signal trunk and hollow runner are live;
   warning, contact/fall outcomes and directional captions are proved by the
-  Hazard suite. **Proof debt found 2026-08-20:** `DreamPerceptionTest` still
-  assumes the deleted chain (all three literal ids present at spawn) and now
-  executes only 4/20 checks with null-hazard errors on the one-world pocket.
-  Stage deterministic instances by socket and re-prove its fairness/channel
-  assertions; do not weaken them. The later sockets remain data until their
-  cases.
+  Hazard suite. **Perception proof repaired 2026-08-20:** the harness now finds
+  each source through deterministic Atlas ancestry, stages the real pocket by
+  authored socket and keeps its unique live id for the log; it injects neither
+  a hazard nor geometry. All 60 approaches execute (20 per hazard), with 20/20
+  warned, fair and bearing-true for each cue and no script warning or error.
+  Routed worst margins are 1.16 / 1.13 / 0.93 s; doorway-only margins are
+  0.65 / 0.13 / 0.92 s against 0.90 / 0.90 / 0.75 s owed. The machine
+  precondition is closed again; Gate C's blinded-human 80% identification
+  bullet remains open. The later sockets remain data until their cases.
 - **N8 DONE.** Gate D plays the complete Mina shift through the production
   `CampaignShell` and real dream for capture, contact and fall, rebuilding the
   waking Orison at the authored 4B bedside with the factual refrigerator
@@ -1453,9 +1456,10 @@ unresolved. K7's source-backed loop contract is closed in
   cell-boundary capillaries replaced the first flat shell; POM, particles,
   extra eyes, tangent normals and vertex displacement were rejected by rendered
   controls. Focused contract 31/31; final integration results and exact 1440p
-  price are in `art/renders/dream_embrace_v1/README.md`. **Immediate dream
-  pickup:** repair N7's stale `DreamPerceptionTest`, then N9's Peter
-  shared-profile proof. Friendship/romance and chosen re-meaning remain last.
+  price are in `art/renders/dream_embrace_v1/README.md`. N7's stale
+  `DreamPerceptionTest` is repaired above. **Immediate dream pickup:** N9's
+  Peter shared-profile proof. Friendship/romance and chosen re-meaning remain
+  last.
 - **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
   heredity and visible anatomy: bounded parent/child genomes, brood knots,
   parent umbilicals, prospective child helices, open birth-frames and sealed

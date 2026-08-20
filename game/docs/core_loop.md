@@ -262,8 +262,10 @@ or any other second case is enabled.
 - `DreamPerceptionTest.tscn` walks sixty approaches, twenty per hazard, and
   measures what a player would have been told: whether the warning arrived,
   whether it met the margin the socket owes, and whether the direction stated
-  is the direction the danger is in. It is Gate C's machine half only; the
-  gate's identification bullet is a human playtest.
+  is the direction the danger is in. It finds each source through deterministic
+  Atlas ancestry and stages the real pocket by authored socket; it injects no
+  hazard or geometry. It is Gate C's machine half only; the gate's
+  identification bullet is a human playtest.
 - `GateDJoinTest.tscn` is the joined run: the Mina shift played inside a real
   CampaignShell, carried by the production path into the real dream, ended
   through DreamMazeRoot's own outcome funnel, and returned to the authored 4B

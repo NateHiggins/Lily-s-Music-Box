@@ -53,9 +53,10 @@ the existing batched eyes, collapses the acoustic room and delays the unchanged
 `capture` outcome until its held final frame. It creates no new camera, light,
 collision, hazard, topology or input. Proof and exact perf are in
 `art/renders/dream_embrace_v1/README.md`. `DreamAtlas` remains topology owner
-and `DreamHazard` remains danger owner. The next dream repair is the stale
-`DreamPerceptionTest` proof debt recorded under TASKS N7; after that, N9 is the
-shared-profile content proof.
+and `DreamHazard` remains danger owner. The stale chain-era
+`DreamPerceptionTest` is repaired against deterministic real Atlas pockets:
+60/60 approaches execute with no injected danger or geometry. N9, Peter as the
+shared-profile content proof, is the immediate dream pickup.
 
 Three top-level projects:
 
@@ -375,9 +376,10 @@ Numbers, and a recorded correction to several claims that an adversarial
 review found overstated, are in `art/renders/dream_hazards_n7/README.md`. The
 one binding constraint to carry forward: the dream acoustic graph, when built,
 must **attenuate** hazard tells across a wall and must not **silence** them —
-occluded to its own room the trunk gives 0.52 s and the void 0.19 s against
-the 0.90 s their sockets owe. `DreamPerceptionTest` prints that verdict every
-run and is that work's acceptance check.
+occluded to its own room the trunk gives 0.65 s and the void 0.13 s against
+the 0.90 s their sockets owe. The runner gives 0.92 s against 0.75 s.
+`DreamPerceptionTest` now stages each real source through deterministic Atlas
+ancestry, prints that verdict every run and is that work's acceptance check.
 
 The next dream items are all presentation: the hollow runner's effect (blocked
 on an owner ruling — the catalog puts its socket in `D01_F04_LONG_HALL` while

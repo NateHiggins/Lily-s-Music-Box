@@ -106,27 +106,27 @@ through `art/renders/dream_rendering_r6/README.md`; focused contracts and
 WalkTest FAST/FULL x8/480 pass. **R7 is closed at depth zero.** Recursive
 rendering adds no player decision; enterable nesting duplicates the Atlas's
 existing non-Euclidean traversal and would demand a second collision,
-navigation, pursuit and recovery contract. Reopen only if a later case names a
-new verb or consequence the Atlas cannot express. The immediate production
-pickup is §5, the ruled embrace.
+  navigation, pursuit and recovery contract. Reopen only if a later case names a
+  new verb or consequence the Atlas cannot express. R8's ruled embrace is now
+  landed; N9, Peter as the shared-profile proof, is the immediate production
+  pickup.
 
-**Pre-existing proof debt found during this pass:**
-`DreamPerceptionTest.tscn` is still a chain-era harness. It asks the initial
-one-world pocket for literal ids `vantry_signal_trunk`, `open_lift_void` and
-`hollow_runner`; the pocket neither guarantees all three are live at spawn nor
-uses unsuffixed instance ids. It consequently executes 4/20 checks and exits 1
-with null-hazard script errors on untouched `fba9828` topology assumptions.
-`DreamHazardTest` remains green at 42 checks. Repair the perception harness by
-staging deterministic pocket instances by **socket** before treating its old
-green claim as current evidence; do not weaken the fairness assertions.
+**The pre-existing perception proof debt is closed.**
+`DreamPerceptionTest.tscn` no longer asks the initial pocket for all three
+chain-era literal ids. It finds each authored source through deterministic
+Atlas ancestry, asks `DreamRoomBuilder` to stage and write the real pocket, and
+selects the live danger by socket while retaining its unique instance id for
+the log. It injects neither hazards nor geometry. All 60 approaches execute:
+each cue is 20/20 warned, fair and bearing-true. Routed worst margins are
+1.16 / 1.13 / 0.93 s and doorway-only margins are 0.65 / 0.13 / 0.92 s
+against 0.90 / 0.90 / 0.75 s owed. The machine precondition is green; the
+human blinded-identification bullet remains open.
 
-`WalkTest` FAST and FULL x8/480 both print PASS and exit 0, but neither run is
-a clean proof artifact: both log a pre-existing `walk_test.gd:885` null
-`GameBoot.layout` script error; FULL also logs existing headless broadcast
-texture and resident-route errors. None of the dream files in this slice owns
-those paths. Record the PASS lines if useful, but do not call the suite green
-until its log is error-free—the project rule is to grep the log, not trust the
-last line.
+`WalkTest` FAST and FULL x8/480 now both print PASS, exit 0 and contain no
+script or shader error. The false-green `walk_test.gd:885` reference was fixed
+in the R8 checkpoint: it now reads the production root's layout rather than
+the freed `GameBoot` stub. The project rule remains to grep the log, not trust
+the last line.
 
 RECURSION has now been priced by `DreamRecursionPrice.tscn`, not built. Across
 14,400 deterministic rooms it appears in 362 (2.5%), never before depth 5 in
@@ -398,11 +398,11 @@ eye impostors, tangent normals and vertex displacement were rejected for this
 unearned owners. The room-growth shader remains ordinary PBR; the enclosing
 presentation shell owns its exposure and is gated by the real lamp switch.
 
-### 5A. IMMEDIATE PROOF REPAIR
-Repair `DreamPerceptionTest` against the one-world pocket without weakening its
-fairness or channel assertions. It still assumes the deleted three-hazard
-chain and currently executes only 4/20 checks. Then continue to N9, Peter as
-the shared-profile proof.
+### 5A. PERCEPTION PROOF REPAIR — CLOSED
+`DreamPerceptionTest` now stages deterministic real Atlas pockets by authored
+socket and executes all 60 approaches without weakening any fairness or channel
+assertion. It injects no danger or geometry. Continue to N9, Peter as the
+shared-profile proof.
 
 ### 6. HER SPEECH AND THE ROMANCE — last, deliberately
 Every hour spent on her silence is what buys it. Do not start here.

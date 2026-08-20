@@ -47,8 +47,9 @@ capture/embrace, is now landed: one shell closes from every edge over 1.5 s,
 the player's chosen lamp state survives, all eyes close, the acoustic room
 becomes close and warm, and the existing 4B wake/residue boundary receives the
 unchanged outcome after the held final frame. Proof:
-`art/renders/dream_embrace_v1/README.md`. Immediate dream pickup is the N7
-`DreamPerceptionTest` proof repair, then N9's Peter shared-profile proof.
+`art/renders/dream_embrace_v1/README.md`. N7's perception proof is repaired
+against the real fractal pocket; immediate dream pickup is N9's Peter
+shared-profile proof.
 
 The parallel street lane's paused coachwork pass is now a bounded T2g
 checkpoint with focused contracts and A/A evidence. It does not own the next
@@ -124,7 +125,7 @@ at D00" is exactly 4 checks in 3 files.
   index is durable. `RealityState` has `dream_seed` and no night count.
 
 **A fairness bug the ring could never have had:** SCALE drift (0.80–1.22×)
-makes Gate C's owed-warning margins (0.52 / 0.19 / 0.92 s) a **per-room
+makes Gate C's owed-warning margins (currently 0.65 / 0.13 / 0.92 s) a **per-room
 constraint the builder must enforce**, not measured constants. A room that
 shrinks a fifth can put a hazard closer to its doorway than the warning it
 owes. Build the clamp; do not discover this in a playtest.
@@ -215,8 +216,8 @@ things, all now fixed and recorded in place:
   check now counts distinct tell positions instead of loop iterations.
 - The acoustic-graph constraint was right for the **wrong reason**. "No room
   is that deep" was false (D05 is 6.50 m, D01 is 19.30 m). The real reason is
-  that sockets sit mid-room; the doorway margins are now measured at 0.52 s
-  and 0.19 s against 0.90 s owed.
+  that sockets sit mid-room; after the pocket-era harness repair the doorway
+  margins are measured at 0.65 s and 0.13 s against 0.90 s owed.
 - The DreamPursuitTest flake "fix" was a **tautology** - bounding drift by
   `elapsed_s * top_speed` is the pursuer's own displacement bound. Rewritten
   to establish its premise and test the clock.
@@ -266,17 +267,19 @@ the real floor resolved by real gravity, the eight-sector caption channel, and
 
 | Test | Result |
 |---|---|
-| `DreamHazardTest.tscn` | 30/30 |
-| `DreamPerceptionTest.tscn` | 19/19 |
+| `DreamHazardTest.tscn` | 42/42 |
+| `DreamPerceptionTest.tscn` | 20/20; 60/60 approaches executed |
 | `DreamPursuitTest.tscn` | 39/39 |
-| `DreamBoundaryTest.tscn` | 36/36 |
+| `DreamBoundaryTest.tscn` | 39/39 |
 | `GoldenLoopTest.tscn` | 87/87 |
 
 Numbers and findings: `art/renders/dream_hazards_n7/README.md`.
 
 Gate C: two of three bullets closed. The identification bullet is a human
 blinded playtest and no script closes it — `DreamPerceptionTest` proves the
-precondition at 100% instead.
+precondition at 100% instead. The repaired harness stages deterministic real
+Atlas pockets by authored socket, retains each unique live id for its log and
+injects neither a hazard nor geometry.
 
 ## One owner decision still blocking work
 
