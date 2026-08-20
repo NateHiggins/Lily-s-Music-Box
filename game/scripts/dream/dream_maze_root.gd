@@ -383,7 +383,10 @@ func _build_hazard_growth() -> void:
 	material.set_shader_parameter("dark_glow", 0.65)
 	material.set_shader_parameter("motion_gain", 1.0)
 	material.set_shader_parameter("motion_hz", 0.13)
-	material.set_shader_parameter("organic_mix", 0.34)
+	# Keep tissue bodily even inside the beam.  At 0.34 the broad wall
+	# membranes read as orange-gold stage flats; the target is wine anatomy
+	# with gold restricted to the seams, veins and eyes the lamp finds.
+	material.set_shader_parameter("organic_mix", 0.82)
 	material.set_shader_parameter("motion_phase",
 			float(absi(str(dream_context.get("seed_hex", "")).hash()) & 4095)
 			/ 4095.0 * TAU)

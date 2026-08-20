@@ -6,7 +6,7 @@ extends Node
 ## growth maps back to the existing hazard owner, and furnishing contains only
 ## extracted production meshes rather than waking gameplay systems.
 
-const EXPECTED_CHECKS := 21
+const EXPECTED_CHECKS := 31
 const HazardGrowthScript := preload(
 		"res://scripts/dream/dream_hazard_growth.gd")
 
@@ -20,6 +20,7 @@ func _ready() -> void:
 	_watchdog()
 	await _build()
 	_growth_contract()
+	_interior_contract()
 	_furnishing_contract()
 	if checks != EXPECTED_CHECKS:
 		failures += 1
@@ -170,6 +171,12 @@ func _growth_contract() -> void:
 			0.13) and float(material.get_shader_parameter("motion_gain")) == 1.0)
 	_check("the batched anatomy carries eyes without extra surfaces",
 			growth != null and int(growth.get_meta("eyes", 0)) >= ids.size() * 4)
+	_check("load-bearing limbs become wall grafts rather than ending in air",
+			growth != null and int(growth.get_meta("wall_membranes", 0))
+			>= ids.size() * 3)
+	_check("fine wall capillaries stay in the same batched surface",
+			growth != null and int(growth.get_meta("visual_capillaries", 0))
+			== int(growth.get_meta("wall_membranes", 0)) * 7)
 
 	var duplicate := HazardGrowthScript.new()
 	duplicate.configure(root.hazards.hazards, root.plan)
@@ -186,6 +193,72 @@ func _growth_contract() -> void:
 		contacted_in_dark = contact_owner.contacted
 	_check("the existing hazard owner commits limb contact in darkness",
 			contacted_in_dark)
+
+
+func _interior_contract() -> void:
+	var rooms := root.rooms.live_rooms()
+	var interiors := root.find_children("OrisonInterior", "Node3D", true,
+			false)
+	_check("every live generation carries an Orison architecture decision",
+			interiors.size() == rooms.size())
+	var nonblank := 0
+	var described := 0
+	var blank_honest := true
+	var bounded_draws := true
+	var forbidden := 0
+	var dimensions_exact := true
+	var casings_exact := true
+	var shader_surfaces := 0
+	for interior in interiors:
+		var key := str(interior.get_meta("room_key", ""))
+		var room: Dictionary = root.rooms.room_at_key(key)
+		var millwork := int(interior.get_meta("millwork_instances", 0))
+		var panels := int(interior.get_meta("wainscot_instances", 0))
+		var visuals := interior.find_children("*", "MultiMeshInstance3D",
+				true, false)
+		if bool(room.get("blank", false)):
+			blank_honest = blank_honest and millwork == 0 and panels == 0 \
+					and visuals.is_empty()
+		else:
+			nonblank += 1
+			if millwork > 0 and not visuals.is_empty():
+				described += 1
+		bounded_draws = bounded_draws and visuals.size() <= 2
+		forbidden += interior.find_children("*", "CollisionObject3D", true,
+				false).size()
+		forbidden += interior.find_children("*", "Light3D", true, false).size()
+		forbidden += interior.find_children("*", "AudioStreamPlayer3D", true,
+				false).size()
+		dimensions_exact = dimensions_exact \
+				and (millwork == 0 or is_equal_approx(
+				float(interior.get_meta("dado_height_m", 0.0)), 1.32)) \
+				and float(interior.get_meta("max_relief_m", 1.0)) <= 0.055
+		var open_doors := 0
+		for door in room.get("doors", []):
+			if not bool(door.get("sealed", false)):
+				open_doors += 1
+		casings_exact = casings_exact and (millwork == 0 \
+				or int(interior.get_meta("door_casings", -1)) == open_doors)
+		for visual in visuals:
+			var material := (visual as GeometryInstance3D).material_override \
+					as ShaderMaterial
+			if material != null and material.shader != null \
+					and not material.shader.get_shader_uniform_list().is_empty():
+				shader_surfaces += 1
+	_check("every remembered nonblank room has historic millwork relief",
+			nonblank > 0 and described == nonblank)
+	_check("blanking also removes the descriptive architectural relief",
+			blank_honest)
+	_check("millwork and wainscot cost no more than two draws per room",
+			bounded_draws)
+	_check("architectural relief owns no collision, light or sound",
+			forbidden == 0)
+	_check("the Orison's 1.32 m dado is shallow visual relief",
+			dimensions_exact)
+	_check("cased openings follow the authoritative live door schedule",
+			casings_exact)
+	_check("the service lamp reaches the batched historic materials",
+			shader_surfaces > 0)
 
 
 func _furnishing_contract() -> void:

@@ -13,7 +13,12 @@ dream frame, completed recursion price and the owner's queued gold/tentacle
 amplification. N10 now has its first geometric slice: batched dark-live hazard
 tentacles, owner-true contact paths, first geometric eyes, and mesh-only Orison
 furnishing. The immediate dream production task remains TASKS **N10**,
-specifically surface relief (C) and breach/interior depth (D), followed by the
+now on a landed Orison wall vocabulary: exact dado, wainscot, picture rail,
+cornice, door casings and ceiling medallions cost at most two MultiMesh draws
+per live room, and hazard crawlers become closed-lobe wall grafts rather than
+ending against blank boxes (`art/renders/dream_orison_walls_v1/README.md`). The
+immediate task is specifically true tessera/grout/cracked-medallion relief (C)
+and then breach/interior depth (D), followed by the
 exposure-ramped breach form and governed reflected-gold world light. RECURSION
 is measured but not licensed, and the embrace still follows the eyes rather
 than preceding them.

@@ -106,9 +106,13 @@ void fragment() {
 			+ v_world.z * 29.0 - v_gene.g * 9.0);
 	float vein_c = sin((v_world.x + v_world.z) * 31.0
 			+ v_world.y * 7.0 + gene_phase * 1.7);
-	float vein_noise = 0.5 + 0.5 * (vein_a * 0.52
-			+ vein_b * 0.31 + vein_c * 0.17);
-	float vein = smoothstep(0.70, 0.91, vein_noise);
+	// Gold follows narrow sinusoidal zero-crossings: branching capillaries,
+	// not the broad round freckles the first wall membrane exposed. Taking the
+	// maximum of three differently-oriented ridges gives a broken vascular
+	// network while keeping most of the body wine-dark under the beam.
+	float vein_ridge = max(1.0 - abs(vein_a), 1.0 - abs(vein_b));
+	vein_ridge = max(vein_ridge, (1.0 - abs(vein_c)) * 0.94);
+	float vein = smoothstep(0.925, 0.992, vein_ridge);
 	vec3 living_tissue = vec3(0.020, 0.001, 0.045)
 			* (0.72 + diffuse * 0.88)
 			+ mix(warm_gold, pale_leaf, vein * 0.46) * vein

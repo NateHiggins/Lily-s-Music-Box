@@ -1330,6 +1330,23 @@ unresolved. K7's source-backed loop contract is closed in
   anatomy, full stage eye language/tracking, and bounded persistent reflected
   gold world light. Nothing licenses popping geometry, a second combat system
   or unmeasured draws.
+  **Wall-architecture follow-up landed 2026-08-20.** Every remembered nonblank
+  generation now carries a visual-only Orison interior shell: 140 mm skirting,
+  canonical 1.32 m dado and framed corridor wainscot, 2.18 m picture rail,
+  stepped cornice under the exact 3.015 m ceiling, live 0.91 × 2.13 m door
+  casings and a pressed ceiling medallion. It is at most two MultiMesh draws per
+  room and owns no collision, light, sound, interaction or navigation. Armed
+  growth crawlers no longer terminate against a flat wall: shallow closed-lobe
+  wall/ceiling grafts and fine capillaries overlap this millwork in the existing
+  one growth surface, while only substantial registered limbs promise contact.
+  `DreamSurfaceTargetTest` is 31/31; RoomBuilder 175/175, Hazard 42/42 and
+  Lineage 21/21 pass. Two fresh 1440p dream profiles stay at 1.60–2.04 ms with
+  a 172-call worst observed row. Proof and the rejected flat-membrane finding:
+  `art/renders/dream_orison_walls_v1/README.md`. WalkTest FAST passes; two FULL
+  x8/480 runs each fail one different waking traversal (roof monitor, then 2A
+  bedroom), proving the long harness is currently unstable rather than giving
+  this dream-only pass a clean integration result. **C remains open for actual
+  tessera/grout/cracked-medallion relief, and D remains wholly open.**
 - **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
   heredity and visible anatomy: bounded parent/child genomes, brood knots,
   parent umbilicals, prospective child helices, open birth-frames and sealed

@@ -6,7 +6,8 @@ extends Node
 ##
 ## No helper light, environment, furniture, hazard or presentation geometry is
 ## added. The harness chooses a deterministic live descendant carrying two
-## existing dark-live hazards and moves the real player/lamp into it.
+## existing dark-live hazards and moves the real player/lamp into it. The
+## oblique light reads its decorated walls without adding a beauty rig.
 
 const SEED_HEX := "f123456789abcdef"
 
@@ -128,13 +129,20 @@ func _stage_camera() -> DreamHazard:
 				and candidate.z < float(rect[3]) - 0.56:
 			stand = candidate
 			break
-	var focus := Vector3(chosen.position.x, 0.96, chosen.position.z)
+	var short_axis := Vector3.FORWARD if width >= depth else Vector3.RIGHT
+	var short_extent := minf(width, depth)
+	# Put the hazard slightly off-centre and spend the beam on the wall where
+	# its crawler becomes tissue.  The prior straight-on shot proved the limb
+	# but left the architectural question in darkness.
+	var focus := Vector3(chosen.position.x, 1.28, chosen.position.z) \
+			+ short_axis * short_extent * 0.34
 	root.player.global_position = stand
 	var flat := focus - stand
 	flat.y = 0.0
 	if flat.length() > 0.01:
 		root.player.rotation.y = atan2(flat.x, -flat.z)
 	root.player.camera.look_at(focus, Vector3.UP)
+	root.player.camera.fov = 78.0
 	# The normal player process chases the hand/tool aim toward the camera.
 	# This proof freezes that process, so settle the real spotlight on the same
 	# focal point once instead of leaving it aimed at its pre-teleport pose.

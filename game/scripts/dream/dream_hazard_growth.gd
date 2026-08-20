@@ -27,6 +27,8 @@ func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 	var eye_count := 0
 	var tendril_count := 0
 	var contact_path_count := 0
+	var membrane_count := 0
+	var capillary_count := 0
 	for hazard in live_hazards:
 		hazard.set_contact_paths([], 0.0)
 		# The signal trunk is a different physical sentence: it reaches only
@@ -48,6 +50,8 @@ func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 		tendril_count += int(built.tendrils)
 		eye_count += int(built.eyes)
 		contact_path_count += int(built.contact_paths)
+		membrane_count += int(built.membranes)
+		capillary_count += int(built.capillaries)
 	if ids.is_empty():
 		mesh = null
 		visible = false
@@ -64,6 +68,8 @@ func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 	set_meta("tendrils", tendril_count)
 	set_meta("eyes", eye_count)
 	set_meta("contact_paths", contact_path_count)
+	set_meta("wall_membranes", membrane_count)
+	set_meta("visual_capillaries", capillary_count)
 	set_meta("motion_hz", 0.13)
 	set_meta("max_sway_m", 0.045)
 	set_meta("surfaces", mesh.get_surface_count() if mesh != null else 0)
@@ -77,6 +83,8 @@ func _append_hazard(tool: SurfaceTool, hazard: DreamHazard, rect: Array,
 	var contact_paths: Array[PackedVector3Array] = []
 	var tendrils := 0
 	var eyes := 0
+	var membranes := 0
+	var capillaries := 0
 	# The root is a bruised rupture, not a plumbing manifold. Overlapping
 	# ellipsoids hide the radial construction and give the branches something
 	# bodily to disappear into.
@@ -223,6 +231,23 @@ func _append_hazard(tool: SurfaceTool, hazard: DreamHazard, rect: Array,
 					plaque_side, plaque_up, plaque_forward,
 					Vector3(root_radius * 1.15, root_radius * 1.35,
 					root_radius * 0.34), 0.0, branch_phase)
+			# THE WALL DOES NOT RECEIVE A TENTACLE; IT BECOMES THE SAME
+			# ORGANISM.  A shallow cluster of closed tissue lobes spreads behind
+			# each load-bearing crawler and laps over the Orison's dado, casing
+			# and cornice. It carries no contact path of its own:
+			# the substantial limb in front remains the visible and mechanical
+			# hazard, while this is the corrupted wall it has grown out of.
+			var membrane_normal := plaque_forward
+			var membrane_side := plaque_side
+			var membrane_up := plaque_up
+			var membrane_scale := Vector2(
+					0.34 + 0.04 * float((seed >> (branch + 3)) & 3),
+					0.42 + 0.05 * float((seed >> (branch + 5)) & 3))
+			var built_capillaries := _append_wall_membrane(tool, end,
+					membrane_side, membrane_up, membrane_normal,
+					membrane_scale, branch_phase, seed + branch * 97, rect)
+			membranes += 1
+			capillaries += built_capillaries
 		# Four eyes per danger, at alternating heights. They share this surface
 		# and therefore cost no extra submission.
 		if branch in [1, 2, 5, 7]:
@@ -240,7 +265,63 @@ func _append_hazard(tool: SurfaceTool, hazard: DreamHazard, rect: Array,
 		"tendrils": tendrils,
 		"eyes": eyes,
 		"contact_paths": contact_paths.size(),
+		"membranes": membranes,
+		"capillaries": capillaries,
 	}
+
+
+## A cluster of overlapping, flattened lobes swollen out of the wall.  A
+## first attempt used one triangulated fan; in the narrow 2.08 m hall its
+## constant normal read as a paper sail beside the camera.  Closed lobes give
+## the graft real changing normals, parallax and cast-shadow thickness while
+## remaining shallow enough that the wall's collision is still honest.
+func _append_wall_membrane(tool: SurfaceTool, center: Vector3,
+		side: Vector3, up: Vector3, normal: Vector3, size: Vector2,
+		phase: float, seed: int, rect: Array) -> int:
+	var heart := center + normal * 0.070
+	for lobe in 6:
+		var a := phase * TAU + float(lobe) * TAU / 6.0
+		var radial := 0.18 + 0.10 * float((seed >> lobe) & 1)
+		var at := center + side * cos(a) * size.x * radial \
+				+ up * sin(a) * size.y * radial \
+				+ normal * (0.038 + 0.008 * float(lobe % 3))
+		at.x = clampf(at.x, float(rect[0]) + 0.035,
+				float(rect[2]) - 0.035)
+		at.y = clampf(at.y, 0.035, CLEAR_CEILING_M - 0.035)
+		at.z = clampf(at.z, float(rect[1]) + 0.035,
+				float(rect[3]) - 0.035)
+		var width_gain := 0.50 + 0.10 * float((seed >> (lobe + 4)) & 3)
+		var height_gain := 0.46 + 0.09 * float((seed >> (lobe + 7)) & 3)
+		_append_ellipsoid(tool, at, side, up, normal,
+				Vector3(size.x * width_gain, size.y * height_gain,
+				0.055 + 0.012 * float(lobe % 3)), 0.0,
+				fmod(phase + float(lobe) * 0.071, 1.0))
+
+	# Fine veins run ahead over the mouldings.  They remain visibly too thin
+	# to promise contact and are not registered with DreamHazard; the thicker
+	# parent crawler immediately in front of the patch is the danger.
+	var capillaries := 0
+	for branch in 7:
+		var angle := phase * TAU + float(branch) * TAU / 7.0
+		var reach := 0.82 + 0.15 * float((seed >> branch) & 3)
+		var finish := center + side * cos(angle) * size.x * reach \
+				+ up * sin(angle) * size.y * reach + normal * 0.040
+		finish.x = clampf(finish.x, float(rect[0]) + 0.030,
+				float(rect[2]) - 0.030)
+		finish.y = clampf(finish.y, 0.030, CLEAR_CEILING_M - 0.030)
+		finish.z = clampf(finish.z, float(rect[1]) + 0.030,
+				float(rect[3]) - 0.030)
+		var path: Array[Vector3] = []
+		var tangent := side * (-sin(angle)) + up * cos(angle)
+		for step in 7:
+			var t := float(step) / 6.0
+			var point := heart.lerp(finish, t)
+			point += tangent * sin(t * PI) * (0.08 if branch % 2 == 0 else -0.06)
+			path.append(point)
+		_append_tapered_tube(tool, path, 0.031, 0.007,
+				fmod(phase + float(branch) * 0.11, 1.0))
+		capillaries += 1
+	return capillaries
 
 
 func _append_tapered_tube(tool: SurfaceTool, points: Array[Vector3],

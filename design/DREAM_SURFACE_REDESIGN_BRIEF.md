@@ -60,6 +60,19 @@ Furnishing may be borrowed from production Orison prop constructors only by
 extracting their finished meshes. Waking `FunctionalProp` owners, collisions,
 lights, audio and interaction verbs may not cross that boundary.
 
+**Implementation checkpoint — 2026-08-20, wall architecture.** The room is no
+longer only an exact footprint with waking props inside it. Every remembered
+nonblank generation now receives the Orison's shallow construction grammar:
+140 mm skirting, canonical 1.32 m dado and framed corridor wainscot, 2.18 m
+picture rail, stepped cornice below the exact 3.015 m ceiling, casings following
+the live 0.91 × 2.13 m door schedule, and a pressed ceiling medallion. These are
+two visual-only MultiMeshes at most and never alter wall, aperture or navigation
+authority. Load-bearing hazard crawlers terminate in shallow closed-lobe grafts
+and same-surface capillaries which overlap that millwork. This closes the
+"empty procedural box" defect only. It does **not** claim workstream C's
+tessera/grout/cracked-leaf relief or D's torn breach and impossible depth.
+Production proof: `art/renders/dream_orison_walls_v1/README.md`.
+
 ---
 
 ## WHAT THE PLATES SHOW — FOUR STAGES OF ONE SURFACE

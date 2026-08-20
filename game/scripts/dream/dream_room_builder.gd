@@ -88,6 +88,8 @@ const DreamLineageBodyScript := preload(
 		"res://scripts/dream/dream_lineage_body.gd")
 const DreamOrisonFurnisherScript := preload(
 		"res://scripts/dream/dream_orison_furnisher.gd")
+const DreamOrisonInteriorScript := preload(
+		"res://scripts/dream/dream_orison_interior.gd")
 
 ## Shared with DreamMazeBuilder rather than redefined: a joint is one real
 ## wall, and two different thicknesses would leave a seam you could see.
@@ -1303,9 +1305,20 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 			i += 1
 			DreamMazeBuilder._solid_box(node, "Lintel%02d" % i, door_mat,
 					aperture, door_h, clear_ceiling)
+	_build_orison_interior(node, room)
 	_build_orison_furnishing(node, room)
 	_build_lineage_body(node, room)
 	return node
+
+
+## The wall boxes above still own collision and the exact aperture schedule.
+## This is their shallow historic relief: a batched Orison dado, millwork,
+## casings and ceiling medallion which cannot alter a route by even a
+## millimetre because it carries no physics object.
+func _build_orison_interior(parent: Node3D, room: Dictionary) -> void:
+	var interior := DreamOrisonInteriorScript.new()
+	parent.add_child(interior)
+	interior.configure(room, clear_ceiling)
 
 
 ## The atlas has always selected a real Orison room as every generation's
