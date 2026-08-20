@@ -73,6 +73,102 @@ and same-surface capillaries which overlap that millwork. This closes the
 tessera/grout/cracked-leaf relief or D's torn breach and impossible depth.
 Production proof: `art/renders/dream_orison_walls_v1/README.md`.
 
+### Production rendering reconciliation — 2026-08-20
+
+The owner has supplied a broader rendering proposal whose useful diagnosis is
+accepted: the current proof is too black to read the Orison, the live growth
+has one coarse magenta material response, and adding more impossible geometry
+before those two foundations are solved would only hide a weak picture behind
+more effects. The target balance is now explicit: **roughly sixty percent
+recognisable 1928 Orison apartment and forty percent impossible organism in an
+establishing frame.** Darkness remains a game verb, but the screenshot may not
+depend on a crushed monitor to feel dangerous. Plaster, wood, door casings,
+radiators and furniture must remain readable enough to establish the violated
+room; the service lamp then finds the gold and the danger.
+
+The proposal is integrated under the following production rules rather than
+adopted as a parallel dream implementation:
+
+1. **One authority for space.** `DreamAtlas` and `DreamRoomBuilder` remain the
+   only topology, aperture, navigation and forgetting owners. Locally ordinary
+   rooms and globally impossible adjacency are already their contract. Any
+   later portal, mirror room, recursion window or gravity-view is a rendering
+   consumer of an atlas-authored fault. It may not maintain another room graph,
+   choose a destination or become a second navigation system.
+2. **One authority for danger.** Every substantial animated limb remains a
+   registered path on its source `DreamHazard`; fine capillaries and material
+   motion may be visual. Eyes are presentation and attention, not damage. No
+   shader, portal camera or animation node receives an independent hit volume.
+3. **Three material layers, one submitted surface.** The organism is evaluated
+   as a reusable subsurface-tissue layer, a restrained wet microfilm and a
+   living-gold phase. These are separate shader functions and tunable masks,
+   not three overdraw passes: the dream is submission-bound. Deep plum is the
+   mass; violet/magenta and rose explain thickness and wet tissue; antique gold
+   occupies seams, vessels, stress lines and eyes rather than coating the body.
+   Gold remains lamp-dominant. Only the already-ruled, local wine-dark
+   biological afterglow may remain when the lamp is absent.
+4. **Motion at three scales.** Macro motion is a slow room-scale contraction
+   in authored anatomy, meso motion is tendon/fold travel on growth surfaces,
+   and micro motion is a wet optical shimmer. No camera roll, flashing,
+   chromatic assault or topology change occurs in view. Material motion must
+   never imply that a static collision silhouette moved into the player.
+5. **Architecture is where infection begins.** Corners, door and window
+   casings, mouldings, cracks, radiator penetrations and floor/wall junctions
+   are the anchor vocabulary. Furniture is remembered Orison furnishing first
+   and may later receive bounded overlay infection; it is not replaced by
+   generic sci-fi growth. A frame needs one dominant breach or arch, secondary
+   connective growth and sparse tertiary eyes. Equal-detail noise everywhere
+   is a failed composition even if every shader is technically correct.
+6. **Eyes are a family, not scattered decals.** The later eye pass owns a
+   deterministic seed, scale, blink phase, gaze target and local orientation.
+   Closed or half-lidded resting states dominate; direct camera tracking is a
+   sparse event. The first batched geometric eyes remain valid prototypes, not
+   completion of this system.
+7. **Phase change is state, not a bag of effects.** Flesh, gold/plasma, frost
+   and liquid-metal states share one corruption mask and transition controller.
+   They arrive only after the base flesh and living-gold material reads in a
+   still. Every phase owes its own narrative trigger, luminance range and
+   accessibility proof before it enters a case profile.
+8. **Warp is local and compositional.** A later warp field may provide bounded
+   UV/refraction displacement around an authored impossible intersection. It
+   may use layered rotational fields or transformed SDFs, but cannot become
+   full-screen noise. The ordinary Orison outside the field is the control that
+   makes the impossible region intelligible.
+9. **Portals escalate by proof.** First prove one bounded view-only aperture
+   reusing the atlas's room renderer; then prove recursion depth 1; only then
+   profile depth 2–4 with distance and screen-coverage gates. RECURSION remains
+   **priced but unlicensed** as enterable space. The proposal's depth-four
+   target is a quality ceiling, not permission to build four live worlds.
+10. **Quality and diagnosis are part of the feature.** Low/medium/high tiers
+    control portal depth, eye count, distortion samples and secondary motion,
+    never room truth or hazard truth. Required developer views are base Orison,
+    corruption mask, gold phase, tissue thickness, eye anchors, hazard paths,
+    warp field, portal depth and overdraw/submission census.
+
+The order is therefore: (R1) restore photographic readability and land the
+layered tissue/wet/gold substrate; (R2) complete surface relief and
+architecture-bound transition masks; (R3) complete the deterministic eye
+family; (R4) build the torn breach and its cheap impossible depth; (R5) add
+bounded phase states and warp; (R6) prove one view portal; (R7) decide whether
+recursive/enterable faults earn their cost. A production validation pocket
+must eventually frame three connected remembered rooms, one dominant
+corrupted arch, real furnishings, 5–12 compositional eyes, a phase transition,
+one bounded distortion field and one impossible view. It is a proof consumer
+of production owners, never a second showcase-only dream.
+
+**Implementation checkpoint — 2026-08-20, R1 substrate.** R1 is landed. The
+Klimt filter now gates glaze, ink, jewels, ghost colour and impasto—not only
+leaf—through the durable `eaten` boundary, so uneaten plaster can finally remain
+the photographed Orison material the shader promised. Architectural materials
+start at bounded 0.26–0.46 consumption. The live body reads cellular tissue,
+tendon folds, warped gold vessels and wet microfilm from reusable functions in
+`dream_corruption_layers.gdshaderinc`, still as one submitted surface. A low
+cool lift, bounded carried black level and bounded warm practical restore the
+near apartment without waking gold or changing hazard truth. Smoothed graft and
+tube geometry spends vertices rather than draws. Production proof and rejected
+tunings: `art/renders/dream_rendering_r1/README.md`. R2 is now the pickup; R1
+does not license portals, phase states or RECURSION.
+
 ---
 
 ## WHAT THE PLATES SHOW — FOUR STAGES OF ONE SURFACE

@@ -344,11 +344,12 @@ func _build_world() -> void:
 	add_child(captions)
 	captions.listen_to(hazards)
 
-	# NO BLACK LEVEL. It existed to keep "the nearest floor silhouette" under
-	# the superseded ruling; carrying a lamp that lights the floor around you
-	# is precisely the dropoff the owner has now asked to remove. The function
-	# is kept, unused, because the accessibility mode "High-contrast edges"
-	# will want exactly this and nothing else in the build does it.
+	# THE NEAR ORISON MUST PHOTOGRAPH.  The later 2026-08-20 rendering ruling
+	# supersedes the crushed-black proof: the service lamp still owns danger and
+	# gold, but nearby plaster, floor edges and furniture have to establish the
+	# violated apartment.  This bounded carried source reveals only the nearest
+	# room fragment; it cannot light the far end of the hall or wake a hazard.
+	_build_black_level()
 	_build_practicals()
 	_build_hazard_growth()
 	_build_hazard_visuals()
@@ -380,13 +381,18 @@ func _build_hazard_growth() -> void:
 	_hazard_growth.configure(hazards.hazards, plan)
 	var material := ShaderMaterial.new()
 	material.shader = load("res://shaders/dream_lineage_gold.gdshader")
-	material.set_shader_parameter("dark_glow", 0.65)
+	material.set_shader_parameter("dark_glow", 0.55)
 	material.set_shader_parameter("motion_gain", 1.0)
 	material.set_shader_parameter("motion_hz", 0.13)
 	# Keep tissue bodily even inside the beam.  At 0.34 the broad wall
 	# membranes read as orange-gold stage flats; the target is wine anatomy
 	# with gold restricted to the seams, veins and eyes the lamp finds.
-	material.set_shader_parameter("organic_mix", 0.82)
+	material.set_shader_parameter("organic_mix", 0.94)
+	material.set_shader_parameter("tissue_cell_scale", 2.15)
+	material.set_shader_parameter("tissue_fold_scale", 1.35)
+	material.set_shader_parameter("tissue_transmission", 0.54)
+	material.set_shader_parameter("wet_specular_gain", 1.15)
+	material.set_shader_parameter("gold_vessel_width", 0.958)
 	material.set_shader_parameter("motion_phase",
 			float(absi(str(dream_context.get("seed_hex", "")).hash()) & 4095)
 			/ 4095.0 * TAU)
@@ -439,17 +445,19 @@ func _build_environment() -> void:
 	# silhouette rather than nothing, and it is deliberately COOL so the
 	# carried tungsten lamp reads warm against it — the brief's soot black
 	# and warm dirty service-lamp light.
-	# NO AMBIENT. Owner ruling 2026-08-17, reversing the "dark, not pitch black"
-	# call made earlier the same day: "i want a dramatic dark dropoff and
-	# pitch blackness beyond".
+	# PHOTOGRAPHIC BLACK. Owner rendering ruling 2026-08-20 supersedes the
+	# 2026-08-17 crushed-black call: an establishing frame must remain mostly
+	# recognisable Orison, not geometry that exists only in the debugger.  This
+	# is a very low cool lift, not an orientation light and not a hazard reveal;
+	# the carried lamp still owns the gold and the receding warm practical still
+	# owns direction.
 	#
-	# That earlier ruling was made against a flat graybox, where the only
-	# alternative to ambient was a black screen. It does not survive the Klimt
-	# pass: gold leaf under a tight lamp is brilliant, so the contrast is
-	# carried by the SURFACE now and an ambient floor only greys the void and
-	# flattens the drop. Pitch black beyond the pool is the point — it is what
-	# makes the pool worth anything.
-	environment.ambient_light_source = Environment.AMBIENT_SOURCE_DISABLED
+	# Low enough that tissue afterglow and the warm source both remain distinct;
+	# high enough that plaster, casings and furniture register before the beam.
+	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	environment.ambient_light_color = Color("272330")
+	environment.ambient_light_energy = 0.18
+	environment.ambient_light_sky_contribution = 0.0
 	# SKY CONTRIBUTION DEFAULTS TO 1.0, AND THAT IS WHY THE AMBIENT DID
 	# NOTHING. With `AMBIENT_SOURCE_COLOR` Godot still blends the ambient
 	# between `ambient_light_color` and the SKY by this ratio, and at the
@@ -968,8 +976,8 @@ func _build_black_level() -> void:
 	# meant to replace. Brighter and SHORTER: the range is what keeps this
 	# honest, because a 9 m falloff lights the far end of a 19.30 m hall and
 	# hands over the room the player is supposed to be listening to.
-	floor_level.light_energy = 1.6
-	floor_level.omni_range = 4.5
+	floor_level.light_energy = 1.45
+	floor_level.omni_range = 5.0
 	# A scarce shadow slot spent on a light whose entire job is to stop the
 	# floor being nothing would be spent to hide the floor again.
 	floor_level.shadow_enabled = false
@@ -1031,8 +1039,8 @@ func _build_practicals() -> void:
 		practical.name = "DreamPractical_%02d_%s" % [i, str(plan.doors[i].to)]
 		practical.position = mouth + inward * PRACTICAL_SETBACK_M
 		practical.light_color = Color("ffb867")
-		practical.light_energy = 0.72
-		practical.omni_range = 9.5
+		practical.light_energy = 1.35
+		practical.omni_range = 8.5
 		practical.shadow_enabled = false
 		practical.visible = false
 		add_child(practical)

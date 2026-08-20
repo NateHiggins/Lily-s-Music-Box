@@ -16,9 +16,13 @@ furnishing. The immediate dream production task remains TASKS **N10**,
 now on a landed Orison wall vocabulary: exact dado, wainscot, picture rail,
 cornice, door casings and ceiling medallions cost at most two MultiMesh draws
 per live room, and hazard crawlers become closed-lobe wall grafts rather than
-ending against blank boxes (`art/renders/dream_orison_walls_v1/README.md`). The
-immediate task is specifically true tessera/grout/cracked-medallion relief (C)
-and then breach/interior depth (D), followed by the
+ending against blank boxes (`art/renders/dream_orison_walls_v1/README.md`). R1
+is also landed: the photographed Orison substrate now survives the complete
+Klimt filter, and the one live-growth draw owns reusable tissue, wet-film and
+living-gold layers under a bounded readable-black lighting contract
+(`art/renders/dream_rendering_r1/README.md`). The immediate task is R2: true
+tessera/grout/cracked-medallion relief (C) plus architecture-bound transition
+masks, and then breach/interior depth (D), followed by the
 exposure-ramped breach form and governed reflected-gold world light. RECURSION
 is measured but not licensed, and the embrace still follows the eyes rather
 than preceding them.

@@ -9,10 +9,10 @@ extends MeshInstance3D
 ## detail, but can never stop the motion or disarm the thing underneath it.
 
 const CLEAR_CEILING_M := 3.015
-const TUBE_SIDES := 10
+const TUBE_SIDES := 16
 const PATH_STEPS := 18
-const EYE_RINGS := 5
-const EYE_SIDES := 8
+const EYE_RINGS := 7
+const EYE_SIDES := 12
 const MAIN_BRANCHES := 9
 const SIDE_BRANCHES := 2
 const CONTACT_TUBE_RADIUS_M := 0.18
@@ -72,6 +72,8 @@ func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 	set_meta("visual_capillaries", capillary_count)
 	set_meta("motion_hz", 0.13)
 	set_meta("max_sway_m", 0.045)
+	set_meta("material_layers", PackedStringArray([
+			"subsurface_tissue", "wet_microfilm", "living_gold"]))
 	set_meta("surfaces", mesh.get_surface_count() if mesh != null else 0)
 
 

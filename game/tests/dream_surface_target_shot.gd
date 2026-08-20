@@ -116,7 +116,12 @@ func _stage_camera() -> DreamHazard:
 	var width := float(rect[2]) - float(rect[0])
 	var depth := float(rect[3]) - float(rect[1])
 	var axis := Vector3.RIGHT if width >= depth else Vector3.FORWARD
-	var distance := minf(5.2, maxf(3.8, maxf(width, depth) * 0.31))
+	# Photograph the encounter distance the player actually reaches before the
+	# contact margin, not the old five-metre survey view.  At that distance the
+	# bounded black level still reaches the violated wall and the material's
+	# cell/fold/wet hierarchy is large enough to judge instead of collapsing to
+	# one magenta silhouette.
+	var distance := minf(3.6, maxf(2.85, maxf(width, depth) * 0.20))
 	var stands := [
 		Vector3(chosen.position.x, 0.0, chosen.position.z) + axis * distance,
 		Vector3(chosen.position.x, 0.0, chosen.position.z) - axis * distance,
@@ -142,7 +147,7 @@ func _stage_camera() -> DreamHazard:
 	if flat.length() > 0.01:
 		root.player.rotation.y = atan2(flat.x, -flat.z)
 	root.player.camera.look_at(focus, Vector3.UP)
-	root.player.camera.fov = 78.0
+	root.player.camera.fov = 70.0
 	# The normal player process chases the hand/tool aim toward the camera.
 	# This proof freezes that process, so settle the real spotlight on the same
 	# focal point once instead of leaving it aimed at its pre-teleport pose.

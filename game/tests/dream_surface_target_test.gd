@@ -6,7 +6,7 @@ extends Node
 ## growth maps back to the existing hazard owner, and furnishing contains only
 ## extracted production meshes rather than waking gameplay systems.
 
-const EXPECTED_CHECKS := 31
+const EXPECTED_CHECKS := 36
 const HazardGrowthScript := preload(
 		"res://scripts/dream/dream_hazard_growth.gd")
 
@@ -161,6 +161,17 @@ func _growth_contract() -> void:
 	_check("the shared gold shader compiled on the growth",
 			material != null and material.shader != null
 			and not material.shader.get_shader_uniform_list().is_empty())
+	var layers: PackedStringArray = growth.get_meta("material_layers",
+			PackedStringArray()) if growth else PackedStringArray()
+	_check("the organism exposes reusable tissue wet-film and gold layers",
+			layers == PackedStringArray([
+			"subsurface_tissue", "wet_microfilm", "living_gold"]))
+	_check("the layered substrate is tuned as tissue rather than a gold coat",
+			material != null
+			and float(material.get_shader_parameter("organic_mix")) >= 0.90
+			and float(material.get_shader_parameter("tissue_transmission")) > 0.0
+			and float(material.get_shader_parameter("wet_specular_gain")) > 0.0
+			and float(material.get_shader_parameter("gold_vessel_width")) >= 0.94)
 	var glow := float(material.get_shader_parameter("dark_glow")) \
 			if material else 0.0
 	_check("darkness retains a nonzero but subordinate biological glow",
@@ -196,6 +207,30 @@ func _growth_contract() -> void:
 
 
 func _interior_contract() -> void:
+	var world_environment := root.get_node_or_null("DreamEnvironment") \
+			as WorldEnvironment
+	var ambient := world_environment.environment if world_environment else null
+	_check("the cool photographic lift is present but below practical light",
+			ambient != null
+			and ambient.ambient_light_source == Environment.AMBIENT_SOURCE_COLOR
+			and ambient.ambient_light_energy > 0.0
+			and ambient.ambient_light_energy <= 0.181
+			and ambient.ambient_light_sky_contribution <= 0.001)
+	var black_level := root.player.get_node_or_null("DreamBlackLevel") \
+			as OmniLight3D
+	_check("a bounded carried black level photographs only the near Orison",
+			black_level != null and black_level.omni_range <= 5.01
+			and black_level.light_energy <= 1.46
+			and not black_level.shadow_enabled)
+	var practicals: Array = root.get("_practicals")
+	var practicals_bounded := not practicals.is_empty()
+	for practical in practicals:
+		practicals_bounded = practicals_bounded \
+				and (practical as OmniLight3D).omni_range <= 8.51 \
+				and (practical as OmniLight3D).light_energy <= 1.36 \
+				and not (practical as OmniLight3D).shadow_enabled
+	_check("warm practical islands stay bounded and shadow-free",
+			practicals_bounded)
 	var rooms := root.rooms.live_rooms()
 	var interiors := root.find_children("OrisonInterior", "Node3D", true,
 			false)

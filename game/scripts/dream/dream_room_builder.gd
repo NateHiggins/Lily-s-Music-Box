@@ -1234,6 +1234,15 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 			DreamMazeBuilder.MOTIF_TRIANGLE)
 	var shaft_mat := DreamMazeBuilder._material(Color("1d1a20"), 0.90,
 			DreamMazeBuilder.MOTIF_EYE)
+	# THE APARTMENT IS THE GROUND TRUTH.  The global material default predates
+	# the 60/40 composition ruling and allowed the filter to consume more than
+	# half of every architectural plane before exposure had done any work.  A
+	# room now begins as recognisable plaster/timber/terrazzo; persistent
+	# exposure can still overtake it, but the filter no longer wins by default.
+	for pair in [[wall_mat, 0.30], [floor_mat, 0.34], [ceiling_mat, 0.28],
+			[door_mat, 0.26], [shaft_mat, 0.46]]:
+		if pair[0] is ShaderMaterial:
+			(pair[0] as ShaderMaterial).set_shader_parameter("consumed", pair[1])
 
 	var r: Array = room.rect
 	# The slab runs under the walls so a joint has no gap to see through.

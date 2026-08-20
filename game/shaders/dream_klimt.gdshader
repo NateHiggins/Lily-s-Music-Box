@@ -976,13 +976,22 @@ void fragment() {
 	// one lamp and plaster is not a light source.
 	vec3 real_wall = surface * 0.55;
 	albedo = mix(real_wall, albedo, eaten);
-	// The leaf only counts where the surface has actually turned.
+	// Every motif channel counts only where the surface has actually turned.
+	// The old pass gated leaf but allowed glaze, ink, jewels and paint relief
+	// to keep processing the real plaster underneath.  That made the promised
+	// photographic base mathematically unreachable: even an uneaten wall was
+	// recoloured and embossed like the frieze.  `eaten` is the single phase
+	// boundary for all of them now.
 	leaf *= eaten;
+	ink_mask *= eaten;
+	accent_mask *= eaten;
+	jewel_face *= eaten;
 	metal_hint = eaten;
 
 	// ===================================================== THE PAINT ========
 	// Applied AFTER the motif has chosen its colours and BEFORE the melt, so
 	// the paint is what the ornament is made of rather than a film over it.
+	float paint_gate = paint_amount * metal_hint;
 	vec2 pq = q * 0.9;
 	vec2 br = brush(pq, brush_scale * 0.05);
 	float seam = leaf_seams(pq * 0.5, leaf_sheet_m * 12.0);
@@ -1002,19 +1011,19 @@ void fragment() {
 	// a panel wander green-gold to rose to bronze across a few metres.
 	float keep_lum = dot(albedo, vec3(0.299, 0.587, 0.114));
 	vec3 tinted = glaze * (0.35 + 1.5 * keep_lum);
-	albedo = mix(albedo, tinted, glaze_drift * paint_amount);
+	albedo = mix(albedo, tinted, glaze_drift * paint_gate);
 
 	// The stroke breaks the colour: paint is never one value across a mark,
 	// it is loaded at the start of the stroke and starved at the end.
-	albedo *= mix(1.0, 0.55 + 0.9 * br.x, paint_amount);
+	albedo *= mix(1.0, 0.55 + 0.9 * br.x, paint_gate);
 	// Raised paint catches the light and reads pale; the ridge is where the
 	// bristle piled it up.
-	albedo = mix(albedo, albedo + gold_pale * 0.45, br.y * paint_amount);
+	albedo = mix(albedo, albedo + gold_pale * 0.45, br.y * paint_gate);
 	// Seams and cracks are DARK, always: they are places the ground shows
 	// through, and they are what stop the surface reading as a print.
 	albedo = mix(albedo, albedo * 0.45, seam * leaf_seam_strength
-			* paint_amount);
-	albedo = mix(albedo, albedo * 0.30, crack * craquelure * paint_amount);
+			* paint_gate);
+	albedo = mix(albedo, albedo * 0.30, crack * craquelure * paint_gate);
 
 	// GHOSTS OF THE PAST. The residents surfacing through the panel, large and
 	// slow and unrelated to the lamp -- so the world is being reshaped by them
@@ -1026,7 +1035,7 @@ void fragment() {
 	float surfacing = smoothstep(0.22, 0.72, ghost_lum)
 			* (0.55 + 0.45 * sin(TIME * 0.11 + v_world.x * 0.2));
 	albedo = mix(albedo, albedo * 0.6 + ghost * 1.1,
-			surfacing * ghost_amount);
+			surfacing * ghost_amount * metal_hint);
 
 	// One breath across everything, well under a hertz, so the leaf is never
 	// quite still and never flickers.
@@ -1124,7 +1133,7 @@ void fragment() {
 			+ cracks((bq + vec2(0.0, be)) * 0.7) * 1.6;
 	vec3 paint_relief = (tan_a * ((bx.x - b0.x) + (sx - s0) * 0.5)
 			+ tan_b * ((by.x - b0.x) + (sy - s0) * 0.5))
-			* impasto * paint_amount * 6.0;
+			* impasto * paint_gate * 6.0;
 
 	// The real surface's own relief, fading out as the gold takes over -- so a
 	// wall stops being trowelled plaster and becomes beaten metal rather than
@@ -1147,7 +1156,11 @@ void fragment() {
 	// ornament is nearly absent on cold surface and resolves as the cone
 	// finds it, so sweeping the beam does not reveal a lit wall -- it brings
 	// a wall INTO EXISTENCE and lets it fall back out.
-	vec3 cold = albedo * 0.06;
+	// PHOTOGRAPHIC BLACK, NOT CRUSHED BLACK.  Only bounded real lights can
+	// reveal this cold term, so raising it does not expose the far maze; it lets
+	// the carried near-field source describe plaster, joinery and furniture
+	// before the service beam wakes any gold.
+	vec3 cold = albedo * 0.18;
 	vec3 warm = mix(albedo * breath,
 			albedo * breath * 0.85 + gold_mid * 0.22, molten);
 	// THE WAKING IS EMISSIVE, and it has to be. The cone response was

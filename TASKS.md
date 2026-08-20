@@ -1347,6 +1347,33 @@ unresolved. K7's source-backed loop contract is closed in
   bedroom), proving the long harness is currently unstable rather than giving
   this dream-only pass a clean integration result. **C remains open for actual
   tessera/grout/cracked-medallion relief, and D remains wholly open.**
+  **Production-rendering integration, 2026-08-20.** The accepted target is an
+  establishing-frame balance of roughly 60% recognisable 1928 Orison and 40%
+  impossible organism, with one dominant breach, secondary connective growth
+  and sparse eye accents. The execution order is now R1 readability plus a
+  modular tissue/wet-film/living-gold substrate; R2 relief and architectural
+  transition masks; R3 the seeded eye family; R4 the torn breach and cheap
+  impossible depth; R5 bounded phase/warp states; R6 one view-only portal; R7
+  a separate ruling on recursive or enterable faults. `DreamAtlas` remains the
+  only topology owner and `DreamHazard` the only danger owner. Portal depth,
+  eye density and distortion may scale by quality; navigation and hazard truth
+  may not. Required debug views and the production validation-pocket contract
+  are recorded in `design/DREAM_SURFACE_REDESIGN_BRIEF.md`.
+  **R1 LANDED 2026-08-20.** All Klimt paint/ink/jewel/relief channels now obey
+  the same durable `eaten` boundary as leaf, and architectural materials begin
+  at 0.26–0.46 consumption, restoring the real Orison substrate. A reusable
+  shader include supplies cellular tissue, tendon folds, wet microfilm and
+  warped living-gold vessels to the existing single growth draw. A bounded cool
+  lift, five-metre near black level and one warm practical establish nearby
+  architecture without waking hazards. Ellipsoid and tube smoothing adds no
+  submission. `DreamSurfaceTargetTest` 36/36, RoomBuilder 175/175, Hazard 42/42,
+  Lineage 21/21; 1440p dream perf remains 0/4 over budget with a 1.94 ms worst
+  row and 172-call worst row. Proof: `art/renders/dream_rendering_r1/README.md`.
+  WalkTest FAST x8/480 prints PASS with the inherited null-layout error; FULL
+  repeats the unrelated waking roof-monitor failure at z=2.9 while passing the
+  2A bedroom, so the integration harness remains red/flaky rather than being
+  reported clean.
+  **Immediate pickup: R2 true relief and architecture-bound transition masks.**
 - **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
   heredity and visible anatomy: bounded parent/child genomes, brood knots,
   parent umbilicals, prospective child helices, open birth-frames and sealed

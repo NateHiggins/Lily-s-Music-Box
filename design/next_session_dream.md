@@ -39,6 +39,27 @@ anatomy, the complete stage eye language/tracking, and governed reflected-gold
 world light. The current hazard growth answers the owner's dark-live danger
 ruling; it does not pretend to be the still-missing exposure-stage breach.
 
+**2026-08-20 rendering feedback is reconciled, not installed as a second
+architecture, and R1 is now landed.** The Klimt filter's entire paint/ink/jewel
+stack obeys the durable `eaten` boundary, architectural materials begin from a
+recognisable Orison substrate, and the single dark-live growth draw consumes
+reusable cellular-tissue, tendon-fold, wet-film and warped-gold functions. A
+bounded cool lift, carried near black level and warm practical make the violated
+apartment photograph without waking a hazard; smoother tubes/grafts add no
+draw. Production frames and failed tunings are in
+`art/renders/dream_rendering_r1/README.md`; the focused contracts are 36/36,
+175/175, 42/42 and 21/21, and fresh 1440p dream perf remains 0/4 over 16.6 ms
+(1.94 ms worst row, 172 calls worst row). WalkTest FAST prints PASS with its
+inherited null-layout error; FULL repeats the unrelated waking roof-monitor
+failure at z=2.9 while passing 2A. **R2 is the immediate pickup:** true
+tessera/grout/cracked-leaf relief and architectural transition masks, still
+before the torn breach. The accepted composition is about 60% recognisable
+1928 apartment and 40% organism. The atlas remains the sole room/topology owner;
+`DreamHazard` remains the sole contact owner. A portal is a later view-only
+consumer of an atlas fault. RECURSION is still priced but unlicensed, and the
+proposed recursion depth of four is only a high-quality ceiling after depth-one
+proof, not a work order.
+
 **Pre-existing proof debt found during this pass:**
 `DreamPerceptionTest.tscn` is still a chain-era harness. It asks the initial
 one-world pocket for literal ids `vantry_signal_trunk`, `open_lift_void` and

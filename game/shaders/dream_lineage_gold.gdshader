@@ -1,6 +1,8 @@
 shader_type spatial;
 render_mode unshaded, cull_back;
 
+#include "res://shaders/dream_corruption_layers.gdshaderinc"
+
 // THE BODY'S OWN GOLD, LIT ANALYTICALLY BY THE SERVICE LAMP.
 //
 // Owner override 2026-08-20: the body remains faintly present in darkness.
@@ -34,6 +36,11 @@ uniform float motion_gain = 0.0;
 uniform float motion_hz = 0.13;
 uniform float motion_phase = 0.0;
 uniform float organic_mix = 0.0;
+uniform float tissue_cell_scale : hint_range(0.25, 8.0) = 2.15;
+uniform float tissue_fold_scale : hint_range(0.25, 8.0) = 1.35;
+uniform float tissue_transmission : hint_range(0.0, 2.0) = 0.72;
+uniform float wet_specular_gain : hint_range(0.0, 3.0) = 1.15;
+uniform float gold_vessel_width : hint_range(0.72, 0.98) = 0.925;
 
 varying vec3 v_world;
 varying vec3 v_normal;
@@ -96,27 +103,40 @@ void fragment() {
 			clamp(0.42 + exposed * 0.48 + hammered * 0.20, 0.0, 1.0));
 	vec3 reflected = alloy * diffuse * (0.85 + hammered * 0.22)
 			+ pale_leaf * specular * 1.15;
-	// Hazard growth is the living underside of the architecture, not a brass
-	// pipe. In the beam its wine-dark tissue remains visible between thin,
-	// irregular gold veins. Lineage frames leave organic_mix at zero and keep
-	// the older antique-alloy reading.
-	float vein_a = sin(v_world.y * 17.0 + v_world.x * 11.0
-			- v_world.z * 13.0 + v_gene.g * 17.0 + gene_phase);
-	float vein_b = sin(v_world.y * 37.0 - v_world.x * 23.0
-			+ v_world.z * 29.0 - v_gene.g * 9.0);
-	float vein_c = sin((v_world.x + v_world.z) * 31.0
-			+ v_world.y * 7.0 + gene_phase * 1.7);
-	// Gold follows narrow sinusoidal zero-crossings: branching capillaries,
-	// not the broad round freckles the first wall membrane exposed. Taking the
-	// maximum of three differently-oriented ridges gives a broken vascular
-	// network while keeping most of the body wine-dark under the beam.
-	float vein_ridge = max(1.0 - abs(vein_a), 1.0 - abs(vein_b));
-	vein_ridge = max(vein_ridge, (1.0 - abs(vein_c)) * 0.94);
-	float vein = smoothstep(0.925, 0.992, vein_ridge);
-	vec3 living_tissue = vec3(0.020, 0.001, 0.045)
-			* (0.72 + diffuse * 0.88)
+	// THREE MATERIAL LAYERS, ONE SURFACE.  The include supplies masks rather
+	// than a finished colour so later breach and phase shaders can share the
+	// same anatomy without inheriting this fragment() or adding overdraw.
+	vec3 tissue_p = v_world * vec3(tissue_cell_scale,
+			tissue_cell_scale * 0.78, tissue_cell_scale);
+	float tissue_phase = gene_phase + v_gene.g * 0.73 + motion_phase * 0.11;
+	float cells = dream_corruption_cells(tissue_p, TIME, tissue_phase);
+	float folds = dream_corruption_folds(v_world * tissue_fold_scale, TIME,
+			tissue_phase);
+	float vein = dream_corruption_vessels(tissue_p * 0.58, tissue_phase,
+			gold_vessel_width);
+	float wetfilm = dream_corruption_wetfilm(tissue_p, TIME, tissue_phase);
+
+	vec3 deep_plum = vec3(0.042, 0.009, 0.030);
+	vec3 bruise_violet = vec3(0.090, 0.022, 0.072);
+	vec3 rose_tissue = vec3(0.235, 0.050, 0.088);
+	vec3 tissue_colour = mix(deep_plum, bruise_violet,
+			0.22 + cells * 0.58);
+	// Cell interiors and fold valleys differ by almost a stop.  The earlier
+	// pass varied only hue and read as one flat magenta polygon at room scale.
+	tissue_colour *= 0.52 + cells * 0.62 + folds * 0.16;
+	// Thickness is inferred from a grazing view and fold crests.  It never
+	// becomes a light source; it is a rose tint inside the lamp response.
+	float grazing = pow(1.0 - clamp(abs(dot(n, view_dir)), 0.0, 1.0), 2.1);
+	tissue_colour = mix(tissue_colour, rose_tissue,
+			clamp((grazing * 0.48 + folds * 0.20) * tissue_transmission,
+			0.0, 0.58));
+	float wet_highlight = pow(max(dot(n, half_dir), 0.0),
+			mix(26.0, 96.0, wetfilm));
+	vec3 living_tissue = tissue_colour * (0.46 + diffuse * 1.18)
+			+ vec3(1.0, 0.48, 0.55) * wet_highlight * wetfilm
+			* wet_specular_gain * 0.34
 			+ mix(warm_gold, pale_leaf, vein * 0.46) * vein
-			* (0.42 + specular * 0.98);
+			* (0.38 + diffuse * 0.44 + specular * 0.96);
 	reflected = mix(reflected, living_tissue, clamp(organic_mix, 0.0, 1.0));
 
 	float eye_shell = smoothstep(0.34, 0.60, v_gene.b)
@@ -128,16 +148,28 @@ void fragment() {
 
 	// Not enough to light the room or reveal its architecture. It is a local
 	// biological afterglow: wine-black tissue, dim ochre eyes, black pupils.
-	vec3 dormant = mix(vec3(0.22, 0.006, 0.20),
-			vec3(0.34, 0.025, 0.24), hammered * 0.32);
+	// ACES crushes the earlier 0.05-linear wine to the first display code
+	// values; it technically existed and was visually absent.  This is the
+	// same bounded luminance the original dark-live proof needed, but shifted
+	// away from neon magenta into blood/plum so it reads as matter, not light.
+	vec3 dormant_tissue = mix(vec3(0.22, 0.025, 0.11),
+			vec3(0.34, 0.055, 0.22), 0.12 + cells * 0.42)
+			* (0.45 + cells * 0.55 + folds * 0.20);
+	vec3 dormant = mix(vec3(0.16, 0.045, 0.012), dormant_tissue,
+			clamp(organic_mix, 0.0, 1.0));
 	dormant = mix(dormant, vec3(0.54, 0.25, 0.035), eye_shell);
 	dormant = mix(dormant, vec3(0.025, 0.002, 0.008), pupil);
 	vec3 dark_body = dormant * max(0.0, dark_glow);
-	vec3 lit_body = reflected * awake * 2.80;
-	ALBEDO = dark_body + lit_body;
+	vec3 lit_body = reflected * awake * 2.45;
+	ALBEDO = dark_body * mix(1.0, 1.80, clamp(organic_mix, 0.0, 1.0))
+			+ lit_body;
 	// This is the owner's explicit exception to the old zero-emission rule:
 	// a local afterglow that reveals the moving limb but cannot reveal the
 	// architecture around it. The lamp response still outweighs it several
 	// times over and receives only a trace of bloom support.
-	EMISSION = dark_body * 0.95 + lit_body * 0.08;
+	// Compatibility + ACES compress this deliberately dark linear value very
+	// aggressively.  The multiplier affects only the organism's own pixels:
+	// it cannot cast light onto the room, so raising it restores the ruled
+	// silhouette without inventing a second practical or waking the gold.
+	EMISSION = dark_body * 0.55 + lit_body * 0.035;
 }
