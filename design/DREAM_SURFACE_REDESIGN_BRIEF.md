@@ -273,8 +273,18 @@ breach answer: an impossible perception that never lies about the next
 footstep. The measured RECURSION fault stays available as research, not queued
 production. It may be reopened only by a later case mechanic that names a new
 verb or consequence which the current Atlas cannot express. Surface redesign
-R1–R7 is complete; the next dependent production beat is the already-ruled
-capture/embrace, now that the eyes and highest exposure state exist.
+R1–R7 is complete.
+
+**Implementation checkpoint — 2026-08-20, R8 capture becomes interior.** The
+dependent capture/embrace is landed. One inward camera shell closes from every
+edge over 1.5 seconds, all eyes close in the existing hazard batch, the chosen
+lamp state survives, and the existing `capture` outcome waits for the final
+held frame. Its surface reuses the shared local-3D cells, folds and wet-film
+genome, but the close shell owns its exposure: conventional PBR inside a
+0.68 m sphere bleached the entire frame. Rendered controls also rejected
+parallax, tangent-derived normals, vertex displacement, particles and extra eye
+impostors here; they added seam lattices, overexposure or new owners without a
+new decision. Proof and price: `art/renders/dream_embrace_v1/README.md`.
 
 ---
 

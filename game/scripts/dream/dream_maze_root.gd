@@ -17,6 +17,11 @@ const DreamHazardGrowthScript := preload(
 		"res://scripts/dream/dream_hazard_growth.gd")
 const DreamViewPortalScript := preload(
 		"res://scripts/dream/dream_view_portal.gd")
+const DreamEmbraceScript := preload(
+		"res://scripts/dream/dream_embrace.gd")
+
+signal capture_presentation_started
+signal capture_presentation_finished
 
 ## Tests drive pursuit steps manually when false.
 var autonomous := true
@@ -89,6 +94,11 @@ const PHASE_LIGHT_RANGE_M := 3.2
 ## shares this world and owns only one camera; no room or route hangs below it.
 var _view_portal: SubViewport
 var _view_portal_fault: Dictionary = {}
+## The capture latch is separate from `_outcome_committed`: the 1.5-second
+## embrace must stop pursuit immediately, but the persistent outcome is not
+## handed to DreamDirector until its final held frame has been seen.
+var _embrace: Node
+var _embrace_active := false
 ## Every Klimt material in the world, so the lamp can be pushed into all of
 ## them each frame. See _collect_molten_materials().
 var _molten_materials: Array[ShaderMaterial] = []
@@ -1282,6 +1292,8 @@ func _physics_process(delta: float) -> void:
 		return
 	if pursuer != null and not pursuer.is_captured:
 		pursuer.advance_fixed(delta)
+	if _embrace_active or _outcome_committed:
+		return
 	if hazards != null:
 		var hit := hazards.advance_fixed(delta)
 		if hit != DreamHazard.NONE:
@@ -1343,6 +1355,37 @@ func _commit_outcome(outcome: String) -> bool:
 
 
 func _on_captured() -> void:
+	_begin_embrace()
+
+
+## The Tenant never lunges into frame. The existing camera becomes enclosed by
+## one presentation shell while the real lamp remains in its chosen state and
+## every existing eye closes. No outcome vocabulary or waking boundary moves.
+func _begin_embrace() -> bool:
+	if _embrace_active or _outcome_committed or player == null:
+		return false
+	var growth_material := _hazard_growth.material_override as ShaderMaterial \
+			if _hazard_growth != null else null
+	_embrace = DreamEmbraceScript.new()
+	_embrace.name = "DreamEmbrace"
+	add_child(_embrace)
+	if not _embrace.begin(player, growth_material,
+			str(dream_context.get("case_id", ""))):
+		_embrace.free()
+		_embrace = null
+		return false
+	_embrace_active = true
+	autonomous = false
+	_embrace.completed.connect(_finish_embrace, CONNECT_ONE_SHOT)
+	capture_presentation_started.emit()
+	return true
+
+
+func _finish_embrace() -> void:
+	if not _embrace_active or _outcome_committed:
+		return
+	_embrace_active = false
+	capture_presentation_finished.emit()
 	_commit_outcome("capture")
 
 

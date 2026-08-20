@@ -1318,18 +1318,17 @@ unresolved. K7's source-backed loop contract is closed in
   residue intact. The isolated dream station is below 16.6 ms.
 - **N9** Use Peter as the shared-profile proof. Change content, pursuit grammar
   and case truth without forking the maze, director, hazard or save owners.
-- **N10 — DREAM SURFACE C–F (PARTIAL).** The persistent exposure field and
+- **N10 DONE 2026-08-20 — DREAM SURFACE C–F + EMBRACE.** The persistent exposure field and
   organic front are landed. The 2026-08-20 target slice adds one batched
   dark-live growth surface for eligible hazards, registers every substantial
   tendril centerline back on its source `DreamHazard`, adds first geometric
   eyes, and furnishes every nonblank remembered room with mesh-only extracts of
   production Orison props. Live tissue keeps a low wine-purple afterglow and
   motion in darkness; the lamp remains the dominant antique-gold response.
-  The conditional Vantry trunk is deliberately excluded. Later checkpoints
-  below close relief (C), the deterministic eye family and the torn breach
-  with impossible interior depth (D). Still open: exposure-ramped breach
-  anatomy and bounded persistent reflected-gold world light. Nothing licenses
-  popping geometry, a second combat system or unmeasured draws.
+  The conditional Vantry trunk is deliberately excluded. Checkpoints R1–R8
+  below close relief, the deterministic eye family, torn breach, durable
+  exposure, reflected gold, depth-zero view and capture presentation. Nothing
+  licenses popping geometry, a second combat system or unmeasured draws.
   **Wall-architecture follow-up landed 2026-08-20.** Every remembered nonblank
   generation now carries a visual-only Orison interior shell: 140 mm skirting,
   canonical 1.32 m dado and framed corridor wainscot, 2.18 m picture rail,
@@ -1442,9 +1441,21 @@ unresolved. K7's source-backed loop contract is closed in
   second collision/navigation/pursuit contract, and another rendered depth
   would add cost without a decision. Reopen only if a later case names a new
   verb or consequence the Atlas cannot express. The surface redesign queue is
-  complete. **Immediate pickup: the ruled capture/embrace presentation** in
-  `THE_TENANT.md`: 1.5 s, gold from every edge, lamp stays lit, eyes close,
-  close warm acoustics, then the existing 4B wake/residue boundary.
+  complete.
+  **R8 LANDED 2026-08-20 — CAPTURE BECOMES INTERIOR.** One inward-facing
+  0.68 m shell on the existing player camera closes monotonically from every
+  screen edge over 1.5 seconds plus a 0.18-second hold. It preserves the lamp
+  state the player chose, closes every existing batched eye, hides action HUD,
+  collapses the acoustic room and moves the case signature into a non-spatial
+  fifth position. Only then does the unchanged `capture` outcome reach the
+  existing 4B wake/residue boundary. No camera, light, collision, hazard,
+  topology or input was added. Multi-scale local-3D cells/folds/wet-film and
+  cell-boundary capillaries replaced the first flat shell; POM, particles,
+  extra eyes, tangent normals and vertex displacement were rejected by rendered
+  controls. Focused contract 31/31; final integration results and exact 1440p
+  price are in `art/renders/dream_embrace_v1/README.md`. **Immediate dream
+  pickup:** repair N7's stale `DreamPerceptionTest`, then N9's Peter
+  shared-profile proof. Friendship/romance and chosen re-meaning remain last.
 - **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
   heredity and visible anatomy: bounded parent/child genomes, brood knots,
   parent umbilicals, prospective child helices, open birth-frames and sealed

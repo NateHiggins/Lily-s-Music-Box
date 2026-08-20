@@ -42,10 +42,13 @@ route, collision, hazard, light or interaction and leaves the wall solid
 (`art/renders/dream_rendering_r6/README.md`). R7 is closed at depth zero:
 recursive rendering adds no decision and enterable nesting duplicates Atlas
 traversal while demanding a second collision/navigation/pursuit contract.
-Reopen it only for a new case verb the Atlas cannot express. The immediate
-dream task is now the ruled capture/embrace: gold closes from every edge over
-1.5 s, the lamp remains lit, all eyes close, the acoustic room becomes close
-and warm, and the existing 4B wake/residue boundary receives the outcome.
+Reopen it only for a new case verb the Atlas cannot express. R8, the ruled
+capture/embrace, is now landed: one shell closes from every edge over 1.5 s,
+the player's chosen lamp state survives, all eyes close, the acoustic room
+becomes close and warm, and the existing 4B wake/residue boundary receives the
+unchanged outcome after the held final frame. Proof:
+`art/renders/dream_embrace_v1/README.md`. Immediate dream pickup is the N7
+`DreamPerceptionTest` proof repair, then N9's Peter shared-profile proof.
 
 The parallel street lane's paused coachwork pass is now a bounded T2g
 checkpoint with focused contracts and A/A evidence. It does not own the next

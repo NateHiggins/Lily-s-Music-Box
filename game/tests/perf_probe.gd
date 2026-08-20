@@ -625,6 +625,8 @@ func _run_dream() -> void:
 		await get_tree().process_frame
 	if OS.get_environment("PERF_DREAM_EXPOSED") == "1":
 		_seed_dream_reflected_gold()
+	if OS.get_environment("PERF_DREAM_EMBRACE") == "1":
+		_stage_dream_embrace()
 	print("PERF DREAM: seed %s  case %s  viewport %s" % [
 			DREAM_SEED_HEX, DREAM_CASE,
 			get_viewport().get_visible_rect().size])
@@ -721,6 +723,23 @@ func _stage_dream_phase_target() -> void:
 		_dream.player.position = Vector3((float(rect[0]) + float(rect[2])) * 0.5,
 				_dream.player.position.y,
 				(float(rect[1]) + float(rect[3])) * 0.5)
+
+
+## Exact maximum-coverage price for the ruled 1.5-second capture frame. The
+## production owner creates its one shell, then the diagnostic freezes the
+## sequence fully closed so timing cannot average its cost away.
+func _stage_dream_embrace() -> void:
+	if not bool(_dream.call("_begin_embrace")):
+		printerr("PERF DREAM EMBRACE: presentation refused")
+		return
+	var embrace := _dream.get("_embrace") as Node
+	if embrace == null:
+		printerr("PERF DREAM EMBRACE: owner missing")
+		return
+	embrace.set_process(false)
+	embrace.call("set_progress_for_proof", 1.0)
+	print("PERF DREAM EMBRACE: full coverage, lamp=%s, shell=1" %
+			str(_dream.player.lamp_is_enabled()))
 
 
 ## R6's exact price station: the production player stands inside the wound's

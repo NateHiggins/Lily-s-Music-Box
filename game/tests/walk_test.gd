@@ -882,7 +882,7 @@ func _plumbing_checks() -> void:
 	# back on the other hand, so the old assertion now fails on the fix. What
 	# the pass actually owes is stated here instead, for all forty-four.
 	var stray_marks: Array[String] = []
-	for floor_data in GameBoot.layout.get("floors", []):
+	for floor_data in root.layout.get("floors", []):
 		for mark in root.find_children("DomesticMark_*", "", true, false):
 			var unit := str(mark.name).split("_")[1]
 			var want := ""

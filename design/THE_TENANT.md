@@ -326,11 +326,10 @@ clothed.
 
 ### Scope, plainly
 
-This does not exist. There is no dialogue system for her, no gating state, no
-caption-in-world channel, and no re-meaning of the capture sequence — which
-itself is unbuilt beyond committing an outcome. This section is a target, and
-it is the last thing that should be built, because every hour spent on her
-silence is what buys it.
+The ordinary capture presentation now exists; the friendship/romance does not.
+There is still no dialogue system for her, no gating state, no caption-in-world
+channel and no chosen re-meaning of capture. This section remains a late target,
+because every hour spent on her silence is what buys it.
 
 ---
 
@@ -348,11 +347,13 @@ camera — because being enclosed by a body of more dimensions is not something
 that arrives along an axis. There is nothing to turn and face. Nothing enters
 frame; frame *becomes* interior.
 
-**The lamp stays lit.** This is the strongest single image available and it
-costs nothing: the player's light is still burning, still working, still
-pointed where they aimed it — and there is only gold in front of it. Their one
-tool is intact and there is nothing left to use it on. Do not knock the lamp
-away, do not cut to black on contact.
+**The lamp stays yours.** The Tenant never operates the switch. In an ordinary
+capture the player's light is still burning, still working and pointed where
+they aimed it — and there is only her burnished gold-and-plum interior in front
+of it. In the later chosen embrace, the player has already turned it off as the
+gesture of trust; it remains off and the same body keeps only a faint biological
+afterglow. Do not knock the lamp away, relight it, extinguish it or cut to black
+on contact. The choice that enters the sequence is the choice that survives it.
 
 **The room gets small.** The corridor's reverb collapses to a very close,
 very short acoustic — the sound of being inside something rather than in a
@@ -377,11 +378,15 @@ should later confirm whether she was taking something, keeping something safe,
 or simply holding the first thing that ever stayed still long enough to be
 held. The player is allowed to decide. The game is not.
 
-**Implementation note.** `DreamMazeRoot._on_captured` currently commits the
-outcome and nothing else; there is no capture presentation built at all. This
-section is the spec for it, and the eye-closing beat depends on eyes existing
-as elements, which is workstream F of
-`design/DREAM_SURFACE_REDESIGN_BRIEF.md`.
+**Implementation checkpoint — 2026-08-20.** `DreamMazeRoot._on_captured` now
+holds the existing outcome behind the ruled 1.5-second presentation and short
+final hold. One inward shell on the production camera closes monotonically from
+every edge, preserves the chosen lamp state, closes every eye in the existing
+hazard batch, hides action HUD, collapses the Master-bus acoustic room and puts
+the current case signature in a non-spatial fifth position. It adds no camera,
+light, collision, hazard, topology or input. The existing `capture` outcome and
+4B wake/residue boundary remain authoritative. Production and diagnostic proof:
+`art/renders/dream_embrace_v1/README.md`.
 
 ---
 

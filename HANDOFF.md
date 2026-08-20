@@ -47,9 +47,15 @@ R7 rules that depth-zero view complete: recursive rendering adds cost without a
 new decision, while enterable nesting repeats the Atlas's existing traversal
 promise and would create a second collision/navigation/pursuit contract. Reopen
 only for a later case mechanic with a genuinely new verb or consequence. The
-immediate dream task is the ruled capture/embrace presentation in
-`THE_TENANT.md`, now that eyes and the high exposure state exist. `DreamAtlas`
-remains topology owner and `DreamHazard` remains danger owner.
+ruled capture/embrace is now landed too. One inward camera shell closes from
+every edge over 1.5 seconds, preserves the state of the player's lamp, closes
+the existing batched eyes, collapses the acoustic room and delays the unchanged
+`capture` outcome until its held final frame. It creates no new camera, light,
+collision, hazard, topology or input. Proof and exact perf are in
+`art/renders/dream_embrace_v1/README.md`. `DreamAtlas` remains topology owner
+and `DreamHazard` remains danger owner. The next dream repair is the stale
+`DreamPerceptionTest` proof debt recorded under TASKS N7; after that, N9 is the
+shared-profile content proof.
 
 Three top-level projects:
 

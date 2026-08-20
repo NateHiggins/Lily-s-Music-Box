@@ -43,6 +43,10 @@ uniform float portal_active : hint_range(0.0, 1.0) = 0.0;
 uniform vec2 portal_phase_thresholds = vec2(0.88, 0.98);
 // 1 isolates the portal id/coverage; 2 reports the sole permitted depth zero.
 uniform int portal_debug_view : hint_range(0, 2) = 0;
+// The ruled capture presentation closes every authored eye before the final
+// central view disappears. One uniform moves all eye vertices in the existing
+// batch; no lid node or draw is created for the cinematic.
+uniform float embrace_amount : hint_range(0.0, 1.0) = 0.0;
 
 uniform float gene_phase = 0.0;
 uniform float dark_glow = 0.018;
@@ -106,7 +110,8 @@ void vertex() {
 		// not repeatedly spring open merely to advertise that they animate.
 		float blink = smoothstep(0.845, 0.905, blink_clock)
 				* (1.0 - smoothstep(0.925, 0.985, blink_clock));
-		float aperture = max(0.025, CUSTOM3.y * (1.0 - blink * 0.94));
+		float aperture = max(0.025, CUSTOM3.y * (1.0 - blink * 0.94)
+				* (1.0 - embrace_amount * 0.975));
 		float local_y = dot(VERTEX - eye_center, eye_up);
 		VERTEX += eye_up * local_y * (aperture - 1.0);
 
@@ -190,7 +195,8 @@ vec4 breach_interior(vec2 uv, vec2 view_shift, float phase) {
 			abs(uv.y + cos(uv.x * 6.2 - phase * 6.0) * 0.13));
 	lattice = max(lattice, max(cable_a, cable_b) * 0.56);
 	depth_band = max(depth_band, max(cable_a, cable_b) * 0.72);
-	vec2 eye_p = (uv - vanishing) * vec2(5.2, 8.6);
+	vec2 eye_p = (uv - vanishing) * vec2(5.2,
+			8.6 / max(0.035, 1.0 - embrace_amount * 0.965));
 	float eye_d = length(eye_p);
 	float sclera = 1.0 - smoothstep(0.78, 0.96, eye_d);
 	float pupil = 1.0 - smoothstep(0.21, 0.34, eye_d);

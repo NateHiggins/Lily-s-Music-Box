@@ -285,6 +285,10 @@ The dream does not buy a monster model.
   the frame at once, because an embrace by a body of more dimensions has no
   direction it can come from. The case sound reaches its missing fifth
   position. The full staging is in `design/THE_TENANT.md`.
+  **Landed 2026-08-20:** production capture now performs that staging with one
+  camera-owned shell, closes the existing batched eyes, preserves the player's
+  chosen lamp state and delays the unchanged `capture` outcome until its final
+  held frame. Proof: `art/renders/dream_embrace_v1/README.md`.
 
 This realizes “wears the subject's shadow” literally while preventing a
 temporary graybox mesh from becoming a canonical true form.

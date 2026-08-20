@@ -382,12 +382,27 @@ pass that deliberately optimistic fit. Estimated cost is one room, six to
 eight submissions. The finding answers frequency, fit and order of magnitude;
 it does not choose what nested enterable space should do to play.
 
-### 5. THE EMBRACE
-`_on_captured` commits an outcome and nothing else. The staging is specced in
-`THE_TENANT.md`: gold closes from every edge at once because a
-higher-dimensional embrace has no direction; **the lamp stays lit and shows
-only gold**; reverb collapses; her eyes close; warm; a 1.5 s iris and never a
-strobe. Depends on eyes existing as elements (surface brief workstream F).
+### 5. THE EMBRACE — LANDED 2026-08-20
+`_on_captured` now starts one inward camera shell and commits the unchanged
+outcome only after its 1.5-second close and short hold. The frame closes from
+every edge at once, all existing batched eyes close, the HUD disappears, the
+acoustic room collapses and the case signature loses direction. The lamp stays
+**the player's**: ordinary capture preserves ON; a later chosen embrace may
+enter OFF and stays OFF. No camera, light, collision, hazard, topology or input
+was added. Proof: `art/renders/dream_embrace_v1/README.md`.
+
+The selected shader refinement is multi-scale local-3D cells, folds and
+wet-film response with cell-boundary capillaries. Parallax, particles, extra
+eye impostors, tangent normals and vertex displacement were rejected for this
+0.68 m shell after rendered controls exposed seam lattices, overexposure or
+unearned owners. The room-growth shader remains ordinary PBR; the enclosing
+presentation shell owns its exposure and is gated by the real lamp switch.
+
+### 5A. IMMEDIATE PROOF REPAIR
+Repair `DreamPerceptionTest` against the one-world pocket without weakening its
+fairness or channel assertions. It still assumes the deleted three-hazard
+chain and currently executes only 4/20 checks. Then continue to N9, Peter as
+the shared-profile proof.
 
 ### 6. HER SPEECH AND THE ROMANCE — last, deliberately
 Every hour spent on her silence is what buys it. Do not start here.
