@@ -15,6 +15,7 @@ extends PanelContainer
 ## which is exactly when you are least likely to want to stop playing.
 ##
 ## What earned its place, and why:
+##   DREAM     the real onset and scene transaction, without forged case state
 ##   SUBJECT   one resident picker shared by the sanity and reality sections
 ##   SANITY    the newest subsystem and the only one with no other way in
 ##   CASES     three call-network cases that need driving from any state
@@ -74,6 +75,7 @@ func _ready() -> void:
 	_status.add_theme_font_size_override("font_size", 11)
 	_column.add_child(_status)
 
+	_build_dream()
 	_build_subject()
 	_build_sanity()
 	_build_cast()
@@ -107,6 +109,47 @@ func _section(title: String, tint: Color, open := false) -> VBoxContainer:
 		toggle.text = ("▾ " if box.visible else "▸ ") + title)
 	_sections[title] = box
 	return box
+
+
+## Immediate access to the production dream sequence is a developer tool, but
+## the sequence itself is not mocked: the authored profile arms, the real sleep
+## onset plays, CampaignShell swaps the worlds, and the ending rebuilds Orison.
+func _build_dream() -> void:
+	var box := _section("DREAM — production sequence",
+			Color(0.72, 0.58, 0.92), true)
+	var shell := _campaign_shell()
+	var start := _button(box, "Start Dreamworld sequence",
+			_start_dream_sequence)
+	var note := Label.new()
+	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	note.add_theme_font_size_override("font_size", 9)
+	note.modulate = Color(0.72, 0.68, 0.82)
+	if shell == null:
+		start.disabled = true
+		start.tooltip_text = "Launch through CampaignShell to preview the dream."
+		note.text = "Unavailable: this waking world has no campaign shell."
+	else:
+		note.text = "Real onset, maze and wake; jobs and cases stay untouched."
+	box.add_child(note)
+
+
+func _start_dream_sequence() -> void:
+	var shell := _campaign_shell()
+	if shell == null or not shell.debug_start_dream_sequence():
+		push_warning("[DEBUG] Dreamworld sequence could not start")
+		return
+	# Let the onset occupy the whole screen; this panel belongs to the waking
+	# world and will be freed by the eventual swap in any case.
+	_body.visible = false
+	print("[DEBUG] Dreamworld sequence armed through production onset")
+
+
+func _campaign_shell() -> CampaignShell:
+	var shell := get_tree().get_first_node_in_group("campaign_shell") \
+			as CampaignShell
+	if shell == null or not shell.is_ancestor_of(self):
+		return null
+	return shell
 
 
 ## One picker, shared. Both the sanity rungs and the reality-case lifecycle

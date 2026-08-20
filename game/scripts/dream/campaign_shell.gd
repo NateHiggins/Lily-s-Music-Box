@@ -62,6 +62,21 @@ func world_child_count() -> int:
 	return world_slot.get_child_count() if world_slot else 0
 
 
+## F1 developer entry. This begins the production warning and transition from
+## the current authored dream record without fabricating the work, case or
+## inventory history that normally earns it.
+func debug_start_dream_sequence() -> bool:
+	if GameBoot.launch_mode != GameBoot.LaunchMode.DEBUG \
+			or active_kind != "waking" or _swap_queued \
+			or core_loop == null or dream_director == null:
+		return false
+	var request := core_loop.authored_dream_request()
+	if request.is_empty():
+		return false
+	return dream_director.debug_arm_dream(str(request.case_id),
+			str(request.profile_id), request.window as Dictionary)
+
+
 func _restore_world() -> void:
 	match dream_director.phase():
 		"entered", "active":

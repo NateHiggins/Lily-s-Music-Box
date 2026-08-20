@@ -63,6 +63,7 @@ not coerce the fact through a floating-point number.
 |---|---|
 | `phase` | one of the five phases above |
 | `active` | true only for `entered` and `active` |
+| `debug_preview` | true only for an F1-started preview transaction; never an earned campaign boundary |
 | `case_id` | the just-integrated case, currently `mina_caption_crisis` |
 | `profile_id` | data-authored release-print profile, currently `mina_release_print` |
 | `window` | the job-authored eligibility/protection metadata |
@@ -108,7 +109,26 @@ This ordering gives every interruption one forward destination. Waking and
 dream worlds never render or simulate together, including the single frame
 between the durable `entered`/`return_pending` commit and deferred replacement.
 
+## F1 dream preview
+
+In a DEBUG launch, the first open section of the F1 panel exposes **Start
+Dreamworld sequence**. It reads the case, profile and window from the same
+validated maintenance-job record as production, then runs the real authored
+sleep onset, committed DreamDirector transaction, DreamMazeRoot and waking-world
+rebuild. It is unavailable when Orison was instantiated without CampaignShell.
+
+The preview is deliberately not a campaign shortcut. It does not issue or close
+a work order, resolve a case, grant an item, consume the campaign's next
+`dreams_had` count, emit `wake_completed`, or apply waking residue. On ending it
+uses CoreLoopDirector's authored 4B bedside placement while leaving the loop
+boundary untouched, then clears the preview transaction back to `awake`.
+
 ## Proof
+
+`DebugDreamButtonTest.tscn` presses the real production F1 button against an
+unearned campaign and passes 11/11 checks: authored arm, real onset, exclusive
+DreamMazeRoot, ordinary outcome funnel, waking rebuild, 4B bedside return, and
+no job, loop, residue or decay-count mutation.
 
 `DreamBoundaryTest.tscn` uses the production CampaignShell, DreamDirector,
 DreamMazeRoot, CoreLoopDirector, WorkOrders, MaintenanceInventory and

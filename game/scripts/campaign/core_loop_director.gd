@@ -92,6 +92,25 @@ func loop_state() -> Dictionary:
 	return _state().duplicate(true)
 
 
+## Read-only authored identity for developer tooling. The debug panel may ask
+## to preview the dream without manufacturing Mina's completed shift, but the
+## case/profile/window still come from the same job record as production.
+func authored_dream_request() -> Dictionary:
+	if work_orders == null or work_orders.job_library == null:
+		return {}
+	var definition := work_orders.job_library.job(JOB_ID)
+	var case_id := str(definition.get("case_id", ""))
+	var profile_id := str(definition.get("dream_profile_id", ""))
+	var window: Variant = definition.get("dream_window", {})
+	if case_id.is_empty() or profile_id.is_empty() or window is not Dictionary:
+		return {}
+	return {
+		"case_id": case_id,
+		"profile_id": profile_id,
+		"window": (window as Dictionary).duplicate(true),
+	}
+
+
 ## The campaign shell keeps this coordinator while replacing the world. Drop
 ## only scene-owned references and their signal; committed loop facts remain.
 func detach_world() -> void:
@@ -244,12 +263,21 @@ func notify_wake_complete() -> bool:
 	RealityState.commit()
 	_dream_request_sent = false
 	set_process(false)
-	var anchor := resolve_return_anchor()
-	if player != null and not anchor.is_empty():
-		player.global_position = anchor.position
-		if "velocity" in player:
-			player.velocity = Vector3.ZERO
+	return_player_to_safe_anchor()
 	wake_completed.emit(str(state.safe_return_anchor))
+	return true
+
+
+## Movement half of the wake boundary, separated so the debug dream preview
+## can rebuild at the same authored bedside without claiming that the golden
+## loop advanced or emitting its campaign-only wake signal.
+func return_player_to_safe_anchor() -> bool:
+	var anchor := resolve_return_anchor()
+	if player == null or not is_instance_valid(player) or anchor.is_empty():
+		return false
+	player.global_position = anchor.position
+	if "velocity" in player:
+		player.velocity = Vector3.ZERO
 	return true
 
 
