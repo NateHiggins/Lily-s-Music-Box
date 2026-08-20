@@ -13,6 +13,8 @@ extends Node3D
 
 const START_MODULE_ID := "D00_4B_THRESHOLD"
 const PROFILES_PATH := "res://data/dream_profiles.json"
+const DreamHazardGrowthScript := preload(
+		"res://scripts/dream/dream_hazard_growth.gd")
 
 ## Tests drive pursuit steps manually when false.
 var autonomous := true
@@ -69,6 +71,9 @@ const STUMBLE_PUSH_MPS := 2.6
 
 ## The conduit and the arc it throws. See _build_hazard_visuals().
 var _arcs: Array[Dictionary] = []
+## One batched organic surface for the pocket's hazards that remain live in
+## darkness. Contact stays in DreamHazardField; this is its bodily evidence.
+var _hazard_growth: MeshInstance3D
 ## Every Klimt material in the world, so the lamp can be pushed into all of
 ## them each frame. See _collect_molten_materials().
 var _molten_materials: Array[ShaderMaterial] = []
@@ -225,6 +230,7 @@ func _follow_player() -> void:
 	# fairness number is measured against. See DreamHazardField.rearm.
 	if hazards != null:
 		hazards.rearm(plan, profile_hazards)
+		_rebuild_hazard_growth()
 	_rebuild_practicals()
 	_collect_molten_materials()
 	_carry_pursuer()
@@ -344,6 +350,7 @@ func _build_world() -> void:
 	# is kept, unused, because the accessibility mode "High-contrast edges"
 	# will want exactly this and nothing else in the build does it.
 	_build_practicals()
+	_build_hazard_growth()
 	_build_hazard_visuals()
 	# PARTICLES ARE OFF. Owner: "there are still tons of light prisms, they
 	# also seem to be the particles" -> "remove the particles for now".
@@ -359,6 +366,36 @@ func _build_world() -> void:
 		_build_motes()
 		_build_jewel_rain()
 	_collect_molten_materials()
+
+
+## THE DARK DOES NOT DISARM HER BODY.
+##
+## Only hazards whose rules are already independent of the lamp receive this
+## organic form. The conditional Vantry trunk keeps its conduit and blue arc;
+## wrapping that mechanism in an always-live body would make the visible rule
+## contradict the gameplay rule. All qualifying hazards are fused into one
+## surface, so a room full of limbs is not a room full of submissions.
+func _build_hazard_growth() -> void:
+	_hazard_growth = DreamHazardGrowthScript.new()
+	_hazard_growth.configure(hazards.hazards, plan)
+	var material := ShaderMaterial.new()
+	material.shader = load("res://shaders/dream_lineage_gold.gdshader")
+	material.set_shader_parameter("dark_glow", 0.65)
+	material.set_shader_parameter("motion_gain", 1.0)
+	material.set_shader_parameter("motion_hz", 0.13)
+	material.set_shader_parameter("organic_mix", 0.34)
+	material.set_shader_parameter("motion_phase",
+			float(absi(str(dream_context.get("seed_hex", "")).hash()) & 4095)
+			/ 4095.0 * TAU)
+	_hazard_growth.material_override = material
+	add_child(_hazard_growth)
+
+
+func _rebuild_hazard_growth() -> void:
+	if _hazard_growth != null and is_instance_valid(_hazard_growth):
+		_hazard_growth.free()
+	_hazard_growth = null
+	_build_hazard_growth()
 
 
 ## The dream's own environment, because the world that owned one was freed.

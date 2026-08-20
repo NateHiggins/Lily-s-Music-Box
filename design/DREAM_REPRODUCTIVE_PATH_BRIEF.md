@@ -90,12 +90,20 @@ topology and joins do not rearrange in view.
 
 ## Light and shame
 
-The organism is black outside the service lamp. Under the beam it returns
-antique hammered gold through a dedicated analytic reflection shader. The
-shader outputs zero without lamp energy; it is not a self-lit or emissive
-texture. It evaluates the same lamp pose the architecture uses because a thin
-object, its co-located light and its cast shadow otherwise align into one black
-cut-out.
+The architectural lineage is near-black outside the service lamp. Under the
+beam it returns antique hammered gold through a dedicated analytic reflection
+shader. Its residual dark term is deliberately negligible; it is not a room
+light. The shader evaluates the same lamp pose the architecture uses because a
+thin object, its co-located light and its cast shadow otherwise align into one
+black cut-out.
+
+**2026-08-20 hazard exception:** the shared material now also serves the
+tentacled bodies of existing dark-live hazards. Those limbs continue to move,
+remain contact-active and retain a faint wine-purple local afterglow with the
+lamp off. The beam then wakes their antique-gold seams and eyes several times
+brighter. This is not a change to the lineage body's collision-free ancestry
+contract, and it is not a second hazard system: each rendered centerline is
+registered with the source `DreamHazard` and evaluated by `DreamHazardField`.
 
 This keeps the established double meaning of light:
 
@@ -138,9 +146,11 @@ reproductive path is ancestry across ordinary thresholds, not a semantic
 rename for a nested room.
 
 It also does not close `DREAM_SURFACE_REDESIGN_BRIEF.md` workstreams C–F. The
-lineage body establishes the batched geometric and material vocabulary those
-passes can inherit, but exposure-ramped wall rupture, large breach tentacles,
-discrete eyes and bounded reflected-gold world light remain separate work.
+lineage body established the batched geometric and material vocabulary; the
+2026-08-20 hazard pass now adds dark-live batched tentacles and first geometric
+eyes tied to real contact. Exposure-ramped wall rupture, torn-edge/interior
+depth, stage-2/3 eye language, camera-tracking pupils and bounded reflected-gold
+world light remain separate work.
 
 ## Proof contract
 

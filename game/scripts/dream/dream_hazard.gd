@@ -49,6 +49,14 @@ var contact_s := -1.0
 ## so a reviewer can see the player had room as well as time.
 var tell_distance := 0.0
 
+## Substantial organic limbs are contact geometry belonging to THIS hazard,
+## not to their renderer. DreamHazardGrowth publishes the exact centerlines
+## it drew and this owner evaluates them with the player's standing capsule.
+## A path is absent for the old catalog hazards and for purely decorative
+## capillary veins, so the original clearance-circle contract is unchanged.
+var contact_paths: Array[PackedVector3Array] = []
+var contact_tube_radius := 0.0
+
 
 func configure(record: Dictionary, tuning: Dictionary) -> void:
 	id = str(record.get("id", ""))
@@ -76,6 +84,13 @@ func configure(record: Dictionary, tuning: Dictionary) -> void:
 	caption = str(tuning.get("caption", ""))
 	condition = str(tuning.get("condition", ""))
 	break_speed_mps = float(tuning.get("break_speed_mps", 3.8))
+	contact_paths.clear()
+	contact_tube_radius = 0.0
+
+
+func set_contact_paths(paths: Array[PackedVector3Array], radius_m: float) -> void:
+	contact_paths = paths.duplicate()
+	contact_tube_radius = maxf(0.0, radius_m)
 
 
 ## One deterministic step. `elapsed` is the run clock, so the warning a
@@ -115,13 +130,69 @@ func evaluate(player_pos: Vector3, lamp_on: bool, speed: float,
 		contact_s = elapsed
 		return outcome
 
-	if d > clearance_radius:
+	var touches_growth := _touches_contact_path(player_pos)
+	if d > clearance_radius and not touches_growth:
 		return NONE
 	if not _condition_live(lamp_on, speed):
 		return NONE
 	contacted = true
 	contact_s = elapsed
 	return outcome
+
+
+func _touches_contact_path(player_pos: Vector3) -> bool:
+	if contact_paths.is_empty() or contact_tube_radius <= 0.0:
+		return false
+	# PlayerController's standing capsule is 1.524 m high with a 0.33 m
+	# radius. The line between its spherical caps is the exact primitive a
+	# swept tube needs to meet; adding the two radii gives contact. Keeping the
+	# dimensions here avoids a rules owner depending on the player's script.
+	var body_a := player_pos + Vector3.UP * 0.33
+	var body_b := player_pos + Vector3.UP * (1.524 - 0.33)
+	var contact_r := contact_tube_radius + 0.33
+	var contact_r2 := contact_r * contact_r
+	for path in contact_paths:
+		for i in path.size() - 1:
+			if _segment_distance_squared(body_a, body_b, path[i], path[i + 1]) \
+					<= contact_r2:
+				return true
+	return false
+
+
+## Squared distance between two finite 3-D segments. Kept scalar and
+## allocation-free because every live tendril asks it every fixed step.
+static func _segment_distance_squared(p1: Vector3, q1: Vector3,
+		p2: Vector3, q2: Vector3) -> float:
+	var d1 := q1 - p1
+	var d2 := q2 - p2
+	var r := p1 - p2
+	var a := d1.dot(d1)
+	var e := d2.dot(d2)
+	var f := d2.dot(r)
+	var s := 0.0
+	var t := 0.0
+	if a <= 0.000001 and e <= 0.000001:
+		return p1.distance_squared_to(p2)
+	if a <= 0.000001:
+		t = clampf(f / e, 0.0, 1.0)
+	else:
+		var c := d1.dot(r)
+		if e <= 0.000001:
+			s = clampf(-c / a, 0.0, 1.0)
+		else:
+			var b := d1.dot(d2)
+			var denom := a * e - b * b
+			if absf(denom) > 0.000001:
+				s = clampf((b * f - c * e) / denom, 0.0, 1.0)
+			t = (b * s + f) / e
+			if t < 0.0:
+				t = 0.0
+				s = clampf(-c / a, 0.0, 1.0)
+			elif t > 1.0:
+				t = 1.0
+				s = clampf((b - c) / a, 0.0, 1.0)
+	var closest := (p1 + d1 * s) - (p2 + d2 * t)
+	return closest.dot(closest)
 
 
 ## Whether the danger is live at this instant. An unconditional hazard is

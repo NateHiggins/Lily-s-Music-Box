@@ -18,12 +18,44 @@ architecture.
 
 The seven commits from `b68ed20` through `1b122e0` are the completed
 dream foundation: durable exposure, the first dream perf station, a green
-hazard contract on the pocket, and deletion of `DREAM_FRACTAL`. The gold/tentacle
-amplification queued after those commits had **not** begun when the previous
-session stopped. It is now recorded in `DREAM_SURFACE_REDESIGN_BRIEF.md` and is
-the next production surface work: C (relief), D (breach), E (persistent 3D
-tentacles), F (eyes), plus exposure-driven reflected gold light. Do not mistake
-the durable field already landed for any of that visible geometry.
+hazard contract on the pocket, and deletion of `DREAM_FRACTAL`. The later
+reproductive-path checkpoint added hereditary architectural anatomy.
+
+**The 2026-08-20 owner target slice is now built.** Every eligible dark-live
+hazard grows a deterministic, batched organic body with slow shader motion,
+wine-purple dark presence, lamp-awakened antique-gold veins and first geometric
+eyes. Substantial rendered centerlines are contact paths on their source
+`DreamHazard`, so the old circular root is no longer the only dangerous part;
+`DreamHazardField` remains the sole evaluator/outcome owner. The Vantry trunk
+and lift void are excluded because their authored mechanisms would be changed
+by this form. Every nonblank live room also carries mesh-only visual extracts
+of its source Orison's real procedural props; no waking owner, collision, light,
+sound or E verb crosses over. `DreamSurfaceTargetTest` is 21/21 and its
+production frames live in `art/renders/dream_surface_target_v2/`.
+
+This is **not N10 complete**. Next production surface work is C (relief) and D
+(torn breach plus impossible interior depth), then exposure-ramped breach
+anatomy, the complete stage eye language/tracking, and governed reflected-gold
+world light. The current hazard growth answers the owner's dark-live danger
+ruling; it does not pretend to be the still-missing exposure-stage breach.
+
+**Pre-existing proof debt found during this pass:**
+`DreamPerceptionTest.tscn` is still a chain-era harness. It asks the initial
+one-world pocket for literal ids `vantry_signal_trunk`, `open_lift_void` and
+`hollow_runner`; the pocket neither guarantees all three are live at spawn nor
+uses unsuffixed instance ids. It consequently executes 4/20 checks and exits 1
+with null-hazard script errors on untouched `fba9828` topology assumptions.
+`DreamHazardTest` remains green at 42 checks. Repair the perception harness by
+staging deterministic pocket instances by **socket** before treating its old
+green claim as current evidence; do not weaken the fairness assertions.
+
+`WalkTest` FAST and FULL x8/480 both print PASS and exit 0, but neither run is
+a clean proof artifact: both log a pre-existing `walk_test.gd:885` null
+`GameBoot.layout` script error; FULL also logs existing headless broadcast
+texture and resident-route errors. None of the dream files in this slice owns
+those paths. Record the PASS lines if useful, but do not call the suite green
+until its log is error-free—the project rule is to grep the log, not trust the
+last line.
 
 RECURSION has now been priced by `DreamRecursionPrice.tscn`, not built. Across
 14,400 deterministic rooms it appears in 362 (2.5%), never before depth 5 in
@@ -98,8 +130,10 @@ atlas into space. 175/175 in `DreamRoomBuilderTest`.
 bounded inherited phenotype without touching room identity or topology. Each
 live room grows one batched, collision-free brood knot with a remembered parent
 umbilical, prospective child helices, open birth-frames and sealed buds. The
-body breathes at 0.065–0.105 Hz and its antique gold is returned only by the
-production service lamp. `DreamLineageTest` is 21/21. This is ancestry, not the
+body breathes at 0.065–0.105 Hz; it is near-black outside the production
+service lamp. Dark-live hazard limbs are the ruled exception, retaining a low
+wine-purple glow and real contact while unlit. `DreamLineageTest` is 21/21 and
+`DreamSurfaceTargetTest` is 21/21. This is ancestry, not the
 still-unbuilt enterable `RECURSION` fault, and it does not close surface work
 C–F.
 

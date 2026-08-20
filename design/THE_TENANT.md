@@ -65,6 +65,13 @@ That underneath is not a place. **It is her body.** The tentacles are her. The
 eyes are hers. The nested frame-tunnel receding further than the building can
 contain is what she looks like from inside three dimensions.
 
+**Her dangerous limbs do not cease when unobserved.** Switching off the lamp
+removes the humiliating gold exposure, not her body and not its reach. A live
+tentacle keeps breathing and keeps the hazard's authored condition in the dark,
+with only a low wine-purple glow to betray its silhouette. Light returns its
+seams and eyes to gold. The visible centerline is the hazard centerline: the
+game may never ask the player to fear a limb they can safely walk through.
+
 **The reproductive path.** The maze's doorway ancestry is how that body makes
 descendants in three dimensions. Every room is a generation; the remembered
 entry is its parent; every other aperture is a possible child. The player does

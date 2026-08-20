@@ -1306,18 +1306,30 @@ unresolved. K7's source-backed loop contract is closed in
   collision and route without adding a monster mesh or combat owner.
 - **N7 DONE.** The lift void, Vantry signal trunk and hollow runner are live;
   warning, contact/fall outcomes and directional captions are proved by the
-  Hazard/Perception suites. The later sockets remain data until their cases.
+  Hazard suite. **Proof debt found 2026-08-20:** `DreamPerceptionTest` still
+  assumes the deleted chain (all three literal ids present at spawn) and now
+  executes only 4/20 checks with null-hazard errors on the one-world pocket.
+  Stage deterministic instances by socket and re-prove its fairness/channel
+  assertions; do not weaken them. The later sockets remain data until their
+  cases.
 - **N8 DONE.** Gate D plays the complete Mina shift through the production
   `CampaignShell` and real dream for capture, contact and fall, rebuilding the
   waking Orison at the authored 4B bedside with the factual refrigerator
   residue intact. The isolated dream station is below 16.6 ms.
 - **N9** Use Peter as the shared-profile proof. Change content, pursuit grammar
   and case truth without forking the maze, director, hazard or save owners.
-- **N10 — DREAM SURFACE C–F.** The persistent exposure field and organic front
-  are landed. Next: relief, breach depth, exposure-ramped 3D tentacles, eyes and
-  a bounded persistent reflected-gold light. The 2026-08-18 owner amplification
-  is recorded in `DREAM_SURFACE_REDESIGN_BRIEF.md`; nothing in this line licenses
-  emissive gold, popping geometry, a second combat system or unmeasured draws.
+- **N10 — DREAM SURFACE C–F (PARTIAL).** The persistent exposure field and
+  organic front are landed. The 2026-08-20 target slice adds one batched
+  dark-live growth surface for eligible hazards, registers every substantial
+  tendril centerline back on its source `DreamHazard`, adds first geometric
+  eyes, and furnishes every nonblank remembered room with mesh-only extracts of
+  production Orison props. Live tissue keeps a low wine-purple afterglow and
+  motion in darkness; the lamp remains the dominant antique-gold response.
+  The conditional Vantry trunk is deliberately excluded. Still open: relief
+  (C), torn breach and impossible interior depth (D), exposure-ramped breach
+  anatomy, full stage eye language/tracking, and bounded persistent reflected
+  gold world light. Nothing licenses popping geometry, a second combat system
+  or unmeasured draws.
 - **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
   heredity and visible anatomy: bounded parent/child genomes, brood knots,
   parent umbilicals, prospective child helices, open birth-frames and sealed

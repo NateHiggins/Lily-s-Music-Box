@@ -252,4 +252,8 @@ func _quad(tool: SurfaceTool, a: Vector3, b: Vector3, c: Vector3,
 		d: Vector3, normal: Vector3) -> void:
 	for point in [a, b, c, a, c, d]:
 		tool.set_normal(normal)
+		# The shared body shader uses vertex colour as anatomy metadata.
+		# Lineage joins stay structurally still; the separate hazard-growth
+		# surface authors flex and eye channels explicitly.
+		tool.set_color(Color(0.0, 0.0, 0.0, 1.0))
 		tool.add_vertex(point)

@@ -86,6 +86,8 @@ extends RefCounted
 const CATALOG_PATH := "res://data/dream_module_catalog.json"
 const DreamLineageBodyScript := preload(
 		"res://scripts/dream/dream_lineage_body.gd")
+const DreamOrisonFurnisherScript := preload(
+		"res://scripts/dream/dream_orison_furnisher.gd")
 
 ## Shared with DreamMazeBuilder rather than redefined: a joint is one real
 ## wall, and two different thicknesses would leave a seam you could see.
@@ -1301,8 +1303,20 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 			i += 1
 			DreamMazeBuilder._solid_box(node, "Lintel%02d" % i, door_mat,
 					aperture, door_h, clear_ceiling)
+	_build_orison_furnishing(node, room)
 	_build_lineage_body(node, room)
 	return node
+
+
+## The atlas has always selected a real Orison room as every generation's
+## source, but until now it inherited only that room's measurements.  Borrow a
+## small, source-specific set of the production procedural props as inert
+## rendered meshes.  BLANKING remains honest: the furnisher reads the same
+## blank flag and contributes nothing when a room has forgotten its contents.
+func _build_orison_furnishing(parent: Node3D, room: Dictionary) -> void:
+	var furnishing := DreamOrisonFurnisherScript.new()
+	parent.add_child(furnishing)
+	furnishing.configure(room)
 
 
 ## THE PATH IS HER REPRODUCTIVE ANATOMY.
@@ -1351,6 +1365,10 @@ func _lineage_material(lineage: Dictionary) -> ShaderMaterial:
 	material.shader = load("res://shaders/dream_lineage_gold.gdshader")
 	material.set_shader_parameter("gene_phase",
 			float(lineage.get("phase", 0.0)))
+	# Faint enough that darkness still owns the room, present enough that
+	# switching the lamp off does not make her anatomy cease to exist.
+	material.set_shader_parameter("dark_glow", 0.016)
+	material.set_shader_parameter("motion_gain", 0.0)
 	return material
 
 

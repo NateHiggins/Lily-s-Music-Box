@@ -28,6 +28,38 @@ returning from the revealed otherworld. It persists only for as long as that
 room's exposure memory persists, never flickers, and must be measured against
 the active-light and submission contracts before it ships.
 
+### Owner target and hazard override — 2026-08-20
+
+The new governing composition plate is
+`art/reference/dream_surface/stage4_room_colonisation.png`: recognisable Orison
+rooms and furnishings remain in place while wine-purple organic anatomy has
+colonised corners, mouldings, doors, floors and ceilings. Gold is not a second
+coat painted over it. **The inspection lamp makes seams, veins and eyes return
+antique gold; the body between them remains bodily.**
+
+The same ruling changes the dark-state contract for **hazard anatomy only**.
+Substantial tentacles remain slowly animated, legible and dangerous after the
+lamp moves or switches off. Their unlit state may carry a faint local
+wine-purple biological afterglow. It must not illuminate neighbouring
+architecture, and it must remain far below the lamp-awakened gold response.
+This explicitly supersedes the blanket “zero emission / ordinary unlit hall”
+wording below wherever that wording would make a live limb disappear. Dormant
+scars and ordinary lineage remain near-black; the exception does not turn the
+whole maze into an emissive set.
+
+Danger and picture share an owner. Every substantial growth centerline is
+registered on its source `DreamHazard`; `DreamHazardField` still performs the
+one contact evaluation and commits the one existing outcome. The renderer adds
+no `CollisionObject3D`, damage volume or second combat system. Fine capillary
+veins may be visual-only, but no limb that reads as a traversable obstacle may
+be harmless. The Vantry signal trunk is excluded: its authored lesson is that
+its arc is live only under the lamp, so giving it a dark-live body would lie.
+
+Finally, a dream room is a memory of the Orison, not an empty procedural box.
+Furnishing may be borrowed from production Orison prop constructors only by
+extracting their finished meshes. Waking `FunctionalProp` owners, collisions,
+lights, audio and interaction verbs may not cross that boundary.
+
 ---
 
 ## WHAT THE PLATES SHOW — FOUR STAGES OF ONE SURFACE
@@ -167,7 +199,9 @@ is a shader-space rotation of the pupil, not an animated mesh.
    reflected-light threshold it catches the lamp and is otherwise as dark as
    everything else. Above that threshold, one bounded secondary light may
    return warm gold into the room as ruled above; it is a governed world light,
-   not self-lit albedo and not a duplicate flashlight cone.
+   not self-lit albedo and not a duplicate flashlight cone. **2026-08-20
+   exception:** live hazard tissue may carry the faint local biological
+   afterglow ruled above. The gold response itself remains lamp-dominant.
 2. **The dark stays navigable.** The real building is dimly readable at the
    feet without the lamp. The player can always move; they cannot always see
    what is coming through.
@@ -198,6 +232,7 @@ Not "does it run." Reproduce the plates:
 - One tentacle crossing in front of the camera, lit only where the lamp finds
   it.
 
-And the control that proves the thesis: **the same corridor, unlit, must be
-photographable as an ordinary derelict apartment hallway with nothing wrong
-with it.**
+And the control that proves the thesis: an unlit corridor without a live limb
+must still be photographable as ordinary derelict Orison. A corridor carrying
+a live limb is no longer allowed to claim that nothing is wrong: its geometry
+keeps moving and its low wine-dark afterglow keeps the danger barely legible.

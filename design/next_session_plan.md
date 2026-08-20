@@ -10,10 +10,13 @@ The implementation status below is retained history through the Atlas landing,
 but it is no longer the pickup. Read `design/next_session_dream.md` next; its
 2026-08-20 checkpoint records the one-world pocket, durable exposure, measured
 dream frame, completed recursion price and the owner's queued gold/tentacle
-amplification. The immediate dream production task is TASKS **N10**, surface
-workstreams C–F plus governed reflected-gold light. RECURSION is measured but
-not licensed, and the embrace still follows the eyes rather than preceding
-them.
+amplification. N10 now has its first geometric slice: batched dark-live hazard
+tentacles, owner-true contact paths, first geometric eyes, and mesh-only Orison
+furnishing. The immediate dream production task remains TASKS **N10**,
+specifically surface relief (C) and breach/interior depth (D), followed by the
+exposure-ramped breach form and governed reflected-gold world light. RECURSION
+is measured but not licensed, and the embrace still follows the eyes rather
+than preceding them.
 
 The parallel street lane's paused coachwork pass is now a bounded T2g
 checkpoint with focused contracts and A/A evidence. It does not own the next
