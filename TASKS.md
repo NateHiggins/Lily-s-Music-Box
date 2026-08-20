@@ -1326,10 +1326,10 @@ unresolved. K7's source-backed loop contract is closed in
   production Orison props. Live tissue keeps a low wine-purple afterglow and
   motion in darkness; the lamp remains the dominant antique-gold response.
   The conditional Vantry trunk is deliberately excluded. Later checkpoints
-  below close relief (C) and the deterministic eye family. Still open: torn
-  breach and impossible interior depth (D), exposure-ramped breach anatomy,
-  and bounded persistent reflected-gold world light. Nothing licenses popping
-  geometry, a second combat system or unmeasured draws.
+  below close relief (C), the deterministic eye family and the torn breach
+  with impossible interior depth (D). Still open: exposure-ramped breach
+  anatomy and bounded persistent reflected-gold world light. Nothing licenses
+  popping geometry, a second combat system or unmeasured draws.
   **Wall-architecture follow-up landed 2026-08-20.** Every remembered nonblank
   generation now carries a visual-only Orison interior shell: 140 mm skirting,
   canonical 1.32 m dado and framed corridor wainscot, 2.18 m picture rail,
@@ -1400,7 +1400,21 @@ unresolved. K7's source-backed loop contract is closed in
   roof-monitor walk at z=2.9; the immediate fresh-process rerun passed and both
   retained inherited logged diagnostics. Proof:
   `art/renders/dream_rendering_r3/README.md`.
-  **Immediate pickup: R4 torn breach and cheap impossible interior depth.**
+  **R4 LANDED 2026-08-20.** One deterministic dark-live hazard per batch now
+  owns one dominant 1.28 × 2.24 m wound on its actual Atlas room wall.
+  Eighteen-point torn plaster, six broken lath pieces, an interrupted living
+  rim and seven rubble pieces are real geometry in the existing one hazard
+  surface. Its one opaque flat face renders nine nested angular recession
+  bands, false-depth cables and one vanishing eye: 87 mm physical depth reads
+  as 32 m without another draw, room, camera, viewport or world. The wall and
+  its collision remain intact; an authoritative ray proves it. Target 59/59,
+  RoomBuilder 175/175, Hazard 42/42, Lineage 21/21; real-window 1440p dream
+  perf remains 0/4 over budget, 2.16 ms worst and 172 calls worst. WalkTest
+  FAST and FULL x8/480 both pass, with inherited logged diagnostics. Proof:
+  `art/renders/dream_rendering_r4/README.md`.
+  **Immediate pickup: R5 bounded exposure/phase/warp states. Any breach reveal
+  must be continuous material state, never geometry popping. R6 remains the
+  first view-only portal gate; RECURSION remains unlicensed.**
 - **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
   heredity and visible anatomy: bounded parent/child genomes, brood knots,
   parent umbilicals, prospective child helices, open birth-frames and sealed

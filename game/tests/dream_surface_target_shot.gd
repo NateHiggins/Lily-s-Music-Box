@@ -106,42 +106,46 @@ func _stage_camera() -> DreamHazard:
 	var here: Dictionary = root.rooms.room_at_key(here_key)
 	if here.is_empty():
 		return null
+	var growth := root.get("_hazard_growth") as MeshInstance3D
+	var breach: Dictionary = growth.get_meta("breach_record", {}) \
+			if growth != null else {}
+	if breach.is_empty():
+		return null
 	var chosen: DreamHazard = null
 	for hazard in root.hazards.hazards:
-		if hazard.module == here_key and hazard.condition != "lamp_on":
+		if hazard.id == str(breach.get("hazard_id", "")):
 			chosen = hazard
 			break
 	if chosen == null:
 		return null
-	var rect: Array = here.rect
+	var rect: Array = _rect_for(str(breach.get("module", here_key)))
+	if rect.is_empty():
+		return null
 	var width := float(rect[2]) - float(rect[0])
 	var depth := float(rect[3]) - float(rect[1])
-	var axis := Vector3.RIGHT if width >= depth else Vector3.FORWARD
-	# Photograph the encounter distance the player actually reaches before the
-	# contact margin, not the old five-metre survey view.  At that distance the
-	# bounded black level still reaches the violated wall and the material's
-	# cell/fold/wet hierarchy is large enough to judge instead of collapsing to
-	# one magenta silhouette.
-	var distance := minf(3.6, maxf(2.85, maxf(width, depth) * 0.20))
-	var stands := [
-		Vector3(chosen.position.x, 0.0, chosen.position.z) + axis * distance,
-		Vector3(chosen.position.x, 0.0, chosen.position.z) - axis * distance,
-	]
-	var stand: Vector3 = stands[0]
-	for candidate in stands:
-		if candidate.x > float(rect[0]) + 0.56 \
-				and candidate.x < float(rect[2]) - 0.56 \
-				and candidate.z > float(rect[1]) + 0.56 \
-				and candidate.z < float(rect[3]) - 0.56:
-			stand = candidate
-			break
-	var short_axis := Vector3.FORWARD if width >= depth else Vector3.RIGHT
+	var focus: Vector3 = breach.center
+	var normal: Vector3 = breach.normal
+	var side: Vector3 = breach.side
 	var short_extent := minf(width, depth)
-	# Put the hazard slightly off-centre and spend the beam on the wall where
-	# its crawler becomes tissue.  The prior straight-on shot proved the limb
-	# but left the architectural question in darkness.
-	var focus := Vector3(chosen.position.x, 1.28, chosen.position.z) \
-			+ short_axis * short_extent * 0.34
+	var long_extent := maxf(width, depth)
+	# Stand inside the same Atlas room and look obliquely across the torn edge.
+	# The parallax angle is what distinguishes a wall-thin texture from the
+	# authored false volume, while the wide context keeps the Orison/flesh
+	# balance judgeable instead of turning this into a material close-up.
+	var away_from_root := focus - Vector3(chosen.position.x, focus.y,
+			chosen.position.z)
+	away_from_root -= normal * away_from_root.dot(normal)
+	if away_from_root.length() < 0.01:
+		away_from_root = side
+	else:
+		away_from_root = away_from_root.normalized()
+	var stand := focus + normal * minf(1.38, short_extent * 0.64) \
+			+ away_from_root * minf(1.35, long_extent * 0.10)
+	stand.y = 0.0
+	stand.x = clampf(stand.x, float(rect[0]) + 0.58,
+			float(rect[2]) - 0.58)
+	stand.z = clampf(stand.z, float(rect[1]) + 0.58,
+			float(rect[3]) - 0.58)
 	root.player.global_position = stand
 	var flat := focus - stand
 	flat.y = 0.0
@@ -149,6 +153,9 @@ func _stage_camera() -> DreamHazard:
 		root.player.rotation.y = atan2(flat.x, -flat.z)
 	root.player.camera.look_at(focus, Vector3.UP)
 	root.player.camera.fov = 70.0
+	print("[DREAM TARGET SHOT] breach=%s room=%s center=%s normal=%s stand=%s" % [
+			str(breach.get("id", "")), str(breach.get("module", "")),
+			str(focus), str(normal), str(stand)])
 	# The normal player process chases the hand/tool aim toward the camera.
 	# This proof freezes that process, so settle the real spotlight on the same
 	# focal point once instead of leaving it aimed at its pre-teleport pose.

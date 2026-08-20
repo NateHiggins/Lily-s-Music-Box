@@ -6,7 +6,7 @@ extends Node
 ## growth maps back to the existing hazard owner, and furnishing contains only
 ## extracted production meshes rather than waking gameplay systems.
 
-const EXPECTED_CHECKS := 47
+const EXPECTED_CHECKS := 59
 const HazardGrowthScript := preload(
 		"res://scripts/dream/dream_hazard_growth.gd")
 
@@ -20,6 +20,7 @@ func _ready() -> void:
 	_watchdog()
 	await _build()
 	_growth_contract()
+	_breach_contract()
 	_interior_contract()
 	_furnishing_contract()
 	if checks != EXPECTED_CHECKS:
@@ -270,6 +271,125 @@ func _growth_contract() -> void:
 		contacted_in_dark = contact_owner.contacted
 	_check("the existing hazard owner commits limb contact in darkness",
 			contacted_in_dark)
+
+
+func _breach_contract() -> void:
+	var growth := root.get("_hazard_growth") as MeshInstance3D
+	var breach: Dictionary = growth.get_meta("breach_record", {}) \
+			if growth != null else {}
+	_check("the live pocket authors exactly one dominant torn breach",
+			growth != null and int(growth.get_meta("breaches", 0)) == 1
+			and not breach.is_empty())
+	var owner: DreamHazard = null
+	for hazard in root.hazards.hazards:
+		if hazard.id == str(breach.get("hazard_id", "")):
+			owner = hazard
+			break
+	_check("the breach names one existing dark-live hazard and its socket",
+			owner != null and owner.condition != "lamp_on"
+			and not owner.falls_through
+			and str(breach.get("module", "")) == owner.module
+			and str(breach.get("socket", "")) == owner.socket)
+	var room_rect := _rect_for(str(breach.get("module", "")))
+	var center: Vector3 = breach.get("center", Vector3.ZERO)
+	var normal: Vector3 = breach.get("normal", Vector3.ZERO)
+	var on_ruled_wall := false
+	if room_rect.size() == 4:
+		if absf(normal.z) > 0.9:
+			on_ruled_wall = is_equal_approx(center.z,
+					float(room_rect[3]) + normal.z * 0.045)
+		elif absf(normal.x) > 0.9:
+			on_ruled_wall = is_equal_approx(center.x,
+					float(room_rect[2]) + normal.x * 0.045)
+	_check("its centre and inward normal come from the Atlas room wall",
+			on_ruled_wall and is_equal_approx(center.y, 1.44)
+			and is_equal_approx(normal.length(), 1.0))
+	var clears_authored_doors := true
+	for door_value in root.plan.get("doors", []):
+		var door: Dictionary = door_value
+		if str(door.get("from", "")) != str(breach.get("module", "")) \
+				and str(door.get("to", "")) != str(breach.get("module", "")):
+			continue
+		var aperture: Array = door.get("aperture", [])
+		if aperture.size() < 4:
+			continue
+		var shares_wall := false
+		var along := center.x
+		var span := Vector2.ZERO
+		if absf(normal.z) > 0.9:
+			shares_wall = absf((float(aperture[1]) + float(aperture[3]))
+					* 0.5 - float(room_rect[3])) <= 0.26
+			span = Vector2(minf(float(aperture[0]), float(aperture[2])),
+					maxf(float(aperture[0]), float(aperture[2])))
+		else:
+			along = center.z
+			shares_wall = absf((float(aperture[0]) + float(aperture[2]))
+					* 0.5 - float(room_rect[2])) <= 0.26
+			span = Vector2(minf(float(aperture[1]), float(aperture[3])),
+					maxf(float(aperture[1]), float(aperture[3])))
+		if shares_wall:
+			var gap := maxf(span.x - along, along - span.y)
+			clears_authored_doors = clears_authored_doors and gap >= float(
+					breach.get("half_width_m", 9.0)) + 0.119
+	_check("the wound cannot eat any authored doorway on its chosen wall",
+			clears_authored_doors)
+	_check("the torn edge is real geometry: plaster lath living rim and rubble",
+			int(breach.get("aperture_segments", 0)) >= 16
+			and int(breach.get("rim_segments", 0)) >= 12
+			and int(breach.get("rim_segments", 99))
+			< int(breach.get("aperture_segments", -1))
+			and int(breach.get("lath_pieces", 0)) == 6
+			and int(breach.get("rubble_pieces", 0)) == 7)
+	_check("the flat recess carries nested frames and one vanishing-point eye",
+			str(breach.get("interior", ""))
+			== "nested_angular_frame_tunnel"
+			and bool(breach.get("vanishing_point_eye", false)))
+	var room_span := maxf(float(room_rect[2]) - float(room_rect[0]),
+			float(room_rect[3]) - float(room_rect[1])) if room_rect.size() == 4 \
+			else INF
+	_check("shader depth exceeds the room while physical recess stays shallow",
+			float(breach.get("actual_recess_m", 1.0)) < 0.10
+			and float(breach.get("apparent_depth_m", 0.0)) > room_span)
+	_check("the impossible interior remains inside the existing submitted draw",
+			growth != null and growth.mesh != null
+			and growth.mesh.get_surface_count() == 1
+			and str(growth.get_meta("breach_rendering", ""))
+			== "same_surface_interior_map_v1")
+	var wall_hit: Dictionary = {}
+	if not breach.is_empty():
+		var query := PhysicsRayQueryParameters3D.create(
+				center + normal * 0.48, center - normal * 0.48)
+		wall_hit = root.get_world_3d().direct_space_state.intersect_ray(query)
+	_check("the visual tear leaves the authoritative wall collision intact",
+			not wall_hit.is_empty()
+			and str(breach.get("navigation", ""))
+			== "authoritative_wall_intact"
+			and str(growth.get_meta("breach_navigation", ""))
+			== "false_depth_wall_intact")
+	_check("no viewport camera or second rendered world hides behind the wound",
+			growth.find_children("*", "SubViewport", true, false).is_empty()
+			and growth.find_children("*", "Camera3D", true, false).is_empty()
+			and growth.get_world_3d() == root.get_world_3d())
+	var material := growth.material_override as ShaderMaterial \
+			if growth != null else null
+	_check("breach ownership and recession diagnostics ship available but off",
+			material != null
+			and int(material.get_shader_parameter("breach_debug_view")) == 0
+			and growth.get_meta("breach_debug_views", PackedStringArray())
+			== PackedStringArray([
+				"beauty", "surface_ownership", "recession_bands"]))
+	var duplicate := HazardGrowthScript.new()
+	duplicate.configure(root.hazards.hazards, root.plan)
+	_check("the same seed reconstructs the same breach record exactly",
+			duplicate.get_meta("breach_record", {}) == breach)
+	duplicate.free()
+
+
+func _rect_for(room_id: String) -> Array:
+	for entry in root.plan.get("modules", []):
+		if str(entry.get("id", "")) == room_id:
+			return entry.get("rect", [])
+	return []
 
 
 func _interior_contract() -> void:

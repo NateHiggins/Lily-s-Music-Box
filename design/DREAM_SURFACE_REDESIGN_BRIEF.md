@@ -203,8 +203,25 @@ existing submitted surface—no eye node, material, collision, light, damage
 volume or attention manager was added. `DREAM_EYE_DEBUG=1` isolates rest state
 and the single tracker; `=2` isolates gaze classes. Production beauty and both
 diagnostic sets are recorded at `art/renders/dream_rendering_r3/README.md`.
-R4, the torn breach and cheap impossible interior, is now the pickup. R3 does
-not license warp, phase states, portals or RECURSION.
+R3 did not license warp, phase states, portals or RECURSION.
+
+**Implementation checkpoint — 2026-08-20, R4 torn breach.** R4 is landed.
+One eligible dark-live danger in the live batch deterministically owns one
+dominant 1.28 × 2.24 m wound on its actual Atlas room wall. Eighteen seeded
+edge points, broken plaster, six exposed lath pieces, an interrupted living
+rim and seven shallow rubble pieces provide real silhouette inside the
+existing one-surface `DreamHazardGrowth` mesh. One double-wound flat face then
+evaluates nine bounded nested angular frames, false-depth cables and a single
+vanishing-point eye in the existing lineage shader: 87 mm of physical recess
+claims 32 m of apparent depth without repeated geometry or another draw. The
+authoritative wall is deliberately intact and still catches a physics ray.
+No new door, graph edge, room, camera, `SubViewport`, `World3D`, collision,
+damage or hazard owner exists. `DREAM_BREACH_DEBUG=1` isolates face,
+plaster/rubble and lath ownership; `=2` displays recession bands, internal
+cables and the eye. Production beauty, diagnostics, rejected readings and
+proof are recorded at `art/renders/dream_rendering_r4/README.md`. R5, bounded
+phase/warp state and a continuous exposure-owned reveal, is now the pickup.
+R4 does not license a view portal or RECURSION.
 
 ---
 

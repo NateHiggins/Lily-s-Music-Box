@@ -16,6 +16,10 @@ const EYE_SIDES := 12
 const MAIN_BRANCHES := 9
 const SIDE_BRANCHES := 2
 const CONTACT_TUBE_RADIUS_M := 0.18
+const BREACH_SEGMENTS := 18
+const BREACH_HALF_WIDTH_M := 0.64
+const BREACH_HALF_HEIGHT_M := 1.12
+const BREACH_APPARENT_DEPTH_M := 32.0
 const EYE_BRANCHES := [1, 2, 4, 5, 7]
 const EYE_STATES := [
 		"closed", "half_lidded", "half_lidded", "half_lidded", "open"]
@@ -39,6 +43,7 @@ func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 	var contact_path_count := 0
 	var membrane_count := 0
 	var capillary_count := 0
+	var breach_record: Dictionary = {}
 	var prepared: Array[Dictionary] = []
 	for hazard in live_hazards:
 		hazard.set_contact_paths([], 0.0)
@@ -74,13 +79,16 @@ func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 		var built_seed := int(prepared_record.seed)
 		ids.append(built_hazard.id)
 		sockets.append(built_hazard.socket)
+		var owns_dominant_breach := prepared_index == tracker_hazard
 		var built := _append_hazard(tool, built_hazard, built_rect, built_seed,
-				prepared_index == tracker_hazard)
+				owns_dominant_breach, plan)
 		tendril_count += int(built.tendrils)
 		eye_records.append_array(built.eye_records)
 		contact_path_count += int(built.contact_paths)
 		membrane_count += int(built.membranes)
 		capillary_count += int(built.capillaries)
+		if owns_dominant_breach:
+			breach_record = built.breach_record
 	if ids.is_empty():
 		mesh = null
 		visible = false
@@ -112,6 +120,13 @@ func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 	set_meta("contact_paths", contact_path_count)
 	set_meta("wall_membranes", membrane_count)
 	set_meta("visual_capillaries", capillary_count)
+	set_meta("breaches", 0 if breach_record.is_empty() else 1)
+	set_meta("breach_record", breach_record)
+	set_meta("breach_owner", "DreamHazardField")
+	set_meta("breach_rendering", "same_surface_interior_map_v1")
+	set_meta("breach_navigation", "false_depth_wall_intact")
+	set_meta("breach_debug_views", PackedStringArray([
+			"beauty", "surface_ownership", "recession_bands"]))
 	set_meta("motion_hz", 0.13)
 	set_meta("max_sway_m", 0.045)
 	set_meta("material_layers", PackedStringArray([
@@ -120,7 +135,8 @@ func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 
 
 func _append_hazard(tool: SurfaceTool, hazard: DreamHazard, rect: Array,
-		seed: int, allow_camera_gaze: bool) -> Dictionary:
+		seed: int, allow_camera_gaze_and_breach: bool,
+		plan: Dictionary) -> Dictionary:
 	var core := Vector3(hazard.position.x, 0.10, hazard.position.z)
 	var phase := float(seed & 4095) / 4095.0
 	var ring_radius := maxf(0.20, hazard.clearance_radius * 0.74)
@@ -298,7 +314,7 @@ func _append_hazard(tool: SurfaceTool, hazard: DreamHazard, rect: Array,
 		if branch in EYE_BRANCHES:
 			var eye_slot := EYE_BRANCHES.find(branch)
 			var eye := _eye_spec(hazard, seed, eye_slot,
-					allow_camera_gaze, room_center, core, end)
+					allow_camera_gaze_and_breach, room_center, core, end)
 			var eye_t := float(eye.anchor_t)
 			var eye_at := _bezier(start, c1, c2, end, eye_t)
 			var target: Vector3 = eye.target
@@ -310,6 +326,9 @@ func _append_hazard(tool: SurfaceTool, hazard: DreamHazard, rect: Array,
 			_append_eye(tool, eye_at, look.normalized(),
 					root_radius * 0.86 * float(eye.scale), branch_phase, eye)
 			eye_records.append(eye)
+	var breach_record: Dictionary = {}
+	if allow_camera_gaze_and_breach:
+		breach_record = _append_dominant_breach(tool, hazard, rect, seed, plan)
 	hazard.set_contact_paths(contact_paths, CONTACT_TUBE_RADIUS_M)
 	return {
 		"tendrils": tendrils,
@@ -318,7 +337,261 @@ func _append_hazard(tool: SurfaceTool, hazard: DreamHazard, rect: Array,
 		"contact_paths": contact_paths.size(),
 		"membranes": membranes,
 		"capillaries": capillaries,
+		"breach_record": breach_record,
 	}
+
+
+## ONE HOLE, NO SECOND WORLD.
+##
+## The selected dark-live danger tears the positive long wall of its Atlas
+## room. The ragged edge, exposed lath and floor crumbs are real triangles in
+## the danger's already-submitted surface; the impossible volume is a flat,
+## opaque aperture whose shader supplies recession. The authoritative wall is
+## deliberately neither cut nor de-collided. Therefore the image can be much
+## deeper than the building while navigation, forgetting and provenance stay
+## exactly where DreamAtlas and DreamHazard put them.
+func _append_dominant_breach(tool: SurfaceTool, hazard: DreamHazard,
+		rect: Array, seed: int, plan: Dictionary) -> Dictionary:
+	var width := float(rect[2]) - float(rect[0])
+	var depth := float(rect[3]) - float(rect[1])
+	var side := Vector3.RIGHT
+	var normal := Vector3.FORWARD
+	var center := Vector3.ZERO
+	var edge_margin := BREACH_HALF_WIDTH_M + 0.24
+	var along_offset := minf(2.15, maxf(width, depth) * 0.18)
+	if width >= depth:
+		var along_plus := hazard.position.x + along_offset
+		var along_minus := hazard.position.x - along_offset
+		var plus_clearance := minf(along_plus - float(rect[0]),
+				float(rect[2]) - along_plus)
+		var minus_clearance := minf(along_minus - float(rect[0]),
+				float(rect[2]) - along_minus)
+		var along := along_plus if plus_clearance >= minus_clearance \
+				else along_minus
+		center = Vector3(clampf(along, float(rect[0]) + edge_margin,
+				float(rect[2]) - edge_margin), 1.44, float(rect[3]))
+	else:
+		side = -Vector3.FORWARD
+		normal = -Vector3.RIGHT
+		var along_plus := hazard.position.z - along_offset
+		var along_minus := hazard.position.z + along_offset
+		var plus_clearance := minf(along_plus - float(rect[1]),
+				float(rect[3]) - along_plus)
+		var minus_clearance := minf(along_minus - float(rect[1]),
+				float(rect[3]) - along_minus)
+		var along := along_plus if plus_clearance >= minus_clearance \
+				else along_minus
+		center = Vector3(float(rect[2]), 1.44,
+				clampf(along, float(rect[1]) + edge_margin,
+				float(rect[3]) - edge_margin))
+	center = _move_breach_clear_of_doors(center, side, normal, rect,
+			hazard.module, plan, edge_margin)
+	# Everything sits just inside the collision plane. The aperture is opaque,
+	# so the intact wall behind it cannot flatten the interior-mapped view.
+	center += normal * 0.045
+	var phase := float(seed & 4095) / 4095.0
+	var inner: Array[Vector3] = []
+	var outer: Array[Vector3] = []
+	for segment in BREACH_SEGMENTS:
+		var angle := TAU * float(segment) / float(BREACH_SEGMENTS)
+		var tooth := 0.78 + _breach_noise(seed, segment) * 0.30
+		var outer_tooth := 0.86 + _breach_noise(seed + 7919,
+				segment) * 0.32
+		inner.append(center + side * cos(angle) * BREACH_HALF_WIDTH_M * tooth
+				+ Vector3.UP * sin(angle) * BREACH_HALF_HEIGHT_M * tooth
+				- normal * 0.010)
+		outer.append(center
+				+ side * cos(angle) * (BREACH_HALF_WIDTH_M + 0.18)
+				* outer_tooth
+				+ Vector3.UP * sin(angle) * (BREACH_HALF_HEIGHT_M + 0.17)
+				* outer_tooth
+				+ normal * (0.030 + 0.026 * _breach_noise(seed + 3571,
+				segment)))
+
+	var aperture_custom0 := Color(center.x, center.y, center.z, 0.50)
+	var aperture_custom1 := Color(side.x, side.y, side.z,
+			BREACH_HALF_WIDTH_M)
+	var aperture_custom2 := Color(0.0, 1.0, 0.0, BREACH_HALF_HEIGHT_M)
+	var aperture_custom3 := Color(normal.x, normal.y, normal.z, phase)
+	var aperture_center := center - normal * 0.012
+	for segment in BREACH_SEGMENTS:
+		_breach_triangle(tool, aperture_center, inner[segment],
+				inner[(segment + 1) % BREACH_SEGMENTS], normal,
+				Color(0.0, phase, 0.08, 1.0), aperture_custom0,
+				aperture_custom1, aperture_custom2, aperture_custom3)
+		# The authoritative wall can be inherited mirrored by the fractal room
+		# transform. Keep the false-depth face readable from either winding
+		# without disabling culling for the much larger living body.
+		_breach_triangle(tool, aperture_center,
+				inner[(segment + 1) % BREACH_SEGMENTS], inner[segment], -normal,
+				Color(0.0, phase, 0.08, 1.0), aperture_custom0,
+				aperture_custom1, aperture_custom2, aperture_custom3)
+
+	# Broken plaster is not a shader mask: the uneven annulus changes the
+	# outline, depth and shadow of the wall wound. Alternating protrusion keeps
+	# the edge from reading as a clean decorative oval.
+	var plaster_custom := Color(0.0, 0.0, 0.0, 0.75)
+	for segment in BREACH_SEGMENTS:
+		var next := (segment + 1) % BREACH_SEGMENTS
+		_breach_quad(tool, inner[segment] + normal * 0.012,
+				outer[segment], outer[next], inner[next] + normal * 0.012,
+				normal, Color(0.0, phase, 0.12, 1.0), plaster_custom)
+	# The organism has swollen through the exposed edge as one continuous,
+	# uneven lip. A previous lobe-per-segment version read as gemstones pinned
+	# around a portal; the closed tube makes the same real silhouette read as a
+	# wound instead, while remaining far too shallow to promise contact.
+	var rim_path: Array[Vector3] = []
+	for segment in BREACH_SEGMENTS:
+		rim_path.append(inner[segment].lerp(outer[segment], 0.38)
+				+ normal * 0.026)
+	var rim_segments := 0
+	for segment in BREACH_SEGMENTS:
+		# Three exposed plaster gaps stop the lip becoming a decorative portal
+		# frame. Radius also changes at every fracture.
+		if segment % 6 == 4:
+			continue
+		var next := (segment + 1) % BREACH_SEGMENTS
+		var r0 := 0.058 + 0.056 * _breach_noise(seed + 5003, segment)
+		var r1 := 0.058 + 0.056 * _breach_noise(seed + 5003, next)
+		_append_tube_segment(tool, rim_path[segment], rim_path[next], r0, r1,
+				float(segment) / float(BREACH_SEGMENTS),
+				float(next) / float(BREACH_SEGMENTS),
+				fmod(phase + 0.143, 1.0))
+		rim_segments += 1
+
+	# Plaster has torn away from real timber lath. Each row is broken at the
+	# middle so the mapped tunnel keeps a legible vanishing point.
+	var lath_custom := Color(0.0, 0.0, 0.0, 1.0)
+	var lath_pieces := 0
+	for row in 3:
+		var row_y := -0.64 + float(row) * 0.62
+		var left_inner := -0.12 - 0.055 * _breach_noise(seed + 101, row)
+		var right_inner := 0.14 + 0.060 * _breach_noise(seed + 211, row)
+		var left_outer := -BREACH_HALF_WIDTH_M * 0.92
+		var right_outer := BREACH_HALF_WIDTH_M * 0.92
+		var left_center := (left_inner + left_outer) * 0.5
+		var right_center := (right_inner + right_outer) * 0.5
+		_append_breach_box(tool,
+				center + side * left_center + Vector3.UP * row_y
+				+ normal * 0.038,
+				side, Vector3.UP, normal,
+				Vector3(absf(left_inner - left_outer) * 0.5, 0.024, 0.022),
+				Color(0.0, phase, 0.24, 1.0), lath_custom)
+		_append_breach_box(tool,
+				center + side * right_center + Vector3.UP * row_y
+				+ normal * 0.038,
+				side, Vector3.UP, normal,
+				Vector3(absf(right_outer - right_inner) * 0.5, 0.024, 0.022),
+				Color(0.0, phase, 0.24, 1.0), lath_custom)
+		lath_pieces += 2
+
+	# Shallow, fist-sized debris says the wall tore toward the player while
+	# remaining visibly too small to promise a second collision boundary.
+	var rubble_pieces := 0
+	for piece in 7:
+		var lateral := (-0.72 + float(piece) * 0.24) \
+				+ (_breach_noise(seed + 1237, piece) - 0.5) * 0.13
+		var rubble_center := Vector3(center.x, 0.045, center.z) \
+				+ side * lateral + normal * (0.12
+				+ _breach_noise(seed + 1877, piece) * 0.22)
+		_append_ellipsoid(tool, rubble_center, side, Vector3.UP, normal,
+				Vector3(0.075 + 0.035 * _breach_noise(seed + 2551, piece),
+				0.035 + 0.025 * _breach_noise(seed + 3011, piece),
+				0.055 + 0.040 * _breach_noise(seed + 3557, piece)),
+				0.12, phase, plaster_custom)
+		rubble_pieces += 1
+
+	return {
+		"id": "%s/breach_00" % hazard.id,
+		"hazard_id": hazard.id,
+		"socket": hazard.socket,
+		"module": hazard.module,
+		"center": center,
+		"normal": normal,
+		"side": side,
+		"half_width_m": BREACH_HALF_WIDTH_M,
+		"half_height_m": BREACH_HALF_HEIGHT_M,
+		"aperture_segments": BREACH_SEGMENTS,
+		"rim_segments": rim_segments,
+		"lath_pieces": lath_pieces,
+		"rubble_pieces": rubble_pieces,
+		"actual_recess_m": 0.087,
+		"apparent_depth_m": BREACH_APPARENT_DEPTH_M,
+		"interior": "nested_angular_frame_tunnel",
+		"vanishing_point_eye": true,
+		"navigation": "authoritative_wall_intact",
+	}
+
+
+func _breach_noise(seed: int, index: int) -> float:
+	var hashed := absi(("breach:%d:%d" % [seed, index]).hash())
+	return float(hashed & 65535) / 65535.0
+
+
+## A wall belongs to the room's door schedule before it belongs to the wound.
+## Sample the legal longitudinal span only when the preferred point would eat
+## a real opening, then take the position with the greatest door clearance.
+func _move_breach_clear_of_doors(wanted: Vector3, side: Vector3,
+		normal: Vector3, rect: Array, module: String, plan: Dictionary,
+		edge_margin: float) -> Vector3:
+	var door_spans: Array[Vector2] = []
+	for door_value in plan.get("doors", []):
+		var door: Dictionary = door_value
+		if str(door.get("from", "")) != module \
+				and str(door.get("to", "")) != module:
+			continue
+		var aperture: Array = door.get("aperture", [])
+		if aperture.size() < 4:
+			continue
+		if absf(normal.z) > 0.9:
+			var wall_z := (float(aperture[1]) + float(aperture[3])) * 0.5
+			if absf(wall_z - float(rect[3])) <= 0.26:
+				door_spans.append(Vector2(minf(float(aperture[0]),
+						float(aperture[2])), maxf(float(aperture[0]),
+						float(aperture[2]))))
+		else:
+			var wall_x := (float(aperture[0]) + float(aperture[2])) * 0.5
+			if absf(wall_x - float(rect[2])) <= 0.26:
+				door_spans.append(Vector2(minf(float(aperture[1]),
+						float(aperture[3])), maxf(float(aperture[1]),
+						float(aperture[3]))))
+	if door_spans.is_empty():
+		return wanted
+	var wanted_along := wanted.x if absf(side.x) > 0.9 else wanted.z
+	var wanted_clearance := _breach_door_clearance(wanted_along, door_spans)
+	if wanted_clearance >= BREACH_HALF_WIDTH_M + 0.12:
+		return wanted
+	var low := float(rect[0]) + edge_margin if absf(side.x) > 0.9 \
+			else float(rect[1]) + edge_margin
+	var high := float(rect[2]) - edge_margin if absf(side.x) > 0.9 \
+			else float(rect[3]) - edge_margin
+	var best_along := wanted_along
+	var best_score := -INF
+	for sample in 17:
+		var along := lerpf(low, high, float(sample) / 16.0)
+		var clearance := _breach_door_clearance(along, door_spans)
+		var score := clearance - absf(along - wanted_along) * 0.015
+		if score > best_score:
+			best_score = score
+			best_along = along
+	var moved := wanted
+	if absf(side.x) > 0.9:
+		moved.x = best_along
+	else:
+		moved.z = best_along
+	return moved
+
+
+func _breach_door_clearance(along: float, spans: Array[Vector2]) -> float:
+	var clearance := INF
+	for span in spans:
+		var distance := 0.0
+		if along < span.x:
+			distance = span.x - along
+		elif along > span.y:
+			distance = along - span.y
+		clearance = minf(clearance, distance)
+	return clearance
 
 
 func _eye_spec(hazard: DreamHazard, seed: int, slot: int,
@@ -497,7 +770,7 @@ func _append_eye(tool: SurfaceTool, center: Vector3, look: Vector3,
 	var roll := float(eye.roll_rad)
 	side = side.rotated(forward, roll)
 	up = up.rotated(forward, roll)
-	var center_data := Color(center.x, center.y, center.z, 1.0)
+	var center_data := Color(center.x, center.y, center.z, 0.25)
 	var side_data := Color(side.x, side.y, side.z, float(eye.gaze_weight))
 	var up_data := Color(up.x, up.y, up.z, radius)
 	var control_data := Color(float(eye.blink_phase),
@@ -579,6 +852,57 @@ func _quad(tool: SurfaceTool, a: Vector3, b: Vector3, c: Vector3,
 		tool.set_custom(2, custom2)
 		tool.set_custom(3, custom3)
 		tool.add_vertex(record[0])
+
+
+func _breach_triangle(tool: SurfaceTool, a: Vector3, b: Vector3,
+		c: Vector3, wanted_normal: Vector3, color: Color,
+		custom0: Color, custom1: Color = Color(0.0, 0.0, 0.0, 0.0),
+		custom2: Color = Color(0.0, 0.0, 0.0, 0.0),
+		custom3: Color = Color(0.0, 0.0, 0.0, 0.0)) -> void:
+	var vb := b
+	var vc := c
+	var face_normal := (vb - a).cross(vc - a).normalized()
+	if face_normal.dot(wanted_normal) < 0.0:
+		vb = c
+		vc = b
+		face_normal = -face_normal
+	for point in [a, vb, vc]:
+		tool.set_normal(face_normal)
+		tool.set_color(color)
+		tool.set_custom(0, custom0)
+		tool.set_custom(1, custom1)
+		tool.set_custom(2, custom2)
+		tool.set_custom(3, custom3)
+		tool.add_vertex(point)
+
+
+func _breach_quad(tool: SurfaceTool, a: Vector3, b: Vector3, c: Vector3,
+		d: Vector3, wanted_normal: Vector3, color: Color,
+		custom0: Color) -> void:
+	_breach_triangle(tool, a, b, c, wanted_normal, color, custom0)
+	_breach_triangle(tool, a, c, d, wanted_normal, color, custom0)
+
+
+func _append_breach_box(tool: SurfaceTool, center: Vector3, side: Vector3,
+		up: Vector3, normal: Vector3, half_size: Vector3, color: Color,
+		custom0: Color) -> void:
+	var sx := side * half_size.x
+	var uy := up * half_size.y
+	var nz := normal * half_size.z
+	var p000 := center - sx - uy - nz
+	var p001 := center - sx - uy + nz
+	var p010 := center - sx + uy - nz
+	var p011 := center - sx + uy + nz
+	var p100 := center + sx - uy - nz
+	var p101 := center + sx - uy + nz
+	var p110 := center + sx + uy - nz
+	var p111 := center + sx + uy + nz
+	_breach_quad(tool, p001, p101, p111, p011, normal, color, custom0)
+	_breach_quad(tool, p100, p000, p010, p110, -normal, color, custom0)
+	_breach_quad(tool, p101, p100, p110, p111, side, color, custom0)
+	_breach_quad(tool, p000, p001, p011, p010, -side, color, custom0)
+	_breach_quad(tool, p011, p111, p110, p010, up, color, custom0)
+	_breach_quad(tool, p000, p100, p101, p001, -up, color, custom0)
 
 
 func _room_rect(plan: Dictionary, room_id: String) -> Array:

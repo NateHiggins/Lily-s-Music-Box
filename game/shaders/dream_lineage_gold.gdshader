@@ -42,6 +42,7 @@ uniform float tissue_transmission : hint_range(0.0, 2.0) = 0.72;
 uniform float wet_specular_gain : hint_range(0.0, 3.0) = 1.15;
 uniform float gold_vessel_width : hint_range(0.72, 0.98) = 0.925;
 uniform int eye_debug_view : hint_range(0, 2) = 0;
+uniform int breach_debug_view : hint_range(0, 2) = 0;
 
 varying vec3 v_world;
 varying vec3 v_normal;
@@ -50,6 +51,15 @@ varying vec4 v_gene;
 // w=authored gaze target class. Individual eye centers and frames remain
 // vertex-only: the family costs attributes and triangles, not another draw.
 varying vec4 v_eye_state;
+// The aperture shares the body draw, but its one flat face needs a local
+// frame so the fragment shader can look sideways down an impossible tunnel.
+// x=breach flag, y/z=authored half extents, w=seeded phase.
+varying vec4 v_breach_state;
+varying vec3 v_breach_center;
+varying vec3 v_breach_side;
+varying vec3 v_breach_up;
+varying vec3 v_breach_normal;
+varying float v_anatomy_class;
 
 
 void vertex() {
@@ -59,7 +69,11 @@ void vertex() {
 	float flex = COLOR.r;
 	float phase = COLOR.g * 6.28318530718 + gene_phase + motion_phase;
 	float slow = TIME * 6.28318530718 * motion_hz;
-	float eye_flag = step(0.5, CUSTOM0.a);
+	float anatomy_class = CUSTOM0.a;
+	// Normalised class ids survive every backend's vertex-attribute path:
+	// 0 body, .25 eye, .50 false-depth face, .75 plaster, 1.0 timber lath.
+	float eye_flag = 1.0 - step(0.10, abs(anatomy_class - 0.25));
+	float breach_flag = 1.0 - step(0.10, abs(anatomy_class - 0.50));
 	if (eye_flag > 0.5) {
 		vec3 eye_center = CUSTOM0.xyz;
 		vec3 eye_side = normalize(CUSTOM1.xyz);
@@ -99,6 +113,67 @@ void vertex() {
 	v_normal = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
 	v_gene = COLOR;
 	v_eye_state = vec4(eye_flag, CUSTOM1.a, CUSTOM3.y, CUSTOM3.a);
+	v_breach_state = vec4(breach_flag, CUSTOM1.a, CUSTOM2.a, CUSTOM3.a);
+	v_breach_center = (MODEL_MATRIX * vec4(CUSTOM0.xyz, 1.0)).xyz;
+	v_breach_side = breach_flag > 0.5
+			? normalize((MODEL_MATRIX * vec4(CUSTOM1.xyz, 0.0)).xyz)
+			: vec3(1.0, 0.0, 0.0);
+	v_breach_up = breach_flag > 0.5
+			? normalize((MODEL_MATRIX * vec4(CUSTOM2.xyz, 0.0)).xyz)
+			: vec3(0.0, 1.0, 0.0);
+	v_breach_normal = breach_flag > 0.5
+			? normalize((MODEL_MATRIX * vec4(CUSTOM3.xyz, 0.0)).xyz)
+			: vec3(0.0, 0.0, 1.0);
+	v_anatomy_class = anatomy_class;
+}
+
+
+float breach_rect_ring(vec2 p, float radius, float width) {
+	float box = max(abs(p.x) * 0.82, abs(p.y));
+	return 1.0 - smoothstep(width, width + 0.030, abs(box - radius));
+}
+
+
+// x=golden frame lattice, y=vanishing sclera, z=vanishing pupil,
+// w=diagnostic recession band. Nine bounded taps make a wall-thin face read
+// tens of metres deep; no camera, SubViewport or second room is involved.
+vec4 breach_interior(vec2 uv, vec2 view_shift, float phase) {
+	vec2 vanishing = view_shift * 0.16
+			+ vec2(cos(phase * 6.28318530718),
+			sin(phase * 6.28318530718)) * 0.035;
+	float lattice = 0.0;
+	float depth_band = 0.0;
+	for (int layer = 0; layer < 9; layer++) {
+		float z = (float(layer) + 0.72) / 9.0;
+		float scale = 1.0 + z * 6.4;
+		vec2 p = (uv - vanishing * z) * scale;
+		// Alternating quarter-turn offsets make the nested rectangles a broken
+		// Greek-key mechanism instead of a stack of polite picture frames.
+		float quarter = mod(float(layer), 2.0) * 0.085 - 0.0425;
+		p += vec2(sign(p.y), -sign(p.x)) * quarter;
+		float frame = breach_rect_ring(p, 0.79, 0.014 + z * 0.005);
+		float key = step(0.34, abs(sin((p.x + p.y) * 9.0
+				+ phase * 6.28318530718 + float(layer) * 1.7)));
+		frame *= mix(0.48, 1.0, key);
+		float near_weight = 1.0 - z * 0.62;
+		lattice = max(lattice, frame * near_weight);
+		depth_band = max(depth_band, frame * z);
+	}
+	// Fine cables cross several apparent depths. They bend independently of
+	// the architectural lattice, turning a decorative tunnel into a dense
+	// reproductive knot without spending a strand of real geometry.
+	float cable_a = 1.0 - smoothstep(0.020, 0.046,
+			abs(uv.x - sin(uv.y * 5.4 + phase * 8.0) * 0.17));
+	float cable_b = 1.0 - smoothstep(0.018, 0.042,
+			abs(uv.y + cos(uv.x * 6.2 - phase * 6.0) * 0.13));
+	lattice = max(lattice, max(cable_a, cable_b) * 0.56);
+	depth_band = max(depth_band, max(cable_a, cable_b) * 0.72);
+	vec2 eye_p = (uv - vanishing) * vec2(5.2, 8.6);
+	float eye_d = length(eye_p);
+	float sclera = 1.0 - smoothstep(0.78, 0.96, eye_d);
+	float pupil = 1.0 - smoothstep(0.21, 0.34, eye_d);
+	return vec4(clamp(lattice, 0.0, 1.0), sclera, pupil,
+			clamp(depth_band, 0.0, 1.0));
 }
 
 
@@ -215,6 +290,54 @@ void fragment() {
 	// silhouette without inventing a second practical or waking the gold.
 	EMISSION = dark_body * 0.55 + lit_body * 0.035;
 
+	// ARCHITECTURE TORN INTO THE BODY. Class .75 is shattered plaster/rubble;
+	// class 1.0 is exposed lath. They are real geometry but stay dim enough that
+	// the wine tissue remains the corruption rather than a clean construction
+	// diagram. Class .50 is the one opaque face carrying false interior depth.
+	float breach_flag = 1.0 - step(0.10, abs(v_anatomy_class - 0.50));
+	float plaster_flag = 1.0 - step(0.10, abs(v_anatomy_class - 0.75));
+	float lath_flag = 1.0 - step(0.10, abs(v_anatomy_class - 1.0));
+	vec3 old_plaster = vec3(0.28, 0.205, 0.145);
+	vec3 split_lath = vec3(0.24, 0.095, 0.026);
+	vec3 plaster_colour = old_plaster * (0.25 + awake * (0.66 + diffuse));
+	plaster_colour += warm_gold * vein * awake * 0.22;
+	vec3 lath_colour = split_lath * (0.45 + awake * (0.72 + diffuse * 0.52));
+	lath_colour += vec3(0.62, 0.29, 0.055) * awake * specular * 0.28;
+	ALBEDO = mix(ALBEDO, plaster_colour, plaster_flag);
+	ALBEDO = mix(ALBEDO, lath_colour, lath_flag);
+	EMISSION = mix(EMISSION, old_plaster * 0.006, plaster_flag);
+	EMISSION = mix(EMISSION, split_lath * 0.008, lath_flag);
+
+	vec4 breach_pattern = vec4(0.0);
+	if (breach_flag > 0.5) {
+		// The nine recession taps are paid only on the small aperture face,
+		// never across the tentacles and wall grafts sharing this material.
+		vec3 breach_rel = v_world - v_breach_center;
+		vec2 breach_uv = vec2(dot(breach_rel, v_breach_side)
+				/ max(v_breach_state.y, 0.001),
+				dot(breach_rel, v_breach_up) / max(v_breach_state.z, 0.001));
+		float face_view = max(abs(dot(view_dir, v_breach_normal)), 0.16);
+		vec2 view_shift = vec2(dot(view_dir, v_breach_side),
+				dot(view_dir, v_breach_up)) / face_view;
+		breach_pattern = breach_interior(breach_uv, view_shift,
+				v_breach_state.w);
+	}
+	vec3 tunnel_dark = vec3(0.0035, 0.0010, 0.0065)
+			+ vec3(0.18, 0.075, 0.012) * breach_pattern.x * 0.24;
+	vec3 tunnel_lit = vec3(0.007, 0.002, 0.011)
+			+ mix(warm_gold * 0.72, vec3(0.92, 0.62, 0.22),
+			breach_pattern.w)
+			* breach_pattern.x * awake * 0.68;
+	vec3 vanishing_sclera = vec3(0.38, 0.19, 0.045)
+			* (0.13 + awake * 1.35);
+	tunnel_lit = mix(tunnel_lit, vanishing_sclera,
+			breach_pattern.y * (1.0 - breach_pattern.z));
+	tunnel_lit = mix(tunnel_lit, vec3(0.001, 0.0002, 0.0012),
+			breach_pattern.z);
+	ALBEDO = mix(ALBEDO, tunnel_dark + tunnel_lit, breach_flag);
+	EMISSION = mix(EMISSION,
+			tunnel_dark * 0.46 + tunnel_lit * 0.038, breach_flag);
+
 	// Production diagnosis: view 1 shows resting aperture (ochre to bone) and
 	// singles the direct tracker in magenta; view 2 identifies authored gaze
 	// classes from root/room through branch-tip to camera. Non-eye anatomy is
@@ -231,6 +354,26 @@ void fragment() {
 				debug_colour = mix(vec3(0.04, 0.24, 0.58),
 						vec3(1.0, 0.16, 0.42), v_eye_state.w);
 			}
+		}
+		ALBEDO = debug_colour;
+		EMISSION = debug_colour * 0.45;
+	}
+	if (breach_debug_view > 0) {
+		vec3 debug_colour = vec3(0.003, 0.002, 0.004);
+		if (breach_debug_view == 1) {
+			debug_colour = mix(debug_colour, vec3(0.10, 0.74, 1.0),
+					breach_flag);
+			debug_colour = mix(debug_colour, vec3(0.88, 0.70, 0.45),
+					plaster_flag);
+			debug_colour = mix(debug_colour, vec3(0.55, 0.19, 0.035),
+					lath_flag);
+		} else if (breach_flag > 0.5) {
+			debug_colour = mix(vec3(0.055, 0.015, 0.13),
+					vec3(0.12, 0.90, 1.0), breach_pattern.w);
+			debug_colour = mix(debug_colour, vec3(1.0, 0.66, 0.08),
+					breach_pattern.x);
+			debug_colour = mix(debug_colour, vec3(1.0, 0.08, 0.34),
+					breach_pattern.y);
 		}
 		ALBEDO = debug_colour;
 		EMISSION = debug_colour * 0.45;
