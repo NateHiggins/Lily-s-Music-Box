@@ -29,6 +29,7 @@ func _ready() -> void:
 		get_tree().quit(failures)
 		return
 	_settle_lamp(true)
+	_seed_ruled_dwell()
 	await _capture("01_furnished_breach_lamp_on", 75)
 	await _capture("02_furnished_breach_motion", 150)
 	_settle_lamp(false)
@@ -175,6 +176,25 @@ func _settle_lamp(on: bool) -> void:
 	root.player.flashlight.visible = on
 	root.player.flashlight.light_energy = 1.1 if on else 0.0
 	root.player.call("_advance_lamp", 0.0)
+	root.call("_update_molten")
+
+
+## Optional production-owner staging for relief review.  A normal capture
+## leaves the field exactly as the selected room inherited it. R2 proof sets
+## DREAM_TARGET_DWELL_S to represent a deliberate stationary lamp hold without
+## waiting that many real seconds: the real DreamExposureField performs the
+## write, the real texture receives it, and no shader or showcase-only mask is
+## bypassed.
+func _seed_ruled_dwell() -> void:
+	var dwell_s := OS.get_environment("DREAM_TARGET_DWELL_S").to_float()
+	if dwell_s <= 0.0 or root.exposure == null:
+		return
+	var pose: Dictionary = root.player.lamp_pose()
+	if pose.is_empty():
+		return
+	root.exposure.add_lamp(pose.origin, pose.dir, float(pose.range),
+			cos(deg_to_rad(float(pose.angle_deg))), float(pose.energy), dwell_s)
+	root.exposure.upload(root.get("_exposure_tex") as ImageTexture3D)
 	root.call("_update_molten")
 
 

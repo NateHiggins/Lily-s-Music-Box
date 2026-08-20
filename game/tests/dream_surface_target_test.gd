@@ -6,7 +6,7 @@ extends Node
 ## growth maps back to the existing hazard owner, and furnishing contains only
 ## extracted production meshes rather than waking gameplay systems.
 
-const EXPECTED_CHECKS := 36
+const EXPECTED_CHECKS := 41
 const HazardGrowthScript := preload(
 		"res://scripts/dream/dream_hazard_growth.gd")
 
@@ -244,6 +244,11 @@ func _interior_contract() -> void:
 	var dimensions_exact := true
 	var casings_exact := true
 	var shader_surfaces := 0
+	var relief_vocabulary_exact := true
+	var anchors_exact := true
+	var interior_materials_bound := true
+	var shell_materials_bound := true
+	var relief_meter_bounded := true
 	for interior in interiors:
 		var key := str(interior.get_meta("room_key", ""))
 		var room: Dictionary = root.rooms.room_at_key(key)
@@ -274,12 +279,83 @@ func _interior_contract() -> void:
 				open_doors += 1
 		casings_exact = casings_exact and (millwork == 0 \
 				or int(interior.get_meta("door_casings", -1)) == open_doors)
+		if millwork > 0:
+			relief_vocabulary_exact = relief_vocabulary_exact \
+					and interior.get_meta("shader_relief_layers",
+					PackedStringArray()) == PackedStringArray([
+					"tessera_faces", "recessed_grout", "cracked_medallions"])
+			anchors_exact = anchors_exact and interior.get_meta(
+					"transition_anchors", PackedStringArray()) \
+					== PackedStringArray([
+					"floor_wall_joints", "room_corners", "skirting", "dado",
+					"picture_rail", "cornice", "door_casings", "ceiling_rose"])
+			relief_meter_bounded = relief_meter_bounded \
+					and float(interior.get_meta("shader_relief_max_m", 1.0)) \
+					<= 0.0421
 		for visual in visuals:
 			var material := (visual as GeometryInstance3D).material_override \
 					as ShaderMaterial
 			if material != null and material.shader != null \
 					and not material.shader.get_shader_uniform_list().is_empty():
 				shader_surfaces += 1
+				var surface_kind := int(material.get_shader_parameter(
+						"architecture_surface"))
+				var bounds: Vector4 = material.get_shader_parameter(
+						"architecture_bounds")
+				interior_materials_bound = interior_materials_bound \
+						and surface_kind in [4, 5] \
+						and bounds.is_equal_approx(Vector4(float(room.rect[0]),
+						float(room.rect[1]), float(room.rect[2]),
+						float(room.rect[3]))) \
+						and is_equal_approx(float(material.get_shader_parameter(
+						"architecture_clear_ceiling")), 3.015) \
+						and float(material.get_shader_parameter(
+						"architecture_pull")) > 0.0
+				relief_meter_bounded = relief_meter_bounded \
+						and float(material.get_shader_parameter(
+						"tessera_relief_m")) <= 0.0121 \
+						and float(material.get_shader_parameter(
+						"medallion_relief_m")) <= 0.0421 \
+						and int(material.get_shader_parameter(
+						"surface_debug_view")) in [0, 1, 2, 3]
+		# The collision shells stay authoritative; their child render meshes now
+		# share the room bounds but identify the architectural class they own.
+		var expected_shell_classes := {
+			"Floor": 2, "Ceiling": 3, "Wall": 1, "Lintel": 6,
+			"Shaft": 7,
+		}
+		for body_value in interior.get_parent().get_children():
+			var body := body_value as StaticBody3D
+			if body == null:
+				continue
+			var expected_kind := -1
+			for prefix in expected_shell_classes:
+				if body.name.begins_with(str(prefix)):
+					expected_kind = int(expected_shell_classes[prefix])
+					break
+			if expected_kind < 0:
+				continue
+			var meshes := body.find_children("*", "MeshInstance3D", true, false)
+			if meshes.is_empty():
+				shell_materials_bound = false
+				continue
+			var shell_material := (meshes[0] as MeshInstance3D).material_override \
+					as ShaderMaterial
+			if shell_material == null:
+				shell_materials_bound = false
+				continue
+			var shell_bounds: Vector4 = shell_material.get_shader_parameter(
+					"architecture_bounds")
+			shell_materials_bound = shell_materials_bound \
+					and int(shell_material.get_shader_parameter(
+					"architecture_surface")) == expected_kind \
+					and shell_bounds.is_equal_approx(Vector4(float(room.rect[0]),
+					float(room.rect[1]), float(room.rect[2]),
+					float(room.rect[3]))) \
+					and is_equal_approx(float(shell_material.get_shader_parameter(
+					"architecture_clear_ceiling")), 3.015) \
+					and float(shell_material.get_shader_parameter(
+					"architecture_pull")) > 0.0
 	_check("every remembered nonblank room has historic millwork relief",
 			nonblank > 0 and described == nonblank)
 	_check("blanking also removes the descriptive architectural relief",
@@ -294,6 +370,16 @@ func _interior_contract() -> void:
 			casings_exact)
 	_check("the service lamp reaches the batched historic materials",
 			shader_surfaces > 0)
+	_check("R2 exposes tessera grout and cracked-medallion relief as one vocabulary",
+			relief_vocabulary_exact)
+	_check("growth is biased only to named Orison construction anchors",
+			anchors_exact)
+	_check("batched millwork and panels carry their authoritative room bounds",
+			interior_materials_bound)
+	_check("wall floor ceiling door and shaft materials carry the same room bounds",
+			shell_materials_bound)
+	_check("parallax relief stays shallow meter-valued and diagnostically switchable",
+			relief_meter_bounded)
 
 
 func _furnishing_contract() -> void:

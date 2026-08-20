@@ -79,9 +79,13 @@ func configure(room: Dictionary, clear_ceiling: float) -> void:
 				"consumed", 0.30)
 		(millwork_material as ShaderMaterial).set_shader_parameter(
 				"ground_dark", 0.38)
+		DreamRoomBuilder.configure_architecture_material(millwork_material,
+				rect, 4, 0.19, 0.010, 0.036, clear_ceiling)
 	if panel_material is ShaderMaterial:
 		(panel_material as ShaderMaterial).set_shader_parameter("consumed", 0.24)
 		(panel_material as ShaderMaterial).set_shader_parameter("ground_dark", 0.34)
+		DreamRoomBuilder.configure_architecture_material(panel_material,
+				rect, 5, 0.16, 0.010, 0.032, clear_ceiling)
 	_emit_multimesh("HistoricMillwork", millwork, millwork_material)
 	_emit_multimesh("WainscotPanels", panels, panel_material)
 	set_meta("millwork_instances", millwork.size())
@@ -89,6 +93,12 @@ func configure(room: Dictionary, clear_ceiling: float) -> void:
 	set_meta("door_casings", _open_door_count(room.get("doors", [])))
 	set_meta("dado_height_m", DADO_TOP_M)
 	set_meta("max_relief_m", RELIEF_M + 0.020)
+	set_meta("shader_relief_layers", PackedStringArray([
+			"tessera_faces", "recessed_grout", "cracked_medallions"]))
+	set_meta("transition_anchors", PackedStringArray([
+			"floor_wall_joints", "room_corners", "skirting", "dado",
+			"picture_rail", "cornice", "door_casings", "ceiling_rose"]))
+	set_meta("shader_relief_max_m", 0.042)
 
 
 func _wall_records(rect: Array, doors: Array) -> Array[Dictionary]:

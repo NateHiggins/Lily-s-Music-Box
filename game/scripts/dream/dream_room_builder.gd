@@ -1223,6 +1223,7 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 	var node := Node3D.new()
 	node.name = "Room_%s" % (str(room.key) if str(room.key) != "" else "root")
 	parent.add_child(node)
+	var r: Array = room.rect
 
 	var wall_mat := DreamMazeBuilder._material(Color("272a31"), 0.94,
 			DreamMazeBuilder.MOTIF_SPIRAL)
@@ -1243,8 +1244,21 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 			[door_mat, 0.26], [shaft_mat, 0.46]]:
 		if pair[0] is ShaderMaterial:
 			(pair[0] as ShaderMaterial).set_shader_parameter("consumed", pair[1])
+	# R2: every architectural class receives the same live room bounds, then a
+	# class-specific pull toward the seams it actually owns. This does not add a
+	# growth field or a material surface; it teaches the existing field where
+	# the waking building's joints are.
+	configure_architecture_material(wall_mat, r, 1, 0.18, 0.012, 0.038,
+			clear_ceiling)
+	configure_architecture_material(floor_mat, r, 2, 0.15, 0.010, 0.026,
+			clear_ceiling)
+	configure_architecture_material(ceiling_mat, r, 3, 0.17, 0.010, 0.042,
+			clear_ceiling)
+	configure_architecture_material(door_mat, r, 6, 0.15, 0.009, 0.030,
+			clear_ceiling)
+	configure_architecture_material(shaft_mat, r, 7, 0.20, 0.012, 0.034,
+			clear_ceiling)
 
-	var r: Array = room.rect
 	# The slab runs under the walls so a joint has no gap to see through.
 	var slab := [r[0] - WALL_T, r[1] - WALL_T, r[2] + WALL_T, r[3] + WALL_T]
 	var holes := _room_holes(room)
@@ -1318,6 +1332,30 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 	_build_orison_furnishing(node, room)
 	_build_lineage_body(node, room)
 	return node
+
+
+## Bind one Klimt material to the measured room which owns it.  The constants
+## mirror dream_architecture_relief.gdshaderinc and stay integers because Godot
+## shader uniforms do not expose a shared enum to GDScript. Standard-material
+## DREAM_PLAIN controls correctly ignore this presentation-only contract.
+static func configure_architecture_material(material: Material, rect: Array,
+		surface_kind: int, pull: float, tessera_m: float,
+		medallion_m: float, clear_height: float = 3.015) -> void:
+	if not material is ShaderMaterial or rect.size() < 4:
+		return
+	var shader_material := material as ShaderMaterial
+	shader_material.set_shader_parameter("architecture_bounds", Vector4(
+			float(rect[0]), float(rect[1]), float(rect[2]), float(rect[3])))
+	shader_material.set_shader_parameter("architecture_clear_ceiling",
+			clear_height)
+	shader_material.set_shader_parameter("architecture_surface", surface_kind)
+	shader_material.set_shader_parameter("architecture_pull", pull)
+	shader_material.set_shader_parameter("tessera_relief_m", tessera_m)
+	shader_material.set_shader_parameter("medallion_relief_m", medallion_m)
+	shader_material.set_shader_parameter("relief_parallax", 0.62)
+	var debug_value := clampi(OS.get_environment(
+			"DREAM_SURFACE_DEBUG").to_int(), 0, 3)
+	shader_material.set_shader_parameter("surface_debug_view", debug_value)
 
 
 ## The wall boxes above still own collision and the exact aperture schedule.

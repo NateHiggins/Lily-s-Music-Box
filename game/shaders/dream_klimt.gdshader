@@ -1,6 +1,8 @@
 shader_type spatial;
 render_mode blend_mix, cull_back, diffuse_burley, specular_schlick_ggx;
 
+#include "res://shaders/dream_architecture_relief.gdshaderinc"
+
 // THE STOCLET FRIEZE, TAKEN APART AND HUNG ON THE ARCHITECTURE.
 //
 // Owner reference: Klimt's "The Tree of Life, Expectation and Fulfilment"
@@ -138,6 +140,20 @@ uniform float growth_bias : hint_range(-0.5, 0.5) = 0.05;
 // as spreading, with fine filaments running ahead of the main mass" asks for,
 // and what separates lichen from a stain.
 uniform float filament_reach : hint_range(0.0, 1.0) = 0.42;
+// R2: the infection favours the Orison's actual construction joints. Bounds
+// are room-local facts supplied by DreamRoomBuilder; the shader consumes them
+// only as a bias on the one durable exposure field.
+uniform vec4 architecture_bounds = vec4(0.0);
+uniform float architecture_clear_ceiling = 3.015;
+uniform int architecture_surface : hint_range(0, 7) = 0;
+uniform float architecture_pull : hint_range(0.0, 0.35) = 0.0;
+// Meter-valued height terms. They perturb the durable solid surface and never
+// change collision, silhouette or navigation.
+uniform float tessera_relief_m : hint_range(0.0, 0.03) = 0.011;
+uniform float medallion_relief_m : hint_range(0.0, 0.06) = 0.034;
+uniform float relief_parallax : hint_range(0.0, 1.0) = 0.62;
+// 0 normal, 1 architecture pull, 2 relief height, 3 stage bands.
+uniform int surface_debug_view : hint_range(0, 3) = 0;
 // WHAT COOLED GOLD LOOKS LIKE WITH NO BEAM ON IT.
 //
 // The brief's acceptance list wants "gold that persists after the beam has
@@ -886,6 +902,11 @@ void fragment() {
 	// are the front line of it. Away from them the plaster is just plaster,
 	// dark and cold and real.
 	float rot = fbm(v_world.xz * 0.28 + vec2(TIME * 0.006, 0.0));
+	// Preserve the unconsumed motif as the layout for R2 tesserae. `leaf` is
+	// phase-gated below; sampling that diminished value again made the relief
+	// disappear at Stage 1, while ignoring the motif entirely tiled the whole
+	// wall as black graph paper. The spiral is the mosaic's drawing.
+	float relief_motif = clamp(leaf, 0.0, 1.0);
 	// How much gold this fragment COULD become. Entropy is high where the
 	// ornament is dense, so the dream is latent in the building's own
 	// pattern rather than painted over it.
@@ -910,6 +931,10 @@ void fragment() {
 			0.0625, 0.9375);
 	float field = texture(exposure_tex, vec3(v_world.x / exposure_extent,
 			v_world.z / exposure_extent, ex_y)).r;
+	float architecture_mask = dream_architecture_anchor(v_world, n,
+			architecture_bounds, architecture_clear_ceiling,
+			architecture_surface);
+	float architecture_drive = architecture_mask * architecture_pull;
 
 	// THE GROWTH FRONT. Domain-warped fbm, thresholded against how far the
 	// conversion has advanced -- so the boundary is an iso-contour of noise
@@ -943,7 +968,8 @@ void fragment() {
 	// scar has to be dead at EVERY light level, and smoothstep against noise
 	// leaks in its darkest valleys.
 	float responds = step(0.0001, exposure_gain);
-	float advance = clamp(field * exposure_gain, 0.0, 1.0);
+	float advance = clamp(field * exposure_gain + architecture_drive,
+			0.0, 1.0);
 	float front = responds * smoothstep(-growth_soft, growth_soft,
 			advance + growth_bias - front_gate);
 	// THE DREAM WINS WHERE IT HAS ALREADY WON. Owner ruling 2026-08-18: "the
@@ -971,6 +997,13 @@ void fragment() {
 	// in the beam.
 	float eaten = clamp(latent * (unlit_reveal
 			+ (1.0 - unlit_reveal) * front), 0.0, 1.0);
+	// Stage bands share the same drive as the growth front. Architectural
+	// seams can invite a stage earlier, but cannot create a second field or
+	// bypass the dormant-scar lock.
+	float relief_stage_one = responds * smoothstep(0.10, 0.34, advance)
+			* smoothstep(0.015, 0.20, eaten);
+	float relief_stage_two = responds * smoothstep(0.48, 0.78, advance)
+			* smoothstep(0.16, 0.50, eaten);
 
 	// Under the gold, the real wall -- darkened, because the dream is lit by
 	// one lamp and plaster is not a light source.
@@ -1043,7 +1076,28 @@ void fragment() {
 
 	albedo = mix(albedo, accent, accent_mask * accent_amount);
 	albedo = mix(albedo, ink, ink_mask * ink_weight);
+	// R2 SURFACE: the fine spiral field is divided into actual tessera faces,
+	// with the gaps staying dark and nonmetallic. At the denser centre, large
+	// concentric bosses rise through those tiles and their leaf cracks open.
+	float tessera_face = dream_tessera_face(base_q);
+	float tessera_grout = (1.0 - tessera_face) * relief_stage_one
+			* relief_motif;
+	float tessera_gold = tessera_face * relief_stage_one * relief_motif;
+	float medallion_height = dream_medallion_height(base_q)
+			* relief_stage_two;
+	float medallion_edge = dream_medallion_edge(base_q)
+			* relief_stage_two;
+	float leaf_crack = dream_leaf_crack(base_q) * relief_stage_two
+			* smoothstep(0.08, 0.45, medallion_height);
+	albedo = mix(albedo, gold_mid, tessera_gold * 0.34);
+	albedo = mix(albedo, bole * 0.16, tessera_grout * 0.92);
+	albedo = mix(albedo, gold_pale, medallion_edge * eaten * 0.42);
+	albedo = mix(albedo, albedo * 0.16, leaf_crack * eaten * 0.88);
+	leaf = max(leaf, tessera_gold * 0.62);
+	leaf = max(leaf, medallion_height * eaten * 0.88);
 	float metal = leaf * (1.0 - ink_mask);
+	metal *= 1.0 - tessera_grout;
+	metal *= 1.0 - leaf_crack * 0.82;
 
 	// THE MELT. Where the lamp is close and the surface is leaf, the gold stops
 	// being a patterned solid and becomes liquid: the normal is perturbed by the
@@ -1135,13 +1189,42 @@ void fragment() {
 			+ tan_b * ((by.x - b0.x) + (sy - s0) * 0.5))
 			* impasto * paint_gate * 6.0;
 
+	// SINGLE-STEP PARALLAX PLUS NORMAL GRADIENT.  The apparent face shifts by
+	// its meter-valued height at grazing angles, then four height samples tilt
+	// the real shading normal. This remains one surface and cannot lie about a
+	// traversable silhouette; it gives tesserae grout depth and the medallion
+	// the raked edge the reference requires.
+	vec3 world_view = normalize(INV_VIEW_MATRIX[3].xyz - v_world);
+	float view_normal = max(0.18, abs(dot(world_view, n)));
+	vec2 view_plane = vec2(dot(world_view, tan_a), dot(world_view, tan_b));
+	float relief_preview = dream_architecture_height(base_q,
+			relief_stage_one * relief_motif, relief_stage_two,
+			tessera_relief_m, medallion_relief_m);
+	vec2 relief_q = base_q - view_plane * relief_preview
+			* relief_parallax / view_normal;
+	float relief_step = 0.018;
+	float architecture_h0 = dream_architecture_height(relief_q,
+			relief_stage_one * relief_motif, relief_stage_two,
+			tessera_relief_m, medallion_relief_m);
+	float architecture_hx = dream_architecture_height(
+			relief_q + vec2(relief_step, 0.0),
+			relief_stage_one * relief_motif, relief_stage_two,
+			tessera_relief_m, medallion_relief_m);
+	float architecture_hy = dream_architecture_height(
+			relief_q + vec2(0.0, relief_step),
+			relief_stage_one * relief_motif, relief_stage_two,
+			tessera_relief_m, medallion_relief_m);
+	vec3 architecture_relief = -(tan_a * (architecture_hx - architecture_h0)
+			+ tan_b * (architecture_hy - architecture_h0))
+			/ relief_step;
+
 	// The real surface's own relief, fading out as the gold takes over -- so a
 	// wall stops being trowelled plaster and becomes beaten metal rather than
 	// wearing both at once.
 	vec3 surface_relief = (tan_a * surface_n.x + tan_b * surface_n.y)
-			* (1.0 - metal_hint) * 1.4;
-	vec3 bumped = normalize(n + surface_relief + relief + wave + dish + emboss
-			+ paint_relief
+			* (1.0 - metal_hint) * 0.42;
+	vec3 bumped = normalize(n + surface_relief + architecture_relief
+			+ relief + wave + dish + emboss + paint_relief
 			+ (tan_a * (hx - h0) + tan_b * (hy - h0)) * 42.0 * molten);
 
 	vec3 refl = reflect(-normalize(VIEW), bumped);
@@ -1201,7 +1284,10 @@ void fragment() {
 			molten);
 	ROUGHNESS = mix(ROUGHNESS, 0.08, jewel_face);
 	SPECULAR = mix(SPECULAR, 1.0, jewel_face * 0.8);
-	NORMAL = mix(n, bumped, molten);
+	// Relief belongs to the solid converted wall, not only to the transient
+	// molten bowl. Assign the complete normal at every stage; every non-base
+	// term above is already explicitly gated by conversion or melt.
+	NORMAL = bumped;
 	// The reflection rides on EMISSION because Compatibility gives a shader no
 	// other way to put an environment on a surface. It is gated by `molten`,
 	// which is gated by heat, so it appears only where the lamp is -- the gold
@@ -1242,4 +1328,24 @@ void fragment() {
 			+ reflection
 			+ star_colour * sky_glow * 0.55
 			+ albedo * jewel_face * jewel_gleam * 0.16;
+	if (surface_debug_view == 1) {
+		ALBEDO = vec3(architecture_mask);
+		EMISSION = vec3(architecture_mask) * 1.20;
+		METALLIC = 0.0;
+		ROUGHNESS = 1.0;
+	} else if (surface_debug_view == 2) {
+		float relief_debug = clamp(architecture_h0
+				/ max(0.001, max(tessera_relief_m,
+				medallion_relief_m)),
+				0.0, 1.0);
+		ALBEDO = vec3(relief_debug);
+		EMISSION = vec3(relief_debug) * 1.50;
+		METALLIC = 0.0;
+		ROUGHNESS = 1.0;
+	} else if (surface_debug_view == 3) {
+		ALBEDO = vec3(relief_stage_two, relief_stage_one, 0.0);
+		EMISSION = ALBEDO * 1.20;
+		METALLIC = 0.0;
+		ROUGHNESS = 1.0;
+	}
 }

@@ -51,14 +51,31 @@ draw. Production frames and failed tunings are in
 175/175, 42/42 and 21/21, and fresh 1440p dream perf remains 0/4 over 16.6 ms
 (1.94 ms worst row, 172 calls worst row). WalkTest FAST prints PASS with its
 inherited null-layout error; FULL repeats the unrelated waking roof-monitor
-failure at z=2.9 while passing 2A. **R2 is the immediate pickup:** true
-tessera/grout/cracked-leaf relief and architectural transition masks, still
-before the torn breach. The accepted composition is about 60% recognisable
+failure at z=2.9 while passing 2A. **R2 was the immediate pickup and is closed
+by the checkpoint below:** true tessera/grout/cracked-leaf relief and
+architectural transition masks, still before the torn breach. The accepted
+composition is about 60% recognisable
 1928 apartment and 40% organism. The atlas remains the sole room/topology owner;
 `DreamHazard` remains the sole contact owner. A portal is a later view-only
 consumer of an atlas fault. RECURSION is still priced but unlicensed, and the
 proposed recursion depth of four is only a high-quality ceiling after depth-one
 proof, not a work order.
+
+**2026-08-20 R2 is landed.** `dream_architecture_relief.gdshaderinc` gives the
+existing Klimt surface meter-scaled tessera faces, recessed grout, concentric
+bosses, raised rims and leaf cracks. RoomBuilder binds the actual room bounds,
+3.015 m ceiling and architectural class to each shell material; the Orison
+interior does the same for its two existing batched millwork draws. The one
+durable field is merely biased toward named real joints, so no topology,
+collision, aperture or hazard owner changed and no draw was added. Production
+beauty/control/debug frames and the rejected graph-paper pass are documented at
+`art/renders/dream_rendering_r2/README.md`. Target 41/41, RoomBuilder 175/175,
+Hazard 42/42 and Lineage 21/21 pass. Real-window 1440p perf remains 0/4 over
+16.6 ms (2.00 ms worst, 172 calls worst); WalkTest FAST and FULL x8/480 both
+pass, with the inherited logged diagnostics still present. **R3 is now the
+pickup:** a deterministic eye family with sparse compositional anchors,
+closed/half-lidded rest states and bounded gaze. R4 remains the first breach;
+portals and RECURSION remain unlicensed.
 
 **Pre-existing proof debt found during this pass:**
 `DreamPerceptionTest.tscn` is still a chain-era harness. It asks the initial

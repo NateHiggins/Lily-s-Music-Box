@@ -166,8 +166,26 @@ tendon folds, warped gold vessels and wet microfilm from reusable functions in
 cool lift, bounded carried black level and bounded warm practical restore the
 near apartment without waking gold or changing hazard truth. Smoothed graft and
 tube geometry spends vertices rather than draws. Production proof and rejected
-tunings: `art/renders/dream_rendering_r1/README.md`. R2 is now the pickup; R1
-does not license portals, phase states or RECURSION.
+tunings: `art/renders/dream_rendering_r1/README.md`. R2 was the next dependency
+and is closed by the checkpoint below; R1 did not license portals, phase states
+or RECURSION.
+
+**Implementation checkpoint — 2026-08-20, R2 relief and anchors.** R2 is
+landed. Every room-local Klimt material now receives the authoritative room
+bounds, exact clear ceiling and one architectural surface class. The one
+durable exposure field is biased—never replaced—toward real floor/wall joints,
+corners, skirting, dado, picture rail, cornice, casings/lintels, shafts and the
+pressed ceiling rose. A reusable shader include supplies 82 mm hand-set
+tesserae with recessed narrow grout, large concentric bosses, raised rims and
+branching leaf cracks. Stage 1 tessellates the existing spiral drawing rather
+than wallpapering bare plaster; Stage 2 raises the bosses through it. A
+single-step parallax shift and meter-space normal gradient provide 9–12 mm
+tessera relief and 26–42 mm medallion relief on the existing submitted surface.
+Collision, aperture, topology and danger ownership are unchanged. Three
+production debug modes expose architecture pull, relief height and stage bands.
+The rejected full-plane graph-paper pass and production proof are recorded at
+`art/renders/dream_rendering_r2/README.md`. R3, the seeded eye family, is now
+the pickup; R2 does not license the breach, warp, portals or RECURSION.
 
 ---
 

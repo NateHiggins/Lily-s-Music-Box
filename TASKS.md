@@ -1373,7 +1373,20 @@ unresolved. K7's source-backed loop contract is closed in
   repeats the unrelated waking roof-monitor failure at z=2.9 while passing the
   2A bedroom, so the integration harness remains red/flaky rather than being
   reported clean.
-  **Immediate pickup: R2 true relief and architecture-bound transition masks.**
+  **R2 LANDED 2026-08-20.** Every Klimt architectural material now carries its
+  authoritative room bounds and surface class. The existing durable field is
+  biased toward real joints—floor/wall, corners, skirting, dado, picture rail,
+  cornice, casings/lintels, shafts and ceiling rose—without becoming a second
+  growth owner. The one submitted surface now has 82 mm tessera faces with
+  narrow recessed grout, 9–12 mm parallax/normal relief, 26–42 mm concentric
+  bosses and cracked nonmetallic leaf. Tesserae follow the spiral drawing;
+  the rejected full-plane version read as black graph paper. Debug modes expose
+  architecture pull, relief height and stage bands. Target 41/41, RoomBuilder
+  175/175, Hazard 42/42, Lineage 21/21; real-window 1440p dream perf is 0/4
+  over budget, 2.00 ms worst and 172 calls worst. WalkTest FAST and FULL x8/480
+  both pass (FULL exit 0 in 43.9 s) while retaining their inherited logged
+  diagnostics. Proof: `art/renders/dream_rendering_r2/README.md`.
+  **Immediate pickup: R3 deterministic eye family.**
 - **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
   heredity and visible anatomy: bounded parent/child genomes, brood knots,
   parent umbilicals, prospective child helices, open birth-frames and sealed
