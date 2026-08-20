@@ -14,6 +14,26 @@ everything else and it changed last. Then
 `game/scripts/dream/dream_room_builder.gd` top-to-bottom; its header is the
 architecture.
 
+## 2026-08-20 coordination checkpoint
+
+The seven commits from `b68ed20` through `1b122e0` are the completed
+dream foundation: durable exposure, the first dream perf station, a green
+hazard contract on the pocket, and deletion of `DREAM_FRACTAL`. The gold/tentacle
+amplification queued after those commits had **not** begun when the previous
+session stopped. It is now recorded in `DREAM_SURFACE_REDESIGN_BRIEF.md` and is
+the next production surface work: C (relief), D (breach), E (persistent 3D
+tentacles), F (eyes), plus exposure-driven reflected gold light. Do not mistake
+the durable field already landed for any of that visible geometry.
+
+RECURSION has now been priced by `DreamRecursionPrice.tscn`, not built. Across
+14,400 deterministic rooms it appears in 362 (2.5%), never before depth 5 in
+this sample; 340 of those 362 (94%) can hold the smallest authored inner room
+under an explicitly optimistic doorway-access test. A nested room is estimated
+at six to eight submissions against the measured 45-call / 1.90 ms dream
+station. This removes “it probably cannot fit” as a blocker but licenses no
+implementation: the geometric expression and play value still require a ruled
+design.
+
 ---
 
 ## THE RULINGS THAT GOVERN EVERYTHING
@@ -227,19 +247,25 @@ corridor and cross in front of the camera are geometry, not a fragment term.
 That is the real distance left to travel.
 
 ### 2. ~~ADD THE DREAM PERF STATION FIRST~~ — DONE
-`game/tests/perf_probe.gd` has no dream station and nothing has ever measured
-this frame. Per-pixel GPU work is free here (TASKS.md §P — submission-bound,
-not fill-bound); **draw submissions are not**. The tentacles are the first
-thing in this whole direction with a real submission cost. Measure before they
-land, not after.
+`game/tests/perf_probe.gd` now measures the dream before the tentacles. The
+baseline was 1.71 ms / 45 calls at 1440p; the durable exposure field is 1.90 ms
+/ the same 45 calls. Per-pixel GPU work has headroom here; **draw submissions
+are still the priced axis.** Any tentacle/light pass must retain an A/A control
+and report its own station rather than citing this old number as a guarantee.
 
 ### 3. ~~MOVE `DreamHazardTest` AND DELETE THE FLAG~~ — DONE
 Both. See above. The next structural question in this direction is whether the
 now-unreferenced chain assembly comes out of `DreamMazeBuilder`.
 
-### 4. PRICE RECURSION BEFORE BUILDING IT
-Nothing in the project does nested enterable space. 29 of 400 deep rooms ask
-for it.
+### 4. ~~PRICE RECURSION BEFORE BUILDING IT~~ — DONE, NOT LICENSED
+`DreamRecursionPrice.tscn` samples five seeds, three case ids, three passage
+counts, eight depth bands and forty paths per cell: 14,400 rooms. RECURSION is
+absent at depths 1–3, rises from 1.2% at depth 5 to about 6% at depth 14+, and
+appears in 362 rooms overall. The best-case inner authored module needs a 2.60
+× 2.56 m host clear span (or 1.65 × 3.51 m rotated); 340/362 recursive rooms
+pass that deliberately optimistic fit. Estimated cost is one room, six to
+eight submissions. The finding answers frequency, fit and order of magnitude;
+it does not choose what nested enterable space should do to play.
 
 ### 5. THE EMBRACE
 `_on_captured` commits an outcome and nothing else. The staging is specced in

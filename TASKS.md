@@ -592,14 +592,22 @@ emerges (no expelled debris or people); the rail-less tram is the authored wrong
 - **T2e** **SUBSUMED BY T2d.** Lamps remain emissive quads and the new roadway
   response remains an additive batched reflection; neither is a realtime light.
 - **T2f DONE — WE TUNA PIANOS.** A rare 1928 one-ton piano-repair box truck
-  joins the ordinary two-way stream at 2.0 / 99.0 selection weight. Its deep
-  teal rear box and separate low cab stay inside 5.8 × 2.05 × 2.30 m; two dull
-  painted panels carry the approved shark-and-mustachioed-tuna advertisement.
-  Every visible repair truck shares one shadowless sign MultiMesh, so the exact
-  cost is one draw owner and two panel instances only while present—zero light,
-  collision, stop rule, dialogue or permanent scenery. `PianoRepairTruckTest`
-  passes; production-street frames are under `art/renders/piano_repair_truck/`.
-  This does not pretend to close T2d's street-wide night-lighting problem.
+  joins the ordinary two-way stream at 2.0 / 99.0 selection weight. Its final
+  projected body stays inside 5.8 × 2.05 × 2.30 m and embeds four dull material
+  plates — side, rear, paint and the repaired shark-and-mustachioed-tuna panel
+  — in one shared shadowless truck MultiMesh. The older separate sign batch is
+  fallback-only and submits zero instances while the production GLB is present.
+  There is still zero light, collision, stop rule, dialogue or permanent
+  scenery. `PianoRepairTruckTest` now proves the landed mesh contract rather
+  than the superseded box fallback; production-street frames are under
+  `art/renders/piano_repair_truck/`.
+- **T2g DONE — COACHWORK SURFACE.** Ordinary body and cab batches keep their
+  authored per-kind tints but now take normal and roughness from `car_paint`,
+  with zero metallic; tyres independently use matte `rubber_aged` and the one
+  shared wheel mesh rises from 10 to 16 radial segments. No owner, draw, light,
+  shadow or motion rule was added. Whole-frame change is below live-rain noise,
+  but the foreground-vehicle crop is 10.4× its A/A floor. Contract and frames:
+  `art/renders/traffic_paint/README.md`.
 - **T3 DONE.** No death, damage, UI or dedicated crossing point. A hit now
   carries the real player with the vehicle for 0.72 s, damps rather than removes
   steering, gives the camera one restrained 4.9° roll and recovers without an
@@ -1293,18 +1301,23 @@ unresolved. K7's source-backed loop contract is closed in
   shoulder and touch LAMP share `PlayerController.toggle_lamp()`. The diagnostic
   capsule casts shadows only and never renders in beauty. Proof, raw CSV and the
   exact drawing: `art/renders/dream_light_n3/README.md`.
-- **N6** Implement the Mina maze profile using one invisible navigation body and
-  a shadows-only borrowed silhouette. No monster mesh, face, attack animation,
-  teleport, case-specific director or new Tenant.
-- **N7** Implement Mina's three audible hazards—lift void, Vantry signal trunk
-  and hollow runner—and prove bearing/type identification before contact. The
-  five later hazards remain data sockets until the first run passes.
-- **N8** Close the production Mina passage: 14–28 seconds, complete K6 state in,
-  capture/fall/contact out, rebuilt waking scene, authored 4B bedside, existing
-  factual refrigerator residue, accessibility variants, renders and 16.6 ms
-  isolated-scene gate.
+- **N6 DONE.** Mina's pocket pursuit uses one invisible navigation body and a
+  shadows-only borrowed silhouette; `DreamPursuitTest` proves the lamp contract,
+  collision and route without adding a monster mesh or combat owner.
+- **N7 DONE.** The lift void, Vantry signal trunk and hollow runner are live;
+  warning, contact/fall outcomes and directional captions are proved by the
+  Hazard/Perception suites. The later sockets remain data until their cases.
+- **N8 DONE.** Gate D plays the complete Mina shift through the production
+  `CampaignShell` and real dream for capture, contact and fall, rebuilding the
+  waking Orison at the authored 4B bedside with the factual refrigerator
+  residue intact. The isolated dream station is below 16.6 ms.
 - **N9** Use Peter as the shared-profile proof. Change content, pursuit grammar
   and case truth without forking the maze, director, hazard or save owners.
+- **N10 — DREAM SURFACE C–F.** The persistent exposure field and organic front
+  are landed. Next: relief, breach depth, exposure-ramped 3D tentacles, eyes and
+  a bounded persistent reflected-gold light. The 2026-08-18 owner amplification
+  is recorded in `DREAM_SURFACE_REDESIGN_BRIEF.md`; nothing in this line licenses
+  emissive gold, popping geometry, a second combat system or unmeasured draws.
 
 ## M — Materials and textures
 
@@ -1461,11 +1474,12 @@ comfortable is §P: the frame is submission-bound rather than fill-bound, so
 geometry added inside a mesh that already exists and already has a material has
 historically been close to free.
 
-**The trigger condition is unmonitored.** Nobody has measured this build's frame
-on a desktop, so "until we hit performance issues" cannot fire. Before the pass
-goes far, add one standing desktop measurement — a dream station in
-`game/tests/perf_probe.gd` and one lobby station, recorded per session. Without
-it the ruling has no off-switch.
+**The trigger condition now has an instrument, not yet a routine.** The waking
+probe already includes the lobby and the 2026-08-18 dream branch establishes
+1.71 ms / 45 calls before durable exposure and 1.90 ms / the same 45 calls
+after it. What remains is to make those pinned A/A measurements a standing
+per-session record and add a player-height carriageway station; the existing
+"street elevation" eye is aerial and cannot stand in for play.
 
 #### The measured geometry, which is lopsided
 
@@ -1700,6 +1714,48 @@ Standing until reversed, and it re-sorts several open items:
   was actually an argument (see L12).
 
 ## P — Performance
+
+- **P9 — THE OPTIMISATION PASS, AND FIRST THE MEASUREMENT THAT LICENSES IT.**
+  *Deferred here by the owner on 2026-08-18: "lets add optimization to a later
+  task".* Nothing below is to be done opportunistically in the middle of other
+  work; it is one pass, and it starts with the instrument rather than with a
+  saving.
+
+  **§DP's ruling now has an instrument, but not yet the recurring observation
+  that makes it an off-switch.** The windows added 78,384 render triangles and
+  20 draws (§W-GLAZE); the dream shader runs a dozen-odd fbm calls per pixel;
+  the next breach/tentacle pass adds the first material submissions in that
+  frame. The 2026-08-18 dream measurement is the baseline, not a perpetual
+  waiver.
+
+  **So the first deliverable is a number, not a saving:**
+  1. **DONE:** the `PERF_DREAM=1` branch in `game/tests/perf_probe.gd` measures
+     lamp-off/on at the waking room and deepest live pocket. Baseline 1.71 ms /
+     45 calls; durable exposure 1.90 ms / the same 45 calls at 1440p.
+  2. **PARTLY DONE:** the waking list already contains the lobby. Add a
+     player-height **carriageway** station; the existing street-elevation eye is
+     an aerial composition view, not a route the player can occupy.
+  3. Recorded per session, at canonical pinned night, with the A/A control
+     that §P has already been burned once for skipping.
+
+  **Then, and only then, the sweep.** The known shape of this frame is that it
+  is **submission-bound, not fill-bound** — frame time is identical at 720p,
+  1080p and 1440p — so triangles inside a mesh that already exists are close to
+  free and DRAW CALLS are the real currency. Two specific things are already
+  waiting for that measurement:
+
+  - **The 1,270 transparent draws** found during the atrium chase, including
+    whole-floor batches at 5,000–6,500 m³ AABB sorted as single units. That is
+    a latent sorting hazard nobody has priced, and it is the single largest
+    unpriced thing in the waking build.
+  - **P8's fossil sweep** (below) is the other half and is already written. A
+    limit chosen for a reason that has expired is not a limit; P8 lists them.
+
+  **What NOT to do.** Do not decimate, do not reintroduce a budget by the back
+  door, and do not "optimise" anything that has not been measured to cost —
+  §DP's whole point is that fidelity is chosen by what an object needs to look
+  like the thing it is. The balusters at 186,576 triangles are the standard,
+  not the raid.
 
 - **P8 OWNER DIRECTION 2026-08-16 — AUDIT EVERY LIMIT FOR FOSSILS. Are we
   actually spending what we have?** The prompt was: make sure we have

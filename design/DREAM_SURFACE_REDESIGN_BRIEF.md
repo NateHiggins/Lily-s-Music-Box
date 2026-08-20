@@ -10,6 +10,24 @@ underneath grows through the hole.** The growth is persistent, it accumulates
 where the player has looked, and it ends in an actual rupture with something
 enormous, golden and eyed on the other side.
 
+### Owner amplification — 2026-08-18
+
+The accumulated warp does not stop at a changed wall. As exposure rises, the
+ordinary surface blends into the gold structure, the breach resolves into
+**slow animated three-dimensional tentacles intruding into the room**, and the
+highest stage becomes the same impossible body that can close around the
+player in the embrace. The escalation remains after the inspection lamp moves
+because the exposure record remains; it may not be driven from the current
+flashlight cone under another name.
+
+High exposure also returns a restrained **gold reflected light** into the room.
+This is independent of the current inspection beam and rises from the durable
+exposure value. It does not make the gold texture emissive: the surface remains
+metallic PBR, while a bounded, governed secondary light represents illumination
+returning from the revealed otherworld. It persists only for as long as that
+room's exposure memory persists, never flickers, and must be measured against
+the active-light and submission contracts before it ships.
+
 ---
 
 ## WHAT THE PLATES SHOW — FOUR STAGES OF ONE SURFACE
@@ -122,6 +140,12 @@ Stage 3+ replaces a wall panel with a torn-edge hole plus a recessed volume.
 ### E. TENTACLES — the only genuinely expensive item
 Splined tubes with ribbed, filigreed, eye-studded surfaces, emerging from a
 breach and crossing the room.
+- Their extent and motion are a monotonic function of the same durable exposure
+  field as the surface stages: no tentacle pops into existence when the beam
+  crosses a threshold, and none retracts merely because the beam moves away.
+- At the highest exposure they become the geometry of the embrace. Proximity
+  may commit that ruled outcome, but growth cannot become an unexplained damage
+  volume or a second combat system.
 - **Watch the draw budget.** The frame is submission-bound; a forest of
   individually-drawn tentacles is exactly the wrong cost. Batch or instance
   them, and keep the count small and the silhouettes large.
@@ -139,8 +163,11 @@ is a shader-space rotation of the pupil, not an animated mesh.
 
 ## CONSTRAINTS THAT ARE NOT NEGOTIABLE
 
-1. **Gold is metallic, never emissive.** It catches the lamp and is otherwise
-   as dark as everything else. This is what makes the lamp a decision.
+1. **Gold is metallic, never an emissive texture.** Below the high-exposure
+   reflected-light threshold it catches the lamp and is otherwise as dark as
+   everything else. Above that threshold, one bounded secondary light may
+   return warm gold into the room as ruled above; it is a governed world light,
+   not self-lit albedo and not a duplicate flashlight cone.
 2. **The dark stays navigable.** The real building is dimly readable at the
    feet without the lamp. The player can always move; they cannot always see
    what is coming through.
@@ -154,9 +181,10 @@ is a shader-space rotation of the pupil, not an animated mesh.
    far the geometry folds, the camera stays level.
 6. **Perf discipline.** GPU per-pixel work is free here; DRAW SUBMISSIONS are
    not. Every new material instance, mesh and particle is the expensive axis.
-   There is still no dream station in `game/tests/perf_probe.gd` — add one
-   before the tentacles land, because they are the first thing in this brief
-   with a real submission cost.
+   The dream station now establishes 1.71 ms / 45 calls before the persistent
+   field and 1.90 ms / the same 45 calls after it. Tentacles and the reflected
+   light must preserve that station as an A/A/B contract rather than borrowing
+   its present headroom as permission.
 
 ---
 
