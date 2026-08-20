@@ -1325,11 +1325,11 @@ unresolved. K7's source-backed loop contract is closed in
   eyes, and furnishes every nonblank remembered room with mesh-only extracts of
   production Orison props. Live tissue keeps a low wine-purple afterglow and
   motion in darkness; the lamp remains the dominant antique-gold response.
-  The conditional Vantry trunk is deliberately excluded. Still open: relief
-  (C), torn breach and impossible interior depth (D), exposure-ramped breach
-  anatomy, full stage eye language/tracking, and bounded persistent reflected
-  gold world light. Nothing licenses popping geometry, a second combat system
-  or unmeasured draws.
+  The conditional Vantry trunk is deliberately excluded. Later checkpoints
+  below close relief (C) and the deterministic eye family. Still open: torn
+  breach and impossible interior depth (D), exposure-ramped breach anatomy,
+  and bounded persistent reflected-gold world light. Nothing licenses popping
+  geometry, a second combat system or unmeasured draws.
   **Wall-architecture follow-up landed 2026-08-20.** Every remembered nonblank
   generation now carries a visual-only Orison interior shell: 140 mm skirting,
   canonical 1.32 m dado and framed corridor wainscot, 2.18 m picture rail,
@@ -1386,7 +1386,21 @@ unresolved. K7's source-backed loop contract is closed in
   over budget, 2.00 ms worst and 172 calls worst. WalkTest FAST and FULL x8/480
   both pass (FULL exit 0 in 43.9 s) while retaining their inherited logged
   diagnostics. Proof: `art/renders/dream_rendering_r2/README.md`.
-  **Immediate pickup: R3 deterministic eye family.**
+  **R3 LANDED 2026-08-20.** Five seeded anchors per eligible danger now carry
+  stable id/source, 0.76–1.34 scale, local orientation and roll, resting lid,
+  long blink phase and one of four gaze behaviors. Four of five rest closed or
+  half-lidded. Exactly one eye in the live batch may track the camera, moving
+  only iris/pupil within 0.28 eye radius; the others hold root, branch-tip or
+  room-centre attention. Plum lid, antique sclera, iris and pupil remain custom
+  vertex data in the same one hazard surface: no draw, collision, light or
+  danger owner was added. Two diagnostics expose rest/tracking and gaze class.
+  Target 47/47, RoomBuilder 175/175, Hazard 42/42, Lineage 21/21; real-window
+  1440p dream perf remains 0/4 over budget, 2.45 ms worst and 172 calls worst.
+  WalkTest FAST passes. The first FULL run hit the unrelated timing-sensitive
+  roof-monitor walk at z=2.9; the immediate fresh-process rerun passed and both
+  retained inherited logged diagnostics. Proof:
+  `art/renders/dream_rendering_r3/README.md`.
+  **Immediate pickup: R4 torn breach and cheap impossible interior depth.**
 - **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
   heredity and visible anatomy: bounded parent/child genomes, brood knots,
   parent umbilicals, prospective child helices, open birth-frames and sealed

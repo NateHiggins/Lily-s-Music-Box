@@ -16,19 +16,30 @@ const EYE_SIDES := 12
 const MAIN_BRANCHES := 9
 const SIDE_BRANCHES := 2
 const CONTACT_TUBE_RADIUS_M := 0.18
+const EYE_BRANCHES := [1, 2, 4, 5, 7]
+const EYE_STATES := [
+		"closed", "half_lidded", "half_lidded", "half_lidded", "open"]
+const EYE_OPENNESS := [0.10, 0.38, 0.52, 0.64, 0.88]
 
 
 func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 	name = "DreamHazardGrowth"
 	var tool := SurfaceTool.new()
 	tool.begin(Mesh.PRIMITIVE_TRIANGLES)
+	# The body and every eye remain one submitted surface. Four full-precision
+	# custom channels let the shader recognise an individual eye without a
+	# node, material or draw per instance: center/flag, local side/gaze weight,
+	# local up/scale, and blink/rest/target controls.
+	for channel in 4:
+		tool.set_custom_format(channel, SurfaceTool.CUSTOM_RGBA_FLOAT)
 	var ids: Array[String] = []
 	var sockets: Array[String] = []
-	var eye_count := 0
+	var eye_records: Array[Dictionary] = []
 	var tendril_count := 0
 	var contact_path_count := 0
 	var membrane_count := 0
 	var capillary_count := 0
+	var prepared: Array[Dictionary] = []
 	for hazard in live_hazards:
 		hazard.set_contact_paths([], 0.0)
 		# The signal trunk is a different physical sentence: it reaches only
@@ -43,12 +54,30 @@ func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 		var rect := _room_rect(plan, hazard.module)
 		if rect.is_empty():
 			continue
-		ids.append(hazard.id)
-		sockets.append(hazard.socket)
-		var seed := absi(hazard.id.hash())
-		var built := _append_hazard(tool, hazard, rect, seed)
+		prepared.append({
+			"hazard": hazard,
+			"rect": rect,
+			"seed": absi(hazard.id.hash()),
+		})
+	# One eye in the entire live batch is allowed to meet the current camera.
+	# Which hazard owns it is deterministic, but the count does not grow with
+	# the hazard population. Looking at the player is an event, not wallpaper.
+	var tracker_seed := 0
+	for prepared_record in prepared:
+		tracker_seed = tracker_seed ^ int(prepared_record.seed)
+	var tracker_hazard := tracker_seed % prepared.size() \
+			if not prepared.is_empty() else -1
+	for prepared_index in prepared.size():
+		var prepared_record: Dictionary = prepared[prepared_index]
+		var built_hazard := prepared_record.hazard as DreamHazard
+		var built_rect: Array = prepared_record.rect
+		var built_seed := int(prepared_record.seed)
+		ids.append(built_hazard.id)
+		sockets.append(built_hazard.socket)
+		var built := _append_hazard(tool, built_hazard, built_rect, built_seed,
+				prepared_index == tracker_hazard)
 		tendril_count += int(built.tendrils)
-		eye_count += int(built.eyes)
+		eye_records.append_array(built.eye_records)
 		contact_path_count += int(built.contact_paths)
 		membrane_count += int(built.membranes)
 		capillary_count += int(built.capillaries)
@@ -66,7 +95,20 @@ func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 	set_meta("dark_live", true)
 	set_meta("hazard_owner", "DreamHazardField")
 	set_meta("tendrils", tendril_count)
-	set_meta("eyes", eye_count)
+	set_meta("eyes", eye_records.size())
+	set_meta("eye_records", eye_records)
+	set_meta("eye_family", "seeded_compositional_v1")
+	set_meta("eye_debug_views", PackedStringArray([
+			"beauty", "rest_and_tracking", "gaze_target"]))
+	var closed_or_half := 0
+	var direct_trackers := 0
+	for eye in eye_records:
+		if str(eye.rest_state) in ["closed", "half_lidded"]:
+			closed_or_half += 1
+		if str(eye.gaze_mode) == "camera":
+			direct_trackers += 1
+	set_meta("eyes_closed_or_half", closed_or_half)
+	set_meta("eyes_tracking_camera", direct_trackers)
 	set_meta("contact_paths", contact_path_count)
 	set_meta("wall_membranes", membrane_count)
 	set_meta("visual_capillaries", capillary_count)
@@ -78,13 +120,13 @@ func configure(live_hazards: Array[DreamHazard], plan: Dictionary) -> void:
 
 
 func _append_hazard(tool: SurfaceTool, hazard: DreamHazard, rect: Array,
-		seed: int) -> Dictionary:
+		seed: int, allow_camera_gaze: bool) -> Dictionary:
 	var core := Vector3(hazard.position.x, 0.10, hazard.position.z)
 	var phase := float(seed & 4095) / 4095.0
 	var ring_radius := maxf(0.20, hazard.clearance_radius * 0.74)
 	var contact_paths: Array[PackedVector3Array] = []
 	var tendrils := 0
-	var eyes := 0
+	var eye_records: Array[Dictionary] = []
 	var membranes := 0
 	var capillaries := 0
 	# The root is a bruised rupture, not a plumbing manifold. Overlapping
@@ -250,25 +292,90 @@ func _append_hazard(tool: SurfaceTool, hazard: DreamHazard, rect: Array,
 					membrane_scale, branch_phase, seed + branch * 97, rect)
 			membranes += 1
 			capillaries += built_capillaries
-		# Four eyes per danger, at alternating heights. They share this surface
-		# and therefore cost no extra submission.
-		if branch in [1, 2, 5, 7]:
-			var eye_t := 0.48 if branch % 2 == 0 else 0.66
+		# Five compositional anchors per danger, each with a distinct and fully
+		# deterministic eye record. Four rest shut or half-lidded; only the
+		# selected batch owner may spend its open slot on camera attention.
+		if branch in EYE_BRANCHES:
+			var eye_slot := EYE_BRANCHES.find(branch)
+			var eye := _eye_spec(hazard, seed, eye_slot,
+					allow_camera_gaze, room_center, core, end)
+			var eye_t := float(eye.anchor_t)
 			var eye_at := _bezier(start, c1, c2, end, eye_t)
-			var look := room_center - eye_at
-			look.y = 0.12
+			var target: Vector3 = eye.target
+			var look := target - eye_at
 			if look.length() < 0.01:
 				look = -direction
-			_append_eye(tool, eye_at, look.normalized(), root_radius * 0.86,
-					branch_phase)
-			eyes += 1
+			eye.anchor = eye_at
+			eye.forward = look.normalized()
+			_append_eye(tool, eye_at, look.normalized(),
+					root_radius * 0.86 * float(eye.scale), branch_phase, eye)
+			eye_records.append(eye)
 	hazard.set_contact_paths(contact_paths, CONTACT_TUBE_RADIUS_M)
 	return {
 		"tendrils": tendrils,
-		"eyes": eyes,
+		"eyes": eye_records.size(),
+		"eye_records": eye_records,
 		"contact_paths": contact_paths.size(),
 		"membranes": membranes,
 		"capillaries": capillaries,
+	}
+
+
+func _eye_spec(hazard: DreamHazard, seed: int, slot: int,
+		allow_camera_gaze: bool, room_center: Vector3, core: Vector3,
+		branch_end: Vector3) -> Dictionary:
+	var eye_seed := absi(("%s:eye:%d:%d" % [hazard.id, slot, seed]).hash())
+	var rest_state: String = str(EYE_STATES[slot])
+	var openness: float = float(EYE_OPENNESS[slot])
+	var scale := 0.76 + float((eye_seed >> 11) & 255) / 255.0 * 0.58
+	var gaze_mode := "room_center"
+	var target := room_center + Vector3.UP * (0.92 + 0.13 * float(slot))
+	var target_kind := 0.25
+	match slot:
+		0:
+			gaze_mode = "hazard_root"
+			target = core + Vector3.UP * 0.34
+			target_kind = 0.0
+		1:
+			gaze_mode = "branch_tip"
+			target = branch_end
+			target_kind = 0.50
+		2:
+			gaze_mode = "room_center"
+			target_kind = 0.25
+		3:
+			gaze_mode = "hazard_root"
+			target = core + Vector3.UP * 0.72
+			target_kind = 0.0
+		4:
+			gaze_mode = "branch_tip"
+			target = branch_end
+			target_kind = 0.50
+	if allow_camera_gaze and slot == 4:
+		gaze_mode = "camera"
+		target = room_center + Vector3.UP * 1.28
+		target_kind = 1.0
+		rest_state = "open"
+		openness = 0.90
+		scale = maxf(scale, 1.16)
+	return {
+		"id": "%s/eye_%02d" % [hazard.id, slot],
+		"hazard_id": hazard.id,
+		"socket": hazard.socket,
+		"anchor_t": 0.43 + float((eye_seed >> 3) & 255) / 255.0 * 0.28,
+		"anchor": Vector3.ZERO,
+		"scale": scale,
+		"rest_state": rest_state,
+		"rest_openness": openness,
+		"blink_phase": float(eye_seed & 4095) / 4095.0,
+		"blink_hz": 0.045 + float((eye_seed >> 19) & 63) / 63.0 * 0.028,
+		"gaze_mode": gaze_mode,
+		"gaze_weight": 1.0 if gaze_mode == "camera" else 0.0,
+		"target": target,
+		"target_kind": target_kind,
+		"roll_rad": deg_to_rad(-14.0
+				+ float((eye_seed >> 25) & 255) / 255.0 * 28.0),
+		"forward": Vector3.ZERO,
 	}
 
 
@@ -380,27 +487,49 @@ func _append_tube_segment(tool: SurfaceTool, a: Vector3, b: Vector3,
 
 
 func _append_eye(tool: SurfaceTool, center: Vector3, look: Vector3,
-		radius: float, phase: float) -> void:
+		radius: float, phase: float, eye: Dictionary) -> void:
 	var forward := look.normalized()
 	var side := forward.cross(Vector3.UP)
 	if side.length() < 0.001:
 		side = Vector3.RIGHT
 	side = side.normalized()
 	var up := side.cross(forward).normalized()
-	var eye_scale := Vector3(radius * 1.20, radius * 0.68, radius * 0.38)
+	var roll := float(eye.roll_rad)
+	side = side.rotated(forward, roll)
+	up = up.rotated(forward, roll)
+	var center_data := Color(center.x, center.y, center.z, 1.0)
+	var side_data := Color(side.x, side.y, side.z, float(eye.gaze_weight))
+	var up_data := Color(up.x, up.y, up.z, radius)
+	var control_data := Color(float(eye.blink_phase),
+			float(eye.rest_openness), float(eye.blink_hz),
+			float(eye.target_kind))
+	# A plum lid is the silhouette. Antique sclera, iris and pupil then sit
+	# progressively forward so they cannot vanish inside one opaque sphere.
+	# All four volumes carry the same eye record and remain in the batch.
+	_append_ellipsoid(tool, center,
+			side, up, forward,
+			Vector3(radius * 1.46, radius * 0.88, radius * 0.32), 0.0, phase,
+			center_data, side_data, up_data, control_data)
+	var eye_scale := Vector3(radius * 1.12, radius * 0.62, radius * 0.34)
 	_append_ellipsoid(tool, center + forward * radius * 0.20,
-			side, up, forward, eye_scale, 0.30, phase)
+			side, up, forward, eye_scale, 0.30, phase,
+			center_data, side_data, up_data, control_data)
 	_append_ellipsoid(tool, center + forward * radius * 0.52,
-			side, up, forward, Vector3(radius * 0.43, radius * 0.43,
-			radius * 0.15), 0.62, phase)
+			side, up, forward, Vector3(radius * 0.49, radius * 0.49,
+			radius * 0.15), 0.62, phase,
+			center_data, side_data, up_data, control_data)
 	_append_ellipsoid(tool, center + forward * radius * 0.66,
-			side, up, forward, Vector3(radius * 0.21, radius * 0.21,
-			radius * 0.10), 1.0, phase)
+			side, up, forward, Vector3(radius * 0.27, radius * 0.27,
+			radius * 0.10), 1.0, phase,
+			center_data, side_data, up_data, control_data)
 
 
 func _append_ellipsoid(tool: SurfaceTool, center: Vector3, side: Vector3,
 		up: Vector3, forward: Vector3, radii: Vector3, feature: float,
-		phase: float) -> void:
+		phase: float, custom0: Color = Color(0.0, 0.0, 0.0, 0.0),
+		custom1: Color = Color(0.0, 0.0, 0.0, 0.0),
+		custom2: Color = Color(0.0, 0.0, 0.0, 0.0),
+		custom3: Color = Color(0.0, 0.0, 0.0, 0.0)) -> void:
 	for ring in EYE_RINGS:
 		var v0 := float(ring) / float(EYE_RINGS)
 		var v1 := float(ring + 1) / float(EYE_RINGS)
@@ -431,15 +560,24 @@ func _append_ellipsoid(tool: SurfaceTool, center: Vector3, side: Vector3,
 					+ forward * n01.dot(forward) * radii.z
 			_quad(tool, a, b, c, d, (n00 + n01 + n10 + n11).normalized(),
 					Color(0.22, phase, feature, 1.0),
-					Color(0.22, phase, feature, 1.0))
+					Color(0.22, phase, feature, 1.0), custom0, custom1,
+					custom2, custom3)
 
 
 func _quad(tool: SurfaceTool, a: Vector3, b: Vector3, c: Vector3,
-		d: Vector3, normal: Vector3, color_a: Color, color_b: Color) -> void:
+		d: Vector3, normal: Vector3, color_a: Color, color_b: Color,
+		custom0: Color = Color(0.0, 0.0, 0.0, 0.0),
+		custom1: Color = Color(0.0, 0.0, 0.0, 0.0),
+		custom2: Color = Color(0.0, 0.0, 0.0, 0.0),
+		custom3: Color = Color(0.0, 0.0, 0.0, 0.0)) -> void:
 	for record in [[a, color_a], [b, color_b], [c, color_b],
 			[a, color_a], [c, color_b], [d, color_a]]:
 		tool.set_normal(normal)
 		tool.set_color(record[1])
+		tool.set_custom(0, custom0)
+		tool.set_custom(1, custom1)
+		tool.set_custom(2, custom2)
+		tool.set_custom(3, custom3)
 		tool.add_vertex(record[0])
 
 

@@ -185,7 +185,26 @@ Collision, aperture, topology and danger ownership are unchanged. Three
 production debug modes expose architecture pull, relief height and stage bands.
 The rejected full-plane graph-paper pass and production proof are recorded at
 `art/renders/dream_rendering_r2/README.md`. R3, the seeded eye family, is now
-the pickup; R2 does not license the breach, warp, portals or RECURSION.
+closed by the checkpoint below; R2 did not license the breach, warp, portals
+or RECURSION.
+
+**Implementation checkpoint — 2026-08-20, R3 eye family.** R3 is landed.
+Each eligible danger now supplies five sparse compositional anchors to the
+existing one-surface hazard body. Every eye publishes a stable id and source
+hazard plus its actual anchor, 0.76–1.34 scale, local orientation, ±14 degree
+roll, resting aperture, 0.045–0.073 Hz blink phase, authored gaze target and
+behavior. Four of every five rest closed or half-lidded. Across the complete
+live batch exactly one open eye may track the production camera; only its iris
+and pupil move, within 0.28 of its own radius. Root, branch-tip and room-centre
+gazes remain fixed. A wine-dark physical lid, antique sclera, iris and pupil
+are nested at separate depths so the family reads as eyes rather than repeated
+gold buttons. All geometry and per-eye controls remain vertex data in the
+existing submitted surface—no eye node, material, collision, light, damage
+volume or attention manager was added. `DREAM_EYE_DEBUG=1` isolates rest state
+and the single tracker; `=2` isolates gaze classes. Production beauty and both
+diagnostic sets are recorded at `art/renders/dream_rendering_r3/README.md`.
+R4, the torn breach and cheap impossible interior, is now the pickup. R3 does
+not license warp, phase states, portals or RECURSION.
 
 ---
 

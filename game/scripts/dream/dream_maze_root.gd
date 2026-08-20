@@ -393,6 +393,8 @@ func _build_hazard_growth() -> void:
 	material.set_shader_parameter("tissue_transmission", 0.54)
 	material.set_shader_parameter("wet_specular_gain", 1.15)
 	material.set_shader_parameter("gold_vessel_width", 0.958)
+	material.set_shader_parameter("eye_debug_view", clampi(OS.get_environment(
+			"DREAM_EYE_DEBUG").to_int(), 0, 2))
 	material.set_shader_parameter("motion_phase",
 			float(absi(str(dream_context.get("seed_hex", "")).hash()) & 4095)
 			/ 4095.0 * TAU)

@@ -41,10 +41,15 @@ uniform float tissue_fold_scale : hint_range(0.25, 8.0) = 1.35;
 uniform float tissue_transmission : hint_range(0.0, 2.0) = 0.72;
 uniform float wet_specular_gain : hint_range(0.0, 3.0) = 1.15;
 uniform float gold_vessel_width : hint_range(0.72, 0.98) = 0.925;
+uniform int eye_debug_view : hint_range(0, 2) = 0;
 
 varying vec3 v_world;
 varying vec3 v_normal;
 varying vec4 v_gene;
+// x=eye flag, y=direct-camera weight, z=resting openness,
+// w=authored gaze target class. Individual eye centers and frames remain
+// vertex-only: the family costs attributes and triangles, not another draw.
+varying vec4 v_eye_state;
 
 
 void vertex() {
@@ -54,6 +59,36 @@ void vertex() {
 	float flex = COLOR.r;
 	float phase = COLOR.g * 6.28318530718 + gene_phase + motion_phase;
 	float slow = TIME * 6.28318530718 * motion_hz;
+	float eye_flag = step(0.5, CUSTOM0.a);
+	if (eye_flag > 0.5) {
+		vec3 eye_center = CUSTOM0.xyz;
+		vec3 eye_side = normalize(CUSTOM1.xyz);
+		vec3 eye_up = normalize(CUSTOM2.xyz);
+		float blink_clock = fract(TIME * CUSTOM3.z + CUSTOM3.x);
+		// A blink occupies only fourteen percent of a long 14-22 s cycle.
+		// Resting aperture remains the dominant authored state; closed eyes do
+		// not repeatedly spring open merely to advertise that they animate.
+		float blink = smoothstep(0.845, 0.905, blink_clock)
+				* (1.0 - smoothstep(0.925, 0.985, blink_clock));
+		float aperture = max(0.025, CUSTOM3.y * (1.0 - blink * 0.94));
+		float local_y = dot(VERTEX - eye_center, eye_up);
+		VERTEX += eye_up * local_y * (aperture - 1.0);
+
+		// Only the one vertex family member whose record says "camera" tracks.
+		// Shell/lids stay fixed; iris and pupil slide a bounded fraction of the
+		// eye radius along their own seeded local frame.
+		float mobile_iris = smoothstep(0.43, 0.92, COLOR.b) * CUSTOM1.a;
+		if (mobile_iris > 0.0) {
+			vec3 camera_world = MAIN_CAM_INV_VIEW_MATRIX[3].xyz;
+			vec3 camera_local = (inverse(MODEL_MATRIX)
+					* vec4(camera_world, 1.0)).xyz;
+			vec3 toward_camera = normalize(camera_local - eye_center);
+			float side_look = clamp(dot(toward_camera, eye_side), -0.72, 0.72);
+			float up_look = clamp(dot(toward_camera, eye_up), -0.52, 0.52);
+			VERTEX += (eye_side * side_look + eye_up * up_look)
+					* CUSTOM2.a * 0.28 * mobile_iris;
+		}
+	}
 	VERTEX.x += sin(slow + phase + VERTEX.y * 1.7) * 0.045
 			* flex * motion_gain;
 	VERTEX.z += cos(slow * 0.83 + phase + VERTEX.x * 1.3) * 0.032
@@ -63,6 +98,7 @@ void vertex() {
 	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	v_normal = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
 	v_gene = COLOR;
+	v_eye_state = vec4(eye_flag, CUSTOM1.a, CUSTOM3.y, CUSTOM3.a);
 }
 
 
@@ -139,9 +175,14 @@ void fragment() {
 			* (0.38 + diffuse * 0.44 + specular * 0.96);
 	reflected = mix(reflected, living_tissue, clamp(organic_mix, 0.0, 1.0));
 
-	float eye_shell = smoothstep(0.34, 0.60, v_gene.b)
+	float eye_sclera = v_eye_state.x * smoothstep(0.22, 0.285, v_gene.b)
+			* (1.0 - smoothstep(0.38, 0.52, v_gene.b));
+	float eye_shell = v_eye_state.x * smoothstep(0.34, 0.60, v_gene.b)
 			* (1.0 - smoothstep(0.80, 0.96, v_gene.b));
-	float pupil = smoothstep(0.82, 0.98, v_gene.b);
+	float pupil = v_eye_state.x * smoothstep(0.82, 0.98, v_gene.b);
+	reflected = mix(reflected, vec3(0.27, 0.15, 0.045)
+			* (0.34 + diffuse * 0.48) + pale_leaf * specular * 0.28,
+			eye_sclera);
 	reflected = mix(reflected, warm_gold * (0.34 + diffuse * 0.52)
 			+ pale_leaf * specular * 1.10, eye_shell);
 	reflected = mix(reflected, vec3(0.006, 0.002, 0.004), pupil);
@@ -157,6 +198,7 @@ void fragment() {
 			* (0.45 + cells * 0.55 + folds * 0.20);
 	vec3 dormant = mix(vec3(0.16, 0.045, 0.012), dormant_tissue,
 			clamp(organic_mix, 0.0, 1.0));
+	dormant = mix(dormant, vec3(0.31, 0.17, 0.055), eye_sclera);
 	dormant = mix(dormant, vec3(0.54, 0.25, 0.035), eye_shell);
 	dormant = mix(dormant, vec3(0.025, 0.002, 0.008), pupil);
 	vec3 dark_body = dormant * max(0.0, dark_glow);
@@ -172,4 +214,25 @@ void fragment() {
 	// it cannot cast light onto the room, so raising it restores the ruled
 	// silhouette without inventing a second practical or waking the gold.
 	EMISSION = dark_body * 0.55 + lit_body * 0.035;
+
+	// Production diagnosis: view 1 shows resting aperture (ochre to bone) and
+	// singles the direct tracker in magenta; view 2 identifies authored gaze
+	// classes from root/room through branch-tip to camera. Non-eye anatomy is
+	// suppressed so an anchor census can be read in one frame.
+	if (eye_debug_view > 0) {
+		vec3 debug_colour = vec3(0.002, 0.001, 0.003);
+		if (v_eye_state.x > 0.5) {
+			if (eye_debug_view == 1) {
+				debug_colour = mix(vec3(0.23, 0.055, 0.012),
+						vec3(1.0, 0.82, 0.36), v_eye_state.z);
+				debug_colour = mix(debug_colour, vec3(1.0, 0.04, 0.46),
+						v_eye_state.y);
+			} else {
+				debug_colour = mix(vec3(0.04, 0.24, 0.58),
+						vec3(1.0, 0.16, 0.42), v_eye_state.w);
+			}
+		}
+		ALBEDO = debug_colour;
+		EMISSION = debug_colour * 0.45;
+	}
 }

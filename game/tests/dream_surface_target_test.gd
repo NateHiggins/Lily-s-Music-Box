@@ -6,7 +6,7 @@ extends Node
 ## growth maps back to the existing hazard owner, and furnishing contains only
 ## extracted production meshes rather than waking gameplay systems.
 
-const EXPECTED_CHECKS := 41
+const EXPECTED_CHECKS := 47
 const HazardGrowthScript := preload(
 		"res://scripts/dream/dream_hazard_growth.gd")
 
@@ -180,8 +180,73 @@ func _growth_contract() -> void:
 			material != null
 			and is_equal_approx(float(material.get_shader_parameter("motion_hz")),
 			0.13) and float(material.get_shader_parameter("motion_gain")) == 1.0)
-	_check("the batched anatomy carries eyes without extra surfaces",
-			growth != null and int(growth.get_meta("eyes", 0)) >= ids.size() * 4)
+	var eye_records: Array = growth.get_meta("eye_records", []) if growth else []
+	_check("the batched anatomy carries five composed eyes per danger",
+			growth != null and int(growth.get_meta("eyes", 0)) == ids.size() * 5
+			and eye_records.size() == int(growth.get_meta("eyes", 0)))
+	_check("the geometry publishes the deterministic eye-family contract",
+			growth != null
+			and str(growth.get_meta("eye_family", ""))
+			== "seeded_compositional_v1"
+			and growth.get_meta("eye_debug_views", PackedStringArray())
+			== PackedStringArray([
+				"beauty", "rest_and_tracking", "gaze_target"]))
+	var records_valid := true
+	var ids_unique: Dictionary = {}
+	var per_hazard: Dictionary = {}
+	var gaze_modes: Dictionary = {}
+	var closed_or_half := 0
+	var direct_trackers := 0
+	for eye_value in eye_records:
+		var eye: Dictionary = eye_value
+		var eye_id := str(eye.get("id", ""))
+		var hazard_id := str(eye.get("hazard_id", ""))
+		var rest_state := str(eye.get("rest_state", ""))
+		var gaze_mode := str(eye.get("gaze_mode", ""))
+		records_valid = records_valid and not eye_id.is_empty() \
+				and not ids_unique.has(eye_id) and hazard_id in ids \
+				and eye.get("anchor") is Vector3 \
+				and eye.get("target") is Vector3 \
+				and eye.get("forward") is Vector3 \
+				and is_equal_approx((eye.forward as Vector3).length(), 1.0) \
+				and float(eye.get("scale", 0.0)) >= 0.76 \
+				and float(eye.get("scale", 9.0)) <= 1.341 \
+				and float(eye.get("blink_phase", -1.0)) >= 0.0 \
+				and float(eye.get("blink_phase", 2.0)) <= 1.0 \
+				and float(eye.get("blink_hz", 0.0)) >= 0.045 \
+				and float(eye.get("blink_hz", 1.0)) <= 0.074 \
+				and rest_state in ["closed", "half_lidded", "open"] \
+				and gaze_mode in [
+					"hazard_root", "branch_tip", "room_center", "camera"] \
+				and absf(float(eye.get("roll_rad", 9.0))) <= deg_to_rad(14.01)
+		ids_unique[eye_id] = true
+		per_hazard[hazard_id] = int(per_hazard.get(hazard_id, 0)) + 1
+		gaze_modes[gaze_mode] = true
+		if rest_state in ["closed", "half_lidded"]:
+			closed_or_half += 1
+		if gaze_mode == "camera":
+			direct_trackers += 1
+	_check("every eye owns a valid seeded scale blink frame and gaze record",
+			records_valid and ids_unique.size() == eye_records.size())
+	var five_each := per_hazard.size() == ids.size()
+	for hazard_id_value in ids:
+		five_each = five_each and int(per_hazard.get(hazard_id_value, 0)) == 5
+	_check("eye anchors remain sparse and evenly composed across live dangers",
+			five_each)
+	_check("closed and half-lidded resting states dominate the family",
+			closed_or_half == ids.size() * 4
+			and closed_or_half == int(growth.get_meta(
+			"eyes_closed_or_half", -1)))
+	_check("direct camera attention is a single sparse event",
+			direct_trackers == 1
+			and direct_trackers == int(growth.get_meta(
+			"eyes_tracking_camera", -1))
+			and gaze_modes.has("hazard_root")
+			and gaze_modes.has("branch_tip")
+			and gaze_modes.has("room_center"))
+	_check("the production material exposes but does not force eye diagnostics",
+			material != null
+			and int(material.get_shader_parameter("eye_debug_view")) == 0)
 	_check("load-bearing limbs become wall grafts rather than ending in air",
 			growth != null and int(growth.get_meta("wall_membranes", 0))
 			>= ids.size() * 3)
@@ -195,7 +260,8 @@ func _growth_contract() -> void:
 			duplicate.mesh != null and growth != null
 			and duplicate.mesh.surface_get_array_len(0)
 			== growth.mesh.surface_get_array_len(0)
-			and duplicate.get_aabb().is_equal_approx(growth.get_aabb()))
+			and duplicate.get_aabb().is_equal_approx(growth.get_aabb())
+			and duplicate.get_meta("eye_records", []) == eye_records)
 	duplicate.free()
 	var contacted_in_dark := false
 	if contact_owner != null:

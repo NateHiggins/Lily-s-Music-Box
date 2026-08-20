@@ -23,8 +23,11 @@ living-gold layers under a bounded readable-black lighting contract
 (`art/renders/dream_rendering_r1/README.md`). R2 is also landed: tesserae,
 recessed grout, cracked concentric relief and room-bound growth anchors remain
 on the existing submitted surfaces (`art/renders/dream_rendering_r2/README.md`).
-The immediate task is R3, the deterministic compositional eye family, and then
-R4 breach/interior depth (D), followed by the
+R3 is also landed: five deterministic anchors per eligible danger, four-of-five
+closed or half-lidded rest states, long seeded blinks, fixed local gazes and
+exactly one bounded camera tracker remain in the existing one hazard surface
+(`art/renders/dream_rendering_r3/README.md`). The immediate task is R4,
+the torn breach and cheap impossible interior depth (D), followed by the
 exposure-ramped breach form and governed reflected-gold world light. RECURSION
 is measured but not licensed, and the embrace still follows the eyes rather
 than preceding them.

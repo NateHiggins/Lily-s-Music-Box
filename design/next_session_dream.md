@@ -33,11 +33,12 @@ of its source Orison's real procedural props; no waking owner, collision, light,
 sound or E verb crosses over. `DreamSurfaceTargetTest` is 21/21 and its
 production frames live in `art/renders/dream_surface_target_v2/`.
 
-This is **not N10 complete**. Next production surface work is C (relief) and D
-(torn breach plus impossible interior depth), then exposure-ramped breach
-anatomy, the complete stage eye language/tracking, and governed reflected-gold
-world light. The current hazard growth answers the owner's dark-live danger
-ruling; it does not pretend to be the still-missing exposure-stage breach.
+That first target slice was **not N10 complete**. The R2/R3 checkpoints below
+now close relief and the deterministic eye family. The remaining production
+surface work begins at D: torn breach plus impossible interior depth, then
+exposure-ramped breach anatomy and governed reflected-gold world light. The
+current hazard growth answers the owner's dark-live danger ruling; it does not
+pretend to be the still-missing exposure-stage breach.
 
 **2026-08-20 rendering feedback is reconciled, not installed as a second
 architecture, and R1 is now landed.** The Klimt filter's entire paint/ink/jewel
@@ -72,10 +73,24 @@ beauty/control/debug frames and the rejected graph-paper pass are documented at
 `art/renders/dream_rendering_r2/README.md`. Target 41/41, RoomBuilder 175/175,
 Hazard 42/42 and Lineage 21/21 pass. Real-window 1440p perf remains 0/4 over
 16.6 ms (2.00 ms worst, 172 calls worst); WalkTest FAST and FULL x8/480 both
-pass, with the inherited logged diagnostics still present. **R3 is now the
-pickup:** a deterministic eye family with sparse compositional anchors,
-closed/half-lidded rest states and bounded gaze. R4 remains the first breach;
+pass, with the inherited logged diagnostics still present. At this checkpoint
+R3 was the pickup; it is closed immediately below. R4 remains the first breach;
 portals and RECURSION remain unlicensed.
+
+**2026-08-20 R3 is landed.** The first repeated eye ellipsoids are replaced by
+five deterministic compositional anchors per eligible danger. Each record owns
+scale, blink phase/rate, local frame and roll, resting lid, fixed gaze target
+or the single batch-wide camera-tracking permission. Four of five rest closed
+or half-lidded; only iris/pupil track, within 0.28 radius. A plum physical lid
+and separately nested antique sclera/iris/pupil remain in the existing batched
+hazard surface and inherit `DreamHazard`'s danger rather than creating any new
+owner. `DREAM_EYE_DEBUG=1|2` proves rest/tracker and gaze-class placement.
+Beauty/debug frames and exact proof are in
+`art/renders/dream_rendering_r3/README.md`; Target is 47/47 and the 1440p dream
+probe remains 0/4 over 16.6 ms with 172 calls worst. **R4 is now the pickup:**
+one torn breach and cheap impossible interior depth, still as a rendering
+consumer of Atlas-authored space. Warp, portals and RECURSION remain
+unlicensed.
 
 **Pre-existing proof debt found during this pass:**
 `DreamPerceptionTest.tscn` is still a chain-era harness. It asks the initial
