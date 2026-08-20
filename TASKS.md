@@ -1318,6 +1318,15 @@ unresolved. K7's source-backed loop contract is closed in
   a bounded persistent reflected-gold light. The 2026-08-18 owner amplification
   is recorded in `DREAM_SURFACE_REDESIGN_BRIEF.md`; nothing in this line licenses
   emissive gold, popping geometry, a second combat system or unmeasured draws.
+- **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
+  heredity and visible anatomy: bounded parent/child genomes, brood knots,
+  parent umbilicals, prospective child helices, open birth-frames and sealed
+  buds. One non-colliding `ArrayMesh` surface per live room, 0.065–0.105 Hz
+  breathing, no camera roll or moving topology. `DreamLineageTest` is 21/21;
+  production lamp/on/off evidence lives in
+  `art/renders/dream_reproductive_path_v1/`. This does not silently close N10
+  or the separately priced, still-unbuilt enterable RECURSION fault. Governing
+  contract: `design/DREAM_REPRODUCTIVE_PATH_BRIEF.md`.
 
 ## M — Materials and textures
 

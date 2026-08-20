@@ -65,6 +65,17 @@ That underneath is not a place. **It is her body.** The tentacles are her. The
 eyes are hers. The nested frame-tunnel receding further than the building can
 contain is what she looks like from inside three dimensions.
 
+**The reproductive path.** The maze's doorway ancestry is how that body makes
+descendants in three dimensions. Every room is a generation; the remembered
+entry is its parent; every other aperture is a possible child. The player does
+not impregnate her and is not conscripted into a sex act: by choosing a door
+they select which of her self-generated futures becomes locally real. Because
+she is enamoured, the whole impossible genealogy also reads as courtship — she
+grows a family of places around the only person who keeps returning. This is
+shown by inherited brood knots, umbilicals, birth-frames and sealed buds, never
+explained in dialogue. Governing implementation and safety boundary:
+`DREAM_REPRODUCTIVE_PATH_BRIEF.md`.
+
 **The scars.** Dormant sockets that never turn gold at any light level: places
 she used to be and is not any more. The building keeps the mark.
 

@@ -1,6 +1,6 @@
 # ORISON — DREAM WORLD SESSION KICKOFF
 
-Authoritative as of 2026-08-18. Everything below is committed and pushed to
+Authoritative as of 2026-08-20. Everything below is committed and pushed to
 `main`. The tree is SHARED with a parallel lane (Codex and/or another Claude):
 **stage by exact path, never `git add -A`.** Your local `HEAD` can move between
 your own commands because the other lane commits into the same working tree —
@@ -84,8 +84,8 @@ atlas into space. 175/175 in `DreamRoomBuilderTest`.
 - **Faults as space:** REPETITION rebuilds the previous room's module at its
   size with the doors moved; BLANKING drops lintels so openings run floor to
   ceiling; SCALE and CONFABULATION were already space. **RECURSION is NOT
-  expressed and its cost is unmeasured** — the suite says so in its own output
-  rather than passing quietly.
+  expressed; it is priced, fit-sampled and still unlicensed** — the suite says
+  so in its own output rather than passing quietly.
 - **The waking room does not arm.** Every other room's fairness rests on the
   approach; the waking room has none. Found because the player could wake
   inside a hazard and the run ended by contact in the first frames.
@@ -93,7 +93,17 @@ atlas into space. 175/175 in `DreamRoomBuilderTest`.
   material pinned to zero reveal so they never turn gold at any light level.
   A live hazard is the dream showing through; a scar is only the real building.
 
-**`DreamMazeRoot`** builds the fractal behind `DREAM_FRACTAL=1`. All three
+**The reproductive path is now visible.** Read
+`design/DREAM_REPRODUCTIVE_PATH_BRIEF.md`. `DreamAtlas.lineage(path)` derives a
+bounded inherited phenotype without touching room identity or topology. Each
+live room grows one batched, collision-free brood knot with a remembered parent
+umbilical, prospective child helices, open birth-frames and sealed buds. The
+body breathes at 0.065–0.105 Hz and its antique gold is returned only by the
+production service lamp. `DreamLineageTest` is 21/21. This is ancestry, not the
+still-unbuilt enterable `RECURSION` fault, and it does not close surface work
+C–F.
+
+**`DreamMazeRoot`** builds the fractal as the only production dream. All three
 chain-bound production sites are gone (`_build_practicals` finds rooms by name,
 `_update_practical` lights the first door of the room you are in — a lure
 rather than a corridor marker, `_cap_fold` brings her to the door you came in
@@ -304,7 +314,6 @@ cp the FIVE json to game/data/                 # fixture_light_map is the forgot
 "/c/Program Files/Blender Foundation/Blender 5.2/blender" -b -P <abs>/art/blender/scripts/build_orison.py
 C:/devkit/bin/godot.cmd --headless --path game --import      # bare `godot` fails
 C:/devkit/bin/godot.cmd --headless --path game res://tests/<Scene>.tscn
-DREAM_FRACTAL=1   # build the fractal instead of the chain
 DREAM_PLAIN=1     # graybox materials; MUCH faster, and a control, NOT a verification
 godot --path game res://tests/DreamWalk.tscn   # walk it; F identifies what is under the crosshair
 ```

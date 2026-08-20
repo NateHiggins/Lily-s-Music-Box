@@ -762,9 +762,9 @@ func _block_j_faults() -> void:
 
 	# RECURSION is NOT expressed, and this says so out loud rather than
 	# leaving a silent gap that reads as done. The atlas produces the flag;
-	# nothing in this builder makes an enterable smaller copy of a room, and
-	# nothing anywhere in the project does nested space, so its cost is
-	# genuinely unmeasured rather than merely unimplemented.
+	# nothing in this builder makes an enterable smaller copy of a room.
+	# DreamRecursionPrice has measured its frequency, fit and estimated draw
+	# cost, but that measurement deliberately licensed no implementation.
 	var recursive := 0
 	for i in 400:
 		var room := b.describe(PackedInt32Array([i % 5, (i / 5) % 5,
@@ -772,7 +772,7 @@ func _block_j_faults() -> void:
 		if bool(room.recursive):
 			recursive += 1
 	print("[ROOMS] RECURSION: %d of 400 rooms ask for it; the builder does "
-			% recursive + "not yet express it. UNPRICED.")
+			% recursive + "not yet express it. PRICED, NOT LICENSED.")
 	_check("the atlas does produce RECURSION for a builder to answer later",
 			recursive > 0)
 

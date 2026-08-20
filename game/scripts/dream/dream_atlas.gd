@@ -61,6 +61,32 @@ const CATALOG_PATH := "res://data/dream_module_catalog.json"
 const MIN_DOORS := 2
 const MAX_DOORS := 4
 
+## THE BUILDING DOES NOT MERELY BRANCH. IT DESCENDS.
+##
+## Room identity has always come from ancestry -- the ordered doors in its
+## path -- but until now that ancestry had no visible phenotype. These salts
+## derive a second, deliberately slow-changing genome from the same path. A
+## child therefore resembles its parent, a sibling is recognisably related,
+## and neither is a random decoration rolled after the room exists.
+##
+## They are golden vectors once shipped. They do NOT participate in room_id,
+## source selection, door count or placement, so adding the visible lineage
+## cannot move an existing save's rooms or alter a proven route.
+const LINEAGE_ROOT_SALT := 0x2D15A53C1B91E9A7
+const LINEAGE_STEP_SALT := 0x19C67D4A2E50B381
+const LINEAGE_PHASE_SALT := 0x06F1A2C3
+const LINEAGE_CURL_SALT := 0x03B70D51
+const LINEAGE_GIRTH_SALT := 0x0712AC09
+const LINEAGE_PULSE_SALT := 0x021D9E47
+const LINEAGE_HAND_SALT := 0x05417E2B
+
+enum LineageMutation {
+	QUIET,
+	FOLD,
+	INVERT,
+	DUPLICATE,
+}
+
 ## HOW MEMORY FAILS. Ordered by how early in a room's decay it appears — a
 ## barely-forgotten room repeats itself; a thoroughly forgotten one is a blank
 ## with a door in it.
@@ -187,6 +213,75 @@ func aspect(id: int, salt: int) -> float:
 	return float(absi(h) % 1000003) / 1000003.0
 
 
+## THE REPRODUCTIVE PATH, AS PURE DATA.
+##
+## The technical proposal called for child seeds derived from a parent seed
+## and doorway index. That law was already latent in room_id(); this makes it
+## explicit without changing room identity. The phenotype is accumulated in
+## small bounded mutations along the path instead of being selected afresh
+## from the final hash. That distinction is the whole effect: adjacent
+## generations have family resemblance, while a long lineage can become
+## unrecognisable without ever jumping there in one doorway.
+##
+## `pulse_hz` stays between 0.065 and 0.105 Hz -- one breath every 9.5 to
+## 15.4 seconds. This is living motion, not flashing, and sits far below any
+## photosensitive-risk frequency. Chirality can reverse, but the camera never
+## does: the mutation belongs to her body, not the player's vestibular frame.
+func lineage(path: PackedInt32Array) -> Dictionary:
+	var root := mix64(mix64(seed_hi, seed_lo), LINEAGE_ROOT_SALT)
+	var genome := root
+	var phase := aspect(root, LINEAGE_PHASE_SALT) * TAU
+	var curl := lerpf(0.34, 0.72, aspect(root, LINEAGE_CURL_SALT))
+	var girth := lerpf(0.032, 0.052, aspect(root, LINEAGE_GIRTH_SALT))
+	var pulse_hz := lerpf(0.073, 0.093, aspect(root,
+			LINEAGE_PULSE_SALT))
+	var handedness := -1 if aspect(root, LINEAGE_HAND_SALT) < 0.5 else 1
+	var mutation := LineageMutation.QUIET
+	for generation in path.size():
+		var door := int(path[generation])
+		var child := mix64(genome, LINEAGE_STEP_SALT
+				+ door * 0x101 + (generation + 1) * 0x1F3)
+		var turn := aspect(child, LINEAGE_PHASE_SALT)
+		var bend := aspect(child, LINEAGE_CURL_SALT)
+		var swell := aspect(child, LINEAGE_GIRTH_SALT)
+		var tempo := aspect(child, LINEAGE_PULSE_SALT)
+		var hand := aspect(child, LINEAGE_HAND_SALT)
+		phase = fposmod(phase + lerpf(-0.34, 0.34, turn), TAU)
+		curl = clampf(curl + lerpf(-0.055, 0.055, bend), 0.22, 0.86)
+		girth = clampf(girth + lerpf(-0.0035, 0.0035, swell),
+				0.026, 0.064)
+		pulse_hz = clampf(pulse_hz + lerpf(-0.003, 0.003, tempo),
+				0.065, 0.105)
+		if hand < 0.13:
+			handedness *= -1
+		if hand < 0.13:
+			mutation = LineageMutation.INVERT
+		elif hand < 0.31:
+			mutation = LineageMutation.DUPLICATE
+		elif hand < 0.58:
+			mutation = LineageMutation.FOLD
+		else:
+			mutation = LineageMutation.QUIET
+		genome = child
+	var parent_path := path.duplicate()
+	if not parent_path.is_empty():
+		parent_path.remove_at(parent_path.size() - 1)
+	return {
+		"genome_id": genome,
+		"root_id": root,
+		"generation": path.size(),
+		"has_parent": not path.is_empty(),
+		"parent_room_id": room_id(parent_path) if not path.is_empty() else 0,
+		"birth_door": int(path[path.size() - 1]) if not path.is_empty() else -1,
+		"phase": phase,
+		"curl": curl,
+		"girth": girth,
+		"pulse_hz": pulse_hz,
+		"handedness": handedness,
+		"mutation": mutation,
+	}
+
+
 ## HOW FAR GONE THIS ROOM IS. Rises with the nights the campaign has had, and
 ## varies per room so the building forgets unevenly — some corners stay sharp
 ## for a long time, which is what makes the rotten ones legible.
@@ -286,6 +381,9 @@ func room(path: PackedInt32Array) -> Dictionary:
 		# is true.
 		"recursive": f == Fault.RECURSION,
 		"blank": f == Fault.BLANKING,
+		# The phenotype is additive. Nothing in topology or placement reads it,
+		# which keeps this visual grammar from becoming a save migration.
+		"lineage": lineage(path),
 	}
 
 

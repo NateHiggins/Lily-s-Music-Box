@@ -651,12 +651,15 @@ func _run_dream() -> void:
 
 ## What the pocket is actually made of. The building's census counts meshes
 ## per floor; the dream's interesting axis is how many of its submissions
-## carry the Klimt shader, because that is the population every new surface
-## feature multiplies against.
+## carry each dream shader, because that is the population every new surface
+## feature multiplies against. This used to label EVERY ShaderMaterial
+## "Klimt-shaded"; the reproductive path introduced its own analytic gold
+## shader and made that shortcut a confident lie.
 func _report_dream_census() -> void:
 	var geometry := 0
 	var shaded := 0
 	var by_motif := {}
+	var by_shader := {}
 	for node in _dream.find_children("*", "GeometryInstance3D", true, false):
 		var g := node as GeometryInstance3D
 		if g == null:
@@ -666,12 +669,17 @@ func _report_dream_census() -> void:
 		if m == null:
 			continue
 		shaded += 1
-		var motif := str(m.get_shader_parameter("motif"))
-		by_motif[motif] = int(by_motif.get(motif, 0)) + 1
-	print("PERF DREAM census: %d GeometryInstance3D, %d Klimt-shaded, "
+		var shader_name := "<missing>"
+		if m.shader != null:
+			shader_name = m.shader.resource_path.get_file()
+		by_shader[shader_name] = int(by_shader.get(shader_name, 0)) + 1
+		if shader_name == "dream_klimt.gdshader":
+			var motif := str(m.get_shader_parameter("motif"))
+			by_motif[motif] = int(by_motif.get(motif, 0)) + 1
+	print("PERF DREAM census: %d GeometryInstance3D, %d shader materials, "
 			% [geometry, shaded]
-			+ "%d distinct materials, by motif %s"
-			% [_dream._molten_materials.size(), str(by_motif)])
+			+ "%d distinct materials, by shader %s, Klimt motifs %s"
+			% [_dream._molten_materials.size(), str(by_shader), str(by_motif)])
 
 
 ## The centre of the live room furthest from where the player woke. On the

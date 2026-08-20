@@ -84,6 +84,8 @@ extends RefCounted
 ## so the fault stays visible in the direction where it is safe to be.
 
 const CATALOG_PATH := "res://data/dream_module_catalog.json"
+const DreamLineageBodyScript := preload(
+		"res://scripts/dream/dream_lineage_body.gd")
 
 ## Shared with DreamMazeBuilder rather than redefined: a joint is one real
 ## wall, and two different thicknesses would leave a seam you could see.
@@ -350,6 +352,7 @@ func describe(path: PackedInt32Array, entry: Dictionary = {}) -> Dictionary:
 		"rect": _world_rect(rot, origin, size),
 		"doors": doors,
 		"hazards": _place_hazards(sockets, scale, rot, origin, source),
+		"lineage": atlas_room.lineage,
 	}
 
 
@@ -1298,7 +1301,57 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 			i += 1
 			DreamMazeBuilder._solid_box(node, "Lintel%02d" % i, door_mat,
 					aperture, door_h, clear_ceiling)
+	_build_lineage_body(node, room)
 	return node
+
+
+## THE PATH IS HER REPRODUCTIVE ANATOMY.
+##
+## Door zero is special only while its parent is still in the pocket. In that
+## state the branch wears THIS room's genome, because the child is what meets
+## the parent at the shared aperture. Once short-term memory drops the parent,
+## door zero becomes another future child and receives that child's genome.
+## That is why this relationship is resolved here rather than in DreamAtlas:
+## only the live pocket knows whether an aperture is ancestry or possibility.
+func _build_lineage_body(parent: Node3D, room: Dictionary) -> void:
+	var branches: Array = []
+	var path: PackedInt32Array = room.path
+	var parent_key := ""
+	if not path.is_empty():
+		parent_key = key_of(_parent_path(path))
+	for door in room.doors:
+		var is_parent := not parent_key.is_empty() \
+				and str(door.leads_to) == parent_key
+		var branch_path := path
+		if not is_parent:
+			branch_path = DreamAtlas.step(path, int(door.index))
+		branches.append({
+			"door": door,
+			"is_parent": is_parent,
+			"lineage": room.lineage if is_parent
+					else atlas.lineage(branch_path),
+		})
+	var body := DreamLineageBodyScript.new()
+	body.configure(room, branches, clear_ceiling)
+	body.material_override = _lineage_material(room.lineage)
+	parent.add_child(body)
+
+
+## A PHYSICAL OBJECT NEEDS A PHYSICAL MATERIAL.
+##
+## The wall shader is an exposure filter over a broad architectural plane. On
+## tubes a few centimetres wide its dark ground wins and the first production
+## render reduced the reproductive body to a cut-out against the illuminated
+## ceiling. This is antique gold alloy under the real service SpotLight3D:
+## metallic, never emissive, black outside the beam, with enough diffuse alloy
+## content that a curved filament can still be read when its mirror angle is
+## not pointed directly at the eye.
+func _lineage_material(lineage: Dictionary) -> ShaderMaterial:
+	var material := ShaderMaterial.new()
+	material.shader = load("res://shaders/dream_lineage_gold.gdshader")
+	material.set_shader_parameter("gene_phase",
+			float(lineage.get("phase", 0.0)))
+	return material
 
 
 ## THE SCARS. Where a hazard would be if this were somebody else's night.
