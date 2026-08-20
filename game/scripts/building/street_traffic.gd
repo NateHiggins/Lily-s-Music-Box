@@ -166,11 +166,7 @@ func build(player: Node3D = null) -> void:
 
 	var mesh := BoxMesh.new()
 	mesh.size = Vector3.ONE
-	var mat := StandardMaterial3D.new()
-	mat.vertex_color_use_as_albedo = true
-	mat.roughness = 0.62
-	mat.metallic = 0.35
-	mesh.material = mat
+	mesh.material = _coachwork("car_paint", 0.62)
 
 	var mm := MultiMesh.new()
 	mm.transform_format = MultiMesh.TRANSFORM_3D
@@ -188,13 +184,19 @@ func build(player: Node3D = null) -> void:
 	_mm.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(_mm)
 
-	_cabs = _make_batch(BoxMesh.new(), MAX_VEHICLES, false)
+	_cabs = _make_batch(BoxMesh.new(), MAX_VEHICLES, false, "car_paint", 0.66)
 	var wheel := CylinderMesh.new()
 	wheel.top_radius = 0.5
 	wheel.bottom_radius = 0.5
 	wheel.height = 1.0
-	wheel.radial_segments = 10
-	_wheels = _make_batch(wheel, MAX_VEHICLES * 4, false)
+	# Ten segments is a decagon, and a decagon reads as a decagon on anything
+	# that turns. These do not turn — they are the only round thing on the
+	# street the eye tracks across — so the count buys a silhouette rather
+	# than an animation, and it is one mesh in one batch either way.
+	wheel.radial_segments = 16
+	# A tyre is not a repainted body panel: rubber, matte, and the one surface
+	# on a vehicle that never had a sheen to lose.
+	_wheels = _make_batch(wheel, MAX_VEHICLES * 4, false, "rubber_aged", 0.94)
 	_build_piano_sign_batch()
 	_build_piano_truck_batch()
 	_build_headlight_pool_batch()
@@ -369,13 +371,52 @@ func begin_arrival() -> bool:
 	return true
 
 
+## THE VEHICLE SURFACE, and why it is assembled the way it is.
+##
+## Owner's street list: "several inconvenient objects on the sidewalk and
+## street" that need better realisation. The bodies were flat-shaded boxes
+## carrying `metallic = 0.35`, and on this renderer that is the single worst
+## number available: gl_compatibility has no reflections, so a metallic surface
+## reflects the scene's light away from the eye and returns almost nothing.
+## This project has already written that lesson down once — the medicine
+## cabinets at metallic 0.78 rendered as black voids, and
+## generate_runtime_materials.py calls it the flat-metal lesson. Coachwork is
+## PAINTED, not plated. Metallic is zero.
+##
+## The car_paint plate is taken for its NORMAL and its ROUGHNESS and
+## deliberately NOT for its albedo. KINDS' tints are the colour a vehicle
+## should be; the plate's own albedo means 0.321, so multiplying the tints
+## through it would land every vehicle at 0.04–0.17 — which is precisely the
+## "pure black rectangles on a dark street" the tint table was raised to escape
+## and says so in its own comment. What was missing from these surfaces was
+## never colour. It was relief, and a sheen that varies across a panel.
+static func _coachwork(key: String, rough: float,
+		relief := 0.55) -> StandardMaterial3D:
+	# MatLib caches one material per (key, tint, scale) and its docstring
+	# requires a duplicate before any property is touched. Sharing it would
+	# put vertex-coloured traffic paint on every prop that asks for car_paint.
+	var mat := MatLib.get_mat(key).duplicate() as StandardMaterial3D
+	mat.albedo_texture = null
+	mat.albedo_color = Color.WHITE
+	mat.vertex_color_use_as_albedo = true
+	mat.metallic = 0.0
+	mat.roughness = rough
+	mat.normal_scale = relief
+	return mat
+
+
 ## One batched, vertex-coloured, shadowless mesh. Everything traffic draws goes
 ## through here so the cost of adding a layer stays one draw call.
-func _make_batch(mesh: Mesh, count: int, additive: bool) -> MultiMeshInstance3D:
-	var mat := StandardMaterial3D.new()
-	mat.vertex_color_use_as_albedo = true
-	mat.roughness = 0.66
-	mat.metallic = 0.3
+func _make_batch(mesh: Mesh, count: int, additive: bool,
+		surface := "car_paint", rough := 0.66) -> MultiMeshInstance3D:
+	var mat: StandardMaterial3D
+	if additive or surface == "":
+		mat = StandardMaterial3D.new()
+		mat.vertex_color_use_as_albedo = true
+		mat.roughness = rough
+		mat.metallic = 0.0
+	else:
+		mat = _coachwork(surface, rough)
 	if additive:
 		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA

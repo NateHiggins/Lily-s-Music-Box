@@ -1,7 +1,9 @@
 extends Node
 ## The WE TUNA PIANOS truck is an ordinary moving road user with one batched,
-## non-emissive sign owner. It may be funny; it may not become a parked prop,
-## realtime light, traffic-rule exception, or per-truck scene.
+## painted mesh owner. Its repaired advertisement is a material inside that
+## mesh; the old panel batch is fallback-only. It may be funny; it may not
+## become a parked prop, realtime light, traffic-rule exception, or per-truck
+## scene.
 
 var _fails := 0
 
@@ -37,6 +39,17 @@ func _ready() -> void:
 	_check("the complete painted advertisement imports at useful resolution",
 			texture != null and texture.get_width() >= 1024
 			and texture.get_height() >= 680)
+	var truck_mesh: Mesh = traffic._piano_truck.multimesh.mesh
+	var material_names: Array[String] = []
+	for surface in truck_mesh.get_surface_count():
+		var material: Material = truck_mesh.surface_get_material(surface)
+		if material != null:
+			material_names.append(material.resource_name)
+	_check("the projected body embeds side, rear, paint and repaired panel plates",
+			material_names.has("piano_truck_side")
+			and material_names.has("piano_truck_rear")
+			and material_names.has("piano_truck_paint")
+			and material_names.has("piano_truck_panel"))
 
 	traffic._live = [
 			_vehicle(kind, false, -3.0, 5.4),
@@ -44,23 +57,17 @@ func _ready() -> void:
 	]
 	traffic._write_instances()
 	await get_tree().process_frame
-	_check("two trucks share one sign draw owner and four panel instances",
+	_check("two trucks share one painted body draw and no fallback panels",
 			traffic.find_children("*", "MultiMeshInstance3D", false, false).size()
-					== 6
-			and traffic._piano_signs.multimesh.visible_instance_count == 4
+					== 7
+			and traffic._piano_truck.multimesh.visible_instance_count == 2
+			and traffic._piano_signs.multimesh.visible_instance_count == 0
 			and traffic._headlight_pools.multimesh.visible_instance_count == 2)
-	_check("the painted panels are dull geometry, not lights or shadow casters",
-			traffic._piano_signs.cast_shadow
+	_check("the painted truck is dull geometry, not lights or a shadow caster",
+			traffic._piano_truck.cast_shadow
 					== GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-			and traffic._piano_signs.find_children(
+			and traffic._piano_truck.find_children(
 					"*", "Light3D", true, false).is_empty())
-	var south: Vector3 = traffic._piano_sign_origins[0]
-	var north: Vector3 = traffic._piano_sign_origins[1]
-	print("    panel origins south=%s north=%s" % [south, north])
-	_check("each box carries the sign on both physical side faces",
-			is_equal_approx(south.x, north.x)
-			and absf(south.z - north.z) > 2.0)
-
 	var east_before: float = float(traffic._live[0].x)
 	var west_before: float = float(traffic._live[1].x)
 	traffic._advance(0.5)
@@ -73,8 +80,9 @@ func _ready() -> void:
 
 	traffic._live = [_vehicle(_kind_index("motor_car"), false, 0.0, 5.0)]
 	traffic._write_instances()
-	_check("ordinary traffic pays no visible sign instances",
-			traffic._piano_signs.multimesh.visible_instance_count == 0)
+	_check("ordinary traffic pays no truck or fallback-panel instances",
+			traffic._piano_truck.multimesh.visible_instance_count == 0
+			and traffic._piano_signs.multimesh.visible_instance_count == 0)
 	_check("crossing promises and first-shift arrival remain unchanged",
 			is_equal_approx(StreetTraffic.MAX_WAIT, 8.0)
 			and is_equal_approx(StreetTraffic.GAP_SECONDS, 3.4)

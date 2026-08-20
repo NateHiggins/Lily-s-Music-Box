@@ -35,6 +35,32 @@ func _ready() -> void:
 					"*", "Light3D", true, false).is_empty())
 	_check("the road material is one procedural shader, not per-car textures",
 			traffic._headlight_pools.multimesh.mesh.material is ShaderMaterial)
+	var body_material := traffic._mm.multimesh.mesh.material \
+			as StandardMaterial3D
+	var cab_material := traffic._cabs.multimesh.mesh.material \
+			as StandardMaterial3D
+	var wheel_material := traffic._wheels.multimesh.mesh.material \
+			as StandardMaterial3D
+	_check("painted coachwork keeps authored tints and gains surface relief",
+			body_material != null and cab_material != null
+			and body_material.vertex_color_use_as_albedo
+			and cab_material.vertex_color_use_as_albedo
+			and body_material.albedo_texture == null
+			and cab_material.albedo_texture == null
+			and body_material.normal_texture != null
+			and cab_material.normal_texture != null
+			and body_material.roughness_texture != null
+			and cab_material.roughness_texture != null
+			and is_zero_approx(body_material.metallic)
+			and is_zero_approx(cab_material.metallic))
+	_check("tyres are rounder matte rubber rather than body metal",
+			traffic._wheels.multimesh.mesh is CylinderMesh
+			and (traffic._wheels.multimesh.mesh as CylinderMesh).radial_segments
+					== 16
+			and wheel_material != null
+			and wheel_material.normal_texture != null
+			and wheel_material.roughness >= 0.9
+			and is_zero_approx(wheel_material.metallic))
 
 	var motor := _kind_index("motor_car")
 	traffic._live = [
