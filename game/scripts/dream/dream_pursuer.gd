@@ -43,6 +43,12 @@ var _capture_radius_m := 0.75
 var _hearing_due_s := 0.0
 var _last_target_position := Vector3.ZERO
 var _target_was_moving := false
+## A case profile may name one room-grammar event that makes the player's
+## present position immediately legible. This is still the same Tenant and the
+## same last-known-position pursuit; the profile changes what counts as a
+## footfall, not who owns movement.
+var _attention_event := ""
+var _profile_event_count := 0
 
 
 ## The fractal, when the world is one. Null on the chain path, and every use
@@ -92,7 +98,22 @@ func _seed_run(seed_hex: String) -> void:
 			+ rng.randf_range(-1.0, 1.0) \
 			* float(profile.get("hearing_period_jitter_s", 0.08))
 	_capture_radius_m = float(profile.get("capture_radius_m", 0.75))
+	_attention_event = str(profile.get("attention_event", ""))
+	_profile_event_count = 0
 	_hearing_due_s = _hearing_period_s
+
+
+## Called by DreamMazeRoot only after DreamRoomBuilder has accepted a real
+## data-authored transition event. Profiles that do not name it ignore it.
+## Peter's junction reversal therefore refreshes the ordinary last-known point
+## immediately; Mina's pursuit remains byte-for-byte the same path.
+func notify_profile_event(event_name: String) -> bool:
+	if event_name.is_empty() or event_name != _attention_event or player == null:
+		return false
+	last_known_position = _flat(player.global_position)
+	_hearing_due_s = _hearing_period_s
+	_profile_event_count += 1
+	return true
 
 
 ## Borrow the subject's own hero model as a shadows-only proxy. Every
@@ -249,6 +270,8 @@ func run_parameters() -> Dictionary:
 		"dark_speed_mps": _dark_speed_mps,
 		"hearing_period_s": _hearing_period_s,
 		"capture_radius_m": _capture_radius_m,
+		"attention_event": _attention_event,
+		"profile_event_count": _profile_event_count,
 	}
 
 

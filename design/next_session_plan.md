@@ -9,12 +9,12 @@ the design.*
 The implementation status below is retained history through the Atlas landing,
 but it is no longer the pickup. Read `design/next_session_dream.md` next; its
 2026-08-20 checkpoint records the one-world pocket, durable exposure, measured
-dream frame, completed recursion price and the owner's queued gold/tentacle
-amplification. N10 now has its first geometric slice: batched dark-live hazard
-tentacles, owner-true contact paths, first geometric eyes, and mesh-only Orison
-furnishing. The immediate dream production task remains TASKS **N10**,
-now on a landed Orison wall vocabulary: exact dado, wainscot, picture rail,
-cornice, door casings and ceiling medallions cost at most two MultiMesh draws
+dream frame, completed recursion price and the owner's gold/tentacle
+amplification. N10 is closed through its ruled R1–R8 surface/capture queue, and
+N9 now closes Peter's shared-profile proof. There is no silently selected next
+case: Juno, Cal, Omar and Mae remain an explicit owner-order decision. The
+landed Orison wall vocabulary—exact dado, wainscot, picture rail,
+cornice, door casings and ceiling medallions—costs at most two MultiMesh draws
 per live room, and hazard crawlers become closed-lobe wall grafts rather than
 ending against blank boxes (`art/renders/dream_orison_walls_v1/README.md`). R1
 is also landed: the photographed Orison substrate now survives the complete
@@ -48,8 +48,11 @@ the player's chosen lamp state survives, all eyes close, the acoustic room
 becomes close and warm, and the existing 4B wake/residue boundary receives the
 unchanged outcome after the held final frame. Proof:
 `art/renders/dream_embrace_v1/README.md`. N7's perception proof is repaired
-against the real fractal pocket; immediate dream pickup is N9's Peter
-shared-profile proof.
+against the real fractal pocket. N9's Peter shared-profile proof is now closed:
+one slot-2 data profile changes the shared room and pursuit grammar without a
+fork, with 28/28 focused checks and production proof at
+`art/renders/dream_profile_n9/README.md`. Do not silently choose the next case:
+the order of Juno, Cal, Omar and Mae remains an explicit owner decision.
 
 The parallel street lane's paused coachwork pass is now a bounded T2g
 checkpoint with focused contracts and A/A evidence. It does not own the next

@@ -106,10 +106,14 @@ through `art/renders/dream_rendering_r6/README.md`; focused contracts and
 WalkTest FAST/FULL x8/480 pass. **R7 is closed at depth zero.** Recursive
 rendering adds no player decision; enterable nesting duplicates the Atlas's
 existing non-Euclidean traversal and would demand a second collision,
-  navigation, pursuit and recovery contract. Reopen only if a later case names a
-  new verb or consequence the Atlas cannot express. R8's ruled embrace is now
-  landed; N9, Peter as the shared-profile proof, is the immediate production
-  pickup.
+navigation, pursuit and recovery contract. Reopen only if a later case names a
+new verb or consequence the Atlas cannot express. R8's ruled embrace is now
+landed. N9's Peter shared-profile proof is closed too: slot 2 changes onset,
+run ceiling, release print, shared-pursuit attention, room grammar and case
+truth from data; a real junction reversal adds one paper-stamped door to the
+unchanged remembered room. Proof: `art/renders/dream_profile_n9/README.md`.
+Do not silently select the next of Juno, Cal, Omar and Mae; the maze brief
+keeps their order as an owner decision.
 
 **The pre-existing perception proof debt is closed.**
 `DreamPerceptionTest.tscn` no longer asks the initial pocket for all three
@@ -401,8 +405,18 @@ presentation shell owns its exposure and is gated by the real lamp switch.
 ### 5A. PERCEPTION PROOF REPAIR — CLOSED
 `DreamPerceptionTest` now stages deterministic real Atlas pockets by authored
 socket and executes all 60 approaches without weakening any fairness or channel
-assertion. It injects no danger or geometry. Continue to N9, Peter as the
-shared-profile proof.
+assertion. It injects no danger or geometry.
+
+### 5B. PETER SHARED-PROFILE PROOF — CLOSED
+`peter_release_print` is a second data attachment to the same production root,
+room builder and Tenant. Its real junction reversal adds one deterministic
+paper-stamped door to the unchanged remembered room and refreshes only the
+shared last-known-position pursuit fact. It adds no Peter scene, manager,
+hazard owner, save record or bespoke control. Mina remains a true no-op.
+Focused proof is 28/28 and the 1440p A/A/A-B/light-off record is at
+`art/renders/dream_profile_n9/README.md`. This does not enable Peter's waking
+case. The next case among Juno, Cal, Omar and Mae requires the owner-order
+ruling already called out in the maze brief.
 
 ### 6. HER SPEECH AND THE ROMANCE — last, deliberately
 Every hour spent on her silence is what buys it. Do not start here.

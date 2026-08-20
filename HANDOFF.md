@@ -55,8 +55,15 @@ collision, hazard, topology or input. Proof and exact perf are in
 `art/renders/dream_embrace_v1/README.md`. `DreamAtlas` remains topology owner
 and `DreamHazard` remains danger owner. The stale chain-era
 `DreamPerceptionTest` is repaired against deterministic real Atlas pockets:
-60/60 approaches execute with no injected danger or geometry. N9, Peter as the
-shared-profile content proof, is the immediate dream pickup.
+60/60 approaches execute with no injected danger or geometry. N9 is now closed
+too: Peter's slot-2 data changes onset, run ceiling, silhouette, pursuit
+attention, spatial grammar and case truth through the same root/builder/pursuer
+owners Mina uses. A junction reversal returns the same remembered room with
+one more deterministic, paper-stamped door; Mina is a measured no-op. Proof and
+28/28 focused checks live at `art/renders/dream_profile_n9/README.md`. This is
+the dream-profile seam only, not a claim that Peter's waking case loop exists.
+The next of Juno/Cal/Omar/Mae remains the owner-order decision recorded in the
+maze brief.
 
 Three top-level projects:
 

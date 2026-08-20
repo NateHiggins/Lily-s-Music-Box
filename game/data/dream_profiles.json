@@ -43,6 +43,47 @@
             "break_speed_mps": 3.8
           }
         }
+      },
+      "maze": {},
+      "truth": {
+        "rule_id": "silence_without_annotation",
+        "statement": "Silence does not require annotation"
+      }
+    },
+    "peter_release_print": {
+      "case_id": "peter_form_corridor",
+      "campaign_slot": 2,
+      "onset": {
+        "allowed_forms": [
+          "gradual",
+          "sudden"
+        ],
+        "gradual_seconds": 2.2,
+        "sudden_seconds": 0.65
+      },
+      "pursuit": {
+        "silhouette_resident": "peter_wren",
+        "lit_speed_mps": 3.2,
+        "lit_speed_jitter_mps": 0.08,
+        "dark_speed_mps": 6.1,
+        "dark_speed_jitter_mps": 0.12,
+        "hearing_period_s": 0.58,
+        "hearing_period_jitter_s": 0.06,
+        "capture_radius_m": 0.75,
+        "attention_event": "junction_reverse"
+      },
+      "hazards": {
+        "allow": [],
+        "tuning": {}
+      },
+      "maze": {
+        "junction_reverse_event": "junction_reverse",
+        "junction_min_doors": 3,
+        "doors_added": 1
+      },
+      "truth": {
+        "rule_id": "proceed_uncertain",
+        "statement": "Uncertainty does not prevent action"
       }
     }
   }

@@ -209,6 +209,12 @@ one-job vertical slice: `JOB_ID` is fixed to `ChirpHunt.JOB_ID`, `core_loop` is
 one record, and `wake_complete` is terminal. Generalize that seam before Peter
 or any other second case is enabled.
 
+N9 proves only the downstream dream-content seam: `peter_release_print` can
+change the shared room/pursuit grammar and case sentence without a second dream
+owner. It deliberately does **not** enable Peter's waking job, fault,
+conversation, resolution or coordinator state. The requirements below remain
+the gate for a real second case loop.
+
 1. Add one validated job definition to `maintenance_jobs.json`: unique id,
    reported/discovered sources, case/resident/unit binding, real generated
    anchors, declared evidence, all seven objective strings and a dream window.

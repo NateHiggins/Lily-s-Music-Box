@@ -1319,8 +1319,23 @@ unresolved. K7's source-backed loop contract is closed in
   `CampaignShell` and real dream for capture, contact and fall, rebuilding the
   waking Orison at the authored 4B bedside with the factual refrigerator
   residue intact. The isolated dream station is below 16.6 ms.
-- **N9** Use Peter as the shared-profile proof. Change content, pursuit grammar
-  and case truth without forking the maze, director, hazard or save owners.
+- **N9 DONE 2026-08-20 — PETER PROVES THE SHARED PROFILE SEAM.**
+  `peter_release_print` is slot 2 with the authored 38-second ceiling, dual
+  gradual/sudden onset, Peter's borrowed silhouette, distinct shared-pursuit
+  values and the exact truth “Uncertainty does not prevent action.” Reversing
+  out of a real junction asks the existing `DreamRoomBuilder` to return the
+  same remembered Orison room with one additional deterministic door; aged
+  paper forms and oxblood decision marks make the demand legible under the
+  existing lamp. The shared root forwards only `junction_reverse` to the shared
+  Tenant's ordinary last-known-position owner. Mina's empty grammar is a true
+  no-op; Peter inherits no Mina hazard by accident; no director, maze, pursuer,
+  hazard or save owner was forked. `DreamProfileTest` 28/28, RoomBuilder
+  175/175, Pursuit 39/39, Fractal 24/24, Hazard 42/42 and Atlas 26/26 pass.
+  SleepPressure 20/20, DreamBoundary 39/39 and WalkTest FAST/FULL x8/480 pass;
+  FULL retains its unrelated waking route/dummy-texture/safety-net diagnostics.
+  Production A/A/A-B/light-off proof and the rejected broken-camera finding:
+  `art/renders/dream_profile_n9/README.md`. This proves the dream content seam;
+  it does not enable Peter's still-unbuilt waking case loop.
 - **N10 DONE 2026-08-20 — DREAM SURFACE C–F + EMBRACE.** The persistent exposure field and
   organic front are landed. The 2026-08-20 target slice adds one batched
   dark-live growth surface for eligible hazards, registers every substantial
@@ -1457,8 +1472,9 @@ unresolved. K7's source-backed loop contract is closed in
   extra eyes, tangent normals and vertex displacement were rejected by rendered
   controls. Focused contract 31/31; final integration results and exact 1440p
   price are in `art/renders/dream_embrace_v1/README.md`. N7's stale
-  `DreamPerceptionTest` is repaired above. **Immediate dream pickup:** N9's
-  Peter shared-profile proof. Friendship/romance and chosen re-meaning remain
+  `DreamPerceptionTest` is repaired above and N9's Peter profile proof is closed
+  above. The order of Juno, Cal, Omar and Mae remains the explicit owner
+  decision in the maze brief; friendship/romance and chosen re-meaning remain
   last.
 - **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
   heredity and visible anatomy: bounded parent/child genomes, brood knots,

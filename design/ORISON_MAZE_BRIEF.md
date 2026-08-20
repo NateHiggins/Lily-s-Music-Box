@@ -368,6 +368,19 @@ inventory, dialogue choice, repair interaction or bespoke control. Peter remains
 the second case. The order of Juno, Cal, Omar and Mae remains an owner decision,
 so run length belongs to campaign slot data rather than case code.
 
+**N9 implementation checkpoint — 2026-08-20.** Peter now proves this seam in
+production. One slot-2 profile supplies dual onset, the 38-second cap, Peter's
+release print, distinct values for the shared Tenant, `junction_reverse`, and
+the exact sentence above. On a real reversal the existing room owner returns
+the same remembered Orison source/scale/footprint with every old opening intact
+and one additional deterministic door, paper-stamped under the existing lamp.
+The existing root forwards only the generic event name; the existing Tenant
+refreshes its ordinary last-known position. Mina's empty grammar and absent
+attention event are measured no-ops. Peter carries no Mina hazard allowlist,
+and no maze, director, pursuer, hazard or save owner was forked. This is a
+shared-profile proof, not completion of Peter's waking case. Exact evidence:
+`art/renders/dream_profile_n9/README.md` and `DreamProfileTest` 28/28.
+
 ---
 
 ## MINA'S FIRST RUN — EXACT PLAYABLE SCRIPT

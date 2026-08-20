@@ -141,6 +141,13 @@ var door_h := 2.13
 ## DreamMazeBuilder.build_geometry: geometry and arming must come from one
 ## decision, and the fairness clamp must only pay for hazards that can fire.
 var armed: Array = []
+## Case grammar is data, not a subclass. Mina supplies an empty dictionary;
+## Peter supplies one junction-reversal rule. The builder remains the sole
+## owner of rooms and doors either way.
+var profile_grammar: Dictionary = {}
+## A physics frame can ask about the same threshold more than once while the
+## capsule straddles it. One crossing earns one consequence.
+var _last_profile_transition := ""
 
 ## THE ROOM YOU OPEN YOUR EYES IN DOES NOT ARM.
 ##
@@ -189,15 +196,87 @@ var sealed_doors := 0
 var clamped_rooms := 0
 
 
-func setup(dream_atlas: DreamAtlas, hazard_allowlist: Array = []) -> void:
+func setup(dream_atlas: DreamAtlas, hazard_allowlist: Array = [],
+		case_grammar: Dictionary = {}) -> void:
 	atlas = dream_atlas
 	catalog = DreamMazeBuilder.load_catalog()
 	armed = hazard_allowlist
+	profile_grammar = case_grammar.duplicate(true)
+	_last_profile_transition = ""
 	var constants: Dictionary = catalog.get("constants", {})
 	clear_ceiling = float(constants.get("clear_ceiling_m", 3.015))
 	run_speed = float(constants.get("player_run_speed_mps", 4.6))
 	door_w = float(constants.get("connector_width_m", 0.91))
 	door_h = float(constants.get("connector_height_m", 2.13))
+
+
+## One data-authored reaction to crossing a threshold. The caller reports only
+## the two real rooms involved; this owner decides whether that movement has a
+## spatial consequence and performs it without inventing a parallel graph.
+##
+## Peter's `duplicate_pending_corridor` rule fires when the body reverses out
+## of a junction into its parent. The room just re-entered is rebuilt from the
+## exact same source, scale, origin and footprint, but its deterministic door
+## deal is allowed one additional opening. To the player it is the corridor
+## they just walked, returned with another demand. Identity, route and hazard
+## records remain ordinary pocket data; save code stores none of this chase
+## frame, exactly like every other room currently held in short-term memory.
+func apply_profile_transition(parent: Node3D, from_key: String,
+		to_key: String) -> Dictionary:
+	var event_name := str(profile_grammar.get("junction_reverse_event", ""))
+	if event_name.is_empty() or from_key.is_empty() or to_key.is_empty():
+		_last_profile_transition = ""
+		return {}
+	var from_room: Dictionary = _live.get(from_key, {})
+	var to_room: Dictionary = _live.get(to_key, {})
+	if from_room.is_empty() or to_room.is_empty():
+		_last_profile_transition = ""
+		return {}
+	var from_path: PackedInt32Array = from_room.path
+	var is_reverse := from_path.size() > 0 \
+			and key_of(_parent_path(from_path)) == to_key
+	var is_junction := passable_doors(from_room).size() >= int(
+			profile_grammar.get("junction_min_doors", 3))
+	if not is_reverse or not is_junction:
+		_last_profile_transition = ""
+		return {}
+	var token := "%s>%s" % [from_key, to_key]
+	if token == _last_profile_transition:
+		return {}
+	_last_profile_transition = token
+
+	var old_doors: Array = to_room.doors
+	var before := old_doors.size()
+	var want := mini(DreamAtlas.MAX_DOORS, before + int(
+			profile_grammar.get("doors_added", 1)))
+	var entry_offset := _entry_offset(int(to_room.id), to_room.size)
+	var replacement := _door_layout(int(to_room.id), to_room.size, want,
+			entry_offset, int(to_room.rot), to_room.origin,
+			(to_room.path as PackedInt32Array).size() > 0)
+	# The old openings keep their exact graph facts. Only the newly dealt door
+	# begins unresolved; advance(), called immediately after this event, either
+	# builds its real neighbour or seals it under the normal overlap rule.
+	for i in mini(old_doors.size(), replacement.size()):
+		replacement[i].leads_to = old_doors[i].leads_to
+		replacement[i].sealed = old_doors[i].sealed
+	to_room.doors = replacement
+	to_room["profile_duplicate"] = true
+	to_room["profile_event"] = event_name
+	to_room["form_stamps"] = int(to_room.get("form_stamps", 0)) + 1
+	to_room["duplicated_from"] = from_key
+	to_room["profile_stamp_door_index"] = before if replacement.size() > before \
+			else maxi(0, replacement.size() - 1)
+	_live[to_key] = to_room
+	_rebuild(to_room)
+	return {
+		"event": event_name,
+		"from": from_key,
+		"to": to_key,
+		"source": str(to_room.source),
+		"doors_before": before,
+		"doors_after": replacement.size(),
+		"form_stamps": int(to_room.form_stamps),
+	}
 
 
 ## A path is a room's name; this is that name as a dictionary key. Dots rather
@@ -1424,10 +1503,184 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 			i += 1
 			DreamMazeBuilder._solid_box(node, "Lintel%02d" % i, door_mat,
 					aperture, door_h, clear_ceiling)
+	_build_profile_form_stamp(node, room)
 	_build_orison_interior(node, room)
 	_build_orison_furnishing(node, room)
 	_build_lineage_body(node, room)
 	return node
+
+
+## Peter's duplicate is still an Orison corridor, so the evidence belongs to
+## the building rather than a UI: an oxblood frame and a stack of period paper
+## forms on the additionally dealt door. If overlap forces that opening shut,
+## the papers fill the solid wall as a false door. If it opens, the frame and
+## header remain and the forms do not obstruct the route. Nothing here owns
+## collision or topology, and the repeated pieces are MultiMeshes so making
+## the case readable costs three submissions rather than a draw per slip.
+func _build_profile_form_stamp(parent: Node3D, room: Dictionary) -> void:
+	if not bool(room.get("profile_duplicate", false)):
+		return
+	var door_index := int(room.get("profile_stamp_door_index", -1))
+	var doors: Array = room.get("doors", [])
+	if door_index < 0 or door_index >= doors.size():
+		return
+	var door: Dictionary = doors[door_index]
+	var point: Array = door.point
+	var inside: Array = door.inside
+	var inward := Vector3(float(inside[0]) - float(point[0]), 0.0,
+			float(inside[1]) - float(point[1])).normalized()
+	if inward.length_squared() < 0.5:
+		return
+	var along := Vector3(-inward.z, 0.0, inward.x)
+	var frame_material := StandardMaterial3D.new()
+	frame_material.albedo_color = Color("53171d")
+	frame_material.roughness = 0.74
+	frame_material.metallic = 0.08
+	var paper_material := StandardMaterial3D.new()
+	paper_material.albedo_color = Color("b6a080")
+	paper_material.roughness = 0.94
+	paper_material.albedo_texture = load(
+			"res://assets/building/textures/T_library_furniture_aged_paper_albedo.png")
+	paper_material.normal_enabled = true
+	paper_material.normal_texture = load(
+			"res://assets/building/textures/T_library_furniture_aged_paper_normal.png")
+	paper_material.roughness_texture = load(
+			"res://assets/building/textures/T_library_furniture_aged_paper_rough.png")
+	paper_material.uv1_scale = Vector3(1.8, 1.8, 1.8)
+	var ink_material := StandardMaterial3D.new()
+	ink_material.albedo_color = Color("481016")
+	ink_material.roughness = 0.88
+	# `point` is the FAR face of the shared wall. The first version placed the
+	# frame only 35 mm back from that face, leaving it buried in the 200 mm wall
+	# (or visible only from the room the player has not entered). Put it a hair
+	# proud of this room's clear face instead. The form must be evidence in the
+	# corridor which earned it, not decoration on the void beyond the opening.
+	var centre := Vector3(float(point[0]), 0.0, float(point[1])) \
+			+ inward * (WALL_T + 0.012)
+	var frame_w := 0.085
+	var frame_d := 0.035
+	var post_size := Vector3(frame_d, door_h, frame_w) \
+			if absf(inward.x) > 0.5 else Vector3(frame_w, door_h, frame_d)
+	var head_size := Vector3(frame_d, frame_w, door_w) \
+			if absf(inward.x) > 0.5 else Vector3(door_w, frame_w, frame_d)
+	var frame_boxes: Array[Dictionary] = []
+	for side in [-1.0, 1.0]:
+		frame_boxes.append({
+			"size": post_size,
+			"at": centre + along * side * (door_w * 0.5 - frame_w * 0.5)
+					+ Vector3.UP * (door_h * 0.5),
+		})
+	frame_boxes.append({
+		"size": head_size,
+		"at": centre + Vector3.UP * (door_h - frame_w * 0.5),
+	})
+	var plaque_size := Vector3(frame_d * 1.2, 0.18, 0.38) \
+			if absf(inward.x) > 0.5 else Vector3(0.38, 0.18, frame_d * 1.2)
+	frame_boxes.append({
+		"size": plaque_size,
+		"at": centre + inward * 0.006 + Vector3.UP * (door_h + 0.16),
+	})
+	_profile_stamp_instances(parent, "ProceedUncertainStamp", frame_material,
+			frame_boxes)
+
+	# The frame itself is papered whether the route opens or seals: the demand
+	# must read at a glance from Peter's side of the threshold. A sealed demand
+	# then becomes the full visual joke he is trapped in: the wall supplies the
+	# missing door entirely out of forms, each carrying the same red line.
+	var paper_boxes: Array[Dictionary] = []
+	var ink_boxes: Array[Dictionary] = []
+	var edge_slip := Vector3(0.008, 0.185, 0.135) \
+			if absf(inward.x) > 0.5 else Vector3(0.135, 0.185, 0.008)
+	var edge_ink := Vector3(0.005, 0.022, 0.070) \
+			if absf(inward.x) > 0.5 else Vector3(0.070, 0.022, 0.005)
+	for side in [-1.0, 1.0]:
+		for i in 8:
+			var y := 0.16 + float(i) * 0.247
+			var tilt := deg_to_rad(float(((i * 5 + (1 if side > 0.0 else 3))
+					% 7) - 3) * 0.85)
+			var edge_at: Vector3 = centre + inward * 0.028 \
+					+ along * side * (door_w * 0.5 + 0.045) \
+					+ Vector3.UP * y
+			paper_boxes.append({
+				"size": edge_slip, "at": edge_at,
+				"axis": inward, "angle": tilt,
+			})
+			ink_boxes.append({
+				"size": edge_ink,
+				"at": edge_at + inward * 0.007 + along * side * 0.018
+						+ Vector3.DOWN * 0.047,
+				"axis": inward, "angle": tilt,
+			})
+	var header_slip := Vector3(0.008, 0.16, 0.17) \
+			if absf(inward.x) > 0.5 else Vector3(0.17, 0.16, 0.008)
+	var header_ink := Vector3(0.005, 0.021, 0.085) \
+			if absf(inward.x) > 0.5 else Vector3(0.085, 0.021, 0.005)
+	for i in 5:
+		var tilt := deg_to_rad(float((i % 3) - 1) * 1.1)
+		var header_at: Vector3 = centre + inward * 0.028 \
+				+ along * (-0.34 + float(i) * 0.17) \
+				+ Vector3.UP * (door_h + 0.12)
+		paper_boxes.append({
+			"size": header_slip, "at": header_at,
+			"axis": inward, "angle": tilt,
+		})
+		ink_boxes.append({
+			"size": header_ink,
+			"at": header_at + inward * 0.007 + Vector3.DOWN * 0.040,
+			"axis": inward, "angle": tilt,
+		})
+	if bool(door.get("sealed", false)):
+		var panel_size := Vector3(0.020, door_h - 0.16, door_w - 0.12) \
+				if absf(inward.x) > 0.5 \
+				else Vector3(door_w - 0.12, door_h - 0.16, 0.020)
+		_profile_stamp_instances(parent, "FormDoorLeaf", frame_material, [{
+			"size": panel_size,
+			"at": centre + inward * 0.010 + Vector3.UP * (door_h * 0.5),
+		}])
+		var slip_size := Vector3(0.010, 0.205, 0.61) \
+				if absf(inward.x) > 0.5 else Vector3(0.61, 0.205, 0.010)
+		var ink_size := Vector3(0.006, 0.025, 0.48) \
+				if absf(inward.x) > 0.5 else Vector3(0.48, 0.025, 0.006)
+		for i in 6:
+			var y := 0.38 + float(i) * 0.285
+			var stagger := along * (0.018 if i % 2 == 0 else -0.014)
+			paper_boxes.append({
+				"size": slip_size,
+				"at": centre + inward * 0.030 + stagger + Vector3.UP * y,
+			})
+			ink_boxes.append({
+				"size": ink_size,
+				"at": centre + inward * 0.038 + stagger
+						+ Vector3.UP * (y - 0.040),
+			})
+	_profile_stamp_instances(parent, "FormPaperStack", paper_material,
+			paper_boxes)
+	_profile_stamp_instances(parent, "FormDecisionLines", ink_material,
+			ink_boxes)
+
+
+static func _profile_stamp_instances(parent: Node3D, node_name: String,
+		material: Material, boxes: Array[Dictionary]) -> void:
+	if boxes.is_empty():
+		return
+	var mesh_instance := MultiMeshInstance3D.new()
+	mesh_instance.name = node_name
+	var mesh := BoxMesh.new()
+	mesh.size = Vector3.ONE
+	mesh.material = material
+	var batch := MultiMesh.new()
+	batch.transform_format = MultiMesh.TRANSFORM_3D
+	batch.mesh = mesh
+	batch.instance_count = boxes.size()
+	for i in boxes.size():
+		var box: Dictionary = boxes[i]
+		var basis := Basis()
+		if box.has("axis"):
+			basis = Basis(box.axis as Vector3, float(box.get("angle", 0.0)))
+		batch.set_instance_transform(i, Transform3D(
+				basis.scaled(box.size as Vector3), box.at as Vector3))
+	mesh_instance.multimesh = batch
+	parent.add_child(mesh_instance)
 
 
 ## Bind one Klimt material to the measured room which owns it.  The constants

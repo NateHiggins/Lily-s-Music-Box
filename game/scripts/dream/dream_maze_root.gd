@@ -55,6 +55,10 @@ var hazards: DreamHazardField
 ## Kept so a harness can re-arm the field for a fresh trial without
 ## reloading the profile or rebuilding the world.
 var profile_hazards: Dictionary = {}
+## The active case's sentence and spatial grammar come from the same profile
+## as pursuit and hazards; neither creates a case-specific owner.
+var profile_grammar: Dictionary = {}
+var profile_truth: Dictionary = {}
 ## Accessibility text for the hazard tells. Present always, silent unless the
 ## player has turned the setting on.
 var captions: DreamCaptionLayer
@@ -185,6 +189,10 @@ func start_module_id() -> String:
 	return _here_key if not _here_key.is_empty() else START_MODULE_ID
 
 
+func active_case_truth() -> Dictionary:
+	return profile_truth.duplicate(true)
+
+
 ## Build the pocket and hand it to the plan. Returns false when the world could
 ## not be made, in which case the caller must not continue: a plan with no
 ## rooms would put the body at the origin, outside everything.
@@ -203,7 +211,7 @@ func _build_fractal(seed_hex: String) -> bool:
 	atlas.setup(seed_hex, int(dream_context.get("night_index", 0)),
 			str(dream_context.get("case_id", "")))
 	rooms = DreamRoomBuilder.new()
-	rooms.setup(atlas, profile_hazards.get("allow", []))
+	rooms.setup(atlas, profile_hazards.get("allow", []), profile_grammar)
 	# Before advance(). The pocket owns stamping and clearing because it is
 	# the only thing that knows when a room stops being real, and that
 	# lifecycle is what makes the field's tiling sound.
@@ -247,6 +255,13 @@ func _follow_player() -> void:
 	var moved := rooms.path_of(at)
 	if moved.is_empty() and at != DreamRoomBuilder.key_of(PackedInt32Array()):
 		return
+	# The room owner translates movement into a data-authored spatial event.
+	# The pursuer hears only that event name; neither class knows a Peter id,
+	# and Mina's empty grammar makes this a no-op.
+	var profile_event := rooms.apply_profile_transition(
+			_architecture, _here_key, at)
+	if not profile_event.is_empty() and pursuer != null:
+		pursuer.notify_profile_event(str(profile_event.get("event", "")))
 	_here_key = at
 	_here_path = moved
 	rooms.advance(_architecture, _here_path)
@@ -307,6 +322,8 @@ func _build_world() -> void:
 	# an armed void gets its mouth cut, and the fractal's fairness clamp only
 	# pays for hazards that can actually fire.
 	profile_hazards = profile.get("hazards", {})
+	profile_grammar = profile.get("maze", {}).duplicate(true)
+	profile_truth = profile.get("truth", {}).duplicate(true)
 	# BEFORE ANY GEOMETRY ON EITHER PATH. The fractal stamps rooms as it
 	# places them, inside _build_fractal, so a field created after that call
 	# would miss the whole waking pocket and the player would open their eyes
