@@ -195,6 +195,11 @@ the perceptual level.
 
 ### V4. Shader doctrine — cloisonné, no bitmap skins
 
+**SUPERSEDED 2026-08-20 by V14's owner-directed AI-texture amendment.** The
+procedural skeleton remains authoritative, but shipped AI-derived substance
+plates may now fill its bounded regions. The historical rule below remains to
+show what FA-V1 actually proved; it is no longer a ban on future dream assets.
+
 **One-line style guide:** the ecosystem is cloisonné jewelry—wine enamel cells
 partitioned by gold wire. Fauna inherit the lineage shader's vessel grammar so
 they read as ornament made alive by the same goldsmith as the walls.
@@ -513,6 +518,10 @@ largest organism and fauna are its local offspring. This uses shared code and
 packed data: no bitmap skin, per-entity shader, new compile, draw, texture
 file, camera, viewport, world, collision or topology.
 
+**DATED AMENDMENT 2026-08-20:** “no bitmap skin” in the preceding paragraph is
+also superseded by V14. No new shader fork, draw, material owner, semantic mask
+or gameplay channel is licensed; only bounded substance sampling is new.
+
 This narrows the old “gold metallic, never emissive / wine-only dark glow” law
 to the full-beam material response. Molten brilliance is still delivered by
 the lamp, never a new light; the dark and oblique line languages may be
@@ -524,8 +533,9 @@ Nothing here reopens the Tenant's shadow-only uniqueness, danger-eye
 reservation, harmless fauna, cap, owner, hush/freeze, R1–R6 geometry,
 determinism, golden vectors, submission ceilings or save boundary. Exact
 bands, channels, shader compatibility and proof gates are specified in
-`design/DREAM_IRRADIANCE_COMPATIBILITY_PLAN.md`. Implementation is not licensed
-until that plan receives owner review.
+`design/DREAM_IRRADIANCE_COMPATIBILITY_PLAN.md`. **LANDED 2026-08-20:** owner
+review approved that plan and IR-V0–V2 now have production proof at
+`art/renders/dream_irradiance_v1/README.md`.
 
 ### V13. The unreliable lamp, ruled 2026-08-20
 
@@ -545,4 +555,69 @@ seed and run clock, band-limited below 1 Hz, slope-bounded, and exposes a
 diagnostic freeze-at-phase pin so A/A and A/B evidence remains valid. Its floor
 must preserve hazard confirmation and its documented mean energy must keep
 exposure and case dwell tuning honest. Exact waveform and proof requirements
-live in the compatibility plan. Implementation stops at the owner gate.
+live in the compatibility plan. **LANDED 2026-08-20:** the deterministic gutter,
+Juno sustain retune and hazard-floor proof are closed under IR-V2.
+
+### V14. Six incarnations — procedural skeleton, AI flesh, ruled 2026-08-20
+
+Each release-print dream is one alien intelligence interpreting one resident's
+psyche as a distinct surface incarnation: not six unrelated skins, but six love
+letters spoken through the same gold-on-black Orison body. The case already
+changes the building seed and spatial verb. Incarnations may re-voice texture,
+pattern species, vein topology, irradiance behavior, molten character, fauna
+costume and tenderness only. They may not add topology, gameplay, a runtime
+owner, a save record or a visible Tenant.
+
+The six fixed readings are:
+
+- **Mina:** annotation and ink yielding to blessed blankness; “Silence does not
+  require annotation.”
+- **Peter:** paper, oxblood frames and decision marks that cannot abolish
+  uncertainty; “Uncertainty does not prevent action.”
+- **Juno:** speaker cloth, brass traces and standing waves whose feedback became
+  load-bearing; “Connection requires an open channel.”
+- **Mae:** one stable antique wearing two interfering provenance histories;
+  “Contradiction is survivable.”
+- **Cal:** dial glass, amber receiver warmth and held time that must be allowed
+  to finish; “Presence is not preservation.” His spatial verb and production
+  slot remain owner-gated.
+- **Omar:** categorized tools, fractures and solder that cannot make every seam
+  hold; “Some things are not repairable.” His spatial verb and production slot
+  remain owner-gated.
+
+The required `design/SIX_INCARNATIONS.md` plan must give each case: a named
+one-sentence love letter; procedural pattern species; dark-neon line topology;
+oblique subsurface behavior; full-beam molten behavior; a disciplined token
+rotation and any proposed single new accent; gutter and retained-exposure
+behavior; all five landed fauna re-voicings; one shader/vertex-only impossible
+moment; one tender detail; a 4–8-plate manifest; and one reflected-world plate
+direction governed by `design/KLIMT_REFLECTED_WORLD_PROMPTS.md`. Accent colors
+beyond emerald/carnelian/lapis and any plate content approaching fiction canon
+are explicit owner rulings, never implementation defaults.
+
+#### The amended material boundary
+
+Procedure remains the semantic skeleton: irradiance bands and blend curves,
+region masks, veins and neon lines, cloisonné partitions, gutter response,
+genome variation, danger eyes and every survival-readable rhythm. AI-generated
+plates provide substance only: albedo plus derived height/normal/roughness for
+paper fiber, cloth, oxidized metal, lacquer, glass, bakelite, tool steel,
+membrane, tissue, alloy and enamel. Analytic body coordinates supply UVs; the
+shader masks, warps, recolors and state-blends each plate. AI fills cells and
+never draws the lines that give them meaning.
+
+Generated sources enter the existing ignored `art/textures/ai_sources/`
+intake. Shipped derivatives use `T_ai_dream_<case-or-family>_*`, are committed
+with a per-set source note, and must pass the existing ingest and import-sidecar
+checks. Every plate uses domain-warped sampling, genome UV offsets,
+two-frequency detail and region masks; visible wallpaper repetition fails.
+Only the active case's set may load, and it unloads on wake. The plan must give
+resolution and per-incarnation VRAM budgets; lossless remains the default until
+measured desktop pressure justifies compression.
+
+Plates may never carry the danger-eye ornament, survival rhythm, readable new
+case facts, names/dates/claims requiring canon, or any depiction of the Tenant.
+Static shipped plates add no temporal noise and do not weaken determinism,
+A/A controls, three-light contact sheets, luma ordering, draw ceilings or the
+photosensitivity rules. Cal and Omar are designed fully but built only after
+their owner-order ruling.

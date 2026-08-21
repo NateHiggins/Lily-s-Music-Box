@@ -109,7 +109,17 @@ follows HazardField rearm into a later fractal pocket. Focused IR is 16/16, Expo
 35/35, the shared dream battery is 538/538, dream perf is 0/4 over budget and
 WalkTest FAST passes x8/480. FULL was terminated without a result at the
 mandatory 60-second process limit; do not claim a fresh FULL pass. Evidence:
-`art/renders/dream_irradiance_v1/README.md`. The audit's pre-C1 anchor appendix is
+`art/renders/dream_irradiance_v1/README.md`. The owner has now queued the six
+case-specific surface incarnations in DREAM_FAUNA_BRIEF V14 and TASKS INC-V0–9.
+They are presentation love letters over the landed profile/irradiance seams,
+not six shader forks or new case owners. The old no-bitmap law is retained as
+history but superseded: procedure owns semantic masks/lines/state/gameplay
+readability, while AI-derived plates may supply region substance and molten
+reflected worlds through the existing ignored-source/shipped-derivative
+pipeline. The next action is the `design/SIX_INCARNATIONS.md` plan and owner
+review, not implementation. Cal/Omar remain production-gated by their order;
+new accent colors and canon-adjacent plate content require explicit rulings.
+The audit's pre-C1 anchor appendix is
 superseded and does not reopen the landed commensal proof. Separately, waking-world
 commensals C1 is now landed: moths at the two owner-derived entry street lamps,
 one sparse F02 riser mouse cue through the shared ambience pool, one habituated

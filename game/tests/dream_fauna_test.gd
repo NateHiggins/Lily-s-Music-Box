@@ -1,4 +1,9 @@
 extends Node
+## OWNER AMENDMENT 2026-08-20: FA-V1's historical no-bitmap rule is
+## superseded for future dream substance plates. This suite continues to prove
+## that procedural channels own regions, semantics and danger readability; it
+## deliberately does not treat sampler2D presence as a failure. Future plates
+## must be static, case-selected fills beneath these same authoritative masks.
 const PRODUCTION_MESH_SHA256 := {
 	"GildersButtons": "a7eaadef2d0b911b903fbd8241887342c419852cea5c6cc6fd0e7ad0367045c4",
 	"Tessellates": "6f0ead38a951b6021bf4f88cbbadef180d3eb15bece791002611a1a32cc006e0",
