@@ -1842,6 +1842,66 @@ inherited. Consider and *cost* each:
 Bring frames, not adjectives. Two shots of the same corridor under each option
 beats any amount of argument about which sounds better.
 
+### MX — LAYERED SURFACE SYSTEM: maximum perceived geometric complexity per polygon (owner direction 2026-08-21)
+
+> Extend our Godot material-library architecture around **maximum perceived
+> geometric complexity per polygon**. Treat materials as layered surface
+> systems, not simple albedo textures: albedo + OpenGL normal +
+> height/parallax/POM + ORM (AO/roughness/metallic) + detail albedo/normal +
+> reusable grayscale masks + emission, with optional clearcoat, anisotropy,
+> SSS, decals, triplanar/world-space variation and shader noise. Make masks
+> first-class reusable controls — damage, grime, moisture, oxidation, wear,
+> corruption, gilding, emission, translucency, microdetail — that selectively
+> blend secondary material states. Alpha-scissor/hash for genuine cutouts
+> (torn edges, holes, mesh), not alpha blending. Tiers: microdetail → normal;
+> convincing shallow volume → height/parallax; silhouette/deep volume → real
+> geometry. Avoid polygons for what a shader sells, and automatically avoid
+> aggressive parallax where grazing-angle artifacts or cost outweigh it. Even
+> simple architectural meshes should read as deep, tactile, aged and
+> materially complex under a moving flashlight, preserving the Orison's
+> colour/art direction, with supernatural states layered on procedurally.
+
+What already exists and folds in: the ingest derives height/normal/roughness
+per set (`ingest_material_sources.py`); wall finishes are per-wall compiled
+RGBA+normal+roughness with a survival mask in alpha (a mask already);
+`floor_coverage.gdshader` (MC-P) and `wall_encroachment.gdshader` (WK-1) are
+two material STATES bolted onto StandardMaterial3D surfaces; the dream's EN-1
+probe is a third. MX makes them one system.
+
+- **MX-0 — SURFACE CENSUS (OPEN).** For every surface class (masonry, finish
+  quads, floors, trims, wainscot, props via `MatLib`, glass, metals) list what
+  it ships today: maps, UV law, material type, mask, state overrides, cost
+  station. One table; it decides the order below.
+- **MX-1 — `orison_surface.gdshader` (OPEN).** One maintained layered shader:
+  albedo, OpenGL normal, height with parallax/POM, packed ORM, detail
+  albedo/normal at a second frequency, emission; optional clearcoat,
+  anisotropy, wrap-SSS; world-space box projection with the M-COVER
+  anti-repetition modes as options; shader noise for variation. Mask slots as
+  samplers OR procedural fields: damage, grime, moisture, oxidation, wear,
+  corruption, gilding, emission, translucency, microdetail — each blending a
+  secondary state (albedo/ORM/normal/height deltas) by its mask. Alpha
+  scissor/hash for cutouts. Coverage, encroachment and the dream's flesh/skin/
+  weld layers become states of this shader, not separate shaders.
+- **MX-2 — THE TIER RULE AND THE PARALLAX GOVERNOR (OPEN).** Microdetail →
+  normal; shallow volume → height/POM; silhouette → geometry, written down per
+  class with the threshold in millimetres. POM auto-fades by view angle
+  (grazing) and distance, and a per-station cost governor disables it where
+  the measured frame cost exceeds the budget — the probe measures, the
+  material obeys. Never a polygon for what the shader sells; never a shader
+  for a silhouette.
+- **MX-3 — INGEST V2 (OPEN).** ORM packing, calibrated height scale per set
+  (millimetres of relief, not "looks right"), detail maps at a second
+  frequency, and a mask library generated from the existing stencil/overlay
+  sources (`art/textures/wall_sources` already holds damage stencils and stain
+  overlays). Sources stay scrubbed of generator watermarks
+  (`scrub_source_watermarks.py`).
+- **MX-4 — ROLLOUT BY CLASS WITH FRAMES (OPEN).** Masonry and finish quads
+  first (the flashlight sees them most), then floors, trims, props. Each class
+  ships with before/after frames under the moving lamp from fixed stands, the
+  perf station row, and an A/B switch; colour and art direction are preserved
+  by construction (no albedo regrading), and the supernatural states prove
+  themselves on top of the ordinary ones.
+
 ### MP — the unmipped runtime textures (FIXED 2026-08-17, verify before trusting)
 
 **The one real defect the audit found, and it was making the game look worse,
@@ -2087,7 +2147,7 @@ made. The brief holds the verbatim ruling, the five-layer model and the order.
 - **EN-1 — THE LAYER MODEL AS FRAMES (FRAMES DELIVERED 2026-08-21; awaiting the owner's read).** `DreamLayersShot.tscn` photographs the shipping Klimt surface and the EN-1 probe surface (`game/tests/dream_layers_probe.gdshader`: unwarped PBR base, wine/plum flesh with an edge, gold as a torn metallic skin over the flesh, a molten heat-gradient weld bead along the growth contour, a portal core in the bead) from one camera at latent/mid/high retained exposure, one layer at a time. The probe stack costs 0.70 ms GPU against the Klimt's 0.88 at the same state, no added draw. Sheet, frames, costs and what it does not decide: `art/renders/dream_layers_en1/README.md`. Next when accepted: re-skin the limbs/body from the same layers, then promote into `dream_klimt.gdshader` keeping motif only as wayfinding.
 - **EN-2 — WELDS (OPEN, AFTER EN-1).** Molten golden seams along fold lines, the portal-opening rule at high exposure, R6's bounded camera placed by the weld vocabulary; still depth zero, still non-enterable.
 - **EN-3 — FOLDS (OPEN, AFTER EN-1).** Bounded geometry-side folding inside the Atlas's promise; Gate C clamps re-run.
-- **WK-1 — MINA'S FLAT ENCROACHED (OPEN).** 2A carries her four plates as a masked creep tied to case stage through the finish pipeline and `MatLib`; her intercom is the beachhead; the reflected-world plate is the late mirror. Then Peter, Juno, Mae, Cal, Omar in that order.
+- **WK-1 DONE 2026-08-21 — THE FLATS FEEL THE ENCROACHMENT.** `ApartmentEncroachment` (presentation only, built by `BuildingRoot`) gives every case unit's perimeter finish quads `wall_encroachment.gdshader`: the same finish plus the case's first three plates as a creep clipped to the unit rect — the wicking substance rising from skirting and corners (restoring plaster over bare brick as a membrane), gilt along the torn survival edge, calm blanks at the late stage — driven by case stage, lifted by manifestation, settling to a residue when resolved; the authored anomaly prop is the beachhead. All six cases register (22 finish surfaces); `ENCROACH=0` / `ENCROACH_FORCE=mina:0.8` for A/B and frames. `ApartmentEncroachmentTest` 13/13. **In passing it found and fixed a builder bug:** perimeter finish quads faced into the brick on every side but west, so most of the building's plaster finishes had never rendered (punchlist 2026-08-21). Frames: `art/renders/apartment_encroachment_wk1/README.md`.
 - **CT-1 — FAMILY SKIN ATLASES (OPEN).** Per-family packed skins for the landed five, built by script from the thirty dream plates and mapped to the part kit's authored regions; reviewed in the three-light harness. **CT-2** follows for each FA3 family as its part kit lands (FA3 is now licensed by the ruling).
 
 ## C — Cast (ruled 2026-08-10, ORISON_BIBLE §IV.1)

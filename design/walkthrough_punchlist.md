@@ -7,6 +7,12 @@ Live log for the room-by-room pass. One line per finding:
 Placement and rendering findings from any session land here, one line each,
 with the instrument that produced the finding named in the symptom.
 
+## 2026-08-21 WK-1 — the encroachment found the perimeter plaster facing the brick
+
+| room | symptom | severity |
+|---|---|---|
+| every storey, east / north / south perimeter walls | ~~FINISH FACING: `build_baked_wall_finish` emitted every finish quad with one winding per orientation regardless of `in_side` (x-walls +x, y-walls +z), so the alpha-masked plaster on the east and the north/south perimeter back-face-culled from its own room — only west-wall finishes had ever rendered (probed on `floor_02.gltf`: `f02_w01` at z 9.644 facing +z into the brick)~~ FIXED 2026-08-21: the quad now flips with side and orientation; GLBs rebuilt. Before/after at `art/renders/apartment_encroachment_wk1/` | resolved |
+
 ## 2026-08-21 live presentation audit — first run of `PresentationAudit.tscn` (H13)
 
 Live-scene findings from `art/renders/presentation_audit_h13/README.md`

@@ -261,6 +261,8 @@ var fourth_wall: FourthWallLayer
 var ambient_soundscape: AmbientSoundscape
 var music_director: OrisonMusicDirector
 var domestic_witnesses: DomesticWitnessSystem
+const ApartmentEncroachmentScript := preload("res://scripts/reality/apartment_encroachment.gd")
+var apartment_encroachment: Node
 var furniture_interactions: FurnitureInteractionPass
 ## One finite steam cycle shared by all twenty-three radiators. Props expose
 ## fittings; this model owns the consequence of changing one of them.
@@ -464,6 +466,11 @@ func _ready() -> void:
 	add_child(domestic_witnesses)
 	domestic_witnesses.bind_vantry_network(vantry_points)
 	domestic_witnesses.build(layout, floor_nodes)
+	# The dream reaching into each case's flat (encroachment ruling 2026-08-21):
+	# presentation only, reads case state, overrides that unit's finish quads.
+	apartment_encroachment = ApartmentEncroachmentScript.new()
+	add_child(apartment_encroachment)
+	apartment_encroachment.build(layout, floor_nodes, domestic_witnesses)
 	_spawn_character_memory_art()
 	_spawn_character_wall_art()
 	_spawn_hallway_art()

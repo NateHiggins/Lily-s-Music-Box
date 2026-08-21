@@ -3468,11 +3468,19 @@ def build_baked_wall_finish(target, w, side):
                    (face, start + d1, z + z0),
                    (face, start + d1, z + z1),
                    (face, start + d0, z + z1))
-        target.add_quad_uv(*pts,
-                           (d0 / length, z0 / h),
-                           (d1 / length, z0 / h),
-                           (d1 / length, z1 / h),
-                           (d0 / length, z1 / h))
+        uvs = ((d0 / length, z0 / h),
+               (d1 / length, z0 / h),
+               (d1 / length, z1 / h),
+               (d0 / length, z1 / h))
+        # The finish must FACE THE ROOM it was baked for. As emitted, a wall
+        # along x faces -y and a wall along y faces +x, whatever `side` says;
+        # the exporter back-face-culls alpha-masked quads, so every finish on
+        # the other side of its wall was invisible from its own room. WK-1
+        # found it 2026-08-21: only west-wall finishes had ever rendered.
+        if (horizontal and side > 0) or (not horizontal and side < 0):
+            pts = (pts[3], pts[2], pts[1], pts[0])
+            uvs = (uvs[3], uvs[2], uvs[1], uvs[0])
+        target.add_quad_uv(*pts, *uvs)
 
 
 def build_stripped_wall_finish(plaster_buf, wallpaper_buf, damp_buf, w,
