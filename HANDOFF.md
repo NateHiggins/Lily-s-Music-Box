@@ -128,7 +128,11 @@ GPU medians; the recommendation is cell-snapped hex for terrazzo and
 per-board-row offsets for oak, both at noise-level cost. The owner adopted it
 and ruled the wider programme on 2026-08-21: `design/DREAM_ENCROACHMENT_BRIEF.md`
 (verbatim ruling, five-layer dream model, waking encroachment per case flat,
-critter skin atlases, build order) and `TASKS.md` §EN / §MC-P.
+critter skin atlases, build order) and `TASKS.md` §EN / §MC-P. MC-P is in
+production (all 26 floor surfaces). EN-1's frames are at
+`art/renders/dream_layers_en1/README.md`: the grounded-base / flesh / gold-skin
+/ molten-weld / portal stack beside the shipping Klimt from one camera, cheaper
+than what ships; it waits on the owner's read before anything is promoted.
 N12's shared profile makes delayed
 feedback physically load-bearing, then releases the oldest partition when one
 channel remains open. N13 lets two real branches return to one stable antique

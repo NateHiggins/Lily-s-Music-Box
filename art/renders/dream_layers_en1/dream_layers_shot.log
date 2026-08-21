@@ -1,0 +1,22 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 560.94 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+[DREAM LAYERS] breach=hollow_runner@1.2/breach_00 room=@1.2 center=(9.85, 1.44, 2.035) normal=(0.0, 0.0, -1.0) stand=(8.5, 0.0, 0.7038)
+[DREAM LAYERS] 00_klimt_latent mask=0 ok probe_compiled=true gpu_median_ms=4.943 draw_calls=80
+[DREAM LAYERS] probe on 43 surfaces, mask 31
+[DREAM LAYERS] 01_probe_stack_latent mask=31 ok probe_compiled=true gpu_median_ms=0.960 draw_calls=79
+[DREAM LAYERS] dwell 7.9 s: exposure at breach 0.012 -> 0.486, 1 m aside 0.043
+[DREAM LAYERS] 02_klimt_mid mask=0 ok probe_compiled=true gpu_median_ms=0.929 draw_calls=79
+[DREAM LAYERS] probe on 43 surfaces, mask 31
+[DREAM LAYERS] 03_probe_stack_mid mask=31 ok probe_compiled=true gpu_median_ms=0.824 draw_calls=79
+[DREAM LAYERS] dwell 16.1 s: exposure at breach 0.486 -> 1.000, 1 m aside 0.055
+[DREAM LAYERS] 04_klimt_high mask=0 ok probe_compiled=true gpu_median_ms=0.883 draw_calls=315
+[DREAM LAYERS] probe on 43 surfaces, mask 1
+[DREAM LAYERS] 05_probe_base mask=1 ok probe_compiled=true gpu_median_ms=0.361 draw_calls=314
+[DREAM LAYERS] 06_probe_flesh mask=3 ok probe_compiled=true gpu_median_ms=0.575 draw_calls=314
+[DREAM LAYERS] 07_probe_skin mask=7 ok probe_compiled=true gpu_median_ms=0.647 draw_calls=314
+[DREAM LAYERS] 08_probe_weld mask=15 ok probe_compiled=true gpu_median_ms=0.688 draw_calls=314
+[DREAM LAYERS] 09_probe_stack_high mask=31 ok probe_compiled=true gpu_median_ms=0.696 draw_calls=314
+[DREAM LAYERS] 10_probe_stack_high_with_limbs mask=31 ok probe_compiled=true gpu_median_ms=1.099 draw_calls=317
+[DREAM LAYERS] DONE failures=0
