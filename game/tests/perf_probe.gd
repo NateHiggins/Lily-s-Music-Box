@@ -824,6 +824,10 @@ func _dream_deepest(spawn: Vector3) -> Vector3:
 ## keeps whichever submits the most draw calls. A hard-coded look vector goes
 ## stale the first time a placement salt moves; this does not.
 func _dream_worst_yaw(at: Vector3) -> float:
+	# The control must select the same view as production. Hiding fauna before
+	# this sweep can change which yaw wins and make the A/B incomparable.
+	if _dream.fauna != null:
+		_dream.fauna.visible = true
 	_dream.player.position = at
 	var best_yaw := 0.0
 	var best_calls := -1
@@ -846,6 +850,10 @@ func _dream_worst_yaw(at: Vector3) -> float:
 
 func _measure_dream(name: String, at: Vector3, yaw: float,
 		lamp: bool) -> void:
+	if _dream.fauna != null:
+		var fauna_off := OS.get_environment("PERF_DREAM_FAUNA_OFF") == "1"
+		_dream.fauna.visible = not fauna_off
+		_dream.fauna.set_physics_process(not fauna_off)
 	_dream.player.position = at
 	_dream.player.rotation.y = yaw
 	_dream.player.camera.rotation.x = 0.0

@@ -1514,11 +1514,15 @@ unresolved. K7's source-backed loop contract is closed in
   `design/DREAM_FAUNA_BRIEF.md`: presentation owner, bestiary/register,
   harmless v1, R6 visibility, and F1/budgets. No fauna implementation is
   licensed before this gate closes. F1 alone is now licensed.
-- **FA1 — MINIMUM PROVABLE SLICE, NOT STARTED.** If FA0 closes, build only
-  Gilder's Buttons and Tessellates: one fixed-rate density owner, real
-  birth-frame emergence, lamp feeding, death/reabsorption and Tenant hush.
-  Require deterministic headless proof, production A/A controls and measured
-  draw/frame cost before adding another family.
+- **FA1 DONE 2026-08-20 — THE DREAM HAS A HARMLESS MICROBIOME.** Gilder's
+  Buttons and four-footed Tessellates now run through one presentation-only,
+  fixed-3-Hz density owner. Real lineage birth-frames publish their anchors;
+  lamp/exposure feed the bounded crop and grazer records; unfed density dies
+  back; the Tenant submerges nearby grazers; embrace freezes both batches.
+  Two shadowless MultiMeshes add exactly 2 deep-pocket draws and 0.00–0.01 ms
+  in the final same-yaw A/B, under the ruled +13/+0.5 ms ceilings. Focused
+  proof is 14/14 and production A/A/A-B evidence is in
+  `art/renders/dream_fauna_f1/README.md`.
 - **FA2–FA4 — DEFERRED BREADTH.** Trophic loop/Loupe, succession and
   hyperdimensional families, then separately ruled audio. Dangerous fauna are
   excluded and require a future Gate-C-priced `DreamHazard` ruling.

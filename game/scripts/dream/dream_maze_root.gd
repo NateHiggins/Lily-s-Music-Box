@@ -19,6 +19,8 @@ const DreamViewPortalScript := preload(
 		"res://scripts/dream/dream_view_portal.gd")
 const DreamEmbraceScript := preload(
 		"res://scripts/dream/dream_embrace.gd")
+const DreamFaunaDirectorScript := preload(
+		"res://scripts/dream/dream_fauna_director.gd")
 
 signal capture_presentation_started
 signal capture_presentation_finished
@@ -52,6 +54,7 @@ var _architecture: Node3D
 var player: PlayerController
 var pursuer: DreamPursuer
 var hazards: DreamHazardField
+var fauna: Node3D
 ## Kept so a harness can re-arm the field for a fresh trial without
 ## reloading the profile or rebuilding the world.
 var profile_hazards: Dictionary = {}
@@ -424,6 +427,10 @@ func _build_world() -> void:
 	hazards = DreamHazardField.new()
 	hazards.setup(plan, profile_hazards, player)
 	hazards.hazard_contact.connect(_on_hazard_contact)
+	fauna = DreamFaunaDirectorScript.new()
+	add_child(fauna)
+	fauna.setup(rooms, player, pursuer, exposure)
+	capture_presentation_started.connect(fauna.freeze_for_capture)
 	captions = DreamCaptionLayer.new()
 	captions.name = "DreamCaptionLayer"
 	add_child(captions)

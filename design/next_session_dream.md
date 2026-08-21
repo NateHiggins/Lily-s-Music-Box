@@ -116,6 +116,12 @@ The owner ruled Juno third and Mae fourth on 2026-08-20. N12 proves Juno's timed
 topology verb and N13 proves Mae's two real returns to one contradictory object;
 Cal and Omar remain an owner-order decision.
 
+FA1 is now complete as a separate presentation slice. Gilder's Buttons and
+Tessellates derive from the live pocket, real lineage birth-frames, exposure,
+lamp and Tenant position through one fixed-3-Hz owner. They add two shadowless
+draws, no collision/light/hazard/save owner, and pass the ruled performance
+ceiling. Proof: `art/renders/dream_fauna_f1/README.md`. FA2–FA4 remain gated.
+
 **The pre-existing perception proof debt is closed.**
 `DreamPerceptionTest.tscn` no longer asks the initial pocket for all three
 chain-era literal ids. It finds each authored source through deterministic

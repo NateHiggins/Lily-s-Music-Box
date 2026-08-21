@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 ## reaches its remembered parent or has become a new child after forgetting.
 func configure(room: Dictionary, branches: Array, clear_ceiling: float) -> void:
 	name = "LineageBody"
+	add_to_group("dream_lineage_bodies")
 	var lineage: Dictionary = room.get("lineage", {})
 	pulse_phase = float(lineage.get("phase", 0.0))
 	pulse_hz = float(lineage.get("pulse_hz", 0.08))
@@ -64,6 +65,7 @@ func configure(room: Dictionary, branches: Array, clear_ceiling: float) -> void:
 	var parents := 0
 	var branch_genomes: Array[int] = []
 	var branch_roles: Array[String] = []
+	var birth_frames: Array[Vector3] = []
 	for record in branches:
 		var door: Dictionary = record.door
 		var branch_gene: Dictionary = record.lineage
@@ -91,6 +93,10 @@ func configure(room: Dictionary, branches: Array, clear_ceiling: float) -> void:
 			_append_bud(tool, end, knot, branch_gene)
 		else:
 			_append_birth_frame(tool, door, world_center, branch_gene)
+			birth_frames.append(Vector3(
+					(float(aperture[0]) + float(aperture[2])) * 0.5,
+					0.12,
+					(float(aperture[1]) + float(aperture[3])) * 0.5))
 
 	mesh = tool.commit()
 	cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
@@ -105,6 +111,10 @@ func configure(room: Dictionary, branches: Array, clear_ceiling: float) -> void:
 	set_meta("parent_branches", parents)
 	set_meta("branch_genomes", branch_genomes)
 	set_meta("branch_roles", branch_roles)
+	# Presentation consumers may read the real apertures without learning how
+	# rooms are built or asking the pocket to retain one. These are world-space
+	# floor anchors because the fauna re-enters the tissue at the frame's foot.
+	set_meta("birth_frames", birth_frames)
 	set_meta("pulse_hz", pulse_hz)
 	set_meta("collision_free", true)
 	if mesh != null and mesh.get_surface_count() > 0:
