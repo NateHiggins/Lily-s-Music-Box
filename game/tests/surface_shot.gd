@@ -7,6 +7,8 @@ extends Node
 ##     SURF_DIR=<existing abs dir> godot --path game res://tests/SurfaceShot.tscn
 ##     SURF_STATIONS=bed_2a,cellar          optional filter by station key
 ##     SURF_OPTIONS=current,base,full       optional filter by option key
+##     SURFACE_PROPS=1                      the draw-heavy tiers (furnishing
+##                                          classes, batched props) take part
 ##
 ## Boot and lighting are FreeCam's: production fixtures, the player's torch
 ## carried on the camera, no judging fill. Between the options of one stand
@@ -109,6 +111,7 @@ var _dir := ""
 var _results := {}
 var _cache := {}
 var _overridden: Array = []
+var _props_pass = SurfacePassScript.new()
 var _floor_y := {}
 
 
@@ -246,12 +249,16 @@ func _apply_option(floor_id: String, option: Dictionary) -> int:
 	if floor_node == null:
 		return 0
 	var swapped := 0
+	if SurfacePassScript.draw_heavy_enabled() and option.recipe.has("__class__"):
+		swapped += _props_pass.apply_props(root)
 	for node in floor_node.find_children("*", "MeshInstance3D", true, false):
 		var mi := node as MeshInstance3D
 		if mi.mesh == null:
 			continue
 		var cls := SurfacePassScript._class_for(mi.name)
 		if cls.is_empty():
+			continue
+		if bool(cls.get("draw_heavy", false)) and not SurfacePassScript.draw_heavy_enabled():
 			continue
 		for s in mi.mesh.get_surface_count():
 			var original := mi.mesh.surface_get_material(s) as BaseMaterial3D
@@ -266,6 +273,7 @@ func _apply_option(floor_id: String, option: Dictionary) -> int:
 
 
 func _restore() -> void:
+	_props_pass.restore_props()
 	for entry in _overridden:
 		(entry[0] as MeshInstance3D).set_surface_override_material(int(entry[1]), null)
 	_overridden.clear()

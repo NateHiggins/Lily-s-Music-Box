@@ -713,6 +713,13 @@ func _ready() -> void:
 	# and this sweep is only exhaustive if nothing is constructed after it.
 	_index_late_f01_geometry()
 	_index_street_core_geometry()
+	# MX-4 step 5: the batched props take the layered surface in triplanar
+	# mode. The prop builders finish asynchronously after this frame (the
+	# sweep found 0 here and 4,274 a second later), so the sweep is deferred
+	# and idempotent: once after the builders settle, and again on every
+	# passage crossing with the late-geometry sweep.
+	get_tree().create_timer(1.5).timeout.connect(func() -> void:
+		surface_pass.apply_props(self))
 
 
 func _build_environment() -> void:
@@ -2614,6 +2621,7 @@ func _set_passage_visibility(should_show: bool) -> void:
 	# whatever was built asynchronously since the last crossing gets its
 	# ownership decided now, before either zone renders a frame of it.
 	_index_late_f01_geometry()
+	surface_pass.apply_props(self)
 	passage_visible = should_show
 	for geometry in passage_interior_nodes:
 		geometry.visible = should_show

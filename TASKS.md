@@ -1939,12 +1939,15 @@ probe is a third. MX makes them one system.
   Frames `art/renders/orison_surface_mx1/floors/`. STEP 4 SHIPPED: glTF
   furnishing / furniture / retail / transit on the normal tier + self-detail
   — 14 classes, 1,004 surfaces on 678 materials, flat_4b 4.47 → 5.67 ms,
-  gates PASS (`furnishing/sheet_flat_4b.jpg`). OPEN: the script props —
-  they are batched by StandardMaterial3D look-key (`StaticMeshBatcher`,
-  `functional_prop._material_key`), so the layered prop path is a sweep
-  AFTER batching (surface + `material_override` of textured triplanar
-  standards → layered triplanar), not a `MatLib` swap; the 22 encroached
-  finishes as a corruption recipe; metal states photographed on metal).** Masonry and finish quads
+  gates PASS (`furnishing/sheet_flat_4b.jpg`). STEP 5 BUILT, OPT-IN: the
+  batched props take the surface in triplanar mode by a deferred idempotent
+  sweep after the builders settle (`SurfacePass.apply_props`, 4,274 draws on
+  951 materials, pixel-identical) — but the draw-heavy tiers cost ~1 ms each
+  at the 4B stand for nothing visible (a ShaderMaterial draw is dearer than a
+  Standard one; props are 87 % of draws), so furnishing + props are behind
+  `SURFACE_PROPS=1` until MX-2's station budget can spend it. OPEN: the 22
+  encroached finishes as a corruption recipe; metal states photographed on
+  metal; MX-2 budget feed.** Masonry and finish quads
   first (the flashlight sees them most), then floors, trims, props. Each class
   ships with before/after frames under the moving lamp from fixed stands, the
   perf station row, and an A/B switch; colour and art direction are preserved

@@ -1,0 +1,47 @@
+{
+  "renderer": "gl_compatibility",
+  "sample_frames": 48,
+  "stations": {
+    "bed_2a": {
+      "current": {
+        "cpu_ms": 9.96,
+        "draw_calls": 4162,
+        "gpu_ms": 3.68099999427795,
+        "label": "shipping StandardMaterial3D",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/props/bed_2a__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "ship": {
+        "cpu_ms": 10.217,
+        "draw_calls": 4197,
+        "gpu_ms": 4.52500009536743,
+        "label": "the class recipe as SurfacePass ships it",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/props/bed_2a__ship.png",
+        "save_error": 0,
+        "surfaces_swapped": 77
+      }
+    },
+    "flat_4b": {
+      "current": {
+        "cpu_ms": 11.176,
+        "draw_calls": 4930,
+        "gpu_ms": 5.55600023269653,
+        "label": "shipping StandardMaterial3D",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/props/flat_4b__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "ship": {
+        "cpu_ms": 11.123,
+        "draw_calls": 4860,
+        "gpu_ms": 6.49200010299683,
+        "label": "the class recipe as SurfacePass ships it",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/props/flat_4b__ship.png",
+        "save_error": 0,
+        "surfaces_swapped": 84
+      }
+    }
+  },
+  "window": "(1280, 720)"
+}

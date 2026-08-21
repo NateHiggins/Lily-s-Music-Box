@@ -150,3 +150,17 @@ as shipped. 14 classes, **1,004 surfaces on 678 materials**; flat 4B 4.47 →
 (`furnishing/sheet_flat_4b.jpg`, indistinguishable from shipping at the
 stand — that is the neutrality check passing on 850 more surfaces).
 WalkTest FAST PASS, LightingAudit PASS.
+
+**Step 5 — the batched props, and the draw-heavy finding.** `SurfacePass.
+apply_props` sweeps every script-built `MeshInstance3D` whose
+`material_override` is a textured triplanar StandardMaterial3D (the
+batcher's output) and gives it the surface in triplanar mode — 4,274 draws
+on 951 materials, pixel-identical (`props/sheet_flat_4b_props_zoom.jpg`). It
+runs deferred (the builders finish after `_ready`: the sweep found 0 there
+and 4,274 a second later) and again on each passage crossing. The cost is
+the finding: **+1.1 ms for the props and +0.9 ms for the furnishing at the
+4B stand, with nothing visible gained** — a ShaderMaterial draw costs more
+than a StandardMaterial3D draw on Compatibility, and the census said where
+the draws are. Both draw-heavy tiers are built and **opt-in**
+(`SURFACE_PROPS=1`); the architecture classes stay on. MX-2's station budget
+is what turns them on where a state needs to reach a prop.

@@ -99,22 +99,26 @@ const CLASSES := [
 			"recipe": {"has_detail": true, "detail_albedo_strength": 0.10,
 					"detail_normal_strength": 0.35}},
 	# The glTF furnishing (built-in furniture, retail fit-outs, transit
-	# shelters): the normal tier plus self-detail; no parallax — the census
-	# put the per-pixel budget on the architecture. Two-sided and blended
-	# surfaces are left alone by _eligible.
-	{"key": "furnish", "match": "_furnish_",
-			"recipe": {"has_detail": true, "detail_albedo_strength": 0.12,
-					"detail_normal_strength": 0.35}},
-	{"key": "furniture", "match": "_furniture_",
-			"recipe": {"has_detail": true, "detail_albedo_strength": 0.12,
-					"detail_normal_strength": 0.35}},
-	{"key": "retail", "match": "_retail",
-			"recipe": {"has_detail": true, "detail_albedo_strength": 0.12,
-					"detail_normal_strength": 0.35}},
-	{"key": "transit", "match": "_transit",
-			"recipe": {"has_detail": true, "detail_albedo_strength": 0.12,
-					"detail_normal_strength": 0.35}},
+	# shelters): the normal tier only — no parallax, no detail; the census
+	# put the per-pixel budget on the architecture (self-detail here cost
+	# +1.2 ms at a flat stand). Two-sided and blended surfaces are left alone
+	# by _eligible. Being on the one surface is what lets a state (grime,
+	# moisture, corruption) reach them later without a second shader.
+	{"key": "furnish", "match": "_furnish_", "recipe": {}, "draw_heavy": true},
+	{"key": "furniture", "match": "_furniture_", "recipe": {}, "draw_heavy": true},
+	{"key": "retail", "match": "_retail", "recipe": {}, "draw_heavy": true},
+	{"key": "transit", "match": "_transit", "recipe": {}, "draw_heavy": true},
 ]
+
+## The draw-heavy tiers — the glTF furnishing classes above and the batched
+## props — are OPT-IN (`SURFACE_PROPS=1`). Measured 2026-08-21 at the 4B
+## stand: furnishing +0.9 ms for 1,004 surfaces, props +1.1 ms for 4,274
+## draws, with nothing visible gained: a ShaderMaterial draw costs more than
+## a StandardMaterial3D draw on Compatibility, and props are 87 % of the
+## frame's draws (MX-0). They come on by default when MX-2's station budget
+## can pay for them where it matters.
+static func draw_heavy_enabled() -> bool:
+	return OS.get_environment("SURFACE_PROPS") == "1"
 
 ## M-COVER's per-set coverage rule, keyed by the substring of the albedo
 ## file name (longest key wins). `cells` is the divider grid per tile
@@ -162,6 +166,8 @@ func apply(floor_nodes: Dictionary) -> int:
 			var cls := _class_for(mi.name)
 			if cls.is_empty():
 				continue
+			if bool(cls.get("draw_heavy", false)) and not draw_heavy_enabled():
+				continue
 			for s in mi.mesh.get_surface_count():
 				if mi.get_surface_override_material(s) != null:
 					continue
@@ -175,6 +181,69 @@ func apply(floor_nodes: Dictionary) -> int:
 	materials = _cache.size()
 	print("[SURFACE] %d surfaces layered (%d materials)" % [swapped, materials])
 	return swapped
+
+
+## The script-built props, AFTER they have been batched: every
+## MeshInstance3D outside the glTF whose `material_override` (what the
+## batcher and the prop builders set) is a textured, triplanar
+## StandardMaterial3D — a MatLib material — takes the layered surface in
+## triplanar mode with the same maps, tint, scale, roughness and metallic.
+## One layered material per MatLib material, so the batcher's groups stay
+## one draw each. Colour-only standards (no albedo map) and blended ones are
+## left alone; so are props built after this sweep (spawned later).
+## `restore_props` undoes it, for the harness.
+## Normal tier only (the census put the per-pixel budget on the
+## architecture): with self-detail the props cost +1.1 ms at a flat stand.
+const PROPS_RECIPE := {"uv_mode": 1}
+
+var props_swapped := 0
+var _prop_swaps: Array = []
+
+
+func apply_props(root: Node) -> int:
+	if OS.get_environment("SURFACE") == "0" or not draw_heavy_enabled():
+		return 0
+	var budget := 1.0
+	var budget_env := OS.get_environment("SURFACE_BUDGET")
+	if not budget_env.is_empty():
+		budget = clampf(float(budget_env), 0.0, 1.0)
+	var recipe := PROPS_RECIPE.duplicate()
+	recipe["parallax_budget"] = budget
+	for node in root.find_children("*", "MeshInstance3D", true, false):
+		var mi := node as MeshInstance3D
+		if mi.mesh == null or not (mi.material_override is StandardMaterial3D):
+			continue
+		if _is_imported(mi):
+			continue
+		var original := mi.material_override as StandardMaterial3D
+		if not original.uv1_triplanar or not _eligible(original):
+			continue
+		var layered := surface_for(original, recipe, "props", _cache)
+		_prop_swaps.append([mi, original])
+		mi.material_override = layered
+		props_swapped += 1
+	materials = _cache.size()
+	print("[SURFACE] %d prop draws layered in triplanar mode (%d materials)"
+			% [props_swapped, materials])
+	return props_swapped
+
+
+func restore_props() -> void:
+	for entry in _prop_swaps:
+		(entry[0] as MeshInstance3D).material_override = entry[1]
+	_prop_swaps.clear()
+	props_swapped = 0
+
+
+## glTF geometry is owned by its imported scene; a prop's mesh is not.
+static func _is_imported(node: Node) -> bool:
+	var cursor: Node = node
+	while cursor != null:
+		var ext := cursor.scene_file_path.get_extension()
+		if ext == "gltf" or ext == "glb":
+			return node.owner == cursor
+		cursor = cursor.get_parent()
+	return false
 
 
 static func _class_for(node_name: String) -> Dictionary:
@@ -243,6 +312,12 @@ static func surface_for(original: BaseMaterial3D, recipe: Dictionary,
 	m.set_shader_parameter("metallic", original.metallic)
 	var base := base_key(key)
 	m.set_shader_parameter("tile_m", float(TILE_M.get(base, 1.0)))
+	if original.uv1_triplanar:
+		# MatLib: uv1_scale = 1 / (metres per tile x scale_mult).
+		var repeats := maxf(0.001, original.uv1_scale.x)
+		m.set_shader_parameter("uv_scale", repeats)
+		m.set_shader_parameter("tile_m", 1.0 / repeats)
+		m.set_shader_parameter("uv_mode", 1)
 	var height: Texture2D = original.heightmap_texture if original.heightmap_enabled else null
 	if height == null and ResourceLoader.exists(HEIGHT_DIR + key + ".png"):
 		height = load(HEIGHT_DIR + key + ".png")
