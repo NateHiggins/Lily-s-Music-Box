@@ -186,6 +186,40 @@ swapped in for the first frame. Before, the toaster is wedged into the
 dishrack beside the kettle at the range end; after, it stands on the
 drainer end.
 
+## Second generator fix — the roof ventilator in the garden bed
+
+`ROOF_VENT_FAN_B` was authored at (−4.0, 8.2) as one of the 1928
+reopening's four ILG-pattern roof ventilators, one per bathroom riser. The
+later roof-garden pass laid the east raised bed (`roof_bed1`, x −4.6…0.6,
+y 7.4…8.9, 0.42 m tall) and its first geranium box over that spot, so the
+motor stood 420 mm inside the planter. Everything south of that bed is open
+roof except a watering can at (−4.95, 6.90), so the fan now stands at
+(−3.6, 6.75): clear of bed, soil, plant and can by ≥ 0.2 m, still on its
+riser's side of the roof, and a marker move only — no GLB rebuild.
+Regeneration changed one marker and its ventilation-graph node and nothing
+else. Re-audit: overlap rows **20 → 18**, the two roof rows gone; support
+rows unchanged at 6. WalkTest FAST PASS, LightingAudit PASS, 0 errors.
+
+`roof_fan_before.png` / `roof_fan_after.png`: the north parapet from
+`@-2.0_20.9_-5.2:25|-18`, old layout swapped in for the first frame.
+
+## What the remaining rows turned out to be
+
+- **2D and 5D's empty rooms are authored.** `gen_layout.py` lists 2D as
+  "sealed since 1927: nobody dresses a tomb" and 5D as "vacant (fire
+  damage)"; the density census's `F02_D_BED`, `F02_D_OFFICE` and
+  `F05_D_OFFICE` zeros are the building's fiction, not an omission. 4B's
+  closet and vestibule (2.1 / 2.8 m²) remain the only undressed rooms with
+  no such rule.
+- **6A monitors "into" the desk wall** are the monitor prop's mesh — its
+  stand/cable hangs 222 mm below the authored base — passing through a
+  50 mm desk top and the end frames; the bases themselves sit 10 mm above
+  the top. Cosmetic, and a prop-mesh question rather than a placement one.
+- **Bar/bodega speakers and the songbook terminal** report no collider
+  below their base because they are wall- or stage-mounted props; the
+  "sunk 230 mm" karaoke speaker and the 50 mm bodega radio are the two in
+  that group still worth a look in the frame.
+
 ## Instrument corrections made during the first run
 
 - `kitchen_linear` is a linear light (`F01_BAR_LT_CAN0`), not a counter run;

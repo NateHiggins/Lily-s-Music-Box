@@ -2631,9 +2631,13 @@ def build_floor(floor_id):
         # the wrong ownership.  They are the 1928 reopening's central ILG-
         # pattern roof ventilators: one real motor per bathroom riser, not a
         # private domestic extractor hidden in the player's ceiling.
+        # V-B used to stand at (-4.0, 8.2), which the later garden pass
+        # covered with the east bed and a geranium: PresentationAudit
+        # measured the motor 420 mm inside roof_bed1. It now stands on the
+        # open roof just south of that bed, still on its riser's side.
         for i, (vx, vy, riser, variant) in enumerate((
                 (-11.5, -6.0, "V-A", "west_weathered"),
-                (-4.0, 8.2, "V-B", "north_belt"),
+                (-3.6, 6.75, "V-B", "north_belt"),
                 (6.5, -7.5, "V-C", "south_repainted"),
                 (12.0, 3.0, "V-D", "east_oxidised"))):
             markers.append({
