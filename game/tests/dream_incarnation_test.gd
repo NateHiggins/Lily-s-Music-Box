@@ -33,6 +33,7 @@ func _data_contract(profiles: Dictionary) -> void:
 		"peter_release_print": ["peter_form_corridor", "peter", 2],
 		"juno_release_print": ["juno_feedback_tetris", "juno", 3],
 		"mae_release_print": ["mae_contradictory_antiques", "mae", 4],
+		"cal_release_print": ["cal_memory_radio", "cal", 5],
 	}
 	for profile_id in expected:
 		var profile: Dictionary = profiles.get(profile_id, {})
@@ -62,12 +63,6 @@ func _data_contract(profiles: Dictionary) -> void:
 			and legacy_bundle.get("pattern") == Vector4(0.0, 1.0, 1.0, 1.0)
 			and legacy_bundle.get("irradiance") == Vector4.ONE)
 
-	var cal := _valid_shape("cal")
-	var cal_result := IncarnationProfile.resolve(
-			cal, "cal_release_print", "cal_memory_radio")
-	_check("presentation data cannot production-enable gated Cal",
-			not bool(cal_result.get("ok", true))
-			and "cal remains production gated" in cal_result.get("errors", []))
 	var omar := _valid_shape("omar")
 	var omar_result := IncarnationProfile.resolve(
 			omar, "omar_release_print", "omar_unrepairable")
@@ -134,6 +129,38 @@ func _production_contract() -> void:
 					== "Silence does not require annotation")
 	_check("presentation leaves Mina's hazard allowlist unchanged",
 			(root.profile_hazards.get("allow", []) as Array).size() == 3)
+	root.queue_free()
+	await get_tree().process_frame
+
+	root = scene.instantiate() as DreamMazeRoot
+	root.autonomous = false
+	root.configure_dream({
+		"case_id": "cal_memory_radio", "profile_id": "cal_release_print",
+		"window": {}, "seed_hex": SEED_HEX, "maze_revision": 1,
+		"outcome": "", "night_index": 5, "spawn_anchor": 1,
+	})
+	add_child(root)
+	await get_tree().process_frame
+	bundle = root.active_presentation()
+	_check("the same production root owns Cal's immutable presentation bundle",
+			root.maze_built and str(bundle.get("incarnation_id", "")) == "cal"
+			and int(bundle.get("incarnation_index", 0)) == 5)
+	_check("Cal owns exactly his active seventeen-map residency",
+			root.presentation_plates.resource_count() == 17
+			and root.presentation_plates.active_incarnation == "cal")
+	var cal_bound := true
+	for value in root.get("_molten_materials") as Array:
+		var material := value as ShaderMaterial
+		if material == null or not is_equal_approx(float(
+				material.get_shader_parameter("incarnation_id")), 5.0):
+			cal_bound = false
+	_check("Cal uses the same collector and shader materials", cal_bound)
+	_check("Cal's presentation leaves the presence truth unchanged",
+			root.active_case_truth().get("statement", "")
+				== "Presence is not preservation")
+	_check("Cal adds no foreign hazard or runtime owner",
+			(root.profile_hazards.get("allow", []) as Array).is_empty()
+			and root.find_children("*Incarnation*", "Node", true, false).is_empty())
 	root.queue_free()
 	await get_tree().process_frame
 

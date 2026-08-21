@@ -90,12 +90,20 @@ bundle and uses the same owners for equal-authority emerald/lapis provenance,
 sub-0.1 Hz moire, two reflection lobes, dark overlap, shared thumb pressure and
 five fauna costumes. Her presentation cannot reach or adjudicate the two
 stored spatial accounts. Proof: `art/renders/dream_incarnation_mae_v6/README.md`.
-Cal INC-V7 is open but remains data-gated until that pass enables him.
+INC-V7 is technically complete: Cal replaces Mae with exactly his active
+17-map bundle through those same owners. Four ordinary thresholds hand the
+fading broadcast forward, the fifth drains irreversibly, and only the first
+handoff informs pursuit. No topology, collision, hazard, room identity, save
+or waking-case fact changed; `cal_memory_radio` remains disabled. Dial glass,
+bakelite, wax groove, valve mica, the completed amber phrase, black wake, warm
+pressure and five fauna costumes are proved with A/A control at
+`art/renders/dream_incarnation_cal_v7/README.md`. Omar INC-V8 is next and
+remains data-gated until that pass enables him.
 N12's shared profile makes delayed
 feedback physically load-bearing, then releases the oldest partition when one
 channel remains open. N13 lets two real branches return to one stable antique
-with incompatible provenance. Cal/Omar remain data-gated until their scheduled
-fifth/sixth presentation passes; neither has a waking case loop.
+with incompatible provenance. Omar remains data-gated until his scheduled
+sixth presentation pass; neither Cal nor Omar has a waking case loop.
 FA1 and FA2 are closed too. One presentation-only `DreamFaunaDirector`
 advances bounded 3 Hz densities for Gilder's Buttons, Tessellates, Wine
 Anemones, Ribbonettes and the single harmless Loupe, reading real lineage

@@ -298,7 +298,7 @@ void fragment() {
 	vec3 rose_tissue = vec3(0.235, 0.050, 0.088);
 	vec3 tissue_colour = mix(deep_plum, bruise_violet,
 			0.22 + cells * 0.58);
-	if (incarnation_id > 0.5 && incarnation_id < 4.5) {
+	if (incarnation_id > 0.5 && incarnation_id < 5.5) {
 		tissue_colour = mix(tissue_colour, incarnation_tissue.rgb, 0.72);
 	}
 	// Cell interiors and fold valleys differ by almost a stop.  The earlier

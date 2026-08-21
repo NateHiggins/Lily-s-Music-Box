@@ -13,6 +13,8 @@ const CASES := {
 			"standing_wave", "quiet_node", "held_quiet_node"],
 	"mae": ["mae_contradictory_antiques", "mae_release_print", 4,
 			"double_reflection", "shared_thumbprint", "held_shared_thumbprint"],
+	"cal": ["cal_memory_radio", "cal_release_print", 5,
+			"completed_phrase", "warm_handprint", "held_warm_handprint"],
 }
 
 var root: DreamMazeRoot

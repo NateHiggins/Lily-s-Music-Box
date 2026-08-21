@@ -70,7 +70,16 @@ func _run() -> void:
 			and cache.resource_count() == 17
 			and cache.active_incarnation == "mae"
 			and not cache.resources.has("%s/albedo" % str(juno.substance_keys[0])))
-	_check("a gated next case cannot retain or substitute Mae's plates",
+	var cal_profile: Dictionary = profiles.get("cal_release_print", {})
+	var cal_result := Profile.resolve(cal_profile.get("presentation", null),
+			"cal_release_print", "cal_memory_radio")
+	var cal: Dictionary = cal_result.get("bundle", {})
+	_check("Cal replaces Mae with exactly one active seventeen-map bundle",
+			cache.load_bundle(cal, _resources_for(cal, catalog))
+			and cache.resource_count() == 17
+			and cache.active_incarnation == "cal"
+			and not cache.resources.has("%s/albedo" % str(mae.substance_keys[0])))
+	_check("a gated next case cannot retain or substitute Cal's plates",
 			cache.load_bundle(Profile.default_bundle(), {})
 			and cache.resource_count() == 0
 			and cache.active_incarnation.is_empty()
@@ -103,7 +112,7 @@ func _test_catalog() -> Dictionary:
 			"normal": {"bytes_per_pixel": 4, "suffix": "normal.png"},
 			"roughness": {"bytes_per_pixel": 1, "suffix": "roughness.png"},
 		},
-		"available_cases": ["mina", "peter", "juno", "mae"],
+		"available_cases": ["mina", "peter", "juno", "mae", "cal"],
 		"root": "res://not_used",
 	}
 

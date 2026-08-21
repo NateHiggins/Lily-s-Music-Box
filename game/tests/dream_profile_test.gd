@@ -16,6 +16,8 @@ const JUNO_CASE := "juno_feedback_tetris"
 const JUNO_PROFILE := "juno_release_print"
 const MAE_CASE := "mae_contradictory_antiques"
 const MAE_PROFILE := "mae_release_print"
+const CAL_CASE := "cal_memory_radio"
+const CAL_PROFILE := "cal_release_print"
 const PROFILE_PATH := "res://data/dream_profiles.json"
 const CASE_PATH := "res://data/reality_cases.json"
 
@@ -44,9 +46,10 @@ func _data_contract(profiles: Dictionary) -> void:
 	var mina: Dictionary = profiles.get(MINA_PROFILE, {})
 	var juno: Dictionary = profiles.get(JUNO_PROFILE, {})
 	var mae: Dictionary = profiles.get(MAE_PROFILE, {})
-	_check("the shared book contains four ruled profiles",
+	var cal: Dictionary = profiles.get(CAL_PROFILE, {})
+	_check("the shared book contains five ruled profiles",
 			not mina.is_empty() and not peter.is_empty() and not juno.is_empty()
-			and not mae.is_empty())
+			and not mae.is_empty() and not cal.is_empty())
 	_check("Peter is the second campaign profile",
 			str(peter.get("case_id", "")) == PETER_CASE
 			and int(peter.get("campaign_slot", 0)) == 2)
@@ -96,6 +99,19 @@ func _data_contract(profiles: Dictionary) -> void:
 			and not mae_maze.has("junction_reverse_event")
 			and not mae_maze.has("channel_echo_event")
 			and (mae.get("hazards", {}) as Dictionary).get("allow", []).is_empty())
+	var cal_maze: Dictionary = cal.get("maze", {})
+	_check("Cal is slot five with the waking case's exact presence truth",
+			str(cal.get("case_id", "")) == CAL_CASE
+			and int(cal.get("campaign_slot", 0)) == 5
+			and str((cal.get("truth", {}) as Dictionary).get("statement", ""))
+					== str((cases.get(CAL_CASE, {}) as Dictionary).get("portal_rule", "")))
+	_check("Cal requests only a bounded generic threshold handoff",
+			str(cal_maze.get("broadcast_handoff_event", "")).is_empty() == false
+			and int(cal_maze.get("broadcast_max_handoffs", 0)) == 4
+			and not cal_maze.has("junction_reverse_event")
+			and not cal_maze.has("channel_echo_event")
+			and not cal_maze.has("convergence_return_event")
+			and (cal.get("hazards", {}) as Dictionary).get("allow", []).is_empty())
 
 
 func _root_contract() -> void:
@@ -192,6 +208,18 @@ func _root_contract() -> void:
 			mae.pursuer.silhouette_source == "mae_kessler"
 			and mae.hazards.hazards.is_empty())
 	mae.queue_free()
+	await get_tree().process_frame
+
+	var cal := await _spawn_root(CAL_CASE, CAL_PROFILE)
+	_check("slot five reads the authored 76-second ceiling",
+			is_equal_approx(cal.run_cap_s, 76.0))
+	_check("the shared pursuer borrows Cal and arms no foreign hazard",
+			cal.pursuer.silhouette_source == "cal_dwyer"
+			and cal.hazards.hazards.is_empty())
+	_check("Cal's ruled truth passes through the same downstream owner",
+			str(cal.active_case_truth().get("statement", ""))
+					== "Presence is not preservation")
+	cal.queue_free()
 	await get_tree().process_frame
 
 
@@ -326,6 +354,70 @@ func _grammar_contract(profiles: Dictionary) -> void:
 					as MultiMeshInstance3D).multimesh.instance_count == 2)
 	mae_plot.queue_free()
 	await get_tree().process_frame
+
+	var cal: Dictionary = profiles.get(CAL_PROFILE, {})
+	var cal_atlas := DreamAtlas.new()
+	cal_atlas.setup(SEED_HEX, 5, CAL_CASE)
+	var cal_builder := DreamRoomBuilder.new()
+	cal_builder.setup(cal_atlas, [], cal.get("maze", {}))
+	var cal_plot := Node3D.new()
+	add_child(cal_plot)
+	var walk := _broadcast_walk(cal_builder, cal_plot, 5)
+	var keys: Array[String] = walk.get("keys", [])
+	var cal_events: Array[Dictionary] = walk.get("events", [])
+	var state := cal_builder.broadcast_state()
+	_check("Cal hands one broadcast through four existing thresholds",
+			cal_events.size() >= 5
+			and cal_events.slice(0, 4).all(func(event: Dictionary) -> bool:
+				return str(event.get("state", "")) == "held")
+			and int(state.get("handoffs", 0)) == 4)
+	_check("only Cal's first handoff names pursuit attention",
+			str(cal_events[0].get("event", "")) == "broadcast_handoff"
+			and cal_events.slice(1, 4).all(func(event: Dictionary) -> bool:
+				return str(event.get("event", "")).is_empty()))
+	_check("the next threshold drains once and the broadcast cannot restart",
+			str(cal_events[4].get("state", "")) == "drained"
+			and bool(state.get("drained", false))
+			and cal_builder.apply_profile_transition(
+				cal_plot, keys[0], keys[1]).is_empty())
+	_check("Cal's handoff leaves every door fact untouched",
+			bool(walk.get("doors_unchanged", false))
+			and cal_builder.channel_partition_count() == 0)
+	cal_plot.queue_free()
+	await get_tree().process_frame
+
+
+func _broadcast_walk(builder: DreamRoomBuilder, plot: Node3D,
+		count: int) -> Dictionary:
+	var keys: Array[String] = [DreamRoomBuilder.key_of(PackedInt32Array())]
+	var events: Array[Dictionary] = []
+	var doors_unchanged := true
+	var path := PackedInt32Array()
+	builder.advance(plot, path)
+	for _step in count:
+		var room := builder.room_at_key(keys[-1])
+		var next_key := ""
+		for door in DreamRoomBuilder.passable_doors(room):
+			if int(door.get("index", -1)) > 0:
+				next_key = str(door.get("leads_to", ""))
+				if not next_key.is_empty() and next_key not in keys:
+					break
+		if next_key.is_empty() or next_key in keys:
+			break
+		var before_from: Array = (builder.room_at_key(keys[-1]).get(
+				"doors", []) as Array).duplicate(true)
+		var before_to: Array = (builder.room_at_key(next_key).get(
+				"doors", []) as Array).duplicate(true)
+		events.append(builder.apply_profile_transition(
+				plot, keys[-1], next_key))
+		doors_unchanged = doors_unchanged \
+				and before_from == builder.room_at_key(keys[-1]).get("doors", []) \
+				and before_to == builder.room_at_key(next_key).get("doors", [])
+		keys.append(next_key)
+		path = builder.path_of(next_key)
+		builder.advance(plot, path)
+	return {"keys": keys, "events": events,
+			"doors_unchanged": doors_unchanged}
 
 
 func _joint_partitioned_both(builder: DreamRoomBuilder, a: String, b: String) -> bool:

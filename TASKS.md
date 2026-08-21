@@ -1690,14 +1690,20 @@ unresolved. K7's source-backed loop contract is closed in
   48/77/133/172 calls. WalkTest FAST passes at x8/480; the FULL attempt was
   terminated without a result at the mandatory 60-second process limit, so no
   fresh FULL claim is made. Proof: `art/renders/dream_irradiance_v1/README.md`.
-- **INC-V7 — CAL SURFACE INCARNATION (OPEN; DATA-GATED UNTIL THIS PASS).**
-  Build the approved dial-glass/amber/held-time presentation after Mae. The
-  shared validator must keep Cal production-disabled until this task lands.
-- **INC-V8 — OMAR SURFACE INCARNATION (BLOCKED BY INC-V7; DATA-GATED UNTIL THIS PASS).**
+- **INC-V7 — CAL SURFACE INCARNATION (DONE).** Cal replaces Mae with exactly
+  his active 17-map bundle through the same cache, shader include, collector,
+  fauna and production root. Four existing thresholds receive a fading
+  broadcast, the fifth drains irreversibly, and only the first handoff informs
+  pursuit; topology, collision, hazards, room identity, saves and the disabled
+  waking case remain untouched. Dial glass, bakelite, wax groove, valve mica,
+  completed amber phrase, black wake, warm pressure and five fauna costumes
+  are rendered with an A/A control. Proof:
+  `art/renders/dream_incarnation_cal_v7/README.md`.
+- **INC-V8 — OMAR SURFACE INCARNATION (OPEN; DATA-GATED UNTIL THIS PASS).**
   Build the approved tool-steel/fracture/never-setting-solder presentation after
   Cal. The shared validator must keep Omar production-disabled until this task
   lands.
-- **INC-V9 — SIX-CASE PRODUCTION PROOF (BLOCKED BY INC-V3–8).** For every
+- **INC-V9 — SIX-CASE PRODUCTION PROOF (BLOCKED BY INC-V8).** For every
   licensed incarnation, capture equal-interval A/A, dark/oblique/molten contact
   sheets, five-step blends, the signature moment and representative fauna in
   the production root. Assert ordered luma, sub-Hz motion, deterministic replay,
@@ -2535,3 +2541,4 @@ it.
   validation — is unversioned files on disk. `git init` and a first commit.
 - **H3** `worldc clean --stale` has no test covering it.
 - **H13** **Logical placement audit.** Is each object placed correctly, and does it belong there. Convention traps are listed in the brief (door markers are the hinge jamb; pendant markers are ceiling anchors with a drop). Note placement cannot lean on the router to prove a route is clear — see R6, residents walk through furniture. Brief: `design/AUDIT_BRIEF.md`.
+  - **H13-PRESENTATION — LIVE PRESENTATION AUDIT (OPEN; DATA SWEEP LOGGED 2026-08-20).** Build one `PresentationAudit.tscn`, not another defect ledger. Headless mode instantiates production `BuildingRoot` and runs assembly-whitelisted cross-class AABBs, >3 cm support rays, WalkTest's existing `[ART]` sweep verbatim, records-per-square-metre bottom-decile census, and 1.4 m perimeter wall-gap rays. Windowed mode runs eight-station 360° × three-pitch OrbitSweep logging visible-light census, LightRig grants and screen-sixth luma, plus upward ceiling rays and `show_all_floors` toggles, then reruns the established 183-still harness. First leads are toaster/dishrack slot collision, identical 22% F02–F06 corridor ceiling gaps, runtime-only floating props, 3D booth/mirror residue, direction-dependent lights and gate-vs-generator ceiling ownership. Findings live in `design/walkthrough_punchlist.md`; generator fixes wait for the instrument's conviction and contended-file scheduling.

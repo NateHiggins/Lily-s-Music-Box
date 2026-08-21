@@ -24,9 +24,9 @@ const CASE_IDS := {
 const FAMILIES := ["buttons", "tessellates", "anemones", "ribbonettes", "loupe"]
 const SIGNATURES := ["blank_mercy", "decision_route", "standing_wave",
 		"double_reflection", "completed_phrase", "honest_seam"]
-## Cal and Omar have ruled designs and order, but presentation data cannot
-## manufacture their still-unbuilt production profiles or waking cases.
-const PRODUCTION_GATED := ["cal", "omar"]
+## Omar retains the last ordered production gate. Cal's shared downstream
+## profile is now authored; neither entry manufactures a waking case.
+const PRODUCTION_GATED := ["omar"]
 
 
 static func default_bundle() -> Dictionary:

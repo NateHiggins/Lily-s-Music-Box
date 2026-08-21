@@ -240,6 +240,55 @@ vec4 mae_surface(vec3 world, vec2 uv, float retained, float molten,
 	return vec4(colour, roughness);
 }
 
+// Cal's approved presentation language: the shared profile activates id 5.
+vec4 cal_surface(vec3 world, vec2 uv, float retained, float molten,
+		float awake, float grazing, int slot) {
+	vec4 glass = incarnation_substance(0, uv * 0.81);
+	vec4 bakelite = incarnation_substance(1, uv * 0.93 + 2.9);
+	vec4 wax = incarnation_substance(2, uv * 0.72 - 4.6);
+	vec4 mica = incarnation_substance(3, uv * 0.88 + 7.2);
+	vec4 selected = incarnation_substance(slot, uv * 0.84);
+	float rate = min(incarnation_motion.x, 0.99);
+	float drift = TIME * rate * 6.2831853 + incarnation_motion.y;
+	float radius = length(vec2(uv.x * 0.74, uv.y));
+	float arc_a = smoothstep(0.045, 0.014,
+		abs(fract(radius * 0.116 + sin(drift) * 0.035) - 0.38));
+	float arc_b = smoothstep(0.038, 0.012,
+		abs(fract(radius * 0.083 - sin(drift) * 0.024) - 0.62));
+	float incomplete = max(arc_a, arc_b)
+		* step(fract(atan(uv.y, uv.x) / 6.2831853 + 0.5), 0.86);
+	float completed = smoothstep(incarnation_signature.x, 1.0, retained)
+		* incarnation_signature.y;
+	float far_edge = smoothstep(0.54, 0.92,
+		fract((uv.x + uv.y * 0.19) * 0.071));
+	vec3 black_glass = glass.rgb * vec3(0.22, 0.18, 0.14);
+	vec3 off_station = bakelite.rgb * vec3(0.20, 0.23, 0.36);
+	vec3 carnelian = mica.rgb * vec3(0.72, 0.31, 0.16);
+	vec3 amber = mix(wax.rgb, mica.rgb, 0.46) * vec3(0.92, 0.57, 0.18);
+	vec3 colour = mix(black_glass, off_station, 0.34 + (1.0 - awake) * 0.22);
+	colour = mix(colour, carnelian, incomplete * (0.48 + awake * 0.22));
+	float held_band = smoothstep(0.16, 0.035,
+		abs(fract((uv.y + sin(uv.x * 0.21) * 0.08) * 0.092) - 0.5));
+	float draining = held_band * completed * (1.0 - far_edge);
+	colour = mix(colour, amber,
+		molten * max(incomplete * (1.0 - completed), draining) * 0.86);
+	colour = mix(colour, vec3(0.008, 0.010, 0.016),
+		completed * far_edge * 0.94);
+	float room_luma = dot(texture(reflected_world,
+		fract(uv * 0.027 + vec2(0.36, 0.58))).rgb,
+		vec3(0.299, 0.587, 0.114));
+	colour += amber * room_luma * molten * grazing * 0.08;
+	// A warm pressure trace remains on the cold side of the glass, outside any
+	// future receiver interaction. It is material roughness, never a hand image.
+	vec2 hand_q = fract(uv / 10.5 + vec2(0.18, 0.66)) - 0.5;
+	float hand = smoothstep(0.19, 0.10,
+		length(hand_q / vec2(0.70, 1.0)));
+	float roughness = mix(selected.a, 0.22,
+		molten * max(incomplete, draining));
+	roughness = mix(roughness, 0.13, hand * 0.38);
+	return vec4(colour, roughness);
+}
+
 vec4 dream_incarnation_surface(vec3 world, vec2 uv, float retained,
 		float molten, float awake, float grazing, int slot, vec4 fallback) {
 	if (incarnation_id > 0.5 && incarnation_id < 1.5) {
@@ -253,6 +302,9 @@ vec4 dream_incarnation_surface(vec3 world, vec2 uv, float retained,
 	}
 	if (incarnation_id > 3.5 && incarnation_id < 4.5) {
 		return mae_surface(world, uv, retained, molten, awake, grazing, slot);
+	}
+	if (incarnation_id > 4.5 && incarnation_id < 5.5) {
+		return cal_surface(world, uv, retained, molten, awake, grazing, slot);
 	}
 	return fallback;
 }

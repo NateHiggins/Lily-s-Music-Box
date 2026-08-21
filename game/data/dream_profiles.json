@@ -224,6 +224,51 @@
           {"family": "loupe", "pattern": 4, "jewel_token": 1, "substance_slot": 3, "response": 0.84}
         ]
       }
+    },
+    "cal_release_print": {
+      "case_id": "cal_memory_radio",
+      "campaign_slot": 5,
+      "onset": {"allowed_forms": ["gradual", "sudden"], "gradual_seconds": 2.5, "sudden_seconds": 0.72},
+      "pursuit": {
+        "silhouette_resident": "cal_dwyer",
+        "lit_speed_mps": 3.12,
+        "lit_speed_jitter_mps": 0.07,
+        "dark_speed_mps": 5.92,
+        "dark_speed_jitter_mps": 0.11,
+        "hearing_period_s": 0.82,
+        "hearing_period_jitter_s": 0.08,
+        "capture_radius_m": 0.75,
+        "attention_event": "broadcast_handoff"
+      },
+      "hazards": {"allow": [], "tuning": {}},
+      "maze": {
+        "broadcast_handoff_event": "broadcast_handoff",
+        "broadcast_max_handoffs": 4
+      },
+      "truth": {"rule_id": "presence_not_preservation", "statement": "Presence is not preservation"},
+      "presentation": {
+        "incarnation_id": "cal",
+        "production_enabled": true,
+        "palette": [1, 0.06, -0.04, 0.30],
+        "pattern": [5, 1.04, 0.90, 1.22],
+        "irradiance": [0.96, 1.16, 1.02, 1.18],
+        "motion": [0.06, 0.34, 0.70, 0.62],
+        "signature": {"id": "completed_phrase", "threshold": 0.75, "strength": 0.74},
+        "substance_keys": [
+          "T_ai_dream_cal_dial_glass",
+          "T_ai_dream_cal_bakelite",
+          "T_ai_dream_cal_wax_groove",
+          "T_ai_dream_cal_valve_mica"
+        ],
+        "reflected_world_key": "T_ai_dream_cal_reflected_world_after_last_note",
+        "fauna": [
+          {"family": "buttons", "pattern": 5, "jewel_token": 1, "substance_slot": 3, "response": 0.90},
+          {"family": "tessellates", "pattern": 5, "jewel_token": 1, "substance_slot": 1, "response": 1.06},
+          {"family": "anemones", "pattern": 5, "jewel_token": 2, "substance_slot": 2, "response": 0.98},
+          {"family": "ribbonettes", "pattern": 5, "jewel_token": 2, "substance_slot": 3, "response": 1.08},
+          {"family": "loupe", "pattern": 5, "jewel_token": 1, "substance_slot": 0, "response": 0.86}
+        ]
+      }
     }
   }
 }

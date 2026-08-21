@@ -4,6 +4,34 @@ Live log for the room-by-room pass. One line per finding:
 `room | symptom | severity` — severity is `blocker` (breaks play),
 `ugly` (wrong but survivable), or `wish` (make it better).
 
+Placement and rendering findings from any session land here, one line each,
+with the instrument that produced the finding named in the symptom.
+
+## 2026-08-20 presentation sweep — data findings and runtime leads
+
+Read-only sweep of `game/data/building_layout.json` at `8806f99`. These lines
+separate facts the generated records prove from live-scene hypotheses that
+still require the named instrument. Raw interpenetration totals are not bug
+counts: overlap-jointed construction is this builder's joinery idiom, so only
+unrelated classes should be compared.
+
+| room | symptom | severity |
+|---|---|---|
+| kitchens 1A/2A/3A/4A/5A/6A/1D/3D | DATA SWEEP: `TOASTER_01` centre overlaps the dishrack footprint on the same counter run; 4B has the same NW-corner congestion with toaster, mug and dishrack. Structural lead is separate marker/accessory passes without a shared counter-slot occupancy allocator | ugly |
+| corridors F02–F06 | DATA COVERAGE SWEEP: each corridor has the same 22% area without a ceiling rect. Orbit/up-ray + `show_all_floors` must distinguish a hidden floor-above slab from a genuine generator omission | ugly |
+| all non-shaft rooms | DATA SWEEP: zero empty rooms; perceived emptiness is a density/dressing question. Run a records-per-square-metre census and walk the bottom decile | info |
+| building-wide free-standing props | DATA SWEEP: zero unsupported baked-record candidates. Run live-scene support rays because marker-spawned mesh origins can still hover or clip | info |
+| 3D | DATA CROSS-CLASS RESIDUE: `3D_booth_n` and `3D_mirror` overlap about 5 cm through 1.8 m of height; inspect in the live AABB pass | wish |
+| named OrbitSweep stations | RUNTIME LEAD: lights reportedly disappear with view direction. Log RenderingServer visible-light census, LightRig granted set and per-screen-sixth luma over 360° yaw × three pitches to distinguish visibility gating, nearest-16 rank churn, and merged-mesh light selection | blocker |
+| reported ceiling gaps | RUNTIME LEAD: upward ray plus `show_all_floors` toggle must distinguish ceiling ownership/visibility gating from the systematic corridor generator gap above | blocker |
+
+Queued instrument: one `PresentationAudit.tscn` with headless live cross-class
+AABBs (assembly whitelist), >3 cm prop support rays, WalkTest's existing
+`[ART]` sweep, dressing density, and 1.4 m perimeter wall-gap rays; windowed
+mode owns the OrbitSweep and the established 183-still WalkthroughShots rerun.
+Fresh-worktree import, single-Godot, real-window, 60-second, and A/A noise-floor
+rules remain mandatory.
+
 ## 2026-08-15 walk — method and caveats
 
 Two full WalkthroughShots passes (183 stills each): one in production

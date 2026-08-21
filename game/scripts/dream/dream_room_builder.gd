@@ -151,6 +151,11 @@ var profile_grammar: Dictionary = {}
 ## capsule straddles it. One crossing earns one consequence.
 var _last_profile_transition := ""
 var _profile_partitions: Array[Dictionary] = []
+## Cal's broadcast is a presentation fact carried across ordinary thresholds.
+## These are short-term dream-pocket facts, never topology or save state.
+var _broadcast_rooms: Dictionary = {}
+var _broadcast_handoffs := 0
+var _broadcast_drained := false
 
 ## THE ROOM YOU OPEN YOUR EYES IN DOES NOT ARM.
 ##
@@ -207,6 +212,9 @@ func setup(dream_atlas: DreamAtlas, hazard_allowlist: Array = [],
 	profile_grammar = case_grammar.duplicate(true)
 	_last_profile_transition = ""
 	_profile_partitions.clear()
+	_broadcast_rooms.clear()
+	_broadcast_handoffs = 0
+	_broadcast_drained = false
 	var constants: Dictionary = catalog.get("constants", {})
 	clear_ceiling = float(constants.get("clear_ceiling_m", 3.015))
 	run_speed = float(constants.get("player_run_speed_mps", 4.6))
@@ -227,6 +235,9 @@ func setup(dream_atlas: DreamAtlas, hazard_allowlist: Array = [],
 ## frame, exactly like every other room currently held in short-term memory.
 func apply_profile_transition(parent: Node3D, from_key: String,
 		to_key: String) -> Dictionary:
+	var broadcast := _apply_broadcast_handoff(from_key, to_key)
+	if not broadcast.is_empty():
+		return broadcast
 	var convergence := _apply_convergence_return(parent, from_key, to_key)
 	if not convergence.is_empty():
 		return convergence
@@ -284,6 +295,44 @@ func apply_profile_transition(parent: Node3D, from_key: String,
 		"doors_after": replacement.size(),
 		"form_stamps": int(to_room.form_stamps),
 	}
+
+
+## Carry one fading broadcast through already-existing room thresholds. A room
+## can receive it once. After the authored number of handoffs, the next new
+## threshold receives only the black wake and permanently drains this run.
+## No door, route, collision, hazard or identity record is changed. Only the
+## first successful handoff names the attention event; later rooms are spatial
+## presentation without repeated pursuit refreshes.
+func _apply_broadcast_handoff(from_key: String, to_key: String) -> Dictionary:
+	var event_name := str(profile_grammar.get("broadcast_handoff_event", ""))
+	var maximum := int(profile_grammar.get("broadcast_max_handoffs", 0))
+	if event_name.is_empty() or maximum <= 0 or _broadcast_drained \
+			or from_key.is_empty() or to_key.is_empty() or from_key == to_key \
+			or not _live.has(from_key) or not _live.has(to_key) \
+			or _broadcast_rooms.has(to_key):
+		return {}
+	_broadcast_rooms[to_key] = true
+	if _broadcast_handoffs >= maximum:
+		_broadcast_drained = true
+		var drained_room: Dictionary = _live[to_key]
+		drained_room["broadcast_state"] = "drained"
+		drained_room["broadcast_ordinal"] = _broadcast_handoffs + 1
+		_live[to_key] = drained_room
+		return {"event": "", "from": from_key, "to": to_key,
+				"ordinal": _broadcast_handoffs + 1, "state": "drained"}
+	_broadcast_handoffs += 1
+	var held_room: Dictionary = _live[to_key]
+	held_room["broadcast_state"] = "held"
+	held_room["broadcast_ordinal"] = _broadcast_handoffs
+	_live[to_key] = held_room
+	return {"event": event_name if _broadcast_handoffs == 1 else "",
+			"from": from_key, "to": to_key,
+			"ordinal": _broadcast_handoffs, "state": "held"}
+
+
+func broadcast_state() -> Dictionary:
+	return {"handoffs": _broadcast_handoffs, "drained": _broadcast_drained,
+			"rooms": _broadcast_rooms.keys()}
 
 
 ## Two ordinary reciprocal branches may return to one remembered junction.
