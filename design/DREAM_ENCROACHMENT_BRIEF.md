@@ -136,8 +136,10 @@ their part kits exist.
 5. **WK-1 — Mina's flat first.** 2A carries her four plates as creep tied
    to case stage; then the other five in owner order (Peter, Juno, Mae, Cal,
    Omar).
-6. **CT-1 — family skin atlases** for the landed five; **CT-2** for FA3 as
-   each part kit lands.
+6. **CT-1 — family skin atlases** for the landed five — DONE 2026-08-21
+   (`art/renders/dream_fauna_ct1/README.md`: composed from the cases' plates
+   in the fauna's own CUSTOM0 atlas space, wine-modulating, contract 28/28);
+   **CT-2** for FA3 as each part kit lands.
 7. The punchlist taste rows, by rule of cool, in the gaps.
 
 Every slice ships with frames from a fixed camera and a measured cost, and

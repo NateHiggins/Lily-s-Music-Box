@@ -20,6 +20,17 @@ uniform float fauna_dark_glow : hint_range(0.018, 0.10) = 0.10;
 // ruled part kit flips this to one; until then the procedural cell field keeps
 // Slice A observable without pretending those meshes were already authored.
 uniform float vertex_channels_ready : hint_range(0.0, 1.0) = 0.0;
+// CT-1: the family's skin atlas, composed from the cases' plates
+// (art/tools/build_fauna_skins.py) in the mesh's own CUSTOM0 (body_t,
+// angle) space. skin_ready gates it; the atlas's mask agrees with the
+// procedural wire so the gold is one thing, not two.
+uniform sampler2D skin_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform sampler2D skin_normal : hint_normal, filter_linear_mipmap, repeat_enable;
+uniform sampler2D skin_mask : hint_default_black, filter_linear_mipmap, repeat_enable;
+uniform float skin_ready : hint_range(0.0, 1.0) = 0.0;
+uniform float skin_amount : hint_range(0.0, 1.0) = 0.78;
+uniform float skin_normal_depth : hint_range(0.0, 2.0) = 0.9;
+uniform vec2 skin_repeat = vec2(1.0, 1.0);
 
 uniform vec3 lamp_origin = vec3(0.0);
 uniform vec3 lamp_splash = vec3(0.0);
@@ -37,6 +48,7 @@ varying vec3 fauna_local;
 varying vec3 fauna_normal;
 varying highp vec4 fauna_data;
 varying vec4 fauna_vertex_region;
+varying vec2 fauna_skin_uv;
 
 void vertex() {
 	fauna_data = INSTANCE_CUSTOM;
@@ -64,6 +76,7 @@ void vertex() {
 	fauna_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	fauna_normal = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
 	fauna_vertex_region = vec4(COLOR.rgb, CUSTOM0.x);
+	fauna_skin_uv = vec2(CUSTOM0.x, CUSTOM0.y) * skin_repeat;
 }
 
 void fragment() {
@@ -93,6 +106,12 @@ void fragment() {
 
 	float procedural_wire = fauna_cloisonne_wire(fauna_local, pattern_jitter,
 			family_motif);
+	// CT-1: the atlas. Its wire mask joins the procedural wire; its jewels
+	// join the authored jewels; its albedo takes the place of the flat wine
+	// under the same irradiance.
+	vec4 skin_mask_px = texture(skin_mask, fauna_skin_uv);
+	vec3 skin_px = texture(skin_albedo, fauna_skin_uv).rgb;
+	procedural_wire = max(procedural_wire, skin_mask_px.r * skin_ready);
 	// Authored COLOR.r stores the logical 0..7 region as region/7 because the
 	// GPU color stream is UNORM. Region 2 is gold wire/selvage; region 3 jewel.
 	float region = floor(clamp(fauna_vertex_region.r, 0.0, 1.0) * 7.0 + 0.5);
@@ -107,10 +126,17 @@ void fragment() {
 	// region color while waiting for later family-specific pattern controls.
 	float gold_mask = max(procedural_wire,
 			authored_gold * vertex_channels_ready);
-	float jewel_mask = authored_jewel * vertex_channels_ready;
+	float jewel_mask = max(authored_jewel * vertex_channels_ready,
+			skin_mask_px.g * skin_ready);
 
 	vec3 wine = dream_irradiance_hue(mix(incarnation_skin.rgb,
 			base_color * vec3(1.10, 0.86, 1.08), hue_jitter * 0.18));
+	// The atlas wears the wine: the wine keeps its level and hue, the plate
+	// supplies structure (a modulation around its own mean) and a little of
+	// its colour. Never a recolour — the direction is wine with gold.
+	float skin_lum = dot(skin_px, vec3(0.299, 0.587, 0.114));
+	vec3 skin_mod = vec3(0.55 + 0.9 * skin_lum) + (skin_px - vec3(skin_lum)) * 0.35;
+	wine = mix(wine, wine * skin_mod, skin_ready * skin_amount);
 	float life = clamp(0.72 + nutrient * 0.16 + emergence * 0.12, 0.0, 1.0);
 	// Darkness contains wine matter only. Gold and jewel response are exactly
 	// multiplied by awake, so neither can self-light outside the service cone.
@@ -149,5 +175,26 @@ void fragment() {
 	if (incarnation_id > 0.5 && incarnation_id < 6.5) {
 		ALBEDO = mix(ALBEDO, incarnation_skin.rgb,
 			0.28 + irradiance.y * 0.20);
+	}
+	// CT-1: the atlas normal through a derivative cotangent frame — the
+	// fauna meshes carry no tangents, so the frame is built per pixel from
+	// the world position and the atlas coordinate.
+	if (skin_ready > 0.001) {
+		vec3 n_ts = texture(skin_normal, fauna_skin_uv).rgb * 2.0 - 1.0;
+		n_ts.xy *= skin_normal_depth * skin_ready;
+		vec3 n_w = normalize(fauna_normal);
+		vec3 dp1 = dFdx(fauna_world);
+		vec3 dp2 = dFdy(fauna_world);
+		vec2 duv1 = dFdx(fauna_skin_uv);
+		vec2 duv2 = dFdy(fauna_skin_uv);
+		vec3 dp2perp = cross(dp2, n_w);
+		vec3 dp1perp = cross(n_w, dp1);
+		vec3 t = dp2perp * duv1.x + dp1perp * duv2.x;
+		vec3 b = dp2perp * duv1.y + dp1perp * duv2.y;
+		float inv_max = inversesqrt(max(dot(t, t), max(dot(b, b), 1e-8)));
+		vec3 perturbed = normalize(t * inv_max * n_ts.x + b * inv_max * n_ts.y + n_w * n_ts.z);
+		NORMAL = normalize((VIEW_MATRIX * vec4(perturbed, 0.0)).xyz);
+		// The fauna contract (DreamFaunaTest): no PBR or emission writes — the
+		// atlas reaches the light only through ALBEDO and this NORMAL.
 	}
 }

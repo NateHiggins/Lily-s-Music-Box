@@ -1846,6 +1846,21 @@ inherited. Consider and *cost* each:
 Bring frames, not adjectives. Two shots of the same corridor under each option
 beats any amount of argument about which sounds better.
 
+### CT — CRITTER SKINS (owner direction 2026-08-21)
+
+- **CT-1 DONE 2026-08-21 — FAMILY SKIN ATLASES FROM THE PLATES.**
+  `art/tools/build_fauna_skins.py` composes one 1024² atlas per family
+  (albedo, normal, mask R gold / G jewel / B wear) from the six cases'
+  substance plates in the fauna's own `CUSTOM0` (body_t, angle) space;
+  `dream_fauna.gdshader` samples it (wine-modulating, wire mask joins the
+  procedural wire, normal via a derivative cotangent frame, NORMAL only —
+  the fauna contract forbids PBR writes), bound per batch by the director
+  (`FAUNA_SKINS=0` restores the procedural skin). Studio proof
+  `DreamFaunaSkinShot.tscn`; `art/renders/dream_fauna_ct1/README.md`;
+  DreamFaunaTest 28/28.
+- **CT-2 — FA3 FAMILIES (OPEN).** An atlas recipe per sketched family as
+  its part kit lands; the tool takes a recipe row, nothing else changes.
+
 ### MX — LAYERED SURFACE SYSTEM: maximum perceived geometric complexity per polygon (owner direction 2026-08-21)
 
 > Extend our Godot material-library architecture around **maximum perceived

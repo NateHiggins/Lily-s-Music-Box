@@ -17,6 +17,12 @@ const FAUNA_DARK_GLOW := 0.10
 const FAMILY_LABELS := ["Gilder's Button (crop)", "Tessellate (grazer)",
 		"Wine Anemone (detritivore)", "Ribbonette (courtship)",
 		"The Loupe (predator)"]
+## CT-1: atlas folder per family_motif, and how many times the atlas repeats
+## along (body_t) and around (angle) the creature.
+const SKIN_DIRS := {0: "gilders_button", 1: "tessellate", 2: "wine_anemone",
+		3: "ribbonette", 4: "the_loupe"}
+const SKIN_REPEAT := {0: Vector2(1.0, 1.0), 1: Vector2(1.0, 1.0),
+		2: Vector2(2.0, 1.0), 3: Vector2(3.0, 1.0), 4: Vector2(1.0, 1.0)}
 ## Angular slack past an instance's own bounding radius: about 3.4 degrees,
 ## so a crosshair that brushes a creature still names it without a collider.
 const INSPECT_CONE_TAN := 0.06
@@ -314,6 +320,16 @@ func _make_batch(label: String, mesh: Mesh, color: Color, jewel: Color,
 	material.set_shader_parameter("fauna_dark_glow", FAUNA_DARK_GLOW)
 	material.set_shader_parameter("vertex_channels_ready",
 			1.0 if vertex_channels_ready else 0.0)
+	# CT-1: the family's skin atlas, composed from the cases' plates. Absent
+	# atlases (or FAUNA_SKINS=0) leave the procedural skin exactly as it was.
+	var skin_dir := "res://assets/dream/fauna_skins/%s/" % SKIN_DIRS.get(int(motif), "")
+	if OS.get_environment("FAUNA_SKINS") != "0" \
+			and ResourceLoader.exists(skin_dir + "albedo.png"):
+		material.set_shader_parameter("skin_albedo", load(skin_dir + "albedo.png"))
+		material.set_shader_parameter("skin_normal", load(skin_dir + "normal.png"))
+		material.set_shader_parameter("skin_mask", load(skin_dir + "mask.png"))
+		material.set_shader_parameter("skin_ready", 1.0)
+		material.set_shader_parameter("skin_repeat", SKIN_REPEAT.get(int(motif), Vector2.ONE))
 	# The existing root material collector uses this presentation-only tag to
 	# select one of five bounded costume records. It creates no fauna owner and
 	# does not enter instance custom data or trophic simulation.
