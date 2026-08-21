@@ -118,7 +118,10 @@ byte is exact on the GPU. H13's live presentation audit instrument landed the
 same day (`res://tests/PresentationAudit.tscn`, proof at
 `art/renders/presentation_audit_h13/README.md`): walls are closed by
 measurement, the corridor ceiling gap is the atrium light well, and the
-"lights disappear with direction" lead is neither gating nor culling.
+"lights disappear with direction" lead is neither gating nor culling. Its
+first generator fix also landed: every generated kitchen's toaster stood on
+its dishrack from a yaw-rotated offset; `gen_layout.py` now guards worktop
+spacing, and the regenerated JSONs (markers only, no GLB rebuild) are copied.
 N12's shared profile makes delayed
 feedback physically load-bearing, then releases the oldest partition when one
 channel remains open. N13 lets two real branches return to one stable antique

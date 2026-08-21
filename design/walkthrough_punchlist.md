@@ -16,7 +16,7 @@ hypotheses they answer; generator fixes still wait for contended-file scheduling
 
 | room | symptom | severity |
 |---|---|---|
-| kitchens 1A/1D/2A/3A/3D/4A/4C/5A/6A/6C | SUPPORT RAY: every `TOASTER_01` authored base sits 215 mm inside `F0x_furnish_hull` — one systematic marker-height offset, not ten placements. OVERLAP: toaster × kettle interpenetrate 133–152 mm in 1A, 1D, 3D, 4C, 6C. Same counter-slot lead as the data sweep, now with the live number | ugly |
+| kitchens 1A/1D/2A/3A/3D/4A/4C/5A/6A/6C | ~~SUPPORT RAY: every `TOASTER_01` base 215 mm inside `furnish_hull`; OVERLAP: toaster × kettle 133–152 mm~~ FIXED 2026-08-21: `_toaster_marker`'s offset was rotated by facing yaw while the clutter was not, so every yaw-180/−90 run stood the toaster on the dishrack (inside its hull — the 215 mm). Offset now in the run frame; `_validate_kitchen_worktops` guards it (fails the old layout 21×). Re-audit: toaster rows 0, support faults 16 → 6. Before/after at `art/renders/presentation_audit_h13/toaster_1A_*.png` | resolved |
 | ROOF | OVERLAP: `ROOF_VENT_FAN_B` stands 420 mm inside planter `roof_bed1` (and 50 mm into its soil) | ugly |
 | F01 bar / bodega (SITE) | SUPPORT RAY: `F01_KARAOKE_SPK_0` and `F01_BAR_SONGBOOK` have no collider within 0.5 m below their base; `F01_KARAOKE_SPK_1` base is 230 mm inside the hull; `F01_BODEGA_RADIO` base 50 mm into `retail_bod_floor`. OVERLAP: the songbook terminal cuts 45–60 mm into the bar dado and two gallery frames | ugly |
 | 6A | OVERLAP: three monitors cut 50–120 mm into `6A_deskwall` and its legs | ugly |
@@ -46,7 +46,7 @@ unrelated classes should be compared.
 
 | room | symptom | severity |
 |---|---|---|
-| kitchens 1A/2A/3A/4A/5A/6A/1D/3D | DATA SWEEP: `TOASTER_01` centre overlaps the dishrack footprint on the same counter run; 4B has the same NW-corner congestion with toaster, mug and dishrack. Structural lead is separate marker/accessory passes without a shared counter-slot occupancy allocator | ugly |
+| kitchens 1A/2A/3A/4A/5A/6A/1D/3D | ~~DATA SWEEP: `TOASTER_01` centre overlaps the dishrack footprint on the same counter run~~ FIXED 2026-08-21 (see the H13 row above: one yaw-rotation fault, not a missing allocator). 4B's hand-placed NW corner keeps its authored 200 mm kettle spacing and its own clearance check | resolved |
 | corridors F02–F06 | DATA COVERAGE SWEEP: each corridor has the same 22% area without a ceiling rect. Orbit/up-ray + `show_all_floors` must distinguish a hidden floor-above slab from a genuine generator omission | ugly |
 | all non-shaft rooms | DATA SWEEP: zero empty rooms; perceived emptiness is a density/dressing question. Run a records-per-square-metre census and walk the bottom decile | info |
 | building-wide free-standing props | DATA SWEEP: zero unsupported baked-record candidates. Run live-scene support rays because marker-spawned mesh origins can still hover or clip | info |

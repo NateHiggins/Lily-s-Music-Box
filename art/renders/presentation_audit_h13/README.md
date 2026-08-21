@@ -151,6 +151,41 @@ produced from the current layout — a room under 20 m² or a corner now
 occupied). Frames are in the session scratchpad, not committed; they are
 the eyes for the punchlist rows above.
 
+## The first generator fix the instrument earned — every toaster
+
+`_toaster_marker`'s callers rotated its −0.38·cw offset by the run's facing
+yaw while the dishrack, mug and kettle were placed unrotated, so every
+south- and east-facing run (yaw 180 / −90: 1A, 1D, 2A, 3A, 3D, 4A, 4C, 5A,
+6A, 6C — all ten generated kitchens) put the toaster at +0.38·cw, on the
+drainer. That is both audit rows at once: the 133–152 mm toaster×kettle
+overlaps, and the "base sunk 215 mm into `furnish_hull`" — the toaster was
+standing inside the **dishrack's** collision hull (the kitchen's own hull
+tops out at 0.92 m, 25 mm over the worktop, and never was the culprit).
+
+Fix in `gen_layout.py`: the offset is now in the run's world frame like the
+clutter's. A new `_validate_kitchen_worktops` refuses any toaster within
+0.19 m of its unit's dishrack, mug or kettle (toaster half-length plus
+dishrack half-depth; 4B's hand-authored 0.20 m kettle spacing keeps its own
+48 mm check). Run against the OLD layout it fails 21 times, which is the
+premise; on the new one it passes. Regeneration moved exactly the ten
+toaster markers (and their ten electrical nodes in `acoustic_graph.json`);
+walls, rooms, ceilings, slabs and all 7,242 furniture records are
+byte-identical, so no GLB rebuild was needed. Copying the generator's output
+also brought `game/data/material_catalog.json` up to date — `40cbe01` added
+`sash` and `blind_slat` on 2026-08-18 and never copied the file over.
+
+Re-audit after the fix (`presentation_audit_after_toaster_fix.log`):
+overlap rows **25 → 20** (toaster rows 5 → 0), support rows **16 → 6** (all
+ten toasters gone; the six that remain are the bar/bodega speakers and
+songbook, the 2A lamp and the 4B stove). WalkTest FAST PASS, LightingAudit
+PASS (127 spaces), 0 errors.
+
+`toaster_1A_before.png` / `toaster_1A_after.png`: the 1A counter from
+`@-8.4_1.45_2.5:0|-14` under its own fixtures and the phone, old layout
+swapped in for the first frame. Before, the toaster is wedged into the
+dishrack beside the kettle at the range end; after, it stands on the
+drainer end.
+
 ## Instrument corrections made during the first run
 
 - `kitchen_linear` is a linear light (`F01_BAR_LT_CAN0`), not a counter run;

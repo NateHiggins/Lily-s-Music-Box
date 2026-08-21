@@ -752,6 +752,14 @@ def _toaster_marker(markers, uid, tx, ty, z, yaw, floor_id):
     west of the sink at -0.20 and clear of the mug at +0.30 and the
     drainer at +0.40. Those four offsets are the whole worktop, and a
     fifth thing on it would be standing on one of them.
+
+    THE OFFSET IS IN THE RUN'S WORLD FRAME, LIKE THE CLUTTER'S. Until
+    2026-08-21 the callers rotated it by the run's facing yaw while the
+    dishrack, mug and kettle were never rotated, so every south- and
+    east-facing run (yaw 180 / -90: 1A, 1D, 3A, 3D, 4A, 4C, 5A, 6A, 6C)
+    put the toaster at +0.38 - on the drainer, 133-152 mm into the kettle.
+    PresentationAudit's overlap and support passes found it in every one
+    of those kitchens; _validate_kitchen_worktops now refuses it.
     """
     if markers is None:
         return
@@ -930,9 +938,7 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n", markers=None,
         sx = x + cw / 2 + (-0.20 * cw) * math.cos(math.radians(yaw))
         sy = cy + (-0.20 * cw) * math.sin(math.radians(yaw))
         _kitchen_sink_marker(markers, uid, sx, sy, z, yaw, floor_id)
-        _toaster_marker(markers, uid,
-                        x + cw / 2 + (-0.38 * cw) * math.cos(math.radians(yaw)),
-                        cy + (-0.38 * cw) * math.sin(math.radians(yaw)),
+        _toaster_marker(markers, uid, x + cw / 2 - 0.38 * cw, cy,
                         z, yaw, floor_id)
         _kettle_marker(markers, uid,
                        x + cw / 2 + 0.30 * cw, cy + 0.13,
@@ -950,9 +956,7 @@ def kitchen_run(f, uid, x, y, L, along_x=True, side="n", markers=None,
         sx = cx + (-0.20 * cw) * math.cos(math.radians(yaw))
         sy = y + cw / 2 + (-0.20 * cw) * math.sin(math.radians(yaw))
         _kitchen_sink_marker(markers, uid, sx, sy, z, yaw, floor_id)
-        _toaster_marker(markers, uid,
-                        cx + (-0.38 * cw) * math.cos(math.radians(yaw)),
-                        y + cw / 2 + (-0.38 * cw) * math.sin(math.radians(yaw)),
+        _toaster_marker(markers, uid, cx, y + cw / 2 - 0.38 * cw,
                         z, yaw, floor_id)
         _kettle_marker(markers, uid,
                        cx + 0.13, y + cw / 2 + 0.30 * cw,
@@ -8434,6 +8438,7 @@ def validate(layout):
     problems += _validate_bath_rails(layout)
     problems += _validate_vantry_points(layout)
     problems += _validate_kettles(layout)
+    problems += _validate_kitchen_worktops(layout)
     problems += _validate_boxfans(layout)
     problems += _validate_ventilation(layout)
     problems += _validate_flue_fittings(layout)
@@ -9069,6 +9074,37 @@ def _validate_kettles(layout):
         clearance = abs(float(four_b[0]["pos"][0]) - (-10.70)) - 0.09 - 0.0605
         if clearance < 0.048:
             problems.append("4B kettle/toaster clearance fell below 48 mm")
+    return problems
+
+
+def _validate_kitchen_worktops(layout):
+    """Nothing on a worktop stands on something else on the same worktop.
+
+    Toaster (0.27 x 0.12), dishrack (0.12 x 0.26), mug and kettle (r 0.09)
+    share one counter; 0.19 m centre-to-centre (toaster half-length plus
+    dishrack half-depth) keeps the widest pair clear. 4B's hand-authored
+    kettle sits at exactly 0.20 m with its own 48 mm clearance check above.
+    Guards the yaw-rotation fault recorded on _toaster_marker.
+    """
+    problems = []
+    for fl in layout["floors"]:
+        toasters = [m for m in fl.get("markers", []) if m.get("kind") == "toaster"]
+        for t in toasters:
+            unit = str(t.get("unit", ""))
+            tx, ty = float(t["pos"][0]), float(t["pos"][1])
+            others = []
+            for m in fl.get("markers", []):
+                if m.get("kind") == "kettle" and m.get("unit") == unit:
+                    others.append(("kettle", m["pos"][0], m["pos"][1]))
+            for fu in fl.get("furniture", []):
+                if fu.get("asm") in ("dishrack", "mug") and \
+                        str(fu.get("id", "")).startswith(unit + "_"):
+                    others.append((fu["asm"], fu["at"][0], fu["at"][1]))
+            for name, ox, oy in others:
+                d = math.hypot(tx - float(ox), ty - float(oy))
+                if d < 0.19:
+                    problems.append("%s toaster stands %.0f mm from its %s"
+                                    % (unit, d * 1000.0, name))
     return problems
 
 
