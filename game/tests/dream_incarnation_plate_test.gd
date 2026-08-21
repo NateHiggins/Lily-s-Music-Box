@@ -47,10 +47,19 @@ func _run() -> void:
 	var peter_result := Profile.resolve(peter_profile.get("presentation", null),
 			"peter_release_print", "peter_form_corridor")
 	var peter: Dictionary = peter_result.get("bundle", {})
-	_check("a missing next case cannot retain or substitute Mina's plates",
-			not cache.load_bundle(peter, {}) and cache.resource_count() == 0
+	_check("Peter replaces Mina with exactly one active seventeen-map bundle",
+			cache.load_bundle(peter, _resources_for(peter, catalog))
+			and cache.resource_count() == 17
+			and cache.active_incarnation == "peter"
+			and not cache.resources.has("%s/albedo" % str(mina.substance_keys[0])))
+	var juno_profile: Dictionary = profiles.get("juno_release_print", {})
+	var juno_result := Profile.resolve(juno_profile.get("presentation", null),
+			"juno_release_print", "juno_feedback_tetris")
+	var juno: Dictionary = juno_result.get("bundle", {})
+	_check("a missing next case cannot retain or substitute Peter's plates",
+			not cache.load_bundle(juno, {}) and cache.resource_count() == 0
 			and cache.active_incarnation.is_empty()
-			and cache.last_error.contains("missing texture"))
+			and cache.last_error.contains("not yet shipped"))
 
 	cache.load_bundle(mina, resources)
 	cache.unload()

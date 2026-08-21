@@ -137,6 +137,40 @@ func _production_contract() -> void:
 	root.queue_free()
 	await get_tree().process_frame
 
+	root = scene.instantiate() as DreamMazeRoot
+	root.autonomous = false
+	root.configure_dream({
+		"case_id": "peter_form_corridor",
+		"profile_id": "peter_release_print",
+		"window": {}, "seed_hex": SEED_HEX, "maze_revision": 1,
+		"outcome": "", "night_index": 2, "spawn_anchor": 1,
+	})
+	add_child(root)
+	await get_tree().process_frame
+	bundle = root.active_presentation()
+	_check("the same production root owns Peter's immutable presentation bundle",
+			root.maze_built and str(bundle.get("incarnation_id", "")) == "peter"
+			and int(bundle.get("incarnation_index", 0)) == 2)
+	_check("Peter owns exactly his active seventeen-map residency",
+			root.presentation_plates.resource_count() == 17
+			and root.presentation_plates.active_incarnation == "peter")
+	var peter_bound := true
+	for value in root.get("_molten_materials") as Array:
+		var material := value as ShaderMaterial
+		if material == null or not is_equal_approx(float(
+				material.get_shader_parameter("incarnation_id")), 2.0):
+			peter_bound = false
+	_check("Peter uses the same collector and shader materials", peter_bound)
+	_check("Peter's presentation leaves the demanding-door truth unchanged",
+			root.active_case_truth().get("statement", "")
+				== "Uncertainty does not prevent action")
+	_check("Peter's presentation adds no Mina hazard allowlist",
+			(root.profile_hazards.get("allow", []) as Array).is_empty())
+	_check("Peter still creates no incarnation runtime owner",
+			root.find_children("*Incarnation*", "Node", true, false).is_empty())
+	root.queue_free()
+	await get_tree().process_frame
+
 
 func _valid_shape(incarnation_id: String) -> Dictionary:
 	var index := IncarnationProfile.IDS.find(incarnation_id)

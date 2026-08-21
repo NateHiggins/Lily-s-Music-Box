@@ -1690,11 +1690,7 @@ unresolved. K7's source-backed loop contract is closed in
   48/77/133/172 calls. WalkTest FAST passes at x8/480; the FULL attempt was
   terminated without a result at the mandatory 60-second process limit, so no
   fresh FULL claim is made. Proof: `art/renders/dream_irradiance_v1/README.md`.
-- **INC-V4 — PETER SURFACE INCARNATION (OPEN).** Implement
-  the approved paper/oxblood/decision-line language over the shared Peter seam.
-  Preserve the existing demanding-door grammar, release print and truth; use
-  Peter's landed paper precedent without multiplying materials or owners.
-- **INC-V5 — JUNO SURFACE INCARNATION (BLOCKED BY INC-V4).** Implement the
+- **INC-V5 — JUNO SURFACE INCARNATION (OPEN).** Implement the
   approved speaker-cloth/brass/standing-wave language. Gutter echoes are visual
   response only: they cannot create channel edges, partition events, pursuit
   attention or audio gameplay. Preserve the landed energy-weighted sustain.

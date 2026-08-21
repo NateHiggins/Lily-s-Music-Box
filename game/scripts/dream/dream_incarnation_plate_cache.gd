@@ -96,10 +96,10 @@ func apply_to_material(material: ShaderMaterial, bundle: Dictionary) -> void:
 	var reflected_key := str(bundle.get("reflected_world_key", ""))
 	material.set_shader_parameter("reflected_world",
 			resources.get(reflected_key))
-	if active_incarnation == "mina":
+	if not active_incarnation.is_empty():
 		# The legacy broad ghost projection can turn innocent room silhouettes
-		# into pseudo-lettering. Mina permits the plate only in molten grazing
-		# reflection, where it cannot masquerade as an annotation.
+		# into pseudo-lettering. Incarnations permit their plate only in their
+		# bounded molten grazing term.
 		material.set_shader_parameter("ghost_amount", 0.0)
 		material.set_shader_parameter("reflected_world_gain", 0.55)
 

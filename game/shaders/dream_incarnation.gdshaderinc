@@ -89,10 +89,60 @@ vec4 mina_surface(vec3 world, vec2 uv, float retained, float molten,
 	return vec4(colour, roughness);
 }
 
+// Peter's recursive docket: nested fields remain empty while a single
+// oxblood decision stroke becomes executable under full exposure. It never
+// reads or mutates the demanding-door grammar.
+vec4 peter_surface(vec3 world, vec2 uv, float retained, float molten,
+		float awake, float grazing, int slot) {
+	vec4 stock = incarnation_substance(0, uv * 0.82);
+	vec4 stamp = incarnation_substance(1, uv * 0.93 + 3.1);
+	vec4 carbon = incarnation_substance(2, uv * 0.74 - 4.7);
+	vec4 brass = incarnation_substance(3, uv * 1.08 + 7.3);
+	vec4 selected = incarnation_substance(slot, uv * 0.86);
+	vec2 docket = abs(fract(uv * vec2(0.118, 0.154)) - 0.5);
+	float frame = smoothstep(0.035, 0.012,
+		min(abs(docket.x - 0.41), abs(docket.y - 0.34)));
+	vec2 inner = abs(fract(uv * vec2(0.071, 0.093) + 0.19) - 0.5);
+	frame = max(frame, smoothstep(0.028, 0.010,
+		min(abs(inner.x - 0.34), abs(inner.y - 0.25))) * 0.72);
+	float route_phase = fract((uv.x + uv.y * 0.37) * 0.112);
+	float route = smoothstep(0.040, 0.012, abs(route_phase - 0.5));
+	float decision = smoothstep(incarnation_signature.x, 1.0, retained)
+		* incarnation_signature.y;
+	float continuing = mix(frame, route, decision);
+	vec3 paper = stock.rgb * vec3(0.34, 0.28, 0.20);
+	vec3 blue_copy = carbon.rgb * vec3(0.28, 0.34, 0.54);
+	vec3 oxblood = stamp.rgb * vec3(0.82, 0.34, 0.30);
+	vec3 legal_brass = brass.rgb * vec3(0.72, 0.52, 0.25);
+	vec3 colour = mix(paper, blue_copy, 0.24 + (1.0 - awake) * 0.18);
+	colour = mix(colour, oxblood, continuing * (0.52 + awake * 0.22));
+	colour = mix(colour, legal_brass,
+		molten * (route * 0.78 + frame * (1.0 - decision) * 0.18));
+	// The open route crosses the existing surface continuously; this is a
+	// colour-space fact only and cannot open, add, or move a door.
+	colour += legal_brass * route * decision * molten * 0.24;
+	float room_luma = dot(texture(reflected_world,
+		fract(uv * 0.031 + vec2(0.41, 0.23))).rgb,
+		vec3(0.299, 0.587, 0.114));
+	colour += vec3(0.72, 0.48, 0.20) * room_luma
+		* molten * grazing * 0.10;
+	// One lower-corner pressure indentation: roughness only, illegible and
+	// incapable of completing a field for him.
+	vec2 corner_q = fract(uv / 11.0 + vec2(0.08, 0.82)) - 0.5;
+	float initial_pressure = smoothstep(0.11, 0.055,
+		length(corner_q / vec2(1.0, 0.55)));
+	float roughness = mix(selected.a, 0.30, molten * continuing);
+	roughness = mix(roughness, 0.18, initial_pressure * 0.32);
+	return vec4(colour, roughness);
+}
+
 vec4 dream_incarnation_surface(vec3 world, vec2 uv, float retained,
 		float molten, float awake, float grazing, int slot, vec4 fallback) {
 	if (incarnation_id > 0.5 && incarnation_id < 1.5) {
 		return mina_surface(world, uv, retained, molten, awake, grazing, slot);
+	}
+	if (incarnation_id > 1.5 && incarnation_id < 2.5) {
+		return peter_surface(world, uv, retained, molten, awake, grazing, slot);
 	}
 	return fallback;
 }

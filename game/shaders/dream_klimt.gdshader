@@ -518,7 +518,7 @@ vec3 sample_reflected_world(vec2 q, float flow) {
 	vec2 uv = q * 0.055 + vec2(0.5, 0.5);
 	uv += vec2(flow, flow * 0.6) * 0.06;
 	vec3 reflected = texture(reflected_world, uv).rgb;
-	if (incarnation_id > 0.5 && incarnation_id < 1.5) {
+	if (incarnation_id > 0.5 && incarnation_id < 2.5) {
 		reflected += texture(reflected_world, uv + vec2(0.006, 0.0)).rgb;
 		reflected += texture(reflected_world, uv + vec2(-0.006, 0.0)).rgb;
 		reflected += texture(reflected_world, uv + vec2(0.0, 0.006)).rgb;
@@ -1365,7 +1365,7 @@ void fragment() {
 	// legacy gold can erase at full exposure. Mina remains bounded by the same
 	// irradiance and geometry, but her ink/stock/blankness stays legible across
 	// all three bands.
-	if (incarnation_id > 0.5 && incarnation_id < 1.5) {
+	if (incarnation_id > 0.5 && incarnation_id < 2.5) {
 		float incarnation_mix = 0.50 + irradiance.y * 0.18
 			+ irradiance.z * 0.32;
 		incarnation_mix = max(incarnation_mix,

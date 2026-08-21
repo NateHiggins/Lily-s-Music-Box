@@ -8,9 +8,17 @@ const BLENDS := [0.0, 0.25, 0.50, 0.75, 1.0]
 var root: DreamMazeRoot
 var out_dir := ""
 var failures := 0
+var incarnation := "mina"
 
 
 func _ready() -> void:
+	incarnation = OS.get_environment("DREAM_INCARNATION").to_lower()
+	if incarnation.is_empty():
+		incarnation = "mina"
+	if incarnation not in ["mina", "peter"]:
+		printerr("[INCARNATION SHOT] unsupported case " + incarnation)
+		get_tree().quit(2)
+		return
 	out_dir = OS.get_environment("SHOT_DIR")
 	if out_dir.is_empty():
 		out_dir = OS.get_user_data_dir()
@@ -23,11 +31,12 @@ func _ready() -> void:
 	await _capture("00_control_a_repeat")
 	_set_incarnation(true)
 	_set_state(0.0, false)
-	await _capture("01_mina_dark")
+	await _capture("01_%s_dark" % incarnation)
 	_set_state(0.50, true)
-	await _capture("02_mina_oblique")
+	await _capture("02_%s_oblique" % incarnation)
 	_set_state(1.0, true)
-	await _capture("03_mina_molten_blank_mercy")
+	await _capture("03_%s_molten_%s" % [incarnation,
+			"blank_mercy" if incarnation == "mina" else "decision_route"])
 	for i in BLENDS.size():
 		_set_state(float(BLENDS[i]), i > 0)
 		await _capture("04_blend_%02d" % i)
@@ -38,14 +47,17 @@ func _ready() -> void:
 	_stage_wall(false)
 	root.player.velocity = Vector3(0.4, 0.0, 0.0)
 	_set_state(1.0, true)
-	await _capture("06_palm_control_moving")
+	await _capture("06_%s_control_moving" %
+			("palm" if incarnation == "mina" else "initial_pressure"))
 	root.player.velocity = Vector3.ZERO
 	root.call("_update_molten")
-	await _capture("06_still_palm_pressure")
+	await _capture("06_%s_pressure" %
+			("still_palm" if incarnation == "mina" else "held_initial"))
 	_stage_reflection_graze()
 	await _capture("06_reflected_world_grazing")
 	await _capture_fauna()
-	print("[MINA INCARNATION SHOT] frames complete, findings=%d" % failures)
+	print("[INCARNATION SHOT] %s frames complete, findings=%d" %
+			[incarnation, failures])
 	get_tree().quit(failures)
 
 
@@ -54,10 +66,15 @@ func _build() -> void:
 	RealityState.reset_campaign_for_tests()
 	root = (load("res://scenes/dream/DreamMazeRoot.tscn") as PackedScene).instantiate()
 	root.autonomous = false
-	root.configure_dream({"case_id": "mina_caption_crisis",
-			"profile_id": "mina_release_print", "window": {},
+	var case_id := "mina_caption_crisis" if incarnation == "mina" \
+			else "peter_form_corridor"
+	var profile_id := "mina_release_print" if incarnation == "mina" \
+			else "peter_release_print"
+	var night_index := 1 if incarnation == "mina" else 2
+	root.configure_dream({"case_id": case_id,
+			"profile_id": profile_id, "window": {},
 			"seed_hex": SEED_HEX, "maze_revision": 1, "outcome": "",
-			"night_index": 1, "spawn_anchor": 1})
+			"night_index": night_index, "spawn_anchor": 1})
 	add_child(root)
 	await get_tree().process_frame
 	root.set_physics_process(false)
@@ -121,12 +138,13 @@ func _capture_fauna() -> void:
 		family_index += 1
 	if family_index != 5:
 		failures += 1
-		printerr("[MINA INCARNATION SHOT] expected five fauna, got %d" % family_index)
+		printerr("[INCARNATION SHOT] expected five fauna, got %d" % family_index)
 
 
 func _set_incarnation(enabled: bool) -> void:
 	for material in root.get("_molten_materials") as Array[ShaderMaterial]:
-		material.set_shader_parameter("incarnation_id", 1.0 if enabled else 0.0)
+		var index := 1.0 if incarnation == "mina" else 2.0
+		material.set_shader_parameter("incarnation_id", index if enabled else 0.0)
 
 
 func _set_state(response: float, lamp_on: bool) -> void:
@@ -149,6 +167,6 @@ func _capture(file_name: String) -> void:
 	var error := get_viewport().get_texture().get_image().save_png(path)
 	if error != OK:
 		failures += 1
-		printerr("[MINA INCARNATION SHOT] failed %s (%d)" % [path, error])
+		printerr("[INCARNATION SHOT] failed %s (%d)" % [path, error])
 	else:
-		print("[MINA INCARNATION SHOT] saved " + path)
+		print("[INCARNATION SHOT] saved " + path)

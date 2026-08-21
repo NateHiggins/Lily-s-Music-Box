@@ -70,8 +70,14 @@ pressure, anti-tiling and the empty reflected-world plate proved in the
 production root. The cache packs scalar channels into the already-budgeted
 RGBA maps for nine sampler bindings while retaining all 17 auditable resources.
 No annotation gameplay, truth, topology, collision, hazard, pursuit or save
-fact changed. Proof: `art/renders/dream_incarnation_mina_v3/README.md`. Peter's
-ordered INC-V4 presentation pass is now open.
+fact changed. Proof: `art/renders/dream_incarnation_mina_v3/README.md`.
+INC-V4 is now technically complete as well: Peter replaces Mina with exactly
+his active 17-map bundle and uses the same root/cache/include/collector for
+recursive blank dockets, oxblood decision lines, carbon depth, legal brass,
+the one full-exposure route, pressure-only tenderness and five fauna costumes.
+The demanding-door grammar, remembered room, pursuit event, release print,
+truth, empty hazard allowlist and save boundary are unchanged. Production
+proof: `art/renders/dream_incarnation_peter_v4/README.md`. Juno INC-V5 is open.
 N12's shared profile makes delayed
 feedback physically load-bearing, then releases the oldest partition when one
 channel remains open. N13 lets two real branches return to one stable antique
