@@ -39,6 +39,11 @@ const STATIONS := [
 			"yaw": -90.0, "pitch": -3.0, "room": "B1_BOILER"},
 	{"key": "lobby", "floor": "F01", "pos": Vector3(-0.4, 1.72, 9.1),
 			"yaw": -58.0, "pitch": -6.0, "room": "F01_LOBBY"},
+	# Floors (the M-COVER stands), now a class of the same surface.
+	{"key": "corridor_floor", "floor": "F04", "pos": Vector3(4.3, 1.05, 5.2),
+			"yaw": 0.0, "pitch": -34.0, "room": "F04_CORRIDOR"},
+	{"key": "oak_floor", "floor": "F04", "pos": Vector3(-9.0, 1.05, -5.6),
+			"yaw": 35.0, "pitch": -38.0, "room": "F04_B_MAIN"},
 	# Close, along the wall: where a height tier shows or does not.
 	{"key": "brick_close", "floor": "F02", "pos": Vector3(-8.3, 1.30, -8.75),
 			"yaw": 62.0, "pitch": -8.0, "room": "F02_A_BED", "demo": true},
@@ -50,6 +55,7 @@ const STATIONS := [
 const OPTIONS := [
 	{"key": "current", "label": "shipping StandardMaterial3D", "recipe": null},
 	{"key": "base", "label": "orison_surface, every layer off (control)", "recipe": {}},
+	{"key": "ship", "label": "the class recipe as SurfacePass ships it", "recipe": {"__class__": true}},
 	{"key": "offset", "label": "+ height tier, offset parallax", "recipe": {"parallax_mode": 1}},
 	{"key": "pom", "label": "+ height tier, POM", "recipe": {"parallax_mode": 2}},
 	{"key": "detail", "label": "+ detail tier (self, 3.718x)", "recipe": {"has_detail": true}},
@@ -242,7 +248,8 @@ func _apply_option(floor_id: String, option: Dictionary) -> int:
 		var mi := node as MeshInstance3D
 		if mi.mesh == null:
 			continue
-		if not (mi.name.contains("_walls") or mi.name.contains("_finish_")):
+		var cls := SurfacePassScript._class_for(mi.name)
+		if cls.is_empty():
 			continue
 		for s in mi.mesh.get_surface_count():
 			var original := mi.mesh.surface_get_material(s) as BaseMaterial3D
@@ -250,7 +257,7 @@ func _apply_option(floor_id: String, option: Dictionary) -> int:
 				continue
 			if original.cull_mode != BaseMaterial3D.CULL_BACK:
 				continue
-			mi.set_surface_override_material(s, _surface_for(original, option))
+			mi.set_surface_override_material(s, _surface_for(original, option, cls))
 			_overridden.append([mi, s])
 			swapped += 1
 	return swapped
@@ -264,8 +271,15 @@ func _restore() -> void:
 
 ## One surface material per (shipping material, option) from the production
 ## builder, with the option's recipe on top.
-func _surface_for(original: BaseMaterial3D, option: Dictionary) -> ShaderMaterial:
-	return SurfacePassScript.surface_for(original, option.recipe, str(option.key), _cache)
+func _surface_for(original: BaseMaterial3D, option: Dictionary, cls: Dictionary) -> ShaderMaterial:
+	var recipe: Dictionary = option.recipe
+	if recipe.has("__class__"):
+		recipe = cls.recipe
+	elif str(cls.key) == "floors":
+		# The floors' coverage rule is part of their base look, not a tier.
+		recipe = recipe.duplicate()
+		recipe["coverage_rule"] = true
+	return SurfacePassScript.surface_for(original, recipe, "%s|%s" % [option.key, cls.key], _cache)
 
 
 func _hide_overlays(node: Node) -> void:

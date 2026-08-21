@@ -113,3 +113,32 @@ Gates with the pass in production: WalkTest FAST PASS, LightingAudit PASS,
   `wall_encroachment.gdshader`; both become recipes of this surface when
   their classes roll (MX-4), as do trims, glTF furnishing and the `MatLib`
   props (triplanar mode is built and untested in frames).
+
+## Addendum 2026-08-21 — the ruling, the floors, the trims (MX-4 steps 2–3)
+
+Owner on the frames above: **"exaggeration is cool"** — relief ships at
+2.5× the calibrated millimetres (`SurfacePass.RELIEF_EXAGGERATION`), the
+`pom_x25` frame is now the `ship` look (`floors/sheet_brick_ship_zoom.jpg`).
+
+**Floors** became a class of the same surface: M-COVER's rule per set
+(cell-snapped terrazzo, row-offset oak, hex ceramic and concrete) lives in
+`SurfacePass.COVERAGE_RULES` and is applied as part of the floor's base look,
+plus the height tier (terrazzo 0.6 mm, oak seams 1.5 mm, × 2.5) and
+self-detail. `FloorCoveragePass` is superseded and no longer applied.
+`floors/sheet_oak_floor.jpg`, `floors/sheet_corridor_floor.jpg`: `current`
+here is the bare StandardMaterial3D (the tile-period joint line is back in
+it), `base` / `ship` carry the staggered rows; costs oak 2.50 → 3.03 ms,
+corridor floor 6.24 → 6.30 ms.
+
+**Trims**: wainscot (beadboard, POM), tin ceiling, stairs, slabs, limestone
+stone trim (offset parallax), painted trim and sash (self-detail, no height
+map). Ten classes, **307 surfaces on 260 materials**; corridor 12.74 →
+13.00 ms, lobby 11.95 → 11.40 ms (noise). `floors/sheet_lobby_ship.jpg`,
+`floors/sheet_corridor_ship.jpg`. WalkTest FAST PASS, LightingAudit PASS,
+0 script/shader errors.
+
+Left for the rollout: glTF furnishing (normal tier), the `MatLib` props
+(`get_mat` returns a typed StandardMaterial3D that 52 callers may duplicate
+and tint — a `get_surface` beside it, not a swap), the 22 encroached
+finishes as a corruption recipe, and the metal states photographed on
+metal.

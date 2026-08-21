@@ -1906,6 +1906,8 @@ probe is a third. MX makes them one system.
   secondary state (albedo/ORM/normal/height deltas) by its mask. Alpha
   scissor/hash for cutouts. Coverage, encroachment and the dream's flesh/skin/
   weld layers become states of this shader, not separate shaders.
+- **MX-2 ruling 2026-08-21 (owner, on the MX-1 frames): "exaggeration is cool" —
+  relief ships at 2.5x the calibrated millimetres (`SurfacePass.RELIEF_EXAGGERATION`).**
 - **MX-2 — THE TIER RULE AND THE PARALLAX GOVERNOR (GOVERNOR DONE 2026-08-21
   in the shader: grazing fade, distance fade, `parallax_budget`; the per-class
   millimetre table and the station-measured budget feed are OPEN).** Microdetail →
@@ -1928,13 +1930,18 @@ probe is a third. MX makes them one system.
   sources (`art/textures/wall_sources` already holds damage stencils and stain
   overlays). Sources stay scrubbed of generator watermarks
   (`scrub_source_watermarks.py`).
-- **MX-4 — ROLLOUT BY CLASS WITH FRAMES (STEP 1 SHIPPED 2026-08-21: masonry
-  walls POM + self-detail, wall finishes self-detail, via `SurfacePass` after
-  `HeightmapPass`; 113 surfaces; `SURFACE=0` is the A; WalkTest FAST PASS,
-  LightingAudit PASS. OPEN: floors (fold coverage in), trims / wainscot /
-  stairs / slabs, glTF furnishing, `MatLib` props in triplanar mode, the 22
-  encroached finishes as a corruption recipe, metal states photographed on
-  metal).** Masonry and finish quads
+- **MX-4 — ROLLOUT BY CLASS WITH FRAMES (STEPS 1–3 SHIPPED 2026-08-21 via
+  `SurfacePass` after `HeightmapPass`, relief at 2.5x by ruling, `SURFACE=0`
+  the A: walls POM + self-detail; finishes self-detail; floors with M-COVER's
+  coverage rule folded in as `COVERAGE_RULES` (FloorCoveragePass superseded,
+  no longer applied) + POM + self-detail; wainscot POM; ceiling / stairs /
+  slabs / stone trim offset parallax; trim / sash self-detail — ten classes.
+  Frames `art/renders/orison_surface_mx1/floors/`. OPEN: glTF furnishing
+  (`_furnish`/`_furniture`/`_retail`, normal tier), `MatLib` props in
+  triplanar mode (`get_mat` returns a typed StandardMaterial3D and 52
+  callers may duplicate-and-tint it — needs a `get_surface` beside it, not a
+  swap), the 22 encroached finishes as a corruption recipe, metal states
+  photographed on metal).** Masonry and finish quads
   first (the flashlight sees them most), then floors, trims, props. Each class
   ships with before/after frames under the moving lamp from fixed stands, the
   perf station row, and an A/B switch; colour and art direction are preserved

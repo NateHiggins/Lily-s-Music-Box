@@ -160,7 +160,9 @@ func _describe(material: Material, cls: String, origin: String, node_name: Strin
 						if uname.contains("rough"): d.roughness = true
 						if uname.contains("height"): d.height = true
 		d.samplers = samplers
-		if d.shader == "floor_coverage.gdshader":
+		if d.shader.begins_with("orison_surface"):
+			d.state = "layered (MX)"
+		elif d.shader == "floor_coverage.gdshader":
 			d.state = "coverage (MC-P)"
 		elif d.shader == "wall_encroachment.gdshader":
 			d.state = "encroachment (WK-1)"

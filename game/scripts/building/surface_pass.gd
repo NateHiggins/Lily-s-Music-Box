@@ -46,15 +46,83 @@ const TILE_M := {
 ## Surface classes by buffer-name substring, in rollout order, each with its
 ## standing recipe (shader parameters applied over the shipping material).
 ## Only the classes listed are touched; the census (MX-0) chose the order.
+## Relief ships at 2.5x the calibrated millimetres: owner ruling 2026-08-21
+## on the MX-1 frames ("exaggeration is cool").
+const RELIEF_EXAGGERATION := 2.5
+
 const CLASSES := [
 	{"key": "walls", "match": "_walls",
 			"recipe": {"parallax_mode": 2, "pom_steps_min": 6, "pom_steps_max": 14,
+					"relief_mul": RELIEF_EXAGGERATION,
 					"has_detail": true, "detail_albedo_strength": 0.18,
 					"detail_normal_strength": 0.45}},
 	{"key": "finish", "match": "_finish_",
 			"recipe": {"has_detail": true, "detail_albedo_strength": 0.12,
 					"detail_normal_strength": 0.35}},
+	# Floors: M-COVER's anti-repetition rule per set (the coverage recipe is
+	# resolved from the albedo's file name by COVERAGE_RULES) plus the height
+	# tier and self-detail. Supersedes FloorCoveragePass.
+	{"key": "floors", "match": "_floors_",
+			"recipe": {"coverage_rule": true, "parallax_mode": 2, "pom_steps_min": 4,
+					"pom_steps_max": 10, "relief_mul": RELIEF_EXAGGERATION,
+					"has_detail": true, "detail_albedo_strength": 0.15,
+					"detail_normal_strength": 0.4}},
+	# The third class of the census order: relief where the set has a height
+	# map (wainscot beadboard, tin ceiling, stair and landing stone, slabs,
+	# limestone trim), self-detail everywhere. Painted trim and sash have no
+	# height map and get the normal tier only. `_stone_trim` is listed before
+	# `_trim` so the substring match lands on the right class.
+	{"key": "wainscot", "match": "_wainscot",
+			"recipe": {"parallax_mode": 2, "pom_steps_min": 4, "pom_steps_max": 10,
+					"relief_mul": RELIEF_EXAGGERATION, "has_detail": true,
+					"detail_albedo_strength": 0.12, "detail_normal_strength": 0.4}},
+	{"key": "ceiling", "match": "_ceiling",
+			"recipe": {"parallax_mode": 1, "relief_mul": RELIEF_EXAGGERATION,
+					"has_detail": true, "detail_albedo_strength": 0.12,
+					"detail_normal_strength": 0.35}},
+	{"key": "stairs", "match": "_stairs",
+			"recipe": {"parallax_mode": 1, "relief_mul": RELIEF_EXAGGERATION,
+					"has_detail": true, "detail_albedo_strength": 0.15,
+					"detail_normal_strength": 0.4}},
+	{"key": "slabs", "match": "_slabs",
+			"recipe": {"parallax_mode": 1, "relief_mul": RELIEF_EXAGGERATION,
+					"has_detail": true, "detail_albedo_strength": 0.15,
+					"detail_normal_strength": 0.4}},
+	{"key": "stone_trim", "match": "_stone_trim",
+			"recipe": {"parallax_mode": 1, "relief_mul": RELIEF_EXAGGERATION,
+					"has_detail": true, "detail_albedo_strength": 0.12,
+					"detail_normal_strength": 0.4}},
+	{"key": "trim", "match": "_trim",
+			"recipe": {"has_detail": true, "detail_albedo_strength": 0.10,
+					"detail_normal_strength": 0.35}},
+	{"key": "sash", "match": "_sash",
+			"recipe": {"has_detail": true, "detail_albedo_strength": 0.10,
+					"detail_normal_strength": 0.35}},
 ]
+
+## M-COVER's per-set coverage rule, keyed by the substring of the albedo
+## file name (longest key wins). `cells` is the divider grid per tile
+## counted on the albedo (terrazzo, _b, _d: 3x3; _c: 2x2); oak seams run
+## along V, so rows step across U. Frames: art/renders/material_coverage_m/.
+const COVERAGE_RULES := {
+	"terrazzo_b": {"coverage": 2, "lattice_cells": 3.0},
+	"terrazzo_c": {"coverage": 2, "lattice_cells": 2.0},
+	"terrazzo_d": {"coverage": 2, "lattice_cells": 3.0},
+	"terrazzo": {"coverage": 2, "lattice_cells": 3.0},
+	"floor_oak": {"coverage": 3, "rows_per_tile": 14.0, "grain_along_u": false},
+	"ceramic": {"coverage": 1, "hex_scale": 1.0},
+	"concrete": {"coverage": 1, "hex_scale": 1.0},
+}
+
+
+static func coverage_rule_for(texture_path: String) -> Dictionary:
+	var file := texture_path.get_file()
+	var keys: Array = COVERAGE_RULES.keys()
+	keys.sort_custom(func(a: String, b: String) -> bool: return a.length() > b.length())
+	for key in keys:
+		if file.contains("_%s_" % key):
+			return COVERAGE_RULES[key]
+	return {}
 
 var swapped := 0
 var materials := 0
@@ -178,6 +246,12 @@ static func surface_for(original: BaseMaterial3D, recipe: Dictionary,
 		if p == "relief_mul":
 			if height != null and relief > 0.0:
 				m.set_shader_parameter("height_relief_mm", relief * float(recipe[p]))
+			continue
+		if p == "coverage_rule":
+			if bool(recipe[p]):
+				var rule := coverage_rule_for(original.albedo_texture.resource_path)
+				for rk in rule:
+					m.set_shader_parameter(rk, rule[rk])
 			continue
 		m.set_shader_parameter(p, recipe[p])
 	if not cache_key.is_empty():

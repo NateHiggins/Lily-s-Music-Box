@@ -1,5 +1,10 @@
 class_name FloorCoveragePass
 extends RefCounted
+## SUPERSEDED 2026-08-21 by SurfacePass (the floors class carries these same
+## rules as COVERAGE_RULES inside the layered surface). Kept as the reference
+## implementation of M-COVER and for the probe harness; BuildingRoot no
+## longer applies it.
+##
 ## M-COVER in production (owner ruling 2026-08-21). At build, every floor
 ## set's shipping StandardMaterial3D is replaced on the `*_floors_*` surfaces
 ## by `floor_coverage.gdshader` carrying the SAME maps and scalars plus the

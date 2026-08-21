@@ -312,8 +312,10 @@ func _ready() -> void:
 	# StandardMaterial3D for the same maps under the structure-aware coverage
 	# shader. Same surfaces, same draw count, no new texture. FLOOR_COVERAGE=0
 	# keeps the shipping materials for an A/B.
+	# Since MX-4 (2026-08-21) the floors are a class of SurfacePass below,
+	# which carries the same coverage rules; FloorCoveragePass is kept as the
+	# reference implementation and is no longer applied.
 	floor_coverage = FloorCoveragePassScript.new()
-	floor_coverage.apply(floor_nodes)
 	_index_passage_geometry()
 	# Work orders are a gameplay owner, not UI text. The tracker presents their
 	# state, but the state exists before the first customer is constructed.
@@ -349,12 +351,13 @@ func _ready() -> void:
 	heightmaps = HeightmapPass.new()
 	add_child(heightmaps)
 	heightmaps.build(floor_nodes)
-	# MX-4 (owner direction 2026-08-21): the masonry and the compiled wall
-	# finishes trade their shipping StandardMaterial3D for the layered
-	# orison_surface carrying the same maps plus the calibrated height tier
-	# and the self-detail tier. Same surfaces, same draw count. SURFACE=0
+	# MX-4 (owner direction 2026-08-21): the masonry, the compiled wall
+	# finishes and the floors trade their shipping StandardMaterial3D for the
+	# layered orison_surface carrying the same maps plus the calibrated
+	# height tier (2.5x, owner ruling), the self-detail tier and, on floors,
+	# M-COVER's coverage rule. Same surfaces, same draw count. SURFACE=0
 	# keeps the shipping materials for an A/B. Runs after the height maps are
-	# re-attached and before anything else overrides a wall material.
+	# re-attached and before anything else overrides a material.
 	surface_pass = SurfacePassScript.new()
 	surface_pass.apply(floor_nodes)
 	environment_detail_pass = OrisonDetailPass.new()
