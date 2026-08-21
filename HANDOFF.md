@@ -403,12 +403,13 @@ the props in its flat (`ApartmentEncroachment.reach_props`, clipped by
 `state_rect`)
 (`art/renders/orison_surface_mx1/README.md`, `SURFACE=0` for the A/B,
 `game/tests/SurfaceShot.tscn` for frames). CT-1 fauna skin atlases landed
-(`art/renders/dream_fauna_ct1/README.md`). Open, in order: EN-1b/EN-2 — promote the
-frame-proven EN-1 probe stack (`game/tests/dream_layers_probe.gdshader`,
-base/flesh/skin/weld/portal) into the dream's production surface by a
-switch in the molten collector rather than by editing the 1,418-line
-Klimt shader, then the portal as R6's bounded camera; MX-3 ingest v2; the
-22 encroached finishes as a corruption recipe; the WK-1 per-case grammars;
+(`art/renders/dream_fauna_ct1/README.md`). EN-1b landed: the re-layered dream is
+in `dream_klimt.gdshader` (`layer_mask`, `DREAM_LAYERS=0` the control;
+`art/renders/dream_layers_en1b/README.md`), and Klimt's NORMAL is now
+view-space — the lamp reaches the plaster. Open, in order: EN-2 (the
+portal core on R6's live bounded camera, the weld vocabulary placing it,
+trim the ornament under the layers for perf); MX-3 ingest v2; the 22
+encroached finishes as a corruption recipe; the WK-1 per-case grammars;
 EN-3; CT-2. `TASKS.md` §MX / §CT / §EN. Harness note: the layout's y is
 Godot's −z — 2A is at z +0.45..+9.65.
 
