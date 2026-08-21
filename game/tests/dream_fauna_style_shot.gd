@@ -131,6 +131,10 @@ func _stage(batch: MultiMeshInstance3D, lamp_on: bool,
 	root.player.set("_lamp_phase", 0.0)
 	root.player.set("_lamp_phase_total", 0.0)
 	root.player.call("_advance_lamp", 0.0)
+	# The production service set intentionally trails the eye. Settle that real
+	# hand owner onto the new proof pose before the root samples its lamp cone;
+	# otherwise a camera cut mislabeled the previous aim as this frame's beam.
+	root.player.call("_carry_service_light", 1.0)
 	root.call("_update_molten")
 
 func _capture(file_name: String) -> void:

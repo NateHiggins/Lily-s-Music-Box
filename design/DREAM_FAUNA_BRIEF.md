@@ -470,7 +470,7 @@ Compatibility by +23/+24 waking calls and indexed surfaces by +45, while the
 compact stream restores the checkpoint's +3 waking / 0 deep-pocket calls.
 
 Focused proof is 21/21; every named shared dream suite and WalkTest FAST/FULL
-passes. The final A/A MAD is 0.1597, all five dark-wine populations measure
+passes. The final A/A MAD is 0.1561, all five dark-wine populations measure
 nonzero, family gold remains below the matched architectural highs, and the
 24-frame production harness has no shader or script error. This technically
 closes FA-V1 Slices A–C and performs the landed-five migration requested by

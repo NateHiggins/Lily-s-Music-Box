@@ -45,24 +45,25 @@ beam-edge and full-beam frames (`01`–`04`). `05_tessellates_legacy.png` and
 `06_tessellates_migrated.png` retain the old/new control required until FA-V3
 closeout.
 
-At 1280x720, RGB A/A mean absolute difference is **0.1597**
-(`R/G/B 0.2271/0.1821/0.0700`), far below the 0.8136 stop floor. A conservative
+At 1280x720, RGB A/A mean absolute difference is **0.1561**
+(`R/G/B 0.2222/0.1781/0.0680`), far below the 0.8136 stop floor. A conservative
 central, red-dominant difference mask records nonzero dark-wine populations for
 all five families:
 
 | Family | Pixels | Mean luma | Max luma |
 |---|---:|---:|---:|
-| Buttons | 2,911 | 13.81 | 98.54 |
-| Tessellates | 5,227 | 6.70 | 54.37 |
+| Buttons | 2,905 | 13.79 | 98.54 |
+| Tessellates | 5,312 | 6.58 | 54.37 |
 | Anemones | 10,219 | 5.08 | 46.25 |
-| Ribbonettes | 4,910 | 6.87 | 49.73 |
-| Loupe | 8,211 | 5.74 | 41.71 |
+| Ribbonettes | 4,918 | 6.86 | 45.65 |
+| Loupe | 8,208 | 5.76 | 42.14 |
 
-The same conservative central selection measures full-beam orange-gold maxima
-of **103.05, 66.41, 106.73, 103.39 and 92.76** respectively. Matched-frame
-architectural gold reaches **97.90–125.19**; the relevant high reads remain
-below the woken architecture. Ribbonette and Loupe gold gains are bounded at
-0.85 and 0.75 after this measurement. Visual inspection confirms distinct
+The same deliberately broad central selection measures full-beam orange-gold
+upper bounds of **128.65, 100.61, 134.80, 132.41 and 73.22** respectively; it
+includes lit architecture wherever the silhouette overlaps a wall. Woken
+architectural gold reaches **164.67**, so even that contaminated upper bound
+remains below the architecture. Anemone/Ribbonette and Loupe gold gains are
+bounded at 0.85 and 0.75 after measurement. Visual inspection confirms distinct
 dome, curl, paired-ribbon, grazer and single-eye silhouettes; no gold or jewel
 self-lights in darkness.
 

@@ -46,6 +46,8 @@ func setup(room_owner: DreamRoomBuilder, body: Node3D, tenant: Node3D,
 			WINE, EMERALD, 0.10, 1.8, 1.0, true)
 	_anemones = _make_batch("WineAnemones", DreamFaunaParts.anemones(),
 			WINE, LAPIS, 0.055, 0.55, 2.0, true)
+	(_anemones.multimesh.mesh.surface_get_material(0) as ShaderMaterial).set_shader_parameter(
+			"gold_gain", 0.85)
 	_ribbonettes = _make_batch("Ribbonettes", DreamFaunaParts.ribbonettes(),
 			WINE, LAPIS, 0.085, 0.45, 3.0, true)
 	(_ribbonettes.multimesh.mesh.surface_get_material(0) as ShaderMaterial).set_shader_parameter(
