@@ -227,6 +227,9 @@ func setup(dream_atlas: DreamAtlas, hazard_allowlist: Array = [],
 ## frame, exactly like every other room currently held in short-term memory.
 func apply_profile_transition(parent: Node3D, from_key: String,
 		to_key: String) -> Dictionary:
+	var convergence := _apply_convergence_return(parent, from_key, to_key)
+	if not convergence.is_empty():
+		return convergence
 	var event_name := str(profile_grammar.get("junction_reverse_event", ""))
 	if event_name.is_empty() or from_key.is_empty() or to_key.is_empty():
 		_last_profile_transition = ""
@@ -281,6 +284,50 @@ func apply_profile_transition(parent: Node3D, from_key: String,
 		"doors_after": replacement.size(),
 		"form_stamps": int(to_room.form_stamps),
 	}
+
+
+## Two ordinary reciprocal branches may return to one remembered junction.
+## The room and antique remain one identity; only the approached provenance
+## accumulates. The first account informs pursuit, later contradiction does not.
+func _apply_convergence_return(_parent: Node3D, from_key: String,
+		to_key: String) -> Dictionary:
+	var event_name := str(profile_grammar.get("convergence_return_event", ""))
+	if event_name.is_empty() or from_key.is_empty() or to_key.is_empty():
+		return {}
+	var from_room: Dictionary = _live.get(from_key, {})
+	var target: Dictionary = _live.get(to_key, {})
+	if from_room.is_empty() or target.is_empty():
+		return {}
+	var from_path: PackedInt32Array = from_room.path
+	if from_path.size() == 0 or key_of(_parent_path(from_path)) != to_key \
+			or passable_doors(target).size() < int(
+					profile_grammar.get("convergence_min_doors", 3)):
+		return {}
+	var approached_door := -1
+	for door in target.doors:
+		if str(door.get("leads_to", "")) == from_key:
+			approached_door = int(door.get("index", -1))
+			break
+	if approached_door < 0:
+		return {}
+	var returns: Dictionary = target.get("convergence_returns", {})
+	if returns.has(str(approached_door)):
+		return {}
+	var provenances: Array = profile_grammar.get("provenances", [])
+	if provenances.size() < 2:
+		return {}
+	returns[str(approached_door)] = str(provenances[returns.size() % 2])
+	target["convergence_returns"] = returns
+	target["contradictory_antique"] = true
+	target["contradiction_complete"] = returns.size() >= 2
+	target["contradictory_object_id"] = "antique_%s" % to_key
+	_live[to_key] = target
+	_rebuild(target)
+	return {"event": event_name if returns.size() == 1 else "",
+			"room": to_key, "door_index": approached_door,
+			"provenance": str(returns[str(approached_door)]),
+			"accounts": returns.size(),
+			"object_id": str(target.contradictory_object_id)}
 
 
 ## Turn one live aperture into load-bearing feedback. Both reciprocal records
@@ -1628,10 +1675,42 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 					aperture, door_h, clear_ceiling)
 	_build_profile_form_stamp(node, room)
 	_build_channel_partition_skin(node, room)
+	_build_contradictory_antique(node, room)
 	_build_orison_interior(node, room)
 	_build_orison_furnishing(node, room)
 	_build_lineage_body(node, room)
 	return node
+
+
+## One object, two mutually exclusive records. Geometry never swaps: later
+## returns add the second plaque around the same stable cabinet silhouette.
+func _build_contradictory_antique(parent: Node3D, room: Dictionary) -> void:
+	if not bool(room.get("contradictory_antique", false)):
+		return
+	var r: Array = room.rect
+	var centre := Vector3((float(r[0]) + float(r[2])) * 0.5, 0.0,
+			(float(r[1]) + float(r[3])) * 0.5)
+	var wood := StandardMaterial3D.new()
+	wood.albedo_color = Color("2b1712")
+	wood.roughness = 0.72
+	var brass := StandardMaterial3D.new()
+	brass.albedo_color = Color("b98b38")
+	brass.metallic = 0.68
+	brass.roughness = 0.34
+	brass.emission_enabled = true
+	brass.emission = Color("6d4212")
+	brass.emission_energy_multiplier = 1.8
+	_profile_stamp_instances(parent, "ContradictoryAntique", wood, [{
+			"size": Vector3(0.72, 1.18, 0.46),
+			"at": centre + Vector3.UP * 0.59}])
+	var plaques: Array[Dictionary] = []
+	var count := (room.get("convergence_returns", {}) as Dictionary).size()
+	for i in count:
+		var plaque_size := Vector3(0.58, 0.20, 0.028) if i == 0 \
+				else Vector3(0.66, 0.72, 0.030)
+		plaques.append({"size": plaque_size,
+				"at": centre + Vector3(0.0, 0.70 + float(i) * 0.24, -0.255)})
+	_profile_stamp_instances(parent, "ContradictoryProvenance", brass, plaques)
 
 
 ## A partition is still the ordinary wall collision above, but its visible

@@ -365,9 +365,9 @@ behavior, signals and authored substitutions—not controls or manager logic.
 
 These are navigation and pursuit grammars, not six minigames. No dream adds an
 inventory, dialogue choice, repair interaction or bespoke control. Peter remains
-the second case. **Owner ruling 2026-08-20: Juno is third.** Cal, Omar and Mae
-remain an owner-order decision, so run length belongs to campaign slot data
-rather than case code.
+the second case. **Owner rulings 2026-08-20: Juno is third and Mae is fourth.**
+Cal and Omar remain an owner-order decision, so run length belongs to campaign
+slot data rather than case code.
 
 **N9 implementation checkpoint — 2026-08-20.** Peter now proves this seam in
 production. One slot-2 profile supplies dual onset, the 38-second cap, Peter's
@@ -394,6 +394,17 @@ ordinary pocket advance cannot reopen the partition. Mina and Peter remain
 no-ops, Juno arms no Mina hazard, and no director, maze, pursuer, hazard, save or
 control owner was added. This is still downstream dream-profile proof, not
 Juno's waking case. Evidence: `art/renders/dream_profile_juno_n12/README.md`.
+
+**N13 implementation checkpoint — 2026-08-20.** Mae names the first bounded
+convergence verb. Two distinct, ordinarily routed reciprocal branches return
+through different doors into one remembered junction; the room owns one stable
+antique identity while accumulating two mutually exclusive provenance records.
+The first account refreshes shared Tenant attention once, the second survives
+beside it without adjudication or repeated punishment, and revisits are no-ops.
+No portal, duplicate room, bespoke control, hazard or save owner exists. Mina,
+Peter and Juno remain no-ops. Evidence:
+`art/renders/dream_profile_mae_n13/README.md`. This is downstream dream-profile
+proof, not Mae's waking case.
 
 ---
 

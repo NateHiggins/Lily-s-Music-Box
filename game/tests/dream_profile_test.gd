@@ -14,6 +14,8 @@ const MINA_CASE := "mina_caption_crisis"
 const MINA_PROFILE := "mina_release_print"
 const JUNO_CASE := "juno_feedback_tetris"
 const JUNO_PROFILE := "juno_release_print"
+const MAE_CASE := "mae_contradictory_antiques"
+const MAE_PROFILE := "mae_release_print"
 const PROFILE_PATH := "res://data/dream_profiles.json"
 const CASE_PATH := "res://data/reality_cases.json"
 
@@ -41,8 +43,10 @@ func _data_contract(profiles: Dictionary) -> void:
 	var peter: Dictionary = profiles.get(PETER_PROFILE, {})
 	var mina: Dictionary = profiles.get(MINA_PROFILE, {})
 	var juno: Dictionary = profiles.get(JUNO_PROFILE, {})
-	_check("the shared book contains Mina, Peter and Juno",
-			not mina.is_empty() and not peter.is_empty() and not juno.is_empty())
+	var mae: Dictionary = profiles.get(MAE_PROFILE, {})
+	_check("the shared book contains four ruled profiles",
+			not mina.is_empty() and not peter.is_empty() and not juno.is_empty()
+			and not mae.is_empty())
 	_check("Peter is the second campaign profile",
 			str(peter.get("case_id", "")) == PETER_CASE
 			and int(peter.get("campaign_slot", 0)) == 2)
@@ -81,6 +85,17 @@ func _data_contract(profiles: Dictionary) -> void:
 	_check("Juno adds no form corridor and inherits no Mina hazards",
 			not juno_maze.has("junction_reverse_event")
 			and (juno.get("hazards", {}) as Dictionary).get("allow", []).is_empty())
+	var mae_maze: Dictionary = mae.get("maze", {})
+	_check("Mae is slot four with the case's exact non-adjudicating truth",
+			str(mae.get("case_id", "")) == MAE_CASE
+			and int(mae.get("campaign_slot", 0)) == 4
+			and str((mae.get("truth", {}) as Dictionary).get("statement", ""))
+					== str((cases.get(MAE_CASE, {}) as Dictionary).get("portal_rule", "")))
+	_check("Mae requests one generic convergence and no earlier grammar",
+			mae_maze.has("convergence_return_event")
+			and not mae_maze.has("junction_reverse_event")
+			and not mae_maze.has("channel_echo_event")
+			and (mae.get("hazards", {}) as Dictionary).get("allow", []).is_empty())
 
 
 func _root_contract() -> void:
@@ -168,6 +183,15 @@ func _root_contract() -> void:
 			and int(juno.pursuer.run_parameters().profile_event_count)
 					== event_count_before + 1)
 	juno.queue_free()
+	await get_tree().process_frame
+
+	var mae := await _spawn_root(MAE_CASE, MAE_PROFILE)
+	_check("slot four reads the authored 62-second ceiling",
+			is_equal_approx(mae.run_cap_s, 62.0))
+	_check("the shared pursuer borrows Mae and arms no foreign hazard",
+			mae.pursuer.silhouette_source == "mae_kessler"
+			and mae.hazards.hazards.is_empty())
+	mae.queue_free()
 	await get_tree().process_frame
 
 
@@ -261,6 +285,46 @@ func _grammar_contract(profiles: Dictionary) -> void:
 			not released.is_empty() and juno_builder.channel_partition_count() == 0
 			and _joint_open_both(juno_builder, str(released.from), str(released.to)))
 	juno_plot.queue_free()
+	await get_tree().process_frame
+
+	var mae: Dictionary = profiles.get(MAE_PROFILE, {})
+	var mae_atlas := DreamAtlas.new()
+	mae_atlas.setup(SEED_HEX, 4, MAE_CASE)
+	var mae_builder := DreamRoomBuilder.new()
+	mae_builder.setup(mae_atlas, [], mae.get("maze", {}))
+	var mae_plot := Node3D.new()
+	add_child(mae_plot)
+	var convergence := _find_junction_pair(mae_builder, mae_plot)
+	var target_key := str(convergence.get("to", ""))
+	mae_builder.advance(mae_plot, mae_builder.path_of(target_key))
+	var branches: Array[String] = []
+	for door in DreamRoomBuilder.passable_doors(mae_builder.room_at_key(target_key)):
+		var child := str(door.get("leads_to", ""))
+		if int(door.get("index", -1)) > 0 and not child.is_empty():
+			branches.append(child)
+	var first := mae_builder.apply_profile_transition(mae_plot, branches[0], target_key) \
+			if branches.size() >= 2 else {}
+	var first_object := str(first.get("object_id", ""))
+	var second := mae_builder.apply_profile_transition(mae_plot, branches[1], target_key) \
+			if branches.size() >= 2 else {}
+	_check("two physical branches return to one stable antique identity",
+			branches.size() >= 2 and not first.is_empty() and not second.is_empty()
+			and first_object == str(second.get("object_id", "")))
+	_check("the two approaches retain incompatible provenance together",
+			str(first.get("provenance", "")) != str(second.get("provenance", ""))
+			and int(second.get("accounts", 0)) == 2
+			and bool(mae_builder.room_at_key(target_key).get(
+					"contradiction_complete", false)))
+	_check("only the first account informs pursuit and revisits are no-ops",
+			not str(first.get("event", "")).is_empty()
+			and str(second.get("event", "")).is_empty()
+			and mae_builder.apply_profile_transition(
+					mae_plot, branches[0], target_key).is_empty())
+	_check("one object and two provenance plaques share the production room",
+			mae_plot.find_child("ContradictoryAntique", true, false) != null
+			and (mae_plot.find_child("ContradictoryProvenance", true, false)
+					as MultiMeshInstance3D).multimesh.instance_count == 2)
+	mae_plot.queue_free()
 	await get_tree().process_frame
 
 

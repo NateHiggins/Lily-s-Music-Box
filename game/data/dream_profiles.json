@@ -109,6 +109,29 @@
         "max_partitions": 3
       },
       "truth": {"rule_id": "open_channel", "statement": "Connection requires an open channel"}
+    },
+    "mae_release_print": {
+      "case_id": "mae_contradictory_antiques",
+      "campaign_slot": 4,
+      "onset": {"allowed_forms": ["gradual", "sudden"], "gradual_seconds": 2.3, "sudden_seconds": 0.68},
+      "pursuit": {
+        "silhouette_resident": "mae_kessler",
+        "lit_speed_mps": 3.18,
+        "lit_speed_jitter_mps": 0.08,
+        "dark_speed_mps": 6.05,
+        "dark_speed_jitter_mps": 0.12,
+        "hearing_period_s": 0.66,
+        "hearing_period_jitter_s": 0.07,
+        "capture_radius_m": 0.75,
+        "attention_event": "contradictory_return"
+      },
+      "hazards": {"allow": [], "tuning": {}},
+      "maze": {
+        "convergence_return_event": "contradictory_return",
+        "convergence_min_doors": 3,
+        "provenances": ["ESTATE RECORD — 1912", "FAMILY TESTIMONY — 1928"]
+      },
+      "truth": {"rule_id": "contradiction_survivable", "statement": "Contradiction is survivable"}
     }
   }
 }

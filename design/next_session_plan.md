@@ -53,7 +53,9 @@ one slot-2 data profile changes the shared room and pursuit grammar without a
 fork, with 28/28 focused checks and production proof at
 `art/renders/dream_profile_n9/README.md`. The owner ruled Juno third on
 2026-08-20, and N12 now proves her delayed feedback partitions through the same
-owners. Cal, Omar and Mae remain an explicit owner-order decision.
+owners. The owner then ruled Mae fourth; N13 proves two routed returns retaining
+incompatible provenance on one stable object. Cal and Omar remain the explicit
+owner-order decision.
 
 The parallel street lane's paused coachwork pass is now a bounded T2g
 checkpoint with focused contracts and A/A evidence. It does not own the next

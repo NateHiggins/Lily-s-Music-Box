@@ -1487,6 +1487,17 @@ unresolved. K7's source-backed loop contract is closed in
   Boundary 39/39 pass. The 1440p A/B is 6.60x its A/A motion floor. Proof:
   `art/renders/dream_profile_juno_n12/README.md`. This is dream-profile proof,
   not a waking Juno case.
+- **N13 DONE 2026-08-20 — MAE SURVIVES TWO HISTORIES.** Slot 4 carries Mae's
+  62-second ceiling, borrowed silhouette, distinct shared pursuit and exact
+  truth “Contradiction is survivable.” Two resolved reciprocal branches return
+  to one remembered junction and one stable antique id; each contributes an
+  incompatible provenance without replacing the other. Only the first account
+  refreshes Tenant attention and revisits are no-ops. No portal, duplicate room,
+  case-specific owner, hazard or save record was added. Profile 46/46 and
+  RoomBuilder 175/175 pass. Production A/A is 0.00640734; the first account is
+  0.07140363 and the contradiction is 0.20516475. Proof:
+  `art/renders/dream_profile_mae_n13/README.md`. This is dream-profile proof,
+  not a waking Mae case. Cal and Omar remain the owner-order decision.
 - **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
   heredity and visible anatomy: bounded parent/child genomes, brood knots,
   parent umbilicals, prospective child helices, open birth-frames and sealed
