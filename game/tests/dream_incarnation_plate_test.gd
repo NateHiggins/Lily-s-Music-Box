@@ -56,8 +56,17 @@ func _run() -> void:
 	var juno_result := Profile.resolve(juno_profile.get("presentation", null),
 			"juno_release_print", "juno_feedback_tetris")
 	var juno: Dictionary = juno_result.get("bundle", {})
-	_check("a missing next case cannot retain or substitute Peter's plates",
-			not cache.load_bundle(juno, {}) and cache.resource_count() == 0
+	_check("Juno replaces Peter with exactly one active seventeen-map bundle",
+			cache.load_bundle(juno, _resources_for(juno, catalog))
+			and cache.resource_count() == 17
+			and cache.active_incarnation == "juno"
+			and not cache.resources.has("%s/albedo" % str(peter.substance_keys[0])))
+	var mae_profile: Dictionary = profiles.get("mae_release_print", {})
+	var mae_result := Profile.resolve(mae_profile.get("presentation", null),
+			"mae_release_print", "mae_contradictory_antiques")
+	var mae: Dictionary = mae_result.get("bundle", {})
+	_check("a missing next case cannot retain or substitute Juno's plates",
+			not cache.load_bundle(mae, {}) and cache.resource_count() == 0
 			and cache.active_incarnation.is_empty()
 			and cache.last_error.contains("not yet shipped"))
 
@@ -88,7 +97,7 @@ func _test_catalog() -> Dictionary:
 			"normal": {"bytes_per_pixel": 4, "suffix": "normal.png"},
 			"roughness": {"bytes_per_pixel": 1, "suffix": "roughness.png"},
 		},
-		"available_cases": ["mina", "peter"],
+		"available_cases": ["mina", "peter", "juno"],
 		"root": "res://not_used",
 	}
 

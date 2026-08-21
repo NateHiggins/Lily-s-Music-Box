@@ -77,7 +77,15 @@ recursive blank dockets, oxblood decision lines, carbon depth, legal brass,
 the one full-exposure route, pressure-only tenderness and five fauna costumes.
 The demanding-door grammar, remembered room, pursuit event, release print,
 truth, empty hazard allowlist and save boundary are unchanged. Production
-proof: `art/renders/dream_incarnation_peter_v4/README.md`. Juno INC-V5 is open.
+proof: `art/renders/dream_incarnation_peter_v4/README.md`. INC-V5 is now
+technically complete too: Juno replaces Peter with exactly her active 17-map
+bundle and uses the same root/cache/include/collector for speaker cloth,
+paired send/return traces, oxidized brass, pressure tissue, a sub-Hz standing
+wave, one sustained band, a quiet node and five fauna costumes. The shader
+cannot read or create channel edges, partitions, pursuit attention, sound or
+sustain credit; the shared profile and irradiance tests retain those owners.
+Production proof: `art/renders/dream_incarnation_juno_v5/README.md`. Mae INC-V6
+is open.
 N12's shared profile makes delayed
 feedback physically load-bearing, then releases the oldest partition when one
 channel remains open. N13 lets two real branches return to one stable antique

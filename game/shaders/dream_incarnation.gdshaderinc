@@ -1,5 +1,5 @@
-// Shared six-incarnation surface path. INC-V3 activates Mina only; other
-// profile ids remain exact pass-through until their ordered production task.
+// Shared six-incarnation surface path. Ordered production incarnations branch
+// here; later profile ids remain exact pass-through until their gate lands.
 // Roughness is packed in albedo alpha; height is packed in normal alpha.
 uniform sampler2D incarnation_albedo_0 : source_color, filter_linear_mipmap, repeat_enable;
 uniform sampler2D incarnation_albedo_1 : source_color, filter_linear_mipmap, repeat_enable;
@@ -136,6 +136,61 @@ vec4 peter_surface(vec3 world, vec2 uv, float retained, float molten,
 	return vec4(colour, roughness);
 }
 
+// Juno's reciprocal signal field: every visible send has a return, while the
+// standing-wave display remains presentation only. It cannot observe or create
+// channel edges, partitions, pursuit attention, sound, or sustain credit.
+vec4 juno_surface(vec3 world, vec2 uv, float retained, float molten,
+		float awake, float grazing, int slot) {
+	vec4 cloth = incarnation_substance(0, uv * 0.76);
+	vec4 brass = incarnation_substance(1, uv * 0.92 + 2.7);
+	vec4 diaphragm = incarnation_substance(2, uv * 0.68 - 5.2);
+	vec4 bakelite = incarnation_substance(3, uv * 1.03 + 8.4);
+	vec4 selected = incarnation_substance(slot, uv * 0.82);
+	float rate = min(incarnation_motion.x, 0.99);
+	float phase = TIME * rate * 6.2831853 + incarnation_motion.y;
+	float carrier = sin((uv.x + world.y * 0.31) * 0.84 + phase);
+	float returning = sin((uv.x - world.y * 0.31) * 0.84 - phase);
+	float standing = abs(carrier + returning) * 0.5;
+	float node = 1.0 - smoothstep(0.03, 0.18, standing);
+	float antinode = smoothstep(0.42, 0.92, standing);
+	float paired_a = smoothstep(0.035, 0.014,
+		abs(fract((uv.x + uv.y * 0.24) * 0.118) - 0.42));
+	float paired_b = smoothstep(0.035, 0.014,
+		abs(fract((uv.x + uv.y * 0.24) * 0.118) - 0.58));
+	float paired = max(paired_a, paired_b);
+	float sustained = smoothstep(incarnation_signature.x, 1.0, retained)
+		* incarnation_signature.y;
+	vec3 lapis_cloth = cloth.rgb * vec3(0.17, 0.20, 0.38);
+	vec3 wine_membrane = diaphragm.rgb * vec3(0.54, 0.18, 0.30);
+	vec3 oxidized = brass.rgb * vec3(0.40, 0.54, 0.34);
+	vec3 warm_brass = brass.rgb * vec3(0.88, 0.62, 0.27);
+	vec3 deep_node = bakelite.rgb * vec3(0.24, 0.18, 0.20);
+	vec3 colour = mix(deep_node, lapis_cloth,
+		0.48 + awake * antinode * 0.24);
+	colour = mix(colour, wine_membrane, paired * (0.42 + awake * 0.18));
+	colour = mix(colour, oxidized, node * 0.34);
+	// At full retained exposure, cancellation resolves visually into one calm
+	// uninterrupted band. This band has no correspondence to channel state.
+	float open_band = smoothstep(0.10, 0.035,
+		abs(fract((uv.y + world.x * 0.07) * 0.091) - 0.5));
+	colour = mix(colour, warm_brass,
+		molten * (antinode * (1.0 - sustained) * 0.62
+		+ open_band * sustained * 0.88));
+	// One quiet material node never moves; waves part around it. Its centre is
+	// deliberately unlit and cannot encode a signal or objective.
+	vec2 quiet_q = fract(uv / 10.0 + vec2(0.43, 0.19)) - 0.5;
+	float quiet = smoothstep(0.16, 0.075, length(quiet_q));
+	colour = mix(colour, lapis_cloth * 0.32, quiet * 0.88);
+	float room_luma = dot(texture(reflected_world,
+		fract(uv * 0.029 + vec2(0.29, 0.61))).rgb,
+		vec3(0.299, 0.587, 0.114));
+	colour += warm_brass * room_luma * molten * grazing * 0.09;
+	float roughness = mix(selected.a, 0.24,
+		molten * max(antinode, open_band * sustained));
+	roughness = mix(roughness, 0.78, quiet * 0.42);
+	return vec4(colour, roughness);
+}
+
 vec4 dream_incarnation_surface(vec3 world, vec2 uv, float retained,
 		float molten, float awake, float grazing, int slot, vec4 fallback) {
 	if (incarnation_id > 0.5 && incarnation_id < 1.5) {
@@ -143,6 +198,9 @@ vec4 dream_incarnation_surface(vec3 world, vec2 uv, float retained,
 	}
 	if (incarnation_id > 1.5 && incarnation_id < 2.5) {
 		return peter_surface(world, uv, retained, molten, awake, grazing, slot);
+	}
+	if (incarnation_id > 2.5 && incarnation_id < 3.5) {
+		return juno_surface(world, uv, retained, molten, awake, grazing, slot);
 	}
 	return fallback;
 }
