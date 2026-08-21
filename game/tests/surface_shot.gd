@@ -29,12 +29,14 @@ const SETTLE_FRAMES := 4
 
 ## Stands: eye 1.55 m over the storey's floor, facing a perimeter wall.
 const STATIONS := [
-	{"key": "bed_2a", "floor": "F02", "pos": Vector3(-9.6, 1.55, -7.0),
-			"yaw": 0.0, "pitch": -4.0, "room": "F02_A_BED"},
-	{"key": "main_2a_west", "floor": "F02", "pos": Vector3(-10.4, 1.55, -3.4),
+	# 2A is at Godot z +0.45..+9.65 (the layout's y is -z); the first frames
+	# of this harness stood in 2D by mistake.
+	{"key": "bed_2a", "floor": "F02", "pos": Vector3(-9.6, 1.55, 7.0),
+			"yaw": 180.0, "pitch": -4.0, "room": "F02_A_BED"},
+	{"key": "main_2a_west", "floor": "F02", "pos": Vector3(-10.4, 1.55, 3.4),
 			"yaw": 90.0, "pitch": -3.0, "room": "F02_A_MAIN"},
-	{"key": "bed_2a_graze", "floor": "F02", "pos": Vector3(-13.0, 1.45, -6.6),
-			"yaw": 28.0, "pitch": -6.0, "room": "F02_A_BED"},
+	{"key": "bed_2a_graze", "floor": "F02", "pos": Vector3(-13.0, 1.45, 6.6),
+			"yaw": 152.0, "pitch": -6.0, "room": "F02_A_BED"},
 	{"key": "corridor", "floor": "F04", "pos": Vector3(4.3, 1.55, 7.6),
 			"yaw": 0.0, "pitch": -2.0, "room": "F04_CORRIDOR"},
 	{"key": "cellar", "floor": "B1", "pos": Vector3(9.6, 1.55, 4.0),
@@ -49,8 +51,8 @@ const STATIONS := [
 	{"key": "oak_floor", "floor": "F04", "pos": Vector3(-9.0, 1.05, -5.6),
 			"yaw": 35.0, "pitch": -38.0, "room": "F04_B_MAIN"},
 	# Close, along the wall: where a height tier shows or does not.
-	{"key": "brick_close", "floor": "F02", "pos": Vector3(-8.3, 1.30, -8.75),
-			"yaw": 62.0, "pitch": -8.0, "room": "F02_A_BED", "demo": true},
+	{"key": "brick_close", "floor": "F02", "pos": Vector3(-8.3, 1.30, 8.75),
+			"yaw": 125.0, "pitch": -8.0, "room": "F02_A_BED", "demo": true},
 	{"key": "cellar_close", "floor": "B1", "pos": Vector3(12.55, 1.30, 2.6),
 			"yaw": -118.0, "pitch": -6.0, "room": "B1_BOILER", "demo": true},
 ]
@@ -266,8 +268,11 @@ func _apply_option(floor_id: String, option: Dictionary) -> int:
 				continue
 			if original.cull_mode != BaseMaterial3D.CULL_BACK:
 				continue
+			# Restore to the PREVIOUS override (the production pass, the
+			# encroachment), never to null: "current" is production minus
+			# this class, not a bare StandardMaterial3D.
+			_overridden.append([mi, s, mi.get_surface_override_material(s)])
 			mi.set_surface_override_material(s, _surface_for(original, option, cls))
-			_overridden.append([mi, s])
 			swapped += 1
 	return swapped
 
@@ -275,7 +280,7 @@ func _apply_option(floor_id: String, option: Dictionary) -> int:
 func _restore() -> void:
 	_props_pass.restore_props()
 	for entry in _overridden:
-		(entry[0] as MeshInstance3D).set_surface_override_material(int(entry[1]), null)
+		(entry[0] as MeshInstance3D).set_surface_override_material(int(entry[1]), entry[2])
 	_overridden.clear()
 
 

@@ -83,3 +83,29 @@ creep when they get a finish (MX-4).
   Mina's; each gets its own language (Peter's carbon ghosting and legal
   brass, Juno's speaker-cloth and oxidised brass, …) as a per-case mask
   recipe in the same shader.
+
+## Addendum 2026-08-21 — the states reach the props (owner ruling)
+
+"It should reach the props." Every script-built prop inside a case's flat
+whose draw wears the layered surface (`SurfacePass`, after its deferred
+sweep) takes its own copy of that material with the case's states on it:
+corruption (the dream's flesh) and gilding rising with the intensity, grime
+and moisture under them — `ApartmentEncroachment.reach_props`, called
+through `SurfacePass.on_props_applied` after the sweep lands and again
+whenever the governor's lever re-applies the tier; `refresh()` pushes the
+amounts on every state change. A batched prop draw spans a storey, so the
+layered surface gained a world-space clip (`state_rect`, `state_y`): a
+case's states show only inside its flat, with a 15 cm soft edge. Six flats,
+933 prop draws reached (135–170 each). `sheet_props_reach.jpg`: 2A with
+Mina forced to 0.9 against the encroachment off — the ink at the skirting
+as before, and now the radiator, the board and the frame under the window
+take the same field. `ApartmentEncroachmentTest` 13/13, WalkTest PASS.
+
+Two corrections found on the way: the surface harness restored overridden
+surfaces to null rather than to the previous override, wiping the
+production pass and the encroachment during its warm-up — its "current"
+rows were bare StandardMaterial3D rather than "production minus this class"
+(A/B deltas stand, absolute "current" numbers in the MX-1 record are the
+bare material); and its "2A" stands stood in 2D — the layout's y is Godot's
+−z — so the masonry frames there are 2D's walls. Both fixed; the 2A frames
+here are 2A.

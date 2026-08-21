@@ -1969,9 +1969,14 @@ probe is a third. MX makes them one system.
   951 materials, pixel-identical) — but the draw-heavy tiers cost ~1 ms each
   at the 4B stand for nothing visible (a ShaderMaterial draw is dearer than a
   Standard one; props are 87 % of draws), so furnishing + props are behind
-  `SURFACE_PROPS=1` until MX-2's station budget can spend it. OPEN: the 22
-  encroached finishes as a corruption recipe; metal states photographed on
-  metal; MX-2 budget feed.** Masonry and finish quads
+  `SURFACE_PROPS=1` until MX-2's station budget can spend it — then, by
+  owner ruling ("it should reach the props"), ON by default with the
+  governor's prop-tier lever, and `ApartmentEncroachment.reach_props` gives
+  every layered prop in a case flat the case's states, clipped to the flat
+  by the new `state_rect` (933 draws across six flats;
+  `art/renders/apartment_encroachment_wk1/README.md` addendum). OPEN: the
+  22 encroached finishes as a corruption recipe; metal states photographed
+  on metal.** Masonry and finish quads
   first (the flashlight sees them most), then floors, trims, props. Each class
   ships with before/after frames under the moving lamp from fixed stands, the
   perf station row, and an A/B switch; colour and art direction are preserved

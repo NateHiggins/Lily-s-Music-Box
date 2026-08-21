@@ -171,6 +171,9 @@ var _govern_target := GOVERN_TARGET_MS
 ## The second lever: the prop tier, dropped when the budget is spent.
 var props_tier_on := true
 var _props_root: Node = null
+## Called (with no arguments) after the prop sweep lands or the lever
+## re-applies the tier, so whoever layers states onto props can re-reach.
+var on_props_applied: Callable = Callable()
 var _over_streak := 0
 var _under_streak := 0
 ## Flipping 4,000 material overrides in one frame read as a 900 ms hitch;
@@ -307,6 +310,8 @@ func apply_props(root: Node) -> int:
 	materials = _cache.size()
 	print("[SURFACE] %d prop draws layered in triplanar mode (%d materials)"
 			% [props_swapped, materials])
+	if props_swapped > 0 and on_props_applied.is_valid():
+		on_props_applied.call()
 	return props_swapped
 
 
@@ -327,7 +332,10 @@ func _queue_apply_props(root: Node) -> void:
 
 
 func _drain_lever() -> void:
+	if _lever_queue.is_empty():
+		return
 	var n := mini(LEVER_CHUNK, _lever_queue.size())
+	var applied := false
 	for _i in n:
 		var entry: Array = _lever_queue.pop_front()
 		var mi := entry[0] as MeshInstance3D
@@ -337,6 +345,9 @@ func _drain_lever() -> void:
 		if entry.size() > 2:
 			_prop_swaps.append([mi, entry[2]])
 			props_swapped += 1
+			applied = true
+	if _lever_queue.is_empty() and applied and on_props_applied.is_valid():
+		on_props_applied.call()
 
 
 func restore_props() -> void:

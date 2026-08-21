@@ -46,6 +46,14 @@ var surfaces: Dictionary = {}
 ## case_id -> {"node": Node, "originals": {MeshInstance3D: Material}}
 var beachheads: Dictionary = {}
 var intensities: Dictionary = {}
+## case_id -> {"rect": Vector4, "floor_y": float, "floor_node": Node}
+var units: Dictionary = {}
+## case_id -> Array of {"mesh": MeshInstance3D, "material": ShaderMaterial, "shared": Material}
+## The props inside the flat that wear the layered surface, each given its
+## own copy with the case's states on it (owner ruling 2026-08-21: "it
+## should reach the props").
+var prop_rows: Dictionary = {}
+var props_reached := 0
 var _forced: Dictionary = {}
 var _plates: Dictionary = {}
 var _substance_keys: Dictionary = {}
@@ -78,6 +86,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 		var plates := _plates_for(inc)
 		if plates.is_empty():
 			continue
+		units[case_id] = {"rect": rect, "floor_y": floor_y, "floor_node": floor_node}
 		var rows: Array = []
 		for node in floor_node.find_children("*", "MeshInstance3D", true, false):
 			var mi := node as MeshInstance3D
@@ -116,6 +125,81 @@ func refresh() -> void:
 		for row in surfaces[case_id]:
 			(row.material as ShaderMaterial).set_shader_parameter("intensity", value)
 		_apply_beachhead(case_id, value)
+		_apply_prop_states(case_id, value)
+
+
+## THE STATES REACH THE PROPS. Every script-built prop inside the flat whose
+## draw wears the layered surface (SurfacePass, after its deferred sweep)
+## takes its own copy of that material with the case's states on it:
+## corruption (the dream's flesh) and gilding rising with the intensity,
+## grime and moisture under them. Idempotent; called after the prop sweep
+## and again whenever the governor's lever re-applies the tier. Props whose
+## draw is not layered (colour-only standards, glass) are left alone.
+func reach_props(root: Node) -> int:
+	if not enabled:
+		return 0
+	props_reached = 0
+	for case_id in units:
+		var unit: Dictionary = units[case_id]
+		var rect: Vector4 = unit.rect
+		var floor_y: float = unit.floor_y
+		var rows: Array = []
+		for node in root.find_children("*", "MeshInstance3D", true, false):
+			var mi := node as MeshInstance3D
+			if mi.mesh == null or not (mi.material_override is ShaderMaterial):
+				continue
+			var shader_path := ""
+			if (mi.material_override as ShaderMaterial).shader != null:
+				shader_path = (mi.material_override as ShaderMaterial).shader.resource_path
+			if not shader_path.get_file().begins_with("orison_surface"):
+				continue
+			if (mi.material_override as ShaderMaterial).has_meta("encroachment_case"):
+				if str(mi.material_override.get_meta("encroachment_case")) == case_id:
+					rows.append({"mesh": mi, "material": mi.material_override,
+							"shared": mi.material_override.get_meta("encroachment_shared")})
+				continue
+			var aabb := _world_aabb(mi)
+			if aabb.size == Vector3.ZERO:
+				continue
+			if aabb.position.y > floor_y + 3.6 or aabb.end.y < floor_y - 0.2:
+				continue
+			if not _aabb_meets_rect(aabb, rect, 0.0):
+				continue
+			var shared: Material = mi.material_override
+			var own := (shared as ShaderMaterial).duplicate() as ShaderMaterial
+			own.set_meta("encroachment_case", case_id)
+			own.set_meta("encroachment_shared", shared)
+			own.set_shader_parameter("mask_proc_scale", 2.4)
+			own.set_shader_parameter("mask2_threshold", Vector4(0.55, 0.58, 0.46, 0.55))
+			own.set_shader_parameter("mask2_softness", Vector4(0.15, 0.14, 0.30, 0.15))
+			own.set_shader_parameter("mask_threshold", Vector4(0.72, 0.50, 0.60, 0.50))
+			own.set_shader_parameter("mask_softness", Vector4(0.08, 0.30, 0.22, 0.25))
+			# A batched draw spans the storey: the states show only inside the flat.
+			own.set_shader_parameter("state_rect", rect)
+			own.set_shader_parameter("state_y", Vector2(floor_y - 0.2, floor_y + 3.6))
+			mi.material_override = own
+			rows.append({"mesh": mi, "material": own, "shared": shared})
+			if OS.get_environment("ENCROACH_DEBUG") == "1" and rows.size() <= 12:
+				print("[ENCROACH]   %s reaches %s (%s)" % [case_id, mi.get_path(), aabb])
+		prop_rows[case_id] = rows
+		props_reached += rows.size()
+		if OS.get_environment("ENCROACH_DEBUG") == "1":
+			print("[ENCROACH]   %s: %d prop draws" % [case_id, rows.size()])
+		_apply_prop_states(case_id, intensities.get(case_id, intensity_for(case_id)))
+	print("[ENCROACH] %d prop draws reached across %d case flats" % [props_reached, prop_rows.size()])
+	return props_reached
+
+
+func _apply_prop_states(case_id: String, value: float) -> void:
+	if not prop_rows.has(case_id):
+		return
+	var rise := smoothstep(0.5, 1.0, value)
+	for row in prop_rows[case_id]:
+		var m := row.material as ShaderMaterial
+		if not is_instance_valid(row.mesh) or (row.mesh as MeshInstance3D).material_override != m:
+			continue
+		m.set_shader_parameter("mask_amount", Vector4(0.0, 0.35 * value, 0.25 * value, 0.0))
+		m.set_shader_parameter("mask2_amount", Vector4(0.0, 0.5 * rise, 0.85 * value, 0.0))
 
 
 ## The rule, in one place: stage sets the floor, manifestation lifts it,

@@ -147,6 +147,12 @@ uniform vec4 mask_softness = vec4(0.15);
 uniform vec4 mask2_amount = vec4(0.0);
 uniform vec4 mask2_threshold = vec4(0.55);
 uniform vec4 mask2_softness = vec4(0.15);
+// Where the states may show, in world space: an xz rect (x0, z0, x1, z1)
+// and a y range, soft-edged. A batched prop draw spans a storey; a case's
+// states reach only the part of it inside the case's flat.
+uniform vec4 state_rect = vec4(-1.0e5, -1.0e5, 1.0e5, 1.0e5);
+uniform vec2 state_y = vec2(-1.0e5, 1.0e5);
+uniform float state_edge_m = 0.15;
 // 0 lit; 1 mask fields RGBA; 2 mask2 fields; 3 height; 4 cavity (R) / crest
 // (G) / parallax fade (B).
 uniform int debug_view : hint_range(0, 4) = 0;
@@ -304,6 +310,13 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 	vec2 mask_uv = os_box_uv(v_world, wn) / max(0.05, mask_tile_m);
 	vec4 f1 = vec4(0.0);
 	vec4 f2 = vec4(0.0);
+	float edge_m = max(0.001, state_edge_m);
+	float state_clip = smoothstep(0.0, edge_m, v_world.x - state_rect.x)
+			* smoothstep(0.0, edge_m, state_rect.z - v_world.x)
+			* smoothstep(0.0, edge_m, v_world.z - state_rect.y)
+			* smoothstep(0.0, edge_m, state_rect.w - v_world.z)
+			* smoothstep(0.0, edge_m, v_world.y - state_y.x)
+			* smoothstep(0.0, edge_m, state_y.y - v_world.y);
 	bvec4 want1 = greaterThan(mask_amount, vec4(0.0));
 	bvec4 want2 = greaterThan(mask2_amount, vec4(0.0));
 	if (any(want1)) {
@@ -318,7 +331,7 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 					want1.b ? os_field_proc(v_world, 23.0) : 0.0,
 					want1.a ? os_field_proc(v_world, 41.0) : 0.0);
 		}
-		f1 = os_fields(raw1, mask_amount, mask_threshold, mask_softness);
+		f1 = os_fields(raw1, mask_amount, mask_threshold, mask_softness) * state_clip;
 	}
 	if (any(want2)) {
 		vec4 raw2;
@@ -330,7 +343,7 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 					want2.b ? os_field_proc(v_world, 89.0) : 0.0,
 					want2.a ? os_field_proc(v_world, 101.0) : 0.0);
 		}
-		f2 = os_fields(raw2, mask2_amount, mask2_threshold, mask2_softness);
+		f2 = os_fields(raw2, mask2_amount, mask2_threshold, mask2_softness) * state_clip;
 	}
 	float damage = f1.r;
 	float grime = f1.g;

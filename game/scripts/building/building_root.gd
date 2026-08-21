@@ -719,6 +719,9 @@ func _ready() -> void:
 	# sweep found 0 here and 4,274 a second later), so the sweep is deferred
 	# and idempotent: once after the builders settle, and again on every
 	# passage crossing with the late-geometry sweep.
+	surface_pass.on_props_applied = func() -> void:
+		if apartment_encroachment != null:
+			apartment_encroachment.reach_props(self)
 	get_tree().create_timer(1.5).timeout.connect(func() -> void:
 		surface_pass.apply_props(self))
 
