@@ -1908,9 +1908,18 @@ probe is a third. MX makes them one system.
   weld layers become states of this shader, not separate shaders.
 - **MX-2 ruling 2026-08-21 (owner, on the MX-1 frames): "exaggeration is cool" —
   relief ships at 2.5x the calibrated millimetres (`SurfacePass.RELIEF_EXAGGERATION`).**
-- **MX-2 — THE TIER RULE AND THE PARALLAX GOVERNOR (GOVERNOR DONE 2026-08-21
-  in the shader: grazing fade, distance fade, `parallax_budget`; the per-class
-  millimetre table and the station-measured budget feed are OPEN).** Microdetail →
+- **MX-2 DONE 2026-08-21 — THE TIER RULE AND THE PARALLAX GOVERNOR.** In the
+  shader: grazing fade, distance fade, `parallax_budget`. In the building:
+  `SurfacePass.govern` reads the viewport's measured GPU time every 0.5 s and
+  steps the budget 0.25 down over 14 ms / up under 11 ms, pushed to every
+  layered material (proof: at a 1 ms target it walked 1.0 → 0 in four steps;
+  `SURFACE_TARGET_MS`, `SURFACE_BUDGET` pins it). The tier rule as shipped:
+  microdetail → normal (every class); shallow relief → height, POM on walls /
+  floors / wainscot, offset on ceiling / stairs / slabs / stone trim, relief
+  per key in `SurfacePass.RELIEF_MM` × 2.5 (ruling); silhouette → geometry
+  (no class crosses 25 mm). Draw-heavy tiers (furnishing, props) are opt-in
+  by the same budget logic until the governor can spend per station. Spec
+  kept below. Microdetail →
   normal; shallow volume → height/POM; silhouette → geometry, written down per
   class with the threshold in millimetres. POM auto-fades by view angle
   (grazing) and distance, and a per-station cost governor disables it where

@@ -148,12 +148,62 @@ var swapped := 0
 var materials := 0
 var _cache := {}
 
+## ---- MX-2: the parallax governor ------------------------------------------
+## The probe measures, the material obeys. Every GOVERN_INTERVAL seconds the
+## building reports the viewport's measured GPU frame time; over the target
+## the budget steps down (POM marches fewer steps and flattens, then stops
+## marching at 0), under the target with headroom it steps back up. Pushed to
+## every layered material as `parallax_budget`. SURFACE_TARGET_MS overrides
+## the target (a low value is the way to watch it act); SURFACE_BUDGET pins
+## the budget and disables the loop.
+const GOVERN_INTERVAL := 0.5
+const GOVERN_TARGET_MS := 14.0
+const GOVERN_HEADROOM_MS := 3.0
+const GOVERN_STEP := 0.25
+
+var budget := 1.0
+var governed_steps := 0
+var _govern_clock := 0.0
+var _govern_pinned := false
+var _govern_target := GOVERN_TARGET_MS
+
+
+func govern_setup() -> void:
+	_govern_pinned = not OS.get_environment("SURFACE_BUDGET").is_empty()
+	var target_env := OS.get_environment("SURFACE_TARGET_MS")
+	if not target_env.is_empty():
+		_govern_target = maxf(0.1, float(target_env))
+
+
+## Call every physics frame with the delta and the viewport's measured GPU
+## time (0 when measurement is unavailable: headless, or the dummy driver).
+func govern(delta: float, gpu_ms: float) -> void:
+	if _govern_pinned or gpu_ms <= 0.0:
+		return
+	_govern_clock += delta
+	if _govern_clock < GOVERN_INTERVAL:
+		return
+	_govern_clock = 0.0
+	var next := budget
+	if gpu_ms > _govern_target:
+		next = maxf(0.0, budget - GOVERN_STEP)
+	elif gpu_ms < _govern_target - GOVERN_HEADROOM_MS:
+		next = minf(1.0, budget + GOVERN_STEP)
+	if is_equal_approx(next, budget):
+		return
+	budget = next
+	governed_steps += 1
+	for m in _cache.values():
+		(m as ShaderMaterial).set_shader_parameter("parallax_budget", budget)
+	print("[SURFACE] governor: gpu %.1f ms vs %.1f target -> parallax budget %.2f"
+			% [gpu_ms, _govern_target, budget])
+
 
 ## Returns the number of surfaces swapped. Idempotent per surface.
 func apply(floor_nodes: Dictionary) -> int:
 	if OS.get_environment("SURFACE") == "0":
 		return 0
-	var budget := 1.0
+	govern_setup()
 	var budget_env := OS.get_environment("SURFACE_BUDGET")
 	if not budget_env.is_empty():
 		budget = clampf(float(budget_env), 0.0, 1.0)
@@ -203,10 +253,6 @@ var _prop_swaps: Array = []
 func apply_props(root: Node) -> int:
 	if OS.get_environment("SURFACE") == "0" or not draw_heavy_enabled():
 		return 0
-	var budget := 1.0
-	var budget_env := OS.get_environment("SURFACE_BUDGET")
-	if not budget_env.is_empty():
-		budget = clampf(float(budget_env), 0.0, 1.0)
 	var recipe := PROPS_RECIPE.duplicate()
 	recipe["parallax_budget"] = budget
 	for node in root.find_children("*", "MeshInstance3D", true, false):

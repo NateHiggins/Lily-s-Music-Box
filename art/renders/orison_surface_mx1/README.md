@@ -164,3 +164,10 @@ than a StandardMaterial3D draw on Compatibility, and the census said where
 the draws are. Both draw-heavy tiers are built and **opt-in**
 (`SURFACE_PROPS=1`); the architecture classes stay on. MX-2's station budget
 is what turns them on where a state needs to reach a prop.
+
+**MX-2 — the governor in the building.** `SurfacePass.govern` reads the
+viewport's measured GPU time every 0.5 s and steps `parallax_budget` by
+0.25: down when over 14 ms, up when under 11 ms, pushed to every layered
+material; `SURFACE_TARGET_MS` sets the target, `SURFACE_BUDGET` pins the
+budget and disables the loop. Proof at a 1 ms target (`gates7.log`): 1.0 →
+0.75 → 0.50 → 0.25 → 0 over four intervals, WalkTest PASS.

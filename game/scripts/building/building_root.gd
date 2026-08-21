@@ -360,6 +360,7 @@ func _ready() -> void:
 	# re-attached and before anything else overrides a material.
 	surface_pass = SurfacePassScript.new()
 	surface_pass.apply(floor_nodes)
+	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(), true)
 	environment_detail_pass = OrisonDetailPass.new()
 	add_child(environment_detail_pass)
 	var detail_stats := environment_detail_pass.build(layout, floor_nodes)
@@ -2419,8 +2420,12 @@ func teleport_player(fid: String) -> void:
 	player.velocity = Vector3.ZERO
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	_update_floor_visibility()
+	# MX-2: the parallax governor reads the viewport's measured GPU time.
+	if surface_pass != null:
+		surface_pass.govern(delta, RenderingServer.viewport_get_measured_render_time_gpu(
+				get_viewport().get_viewport_rid()))
 
 
 ## Coarse streaming: only the player's level renders — EXCEPT in the atrium,
