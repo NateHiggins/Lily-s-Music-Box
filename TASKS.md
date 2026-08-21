@@ -1881,7 +1881,22 @@ probe is a third. MX makes them one system.
   per-storey shared `M_<key>` materials (567) + `MatLib.get_mat`. Order for
   MX-4 decided: masonry + finishes -> floors -> trims -> glTF furnishing ->
   MatLib props. `art/renders/surface_census_mx0/README.md`.
-- **MX-1 — `orison_surface.gdshader` (OPEN).** One maintained layered shader:
+- **MX-1 DONE 2026-08-21 — `orison_surface.gdshaderinc` + opaque / cutout
+  shaders.** The stack as specified: base (R / glTF-G / packed ORM), mesh-UV
+  or triplanar projection with the M-COVER modes ported, height calibrated
+  in millimetres with offset or POM and the governor built in (grazing,
+  distance, `parallax_budget`), self-detail or dedicated detail maps,
+  emission, eight first-class mask fields (texture or procedural) each
+  blending a state (damage tears cutouts, grime in cavities, moisture, wear
+  on crests, oxidation, gilding, corruption = the dream's flesh, emission),
+  BACKLIGHT / clearcoat / anisotropy, `debug_view`. Proof harness
+  `SurfaceShot.tscn` (8 stands, two-pass GPU medians) and the record
+  `art/renders/orison_surface_mx1/README.md`. Found and fixed on the way:
+  height maps never spanned their range (runtime p5..p95 calibration) and
+  the per-storey family variants had no height maps shipped (42 added).
+  Still separate shaders: floor coverage and the 22 encroached finishes
+  (MX-4 folds them in). Original spec follows.
+- **MX-1 spec (kept for reference).** One maintained layered shader:
   albedo, OpenGL normal, height with parallax/POM, packed ORM, detail
   albedo/normal at a second frequency, emission; optional clearcoat,
   anisotropy, wrap-SSS; world-space box projection with the M-COVER
@@ -1891,7 +1906,9 @@ probe is a third. MX makes them one system.
   secondary state (albedo/ORM/normal/height deltas) by its mask. Alpha
   scissor/hash for cutouts. Coverage, encroachment and the dream's flesh/skin/
   weld layers become states of this shader, not separate shaders.
-- **MX-2 — THE TIER RULE AND THE PARALLAX GOVERNOR (OPEN).** Microdetail →
+- **MX-2 — THE TIER RULE AND THE PARALLAX GOVERNOR (GOVERNOR DONE 2026-08-21
+  in the shader: grazing fade, distance fade, `parallax_budget`; the per-class
+  millimetre table and the station-measured budget feed are OPEN).** Microdetail →
   normal; shallow volume → height/POM; silhouette → geometry, written down per
   class with the threshold in millimetres. POM auto-fades by view angle
   (grazing) and distance, and a per-station cost governor disables it where
@@ -1899,13 +1916,25 @@ probe is a third. MX makes them one system.
   material obeys. Never a polygon for what the shader sells; never a shader
   for a silhouette.
 - **MX-3a DONE 2026-08-21 — SOURCES SCRUBBED OF THE GENERATOR WATERMARK.** `scrub_source_watermarks.py` detects the sparkle at its fixed inset and unblends it from 61 Gemini sources (63 ChatGPT false positives rejected by measured alpha); 147 sets re-ingested and rebuilt. Run it on every new drop before `ingest_material_sources.py`.
-- **MX-3 — INGEST V2 (OPEN).** ORM packing, calibrated height scale per set
+- **MX-3 — INGEST V2 (OPEN).** Measured 2026-08-21: the ingest's heights are
+  band-passed luminance spanning ~0.26 (face brick) to ~0.09 (concrete) of
+  0..1 — the runtime calibrates by percentile for now; the ingest should
+  write them spanning their range with `relief_mm` in `material.json`, and
+  the generated set table should carry tile_m / relief_mm so `SurfacePass`'s
+  two tables go away. The 42 variant height maps shipped unmipped (§MP).
+  ORM packing, calibrated height scale per set
   (millimetres of relief, not "looks right"), detail maps at a second
   frequency, and a mask library generated from the existing stencil/overlay
   sources (`art/textures/wall_sources` already holds damage stencils and stain
   overlays). Sources stay scrubbed of generator watermarks
   (`scrub_source_watermarks.py`).
-- **MX-4 — ROLLOUT BY CLASS WITH FRAMES (OPEN).** Masonry and finish quads
+- **MX-4 — ROLLOUT BY CLASS WITH FRAMES (STEP 1 SHIPPED 2026-08-21: masonry
+  walls POM + self-detail, wall finishes self-detail, via `SurfacePass` after
+  `HeightmapPass`; 113 surfaces; `SURFACE=0` is the A; WalkTest FAST PASS,
+  LightingAudit PASS. OPEN: floors (fold coverage in), trims / wainscot /
+  stairs / slabs, glTF furnishing, `MatLib` props in triplanar mode, the 22
+  encroached finishes as a corruption recipe, metal states photographed on
+  metal).** Masonry and finish quads
   first (the flashlight sees them most), then floors, trims, props. Each class
   ships with before/after frames under the moving lamp from fixed stands, the
   perf station row, and an A/B switch; colour and art direction are preserved

@@ -1,0 +1,833 @@
+{
+  "renderer": "gl_compatibility",
+  "sample_frames": 48,
+  "stations": {
+    "bed_2a": {
+      "base": {
+        "cpu_ms": 9.728,
+        "draw_calls": 4172,
+        "gpu_ms": 3.91799998283386,
+        "label": "orison_surface, every layer off (control)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a__base.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "corrupted": {
+        "cpu_ms": 9.564,
+        "draw_calls": 3971,
+        "gpu_ms": 5.13500022888184,
+        "label": "full + corruption and gilding states (supernatural on top)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a__corrupted.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "current": {
+        "cpu_ms": 9.606,
+        "draw_calls": 4173,
+        "gpu_ms": 3.59200000762939,
+        "label": "shipping StandardMaterial3D",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "detail": {
+        "cpu_ms": 9.767,
+        "draw_calls": 4013,
+        "gpu_ms": 3.36500000953674,
+        "label": "+ detail tier (self, 3.718x)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a__detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "full": {
+        "cpu_ms": 9.681,
+        "draw_calls": 3961,
+        "gpu_ms": 3.79200005531311,
+        "label": "POM + detail + masks",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a__full.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "full_fields": {
+        "cpu_ms": 9.634,
+        "draw_calls": 4020,
+        "gpu_ms": 4.28900003433228,
+        "label": "the mask fields of 'full' (debug view)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a__full_fields.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "masks": {
+        "cpu_ms": 9.757,
+        "draw_calls": 3993,
+        "gpu_ms": 4.24300003051758,
+        "label": "+ masks: grime, moisture, wear, damage (procedural)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a__masks.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "offset": {
+        "cpu_ms": 9.955,
+        "draw_calls": 4297,
+        "gpu_ms": 4.08699989318848,
+        "label": "+ height tier, offset parallax",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a__offset.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "pom": {
+        "cpu_ms": 10.037,
+        "draw_calls": 4021,
+        "gpu_ms": 4.06699991226196,
+        "label": "+ height tier, POM",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a__pom.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      }
+    },
+    "bed_2a_graze": {
+      "base": {
+        "cpu_ms": 7.49,
+        "draw_calls": 2217,
+        "gpu_ms": 3.3510000705719,
+        "label": "orison_surface, every layer off (control)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a_graze__base.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "corrupted": {
+        "cpu_ms": 7.178,
+        "draw_calls": 2178,
+        "gpu_ms": 5.36199998855591,
+        "label": "full + corruption and gilding states (supernatural on top)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a_graze__corrupted.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "current": {
+        "cpu_ms": 7.314,
+        "draw_calls": 2201,
+        "gpu_ms": 3.05999994277954,
+        "label": "shipping StandardMaterial3D",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a_graze__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "detail": {
+        "cpu_ms": 7.443,
+        "draw_calls": 2213,
+        "gpu_ms": 3.36800003051758,
+        "label": "+ detail tier (self, 3.718x)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a_graze__detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "full": {
+        "cpu_ms": 7.037,
+        "draw_calls": 2097,
+        "gpu_ms": 4.56599998474121,
+        "label": "POM + detail + masks",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a_graze__full.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "full_fields": {
+        "cpu_ms": 7.534,
+        "draw_calls": 2202,
+        "gpu_ms": 4.56799983978271,
+        "label": "the mask fields of 'full' (debug view)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a_graze__full_fields.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "masks": {
+        "cpu_ms": 7.269,
+        "draw_calls": 2213,
+        "gpu_ms": 4.5479998588562,
+        "label": "+ masks: grime, moisture, wear, damage (procedural)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a_graze__masks.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "offset": {
+        "cpu_ms": 7.401,
+        "draw_calls": 2213,
+        "gpu_ms": 3.3529999256134,
+        "label": "+ height tier, offset parallax",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a_graze__offset.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "pom": {
+        "cpu_ms": 7.446,
+        "draw_calls": 2213,
+        "gpu_ms": 3.35500001907349,
+        "label": "+ height tier, POM",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/bed_2a_graze__pom.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      }
+    },
+    "brick_close": {
+      "base": {
+        "cpu_ms": 6.761,
+        "draw_calls": 2238,
+        "gpu_ms": 1.37000000476837,
+        "label": "orison_surface, every layer off (control)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__base.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "corrupted": {
+        "cpu_ms": 6.962,
+        "draw_calls": 1640,
+        "gpu_ms": 1.7389999628067,
+        "label": "full + corruption and gilding states (supernatural on top)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__corrupted.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "current": {
+        "cpu_ms": 7.085,
+        "draw_calls": 1644,
+        "gpu_ms": 0.810999989509583,
+        "label": "shipping StandardMaterial3D",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "detail": {
+        "cpu_ms": 6.844,
+        "draw_calls": 1682,
+        "gpu_ms": 1.39900004863739,
+        "label": "+ detail tier (self, 3.718x)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "full": {
+        "cpu_ms": 6.986,
+        "draw_calls": 1684,
+        "gpu_ms": 1.61800003051758,
+        "label": "POM + detail + masks",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__full.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "full_fields": {
+        "cpu_ms": 7.004,
+        "draw_calls": 1668,
+        "gpu_ms": 1.66400003433228,
+        "label": "the mask fields of 'full' (debug view)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__full_fields.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "masks": {
+        "cpu_ms": 6.92,
+        "draw_calls": 1720,
+        "gpu_ms": 1.62199997901917,
+        "label": "+ masks: grime, moisture, wear, damage (procedural)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__masks.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "offset": {
+        "cpu_ms": 6.92,
+        "draw_calls": 1662,
+        "gpu_ms": 1.44599997997284,
+        "label": "+ height tier, offset parallax",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__offset.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "pom": {
+        "cpu_ms": 6.96,
+        "draw_calls": 2311,
+        "gpu_ms": 1.375,
+        "label": "+ height tier, POM",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__pom.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "pom_x25": {
+        "cpu_ms": 6.68,
+        "draw_calls": 1684,
+        "gpu_ms": 1.19799995422363,
+        "label": "POM at 2.5x the calibrated relief (the exaggeration to judge)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__pom_x25.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_corrupt": {
+        "cpu_ms": 6.885,
+        "draw_calls": 2815,
+        "gpu_ms": 1.68099999427795,
+        "label": "state demo: corruption 0.9",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__st_corrupt.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_damage": {
+        "cpu_ms": 6.639,
+        "draw_calls": 1712,
+        "gpu_ms": 1.51499998569489,
+        "label": "state demo: damage 0.9",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__st_damage.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_emit": {
+        "cpu_ms": 6.528,
+        "draw_calls": 1662,
+        "gpu_ms": 1.34800004959106,
+        "label": "state demo: emission mask 0.9 (amber)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__st_emit.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_gild": {
+        "cpu_ms": 6.468,
+        "draw_calls": 1712,
+        "gpu_ms": 1.34800004959106,
+        "label": "state demo: gilding 0.9",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__st_gild.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_grime": {
+        "cpu_ms": 6.83,
+        "draw_calls": 1720,
+        "gpu_ms": 1.49399995803833,
+        "label": "state demo: grime 0.9",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__st_grime.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_moisture": {
+        "cpu_ms": 6.657,
+        "draw_calls": 1712,
+        "gpu_ms": 1.46800005435944,
+        "label": "state demo: moisture 0.9",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__st_moisture.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_oxide": {
+        "cpu_ms": 6.672,
+        "draw_calls": 1711,
+        "gpu_ms": 1.35099995136261,
+        "label": "state demo: oxidation 0.9",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__st_oxide.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_wear": {
+        "cpu_ms": 6.994,
+        "draw_calls": 1712,
+        "gpu_ms": 1.51600003242493,
+        "label": "state demo: wear 0.9",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/brick_close__st_wear.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      }
+    },
+    "cellar": {
+      "base": {
+        "cpu_ms": 6.23,
+        "draw_calls": 1278,
+        "gpu_ms": 2.10899996757507,
+        "label": "orison_surface, every layer off (control)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar__base.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "corrupted": {
+        "cpu_ms": 6.021,
+        "draw_calls": 1278,
+        "gpu_ms": 2.31100010871887,
+        "label": "full + corruption and gilding states (supernatural on top)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar__corrupted.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "current": {
+        "cpu_ms": 6.051,
+        "draw_calls": 1278,
+        "gpu_ms": 1.192999958992,
+        "label": "shipping StandardMaterial3D",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "detail": {
+        "cpu_ms": 6.085,
+        "draw_calls": 1270,
+        "gpu_ms": 1.97800004482269,
+        "label": "+ detail tier (self, 3.718x)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar__detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "full": {
+        "cpu_ms": 6.306,
+        "draw_calls": 1270,
+        "gpu_ms": 2.19000005722046,
+        "label": "POM + detail + masks",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar__full.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "full_fields": {
+        "cpu_ms": 6.252,
+        "draw_calls": 1278,
+        "gpu_ms": 2.15300011634827,
+        "label": "the mask fields of 'full' (debug view)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar__full_fields.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "masks": {
+        "cpu_ms": 6.245,
+        "draw_calls": 1270,
+        "gpu_ms": 2.28699994087219,
+        "label": "+ masks: grime, moisture, wear, damage (procedural)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar__masks.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "offset": {
+        "cpu_ms": 6.184,
+        "draw_calls": 1278,
+        "gpu_ms": 2.05200004577637,
+        "label": "+ height tier, offset parallax",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar__offset.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "pom": {
+        "cpu_ms": 5.851,
+        "draw_calls": 1278,
+        "gpu_ms": 1.98699998855591,
+        "label": "+ height tier, POM",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar__pom.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      }
+    },
+    "cellar_close": {
+      "base": {
+        "cpu_ms": 6.378,
+        "draw_calls": 1547,
+        "gpu_ms": 2.52500009536743,
+        "label": "orison_surface, every layer off (control)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__base.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "corrupted": {
+        "cpu_ms": 6.261,
+        "draw_calls": 1547,
+        "gpu_ms": 5.08099985122681,
+        "label": "full + corruption and gilding states (supernatural on top)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__corrupted.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "current": {
+        "cpu_ms": 6.606,
+        "draw_calls": 1547,
+        "gpu_ms": 2.25,
+        "label": "shipping StandardMaterial3D",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "detail": {
+        "cpu_ms": 6.307,
+        "draw_calls": 1547,
+        "gpu_ms": 2.53999996185303,
+        "label": "+ detail tier (self, 3.718x)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "full": {
+        "cpu_ms": 6.276,
+        "draw_calls": 1547,
+        "gpu_ms": 4.03900003433228,
+        "label": "POM + detail + masks",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__full.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "full_fields": {
+        "cpu_ms": 6.409,
+        "draw_calls": 1546,
+        "gpu_ms": 4.03499984741211,
+        "label": "the mask fields of 'full' (debug view)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__full_fields.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "masks": {
+        "cpu_ms": 6.511,
+        "draw_calls": 1547,
+        "gpu_ms": 4.02299976348877,
+        "label": "+ masks: grime, moisture, wear, damage (procedural)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__masks.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "offset": {
+        "cpu_ms": 6.424,
+        "draw_calls": 1548,
+        "gpu_ms": 2.52699995040894,
+        "label": "+ height tier, offset parallax",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__offset.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "pom": {
+        "cpu_ms": 6.498,
+        "draw_calls": 1548,
+        "gpu_ms": 2.52900004386902,
+        "label": "+ height tier, POM",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__pom.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "pom_x25": {
+        "cpu_ms": 6.207,
+        "draw_calls": 1546,
+        "gpu_ms": 2.53200006484985,
+        "label": "POM at 2.5x the calibrated relief (the exaggeration to judge)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__pom_x25.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_corrupt": {
+        "cpu_ms": 6.218,
+        "draw_calls": 1547,
+        "gpu_ms": 3.24300003051758,
+        "label": "state demo: corruption 0.9",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__st_corrupt.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_damage": {
+        "cpu_ms": 6.404,
+        "draw_calls": 1547,
+        "gpu_ms": 3.81200003623962,
+        "label": "state demo: damage 0.9",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__st_damage.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_emit": {
+        "cpu_ms": 6.408,
+        "draw_calls": 1547,
+        "gpu_ms": 2.56699991226196,
+        "label": "state demo: emission mask 0.9 (amber)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__st_emit.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_gild": {
+        "cpu_ms": 6.384,
+        "draw_calls": 1547,
+        "gpu_ms": 2.68899989128113,
+        "label": "state demo: gilding 0.9",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__st_gild.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_grime": {
+        "cpu_ms": 6.526,
+        "draw_calls": 1546,
+        "gpu_ms": 2.61100006103516,
+        "label": "state demo: grime 0.9",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__st_grime.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_moisture": {
+        "cpu_ms": 6.312,
+        "draw_calls": 1547,
+        "gpu_ms": 2.61400008201599,
+        "label": "state demo: moisture 0.9",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__st_moisture.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_oxide": {
+        "cpu_ms": 6.326,
+        "draw_calls": 1547,
+        "gpu_ms": 2.68899989128113,
+        "label": "state demo: oxidation 0.9",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__st_oxide.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "st_wear": {
+        "cpu_ms": 6.464,
+        "draw_calls": 1547,
+        "gpu_ms": 2.61199998855591,
+        "label": "state demo: wear 0.9",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/cellar_close__st_wear.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      }
+    },
+    "corridor": {
+      "base": {
+        "cpu_ms": 21.196,
+        "draw_calls": 14295,
+        "gpu_ms": 12.7430000305176,
+        "label": "orison_surface, every layer off (control)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/corridor__base.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "corrupted": {
+        "cpu_ms": 20.251,
+        "draw_calls": 14237,
+        "gpu_ms": 12.3999996185303,
+        "label": "full + corruption and gilding states (supernatural on top)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/corridor__corrupted.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "current": {
+        "cpu_ms": 21.298,
+        "draw_calls": 14297,
+        "gpu_ms": 12.8730001449585,
+        "label": "shipping StandardMaterial3D",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/corridor__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "detail": {
+        "cpu_ms": 20.639,
+        "draw_calls": 14277,
+        "gpu_ms": 12.673999786377,
+        "label": "+ detail tier (self, 3.718x)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/corridor__detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "full": {
+        "cpu_ms": 21.806,
+        "draw_calls": 15373,
+        "gpu_ms": 13.5450000762939,
+        "label": "POM + detail + masks",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/corridor__full.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "full_fields": {
+        "cpu_ms": 21.52,
+        "draw_calls": 14371,
+        "gpu_ms": 12.8360004425049,
+        "label": "the mask fields of 'full' (debug view)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/corridor__full_fields.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "masks": {
+        "cpu_ms": 21.173,
+        "draw_calls": 15269,
+        "gpu_ms": 12.7559995651245,
+        "label": "+ masks: grime, moisture, wear, damage (procedural)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/corridor__masks.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "offset": {
+        "cpu_ms": 20.791,
+        "draw_calls": 14288,
+        "gpu_ms": 12.6389999389648,
+        "label": "+ height tier, offset parallax",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/corridor__offset.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "pom": {
+        "cpu_ms": 20.551,
+        "draw_calls": 14284,
+        "gpu_ms": 12.7030000686646,
+        "label": "+ height tier, POM",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/corridor__pom.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      }
+    },
+    "lobby": {
+      "base": {
+        "cpu_ms": 21.901,
+        "draw_calls": 14504,
+        "gpu_ms": 11.0010004043579,
+        "label": "orison_surface, every layer off (control)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/lobby__base.png",
+        "save_error": 0,
+        "surfaces_swapped": 14
+      },
+      "corrupted": {
+        "cpu_ms": 22.306,
+        "draw_calls": 16052,
+        "gpu_ms": 11.1940002441406,
+        "label": "full + corruption and gilding states (supernatural on top)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/lobby__corrupted.png",
+        "save_error": 0,
+        "surfaces_swapped": 14
+      },
+      "current": {
+        "cpu_ms": 21.41,
+        "draw_calls": 14558,
+        "gpu_ms": 10.5579996109009,
+        "label": "shipping StandardMaterial3D",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/lobby__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "detail": {
+        "cpu_ms": 21.181,
+        "draw_calls": 14505,
+        "gpu_ms": 10.8800001144409,
+        "label": "+ detail tier (self, 3.718x)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/lobby__detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 14
+      },
+      "full": {
+        "cpu_ms": 21.277,
+        "draw_calls": 14525,
+        "gpu_ms": 10.9700002670288,
+        "label": "POM + detail + masks",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/lobby__full.png",
+        "save_error": 0,
+        "surfaces_swapped": 14
+      },
+      "full_fields": {
+        "cpu_ms": 21.766,
+        "draw_calls": 14689,
+        "gpu_ms": 11.0080003738403,
+        "label": "the mask fields of 'full' (debug view)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/lobby__full_fields.png",
+        "save_error": 0,
+        "surfaces_swapped": 14
+      },
+      "masks": {
+        "cpu_ms": 21.409,
+        "draw_calls": 14501,
+        "gpu_ms": 10.8839998245239,
+        "label": "+ masks: grime, moisture, wear, damage (procedural)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/lobby__masks.png",
+        "save_error": 0,
+        "surfaces_swapped": 14
+      },
+      "offset": {
+        "cpu_ms": 21.45,
+        "draw_calls": 14481,
+        "gpu_ms": 10.9840002059937,
+        "label": "+ height tier, offset parallax",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/lobby__offset.png",
+        "save_error": 0,
+        "surfaces_swapped": 14
+      },
+      "pom": {
+        "cpu_ms": 21.306,
+        "draw_calls": 14489,
+        "gpu_ms": 10.8120002746582,
+        "label": "+ height tier, POM",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/lobby__pom.png",
+        "save_error": 0,
+        "surfaces_swapped": 14
+      }
+    },
+    "main_2a_west": {
+      "base": {
+        "cpu_ms": 8.48,
+        "draw_calls": 2586,
+        "gpu_ms": 1.92400002479553,
+        "label": "orison_surface, every layer off (control)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/main_2a_west__base.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "corrupted": {
+        "cpu_ms": 8.629,
+        "draw_calls": 2639,
+        "gpu_ms": 2.65599989891052,
+        "label": "full + corruption and gilding states (supernatural on top)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/main_2a_west__corrupted.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "current": {
+        "cpu_ms": 8.644,
+        "draw_calls": 2648,
+        "gpu_ms": 0.950999975204468,
+        "label": "shipping StandardMaterial3D",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/main_2a_west__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "detail": {
+        "cpu_ms": 8.558,
+        "draw_calls": 2598,
+        "gpu_ms": 1.72899997234344,
+        "label": "+ detail tier (self, 3.718x)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/main_2a_west__detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "full": {
+        "cpu_ms": 8.458,
+        "draw_calls": 2637,
+        "gpu_ms": 2.40499997138977,
+        "label": "POM + detail + masks",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/main_2a_west__full.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "full_fields": {
+        "cpu_ms": 8.869,
+        "draw_calls": 2659,
+        "gpu_ms": 2.40499997138977,
+        "label": "the mask fields of 'full' (debug view)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/main_2a_west__full_fields.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "masks": {
+        "cpu_ms": 8.951,
+        "draw_calls": 2632,
+        "gpu_ms": 2.58800005912781,
+        "label": "+ masks: grime, moisture, wear, damage (procedural)",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/main_2a_west__masks.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "offset": {
+        "cpu_ms": 8.624,
+        "draw_calls": 2587,
+        "gpu_ms": 2.18199992179871,
+        "label": "+ height tier, offset parallax",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/main_2a_west__offset.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      },
+      "pom": {
+        "cpu_ms": 8.907,
+        "draw_calls": 2536,
+        "gpu_ms": 1.54700005054474,
+        "label": "+ height tier, POM",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/main_2a_west__pom.png",
+        "save_error": 0,
+        "surfaces_swapped": 15
+      }
+    }
+  },
+  "window": "(1280, 720)"
+}

@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource path="res://tests/shader_parse_check.gd" type="Script" id="1"]
+[node name="ShaderParseCheck" type="Node"]
+script = ExtResource("1")

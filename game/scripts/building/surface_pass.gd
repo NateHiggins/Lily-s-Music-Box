@@ -1,0 +1,245 @@
+class_name SurfacePass
+extends RefCounted
+## MX-4 — the layered surface in production (TASKS.md §MX, owner direction
+## 2026-08-21). After the floor scenes load, the surface classes in CLASSES
+## trade their shipping StandardMaterial3D for `orison_surface.gdshader`
+## (or the cutout variant where the shipping material scissors) carrying
+## the SAME maps and scalars, plus the layers the class's recipe names:
+## the height tier calibrated in millimetres, the self-detail tier, and any
+## standing mask states. One ShaderMaterial per (shipping material, recipe),
+## cached: the glTF shares one material per `M_<key>` per storey file, so
+## this is hundreds of materials, not thousands of surfaces, and no draw is
+## added.
+##
+## `SURFACE=0` in the environment leaves the shipping materials in place —
+## the A of every A/B. `SURFACE_BUDGET=0.5` scales the parallax governor.
+##
+## Frames and costs that chose the recipes: art/renders/orison_surface_mx1/.
+## The proof harness (game/tests/SurfaceShot.tscn) builds its options through
+## `surface_for`, so what it photographs is what ships.
+
+const OPAQUE := preload("res://shaders/orison_surface.gdshader")
+const CUTOUT := preload("res://shaders/orison_surface_cutout.gdshader")
+const HEIGHT_DIR := "res://assets/building/textures/height/"
+
+## Millimetres of relief spanned by a set's height map (0..1). Mortar is the
+## deepest thing on the building; a board seam is barely anything. MX-3
+## moves these into the generated set table with the tile size.
+const RELIEF_MM := {
+	"face_brick": 10.0, "common_brick": 9.0, "brick": 9.0, "brick_patched": 9.0,
+	"concrete": 3.0, "slab": 3.0, "limestone": 4.0, "subway_tile": 3.0,
+	"ceramic": 2.5, "terrazzo": 0.6, "stair": 3.0, "landing": 2.0,
+	"floor_oak": 1.5, "wainscot": 6.0, "tin_ceiling": 6.0, "cast_iron": 2.0,
+	"sidewalk_haunted": 5.0, "asphalt": 5.0, "wet_asphalt": 4.0,
+}
+## Metres of world per texture tile, as the ingest recorded them
+## (art/textures/ai_materials/<key>/material.json) and the builder baked them.
+const TILE_M := {
+	"face_brick": 2.2, "common_brick": 1.2, "brick": 1.5, "brick_patched": 1.2,
+	"concrete": 2.8, "slab": 2.8, "limestone": 1.6, "plaster": 1.8,
+	"plaster_stained": 1.8, "subway_tile": 0.67, "ceramic": 0.65, "terrazzo": 4.0,
+	"stair": 1.2, "floor_oak": 2.7, "wainscot": 0.72, "tin_ceiling": 1.2,
+	"cast_iron": 0.4, "sidewalk_haunted": 1.52, "asphalt": 2.5, "wet_asphalt": 2.5,
+	"trim": 1.1, "marble_lobby": 1.5,
+}
+
+## Surface classes by buffer-name substring, in rollout order, each with its
+## standing recipe (shader parameters applied over the shipping material).
+## Only the classes listed are touched; the census (MX-0) chose the order.
+const CLASSES := [
+	{"key": "walls", "match": "_walls",
+			"recipe": {"parallax_mode": 2, "pom_steps_min": 6, "pom_steps_max": 14,
+					"has_detail": true, "detail_albedo_strength": 0.18,
+					"detail_normal_strength": 0.45}},
+	{"key": "finish", "match": "_finish_",
+			"recipe": {"has_detail": true, "detail_albedo_strength": 0.12,
+					"detail_normal_strength": 0.35}},
+]
+
+var swapped := 0
+var materials := 0
+var _cache := {}
+
+
+## Returns the number of surfaces swapped. Idempotent per surface.
+func apply(floor_nodes: Dictionary) -> int:
+	if OS.get_environment("SURFACE") == "0":
+		return 0
+	var budget := 1.0
+	var budget_env := OS.get_environment("SURFACE_BUDGET")
+	if not budget_env.is_empty():
+		budget = clampf(float(budget_env), 0.0, 1.0)
+	for fid in floor_nodes:
+		var floor_node: Node = floor_nodes[fid]
+		for node in floor_node.find_children("*", "MeshInstance3D", true, false):
+			var mi := node as MeshInstance3D
+			if mi.mesh == null:
+				continue
+			var cls := _class_for(mi.name)
+			if cls.is_empty():
+				continue
+			for s in mi.mesh.get_surface_count():
+				if mi.get_surface_override_material(s) != null:
+					continue
+				var original := mi.mesh.surface_get_material(s) as BaseMaterial3D
+				if not _eligible(original):
+					continue
+				var recipe: Dictionary = (cls.recipe as Dictionary).duplicate()
+				recipe["parallax_budget"] = budget
+				mi.set_surface_override_material(s, surface_for(original, recipe, str(cls.key), _cache))
+				swapped += 1
+	materials = _cache.size()
+	print("[SURFACE] %d surfaces layered (%d materials)" % [swapped, materials])
+	return swapped
+
+
+static func _class_for(node_name: String) -> Dictionary:
+	for cls in CLASSES:
+		if node_name.contains(str(cls.match)):
+			return cls
+	return {}
+
+
+## Textured, back-culled, opaque or scissored: what the layered surface can
+## stand in for without changing how the surface sorts or faces.
+static func _eligible(original: BaseMaterial3D) -> bool:
+	if original == null or original.albedo_texture == null:
+		return false
+	if original.cull_mode != BaseMaterial3D.CULL_BACK:
+		return false
+	return original.transparency == BaseMaterial3D.TRANSPARENCY_DISABLED \
+			or original.transparency == BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+
+
+static func catalog_key(original: BaseMaterial3D) -> String:
+	var key := String(original.resource_name)
+	if key.begins_with("M_"):
+		key = key.substr(2)
+	return key
+
+
+## A family variant (`face_brick_c`) shares its base key's relief and tile
+## size; its own height map ships under the full key.
+static func base_key(key: String) -> String:
+	for suffix in ["_b", "_c", "_d"]:
+		if key.ends_with(suffix):
+			return key.substr(0, key.length() - 2)
+	return key
+
+
+## One layered material for a shipping material and a recipe, carrying the
+## shipping maps and scalars; `recipe` entries are shader parameters, except
+## `relief_mul`, which scales the calibrated relief. `cache` (optional) is
+## keyed by (material id, cache_key).
+static func surface_for(original: BaseMaterial3D, recipe: Dictionary,
+		cache_key: String = "", cache: Dictionary = {}) -> ShaderMaterial:
+	var ck := "%d|%s" % [original.get_instance_id(), cache_key]
+	if not cache_key.is_empty() and cache.has(ck):
+		return cache[ck]
+	var key := catalog_key(original)
+	var cutout := original.transparency == BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+	var m := ShaderMaterial.new()
+	m.shader = CUTOUT if cutout else OPAQUE
+	m.set_shader_parameter("albedo_tex", original.albedo_texture)
+	m.set_shader_parameter("albedo_color", original.albedo_color)
+	if original.normal_texture != null and original.normal_enabled:
+		m.set_shader_parameter("normal_tex", original.normal_texture)
+		m.set_shader_parameter("normal_scale", original.normal_scale)
+		m.set_shader_parameter("has_normal_tex", true)
+	else:
+		m.set_shader_parameter("has_normal_tex", false)
+	if original.roughness_texture != null:
+		m.set_shader_parameter("rough_tex", original.roughness_texture)
+		m.set_shader_parameter("has_rough_tex", true)
+		m.set_shader_parameter("rough_channel",
+				1 if original.roughness_texture_channel == BaseMaterial3D.TEXTURE_CHANNEL_GREEN else 0)
+	else:
+		m.set_shader_parameter("has_rough_tex", false)
+	m.set_shader_parameter("roughness_mul", original.roughness)
+	m.set_shader_parameter("metallic", original.metallic)
+	var base := base_key(key)
+	m.set_shader_parameter("tile_m", float(TILE_M.get(base, 1.0)))
+	var height: Texture2D = original.heightmap_texture if original.heightmap_enabled else null
+	if height == null and ResourceLoader.exists(HEIGHT_DIR + key + ".png"):
+		height = load(HEIGHT_DIR + key + ".png")
+	var relief := float(RELIEF_MM.get(base, 0.0))
+	if height != null and relief > 0.0:
+		m.set_shader_parameter("height_tex", height)
+		m.set_shader_parameter("has_height", true)
+		m.set_shader_parameter("height_relief_mm", relief)
+		m.set_shader_parameter("height_range", height_range(height))
+	var stats := texture_stats(original)
+	m.set_shader_parameter("albedo_mean", stats.albedo_mean)
+	m.set_shader_parameter("rough_mean", stats.rough_mean)
+	if cutout:
+		m.set_shader_parameter("cutout_mode", 1)
+		m.set_shader_parameter("cutout_threshold", original.alpha_scissor_threshold)
+	for p in recipe:
+		if p == "relief_mul":
+			if height != null and relief > 0.0:
+				m.set_shader_parameter("height_relief_mm", relief * float(recipe[p]))
+			continue
+		m.set_shader_parameter(p, recipe[p])
+	if not cache_key.is_empty():
+		cache[ck] = m
+	return m
+
+
+## The working range of a height map — its 5th and 95th percentiles from a
+## 128x128 resample. The ingest's band-passed heights never reach 0 or 1
+## (face brick spans 0.39..0.65, concrete 0.45..0.54), so the millimetres of
+## relief are mapped onto the range the map actually uses. Cached per texture.
+static var _range_cache := {}
+static func height_range(height: Texture2D) -> Vector2:
+	var id := height.get_instance_id()
+	if _range_cache.has(id):
+		return _range_cache[id]
+	var out := Vector2(0.0, 1.0)
+	var img := height.get_image()
+	if img != null:
+		if img.is_compressed():
+			img.decompress()
+		img.resize(128, 128, Image.INTERPOLATE_BILINEAR)
+		var values: Array[float] = []
+		values.resize(128 * 128)
+		for y in 128:
+			for x in 128:
+				values[y * 128 + x] = img.get_pixel(x, y).r
+		values.sort()
+		out = Vector2(values[int(values.size() * 0.05)], values[int(values.size() * 0.95)])
+		if out.y - out.x < 0.05:
+			out = Vector2(out.x, out.x + 0.05)
+	_range_cache[id] = out
+	return out
+
+
+## Means of the albedo and roughness maps from a 32x32 resample — the
+## variance-preserving coverage blend and the self-detail overlay both need
+## to know what "average" is. Once per shipping material at build.
+static func texture_stats(original: BaseMaterial3D) -> Dictionary:
+	var out := {"albedo_mean": Vector3(0.5, 0.5, 0.5), "rough_mean": 0.5}
+	var img := original.albedo_texture.get_image()
+	if img != null:
+		if img.is_compressed():
+			img.decompress()
+		img.resize(32, 32, Image.INTERPOLATE_BILINEAR)
+		var sum := Vector3.ZERO
+		for y in 32:
+			for x in 32:
+				var c := img.get_pixel(x, y)
+				sum += Vector3(c.r, c.g, c.b)
+		out.albedo_mean = sum / 1024.0
+	if original.roughness_texture != null:
+		var rimg := original.roughness_texture.get_image()
+		if rimg != null:
+			if rimg.is_compressed():
+				rimg.decompress()
+			rimg.resize(32, 32, Image.INTERPOLATE_BILINEAR)
+			var rsum := 0.0
+			var green := original.roughness_texture_channel == BaseMaterial3D.TEXTURE_CHANNEL_GREEN
+			for y in 32:
+				for x in 32:
+					var c := rimg.get_pixel(x, y)
+					rsum += c.g if green else c.r
+			out.rough_mean = rsum / 1024.0
+	return out

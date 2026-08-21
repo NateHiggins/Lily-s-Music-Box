@@ -151,6 +151,7 @@ var light_rig: LightRig
 var virus_director: VirusSoundDirector
 var floor_nodes: Dictionary = {}
 const FloorCoveragePassScript := preload("res://scripts/building/floor_coverage_pass.gd")
+const SurfacePassScript := preload("res://scripts/building/surface_pass.gd")
 var floor_coverage: RefCounted
 ## The Passage shell remains part of F01's exterior proxy, but its eleven
 ## fitted shop batches are a separate render zone.  Imported glTF meshes and
@@ -231,6 +232,8 @@ var moon_fill: MoonFill
 var street_traffic: StreetTraffic
 var shots: ShotCapture
 var heightmaps: HeightmapPass
+## MX-4: the layered surface on the masonry and the wall finishes.
+var surface_pass
 var warehouse: PropWarehouse
 var touch: TouchControls
 var service_set_carrier: ServiceSetCarrier
@@ -346,6 +349,14 @@ func _ready() -> void:
 	heightmaps = HeightmapPass.new()
 	add_child(heightmaps)
 	heightmaps.build(floor_nodes)
+	# MX-4 (owner direction 2026-08-21): the masonry and the compiled wall
+	# finishes trade their shipping StandardMaterial3D for the layered
+	# orison_surface carrying the same maps plus the calibrated height tier
+	# and the self-detail tier. Same surfaces, same draw count. SURFACE=0
+	# keeps the shipping materials for an A/B. Runs after the height maps are
+	# re-attached and before anything else overrides a wall material.
+	surface_pass = SurfacePassScript.new()
+	surface_pass.apply(floor_nodes)
 	environment_detail_pass = OrisonDetailPass.new()
 	add_child(environment_detail_pass)
 	var detail_stats := environment_detail_pass.build(layout, floor_nodes)
