@@ -356,6 +356,48 @@ aggregate, instantly rewarding in the hand.**
   cheap while the hot spots carry detail.
 - **E8b STILL OPEN** (brief §9): does degradation advance per shift rather
   than per hour — the last unruled question.
+- **E12 — ORISON COMMENSALS RULING GATE (PROPOSAL, NOT CANON).** The owner-
+  directed waking-world sibling to dream fauna is now ingested at
+  `design/ORISON_COMMENSALS_BRIEF.md`. It proposes positional mice, roaches,
+  waterbugs, moths, pigeons, rats, restrained invasive flora and their ordinary
+  audio as §E's living evidence layer and as the mundane scapegoat required by
+  §X1. Before implementation, rule all seven brief §10 questions: cast/taste
+  caps; Harukiya cat; Room 0 exclusion; one-way haunting precursor; complaint
+  and countermeasure scope; `CommensalDirector` ownership; daylight presence.
+  **No species, owner, fiction claim or C1 implementation is licensed yet.**
+- **E13 — GENERATED COMMENSAL ANCHORS (BLOCKED BY E12 AND SHARED-FILE
+  SCHEDULING).** After the ruling, reserve an uncontended `gen_layout.py` pass
+  and emit marker kind, species affinity and clearance-validated run-lines as
+  generator facts. Never hand-edit JSON or put coordinates in runtime code.
+  `gen_layout.py` is known contended ground: inspect shared index/worktree,
+  confirm no other lane holds hunks, preserve them if it does, and stage every
+  generator/output file by exact name. This is the PS12a lesson made an
+  acceptance condition, not a note discovered after a conflict.
+- **E14 — COMMENSALS C1, MINIMUM PROVABLE SLICE (BLOCKED BY E12–E13).** One
+  low-Hz waking `CommensalDirector`; moths at the two Orison entry lamps;
+  mice-in-the-riser audio on one F02 run; one habituated light-switch roach
+  scatter in 4B's kitchen; one static hoarding-base weed cluster. Stateless,
+  deterministic per `(anchor, shift, seed)`, no save, pathfinding, collision,
+  light, shadows, particles, per-creature nodes or case coupling. Prove motif
+  separation, protected windows, zone/floor/roof gating and marker provenance.
+  Re-run `WeatherPerf` under ≤ +3 draws/≤ +0.3 ms, measure director tick at
+  ≤ 0.1 ms, run atrium/lobby/roof A/A controls, and use a workstream-owned
+  proof folder while `art/renders/insitu/shots.md` belongs to another lane.
+- **E15 — COMMENSALS C2, WAKING BREADTH (BLOCKED BY A SUCCESSFUL C1).** Add
+  roosting pigeons and one proximity flush, rare validated rat gutter-runs,
+  positional guano/web decals, and restrained Passage/B1 casts. Add Room 0's
+  nesting exclusion only if E12 explicitly rules that fiction. Maintain one
+  MultiMesh per class per zone, hard submission caps and no runtime routing.
+- **E16 — COMMENSALS C3, §E INTEGRATION (BLOCKED BY E15 AND ITS OWNER
+  RULING).** Move pressure onto §E anchor persistence, route personality-
+  filtered ambient complaints through the existing place/fault work-order
+  binding, add period countermeasure errands, and let Murphy's director choose
+  fair moments from eligible pressure. Never advance a case, undo a repair or
+  fire during protected interaction/dream windows.
+- **E17 — COMMENSALS C4, SEPARATELY RULED BREADTH.** Price and rule broader
+  audio, the one-way haunting hush/flush request, and the optional Harukiya
+  mouser independently. Commensals never carry signal, imitate the motif,
+  confirm a haunting, stalk the player or become dangerous.
 
 ## S — Basement studio
 
