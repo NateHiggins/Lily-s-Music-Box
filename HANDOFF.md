@@ -77,8 +77,14 @@ gated and this does not complete any waking case loop.
 The owner-directed fauna visual addendum is now queued in
 `design/DREAM_FAUNA_BRIEF.md` V9: cloisonné procedural skins, calligraphic
 silhouettes and a three-light proof system, reconciled with the rule of cool.
-It is not landed and does not erase FA1/FA2; FA-V0 remains the implementation
-gate. Separately, waking-world
+It is not landed and does not erase FA1/FA2. FA-V0's read-only adversarial audit
+is now ingested in V10: the unshaded lamp-cone migration, exact packed channels,
+batch material overrides, production three-light/A-A harness and four-slice
+order are specified. FA-V1 remains blocked on three explicit owner rulings:
+in-engine ArrayMesh parts versus the V7 Python/Blender GLB kit; the proposed
+`0.018 < fauna <= 0.10 < 0.55` dark-glow ordering; and the diagnostic legacy
+selector's FA-V3-through-FA-V5 lifetime. The audit's pre-C1 anchor appendix is
+superseded and does not reopen the landed commensal proof. Separately, waking-world
 commensals C1 is now landed: moths at the two owner-derived entry street lamps,
 one sparse F02 riser mouse cue through the shared ambience pool, one habituated
 4B switch scatter and one named-hoarding-base weed cluster. Three shadowless

@@ -364,3 +364,91 @@ MultiMesh custom channel. It also has no collision, correctly. Before migration:
    gold emission becomes zero; only the bounded dark-live wine band may retain
    low emission for the dark-state silhouette. Full-beam brilliance comes from
    the production lamp and material response, not self-lighting gold.
+
+### V10. FA-V0 compatibility audit — complete 2026-08-20
+
+The read-only adversarial review was performed against the landed FA1/FA2
+implementation. It found no fiction, ownership, performance or architecture
+blocker and does not reopen R1–R6, FA1, FA2, V1–V9, the 96-instance cap or the
++13-draw/+0.5 ms ceilings. It does refine the migration contract in four
+important ways:
+
+1. Removing gold `EMISSION` is a lighting-model migration, not a deletion. The
+   current fauna shader is default-lit while the dream lineage evaluates the
+   production lamp cone itself. The migrated fauna shader becomes `unshaded`
+   and uses the same lamp position/direction/cone/exposure inputs. Gold response
+   is multiplied by the awake/cone term and reaches zero in darkness; bounded
+   wine dark-glow remains in `ALBEDO`. `EMISSION`, `METALLIC` and `ROUGHNESS`
+   writes leave the fauna shader. Cone-edge Fresnel supplies the gilt rim; no
+   fauna owns or creates a light.
+2. Fauna materials move from mesh surfaces to each batch root's
+   `material_override`. This preserves five family batches and their draw count
+   while allowing the existing molten-material collector to discover and feed
+   them. Do not widen or special-case the collector in `dream_maze_root.gd`.
+3. Four unstructured custom floats are insufficient for the visual doctrine.
+   A shared GDScript encoder/decoder and the shader include own this exact
+   packing. `INSTANCE_CUSTOM.r` is full-precision identity phase. `.g` packs an
+   8-bit feed/nutrient value above an 8-bit emergence/lifecycle value. `.b`
+   packs eight flags above an 8-bit activity scalar; the flags are hush,
+   courtship/moire, PEARL colony, Loupe camera tracker, birthing, reabsorbing
+   and two reserved bits. `.a` packs 8-bit genome hue jitter above 8-bit genome
+   pattern/scale jitter. Every pair is `high * 256 + low` and is decoded at
+   `highp`; round-trip boundary tests are mandatory.
+4. Per-vertex `COLOR` carries region id in R (0 shell, 1 wine, 2 gold
+   wire/selvage, 3 jewel, 4 sclera, 5 iris, 6 lid, 7 membrane), curvature/cavity
+   in G and joint A/B in B/A. `CUSTOM0` carries body-t, body-theta, joint C and
+   accessory section. The five existing family materials are bounded instances
+   of one maintained `dream_fauna.gdshader` plus one
+   `dream_fauna_style.gdshaderinc`; `dream_lineage_gold.gdshader` is not
+   refactored for this pass.
+
+The migration proof is a production-root `DreamFaunaStyleShot` with all five
+landed families, an equal-interval fauna-hidden A/A control and dark, beam-edge
+and full-beam frames per family. It records numerical dark-luma and full-beam
+ordering, shader errors, census, transform/plan invariance and same-build
+performance. Evidence belongs in `art/renders/dream_fauna_v3/README.md`.
+Collision-free DreamWalk inspection remains a later slice: on keypress it
+selects the nearest visible instance analytically in screen space, casts at
+most one architecture-occlusion ray and reports family, instance, decoded
+channels and shader state. `FAUNA` becomes its own debug class; architecture-
+only hides fauna and fauna-only isolate shows them. No fauna collision enters
+production.
+
+The safest order is now explicit:
+
+- **Slice A:** lighting model and packed channels on the existing five meshes;
+  add the shader include, channel helper and style harness, but do not touch the
+  lineage shader, root, room builder, lineage body, DreamWalk, profiles, GLBs or
+  imports.
+- **Slice B:** prove the chosen part pipeline on Tessellates alone.
+- **Slice C:** migrate the other four landed families.
+- **Slice D:** add collision-free DreamWalk inspection.
+
+Every slice preserves DreamFauna 16/16 and the shared dream/profile, room,
+pursuit, hazard, boundary, atlas, fractal-run, exposure, lineage and
+surface-target contracts, plus WalkTest FAST/FULL where relevant. Stop on any
+regression, shader error, plan/hazard/exposure/save mutation, draw growth more
+than two above FA2, a performance ceiling breach, an A/A floor over roughly
+twice the recorded 0.4068 noise, unreadable/overbright dark wine, or fauna
+brighter than woken wall gold.
+
+#### Owner rulings still required before FA-V1
+
+The review makes three proposals; ingestion is not approval:
+
+1. **Part pipeline:** supersede V7's Python/Blender one-GLB-per-family kit with
+   a cached in-engine `dream_fauna_parts.gd` ArrayMesh kit (`sweep`, `lathe`,
+   `ribbon`, `bead_chain`, `aperture_sweep`, `gem`, `assemble`), one surface and
+   at most 4,000 triangles per family. GLB becomes an explicit later exception
+   when a silhouette defeats parametrization.
+2. **Wine ordering:** bind dark-glow as lineage `0.018` < fauna `<= 0.10` <
+   hazard `0.55`: life is dimmer than danger, always. The fauna ceiling remains
+   owner-tunable until ruled.
+3. **Legacy selector:** retain `FAUNA_STYLE_LEGACY` only as the old/new proof
+   instrument through FA-V3, then remove it when FA-V5 closes rather than
+   allowing it to become permanent configuration.
+
+The review's secondary commensal anchor notes were authored against pre-C1
+state. They are not adopted here: C1 is already closed by the owner-directed
+street-lamp, F02 radiator/riser, 4B switch and named-hoarding proof at `e5db5c0`.
+Nothing in FA-V0 reopens or edits that checkpoint.

@@ -1576,7 +1576,8 @@ unresolved. K7's source-backed loop contract is closed in
 - **FA3–FA4 — DEFERRED BREADTH.** Succession and hyperdimensional families,
   then separately ruled audio. Dangerous fauna are excluded and require a
   future Gate-C-priced `DreamHazard` ruling.
-- **FA-V0 — VISUAL-SYSTEM COMPATIBILITY; CREATIVE RULINGS CLOSED.** The owner-
+- **FA-V0 DONE 2026-08-20 — VISUAL-SYSTEM COMPATIBILITY; THREE OWNER RULINGS
+  OPEN.** The owner-
   directed silhouette/texture/style addendum is ingested in
   `design/DREAM_FAUNA_BRIEF.md` V1–V9. Before changing landed FA1/FA2, reconcile
   three real seams: `dream_fauna.gdshader` currently emits a small amount of
@@ -1589,8 +1590,24 @@ unresolved. K7's source-backed loop contract is closed in
   carnelian anatomical iris without hazard ornament; the Bezel Beetle contains
   a shader-faked tiny Orison room; bounded family materials are allowed;
   PEARL life may cluster for readability; Deep Koi needs no GLB; and only tiny
-  cute geometry may exceed 1 Hz.
-- **FA-V1 — PROCEDURAL CLOISONNÉ PART KIT AND SHADER.** After FA-V0, build the
+  cute geometry may exceed 1 Hz. V10 records the completed adversarial audit:
+  migrate to unshaded lamp-cone evaluation, move bounded family materials to
+  batch `material_override`, adopt the exact packed instance/vertex-channel
+  contract, preserve five batches and prove dark/edge/full-beam output against
+  an equal-interval A/A floor. Its pre-C1 commensal appendix is superseded by
+  landed C1 and changes nothing. Before FA-V1 the owner must rule: in-engine
+  cached ArrayMesh parts versus V7's Python/Blender GLBs; the proposed lineage
+  `0.018` < fauna `<= 0.10` < hazard `0.55` dark-glow law; and whether the
+  legacy comparison selector survives through FA-V3 and is deleted at FA-V5.
+- **FA-V1 — PROCEDURAL CLOISONNÉ PART KIT AND SHADER (BLOCKED ON THREE FA-V0
+  OWNER RULINGS).** After those rulings, first migrate only the lighting model
+  and packed channels on the existing geometry: one maintained fauna shader
+  plus include, one shared encoder/decoder, family material overrides visible
+  to the existing molten collector, and a production-root three-light harness.
+  Do not touch the lineage shader, dream root, room builder, lineage body,
+  DreamWalk, profiles, GLBs or imports in this first slice. Then prove the ruled
+  part pipeline on Tessellates alone before migrating the other four families.
+  If the existing V7 pipeline remains authoritative, build the
   deterministic `build_dream_fauna_parts.py` curve/lathe/ribbon/aperture/gem
   kit with vertex region, curvature and joint weights, one GLB per mesh family
   and no bitmap skins or UV unwrap; Deep Koi remains surface displacement plus
