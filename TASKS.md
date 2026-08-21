@@ -1872,10 +1872,15 @@ RGBA+normal+roughness with a survival mask in alpha (a mask already);
 two material STATES bolted onto StandardMaterial3D surfaces; the dream's EN-1
 probe is a third. MX makes them one system.
 
-- **MX-0 — SURFACE CENSUS (OPEN).** For every surface class (masonry, finish
-  quads, floors, trims, wainscot, props via `MatLib`, glass, metals) list what
-  it ships today: maps, UV law, material type, mask, state overrides, cost
-  station. One table; it decides the order below.
+- **MX-0 DONE 2026-08-21 — SURFACE CENSUS.** `game/tests/SurfaceCensus.tscn`
+  measures the booted building: 9,242 surfaces, 9,162 StandardMaterial3D /
+  80 Shader; architecture albedo+normal+roughness only (AO 0, detail 0,
+  height on 36 surfaces via `HeightmapPass`), 4,113 `MatLib` triplanar
+  props, one authored mask (finish survival alpha), two states (coverage 26,
+  encroachment 22), 803 alpha-blends vs 157 scissors. Swap point = the
+  per-storey shared `M_<key>` materials (567) + `MatLib.get_mat`. Order for
+  MX-4 decided: masonry + finishes -> floors -> trims -> glTF furnishing ->
+  MatLib props. `art/renders/surface_census_mx0/README.md`.
 - **MX-1 — `orison_surface.gdshader` (OPEN).** One maintained layered shader:
   albedo, OpenGL normal, height with parallax/POM, packed ORM, detail
   albedo/normal at a second frequency, emission; optional clearcoat,
