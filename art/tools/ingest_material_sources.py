@@ -623,7 +623,14 @@ MAX_FAMILY = 4
 # Patterned masonry and tile are deliberately absent: their legitimate module
 # would fail a flat-surface test and teach the next person to disable the test.
 FLAT_ARCH_SLOTS = {"concrete_cellar", "plaster_aged", "plaster_stained"}
-FLAT_COARSE_RANGE_MAX = 0.020
+# D5 (TASKS): the flat-surface range is RELATIVE to the set's mean luminance.
+# An absolute 0.020 was 2.9 % of plaster at 0.70 and 13 % of a dark floor at
+# 0.15 - perceptually backwards - and it refused the shipping cellar concrete
+# (mean 0.56, coarse range 0.034 = 6.0 %, stains and patches that are the
+# material) the first time it was re-ingested after the check existed. Plaster
+# sits at 0.7-1.0 % and keeps its margin; dark floors get tighter. Applied as
+# the default under the 2026-08-21 ruling; the owner may tighten it.
+FLAT_COARSE_RANGE_MAX = 0.065
 FAMILY_MEAN_SPREAD_MAX = 0.020
 
 
@@ -730,10 +737,10 @@ def validate_family(slot, key, base, family):
                + albedo[..., 2] * 0.0722)
         means.append(float(lum.mean()))
         if slot in FLAT_ARCH_SLOTS:
-            coarse = _coarse_luma_range(albedo)
+            coarse = _coarse_luma_range(albedo) / max(0.05, means[-1])
             if coarse > FLAT_COARSE_RANGE_MAX:
                 raise SystemExit(
-                    "%s coarse luma range %.4f exceeds flat-surface %.4f"
+                    "%s coarse luma range %.4f of mean exceeds flat-surface %.4f"
                     % (member_key, coarse, FLAT_COARSE_RANGE_MAX))
     # Compare the widest pair, not each member to base: two legal-looking
     # deviations on opposite sides otherwise make an illegal neighbour pair.

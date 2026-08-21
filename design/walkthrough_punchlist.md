@@ -7,6 +7,12 @@ Live log for the room-by-room pass. One line per finding:
 Placement and rendering findings from any session land here, one line each,
 with the instrument that produced the finding named in the symptom.
 
+## 2026-08-21 generator watermark in the material sources
+
+| room | symptom | severity |
+|---|---|---|
+| every surface built from a Gemini source (2A bedroom brick first, owner-reported) | ~~A four-point sparkle glyph, ~96 px of 40 % white, sits ~190 px in from the bottom-right of 61 AI source photos; the ingest's seamless crossfade rolls it onto every tile and derives height/normal/roughness from it, so it repeats across whole walls in all four maps~~ FIXED 2026-08-21: `art/tools/scrub_source_watermarks.py` finds the glyph (synthetic star, band-passed NCC at the fixed inset, measured-alpha shape gate: 124 hits, 61 real, 63 ChatGPT false positives rejected by alpha ~ 0) and unblends it — recovers the texture underneath from a ring-fitted background, then matches the coarse level — on the SOURCES; 147 material sets re-ingested, GLBs/textures rebuilt. A hairline edge can remain on dark grounds (sub-3 mm on a wall); the 10 cm star is gone | resolved |
+
 ## 2026-08-21 WK-1 — the encroachment found the perimeter plaster facing the brick
 
 | room | symptom | severity |

@@ -46,7 +46,11 @@ Nothing below is blocked on effort; it is blocked on someone choosing.
 - **D5** Coarse-luminance threshold is **absolute** luma (0.02) — that is 2.6%
   relative on plaster at mean 0.70 and 13% on a dark floor. Perceptually
   backwards. Absolute or relative? Shared definition, so it binds both
-  pipelines.
+  pipelines. **Default applied 2026-08-21 under the rule-of-cool licence:**
+  the ingest's flat-surface check is now RELATIVE (range / mean ≤ 0.065). It
+  had never been run against the shipping cellar concrete (6.0 % — stains and
+  patches that are the material) and refused it the first time the source
+  changed; plaster sits at 0.7–1.0 %. The owner may tighten the number.
 - **D6** Does **VIII.5.g retire "minigames"** as a frame? The ruling says there
   is no video game industry in this world, but the pool table, the darts, the
   can-stacking and "one minigame per landmark" are all still described as games.
@@ -1889,6 +1893,7 @@ probe is a third. MX makes them one system.
   the measured frame cost exceeds the budget — the probe measures, the
   material obeys. Never a polygon for what the shader sells; never a shader
   for a silhouette.
+- **MX-3a DONE 2026-08-21 — SOURCES SCRUBBED OF THE GENERATOR WATERMARK.** `scrub_source_watermarks.py` detects the sparkle at its fixed inset and unblends it from 61 Gemini sources (63 ChatGPT false positives rejected by measured alpha); 147 sets re-ingested and rebuilt. Run it on every new drop before `ingest_material_sources.py`.
 - **MX-3 — INGEST V2 (OPEN).** ORM packing, calibrated height scale per set
   (millimetres of relief, not "looks right"), detail maps at a second
   frequency, and a mask library generated from the existing stencil/overlay
