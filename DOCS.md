@@ -56,7 +56,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | The proposed basement studio | `design/ORISON_STUDIO_BRIEF.md` *(proposal)* |
 | The narcolepsy dream / the maze | `design/ORISON_MAZE_BRIEF.md` *(ruled production design)*, then `game/docs/dream_boundary.md` for the landed scene/save seam and `game/docs/dream_onset.md` for the protected onset owner |
 | The ruled dream flora/fauna ecosystem and landed FA1–FA2 slices | `design/DREAM_FAUNA_BRIEF.md`, then `art/renders/dream_fauna_f1/README.md` and `art/renders/dream_fauna_fa2/README.md` |
-| Ruled waking-world vermin, birds and invasive flora | `design/ORISON_COMMENSALS_BRIEF.md` *(C1 ruled; later breadth gated)* |
+| Ruled waking-world vermin, birds and invasive flora | `design/ORISON_COMMENSALS_BRIEF.md` *(C1 landed; later breadth gated)* |
 | The no-screen radio and attached work light in the player's hand | `design/VANTRY_SERVICE_RADIOPHONE_BRIEF.md`, `game/docs/service_set.md` *(ruled and landed)* |
 | The HUD, telegram paper, type hierarchy and institutional world text | Bible §VIII.5.k, then `game/docs/telegram_style.md` *(ruled and landed)* |
 | How sound moves through the building | `game/data/acoustic_graph.json`, `game/docs/sanity_system.md` |

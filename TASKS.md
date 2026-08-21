@@ -370,7 +370,7 @@ aggregate, instantly rewarding in the hand.**
   confirm no other lane holds hunks, preserve them if it does, and stage every
   generator/output file by exact name. This is the PS12a lesson made an
   acceptance condition, not a note discovered after a conflict.
-- **E14 — COMMENSALS C1, MINIMUM PROVABLE SLICE (RULED; NO GENERATOR EDIT).** One
+- **E14 DONE 2026-08-20 — COMMENSALS C1, MINIMUM PROVABLE SLICE.** One
   low-Hz waking `CommensalDirector`; moths at the two Orison entry lamps;
   mice-in-the-riser audio on one F02 run; one habituated light-switch roach
   scatter in 4B's kitchen; one static hoarding-base weed cluster. Stateless,
@@ -379,10 +379,12 @@ aggregate, instantly rewarding in the hand.**
   separation, protected windows, zone/floor/roof gating and provenance from the
   existing street-lamp markers, 4B kitchen fixtures, riser identities and named
   hoarding geometry. Do not touch `gen_layout.py` in C1.
-  Re-run `WeatherPerf` under ≤ +3 draws/≤ +0.3 ms, measure director tick at
-  ≤ 0.1 ms, run atrium/lobby/roof A/A controls, and use a workstream-owned
-  proof folder while `art/renders/insitu/shots.md` belongs to another lane.
-- **E15 — COMMENSALS C2, WAKING BREADTH (BLOCKED BY A SUCCESSFUL C1).** Add
+  Landed without a generator edit: three shadowless MultiMeshes, shared
+  ambience playback and a switch-owner verdict. Focused proof is 19/19; tick is
+  1.5 µs; matched `WeatherPerf` is +3 submitted objects and the two-run mean is
+  +0.028 ms. Lobby/atrium/roof finals remain inside their A/A bands. Production
+  frames, provenance and exact numbers: `art/renders/orison_commensals_c1/README.md`.
+- **E15 — COMMENSALS C2, WAKING BREADTH (OPEN; C1 SUCCEEDED).** Add
   roosting pigeons and one proximity flush, rare validated rat gutter-runs,
   positional guano/web decals, and restrained Passage/B1 casts. Room 0 has no
   animal-exclusion rule. Maintain one

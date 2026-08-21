@@ -13,6 +13,11 @@ extends Node3D
 
 const PLATE := Vector3(0.16, 0.24, 0.06)
 
+## Consumers may react to the authoritative circuit verdict without polling
+## fixtures or duplicating switch ownership.  The switch remains the only
+## thing that changes room power.
+signal room_toggled(room_id: String, now_on: bool)
+
 var switches := 0
 
 var _layout: Dictionary = {}
@@ -171,4 +176,5 @@ func toggle_room(room_id: String) -> bool:
 	if flipped > 0:
 		print("[SWITCHES] %s -> %s (%d fixtures)"
 				% [room_id, "on" if now_on else "off", flipped])
+		room_toggled.emit(room_id, now_on)
 	return now_on

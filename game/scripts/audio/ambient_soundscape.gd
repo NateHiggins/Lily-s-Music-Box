@@ -72,6 +72,18 @@ func set_paranormal_focus(amount: float) -> void:
 	paranormal_focus = clampf(amount, 0.0, 1.0)
 
 
+## CommensalDirector schedules ordinary animal presence; this acoustic owner
+## retains source selection, pool priority, bus routing and ducking.  C1 is a
+## single sparse wall-scrape, never a cadence and never a new audio player.
+func request_commensal_cue(kind: String, at: Vector3) -> bool:
+	if kind != "mouse_riser" or _event_players.is_empty() \
+			or _stagger_guard > 0.0:
+		return false
+	_play_at("creak", at, -35.0, 1.58)
+	_stagger_guard = 5.0
+	return true
+
+
 func _on_case_changed(_case_id: String, state: Dictionary) -> void:
 	var stage: String = state.get("stage", "unseen")
 	if stage in ["active", "reopened", "recognized", "resistant"]:

@@ -224,6 +224,7 @@ var broadcast: BroadcastDirector
 var arcade_row: ArcadeRow
 var resident_routines: ResidentRoutines
 var switch_system: SwitchSystem
+var commensals: CommensalDirector
 var moon_fill: MoonFill
 var street_traffic: StreetTraffic
 var shots: ShotCapture
@@ -628,6 +629,12 @@ func _ready() -> void:
 	add_child(weather)
 	weather.build_reflections(layout)
 	day_night_director.bind_weather(weather, exterior_detail_pass)
+	if OS.get_environment("PERF_COMMENSALS_OFF") != "1":
+		commensals = CommensalDirector.new()
+		commensals.name = "CommensalDirector"
+		add_child(commensals)
+		commensals.setup(self, layout, switch_system, ambient_soundscape,
+				day_night_director, player)
 	# DayNightDirector carries no signal -- resolved_profile() is a pull API --
 	# so the passage pass polls it. Slowly: the hour moves in minutes and two
 	# spot uniforms are not worth a per-frame visit.
@@ -2455,6 +2462,8 @@ func _apply_visibility(p: Vector3) -> void:
 	# direction even where both gates own the same F01 node.
 	_set_street_core_visibility(not _point_is_low_street(p))
 	_set_passage_visibility(in_passage)
+	if commensals:
+		commensals.set_visibility_context(p)
 	var in_eye := absf(p.x) < 3.7 and p.z > -3.7 and p.z < 6.9
 	# Outside the shell you are looking AT the building, and a
 	# building that renders two storeys is a stage flat. The envelope is 28
