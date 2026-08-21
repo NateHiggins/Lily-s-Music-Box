@@ -853,7 +853,10 @@ func _measure_dream(name: String, at: Vector3, yaw: float,
 	if _dream.fauna != null:
 		var fauna_off := OS.get_environment("PERF_DREAM_FAUNA_OFF") == "1"
 		_dream.fauna.visible = not fauna_off
-		_dream.fauna.set_physics_process(not fauna_off)
+		# Render A/B must not also compare a frozen ecosystem with an advancing
+		# one. Both arms price the same realized slots; the control changes only
+		# whether those five batches enter the renderer.
+		_dream.fauna.set_physics_process(false)
 	_dream.player.position = at
 	_dream.player.rotation.y = yaw
 	_dream.player.camera.rotation.x = 0.0

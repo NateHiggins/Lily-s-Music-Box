@@ -381,10 +381,14 @@ important ways:
    wine dark-glow remains in `ALBEDO`. `EMISSION`, `METALLIC` and `ROUGHNESS`
    writes leave the fauna shader. Cone-edge Fresnel supplies the gilt rim; no
    fauna owns or creates a light.
-2. Fauna materials move from mesh surfaces to each batch root's
-   `material_override`. This preserves five family batches and their draw count
-   while allowing the existing molten-material collector to discover and feed
-   them. Do not widen or special-case the collector in `dream_maze_root.gd`.
+2. The audit proposed moving fauna materials to each batch root's
+   `material_override`. Production measurement contradicted its draw-count
+   assumption: Compatibility expanded the waking delta from landed +4 calls to
+   +24/+25. The proved boundary keeps each material on its batch mesh surface
+   and exposes the same five objects through invisible, zero-mesh material-
+   binding nodes. The existing molten collector discovers and feeds them; the
+   bindings submit zero draws. Do not widen or special-case
+   `dream_maze_root.gd`.
 3. Four unstructured custom floats are insufficient for the visual doctrine.
    A shared GDScript encoder/decoder and the shader include own this exact
    packing. `INSTANCE_CUSTOM.r` is full-precision identity phase. `.g` packs an
@@ -432,9 +436,9 @@ than two above FA2, a performance ceiling breach, an A/A floor over roughly
 twice the recorded 0.4068 noise, unreadable/overbright dark wine, or fauna
 brighter than woken wall gold.
 
-#### Owner rulings still required before FA-V1
+#### Owner rulings closed 2026-08-20
 
-The review makes three proposals; ingestion is not approval:
+The owner approved the review with one lifecycle correction:
 
 1. **Part pipeline:** supersede V7's Python/Blender one-GLB-per-family kit with
    a cached in-engine `dream_fauna_parts.gd` ArrayMesh kit (`sweep`, `lathe`,
@@ -442,13 +446,27 @@ The review makes three proposals; ingestion is not approval:
    at most 4,000 triangles per family. GLB becomes an explicit later exception
    when a silhouette defeats parametrization.
 2. **Wine ordering:** bind dark-glow as lineage `0.018` < fauna `<= 0.10` <
-   hazard `0.55`: life is dimmer than danger, always. The fauna ceiling remains
-   owner-tunable until ruled.
+   hazard `0.55`: life is dimmer than danger, always. The owner ruled `0.10` as
+   the ceiling; proof may tune downward, never upward.
 3. **Legacy selector:** retain `FAUNA_STYLE_LEGACY` only as the old/new proof
-   instrument through FA-V3, then remove it when FA-V5 closes rather than
-   allowing it to become permanent configuration.
+   instrument through FA-V3, then remove it in FA-V3 closeout. FA-V5 may remain
+   gated indefinitely and cannot be allowed to turn a temporary diagnostic
+   into permanent configuration.
 
 The review's secondary commensal anchor notes were authored against pre-C1
 state. They are not adopted here: C1 is already closed by the owner-directed
 street-lamp, F02 radiator/riser, 4B switch and named-hoarding proof at `e5db5c0`.
 Nothing in FA-V0 reopens or edits that checkpoint.
+
+### V11. FA-V1 Slices A/B — proved 2026-08-20
+
+The lighting/channel seam and the Tessellates-only part-kit proof are landed in
+`art/renders/dream_fauna_v3/README.md`. Focused proof is 21/21; all named shared
+dream suites and WalkTest FAST/FULL pass. The final same-realization performance
+control is at most +3 calls and 0.00 ms, and the 24-frame production harness
+proves A/A, dark, edge, full-beam and legacy/new states. The attributed
+Tessellates mesh has one surface and pinned SHA-256
+`37406ea797a95c3d3929416834a704b3049b7aa2628066594732197560b3bf3e`.
+
+This closes Slices A/B only. Slice C still migrates Buttons, Anemones,
+Ribbonettes and Loupe; Slice D still adds collision-free DreamWalk inspection.

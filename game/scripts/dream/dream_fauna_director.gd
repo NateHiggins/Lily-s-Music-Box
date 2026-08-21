@@ -6,6 +6,13 @@ const MAX_INSTANCES := 96
 const TICK_S := 1.0 / 3.0
 const HUSH_RADIUS := 4.0
 const FAUNA_SHADER := preload("res://shaders/dream_fauna.gdshader")
+const LEGACY_FAUNA_SHADER := preload("res://shaders/dream_fauna_legacy.gdshader")
+const WINE := Color("55152f")
+const GOLD := Color(0.72, 0.40, 0.09)
+const EMERALD := Color(0.180, 0.404, 0.360)
+const CARNELIAN := Color(0.451, 0.098, 0.106)
+const LAPIS := Color(0.145, 0.216, 0.463)
+const FAUNA_DARK_GLOW := 0.10
 
 var rooms: DreamRoomBuilder
 var player: Node3D
@@ -18,6 +25,7 @@ var _tessellates: MultiMeshInstance3D
 var _anemones: MultiMeshInstance3D
 var _ribbonettes: MultiMeshInstance3D
 var _loupe: MultiMeshInstance3D
+var _material_bindings: Node3D
 var _census := {"buttons": 0, "tessellates": 0, "rooms": 0,
 		"anemones": 0, "ribbonettes": 0, "loupe": 0,
 		"hushed": 0, "submerged": 0}
@@ -29,15 +37,22 @@ func setup(room_owner: DreamRoomBuilder, body: Node3D, tenant: Node3D,
 		exposure_owner: DreamExposureField) -> void:
 	name = "DreamFaunaDirector"
 	rooms = room_owner; player = body; pursuer = tenant; exposure = exposure_owner
+	_material_bindings = Node3D.new()
+	_material_bindings.name = "FaunaMaterialBindings"
+	add_child(_material_bindings)
 	var button := SphereMesh.new(); button.radial_segments = 12; button.rings = 6
-	_buttons = _make_batch("GildersButtons", button, Color("5f1827"), 0.03)
-	_tessellates = _make_batch("Tessellates", _tessellate_mesh(),
-			Color("8a6425"), 0.10)
+	_buttons = _make_batch("GildersButtons", button, WINE, EMERALD,
+			0.03, 1.8, 0.0)
+	_tessellates = _make_batch("Tessellates", DreamFaunaParts.tessellates(),
+			WINE, EMERALD, 0.10, 1.8, 1.0, true)
 	_anemones = _make_batch("WineAnemones", _anemone_mesh(),
-			Color("7a174d"), 0.055)
+			WINE, LAPIS, 0.055, 0.55, 2.0)
 	_ribbonettes = _make_batch("Ribbonettes", _ribbonette_mesh(),
-			Color("a52e72"), 0.085)
-	_loupe = _make_batch("TheLoupe", _loupe_mesh(), Color("51295f"), 0.035)
+			WINE, LAPIS, 0.085, 0.45, 3.0)
+	_loupe = _make_batch("TheLoupe", _loupe_mesh(), WINE, CARNELIAN,
+			0.035, 0.08, 4.0)
+	if OS.get_environment("FAUNA_STYLE_LEGACY") == "1":
+		set_legacy_style_for_proof(true)
 	refresh()
 
 func _physics_process(delta: float) -> void:
@@ -132,7 +147,9 @@ func refresh() -> void:
 			var at := centre + Vector3(cos(a)*0.72, 0.025, sin(a)*0.72)
 			button_xforms.append(Transform3D(Basis().scaled(
 					Vector3(0.20, 0.035, 0.20)), at))
-			button_custom.append(Color(phase, 0.2, 0.0, feed))
+			button_custom.append(DreamFaunaChannels.encode(phase, feed, feed,
+					DreamFaunaChannels.FLAG_PEARL_COLONY, 0.0,
+					_genome(phase, i, 0.37), _genome(phase, i, 0.71)))
 		for i in tess_count:
 			if _total_instances(button_xforms,tess_xforms,anemone_xforms,
 					ribbon_xforms,loupe_xforms) >= MAX_INSTANCES: break
@@ -150,7 +167,10 @@ func refresh() -> void:
 			var size := 0.82 + 0.08 * float(i % 3)
 			tess_xforms.append(Transform3D(Basis().scaled(
 					Vector3(size, size * 0.72, size)), at))
-			tess_custom.append(Color(phase+float(i)*0.11, feed, 0.0 if hush else 1.0, feed))
+			var tess_flags := DreamFaunaChannels.FLAG_HUSH if hush else 0
+			tess_custom.append(DreamFaunaChannels.encode(phase+float(i)*0.11, feed,
+					emergence, tess_flags, 0.0 if hush else 1.0,
+					_genome(phase, i, 1.13), _genome(phase, i, 1.79)))
 		for i in anemone_count:
 			if _total_instances(button_xforms,tess_xforms,anemone_xforms,
 					ribbon_xforms,loupe_xforms) >= MAX_INSTANCES: break
@@ -159,8 +179,11 @@ func refresh() -> void:
 			at.y = -0.12 if hush else 0.10
 			if hush: submerged_count += 1
 			anemone_xforms.append(Transform3D(Basis().scaled(Vector3.ONE*1.12),at))
-			anemone_custom.append(Color(phase+float(i)*0.09,1.0-feed,
-					0.0 if hush else 1.0,float(state.detritus)))
+			var anemone_flags := DreamFaunaChannels.FLAG_HUSH if hush else 0
+			anemone_custom.append(DreamFaunaChannels.encode(phase+float(i)*0.09,
+					1.0-feed, float(state.detritus), anemone_flags,
+					0.0 if hush else 1.0, _genome(phase, i, 2.11),
+					_genome(phase, i, 2.73)))
 		for i in ribbon_count:
 			if _total_instances(button_xforms,tess_xforms,anemone_xforms,
 					ribbon_xforms,loupe_xforms) >= MAX_INSTANCES: break
@@ -169,8 +192,12 @@ func refresh() -> void:
 			if hush: at=frame+Vector3(0.0,-0.20,0.0); submerged_count+=1
 			ribbon_xforms.append(Transform3D(Basis(Vector3.UP,a).scaled(
 					Vector3.ONE*(1.18+float(i)*0.06)),at))
-			ribbon_custom.append(Color(phase+float(i)*0.17,float(state.grazer),
-					0.0 if hush else 1.0,feed))
+			var ribbon_flags := DreamFaunaChannels.FLAG_COURTSHIP
+			if hush: ribbon_flags |= DreamFaunaChannels.FLAG_HUSH
+			ribbon_custom.append(DreamFaunaChannels.encode(phase+float(i)*0.17,
+					float(state.grazer), feed, ribbon_flags,
+					0.0 if hush else 1.0, _genome(phase, i, 3.17),
+					_genome(phase, i, 3.91)))
 		if float(state.predator)>loupe_strength:
 			loupe_strength=float(state.predator)
 			loupe_room={"centre":centre,"frame":frame,"phase":phase,"hush":hush}
@@ -189,8 +216,13 @@ func refresh() -> void:
 		var at:Vector3=loupe_room.frame.lerp(loupe_room.centre,0.68)
 		if bool(loupe_room.hush): at=loupe_room.frame+Vector3(0.0,-0.38,0.0); submerged_count+=1; hushed_count+=1
 		loupe_xforms.append(Transform3D(Basis(Vector3.UP,float(loupe_room.phase)*TAU),at))
-		loupe_custom.append(Color(float(loupe_room.phase),loupe_strength,
-				0.0 if bool(loupe_room.hush) else 1.0,loupe_strength))
+		var loupe_flags := DreamFaunaChannels.FLAG_CAMERA_TRACKER
+		if bool(loupe_room.hush): loupe_flags |= DreamFaunaChannels.FLAG_HUSH
+		loupe_custom.append(DreamFaunaChannels.encode(float(loupe_room.phase),loupe_strength,
+				loupe_strength, loupe_flags,
+				0.0 if bool(loupe_room.hush) else 1.0,
+				_genome(float(loupe_room.phase), 0, 4.19),
+				_genome(float(loupe_room.phase), 0, 4.83)))
 	_apply(_buttons, button_xforms, button_custom)
 	_apply(_tessellates, tess_xforms, tess_custom)
 	_apply(_anemones,anemone_xforms,anemone_custom)
@@ -229,6 +261,17 @@ func realization_signature() -> String: return _signature
 func room_signature(room_key: String) -> String:
 	return str(_room_signatures.get(room_key, ""))
 
+## Temporary FA-V1/FA-V3 old/new proof instrument. Owner ruling requires this
+## method, its environment switch and the legacy shader to leave at FA-V3
+## closeout; they are diagnostics, never production configuration.
+func set_legacy_style_for_proof(enabled: bool) -> void:
+	for child in get_children():
+		var batch := child as MultiMeshInstance3D
+		if batch == null: continue
+		var material := batch.multimesh.mesh.surface_get_material(0) as ShaderMaterial
+		if material != null:
+			material.shader = LEGACY_FAUNA_SHADER if enabled else FAUNA_SHADER
+
 func _sync_densities(live: Array) -> void:
 	var keep := {}
 	for room in live:
@@ -253,39 +296,42 @@ func _realization_signature(button_xforms: Array[Transform3D],
 		rows.append("t:%s:%s" % [tess_xforms[i].origin, tess_custom[i]])
 	return "|".join(rows)
 
-func _make_batch(label: String, mesh: Mesh, color: Color, gait: float) -> MultiMeshInstance3D:
+func _make_batch(label: String, mesh: Mesh, color: Color, jewel: Color,
+		gait: float, gait_hz: float, motif: float,
+		vertex_channels_ready := false) -> MultiMeshInstance3D:
 	var material := ShaderMaterial.new(); material.shader = FAUNA_SHADER
 	material.set_shader_parameter("base_color", color)
-	material.set_shader_parameter("gold_color", color.lightened(0.22))
+	material.set_shader_parameter("gold_color", GOLD)
+	material.set_shader_parameter("jewel_color", jewel)
 	material.set_shader_parameter("gait_amount", gait)
+	material.set_shader_parameter("gait_hz", gait_hz)
+	material.set_shader_parameter("family_motif", motif)
+	material.set_shader_parameter("fauna_dark_glow", FAUNA_DARK_GLOW)
+	material.set_shader_parameter("vertex_channels_ready",
+			1.0 if vertex_channels_ready else 0.0)
+	var node := MultiMeshInstance3D.new(); node.name = label
+	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	if mesh is PrimitiveMesh:
 		(mesh as PrimitiveMesh).material = material
 	else:
 		mesh.surface_set_material(0, material)
-	var node := MultiMeshInstance3D.new(); node.name = label
-	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	# Compatibility expands a MultiMesh material_override into per-instance
+	# waking-view submissions. A zero-mesh, invisible binding lets the existing
+	# root collector discover this exact material without entering any render
+	# pass; the batch keeps the same material on its sole mesh surface.
+	var binding := MeshInstance3D.new()
+	binding.name = label+"MaterialBinding"
+	binding.visible = false
+	binding.material_override = material
+	_material_bindings.add_child(binding)
 	add_child(node)
 	var batch := MultiMesh.new(); batch.transform_format = MultiMesh.TRANSFORM_3D
 	batch.use_custom_data = true; batch.mesh = mesh; node.multimesh = batch
 	return node
 
-func _tessellate_mesh() -> ArrayMesh:
-	# One faceted grazer mesh, still submitted as one family MultiMesh. A low
-	# body, four mineral feet and a smaller leading facet make "walking life"
-	# legible without rigs, per-creature nodes or a second draw.
-	var tool := SurfaceTool.new(); tool.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var body := SphereMesh.new(); body.radius = 0.15; body.height = 0.20
-	body.radial_segments = 8; body.rings = 4
-	tool.append_from(body, 0, Transform3D.IDENTITY)
-	var head := SphereMesh.new(); head.radius = 0.085; head.height = 0.12
-	head.radial_segments = 8; head.rings = 3
-	tool.append_from(head, 0, Transform3D(Basis(), Vector3(0.0, 0.01, -0.16)))
-	var foot := BoxMesh.new(); foot.size = Vector3(0.045, 0.11, 0.045)
-	for x in [-0.085, 0.085]:
-		for z in [-0.065, 0.075]:
-			tool.append_from(foot, 0, Transform3D(Basis(), Vector3(x, -0.105, z)))
-	tool.generate_normals()
-	return tool.commit()
+func _genome(phase: float, index: int, salt: float) -> float:
+	return fposmod(sin(phase * 91.7 + float(index) * 17.31 + salt) * 43758.5453,
+			1.0)
 
 func _anemone_mesh() -> ArrayMesh:
 	var tool:=SurfaceTool.new(); tool.begin(Mesh.PRIMITIVE_TRIANGLES)

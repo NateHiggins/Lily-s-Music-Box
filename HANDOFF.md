@@ -79,11 +79,17 @@ The owner-directed fauna visual addendum is now queued in
 silhouettes and a three-light proof system, reconciled with the rule of cool.
 It is not landed and does not erase FA1/FA2. FA-V0's read-only adversarial audit
 is now ingested in V10: the unshaded lamp-cone migration, exact packed channels,
-batch material overrides, production three-light/A-A harness and four-slice
-order are specified. FA-V1 remains blocked on three explicit owner rulings:
-in-engine ArrayMesh parts versus the V7 Python/Blender GLB kit; the proposed
-`0.018 < fauna <= 0.10 < 0.55` dark-glow ordering; and the diagnostic legacy
-selector's FA-V3-through-FA-V5 lifetime. The audit's pre-C1 anchor appendix is
+bounded material feed, production three-light/A-A harness and four-slice
+order are specified. The owner ruled the cached in-engine ArrayMesh kit with
+named GLB exceptions, the `0.018 < fauna <= 0.10 < 0.55` dark-glow ordering
+(tunable downward by proof), and deletion of the temporary legacy selector at
+FA-V3 closeout. FA-V1 Slices A/B are now proved: all five families use the
+packed unshaded style seam, Tessellates alone uses the cached attributed part
+kit, and the final render A/B costs at most +3 calls / 0.00 ms. The permanent
+batch-override proposal was rejected by contradictory +24/+25-call evidence;
+five zero-mesh binding nodes preserve the unchanged root owner at zero draws.
+Proof is `art/renders/dream_fauna_v3/README.md`; Slice C's other four forms and
+Slice D DreamWalk remain open. The audit's pre-C1 anchor appendix is
 superseded and does not reopen the landed commensal proof. Separately, waking-world
 commensals C1 is now landed: moths at the two owner-derived entry street lamps,
 one sparse F02 riser mouse cue through the shared ambience pool, one habituated
