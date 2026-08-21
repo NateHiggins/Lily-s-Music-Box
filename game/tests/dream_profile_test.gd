@@ -18,6 +18,8 @@ const MAE_CASE := "mae_contradictory_antiques"
 const MAE_PROFILE := "mae_release_print"
 const CAL_CASE := "cal_memory_radio"
 const CAL_PROFILE := "cal_release_print"
+const OMAR_CASE := "omar_unrepairable"
+const OMAR_PROFILE := "omar_release_print"
 const PROFILE_PATH := "res://data/dream_profiles.json"
 const CASE_PATH := "res://data/reality_cases.json"
 
@@ -47,9 +49,10 @@ func _data_contract(profiles: Dictionary) -> void:
 	var juno: Dictionary = profiles.get(JUNO_PROFILE, {})
 	var mae: Dictionary = profiles.get(MAE_PROFILE, {})
 	var cal: Dictionary = profiles.get(CAL_PROFILE, {})
-	_check("the shared book contains five ruled profiles",
+	var omar: Dictionary = profiles.get(OMAR_PROFILE, {})
+	_check("the shared book contains six ruled profiles",
 			not mina.is_empty() and not peter.is_empty() and not juno.is_empty()
-			and not mae.is_empty() and not cal.is_empty())
+			and not mae.is_empty() and not cal.is_empty() and not omar.is_empty())
 	_check("Peter is the second campaign profile",
 			str(peter.get("case_id", "")) == PETER_CASE
 			and int(peter.get("campaign_slot", 0)) == 2)
@@ -112,6 +115,20 @@ func _data_contract(profiles: Dictionary) -> void:
 			and not cal_maze.has("channel_echo_event")
 			and not cal_maze.has("convergence_return_event")
 			and (cal.get("hazards", {}) as Dictionary).get("allow", []).is_empty())
+	var omar_maze: Dictionary = omar.get("maze", {})
+	_check("Omar is slot six with the waking case's exact unrepairable truth",
+			str(omar.get("case_id", "")) == OMAR_CASE
+			and int(omar.get("campaign_slot", 0)) == 6
+			and str((omar.get("truth", {}) as Dictionary).get("statement", ""))
+					== str((cases.get(OMAR_CASE, {}) as Dictionary).get("portal_rule", "")))
+	_check("Omar requests only the generic revisit-fault presentation",
+			str(omar_maze.get("revisit_fault_event", ""))
+					== "impossible_fault_revealed"
+			and not omar_maze.has("junction_reverse_event")
+			and not omar_maze.has("channel_echo_event")
+			and not omar_maze.has("convergence_return_event")
+			and not omar_maze.has("broadcast_handoff_event")
+			and (omar.get("hazards", {}) as Dictionary).get("allow", []).is_empty())
 
 
 func _root_contract() -> void:
@@ -220,6 +237,18 @@ func _root_contract() -> void:
 			str(cal.active_case_truth().get("statement", ""))
 					== "Presence is not preservation")
 	cal.queue_free()
+	await get_tree().process_frame
+
+	var omar := await _spawn_root(OMAR_CASE, OMAR_PROFILE)
+	_check("slot six reads the authored 90-second ceiling",
+			is_equal_approx(omar.run_cap_s, 90.0))
+	_check("the shared pursuer borrows Omar and arms no foreign hazard",
+			omar.pursuer.silhouette_source == "omar_bell"
+			and omar.hazards.hazards.is_empty())
+	_check("a revealed fault does not refresh pursuit; inspecting costs ordinary time",
+			not omar.pursuer.notify_profile_event("impossible_fault_revealed")
+			and int(omar.pursuer.run_parameters().profile_event_count) == 0)
+	omar.queue_free()
 	await get_tree().process_frame
 
 
@@ -385,6 +414,57 @@ func _grammar_contract(profiles: Dictionary) -> void:
 			and cal_builder.channel_partition_count() == 0)
 	cal_plot.queue_free()
 	await get_tree().process_frame
+
+	var omar: Dictionary = profiles.get(OMAR_PROFILE, {})
+	var omar_atlas := DreamAtlas.new()
+	omar_atlas.setup(SEED_HEX, 6, OMAR_CASE)
+	var omar_builder := DreamRoomBuilder.new()
+	omar_builder.setup(omar_atlas, [], omar.get("maze", {}))
+	var omar_plot := Node3D.new()
+	add_child(omar_plot)
+	omar_builder.advance(omar_plot, PackedInt32Array())
+	var home_key := DreamRoomBuilder.key_of(PackedInt32Array())
+	var child_key := ""
+	for door in DreamRoomBuilder.passable_doors(omar_builder.room_at_key(home_key)):
+		if int(door.get("index", -1)) > 0:
+			child_key = str(door.get("leads_to", ""))
+			if not child_key.is_empty():
+				break
+	var first_cross := omar_builder.apply_profile_transition(
+			omar_plot, home_key, child_key)
+	var before_home_doors: Array = (omar_builder.room_at_key(home_key).doors
+			as Array).duplicate(true)
+	var first_fault := omar_builder.apply_profile_transition(
+			omar_plot, child_key, home_key)
+	var machine_id := str(first_fault.get("object_id", ""))
+	var child_fault := omar_builder.apply_profile_transition(
+			omar_plot, home_key, child_key)
+	var second_fault := omar_builder.apply_profile_transition(
+			omar_plot, child_key, home_key)
+	_check("a first visit creates no fault and every revisit adds one",
+			first_cross.is_empty() and not first_fault.is_empty()
+			and not child_fault.is_empty() and not second_fault.is_empty()
+			and int(first_fault.get("fault_count", 0)) == 1
+			and int(second_fault.get("fault_count", 0)) == 2)
+	_check("new faults remain on one stable room-machine identity",
+			not machine_id.is_empty()
+			and machine_id == str(second_fault.get("object_id", ""))
+			and omar_plot.find_child("StableRepairMachine", true, false) != null
+			and _max_profile_instances(omar_plot, "ImpossibleFault") == 2)
+	_check("fault revelation changes no existing threshold or door fact",
+			before_home_doors == omar_builder.room_at_key(home_key).doors
+			and omar_builder.channel_partition_count() == 0)
+	omar_plot.queue_free()
+	await get_tree().process_frame
+
+
+func _max_profile_instances(root: Node, node_name: String) -> int:
+	var maximum := 0
+	for node in root.find_children(node_name, "MultiMeshInstance3D", true, false):
+		var instance := node as MultiMeshInstance3D
+		if instance.multimesh != null:
+			maximum = maxi(maximum, instance.multimesh.instance_count)
+	return maximum
 
 
 func _broadcast_walk(builder: DreamRoomBuilder, plot: Node3D,

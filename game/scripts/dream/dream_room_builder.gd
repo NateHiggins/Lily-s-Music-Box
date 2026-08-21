@@ -156,6 +156,8 @@ var _profile_partitions: Array[Dictionary] = []
 var _broadcast_rooms: Dictionary = {}
 var _broadcast_handoffs := 0
 var _broadcast_drained := false
+var _profile_visited_rooms: Dictionary = {}
+var _revisit_fault_counts: Dictionary = {}
 
 ## THE ROOM YOU OPEN YOUR EYES IN DOES NOT ARM.
 ##
@@ -215,6 +217,8 @@ func setup(dream_atlas: DreamAtlas, hazard_allowlist: Array = [],
 	_broadcast_rooms.clear()
 	_broadcast_handoffs = 0
 	_broadcast_drained = false
+	_profile_visited_rooms.clear()
+	_revisit_fault_counts.clear()
 	var constants: Dictionary = catalog.get("constants", {})
 	clear_ceiling = float(constants.get("clear_ceiling_m", 3.015))
 	run_speed = float(constants.get("player_run_speed_mps", 4.6))
@@ -238,6 +242,9 @@ func apply_profile_transition(parent: Node3D, from_key: String,
 	var broadcast := _apply_broadcast_handoff(from_key, to_key)
 	if not broadcast.is_empty():
 		return broadcast
+	var fault := _apply_revisit_fault(from_key, to_key)
+	if not fault.is_empty():
+		return fault
 	var convergence := _apply_convergence_return(parent, from_key, to_key)
 	if not convergence.is_empty():
 		return convergence
@@ -333,6 +340,34 @@ func _apply_broadcast_handoff(from_key: String, to_key: String) -> Dictionary:
 func broadcast_state() -> Dictionary:
 	return {"handoffs": _broadcast_handoffs, "drained": _broadcast_drained,
 			"rooms": _broadcast_rooms.keys()}
+
+
+## Omar's machine remains one stable room-owned identity. Crossing into a room
+## for the first time merely remembers it; every later return reveals one more
+## impossible fault on that same machine. The rebuild adds presentation only:
+## no door, route, collision, hazard or save fact changes. The event is not a
+## pursuit attention event, so leaving immediately preserves ordinary distance;
+## choosing to inspect simply spends ordinary pursuit time.
+func _apply_revisit_fault(from_key: String, to_key: String) -> Dictionary:
+	var event_name := str(profile_grammar.get("revisit_fault_event", ""))
+	if event_name.is_empty() or from_key.is_empty() or to_key.is_empty() \
+			or from_key == to_key or not _live.has(from_key) or not _live.has(to_key):
+		return {}
+	_profile_visited_rooms[from_key] = true
+	var revisited := _profile_visited_rooms.has(to_key)
+	_profile_visited_rooms[to_key] = true
+	if not revisited:
+		return {}
+	var count := int(_revisit_fault_counts.get(to_key, 0)) + 1
+	_revisit_fault_counts[to_key] = count
+	var target: Dictionary = _live[to_key]
+	target["revisit_machine"] = true
+	target["revisit_fault_count"] = count
+	target["revisit_machine_id"] = "machine_%s" % to_key
+	_live[to_key] = target
+	_rebuild(target)
+	return {"event": event_name, "room": to_key, "fault_count": count,
+			"object_id": str(target.revisit_machine_id)}
 
 
 ## Two ordinary reciprocal branches may return to one remembered junction.
@@ -1728,10 +1763,44 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 	_build_profile_form_stamp(node, room)
 	_build_channel_partition_skin(node, room)
 	_build_contradictory_antique(node, room)
+	_build_revisit_machine(node, room)
 	_build_orison_interior(node, room)
 	_build_orison_furnishing(node, room)
 	_build_lineage_body(node, room)
 	return node
+
+
+## A stable tool-steel machine body with additive wine fracture marks. These
+## batches are readable evidence only: neither mesh owns collision or action.
+func _build_revisit_machine(parent: Node3D, room: Dictionary) -> void:
+	if not bool(room.get("revisit_machine", false)):
+		return
+	var r: Array = room.rect
+	var centre := Vector3((float(r[0]) + float(r[2])) * 0.5, 0.0,
+			(float(r[1]) + float(r[3])) * 0.5)
+	var steel := StandardMaterial3D.new()
+	steel.albedo_color = Color("20242a")
+	steel.metallic = 0.82
+	steel.roughness = 0.42
+	var wine := StandardMaterial3D.new()
+	wine.albedo_color = Color("651c35")
+	wine.metallic = 0.54
+	wine.roughness = 0.30
+	wine.emission_enabled = true
+	wine.emission = Color("3d0d24")
+	wine.emission_energy_multiplier = 1.2
+	_profile_stamp_instances(parent, "StableRepairMachine", steel, [{
+			"size": Vector3(0.92, 0.78, 0.58),
+			"at": centre + Vector3.UP * 0.39}])
+	var faults: Array[Dictionary] = []
+	for i in mini(int(room.get("revisit_fault_count", 0)), 8):
+		var side := -1.0 if i % 2 == 0 else 1.0
+		faults.append({"size": Vector3(0.035, 0.46 - float(i % 3) * 0.07,
+				0.025), "at": centre + Vector3(side * (0.10 + float(i / 2) * 0.07),
+				0.42 + float(i % 3) * 0.05, -0.306),
+				"axis": Vector3.FORWARD,
+				"angle": deg_to_rad(side * (18.0 + float(i % 4) * 11.0))})
+	_profile_stamp_instances(parent, "ImpossibleFault", wine, faults)
 
 
 ## One object, two mutually exclusive records. Geometry never swaps: later

@@ -15,6 +15,8 @@ const CASES := {
 			"double_reflection", "shared_thumbprint", "held_shared_thumbprint"],
 	"cal": ["cal_memory_radio", "cal_release_print", 5,
 			"completed_phrase", "warm_handprint", "held_warm_handprint"],
+	"omar": ["omar_unrepairable", "omar_release_print", 6,
+			"honest_seam", "laid_down_tool", "held_laid_down_tool"],
 }
 
 var root: DreamMazeRoot

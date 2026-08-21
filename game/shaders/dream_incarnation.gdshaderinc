@@ -1,5 +1,5 @@
-// Shared six-incarnation surface path. Ordered production incarnations branch
-// here; later profile ids remain exact pass-through until their gate lands.
+// Shared six-incarnation surface path. All ordered production incarnations
+// branch here through one bounded presentation profile.
 // Roughness is packed in albedo alpha; height is packed in normal alpha.
 uniform sampler2D incarnation_albedo_0 : source_color, filter_linear_mipmap, repeat_enable;
 uniform sampler2D incarnation_albedo_1 : source_color, filter_linear_mipmap, repeat_enable;
@@ -11,6 +11,10 @@ uniform sampler2D incarnation_normal_2 : hint_normal, filter_linear_mipmap, repe
 uniform sampler2D incarnation_normal_3 : hint_normal, filter_linear_mipmap, repeat_enable;
 uniform sampler2D reflected_world : source_color, hint_default_black, filter_linear_mipmap, repeat_enable;
 uniform float incarnation_stillness : hint_range(0.0, 1.0) = 0.0;
+
+float incarnation_hash(vec2 p) {
+	return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
 
 vec4 incarnation_antitile(sampler2D plate, vec2 uv, float seed) {
 	vec2 cell = floor(uv * 0.071 + seed);
@@ -289,6 +293,58 @@ vec4 cal_surface(vec3 world, vec2 uv, float retained, float molten,
 	return vec4(colour, roughness);
 }
 
+// Omar: inspection can reveal every fracture, while gold refuses to lie that
+// a flowing seam has set. The hovering film is a surface response only.
+vec4 omar_surface(vec3 world, vec2 uv, float retained, float molten,
+		float awake, float grazing, int slot) {
+	vec4 steel = incarnation_substance(0, uv * 0.86);
+	vec4 fracture = incarnation_substance(1, uv * 0.74 + 3.8);
+	vec4 solder = incarnation_substance(2, uv * 0.91 - 5.4);
+	vec4 enamel = incarnation_substance(3, uv * 0.82 + 8.1);
+	vec4 selected = incarnation_substance(slot, uv * 0.84);
+	float rate = min(incarnation_motion.x, 0.99);
+	float drift = TIME * rate * 6.2831853 + incarnation_motion.y;
+	vec2 cell = floor(uv * 0.085);
+	vec2 local = fract(uv * 0.085) - 0.5;
+	float branch_a = abs(local.y - sin(local.x * 9.0 + incarnation_hash(cell) * 5.7)
+		* (0.12 + retained * 0.08));
+	float branch_b = abs(local.x + local.y * 0.48
+		- (incarnation_hash(cell + 17.0) - 0.5) * 0.22);
+	float crack = smoothstep(0.070, 0.012, min(branch_a, branch_b));
+	float ring_r = length(local - vec2(incarnation_hash(cell + 2.0) - 0.5,
+		incarnation_hash(cell + 9.0) - 0.5) * 0.22);
+	float inspection = smoothstep(0.035, 0.010, abs(ring_r - 0.24));
+	float complete = smoothstep(incarnation_signature.x, 1.0, retained)
+		* incarnation_signature.y;
+	float pull = 0.5 + 0.5 * sin(drift + world.y * 0.7);
+	float film = crack * complete * smoothstep(0.28, 0.82, pull);
+	vec3 cold = mix(steel.rgb * vec3(0.34, 0.39, 0.47),
+		enamel.rgb * vec3(0.40, 0.22, 0.28), 0.28);
+	vec3 wine = fracture.rgb * vec3(0.46, 0.12, 0.27);
+	vec3 lapis = fracture.rgb * vec3(0.16, 0.24, 0.58);
+	vec3 gold = mix(solder.rgb, vec3(0.94, 0.61, 0.18), 0.58);
+	vec3 colour = mix(cold, wine, crack * (0.60 + retained * 0.26));
+	colour = mix(colour, lapis, inspection * awake * 0.46);
+	float unsettled = crack * molten * (0.62 + 0.38 * sin(drift + uv.y * 0.17));
+	colour = mix(colour, gold, max(unsettled, film) * 0.88);
+	// When the liquid film pulls free, the unchanged wine fracture remains
+	// visibly beneath it instead of becoming a repaired golden line.
+	colour = mix(colour, wine, crack * complete * (1.0 - film) * 0.52);
+	float room_luma = dot(texture(reflected_world,
+		fract(uv * 0.026 + vec2(0.63, 0.29))).rgb,
+		vec3(0.299, 0.587, 0.114));
+	colour += gold * room_luma * grazing * molten * 0.07;
+	// A deliberately laid-down tool-shaped absence: simple pressure geometry,
+	// never a readable tool image, and the gold leaves space around it.
+	vec2 laid_q = fract(uv / 11.0 + vec2(0.61, 0.22)) - 0.5;
+	float laid = smoothstep(0.105, 0.055, abs(laid_q.y))
+		* smoothstep(0.34, 0.20, abs(laid_q.x));
+	colour = mix(colour, cold * 0.24, laid * 0.72);
+	float roughness = mix(selected.a, 0.18, max(unsettled, film));
+	roughness = mix(roughness, 0.72, laid * 0.42);
+	return vec4(colour, roughness);
+}
+
 vec4 dream_incarnation_surface(vec3 world, vec2 uv, float retained,
 		float molten, float awake, float grazing, int slot, vec4 fallback) {
 	if (incarnation_id > 0.5 && incarnation_id < 1.5) {
@@ -305,6 +361,9 @@ vec4 dream_incarnation_surface(vec3 world, vec2 uv, float retained,
 	}
 	if (incarnation_id > 4.5 && incarnation_id < 5.5) {
 		return cal_surface(world, uv, retained, molten, awake, grazing, slot);
+	}
+	if (incarnation_id > 5.5 && incarnation_id < 6.5) {
+		return omar_surface(world, uv, retained, molten, awake, grazing, slot);
 	}
 	return fallback;
 }

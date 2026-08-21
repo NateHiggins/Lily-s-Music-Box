@@ -79,7 +79,16 @@ func _run() -> void:
 			and cache.resource_count() == 17
 			and cache.active_incarnation == "cal"
 			and not cache.resources.has("%s/albedo" % str(mae.substance_keys[0])))
-	_check("a gated next case cannot retain or substitute Cal's plates",
+	var omar_profile: Dictionary = profiles.get("omar_release_print", {})
+	var omar_result := Profile.resolve(omar_profile.get("presentation", null),
+			"omar_release_print", "omar_unrepairable")
+	var omar: Dictionary = omar_result.get("bundle", {})
+	_check("Omar replaces Cal with exactly one active seventeen-map bundle",
+			cache.load_bundle(omar, _resources_for(omar, catalog))
+			and cache.resource_count() == 17
+			and cache.active_incarnation == "omar"
+			and not cache.resources.has("%s/albedo" % str(cal.substance_keys[0])))
+	_check("an inactive profile cannot retain or substitute Omar's plates",
 			cache.load_bundle(Profile.default_bundle(), {})
 			and cache.resource_count() == 0
 			and cache.active_incarnation.is_empty()
@@ -112,7 +121,7 @@ func _test_catalog() -> Dictionary:
 			"normal": {"bytes_per_pixel": 4, "suffix": "normal.png"},
 			"roughness": {"bytes_per_pixel": 1, "suffix": "roughness.png"},
 		},
-		"available_cases": ["mina", "peter", "juno", "mae", "cal"],
+		"available_cases": ["mina", "peter", "juno", "mae", "cal", "omar"],
 		"root": "res://not_used",
 	}
 

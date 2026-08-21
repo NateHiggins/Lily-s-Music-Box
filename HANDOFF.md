@@ -97,13 +97,20 @@ handoff informs pursuit. No topology, collision, hazard, room identity, save
 or waking-case fact changed; `cal_memory_radio` remains disabled. Dial glass,
 bakelite, wax groove, valve mica, the completed amber phrase, black wake, warm
 pressure and five fauna costumes are proved with A/A control at
-`art/renders/dream_incarnation_cal_v7/README.md`. Omar INC-V8 is next and
-remains data-gated until that pass enables him.
+`art/renders/dream_incarnation_cal_v7/README.md`. INC-V8 is technically
+complete too: Omar replaces Cal with exactly his active 17-map bundle. Every
+revisit adds a visible impossible fault to one stable machine; it changes no
+door/topology/collision/hazard/save fact and does not refresh pursuit, so
+inspection costs only ordinary pursuit time. Tool steel, fatigue lamellae,
+never-setting solder, workshop enamel, the honest seam, laid-down pressure and
+five fauna costumes are proved with A/A control at
+`art/renders/dream_incarnation_omar_v8/README.md`. All six downstream profiles
+are now authored; neither Cal nor Omar has a waking case loop.
 N12's shared profile makes delayed
 feedback physically load-bearing, then releases the oldest partition when one
 channel remains open. N13 lets two real branches return to one stable antique
-with incompatible provenance. Omar remains data-gated until his scheduled
-sixth presentation pass; neither Cal nor Omar has a waking case loop.
+with incompatible provenance. Cal and Omar are downstream-profile complete;
+neither has a waking case loop.
 FA1 and FA2 are closed too. One presentation-only `DreamFaunaDirector`
 advances bounded 3 Hz densities for Gilder's Buttons, Tessellates, Wine
 Anemones, Ribbonettes and the single harmless Loupe, reading real lineage

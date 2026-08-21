@@ -1699,11 +1699,16 @@ unresolved. K7's source-backed loop contract is closed in
   completed amber phrase, black wake, warm pressure and five fauna costumes
   are rendered with an A/A control. Proof:
   `art/renders/dream_incarnation_cal_v7/README.md`.
-- **INC-V8 — OMAR SURFACE INCARNATION (OPEN; DATA-GATED UNTIL THIS PASS).**
-  Build the approved tool-steel/fracture/never-setting-solder presentation after
-  Cal. The shared validator must keep Omar production-disabled until this task
-  lands.
-- **INC-V9 — SIX-CASE PRODUCTION PROOF (BLOCKED BY INC-V8).** For every
+- **INC-V8 — OMAR SURFACE INCARNATION (DONE).** Omar replaces Cal with exactly
+  his active 17-map bundle through the same owners. Every revisit adds one
+  visible impossible fault to the stable room-machine without changing doors,
+  topology, collision, hazards, identity or saves. Fault revelation does not
+  refresh pursuit, so moving on preserves ordinary distance and inspection
+  spends ordinary pursuit time. Tool steel, fatigue fracture, never-setting
+  solder, workshop enamel, honest seam, laid-down pressure and five fauna
+  costumes are rendered with an A/A control. The waking case stays disabled.
+  Proof: `art/renders/dream_incarnation_omar_v8/README.md`.
+- **INC-V9 — SIX-CASE PRODUCTION PROOF (OPEN).** For every
   licensed incarnation, capture equal-interval A/A, dark/oblique/molten contact
   sheets, five-step blends, the signature moment and representative fauna in
   the production root. Assert ordered luma, sub-Hz motion, deterministic replay,

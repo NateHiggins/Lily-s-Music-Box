@@ -269,6 +269,47 @@
           {"family": "loupe", "pattern": 5, "jewel_token": 1, "substance_slot": 0, "response": 0.86}
         ]
       }
+    },
+    "omar_release_print": {
+      "case_id": "omar_unrepairable",
+      "campaign_slot": 6,
+      "onset": {"allowed_forms": ["gradual", "sudden"], "gradual_seconds": 2.1, "sudden_seconds": 0.64},
+      "pursuit": {
+        "silhouette_resident": "omar_bell",
+        "lit_speed_mps": 3.28,
+        "lit_speed_jitter_mps": 0.08,
+        "dark_speed_mps": 6.18,
+        "dark_speed_jitter_mps": 0.12,
+        "hearing_period_s": 0.61,
+        "hearing_period_jitter_s": 0.06,
+        "capture_radius_m": 0.75
+      },
+      "hazards": {"allow": [], "tuning": {}},
+      "maze": {"revisit_fault_event": "impossible_fault_revealed"},
+      "truth": {"rule_id": "some_things_unrepairable", "statement": "Some things are not repairable"},
+      "presentation": {
+        "incarnation_id": "omar",
+        "production_enabled": true,
+        "palette": [2, -0.02, 0.05, 0.24],
+        "pattern": [6, 1.16, 0.86, 1.38],
+        "irradiance": [0.90, 1.14, 1.08, 1.42],
+        "motion": [0.075, 0.52, 0.78, 0.70],
+        "signature": {"id": "honest_seam", "threshold": 0.77, "strength": 0.76},
+        "substance_keys": [
+          "T_ai_dream_omar_tool_steel",
+          "T_ai_dream_omar_fatigue_fracture",
+          "T_ai_dream_omar_solder_alloy",
+          "T_ai_dream_omar_workshop_enamel"
+        ],
+        "reflected_world_key": "T_ai_dream_omar_reflected_world_workbench_after_trying",
+        "fauna": [
+          {"family": "buttons", "pattern": 6, "jewel_token": 1, "substance_slot": 2, "response": 0.90},
+          {"family": "tessellates", "pattern": 6, "jewel_token": 2, "substance_slot": 0, "response": 1.08},
+          {"family": "anemones", "pattern": 6, "jewel_token": 2, "substance_slot": 1, "response": 1.04},
+          {"family": "ribbonettes", "pattern": 6, "jewel_token": 1, "substance_slot": 2, "response": 1.10},
+          {"family": "loupe", "pattern": 6, "jewel_token": 1, "substance_slot": 3, "response": 0.88}
+        ]
+      }
     }
   }
 }

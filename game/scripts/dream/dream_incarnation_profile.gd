@@ -24,9 +24,9 @@ const CASE_IDS := {
 const FAMILIES := ["buttons", "tessellates", "anemones", "ribbonettes", "loupe"]
 const SIGNATURES := ["blank_mercy", "decision_route", "standing_wave",
 		"double_reflection", "completed_phrase", "honest_seam"]
-## Omar retains the last ordered production gate. Cal's shared downstream
-## profile is now authored; neither entry manufactures a waking case.
-const PRODUCTION_GATED := ["omar"]
+## All six downstream presentation profiles are now authored. This empty gate
+## does not manufacture or enable any waking case.
+const PRODUCTION_GATED: Array[String] = []
 
 
 static func default_bundle() -> Dictionary:

@@ -146,7 +146,7 @@ void fragment() {
 			+ sclera + lid;
 	ALBEDO = dark_body + mix(lit_wine, full_body,
 			max(irradiance.y * 0.58, irradiance.z));
-	if (incarnation_id > 0.5 && incarnation_id < 5.5) {
+	if (incarnation_id > 0.5 && incarnation_id < 6.5) {
 		ALBEDO = mix(ALBEDO, incarnation_skin.rgb,
 			0.28 + irradiance.y * 0.20);
 	}
