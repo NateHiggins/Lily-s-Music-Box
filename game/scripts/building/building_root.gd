@@ -150,6 +150,8 @@ var call_interface: CallInterface
 var light_rig: LightRig
 var virus_director: VirusSoundDirector
 var floor_nodes: Dictionary = {}
+const FloorCoveragePassScript := preload("res://scripts/building/floor_coverage_pass.gd")
+var floor_coverage: RefCounted
 ## The Passage shell remains part of F01's exterior proxy, but its eleven
 ## fitted shop batches are a separate render zone.  Imported glTF meshes and
 ## marker-built actors have different owners, so both are indexed explicitly.
@@ -301,6 +303,12 @@ func _ready() -> void:
 		node.name = fid
 		add_child(node)
 		floor_nodes[fid] = node
+	# M-COVER (owner ruling 2026-08-21): the floor sets trade their shipping
+	# StandardMaterial3D for the same maps under the structure-aware coverage
+	# shader. Same surfaces, same draw count, no new texture. FLOOR_COVERAGE=0
+	# keeps the shipping materials for an A/B.
+	floor_coverage = FloorCoveragePassScript.new()
+	floor_coverage.apply(floor_nodes)
 	_index_passage_geometry()
 	# Work orders are a gameplay owner, not UI text. The tracker presents their
 	# state, but the state exists before the first customer is constructed.

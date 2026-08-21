@@ -1790,7 +1790,7 @@ The audit did find one real defect, and it is a picture defect. See MP below.
 
 ### M-COVER — rethink coverage (owner request 2026-08-17; FRAMES DELIVERED AND **ADOPTED BY THE OWNER 2026-08-21** — "1 yes")
 
-- **MC-P — M-COVER INTO PRODUCTION (OPEN, RULED).** `FloorCoveragePass` at build swaps the floor sets' shipping materials for `floor_coverage.gdshader`: cell-snapped hex for terrazzo variants (cells per variant measured on each albedo), per-board-row offsets for oak. Frames from the M-COVER stands before/after, perf station A/B at 1440p, WalkTest FAST, LightingAudit. No new textures, no new draws.
+- **MC-P DONE 2026-08-21 — M-COVER INTO PRODUCTION.** `FloorCoveragePass` at build gives all 26 floor surfaces the promoted `floor_coverage.gdshader` with their own maps: cell-snapped hex for terrazzo (3 cells; `_c` 2), board rows for oak (14/tile, seams along V), plain hex for ceramic and concrete. Same surfaces and draws, no new texture; `FLOOR_COVERAGE=0` is the A. Before/after pairs at `art/renders/material_coverage_m/production/`; WalkTest FAST and LightingAudit PASS; 1440p perf A/B inside run noise. **Observed in passing for §P:** `Perf.tscn` at 1440p reports 6/11 waking stations over 16.6 ms on this machine in both the before and after runs (lobby 27–30 ms, atrium 41–43, street 38–40) — needs a quiet-machine rerun against the recorded gate numbers.
 
 
 **What the frames say** (`art/renders/material_coverage_m/README.md`, nine

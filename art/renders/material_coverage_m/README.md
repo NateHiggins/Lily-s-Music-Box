@@ -96,7 +96,35 @@ cells it owns. **Supertiles** (M1's VRAM question) were not needed to get
 here. **Decal variation** (`atmospheric_decal_pass.gd`) remains the right
 tool for wear and marks, orthogonal to coverage.
 
-## Recommendation
+## In production — MC-P, 2026-08-21 (owner: "1 yes")
+
+`FloorCoveragePass` (`game/scripts/building/floor_coverage_pass.gd`) runs in
+`BuildingRoot` right after the floor scenes instantiate and gives every
+`*_floors_*` surface the promoted shader `game/shaders/floor_coverage.gdshader`
+carrying the surface's own maps and scalars: **26 of 26 floor surfaces across
+the seven storeys, 26 materials, no new texture, same surface and draw
+count.** Rules by set, from the albedo structure: terrazzo / _b / _d
+cell-snapped hex at 3 cells, terrazzo_c at 2; oak (all variants) board rows,
+14 per tile, seams along V; ceramic (hex mosaic) and concrete plain hex.
+`FLOOR_COVERAGE=0` restores the shipping materials for any A/B.
+
+`production/*_before_after.png`: the corridor long view, the corridor floor,
+the lobby and 4B's bare oak, shipping beside production from the same stands.
+
+Verification: WalkTest FAST PASS, LightingAudit PASS (127 spaces), 0
+script/shader errors. `Perf.tscn` at 1440p before and after
+(`production/perf_*_1440p.log`): draw calls identical per station within the
+probe's own jitter; frame times moved both ways by more than the whole
+floor fill is worth (roof 33.9 → 20.6 ms, lobby 27.5 → 29.6 ms at identical
+object counts), so the A/B is inside this machine's run-to-run noise and the
+change is cost-neutral as the probe already showed. **Separately and
+pre-existing:** both runs report 6/11 waking stations over 16.6 ms at 1440p
+(lobby, atrium, corridor F04, street, roof, 4B at ~17), far above the §P
+gate numbers recorded earlier; that is a machine-state or regression question
+for §P on a quiet machine, not an MC-P effect — the "before" run says the
+same thing with the shipping materials.
+
+## Recommendation (as delivered to the owner before adoption)
 
 Adopt two material classes for floors, both from the probe shader's proven
 paths: cell-snapped hex for terrazzo (and any tile-lattice set: ceramic,
