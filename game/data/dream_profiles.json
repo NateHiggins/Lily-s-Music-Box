@@ -48,6 +48,29 @@
       "truth": {
         "rule_id": "silence_without_annotation",
         "statement": "Silence does not require annotation"
+      },
+      "presentation": {
+        "incarnation_id": "mina",
+        "production_enabled": true,
+        "palette": [2, -0.08, 0.05, 0.15],
+        "pattern": [1, 1.12, 0.86, 1.18],
+        "irradiance": [0.88, 1.08, 1.12, 0.82],
+        "motion": [0.07, 0.18, 0.72, 0.36],
+        "signature": {"id": "blank_mercy", "threshold": 0.78, "strength": 0.72},
+        "substance_keys": [
+          "T_ai_dream_mina_ink_fiber",
+          "T_ai_dream_mina_erased_stock",
+          "T_ai_dream_mina_gilt_edge",
+          "T_ai_dream_mina_lens_membrane"
+        ],
+        "reflected_world_key": "T_ai_dream_mina_reflected_world_room_after_caption",
+        "fauna": [
+          {"family": "buttons", "pattern": 1, "jewel_token": 0, "substance_slot": 2, "response": 0.86},
+          {"family": "tessellates", "pattern": 1, "jewel_token": 2, "substance_slot": 0, "response": 1.02},
+          {"family": "anemones", "pattern": 1, "jewel_token": 2, "substance_slot": 0, "response": 0.94},
+          {"family": "ribbonettes", "pattern": 1, "jewel_token": 2, "substance_slot": 1, "response": 0.88},
+          {"family": "loupe", "pattern": 1, "jewel_token": 1, "substance_slot": 3, "response": 0.82}
+        ]
       }
     },
     "peter_release_print": {
@@ -84,6 +107,29 @@
       "truth": {
         "rule_id": "proceed_uncertain",
         "statement": "Uncertainty does not prevent action"
+      },
+      "presentation": {
+        "incarnation_id": "peter",
+        "production_enabled": true,
+        "palette": [1, -0.03, -0.08, 0.28],
+        "pattern": [2, 0.92, 1.18, 0.88],
+        "irradiance": [1.04, 0.92, 1.16, 1.24],
+        "motion": [0.055, 0.12, 0.64, 0.52],
+        "signature": {"id": "decision_route", "threshold": 0.74, "strength": 0.78},
+        "substance_keys": [
+          "T_ai_dream_peter_ledger_stock",
+          "T_ai_dream_peter_stamp_pad",
+          "T_ai_dream_peter_carbon_copy",
+          "T_ai_dream_peter_brass_fastener"
+        ],
+        "reflected_world_key": "T_ai_dream_peter_reflected_world_office_open_end",
+        "fauna": [
+          {"family": "buttons", "pattern": 2, "jewel_token": 1, "substance_slot": 3, "response": 0.92},
+          {"family": "tessellates", "pattern": 2, "jewel_token": 1, "substance_slot": 0, "response": 1.08},
+          {"family": "anemones", "pattern": 2, "jewel_token": 1, "substance_slot": 1, "response": 0.96},
+          {"family": "ribbonettes", "pattern": 2, "jewel_token": 2, "substance_slot": 2, "response": 0.94},
+          {"family": "loupe", "pattern": 2, "jewel_token": 1, "substance_slot": 3, "response": 0.84}
+        ]
       }
     },
     "juno_release_print": {
@@ -108,7 +154,30 @@
         "settle_after_s": 6.583333,
         "max_partitions": 3
       },
-      "truth": {"rule_id": "open_channel", "statement": "Connection requires an open channel"}
+      "truth": {"rule_id": "open_channel", "statement": "Connection requires an open channel"},
+      "presentation": {
+        "incarnation_id": "juno",
+        "production_enabled": true,
+        "palette": [2, 0.04, -0.06, 0.22],
+        "pattern": [3, 1.28, 0.82, 1.42],
+        "irradiance": [0.94, 1.18, 1.04, 0.72],
+        "motion": [0.12, 0.76, 0.48, 0.64],
+        "signature": {"id": "standing_wave", "threshold": 0.72, "strength": 0.68},
+        "substance_keys": [
+          "T_ai_dream_juno_speaker_cloth",
+          "T_ai_dream_juno_oxidized_brass",
+          "T_ai_dream_juno_diaphragm",
+          "T_ai_dream_juno_bakelite"
+        ],
+        "reflected_world_key": "T_ai_dream_juno_reflected_world_unsampled_performance",
+        "fauna": [
+          {"family": "buttons", "pattern": 3, "jewel_token": 0, "substance_slot": 1, "response": 0.88},
+          {"family": "tessellates", "pattern": 3, "jewel_token": 0, "substance_slot": 0, "response": 1.10},
+          {"family": "anemones", "pattern": 3, "jewel_token": 2, "substance_slot": 2, "response": 1.02},
+          {"family": "ribbonettes", "pattern": 3, "jewel_token": 2, "substance_slot": 1, "response": 1.12},
+          {"family": "loupe", "pattern": 3, "jewel_token": 1, "substance_slot": 0, "response": 0.86}
+        ]
+      }
     },
     "mae_release_print": {
       "case_id": "mae_contradictory_antiques",
@@ -131,7 +200,30 @@
         "convergence_min_doors": 3,
         "provenances": ["ESTATE RECORD — 1912", "FAMILY TESTIMONY — 1928"]
       },
-      "truth": {"rule_id": "contradiction_survivable", "statement": "Contradiction is survivable"}
+      "truth": {"rule_id": "contradiction_survivable", "statement": "Contradiction is survivable"},
+      "presentation": {
+        "incarnation_id": "mae",
+        "production_enabled": true,
+        "palette": [0, 0.02, 0.02, 0.34],
+        "pattern": [4, 0.84, 1.06, 1.34],
+        "irradiance": [0.92, 1.12, 0.96, 1.36],
+        "motion": [0.08, 0.42, 0.82, 0.74],
+        "signature": {"id": "double_reflection", "threshold": 0.76, "strength": 0.66},
+        "substance_keys": [
+          "T_ai_dream_mae_lacquer_craquelure",
+          "T_ai_dream_mae_marquetry_grain",
+          "T_ai_dream_mae_foxed_label_stock",
+          "T_ai_dream_mae_aged_glass"
+        ],
+        "reflected_world_key": "T_ai_dream_mae_reflected_world_two_rooms_one_chair",
+        "fauna": [
+          {"family": "buttons", "pattern": 4, "jewel_token": 0, "substance_slot": 1, "response": 0.90},
+          {"family": "tessellates", "pattern": 4, "jewel_token": 0, "substance_slot": 1, "response": 1.04},
+          {"family": "anemones", "pattern": 4, "jewel_token": 2, "substance_slot": 0, "response": 0.98},
+          {"family": "ribbonettes", "pattern": 4, "jewel_token": 2, "substance_slot": 2, "response": 1.06},
+          {"family": "loupe", "pattern": 4, "jewel_token": 1, "substance_slot": 3, "response": 0.84}
+        ]
+      }
     }
   }
 }

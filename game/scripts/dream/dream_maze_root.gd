@@ -21,6 +21,8 @@ const DreamEmbraceScript := preload(
 		"res://scripts/dream/dream_embrace.gd")
 const DreamFaunaDirectorScript := preload(
 		"res://scripts/dream/dream_fauna_director.gd")
+const DreamIncarnationProfileScript := preload(
+		"res://scripts/dream/dream_incarnation_profile.gd")
 
 signal capture_presentation_started
 signal capture_presentation_finished
@@ -62,6 +64,9 @@ var profile_hazards: Dictionary = {}
 ## as pursuit and hazards; neither creates a case-specific owner.
 var profile_grammar: Dictionary = {}
 var profile_truth: Dictionary = {}
+## INC-V1: one immutable presentation record, reduced and validated before any
+## geometry exists. Missing data is the exact current look.
+var profile_presentation: Dictionary = DreamIncarnationProfileScript.default_bundle()
 var _channel_was_open := false
 var _channel_sustain_s := 0.0
 var _channel_echo_due: Array[float] = []
@@ -238,6 +243,10 @@ func active_case_truth() -> Dictionary:
 	return profile_truth.duplicate(true)
 
 
+func active_presentation() -> Dictionary:
+	return profile_presentation.duplicate(true)
+
+
 ## Build the pocket and hand it to the plan. Returns false when the world could
 ## not be made, in which case the caller must not continue: a plan with no
 ## rooms would put the body at the origin, outside everything.
@@ -360,6 +369,15 @@ func _build_world() -> void:
 	if profile.is_empty():
 		push_warning("dream profile missing; boundary payload only")
 		return
+	var presentation_result := DreamIncarnationProfileScript.resolve(
+			profile.get("presentation", null),
+			str(dream_context.get("profile_id", "")),
+			str(dream_context.get("case_id", "")))
+	if not bool(presentation_result.get("ok", false)):
+		push_error("dream presentation profile invalid: %s" %
+				str(presentation_result.get("errors", [])))
+		return
+	profile_presentation = (presentation_result.get("bundle", {}) as Dictionary).duplicate(true)
 	var seed_hex := str(dream_context.get("seed_hex", ""))
 	var slot := int(profile.get("campaign_slot", 1))
 	var catalog := DreamMazeBuilder.load_catalog()
@@ -1084,6 +1102,9 @@ func _collect_molten_materials() -> void:
 		var material := geometry.material_override as ShaderMaterial
 		if material != null and not _molten_materials.has(material):
 			_molten_materials.append(material)
+			DreamIncarnationProfileScript.apply_to_material(material,
+					profile_presentation,
+					int(material.get_meta("dream_fauna_family_index", -1)))
 			# THE FIELD'S BINDING IS CONSTANT AND GOES IN HERE, not in
 			# _update_molten. The texture object and the tile size never
 			# change for the life of the passage -- only the bytes inside the

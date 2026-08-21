@@ -300,6 +300,10 @@ func _make_batch(label: String, mesh: Mesh, color: Color, jewel: Color,
 	material.set_shader_parameter("fauna_dark_glow", FAUNA_DARK_GLOW)
 	material.set_shader_parameter("vertex_channels_ready",
 			1.0 if vertex_channels_ready else 0.0)
+	# The existing root material collector uses this presentation-only tag to
+	# select one of five bounded costume records. It creates no fauna owner and
+	# does not enter instance custom data or trophic simulation.
+	material.set_meta("dream_fauna_family_index", int(motif))
 	var node := MultiMeshInstance3D.new(); node.name = label
 	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	if mesh is PrimitiveMesh:

@@ -75,6 +75,22 @@ No player transform, pursuit confidence, hazard timer or live node identity is
 saved. Loading `entered` or `active` rebuilds the same context and starts at
 `D00_4B_THRESHOLD`.
 
+## Case presentation profile
+
+The optional `presentation` block in `dream_profiles.json` is validated before
+DreamMazeRoot builds geometry. Missing data resolves to the exact inert current
+look. Present data must match its case/profile identity and supplies one bounded
+bundle: incarnation index, palette/pattern/irradiance/motion parameters, four
+substance keys, one reflected-world key, one visual signature and five ordered
+fauna costumes.
+
+The existing root material collector pushes that immutable bundle into the
+existing architecture, lineage and fauna shader materials. It creates no node,
+signal, draw, topology branch or save record. Cal and Omar remain rejected as
+production-active presentation ids until their scheduled implementation passes;
+data alone cannot activate a dream or waking case. `DreamIncarnationTest.tscn`
+is the focused schema/default/collector proof.
+
 ## Signal contract
 
 - CoreLoopDirector emits

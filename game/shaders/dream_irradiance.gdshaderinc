@@ -14,6 +14,18 @@ uniform float irradiance_pattern_species : hint_range(0.0, 7.0) = 0.0;
 uniform float irradiance_viscosity : hint_range(0.25, 2.0) = 1.0;
 uniform float irradiance_pulse_phase = 0.0;
 
+// INC-V1. One inert, bounded presentation bundle reaches every architecture,
+// lineage and fauna material through the existing root collector. Later
+// incarnation passes consume these values; declaring them here does not alter
+// the current shader result.
+uniform float incarnation_id : hint_range(0.0, 6.0) = 0.0;
+uniform vec4 incarnation_palette = vec4(0.0);
+uniform vec4 incarnation_pattern = vec4(0.0, 1.0, 1.0, 1.0);
+uniform vec4 incarnation_irradiance = vec4(1.0);
+uniform vec4 incarnation_motion = vec4(0.0);
+uniform vec2 incarnation_signature = vec2(1.0, 0.0);
+uniform vec4 incarnation_fauna = vec4(0.0, 0.0, 0.0, 1.0);
+
 // x neon, y oblique, z molten, w scalar.
 vec4 dream_irradiance(vec3 world_position, vec3 world_normal,
 		vec2 field, vec3 light_origin) {

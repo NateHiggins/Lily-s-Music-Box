@@ -928,6 +928,14 @@ without a failure screen or loss of committed work. Campaign run ceilings are
 28, 38, 50, 62, 76 and 90 seconds. The player's own shadow is reserved for
 endgame design outside the six-case production scope.
 
+*Amended 2026-08-20 at the owner's direction:* the six release prints are
+ordered **Mina, Peter, Juno, Mae, Cal, Omar**. Their surface incarnations are
+one intelligence's six love letters through one shared presentation seam, not
+six monsters or six shader owners. Generated plates may provide material
+substance but never semantic marks, case facts, danger language or a depiction
+of the Tenant. Reflected-world plates use empty rooms, objects and human traces;
+identifiable people and the earlier faceless figure are excluded.
+
 **The Rule of Signal does not bind the dream.** It may reuse and transform
 Orison architecture, signals and anachronistic language because it is not the
 waking building. The exemption is one-way: the waking Orison never advertises,

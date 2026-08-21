@@ -62,10 +62,12 @@ owners Mina uses. A junction reversal returns the same remembered room with
 one more deterministic, paper-stamped door; Mina is a measured no-op. Proof and
 28/28 focused checks live at `art/renders/dream_profile_n9/README.md`. This is
 the dream-profile seam only, not a claim that Peter's waking case loop exists.
-The owner ruled Juno third and Mae fourth on 2026-08-20. N12's shared profile makes delayed
+The owner ruled the full order Mina, Peter, Juno, Mae, Cal, Omar on 2026-08-20.
+N12's shared profile makes delayed
 feedback physically load-bearing, then releases the oldest partition when one
 channel remains open. N13 lets two real branches return to one stable antique
-with incompatible provenance. Cal/Omar remain the owner-order decision.
+with incompatible provenance. Cal/Omar remain data-gated until their scheduled
+fifth/sixth presentation passes; neither has a waking case loop.
 FA1 and FA2 are closed too. One presentation-only `DreamFaunaDirector`
 advances bounded 3 Hz densities for Gilder's Buttons, Tessellates, Wine
 Anemones, Ribbonettes and the single harmless Loupe, reading real lineage
@@ -116,9 +118,13 @@ not six shader forks or new case owners. The old no-bitmap law is retained as
 history but superseded: procedure owns semantic masks/lines/state/gameplay
 readability, while AI-derived plates may supply region substance and molten
 reflected worlds through the existing ignored-source/shipped-derivative
-pipeline. The next action is the `design/SIX_INCARNATIONS.md` plan and owner
-review, not implementation. Cal/Omar remain production-gated by their order;
-new accent colors and canon-adjacent plate content require explicit rulings.
+pipeline. `design/SIX_INCARNATIONS.md` is owner-approved. INC-V1's bounded
+profile bundle now reaches the existing architecture, lineage and five fauna
+materials through the existing collector while adding no node, draw, gameplay
+branch or save fact. `DreamIncarnationTest` passes 28/28; Profile 46/46,
+Irradiance 16/16 and Fauna 21/21 also pass. INC-V2 plate ingest/loading is next.
+No new accent color was introduced; reflected-world people and the older
+faceless figure are explicitly excluded.
 The audit's pre-C1 anchor appendix is
 superseded and does not reopen the landed commensal proof. Separately, waking-world
 commensals C1 is now landed: moths at the two owner-derived entry street lamps,

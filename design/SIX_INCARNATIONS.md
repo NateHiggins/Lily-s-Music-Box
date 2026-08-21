@@ -1,6 +1,8 @@
 # SIX INCARNATIONS
 
-*Owner-directed design plan, 2026-08-20; implementation review pending. This
+*Owner-approved design plan, 2026-08-20. The owner approved the plan, Cal fifth,
+Omar sixth, and the exclusion of identifiable people and the faceless figure
+from reflected-world plates. This
 document expands the owner-approved V14 contract in
 `design/DREAM_FAUNA_BRIEF.md`. It designs presentation only. The
 case profiles, spatial verbs, topology, danger, pursuit, save facts and waking
@@ -634,24 +636,21 @@ rejected. Visual claims require the production renders, not a shader screenshot.
 9. **Joined proof:** all licensed profiles, then the six-case matrix only after
    both gates close.
 
-## 11. Explicit owner review register
+## 11. Owner review register — closed 2026-08-20
 
 No color decision is requested: this plan introduces no new accent.
 
-The following are ruling points, not silent approvals:
+The owner ruled all three points on 2026-08-20:
 
-1. **Cal/Omar order and activation.** Their designs are complete but both
-   remain production-disabled.
+1. **Cal/Omar order.** Cal is fifth and Omar sixth. Their presentation records
+   remain production-disabled until their scheduled implementation passes;
+   presentation data cannot manufacture a waking case.
 2. **Reflected-world people.** The older prompt's primary plate includes
    identifiable 1920s figures and one conspicuous faceless form. V14 forbids a
    generated depiction of the Tenant, and named residents would assert canon.
-   This plan therefore uses empty rooms, objects and human traces only. Reusing
-   the older figure composition requires explicit owner approval and a finding
-   that the faceless form is not a Tenant depiction.
+   This plan therefore uses empty rooms, objects and human traces only. The
+   older figure composition is excluded.
 3. **Generated content sign-off.** Any output containing readable text, names,
    dates, identifiable people, a case claim, a danger eye, motif rhythm or a
-   figure-shaped absence is rejected at intake unless the owner rules it into
-   canon. Prompt intent is not sufficient; the pixels are reviewed.
-
-Until those points are ruled, items 2–3 are enforced by exclusion and do not
-block Mina, Peter, Juno or Mae.
+   figure-shaped absence is rejected at intake. Prompt intent is not
+   sufficient; the pixels are reviewed.

@@ -619,5 +619,6 @@ Plates may never carry the danger-eye ornament, survival rhythm, readable new
 case facts, names/dates/claims requiring canon, or any depiction of the Tenant.
 Static shipped plates add no temporal noise and do not weaken determinism,
 A/A controls, three-light contact sheets, luma ordering, draw ceilings or the
-photosensitivity rules. Cal and Omar are designed fully but built only after
-their owner-order ruling.
+photosensitivity rules. **Owner ruling 2026-08-20:** Cal is fifth and Omar
+sixth. Their presentation data stays production-disabled until their scheduled
+implementation passes land; presentation cannot manufacture a waking case.

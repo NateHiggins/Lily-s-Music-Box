@@ -364,10 +364,9 @@ behavior, signals and authored substitutions—not controls or manager logic.
 | Mae — Contradictory Antiques | left and right routes present incompatible histories and rejoin at the same object | light shows one provenance, darkness lets the other remain audible | contradiction is survivable |
 
 These are navigation and pursuit grammars, not six minigames. No dream adds an
-inventory, dialogue choice, repair interaction or bespoke control. Peter remains
-the second case. **Owner rulings 2026-08-20: Juno is third and Mae is fourth.**
-Cal and Omar remain an owner-order decision, so run length belongs to campaign
-slot data rather than case code.
+inventory, dialogue choice, repair interaction or bespoke control. **Owner
+ruling 2026-08-20: the order is Mina, Peter, Juno, Mae, Cal, Omar.** Run length
+belongs to campaign slot data rather than case code.
 
 **N9 implementation checkpoint — 2026-08-20.** Peter now proves this seam in
 production. One slot-2 profile supplies dual onset, the 38-second cap, Peter's

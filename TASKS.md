@@ -1516,8 +1516,8 @@ unresolved. K7's source-backed loop contract is closed in
   controls. Focused contract 31/31; final integration results and exact 1440p
   price are in `art/renders/dream_embrace_v1/README.md`. N7's stale
   `DreamPerceptionTest` is repaired above and N9's Peter profile proof is closed
-  above. The owner ruled Juno third; Cal, Omar and Mae remain the explicit
-  owner-order decision. Friendship/romance and chosen re-meaning remain last.
+  above. The owner has since ruled the full order Mina, Peter, Juno, Mae, Cal,
+  Omar. Friendship/romance and chosen re-meaning remain last.
 - **N12 DONE 2026-08-20 — JUNO MAKES FEEDBACK LOAD-BEARING.** Slot 3 carries
   Juno's 50-second ceiling, dual onset, borrowed silhouette, distinct shared
   pursuit tuning and exact truth “Connection requires an open channel.” The
@@ -1540,7 +1540,8 @@ unresolved. K7's source-backed loop contract is closed in
   RoomBuilder 175/175 pass. Production A/A is 0.00640734; the first account is
   0.07140363 and the contradiction is 0.20516475. Proof:
   `art/renders/dream_profile_mae_n13/README.md`. This is dream-profile proof,
-  not a waking Mae case. Cal and Omar remain the owner-order decision.
+  not a waking Mae case. Cal is fifth and Omar sixth; their profile grammars and
+  waking cases remain unbuilt.
 - **N11 DONE 2026-08-20 — THE REPRODUCTIVE PATH.** The infinite path now has
   heredity and visible anatomy: bounded parent/child genomes, brood knots,
   parent umbilicals, prospective child helices, open birth-frames and sealed
@@ -1689,36 +1690,7 @@ unresolved. K7's source-backed loop contract is closed in
   48/77/133/172 calls. WalkTest FAST passes at x8/480; the FULL attempt was
   terminated without a result at the mandatory 60-second process limit, so no
   fresh FULL claim is made. Proof: `art/renders/dream_irradiance_v1/README.md`.
-- **INC-V0 — `SIX INCARNATIONS` WRITTEN; OWNER REVIEW GATE OPEN.**
-  `design/SIX_INCARNATIONS.md` now delivers the six a–h designs, shared
-  presentation/shader/loading seam, 96.03 MiB active-case ceiling, custody and
-  import checklist, proof matrix and ranked order. It introduces no new color
-  accent. Owner ruling remains required on Cal/Omar order and activation, and
-  on whether the older reflected-world prompt's identifiable figures and
-  faceless form may survive V14's ban on generated Tenant depiction. Until
-  ruled, the plan excludes those figures and allows Mina/Peter/Juno/Mae only.
-  The originating requirement was to produce
-  `design/SIX_INCARNATIONS.md` from V14. For Mina, Peter, Juno, Mae, Cal and
-  Omar, deliver sections a–h: named love letter, procedural pattern, neon
-  topology, oblique tissue, molten behavior, disciplined token rotation,
-  gutter/exposure rules, all five fauna re-voicings, one cheap impossible
-  moment, one tender detail, a 4–8-plate manifest with prompt sketches, and a
-  reflected-world direction. Include the shared profile-to-shader parameter
-  seam, bounded case blocks on one maintained shader path, analytic-UV warp and
-  mask compositing, active-case load/unload lifecycle, ingest/naming/sidecar
-  checklist, per-class resolution and per-incarnation VRAM table, proof plan
-  and ranked build order. Keep Cal and Omar last and explicitly production-
-  gated. Flag every proposed accent beyond the three stones and every plate
-  edging toward canon for owner ruling; the document does not approve them.
-- **INC-V1 — SHARED CASE-PRESENTATION DATA SEAM (BLOCKED BY INC-V0 REVIEW).**
-  Extend the existing dream profile with bounded surface parameters and plate
-  keys, then feed the existing architecture, lineage and five fauna materials
-  through the current collector. One case is active; there are no six shader
-  files, case-specific owners, topology/gameplay branches, new draws, visible
-  Tenant surfaces or save records. Add schema/default tests proving old profiles
-  retain the current look and Cal/Omar cannot become production-active through
-  presentation data.
-- **INC-V2 — DREAM PLATE INGEST AND STREAMING (BLOCKED BY INC-V0 REVIEW).**
+- **INC-V2 — DREAM PLATE INGEST AND STREAMING (OPEN).**
   Extend the mature material ingest for `T_ai_dream_<case-or-family>_*` shipped
   derivatives and per-set source notes while sources remain ignored. Cover the
   new sets with the mipmap/import-sidecar repair and check. Load only the active
@@ -1726,30 +1698,30 @@ unresolved. K7's source-backed loop contract is closed in
   asset determinism, lossless-first compression ruling and zero added draw
   submissions. Generated plates may carry substance, never semantic lines,
   danger eyes, gameplay rhythm, readable canon or the Tenant.
-- **INC-V3 — MINA SURFACE INCARNATION (BLOCKED BY INC-V0/1/2).** Implement the
+- **INC-V3 — MINA SURFACE INCARNATION (BLOCKED BY INC-V2).** Implement the
   approved annotation/ink/blankness language over Mina's landed profile and
   spatial verb. Prove all three irradiance bands, five fauna costumes,
   signature moment, tenderness, anti-tiling and reflected-world plate in the
   production root without changing annotation gameplay or case truth.
-- **INC-V4 — PETER SURFACE INCARNATION (BLOCKED BY INC-V0/1/2).** Implement
+- **INC-V4 — PETER SURFACE INCARNATION (BLOCKED BY INC-V2).** Implement
   the approved paper/oxblood/decision-line language over the shared Peter seam.
   Preserve the existing demanding-door grammar, release print and truth; use
   Peter's landed paper precedent without multiplying materials or owners.
-- **INC-V5 — JUNO SURFACE INCARNATION (BLOCKED BY INC-V0/1/2).** Implement the
+- **INC-V5 — JUNO SURFACE INCARNATION (BLOCKED BY INC-V2).** Implement the
   approved speaker-cloth/brass/standing-wave language. Gutter echoes are visual
   response only: they cannot create channel edges, partition events, pursuit
   attention or audio gameplay. Preserve the landed energy-weighted sustain.
-- **INC-V6 — MAE SURFACE INCARNATION (BLOCKED BY INC-V0/1/2).** Implement the
+- **INC-V6 — MAE SURFACE INCARNATION (BLOCKED BY INC-V2).** Implement the
   approved interfering-provenance language while one antique and two histories
   remain the only spatial facts. Generated labels stay unreadable/period-texture
   unless separately ruled; no plate may adjudicate which provenance is true.
-- **INC-V7 — CAL SURFACE INCARNATION (OWNER-ORDER GATED).** Design fully in
-  INC-V0, but do not ship its dial-glass/amber/held-time blocks or plates until
-  the owner places Cal relative to Omar and approves the unbuilt spatial verb.
-- **INC-V8 — OMAR SURFACE INCARNATION (OWNER-ORDER GATED).** Design fully in
-  INC-V0, but do not ship its tool-steel/fracture/never-setting-solder blocks or
-  plates until the owner places Omar relative to Cal and approves the unbuilt
-  spatial verb.
+- **INC-V7 — CAL SURFACE INCARNATION (QUEUED FIFTH; DATA-GATED UNTIL THIS PASS).**
+  Build the approved dial-glass/amber/held-time presentation after Mae. The
+  shared validator must keep Cal production-disabled until this task lands.
+- **INC-V8 — OMAR SURFACE INCARNATION (QUEUED SIXTH; DATA-GATED UNTIL THIS PASS).**
+  Build the approved tool-steel/fracture/never-setting-solder presentation after
+  Cal. The shared validator must keep Omar production-disabled until this task
+  lands.
 - **INC-V9 — SIX-CASE PRODUCTION PROOF (BLOCKED BY INC-V3–8).** For every
   licensed incarnation, capture equal-interval A/A, dark/oblique/molten contact
   sheets, five-step blends, the signature moment and representative fauna in
