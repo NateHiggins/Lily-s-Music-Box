@@ -122,6 +122,11 @@ measurement, the corridor ceiling gap is the atrium light well, and the
 first generator fix also landed: every generated kitchen's toaster stood on
 its dishrack from a yaw-rotated offset; `gen_layout.py` now guards worktop
 spacing, and the regenerated JSONs (markers only, no GLB rebuild) are copied.
+The material sources were scrubbed of the generator's sparkle watermark the
+same day (`art/tools/scrub_source_watermarks.py`, run it before every ingest;
+record at `art/renders/material_watermark_scrub/README.md`), the ingest's
+flat-surface check became relative (TASKS D5), and MX — the layered surface
+system — is the next materials programme (TASKS §MX).
 M-COVER now has its frames: `art/renders/material_coverage_m/README.md` shows
 nine anti-repetition options on the same floors from the same stands with
 GPU medians; the recommendation is cell-snapped hex for terrazzo and

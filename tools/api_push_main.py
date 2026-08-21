@@ -15,7 +15,7 @@ import urllib.request
 
 REPO = "NateHiggins/Lily-s-Music-Box"
 ROOT = "C:/PleaseRemainOnTheLine"
-BASE = "7806c49"
+BASE = "282a4d0"
 COMMITS = []  # filled from git rev-list below
 
 TOKEN = subprocess.run(["gh", "auth", "token"], capture_output=True,

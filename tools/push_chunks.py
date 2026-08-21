@@ -13,11 +13,11 @@ import time
 ROOT = os.path.dirname(os.path.abspath(__file__))
 WT = os.path.join(os.environ["LOCALAPPDATA"], "Temp", "claude",
                   "C--PleaseRemainOnTheLine",
-                  "4afb3357-1d9b-4bb4-b994-822565ba87af", "scratchpad",
+                  "f674abaa-22c3-46a4-bcaa-0773d29fbc8d", "scratchpad",
                   "push_chunks")
 LOG = os.path.join(ROOT, "chunk_push.log")
 TARGET = "main"
-BASE = "7806c49"
+BASE = "282a4d0"
 CHUNK_BYTES = 15 * 1024 * 1024
 
 
