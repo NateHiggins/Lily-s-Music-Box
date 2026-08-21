@@ -191,6 +191,55 @@ vec4 juno_surface(vec3 world, vec2 uv, float retained, float molten,
 	return vec4(colour, roughness);
 }
 
+// Mae's two provenance fields remain simultaneous and equally authoritative.
+// Their optical disagreement never reads or adjudicates the two stored spatial
+// accounts owned by the shared room grammar.
+vec4 mae_surface(vec3 world, vec2 uv, float retained, float molten,
+		float awake, float grazing, int slot) {
+	vec4 lacquer = incarnation_substance(0, uv * 0.78);
+	vec4 grain = incarnation_substance(1, uv * 0.86 + 2.3);
+	vec4 paper = incarnation_substance(2, uv * 0.69 - 5.7);
+	vec4 glass = incarnation_substance(3, uv * 0.96 + 7.9);
+	vec4 selected = incarnation_substance(slot, uv * 0.82);
+	float rate = min(incarnation_motion.x, 0.099);
+	float beat = 0.5 + 0.5 * sin(TIME * rate * 6.2831853
+		+ incarnation_motion.y);
+	float estate = 0.5 + 0.5 * sin(uv.x * 0.76 + uv.y * 0.31);
+	float domestic = 0.5 + 0.5 * sin(uv.x * 0.39 - uv.y * 0.71 + 1.8);
+	float disagreement = abs(estate - domestic);
+	float equal_weight = mix(beat, 0.5, awake);
+	vec3 emerald = lacquer.rgb * vec3(0.18, 0.54, 0.37);
+	vec3 lapis = glass.rgb * vec3(0.24, 0.32, 0.66);
+	vec3 wine = lacquer.rgb * vec3(0.42, 0.16, 0.24);
+	vec3 antique = grain.rgb * vec3(0.66, 0.48, 0.24);
+	vec3 provenance_a = mix(wine, emerald, estate);
+	vec3 provenance_b = mix(wine, lapis, domestic);
+	vec3 colour = mix(provenance_a, provenance_b, equal_weight);
+	// Both molten reflection lobes originate at the same stable point. Their
+	// overlap is subtractive darkness, never a synthesized third account.
+	float lobe_a = smoothstep(0.14, 0.025,
+		abs(fract((uv.x + uv.y * 0.42) * 0.083) - 0.34));
+	float lobe_b = smoothstep(0.14, 0.025,
+		abs(fract((uv.x - uv.y * 0.42) * 0.083) - 0.66));
+	float overlap = lobe_a * lobe_b;
+	colour = mix(colour, antique, molten * max(lobe_a, lobe_b) * 0.78);
+	colour = mix(colour, vec3(0.012, 0.015, 0.022), molten * overlap * 0.92);
+	colour += paper.rgb * vec3(0.10, 0.09, 0.07)
+		* retained * disagreement * 0.11;
+	float room_luma = dot(texture(reflected_world,
+		fract(uv * 0.028 + vec2(0.53, 0.37))).rgb,
+		vec3(0.299, 0.587, 0.114));
+	colour += antique * room_luma * molten * grazing * 0.085;
+	// The histories agree only in one polished hand-height pressure trace.
+	vec2 thumb_q = fract(uv / 9.5 + vec2(0.22, 0.48)) - 0.5;
+	float thumb = smoothstep(0.13, 0.065,
+		length(thumb_q / vec2(0.72, 1.0)));
+	float roughness = mix(selected.a, 0.27,
+		molten * max(lobe_a, lobe_b));
+	roughness = mix(roughness, 0.12, thumb * 0.46);
+	return vec4(colour, roughness);
+}
+
 vec4 dream_incarnation_surface(vec3 world, vec2 uv, float retained,
 		float molten, float awake, float grazing, int slot, vec4 fallback) {
 	if (incarnation_id > 0.5 && incarnation_id < 1.5) {
@@ -201,6 +250,9 @@ vec4 dream_incarnation_surface(vec3 world, vec2 uv, float retained,
 	}
 	if (incarnation_id > 2.5 && incarnation_id < 3.5) {
 		return juno_surface(world, uv, retained, molten, awake, grazing, slot);
+	}
+	if (incarnation_id > 3.5 && incarnation_id < 4.5) {
+		return mae_surface(world, uv, retained, molten, awake, grazing, slot);
 	}
 	return fallback;
 }

@@ -84,8 +84,13 @@ paired send/return traces, oxidized brass, pressure tissue, a sub-Hz standing
 wave, one sustained band, a quiet node and five fauna costumes. The shader
 cannot read or create channel edges, partitions, pursuit attention, sound or
 sustain credit; the shared profile and irradiance tests retain those owners.
-Production proof: `art/renders/dream_incarnation_juno_v5/README.md`. Mae INC-V6
-is open.
+Production proof: `art/renders/dream_incarnation_juno_v5/README.md`. INC-V6 is
+also technically complete: Mae replaces Juno with exactly her active 17-map
+bundle and uses the same owners for equal-authority emerald/lapis provenance,
+sub-0.1 Hz moire, two reflection lobes, dark overlap, shared thumb pressure and
+five fauna costumes. Her presentation cannot reach or adjudicate the two
+stored spatial accounts. Proof: `art/renders/dream_incarnation_mae_v6/README.md`.
+Cal INC-V7 is open but remains data-gated until that pass enables him.
 N12's shared profile makes delayed
 feedback physically load-bearing, then releases the oldest partition when one
 channel remains open. N13 lets two real branches return to one stable antique

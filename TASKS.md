@@ -1690,11 +1690,7 @@ unresolved. K7's source-backed loop contract is closed in
   48/77/133/172 calls. WalkTest FAST passes at x8/480; the FULL attempt was
   terminated without a result at the mandatory 60-second process limit, so no
   fresh FULL claim is made. Proof: `art/renders/dream_irradiance_v1/README.md`.
-- **INC-V6 — MAE SURFACE INCARNATION (OPEN).** Implement the
-  approved interfering-provenance language while one antique and two histories
-  remain the only spatial facts. Generated labels stay unreadable/period-texture
-  unless separately ruled; no plate may adjudicate which provenance is true.
-- **INC-V7 — CAL SURFACE INCARNATION (BLOCKED BY INC-V6; DATA-GATED UNTIL THIS PASS).**
+- **INC-V7 — CAL SURFACE INCARNATION (OPEN; DATA-GATED UNTIL THIS PASS).**
   Build the approved dial-glass/amber/held-time presentation after Mae. The
   shared validator must keep Cal production-disabled until this task lands.
 - **INC-V8 — OMAR SURFACE INCARNATION (BLOCKED BY INC-V7; DATA-GATED UNTIL THIS PASS).**

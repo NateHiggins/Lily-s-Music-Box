@@ -11,6 +11,8 @@ const CASES := {
 			"decision_route", "initial_pressure", "held_initial_pressure"],
 	"juno": ["juno_feedback_tetris", "juno_release_print", 3,
 			"standing_wave", "quiet_node", "held_quiet_node"],
+	"mae": ["mae_contradictory_antiques", "mae_release_print", 4,
+			"double_reflection", "shared_thumbprint", "held_shared_thumbprint"],
 }
 
 var root: DreamMazeRoot
@@ -110,7 +112,7 @@ func _stage_reflection_graze() -> void:
 	var r: Array = room.rect
 	var target := Vector3(float(r[2]) - 0.11, 1.35,
 			(float(r[1]) + float(r[3])) * 0.5)
-	root.player.global_position = target + Vector3(-1.35, 0.0, -1.25) \
+	root.player.global_position = target + Vector3(-1.8, 0.0, -2.4) \
 			- root.player.camera.position
 	root.player.camera.look_at(target, Vector3.UP)
 	root.player.velocity = Vector3.ZERO

@@ -174,6 +174,40 @@ func _production_contract() -> void:
 	root = scene.instantiate() as DreamMazeRoot
 	root.autonomous = false
 	root.configure_dream({
+		"case_id": "mae_contradictory_antiques",
+		"profile_id": "mae_release_print",
+		"window": {}, "seed_hex": SEED_HEX, "maze_revision": 1,
+		"outcome": "", "night_index": 4, "spawn_anchor": 1,
+	})
+	add_child(root)
+	await get_tree().process_frame
+	bundle = root.active_presentation()
+	_check("the same production root owns Mae's immutable presentation bundle",
+			root.maze_built and str(bundle.get("incarnation_id", "")) == "mae"
+			and int(bundle.get("incarnation_index", 0)) == 4)
+	_check("Mae owns exactly her active seventeen-map residency",
+			root.presentation_plates.resource_count() == 17
+			and root.presentation_plates.active_incarnation == "mae")
+	var mae_bound := true
+	for value in root.get("_molten_materials") as Array:
+		var material := value as ShaderMaterial
+		if material == null or not is_equal_approx(float(
+				material.get_shader_parameter("incarnation_id")), 4.0):
+			mae_bound = false
+	_check("Mae uses the same collector and shader materials", mae_bound)
+	_check("Mae's presentation leaves the contradiction truth unchanged",
+			root.active_case_truth().get("statement", "")
+				== "Contradiction is survivable")
+	_check("Mae's presentation adds no foreign hazard allowlist",
+			(root.profile_hazards.get("allow", []) as Array).is_empty())
+	_check("Mae still creates no incarnation runtime owner",
+			root.find_children("*Incarnation*", "Node", true, false).is_empty())
+	root.queue_free()
+	await get_tree().process_frame
+
+	root = scene.instantiate() as DreamMazeRoot
+	root.autonomous = false
+	root.configure_dream({
 		"case_id": "peter_form_corridor",
 		"profile_id": "peter_release_print",
 		"window": {}, "seed_hex": SEED_HEX, "maze_revision": 1,

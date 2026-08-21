@@ -65,10 +65,16 @@ func _run() -> void:
 	var mae_result := Profile.resolve(mae_profile.get("presentation", null),
 			"mae_release_print", "mae_contradictory_antiques")
 	var mae: Dictionary = mae_result.get("bundle", {})
-	_check("a missing next case cannot retain or substitute Juno's plates",
-			not cache.load_bundle(mae, {}) and cache.resource_count() == 0
+	_check("Mae replaces Juno with exactly one active seventeen-map bundle",
+			cache.load_bundle(mae, _resources_for(mae, catalog))
+			and cache.resource_count() == 17
+			and cache.active_incarnation == "mae"
+			and not cache.resources.has("%s/albedo" % str(juno.substance_keys[0])))
+	_check("a gated next case cannot retain or substitute Mae's plates",
+			cache.load_bundle(Profile.default_bundle(), {})
+			and cache.resource_count() == 0
 			and cache.active_incarnation.is_empty()
-			and cache.last_error.contains("not yet shipped"))
+			and cache.last_error.is_empty())
 
 	cache.load_bundle(mina, resources)
 	cache.unload()
@@ -97,7 +103,7 @@ func _test_catalog() -> Dictionary:
 			"normal": {"bytes_per_pixel": 4, "suffix": "normal.png"},
 			"roughness": {"bytes_per_pixel": 1, "suffix": "roughness.png"},
 		},
-		"available_cases": ["mina", "peter", "juno"],
+		"available_cases": ["mina", "peter", "juno", "mae"],
 		"root": "res://not_used",
 	}
 
