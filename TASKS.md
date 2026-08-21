@@ -1788,7 +1788,10 @@ flat on screen.
 
 The audit did find one real defect, and it is a picture defect. See MP below.
 
-### M-COVER — rethink coverage (owner request 2026-08-17; FRAMES AND COSTS DELIVERED 2026-08-21, awaiting the owner's pick)
+### M-COVER — rethink coverage (owner request 2026-08-17; FRAMES DELIVERED AND **ADOPTED BY THE OWNER 2026-08-21** — "1 yes")
+
+- **MC-P — M-COVER INTO PRODUCTION (OPEN, RULED).** `FloorCoveragePass` at build swaps the floor sets' shipping materials for `floor_coverage.gdshader`: cell-snapped hex for terrazzo variants (cells per variant measured on each albedo), per-board-row offsets for oak. Frames from the M-COVER stands before/after, perf station A/B at 1440p, WalkTest FAST, LightingAudit. No new textures, no new draws.
+
 
 **What the frames say** (`art/renders/material_coverage_m/README.md`, nine
 options × four stands from one camera each, production fixtures and the
@@ -2070,6 +2073,22 @@ of logged camera stands, and there are named review shots (`bookshelf_review`,
 shoot it after, and judge the pass on frames. `gen_layout.py` owns all
 coordinates; generated `.json`/`.gltf` are never hand-edited, so geometry
 changes go in there or in `build_orison.py`, then regenerate and re-import.
+
+## EN — The Encroachment (owner ruling 2026-08-21; `design/DREAM_ENCROACHMENT_BRIEF.md`)
+
+The owner ruled on 2026-08-21: M-COVER adopted; rule of cool is standing
+licence for taste rows and the previously owner-gated items unless otherwise
+directed; the dream's generated plates enter each case's waking apartment;
+the dream is re-layered (grounded PBR base, purplish flesh, golden skin,
+folding, molten golden welds that work as portals — "not a wavy golden shower
+curtain"); the critters get detailed textures built from the plates already
+made. The brief holds the verbatim ruling, the five-layer model and the order.
+
+- **EN-1 — THE LAYER MODEL AS FRAMES (OPEN).** One room, one camera, layers 0→4 on one at a time plus the high-exposure composite, cost per layer. No production change until the owner has seen the stack.
+- **EN-2 — WELDS (OPEN, AFTER EN-1).** Molten golden seams along fold lines, the portal-opening rule at high exposure, R6's bounded camera placed by the weld vocabulary; still depth zero, still non-enterable.
+- **EN-3 — FOLDS (OPEN, AFTER EN-1).** Bounded geometry-side folding inside the Atlas's promise; Gate C clamps re-run.
+- **WK-1 — MINA'S FLAT ENCROACHED (OPEN).** 2A carries her four plates as a masked creep tied to case stage through the finish pipeline and `MatLib`; her intercom is the beachhead; the reflected-world plate is the late mirror. Then Peter, Juno, Mae, Cal, Omar in that order.
+- **CT-1 — FAMILY SKIN ATLASES (OPEN).** Per-family packed skins for the landed five, built by script from the thirty dream plates and mapped to the part kit's authored regions; reviewed in the three-light harness. **CT-2** follows for each FA3 family as its part kit lands (FA3 is now licensed by the ruling).
 
 ## C — Cast (ruled 2026-08-10, ORISON_BIBLE §IV.1)
 
