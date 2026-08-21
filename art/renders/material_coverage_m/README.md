@@ -21,7 +21,9 @@ off; it is printed in every label and stored in `frames/coverage.json`.
 Stands: the F04 corridor's long sightline, the same corridor looking down at
 the floor, the lobby, the 4B living room, and (for oak) a bare stretch of 4B's
 boards. Sheets: `<stand>_sheet.png` (all nine options) and `<stand>_close.png`
-(centre crop at 2×); full frames in `frames/`.
+(centre crop at 2×); the full frames behind the findings are in `frames/`
+(terrazzo current/mirror/hex/split, corridor long current/split, oak
+current/hex/rows) and the rest regenerate with the harness in a few minutes.
 
 ## What repeats, and why the obvious fixes fail on it
 
