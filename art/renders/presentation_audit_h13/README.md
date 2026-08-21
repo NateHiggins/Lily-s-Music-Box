@@ -203,6 +203,22 @@ rows unchanged at 6. WalkTest FAST PASS, LightingAudit PASS, 0 errors.
 `roof_fan_before.png` / `roof_fan_after.png`: the north parapet from
 `@-2.0_20.9_-5.2:25|-18`, old layout swapped in for the first frame.
 
+## Third fix — two bases authored on the wrong surface
+
+Both are z omissions, not placements. `F04_B_STOVE_01` (the player's own
+range, hand-authored in 2026-08) was placed at floor level while the
+`4B_stove_plinth` it stands on is 0.10 m tall; `F01_BODEGA_RADIO` was
+placed at 0.0 while `bod_floor` lays a 0.05 m lino finish there. The range
+now sits at z + 0.10 and the radio at 0.05. Two markers and their graph
+nodes changed; no furniture, no rebuild. Re-audit: support rows **6 → 4**,
+overlap rows 17. WalkTest FAST PASS, LightingAudit PASS, 0 errors.
+`stove_4B_before.png` / `stove_4B_after.png` from `@-9.25_10.95_-7.4:0|-16`.
+
+The support rows that remain are the bar's karaoke speakers and songbook
+terminal, which are wall- or stage-mounted by intent and report "no
+collider below the base" or a hull under a cabinet — a look, not a fix —
+and the 2A lamp whose base sits 75 mm into the service papers on its desk.
+
 ## What the remaining rows turned out to be
 
 - **2D and 5D's empty rooms are authored.** `gen_layout.py` lists 2D as

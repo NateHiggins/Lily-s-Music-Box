@@ -2022,7 +2022,9 @@ def apartment_4b(z, walls, rooms, markers, furniture):
     # audit had to be told to forgive.
     markers.append({
         "kind": "stove", "id": "F04_B_STOVE_01", "unit": "4B",
-        "pos": [round((ST_X0 + ST_X1) / 2.0, 4), 9.30, z],
+        # On the plinth below, not on the floor the plinth stands on:
+        # PresentationAudit measured the range's base 100 mm inside it.
+        "pos": [round((ST_X0 + ST_X1) / 2.0, 4), 9.30, z + 0.10],
         "yaw_deg": 180, "network": "gas"})
     # The run's plinth under it and the splashback a gas range needs at
     # its back. No wall cupboard over it — see the uppers below.
@@ -7005,8 +7007,9 @@ def retail_pass(fl):
                    "unit": "SITE", "pos": [17.55, ly, 3.05], "yaw_deg": 90,
                    "network": "electrical", "range": 5.5, "energy": 0.55,
                    "navigation": True, "standby": 0.35, "exterior": True})
+    # On the 50 mm lino finish laid by bod_floor, not on the slab under it.
     mk.append({"kind": "speaker", "id": "F01_BODEGA_RADIO", "unit": "SITE",
-               "pos": [16.55, -10.55, 0.0], "yaw_deg": 90,
+               "pos": [16.55, -10.55, 0.05], "yaw_deg": 90,
                "network": "electrical", "exterior": True,
                "bed": "murmur_loop"})
     # Signage redesign (2026-08-07): the bodega dropped its neon for the
