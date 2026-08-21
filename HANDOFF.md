@@ -393,12 +393,17 @@ bearing wall, and a raycast fan that found the road slab over the well.
 
 ## State
 
-**2026-08-21, latest:** the MX programme (layered surface system) is under
-way: MX-0 census (`art/renders/surface_census_mx0/`), MX-1 shader + MX-4
-step 1 in production on the masonry and wall finishes
+**2026-08-21, latest:** the MX programme (layered surface system) is in
+production on the architecture: MX-0 census, MX-1 shader, MX-2 governor,
+MX-4 steps 1–3 (walls, finishes, floors with coverage folded in, trims;
+relief at 2.5× by owner ruling), draw-heavy tiers (furnishing, props) built
+but opt-in behind `SURFACE_PROPS=1` because a ShaderMaterial draw costs
+more than a Standard one on a draw-bound frame
 (`art/renders/orison_surface_mx1/README.md`, `SURFACE=0` for the A/B,
-`game/tests/SurfaceShot.tscn` for frames). Next in the rollout: floors,
-trims, furnishing, `MatLib` props; `TASKS.md` §MX has the open rows.
+`game/tests/SurfaceShot.tscn` for frames). CT-1 fauna skin atlases landed
+(`art/renders/dream_fauna_ct1/README.md`). Open: MX-3 ingest v2, the 22
+encroached finishes as a corruption recipe, EN-1b/EN-2/EN-3, the WK-1
+per-case grammars, CT-2; `TASKS.md` §MX / §CT / §EN.
 
 **Three documents, three jobs — do not duplicate between them.**
 
