@@ -6,7 +6,6 @@ const MAX_INSTANCES := 96
 const TICK_S := 1.0 / 3.0
 const HUSH_RADIUS := 4.0
 const FAUNA_SHADER := preload("res://shaders/dream_fauna.gdshader")
-const LEGACY_FAUNA_SHADER := preload("res://shaders/dream_fauna_legacy.gdshader")
 const WINE := Color("55152f")
 const GOLD := Color(0.72, 0.40, 0.09)
 const EMERALD := Color(0.180, 0.404, 0.360)
@@ -56,8 +55,6 @@ func setup(room_owner: DreamRoomBuilder, body: Node3D, tenant: Node3D,
 			0.035, 0.08, 4.0, true)
 	(_loupe.multimesh.mesh.surface_get_material(0) as ShaderMaterial).set_shader_parameter(
 			"gold_gain", 0.75)
-	if OS.get_environment("FAUNA_STYLE_LEGACY") == "1":
-		set_legacy_style_for_proof(true)
 	refresh()
 
 func _physics_process(delta: float) -> void:
@@ -265,17 +262,6 @@ func realization_signature() -> String: return _signature
 
 func room_signature(room_key: String) -> String:
 	return str(_room_signatures.get(room_key, ""))
-
-## Temporary FA-V1/FA-V3 old/new proof instrument. Owner ruling requires this
-## method, its environment switch and the legacy shader to leave at FA-V3
-## closeout; they are diagnostics, never production configuration.
-func set_legacy_style_for_proof(enabled: bool) -> void:
-	for child in get_children():
-		var batch := child as MultiMeshInstance3D
-		if batch == null: continue
-		var material := batch.multimesh.mesh.surface_get_material(0) as ShaderMaterial
-		if material != null:
-			material.shader = LEGACY_FAUNA_SHADER if enabled else FAUNA_SHADER
 
 func _sync_densities(live: Array) -> void:
 	var keep := {}

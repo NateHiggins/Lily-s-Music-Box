@@ -3,8 +3,8 @@
 FA-V1 Slices A–C migrate all five landed families through the shared fauna
 channel/style owner and the owner-ruled cached ArrayMesh part kit. Ecology,
 pursuit, hazards, topology, transforms, density and save ownership do not
-change. FA-V3 remains open at its explicit owner visual ruling; the temporary
-legacy comparator therefore remains present.
+change. The owner accepted FA-V3 on 2026-08-20; the temporary legacy comparator
+was then removed from production code as its pre-ruled closeout.
 
 ## What landed
 
@@ -42,8 +42,8 @@ Pinned mesh SHA-256 and triangle counts:
 `00_control_a.png` and `00_control_a_repeat.png` are equal-interval,
 fauna-hidden A/A frames. Each family then has matched hidden-dark, dark,
 beam-edge and full-beam frames (`01`–`04`). `05_tessellates_legacy.png` and
-`06_tessellates_migrated.png` retain the old/new control required until FA-V3
-closeout.
+`06_tessellates_migrated.png` remain as historical old/new evidence. The shot
+harness no longer regenerates them and production has no legacy selector.
 
 At 1280x720, RGB A/A mean absolute difference is **0.1561**
 (`R/G/B 0.2222/0.1781/0.0680`), far below the 0.8136 stop floor. A conservative
@@ -77,7 +77,9 @@ self-lights in darkness.
   `DreamFractalRunTest` **24/24**; `DreamExposureTest` **27/27**;
   `DreamLineageTest` **21/21**; `DreamSurfaceTargetTest` **105/105**.
 - `WalkTest`: **PASS FAST** and **PASS FULL at x8/480 Hz**.
-- Production style harness: **24/24 frames**, no script or shader errors.
+- Original production style harness: **24/24 frames**, no script or shader
+  errors. After owner acceptance its ongoing three-light harness is 22 frames;
+  the two historical comparator files remain evidence only.
 
 Final same-build Compatibility A/B at 2560x1421:
 
@@ -94,8 +96,9 @@ stop gate of no more than two draws above FA2.
 ## Scope and ruling point
 
 Slices A–C technically close FA-V1 and migrate the landed five for FA-V2. The
-render set supplies the FA-V3 three-light evidence, but **does not silently
-approve its visual gate**. The owner must rule on these silhouettes before
-FA-V3 closes and the temporary legacy selector is deleted. Slice D / FA-V4
-collision-free DreamWalk inspection remains open. No dangerous fauna, fauna
-audio, FA3 breadth, waking case loop or case-specific owner is implied.
+render set supplied the FA-V3 three-light evidence. The owner approved it on
+2026-08-20 and the temporary selector, method and legacy shader were removed.
+The retained `05`/`06` images are immutable historical evidence, not a runtime
+option. Slice D / FA-V4 collision-free DreamWalk inspection remains open. No
+dangerous fauna, fauna audio, FA3 breadth, waking case loop or case-specific
+owner is implied.

@@ -141,10 +141,11 @@ harmlessness and cost contracts. Three creative calls remain explicit at the
 end of this addendum, and the current shader/material/debug seams require the
 compatibility audit recorded in TASKS before visual implementation.
 
-Everything here obeys the landed dream-surface laws: gold is metallic rather
-than emissive; canopy stars are the sanctioned bright emission; dark-live wine
-is the one dark exception; motion is safe and slow where it affects luminance;
-substance flows while structure does not. The project's governing priority is
+**SUPERSEDED 2026-08-20 by V12:** Everything here obeys the landed
+dream-surface laws: gold is metallic rather than emissive; canopy stars are the
+sanctioned bright emission; dark-live wine is the one dark exception; motion is
+safe and slow where it affects luminance; substance flows while structure does
+not. The project's governing priority is
 **cool/cute/sexy first, without lying about gameplay**: physical taxonomy may
 bend for a stronger silhouette, but danger language, the Tenant's uniqueness,
 readability and measured ownership may not.
@@ -154,8 +155,10 @@ readability and measured ownership may not.
 The dream is black outside the lamp pool. Every family must have a distinct read
 in three production frames:
 
-- **Dark:** a wine/dark-glow silhouette; shape carries identity.
-- **Beam edge:** a gilt rim catches the cone; contour carries identity.
+- **Dark (SUPERSEDED 2026-08-20 by V12):** a wine/dark-glow silhouette; shape
+  carries identity.
+- **Beam edge (SUPERSEDED 2026-08-20 by V12):** a gilt rim catches the cone;
+  contour carries identity.
 - **Full beam:** gold ornament and molten response wake; pattern usually carries
   identity. A negative-space family may instead remain an authored absence with
   one positive gold breach; do not paste pattern onto the void to satisfy a
@@ -360,10 +363,11 @@ MultiMesh custom channel. It also has no collision, correctly. Before migration:
    cannot see.
 7. Only tiny cute geometry may use the 1.5–2.5 Hz band. Large-form motion and
    every luminance modulation remain sub-Hz and photosensitivity-safe.
-8. The landed shader's blended emission is split during migration: metallic
-   gold emission becomes zero; only the bounded dark-live wine band may retain
-   low emission for the dark-state silhouette. Full-beam brilliance comes from
-   the production lamp and material response, not self-lighting gold.
+8. **SUPERSEDED 2026-08-20 by V12:** The landed shader's blended emission is
+   split during migration: metallic gold emission becomes zero; only the
+   bounded dark-live wine band may retain low emission for the dark-state
+   silhouette. Full-beam brilliance comes from the production lamp and
+   material response, not self-lighting gold.
 
 ### V10. FA-V0 compatibility audit — complete 2026-08-20
 
@@ -477,3 +481,68 @@ closes FA-V1 Slices A–C and performs the landed-five migration requested by
 FA-V2. It does **not** silently close the FA-V3 owner visual gate: the legacy
 selector remains until the owner accepts the rendered silhouettes. Slice D /
 FA-V4 collision-free DreamWalk inspection remains open.
+
+**SUPERSEDED 2026-08-20 by FA-V3 closeout:** the owner accepted the rendered
+silhouettes; the selector, callable method and legacy shader are removed. The
+24-frame result above remains the historical acceptance proof and the ongoing
+harness now emits 22 current-path frames.
+
+### V12. Dream irradiance — three-state visual doctrine, ruled 2026-08-20
+
+The owner approved the successor to V4/V8/V9.8 and the landed two-state
+surface read. Every dream surface now targets three continuously blended
+irradiance bands: darkness is anatomy drawn as bounded neon calligraphy on
+black fill; oblique light is translucent tissue, branching veins, rim and wet
+film; sustained full beam is molten gold, streaming ornament, breathing relief
+and bloom-bright cores. Substance may flow, but structure, collision, routes
+and topology never move.
+
+One pointwise irradiance scalar combines rate-limited live cone occupancy,
+surface incidence, distance and retained exposure. Neon roots persist through
+the oblique band and veins persist as molten flow channels. There are no
+boolean state changes or hard visual thresholds. A fast player sweep may move
+the beam, but the visible luminance response remains rate-limited and all
+autonomous modulation remains sub-Hz.
+
+Room lineage is the shared look-space, not an excuse for per-entity assets or
+shader variants. The genome derives hue drift, vein branching, line weight,
+pattern species, molten viscosity and pulse phase per room for architecture
+and per instance for fauna. Siblings visibly rhyme; remote and deeply
+forgotten rooms become stranger and more dark-luminous. Architecture is the
+largest organism and fauna are its local offspring. This uses shared code and
+packed data: no bitmap skin, per-entity shader, new compile, draw, texture
+file, camera, viewport, world, collision or topology.
+
+This narrows the old “gold metallic, never emissive / wine-only dark glow” law
+to the full-beam material response. Molten brilliance is still delivered by
+the lamp, never a new light; the dark and oblique line languages may be
+self-lit only within the proved life-below-danger and sanctioned-star ceiling.
+It also supersedes “beautiful only where looking” with “differently beautiful
+in every light state.” The marked historical lines above remain as the record.
+
+Nothing here reopens the Tenant's shadow-only uniqueness, danger-eye
+reservation, harmless fauna, cap, owner, hush/freeze, R1–R6 geometry,
+determinism, golden vectors, submission ceilings or save boundary. Exact
+bands, channels, shader compatibility and proof gates are specified in
+`design/DREAM_IRRADIANCE_COMPATIBILITY_PLAN.md`. Implementation is not licensed
+until that plan receives owner review.
+
+### V13. The unreliable lamp, ruled 2026-08-20
+
+Inside its unchanged player-controlled ON state, the service lamp gutters: a
+slow asymmetric sag, a smoother quicker recovery and occasional deeper but
+never black dips. The steep pool draws slightly shorter during a sag, making
+long shadows and the oblique veined band the normal lit composition; molten is
+earned at the hot centre. Only the switch may extinguish the lamp.
+
+This is presentation owned by the existing PlayerController warm-up/transient
+path. It may modulate delivered energy, reach and falloff after the boolean,
+but it cannot write the boolean, Juno channel edges, pursuit acquisition,
+hazard conditions or save state. The existing single shadow-casting source
+remains single; fauna remain shadowless; the Tenant remains the only
+figure-shaped borrowed silhouette. The waveform is deterministic from campaign
+seed and run clock, band-limited below 1 Hz, slope-bounded, and exposes a
+diagnostic freeze-at-phase pin so A/A and A/B evidence remains valid. Its floor
+must preserve hazard confirmation and its documented mean energy must keep
+exposure and case dwell tuning honest. Exact waveform and proof requirements
+live in the compatibility plan. Implementation stops at the owner gate.

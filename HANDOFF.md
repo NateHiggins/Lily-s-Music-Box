@@ -91,9 +91,19 @@ cost +45. The permanent
 batch-override proposal was rejected by contradictory +24/+25-call evidence;
 five zero-mesh binding nodes preserve the unchanged root owner at zero draws.
 Proof is `art/renders/dream_fauna_v3/README.md`; FA-V1 and the FA-V2 landed-five
-migration are technically complete. FA-V3 has production evidence but remains
-at the explicit owner visual ruling, so the legacy selector is not yet deleted;
-Slice D / FA-V4 DreamWalk remains open. The audit's pre-C1 anchor appendix is
+migration are technically complete. The owner accepted FA-V3 on 2026-08-20;
+its temporary environment selector, callable switch and legacy shader are now
+deleted while the two comparator PNGs remain historical evidence. Slice D /
+FA-V4 DreamWalk remains open. The owner also approved the V12/V13 dream
+irradiance doctrine: neon anatomy in darkness, oblique translucent veins,
+molten full beam, and a slow deterministic gutter inside the unchanged lamp-on
+state. The implementation compatibility proposal is deliberately stopped at
+review in `design/DREAM_IRRADIANCE_COMPATIBILITY_PLAN.md`: reuse the current
+lamp/material feed, expand the existing exposure payload to carry a reversible
+rate-limited irradiance channel, derive architecture/fauna variation from
+existing lineage and packed channels, and add no draws, lights, materials,
+texture objects or gameplay edges. IR-V1/IR-V2 must not begin until that exact
+plan is reviewed. The audit's pre-C1 anchor appendix is
 superseded and does not reopen the landed commensal proof. Separately, waking-world
 commensals C1 is now landed: moths at the two owner-derived entry street lamps,
 one sparse F02 riser mouse cue through the shared ambience pool, one habituated

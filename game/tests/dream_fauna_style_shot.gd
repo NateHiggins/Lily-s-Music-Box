@@ -41,8 +41,7 @@ func _ready() -> void:
 	root.fauna.visible = true
 	for family in FAMILIES:
 		await _capture_family(str(family[0]), str(family[1]))
-	await _capture_legacy_pair()
-	print("[FAUNA STYLE SHOT] 24 frames, findings=%d census=%s" %
+	print("[FAUNA STYLE SHOT] 22 frames, findings=%d census=%s" %
 			[failures, root.fauna.census()])
 	get_tree().quit(failures)
 
@@ -97,15 +96,6 @@ func _capture_family(slug: String, node_name: String) -> void:
 	await _capture("03_%s_beam_edge" % slug)
 	_stage(batch, true, 0.0)
 	await _capture("04_%s_full_beam" % slug)
-
-func _capture_legacy_pair() -> void:
-	var batch := root.fauna.get_node("Tessellates") as MultiMeshInstance3D
-	_show_only(batch); _stage(batch, true, 0.0)
-	root.fauna.set_legacy_style_for_proof(true)
-	await _capture("05_tessellates_legacy")
-	root.fauna.set_legacy_style_for_proof(false)
-	root.call("_collect_molten_materials"); root.call("_update_molten")
-	await _capture("06_tessellates_migrated")
 
 func _show_only(wanted: MultiMeshInstance3D) -> void:
 	root.fauna.visible = true
