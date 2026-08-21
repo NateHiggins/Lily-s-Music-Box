@@ -111,14 +111,16 @@ const CLASSES := [
 ]
 
 ## The draw-heavy tiers — the glTF furnishing classes above and the batched
-## props — are OPT-IN (`SURFACE_PROPS=1`). Measured 2026-08-21 at the 4B
-## stand: furnishing +0.9 ms for 1,004 surfaces, props +1.1 ms for 4,274
-## draws, with nothing visible gained: a ShaderMaterial draw costs more than
-## a StandardMaterial3D draw on Compatibility, and props are 87 % of the
-## frame's draws (MX-0). They come on by default when MX-2's station budget
-## can pay for them where it matters.
+## props — are ON by owner ruling 2026-08-21 ("it should reach the props"):
+## the states (grime, moisture, corruption) must be able to reach a prop.
+## Measured at the 4B stand: furnishing +0.9 ms for 1,004 surfaces, props
+## +1.1 ms for 4,274 draws (a ShaderMaterial draw costs more than a
+## StandardMaterial3D draw on Compatibility; props are 87 % of draws). The
+## governor pays for it: with the parallax budget already at zero and the
+## frame still over target it drops the prop tier, and brings it back with
+## headroom. `SURFACE_PROPS=0` keeps the tiers off for an A/B.
 static func draw_heavy_enabled() -> bool:
-	return OS.get_environment("SURFACE_PROPS") == "1"
+	return OS.get_environment("SURFACE_PROPS") != "0"
 
 ## M-COVER's per-set coverage rule, keyed by the substring of the albedo
 ## file name (longest key wins). `cells` is the divider grid per tile
@@ -166,6 +168,15 @@ var governed_steps := 0
 var _govern_clock := 0.0
 var _govern_pinned := false
 var _govern_target := GOVERN_TARGET_MS
+## The second lever: the prop tier, dropped when the budget is spent.
+var props_tier_on := true
+var _props_root: Node = null
+var _over_streak := 0
+var _under_streak := 0
+## Flipping 4,000 material overrides in one frame read as a 900 ms hitch;
+## the lever works through a queue, this many draws per physics frame.
+const LEVER_CHUNK := 160
+var _lever_queue: Array = []
 
 
 func govern_setup() -> void:
@@ -180,6 +191,7 @@ func govern_setup() -> void:
 func govern(delta: float, gpu_ms: float) -> void:
 	if _govern_pinned or gpu_ms <= 0.0:
 		return
+	_drain_lever()
 	_govern_clock += delta
 	if _govern_clock < GOVERN_INTERVAL:
 		return
@@ -187,8 +199,29 @@ func govern(delta: float, gpu_ms: float) -> void:
 	var next := budget
 	if gpu_ms > _govern_target:
 		next = maxf(0.0, budget - GOVERN_STEP)
+		_over_streak += 1
+		_under_streak = 0
 	elif gpu_ms < _govern_target - GOVERN_HEADROOM_MS:
 		next = minf(1.0, budget + GOVERN_STEP)
+		_under_streak += 1
+		_over_streak = 0
+	else:
+		_over_streak = 0
+		_under_streak = 0
+	# The prop tier: the last thing to go and the last to come back.
+	if props_tier_on and budget <= 0.0 and _over_streak >= 3 and _props_root != null 			and _lever_queue.is_empty():
+		props_tier_on = false
+		for entry in _prop_swaps:
+			_lever_queue.append([entry[0], entry[1]])
+		_prop_swaps.clear()
+		props_swapped = 0
+		print("[SURFACE] governor: gpu %.1f ms with no parallax left -> prop tier OFF (%d draws queued)"
+				% [gpu_ms, _lever_queue.size()])
+	elif not props_tier_on and budget >= 1.0 and _under_streak >= 6 and _props_root != null 			and _lever_queue.is_empty():
+		props_tier_on = true
+		_queue_apply_props(_props_root)
+		print("[SURFACE] governor: gpu %.1f ms with headroom -> prop tier ON (%d draws queued)"
+				% [gpu_ms, _lever_queue.size()])
 	if is_equal_approx(next, budget):
 		return
 	budget = next
@@ -253,6 +286,9 @@ var _prop_swaps: Array = []
 func apply_props(root: Node) -> int:
 	if OS.get_environment("SURFACE") == "0" or not draw_heavy_enabled():
 		return 0
+	_props_root = root
+	if not props_tier_on:
+		return 0
 	var recipe := PROPS_RECIPE.duplicate()
 	recipe["parallax_budget"] = budget
 	for node in root.find_children("*", "MeshInstance3D", true, false):
@@ -272,6 +308,35 @@ func apply_props(root: Node) -> int:
 	print("[SURFACE] %d prop draws layered in triplanar mode (%d materials)"
 			% [props_swapped, materials])
 	return props_swapped
+
+
+## Queue the prop sweep instead of doing it at once (the governor's lever).
+func _queue_apply_props(root: Node) -> void:
+	var recipe := PROPS_RECIPE.duplicate()
+	recipe["parallax_budget"] = budget
+	for node in root.find_children("*", "MeshInstance3D", true, false):
+		var mi := node as MeshInstance3D
+		if mi.mesh == null or not (mi.material_override is StandardMaterial3D):
+			continue
+		if _is_imported(mi):
+			continue
+		var original := mi.material_override as StandardMaterial3D
+		if not original.uv1_triplanar or not _eligible(original):
+			continue
+		_lever_queue.append([mi, surface_for(original, recipe, "props", _cache), original])
+
+
+func _drain_lever() -> void:
+	var n := mini(LEVER_CHUNK, _lever_queue.size())
+	for _i in n:
+		var entry: Array = _lever_queue.pop_front()
+		var mi := entry[0] as MeshInstance3D
+		if not is_instance_valid(mi):
+			continue
+		mi.material_override = entry[1]
+		if entry.size() > 2:
+			_prop_swaps.append([mi, entry[2]])
+			props_swapped += 1
 
 
 func restore_props() -> void:
