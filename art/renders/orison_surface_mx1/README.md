@@ -142,3 +142,11 @@ Left for the rollout: glTF furnishing (normal tier), the `MatLib` props
 and tint — a `get_surface` beside it, not a swap), the 22 encroached
 finishes as a corruption recipe, and the metal states photographed on
 metal.
+
+**Step 4 — glTF furnishing** (`furnish`, `furniture`, `retail`, `transit`):
+normal tier + self-detail, no parallax; two-sided and blended surfaces stay
+as shipped. 14 classes, **1,004 surfaces on 678 materials**; flat 4B 4.47 →
+5.67 ms, bed 2A 3.60 → 4.54 ms, lobby 10.79 → 11.29 ms
+(`furnishing/sheet_flat_4b.jpg`, indistinguishable from shipping at the
+stand — that is the neutrality check passing on 850 more surfaces).
+WalkTest FAST PASS, LightingAudit PASS.

@@ -39,6 +39,8 @@ const STATIONS := [
 			"yaw": -90.0, "pitch": -3.0, "room": "B1_BOILER"},
 	{"key": "lobby", "floor": "F01", "pos": Vector3(-0.4, 1.72, 9.1),
 			"yaw": -58.0, "pitch": -6.0, "room": "F01_LOBBY"},
+	{"key": "flat_4b", "floor": "F04", "pos": Vector3(-8.1, 1.55, -3.2),
+			"yaw": 47.0, "pitch": -8.0, "room": "F04_B_MAIN"},
 	# Floors (the M-COVER stands), now a class of the same surface.
 	{"key": "corridor_floor", "floor": "F04", "pos": Vector3(4.3, 1.05, 5.2),
 			"yaw": 0.0, "pitch": -34.0, "room": "F04_CORRIDOR"},

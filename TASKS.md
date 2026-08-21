@@ -1936,12 +1936,15 @@ probe is a third. MX makes them one system.
   coverage rule folded in as `COVERAGE_RULES` (FloorCoveragePass superseded,
   no longer applied) + POM + self-detail; wainscot POM; ceiling / stairs /
   slabs / stone trim offset parallax; trim / sash self-detail — ten classes.
-  Frames `art/renders/orison_surface_mx1/floors/`. OPEN: glTF furnishing
-  (`_furnish`/`_furniture`/`_retail`, normal tier), `MatLib` props in
-  triplanar mode (`get_mat` returns a typed StandardMaterial3D and 52
-  callers may duplicate-and-tint it — needs a `get_surface` beside it, not a
-  swap), the 22 encroached finishes as a corruption recipe, metal states
-  photographed on metal).** Masonry and finish quads
+  Frames `art/renders/orison_surface_mx1/floors/`. STEP 4 SHIPPED: glTF
+  furnishing / furniture / retail / transit on the normal tier + self-detail
+  — 14 classes, 1,004 surfaces on 678 materials, flat_4b 4.47 → 5.67 ms,
+  gates PASS (`furnishing/sheet_flat_4b.jpg`). OPEN: the script props —
+  they are batched by StandardMaterial3D look-key (`StaticMeshBatcher`,
+  `functional_prop._material_key`), so the layered prop path is a sweep
+  AFTER batching (surface + `material_override` of textured triplanar
+  standards → layered triplanar), not a `MatLib` swap; the 22 encroached
+  finishes as a corruption recipe; metal states photographed on metal).** Masonry and finish quads
   first (the flashlight sees them most), then floors, trims, props. Each class
   ships with before/after frames under the moving lamp from fixed stands, the
   perf station row, and an A/B switch; colour and art direction are preserved

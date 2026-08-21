@@ -1,0 +1,67 @@
+{
+  "renderer": "gl_compatibility",
+  "sample_frames": 48,
+  "stations": {
+    "bed_2a": {
+      "current": {
+        "cpu_ms": 9.62,
+        "draw_calls": 4166,
+        "gpu_ms": 3.59999990463257,
+        "label": "shipping StandardMaterial3D",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/furnishing/bed_2a__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "ship": {
+        "cpu_ms": 9.976,
+        "draw_calls": 4198,
+        "gpu_ms": 4.53700017929077,
+        "label": "the class recipe as SurfacePass ships it",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/furnishing/bed_2a__ship.png",
+        "save_error": 0,
+        "surfaces_swapped": 77
+      }
+    },
+    "flat_4b": {
+      "current": {
+        "cpu_ms": 10.69,
+        "draw_calls": 5133,
+        "gpu_ms": 4.46700000762939,
+        "label": "shipping StandardMaterial3D",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/furnishing/flat_4b__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "ship": {
+        "cpu_ms": 10.696,
+        "draw_calls": 4860,
+        "gpu_ms": 5.67199993133545,
+        "label": "the class recipe as SurfacePass ships it",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/furnishing/flat_4b__ship.png",
+        "save_error": 0,
+        "surfaces_swapped": 84
+      }
+    },
+    "lobby": {
+      "current": {
+        "cpu_ms": 22.322,
+        "draw_calls": 14624,
+        "gpu_ms": 10.7930002212524,
+        "label": "shipping StandardMaterial3D",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/furnishing/lobby__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "ship": {
+        "cpu_ms": 22.53,
+        "draw_calls": 14542,
+        "gpu_ms": 11.289999961853,
+        "label": "the class recipe as SurfacePass ships it",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/furnishing/lobby__ship.png",
+        "save_error": 0,
+        "surfaces_swapped": 475
+      }
+    }
+  },
+  "window": "(1280, 720)"
+}

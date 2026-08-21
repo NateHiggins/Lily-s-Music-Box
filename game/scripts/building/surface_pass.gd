@@ -98,6 +98,22 @@ const CLASSES := [
 	{"key": "sash", "match": "_sash",
 			"recipe": {"has_detail": true, "detail_albedo_strength": 0.10,
 					"detail_normal_strength": 0.35}},
+	# The glTF furnishing (built-in furniture, retail fit-outs, transit
+	# shelters): the normal tier plus self-detail; no parallax — the census
+	# put the per-pixel budget on the architecture. Two-sided and blended
+	# surfaces are left alone by _eligible.
+	{"key": "furnish", "match": "_furnish_",
+			"recipe": {"has_detail": true, "detail_albedo_strength": 0.12,
+					"detail_normal_strength": 0.35}},
+	{"key": "furniture", "match": "_furniture_",
+			"recipe": {"has_detail": true, "detail_albedo_strength": 0.12,
+					"detail_normal_strength": 0.35}},
+	{"key": "retail", "match": "_retail",
+			"recipe": {"has_detail": true, "detail_albedo_strength": 0.12,
+					"detail_normal_strength": 0.35}},
+	{"key": "transit", "match": "_transit",
+			"recipe": {"has_detail": true, "detail_albedo_strength": 0.12,
+					"detail_normal_strength": 0.35}},
 ]
 
 ## M-COVER's per-set coverage rule, keyed by the substring of the albedo
