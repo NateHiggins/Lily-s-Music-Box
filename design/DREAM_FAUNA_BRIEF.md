@@ -1,12 +1,18 @@
 # DREAM FAUNA — HYPERDIMENSIONAL FLORA/FAUNA ECOSYSTEM
 
-**PROPOSAL — NOT CANON UNTIL RULED. 2026-08-20.**
+**RULED FOR F1 PRODUCTION — 2026-08-20.**
 
-This brief captures the owner-directed request to populate the dream with an
+This brief governs the owner-directed request to populate the dream with an
 efficient procedural ecosystem: visually distinct organic and non-organic life,
 multiple locomotion families and bounded variation, with the dream entity's own
 body as the source and destination of life. It does not authorize implementation.
 The ruled dream, ownership and case-profile contracts continue to prevail.
+
+**Owner ruling:** all five decisions below are approved as written:
+`DreamFaunaDirector` is a presentation-only owner; the named bestiary/register
+is accepted; v1 is harmless; fauna remain visible through the R6 view; and F1
+is Gilder's Buttons plus Tessellates under the 96-instance, +13-draw and +0.5 ms
+ceilings. This licenses F1 only, not FA2–FA4 or dangerous fauna.
 
 ## Thesis
 
@@ -97,7 +103,7 @@ save state. `DreamFaunaShot` must use the production root and an equal-interval
 A/A control before lamp gathering, hush and birth-frame A/B frames. `PERF_DREAM`
 must report before/after draws and frame cost.
 
-## Owner rulings required
+## Owner rulings — CLOSED 2026-08-20
 
 1. Approve `DreamFaunaDirector` as a new presentation-only owner.
 2. Approve or amend the named bestiary and its cool/cute/sensual register.
@@ -106,5 +112,6 @@ must report before/after draws and frame cost.
 5. Approve F1 as Gilder's Buttons + Tessellates and approve/amend the proposed
    96-instance, +13-draw, +0.5 ms ceilings.
 
-Until all five are ruled, this document is design input only and no fauna code,
-shader, asset or test is licensed.
+All five are ruled as written. F1 is licensed. Later families remain gated by
+F1's measured delight, determinism and performance proof; dangerous fauna remain
+separately blocked behind Gate C.
