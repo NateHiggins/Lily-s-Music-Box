@@ -1,97 +1,100 @@
-# Dream fauna FA-V1 A/B — lighting seam and Tessellates part proof
+# Dream fauna FA-V1 A–C — landed-five procedural style proof
 
-FA-V1 Slices A and B migrate the landed five-family presentation to the shared
-fauna channel/style system, then prove the owner-ruled cached ArrayMesh pipeline
-on Tessellates alone. The other four landed silhouettes remain their FA2
-geometry for Slice C. Ecology, pursuit, hazards, topology and save ownership do
-not change.
+FA-V1 Slices A–C migrate all five landed families through the shared fauna
+channel/style owner and the owner-ruled cached ArrayMesh part kit. Ecology,
+pursuit, hazards, topology, transforms, density and save ownership do not
+change. FA-V3 remains open at its explicit owner visual ruling; the temporary
+legacy comparator therefore remains present.
 
 ## What landed
 
-- `INSTANCE_CUSTOM` now carries full phase plus three exact packed byte pairs:
-  nutrient/emergence, flags/activity and hue/pattern genome. The shared CPU and
-  shader decoders round-trip all byte boundaries.
-- One unshaded fauna shader evaluates the production service-lamp cone and
-  durable exposure feed. Gold has zero dark response and the shader writes no
-  `EMISSION`, `METALLIC` or `ROUGHNESS`. Dark-live wine uses the ruled `0.10`
-  control and a bounded Compatibility/ACES response whose peak is `0.22`,
-  below hazard `0.55`.
-- The five materials remain one per family and one draw-capable surface per
-  batch. Permanent `MultiMeshInstance3D.material_override` was rejected by
-  measurement: Compatibility expanded the waking control from landed +4 calls
-  to +24/+25. Materials therefore live on the batch mesh surface, while five
-  invisible zero-mesh binding nodes expose those same objects to the unchanged
-  root material collector. The binding nodes submit zero draws.
-- `dream_fauna_parts.gd` provides cached `lathe`, `sweep`, `ribbon`,
-  `bead_chain`, `aperture_sweep`, `gem` and `assemble` paths. Tessellates is the
-  first one-surface attributed mesh, with logical region/curvature/joint data,
-  no UV or texture, and pinned SHA-256
-  `37406ea797a95c3d3929416834a704b3049b7aa2628066594732197560b3bf3e`.
-- `FAUNA_STYLE_LEGACY` and the runtime proof switch retain the old presentation
-  only for old/new evidence. The owner requires their removal at FA-V3
-  closeout.
+- `INSTANCE_CUSTOM` carries full phase plus exact packed byte pairs for
+  nutrient/emergence, flags/activity and hue/pattern genome.
+- One unshaded fauna shader evaluates the production lamp cone and exposure
+  field. Gold has no dark response and the shader writes no `EMISSION`,
+  `METALLIC` or `ROUGHNESS`; dark wine remains bounded at `0.10`.
+- Five surface materials cross the unchanged root collector through five
+  invisible zero-mesh bindings. The bindings submit no draws.
+- Gilder's Buttons are a three-dome PEARL colony; Tessellates retain the
+  four-footed mosaic grazer; Wine Anemones use seven swept curling arms with
+  lapis tips; Ribbonettes are paired ribbon helices with gold selvage and two
+  anatomical iris gems; the Loupe is a CAT-scale four-footed body whose single
+  lashed anatomical eye carries the one bounded camera tracker.
+- Every production family is one cached, shadowless, attributed surface under
+  the 4,000-triangle ceiling. `COLOR` carries the ruled regions and compact
+  half-float `CUSTOM0` carries body/accessory data. Full float is visually
+  equivalent but caused Compatibility to expand the waking view by +23/+24
+  calls; indexed surfaces were worse at +45. Half-float restores the proved
+  +3/0-call A/B while retaining the declared channel range.
 
-## Production frames
+Pinned mesh SHA-256 and triangle counts:
+
+| Family | Triangles | SHA-256 |
+|---|---:|---|
+| Gilder's Buttons | 288 | `a7eaadef2d0b911b903fbd8241887342c419852cea5c6cc6fd0e7ad0367045c4` |
+| Tessellates | 268 | `6f0ead38a951b6021bf4f88cbbadef180d3eb15bece791002611a1a32cc006e0` |
+| Wine Anemones | 466 | `a7c49555665e629f4ab9c4622f21c2b9fc1d1c45b25be0a235d6a7ba45691470` |
+| Ribbonettes | 128 | `ddbfe1fee97a0f6d9aeb88672dd1795526db1baa009a90079ff6392ffc3b4513` |
+| The Loupe | 702 | `1268785614f7998c9712d3ec202e64e23fa98b2a1ec7938aeaebda8c818ac201` |
+
+## Production frames and measurements
 
 `00_control_a.png` and `00_control_a_repeat.png` are equal-interval,
-fauna-hidden A/A frames. Each family then has:
+fauna-hidden A/A frames. Each family then has matched hidden-dark, dark,
+beam-edge and full-beam frames (`01`–`04`). `05_tessellates_legacy.png` and
+`06_tessellates_migrated.png` retain the old/new control required until FA-V3
+closeout.
 
-- `01_<family>_hidden_dark.png` — matched dark background control;
-- `02_<family>_dark.png` — wine silhouette, with gold absent;
-- `03_<family>_beam_edge.png` — off-axis cone-edge read;
-- `04_<family>_full_beam.png` — full lamp response.
+At 1280x720, RGB A/A mean absolute difference is **0.1597**
+(`R/G/B 0.2271/0.1821/0.0700`), far below the 0.8136 stop floor. A conservative
+central, red-dominant difference mask records nonzero dark-wine populations for
+all five families:
 
-Families are `buttons`, `tessellates`, `anemones`, `ribbonettes` and `loupe`.
-`05_tessellates_legacy.png` / `06_tessellates_migrated.png` are the retained
-old/new production pair.
-
-At 1280x720, Pillow RGB mean absolute difference for A/A is **0.2346**
-(`R/G/B 0.3848/0.2740/0.0451`), below the prior FA2 floor of 0.4068 and far
-below the stop threshold of 0.8136. A conservative red-dominant selection in
-the Tessellates dark frame contains 7,143 pixels at mean display luma **6.06**
-and maximum **35.70**: the silhouette is measurable and visibly readable.
-
-In the full-beam Tessellates frame, the orange-gold wire selection measures
-mean/max luma **55.76/107.02**. The woken floor-gold selection in the same frame
-measures **69.56/133.59**. Fauna therefore remain below woken architectural
-gold. Visual inspection confirms dark wine bodies, a thin cloisonne wire read
-at the cone edge, and no white or self-lit gold.
-
-## Functional and shared proof
-
-- `DreamFaunaTest`: **21/21**. This retains the landed 16 checks and adds exact
-  material binding, packed-channel, cached attributed-mesh and every-part-path
-  gates.
-- `DreamProfileTest`: **46/46**.
-- `DreamRoomBuilderTest`: **175/175**.
-- `DreamPursuitTest`: **39/39**.
-- `DreamHazardTest`: **42/42**.
-- `DreamBoundaryTest`: **39/39**.
-- `DreamAtlasTest`: **26/26**.
-- `DreamFractalRunTest`: **24/24**.
-- `DreamExposureTest`: **27/27**.
-- `DreamLineageTest`: **21/21**.
-- `DreamSurfaceTargetTest`: **105/105**.
-- `WalkTest`: **PASS FAST** and **PASS FULL at x8/480 Hz**.
-- Production render harness: **24/24 frames**, no script or shader errors.
-
-The performance A/B now freezes the same realized fauna in both arms; the old
-hook incorrectly advanced ecology only when fauna were visible. At 2560x1421
-on the Compatibility renderer, all four stations remain under 2.24 ms:
-
-| Station | Fauna off | FA-V1 on | Delta |
+| Family | Pixels | Mean luma | Max luma |
 |---|---:|---:|---:|
-| waking room, lamp off | 45 calls / 2.11 ms | 48 / 2.09 ms | +3 / -0.02 ms |
-| waking room, lamp on | 78 / 2.05 ms | 81 / 2.04 ms | +3 / -0.01 ms |
-| deep pocket, lamp off | 133 / 2.10 ms | 133 / 2.10 ms | 0 / 0.00 ms |
+| Buttons | 2,911 | 13.81 | 98.54 |
+| Tessellates | 5,227 | 6.70 | 54.37 |
+| Anemones | 10,219 | 5.08 | 46.25 |
+| Ribbonettes | 4,910 | 6.87 | 49.73 |
+| Loupe | 8,211 | 5.74 | 41.71 |
+
+The same conservative central selection measures full-beam orange-gold maxima
+of **103.05, 66.41, 106.73, 103.39 and 92.76** respectively. Matched-frame
+architectural gold reaches **97.90–125.19**; the relevant high reads remain
+below the woken architecture. Ribbonette and Loupe gold gains are bounded at
+0.85 and 0.75 after this measurement. Visual inspection confirms distinct
+dome, curl, paired-ribbon, grazer and single-eye silhouettes; no gold or jewel
+self-lights in darkness.
+
+## Functional, shared and performance proof
+
+- `DreamFaunaTest`: **21/21**, including all five pinned surfaces and all six
+  Loupe eye/body regions.
+- `DreamProfileTest` **46/46**; `DreamRoomBuilderTest` **175/175**;
+  `DreamPursuitTest` **39/39**; `DreamHazardTest` **42/42**;
+  `DreamBoundaryTest` **39/39**; `DreamAtlasTest` **26/26**;
+  `DreamFractalRunTest` **24/24**; `DreamExposureTest` **27/27**;
+  `DreamLineageTest` **21/21**; `DreamSurfaceTargetTest` **105/105**.
+- `WalkTest`: **PASS FAST** and **PASS FULL at x8/480 Hz**.
+- Production style harness: **24/24 frames**, no script or shader errors.
+
+Final same-build Compatibility A/B at 2560x1421:
+
+| Station | Fauna off | FA-V1 A–C | Delta |
+|---|---:|---:|---:|
+| waking room, lamp off | 45 calls / 2.10 ms | 48 / 2.11 ms | +3 / +0.01 ms |
+| waking room, lamp on | 78 / 2.06 ms | 81 / 2.05 ms | +3 / -0.01 ms |
+| deep pocket, lamp off | 133 / 2.10 ms | 133 / 2.09 ms | 0 / -0.01 ms |
 | deep pocket, lamp on | 172 / 2.24 ms | 172 / 2.24 ms | 0 / 0.00 ms |
 
-This is under both the landed +13-draw/+0.5 ms ceiling and the stricter FA-V0
+This is below the landed +13-draw/+0.5 ms ceiling and the stricter FA-V0
 stop gate of no more than two draws above FA2.
 
-## Scope
+## Scope and ruling point
 
-Slices A/B do not complete FA-V1, FA-V2, FA-V3, FA-V4 or FA-V5. Buttons,
-Anemones, Ribbonettes and Loupe still need their attributed procedural forms in
-Slice C. DreamWalk inspection remains Slice D. No dangerous fauna, fauna audio,
-FA3 family inclusion, waking case loop or case-specific dream owner is implied.
+Slices A–C technically close FA-V1 and migrate the landed five for FA-V2. The
+render set supplies the FA-V3 three-light evidence, but **does not silently
+approve its visual gate**. The owner must rule on these silhouettes before
+FA-V3 closes and the temporary legacy selector is deleted. Slice D / FA-V4
+collision-free DreamWalk inspection remains open. No dangerous fauna, fauna
+audio, FA3 breadth, waking case loop or case-specific owner is implied.

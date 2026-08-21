@@ -77,19 +77,23 @@ gated and this does not complete any waking case loop.
 The owner-directed fauna visual addendum is now queued in
 `design/DREAM_FAUNA_BRIEF.md` V9: cloisonné procedural skins, calligraphic
 silhouettes and a three-light proof system, reconciled with the rule of cool.
-It is not landed and does not erase FA1/FA2. FA-V0's read-only adversarial audit
-is now ingested in V10: the unshaded lamp-cone migration, exact packed channels,
+It is now implemented for the landed five without erasing FA1/FA2's gameplay.
+FA-V0's read-only adversarial audit is ingested in V10: the unshaded lamp-cone migration, exact packed channels,
 bounded material feed, production three-light/A-A harness and four-slice
 order are specified. The owner ruled the cached in-engine ArrayMesh kit with
 named GLB exceptions, the `0.018 < fauna <= 0.10 < 0.55` dark-glow ordering
 (tunable downward by proof), and deletion of the temporary legacy selector at
-FA-V3 closeout. FA-V1 Slices A/B are now proved: all five families use the
-packed unshaded style seam, Tessellates alone uses the cached attributed part
-kit, and the final render A/B costs at most +3 calls / 0.00 ms. The permanent
+FA-V3 closeout. FA-V1 Slices A–C are now technically proved: all five families
+use the packed unshaded style seam and cached attributed part kit, and the final
+render A/B costs at most +3 calls / 0.01 ms. Compact half-float `CUSTOM0` is the
+Compatibility-safe layout; full float cost +23/+24 waking calls and indexing
+cost +45. The permanent
 batch-override proposal was rejected by contradictory +24/+25-call evidence;
 five zero-mesh binding nodes preserve the unchanged root owner at zero draws.
-Proof is `art/renders/dream_fauna_v3/README.md`; Slice C's other four forms and
-Slice D DreamWalk remain open. The audit's pre-C1 anchor appendix is
+Proof is `art/renders/dream_fauna_v3/README.md`; FA-V1 and the FA-V2 landed-five
+migration are technically complete. FA-V3 has production evidence but remains
+at the explicit owner visual ruling, so the legacy selector is not yet deleted;
+Slice D / FA-V4 DreamWalk remains open. The audit's pre-C1 anchor appendix is
 superseded and does not reopen the landed commensal proof. Separately, waking-world
 commensals C1 is now landed: moths at the two owner-derived entry street lamps,
 one sparse F02 riser mouse cue through the shared ambience pool, one habituated

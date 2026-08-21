@@ -40,17 +40,20 @@ func setup(room_owner: DreamRoomBuilder, body: Node3D, tenant: Node3D,
 	_material_bindings = Node3D.new()
 	_material_bindings.name = "FaunaMaterialBindings"
 	add_child(_material_bindings)
-	var button := SphereMesh.new(); button.radial_segments = 12; button.rings = 6
-	_buttons = _make_batch("GildersButtons", button, WINE, EMERALD,
-			0.03, 1.8, 0.0)
+	_buttons = _make_batch("GildersButtons", DreamFaunaParts.buttons(), WINE,
+			EMERALD, 0.03, 1.8, 0.0, true)
 	_tessellates = _make_batch("Tessellates", DreamFaunaParts.tessellates(),
 			WINE, EMERALD, 0.10, 1.8, 1.0, true)
-	_anemones = _make_batch("WineAnemones", _anemone_mesh(),
-			WINE, LAPIS, 0.055, 0.55, 2.0)
-	_ribbonettes = _make_batch("Ribbonettes", _ribbonette_mesh(),
-			WINE, LAPIS, 0.085, 0.45, 3.0)
-	_loupe = _make_batch("TheLoupe", _loupe_mesh(), WINE, CARNELIAN,
-			0.035, 0.08, 4.0)
+	_anemones = _make_batch("WineAnemones", DreamFaunaParts.anemones(),
+			WINE, LAPIS, 0.055, 0.55, 2.0, true)
+	_ribbonettes = _make_batch("Ribbonettes", DreamFaunaParts.ribbonettes(),
+			WINE, LAPIS, 0.085, 0.45, 3.0, true)
+	(_ribbonettes.multimesh.mesh.surface_get_material(0) as ShaderMaterial).set_shader_parameter(
+			"gold_gain", 0.85)
+	_loupe = _make_batch("TheLoupe", DreamFaunaParts.loupe(), WINE, CARNELIAN,
+			0.035, 0.08, 4.0, true)
+	(_loupe.multimesh.mesh.surface_get_material(0) as ShaderMaterial).set_shader_parameter(
+			"gold_gain", 0.75)
 	if OS.get_environment("FAUNA_STYLE_LEGACY") == "1":
 		set_legacy_style_for_proof(true)
 	refresh()
@@ -332,51 +335,6 @@ func _make_batch(label: String, mesh: Mesh, color: Color, jewel: Color,
 func _genome(phase: float, index: int, salt: float) -> float:
 	return fposmod(sin(phase * 91.7 + float(index) * 17.31 + salt) * 43758.5453,
 			1.0)
-
-func _anemone_mesh() -> ArrayMesh:
-	var tool:=SurfaceTool.new(); tool.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var stem:=BoxMesh.new(); stem.size=Vector3(0.055,0.28,0.055)
-	for i in 5:
-		var a:=TAU*float(i)/5.0
-		var basis:=Basis(Vector3.FORWARD,sin(a)*0.38)*Basis(Vector3.UP,a)
-		tool.append_from(stem,0,Transform3D(basis,Vector3(cos(a)*0.07,0.12,sin(a)*0.07)))
-	var crown:=SphereMesh.new(); crown.radius=0.13; crown.height=0.10
-	crown.radial_segments=10; crown.rings=3
-	tool.append_from(crown,0,Transform3D(Basis(),Vector3(0.0,0.27,0.0)))
-	tool.generate_normals(); return tool.commit()
-
-func _ribbonette_mesh() -> ArrayMesh:
-	var tool:=SurfaceTool.new(); tool.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var bead:=SphereMesh.new(); bead.radius=0.045; bead.height=0.075
-	bead.radial_segments=7; bead.rings=3
-	for strand in 2:
-		for i in 9:
-			var t:=float(i)/8.0; var a:=t*TAU*1.5+float(strand)*PI
-			tool.append_from(bead,0,Transform3D(Basis(),Vector3((t-0.5)*0.62,
-					sin(a)*0.08,cos(a)*0.08)))
-	tool.generate_normals(); return tool.commit()
-
-func _loupe_mesh() -> ArrayMesh:
-	var tool:=SurfaceTool.new(); tool.begin(Mesh.PRIMITIVE_TRIANGLES)
-	# A low quadruped whose single circular face gives the family its name;
-	# avoiding a cap/stem silhouette keeps it distinct from the crop.
-	var body:=SphereMesh.new(); body.radius=0.28; body.height=0.34
-	body.radial_segments=10; body.rings=5
-	tool.append_from(body,0,Transform3D(Basis().scaled(Vector3(0.82,0.72,1.35)),
-			Vector3(0.0,0.38,0.04)))
-	var lens:=TorusMesh.new(); lens.inner_radius=0.13; lens.outer_radius=0.25
-	lens.rings=10; lens.ring_segments=7
-	tool.append_from(lens,0,Transform3D(Basis(Vector3.RIGHT,PI*0.5),
-			Vector3(0.0,0.42,-0.43)))
-	var eye:=SphereMesh.new(); eye.radius=0.13; eye.height=0.18
-	eye.radial_segments=9; eye.rings=4
-	tool.append_from(eye,0,Transform3D(Basis().scaled(Vector3(1.0,1.0,0.34)),
-			Vector3(0.0,0.42,-0.45)))
-	var leg:=BoxMesh.new(); leg.size=Vector3(0.075,0.34,0.075)
-	for x in [-0.19,0.19]:
-		for z in [-0.12,0.18]: tool.append_from(leg,0,
-				Transform3D(Basis(Vector3.RIGHT,signf(x)*0.12),Vector3(x,0.17,z)))
-	tool.generate_normals(); return tool.commit()
 
 func _apply(node: MultiMeshInstance3D, xforms: Array[Transform3D], custom: Array[Color]) -> void:
 	node.multimesh.instance_count = xforms.size()

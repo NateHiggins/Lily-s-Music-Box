@@ -7,7 +7,9 @@ render_mode unshaded, cull_disabled;
 // a second time and crush the bounded dark-live wine below display black.
 uniform vec3 base_color = vec3(0.20, 0.025, 0.075);
 uniform vec3 gold_color = vec3(0.72, 0.40, 0.09);
+uniform float gold_gain : hint_range(0.0, 1.0) = 1.0;
 uniform vec3 jewel_color = vec3(0.18, 0.404, 0.36);
+uniform vec3 sclera_color = vec3(0.52, 0.31, 0.10);
 uniform float gait_amount = 0.12;
 uniform float gait_hz = 0.50;
 uniform float family_motif = 0.0;
@@ -42,6 +44,18 @@ void vertex() {
 	float phase = fract(INSTANCE_CUSTOM.r) * 6.28318530718;
 	float gait = sin(TIME * 6.28318530718 * gait_hz + phase);
 	float live_activity = activity * (1.0 - hush);
+	float region = floor(clamp(COLOR.r, 0.0, 1.0) * 7.0 + 0.5);
+	float tracker = fauna_flag(flags, 8.0);
+	float tracked_organ = max(1.0 - step(0.45, abs(region - 5.0)),
+			1.0 - step(0.45, abs(region - 6.0)));
+	vec3 eye_center = vec3(0.0, 0.36, 0.403);
+	vec3 eye_world = (MODEL_MATRIX * vec4(eye_center, 1.0)).xyz;
+	vec3 camera_ray = CAMERA_POSITION_WORLD - eye_world;
+	vec2 camera_plane = vec2(dot(camera_ray, normalize(MODEL_MATRIX[0].xyz)),
+			dot(camera_ray, normalize(MODEL_MATRIX[1].xyz)));
+	vec2 gaze = clamp(camera_plane * 0.05,
+			vec2(-0.023), vec2(0.023));
+	VERTEX.xy += gaze * tracker * tracked_organ * vertex_channels_ready;
 	VERTEX.y += gait * gait_amount * live_activity;
 	VERTEX.xz *= 1.0 + gait * 0.06 * live_activity;
 	fauna_local = VERTEX;
@@ -76,6 +90,8 @@ void fragment() {
 	float authored_gold = 1.0 - step(0.45, abs(region - 2.0));
 	float authored_jewel = max(1.0 - step(0.45, abs(region - 3.0)),
 			1.0 - step(0.45, abs(region - 5.0)));
+	float authored_sclera = 1.0 - step(0.45, abs(region - 4.0));
+	float authored_lid = 1.0 - step(0.45, abs(region - 6.0));
 	procedural_wire *= 1.0 - authored_jewel * vertex_channels_ready;
 	// Authored regions add named plates/organs; the shared procedural wire still
 	// crosses wine cells, so attributed meshes do not collapse into one flat
@@ -97,9 +113,14 @@ void fragment() {
 	vec3 dark_body = wine_chroma * fauna_dark_glow * 2.2 * life
 			* (1.0 - gold_mask);
 	vec3 lit_wine = wine * awake * (0.74 + retained * 0.18);
-	vec3 gilt = gold_color * awake * gold_mask
+	vec3 ruled_gold = gold_color * gold_gain;
+	vec3 gilt = ruled_gold * awake * gold_mask
 			* (0.74 + fresnel * (0.18 + cone_edge * 1.10));
-	vec3 gilt_rim = gold_color * awake * fresnel * cone_edge * 0.82;
+	vec3 gilt_rim = ruled_gold * awake * fresnel * cone_edge * 0.82;
 	vec3 jewel = jewel_color * awake * jewel_mask * (0.72 + fresnel * 0.42);
-	ALBEDO = dark_body + mix(lit_wine, gilt, gold_mask) + gilt_rim + jewel;
+	vec3 sclera = sclera_color * awake * authored_sclera
+			* (0.70 + fresnel * 0.18);
+	vec3 lid = base_color * 0.24 * awake * authored_lid;
+	ALBEDO = dark_body + mix(lit_wine, gilt, gold_mask) + gilt_rim + jewel
+			+ sclera + lid;
 }

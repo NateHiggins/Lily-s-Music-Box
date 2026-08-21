@@ -12,6 +12,13 @@ const FAMILIES := [
 	["ribbonettes", "Ribbonettes"],
 	["loupe", "TheLoupe"],
 ]
+const FAMILY_DISTANCE := {
+	"GildersButtons": 0.9,
+	"Tessellates": 2.1,
+	"WineAnemones": 1.5,
+	"Ribbonettes": 1.8,
+	"TheLoupe": 2.4,
+}
 
 var root: DreamMazeRoot
 var out_dir := ""
@@ -27,7 +34,7 @@ func _ready() -> void:
 	if first == null:
 		printerr("[FAUNA STYLE SHOT] no live fauna")
 		get_tree().quit(1); return
-	_stage(first, false, Vector3.ZERO)
+	_stage(first, false, 0.0)
 	root.fauna.visible = false
 	await _capture("00_control_a")
 	await _capture("00_control_a_repeat")
@@ -81,19 +88,19 @@ func _capture_family(slug: String, node_name: String) -> void:
 		printerr("[FAUNA STYLE SHOT] absent family "+node_name)
 		return
 	_show_only(batch)
-	_stage(batch, false, Vector3.ZERO)
+	_stage(batch, false, 0.0)
 	batch.visible = false
 	await _capture("01_%s_hidden_dark" % slug)
 	batch.visible = true
 	await _capture("02_%s_dark" % slug)
-	_stage(batch, true, Vector3(1.65, 0.15, 0.0))
+	_stage(batch, true, 1.65)
 	await _capture("03_%s_beam_edge" % slug)
-	_stage(batch, true, Vector3.ZERO)
+	_stage(batch, true, 0.0)
 	await _capture("04_%s_full_beam" % slug)
 
 func _capture_legacy_pair() -> void:
 	var batch := root.fauna.get_node("Tessellates") as MultiMeshInstance3D
-	_show_only(batch); _stage(batch, true, Vector3.ZERO)
+	_show_only(batch); _stage(batch, true, 0.0)
 	root.fauna.set_legacy_style_for_proof(true)
 	await _capture("05_tessellates_legacy")
 	root.fauna.set_legacy_style_for_proof(false)
@@ -105,11 +112,20 @@ func _show_only(wanted: MultiMeshInstance3D) -> void:
 	for child in root.fauna.get_children(): child.visible = child == wanted
 
 func _stage(batch: MultiMeshInstance3D, lamp_on: bool,
-		look_offset: Vector3) -> void:
-	var target := batch.global_transform * batch.multimesh.get_instance_transform(0).origin
-	var distance := 2.1 if batch.name != "TheLoupe" else 2.8
-	root.player.global_position = target + Vector3(0.38, 0.0, distance)
-	root.player.camera.look_at(target + Vector3(0.0, 0.18, 0.0) + look_offset,
+		edge_offset: float) -> void:
+	var instance_transform := batch.multimesh.get_instance_transform(0)
+	var target := batch.global_transform * instance_transform.origin
+	var world_basis := batch.global_transform.basis * instance_transform.basis
+	# The Loupe eye and the other families' authored presentation face +Z.
+	var front := (world_basis * Vector3(0.0, 0.0, 1.0)).normalized()
+	var right := (world_basis * Vector3.RIGHT).normalized()
+	var distance := float(FAMILY_DISTANCE.get(str(batch.name), 2.1))
+	# Place the eye, not the player's feet, at the proof distance. The production
+	# camera is parented at standing-eye height, so omitting this compensation
+	# turns a close silhouette inspection into a distant overhead view.
+	root.player.global_position = target + front * distance \
+			- root.player.camera.position
+	root.player.camera.look_at(target + Vector3(0.0, 0.18, 0.0) + right * edge_offset,
 			Vector3.UP)
 	root.player.set_lamp_enabled(lamp_on)
 	root.player.set("_lamp_phase", 0.0)

@@ -458,15 +458,22 @@ state. They are not adopted here: C1 is already closed by the owner-directed
 street-lamp, F02 radiator/riser, 4B switch and named-hoarding proof at `e5db5c0`.
 Nothing in FA-V0 reopens or edits that checkpoint.
 
-### V11. FA-V1 Slices A/B — proved 2026-08-20
+### V11. FA-V1 Slices A–C — technically proved 2026-08-20
 
-The lighting/channel seam and the Tessellates-only part-kit proof are landed in
-`art/renders/dream_fauna_v3/README.md`. Focused proof is 21/21; all named shared
-dream suites and WalkTest FAST/FULL pass. The final same-realization performance
-control is at most +3 calls and 0.00 ms, and the 24-frame production harness
-proves A/A, dark, edge, full-beam and legacy/new states. The attributed
-Tessellates mesh has one surface and pinned SHA-256
-`37406ea797a95c3d3929416834a704b3049b7aa2628066594732197560b3bf3e`.
+The lighting/channel seam and all five landed procedural forms are proved in
+`art/renders/dream_fauna_v3/README.md`. Buttons are a three-dome PEARL colony;
+Anemones use seven swept curls; Ribbonettes use paired helices and anatomical
+iris gems; the Loupe carries one giant lashed anatomical eye and the batch's
+bounded shader tracker. Every family is one cached, pinned, attributed surface
+at 128–702 triangles. Production `CUSTOM0` uses half-float: full float expanded
+Compatibility by +23/+24 waking calls and indexed surfaces by +45, while the
+compact stream restores the checkpoint's +3 waking / 0 deep-pocket calls.
 
-This closes Slices A/B only. Slice C still migrates Buttons, Anemones,
-Ribbonettes and Loupe; Slice D still adds collision-free DreamWalk inspection.
+Focused proof is 21/21; every named shared dream suite and WalkTest FAST/FULL
+passes. The final A/A MAD is 0.1597, all five dark-wine populations measure
+nonzero, family gold remains below the matched architectural highs, and the
+24-frame production harness has no shader or script error. This technically
+closes FA-V1 Slices A–C and performs the landed-five migration requested by
+FA-V2. It does **not** silently close the FA-V3 owner visual gate: the legacy
+selector remains until the owner accepts the rendered silhouettes. Slice D /
+FA-V4 collision-free DreamWalk inspection remains open.

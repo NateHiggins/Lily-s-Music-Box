@@ -1600,17 +1600,18 @@ unresolved. K7's source-backed loop contract is closed in
   legacy comparison selector survives through FA-V3. **Ruled:** cached in-engine
   ArrayMesh kit with named GLB exceptions; `0.018 < fauna <= 0.10 < 0.55`,
   tunable downward by proof; legacy selector removed at FA-V3 closeout.
-- **FA-V1 — PROCEDURAL CLOISONNÉ PART KIT AND SHADER (SLICES A/B DONE; C
-  OPEN).** The lighting model and packed channels now run on all five landed
+- **FA-V1 DONE 2026-08-20 — PROCEDURAL CLOISONNÉ PART KIT AND SHADER.** The
+  lighting model and packed channels now run on all five landed
   batches; gold has no emission or dark response, bounded wine survives
   darkness, and the unchanged root feeds the five surface materials through
   zero-draw binding nodes. Permanent batch `material_override` was measured and
   rejected at +24/+25 waking calls; the proved binding is at most +3 calls and
-  0.00 ms. The cached in-engine kit now proves one attributed, one-surface,
-  pinned-hash Tessellates silhouette. Twenty-one focused checks, all shared dream
+  0.01 ms. The cached in-engine kit now proves five attributed, one-surface,
+  pinned-hash silhouettes at 128–702 triangles. Twenty-one focused checks, all shared dream
   regressions, WalkTest FAST/FULL and 24 production frames pass at
-  `art/renders/dream_fauna_v3/README.md`. Slice C must migrate Buttons,
-  Anemones, Ribbonettes and Loupe before FA-V1 closes. The implemented order was
+  `art/renders/dream_fauna_v3/README.md`. Slice C migrated Buttons,
+  Anemones, Ribbonettes and Loupe. Compact half-float `CUSTOM0` is required:
+  full float produced +23/+24 waking calls and indexing produced +45. The implemented order was
   to migrate only the lighting model
   and packed channels on the existing geometry: one maintained fauna shader
   plus include, one shared encoder/decoder, family material overrides visible
@@ -1625,19 +1626,21 @@ unresolved. K7's source-backed loop contract is closed in
   GROUND/WINE/GOLD plus exactly EMERALD/CARNELIAN/LAPIS, habitat motifs,
   bone-lite gait, anisotropic groom, safe spatial moiré, wet transmission and
   the inverse-signature law: fauna cast no shadows; only the Tenant does.
-- **FA-V2 — MIGRATE THE LANDED FIVE WITHOUT CHANGING THEIR GAMEPLAY.** Replace
+- **FA-V2 DONE 2026-08-20 — MIGRATE THE LANDED FIVE WITHOUT CHANGING THEIR GAMEPLAY.** Replaced
   primitive Buttons, Tessellates, Wine Anemones, Ribbonettes and Loupe
   presentation with the approved PEARL/HAND/CAT silhouettes while preserving
   the same density owner, birth frames, feeding, pursuit noninterference,
   Tenant hush, capture freeze, forgetting, harmlessness and save boundary.
-  Provide an old/new production control; no case-specific fauna owner or second
-  ecology record.
-- **FA-V3 — THREE-LIGHT STYLE PROOF.** For every migrated family render dark,
+  The production control proves no case-specific fauna owner or second ecology
+  record; gameplay transforms, densities and save ownership remain invariant.
+- **FA-V3 — THREE-LIGHT STYLE PROOF (EVIDENCE READY; OWNER VISUAL RULING OPEN).** Every migrated family has dark,
   beam-edge and full-beam production frames plus equal-interval A/A control.
   Prove silhouette, rim and pattern remain family-distinct; enforce 70/20/8/2,
   one jewel organ, fixed scale classes, safe motion/luminance bands, no white,
   and no harmless decorative eye motif unless FA-V0 explicitly rules the Loupe
-  exception. Re-run focused/shared regressions and same-build performance.
+  exception. Focused/shared regressions, Walk FAST/FULL, A/A and same-build
+  performance pass. Owner must accept or reject the rendered silhouettes before
+  closeout deletes `FAUNA_STYLE_LEGACY`.
 - **FA-V4 — COLLISION-FREE DREAMWALK INSPECTION.** Add debug-only F-key
   reporting of family, packed genome values and shader compile state by
   analytical or screen-space nearest-instance selection. Do not add collision,

@@ -19,10 +19,26 @@ const TRIANGLE_CEILING := 4000
 
 static var _cache: Dictionary = {}
 
+static func buttons() -> ArrayMesh:
+	if _cache.has("buttons"): return _cache.buttons
+	var tool:=_tool(true)
+	var profile:=PackedVector2Array([
+		Vector2(0.02,0.0),Vector2(0.15,0.10),Vector2(0.18,0.34),
+		Vector2(0.13,0.58),Vector2(0.035,0.72)])
+	for record in [[Vector3(-0.16,0.0,0.03),0.92],
+			[Vector3(0.14,0.0,0.08),1.03],[Vector3(0.0,0.0,-0.14),0.78]]:
+		var offset:Vector3=record[0]; var scale:float=record[1]
+		var scaled:=PackedVector2Array()
+		for p in profile: scaled.append(p*scale)
+		_append_lathe(tool,scaled,10,REGION_WINE,offset,0.0)
+		_append_gem(tool,offset+Vector3(0.0,0.73*scale,0.0),0.055*scale,
+				REGION_GOLD,0.0,2.0)
+	var mesh:=tool.commit() as ArrayMesh; _cache.buttons=mesh; return mesh
+
 static func tessellates() -> ArrayMesh:
 	if _cache.has("tessellates"):
 		return _cache.tessellates
-	var tool := _tool()
+	var tool := _tool(true)
 	# A faceted, low dome keeps the approved cute tier: broad circular body,
 	# four short symmetric feet, two anatomical eyes and one gilt mosaic plate.
 	_append_mosaic_ellipsoid(tool, Vector3(0.0, 0.17, 0.0),
@@ -42,6 +58,71 @@ static func tessellates() -> ArrayMesh:
 	_cache.tessellates = mesh
 	return mesh
 
+static func anemones() -> ArrayMesh:
+	if _cache.has("anemones"): return _cache.anemones
+	var tool:=_tool(true)
+	_append_ellipsoid(tool,Vector3(0.0,0.035,0.0),Vector3(0.13,0.05,0.13),
+			3,10,REGION_SHELL,0.0,0.0)
+	for arm in 7:
+		var angle:=TAU*float(arm)/7.0
+		var side:=Vector3(cos(angle),0.0,sin(angle))
+		var tangent:=Vector3(-sin(angle),0.0,cos(angle))
+		var points:=PackedVector3Array([
+			Vector3.ZERO+side*0.035,
+			side*0.075+Vector3.UP*0.10,
+			side*0.12+tangent*(0.035 if arm%2==0 else -0.035)+Vector3.UP*0.21,
+			side*0.07+tangent*(0.09 if arm%2==0 else -0.09)+Vector3.UP*0.31])
+		var radii:=PackedFloat32Array([0.030,0.026,0.018,0.008])
+		_append_sweep(tool,points,radii,7,REGION_WINE)
+		_append_gem(tool,points[3],0.018,REGION_JEWEL,0.72,3.0)
+	var mesh:=tool.commit() as ArrayMesh; _cache.anemones=mesh; return mesh
+
+static func ribbonettes() -> ArrayMesh:
+	if _cache.has("ribbonettes"): return _cache.ribbonettes
+	var tool:=_tool(true)
+	for strand in 2:
+		var points:=PackedVector3Array(); var phase:=float(strand)*PI
+		for i in 13:
+			var t:=float(i)/12.0
+			points.append(Vector3((t-0.5)*0.64,
+					sin(t*TAU*1.25+phase)*0.075,
+					cos(t*TAU*1.25+phase)*0.055))
+		_append_ribbon(tool,points,0.045,REGION_WINE,float(strand))
+		_append_ribbon(tool,points,0.008,REGION_GOLD,2.0+float(strand))
+	# One half-lidded anatomical eye per paired organism, not decorative skin.
+	for x in [-0.28,0.28]:
+		_append_gem(tool,Vector3(x,0.018,-0.065),0.025,REGION_IRIS,0.12,5.0)
+	var mesh:=tool.commit() as ArrayMesh; _cache.ribbonettes=mesh; return mesh
+
+static func loupe() -> ArrayMesh:
+	if _cache.has("loupe"): return _cache.loupe
+	var tool:=_tool(true)
+	_append_ellipsoid(tool,Vector3(0.0,0.31,0.02),Vector3(0.22,0.20,0.34),
+			6,12,REGION_WINE,0.18,0.0)
+	for x in [-0.15,0.15]:
+		for z in [-0.10,0.16]:
+			_append_box(tool,Vector3(x,0.12,z),Vector3(0.065,0.28,0.065),
+					REGION_SHELL,0.78,0.0)
+	_append_ellipsoid(tool,Vector3(0.0,0.36,0.365),Vector3(0.19,0.135,0.035),
+			5,14,REGION_SCLERA,0.04,4.0)
+	_append_ellipsoid(tool,Vector3(0.0,0.36,0.403),Vector3(0.082,0.082,0.018),
+			4,12,REGION_IRIS,0.08,5.0)
+	_append_gem(tool,Vector3(0.0,0.36,0.422),0.035,REGION_LID,0.0,6.0)
+	var eye_loop:=PackedVector3Array()
+	for i in 20:
+		var a:=TAU*float(i)/19.0
+		eye_loop.append(Vector3(cos(a)*0.205,0.36+sin(a)*0.15,0.395))
+	var eye_radii:=PackedFloat32Array()
+	for _i in eye_loop.size(): eye_radii.append(0.012)
+	_append_sweep(tool,eye_loop,eye_radii,6,REGION_GOLD)
+	# Three upper lashes make the eye anatomical without borrowing hazard rings.
+	for lash in [-1,0,1]:
+		var x:=float(lash)*0.075
+		_append_sweep(tool,PackedVector3Array([
+			Vector3(x,0.47,0.40),Vector3(x*1.18,0.53,0.43)]),
+			PackedFloat32Array([0.008,0.003]),5,REGION_GOLD)
+	var mesh:=tool.commit() as ArrayMesh; _cache.loupe=mesh; return mesh
+
 static func lathe(profile: PackedVector2Array, radial_segments := 12,
 		region := REGION_WINE) -> ArrayMesh:
 	var tool := _tool()
@@ -57,16 +138,7 @@ static func sweep(points: PackedVector3Array, radii: PackedFloat32Array,
 static func ribbon(points: PackedVector3Array, half_width := 0.05,
 		region := REGION_MEMBRANE) -> ArrayMesh:
 	var tool := _tool()
-	if points.size() < 2: return tool.commit()
-	for i in points.size()-1:
-		var t0 := float(i) / float(points.size()-1)
-		var t1 := float(i+1) / float(points.size()-1)
-		var tangent := (points[i+1]-points[i]).normalized()
-		var side := tangent.cross(Vector3.UP).normalized()
-		if side.length_squared() < 0.1: side = Vector3.RIGHT
-		_quad(tool, points[i]-side*half_width, points[i]+side*half_width,
-				points[i+1]+side*half_width, points[i+1]-side*half_width,
-				Vector3.UP, region, 0.2, t0, t1, 0.0)
+	_append_ribbon(tool,points,half_width,region,0.0)
 	return tool.commit()
 
 static func bead_chain(points: PackedVector3Array, radius := 0.04,
@@ -103,10 +175,11 @@ static func mesh_signature(mesh: ArrayMesh) -> String:
 	if mesh == null or mesh.get_surface_count() != 1: return ""
 	return var_to_bytes(mesh.surface_get_arrays(0)).hex_encode().sha256_text()
 
-static func _tool() -> SurfaceTool:
+static func _tool(compact_custom := false) -> SurfaceTool:
 	var tool := SurfaceTool.new()
 	tool.begin(Mesh.PRIMITIVE_TRIANGLES)
-	tool.set_custom_format(0, SurfaceTool.CUSTOM_RGBA_FLOAT)
+	tool.set_custom_format(0, SurfaceTool.CUSTOM_RGBA_HALF if compact_custom \
+			else SurfaceTool.CUSTOM_RGBA_FLOAT)
 	return tool
 
 static func _append_lathe(tool: SurfaceTool, profile: PackedVector2Array,
@@ -138,6 +211,18 @@ static func _append_sweep(tool: SurfaceTool, points: PackedVector3Array,
 			var p10:=points[row+1]+n0*radii[row+1]; var p11:=points[row+1]+n1*radii[row+1]
 			_quad(tool,p00,p01,p11,p10,(n0+n1).normalized(),region,0.35,
 					float(row)/float(points.size()-1),float(row+1)/float(points.size()-1),0.0)
+
+static func _append_ribbon(tool: SurfaceTool, points: PackedVector3Array,
+		half_width: float, region: int, accessory: float) -> void:
+	if points.size()<2: return
+	for i in points.size()-1:
+		var t0:=float(i)/float(points.size()-1); var t1:=float(i+1)/float(points.size()-1)
+		var tangent:=(points[i+1]-points[i]).normalized()
+		var side:=tangent.cross(Vector3.UP).normalized()
+		if side.length_squared()<0.1: side=Vector3.RIGHT
+		_quad(tool,points[i]-side*half_width,points[i]+side*half_width,
+				points[i+1]+side*half_width,points[i+1]-side*half_width,
+				Vector3.UP,region,0.2,t0,t1,accessory)
 
 static func _append_ellipsoid(tool: SurfaceTool, center: Vector3, radii: Vector3,
 		rings: int, segments: int, region: int, joint: float, accessory: float) -> void:

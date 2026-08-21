@@ -1,5 +1,11 @@
 extends Node
-const TESSELLATES_MESH_SHA256 := "37406ea797a95c3d3929416834a704b3049b7aa2628066594732197560b3bf3e"
+const PRODUCTION_MESH_SHA256 := {
+	"GildersButtons": "a7eaadef2d0b911b903fbd8241887342c419852cea5c6cc6fd0e7ad0367045c4",
+	"Tessellates": "6f0ead38a951b6021bf4f88cbbadef180d3eb15bece791002611a1a32cc006e0",
+	"WineAnemones": "a7c49555665e629f4ab9c4622f21c2b9fc1d1c45b25be0a235d6a7ba45691470",
+	"Ribbonettes": "ddbfe1fee97a0f6d9aeb88672dd1795526db1baa009a90079ff6392ffc3b4513",
+	"TheLoupe": "1268785614f7998c9712d3ec202e64e23fa98b2a1ec7938aeaebda8c818ac201",
+}
 var checks:=0; var failures:=0
 func _ready()->void:
 	call_deferred("_run")
@@ -69,17 +75,39 @@ func _run()->void:
 			and absf(float(decoded.activity)-0.5)<0.003 \
 			and DreamFaunaChannels.has_flag(encoded,DreamFaunaChannels.FLAG_HUSH)
 	_check("packed fauna channels round-trip byte boundaries and flags",channels_ok)
-	var tess_mesh:=DreamFaunaParts.tessellates()
-	var tess_format:=tess_mesh.surface_get_format(0)
-	var tess_sig:=DreamFaunaParts.mesh_signature(tess_mesh)
-	_check("cached Tessellates part kit is one bounded attributed surface",
-			tess.multimesh.mesh==tess_mesh and DreamFaunaParts.tessellates()==tess_mesh \
-			and tess_mesh.get_surface_count()==1 \
-			and tess_mesh.get_faces().size()/3<DreamFaunaParts.TRIANGLE_CEILING \
-			and (tess_format&Mesh.ARRAY_FORMAT_COLOR)!=0 \
-			and (tess_format&Mesh.ARRAY_FORMAT_CUSTOM0)!=0 \
-			and tess_sig==TESSELLATES_MESH_SHA256)
-	print("[DREAM FAUNA PARTS] tessellates="+tess_sig)
+	var production_parts := {
+		"GildersButtons": DreamFaunaParts.buttons(),
+		"Tessellates": DreamFaunaParts.tessellates(),
+		"WineAnemones": DreamFaunaParts.anemones(),
+		"Ribbonettes": DreamFaunaParts.ribbonettes(),
+		"TheLoupe": DreamFaunaParts.loupe(),
+	}
+	var production_parts_ok := true
+	for family_name in production_parts:
+		var part := production_parts[family_name] as ArrayMesh
+		var batch := fauna.get_node(family_name) as MultiMeshInstance3D
+		var part_format := part.surface_get_format(0)
+		var signature := DreamFaunaParts.mesh_signature(part)
+		production_parts_ok = production_parts_ok and batch.multimesh.mesh == part \
+				and part.get_surface_count() == 1 \
+				and part.get_faces().size() / 3 < DreamFaunaParts.TRIANGLE_CEILING \
+				and (part_format & Mesh.ARRAY_FORMAT_COLOR) != 0 \
+				and (part_format & Mesh.ARRAY_FORMAT_CUSTOM0) != 0 \
+				and signature == PRODUCTION_MESH_SHA256[family_name]
+		if family_name == "TheLoupe":
+			var loupe_regions := {}
+			for vertex_color in part.surface_get_arrays(0)[Mesh.ARRAY_COLOR]:
+				var region := roundi(vertex_color.r * 7.0)
+				loupe_regions[region] = int(loupe_regions.get(region, 0)) + 1
+			production_parts_ok = production_parts_ok \
+					and loupe_regions.has(0) and loupe_regions.has(1) \
+					and loupe_regions.has(2) and loupe_regions.has(4) \
+					and loupe_regions.has(5) and loupe_regions.has(6)
+			print("[DREAM FAUNA PARTS] Loupe regions="+str(loupe_regions))
+		print("[DREAM FAUNA PARTS] %s=%s triangles=%d" % [
+				family_name, signature, part.get_faces().size() / 3])
+	_check("all five cached production kits are bounded attributed surfaces",
+			production_parts_ok)
 	var kit_samples:Array[ArrayMesh]=[
 		DreamFaunaParts.lathe(PackedVector2Array([
 				Vector2(0.04,0.0),Vector2(0.08,0.1),Vector2(0.02,0.2)]),8),
