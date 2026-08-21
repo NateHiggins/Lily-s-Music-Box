@@ -122,6 +122,10 @@ measurement, the corridor ceiling gap is the atrium light well, and the
 first generator fix also landed: every generated kitchen's toaster stood on
 its dishrack from a yaw-rotated offset; `gen_layout.py` now guards worktop
 spacing, and the regenerated JSONs (markers only, no GLB rebuild) are copied.
+M-COVER now has its frames: `art/renders/material_coverage_m/README.md` shows
+nine anti-repetition options on the same floors from the same stands with
+GPU medians; the recommendation is cell-snapped hex for terrazzo and
+per-board-row offsets for oak, both at noise-level cost. Awaiting the owner.
 N12's shared profile makes delayed
 feedback physically load-bearing, then releases the oldest partition when one
 channel remains open. N13 lets two real branches return to one stable antique

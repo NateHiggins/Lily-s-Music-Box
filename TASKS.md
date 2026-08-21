@@ -1788,7 +1788,32 @@ flat on screen.
 
 The audit did find one real defect, and it is a picture defect. See MP below.
 
-### M-COVER — rethink coverage (owner request 2026-08-17, not started)
+### M-COVER — rethink coverage (owner request 2026-08-17; FRAMES AND COSTS DELIVERED 2026-08-21, awaiting the owner's pick)
+
+**What the frames say** (`art/renders/material_coverage_m/README.md`, nine
+options × four stands from one camera each, production fixtures and the
+carried torch, GPU medians in every label): the repetition the owner sees is
+the **floors** — walls are per-wall compiled finishes and do not tile. The
+terrazzo is one 4 m tile holding a 3 × 3 lattice of 1.33 m brass-divided
+cells, so the generic tricks fail on it: mirror jitter doubles the edge strip,
+hex-stochastic ghosts the lattice. **Cell-snapped hex** (three taps whose
+offsets are snapped to the tile's own cell grid) keeps the lattice crisp and
+shuffles the aggregate — the crack that showed in every tile shows once. For
+oak, **per-board-row offsets along the grain** (one tap) keep every board
+edge and remove the tile-period joint line, where hex cuts boards into
+mis-registered segments. Self-detail at a second frequency adds grain but not
+variety; supertiles were not needed. **Cost:** every option is within
++0.4 ms GPU of shipping at three stands and draw calls are unchanged; at the
+lobby all probe variants including the one-tap control read +0.9–1.6 ms, an
+order/thermal effect shared by the control, not a trick's price. No new VRAM
+in any option. Per-room UV seeds were priced, not framed: they need the
+builder to split floor meshes per room (≈ +16 draws per storey category) and
+the same trick is reachable in-shader by hashing the room cell. The probe
+shader and harness are `game/tests/coverage_probe.gdshader` /
+`CoverageShot.tscn`; production adoption is one material class per floor
+set and waits for the owner to pick from the sheets.
+
+Original request, kept for the record:
 
 > "rethinking our general coverage solutions as the tiling is not doing for me
 > anymore in many cases."

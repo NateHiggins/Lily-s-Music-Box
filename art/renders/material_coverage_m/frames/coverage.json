@@ -1,0 +1,375 @@
+{
+  "renderer": "gl_compatibility",
+  "sample_frames": 48,
+  "stations": {
+    "corridor": {
+      "current": {
+        "cpu_ms": 19.8,
+        "draw_calls": 12496,
+        "gpu_ms": 11.5380001068115,
+        "label": "shipping StandardMaterial3D",
+        "mode": -1,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "detail": {
+        "cpu_ms": 19.661,
+        "draw_calls": 12487,
+        "gpu_ms": 11.2440004348755,
+        "label": "self-detail at 3.718x, two taps",
+        "mode": 3,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor__detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "hex": {
+        "cpu_ms": 19.716,
+        "draw_calls": 12987,
+        "gpu_ms": 11.326000213623,
+        "label": "hex-grid stochastic, three taps",
+        "mode": 2,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor__hex.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "hex_detail": {
+        "cpu_ms": 20.174,
+        "draw_calls": 13260,
+        "gpu_ms": 11.6029996871948,
+        "label": "hex stochastic + self-detail",
+        "mode": 4,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor__hex_detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "mirror": {
+        "cpu_ms": 19.351,
+        "draw_calls": 12488,
+        "gpu_ms": 11.3879995346069,
+        "label": "per-tile mirror jitter, one tap",
+        "mode": 1,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor__mirror.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "mirror_detail": {
+        "cpu_ms": 19.89,
+        "draw_calls": 12488,
+        "gpu_ms": 11.4449996948242,
+        "label": "mirror jitter + self-detail",
+        "mode": 5,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor__mirror_detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "plain": {
+        "cpu_ms": 19.883,
+        "draw_calls": 12992,
+        "gpu_ms": 11.3319997787476,
+        "label": "probe shader, one tap (control)",
+        "mode": 0,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor__plain.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "rows": {
+        "cpu_ms": 20.042,
+        "draw_calls": 12983,
+        "gpu_ms": 11.4259996414185,
+        "label": "per-board-row offset along the grain, one tap",
+        "mode": 7,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor__rows.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "split": {
+        "cpu_ms": 20.002,
+        "draw_calls": 12726,
+        "gpu_ms": 11.6709995269775,
+        "label": "hex with offsets snapped to the tile's 3x3 divider cells",
+        "mode": 6,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor__split.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      }
+    },
+    "corridor_floor": {
+      "current": {
+        "cpu_ms": 11.711,
+        "draw_calls": 6259,
+        "gpu_ms": 5.03900003433228,
+        "label": "shipping StandardMaterial3D",
+        "mode": -1,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor_floor__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "detail": {
+        "cpu_ms": 11.686,
+        "draw_calls": 5724,
+        "gpu_ms": 5.2350001335144,
+        "label": "self-detail at 3.718x, two taps",
+        "mode": 3,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor_floor__detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "hex": {
+        "cpu_ms": 11.386,
+        "draw_calls": 5724,
+        "gpu_ms": 5.41200017929077,
+        "label": "hex-grid stochastic, three taps",
+        "mode": 2,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor_floor__hex.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "hex_detail": {
+        "cpu_ms": 11.446,
+        "draw_calls": 5752,
+        "gpu_ms": 5.33400011062622,
+        "label": "hex stochastic + self-detail",
+        "mode": 4,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor_floor__hex_detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "mirror": {
+        "cpu_ms": 11.881,
+        "draw_calls": 5723,
+        "gpu_ms": 5.27299976348877,
+        "label": "per-tile mirror jitter, one tap",
+        "mode": 1,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor_floor__mirror.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "mirror_detail": {
+        "cpu_ms": 11.166,
+        "draw_calls": 5728,
+        "gpu_ms": 5.27500009536743,
+        "label": "mirror jitter + self-detail",
+        "mode": 5,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor_floor__mirror_detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "plain": {
+        "cpu_ms": 11.155,
+        "draw_calls": 5723,
+        "gpu_ms": 5.20300006866455,
+        "label": "probe shader, one tap (control)",
+        "mode": 0,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor_floor__plain.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "rows": {
+        "cpu_ms": 11.387,
+        "draw_calls": 5725,
+        "gpu_ms": 5.23799991607666,
+        "label": "per-board-row offset along the grain, one tap",
+        "mode": 7,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor_floor__rows.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "split": {
+        "cpu_ms": 11.768,
+        "draw_calls": 5725,
+        "gpu_ms": 5.37900018692017,
+        "label": "hex with offsets snapped to the tile's 3x3 divider cells",
+        "mode": 6,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/corridor_floor__split.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      }
+    },
+    "flat_4b": {
+      "current": {
+        "cpu_ms": 13.906,
+        "draw_calls": 10471,
+        "gpu_ms": 6.5770001411438,
+        "label": "shipping StandardMaterial3D",
+        "mode": -1,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/flat_4b__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "detail": {
+        "cpu_ms": 14.285,
+        "draw_calls": 10471,
+        "gpu_ms": 6.7960000038147,
+        "label": "self-detail at 3.718x, two taps",
+        "mode": 3,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/flat_4b__detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "hex": {
+        "cpu_ms": 13.564,
+        "draw_calls": 10746,
+        "gpu_ms": 6.77099990844727,
+        "label": "hex-grid stochastic, three taps",
+        "mode": 2,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/flat_4b__hex.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "hex_detail": {
+        "cpu_ms": 13.57,
+        "draw_calls": 10746,
+        "gpu_ms": 6.73299980163574,
+        "label": "hex stochastic + self-detail",
+        "mode": 4,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/flat_4b__hex_detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "mirror": {
+        "cpu_ms": 14.275,
+        "draw_calls": 10471,
+        "gpu_ms": 6.73600006103516,
+        "label": "per-tile mirror jitter, one tap",
+        "mode": 1,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/flat_4b__mirror.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "mirror_detail": {
+        "cpu_ms": 13.825,
+        "draw_calls": 10469,
+        "gpu_ms": 6.73899984359741,
+        "label": "mirror jitter + self-detail",
+        "mode": 5,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/flat_4b__mirror_detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "plain": {
+        "cpu_ms": 13.373,
+        "draw_calls": 10746,
+        "gpu_ms": 6.72399997711182,
+        "label": "probe shader, one tap (control)",
+        "mode": 0,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/flat_4b__plain.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "rows": {
+        "cpu_ms": 13.655,
+        "draw_calls": 10469,
+        "gpu_ms": 6.68599987030029,
+        "label": "per-board-row offset along the grain, one tap",
+        "mode": 7,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/flat_4b__rows.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "split": {
+        "cpu_ms": 13.769,
+        "draw_calls": 10743,
+        "gpu_ms": 6.73400020599365,
+        "label": "hex with offsets snapped to the tile's 3x3 divider cells",
+        "mode": 6,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/flat_4b__split.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      }
+    },
+    "lobby": {
+      "current": {
+        "cpu_ms": 21.478,
+        "draw_calls": 15263,
+        "gpu_ms": 10.5500001907349,
+        "label": "shipping StandardMaterial3D",
+        "mode": -1,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/lobby__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "detail": {
+        "cpu_ms": 22.88,
+        "draw_calls": 16410,
+        "gpu_ms": 12.0,
+        "label": "self-detail at 3.718x, two taps",
+        "mode": 3,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/lobby__detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "hex": {
+        "cpu_ms": 22.534,
+        "draw_calls": 16293,
+        "gpu_ms": 11.9549999237061,
+        "label": "hex-grid stochastic, three taps",
+        "mode": 2,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/lobby__hex.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "hex_detail": {
+        "cpu_ms": 22.887,
+        "draw_calls": 16291,
+        "gpu_ms": 12.1459999084473,
+        "label": "hex stochastic + self-detail",
+        "mode": 4,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/lobby__hex_detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "mirror": {
+        "cpu_ms": 23.04,
+        "draw_calls": 16271,
+        "gpu_ms": 11.7639999389648,
+        "label": "per-tile mirror jitter, one tap",
+        "mode": 1,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/lobby__mirror.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "mirror_detail": {
+        "cpu_ms": 22.623,
+        "draw_calls": 16246,
+        "gpu_ms": 12.0749998092651,
+        "label": "mirror jitter + self-detail",
+        "mode": 5,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/lobby__mirror_detail.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "plain": {
+        "cpu_ms": 22.655,
+        "draw_calls": 16161,
+        "gpu_ms": 11.4519996643066,
+        "label": "probe shader, one tap (control)",
+        "mode": 0,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/lobby__plain.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "rows": {
+        "cpu_ms": 23.18,
+        "draw_calls": 16295,
+        "gpu_ms": 11.9530000686646,
+        "label": "per-board-row offset along the grain, one tap",
+        "mode": 7,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/lobby__rows.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "split": {
+        "cpu_ms": 22.59,
+        "draw_calls": 16363,
+        "gpu_ms": 12.0229997634888,
+        "label": "hex with offsets snapped to the tile's 3x3 divider cells",
+        "mode": 6,
+        "png": "C:/PleaseRemainOnTheLine/art/renders/material_coverage_m/frames/lobby__split.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      }
+    }
+  },
+  "window": "(1280, 720)"
+}

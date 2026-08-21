@@ -1,0 +1,71 @@
+{
+  "renderer": "gl_compatibility",
+  "sample_frames": 48,
+  "stations": {
+    "oak_floor": {
+      "current": {
+        "cpu_ms": 9.402,
+        "draw_calls": 6680,
+        "gpu_ms": 3.42799997329712,
+        "label": "shipping StandardMaterial3D",
+        "mode": -1,
+        "png": "C:/Users/nate_/AppData/Local/Temp/claude/C--PleaseRemainOnTheLine/f674abaa-22c3-46a4-bcaa-0773d29fbc8d/scratchpad/oak/oak_floor__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "hex": {
+        "cpu_ms": 9.402,
+        "draw_calls": 6511,
+        "gpu_ms": 3.79800009727478,
+        "label": "hex-grid stochastic, three taps",
+        "mode": 2,
+        "png": "C:/Users/nate_/AppData/Local/Temp/claude/C--PleaseRemainOnTheLine/f674abaa-22c3-46a4-bcaa-0773d29fbc8d/scratchpad/oak/oak_floor__hex.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "rows": {
+        "cpu_ms": 9.107,
+        "draw_calls": 6303,
+        "gpu_ms": 3.64499998092651,
+        "label": "per-board-row offset along the grain, one tap",
+        "mode": 7,
+        "png": "C:/Users/nate_/AppData/Local/Temp/claude/C--PleaseRemainOnTheLine/f674abaa-22c3-46a4-bcaa-0773d29fbc8d/scratchpad/oak/oak_floor__rows.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      }
+    },
+    "oak_floor_b": {
+      "current": {
+        "cpu_ms": 10.45,
+        "draw_calls": 5009,
+        "gpu_ms": 3.99699997901917,
+        "label": "shipping StandardMaterial3D",
+        "mode": -1,
+        "png": "C:/Users/nate_/AppData/Local/Temp/claude/C--PleaseRemainOnTheLine/f674abaa-22c3-46a4-bcaa-0773d29fbc8d/scratchpad/oak/oak_floor_b__current.png",
+        "save_error": 0,
+        "surfaces_swapped": 0
+      },
+      "hex": {
+        "cpu_ms": 10.301,
+        "draw_calls": 5497,
+        "gpu_ms": 4.06799983978271,
+        "label": "hex-grid stochastic, three taps",
+        "mode": 2,
+        "png": "C:/Users/nate_/AppData/Local/Temp/claude/C--PleaseRemainOnTheLine/f674abaa-22c3-46a4-bcaa-0773d29fbc8d/scratchpad/oak/oak_floor_b__hex.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      },
+      "rows": {
+        "cpu_ms": 10.843,
+        "draw_calls": 5009,
+        "gpu_ms": 4.01399993896484,
+        "label": "per-board-row offset along the grain, one tap",
+        "mode": 7,
+        "png": "C:/Users/nate_/AppData/Local/Temp/claude/C--PleaseRemainOnTheLine/f674abaa-22c3-46a4-bcaa-0773d29fbc8d/scratchpad/oak/oak_floor_b__rows.png",
+        "save_error": 0,
+        "surfaces_swapped": 4
+      }
+    }
+  },
+  "window": "(1280, 720)"
+}
