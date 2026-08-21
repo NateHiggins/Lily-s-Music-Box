@@ -1,0 +1,24 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 560.94 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+[DREAM WALK] surface census: { "FLOOR (mosaic)": 4, "CEILING (canopy)": 4, "WALLS (spiral)": 32, "DOORS (chevron)": 16, "NO-SHADER (StandardMaterial3D)": 56, "shader dream_lineage_gold.gdshader (no motif)": 5, "NO-SHADER (none)": 6, "FAUNA (Gilder\'s Button (crop))": 1, "FAUNA (Tessellate (grazer))": 1, "FAUNA (Wine Anemone (detritivore))": 1, "FAUNA (Ribbonette (courtship))": 1, "FAUNA (The Loupe (predator))": 1 }
+[DREAM WALK] fauna census: { "buttons": 8, "tessellates": 12, "anemones": 8, "ribbonettes": 0, "loupe": 0, "rooms": 4, "hushed": 5, "submerged": 5 }
+[DREAM WALK] identify:
+F: (2.18, 0.00, 0.84)
+  collider Floor01
+  drawn by @MeshInstance3D@3
+  class FLOOR (mosaic)
+  material ShaderMaterial
+  shader res://shaders/dream_klimt.gdshader
+  compiled true
+FAUNA Gilder's Button (crop)  [GildersButtons #0 of 8]  room @1.0.0.2.1.0.0
+  at (2.23, 0.04, 0.85)  2.26 m  miss 0.00 m  radius 0.12 m  scale (0.20, 0.04, 0.20)
+  custom (0.5033, 16448.0, 1024.0, 45276.0)  gpu readback (0.5029, 16448.0, 1024.0, 45248.0)
+  phase 0.503  nutrient 0.251  emergence 0.251  activity 0.000  hue 0.690  pattern 0.863  flags [PEARL_COLONY]
+  density { "nutrient": 0.25093844270306, "grazer": 0.42052526377388, "predator": 0.0, "detritus": 0.0495655988032 }
+  material gait 0.030 @ 1.80 Hz  gold_gain 1.00  dark_glow 0.100  vertex_channels 1  lamp_energy 0.64
+  shader res://shaders/dream_fauna.gdshader  compiled true  shadows OFF
+[DREAM WALK] FA4 probe: record (0.5033, 16448.0, 1024.0, 45276.0) -> half (0.5029, 16448.0, 1024.0, 45248.0), gpu (0.5029, 16448.0, 1024.0, 45248.0)
+[DREAM WALK] FA4 probe: picked=true (got GildersButtons#0, wanted GildersButtons#0)  compiled=true  buffer_match=true  fauna_nodes=11  png=C:/PleaseRemainOnTheLine/art/renders/dream_fauna_fa4/fa4_probe.png (err 0)
+[DREAM WALK] FA4 probe: PASS

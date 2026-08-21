@@ -110,6 +110,11 @@ all six production proofs at `art/renders/dream_incarnation_v9/README.md`:
 paired same-seed roots preserve plan/pursuit/collision/hazard/save facts and
 exact active-only 17-map residency, while the windowed six-case sweep is 24/24
 under 16.6 ms (worst 2.87 ms). The ordered INC-V3–V9 surface queue is closed.
+FA-V4 closed 2026-08-21: DreamWalk's `F` names fauna instances collision-free
+from the director's own record, with a windowed `DREAM_WALK_PROBE` self-check
+(`art/renders/dream_fauna_fa4/README.md`); it also measured that Compatibility
+stores `INSTANCE_CUSTOM` as truncated half-floats, so only the packed HIGH
+byte is exact on the GPU.
 N12's shared profile makes delayed
 feedback physically load-bearing, then releases the oldest partition when one
 channel remains open. N13 lets two real branches return to one stable antique

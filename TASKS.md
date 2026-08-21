@@ -1649,10 +1649,27 @@ unresolved. K7's source-backed loop contract is closed in
   performance pass. The owner accepted the rendered silhouettes. Closeout
   removed `FAUNA_STYLE_LEGACY`, its callable selector and the legacy shader;
   the historical comparison PNGs remain evidence, not configuration.
-- **FA-V4 — COLLISION-FREE DREAMWALK INSPECTION.** Add debug-only F-key
-  reporting of family, packed genome values and shader compile state by
-  analytical or screen-space nearest-instance selection. Do not add collision,
-  per-creature nodes, runtime pathfinding or production UI.
+- **FA-V4 DONE 2026-08-21 — COLLISION-FREE DREAMWALK INSPECTION.** DreamWalk's
+  `F` now also names the nearest fauna instance in the crosshair cone through
+  `DreamFaunaDirector.inspect_ray`, an analytical pick over the director's own
+  submission record bounded by the real physics hit: family and batch slot,
+  raw and decoded packed genome with named flags, live room key and density
+  record, material facts (unset uniforms fall back to the shader default),
+  shader path, compile state and shadow setting. `DREAM_WALK_PROBE=<dir>` is a
+  windowed self-check that stands at the nearest creature, presses F and
+  exits 0 only if the pick, compile state and GPU buffer agree. No collision,
+  per-creature node, pathfinding or production UI was added; the suite asserts
+  node/collision/light counts, realization signature and plan bytes are
+  unchanged. Two pre-existing DreamWalk faults were fixed in passing
+  (`int(null)` on every motif-less shader material, and `pad_decimals`
+  truncating vectors). **Measured in passing:** on the Compatibility renderer
+  `INSTANCE_CUSTOM` is four truncated half-floats, so the FA-V1 "two exact
+  bytes" claim holds for the high byte only; the low byte (emergence,
+  activity, pattern_jitter — presentation only) is quantized to 8–32 steps.
+  `DreamFaunaChannels.compatibility_half` models it and the probe measured
+  the model bit-exact against the buffer. DreamFaunaTest 28/28, Pursuit
+  39/39, SurfaceTarget 105/105, WalkTest FAST PASS. Proof:
+  `art/renders/dream_fauna_fa4/README.md`.
 - **FA-V5 — LATER-FAMILY STYLE BREADTH (BLOCKED BY FA3 RULING).** Only after
   the FA3 owner gate, apply the style matrix to Jewelfruit, Spiralings,
   Chandelettes, Bezel Beetles, Deep Koi and Parliaments. Negative-space Koi,

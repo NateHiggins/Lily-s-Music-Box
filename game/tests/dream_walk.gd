@@ -16,7 +16,13 @@ extends Node
 ##   WASD / mouse   walk and look (the real PlayerController, real collision)
 ##   L              lamp
 ##   F              IDENTIFY whatever is under the crosshair -- node name,
-##                  class, material type, shader, and which motif it is drawing
+##                  class, material type, shader, and which motif it is drawing.
+##                  FA-V4: the same key also names the nearest FAUNA instance
+##                  in the crosshair cone -- family, batch slot, packed genome
+##                  (decoded and raw), room density record, material facts and
+##                  whether its shader compiled. Creatures have no collider, so
+##                  this is an analytical pick over the MultiMesh buffers,
+##                  bounded by the real physics hit so a wall still hides them.
 ##   1..6           isolate one surface class; everything else is hidden
 ##   0              show everything again
 ##   TAB            hide every non-architecture object (props, particles,
@@ -26,6 +32,12 @@ extends Node
 ## The isolate keys are the point. If a rectangular prism of light survives
 ## with walls, floor, ceiling, doors and shafts all hidden, then it is not
 ## architecture at all and the search is over in five seconds.
+##
+## PROBE MODE (needs a real window, no --headless):
+##   DREAM_WALK_PROBE=<existing dir>  godot --path game res://tests/DreamWalk.tscn
+## Stands the player 1.8 m from the nearest live creature, turns to face it,
+## presses F on its behalf, saves fa4_probe.png with the HUD report and quits
+## 0 only if the pick names that exact instance and its shader compiled.
 
 const SEED_HEX := "f123456789abcdef"
 
@@ -61,6 +73,9 @@ func _ready() -> void:
 	_build_hud()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	_census()
+	var probe_dir := OS.get_environment("DREAM_WALK_PROBE")
+	if not probe_dir.is_empty():
+		_probe(probe_dir)
 
 
 func _build_hud() -> void:
@@ -90,6 +105,8 @@ func _census() -> void:
 	for node in _root.find_children("*", "GeometryInstance3D", true, false):
 		counts[_class_of(node)] = int(counts.get(_class_of(node), 0)) + 1
 	print("[DREAM WALK] surface census: %s" % str(counts))
+	if _root.fauna != null:
+		print("[DREAM WALK] fauna census: %s" % str(_root.fauna.census()))
 
 
 ## Which class a piece of geometry belongs to, taken from the MATERIAL rather
@@ -104,6 +121,15 @@ func _class_of(node: Node) -> String:
 		var over: Material = geometry.material_override
 		return "NO-SHADER (%s)" % (over.get_class() if over else "none")
 	var motif: Variant = material.get_shader_parameter("motif")
+	if motif == null:
+		# Not a Klimt architecture material. The fauna material bindings
+		# (FA-V1) carry their family index as metadata; anything else is a
+		# shader this walk does not classify, which is worth saying outright.
+		var family := int(material.get_meta("dream_fauna_family_index", -1))
+		if family >= 0 and family < DreamFaunaDirector.FAMILY_LABELS.size():
+			return "FAUNA (%s)" % str(DreamFaunaDirector.FAMILY_LABELS[family])
+		return "shader %s (no motif)" % (material.shader.resource_path.get_file()
+				if material.shader else "NULL")
 	for entry in CLASSES:
 		if int(entry.motif) == int(motif):
 			return str(entry.name)
@@ -130,38 +156,117 @@ func _unhandled_input(event: InputEvent) -> void:
 ## THE ONE THAT MATTERS. Ray from the eye, and whatever it lands on is named
 ## in full: node, class, the material actually bound to it, and the motif it
 ## claims to be drawing. Point at the offending prism and press F.
-func _identify() -> void:
+func _identify() -> Dictionary:
 	var camera: Camera3D = _root.player.camera
 	var from := camera.global_position
-	var to := from - camera.global_transform.basis.z * 40.0
-	var query := PhysicsRayQueryParameters3D.create(from, to)
+	var dir := -camera.global_transform.basis.z
+	var query := PhysicsRayQueryParameters3D.create(from, from + dir * 40.0)
 	query.exclude = [_root.player.get_rid()]
 	var hit := get_viewport().get_world_3d().direct_space_state \
 			.intersect_ray(query)
+	var lines := ""
+	var reach := 40.0
 	if hit.is_empty():
-		_set_text("F: nothing under the crosshair within 40 m")
-		print("[DREAM WALK] identify: nothing hit")
-		return
-	# The collider is a body; the thing being DRAWN is usually a sibling or a
-	# child of it, so report the nearest geometry rather than the body.
-	var node: Node = hit.collider
-	var geometry := _nearest_geometry(node)
-	var lines := "F: %s\n  collider %s\n  drawn by %s\n  class %s" % [
-			str(hit.position).pad_decimals(2), node.name,
-			geometry.name if geometry else "(no GeometryInstance3D found)",
-			_class_of(geometry) if geometry else "?"]
-	if geometry:
-		var material := geometry.material_override
-		lines += "\n  material %s" % (material.get_class() if material
-				else "none (inherits mesh material)")
-		if material is ShaderMaterial:
-			var shader: Shader = (material as ShaderMaterial).shader
-			lines += "\n  shader %s" % (shader.resource_path if shader
-					else "NULL")
-			lines += "\n  compiled %s" % (not shader.get_shader_uniform_list()
-					.is_empty() if shader else false)
+		lines = "F: nothing solid under the crosshair within 40 m"
+	else:
+		# The collider is a body; the thing being DRAWN is usually a sibling
+		# or a child of it, so report the nearest geometry rather than the body.
+		var node: Node = hit.collider
+		var geometry := _nearest_geometry(node)
+		lines = "F: %s\n  collider %s\n  drawn by %s\n  class %s" % [
+				DreamFaunaDirector.fmt_vec3(hit.position), node.name,
+				geometry.name if geometry else "(no GeometryInstance3D found)",
+				_class_of(geometry) if geometry else "?"]
+		if geometry:
+			var material := geometry.material_override
+			lines += "\n  material %s" % (material.get_class() if material
+					else "none (inherits mesh material)")
+			if material is ShaderMaterial:
+				var shader: Shader = (material as ShaderMaterial).shader
+				lines += "\n  shader %s" % (shader.resource_path if shader
+						else "NULL")
+				lines += "\n  compiled %s" % (not shader.get_shader_uniform_list()
+						.is_empty() if shader else false)
+		# A creature sits ON the surface the ray lands on; 35 cm of slack lets
+		# a slightly low aim still name it, and nothing past the wall is named.
+		reach = from.distance_to(hit.position) + 0.35
+	# FA-V4: the fauna have no collider by contract, so ask the director's
+	# buffers directly, bounded by whatever solid thing the ray actually hit.
+	var fauna_report := {}
+	if _root.fauna != null:
+		fauna_report = _root.fauna.inspect_ray(from, dir, reach)
+	lines += "\n" + DreamFaunaDirector.inspection_text(fauna_report)
 	_set_text(lines)
 	print("[DREAM WALK] identify:\n%s" % lines)
+	return fauna_report
+
+
+## Windowed self-check of the F path against one real creature; see header.
+func _probe(dir_path: String) -> void:
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var camera: Camera3D = _root.player.camera
+	var near: Dictionary = _root.fauna.nearest_to(_root.player.global_position)
+	if near.is_empty():
+		print("[DREAM WALK] FA4 probe: no live fauna to inspect")
+		get_tree().quit(1)
+		return
+	# Stand 1.8 m from the creature, on the room-centre side so the line of
+	# sight stays inside its own room, then face it the way a player would.
+	var target := Vector3(near.position)
+	var stand := target + Vector3(1.8, 0.0, 0.0)
+	var room: Dictionary = _root.rooms.room_at_key(str(near.room_key))
+	if not room.is_empty():
+		var r: Array = room.rect
+		var centre := Vector3((float(r[0]) + float(r[2])) * 0.5, target.y,
+				(float(r[1]) + float(r[3])) * 0.5)
+		if centre.distance_to(target) > 0.1:
+			stand = target + (centre - target).normalized() * 1.8
+	stand.y = _root.player.global_position.y
+	_root.player.global_position = stand
+	await get_tree().physics_frame
+	var d := (target - camera.global_position).normalized()
+	_root.player.rotation.y = atan2(-d.x, -d.z)
+	camera.rotation.x = atan2(d.y, Vector2(d.x, d.z).length())
+	await get_tree().physics_frame
+	await get_tree().process_frame
+	var report := _identify()
+	var picked := not report.is_empty() \
+			and str(report.batch) == str(near.batch) \
+			and int(report.index) == int(near.index)
+	var compiled := bool(report.get("shader_compiled", false))
+	var nodes_after := _root.fauna.find_children("*", "", true, false).size()
+	# The report comes from the director's own submission record; with a real
+	# renderer the MultiMesh buffer can be read back, so prove the two agree:
+	# transforms exactly, custom data through the Compatibility renderer's
+	# half-float truncation (see DreamFaunaChannels.compatibility_half).
+	var buffer_match := false
+	var gpu_custom := Color()
+	if picked:
+		var batch := _root.fauna.get_node(str(report.batch)) as MultiMeshInstance3D
+		var mm := batch.multimesh
+		gpu_custom = mm.get_instance_custom_data(int(report.index))
+		var gpu_centre: Vector3 = batch.global_transform \
+				* mm.get_instance_transform(int(report.index)) \
+				* mm.mesh.get_aabb().get_center()
+		var expected := DreamFaunaChannels.compatibility_half_color(
+				Color(report.custom_raw))
+		buffer_match = gpu_custom.is_equal_approx(expected) \
+				and gpu_centre.is_equal_approx(Vector3(report.position))
+		print("[DREAM WALK] FA4 probe: record %s -> half %s, gpu %s"
+				% [report.custom_raw, expected, gpu_custom])
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	var path := dir_path.path_join("fa4_probe.png")
+	var err := get_viewport().get_texture().get_image().save_png(path)
+	var ok := picked and compiled and buffer_match and err == OK
+	print("[DREAM WALK] FA4 probe: picked=%s (got %s#%s, wanted %s#%s)"
+			% [picked, report.get("batch", "-"), report.get("index", "-"),
+			near.batch, near.index]
+			+ "  compiled=%s  buffer_match=%s  fauna_nodes=%d  png=%s (err %d)"
+			% [compiled, buffer_match, nodes_after, path, err])
+	print("[DREAM WALK] FA4 probe: %s" % ("PASS" if ok else "FAIL"))
+	get_tree().quit(0 if ok else 1)
 
 
 func _nearest_geometry(node: Node) -> GeometryInstance3D:
@@ -195,7 +300,8 @@ func _isolate(motif: int) -> void:
 			if motif == -1:
 				want = material == null
 			elif material != null:
-				want = int(material.get_shader_parameter("motif")) == motif
+				var drawn: Variant = material.get_shader_parameter("motif")
+				want = drawn != null and int(drawn) == motif
 		geometry.visible = want
 		if want:
 			shown += 1

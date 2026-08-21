@@ -7,6 +7,13 @@ Live log for the room-by-room pass. One line per finding:
 Placement and rendering findings from any session land here, one line each,
 with the instrument that produced the finding named in the symptom.
 
+## 2026-08-21 dream fauna inspection (FA-V4)
+
+| room | symptom | severity |
+|---|---|---|
+| dream (all pockets) | DREAMWALK F PROBE: Compatibility stores MultiMesh `INSTANCE_CUSTOM` as truncated half-floats; record `(0.5033, 16448, 1024, 45276)` reads back `(0.5029, 16448, 1024, 45248)`. Packed high bytes (nutrient, flags, hue) exact; low bytes (emergence, activity, pattern_jitter) quantized to 8–32 steps. Presentation only; modelled by `DreamFaunaChannels.compatibility_half` and asserted in DreamFaunaTest. Repacking is an FA-V1 contract change, not licensed here | wish |
+| dream (all pockets) | DREAMWALK CENSUS: ~~`_class_of` errored `int(null)` 20× per census on the five fauna material bindings~~ FIXED 2026-08-21; bindings now classify as `FAUNA (<family>)` | resolved |
+
 ## 2026-08-20 presentation sweep — data findings and runtime leads
 
 Read-only sweep of `game/data/building_layout.json` at `8806f99`. These lines

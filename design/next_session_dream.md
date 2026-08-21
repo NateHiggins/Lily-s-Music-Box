@@ -14,6 +14,22 @@ everything else and it changed last. Then
 `game/scripts/dream/dream_room_builder.gd` top-to-bottom; its header is the
 architecture.
 
+## 2026-08-21 pickup note
+
+The ordered INC-V3–V9 surface queue closed at `8e82bbf` (six-case joined
+proof, `art/renders/dream_incarnation_v9/README.md`), and FA-V4 closed the
+same day (`art/renders/dream_fauna_fa4/README.md`): DreamWalk's `F` key now
+names fauna collision-free, and in doing so measured that the Compatibility
+renderer stores `INSTANCE_CUSTOM` as truncated half-floats — only the packed
+high byte is exact on the GPU. **No dream item is both open and licensed
+now.** What remains is gated or owner-ruled: FA3–FA4 breadth and FA-V5 style
+breadth (FA3 ruling), RECURSION (priced, unlicensed), her speech/romance
+(§6, last by design), and the three owner decisions at the end of this file
+(`_carry_pursuer`, the passage-one-to-six arc, the sealed-door rate). Outside
+the dream, `TASKS.md` §H13-PRESENTATION (the waking presentation audit
+instrument), §E15 commensals C2 and §M-COVER are open. Do not silently
+select one of the gated dream items; ask.
+
 ## 2026-08-20 coordination checkpoint
 
 The seven commits from `b68ed20` through `1b122e0` are the completed

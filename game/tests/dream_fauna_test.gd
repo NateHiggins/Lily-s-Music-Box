@@ -150,6 +150,86 @@ func _run()->void:
 			and exposure_before==root.exposure.sample(root.player.global_position))
 	_check("the same pocket realizes the same deterministic slots",
 			realization_before==fauna.realization_signature())
+	# FA-V4: collision-free inspection reads the director's own submission
+	# record (the headless renderer's buffer readback is identity/default, so
+	# the renderer is deliberately not the source here).
+	var nodes_before:int=fauna.find_children("*","",true,false).size()
+	var inspect_signature:String=fauna.realization_signature()
+	var inspect_plan:=var_to_bytes(root.plan)
+	var seed_room:Dictionary=root.rooms.live_rooms()[0]; var sr:Array=seed_room.rect
+	var seed_centre:=Vector3((sr[0]+sr[2])*0.5,0.0,(sr[1]+sr[3])*0.5)
+	var target_report:Dictionary=fauna.nearest_to(seed_centre,"Tessellates")
+	var target:Vector3=target_report.get("position",Vector3.ZERO)
+	var eye:=target+Vector3(0.0,1.2,2.4)
+	var report:Dictionary=fauna.inspect_ray(eye,target-eye,40.0)
+	var again:Dictionary=fauna.inspect_ray(eye,target-eye,40.0)
+	var recorded_rows:Dictionary=fauna.get("_records").get("Tessellates",{})
+	var recorded_raw:Color=(recorded_rows.custom as Array)[int(target_report.get("index",0))] \
+			if not recorded_rows.is_empty() else Color()
+	_check("F inspection selects the aimed grazer analytically",
+			not target_report.is_empty() and not report.is_empty()
+			and str(report.batch)=="Tessellates"
+			and int(report.index)==int(target_report.index)
+			and int(report.family_motif)==1
+			and str(report.family).begins_with("Tessellate")
+			and float(report.miss)<0.001 and absf(float(report.distance)-eye.distance_to(target))<0.001)
+	_check("inspection reports that instance's exact packed genome",
+			not report.is_empty() and report.custom_raw==recorded_raw
+			and report.channels==DreamFaunaChannels.decode(recorded_raw)
+			and report.flags is PackedStringArray
+			and report.has("shader_compiled")
+			and str(report.shader).ends_with("dream_fauna.gdshader")
+			and float(report.material.gait_hz)==1.8
+			and int(report.cast_shadow)==GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			and DreamFaunaDirector.inspection_text(report).begins_with("FAUNA Tessellate")
+			and DreamFaunaDirector.inspection_text(report).contains("compiled "))
+	_check("inspection is deterministic and names the live room and density",
+			report==again and not str(report.get("room_key","")).is_empty()
+			and (report.get("density",{}) as Dictionary).has("grazer")
+			and str(fauna.nearest_to(target).batch)=="Tessellates"
+			and int(fauna.nearest_to(target).index)==int(target_report.index)
+			and report.has("gpu_custom"))
+	# The Compatibility renderer's half-float truncation keeps every high byte
+	# and quantizes the low byte; the model below is what the windowed probe
+	# measures against the real buffer.
+	var half_ok:=DreamFaunaChannels.compatibility_half(45276.0)==45248.0 \
+			and DreamFaunaChannels.compatibility_half(16448.0)==16448.0 \
+			and DreamFaunaChannels.compatibility_half(0.0)==0.0 \
+			and absf(DreamFaunaChannels.compatibility_half(0.5033)-0.50292968)<1e-6
+	for high in 256:
+		for low in [0,1,15,16,127,255]:
+			var seen:=DreamFaunaChannels.unpack_pair(
+					DreamFaunaChannels.compatibility_half(
+					DreamFaunaChannels.pack_pair(high,low)))
+			half_ok=half_ok and seen.x==high and seen.y<=low
+	_check("half-float truncation preserves every packed high byte",half_ok)
+	_check("inspection names nothing outside the cone or past the reach",
+			fauna.inspect_ray(Vector3(0.0,80.0,0.0),Vector3.UP,40.0).is_empty()
+			and fauna.inspect_ray(eye,target-eye,0.5).is_empty()
+			and fauna.inspect_ray(eye,Vector3.ZERO,40.0).is_empty())
+	var inspect_forbidden:=0
+	for node in fauna.find_children("*","",true,false):
+		if node is CollisionObject3D or node is Light3D: inspect_forbidden+=1
+	_check("inspection adds no node, collision, light or mutation",
+			fauna.find_children("*","",true,false).size()==nodes_before
+			and inspect_forbidden==0
+			and inspect_signature==fauna.realization_signature()
+			and inspect_plan==var_to_bytes(root.plan)
+			and DreamFaunaChannels.flag_names(DreamFaunaChannels.FLAG_HUSH
+					|DreamFaunaChannels.FLAG_CAMERA_TRACKER)
+					==PackedStringArray(["HUSH","CAMERA_TRACKER"]))
+	# Buttons never set gold_gain on their material; the report must still
+	# render every line rather than abort on the unset uniform.
+	var button_report:Dictionary=fauna.nearest_to(target,"GildersButtons")
+	var button_text:String=DreamFaunaDirector.inspection_text(button_report)
+	print("[DREAM FAUNA FA4] "+button_text.replace("\n","\n[DREAM FAUNA FA4] "))
+	_check("inspection survives a batch whose material left a uniform unset",
+			str(button_report.get("batch",""))=="GildersButtons"
+			and button_text.begins_with("FAUNA Gilder's Button")
+			and button_text.contains("gold_gain ")
+			and button_text.contains("flags [PEARL_COLONY]")
+			and DreamFaunaDirector.inspection_text({})
+					=="fauna: none under the crosshair")
 	var birth_frames:=0
 	for body in get_tree().get_nodes_in_group("dream_lineage_bodies"):
 		birth_frames+=(body.get_meta("birth_frames",[]) as Array).size()

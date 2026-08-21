@@ -12,6 +12,14 @@ const EMERALD := Color(0.180, 0.404, 0.360)
 const CARNELIAN := Color(0.451, 0.098, 0.106)
 const LAPIS := Color(0.145, 0.216, 0.463)
 const FAUNA_DARK_GLOW := 0.10
+## FA-V4 inspection. Index = `family_motif`, the same tag the molten collector
+## reads; a label is presentation vocabulary, never a new owner.
+const FAMILY_LABELS := ["Gilder's Button (crop)", "Tessellate (grazer)",
+		"Wine Anemone (detritivore)", "Ribbonette (courtship)",
+		"The Loupe (predator)"]
+## Angular slack past an instance's own bounding radius: about 3.4 degrees,
+## so a crosshair that brushes a creature still names it without a collider.
+const INSPECT_CONE_TAN := 0.06
 
 var rooms: DreamRoomBuilder
 var player: Node3D
@@ -31,6 +39,12 @@ var _census := {"buttons": 0, "tessellates": 0, "rooms": 0,
 var _signature := ""
 var _room_signatures: Dictionary = {}
 var _densities: Dictionary = {}
+## What each batch was last handed, by batch name: {"xforms", "custom"}.
+## FA-V4 inspection reads THIS rather than the MultiMesh buffer, because the
+## renderer's readback is not a contract (the headless dummy renderer answers
+## identity/default for every instance). It is the director's own record of
+## its own submission, at most MAX_INSTANCES rows, never a node.
+var _records: Dictionary = {}
 
 func setup(room_owner: DreamRoomBuilder, body: Node3D, tenant: Node3D,
 		exposure_owner: DreamExposureField) -> void:
@@ -329,7 +343,219 @@ func _genome(phase: float, index: int, salt: float) -> float:
 			1.0)
 
 func _apply(node: MultiMeshInstance3D, xforms: Array[Transform3D], custom: Array[Color]) -> void:
+	_records[node.name] = {"xforms": xforms, "custom": custom}
 	node.multimesh.instance_count = xforms.size()
 	for i in xforms.size():
 		node.multimesh.set_instance_transform(i, xforms[i])
 		node.multimesh.set_instance_custom_data(i, custom[i])
+
+
+## FA-V4 — COLLISION-FREE INSPECTION. Read-only queries over the director's
+## own submission records for DreamWalk's F key. They create no collision, no
+## per-creature node, no cache beyond `_records` and no pathfinding, and they
+## never write. Selection is analytical: the live instance whose centre lies
+## nearest the ray in angular terms, inside its bounding radius plus
+## INSPECT_CONE_TAN, and no further along the ray than `max_distance` (the
+## caller passes its real physics hit so a creature behind a wall is not
+## named through it).
+func inspect_ray(from: Vector3, direction: Vector3,
+		max_distance := 40.0) -> Dictionary:
+	var dir := direction.normalized()
+	if dir.is_zero_approx():
+		return {}
+	var best := {}
+	var best_angle := INF
+	for batch in _batches():
+		var rows: Dictionary = _records[batch.name]
+		var xforms: Array = rows.xforms
+		var aabb := _batch_aabb(batch)
+		var half := aabb.size.length() * 0.5
+		for i in xforms.size():
+			var world: Transform3D = batch.global_transform * xforms[i]
+			var centre := world * aabb.get_center()
+			var offset := centre - from
+			var along := offset.dot(dir)
+			if along <= 0.0 or along > max_distance:
+				continue
+			var miss := (offset - dir * along).length()
+			var radius := half * _max_axis_scale(world.basis)
+			if miss > radius + along * INSPECT_CONE_TAN:
+				continue
+			var angle := miss / along
+			if angle >= best_angle:
+				continue
+			best_angle = angle
+			best = _describe_instance(batch, i, world, centre, along, miss, radius)
+	return best
+
+
+## The live instance nearest a point by straight-line distance, optionally
+## within one named batch; DreamWalk's probe mode uses it to choose something
+## to look at. Same read-only contract as inspect_ray.
+func nearest_to(point: Vector3, batch_name := "") -> Dictionary:
+	var best := {}
+	var best_d := INF
+	for batch in _batches():
+		if not batch_name.is_empty() and batch.name != batch_name:
+			continue
+		var rows: Dictionary = _records[batch.name]
+		var xforms: Array = rows.xforms
+		var aabb := _batch_aabb(batch)
+		var half := aabb.size.length() * 0.5
+		for i in xforms.size():
+			var world: Transform3D = batch.global_transform * xforms[i]
+			var centre := world * aabb.get_center()
+			var d := centre.distance_to(point)
+			if d >= best_d:
+				continue
+			best_d = d
+			best = _describe_instance(batch, i, world, centre, d, 0.0,
+					half * _max_axis_scale(world.basis))
+	return best
+
+
+## One readable block for a HUD or a log. Pure formatting.
+static func inspection_text(report: Dictionary) -> String:
+	if report.is_empty():
+		return "fauna: none under the crosshair"
+	var ch: Dictionary = report.channels
+	var mat: Dictionary = report.material
+	var flags: PackedStringArray = report.flags
+	var flag_text := "[" + ", ".join(flags) + "]"
+	# Anything the material could not answer prints as "nan" rather than
+	# aborting the whole report; a missing number is itself a finding.
+	return ("FAUNA %s  [%s #%d of %d]  room %s\n"
+			+ "  at %s  %.2f m  miss %.2f m  radius %.2f m  scale %s\n"
+			+ "  custom %s  gpu readback %s\n"
+			+ "  phase %.3f  nutrient %.3f  emergence %.3f  activity %.3f"
+			+ "  hue %.3f  pattern %.3f  flags %s\n"
+			+ "  density %s\n"
+			+ "  material gait %.3f @ %.2f Hz  gold_gain %.2f  dark_glow %.3f"
+			+ "  vertex_channels %.0f  lamp_energy %.2f\n"
+			+ "  shader %s  compiled %s  shadows %s") % [
+			str(report.family), str(report.batch), int(report.index),
+			int(report.instance_count), str(report.room_key),
+			fmt_vec3(report.position), _num(report.distance),
+			_num(report.miss), _num(report.radius),
+			fmt_vec3(report.scale),
+			str(report.custom_raw), str(report.get("gpu_custom", "-")),
+			_num(ch.get("identity_phase")), _num(ch.get("nutrient")),
+			_num(ch.get("emergence")), _num(ch.get("activity")),
+			_num(ch.get("hue_jitter")), _num(ch.get("pattern_jitter")),
+			flag_text, str(report.density),
+			_num(mat.get("gait_amount")), _num(mat.get("gait_hz")),
+			_num(mat.get("gold_gain")), _num(mat.get("fauna_dark_glow")),
+			_num(mat.get("vertex_channels_ready")),
+			_num(mat.get("lamp_energy")),
+			str(report.shader), str(report.shader_compiled),
+			"OFF" if int(report.cast_shadow)
+					== GeometryInstance3D.SHADOW_CASTING_SETTING_OFF else "ON"]
+
+
+## `str(Vector3).pad_decimals(2)` is a trap: pad_decimals treats the whole
+## string as one number and truncates at the first component's decimals.
+static func fmt_vec3(value: Variant) -> String:
+	if not (value is Vector3):
+		return str(value)
+	var v: Vector3 = value
+	return "(%.2f, %.2f, %.2f)" % [v.x, v.y, v.z]
+
+
+static func _num(value: Variant) -> float:
+	return float(value) if (value is float or value is int) else NAN
+
+
+func _batches() -> Array[MultiMeshInstance3D]:
+	var out: Array[MultiMeshInstance3D] = []
+	for batch in [_buttons, _tessellates, _anemones, _ribbonettes, _loupe]:
+		if batch != null and batch.visible and batch.multimesh != null \
+				and _records.has(batch.name):
+			out.append(batch)
+	return out
+
+
+static func _batch_aabb(batch: MultiMeshInstance3D) -> AABB:
+	var mesh: Mesh = batch.multimesh.mesh
+	return mesh.get_aabb() if mesh != null else AABB()
+
+
+static func _max_axis_scale(basis: Basis) -> float:
+	return maxf(basis.x.length(), maxf(basis.y.length(), basis.z.length()))
+
+
+func _describe_instance(batch: MultiMeshInstance3D, index: int,
+		world: Transform3D, centre: Vector3, distance: float, miss: float,
+		radius: float) -> Dictionary:
+	var mm: MultiMesh = batch.multimesh
+	var rows: Dictionary = _records[batch.name]
+	var custom: Array = rows.custom
+	var material: ShaderMaterial = null
+	if mm.mesh != null:
+		material = mm.mesh.surface_get_material(0) as ShaderMaterial
+	var raw: Color = custom[index]
+	var decoded := DreamFaunaChannels.decode(raw)
+	# What the renderer hands back for the same slot. With a real window this
+	# is the half-float-truncated value the shader actually decodes; headless
+	# it is the dummy renderer's default and says so by differing.
+	var gpu_raw: Color = mm.get_instance_custom_data(index) \
+			if index < mm.instance_count else Color()
+	var motif := -1
+	var shader: Shader = null
+	var material_facts := {}
+	if material != null:
+		motif = int(material.get_shader_parameter("family_motif"))
+		shader = material.shader
+		for key in ["gait_amount", "gait_hz", "gold_gain", "fauna_dark_glow",
+				"vertex_channels_ready", "lamp_energy", "base_color",
+				"jewel_color"]:
+			# A uniform the batch never set answers null here, not the
+			# shader's default; gold_gain is set on only three of five batches.
+			var value: Variant = material.get_shader_parameter(key)
+			if value == null and shader != null:
+				value = RenderingServer.shader_get_parameter_default(
+						shader.get_rid(), key)
+			if value != null:
+				material_facts[key] = value
+	var room_key := _room_key_at(centre)
+	var family := "unknown"
+	if motif >= 0 and motif < FAMILY_LABELS.size():
+		family = str(FAMILY_LABELS[motif])
+	return {
+		"batch": batch.name,
+		"family": family,
+		"family_motif": motif,
+		"index": index,
+		"instance_count": custom.size(),
+		"position": centre,
+		"distance": distance,
+		"miss": miss,
+		"radius": radius,
+		"scale": world.basis.get_scale(),
+		"custom_raw": raw,
+		"gpu_custom": gpu_raw,
+		"gpu_channels": DreamFaunaChannels.decode(gpu_raw),
+		"channels": decoded,
+		"flags": DreamFaunaChannels.flag_names(int(decoded.flags)),
+		"room_key": room_key,
+		"density": (_densities.get(room_key, {}) as Dictionary).duplicate(true),
+		"material": material_facts,
+		"shader": shader.resource_path if shader != null else "NULL",
+		"shader_compiled": shader != null
+				and not shader.get_shader_uniform_list().is_empty(),
+		"cast_shadow": batch.cast_shadow,
+	}
+
+
+## Which live room rect holds a point, with half a metre of slack for a
+## creature sitting on a doorway. The pocket owns the rects; this only reads.
+func _room_key_at(point: Vector3) -> String:
+	if rooms == null:
+		return ""
+	for room in rooms.live_rooms():
+		var r: Array = room.get("rect", [])
+		if r.size() < 4:
+			continue
+		if point.x >= float(r[0]) - 0.5 and point.x <= float(r[2]) + 0.5 \
+				and point.z >= float(r[1]) - 0.5 and point.z <= float(r[3]) + 0.5:
+			return str(room.get("key", ""))
+	return ""
