@@ -2,6 +2,18 @@
 
 **RULED FOR F1 PRODUCTION — 2026-08-20.**
 
+**FA2 OWNER RULING — 2026-08-20.** The owner answered the explicit post-F1
+ruling point with “next,” approving the recommended bounded FA2: add Wine
+Anemones and Ribbonettes around the existing crop/grazer loop, then the one
+harmless Loupe as predator, all through `DreamFaunaDirector`. Preserve the
+96-instance and +13-draw/+0.5 ms ceilings. This does not license audio, danger,
+Deep Koi, Parliaments, succession/FA3, or FA4.
+
+**FA2 PRODUCTION COMPLETE — 2026-08-20.** Five shared shadowless batches close
+the harmless trophic loop under the existing owner and budgets. Focused proof
+is 16/16; rendered and measured evidence is in
+`art/renders/dream_fauna_fa2/README.md`.
+
 This brief governs the owner-directed request to populate the dream with an
 efficient procedural ecosystem: visually distinct organic and non-organic life,
 multiple locomotion families and bounded variation, with the dream entity's own
@@ -12,7 +24,8 @@ The ruled dream, ownership and case-profile contracts continue to prevail.
 `DreamFaunaDirector` is a presentation-only owner; the named bestiary/register
 is accepted; v1 is harmless; fauna remain visible through the R6 view; and F1
 is Gilder's Buttons plus Tessellates under the 96-instance, +13-draw and +0.5 ms
-ceilings. This licenses F1 only, not FA2–FA4 or dangerous fauna.
+ceilings. That initial ruling licensed F1 only; the later explicit FA2 ruling
+above extends it no further than Wine Anemones, Ribbonettes and the Loupe.
 
 ## Thesis
 
@@ -90,7 +103,8 @@ motif's missing fifth position.
 - **F1:** Gilder's Buttons plus Tessellates in one production room: feeding,
   birth from a real birth-frame, death/reabsorption, Tenant hush and measured
   cost. Stop if the slice is not delightful.
-- **F2:** three or four families plus the harmless Loupe; complete trophic loop.
+- **F2 COMPLETE:** Wine Anemones, Ribbonettes and the harmless Loupe complete
+  the five-family trophic loop through the FA1 owner.
 - **F3:** succession, courtship, Deep Koi, Parliaments and surface swimming.
 - **F4:** separately ruled audio. Dangerous life remains outside this brief.
 

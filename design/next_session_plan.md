@@ -57,11 +57,12 @@ owners. The owner then ruled Mae fourth; N13 proves two routed returns retaining
 incompatible provenance on one stable object. Cal and Omar remain the explicit
 owner-order decision.
 
-FA1 also closed on 2026-08-20. The dream now carries a harmless derived
-microbiome—Gilder's Buttons and Tessellates—through one 3 Hz presentation owner,
-two shadowless MultiMeshes and no save/hazard/topology seam. The final stable
-perf comparison is +2 draws and 0.00–0.01 ms; focused proof is 14/14 at
-`art/renders/dream_fauna_f1/README.md`. FA2–FA4 are not silently licensed.
+FA1 and FA2 closed on 2026-08-20. The dream's harmless derived ecosystem now
+carries crop, grazers, Wine Anemone detritivores, Ribbonette courtship and one
+animal-scale Loupe through one four-density 3 Hz presentation owner, five
+shadowless MultiMeshes and no save/hazard/topology seam. The final stable deep
+perf comparison is +3 draws and -0.01 ms; focused proof is 16/16 at
+`art/renders/dream_fauna_fa2/README.md`. FA3–FA4 are not silently licensed.
 
 The parallel street lane's paused coachwork pass is now a bounded T2g
 checkpoint with focused contracts and A/A evidence. It does not own the next

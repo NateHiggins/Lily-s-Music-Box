@@ -1508,7 +1508,7 @@ unresolved. K7's source-backed loop contract is closed in
   or the separately priced, still-unbuilt enterable RECURSION fault. Governing
   contract: `design/DREAM_REPRODUCTIVE_PATH_BRIEF.md`.
 
-## FA — Dream fauna (F1 RULED)
+## FA — Dream fauna (FA2 COMPLETE)
 
 - **FA0 DONE 2026-08-20 — RULING GATE.** The owner approved all five questions in
   `design/DREAM_FAUNA_BRIEF.md`: presentation owner, bestiary/register,
@@ -1523,9 +1523,16 @@ unresolved. K7's source-backed loop contract is closed in
   in the final same-yaw A/B, under the ruled +13/+0.5 ms ceilings. Focused
   proof is 14/14 and production A/A/A-B evidence is in
   `art/renders/dream_fauna_f1/README.md`.
-- **FA2–FA4 — DEFERRED BREADTH.** Trophic loop/Loupe, succession and
-  hyperdimensional families, then separately ruled audio. Dangerous fauna are
-  excluded and require a future Gate-C-priced `DreamHazard` ruling.
+- **FA2 DONE 2026-08-20 — THE HARMLESS TROPHIC LOOP CLOSES.** Wine Anemones,
+  paired-helix Ribbonettes and one lens-faced animal-scale Loupe now join the
+  FA1 crop/grazers through the same four-density owner and 96-instance cap.
+  Five shadowless batches add only +3 submitted draws in the stable deep
+  pocket (+4 in the waking view) and at most +0.15 ms across the measured
+  stations, under the ruled ceilings. Focused proof is 16/16 and production
+  A/A/A-B evidence is in `art/renders/dream_fauna_fa2/README.md`.
+- **FA3–FA4 — DEFERRED BREADTH.** Succession and hyperdimensional families,
+  then separately ruled audio. Dangerous fauna are excluded and require a
+  future Gate-C-priced `DreamHazard` ruling.
 
 ## M — Materials and textures
 

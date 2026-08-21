@@ -66,12 +66,13 @@ The owner ruled Juno third and Mae fourth on 2026-08-20. N12's shared profile ma
 feedback physically load-bearing, then releases the oldest partition when one
 channel remains open. N13 lets two real branches return to one stable antique
 with incompatible provenance. Cal/Omar remain the owner-order decision.
-FA1 is closed too. One presentation-only `DreamFaunaDirector` advances bounded
-3 Hz densities for Gilder's Buttons and faceted four-footed Tessellates, reads
-real lineage birth-frames/exposure/lamp/Tenant state, and renders both families
-as two shadowless MultiMeshes. It creates no hazard, collision, light or save
-seam. Focused proof is 14/14; the final deep-pocket A/B is +2 draws and
-0.00–0.01 ms. Evidence: `art/renders/dream_fauna_f1/README.md`. FA2–FA4 remain
+FA1 and FA2 are closed too. One presentation-only `DreamFaunaDirector`
+advances bounded 3 Hz densities for Gilder's Buttons, Tessellates, Wine
+Anemones, Ribbonettes and the single harmless Loupe, reading real lineage
+birth-frames/exposure/lamp/Tenant state. Five shadowless MultiMeshes create no
+hazard, collision, light or save seam and remain under one 96-instance cap.
+Focused proof is 16/16; the final stable deep-pocket A/B is +3 submitted draws
+and -0.01 ms. Evidence: `art/renders/dream_fauna_fa2/README.md`. FA3–FA4 remain
 gated and this does not complete any waking case loop.
 
 Three top-level projects:
@@ -397,8 +398,8 @@ the 0.90 s their sockets owe. The runner gives 0.92 s against 0.75 s.
 `DreamPerceptionTest` now stages each real source through deterministic Atlas
 ancestry, prints that verdict every run and is that work's acceptance check.
 
-The next dream items are presentation or separately ruled breadth: FA2–FA4
-remain gated after the successful F1 fauna slice; the hollow runner's effect is blocked
+The next dream items are presentation or separately ruled breadth: FA3–FA4
+remain gated after the successful harmless FA2 trophic loop; the hollow runner's effect is blocked
 on an owner ruling — the catalog puts its socket in `D01_F04_LONG_HALL` while
 the brief's script says D04, which has no sockets), the trunk's lit
 beam-splash, and the production dream `WorldEnvironment`. Gate E is untouched. GoldenLoopTest's two K6 objective-title checks failed

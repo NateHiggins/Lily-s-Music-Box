@@ -14,20 +14,26 @@ func _run()->void:
 	var hazard_before:=_hazard_signature(root.hazards); var exposure_before:float=root.exposure.sample(root.player.global_position)
 	var realization_before:String=fauna.realization_signature()
 	fauna.refresh(); var second:Dictionary=fauna.census()
-	_check("one presentation owner builds two families", fauna.get_child_count()==2 and first==second)
-	_check("the ruled pocket cap holds", int(first.buttons)+int(first.tessellates)<=96)
+	_check("one presentation owner builds all five ruled families", fauna.get_child_count()==5 and first==second)
+	_check("the ruled pocket cap holds", _total(first)<=96)
 	var forbidden:=0
 	for node in fauna.find_children("*","",true,false):
 		if node is CollisionObject3D or node is Light3D: forbidden+=1
 	_check("fauna own no collision or light", forbidden==0)
 	var tess=fauna.get_node("Tessellates") as MultiMeshInstance3D
-	_check("tessellates are one shadowless batch", tess!=null and tess.cast_shadow==GeometryInstance3D.SHADOW_CASTING_SETTING_OFF)
+	var all_shadowless:=true
+	for batch in fauna.get_children():
+		all_shadowless=all_shadowless and batch is MultiMeshInstance3D \
+				and batch.cast_shadow==GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_check("every family is one shadowless batch",tess!=null and all_shadowless)
 	var buttons:=fauna.get_node("GildersButtons") as MultiMeshInstance3D
 	var excluded_portal_layer:=1<<19
-	_check("both families remain visible through the shared R6 world",
-			(tess.layers&1)!=0 and (buttons.layers&1)!=0
-			and (tess.layers&excluded_portal_layer)==0
-			and (buttons.layers&excluded_portal_layer)==0)
+	var all_in_shared_world:=true
+	for batch in fauna.get_children():
+		all_in_shared_world=all_in_shared_world and (batch.layers&1)!=0 \
+				and (batch.layers&excluded_portal_layer)==0
+	_check("all five families remain visible through the shared R6 world",
+			buttons!=null and tess!=null and all_in_shared_world)
 	_check("refresh is byte-stable for plan, hazards, exposure and save",
 			plan_before==var_to_bytes(root.plan) and save_before==var_to_bytes(RealityState.data)
 			and hazard_before==_hazard_signature(root.hazards)
@@ -44,6 +50,20 @@ func _run()->void:
 				and state.has("predator") and state.has("detritus") \
 				and float(state.predator)==0.0
 	_check("the 3 Hz owner carries four bounded harmless densities",four_values)
+	var trophic_plan:=var_to_bytes(root.plan); var trophic_hazards:=_hazard_signature(root.hazards)
+	var feed_room:Dictionary=root.rooms.live_rooms()[0]; var fr:Array=feed_room.rect
+	root.player.global_position=Vector3((fr[0]+fr[2])*0.5,0.0,(fr[1]+fr[3])*0.5)
+	for _i in 14: fauna.advance_fixed()
+	fauna.refresh(); var trophic:Dictionary=fauna.census()
+	var predator_live:=false
+	for state in fauna.density_snapshot().values(): predator_live=predator_live or float(state.predator)>0.0
+	_check("crop, grazers, courtship, detritivores and one Loupe close the loop",
+			int(trophic.buttons)>0 and int(trophic.tessellates)>0
+			and int(trophic.anemones)>0 and int(trophic.ribbonettes)>0
+			and int(trophic.loupe)==1 and predator_live and _total(trophic)<=96)
+	_check("the harmless trophic tick cannot mutate plan or hazards",
+			trophic_plan==var_to_bytes(root.plan)
+			and trophic_hazards==_hazard_signature(root.hazards))
 	var fed_count:=int(fauna.census().tessellates); var old_pos:Vector3=root.player.global_position
 	root.player.global_position=Vector3(999.0,0.0,999.0)
 	for live_room in root.rooms.live_rooms():
@@ -81,6 +101,8 @@ func _hazard_signature(field:DreamHazardField)->String:
 	for hazard in field.hazards:
 		rows.append("%s:%s:%s:%s"%[hazard.id,hazard.tell_started_s,hazard.contacted,hazard.contact_s])
 	return "|".join(rows)
+func _total(c:Dictionary)->int:
+	return int(c.buttons)+int(c.tessellates)+int(c.anemones)+int(c.ribbonettes)+int(c.loupe)
 func _check(label:String,ok:bool)->void:
 	checks+=1
 	if not ok: failures+=1; printerr("[FAUNA FAIL] "+label)
