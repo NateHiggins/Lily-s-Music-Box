@@ -574,7 +574,7 @@ uncompressed residency with a full mip chain; disk PNG size is irrelevant.
 | Substance height | 4 | 1024² R8 linear | 5.34 MiB |
 | Substance roughness | 4 | 1024² R8 linear | 5.34 MiB |
 | Reflected world | 1 | 4096×2048 RGBA8 sRGB | 42.67 MiB |
-| **Maximum active incarnation** | **17 maps** | | **96.03 MiB** |
+| **Maximum active incarnation** | **17 maps** | | **96.00 MiB** |
 
 Each of the six manifests uses exactly this ceiling. Shared procedural noise,
 the exposure volume and already-landed Peter paper assets are existing baseline

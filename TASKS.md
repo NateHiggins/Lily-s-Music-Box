@@ -1690,35 +1690,27 @@ unresolved. K7's source-backed loop contract is closed in
   48/77/133/172 calls. WalkTest FAST passes at x8/480; the FULL attempt was
   terminated without a result at the mandatory 60-second process limit, so no
   fresh FULL claim is made. Proof: `art/renders/dream_irradiance_v1/README.md`.
-- **INC-V2 — DREAM PLATE INGEST AND STREAMING (OPEN).**
-  Extend the mature material ingest for `T_ai_dream_<case-or-family>_*` shipped
-  derivatives and per-set source notes while sources remain ignored. Cover the
-  new sets with the mipmap/import-sidecar repair and check. Load only the active
-  incarnation and unload it on wake. Enforce the approved VRAM budget, static-
-  asset determinism, lossless-first compression ruling and zero added draw
-  submissions. Generated plates may carry substance, never semantic lines,
-  danger eyes, gameplay rhythm, readable canon or the Tenant.
-- **INC-V3 — MINA SURFACE INCARNATION (BLOCKED BY INC-V2).** Implement the
+- **INC-V3 — MINA SURFACE INCARNATION (OPEN).** Implement the
   approved annotation/ink/blankness language over Mina's landed profile and
   spatial verb. Prove all three irradiance bands, five fauna costumes,
   signature moment, tenderness, anti-tiling and reflected-world plate in the
   production root without changing annotation gameplay or case truth.
-- **INC-V4 — PETER SURFACE INCARNATION (BLOCKED BY INC-V2).** Implement
+- **INC-V4 — PETER SURFACE INCARNATION (BLOCKED BY INC-V3).** Implement
   the approved paper/oxblood/decision-line language over the shared Peter seam.
   Preserve the existing demanding-door grammar, release print and truth; use
   Peter's landed paper precedent without multiplying materials or owners.
-- **INC-V5 — JUNO SURFACE INCARNATION (BLOCKED BY INC-V2).** Implement the
+- **INC-V5 — JUNO SURFACE INCARNATION (BLOCKED BY INC-V4).** Implement the
   approved speaker-cloth/brass/standing-wave language. Gutter echoes are visual
   response only: they cannot create channel edges, partition events, pursuit
   attention or audio gameplay. Preserve the landed energy-weighted sustain.
-- **INC-V6 — MAE SURFACE INCARNATION (BLOCKED BY INC-V2).** Implement the
+- **INC-V6 — MAE SURFACE INCARNATION (BLOCKED BY INC-V5).** Implement the
   approved interfering-provenance language while one antique and two histories
   remain the only spatial facts. Generated labels stay unreadable/period-texture
   unless separately ruled; no plate may adjudicate which provenance is true.
-- **INC-V7 — CAL SURFACE INCARNATION (QUEUED FIFTH; DATA-GATED UNTIL THIS PASS).**
+- **INC-V7 — CAL SURFACE INCARNATION (BLOCKED BY INC-V6; DATA-GATED UNTIL THIS PASS).**
   Build the approved dial-glass/amber/held-time presentation after Mae. The
   shared validator must keep Cal production-disabled until this task lands.
-- **INC-V8 — OMAR SURFACE INCARNATION (QUEUED SIXTH; DATA-GATED UNTIL THIS PASS).**
+- **INC-V8 — OMAR SURFACE INCARNATION (BLOCKED BY INC-V7; DATA-GATED UNTIL THIS PASS).**
   Build the approved tool-steel/fracture/never-setting-solder presentation after
   Cal. The shared validator must keep Omar production-disabled until this task
   lands.

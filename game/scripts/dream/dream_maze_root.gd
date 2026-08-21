@@ -23,6 +23,8 @@ const DreamFaunaDirectorScript := preload(
 		"res://scripts/dream/dream_fauna_director.gd")
 const DreamIncarnationProfileScript := preload(
 		"res://scripts/dream/dream_incarnation_profile.gd")
+const DreamIncarnationPlateCacheScript := preload(
+		"res://scripts/dream/dream_incarnation_plate_cache.gd")
 
 signal capture_presentation_started
 signal capture_presentation_finished
@@ -67,6 +69,7 @@ var profile_truth: Dictionary = {}
 ## INC-V1: one immutable presentation record, reduced and validated before any
 ## geometry exists. Missing data is the exact current look.
 var profile_presentation: Dictionary = DreamIncarnationProfileScript.default_bundle()
+var presentation_plates: RefCounted
 var _channel_was_open := false
 var _channel_sustain_s := 0.0
 var _channel_echo_due: Array[float] = []
@@ -235,6 +238,11 @@ func _ready() -> void:
 	_build_world()
 
 
+func _exit_tree() -> void:
+	if presentation_plates != null:
+		presentation_plates.unload()
+
+
 func start_module_id() -> String:
 	return _here_key if not _here_key.is_empty() else START_MODULE_ID
 
@@ -378,6 +386,11 @@ func _build_world() -> void:
 				str(presentation_result.get("errors", [])))
 		return
 	profile_presentation = (presentation_result.get("bundle", {}) as Dictionary).duplicate(true)
+	presentation_plates = DreamIncarnationPlateCacheScript.new()
+	# INC-V2 loads only shipped active-case plates. A not-yet-ingested set is a
+	# deliberate procedural fallback during the staged rollout, never a reason
+	# to borrow another case's substance.
+	presentation_plates.load_bundle(profile_presentation)
 	var seed_hex := str(dream_context.get("seed_hex", ""))
 	var slot := int(profile.get("campaign_slot", 1))
 	var catalog := DreamMazeBuilder.load_catalog()

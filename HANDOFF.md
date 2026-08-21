@@ -122,9 +122,14 @@ pipeline. `design/SIX_INCARNATIONS.md` is owner-approved. INC-V1's bounded
 profile bundle now reaches the existing architecture, lineage and five fauna
 materials through the existing collector while adding no node, draw, gameplay
 branch or save fact. `DreamIncarnationTest` passes 28/28; Profile 46/46,
-Irradiance 16/16 and Fauna 21/21 also pass. INC-V2 plate ingest/loading is next.
-No new accent color was introduced; reflected-world people and the older
-faceless figure are explicitly excluded.
+Irradiance 16/16 and Fauna 21/21 also pass. INC-V2 is landed too: the 30-key
+ingest manifest, provenance-note rule and whole-dream import-sidecar coverage
+feed one root-owned RefCounted cache. It holds exactly 17 active maps, computes
+the lossless full-mip ceiling as 100,663,284 bytes (96.00 MiB), substitutes no
+case and releases every reference on exit. The ingest audit passes; plate proof
+is 6/6. No case is marked available until all five reviewed sets ship. INC-V3
+Mina is next. No new accent color was introduced; reflected-world people and
+the older faceless figure are explicitly excluded.
 The audit's pre-C1 anchor appendix is
 superseded and does not reopen the landed commensal proof. Separately, waking-world
 commensals C1 is now landed: moths at the two owner-derived entry street lamps,

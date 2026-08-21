@@ -91,6 +91,16 @@ production-active presentation ids until their scheduled implementation passes;
 data alone cannot activate a dream or waking case. `DreamIncarnationTest.tscn`
 is the focused schema/default/collector proof.
 
+`DreamIncarnationPlateCache` is a RefCounted held by the active DreamMazeRoot.
+It resolves the four substance sets (albedo/height/normal/roughness) and one
+reflected-world plate only when that case is listed as completely shipped in
+`dream_plate_catalog.json`. The all-or-none load owns exactly 17 texture
+references and a lossless full-mip census; a missing map clears the partial
+bundle and never substitutes another case. `_exit_tree()` releases the bundle
+before waking resumes. This cache is absent from save data and the scene tree.
+`DreamIncarnationPlateTest.tscn` proves load, exact census, failed-case clearing
+and wake release.
+
 ## Signal contract
 
 - CoreLoopDirector emits
