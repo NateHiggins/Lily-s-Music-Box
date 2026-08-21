@@ -1574,21 +1574,25 @@ unresolved. K7's source-backed loop contract is closed in
 - **FA3–FA4 — DEFERRED BREADTH.** Succession and hyperdimensional families,
   then separately ruled audio. Dangerous fauna are excluded and require a
   future Gate-C-priced `DreamHazard` ruling.
-- **FA-V0 — VISUAL-SYSTEM COMPATIBILITY AND CARRIED RULINGS.** The owner-
+- **FA-V0 — VISUAL-SYSTEM COMPATIBILITY; CREATIVE RULINGS CLOSED.** The owner-
   directed silhouette/texture/style addendum is ingested in
-  `design/DREAM_FAUNA_BRIEF.md` V1–V8. Before changing landed FA1/FA2, reconcile
+  `design/DREAM_FAUNA_BRIEF.md` V1–V9. Before changing landed FA1/FA2, reconcile
   three real seams: `dream_fauna.gdshader` currently emits a small amount of
   gold/wine light although the new law says metallic gold never emits; each
   family currently owns a `ShaderMaterial` instance; MultiMesh custom data has
-  four floats. Specify a packed vertex/custom channel and shared-material
+  four floats. Specify a packed vertex/custom channel and shared-shader-code
   boundary, prove dark readability without reopening R1–R6, and retain the
-  96-instance/+13-draw/+0.5 ms contracts. Rule separately: still-gated FA3
-  names/inclusion; harmless Loupe carnelian/decorative-eye tension; Bezel
-  Beetle window content. The Tenant is not a default gem-window image.
+  96-instance/+13-draw/+0.5 ms contracts. Brief V9 closes the creative tension:
+  FA3 names are style-approved but inclusion stays gated; the Loupe gets one
+  carnelian anatomical iris without hazard ornament; the Bezel Beetle contains
+  a shader-faked tiny Orison room; bounded family materials are allowed;
+  PEARL life may cluster for readability; Deep Koi needs no GLB; and only tiny
+  cute geometry may exceed 1 Hz.
 - **FA-V1 — PROCEDURAL CLOISONNÉ PART KIT AND SHADER.** After FA-V0, build the
   deterministic `build_dream_fauna_parts.py` curve/lathe/ribbon/aperture/gem
-  kit with vertex region, curvature and joint weights, one GLB per family and
-  no bitmap skins or UV unwrap. Build the shared cloisonné fauna include from
+  kit with vertex region, curvature and joint weights, one GLB per mesh family
+  and no bitmap skins or UV unwrap; Deep Koi remains surface displacement plus
+  one fin breach. Build the shared cloisonné fauna include from
   GROUND/WINE/GOLD plus exactly EMERALD/CARNELIAN/LAPIS, habitat motifs,
   bone-lite gait, anisotropic groom, safe spatial moiré, wet transmission and
   the inverse-signature law: fauna cast no shadows; only the Tenant does.

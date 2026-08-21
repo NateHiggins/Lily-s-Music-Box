@@ -144,7 +144,10 @@ compatibility audit recorded in TASKS before visual implementation.
 Everything here obeys the landed dream-surface laws: gold is metallic rather
 than emissive; canopy stars are the sanctioned bright emission; dark-live wine
 is the one dark exception; motion is safe and slow where it affects luminance;
-substance flows while structure does not.
+substance flows while structure does not. The project's governing priority is
+**cool/cute/sexy first, without lying about gameplay**: physical taxonomy may
+bend for a stronger silhouette, but danger language, the Tenant's uniqueness,
+readability and measured ownership may not.
 
 ### V1. The three-light test
 
@@ -153,8 +156,10 @@ in three production frames:
 
 - **Dark:** a wine/dark-glow silhouette; shape carries identity.
 - **Beam edge:** a gilt rim catches the cone; contour carries identity.
-- **Full beam:** gold ornament and molten response wake; pattern carries
-  identity.
+- **Full beam:** gold ornament and molten response wake; pattern usually carries
+  identity. A negative-space family may instead remain an authored absence with
+  one positive gold breach; do not paste pattern onto the void to satisfy a
+  checklist.
 
 Silhouette comes before ornament. The outline is the creature. Every species
 requires dark, beam-edge and full-beam proof with the normal A/A control.
@@ -191,9 +196,12 @@ the perceptual level.
 partitioned by gold wire. Fauna inherit the lineage shader's vessel grammar so
 they read as ornament made alive by the same goldsmith as the walls.
 
-- No fauna texture files. Procedural pattern lives in a shared fauna shader
-  include beside `dream_lineage_gold.gdshader`, selected from packed per-instance
-  and vertex data. Do not create material/draw proliferation.
+- No fauna texture files. Procedural pattern lives in one shared fauna shader
+  code path beside `dream_lineage_gold.gdshader`, selected from packed
+  per-instance and vertex data. Bounded per-family `ShaderMaterial` instances
+  are allowed when they preserve readable art direction and do not add a
+  submission beyond that family's existing MultiMesh; “one shader” does not
+  mean “one material object at any aesthetic cost.”
 - **Habitat motif law:** floor species wear MOSAIC, wall species SPIRAL,
   ceiling species CANOPY/STAR, threshold species CHEVRON. The decorative eye
   motif stays reserved for danger; harmless animals may have real eyes as
@@ -227,8 +235,11 @@ Each owns one jewel organ—iris, lure or abdomen stone—except Jewelfruit, who
 whole body is the sanctioned stone exception.
 
 Hue expresses allegiance: warm gold approaches the lamp; lapis retreats;
-carnelian is reserved for danger-adjacent life. Nothing exceeds woken gold
-except sanctioned stars; there is no white; saturation remains precious.
+carnelian is reserved for danger-adjacent life. The harmless Loupe may carry
+one carnelian iris because it is an ecological predator, but it receives no
+hazard pulse, warning cadence or decorative concentric-eye skin. Nothing
+exceeds woken gold except sanctioned stars; there is no white; saturation
+remains precious.
 
 #### Shape tiers
 
@@ -251,15 +262,21 @@ uses pure geometry without curves. That contrast is the organic/inorganic axis.
 - **CAT:** about 30 cm.
 - **KOI:** about 1.2 m implied below a surface.
 
-No species sits between classes. Cute gait is 1.5–2.5 Hz, sexy gait 0.3–0.8 Hz,
-and alien motion 0.065–0.105 Hz. Those are geometry bands; luminance change
-remains sub-Hz. Courtship doubles pattern density, not brightness.
+No species sits between classes. A PEARL instance may be a readable colony of
+several 3 cm bodies when one literal pearl would disappear at production
+distance; the class governs organism scale and silhouette rhythm, not an
+invisible on-screen footprint. Cute gait is 1.5–2.5 Hz, sexy gait 0.3–0.8 Hz,
+and alien motion 0.065–0.105 Hz. Those are local geometry bands: only the tiny
+cute tier may exceed 1 Hz, never in luminance. Locomotion, large-form motion and
+all luminance change remain sub-Hz. Courtship doubles pattern density, not
+brightness.
 
 #### Eye grammar
 
 Inherit the R3 lid, long-blink and fixed-gaze family. At most one shader-driven
-camera tracker may exist per batch. Flora have no eyes. The Loupe is all eye.
-Iris ratio and lid height are the chief cute/sexy controls.
+camera tracker may exist per batch. Flora have no eyes. The Loupe is all
+**anatomical** eye; the concentric eye-as-ornament remains reserved for actual
+danger. Iris ratio and lid height are the chief cute/sexy controls.
 
 ### V6. Per-species assignments
 
@@ -280,19 +297,22 @@ Iris ratio and lid height are the chief cute/sexy controls.
 - **Bezel Beetles:** PEARL, non-organic brilliant-cut gem with prong legs,
   kinetic camouflage and the single impossible gem-window treatment.
 - **Deep Koi:** KOI, cool, negative-space traveling relief bulge with no body
-  mesh; a gold fin breach is its only positive geometry.
+  mesh; a gold fin breach is its only positive geometry. It is the deliberate
+  exception to the one-GLB-per-family pipeline rule.
 - **Parliaments:** CAT-implied, cool, gestalt vesica fragments with lapis edges
   and linear ease.
-- **The Loupe:** CAT, cool, one giant landed-grammar eye, lash curves, the
-  batch's single tracker and blink-away motion smear. Its proposed carnelian and
-  decorative eye treatment remain an explicit harmless/danger-adjacent ruling.
+- **The Loupe:** CAT, cool, one giant anatomical eye, lash curves, the batch's
+  single tracker and blink-away motion smear. Its one carnelian iris signals an
+  ecological predator, while the absent hazard ornament/tell keeps the harmless
+  gameplay promise honest.
 
 ### V7. Build and proof contract
 
 - `art/blender/scripts/build_dream_fauna_parts.py` becomes the deterministic
   part kit for lathe profiles, swept curves, ribbons, boolean apertures and gem
   cuts, including vertex-region, curvature and joint-weight baking. Output one
-  GLB per family.
+  GLB per mesh family; Deep Koi remains a surface-displacement plus fin-breach
+  exception.
 - A shared fauna shader include inherits lamp uniforms, exposure, dark-glow and
   phase thresholds from the lineage system; `_collect_molten_materials` must
   discover it through the existing owner boundary.
@@ -316,11 +336,31 @@ MultiMesh custom channel. It also has no collision, correctly. Before migration:
    collisions to make F-key convenient.
 4. Preserve FA1/FA2 functional tests and render an old/new production control.
 
-Carried calls—not silently decided by ingestion:
+### V9. Rule-of-cool reconciliation — closed 2026-08-20
 
-1. Names and inclusion of the still-gated FA3 bestiary.
-2. Whether the harmless Loupe should carry carnelian/decorative-eye language
-   that deliberately reads danger-adjacent.
-3. Whether the Bezel Beetle's impossible gem window shows a room, a starfield
-   or the Tenant. The Tenant option is presumed disallowed unless separately
-   ruled because it risks giving her a second representation.
+1. The proposed FA3 names are stylistically approved so the part kit can name
+   its slots, but their production inclusion remains behind the existing FA3
+   owner gate.
+2. The harmless Loupe keeps one carnelian anatomical iris and loses the
+   decorative concentric-eye motif. It may look cool and predatory without
+   borrowing the maze's promise that it can hurt the player.
+3. The Bezel Beetle's impossible gem window shows a tiny, shader-faked Orison
+   room. It shows neither a starfield—which spends the canopy's unique language
+   on a trinket—nor the Tenant, whose no-form/one-representation law remains
+   absolute. The tiny room is recession-band illusion only: no viewport,
+   camera, world or topology.
+4. “One shader” means one maintained shader code path, not one forced material
+   resource. Per-family material instances are acceptable within the existing
+   batch/draw ceiling.
+5. The three-light test judges a distinct authored read, not identical use of
+   silhouette/rim/pattern channels. Negative-space Koi may remain absence in
+   full beam.
+6. PEARL-scale creatures may realize as clustered colonies for production
+   readability. Never make a correct three-centimetre organism that the player
+   cannot see.
+7. Only tiny cute geometry may use the 1.5–2.5 Hz band. Large-form motion and
+   every luminance modulation remain sub-Hz and photosensitivity-safe.
+8. The landed shader's blended emission is split during migration: metallic
+   gold emission becomes zero; only the bounded dark-live wine band may retain
+   low emission for the dark-state silhouette. Full-beam brilliance comes from
+   the production lamp and material response, not self-lighting gold.
