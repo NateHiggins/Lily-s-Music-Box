@@ -4,6 +4,7 @@ render_mode blend_mix, cull_back, diffuse_burley, specular_schlick_ggx;
 #include "res://shaders/dream_architecture_relief.gdshaderinc"
 #include "res://shaders/dream_phase_transition.gdshaderinc"
 #include "res://shaders/dream_irradiance.gdshaderinc"
+#include "res://shaders/dream_incarnation.gdshaderinc"
 
 // THE STOCLET FRIEZE, TAKEN APART AND HUNG ON THE ARCHITECTURE.
 //
@@ -494,8 +495,6 @@ vec3 fake_env(vec3 r, vec3 hot, vec3 cool) {
 // `reflected_world` is unset until the plate is generated
 // (design/KLIMT_REFLECTED_WORLD_PROMPTS.md), and the procedural studio below
 // stands in meanwhile so the metal always has something to mirror.
-uniform sampler2D reflected_world : source_color, hint_default_black,
-		filter_linear_mipmap, repeat_enable;
 uniform float reflected_world_gain : hint_range(0.0, 4.0) = 1.0;
 
 // THE WORLD IN THE GOLD -- PROJECTED, NOT MIRRORED, AND THAT IS A CORRECTION.
@@ -518,7 +517,18 @@ vec3 sample_reflected_world(vec2 q, float flow) {
 	// microscopic: the plate is a frieze and wants to read at frieze size.
 	vec2 uv = q * 0.055 + vec2(0.5, 0.5);
 	uv += vec2(flow, flow * 0.6) * 0.06;
-	return texture(reflected_world, uv).rgb * reflected_world_gain;
+	vec3 reflected = texture(reflected_world, uv).rgb;
+	if (incarnation_id > 0.5 && incarnation_id < 1.5) {
+		reflected += texture(reflected_world, uv + vec2(0.006, 0.0)).rgb;
+		reflected += texture(reflected_world, uv + vec2(-0.006, 0.0)).rgb;
+		reflected += texture(reflected_world, uv + vec2(0.0, 0.006)).rgb;
+		reflected += texture(reflected_world, uv + vec2(0.0, -0.006)).rgb;
+		reflected *= 0.2;
+		float reflected_luma = dot(reflected, vec3(0.299, 0.587, 0.114));
+		reflected = mix(vec3(reflected_luma) * vec3(1.0, 0.72, 0.31),
+				reflected, 0.14);
+	}
+	return reflected * reflected_world_gain;
 }
 
 
@@ -718,6 +728,13 @@ void fragment() {
 	vec3 surface = texture(base_albedo, bt).rgb;
 	float surface_rough = texture(base_rough, bt).r;
 	vec3 surface_n = texture(base_normal, bt).rgb * 2.0 - 1.0;
+	vec4 incarnation_surface = dream_incarnation_surface(v_world, bt,
+			irradiance_field.r, heat, irradiance.w,
+			pow(1.0 - abs(dot(n, normalize(CAMERA_POSITION_WORLD - v_world))), 3.0),
+			architecture_surface,
+			vec4(surface, surface_rough));
+	surface = incarnation_surface.rgb;
+	surface_rough = incarnation_surface.a;
 
 	vec3 albedo = ivory;
 	float leaf = 0.0;
@@ -1344,7 +1361,27 @@ void fragment() {
 			* genome_pulse
 			+ gold_pale * vein_network * irradiance.y * 0.055 * genome_pulse;
 	ALBEDO += neon_anatomy * 0.22 + oblique_glow * 0.45;
+	// Incarnation is the last material translation, not an undercoat that the
+	// legacy gold can erase at full exposure. Mina remains bounded by the same
+	// irradiance and geometry, but her ink/stock/blankness stays legible across
+	// all three bands.
+	if (incarnation_id > 0.5 && incarnation_id < 1.5) {
+		float incarnation_mix = 0.50 + irradiance.y * 0.18
+			+ irradiance.z * 0.32;
+		incarnation_mix = max(incarnation_mix,
+			smoothstep(incarnation_signature.x, 1.0,
+				irradiance_field.r) * 0.995);
+		ALBEDO = mix(ALBEDO, incarnation_surface.rgb, incarnation_mix);
+		ROUGHNESS = mix(ROUGHNESS, incarnation_surface.a, 0.52);
+	}
 	EMISSION += neon_anatomy + oblique_glow;
+	if (incarnation_id > 0.5 && incarnation_id < 1.5) {
+		float mina_signature_gate = smoothstep(incarnation_signature.x,
+			1.0, irradiance_field.r) * 0.995;
+		vec3 mina_emission = incarnation_surface.rgb * 0.45
+			+ vec3(0.10, 0.045, 0.01) * irradiance.z;
+		EMISSION = mix(EMISSION, mina_emission, mina_signature_gate);
+	}
 	// R6 CAMERA-LOCAL READABILITY. The view portal's shared-world camera is
 	// the only camera which excludes presentation layer 20. That bit is a
 	// render-pass identity, not a new material state: it lets the existing room

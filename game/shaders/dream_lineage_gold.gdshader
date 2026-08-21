@@ -4,6 +4,7 @@ render_mode unshaded, cull_back;
 #include "res://shaders/dream_corruption_layers.gdshaderinc"
 #include "res://shaders/dream_phase_transition.gdshaderinc"
 #include "res://shaders/dream_irradiance.gdshaderinc"
+#include "res://shaders/dream_incarnation.gdshaderinc"
 
 // THE BODY'S OWN GOLD, LIT ANALYTICALLY BY THE SERVICE LAMP.
 //
@@ -259,6 +260,9 @@ void fragment() {
 	vec4 irradiance = dream_irradiance(v_world, n, irradiance_field,
 			lamp_origin);
 	float awake = irradiance.w;
+	vec4 incarnation_tissue = dream_incarnation_surface(v_world,
+			v_world.xz, irradiance_field.r, awake, awake, 0.0, 0,
+			vec4(0.0));
 	vec3 light_dir = normalize(lamp_origin - v_world);
 	float diffuse = 0.18 + 0.82 * max(dot(n, light_dir), 0.0);
 	vec3 half_dir = normalize(light_dir + view_dir);
@@ -294,6 +298,9 @@ void fragment() {
 	vec3 rose_tissue = vec3(0.235, 0.050, 0.088);
 	vec3 tissue_colour = mix(deep_plum, bruise_violet,
 			0.22 + cells * 0.58);
+	if (incarnation_id > 0.5 && incarnation_id < 1.5) {
+		tissue_colour = mix(tissue_colour, incarnation_tissue.rgb, 0.72);
+	}
 	// Cell interiors and fold valleys differ by almost a stop.  The earlier
 	// pass varied only hue and read as one flat magenta polygon at room scale.
 	tissue_colour *= 0.52 + cells * 0.62 + folds * 0.16;

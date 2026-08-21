@@ -85,11 +85,17 @@ def ingest_substance(path: Path, target: Path, record: dict, size: int) -> None:
                     + (0.5 - height) * float(record["rough_span"]) * 2.0,
                     0.05, 1.0)
     target.mkdir(parents=True, exist_ok=True)
-    Image.fromarray((albedo * 255).astype(np.uint8), "RGB").save(
+    # Keep the independently auditable R8 maps below, while also packing the
+    # two scalar channels into already-budgeted alpha bytes for the shader.
+    # Four RGBA albedos + four RGBA normals need eight samplers rather than
+    # sixteen; the active-case cache still owns and accounts for all 17 maps.
+    albedo_packed = np.concatenate((albedo, rough[..., None]), axis=-1)
+    normal_packed = np.concatenate((normal, height[..., None]), axis=-1)
+    Image.fromarray((albedo_packed * 255).astype(np.uint8), "RGBA").save(
         target / "albedo.png", optimize=True)
     Image.fromarray((height * 255).astype(np.uint8), "L").save(
         target / "height.png", optimize=True)
-    Image.fromarray((normal * 255).astype(np.uint8), "RGB").save(
+    Image.fromarray((normal_packed * 255).astype(np.uint8), "RGBA").save(
         target / "normal.png", optimize=True)
     Image.fromarray((rough * 255).astype(np.uint8), "L").save(
         target / "roughness.png", optimize=True)

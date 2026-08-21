@@ -1118,6 +1118,9 @@ func _collect_molten_materials() -> void:
 			DreamIncarnationProfileScript.apply_to_material(material,
 					profile_presentation,
 					int(material.get_meta("dream_fauna_family_index", -1)))
+			if presentation_plates != null:
+				presentation_plates.apply_to_material(material,
+						profile_presentation)
 			# THE FIELD'S BINDING IS CONSTANT AND GOES IN HERE, not in
 			# _update_molten. The texture object and the tile size never
 			# change for the life of the passage -- only the bytes inside the
@@ -1187,6 +1190,8 @@ func _update_molten() -> void:
 	# silhouette exists only as a shadow the lamp finds) and no shader can do
 	# it. It is dim now, because it is no longer what lights the world.
 	for material in _molten_materials:
+		material.set_shader_parameter("incarnation_stillness",
+				1.0 if player.velocity.length_squared() < 0.0025 else 0.0)
 		material.set_shader_parameter("lamp_origin", pose.origin)
 		material.set_shader_parameter("lamp_splash", pose.splash)
 		material.set_shader_parameter("lamp_dir", pose.dir)

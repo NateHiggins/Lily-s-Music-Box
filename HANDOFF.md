@@ -63,6 +63,15 @@ one more deterministic, paper-stamped door; Mina is a measured no-op. Proof and
 28/28 focused checks live at `art/renders/dream_profile_n9/README.md`. This is
 the dream-profile seam only, not a claim that Peter's waking case loop exists.
 The owner ruled the full order Mina, Peter, Juno, Mae, Cal, Omar on 2026-08-20.
+INC-V3 is now landed: Mina consumes one active 17-map / 96.000004 MiB bundle
+through the shared cache and shader include, with annotation/ink/blankness,
+all three irradiance bands, five fauna costumes, blank mercy, stillness-only
+pressure, anti-tiling and the empty reflected-world plate proved in the
+production root. The cache packs scalar channels into the already-budgeted
+RGBA maps for nine sampler bindings while retaining all 17 auditable resources.
+No annotation gameplay, truth, topology, collision, hazard, pursuit or save
+fact changed. Proof: `art/renders/dream_incarnation_mina_v3/README.md`. Peter's
+ordered INC-V4 presentation pass is now open.
 N12's shared profile makes delayed
 feedback physically load-bearing, then releases the oldest partition when one
 channel remains open. N13 lets two real branches return to one stable antique

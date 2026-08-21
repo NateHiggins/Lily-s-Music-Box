@@ -77,6 +77,33 @@ func resource_count() -> int:
 	return resources.size()
 
 
+## Bind only the packed albedo/roughness and normal/height pairs. The separate
+## R8 maps remain resident, measured and inspectable, but do not spend sampler
+## slots on Compatibility. Missing/disabled bundles bind nothing, preserving
+## the exact procedural presentation.
+func apply_to_material(material: ShaderMaterial, bundle: Dictionary) -> void:
+	if material == null or active_incarnation.is_empty():
+		return
+	var keys: PackedStringArray = bundle.get("substance_keys", PackedStringArray())
+	if keys.size() != 4:
+		return
+	for slot in range(4):
+		var key := str(keys[slot])
+		material.set_shader_parameter("incarnation_albedo_%d" % slot,
+				resources.get("%s/albedo" % key))
+		material.set_shader_parameter("incarnation_normal_%d" % slot,
+				resources.get("%s/normal" % key))
+	var reflected_key := str(bundle.get("reflected_world_key", ""))
+	material.set_shader_parameter("reflected_world",
+			resources.get(reflected_key))
+	if active_incarnation == "mina":
+		# The legacy broad ghost projection can turn innocent room silhouettes
+		# into pseudo-lettering. Mina permits the plate only in molten grazing
+		# reflection, where it cannot masquerade as an annotation.
+		material.set_shader_parameter("ghost_amount", 0.0)
+		material.set_shader_parameter("reflected_world_gain", 0.55)
+
+
 func residency_mib() -> float:
 	return float(residency_bytes) / MIB
 

@@ -29,6 +29,15 @@ func _run() -> void:
 			and cache.active_incarnation == "mina")
 	_check("the live census is computed from exact dimensions, formats and mips",
 			cache.residency_bytes == PlateCache.production_ceiling_bytes(catalog))
+	var shader := Shader.new()
+	shader.code = "shader_type spatial; uniform sampler2D incarnation_albedo_0; uniform sampler2D incarnation_normal_0; uniform sampler2D reflected_world;"
+	var material := ShaderMaterial.new()
+	material.shader = shader
+	cache.apply_to_material(material, mina)
+	_check("the cache binds packed substance pairs and the active reflection",
+			material.get_shader_parameter("incarnation_albedo_0") != null
+			and material.get_shader_parameter("incarnation_normal_0") != null
+			and material.get_shader_parameter("reflected_world") != null)
 	_check("the production lossless ceiling is exactly 96 MiB",
 			PlateCache.production_ceiling_bytes() == 100663284
 			and is_equal_approx(float(PlateCache.production_ceiling_bytes())

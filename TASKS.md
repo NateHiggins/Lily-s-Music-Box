@@ -1690,12 +1690,7 @@ unresolved. K7's source-backed loop contract is closed in
   48/77/133/172 calls. WalkTest FAST passes at x8/480; the FULL attempt was
   terminated without a result at the mandatory 60-second process limit, so no
   fresh FULL claim is made. Proof: `art/renders/dream_irradiance_v1/README.md`.
-- **INC-V3 — MINA SURFACE INCARNATION (OPEN).** Implement the
-  approved annotation/ink/blankness language over Mina's landed profile and
-  spatial verb. Prove all three irradiance bands, five fauna costumes,
-  signature moment, tenderness, anti-tiling and reflected-world plate in the
-  production root without changing annotation gameplay or case truth.
-- **INC-V4 — PETER SURFACE INCARNATION (BLOCKED BY INC-V3).** Implement
+- **INC-V4 — PETER SURFACE INCARNATION (OPEN).** Implement
   the approved paper/oxblood/decision-line language over the shared Peter seam.
   Preserve the existing demanding-door grammar, release print and truth; use
   Peter's landed paper precedent without multiplying materials or owners.

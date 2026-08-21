@@ -1,13 +1,30 @@
 {
   "schema_version": 1,
   "substance_resolution": 1024,
-  "reflection_resolution": [4096, 2048],
+  "reflection_resolution": [
+    4096,
+    2048
+  ],
   "channels": {
-    "albedo": {"bytes_per_pixel": 4, "suffix": "albedo.png"},
-    "height": {"bytes_per_pixel": 1, "suffix": "height.png"},
-    "normal": {"bytes_per_pixel": 4, "suffix": "normal.png"},
-    "roughness": {"bytes_per_pixel": 1, "suffix": "roughness.png"}
+    "albedo": {
+      "bytes_per_pixel": 4,
+      "suffix": "albedo.png"
+    },
+    "height": {
+      "bytes_per_pixel": 1,
+      "suffix": "height.png"
+    },
+    "normal": {
+      "bytes_per_pixel": 4,
+      "suffix": "normal.png"
+    },
+    "roughness": {
+      "bytes_per_pixel": 1,
+      "suffix": "roughness.png"
+    }
   },
-  "available_cases": [],
+  "available_cases": [
+    "mina"
+  ],
   "root": "res://assets/dream/incarnations"
 }

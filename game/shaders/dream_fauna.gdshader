@@ -3,6 +3,7 @@ render_mode unshaded, cull_disabled;
 
 #include "res://shaders/dream_fauna_style.gdshaderinc"
 #include "res://shaders/dream_irradiance.gdshaderinc"
+#include "res://shaders/dream_incarnation.gdshaderinc"
 
 // These are already authored linear tokens. `source_color` would convert them
 // a second time and crush the bounded dark-live wine below display black.
@@ -78,6 +79,10 @@ void fragment() {
 	vec4 irradiance = dream_irradiance(fauna_world, fauna_normal,
 			irradiance_field, lamp_origin);
 	float awake = irradiance.w;
+	int incarnation_slot = int(floor(incarnation_fauna.z + 0.5));
+	vec4 incarnation_skin = dream_incarnation_surface(fauna_world,
+			fauna_local.xz, irradiance_field.r, awake, awake, 0.0,
+			incarnation_slot, vec4(base_color, 0.8));
 
 	float retained = irradiance_field.r;
 	vec3 view_dir = normalize(CAMERA_POSITION_WORLD - fauna_world);
@@ -104,8 +109,8 @@ void fragment() {
 			authored_gold * vertex_channels_ready);
 	float jewel_mask = authored_jewel * vertex_channels_ready;
 
-	vec3 wine = dream_irradiance_hue(mix(base_color,
-			base_color * vec3(1.10, 0.86, 1.08), hue_jitter));
+	vec3 wine = dream_irradiance_hue(mix(incarnation_skin.rgb,
+			base_color * vec3(1.10, 0.86, 1.08), hue_jitter * 0.18));
 	float life = clamp(0.72 + nutrient * 0.16 + emergence * 0.12, 0.0, 1.0);
 	// Darkness contains wine matter only. Gold and jewel response are exactly
 	// multiplied by awake, so neither can self-light outside the service cone.
@@ -141,4 +146,8 @@ void fragment() {
 			+ sclera + lid;
 	ALBEDO = dark_body + mix(lit_wine, full_body,
 			max(irradiance.y * 0.58, irradiance.z));
+	if (incarnation_id > 0.5 && incarnation_id < 1.5) {
+		ALBEDO = mix(ALBEDO, incarnation_skin.rgb,
+			0.28 + irradiance.y * 0.20);
+	}
 }
