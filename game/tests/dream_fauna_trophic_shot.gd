@@ -77,6 +77,7 @@ func _stage_birth_frame() -> bool:
 	root.player.global_position = frame + inward.normalized()*2.0
 	root.player.camera.look_at(frame + Vector3(0.0,0.42,0.0),Vector3.UP)
 	root.player.set_lamp_enabled(true)
+	root.player.pin_lamp_gutter_for_proof(1.0)
 	root.player.set("_lamp_phase",0.0); root.player.set("_lamp_phase_total",0.0)
 	root.player.call("_advance_lamp",0.0)
 	root.call("_update_molten")

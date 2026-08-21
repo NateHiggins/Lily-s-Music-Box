@@ -1,5 +1,5 @@
 extends Node
-## THE CONVERSION STAYS. Seven things proved about DreamExposureField:
+## THE CONVERSION STAYS. Eight things proved about DreamExposureField:
 ##
 ##   A. it only ever goes UP while a room is real -- the governing change of
 ##      DREAM_SURFACE_REDESIGN_BRIEF.md workstream A, and the one assertion
@@ -11,13 +11,14 @@ extends Node
 ##   F. it is deterministic, because a field seeded from the atlas that
 ##      differed between two runs of one save would be a silent desync
 ##   G. the upload layout is the layout the sampler will read
+##   H. reversible irradiance rises, cools and clears without mutating exposure
 ##
 ## Harness integrity follows the N7 idiom: exact check count, a counted
 ## sentinel, no timing dependence, and a nonzero exit on any failure. This one
 ## is pure data -- no scene, no renderer, no godot window -- so it runs
 ## headless in well under a second.
 
-const EXPECTED_CHECKS := 27
+const EXPECTED_CHECKS := 35
 ## A room four metres square at the origin, in the [x0, z0, x1, z1] form
 ## DreamRoomBuilder writes into plan.modules.
 const ROOM := [0.0, 0.0, 4.0, 4.0]
@@ -38,6 +39,7 @@ func _ready() -> void:
 	_block_e_tiling()
 	_block_f_determinism()
 	_block_g_upload()
+	_block_h_irradiance()
 	if checks != EXPECTED_CHECKS:
 		failures += 1
 		printerr("[EXPOSURE] HARNESS FAIL: %d checks ran, %d expected"
@@ -245,6 +247,8 @@ func _block_g_upload() -> void:
 	_check(images[0].get_width() == DreamExposureField.GRID_XZ
 			and images[0].get_height() == DreamExposureField.GRID_XZ,
 			"each layer is the full XZ grid")
+	_check(images[0].get_format() == Image.FORMAT_RG8,
+			"the existing texture carries durable R plus reversible G")
 
 	# The layer a world height falls into must hold the value sample() reads
 	# there, or the sampler will read a different building than the pursuer.
@@ -255,3 +259,38 @@ func _block_g_upload() -> void:
 	var texel := images[iy].get_pixel(ix, iz).r
 	_check(absf(texel - f.sample(at)) < 0.005,
 			"the image layer agrees with sample() at the same point")
+	var irradiance_texel := images[iy].get_pixel(ix, iz).g
+	_check(absf(irradiance_texel - f.sample_irradiance(at)) < 0.005,
+			"the image G channel agrees with reversible irradiance")
+
+
+# --- H: reversible, bounded irradiance --------------------------------
+
+func _block_h_irradiance() -> void:
+	var f := DreamExposureField.new()
+	f.stamp_room("@", ROOM, 0.0, 0.5)
+	var lit := Vector3(3.0, 1.5, 2.0)
+	_check(f.sample_irradiance(lit) == 0.0,
+			"irradiance starts dark without changing durable exposure")
+	_sweep(f, Vector3(1, 0, 0), 1.0, 15)
+	var warm := f.sample_irradiance(lit)
+	var durable := f.sample(lit)
+	_check(warm > 0.0 and warm <= DreamExposureField.IRRADIANCE_RISE_PER_S + 0.001,
+			"direct response rises but cannot exceed its per-second ceiling")
+	_sweep(f, Vector3(-1, 0, 0), 0.5, 8)
+	var cooled := f.sample_irradiance(lit)
+	_check(cooled < warm and cooled >= warm
+			- DreamExposureField.IRRADIANCE_FALL_PER_S * 0.5 - 0.001,
+			"leaving the cone cools no faster than the ruled fall rate")
+	_check(f.sample(lit) == durable,
+			"cooling reversible G never lowers durable R")
+	f.clear_room("@")
+	_check(f.sample_irradiance(lit) == 0.0,
+			"forgetting a room clears its reversible presentation channel")
+	var a := DreamExposureField.new()
+	var b := DreamExposureField.new()
+	for field in [a, b]:
+		field.stamp_room("@", ROOM, 0.0, 0.5)
+		_sweep(field, Vector3(1, 0, 0), 1.2, 18)
+	_check(a.sample_irradiance(lit) == b.sample_irradiance(lit),
+			"the same beam trace gives the same reversible response")

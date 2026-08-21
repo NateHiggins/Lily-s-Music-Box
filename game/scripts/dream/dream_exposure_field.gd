@@ -110,6 +110,11 @@ const HEIGHT_M := float(GRID_Y) * VOXEL_M
 ## enough that deliberately holding on one wall visibly does something inside
 ## a 28 s passage.
 const CONVERT_PER_S := 1.0 / 6.0
+## IR-V1's reversible presentation channel. These are absolute response units
+## per second, not lerp factors, so the photosensitivity ceiling is invariant
+## under frame rate and EXPOSURE_HZ changes.
+const IRRADIANCE_RISE_PER_S := 0.42
+const IRRADIANCE_FALL_PER_S := 0.28
 ## How much of a room decay alone can turn before the lamp arrives. Capped
 ## well below 1 because of the brief's control shot: "the same corridor,
 ## unlit, must be photographable as an ordinary derelict apartment hallway
@@ -123,8 +128,11 @@ const DECAY_CEILING := 0.34
 ## building for every existing save, silently.
 const SALT_EXPOSURE := 0xE7B05E
 
-## voxel index -> 0..255. One byte per voxel; the shader samples R8.
+## voxel index -> 0..255. One durable byte per voxel; the shader samples RG8 R.
 var _cells := PackedByteArray()
+## Reversible direct irradiance, 0..1. This shares the existing volume and GPU
+## sampler with durable exposure but is never read by gameplay.
+var _irradiance := PackedFloat32Array()
 ## Set once if a stamp ever wrapped onto a live room. Diagnostic, never
 ## gameplay -- see overflowed().
 var _overflow := false
@@ -151,6 +159,8 @@ var _dirty := true
 func _init() -> void:
 	_cells.resize(GRID_XZ * GRID_XZ * GRID_Y)
 	_cells.fill(0)
+	_irradiance.resize(_cells.size())
+	_irradiance.fill(0.0)
 
 
 # ── ADDRESSING ────────────────────────────────────────────────────────────
@@ -259,7 +269,9 @@ func clear_room(key: String) -> void:
 			continue
 		_owner.erase(cell)
 		for iy in GRID_Y:
-			_cells[_index(ix, iy, iz)] = 0
+			var i := _index(ix, iy, iz)
+			_cells[i] = 0
+			_irradiance[i] = 0.0
 
 
 ## THE LAMP, ACCUMULATING. Called at a fixed low rate rather than per frame --
@@ -272,56 +284,52 @@ func clear_room(key: String) -> void:
 ## it can say no.
 func add_lamp(origin: Vector3, dir: Vector3, reach: float, cos_outer: float,
 		energy: float, dt: float) -> void:
-	if dt <= 0.0 or reach <= 0.0 or energy <= 0.0:
+	if dt <= 0.0:
 		return
 	var d := dir.normalized()
 	var reach2 := reach * reach
 	var gain := CONVERT_PER_S * dt * clampf(energy, 0.0, 4.0)
-	if gain <= 0.0:
-		return
-	var lo_y := _layer(origin.y - reach)
-	var hi_y := _layer(origin.y + reach)
-	var steps := int(ceil(reach / VOXEL_M))
-	var base_x := int(floor(origin.x / VOXEL_M))
-	var base_z := int(floor(origin.z / VOXEL_M))
 	var cos2 := cos_outer * cos_outer
-	for sx in range(-steps, steps + 1):
-		var gx := base_x + sx
-		var wx := (float(gx) + 0.5) * VOXEL_M
-		var ix := posmod(gx, GRID_XZ)
-		for sz in range(-steps, steps + 1):
-			var gz := base_z + sz
-			var wz := (float(gz) + 0.5) * VOXEL_M
-			var iz := posmod(gz, GRID_XZ)
-			for iy in range(lo_y, hi_y + 1):
-				var wy := (float(iy) + 0.5) * VOXEL_M
-				var to_v := Vector3(wx, wy, wz) - origin
-				var dist2 := to_v.length_squared()
-				if dist2 > reach2 or dist2 <= 0.0001:
-					continue
+	# Walk only live columns, but walk every voxel in them. A cone-only loop
+	# cannot cool the part of the field the beam just left, which would turn the
+	# reversible G channel into a second durable exposure record.
+	for entry in _owner:
+		var ix := int(int(entry) / GRID_XZ)
+		var iz := int(entry) % GRID_XZ
+		# Recover the closest world-space copy of this wrapped column to the lamp.
+		var wx := (float(ix) + 0.5) * VOXEL_M
+		var wz := (float(iz) + 0.5) * VOXEL_M
+		wx += round((origin.x - wx) / EXTENT_M) * EXTENT_M
+		wz += round((origin.z - wz) / EXTENT_M) * EXTENT_M
+		for iy in GRID_Y:
+			var wy := (float(iy) + 0.5) * VOXEL_M
+			var to_v := Vector3(wx, wy, wz) - origin
+			var dist2 := to_v.length_squared()
+			var direct := 0.0
+			if reach > 0.0 and energy > 0.0 and dist2 <= reach2 \
+					and dist2 > 0.0001:
 				var axial := to_v.dot(d)
-				if axial <= 0.0:
-					continue
-				# cos(theta) >= cos_outer, without the sqrt:
-				#   axial / |to_v| >= cos_outer   <=>   axial^2 >= c^2 * d^2
-				if axial * axial < cos2 * dist2:
-					continue
-				var dist := sqrt(dist2)
-				# Angular falloff, so the rim of the cone creeps and the
-				# centre takes. Without it the field grows a hard-edged
-				# ellipse and the shader's warp has a circle to hide, which
-				# it cannot do -- the brief's whole complaint about the
-				# frontier being "a cone falloff".
-				var ang := clampf((axial / dist - cos_outer)
-						/ maxf(0.0001, 1.0 - cos_outer), 0.0, 1.0)
-				var w := ang * ang * (1.0 - dist / reach)
-				if w <= 0.0:
-					continue
-				var i := _index(ix, iy, iz)
-				var next := int(_cells[i]) + int(ceil(gain * w * 255.0))
-				if next != int(_cells[i]):
-					_dirty = true
-				_cells[i] = 255 if next > 255 else next
+				if axial > 0.0 and axial * axial >= cos2 * dist2:
+					var dist := sqrt(dist2)
+					var ang := clampf((axial / dist - cos_outer)
+							/ maxf(0.0001, 1.0 - cos_outer), 0.0, 1.0)
+					direct = clampf(ang * ang * (1.0 - dist / reach)
+							* energy, 0.0, 1.0)
+			var i := _index(ix, iy, iz)
+			var previous := float(_irradiance[i])
+			var rate := IRRADIANCE_RISE_PER_S if direct > previous \
+					else IRRADIANCE_FALL_PER_S
+			var response := move_toward(previous, direct, rate * dt)
+			if absf(response - previous) > 0.00001:
+				_irradiance[i] = response
+				_dirty = true
+			if direct <= 0.0 or gain <= 0.0:
+				continue
+			var next := int(_cells[i]) + int(ceil(gain * direct
+					/ maxf(0.0001, energy) * 255.0))
+			if next != int(_cells[i]):
+				_dirty = true
+			_cells[i] = 255 if next > 255 else next
 
 
 # ── READING ───────────────────────────────────────────────────────────────
@@ -331,6 +339,23 @@ func add_lamp(origin: Vector3, dir: Vector3, reach: float, cos_outer: float,
 ## sub-voxel accuracy.
 func sample(at: Vector3) -> float:
 	return float(_cells[_index(_wrap(at.x), _layer(at.y), _wrap(at.z))]) / 255.0
+
+
+## Presentation-only reversible irradiance at a world point.
+func sample_irradiance(at: Vector3) -> float:
+	return float(_irradiance[_index(_wrap(at.x), _layer(at.y), _wrap(at.z))])
+
+
+## Diagnostic-only exact band staging for the production proof harness. It
+## cannot alter durable R or gameplay and has no environment/configuration seam.
+func pin_irradiance_for_proof(value: float) -> void:
+	var pinned := clampf(value, 0.0, 1.0)
+	for entry in _owner:
+		var ix := int(int(entry) / GRID_XZ)
+		var iz := int(entry) % GRID_XZ
+		for iy in GRID_Y:
+			_irradiance[_index(ix, iy, iz)] = pinned
+	_dirty = true
 
 
 ## HOW EXPOSED SHE IS IN THIS ROOM. Mean over the room's footprint at standing
@@ -386,21 +411,28 @@ func peak() -> float:
 
 # ── UPLOAD ────────────────────────────────────────────────────────────────
 
-## One Image per Y layer, which is the layout ImageTexture3D wants and also
-## the layout `_index` already uses -- a layer is a contiguous slice, so this
-## is a set of subarray copies rather than a transpose.
+## One RG8 Image per Y layer. R is the original durable byte; G is the
+## reversible irradiance response. The texture object and sampler are unchanged.
 func to_images() -> Array[Image]:
 	var out: Array[Image] = []
 	var plane := GRID_XZ * GRID_XZ
 	for iy in GRID_Y:
+		var bytes := PackedByteArray()
+		bytes.resize(plane * 2)
+		var start := iy * plane
+		for offset in plane:
+			var i := start + offset
+			bytes[offset * 2] = _cells[i]
+			bytes[offset * 2 + 1] = clampi(int(round(
+					_irradiance[i] * 255.0)), 0, 255)
 		out.append(Image.create_from_data(GRID_XZ, GRID_XZ, false,
-				Image.FORMAT_R8, _cells.slice(iy * plane, (iy + 1) * plane)))
+				Image.FORMAT_RG8, bytes))
 	return out
 
 
 func make_texture() -> ImageTexture3D:
 	var tex := ImageTexture3D.new()
-	tex.create(Image.FORMAT_R8, GRID_XZ, GRID_XZ, GRID_Y, false, to_images())
+	tex.create(Image.FORMAT_RG8, GRID_XZ, GRID_XZ, GRID_Y, false, to_images())
 	return tex
 
 

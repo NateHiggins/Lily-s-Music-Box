@@ -65,6 +65,7 @@ func _build() -> void:
 
 func _feed_ecology() -> void:
 	root.player.set_lamp_enabled(true)
+	root.player.pin_lamp_gutter_for_proof(1.0)
 	root.player.set("_lamp_phase", 0.0)
 	root.player.set("_lamp_phase_total", 0.0)
 	root.player.call("_advance_lamp", 0.0)
@@ -118,6 +119,7 @@ func _stage(batch: MultiMeshInstance3D, lamp_on: bool,
 	root.player.camera.look_at(target + Vector3(0.0, 0.18, 0.0) + right * edge_offset,
 			Vector3.UP)
 	root.player.set_lamp_enabled(lamp_on)
+	root.player.pin_lamp_gutter_for_proof(1.0)
 	root.player.set("_lamp_phase", 0.0)
 	root.player.set("_lamp_phase_total", 0.0)
 	root.player.call("_advance_lamp", 0.0)

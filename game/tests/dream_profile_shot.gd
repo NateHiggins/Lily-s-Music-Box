@@ -175,6 +175,7 @@ func _settle_lamp(on: bool) -> void:
 	# carried lamp at the stable endpoint its own process reaches, retaining its
 	# production pose, range, cone and energy budget.
 	root.player.set_lamp_enabled(on)
+	root.player.pin_lamp_gutter_for_proof(1.0)
 	root.player.set("_lamp_phase", 0.0)
 	root.player.set("_lamp_phase_total", 0.0)
 	root.player.flashlight.visible = on

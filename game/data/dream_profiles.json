@@ -105,7 +105,7 @@
       "maze": {
         "channel_echo_event": "channel_echo_congealed",
         "echo_delay_s": 4.166667,
-        "settle_after_s": 8.333333,
+        "settle_after_s": 6.583333,
         "max_partitions": 3
       },
       "truth": {"rule_id": "open_channel", "statement": "Connection requires an open channel"}

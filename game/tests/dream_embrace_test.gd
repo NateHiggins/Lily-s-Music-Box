@@ -132,6 +132,7 @@ func _ready() -> void:
 	# settled authored state directly so the player's generated switch WAV does
 	# not leave an unrelated decoder alive at immediate headless shutdown.
 	root.player.set("_lamp_on", false)
+	root.player.pin_lamp_gutter_for_proof(1.0)
 	root.player.set("_lamp_phase", 0.0)
 	root.player.set("_lamp_phase_total", 0.0)
 	root.player.flashlight.visible = false

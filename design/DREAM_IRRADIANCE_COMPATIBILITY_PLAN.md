@@ -1,7 +1,8 @@
 # Dream Irradiance Compatibility Plan
 
-**Status:** owner doctrine approved 2026-08-20; compatibility design awaiting
-owner review; no irradiance or gutter implementation is licensed by this file.
+**Status:** owner doctrine and compatibility design approved 2026-08-20;
+IR-V1/IR-V2 implemented and proved. Production evidence is recorded in
+`art/renders/dream_irradiance_v1/README.md`.
 
 ## 1. Pointwise response
 
@@ -137,8 +138,8 @@ Juno keeps boolean edges and echo scheduling exactly where they are. Only the
 existing open-channel sustain accumulator becomes energy-weighted:
 `sustain += delta * delivered_energy_multiplier`. Treat `settle_after_s` as
 delivered-light seconds and, after measured waveform proof, retune its profile
-value to `old_elapsed_seconds * measured_mean` (the initial `4.2 * 0.79 =
-3.318` target) so an average gutter preserves the ruled elapsed settling time.
+value to `old_elapsed_seconds * measured_mean` (the initial `8.333333 * 0.79 =
+6.583333` target) so an average gutter preserves the ruled elapsed settling time.
 This changes neither a rising edge nor the delayed echo clock. The exposure
 field already receives delivered energy through `lamp_pose()`, so identical
 seed/clock/input traces accrue identical durable exposure without another

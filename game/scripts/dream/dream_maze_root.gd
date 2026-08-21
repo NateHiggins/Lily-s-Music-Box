@@ -316,6 +316,7 @@ func _follow_player() -> void:
 	if hazards != null:
 		hazards.rearm(plan, profile_hazards)
 		_rebuild_hazard_growth()
+		_rebuild_hazard_visuals()
 	_rebuild_practicals()
 	_collect_molten_materials()
 	_carry_pursuer()
@@ -413,6 +414,7 @@ func _build_world() -> void:
 	# (art/renders/dream_klimt/_nomask/). The SpotLight3D is untouched.
 	player.set_beam_mask_enabled(false)
 	_make_lamp_local()
+	player.configure_dream_lamp_gutter(seed_hex, run_elapsed_s)
 
 	pursuer = DreamPursuer.new()
 	add_child(pursuer)
@@ -853,7 +855,21 @@ func _build_hazard_visuals() -> void:
 		glow.visible = false
 		add_child(glow)
 
-		_arcs.append({"hazard": hazard, "arc": arc, "glow": glow})
+		_arcs.append({"hazard": hazard, "conduit": conduit,
+				"arc": arc, "glow": glow})
+
+
+## HazardField.rearm follows the bounded Atlas pocket. Its already-approved
+## conduit/arc presentation must follow the same owner or a trunk reached after
+## entry remains mechanically live but visually absent.
+func _rebuild_hazard_visuals() -> void:
+	for entry in _arcs:
+		for key in ["conduit", "arc", "glow"]:
+			var node := entry.get(key) as Node
+			if node != null and is_instance_valid(node):
+				node.free()
+	_arcs.clear()
+	_build_hazard_visuals()
 
 
 func _dull_metal() -> StandardMaterial3D:
@@ -1417,6 +1433,7 @@ func _practical_is_visible(index: int) -> bool:
 
 func _physics_process(delta: float) -> void:
 	if maze_built:
+		player.set_lamp_gutter_clock(run_elapsed_s)
 		# BEFORE anything reads the plan this frame. Crossing a threshold
 		# rebuilds the pocket, and the practicals, hazards and molten
 		# materials all key off rooms that may have just been forgotten.
@@ -1428,7 +1445,8 @@ func _physics_process(delta: float) -> void:
 		_update_molten()
 	if not autonomous or _outcome_committed:
 		return
-	advance_profile_grammar(delta, player.lamp_is_enabled())
+	advance_profile_grammar(delta, player.lamp_is_enabled(),
+			player.lamp_delivered_multiplier())
 	if pursuer != null and not pursuer.is_captured:
 		pursuer.advance_fixed(delta)
 	if _embrace_active or _outcome_committed:
@@ -1457,7 +1475,8 @@ func _setup_channel_grammar() -> void:
 
 ## Deterministic public step for the focused harness. Production calls it once
 ## per autonomous physics frame; the root owns time, never door records.
-func advance_profile_grammar(delta: float, channel_open: bool) -> void:
+func advance_profile_grammar(delta: float, channel_open: bool,
+		delivered_energy: float = 1.0) -> void:
 	if rooms == null or str(profile_grammar.get("channel_echo_event", "")).is_empty():
 		return
 	if channel_open and not _channel_was_open:
@@ -1465,7 +1484,9 @@ func advance_profile_grammar(delta: float, channel_open: bool) -> void:
 	if not channel_open:
 		_channel_sustain_s = 0.0
 	elif _channel_was_open:
-		_channel_sustain_s += delta
+		# Edges remain boolean; only sustained settling accrues in delivered-light
+		# seconds so the unreliable lamp cannot counterfeit a Juno partition.
+		_channel_sustain_s += delta * clampf(delivered_energy, 0.0, 1.0)
 	_channel_was_open = channel_open
 	for i in range(_channel_echo_due.size() - 1, -1, -1):
 		_channel_echo_due[i] -= delta
@@ -1494,6 +1515,7 @@ func _refresh_profile_topology() -> void:
 	if hazards != null:
 		hazards.rearm(plan, profile_hazards)
 		_rebuild_hazard_growth()
+		_rebuild_hazard_visuals()
 	_rebuild_practicals()
 	_collect_molten_materials()
 

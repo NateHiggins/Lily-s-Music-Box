@@ -203,6 +203,7 @@ func _settle_lamp(on: bool) -> void:
 	# player lamp at the same settled endpoint that _advance_lamp() reaches;
 	# this is not a helper light and does not change its pose, range or cone.
 	root.player.set_lamp_enabled(on)
+	root.player.pin_lamp_gutter_for_proof(1.0)
 	root.player.set("_lamp_phase", 0.0)
 	root.player.set("_lamp_phase_total", 0.0)
 	root.player.flashlight.visible = on

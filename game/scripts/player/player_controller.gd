@@ -81,6 +81,15 @@ var _lamp_phase := 0.0
 var _lamp_phase_total := 0.0
 var _lamp_last_transient := -99.0
 var _lamp_base_energy := 0.74
+var _lamp_gutter_enabled := false
+var _lamp_gutter_clock_s := 0.0
+var _lamp_gutter_phase_s := 0.0
+var _lamp_gutter_deep_every := 4
+var _lamp_gutter_deep_offset := 0
+var _lamp_gutter_pin := -1.0
+var _lamp_gutter_multiplier := 1.0
+var _lamp_gutter_base_range := 8.5
+var _lamp_gutter_base_angle_attenuation := 2.4
 var _lamp_audio: AudioStreamPlayer
 var _lamp_on_wav: AudioStreamWAV
 var _lamp_off_wav: AudioStreamWAV
@@ -104,6 +113,10 @@ const LAMP_TRANSIENT_MIN_GAP := 0.55
 ## out. The settled colour is the one the lamp was authored with.
 const LAMP_COLD_COLOR := Color(1.0, 0.42, 0.16)
 const LAMP_SETTLED_COLOR := Color(1.0, 0.80, 0.56)
+const LAMP_GUTTER_CYCLE_S := 18.0
+const LAMP_GUTTER_FLOOR := 0.58
+const LAMP_GUTTER_MEAN := 0.79
+const LAMP_GUTTER_MAX_SLOPE := 0.30
 
 var _stagger_left := 0.0
 var _stagger_velocity := Vector3.ZERO
@@ -512,7 +525,10 @@ func set_lamp_enabled(on: bool) -> void:
 	if quiet:
 		_lamp_phase = 0.0
 		flashlight.visible = on
-		flashlight.light_energy = _lamp_base_energy if on else 0.0
+		if on:
+			_apply_lamp_gutter()
+		else:
+			flashlight.light_energy = 0.0
 		flashlight.light_color = LAMP_SETTLED_COLOR
 		return
 	_lamp_phase = LAMP_WARM_S if on else LAMP_POP_S
@@ -538,7 +554,7 @@ func _advance_lamp(delta: float) -> void:
 		if flashlight.visible != _lamp_on:
 			flashlight.visible = _lamp_on
 		if _lamp_on:
-			flashlight.light_energy = _lamp_base_energy
+			_apply_lamp_gutter()
 			flashlight.light_color = LAMP_SETTLED_COLOR
 		return
 	_lamp_phase = maxf(0.0, _lamp_phase - delta)
@@ -548,7 +564,8 @@ func _advance_lamp(delta: float) -> void:
 		# climb the way an inrush does; the overshoot decays out of it.
 		var climb: float = ease(done, 0.25)
 		var overshoot: float = LAMP_INRUSH * sin(done * PI) * (1.0 - done)
-		flashlight.light_energy = _lamp_base_energy * (climb + overshoot)
+		flashlight.light_energy = _lamp_base_energy * (climb + overshoot) \
+				* _lamp_gutter_multiplier
 		flashlight.light_color = LAMP_COLD_COLOR.lerp(
 				LAMP_SETTLED_COLOR, ease(done, 0.55))
 	else:
@@ -556,7 +573,8 @@ func _advance_lamp(delta: float) -> void:
 		var flare: float = 1.0 - minf(1.0, done / LAMP_POP_FLARE_FRACTION)
 		var fall: float = 1.0 - done
 		flashlight.light_energy = _lamp_base_energy \
-				* (fall * fall + LAMP_POP_FLARE * flare)
+				* (fall * fall + LAMP_POP_FLARE * flare) \
+				* _lamp_gutter_multiplier
 		flashlight.light_color = LAMP_SETTLED_COLOR.lerp(
 				LAMP_COLD_COLOR, ease(done, 0.7))
 		if _lamp_phase <= 0.0:
@@ -587,7 +605,82 @@ func lamp_is_enabled() -> bool:
 func set_lamp_base_energy(value: float) -> void:
 	_lamp_base_energy = maxf(0.0, value)
 	if flashlight and _lamp_phase <= 0.0 and _lamp_on:
-		flashlight.light_energy = _lamp_base_energy
+		_apply_lamp_gutter()
+
+
+## IR-V2 lives below the switch in the existing lamp presentation owner.
+## Campaign seed chooses only phase/deep-dip cadence; the root's run clock is
+## the time source. No per-frame random state and no save record exist here.
+func configure_dream_lamp_gutter(seed_hex: String, run_clock_s: float = 0.0) -> void:
+	var halves := DreamMazeBuilder.seed_halves(seed_hex)
+	var folded := int(halves[0]) ^ int(halves[1])
+	_lamp_gutter_phase_s = float(folded & 0xFFFF) / 65535.0 \
+			* LAMP_GUTTER_CYCLE_S
+	_lamp_gutter_deep_every = 3 + ((folded >> 16) & 0x3) % 3
+	_lamp_gutter_deep_offset = ((folded >> 20) & 0x7) \
+			% _lamp_gutter_deep_every
+	_lamp_gutter_base_range = flashlight.spot_range if flashlight else 8.5
+	_lamp_gutter_base_angle_attenuation = flashlight.spot_angle_attenuation \
+			if flashlight else 2.4
+	_lamp_gutter_enabled = true
+	set_lamp_gutter_clock(run_clock_s)
+
+
+func set_lamp_gutter_clock(run_clock_s: float) -> void:
+	_lamp_gutter_clock_s = maxf(0.0, run_clock_s)
+	_lamp_gutter_multiplier = _lamp_gutter_pin if _lamp_gutter_pin >= 0.0 \
+			else lamp_gutter_multiplier_at(_lamp_gutter_clock_s)
+	_apply_lamp_gutter()
+
+
+## Diagnostic harness pin, callable only by explicit test/shot code. Negative
+## releases it back to the seeded run clock; there is no environment switch.
+func pin_lamp_gutter_for_proof(multiplier: float = 1.0) -> void:
+	_lamp_gutter_pin = clampf(multiplier, LAMP_GUTTER_FLOOR, 1.0) \
+			if multiplier >= 0.0 else -1.0
+	set_lamp_gutter_clock(_lamp_gutter_clock_s)
+
+
+func lamp_delivered_multiplier() -> float:
+	return _lamp_gutter_multiplier if _lamp_gutter_enabled else 1.0
+
+
+func lamp_gutter_multiplier_at(run_clock_s: float) -> float:
+	if not _lamp_gutter_enabled:
+		return 1.0
+	var absolute := maxf(0.0, run_clock_s) + _lamp_gutter_phase_s
+	var cycle := int(floor(absolute / LAMP_GUTTER_CYCLE_S))
+	var local := fposmod(absolute, LAMP_GUTTER_CYCLE_S)
+	# Eleven-second dying sag, then a seven-second smoother recovery. smoothstep
+	# bounds the common slope far below the deep-dip ceiling.
+	var sag := smoothstep(0.0, 11.0, local) if local <= 11.0 \
+			else 1.0 - smoothstep(11.0, LAMP_GUTTER_CYCLE_S, local)
+	sag = pow(maxf(0.0, sag), 0.90)
+	var value := 1.0 - 0.40 * sag
+	if cycle % _lamp_gutter_deep_every == _lamp_gutter_deep_offset:
+		# The rare dip is centred late in the sag. 0.80 s down, 0.65 s up;
+		# 0.13 depth keeps its combined analytic slope <= 0.30/s.
+		var down := smoothstep(9.10, 9.90, local)
+		var up := 1.0 - smoothstep(9.90, 10.55, local)
+		value -= 0.13 * down * up
+	return clampf(value, LAMP_GUTTER_FLOOR, 1.0)
+
+
+func _apply_lamp_gutter() -> void:
+	if flashlight == null:
+		return
+	if not _lamp_gutter_enabled:
+		if _lamp_on and _lamp_phase <= 0.0:
+			flashlight.light_energy = _lamp_base_energy
+		return
+	var normalized := inverse_lerp(LAMP_GUTTER_FLOOR, 1.0,
+			_lamp_gutter_multiplier)
+	flashlight.spot_range = _lamp_gutter_base_range \
+			* lerpf(0.88, 1.0, normalized)
+	flashlight.spot_angle_attenuation = lerpf(2.8,
+			_lamp_gutter_base_angle_attenuation, normalized)
+	if _lamp_on and _lamp_phase <= 0.0:
+		flashlight.light_energy = _lamp_base_energy * _lamp_gutter_multiplier
 
 
 ## Put the carried beam's SCREEN-SPACE mask away entirely.

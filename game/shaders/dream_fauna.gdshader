@@ -2,6 +2,7 @@ shader_type spatial;
 render_mode unshaded, cull_disabled;
 
 #include "res://shaders/dream_fauna_style.gdshaderinc"
+#include "res://shaders/dream_irradiance.gdshaderinc"
 
 // These are already authored linear tokens. `source_color` would convert them
 // a second time and crush the bounded dark-live wine below display black.
@@ -69,13 +70,16 @@ void fragment() {
 	float emergence = fauna_unit(fauna_low_byte(fauna_data.g));
 	float hue_jitter = fauna_unit(fauna_high_byte(fauna_data.a));
 	float pattern_jitter = fauna_unit(fauna_low_byte(fauna_data.a));
-	float awake = fauna_lamp_awake(fauna_world, lamp_origin, lamp_dir,
-			lamp_reach, lamp_cos_outer, lamp_energy);
-
 	float ex_y = clamp(fauna_world.y / max(0.001, exposure_height),
 			0.0625, 0.9375);
-	float retained = texture(exposure_tex, vec3(fauna_world.x / exposure_extent,
-			fauna_world.z / exposure_extent, ex_y)).r;
+	vec2 irradiance_field = texture(exposure_tex, vec3(
+			fauna_world.x / exposure_extent, fauna_world.z / exposure_extent,
+			ex_y)).rg;
+	vec4 irradiance = dream_irradiance(fauna_world, fauna_normal,
+			irradiance_field, lamp_origin);
+	float awake = irradiance.w;
+
+	float retained = irradiance_field.r;
 	vec3 view_dir = normalize(CAMERA_POSITION_WORLD - fauna_world);
 	float fresnel = pow(1.0 - clamp(abs(dot(normalize(fauna_normal), view_dir)),
 			0.0, 1.0), 2.2);
@@ -100,8 +104,8 @@ void fragment() {
 			authored_gold * vertex_channels_ready);
 	float jewel_mask = authored_jewel * vertex_channels_ready;
 
-	vec3 wine = mix(base_color, base_color * vec3(1.10, 0.86, 1.08),
-			hue_jitter);
+	vec3 wine = dream_irradiance_hue(mix(base_color,
+			base_color * vec3(1.10, 0.86, 1.08), hue_jitter));
 	float life = clamp(0.72 + nutrient * 0.16 + emergence * 0.12, 0.0, 1.0);
 	// Darkness contains wine matter only. Gold and jewel response are exactly
 	// multiplied by awake, so neither can self-light outside the service cone.
@@ -110,9 +114,21 @@ void fragment() {
 	// the production Compatibility path, so the bounded 2.2 response restores
 	// a silhouette while its 0.22 peak remains far below hazard 0.55.
 	vec3 wine_chroma = wine / max(max(wine.r, wine.g), max(wine.b, 0.001));
-	vec3 dark_body = wine_chroma * fauna_dark_glow * 2.2 * life
-			* (1.0 - gold_mask);
-	vec3 lit_wine = wine * awake * (0.74 + retained * 0.18);
+	float anatomy_line = clamp(max(procedural_wire,
+			vertex_channels_ready * (0.32 + fauna_vertex_region.g * 0.68)),
+			0.0, 1.0);
+	vec3 neon_colour = mix(wine_chroma, jewel_color,
+			0.12 + hue_jitter * 0.28);
+	vec3 dark_body = wine * 0.012 * (1.0 - anatomy_line)
+			+ neon_colour * fauna_dark_glow * 2.2 * life * anatomy_line
+			* irradiance.x;
+	float vein = pow(anatomy_line, mix(1.8, 0.72,
+			clamp(irradiance_vein_branch * 0.65, 0.0, 1.0)));
+	vec3 oblique_body = wine * (0.22 + retained * 0.10)
+			+ neon_colour * vein * 0.48
+			+ jewel_color * fresnel * 0.16;
+	vec3 lit_wine = mix(wine * awake * (0.74 + retained * 0.18),
+			oblique_body, irradiance.y * 0.82);
 	vec3 ruled_gold = gold_color * gold_gain;
 	vec3 gilt = ruled_gold * awake * gold_mask
 			* (0.74 + fresnel * (0.18 + cone_edge * 1.10));
@@ -121,6 +137,8 @@ void fragment() {
 	vec3 sclera = sclera_color * awake * authored_sclera
 			* (0.70 + fresnel * 0.18);
 	vec3 lid = base_color * 0.24 * awake * authored_lid;
-	ALBEDO = dark_body + mix(lit_wine, gilt, gold_mask) + gilt_rim + jewel
+	vec3 full_body = mix(lit_wine, gilt, gold_mask) + gilt_rim + jewel
 			+ sclera + lid;
+	ALBEDO = dark_body + mix(lit_wine, full_body,
+			max(irradiance.y * 0.58, irradiance.z));
 }

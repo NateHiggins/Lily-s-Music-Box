@@ -1651,8 +1651,8 @@ unresolved. K7's source-backed loop contract is closed in
   Chandelettes, Bezel Beetles, Deep Koi and Parliaments. Negative-space Koi,
   gestalt shards and the one recession-band gem window remain presentation
   techniques, not new cameras, worlds, hazards or topology.
-- **IR-V0 — DREAM IRRADIANCE COMPATIBILITY GATE (OWNER DOCTRINE APPROVED;
-  PLAN REVIEW OPEN).** V12–V13 of `design/DREAM_FAUNA_BRIEF.md` ingest the
+- **IR-V0 — DREAM IRRADIANCE COMPATIBILITY GATE (DONE).** V12–V13 of
+  `design/DREAM_FAUNA_BRIEF.md` ingest the
   three-state surface doctrine and unreliable service lamp. Review the exact
   compatibility design in `design/DREAM_IRRADIANCE_COMPATIBILITY_PLAN.md`
   before implementation. It evolves every dream surface continuously from
@@ -1661,14 +1661,14 @@ unresolved. K7's source-backed loop contract is closed in
   proposed no-draw seam expands the existing exposure volume R8 to RG8: R
   remains durable exposure, G becomes reversible slope-limited direct
   irradiance; existing lamp uniforms and fauna packed channels remain intact.
-- **IR-V1 — THREE-STATE SHARED SHADER PASS (BLOCKED BY IR-V0 REVIEW).** Add
-  the common irradiance helper and genome controls to Klimt architecture,
-  lineage and fauna without a new material, shader variant, sampler, draw,
-  texture file or owner. Preserve Tenant shadow-only uniqueness,
-  life-below-danger, star/bloom ceiling, R1–R6, fauna gameplay/caps and every
-  collision/topology/save boundary. Extend the production harness with one
-  wall and one Tessellate blend sweep plus equal-interval A/A.
-- **IR-V2 — UNRELIABLE LAMP PRESENTATION (BLOCKED BY IR-V0 REVIEW).** The
+- **IR-V1 — THREE-STATE SHARED SHADER PASS (DONE).** The common irradiance
+  helper and genome controls now run through Klimt architecture, lineage and
+  fauna without a new material, shader variant, sampler, draw, texture file or
+  owner. Tenant shadow-only uniqueness, life-below-danger, the star/bloom
+  ceiling, R1–R6, fauna gameplay/caps and every collision/topology/save
+  boundary remain intact. The production harness proves a wall and one
+  Tessellate through five-step blend sweeps plus equal-interval A/A.
+- **IR-V2 — UNRELIABLE LAMP PRESENTATION (DONE).** The
   existing PlayerController lamp transient owner absorbs a deterministic
   campaign-seed/run-clock gutter below the unchanged switch boolean. Target
   `0.58..1.00`, mean `0.79 +/- 0.02`, maximum slope `0.30/s`, components below
@@ -1676,7 +1676,13 @@ unresolved. K7's source-backed loop contract is closed in
   proving zero Juno edges/pursuit/hazard changes, deterministic exposure, a
   fixed-camera luma trace, hazard-floor readability, energy-weighted Juno
   sustain with its mean-time retuned honestly, and a steady/gutter long-shadow
-  beauty pair.
+  beauty pair. The 108-second production trace measures `0.58..0.9998`, mean
+  `0.7904`, maximum sampled slope `0.1474/s`, dominant `0.0554 Hz`, and no
+  zero. Focused IR proof is 16/16; Exposure is 35/35; all 538 shared dream
+  checks pass. Dream perf is 0/4 over budget at 2.21–2.44 ms with the existing
+  48/77/133/172 calls. WalkTest FAST passes at x8/480; the FULL attempt was
+  terminated without a result at the mandatory 60-second process limit, so no
+  fresh FULL claim is made. Proof: `art/renders/dream_irradiance_v1/README.md`.
 
 ## M — Materials and textures
 

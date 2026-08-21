@@ -3,6 +3,7 @@ render_mode blend_mix, cull_back, diffuse_burley, specular_schlick_ggx;
 
 #include "res://shaders/dream_architecture_relief.gdshaderinc"
 #include "res://shaders/dream_phase_transition.gdshaderinc"
+#include "res://shaders/dream_irradiance.gdshaderinc"
 
 // THE STOCLET FRIEZE, TAKEN APART AND HUNG ON THE ARCHITECTURE.
 //
@@ -644,32 +645,18 @@ void fragment() {
 	vec3 p = v_world * pattern_scale;
 	float t = TIME * breathe_speed;
 
-	// HEAT: how close this fragment is to the lamp. Everything molten is gated
-	// on it, so the gold liquefies only where the light actually lands and the
-	// rest of the corridor stays solid, cold and dark.
-	// THE CONE, EVALUATED HERE. Distance falloff along the beam, angular
-	// falloff across it, and the product is how awake this patch of surface
-	// is. Because it is analytic it is continuous across every box in the
-	// maze -- there are no per-object lighting decisions left to produce a
-	// rectangle.
-	vec3 to_frag = v_world - lamp_origin;
-	float along = length(to_frag);
-	vec3 ray = along > 0.0001 ? to_frag / along : vec3(0.0, 0.0, -1.0);
-	float cone = smoothstep(lamp_cos_outer,
-			mix(lamp_cos_outer, 1.0, lamp_edge_soft), dot(ray, lamp_dir));
-	// Linear, not squared. Squared over a 4.6 m reach left a wall at 2.6 m
-	// sitting at 19% and reading as black, while the floor a metre under the
-	// lamp burned -- the beam lit the player's shoes and nothing they were
-	// looking at.
-	float reach = 1.0 - clamp(along / max(0.5, lamp_reach), 0.0, 1.0);
-	reach = pow(reach, 0.65);
-	// Facing matters: a surface edge-on to the beam wakes less than one square
-	// to it, which is what keeps a corridor from lighting like a tunnel.
-	float facing = clamp(dot(n, -ray), 0.0, 1.0);
-	facing = mix(0.35, 1.0, facing);
-	float heat = cone * reach * facing;
+	// HEAT is now the shared, slope-limited pointwise response. The CPU field
+	// owns cone/distance/delivered energy; this surface contributes incidence.
+	float irradiance_y = clamp(v_world.y / max(0.001, exposure_height),
+			0.0625, 0.9375);
+	vec2 irradiance_field = texture(exposure_tex, vec3(
+			v_world.x / exposure_extent, v_world.z / exposure_extent,
+			irradiance_y)).rg;
+	vec4 irradiance = dream_irradiance(v_world, n, irradiance_field,
+			lamp_origin);
+	float heat = irradiance.w;
 	vec3 splash = lamp_splash;
-	heat = pow(heat, 1.7) * clamp(lamp_energy, 0.0, 4.0) * melt_amount;
+	heat = pow(heat, 1.7) * melt_amount;
 
 	// THE FLOW. Domain warp, animated, scaled by heat -- so the ornament is
 	// crisp where it is cold and runs where the light is on it. That is what
@@ -934,10 +921,7 @@ void fragment() {
 	// and last layers by hand: the field is a single storey and a ceiling
 	// bleeding onto a floor through the repeat would be a coordinate bug
 	// wearing the costume of an effect.
-	float ex_y = clamp(v_world.y / max(0.001, exposure_height),
-			0.0625, 0.9375);
-	float field = texture(exposure_tex, vec3(v_world.x / exposure_extent,
-			v_world.z / exposure_extent, ex_y)).r;
+	float field = irradiance_field.r;
 	float architecture_mask = dream_architecture_anchor(v_world, n,
 			architecture_bounds, architecture_clear_ceiling,
 			architecture_surface);
@@ -1337,6 +1321,30 @@ void fragment() {
 			+ reflection
 			+ star_colour * sky_glow * 0.55
 			+ albedo * jewel_face * jewel_gleam * 0.16;
+	// IR-V1: the same authored drawing becomes anatomy in darkness and veins
+	// under oblique light. Fill stays black; only the existing motif and real
+	// architectural joints carry the bounded line language.
+	float calligraphy_wave = abs(sin((base_q.x + base_q.y
+			* (0.31 + irradiance_pattern_species * 0.037))
+			* (7.0 + irradiance_pattern_species * 1.3)
+			+ irradiance_pulse_phase));
+	float calligraphy = 1.0 - smoothstep(0.035 * irradiance_line_weight,
+			0.13 * irradiance_line_weight, calligraphy_wave);
+	float anatomy_line = responds * clamp(max(relief_motif * calligraphy,
+			architecture_mask * irradiance_line_weight), 0.0, 1.0);
+	vec3 anatomy_colour = dream_irradiance_hue(mix(accent_lapis,
+			gold_mid, 0.46 + architecture_drive * 0.32));
+	vec3 neon_anatomy = anatomy_colour * anatomy_line * irradiance.x * 0.12;
+	float vein_network = pow(clamp(max(relief_motif
+			* max(calligraphy, 0.26), architecture_mask), 0.0, 1.0),
+			mix(1.8, 0.72, clamp(irradiance_vein_branch * 0.65, 0.0, 1.0)));
+	float genome_pulse = 0.96 + 0.04 * sin(TIME * TAU * 0.07
+			/ max(0.25, irradiance_viscosity) + irradiance_pulse_phase);
+	vec3 oblique_glow = anatomy_colour * vein_network * irradiance.y * 0.22
+			* genome_pulse
+			+ gold_pale * vein_network * irradiance.y * 0.055 * genome_pulse;
+	ALBEDO += neon_anatomy * 0.22 + oblique_glow * 0.45;
+	EMISSION += neon_anatomy + oblique_glow;
 	// R6 CAMERA-LOCAL READABILITY. The view portal's shared-world camera is
 	// the only camera which excludes presentation layer 20. That bit is a
 	// render-pass identity, not a new material state: it lets the existing room

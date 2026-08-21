@@ -1580,6 +1580,9 @@ func build(parent: Node3D, room: Dictionary) -> Node3D:
 			DreamMazeBuilder.MOTIF_TRIANGLE)
 	var shaft_mat := DreamMazeBuilder._material(Color("1d1a20"), 0.90,
 			DreamMazeBuilder.MOTIF_EYE)
+	for material in [wall_mat, floor_mat, ceiling_mat, door_mat, shaft_mat]:
+		configure_irradiance_genome(material, room.get("lineage", {}),
+				float(room.get("decay", 0.0)))
 	# THE APARTMENT IS THE GROUND TRUTH.  The global material default predates
 	# the 60/40 composition ruling and allowed the filter to consume more than
 	# half of every architectural plane before exposure had done any work.  A
@@ -1954,6 +1957,28 @@ static func configure_architecture_material(material: Material, rect: Array,
 	shader_material.set_shader_parameter("surface_debug_view", debug_value)
 
 
+## One lineage look-space across the room shell and its offspring. These are
+## bounded remaps of the existing genome; no new salt or random owner exists.
+static func configure_irradiance_genome(material: Material,
+		lineage: Dictionary, decay: float) -> void:
+	if not material is ShaderMaterial:
+		return
+	var shader_material := material as ShaderMaterial
+	var phase := float(lineage.get("phase", 0.0))
+	var curl := float(lineage.get("curl", 0.52))
+	var girth := float(lineage.get("girth", 0.042))
+	shader_material.set_shader_parameter("irradiance_hue", sin(phase) * 0.12)
+	shader_material.set_shader_parameter("irradiance_vein_branch",
+			remap(clampf(curl, 0.22, 0.86), 0.22, 0.86, 0.70, 1.60))
+	shader_material.set_shader_parameter("irradiance_line_weight",
+			remap(clampf(girth, 0.026, 0.064), 0.026, 0.064, 0.75, 1.45))
+	shader_material.set_shader_parameter("irradiance_pattern_species",
+			float(int(lineage.get("mutation", 0))))
+	shader_material.set_shader_parameter("irradiance_viscosity",
+			lerpf(0.65, 1.45, clampf(decay, 0.0, 1.0)))
+	shader_material.set_shader_parameter("irradiance_pulse_phase", phase)
+
+
 ## The wall boxes above still own collision and the exact aperture schedule.
 ## This is their shallow historic relief: a batched Orison dado, millwork,
 ## casings and ceiling medallion which cannot alter a route by even a
@@ -2025,6 +2050,7 @@ func _lineage_material(lineage: Dictionary) -> ShaderMaterial:
 	# switching the lamp off does not make her anatomy cease to exist.
 	material.set_shader_parameter("dark_glow", 0.016)
 	material.set_shader_parameter("motion_gain", 0.0)
+	configure_irradiance_genome(material, lineage, 0.0)
 	return material
 
 

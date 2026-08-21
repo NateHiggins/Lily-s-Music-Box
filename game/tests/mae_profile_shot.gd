@@ -77,6 +77,7 @@ func _aim_at_room_centre(key: String) -> void:
 	root.player.look_at(root.player.position + flat, Vector3.UP)
 	root.player.camera.rotation.x = -0.28
 	root.player.set_lamp_enabled(true)
+	root.player.pin_lamp_gutter_for_proof(1.0)
 	root.player.set("_lamp_phase", 0.0)
 	root.player.set("_lamp_phase_total", 0.0)
 	root.player.flashlight.visible = true

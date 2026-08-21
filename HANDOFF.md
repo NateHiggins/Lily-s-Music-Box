@@ -94,16 +94,22 @@ Proof is `art/renders/dream_fauna_v3/README.md`; FA-V1 and the FA-V2 landed-five
 migration are technically complete. The owner accepted FA-V3 on 2026-08-20;
 its temporary environment selector, callable switch and legacy shader are now
 deleted while the two comparator PNGs remain historical evidence. Slice D /
-FA-V4 DreamWalk remains open. The owner also approved the V12/V13 dream
-irradiance doctrine: neon anatomy in darkness, oblique translucent veins,
-molten full beam, and a slow deterministic gutter inside the unchanged lamp-on
-state. The implementation compatibility proposal is deliberately stopped at
-review in `design/DREAM_IRRADIANCE_COMPATIBILITY_PLAN.md`: reuse the current
-lamp/material feed, expand the existing exposure payload to carry a reversible
-rate-limited irradiance channel, derive architecture/fauna variation from
-existing lineage and packed channels, and add no draws, lights, materials,
-texture objects or gameplay edges. IR-V1/IR-V2 must not begin until that exact
-plan is reviewed. The audit's pre-C1 anchor appendix is
+FA-V4 DreamWalk remains open. The owner also approved and closed the V12/V13
+dream irradiance doctrine as IR-V0–V2. Architecture, lineage and fauna now
+share one continuous neon/oblique/molten helper. The existing exposure volume
+is RG8: durable gameplay exposure remains R, while reversible rate-limited
+irradiance occupies G. The existing PlayerController owns a deterministic
+seed/run-clock gutter inside the unchanged lamp-on boolean; only Juno's sustain
+accumulator consumes delivered-light seconds. No new draw, material, sampler,
+light, texture object, gameplay edge or save owner was added. The production
+proof includes 22 frames, A/A, five-step wall/Tessellate sweeps, a six-cycle
+luma trace, a steady/gutter shadow pair and gutter-floor Vantry confirmation.
+The proof also repaired the existing arc/conduit lifecycle so presentation now
+follows HazardField rearm into a later fractal pocket. Focused IR is 16/16, Exposure is
+35/35, the shared dream battery is 538/538, dream perf is 0/4 over budget and
+WalkTest FAST passes x8/480. FULL was terminated without a result at the
+mandatory 60-second process limit; do not claim a fresh FULL pass. Evidence:
+`art/renders/dream_irradiance_v1/README.md`. The audit's pre-C1 anchor appendix is
 superseded and does not reopen the landed commensal proof. Separately, waking-world
 commensals C1 is now landed: moths at the two owner-derived entry street lamps,
 one sparse F02 riser mouse cue through the shared ambience pool, one habituated

@@ -3,6 +3,7 @@ render_mode unshaded, cull_back;
 
 #include "res://shaders/dream_corruption_layers.gdshaderinc"
 #include "res://shaders/dream_phase_transition.gdshaderinc"
+#include "res://shaders/dream_irradiance.gdshaderinc"
 
 // THE BODY'S OWN GOLD, LIT ANALYTICALLY BY THE SERVICE LAMP.
 //
@@ -242,16 +243,6 @@ vec4 breach_interior(vec2 uv, vec2 view_shift, float phase) {
 
 
 void fragment() {
-	vec3 to_fragment = v_world - lamp_origin;
-	float distance_m = length(to_fragment);
-	vec3 ray = distance_m > 0.0001
-			? to_fragment / distance_m : vec3(0.0, 0.0, -1.0);
-	float cone = smoothstep(lamp_cos_outer,
-			mix(lamp_cos_outer, 1.0, 0.18), dot(ray, lamp_dir));
-	float reach = pow(1.0 - clamp(distance_m / max(0.5, lamp_reach),
-			0.0, 1.0), 0.62);
-	float awake = cone * reach * clamp(lamp_energy, 0.0, 1.35);
-
 	vec3 n = normalize(v_normal);
 	vec3 view_dir = normalize(CAMERA_POSITION_WORLD - v_world);
 	// A five-sided tube is deliberately faceted. Face the shading normal to
@@ -260,15 +251,20 @@ void fragment() {
 	if (dot(n, view_dir) < 0.0) {
 		n = -n;
 	}
+	float irradiance_y = clamp(v_world.y / max(0.001, exposure_height),
+			0.0625, 0.9375);
+	vec2 irradiance_field = texture(exposure_tex, vec3(
+			v_world.x / exposure_extent, v_world.z / exposure_extent,
+			irradiance_y)).rg;
+	vec4 irradiance = dream_irradiance(v_world, n, irradiance_field,
+			lamp_origin);
+	float awake = irradiance.w;
 	vec3 light_dir = normalize(lamp_origin - v_world);
 	float diffuse = 0.18 + 0.82 * max(dot(n, light_dir), 0.0);
 	vec3 half_dir = normalize(light_dir + view_dir);
 	float specular = pow(max(dot(n, half_dir), 0.0), 38.0);
 
-	float ex_y = clamp(v_world.y / max(0.001, exposure_height),
-			0.0625, 0.9375);
-	float exposed = texture(exposure_tex, vec3(v_world.x / exposure_extent,
-			v_world.z / exposure_extent, ex_y)).r;
+	float exposed = irradiance_field.r;
 	vec4 phase_state = dream_phase_state(exposed, phase_stage_thresholds,
 			phase_gold_thresholds);
 	float hammered = 0.78 + 0.22 * sin((v_world.x + v_world.z) * 31.0
@@ -350,10 +346,22 @@ void fragment() {
 	vec3 cooled_phase_gold = alloy * phase_gold_afterglow
 			* (0.72 + hammered * 0.28);
 	dormant = mix(dormant, cooled_phase_gold, phase_state.z * 0.72);
-	vec3 dark_body = dormant * max(0.0, dark_glow);
+	float genome_vein = pow(vein, mix(1.45, 0.70,
+			clamp(irradiance_vein_branch * 0.62, 0.0, 1.0)));
+	float anatomy_line = clamp(max(genome_vein,
+			pow(1.0 - abs(dot(n, view_dir)), 3.0) * 0.72), 0.0, 1.0);
+	vec3 neon_anatomy = dream_irradiance_hue(mix(deep_plum,
+			warm_gold, genome_vein * 0.42)) * anatomy_line * irradiance.x;
+	float genome_pulse = 0.96 + 0.04 * sin(TIME * TAU * 0.07
+			/ max(0.25, irradiance_viscosity) + irradiance_pulse_phase);
+	vec3 oblique_tissue = dream_irradiance_hue(living_tissue)
+			* irradiance.y * (0.28 + genome_vein * 0.54 + wetfilm * 0.18)
+			* genome_pulse;
+	vec3 dark_body = dormant * max(0.0, dark_glow) * 0.12
+			+ neon_anatomy * max(0.0, dark_glow) * 1.85;
 	vec3 lit_body = reflected * awake * 2.45;
 	ALBEDO = dark_body * mix(1.0, 1.80, clamp(organic_mix, 0.0, 1.0))
-			+ lit_body;
+			+ lit_body + oblique_tissue;
 	// This is the owner's explicit exception to the old zero-emission rule:
 	// a local afterglow that reveals the moving limb but cannot reveal the
 	// architecture around it. The lamp response still outweighs it several
@@ -362,7 +370,8 @@ void fragment() {
 	// aggressively.  The multiplier affects only the organism's own pixels:
 	// it cannot cast light onto the room, so raising it restores the ruled
 	// silhouette without inventing a second practical or waking the gold.
-	EMISSION = dark_body * 0.55 + lit_body * 0.035
+	EMISSION = dark_body * 0.55 + oblique_tissue * 0.12
+			+ lit_body * 0.035
 			+ cooled_phase_gold * phase_state.z
 			* (0.035 + vein * 0.065);
 
