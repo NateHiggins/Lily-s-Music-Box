@@ -114,7 +114,11 @@ FA-V4 closed 2026-08-21: DreamWalk's `F` names fauna instances collision-free
 from the director's own record, with a windowed `DREAM_WALK_PROBE` self-check
 (`art/renders/dream_fauna_fa4/README.md`); it also measured that Compatibility
 stores `INSTANCE_CUSTOM` as truncated half-floats, so only the packed HIGH
-byte is exact on the GPU.
+byte is exact on the GPU. H13's live presentation audit instrument landed the
+same day (`res://tests/PresentationAudit.tscn`, proof at
+`art/renders/presentation_audit_h13/README.md`): walls are closed by
+measurement, the corridor ceiling gap is the atrium light well, and the
+"lights disappear with direction" lead is neither gating nor culling.
 N12's shared profile makes delayed
 feedback physically load-bearing, then releases the oldest partition when one
 channel remains open. N13 lets two real branches return to one stable antique

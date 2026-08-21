@@ -7,6 +7,28 @@ Live log for the room-by-room pass. One line per finding:
 Placement and rendering findings from any session land here, one line each,
 with the instrument that produced the finding named in the symptom.
 
+## 2026-08-21 live presentation audit — first run of `PresentationAudit.tscn` (H13)
+
+Live-scene findings from `art/renders/presentation_audit_h13/README.md`
+(`presentation_audit.json` carries every row). Instrument: the named pass of
+`res://tests/PresentationAudit.tscn`. These supersede the 2026-08-20 data-sweep
+hypotheses they answer; generator fixes still wait for contended-file scheduling.
+
+| room | symptom | severity |
+|---|---|---|
+| kitchens 1A/1D/2A/3A/3D/4A/4C/5A/6A/6C | SUPPORT RAY: every `TOASTER_01` authored base sits 215 mm inside `F0x_furnish_hull` — one systematic marker-height offset, not ten placements. OVERLAP: toaster × kettle interpenetrate 133–152 mm in 1A, 1D, 3D, 4C, 6C. Same counter-slot lead as the data sweep, now with the live number | ugly |
+| ROOF | OVERLAP: `ROOF_VENT_FAN_B` stands 420 mm inside planter `roof_bed1` (and 50 mm into its soil) | ugly |
+| F01 bar / bodega (SITE) | SUPPORT RAY: `F01_KARAOKE_SPK_0` and `F01_BAR_SONGBOOK` have no collider within 0.5 m below their base; `F01_KARAOKE_SPK_1` base is 230 mm inside the hull; `F01_BODEGA_RADIO` base 50 mm into `retail_bod_floor`. OVERLAP: the songbook terminal cuts 45–60 mm into the bar dado and two gallery frames | ugly |
+| 6A | OVERLAP: three monitors cut 50–120 mm into `6A_deskwall` and its legs | ugly |
+| 2A / 2C / 4B | OVERLAP + SUPPORT: `F02_A_MONITOR_01` × `F02_A_LAMP_01` 56 mm and the lamp base 75 mm into `Service_2A_papers`; `F02_C_MONITOR_01` 50 mm into `2C_bench`; `F02_2C_STOVE_01` 55 mm into three hob-tape strips; `F04_B_STOVE_01` base 100 mm low; `F04_B_LAMP_01` 50 mm into `desk_legs` | wish |
+| 6D / 3D | OVERLAP: `F06_6D_SHOWER_01` × `6D_rolledrug` 154 mm; `F03_D_SPEAKER_01` recessed 50 mm into `3D_booth_n` (the booth/mirror residue family) | wish |
+| F02_D_BED, F02_D_OFFICE, F05_D_OFFICE, F04_B_CLOSET, F04_B_VESTIBULE | DENSITY CENSUS: zero dressing records inside the rect (2D's 27.7 m² bedroom holds one switch). Median is 0.54 records/m²; corridors F02–F06 sit at 0.08. Walk the bottom decile; "zero empty rooms" was true only when pipes and slats were counted | ugly |
+| corridors F02–F06 | ~~DATA COVERAGE SWEEP: 22% without a ceiling rect~~ CEILING RAYS 2026-08-21: the uncovered area is the atrium light well (by design) plus ONE grid point per floor that belongs to no room and finds nothing within 3.6 m — that single point is what remains to inspect. Every other ray meets the slab above at ceiling height, visible at standing eye | wish |
+| all floors | ~~1.4 m perimeter wall-gap rays~~ CLOSED 2026-08-21: 5,783 rays across every authored wall, 0 see-through samples | resolved |
+| F0x_C_BED2 (every floor) | CEILING RAYS: data covers 96%; the slab above closes the rest and is visible at standing eye — reads as bare ceiling, not a hole | info |
+| named OrbitSweep stations | ~~RUNTIME LEAD: lights reportedly disappear with view direction~~ ORBITSWEEP 2026-08-21, 8 stations × 36 frames: granted set is direction-blind (only `F01_STREETLAMP_04` flickers across the 0.05 energy line); granted lights with centre in view dropped by the culler: 0/288. Not gating, not rank churn, not culling. Remaining suspects are per-object light assignment on merged meshes and fixture flicker — look with `LightingDebugTest` room by room | ugly |
+| all rooms | STILLS: `WalkthroughShots` rerun wrote 182 frames (established count 183) — one diagonal fewer from the current layout; frames in the session scratchpad | info |
+
 ## 2026-08-21 dream fauna inspection (FA-V4)
 
 | room | symptom | severity |

@@ -1,0 +1,2135 @@
+{
+  "art": {
+    "blocked": [
+      "WallArt_jonah_words_missing",
+      "MemoryArt_landing_wors_1610",
+      "MemoryArt_landing_notice_1928",
+      "MemoryArt_landing_garment_memorial",
+      "MemoryArt_landing_pelargonium",
+      "MemoryArt_landing_stenographers",
+      "MemoryArt_landing_radio_club",
+      "MemoryArt_landing_roof_monitor"
+    ],
+    "pieces": 55,
+    "unbacked": [
+      "MemoryArt_jonah_listening_watercolor",
+      "MemoryArt_mae_young_cataloger",
+      "MemoryArt_landing_wors_1610",
+      "MemoryArt_landing_notice_1928",
+      "MemoryArt_landing_garment_memorial",
+      "MemoryArt_landing_pelargonium",
+      "MemoryArt_landing_stenographers",
+      "MemoryArt_landing_radio_club",
+      "MemoryArt_landing_roof_monitor"
+    ]
+  },
+  "ceilings": {
+    "rows": [
+      {
+        "above_visible_at_eye": true,
+        "closed": 2,
+        "data_coverage": 0.0,
+        "floor": "B1",
+        "kind": "atrium",
+        "none": 1,
+        "open_in": {
+          "no room": 1
+        },
+        "owners": {
+          "F01:F01_stairs_ramp": 4
+        },
+        "room": "B1_ATRIUM",
+        "tall": 2,
+        "verdict": "1/5 rays find nothing within 3.6 m above the eye (1 in no room) — open light well by design"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 2,
+        "data_coverage": 0.0,
+        "floor": "F01",
+        "kind": "atrium",
+        "none": 1,
+        "open_in": {
+          "no room": 1
+        },
+        "owners": {
+          "F02:F02_stairs_ramp": 4
+        },
+        "room": "F01_ATRIUM",
+        "tall": 2,
+        "verdict": "1/5 rays find nothing within 3.6 m above the eye (1 in no room) — open light well by design"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 5,
+        "data_coverage": 0.959821428571429,
+        "floor": "F02",
+        "kind": "bedroom",
+        "none": 0,
+        "open_in": {},
+        "owners": {
+          "F03:StaticBody3D": 5
+        },
+        "room": "F02_C_BED2",
+        "tall": 0,
+        "verdict": "data covers 96%; every ray still meets a surface at ceiling height, so the F03 slab underside closes the rest — VISIBLE at standing eye (reads as bare ceiling)"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 3,
+        "data_coverage": 0.791905768649955,
+        "floor": "F02",
+        "kind": "corridor",
+        "none": 2,
+        "open_in": {
+          "F02_ATRIUM": 1,
+          "no room": 1
+        },
+        "owners": {
+          "F03:StaticBody3D": 3
+        },
+        "room": "F02_CORRIDOR",
+        "tall": 0,
+        "verdict": "2/5 rays find nothing within 3.6 m above the eye (1 in F02_ATRIUM, 1 in no room) — 1 in the light well by design, 1 OUTSIDE it — check"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 2,
+        "data_coverage": 0.0,
+        "floor": "F02",
+        "kind": "atrium",
+        "none": 1,
+        "open_in": {
+          "F02_CORRIDOR": 1
+        },
+        "owners": {
+          "F03:F03_stairs_ramp": 4
+        },
+        "room": "F02_ATRIUM",
+        "tall": 2,
+        "verdict": "1/5 rays find nothing within 3.6 m above the eye (1 in F02_CORRIDOR) — open light well by design"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 5,
+        "data_coverage": 0.959821428571429,
+        "floor": "F03",
+        "kind": "bedroom",
+        "none": 0,
+        "open_in": {},
+        "owners": {
+          "F04:StaticBody3D": 5
+        },
+        "room": "F03_C_BED2",
+        "tall": 0,
+        "verdict": "data covers 96%; every ray still meets a surface at ceiling height, so the F04 slab underside closes the rest — VISIBLE at standing eye (reads as bare ceiling)"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 3,
+        "data_coverage": 0.791905768649955,
+        "floor": "F03",
+        "kind": "corridor",
+        "none": 2,
+        "open_in": {
+          "F03_ATRIUM": 1,
+          "no room": 1
+        },
+        "owners": {
+          "F04:StaticBody3D": 3
+        },
+        "room": "F03_CORRIDOR",
+        "tall": 0,
+        "verdict": "2/5 rays find nothing within 3.6 m above the eye (1 in F03_ATRIUM, 1 in no room) — 1 in the light well by design, 1 OUTSIDE it — check"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 2,
+        "data_coverage": 0.0,
+        "floor": "F03",
+        "kind": "atrium",
+        "none": 1,
+        "open_in": {
+          "F03_CORRIDOR": 1
+        },
+        "owners": {
+          "F04:F04_stairs_ramp": 4
+        },
+        "room": "F03_ATRIUM",
+        "tall": 2,
+        "verdict": "1/5 rays find nothing within 3.6 m above the eye (1 in F03_CORRIDOR) — open light well by design"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 5,
+        "data_coverage": 0.959821428571429,
+        "floor": "F04",
+        "kind": "bedroom",
+        "none": 0,
+        "open_in": {},
+        "owners": {
+          "F05:StaticBody3D": 5
+        },
+        "room": "F04_C_BED2",
+        "tall": 0,
+        "verdict": "data covers 96%; every ray still meets a surface at ceiling height, so the F05 slab underside closes the rest — VISIBLE at standing eye (reads as bare ceiling)"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 3,
+        "data_coverage": 0.791905768649955,
+        "floor": "F04",
+        "kind": "corridor",
+        "none": 2,
+        "open_in": {
+          "F04_ATRIUM": 1,
+          "no room": 1
+        },
+        "owners": {
+          "F05:StaticBody3D": 3
+        },
+        "room": "F04_CORRIDOR",
+        "tall": 0,
+        "verdict": "2/5 rays find nothing within 3.6 m above the eye (1 in F04_ATRIUM, 1 in no room) — 1 in the light well by design, 1 OUTSIDE it — check"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 2,
+        "data_coverage": 0.0,
+        "floor": "F04",
+        "kind": "atrium",
+        "none": 1,
+        "open_in": {
+          "F04_CORRIDOR": 1
+        },
+        "owners": {
+          "F05:F05_stairs_ramp": 4
+        },
+        "room": "F04_ATRIUM",
+        "tall": 2,
+        "verdict": "1/5 rays find nothing within 3.6 m above the eye (1 in F04_CORRIDOR) — open light well by design"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 5,
+        "data_coverage": 0.959821428571429,
+        "floor": "F05",
+        "kind": "bedroom",
+        "none": 0,
+        "open_in": {},
+        "owners": {
+          "F06:StaticBody3D": 5
+        },
+        "room": "F05_C_BED2",
+        "tall": 0,
+        "verdict": "data covers 96%; every ray still meets a surface at ceiling height, so the F06 slab underside closes the rest — VISIBLE at standing eye (reads as bare ceiling)"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 3,
+        "data_coverage": 0.791905768649955,
+        "floor": "F05",
+        "kind": "corridor",
+        "none": 2,
+        "open_in": {
+          "F05_ATRIUM": 1,
+          "no room": 1
+        },
+        "owners": {
+          "F06:StaticBody3D": 3
+        },
+        "room": "F05_CORRIDOR",
+        "tall": 0,
+        "verdict": "2/5 rays find nothing within 3.6 m above the eye (1 in F05_ATRIUM, 1 in no room) — 1 in the light well by design, 1 OUTSIDE it — check"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 2,
+        "data_coverage": 0.0,
+        "floor": "F05",
+        "kind": "atrium",
+        "none": 1,
+        "open_in": {
+          "F05_CORRIDOR": 1
+        },
+        "owners": {
+          "F06:F06_stairs_ramp": 4
+        },
+        "room": "F05_ATRIUM",
+        "tall": 2,
+        "verdict": "1/5 rays find nothing within 3.6 m above the eye (1 in F05_CORRIDOR) — open light well by design"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 5,
+        "data_coverage": 0.959821428571429,
+        "floor": "F06",
+        "kind": "bedroom",
+        "none": 0,
+        "open_in": {},
+        "owners": {
+          "ROOF:StaticBody3D": 5
+        },
+        "room": "F06_C_BED2",
+        "tall": 0,
+        "verdict": "data covers 96%; every ray still meets a surface at ceiling height, so the ROOF slab underside closes the rest — VISIBLE at standing eye (reads as bare ceiling)"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 3,
+        "data_coverage": 0.791905768649955,
+        "floor": "F06",
+        "kind": "corridor",
+        "none": 2,
+        "open_in": {
+          "F06_ATRIUM": 1,
+          "no room": 1
+        },
+        "owners": {
+          "ROOF:StaticBody3D": 3
+        },
+        "room": "F06_CORRIDOR",
+        "tall": 0,
+        "verdict": "2/5 rays find nothing within 3.6 m above the eye (1 in F06_ATRIUM, 1 in no room) — 1 in the light well by design, 1 OUTSIDE it — check"
+      },
+      {
+        "above_visible_at_eye": true,
+        "closed": 2,
+        "data_coverage": 0.0,
+        "floor": "F06",
+        "kind": "atrium",
+        "none": 3,
+        "open_in": {
+          "F06_CORRIDOR": 3
+        },
+        "owners": {
+          "ROOF:ROOF_stairs_ramp": 2
+        },
+        "room": "F06_ATRIUM",
+        "tall": 0,
+        "verdict": "3/5 rays find nothing within 3.6 m above the eye (3 in F06_CORRIDOR) — open light well by design"
+      }
+    ]
+  },
+  "density": {
+    "all": [
+      {
+        "area": 4.048,
+        "floor": "F02",
+        "kind": "office",
+        "per_m2": 0.0,
+        "records": 0,
+        "room": "F02_D_OFFICE"
+      },
+      {
+        "area": 27.676,
+        "floor": "F02",
+        "kind": "bedroom",
+        "per_m2": 0.0,
+        "records": 0,
+        "room": "F02_D_BED"
+      },
+      {
+        "area": 4.048,
+        "floor": "F05",
+        "kind": "office",
+        "per_m2": 0.0,
+        "records": 0,
+        "room": "F05_D_OFFICE"
+      },
+      {
+        "area": 2.07,
+        "floor": "F04",
+        "kind": "closet",
+        "per_m2": 0.0,
+        "records": 0,
+        "room": "F04_B_CLOSET"
+      },
+      {
+        "area": 2.75,
+        "floor": "F04",
+        "kind": "vestibule",
+        "per_m2": 0.0,
+        "records": 0,
+        "room": "F04_B_VESTIBULE"
+      },
+      {
+        "area": 85.7142,
+        "floor": "F01",
+        "kind": "storage",
+        "per_m2": 0.07000007000007,
+        "records": 6,
+        "room": "F01_STORAGE_C"
+      },
+      {
+        "area": 205.738,
+        "floor": "F04",
+        "kind": "corridor",
+        "per_m2": 0.0826293635594786,
+        "records": 17,
+        "room": "F04_CORRIDOR"
+      },
+      {
+        "area": 205.738,
+        "floor": "F02",
+        "kind": "corridor",
+        "per_m2": 0.0826293635594786,
+        "records": 17,
+        "room": "F02_CORRIDOR"
+      },
+      {
+        "area": 205.738,
+        "floor": "F05",
+        "kind": "corridor",
+        "per_m2": 0.0826293635594786,
+        "records": 17,
+        "room": "F05_CORRIDOR"
+      },
+      {
+        "area": 205.738,
+        "floor": "F06",
+        "kind": "corridor",
+        "per_m2": 0.0826293635594786,
+        "records": 17,
+        "room": "F06_CORRIDOR"
+      },
+      {
+        "area": 205.738,
+        "floor": "F03",
+        "kind": "corridor",
+        "per_m2": 0.0826293635594786,
+        "records": 17,
+        "room": "F03_CORRIDOR"
+      },
+      {
+        "area": 70.411,
+        "floor": "B1",
+        "kind": "electrical",
+        "per_m2": 0.0994162843873826,
+        "records": 7,
+        "room": "B1_ELECTRICAL"
+      },
+      {
+        "area": 42.25,
+        "floor": "F04",
+        "kind": "atrium",
+        "per_m2": 0.142011834319527,
+        "records": 6,
+        "room": "F04_ATRIUM"
+      },
+      {
+        "area": 42.25,
+        "floor": "F05",
+        "kind": "atrium",
+        "per_m2": 0.142011834319527,
+        "records": 6,
+        "room": "F05_ATRIUM"
+      },
+      {
+        "area": 42.25,
+        "floor": "F01",
+        "kind": "atrium",
+        "per_m2": 0.142011834319527,
+        "records": 6,
+        "room": "F01_ATRIUM"
+      },
+      {
+        "area": 42.25,
+        "floor": "F03",
+        "kind": "atrium",
+        "per_m2": 0.142011834319527,
+        "records": 6,
+        "room": "F03_ATRIUM"
+      },
+      {
+        "area": 42.25,
+        "floor": "F02",
+        "kind": "atrium",
+        "per_m2": 0.142011834319527,
+        "records": 6,
+        "room": "F02_ATRIUM"
+      },
+      {
+        "area": 42.25,
+        "floor": "F06",
+        "kind": "atrium",
+        "per_m2": 0.142011834319527,
+        "records": 6,
+        "room": "F06_ATRIUM"
+      },
+      {
+        "area": 27.676,
+        "floor": "F05",
+        "kind": "bedroom",
+        "per_m2": 0.144529556294262,
+        "records": 4,
+        "room": "F05_D_BED"
+      },
+      {
+        "area": 85.7142,
+        "floor": "B1",
+        "kind": "boiler",
+        "per_m2": 0.151666818333485,
+        "records": 13,
+        "room": "B1_BOILER"
+      },
+      {
+        "area": 42.735,
+        "floor": "F02",
+        "kind": "living",
+        "per_m2": 0.163800163800164,
+        "records": 7,
+        "room": "F02_D_MAIN"
+      },
+      {
+        "area": 74.888,
+        "floor": "B1",
+        "kind": "storage_cages",
+        "per_m2": 0.173592564896913,
+        "records": 13,
+        "room": "B1_STORAGE_CAGES"
+      },
+      {
+        "area": 5.64,
+        "floor": "B1",
+        "kind": "coal",
+        "per_m2": 0.177304964539007,
+        "records": 1,
+        "room": "B1_COAL"
+      },
+      {
+        "area": 58.0382,
+        "floor": "F03",
+        "kind": "living",
+        "per_m2": 0.189530343808044,
+        "records": 11,
+        "room": "F03_C_MAIN"
+      },
+      {
+        "area": 10.2921,
+        "floor": "F01",
+        "kind": "office",
+        "per_m2": 0.194323801750857,
+        "records": 2,
+        "room": "F01_OFFICE"
+      },
+      {
+        "area": 14.35,
+        "floor": "F01",
+        "kind": "hall",
+        "per_m2": 0.209059233449477,
+        "records": 3,
+        "room": "F01_HALL"
+      },
+      {
+        "area": 14.35,
+        "floor": "F03",
+        "kind": "hall",
+        "per_m2": 0.209059233449477,
+        "records": 3,
+        "room": "F03_HALL"
+      },
+      {
+        "area": 14.35,
+        "floor": "F05",
+        "kind": "hall",
+        "per_m2": 0.209059233449477,
+        "records": 3,
+        "room": "F05_HALL"
+      },
+      {
+        "area": 14.35,
+        "floor": "F02",
+        "kind": "hall",
+        "per_m2": 0.209059233449477,
+        "records": 3,
+        "room": "F02_HALL"
+      },
+      {
+        "area": 14.35,
+        "floor": "F06",
+        "kind": "hall",
+        "per_m2": 0.209059233449477,
+        "records": 3,
+        "room": "F06_HALL"
+      },
+      {
+        "area": 14.35,
+        "floor": "B1",
+        "kind": "hall",
+        "per_m2": 0.209059233449477,
+        "records": 3,
+        "room": "B1_HALL"
+      },
+      {
+        "area": 14.35,
+        "floor": "F04",
+        "kind": "hall",
+        "per_m2": 0.209059233449477,
+        "records": 3,
+        "room": "F04_HALL"
+      },
+      {
+        "area": 13.838,
+        "floor": "F03",
+        "kind": "bedroom",
+        "per_m2": 0.216794334441393,
+        "records": 3,
+        "room": "F03_C_BED1"
+      },
+      {
+        "area": 22.75,
+        "floor": "F03",
+        "kind": "utility",
+        "per_m2": 0.21978021978022,
+        "records": 5,
+        "room": "F03_UTILITY"
+      },
+      {
+        "area": 22.75,
+        "floor": "F05",
+        "kind": "utility",
+        "per_m2": 0.21978021978022,
+        "records": 5,
+        "room": "F05_UTILITY"
+      },
+      {
+        "area": 22.75,
+        "floor": "F02",
+        "kind": "utility",
+        "per_m2": 0.21978021978022,
+        "records": 5,
+        "room": "F02_UTILITY"
+      },
+      {
+        "area": 22.75,
+        "floor": "F04",
+        "kind": "utility",
+        "per_m2": 0.21978021978022,
+        "records": 5,
+        "room": "F04_UTILITY"
+      },
+      {
+        "area": 22.75,
+        "floor": "F06",
+        "kind": "utility",
+        "per_m2": 0.21978021978022,
+        "records": 5,
+        "room": "F06_UTILITY"
+      },
+      {
+        "area": 22.75,
+        "floor": "F01",
+        "kind": "utility",
+        "per_m2": 0.21978021978022,
+        "records": 5,
+        "room": "F01_UTILITY"
+      },
+      {
+        "area": 22.75,
+        "floor": "B1",
+        "kind": "utility",
+        "per_m2": 0.21978021978022,
+        "records": 5,
+        "room": "B1_UTILITY"
+      },
+      {
+        "area": 42.735,
+        "floor": "F06",
+        "kind": "living",
+        "per_m2": 0.234000234000234,
+        "records": 10,
+        "room": "F06_D_MAIN"
+      },
+      {
+        "area": 56.8172,
+        "floor": "B1",
+        "kind": "laundry",
+        "per_m2": 0.246404257865576,
+        "records": 14,
+        "room": "B1_LAUNDRY"
+      },
+      {
+        "area": 4.048,
+        "floor": "F06",
+        "kind": "office",
+        "per_m2": 0.24703557312253,
+        "records": 1,
+        "room": "F06_D_OFFICE"
+      },
+      {
+        "area": 42.735,
+        "floor": "F05",
+        "kind": "living",
+        "per_m2": 0.257400257400257,
+        "records": 11,
+        "room": "F05_D_MAIN"
+      },
+      {
+        "area": 27.676,
+        "floor": "F02",
+        "kind": "bedroom",
+        "per_m2": 0.289059112588524,
+        "records": 8,
+        "room": "F02_A_BED"
+      },
+      {
+        "area": 27.676,
+        "floor": "F04",
+        "kind": "bedroom",
+        "per_m2": 0.289059112588524,
+        "records": 8,
+        "room": "F04_A_BED"
+      },
+      {
+        "area": 27.676,
+        "floor": "F04",
+        "kind": "bedroom",
+        "per_m2": 0.289059112588524,
+        "records": 8,
+        "room": "F04_D_BED"
+      },
+      {
+        "area": 27.676,
+        "floor": "F01",
+        "kind": "bedroom",
+        "per_m2": 0.289059112588524,
+        "records": 8,
+        "room": "F01_A_BED"
+      },
+      {
+        "area": 27.676,
+        "floor": "F03",
+        "kind": "bedroom",
+        "per_m2": 0.289059112588524,
+        "records": 8,
+        "room": "F03_A_BED"
+      },
+      {
+        "area": 27.676,
+        "floor": "F06",
+        "kind": "bedroom",
+        "per_m2": 0.289059112588524,
+        "records": 8,
+        "room": "F06_D_BED"
+      },
+      {
+        "area": 27.676,
+        "floor": "F05",
+        "kind": "bedroom",
+        "per_m2": 0.289059112588524,
+        "records": 8,
+        "room": "F05_A_BED"
+      },
+      {
+        "area": 27.676,
+        "floor": "F01",
+        "kind": "bedroom",
+        "per_m2": 0.289059112588524,
+        "records": 8,
+        "room": "F01_D_BED"
+      },
+      {
+        "area": 27.676,
+        "floor": "F03",
+        "kind": "bedroom",
+        "per_m2": 0.32519150166209,
+        "records": 9,
+        "room": "F03_D_BED"
+      },
+      {
+        "area": 526.89,
+        "floor": "ROOF",
+        "kind": "roof",
+        "per_m2": 0.326443849759912,
+        "records": 172,
+        "room": "ROOF_OPEN"
+      },
+      {
+        "area": 8.6625,
+        "floor": "F03",
+        "kind": "alcove",
+        "per_m2": 0.346320346320346,
+        "records": 3,
+        "room": "F03_B_ALCOVE"
+      },
+      {
+        "area": 8.6625,
+        "floor": "F05",
+        "kind": "alcove",
+        "per_m2": 0.346320346320346,
+        "records": 3,
+        "room": "F05_B_ALCOVE"
+      },
+      {
+        "area": 8.6625,
+        "floor": "F02",
+        "kind": "alcove",
+        "per_m2": 0.346320346320346,
+        "records": 3,
+        "room": "F02_B_ALCOVE"
+      },
+      {
+        "area": 8.6625,
+        "floor": "F06",
+        "kind": "alcove",
+        "per_m2": 0.346320346320346,
+        "records": 3,
+        "room": "F06_B_ALCOVE"
+      },
+      {
+        "area": 13.838,
+        "floor": "F03",
+        "kind": "bedroom",
+        "per_m2": 0.361323890735655,
+        "records": 5,
+        "room": "F03_C_BED2"
+      },
+      {
+        "area": 27.676,
+        "floor": "F06",
+        "kind": "bedroom",
+        "per_m2": 0.361323890735655,
+        "records": 10,
+        "room": "F06_A_BED"
+      },
+      {
+        "area": 58.0382,
+        "floor": "F05",
+        "kind": "living",
+        "per_m2": 0.465210843892471,
+        "records": 27,
+        "room": "F05_C_MAIN"
+      },
+      {
+        "area": 58.0382,
+        "floor": "F04",
+        "kind": "living",
+        "per_m2": 0.499670906403024,
+        "records": 29,
+        "room": "F04_C_MAIN"
+      },
+      {
+        "area": 58.0382,
+        "floor": "F06",
+        "kind": "living",
+        "per_m2": 0.534130968913578,
+        "records": 31,
+        "room": "F06_C_MAIN"
+      },
+      {
+        "area": 42.25,
+        "floor": "B1",
+        "kind": "atrium",
+        "per_m2": 0.544378698224852,
+        "records": 23,
+        "room": "B1_ATRIUM"
+      },
+      {
+        "area": 31.1762,
+        "floor": "F02",
+        "kind": "living",
+        "per_m2": 0.577363501645486,
+        "records": 18,
+        "room": "F02_B_MAIN"
+      },
+      {
+        "area": 13.838,
+        "floor": "F05",
+        "kind": "bedroom",
+        "per_m2": 0.578118225177049,
+        "records": 8,
+        "room": "F05_C_BED2"
+      },
+      {
+        "area": 13.838,
+        "floor": "F04",
+        "kind": "bedroom",
+        "per_m2": 0.578118225177049,
+        "records": 8,
+        "room": "F04_C_BED2"
+      },
+      {
+        "area": 13.838,
+        "floor": "F05",
+        "kind": "bedroom",
+        "per_m2": 0.578118225177049,
+        "records": 8,
+        "room": "F05_C_BED1"
+      },
+      {
+        "area": 13.838,
+        "floor": "F04",
+        "kind": "bedroom",
+        "per_m2": 0.578118225177049,
+        "records": 8,
+        "room": "F04_C_BED1"
+      },
+      {
+        "area": 13.838,
+        "floor": "F02",
+        "kind": "bedroom",
+        "per_m2": 0.578118225177049,
+        "records": 8,
+        "room": "F02_C_BED2"
+      },
+      {
+        "area": 13.838,
+        "floor": "F06",
+        "kind": "bedroom",
+        "per_m2": 0.578118225177049,
+        "records": 8,
+        "room": "F06_C_BED1"
+      },
+      {
+        "area": 13.838,
+        "floor": "F06",
+        "kind": "bedroom",
+        "per_m2": 0.578118225177049,
+        "records": 8,
+        "room": "F06_C_BED2"
+      },
+      {
+        "area": 13.838,
+        "floor": "F02",
+        "kind": "bedroom",
+        "per_m2": 0.578118225177049,
+        "records": 8,
+        "room": "F02_C_BED1"
+      },
+      {
+        "area": 28.9952,
+        "floor": "F01",
+        "kind": "lobby",
+        "per_m2": 0.586303939962476,
+        "records": 17,
+        "room": "F01_LOBBY"
+      },
+      {
+        "area": 11.9301,
+        "floor": "F01",
+        "kind": "storage",
+        "per_m2": 0.586751158833538,
+        "records": 7,
+        "room": "F01_PACKAGE"
+      },
+      {
+        "area": 27.1575,
+        "floor": "F01",
+        "kind": "common",
+        "per_m2": 0.589155850133481,
+        "records": 16,
+        "room": "F01_COMMON_B"
+      },
+      {
+        "area": 23.4432,
+        "floor": "F02",
+        "kind": "storage",
+        "per_m2": 0.597188097188097,
+        "records": 14,
+        "room": "F02_WSTOR"
+      },
+      {
+        "area": 31.1762,
+        "floor": "F05",
+        "kind": "living",
+        "per_m2": 0.609439251736902,
+        "records": 19,
+        "room": "F05_B_MAIN"
+      },
+      {
+        "area": 31.1762,
+        "floor": "F06",
+        "kind": "living",
+        "per_m2": 0.609439251736902,
+        "records": 19,
+        "room": "F06_B_MAIN"
+      },
+      {
+        "area": 47.212,
+        "floor": "F04",
+        "kind": "living",
+        "per_m2": 0.614250614250614,
+        "records": 29,
+        "room": "F04_A_MAIN"
+      },
+      {
+        "area": 47.212,
+        "floor": "F03",
+        "kind": "living",
+        "per_m2": 0.635431669914428,
+        "records": 30,
+        "room": "F03_A_MAIN"
+      },
+      {
+        "area": 23.4432,
+        "floor": "F06",
+        "kind": "storage",
+        "per_m2": 0.63984438984439,
+        "records": 15,
+        "room": "F06_WSTOR"
+      },
+      {
+        "area": 23.4432,
+        "floor": "F04",
+        "kind": "storage",
+        "per_m2": 0.63984438984439,
+        "records": 15,
+        "room": "F04_WSTOR"
+      },
+      {
+        "area": 23.4432,
+        "floor": "F03",
+        "kind": "storage",
+        "per_m2": 0.63984438984439,
+        "records": 15,
+        "room": "F03_WSTOR"
+      },
+      {
+        "area": 16.9785,
+        "floor": "F02",
+        "kind": "kitchen",
+        "per_m2": 0.647878198898607,
+        "records": 11,
+        "room": "F02_B_KITCHEN"
+      },
+      {
+        "area": 16.9785,
+        "floor": "F06",
+        "kind": "kitchen",
+        "per_m2": 0.647878198898607,
+        "records": 11,
+        "room": "F06_B_KITCHEN"
+      },
+      {
+        "area": 22.7502,
+        "floor": "F04",
+        "kind": "living",
+        "per_m2": 0.659334862990215,
+        "records": 15,
+        "room": "F04_B_MAIN"
+      },
+      {
+        "area": 23.4432,
+        "floor": "F05",
+        "kind": "storage",
+        "per_m2": 0.682500682500683,
+        "records": 16,
+        "room": "F05_WSTOR"
+      },
+      {
+        "area": 47.212,
+        "floor": "F01",
+        "kind": "living",
+        "per_m2": 0.698974836905871,
+        "records": 33,
+        "room": "F01_A_MAIN"
+      },
+      {
+        "area": 42.735,
+        "floor": "F04",
+        "kind": "living",
+        "per_m2": 0.702000702000702,
+        "records": 30,
+        "room": "F04_D_MAIN"
+      },
+      {
+        "area": 16.9785,
+        "floor": "F05",
+        "kind": "kitchen",
+        "per_m2": 0.706776216980298,
+        "records": 12,
+        "room": "F05_B_KITCHEN"
+      },
+      {
+        "area": 4.048,
+        "floor": "F03",
+        "kind": "office",
+        "per_m2": 0.741106719367589,
+        "records": 3,
+        "room": "F03_D_OFFICE"
+      },
+      {
+        "area": 4.048,
+        "floor": "F04",
+        "kind": "office",
+        "per_m2": 0.741106719367589,
+        "records": 3,
+        "room": "F04_D_OFFICE"
+      },
+      {
+        "area": 4.048,
+        "floor": "F01",
+        "kind": "office",
+        "per_m2": 0.741106719367589,
+        "records": 3,
+        "room": "F01_D_OFFICE"
+      },
+      {
+        "area": 42.735,
+        "floor": "F01",
+        "kind": "living",
+        "per_m2": 0.748800748800749,
+        "records": 32,
+        "room": "F01_D_MAIN"
+      },
+      {
+        "area": 5.28,
+        "floor": "F03",
+        "kind": "bathroom",
+        "per_m2": 0.757575757575757,
+        "records": 4,
+        "room": "F03_C_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F05",
+        "kind": "bathroom",
+        "per_m2": 0.757575757575757,
+        "records": 4,
+        "room": "F05_C_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F06",
+        "kind": "bathroom",
+        "per_m2": 0.757575757575757,
+        "records": 4,
+        "room": "F06_C_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F04",
+        "kind": "bathroom",
+        "per_m2": 0.757575757575757,
+        "records": 4,
+        "room": "F04_C_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F02",
+        "kind": "bathroom",
+        "per_m2": 0.757575757575757,
+        "records": 4,
+        "room": "F02_C_BATH"
+      },
+      {
+        "area": 47.212,
+        "floor": "F05",
+        "kind": "living",
+        "per_m2": 0.826061170888757,
+        "records": 39,
+        "room": "F05_A_MAIN"
+      },
+      {
+        "area": 31.1762,
+        "floor": "F03",
+        "kind": "living",
+        "per_m2": 0.898121002559645,
+        "records": 28,
+        "room": "F03_B_MAIN"
+      },
+      {
+        "area": 47.212,
+        "floor": "F02",
+        "kind": "living",
+        "per_m2": 0.910785393544014,
+        "records": 43,
+        "room": "F02_A_MAIN"
+      },
+      {
+        "area": 16.9785,
+        "floor": "F03",
+        "kind": "kitchen",
+        "per_m2": 1.00126630738876,
+        "records": 17,
+        "room": "F03_B_KITCHEN"
+      },
+      {
+        "area": 47.212,
+        "floor": "F06",
+        "kind": "living",
+        "per_m2": 1.01669067186309,
+        "records": 48,
+        "room": "F06_A_MAIN"
+      },
+      {
+        "area": 58.0382,
+        "floor": "F02",
+        "kind": "living",
+        "per_m2": 1.05103190657188,
+        "records": 61,
+        "room": "F02_C_MAIN"
+      },
+      {
+        "area": 5.28,
+        "floor": "F03",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F03_D_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F02",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F02_A_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F04",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F04_A_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F04",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F04_B_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F06",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F06_A_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F03",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F03_A_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F04",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F04_D_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F01",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F01_D_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F05",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F05_A_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F05",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F05_D_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F01",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F01_A_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F02",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F02_D_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F03",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F03_B_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F02",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F02_B_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F06",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F06_B_BATH"
+      },
+      {
+        "area": 5.28,
+        "floor": "F05",
+        "kind": "bathroom",
+        "per_m2": 1.13636363636364,
+        "records": 6,
+        "room": "F05_B_BATH"
+      },
+      {
+        "area": 8.6625,
+        "floor": "F04",
+        "kind": "alcove",
+        "per_m2": 1.15440115440115,
+        "records": 10,
+        "room": "F04_B_ALCOVE"
+      },
+      {
+        "area": 42.735,
+        "floor": "F03",
+        "kind": "living",
+        "per_m2": 1.21680121680122,
+        "records": 52,
+        "room": "F03_D_MAIN"
+      },
+      {
+        "area": 5.28,
+        "floor": "F06",
+        "kind": "bathroom",
+        "per_m2": 1.32575757575758,
+        "records": 7,
+        "room": "F06_D_BATH"
+      },
+      {
+        "area": 3.325,
+        "floor": "F01",
+        "kind": "bathroom",
+        "per_m2": 1.80451127819549,
+        "records": 6,
+        "room": "F01_RESTROOM"
+      },
+      {
+        "area": 10.0485,
+        "floor": "F04",
+        "kind": "kitchen",
+        "per_m2": 1.89082947703637,
+        "records": 19,
+        "room": "F04_B_KITCHEN"
+      }
+    ],
+    "bottom_decile": [
+      {
+        "area": 4.048,
+        "floor": "F02",
+        "kind": "office",
+        "per_m2": 0.0,
+        "records": 0,
+        "room": "F02_D_OFFICE"
+      },
+      {
+        "area": 27.676,
+        "floor": "F02",
+        "kind": "bedroom",
+        "per_m2": 0.0,
+        "records": 0,
+        "room": "F02_D_BED"
+      },
+      {
+        "area": 4.048,
+        "floor": "F05",
+        "kind": "office",
+        "per_m2": 0.0,
+        "records": 0,
+        "room": "F05_D_OFFICE"
+      },
+      {
+        "area": 2.07,
+        "floor": "F04",
+        "kind": "closet",
+        "per_m2": 0.0,
+        "records": 0,
+        "room": "F04_B_CLOSET"
+      },
+      {
+        "area": 2.75,
+        "floor": "F04",
+        "kind": "vestibule",
+        "per_m2": 0.0,
+        "records": 0,
+        "room": "F04_B_VESTIBULE"
+      },
+      {
+        "area": 85.7142,
+        "floor": "F01",
+        "kind": "storage",
+        "per_m2": 0.07000007000007,
+        "records": 6,
+        "room": "F01_STORAGE_C"
+      },
+      {
+        "area": 205.738,
+        "floor": "F04",
+        "kind": "corridor",
+        "per_m2": 0.0826293635594786,
+        "records": 17,
+        "room": "F04_CORRIDOR"
+      },
+      {
+        "area": 205.738,
+        "floor": "F02",
+        "kind": "corridor",
+        "per_m2": 0.0826293635594786,
+        "records": 17,
+        "room": "F02_CORRIDOR"
+      },
+      {
+        "area": 205.738,
+        "floor": "F05",
+        "kind": "corridor",
+        "per_m2": 0.0826293635594786,
+        "records": 17,
+        "room": "F05_CORRIDOR"
+      },
+      {
+        "area": 205.738,
+        "floor": "F06",
+        "kind": "corridor",
+        "per_m2": 0.0826293635594786,
+        "records": 17,
+        "room": "F06_CORRIDOR"
+      },
+      {
+        "area": 205.738,
+        "floor": "F03",
+        "kind": "corridor",
+        "per_m2": 0.0826293635594786,
+        "records": 17,
+        "room": "F03_CORRIDOR"
+      },
+      {
+        "area": 70.411,
+        "floor": "B1",
+        "kind": "electrical",
+        "per_m2": 0.0994162843873826,
+        "records": 7,
+        "room": "B1_ELECTRICAL"
+      },
+      {
+        "area": 42.25,
+        "floor": "F04",
+        "kind": "atrium",
+        "per_m2": 0.142011834319527,
+        "records": 6,
+        "room": "F04_ATRIUM"
+      }
+    ],
+    "median_per_m2": 0.544378698224852,
+    "rooms": 127
+  },
+  "orbit": {
+    "stations": [
+      {
+        "centre_inside_dropped_fixtures": [],
+        "centre_inside_dropped_total": 0,
+        "frames": 36,
+        "granted_sets": 2,
+        "luma_max": [
+          0.65150759957926,
+          0.479269436886379,
+          0.43703283535794,
+          0.468883600669869,
+          0.484301367260952,
+          0.327828484471984
+        ],
+        "luma_min": [
+          0.0,
+          0.00266375085474392,
+          0.000767361389529197,
+          0.000000553002483684395,
+          0.00557849979226639,
+          0.000392732085521311
+        ],
+        "max_missing_box": 3,
+        "missing_box_fixtures": [
+          "1D_LT_SCONCE",
+          "F01_CORRIDOR_DOME_04",
+          "F01_STREETLAMP_06",
+          "F01_HALL_LT_FLUSH_DOME"
+        ],
+        "partial_fixtures": [
+          "F01_STREETLAMP_04 lit 1/36 frames (last energy 0.075)"
+        ],
+        "station": "lobby"
+      },
+      {
+        "centre_inside_dropped_fixtures": [],
+        "centre_inside_dropped_total": 0,
+        "frames": 36,
+        "granted_sets": 2,
+        "luma_max": [
+          0.325983837907883,
+          0.269843183441613,
+          0.390490192903884,
+          0.277590379411954,
+          0.275524839701333,
+          0.307740783205812
+        ],
+        "luma_min": [
+          0.0138876529467699,
+          0.0210810906502323,
+          0.00449739899244741,
+          0.0133500747584098,
+          0.0190581501587492,
+          0.00109752531835638
+        ],
+        "max_missing_box": 3,
+        "missing_box_fixtures": [
+          "F01_CORRIDOR_DOME_01",
+          "F01_CORRIDOR_DOME_04",
+          "1D_LT_SCONCE",
+          "F01_STORAGE_C_LT_CAGE_BULB",
+          "F01_CORRIDOR_DOME_03",
+          "F01_CORRIDOR_DOME_06",
+          "F01_UTILITY_LT_CAGE_BULB",
+          "1A_LT_SCONCE",
+          "F01_HALL_LT_FLUSH_DOME"
+        ],
+        "partial_fixtures": [
+          "F01_STREETLAMP_04 lit 33/36 frames (last energy 0.455)"
+        ],
+        "station": "atrium eye"
+      },
+      {
+        "centre_inside_dropped_fixtures": [],
+        "centre_inside_dropped_total": 0,
+        "frames": 36,
+        "granted_sets": 2,
+        "luma_max": [
+          0.373330202200517,
+          0.305238790834596,
+          0.311145680222021,
+          0.236070649472825,
+          0.189232839399609,
+          0.185565196343113
+        ],
+        "luma_min": [
+          0.0,
+          0.0,
+          0.000000553002483684395,
+          0.0,
+          0.0,
+          0.000000276501241842197
+        ],
+        "max_missing_box": 1,
+        "missing_box_fixtures": [
+          "F04_D_BED_LT_FLUSH_DOME"
+        ],
+        "partial_fixtures": [
+          "F01_STREETLAMP_04 lit 26/36 frames (last energy 0.054)"
+        ],
+        "station": "corridor F04"
+      },
+      {
+        "centre_inside_dropped_fixtures": [],
+        "centre_inside_dropped_total": 0,
+        "frames": 36,
+        "granted_sets": 1,
+        "luma_max": [
+          0.489871182843055,
+          0.471136001532734,
+          0.493240493727688,
+          0.28245740253314,
+          0.292057887226404,
+          0.301051613742083
+        ],
+        "luma_min": [
+          0.0362196867778759,
+          0.031656744070582,
+          0.0261795394563519,
+          0.0334650187470988,
+          0.0376629125534062,
+          0.0226586909834999
+        ],
+        "max_missing_box": 1,
+        "missing_box_fixtures": [
+          "F04_A_MAIN_LT_PENDANT_SHADE"
+        ],
+        "partial_fixtures": [],
+        "station": "apartment 4B"
+      },
+      {
+        "centre_inside_dropped_fixtures": [],
+        "centre_inside_dropped_total": 0,
+        "frames": 36,
+        "granted_sets": 1,
+        "luma_max": [
+          0.140271076195029,
+          0.157232391082337,
+          0.138981764770304,
+          0.077046754676414,
+          0.0662055886375981,
+          0.07291650741196
+        ],
+        "luma_min": [
+          0.0221015393915885,
+          0.0287338862486127,
+          0.0235164176817007,
+          0.00881508299199039,
+          0.0112907585327128,
+          0.00837236084984649
+        ],
+        "max_missing_box": 0,
+        "missing_box_fixtures": [],
+        "partial_fixtures": [],
+        "station": "roof"
+      },
+      {
+        "centre_inside_dropped_fixtures": [],
+        "centre_inside_dropped_total": 0,
+        "frames": 36,
+        "granted_sets": 1,
+        "luma_max": [
+          0.505725428686719,
+          0.43996626867047,
+          0.513145069650581,
+          0.454185618466312,
+          0.446750560589837,
+          0.528753214374503
+        ],
+        "luma_min": [
+          0.0000533647387890596,
+          0.0000527856944073392,
+          0.0000494937215674326,
+          0.0000257146153271606,
+          0.00000331801490210637,
+          0.000011336550521537
+        ],
+        "max_missing_box": 3,
+        "missing_box_fixtures": [
+          "F01_BAR_LT_WELL",
+          "F01_BAR_LT_CAN0",
+          "F01_BAR_LT_TAB2"
+        ],
+        "partial_fixtures": [],
+        "station": "harukiya"
+      },
+      {
+        "centre_inside_dropped_fixtures": [],
+        "centre_inside_dropped_total": 0,
+        "frames": 36,
+        "granted_sets": 1,
+        "luma_max": [
+          0.180107332636863,
+          0.159230277794408,
+          0.111504151360216,
+          0.246134578537711,
+          0.174808187107787,
+          0.0933123072611692
+        ],
+        "luma_min": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_missing_box": 1,
+        "missing_box_fixtures": [
+          "F01_BAR_LT_DECK1",
+          "F01_BAR_LT_DECK2",
+          "F01_BAR_LT_LOBBY"
+        ],
+        "partial_fixtures": [],
+        "station": "arcade cluster"
+      },
+      {
+        "centre_inside_dropped_fixtures": [],
+        "centre_inside_dropped_total": 0,
+        "frames": 36,
+        "granted_sets": 1,
+        "luma_max": [
+          0.311068486549162,
+          0.40694855307188,
+          0.302193996606736,
+          0.229926875474138,
+          0.217505499769957,
+          0.230345387295552
+        ],
+        "luma_min": [
+          0.000533913927000595,
+          0.000653138041729563,
+          0.000845661024161473,
+          0.000425759818101597,
+          0.000540419748499699,
+          0.000513703295078085
+        ],
+        "max_missing_box": 1,
+        "missing_box_fixtures": [
+          "PASSAGE_AISLE_LT_02"
+        ],
+        "partial_fixtures": [],
+        "station": "passage throat"
+      }
+    ],
+    "step_deg": 30.0
+  },
+  "overlap": {
+    "boxes": 2344,
+    "props": 453,
+    "rows": [
+      {
+        "a": "ROOF_VENT_FAN_B",
+        "at": "(-4.00, 19.41, -8.20)",
+        "b": "roof_bed1",
+        "class_a": "exhaust_fan",
+        "class_b": "roof_bed",
+        "depth": 0.420000076293945,
+        "floor": "ROOF",
+        "volume": 0.30284383893013
+      },
+      {
+        "a": "ROOF_VENT_FAN_B",
+        "at": "(-4.00, 19.63, -8.20)",
+        "b": "roof_bed1_soil",
+        "class_a": "exhaust_fan",
+        "class_b": "roof_bed1_soil",
+        "depth": 0.0499992370605469,
+        "floor": "ROOF",
+        "volume": 0.0360522791743279
+      },
+      {
+        "a": "F06_6D_SHOWER_01",
+        "at": "(6.18, 16.15, 5.37)",
+        "b": "6D_rolledrug",
+        "class_a": "shower",
+        "class_b": "rolledrug",
+        "depth": 0.154000282287598,
+        "floor": "F06",
+        "volume": 0.0155924716964364
+      },
+      {
+        "a": "F03_D_SPEAKER_01",
+        "at": "(11.38, 6.68, 4.25)",
+        "b": "3D_booth_n",
+        "class_a": "speaker",
+        "class_b": "booth_n",
+        "depth": 0.0500001907348633,
+        "floor": "F03",
+        "volume": 0.00945204496383667
+      },
+      {
+        "a": "F01_F01WC_SINK_01",
+        "at": "(-13.52, 0.81, -7.04)",
+        "b": "F01WC_towel",
+        "class_a": "sink",
+        "class_b": "F01WC_towel",
+        "depth": 0.0500001907348633,
+        "floor": "F01",
+        "volume": 0.0078301802277565
+      },
+      {
+        "a": "F02_A_MONITOR_01",
+        "at": "(-11.96, 3.93, 5.50)",
+        "b": "F02_A_LAMP_01",
+        "class_a": "monitor",
+        "class_b": "lamp",
+        "depth": 0.0564994812011719,
+        "floor": "F02",
+        "volume": 0.00699183205142617
+      },
+      {
+        "a": "F01_BODEGA_RADIO",
+        "at": "(16.54, 0.03, 10.55)",
+        "b": "retail_bod_floor",
+        "class_a": "speaker",
+        "class_b": "retail_bod_floor",
+        "depth": 0.0500000007450581,
+        "floor": "F01",
+        "volume": 0.00543150212615728
+      },
+      {
+        "a": "F01_BAR_SONGBOOK",
+        "at": "(-11.47, -1.82, 35.20)",
+        "b": "retail_bar_dado_w",
+        "class_a": "songbook_terminal",
+        "class_b": "retail_bar_dado_w",
+        "depth": 0.0600004196166992,
+        "floor": "F01",
+        "volume": 0.00534606678411365
+      },
+      {
+        "a": "F06_6C_TOASTER_01",
+        "at": "(5.94, 16.99, -2.03)",
+        "b": "F06_6C_KETTLE_01",
+        "class_a": "toaster",
+        "class_b": "kettle",
+        "depth": 0.151785492897034,
+        "floor": "F06",
+        "volume": 0.00444541079923511
+      },
+      {
+        "a": "F04_4C_TOASTER_01",
+        "at": "(5.94, 10.59, -2.03)",
+        "b": "F04_4C_KETTLE_01",
+        "class_a": "toaster",
+        "class_b": "kettle",
+        "depth": 0.151785492897034,
+        "floor": "F04",
+        "volume": 0.00444541079923511
+      },
+      {
+        "a": "F06_A_MONITOR_02",
+        "at": "(-12.85, 16.74, 5.05)",
+        "b": "6A_deskwall",
+        "class_a": "monitor",
+        "class_b": "deskwall",
+        "depth": 0.0499992370605469,
+        "floor": "F06",
+        "volume": 0.00386095582507551
+      },
+      {
+        "a": "F06_A_MONITOR_03",
+        "at": "(-12.85, 16.74, 4.05)",
+        "b": "6A_deskwall",
+        "class_a": "monitor",
+        "class_b": "deskwall",
+        "depth": 0.0499992370605469,
+        "floor": "F06",
+        "volume": 0.003860954195261
+      },
+      {
+        "a": "F03_3D_TOASTER_01",
+        "at": "(9.00, 7.39, 1.32)",
+        "b": "F03_3D_KETTLE_01",
+        "class_a": "toaster",
+        "class_b": "kettle",
+        "depth": 0.133000135421753,
+        "floor": "F03",
+        "volume": 0.00367771647870541
+      },
+      {
+        "a": "F01_1D_TOASTER_01",
+        "at": "(9.00, 0.99, 1.32)",
+        "b": "F01_1D_KETTLE_01",
+        "class_a": "toaster",
+        "class_b": "kettle",
+        "depth": 0.133000135421753,
+        "floor": "F01",
+        "volume": 0.00367771135643125
+      },
+      {
+        "a": "F01_1A_TOASTER_01",
+        "at": "(-8.02, 0.99, 0.77)",
+        "b": "F01_1A_KETTLE_01",
+        "class_a": "toaster",
+        "class_b": "kettle",
+        "depth": 0.133000075817108,
+        "floor": "F01",
+        "volume": 0.00367770972661674
+      },
+      {
+        "a": "F02_C_MONITOR_01",
+        "at": "(9.18, 3.95, -4.12)",
+        "b": "2C_bench",
+        "class_a": "monitor",
+        "class_b": "bench",
+        "depth": 0.0499999523162842,
+        "floor": "F02",
+        "volume": 0.0034155088942498
+      },
+      {
+        "a": "F06_A_MONITOR_01",
+        "at": "(-12.85, 16.74, 6.02)",
+        "b": "6A_deskwall",
+        "class_a": "monitor",
+        "class_b": "deskwall",
+        "depth": 0.0499992370605469,
+        "floor": "F06",
+        "volume": 0.00341545837000012
+      },
+      {
+        "a": "F06_A_MONITOR_01",
+        "at": "(-12.85, 16.63, 6.09)",
+        "b": "6A_dwleg_s",
+        "class_a": "monitor",
+        "class_b": "dwleg_s",
+        "depth": 0.119999885559082,
+        "floor": "F06",
+        "volume": 0.00307393306866288
+      },
+      {
+        "a": "F01_BAR_SONGBOOK",
+        "at": "(-11.46, -1.49, 35.20)",
+        "b": "retail_bar_gal21_art",
+        "class_a": "songbook_terminal",
+        "class_b": "retail_bar_gal21_art",
+        "depth": 0.0450000762939453,
+        "floor": "F01",
+        "volume": 0.0030068417545408
+      },
+      {
+        "a": "F04_B_LAMP_01",
+        "at": "(-8.38, 10.17, -6.00)",
+        "b": "desk_legs",
+        "class_a": "lamp",
+        "class_b": "desk_legs",
+        "depth": 0.0500001907348633,
+        "floor": "F04",
+        "volume": 0.00273002311587334
+      },
+      {
+        "a": "F06_A_MONITOR_03",
+        "at": "(-12.85, 16.63, 3.83)",
+        "b": "6A_dwleg_n",
+        "class_a": "monitor",
+        "class_b": "dwleg_n",
+        "depth": 0.0799996852874756,
+        "floor": "F06",
+        "volume": 0.00204928265884519
+      },
+      {
+        "a": "F02_2C_STOVE_01",
+        "at": "(5.85, 4.24, -2.68)",
+        "b": "2C_k_hob_tape2",
+        "class_a": "stove",
+        "class_b": "k_hob_tape",
+        "depth": 0.054999828338623,
+        "floor": "F02",
+        "volume": 0.0019359930884093
+      },
+      {
+        "a": "F02_2C_STOVE_01",
+        "at": "(5.96, 4.18, -2.60)",
+        "b": "2C_k_hob_tape1",
+        "class_a": "stove",
+        "class_b": "k_hob_tape",
+        "depth": 0.054999828338623,
+        "floor": "F02",
+        "volume": 0.0019359930884093
+      },
+      {
+        "a": "F02_2C_STOVE_01",
+        "at": "(5.77, 4.13, -2.52)",
+        "b": "2C_k_hob_tape0",
+        "class_a": "stove",
+        "class_b": "k_hob_tape",
+        "depth": 0.054999828338623,
+        "floor": "F02",
+        "volume": 0.0019359930884093
+      },
+      {
+        "a": "F01_BAR_SONGBOOK",
+        "at": "(-11.46, -1.49, 35.38)",
+        "b": "retail_bar_gal16_art",
+        "class_a": "songbook_terminal",
+        "class_b": "retail_bar_gal16_art",
+        "depth": 0.0450000762939453,
+        "floor": "F01",
+        "volume": 0.00149858428630978
+      }
+    ],
+    "same_class": 0,
+    "whitelisted": 49
+  },
+  "support": {
+    "checked": 91,
+    "rows": [
+      {
+        "at": "(-7.94, 0.90, 0.77)",
+        "floor": "F01",
+        "gap": -0.215000033378601,
+        "id": "F01_1A_TOASTER_01",
+        "kind": "toaster",
+        "reach_below": 0.0,
+        "support": "F01_furnish_hull",
+        "unit": "1A",
+        "verdict": "base sunk 215 mm into F01_furnish_hull"
+      },
+      {
+        "at": "(9.08, 0.90, 1.32)",
+        "floor": "F01",
+        "gap": -0.215000033378601,
+        "id": "F01_1D_TOASTER_01",
+        "kind": "toaster",
+        "reach_below": 0.0,
+        "support": "F01_furnish_hull",
+        "unit": "1D",
+        "verdict": "base sunk 215 mm into F01_furnish_hull"
+      },
+      {
+        "at": "(16.55, 0.00, 10.55)",
+        "floor": "F01",
+        "gap": -0.050000011920929,
+        "id": "F01_BODEGA_RADIO",
+        "kind": "speaker",
+        "reach_below": 0.0,
+        "support": "StaticBody3D",
+        "unit": "SITE",
+        "verdict": "base sunk 50 mm into StaticBody3D"
+      },
+      {
+        "at": "(-2.95, -1.90, 37.30)",
+        "floor": "F01",
+        "gap": null,
+        "id": "F01_KARAOKE_SPK_0",
+        "kind": "speaker",
+        "reach_below": 0.0,
+        "support": "",
+        "unit": "SITE",
+        "verdict": "no collider within 0.5 m below the base"
+      },
+      {
+        "at": "(1.45, -1.90, 37.30)",
+        "floor": "F01",
+        "gap": -0.230000019073486,
+        "id": "F01_KARAOKE_SPK_1",
+        "kind": "speaker",
+        "reach_below": 0.0,
+        "support": "F01_furnish_hull",
+        "unit": "SITE",
+        "verdict": "base sunk 230 mm into F01_furnish_hull"
+      },
+      {
+        "at": "(-11.34, -1.88, 35.20)",
+        "floor": "F01",
+        "gap": null,
+        "id": "F01_BAR_SONGBOOK",
+        "kind": "songbook_terminal",
+        "reach_below": 0.00499999523162842,
+        "support": "",
+        "unit": "SITE",
+        "verdict": "no collider within 0.5 m below the base"
+      },
+      {
+        "at": "(-7.94, 4.10, 0.77)",
+        "floor": "F02",
+        "gap": -0.215000152587891,
+        "id": "F02_2A_TOASTER_01",
+        "kind": "toaster",
+        "reach_below": 0.0,
+        "support": "F02_furnish_hull",
+        "unit": "2A",
+        "verdict": "base sunk 215 mm into F02_furnish_hull"
+      },
+      {
+        "at": "(-12.15, 3.96, 5.45)",
+        "floor": "F02",
+        "gap": -0.0749998092651367,
+        "id": "F02_A_LAMP_01",
+        "kind": "lamp",
+        "reach_below": 0.339999914169312,
+        "support": "Service_2A_papers",
+        "unit": "2A",
+        "verdict": "base sunk 75 mm into Service_2A_papers (mesh reaches 340 mm below the base)"
+      },
+      {
+        "at": "(-7.94, 7.30, 0.77)",
+        "floor": "F03",
+        "gap": -0.214999675750732,
+        "id": "F03_3A_TOASTER_01",
+        "kind": "toaster",
+        "reach_below": 0.0,
+        "support": "F03_furnish_hull",
+        "unit": "3A",
+        "verdict": "base sunk 215 mm into F03_furnish_hull"
+      },
+      {
+        "at": "(9.08, 7.30, 1.32)",
+        "floor": "F03",
+        "gap": -0.214999675750732,
+        "id": "F03_3D_TOASTER_01",
+        "kind": "toaster",
+        "reach_below": 0.0,
+        "support": "F03_furnish_hull",
+        "unit": "3D",
+        "verdict": "base sunk 215 mm into F03_furnish_hull"
+      },
+      {
+        "at": "(-7.94, 10.50, 0.77)",
+        "floor": "F04",
+        "gap": -0.215000152587891,
+        "id": "F04_4A_TOASTER_01",
+        "kind": "toaster",
+        "reach_below": 0.0,
+        "support": "F04_furnish_hull",
+        "unit": "4A",
+        "verdict": "base sunk 215 mm into F04_furnish_hull"
+      },
+      {
+        "at": "(-9.23, 9.60, -9.30)",
+        "floor": "F04",
+        "gap": -0.0999994277954102,
+        "id": "F04_B_STOVE_01",
+        "kind": "stove",
+        "reach_below": 0.0,
+        "support": "StaticBody3D",
+        "unit": "4B",
+        "verdict": "base sunk 100 mm into StaticBody3D"
+      },
+      {
+        "at": "(5.87, 10.50, -2.11)",
+        "floor": "F04",
+        "gap": -0.215000152587891,
+        "id": "F04_4C_TOASTER_01",
+        "kind": "toaster",
+        "reach_below": 0.0,
+        "support": "F04_furnish_hull",
+        "unit": "4C",
+        "verdict": "base sunk 215 mm into F04_furnish_hull"
+      },
+      {
+        "at": "(-7.94, 13.70, 0.77)",
+        "floor": "F05",
+        "gap": -0.215000152587891,
+        "id": "F05_5A_TOASTER_01",
+        "kind": "toaster",
+        "reach_below": 0.0,
+        "support": "F05_furnish_hull",
+        "unit": "5A",
+        "verdict": "base sunk 215 mm into F05_furnish_hull"
+      },
+      {
+        "at": "(-7.94, 16.90, 0.77)",
+        "floor": "F06",
+        "gap": -0.215000152587891,
+        "id": "F06_6A_TOASTER_01",
+        "kind": "toaster",
+        "reach_below": 0.0,
+        "support": "F06_furnish_hull",
+        "unit": "6A",
+        "verdict": "base sunk 215 mm into F06_furnish_hull"
+      },
+      {
+        "at": "(5.87, 16.90, -2.11)",
+        "floor": "F06",
+        "gap": -0.215000152587891,
+        "id": "F06_6C_TOASTER_01",
+        "kind": "toaster",
+        "reach_below": 0.0,
+        "support": "F06_furnish_hull",
+        "unit": "6C",
+        "verdict": "base sunk 215 mm into F06_furnish_hull"
+      }
+    ]
+  },
+  "walls": {
+    "gaps": 0,
+    "openings_skipped": 2234,
+    "rays": 5783,
+    "walls": []
+  }
+}
