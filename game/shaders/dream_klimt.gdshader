@@ -5,6 +5,48 @@ render_mode blend_mix, cull_back, diffuse_burley, specular_schlick_ggx;
 #include "res://shaders/dream_phase_transition.gdshaderinc"
 #include "res://shaders/dream_irradiance.gdshaderinc"
 #include "res://shaders/dream_incarnation.gdshaderinc"
+#include "res://shaders/dream_corruption_layers.gdshaderinc"
+
+// ---- EN-1b: THE RE-LAYERED DREAM (owner ruling 2026-08-21) -----------------
+// "A solid, physically grounded base with ethereal layers on top, not a wavy
+// golden shower curtain ... a purplish flesh golden skin and impossible
+// molten golden ... welds that work like portals." The five layers proved
+// as frames by the EN-1 probe (game/tests/dream_layers_probe.gdshader,
+// art/renders/dream_layers_en1/) now live HERE, after the ornament, the
+// incarnation surface and the anatomy — so everything above keeps its law
+// (unlit_reveal, the scar lock, the six incarnations) and the layers sit on
+// top of it:
+//   bit 1  BASE   where the field has not eaten the wall, the wall is the
+//                 wall: the real surface maps at full, not the 0.18x cold
+//                 substrate. Never on the eyes (a hazard still costs light).
+//   bit 2  FLESH  lobed purplish tissue grown from retained exposure.
+//   bit 4  SKIN   antique gold as a metallic skin over the flesh only.
+//   bit 8  WELD   the molten bead along the growth contour, emissive.
+//   bit 16 PORTAL the bead's core shows another place at high gold phase.
+// layer_mask 0 is the pre-EN-1b Klimt exactly (DREAM_LAYERS=0).
+uniform int layer_mask : hint_range(0, 31) = 31;
+uniform float base_ground : hint_range(0.0, 1.0) = 0.75;
+uniform vec3 flesh_deep : source_color = vec3(0.140, 0.030, 0.125);
+uniform vec3 flesh_body : source_color = vec3(0.420, 0.085, 0.300);
+uniform vec3 flesh_crest : source_color = vec3(0.620, 0.230, 0.470);
+uniform float flesh_cell_scale = 3.2;
+uniform float flesh_relief = 0.85;
+uniform float flesh_breath_hz = 0.07;
+uniform vec3 gold_leaf : source_color = vec3(0.760, 0.540, 0.205);
+uniform vec3 gold_tarnish : source_color = vec3(0.300, 0.190, 0.075);
+uniform float skin_roughness = 0.28;
+uniform float weld_level = 0.24;
+uniform float weld_width = 0.028;
+uniform float weld_glow = 1.1;
+uniform vec3 weld_red : source_color = vec3(0.45, 0.07, 0.02);
+uniform vec3 weld_orange : source_color = vec3(0.96, 0.42, 0.08);
+uniform vec3 weld_core : source_color = vec3(1.00, 0.88, 0.52);
+uniform float portal_open = 0.55;
+
+vec3 en_heat_colour(float t_heat) {
+	vec3 c = mix(weld_red, weld_orange, smoothstep(0.0, 0.55, t_heat));
+	return mix(c, weld_core, smoothstep(0.55, 1.0, t_heat));
+}
 
 // THE STOCLET FRIEZE, TAKEN APART AND HUNG ON THE ARCHITECTURE.
 //
@@ -1297,7 +1339,13 @@ void fragment() {
 	// Relief belongs to the solid converted wall, not only to the transient
 	// molten bowl. Assign the complete normal at every stage; every non-base
 	// term above is already explicitly gated by conversion or melt.
-	NORMAL = bumped;
+	// NORMAL is VIEW space. `bumped` is world space (v_normal is the model
+	// normal taken into world in vertex()); writing it raw lit every wall
+	// with a normal that only agreed with the camera by accident, which is
+	// why the real lamp never seemed to reach the plaster and the waking had
+	// to be made emissive. EN-1b 2026-08-21: converted, so the grounded base
+	// is lit by the service lamp the way the EN-1 probe was.
+	NORMAL = normalize((VIEW_MATRIX * vec4(bumped, 0.0)).xyz);
 	// The reflection rides on EMISSION because Compatibility gives a shader no
 	// other way to put an environment on a surface. It is gated by `molten`,
 	// which is gated by heat, so it appears only where the lamp is -- the gold
@@ -1382,6 +1430,161 @@ void fragment() {
 			+ vec3(0.10, 0.045, 0.01) * irradiance.z;
 		EMISSION = mix(EMISSION, mina_emission, mina_signature_gate);
 	}
+	// ---- EN-1b: the re-layered dream, over everything above ----------------
+	if (layer_mask != 0) {
+		vec3 en_view = normalize(CAMERA_POSITION_WORLD - v_world);
+		float en_ndv = clamp(dot(n, en_view), 0.0, 1.0);
+		float en_retained = clamp(field * exposure_gain, 0.0, 1.0);
+		float en_lobes = dream_corruption_fbm3(v_world * 1.7 + 3.1) - 0.5;
+		float en_drive = clamp(en_retained + en_lobes * 0.18
+				* smoothstep(0.05, 0.14, en_retained), 0.0, 1.0);
+		vec4 en_phase = dream_phase_state(en_drive, phase_stage_thresholds,
+				phase_gold_thresholds);
+		vec3 en_bent = bumped;
+		vec3 en_albedo = ALBEDO;
+		float en_rough = ROUGHNESS;
+		float en_metal = METALLIC;
+		float en_spec = SPECULAR;
+		vec3 en_emission = EMISSION;
+
+		// bit 1: the wall is the wall where nothing has eaten it.
+		if ((layer_mask & 1) != 0 && motif != MOTIF_EYE) {
+			// Not gated on `responds`: a scar shows no gold ever, but it is
+			// still a wall, and the wall is what the lamp lights.
+			float en_ground = base_ground * (1.0 - eaten) * (1.0 - woken * 0.5);
+			// The RAW plate at the UNWARPED world-box UV, not the incarnation's
+			// translation of it through the melt-dragged coordinate: the
+			// incarnation is what the eaten surface became; the wall that
+			// nothing has eaten is the photographed wall, still.
+			vec2 en_bq = v_world.xy;
+			if (w.y > w.x && w.y > w.z) {
+				en_bq = v_world.xz;
+			} else if (w.x > w.z) {
+				en_bq = v_world.zy;
+			}
+			vec2 en_uv = en_bq / max(0.05, base_tile_m);
+			vec3 en_surface = texture(base_albedo, en_uv).rgb;
+			float en_srough = texture(base_rough, en_uv).r;
+			vec3 en_sn = texture(base_normal, en_uv).rgb * 2.0 - 1.0;
+			en_albedo = mix(en_albedo, en_surface * 0.92, en_ground);
+			en_rough = mix(en_rough, en_srough, en_ground);
+			// Its own relief, not the melt's: the wall's trowel marks.
+			vec3 en_base_n = normalize(n + (tan_a * en_sn.x + tan_b * en_sn.y) * 0.42);
+			en_bent = normalize(mix(en_bent, en_base_n, en_ground));
+			en_metal = mix(en_metal, 0.0, en_ground);
+			en_emission *= 1.0 - en_ground * 0.6;
+		}
+
+		// bit 2: flesh.
+		float en_flesh = 0.0;
+		if ((layer_mask & 2) != 0) {
+			float en_breath = 0.5 + 0.5 * sin(TIME * 6.2831853 * flesh_breath_hz
+					+ v_world.x * 0.7);
+			vec3 en_fp = v_world * flesh_cell_scale;
+			float en_cells = dream_corruption_cells(en_fp, TIME, 0.0);
+			float en_folds = dream_corruption_folds(en_fp * 0.8, TIME, 0.3);
+			float en_vessels = dream_corruption_vessels(en_fp * 1.4, 0.2, 0.93);
+			float en_wet = dream_corruption_wetfilm(en_fp * 1.1, TIME, 0.1);
+			float en_cover = smoothstep(0.10, 0.36, en_drive)
+					* (0.45 + 0.55 * smoothstep(0.36, 0.80, en_drive));
+			en_flesh = smoothstep(0.58 - en_cover * 0.42, 0.64 - en_cover * 0.42,
+					en_cells * 0.7 + en_lobes * 0.6 + 0.3);
+			en_flesh *= smoothstep(0.08, 0.18, en_drive) * responds;
+			vec3 en_tissue = mix(flesh_deep, flesh_body, smoothstep(0.25, 0.75, en_cells));
+			en_tissue = mix(en_tissue, flesh_crest, en_folds * 0.55);
+			en_tissue = mix(en_tissue, flesh_deep * 0.6, en_vessels * 0.6);
+			en_tissue += flesh_body * pow(1.0 - en_ndv, 2.6) * 0.32 * (0.8 + 0.2 * en_breath);
+			en_albedo = mix(en_albedo, en_tissue, en_flesh);
+			en_rough = mix(en_rough, mix(0.55, 0.24, en_wet), en_flesh);
+			en_metal = mix(en_metal, 0.0, en_flesh);
+			en_spec = mix(en_spec, 0.62, en_flesh);
+			// Flesh does not glow; its vessels do, faintly, under the lamp.
+			en_emission = mix(en_emission, flesh_crest * en_vessels * 0.12 * heat, en_flesh);
+			float en_e = 0.012;
+			float en_c0 = en_cells + en_folds * 0.8;
+			float en_cx = dream_corruption_cells(en_fp + vec3(en_e, 0.0, 0.0), TIME, 0.0)
+					+ dream_corruption_folds((en_fp + vec3(en_e, 0.0, 0.0)) * 0.8, TIME, 0.3) * 0.8;
+			float en_cy = dream_corruption_cells(en_fp + vec3(0.0, en_e, 0.0), TIME, 0.0)
+					+ dream_corruption_folds((en_fp + vec3(0.0, en_e, 0.0)) * 0.8, TIME, 0.3) * 0.8;
+			vec3 en_flesh_n = (tan_a * (en_cx - en_c0) + tan_b * (en_cy - en_c0)) * 5.0 * flesh_relief;
+			en_bent = normalize(mix(en_bent, normalize(n + en_flesh_n), en_flesh));
+		}
+
+		// bit 4: gold skin, over the flesh only.
+		float en_skin = 0.0;
+		if ((layer_mask & 4) != 0) {
+			float en_leaf_field = dream_corruption_fbm3(v_world * 2.3 + 9.0);
+			float en_skin_drive = smoothstep(0.28, 0.72, en_drive);
+			en_skin = smoothstep(0.50, 0.58, en_leaf_field * 0.6 + en_skin_drive * 0.62) * en_flesh;
+			vec2 en_sheet = floor(base_q / leaf_sheet_m);
+			float en_sheet_h = fract(sin(dot(en_sheet, vec2(127.1, 311.7))) * 43758.5453);
+			float en_hammer = dream_corruption_noise3(v_world * 18.0);
+			float en_edge = smoothstep(0.50, 0.64, en_leaf_field * 0.6 + en_skin_drive * 0.62);
+			vec3 en_gold = mix(gold_tarnish, gold_leaf, 0.35 + 0.65 * en_edge);
+			en_gold *= 0.97 + 0.03 * en_sheet_h;
+			en_albedo = mix(en_albedo, en_gold, en_skin);
+			en_metal = mix(en_metal, 1.0, en_skin);
+			en_rough = mix(en_rough, skin_roughness + 0.06 * en_sheet_h + 0.05 * en_hammer, en_skin);
+			en_spec = mix(en_spec, 0.9, en_skin);
+			// Gold leaf is not a light source: the skin covers the glow.
+			en_emission *= 1.0 - en_skin * 0.85;
+			float en_he = 0.02;
+			float en_h0 = en_hammer;
+			float en_hx = dream_corruption_noise3((v_world + tan_a * en_he) * 18.0);
+			float en_hy = dream_corruption_noise3((v_world + tan_b * en_he) * 18.0);
+			vec3 en_skin_n = (tan_a * (en_hx - en_h0) + tan_b * (en_hy - en_h0)) * 0.5;
+			en_bent = normalize(mix(en_bent, normalize(n + en_skin_n), en_skin));
+		}
+
+		// bit 8: the weld.
+		float en_bead = 0.0;
+		if ((layer_mask & 8) != 0) {
+			float en_d = (en_drive - weld_level) / max(0.005, weld_width);
+			en_bead = exp(-en_d * en_d) * responds;
+			float en_along = dream_corruption_fbm3(v_world * 3.3
+					+ vec3(TIME * 0.08, 0.0, -TIME * 0.05));
+			float en_core = en_bead * (0.70 + 0.30 * en_along);
+			vec3 en_hc = en_heat_colour(en_core);
+			en_albedo = mix(en_albedo, en_hc * 0.25, en_bead);
+			en_metal = mix(en_metal, 1.0, en_bead);
+			en_rough = mix(en_rough, 0.12, en_bead);
+			en_spec = mix(en_spec, 0.95, en_bead);
+			float en_pulse = 0.92 + 0.08 * sin(TIME * 0.63 + v_world.y * 2.0);
+			en_emission += en_hc * en_core * weld_glow * en_pulse;
+			float en_be = 0.03;
+			float en_dx = texture(exposure_tex, vec3((v_world.x + en_be * tan_a.x) / exposure_extent,
+					(v_world.z + en_be * tan_a.z) / exposure_extent, irradiance_y)).r - field;
+			float en_dy = texture(exposure_tex, vec3((v_world.x + en_be * tan_b.x) / exposure_extent,
+					(v_world.z + en_be * tan_b.z) / exposure_extent, irradiance_y)).r - field;
+			vec3 en_bulge = (tan_a * en_dx + tan_b * en_dy) * sign(en_drive - weld_level) * 60.0 * en_bead;
+			en_bent = normalize(mix(en_bent, normalize(n - en_bulge), en_bead * 0.8));
+		}
+
+		// bit 16: the portal in the bead's core.
+		if ((layer_mask & 16) != 0) {
+			float en_open = en_bead * smoothstep(portal_open - 0.12, portal_open + 0.12,
+					en_phase.z + en_drive * 0.3) * smoothstep(0.55, 0.9, en_bead);
+			vec3 en_r = reflect(-en_view, en_bent);
+			float en_ang = TIME * 0.04;
+			vec3 en_rr = vec3(en_r.x * cos(en_ang) - en_r.z * sin(en_ang), en_r.y,
+					en_r.x * sin(en_ang) + en_r.z * cos(en_ang));
+			vec2 en_eq = vec2(atan(en_rr.z, en_rr.x) / 6.2831853 + 0.5,
+					acos(clamp(en_rr.y, -1.0, 1.0)) / 3.14159265);
+			vec3 en_elsewhere = texture(reflected_world, en_eq).rgb;
+			en_albedo = mix(en_albedo, en_elsewhere * 0.6, en_open);
+			en_emission = mix(en_emission, en_elsewhere * 1.4, en_open);
+			en_metal = mix(en_metal, 0.0, en_open);
+			en_rough = mix(en_rough, 0.5, en_open);
+		}
+
+		ALBEDO = en_albedo;
+		ROUGHNESS = clamp(en_rough, 0.0, 1.0);
+		METALLIC = clamp(en_metal, 0.0, 1.0);
+		SPECULAR = en_spec;
+		EMISSION = en_emission;
+		NORMAL = normalize((VIEW_MATRIX * vec4(en_bent, 0.0)).xyz);
+	}
+
 	// R6 CAMERA-LOCAL READABILITY. The view portal's shared-world camera is
 	// the only camera which excludes presentation layer 20. That bit is a
 	// render-pass identity, not a new material state: it lets the existing room

@@ -2226,7 +2226,15 @@ curtain"); the critters get detailed textures built from the plates already
 made. The brief holds the verbatim ruling, the five-layer model and the order.
 
 - **EN-1 — THE LAYER MODEL AS FRAMES (FRAMES DELIVERED 2026-08-21; awaiting the owner's read).** `DreamLayersShot.tscn` photographs the shipping Klimt surface and the EN-1 probe surface (`game/tests/dream_layers_probe.gdshader`: unwarped PBR base, wine/plum flesh with an edge, gold as a torn metallic skin over the flesh, a molten heat-gradient weld bead along the growth contour, a portal core in the bead) from one camera at latent/mid/high retained exposure, one layer at a time. The probe stack costs 0.70 ms GPU against the Klimt's 0.88 at the same state, no added draw. Sheet, frames, costs and what it does not decide: `art/renders/dream_layers_en1/README.md`. Next when accepted: re-skin the limbs/body from the same layers, then promote into `dream_klimt.gdshader` keeping motif only as wayfinding.
-- **EN-1b — PROMOTE THE LAYER STACK (OPEN; analysed 2026-08-21).** Not a
+- **EN-1b DONE 2026-08-21 — THE LAYER STACK IN THE KLIMT SURFACE.** Merged
+  into `dream_klimt.gdshader` after the ornament, incarnation and anatomy:
+  base (raw plate, unwarped UV, own relief, not scar-gated, never on the
+  eyes), flesh, skin, weld, portal from the probe; `layer_mask` 31 default,
+  `DREAM_LAYERS=0` the pre-merge control. Found and fixed: Klimt wrote a
+  world-space normal into NORMAL (view space) — the reason the lamp never
+  reached the plaster. All dream contracts PASS;
+  `art/renders/dream_layers_en1b/README.md`. The analysis that chose the
+  merge follows. Not a
   switch: `_klimt_material` (dream_maze_builder.gd:634) could return the
   EN-1 probe with the same mapping `DreamLayersShot._swap_to_probe` uses
   (base maps, tile, exposure_gain), and the collector already feeds it —
@@ -2241,7 +2249,12 @@ made. The brief holds the verbatim ruling, the five-layer model and the order.
   0.70 ms vs Klimt 0.88 at the EN-1 stand. `DREAM_PLAIN=1` stays the
   control. Gates: DreamFaunaTest, the six incarnation tests, DreamWalk,
   DreamLayersShot (accept either shader name), perf_probe's Klimt count.
-- **EN-2 — WELDS (OPEN, AFTER EN-1b).** Molten golden seams along fold lines, the portal-opening rule at high exposure, R6's bounded camera placed by the weld vocabulary; still depth zero, still non-enterable.
+- **EN-2 — WELDS (OPEN, NEXT).** The bead and the portal core are in the
+  production surface now; EN-2 is the portal-opening rule tied to R6's
+  bounded camera (replace the reflected-world stand-in with the live feed
+  where the core is open), the weld vocabulary placing that camera, and the
+  perf row (trim the ornament where the layers cover it: merged high 2.1–2.4
+  ms vs probe 0.65). Molten golden seams along fold lines, the portal-opening rule at high exposure, R6's bounded camera placed by the weld vocabulary; still depth zero, still non-enterable.
 - **EN-3 — FOLDS (OPEN, AFTER EN-1).** Bounded geometry-side folding inside the Atlas's promise; Gate C clamps re-run.
 - **WK-1 DONE 2026-08-21 — THE FLATS FEEL THE ENCROACHMENT.** `ApartmentEncroachment` (presentation only, built by `BuildingRoot`) gives every case unit's perimeter finish quads `wall_encroachment.gdshader`: the same finish plus the case's first three plates as a creep clipped to the unit rect — the wicking substance rising from skirting and corners (restoring plaster over bare brick as a membrane), gilt along the torn survival edge, calm blanks at the late stage — driven by case stage, lifted by manifestation, settling to a residue when resolved; the authored anomaly prop is the beachhead. All six cases register (22 finish surfaces); `ENCROACH=0` / `ENCROACH_FORCE=mina:0.8` for A/B and frames. `ApartmentEncroachmentTest` 13/13. **In passing it found and fixed a builder bug:** perimeter finish quads faced into the brick on every side but west, so most of the building's plaster finishes had never rendered (punchlist 2026-08-21). Frames: `art/renders/apartment_encroachment_wk1/README.md`.
 - **CT-1 — FAMILY SKIN ATLASES (OPEN).** Per-family packed skins for the landed five, built by script from the thirty dream plates and mapped to the part kit's authored regions; reviewed in the three-light harness. **CT-2** follows for each FA3 family as its part kit lands (FA3 is now licensed by the ruling).

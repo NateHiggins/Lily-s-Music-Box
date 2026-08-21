@@ -8,6 +8,8 @@ extends Node
 const SHADER_PATHS := [
 	"res://shaders/orison_surface.gdshader",
 	"res://shaders/orison_surface_cutout.gdshader",
+	"res://shaders/dream_klimt.gdshader",
+	"res://shaders/dream_fauna.gdshader",
 ]
 
 

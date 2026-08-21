@@ -715,4 +715,11 @@ static func _klimt_material(color: Color, roughness: float,
 	var plate: Texture2D = load(REFLECTED_WORLD_PATH)
 	if plate != null:
 		material.set_shader_parameter("reflected_world", plate)
+	# EN-1b (owner ruling 2026-08-21): the re-layered dream is the shipping
+	# look; DREAM_LAYERS=0 is the pre-EN-1b Klimt for A/B frames and perf,
+	# DREAM_LAYERS=<mask> photographs a subset (1 base, 2 flesh, 4 skin,
+	# 8 weld, 16 portal).
+	var layers_env := OS.get_environment("DREAM_LAYERS")
+	if not layers_env.is_empty():
+		material.set_shader_parameter("layer_mask", clampi(int(layers_env), 0, 31))
 	return material

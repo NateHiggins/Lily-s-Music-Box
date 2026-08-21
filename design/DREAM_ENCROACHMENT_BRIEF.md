@@ -42,6 +42,8 @@ Read as five decisions:
    interplanar *welds* — the seams where folded reality has been fused —
    that shift and behave as portals. The gold is a skin over flesh, not a
    curtain over plaster.
+5. *(Decision 4 is in production since 2026-08-21 — EN-1b,
+   `art/renders/dream_layers_en1b/README.md`.)*
 5. **The critters get real textures**, built from the plates already made
    (no new generation is available while the image lane is out), for the
    landed five and the sketched FA3 families.
