@@ -1508,6 +1508,21 @@ unresolved. K7's source-backed loop contract is closed in
   or the separately priced, still-unbuilt enterable RECURSION fault. Governing
   contract: `design/DREAM_REPRODUCTIVE_PATH_BRIEF.md`.
 
+## FA — Dream fauna (PROPOSAL; BLOCKED ON OWNER RULINGS)
+
+- **FA0 — RULING GATE.** Rule the five questions in
+  `design/DREAM_FAUNA_BRIEF.md`: presentation owner, bestiary/register,
+  harmless v1, R6 visibility, and F1/budgets. No fauna implementation is
+  licensed before this gate closes.
+- **FA1 — MINIMUM PROVABLE SLICE, NOT STARTED.** If FA0 closes, build only
+  Gilder's Buttons and Tessellates: one fixed-rate density owner, real
+  birth-frame emergence, lamp feeding, death/reabsorption and Tenant hush.
+  Require deterministic headless proof, production A/A controls and measured
+  draw/frame cost before adding another family.
+- **FA2–FA4 — DEFERRED BREADTH.** Trophic loop/Loupe, succession and
+  hyperdimensional families, then separately ruled audio. Dangerous fauna are
+  excluded and require a future Gate-C-priced `DreamHazard` ruling.
+
 ## M — Materials and textures
 
 - **M1** Supertiles and stable per-wall UV offsets. Explicitly **not** part of
