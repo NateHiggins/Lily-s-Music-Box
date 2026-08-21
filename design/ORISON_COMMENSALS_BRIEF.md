@@ -1,8 +1,9 @@
 # ORISON COMMENSALS — WAKING-WORLD VERMIN, BIRDS AND INVASIVE FLORA
 
-**PROPOSAL — NOT CANON UNTIL RULED.** Owner-directed, 2026-08-20. This is the
-waking-world sibling of the dream-fauna proposal. Species, numbers, ownership
-and fiction claims below are recommendations; §10 is the required ruling gate.
+**RULED FOR BOUNDED C1 PRODUCTION — 2026-08-20.** This is the waking-world
+sibling of dream fauna. The owner approved the seven-part adversarial package
+recorded in §10, including the C1-without-generator correction. Later breadth
+remains gated exactly as stated.
 Research citations and repository observations in the source advisory were
 made against `d15a48f` and must be refreshed before implementation.
 
@@ -70,9 +71,9 @@ Persistence arrives only with C3 by riding §E's anchor state.
 
 `CommensalDirector` and `PoltergeistLibrary` are separate owners. Vermin audio
 never patterns on the motif: no short-short-pause-long cadence and no fifth
-position. Assert that boundary programmatically. A separately ruled, one-way
-hook may let haunting request a presentation-only hush or flush as a deniable
-precursor; commensal behavior never confirms or denies a haunting.
+position. Assert that boundary programmatically. The proposed haunting-requested
+hush/flush hook is rejected; commensal behavior never confirms or denies a
+haunting.
 
 ## 3. Architecture
 
@@ -81,9 +82,11 @@ owns the per-shift pressure pass, per-zone MultiMesh sets, event scheduler and
 stimulus rules. Like Passage carts, physics/collision/render submissions freeze
 when another zone owns the frame; indoor work respects per-floor visibility.
 
-Anchors are generated facts. `gen_layout.py` emits marker kind, species affinity
-and validated run-lines just as it emits `passage_shop_hours`; JSON is never
-hand-edited and runtime code contains no coordinate literals.
+Anchors are generator- or owner-derived facts. C1 reuses existing authoritative
+markers and named owner geometry. Later genuinely new anchors use
+`gen_layout.py` marker kind, species affinity and validated run-lines just as it
+emits `passage_shop_hours`; JSON is never hand-edited and runtime code contains
+no coordinate literals.
 
 **SCHEDULING HAZARD:** `gen_layout.py` is contended. The PS12a held-hunks lesson
 applies: perform the marker pass only when no other lane holds edits there,
@@ -113,8 +116,7 @@ in C3.
   authored gap; mice-in-riser audio through the acoustic graph; silverfish near
   bathroom drains; corner-anchored cobwebs in stairs and basement.
 - **B1:** waterbugs at drains/drip lines and rat runs between coal and storage.
-  A proposed exclusion radius around Room 0 is a fiction claim requiring an
-  explicit ruling.
+  There is no Room 0 exclusion; ordinary animals do not confirm it.
 - **Passage at 03:00:** mice behind grilles and rare terrazzo crossings, moths
   at HARDWARE PAINT's lit window, and ferns/moss at the 26 barrel-vault drains.
 - **Harukiya:** two flies over the established sticky patch and one rare shelf
@@ -162,7 +164,7 @@ bound and never advance cases. These are not licensed until §10 rules scope.
 `CommensalTest` must prove deterministic census/schedule; zone and floor gating;
 zero collision, lights, shadow casters and per-instance `_process`; protected
 event windows; motif-cadence exclusion; per-zone caps; marker traceability with
-no coordinate literals; habituation; and, if ruled, the Room 0 exclusion.
+no coordinate literals; and habituation.
 
 Performance requires `WeatherPerf` with the street layer enabled (≤ +0.3 ms,
 ≤ +3 draws), `Perf.tscn` atrium/lobby/roof before/after with A/A controls, and a
@@ -180,25 +182,35 @@ only when that owner releases the file.
   one static weed cluster at a hoarding base. Measure, render and judge before
   adding breadth.
 - **C2 — waking breadth:** pigeons and one flush, rat gutter-runs, guano/web
-  decals, Passage and B1 casts, plus Room 0 exclusion only if ruled.
+  decals, and Passage/B1 casts without a Room 0 exclusion.
 - **C3 — §E integration:** pressure persistence on entropy anchors, resident
   complaints, countermeasure chores and Murphy-timed events.
-- **C4 — separately ruled breadth:** audio expansion, precursor hook and cat.
+- **C4 — separately ruled breadth:** audio expansion and the optional cat. The
+  precursor hook is excluded from this owner.
 
 This is a waking §E-family lane, orthogonal to dream fauna. Its only known
 contended ground is `gen_layout.py`; schedule that pass clear of all other
 holds.
 
-## 10. Open owner rulings — do not decide silently
+## 10. Owner ruling — closed 2026-08-20
 
-1. Species cast and taste caps, especially droppings and funeral-parlour use.
-2. Harukiya mouser cat: yes/no and evidence filing.
-3. Room 0 nesting-exclusion fiction.
-4. One-way haunting precursor hook: hush/flush before an act.
-5. Countermeasure chores and resident-complaint scope through §E.
-6. `CommensalDirector` as a new presentation-owner row.
-7. Whether any commensal appears in daylight states.
+1. **Cast/taste approved, tiered.** C1 uses mice, German roaches, lamp moths
+   and one restrained weed family. C2 may add Norway rats, pigeons, waterbugs,
+   silverfish, clothes-moth evidence, moss and ailanthus. No infestation
+   spectacle; no funeral-parlour cast; guano remains sparse and positional.
+2. **Harukiya mouser deferred.** A cat is a character and remains C4-gated.
+3. **Room 0 exclusion rejected.** Ordinary animals do not confirm Room 0.
+4. **Haunting precursor rejected.** Vermin hush/flush is not a signal channel.
+5. **Complaints/countermeasures approved for C3 only.** They remain ambient
+   place/fault orders and never advance cases.
+6. **Ownership approved with boundary.** `CommensalDirector` owns deterministic
+   pressure, census, scheduling and visual batches; existing acoustic owners
+   retain playback, propagation, priority and ducking.
+7. **Daylight is species-specific, C1 night-only.** Plants/wear persist,
+   pigeons may roost, rats/roaches become rarer, and moths require darkness plus
+   a lit lamp. No global daylight switch.
 
-The recommended next action is an adversarial read-only review of this brief,
-then one explicit owner ruling covering all seven questions. Do not begin C1,
-the generator marker pass or implementation before that gate closes.
+**Execution correction:** C1 derives its anchors from existing authoritative
+street-lamp markers, 4B kitchen fixtures, riser identities and named hoarding
+geometry. It does not touch `gen_layout.py`. Reserve an uncontended generator
+pass for C2's genuinely new validated rat-run and specialized roost anchors.

@@ -74,6 +74,14 @@ hazard, collision, light or save seam and remain under one 96-instance cap.
 Focused proof is 16/16; the final stable deep-pocket A/B is +3 submitted draws
 and -0.01 ms. Evidence: `art/renders/dream_fauna_fa2/README.md`. FA3–FA4 remain
 gated and this does not complete any waking case loop.
+The owner-directed fauna visual addendum is now queued in
+`design/DREAM_FAUNA_BRIEF.md` V1–V8: cloisonné procedural skins, calligraphic
+silhouettes and a three-light proof system. It is not landed and does not erase
+FA1/FA2; FA-V0 must first reconcile the current small emission, per-family
+material instances and four-float custom channel. Separately, waking-world
+commensals C1 is ruled: moths, one F02 mice bed, a 4B roach scatter and one
+hoarding weed cluster through existing anchors, with no `gen_layout.py` edit.
+Room 0 exclusion and haunting-controlled animal behavior were rejected.
 
 Three top-level projects:
 
