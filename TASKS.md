@@ -1689,7 +1689,15 @@ unresolved. K7's source-backed loop contract is closed in
   48/77/133/172 calls. WalkTest FAST passes at x8/480; the FULL attempt was
   terminated without a result at the mandatory 60-second process limit, so no
   fresh FULL claim is made. Proof: `art/renders/dream_irradiance_v1/README.md`.
-- **INC-V0 — WRITE `SIX INCARNATIONS` (OPEN; DESIGN BEFORE CODE).** Produce
+- **INC-V0 — `SIX INCARNATIONS` WRITTEN; OWNER REVIEW GATE OPEN.**
+  `design/SIX_INCARNATIONS.md` now delivers the six a–h designs, shared
+  presentation/shader/loading seam, 96.03 MiB active-case ceiling, custody and
+  import checklist, proof matrix and ranked order. It introduces no new color
+  accent. Owner ruling remains required on Cal/Omar order and activation, and
+  on whether the older reflected-world prompt's identifiable figures and
+  faceless form may survive V14's ban on generated Tenant depiction. Until
+  ruled, the plan excludes those figures and allows Mina/Peter/Juno/Mae only.
+  The originating requirement was to produce
   `design/SIX_INCARNATIONS.md` from V14. For Mina, Peter, Juno, Mae, Cal and
   Omar, deliver sections a–h: named love letter, procedural pattern, neon
   topology, oblique tissue, molten behavior, disciplined token rotation,
