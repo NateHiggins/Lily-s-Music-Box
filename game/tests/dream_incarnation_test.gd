@@ -21,6 +21,7 @@ func _run() -> void:
 	var profiles: Dictionary = _json_dictionary(PROFILE_PATH).get("profiles", {})
 	_data_contract(profiles)
 	await _production_contract()
+	await _joined_contract(profiles)
 	print("[INC-V1] CHECKS: %d/%d fails=%d" %
 			[checks - failures, checks, failures])
 	print("DREAM INCARNATION TEST: %s" % ("PASS" if failures == 0 else "FAIL"))
@@ -91,6 +92,7 @@ func _production_contract() -> void:
 	})
 	add_child(root)
 	await get_tree().process_frame
+
 	var bundle := root.active_presentation()
 	_check("the production root owns one immutable Mina presentation bundle",
 			root.maze_built and str(bundle.get("incarnation_id", "")) == "mina"
@@ -291,6 +293,76 @@ func _production_contract() -> void:
 			root.find_children("*Incarnation*", "Node", true, false).is_empty())
 	root.queue_free()
 	await get_tree().process_frame
+
+
+## INC-V9: each active profile gets the same seeded replay audit. This joins
+## the earlier case proofs without creating a seventh scene or runtime owner.
+func _joined_contract(profiles: Dictionary) -> void:
+	var deterministic := true
+	var active_only := true
+	var boundaries_clean := true
+	var owner_clean := true
+	for incarnation_id in IncarnationProfile.IDS:
+		var profile_id := str(IncarnationProfile.PROFILE_IDS[incarnation_id])
+		var case_id := str(IncarnationProfile.CASE_IDS[incarnation_id])
+		var profile: Dictionary = profiles.get(profile_id, {})
+		var first := await _joined_snapshot(case_id, profile_id,
+				int(profile.get("campaign_slot", 1)))
+		var second := await _joined_snapshot(case_id, profile_id,
+				int(profile.get("campaign_slot", 1)))
+		deterministic = deterministic and first.plan == second.plan \
+				and first.pursuit == second.pursuit \
+				and first.collision_shapes == second.collision_shapes \
+				and first.hazard_count == second.hazard_count
+		active_only = active_only \
+				and str(first.active_incarnation) == incarnation_id \
+				and int(first.resource_count) == 17 \
+				and int(first.residency_bytes) == 100663284
+		boundaries_clean = boundaries_clean \
+				and not (first.context_keys as Array).has("presentation") \
+				and not (first.context_keys as Array).has("maze") \
+				and not (first.context_keys as Array).has("hazards")
+		owner_clean = owner_clean and int(first.incarnation_owners) == 0
+	_check("all six seeded production roots replay identical gameplay facts",
+			deterministic)
+	_check("all six retain exactly one active 17-map / 96 MiB residency",
+			active_only)
+	_check("all six keep presentation, maze and hazards outside save context",
+			boundaries_clean)
+	_check("all six use the shared root with no incarnation runtime owner",
+			owner_clean)
+
+
+func _joined_snapshot(case_id: String, profile_id: String,
+		night_index: int) -> Dictionary:
+	var scene := load("res://scenes/dream/DreamMazeRoot.tscn") as PackedScene
+	var root := scene.instantiate() as DreamMazeRoot
+	root.autonomous = false
+	root.configure_dream({
+		"case_id": case_id, "profile_id": profile_id, "window": {},
+		"seed_hex": SEED_HEX, "maze_revision": 1, "outcome": "",
+		"night_index": night_index, "spawn_anchor": 1,
+	})
+	add_child(root)
+	await get_tree().process_frame
+	var keys: Array = root.dream_context.keys()
+	keys.sort()
+	var snapshot := {
+		"plan": root.plan.duplicate(true),
+		"pursuit": root.pursuer.run_parameters().duplicate(true),
+		"collision_shapes": root.find_children(
+				"*", "CollisionShape3D", true, false).size(),
+		"hazard_count": root.hazards.hazards.size(),
+		"active_incarnation": root.presentation_plates.active_incarnation,
+		"resource_count": root.presentation_plates.resource_count(),
+		"residency_bytes": root.presentation_plates.residency_bytes,
+		"context_keys": keys,
+		"incarnation_owners": root.find_children(
+				"*Incarnation*", "Node", true, false).size(),
+	}
+	root.queue_free()
+	await get_tree().process_frame
+	return snapshot
 
 
 func _valid_shape(incarnation_id: String) -> Dictionary:

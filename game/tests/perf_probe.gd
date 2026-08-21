@@ -116,8 +116,14 @@ const STATIONS := [
 ##    calls -- "the worst view from where you wake", which stays the worst
 ##    view across a reseed.
 const DREAM_SEED_HEX := "f123456789abcdef"
-const DREAM_CASE := "mina_caption_crisis"
-const DREAM_PROFILE := "mina_release_print"
+const DREAM_CASES := {
+	"mina": ["mina_caption_crisis", "mina_release_print"],
+	"peter": ["peter_form_corridor", "peter_release_print"],
+	"juno": ["juno_feedback_tetris", "juno_release_print"],
+	"mae": ["mae_contradictory_antiques", "mae_release_print"],
+	"cal": ["cal_memory_radio", "cal_release_print"],
+	"omar": ["omar_unrepairable", "omar_release_print"],
+}
 ## The building's floor is 500 objects. A pocket is eight rooms of boxes and
 ## legitimately draws two orders of magnitude less, so MIN_OBJECTS would fail
 ## a healthy dream. This is the same guard at the dream's scale: below it, the
@@ -600,10 +606,19 @@ func _run_dream() -> void:
 	# building than the one the table claims.
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
+	var incarnation := OS.get_environment("PERF_DREAM_INCARNATION").to_lower()
+	if incarnation.is_empty():
+		incarnation = "mina"
+	if not DREAM_CASES.has(incarnation):
+		printerr("PERF DREAM: unsupported incarnation %s" % incarnation)
+		get_tree().quit(2)
+		return
+	var dream_case := str(DREAM_CASES[incarnation][0])
+	var dream_profile := str(DREAM_CASES[incarnation][1])
 	var scene := load("res://scenes/dream/DreamMazeRoot.tscn") as PackedScene
 	_dream = scene.instantiate() as DreamMazeRoot
 	_dream.configure_dream({
-		"case_id": DREAM_CASE, "profile_id": DREAM_PROFILE, "window": {},
+		"case_id": dream_case, "profile_id": dream_profile, "window": {},
 		"seed_hex": DREAM_SEED_HEX, "maze_revision": 1, "outcome": "",
 	})
 	add_child(_dream)
@@ -628,7 +643,7 @@ func _run_dream() -> void:
 	if OS.get_environment("PERF_DREAM_EMBRACE") == "1":
 		_stage_dream_embrace()
 	print("PERF DREAM: seed %s  case %s  viewport %s" % [
-			DREAM_SEED_HEX, DREAM_CASE,
+			DREAM_SEED_HEX, dream_case,
 			get_viewport().get_visible_rect().size])
 	_report_dream_census()
 	var spawn: Vector3 = _dream.player.position

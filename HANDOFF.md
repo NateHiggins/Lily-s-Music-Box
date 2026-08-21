@@ -105,7 +105,11 @@ inspection costs only ordinary pursuit time. Tool steel, fatigue lamellae,
 never-setting solder, workshop enamel, the honest seam, laid-down pressure and
 five fauna costumes are proved with A/A control at
 `art/renders/dream_incarnation_omar_v8/README.md`. All six downstream profiles
-are now authored; neither Cal nor Omar has a waking case loop.
+are now authored; neither Cal nor Omar has a waking case loop. INC-V9 joins
+all six production proofs at `art/renders/dream_incarnation_v9/README.md`:
+paired same-seed roots preserve plan/pursuit/collision/hazard/save facts and
+exact active-only 17-map residency, while the windowed six-case sweep is 24/24
+under 16.6 ms (worst 2.87 ms). The ordered INC-V3–V9 surface queue is closed.
 N12's shared profile makes delayed
 feedback physically load-bearing, then releases the oldest partition when one
 channel remains open. N13 lets two real branches return to one stable antique

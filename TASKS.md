@@ -1708,13 +1708,14 @@ unresolved. K7's source-backed loop contract is closed in
   solder, workshop enamel, honest seam, laid-down pressure and five fauna
   costumes are rendered with an A/A control. The waking case stays disabled.
   Proof: `art/renders/dream_incarnation_omar_v8/README.md`.
-- **INC-V9 — SIX-CASE PRODUCTION PROOF (OPEN).** For every
-  licensed incarnation, capture equal-interval A/A, dark/oblique/molten contact
-  sheets, five-step blends, the signature moment and representative fauna in
-  the production root. Assert ordered luma, sub-Hz motion, deterministic replay,
-  anti-tiling at long sightlines, life below danger, Tenant invisibility,
-  unchanged plan/collision/hazard/pursuit/save facts, active-case-only VRAM,
-  unchanged submissions and the 16.6 ms frame gate.
+- **INC-V9 — SIX-CASE PRODUCTION PROOF (DONE).** Joined contact sheets retain
+  every case's production-root A/A, dark/oblique/molten ordering, five blends,
+  signature and all fauna families. A paired six-case replay audit proves
+  identical plan/pursuit/collision/hazard facts, clean save boundaries, no new
+  owner and exact active-only 17-map / 96 MiB residency. All motion is sub-1
+  Hz; per-case proofs retain anti-tiling, life-below-danger and shadows-only
+  Tenant evidence. The six-case windowed benchmark is 24/24 under 16.6 ms,
+  worst 2.87 ms. Proof: `art/renders/dream_incarnation_v9/README.md`.
 
 ## M — Materials and textures
 
