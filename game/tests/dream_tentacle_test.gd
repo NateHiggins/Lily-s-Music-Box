@@ -42,9 +42,12 @@ func _run() -> void:
 	_check("the body is a detailed mesh under the Dream entity stack", flesh != null
 			and flesh.mesh.get_faces().size() >= 12000
 			and (flesh.material_override as ShaderMaterial).shader.resource_path.ends_with("dream_tentacle.gdshader"))
-	_check("the anatomy is composed: a grown gold skeleton with dendrites, eye, suckers, halos, membrane",
+	_check("the anatomy is composed: skeleton, dendrites, the ocular organ (globe, cornea, orbital gold, cilia, crystal, three lids), suckers, halos, membrane",
 			t.get_node_or_null("GoldPlates") != null and t.get_node_or_null("GoldDendrites") != null
-			and t.get_node_or_null("Eye") != null
+			and t.get_node_or_null("Eye") != null and t.get_node_or_null("Cornea") != null
+			and t.get_node_or_null("OrbitalGold") != null and t.get_node_or_null("OrbitalCilia") != null
+			and t.get_node_or_null("CrystalOrgan") != null and t.get_node_or_null("Lid0") != null
+			and t.get_node_or_null("Lid1") != null and t.get_node_or_null("Lid2") != null
 			and t.get_node_or_null("Suckers") != null and t.get_node_or_null("Halos") != null
 			and t.get_node_or_null("Membrane") != null)
 	_check("it anchors on the wall with its normal into the room",
@@ -78,6 +81,7 @@ func _run() -> void:
 			and "HOVER_INSPECTION" in seen and "TOUCHING" in seen and "CARESSING" in seen)
 	_check("it is through (grow %.2f)" % float(t.grow), float(t.grow) >= 0.95)
 	var c: Dictionary = t.census()
+	print("[tentacle] ocular at %s  gaze %s  anchor %s" % [t.ocular.position, t.ocular.gaze, t.anchor])
 	_check("the tip is on the contact, within reach (%.3f m off, %.2f m out)"
 			% [(c.tip as Vector3).distance_to(c.contact), (c.tip as Vector3).distance_to(c.anchor)],
 			(c.tip as Vector3).distance_to(c.contact) < 0.13

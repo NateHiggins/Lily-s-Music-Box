@@ -121,3 +121,56 @@ DIRECTION_3 §H–§J, §N); DT-4's quality audit now that the old performance
 ceiling is gone; DT-5's "bobbing for apples" — the tentacle emerging along
 the encroachment's edge, swelling it locally, searching the building for
 the case's resident.
+
+## The ocular organ (2026-08-22, DIRECTION_2 §C, DIRECTION_3 §H–§J)
+
+`DreamOcularAssembly` replaces the sphere-on-a-limb. Seven parts, all real
+geometry:
+
+- **The orbital mass.** The eye sits at **42 %** of the limb, and the limb's
+  own silhouette profile now SWELLS there (1.34× radius) — the organism had
+  to evolve anatomy to carry it. The distal end is tactile; the intelligence
+  sits back in the mass.
+- **The socket.** The flesh shader cuts a real orbit: a bowl, a heavy
+  overhanging brow on one side, a cushioning fold opposite, lateral folds
+  and compression wrinkles radiating out of it, with rim mass that closes
+  over the globe so the whole sphere is never inferable.
+- **The globe** (36 mm), sunk to just over half its radius, with the **iris
+  physically recessed** — the view ray parallaxes it against the pupil's
+  rim — under a **separate corneal cap** carrying the tear film, and a pupil
+  darker and deeper than the globe can hold, opening on the interior.
+- **The orbital skeleton**: ten asymmetric gold pieces ringing the socket
+  (one heavy brow, nine smaller supports at uneven angles), tensing by
+  fractions of a millimetre when the eye is about to move.
+- **Three lids** on three vectors — an oblique dorsal lid, a ventral/lateral
+  lid that twists round the orbit, and a partly translucent nictitating
+  membrane with gold vascular filaments and its own muscular leading edge.
+  They overlap for a fraction of a second and no two share timing.
+- **Eighteen cilia** in three classes (flesh whisker, gold filament, crystal
+  needle with a lens bulb) from visible follicles, each a damped spring with
+  its own stiffness and phase. **They feel a stimulus and orient before the
+  eye turns** — cilia → orbital gold tenses → lids anticipate → globe moves.
+- **The crystal organ** in the rim's gold: a faceted growth whose interior
+  is marched in local space (fracture planes, inclusions, a core that
+  carries the pulse) with no transparency at all, and a glint that only
+  happens when view, facet and light line up.
+
+`wip3_ocular/`: the macro and the 45° oblique. `_before_globe_engulfed_limb.png`
+is kept as the instructive failure — the globe's radius (46 mm) was larger
+than the limb's radius there (41 mm) AND it was seated at the limb's axis,
+so a "sunk" eye swallowed the arm. Sizing it as an organ and giving the limb
+orbital mass fixed it. Two more found the same way: the cilia at three
+globe-radii read as urchin spines (now 0.55–1.45 radii), and the halo rings
+— direction-1 language — fight a real orbital skeleton, so they are OFF by
+default (`TENTACLE_HALOS=1` restores them) per §29, never every effect at
+once.
+
+Gates: parse, DreamTentacleTest 20/20, encroachment 13/13, incidents 18/18,
+WalkTest FAST.
+
+**Still open on the organ:** the lids need to read in a still (they are
+animated and present, but at rest they sit inside the orbit); the §N frame
+set — direct and grazing flashlight, backlight through thin tissue, macro,
+gameplay distance, direct eye contact, tracking, a full three-lid blink,
+cilia reaction, vascular pulse, gold articulation, crystal glint — and the
+10–15 s flashlight sweep that is the actual review asset.

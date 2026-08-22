@@ -91,7 +91,14 @@ func update(eye_pos: Vector3, gaze: Vector3, openness: float, camera_pos: Vector
 	phase_angle += delta * 0.12
 	if phase_event > 0.0:
 		phase_event -= delta
-	visible_amount = lerpf(visible_amount, smoothstep(0.3, 0.9, openness), clampf(delta * 2.0, 0.0, 1.0))
+	# Restraint (DIRECTION_2 §29, DIRECTION_3 §H): with a real orbital
+	# skeleton and cilia around the eye, a bright bead ring reads as
+	# jewellery. The rings are now nearly invisible at rest and only assert
+	# themselves during a phase event or at high attention - evidence of
+	# surrounding geometry, not decoration.
+	var burst := 0.55 if phase_event > 0.0 else 0.0
+	var want_vis := smoothstep(0.3, 0.9, openness) * (0.10 + 0.35 * attention + burst)
+	visible_amount = lerpf(visible_amount, want_vis, clampf(delta * 2.0, 0.0, 1.0))
 	var any := Vector3.UP if absf(axis.y) < 0.9 else Vector3.RIGHT
 	var xa := any.cross(axis).normalized()
 	var ya := axis.cross(xa).normalized()
@@ -107,7 +114,7 @@ func update(eye_pos: Vector3, gaze: Vector3, openness: float, camera_pos: Vector
 		var a := inner_angle + float(i) * TAU / float(INNER_N)
 		var p := centre + (xa * cos(a) + ya * sin(a)) * INNER_R + axis * 0.004 * sin(a * 3.0 + inner_angle)
 		var br := 0.55 + 0.45 * pow(0.5 + 0.5 * sin(a * 7.0 - inner_angle * 4.0), 2.0)
-		var r := 0.0042 * bead_scale * (0.8 + 0.4 * br)
+		var r := 0.0022 * bead_scale * (0.8 + 0.4 * br)
 		mm.set_instance_transform(k, Transform3D(Basis().scaled(Vector3(r, r, r)), p))
 		var c := hot.lerp(gold, 0.4)
 		c.a = visible_amount * br * (0.6 + 0.4 * attention)
@@ -117,7 +124,7 @@ func update(eye_pos: Vector3, gaze: Vector3, openness: float, camera_pos: Vector
 		var a := outer_angle + float(i) * TAU / float(OUTER_N)
 		var p := centre + (xa * cos(a) + ya * sin(a)) * OUTER_R - axis * 0.01
 		var br := 0.35 if (i % 3 != 0) else 0.9
-		var r := 0.0032 * bead_scale * (0.7 + 0.6 * br)
+		var r := 0.0018 * bead_scale * (0.7 + 0.6 * br)
 		mm.set_instance_transform(k, Transform3D(Basis().scaled(Vector3(r, r, r)), p))
 		var c := gold
 		c.a = visible_amount * br

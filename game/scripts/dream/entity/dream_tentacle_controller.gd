@@ -17,7 +17,7 @@ signal dream_event(event_name: String, at: Vector3)
 const SHADER := preload("res://shaders/dream_tentacle.gdshader")
 const RigScript := preload("res://scripts/dream/entity/dream_tentacle_rig.gd")
 const BehaviorScript := preload("res://scripts/dream/entity/dream_tentacle_behavior.gd")
-const EyeScript := preload("res://scripts/dream/entity/dream_tentacle_eye.gd")
+const OcularScript := preload("res://scripts/dream/entity/dream_ocular_assembly.gd")
 const HaloScript := preload("res://scripts/dream/entity/dream_halo_controller.gd")
 const SuckerScript := preload("res://scripts/dream/entity/dream_sucker_controller.gd")
 const MembraneScript := preload("res://scripts/dream/entity/dream_membrane.gd")
@@ -42,7 +42,7 @@ var contact_profile: DreamContactProfile
 
 var rig: DreamTentacleRig
 var behavior: DreamTentacleBehavior
-var eye: DreamTentacleEye
+var ocular: DreamOcularAssembly
 var halo: DreamHaloController
 var suckers: DreamSuckerController
 var membrane: DreamMembrane
@@ -79,8 +79,12 @@ var _player_speed := 0.0
 var _candidates: Array = []
 var _rng := RandomNumberGenerator.new()
 ## Debug toggles (§25).
+## `halos` is OFF by default (DIRECTION_2 §29): with a real orbital
+## skeleton, three lids and eighteen cilia around the eye, a ring of beads
+## is one effect too many and reads as jewellery. TENTACLE_HALOS=1 restores
+## it for evaluation.
 var toggles := {"breathing": true, "peristalsis": true, "vein_pulse": true, "gold_flow": true,
-		"gold_emission": true, "eye_tracking": true, "halos": true, "suckers": true,
+		"gold_emission": true, "eye_tracking": true, "halos": false, "suckers": true,
 		"contact_deformation": true, "surface_conversion": true, "rim": true, "phase_slice": true,
 		"membrane": true, "lights": true, "gray": false, "show_bones": false, "interior": true}
 var _bones: MeshInstance3D
@@ -110,6 +114,8 @@ func setup(living_field, src: int, at: Vector3, normal: Vector3, who: Node3D,
 		toggles.gray = true
 	if OS.get_environment("TENTACLE_BONES") == "1":
 		toggles.show_bones = true
+	if OS.get_environment("TENTACLE_HALOS") == "1":
+		toggles.halos = true
 	var mv := OS.get_environment("TENTACLE_MASK")
 	if not mv.is_empty():
 		_mask_view = mv.to_int()
@@ -134,8 +140,8 @@ func setup(living_field, src: int, at: Vector3, normal: Vector3, who: Node3D,
 	# them is a grown mineral skeleton with roots in the flesh.
 	skeleton = GoldSkeletonScript.new()
 	skeleton.build(self, seed_v)
-	eye = EyeScript.new()
-	eye.build(self, seed_v)
+	ocular = OcularScript.new()
+	ocular.build(self, seed_v)
 	halo = HaloScript.new()
 	halo.build(self, seed_v + 11)
 	suckers = SuckerScript.new()
@@ -204,9 +210,11 @@ func _build_body() -> void:
 	_material.set_shader_parameter("root_u", root_u)
 	_material.set_shader_parameter("root_w", root_w)
 	_material.set_shader_parameter("root_n", roots.size())
-	_material.set_shader_parameter("eye_u", DreamTentacleEye.EYE_U)
-	_material.set_shader_parameter("eye_v", DreamTentacleEye.EYE_V)
-	_material.set_shader_parameter("eye_radius_m", DreamTentacleEye.RADIUS_M)
+	# The orbit's footprint in the flesh is larger than the globe: the socket
+	# has to close over it (DIRECTION_3 §H).
+	_material.set_shader_parameter("eye_u", DreamOcularAssembly.EYE_U)
+	_material.set_shader_parameter("eye_v", DreamOcularAssembly.EYE_V)
+	_material.set_shader_parameter("eye_radius_m", DreamOcularAssembly.GLOBE_R * 1.55)
 	_mesh = MeshInstance3D.new()
 	_mesh.name = "Flesh"
 	_mesh.mesh = mesh
@@ -343,14 +351,15 @@ func _tick(delta: float) -> void:
 		if _probe_settle <= 0.0 and _probe != null:
 			_probe.update_mode = ReflectionProbe.UPDATE_ONCE
 	# The eye, the halos, the suckers, the membrane, the transformer.
-	eye.set_mode(behavior.eye_mode if toggles.eye_tracking else "watch_object")
-	eye.update(rig, sensor.contact, behavior.player_pos, has_player, behavior.interest, grow, delta)
+	ocular.set_mode(behavior.eye_mode if toggles.eye_tracking else "watch_object")
+	ocular.update(rig, sensor.contact, behavior.player_pos, has_player, behavior.interest,
+			grow, pulse_phase, delta)
 	var cam_pos := anchor + anchor_normal * 2.0
 	var cam: Camera3D = get_viewport().get_camera_3d() if get_viewport() != null else null
 	if cam != null:
 		cam_pos = cam.global_position
-	eye.viewer_pos = cam_pos
-	halo.update(eye.position, eye.gaze, eye.openness, cam_pos, behavior.interest, delta)
+	ocular.viewer_pos = cam_pos
+	halo.update(ocular.position, ocular.gaze, ocular.openness, cam_pos, behavior.interest, delta)
 	var holding := grip if toggles.suckers else 0.0
 	suckers.update(rig, sensor.contact, sensor.contact_normal, holding, grow, delta)
 	membrane.update(behavior.membrane_tension if toggles.membrane else 0.0, grow,
@@ -361,9 +370,9 @@ func _tick(delta: float) -> void:
 			_emit("dream_conversion", sensor.contact)
 	# A glimpse of the interior (§10) once, while tasting, with the eye open.
 	if s == DreamTentacleBehavior.S.TASTING and behavior.state_clock > 0.8 \
-			and eye.interior < 0.01 and eye.openness > 0.8 and toggles.interior \
+			and ocular.interior < 0.01 and ocular.openness > 0.8 and toggles.interior \
 			and behavior.caress_passes == 1:
-		eye.glimpse_interior(2.4)
+		ocular.glimpse_interior(2.4)
 		halo.phase(2.0)
 	_push_uniforms()
 	skeleton.update(rig, grow, pulse_phase, breath_phase, behavior.interest, startle, delta)
@@ -397,7 +406,7 @@ func _push_uniforms() -> void:
 	_material.set_shader_parameter("side", rig.side)
 	_material.set_shader_parameter("spine_prev", _spine_prev)
 	_material.set_shader_parameter("grow", grow)
-	_material.set_shader_parameter("eye_open", eye.openness)
+	_material.set_shader_parameter("eye_open", ocular.openness)
 	_material.set_shader_parameter("contact_v", 0.95)
 	_material.set_shader_parameter("contact_amount", grip if toggles.contact_deformation else 0.0)
 	_material.set_shader_parameter("phase_slice_v", _slice_v)
@@ -423,8 +432,8 @@ func _light_slices() -> float:
 func _place_lights() -> void:
 	var on: bool = toggles.lights and not toggles.gray
 	var slices := _light_slices()
-	_light_eye.global_position = eye.position + eye.normal * 0.05
-	_light_eye.light_energy = (0.45 * eye.openness + 0.1) * grow * slices if on else 0.0
+	_light_eye.global_position = ocular.position + ocular.normal * 0.06
+	_light_eye.light_energy = (0.45 * ocular.openness + 0.1) * grow * slices if on else 0.0
 	_light_eye.visible = on and grow > 0.02
 	_light_gold.global_position = rig.point_at(0.42)
 	_light_gold.light_energy = 0.5 * grow * slices * material_profile.gold_emission if on else 0.0
@@ -440,10 +449,10 @@ func _relay_events() -> void:
 		_emit(str(e), rig.tip())
 	for e in suckers.last_events:
 		_emit(str(e), sensor.contact)
-	for e in eye.last_events:
-		_emit(str(e), eye.position)
+	for e in ocular.last_events:
+		_emit(str(e), ocular.position)
 	for e in halo.last_events:
-		_emit(str(e), eye.position)
+		_emit(str(e), ocular.position)
 	if transformer.last_event != "":
 		transformer.last_event = ""
 
@@ -471,8 +480,8 @@ func _apply_toggles() -> void:
 	_material.set_shader_parameter("dbg_rim", toggles.rim)
 	_material.set_shader_parameter("dbg_phase", toggles.phase_slice)
 	_material.set_shader_parameter("debug_gray", toggles.gray)
-	eye.set_debug_gray(toggles.gray)
-	eye.material.set_shader_parameter("dbg_interior", toggles.interior)
+	ocular.set_debug_gray(toggles.gray)
+	ocular.eye_material.set_shader_parameter("dbg_interior", toggles.interior)
 	halo.set_debug_gray(toggles.gray)
 	halo.set_enabled(toggles.halos)
 	suckers.set_debug_gray(toggles.gray)
@@ -502,8 +511,8 @@ func _draw_bones() -> void:
 	im.surface_add_vertex(sensor.contact)
 	im.surface_add_vertex(sensor.contact + sensor.contact_normal * 0.15)
 	# The gaze, and the halo plane.
-	im.surface_add_vertex(eye.position)
-	im.surface_add_vertex(eye.position + eye.gaze * 0.3)
+	im.surface_add_vertex(ocular.position)
+	im.surface_add_vertex(ocular.position + ocular.gaze * 0.3)
 	im.surface_add_vertex(halo.centre - halo.axis * 0.05)
 	im.surface_add_vertex(halo.centre + halo.axis * 0.05)
 	im.surface_end()
@@ -513,5 +522,5 @@ func _draw_bones() -> void:
 func census() -> Dictionary:
 	return {"state": state_name(), "grow": grow, "grip": grip, "curl": curl,
 			"target": target_name, "deposits": deposits, "tip": rig.tip(),
-			"contact": sensor.contact, "anchor": anchor, "eye_open": eye.openness,
+			"contact": sensor.contact, "anchor": anchor, "eye_open": ocular.openness,
 			"suckers_engaged": suckers.engaged_count, "interest": behavior.interest}

@@ -148,23 +148,39 @@ float dt_relief(vec2 uv, float time, out float vein, out float socket, out float
 	groove = clamp(groove, 0.0, 1.0);
 	// An asymmetrical swelling on the dorsal side of the rounded segment.
 	float swell = smoothstep(0.16, 0.26, v) * (1.0 - smoothstep(0.28, 0.40, v)) * max(0.0, cos(ang + 0.6));
-	// The eye: a socket the eyeball sits in, and lids that rise over it
-	// when it closes (the flesh covers the sphere).
+	// THE ORBIT (DIRECTION_2 §C1, DIRECTION_3 §H). Not a dimple: a real
+	// depression the globe sinks into, with a heavy overhanging brow on one
+	// side, a cushioning fold below, lateral muscular folds and compression
+	// wrinkles radiating out of it. The globe must never be inferable as a
+	// whole sphere, so the rim has to CLOSE OVER it.
 	float du = fract(u - eye_u + 0.5) - 0.5;
 	float r_here = dt_profile(v) * pr.x;
 	vec2 e = vec2(du * 6.2831853 * r_here, (v - eye_v) * length_m) / max(0.005, eye_radius_m);
 	float er = length(e);
-	socket = 1.0 - smoothstep(0.9, 1.25, er);
-	float lid_cover = (1.0 - eye_open) * (1.0 - smoothstep(0.0, 1.0, abs(e.y)));
-	lid = socket * lid_cover;
-	float ring = smoothstep(0.85, 1.05, er) * (1.0 - smoothstep(1.2, 1.5, er));
+	float ang_e = atan(e.y, e.x);
+	// The bowl: deep in the middle, rising to a rim that overhangs.
+	float bowl = 1.0 - smoothstep(0.0, 1.35, er);
+	// The brow: a heavy mass on one side, and a softer cushion opposite.
+	float brow = smoothstep(0.35, 1.0, cos(ang_e - 0.55)) * (1.0 - smoothstep(0.85, 2.0, er));
+	float cushion = smoothstep(0.45, 1.0, cos(ang_e + 2.4)) * (1.0 - smoothstep(0.95, 1.9, er));
+	// Lateral folds and the compression wrinkles that radiate from a socket.
+	float folds = pow(abs(sin(ang_e * 3.0 + 0.7)), 4.0) * smoothstep(1.0, 1.5, er)
+			* (1.0 - smoothstep(1.6, 2.4, er));
+	float wrinkles = pow(abs(sin(ang_e * 11.0)), 6.0)
+			* smoothstep(1.15, 1.7, er) * (1.0 - smoothstep(1.9, 2.8, er));
+	socket = bowl;
+	float lid_cover = (1.0 - eye_open) * bowl;
+	lid = lid_cover;
+	float ring = smoothstep(0.95, 1.25, er) * (1.0 - smoothstep(1.45, 1.9, er));
+	// The rim mass: what actually hides the globe from oblique angles.
+	float rim_mass = brow * 0.75 + cushion * 0.45 + ring * 0.30 + folds * 0.22 + wrinkles * 0.10;
 	// Breathing and the peristaltic wave, restrained.
 	float breath = 1.0 + 0.03 * breathing * sin(time * 1.1 + seed);
 	float wave = 1.0 + 0.05 * peristalsis * sin(v * 22.0 - time * 2.2 + seed);
 	float mult = breath * wave
 			* (1.0 + vein_relief * vein * (0.16 + 0.06 * pulse))
 			* (1.0 + 0.08 * rib) * (1.0 - 0.13 * groove) * (1.0 + 0.16 * swell)
-			* (1.0 - 0.35 * socket + 0.32 * lid + 0.08 * ring);
+			* (1.0 - 0.62 * socket + 0.30 * lid + rim_mass * 0.34);
 	gold_root = root;
 	return mult;
 }

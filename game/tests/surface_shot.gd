@@ -60,6 +60,12 @@ const STATIONS := [
 			"yaw": 78.0, "pitch": -6.0, "room": "F02_A_MAIN", "demo": true},
 	{"key": "tentacle_2a_close", "floor": "F02", "pos": Vector3(-12.7, 1.2, 4.25),
 			"yaw": 96.0, "pitch": -8.0, "room": "F02_A_MAIN", "demo": true},
+	# The ocular organ at 42%% of the limb: an extreme macro, and a 45-degree
+	# oblique that must show tissue eating the globe (DIRECTION_3 §H, §N).
+	{"key": "ocular_2a", "floor": "F02", "pos": Vector3(-13.479, 1.273, 4.489),
+			"yaw": 250.0, "pitch": -10.9, "room": "F02_A_MAIN", "demo": true},
+	{"key": "ocular_2a_oblique", "floor": "F02", "pos": Vector3(-13.351, 1.263, 4.259),
+			"yaw": 200.0, "pitch": -6.7, "room": "F02_A_MAIN", "demo": true},
 	# Metal close: the 4B kitchen's stove and taps, and a radiator.
 	{"key": "kitchen_4b", "floor": "F04", "pos": Vector3(-8.6, 1.45, -7.6),
 			"yaw": 160.0, "pitch": -12.0, "room": "F04_B_KITCHEN", "demo": true},

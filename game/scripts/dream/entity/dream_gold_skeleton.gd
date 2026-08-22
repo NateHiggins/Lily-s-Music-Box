@@ -284,6 +284,64 @@ func update(rig: DreamTentacleRig, grow: float, pulse_phase: float, breath_phase
 	dendrites.visible = grow > 0.03
 
 
+## An orbital piece: the same grown shell as a structural plate but shorter
+## and heavier, for the ocular assembly to place around the socket.
+static func orbit_piece_mesh() -> ArrayMesh:
+	var verts := PackedVector3Array()
+	var normals := PackedVector3Array()
+	var uvs := PackedVector2Array()
+	var indices := PackedInt32Array()
+	var rings := 6
+	var segs := 8
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 5150
+	var jag := PackedFloat32Array()
+	jag.resize(rings)
+	for r in rings:
+		jag[r] = rng.randf_range(0.62, 1.0)
+	for r in rings:
+		var t := float(r) / float(rings - 1)
+		var z := t * 2.0 - 1.0
+		for s in segs:
+			var u := float(s) / float(segs - 1)
+			var x := (u * 2.0 - 1.0) * jag[r]
+			var crown := (1.0 - x * x) * (1.0 - z * z * z * z)
+			verts.append(Vector3(x, crown - 0.45, z))
+			normals.append(Vector3(x * 0.5, 1.0, z * 0.35).normalized())
+			uvs.append(Vector2(u, t))
+	for r in rings - 1:
+		for s in segs - 1:
+			var a := r * segs + s
+			var b := a + 1
+			var c := a + segs
+			var d := c + 1
+			indices.append(a); indices.append(c); indices.append(b)
+			indices.append(b); indices.append(c); indices.append(d)
+	var base := verts.size()
+	for i in base:
+		var v := verts[i]
+		verts.append(Vector3(v.x, v.y - 0.30, v.z))
+		normals.append(Vector3(v.x * 0.4, -1.0, v.z * 0.3).normalized())
+		uvs.append(uvs[i])
+	for r in rings - 1:
+		for s in segs - 1:
+			var a := base + r * segs + s
+			var b := a + 1
+			var c := a + segs
+			var d := c + 1
+			indices.append(a); indices.append(b); indices.append(c)
+			indices.append(b); indices.append(d); indices.append(c)
+	var arrays := []
+	arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX] = verts
+	arrays[Mesh.ARRAY_NORMAL] = normals
+	arrays[Mesh.ARRAY_TEX_UV] = uvs
+	arrays[Mesh.ARRAY_INDEX] = indices
+	var mesh := ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	return mesh
+
+
 ## The roots the flesh shader needs, so the tissue scars and compresses
 ## where metal comes through (§B2). Returns (v, u, strength) per plate.
 static func roots() -> Array:
