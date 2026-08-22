@@ -2249,12 +2249,15 @@ made. The brief holds the verbatim ruling, the five-layer model and the order.
   0.70 ms vs Klimt 0.88 at the EN-1 stand. `DREAM_PLAIN=1` stays the
   control. Gates: DreamFaunaTest, the six incarnation tests, DreamWalk,
   DreamLayersShot (accept either shader name), perf_probe's Klimt count.
-- **EN-2 — WELDS (OPEN, NEXT).** The bead and the portal core are in the
-  production surface now; EN-2 is the portal-opening rule tied to R6's
-  bounded camera (replace the reflected-world stand-in with the live feed
-  where the core is open), the weld vocabulary placing that camera, and the
-  perf row (trim the ornament where the layers cover it: merged high 2.1–2.4
-  ms vs probe 0.65). Molten golden seams along fold lines, the portal-opening rule at high exposure, R6's bounded camera placed by the weld vocabulary; still depth zero, still non-enterable.
+- **EN-2 DONE 2026-08-22 — THE WELD IS THE PORTAL.** R6's live feed and the
+  breach's frame reach every molten surface (`_push_portal_to_welds`); the
+  Klimt weld core opens on R6's wakefulness (`portal_live`) and shows the
+  live view, the reflected-world plate standing in when R6 sleeps. Found:
+  the probe's opening rule never fired on the seam (bead at drive 0.24,
+  rule at gold phase 0.55). `art/renders/dream_layers_en2/README.md`; six
+  dream contracts PASS. OPEN taste/perf rows: the weld vocabulary placing
+  R6's camera; trim the ornament under the layers (merged high 2.1 ms
+  asleep, 5.2 with R6 awake — R6's aperture price, not the shader's). Molten golden seams along fold lines, the portal-opening rule at high exposure, R6's bounded camera placed by the weld vocabulary; still depth zero, still non-enterable.
 - **EN-3 — FOLDS (OPEN, AFTER EN-1).** Bounded geometry-side folding inside the Atlas's promise; Gate C clamps re-run.
 - **WK-1 DONE 2026-08-21 — THE FLATS FEEL THE ENCROACHMENT.** `ApartmentEncroachment` (presentation only, built by `BuildingRoot`) gives every case unit's perimeter finish quads `wall_encroachment.gdshader`: the same finish plus the case's first three plates as a creep clipped to the unit rect — the wicking substance rising from skirting and corners (restoring plaster over bare brick as a membrane), gilt along the torn survival edge, calm blanks at the late stage — driven by case stage, lifted by manifestation, settling to a residue when resolved; the authored anomaly prop is the beachhead. All six cases register (22 finish surfaces); `ENCROACH=0` / `ENCROACH_FORCE=mina:0.8` for A/B and frames. `ApartmentEncroachmentTest` 13/13. **In passing it found and fixed a builder bug:** perimeter finish quads faced into the brick on every side but west, so most of the building's plaster finishes had never rendered (punchlist 2026-08-21). Frames: `art/renders/apartment_encroachment_wk1/README.md`.
 - **CT-1 — FAMILY SKIN ATLASES (OPEN).** Per-family packed skins for the landed five, built by script from the thirty dream plates and mapped to the part kit's authored regions; reviewed in the three-light harness. **CT-2** follows for each FA3 family as its part kit lands (FA3 is now licensed by the ruling).

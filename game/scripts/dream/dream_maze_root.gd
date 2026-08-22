@@ -150,6 +150,8 @@ const PHASE_LIGHT_RANGE_M := 3.2
 ## R6's renderer is a consumer of an already-live RoomBuilder destination. It
 ## shares this world and owns only one camera; no room or route hangs below it.
 var _view_portal: SubViewport
+## EN-2: the last portal_live pushed to the molten surfaces.
+var _portal_live_pushed := -1.0
 var _view_portal_fault: Dictionary = {}
 ## The capture latch is separate from `_outcome_committed`: the 1.5-second
 ## embrace must stop pursuit immediately, but the persistent outcome is not
@@ -672,6 +674,45 @@ func _update_view_portal() -> void:
 			or player == null:
 		return
 	_view_portal.call("update_view", player.camera)
+	_push_portal_to_welds()
+
+
+## EN-2 (owner direction 2026-08-21): the weld is the portal. R6's feed and
+## the breach's frame go to every molten surface, so the Klimt's weld core
+## shows the live other place while R6 is awake and the reflected-world
+## stand-in when it sleeps. No second camera, no new space: the same bounded
+## view the wound already shows, reached by the seam around it.
+func _push_portal_to_welds() -> void:
+	if _molten_materials.is_empty() or _view_portal == null:
+		return
+	var live := 0.0
+	if bool(_view_portal.get_meta("last_visible", false)) \
+			and bool(_view_portal.call("texture_is_bound")):
+		var retained := float(_view_portal.get_meta("last_exposure", 0.0))
+		live = smoothstep(DreamViewPortalScript.PHASE_THRESHOLD_LOW,
+				DreamViewPortalScript.PHASE_THRESHOLD_HIGH, retained)
+	if is_equal_approx(live, _portal_live_pushed) and live <= 0.0:
+		return
+	_portal_live_pushed = live
+	var breach: Dictionary = _view_portal.get("breach")
+	var center: Vector3 = breach.get("center", Vector3.ZERO)
+	var side: Vector3 = (breach.get("side", Vector3.RIGHT) as Vector3).normalized()
+	var normal: Vector3 = (breach.get("normal", Vector3.FORWARD) as Vector3).normalized()
+	var up := normal.cross(side).normalized()
+	if up.y < 0.0:
+		up = -up
+	var feed: Texture2D = _view_portal.get_texture()
+	for material in _molten_materials:
+		material.set_shader_parameter("portal_live", live)
+		if live > 0.0:
+			material.set_shader_parameter("portal_center", center)
+			material.set_shader_parameter("portal_side", side)
+			material.set_shader_parameter("portal_up", up)
+			material.set_shader_parameter("portal_half_m", Vector2(
+					float(breach.get("half_width_m", 0.64)),
+					float(breach.get("half_height_m", 1.12))))
+			if feed != null:
+				material.set_shader_parameter("portal_view", feed)
 
 
 ## High exposure gives some light back, but it does not turn the gold into a

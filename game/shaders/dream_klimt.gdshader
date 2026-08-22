@@ -42,6 +42,20 @@ uniform vec3 weld_red : source_color = vec3(0.45, 0.07, 0.02);
 uniform vec3 weld_orange : source_color = vec3(0.96, 0.42, 0.08);
 uniform vec3 weld_core : source_color = vec3(1.00, 0.88, 0.52);
 uniform float portal_open = 0.55;
+// EN-2: the weld is the portal. R6's one bounded shared-world camera
+// (DreamViewPortal) feeds the wound; the same feed reaches the weld's core
+// here, mapped in the breach's own frame (centre, side, up, half extents
+// spread over the lesion), so the molten seam around the lesion shows the
+// live other place and not only the reflected-world stand-in. Pushed by
+// DreamMazeRoot each frame; portal_live is 0 whenever R6 sleeps, and the
+// stand-in takes over.
+uniform sampler2D portal_view : source_color, filter_linear, hint_default_black;
+uniform float portal_live : hint_range(0.0, 1.0) = 0.0;
+uniform vec3 portal_center = vec3(0.0);
+uniform vec3 portal_side = vec3(1.0, 0.0, 0.0);
+uniform vec3 portal_up = vec3(0.0, 1.0, 0.0);
+uniform vec2 portal_half_m = vec2(0.64, 1.12);
+uniform float portal_spread = 2.6;
 
 vec3 en_heat_colour(float t_heat) {
 	vec3 c = mix(weld_red, weld_orange, smoothstep(0.0, 0.55, t_heat));
@@ -1470,7 +1484,9 @@ void fragment() {
 			en_rough = mix(en_rough, en_srough, en_ground);
 			// Its own relief, not the melt's: the wall's trowel marks.
 			vec3 en_base_n = normalize(n + (tan_a * en_sn.x + tan_b * en_sn.y) * 0.42);
-			en_bent = normalize(mix(en_bent, en_base_n, en_ground));
+			// Fully its own where it is grounded: the melt's relief terms bled
+			// through a partial mix as bands across the plaster.
+			en_bent = normalize(mix(en_bent, en_base_n, smoothstep(0.0, 0.45, en_ground)));
 			en_metal = mix(en_metal, 0.0, en_ground);
 			en_emission *= 1.0 - en_ground * 0.6;
 		}
@@ -1562,8 +1578,13 @@ void fragment() {
 
 		// bit 16: the portal in the bead's core.
 		if ((layer_mask & 16) != 0) {
-			float en_open = en_bead * smoothstep(portal_open - 0.12, portal_open + 0.12,
-					en_phase.z + en_drive * 0.3) * smoothstep(0.55, 0.9, en_bead);
+			// The seam sits on the drive contour 0.24, where the local gold
+			// phase is still zero — keyed on that alone the core never opened.
+			// EN-2: the weld opens when R6 is awake at the breach (portal_live),
+			// or, with no R6 in the pocket, by the local rule as the probe had it.
+			float en_open_rule = max(portal_live, smoothstep(portal_open - 0.12,
+					portal_open + 0.12, en_phase.z + en_drive * 0.3));
+			float en_open = en_open_rule * smoothstep(0.30, 0.85, en_bead);
 			vec3 en_r = reflect(-en_view, en_bent);
 			float en_ang = TIME * 0.04;
 			vec3 en_rr = vec3(en_r.x * cos(en_ang) - en_r.z * sin(en_ang), en_r.y,
@@ -1571,6 +1592,19 @@ void fragment() {
 			vec2 en_eq = vec2(atan(en_rr.z, en_rr.x) / 6.2831853 + 0.5,
 					acos(clamp(en_rr.y, -1.0, 1.0)) / 3.14159265);
 			vec3 en_elsewhere = texture(reflected_world, en_eq).rgb;
+			// EN-2: R6's live feed where it is awake, in the breach's frame.
+			if (portal_live > 0.001) {
+				vec3 en_pd = v_world - portal_center;
+				vec2 en_pf = vec2(dot(en_pd, portal_side), dot(en_pd, portal_up))
+						/ max(vec2(0.05), portal_half_m * portal_spread);
+				float en_inside = 1.0 - smoothstep(0.85, 1.0, max(abs(en_pf.x), abs(en_pf.y)));
+				vec2 en_puv = clamp(en_pf * 0.5 + vec2(0.5), vec2(0.002), vec2(0.998));
+				en_puv.y = 1.0 - en_puv.y;
+				// R6's camera carries a 3.2x exposure for the wound's dark
+				// aperture; in a molten seam the view sits behind the heat.
+				vec3 en_live = texture(portal_view, en_puv).rgb * vec3(0.96, 0.88, 1.03) * 0.5;
+				en_elsewhere = mix(en_elsewhere, en_live, en_inside * portal_live);
+			}
 			en_albedo = mix(en_albedo, en_elsewhere * 0.6, en_open);
 			en_emission = mix(en_emission, en_elsewhere * 1.4, en_open);
 			en_metal = mix(en_metal, 0.0, en_open);
