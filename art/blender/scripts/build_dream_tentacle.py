@@ -57,19 +57,25 @@ PROFILE = [
     (0.470, 0.092, 0.16, -0.10, 0.60),  # its shoulder falling away
     (0.520, 0.064, 0.30, -0.02, 0.70),
     (0.560, 0.038, 0.58, 0.02, 0.82),   # the flattened RIBBON: a real pinch
-    (0.600, 0.058, 0.30, 0.05, 0.90),   # and the swell after it
-    (0.640, 0.036, 0.40, 0.02, 0.99),   # ribbed: pinch
-    (0.680, 0.057, 0.20, -0.02, 1.07),  #         swell
-    (0.720, 0.034, 0.34, 0.02, 1.16),   #         pinch
-    (0.758, 0.053, 0.16, -0.03, 1.24),  #         swell
-    (0.792, 0.030, 0.26, 0.02, 1.32),   # the knuckle's waist
-    (0.818, 0.048, 0.10, -0.04, 1.38),  # the knuckle
-    (0.848, 0.026, 0.18, 0.02, 1.44),   # the narrowing: dexterous
-    (0.884, 0.030, 0.08, 0.00, 1.50),
-    (0.918, 0.024, 0.12, 0.00, 1.55),
-    (0.948, 0.036, 0.05, -0.03, 1.60),  # the club begins
-    (0.972, 0.046, 0.02, -0.05, 1.63),  # the sensory CLUB, flared
-    (0.990, 0.034, 0.00, 0.00, 1.65),
+    # THE DISTAL THIRD, RE-AUTHORED. It used to run pinch/swell/pinch/swell
+    # six times at even spacing and near-identical amplitude, which is a
+    # regular corrugation -- the exact thing sculpt_forms() warns against two
+    # hundred lines below -- and in the posed grey test it read as a STACK OF
+    # BEADS rather than flesh. Same number of features, but the spacing and
+    # the depth now vary a lot: one real narrow, one knuckle, and everything
+    # else a modulation of the taper rather than another bead.
+    (0.604, 0.059, 0.30, 0.05, 0.90),   # the swell after the ribbon
+    (0.663, 0.047, 0.34, 0.02, 1.00),   # a shallow waist, not a bead
+    (0.706, 0.055, 0.18, -0.02, 1.08),  # a broad, soft swelling
+    (0.742, 0.031, 0.40, 0.03, 1.15),   # THE narrow: the one real pinch here
+    (0.800, 0.046, 0.14, -0.02, 1.26),  # a long easy rise out of it
+    (0.828, 0.049, 0.10, -0.04, 1.33),  # the knuckle, barely distinct from it
+    (0.870, 0.027, 0.20, 0.02, 1.42),   # the narrowing: dexterous
+    (0.910, 0.029, 0.08, 0.00, 1.50),
+    (0.945, 0.023, 0.10, 0.00, 1.56),
+    (0.962, 0.037, 0.04, -0.03, 1.60),  # the club begins
+    (0.978, 0.047, 0.02, -0.05, 1.63),  # the sensory CLUB, flared
+    (0.992, 0.033, 0.00, 0.00, 1.65),
     (1.000, 0.012, 0.00, 0.00, 1.66),
 ]
 

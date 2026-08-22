@@ -82,10 +82,19 @@ Two shots were added, because faults hide in the angles you do not take:
 every profile shot sees it edge-on) and a corrected `09_root`, which at 0.55 m
 had been filling the frame with featureless white.
 
-## Standing faults in these frames
+## The distal third, re-authored
 
-- The distal third reads as a **stack of discrete beads** rather than
-  continuous flesh with swellings in it.
+It read as a stack of discrete beads, and the cause was in the profile table
+rather than in any sculpt pass: from v 0.56 to 0.85 it ran pinch / swell /
+pinch / swell six times at even spacing and near-identical amplitude. That is
+a regular corrugation — the exact thing `sculpt_forms()` warns against two
+hundred lines further down the same file.
+
+Same number of features, but the spacing and depth now vary widely: one real
+narrow, one knuckle, and everything else a modulation of the taper rather than
+another bead. It reads as a limb with a club on the end now.
+
+## Standing faults in these frames
 - Gold plates read as thin flat shards when seen edge-on.
 - §13 also asks the membrane for **gold anchors and crystal nodules**. It has
   neither yet.
