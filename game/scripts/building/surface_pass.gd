@@ -21,6 +21,10 @@ extends RefCounted
 const OPAQUE := preload("res://shaders/orison_surface.gdshader")
 const CUTOUT := preload("res://shaders/orison_surface_cutout.gdshader")
 const HEIGHT_DIR := "res://assets/building/textures/height/"
+const MASK_DIR := "res://assets/building/textures/masks/"
+## MX-3: the ship tool (art/tools/ship_surface_tables.py) writes every
+## height map stretched to 0..1 and this table of relief_mm / tile_m per key.
+const CALIBRATION := preload("res://scripts/generated/surface_calibration.gd").CALIBRATION
 
 ## Millimetres of relief spanned by a set's height map (0..1). Mortar is the
 ## deepest thing on the building; a board seam is barely anything. MX-3
@@ -51,14 +55,26 @@ const TILE_M := {
 const RELIEF_EXAGGERATION := 2.5
 
 const CLASSES := [
+	# The standing age (MX-3): grime settling in the joints, a little damp
+	# low on the wall, wear on the crests -- from the packed wall_age library
+	# (one fetch), never the procedural fields. Amounts are the quiet kind:
+	# they modulate the authored albedo, they do not replace it.
 	{"key": "walls", "match": "_walls",
 			"recipe": {"parallax_mode": 2, "pom_steps_min": 6, "pom_steps_max": 14,
 					"relief_mul": RELIEF_EXAGGERATION,
 					"has_detail": true, "detail_albedo_strength": 0.18,
-					"detail_normal_strength": 0.45}},
+					"detail_normal_strength": 0.45,
+					"mask": "wall_age", "mask_tile_m": 3.2,
+					"mask_amount": Vector4(0.0, 0.30, 0.16, 0.18),
+					"mask_threshold": Vector4(0.60, 0.35, 0.45, 0.40),
+					"mask_softness": Vector4(0.15, 0.40, 0.35, 0.35)}},
 	{"key": "finish", "match": "_finish_",
 			"recipe": {"has_detail": true, "detail_albedo_strength": 0.12,
-					"detail_normal_strength": 0.35}},
+					"detail_normal_strength": 0.35,
+					"mask": "wall_age", "mask_tile_m": 3.2,
+					"mask_amount": Vector4(0.0, 0.24, 0.14, 0.0),
+					"mask_threshold": Vector4(0.60, 0.35, 0.45, 0.40),
+					"mask_softness": Vector4(0.15, 0.40, 0.35, 0.35)}},
 	# Floors: M-COVER's anti-repetition rule per set (the coverage recipe is
 	# resolved from the albedo's file name by COVERAGE_RULES) plus the height
 	# tier and self-detail. Supersedes FloorCoveragePass.
@@ -66,7 +82,11 @@ const CLASSES := [
 			"recipe": {"coverage_rule": true, "parallax_mode": 2, "pom_steps_min": 4,
 					"pom_steps_max": 10, "relief_mul": RELIEF_EXAGGERATION,
 					"has_detail": true, "detail_albedo_strength": 0.15,
-					"detail_normal_strength": 0.4}},
+					"detail_normal_strength": 0.4,
+					"mask": "wall_age", "mask_tile_m": 4.0,
+					"mask_amount": Vector4(0.0, 0.22, 0.0, 0.20),
+					"mask_threshold": Vector4(0.60, 0.35, 0.45, 0.40),
+					"mask_softness": Vector4(0.15, 0.40, 0.35, 0.35)}},
 	# The third class of the census order: relief where the set has a height
 	# map (wainscot beadboard, tin ceiling, stair and landing stone, slabs,
 	# limestone trim), self-detail everywhere. Painted trim and sash have no
@@ -433,7 +453,8 @@ static func surface_for(original: BaseMaterial3D, recipe: Dictionary,
 	m.set_shader_parameter("roughness_mul", original.roughness)
 	m.set_shader_parameter("metallic", original.metallic)
 	var base := base_key(key)
-	m.set_shader_parameter("tile_m", float(TILE_M.get(base, 1.0)))
+	var calibrated: Dictionary = CALIBRATION.get(key, CALIBRATION.get(base, {}))
+	m.set_shader_parameter("tile_m", float(calibrated.get("tile_m", TILE_M.get(base, 1.0))))
 	if original.uv1_triplanar:
 		# MatLib: uv1_scale = 1 / (metres per tile x scale_mult).
 		var repeats := maxf(0.001, original.uv1_scale.x)
@@ -443,12 +464,16 @@ static func surface_for(original: BaseMaterial3D, recipe: Dictionary,
 	var height: Texture2D = original.heightmap_texture if original.heightmap_enabled else null
 	if height == null and ResourceLoader.exists(HEIGHT_DIR + key + ".png"):
 		height = load(HEIGHT_DIR + key + ".png")
-	var relief := float(RELIEF_MM.get(base, 0.0))
+	var relief := float(calibrated.get("relief_mm", RELIEF_MM.get(base, 0.0)))
 	if height != null and relief > 0.0:
 		m.set_shader_parameter("height_tex", height)
 		m.set_shader_parameter("has_height", true)
 		m.set_shader_parameter("height_relief_mm", relief)
-		m.set_shader_parameter("height_range", height_range(height))
+		# Shipped maps are stretched to 0..1 at ship time; only a map the
+		# tool has not seen (HeightmapPass's own binding of an unlisted key)
+		# is still measured.
+		m.set_shader_parameter("height_range",
+				Vector2(0.0, 1.0) if CALIBRATION.has(key) else height_range(height))
 	var stats := texture_stats(original)
 	m.set_shader_parameter("albedo_mean", stats.albedo_mean)
 	m.set_shader_parameter("rough_mean", stats.rough_mean)
@@ -465,6 +490,12 @@ static func surface_for(original: BaseMaterial3D, recipe: Dictionary,
 				var rule := coverage_rule_for(original.albedo_texture.resource_path)
 				for rk in rule:
 					m.set_shader_parameter(rk, rule[rk])
+			continue
+		if p == "mask":
+			var mask_path := MASK_DIR + str(recipe[p]) + ".png"
+			if ResourceLoader.exists(mask_path):
+				m.set_shader_parameter("mask_tex", load(mask_path))
+				m.set_shader_parameter("has_mask_tex", true)
 			continue
 		m.set_shader_parameter(p, recipe[p])
 	if not cache_key.is_empty():

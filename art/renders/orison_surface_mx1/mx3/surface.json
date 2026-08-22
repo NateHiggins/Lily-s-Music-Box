@@ -1,0 +1,67 @@
+{
+  "renderer": "gl_compatibility",
+  "sample_frames": 48,
+  "stations": {
+    "bed_2a": {
+      "ship": {
+        "cpu_ms": 6.756,
+        "draw_calls": 2128,
+        "gpu_ms": 2.8529999256134,
+        "label": "the class recipe as SurfacePass ships it",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/mx3/bed_2a__ship.png",
+        "save_error": 0,
+        "surfaces_swapped": 77
+      },
+      "ship_nomask": {
+        "cpu_ms": 6.993,
+        "draw_calls": 2153,
+        "gpu_ms": 2.81599998474121,
+        "label": "the class recipe without its standing-age masks",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/mx3/bed_2a__ship_nomask.png",
+        "save_error": 0,
+        "surfaces_swapped": 77
+      }
+    },
+    "cellar": {
+      "ship": {
+        "cpu_ms": 5.561,
+        "draw_calls": 1414,
+        "gpu_ms": 2.43899989128113,
+        "label": "the class recipe as SurfacePass ships it",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/mx3/cellar__ship.png",
+        "save_error": 0,
+        "surfaces_swapped": 4343
+      },
+      "ship_nomask": {
+        "cpu_ms": 5.585,
+        "draw_calls": 1001,
+        "gpu_ms": 2.08100008964539,
+        "label": "the class recipe without its standing-age masks",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/mx3/cellar__ship_nomask.png",
+        "save_error": 0,
+        "surfaces_swapped": 4343
+      }
+    },
+    "corridor": {
+      "ship": {
+        "cpu_ms": 21.449,
+        "draw_calls": 14996,
+        "gpu_ms": 13.7760000228882,
+        "label": "the class recipe as SurfacePass ships it",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/mx3/corridor__ship.png",
+        "save_error": 0,
+        "surfaces_swapped": 4358
+      },
+      "ship_nomask": {
+        "cpu_ms": 21.518,
+        "draw_calls": 15524,
+        "gpu_ms": 13.8290004730225,
+        "label": "the class recipe without its standing-age masks",
+        "png": "C:/PleaseRemainOnTheLine/art/renders/orison_surface_mx1/mx3/corridor__ship_nomask.png",
+        "save_error": 0,
+        "surfaces_swapped": 4358
+      }
+    }
+  },
+  "window": "(1280, 720)"
+}

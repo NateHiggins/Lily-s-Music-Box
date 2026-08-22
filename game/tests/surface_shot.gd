@@ -62,6 +62,7 @@ const OPTIONS := [
 	{"key": "current", "label": "shipping StandardMaterial3D", "recipe": null},
 	{"key": "base", "label": "orison_surface, every layer off (control)", "recipe": {}},
 	{"key": "ship", "label": "the class recipe as SurfacePass ships it", "recipe": {"__class__": true}},
+	{"key": "ship_nomask", "label": "the class recipe without its standing-age masks", "recipe": {"__class__": true, "__nomask__": true}},
 	{"key": "offset", "label": "+ height tier, offset parallax", "recipe": {"parallax_mode": 1}},
 	{"key": "pom", "label": "+ height tier, POM", "recipe": {"parallax_mode": 2}},
 	{"key": "detail", "label": "+ detail tier (self, 3.718x)", "recipe": {"has_detail": true}},
@@ -290,6 +291,10 @@ func _surface_for(original: BaseMaterial3D, option: Dictionary, cls: Dictionary)
 	var recipe: Dictionary = option.recipe
 	if recipe.has("__class__"):
 		recipe = cls.recipe
+		if option.recipe.has("__nomask__"):
+			recipe = recipe.duplicate()
+			recipe.erase("mask")
+			recipe["mask_amount"] = Vector4.ZERO
 	elif str(cls.key) == "floors":
 		# The floors' coverage rule is part of their base look, not a tier.
 		recipe = recipe.duplicate()

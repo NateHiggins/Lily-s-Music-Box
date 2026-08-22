@@ -1942,7 +1942,16 @@ probe is a third. MX makes them one system.
   material obeys. Never a polygon for what the shader sells; never a shader
   for a silhouette.
 - **MX-3a DONE 2026-08-21 — SOURCES SCRUBBED OF THE GENERATOR WATERMARK.** `scrub_source_watermarks.py` detects the sparkle at its fixed inset and unblends it from 61 Gemini sources (63 ChatGPT false positives rejected by measured alpha); 147 sets re-ingested and rebuilt. Run it on every new drop before `ingest_material_sources.py`.
-- **MX-3 — INGEST V2 (OPEN).** Measured 2026-08-21: the ingest's heights are
+- **MX-3 FIRST SLICE DONE 2026-08-22.** `art/tools/ship_surface_tables.py`
+  ships all 79 catalog height maps stretched to their range, writes
+  `game/scripts/generated/surface_calibration.gd` (relief_mm, tile_m per
+  key; `material.json` gains relief_mm) which `SurfacePass` now reads, and
+  packs the wall stencils into `textures/masks/wall_age.png` (R damage, G
+  grime, B moisture, A wear) — the standing age on walls, finishes and
+  floors at quiet amounts, one fetch. OPEN in MX-3: packed ORM, dedicated
+  detail maps, the ingest writing stretched heights itself. Record in
+  `art/renders/orison_surface_mx1/README.md` (MX-3 section).
+- **MX-3 — INGEST V2 (the rest, OPEN).** Measured 2026-08-21: the ingest's heights are
   band-passed luminance spanning ~0.26 (face brick) to ~0.09 (concrete) of
   0..1 — the runtime calibrates by percentile for now; the ingest should
   write them spanning their range with `relief_mm` in `material.json`, and

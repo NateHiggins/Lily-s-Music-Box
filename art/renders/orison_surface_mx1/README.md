@@ -171,3 +171,36 @@ viewport's measured GPU time every 0.5 s and steps `parallax_budget` by
 material; `SURFACE_TARGET_MS` sets the target, `SURFACE_BUDGET` pins the
 budget and disables the loop. Proof at a 1 ms target (`gates7.log`): 1.0 →
 0.75 → 0.50 → 0.25 → 0 over four intervals, WalkTest PASS.
+
+## MX-3, first slice — calibrated heights shipped, the mask library (2026-08-22)
+
+`art/tools/ship_surface_tables.py` ships every catalog height map
+**stretched to its own p1..p99 range** under `textures/height/` (79 maps,
+was 60: every family variant of every relieved key) and writes
+`game/scripts/generated/surface_calibration.gd` — relief in millimetres per
+base key and metres per tile from each set's `material.json`, which also
+gains `relief_mm`. `SurfacePass` reads the table; its hand tables are now
+fallbacks for unlisted keys and the boot-time percentile measurement runs
+only for those. The art sources stay as the ingest wrote them.
+
+The same tool packs `art/textures/wall_sources` — the finish compiler's
+stencils — into **`textures/masks/wall_age.png`** in the surface's mask
+convention: R damage (delamination), G grime (soot), B moisture (leak +
+tide), A wear (peel), half-roll crossfaded for seamlessness. Walls, finishes
+and floors carry it as the **standing age** at quiet amounts (grime 0.22–
+0.30 settling in the joints, damp 0.14–0.16 low on the wall, wear 0.18–0.20
+on the crests; damage 0 — damage is a state, not a default). One fetch
+where the procedural fields cost four fbm evaluations.
+
+`mx3/sheet_mx3_standing_age.jpg` — `ship_nomask` vs `ship` at 2A's bedroom
+wall, the corridor and the cellar: the difference is meant to be quiet (the
+plaster darkens toward the skirting, soot gathers in the corridor's
+corners); cost bed 2.82 → 2.85 ms, corridor 13.83 → 13.78, cellar 2.08 →
+2.44 — within noise. WalkTest FAST PASS, LightingAudit PASS.
+
+Harness note: since "current" restores the previous override, it IS
+production; A/B the masks with `ship_nomask` against `ship`.
+
+Still open in MX-3: packed ORM (AO today is the in-shader cavity term from
+height), dedicated detail maps (self-detail stands in), the ingest writing
+its heights spanning their range itself.
