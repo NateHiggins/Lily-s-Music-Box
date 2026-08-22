@@ -880,6 +880,14 @@ def build_cage():
     for j in range(RING_SEGMENTS):
         k = (j + 1) % RING_SEGMENTS
         bm.faces.new((grid[0][k], grid[0][j], plug))
+    # THE WINDING WAS INSIDE OUT. Every ring quad was wound so the cage's
+    # normals pointed at its own axis: signed volume negative, and the
+    # outermost +X vertex carrying normal.x = -0.99. Blender never showed it
+    # because EEVEE shades both sides, but Godot culls back faces, so the
+    # hero creature's body would have rendered inside-out in the engine --
+    # and the clearance check read every seated piece as buried in flesh and
+    # every buried piece as clear, which is how it was found.
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces[:])
     bm.normal_update()
     me = bpy.data.meshes.new("TENTACLE_BODY_CAGE")
     bm.to_mesh(me)
@@ -994,6 +1002,25 @@ def build_rig(col, cage, extras):
         t = (a + b) * 0.5
         share = 0.10 if t < 0.25 else (0.30 if t < 0.62 else 0.60)
         pb["twist_share"] = share
+        # THE COLLAR HOLDS THE ROOT (§13, §14). The membrane is what the
+        # creature is coming THROUGH, so the first few centimetres of limb
+        # are gripped by it and cannot swing freely. Without a limit here the
+        # clearance check measured 112 mm of shaft driven straight through
+        # the collar in every pose that bends the root -- §23's "membrane
+        # collapse" -- and no amount of re-binding the membrane fixes that,
+        # because the fault is the pose, not the skin.
+        #
+        # A real limit on the rig, not a rule in a document: any animator who
+        # over-rotates the root now gets clamped instead of a collapsed
+        # membrane.
+        if t < 0.09:
+            limit = pb.constraints.new("LIMIT_ROTATION")
+            limit.use_limit_x = limit.use_limit_y = limit.use_limit_z = True
+            grip = math.radians(7.0)
+            limit.min_x, limit.max_x = -grip, grip
+            limit.min_y, limit.max_y = -grip * 1.4, grip * 1.4
+            limit.min_z, limit.max_z = -grip, grip
+            limit.owner_space = "LOCAL"
     return arm, spine
 
 
@@ -1060,6 +1087,49 @@ def bind_inherit(obj, arm, kd, table):
     return len(buckets) > 0
 
 
+def bind_membrane(obj, arm, kd, table, root_bone):
+    """§13 — a collar that STRETCHES between the limb and the wall.
+
+    Neither extreme works. Bound to the flesh it swings with the shaft and is
+    no longer an aperture; bound rigidly to the wall the shaft sweeps clean
+    through it -- the clearance check measured 112 mm of limb passing through
+    the collar in every pose that bends the root, which is §23's "membrane
+    collapse" exactly.
+
+    So it is graded by radius: the inner edge inherits the flesh's own
+    weights and travels with the limb, the outer rim is anchored to the root
+    bone and stays with the wall, and the sheet in between takes the blend.
+    That is the "bulge, thin, stretch, cling" §13 asks for, and it is what an
+    aperture physically does.
+    """
+    radii = [math.hypot(v.co.x, v.co.z) for v in obj.data.vertices]
+    if not radii:
+        return False
+    r_in, r_out = min(radii), max(radii)
+    span = max(1e-6, r_out - r_in)
+    buckets = {}
+    for vi, vert in enumerate(obj.data.vertices):
+        # 0 at the limb, 1 at the rim.
+        mix = min(1.0, max(0.0, (radii[vi] - r_in) / span)) ** 0.75
+        if mix < 0.999:
+            _co, idx, _d = kd.find(obj.matrix_world @ vert.co)
+            if idx is not None and idx < len(table):
+                for gname, w in table[idx]:
+                    key = (gname, round(w * (1.0 - mix), 2))
+                    if key[1] > 0.0:
+                        buckets.setdefault(key, []).append(vi)
+        if mix > 0.001:
+            buckets.setdefault((root_bone, round(mix, 2)), []).append(vi)
+    for (gname, w), indices in buckets.items():
+        group = obj.vertex_groups.get(gname) or obj.vertex_groups.new(name=gname)
+        group.add(indices, w, "ADD" if gname == root_bone else "REPLACE")
+    obj.parent = arm
+    obj.matrix_parent_inverse = arm.matrix_world.inverted()
+    mod = obj.modifiers.new("Armature", "ARMATURE")
+    mod.object = arm
+    return True
+
+
 def bind_rigid(obj, arm, spine):
     """Ride one bone, rigidly.
 
@@ -1094,10 +1164,11 @@ def skin(cage, arm, others, spine, soft=()):
     glTF exporter had been saying so on every run, once per object ("has no
     skin, skipping"), for as long as the script has existed.
 
-    The cage takes automatic weights. Everything else is bound rigidly to the
-    single nearest deform bone, which is what the original docstring always
-    claimed and never did. Soft systems -- the membrane skirt -- take
-    automatic weights instead, because they are cloth, not shell.
+    The cage takes automatic weights. Everything else inherits the flesh's
+    own weights at its contact point. The one exception is the membrane,
+    which is an APERTURE rather than a garment: it belongs to the wall the
+    creature is coming through, so it rides the root bone rigidly and the
+    limb bends through it.
     """
     bpy.ops.object.select_all(action="DESELECT")
     cage.select_set(True)
@@ -1110,20 +1181,20 @@ def skin(cage, arm, others, spine, soft=()):
         mod.object = arm
     # The cage now carries automatic weights; the riders inherit them.
     kd, table = cage_weight_table(cage)
+    # THE MEMBRANE IS AN APERTURE, NOT A SLEEVE (§13, and §23's "membrane
+    # collapse"). Bound softly to the nearby flesh it swung with the shaft,
+    # and the clearance check measured the consequence: 112 mm of membrane
+    # driven through the limb's own body in every pose that bends the root.
+    # It is attached to the wall the creature is coming through, so it rides
+    # the ROOT bone rigidly and the limb bends through it.
+    root_bone = spine[0][0] if isinstance(spine[0], (tuple, list)) else spine[0]
     soft_set = set(soft)
     rigid = 0
     fallback = 0
     for obj in others:
         if obj in soft_set:
-            bpy.ops.object.select_all(action="DESELECT")
-            obj.select_set(True)
-            arm.select_set(True)
-            bpy.context.view_layer.objects.active = arm
-            try:
-                bpy.ops.object.parent_set(type="ARMATURE_AUTO")
-                continue
-            except RuntimeError:
-                pass
+            bind_membrane(obj, arm, kd, table, root_bone)
+            continue
         if not bind_inherit(obj, arm, kd, table):
             # Nothing under it to inherit from: fall back to one bone.
             bind_rigid(obj, arm, spine)
