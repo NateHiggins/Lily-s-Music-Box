@@ -232,6 +232,26 @@ uniform float breath_hz = 0.05;
 uniform int grammar : hint_range(0, 5) = 0;
 group_uniforms;
 
+// ------------------------------------------------------------------- living
+// THE ENCROACHMENT AS A SLIME MOULD (design/LIVING_FIELD_BRIEF.md). A 3-D
+// field over the case's flat, simulated by LivingField: R trail, G body
+// (the live plasmodium), B stain (the slime it leaves and avoids). Every
+// surface inside the volume reads the same field, so the organism flows
+// over walls, finishes, floor and props continuously; the edge is the
+// body's isovalue, perturbed by time so it fizzes and fingers; the stain
+// is a viscous film that stays after the body recedes.
+group_uniforms living;
+uniform bool has_living = false;
+uniform sampler3D living_tex : filter_linear, repeat_disable, hint_default_black;
+uniform vec3 living_origin = vec3(0.0);
+uniform vec3 living_size = vec3(1.0);
+uniform float living_amount : hint_range(0.0, 1.0) = 1.0;
+uniform float living_iso = 0.22;
+uniform float living_pulse : hint_range(0.0, 1.0) = 0.0;
+uniform vec3 living_tint : source_color = vec3(0.16, 0.14, 0.26);
+uniform vec3 living_stain_tint : source_color = vec3(0.30, 0.24, 0.30);
+group_uniforms;
+
 varying vec3 v_world;
 varying vec3 v_wnormal;
 
@@ -247,6 +267,7 @@ struct OrisonSurface {
 	float corruption;   // the corruption field, for cutout restore
 	float damage;       // the damage field, for cutout tearing
 	float membrane;     // the encroachment's restored surface, for the cutout
+	float living;       // the living body, for the cutout's membrane
 };
 
 // ------------------------------------------------------------------ helpers
@@ -371,7 +392,9 @@ float os_encroach(inout vec3 albedo, inout float rough, inout float metal,
 	// plate_a: the substance, by the case's grammar
 	float rise = 1.0 - smoothstep(0.0, 0.35 + 1.25 * intensity, height);
 	float corner = 1.0 - smoothstep(0.0, 0.35 + 0.95 * intensity, to_edge);
-	float reach = max(rise, corner) * (0.50 + 0.50 * intensity);
+	// Where the living field is on, the static creep steps back to a
+	// foothold and the organism does the reaching.
+	float reach = max(rise, corner) * (0.50 + 0.50 * intensity) * (has_living ? 0.55 : 1.0);
 	float wick_drive = reach * 0.60 + field * 0.50 + fine * 0.18 - 0.20 + 0.03 * breath;
 	float lines_field = dream_corruption_vessels(v_world * 2.6, 0.31, 0.96);
 	if (grammar == 1) {
@@ -696,6 +719,43 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 		membrane = os_encroach(albedo, rough, metal, n_ts, alpha, wn, time);
 	}
 
+	// ---- the living field: body with an active edge, stain as a film -------
+	float living = 0.0;
+	if (has_living && living_amount > 0.001) {
+		vec3 lp = (v_world - living_origin) / max(vec3(0.05), living_size);
+		// The texture's axes are (x, z, y): slices along y.
+		vec3 lt = texture(living_tex, vec3(lp.x, lp.z, lp.y)).rgb;
+		float in_box = step(0.0, lp.x) * step(lp.x, 1.0) * step(0.0, lp.y) * step(lp.y, 1.0)
+				* step(0.0, lp.z) * step(lp.z, 1.0);
+		float body = lt.g * in_box;
+		float stain = lt.b * in_box;
+		float trail = lt.r * in_box;
+		// The active edge: fizz at ~1 Hz, fingers at ~0.15 Hz, and the shuttle
+		// pulse breathing the isovalue.
+		float fizz = dream_corruption_noise3(v_world * 9.0 + vec3(time * 1.1, -time * 0.8, time * 0.6)) - 0.5;
+		float fingers = dream_corruption_fbm3(v_world * 2.2 + vec3(0.0, time * 0.15, 0.0)) - 0.5;
+		float iso = living_iso + 0.06 * sin(living_pulse * 6.2831853) + fizz * 0.06 + fingers * 0.14;
+		// The sheet is the diffused trail; the body (agent hits) is its veins.
+		float front = smoothstep(iso - 0.05, iso + 0.05, body * 0.7 + trail * 0.9);
+		living = front * living_amount;
+		// The stain: where it has been. A viscous film — darker toward the
+		// stain tint, glossy, the surface's own texture flattened under it.
+		float film = smoothstep(0.04, 0.35, stain) * living_amount;
+		albedo = mix(albedo, albedo * 0.55 + living_stain_tint * 0.45, film * 0.8);
+		rough = mix(rough, 0.12, film * 0.85);
+		n_ts.xy *= 1.0 - 0.6 * film;
+		metal = mix(metal, 0.0, film);
+		// The body: the case's substance, wet, with a brighter lip at the front.
+		float lip = smoothstep(0.0, 0.35, living) * (1.0 - smoothstep(0.35, 0.9, living));
+		vec3 substance = living_tint * (1.3 + 0.5 * fizz);
+		albedo = mix(albedo, substance, living * 0.92);
+		albedo += living_tint * lip * 0.9;
+		rough = mix(rough, 0.16 + 0.1 * fizz, living);
+		metal = mix(metal, 0.0, living);
+		n_ts.xy = mix(n_ts.xy, vec2(fizz, fingers) * 0.5, living * 0.7);
+		s.emission += living_tint * lip * 0.25;
+	}
+
 	// ---- resolve -----------------------------------------------------------
 	n_ts.z = sqrt(max(0.0, 1.0 - dot(n_ts.xy, n_ts.xy)));
 	s.normal = normalize(tangent * n_ts.x + binormal * n_ts.y + normal * n_ts.z);
@@ -707,7 +767,8 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 	s.backlight = albedo * translucency * (1.0 - g);
 	s.corruption = corrupt;
 	s.damage = damage;
-	s.membrane = membrane;
+	s.membrane = max(membrane, living);
+	s.living = living;
 
 	if (debug_view == 1) {
 		s.albedo = f1.rgb; s.emission = f1.rgb; s.rough = 1.0; s.metal = 0.0;

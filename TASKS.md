@@ -1846,6 +1846,33 @@ inherited. Consider and *cost* each:
 Bring frames, not adjectives. Two shots of the same corridor under each option
 beats any amount of argument about which sounds better.
 
+### LF — THE LIVING FIELD (owner direction 2026-08-22)
+
+> "I want it to flow over every nearby surface continuously, with an active,
+> animated edge, leaving a viscous stain where it approaches and recedes like
+> an active living thing; research how slime molds grow and design a
+> procedural growth and spread system from that."
+
+- **LF-1 DONE 2026-08-22 — THE ENCROACHMENT AS A SLIME MOULD.** Research
+  and design in `design/LIVING_FIELD_BRIEF.md` (Physarum: shuttle streaming,
+  fan front and vein network, chemotaxis and withdrawal, the slime trail as
+  externalised memory — Reid 2012; the Jones 2010 particle model).
+  `LivingField`: a 0.25 m 3-D field per case flat (trail / body / stain),
+  Physarum agents in 3-D with a budget from the case's intensity, the body
+  persisting for minutes and receding on starvation, the stain repelling
+  and outliving it, a 14 s shuttle pulse; amortised relaxation, ~4 ms per
+  worst-case tick. The surface's `living` state samples it on every material
+  the case reaches: the body as the case's substance with a fizzing,
+  fingering edge breathing with the pulse, the stain as a viscous film.
+  `LivingFieldTest` 10/10; `art/renders/living_field/README.md`
+  (2A at 3 / 15 / 45 s). `LIVING=0` restores the static encroachment.
+- **LF-2 — THE GRAMMARS RIDE THE ORGANISM (OPEN).** Drive each case's plate
+  grammar by the field (Peter's rectangles filed where the body is, Juno's
+  bands where its waves stand, Cal's arcs around its source) instead of the
+  static foothold; the organism's texture becomes the case's language.
+- **LF-3 — BEYOND THE FLAT (OPEN, a gameplay question).** Whether and when
+  the organism crosses into the corridor, and what that means for the case.
+
 ### CT — CRITTER SKINS (owner direction 2026-08-21)
 
 - **CT-1 DONE 2026-08-21 — FAMILY SKIN ATLASES FROM THE PLATES.**

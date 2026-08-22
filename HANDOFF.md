@@ -414,7 +414,10 @@ MX-3's first slice landed
 state of the one surface since 2026-08-22 (`os_encroach`;
 `wall_encroachment.gdshader` is reference only). The six encroachment grammars landed 2026-08-22, and with them the fix that let
 flats other than 2A encroach at all. EN-3 landed 2026-08-22 in both halves (surface fold + tessellated boxes whose
-wall vertices sink into the weld; Gate C clean). Open, in order:
+wall vertices sink into the weld; Gate C clean). The encroachment is now a
+living slime-mould field per case flat (`LivingField`, `design/LIVING_FIELD_BRIEF.md`,
+`art/renders/living_field/README.md`; `LIVING=0` restores the static creep);
+LF-2 (the grammars ride the organism) is the next row. Open, in order:
 MX-3's rest (ORM, detail maps); the WK-1 per-case grammars; EN-3
 folds; CT-2; the EN-2 taste/perf rows (weld vocabulary placing R6's
 camera; trim the ornament under the layers). `TASKS.md` §MX / §CT / §EN. Harness note: the layout's y is

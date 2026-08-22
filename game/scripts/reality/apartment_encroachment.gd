@@ -25,6 +25,7 @@ extends Node
 ## SurfacePass.surface_for with the finish class's own recipe; the former
 ## wall_encroachment.gdshader is kept as the reference of the grammar.
 const SurfacePassScript := preload("res://scripts/building/surface_pass.gd")
+const LivingFieldScript := preload("res://scripts/reality/living_field.gd")
 const PROFILES_PATH := "res://data/dream_profiles.json"
 const PLATE_ROOT := "res://assets/dream/incarnations"
 const BEACHHEAD_AT := 0.3
@@ -67,6 +68,9 @@ var units: Dictionary = {}
 ## should reach the props").
 var prop_rows: Dictionary = {}
 var props_reached := 0
+## case_id -> LivingField (design/LIVING_FIELD_BRIEF.md): the organism over
+## the flat, sampled by every surface the case reaches. LIVING=0 disables.
+var fields: Dictionary = {}
 var _forced: Dictionary = {}
 var _plates: Dictionary = {}
 var _substance_keys: Dictionary = {}
@@ -129,6 +133,15 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 		var beachhead := _find_beachhead(witnesses, floor_node, case_id)
 		if beachhead != null:
 			beachheads[case_id] = {"node": beachhead, "originals": {}}
+		if OS.get_environment("LIVING") != "0":
+			var field = LivingFieldScript.new()
+			var source := Vector3((rect.x + rect.z) * 0.5, floor_y + 1.0, (rect.y + rect.w) * 0.5)
+			if beachhead != null and beachhead is Node3D:
+				source = (beachhead as Node3D).global_position
+			field.configure(rect, floor_y, source, case_id.hash())
+			fields[case_id] = field
+			for row in rows:
+				_bind_living(row.material as ShaderMaterial, case_id)
 	if RealityState.has_signal("state_changed") and not RealityState.state_changed.is_connected(refresh):
 		RealityState.state_changed.connect(refresh)
 	refresh()
@@ -138,6 +151,38 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 
 
 ## Re-read every case's state and push intensities. Cheap; called on commit.
+## The organism's clock. Each active case's field steps at its own rate and
+## its texture is shared by every material bound to it; only the pulse
+## phase is pushed per tick.
+func _physics_process(delta: float) -> void:
+	for case_id in fields:
+		var field = fields[case_id]
+		field.intensity = float(intensities.get(case_id, 0.0))
+		if field.intensity <= 0.001 and field.census().agents == 0 and field.steps > 0:
+			continue
+		if field.tick(delta):
+			var phase: float = field.pulse_phase()
+			for row in surfaces.get(case_id, []):
+				(row.material as ShaderMaterial).set_shader_parameter("living_pulse", phase)
+			for row in prop_rows.get(case_id, []):
+				(row.material as ShaderMaterial).set_shader_parameter("living_pulse", phase)
+
+
+func _bind_living(m: ShaderMaterial, case_id: String) -> void:
+	if m == null or not fields.has(case_id):
+		return
+	var field = fields[case_id]
+	var spec: Dictionary = CASES.get(case_id, {})
+	var ink: Color = spec.get("ink", Color(0.20, 0.19, 0.30))
+	m.set_shader_parameter("has_living", true)
+	m.set_shader_parameter("living_tex", field.texture())
+	m.set_shader_parameter("living_origin", field.origin)
+	m.set_shader_parameter("living_size", field.size_m)
+	m.set_shader_parameter("living_tint", Vector3(ink.r, ink.g, ink.b))
+	m.set_shader_parameter("living_stain_tint", Vector3(ink.r, ink.g, ink.b) * 0.6 + Vector3(0.18, 0.14, 0.16))
+	m.set_shader_parameter("living_amount", 1.0)
+
+
 func refresh() -> void:
 	for case_id in surfaces:
 		var value := intensity_for(case_id)
@@ -197,6 +242,7 @@ func reach_props(root: Node) -> int:
 			# A batched draw spans the storey: the states show only inside the flat.
 			own.set_shader_parameter("state_rect", rect)
 			own.set_shader_parameter("state_y", Vector2(floor_y - 0.2, floor_y + 3.6))
+			_bind_living(own, case_id)
 			mi.material_override = own
 			rows.append({"mesh": mi, "material": own, "shared": shared})
 			if OS.get_environment("ENCROACH_DEBUG") == "1" and rows.size() <= 12:

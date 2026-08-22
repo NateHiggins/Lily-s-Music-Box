@@ -9,6 +9,9 @@ extends Node
 ##     SURF_OPTIONS=current,base,full       optional filter by option key
 ##     SURFACE_PROPS=1                      the draw-heavy tiers (furnishing
 ##                                          classes, batched props) take part
+##     SURF_SETTLE_S=12                     seconds to let the world run before
+##                                          each stand is framed (the living
+##                                          field grows in real time)
 ##     SURF_PROP_STATE=oxide:0.8            "ship" also puts a state on every
 ##                                          layered prop at the stand (oxide,
 ##                                          gild, corrupt, grime, moisture,
@@ -193,6 +196,9 @@ func _run() -> void:
 		_place(pos, station.yaw, station.pitch)
 		_room_lights_on(str(station.room))
 		await get_tree().create_timer(0.6).timeout
+		var settle := OS.get_environment("SURF_SETTLE_S")
+		if not settle.is_empty():
+			await get_tree().create_timer(float(settle)).timeout
 		# Warm every variant before anything is timed: first use compiles.
 		for option in OPTIONS:
 			if bool(option.get("demo_only", false)) and not bool(station.get("demo", false)):

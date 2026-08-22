@@ -1,0 +1,105 @@
+# LIVING FIELD — the encroachment as a slime mould
+
+Owner direction 2026-08-22: *"I want it to flow over every nearby surface
+continuously, with an active, animated edge, leaving a viscous stain where
+it approaches and recedes like an active living thing; research how slime
+molds grow and design a procedural growth and spread system from that."*
+
+## 1. What a slime mould actually does (the research)
+
+*Physarum polycephalum*, the plasmodial slime mould — one giant cell, a
+network of veins with a foraging front.
+
+1. **Shuttle streaming.** Protoplasm is pumped back and forth through the
+   vein network by rhythmic contraction of the cell's actomyosin cortex,
+   reversing direction with a period of roughly 60–120 s. The whole
+   organism breathes; the front advances on one half of the cycle and
+   settles on the other. (Kamiya 1950s; Alim et al. 2013, PNAS, on peristaltic
+   flow in the network.)
+2. **A fan-shaped front, a network behind.** The growing margin is a
+   continuous sheet with finger-like lobes; behind it the sheet resolves into
+   veins. Veins that carry flow thicken; veins that do not are withdrawn.
+   This is the "network optimisation" that famously reproduced the Tokyo
+   rail system (Tero et al. 2010, Science): reward strengthens a tube, and
+   unrewarded tubes are resorbed.
+3. **Chemotaxis toward food, and retraction.** The front grows toward
+   attractants (nutrient gradients) at roughly 1 cm/h, and the organism
+   **withdraws** from regions that stop paying, pulling its protoplasm back
+   through the veins it keeps.
+4. **The slime trail as externalised memory.** Wherever the plasmodium has
+   been it leaves a sheath of extracellular slime, and it **avoids its own
+   trail** — negative chemotaxis to deposited slime (Reid, Latty, Alim &
+   Beekman 2012, PNAS, "Slime mold uses an externalized spatial memory to
+   navigate in complex environments"). That single rule makes it explore
+   outward rather than re-cover old ground, and makes the stain it leaves a
+   record of where it has been.
+5. **The agent model that reproduces all of this** (Jones 2010, *Artificial
+   Life*, "Characteristics of pattern formation and evolution in
+   approximations of Physarum transport networks"): particles with a
+   position and heading sense a diffusing, decaying *chemoattractant trail*
+   at three offsets ahead (forward, ±sensor angle, sensor offset ~9 cells),
+   turn toward the strongest, step, and deposit trail where they stand.
+   Diffusion (a mean filter) plus decay (~0.1 per step) on the trail, and the
+   swarm self-organises into fans, fronts and vein networks. Typical
+   parameters: sensor angle 45°, rotation 45°, step 1 cell, deposit 5.
+
+## 2. The design: `LivingField`
+
+One field per case flat, owned by `ApartmentEncroachment`, simulated on the
+CPU at 8 Hz on a coarse 3-D grid over the flat's volume (the unit rect by
+the storey's 3.2 m, 0.2 m voxels), uploaded as a 3-D texture the layered
+surface samples in world space — the same mechanism `DreamExposureField`
+already uses for the lamp. Every surface inside the volume reads the same
+field, so the organism flows over walls, finishes, floor and props
+continuously, and the edge is wherever the field's isovalue falls.
+
+Three channels:
+
+| channel | what | dynamics |
+|---|---|---|
+| **trail** (`T`) | Jones' chemoattractant | agents deposit; diffuses (6-neighbour mean every step); decays 0.10/step |
+| **body** (`B`) | the live plasmodium — what the surface shows as flesh/ink | recent agent density; decays 0.25/step so it *recedes* when the agents leave |
+| **stain** (`S`) | the extracellular slime — the viscous residue | integrates body slowly (+0.12·B), decays 0.004/step (minutes), **repels** agents (Reid 2012) |
+
+Agents (Jones particles, in 3-D): position, heading (unit vector). Each
+step: sense `T − 0.6·S + food` at five offsets (ahead, and ahead tilted
+±45° in two planes); turn toward the best; step 1 voxel; deposit trail;
+if the trail under it is near zero for a while, **die**; new agents are born
+where the body is strongest (the veins) and at the **source** — the case's
+beachhead prop — which also deposits food continuously. The agent budget is
+`60 + 540·intensity`, so a case's stage sets how much organism there is;
+lowering it makes the swarm starve back toward the source and the body
+recede, leaving the stain.
+
+**Shuttle streaming** is a global modulation: a 14 s cosine on step size
+and deposit (fast on the outward half, slow on the return), and the
+surface's isovalue breathes with it, so the whole front advances and
+settles together while the fine edge fizzes.
+
+## 3. The surface: the `living` state of `orison_surface`
+
+`living_tex` (RGB = trail, body, stain), `living_origin/size` (the flat's
+volume), `living_tint` (the case's ink), `living_stain_tint`.
+
+- **Body** → the case's substance: the plate-tinted ink (or flesh in the
+  dream), fully where `B` is past the isovalue, with an **active edge**: the
+  isovalue is perturbed by a 3-D noise of world position advected by time
+  (fizz at ~1 Hz, fingers at ~0.15 Hz) and by the shuttle pulse, and the band
+  just outside the front carries Mina's leader lines / the case's grammar
+  lines as before. Wet film on the body: roughness 0.18–0.3.
+- **Stain** → the viscous residue: albedo darkened toward the stain tint by
+  `S`, roughness pulled toward 0.12 (a gloss), a soft normal flattening (a
+  film), metallic 0. It stays after the body leaves and fades over minutes.
+- On a cutout finish the body restores torn plaster as a membrane, as the
+  wick did.
+
+The per-case grammars (WK-1) stay as the organism's *texture*: its ink, its
+lines, its tints. What the grammars drew statically, the field now drives.
+
+## 4. What it is not
+
+No collision, no gameplay owner, no save key: presentation only, like the
+encroachment it replaces. The field is bounded by the flat's volume; it does
+not enter the corridor. Cost: one 3-D texture fetch per pixel on surfaces
+inside a case flat; the CPU step is a few hundred agents and ~30 k voxels at
+8 Hz per active case.
