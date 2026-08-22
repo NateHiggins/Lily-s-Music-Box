@@ -1866,12 +1866,23 @@ beats any amount of argument about which sounds better.
   fingering edge breathing with the pulse, the stain as a viscous film.
   `LivingFieldTest` 10/10; `art/renders/living_field/README.md`
   (2A at 3 / 15 / 45 s). `LIVING=0` restores the static encroachment.
+- **LF-1b DONE 2026-08-22 — ANYWHERE, RADIANT, POOLED, A GRAVITY OF ITS OWN
+  (second ruling).** One field per storey with a source per case and a
+  per-source tint; every layered material on the storey binds it (walls,
+  finishes, floors, trims, every prop); a volumetric glow in the surface and
+  up to three OmniLights per storey at the organism's nodes; gravity pulls
+  every heading and the body pools on the floor; `gravity_at`/`os_gravity`
+  — the building's down bent by a drifting fbm with time as the fourth axis
+  — sets pull, appetite, drips, lean and pooling; the dream's flesh and leaf
+  where the body has held. `LivingFieldTest` 14/14; only the player's
+  storey ticks in play. `art/renders/living_field/README.md` v2.
 - **LF-2 — THE GRAMMARS RIDE THE ORGANISM (OPEN).** Drive each case's plate
   grammar by the field (Peter's rectangles filed where the body is, Juno's
   bands where its waves stand, Cal's arcs around its source) instead of the
   static foothold; the organism's texture becomes the case's language.
-- **LF-3 — BEYOND THE FLAT (OPEN, a gameplay question).** Whether and when
-  the organism crosses into the corridor, and what that means for the case.
+- **LF-3 RULED 2026-08-22: "it can go anywhere it wants."** Built into
+  LF-1b (the storey field). What it means for a case when the organism is
+  in someone else's flat stays a gameplay question (OPEN).
 
 ### CT — CRITTER SKINS (owner direction 2026-08-21)
 

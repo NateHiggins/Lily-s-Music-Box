@@ -68,9 +68,21 @@ var units: Dictionary = {}
 ## should reach the props").
 var prop_rows: Dictionary = {}
 var props_reached := 0
-## case_id -> LivingField (design/LIVING_FIELD_BRIEF.md): the organism over
-## the flat, sampled by every surface the case reaches. LIVING=0 disables.
+## floor_id -> LivingField (design/LIVING_FIELD_BRIEF.md §5): ONE organism
+## per storey with a source per case on it, sampled by every layered
+## surface on the storey. LIVING=0 disables. case_id -> source index.
 var fields: Dictionary = {}
+var field_source: Dictionary = {}
+## floor_id -> Array of OmniLight3D: the lights the organism throws (§5c).
+var field_lights: Dictionary = {}
+## Every surface material on a storey the field was bound to (for refresh).
+var storey_materials: Dictionary = {}
+const STOREY_RECT := Vector4(-13.9, -9.9, 13.9, 9.9)
+const PALETTE_INDEX := {"mina_caption_crisis": 0, "peter_form_corridor": 1,
+		"juno_feedback_tetris": 2, "mae_contradictory_antiques": 3,
+		"cal_memory_radio": 4, "omar_unrepairable": 5}
+const LIGHT_RANGE_M := 2.6
+const LIGHT_ENERGY := 0.9
 var _forced: Dictionary = {}
 var _plates: Dictionary = {}
 var _substance_keys: Dictionary = {}
@@ -134,14 +146,18 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 		if beachhead != null:
 			beachheads[case_id] = {"node": beachhead, "originals": {}}
 		if OS.get_environment("LIVING") != "0":
-			var field = LivingFieldScript.new()
+			var field = fields.get(floor_id)
+			if field == null:
+				field = LivingFieldScript.new()
+				field.configure(STOREY_RECT, floor_y, floor_id.hash())
+				fields[floor_id] = field
+				_bind_storey(floor_node, floor_id, field)
 			var source := Vector3((rect.x + rect.z) * 0.5, floor_y + 1.0, (rect.y + rect.w) * 0.5)
 			if beachhead != null and beachhead is Node3D:
 				source = (beachhead as Node3D).global_position
-			field.configure(rect, floor_y, source, case_id.hash())
-			fields[case_id] = field
+			field_source[case_id] = field.add_source(source, int(PALETTE_INDEX.get(case_id, 0)))
 			for row in rows:
-				_bind_living(row.material as ShaderMaterial, case_id)
+				_bind_living(row.material as ShaderMaterial, floor_id)
 	if RealityState.has_signal("state_changed") and not RealityState.state_changed.is_connected(refresh):
 		RealityState.state_changed.connect(refresh)
 	refresh()
@@ -155,32 +171,135 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 ## its texture is shared by every material bound to it; only the pulse
 ## phase is pushed per tick.
 func _physics_process(delta: float) -> void:
-	for case_id in fields:
-		var field = fields[case_id]
-		field.intensity = float(intensities.get(case_id, 0.0))
-		if field.intensity <= 0.001 and field.census().agents == 0 and field.steps > 0:
+	for case_id in field_source:
+		var floor_id := _floor_of(case_id)
+		if fields.has(floor_id):
+			fields[floor_id].set_source_intensity(int(field_source[case_id]),
+					float(intensities.get(case_id, 0.0)))
+	# Only the player's storey ticks (LIVING_ALL=1 ticks every storey): the
+	# organism elsewhere waits, which is what a field costing a few
+	# milliseconds a frame has to do in a building with seven storeys.
+	var active := _player_floor()
+	var tick_all := OS.get_environment("LIVING_ALL") == "1"
+	for floor_id in fields:
+		var field = fields[floor_id]
+		if not field.alive() and field.steps > 0:
+			continue
+		if not tick_all and not active.is_empty() and str(floor_id) != active:
 			continue
 		if field.tick(delta):
 			var phase: float = field.pulse_phase()
-			for row in surfaces.get(case_id, []):
-				(row.material as ShaderMaterial).set_shader_parameter("living_pulse", phase)
-			for row in prop_rows.get(case_id, []):
-				(row.material as ShaderMaterial).set_shader_parameter("living_pulse", phase)
+			for m in storey_materials.get(floor_id, []):
+				if is_instance_valid(m):
+					(m as ShaderMaterial).set_shader_parameter("living_pulse", phase)
+			_place_lights(floor_id, field)
 
 
-func _bind_living(m: ShaderMaterial, case_id: String) -> void:
-	if m == null or not fields.has(case_id):
+## The storey the player stands on, by the floors the cases told us about.
+func _player_floor() -> String:
+	var root := get_parent()
+	if root == null or not ("player" in root) or root.player == null:
+		return ""
+	var y: float = (root.player as Node3D).global_position.y
+	for case_id in units:
+		var unit: Dictionary = units[case_id]
+		var fy := float(unit.floor_y)
+		if y >= fy - 0.3 and y < fy + 3.4:
+			var floor_node: Node = unit.floor_node
+			return floor_node.name if floor_node != null else ""
+	return ""
+
+
+func _floor_of(case_id: String) -> String:
+	var unit: Dictionary = units.get(case_id, {})
+	var floor_node: Node = unit.get("floor_node")
+	return floor_node.name if floor_node != null else ""
+
+
+## §5c: up to three OmniLights per storey at the organism's strongest nodes,
+## in the source's ink, energy from the body. No shadows; range bounded.
+func _place_lights(floor_id: String, field) -> void:
+	var lights: Array = field_lights.get(floor_id, [])
+	while lights.size() < 3:
+		var light := OmniLight3D.new()
+		light.name = "LivingLight%d" % lights.size()
+		light.omni_range = LIGHT_RANGE_M
+		light.shadow_enabled = false
+		light.light_energy = 0.0
+		light.visible = false
+		add_child(light)
+		lights.append(light)
+	field_lights[floor_id] = lights
+	for i in 3:
+		var light: OmniLight3D = lights[i]
+		if i < field.nodes.size():
+			var ink := _palette()[clampi(int(field.node_source[i]), 0, 5)]
+			light.global_position = field.nodes[i]
+			light.light_color = Color(ink.x * 1.6, ink.y * 1.6, ink.z * 1.8)
+			light.light_energy = LIGHT_ENERGY * float(field.node_strength[i])
+			light.visible = true
+		else:
+			light.visible = false
+
+
+func _palette() -> Array[Vector3]:
+	var out: Array[Vector3] = []
+	out.resize(6)
+	for case_id in PALETTE_INDEX:
+		var ink: Color = CASES[case_id].get("ink", Color(0.2, 0.19, 0.3))
+		out[int(PALETTE_INDEX[case_id])] = Vector3(ink.r, ink.g, ink.b)
+	return out
+
+
+## §5a: every layered material on the storey binds the storey's field —
+## walls, finishes, floors, trims (surface overrides) and the props
+## (material overrides; shared MatLib materials get a per-storey copy).
+func _bind_storey(floor_node: Node, floor_id: String, field) -> void:
+	var bound: Array = storey_materials.get(floor_id, [])
+	for node in floor_node.find_children("*", "MeshInstance3D", true, false):
+		var mi := node as MeshInstance3D
+		if mi.mesh == null:
+			continue
+		var over := mi.material_override as ShaderMaterial
+		if over != null and over.shader != null \
+				and over.shader.resource_path.get_file().begins_with("orison_surface"):
+			if not over.has_meta("living_storey"):
+				over = over.duplicate() as ShaderMaterial
+				over.set_meta("living_storey", floor_id)
+				mi.material_override = over
+			_bind_living(over, floor_id)
+			bound.append(over)
+			continue
+		for s in mi.mesh.get_surface_count():
+			var m := mi.get_surface_override_material(s) as ShaderMaterial
+			if m == null or m.shader == null \
+					or not m.shader.resource_path.get_file().begins_with("orison_surface"):
+				continue
+			if m.has_meta("living_storey") and str(m.get_meta("living_storey")) != floor_id:
+				m = m.duplicate() as ShaderMaterial
+				mi.set_surface_override_material(s, m)
+			m.set_meta("living_storey", floor_id)
+			_bind_living(m, floor_id)
+			bound.append(m)
+	storey_materials[floor_id] = bound
+	print("[ENCROACH] living field on %s binds %d materials" % [floor_id, bound.size()])
+
+
+func _bind_living(m: ShaderMaterial, floor_id: String) -> void:
+	if m == null or not fields.has(floor_id):
 		return
-	var field = fields[case_id]
-	var spec: Dictionary = CASES.get(case_id, {})
-	var ink: Color = spec.get("ink", Color(0.20, 0.19, 0.30))
+	var field = fields[floor_id]
 	m.set_shader_parameter("has_living", true)
 	m.set_shader_parameter("living_tex", field.texture())
 	m.set_shader_parameter("living_origin", field.origin)
 	m.set_shader_parameter("living_size", field.size_m)
-	m.set_shader_parameter("living_tint", Vector3(ink.r, ink.g, ink.b))
-	m.set_shader_parameter("living_stain_tint", Vector3(ink.r, ink.g, ink.b) * 0.6 + Vector3(0.18, 0.14, 0.16))
+	m.set_shader_parameter("living_palette", _palette())
+	m.set_shader_parameter("has_living_palette", true)
 	m.set_shader_parameter("living_amount", 1.0)
+	if not storey_materials.has(floor_id):
+		storey_materials[floor_id] = []
+	if not (storey_materials[floor_id] as Array).has(m):
+		(storey_materials[floor_id] as Array).append(m)
 
 
 func refresh() -> void:
@@ -242,7 +361,7 @@ func reach_props(root: Node) -> int:
 			# A batched draw spans the storey: the states show only inside the flat.
 			own.set_shader_parameter("state_rect", rect)
 			own.set_shader_parameter("state_y", Vector2(floor_y - 0.2, floor_y + 3.6))
-			_bind_living(own, case_id)
+			_bind_living(own, _floor_of(case_id))
 			mi.material_override = own
 			rows.append({"mesh": mi, "material": own, "shared": shared})
 			if OS.get_environment("ENCROACH_DEBUG") == "1" and rows.size() <= 12:
@@ -253,6 +372,16 @@ func reach_props(root: Node) -> int:
 			print("[ENCROACH]   %s: %d prop draws" % [case_id, rows.size()])
 		_apply_prop_states(case_id, intensities.get(case_id, intensity_for(case_id)))
 	print("[ENCROACH] %d prop draws reached across %d case flats" % [props_reached, prop_rows.size()])
+	# §5a: the organism goes anywhere on the storey, so every layered prop on
+	# the storey binds its field — not only those inside a flat.
+	for floor_id in fields:
+		var unit_floor: Node = null
+		for case_id in units:
+			if _floor_of(case_id) == floor_id:
+				unit_floor = units[case_id].floor_node
+				break
+		if unit_floor != null:
+			_bind_storey(unit_floor, floor_id, fields[floor_id])
 	return props_reached
 
 

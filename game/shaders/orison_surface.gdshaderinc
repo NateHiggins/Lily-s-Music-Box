@@ -250,6 +250,15 @@ uniform float living_iso = 0.22;
 uniform float living_pulse : hint_range(0.0, 1.0) = 0.0;
 uniform vec3 living_tint : source_color = vec3(0.16, 0.14, 0.26);
 uniform vec3 living_stain_tint : source_color = vec3(0.30, 0.24, 0.30);
+// §5a: whose organism — the texture's A channel indexes this palette.
+uniform vec3 living_palette[6];
+uniform bool has_living_palette = false;
+// §5c: the volumetric glow the organism throws on what is near it.
+uniform float living_radiance = 0.55;
+// §5b: how strongly the dream's states come with the body where it has held.
+uniform float living_dream = 1.0;
+// §5d: the gravity's pull on the stain's drips and the body's lean.
+uniform float living_gravity_pull = 1.0;
 group_uniforms;
 
 varying vec3 v_world;
@@ -470,6 +479,20 @@ float os_encroach(inout vec3 albedo, inout float rough, inout float metal,
 	rough = mix(rough, 0.72, blank);
 	n_ts.xy *= 1.0 - blank * 0.8;
 	return wick;
+}
+
+// THE GRAVITY OF ITS OWN (design/LIVING_FIELD_BRIEF.md §5d): the building's
+// down bent by a drifting fbm of position — time the fourth axis, the
+// shuttle phase the fifth — with an intensity from a slower field. The same
+// rule LivingField.gravity_at runs for the agents. xyz unit, w intensity.
+vec4 os_gravity(vec3 p, float time, float phase) {
+	vec3 q = p * 0.35 + vec3(time * 0.05, phase * 0.7, -time * 0.03);
+	vec3 bend = vec3(dream_corruption_fbm3(q + 3.0) - 0.5,
+			dream_corruption_fbm3(q + vec3(11.0, 0.0, 0.0) + 5.0) - 0.5,
+			dream_corruption_fbm3(q + vec3(0.0, 0.0, 23.0) + 7.0) - 0.5) * 2.2;
+	vec3 g = normalize(vec3(0.0, -1.0, 0.0) + bend);
+	float g_int = 0.4 + 1.3 * dream_corruption_fbm3(p * 0.2 + vec3(0.0, time * 0.03, 0.0) + 9.0);
+	return vec4(g, g_int);
 }
 
 // --------------------------------------------------------------------- work
@@ -720,40 +743,94 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 	}
 
 	// ---- the living field: body with an active edge, stain as a film -------
+	// (design/LIVING_FIELD_BRIEF.md §3 and §5)
 	float living = 0.0;
 	if (has_living && living_amount > 0.001) {
 		vec3 lp = (v_world - living_origin) / max(vec3(0.05), living_size);
 		// The texture's axes are (x, z, y): slices along y.
-		vec3 lt = texture(living_tex, vec3(lp.x, lp.z, lp.y)).rgb;
+		vec3 luv = vec3(lp.x, lp.z, lp.y);
+		vec4 lt = texture(living_tex, luv);
 		float in_box = step(0.0, lp.x) * step(lp.x, 1.0) * step(0.0, lp.y) * step(lp.y, 1.0)
 				* step(0.0, lp.z) * step(lp.z, 1.0);
 		float body = lt.g * in_box;
 		float stain = lt.b * in_box;
 		float trail = lt.r * in_box;
+		// Whose organism: the A channel indexes the palette (§5a).
+		vec3 tint = living_tint;
+		vec3 stain_tint = living_stain_tint;
+		if (has_living_palette) {
+			int who = clamp(int(floor(lt.a * 255.0 / 36.0)), 0, 5);
+			tint = living_palette[who];
+			stain_tint = tint * 0.6 + vec3(0.18, 0.14, 0.16);
+		}
+		// The gravity here (§5d): its direction in the wall's tangent frame
+		// is where the stain drips and the body leans.
+		vec4 grav = os_gravity(v_world, time, living_pulse);
+		vec3 g = grav.xyz;
+		vec3 up_ref = abs(wn.y) < 0.9 ? vec3(0.0, 1.0, 0.0) : vec3(1.0, 0.0, 0.0);
+		vec3 tan_u = normalize(cross(up_ref, wn));
+		vec3 tan_v = cross(wn, tan_u);
+		vec2 g_ts = vec2(dot(g, tan_u), dot(g, tan_v));
+		float g_len = max(0.05, length(g_ts));
+		vec2 g_dir = g_ts / g_len;
+		// The radiance (§5c): the body around this point, six taps at ±0.4 m,
+		// pulled along the gravity — light the organism throws on what is near.
+		vec3 lv = vec3(0.4) / max(vec3(0.05), living_size);
+		float near = texture(living_tex, luv + vec3(lv.x, 0.0, 0.0)).g
+				+ texture(living_tex, luv - vec3(lv.x, 0.0, 0.0)).g
+				+ texture(living_tex, luv + vec3(0.0, lv.z, 0.0)).g
+				+ texture(living_tex, luv - vec3(0.0, lv.z, 0.0)).g
+				+ texture(living_tex, luv + vec3(0.0, 0.0, lv.y)).g
+				+ texture(living_tex, luv - vec3(0.0, 0.0, lv.y)).g;
+		near = (near / 6.0) * in_box;
+		float pulse_glow = 0.8 + 0.2 * sin(living_pulse * 6.2831853);
 		// The active edge: fizz at ~1 Hz, fingers at ~0.15 Hz, and the shuttle
-		// pulse breathing the isovalue.
+		// pulse breathing the isovalue; the fingers lean with the gravity.
+		vec3 lean = v_world + g * 0.35 * living_gravity_pull;
 		float fizz = dream_corruption_noise3(v_world * 9.0 + vec3(time * 1.1, -time * 0.8, time * 0.6)) - 0.5;
-		float fingers = dream_corruption_fbm3(v_world * 2.2 + vec3(0.0, time * 0.15, 0.0)) - 0.5;
+		float fingers = dream_corruption_fbm3(lean * 2.2 + vec3(0.0, time * 0.15, 0.0)) - 0.5;
 		float iso = living_iso + 0.06 * sin(living_pulse * 6.2831853) + fizz * 0.06 + fingers * 0.14;
 		// The sheet is the diffused trail; the body (agent hits) is its veins.
 		float front = smoothstep(iso - 0.05, iso + 0.05, body * 0.7 + trail * 0.9);
 		living = front * living_amount;
-		// The stain: where it has been. A viscous film — darker toward the
-		// stain tint, glossy, the surface's own texture flattened under it.
-		float film = smoothstep(0.04, 0.35, stain) * living_amount;
-		albedo = mix(albedo, albedo * 0.55 + living_stain_tint * 0.45, film * 0.8);
+		// The stain: where it has been. A viscous film that DRIPS along the
+		// gravity (streaks in g's direction, not the building's down).
+		float drip_coord = dot(vec2(v_world.x + v_world.z, v_world.y) , g_dir) * 14.0;
+		float streak = 0.5 + 0.5 * sin(drip_coord + dream_corruption_noise3(v_world * 6.0) * 3.0);
+		float film = smoothstep(0.04, 0.35, stain * (0.85 + 0.3 * streak)) * living_amount;
+		albedo = mix(albedo, albedo * 0.55 + stain_tint * 0.45, film * 0.8);
 		rough = mix(rough, 0.12, film * 0.85);
-		n_ts.xy *= 1.0 - 0.6 * film;
+		n_ts.xy = mix(n_ts.xy, g_dir * 0.25 * streak, film * 0.6);
 		metal = mix(metal, 0.0, film);
+		// The glow on what is near (§5c), before the body arrives.
+		vec3 glow = tint * near * living_radiance * pulse_glow * (1.0 - living);
+		albedo = mix(albedo, albedo * 0.7 + tint * 0.3, near * 0.5 * (1.0 - living));
+		s.emission += glow * 0.6;
 		// The body: the case's substance, wet, with a brighter lip at the front.
 		float lip = smoothstep(0.0, 0.35, living) * (1.0 - smoothstep(0.35, 0.9, living));
-		vec3 substance = living_tint * (1.3 + 0.5 * fizz);
+		vec3 substance = tint * (1.3 + 0.5 * fizz);
 		albedo = mix(albedo, substance, living * 0.92);
-		albedo += living_tint * lip * 0.9;
+		albedo += tint * lip * 0.9;
 		rough = mix(rough, 0.16 + 0.1 * fizz, living);
 		metal = mix(metal, 0.0, living);
-		n_ts.xy = mix(n_ts.xy, vec2(fizz, fingers) * 0.5, living * 0.7);
-		s.emission += living_tint * lip * 0.25;
+		n_ts.xy = mix(n_ts.xy, vec2(fizz, fingers) * 0.5 + g_dir * 0.2, living * 0.7);
+		s.emission += tint * lip * 0.25;
+		// The dream comes with it (§5b): where the body has held — body and
+		// stain both high — the flesh shows under the body and gold leafs the
+		// veins; the front carries a weld's heat.
+		float held = smoothstep(0.25, 0.7, stain) * smoothstep(0.3, 0.8, body) * living_dream;
+		if (held > 0.001) {
+			float cells = dream_corruption_cells(v_world * flesh_cell_scale, time, held);
+			float vessels = dream_corruption_vessels(v_world * 2.6, held, 0.96);
+			vec3 tissue = mix(flesh_deep, flesh_body, cells);
+			tissue = mix(tissue, flesh_crest, vessels * 0.6);
+			albedo = mix(albedo, tissue, held * living * 0.8);
+			float leaf = smoothstep(0.75, 1.0, body) * held;
+			albedo = mix(albedo, gild_color, leaf * 0.85);
+			metal = mix(metal, 1.0, leaf * 0.85);
+			rough = mix(rough, 0.28, leaf);
+			s.emission += vec3(0.96, 0.42, 0.08) * lip * held * 0.5;
+		}
 	}
 
 	// ---- resolve -----------------------------------------------------------

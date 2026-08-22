@@ -66,3 +66,46 @@ WalkTest FAST PASS, 0 script/shader errors.
   corridor is a gameplay question (what it means for the case), not a
   presentation one.
 - `LIVING=0` restores the static encroachment.
+
+## v2 — anywhere, radiant, pooled, and a gravity of its own (2026-08-22, second ruling)
+
+*"It can go anywhere it wants and spreads the connection to the dreamworld…
+affect meshes close by too, 3D radiant effects… spill over the baseboard
+and pool on the floor… variable, disorienting gravitational-like effects,
+vector and intensity varying according to elaborate higher-dimensional
+logic that also influences the encroachment's spread and nature."* Design
+in `design/LIVING_FIELD_BRIEF.md` §5.
+
+- **Anywhere.** One field per **storey** (56 × 7 × 40 at 0.5 m), one source
+  per case on it; agents carry their source and the texture's A channel
+  tints the body by whose organism it is (Mina's ink, Juno's cloth). Every
+  layered material on the storey binds the field — walls, finishes, floors,
+  trims, and every prop (580–711 materials on F02).
+- **Radiant.** In the surface, six taps around each pixel take the body
+  nearby as a glow that tints and lights what the organism has not reached
+  yet; in the world, up to three OmniLights per storey sit on its strongest
+  nodes in its ink, so glass, colour-only props and the residents take the
+  same light.
+- **Pooled.** Gravity pulls every heading; the bottom slice holds body twice
+  as readily and spreads it sideways, so the organism runs off the wall over
+  the baseboard and pools on the floor (649 live floor voxels in the
+  contract).
+- **A gravity of its own.** `gravity_at(p, t, phase)` in the field and
+  `os_gravity` in the surface, the same rule: the building's down bent by a
+  drifting fbm (time the fourth axis, the shuttle phase the fifth), with an
+  intensity 0.4–1.7. It sets the agents' pull and appetite (budget, step,
+  deposit), the stain's **drips** (streaks along g, not down), the lean of
+  the fingers, and where the body pools — up when it points up. Cached on a
+  2 m lattice refreshed a few cells a tick.
+- **The dream comes with it.** Where body and stain are both high the flesh
+  shows under the body, gold leafs the veins, the front carries a weld's
+  heat.
+
+`v2_t60/sheet_v2_60s.jpg`: after 60 s with Mina and Juno both forced on
+F02 — the 2A main room taken wall to sofa to floor in its violet, the dream's
+tints where it has held, a fingered edge climbing, the pool at the floor and
+its own light on the wall it is reaching; the corridor outside lit by that
+light on its wainscot before the body arrives; the bedroom a room further
+still untouched. `LivingFieldTest` 14/14 (2.6 ms a tick), encroachment
+13/13, WalkTest PASS. Only the player's storey ticks in play (`LIVING_ALL=1`
+ticks every storey, for frames).

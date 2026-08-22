@@ -103,3 +103,66 @@ encroachment it replaces. The field is bounded by the flat's volume; it does
 not enter the corridor. Cost: one 3-D texture fetch per pixel on surfaces
 inside a case flat; the CPU step is a few hundred agents and ~30 k voxels at
 8 Hz per active case.
+
+## 5. The second ruling (2026-08-22): anywhere, radiant, pooled, and a gravity of its own
+
+*"It can go anywhere it wants and spreads the connection to the dreamworld.
+I need all these things to affect meshes close by too, give them 3D radiant
+effects. I want it to spill over the baseboard and pool on the floor. Give it
+variable, disorienting gravitational-like effects, vector and intensity
+varying according to elaborate higher-dimensional logic that also influences
+the encroachment's spread and nature."*
+
+### a. Anywhere — one field per storey
+
+The field is no longer the flat's volume: it is the **storey's** (27 × 19 m
+by 3.4 m at 0.5 m voxels, ~21 k cells) with one source per case on that
+storey (the beachhead), so the organism can leave the flat, take the
+corridor, and enter the next flat. Agents carry the index of the source
+that bore them; the texture's fourth channel is that index, so the surface
+tints the body by **whose** organism it is (Mina's ink, Juno's cloth). Every
+layered material on the storey — walls, finishes, floors, trims, props —
+binds the storey's field.
+
+### b. The connection to the dream
+
+Where the organism has been longest — body and stain both high — the
+surface shows the **dream's own states**: the flesh (purplish tissue) under
+the body, gold leaf on the veins, a weld-heat lip at the front. The
+organism is the dream's reach into the waking building, and the longer it
+holds a surface the more that surface is the dream's.
+
+### c. Radiance — affecting the meshes nearby
+
+Two mechanisms. In the surface: a **volumetric glow** — each pixel samples
+the field at six offsets around it (±0.4 m) and takes the body there as
+light, so a wall, a floor, a chair *near* the organism is tinted and lit by
+it before it arrives, falling off with distance. In the world: the
+encroachment keeps up to three **OmniLights per storey** at the organism's
+strongest nodes, in its tint, energy from the body, range 2.5 m — so meshes
+that do not wear the layered surface (glass, colour-only props, the
+residents) take the same light.
+
+### d. Gravity that is not the building's
+
+A vector field **g(x, t)** over the storey, in the surface and in the
+simulation from the same rule: the building's down, bent by a
+three-octave fbm of position drifting in time (the time axis is the fourth
+dimension of the noise; the case's phase its fifth), with an **intensity**
+0.4–1.7 from a slower second field. It is never the same twice in a room
+and it is not down. It drives:
+
+- **spread** — every agent's heading is pulled along g each step; where g
+  points down the organism runs off the wall, **spills over the baseboard and
+  pools on the floor** (the bottom slice holds body twice as readily and
+  diffuses it sideways); where g bends sideways it sheets across a wall;
+  where it points up it climbs and pools on the ceiling;
+- **nature** — g's intensity is the organism's appetite: the agent budget,
+  the step length and the deposit scale with it, so it surges where the
+  field is strong and goes quiet where it is weak;
+- **the surface** — the stain's film **drips along g** (streaks, not down),
+  the body's lip and the flesh lean with it, and the radiance is pulled the
+  same way, so what the player sees of "down" near the organism is wrong in
+  a way that is consistent between the stain, the light and the growth.
+
+Presentation only, still: no collider, no player physics, no save key.
