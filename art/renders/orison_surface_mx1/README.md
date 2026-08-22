@@ -204,3 +204,12 @@ production; A/B the masks with `ship_nomask` against `ship`.
 Still open in MX-3: packed ORM (AO today is the in-shader cavity term from
 height), dedicated detail maps (self-detail stands in), the ingest writing
 its heights spanning their range itself.
+
+**Metal states on metal (2026-08-22).** `SURF_PROP_STATE=<state>:<amount>`
+puts one state on every layered prop draw at a stand (triplanar materials
+only; walls keep their standing age). `metal/sheet_metal_states.jpg`: the 4B
+sitting room and the 2A radiator plain, oxidised (0.85) and gilded (0.85) —
+the cast iron goes verdigris, the gilding leafs its crests and the lamp's
+brass, the fabric and wood barely move because the fields sit where the
+height map's crests are. The oxidation and gilding rows of the state table
+are now photographed where they belong.

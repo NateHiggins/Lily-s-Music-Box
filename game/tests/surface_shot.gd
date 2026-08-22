@@ -9,6 +9,10 @@ extends Node
 ##     SURF_OPTIONS=current,base,full       optional filter by option key
 ##     SURFACE_PROPS=1                      the draw-heavy tiers (furnishing
 ##                                          classes, batched props) take part
+##     SURF_PROP_STATE=oxide:0.8            "ship" also puts a state on every
+##                                          layered prop at the stand (oxide,
+##                                          gild, corrupt, grime, moisture,
+##                                          wear, damage) — metal states on metal
 ##
 ## Boot and lighting are FreeCam's: production fixtures, the player's torch
 ## carried on the camera, no judging fill. Between the options of one stand
@@ -45,6 +49,11 @@ const STATIONS := [
 			"yaw": -58.0, "pitch": -6.0, "room": "F01_LOBBY"},
 	{"key": "flat_4b", "floor": "F04", "pos": Vector3(-8.1, 1.55, -3.2),
 			"yaw": 47.0, "pitch": -8.0, "room": "F04_B_MAIN"},
+	# Metal close: the 4B kitchen's stove and taps, and a radiator.
+	{"key": "kitchen_4b", "floor": "F04", "pos": Vector3(-8.6, 1.45, -7.6),
+			"yaw": 160.0, "pitch": -12.0, "room": "F04_B_KITCHEN", "demo": true},
+	{"key": "radiator_2a", "floor": "F02", "pos": Vector3(-11.8, 1.15, 4.6),
+			"yaw": 105.0, "pitch": -18.0, "room": "F02_A_MAIN", "demo": true},
 	# The six case flats, each facing a perimeter finish (WK-1 grammars).
 	{"key": "flat_4a", "floor": "F04", "pos": Vector3(-9.6, 1.55, 7.0),
 			"yaw": 180.0, "pitch": -4.0, "room": "F04_A_BED", "demo": true},
@@ -265,6 +274,7 @@ func _apply_option(floor_id: String, option: Dictionary) -> int:
 	var swapped := 0
 	if SurfacePassScript.draw_heavy_enabled() and option.recipe.has("__class__"):
 		swapped += _props_pass.apply_props(root)
+		_prop_state_demo()
 	for node in floor_node.find_children("*", "MeshInstance3D", true, false):
 		var mi := node as MeshInstance3D
 		if mi.mesh == null:
@@ -287,6 +297,49 @@ func _apply_option(floor_id: String, option: Dictionary) -> int:
 			mi.set_surface_override_material(s, _surface_for(original, option, cls))
 			swapped += 1
 	return swapped
+
+
+## SURF_PROP_STATE=<state>:<amount> — a state on every layered prop draw in
+## the tree (the production sweep's and this harness's), for the frames that
+## show oxidation on iron and gilding on brass rather than on plaster.
+func _prop_state_demo() -> void:
+	var spec := OS.get_environment("SURF_PROP_STATE")
+	if spec.is_empty():
+		return
+	var bits := spec.split(":")
+	var state := bits[0]
+	var amount := float(bits[1]) if bits.size() > 1 else 0.8
+	var seen := {}
+	var count := 0
+	for node in root.find_children("*", "MeshInstance3D", true, false):
+		var mi := node as MeshInstance3D
+		var m := mi.material_override as ShaderMaterial
+		if m == null or m.shader == null or not m.shader.resource_path.get_file().begins_with("orison_surface"):
+			continue
+		if seen.has(m.get_instance_id()):
+			continue
+		seen[m.get_instance_id()] = true
+		# Props only: the triplanar materials. Walls keep their standing age.
+		if int(m.get_shader_parameter("uv_mode") if m.get_shader_parameter("uv_mode") != null else 0) != 1:
+			continue
+		var a1: Vector4 = m.get_shader_parameter("mask_amount") if m.get_shader_parameter("mask_amount") != null else Vector4.ZERO
+		var a2: Vector4 = m.get_shader_parameter("mask2_amount") if m.get_shader_parameter("mask2_amount") != null else Vector4.ZERO
+		match state:
+			"damage": a1.x = amount
+			"grime": a1.y = amount
+			"moisture": a1.z = amount
+			"wear": a1.w = amount
+			"oxide": a2.x = amount
+			"gild": a2.y = amount
+			"corrupt": a2.z = amount
+			"emit": a2.w = amount
+		m.set_shader_parameter("mask_amount", a1)
+		m.set_shader_parameter("mask2_amount", a2)
+		m.set_shader_parameter("mask_proc_scale", 6.0)
+		m.set_shader_parameter("mask2_threshold", Vector4(0.45, 0.50, 0.46, 0.55))
+		m.set_shader_parameter("mask2_softness", Vector4(0.30, 0.20, 0.30, 0.15))
+		count += 1
+	print("[SURF] prop state demo %s=%.2f on %d materials" % [state, amount, count])
 
 
 func _restore() -> void:
