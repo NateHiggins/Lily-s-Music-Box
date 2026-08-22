@@ -110,7 +110,8 @@ body. Two causes, both structural rather than artistic:
 - Some `spur` pieces still read as sharp thin points. Spurs are deliberately
   exempt from the end-seating envelope, since a spur is meant to project —
   but a few are sharper than "biomineralized anatomy" wants.
-- §13 also asks the membrane for **gold anchors and crystal nodules**. It has
-  neither yet.
-- §23's clearance poses (figure-eight, 180° tip curl, axial twist) are not
-  tested; only the S-bend is.
+- §13's **gold anchors and crystal nodules** are in: six anchors toward the
+  outer sheet where a real anchor would pin it down, seven nodules scattered
+  across it. In grey clay they read only as hard forms among soft ones; the
+  material pass is what will separate metal and mineral from flesh.
+- Corrective shape keys and the bake/UV work (§20–§22) are not started.

@@ -768,6 +768,64 @@ def build_crystals(col):
 
 # §13 THE ROOT MEMBRANE: its own radial mesh, able to bulge and cling.
 
+# The membrane's surface, as ONE function. The sheet, its gold anchors and
+# its crystal nodules are all placed from this, so an anchor can never drift
+# off a sheet that was rebuilt without it.
+MEMBRANE_PHASE = [4.117, 1.902, 5.640, 0.771]
+
+
+def membrane_point(t, a, root_r):
+    """§13's sheet at (radial t, angle a). Mirrors build_membrane exactly."""
+    ph = MEMBRANE_PHASE
+    border = (1.0
+              + 0.13 * math.sin(a * 2.0 + ph[0])
+              + 0.085 * math.sin(a * 5.0 + ph[1])
+              + 0.045 * math.sin(a * 11.0 + ph[2]))
+    r = root_r * (0.78 + 2.62 * (t ** 0.85))
+    jag = 1.0 + (border - 1.0) * (t ** 1.5)
+    gather = 0.34 * root_r * math.sin(a * 9.0 + ph[3]) * (1.0 - t) ** 1.4
+    wrinkle = 0.16 * root_r * math.sin(a * 17.0) * t * (1.0 - t)
+    lift = (1.0 - t) ** 2 * root_r * 1.55 - (t ** 1.3) * root_r * 0.62
+    lift += gather + wrinkle
+    lift += 0.22 * root_r * smooth01((t - 0.72) / 0.28) * (0.6 + 0.4 * math.sin(a * 4.0))
+    rr = r * jag * (1.0 + 0.10 * math.sin(a * 9.0 + ph[3]) * t * (1.0 - t) ** 0.8)
+    return Vector((math.cos(a) * rr, lift, math.sin(a) * rr))
+
+
+def membrane_frame(t, a, root_r):
+    """A point on the sheet and its outward normal, by finite difference."""
+    p = membrane_point(t, a, root_r)
+    dt = membrane_point(min(1.0, t + 0.02), a, root_r) - p
+    da = membrane_point(t, a + 0.03, root_r) - p
+    n = da.cross(dt)
+    if n.length < 1e-9:
+        n = Vector((0.0, 1.0, 0.0))
+    n.normalize()
+    if n.y < 0.0:
+        n = -n
+    return p, n
+
+
+## §13 — "several gold anchors, crystal nodules". Authored, irregular, and
+## placed toward the outer sheet where a real anchor would pin it down.
+##   t, angle, kind, length, width, rise, seed
+MEMBRANE_GOLD = [
+    (0.74, 0.42, "plate",    0.070, 0.055, 0.013, 60),
+    (0.62, 2.05, "rib",      0.090, 0.030, 0.010, 61),
+    (0.81, 3.31, "crescent", 0.062, 0.041, 0.011, 62),
+    (0.55, 4.60, "plate",    0.058, 0.049, 0.012, 63),
+    (0.78, 5.44, "spur",     0.034, 0.024, 0.014, 64),
+    (0.44, 1.28, "rib",      0.072, 0.026, 0.009, 65),
+]
+##   t, angle, size, seed
+MEMBRANE_CRYSTALS = [
+    (0.36, 0.95, 0.020, 70), (0.52, 2.71, 0.015, 71),
+    (0.29, 4.02, 0.024, 72), (0.67, 5.90, 0.017, 73),
+    (0.47, 3.55, 0.013, 74), (0.71, 1.72, 0.019, 75),
+    (0.24, 5.10, 0.016, 76),
+]
+
+
 def build_membrane(col):
     """§13 — a THICK, IRREGULAR FLOWER/SOCKET, not a paper collar.
 
@@ -776,45 +834,15 @@ def build_membrane(col):
     for a thick flesh sheet with folds stretching toward the root, an
     irregular attachment border and tension wrinkles -- the thing that makes
     the creature appear to extrude through reality rather than through a hole.
-
-    So: more radial loops, a border broken by three octaves rather than one,
-    radial gathers that die out toward the rim, and real thickness via
-    Solidify. It is also pulled in from 4.6x the root radius to 3.4x, because
-    at the old size it dominated every frame it appeared in.
     """
-    rng = random.Random(9090)
     rings, segs = 16, 56
     verts, faces = [], []
     root_r = sample_profile(0.0)[0]
-    # A per-angle border, broken at three scales so no lobe repeats.
-    phase = [rng.uniform(0.0, 6.283) for _ in range(4)]
-    def border(a):
-        return (1.0
-                + 0.13 * math.sin(a * 2.0 + phase[0])
-                + 0.085 * math.sin(a * 5.0 + phase[1])
-                + 0.045 * math.sin(a * 11.0 + phase[2]))
     for i in range(rings):
         t = i / float(rings - 1)
-        # The inner ring starts INSIDE the limb. Butted against the flesh it
-        # left a gap of up to 28 mm at its worst point -- measured -- which
-        # would read as a hole around the limb, the exact opposite of §13's
-        # "extrude through reality instead of through a hole". It is buried
-        # now, and the sheet emerges from the flesh.
-        r = root_r * (0.78 + 2.62 * (t ** 0.85))
         for j in range(segs):
             a = j / float(segs) * 2.0 * math.pi
-            # The border only ragged at the rim: at the root it is flesh.
-            jag = 1.0 + (border(a) - 1.0) * (t ** 1.5)
-            # Radial gathers, strongest where the sheet leaves the limb.
-            gather = 0.34 * root_r * math.sin(a * 9.0 + phase[3]) * (1.0 - t) ** 1.4
-            # Tension wrinkles running the other way, fading at the rim.
-            wrinkle = 0.16 * root_r * math.sin(a * 17.0) * t * (1.0 - t)
-            lift = (1.0 - t) ** 2 * root_r * 1.55 - (t ** 1.3) * root_r * 0.62
-            lift += gather + wrinkle
-            # The rim curls up a little, so it never reads as a flat disc.
-            lift += 0.22 * root_r * smooth01((t - 0.72) / 0.28) * (0.6 + 0.4 * math.sin(a * 4.0))
-            rr = r * jag * (1.0 + 0.10 * math.sin(a * 9.0 + phase[3]) * t * (1.0 - t) ** 0.8)
-            verts.append((math.cos(a) * rr, lift, math.sin(a) * rr))
+            verts.append(tuple(membrane_point(t, a, root_r)))
     for i in range(rings - 1):
         for j in range(segs):
             k = (j + 1) % segs
@@ -829,7 +857,32 @@ def build_membrane(col):
     smooth = obj.modifiers.new("Subdivision", "SUBSURF")
     smooth.levels = 1
     smooth.render_levels = 1
-    return [obj]
+    made = [obj]
+    # §13's gold anchors: the metal that pins the sheet to the world.
+    for (t, a, kind, length, width, rise, seed) in MEMBRANE_GOLD:
+        origin, nrm = membrane_frame(t, a, root_r)
+        # ALONG THE SHEET, NOT ALONG THE WORLD. The membrane's normal is
+        # close to +Y across most of its area, so orienting these off world
+        # up put the "along" vector nearly parallel to the normal and the
+        # basis degenerated -- the anchors came out as rectangular tabs
+        # standing off the rim sideways. A piece lying on a sheet runs
+        # RADIALLY, out from the limb toward the border.
+        x, y, z = basis_from(nrm, Vector((math.cos(a), 0.0, math.sin(a))))
+        gverts, gfaces = gold_piece_geometry(kind, seed)
+        pos = origin - nrm * (rise * 0.28)
+        made.append(mesh_from("GOLD_ANCHOR_%02d" % seed,
+                              place(gverts, pos, x, nrm, y, (width, rise, length)),
+                              gfaces, col, flat=False))
+    # §13's crystal nodules: mineral growing out of the sheet, not on it.
+    for (t, a, size, seed) in MEMBRANE_CRYSTALS:
+        origin, nrm = membrane_frame(t, a, root_r)
+        x, y, z = basis_from(nrm, Vector((math.cos(a), 0.0, math.sin(a))))
+        cverts, cfaces = crystal_geometry(seed)
+        pos = origin - nrm * (size * 0.40)
+        made.append(mesh_from("CRYSTAL_NODULE_%02d" % seed,
+                              place(cverts, pos, x, nrm, y, (size, size, size)),
+                              cfaces, col, flat=True))
+    return made
 
 
 def build_cage():
@@ -1092,7 +1145,7 @@ def bind_inherit(obj, arm, kd, table):
     return len(buckets) > 0
 
 
-def bind_membrane(obj, arm, kd, table, root_bone):
+def bind_membrane(obj, arm, kd, table, root_bone, span_from=None):
     """§13 — a collar that STRETCHES between the limb and the wall.
 
     Neither extreme works. Bound to the flesh it swings with the shaft and is
@@ -1110,7 +1163,14 @@ def bind_membrane(obj, arm, kd, table, root_bone):
     radii = [math.hypot(v.co.x, v.co.z) for v in obj.data.vertices]
     if not radii:
         return False
-    r_in, r_out = min(radii), max(radii)
+    # The grading must come from the SHEET's radial range, not the piece's
+    # own. A 60 mm gold anchor spans almost no radius, so measured against
+    # itself its near edge would follow the flesh while its far edge stayed
+    # with the wall -- the piece torn in half across 60 mm.
+    if span_from is not None:
+        r_in, r_out = span_from
+    else:
+        r_in, r_out = min(radii), max(radii)
     span = max(1e-6, r_out - r_in)
     buckets = {}
     for vi, vert in enumerate(obj.data.vertices):
@@ -1194,11 +1254,19 @@ def skin(cage, arm, others, spine, soft=()):
     # the ROOT bone rigidly and the limb bends through it.
     root_bone = spine[0][0] if isinstance(spine[0], (tuple, list)) else spine[0]
     soft_set = set(soft)
+    # The sheet's own radial range, shared by everything riding it.
+    sheet_span = None
+    for obj in soft:
+        if obj.name == "MEMBRANE_ROOT":
+            rr = [math.hypot(v.co.x, v.co.z) for v in obj.data.vertices]
+            if rr:
+                sheet_span = (min(rr), max(rr))
+            break
     rigid = 0
     fallback = 0
     for obj in others:
         if obj in soft_set:
-            bind_membrane(obj, arm, kd, table, root_bone)
+            bind_membrane(obj, arm, kd, table, root_bone, sheet_span)
             continue
         if not bind_inherit(obj, arm, kd, table):
             # Nothing under it to inherit from: fall back to one bone.
