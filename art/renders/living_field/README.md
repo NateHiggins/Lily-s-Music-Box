@@ -123,3 +123,28 @@ stain; the flat is not re-reported during the cooldown; the condition
 re-arms from the ledger). In WalkTest FULL's ordinary campaign it fired
 unprompted: Lena reported Mina's organism in 2B (the fridge held), Juno in
 2C.
+
+## LF-2 — the grammars ride the organism (2026-08-22)
+
+The surface now samples the field *before* the grammar runs and hands
+`os_encroach` the organism's sheet. Every grammar's spread is the larger of
+its static foothold (the old spread × 0.45 when the field is on) and the
+organism (× 0.8, so only the pattern's peaks ink and the organism's own
+substance shows between them): Peter's docket is filed where the body is,
+Juno's bands stand where it stands, Cal's arcs complete around it, Omar's
+cracks load where it loads, Mina's wick marbles inside it. Where the
+grammar has drawn, the body is a wet glaze over the ink rather than a tint
+that flattens it. The walls speak their resident's language over whoever's
+organism is there — Juno's bands on Mina's violet.
+
+`lf2_ride/sheet_lf2.jpg` (every case forced 0.9, 75 s of growth per stand):
+2A west, the organism across the wall with Mina's ink marbled inside its
+lobes and the wallpaper between them; 4A, Peter's docket grid as foothold
+across the wall and the organism riding in from the corner; 2C, Juno's
+bands faint as foothold, Mina's organism pooled over her floor and props;
+5B, Cal's arcs as foothold by the window, the organism this run still
+beyond the partition at 75 s (growth is not frame-locked, so it varies
+between runs) with its light on the far ceiling. `_first/` is
+the pass before the foothold step-back (the static docket at 0.9 still
+covered the wall); `_rings/` the 5B frame before the ceiling rings were
+softened (the stain's drip relief now only where the film is thick).

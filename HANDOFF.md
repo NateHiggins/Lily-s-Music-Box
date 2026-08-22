@@ -423,8 +423,9 @@ the dream's states (`LivingFieldTest` 14/14). Third ruling the same day:
 the organism in someone else's flat is reported by that resident (a work
 order in their voice) with a seeded chance of a fixable appliance condition
 whose fix repels it (`OrganismIncidents`, `OrganismIncidentsTest` 18/18,
-`ORGANISM_INCIDENTS=0` off). LF-2 (the grammars ride the
-organism) is the next row. Open, in order:
+`ORGANISM_INCIDENTS=0` off). LF-2 landed the same day: the grammars ride
+the organism (`art/renders/living_field/README.md` LF-2). §LF is closed;
+next rows are MX-3's rest and the EN-2/EN-3 taste rows. Open, in order:
 MX-3's rest (ORM, detail maps); the WK-1 per-case grammars; EN-3
 folds; CT-2; the EN-2 taste/perf rows (weld vocabulary placing R6's
 camera; trim the ornament under the layers). `TASKS.md` §MX / §CT / §EN. Harness note: the layout's y is

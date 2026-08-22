@@ -1876,10 +1876,19 @@ beats any amount of argument about which sounds better.
   — sets pull, appetite, drips, lean and pooling; the dream's flesh and leaf
   where the body has held. `LivingFieldTest` 14/14; only the player's
   storey ticks in play. `art/renders/living_field/README.md` v2.
-- **LF-2 — THE GRAMMARS RIDE THE ORGANISM (OPEN).** Drive each case's plate
-  grammar by the field (Peter's rectangles filed where the body is, Juno's
-  bands where its waves stand, Cal's arcs around its source) instead of the
-  static foothold; the organism's texture becomes the case's language.
+- **LF-2 DONE 2026-08-22 — THE GRAMMARS RIDE THE ORGANISM.** The surface
+  samples the field before the grammar runs and hands `os_encroach` the
+  organism's sheet (`ride`); every grammar's spread is
+  `max(static × 0.45 foothold, organism × 0.8)`, so Peter's docket is filed
+  where the body is, Juno's bands stand where it stands, Cal's arcs complete
+  around it, Omar's cracks load where it loads, Mina's wick marbles inside
+  it — and the body paint is a wet glaze over the ink where the grammar has
+  drawn (`paint = living × (1 − membrane × 0.75)`) instead of a tint that
+  flattens it. A grammar now shows on a foreign organism in the flat too
+  (Juno's bands on Mina's violet). Taste fix with it: the stain's drip
+  relief only where the film is thick (it read as contour rings across
+  every ceiling). `art/renders/living_field/lf2_ride/sheet_lf2.jpg`; parse,
+  encroachment 13/13, living field 14/14, WalkTest FAST green.
 - **LF-3 DONE 2026-08-22 — THE ORGANISM IN SOMEONE ELSE'S FLAT.** Owner
   ruling: *"Juno will report it and it has the chance of making a fixable
   condition happen in the area."* `OrganismIncidents`

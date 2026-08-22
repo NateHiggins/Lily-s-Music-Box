@@ -373,14 +373,26 @@ vec2 os_antitile(vec2 uv) {
 
 // WK-1's grammar over the resolved surface. Returns the membrane (where the
 // wick restores a torn finish); edits albedo / rough / metal / n_ts in place.
+// LF-2 (the grammars ride the organism): `ride` is the living field's sheet
+// at this point (0 where the organism is not). Each grammar's SPREAD is the
+// larger of its static foothold and the organism, so the docket is filed
+// where the body is, the bands stand where it stands, the cracks load where
+// it loads — the organism's texture is the case's language.
 float os_encroach(inout vec3 albedo, inout float rough, inout float metal,
-		inout vec3 n_ts, float finish_alpha, vec3 n, float time) {
+		inout vec3 n_ts, float finish_alpha, vec3 n, float time, float ride) {
 	// With the slack the quad selection uses: a perimeter finish sits a few
 	// centimetres outside its room's rect (2A's by -6 mm, every other
 	// storey's by +44 mm), and an exact test let only 2A encroach.
 	bool inside = v_world.x >= unit_rect.x - 0.25 && v_world.x <= unit_rect.z + 0.25
 			&& v_world.z >= unit_rect.y - 0.25 && v_world.z <= unit_rect.w + 0.25;
-	if (intensity <= 0.001 || !inside) {
+	// With the field on, every grammar's static spread steps back to a
+	// FOOTHOLD and the organism does the reaching; the organism drives the
+	// grammar at 0.8, so only the pattern's peaks ink and the organism's own
+	// substance shows between them — bands on the body, not a solid.
+	float organism = has_living ? ride * 0.8 : 0.0;
+	float foothold = has_living ? 0.45 : 1.0;
+	float strength = max(intensity, organism);
+	if (strength <= 0.001 || !inside) {
 		return 0.0;
 	}
 	vec2 puv = os_antitile(os_box_uv(v_world, n) / max(0.05, plate_tile_m));
@@ -403,7 +415,7 @@ float os_encroach(inout vec3 albedo, inout float rough, inout float metal,
 	float corner = 1.0 - smoothstep(0.0, 0.35 + 0.95 * intensity, to_edge);
 	// Where the living field is on, the static creep steps back to a
 	// foothold and the organism does the reaching.
-	float reach = max(rise, corner) * (0.50 + 0.50 * intensity) * (has_living ? 0.55 : 1.0);
+	float reach = max(max(rise, corner) * (0.50 + 0.50 * intensity) * foothold, organism);
 	float wick_drive = reach * 0.60 + field * 0.50 + fine * 0.18 - 0.20 + 0.03 * breath;
 	float lines_field = dream_corruption_vessels(v_world * 2.6, 0.31, 0.96);
 	if (grammar == 1) {
@@ -412,7 +424,7 @@ float os_encroach(inout vec3 albedo, inout float rough, inout float metal,
 		vec2 cell = floor(vec2(along, height) / 0.45);
 		vec2 cf = fract(vec2(along, height) / 0.45);
 		float box_h = fract(sin(dot(cell, vec2(41.3, 289.1))) * 12345.678);
-		float filed = smoothstep(0.0, 1.0, intensity * 1.6 - length(vec2(u_mid, height - 1.3)) / max(1.0, wall_len * 0.55)) * (0.35 + 0.65 * box_h);
+		float filed = max(smoothstep(0.0, 1.0, intensity * 1.6 - length(vec2(u_mid, height - 1.3)) / max(1.0, wall_len * 0.55)) * foothold, organism) * (0.35 + 0.65 * box_h);
 		float frame = 1.0 - smoothstep(0.035, 0.075, min(min(cf.x, 1.0 - cf.x), min(cf.y, 1.0 - cf.y)));
 		wick_drive = filed * 0.95 + field * 0.30 + fine * 0.10 - 0.10 + frame * 0.10 * filed;
 		lines_field = frame * step(0.45, box_h);
@@ -422,7 +434,7 @@ float os_encroach(inout vec3 albedo, inout float rough, inout float metal,
 		float k = 6.2831853 / 0.62;
 		float wave = abs(sin(height * k)) * (0.55 + 0.45 * abs(sin(u_mid * k * 0.35 + 0.6)));
 		float antinode = 0.5 + 0.5 * sin(time * 6.2831853 * 0.09 + u_mid * 1.7);
-		float spread = smoothstep(0.0, 1.0, intensity * 1.4 - abs(height - 1.1) / 1.6);
+		float spread = max(smoothstep(0.0, 1.0, intensity * 1.4 - abs(height - 1.1) / 1.6) * foothold, organism);
 		wick_drive = spread * wave * (0.90 + 0.25 * antinode) + field * 0.25 - 0.12;
 		lines_field = 1.0 - smoothstep(0.02, 0.05, abs(fract(height * k / 6.2831853 * 2.0) - 0.5) * 0.31);
 	} else if (grammar == 3) {
@@ -431,7 +443,7 @@ float os_encroach(inout vec3 albedo, inout float rough, inout float metal,
 		float ledger = abs(sin(along * 18.0)) * abs(sin(height * 18.0));
 		float arcs = 0.5 + 0.5 * sin(length(vec2(u_mid * 0.7, height - 1.2)) * 9.0 - time * 0.15);
 		float beat = smoothstep(0.45, 0.75, ledger * 0.5 + arcs * 0.6);
-		float spread = smoothstep(0.0, 1.0, intensity * 1.3 - length(vec2(u_mid, height - 1.2)) / max(1.0, wall_len * 0.6));
+		float spread = max(smoothstep(0.0, 1.0, intensity * 1.3 - length(vec2(u_mid, height - 1.2)) / max(1.0, wall_len * 0.6)) * foothold, organism);
 		wick_drive = spread * beat * 1.10 + field * 0.28 - 0.10;
 		lines_field = (1.0 - smoothstep(0.02, 0.06, abs(fract(along * 9.0) - 0.5) * 0.11)) * arcs;
 	} else if (grammar == 4) {
@@ -441,21 +453,23 @@ float os_encroach(inout vec3 albedo, inout float rough, inout float metal,
 		float r = length(c);
 		float ang = atan(c.y, c.x);
 		float sweep = smoothstep(-2.6 + intensity * 0.4, 0.4, ang) * (1.0 - smoothstep(1.4, 2.6, ang));
+		// Where the organism is, the arcs complete around it.
+		sweep = max(sweep, organism);
 		float rings = 0.5 + 0.5 * sin(r * 22.0 - time * 0.2);
-		float spread = smoothstep(0.0, 1.0, intensity * 2.2 - r / 1.1);
+		float spread = max(smoothstep(0.0, 1.0, intensity * 2.2 - r / 1.1) * foothold, organism);
 		wick_drive = spread * sweep * (0.60 + 0.50 * rings) + field * 0.22 - 0.05;
 		lines_field = (1.0 - smoothstep(0.015, 0.04, abs(fract(r * 3.5) - 0.5) * 0.29)) * sweep;
 	} else if (grammar == 5) {
 		// Fracture: cracks branching from the loaded corner, lamellae
 		// translucent between them; solder beads along the lines.
-		float load = 1.0 - smoothstep(0.0, 0.5 + 2.8 * intensity, length(vec2(to_edge, height)));
+		float load = max((1.0 - smoothstep(0.0, 0.5 + 2.8 * intensity, length(vec2(to_edge, height)))) * foothold, organism);
 		float crack = dream_corruption_vessels(v_world * 3.8 + 11.0, 0.22, 0.97);
 		wick_drive = load * (0.70 + 0.50 * crack) + field * 0.22 + fine * 0.10 - 0.10;
 		lines_field = crack * smoothstep(0.0, 0.6, load);
 	}
 	float wick = smoothstep(0.49, 0.56, wick_drive);
 	float front_band = smoothstep(0.38, 0.50, wick_drive) * (1.0 - wick);
-	float lines = lines_field * front_band * smoothstep(0.15, 0.45, intensity);
+	float lines = lines_field * front_band * smoothstep(0.15, 0.45, strength);
 	vec3 ink = texture(plate_a_albedo, puv).rgb * ink_tint * 2.6;
 	albedo = mix(albedo, ink, wick * 0.88);
 	albedo = mix(albedo, ink_tint * 0.6, lines * 0.85);
@@ -736,22 +750,31 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 	}
 	s.emission += e;
 
+	// ---- the living field, sampled first: the grammar rides it (LF-2) ------
+	vec3 lp = (v_world - living_origin) / max(vec3(0.05), living_size);
+	// The texture's axes are (x, z, y): slices along y.
+	vec3 luv = vec3(lp.x, lp.z, lp.y);
+	vec4 lt = vec4(0.0);
+	float in_box = 0.0;
+	float ride = 0.0;
+	if (has_living && living_amount > 0.001) {
+		lt = texture(living_tex, luv);
+		in_box = step(0.0, lp.x) * step(lp.x, 1.0) * step(0.0, lp.y) * step(lp.y, 1.0)
+				* step(0.0, lp.z) * step(lp.z, 1.0);
+		// The sheet, unfizzed: where the organism is, for the grammar to stand on.
+		ride = smoothstep(0.12, 0.45, (lt.g * 0.7 + lt.r * 0.9) * in_box) * living_amount;
+	}
+
 	// ---- the encroachment, over everything above (WK-1 as a state) ---------
 	float membrane = 0.0;
 	if (has_encroachment) {
-		membrane = os_encroach(albedo, rough, metal, n_ts, alpha, wn, time);
+		membrane = os_encroach(albedo, rough, metal, n_ts, alpha, wn, time, ride);
 	}
 
 	// ---- the living field: body with an active edge, stain as a film -------
 	// (design/LIVING_FIELD_BRIEF.md §3 and §5)
 	float living = 0.0;
 	if (has_living && living_amount > 0.001) {
-		vec3 lp = (v_world - living_origin) / max(vec3(0.05), living_size);
-		// The texture's axes are (x, z, y): slices along y.
-		vec3 luv = vec3(lp.x, lp.z, lp.y);
-		vec4 lt = texture(living_tex, luv);
-		float in_box = step(0.0, lp.x) * step(lp.x, 1.0) * step(0.0, lp.y) * step(lp.y, 1.0)
-				* step(0.0, lp.z) * step(lp.z, 1.0);
 		float body = lt.g * in_box;
 		float stain = lt.b * in_box;
 		float trail = lt.r * in_box;
@@ -795,12 +818,14 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 		living = front * living_amount;
 		// The stain: where it has been. A viscous film that DRIPS along the
 		// gravity (streaks in g's direction, not the building's down).
-		float drip_coord = dot(vec2(v_world.x + v_world.z, v_world.y) , g_dir) * 14.0;
+		float drip_coord = dot(vec2(v_world.x + v_world.z, v_world.y) , g_dir) * 7.0;
 		float streak = 0.5 + 0.5 * sin(drip_coord + dream_corruption_noise3(v_world * 6.0) * 3.0);
 		float film = smoothstep(0.04, 0.35, stain * (0.85 + 0.3 * streak)) * living_amount;
 		albedo = mix(albedo, albedo * 0.55 + stain_tint * 0.45, film * 0.8);
 		rough = mix(rough, 0.12, film * 0.85);
-		n_ts.xy = mix(n_ts.xy, g_dir * 0.25 * streak, film * 0.6);
+		// The drips' relief only where the film is thick: a thin stain under
+		// the torch read as contour rings across every ceiling.
+		n_ts.xy = mix(n_ts.xy, g_dir * 0.25 * streak, film * film * 0.6);
 		metal = mix(metal, 0.0, film);
 		// The glow on what is near (§5c), before the body arrives.
 		vec3 glow = tint * near * living_radiance * pulse_glow * (1.0 - living);
@@ -809,7 +834,11 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 		// The body: the case's substance, wet, with a brighter lip at the front.
 		float lip = smoothstep(0.0, 0.35, living) * (1.0 - smoothstep(0.35, 0.9, living));
 		vec3 substance = tint * (1.3 + 0.5 * fizz);
-		albedo = mix(albedo, substance, living * 0.92);
+		// LF-2: where the grammar has drawn its language on the organism, the
+		// body is a wet glaze over the ink, not a tint that flattens it.
+		float paint = living * 0.92 * (1.0 - membrane * 0.75);
+		albedo = mix(albedo, substance, paint);
+		albedo = mix(albedo, albedo * (0.8 + 0.2 * tint * 2.0), living * membrane * 0.6);
 		albedo += tint * lip * 0.9;
 		rough = mix(rough, 0.16 + 0.1 * fizz, living);
 		metal = mix(metal, 0.0, living);
