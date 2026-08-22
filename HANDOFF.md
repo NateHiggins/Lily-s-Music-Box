@@ -410,9 +410,10 @@ view-space — the lamp reaches the plaster. EN-2 landed 2026-08-22: the weld
 core opens onto R6's live view (`art/renders/dream_layers_en2/README.md`).
 MX-3's first slice landed
 2026-08-22 (`ship_surface_tables.py`: calibrated heights + generated table,
-`wall_age.png` mask library as the standing age). Open, in order: the 22
-encroached finishes as a corruption recipe of the one surface; MX-3's rest
-(ORM, detail maps); the WK-1 per-case grammars; EN-3
+`wall_age.png` mask library as the standing age). The encroachment is a
+state of the one surface since 2026-08-22 (`os_encroach`;
+`wall_encroachment.gdshader` is reference only). Open, in order: MX-3's
+rest (ORM, detail maps); the WK-1 per-case grammars; EN-3
 folds; CT-2; the EN-2 taste/perf rows (weld vocabulary placing R6's
 camera; trim the ornament under the layers). `TASKS.md` §MX / §CT / §EN. Harness note: the layout's y is
 Godot's −z — 2A is at z +0.45..+9.65.
