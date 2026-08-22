@@ -1909,6 +1909,65 @@ beats any amount of argument about which sounds better.
   in WalkTest FULL (Lena 2B, Juno 2C). `ORGANISM_INCIDENTS=0` off,
   `ORGANISM_CONDITION=1|0` forces the roll, `ORGANISM_FAST=1` 2 s dwell.
 
+### TB — THE TENTACLE, MODELLED IN BLENDER (owner direction 2026-08-22, MAJOR)
+
+Ruling verbatim: `design/DREAM_TENTACLE_BLENDER_BUILD.md`. Take what the
+procedural build learned and rebuild the creature as a **layered
+deformable model**: the flesh is the load-bearing deformation mesh; eye,
+suckers, gold skeleton, crystals, cilia and membrane are separate systems
+constrained to it. The acceptance rule is the last line of the ruling —
+**the finished model must look impressive in flat grey**, because shaders
+reveal anatomy and must not be responsible for inventing it.
+
+- **TB-1 OPEN — the neutral cage.** 1.6 m straight along +Y, 20–28
+  longitudinal sections × 16–24 around, with the regional cross-sections
+  already interesting BEFORE subdivision: muscular asymmetric root,
+  broad/flattened proximal, the ocular station swelling at 42 %, a
+  compressed post-eye section, a flexible mid/distal, a narrower but not
+  string-like final third, a rounded tactile club. Clean quad longitudinal
+  flow, density up at the orbit, bends, sucker field and root.
+- **TB-2 OPEN — the real orbit.** Topology rebuilt so the socket is a
+  concavity, not a sphere intersecting a tube: heavy dorsal brow, thick
+  lower cushion, lateral muscular wall, asymmetric rear socket, compression
+  folds radiating into the shaft. **Test: from 45° the complete sphere must
+  not be reconstructible.**
+- **TB-3 OPEN — the eye in four objects.** Globe (~36 mm, slightly
+  irregular), a physically recessed iris with radial fibre/gold geometry, a
+  pupil that is a real funnel catching no light, a separate corneal cap.
+- **TB-4 OPEN — three lids with their own topology**, each visible at full
+  open so the eye is never naked in a still.
+- **TB-5 OPEN — 18 cilia from Bezier curves** in three collections, from
+  modelled follicles, asymmetric, spring-friendly.
+- **TB-6 OPEN — hero suckers**: 4–6 variants with base mound, raised rim,
+  concave centre and inner lip, distributed over a ventral group in two
+  staggered rows changing toward the club.
+- **TB-7 OPEN — gold as an exoskeleton**: 20–40 individually recognizable
+  elements, every large one rooted, each entry pushing the flesh in with a
+  raised rim and compression folds so gold visibly emerges from INSIDE.
+- **TB-8 OPEN — mechanical joints**: separate pieces with overlapping
+  sockets so a 1–4 mm slide shows no gap; ball/socket, sliding overlap,
+  nested plates, tendon into crystal hinge, telescoping spine. Grown, not
+  manufactured.
+- **TB-9 OPEN — dendrites by Geometry Nodes**, filling connective detail
+  only; the silhouette stays art-directed.
+- **TB-10 OPEN — 5–12 faceted crystal organs**, flat-shaded facets, bases
+  in gold/flesh sockets, with an inner core mesh for the fake interior.
+- **TB-11 OPEN — the root membrane** as its own radial mesh that can
+  bulge, thin, stretch over the tip, cling and constrict.
+- **TB-12 OPEN — the rig**: 24–32 deform bones (heavy proximal → ocular →
+  flexible mid/distal → tip), B-Bones/spline IK, distributed twist
+  (root 10 %, mid 30 %, distal 60 %), secondary rigs for eye, lids, ocular
+  gold, cilia, hero suckers and membrane.
+- **TB-13 OPEN — corrective shape keys** for the nine named deformation
+  failures, plus 3–6 subdermal deformers for visible muscular sliding.
+- **TB-14 OPEN — bake and masks**: sculpt → retopo → bake normal, AO,
+  curvature, height, thickness, cavity; anatomy-following UVs; and the ten
+  named vertex attributes exported so Godot never has to rediscover
+  anatomy the model already knows.
+- **TB-15 OPEN — clearance test** through the nine canonical poses before
+  final polish.
+- **TB-16 OPEN — the grey test**, which gates the whole programme.
+
 ### DF — THE DREAM FIELD (owner direction 2026-08-22, MAJOR)
 
 Ruling verbatim: `design/DREAM_FIELD_DIRECTION.md`. *"The Dream Field is
