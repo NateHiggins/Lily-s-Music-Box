@@ -94,8 +94,22 @@ Same number of features, but the spacing and depth now vary widely: one real
 narrow, one knuckle, and everything else a modulation of the taper rather than
 another bead. It reads as a limb with a club on the end now.
 
+## The gold: open shells
+
+Seen from three-quarters the plates read as torn flakes of card lying on the
+body. Two causes, both structural rather than artistic:
+
+- **They were never closed.** The generator built a top surface, a thickened
+  underside, and the two long side walls — and no end caps. Every piece was an
+  open shell you could look straight inside.
+- **They ended in a full-height cut face.** A seated piece now sinks back into
+  the flesh at both ends, so it emerges from the body rather than resting on
+  it. Spurs are exempt: a spur is meant to project.
+
 ## Standing faults in these frames
-- Gold plates read as thin flat shards when seen edge-on.
+- Some `spur` pieces still read as sharp thin points. Spurs are deliberately
+  exempt from the end-seating envelope, since a spur is meant to project —
+  but a few are sharper than "biomineralized anatomy" wants.
 - §13 also asks the membrane for **gold anchors and crystal nodules**. It has
   neither yet.
 - §23's clearance poses (figure-eight, 180° tip curl, axial twist) are not

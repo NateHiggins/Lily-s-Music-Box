@@ -587,6 +587,16 @@ def gold_piece_geometry(kind, seed):
         width.append(max(0.04, w * rng.uniform(0.85, 1.0)))
         lift.append(l)
         shift.append(sx)
+    # SEATED PIECES SINK BACK INTO THE FLESH AT BOTH ENDS. Without this the
+    # piece terminates in a full-height cut face, and in the grey test the
+    # gold read as torn card lying on the body rather than as bone coming out
+    # of it. A spur is exempt: it is meant to project.
+    if kind in ("plate", "brow", "crescent", "rib", "support", "knuckle"):
+        for r in range(rings):
+            t = r / float(rings - 1)
+            env = math.sin(math.pi * t) ** 0.30
+            width[r] *= 0.30 + 0.70 * env
+            lift[r] *= 0.12 + 0.88 * env
     verts, faces = [], []
     for r in range(rings):
         t = r / float(rings - 1)
@@ -617,6 +627,17 @@ def gold_piece_geometry(kind, seed):
         for e in (0, segs - 1):
             a0 = r * segs + e
             faces.append((a0, base + a0, base + a0 + segs, a0 + segs))
+    # CAP THE TWO ENDS. They were never closed, so every gold piece was an
+    # open shell: from three-quarters you looked straight into the inside of
+    # a plate, which is precisely why they read as flakes of paper.
+    for end in (0, rings - 1):
+        for j in range(segs - 1):
+            a0 = end * segs + j
+            b0 = base + a0
+            if end == 0:
+                faces.append((a0, a0 + 1, b0 + 1, b0))
+            else:
+                faces.append((a0 + 1, a0, b0, b0 + 1))
     return verts, faces
 
 
