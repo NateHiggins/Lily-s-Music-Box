@@ -64,6 +64,11 @@ var lay := 0.0
 ## distal anatomy turns about the body so the suckers face the surface,
 ## without the body twisting — the sleight is in the mesh parameterisation.
 var roll := 0.0
+## The WHOLE body's roll about its own axis, so the ocular station can be
+## presented to whoever is watching (HERO_PASS §4: an organ the camera
+## cannot see has no authority). An animal turns its head; the socket does
+## not crawl around the limb.
+var station_roll := 0.0
 var curl := 0.0
 var grow := 0.0
 var sampling := false
@@ -244,7 +249,10 @@ func _roll_to_surface(dt: float) -> void:
 	# Ventral is at angle PI (+ twist); find the angle of want_dir in the
 	# (side, binormal) frame and roll so that PI + twist + roll lands on it.
 	var a := atan2(want_dir.dot(bn), want_dir.dot(sd))
-	var want_roll := a - PI - float(f.twist)
+	# The station roll is already applied to every frame, so the ventral
+	# roll has to work relative to it — otherwise turning the body to
+	# present the eye drags the suckers off the surface they are holding.
+	var want_roll := a - PI - float(f.twist) - station_roll
 	while want_roll > PI:
 		want_roll -= TAU
 	while want_roll < -PI:
@@ -252,9 +260,10 @@ func _roll_to_surface(dt: float) -> void:
 	roll = lerp_angle(roll, want_roll, clampf(dt * 2.0, 0.0, 1.0))
 
 
-## The roll at v: none at the root, the full roll on the distal third.
+## The roll at v: the body's own roll everywhere (easing in from the root,
+## which is held by the membrane), plus the ventral roll on the distal third.
 func roll_at(v: float) -> float:
-	return roll * smoothstep(0.45, 0.8, v)
+	return station_roll * smoothstep(0.05, 0.35, v) + roll * smoothstep(0.45, 0.8, v)
 
 
 func _transport() -> void:

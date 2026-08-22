@@ -820,7 +820,9 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 		// gravity (streaks in g's direction, not the building's down).
 		float drip_coord = dot(vec2(v_world.x + v_world.z, v_world.y) , g_dir) * 7.0;
 		float streak = 0.5 + 0.5 * sin(drip_coord + dream_corruption_noise3(v_world * 6.0) * 3.0);
-		float film = smoothstep(0.04, 0.35, stain * (0.85 + 0.3 * streak)) * living_amount;
+		// The film needs real slime under it: a trace of stain used to put a
+		// glossy veil over an entire wall.
+		float film = smoothstep(0.22, 0.62, stain * (0.85 + 0.3 * streak)) * living_amount;
 		albedo = mix(albedo, albedo * 0.42 + stain_tint * 0.42, film * 0.9);
 		// Forward+: a near-mirror film over a whole wall reads as a white
 		// smear, not as something viscous. Wet, not polished.
@@ -830,12 +832,15 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 		n_ts.xy = mix(n_ts.xy, g_dir * 0.25 * streak, film * film * 0.6);
 		metal = mix(metal, 0.0, film);
 		// The glow on what is near (§5c), before the body arrives.
-		// Forward+ HDR (DIRECTION_3 §M): the organism TINTS what is near it
-		// and lights it through its OmniLights; only a little of that is
-		// emission, or the wall becomes a white cloud in an RGBA16F buffer.
-		vec3 glow = tint * near * living_radiance * pulse_glow * (1.0 - living);
-		albedo = mix(albedo, albedo * 0.62 + tint * 0.38, near * 0.7 * (1.0 - living));
-		s.emission += glow * 0.14;
+		// The radiance is a LOCAL glow on what the body is nearly touching,
+		// not a tint on every surface within half a metre. At the old
+		// weights an organism spread across a storey washed whole rooms
+		// pale and the creature lost all contrast against them — proved by
+		// muting `living_amount` and re-shooting the same frame.
+		float near_sq = near * near;
+		vec3 glow = tint * near_sq * living_radiance * pulse_glow * (1.0 - living);
+		albedo = mix(albedo, albedo * 0.72 + tint * 0.28, near_sq * 0.35 * (1.0 - living));
+		s.emission += glow * 0.10;
 		// The body: the case's substance, wet, with a brighter lip at the front.
 		float lip = smoothstep(0.0, 0.35, living) * (1.0 - smoothstep(0.35, 0.9, living));
 		vec3 substance = tint * (1.3 + 0.5 * fizz);

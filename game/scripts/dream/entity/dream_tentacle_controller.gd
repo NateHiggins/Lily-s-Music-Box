@@ -383,6 +383,24 @@ func _tick(delta: float) -> void:
 			room_dir = (sensor.contact - ocular.position).normalized().lerp(anchor_normal, 0.35).normalized()
 		ocular.choose_face(rig, room_dir)
 		_material.set_shader_parameter("eye_u", ocular.eye_u)
+	# Present the eye: roll the body until the socket's normal points at
+	# whoever is watching. Slow — this is a creature turning, not a turret.
+	if _face_chosen and toggles.eye_tracking:
+		var watcher: Vector3 = behavior.player_pos if has_player else _viewer_pos()
+		var want: Vector3 = (watcher - ocular.position).normalized()
+		var f := rig.frame_at(DreamOcularAssembly.EYE_V)
+		var tng: Vector3 = f.tangent
+		var sd: Vector3 = f.side
+		var bn: Vector3 = f.binormal
+		# The angle the socket currently sits at, and where it should be.
+		var flat: Vector3 = want - tng * want.dot(tng)
+		if flat.length() > 0.15:
+			flat = flat.normalized()
+			var want_a := atan2(flat.dot(bn), flat.dot(sd))
+			var have_a := ocular.eye_u * TAU + float(f.twist)
+			var delta_a := wrapf(want_a - have_a, -PI, PI)
+			rig.station_roll = lerp_angle(rig.station_roll, rig.station_roll + delta_a,
+					clampf(delta * 0.55, 0.0, 1.0))
 	ocular.set_mode(behavior.eye_mode if toggles.eye_tracking else "watch_object")
 	ocular.update(rig, sensor.contact, behavior.player_pos, has_player, behavior.interest,
 			grow, pulse_phase, delta)
@@ -433,6 +451,17 @@ func _schedule_phase_slice(delta: float) -> void:
 		_emit("gold_phase_shift", rig.point_at(_slice_v))
 
 
+## Wherever the scene is being watched from: the active camera if there is
+## one, otherwise a point out in the room.
+func _viewer_pos() -> Vector3:
+	var vp := get_viewport()
+	if vp != null:
+		var c := vp.get_camera_3d()
+		if c != null:
+			return c.global_position
+	return anchor + anchor_normal * 2.0
+
+
 func _push_uniforms() -> void:
 	_material.set_shader_parameter("spine", rig.pos)
 	_material.set_shader_parameter("side", rig.side)
@@ -443,6 +472,7 @@ func _push_uniforms() -> void:
 	_material.set_shader_parameter("contact_amount", grip if toggles.contact_deformation else 0.0)
 	_material.set_shader_parameter("phase_slice_v", _slice_v)
 	_material.set_shader_parameter("ventral_roll", rig.roll)
+	_material.set_shader_parameter("station_roll", rig.station_roll)
 	_material.set_shader_parameter("mask_view", _mask_view)
 	MaterialProfileScript.push_state(_material, behavior.interest, pulse_phase,
 			breath_phase, startle, 1.0 if _slice_left > 0.0 else 0.0)

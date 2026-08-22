@@ -39,6 +39,9 @@ uniform float contact_amount : hint_range(0.0, 1.0) = 0.0;
 // The ventral roll (DIRECTION 9D): the anatomy turns about the body on the
 // distal third so the suckers face the surface, without the body twisting.
 uniform float ventral_roll = 0.0;
+// The whole body's roll about its axis, eased in from the root, so the
+// creature can present its ocular station to the viewer.
+uniform float station_roll = 0.0;
 // Phase offset slices (§3, §9B): a narrow band of v rendered from the
 // previous pose the rig keeps; a negative v disables.
 uniform vec3 spine_prev[16];
@@ -217,7 +220,8 @@ void vertex() {
 	float r = dt_profile(v) * pr.x * mult * alive;
 	// The cross-section: an ellipse that flattens and rotates along the
 	// length (the ribbon span, the torsion), readable from afar.
-	float ang = u * 6.2831853 + pr.z + ventral_roll * smoothstep(0.45, 0.8, v);
+	float ang = u * 6.2831853 + pr.z + station_roll * smoothstep(0.05, 0.35, v)
+			+ ventral_roll * smoothstep(0.45, 0.8, v);
 	vec3 radial = sd * cos(ang) * (1.0 + pr.y) + bn * sin(ang) * (1.0 - pr.y);
 	vec3 nrm = normalize(sd * cos(ang) * (1.0 - pr.y) + bn * sin(ang) * (1.0 + pr.y));
 	vec3 world = p + radial * r;

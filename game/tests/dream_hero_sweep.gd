@@ -103,6 +103,15 @@ func _run() -> void:
 		printerr("[SWEEP] no tentacle — nothing to photograph")
 		get_tree().quit(1)
 		return
+	# Diagnostic: SWEEP_NO_LIVING=1 mutes the organism on every layered
+	# surface, so a frame can prove whether the haze belongs to it.
+	if OS.get_environment("SWEEP_NO_LIVING") == "1":
+		var enc: Node = root.get("apartment_encroachment")
+		for fid in enc.storey_materials:
+			for m in enc.storey_materials[fid]:
+				if is_instance_valid(m):
+					(m as ShaderMaterial).set_shader_parameter("living_amount", 0.0)
+		print("[SWEEP] living muted for diagnosis")
 	print("[SWEEP] tentacle out: %s" % [_tentacle.census()])
 	print("[SWEEP] station %s  face_u %.3f  normal %s  gaze %s" % [_tentacle.ocular.position,
 			_tentacle.ocular.eye_u, _tentacle.ocular.normal, _tentacle.ocular.gaze])

@@ -272,3 +272,42 @@ between it and any legal camera position); the wide beats are hazed by the
 encroachment's stain film across the wall; and the blink, the cilia
 reaction and the gold articulation are captured but not yet legible as
 events in the video. That is P7, and it is the next work.
+
+## P7 — fixing what existed but did not read (2026-08-22)
+
+Three faults named in the previous entry, all now fixed and re-photographed.
+
+**The haze was the organism, proved not guessed.** A `SWEEP_NO_LIVING=1`
+diagnostic mutes `living_amount` on every layered material and re-shoots
+the identical frame. The pair (`_before_haze_fix.png` against
+`05_gameplay_distance.png`) is unambiguous: with the organism on, pale
+veils crossed the whole room and the creature lost all contrast. The cause
+was the proximity radiance — it tinted every surface within half a metre of
+any body, and an organism spread across a storey therefore washed entire
+rooms. It is now squared and weighted down to a local glow on what the body
+is nearly touching, and the stain film needs real slime under it
+(threshold 0.04 → 0.22) instead of veiling a wall at a trace.
+
+**The creature now turns to present its eye.** The socket does not migrate
+around the limb — anatomy does not do that. Instead the whole body rolls
+about its own axis (`DreamTentacleRig.station_roll`, eased in from the root
+which the membrane holds), so the ocular station comes round to face
+whoever is watching, and everything mounted on the body — gold, cilia,
+crystal, suckers — follows because they all read `roll_at`. The ventral
+roll that holds the suckers on a surface now compensates for it, which the
+contract caught immediately when it did not.
+
+**The assets were re-recorded** with those fixes:
+`hero_review/flashlight_sweep_13s.mp4` (13 s, 390 frames, 30 fps, the
+player's own lamp) and the eighteen stills. The room reads, the limb reads
+as an anatomy with regions, and the tip ends on the radiator it is tasting.
+
+Gates: parse, DreamTentacleTest 20/20, encroachment 13/13, incidents
+18/18, living field 14/14, WalkTest FAST.
+
+**Still not read, honestly:** the eye is visible in the sweep but is never
+a hero MOMENT in it — it wants a beat of its own with the camera settled
+and the lamp raking across the socket; and the blink and cilia reaction,
+though they fire, are still not legible as events at the speed the camera
+passes. Those belong with the six-beat animation work (DT-5/P8), where the
+creature's own timing rather than the camera's is what carries them.
