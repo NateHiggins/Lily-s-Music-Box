@@ -593,6 +593,13 @@ static func _solid_box(parent: Node3D, node_name: String, material: Material,
 	var mesh_node := MeshInstance3D.new()
 	var mesh := BoxMesh.new()
 	mesh.size = size
+	# EN-3 (geometry half): the faces are tessellated to FOLD_CELL_M so the
+	# Klimt surface's vertex fold has vertices to move. The collider above is
+	# the same box as before; only the drawn surface can recede into it.
+	if OS.get_environment("DREAM_FOLD_GEOMETRY") != "0":
+		mesh.subdivide_width = maxi(0, int(ceil(size.x / FOLD_CELL_M)) - 1)
+		mesh.subdivide_height = maxi(0, int(ceil(size.y / FOLD_CELL_M)) - 1)
+		mesh.subdivide_depth = maxi(0, int(ceil(size.z / FOLD_CELL_M)) - 1)
 	mesh_node.mesh = mesh
 	mesh_node.material_override = material
 	body.add_child(mesh_node)
@@ -607,6 +614,9 @@ static func _solid_box(parent: Node3D, node_name: String, material: Material,
 ## 2:1 -- the shader samples it with atan/acos and any other ratio swims.
 const REFLECTED_WORLD_PATH := "res://assets/dream/klimt_reflected_world_v1.png"
 
+## EN-3: tessellation cell of the dream's boxes, metres. 0.3 m puts ~30 x 11
+## cells on a 9 x 3.2 m wall — enough for a fold to bend between them.
+const FOLD_CELL_M := 0.3
 const MOTIF_CANOPY := 0
 const MOTIF_SPIRAL := 1
 const MOTIF_MOSAIC := 2

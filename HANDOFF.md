@@ -413,8 +413,8 @@ MX-3's first slice landed
 `wall_age.png` mask library as the standing age). The encroachment is a
 state of the one surface since 2026-08-22 (`os_encroach`;
 `wall_encroachment.gdshader` is reference only). The six encroachment grammars landed 2026-08-22, and with them the fix that let
-flats other than 2A encroach at all. EN-3's surface half landed 2026-08-22 (bit 32 of the Klimt layer mask; Gate C
-clean); its geometry half needs RoomBuilder tessellation. Open, in order:
+flats other than 2A encroach at all. EN-3 landed 2026-08-22 in both halves (surface fold + tessellated boxes whose
+wall vertices sink into the weld; Gate C clean). Open, in order:
 MX-3's rest (ORM, detail maps); the WK-1 per-case grammars; EN-3
 folds; CT-2; the EN-2 taste/perf rows (weld vocabulary placing R6's
 camera; trim the ornament under the layers). `TASKS.md` §MX / §CT / §EN. Harness note: the layout's y is

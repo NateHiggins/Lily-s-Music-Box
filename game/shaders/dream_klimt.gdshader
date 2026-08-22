@@ -33,6 +33,13 @@ render_mode blend_mix, cull_back, diffuse_burley, specular_schlick_ggx;
 uniform int layer_mask : hint_range(0, 63) = 63;
 uniform float fold_reach_m = 0.55;
 uniform float fold_pull_m = 0.22;
+// The geometry half: vertices recede INTO the wall around the seam, by up
+// to fold_depth_m at the weld, never on floors or ceilings, never outward —
+// the collider is the same box, so the walkable world is untouched and the
+// surface simply sinks into the weld. Needs the tessellated boxes
+// (DreamMazeBuilder.FOLD_CELL_M).
+uniform float fold_depth_m = 0.09;
+uniform float fold_geometry_width = 7.0;
 uniform float base_ground : hint_range(0.0, 1.0) = 0.75;
 uniform vec3 flesh_deep : source_color = vec3(0.140, 0.030, 0.125);
 uniform vec3 flesh_body : source_color = vec3(0.420, 0.085, 0.300);
@@ -498,8 +505,23 @@ varying vec3 v_world;
 varying vec3 v_normal;
 
 void vertex() {
-	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
-	v_normal = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
+	vec3 vertex_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	vec3 normal_world = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
+	// EN-3, geometry half: the surface recedes into the wall around the weld.
+	if ((layer_mask & 32) != 0 && exposure_gain > 0.0001 && abs(normal_world.y) < 0.5) {
+		float vy = clamp(vertex_world.y / max(0.001, exposure_height), 0.0625, 0.9375);
+		float retained_v = textureLod(exposure_tex, vec3(vertex_world.x / exposure_extent,
+				vertex_world.z / exposure_extent, vy), 0.0).r;
+		float drive_v = clamp(retained_v * exposure_gain, 0.0, 1.0);
+		float d = (drive_v - weld_level) / max(0.005, weld_width * fold_geometry_width);
+		float sink = exp(-d * d) * fold_depth_m;
+		// Object space: the boxes are unscaled, so the object normal is the
+		// direction to recede along.
+		VERTEX -= NORMAL * sink;
+		vertex_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	}
+	v_world = vertex_world;
+	v_normal = normal_world;
 }
 
 // Cheap value noise and a two-octave fbm. Enough for flow and for the

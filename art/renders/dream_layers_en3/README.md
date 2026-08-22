@@ -27,19 +27,28 @@ layers 63: the crease along the outside of the weld ring, the plaster and
 the dado rail pulled toward it. It reads as a fold of the surface, not of
 the room.
 
-## What this is not, and what the next step is
+## The geometry half (same day)
 
-The fold the direction imagines — the room itself creased from a fifth
-direction — needs vertices to move, and the dream's walls are graybox boxes
-with four of them (`dream_maze_builder`, "no usable UVs"). A geometry fold
-is a **RoomBuilder tessellation** job: subdivide the authored faces near a
-breach so a vertex displacement along the same gradient can bend the wall
-toward the weld, still inside the Atlas's promise (displacement capped
-below the collider's skin, never on the floor), with Gate C re-run. That is
-the EN-3 that remains open; this surface fold is its first, bounded half.
+The fold the direction means needs vertices, and the dream's boxes had four
+per face. `DreamMazeBuilder._solid_box` now tessellates every box's faces at
+`FOLD_CELL_M` 0.3 m (`DREAM_FOLD_GEOMETRY=0` restores the four-vertex box),
+and the Klimt vertex stage **sinks wall vertices into the wall** around the
+weld — the exposure field read at the vertex, a Gaussian about `weld_level`
+of width `weld_width × fold_geometry_width`, up to `fold_depth_m` 0.09 —
+**inward only, never on floors or ceilings**. The collider is the same box
+it was, so the walkable world is exactly what RoomBuilder authored; only the
+drawn surface recedes. `sheet_en3_geometry.jpg`: the surface fold beside
+the surface + geometry fold — the dado rail breaks and steps where it
+crosses the seam, the whole lesion sits in a dish, the weld rings it.
 
-Also in this commit, EN-2's taste row: R6's view camera sways with the
-seam's flow (a few centimetres and a degree or two at the bead's 0.08 Hz)
-so the view in the weld moves like something held in molten metal. The R6
-contracts assert the camera's existence, cull mask and attributes, not its
-pose; all PASS.
+Clamps re-run on the result: DreamPerceptionTest 20/20, DreamHazardTest
+42, DreamSurfaceTargetTest 105, DreamAtlasTest, DreamRoomBuilderTest — all
+PASS. Cost at the stand: mid 2.3 ms, high 2.2 ms with R6 asleep (the
+tessellation adds vertices to a draw-bound frame, not draws).
+
+## What remains
+
+A fold sinks; it does not yet crease the room across a diagonal or pull a
+wall toward the player — that would be outward displacement, which the
+promise forbids, or a second surface, which is EN-3's next taste row if the
+owner wants the crease to leave the wall plane.
