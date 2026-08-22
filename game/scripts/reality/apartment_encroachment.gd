@@ -28,6 +28,10 @@ const SurfacePassScript := preload("res://scripts/building/surface_pass.gd")
 const LivingFieldScript := preload("res://scripts/reality/living_field.gd")
 const DreamTentacleScript := preload("res://scripts/dream/entity/dream_tentacle_controller.gd")
 const DreamTentacleDebugScript := preload("res://scripts/dream/entity/dream_tentacle_debug.gd")
+const DreamFieldScript := preload("res://scripts/dream/field/dream_field_controller.gd")
+## DF-1: the antagonist's body failing to fit into three dimensions. The
+## living field is its growth; this is its cross-section.
+var dream_field: DreamFieldController = null
 var _tentacle_debug: CanvasLayer = null
 const PROFILES_PATH := "res://data/dream_profiles.json"
 const PLATE_ROOT := "res://assets/dream/incarnations"
@@ -172,6 +176,24 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			field_source[case_id] = field.add_source(source, int(PALETTE_INDEX.get(case_id, 0)))
 			for row in rows:
 				_bind_living(row.material as ShaderMaterial, floor_id)
+	# DF-1 (design/DREAM_FIELD_DIRECTION.md): one field controller for the
+	# building, seeded on the storey the cases live on, and told where the
+	# organism actually is so its lobes sit on the body rather than in the
+	# air.
+	if OS.get_environment("DREAM_FIELD") != "0":
+		dream_field = DreamFieldScript.new()
+		add_child(dream_field)
+		var seed_floor := ""
+		for case_id in units:
+			seed_floor = _floor_of(case_id)
+			break
+		dream_field.setup("dreamfield".hash(), STOREY_RECT,
+				float(units.values()[0].floor_y) if units.size() > 0 else 0.0)
+		if fields.size() > 0:
+			dream_field.living_field = fields.values()[0]
+		var root_node := get_parent()
+		if root_node != null and ("player" in root_node):
+			dream_field.player = root_node.player
 	if RealityState.has_signal("state_changed") and not RealityState.state_changed.is_connected(refresh):
 		RealityState.state_changed.connect(refresh)
 	refresh()
@@ -208,6 +230,23 @@ func _physics_process(delta: float) -> void:
 					(m as ShaderMaterial).set_shader_parameter("living_pulse", phase)
 			_place_lights(floor_id, field)
 			_tend_tentacles(floor_id, field, delta)
+	# §14: the tentacle does not drive the field; they share clocks, so the
+	# whole organism beats together.
+	if dream_field != null:
+		var pulse := 0.0
+		var breath := 0.0
+		var attn := 0.0
+		var contact := 0.0
+		var instab := 0.0
+		for fid in tentacles:
+			for t in tentacles[fid]:
+				if is_instance_valid(t):
+					pulse = t.pulse_phase
+					breath = t.breath_phase
+					attn = maxf(attn, float(t.behavior.interest))
+					contact = maxf(contact, float(t.grip))
+					instab = maxf(instab, 1.0 if t._slice_left > 0.0 else 0.0)
+		dream_field.couple(pulse, breath, attn, contact, instab)
 
 
 ## The storey the player stands on, by the floors the cases told us about.
