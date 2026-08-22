@@ -61,10 +61,8 @@ WalkTest FAST PASS, 0 script/shader errors.
 - The organism's texture is the ink tint; the case plates (the grammars)
   still draw their own static foothold. Driving the grammar's plates by the
   field — so Peter's docket rectangles are filed where the organism is, Juno's
-  bands where its waves stand — is the next taste row.
-- The field is bounded by the flat; an organism that crosses into the
-  corridor is a gameplay question (what it means for the case), not a
-  presentation one.
+  bands where its waves stand — is the next taste row (LF-2).
+- *(v1 bounded the field to the flat; the second ruling below lifts that.)*
 - `LIVING=0` restores the static encroachment.
 
 ## v2 — anywhere, radiant, pooled, and a gravity of its own (2026-08-22, second ruling)
