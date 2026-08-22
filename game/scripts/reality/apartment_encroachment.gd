@@ -29,6 +29,9 @@ const LivingFieldScript := preload("res://scripts/reality/living_field.gd")
 const DreamTentacleScript := preload("res://scripts/dream/entity/dream_tentacle_controller.gd")
 const DreamTentacleDebugScript := preload("res://scripts/dream/entity/dream_tentacle_debug.gd")
 const DreamFieldScript := preload("res://scripts/dream/field/dream_field_controller.gd")
+const DreamTendrilScript := preload("res://scripts/dream/field/dream_surface_tendrils.gd")
+## DF-13: many small limbs where the field's cross-section meets matter.
+var surface_tendrils: DreamSurfaceTendrils = null
 ## DF-1: the antagonist's body failing to fit into three dimensions. The
 ## living field is its growth; this is its cross-section.
 var dream_field: DreamFieldController = null
@@ -187,13 +190,27 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 		for case_id in units:
 			seed_floor = _floor_of(case_id)
 			break
+		# Seed the field on a case's own flat, not the storey's centre: the
+		# body is where the cases are.
+		var seed_at := Vector3.INF
+		if units.size() > 0:
+			var u0: Dictionary = units.values()[0]
+			var ur: Vector4 = u0.rect
+			seed_at = Vector3((ur.x + ur.z) * 0.5, float(u0.floor_y) + 1.3,
+					(ur.y + ur.w) * 0.5)
 		dream_field.setup("dreamfield".hash(), STOREY_RECT,
-				float(units.values()[0].floor_y) if units.size() > 0 else 0.0)
+				float(units.values()[0].floor_y) if units.size() > 0 else 0.0, seed_at)
 		if fields.size() > 0:
 			dream_field.living_field = fields.values()[0]
 		var root_node := get_parent()
 		if root_node != null and ("player" in root_node):
 			dream_field.player = root_node.player
+		# DF-13: the shelved procedural limb, at a tenth the size and a
+		# hundred at a time — one body meeting our space in many places.
+		if OS.get_environment("DREAM_TENDRILS") != "0":
+			surface_tendrils = DreamTendrilScript.new()
+			add_child(surface_tendrils)
+			surface_tendrils.setup(dream_field, "tendrils".hash())
 	if RealityState.has_signal("state_changed") and not RealityState.state_changed.is_connected(refresh):
 		RealityState.state_changed.connect(refresh)
 	refresh()
