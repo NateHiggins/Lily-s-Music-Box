@@ -263,7 +263,14 @@ func _roll_to_surface(dt: float) -> void:
 ## The roll at v: the body's own roll everywhere (easing in from the root,
 ## which is held by the membrane), plus the ventral roll on the distal third.
 func roll_at(v: float) -> float:
-	return station_roll * smoothstep(0.05, 0.35, v) + roll * smoothstep(0.45, 0.8, v)
+	return station_roll * station_ease(v) + roll * smoothstep(0.45, 0.8, v)
+
+
+## How much of the body's own roll has reached this point along it. The
+## root is held by the membrane and cannot turn; everything past the neck
+## turns together.
+func station_ease(v: float) -> float:
+	return smoothstep(0.05, 0.35, v)
 
 
 func _transport() -> void:

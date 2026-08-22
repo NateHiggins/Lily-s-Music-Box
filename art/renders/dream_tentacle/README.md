@@ -311,3 +311,20 @@ and the lamp raking across the socket; and the blink and cilia reaction,
 though they fire, are still not legible as events at the speed the camera
 passes. Those belong with the six-beat animation work (DT-5/P8), where the
 creature's own timing rather than the camera's is what carries them.
+
+### The spin (owner report, fixed 2026-08-22)
+
+*"The whole tentacle is spinning violently the whole time, which is cool
+but I don't think you meant that."* Correct, and a real bug: the roll that
+presents the eye compared where the socket SHOULD be against where it
+would be with **no roll applied**, so every frame asked for the same turn
+again and the error never converged — the creature revolved forever. The
+current angle now includes the roll already applied, with a dead zone and a
+slow rate, and  grew a check that measures the turn over
+two three-second windows: 0.266 rad in the first, 0.000 in the second. It
+settles.
+
+With it, one more pass at the haze: the radiance taps reached 0.4 m, which
+is everywhere once the organism is mature, so the tint returned as the body
+grew. They are 0.16 m now and only the strong half of the tap counts — a
+halo at the edge of the sheet rather than a field over the room.

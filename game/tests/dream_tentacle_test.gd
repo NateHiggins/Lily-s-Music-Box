@@ -122,6 +122,19 @@ func _run() -> void:
 		well = well and d <= seg * 1.06 and absf(side[i].dot(tng)) < 0.2 and absf(side[i].length() - 1.0) < 0.01
 	_check("the rig keeps its length (%.2f m of %.2f) with transported sides" % [total, t.behavior_profile.length_m],
 			well and total > float(t.behavior_profile.length_m) * 0.6)
+	# THE BODY MUST SETTLE, NOT SPIN. The roll that presents the eye is a
+	# creature turning; if its error term never converges it revolves
+	# forever, which is exactly what happened when the socket's current
+	# angle left out the roll already applied.
+	var roll_a: float = t.rig.station_roll
+	await get_tree().create_timer(3.0).timeout
+	var roll_b: float = t.rig.station_roll
+	await get_tree().create_timer(3.0).timeout
+	var roll_c: float = t.rig.station_roll
+	var first: float = absf(roll_b - roll_a)
+	var second: float = absf(roll_c - roll_b)
+	_check("the body settles and does not spin (%.3f rad then %.3f rad in 3 s)" % [first, second],
+			second < 0.9 and second <= first + 0.25 and absf(roll_c) < 12.0)
 	# The player at arm's reach: it flinches, then watches.
 	var who: Node3D = root.get("player")
 	if who != null:

@@ -397,10 +397,15 @@ func _tick(delta: float) -> void:
 		if flat.length() > 0.15:
 			flat = flat.normalized()
 			var want_a := atan2(flat.dot(bn), flat.dot(sd))
-			var have_a := ocular.eye_u * TAU + float(f.twist)
+			# The socket's CURRENT angle must include the roll already
+			# applied. Leaving it out meant the correction never converged:
+			# every frame asked for the same turn again and the creature
+			# span continuously.
+			var have_a := ocular.eye_u * TAU + float(f.twist) 					+ rig.station_roll * rig.station_ease(DreamOcularAssembly.EYE_V)
 			var delta_a := wrapf(want_a - have_a, -PI, PI)
-			rig.station_roll = lerp_angle(rig.station_roll, rig.station_roll + delta_a,
-					clampf(delta * 0.55, 0.0, 1.0))
+			# A dead zone, so it settles instead of hunting, and a slow rate.
+			if absf(delta_a) > 0.10:
+				rig.station_roll += delta_a * clampf(delta * 0.5, 0.0, 0.06)
 	ocular.set_mode(behavior.eye_mode if toggles.eye_tracking else "watch_object")
 	ocular.update(rig, sensor.contact, behavior.player_pos, has_player, behavior.interest,
 			grow, pulse_phase, delta)

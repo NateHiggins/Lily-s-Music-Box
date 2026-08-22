@@ -798,7 +798,11 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 		vec2 g_dir = g_ts / g_len;
 		// The radiance (§5c): the body around this point, six taps at ±0.4 m,
 		// pulled along the gravity — light the organism throws on what is near.
-		vec3 lv = vec3(0.4) / max(vec3(0.05), living_size);
+		// A HALO AT THE EDGE OF THE SHEET, not a field over the room. At
+		// 0.4 m the taps reach body everywhere once the organism is mature,
+		// so every surface on the storey took the tint and the creature had
+		// nothing to stand against.
+		vec3 lv = vec3(0.16) / max(vec3(0.05), living_size);
 		float near = texture(living_tex, luv + vec3(lv.x, 0.0, 0.0)).g
 				+ texture(living_tex, luv - vec3(lv.x, 0.0, 0.0)).g
 				+ texture(living_tex, luv + vec3(0.0, lv.z, 0.0)).g
@@ -837,7 +841,10 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 		// weights an organism spread across a storey washed whole rooms
 		// pale and the creature lost all contrast against them — proved by
 		// muting `living_amount` and re-shooting the same frame.
-		float near_sq = near * near;
+		// Only the strong half of the tap counts: a trace of nearby body is
+		// not a light source.
+		float near_sq = smoothstep(0.25, 0.85, near);
+		near_sq *= near_sq;
 		vec3 glow = tint * near_sq * living_radiance * pulse_glow * (1.0 - living);
 		albedo = mix(albedo, albedo * 0.72 + tint * 0.28, near_sq * 0.35 * (1.0 - living));
 		s.emission += glow * 0.10;
