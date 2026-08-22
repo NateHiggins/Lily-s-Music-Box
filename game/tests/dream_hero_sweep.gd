@@ -99,7 +99,7 @@ func _run() -> void:
 	_look_at_from(ANCHOR + Vector3(1.4, -0.2, 0.5), ANCHOR)
 	await get_tree().create_timer(warm).timeout
 	_tentacle = _find_tentacle()
-	if _tentacle == null and OS.get_environment("SWEEP_MODE") != "tendrils":
+	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled"]):
 		printerr("[SWEEP] no tentacle — nothing to photograph")
 		get_tree().quit(1)
 		return
@@ -122,6 +122,8 @@ func _run() -> void:
 		await _frame_set()
 	elif mode == "tendrils":
 		await _tendril_shots()
+	elif mode == "modelled":
+		await _modelled_hero_shots()
 	else:
 		await _sweep()
 	print("[SWEEP] DONE %d frames -> %s" % [_frame, _dir])
@@ -409,3 +411,42 @@ func _tendril_shots() -> void:
 		get_viewport().get_texture().get_image().save_png(path)
 		_frame += 1
 		print("[SWEEP] %s at %s" % [str(shot[0]), aim])
+
+
+## THE MODELLED HERO, photographed in a real room under the player's own lamp.
+## The Blender greys prove the sculpt; only this proves the character.
+func _modelled_hero_shots() -> void:
+	var enc: Node = root.get("apartment_encroachment")
+	var hero = enc.get("hero") if enc != null else null
+	if hero == null:
+		printerr("[SWEEP] no modelled hero — run with DREAM_HERO=1")
+		return
+	print("[SWEEP] hero census %s" % [hero.census()])
+	# Its real extent, from the meshes themselves rather than from a guess.
+	var lo := Vector3(1e9, 1e9, 1e9)
+	var hi := Vector3(-1e9, -1e9, -1e9)
+	for mi in hero.meshes:
+		var box: AABB = (mi as MeshInstance3D).global_transform * (mi as MeshInstance3D).get_aabb()
+		lo = lo.min(box.position)
+		hi = hi.max(box.end)
+	var mid := (lo + hi) * 0.5
+	var reach: float = maxf(0.4, (hi - lo).length())
+	print("[SWEEP] hero spans %s .. %s (%.2f m)" % [lo, hi, reach])
+	var shots := [
+		["H1_whole", mid, reach * 0.95],
+		["H2_ocular", mid, 0.34],
+		["H3_root", Vector3(mid.x, lo.y + (hi.y - lo.y) * 0.12, mid.z), 0.55],
+		["H4_three_quarter", mid, reach * 0.55],
+	]
+	for shot in shots:
+		var aim: Vector3 = shot[1]
+		var dist: float = float(shot[2])
+		var dir := _view_dir(aim, Vector3.FORWARD, dist)
+		_look_at_from(aim + dir * dist + Vector3.UP * 0.05, aim)
+		await get_tree().create_timer(0.4).timeout
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(
+				_dir.path_join("%s.png" % str(shot[0])))
+		_frame += 1
+		print("[SWEEP] %s at %s (%.2f m)" % [str(shot[0]), aim, dist])

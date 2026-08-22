@@ -30,6 +30,9 @@ const DreamTentacleScript := preload("res://scripts/dream/entity/dream_tentacle_
 const DreamTentacleDebugScript := preload("res://scripts/dream/entity/dream_tentacle_debug.gd")
 const DreamFieldScript := preload("res://scripts/dream/field/dream_field_controller.gd")
 const DreamTendrilScript := preload("res://scripts/dream/field/dream_surface_tendrils.gd")
+const DreamHeroScript := preload("res://scripts/dream/entity/dream_hero_tentacle.gd")
+## The modelled Blender creature, once the owner's ruling made it the hero.
+var hero: DreamHeroTentacle = null
 ## DF-13: many small limbs where the field's cross-section meets matter.
 var surface_tendrils: DreamSurfaceTendrils = null
 ## DF-1: the antagonist's body failing to fit into three dimensions. The
@@ -211,6 +214,37 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			surface_tendrils = DreamTendrilScript.new()
 			add_child(surface_tendrils)
 			surface_tendrils.setup(dream_field, "tendrils".hash())
+		# THE MODELLED HERO. Until now the Blender creature was an asset
+		# nothing instantiated: one reference in the whole project, in the
+		# test that probes it. It stands in the case flat, wearing the shared
+		# Dream material stack and reading its anatomy from its own masks.
+		if OS.get_environment("DREAM_HERO") == "1" and seed_at != Vector3.INF:
+			hero = DreamHeroScript.new()
+			add_child(hero)
+			# FIND A REAL WALL. A hand-picked offset put the root inside the
+			# plaster with its membrane buried, and would land somewhere
+			# different in every flat. Cast outward from the case's own centre
+			# and take the first surface: the creature comes out of whatever
+			# the room actually has.
+			var here := seed_at + Vector3(0.0, -0.35, 0.0)
+			var space: PhysicsDirectSpaceState3D = get_viewport().find_world_3d().direct_space_state
+			var found := false
+			for step in 12:
+				var ang := float(step) / 12.0 * TAU
+				var dir := Vector3(cos(ang), 0.0, sin(ang))
+				var q := PhysicsRayQueryParameters3D.create(here, here + dir * 6.0)
+				var hit: Dictionary = space.intersect_ray(q)
+				if hit.is_empty():
+					continue
+				var nrm: Vector3 = (hit.normal as Vector3).normalized()
+				if absf(nrm.y) > 0.5:
+					continue
+				hero.setup("hero".hash(), (hit.position as Vector3) + nrm * 0.04, nrm)
+				found = true
+				break
+			if not found:
+				hero.setup("hero".hash(), here, Vector3(-1.0, 0.10, 0.0))
+			hero.field = dream_field
 	if RealityState.has_signal("state_changed") and not RealityState.state_changed.is_connected(refresh):
 		RealityState.state_changed.connect(refresh)
 	refresh()
