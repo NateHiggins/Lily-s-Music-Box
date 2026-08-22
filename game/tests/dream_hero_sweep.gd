@@ -422,6 +422,30 @@ func _modelled_hero_shots() -> void:
 		printerr("[SWEEP] no modelled hero — run with DREAM_HERO=1")
 		return
 	print("[SWEEP] hero census %s" % [hero.census()])
+	# DOES IT ACTUALLY MOVE? A still frame cannot tell you, and the owner
+	# caught the modelled hero standing at rest pose because nothing drove
+	# its rig. So measure it: sample a distal bone's pose, wait, sample again.
+	if hero.skeleton != null and hero._bones.size() > 4:
+		var tip: int = hero._bones[hero._bones.size() - 3]
+		var mid: int = hero._bones[hero._bones.size() / 2]
+		var a_tip: Quaternion = hero.skeleton.get_bone_pose_rotation(tip)
+		var a_mid: Quaternion = hero.skeleton.get_bone_pose_rotation(mid)
+		await get_tree().create_timer(2.5).timeout
+		var b_tip: Quaternion = hero.skeleton.get_bone_pose_rotation(tip)
+		var b_mid: Quaternion = hero.skeleton.get_bone_pose_rotation(mid)
+		var moved_tip: float = a_tip.angle_to(b_tip)
+		var moved_mid: float = a_mid.angle_to(b_mid)
+		# And where the TIP actually goes in the room, which is what a viewer
+		# sees: per-bone angles understate it badly, since twenty-eight of
+		# them accumulate down the chain.
+		var tip_node: Node3D = hero.skeleton
+		var far_a: Vector3 = hero.skeleton.global_transform * 				hero.skeleton.get_bone_global_pose(tip).origin
+		await get_tree().create_timer(2.0).timeout
+		var far_b: Vector3 = hero.skeleton.global_transform * 				hero.skeleton.get_bone_global_pose(tip).origin
+		print("[SWEEP] the tip travelled %.3f m in 2 s" % far_a.distance_to(far_b))
+		print("[SWEEP] MOTION over 2.5 s: tip %.4f rad, mid %.4f rad  %s"
+				% [moved_tip, moved_mid,
+				"MOVING" if moved_tip > 0.002 else "STATIC — the rig is not driven"])
 	# Its real extent, from the meshes themselves rather than from a guess.
 	var lo := Vector3(1e9, 1e9, 1e9)
 	var hi := Vector3(-1e9, -1e9, -1e9)
@@ -438,6 +462,16 @@ func _modelled_hero_shots() -> void:
 		["H3_root", Vector3(mid.x, lo.y + (hi.y - lo.y) * 0.12, mid.z), 0.55],
 		["H4_three_quarter", mid, reach * 0.55],
 	]
+	if OS.get_environment("SWEEP_VIDEO") == "1":
+		var aim0: Vector3 = mid_of(lo, hi)
+		var d0: float = reach * 0.72
+		var dir0 := _view_dir(aim0, Vector3.FORWARD, d0)
+		_look_at_from(aim0 + dir0 * d0 + Vector3.UP * 0.05, aim0)
+		for f in 150:
+			await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(
+					_dir.path_join("v_%04d.png" % f))
+		print("[SWEEP] 150 frames of motion")
 	for shot in shots:
 		var aim: Vector3 = shot[1]
 		var dist: float = float(shot[2])
@@ -450,3 +484,7 @@ func _modelled_hero_shots() -> void:
 				_dir.path_join("%s.png" % str(shot[0])))
 		_frame += 1
 		print("[SWEEP] %s at %s (%.2f m)" % [str(shot[0]), aim, dist])
+
+
+func mid_of(lo: Vector3, hi: Vector3) -> Vector3:
+	return (lo + hi) * 0.5

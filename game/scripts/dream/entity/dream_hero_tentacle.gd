@@ -35,6 +35,14 @@ var grow := 1.0
 
 var _clock := 0.0
 var _seeded := 0.0
+## The armature, and its deform bones in order from root to tip.
+var skeleton: Skeleton3D = null
+var _bones: PackedInt32Array = PackedInt32Array()
+var _rest: Array[Quaternion] = []
+## Where the creature is currently attending. Its own, not the player's.
+var _attend := Vector3.ZERO
+var _attend_clock := 0.0
+var _settle := 0.0
 
 
 func setup(seed_v: int, at: Vector3, aim: Vector3 = Vector3.FORWARD) -> void:
@@ -58,6 +66,7 @@ func setup(seed_v: int, at: Vector3, aim: Vector3 = Vector3.FORWARD) -> void:
 		look_at_from_position(at, target, up_hint)
 	_collect(inst)
 	_dress()
+	_find_skeleton(inst)
 
 
 func _collect(node: Node) -> void:
@@ -93,8 +102,88 @@ func _kind_of(mesh_name: String) -> int:
 	return 0
 
 
+## THE RIG, FOUND AND ORDERED.
+##
+## The creature shipped with twenty-eight deform bones, nine secondary
+## controls and rotation limits on the root -- and nothing driving any of
+## them. It stood in the room at rest pose, which the owner spotted
+## immediately: "the new tentacle is not animated at all".
+func _find_skeleton(node: Node) -> void:
+	if node is Skeleton3D:
+		skeleton = node as Skeleton3D
+	else:
+		for child in node.get_children():
+			_find_skeleton(child)
+			if skeleton != null:
+				return
+		return
+	# Deform bones in order along the limb. The glTF keeps Blender's names.
+	var named: Array = []
+	for i in skeleton.get_bone_count():
+		var n := skeleton.get_bone_name(i)
+		if n.begins_with("DEF_"):
+			named.append([n, i])
+	named.sort_custom(func(a, b): return _bone_order(a[0]) < _bone_order(b[0]))
+	for pair in named:
+		_bones.append(int(pair[1]))
+		_rest.append(skeleton.get_bone_pose_rotation(int(pair[1])))
+
+
+## DEF_<label>_<index>: the labels run root to tip in BONE_PLAN order.
+func _bone_order(bone_name: String) -> float:
+	const ORDER := ["ROOT", "PROX", "OCULAR", "MID", "DISTAL", "TIP"]
+	var parts := bone_name.split("_")
+	var label := parts[1] if parts.size() > 2 else ""
+	var idx := float(parts[parts.size() - 1].to_int())
+	var band := float(ORDER.find(label.to_upper()))
+	if band < 0.0:
+		band = 9.0
+	return band * 100.0 + idx
+
+
+## The motion language (§13): THIS ORGANISM IS CONTINUOUSLY SAMPLING.
+##
+## Not idle noise. It holds a search posture, commits to a direction, reaches,
+## settles, and picks somewhere new — and a peristaltic wave runs out along
+## it the whole time, because that is how the length of a limb like this
+## actually carries force. The root barely moves: the membrane grips it.
+func _animate(delta: float) -> void:
+	if skeleton == null or _bones.is_empty():
+		return
+	var n := _bones.size()
+	_attend_clock -= delta
+	if _attend_clock <= 0.0:
+		# Choose somewhere new to attend to, and take a moment over it.
+		_attend_clock = 2.6 + fmod(absf(sin(_clock * 12.7 + _seeded)) * 3.4, 3.4)
+		_attend = Vector3(sin(_clock * 1.7 + _seeded * 3.1),
+				sin(_clock * 0.9 + _seeded), cos(_clock * 1.3 + _seeded * 2.2))
+		_settle = 0.0
+	_settle = minf(1.0, _settle + delta * 0.85)
+	# The reach eases in, then holds: committed, not oscillating.
+	var reach: float = smoothstep(0.0, 1.0, _settle)
+	for i in n:
+		var t := float(i) / float(maxi(1, n - 1))
+		# The collar grips the root. This is the rotation limit Blender
+		# carries as a constraint, which glTF does not export -- so it lives
+		# here too, or the limb tears through its own membrane.
+		var grip: float = smoothstep(0.0, 0.16, t)
+		# A peristaltic wave travelling OUT along the limb.
+		var wave: float = sin(t * 9.0 - _clock * 2.1 + _seeded) * 0.034
+		# The search: the distal third does the fine work, the shaft carries it.
+		var fine: float = smoothstep(0.55, 1.0, t)
+		var bend_x: float = (_attend.x * 0.115 * reach * (0.35 + fine)
+				+ wave) * grip
+		var bend_z: float = (_attend.z * 0.115 * reach * (0.35 + fine)
+				+ wave * 0.7) * grip
+		# Breathing: the whole body swells and settles under the search.
+		var breathe: float = sin(_clock * 0.8 + t * 2.0) * 0.006 * grip
+		var q := Quaternion(Vector3.RIGHT, bend_x + breathe) 				* Quaternion(Vector3.FORWARD, bend_z) 				* Quaternion(Vector3.UP, _attend.y * 0.02 * reach * fine * grip)
+		skeleton.set_bone_pose_rotation(_bones[i], _rest[i] * q)
+
+
 func _process(delta: float) -> void:
 	_clock += delta
+	_animate(delta)
 	for mat in materials:
 		mat.set_shader_parameter("grow", grow)
 		if field != null and field.state != null:
@@ -108,4 +197,6 @@ func census() -> Dictionary:
 		if mi.skin != null:
 			skinned += 1
 	return {"meshes": meshes.size(), "skinned": skinned,
-			"materials": materials.size(), "grow": grow}
+			"materials": materials.size(), "grow": grow,
+			"deform_bones": _bones.size(),
+			"skeleton": skeleton != null}

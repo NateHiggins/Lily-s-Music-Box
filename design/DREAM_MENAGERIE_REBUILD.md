@@ -361,12 +361,17 @@ The Dream Tentacle is the bar, and it is **not finished either** — see
 open items below. Two of them are the owner's own observations on first
 seeing the modelled hero in game, 2026-08-22:
 
-- **"the new tentacle is not animated at all"** — true. `DreamHeroTentacle`
-  instantiates the glTF and dresses it, and nothing drives the rig. It has 28
-  deform bones, 9 secondary controls and rotation limits, and every one of
-  them is sitting at rest. This is §11-§13 for the hero itself and it blocks
-  the hero's own acceptance under §26 ("could I identify this species from
-  animation alone?").
+- **"the new tentacle is not animated at all"** — was true, now addressed at
+  a first pass. All 28 deform bones are driven with a §13 motion language:
+  the organism is *continuously sampling*. It commits to a direction, eases
+  into a reach, holds it, and chooses somewhere new, with a peristaltic wave
+  travelling out along the limb throughout, and the root held nearly still
+  because the membrane grips it. Measured: the tip travels **0.203 m in 2 s**,
+  asserted by the sweep so it cannot silently go back to rest pose. Blender's
+  root rotation limit is a constraint, which glTF does not export, so it is
+  reimplemented in the driver. Still missing per §12: layered secondary
+  motion at different temporal frequencies (muscle lag, gold reseating, cilia
+  springs) and any contact behaviour.
 - **"the texture is not great"** — also true. The hero has a straight-strip
   UV and six vertex masks as of today, and **no baked maps at all**: no
   albedo, normal, roughness, AO, curvature or thickness. Everything visible
