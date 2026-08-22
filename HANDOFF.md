@@ -406,11 +406,13 @@ the props in its flat (`ApartmentEncroachment.reach_props`, clipped by
 (`art/renders/dream_fauna_ct1/README.md`). EN-1b landed: the re-layered dream is
 in `dream_klimt.gdshader` (`layer_mask`, `DREAM_LAYERS=0` the control;
 `art/renders/dream_layers_en1b/README.md`), and Klimt's NORMAL is now
-view-space — the lamp reaches the plaster. Open, in order: EN-2 (the
-portal core on R6's live bounded camera, the weld vocabulary placing it,
-trim the ornament under the layers for perf); MX-3 ingest v2; the 22
-encroached finishes as a corruption recipe; the WK-1 per-case grammars;
-EN-3; CT-2. `TASKS.md` §MX / §CT / §EN. Harness note: the layout's y is
+view-space — the lamp reaches the plaster. EN-2 landed 2026-08-22: the weld
+core opens onto R6's live view (`art/renders/dream_layers_en2/README.md`).
+Open, in order: MX-3 ingest v2 (calibrated heights, ORM, the mask library
+that retires the procedural fields' cost); the 22 encroached finishes as a
+corruption recipe of the one surface; the WK-1 per-case grammars; EN-3
+folds; CT-2; the EN-2 taste/perf rows (weld vocabulary placing R6's
+camera; trim the ornament under the layers). `TASKS.md` §MX / §CT / §EN. Harness note: the layout's y is
 Godot's −z — 2A is at z +0.45..+9.65.
 
 **Three documents, three jobs — do not duplicate between them.**
