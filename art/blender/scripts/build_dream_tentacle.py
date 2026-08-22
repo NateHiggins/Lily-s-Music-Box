@@ -795,7 +795,12 @@ def build_membrane(col):
                 + 0.045 * math.sin(a * 11.0 + phase[2]))
     for i in range(rings):
         t = i / float(rings - 1)
-        r = root_r * (1.0 + 2.4 * (t ** 0.85))
+        # The inner ring starts INSIDE the limb. Butted against the flesh it
+        # left a gap of up to 28 mm at its worst point -- measured -- which
+        # would read as a hole around the limb, the exact opposite of §13's
+        # "extrude through reality instead of through a hole". It is buried
+        # now, and the sheet emerges from the flesh.
+        r = root_r * (0.78 + 2.62 * (t ** 0.85))
         for j in range(segs):
             a = j / float(segs) * 2.0 * math.pi
             # The border only ragged at the rim: at the root it is flesh.
@@ -808,7 +813,7 @@ def build_membrane(col):
             lift += gather + wrinkle
             # The rim curls up a little, so it never reads as a flat disc.
             lift += 0.22 * root_r * smooth01((t - 0.72) / 0.28) * (0.6 + 0.4 * math.sin(a * 4.0))
-            rr = r * jag * (1.0 + 0.10 * math.sin(a * 9.0 + phase[3]) * (1.0 - t) ** 1.4)
+            rr = r * jag * (1.0 + 0.10 * math.sin(a * 9.0 + phase[3]) * t * (1.0 - t) ** 0.8)
             verts.append((math.cos(a) * rr, lift, math.sin(a) * rr))
     for i in range(rings - 1):
         for j in range(segs):

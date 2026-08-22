@@ -91,13 +91,20 @@ def apply_pose(arm, name, x_deg, z_deg, region, alternate):
     bpy.context.view_layer.update()
 
 
-def sampled_points(obj, deps):
+def sampled_points(obj, deps, dense=False):
+    """Sampled vertices in world space.
+
+    The aperture measurement needs DENSE sampling: picking the innermost of
+    48 samples from an 896-vertex solidified, subdivided sheet locates the
+    inner edge only approximately, and that showed up as a 46 mm rest gap for
+    a collar that sits against the limb.
+    """
     ev = obj.evaluated_get(deps)
     mesh = ev.to_mesh()
     if not mesh.vertices:
         ev.to_mesh_clear()
         return []
-    step = max(1, len(mesh.vertices) // SAMPLES_PER_RIDER)
+    step = 1 if dense else max(1, len(mesh.vertices) // SAMPLES_PER_RIDER)
     pts = [ev.matrix_world @ mesh.vertices[i].co
            for i in range(0, len(mesh.vertices), step)]
     ev.to_mesh_clear()
@@ -123,6 +130,45 @@ def system_of(name):
         if name.upper().startswith(tag) or tag in name.upper():
             return tag
     return "OTHER"
+
+
+def outside_gap(cage_ev, cage_inv, p):
+    """How far a point floats OUTSIDE the flesh. Zero if it is inside it.
+
+    `closest_point_on_mesh` returns a distance to the surface whichever side
+    you are on, so measuring it raw counts a vertex buried in the limb as a
+    gap exactly like one floating away from it -- which is how burying the
+    membrane's inner ring deeper made the reported gap grow. A buried vertex
+    is attached; only an airborne one is a hole.
+    """
+    ok, loc, nrm, _i = cage_ev.closest_point_on_mesh(cage_inv @ p)
+    if not ok:
+        return 0.0
+    local = cage_inv @ p
+    if (local - loc).dot(nrm) < 0.0:
+        return 0.0
+    return ((cage_ev.matrix_world @ loc) - p).length
+
+
+def inner_edge(pts):
+    """The membrane's innermost RING.
+
+    Taking the innermost sixth *by count* was wrong: on a disc that reaches a
+    long way out across the sheet, and reporting the worst gap among them
+    said the collar sat 49 mm off the limb when its inner ring is against it.
+    A band just above the minimum radius is the aperture; the rest is skirt.
+    """
+    radii = [(math.hypot(p.x, p.z), p) for p in pts]
+    if not radii:
+        return []
+    r_min = min(r for r, _p in radii)
+    r_max = max(r for r, _p in radii)
+    cut = r_min + 0.08 * max(1e-6, r_max - r_min)
+    band = [p for r, p in radii if r <= cut]
+    if len(band) < 3:
+        radii.sort(key=lambda rp: rp[0])
+        band = [p for _r, p in radii[:3]]
+    return band
 
 
 def bounds(pts):
@@ -200,7 +246,7 @@ def main():
         pts = {}
         sink = {}
         for obj in riders:
-            p = sampled_points(obj, deps)
+            p = sampled_points(obj, deps, dense=(system_of(obj.name) == "MEMBRANE"))
             if not p:
                 continue
             pts[obj.name] = p
@@ -235,15 +281,13 @@ def main():
     for obj in riders:
         if system_of(obj.name) != "MEMBRANE" or obj.name not in rest_pts:
             continue
-        radii = [(math.hypot(p.x, p.z), p) for p in rest_pts[obj.name]]
-        radii.sort(key=lambda rp: rp[0])
-        g = 0.0
-        for _r, p in radii[:max(3, len(radii) // 6)]:
-            ok, loc, _n, _i = _cage_ev.closest_point_on_mesh(_cage_inv @ p)
-            if ok:
-                g = max(g, ((_cage_ev.matrix_world @ loc) - p).length)
+        band = inner_edge(rest_pts[obj.name])
+        every = sorted(outside_gap(_cage_ev, _cage_inv, p) for p in band)
+        g = every[-1] if every else 0.0
         membrane_rest_gap[obj.name] = g
-        print("[clear] aperture %s rests %.1f mm from the flesh" % (obj.name, g * 1000.0))
+        med = every[len(every) // 2] * 1000.0 if every else 0.0
+        print("[clear] aperture %s rests %.1f mm from the flesh (median %.1f, %d pts)"
+              % (obj.name, g * 1000.0, med, len(band)))
 
     rest_hits = collisions(rest_pts)
     print("[clear] rest: %d pre-existing contacts" % len(rest_hits))
@@ -283,14 +327,9 @@ def main():
             deps2 = bpy.context.evaluated_depsgraph_get()
             cage_ev = cage.evaluated_get(deps2)
             cage_inv = cage_ev.matrix_world.inverted()
-            radii = [(math.hypot(p.x, p.z), p) for p in pts[obj.name]]
-            radii.sort(key=lambda rp: rp[0])
-            inner = [p for _r, p in radii[:max(3, len(radii) // 6)]]
-            gap = 0.0
-            for p in inner:
-                ok, loc, _n, _i = cage_ev.closest_point_on_mesh(cage_inv @ p)
-                if ok:
-                    gap = max(gap, ((cage_ev.matrix_world @ loc) - p).length)
+            inner = inner_edge(pts[obj.name])
+            gap = max((outside_gap(cage_ev, cage_inv, p) for p in inner),
+                      default=0.0)
             gap_mm = gap * 1000.0
             base_mm = membrane_rest_gap.get(obj.name, 0.0) * 1000.0
             if gap_mm - base_mm > SINK_TOLERANCE_MM:

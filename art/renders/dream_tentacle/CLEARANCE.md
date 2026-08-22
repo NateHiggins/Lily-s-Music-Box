@@ -66,11 +66,31 @@ they fixed anything:
   constraint on the rig rather than a rule in a document, so an animator who
   over-rotates the root gets clamped.
 
-## Known, unresolved
+## Running down the aperture's 46 mm
 
-The aperture measures **46.4 mm from the flesh at rest**, which is further
-than a collar around a limb should sit. It is probably a sampling artifact —
-the check samples ~48 vertices per part, so the "inner edge" of an 896-vertex
-solidified and subdivided sheet is approximate — but it has not been run down,
-and until it is, the aperture metric is measuring growth from a baseline it
-may not have located correctly.
+The first aperture reading said the collar sat **46.4 mm off the flesh at
+rest**, which is not where a collar around a limb sits. I guessed sampling
+artifact. It was not — and it took three more corrections, each to the
+measurement rather than the model, before the number meant anything:
+
+1. **Sparse sampling.** ~48 vertices of an 896-vertex solidified, subdivided
+   sheet. Densely sampled it read 49.1 mm, so that was not it.
+2. **"Innermost sixth by count" is not an edge.** On a disc that reaches a
+   long way out across the sheet. Taking a narrow band just above the minimum
+   radius instead: 27.9 mm.
+3. **A buried vertex is not a gap.** `closest_point_on_mesh` returns a
+   distance whichever side of the surface you are on, so a vertex embedded in
+   the limb counted exactly like one floating away from it — which is why
+   deliberately burying the inner ring made the reported gap *grow*, from
+   27.9 to 33.8 mm. Only vertices genuinely outside the flesh count now.
+
+With the metric finally measuring what it names, the model change it had been
+asking for all along was real: the membrane's inner ring used to butt against
+the flesh, leaving up to 28 mm of daylight around the limb — the exact
+opposite of §13's *"extrude through reality instead of through a hole"*. It
+starts inside the limb now.
+
+    aperture MEMBRANE_ROOT rests 12.6 mm from the flesh (median 0.0, 688 pts)
+
+Median zero: attached all the way round, with one worst point where a fold
+pushes the ring outward.
