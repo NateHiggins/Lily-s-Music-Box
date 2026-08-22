@@ -174,11 +174,17 @@ float dt_relief(vec2 uv, float time, out float vein, out float socket, out float
 	float ring = smoothstep(0.95, 1.25, er) * (1.0 - smoothstep(1.45, 1.9, er));
 	// The rim mass: what actually hides the globe from oblique angles.
 	float rim_mass = brow * 0.75 + cushion * 0.45 + ring * 0.30 + folds * 0.22 + wrinkles * 0.10;
-	// Breathing and the peristaltic wave, restrained.
+	// Breathing, the peristaltic wave, and THE PRESSURE PULSE (HERO_PASS §9):
+	// a narrow swell that travels root → distal, lifting the tissue by a
+	// couple of millimetres on a limb this size. This is the physical half
+	// of the pulse; the crimson half is in the material stack.
 	float breath = 1.0 + 0.03 * breathing * sin(time * 1.1 + seed);
 	float wave = 1.0 + 0.05 * peristalsis * sin(v * 22.0 - time * 2.2 + seed);
+	// The wavefront: narrow, so it reads as a bolus moving inside the limb.
+	float front = pow(0.5 + 0.5 * cos((v - pulse_phase) * 6.2831853), 9.0);
+	float bolus = 1.0 + 0.055 * front * peristalsis;
 	float mult = breath * wave
-			* (1.0 + vein_relief * vein * (0.16 + 0.06 * pulse))
+			* bolus * (1.0 + vein_relief * vein * (0.16 + 0.16 * front))
 			* (1.0 + 0.08 * rib) * (1.0 - 0.13 * groove) * (1.0 + 0.16 * swell)
 			* (1.0 - 0.62 * socket + 0.30 * lid + rim_mass * 0.34);
 	gold_root = root;

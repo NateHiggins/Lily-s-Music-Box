@@ -226,3 +226,49 @@ vascular pulse and lid systems exist but have never been photographed in
 motion (P4); and the §15/§16 review set — the fifteen frames and the
 10–15 s player-lamp sweep — has not been captured. ffmpeg is available, so
 the sweep can be a real video rather than a contact sheet.
+
+## Hero pass P2–P6 and the review assets (2026-08-22)
+
+**P2 — the ocular station now faces the room.** The rig's side vector is
+parallel-transported, so which `u` looks outward depends on the anchor and
+cannot be guessed; the station now SAMPLES the limb's surface and picks the
+face whose normal looks into the room. The lids have non-zero resting
+closures so a still contains evidence that three closure systems exist.
+
+**P4 — the pulse is physical.** A narrow wavefront travels root → distal
+and lifts the tissue by a couple of millimetres, and the same front drives
+the crimson, the scatter, the vein relief and the film thickening — one
+travelling bolus rather than a colour animation.
+
+**P5/P6 — the review assets, from the ACTUAL PLAYER LAMP.**
+`game/tests/DreamHeroSweep.tscn` boots the building, forces the limb at a
+known anchor, reparents the player's flashlight to the camera exactly as in
+play, lights the room's own fixtures, and either photographs the eighteen
+acceptance stills or records the 13-second sweep at 30 fps.
+`hero_review/flashlight_sweep_13s.mp4` is the primary review asset;
+`sweep_contact_sheet.jpg` is twelve frames from it; the eighteen stills sit
+beside them.
+
+Three harness faults, each found by looking at what came out:
+1. every eye shot aimed along the WALL's normal, but the organ chooses its
+   own face — so the first set photographed a wall of flesh;
+2. aiming along the organ's normal put the camera INSIDE the brickwork,
+   because the limb curls toward the radiator after the face is chosen and
+   the eye ends up pointing at the wall it came out of;
+3. line of sight alone let the camera leave the flat entirely.
+The harness now samples the full sphere, requires an unobstructed ray to
+the subject, and constrains the camera to the room — a person standing in a
+flat.
+
+Gates: parse, DreamTentacleTest 20/20, encroachment 13/13, incidents
+18/18, WalkTest FAST.
+
+**What the assets show, honestly.** The macro flesh is strong — dense
+pitted plum with real depth, gold that reads as embedded, pink suckers
+along the ventral edge. The eye reads as an organ buried in a swelling of
+the limb. The silhouette test passes. What still does not read: the eye is
+never the clear SUBJECT of a frame (the limb's own mass keeps getting
+between it and any legal camera position); the wide beats are hazed by the
+encroachment's stain film across the wall; and the blink, the cilia
+reaction and the gold articulation are captured but not yet legible as
+events in the video. That is P7, and it is the next work.

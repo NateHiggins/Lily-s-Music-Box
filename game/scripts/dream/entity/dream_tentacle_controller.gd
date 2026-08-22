@@ -93,6 +93,7 @@ var _mask_view := 0
 var _probe: ReflectionProbe
 var _probe_recaptured := 0.0
 var _probe_settle := 0.0
+var _face_chosen := false
 
 
 func setup(living_field, src: int, at: Vector3, normal: Vector3, who: Node3D,
@@ -213,7 +214,7 @@ func _build_body() -> void:
 	_material.set_shader_parameter("root_n", roots.size())
 	# The orbit's footprint in the flesh is larger than the globe: the socket
 	# has to close over it (DIRECTION_3 §H).
-	_material.set_shader_parameter("eye_u", DreamOcularAssembly.EYE_U)
+	_material.set_shader_parameter("eye_u", 0.18)
 	_material.set_shader_parameter("eye_v", DreamOcularAssembly.EYE_V)
 	_material.set_shader_parameter("eye_radius_m", DreamOcularAssembly.GLOBE_R * 1.55)
 	_mesh = MeshInstance3D.new()
@@ -270,6 +271,27 @@ func _build_probe() -> void:
 	_probe.position = Vector3.ZERO
 	_probe.global_position = anchor + anchor_normal * 0.7
 	add_child(_probe)
+
+
+## Review hooks (HERO_PASS §15–§16): the canonical assets have to be able
+## to make each system perform on cue, without faking any of it — these
+## call the real machinery.
+func force_blink() -> void:
+	ocular.force_blink()
+
+
+func force_phase_slice(seconds := 0.45) -> void:
+	_slice_v = _rng.randf_range(0.30, 0.68)
+	_slice_left = seconds
+	_slice_cooldown = 9.0
+	_emit("gold_phase_shift", rig.point_at(_slice_v))
+
+
+## Put the vascular bolus at a chosen point along the limb, so a still can
+## show it where the frame wants it.
+func align_pulse_to(v: float) -> void:
+	clock = PULSE_S * fmod(clampf(v, 0.0, 1.0), 1.0)
+	pulse_phase = fmod(clock / PULSE_S, 1.0)
 
 
 func withdraw() -> void:
@@ -352,6 +374,15 @@ func _tick(delta: float) -> void:
 		if _probe_settle <= 0.0 and _probe != null:
 			_probe.update_mode = ReflectionProbe.UPDATE_ONCE
 	# The eye, the halos, the suckers, the membrane, the transformer.
+	# The ocular station turns to face the room once the rig has settled
+	# (HERO_PASS §4): an organ the camera cannot see has no authority.
+	if not _face_chosen and grow > 0.55:
+		_face_chosen = true
+		var room_dir := anchor_normal
+		if sensor.has_target:
+			room_dir = (sensor.contact - ocular.position).normalized().lerp(anchor_normal, 0.35).normalized()
+		ocular.choose_face(rig, room_dir)
+		_material.set_shader_parameter("eye_u", ocular.eye_u)
 	ocular.set_mode(behavior.eye_mode if toggles.eye_tracking else "watch_object")
 	ocular.update(rig, sensor.contact, behavior.player_pos, has_player, behavior.interest,
 			grow, pulse_phase, delta)

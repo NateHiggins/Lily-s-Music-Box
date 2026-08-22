@@ -1909,6 +1909,74 @@ beats any amount of argument about which sounds better.
   in WalkTest FULL (Lena 2B, Juno 2C). `ORGANISM_INCIDENTS=0` off,
   `ORGANISM_CONDITION=1|0` forces the roll, `ORGANISM_FAST=1` 2 s dwell.
 
+### DF — THE DREAM FIELD (owner direction 2026-08-22, MAJOR)
+
+Ruling verbatim: `design/DREAM_FIELD_DIRECTION.md`. *"The Dream Field is
+not fog surrounding the antagonist. The Dream Field is the antagonist's
+infinite body failing to fit into three dimensions."* The encroachment
+stops being a shader on a wall and becomes the 3-D cross-section of the
+same organism the tentacle belongs to — the tentacle is one limb pushed
+deliberately through; the field is the rest of the body passing near our
+dimensional surface. This supersedes the living-field's presentation
+(LF-1/1b/2 stay as the growth simulation underneath).
+
+- **DF-1 OPEN — the field itself.** `DreamFieldController` +
+  `DreamFieldSDF`: a world-space scalar field `F(p, dream_w, t, seed)`
+  built from smooth-min capsules, branching tubes, toroids, gyroid folds,
+  flesh masses, filaments and mineral inclusions, domain-warped slowly.
+  **Advance `dream_w`, don't translate**: the cross-section changes
+  topology in place (`r_visible = sqrt(max(0, r_total² - dream_w²))`), so
+  lobes divide, rings split, tendrils appear on both sides of a wall, and
+  things vanish without going anywhere.
+- **DF-2 OPEN — the air acquires anatomy.** `DreamFieldVolume`: FogVolumes
+  with a custom fog shader — violet vascular volumes, gold light channels,
+  **negative-density voids**, razor-thin luminous planes, 200 ms nested
+  halos, travelling pressure fronts. Never purple smoke.
+- **DF-3 OPEN — depth-aware reality distortion.** `DreamPhaseLens`:
+  reconstruct world position from the depth buffer and distort ONLY where
+  the field says, so the violation stays attached in 3-D. Six authored
+  violations (refraction without glass, depth disagreement, spatial
+  duplication, wrong parallax, spectral edge, temporal disagreement) — one
+  at a time, never together.
+- **DF-4 OPEN — incarnation, not corruption.** `DreamSurfaceReceiver` +
+  world-space conversion in the layered surface: low → material change,
+  medium → surface relief, high → **actual new anatomy**. Continuous
+  across separate meshes because it is world-space.
+- **DF-5 OPEN — three incarnation tiers.** Shader only; conforming surface
+  growth meshes (folds, tendons, plaques, dendrites, vein cords) offset
+  along the normal for real self-shadowing; full field anatomy with its own
+  silhouette.
+- **DF-6 OPEN — residue with memory.** `DreamResidueManager` /
+  `DreamResiduePatch`: stamps carrying position, normal, radius, seed,
+  intensity, birth time, `dream_w` at contact and material category, which
+  spawn **anatomical events that interpret the object** — flesh between a
+  radiator's fins, gold following a table's grain — then live a lifecycle:
+  incarnation → organization (it becomes MORE coherent after the field
+  leaves) → dimensional withdrawal → absence.
+- **DF-7 OPEN — withdrawal is not alpha.** `DreamPhaseEvaporator`:
+  cross-sectional collapse along `dream_w` (narrow, split, ring,
+  disconnected islands, gone — never transparent), anatomical phase peeling
+  in an impossible order, dither only in the last millimetres.
+- **DF-8 OPEN — particles as cross-sectional debris.**
+  `DreamBoundaryParticles`: gold fragments, membrane flakes, crystal
+  facets, capillary filaments, on an nth-dimensional vector field — some
+  moving toward the camera while shrinking.
+- **DF-9 OPEN — the shadow tell.** Material and shadow desynchronized
+  during withdrawal, with a surviving violet absence shadow. Rarely.
+- **DF-10 OPEN — coupling.** One `DreamFieldState` shared with the
+  tentacle: `dream_w`, `pulse_phase`, `attention`, `incarnation`,
+  `mineralization`, `vascular_pressure`, `phase_instability`,
+  `contact_activity`. The tentacle does not control the field; both are
+  portions of one organism.
+- **DF-11 OPEN — the body behind the wall.** Half a second in which a gold
+  structure two metres across passes behind several rooms at once, their
+  walls reacting in sequence, then recedes along `dream_w`. No hole ever
+  exists. *The tentacle was never the creature — it was a fingertip.*
+- **DF-12 OPEN — optional `DreamPhaseCompositor`** behind
+  `DREAM_ADVANCED_PHASE_FX`, and the §17 performance strategy (a handful of
+  active lobes, 4–8 lobes per receiver, pooled meshes/particles/lights/fog,
+  four quality tiers).
+
 ### TL — MODEL 28-R, THE PLAYER'S INSTRUMENT (owner direction 2026-08-22, PRIORITY MAJOR)
 
 Ruling verbatim: `design/MODEL_28R_DIRECTION.md`. *"The single most
@@ -1970,6 +2038,17 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
 - **DT-2 DONE — Forward+ is canonical.** `compat-renderer-final` tagged;
   baselines and frametimes in `art/renders/renderer_migration/`; Forward+
   measured 2–3× FASTER on this building; fallback guard in BuildingRoot.
+- **DT-6 IN PROGRESS — the canonical hero pass**
+  (`design/DREAM_TENTACLE_HERO_PASS.md`). P0 regional silhouette, P1 the
+  gold rebuilt as twelve individual irregular meshes in five classes, P2
+  the ocular station choosing the face that looks into the room and lids
+  with visible resting silhouettes, P3 flesh separation (wet split from
+  flesh, colour by depth, pores as darkening), P4 a physical travelling
+  vascular bolus coupled through geometry, colour, SSS and film. P5/P6
+  captured: eighteen acceptance stills and a 13 s player-lamp video
+  (`art/renders/dream_tentacle/hero_review/`). Open: P7 (evaluate and fix
+  what still does not read), P8 DT-5's six-beat emergence, P9 the full
+  seek → caress → flinch → withdraw sequence.
 - **DT-3 IN PROGRESS — the hero material.** Real SSS (`sss_mode_skin`,
   thickness-driven transmittance), the film as clearcoat with its own
   normal, four colour frequencies, three normal scales, iridophores,

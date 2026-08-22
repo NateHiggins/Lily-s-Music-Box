@@ -17,11 +17,11 @@ extends Resource
 @export_range(0.0, 1.0) var iridophore := 0.40
 @export_range(0.0, 1.0) var papilla := 0.5
 @export_group("Subsurface")
-@export_range(0.0, 1.0) var sss_amount := 0.75
+@export_range(0.0, 1.0) var sss_amount := 0.42
 @export var sss_transmit_deep := Color(0.42, 0.030, 0.055)
 @export var sss_transmit_thin := Color(0.92, 0.115, 0.255)
 @export var sss_depth_m := 0.006
-@export_range(0.0, 1.0) var sss_boost := 0.20
+@export_range(0.0, 1.0) var sss_boost := 0.10
 @export_group("Film")
 @export_range(0.0, 1.0) var wetness := 0.75
 @export_range(0.0, 0.5) var film_roughness := 0.14

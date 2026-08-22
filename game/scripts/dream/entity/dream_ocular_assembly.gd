@@ -37,7 +37,11 @@ const GoldShader := preload("res://shaders/dream_gold.gdshader")
 
 ## Where the organ sits on the limb, and how big it is.
 const EYE_V := 0.42
-const EYE_U := 0.18
+## Chosen at build time, not guessed: the rig's side vector is
+## parallel-transported, so which `u` faces the room depends on the anchor.
+## The station picks the face that looks out into the room (HERO_PASS §4 —
+## an organ nobody can see has no authority).
+var eye_u := 0.18
 ## The globe is an ORGAN IN the limb, so it must be well under the limb's
 ## own radius there (~41 mm at v = 0.42, and the profile now swells to carry
 ## it). A 36 mm eye in a 100 mm orbital mass.
@@ -51,10 +55,17 @@ const SINK := 0.55
 const CILIA_N := 18
 ## The three lids, as (kind, sweep axis in the socket's frame (radians),
 ## arc, reach, rest, seed).
+## kind, sweep axis (rad), arc, reach, RESTING closure, seed.
+## The resting values are deliberately non-zero (HERO_PASS §5): a still
+## must contain evidence that three different closure systems exist.
+## The dorsal lid keeps a thick violet overhang across part of the globe;
+## the ventral/lateral lid stays an asymmetric muscular fold wrapping the
+## lower flank; the membrane keeps a sliver of its pearlescent edge showing
+## in its recess.
 const LIDS := [
-	[0, -0.55, 2.5, 1.22, 0.10, 0.0],
-	[1, 2.30, 2.1, 1.10, 0.08, 1.0],
-	[2, 1.05, 2.8, 1.05, 0.00, 2.0],
+	[0, -0.55, 2.7, 1.30, 0.30, 0.0],
+	[1, 2.30, 2.3, 1.16, 0.24, 1.0],
+	[2, 1.05, 2.8, 1.05, 0.07, 2.0],
 ]
 
 var root: Node3D
@@ -103,6 +114,7 @@ var _interior_event := 0.0
 var _clock := 0.0
 var _stimulus := Vector3.ZERO
 var _stimulus_strength := 0.0
+var _face_chosen := false
 
 
 func build(parent: Node3D, seed_v: int) -> void:
@@ -454,11 +466,35 @@ func notice(at: Vector3, strength: float) -> void:
 	_stimulus_strength = maxf(_stimulus_strength, clampf(strength, 0.0, 1.0))
 
 
+## Start a full three-lid blink now (HERO_PASS §15: the acceptance stills
+## must be able to catch it mid-sequence).
+func force_blink() -> void:
+	_blink_seq = 0.0
+	_blink_clock = 0.0
+	last_events.append("blink")
+
+
 func set_mode(m: String) -> void:
 	if m != mode:
 		mode = m
 		if m == "partial":
 			last_events.append("eye_opening")
+
+
+## Pick the face of the limb that looks into the room. Called once, when
+## the rig has settled enough for its frames to mean anything.
+func choose_face(rig: DreamTentacleRig, room_dir: Vector3) -> void:
+	var best := eye_u
+	var best_dot := -2.0
+	for i in 24:
+		var u := float(i) / 24.0
+		var sp: Dictionary = rig.surface_point(u, EYE_V, 0.0)
+		var d: float = (sp.normal as Vector3).dot(room_dir)
+		if d > best_dot:
+			best_dot = d
+			best = u
+	eye_u = best
+	_face_chosen = true
 
 
 func update(rig: DreamTentacleRig, contact: Vector3, player_pos: Vector3, has_player: bool,
@@ -467,7 +503,7 @@ func update(rig: DreamTentacleRig, contact: Vector3, player_pos: Vector3, has_pl
 	_clock += delta
 	attention = interest
 	# --- the socket's frame on the limb ---------------------------------
-	var sp := rig.surface_point(EYE_U, EYE_V, -GLOBE_R * SINK)
+	var sp := rig.surface_point(eye_u, EYE_V, -GLOBE_R * SINK)
 	position = sp.pos
 	normal = sp.normal
 	var f := rig.frame_at(EYE_V)

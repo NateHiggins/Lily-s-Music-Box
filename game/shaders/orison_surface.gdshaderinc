@@ -844,11 +844,11 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 		float paint = living * 0.92 * (1.0 - membrane * 0.75);
 		albedo = mix(albedo, substance, paint);
 		albedo = mix(albedo, albedo * (0.8 + 0.2 * tint * 2.0), living * membrane * 0.6);
-		albedo += tint * lip * 0.9;
+		albedo += tint * lip * 0.35;
 		rough = mix(rough, 0.16 + 0.1 * fizz, living);
 		metal = mix(metal, 0.0, living);
 		n_ts.xy = mix(n_ts.xy, vec2(fizz, fingers) * 0.5 + g_dir * 0.2, living * 0.7);
-		s.emission += tint * lip * 0.10;
+		s.emission += tint * lip * 0.045;
 		// The dream comes with it (§5b): where the body has held — body and
 		// stain both high — the flesh shows under the body and gold leafs the
 		// veins; the front carries a weld's heat.

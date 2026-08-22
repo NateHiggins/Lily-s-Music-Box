@@ -43,14 +43,14 @@ uniform float papilla : hint_range(0.0, 1.0) = 0.5;
 group_uniforms;
 
 group_uniforms dream_sss;
-uniform float sss_amount : hint_range(0.0, 1.0) = 0.75;
+uniform float sss_amount : hint_range(0.0, 1.0) = 0.42;
 // Blood, not wax. Deep transmit is what survives thick tissue; thin
 // transmit is the fuchsia that only appears where the tissue is a
 // membrane.
 uniform vec3 sss_transmit_deep : source_color = vec3(0.42, 0.030, 0.055);
 uniform vec3 sss_transmit_thin : source_color = vec3(0.92, 0.115, 0.255);
 uniform float sss_depth_m = 0.006;
-uniform float sss_boost : hint_range(0.0, 1.0) = 0.20;
+uniform float sss_boost : hint_range(0.0, 1.0) = 0.10;
 group_uniforms;
 
 group_uniforms dream_film;
@@ -216,7 +216,10 @@ DeMasks de_masks(vec3 pw, vec2 uv, vec3 n, vec3 view_dir, float time, float seed
 	m.vein = clamp(ctx.vein, 0.0, 1.0);
 	m.thickness = clamp(ctx.thickness, 0.0, 1.0);
 	// The vascular clock: a pressure wave travelling along the anatomy.
-	m.pulse = pow(0.5 + 0.5 * sin((uv.y * 4.0 - pulse_phase * 6.2831853)), 4.0);
+	// The same narrow wavefront the host swelled the geometry with, so the
+	// colour, the scatter and the film all belong to one travelling bolus
+	// (HERO_PASS §9).
+	m.pulse = pow(0.5 + 0.5 * cos((uv.y - pulse_phase) * 6.2831853), 9.0);
 	m.vascular = dbg_vascular ? de_vascular(pw, uv, seed) : 0.0;
 	// --- gold as biomineral (§B, §E) -------------------------------------
 	// SPARSE BY CONSTRUCTION. The first pass SUMMED two already-broad noise
@@ -264,7 +267,8 @@ DeMasks de_masks(vec3 pw, vec2 uv, vec3 n, vec3 view_dir, float time, float seed
 	m.wet = dbg_wetness ? wetness * clamp(
 			(0.04 + 0.42 * sheet + 0.40 * beads) * (1.0 - dry * 0.92)
 			+ 0.30 * downhill * sheet
-			+ 0.60 * ctx.socket + 0.45 * edge + 0.55 * ctx.contact, 0.0, 1.0) : 0.0;
+			+ 0.60 * ctx.socket + 0.45 * edge + 0.55 * ctx.contact
+			+ 0.22 * m.pulse * m.vascular, 0.0, 1.0) : 0.0;
 	// --- iridophores (§A8) ------------------------------------------------
 	float ndv = clamp(dot(n, view_dir), 0.0, 1.0);
 	float graze = pow(1.0 - ndv, 3.0);
@@ -311,13 +315,15 @@ DeOut de_shade(DeMasks m, vec3 pw, vec2 uv, vec3 n, vec3 view_dir, float time, f
 	// The hierarchy (§7): high convex masses take the bruised rose-violet,
 	// the medium flesh the deep magenta-violet, and the HOLLOWS go to
 	// aubergine approaching black. `meso` doubles as the local height.
-	float hollow = smoothstep(0.55, 0.12, meso);
-	float crestness = smoothstep(0.50, 0.88, meso);
-	albedo = mix(albedo, flesh_crest, crestness * (0.42 + 0.35 * (1.0 - m.thickness)));
-	albedo = mix(albedo, flesh_deep * 0.45, hollow * 0.75);
+	float hollow = smoothstep(0.62, 0.10, meso);
+	float crestness = smoothstep(0.58, 0.92, meso);
+	albedo = mix(albedo, flesh_crest, crestness * (0.30 + 0.28 * (1.0 - m.thickness)));
+	// Hollows go most of the way to black: this is what keeps dense flesh
+	// from reading as a lit balloon when the torch is close (§7).
+	albedo = mix(albedo, flesh_deep * 0.28, hollow * 0.92);
 	// The vascular field tints the tissue above it; the pulse pushes warmth
 	// into it. Never a drawn line — it is a cloud with structure in it.
-	albedo = mix(albedo, flesh_perfusion, m.vascular * (0.18 + 0.16 * m.pulse) * (0.4 + 0.6 * (1.0 - m.thickness)));
+	albedo = mix(albedo, flesh_perfusion, m.vascular * (0.10 + 0.26 * m.pulse) * (0.35 + 0.5 * (1.0 - m.thickness)));
 	// Pooled blood immediately around the pulse reads darker, not brighter (§D).
 	albedo *= 1.0 - m.vascular * m.pulse * 0.10;
 	// The host's hero veins: darker, fuller.
@@ -353,7 +359,7 @@ DeOut de_shade(DeMasks m, vec3 pw, vec2 uv, vec3 n, vec3 view_dir, float time, f
 	float thin = 1.0 - m.thickness;
 	// Sharpened: thick tissue swallows light, membranes glow. Not a rim.
 	float scatter = thin * thin * thin;
-	o.sss = dbg_sss ? sss_amount * (0.10 + 0.90 * scatter) * (1.0 - gm) : 0.0;
+	o.sss = dbg_sss ? sss_amount * (0.10 + 0.90 * scatter) * (1.0 + 0.35 * m.pulse) * (1.0 - gm) : 0.0;
 	// The transmitted colour itself changes with thickness: deep tissue
 	// gives up almost-black red, a membrane gives fuchsia.
 	vec3 transmit = mix(sss_transmit_deep, sss_transmit_thin, scatter);
@@ -363,7 +369,7 @@ DeOut de_shade(DeMasks m, vec3 pw, vec2 uv, vec3 n, vec3 view_dir, float time, f
 	o.sss_depth = sss_depth_m * mix(0.3, 1.0, scatter);
 	o.sss_boost = sss_boost * (0.3 + 0.7 * scatter);
 	// §A5: the terminator's warm bleed, restrained, tied to thin tissue only.
-	o.backlight = sss_transmit_deep * 0.14 * scatter * (1.0 - gm) * (0.65 + 0.35 * m.pulse);
+	o.backlight = sss_transmit_deep * 0.09 * scatter * (1.0 - gm) * (0.65 + 0.35 * m.pulse);
 	// ---- the film as clearcoat (§C) --------------------------------------
 	o.clearcoat = m.wet * 0.85 * (1.0 - gm * 0.65);
 	// A tight second lobe over a busy normal is exactly how skin turns into
