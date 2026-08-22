@@ -1,5 +1,14 @@
 # FINAL MAP REDESIGN — BUILD BRIEF
 
+> **2026-08-22 (DT-4):** every perf figure in this document was measured
+> with `Perf.tscn` reading `Performance.TIME_FPS` — an INTEGER monitor —
+> and inverting it. At this build's frame rates that quantises to several
+> milliseconds a step and occasionally reports nonsense (one station
+> printed 500 ms for a 6.7 ms view). The probe now measures real frame
+> deltas against wall-clock ground truth. **Treat the numbers below as
+> indicative, not exact**; the conclusions drawn from them mostly survive
+> re-measurement. See `design/DT4_PERFORMANCE_REAUDIT.md`.
+
 *Written 2026-08-13 against HEAD `9cc62a7`. Phase 0 measured, not recalled.
 This is a build drawing. Where it says a number, that number came off a run
 logged in `art/renders/map_before/` or the Phase 0 logs.*

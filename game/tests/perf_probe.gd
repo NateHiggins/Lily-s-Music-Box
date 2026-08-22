@@ -193,6 +193,16 @@ func _ready() -> void:
 			get_tree().quit(1)
 			return
 		print("PERF: focused station %s" % station_filter)
+	# PERF_AA=1 — the A/A control for accumulation. Re-measures the FIRST
+	# station again as the last one. Identical camera, identical scene: any
+	# difference between the two rows is cost the walk itself added, not cost
+	# the station has. (DT-4: the roof measures 14.5 ms alone and 27-31 ms as
+	# the fifth station of the walk.)
+	if OS.get_environment("PERF_AA") == "1" and stations.size() > 0:
+		var again: Dictionary = (stations[0] as Dictionary).duplicate()
+		again["name"] = str(again["name"]) + " (AGAIN)"
+		stations = stations + [again]
+		print("PERF: A/A control on — %s is measured twice" % stations[0].name)
 	# Gate A comparison hook. The new host/kiosk blockout is deliberately in a
 	# separate STREET proxy batch, so the same imported build, light state and
 	# live weather can measure it on and off. This is diagnostic only; ordinary
@@ -248,8 +258,8 @@ func _ready() -> void:
 		await _diagnose_corridor_submissions()
 		get_tree().quit(0)
 		return
-	print("%-24s %7s %7s %9s %8s %7s" %
-			["station", "objs", "calls", "prims", "ms", "fps"])
+	print("%-24s %7s %7s %9s %8s %7s  %s" %
+			(["station", "objs", "calls", "prims", "ms", "fps"] + ["p05-p95"]))
 	for s in stations:
 		await _measure(s)
 	print("PERF RESULT: %s (%d/%d stations over %.1f ms)" %
@@ -559,15 +569,33 @@ func _measure(station: Dictionary) -> void:
 	# let streaming, the light rig and the lerped fixtures settle first
 	for i in WARMUP:
 		await get_tree().process_frame
-	var total := 0.0
-	var worst := 0.0
+	# MEASURE THE FRAME, NOT THE FPS COUNTER (DT-4, 2026-08-22).
+	#
+	# This used to read `Performance.TIME_FPS`, which is an INTEGER, and
+	# invert it. At the rates this build actually runs that quantises hard --
+	# 21 fps and 22 fps are 47.6 ms and 45.5 ms with nothing in between -- and
+	# when the counter returned 2 the table printed a confident `500.00 ms`
+	# for a station that measures 14.5 ms on its own. A whole afternoon went
+	# into chasing that number.
+	#
+	# Frame deltas instead, and a MEDIAN with the spread beside it, because
+	# the mean of this distribution is decided by its outliers. The spread is
+	# printed because it is the most important column: paired runs of the same
+	# build at the same station have differed by 20 ms, so any claim resting
+	# on one run and one number is worthless. Two-run rule.
+	var samples: Array[float] = []
+	var t0 := Time.get_ticks_usec()
 	for i in SAMPLES:
 		await get_tree().process_frame
-		var ms := 1000.0 / maxf(1.0, Performance.get_monitor(
-				Performance.TIME_FPS))
-		total += ms
-		worst = maxf(worst, ms)
-	var avg := total / SAMPLES
+		samples.append(get_process_delta_time() * 1000.0)
+	# GROUND TRUTH. Wall-clock elapsed over the sample window divided by the
+	# frames in it. Every other number here is a monitor that could be lying;
+	# this one cannot. If the median disagrees with it, believe this.
+	var wall := float(Time.get_ticks_usec() - t0) / 1000.0 / float(SAMPLES)
+	samples.sort()
+	var avg: float = samples[SAMPLES / 2]
+	var p05: float = samples[int(SAMPLES * 0.05)]
+	var p95: float = samples[int(SAMPLES * 0.95)]
 	var objs := RenderingServer.get_rendering_info(
 			RenderingServer.RENDERING_INFO_TOTAL_OBJECTS_IN_FRAME)
 	var calls := RenderingServer.get_rendering_info(
@@ -578,12 +606,13 @@ func _measure(station: Dictionary) -> void:
 	# that fails to load reports six stations at thousands of fps and the
 	# suite says PASS.
 	var broken: bool = objs < MIN_OBJECTS
-	if avg > FRAME_BUDGET_MS or broken:
+	if wall > FRAME_BUDGET_MS or broken:
 		over_budget += 1
-	print("%-24s %7d %7d %9d %8.2f %7.1f%s" %
-			[station["name"], objs, calls, prims, avg, 1000.0 / avg,
+	print("%-24s %7d %7d %9d %8.2f %7.1f  %5.1f-%5.1f  wall %6.2f%s" %
+			[station["name"], objs, calls, prims, avg, 1000.0 / maxf(0.001, avg),
+			p05, p95, wall,
 			"  NOTHING RENDERED" if broken
-			else ("  OVER" if avg > FRAME_BUDGET_MS else "")])
+			else ("  OVER" if wall > FRAME_BUDGET_MS else "")])
 
 
 ## Stop the arcade streaming for the duration of a diagnostic. A machine that
@@ -667,8 +696,8 @@ func _run_dream() -> void:
 		_dream.call("_update_molten")
 		for i in WARMUP:
 			await get_tree().process_frame
-	print("%-24s %7s %7s %9s %8s %7s" %
-			["station", "objs", "calls", "prims", "ms", "fps"])
+	print("%-24s %7s %7s %9s %8s %7s  %s" %
+			(["station", "objs", "calls", "prims", "ms", "fps"] + ["p05-p95"]))
 	for st in stations:
 		var yaw := float(st.get("yaw", NAN))
 		if not is_finite(yaw):
