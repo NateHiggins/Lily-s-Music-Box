@@ -509,3 +509,97 @@ func census() -> Dictionary:
 	return {"agents": _agents_pos.size(), "live_voxels": live, "stained_voxels": stained,
 			"body_max": body_max, "voxels": n, "steps": steps, "floor_live": floor_live,
 			"nodes": nodes.size(), "sources": sources.size()}
+
+
+## --- LF-3: the organism in someone else's flat ------------------------------
+## (owner ruling 2026-08-22: "Juno will report it and it has the chance of
+## making a fixable condition happen in the area.")
+
+
+## Whose body is inside a world rect (x0, z0, x1, z1) on this storey: one
+## entry per source — live voxel count (body > 0.3), the strongest value and
+## where it is. Cheap: only the rect's cells are visited.
+func survey(rect: Vector4) -> Array:
+	var out: Array = []
+	for _s in sources.size():
+		out.append({"count": 0, "best": 0.0, "at": Vector3.ZERO})
+	if out.is_empty():
+		return out
+	var x0 := clampi(int(floor((rect.x - origin.x) / VOXEL_M)), 0, nx - 1)
+	var x1 := clampi(int(ceil((rect.z - origin.x) / VOXEL_M)), 0, nx - 1)
+	var z0 := clampi(int(floor((rect.y - origin.z) / VOXEL_M)), 0, nz - 1)
+	var z1 := clampi(int(ceil((rect.w - origin.z) / VOXEL_M)), 0, nz - 1)
+	var plane := nx * nz
+	for y in ny:
+		for z in range(z0, z1 + 1):
+			var row := y * plane + z * nx
+			for x in range(x0, x1 + 1):
+				var k := row + x
+				var b := body[k]
+				if b <= 0.3:
+					continue
+				var s := int(who[k])
+				if s >= out.size():
+					continue
+				var entry: Dictionary = out[s]
+				entry.count = int(entry.count) + 1
+				if b > float(entry.best):
+					entry.best = b
+					entry.at = origin + Vector3((float(x) + 0.5) * VOXEL_M,
+							(float(y) + 0.5) * VOXEL_M, (float(z) + 0.5) * VOXEL_M)
+	return out
+
+
+## The organism withdraws from a rect: the body is scrubbed, the trail the
+## agents steer by goes, the agents inside starve, and the stain — the slime
+## the organism avoids (Reid 2012) — is raised, so the flat stays repellent
+## until the stain has faded. What a fix does to the area.
+func repel(rect: Vector4, stain_level := 0.9) -> int:
+	var x0 := clampi(int(floor((rect.x - origin.x) / VOXEL_M)), 0, nx - 1)
+	var x1 := clampi(int(ceil((rect.z - origin.x) / VOXEL_M)), 0, nx - 1)
+	var z0 := clampi(int(floor((rect.y - origin.z) / VOXEL_M)), 0, nz - 1)
+	var z1 := clampi(int(ceil((rect.w - origin.z) / VOXEL_M)), 0, nz - 1)
+	var plane := nx * nz
+	var touched := 0
+	for y in ny:
+		for z in range(z0, z1 + 1):
+			var row := y * plane + z * nx
+			for x in range(x0, x1 + 1):
+				var k := row + x
+				if body[k] > 0.05 or trail[k] > 0.05:
+					touched += 1
+				body[k] *= 0.08
+				trail[k] = 0.0
+				stain[k] = maxf(stain[k], stain_level)
+	var i := _agents_pos.size() - 1
+	while i >= 0:
+		var p := _agents_pos[i]
+		if p.x >= rect.x and p.x <= rect.z and p.z >= rect.y and p.z <= rect.w:
+			_remove_agent(i)
+		i -= 1
+	_upload_due = true
+	return touched
+
+
+## Plant a body in a rect for a source (tests and authored beginnings): the
+## organism is already there, with agents to keep it alive.
+func plant(rect: Vector4, src: int, value := 0.8, agents := 60) -> void:
+	if src < 0 or src >= sources.size():
+		return
+	var x0 := clampi(int(floor((rect.x - origin.x) / VOXEL_M)), 0, nx - 1)
+	var x1 := clampi(int(ceil((rect.z - origin.x) / VOXEL_M)), 0, nx - 1)
+	var z0 := clampi(int(floor((rect.y - origin.z) / VOXEL_M)), 0, nz - 1)
+	var z1 := clampi(int(ceil((rect.w - origin.z) / VOXEL_M)), 0, nz - 1)
+	var plane := nx * nz
+	for y in range(0, mini(ny, 4)):
+		for z in range(z0, z1 + 1):
+			var row := y * plane + z * nx
+			for x in range(x0, x1 + 1):
+				var k := row + x
+				body[k] = maxf(body[k], value)
+				trail[k] = maxf(trail[k], 1.5)
+				who[k] = src
+	for _a in agents:
+		_spawn(Vector3(_rng.randf_range(rect.x, rect.z), origin.y + _rng.randf_range(0.3, 1.8),
+				_rng.randf_range(rect.y, rect.w)), src)
+	_upload_due = true

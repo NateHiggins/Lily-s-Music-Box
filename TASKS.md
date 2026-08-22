@@ -1880,9 +1880,25 @@ beats any amount of argument about which sounds better.
   grammar by the field (Peter's rectangles filed where the body is, Juno's
   bands where its waves stand, Cal's arcs around its source) instead of the
   static foothold; the organism's texture becomes the case's language.
-- **LF-3 RULED 2026-08-22: "it can go anywhere it wants."** Built into
-  LF-1b (the storey field). What it means for a case when the organism is
-  in someone else's flat stays a gameplay question (OPEN).
+- **LF-3 DONE 2026-08-22 — THE ORGANISM IN SOMEONE ELSE'S FLAT.** Owner
+  ruling: *"Juno will report it and it has the chance of making a fixable
+  condition happen in the area."* `OrganismIncidents`
+  (`game/scripts/reality/organism_incidents.gd`): a 2 Hz survey of whose
+  body is inside whose flat on each living storey; a foreign organism held
+  in a flat (≥ 6 live voxels for 20 s) makes that flat's resident REPORT it
+  — a simple work order on the WorkOrders spine in their own voice (Juno:
+  the patch cables; Lena: the skirting; Peter: a form), never for their own
+  organism — and the report rolls a seeded 55 % chance (again every 45 s
+  while it stays) of a FIXABLE CONDITION: the nearest domestic appliance
+  goes to `FunctionalProp.FAULT` (Omar's intrusion fault) with a service
+  point on it; E restores the appliance, closes the order and REPELS the
+  organism from the flat (`LivingField.repel`: body scrubbed, agents
+  starved, stain raised — the slime it avoids keeps it out). A report with
+  no condition closes itself once the flat has been clear 30 s; 120 s
+  cooldown per flat; ledger `organism_incidents` in RealityState, unfixed
+  conditions re-arm on load. `OrganismIncidentsTest` 18/18; fired unprompted
+  in WalkTest FULL (Lena 2B, Juno 2C). `ORGANISM_INCIDENTS=0` off,
+  `ORGANISM_CONDITION=1|0` forces the roll, `ORGANISM_FAST=1` 2 s dwell.
 
 ### CT — CRITTER SKINS (owner direction 2026-08-21)
 

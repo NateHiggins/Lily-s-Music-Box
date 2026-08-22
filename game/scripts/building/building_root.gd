@@ -266,6 +266,8 @@ var music_director: OrisonMusicDirector
 var domestic_witnesses: DomesticWitnessSystem
 const ApartmentEncroachmentScript := preload("res://scripts/reality/apartment_encroachment.gd")
 var apartment_encroachment: Node
+const OrganismIncidentsScript := preload("res://scripts/reality/organism_incidents.gd")
+var organism_incidents: Node
 var furniture_interactions: FurnitureInteractionPass
 ## One finite steam cycle shared by all twenty-three radiators. Props expose
 ## fittings; this model owns the consequence of changing one of them.
@@ -486,6 +488,11 @@ func _ready() -> void:
 	apartment_encroachment = ApartmentEncroachmentScript.new()
 	add_child(apartment_encroachment)
 	apartment_encroachment.build(layout, floor_nodes, domestic_witnesses)
+	# LF-3 (owner ruling 2026-08-22): a resident reports another case's
+	# organism in their flat, and the report may bring a fixable condition.
+	organism_incidents = OrganismIncidentsScript.new()
+	add_child(organism_incidents)
+	organism_incidents.build(layout, apartment_encroachment, work_orders, self)
 	_spawn_character_memory_art()
 	_spawn_character_wall_art()
 	_spawn_hallway_art()
@@ -722,6 +729,8 @@ func _ready() -> void:
 	surface_pass.on_props_applied = func() -> void:
 		if apartment_encroachment != null:
 			apartment_encroachment.reach_props(self)
+		if organism_incidents != null:
+			organism_incidents.attach_props()
 	get_tree().create_timer(1.5).timeout.connect(func() -> void:
 		surface_pass.apply_props(self))
 

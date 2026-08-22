@@ -107,3 +107,19 @@ light on its wainscot before the body arrives; the bedroom a room further
 still untouched. `LivingFieldTest` 14/14 (2.6 ms a tick), encroachment
 13/13, WalkTest PASS. Only the player's storey ticks in play (`LIVING_ALL=1`
 ticks every storey, for frames).
+
+## v3 — in someone else's flat (2026-08-22, third ruling)
+
+*"Juno will report it and it has the chance of making a fixable condition
+happen in the area."* `design/LIVING_FIELD_BRIEF.md` §6. The rule, not a
+frame: `OrganismIncidents` surveys the storey's flats; a foreign organism
+held in a flat makes its resident file a work order in their voice and
+rolls a seeded chance of a fixable condition — the nearest appliance goes
+to FAULT with a service point; the fix restores it, closes the order and
+repels the organism from the flat (stain raised, body scrubbed).
+`OrganismIncidentsTest` 18/18 (Juno reports Mina's organism in 2C; the
+speaker is held; the fix drives 1,659 live voxels to 0 and leaves the
+stain; the flat is not re-reported during the cooldown; the condition
+re-arms from the ledger). In WalkTest FULL's ordinary campaign it fired
+unprompted: Lena reported Mina's organism in 2B (the fridge held), Juno in
+2C.

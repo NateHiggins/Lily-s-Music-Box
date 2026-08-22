@@ -166,3 +166,37 @@ and it is not down. It drives:
   a way that is consistent between the stain, the light and the growth.
 
 Presentation only, still: no collider, no player physics, no save key.
+
+## 6. The third ruling (2026-08-22): what it means in someone else's flat
+
+*"Juno will report it and it has the chance of making a fixable condition
+happen in the area."*
+
+The organism is now a gameplay object in exactly one way: **trespass**.
+`OrganismIncidents` surveys every occupied flat on a living storey
+(`LivingField.survey`: whose body, how much, where) twice a second.
+
+- **The report.** A foreign organism held in a flat — six live voxels for
+  twenty seconds — is noticed by that flat's resident, who files a simple
+  work order on the maintenance spine in their own voice (Juno hears it on
+  the patch cables; Lena finds it along the skirting; Peter encloses a
+  form). A resident never reports their own organism; the ink on their own
+  walls is their case, not a complaint.
+- **The chance.** The report rolls a seeded 55 % (the dream seed, the flat,
+  the report count — the same on a reload; rolled again every 45 s while the
+  trespass persists) of a **fixable condition in the area**: the domestic
+  appliance nearest the organism's strongest point in the flat stops
+  working — `FunctionalProp.FAULT`, the fault Omar's intrusions already
+  throw — and carries a service point. Fixtures, doors, lifts and the
+  Vantry points keep their own contracts and are never the condition.
+- **The fix.** E on the point restores the appliance, closes the order, and
+  **drives the organism out of that flat**: `LivingField.repel` scrubs the
+  body, zeroes the trail, starves the agents inside, and raises the stain —
+  the extracellular slime Reid's Physarum avoids — so the flat stays
+  repellent until the stain has faded over minutes. A report without a
+  condition closes itself once the flat has been clear for 30 s. 120 s
+  cooldown per flat.
+- **The ledger** is `organism_incidents` in RealityState (count, order,
+  whose organism, the condition, the prop path, fixed/closed); an unfixed
+  condition re-arms on load. Presentation stays the encroachment's; the
+  rule owns nothing visual.

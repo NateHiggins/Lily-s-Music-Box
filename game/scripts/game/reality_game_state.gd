@@ -37,6 +37,7 @@ func _fresh_data() -> Dictionary:
 		"work_orders": {},
 		"maintenance_jobs": {},
 		"maintenance_items": {},
+		"organism_incidents": {},
 		"core_loop": {},
 		"dream_seed": _new_dream_seed(),
 		# HOW MANY NIGHTS THIS CAMPAIGN HAS HAD. The fractal Orison decays as

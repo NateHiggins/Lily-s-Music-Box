@@ -419,7 +419,11 @@ living slime-mould field per case flat (`LivingField`, `design/LIVING_FIELD_BRIE
 `art/renders/living_field/README.md`; `LIVING=0` restores the static creep);
 Second ruling built the same day: the organism is storey-wide with a gravity
 of its own, radiant onto nearby meshes and lights, pooling on floors, carrying
-the dream's states (`LivingFieldTest` 14/14). LF-2 (the grammars ride the
+the dream's states (`LivingFieldTest` 14/14). Third ruling the same day:
+the organism in someone else's flat is reported by that resident (a work
+order in their voice) with a seeded chance of a fixable appliance condition
+whose fix repels it (`OrganismIncidents`, `OrganismIncidentsTest` 18/18,
+`ORGANISM_INCIDENTS=0` off). LF-2 (the grammars ride the
 organism) is the next row. Open, in order:
 MX-3's rest (ORM, detail maps); the WK-1 per-case grammars; EN-3
 folds; CT-2; the EN-2 taste/perf rows (weld vocabulary placing R6's
