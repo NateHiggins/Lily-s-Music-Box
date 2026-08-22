@@ -23,6 +23,8 @@ Writes `art/blender/dream_tentacle.blend` and exports
 """
 
 import bpy
+import mathutils
+import mathutils.kdtree
 import bmesh
 import math
 import os
@@ -915,11 +917,108 @@ def build_rig(col, cage, extras):
     return arm, spine
 
 
-def skin(cage, arm, others):
-    """Bind the cage and every system to the rig. The cage takes automatic
-    weights; the separate systems are single-bone children, because a lid or
-    a gold plate is a rigid piece riding on flesh, not something that
-    stretches."""
+def nearest_bone(arm, point, spine):
+    """The deform bone whose middle is closest to a point, in armature space."""
+    names = [e[0] if isinstance(e, (tuple, list)) else e for e in spine]
+    best, best_d = names[0], 1e9
+    for name in names:
+        bone = arm.data.bones.get(name)
+        if bone is None:
+            continue
+        mid = (bone.head_local + bone.tail_local) * 0.5
+        d = (mid - point).length
+        if d < best_d:
+            best_d, best = d, name
+    return best
+
+
+def cage_weight_table(cage):
+    """Every cage vertex's bone weights, and a KD-tree to find them by
+    position. This is what the riders inherit."""
+    names = [g.name for g in cage.vertex_groups]
+    table = []
+    for v in cage.data.vertices:
+        table.append([(names[g.group], g.weight) for g in v.groups
+                      if g.group < len(names)])
+    kd = mathutils.kdtree.KDTree(len(cage.data.vertices))
+    for i, v in enumerate(cage.data.vertices):
+        kd.insert(cage.matrix_world @ v.co, i)
+    kd.balance()
+    return kd, table
+
+
+def bind_inherit(obj, arm, kd, table):
+    """DEFORM EXACTLY AS THE FLESH UNDER YOU DOES.
+
+    Binding each hard piece to its single nearest bone was wrong, and the
+    bind check measured how wrong: twelve of ninety-five riders drifted up to
+    15.5 mm when the limb bent, which is a gold spur hanging in mid-air.
+    The reason is that the flesh at a joint takes a BLEND of two bones'
+    transforms while a single-bone rider takes one of them pure, so the two
+    diverge exactly where the creature bends most.
+
+    So each rider vertex copies the weights of the nearest cage vertex. The
+    piece still reads as rigid -- its whole footprint sits on nearly the same
+    weights -- but it is now welded to the flesh by construction rather than
+    by hoping one bone is close enough.
+    """
+    buckets = {}
+    for vi, vert in enumerate(obj.data.vertices):
+        _co, idx, _d = kd.find(obj.matrix_world @ vert.co)
+        if idx is None or idx >= len(table):
+            continue
+        for gname, w in table[idx]:
+            key = (gname, round(w, 2))
+            buckets.setdefault(key, []).append(vi)
+    for (gname, w), indices in buckets.items():
+        group = obj.vertex_groups.get(gname) or obj.vertex_groups.new(name=gname)
+        group.add(indices, w, "REPLACE")
+    obj.parent = arm
+    obj.matrix_parent_inverse = arm.matrix_world.inverted()
+    mod = obj.modifiers.new("Armature", "ARMATURE")
+    mod.object = arm
+    return len(buckets) > 0
+
+
+def bind_rigid(obj, arm, spine):
+    """Ride one bone, rigidly.
+
+    A gold plate, a crystal, a sucker and an eyelid are HARD PIECES SITTING ON
+    FLESH. They must travel with the limb and must not stretch when it bends,
+    which is exactly one bone at weight one -- not automatic weights, which
+    would shear a mineral plate across a joint.
+    """
+    centre = mathutils.Vector((0.0, 0.0, 0.0))
+    for v in obj.data.vertices:
+        centre += v.co
+    if len(obj.data.vertices):
+        centre /= len(obj.data.vertices)
+    centre = obj.matrix_world @ centre
+    name = nearest_bone(arm, arm.matrix_world.inverted() @ centre, spine)
+    group = obj.vertex_groups.new(name=name)
+    group.add(list(range(len(obj.data.vertices))), 1.0, "REPLACE")
+    obj.parent = arm
+    obj.matrix_parent_inverse = arm.matrix_world.inverted()
+    mod = obj.modifiers.new("Armature", "ARMATURE")
+    mod.object = arm
+    return name
+
+
+def skin(cage, arm, others, spine, soft=()):
+    """Bind the cage and every system to the rig.
+
+    THIS USED TO NOT WORK AT ALL. It added an ARMATURE modifier to each
+    system object and stopped -- but a modifier with no vertex groups deforms
+    nothing, so every eye, lid, cilium, sucker, gold plate, crystal and
+    membrane was unbound: bend the limb and they stay behind in space. The
+    glTF exporter had been saying so on every run, once per object ("has no
+    skin, skipping"), for as long as the script has existed.
+
+    The cage takes automatic weights. Everything else is bound rigidly to the
+    single nearest deform bone, which is what the original docstring always
+    claimed and never did. Soft systems -- the membrane skirt -- take
+    automatic weights instead, because they are cloth, not shell.
+    """
     bpy.ops.object.select_all(action="DESELECT")
     cage.select_set(True)
     arm.select_set(True)
@@ -929,9 +1028,29 @@ def skin(cage, arm, others):
     except RuntimeError:
         mod = cage.modifiers.new("Armature", "ARMATURE")
         mod.object = arm
+    # The cage now carries automatic weights; the riders inherit them.
+    kd, table = cage_weight_table(cage)
+    soft_set = set(soft)
+    rigid = 0
+    fallback = 0
     for obj in others:
-        mod = obj.modifiers.new("Armature", "ARMATURE")
-        mod.object = arm
+        if obj in soft_set:
+            bpy.ops.object.select_all(action="DESELECT")
+            obj.select_set(True)
+            arm.select_set(True)
+            bpy.context.view_layer.objects.active = arm
+            try:
+                bpy.ops.object.parent_set(type="ARMATURE_AUTO")
+                continue
+            except RuntimeError:
+                pass
+        if not bind_inherit(obj, arm, kd, table):
+            # Nothing under it to inherit from: fall back to one bone.
+            bind_rigid(obj, arm, spine)
+            fallback += 1
+        rigid += 1
+    log("bound %d riders by inherited flesh weights (%d fell back to one bone)"
+        % (rigid, fallback))
 
 
 def main():
@@ -978,7 +1097,7 @@ def main():
             extras.append(("CTL_GOLD_%02d" % seed, gv, ga, 0.02))
     arm, spine = build_rig(rig_col, cage, extras)
     movable = eyes + lids + cilia + suckers + gold + dendrites + crystals + membrane
-    skin(cage, arm, movable)
+    skin(cage, arm, movable, spine, soft=membrane)
     log("rig: %d deform bones, %d secondary, %d bound objects"
         % (len(spine), len(extras), len(movable)))
     log("eye %d + lids %d, cilia %d, suckers %d, gold %d, dendrites %d, crystals %d, membrane %d"

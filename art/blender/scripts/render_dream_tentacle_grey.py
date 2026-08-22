@@ -72,6 +72,82 @@ def _look_dir(eye, target):
     return d.to_track_quat("-Z", "Y").to_euler()
 
 
+def bend_the_rig():
+    """POSE IT BEFORE BELIEVING IT (TB-13).
+
+    A model that only ever renders in rest pose cannot tell you whether it is
+    a creature or a pile of parts sitting in the same place. Every DEF_ bone
+    takes a small rotation, which accumulates down the chain into a strong
+    S-curve; anything not truly bound to the rig stays behind in mid-air and
+    is impossible to miss.
+
+    This is the check that found the real bug: `skin()` was adding armature
+    modifiers with no vertex groups, so all ninety-four hard riders -- eye,
+    lids, gold, suckers, crystals -- were unbound.
+    """
+    arm = bpy.data.objects.get("TENTACLE_RIG")
+    if arm is None:
+        print("[grey] no rig to pose")
+        return False
+    bpy.context.view_layer.objects.active = arm
+    bpy.ops.object.mode_set(mode="POSE")
+    n = 0
+    for pb in arm.pose.bones:
+        if not pb.name.startswith("DEF_"):
+            continue
+        pb.rotation_mode = "XYZ"
+        # Alternating axes so the result is an S, not an arc: a single-plane
+        # bend can hide a rider that is only wrong in the other axis.
+        pb.rotation_euler = (math.radians(3.4), 0.0,
+                             math.radians(2.6 if n % 8 < 4 else -3.1))
+        n += 1
+    bpy.ops.object.mode_set(mode="OBJECT")
+    bpy.context.view_layer.update()
+    print("[grey] posed %d deform bones" % n)
+    return True
+
+
+def deformed_aim(kind):
+    """Where to point once the rig has moved the creature.
+
+    The shot list's targets are rest-pose coordinates, so a posed render aims
+    at empty space and the limb leaves frame. These come from the EVALUATED
+    mesh -- where the thing actually is.
+    """
+    deps = bpy.context.evaluated_depsgraph_get()
+    deps.update()
+    if kind == "eye":
+        eye = None
+        for o in bpy.data.objects:
+            if o.type == "MESH" and o.name.startswith("EYE"):
+                eye = o
+                break
+        if eye is not None:
+            ev = eye.evaluated_get(deps)
+            mesh = ev.to_mesh()
+            acc = Vector((0.0, 0.0, 0.0))
+            for v in mesh.vertices:
+                acc += v.co
+            if len(mesh.vertices):
+                acc /= len(mesh.vertices)
+            out = ev.matrix_world @ acc
+            ev.to_mesh_clear()
+            return out
+    cage = max((o for o in bpy.data.objects if o.type == "MESH"),
+               key=lambda o: len(o.data.vertices))
+    ev = cage.evaluated_get(deps)
+    lo = Vector((1e9, 1e9, 1e9))
+    hi = Vector((-1e9, -1e9, -1e9))
+    mesh = ev.to_mesh()
+    for v in mesh.vertices:
+        w = ev.matrix_world @ v.co
+        for i in range(3):
+            lo[i] = min(lo[i], w[i])
+            hi[i] = max(hi[i], w[i])
+    ev.to_mesh_clear()
+    return (lo + hi) * 0.5
+
+
 def main():
     scene = bpy.context.scene
     for engine in ("BLENDER_EEVEE_NEXT", "BLENDER_EEVEE", "CYCLES"):
@@ -102,18 +178,33 @@ def main():
     cam = bpy.data.objects.new("CAM", cam_data)
     scene.collection.objects.link(cam)
     scene.camera = cam
-    os.makedirs(OUT, exist_ok=True)
-    for name, az, el, v, dist in SHOTS:
+    out_dir = OUT
+    shots = SHOTS
+    posed = False
+    if os.environ.get("GREY_POSE") == "bend":
+        if bend_the_rig():
+            posed = True
+            out_dir = OUT + "_posed"
+            # The three that would expose a rider left behind.
+            shots = [s for s in SHOTS if s[0] in
+                     ("01_profile_left", "05_three_quarter", "07_orbit_45")]
+    os.makedirs(out_dir, exist_ok=True)
+    for name, az, el, v, dist in shots:
         target = Vector((0.0, v * LENGTH, 0.0))
+        if posed:
+            target = deformed_aim("eye" if "orbit" in name else "body")
+            if "orbit" not in name:
+                dist *= 1.35
+        
         a, e = math.radians(az), math.radians(el)
         eye = target + Vector((math.sin(a) * math.cos(e), math.sin(e),
                                math.cos(a) * math.cos(e))) * dist
         cam.location = eye
         cam.rotation_euler = _look_dir(eye, target)
-        scene.render.filepath = os.path.join(OUT, name + ".png")
+        scene.render.filepath = os.path.join(out_dir, name + ".png")
         bpy.ops.render.render(write_still=True)
         print("[grey] %s" % name)
-    print("[grey] DONE -> %s" % OUT)
+    print("[grey] DONE -> %s" % out_dir)
 
 
 if __name__ == "__main__":
