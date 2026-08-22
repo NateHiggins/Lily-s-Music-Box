@@ -1989,8 +1989,7 @@ probe is a third. MX makes them one system.
   `encroachment` group (`os_encroach`, membrane into the cutout alpha),
   `ApartmentEncroachment._material_for` builds through
   `SurfacePass.surface_for` with the finish recipe; `wall_encroachment.gdshader`
-  kept as reference, nothing binds it; test 13/13. OPEN: metal states
-  photographed on metal.** Masonry and finish quads
+  kept as reference, nothing binds it; test 13/13. SIX GRAMMARS DONE 2026-08-22: `grammar` per case (wick / docket / standing wave / interference / tuning memory / fracture) with the case's tints; `grammars/sheet_six_grammars.jpg`. Found: the shader's exact `unit_rect` test had let only 2A encroach since WK-1 (other storeys' finishes sit 44 mm outside their rect) — 25 cm slack now. OPEN: metal states photographed on metal.** Masonry and finish quads
   first (the flashlight sees them most), then floors, trims, props. Each class
   ships with before/after frames under the moving lamp from fixed stands, the
   perf station row, and an A/B switch; colour and art direction are preserved
