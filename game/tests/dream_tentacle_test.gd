@@ -43,7 +43,7 @@ func _run() -> void:
 			and flesh.mesh.get_faces().size() >= 12000
 			and (flesh.material_override as ShaderMaterial).shader.resource_path.ends_with("dream_tentacle.gdshader"))
 	_check("the anatomy is composed: skeleton, dendrites, the ocular organ (globe, cornea, orbital gold, cilia, crystal, three lids), suckers, halos, membrane",
-			t.get_node_or_null("GoldPlates") != null and t.get_node_or_null("GoldDendrites") != null
+			t.get_node_or_null("GoldPiece0") != null and t.get_node_or_null("GoldPiece5") != null and t.get_node_or_null("GoldDendrites") != null
 			and t.get_node_or_null("Eye") != null and t.get_node_or_null("Cornea") != null
 			and t.get_node_or_null("OrbitalGold") != null and t.get_node_or_null("OrbitalCilia") != null
 			and t.get_node_or_null("CrystalOrgan") != null and t.get_node_or_null("Lid0") != null
@@ -81,6 +81,10 @@ func _run() -> void:
 			and "HOVER_INSPECTION" in seen and "TOUCHING" in seen and "CARESSING" in seen)
 	_check("it is through (grow %.2f)" % float(t.grow), float(t.grow) >= 0.95)
 	var c: Dictionary = t.census()
+	var sp0: Vector3 = t.rig.pos[0]
+	var sp15: Vector3 = t.rig.pos[15]
+	var mid: Vector3 = t.rig.pos[8]
+	print("[tentacle] spine span root=%s mid=%s tip=%s" % [sp0, mid, sp15])
 	print("[tentacle] ocular at %s  gaze %s  anchor %s" % [t.ocular.position, t.ocular.gaze, t.anchor])
 	_check("the tip is on the contact, within reach (%.3f m off, %.2f m out)"
 			% [(c.tip as Vector3).distance_to(c.contact), (c.tip as Vector3).distance_to(c.anchor)],

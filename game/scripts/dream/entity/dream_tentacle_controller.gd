@@ -86,6 +86,7 @@ var _rng := RandomNumberGenerator.new()
 var toggles := {"breathing": true, "peristalsis": true, "vein_pulse": true, "gold_flow": true,
 		"gold_emission": true, "eye_tracking": true, "halos": false, "suckers": true,
 		"contact_deformation": true, "surface_conversion": true, "rim": true, "phase_slice": true,
+		"gold_structures": true, "crystal": true, "lids": true, "cilia": true, "socket": true,
 		"membrane": true, "lights": true, "gray": false, "show_bones": false, "interior": true}
 var _bones: MeshInstance3D
 var _mask_view := 0
@@ -487,6 +488,8 @@ func _apply_toggles() -> void:
 	suckers.set_debug_gray(toggles.gray)
 	if skeleton != null:
 		skeleton.set_debug_gray(toggles.gray)
+		if not toggles.get("gold_structures", true):
+			skeleton.set_visible(false)
 	suckers.multimesh.visible = toggles.suckers
 	membrane.set_debug_gray(toggles.gray)
 	if _bones != null:

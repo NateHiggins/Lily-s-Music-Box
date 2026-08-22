@@ -18,21 +18,28 @@ const N := 16
 const BASE_RADIUS := 0.078
 const TIP_RADIUS := 0.017
 
-## v, radius multiplier, flatten (ellipse), twist (rad), rib
+## v, radius multiplier, flatten (ellipse), twist (rad), rib.
+## SIX REGIONAL IDENTITIES the player's eye can follow (HERO_PASS §1):
+## muscular root → compressed neck → ocular station → flattened
+## transitional ribbon → ribbed mineralized shaft → articulated narrowing →
+## dexterous distal → sensory club. Exaggerated for the game camera (§18):
+## the silhouette must CHANGE, not taper.
 const PROFILE := [
-	[0.00, 1.05, 0.00, 0.00, 0.0],
-	[0.11, 0.78, 0.26, 0.12, 0.0],
-	[0.23, 1.12, 0.02, 0.30, 0.0],
-	[0.36, 1.02, 0.10, 0.55, 1.0],
-	# THE ORBITAL MASS (DIRECTION_3 §H): the organism had to evolve real
-	# anatomy to carry the eye, so the limb swells here rather than the eye
-	# perching on a tube.
-	[0.42, 1.34, 0.06, 0.72, 0.0],
-	[0.50, 1.05, 0.42, 0.95, 0.0],
-	[0.64, 0.66, 0.16, 1.25, 0.0],
-	[0.78, 0.72, 0.00, 1.50, 0.0],
-	[0.90, 0.52, 0.00, 1.62, 0.0],
-	[1.00, 0.78, 0.00, 1.70, 0.0],
+	[0.00, 1.45, 0.00, 0.00, 0.0],   # root: broad, muscular, in the membrane
+	[0.07, 1.58, 0.12, 0.10, 0.0],   # the root's shoulder — the widest mass
+	[0.16, 0.68, 0.36, 0.24, 0.0],   # a hard compressed NECK: a real waist
+	[0.24, 0.80, 0.22, 0.38, 0.0],
+	[0.33, 1.35, 0.10, 0.55, 0.0],   # the ocular station's brow rising
+	[0.42, 1.92, 0.16, 0.70, 0.0],   # THE STATION: 2.8x the neck
+	[0.50, 1.44, 0.30, 0.88, 0.0],   # its shoulder falling away
+	[0.56, 0.62, 0.66, 1.05, 0.0],   # the flattened transitional RIBBON
+	[0.63, 0.98, 0.24, 1.20, 1.0],   # ribbed / mineralized: section swells
+	[0.70, 0.66, 0.40, 1.34, 1.0],   # and pinches
+	[0.77, 1.02, 0.10, 1.46, 1.0],   # again — a ribbed rhythm, not a taper
+	[0.83, 0.58, 0.16, 1.55, 0.0],   # an articulated knuckle's waist
+	[0.89, 0.46, 0.08, 1.62, 0.0],   # the narrowing: dexterous
+	[0.95, 0.70, 0.04, 1.66, 0.0],
+	[1.00, 1.18, 0.00, 1.70, 0.0],   # the sensory CLUB: visibly specialized
 ]
 
 var length_m := 1.6
@@ -115,7 +122,8 @@ static func _profile_at(v: float) -> Vector4:
 ## The radius of the body at v (before the shader's relief).
 static func radius_at(v: float) -> float:
 	var taper := lerpf(BASE_RADIUS, TIP_RADIUS, pow(v, 0.8))
-	var club := 1.0 + 0.45 * smoothstep(0.88, 0.985, v) * (1.0 - smoothstep(0.975, 1.0, v))
+	# The club is a real terminal organ, not a rounded end.
+	var club := 1.0 + 0.62 * smoothstep(0.86, 0.975, v) * (1.0 - smoothstep(0.985, 1.0, v))
 	return taper * sqrt(maxf(0.0, 1.0 - pow(v, 14.0))) * float(_profile_at(v).x) * club
 
 

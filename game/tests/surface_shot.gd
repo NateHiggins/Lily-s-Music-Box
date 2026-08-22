@@ -62,6 +62,9 @@ const STATIONS := [
 			"yaw": 96.0, "pitch": -8.0, "room": "F02_A_MAIN", "demo": true},
 	# The ocular organ at 42%% of the limb: an extreme macro, and a 45-degree
 	# oblique that must show tissue eating the globe (DIRECTION_3 §H, §N).
+	# Broadside on the limb: the ONLY honest silhouette test (HERO_PASS §1).
+	{"key": "tentacle_broadside", "floor": "F02", "pos": Vector3(-12.404, 1.217, 4.346),
+			"yaw": 109.1, "pitch": -5.0, "room": "F02_A_MAIN", "demo": true},
 	{"key": "ocular_2a", "floor": "F02", "pos": Vector3(-13.479, 1.273, 4.489),
 			"yaw": 250.0, "pitch": -10.9, "room": "F02_A_MAIN", "demo": true},
 	{"key": "ocular_2a_oblique", "floor": "F02", "pos": Vector3(-13.351, 1.263, 4.259),

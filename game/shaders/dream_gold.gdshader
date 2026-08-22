@@ -19,6 +19,9 @@ uniform vec3 gold_deep : source_color = vec3(0.42, 0.27, 0.09);
 uniform vec3 gold_hot : source_color = vec3(1.0, 0.62, 0.18);
 uniform float seed = 0.0;
 uniform bool is_dendrite = false;
+// How much this piece is moving right now: the seam under a moving plate
+// brightens and dims as it reseats (§B8, HERO_PASS §3).
+uniform float motion : hint_range(0.0, 1.0) = 0.0;
 uniform bool debug_gray = false;
 
 varying vec2 v_uv;
@@ -30,7 +33,7 @@ varying float v_piece;
 void vertex() {
 	v_uv = UV;
 	v_local = VERTEX;
-	v_motion = INSTANCE_CUSTOM.r;
+	v_motion = is_dendrite ? INSTANCE_CUSTOM.r : motion;
 	v_piece = INSTANCE_CUSTOM.g;
 	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 }

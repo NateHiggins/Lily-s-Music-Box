@@ -54,7 +54,7 @@ uniform float sss_boost : hint_range(0.0, 1.0) = 0.20;
 group_uniforms;
 
 group_uniforms dream_film;
-uniform float wetness : hint_range(0.0, 1.0) = 0.75;
+uniform float wetness : hint_range(0.0, 1.0) = 0.62;
 uniform float film_roughness : hint_range(0.0, 0.5) = 0.14;
 // The film has its own drift, so it does not move with the flesh (§C).
 uniform float film_drift = 0.035;
@@ -253,12 +253,18 @@ DeMasks de_masks(vec3 pw, vec2 uv, vec3 n, vec3 view_dir, float time, float seed
 	// Beads, smears, dry islands; pooled in creases, sockets, the gold
 	// boundary and at contact. Its own slow drift.
 	vec3 fp = de_warp(pw * 5.0 + vec3(0.0, time * film_drift, 0.0), 0.5, seed + 9.0);
-	float sheet = smoothstep(0.40, 0.70, dream_corruption_fbm3(fp));
-	float beads = smoothstep(0.70, 0.88, dream_corruption_cells(fp * 6.0, 0.0, seed + 2.0));
-	float dry = smoothstep(0.30, 0.10, dream_corruption_fbm3(fp * 0.5 + 4.0));
+	float sheet = smoothstep(0.52, 0.78, dream_corruption_fbm3(fp));
+	float beads = smoothstep(0.78, 0.92, dream_corruption_cells(fp * 6.0, 0.0, seed + 2.0));
+	// Dry islands are LARGE and common: most of the dorsal mass is satin,
+	// and the film is a local event on top of it.
+	float dry = smoothstep(0.58, 0.30, dream_corruption_fbm3(fp * 0.35 + 4.0));
+	// The film also runs downhill: it gathers where the surface faces away
+	// from the building's up.
+	float downhill = smoothstep(0.1, -0.6, n.y);
 	m.wet = dbg_wetness ? wetness * clamp(
-			(0.18 + 0.55 * sheet + 0.5 * beads) * (1.0 - dry * 0.8)
-			+ 0.5 * ctx.socket + 0.4 * edge + 0.5 * ctx.contact, 0.0, 1.0) : 0.0;
+			(0.04 + 0.42 * sheet + 0.40 * beads) * (1.0 - dry * 0.92)
+			+ 0.30 * downhill * sheet
+			+ 0.60 * ctx.socket + 0.45 * edge + 0.55 * ctx.contact, 0.0, 1.0) : 0.0;
 	// --- iridophores (§A8) ------------------------------------------------
 	float ndv = clamp(dot(n, view_dir), 0.0, 1.0);
 	float graze = pow(1.0 - ndv, 3.0);
@@ -302,7 +308,13 @@ DeOut de_shade(DeMasks m, vec3 pw, vec2 uv, vec3 n, vec3 view_dir, float time, f
 	float submicro = dream_corruption_noise3(pw / max(0.0002, submicro_m) * 0.02);
 
 	vec3 albedo = mix(flesh_deep, flesh_body, smoothstep(0.22, 0.80, macro));
-	albedo = mix(albedo, flesh_crest, smoothstep(0.48, 0.92, meso) * (0.30 + 0.35 * (1.0 - m.thickness)));
+	// The hierarchy (§7): high convex masses take the bruised rose-violet,
+	// the medium flesh the deep magenta-violet, and the HOLLOWS go to
+	// aubergine approaching black. `meso` doubles as the local height.
+	float hollow = smoothstep(0.55, 0.12, meso);
+	float crestness = smoothstep(0.50, 0.88, meso);
+	albedo = mix(albedo, flesh_crest, crestness * (0.42 + 0.35 * (1.0 - m.thickness)));
+	albedo = mix(albedo, flesh_deep * 0.45, hollow * 0.75);
 	// The vascular field tints the tissue above it; the pulse pushes warmth
 	// into it. Never a drawn line — it is a cloud with structure in it.
 	albedo = mix(albedo, flesh_perfusion, m.vascular * (0.18 + 0.16 * m.pulse) * (0.4 + 0.6 * (1.0 - m.thickness)));
@@ -311,7 +323,9 @@ DeOut de_shade(DeMasks m, vec3 pw, vec2 uv, vec3 n, vec3 view_dir, float time, f
 	// The host's hero veins: darker, fuller.
 	albedo = mix(albedo, flesh_deep * 0.75 + flesh_perfusion * 0.2, m.vein * 0.5);
 	// Pores darken slightly; scarring around mineral roots is pale and tight.
-	albedo *= 1.0 - m.pore * 0.14;
+	// Pores and pits read as darkening, not glitter: this is what survives
+	// the specular anti-aliasing that (correctly) killed the sparkle.
+	albedo *= 1.0 - m.pore * 0.42;
 	// Skin grain in the albedo, only while a pixel can hold it.
 	float grain = dream_corruption_noise3(pw / max(0.0002, micro_m) * 0.35);
 	albedo *= 1.0 - (grain - 0.5) * 0.10 * de_resolvable(micro_m * 2.0, pixel_m);
@@ -329,7 +343,8 @@ DeOut de_shade(DeMasks m, vec3 pw, vec2 uv, vec3 n, vec3 view_dir, float time, f
 	albedo = mix(albedo, transition, m.mineral * (1.0 - gm) * 0.7);
 	albedo = mix(albedo, au, gm);
 	// ---- roughness: moderate flesh, varied metal -------------------------
-	float rough = flesh_roughness + 0.10 * (submicro - 0.5) * submicro_fade + 0.07 * m.pore
+	float rough = flesh_roughness + 0.10 * (submicro - 0.5) * submicro_fade
+			+ 0.16 * m.pore + 0.10 * hollow
 			- 0.05 * m.pulse * m.vascular;
 	float gold_rough = mix(0.44, 0.13, smoothstep(0.25, 0.9, m.mineral))
 			+ 0.14 * (dream_corruption_noise3(pw * 20.0 + seed) - 0.5);
@@ -382,18 +397,19 @@ DeOut de_shade(DeMasks m, vec3 pw, vec2 uv, vec3 n, vec3 view_dir, float time, f
 	vec2 slope =
 			vec2(a_x, a_y) * (2.2 * normal_anatomical)
 			+ vec2(t_x, t_y) * (5.5 * normal_tissue)
-			+ vec2(p_x, p_y) * (5.5 * normal_pore * pore_fade)
+			+ vec2(p_x, p_y) * (9.5 * normal_pore * pore_fade)
 			+ vec2(m.mineral) * 0.5
 			+ vec2(m.papilla) * 0.4;
 	slope *= 1.0 - gm * 0.5;
 	o.normal_map = normalize(vec3(-slope, 1.0));
-	// Specular anti-aliasing: a normal this busy sparkles unless the
-	// roughness rises where its variance is high. Without this the skin
-	// reads as glitter under a moving light, which is the one thing flesh
-	// never does.
-	float variance = dot(vec2(p_x, p_y), vec2(p_x, p_y)) * 900.0 * pore_fade
-			+ dot(vec2(t_x, t_y), vec2(t_x, t_y)) * 60.0;
-	rough = clamp(sqrt(rough * rough + clamp(variance, 0.0, 0.35)), 0.05, 0.95);
+	// Specular anti-aliasing, GENTLY. A normal this busy sparkles unless the
+	// roughness rises a little where its variance is high — but the first
+	// version used a gain of 900 and a cap of 0.35, which pushed the whole
+	// surface to roughness 0.8 and flattened the flesh into a smooth tube.
+	// A Toksvig-style correction is a small nudge, not a blanket.
+	float variance = dot(vec2(p_x, p_y), vec2(p_x, p_y)) * 45.0 * pore_fade
+			+ dot(vec2(t_x, t_y), vec2(t_x, t_y)) * 8.0;
+	rough = clamp(sqrt(rough * rough + clamp(variance, 0.0, 0.05)), 0.05, 0.95);
 	// ---- resolve ---------------------------------------------------------
 	o.albedo = albedo;
 	// The transition carries only a little metallic response; the skeleton's
@@ -402,7 +418,7 @@ DeOut de_shade(DeMasks m, vec3 pw, vec2 uv, vec3 n, vec3 view_dir, float time, f
 	o.roughness = rough;
 	o.specular = mix(0.5, 0.85, gm);
 	o.emission = e;
-	o.ao = clamp(1.0 - ctx.socket * 0.5 - m.pore * 0.22 * m.lod - ctx.gold_root * 0.18, 0.0, 1.0);
+	o.ao = clamp(1.0 - ctx.socket * 0.6 - m.pore * 0.45 - hollow * 0.30 - ctx.gold_root * 0.22, 0.0, 1.0);
 	if (debug_gray) {
 		o.albedo = vec3(0.58);
 		o.metallic = 0.0;

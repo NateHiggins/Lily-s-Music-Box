@@ -105,7 +105,7 @@ vec4 dt_prof(float t) {
 
 float dt_profile(float v) {
 	float taper = mix(base_radius, tip_radius, pow(v, 0.8));
-	float club = 1.0 + 0.45 * smoothstep(0.88, 0.985, v) * (1.0 - smoothstep(0.975, 1.0, v));
+	float club = 1.0 + 0.62 * smoothstep(0.86, 0.975, v) * (1.0 - smoothstep(0.985, 1.0, v));
 	return taper * sqrt(max(0.0, 1.0 - pow(v, 14.0))) * club;
 }
 

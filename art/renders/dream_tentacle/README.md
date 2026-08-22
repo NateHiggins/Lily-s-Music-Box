@@ -174,3 +174,55 @@ set — direct and grazing flashlight, backlight through thin tissue, macro,
 gameplay distance, direct eye contact, tracking, a full three-lid blink,
 cilia reaction, vascular pulse, gold articulation, crystal glint — and the
 10–15 s flashlight sweep that is the actual review asset.
+
+## Hero pass P0–P3 (2026-08-22, `design/DREAM_TENTACLE_HERO_PASS.md`)
+
+The brief's diagnosis was right and its acceptance rule is the one that
+matters: *if a feature cannot be perceived in the canonical images, it does
+not count.* Everything below was judged from photographs, several of which
+proved my own previous claims wrong.
+
+**P0 — macro silhouette.** The rig's profile now carries fifteen knots with
+real regional identities instead of a taper: a broad muscular root and
+shoulder, a **hard compressed neck** at 0.16, the **ocular station at 0.42
+swelling to 1.92×** (2.8× the neck), its shoulder falling away, a flattened
+transitional **ribbon** at 0.56, a ribbed mineralized shaft that swells and
+pinches twice, an articulated knuckle waist, a dexterous narrowing, and a
+**sensory club** at the tip. `silhouette_gray.png` is the honest test —
+`_before_silhouette_gray.png` is the same stand before the push, and the
+difference is the point. A new `tentacle_broadside` stand was added because
+every earlier judgement had been made from a nearly end-on camera, where a
+silhouette cannot be judged at all.
+
+**P1 — the clean gold stripes are gone.** The skeleton was a MultiMesh, so
+every piece necessarily had the same shape, and wide shells wrapped the
+limb into bands — that is exactly how the painted-jewellery read happened.
+It is now **twelve individually generated meshes in five classes**:
+CRESCENT (an arc that thins to nothing at both ends and bows off-centre),
+PLATE (broad, lobed on one flank, asymmetric termination), KNUCKLE (two
+masses and a waist — an articulation), BRANCH (splits and buries one fork),
+SPUR (emerges from under the skin). None repeats; none closes a ring; the
+ocular station is deliberately bare so its own gold reads.
+
+**P3 — flesh separation.** Two mistakes of mine, both found by camera:
+my specular-anti-aliasing term used a gain of 900 and a cap of 0.35, which
+pushed the entire surface to roughness 0.8 and *flattened the flesh into a
+smooth tube* — it is now a proper small Toksvig-style nudge (gain 45, cap
+0.05). And the film was near-continuous, so everything read glossy; the
+wet mask now has large dry islands, runs downhill, and pools only in
+creases, sockets, sucker fields, contact and the underside. The pores read
+as **darkening and AO**, not as specular sparkle, so they survive. Colour
+now follows depth: crests bruised rose-violet, hollows aubergine
+approaching black.
+
+Gates: parse, DreamTentacleTest 20/20, encroachment 13/13, incidents
+18/18, WalkTest FAST.
+
+**Honest state.** The silhouette test passes now. The flesh reads as meat
+at macro and as dense purple mass at distance. What still does NOT read,
+and is next: the ocular station faces away from the broadside stand so its
+authority is unproven at gameplay distance (P2); the gold articulation,
+vascular pulse and lid systems exist but have never been photographed in
+motion (P4); and the §15/§16 review set — the fifteen frames and the
+10–15 s player-lamp sweep — has not been captured. ffmpeg is available, so
+the sweep can be a real video rather than a contact sheet.
