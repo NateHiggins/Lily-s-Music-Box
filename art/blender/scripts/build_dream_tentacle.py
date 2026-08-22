@@ -54,18 +54,21 @@ PROFILE = [
     (0.420, 0.104, 0.10, -0.14, 0.52),  # THE OCULAR STATION
     (0.470, 0.092, 0.16, -0.10, 0.60),  # its shoulder falling away
     (0.520, 0.064, 0.30, -0.02, 0.70),
-    (0.570, 0.045, 0.52, 0.02, 0.82),   # the flattened RIBBON
-    (0.625, 0.052, 0.34, 0.04, 0.94),
-    (0.670, 0.044, 0.22, 0.02, 1.05),   # ribbed: swells and pinches
-    (0.715, 0.050, 0.26, 0.00, 1.15),
-    (0.760, 0.039, 0.18, 0.00, 1.25),
-    (0.805, 0.045, 0.12, 0.00, 1.34),   # an articulated knuckle
-    (0.850, 0.031, 0.14, 0.00, 1.42),   # the narrowing: dexterous
-    (0.895, 0.027, 0.10, 0.00, 1.49),
-    (0.935, 0.031, 0.06, 0.00, 1.55),
-    (0.968, 0.038, 0.03, 0.00, 1.60),   # the sensory CLUB
-    (0.990, 0.030, 0.00, 0.00, 1.63),
-    (1.000, 0.012, 0.00, 0.00, 1.65),
+    (0.560, 0.038, 0.58, 0.02, 0.82),   # the flattened RIBBON: a real pinch
+    (0.600, 0.058, 0.30, 0.05, 0.90),   # and the swell after it
+    (0.640, 0.036, 0.40, 0.02, 0.99),   # ribbed: pinch
+    (0.680, 0.057, 0.20, -0.02, 1.07),  #         swell
+    (0.720, 0.034, 0.34, 0.02, 1.16),   #         pinch
+    (0.758, 0.053, 0.16, -0.03, 1.24),  #         swell
+    (0.792, 0.030, 0.26, 0.02, 1.32),   # the knuckle's waist
+    (0.818, 0.048, 0.10, -0.04, 1.38),  # the knuckle
+    (0.848, 0.026, 0.18, 0.02, 1.44),   # the narrowing: dexterous
+    (0.884, 0.030, 0.08, 0.00, 1.50),
+    (0.918, 0.024, 0.12, 0.00, 1.55),
+    (0.948, 0.036, 0.05, -0.03, 1.60),  # the club begins
+    (0.972, 0.046, 0.02, -0.05, 1.63),  # the sensory CLUB, flared
+    (0.990, 0.034, 0.00, 0.00, 1.65),
+    (1.000, 0.012, 0.00, 0.00, 1.66),
 ]
 
 
@@ -181,36 +184,36 @@ def sculpt_forms(a, v, radius):
 # Twenty-eight pieces, none repeating, none evenly spaced, and a deliberate
 # gap where the orbit's own gold belongs.
 GOLD = [
-    (0.030, 1.05, "plate",    0.085, 0.075, 0.046, 0.20, 0),
-    (0.062, 4.30, "spur",     0.030, 0.024, 0.048, -0.5, 1),
-    (0.098, 2.35, "crescent", 0.062, 0.040, 0.041, 0.14, 2),
-    (0.128, 5.60, "branch",   0.050, 0.030, 0.037, 0.55, 3),
-    (0.170, 0.62, "knuckle",  0.048, 0.038, 0.044, -0.28, 4),
-    (0.205, 3.30, "rib",      0.078, 0.026, 0.033, 0.36, 5),
-    (0.246, 1.55, "crescent", 0.055, 0.034, 0.037, -0.18, 6),
-    (0.283, 4.85, "spur",     0.026, 0.020, 0.041, 0.42, 7),
-    (0.318, 2.75, "plate",    0.070, 0.058, 0.040, 0.10, 8),
-    (0.352, 0.35, "branch",   0.046, 0.028, 0.033, -0.60, 9),
+    (0.030, 1.05, "plate",    0.106, 0.101, 0.020, 0.20, 0),
+    (0.062, 4.30, "spur",     0.030, 0.024, 0.016, -0.5, 1),
+    (0.098, 2.35, "crescent", 0.081, 0.050, 0.014, 0.14, 2),
+    (0.128, 5.60, "branch",   0.050, 0.030, 0.013, 0.55, 3),
+    (0.170, 0.62, "knuckle",  0.048, 0.038, 0.018, -0.28, 4),
+    (0.205, 3.30, "rib",      0.101, 0.033, 0.011, 0.36, 5),
+    (0.246, 1.55, "crescent", 0.072, 0.043, 0.014, -0.18, 6),
+    (0.283, 4.85, "spur",     0.026, 0.020, 0.016, 0.42, 7),
+    (0.318, 2.75, "plate",    0.088, 0.078, 0.020, 0.10, 8),
+    (0.352, 0.35, "branch",   0.046, 0.028, 0.013, -0.60, 9),
     # --- the orbit's own skeleton (§10, separate movable pieces) ---
-    (0.396, 5.90, "brow",     0.090, 0.048, 0.052, 0.15, 10),
-    (0.404, 1.20, "support",  0.048, 0.024, 0.041, -0.35, 11),
-    (0.438, 2.05, "support",  0.038, 0.020, 0.033, 0.28, 12),
-    (0.452, 4.55, "support",  0.044, 0.022, 0.037, -0.12, 13),
-    (0.412, 3.35, "knuckle",  0.034, 0.026, 0.037, 0.50, 14),
+    (0.396, 5.90, "brow",     0.112, 0.065, 0.024, 0.15, 10),
+    (0.404, 1.20, "support",  0.048, 0.024, 0.013, -0.35, 11),
+    (0.438, 2.05, "support",  0.038, 0.020, 0.013, 0.28, 12),
+    (0.452, 4.55, "support",  0.044, 0.022, 0.013, -0.12, 13),
+    (0.412, 3.35, "knuckle",  0.034, 0.026, 0.018, 0.50, 14),
     # --- past the station ---
-    (0.512, 0.85, "crescent", 0.050, 0.030, 0.033, 0.22, 15),
-    (0.548, 3.90, "rib",      0.062, 0.020, 0.028, -0.40, 16),
-    (0.596, 2.10, "plate",    0.058, 0.042, 0.032, 0.16, 17),
-    (0.634, 5.15, "spur",     0.022, 0.017, 0.033, 0.34, 18),
-    (0.668, 1.35, "knuckle",  0.038, 0.028, 0.033, -0.22, 19),
-    (0.704, 3.55, "branch",   0.038, 0.022, 0.026, 0.46, 20),
-    (0.742, 0.45, "crescent", 0.040, 0.024, 0.026, -0.30, 21),
-    (0.776, 4.10, "rib",      0.048, 0.016, 0.022, 0.20, 22),
-    (0.812, 2.45, "knuckle",  0.030, 0.022, 0.026, -0.15, 23),
-    (0.846, 5.45, "spur",     0.018, 0.014, 0.024, 0.38, 24),
-    (0.880, 1.75, "crescent", 0.030, 0.018, 0.020, -0.26, 25),
-    (0.918, 3.05, "branch",   0.026, 0.015, 0.019, 0.30, 26),
-    (0.952, 0.95, "spur",     0.015, 0.012, 0.019, -0.18, 27),
+    (0.512, 0.85, "crescent", 0.065, 0.037, 0.014, 0.22, 15),
+    (0.548, 3.90, "rib",      0.081, 0.025, 0.011, -0.40, 16),
+    (0.596, 2.10, "plate",    0.073, 0.057, 0.020, 0.16, 17),
+    (0.634, 5.15, "spur",     0.022, 0.017, 0.016, 0.34, 18),
+    (0.668, 1.35, "knuckle",  0.038, 0.028, 0.018, -0.22, 19),
+    (0.704, 3.55, "branch",   0.038, 0.022, 0.013, 0.46, 20),
+    (0.742, 0.45, "crescent", 0.052, 0.030, 0.014, -0.30, 21),
+    (0.776, 4.10, "rib",      0.062, 0.020, 0.011, 0.20, 22),
+    (0.812, 2.45, "knuckle",  0.030, 0.022, 0.018, -0.15, 23),
+    (0.846, 5.45, "spur",     0.018, 0.014, 0.016, 0.38, 24),
+    (0.880, 1.75, "crescent", 0.039, 0.022, 0.014, -0.26, 25),
+    (0.918, 3.05, "branch",   0.026, 0.015, 0.013, 0.30, 26),
+    (0.952, 0.95, "spur",     0.015, 0.012, 0.016, -0.18, 27),
 ]
 
 
@@ -373,17 +376,21 @@ def build_eye(col):
 
 
 # §6 THREE LIDS, each on its own vector, each visible at full open.
+# name, sweep axis, arc, reach, RESTING closure, thickness, scale.
+# Each lid is a real mass around the orbit, oversized relative to the globe
+# so that at full open it still overhangs — the ruling's requirement that a
+# still frame contain evidence of three closure systems.
 LIDS = [
-    ("LID_DORSAL",        1.15, 2.45, 0.92, 0.30, 0.16),
-    ("LID_VENTROLATERAL", -1.75, 2.05, 0.80, 0.24, 0.13),
-    ("LID_NICTITATING",   -0.20, 2.75, 0.72, 0.10, 0.045),
+    ("LID_DORSAL",        1.15, 2.75, 1.05, 0.34, 0.26, 1.34),
+    ("LID_VENTROLATERAL", -1.75, 2.35, 0.92, 0.28, 0.20, 1.26),
+    ("LID_NICTITATING",   -0.20, 2.95, 0.80, 0.13, 0.060, 1.18),
 ]
 
 
 def build_lids(col, centre, axes):
     x, y, z = axes
     made = []
-    for (name, sweep, arc, reach, rest, thick) in LIDS:
+    for (name, sweep, arc, reach, rest, thick, lid_scale) in LIDS:
         verts, faces = [], []
         rows, cols = 9, 26
         # A shell swept about the socket axis, bowed off the globe.
@@ -413,8 +420,9 @@ def build_lids(col, centre, axes):
         last = (rows - 1) * cols
         for j in range(cols - 1):
             faces.append((last + j, last + j + 1, base + last + j + 1, base + last + j))
-        made.append(mesh_from(name, place(verts, centre, x, y, z,
-                              (GLOBE_R, GLOBE_R, GLOBE_R)), faces, col))
+        sc = GLOBE_R * lid_scale
+        made.append(mesh_from(name, place(verts, centre, x, y, z, (sc, sc, sc)),
+                              faces, col))
     return made
 
 
@@ -573,15 +581,21 @@ def gold_piece_geometry(kind, seed):
         for j in range(segs):
             u = j / float(segs - 1)
             xx = (u * 2.0 - 1.0) * width[r] + shift[r]
-            crown = max(0.0, 1.0 - abs(u * 2.0 - 1.0) ** 1.6)
-            verts.append((xx, crown * lift[r] - 0.45, z))
+            # A rounder crown that carries mass across the whole width,
+            # rather than a knife-edge that reads as a fin.
+            crown = max(0.0, 1.0 - abs(u * 2.0 - 1.0) ** 2.6)
+            # A raised ridge along the piece's spine: bone has a section.
+            ridge = 0.14 * max(0.0, 1.0 - abs(u * 2.0 - 1.0) * 3.2)
+            verts.append((xx, (crown + ridge) * lift[r] - 0.45, z))
     for r in range(rings - 1):
         for j in range(segs - 1):
             a0 = r * segs + j
             faces.append((a0, a0 + segs, a0 + segs + 1, a0 + 1))
     base = len(verts)
     for (vx, vy, vz) in list(verts):
-        verts.append((vx, vy - 0.26 - 0.12 * (1.0 - abs(vx)), vz))
+        # A thick underside, so the piece has a visible section where it
+        # leaves the flesh instead of being a shell.
+        verts.append((vx, vy - 0.55 - 0.25 * (1.0 - abs(vx)), vz))
     for r in range(rings - 1):
         for j in range(segs - 1):
             a0 = base + r * segs + j
@@ -607,7 +621,9 @@ def build_gold(cols):
         verts, faces = gold_piece_geometry(kind, seed)
         # Seated AT the flesh, not above it: the mesh's own form takes its
         # ends under the skin.
-        pos = origin - nrm * (rise * 0.22)
+        # Seated INTO the flesh: only the crown stands proud, and the
+        # piece's own underside is below the skin.
+        pos = origin - nrm * (rise * 0.28)
         col = orbital if kind in ("brow", "support") else (
             joints if kind == "knuckle" else structural)
         made.append(mesh_from("GOLD_%s_%02d" % (kind.upper(), seed),
@@ -830,6 +846,94 @@ def _set(layer, index, value):
     layer.data[index].color = (value, value, value, 1.0)
 
 
+# ---------------------------------------------------------------------------
+# §14–§15 THE RIG. Twenty-eight deform bones along the limb — heavy and few
+# at the root, dense and light at the tip — so the flesh can bend sharply,
+# twist, compress and curl its distal third without the cage collapsing.
+# Secondary bones for the eye, the three lids, the ocular gold, the cilia,
+# the hero suckers and the membrane, because every one of those has to move
+# on its own (§24 is only worth having if the systems are independent).
+
+BONE_PLAN = [
+    # (count, from v, to v, label) — the ruling's own hierarchy.
+    (5, 0.00, 0.20, "root"),      # heavy proximal
+    (6, 0.20, 0.50, "ocular"),    # ocular / midsection
+    (9, 0.50, 0.80, "mid"),       # flexible mid/distal
+    (8, 0.80, 1.00, "tip"),       # highly flexible tip
+]
+
+
+def build_rig(col, cage, extras):
+    arm_data = bpy.data.armatures.new("TENTACLE_RIG")
+    arm = bpy.data.objects.new("TENTACLE_RIG", arm_data)
+    col.objects.link(arm)
+    bpy.context.view_layer.objects.active = arm
+    bpy.ops.object.mode_set(mode="EDIT")
+    edit = arm_data.edit_bones
+    spine = []
+    prev = None
+    for (count, v0, v1, label) in BONE_PLAN:
+        for i in range(count):
+            a = v0 + (v1 - v0) * (i / float(count))
+            b = v0 + (v1 - v0) * ((i + 1) / float(count))
+            bone = edit.new("DEF_%s_%02d" % (label, i))
+            bone.head = (0.0, a * LENGTH, 0.0)
+            bone.tail = (0.0, b * LENGTH, 0.0)
+            # B-Bones: the flesh bends smoothly between few controls (§14).
+            bone.bbone_segments = 4
+            if prev is not None:
+                bone.parent = prev
+                bone.use_connect = True
+            prev = bone
+            spine.append((bone.name, a, b))
+    # The secondary rigs. Each is parented to whichever spine bone actually
+    # covers its place on the body, so it rides the flesh.
+    def bone_for(v):
+        for (name, a, b) in spine:
+            if a <= v <= b:
+                return name
+        return spine[-1][0]
+
+    for (name, v, a_ang, length) in extras:
+        bone = edit.new(name)
+        pos, nrm = frame_at(v, a_ang)
+        bone.head = pos
+        bone.tail = pos + nrm * max(0.008, length)
+        bone.parent = edit[bone_for(v)]
+        bone.use_connect = False
+    bpy.ops.object.mode_set(mode="OBJECT")
+    # Twist controls (§15): the roll is distributed root 10 / mid 30 /
+    # distal 60, recorded on the bones so the animator does not dump a whole
+    # rotation into one joint.
+    for (name, a, b) in spine:
+        pb = arm.pose.bones.get(name)
+        if pb is None:
+            continue
+        t = (a + b) * 0.5
+        share = 0.10 if t < 0.25 else (0.30 if t < 0.62 else 0.60)
+        pb["twist_share"] = share
+    return arm, spine
+
+
+def skin(cage, arm, others):
+    """Bind the cage and every system to the rig. The cage takes automatic
+    weights; the separate systems are single-bone children, because a lid or
+    a gold plate is a rigid piece riding on flesh, not something that
+    stretches."""
+    bpy.ops.object.select_all(action="DESELECT")
+    cage.select_set(True)
+    arm.select_set(True)
+    bpy.context.view_layer.objects.active = arm
+    try:
+        bpy.ops.object.parent_set(type="ARMATURE_AUTO")
+    except RuntimeError:
+        mod = cage.modifiers.new("Armature", "ARMATURE")
+        mod.object = arm
+    for obj in others:
+        mod = obj.modifiers.new("Armature", "ARMATURE")
+        mod.object = arm
+
+
 def main():
     clear_scene()
     random.seed(20260822)
@@ -862,6 +966,21 @@ def main():
     dendrites = build_dendrites(dend_col)
     crystals = build_crystals(crystal_col)
     membrane = build_membrane(membrane_col)
+    # §14: the rig, and everything bound to it.
+    rig_col = collection("RIG", root_col)
+    extras = [("CTL_EYE", EYE_V, ORBIT_U, GLOBE_R * 1.4),
+              ("CTL_LID_DORSAL", EYE_V, ORBIT_U + 1.15, GLOBE_R),
+              ("CTL_LID_VENTRO", EYE_V, ORBIT_U - 1.75, GLOBE_R),
+              ("CTL_LID_NICT", EYE_V, ORBIT_U - 0.20, GLOBE_R),
+              ("CTL_MEMBRANE", 0.02, 0.0, 0.05)]
+    for idx, (gv, ga, kind, _l, _w, _r, _ro, seed) in enumerate(GOLD):
+        if kind in ("brow", "support"):
+            extras.append(("CTL_GOLD_%02d" % seed, gv, ga, 0.02))
+    arm, spine = build_rig(rig_col, cage, extras)
+    movable = eyes + lids + cilia + suckers + gold + dendrites + crystals + membrane
+    skin(cage, arm, movable)
+    log("rig: %d deform bones, %d secondary, %d bound objects"
+        % (len(spine), len(extras), len(movable)))
     log("eye %d + lids %d, cilia %d, suckers %d, gold %d, dendrites %d, crystals %d, membrane %d"
         % (len(eyes), len(lids), len(cilia), len(suckers), len(gold), len(dendrites),
            len(crystals), len(membrane)))

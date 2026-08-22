@@ -1967,6 +1967,25 @@ reveal anatomy and must not be responsible for inventing it.
 - **TB-15 OPEN — clearance test** through the nine canonical poses before
   final polish.
 - **TB-16 OPEN — the grey test**, which gates the whole programme.
+- **TB-17 RULED 2026-08-22 — the procedural tentacle is SHELVED, and
+  becomes grist.** Owner: *"let's shelve the procedural tentacle and maybe
+  use it as the grist for many small tentacles we can spawn across a
+  surface."* The shader-driven creature
+  (`dream_tentacle_controller.gd` and its rig/behaviour/eye/gold systems)
+  stops being the hero. Its real value is that it is CHEAP AND ENTIRELY
+  PROCEDURAL — a limb with no authored asset behind it — which is exactly
+  what a swarm needs. It is therefore re-purposed as **DF-13**, and the
+  modelled creature (TB-1…TB-16) becomes the single hero.
+
+- **DF-13 OPEN — SURFACE TENDRILS (from the shelved procedural limb).**
+  Many small tendrils spawned across a surface where the Dream Field's
+  cross-section meets it: each a scaled-down instance of the procedural
+  rig and behaviour (a spine of a few joints, an emergence, a brief
+  investigation of whatever is nearest, a withdrawal), driven by the same
+  `DreamFieldState` and sharing the hero's material stack. This is what
+  makes the encroachment read as **one body meeting our space in a hundred
+  places at once** rather than a stain, and it answers DF-4's "high
+  intensity → actual new anatomy" with anatomy that already exists.
 
 ### DF — THE DREAM FIELD (owner direction 2026-08-22, MAJOR)
 

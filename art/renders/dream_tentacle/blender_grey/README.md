@@ -68,3 +68,46 @@ skeletal plates with mass; the three lids are present but not
 distinguishable in a still; and the distal half of the limb is still too
 uniform to hold interest. Those are the next corrections, and none of them
 is allowed near a shader until this sheet says otherwise.
+
+## TB-12 and the corrections the test forced (2026-08-22, second pass)
+
+Three faults from the previous sheet, and what each turned out to be:
+
+**The gold read as thin fins.** Correcting it by raising the pieces turned
+them into HORNS — the sheet caught that immediately. The mistake was
+dimensional: a plate is *long, wide and thick*, never tall. Rise is only how
+far the crown stands proud of the skin (1–2.5 cm), and the mass has to come
+from the footprint and the section. The pieces are wider and longer now,
+with a rounder crown, a subtle spine ridge and a genuinely thick underside
+that stays below the skin, seated so only the crown shows.
+
+**The lids were not distinguishable.** They are scaled to the ORBIT rather
+than the globe now, with resting closures that leave real geometry
+overhanging at full open — the ruling's requirement that a still contain
+evidence of three closure systems.
+
+**The distal half was uniform.** The profile past the station is now a
+rhythm rather than a taper: pinch, swell, pinch, swell, pinch, swell, the
+knuckle's waist, the knuckle, the narrowing, and a club that flares.
+
+**The rig (§14–§15).** Twenty-eight deform bones — five heavy proximal, six
+ocular, nine flexible mid/distal, eight highly flexible tip — as B-Bones
+with four segments each, so the flesh bends smoothly between few controls.
+Nine secondary bones for the eye, the three lids, the orbital gold and the
+membrane, each parented to whichever spine bone actually covers its place
+on the body. Twist is distributed on the bones as the ruling specifies —
+root 10 %, mid 30 %, distal 60 % — rather than dumped into one joint. The
+cage takes automatic weights; the 95 separate system objects ride as
+armature-bound rigid pieces, because a lid or a gold plate is a rigid thing
+on flesh, not something that stretches.
+
+Exported at 3.0 MB and **verified importing into Godot** with no errors.
+
+**Where the test stands.** The three-quarter view now reads as an animal:
+an ocular station with the eye in a real socket under a brow, gold plates
+lying along the flesh with visible mass, swept cilia, a ribbed shaft with a
+swell-and-pinch rhythm, a sucker row on the ventral club, and a membrane
+bowl at the root. It is not finished — the flesh wants the sculpt pass
+(§3's tertiary scale), the crystals are still sparse punctuation rather
+than organs, and nothing has been posed through §23's clearance tests — but
+it is past the point where a shader would be inventing the anatomy.
