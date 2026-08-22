@@ -111,6 +111,40 @@ func _run() -> void:
 			packed.size() == DreamFieldState.MAX_LOBES
 			and int(m.get_shader_parameter("df_lobe_count")) == st.lobes.size())
 	# --- the switch -------------------------------------------------------
+	# DF-13: the tendrils exist, are driven by the same field, and spawn
+	# ONLY where a ray from inside a live lobe actually strikes matter.
+	var tend = enc.get("surface_tendrils")
+	_check("the field spawns surface tendrils", tend != null
+			and tend.get_node_or_null("Tendrils") != null)
+	if tend != null:
+		await get_tree().create_timer(4.0).timeout
+		var tc: Dictionary = tend.census()
+		print("[tendrils] %s" % [tc])
+		_check("tendrils are born on surfaces and live a bounded life (%d spawned, %d live)"
+				% [int(tc.spawned), int(tc.live)],
+				int(tc.spawned) >= 1 and int(tc.live) <= int(tc.max))
+	# --- the field must not go silent ------------------------------------
+	# It did. `_reseed_absent` used to re-seed every lobe that was not
+	# currently present — including the ones still on their way in — and at a
+	# cadence faster than the slice drift that is a receding horizon: the
+	# field surfaced once at startup and never again. Sixty seconds of play
+	# produced zero new lobes. This check is the guard.
+	var surfaced_before := field.lobes_surfaced
+	await get_tree().create_timer(12.0).timeout
+	_check("the field keeps surfacing new anatomy rather than going silent (%d -> %d)"
+			% [surfaced_before, field.lobes_surfaced],
+			field.lobes_surfaced > surfaced_before)
+	# --- and it stays with the case ---------------------------------------
+	# The body is here FOR SOMEONE. Left to drift it wandered the whole
+	# building and never returned to the flat whose case it belongs to.
+	var near_home := 0
+	if field.home != Vector3.INF:
+		for i in st.lobes.size():
+			if (st.lobes[i].centre as Vector3).distance_to(field.home) < DreamFieldController.HOME_R + 3.0:
+				near_home += 1
+	_check("its lobes stay with the case rather than wandering the building (%d/%d within reach of home)"
+			% [near_home, st.lobes.size()],
+			field.home != Vector3.INF and near_home >= 1)
 	_check("DREAM_FIELD=0 is honoured", field.enabled)
 	_finish()
 

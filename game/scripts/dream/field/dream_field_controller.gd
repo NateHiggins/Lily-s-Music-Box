@@ -44,9 +44,16 @@ var _reseed_clock := 0.0
 var _present := []
 var _clock := 0.0
 var lobes_surfaced := 0
+var _found_body := false
+## Where the case is. The body is HERE FOR SOMEONE — it is attending to one
+## resident — so its lobes must keep coming back to that flat instead of
+## drifting off across the building and never returning. (Observed: over
+## sixty seconds of play not one lobe surfaced in the case flat.)
+var home := Vector3.INF
+const HOME_R := 7.0
 
 
-func setup(seed_v: int, rect: Vector4, y: float) -> void:
+func setup(seed_v: int, rect: Vector4, y: float, near: Vector3 = Vector3.INF) -> void:
 	name = "DreamFieldController"
 	enabled = OS.get_environment("DREAM_FIELD") != "0"
 	_rng.seed = seed_v
@@ -57,7 +64,15 @@ func setup(seed_v: int, rect: Vector4, y: float) -> void:
 	_present.resize(MAX_LOBES)
 	for i in MAX_LOBES:
 		_present[i] = false
-	_seed_lobes(Vector3((rect.x + rect.z) * 0.5, y + 1.4, (rect.y + rect.w) * 0.5))
+	# Seed where the body will actually be. At startup the living field has
+	# not grown yet, so its nodes are empty and the storey's CENTRE is the
+	# only fallback — which put every lobe in the atrium and every tendril
+	# with it. The caller passes somewhere better.
+	var around := Vector3((rect.x + rect.z) * 0.5, y + 1.4, (rect.y + rect.w) * 0.5)
+	if near != Vector3.INF:
+		around = near
+		home = near
+	_seed_lobes(around)
 
 
 ## Lobes are placed ON the organism where there is one, and otherwise in the
@@ -105,6 +120,11 @@ func _physics_process(delta: float) -> void:
 				lobe_surfaced.emit(i, l.centre, float(l.radius))
 			else:
 				lobe_withdrew.emit(i, l.centre)
+	# Until the organism has grown, keep pulling the absent lobes toward
+	# where the body is going to be, so the field finds it quickly.
+	if not _found_body and living_field != null and living_field.nodes.size() > 0:
+		_found_body = true
+		_reseed_clock = RESEED_S
 	_reseed_clock += delta
 	if _reseed_clock >= RESEED_S:
 		_reseed_clock = 0.0
@@ -123,15 +143,31 @@ func _reseed_absent(around: Vector3) -> void:
 		if state.lobe_present(i):
 			continue
 		var l: Dictionary = state.lobes[i]
+		# ONLY recycle a lobe the slice has already PASSED. A lobe that is
+		# merely still ahead of us is on its way in, and re-seeding it pushes
+		# it further ahead — which, at a cadence faster than the drift, is a
+		# receding horizon: the field surfaces once at startup and then goes
+		# silent forever. (Found because the tendrils' `spawned` froze at 26.)
+		if float(l.w_offset) > state.dream_w - float(l.radius):
+			continue
 		var anchor := around
+		if home != Vector3.INF:
+			anchor = home
+		# Prefer the organism's own body, but only the part of it that is
+		# near the case: a node three floors away is not this case's dream.
 		if living_field != null and living_field.nodes.size() > 0:
-			anchor = living_field.nodes[_rng.randi() % living_field.nodes.size()]
+			var near_nodes: Array = []
+			for n in living_field.nodes:
+				if home == Vector3.INF or (n as Vector3).distance_to(home) < HOME_R:
+					near_nodes.append(n)
+			if near_nodes.size() > 0:
+				anchor = near_nodes[_rng.randi() % near_nodes.size()]
 		l.centre = anchor + Vector3(_rng.randf_range(-1.6, 1.6),
 				_rng.randf_range(-0.6, 1.2), _rng.randf_range(-1.6, 1.6))
 		l.radius = _rng.randf_range(0.35, 1.25)
 		l.kind = kinds[_rng.randi() % kinds.size()]
 		# Put it back BEHIND the current slice so it will surface again.
-		l.w_offset = state.dream_w + _rng.randf_range(1.6, 3.4)
+		l.w_offset = state.dream_w + _rng.randf_range(0.5, 1.9)
 		l.intensity = _rng.randf_range(0.55, 1.0)
 		l.seed = _rng.randf_range(0.0, 40.0)
 		_present[i] = false

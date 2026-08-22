@@ -21,8 +21,8 @@ const ANCHOR_N := Vector3(1.0, 0.0, 0.0)
 ## 2A's main room, in Godot axes, inset from the walls: the camera is a
 ## person standing in a flat and may not leave it. (Line of sight alone let
 ## the first pass photograph the creature from inside the brickwork.)
-const ROOM_MIN := Vector3(-13.45, 3.45, 0.65)
-const ROOM_MAX := Vector3(-5.75, 6.10, 6.05)
+const ROOM_MIN := Vector3(-13.45, 3.45, -9.40)
+const ROOM_MAX := Vector3(13.45, 6.10, 9.40)
 
 var root: Node3D
 var cam: Camera3D
@@ -99,7 +99,7 @@ func _run() -> void:
 	_look_at_from(ANCHOR + Vector3(1.4, -0.2, 0.5), ANCHOR)
 	await get_tree().create_timer(warm).timeout
 	_tentacle = _find_tentacle()
-	if _tentacle == null:
+	if _tentacle == null and OS.get_environment("SWEEP_MODE") != "tendrils":
 		printerr("[SWEEP] no tentacle — nothing to photograph")
 		get_tree().quit(1)
 		return
@@ -112,11 +112,16 @@ func _run() -> void:
 				if is_instance_valid(m):
 					(m as ShaderMaterial).set_shader_parameter("living_amount", 0.0)
 		print("[SWEEP] living muted for diagnosis")
-	print("[SWEEP] tentacle out: %s" % [_tentacle.census()])
-	print("[SWEEP] station %s  face_u %.3f  normal %s  gaze %s" % [_tentacle.ocular.position,
-			_tentacle.ocular.eye_u, _tentacle.ocular.normal, _tentacle.ocular.gaze])
-	if OS.get_environment("SWEEP_MODE") == "set":
+	if _tentacle != null:
+		print("[SWEEP] tentacle out: %s" % [_tentacle.census()])
+	if _tentacle != null:
+		print("[SWEEP] station %s  face_u %.3f  normal %s" % [_tentacle.ocular.position,
+				_tentacle.ocular.eye_u, _tentacle.ocular.normal])
+	var mode := OS.get_environment("SWEEP_MODE")
+	if mode == "set":
 		await _frame_set()
+	elif mode == "tendrils":
+		await _tendril_shots()
 	else:
 		await _sweep()
 	print("[SWEEP] DONE %d frames -> %s" % [_frame, _dir])
@@ -322,3 +327,85 @@ func _hide_overlays(node: Node) -> void:
 		if child is CanvasLayer and child.name != "SweepLayer":
 			(child as CanvasLayer).visible = false
 		_hide_overlays(child)
+
+
+## DF-13: photograph the surface tendrils WHERE THEY ACTUALLY ARE. Guessing
+## a stand's coordinates put the camera in a bathroom; the harness reads a
+## live tendril's own anchor and frames that.
+func _tendril_shots() -> void:
+	var enc: Node = root.get("apartment_encroachment")
+	var tend = enc.get("surface_tendrils") if enc != null else null
+	if tend == null:
+		printerr("[SWEEP] no tendril system")
+		return
+	# WAIT FOR THE REAL EVENT. The patches concentrate, so at any instant most
+	# of the storey has none; the acceptance frame is of a patch that has
+	# actually surfaced in the LIT flat, so the harness waits for one rather
+	# than photographing whatever happens to exist at second sixteen.
+	var lit_min := Vector3(-13.45, 3.45, 0.65)
+	var lit_max := Vector3(-5.75, 6.10, 6.05)
+	var anchors: Array = []
+	for attempt in 120:
+		await get_tree().create_timer(0.5).timeout
+		anchors.clear()
+		for i in 24:
+			if tend._life[i] >= 0.0:
+				anchors.append({"p": tend._anchor[i], "n": tend._normal[i]})
+		var in_flat := 0
+		for a in anchors:
+			var p: Vector3 = a.p
+			if p.x >= lit_min.x and p.y >= lit_min.y and p.z >= lit_min.z 					and p.x <= lit_max.x and p.y <= lit_max.y and p.z <= lit_max.z 					and absf((a.n as Vector3).y) < 0.6:
+				in_flat += 1
+		if attempt % 10 == 0:
+			print("[SWEEP] waiting: %s, %d in the lit flat" % [tend.census(), in_flat])
+		if in_flat >= 3:
+			break
+	if anchors.is_empty():
+		printerr("[SWEEP] no live tendrils to photograph")
+		return
+	print("[SWEEP] %d live tendrils; first at %s" % [anchors.size(), anchors[0].p])
+	# Photograph the DENSEST PATCH INSIDE THE LIT FLAT. The centroid of two
+	# dozen tendrils spread over a storey is a point in a wall, and a patch in
+	# an unlit room photographs as black — neither is the acceptance test. The
+	# test is: standing in 2A, do I see limbs coming out of the wall?
+	var best := -1
+	var best_n := -1
+	for i in anchors.size():
+		var p: Vector3 = anchors[i].p
+		if p.x < lit_min.x or p.y < lit_min.y or p.z < lit_min.z 				or p.x > lit_max.x or p.y > lit_max.y or p.z > lit_max.z:
+			continue
+		# Prefer a patch on a WALL: standing off from a floor or ceiling patch
+		# puts the camera inside the dream volume, which photographs as a
+		# dark sphere and shows nothing.
+		if absf((anchors[i].n as Vector3).y) > 0.6:
+			continue
+		var n := 0
+		for j in anchors.size():
+			if (anchors[j].p as Vector3).distance_to(p) < 0.7:
+				n += 1
+		if n > best_n:
+			best_n = n
+			best = i
+	if best < 0:
+		printerr("[SWEEP] no tendrils in the lit flat this run")
+		return
+	print("[SWEEP] densest lit patch: %d tendrils at %s" % [best_n, anchors[best].p])
+	anchors = [anchors[best]] + anchors
+	# The centroid, so several are in one frame, and a close pair.
+	var shots := [
+		["T1_field_of_tendrils", anchors[0].p, 2.30],
+		["T2_close", anchors[0].p, 0.30],
+		["T3_grazing", anchors[0].p, 0.42],
+	]
+	for shot in shots:
+		var aim: Vector3 = shot[1]
+		var prefer: Vector3 = anchors[0].n if str(shot[0]) != "T3_grazing" 				else (anchors[0].n as Vector3).cross(Vector3.UP).normalized()
+		var dir := _view_dir(aim, prefer, float(shot[2]))
+		_look_at_from(aim + dir * float(shot[2]) + Vector3.UP * 0.04, aim)
+		await get_tree().create_timer(0.35).timeout
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		var path := _dir.path_join("%s.png" % str(shot[0]))
+		get_viewport().get_texture().get_image().save_png(path)
+		_frame += 1
+		print("[SWEEP] %s at %s" % [str(shot[0]), aim])
