@@ -109,3 +109,17 @@ rows were bare StandardMaterial3D rather than "production minus this class"
 bare material); and its "2A" stands stood in 2D — the layout's y is Godot's
 −z — so the masonry frames there are 2D's walls. Both fixed; the 2A frames
 here are 2A.
+
+## Addendum 2026-08-22 — the encroachment is a state of the one surface
+
+WK-1's grammar moved into `orison_surface.gdshaderinc` as the
+`encroachment` group (`os_encroach`: the wicking plate from skirting and
+corners, leader lines ahead of the front, gilt on the torn survival edge,
+the late blanks; its membrane feeds the cutout's alpha beside corruption's).
+`ApartmentEncroachment._material_for` now builds each finish through
+`SurfacePass.surface_for` with the finish class's own recipe plus the
+encroachment uniforms — so an encroached finish also carries the self-detail
+tier and the standing age, and there is no second wall shader to keep in
+step. `wall_encroachment.gdshader` is kept as the grammar's reference;
+nothing binds it. `sheet_encroachment_recipe.jpg`: 2A with Mina forced to
+0.9 through the one surface. Test 13/13, WalkTest PASS.

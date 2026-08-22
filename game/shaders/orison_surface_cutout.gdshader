@@ -36,7 +36,7 @@ void fragment() {
 		a = min(a, 1.0 - smoothstep(0.25, 0.6, s.damage));
 	}
 	if (corruption_restores) {
-		a = max(a, s.corruption);
+		a = max(a, max(s.corruption, s.membrane));
 	}
 	ALPHA = a;
 	if (cutout_mode == 2) {

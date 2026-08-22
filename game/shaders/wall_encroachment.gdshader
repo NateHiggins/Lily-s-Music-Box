@@ -1,3 +1,7 @@
+// SUPERSEDED 2026-08-22: the encroachment is now a STATE of the one layered
+// surface (orison_surface.gdshaderinc, `encroachment` group, os_encroach) and
+// ApartmentEncroachment builds its finishes through SurfacePass.surface_for.
+// This file is kept as the reference of the WK-1 grammar; nothing binds it.
 shader_type spatial;
 render_mode cull_back, depth_draw_opaque, diffuse_burley, specular_schlick_ggx;
 

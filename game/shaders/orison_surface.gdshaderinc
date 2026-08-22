@@ -197,6 +197,30 @@ uniform float clearcoat_roughness : hint_range(0.0, 1.0) = 0.3;
 uniform float anisotropy : hint_range(-1.0, 1.0) = 0.0;
 group_uniforms;
 
+// -------------------------------------------------------------- encroachment
+// WK-1 as a state of the one surface (was wall_encroachment.gdshader): a
+// case's substance plates reach into the flat's wall finishes — the wicking
+// plate rising from the skirting and the room's corners with leader lines
+// ahead of its front, restoring torn plaster as a membrane; gilt along the
+// torn survival edge once the case is well along; calm blanks late.
+// `intensity` is the case's stage (ApartmentEncroachment), `unit_rect` clips
+// the creep to the flat in world xz, `floor_y` is the storey's floor.
+group_uniforms encroachment;
+uniform bool has_encroachment = false;
+uniform sampler2D plate_a_albedo : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D plate_a_normal : hint_normal, filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D plate_b_albedo : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D plate_c_albedo : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D plate_c_normal : hint_normal, filter_linear_mipmap_anisotropic, repeat_enable;
+uniform float plate_tile_m = 1.6;
+uniform float intensity : hint_range(0.0, 1.0) = 0.0;
+uniform vec4 unit_rect = vec4(-1.0, -1.0, 1.0, 1.0);
+uniform float floor_y = 0.0;
+uniform vec3 ink_tint : source_color = vec3(0.20, 0.19, 0.30);
+uniform vec3 gilt_tint : source_color = vec3(0.86, 0.66, 0.30);
+uniform float breath_hz = 0.05;
+group_uniforms;
+
 varying vec3 v_world;
 varying vec3 v_wnormal;
 
@@ -211,6 +235,7 @@ struct OrisonSurface {
 	vec3 backlight;
 	float corruption;   // the corruption field, for cutout restore
 	float damage;       // the damage field, for cutout tearing
+	float membrane;     // the encroachment's restored surface, for the cutout
 };
 
 // ------------------------------------------------------------------ helpers
@@ -296,6 +321,66 @@ vec4 os_fields(vec4 raw, vec4 amount, vec4 threshold, vec4 softness) {
 float os_height_at(vec2 uv, vec2 ddx, vec2 ddy) {
 	float h = textureGrad(height_tex, uv, ddx, ddy).r;
 	return clamp((h - height_range.x) / max(0.02, height_range.y - height_range.x), 0.0, 1.0);
+}
+
+// Per-2 m-cell hashed offset so a 1.6 m plate does not repeat across a wall.
+vec2 os_antitile(vec2 uv) {
+	vec2 cell = floor(uv * 0.5);
+	float h = fract(sin(dot(cell, vec2(127.1, 311.7))) * 43758.5453);
+	return uv + vec2(h * 5.17, fract(h * 7.31) * 3.83);
+}
+
+// WK-1's grammar over the resolved surface. Returns the membrane (where the
+// wick restores a torn finish); edits albedo / rough / metal / n_ts in place.
+float os_encroach(inout vec3 albedo, inout float rough, inout float metal,
+		inout vec3 n_ts, float finish_alpha, vec3 n, float time) {
+	bool inside = v_world.x >= unit_rect.x && v_world.x <= unit_rect.z
+			&& v_world.z >= unit_rect.y && v_world.z <= unit_rect.w;
+	if (intensity <= 0.001 || !inside) {
+		return 0.0;
+	}
+	vec2 puv = os_antitile(os_box_uv(v_world, n) / max(0.05, plate_tile_m));
+	float height = max(0.0, v_world.y - floor_y);
+	// Distance to the wall's own ENDS along its axis: the corners wick.
+	float to_edge = abs(n.z) > 0.5
+			? min(v_world.x - unit_rect.x, unit_rect.z - v_world.x)
+			: min(v_world.z - unit_rect.y, unit_rect.w - v_world.z);
+	float breath = 0.5 + 0.5 * sin(time * 6.2831853 * breath_hz + v_world.x * 0.4);
+	float field = dream_corruption_fbm3(v_world * 3.4 + 7.0);
+	float fine = dream_corruption_fbm3(v_world * 9.0 + 1.0);
+
+	// plate_a: the wicking substance
+	float rise = 1.0 - smoothstep(0.0, 0.35 + 1.25 * intensity, height);
+	float corner = 1.0 - smoothstep(0.0, 0.35 + 0.95 * intensity, to_edge);
+	float reach = max(rise, corner) * (0.50 + 0.50 * intensity);
+	float wick_drive = reach * 0.60 + field * 0.50 + fine * 0.18 - 0.20 + 0.03 * breath;
+	float wick = smoothstep(0.49, 0.56, wick_drive);
+	float front_band = smoothstep(0.38, 0.50, wick_drive) * (1.0 - wick);
+	float lines = dream_corruption_vessels(v_world * 2.6, 0.31, 0.96) * front_band
+			* smoothstep(0.15, 0.45, intensity);
+	vec3 ink = texture(plate_a_albedo, puv).rgb * ink_tint * 2.6;
+	albedo = mix(albedo, ink, wick * 0.88);
+	albedo = mix(albedo, ink_tint * 0.6, lines * 0.85);
+	rough = mix(rough, 0.58, wick);
+	vec2 ink_n = (texture(plate_a_normal, puv).rg * 2.0 - 1.0) * normal_scale;
+	n_ts.xy = mix(n_ts.xy, ink_n, wick * 0.7);
+
+	// plate_c: gilt along the torn edge of the survival mask
+	float torn = smoothstep(0.30, 0.55, finish_alpha) * (1.0 - smoothstep(0.55, 0.85, finish_alpha));
+	float gilt = torn * smoothstep(0.28, 0.55, intensity) * smoothstep(0.35, 0.6, field + 0.2 * intensity);
+	albedo = mix(albedo, texture(plate_c_albedo, puv * 1.7).rgb * gilt_tint * 1.3, gilt);
+	metal = mix(metal, 0.9, gilt);
+	rough = mix(rough, 0.32, gilt);
+	n_ts.xy = mix(n_ts.xy, (texture(plate_c_normal, puv * 1.7).rg * 2.0 - 1.0) * normal_scale, gilt * 0.6);
+
+	// plate_b: the blank, spared
+	float blank_drive = dream_corruption_fbm3(v_world * 1.6 + 19.0) * 0.7
+			+ smoothstep(0.55, 1.0, intensity) * 0.22 - 0.62;
+	float blank = smoothstep(0.04, 0.10, blank_drive) * smoothstep(0.55, 0.8, intensity);
+	albedo = mix(albedo, texture(plate_b_albedo, puv * 0.8).rgb, blank);
+	rough = mix(rough, 0.72, blank);
+	n_ts.xy *= 1.0 - blank * 0.8;
+	return wick;
 }
 
 // --------------------------------------------------------------------- work
@@ -539,6 +624,12 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 	}
 	s.emission += e;
 
+	// ---- the encroachment, over everything above (WK-1 as a state) ---------
+	float membrane = 0.0;
+	if (has_encroachment) {
+		membrane = os_encroach(albedo, rough, metal, n_ts, alpha, wn, time);
+	}
+
 	// ---- resolve -----------------------------------------------------------
 	n_ts.z = sqrt(max(0.0, 1.0 - dot(n_ts.xy, n_ts.xy)));
 	s.normal = normalize(tangent * n_ts.x + binormal * n_ts.y + normal * n_ts.z);
@@ -550,6 +641,7 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 	s.backlight = albedo * translucency * (1.0 - g);
 	s.corruption = corrupt;
 	s.damage = damage;
+	s.membrane = membrane;
 
 	if (debug_view == 1) {
 		s.albedo = f1.rgb; s.emission = f1.rgb; s.rough = 1.0; s.metal = 0.0;

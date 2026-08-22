@@ -20,7 +20,11 @@ extends Node
 ## and held to a residue once resolved. ENCROACH=0 disables the pass;
 ## ENCROACH_FORCE="mina:0.8,peter:0.3" pins intensities for frames and tests.
 
-const SHADER := preload("res://shaders/wall_encroachment.gdshader")
+## Since 2026-08-22 the encroachment is a STATE of the one layered surface
+## (orison_surface_cutout with the `encroachment` group), built through
+## SurfacePass.surface_for with the finish class's own recipe; the former
+## wall_encroachment.gdshader is kept as the reference of the grammar.
+const SurfacePassScript := preload("res://scripts/building/surface_pass.gd")
 const PROFILES_PATH := "res://data/dream_profiles.json"
 const PLATE_ROOT := "res://assets/dream/incarnations"
 const BEACHHEAD_AT := 0.3
@@ -267,24 +271,19 @@ func _plates_for(inc: String) -> Dictionary:
 
 func _material_for(original: BaseMaterial3D, plates: Dictionary, rect: Vector4,
 		floor_y: float) -> ShaderMaterial:
-	var m := ShaderMaterial.new()
-	m.shader = SHADER
-	m.set_shader_parameter("finish_albedo", original.albedo_texture)
-	if original.normal_texture != null:
-		m.set_shader_parameter("finish_normal", original.normal_texture)
-		m.set_shader_parameter("finish_normal_scale", original.normal_scale)
-	else:
-		m.set_shader_parameter("finish_normal_scale", 0.0)
-	if original.roughness_texture != null:
-		m.set_shader_parameter("finish_rough", original.roughness_texture)
-	m.set_shader_parameter("alpha_cutoff", original.alpha_scissor_threshold
-			if original.transparency == BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR else 0.0)
+	# The finish class's shipping recipe (self-detail, the standing age) plus
+	# the encroachment group: the same surface, one more state.
+	var recipe: Dictionary = {}
+	for cls in SurfacePassScript.CLASSES:
+		if str(cls.key) == "finish":
+			recipe = (cls.recipe as Dictionary).duplicate()
+	recipe["has_encroachment"] = true
+	recipe["unit_rect"] = rect
+	recipe["floor_y"] = floor_y
+	recipe["intensity"] = 0.0
 	for key in plates:
-		m.set_shader_parameter("plate_" + key, plates[key])
-	m.set_shader_parameter("unit_rect", rect)
-	m.set_shader_parameter("floor_y", floor_y)
-	m.set_shader_parameter("intensity", 0.0)
-	return m
+		recipe["plate_" + key] = plates[key]
+	return SurfacePassScript.surface_for(original, recipe)
 
 
 ## The case's authored anomaly prop: the beachhead takes the first plate.

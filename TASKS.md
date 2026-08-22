@@ -1983,9 +1983,14 @@ probe is a third. MX makes them one system.
   governor's prop-tier lever, and `ApartmentEncroachment.reach_props` gives
   every layered prop in a case flat the case's states, clipped to the flat
   by the new `state_rect` (933 draws across six flats;
-  `art/renders/apartment_encroachment_wk1/README.md` addendum). OPEN: the
-  22 encroached finishes as a corruption recipe; metal states photographed
-  on metal.** Masonry and finish quads
+  `art/renders/apartment_encroachment_wk1/README.md` addendum). DONE
+  2026-08-22: the 22 encroached finishes are a STATE of the one surface —
+  WK-1's grammar ported into `orison_surface.gdshaderinc` as the
+  `encroachment` group (`os_encroach`, membrane into the cutout alpha),
+  `ApartmentEncroachment._material_for` builds through
+  `SurfacePass.surface_for` with the finish recipe; `wall_encroachment.gdshader`
+  kept as reference, nothing binds it; test 13/13. OPEN: metal states
+  photographed on metal.** Masonry and finish quads
   first (the flashlight sees them most), then floors, trims, props. Each class
   ships with before/after frames under the moving lamp from fixed stands, the
   perf station row, and an A/B switch; colour and art direction are preserved
