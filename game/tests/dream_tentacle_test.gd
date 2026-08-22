@@ -42,8 +42,9 @@ func _run() -> void:
 	_check("the body is a detailed mesh under the Dream entity stack", flesh != null
 			and flesh.mesh.get_faces().size() >= 12000
 			and (flesh.material_override as ShaderMaterial).shader.resource_path.ends_with("dream_tentacle.gdshader"))
-	_check("the anatomy is composed: collars, eye, suckers, halos, membrane",
-			t.get_node_or_null("Collars") != null and t.get_node_or_null("Eye") != null
+	_check("the anatomy is composed: a grown gold skeleton with dendrites, eye, suckers, halos, membrane",
+			t.get_node_or_null("GoldPlates") != null and t.get_node_or_null("GoldDendrites") != null
+			and t.get_node_or_null("Eye") != null
 			and t.get_node_or_null("Suckers") != null and t.get_node_or_null("Halos") != null
 			and t.get_node_or_null("Membrane") != null)
 	_check("it anchors on the wall with its normal into the room",

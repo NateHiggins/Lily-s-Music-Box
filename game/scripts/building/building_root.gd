@@ -298,6 +298,7 @@ func _ready() -> void:
 	# is a child of the test node. That is how the torch's reaction to
 	# intrusions came to be wired to a director it could never find.
 	add_to_group("building_root")
+	_announce_renderer()
 	var f := FileAccess.open("res://data/building_layout.json", FileAccess.READ)
 	layout = JSON.parse_string(f.get_as_text())
 	_build_environment()
@@ -768,6 +769,22 @@ func _build_environment() -> void:
 	# meant no source in the building ever bloomed. Below their output,
 	# and the bulbs finally have haloes.
 	env.glow_hdr_threshold = 0.85
+	# Forward+ only (owner ruling 2026-08-22). SSAO gives the Dream's
+	# sockets and the building's corners real contact darkness; SSIL gives
+	# one bounce, which is what makes a tungsten pool feel like it is in a
+	# room. Both are cheap here: the frame is draw-call bound.
+	if RenderingServer.get_current_rendering_method() == "forward_plus":
+		env.ssao_enabled = true
+		env.ssao_radius = 0.9
+		env.ssao_intensity = 1.6
+		env.ssao_power = 1.4
+		env.ssao_detail = 0.6
+		env.ssao_light_affect = 0.15
+		env.ssil_enabled = true
+		env.ssil_radius = 2.2
+		env.ssil_intensity = 0.75
+		env.ssil_sharpness = 0.98
+		env.ssil_normal_rejection = 1.0
 	var we := WorldEnvironment.new()
 	we.name = "WorldEnvironment"
 	we.environment = env
@@ -2726,3 +2743,20 @@ func _zone_toggle(node: Node3D, eligible: bool,
 	else:
 		_zone_layer_blocks[id] = blocks
 		vi.layers = 0
+
+
+## RENDERER (owner ruling 2026-08-22: Forward+ is canonical; Compatibility
+## is a fallback/porting target, tag `compat-renderer-final`). Godot falls
+## back silently on hardware that cannot run the chosen method, and we must
+## never evaluate a Forward+ feature while looking at the fallback: this
+## says loudly, once, which renderer is actually drawing.
+func _announce_renderer() -> void:
+	var want := str(ProjectSettings.get_setting("rendering/renderer/rendering_method", ""))
+	var got := str(RenderingServer.get_current_rendering_method())
+	if got == want:
+		print("[RENDER] %s" % got)
+		return
+	push_warning("RENDERER FALLBACK: project asks for '%s', the driver gave '%s'. "
+			% [want, got] + "Forward+ features (SSS, transmittance, clearcoat, decals, "
+			+ "HDR headroom) are NOT what you are looking at.")
+	printerr("[RENDER] FALLBACK: wanted %s, running %s" % [want, got])

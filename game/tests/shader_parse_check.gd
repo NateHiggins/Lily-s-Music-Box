@@ -15,6 +15,7 @@ const SHADER_PATHS := [
 	"res://shaders/dream_halo.gdshader",
 	"res://shaders/dream_sucker.gdshader",
 	"res://shaders/dream_membrane.gdshader",
+	"res://shaders/dream_gold.gdshader",
 ]
 
 

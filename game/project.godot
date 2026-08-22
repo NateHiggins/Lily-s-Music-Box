@@ -46,7 +46,12 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
+; Owner ruling 2026-08-22 ("fuck compatibility, let's make it cool first"):
+; the Dream's hero anatomy needs real subsurface scattering, transmittance
+; and clearcoat, which are Forward+/Mobile only. The whole building moves
+; with it; the frame was draw-call bound on Compatibility, so the pixel
+; work this buys is not what limits it.
+renderer/rendering_method="forward_plus"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/positional_shadow/atlas_16_bits=false

@@ -21,6 +21,7 @@ const EyeScript := preload("res://scripts/dream/entity/dream_tentacle_eye.gd")
 const HaloScript := preload("res://scripts/dream/entity/dream_halo_controller.gd")
 const SuckerScript := preload("res://scripts/dream/entity/dream_sucker_controller.gd")
 const MembraneScript := preload("res://scripts/dream/entity/dream_membrane.gd")
+const GoldSkeletonScript := preload("res://scripts/dream/entity/dream_gold_skeleton.gd")
 const SensorScript := preload("res://scripts/dream/entity/dream_contact_sensor.gd")
 const TransformerScript := preload("res://scripts/dream/entity/dream_surface_transformer.gd")
 const BehaviorProfileScript := preload("res://scripts/dream/entity/dream_behavior_profile.gd")
@@ -45,10 +46,18 @@ var eye: DreamTentacleEye
 var halo: DreamHaloController
 var suckers: DreamSuckerController
 var membrane: DreamMembrane
+var skeleton: DreamGoldSkeleton
 var sensor: DreamContactSensor
 var transformer: DreamSurfaceTransformer
 
 var clock := 0.0
+## The organism's several clocks (DIRECTION_3 §D): none of these share a
+## period, so nothing in the body beats with anything else.
+const PULSE_S := 1.47
+const BREATH_S := 5.3
+var pulse_phase := 0.0
+var breath_phase := 0.0
+var startle := 0.0
 var grow := 0.0
 var grip := 0.0
 var curl := 0.0
@@ -57,7 +66,6 @@ var target_name := ""
 var deposits := 0
 var _mesh: MeshInstance3D
 var _material: ShaderMaterial
-var _collars: MultiMeshInstance3D
 var _light_eye: OmniLight3D
 var _light_gold: OmniLight3D
 var _light_contact: OmniLight3D
@@ -76,6 +84,10 @@ var toggles := {"breathing": true, "peristalsis": true, "vein_pulse": true, "gol
 		"contact_deformation": true, "surface_conversion": true, "rim": true, "phase_slice": true,
 		"membrane": true, "lights": true, "gray": false, "show_bones": false, "interior": true}
 var _bones: MeshInstance3D
+var _mask_view := 0
+var _probe: ReflectionProbe
+var _probe_recaptured := 0.0
+var _probe_settle := 0.0
 
 
 func setup(living_field, src: int, at: Vector3, normal: Vector3, who: Node3D,
@@ -98,6 +110,9 @@ func setup(living_field, src: int, at: Vector3, normal: Vector3, who: Node3D,
 		toggles.gray = true
 	if OS.get_environment("TENTACLE_BONES") == "1":
 		toggles.show_bones = true
+	var mv := OS.get_environment("TENTACLE_MASK")
+	if not mv.is_empty():
+		_mask_view = mv.to_int()
 	rig = RigScript.new()
 	rig.configure(anchor, anchor_normal, behavior_profile.length_m, seed_phase)
 	rig.tremor_hz = behavior_profile.tremor_hz
@@ -115,7 +130,10 @@ func setup(living_field, src: int, at: Vector3, normal: Vector3, who: Node3D,
 	transformer = TransformerScript.new()
 	transformer.configure(field, source_index, contact_profile)
 	_build_body()
-	_build_collars()
+	# DIRECTION_2 §B / DIRECTION_3 §E: the collars are gone. What replaces
+	# them is a grown mineral skeleton with roots in the flesh.
+	skeleton = GoldSkeletonScript.new()
+	skeleton.build(self, seed_v)
 	eye = EyeScript.new()
 	eye.build(self, seed_v)
 	halo = HaloScript.new()
@@ -127,6 +145,7 @@ func setup(living_field, src: int, at: Vector3, normal: Vector3, who: Node3D,
 	membrane = MembraneScript.new()
 	membrane.build(self, anchor, anchor_normal, seed_phase)
 	_build_lights()
+	_build_probe()
 	material_profile.apply(_material)
 	_spine_prev = rig.pos.duplicate()
 	if player != null:
@@ -171,6 +190,20 @@ func _build_body() -> void:
 	_material.set_shader_parameter("base_radius", DreamTentacleRig.BASE_RADIUS)
 	_material.set_shader_parameter("tip_radius", DreamTentacleRig.TIP_RADIUS)
 	_material.set_shader_parameter("prof", rig.prof)
+	# The mineral roots, so the flesh scars and compresses where metal comes
+	# through (DIRECTION_2 §B2). Packed as (v, u, breadth) per plate.
+	var roots := GoldSkeletonScript.roots()
+	var root_v := PackedFloat32Array()
+	var root_u := PackedFloat32Array()
+	var root_w := PackedFloat32Array()
+	for r in roots:
+		root_v.append(r.x)
+		root_u.append(r.y)
+		root_w.append(r.z)
+	_material.set_shader_parameter("root_v", root_v)
+	_material.set_shader_parameter("root_u", root_u)
+	_material.set_shader_parameter("root_w", root_w)
+	_material.set_shader_parameter("root_n", roots.size())
 	_material.set_shader_parameter("eye_u", DreamTentacleEye.EYE_U)
 	_material.set_shader_parameter("eye_v", DreamTentacleEye.EYE_V)
 	_material.set_shader_parameter("eye_radius_m", DreamTentacleEye.RADIUS_M)
@@ -181,40 +214,6 @@ func _build_body() -> void:
 	_mesh.custom_aabb = AABB(anchor - Vector3(2.5, 2.5, 2.5), Vector3(5.0, 5.0, 5.0))
 	_mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 	add_child(_mesh)
-
-
-## The articulation collars (§3): gold rings hovering a few millimetres
-## above the flesh at each groove, one mesh, placed on the rig each frame.
-func _build_collars() -> void:
-	var mm := MultiMesh.new()
-	mm.transform_format = MultiMesh.TRANSFORM_3D
-	mm.use_custom_data = true
-	var torus := TorusMesh.new()
-	torus.inner_radius = 0.80
-	torus.outer_radius = 1.0
-	torus.rings = 36
-	torus.ring_segments = 10
-	mm.mesh = torus
-	mm.instance_count = COLLARS
-	var m := ShaderMaterial.new()
-	m.shader = SHADER
-	m.set_shader_parameter("seed", seed_phase + 3.0)
-	_collars = MultiMeshInstance3D.new()
-	_collars.name = "Collars"
-	_collars.multimesh = mm
-	# Collars are solid gold: the same stack with the gold coverage at 1.
-	var gold_mat := StandardMaterial3D.new()
-	gold_mat.albedo_color = Color(0.86, 0.66, 0.30)
-	gold_mat.metallic = 1.0
-	gold_mat.roughness = 0.18
-	gold_mat.metallic_specular = 0.9
-	gold_mat.emission_enabled = true
-	gold_mat.emission = Color(1.0, 0.62, 0.18)
-	gold_mat.emission_energy_multiplier = 0.22
-	_collars.material_override = gold_mat
-	_collars.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	_collars.custom_aabb = AABB(anchor - Vector3(2.5, 2.5, 2.5), Vector3(5.0, 5.0, 5.0))
-	add_child(_collars)
 
 
 func _build_lights() -> void:
@@ -241,6 +240,29 @@ func _build_lights() -> void:
 	add_child(_light_contact)
 
 
+## Forward+ (DIRECTION_3 §K): polished metal in a dark room with nothing to
+## reflect reads as flat grey. A small probe on the creature gives the gold
+## and the wet film the room to reflect — the single feature that turns the
+## skeleton from painted-looking into metal.
+func _build_probe() -> void:
+	_probe = ReflectionProbe.new()
+	_probe.name = "DreamProbe"
+	_probe.size = Vector3(4.0, 3.0, 4.0)
+	_probe.origin_offset = Vector3.ZERO
+	_probe.intensity = 1.0
+	_probe.max_distance = 8.0
+	# ONCE, not ALWAYS: a live probe re-renders six faces of the whole
+	# building every frame and hung the device outright. The capture is
+	# re-armed a moment after the creature is out, when the room is lit.
+	_probe.update_mode = ReflectionProbe.UPDATE_ONCE
+	_probe.interior = true
+	_probe.enable_shadows = false
+	_probe.cull_mask = 0xFFFFF
+	_probe.position = Vector3.ZERO
+	_probe.global_position = anchor + anchor_normal * 0.7
+	add_child(_probe)
+
+
 func withdraw() -> void:
 	behavior.withdraw()
 
@@ -259,6 +281,9 @@ func _process(delta: float) -> void:
 
 func _tick(delta: float) -> void:
 	clock += delta
+	pulse_phase = fmod(clock / PULSE_S, 1.0)
+	breath_phase = fmod(clock / BREATH_S, 1.0)
+	startle = maxf(0.0, startle - delta * 0.7)
 	if behavior.state == DreamTentacleBehavior.S.DONE:
 		queue_free()
 		return
@@ -275,6 +300,8 @@ func _tick(delta: float) -> void:
 	# The contact on the object, by what the behaviour is doing.
 	var s := behavior.state
 	var mode := "hover"
+	if behavior.state == DreamTentacleBehavior.S.FLINCH and startle < 0.5:
+		startle = 1.0
 	if s == DreamTentacleBehavior.S.CARESSING:
 		mode = "caress"
 	elif s == DreamTentacleBehavior.S.TASTING:
@@ -302,6 +329,19 @@ func _tick(delta: float) -> void:
 		_spine_prev = rig.pos.duplicate()
 		_prev_clock = clock
 	_schedule_phase_slice(delta)
+	# The probe re-captures periodically rather than every frame: the metal
+	# tracks the room and the creature's own lights without re-rendering six
+	# faces of the building at 60 Hz for a creature that moves this slowly.
+	if _probe != null and grow > 0.5:
+		_probe_recaptured -= delta
+		if _probe_recaptured <= 0.0:
+			_probe_recaptured = 2.0
+			_probe.update_mode = ReflectionProbe.UPDATE_ALWAYS
+			_probe_settle = 0.2
+	if _probe_settle > 0.0:
+		_probe_settle -= delta
+		if _probe_settle <= 0.0 and _probe != null:
+			_probe.update_mode = ReflectionProbe.UPDATE_ONCE
 	# The eye, the halos, the suckers, the membrane, the transformer.
 	eye.set_mode(behavior.eye_mode if toggles.eye_tracking else "watch_object")
 	eye.update(rig, sensor.contact, behavior.player_pos, has_player, behavior.interest, grow, delta)
@@ -326,7 +366,7 @@ func _tick(delta: float) -> void:
 		eye.glimpse_interior(2.4)
 		halo.phase(2.0)
 	_push_uniforms()
-	_place_collars()
+	skeleton.update(rig, grow, pulse_phase, breath_phase, behavior.interest, startle, delta)
 	_place_lights()
 	_relay_events()
 	if toggles.show_bones:
@@ -362,31 +402,9 @@ func _push_uniforms() -> void:
 	_material.set_shader_parameter("contact_amount", grip if toggles.contact_deformation else 0.0)
 	_material.set_shader_parameter("phase_slice_v", _slice_v)
 	_material.set_shader_parameter("ventral_roll", rig.roll)
-
-
-func _place_collars() -> void:
-	var mm := _collars.multimesh
-	for i in COLLARS:
-		var v := (float(i) + 1.0) / 12.0
-		var f := rig.frame_at(v)
-		# Over the relief (the veins lift the flesh up to 16 %), a few mm proud.
-		var r := float(f.radius) * 1.14
-		var hidden := v > grow
-		var sc := Vector3(r * (1.0 + float(f.flatten)) + 0.004, r * 0.18 + 0.002, r * (1.0 - float(f.flatten)) + 0.004)
-		if hidden:
-			sc = Vector3(0.001, 0.001, 0.001)
-		var tng: Vector3 = f.tangent
-		var sd: Vector3 = f.side
-		var bn: Vector3 = f.binormal
-		# The torus lies in its local xz plane; its y is the tangent. The
-		# profile's twist rotates it with the cross-section.
-		var tw := float(f.twist)
-		var xa := (sd * cos(tw) + bn * sin(tw)).normalized()
-		var za := tng.cross(xa).normalized()
-		var basis := Basis(xa * sc.x, tng * sc.y, za * sc.z)
-		mm.set_instance_transform(i, Transform3D(basis, f.pos))
-		mm.set_instance_custom_data(i, Color(1.0, 1.0, 1.0, 1.0))
-	_collars.visible = grow > 0.05
+	_material.set_shader_parameter("mask_view", _mask_view)
+	MaterialProfileScript.push_state(_material, behavior.interest, pulse_phase,
+			breath_phase, startle, 1.0 if _slice_left > 0.0 else 0.0)
 
 
 ## The light it throws (§19): from the eye, from the gold mid-length, and
@@ -458,6 +476,8 @@ func _apply_toggles() -> void:
 	halo.set_debug_gray(toggles.gray)
 	halo.set_enabled(toggles.halos)
 	suckers.set_debug_gray(toggles.gray)
+	if skeleton != null:
+		skeleton.set_debug_gray(toggles.gray)
 	suckers.multimesh.visible = toggles.suckers
 	membrane.set_debug_gray(toggles.gray)
 	if _bones != null:

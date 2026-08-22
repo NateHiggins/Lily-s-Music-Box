@@ -63,3 +63,61 @@ structural plates + dendrites + microscopic mineralization with sockets,
 and the eye moved to 35–50 % and ensconced with its orbital skeleton,
 three lids and orbital cilia — starting with the 20–30 cm hero patch
 around the eye (direction 2 §H).
+
+## Forward+ and the hero material (2026-08-22, directions 2 and 3)
+
+**The renderer moved.** Owner ruling: *"fuck compatibility, let's make it
+cool first."* `forward_plus` is canonical; `compat-renderer-final` (29ca673)
+is the tagged fallback. The migration record and both baselines are in
+`art/renders/renderer_migration/` — and the surprise is that **Forward+ is
+2–3× FASTER on this building** (corridor 13.6 → 4.6 ms GPU, lobby 13.6 →
+6.0, 4B kitchen 9.5 → 3.8), because the frame is draw-call bound and
+clustered lighting costs less than Compatibility's per-object light loop.
+`BuildingRoot._announce_renderer()` prints `[RENDER] forward_plus` and
+shouts if the driver ever silently falls back.
+
+**The flesh is meat now.** `dream_entity_surface.gdshaderinc` was rebuilt on
+the real stack: `sss_mode_skin` with `SSS_STRENGTH` /
+`SSS_TRANSMITTANCE_COLOR` / `_DEPTH` / `_BOOST` driven by a **thickness**
+the host computes per vertex (the muscular root is opaque; the distal limb,
+the club's rim, the socket's lids and skin stretched over a vein or a
+mineral root are membranes, and only they give up fuchsia). Four colour
+frequencies; mesostructure (branching vessels at two scales, cords along
+the limb, nodules) seen *through* the tissue rather than painted on it;
+three independent normal scales; the wet film as **clearcoat with its own
+normal and its own drift**, so what reflects off the liquid does not move
+with what scatters through the flesh; sparse iridophores; papillae that
+rise with attention. Several clocks that do not share a period (vascular
+1.47 s, breath 5.3 s).
+
+**The gold is grown.** The collars are deleted. `DreamGoldSkeleton` places
+eight irregular structural plates whose ends sink under the skin, five
+dendritic struts each rooting them into tissue, and the shader's
+microscopic mineralization around every root; the flesh answers with a
+compressed lip, a pressed hollow, scarring and veins that bend around the
+socket. Every plate has its own sub-millimetre mechanics — lift on the
+beat, slide, lock on a startle — and the seam under it brightens as it
+moves. `dream_gold.gdshader` varies roughness by how the piece grew
+(polished crown, satin flanks, crystalline facets, rough buried ends) with
+anisotropy along the growth direction, and a reflection probe on the
+creature gives the metal a room to reflect.
+
+Three faults found and fixed by photographing masks rather than guessing:
+the root mask was ~90° wide per plate (eight plates turned the whole limb
+metallic); the gold field summed two broad noise thresholds and saturated;
+and every sub-pixel field aliased into glitter — now every fine field fades
+against the **screen-space footprint** (`de_pixel_m` / `de_resolvable`),
+which any future Dream material inherits.
+
+`wip2_forward_plus/`: the close and room stands, plus the gold mask that
+found the first fault. Gates: parse, DreamTentacleTest 20/20,
+ApartmentEncroachmentTest 13/13, OrganismIncidentsTest 18/18,
+LivingFieldTest 14/14, WalkTest FAST, LightingAudit 127 spaces.
+
+**Not done, and ruled:** the ocular assembly (eye at 35–50 %, deep socket,
+orbital gold skeleton, three lids, 12+ cilia), the crystal organ, the hero
+patch's frame set and its 10–15 s flashlight sweep (DIRECTION_2 §C/§H,
+DIRECTION_3 §H–§J, §N); DT-4's quality audit now that the old performance
+ceiling is gone; DT-5's "bobbing for apples" — the tentacle emerging along
+the encroachment's edge, swelling it locally, searching the building for
+the case's resident.

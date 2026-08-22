@@ -1909,6 +1909,103 @@ beats any amount of argument about which sounds better.
   in WalkTest FULL (Lena 2B, Juno 2C). `ORGANISM_INCIDENTS=0` off,
   `ORGANISM_CONDITION=1|0` forces the roll, `ORGANISM_FAST=1` 2 s dwell.
 
+### TL — MODEL 28-R, THE PLAYER'S INSTRUMENT (owner direction 2026-08-22, PRIORITY MAJOR)
+
+Ruling verbatim: `design/MODEL_28R_DIRECTION.md`. *"The single most
+obsessively realized functional object in the game… a machine with a
+biography."* An alternate-1928 radio-telegram / electrical-maintenance /
+inspection lamp that begins as real 1915–28 engineering (Eveready focusing
+flashlight, Western Electric lineman's test set, Weston portable meter,
+1920s crystal radio, Morkrum-Kleinschmidt printing telegraph converged
+around 1926) and only gradually reveals that its engineers also built it to
+diagnose faults in reality. Replaces the placeholder
+`ServiceSetProp`/`ServiceSetCarrier` (424 lines of boxes and jewels).
+
+Eight ruled phases, built in order (§76):
+
+- **TL-1 OPEN — historical silhouette.** 30–34 cm chassis, five landmarks
+  (faceted lamp bezel, arched meter housing, glass detector dome, rear
+  battery mass, telegram slot); separate plates, real fastener vocabulary,
+  instrument side vs service side. Success: it could sit in a museum case.
+- **TL-2 OPEN — functional mechanism.** Flashlight + focus carriage, meter
+  with damped needle, mode selector (`LINE CONT. BATT. FIELD WIRELESS
+  RETURN`), tuning dial driving real capacitor plates, telegraph key,
+  telegram printer, magneto crank, test leads. Success: it explains itself
+  untextured.
+- **TL-3 OPEN — material masterpiece.** Fifteen distinct material
+  identities; nickel-over-brass plating wear, japanned lacquer, phenolic,
+  leather, cloth braid, copper windings, ceramic, four kinds of glass;
+  three spatial scales each. Success: a close-up still is photographable.
+- **TL-4 OPEN — wear and history.** Authored, story-specific wear and a
+  serialized life (a replaced crystal, one wrong-finish screw, a spliced
+  cable, a previous technician's initials). Used, not "weathered."
+- **TL-5 OPEN — audio and tactility.** Eight mechanical sound families,
+  structure-borne transmission when held, first-person mass and inertia.
+  Success: operating it unnecessarily is fun.
+- **TL-6 OPEN — the RETURN subsystem.** Three-position detector turret,
+  the chemical cell, violet glass apparatus, impossible galena, spectral
+  inspection. The supernatural as another branch of electrical engineering.
+- **TL-7 OPEN — reality inspection.** RETURN reveals Dream state THROUGH
+  THE FLASHLIGHT (interference fringes, displaced outlines, geometry only
+  in specular, latent writing, wrong depth) — never a detective-vision
+  overlay, never a numeric readout.
+- **TL-8 OPEN — the impossible telegram.** A message with no carrier, no
+  line and no frequency, printed mechanically: solenoid → type → ink →
+  paper. And the ruled unforgettable moment (§78): switched off, no power,
+  one character struck, the needle moves, the filament glows violet.
+- **TL-9 OPEN — the tentacle encounter (§77).** The meter reads flesh, gold
+  and the eye differently; at the phase edge the spectrum leaves its scale;
+  the creature notices the device — the eye tracks its beam, cilia react to
+  the radio field, gold aligns with the receiver, the printer strikes one
+  character. *The entity recognizes the machine.*
+
+### DT — THE DREAM TENTACLE (owner directions 2026-08-22)
+
+Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
+`_2.md` (hero material and anatomy), `_3.md` (Forward+ canonical).
+
+- **DT-1 DONE — the limb through the wall.** Rig, behaviour state machine,
+  contact sensor + target profiles, conversion into the living field, eye,
+  halos, suckers, membrane, debug panel. `DreamTentacleTest` 20/20.
+- **DT-2 DONE — Forward+ is canonical.** `compat-renderer-final` tagged;
+  baselines and frametimes in `art/renders/renderer_migration/`; Forward+
+  measured 2–3× FASTER on this building; fallback guard in BuildingRoot.
+- **DT-3 IN PROGRESS — the hero material.** Real SSS (`sss_mode_skin`,
+  thickness-driven transmittance), the film as clearcoat with its own
+  normal, four colour frequencies, three normal scales, iridophores,
+  papillae; gold rebuilt as a grown mineral skeleton (plates + dendrites +
+  microscopic mineralization) with sockets in the flesh. Remaining:
+  the ocular assembly (§C/§H — eye at 35–50 %, deep socket, orbital gold,
+  three lids, 12+ cilia), the crystal organ (§G), the hero-patch frame set
+  (§N).
+- **DT-4 OPEN — QUALITY AUDIT AFTER FORWARD+ (owner 2026-08-22).** Every
+  limit we imposed out of performance fear or Compatibility's ceiling —
+  `max_lights_per_object`, shadow counts and atlas sizes, shadow-disabled
+  fixtures, the governor's draw and prop-tier levers, `RELIEF_EXAGGERATION`
+  and the parallax budget, LOD and streaming distances, the light budget in
+  LightRig, disabled volumetrics/reflections — must be re-derived from the
+  Forward+ numbers (corridor 13.6 → 4.6 ms GPU) and re-tuned to MAXIMIZE
+  FINAL IMAGE QUALITY, not to protect a budget that no longer binds.
+- **DT-5 OPEN — BOBBING FOR APPLES (owner ruling 2026-08-22).** *"I want
+  the tentacle to emerge along the EDGE of the encroachment and move along
+  it like it's bobbing for apples into our reality, and the encroachment is
+  the proximity to its body in the nth dimension; its emergence should
+  intensify the local encroachment effect and give it more volume and
+  tangibility, then pull back in. It is intentionally moving itself around
+  searching the apartment building and trying to interact with the case
+  owner and get them help how it can, but it doesn't understand our
+  dimensional or biological limitations."* This re-frames the whole living
+  field: the organism on the walls is not a slime mould the Dream sent —
+  it IS the creature's body, seen where it comes close to our three
+  dimensions. So: the tentacle emerges at the field's EDGE (the front,
+  where the body is nearest), not at a node; it travels along that edge
+  between emergences; each emergence swells the field locally — more body,
+  more volume, more tangibility, the surface reading as thicker matter —
+  and relaxes when it withdraws. Its errand is the case: it seeks the
+  resident, tries to help by the only means it has, and its help is
+  dimensionally and biologically wrong. Feeds LF-3's incidents (the
+  "fixable condition" is the creature TRYING to fix something).
+
 ### CT — CRITTER SKINS (owner direction 2026-08-21)
 
 - **CT-1 DONE 2026-08-21 — FAMILY SKIN ATLASES FROM THE PLATES.**

@@ -821,16 +821,21 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 		float drip_coord = dot(vec2(v_world.x + v_world.z, v_world.y) , g_dir) * 7.0;
 		float streak = 0.5 + 0.5 * sin(drip_coord + dream_corruption_noise3(v_world * 6.0) * 3.0);
 		float film = smoothstep(0.04, 0.35, stain * (0.85 + 0.3 * streak)) * living_amount;
-		albedo = mix(albedo, albedo * 0.55 + stain_tint * 0.45, film * 0.8);
-		rough = mix(rough, 0.12, film * 0.85);
+		albedo = mix(albedo, albedo * 0.42 + stain_tint * 0.42, film * 0.9);
+		// Forward+: a near-mirror film over a whole wall reads as a white
+		// smear, not as something viscous. Wet, not polished.
+		rough = mix(rough, 0.30, film * 0.85);
 		// The drips' relief only where the film is thick: a thin stain under
 		// the torch read as contour rings across every ceiling.
 		n_ts.xy = mix(n_ts.xy, g_dir * 0.25 * streak, film * film * 0.6);
 		metal = mix(metal, 0.0, film);
 		// The glow on what is near (§5c), before the body arrives.
+		// Forward+ HDR (DIRECTION_3 §M): the organism TINTS what is near it
+		// and lights it through its OmniLights; only a little of that is
+		// emission, or the wall becomes a white cloud in an RGBA16F buffer.
 		vec3 glow = tint * near * living_radiance * pulse_glow * (1.0 - living);
-		albedo = mix(albedo, albedo * 0.7 + tint * 0.3, near * 0.5 * (1.0 - living));
-		s.emission += glow * 0.6;
+		albedo = mix(albedo, albedo * 0.62 + tint * 0.38, near * 0.7 * (1.0 - living));
+		s.emission += glow * 0.14;
 		// The body: the case's substance, wet, with a brighter lip at the front.
 		float lip = smoothstep(0.0, 0.35, living) * (1.0 - smoothstep(0.35, 0.9, living));
 		vec3 substance = tint * (1.3 + 0.5 * fizz);
@@ -843,7 +848,7 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 		rough = mix(rough, 0.16 + 0.1 * fizz, living);
 		metal = mix(metal, 0.0, living);
 		n_ts.xy = mix(n_ts.xy, vec2(fizz, fingers) * 0.5 + g_dir * 0.2, living * 0.7);
-		s.emission += tint * lip * 0.25;
+		s.emission += tint * lip * 0.10;
 		// The dream comes with it (§5b): where the body has held — body and
 		// stain both high — the flesh shows under the body and gold leafs the
 		// veins; the front carries a weld's heat.
@@ -858,7 +863,7 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 			albedo = mix(albedo, gild_color, leaf * 0.85);
 			metal = mix(metal, 1.0, leaf * 0.85);
 			rough = mix(rough, 0.28, leaf);
-			s.emission += vec3(0.96, 0.42, 0.08) * lip * held * 0.5;
+			s.emission += vec3(0.96, 0.42, 0.08) * lip * held * 0.22;
 		}
 	}
 
