@@ -1893,10 +1893,15 @@ func _spawn_landing_art() -> void:
 ##
 ## Both are UNGOVERNED on purpose -- not in group "light_fixtures", so they
 ## take none of the 64 rank slots and none of the 16 shadow slots -- and both
-## are SHADOWLESS, which on gl_compatibility means per-object ALU in the base
-## pass rather than a second submission. On a submission-bound frame that is
-## close to free. They still count against the renderer's per-object 128,
-## which has 2x slack.
+## are SHADOWLESS.
+##
+## DT-4 (2026-08-22) re-derived that last choice on Forward+, where the old
+## justification -- "per-object ALU in the base pass rather than a second
+## submission", which was a gl_compatibility argument -- no longer applies.
+## The decision stands on better grounds anyway: every light in this passage
+## lights glazing from inside it or from above it, so a shadow would either
+## do nothing or black out the very panel the light exists to make bright.
+## They still count against the renderer per-object 128, which has 2x slack.
 ##
 ## They live in passage_runtime_nodes so the zone gate hides them whole the
 ## moment the player leaves the arcade.
