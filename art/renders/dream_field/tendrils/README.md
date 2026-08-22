@@ -63,6 +63,8 @@ have caught both.
   DF-4 tiers.
 - Tendrils intersect furniture (they grow through shelves). No clearance test
   yet.
-- Standing off from a *floor or ceiling* patch puts the camera inside the
-  dream volume, which photographs as a dark sphere. The harness sidesteps it
-  by preferring wall patches; the volume's interior shading is a DF-2 problem.
+- A harness fault, not a game one: standing off from a *floor* patch means
+  standing off along the floor's normal, i.e. two metres straight up into the
+  slab above, which photographs as a featureless dark disc. I first wrote this
+  up as an opaque dream volume; it is nothing of the kind. The harness now
+  prefers wall patches.
