@@ -24,7 +24,15 @@ render_mode blend_mix, cull_back, diffuse_burley, specular_schlick_ggx;
 //   bit 8  WELD   the molten bead along the growth contour, emissive.
 //   bit 16 PORTAL the bead's core shows another place at high gold phase.
 // layer_mask 0 is the pre-EN-1b Klimt exactly (DREAM_LAYERS=0).
-uniform int layer_mask : hint_range(0, 31) = 31;
+//   bit 32 FOLD   EN-3: the wall's surface slides into the seam — the
+//                 photographed plaster is drawn toward the weld along the
+//                 field's gradient and compressed there, so reality reads as
+//                 folded into the seam, not painted beside it. Surface only:
+//                 no vertex moves, the collider and the Atlas's promise
+//                 stand, and Gate C's clamps are re-run unchanged.
+uniform int layer_mask : hint_range(0, 63) = 63;
+uniform float fold_reach_m = 0.55;
+uniform float fold_pull_m = 0.22;
 uniform float base_ground : hint_range(0.0, 1.0) = 0.75;
 uniform vec3 flesh_deep : source_color = vec3(0.140, 0.030, 0.125);
 uniform vec3 flesh_body : source_color = vec3(0.420, 0.085, 0.300);
@@ -1461,6 +1469,28 @@ void fragment() {
 		float en_spec = SPECULAR;
 		vec3 en_emission = EMISSION;
 
+		// bit 32: the fold. The field's gradient in the wall's tangent frame
+		// is the direction into the seam; within fold_reach of the weld the
+		// base's world-box UV slides that way by up to fold_pull, most at the
+		// seam, so the wall's own photograph is pulled into the weld.
+		vec2 en_fold_uv_shift = vec2(0.0);
+		float en_fold = 0.0;
+		if ((layer_mask & 32) != 0) {
+			float en_fe = 0.04;
+			float en_gx = texture(exposure_tex, vec3((v_world.x + en_fe * tan_a.x) / exposure_extent,
+					(v_world.z + en_fe * tan_a.z) / exposure_extent, irradiance_y)).r - field;
+			float en_gy = texture(exposure_tex, vec3((v_world.x + en_fe * tan_b.x) / exposure_extent,
+					(v_world.z + en_fe * tan_b.z) / exposure_extent, irradiance_y)).r - field;
+			vec2 en_grad = vec2(en_gx, en_gy);
+			float en_glen = length(en_grad);
+			float en_seam = abs(en_drive - weld_level);
+			en_fold = (1.0 - smoothstep(0.0, fold_reach_m * 0.36, en_seam)) * responds
+					* smoothstep(0.0005, 0.004, en_glen);
+			// Toward the seam: up the gradient below it, down the gradient above.
+			vec2 en_dir = en_grad / max(1e-5, en_glen) * sign(weld_level - en_drive);
+			en_fold_uv_shift = en_dir * fold_pull_m * en_fold;
+		}
+
 		// bit 1: the wall is the wall where nothing has eaten it.
 		if ((layer_mask & 1) != 0 && motif != MOTIF_EYE) {
 			// Not gated on `responds`: a scar shows no gold ever, but it is
@@ -1477,6 +1507,10 @@ void fragment() {
 				en_bq = v_world.zy;
 			}
 			vec2 en_uv = en_bq / max(0.05, base_tile_m);
+			// The fold slides the photograph into the seam (bit 32). The shift
+			// is in metres along the tangent frame; the box UV's axes are the
+			// frame's up to sign, so it is applied in metres over the tile.
+			en_uv += en_fold_uv_shift / max(0.05, base_tile_m);
 			vec3 en_surface = texture(base_albedo, en_uv).rgb;
 			float en_srough = texture(base_rough, en_uv).r;
 			vec3 en_sn = texture(base_normal, en_uv).rgb * 2.0 - 1.0;
@@ -1487,6 +1521,11 @@ void fragment() {
 			// Fully its own where it is grounded: the melt's relief terms bled
 			// through a partial mix as bands across the plaster.
 			en_bent = normalize(mix(en_bent, en_base_n, smoothstep(0.0, 0.45, en_ground)));
+			// The crease: the surface tilts into the seam where it is folded.
+			if (en_fold > 0.001) {
+				vec3 en_crease = tan_a * en_fold_uv_shift.x + tan_b * en_fold_uv_shift.y;
+				en_bent = normalize(en_bent + en_crease * 1.6 * en_fold);
+			}
 			en_metal = mix(en_metal, 0.0, en_ground);
 			en_emission *= 1.0 - en_ground * 0.6;
 		}

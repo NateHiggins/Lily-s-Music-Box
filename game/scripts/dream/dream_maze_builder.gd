@@ -721,5 +721,5 @@ static func _klimt_material(color: Color, roughness: float,
 	# 8 weld, 16 portal).
 	var layers_env := OS.get_environment("DREAM_LAYERS")
 	if not layers_env.is_empty():
-		material.set_shader_parameter("layer_mask", clampi(int(layers_env), 0, 31))
+		material.set_shader_parameter("layer_mask", clampi(int(layers_env), 0, 63))
 	return material

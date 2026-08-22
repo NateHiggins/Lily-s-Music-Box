@@ -161,8 +161,16 @@ func _pose_camera(main_camera: Camera3D) -> void:
 	var position := origin + right * lateral * 0.24 \
 			+ Vector3.UP * vertical * 0.16 \
 			+ forward * clampf((depth - 1.6) * 0.07, -0.10, 0.18)
+	# EN-2's taste row: the weld vocabulary places the camera. The seam's
+	# flow drifts the destination pose — a slow sway of a few centimetres
+	# and a degree or two, the same 0.08 Hz the bead's flow runs at — so the
+	# view in the weld moves like something held in molten metal, not a
+	# fixed window. Bounded, view-only, deterministic in time.
+	var t := float(Time.get_ticks_msec()) * 0.001
+	position += right * sin(t * 0.5027) * 0.045 + Vector3.UP * sin(t * 0.31 + 1.3) * 0.03
+	var sway := Basis(Vector3.UP, sin(t * 0.5027 + 0.7) * 0.028)
 	portal_camera.global_transform = Transform3D(
-			Basis.looking_at(forward, rolled_up), position)
+			Basis.looking_at(sway * forward, rolled_up), position)
 
 
 func texture_is_bound() -> bool:
