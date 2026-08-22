@@ -45,6 +45,17 @@ const STATIONS := [
 			"yaw": -58.0, "pitch": -6.0, "room": "F01_LOBBY"},
 	{"key": "flat_4b", "floor": "F04", "pos": Vector3(-8.1, 1.55, -3.2),
 			"yaw": 47.0, "pitch": -8.0, "room": "F04_B_MAIN"},
+	# The six case flats, each facing a perimeter finish (WK-1 grammars).
+	{"key": "flat_4a", "floor": "F04", "pos": Vector3(-9.6, 1.55, 7.0),
+			"yaw": 180.0, "pitch": -4.0, "room": "F04_A_BED", "demo": true},
+	{"key": "flat_2c", "floor": "F02", "pos": Vector3(9.6, 1.55, -3.0),
+			"yaw": -90.0, "pitch": -3.0, "room": "F02_C_MAIN", "demo": true},
+	{"key": "flat_6c", "floor": "F06", "pos": Vector3(9.6, 1.55, -3.0),
+			"yaw": -90.0, "pitch": -3.0, "room": "F06_C_MAIN", "demo": true},
+	{"key": "flat_5b", "floor": "F05", "pos": Vector3(-9.6, 1.55, -4.6),
+			"yaw": 90.0, "pitch": -3.0, "room": "F05_B_MAIN", "demo": true},
+	{"key": "flat_3b", "floor": "F03", "pos": Vector3(-9.6, 1.55, -4.6),
+			"yaw": 90.0, "pitch": -3.0, "room": "F03_B_MAIN", "demo": true},
 	# Floors (the M-COVER stands), now a class of the same surface.
 	{"key": "corridor_floor", "floor": "F04", "pos": Vector3(4.3, 1.05, 5.2),
 			"yaw": 0.0, "pitch": -34.0, "room": "F04_CORRIDOR"},

@@ -31,13 +31,22 @@ const BEACHHEAD_AT := 0.3
 const RESIDUE := 0.2
 ## Case -> unit and incarnation. The unit is where the resident lives; the
 ## incarnation names the plate bundle the dream already ships for the case.
+## `grammar` is the shape the creep takes in the one surface's encroachment
+## group (design/SIX_INCARNATIONS.md §a per case); the tints are the case's
+## substance and its metal.
 const CASES := {
-	"mina_caption_crisis": {"unit": "2A", "incarnation": "mina", "profile": "mina_release_print"},
-	"peter_form_corridor": {"unit": "4A", "incarnation": "peter", "profile": "peter_release_print"},
-	"juno_feedback_tetris": {"unit": "2C", "incarnation": "juno", "profile": "juno_release_print"},
-	"mae_contradictory_antiques": {"unit": "6C", "incarnation": "mae", "profile": "mae_release_print"},
-	"cal_memory_radio": {"unit": "5B", "incarnation": "cal", "profile": "cal_release_print"},
-	"omar_unrepairable": {"unit": "3B", "incarnation": "omar", "profile": "omar_release_print"},
+	"mina_caption_crisis": {"unit": "2A", "incarnation": "mina", "profile": "mina_release_print",
+			"grammar": 0, "ink": Color(0.20, 0.19, 0.30), "gilt": Color(0.86, 0.66, 0.30)},
+	"peter_form_corridor": {"unit": "4A", "incarnation": "peter", "profile": "peter_release_print",
+			"grammar": 1, "ink": Color(0.14, 0.13, 0.24), "gilt": Color(0.78, 0.58, 0.28)},
+	"juno_feedback_tetris": {"unit": "2C", "incarnation": "juno", "profile": "juno_release_print",
+			"grammar": 2, "ink": Color(0.16, 0.13, 0.11), "gilt": Color(0.62, 0.56, 0.30)},
+	"mae_contradictory_antiques": {"unit": "6C", "incarnation": "mae", "profile": "mae_release_print",
+			"grammar": 3, "ink": Color(0.10, 0.09, 0.09), "gilt": Color(0.80, 0.60, 0.30)},
+	"cal_memory_radio": {"unit": "5B", "incarnation": "cal", "profile": "cal_release_print",
+			"grammar": 4, "ink": Color(0.30, 0.18, 0.08), "gilt": Color(0.90, 0.62, 0.22)},
+	"omar_unrepairable": {"unit": "3B", "incarnation": "omar", "profile": "omar_release_print",
+			"grammar": 5, "ink": Color(0.16, 0.17, 0.19), "gilt": Color(0.72, 0.66, 0.52)},
 }
 const STAGE_INTENSITY := {
 	"unseen": 0.0, "active": 0.35, "recognized": 0.6, "integration_ready": 0.85,
@@ -106,6 +115,13 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 				if original == null or original.albedo_texture == null:
 					continue
 				var material := _material_for(original, plates, rect, floor_y)
+				material.set_shader_parameter("grammar", int(spec.get("grammar", 0)))
+				var ink: Color = spec.get("ink", Color(0.20, 0.19, 0.30))
+				var gilt: Color = spec.get("gilt", Color(0.86, 0.66, 0.30))
+				material.set_shader_parameter("ink_tint", Vector3(ink.r, ink.g, ink.b))
+				material.set_shader_parameter("gilt_tint", Vector3(gilt.r, gilt.g, gilt.b))
+				if OS.get_environment("ENCROACH_DEBUG_VIEW") == "1":
+					material.set_shader_parameter("debug_view", 5)
 				mi.set_surface_override_material(s, material)
 				rows.append({"mesh": mi, "surface": s, "material": material})
 		surfaces[case_id] = rows

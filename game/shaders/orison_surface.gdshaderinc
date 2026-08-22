@@ -155,7 +155,7 @@ uniform vec2 state_y = vec2(-1.0e5, 1.0e5);
 uniform float state_edge_m = 0.15;
 // 0 lit; 1 mask fields RGBA; 2 mask2 fields; 3 height; 4 cavity (R) / crest
 // (G) / parallax fade (B).
-uniform int debug_view : hint_range(0, 4) = 0;
+uniform int debug_view : hint_range(0, 5) = 0;
 group_uniforms;
 
 // ------------------------------------------------------------------- states
@@ -219,6 +219,17 @@ uniform float floor_y = 0.0;
 uniform vec3 ink_tint : source_color = vec3(0.20, 0.19, 0.30);
 uniform vec3 gilt_tint : source_color = vec3(0.86, 0.66, 0.30);
 uniform float breath_hz = 0.05;
+// The case's grammar — the SHAPE the creep takes (design/SIX_INCARNATIONS.md
+// §a of each case): 0 Mina's capillary wick from skirting and corners;
+// 1 Peter's docket — paper rectangles filed from the wall's centre, oxblood
+// decision lines forking at joints, one branch continuing; 2 Juno's
+// standing wave — send/return bands with fixed nodes and breathing
+// antinodes; 3 Mae's interference — ledger geometry crossed by handling
+// arcs, the creep where their moiré beats; 4 Cal's tuning memory —
+// concentric incomplete arcs swept from the set's place on the wall;
+// 5 Omar's fracture — branching cracks from the corner under load, solder
+// beading along them.
+uniform int grammar : hint_range(0, 5) = 0;
 group_uniforms;
 
 varying vec3 v_world;
@@ -334,8 +345,11 @@ vec2 os_antitile(vec2 uv) {
 // wick restores a torn finish); edits albedo / rough / metal / n_ts in place.
 float os_encroach(inout vec3 albedo, inout float rough, inout float metal,
 		inout vec3 n_ts, float finish_alpha, vec3 n, float time) {
-	bool inside = v_world.x >= unit_rect.x && v_world.x <= unit_rect.z
-			&& v_world.z >= unit_rect.y && v_world.z <= unit_rect.w;
+	// With the slack the quad selection uses: a perimeter finish sits a few
+	// centimetres outside its room's rect (2A's by -6 mm, every other
+	// storey's by +44 mm), and an exact test let only 2A encroach.
+	bool inside = v_world.x >= unit_rect.x - 0.25 && v_world.x <= unit_rect.z + 0.25
+			&& v_world.z >= unit_rect.y - 0.25 && v_world.z <= unit_rect.w + 0.25;
 	if (intensity <= 0.001 || !inside) {
 		return 0.0;
 	}
@@ -348,16 +362,68 @@ float os_encroach(inout vec3 albedo, inout float rough, inout float metal,
 	float breath = 0.5 + 0.5 * sin(time * 6.2831853 * breath_hz + v_world.x * 0.4);
 	float field = dream_corruption_fbm3(v_world * 3.4 + 7.0);
 	float fine = dream_corruption_fbm3(v_world * 9.0 + 1.0);
+	// Wall-plane coordinates: u along the wall, v up from the floor, and the
+	// wall's own extent so a grammar can be placed on it.
+	float wall_len = abs(n.z) > 0.5 ? (unit_rect.z - unit_rect.x) : (unit_rect.w - unit_rect.y);
+	float along = abs(n.z) > 0.5 ? (v_world.x - unit_rect.x) : (v_world.z - unit_rect.y);
+	float u_mid = along - wall_len * 0.5;
 
-	// plate_a: the wicking substance
+	// plate_a: the substance, by the case's grammar
 	float rise = 1.0 - smoothstep(0.0, 0.35 + 1.25 * intensity, height);
 	float corner = 1.0 - smoothstep(0.0, 0.35 + 0.95 * intensity, to_edge);
 	float reach = max(rise, corner) * (0.50 + 0.50 * intensity);
 	float wick_drive = reach * 0.60 + field * 0.50 + fine * 0.18 - 0.20 + 0.03 * breath;
+	float lines_field = dream_corruption_vessels(v_world * 2.6, 0.31, 0.96);
+	if (grammar == 1) {
+		// Docket: rectangles 0.45 m on the wall grid, filed from the centre
+		// outward as the case advances; the joints fork one oxblood line.
+		vec2 cell = floor(vec2(along, height) / 0.45);
+		vec2 cf = fract(vec2(along, height) / 0.45);
+		float box_h = fract(sin(dot(cell, vec2(41.3, 289.1))) * 12345.678);
+		float filed = smoothstep(0.0, 1.0, intensity * 1.6 - length(vec2(u_mid, height - 1.3)) / max(1.0, wall_len * 0.55)) * (0.35 + 0.65 * box_h);
+		float frame = 1.0 - smoothstep(0.035, 0.075, min(min(cf.x, 1.0 - cf.x), min(cf.y, 1.0 - cf.y)));
+		wick_drive = filed * 0.95 + field * 0.30 + fine * 0.10 - 0.10 + frame * 0.10 * filed;
+		lines_field = frame * step(0.45, box_h);
+	} else if (grammar == 2) {
+		// Standing wave: send/return bands across the wall, fixed nodes,
+		// antinodes that breathe; the lines are the paired traces.
+		float k = 6.2831853 / 0.62;
+		float wave = abs(sin(height * k)) * (0.55 + 0.45 * abs(sin(u_mid * k * 0.35 + 0.6)));
+		float antinode = 0.5 + 0.5 * sin(time * 6.2831853 * 0.09 + u_mid * 1.7);
+		float spread = smoothstep(0.0, 1.0, intensity * 1.4 - abs(height - 1.1) / 1.6);
+		wick_drive = spread * wave * (0.90 + 0.25 * antinode) + field * 0.25 - 0.12;
+		lines_field = 1.0 - smoothstep(0.02, 0.05, abs(fract(height * k / 6.2831853 * 2.0) - 0.5) * 0.31);
+	} else if (grammar == 3) {
+		// Interference: fine ledger geometry crossed by soft handling arcs;
+		// the creep lives where the two beat, bounded and slow.
+		float ledger = abs(sin(along * 18.0)) * abs(sin(height * 18.0));
+		float arcs = 0.5 + 0.5 * sin(length(vec2(u_mid * 0.7, height - 1.2)) * 9.0 - time * 0.15);
+		float beat = smoothstep(0.45, 0.75, ledger * 0.5 + arcs * 0.6);
+		float spread = smoothstep(0.0, 1.0, intensity * 1.3 - length(vec2(u_mid, height - 1.2)) / max(1.0, wall_len * 0.6));
+		wick_drive = spread * beat * 1.10 + field * 0.28 - 0.10;
+		lines_field = (1.0 - smoothstep(0.02, 0.06, abs(fract(along * 9.0) - 0.5) * 0.11)) * arcs;
+	} else if (grammar == 4) {
+		// Tuning memory: incomplete concentric arcs swept from the set's
+		// place on the wall (its centre, 1.1 m up), ticks along the grooves.
+		vec2 c = vec2(u_mid, height - 1.1);
+		float r = length(c);
+		float ang = atan(c.y, c.x);
+		float sweep = smoothstep(-2.6 + intensity * 0.4, 0.4, ang) * (1.0 - smoothstep(1.4, 2.6, ang));
+		float rings = 0.5 + 0.5 * sin(r * 22.0 - time * 0.2);
+		float spread = smoothstep(0.0, 1.0, intensity * 2.2 - r / 1.1);
+		wick_drive = spread * sweep * (0.60 + 0.50 * rings) + field * 0.22 - 0.05;
+		lines_field = (1.0 - smoothstep(0.015, 0.04, abs(fract(r * 3.5) - 0.5) * 0.29)) * sweep;
+	} else if (grammar == 5) {
+		// Fracture: cracks branching from the loaded corner, lamellae
+		// translucent between them; solder beads along the lines.
+		float load = 1.0 - smoothstep(0.0, 0.5 + 2.8 * intensity, length(vec2(to_edge, height)));
+		float crack = dream_corruption_vessels(v_world * 3.8 + 11.0, 0.22, 0.97);
+		wick_drive = load * (0.70 + 0.50 * crack) + field * 0.22 + fine * 0.10 - 0.10;
+		lines_field = crack * smoothstep(0.0, 0.6, load);
+	}
 	float wick = smoothstep(0.49, 0.56, wick_drive);
 	float front_band = smoothstep(0.38, 0.50, wick_drive) * (1.0 - wick);
-	float lines = dream_corruption_vessels(v_world * 2.6, 0.31, 0.96) * front_band
-			* smoothstep(0.15, 0.45, intensity);
+	float lines = lines_field * front_band * smoothstep(0.15, 0.45, intensity);
 	vec3 ink = texture(plate_a_albedo, puv).rgb * ink_tint * 2.6;
 	albedo = mix(albedo, ink, wick * 0.88);
 	albedo = mix(albedo, ink_tint * 0.6, lines * 0.85);
@@ -651,6 +717,12 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 		s.albedo = vec3(h); s.emission = vec3(h); s.rough = 1.0; s.metal = 0.0;
 	} else if (debug_view == 4) {
 		s.albedo = vec3(cavity, crest, parallax_fade); s.emission = s.albedo; s.rough = 1.0; s.metal = 0.0;
+	} else if (debug_view == 5) {
+		// The encroachment's front: R wick, G the wall-plane u (0..1), B height/3.
+		float dbg_len = abs(wn.z) > 0.5 ? (unit_rect.z - unit_rect.x) : (unit_rect.w - unit_rect.y);
+		float dbg_along = abs(wn.z) > 0.5 ? (v_world.x - unit_rect.x) : (v_world.z - unit_rect.y);
+		s.albedo = vec3(membrane, dbg_along / max(0.1, dbg_len), (v_world.y - floor_y) / 3.0);
+		s.emission = s.albedo; s.rough = 1.0; s.metal = 0.0;
 	}
 	return s;
 }

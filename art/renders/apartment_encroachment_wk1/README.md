@@ -123,3 +123,31 @@ tier and the standing age, and there is no second wall shader to keep in
 step. `wall_encroachment.gdshader` is kept as the grammar's reference;
 nothing binds it. `sheet_encroachment_recipe.jpg`: 2A with Mina forced to
 0.9 through the one surface. Test 13/13, WalkTest PASS.
+
+## Addendum 2026-08-22 — six grammars
+
+Each case's creep now takes the shape its surface language names
+(`design/SIX_INCARNATIONS.md` §a): the `grammar` uniform of the surface's
+encroachment group, set per case by `ApartmentEncroachment.CASES` with the
+case's substance and metal tints.
+
+| flat | case | grammar |
+|---|---|---|
+| 2A | Mina | **capillary wick** from skirting and corners, leader lines ahead of the front |
+| 4A | Peter | **docket** — paper rectangles 0.45 m on the wall grid, filed from the centre outward as the case advances, oxblood decision lines forking at the joints with one branch continuing; carbon blue-black, brass |
+| 2C | Juno | **standing wave** — send/return bands with fixed nodes and breathing antinodes; speaker-cloth black, oxidised brass |
+| 6C | Mae | **interference** — fine ledger geometry crossed by handling arcs, the creep where they beat, slow and bounded; lacquer black, marquetry gold |
+| 5B | Cal | **tuning memory** — incomplete concentric arcs swept from the set's place on the wall (centre, 1.1 m up), grooves as ticks; amber dial glass |
+| 3B | Omar | **fracture** — cracks branching from the loaded corner, lamellae between, solder beading along them; tool-steel cold, solder |
+
+`grammars/sheet_six_grammars.jpg`: all six flats forced to 0.9 from their
+own stands. Contract 13/13, WalkTest PASS.
+
+**Found on the way — and it had been hiding since WK-1:** the shader's
+`inside` test against `unit_rect` was exact, and a perimeter finish sits a
+few centimetres outside its room's rect — 2A's north finish by −6 mm
+(inside), every other storey's by +44 mm (outside). Only 2A had ever
+encroached; the other five flats registered their quads and drew nothing.
+The test now carries the 25 cm slack the quad selection always had.
+`ENCROACH_DEBUG_VIEW=1` paints the front (R wick, G along-wall, B height)
+for the next time a wall is silent.
