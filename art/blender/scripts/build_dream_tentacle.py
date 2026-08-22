@@ -919,10 +919,12 @@ def build_cage():
             row.append(bm.verts.new((ex * r, v * LENGTH, ez * r)))
         grid.append(row)
     bm.verts.ensure_lookup_table()
+    quads = []
     for i in range(rings - 1):
         for j in range(RING_SEGMENTS):
             k = (j + 1) % RING_SEGMENTS
-            bm.faces.new((grid[i][j], grid[i][k], grid[i + 1][k], grid[i + 1][j]))
+            quads.append((bm.faces.new((grid[i][j], grid[i][k],
+                                        grid[i + 1][k], grid[i + 1][j])), i, j))
     # Cap the tip.
     bm.faces.new([grid[rings - 1][j] for j in range(RING_SEGMENTS)])
     # AND CAP THE ROOT. It was left open "for the membrane to close", and the
@@ -946,6 +948,22 @@ def build_cage():
     # and the clearance check read every seated piece as buried in flesh and
     # every buried piece as clear, which is how it was found.
     bmesh.ops.recalc_face_normals(bm, faces=bm.faces[:])
+    # §21 — UNWRAP THE BODY INTO A STRAIGHT STRIP. There were no UVs at all:
+    # the probe in game/tests/tentacle_asset_probe.gd found TEX_UV missing on
+    # the mesh Godot actually receives, which blocks every bake, every
+    # texture and the whole of §20-§22. The limb is a tube, so the strip is
+    # free: U around the section, V along the length. Per-LOOP so the seam
+    # column reads 1.0 instead of wrapping to 0.0 and stretching a face
+    # across the entire map.
+    uv_layer = bm.loops.layers.uv.new("UVMap")
+    for (face, i, j) in quads:
+        corners = ((j, i), (j + 1, i), (j + 1, i + 1), (j, i + 1))
+        for loop, (uu, vv) in zip(face.loops, corners):
+            loop[uv_layer].uv = (uu / float(RING_SEGMENTS), vv / float(rings - 1))
+    for face in bm.faces:
+        for loop in face.loops:
+            if loop[uv_layer].uv.length == 0.0 and loop.vert.co.y > LENGTH * 0.5:
+                loop[uv_layer].uv = (0.5, 1.0)
     bm.normal_update()
     me = bpy.data.meshes.new("TENTACLE_BODY_CAGE")
     bm.to_mesh(me)
@@ -955,14 +973,33 @@ def build_cage():
 
 
 def add_vertex_masks(obj):
-    """§22: the anatomy Blender already knows, so Godot need not guess."""
+    """§22: the anatomy Blender already knows, so Godot need not guess.
+
+    THIS USED TO REACH NOTHING. It wrote ten separate FLOAT_COLOR attributes,
+    which do survive into the glTF as COLOR_0..COLOR_9 -- and Godot's importer
+    maps only COLOR_0. Nine of the ten masks were dropped at the border, and
+    the shaders went on rediscovering the anatomy procedurally, which is
+    precisely what §22 exists to stop. Proven with
+    `game/tests/tentacle_asset_probe.gd`, which asks the imported mesh what it
+    actually has.
+
+    So they are PACKED into the channels that survive:
+
+        COLOR.r  flesh_thickness     UV2.x  ocular_region
+        COLOR.g  wetness             UV2.y  distal_region
+        COLOR.b  gold_root
+        COLOR.a  sucker_region
+
+    The four left over are the four a shader can honestly derive: papilla and
+    vascular are noise fields, phase_sensitive is a smooth function of length,
+    and contact_sensitive is the sucker field plus the club. A mask is worth
+    a channel when it encodes a PLACE that noise cannot guess -- where the eye
+    is, where the metal enters, where the suckers grip, how thick the meat is.
+    """
     me = obj.data
-    names = ["flesh_thickness", "wetness", "vascular", "papilla", "gold_root",
-             "contact_sensitive", "sucker_region", "phase_sensitive",
-             "ocular_region", "distal_region"]
-    layers = {}
-    for n in names:
-        layers[n] = me.color_attributes.new(name=n, type="FLOAT_COLOR", domain="POINT")
+    # One RGBA colour attribute, not ten.
+    colour = me.color_attributes.new(name="masks", type="FLOAT_COLOR", domain="POINT")
+    uv2 = me.uv_layers.new(name="masks_uv")
     for i, vert in enumerate(me.vertices):
         p = vert.co
         v = min(max(p.y / LENGTH, 0.0), 1.0)
@@ -976,18 +1013,21 @@ def add_vertex_masks(obj):
         ventral = max(0.0, -math.cos(ang - math.pi))
         distal = max(0.0, (v - 0.62) / 0.38)
         sucker = ventral * distal
-        _set(layers["flesh_thickness"], i, thick)
-        _set(layers["ocular_region"], i, min(1.0, bowl + mass))
-        _set(layers["distal_region"], i, distal)
-        _set(layers["sucker_region"], i, sucker)
-        _set(layers["contact_sensitive"], i, sucker * 0.8 + (1.0 if v > 0.95 else 0.0) * 0.6)
-        _set(layers["wetness"], i, 0.25 + 0.55 * bowl + 0.4 * sucker)
-        _set(layers["vascular"], i, 0.4 + 0.4 * math.sin(v * 11.0 + ang * 2.0) * 0.5)
-        _set(layers["papilla"], i, max(0.0, math.sin(v * 23.0) * math.cos(ang * 3.0)) * 0.7)
-        _set(layers["phase_sensitive"], i, max(0.0, math.sin(v * 6.0 + 1.2)) * 0.6)
         _press, _lip, near = gold_socket(ang, v)
-        _set(layers["gold_root"], i, near)
-    log("vertex masks: %s" % ", ".join(names))
+        wetness = min(1.0, 0.25 + 0.55 * bowl + 0.4 * sucker)
+        colour.data[i].color = (thick, wetness, near, sucker)
+    # UV2 is per-LOOP, so the two region masks are written per face corner.
+    for poly in me.polygons:
+        for li in poly.loop_indices:
+            vi = me.loops[li].vertex_index
+            p = me.vertices[vi].co
+            v = min(max(p.y / LENGTH, 0.0), 1.0)
+            ang = math.atan2(p.z, p.x)
+            bowl, mass = orbit_shape(ang, v)
+            uv2.data[li].uv = (min(1.0, bowl + mass),
+                               max(0.0, (v - 0.62) / 0.38))
+    log("vertex masks packed: COLOR rgba = thickness/wetness/gold_root/sucker,"
+        " UV2 = ocular/distal")
 
 
 def _set(layer, index, value):
