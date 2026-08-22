@@ -33,7 +33,12 @@ SHOTS = [
     ("06_orbit_front", 0.0, 4.0, 0.42, 0.42),
     ("07_orbit_45", 45.0, 8.0, 0.42, 0.42),
     ("08_orbit_45_other", -45.0, -6.0, 0.42, 0.42),
-    ("09_root", 60.0, 10.0, 0.07, 0.55),
+    # 0.55 m at 58 mm filled the frame with featureless white; the root is
+    # 0.27 m across now and needs standing back from.
+    ("09_root", 60.0, 10.0, 0.10, 0.95),
+    # The membrane read as a flat fan in every profile shot because every
+    # profile shot sees it EDGE ON. This one looks at its face.
+    ("11_membrane", 35.0, 26.0, 0.06, 0.82),
     ("10_club", -60.0, -8.0, 0.94, 0.40),
 ]
 

@@ -52,10 +52,42 @@ and a membrane skirt span a large region, so their centroids sit tens of
 millimetres off a curved surface and *move* when the limb bends even though
 every vertex is welded correctly. That measured the shape, not the binding.
 
+## The membrane, fixed the same way (§13)
+
+The posed frames showed it for what it was: a single-sided sheet with a
+three-fold star border — folded card, not tissue. §13 asks for *"a thick
+irregular flower/socket… folds stretching toward the root, irregular
+attachment border, tension wrinkles"*, and the thing that makes the creature
+appear to extrude through reality rather than through a hole.
+
+- **Thickness.** It had none. A zero-thickness sheet is the loudest possible
+  tell that something is not made of meat. Solidify at 10% of the root radius.
+- **The border** is broken at three scales instead of one, and only ragged at
+  the rim — at the root it is flesh.
+- **The folds were invisible.** Gathers at 4 mm and wrinkles at 2 mm on a
+  270 mm sheet read as a smooth white disc, which is exactly how the
+  room-facing shot came out. Raised roughly six-fold, and pushed into the
+  *radius* as well as the lift — a fold that only moves along the axis
+  disappears the moment you look at the sheet face-on.
+- Pulled in from 4.6× the root radius to 3.4×; at the old size it dominated
+  every frame it appeared in.
+
+**And the root was an open pipe.** It was left open "for the membrane to
+close", and the membrane does not close it: photographed from beneath the
+socket you look straight up a hollow tube into the inside of the creature.
+It now carries a shallow dome pushed up into the limb.
+
+Two shots were added, because faults hide in the angles you do not take:
+`11_membrane` (the membrane read as a flat fan in every profile shot because
+every profile shot sees it edge-on) and a corrected `09_root`, which at 0.55 m
+had been filling the frame with featureless white.
+
 ## Standing faults in these frames
 
-- The membrane skirt is a flat, faceted, angular sheet — a paper collar, not
-  tissue. It needs thickness and subdivision.
 - The distal third reads as a **stack of discrete beads** rather than
   continuous flesh with swellings in it.
 - Gold plates read as thin flat shards when seen edge-on.
+- §13 also asks the membrane for **gold anchors and crystal nodules**. It has
+  neither yet.
+- §23's clearance poses (figure-eight, 180° tip curl, axial twist) are not
+  tested; only the S-bend is.

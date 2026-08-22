@@ -74,6 +74,11 @@ PROFILE = [
 ]
 
 
+def smooth01(x):
+    x = max(0.0, min(1.0, x))
+    return x * x * (3.0 - 2.0 * x)
+
+
 def log(msg):
     print("[tentacle] %s" % msg)
 
@@ -737,27 +742,62 @@ def build_crystals(col):
 # §13 THE ROOT MEMBRANE: its own radial mesh, able to bulge and cling.
 
 def build_membrane(col):
+    """§13 — a THICK, IRREGULAR FLOWER/SOCKET, not a paper collar.
+
+    The posed grey test showed the old one for what it was: a single-sided
+    sheet with a three-fold star border, which reads as folded card. §13 asks
+    for a thick flesh sheet with folds stretching toward the root, an
+    irregular attachment border and tension wrinkles -- the thing that makes
+    the creature appear to extrude through reality rather than through a hole.
+
+    So: more radial loops, a border broken by three octaves rather than one,
+    radial gathers that die out toward the rim, and real thickness via
+    Solidify. It is also pulled in from 4.6x the root radius to 3.4x, because
+    at the old size it dominated every frame it appeared in.
+    """
     rng = random.Random(9090)
-    rings, segs = 10, 40
+    rings, segs = 16, 56
     verts, faces = [], []
     root_r = sample_profile(0.0)[0]
+    # A per-angle border, broken at three scales so no lobe repeats.
+    phase = [rng.uniform(0.0, 6.283) for _ in range(4)]
+    def border(a):
+        return (1.0
+                + 0.13 * math.sin(a * 2.0 + phase[0])
+                + 0.085 * math.sin(a * 5.0 + phase[1])
+                + 0.045 * math.sin(a * 11.0 + phase[2]))
     for i in range(rings):
         t = i / float(rings - 1)
-        # From the limb's root out to an irregular attachment border.
-        r = root_r * (1.0 + 3.6 * t)
+        r = root_r * (1.0 + 2.4 * (t ** 0.85))
         for j in range(segs):
             a = j / float(segs) * 2.0 * math.pi
-            jag = 1.0 + 0.16 * math.sin(a * 3.0) + 0.09 * math.sin(a * 7.0 + 1.3)
-            # Folds stretching toward the root, and tension wrinkles.
-            fold = 0.012 * math.sin(a * 9.0) * (1.0 - t)
-            lift = (1.0 - t) ** 2 * root_r * 1.45 - t * root_r * 0.55 + fold
-            lift += 0.05 * root_r * math.sin(a * 5.0 + t * 6.0) * t
-            verts.append((math.cos(a) * r * jag, lift, math.sin(a) * r * jag))
+            # The border only ragged at the rim: at the root it is flesh.
+            jag = 1.0 + (border(a) - 1.0) * (t ** 1.5)
+            # Radial gathers, strongest where the sheet leaves the limb.
+            gather = 0.34 * root_r * math.sin(a * 9.0 + phase[3]) * (1.0 - t) ** 1.4
+            # Tension wrinkles running the other way, fading at the rim.
+            wrinkle = 0.16 * root_r * math.sin(a * 17.0) * t * (1.0 - t)
+            lift = (1.0 - t) ** 2 * root_r * 1.55 - (t ** 1.3) * root_r * 0.62
+            lift += gather + wrinkle
+            # The rim curls up a little, so it never reads as a flat disc.
+            lift += 0.22 * root_r * smooth01((t - 0.72) / 0.28) * (0.6 + 0.4 * math.sin(a * 4.0))
+            rr = r * jag * (1.0 + 0.10 * math.sin(a * 9.0 + phase[3]) * (1.0 - t) ** 1.4)
+            verts.append((math.cos(a) * rr, lift, math.sin(a) * rr))
     for i in range(rings - 1):
         for j in range(segs):
             k = (j + 1) % segs
             faces.append((i * segs + j, i * segs + k, (i + 1) * segs + k, (i + 1) * segs + j))
-    return [mesh_from("MEMBRANE_ROOT", verts, faces, col)]
+    obj = mesh_from("MEMBRANE_ROOT", verts, faces, col)
+    # THICKNESS. §13 says "thick"; it had none, and a zero-thickness sheet is
+    # the single loudest tell that a thing is not made of meat.
+    solid = obj.modifiers.new("Solidify", "SOLIDIFY")
+    solid.thickness = root_r * 0.10
+    solid.offset = 0.0
+    solid.use_rim = True
+    smooth = obj.modifiers.new("Subdivision", "SUBSURF")
+    smooth.levels = 1
+    smooth.render_levels = 1
+    return [obj]
 
 
 def build_cage():
@@ -798,8 +838,21 @@ def build_cage():
         for j in range(RING_SEGMENTS):
             k = (j + 1) % RING_SEGMENTS
             bm.faces.new((grid[i][j], grid[i][k], grid[i + 1][k], grid[i + 1][j]))
-    # Cap the tip; the root stays open for the membrane to close.
+    # Cap the tip.
     bm.faces.new([grid[rings - 1][j] for j in range(RING_SEGMENTS)])
+    # AND CAP THE ROOT. It was left open "for the membrane to close", and the
+    # membrane does not close it: photographed from under the socket you look
+    # straight up a hollow pipe and see the inside of the creature's own
+    # tube. §13's point is that the root must not simply end at the wall, and
+    # an open hole ends worse than anything. A shallow dome pushed UP into
+    # the limb reads as flesh continuing into the wall, and is hidden by the
+    # membrane from every angle that is not inside the socket.
+    root_r0 = sample_profile(0.0)[0]
+    plug = bm.verts.new((0.0, root_r0 * 0.55, 0.0))
+    bm.verts.ensure_lookup_table()
+    for j in range(RING_SEGMENTS):
+        k = (j + 1) % RING_SEGMENTS
+        bm.faces.new((grid[0][k], grid[0][j], plug))
     bm.normal_update()
     me = bpy.data.meshes.new("TENTACLE_BODY_CAGE")
     bm.to_mesh(me)
