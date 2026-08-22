@@ -9,6 +9,21 @@ signal supply_changed(open: bool, position: float)
 signal vent_changed(grade: int)
 signal pitch_changed(toward_supply: float)
 
+## The Dream finds this object interesting (design/DREAM_TENTACLE_DIRECTION
+## §13, §17): the tentacle's first contact is the top rim, which it traces
+## along the sections; cast iron answers strongly and may be converted.
+func dream_target_profile() -> DreamTargetProfile:
+	var p := DreamTargetProfile.new()
+	p.contact_local = Vector3(0.0, BODY_BOTTOM + 0.56, 0.0)
+	p.contact_normal_local = Vector3.UP
+	p.trace_axis_local = Vector3.RIGHT
+	p.trace_half_length = 0.28
+	p.response_strength = 1.2
+	p.transformation_eligible = true
+	p.material_word = "iron"
+	return p
+
+
 const SECTION_PITCH := 0.085
 const BODY_BOTTOM := 0.115
 const BODY_TOP := 0.625

@@ -603,3 +603,32 @@ func plant(rect: Vector4, src: int, value := 0.8, agents := 60) -> void:
 		_spawn(Vector3(_rng.randf_range(rect.x, rect.z), origin.y + _rng.randf_range(0.3, 1.8),
 				_rng.randf_range(rect.y, rect.w)), src)
 	_upload_due = true
+
+
+## The dream's substance put on a surface from outside the simulation (the
+## tentacle's touch): body, trail and stain at the point and its neighbours,
+## attributed to a source, with a few agents born there so the organism
+## follows where it was touched.
+func deposit(p: Vector3, src: int, amount := 0.6) -> void:
+	if src < 0 or src >= sources.size():
+		return
+	var c := _cell_of(p)
+	var plane := nx * nz
+	for dz in range(-1, 2):
+		for dy in range(-1, 2):
+			for dx in range(-1, 2):
+				var x := c.x + dx
+				var y := c.y + dy
+				var z := c.z + dz
+				if x < 0 or x >= nx or y < 0 or y >= ny or z < 0 or z >= nz:
+					continue
+				var k := (y * nz + z) * nx + x
+				var w := amount if (dx == 0 and dy == 0 and dz == 0) else amount * 0.45
+				body[k] = maxf(body[k], w)
+				trail[k] = maxf(trail[k], w * 2.0)
+				stain[k] = maxf(stain[k], w * 0.8)
+				who[k] = src
+	for _a in 4:
+		_spawn(p + Vector3(_rng.randf_range(-0.2, 0.2), _rng.randf_range(-0.2, 0.2),
+				_rng.randf_range(-0.2, 0.2)), src)
+	_upload_due = true

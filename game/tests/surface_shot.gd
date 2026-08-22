@@ -55,6 +55,11 @@ const STATIONS := [
 	# The F02 corridor outside 2A, where the organism goes when it leaves the flat.
 	{"key": "corridor_2", "floor": "F02", "pos": Vector3(-4.2, 1.55, 5.4),
 			"yaw": 90.0, "pitch": -6.0, "room": "F02_CORRIDOR", "demo": true},
+	# The dream tentacle out of 2A's west wall by the sofa (TENTACLE_FORCE=1).
+	{"key": "tentacle_2a", "floor": "F02", "pos": Vector3(-11.9, 1.35, 4.0),
+			"yaw": 78.0, "pitch": -6.0, "room": "F02_A_MAIN", "demo": true},
+	{"key": "tentacle_2a_close", "floor": "F02", "pos": Vector3(-12.7, 1.2, 4.25),
+			"yaw": 96.0, "pitch": -8.0, "room": "F02_A_MAIN", "demo": true},
 	# Metal close: the 4B kitchen's stove and taps, and a radiator.
 	{"key": "kitchen_4b", "floor": "F04", "pos": Vector3(-8.6, 1.45, -7.6),
 			"yaw": 160.0, "pitch": -12.0, "room": "F04_B_KITCHEN", "demo": true},

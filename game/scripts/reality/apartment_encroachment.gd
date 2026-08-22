@@ -26,6 +26,9 @@ extends Node
 ## wall_encroachment.gdshader is kept as the reference of the grammar.
 const SurfacePassScript := preload("res://scripts/building/surface_pass.gd")
 const LivingFieldScript := preload("res://scripts/reality/living_field.gd")
+const DreamTentacleScript := preload("res://scripts/dream/entity/dream_tentacle_controller.gd")
+const DreamTentacleDebugScript := preload("res://scripts/dream/entity/dream_tentacle_debug.gd")
+var _tentacle_debug: CanvasLayer = null
 const PROFILES_PATH := "res://data/dream_profiles.json"
 const PLATE_ROOT := "res://assets/dream/incarnations"
 const BEACHHEAD_AT := 0.3
@@ -83,6 +86,17 @@ const PALETTE_INDEX := {"mina_caption_crisis": 0, "peter_form_corridor": 1,
 		"cal_memory_radio": 4, "omar_unrepairable": 5}
 const LIGHT_RANGE_M := 2.6
 const LIGHT_ENERGY := 0.9
+## The dream tentacles (design/DREAM_TENTACLE_BRIEF.md): up to this many
+## per storey, out of the organism where its body is strongest, spaced.
+const TENTACLES_PER_STOREY := 2
+const TENTACLE_COOLDOWN_S := 8.0
+const TENTACLE_MIN_BODY := 0.45
+## floor_id -> Array of DreamTentacle
+var tentacles: Dictionary = {}
+var _tentacle_cooldown: Dictionary = {}
+var _tentacle_candidates: Dictionary = {}
+var _props_ready := false
+var tentacles_spawned := 0
 var _forced: Dictionary = {}
 var _plates: Dictionary = {}
 var _substance_keys: Dictionary = {}
@@ -193,6 +207,7 @@ func _physics_process(delta: float) -> void:
 				if is_instance_valid(m):
 					(m as ShaderMaterial).set_shader_parameter("living_pulse", phase)
 			_place_lights(floor_id, field)
+			_tend_tentacles(floor_id, field, delta)
 
 
 ## The storey the player stands on, by the floors the cases told us about.
@@ -372,6 +387,9 @@ func reach_props(root: Node) -> int:
 			print("[ENCROACH]   %s: %d prop draws" % [case_id, rows.size()])
 		_apply_prop_states(case_id, intensities.get(case_id, intensity_for(case_id)))
 	print("[ENCROACH] %d prop draws reached across %d case flats" % [props_reached, prop_rows.size()])
+	# The tentacles may come out now: the objects they explore exist.
+	_tentacle_candidates.clear()
+	_props_ready = true
 	# §5a: the organism goes anywhere on the storey, so every layered prop on
 	# the storey binds its field — not only those inside a flat.
 	for floor_id in fields:
@@ -577,3 +595,174 @@ static func _world_aabb(mi: MeshInstance3D) -> AABB:
 	for i in 8:
 		result = result.expand(xf * local.get_endpoint(i))
 	return result
+
+
+## --- the dream tentacles -----------------------------------------------------
+
+
+func _tend_tentacles(floor_id: String, field, delta: float) -> void:
+	if OS.get_environment("TENTACLE") == "0" or not _props_ready:
+		return
+	var live: Array = []
+	for t in tentacles.get(floor_id, []):
+		if is_instance_valid(t) and not t.is_queued_for_deletion():
+			live.append(t)
+	tentacles[floor_id] = live
+	var cool := float(_tentacle_cooldown.get(floor_id, 0.0)) - delta
+	_tentacle_cooldown[floor_id] = cool
+	if live.size() >= TENTACLES_PER_STOREY or cool > 0.0:
+		return
+	# Where: the strongest node of the organism not already claimed; forced
+	# cases (TENTACLE_FORCE=1) come out at their source at once.
+	var at := Vector3.ZERO
+	var src := -1
+	if OS.get_environment("TENTACLE_FORCE") == "1":
+		for case_id in field_source:
+			if _floor_of(case_id) != floor_id or not _forced.has(case_id):
+				continue
+			var s_index := int(field_source[case_id])
+			var claimed := false
+			for t in live:
+				if int(t.source_index) == s_index:
+					claimed = true
+			if claimed:
+				continue
+			at = field.sources[s_index].position
+			src = s_index
+			break
+	if src < 0:
+		for i in field.nodes.size():
+			if float(field.node_strength[i]) < TENTACLE_MIN_BODY:
+				continue
+			var p: Vector3 = field.nodes[i]
+			var near := false
+			for t in live:
+				if (t.anchor as Vector3).distance_to(p) < 2.0:
+					near = true
+			if near:
+				continue
+			at = p
+			src = int(field.node_source[i])
+			break
+	if src < 0:
+		return
+	var hit := _nearest_surface(at)
+	var forced_anchor := OS.get_environment("TENTACLE_ANCHOR").split(",", false)
+	if forced_anchor.size() == 6:
+		hit = {"position": Vector3(forced_anchor[0].to_float(), forced_anchor[1].to_float(), forced_anchor[2].to_float()),
+				"normal": Vector3(forced_anchor[3].to_float(), forced_anchor[4].to_float(), forced_anchor[5].to_float()).normalized(),
+				"collider_name": "forced"}
+	if hit.is_empty():
+		_tentacle_cooldown[floor_id] = TENTACLE_COOLDOWN_S * 0.5
+		return
+	var root := get_parent()
+	var who: Node3D = null
+	if root != null and ("player" in root) and root.player != null:
+		who = root.player as Node3D
+	var tentacle := DreamTentacleScript.new()
+	add_child(tentacle)
+	tentacle.setup(field, src, hit.position, hit.normal, who,
+			_candidates_for(floor_id, hit.position), tentacles_spawned * 7919 + floor_id.hash())
+	live.append(tentacle)
+	tentacles[floor_id] = live
+	tentacles_spawned += 1
+	if _tentacle_debug == null and (OS.get_environment("TENTACLE_DEBUG") == "1" or OS.has_feature("editor")):
+		_tentacle_debug = DreamTentacleDebugScript.new()
+		_tentacle_debug.name = "DreamTentacleDebug"
+		add_child(_tentacle_debug)
+		_tentacle_debug.setup(self)
+	_tentacle_cooldown[floor_id] = TENTACLE_COOLDOWN_S
+	if OS.get_environment("ENCROACH_DEBUG") == "1":
+		print("[TENTACLE] %s: out of %s at %s (target %s)" % [floor_id, str(hit.collider_name),
+				hit.position, tentacle.target_name])
+
+
+## The nearest surface to a field point: six short rays. The organism lives
+## on surfaces, so one of them is close.
+func _nearest_surface(p: Vector3) -> Dictionary:
+	var world: World3D = get_viewport().find_world_3d() if get_viewport() != null else null
+	if world == null:
+		return {}
+	var space: PhysicsDirectSpaceState3D = world.direct_space_state
+	if space == null:
+		return {}
+	var best: Dictionary = {}
+	var best_d := INF
+	for dir in [Vector3.DOWN, Vector3.LEFT, Vector3.RIGHT, Vector3.FORWARD, Vector3.BACK, Vector3.UP]:
+		var query := PhysicsRayQueryParameters3D.create(p, p + dir * 1.3)
+		var hit: Dictionary = space.intersect_ray(query)
+		if hit.is_empty():
+			continue
+		var d: float = (hit.position as Vector3).distance_to(p)
+		# It comes out of walls by preference: a floor or a table top only when
+		# no wall is near (the pool on the floor is the exception that earns it).
+		if absf(float((hit.normal as Vector3).y)) > 0.7:
+			d += 0.7
+		if d < best_d:
+			best_d = d
+			best = {"position": hit.position, "normal": hit.normal,
+					"collider_name": hit.collider.name if hit.collider else ""}
+	return best
+
+
+## What a tentacle may touch on this storey: every mesh with bounds, read
+## once per storey (props exist a second after the building) and filtered
+## near the anchor at spawn.
+func _candidates_for(floor_id: String, near: Vector3) -> Array:
+	if not _tentacle_candidates.has(floor_id):
+		var rows: Array = []
+		var unit_floor: Node = null
+		var floor_y := 0.0
+		for case_id in units:
+			if _floor_of(case_id) == floor_id:
+				unit_floor = units[case_id].floor_node
+				floor_y = float(units[case_id].floor_y)
+				break
+		var roots: Array = []
+		if unit_floor != null:
+			roots.append(unit_floor)
+		var storey_roots: Array = []
+		for case_id in units:
+			storey_roots.append(units[case_id].floor_node)
+		var building := get_parent()
+		if building != null:
+			for child in building.get_children():
+				if child is Node3D and child != unit_floor and not (child in storey_roots):
+					roots.append(child)
+				# The props themselves, by their own bounds: their meshes may be
+				# batched into a storey draw, but the object is still an object.
+				if child is FunctionalProp and child.has_method("dream_target_profile"):
+					var local: AABB = child._visual_bounds()
+					if local.size != Vector3.ZERO:
+						var xf: Transform3D = (child as Node3D).global_transform
+						var wb := AABB(xf * local.position, Vector3.ZERO)
+						for i in 8:
+							wb = wb.expand(xf * local.get_endpoint(i))
+						if wb.position.y <= floor_y + 3.4 and wb.end.y >= floor_y - 0.2:
+							rows.append({"aabb": wb, "name": child.name, "node": child})
+		for r in roots:
+			for node in (r as Node).find_children("*", "MeshInstance3D", true, false):
+				var mi := node as MeshInstance3D
+				if mi.mesh == null or not mi.visible:
+					continue
+				var lname := mi.name.to_lower()
+				if lname.contains("_walls") or lname.contains("_finish_") or lname.contains("floor") \
+						or lname.contains("ceiling") or lname.contains("stair"):
+					continue
+				var aabb := _world_aabb(mi)
+				if aabb.size == Vector3.ZERO or aabb.position.y > floor_y + 3.4 or aabb.end.y < floor_y - 0.2:
+					continue
+				# The object the mesh belongs to, for its Dream target profile.
+				var owner_node: Node = mi
+				while owner_node != null and not owner_node.has_method("dream_target_profile") \
+						and owner_node != r:
+					owner_node = owner_node.get_parent()
+				var prop_node: Node3D = owner_node if (owner_node != null and owner_node.has_method("dream_target_profile")) else null
+				rows.append({"aabb": aabb, "name": mi.name, "node": prop_node})
+		_tentacle_candidates[floor_id] = rows
+	var out: Array = []
+	for row in _tentacle_candidates[floor_id]:
+		var aabb: AABB = row.aabb
+		if aabb.get_center().distance_to(near) < 3.5:
+			out.append(row)
+	return out

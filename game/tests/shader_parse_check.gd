@@ -10,6 +10,11 @@ const SHADER_PATHS := [
 	"res://shaders/orison_surface_cutout.gdshader",
 	"res://shaders/dream_klimt.gdshader",
 	"res://shaders/dream_fauna.gdshader",
+	"res://shaders/dream_tentacle.gdshader",
+	"res://shaders/dream_eye.gdshader",
+	"res://shaders/dream_halo.gdshader",
+	"res://shaders/dream_sucker.gdshader",
+	"res://shaders/dream_membrane.gdshader",
 ]
 
 
