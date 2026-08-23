@@ -28,7 +28,54 @@ archetypes, running eight of the ten movement primitives, with 61 feeling a
 neighbour, 23 cooperating and 16 branches unfolded; **8 critters** of two
 species, 4 of them on both sides of walls.
 
-## What this capture does NOT show, and why
+## THE STAGE (owner direction, 2026-08-23)
+
+> *"make an ideal test apartment to stage the doc"*
+
+`game/tests/dream_stage.gd` builds a room for the shot, and
+`DreamStageShot.tscn` captures it:
+
+    art/renders/dream_ecology/dream_ecology_stage.mp4
+
+Everything in it earns its place:
+
+| | why |
+| --- | --- |
+| a long unbroken wall | the hero emerges from it and the margin grows along it, so both are in one frame |
+| four metres of clear floor | the camera can stand back far enough to hold hero and palps together |
+| a radiator | §27's own example of a target different organisms read differently |
+| a sofa and low table | occluders, contact targets, obstacles to walk around |
+| a corner and a skirting run | seams, which is what a seam grazer is *for* |
+| a free-standing 6 cm panel | so the grazer's both-sides law can fire where a camera sees both |
+| a plinth at the hero's own height | something within its arm to actually touch |
+
+**All seven beats fire, including residue**, which the real-flat capture never
+managed. Population in the room: ~70 appendages across three tiers and six
+archetypes, 8 critters of all three species, the hero running its full state
+machine including cross-sectional withdrawal.
+
+The player's action is in the take too: two thirds through, the radiator is
+touched and the ecology snaps to it.
+
+### Three staging faults, each found by looking
+
+1. **The hero had nothing to touch.** It casts for targets *forward* to about
+   1.5 m, and I had given it four metres of empty floor — twenty-two seconds
+   of SEEKING and no residue in the take at all.
+2. **The plinth was too low.** Instrumenting the search showed its rays fan
+   about 29° below horizontal at most, so a waist-height plinth 0.85 m out
+   passed under nothing and over the top of it.
+3. **The plinth then blocked the hero.** Directly in front, it stood between
+   the lens and the creature and hid the limb every time it retracted — the
+   thing that existed to give the hero a target was also the thing hiding the
+   hero. Moved to one side, the limb reaches across and both are visible.
+
+This stage is **not** a replacement for testing in real flats. The ecology has
+to survive those, and the other capture modes still run there. It exists so
+the canonical review asset can show all three levels at once without fighting
+architecture laid out for people to live in.
+
+## What the REAL-FLAT capture does NOT show, and why
 
 **The three levels are not co-framed.** The camera is tight on the hero — 1.75 m
 — and the margin and critters are elsewhere in the flat, so the video shows

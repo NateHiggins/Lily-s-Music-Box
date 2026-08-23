@@ -440,6 +440,8 @@ func tip_world() -> Vector3:
 ## than for a number.
 func _pick_target() -> bool:
 	if _space == null:
+		if OS.get_environment("HERO_TARGET_DEBUG") == "1":
+			print("[hero] no space state at all")
 		return false
 	# CAST FROM THE ROOT, NOT FROM THE TIP.
 	#
@@ -469,6 +471,10 @@ func _pick_target() -> bool:
 		# not at the very limit of extension.
 		var d: float = global_position.distance_to(hit.position)
 		if d < 0.35 or d > reach_m:
+			if OS.get_environment("HERO_TARGET_DEBUG") == "1":
+				print("[hero] hit %s at %.2f m — outside [0.35, %.2f]"
+						% [hit.collider.name if hit.has("collider") else "?",
+						d, reach_m])
 			continue
 		target = hit.position
 		target_normal = (hit.normal as Vector3).normalized()
@@ -476,6 +482,8 @@ func _pick_target() -> bool:
 		var any := Vector3.UP if absf(target_normal.y) < 0.9 else Vector3.RIGHT
 		_caress_dir = any.cross(target_normal).normalized()
 		return true
+	if OS.get_environment("HERO_TARGET_DEBUG") == "1":
+		print("[hero] fourteen rays from %s, nothing usable" % from)
 	return false
 
 
