@@ -44,6 +44,9 @@ var _rest: Array[Quaternion] = []
 var _attend := Vector3.ZERO
 ## §36 — the eye is the hero's face. Its own controls, its own clock.
 var watch: Node3D = null
+## §22 — the ecology it belongs to. It notices what is near it.
+var critters = null
+var noticing := Vector3.INF
 var _eye_bone := -1
 var _lid_bones: PackedInt32Array = PackedInt32Array()
 var _eye_rest: Array[Quaternion] = []
@@ -277,6 +280,31 @@ func _animate(delta: float) -> void:
 		skeleton.set_bone_pose_rotation(_bones[i], _rest[i] * q)
 
 
+## §22 — IT NOTICES THEM.
+##
+##     "tiny critter clings to hero gold plate; hero eye notices it; distal
+##      club nudges it"
+##
+## The hero is the ecology's face, and a face that never looks at anything
+## alive near it is scenery. This is deliberately only the FIRST half of the
+## interaction -- it looks -- because looking is what the eye is for and it
+## costs nothing to be honest that the club does not yet nudge anything.
+func _notice_neighbours(_delta: float) -> void:
+	noticing = Vector3.INF
+	if critters == null or not is_instance_valid(critters):
+		return
+	# It notices along its whole body, not only at the very tip: a critter
+	# clinging to a gold plate halfway down is exactly §22's example. Measured
+	# against tip AND root, the same way the critters measure the hero.
+	var tip := tip_world()
+	var best := 1.5
+	for c in critters.critters:
+		var d: float = minf(tip.distance_to(c.pos), global_position.distance_to(c.pos))
+		if d < best:
+			best = d
+			noticing = c.pos
+
+
 ## §36 — THE EYE PERFORMS.
 ##
 ## An eye that drifts smoothly is a camera. A real one FIXES: it jumps to a
@@ -292,8 +320,11 @@ func _animate_eye(delta: float) -> void:
 		_gaze_hold = 0.7 + fmod(absf(sin(_clock * 9.3 + _seeded * 5.0)) * 2.4, 2.4)
 		# It looks where it is reaching, and at whoever is watching it.
 		var want := _attend
+		# Something alive and close outranks whatever it was reaching for.
+		if noticing != Vector3.INF:
+			want = (noticing - global_position).normalized()
 		# It watches its own hands: whatever it is reaching for gets looked at.
-		if target != Vector3.INF:
+		elif target != Vector3.INF:
 			want = (target - global_position).normalized()
 		if watch != null and is_instance_valid(watch):
 			var to_watcher := (watch.global_position - global_position)
@@ -579,6 +610,7 @@ func _secondary(delta: float) -> void:
 func _process(delta: float) -> void:
 	_clock += delta
 	_behave(delta)
+	_notice_neighbours(delta)
 	_animate(delta)
 	# The search motion lays down a posture; the solve then steers the tip to
 	# what the creature actually decided to touch. Only while it is reaching:
@@ -612,6 +644,7 @@ func census() -> Dictionary:
 			"reach_gain": snappedf(_reach_gain, 0.01),
 			"motion": snappedf(motion, 0.001),
 			"slice_close": snappedf(slice_close, 0.001),
+			"noticing_a_critter": noticing != Vector3.INF,
 			"lag_root": snappedf(lag_root, 0.0001),
 			"lag_tip": snappedf(lag_tip, 0.0001),
 			"skeleton": skeleton != null}

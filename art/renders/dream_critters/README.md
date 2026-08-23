@@ -94,8 +94,42 @@ Measured in one run: **3 shoved, 3 following**, alongside 2 grazers on both
 sides of walls and 2 crabs folding a leg. That census reads like an ecosystem
 rather than a list of spawned props.
 
-Feeding shows zero in the contract because no hero spawns there, so nothing
-has laid any residue — the path is wired, not exercised.
+Feeding shows zero in the contract because nothing has laid residue in that
+run — the path is wired, not exercised.
+
+## §22 — the hero, and who is brave
+
+*"hero emerges, several critters flee into Dream margin, one remains, hero
+examines the brave individual … These interactions can create character
+without dialogue."*
+
+The beat only works if individuals differ, and §19 already gave every critter
+a confidence, so it costs no authoring: a timid one flees along the surface,
+a confident and curious one holds its ground and comes closer. The hero
+notices whatever is alive nearest it — along its whole body, not only its very
+tip, since a critter clinging to a gold plate halfway down is §22's own
+example — and looks at it in preference to whatever it was reaching for.
+
+Its cross-sectional withdrawal is treated as more alarming than its presence,
+so even a fairly bold animal reacts to the hero ceasing to have a thickness.
+
+Half of all critters are now born near the hero. Left purely to chance they
+and the hero met only occasionally, and a beat where several flee and one
+remains cannot happen to animals that are never in the same room.
+
+## A note on what these tests assert
+
+Three checks here were flaky, and for the same reason: whether a grazer
+*wanders* onto a thin wall, or a critter *happens* to be near the hero, inside
+any given twenty seconds is chance. Asserting on chance produces a test that
+fails for reasons unrelated to the code it names, which is worse than no test.
+
+Those observations are still printed — they are the interesting number — but
+they are marked *(emergent, not asserted)*. The **mechanisms** get constructed
+tests instead: a 6 cm panel is built, a grazer is placed on it, and its two
+appearances are measured on opposite faces; a critter is placed beside the
+hero's club and the hero's notice is checked. Same reasoning as §37's arranged
+row.
 - No §23 social behaviour — the species declare solitary/colonial/
   opportunistic and nothing acts on it.
 - No contact, so they leave no residue.

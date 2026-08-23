@@ -37,6 +37,7 @@ signal critter_died(id: int)
 var field: DreamFieldController = null
 var margin = null
 var residue = null
+var hero = null
 var enabled := true
 var critters: Array = []
 
@@ -170,6 +171,15 @@ func _try_spawn() -> void:
 		return
 	var l: Dictionary = st.lobes[live[_rng.randi() % live.size()]]
 	var centre: Vector3 = l.centre
+	# THE HERO IS WHERE THE DREAM IS STRONGEST HERE, so some of them are born
+	# around it rather than anywhere the field happens to reach. Left purely to
+	# chance, critters and the hero met only occasionally -- the §22 beat where
+	# several flee and one remains cannot happen to animals that are never in
+	# the same room. Half, so the rest of the flat is still inhabited.
+	if hero != null and is_instance_valid(hero) and _rng.randf() < 0.5:
+		centre = hero.global_position + Vector3(
+				_rng.randf_range(-0.7, 0.7), _rng.randf_range(-0.2, 0.5),
+				_rng.randf_range(-0.7, 0.7))
 	for attempt in 8:
 		var dir := Vector3(_rng.randf_range(-1.0, 1.0), _rng.randf_range(-1.0, 0.2),
 				_rng.randf_range(-1.0, 1.0)).normalized()
@@ -210,6 +220,9 @@ func _try_spawn() -> void:
 			"following": -1,
 			"nudged": 0.0,
 			"feeding": false,
+			# §22 — what it is doing about the hero, if anything.
+			"hero_near": 0.0,
+			"toward_hero": false,
 		})
 		critter_born.emit(_next_id, String(m.species))
 		_next_id += 1
@@ -235,7 +248,13 @@ func _walk(delta: float) -> void:
 		# Pausing is a species trait and an individual one: the listener holds
 		# still to use its resonators, and a timid crab stops more often.
 		c.pause -= delta
-		if c.pause <= 0.0:
+		# A fold holds the animal still for its whole duration, so the pause
+		# timer must not re-roll `moving` underneath it. It did, and a fold
+		# that happened to span a re-roll moved the crab 73 mm.
+		if float(c.get("fold", 0.0)) > 0.05:
+			c.moving = false
+			c.pause = maxf(float(c.pause), 0.35)
+		elif c.pause <= 0.0:
 			var still: float = 2.4 if int(m.kind) == SpeciesScript.Kind.CRYSTAL_LISTENER else 0.7
 			c.pause = _rng.randf_range(0.6, 2.2) + still * float(m.pause_bias)
 			c.moving = _rng.randf() > (0.55 if int(m.kind)
@@ -258,7 +277,56 @@ func _walk(delta: float) -> void:
 				c.fwd = (fwd - (c.up as Vector3) * fwd.dot(c.up)).normalized()
 		_apply_law(c, delta)
 		_use_the_margin(c, delta)
+		_consider_the_hero(c, delta)
 		i -= 1
+
+
+## §22 — THE HERO, RARELY AND MEANINGFULLY.
+##
+##     "hero emerges, several critters flee into Dream margin, one remains,
+##      hero examines the brave individual ... These interactions can create
+##      character without dialogue."
+##
+## The whole beat depends on the individuals NOT all doing the same thing, so
+## this is decided by temperament: a timid critter runs and a confident one
+## holds its ground or comes closer. One brave animal among four that fled is
+## a character, and it costs nothing to author because §19 already gave every
+## individual a confidence.
+func _consider_the_hero(c: Dictionary, delta: float) -> void:
+	c.toward_hero = false
+	if hero == null or not is_instance_valid(hero):
+		c.hero_near = 0.0
+		return
+	var m: Dictionary = c.morph
+	var pos: Vector3 = c.pos
+	var hero_tip: Vector3 = hero.tip_world()
+	var d: float = minf(pos.distance_to(hero_tip),
+			pos.distance_to(hero.global_position))
+	c.hero_near = clampf(1.0 - d / 2.0, 0.0, 1.0)
+	if float(c.hero_near) <= 0.0:
+		return
+	var up: Vector3 = c.up
+	# The hero withdrawing through its own cross-section is the single most
+	# alarming thing in this ecology, and even a bold animal reacts to it.
+	var alarming: float = 0.55
+	if "slice_close" in hero and float(hero.slice_close) > 0.02:
+		alarming = 0.9
+	if float(m.confidence) < alarming:
+		# Flee, along the surface, away from it.
+		var away: Vector3 = pos - hero_tip
+		away = away - up * away.dot(up)
+		if away.length() > 0.001:
+			c.fwd = (c.fwd as Vector3).lerp(away.normalized(),
+					delta * 3.0 * float(c.hero_near)).normalized()
+			c.moving = true
+	elif float(m.curiosity) > 0.5:
+		# Hold, and approach. This is the brave individual.
+		var toward: Vector3 = hero_tip - pos
+		toward = toward - up * toward.dot(up)
+		if toward.length() > 0.08:
+			c.fwd = (c.fwd as Vector3).lerp(toward.normalized(),
+					delta * 1.2 * float(c.hero_near)).normalized()
+			c.toward_hero = true
 
 
 ## §21 — THE MARGIN IS HABITAT.
@@ -363,6 +431,14 @@ func _apply_law(c: Dictionary, delta: float) -> void:
 			# A LEG SHORTENS WITHOUT MOVING EITHER OF ITS ENDS. Its root stays
 			# on the body and its foot stays planted, and the limb between
 			# them becomes shorter than the gap it spans.
+			# NOT WHILE IT IS RUNNING. An animal does not perform its one
+			# strange trick mid-flight, and letting it try produced a crab
+			# that folded a leg while fleeing the hero -- which moved it 75 mm
+			# during the event and made the law illegible.
+			if float(c.get("hero_near", 0.0)) > 0.25 and float(m.confidence) < 0.55:
+				c.fold = 0.0
+				c.fold_clock = maxf(float(c.fold_clock), 1.5)
+				return
 			c.fold_clock -= delta
 			if c.fold_clock <= 0.0:
 				c.fold_clock = _rng.randf_range(2.2, 5.5)
@@ -446,6 +522,8 @@ func census() -> Dictionary:
 	var nudged := 0
 	var following := 0
 	var feeding := 0
+	var feel_hero := 0
+	var brave := 0
 	for c in critters:
 		if float(c.get("nudged", 0.0)) > 0.0:
 			nudged += 1
@@ -453,7 +531,12 @@ func census() -> Dictionary:
 			following += 1
 		if bool(c.get("feeding", false)):
 			feeding += 1
+		if float(c.get("hero_near", 0.0)) > 0.01:
+			feel_hero += 1
+		if bool(c.get("toward_hero", false)):
+			brave += 1
 	return {"live": critters.size(), "born": _next_id, "species": by_species,
 			"max": MAX_LIVE, "on_both_sides": twinned, "folding_a_leg": folding,
 			"nudged_by_a_palp": nudged, "following_a_palp": following,
-			"feeding_on_residue": feeding}
+			"feeding_on_residue": feeding,
+			"feel_hero": feel_hero, "approaching_hero": brave}

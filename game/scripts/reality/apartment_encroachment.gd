@@ -289,6 +289,9 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			# member, rather than being a special effect dropped into it.
 			if margin != null:
 				margin.hero = hero
+			if critters != null:
+				critters.hero = hero
+				hero.critters = critters
 	if RealityState.has_signal("state_changed") and not RealityState.state_changed.is_connected(refresh):
 		RealityState.state_changed.connect(refresh)
 	refresh()

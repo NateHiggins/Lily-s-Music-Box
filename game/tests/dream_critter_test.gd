@@ -105,6 +105,8 @@ func _in_world() -> void:
 	OS.set_environment("DAYNIGHT", "0")
 	OS.set_environment("ENCROACH_FORCE", "mina:0.9")
 	OS.set_environment("LIVING_ALL", "1")
+	# §22 needs the hero present to test whether critters react to it.
+	OS.set_environment("DREAM_HERO", "1")
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	for case_id in RealityCases.definitions:
@@ -194,8 +196,11 @@ func _in_world() -> void:
 			% [twin_seen, twin_gap, spin_moved]
 			+ "leg folded %s (body moved %.3f m during it)"
 			% [fold_seen, fold_root_moved])
-	_check("seam grazer: seen occupying both sides of a wall (gap %.3f m)"
-			% twin_gap, twin_seen and twin_gap > 0.01)
+	# Emergent observation only. Whether a grazer WANDERS onto a thin wall in
+	# any given twenty seconds is chance, and asserting on chance produces a
+	# test that fails for reasons that have nothing to do with the code. The
+	# mechanism gets a constructed test below.
+	print("[critter] (emergent, not asserted) grazer twinned: %s" % twin_seen)
 	_check("crystal listener: its resonator turned (%.2f rad) while its shell "
 			% spin_moved + "orientation is never written at all", spin_moved > 0.5)
 	_check("fold crab: a leg went shorter than the gap it spans", fold_seen)
@@ -216,8 +221,77 @@ func _in_world() -> void:
 	_check("critters and the margin share a world rather than ignoring it "
 			+ "(%d shoved, %d following)" % [peak_nudged, peak_following],
 			peak_nudged + peak_following >= 1)
+	# --- §22: THE HERO, AND WHO IS BRAVE ---------------------------------
+	# The beat only works if individuals differ: several flee and one remains.
+	# §19 already gave every critter a confidence, so this costs no authoring.
+	var hero = enc.get("hero")
+	_check("the hero is present for the critters to react to", hero != null)
+	if hero != null:
+		var peak_feel := 0
+		var peak_brave := 0
+		var hero_noticed := false
+		for probe in 40:
+			await get_tree().create_timer(0.4).timeout
+			var cc: Dictionary = ctrl.census()
+			peak_feel = maxi(peak_feel, int(cc.get("feel_hero", 0)))
+			peak_brave = maxi(peak_brave, int(cc.get("approaching_hero", 0)))
+			if bool(hero.census().get("noticing_a_critter", false)):
+				hero_noticed = true
+		print("[critter] hero: %d felt it, %d approached anyway, hero noticed one: %s"
+				% [peak_feel, peak_brave, hero_noticed])
+		print("[critter] (emergent, not asserted) felt hero %d, approached %d, "
+				% [peak_feel, peak_brave] + "hero noticed: %s" % hero_noticed)
+	await _constructed(ctrl, hero)
 	var cen2: Dictionary = ctrl.census()
 	print("[critter] %s" % [cen2])
+
+
+## The mechanisms, tested by BUILDING the situation rather than waiting for
+## the simulation to wander into it. Same reasoning as §37's arranged row: a
+## rare event observed in a fixed window makes a flaky assertion, and a flaky
+## assertion is worse than none because it fails for reasons unrelated to the
+## thing it names.
+func _constructed(ctrl, hero) -> void:
+	# A thin panel, and a seam grazer standing on it.
+	var panel := StaticBody3D.new()
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = Vector3(1.4, 1.4, 0.06)      # 6 cm: thin enough to be on both sides
+	shape.shape = box
+	panel.add_child(shape)
+	add_child(panel)
+	panel.global_position = Vector3(0.0, 200.0, 0.0)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	var g: Dictionary = ctrl.critters[0]
+	for c in ctrl.critters:
+		if int(c.morph.kind) == DreamCritterSpecies.Kind.SEAM_GRAZER:
+			g = c
+			break
+	_check("a seam grazer exists to test the mechanism on",
+			int(g.morph.kind) == DreamCritterSpecies.Kind.SEAM_GRAZER)
+	g.pos = Vector3(0.0, 200.0, 0.03 + float(g.morph.tall) * 0.5)
+	g.up = Vector3(0.0, 0.0, 1.0)
+	g.fwd = Vector3(1.0, 0.0, 0.0)
+	ctrl._apply_law(g, 0.016)
+	print("[critter] constructed: twin=%s at %s (body at %s)"
+			% [g.twin, g.twin_pos, g.pos])
+	_check("§24 seam grazer: on a 6 cm panel it occupies BOTH faces",
+			bool(g.twin))
+	if bool(g.twin):
+		var gap: float = (g.pos as Vector3).distance_to(g.twin_pos)
+		_check("its two appearances are on opposite faces (%.3f m apart)" % gap,
+				gap > 0.03 and gap < 0.25)
+		_check("and it faces one way, not two",
+				(g.twin_fwd as Vector3).dot(g.fwd) > 0.5)
+	# And the hero notices something alive placed beside it.
+	if hero != null:
+		var probe: Dictionary = ctrl.critters[0]
+		probe.pos = hero.tip_world() + Vector3(0.0, 0.06, 0.0)
+		hero._notice_neighbours(0.016)
+		_check("§22 the hero notices a critter placed beside its club",
+				hero.noticing != Vector3.INF)
+	panel.queue_free()
 
 
 func _finish() -> void:
