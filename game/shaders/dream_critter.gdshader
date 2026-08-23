@@ -33,6 +33,10 @@ uniform vec4 critter_counts[12];
 // §24, per individual: x the resonator's own angle, y which leg is currently
 // shorter than the gap it spans, z how far.
 uniform vec4 critter_law[12];
+// §26 — this individual's material balance, inside the Dream colour language
+// rather than a free hue: x aubergine..magenta, y crimson perfusion,
+// z wetness, w structural iridescence.
+uniform vec4 critter_look[12];
 uniform int critter_count = 0;
 
 varying vec2 v_uv;
@@ -42,6 +46,7 @@ varying float v_part;
 varying vec4 v_matter;
 varying float v_thickness;
 varying vec4 v_law;
+varying vec4 v_look;
 
 // A tube's cross-section must be perpendicular to the tube. Offsetting along
 // a fixed-plane normal -- which is what the ring normal is, before it is
@@ -65,6 +70,7 @@ void vertex() {
 	vec4 counts = critter_counts[c];
 	vec4 matter = critter_matter[c];
 	vec4 law = critter_law[c];
+	vec4 look = critter_look[c];
 	vec3 fwd = normalize(critter_fwd[c].xyz + vec3(1e-5, 0.0, 0.0));
 	vec3 up = normalize(critter_up[c].xyz + vec3(0.0, 1e-5, 0.0));
 	vec3 side = normalize(cross(up, fwd));
@@ -167,8 +173,11 @@ void vertex() {
 		v_thickness = 0.12;
 	}
 
-	vec3 world = pos.xyz + side * local.x + up * local.y + fwd * local.z;
-	world = mix(pos.xyz, world, alive);
+	// counts.w is 1 plus this individual's walking bob, so a moving animal
+	// rises and falls on its legs and a still one does not (§20).
+	float bob = counts.w - 1.0;
+	vec3 world = pos.xyz + side * local.x + up * (local.y + bob) + fwd * local.z;
+	world = mix(pos.xyz, world, clamp(counts.w, 0.0, 1.0) > 0.0 ? alive : 0.0);
 	VERTEX = (inverse(MODEL_MATRIX) * vec4(world, 1.0)).xyz;
 	NORMAL = normalize(side * nrm.x + up * nrm.y + fwd * nrm.z);
 	v_uv = vec2(index, along);
@@ -177,6 +186,7 @@ void vertex() {
 	v_part = part;
 	v_matter = matter;
 	v_law = law;
+	v_look = look;
 }
 
 void fragment() {
@@ -191,7 +201,9 @@ void fragment() {
 	ctx.gold_root = v_matter.x * (v_part > 0.5 && v_part < 1.5 ? 1.35 : 0.7);
 	ctx.socket = v_matter.y * (v_part > 1.5 ? 1.2 : 0.5);
 	ctx.contact = v_part > 1.5 ? 0.8 : 0.2;
-	ctx.stretch = 0.35;
+	// §26 — the individual's own balance, applied to the shared stack.
+	ctx.stretch = 0.2 + 0.5 * v_look.w;
+	ctx.vein = 0.2 + 0.7 * v_look.y;
 	ctx.lod = 1.0 - smoothstep(1.2, 5.0, length(VERTEX));
 	// §24 — THE RESONATOR TURNS INSIDE A SHELL THAT DOES NOT.
 	//
@@ -208,9 +220,13 @@ void fragment() {
 	}
 	DeMasks m = de_masks(shading_pos, v_uv, n, view_dir, TIME, v_seed, ctx);
 	DeOut o = de_shade(m, shading_pos, v_uv, n, view_dir, TIME, v_seed, ctx);
-	ALBEDO = o.albedo;
+	// Aubergine toward magenta: a rebalance within the palette, never a hue
+	// spun off it. At 0 the red channel is held back and the blue kept; at 1
+	// the red is let through.
+	vec3 tint = mix(vec3(0.82, 0.95, 1.12), vec3(1.18, 0.92, 0.95), v_look.x);
+	ALBEDO = o.albedo * tint;
 	METALLIC = o.metallic;
-	ROUGHNESS = o.roughness;
+	ROUGHNESS = clamp(o.roughness - 0.22 * v_look.z, 0.04, 1.0);
 	SPECULAR = o.specular;
 	EMISSION = o.emission * (0.5 + 1.1 * v_matter.x);
 	BACKLIGHT = o.backlight;

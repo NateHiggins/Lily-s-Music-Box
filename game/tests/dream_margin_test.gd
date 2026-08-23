@@ -289,6 +289,14 @@ func _run() -> void:
 		# forty sat earliest in the array, so a margin of eighty could put all
 		# its geometry across the flat while the wall in front of you carried
 		# none of it.
+		# Hold the population still. The renderer sorts by distance in
+		# _process while the tips keep moving in _physics_process, so a
+		# measurement taken a moment later compares the selection against
+		# positions it was never made from -- one run in three reported a
+		# nearer palp skipped by 25 cm, which was true afterwards and false
+		# when the choice was made.
+		margin.frozen = true
+		await get_tree().process_frame
 		await get_tree().process_frame
 		var eye: Vector3 = renderer._eye_position()
 		var drawn_far := 0.0
@@ -305,6 +313,7 @@ func _run() -> void:
 		if margin.palps.size() > int(renderer.census().drawn):
 			_check("§29 the drawn set is the NEAREST set (%.2f m vs %.2f m)"
 					% [drawn_far, skipped_near], drawn_far <= skipped_near + 0.01)
+		margin.frozen = false
 	_finish()
 
 

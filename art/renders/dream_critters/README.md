@@ -133,5 +133,22 @@ row.
 - No §23 social behaviour — the species declare solitary/colonial/
   opportunistic and nothing acts on it.
 - No contact, so they leave no residue.
-- All three read quite gold at close range; the material rebalance per species
-  (§25) is coarse.
+## Phases 10–11 — variation that is visible
+
+**§26, material, seeded per individual and inside the colour language.**
+*"Avoid arbitrary hue randomization."* So none of these is a hue: they are
+balances between things the palette already contains — how far toward magenta
+the plum sits, how proud the crimson perfusion is, how coarse the skin, how
+wet, how much the structure catches light, how oxidised the gold. Two animals
+differ; neither becomes green. The contract tests both sides, because a
+generator that produced a green critter would pass a variation test and fail
+the brief: hue spread across 500 individuals is the full 0.00–1.00 and **zero
+strays** leave the bounds.
+
+**§20, movement beyond speed.** Two fold crabs from adjacent seeds differ in
+**7 of 7** movement properties: which limb leads, pause bias, preferred
+turning side, gait phase, gait asymmetry, stride phase and body bob. A moving
+animal now rises and falls on its legs; a still one does not.
+
+This also answers the earlier note that all three species read gold at close
+range — the balance is per-individual now rather than per-species.

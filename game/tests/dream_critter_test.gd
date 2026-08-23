@@ -63,6 +63,42 @@ func _run() -> void:
 			% between_min + "further apart than the furthest same-species pair "
 			+ "(%.2f)" % within_max, between_min > within_max)
 
+	# --- §26: MATERIAL VARIES, INSIDE THE COLOUR LANGUAGE ----------------
+	# "Avoid arbitrary hue randomization. Everything remains within Dream
+	# color language." So the test is two-sided: individuals must differ, AND
+	# none may leave the bounds. A generator that produced a green critter
+	# would pass a variation test and fail the brief.
+	var hues: Array = []
+	var wets: Array = []
+	var out_of_language := 0
+	for i in 500:
+		var m: Dictionary = G.generate(S.Kind.CRYSTAL_LISTENER, 5000 + i)
+		hues.append(float(m.hue_bias))
+		wets.append(float(m.wetness))
+		for key in ["hue_bias", "perfusion", "wetness", "iridescence",
+				"skin_coarse", "alloy_tint"]:
+			var v: float = float(m[key])
+			if v < 0.0 or v > 1.6:
+				out_of_language += 1
+	print("[critter] hue bias %.2f..%.2f, wetness %.2f..%.2f across 500"
+			% [hues.min(), hues.max(), wets.min(), wets.max()])
+	_check("individuals differ in material balance (hue spread %.2f)"
+			% (hues.max() - hues.min()), hues.max() - hues.min() > 0.5)
+	_check("§26 nothing leaves the Dream colour language (%d strays)"
+			% out_of_language, out_of_language == 0)
+
+	# --- §20: two of a species walk differently --------------------------
+	var a1: Dictionary = G.generate(S.Kind.FOLD_CRAB, 8801)
+	var a2: Dictionary = G.generate(S.Kind.FOLD_CRAB, 8802)
+	var gait_differs := 0
+	for key in ["lead_limb", "pause_bias", "turn_bias", "gait_phase",
+			"gait_asymmetry", "stride_phase", "body_bob"]:
+		if not is_equal_approx(float(a1[key]), float(a2[key])):
+			gait_differs += 1
+	print("[critter] two crabs differ in %d of 7 movement properties" % gait_differs)
+	_check("§20 two of a species move differently in more than speed (%d/7)"
+			% gait_differs, gait_differs >= 5)
+
 	# --- §24: one impossible rule each, and only one ---------------------
 	var laws := {}
 	for kind in kinds:

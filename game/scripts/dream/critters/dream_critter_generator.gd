@@ -60,6 +60,28 @@ static func generate(kind: int, seed_v: int) -> Dictionary:
 	m["pause_bias"] = rng.randf()
 	m["turn_bias"] = rng.randf_range(-1.0, 1.0)
 	m["gait_phase"] = rng.randf_range(0.0, TAU)
+	# §26 — MATERIAL VARIATION, SEEDED, INSIDE THE DREAM COLOUR LANGUAGE.
+	#
+	#     "Avoid arbitrary hue randomization. Everything remains within Dream
+	#      color language."
+	#
+	# So none of these is a hue. They are balances between things the palette
+	# already contains: how far toward magenta the plum sits, how proud the
+	# crimson perfusion is, how coarse the skin, how wet, how much the
+	# structure catches light. Two animals differ; neither becomes green.
+	m["hue_bias"] = rng.randf()          # 0 aubergine .. 1 magenta
+	m["perfusion"] = rng.randf_range(0.25, 1.0)
+	m["skin_coarse"] = rng.randf_range(0.2, 1.0)
+	m["pore_scale"] = rng.randf_range(0.6, 1.6)
+	m["wetness"] = rng.randf_range(0.25, 0.95)
+	m["iridescence"] = rng.randf_range(0.0, 0.7)
+	m["alloy_tint"] = rng.randf()        # pale gold .. deep oxidised
+	# §20 — MOVEMENT VARIATION BEYOND SPEED. Which limb leads is already
+	# chosen; these are the rest of what makes two of a species walk unalike.
+	m["gait_asymmetry"] = rng.randf_range(0.0, 0.35)
+	m["stride_phase"] = rng.randf_range(0.0, TAU)
+	m["body_bob"] = rng.randf_range(0.0, 0.5)
+	m["sensor_tracking"] = rng.randf()   # how much it turns its sensors first
 	m["law"] = String(r.law)
 	m["thesis"] = String(r.thesis)
 	m["plan"] = String(r.plan)
@@ -80,4 +102,10 @@ static func visual_distance(a: Dictionary, b: Dictionary) -> float:
 	d += absf(float(a.gold) - float(b.gold))
 	d += absf(float(a.crystal) - float(b.crystal))
 	d += absf(float(a.cilia) - float(b.cilia))
+	# Material balance is visible from across a room, so it counts -- but at
+	# lower weight than anatomy, since §16 puts species identity first and two
+	# grazers of different hue balance are still obviously two grazers.
+	d += absf(float(a.hue_bias) - float(b.hue_bias)) * 0.4
+	d += absf(float(a.perfusion) - float(b.perfusion)) * 0.3
+	d += absf(float(a.wetness) - float(b.wetness)) * 0.25
 	return d

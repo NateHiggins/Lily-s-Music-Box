@@ -58,6 +58,9 @@ var _size := PackedVector4Array()
 var _matter := PackedVector4Array()
 var _counts := PackedVector4Array()
 var _law := PackedVector4Array()
+## §26 — per-individual material balance: x hue bias, y perfusion,
+## z wetness, w iridescence.
+var _look := PackedVector4Array()
 
 
 func setup(controller: DreamFieldController, seed_v: int) -> void:
@@ -65,7 +68,7 @@ func setup(controller: DreamFieldController, seed_v: int) -> void:
 	enabled = OS.get_environment("DREAM_CRITTERS") != "0"
 	field = controller
 	_rng.seed = seed_v
-	for arr in [_pos, _fwd, _up, _size, _matter, _counts, _law]:
+	for arr in [_pos, _fwd, _up, _size, _matter, _counts, _law, _look]:
 		arr.resize(MAX_CRITTERS)
 	material = ShaderMaterial.new()
 	material.shader = SHADER
@@ -502,6 +505,7 @@ func _push() -> void:
 	material.set_shader_parameter("critter_matter", _matter)
 	material.set_shader_parameter("critter_counts", _counts)
 	material.set_shader_parameter("critter_law", _law)
+	material.set_shader_parameter("critter_look", _look)
 	material.set_shader_parameter("critter_count", n)
 	if field != null:
 		field.apply_to(material)
@@ -523,14 +527,20 @@ func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
 		var u: Vector3 = c.twin_up if as_twin else c.up
 		_up[i] = Vector4(u.x, u.y, u.z, 0.0)
 		# x resonator angle, y which leg is folded, z how far, w unused
+		_look[i] = Vector4(float(m.get("hue_bias", 0.5)),
+				float(m.get("perfusion", 0.6)), float(m.get("wetness", 0.6)),
+				float(m.get("iridescence", 0.3)))
 		_law[i] = Vector4(float(c.get("spin", 0.0)),
 				float(int(c.get("fold_leg", -1))), float(c.get("fold", 0.0)), 0.0)
 		_size[i] = Vector4(float(m.length), float(m.wide), float(m.tall),
 				float(int(m.seed) % 97) * 0.041)
 		_matter[i] = Vector4(float(m.gold), float(m.crystal), float(m.cilia),
-				float(c.gait))
+				float(c.gait) + float(m.get("stride_phase", 0.0)))
+		# w carries the walking bob so a moving animal rises and falls on its
+		# legs; z is the anatomical asymmetry §17 asks for.
+		var bobbing: float = float(m.get("body_bob", 0.0)) 				* (1.0 if bool(c.get("moving", false)) else 0.0)
 		_counts[i] = Vector4(float(m.limbs), float(m.feelers),
-				float(m.asymmetry), 1.0)
+				float(m.asymmetry), 1.0 + bobbing * sin(float(c.gait) * 2.0) * 0.06)
 
 
 func census() -> Dictionary:
