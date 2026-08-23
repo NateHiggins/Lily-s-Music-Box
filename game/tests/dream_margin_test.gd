@@ -106,12 +106,20 @@ func _run() -> void:
 			int(acts.get("trace", 0)) + int(acts.get("touch", 0))
 			+ int(acts.get("taste", 0)) + int(acts.get("brace", 0)) >= 3)
 	if margin.palps.size() >= 4:
-		var first: int = int(margin.palps[0].id)
+		# Pick one that will still be alive in three seconds. Sampling
+		# palps[0] failed once because that individual died during the wait
+		# and a dead palp has no personality — which is a fact about the test,
+		# not about §8.
+		var youngest: Dictionary = margin.palps[0]
+		for p in margin.palps:
+			if float(p.life) - float(p.age) > float(youngest.life) - float(youngest.age):
+				youngest = p
+		var first: int = int(youngest.id)
 		var before: Dictionary = margin.personality_of(first).duplicate()
 		_check("personality is not empty", before.size() >= 8)
 		await get_tree().create_timer(2.5).timeout
 		var after: Dictionary = margin.personality_of(first)
-		var stable := after.size() == before.size()
+		var stable := after.size() == before.size() and after.size() > 0
 		if stable:
 			for k in before:
 				if not is_equal_approx(float(before[k]), float(after.get(k, -9.0))):

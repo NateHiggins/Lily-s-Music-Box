@@ -77,8 +77,19 @@ func setup(controller: DreamFieldController, seed_v: int) -> void:
 		_space = world.direct_space_state
 
 
+## Set while §37's review arrangement is on display, so the simulation does
+## not immediately spawn over it.
+var frozen := false
+
+
 func _physics_process(delta: float) -> void:
 	if not enabled or field == null or field.state == null:
+		return
+	if frozen:
+		# The arrangement holds exactly as placed. §24 wants a neutral review
+		# sheet, and letting the behaviour loop keep working leaves every
+		# appendage at roughly half extension, which is what a palp doing its
+		# job looks like but not what a contact sheet is for.
 		return
 	_clock += delta
 	_spawn_clock += delta
@@ -341,6 +352,51 @@ func neighbours_of(_id: int) -> Array:
 ## Phase 8. Recursive unfolding — never by scaling a cylinder from zero.
 func try_branch(_id: int) -> bool:
 	return false
+
+
+## §37's ACCEPTANCE ARRANGEMENT.
+##
+## "At least six nearby appendages must be clearly different without relying
+## purely on colour ... The edge should never look like repeated noodles."
+##
+## That is a review test, and reviewing it against whatever the simulation
+## happens to have produced in one flat is not a review — the best natural
+## cluster reached five appendages and four archetypes. This puts one of every
+## archetype in a row on a chosen wall, at primary scale, so the question
+## §37 actually asks can be answered from one frame.
+func arrange_archetype_row(at: Vector3, nrm: Vector3, spacing: float = 0.34) -> int:
+	palps.clear()
+	var any := Vector3.UP if absf(nrm.y) < 0.9 else Vector3.RIGHT
+	var side := any.cross(nrm).normalized()
+	var kinds: Array = TIER_ARCHETYPES[TIER_PRIMARY]
+	var made := 0
+	for i in kinds.size():
+		var offset: float = (float(i) - float(kinds.size() - 1) * 0.5) * spacing
+		var where: Vector3 = at + side * offset
+		_birth_specific(TIER_PRIMARY, where, nrm, int(kinds[i]))
+		made += 1
+	return made
+
+
+func _birth_specific(tier: int, at: Vector3, nrm: Vector3, archetype: int) -> void:
+	var indiv_seed := _seed_base + _next_id * 7919
+	var morph = MorphologyScript.generate(archetype, indiv_seed)
+	morph.length *= TIER_SCALE[tier]
+	morph.base_radius *= TIER_SCALE[tier]
+	var any := Vector3.UP if absf(nrm.y) < 0.9 else Vector3.RIGHT
+	var side := any.cross(nrm).normalized()
+	palps.append({
+		"id": _next_id, "tier": tier, "seed": indiv_seed, "morph": morph,
+		"anchor": at, "normal": nrm, "side": side,
+		"aim": nrm, "age": 1.2, "life": 9999.0, "grow": 1.0,
+		"traits": BehaviorScript.personality(indiv_seed),
+		"act": BehaviorScript.Act.HOVER, "act_clock": 0.0, "act_left": 9999.0,
+		"target": Vector3.INF, "trace_angle": 0.0,
+		"tip": at + nrm * float(morph.length),
+		"last_tip": at + nrm * float(morph.length),
+		"extend": 1.0,
+	})
+	_next_id += 1
 
 
 ## Facts for the contract.

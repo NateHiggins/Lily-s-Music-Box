@@ -120,7 +120,13 @@ void fragment() {
 	METALLIC = o.metallic;
 	ROUGHNESS = o.roughness;
 	SPECULAR = o.specular;
-	EMISSION = o.emission * 2.2;
+	// 2.2 was tuned when these were 5 cm tendrils that had to be seen at all.
+	// At primary scale it blows every archetype out to the same molten gold,
+	// which is exactly the failure §37 names: they must differ WITHOUT
+	// relying on colour, and they cannot differ at all if they are all
+	// saturated. The gold fraction is per-individual anatomy (§6), so let it
+	// decide how much light a given organ actually carries.
+	EMISSION = o.emission * (0.55 + 1.25 * v_matter.x);
 	BACKLIGHT = o.backlight;
 	AO = o.ao;
 	AO_LIGHT_AFFECT = 0.35;

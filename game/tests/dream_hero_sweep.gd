@@ -99,7 +99,7 @@ func _run() -> void:
 	_look_at_from(ANCHOR + Vector3(1.4, -0.2, 0.5), ANCHOR)
 	await get_tree().create_timer(warm).timeout
 	_tentacle = _find_tentacle()
-	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled", "margin"]):
+	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled", "margin", "archetypes"]):
 		printerr("[SWEEP] no tentacle — nothing to photograph")
 		get_tree().quit(1)
 		return
@@ -126,6 +126,8 @@ func _run() -> void:
 		await _modelled_hero_shots()
 	elif mode == "margin":
 		await _margin_shots()
+	elif mode == "archetypes":
+		await _archetype_row()
 	else:
 		await _sweep()
 	print("[SWEEP] DONE %d frames -> %s" % [_frame, _dir])
@@ -653,6 +655,67 @@ func _margin_shots() -> void:
 		var dir := _view_dir(aim, here[best].normal, dist)
 		_look_at_from(aim + dir * dist + Vector3.UP * 0.04, aim)
 		await get_tree().create_timer(0.35).timeout
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(
+				_dir.path_join("%s.png" % str(shot[0])))
+		_frame += 1
+		print("[SWEEP] %s" % str(shot[0]))
+
+
+## §37's acceptance test, arranged deliberately: one of every archetype in a
+## row on a wall in 2A, photographed at three distances.
+func _archetype_row() -> void:
+	var enc: Node = root.get("apartment_encroachment")
+	var margin = enc.get("margin") if enc != null else null
+	if margin == null:
+		printerr("[SWEEP] no margin")
+		return
+	# A real wall in the lit flat, found rather than guessed.
+	var space := get_viewport().find_world_3d().direct_space_state
+	var from := Vector3(-9.6, 4.55, 3.4)
+	var found := {}
+	for step in 16:
+		var a := float(step) / 16.0 * TAU
+		var dir := Vector3(cos(a), 0.0, sin(a))
+		var q := PhysicsRayQueryParameters3D.create(from, from + dir * 5.0)
+		var hit: Dictionary = space.intersect_ray(q)
+		if hit.is_empty():
+			continue
+		if absf((hit.normal as Vector3).y) > 0.4:
+			continue
+		found = hit
+		break
+	if found.is_empty():
+		printerr("[SWEEP] no wall found for the arrangement")
+		return
+	var at: Vector3 = found.position
+	var nrm: Vector3 = (found.normal as Vector3).normalized()
+	margin.frozen = true
+	var n: int = margin.arrange_archetype_row(at + nrm * 0.02, nrm, 0.27)
+	print("[SWEEP] arranged %d archetypes at %s" % [n, at])
+	await get_tree().create_timer(1.5).timeout
+	var kinds: Array = []
+	for p in margin.palps:
+		kinds.append(p.morph.name_of_kind())
+	print("[SWEEP] row: %s" % [kinds])
+	# Obliquely and from slightly above: head-on, the row is 1.7 m wide and a
+	# 62-degree lens at a metre sees about one, and appendages growing along
+	# the wall normal are foreshortened into blobs. From the side they are
+	# seen in PROFILE, which is what §37 is asking about.
+	var any2 := Vector3.UP if absf(nrm.y) < 0.9 else Vector3.RIGHT
+	var row_side := any2.cross(nrm).normalized()
+	# A hard side view loses them altogether: appendages against a wall go
+	# edge-on and vanish. Mostly head-on with a small offset, so each one is
+	# seen slightly from the side and the whole row still fits the lens.
+	for shot in [["A1_row_gameplay", 2.30, 0.42, 0.30],
+			["A2_row_close", 1.45, 0.28, 0.20],
+			["A3_row_macro", 0.80, 0.16, 0.12]]:
+		var dist := float(shot[1])
+		var lateral := float(shot[2])
+		var lift := float(shot[3])
+		_look_at_from(at + nrm * dist + row_side * lateral + Vector3.UP * lift, at)
+		await get_tree().create_timer(0.4).timeout
 		await RenderingServer.frame_post_draw
 		await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(

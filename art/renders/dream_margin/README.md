@@ -74,16 +74,37 @@ failed and every characterful act starved. But the wall **is** a surface, and
 it. A palp that finds nothing to reach for now turns its attention to what it
 is already touching.
 
+## §37, arranged — `07`, `08`, `09`
+
+*"At least six nearby appendages must be clearly different without relying
+purely on colour ... The edge should never look like repeated noodles."*
+
+That is a **review** test, and reviewing it against whatever the simulation
+happens to have produced is not a review. `SWEEP_MODE=archetypes` puts one of
+every archetype in a row on a found wall in 2A, at primary scale and full
+extension, and photographs it at three distances. This is the §24 contact
+sheet for the margin.
+
+They differ in silhouette — a hair-fine whisker, a broad flat ribbon, a
+knobbed soft palp, a shafted probe with a spread pad, and a narrow stem
+carrying a flared faceted head — and, crucially, **in material**.
+
+`07a_rejected_all_gold.png` is why that second half matters. The palp shader
+carried `EMISSION × 2.2`, tuned back when these were 5 cm tendrils that had to
+be visible at all. At primary scale it blew every archetype out to the same
+molten gold, so six different organs photographed as six gold blobs — exactly
+the failure §37 names. Emission now scales with the individual's own gold
+fraction (§6 makes that anatomy, not decoration), so a whisker at 5% gold
+reads as dark flesh and a gold-jointed finger at 72% carries light.
+
 ## Not done, and not pretended
 
-- **§37 is still not demonstrated in a single frame**, and this is the
-  margin's honest failure. The best lit cluster reached five appendages and
-  four archetypes; primaries now congregate rather than scattering, and run at
-  1.35× so they sit inside §3's stated 10–60 cm band, and they still read as
-  small dark forms on a wall at gameplay distance rather than as six
-  distinguishable organs. Either they need to be larger again, or this test
-  needs a close stand and a deliberate arrangement rather than whatever the
-  simulation happens to produce.
+- **§37, in the wild**, is still not demonstrated. The best naturally
+  occurring lit cluster reached five appendages and four archetypes, and they
+  read as small dark forms on a wall at gameplay distance. Primaries now
+  congregate rather than scattering and run at 1.35× so they sit inside §3's
+  10–60 cm band, which helped and was not enough. What the simulation
+  produces in one flat at one moment is not yet a review.
 - **Phase 6, neighbours.** `neighbours_of()` returns `[]`. No broadcast, no
   avoidance, grooming, bracing against each other or mimicry.
 - **Phase 8, branching.** `try_branch()` returns `false`. No recursive
