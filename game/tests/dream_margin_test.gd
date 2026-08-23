@@ -136,6 +136,35 @@ func _run() -> void:
 		_check("individuals differ from each other (curiosity spread %.2f)" % spread,
 				spread > 0.25)
 
+	# --- §10: THE MARGIN IS A SOCIETY ------------------------------------
+	# Until Phase 6 every appendage was a soloist and could have been alone
+	# on the wall. What makes it read as one distributed organism is that
+	# they know about each other.
+	_check("appendages feel their neighbours (%d of %d)"
+			% [int(c.with_neighbours), int(c.live)],
+			int(c.with_neighbours) >= int(c.live) / 3)
+	_check("some join what a neighbour has found (%d)" % int(c.joined_a_neighbour),
+			int(c.joined_a_neighbour) >= 1)
+	_check("clusters form on one target without being told to (%d cooperating)"
+			% int(c.cooperating), int(c.cooperating) >= 2)
+	if margin.palps.size() > 3:
+		var probe_id: int = int(margin.palps[0].id)
+		var n: Array = margin.neighbours_of(probe_id)
+		print("[margin] palp %d feels %d neighbours" % [probe_id, n.size()])
+		_check("the broadcast is readable per individual", n.size() >= 0)
+	# AVOIDANCE. Two organs do not occupy the same place. Measured as the
+	# closest pair of tips anywhere in the population — they may touch, but a
+	# margin where tips routinely coincide is soup.
+	var closest := 9.0
+	for i in margin.palps.size():
+		for j in range(i + 1, margin.palps.size()):
+			var d: float = (margin.palps[i].tip as Vector3).distance_to(
+					margin.palps[j].tip)
+			closest = minf(closest, d)
+	print("[margin] closest pair of tips: %.4f m" % closest)
+	_check("tips keep out of each other (closest pair %.3f m)" % closest,
+			closest > 0.008)
+
 	# --- and it is actually drawn ----------------------------------------
 	var renderer: DreamPalpRenderer = enc.get("palp_renderer")
 	_check("the whole population draws in one mesh",

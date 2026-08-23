@@ -22,6 +22,7 @@ extends Node3D
 
 const MorphologyScript := preload("res://scripts/dream/margin/dream_palp_morphology.gd")
 const BehaviorScript := preload("res://scripts/dream/margin/dream_palp_behavior.gd")
+const NeighborScript := preload("res://scripts/dream/margin/dream_palp_neighbors.gd")
 
 ## §29's population tiers. Counts are ceilings, not targets: the margin only
 ## carries what the field's cross-section actually reaches.
@@ -63,6 +64,8 @@ var _space: PhysicsDirectSpaceState3D = null
 var _next_id := 0
 var _spawn_clock := 0.0
 var _clock := 0.0
+var _social_clock := 0.0
+var _board: Array = []
 var _seed_base := 0
 
 
@@ -97,6 +100,8 @@ func _physics_process(delta: float) -> void:
 		_spawn_clock = 0.0
 		_populate()
 	_think(delta)
+	if _social_clock >= 0.18:
+		_social_clock = 0.0
 	_age(delta)
 
 
@@ -227,6 +232,8 @@ func _birth(tier: int, at: Vector3, nrm: Vector3) -> void:
 		"trace_angle": _rng.randf_range(0.0, TAU),
 		"tip": at + nrm * 0.02,
 		"last_tip": at + nrm * 0.02,
+		"neighbour_count": 0,
+		"joined": -1,
 	})
 	palp_born.emit(_next_id, tier, archetype)
 	_next_id += 1
@@ -236,7 +243,17 @@ func _birth(tier: int, at: Vector3, nrm: Vector3) -> void:
 ## target on real architecture, and asks the behaviour layer where its tip
 ## wants to be. The renderer solves the spine toward that.
 func _think(delta: float) -> void:
+	# §10 — the social pass, at its own cadence. Sixty-five appendages is
+	# 2,080 pairs and none of this changes fast enough to need 60 Hz.
+	_social_clock += delta
+	var socialise: bool = _social_clock >= 0.18
+	if socialise:
+		_board = NeighborScript.broadcast(palps)
 	for p in palps:
+		if socialise:
+			var push: Vector3 = NeighborScript.socialise(p, _board, _rng, _social_clock)
+			if push.length_squared() > 0.0:
+				p.tip = (p.tip as Vector3) + push * _social_clock
 		p.act_clock += delta
 		p.act_left -= delta
 		if p.act_left <= 0.0:
@@ -344,9 +361,14 @@ func personality_of(id: int) -> Dictionary:
 			return p.traits
 	return {}
 
-## Phase 6. Neighbour broadcast: tip position, occupancy, target, interest,
-## contact and startle state. Avoidance, grooming, bracing, mimicry.
-func neighbours_of(_id: int) -> Array:
+## Phase 6 — DONE for the first four of §10's broadcasts: tip position,
+## occupancy (via tip proximity), target and interest level. Contact state,
+## startle state, branch state, hero proximity and critter proximity need
+## systems that do not exist yet and are NOT faked here.
+func neighbours_of(id: int) -> Array:
+	for p in palps:
+		if int(p.id) == id:
+			return NeighborScript.neighbours(p, _board)
 	return []
 
 ## Phase 8. Recursive unfolding — never by scaling a cylinder from zero.
@@ -411,5 +433,22 @@ func census() -> Dictionary:
 	for p in palps:
 		var a: String = BehaviorScript.act_name(int(p.act))
 		by_act[a] = int(by_act.get(a, 0)) + 1
+	var social := 0
+	var joined := 0
+	var shared := {}
+	for p in palps:
+		if int(p.neighbour_count) > 0:
+			social += 1
+		if int(p.joined) >= 0:
+			joined += 1
+		if p.target != Vector3.INF:
+			var key := "%.2f_%.2f_%.2f" % [p.target.x, p.target.y, p.target.z]
+			shared[key] = int(shared.get(key, 0)) + 1
+	var cooperating := 0
+	for k in shared:
+		if int(shared[k]) >= 2:
+			cooperating += int(shared[k])
 	return {"live": palps.size(), "tiers": by_tier, "kinds": by_kind,
-			"born": _next_id, "acts": by_act}
+			"born": _next_id, "acts": by_act,
+			"with_neighbours": social, "joined_a_neighbour": joined,
+			"cooperating": cooperating}

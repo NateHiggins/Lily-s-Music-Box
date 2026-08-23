@@ -105,8 +105,21 @@ reads as dark flesh and a gold-jointed finger at 72% carries light.
   congregate rather than scattering and run at 1.35× so they sit inside §3's
   10–60 cm band, which helped and was not enough. What the simulation
   produces in one flat at one moment is not yet a review.
-- **Phase 6, neighbours.** `neighbours_of()` returns `[]`. No broadcast, no
-  avoidance, grooming, bracing against each other or mimicry.
+- **Phase 6 is partly done.** Four of §10's nine broadcasts exist — tip
+  position, occupancy, target and interest level — and three social behaviours
+  run on them: avoidance (scaled by each individual's territoriality),
+  investigation/cooperative inspection (a sociable palp that has found nothing
+  joins whatever its most interested neighbour is working on), and rare
+  mimicry. Measured on a live population of 65: **54 feel a neighbour, 19 have
+  joined a neighbour's discovery, 17 are cooperating on shared targets**, and
+  the closest pair of tips anywhere is 9.7 cm.
+
+  Mouthpart clusters form without anything being told to form one, which is
+  the point. Still missing from §10: contact state, startle state, branch
+  state, hero proximity and critter proximity — all of which need systems that
+  do not exist yet, so `neighbours_of` names them rather than faking them.
+  Grooming, bracing against each other, competition, pulse communication and
+  intertwining are unbuilt.
 - **Phase 8, branching.** `try_branch()` returns `false`. No recursive
   unfolding.
 - No interaction with the hero (§11) and no `DreamGlobalAttention` (§13).
