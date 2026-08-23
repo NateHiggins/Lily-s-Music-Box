@@ -17,19 +17,22 @@ render_mode cull_disabled, depth_draw_opaque, diffuse_burley, specular_schlick_g
 #include "res://shaders/dream_corruption_layers.gdshaderinc"
 #include "res://shaders/dream_entity_surface.gdshaderinc"
 
-const int MAX_CRITTERS = 8;
+const int MAX_CRITTERS = 12;
 
 // xyz position, w plan (0 crawler, 1 radial, 2 walker)
-uniform vec4 critter_pos[8];
+uniform vec4 critter_pos[12];
 // The critter's frame: forward and up, packed.
-uniform vec4 critter_fwd[8];
-uniform vec4 critter_up[8];
+uniform vec4 critter_fwd[12];
+uniform vec4 critter_up[12];
 // x length, y wide, z tall, w seed
-uniform vec4 critter_size[8];
+uniform vec4 critter_size[12];
 // x gold, y crystal, z cilia, w gait phase
-uniform vec4 critter_matter[8];
+uniform vec4 critter_matter[12];
 // x limbs, y feelers, z asymmetry, w alive
-uniform vec4 critter_counts[8];
+uniform vec4 critter_counts[12];
+// §24, per individual: x the resonator's own angle, y which leg is currently
+// shorter than the gap it spans, z how far.
+uniform vec4 critter_law[12];
 uniform int critter_count = 0;
 
 varying vec2 v_uv;
@@ -38,6 +41,7 @@ varying float v_seed;
 varying float v_part;
 varying vec4 v_matter;
 varying float v_thickness;
+varying vec4 v_law;
 
 // A tube's cross-section must be perpendicular to the tube. Offsetting along
 // a fixed-plane normal -- which is what the ring normal is, before it is
@@ -60,6 +64,7 @@ void vertex() {
 	vec4 size = critter_size[c];
 	vec4 counts = critter_counts[c];
 	vec4 matter = critter_matter[c];
+	vec4 law = critter_law[c];
 	vec3 fwd = normalize(critter_fwd[c].xyz + vec3(1e-5, 0.0, 0.0));
 	vec3 up = normalize(critter_up[c].xyz + vec3(0.0, 1e-5, 0.0));
 	vec3 side = normalize(cross(up, fwd));
@@ -116,10 +121,25 @@ void vertex() {
 				+ fwd * step * size.x * 0.22 - up * lift;
 		vec3 knee = mix(root, foot, 0.5) + up * (size.z * 0.9 + max(0.0, step) * size.z * 0.5);
 		// Two-segment leg: root to knee to foot.
-		vec3 p = along < 0.5
-				? mix(root, knee, along * 2.0)
-				: mix(knee, foot, (along - 0.5) * 2.0);
-		vec3 seg = along < 0.5 ? (knee - root) : (foot - knee);
+		// §24 — THIS LEG IS SHORTER THAN THE GAP IT SPANS.
+		//
+		// Its root is on the body and its foot is planted; neither moves. The
+		// limb between them simply stops covering the distance, and for a
+		// moment the foot is connected to nothing. In three dimensions a limb
+		// cannot be shorter than the straight line between its own ends,
+		// which is the entire point.
+		float folded = (abs(law.y - index) < 0.5) ? law.z : 0.0;
+		float reach = 1.0 - folded * 0.55;
+		float span = clamp(along / max(0.001, reach), 0.0, 1.0);
+		vec3 p = span < 0.5
+				? mix(root, knee, span * 2.0)
+				: mix(knee, foot, (span - 0.5) * 2.0);
+		// Past its reach the limb is simply absent -- not stretched to cover
+		// the gap, which would make it possible again.
+		if (along > reach) {
+			alive = 0.0;
+		}
+		vec3 seg = span < 0.5 ? (knee - root) : (foot - knee);
 		float thick = size.y * 0.055 * (1.0 - 0.45 * along);
 		local = p + ring_offset(seg, nrm, thick);
 		v_thickness = 0.5;
@@ -156,6 +176,7 @@ void vertex() {
 	v_seed = seed;
 	v_part = part;
 	v_matter = matter;
+	v_law = law;
 }
 
 void fragment() {
@@ -172,8 +193,21 @@ void fragment() {
 	ctx.contact = v_part > 1.5 ? 0.8 : 0.2;
 	ctx.stretch = 0.35;
 	ctx.lod = 1.0 - smoothstep(1.2, 5.0, length(VERTEX));
-	DeMasks m = de_masks(v_world, v_uv, n, view_dir, TIME, v_seed, ctx);
-	DeOut o = de_shade(m, v_world, v_uv, n, view_dir, TIME, v_seed, ctx);
+	// §24 — THE RESONATOR TURNS INSIDE A SHELL THAT DOES NOT.
+	//
+	// The body's orientation never changes; the crystal's shading frame does.
+	// So the outside of the animal is demonstrably still while the mineral
+	// inside it rotates, which is not a thing a solid object can do.
+	vec3 shading_pos = v_world;
+	if (v_part < 0.5 && v_matter.y > 0.5) {
+		float a = v_law.x;
+		float ca = cos(a);
+		float sa = sin(a);
+		shading_pos = vec3(v_world.x * ca - v_world.z * sa, v_world.y,
+				v_world.x * sa + v_world.z * ca);
+	}
+	DeMasks m = de_masks(shading_pos, v_uv, n, view_dir, TIME, v_seed, ctx);
+	DeOut o = de_shade(m, shading_pos, v_uv, n, view_dir, TIME, v_seed, ctx);
 	ALBEDO = o.albedo;
 	METALLIC = o.metallic;
 	ROUGHNESS = o.roughness;

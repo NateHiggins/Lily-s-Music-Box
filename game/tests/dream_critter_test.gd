@@ -148,6 +148,62 @@ func _in_world() -> void:
 	_check("the whole population draws in one mesh",
 			ctrl.get_node_or_null("Critters") != null)
 
+	# --- §24: THE LAWS ARE ENACTED, NOT DECLARED -------------------------
+	# A species whose impossible rule exists only in a dictionary is not yet
+	# a Dream animal. Each of these watches for the creature DOING the thing.
+	var twin_seen := false
+	var twin_gap := 0.0
+	var spin_start := {}
+	var spin_moved := 0.0
+	var fold_seen := false
+	var fold_root_moved := 0.0
+	var fold_feet: Dictionary = {}
+	for c in ctrl.critters:
+		if int(c.morph.kind) == DreamCritterSpecies.Kind.CRYSTAL_LISTENER:
+			spin_start[int(c.id)] = float(c.spin)
+	for probe in 60:
+		await get_tree().create_timer(0.3).timeout
+		for c in ctrl.critters:
+			var kind: int = int(c.morph.kind)
+			if kind == DreamCritterSpecies.Kind.SEAM_GRAZER and bool(c.twin):
+				twin_seen = true
+				# The two appearances must be genuinely apart -- on opposite
+				# faces -- not coincident.
+				twin_gap = maxf(twin_gap,
+						(c.pos as Vector3).distance_to(c.twin_pos))
+			elif kind == DreamCritterSpecies.Kind.CRYSTAL_LISTENER:
+				if spin_start.has(int(c.id)):
+					spin_moved = maxf(spin_moved,
+							absf(float(c.spin) - float(spin_start[int(c.id)])))
+			elif kind == DreamCritterSpecies.Kind.FOLD_CRAB:
+				var key := int(c.id)
+				if float(c.fold) > 0.25:
+					fold_seen = true
+					# Within ONE fold event. The first version compared across
+					# every event over eighteen seconds, and between them the
+					# crab simply walks -- which measured its locomotion, not
+					# its law.
+					if fold_feet.has(key):
+						fold_root_moved = maxf(fold_root_moved,
+								(c.pos as Vector3).distance_to(fold_feet[key]))
+					else:
+						fold_feet[key] = c.pos
+				else:
+					fold_feet.erase(key)
+	print("[critter] laws: twin %s (gap %.3f m), spin advanced %.2f rad, "
+			% [twin_seen, twin_gap, spin_moved]
+			+ "leg folded %s (body moved %.3f m during it)"
+			% [fold_seen, fold_root_moved])
+	_check("seam grazer: seen occupying both sides of a wall (gap %.3f m)"
+			% twin_gap, twin_seen and twin_gap > 0.01)
+	_check("crystal listener: its resonator turned (%.2f rad) while its shell "
+			% spin_moved + "orientation is never written at all", spin_moved > 0.5)
+	_check("fold crab: a leg went shorter than the gap it spans", fold_seen)
+	_check("and it did so without the animal moving (%.3f m)" % fold_root_moved,
+			fold_root_moved < 0.06)
+	var cen2: Dictionary = ctrl.census()
+	print("[critter] %s" % [cen2])
+
 
 func _finish() -> void:
 	print("DREAM CRITTER TEST: %s (%d/%d)" % ["PASS" if failures == 0 else "FAIL",

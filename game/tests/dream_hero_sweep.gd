@@ -799,6 +799,23 @@ func _critter_shots() -> void:
 			break
 		if not picked.has(c):
 			picked.append(c)
+	# §24 — if one is currently doing its impossible thing, photograph THAT.
+	for c in here:
+		if bool(c.get("twin", false)):
+			var mid: Vector3 = ((c.pos as Vector3) + (c.twin_pos as Vector3)) * 0.5
+			var across: Vector3 = ((c.twin_pos as Vector3) - (c.pos as Vector3)).normalized()
+			var any := Vector3.UP if absf(across.y) < 0.9 else Vector3.RIGHT
+			var side := any.cross(across).normalized()
+			print("[SWEEP] LAW: a seam grazer on both sides of a wall at %s" % mid)
+			for d in [0.85, 0.45]:
+				_look_at_from(mid + side * d + Vector3.UP * d * 0.35, mid)
+				await get_tree().create_timer(0.35).timeout
+				await RenderingServer.frame_post_draw
+				await RenderingServer.frame_post_draw
+				get_viewport().get_texture().get_image().save_png(
+						_dir.path_join("LAW_both_sides_%.2f.png" % d))
+				_frame += 1
+			break
 	for idx in picked.size():
 		var c: Dictionary = picked[idx]
 		var at: Vector3 = c.pos

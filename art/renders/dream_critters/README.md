@@ -46,11 +46,37 @@ place a low count always tells: 9×12 became 13×18.
 
 ## Not done, and worth being blunt about
 
-- **The §24 laws are declared, not enacted.** Every species carries exactly
-  one impossible rule in its data and the contract checks they are distinct —
-  but no grazer has yet appeared on both sides of a wall, no listener's
-  crystal turns inside a still shell, and no crab shortens a leg. That is the
-  single largest gap in this phase.
+## §24 — the laws, enacted
+
+Each species now DOES its impossible thing, and each is measured doing it.
+
+**Seam grazer — both sides of a thin wall at once.** Not a copy: the same
+animal, met twice, because a body with more extent than our space has can
+intersect one slice in two places. It faces the same way on both sides,
+because it is facing one way. Measured at a 0.216 m gap through a wall;
+`04_law_both_sides_of_a_wall.png` shows the two lens bodies flanking a thin
+panel.
+
+**Crystal listener — its resonator turns inside a shell that does not.** The
+body's orientation is never written at all; only the crystal's shading frame
+rotates. So the outside is demonstrably still while the mineral inside turns,
+which is not something a solid object can do. Measured: 26.09 rad of rotation
+against an untouched shell.
+
+**Fold crab — a leg shorter than the gap it spans.** Root on the body, foot
+planted, neither moving, and the limb between them simply stops covering the
+distance: past its reach the leg is *absent* rather than stretched, because
+stretching it would make it possible again. It stands still while it does
+this — a walking animal's feet move anyway, which would hide the whole point.
+Measured: the body moves **3 mm** during a fold.
+
+That last figure started at 438 mm, and the fault was the test rather than the
+crab: it compared position across every fold event over eighteen seconds, and
+between events the crab simply walks. It was measuring locomotion, not law.
+- The review photograph of the grazer's law is weak: it twinned on an
+  exterior wall at night, so the frame is dark and the framing is outdoors.
+  The phenomenon reads — two lens bodies either side of a thin panel — but
+  this deserves a deliberate stand like §37's archetype row.
 - No §21 interaction with the margin: they do not crawl across palps, hide
   beneath them, or feed on residue. They share a world and ignore each other.
 - No §23 social behaviour — the species declare solitary/colonial/

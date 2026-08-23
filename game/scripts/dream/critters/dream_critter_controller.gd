@@ -14,7 +14,10 @@ const SpeciesScript := preload("res://scripts/dream/critters/dream_critter_speci
 const GeneratorScript := preload("res://scripts/dream/critters/dream_critter_generator.gd")
 const SHADER := preload("res://shaders/dream_critter.gdshader")
 
-const MAX_CRITTERS := 8
+# Twelve buffer slots for eight animals: a seam grazer that is occupying both
+# sides of a wall needs two of them, because it is ONE animal appearing twice.
+const MAX_CRITTERS := 12
+const MAX_LIVE := 8
 const MAX_LIMBS := 8
 const MAX_FEELERS := 12
 # Photographed at 40 cm the body showed its polygons on the silhouette, which
@@ -50,6 +53,7 @@ var _up := PackedVector4Array()
 var _size := PackedVector4Array()
 var _matter := PackedVector4Array()
 var _counts := PackedVector4Array()
+var _law := PackedVector4Array()
 
 
 func setup(controller: DreamFieldController, seed_v: int) -> void:
@@ -57,7 +61,7 @@ func setup(controller: DreamFieldController, seed_v: int) -> void:
 	enabled = OS.get_environment("DREAM_CRITTERS") != "0"
 	field = controller
 	_rng.seed = seed_v
-	for arr in [_pos, _fwd, _up, _size, _matter, _counts]:
+	for arr in [_pos, _fwd, _up, _size, _matter, _counts, _law]:
 		arr.resize(MAX_CRITTERS)
 	material = ShaderMaterial.new()
 	material.shader = SHADER
@@ -145,7 +149,7 @@ func _physics_process(delta: float) -> void:
 	_spawn_clock += delta
 	if _spawn_clock >= 0.9:
 		_spawn_clock = 0.0
-		if critters.size() < MAX_CRITTERS:
+		if critters.size() < MAX_LIVE:
 			_try_spawn()
 	_walk(delta)
 	_push()
@@ -187,6 +191,20 @@ func _try_spawn() -> void:
 			"gait": float(m.gait_phase),
 			"pause": 0.0,
 			"alive": 1.0,
+			# §24 — the seam grazer's law. Set when it is actually on
+			# something thin enough to be on both sides of.
+			"twin": false,
+			"twin_pos": Vector3.ZERO,
+			"twin_up": Vector3.UP,
+			"twin_fwd": Vector3.FORWARD,
+			# The listener's law: its resonator's own angle, which advances
+			# while the shell holding it does not turn at all.
+			"spin": 0.0,
+			# The crab's law: which leg is currently shorter than the gap it
+			# spans, and by how much.
+			"fold_leg": -1,
+			"fold": 0.0,
+			"fold_clock": 0.0,
 		})
 		critter_born.emit(_next_id, String(m.species))
 		_next_id += 1
@@ -233,44 +251,117 @@ func _walk(delta: float) -> void:
 				c.pos = (hit.position as Vector3) + (hit.normal as Vector3) * float(m.tall) * 0.5
 				c.up = (hit.normal as Vector3).normalized()
 				c.fwd = (fwd - (c.up as Vector3) * fwd.dot(c.up)).normalized()
+		_apply_law(c, delta)
 		i -= 1
 
 
+## §24 — THE SPECIES' ONE IMPOSSIBLE RULE, ENACTED.
+##
+## Declaring a law in a dictionary is not the same as an animal having it, and
+## a species whose impossible rule exists only in its data is not yet a Dream
+## animal. Each of these is the creature doing the thing.
+func _apply_law(c: Dictionary, delta: float) -> void:
+	var m: Dictionary = c.morph
+	match int(m.kind):
+		SpeciesScript.Kind.SEAM_GRAZER:
+			# BOTH SIDES OF A THIN WALL AT ONCE. Not a copy: the same animal,
+			# met twice, because a body with more extent than our space has
+			# can intersect one slice in two places.
+			c.twin = false
+			if _space == null:
+				return
+			var up: Vector3 = c.up
+			var behind: Vector3 = (c.pos as Vector3) - up * 0.32
+			var q := PhysicsRayQueryParameters3D.create(behind, c.pos)
+			var hit: Dictionary = _space.intersect_ray(q)
+			if hit.is_empty():
+				return
+			var far: Vector3 = hit.position
+			var thickness: float = (c.pos as Vector3).distance_to(far)
+			if thickness > 0.30 or thickness < 0.005:
+				return
+			var far_n: Vector3 = (hit.normal as Vector3).normalized()
+			c.twin = true
+			c.twin_pos = far + far_n * float(m.tall) * 0.5
+			c.twin_up = far_n
+			# It faces the same way on both sides, because it is facing one
+			# way: the two appearances are not two animals with two opinions.
+			var f: Vector3 = c.fwd
+			c.twin_fwd = (f - far_n * f.dot(far_n)).normalized()
+		SpeciesScript.Kind.CRYSTAL_LISTENER:
+			# ITS CRYSTAL TURNS INSIDE A SHELL THAT DOES NOT. The body's
+			# orientation is untouched; only the resonator's own angle moves.
+			c.spin += delta * (0.9 + 1.4 * float(m.crystal))
+		SpeciesScript.Kind.FOLD_CRAB:
+			# A LEG SHORTENS WITHOUT MOVING EITHER OF ITS ENDS. Its root stays
+			# on the body and its foot stays planted, and the limb between
+			# them becomes shorter than the gap it spans.
+			c.fold_clock -= delta
+			if c.fold_clock <= 0.0:
+				c.fold_clock = _rng.randf_range(2.2, 5.5)
+				c.fold_leg = _rng.randi_range(0, maxi(1, int(m.limbs)) - 1)
+			var t: float = c.fold_clock
+			# A short event, not a permanent state: §15 asks for restraint.
+			c.fold = clampf(sin(maxf(0.0, 1.1 - t) * PI * 0.9), 0.0, 1.0) 					if t < 1.1 else 0.0
+			# It stands still while it does this. A leg that is shorter than
+			# the gap it spans is only legible if nothing else is moving --
+			# and a walking animal's feet move anyway, which would hide the
+			# whole point.
+			if float(c.fold) > 0.05:
+				c.moving = false
+
+
 func _push() -> void:
-	var n := mini(critters.size(), MAX_CRITTERS)
-	for i in MAX_CRITTERS:
-		if i >= n:
-			_counts[i] = Vector4.ZERO
-			continue
-		var c: Dictionary = critters[i]
-		var m: Dictionary = c.morph
-		var plan := 0.0
-		if int(m.kind) == SpeciesScript.Kind.CRYSTAL_LISTENER:
-			plan = 1.0
-		elif int(m.kind) == SpeciesScript.Kind.FOLD_CRAB:
-			plan = 2.0
-		var p: Vector3 = c.pos
-		_pos[i] = Vector4(p.x, p.y, p.z, plan)
-		var f: Vector3 = c.fwd
-		_fwd[i] = Vector4(f.x, f.y, f.z, 0.0)
-		var u: Vector3 = c.up
-		_up[i] = Vector4(u.x, u.y, u.z, 0.0)
-		_size[i] = Vector4(float(m.length), float(m.wide), float(m.tall),
-				float(int(m.seed) % 97) * 0.041)
-		_matter[i] = Vector4(float(m.gold), float(m.crystal), float(m.cilia),
-				float(c.gait))
-		_counts[i] = Vector4(float(m.limbs), float(m.feelers),
-				float(m.asymmetry), 1.0)
+	# Slots, not animals. A grazer on both sides of a wall takes two, and both
+	# carry the same identity, gait and morphology -- they are one creature.
+	var slot := 0
+	for i in critters.size():
+		if slot >= MAX_CRITTERS:
+			break
+		_write_slot(slot, critters[i], false)
+		slot += 1
+		if bool(critters[i].get("twin", false)) and slot < MAX_CRITTERS:
+			_write_slot(slot, critters[i], true)
+			slot += 1
+	var n := slot
+	for i in range(n, MAX_CRITTERS):
+		_counts[i] = Vector4.ZERO
 	material.set_shader_parameter("critter_pos", _pos)
 	material.set_shader_parameter("critter_fwd", _fwd)
 	material.set_shader_parameter("critter_up", _up)
 	material.set_shader_parameter("critter_size", _size)
 	material.set_shader_parameter("critter_matter", _matter)
 	material.set_shader_parameter("critter_counts", _counts)
+	material.set_shader_parameter("critter_law", _law)
 	material.set_shader_parameter("critter_count", n)
 	if field != null:
 		field.apply_to(material)
 	mesh_instance.visible = n > 0
+
+
+func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
+	if true:
+		var m: Dictionary = c.morph
+		var plan := 0.0
+		if int(m.kind) == SpeciesScript.Kind.CRYSTAL_LISTENER:
+			plan = 1.0
+		elif int(m.kind) == SpeciesScript.Kind.FOLD_CRAB:
+			plan = 2.0
+		var p: Vector3 = c.twin_pos if as_twin else c.pos
+		_pos[i] = Vector4(p.x, p.y, p.z, plan)
+		var f: Vector3 = c.twin_fwd if as_twin else c.fwd
+		_fwd[i] = Vector4(f.x, f.y, f.z, 0.0)
+		var u: Vector3 = c.twin_up if as_twin else c.up
+		_up[i] = Vector4(u.x, u.y, u.z, 0.0)
+		# x resonator angle, y which leg is folded, z how far, w unused
+		_law[i] = Vector4(float(c.get("spin", 0.0)),
+				float(int(c.get("fold_leg", -1))), float(c.get("fold", 0.0)), 0.0)
+		_size[i] = Vector4(float(m.length), float(m.wide), float(m.tall),
+				float(int(m.seed) % 97) * 0.041)
+		_matter[i] = Vector4(float(m.gold), float(m.crystal), float(m.cilia),
+				float(c.gait))
+		_counts[i] = Vector4(float(m.limbs), float(m.feelers),
+				float(m.asymmetry), 1.0)
 
 
 func census() -> Dictionary:
@@ -278,5 +369,12 @@ func census() -> Dictionary:
 	for c in critters:
 		var s: String = String(c.morph.species)
 		by_species[s] = int(by_species.get(s, 0)) + 1
+	var twinned := 0
+	var folding := 0
+	for c in critters:
+		if bool(c.get("twin", false)):
+			twinned += 1
+		if float(c.get("fold", 0.0)) > 0.05:
+			folding += 1
 	return {"live": critters.size(), "born": _next_id, "species": by_species,
-			"max": MAX_CRITTERS}
+			"max": MAX_LIVE, "on_both_sides": twinned, "folding_a_leg": folding}
