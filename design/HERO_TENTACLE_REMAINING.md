@@ -27,16 +27,6 @@ from the geometry and wired into the skin. Still owed: albedo, normal and
 detail normal, and the riders have no UVs so none of them are baked. See
 `art/renders/dream_tentacle/bake/README.md`.
 
-### H1 (original)
-No albedo, normal, detail normal, roughness, AO, curvature, height,
-thickness. Everything visible is procedural from the shared stack. The owner
-saw this immediately: *"the texture is not great"*. UVs only landed today, so
-baking was impossible before now; there is no excuse after.
-
-This is the single largest gap. §36 requires the hero to remain visually
-superior to generated palps, and procedural-only shading is exactly what a
-generated palp will also have.
-
 ### H2. No behavior state machine — **blocking §2 and §11**
 §2 names fifteen states (`MEMBRANE_BULGE` … `WITHDRAW`). The hero currently
 has one continuous searching motion. Without states it cannot emerge, flinch,
@@ -67,12 +57,6 @@ lids run on separate clocks, the nictitating membrane faster than the other
 two, because three lids moving together are one lid. Measured across two runs
 at 0.73-0.93 rad of gaze and 0.75-0.83 rad of lid.
 
-### H5 (original)
-§36 gives the hero "strongest eye/attention performance" and "extraordinary
-orbital anatomy". The globe, three lids and orbital cilia are modelled, and
-nothing drives them: no gaze, no lid actuation, no saccades, no attention.
-The eye is the hero's face and it is currently furniture.
-
 ### H6. No hyperdimensional event
 §1 lists "special hyperdimensional events" as hero-owned. It has none. The
 field's cross-sectional withdrawal exists in `DreamFieldState` and the hero
@@ -99,13 +83,11 @@ for the shot and the fiction.
 
 ## Recommended order
 
-**H1 → H5 → H2 → H3 → H4** — texture first because it is the loudest and it
-is what the owner flagged; then the eye, because §36 makes it the hero's
-identity and it is cheap next to a bake pipeline; then states, then contact,
+H1 and H5 are done. **H3 → H2 → H4** next: contact first, because §2's
+interesting states (`TOUCHING`, `CARESSING`, `TASTING`) are meaningless
+without it and it is the hard prerequisite for
+`DREAM_SALIVA_DIRECTION.md`; then the state machine those states belong to;
 then secondary motion. H6–H9 after.
-
-H3 (contact) is a hard prerequisite for the saliva direction, so if that
-becomes urgent it moves up.
 
 ## The rule this document exists to enforce
 
@@ -114,12 +96,16 @@ claim that a procedural palp or critter "meets the bar" is meaningless until
 the bar itself does. Where the hero fails one of the §26 acceptance tests,
 say so rather than measuring others against a gap.
 
-Against §26 today, the hero currently **fails**:
+Against §26, updated as work lands:
 
-- **Motion** — one motion language, no secondary motion, no contact.
-- **Materials** — no bakes; flesh, metal and crystal are separated only by
-  procedural masks.
-- **Hyperdimensionality** — no signature impossible event.
+- **Motion** — still fails. The body has one motion language and no secondary
+  motion, and there is no contact. The eye now performs, which is part of it.
+- **Materials** — partly. Geometry facts are baked (AO, curvature,
+  thickness) and visibly separate the flesh from itself; albedo, normal and
+  detail normal are still procedural, and no rider is baked at all.
+- **Hyperdimensionality** — still fails. No signature impossible event.
+- **Sensory logic** — now passes behaviourally as well as structurally: the
+  eye fixes, holds and jumps, and the lids run on their own clocks.
 
-and **passes** silhouette, anatomy, integration, sensory logic (structurally,
-not behaviourally), restraint and family resemblance.
+Passing: silhouette, anatomy, integration, sensory logic, restraint, family
+resemblance.
