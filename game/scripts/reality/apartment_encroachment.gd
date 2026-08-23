@@ -303,6 +303,9 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 		ecology.critters = critters
 		ecology.hero = hero
 		ecology.field = dream_field
+		# §13 — the player changing the world is what the ecology notices.
+		# The director connects itself once the player exists; doing it here
+		# ran before the player was built and quietly connected nothing.
 		if margin != null:
 			margin.director = ecology
 		if critters != null:

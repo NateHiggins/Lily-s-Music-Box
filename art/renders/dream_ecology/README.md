@@ -48,9 +48,34 @@ expects has to be repeated there, and this one was not.
 
 ## Not done
 
-- Nothing in the game *calls* `seize_attention` yet. The mechanism is built
-  and tested; choosing the stimuli that deserve it is a design decision, not a
-  systems one.
+## What triggers it (owner direction, 2026-08-23)
+
+> *"wire seize attention to trigger whenever the player modifies the
+> environment, open a door, fixes something etc"*
+
+`PlayerController` emits `world_modified(where, what)` from its single
+interaction chokepoint, so it covers **every** prop that answers `interact` —
+a door opened, a switch thrown, a fault put right — without each of them
+having to know anybody is listening.
+
+§40 pulls the other way: the reveal must stay rare enough to remain
+meaningful. Both are satisfied by a floor on how often it can happen rather
+than by ignoring some interactions. Every modification is noticed, but the
+ecology cannot snap to attention while it is already attending, and will not
+do so twice inside a 22-second cooldown. **A door opened ten times in ten
+seconds is one event, not ten** — which is also how attention works in an
+animal.
+
+The whole chain is tested, not just the function: the player's signal, the
+director's gate, all three levels reacting, the ecology looking at the point
+that was touched, the second modification declining to re-seize mid-event,
+and the cooldown holding afterwards.
+
+One bug worth recording: the encroachment tried to make this connection when
+it was built, which is **before the player exists**, so it connected nothing
+and said nothing. The director finds the player itself now and retries until
+it appears. A `find_child` by name failed the same silent way before walking
+up the tree fixed it.
 - §32's biases are now consumed. The margin scales how long an act lasts and
   how readily an appendage turns to watching; the critters scale their pace.
   Measured by driving the area to opposite extremes and watching how far the

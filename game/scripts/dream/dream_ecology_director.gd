@@ -92,6 +92,9 @@ func state_name() -> String:
 
 func _process(delta: float) -> void:
 	state_clock += delta
+	_since_last += delta
+	if not _listening:
+		_try_listen()
 	if attending != Vector3.INF:
 		_run_attention(delta)
 		return
@@ -104,11 +107,61 @@ func _process(delta: float) -> void:
 		state = options[_rng.randi() % options.size()]
 
 
+## WHAT THE PLAYER DID, AND WHETHER IT WAS WORTH NOTICING.
+##
+## Owner direction: fire this whenever the player modifies the environment --
+## opens a door, fixes something. §40 pulls the other way: the reveal must
+## stay rare enough to remain meaningful. Both are satisfied by a floor on how
+## often it can happen rather than by ignoring some interactions: every
+## modification is noticed, but the ecology cannot snap to attention while it
+## is already attending, and will not do so twice inside a cooldown.
+##
+## A door opened ten times in ten seconds is one event, not ten. That is also
+## how attention works in an animal.
+const RESEIZE_GAP_S := 22.0
+var _since_last := RESEIZE_GAP_S
+## The encroachment is built before the player exists, so connecting there
+## silently did nothing. The director finds the player itself and connects
+## once, whenever it turns up.
+var _listening := false
+
+
+func on_world_modified(where: Vector3, _what: String) -> void:
+	if attending != Vector3.INF:
+		return                       # already looking; nothing to seize
+	if _since_last < RESEIZE_GAP_S:
+		return
+	_since_last = 0.0
+	seize_attention(where)
+
+
+## Connect to the player's own account of what it has changed, once it
+## exists. Retried rather than assumed, because build order put the
+## encroachment first and the connection quietly never happened.
+func _try_listen() -> void:
+	# Walk up rather than search by name: this node is a child of the
+	# encroachment, which is a child of the building root. A find_child by
+	# name found nothing and failed silently, which is the same bug as before
+	# wearing a different hat.
+	var player = null
+	var probe: Node = self
+	for _step in 4:
+		probe = probe.get_parent()
+		if probe == null:
+			break
+		if "player" in probe and probe.get("player") != null:
+			player = probe.get("player")
+			break
+	if player == null or not player.has_signal("world_modified"):
+		return
+	if not player.world_modified.is_connected(on_world_modified):
+		player.world_modified.connect(on_world_modified)
+	_listening = true
+
+
 ## §13 — EVERYTHING, AT ONCE.
 ##
-## Called for a stimulus worth the whole ecology's notice. It is deliberately
-## not automatic: nothing in here fires it on a timer, because §40 says it
-## must stay rare enough to remain meaningful.
+## Called for a stimulus worth the whole ecology's notice.
 func seize_attention(at: Vector3) -> void:
 	attending = at
 	attention_clock = 0.0
@@ -206,5 +259,6 @@ func census() -> Dictionary:
 			if c.get("attend_override", Vector3.INF) != Vector3.INF:
 				held += 1
 	return {"state": state_name(), "attending": attending != Vector3.INF,
+			"ready_to_seize": _since_last >= RESEIZE_GAP_S,
 			"still_held": held, "released": _released,
 			"attention_clock": snappedf(attention_clock, 0.01)}

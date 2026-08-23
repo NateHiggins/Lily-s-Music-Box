@@ -1,5 +1,14 @@
 class_name PlayerController
 extends CharacterBody3D
+
+## THE PLAYER CHANGED SOMETHING IN THE WORLD.
+##
+## Emitted from the single interaction chokepoint, so it covers every prop
+## that answers `interact` -- a door opened, a switch thrown, a fault put
+## right -- without each of them having to know anybody is listening. The
+## Dream ecology uses it to decide the world is worth its whole attention
+## (ecology architecture §13).
+signal world_modified(where: Vector3, what: String)
 ## Five-foot first-person controller. The building remains true-scale: a
 ## 1.41 m eye line beneath standard doors, peepholes, counters and residents
 ## is the scale cue. V toggles debug noclip.
@@ -987,10 +996,14 @@ func _try_interact() -> void:
 		if hit.collider is Area3D and node.has_method("interact_area"):
 			var area_result: Variant = node.call("interact_area", hit.collider)
 			_present_interaction_telegram(node, area_result)
+			world_modified.emit(node.global_position if node is Node3D
+					else global_position, node.name)
 			return
 		if node.has_method("interact"):
 			var result: Variant = node.call("interact", self)
 			_present_interaction_telegram(node, result)
+			world_modified.emit(node.global_position if node is Node3D
+					else global_position, node.name)
 			return
 		node = node.get_parent()
 

@@ -90,6 +90,42 @@ func _run() -> void:
 			results["foraging"] > results["dormant"] * 1.3)
 	dir.state = DreamEcologyDirector.State.CURIOUS
 
+	# --- THE PLAYER'S OWN HAND ------------------------------------------
+	# Owner direction: this fires whenever the player modifies the
+	# environment. Test the WHOLE CHAIN -- the player's signal, the director's
+	# gate, the three levels reacting -- not just that a function exists.
+	var player = root.get("player")
+	_check("the player emits world_modified", player != null
+			and player.has_signal("world_modified"))
+	if player != null and player.has_signal("world_modified"):
+		var connected: bool = player.world_modified.is_connected(
+				dir.on_world_modified)
+		_check("the ecology director is listening to it", connected)
+		var somewhere := Vector3(-9.2, 4.4, 3.6)
+		player.world_modified.emit(somewhere, "test_door")
+		await get_tree().process_frame
+		_check("opening something seizes the ecology",
+				dir.attending != Vector3.INF)
+		_check("and it looks at what was touched",
+				dir.attending.distance_to(somewhere) < 0.01)
+		# §40 — rare enough to stay meaningful. A door opened ten times in ten
+		# seconds is one event, not ten.
+		var held: Vector3 = dir.attending
+		player.world_modified.emit(Vector3(-11.0, 4.4, 2.0), "test_door_again")
+		await get_tree().process_frame
+		_check("a second modification does not re-seize mid-event",
+				dir.attending == held)
+		# Let the event finish so the rest of the test starts clean.
+		for _w in 40:
+			await get_tree().create_timer(0.25).timeout
+			if dir.attending == Vector3.INF:
+				break
+		_check("the event ends on its own", dir.attending == Vector3.INF)
+		player.world_modified.emit(Vector3(-9.0, 4.4, 3.0), "immediately_after")
+		await get_tree().process_frame
+		_check("§40 and it will not fire again straight away (cooldown)",
+				dir.attending == Vector3.INF)
+
 	# --- §13/§40: THE SNAP -----------------------------------------------
 	# "At the same instant" is the whole beat, so it is measured on the very
 	# next frame rather than after a settling period.
