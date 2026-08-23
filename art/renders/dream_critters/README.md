@@ -77,8 +77,25 @@ between events the crab simply walks. It was measuring locomotion, not law.
   exterior wall at night, so the frame is dark and the framing is outdoors.
   The phenomenon reads — two lens bodies either side of a thin panel — but
   this deserves a deliberate stand like §37's archetype row.
-- No §21 interaction with the margin: they do not crawl across palps, hide
-  beneath them, or feed on residue. They share a world and ignore each other.
+## §21 — the margin as habitat
+
+*"This turns the wall into a functioning biome."* A biome is not two
+populations sharing a wall and ignoring each other, so three things happen,
+each chosen because it is legible from across a room:
+
+- **Shoved aside.** A primary palp is several times a critter's size and does
+  not notice it. A startle-prone individual freezes afterwards.
+- **Following a discovery.** A curious critter treats a nearby palp's target
+  as worth investigating and heads for it.
+- **Feeding on residue.** Fresh Dream saliva is transformed matter, and a
+  scavenger stops for it.
+
+Measured in one run: **3 shoved, 3 following**, alongside 2 grazers on both
+sides of walls and 2 crabs folding a leg. That census reads like an ecosystem
+rather than a list of spawned props.
+
+Feeding shows zero in the contract because no hero spawns there, so nothing
+has laid any residue — the path is wired, not exercised.
 - No §23 social behaviour — the species declare solitary/colonial/
   opportunistic and nothing acts on it.
 - No contact, so they leave no residue.

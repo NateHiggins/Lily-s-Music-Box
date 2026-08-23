@@ -36,6 +36,7 @@ signal critter_died(id: int)
 
 var field: DreamFieldController = null
 var margin = null
+var residue = null
 var enabled := true
 var critters: Array = []
 
@@ -205,6 +206,10 @@ func _try_spawn() -> void:
 			"fold_leg": -1,
 			"fold": 0.0,
 			"fold_clock": 0.0,
+			# §21 — what the margin is currently doing to it.
+			"following": -1,
+			"nudged": 0.0,
+			"feeding": false,
 		})
 		critter_born.emit(_next_id, String(m.species))
 		_next_id += 1
@@ -252,7 +257,69 @@ func _walk(delta: float) -> void:
 				c.up = (hit.normal as Vector3).normalized()
 				c.fwd = (fwd - (c.up as Vector3) * fwd.dot(c.up)).normalized()
 		_apply_law(c, delta)
+		_use_the_margin(c, delta)
 		i -= 1
+
+
+## §21 — THE MARGIN IS HABITAT.
+##
+##     "Critters should use the Dream margin as habitat ... This turns the
+##      wall into a functioning biome."
+##
+## Three things, chosen because each is legible from across a room: a critter
+## gets shoved aside by an appendage far bigger than it is; a curious one
+## follows a palp to whatever the palp has found; and one that meets fresh
+## residue stops to feed on it. The rest of §21's list needs systems that do
+## not exist.
+func _use_the_margin(c: Dictionary, delta: float) -> void:
+	c.nudged = maxf(0.0, float(c.nudged) - delta)
+	c.feeding = false
+	var m: Dictionary = c.morph
+	var pos: Vector3 = c.pos
+	if margin != null:
+		var closest := 9.0
+		var closest_p: Dictionary = {}
+		for p in margin.palps:
+			var d: float = pos.distance_to(p.tip)
+			if d < closest:
+				closest = d
+				closest_p = p
+		if not closest_p.is_empty():
+			# PUSHED ASIDE. A primary palp is several times a critter's size,
+			# and it does not notice.
+			var personal: float = 0.09 + 0.05 * float(closest_p.morph.length)
+			if closest < personal:
+				var away: Vector3 = pos - (closest_p.tip as Vector3)
+				away = away - (c.up as Vector3) * away.dot(c.up)
+				if away.length() > 0.001:
+					c.pos = pos + away.normalized() * delta * 0.12
+					c.nudged = 0.4
+					# Being shoved is startling, in proportion to temperament.
+					if float(m.startle) > 0.6:
+						c.moving = false
+			# FOLLOW IT TO WHAT IT FOUND. A curious individual treats a palp's
+			# discovery as worth investigating.
+			elif closest < 0.55 and closest_p.target != Vector3.INF:
+				if float(m.curiosity) > 0.5 and int(c.following) < 0:
+					c.following = int(closest_p.id)
+				if int(c.following) == int(closest_p.id):
+					var to: Vector3 = (closest_p.target as Vector3) - pos
+					to = to - (c.up as Vector3) * to.dot(c.up)
+					if to.length() > 0.04:
+						c.fwd = (c.fwd as Vector3).lerp(to.normalized(),
+								delta * 1.5).normalized()
+					else:
+						c.following = -1
+	# FEED ON WHAT THE DREAM LEFT. Residue is transformed matter, and a
+	# scavenger stops for it.
+	if residue != null and residue.has_method("nearest_patch"):
+		var patch: Dictionary = residue.nearest_patch(pos, 0.5)
+		if not patch.is_empty():
+			c.feeding = true
+			c.moving = false
+
+
+
 
 
 ## §24 — THE SPECIES' ONE IMPOSSIBLE RULE, ENACTED.
@@ -376,5 +443,17 @@ func census() -> Dictionary:
 			twinned += 1
 		if float(c.get("fold", 0.0)) > 0.05:
 			folding += 1
+	var nudged := 0
+	var following := 0
+	var feeding := 0
+	for c in critters:
+		if float(c.get("nudged", 0.0)) > 0.0:
+			nudged += 1
+		if int(c.get("following", -1)) >= 0:
+			following += 1
+		if bool(c.get("feeding", false)):
+			feeding += 1
 	return {"live": critters.size(), "born": _next_id, "species": by_species,
-			"max": MAX_LIVE, "on_both_sides": twinned, "folding_a_leg": folding}
+			"max": MAX_LIVE, "on_both_sides": twinned, "folding_a_leg": folding,
+			"nudged_by_a_palp": nudged, "following_a_palp": following,
+			"feeding_on_residue": feeding}

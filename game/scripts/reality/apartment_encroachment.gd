@@ -246,6 +246,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			add_child(critters)
 			critters.setup(dream_field, "critters".hash())
 			critters.margin = margin
+			critters.residue = residue
 		# THE MODELLED HERO. Until now the Blender creature was an asset
 		# nothing instantiated: one reference in the whole project, in the
 		# test that probes it. It stands in the case flat, wearing the shared

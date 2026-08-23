@@ -201,6 +201,21 @@ func _in_world() -> void:
 	_check("fold crab: a leg went shorter than the gap it spans", fold_seen)
 	_check("and it did so without the animal moving (%.3f m)" % fold_root_moved,
 			fold_root_moved < 0.06)
+	# --- §21: THE MARGIN IS HABITAT --------------------------------------
+	# "This turns the wall into a functioning biome." A biome is not two
+	# populations sharing a wall and ignoring each other.
+	var peak_nudged := 0
+	var peak_following := 0
+	for probe in 50:
+		await get_tree().create_timer(0.3).timeout
+		var cc: Dictionary = ctrl.census()
+		peak_nudged = maxi(peak_nudged, int(cc.get("nudged_by_a_palp", 0)))
+		peak_following = maxi(peak_following, int(cc.get("following_a_palp", 0)))
+	print("[critter] habitat: %d shoved by a palp, %d following one"
+			% [peak_nudged, peak_following])
+	_check("critters and the margin share a world rather than ignoring it "
+			+ "(%d shoved, %d following)" % [peak_nudged, peak_following],
+			peak_nudged + peak_following >= 1)
 	var cen2: Dictionary = ctrl.census()
 	print("[critter] %s" % [cen2])
 

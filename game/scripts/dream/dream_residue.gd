@@ -130,5 +130,21 @@ func _process(delta: float) -> void:
 	mesh_instance.visible = _live > 0
 
 
+## §21 — what a scavenger can find. The nearest live patch within `radius`.
+func nearest_patch(at: Vector3, radius: float) -> Dictionary:
+	var best := {}
+	var best_d := radius
+	for i in MAX_PATCHES:
+		if float(_par[i].z) <= 0.0:
+			continue
+		var p := _pos[i]
+		var centre := Vector3(p.x, p.y, p.z)
+		var d: float = at.distance_to(centre)
+		if d < best_d:
+			best_d = d
+			best = {"at": centre, "radius": p.w, "age": float(_nrm[i].w)}
+	return best
+
+
 func census() -> Dictionary:
 	return {"live": _live, "laid": laid, "max": MAX_PATCHES}
