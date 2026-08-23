@@ -74,14 +74,19 @@ func _run() -> void:
 		dir.state_clock = 0.0
 		travelled.clear()
 		for c in critters.critters:
-			travelled[int(c.id)] = c.pos
+			travelled[int(c.id)] = float(c.get("walked", 0.0))
 		var total := 0.0
 		for probe in 24:
 			await get_tree().create_timer(0.25).timeout
 			dir.state = int(pair[0])     # hold it there against the drift
+		# Their own locomotion only. Straight-line displacement also counts
+		# being shoved by a palp and fleeing the hero, which the move bias
+		# does not govern -- that pollution pushed dormant travel from 0.48 m
+		# to 0.79 m and the check began failing for a reason unrelated to it.
 		for c in critters.critters:
 			if travelled.has(int(c.id)):
-				total += (c.pos as Vector3).distance_to(travelled[int(c.id)])
+				total += maxf(0.0, float(c.get("walked", 0.0))
+						- float(travelled[int(c.id)]))
 		results[String(pair[1])] = total
 	print("[ecology] travelled while dormant %.3f m, while foraging %.3f m"
 			% [results["dormant"], results["foraging"]])

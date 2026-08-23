@@ -339,8 +339,19 @@ func _think(delta: float) -> void:
 						+ pup * sin(float(p.spread) * PI) + folded_dir * 0.5).normalized()
 				p.anchor = base
 				p.aim = folded_dir.slerp(own_dir, float(p.unfold))
-				p.tip = base + (p.aim as Vector3) * float(p.morph.length)
-				p.extend = 1.0
+				# FOLDED MEANS INSIDE. A branch running along its parent at
+				# its own full length overshoots the parent's tip whenever the
+				# parent is retracted -- and a branch sticking out of the far
+				# end of the anatomy it is folded within is not folded within
+				# it. While folded it is clamped to what the parent has left;
+				# as it unfolds it returns to its own length, and nothing has
+				# resized, only where it lies.
+				var remaining: float = maxf(0.02, along.length())
+				var own_len: float = float(p.morph.length)
+				var use_len: float = lerpf(minf(own_len, remaining), own_len,
+						float(p.unfold))
+				p.tip = base + (p.aim as Vector3) * use_len
+				p.extend = use_len / maxf(0.01, own_len)
 		var to_tip: Vector3 = (p.tip as Vector3) - (p.anchor as Vector3)
 		if to_tip.length() > 0.001:
 			p.aim = to_tip.normalized()

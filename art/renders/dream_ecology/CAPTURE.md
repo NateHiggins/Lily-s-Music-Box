@@ -49,8 +49,11 @@ Everything in it earns its place:
 | a free-standing 6 cm panel | so the grazer's both-sides law can fire where a camera sees both |
 | a plinth at the hero's own height | something within its arm to actually touch |
 
-**All seven beats fire, including residue**, which the real-flat capture never
-managed. Population in the room: ~70 appendages across three tiers and six
+**All thirteen tracked beats fire in one take** — the seven from the real-flat
+capture plus the hero's own §2 behaviour: it emerges through the membrane,
+tastes a surface, watches the viewpoint, flinches when the player acts, minds
+a critter that has got onto it, and notices the appendages collecting on it.
+Residue included, which the real-flat capture never managed. Population in the room: ~70 appendages across three tiers and six
 archetypes, 8 critters of all three species, the hero running its full state
 machine including cross-sectional withdrawal.
 

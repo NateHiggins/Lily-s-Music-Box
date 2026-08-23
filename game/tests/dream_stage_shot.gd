@@ -37,20 +37,27 @@ func _run() -> void:
 		seconds = maxf(1.0, s.to_float())
 	var fps := 24
 	var frames := int(seconds * fps)
-	# The hero must be PRESENT when the take starts: mid cross-sectional
-	# withdrawal its shader discards every fragment, and a capture that begins
-	# there photographs an empty room.
-	stage.hero.state = 0
+	# THE TAKE OPENS WITH IT ARRIVING. Forcing it to SEEKING guaranteed it was
+	# visible but skipped §2's first two states entirely, and a thing coming
+	# through from somewhere else should not simply be present in frame one.
+	# MEMBRANE_BULGE swells the root, EMERGING extrudes the limb.
+	stage.hero.state = 10                 # MEMBRANE_BULGE
 	stage.hero.state_clock = 0.0
 	stage.hero.slice_close = 0.0
+	stage.hero.grow = 0.0
 	var seen := {"branch": false, "attention": false, "twin": false,
-			"fold": false, "residue": false, "brave": false, "shoved": false}
+			"fold": false, "residue": false, "brave": false, "shoved": false,
+			"emerged": false, "watched_player": false, "flinched": false,
+			"minded_critter": false, "noticed_margin": false, "tasted": false}
 	print("[stage] rolling %d frames" % frames)
 	for f in frames:
 		var t := float(f) / float(fps)
 		# A slow push in and across, staying inside the room.
+		# The push ends close: near enough that the creature notices the
+		# viewpoint and stops to look back, which is §2's WATCH_PLAYER and the
+		# most unsettling thing it does.
 		var eye: Vector3 = (stand.eye as Vector3).lerp(
-				Vector3(0.95, 1.48, 0.55), t / seconds)
+				Vector3(-0.15, 1.44, 0.62), t / seconds)
 		stage.camera.global_position = eye
 		stage.camera.look_at(stand.look, Vector3.UP)
 		# The player changes something two thirds of the way through: the
@@ -58,6 +65,7 @@ func _run() -> void:
 		if f == int(frames * 0.62):
 			stage.director.on_world_modified(
 					Vector3(-2.75, 0.45, 1.35), "radiator")
+			stage.hero.startle(1.0)
 			print("[stage] t=%.1f  the player touched the radiator" % t)
 		var mc: Dictionary = stage.margin.census()
 		var cc: Dictionary = stage.critters.census()
@@ -75,6 +83,19 @@ func _run() -> void:
 			seen.shoved = true
 		if int(stage.residue.census().get("live", 0)) > 0:
 			seen.residue = true
+		var st: String = String(stage.hero.census().state)
+		if st == "EMERGING":
+			seen.emerged = true
+		elif st == "WATCH_PLAYER":
+			seen.watched_player = true
+		elif st == "FLINCH":
+			seen.flinched = true
+		elif st == "INTERACT_CRITTER":
+			seen.minded_critter = true
+		elif st == "INTERACT_MARGIN":
+			seen.noticed_margin = true
+		elif st == "TASTING":
+			seen.tasted = true
 		if f % 48 == 0:
 			var hc: Dictionary = stage.hero.census()
 			print("[stage]   t=%4.1f hero %s target=%s reach=%s"

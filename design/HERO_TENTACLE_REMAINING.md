@@ -27,14 +27,29 @@ from the geometry and wired into the skin. Still owed: albedo, normal and
 detail normal, and the riders have no UVs so none of them are baked. See
 `art/renders/dream_tentacle/bake/README.md`.
 
-### H2. Behaviour states — PARTLY DONE
-Seven of §2's fifteen exist and run: `SEEKING`, `APPROACHING`,
-`HOVER_INSPECTION`, `TOUCHING`, `CARESSING`, `WITHDRAW`, `RESUME`. These are
-the ones contact makes meaningful. Still missing: `MEMBRANE_BULGE`,
-`EMERGING`, `ORIENTING`, `TASTING`, `WATCH_PLAYER`, `INTERACT_MARGIN`,
-`INTERACT_CRITTER`, `FLINCH` — the last three need the margin and critters to
-interact with (§11), and emergence needs the field's cross-sectional
-incarnation.
+### H2. Behaviour states — DONE
+All fifteen of §2's states exist and run, plus the three the cross-sectional
+withdrawal needed. The eight added last:
+
+- **`MEMBRANE_BULGE` → `EMERGING` → `ORIENTING`** — it *arrives* now. Until
+  these existed the creature was simply present in frame one, which is the
+  one thing a thing coming through from somewhere else should never be. The
+  membrane swells, the limb extrudes (the un-emerged part collapses onto the
+  membrane, so it comes out rather than switching on), and it takes stock.
+- **`TASTING`** — short repeated contact in one place, distinct from tracing.
+- **`WATCH_PLAYER`** — it stops and looks. The most unsettling thing it can do
+  when you come near is nothing at all.
+- **`INTERACT_MARGIN`** — it notices when enough appendages have collected on
+  it (§11).
+- **`INTERACT_CRITTER`** — it minds an animal anywhere on it, which is §22's
+  own example of a critter clinging to a gold plate.
+- **`FLINCH`** — fast, then still, and it does not resume where it left off.
+  Driven by `startle()`, which the player's own actions call.
+
+Reactive states interrupt whatever errand it was on, because a creature that
+finishes tracing a skirting board while somebody walks up to it is a machine
+running a program. Contact outranks approach: with the player checked first, a
+critter on the hero's own club was starved out entirely.
 
 ### H3. Contact — DONE (first pass)
 The creature picks a real point on real architecture, reaches for it with a
@@ -99,7 +114,7 @@ for the shot and the fiction.
 
 ## Recommended order
 
-H1, H3, H5, H6 done; H2 and H4 partly. The hero no longer outright fails any
+H1, H2, H3, H5, H6 done; H4 partly. The hero no longer outright fails any
 §26 test. What remains is depth rather than absence: **H4's** unfinished
 layers (gold reseating, cilia springs, sucker compression), **H2's** eight
 unbuilt states — most of which need the margin and critters to interact with

@@ -229,10 +229,33 @@ func _try_spawn() -> void:
 			"hero_near": 0.0,
 			"toward_hero": false,
 			"attend_override": Vector3.INF,
+			# Distance covered by its OWN locomotion, excluding being shoved
+			# or fleeing. §32's bias governs walking, so that is what has to
+			# be measured against it.
+			"walked": 0.0,
 		})
 		critter_born.emit(_next_id, String(m.species))
 		_next_id += 1
 		return
+
+
+## Move a critter and keep it on the architecture. Every displacement goes
+## through here -- walking, being shoved, fleeing -- so none of them can leave
+## an animal in mid-air.
+func _step_along_surface(c: Dictionary, step: Vector3) -> void:
+	if _space == null:
+		return
+	var up: Vector3 = c.up
+	var probe: Vector3 = (c.pos as Vector3) + step + up * 0.06
+	var q := PhysicsRayQueryParameters3D.create(probe, probe - up * 0.25)
+	var hit: Dictionary = _space.intersect_ray(q)
+	if hit.is_empty():
+		return                      # nothing under the new spot: do not go
+	var m: Dictionary = c.morph
+	c.pos = (hit.position as Vector3) + (hit.normal as Vector3) * float(m.tall) * 0.5
+	c.up = (hit.normal as Vector3).normalized()
+	var f: Vector3 = c.fwd
+	c.fwd = (f - (c.up as Vector3) * f.dot(c.up)).normalized()
 
 
 ## §19 and §20 — species decides the style, the individual decides the detail.
@@ -292,7 +315,12 @@ func _walk(delta: float) -> void:
 			if hit.is_empty():
 				c.fwd = (fwd as Vector3).rotated(up, PI * 0.55).normalized()
 			else:
+				# How far the ANIMAL moved, not how far its feet are from the
+				# surface. Measuring pos-to-hit included the standing offset
+				# on every single frame and accumulated 87 m in six seconds.
+				var was: Vector3 = c.pos
 				c.pos = (hit.position as Vector3) + (hit.normal as Vector3) * float(m.tall) * 0.5
+				c.walked = float(c.get("walked", 0.0)) 						+ was.distance_to(c.pos)
 				c.up = (hit.normal as Vector3).normalized()
 				c.fwd = (fwd - (c.up as Vector3) * fwd.dot(c.up)).normalized()
 		_apply_law(c, delta)
@@ -380,7 +408,12 @@ func _use_the_margin(c: Dictionary, delta: float) -> void:
 				var away: Vector3 = pos - (closest_p.tip as Vector3)
 				away = away - (c.up as Vector3) * away.dot(c.up)
 				if away.length() > 0.001:
-					c.pos = pos + away.normalized() * delta * 0.12
+					# Being shoved must keep it ON something. Moving it
+					# without re-seating pushed critters off edges into the
+					# air -- the contract caught one airborne about one run in
+					# three, and an animal that a palp can knock into space is
+					# not living on the wall.
+					_step_along_surface(c, away.normalized() * delta * 0.12)
 					c.nudged = 0.4
 					# Being shoved is startling, in proportion to temperament.
 					if float(m.startle) > 0.6:

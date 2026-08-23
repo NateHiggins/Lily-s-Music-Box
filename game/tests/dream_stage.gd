@@ -217,6 +217,11 @@ func _build_ecology() -> void:
 		residue.lay(where, nrm, 0.16, 1.0, 3.6))
 	margin.hero = hero
 	critters.hero = hero
+	hero.margin = margin
+	# In this capture the camera IS the player's viewpoint -- it carries the
+	# player's own lamp -- so the hero watches it, and §2's WATCH_PLAYER can
+	# fire when the shot pushes in.
+	hero.watch = camera
 	director = DirectorScript.new()
 	add_child(director)
 	director.setup("stage_director".hash())

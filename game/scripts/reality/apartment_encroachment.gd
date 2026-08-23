@@ -295,6 +295,8 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			if critters != null:
 				critters.hero = hero
 				hero.critters = critters
+			if margin != null:
+				hero.margin = margin
 		# §31 — the director sees all three levels, so it comes last.
 		ecology = DreamDirectorScript.new()
 		add_child(ecology)

@@ -32,7 +32,10 @@ var rig: Node3D = null
 var meshes: Array[MeshInstance3D] = []
 var materials: Array[ShaderMaterial] = []
 var field = null
-var grow := 1.0
+## 0 not through at all, 1 fully out. §2's MEMBRANE_BULGE and EMERGING drive
+## it; the shader collapses the un-emerged part onto the membrane so the limb
+## extrudes rather than appearing.
+var grow := 0.0
 
 var _clock := 0.0
 var _seeded := 0.0
@@ -63,15 +66,20 @@ var _settle := 0.0
 
 ## §2 — the hero's behaviour states. Not all fifteen yet; these are the ones
 ## contact makes meaningful, and the rest have nothing to drive them.
+## §2's fifteen. The first two are how it ARRIVES -- until they existed the
+## creature was simply present from the first frame, which is the one thing a
+## thing coming through from somewhere else should never be.
 enum State { SEEKING, APPROACHING, HOVER_INSPECTION, TOUCHING, CARESSING,
-		WITHDRAW, RESUME, CROSS_SECTION_WITHDRAW, ABSENT, RETURNING }
+		WITHDRAW, RESUME, CROSS_SECTION_WITHDRAW, ABSENT, RETURNING,
+		MEMBRANE_BULGE, EMERGING, ORIENTING, TASTING, WATCH_PLAYER,
+		INTERACT_MARGIN, INTERACT_CRITTER, FLINCH }
 signal touched(where: Vector3, normal: Vector3)
 signal released()
 ## H6 — it stopped having a cross-section. Not "it left".
 signal sliced_out()
 signal sliced_in()
 
-var state: int = State.SEEKING
+var state: int = State.MEMBRANE_BULGE
 var state_clock := 0.0
 ## What it is currently interested in: a real point on a real surface.
 var target := Vector3.INF
@@ -80,6 +88,19 @@ var contact_point := Vector3.INF
 var _space: PhysicsDirectSpaceState3D = null
 var _caress_dir := Vector3.ZERO
 var _last_tip := Vector3.INF
+## §2's arrival. It starts having not arrived.
+var _bulge := 0.0
+## What most recently startled it, and how hard.
+var _startle := 0.0
+## Margin appendages currently on it, and the critter it is minding.
+var margin = null
+var _palps_on_me := 0
+var _minding := Vector3.INF
+## Its own clock for noticing the margin. Gating this on `state_clock` meant
+## gating it on how long the CURRENT state had run -- which resets on every
+## transition, so a threshold of three seconds was almost never reached and
+## the hero never once noticed the appendages collecting on it.
+var _margin_notice_gap := 0.0
 ## 0 fully present, 1 no cross-section at all.
 var slice_close := 0.0
 ## How many ordinary withdrawals happen before it leaves the impossible way.
@@ -488,10 +509,135 @@ func _pick_target() -> bool:
 
 
 ## §2 — the state machine. Each state owns how long it lasts and what ends it.
+## Is the player close enough to be worth stopping for?
+func _player_near(range_m: float = 3.2) -> bool:
+	if watch == null or not is_instance_valid(watch):
+		return false
+	# From any part of it, not only its root. A limb whose club is half a
+	# metre from your face has noticed you, whatever its root thinks -- the
+	# same reasoning as its notice of critters.
+	var at: Vector3 = watch.global_position
+	return minf(global_position.distance_to(at), tip_world().distance_to(at)) 			< range_m
+
+
+## §2's reactive states outrank whatever errand it was on. A creature that
+## finishes tracing a skirting board while somebody walks up to it is a
+## machine running a program.
+func _interrupt(delta: float) -> bool:
+	# Nothing interrupts arrival or departure: it is not there to interrupt.
+	if state == State.MEMBRANE_BULGE or state == State.EMERGING 			or state == State.CROSS_SECTION_WITHDRAW or state == State.ABSENT 			or state == State.RETURNING or state == State.FLINCH:
+		return false
+	if _startle > 0.45 and state != State.FLINCH:
+		state = State.FLINCH
+		state_clock = 0.0
+		return true
+	# A critter within reach of the club is checked BEFORE the player. Something
+	# touching you outranks somebody approaching you, and with the player
+	# tested first a close animal was starved out entirely -- the hero spent
+	# whole takes watching the room over the head of a critter on its own club.
+	if critters != null and is_instance_valid(critters) 			and state != State.INTERACT_CRITTER:
+		# Anywhere ON it, not only at the club: §22's own example is a critter
+		# clinging to a gold plate, which is halfway down the shaft.
+		var tip_now := tip_world()
+		for c in critters.critters:
+			var how_near: float = minf(tip_now.distance_to(c.pos),
+					global_position.distance_to(c.pos))
+			if how_near < 0.55:
+				_minding = c.pos
+				state = State.INTERACT_CRITTER
+				state_clock = 0.0
+				return true
+	if _player_near(2.2) and state != State.WATCH_PLAYER 			and state != State.INTERACT_CRITTER:
+		state = State.WATCH_PLAYER
+		state_clock = 0.0
+		return true
+	# Enough appendages collected on it to be worth noticing (§11).
+	_palps_on_me = 0
+	if margin != null and is_instance_valid(margin):
+		for p in margin.palps:
+			if float(p.get("hero_near", 0.0)) > 0.6:
+				_palps_on_me += 1
+	if _palps_on_me >= 5 and state != State.INTERACT_MARGIN 			and _margin_notice_gap <= 0.0:
+		_margin_notice_gap = 14.0
+		state = State.INTERACT_MARGIN
+		state_clock = 0.0
+		return true
+	return false
+
+
+## Something happened worth flinching at. Called from outside -- the player's
+## own interactions are the obvious source.
+func startle(amount: float = 1.0) -> void:
+	_startle = clampf(_startle + amount, 0.0, 2.0)
+
+
 func _behave(delta: float) -> void:
 	state_clock += delta
 	var tip := tip_world()
+	_startle = maxf(0.0, _startle - delta * 0.6)
+	_margin_notice_gap = maxf(0.0, _margin_notice_gap - delta)
+	if _interrupt(delta):
+		return
 	match state:
+		State.MEMBRANE_BULGE:
+			# Nothing is through yet. The membrane swells, and that is all a
+			# watcher gets for a moment.
+			_bulge = minf(1.0, state_clock / 1.6)
+			grow = 0.0
+			if state_clock > 1.9:
+				state = State.EMERGING
+				state_clock = 0.0
+		State.EMERGING:
+			# It extrudes. `grow` collapses the part not yet through onto the
+			# membrane, so the limb comes OUT rather than switching on.
+			grow = smoothstep(0.0, 1.0, state_clock / 2.4)
+			if grow >= 1.0:
+				state = State.ORIENTING
+				state_clock = 0.0
+		State.ORIENTING:
+			# Arrived, and taking stock before doing anything.
+			grow = 1.0
+			if state_clock > 1.5:
+				state = State.SEEKING
+				state_clock = 0.0
+		State.TASTING:
+			# Distinct from caressing: short repeated contact in one place,
+			# lifting between each. §9's "Taste".
+			contact_point = tip
+			if state_clock > 1.6:
+				state = State.WITHDRAW
+				state_clock = 0.0
+				released.emit()
+		State.WATCH_PLAYER:
+			# It stops and looks. The most unsettling thing a creature can do
+			# when you come near is nothing at all.
+			target = Vector3.INF
+			if state_clock > 2.6 or not _player_near():
+				state = State.SEEKING
+				state_clock = 0.0
+		State.INTERACT_MARGIN:
+			# §11 — it has noticed the appendages collecting on it.
+			if state_clock > 2.2:
+				state = State.SEEKING
+				state_clock = 0.0
+		State.INTERACT_CRITTER:
+			# §22 — it minds the animal, and its club moves toward it. The
+			# nudge is a real displacement, not an animation: the critter
+			# controller feels this as a push.
+			if _minding != Vector3.INF:
+				target = _minding
+			if state_clock > 2.4:
+				_minding = Vector3.INF
+				state = State.SEEKING
+				state_clock = 0.0
+		State.FLINCH:
+			# Fast, then still. It does not resume where it left off.
+			target = Vector3.INF
+			contact_point = Vector3.INF
+			_reach_gain = move_toward(_reach_gain, 0.25, delta * 6.0)
+			if state_clock > 1.1:
+				state = State.ORIENTING
+				state_clock = 0.0
 		State.SEEKING:
 			_reach_gain = move_toward(_reach_gain, 1.0, delta * 1.2)
 			# Look for something. If nothing is in reach, keep searching, and
@@ -524,7 +670,9 @@ func _behave(delta: float) -> void:
 		State.TOUCHING:
 			contact_point = tip
 			if state_clock > 1.1:
-				state = State.CARESSING
+				# What it does having arrived is the most characterful choice
+				# it makes: trace the surface, or sample one spot repeatedly.
+				state = State.CARESSING if fmod(absf(_seeded * 31.0), 1.0) > 0.4 						else State.TASTING
 				state_clock = 0.0
 		State.CARESSING:
 			# Trace along the surface rather than pressing into it.
@@ -582,7 +730,9 @@ func _behave(delta: float) -> void:
 func state_name() -> String:
 	return ["SEEKING", "APPROACHING", "HOVER_INSPECTION", "TOUCHING",
 			"CARESSING", "WITHDRAW", "RESUME", "CROSS_SECTION_WITHDRAW",
-			"ABSENT", "RETURNING"][state]
+			"ABSENT", "RETURNING", "MEMBRANE_BULGE", "EMERGING", "ORIENTING",
+			"TASTING", "WATCH_PLAYER", "INTERACT_MARGIN", "INTERACT_CRITTER",
+			"FLINCH"][state]
 
 
 ## §12 — the flesh's answer to what the bones just decided.
@@ -660,6 +810,8 @@ func census() -> Dictionary:
 			"motion": snappedf(motion, 0.001),
 			"slice_close": snappedf(slice_close, 0.001),
 			"noticing_a_critter": noticing != Vector3.INF,
+			"palps_on_me": _palps_on_me, "startle": snappedf(_startle, 0.01),
+			"bulge": snappedf(_bulge, 0.01),
 			"lag_root": snappedf(lag_root, 0.0001),
 			"lag_tip": snappedf(lag_tip, 0.0001),
 			"skeleton": skeleton != null}
