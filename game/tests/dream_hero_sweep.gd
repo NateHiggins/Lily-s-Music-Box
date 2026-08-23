@@ -599,6 +599,30 @@ func _modelled_hero_shots() -> void:
 			print("[SWEEP]   %-20s seat %.3f" % [probe_name, seats[probe_name]])
 	if seat_hi - seat_lo < 0.5:
 		printerr("[SWEEP] SEATS ARE FLAT — the riders are not being placed")
+	# H4 — THE RIDERS' OWN MOTION, WHICH NO STILL FRAME CAN SHOW.
+	#
+	# A rider that lags and a rider welded to the flesh are the same photograph
+	# in every frame, so this is measured rather than looked at. And it is
+	# measured PER SYSTEM, because the whole claim is that they differ: a
+	# cilium is a hair and should trail far, a gold plate is a mineral seated
+	# in flesh and should barely stir. One number for the body cannot say that,
+	# and would have passed just as happily with every rider on one spring.
+	var kind_names := ["flesh", "gold", "crystal", "membrane", "sucker", "cilium"]
+	var peak := [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+	for _probe in 120:
+		await get_tree().create_timer(0.05).timeout
+		for i in hero.meshes.size():
+			var k: int = hero._rider_kind[i]
+			peak[k] = maxf(peak[k], hero._rider_push[i].length())
+	for k in 6:
+		if k == 0:
+			continue
+		print("[SWEEP] RIDER %-9s peak offset %.2f mm" % [kind_names[k],
+				float(peak[k]) * 1000.0])
+	if float(peak[5]) <= float(peak[1]):
+		printerr("[SWEEP] the cilia are no springier than the gold — one spring for everything")
+	if float(peak[5]) < 0.0005:
+		printerr("[SWEEP] the riders are not moving at all")
 	# H1 A/B. The bake is either doing something visible or it is not, and the
 	# only way to know is to photograph the same frame with it off.
 	var ab: String = OS.get_environment("SWEEP_ANATOMY")

@@ -68,6 +68,20 @@ uniform float slice_close : hint_range(0.0, 1.0) = 0.0;
 // The creature supplies each rider's seat instead. Negative means "this
 // surface has real UVs, use them" -- the cage.
 uniform float rider_v = -1.0;
+// H4 — WHAT A RIDER DOES THAT SKINNING WILL NOT DO FOR IT.
+//
+// Every rider is bound to the cage's own weights, so it goes exactly where the
+// flesh goes and does nothing of its own. But a cilium is a hair and should
+// trail behind a whipping limb; a gold plate is a rigid mineral seated in
+// something soft and should lift and settle as that thing bends; a sucker
+// should press. None of that is skinning -- skinning is precisely the part
+// that moves a rider AS IF it were the flesh.
+//
+// A rigid millimetre-scale offset in model space, sprung against the local
+// velocity of the bone the piece is seated on. Small on purpose: this is
+// mesostructure, and a gold plate that slides far enough to see is a gold
+// plate that has come off the animal.
+uniform vec3 rider_push = vec3(0.0);
 group_uniforms;
 
 varying vec3 v_world;
@@ -105,6 +119,7 @@ void vertex() {
 		float remaining = sqrt(max(0.0, 1.0 - w * w));
 		VERTEX -= radial * here * (1.0 - remaining);
 	}
+	VERTEX += rider_push;
 	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 }
 

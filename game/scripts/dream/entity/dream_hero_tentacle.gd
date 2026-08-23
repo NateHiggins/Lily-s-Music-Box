@@ -164,6 +164,7 @@ func setup(seed_v: int, at: Vector3, aim: Vector3 = Vector3.FORWARD) -> void:
 	_measure_body()
 	_dress()
 	_find_skeleton(inst)
+	_seat_riders()
 	var world := get_viewport().find_world_3d() if get_viewport() != null else null
 	if world != null:
 		_space = world.direct_space_state
@@ -812,6 +813,89 @@ func state_name() -> String:
 ## actual pose toward it with a time constant that lengthens distally, and let
 ## it carry past and come back. A limb whose every joint arrives at once has
 ## no mass in it.
+## H4 — EVERY RIDER ON THE BONE IT ACTUALLY SITS ON.
+##
+## The deform chain runs root to tip, and a rider's seat is already known, so
+## the two only have to be matched up. This is what lets a plate near the club
+## answer to the club whipping while a plate on the collar barely stirs.
+var _rider_bone := PackedInt32Array()
+var _rider_kind := PackedInt32Array()
+var _rider_prev := PackedVector3Array()
+var _rider_vel := PackedVector3Array()
+var _rider_push := PackedVector3Array()
+## How hard each system trails, and how quickly it comes back. A hair whips
+## and takes its time; a mineral plate barely shifts and snaps back.
+##            kind:   0 flesh  1 gold  2 crystal 3 membrane 4 sucker 5 cilium
+const RIDER_LAG := [0.000, 0.0055, 0.0040, 0.0130, 0.0080, 0.0290]
+const RIDER_RATE := [1.0, 24.0, 28.0, 7.0, 16.0, 9.0]
+const RIDER_CAP := [0.0, 0.003, 0.003, 0.012, 0.006, 0.026]
+## The largest offset any rider is currently carrying, for the contract.
+var rider_motion := 0.0
+
+
+func _seat_riders() -> void:
+	var count := meshes.size()
+	_rider_bone.resize(count)
+	_rider_kind.resize(count)
+	_rider_prev.resize(count)
+	_rider_vel.resize(count)
+	_rider_push.resize(count)
+	var n := _bones.size()
+	for i in count:
+		_rider_kind[i] = _kind_of(meshes[i].name)
+		_rider_prev[i] = Vector3.ZERO
+		_rider_vel[i] = Vector3.ZERO
+		_rider_push[i] = Vector3.ZERO
+		_rider_bone[i] = -1
+		if n == 0 or skeleton == null or _rider_kind[i] == 0:
+			continue
+		# Seat is 1 at the root; the chain is ordered root first.
+		var along: float = 1.0 - _seat_of(meshes[i])
+		# THE MEMBRANE IS NOT DRAGGED BY THE COLLAR. It sits at the root, and
+		# the root is the one part of the creature that is anchored -- it is
+		# held in the wall and never translates, so seated on its own bone the
+		# membrane measured a follow-through of two hundredths of a
+		# millimetre. What actually pulls a membrane about is the LIMB passing
+		# through it. So it answers to the limb a quarter of the way down,
+		# which is the part whose swing it can feel.
+		if _rider_kind[i] == 3:
+			along = 0.25
+		_rider_bone[i] = _bones[clampi(int(round(along * float(n - 1))), 0, n - 1)]
+		_rider_prev[i] = skeleton.get_bone_global_pose(_rider_bone[i]).origin
+
+
+## The riders answer the flesh, a beat late.
+##
+## Sprung against the LOCAL velocity of the bone each piece is seated on, not
+## against the creature's overall motion: the point is that the club can whip
+## while the collar is still, and one number for the whole body cannot say
+## that. The offset is rigid and in model space, which is all a mineral plate
+## or a hair needs -- they do not deform, they lag.
+func _micro(delta: float) -> void:
+	if skeleton == null or _rider_bone.is_empty():
+		return
+	var most := 0.0
+	for i in meshes.size():
+		var b := _rider_bone[i]
+		if b < 0:
+			continue
+		var kind := _rider_kind[i]
+		var now: Vector3 = skeleton.get_bone_global_pose(b).origin
+		var v: Vector3 = (now - _rider_prev[i]) / maxf(delta, 0.0001)
+		_rider_prev[i] = now
+		_rider_vel[i] = _rider_vel[i].lerp(v, 1.0 - exp(-14.0 * delta))
+		# Trailing means displaced OPPOSITE the direction of travel.
+		var want: Vector3 = -_rider_vel[i] * float(RIDER_LAG[kind])
+		var cap: float = float(RIDER_CAP[kind])
+		if want.length() > cap:
+			want = want.normalized() * cap
+		_rider_push[i] = _rider_push[i].lerp(want,
+				1.0 - exp(-float(RIDER_RATE[kind]) * delta))
+		materials[i].set_shader_parameter("rider_push", _rider_push[i])
+		most = maxf(most, _rider_push[i].length())
+	rider_motion = most
+
+
 func _secondary(delta: float) -> void:
 	if skeleton == null or _bones.is_empty():
 		return
@@ -853,8 +937,10 @@ func _process(delta: float) -> void:
 	# a limb that is not reaching for anything should not be solving.
 	if state == State.APPROACHING or state == State.TOUCHING 			or state == State.CARESSING:
 		_solve_reach(delta)
-	# Intent is decided; now the flesh answers it.
+	# Intent is decided; now the flesh answers it, and then the things riding
+	# on the flesh answer the flesh.
 	_secondary(delta)
+	_micro(delta)
 	_animate_eye(delta)
 	for mat in materials:
 		mat.set_shader_parameter("body_motion", motion)
@@ -872,6 +958,7 @@ func census() -> Dictionary:
 		if mi.skin != null:
 			skinned += 1
 	return {"meshes": meshes.size(), "skinned": skinned,
+			"rider_motion": snappedf(rider_motion, 0.0001),
 			"materials": materials.size(), "grow": grow,
 			"deform_bones": _bones.size(), "eye_bone": _eye_bone,
 			"lid_bones": _lid_bones.size(), "state": state_name(),
