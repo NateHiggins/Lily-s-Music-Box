@@ -242,6 +242,41 @@ func _run() -> void:
 		print("[margin] %d branches, %d mid-unfold" % [int(c2.branches),
 				int(c2.unfolding)])
 
+	# --- §29/§30: LOD MUST NOT REPLACE ANYONE ----------------------------
+	# "Preserve species, preserve seed, preserve personality, preserve current
+	# state ... No obvious identity replacement." The margin carries more
+	# appendages than it can draw, so individuals move in and out of the drawn
+	# set constantly. Each one must come back as ITSELF.
+	var watched: Dictionary = {}
+	for p in margin.palps:
+		watched[int(p.id)] = {
+			"seed": int(p.seed), "kind": int(p.morph.kind),
+			"len": float(p.morph.length),
+			"curiosity": float(p.traits.curiosity),
+			"bold": float(p.traits.boldness),
+		}
+	await get_tree().create_timer(6.0).timeout
+	var checked := 0
+	var changed := 0
+	var first_change := ""
+	for p in margin.palps:
+		var id: int = int(p.id)
+		if not watched.has(id):
+			continue
+		checked += 1
+		var was: Dictionary = watched[id]
+		if int(p.seed) != int(was.seed) or int(p.morph.kind) != int(was.kind) 				or not is_equal_approx(float(p.morph.length), float(was.len)) 				or not is_equal_approx(float(p.traits.curiosity), float(was.curiosity)) 				or not is_equal_approx(float(p.traits.boldness), float(was.bold)):
+			changed += 1
+			if first_change == "":
+				first_change = "palp %d" % id
+	print("[margin] %d individuals survived six seconds of LOD churn, %d changed"
+			% [checked, changed])
+	_check("§30 identity survives: seed, species, proportions and personality "
+			+ "are unchanged (%d of %d)%s" % [checked - changed, checked,
+			"" if first_change == "" else " — " + first_change], changed == 0)
+	_check("and enough of them were alive to mean anything (%d)" % checked,
+			checked >= 5)
+
 	# --- and it is actually drawn ----------------------------------------
 	var renderer: DreamPalpRenderer = enc.get("palp_renderer")
 	_check("the whole population draws in one mesh",
@@ -250,6 +285,26 @@ func _run() -> void:
 		print("[margin] renderer %s" % [renderer.census()])
 		_check("appendages reach the renderer (%d drawn)" % int(renderer.census().drawn),
 				int(renderer.census().drawn) >= 1)
+		# The drawn set must be the NEAREST set. Before this, it was whichever
+		# forty sat earliest in the array, so a margin of eighty could put all
+		# its geometry across the flat while the wall in front of you carried
+		# none of it.
+		await get_tree().process_frame
+		var eye: Vector3 = renderer._eye_position()
+		var drawn_far := 0.0
+		var skipped_near := 9999.0
+		var ids: Array = renderer.drawn_ids
+		for p in margin.palps:
+			var d: float = eye.distance_to(p.tip)
+			if ids.has(int(p.id)):
+				drawn_far = maxf(drawn_far, d)
+			else:
+				skipped_near = minf(skipped_near, d)
+		print("[margin] furthest drawn %.2f m, nearest skipped %.2f m"
+				% [drawn_far, skipped_near])
+		if margin.palps.size() > int(renderer.census().drawn):
+			_check("§29 the drawn set is the NEAREST set (%.2f m vs %.2f m)"
+					% [drawn_far, skipped_near], drawn_far <= skipped_near + 0.01)
 	_finish()
 
 

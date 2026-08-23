@@ -97,6 +97,26 @@ the failure §37 names. Emission now scales with the individual's own gold
 fraction (§6 makes that anatomy, not decoration), so a whisker at 5% gold
 reads as dark flesh and a gold-jointed finger at 72% carries light.
 
+## Phase 15 — population LOD (§29, §30)
+
+The margin carries more appendages than it can draw — 67 to 86 live against
+40 slots — so individuals move in and out of the drawn set constantly. Two
+things follow, and only one of them was working.
+
+**Draw the nearest, not the first.** The renderer took whichever forty sat
+earliest in the array, which has nothing to do with where the player is: a
+margin of eighty could put all its geometry on the far side of the flat while
+the wall in front of you carried none of it. Choosing by distance costs one
+sort. Asserted directly — furthest drawn **10.42 m** against nearest skipped
+**10.48 m**, so the cut falls exactly on the distance boundary.
+
+**Identity survives the churn.** §30: *"preserve species, preserve seed,
+preserve personality, preserve current state … No obvious identity
+replacement."* Nothing about an appendage lives in the renderer, so this holds
+by construction — but it is asserted rather than assumed: **25 individuals
+tracked across six seconds of LOD churn, 0 changed** in seed, species,
+proportions or personality.
+
 ## Not done, and not pretended
 
 - **§37, in the wild**, is still not demonstrated. The best naturally

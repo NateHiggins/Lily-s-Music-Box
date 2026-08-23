@@ -20,6 +20,9 @@ var controller: DreamMarginController = null
 var material: ShaderMaterial
 var mesh_instance: MeshInstance3D
 var drawn := 0
+## Which individuals currently have geometry, so the contract can check that
+## the ones nearest the player are the ones being drawn.
+var drawn_ids: Array = []
 
 var _spine := PackedVector3Array()
 var _section := PackedVector4Array()
@@ -89,9 +92,31 @@ func _process(delta: float) -> void:
 		return
 	_clock += delta
 	drawn = 0
-	for i in mini(controller.palps.size(), MAX_PALPS):
+	# §29/§30 — DRAW THE NEAREST, NOT THE FIRST.
+	#
+	# This took whichever forty appendages happened to sit earliest in the
+	# array, which has nothing to do with where the player is: a margin of
+	# eighty-odd could put its geometry on the far side of the flat while the
+	# wall in front of you carried nothing. Choosing by distance is the whole
+	# of the LOD system for the margin, and it costs one sort.
+	#
+	# Identity is untouched by it. Each appendage keeps its own seed,
+	# personality, morphology and current act whether or not it is currently
+	# being drawn, so one that leaves the drawn set and returns is the same
+	# individual -- §30's "no obvious identity replacement".
+	var eye := _eye_position()
+	var order: Array = []
+	for i in controller.palps.size():
 		var p: Dictionary = controller.palps[i]
-		_lay(drawn, p)
+		order.append({"i": i, "d": eye.distance_squared_to(p.tip)})
+	order.sort_custom(func(a, b): return float(a.d) < float(b.d))
+	drawn_ids.clear()
+	for entry in order:
+		if drawn >= MAX_PALPS:
+			break
+		var p2: Dictionary = controller.palps[int(entry.i)]
+		_lay(drawn, p2)
+		drawn_ids.append(int(p2.id))
 		drawn += 1
 	# Anything past the live population is collapsed rather than left stale.
 	for i in range(drawn, MAX_PALPS):
@@ -144,4 +169,15 @@ func _lay(slot: int, p: Dictionary) -> void:
 
 
 func census() -> Dictionary:
-	return {"drawn": drawn, "max": MAX_PALPS}
+	return {"drawn": drawn, "max": MAX_PALPS, "ids": drawn_ids.size()}
+
+
+## Where the player is looking from. Falls back to the origin in headless
+## runs, where there is no camera and nothing is being looked at anyway.
+func _eye_position() -> Vector3:
+	var vp := get_viewport()
+	if vp != null:
+		var camera := vp.get_camera_3d()
+		if camera != null:
+			return camera.global_position
+	return global_position

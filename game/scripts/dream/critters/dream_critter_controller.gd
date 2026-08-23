@@ -474,14 +474,23 @@ func _apply_law(c: Dictionary, delta: float) -> void:
 func _push() -> void:
 	# Slots, not animals. A grazer on both sides of a wall takes two, and both
 	# carry the same identity, gait and morphology -- they are one creature.
-	var slot := 0
+	# §29/§30 — nearest first, same as the margin. A twin costs a second slot,
+	# so a distant animal on both sides of a wall can lose its geometry to a
+	# closer one -- which is correct: the player cannot see it anyway.
+	var eye := _eye_position()
+	var order: Array = []
 	for i in critters.size():
+		order.append({"i": i, "d": eye.distance_squared_to(critters[i].pos)})
+	order.sort_custom(func(a, b): return float(a.d) < float(b.d))
+	var slot := 0
+	for entry in order:
 		if slot >= MAX_CRITTERS:
 			break
-		_write_slot(slot, critters[i], false)
+		var c: Dictionary = critters[int(entry.i)]
+		_write_slot(slot, c, false)
 		slot += 1
-		if bool(critters[i].get("twin", false)) and slot < MAX_CRITTERS:
-			_write_slot(slot, critters[i], true)
+		if bool(c.get("twin", false)) and slot < MAX_CRITTERS:
+			_write_slot(slot, c, true)
 			slot += 1
 	var n := slot
 	for i in range(n, MAX_CRITTERS):
@@ -557,3 +566,12 @@ func census() -> Dictionary:
 			"nudged_by_a_palp": nudged, "following_a_palp": following,
 			"feeding_on_residue": feeding,
 			"feel_hero": feel_hero, "approaching_hero": brave}
+
+
+func _eye_position() -> Vector3:
+	var vp := get_viewport()
+	if vp != null:
+		var camera := vp.get_camera_3d()
+		if camera != null:
+			return camera.global_position
+	return global_position
