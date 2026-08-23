@@ -41,6 +41,9 @@ uniform float grow : hint_range(0.0, 1.0) = 1.0;
 //   B thickness: how much meat is behind this point
 uniform sampler2D anatomy_map : source_color, filter_linear_mipmap;
 uniform float anatomy_strength : hint_range(0.0, 2.0) = 1.0;
+// §12's last layer: the wet highlight stabilises AFTER the body stops. Fed
+// from the creature, which raises it instantly and lets it decay.
+uniform float body_motion : hint_range(0.0, 1.0) = 0.0;
 group_uniforms;
 
 varying vec3 v_world;
@@ -120,7 +123,10 @@ void fragment() {
 	ALBEDO = o.albedo;
 	METALLIC = o.metallic;
 	// Creases stay wet; crests dry and polish.
-	ROUGHNESS = clamp(o.roughness - 0.16 * max(0.0, crest) * anatomy_strength
+	// Moving flesh throws its fluid film about; settled flesh lets it pool
+	// and the highlight sharpens.
+	ROUGHNESS = clamp(o.roughness + 0.13 * body_motion
+			- 0.16 * max(0.0, crest) * anatomy_strength
 			+ 0.10 * max(0.0, -crest) * anatomy_strength, 0.03, 1.0);
 	SPECULAR = o.specular;
 	EMISSION = o.emission * emission_gain;

@@ -424,6 +424,23 @@ func _modelled_hero_shots() -> void:
 		printerr("[SWEEP] no modelled hero — run with DREAM_HERO=1")
 		return
 	print("[SWEEP] hero census %s" % [hero.census()])
+	# §12 — DOES THE FLESH LAG THE BONE? A creature whose every joint arrives
+	# at once has no mass in it. The distal third should run further behind
+	# the intent than the root, which is held by the collar.
+	if OS.get_environment("SWEEP_SECONDARY") == "1":
+		var root_peak := 0.0
+		var tip_peak := 0.0
+		var motion_peak := 0.0
+		for probe in 200:
+			await get_tree().create_timer(0.06).timeout
+			root_peak = maxf(root_peak, hero.lag_root)
+			tip_peak = maxf(tip_peak, hero.lag_tip)
+			motion_peak = maxf(motion_peak, hero.motion)
+		print("[SWEEP] SECONDARY: lag root %.4f rad, tip %.4f rad, motion peak %.3f"
+				% [root_peak, tip_peak, motion_peak])
+		print("[SWEEP] %s" % ["FLESH LAGS BONE" if tip_peak > root_peak * 1.4
+				and tip_peak > 0.004
+				else "NO FOLLOW-THROUGH — every joint arrives together"])
 	# H3 — DOES IT ACTUALLY TOUCH ANYTHING? A state machine that cycles
 	# through TOUCHING without a tip near a surface has not touched anything.
 	if OS.get_environment("SWEEP_CONTACT") == "1":

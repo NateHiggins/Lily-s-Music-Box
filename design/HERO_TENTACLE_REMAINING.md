@@ -47,12 +47,18 @@ Still owed here: the suckers and the distal club do not *compress* on contact
 (§10 wants contact to visibly compress, spread, deform, grip and release), and
 there is no `TASTING` behaviour distinct from `CARESSING`.
 
-### H4. No secondary motion — **§12 of the menagerie brief**
-One layer moves: bones. There is no muscle lag, flesh settle, gold reseating,
-cilia spring, sucker compression, membrane follow-through or vascular pulse.
-The brief's cascade — *bone moves first, muscle follows, flesh settles, gold
-reseats, cilia oscillate, wet highlight stabilises* — is what produces
-apparent mass, and none of it exists.
+### H4. Secondary motion — PARTLY DONE
+The solve and the search now produce INTENT; a separate pass carries the
+flesh's answer to it, running behind with a time constant that lengthens
+distally and overshooting slightly before it settles. Measured: the root lags
+its intent by 0.0012 rad — effectively rigid, which is right, the collar holds
+it — and the tip by 0.1333 rad, a hundredfold gradient along the body. The wet
+highlight is the cascade's last layer and now settles after the body does,
+driven by a `body_motion` signal that rises instantly and decays slowly.
+
+Still owed from §12's list: gold micro-articulation (the plates ride the flesh
+but do not reseat), cilia springs, sucker compression, membrane
+follow-through, vascular pulses.
 
 ### H5. ~~The eye does not perform~~ — DONE
 The rig had carried `CTL_EYE` and three lid controls since it was built and
@@ -90,7 +96,8 @@ for the shot and the fiction.
 
 ## Recommended order
 
-H1, H3 and H5 are done; H2 is partly done. **H4 → H6** next: contact first, because §2's
+H1, H3, H5 done; H2 and H4 partly. **H6** (a signature hyperdimensional
+event) is the only §26 test the hero still outright fails: contact first, because §2's
 interesting states (`TOUCHING`, `CARESSING`, `TASTING`) are meaningless
 without it and it is the hard prerequisite for
 `DREAM_SALIVA_DIRECTION.md`; then the state machine those states belong to;

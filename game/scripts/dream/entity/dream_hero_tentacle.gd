@@ -86,6 +86,24 @@ const TOUCH_M := 0.09
 ## harder until the tip is actually there, and relaxes when it is not
 ## reaching for anything.
 var _reach_gain := 1.0
+## §12 — SECONDARY MOTION. One layer moved: bones. Nothing lagged, settled,
+## reseated or oscillated, and that cascade is what produces apparent mass:
+##
+##     bone moves first, muscle mass follows, flesh settles,
+##     gold structure reseats, cilia oscillate, wet highlight stabilises
+##
+## The solve and the search produce INTENT. These carry the flesh's response
+## to it, one frame behind and overshooting slightly, more so toward the tip
+## where there is less muscle to hold it.
+var _settled: Array[Quaternion] = []
+var _bone_vel: PackedFloat32Array = PackedFloat32Array()
+var _prev_desired: Array[Quaternion] = []
+## How much the body is currently moving, for the wet highlight to settle
+## against. Rises instantly, falls slowly: a wet surface stops shimmering a
+## moment after the thing under it stops.
+var motion := 0.0
+var lag_root := 0.0
+var lag_tip := 0.0
 const REACH_GAIN_MAX := 2.2
 
 
@@ -175,7 +193,11 @@ func _find_skeleton(node: Node) -> void:
 	named.sort_custom(func(a, b): return _bone_order(a[0]) < _bone_order(b[0]))
 	for pair in named:
 		_bones.append(int(pair[1]))
-		_rest.append(skeleton.get_bone_pose_rotation(int(pair[1])))
+		var q := skeleton.get_bone_pose_rotation(int(pair[1]))
+		_rest.append(q)
+		_settled.append(q)
+		_prev_desired.append(q)
+		_bone_vel.append(0.0)
 	# The secondary controls. They existed in the rig from the start and
 	# nothing was weighted to them, so the eye could not look and the lids
 	# could not close; the Blender binder now puts the globe, iris, pupil,
@@ -478,6 +500,43 @@ func state_name() -> String:
 			"CARESSING", "WITHDRAW", "RESUME"][state]
 
 
+## §12 — the flesh's answer to what the bones just decided.
+##
+## Read the pose the solve and the search wrote as the INTENT, then move the
+## actual pose toward it with a time constant that lengthens distally, and let
+## it carry past and come back. A limb whose every joint arrives at once has
+## no mass in it.
+func _secondary(delta: float) -> void:
+	if skeleton == null or _bones.is_empty():
+		return
+	var n := _bones.size()
+	var moved := 0.0
+	for i in n:
+		var b := _bones[i]
+		var desired: Quaternion = skeleton.get_bone_pose_rotation(b)
+		var t := float(i) / float(maxi(1, n - 1))
+		# The root is held by the collar and answers almost immediately; the
+		# distal third is mostly water and takes its time.
+		var rate: float = lerpf(26.0, 7.0, t)
+		# Where the intent is going, so the flesh can overshoot along it.
+		var lead: float = _prev_desired[i].angle_to(desired) / maxf(0.0001, delta)
+		_bone_vel[i] = lerpf(_bone_vel[i], lead, 1.0 - exp(-6.0 * delta))
+		var overshoot: float = clampf(_bone_vel[i] * 0.020 * t, 0.0, 0.35)
+		var goal: Quaternion = _prev_desired[i].slerp(desired, 1.0 + overshoot)
+		_settled[i] = _settled[i].slerp(goal, 1.0 - exp(-rate * delta))
+		moved += _settled[i].angle_to(desired)
+		skeleton.set_bone_pose_rotation(b, _settled[i])
+		_prev_desired[i] = desired
+	# How far behind the intent each end of the body is running. This is the
+	# whole point of the pass, so it is measurable rather than asserted.
+	lag_root = _settled[0].angle_to(_prev_desired[0])
+	lag_tip = _settled[n - 1].angle_to(_prev_desired[n - 1])
+	# Rises instantly, decays slowly.
+	var now: float = moved / float(n)
+	motion = maxf(now * 6.0, motion - delta * 0.9)
+	motion = clampf(motion, 0.0, 1.0)
+
+
 func _process(delta: float) -> void:
 	_clock += delta
 	_behave(delta)
@@ -487,7 +546,11 @@ func _process(delta: float) -> void:
 	# a limb that is not reaching for anything should not be solving.
 	if state == State.APPROACHING or state == State.TOUCHING 			or state == State.CARESSING:
 		_solve_reach(delta)
+	# Intent is decided; now the flesh answers it.
+	_secondary(delta)
 	_animate_eye(delta)
+	for mat in materials:
+		mat.set_shader_parameter("body_motion", motion)
 	for mat in materials:
 		mat.set_shader_parameter("grow", grow)
 		if field != null and field.state != null:
@@ -507,4 +570,7 @@ func census() -> Dictionary:
 			"has_target": target != Vector3.INF,
 			"touching": contact_point != Vector3.INF,
 			"reach_gain": snappedf(_reach_gain, 0.01),
+			"motion": snappedf(motion, 0.001),
+			"lag_root": snappedf(lag_root, 0.0001),
+			"lag_tip": snappedf(lag_tip, 0.0001),
 			"skeleton": skeleton != null}
