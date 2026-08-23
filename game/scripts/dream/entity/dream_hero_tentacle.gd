@@ -17,6 +17,7 @@ extends Node3D
 
 const HERO_SCENE := preload("res://assets/dream/tentacle/dream_tentacle.glb")
 const SKIN := preload("res://shaders/dream_hero_skin.gdshader")
+const ANATOMY := preload("res://assets/dream/tentacle/T_dream_hero_anatomy.png")
 
 ## Name prefix -> the `system_kind` the skin dresses it as.
 const SYSTEMS := {
@@ -87,6 +88,8 @@ func _dress() -> void:
 		mat.set_shader_parameter("emission_gain", 1.8 if kind == 1 else
 				(1.4 if kind == 2 else 1.0))
 		mat.set_shader_parameter("grow", grow)
+		mat.set_shader_parameter("anatomy_map", ANATOMY)
+		mat.set_shader_parameter("anatomy_strength", 1.0)
 		mi.material_override = mat
 		# The creature is placed in a room and must never be culled by a
 		# bounding box computed for its rest pose.

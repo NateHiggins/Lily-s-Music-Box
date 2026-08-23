@@ -34,6 +34,13 @@ uniform float hero_seed = 0.0;
 uniform float emission_gain : hint_range(0.0, 4.0) = 1.0;
 // Emergence, shared with the field: 0 fully withdrawn, 1 fully out.
 uniform float grow : hint_range(0.0, 1.0) = 1.0;
+// H1 — THE BAKED ANATOMY. Three facts about this body's geometry that no
+// noise field can know, in one fetch:
+//   R ambient occlusion (mostly the gold plates' own shadow on the flesh)
+//   G curvature: convex crests vs concave creases
+//   B thickness: how much meat is behind this point
+uniform sampler2D anatomy_map : source_color, filter_linear_mipmap;
+uniform float anatomy_strength : hint_range(0.0, 2.0) = 1.0;
 group_uniforms;
 
 varying vec3 v_world;
@@ -62,7 +69,14 @@ void fragment() {
 	// room showed exactly that: the membrane came out as a sheet of molten
 	// gold, because white means "maximum metal" to this stack.
 	bool painted = (system_kind == 0);
-	ctx.thickness = painted ? clamp(v_mask.r, 0.0, 1.0) : 0.5;
+	// Only the flesh has UVs and therefore a bake.
+	vec3 baked = painted ? texture(anatomy_map, v_uv).rgb : vec3(1.0, 0.75, 0.5);
+	// The vertex mask is a coarse per-vertex guess at thickness; the bake
+	// measured it per texel by sampling occlusion INSIDE the mesh. Trust the
+	// measurement, and keep the mask as the low-frequency term.
+	ctx.thickness = painted
+			? clamp(mix(v_mask.r, baked.b, 0.7 * anatomy_strength), 0.0, 1.0)
+			: 0.5;
 	ctx.gold_root = painted ? clamp(v_mask.b, 0.0, 1.0) : 0.0;
 	ctx.contact = painted ? clamp(v_mask.a, 0.0, 1.0) : 0.0;
 	ctx.socket = painted ? clamp(v_region.x, 0.0, 1.0) : 0.0;
@@ -71,6 +85,11 @@ void fragment() {
 	float distal = painted ? v_region.y : 0.3;
 	ctx.stretch = clamp(0.25 + 0.5 * distal + 0.4 * (1.0 - ctx.thickness), 0.0, 1.0);
 	ctx.vein = clamp(0.35 + 0.5 * ctx.thickness, 0.0, 1.0);
+	// Curvature drives where a body is worn and where it stays wet: crests
+	// are polished by contact, creases hold fluid.
+	float crest = clamp((baked.g - 0.5) * 2.0, -1.0, 1.0);
+	ctx.stretch = clamp(ctx.stretch + 0.35 * max(0.0, crest) * anatomy_strength,
+			0.0, 1.0);
 	ctx.lod = 1.0 - smoothstep(1.2, 6.0, length(VERTEX));
 
 	// The mineral systems are the same tissue seen where it has hardened, so
@@ -100,11 +119,16 @@ void fragment() {
 
 	ALBEDO = o.albedo;
 	METALLIC = o.metallic;
-	ROUGHNESS = o.roughness;
+	// Creases stay wet; crests dry and polish.
+	ROUGHNESS = clamp(o.roughness - 0.16 * max(0.0, crest) * anatomy_strength
+			+ 0.10 * max(0.0, -crest) * anatomy_strength, 0.03, 1.0);
 	SPECULAR = o.specular;
 	EMISSION = o.emission * emission_gain;
 	BACKLIGHT = o.backlight;
-	AO = o.ao;
+	// The bake knows what the shader cannot: a gold plate seated in flesh
+	// blacks out what is under it. Multiplied in rather than replacing, so
+	// the procedural cavity term still contributes.
+	AO = o.ao * mix(1.0, baked.r, 0.85 * anatomy_strength);
 	AO_LIGHT_AFFECT = 0.35;
 	SSS_STRENGTH = o.sss;
 	SSS_TRANSMITTANCE_COLOR = o.sss_transmit;

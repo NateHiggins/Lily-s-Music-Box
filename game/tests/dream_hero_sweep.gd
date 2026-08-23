@@ -424,6 +424,14 @@ func _modelled_hero_shots() -> void:
 		printerr("[SWEEP] no modelled hero — run with DREAM_HERO=1")
 		return
 	print("[SWEEP] hero census %s" % [hero.census()])
+	# H1 A/B. The bake is either doing something visible or it is not, and the
+	# only way to know is to photograph the same frame with it off.
+	var ab: String = OS.get_environment("SWEEP_ANATOMY")
+	if ab != "":
+		var strength := ab.to_float()
+		for mat in hero.materials:
+			mat.set_shader_parameter("anatomy_strength", strength)
+		print("[SWEEP] anatomy_strength forced to %.2f" % strength)
 	# DOES IT ACTUALLY MOVE? A still frame cannot tell you, and the owner
 	# caught the modelled hero standing at rest pose because nothing drove
 	# its rig. So measure it: sample a distal bone's pose, wait, sample again.
