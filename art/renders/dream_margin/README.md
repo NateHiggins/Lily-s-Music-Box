@@ -50,28 +50,44 @@ biggest cluster was six whiskers. It frames the most *varied* one now, since
 `02_edge.png`, `03_gameplay.png`, `04_close.png` — after: a cluster of 11
 carrying four archetypes.
 
+## Phase 5 — personality and intent
+
+§8's traits are generated from each palp's own seed and never change for its
+life, which is the point: *"Do not reshuffle these continuously. Stable
+personality makes individual appendages memorable."* The contract asserts they
+are stable across time and that individuals differ (curiosity spread 0.93
+across a live population).
+
+§9's ten primitives are implemented as **rules for choosing where the tip
+wants to be**, not as animations — probe steps and pauses, sample tremors at
+the individual's own 5–9 Hz, touch decelerates before arriving, trace slides
+along the surface, brace plants and stops moving entirely. The rig solves
+toward that. Measured across 51 live appendages: **eight of the ten primitives
+running simultaneously** (probe 16, trace 14, withdraw 6, touch 4, hover 4,
+brace 3, taste 3, sample 1).
+
+The first version had almost nothing to do: 29 probing, 26 hovering, one each
+tracing and sampling. Seeking only looked *outward into the room*, and a palp
+on a wall has nothing within half a metre of itself, so it almost always
+failed and every characterful act starved. But the wall **is** a surface, and
+§9's *"Trace: follow edge, seam, contour or grain"* is exactly about working
+it. A palp that finds nothing to reach for now turns its attention to what it
+is already touching.
+
 ## Not done, and not pretended
 
-§35's later phases hang off named hooks in the controller that **return
-nothing and say so**:
-
-- **Phase 5, personality.** `personality_of()` returns `{}`. No curiosity,
-  boldness, startle threshold, hero affinity.
+- **§37 is still not demonstrated in a single frame**, and this is the
+  margin's honest failure. The best lit cluster reached five appendages and
+  four archetypes; primaries now congregate rather than scattering, and run at
+  1.35× so they sit inside §3's stated 10–60 cm band, and they still read as
+  small dark forms on a wall at gameplay distance rather than as six
+  distinguishable organs. Either they need to be larger again, or this test
+  needs a close stand and a deliberate arrangement rather than whatever the
+  simulation happens to produce.
 - **Phase 6, neighbours.** `neighbours_of()` returns `[]`. No broadcast, no
-  avoidance, grooming, bracing or mimicry.
+  avoidance, grooming, bracing against each other or mimicry.
 - **Phase 8, branching.** `try_branch()` returns `false`. No recursive
   unfolding.
-
-And the honest gaps beyond the hooks:
-
-- **Movement is not yet intent-driven.** §9 is explicit — *"No global
-  sine-wave waving"* — and each palp currently holds a fixed aim with a small
-  tremor at the tip. It is not a global sine wave, but it is not probing,
-  tracing, hovering, tasting or bracing either. This is the largest
-  outstanding item for the margin.
-- **§37 is not yet demonstrated in a single frame.** Four archetypes in one
-  cluster is not six, and the archetypes need reviewing at gameplay distance
-  for whether their silhouettes actually read as different *from each other*
-  rather than merely being different in the data.
-- No contact with architecture, no interaction with the hero (§11), and no
-  `DreamGlobalAttention`.
+- No interaction with the hero (§11) and no `DreamGlobalAttention` (§13).
+- Palps do not leave residue, though the system now exists and would only need
+  a contact hook.

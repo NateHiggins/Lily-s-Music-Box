@@ -114,7 +114,10 @@ func _lay(slot: int, p: Dictionary) -> void:
 	var aim: Vector3 = p.aim
 	var side: Vector3 = p.side
 	var up := n.cross(side)
-	var ln: float = float(morph.length) * float(p.grow)
+	# The behaviour layer decides how far out the tip wants to be; the
+	# morphology decides how long the organ is at full extension.
+	var extend: float = float(p.extend) if p.has("extend") else 1.0
+	var ln: float = float(morph.length) * float(p.grow) * clampf(extend, 0.05, 1.4)
 	var sd: float = float(morph.seed_value)
 	# Stiff organs hold a straighter line; soft ones curl. §6 makes stiffness
 	# per-individual anatomy, so a gold finger and a whisker move differently
@@ -126,9 +129,10 @@ func _lay(slot: int, p: Dictionary) -> void:
 				+ aim * (ln * t * t * 0.9)
 		point += (side * cos(sd * 2.1) + up * sin(sd * 2.1)) \
 				* (ln * sin(t * PI * 0.7) * 0.45 * curl)
-		# A slow tremor, strongest at the tip. Placeholder until the behavior
-		# layer (§9) drives these from real intent rather than from time.
-		var tremor: float = float(morph.cilia) * 0.006 * t
+		# A whisker's own idle tremor. The BEHAVIOUR now supplies intent —
+		# probing, tracing, bracing — and this is only the fine motion that
+		# rides on top of it.
+		var tremor: float = float(morph.cilia) * 0.004 * t
 		point += side * sin(_clock * 5.5 + sd * 4.0) * tremor
 		_spine[slot * JOINTS + j] = point
 	for k in 4:

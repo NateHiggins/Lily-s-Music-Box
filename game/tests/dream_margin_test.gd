@@ -94,6 +94,40 @@ func _run() -> void:
 	var b = DreamPalpMorphology.generate(DreamPalpMorphology.Kind.GOLD_FINGER, 31337)
 	_check("the same seed always makes the same individual",
 			is_equal_approx(a.length, b.length) and is_equal_approx(a.gold, b.gold))
+	# --- §8, §9: PERSONALITY AND INTENT ----------------------------------
+	# Stable traits, distinct individuals, and many different things being
+	# done at once. A margin where everyone is doing the same thing is a
+	# wave, not an ecology.
+	var acts: Dictionary = c.get("acts", {})
+	print("[margin] acts: %s" % [acts])
+	_check("many primitives run at once, not one global motion (%d kinds)"
+			% acts.size(), acts.size() >= 4)
+	_check("the characterful acts actually fire, not just probe/hover",
+			int(acts.get("trace", 0)) + int(acts.get("touch", 0))
+			+ int(acts.get("taste", 0)) + int(acts.get("brace", 0)) >= 3)
+	if margin.palps.size() >= 4:
+		var first: int = int(margin.palps[0].id)
+		var before: Dictionary = margin.personality_of(first).duplicate()
+		_check("personality is not empty", before.size() >= 8)
+		await get_tree().create_timer(2.5).timeout
+		var after: Dictionary = margin.personality_of(first)
+		var stable := after.size() == before.size()
+		if stable:
+			for k in before:
+				if not is_equal_approx(float(before[k]), float(after.get(k, -9.0))):
+					stable = false
+					break
+		_check("§8: traits are stable for life, never reshuffled", stable)
+		# Individuals must differ, or personality is decoration.
+		var spread := 0.0
+		var seen_curiosity: Array = []
+		for p in margin.palps:
+			seen_curiosity.append(float(p.traits.curiosity))
+		if seen_curiosity.size() >= 2:
+			spread = seen_curiosity.max() - seen_curiosity.min()
+		_check("individuals differ from each other (curiosity spread %.2f)" % spread,
+				spread > 0.25)
+
 	# --- and it is actually drawn ----------------------------------------
 	var renderer: DreamPalpRenderer = enc.get("palp_renderer")
 	_check("the whole population draws in one mesh",

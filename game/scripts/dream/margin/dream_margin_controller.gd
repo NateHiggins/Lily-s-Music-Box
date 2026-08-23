@@ -21,6 +21,7 @@ extends Node3D
 ## nothing it says so, rather than pretending.
 
 const MorphologyScript := preload("res://scripts/dream/margin/dream_palp_morphology.gd")
+const BehaviorScript := preload("res://scripts/dream/margin/dream_palp_behavior.gd")
 
 ## §29's population tiers. Counts are ceilings, not targets: the margin only
 ## carries what the field's cross-section actually reaches.
@@ -30,7 +31,11 @@ const TIER_TERTIARY := 2
 const TIER_CAPS := [6, 20, 60]
 
 ## §3's scale language, as multipliers on an archetype's authored length.
-const TIER_SCALE := [1.0, 0.55, 0.24]
+## The primaries run large: they are the ones the player walks up to, they
+## carry the whole archetype library between them, and photographed at 1.0
+## they were slivers on a wall at gameplay distance. §3 puts primary palps at
+## 10-60 cm and this lands them there.
+const TIER_SCALE := [1.35, 0.55, 0.24]
 
 ## Which archetypes each tier draws from. The primaries are the ones the
 ## player gets close to, so they carry the most distinct anatomy; the
@@ -57,6 +62,7 @@ var _rng := RandomNumberGenerator.new()
 var _space: PhysicsDirectSpaceState3D = null
 var _next_id := 0
 var _spawn_clock := 0.0
+var _clock := 0.0
 var _seed_base := 0
 
 
@@ -74,10 +80,12 @@ func setup(controller: DreamFieldController, seed_v: int) -> void:
 func _physics_process(delta: float) -> void:
 	if not enabled or field == null or field.state == null:
 		return
+	_clock += delta
 	_spawn_clock += delta
 	if _spawn_clock >= 0.12:
 		_spawn_clock = 0.0
 		_populate()
+	_think(delta)
 	_age(delta)
 
 
@@ -90,11 +98,47 @@ func _populate() -> void:
 	for tier in 3:
 		if _count_in_tier(tier) >= TIER_CAPS[tier]:
 			continue
-		var anchor := _find_surface()
+		# §37 wants six NEARBY appendages that are clearly different, and the
+		# six primaries carry the whole archetype library between them. Spread
+		# across a storey they are never near anything, and the densest lit
+		# cluster came out three. So primaries congregate: the first one picks
+		# the spot and the rest join it. Anatomically this is also the right
+		# reading of §4 — a mouthpart cluster is a group, not a scatter.
+		var anchor: Dictionary = {}
+		if tier == TIER_PRIMARY:
+			anchor = _find_near_primaries()
+		if anchor.is_empty():
+			anchor = _find_surface()
 		if anchor.is_empty():
 			return
 		_birth(tier, anchor["position"], anchor["normal"])
 		break
+
+
+## Somewhere on the same patch of wall as the primaries already out.
+func _find_near_primaries() -> Dictionary:
+	var seed_p: Dictionary = {}
+	for p in palps:
+		if int(p.tier) == TIER_PRIMARY:
+			seed_p = p
+			break
+	if seed_p.is_empty():
+		return {}
+	var at: Vector3 = seed_p.anchor
+	var nrm: Vector3 = seed_p.normal
+	var side: Vector3 = seed_p.side
+	var up := nrm.cross(side)
+	for attempt in 8:
+		var a := _rng.randf_range(0.0, TAU)
+		var d := _rng.randf_range(0.22, 0.95)
+		var from: Vector3 = at + (side * cos(a) + up * sin(a)) * d + nrm * 0.20
+		var q := PhysicsRayQueryParameters3D.create(from, from - nrm * 0.45)
+		var hit: Dictionary = _space.intersect_ray(q)
+		if hit.is_empty():
+			continue
+		return {"position": hit.position,
+				"normal": (hit.normal as Vector3).normalized()}
+	return {}
 
 
 func _find_surface() -> Dictionary:
@@ -162,9 +206,91 @@ func _birth(tier: int, at: Vector3, nrm: Vector3) -> void:
 		"age": 0.0,
 		"life": _rng.randf_range(6.0, 15.0),
 		"grow": 0.0,
+		# §8 — stable for life, from this individual's own seed.
+		"traits": BehaviorScript.personality(indiv_seed),
+		# §9 — what it is doing about the world, and for how long.
+		"act": BehaviorScript.Act.PROBE,
+		"act_clock": 0.0,
+		"act_left": 0.9,
+		"target": Vector3.INF,
+		"trace_angle": _rng.randf_range(0.0, TAU),
+		"tip": at + nrm * 0.02,
+		"last_tip": at + nrm * 0.02,
 	})
 	palp_born.emit(_next_id, tier, archetype)
 	_next_id += 1
+
+
+## §9 — INTENT, not waving. Each palp advances its own act, finds its own
+## target on real architecture, and asks the behaviour layer where its tip
+## wants to be. The renderer solves the spine toward that.
+func _think(delta: float) -> void:
+	for p in palps:
+		p.act_clock += delta
+		p.act_left -= delta
+		if p.act_left <= 0.0:
+			# A new act. Probing is when it goes looking for something.
+			var nxt: int = BehaviorScript.next_act(p, _rng)
+			if nxt == BehaviorScript.Act.PROBE:
+				_seek_target(p)
+			p.act = nxt
+			p.act_clock = 0.0
+			p.act_left = BehaviorScript.duration(nxt, p.traits, _rng)
+		var want: Vector3 = BehaviorScript.desired_tip(p, _clock)
+		# The tip eases toward what it wants rather than teleporting: the
+		# stiffer the organ, the more directly it gets there.
+		var rate: float = 4.0 + 9.0 * float(p.morph.stiffness)
+		p.last_tip = p.tip
+		p.tip = (p.tip as Vector3).lerp(want, 1.0 - exp(-rate * delta))
+		# The renderer lays the spine from anchor along `aim`, so intent
+		# reaches the geometry as a direction and a length.
+		var to_tip: Vector3 = (p.tip as Vector3) - (p.anchor as Vector3)
+		if to_tip.length() > 0.001:
+			p.aim = to_tip.normalized()
+			p.extend = clampf(to_tip.length() / maxf(0.01, float(p.morph.length)), 0.05, 1.4)
+
+
+## Somewhere real to attend to, within this individual's preferred reach.
+func _seek_target(p: Dictionary) -> void:
+	if _space == null:
+		return
+	var tr: Dictionary = p.traits
+	var anchor: Vector3 = p.anchor
+	var nrm: Vector3 = p.normal
+	var side: Vector3 = p.side
+	var up: Vector3 = nrm.cross(side)
+	var reach: float = float(p.morph.length) * (0.6 + 0.7 * float(tr.preferred_reach))
+	for attempt in 6:
+		var a := _rng.randf_range(0.0, TAU)
+		var tilt := _rng.randf_range(0.15, 1.15) * (0.4 + 0.6 * float(tr.boldness))
+		var dir := (nrm * cos(tilt) + (side * cos(a) + up * sin(a)) * sin(tilt)).normalized()
+		var q := PhysicsRayQueryParameters3D.create(anchor + nrm * 0.01,
+				anchor + nrm * 0.01 + dir * reach)
+		var hit: Dictionary = _space.intersect_ray(q)
+		if hit.is_empty():
+			continue
+		p.target = hit.position
+		return
+	# NOTHING IN THE AIR — SO WORK THE SURFACE IT IS STANDING ON.
+	#
+	# The first version only looked outward into the room, and a palp on a
+	# wall has nothing within half a metre of itself, so seeking almost always
+	# failed: the census came back 29 probing, 26 hovering, and one each
+	# tracing and sampling. All the characterful acts need a target and none
+	# of them ever got one.
+	#
+	# But the wall IS a surface, and §9's "Trace: follow edge, seam, contour or
+	# grain" is precisely about working it. A palp that finds nothing to reach
+	# for turns its attention to what it is already touching.
+	var lateral := _rng.randf_range(0.0, TAU)
+	var offset := (side * cos(lateral) + up * sin(lateral)) 			* reach * _rng.randf_range(0.35, 0.9)
+	var probe_from: Vector3 = anchor + offset + nrm * 0.12
+	var back := PhysicsRayQueryParameters3D.create(probe_from, probe_from - nrm * 0.30)
+	var surface: Dictionary = _space.intersect_ray(back)
+	if not surface.is_empty():
+		p.target = surface.position
+		return
+	p.target = Vector3.INF
 
 
 func _age(delta: float) -> void:
@@ -199,9 +325,12 @@ func _count_in_tier(tier: int) -> int:
 ## Named so the architecture is legible and so nobody mistakes their silence
 ## for completion. §35 phases 5, 6, 8 and 12.
 
-## Phase 5. Stable per-individual traits: curiosity, boldness, startle
-## threshold, contact persistence, social affinity, hero affinity...
-func personality_of(_id: int) -> Dictionary:
+## Phase 5 — DONE. Stable per-individual traits, from the palp's own seed,
+## for the whole of its life (§8: they must not be reshuffled continuously).
+func personality_of(id: int) -> Dictionary:
+	for p in palps:
+		if int(p.id) == id:
+			return p.traits
 	return {}
 
 ## Phase 6. Neighbour broadcast: tip position, occupancy, target, interest,
@@ -222,5 +351,9 @@ func census() -> Dictionary:
 		by_tier[int(p.tier)] += 1
 		var k: String = p.morph.name_of_kind()
 		by_kind[k] = int(by_kind.get(k, 0)) + 1
+	var by_act := {}
+	for p in palps:
+		var a: String = BehaviorScript.act_name(int(p.act))
+		by_act[a] = int(by_act.get(a, 0)) + 1
 	return {"live": palps.size(), "tiers": by_tier, "kinds": by_kind,
-			"born": _next_id}
+			"born": _next_id, "acts": by_act}
