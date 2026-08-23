@@ -242,6 +242,25 @@ func wide_stand() -> Dictionary:
 	}
 
 
+## A stand PERPENDICULAR to the creature, for anything that has to judge its
+## LENGTH -- the arrival above all.
+##
+## `wide_stand` looks up the limb's own axis, because it is composed to hold
+## the hero and a palp cluster in one frame. That is the worst possible angle
+## for watching something extrude: the limb points at the lens, so it gains
+## its whole length in foreshortening and grow 0.25 and grow 0.63 are the same
+## photograph. Standing off to the side costs the palp cluster and buys the
+## one axis the shot is actually about.
+func side_stand() -> Dictionary:
+	var aim: Vector3 = hero_aim.normalized()
+	var across: Vector3 = aim.cross(Vector3.UP).normalized()
+	# Toward the middle of the room rather than through the wall behind it.
+	if (hero_at + across).length() > (hero_at - across).length():
+		across = -across
+	var look: Vector3 = hero_at + aim * 0.8
+	return {"eye": look + across * 2.4 + Vector3.UP * 0.15, "look": look}
+
+
 func census() -> Dictionary:
 	return {"margin": margin.census(), "critters": critters.census(),
 			"hero": hero.census(), "director": director.census(),

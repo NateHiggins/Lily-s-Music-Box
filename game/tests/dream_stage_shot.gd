@@ -19,6 +19,39 @@ func _ready() -> void:
 	call_deferred("_run")
 
 
+## THE ARRIVAL, HELD STILL AT EACH RUNG.
+##
+## `grow` runs nought to one in 2.4 seconds. That is too fast to judge live and
+## too easy to get backwards -- a limb filling in from the tip and a limb
+## extruding from the root are the same picture in any single frame. So the
+## state machine is stopped and the parameter is driven by hand, from the one
+## stand in the room that holds the wall it comes through and the length it
+## reaches, in the same shot.
+##
+## The apartment cannot take this picture: every flat in the building puts a
+## partition or a door frame across the limb about a third of the way along,
+## and behind it 0.33 and 0.67 are the same photograph. That is what the room
+## in §34 is for.
+func _emergence_ladder() -> void:
+	var stand: Dictionary = stage.side_stand()
+	stage.camera.global_position = stand.eye
+	stage.camera.look_at(stand.look, Vector3.UP)
+	print("[stage] ladder stand %s -> %s" % [stand.eye, stand.look])
+	stage.hero.set_process(false)
+	for step in 9:
+		var g := float(step) / 8.0
+		stage.hero.grow = g
+		for mat in stage.hero.materials:
+			mat.set_shader_parameter("grow", g)
+		await get_tree().create_timer(0.25).timeout
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(
+				_dir.path_join("E%d_grow%.2f.png" % [step, g]))
+		_frame += 1
+		print("[stage] grow %.2f" % g)
+
+
 func _run() -> void:
 	# Let the ecology populate the room before rolling.
 	var warm := 14.0
@@ -30,6 +63,12 @@ func _run() -> void:
 	stage.camera.look_at(stand.look, Vector3.UP)
 	await get_tree().create_timer(warm).timeout
 	print("[stage] populated: %s" % [stage.census()])
+
+	if OS.get_environment("SHOT_MODE") == "emerge":
+		await _emergence_ladder()
+		print("[stage] DONE %d frames -> %s" % [_frame, _dir])
+		get_tree().quit(0)
+		return
 
 	var seconds := 20.0
 	var s := OS.get_environment("SHOT_SECONDS")

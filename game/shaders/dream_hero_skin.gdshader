@@ -133,7 +133,11 @@ void fragment() {
 	ctx.socket = painted ? clamp(v_region.x, 0.0, 1.0) : 0.0;
 	// Skin is under most tension where it is thin and where it is stretched
 	// over the distal third reaching for something.
-	float distal = painted ? v_region.y : 0.3;
+	// Same flip: UV2.y holds Blender's distal mask, which is 0 over the
+	// proximal 62% and ramps to 1 at the tip -- and arrives inverted. Read as
+	// it was, the skin was most stretched at the ROOT and slackest on the
+	// third of the body that is actually doing the reaching.
+	float distal = painted ? clamp(1.0 - v_region.y, 0.0, 1.0) : 0.3;
 	ctx.stretch = clamp(0.25 + 0.5 * distal + 0.4 * (1.0 - ctx.thickness), 0.0, 1.0);
 	ctx.vein = clamp(0.35 + 0.5 * ctx.thickness, 0.0, 1.0);
 	// Curvature drives where a body is worn and where it stays wet: crests
@@ -167,8 +171,20 @@ void fragment() {
 
 	// The shading UV: the cage's own, or the seat we were given.
 	vec2 suv = rider_v >= 0.0 ? vec2(v_uv.x, rider_v) : v_uv;
-	DeMasks m = de_masks(v_world, suv, n, view_dir, TIME, hero_seed, ctx);
-	DeOut o = de_shade(m, v_world, suv, n, view_dir, TIME, hero_seed, ctx);
+	// HOW FAR DOWN THE BODY WE ARE: 0 at the root, 1 at the tip.
+	//
+	// glTF FLIPS V. Blender writes v = 0 at the root and 1 at the tip; the
+	// exported file carries 1 at the root. Measured on this model: the cage's
+	// uv.y is 1.000 at z = 0 (the root) and 0.027 at z = -1.55 (the tip). So
+	// every read of uv.y as "how distal am I" was answering backwards, and
+	// `rider_v` is authored to match the file rather than Blender.
+	float along = clamp(1.0 - suv.y, 0.0, 1.0);
+	// The vascular clock rides `along`, so the pressure wave travels ROOT TO
+	// TIP -- outward, the way a body pushes blood into a limb -- rather than
+	// from the tip back into the wall.
+	vec2 cuv = vec2(suv.x, along);
+	DeMasks m = de_masks(v_world, cuv, n, view_dir, TIME, hero_seed, ctx);
+	DeOut o = de_shade(m, v_world, cuv, n, view_dir, TIME, hero_seed, ctx);
 
 	ALBEDO = o.albedo;
 	METALLIC = o.metallic;
@@ -200,10 +216,24 @@ void fragment() {
 	if (slice_close > 0.985) {
 		discard;
 	}
-	if (grow < 0.999 && painted) {
-		float edge = smoothstep(grow, grow + 0.06, v_region.y);
-		if (edge > 0.5) {
-			discard;
-		}
+	// EMERGENCE, AND WHAT IT IS MEASURED ALONG.
+	//
+	// This read `v_region.y` -- the distal mask -- and read it inverted, which
+	// was wrong twice over. Inverted, the limb filled in from the TIP and its
+	// root was the last thing to arrive, so for two and a half seconds a
+	// creature was in the room without being attached to the wall it came
+	// through. And the distal mask is flat over the proximal 62% of the body
+	// in any case, so it could only ever have animated the last third; the
+	// rest would have popped in whole.
+	//
+	// `along` is linear over the entire length, so the limb extrudes.
+	//
+	// AND THE RIDERS GO WITH IT. This was gated on `painted`, and no rider is
+	// painted, so all ninety-four ignored `grow` completely: the gold plates,
+	// the crystals and the cilia hung in the air in full along the length of a
+	// limb that was not there yet. A rider is small enough to leave whole or
+	// take whole, so it goes when the flesh it is seated in has arrived.
+	if (grow < 0.999 && along > grow) {
+		discard;
 	}
 }

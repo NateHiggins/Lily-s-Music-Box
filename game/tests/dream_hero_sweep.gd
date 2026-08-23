@@ -99,7 +99,7 @@ func _run() -> void:
 	_look_at_from(ANCHOR + Vector3(1.4, -0.2, 0.5), ANCHOR)
 	await get_tree().create_timer(warm).timeout
 	_tentacle = _find_tentacle()
-	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled", "margin", "archetypes", "critters", "ecology"]):
+	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled", "margin", "archetypes", "critters", "ecology", "emerge"]):
 		printerr("[SWEEP] no tentacle — nothing to photograph")
 		get_tree().quit(1)
 		return
@@ -132,6 +132,8 @@ func _run() -> void:
 		await _critter_shots()
 	elif mode == "ecology":
 		await _ecology_capture()
+	elif mode == "emerge":
+		await _emergence_ladder()
 	else:
 		await _sweep()
 	print("[SWEEP] DONE %d frames -> %s" % [_frame, _dir])
@@ -423,6 +425,47 @@ func _tendril_shots() -> void:
 
 ## THE MODELLED HERO, photographed in a real room under the player's own lamp.
 ## The Blender greys prove the sculpt; only this proves the character.
+## HOW THE CREATURE ARRIVES, ONE STEP AT A TIME.
+##
+## `grow` runs nought to one in 2.4 seconds, which is far too fast to judge
+## from a live take and far too easy to get backwards: a limb that fills in
+## from the tip and a limb that extrudes from the root look identical in any
+## single frame, and both look like "a tentacle". So the state machine is
+## stopped and the parameter is driven by hand, one rung at a time, from a
+## camera that can see both the wall it comes through and the room it reaches
+## into.
+func _emergence_ladder() -> void:
+	var enc: Node = root.get("apartment_encroachment")
+	var hero = enc.get("hero") if enc != null else null
+	if hero == null:
+		printerr("[SWEEP] no modelled hero")
+		return
+	# Let it finish arriving and settle, then take the wheel.
+	await get_tree().create_timer(9.0).timeout
+	hero.set_process(false)
+	var lo := Vector3(1e9, 1e9, 1e9)
+	var hi := Vector3(-1e9, -1e9, -1e9)
+	for mi in hero.meshes:
+		var box: AABB = (mi as MeshInstance3D).global_transform * (mi as MeshInstance3D).get_aabb()
+		lo = lo.min(box.position)
+		hi = hi.max(box.end)
+	var aim := (lo + hi) * 0.5
+	var reach: float = maxf(0.4, (hi - lo).length())
+	var dir := _view_dir(aim, Vector3.FORWARD, reach * 0.75)
+	_look_at_from(aim + dir * reach * 0.75 + Vector3.UP * 0.05, aim)
+	for step in 7:
+		var g := float(step) / 6.0
+		for mat in hero.materials:
+			mat.set_shader_parameter("grow", g)
+		await get_tree().create_timer(0.25).timeout
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(
+				_dir.path_join("E%d_grow%.2f.png" % [step, g]))
+		_frame += 1
+		print("[SWEEP] grow %.2f" % g)
+
+
 func _modelled_hero_shots() -> void:
 	var enc: Node = root.get("apartment_encroachment")
 	var hero = enc.get("hero") if enc != null else null
