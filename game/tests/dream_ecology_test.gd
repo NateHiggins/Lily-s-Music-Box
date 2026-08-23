@@ -60,6 +60,36 @@ func _run() -> void:
 			% [margin.palps.size(), critters.critters.size()],
 			margin.palps.size() >= 8 and critters.critters.size() >= 2)
 
+	# --- §32: THE BIASES ARE ACTUALLY CONSUMED ---------------------------
+	# A director whose states are read by nobody is decoration. Measured by
+	# driving the area to opposite extremes and watching how far the critters
+	# actually travel.
+	_check("the margin and critters can see the director",
+			margin.director != null and critters.director != null)
+	var travelled := {}
+	var results := {}
+	for pair in [[DreamEcologyDirector.State.DORMANT, "dormant"],
+			[DreamEcologyDirector.State.FORAGING, "foraging"]]:
+		dir.state = int(pair[0])
+		dir.state_clock = 0.0
+		travelled.clear()
+		for c in critters.critters:
+			travelled[int(c.id)] = c.pos
+		var total := 0.0
+		for probe in 24:
+			await get_tree().create_timer(0.25).timeout
+			dir.state = int(pair[0])     # hold it there against the drift
+		for c in critters.critters:
+			if travelled.has(int(c.id)):
+				total += (c.pos as Vector3).distance_to(travelled[int(c.id)])
+		results[String(pair[1])] = total
+	print("[ecology] travelled while dormant %.3f m, while foraging %.3f m"
+			% [results["dormant"], results["foraging"]])
+	_check("§32 the area state changes what actually happens (%.2f vs %.2f m)"
+			% [results["dormant"], results["foraging"]],
+			results["foraging"] > results["dormant"] * 1.3)
+	dir.state = DreamEcologyDirector.State.CURIOUS
+
 	# --- §13/§40: THE SNAP -----------------------------------------------
 	# "At the same instant" is the whole beat, so it is measured on the very
 	# next frame rather than after a settling period.

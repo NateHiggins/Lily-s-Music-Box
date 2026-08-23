@@ -58,6 +58,8 @@ signal branched(parent_id: int, children: int)
 var field: DreamFieldController = null
 ## §11 — the hero is a participant in this society, not a visitor.
 var hero = null
+## §32 — the area's weather. Read, not obeyed: it scales probabilities.
+var director = null
 var enabled := true
 ## Every live appendage. Index is stable for its lifetime, and the seed is
 ## preserved across LOD promotion (§30) because identity must survive it.
@@ -271,13 +273,24 @@ func _think(delta: float) -> void:
 		p.act_clock += delta
 		p.act_left -= delta
 		if p.act_left <= 0.0:
+			# §32 — the area state biases how long things are done for and how
+			# readily attention is given, without commanding any of it.
+			var bias: Dictionary = director.bias() if director != null else {}
+			var move_bias: float = float(bias.get("move", 1.0))
+			var orient_bias: float = float(bias.get("orient", 1.0))
 			# A new act. Probing is when it goes looking for something.
 			var nxt: int = BehaviorScript.next_act(p, _rng)
 			if nxt == BehaviorScript.Act.PROBE:
 				_seek_target(p)
 			p.act = nxt
 			p.act_clock = 0.0
-			p.act_left = BehaviorScript.duration(nxt, p.traits, _rng)
+			p.act_left = BehaviorScript.duration(nxt, p.traits, _rng) 					/ maxf(0.2, move_bias)
+			# When the area is watching, an appendage is likelier to be
+			# watching too.
+			if orient_bias > 1.3 and _rng.randf() < (orient_bias - 1.0) * 0.35:
+				p.act = BehaviorScript.Act.WATCH
+				p.act_left = BehaviorScript.duration(BehaviorScript.Act.WATCH,
+						p.traits, _rng)
 		# §12 step 1: interest rises, and occasionally that is enough for the
 		# folded anatomy to separate.
 		if int(p.parent) < 0 and int(p.children) == 0 and p.target != Vector3.INF:

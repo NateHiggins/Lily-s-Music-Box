@@ -38,6 +38,8 @@ var field: DreamFieldController = null
 var margin = null
 var residue = null
 var hero = null
+## §32 — the area's weather, read as a scale on how much anything happens.
+var director = null
 var enabled := true
 var critters: Array = []
 
@@ -273,7 +275,12 @@ func _walk(delta: float) -> void:
 			var turn: float = float(m.turn_bias) * delta * 0.6
 			var up: Vector3 = c.up
 			var fwd: Vector3 = (c.fwd as Vector3).rotated(up, turn).normalized()
-			var step: Vector3 = fwd * float(m.speed) * delta
+			# §32 — a dormant area moves less; a foraging one moves more. The
+			# individual's own speed is still what decides its pace.
+			var move_bias: float = 1.0
+			if director != null:
+				move_bias = float(director.bias().get("move", 1.0))
+			var step: Vector3 = fwd * float(m.speed) * move_bias * delta
 			# Stay on the surface: cast down and re-seat, so they follow the
 			# architecture rather than sliding off it.
 			var probe: Vector3 = (c.pos as Vector3) + step + up * 0.06

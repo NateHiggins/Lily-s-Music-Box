@@ -303,6 +303,10 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 		ecology.critters = critters
 		ecology.hero = hero
 		ecology.field = dream_field
+		if margin != null:
+			margin.director = ecology
+		if critters != null:
+			critters.director = ecology
 	if RealityState.has_signal("state_changed") and not RealityState.state_changed.is_connected(refresh):
 		RealityState.state_changed.connect(refresh)
 	refresh()

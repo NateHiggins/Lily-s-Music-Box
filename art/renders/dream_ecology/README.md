@@ -51,6 +51,9 @@ expects has to be repeated there, and this one was not.
 - Nothing in the game *calls* `seize_attention` yet. The mechanism is built
   and tested; choosing the stimuli that deserve it is a design decision, not a
   systems one.
-- §32's biases are returned but not yet consumed: the margin and critters do
-  not read them, so the area state currently changes nothing. That is the
-  honest state of it.
+- §32's biases are now consumed. The margin scales how long an act lasts and
+  how readily an appendage turns to watching; the critters scale their pace.
+  Measured by driving the area to opposite extremes and watching how far the
+  population actually travels: **0.481 m while dormant against 1.197 m while
+  foraging**. The individual's own speed still decides its pace — the state
+  only scales it.
