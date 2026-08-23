@@ -42,6 +42,17 @@ var _bones: PackedInt32Array = PackedInt32Array()
 var _rest: Array[Quaternion] = []
 ## Where the creature is currently attending. Its own, not the player's.
 var _attend := Vector3.ZERO
+## §36 — the eye is the hero's face. Its own controls, its own clock.
+var watch: Node3D = null
+var _eye_bone := -1
+var _lid_bones: PackedInt32Array = PackedInt32Array()
+var _eye_rest: Array[Quaternion] = []
+var _gaze := Vector3.FORWARD
+var _gaze_hold := 0.0
+var _blink := 0.0
+var _blink_next := 3.0
+var _nict := 0.0
+var _nict_next := 1.7
 var _attend_clock := 0.0
 var _settle := 0.0
 
@@ -130,6 +141,16 @@ func _find_skeleton(node: Node) -> void:
 	for pair in named:
 		_bones.append(int(pair[1]))
 		_rest.append(skeleton.get_bone_pose_rotation(int(pair[1])))
+	# The secondary controls. They existed in the rig from the start and
+	# nothing was weighted to them, so the eye could not look and the lids
+	# could not close; the Blender binder now puts the globe, iris, pupil,
+	# cornea and three lids on them.
+	_eye_bone = skeleton.find_bone("CTL_EYE")
+	for n in ["CTL_LID_DORSAL", "CTL_LID_VENTRO", "CTL_LID_NICT"]:
+		var b := skeleton.find_bone(n)
+		_lid_bones.append(b)
+		_eye_rest.append(skeleton.get_bone_pose_rotation(b) if b >= 0
+				else Quaternion.IDENTITY)
 
 
 ## DEF_<label>_<index>: the labels run root to tip in BONE_PLAN order.
@@ -184,9 +205,64 @@ func _animate(delta: float) -> void:
 		skeleton.set_bone_pose_rotation(_bones[i], _rest[i] * q)
 
 
+## §36 — THE EYE PERFORMS.
+##
+## An eye that drifts smoothly is a camera. A real one FIXES: it jumps to a
+## thing, holds it while the head moves under it, and jumps again. So the gaze
+## is saccadic — held still for a beat, then relocated in a few frames — and
+## the lids run on their own clocks, because a blink that is synchronised to
+## the gaze reads as a machine.
+func _animate_eye(delta: float) -> void:
+	if skeleton == null or _eye_bone < 0:
+		return
+	_gaze_hold -= delta
+	if _gaze_hold <= 0.0:
+		_gaze_hold = 0.7 + fmod(absf(sin(_clock * 9.3 + _seeded * 5.0)) * 2.4, 2.4)
+		# It looks where it is reaching, and at whoever is watching it.
+		var want := _attend
+		if watch != null and is_instance_valid(watch):
+			var to_watcher := (watch.global_position - global_position)
+			if to_watcher.length() < 4.5:
+				want = to_watcher.normalized()
+		_gaze = want.normalized()
+	# The globe turns quickly into its new fixation, then stops dead.
+	var local := global_transform.basis.inverse() * _gaze
+	var yaw: float = atan2(local.x, -local.z) * 0.5
+	var pitch: float = asin(clampf(local.y, -1.0, 1.0)) * 0.5
+	var target := Quaternion(Vector3.UP, yaw) * Quaternion(Vector3.RIGHT, pitch)
+	var cur := skeleton.get_bone_pose_rotation(_eye_bone)
+	skeleton.set_bone_pose_rotation(_eye_bone, cur.slerp(target, 1.0 - pow(0.0006, delta)))
+	# Two lids on a slow blink, the nictitating membrane on its own faster
+	# sweep — three lids that move together are one lid.
+	_blink = maxf(0.0, _blink - delta)
+	_blink_next -= delta
+	if _blink_next <= 0.0:
+		_blink_next = 2.4 + fmod(absf(cos(_clock * 7.1 + _seeded)) * 4.0, 4.0)
+		_blink = 0.26
+	_nict = maxf(0.0, _nict - delta)
+	_nict_next -= delta
+	if _nict_next <= 0.0:
+		_nict_next = 1.1 + fmod(absf(sin(_clock * 5.7 + _seeded * 2.0)) * 2.2, 2.2)
+		_nict = 0.17
+	for i in _lid_bones.size():
+		var b := _lid_bones[i]
+		if b < 0:
+			continue
+		var phase: float = _nict if i == 2 else _blink
+		var span: float = 0.17 if i == 2 else 0.26
+		# A blink is fast shut and slower open, never a symmetrical sine.
+		var t: float = 1.0 - clampf(phase / span, 0.0, 1.0)
+		var shut: float = smoothstep(0.0, 0.22, t) * (1.0 - smoothstep(0.35, 1.0, t))
+		var close: float = shut * (1.05 if i == 2 else 1.0)
+		var axis := Vector3.RIGHT if i == 0 else (Vector3.LEFT if i == 1 else Vector3.UP)
+		skeleton.set_bone_pose_rotation(b,
+				_eye_rest[i] * Quaternion(axis, close * 0.85))
+
+
 func _process(delta: float) -> void:
 	_clock += delta
 	_animate(delta)
+	_animate_eye(delta)
 	for mat in materials:
 		mat.set_shader_parameter("grow", grow)
 		if field != null and field.state != null:
@@ -201,5 +277,6 @@ func census() -> Dictionary:
 			skinned += 1
 	return {"meshes": meshes.size(), "skinned": skinned,
 			"materials": materials.size(), "grow": grow,
-			"deform_bones": _bones.size(),
+			"deform_bones": _bones.size(), "eye_bone": _eye_bone,
+			"lid_bones": _lid_bones.size(),
 			"skeleton": skeleton != null}

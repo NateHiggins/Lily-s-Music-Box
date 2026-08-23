@@ -453,6 +453,28 @@ func _modelled_hero_shots() -> void:
 		await get_tree().create_timer(2.0).timeout
 		var far_b: Vector3 = hero.skeleton.global_transform * 				hero.skeleton.get_bone_global_pose(tip).origin
 		print("[SWEEP] the tip travelled %.3f m in 2 s" % far_a.distance_to(far_b))
+		# The eye is the hero's face (§36). It had controls and nothing
+		# weighted to them, so it could not look; assert that it now does.
+		if hero._eye_bone >= 0:
+			var e0: Quaternion = hero.skeleton.get_bone_pose_rotation(hero._eye_bone)
+			var lid0: Quaternion = hero.skeleton.get_bone_pose_rotation(hero._lid_bones[0])
+			var lid_max := 0.0
+			var eye_max := 0.0
+			# Long enough to catch a blink. The interval is 2.4-6.4 s and a
+			# 4.8 s window missed one, which reported a working eye as
+			# furniture — a flaky assertion is worse than none.
+			for probe in 110:
+				await get_tree().create_timer(0.12).timeout
+				if eye_max > 0.01 and lid_max > 0.05:
+					break
+				eye_max = maxf(eye_max, e0.angle_to(
+						hero.skeleton.get_bone_pose_rotation(hero._eye_bone)))
+				lid_max = maxf(lid_max, lid0.angle_to(
+						hero.skeleton.get_bone_pose_rotation(hero._lid_bones[0])))
+			print("[SWEEP] EYE moved %.4f rad, LID moved %.4f rad  %s"
+					% [eye_max, lid_max,
+					"PERFORMING" if eye_max > 0.01 and lid_max > 0.05
+					else "STATIC — the eye is furniture"])
 		print("[SWEEP] MOTION over 2.5 s: tip %.4f rad, mid %.4f rad  %s"
 				% [moved_tip, moved_mid,
 				"MOVING" if moved_tip > 0.002 else "STATIC — the rig is not driven"])

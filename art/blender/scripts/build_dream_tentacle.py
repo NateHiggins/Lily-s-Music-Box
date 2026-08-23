@@ -1293,6 +1293,15 @@ def skin(cage, arm, others, spine, soft=()):
     # It is attached to the wall the creature is coming through, so it rides
     # the ROOT bone rigidly and the limb bends through it.
     root_bone = spine[0][0] if isinstance(spine[0], (tuple, list)) else spine[0]
+    # THE SECONDARY RIGS DRIVE THE SECONDARY ANATOMY (§14).
+    #
+    # The rig has carried CTL_EYE and three lid controls since it was built,
+    # and NOTHING WAS WEIGHTED TO THEM: every rider inherited the flesh's
+    # bones, so rotating the eye control moved nothing at all. The eye could
+    # not look, and the lids could not close, which is most of what §36 means
+    # by the hero's "strongest eye/attention performance".
+    #
+    # Each of these binds rigidly to its own control instead.
     soft_set = set(soft)
     # The sheet's own radial range, shared by everything riding it.
     sheet_span = None
@@ -1304,17 +1313,52 @@ def skin(cage, arm, others, spine, soft=()):
             break
     rigid = 0
     fallback = 0
+    controls = {
+        "EYE_": "CTL_EYE",
+        "LID_DORSAL": "CTL_LID_DORSAL",
+        "LID_VENTROLATERAL": "CTL_LID_VENTRO",
+        "LID_NICTITATING": "CTL_LID_NICT",
+    }
+    driven = 0
     for obj in others:
+        bound_to = None
+        for prefix, bone in controls.items():
+            if obj.name.startswith(prefix) and arm.data.bones.get(bone) is not None:
+                bound_to = bone
+                break
+        if bound_to is not None:
+            group = obj.vertex_groups.new(name=bound_to)
+            group.add(list(range(len(obj.data.vertices))), 1.0, "REPLACE")
+            obj.parent = arm
+            obj.matrix_parent_inverse = arm.matrix_world.inverted()
+            mod = obj.modifiers.new("Armature", "ARMATURE")
+            mod.object = arm
+            driven += 1
+            continue
         if obj in soft_set:
-            bind_membrane(obj, arm, kd, table, root_bone, sheet_span)
+            # The SHEET is graded between limb and wall. Its anchors and
+            # nodules are not: an anchor's whole job is to pin the membrane to
+            # the world, so it belongs wholly to the wall. Blending one at its
+            # own radius put GOLD_ANCHOR_65 halfway between two disagreeing
+            # transforms, and the clearance check measured it travelling
+            # 162 mm into the limb on every pose that bends the root.
+            if obj.name == "MEMBRANE_ROOT":
+                bind_membrane(obj, arm, kd, table, root_bone, sheet_span)
+            else:
+                group = obj.vertex_groups.new(name=root_bone)
+                group.add(list(range(len(obj.data.vertices))), 1.0, "REPLACE")
+                obj.parent = arm
+                obj.matrix_parent_inverse = arm.matrix_world.inverted()
+                mod = obj.modifiers.new("Armature", "ARMATURE")
+                mod.object = arm
             continue
         if not bind_inherit(obj, arm, kd, table):
             # Nothing under it to inherit from: fall back to one bone.
             bind_rigid(obj, arm, spine)
             fallback += 1
         rigid += 1
-    log("bound %d riders by inherited flesh weights (%d fell back to one bone)"
-        % (rigid, fallback))
+    log("bound %d riders by inherited flesh weights (%d fell back to one bone),"
+        " %d on secondary controls" % (rigid, fallback, driven))
 
 
 def main():

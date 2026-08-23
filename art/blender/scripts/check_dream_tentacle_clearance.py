@@ -125,9 +125,20 @@ def deepest_inside(cage_ev, cage_inv, pts):
 
 
 def system_of(name):
+    upper = name.upper()
+    # COLLAR FURNITURE IS PART OF THE COLLAR. The membrane's gold anchors and
+    # crystal nodules are named GOLD_ANCHOR_* and CRYSTAL_NODULE_*, so a
+    # prefix match filed them under gold and crystal -- and they inherited
+    # neither the membrane's exemption nor its physics. GOLD_ANCHOR_65 then
+    # reported 162 mm of sinking in every pose that bends the root, which is
+    # the same false positive the sheet itself produces: a 1.66 m limb curled
+    # into an S comes back down onto its own collar, and "inside the flesh"
+    # says nothing about a part that wraps the limb.
+    if "ANCHOR" in upper or "NODULE" in upper or upper.startswith("MEMBRANE"):
+        return "MEMBRANE"
     for tag in ("EYE", "LID", "CILIUM", "SUCKER", "GOLD", "CRYSTAL",
-                "MEMBRANE", "DENDRITE"):
-        if name.upper().startswith(tag) or tag in name.upper():
+                "DENDRITE"):
+        if upper.startswith(tag) or tag in upper:
             return tag
     return "OTHER"
 

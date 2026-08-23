@@ -21,7 +21,13 @@ every other Dream organism will be measured against (`DREAM_MENAGERIE_REBUILD.md
 
 ## What it owes — ordered by how much it costs the bar
 
-### H1. No baked maps at all — **blocking §36**
+### H1. ~~No baked maps at all~~ — PARTLY DONE
+`T_dream_hero_anatomy.png` now carries AO, curvature and thickness, baked
+from the geometry and wired into the skin. Still owed: albedo, normal and
+detail normal, and the riders have no UVs so none of them are baked. See
+`art/renders/dream_tentacle/bake/README.md`.
+
+### H1 (original)
 No albedo, normal, detail normal, roughness, AO, curvature, height,
 thickness. Everything visible is procedural from the shared stack. The owner
 saw this immediately: *"the texture is not great"*. UVs only landed today, so
@@ -51,7 +57,17 @@ The brief's cascade — *bone moves first, muscle follows, flesh settles, gold
 reseats, cilia oscillate, wet highlight stabilises* — is what produces
 apparent mass, and none of it exists.
 
-### H5. The eye does not perform — **blocking §36**
+### H5. ~~The eye does not perform~~ — DONE
+The rig had carried `CTL_EYE` and three lid controls since it was built and
+**nothing was weighted to them**: every rider inherited the flesh's bones, so
+rotating the eye control moved nothing. The globe, iris, pupil, cornea and
+three lids now bind to their own controls, and the eye is driven saccadically
+— it fixes on a thing, holds while the body moves under it, and jumps. The
+lids run on separate clocks, the nictitating membrane faster than the other
+two, because three lids moving together are one lid. Measured across two runs
+at 0.73-0.93 rad of gaze and 0.75-0.83 rad of lid.
+
+### H5 (original)
 §36 gives the hero "strongest eye/attention performance" and "extraordinary
 orbital anatomy". The globe, three lids and orbital cilia are modelled, and
 nothing drives them: no gaze, no lid actuation, no saccades, no attention.

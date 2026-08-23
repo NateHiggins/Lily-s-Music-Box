@@ -259,6 +259,9 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			if not found:
 				hero.setup("hero".hash(), here, Vector3(-1.0, 0.10, 0.0))
 			hero.field = dream_field
+			var rn := get_parent()
+			if rn != null and ("player" in rn):
+				hero.watch = rn.player
 	if RealityState.has_signal("state_changed") and not RealityState.state_changed.is_connected(refresh):
 		RealityState.state_changed.connect(refresh)
 	refresh()
