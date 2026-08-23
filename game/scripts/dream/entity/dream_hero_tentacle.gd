@@ -181,10 +181,37 @@ func _dress() -> void:
 		var mat := ShaderMaterial.new()
 		mat.shader = SKIN
 		mat.set_shader_parameter("system_kind", kind)
-		mat.set_shader_parameter("hero_seed", _seeded)
-		# The mineral systems carry the light; the flesh receives it.
-		mat.set_shader_parameter("emission_gain", 1.8 if kind == 1 else
-				(1.4 if kind == 2 else 1.0))
+		# EVERY RIDER ITS OWN PHASE -- but a SMALL one, and not the flesh.
+		#
+		# All ninety-four riders shared one seed, so every gold plate carried
+		# identical noise and every crystal the same fracture: ninety-four
+		# copies of one surface distributed over a body.
+		#
+		# The cage keeps the BASE seed, because the flesh is one body and
+		# should read as continuous along its whole length. And the offset is
+		# small: the shared stack's noise loses precision at large
+		# coordinates, and an offset of up to forty turned the creature into
+		# white and blue blocks. The name is stable across rebuilds, so a
+		# given plate keeps its own character.
+		var piece_seed: float = _seeded
+		if kind != 0:
+			piece_seed += float(hash(mi.name) % 89) * 0.037
+		mat.set_shader_parameter("hero_seed", piece_seed)
+		# The mineral systems carry the light; the flesh receives it. The
+		# minerals also vary a little in how much they carry -- within the
+		# palette, not across it.
+		#
+		# This MULTIPLIES A KNOWN BASE rather than reading the parameter back.
+		# Written the other way round it called get_shader_parameter() on a
+		# parameter nothing had set yet, which returns null, and `null * float`
+		# aborted _dress() in the middle of its loop. Every mesh after the
+		# first gold plate then kept the material glTF import gave it, so the
+		# hero came out as a chalk-white untextured body -- a shading bug with
+		# no shader anywhere near it.
+		var gain := 1.8 if kind == 1 else (1.4 if kind == 2 else 1.0)
+		if kind == 1 or kind == 2:
+			gain *= 0.72 + float(hash(mi.name) % 311) / 311.0 * 0.62
+		mat.set_shader_parameter("emission_gain", gain)
 		mat.set_shader_parameter("grow", grow)
 		mat.set_shader_parameter("anatomy_map", ANATOMY)
 		mat.set_shader_parameter("anatomy_strength", 1.0)
