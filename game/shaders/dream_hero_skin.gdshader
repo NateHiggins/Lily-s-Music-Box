@@ -56,6 +56,18 @@ uniform float body_motion : hint_range(0.0, 1.0) = 0.0;
 // slice is moving past it. A creature that leaves the way a 3-D animal leaves
 // is a 3-D animal.
 uniform float slice_close : hint_range(0.0, 1.0) = 0.0;
+// WHERE THIS PIECE SITS ALONG THE BODY, 1 at the root and 0 at the tip.
+//
+// Only the cage has UVs. Every one of the ninety-four riders exports with
+// POSITION, NORMAL, JOINTS and WEIGHTS and nothing else, so its UV arrives as
+// (0,0) -- and the shared stack reads the vascular clock off uv.y. Which meant
+// every gold plate, every crystal and every cilium on the creature pulsed at
+// exactly the same instant, while the flesh they are seated in had a wave
+// travelling along it. The metal was on a different heartbeat from the meat.
+//
+// The creature supplies each rider's seat instead. Negative means "this
+// surface has real UVs, use them" -- the cage.
+uniform float rider_v = -1.0;
 group_uniforms;
 
 varying vec3 v_world;
@@ -153,8 +165,10 @@ void fragment() {
 		ctx.stretch = 1.0;
 	}
 
-	DeMasks m = de_masks(v_world, v_uv, n, view_dir, TIME, hero_seed, ctx);
-	DeOut o = de_shade(m, v_world, v_uv, n, view_dir, TIME, hero_seed, ctx);
+	// The shading UV: the cage's own, or the seat we were given.
+	vec2 suv = rider_v >= 0.0 ? vec2(v_uv.x, rider_v) : v_uv;
+	DeMasks m = de_masks(v_world, suv, n, view_dir, TIME, hero_seed, ctx);
+	DeOut o = de_shade(m, v_world, suv, n, view_dir, TIME, hero_seed, ctx);
 
 	ALBEDO = o.albedo;
 	METALLIC = o.metallic;

@@ -161,6 +161,7 @@ func setup(seed_v: int, at: Vector3, aim: Vector3 = Vector3.FORWARD) -> void:
 		var up_hint := Vector3.UP if absf(aim.normalized().y) < 0.9 else Vector3.RIGHT
 		look_at_from_position(at, target, up_hint)
 	_collect(inst)
+	_measure_body()
 	_dress()
 	_find_skeleton(inst)
 	var world := get_viewport().find_world_3d() if get_viewport() != null else null
@@ -173,6 +174,44 @@ func _collect(node: Node) -> void:
 		meshes.append(node as MeshInstance3D)
 	for child in node.get_children():
 		_collect(child)
+
+
+## WHICH WAY THE BODY RUNS, AND HOW LONG IT IS.
+##
+## Measured from the meshes rather than assumed, because the answer depends on
+## glTF's axis conversion and on whatever the Blender script last did to the
+## profile table. The long axis is simply the one the creature is longest on;
+## the ROOT end is whichever end of it lies nearer this node's own origin,
+## which is where `setup` planted the creature in the wall.
+var _axis := 2
+var _root_at := 0.0
+var _body_len := 1.0
+
+
+func _measure_body() -> void:
+	var lo := Vector3(1e9, 1e9, 1e9)
+	var hi := Vector3(-1e9, -1e9, -1e9)
+	for mi in meshes:
+		var box: AABB = mi.transform * mi.get_aabb()
+		lo = lo.min(box.position)
+		hi = hi.max(box.end)
+	var span := hi - lo
+	_axis = 0
+	if span.y > span[_axis]:
+		_axis = 1
+	if span.z > span[_axis]:
+		_axis = 2
+	_body_len = maxf(0.001, span[_axis])
+	# The end nearer the node origin is the root.
+	_root_at = lo[_axis] if absf(lo[_axis]) < absf(hi[_axis]) else hi[_axis]
+
+
+## Where a piece sits along the body: 1 at the root, 0 at the tip, matching the
+## cage's own UV.y so a rider shares the phase of the flesh it is seated in.
+func _seat_of(mi: MeshInstance3D) -> float:
+	var box: AABB = mi.transform * mi.get_aabb()
+	var c: float = box.get_center()[_axis]
+	return clampf(1.0 - absf(c - _root_at) / _body_len, 0.0, 1.0)
 
 
 func _dress() -> void:
@@ -212,6 +251,11 @@ func _dress() -> void:
 		if kind == 1 or kind == 2:
 			gain *= 0.72 + float(hash(mi.name) % 311) / 311.0 * 0.62
 		mat.set_shader_parameter("emission_gain", gain)
+		# ONE HEARTBEAT FOR THE WHOLE ANIMAL. The cage has UVs and carries the
+		# vascular clock in uv.y; a rider has no UVs at all, so it read the
+		# clock as zero and every plate on the body pulsed in unison, out of
+		# step with the flesh under it. Each rider is told its own seat.
+		mat.set_shader_parameter("rider_v", -1.0 if kind == 0 else _seat_of(mi))
 		mat.set_shader_parameter("grow", grow)
 		mat.set_shader_parameter("anatomy_map", ANATOMY)
 		mat.set_shader_parameter("anatomy_strength", 1.0)

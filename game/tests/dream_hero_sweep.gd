@@ -533,6 +533,29 @@ func _modelled_hero_shots() -> void:
 					_dir.path_join("R%d_t%.1f.png" % [i, float(i) * 0.45]))
 			_frame += 1
 		print("[SWEEP] residue life photographed; census %s" % [res.census()])
+	# THE SEATS, CHECKED AGAINST THE MODEL. Every rider is told where it sits
+	# along the body so it can share the flesh's heartbeat, and a seat that is
+	# silently zero looks exactly like a seat that is right -- the whole defect
+	# it fixes was invisible in a still frame. So read the numbers back and
+	# compare them with what the glTF actually says: on this model the cage
+	# runs 1.6 m, GOLD_RIB_05 is centred a third of the way down and
+	# GOLD_CRESCENT_25 near the tip.
+	var seats := {}
+	for mi in hero.meshes:
+		seats[mi.name] = hero._seat_of(mi)
+	var seat_lo := 2.0
+	var seat_hi := -1.0
+	for k in seats:
+		seat_lo = minf(seat_lo, float(seats[k]))
+		seat_hi = maxf(seat_hi, float(seats[k]))
+	print("[SWEEP] SEATS across %d meshes: %.3f .. %.3f  (axis %d, len %.2f m)"
+			% [seats.size(), seat_lo, seat_hi, hero._axis, hero._body_len])
+	for probe_name in ["TENTACLE_BODY_CAGE", "GOLD_RIB_05", "EYE_GLOBE",
+			"GOLD_CRESCENT_25"]:
+		if seats.has(probe_name):
+			print("[SWEEP]   %-20s seat %.3f" % [probe_name, seats[probe_name]])
+	if seat_hi - seat_lo < 0.5:
+		printerr("[SWEEP] SEATS ARE FLAT — the riders are not being placed")
 	# H1 A/B. The bake is either doing something visible or it is not, and the
 	# only way to know is to photograph the same frame with it off.
 	var ab: String = OS.get_environment("SWEEP_ANATOMY")
