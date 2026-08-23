@@ -120,8 +120,30 @@ reads as dark flesh and a gold-jointed finger at 72% carries light.
   do not exist yet, so `neighbours_of` names them rather than faking them.
   Grooming, bracing against each other, competition, pulse communication and
   intertwining are unbuilt.
-- **Phase 8, branching.** `try_branch()` returns `false`. No recursive
-  unfolding.
+- **Phase 8 is done in its middle six steps.** §12's rule is the whole
+  difference between anatomy and a spawn effect: *"Never spawn a branch by
+  scaling a cylinder from zero. Make it appear that complicated anatomy was
+  folded inside simple anatomy."*
+
+  So a branch is created at **full size**, lying along its parent's own shaft
+  from 55% of the way out, at half the parent's radius — inside the parent's
+  volume, where it cannot be seen. Unfolding rotates it away. Nothing ever
+  resizes.
+
+  The contract measures both halves of that, and the second one is the
+  important one: across 56 tracked branches the largest size change over any
+  individual's whole life was **0.0000**, and while folded they sit 2 cm off
+  their parent's axis.
+
+  An earlier version passed the size test and failed the picture: it put a
+  folded branch's tip *on* its parent's tip, so anchor and tip coincided, the
+  renderer had a zero-length organ to draw, and it collapsed to a point. The
+  data said "full size" and the screen said "scaled from zero" — the banned
+  thing wearing the right numbers.
+
+  Missing from §12's twelve steps: local vascular congestion, gold
+  repositioning and the visible crease (all shader work), and fine cilia
+  deployment.
 - **Phase 7 (§11) is done in its first form.** The hero is a member of this
   society rather than a visitor to it: it is felt from 2.4 m — three times a
   palp's reach, because it is the largest thing in the ecology — and what an

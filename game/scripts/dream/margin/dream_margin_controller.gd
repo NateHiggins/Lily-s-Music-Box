@@ -52,6 +52,8 @@ const TIER_ARCHETYPES := [
 
 signal palp_born(index: int, tier: int, kind: int)
 signal palp_died(index: int)
+## §12 — anatomy that was folded inside simpler anatomy has separated.
+signal branched(parent_id: int, children: int)
 
 var field: DreamFieldController = null
 ## §11 — the hero is a participant in this society, not a visitor.
@@ -237,6 +239,12 @@ func _birth(tier: int, at: Vector3, nrm: Vector3) -> void:
 		"neighbour_count": 0,
 		"joined": -1,
 		"hero_near": 0.0,
+		# Phase 8. A branch is not a new thing: it is anatomy that was already
+		# there, lying folded along its parent. `unfold` 0 means perfectly
+		# coincident with the parent and therefore invisible inside it.
+		"parent": -1,
+		"unfold": 1.0,
+		"children": 0,
 	})
 	palp_born.emit(_next_id, tier, archetype)
 	_next_id += 1
@@ -268,6 +276,13 @@ func _think(delta: float) -> void:
 			p.act = nxt
 			p.act_clock = 0.0
 			p.act_left = BehaviorScript.duration(nxt, p.traits, _rng)
+		# §12 step 1: interest rises, and occasionally that is enough for the
+		# folded anatomy to separate.
+		if int(p.parent) < 0 and int(p.children) == 0 and p.target != Vector3.INF:
+			if _rng.randf() < float(p.traits.branch_likelihood) * delta * 0.06:
+				try_branch(int(p.id))
+		if int(p.parent) >= 0 and float(p.unfold) < 1.0:
+			p.unfold = minf(1.0, float(p.unfold) + delta * 0.75)
 		var want: Vector3 = BehaviorScript.desired_tip(p, _clock)
 		# The tip eases toward what it wants rather than teleporting: the
 		# stiffer the organ, the more directly it gets there.
@@ -276,6 +291,35 @@ func _think(delta: float) -> void:
 		p.tip = (p.tip as Vector3).lerp(want, 1.0 - exp(-rate * delta))
 		# The renderer lays the spine from anchor along `aim`, so intent
 		# reaches the geometry as a direction and a length.
+		if int(p.parent) >= 0:
+			var par: Dictionary = parent_of(p)
+			if par.is_empty():
+				# The parent is gone; the branch folds away with it.
+				p.life = minf(float(p.life), float(p.age) + 0.8)
+			else:
+				# IT LIES ALONG THE PARENT, AT FULL LENGTH.
+				#
+				# The first version put a folded branch's tip on its parent's
+				# tip -- so its anchor and tip coincided, the renderer had a
+				# zero-length organ to draw, and it collapsed to a point. The
+				# data said "full size" and the picture said "scaled from
+				# zero", which is the banned thing wearing the right numbers.
+				#
+				# A folded branch now starts partway down the parent's shaft
+				# and runs ALONG it, at its own full length and half the
+				# parent's radius, so it is inside the parent's own volume and
+				# invisible. Unfolding rotates it out; nothing resizes.
+				var pside: Vector3 = par.side
+				var pup: Vector3 = (par.normal as Vector3).cross(pside)
+				var base: Vector3 = (par.anchor as Vector3).lerp(par.tip, 0.55)
+				var along: Vector3 = ((par.tip as Vector3) - base)
+				var folded_dir: Vector3 = along.normalized() if along.length() > 0.001 						else (par.normal as Vector3)
+				var own_dir: Vector3 = (pside * cos(float(p.spread) * PI)
+						+ pup * sin(float(p.spread) * PI) + folded_dir * 0.5).normalized()
+				p.anchor = base
+				p.aim = folded_dir.slerp(own_dir, float(p.unfold))
+				p.tip = base + (p.aim as Vector3) * float(p.morph.length)
+				p.extend = 1.0
 		var to_tip: Vector3 = (p.tip as Vector3) - (p.anchor as Vector3)
 		if to_tip.length() > 0.001:
 			p.aim = to_tip.normalized()
@@ -345,10 +389,14 @@ func _age(delta: float) -> void:
 		i -= 1
 
 
+## Population accounting EXCLUDES branches. A branch is anatomy that unfolded
+## out of an appendage that was already counted -- it is not a new inhabitant,
+## and charging it against the spawn budget would make a branching margin
+## quietly stop populating itself.
 func _count_in_tier(tier: int) -> int:
 	var n := 0
 	for p in palps:
-		if int(p.tier) == tier:
+		if int(p.tier) == tier and int(p.parent) < 0:
 			n += 1
 	return n
 
@@ -375,9 +423,78 @@ func neighbours_of(id: int) -> Array:
 			return NeighborScript.neighbours(p, _board)
 	return []
 
-## Phase 8. Recursive unfolding — never by scaling a cylinder from zero.
-func try_branch(_id: int) -> bool:
-	return false
+## PHASE 8 — RECURSIVE UNFOLDING (§12).
+##
+##     "Never spawn a branch by scaling a cylinder from zero. Make it appear
+##      that complicated anatomy was folded inside simple anatomy."
+##
+## So a branch is never created at zero size. It is created at FULL SIZE,
+## lying exactly along its parent's distal spine — inside the parent's own
+## volume, where it cannot be seen — and then separates. The geometry was
+## always there; what changes is whether it is folded.
+##
+## §12's sequence in full is twelve steps and this is the middle six: the
+## crease, the separation, the independent investigation, and the fold back.
+## Vascular congestion and gold repositioning are shader work that does not
+## exist yet.
+func try_branch(id: int) -> bool:
+	var parent: Dictionary = {}
+	for p in palps:
+		if int(p.id) == id:
+			parent = p
+			break
+	if parent.is_empty():
+		return false
+	if int(parent.children) > 0 or int(parent.parent) >= 0:
+		return false          # no branching from a branch, and not twice
+	if parent.target == Vector3.INF:
+		return false          # §12 step 1: it branches because it found something
+	if palps.size() + 3 > TIER_CAPS[0] + TIER_CAPS[1] + TIER_CAPS[2]:
+		return false
+	var n := 2 + (_rng.randi() % 2)
+	var nrm: Vector3 = parent.normal
+	var side: Vector3 = parent.side
+	for i in n:
+		var indiv_seed := _seed_base + _next_id * 7919
+		var morph = MorphologyScript.generate(
+				MorphologyScript.Kind.CRYSTAL_FEELER if _rng.randf() < 0.35
+				else MorphologyScript.Kind.SOFT_PALP, indiv_seed)
+		# A branch is a smaller organ of the same biology, at FULL size for
+		# what it is. Nothing about it grows from nothing.
+		morph.length *= 0.42
+		morph.base_radius *= 0.5
+		var spread := (float(i) / float(maxi(1, n - 1)) - 0.5) * 1.1
+		palps.append({
+			"id": _next_id, "tier": TIER_SECONDARY, "seed": indiv_seed,
+			"morph": morph, "anchor": parent.anchor, "normal": nrm,
+			"side": side,
+			"aim": (parent.aim as Vector3),
+			"age": 0.0, "life": _rng.randf_range(4.5, 8.0), "grow": 1.0,
+			"traits": BehaviorScript.personality(indiv_seed),
+			"act": BehaviorScript.Act.PROBE, "act_clock": 0.0,
+			"act_left": BehaviorScript.duration(BehaviorScript.Act.PROBE,
+					BehaviorScript.personality(indiv_seed), _rng),
+			"target": parent.target, "trace_angle": _rng.randf_range(0.0, TAU),
+			"tip": parent.tip, "last_tip": parent.tip,
+			"neighbour_count": 0, "joined": -1, "hero_near": 0.0,
+			"parent": id, "unfold": 0.0, "children": 0,
+			"spread": spread,
+		})
+		_next_id += 1
+	parent.children = n
+	branched.emit(id, n)
+	return true
+
+
+## Where a branch's own spine ends and its parent's begins, for the renderer.
+func parent_of(p: Dictionary) -> Dictionary:
+	var pid: int = int(p.parent)
+	if pid < 0:
+		return {}
+	for q in palps:
+		if int(q.id) == pid:
+			return q
+	return {}
 
 
 ## §37's ACCEPTANCE ARRANGEMENT.
@@ -430,7 +547,8 @@ func census() -> Dictionary:
 	var by_tier := [0, 0, 0]
 	var by_kind := {}
 	for p in palps:
-		by_tier[int(p.tier)] += 1
+		if int(p.parent) < 0:
+			by_tier[int(p.tier)] += 1
 		var k: String = p.morph.name_of_kind()
 		by_kind[k] = int(by_kind.get(k, 0)) + 1
 	var by_act := {}
@@ -441,6 +559,8 @@ func census() -> Dictionary:
 	var joined := 0
 	var feel_hero := 0
 	var joined_hero := 0
+	var branches := 0
+	var unfolding := 0
 	var shared := {}
 	for p in palps:
 		if int(p.neighbour_count) > 0:
@@ -451,6 +571,10 @@ func census() -> Dictionary:
 			feel_hero += 1
 		if int(p.joined) == -2:
 			joined_hero += 1
+		if int(p.parent) >= 0:
+			branches += 1
+			if float(p.unfold) < 0.98:
+				unfolding += 1
 		if p.target != Vector3.INF:
 			var key := "%.2f_%.2f_%.2f" % [p.target.x, p.target.y, p.target.z]
 			shared[key] = int(shared.get(key, 0)) + 1
@@ -462,4 +586,5 @@ func census() -> Dictionary:
 			"born": _next_id, "acts": by_act,
 			"with_neighbours": social, "joined_a_neighbour": joined,
 			"cooperating": cooperating,
-			"feel_hero": feel_hero, "joined_hero": joined_hero}
+			"feel_hero": feel_hero, "joined_hero": joined_hero,
+			"branches": branches, "unfolding": unfolding}

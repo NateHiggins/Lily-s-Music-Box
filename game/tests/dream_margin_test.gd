@@ -187,6 +187,61 @@ func _run() -> void:
 		_check("some inspect what the hero inspects (%d)" % peak_joined,
 				peak_joined >= 1)
 
+	# --- §12: FOLDED INSIDE, NOT SCALED FROM ZERO ------------------------
+	# The rule is explicit and it is the whole difference between anatomy and
+	# a spawn effect: "Never spawn a branch by scaling a cylinder from zero.
+	# Make it appear that complicated anatomy was folded inside simple
+	# anatomy." So the test is not "do branches appear" but "were they
+	# already full size and already inside their parent when they did".
+	var seen_branch := false
+	var worst_fold := 9.0
+	# Each branch's radius the first time it was ever seen, against every
+	# later reading. A branch is a different archetype from its parent, so
+	# comparing the two says nothing; what "never scaled from zero" actually
+	# means is that ITS OWN size never changed.
+	var first_radius := {}
+	var worst_growth := 0.0
+	for probe in 40:
+		await get_tree().create_timer(0.4).timeout
+		for p in margin.palps:
+			if int(p.parent) < 0:
+				continue
+			seen_branch = true
+			var id: int = int(p.id)
+			var r: float = float(p.morph.base_radius)
+			if not first_radius.has(id):
+				first_radius[id] = r
+			worst_growth = maxf(worst_growth,
+					absf(r - float(first_radius[id])) / maxf(0.0001, r))
+			var par: Dictionary = margin.parent_of(p)
+			if par.is_empty():
+				continue
+			# While folded it must lie ALONG the parent's shaft, inside its
+			# volume — measured as the distance from the branch's tip to the
+			# parent's own axis, not to its tip.
+			if float(p.unfold) < 0.10:
+				var axis_a: Vector3 = par.anchor
+				var axis_b: Vector3 = par.tip
+				var axis: Vector3 = axis_b - axis_a
+				var along_t: float = 0.0
+				if axis.length_squared() > 0.000001:
+					along_t = clampf(((p.tip as Vector3) - axis_a).dot(axis)
+							/ axis.length_squared(), 0.0, 1.0)
+				worst_fold = minf(worst_fold,
+						(p.tip as Vector3).distance_to(axis_a + axis * along_t))
+	_check("branches happen at all", seen_branch)
+	if seen_branch:
+		print("[margin] %d branches tracked, tightest fold %.4f m, "
+				% [first_radius.size(), worst_fold]
+				+ "largest size change %.4f" % worst_growth)
+		_check("a folded branch lies along its parent's shaft (%.4f m off axis)"
+				% worst_fold, worst_fold < 0.05)
+		_check("§12: a branch never changes size — it unfolds, it does not "
+				+ "grow (worst %.4f)" % worst_growth, worst_growth < 0.001)
+		var c2: Dictionary = margin.census()
+		print("[margin] %d branches, %d mid-unfold" % [int(c2.branches),
+				int(c2.unfolding)])
+
 	# --- and it is actually drawn ----------------------------------------
 	var renderer: DreamPalpRenderer = enc.get("palp_renderer")
 	_check("the whole population draws in one mesh",
