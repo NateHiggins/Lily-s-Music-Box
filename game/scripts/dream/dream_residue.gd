@@ -91,6 +91,13 @@ func _build_mesh() -> ArrayMesh:
 
 ## §28 — intensity is per-organism. The hero transforms a surface far more
 ## than a margin palp brushing past it does.
+##
+## A patch also records WHERE ALONG w THE DREAM WAS when it was left. The goo
+## has extent along the fourth axis like everything else here, and what the
+## wall shows is the slice; to know which slice, a patch has to remember where
+## it started. `dream_w` itself only ever increases, so it cannot be used
+## directly -- a patch two hours into a session would be a hundred slices past
+## its own substance.
 func lay(at: Vector3, nrm: Vector3, radius: float = 0.11,
 		intensity: float = 1.0, life: float = 3.4) -> void:
 	var slot := -1
@@ -104,7 +111,10 @@ func lay(at: Vector3, nrm: Vector3, radius: float = 0.11,
 		_next = (_next + 1) % MAX_PATCHES
 	_pos[slot] = Vector4(at.x, at.y, at.z, radius)
 	_nrm[slot] = Vector4(nrm.x, nrm.y, nrm.z, 0.0)
-	_par[slot] = Vector4(_rng.randf_range(0.0, 10.0), intensity, life, 0.0)
+	var born_w := 0.0
+	if field != null and field.state != null:
+		born_w = field.state.dream_w
+	_par[slot] = Vector4(_rng.randf_range(0.0, 10.0), intensity, life, born_w)
 	laid += 1
 
 

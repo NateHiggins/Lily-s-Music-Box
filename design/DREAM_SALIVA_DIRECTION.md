@@ -75,6 +75,47 @@ it is neon and metallic rather than pastel; and the decay is erosion — the
 structural colour dies first, then the substance pits and cracks, leaving a
 holed stain rather than a fade.
 
-**The fifth is barely started.** "Dimensional-breaking properties" currently
-amounts to `dream_w` nudging the hue. The surface it sits on should stop being
-reliably three-dimensional where the goo is thick, and it does not.
+**All five are now served.** The fifth was built last, and it is the one the
+rest of the Dream's law had to reach into.
+
+**Dimensional-breaking.** The goo is not a film on the wall: it is a
+CROSS-SECTION of something with a fourth extent, and the wall shows only the
+slice at the Dream's current `w`. Parts of it therefore have no cross-section
+here at all — holes with hard, unweathered edges, which is a different thing
+entirely from the soft pitting the erosion opens, and which MIGRATE as the
+slice advances rather than only widening. It is the field's own equation,
+`r_visible = sqrt(r² − w²)`, applied to a smear of spit, and it is gated on
+the frost: fresh spit is a fluid, and it is the crystal that has the extra
+axis. Alongside it, the crystal interior is sampled at a view-dependent offset
+so it swims against the surface as you move past — a window behaves like that
+and a stain does not. That is the half you notice while walking; the holes are
+the half you notice while standing still.
+
+A patch records the slice it was LAID at. `dream_w` only ever increases — at
+0.115 per second it moves about 0.41 across a patch's whole life — so an
+absolute reading would strand every patch slices away from its own substance.
+
+### The capture
+
+`SHOT_MODE=saliva` on the staged room, because the two acceptance tests here
+cannot be settled by a normal take. The decay has to read as erosion rather
+than as opacity going down, which needs the same patch at known ages; and the
+colour has to be structural, which needs the same patch at the SAME age from
+more than one place. A patch laid wherever the creature happens to reach gives
+neither, so one is laid by hand on a flat panel.
+
+```bash
+SHOT_DIR=/tmp/saliva SHOT_MODE=saliva SHOT_WARM=6 godot --path game res://tests/DreamStageShot.tscn
+```
+
+Three things that capture caught, none of which was visible any other way:
+
+- **The facets were a checkerboard.** Flooring a plain grid gave square cells
+  in a square lattice — the one pattern frost never makes. The lookup is
+  warped before it is cut.
+- **Two thirds through its life the goo was a few specks.** The pitting, the
+  cracking, the edge retreat and the new cross-section cut all compounded, and
+  the result was a fade with extra steps. The erosion is slower and the ghost
+  keeps most of its opacity; what goes is the COLOUR.
+- **The colour died at two thirds**, leaving half the life as a colourless
+  smear. It now goes late, just before the substance follows it.

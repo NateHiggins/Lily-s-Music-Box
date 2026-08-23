@@ -19,6 +19,71 @@ func _ready() -> void:
 	call_deferred("_run")
 
 
+## THE SALIVA, ACROSS ONE PATCH'S WHOLE LIFE, AND FROM THREE ANGLES AT ONCE.
+##
+## DREAM_SALIVA_DIRECTION sets two acceptance tests that a normal take cannot
+## settle. The decay has to read as EROSION rather than as opacity going down,
+## which needs the same patch photographed at known ages; and the colour has to
+## be structural, which needs the SAME patch at the SAME age from more than one
+## place -- "if it looks the same from two angles it is a painted rainbow and
+## has failed". A patch laid by the creature wherever it happens to reach can
+## give neither, so this lays one by hand on a flat panel and stands in front
+## of it.
+const SALIVA_AT := Vector3(-0.6, 1.15, 1.52)
+const SALIVA_N := Vector3(0.0, 0.0, -1.0)
+
+
+func _saliva_life() -> void:
+	# Nobody else touches anything while this is running.
+	stage.hero.set_process(false)
+	# THE PANEL IS DELIBERATELY PALE -- it is a backdrop, chosen so a seam
+	# grazer reads against it -- and the player's lamp is 5.5 at the lens. A
+	# metre away that clips the panel to flat white, which is fine for a
+	# gameplay frame and useless for judging a material against its
+	# surroundings. Dimmed for this capture only, and only enough to hold the
+	# panel; the goo is still lit by the player's own lamp from the player's
+	# own position, which is the part the acceptance note cares about.
+	stage.lamp.light_energy = 2.2
+	var life := 6.0
+	stage.residue.lay(SALIVA_AT, SALIVA_N, 0.17, 1.0, life)
+	# IN FRONT OF THE PANEL, NOT BEHIND IT. The normal points away from the
+	# surface, so the viewer stands ALONG it; subtracting put the lens outside
+	# the room photographing the back of a wall, and a big soft bright disc in
+	# the dark looks enough like an overexposed patch of goo to be believed.
+	stage.camera.global_position = SALIVA_AT + SALIVA_N * 1.05 + Vector3.UP * 0.06
+	stage.camera.look_at(SALIVA_AT, Vector3.UP)
+	var was := 0.0
+	for age in [0.25, 0.7, 1.3, 2.1, 3.0, 4.0, 5.2]:
+		await get_tree().create_timer(maxf(0.02, float(age) - was)).timeout
+		was = float(age)
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(
+				_dir.path_join("S_age%.2f.png" % float(age)))
+		_frame += 1
+		print("[stage] saliva age %.2f  %s" % [float(age), stage.residue.census()])
+	# THE SAME PATCH, THE SAME INSTANT, THREE PLACES. A fresh one, held at the
+	# age where the structural colour is strongest, and the camera moved
+	# WITHOUT time passing -- so anything that differs between these frames is
+	# the view angle and nothing else.
+	stage.residue.lay(SALIVA_AT, SALIVA_N, 0.17, 1.0, life)
+	await get_tree().create_timer(1.1).timeout
+	get_tree().paused = true
+	var arc := [-0.62, 0.0, 0.62]
+	for i in arc.size():
+		var a: float = float(arc[i])
+		var eye: Vector3 = SALIVA_AT + Vector3(sin(a), 0.10, -cos(a)) * 1.05
+		stage.camera.global_position = eye
+		stage.camera.look_at(SALIVA_AT, Vector3.UP)
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(
+				_dir.path_join("S_angle%d.png" % i))
+		_frame += 1
+		print("[stage] saliva angle %.2f rad from %s" % [a, eye])
+	get_tree().paused = false
+
+
 ## THE ARRIVAL, HELD STILL AT EACH RUNG.
 ##
 ## `grow` runs nought to one in 2.4 seconds. That is too fast to judge live and
@@ -64,6 +129,11 @@ func _run() -> void:
 	await get_tree().create_timer(warm).timeout
 	print("[stage] populated: %s" % [stage.census()])
 
+	if OS.get_environment("SHOT_MODE") == "saliva":
+		await _saliva_life()
+		print("[stage] DONE %d frames -> %s" % [_frame, _dir])
+		get_tree().quit(0)
+		return
 	if OS.get_environment("SHOT_MODE") == "emerge":
 		await _emergence_ladder()
 		print("[stage] DONE %d frames -> %s" % [_frame, _dir])

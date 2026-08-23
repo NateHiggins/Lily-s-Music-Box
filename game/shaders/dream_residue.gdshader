@@ -34,7 +34,7 @@ const int MAX_PATCHES = 24;
 uniform vec4 patch_pos[24];
 // xyz normal, w age in seconds
 uniform vec4 patch_nrm[24];
-// x seed, y intensity, z lifetime, w unused
+// x seed, y intensity, z lifetime, w the slice the patch was laid at
 uniform vec4 patch_par[24];
 uniform int patch_count = 0;
 uniform float dream_w = 0.0;
@@ -75,6 +75,10 @@ float fbm(vec2 p) {
 	return s;
 }
 
+varying vec3 v_tx;
+varying vec3 v_ty;
+varying float v_born_w;
+
 void vertex() {
 	int p = int(UV2.x + 0.5);
 	vec4 pos = patch_pos[p];
@@ -98,6 +102,9 @@ void vertex() {
 	v_life = par.z;
 	v_world = world;
 	v_normal = n;
+	v_tx = tx;
+	v_ty = ty;
+	v_born_w = par.w;
 }
 
 void fragment() {
@@ -128,19 +135,55 @@ void fragment() {
 	// ---- EROSION, NOT A FADE --------------------------------------------
 	// Pits open and widen; then cracks; then only a ghost. Each on its own
 	// clock, so the thing decays unevenly the way something old does.
-	float pit_t = smoothstep(0.34, 0.92, t);
+	float pit_t = smoothstep(0.45, 1.00, t);
 	float pits = smoothstep(0.52 - 0.30 * pit_t, 0.58 - 0.30 * pit_t, fbm(np * 5.2 + 3.1));
 	float crack_t = smoothstep(0.46, 1.0, t);
 	float cracks = smoothstep(0.46, 0.50, abs(fbm(np * 3.1 + 11.0) - 0.5) * 2.0);
-	float substance = covered * (1.0 - pits * pit_t) * (1.0 - (1.0 - cracks) * crack_t * 0.85);
+	float substance = covered * (1.0 - pits * pit_t) * (1.0 - (1.0 - cracks) * crack_t * 0.70);
 	// The very edge thins first, always -- and it is NOT A CIRCLE. Once the
 	// front had run past the disc the outer boundary was the mesh's own rim,
 	// so a fully grown patch photographed as a perfect circle: a decal, not
 	// something spilled. The boundary carries the same warp the front did.
-	substance *= smoothstep(1.0, 0.70 - 0.25 * t, r + warp * 0.42 - 0.19);
+	// THE EDGE THINS; IT DOES NOT EAT THE PATCH. Retreating to 0.70 of the
+	// radius compounded with the pitting, the cracking and the cross-section
+	// cut, and photographed at two thirds of its life the goo was already a
+	// few specks -- which is a fade with extra steps, and loses the ghost the
+	// direction asks it to leave behind.
+	substance *= smoothstep(1.0, 0.82 - 0.14 * t, r + warp * 0.42 - 0.19);
 	if (substance <= 0.004) {
 		discard;
 	}
+
+	// ---- DIMENSIONAL BREAKING (the fifth demand) ------------------------
+	//
+	//     "the surface it sits on should stop being reliably
+	//      three-dimensional where the goo is thick"
+	//
+	// This is the antagonist's own substance, so it carries the antagonist's
+	// own law. The goo is not a film on the wall: it is a CROSS-SECTION of
+	// something with a fourth extent, and the wall shows you only the slice at
+	// the Dream's current w. Parts of it therefore have no cross-section here
+	// at all -- holes with hard, unweathered edges, which is a different thing
+	// entirely from the soft pitting the erosion above opens, and they MIGRATE
+	// as the slice advances rather than only widening.
+	//
+	// r_visible = sqrt(r^2 - w^2), the field's own equation
+	// (DREAM_FIELD_DIRECTION), applied to a smear of spit.
+	//
+	// Measured relative to the slice the patch was LAID at. `dream_w` only
+	// ever increases -- at 0.115 per second it moves about 0.41 across a
+	// patch's whole life -- so an absolute reading would leave every patch
+	// stranded slices away from its own substance.
+	float w_since = dream_w - v_born_w;
+	// Thick goo only. A thin smear at the rim is just wet, and wet is three
+	// dimensional. It also waits for the frost: fresh spit is a fluid, and it
+	// is the CRYSTAL that has the extra axis.
+	float thick = covered * v_intensity * (1.0 - 0.55 * t);
+	float w_at = (fbm(np * 2.7 + 31.0) - 0.5) * 0.56;
+	float w_ext = 0.12 + 0.42 * fbm(np * 1.7 + 91.0);
+	float dw = w_since - w_at;
+	float section = w_ext * w_ext - dw * dw;
+	float present = section > 0.0 ? sqrt(section) / w_ext : 0.0;
 
 	// ---- STRUCTURAL COLOUR ----------------------------------------------
 	// Thin-film interference: hue from the VIEW ANGLE, not from a gradient.
@@ -165,24 +208,59 @@ void fragment() {
 	// Neon and metallic rather than pastel: pushed away from grey, hard.
 	iris = pow(clamp(iris, vec3(0.0), vec3(1.0)), vec3(2.1));
 	iris /= max(0.22, (iris.r + iris.g + iris.b) * 0.42);
-	float colour_life = 1.0 - smoothstep(0.20, 0.72, t);
+	// The colour must die BEFORE the substance -- that ordering is what makes
+	// this erosion and not a fade -- but dying by two thirds of the way
+	// through left the whole second half of the life as a colourless smear,
+	// so most of what was photographed was the ghost. It now goes late, and
+	// only just before the substance follows it.
+	float colour_life = 1.0 - smoothstep(0.35, 0.90, t);
+
+	// AND THE INTERIOR IS NOT WHERE THE WALL IS. The crystal structure is
+	// sampled at a view-dependent offset, so it swims against the surface as
+	// you move past it -- a window behaves like that and a stain does not.
+	// This is the half of the effect you notice while walking; the holes are
+	// the half you notice while standing still.
+	vec3 tv = view_dir - v_normal * dot(view_dir, v_normal);
+	vec2 ip = np + vec2(dot(tv, v_tx), dot(tv, v_ty)) * thick * 0.30;
 
 	// Crystal facets: flat cells that catch the light in one direction each.
-	vec2 cell = floor(np * 6.0);
+	// WARPED BEFORE THEY ARE CUT. Flooring a plain grid gave square facets in
+	// a square lattice, which photographed as a checkerboard of pixel blocks
+	// -- the one pattern frost never makes. Displacing the lookup first leaves
+	// the same flat cells catching light in their own directions, in irregular
+	// shapes that do not line up with each other.
+	vec2 fp = ip + vec2(fbm(ip * 1.3 + 4.0), fbm(ip * 1.3 + 19.0)) * 0.62;
+	vec2 cell = floor(fp * 6.0);
 	float facet = hash21(cell);
 	float crystallised = smoothstep(0.10, 0.55, age / max(0.001, life * 0.5));
 	float glint = pow(max(0.0, dot(view_dir, normalize(v_normal
 			+ vec3(facet - 0.5, hash21(cell + 7.0) - 0.5, 0.0) * 0.85))), 22.0);
 
+	// The section cut, gated on the frost and on thickness. A hard step, not
+	// a smoothstep: a cross-section has an edge, it does not fade out.
+	float breaking = crystallised * smoothstep(0.30, 0.75, thick);
+	substance *= mix(1.0, step(0.22, present), breaking);
+	if (substance <= 0.004) {
+		discard;
+	}
+	// Right at the cut the exposed face glows: it is an interior surface that
+	// was never meant to face a room.
+	float rim = breaking * smoothstep(0.46, 0.24, present) * step(0.22, present);
+
 	vec3 wet = vec3(0.62, 0.70, 0.78) * 0.35;
 	vec3 body = mix(wet, iris, colour_life * crystallised);
 	body += iris * glint * crystallised * colour_life * 2.4;
 	body += vec3(1.0, 0.96, 0.9) * lead * 1.8;
+	body += iris * rim * 1.9;
 	// The ghost: what is left once the colour has gone is dull mineral.
-	vec3 ghost = vec3(0.20, 0.17, 0.24);
+	// Dull mineral, and DARK -- what an eon leaves on a wall is a stain, and
+	// at 0.20 over a lit pale panel it was barely separable from the panel.
+	vec3 ghost = vec3(0.11, 0.09, 0.14);
 	body = mix(ghost, body, colour_life * 0.85 + 0.15);
 
 	ALBEDO = body * v_intensity;
-	ALPHA = clamp(substance * (0.55 + 0.45 * colour_life) * v_intensity, 0.0, 1.0);
-	EMISSION = body * (0.35 * colour_life + lead * 1.2) * v_intensity;
+	// The ghost keeps most of its opacity. What goes is the COLOUR, which is
+	// what makes the decay read as erosion rather than as something dimming.
+	ALPHA = clamp(substance * (0.72 + 0.28 * colour_life) * v_intensity, 0.0, 1.0);
+	EMISSION = body * (0.35 * colour_life + lead * 1.2 + rim * 1.4) * v_intensity;
 }
