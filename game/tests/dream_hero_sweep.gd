@@ -99,7 +99,7 @@ func _run() -> void:
 	_look_at_from(ANCHOR + Vector3(1.4, -0.2, 0.5), ANCHOR)
 	await get_tree().create_timer(warm).timeout
 	_tentacle = _find_tentacle()
-	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled", "margin", "archetypes"]):
+	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled", "margin", "archetypes", "critters"]):
 		printerr("[SWEEP] no tentacle — nothing to photograph")
 		get_tree().quit(1)
 		return
@@ -128,6 +128,8 @@ func _run() -> void:
 		await _margin_shots()
 	elif mode == "archetypes":
 		await _archetype_row()
+	elif mode == "critters":
+		await _critter_shots()
 	else:
 		await _sweep()
 	print("[SWEEP] DONE %d frames -> %s" % [_frame, _dir])
@@ -751,3 +753,64 @@ func _archetype_row() -> void:
 				_dir.path_join("%s.png" % str(shot[0])))
 		_frame += 1
 		print("[SWEEP] %s" % str(shot[0]))
+
+
+## §25 — critters, on the actual architecture, under the player's own lamp.
+func _critter_shots() -> void:
+	var enc: Node = root.get("apartment_encroachment")
+	var ctrl = enc.get("critters") if enc != null else null
+	if ctrl == null:
+		printerr("[SWEEP] no critter controller")
+		return
+	var lit_min := Vector3(-13.45, 3.45, 0.65)
+	var lit_max := Vector3(-5.75, 6.10, 6.05)
+	var here: Array = []
+	for attempt in 90:
+		await get_tree().create_timer(0.5).timeout
+		here.clear()
+		# The camera carries the player's own lamp, so a critter does not have
+		# to be standing in a lit room to be photographed — and waiting for
+		# one to be got three shots of the same species twice running, which
+		# says nothing about whether the species are distinguishable.
+		for c in ctrl.critters:
+			here.append(c)
+		var species_here := {}
+		for c in here:
+			species_here[String(c.morph.species)] = true
+		if attempt % 10 == 0:
+			print("[SWEEP] waiting: %s, %d species available"
+					% [ctrl.census(), species_here.size()])
+		if species_here.size() >= 3 or (attempt > 40 and here.size() >= 1):
+			break
+	if here.is_empty():
+		printerr("[SWEEP] no critters in the lit flat")
+		return
+	# One of each species if they are available: three photographs of the same
+	# animal say nothing about whether the species are distinguishable.
+	var picked: Array = []
+	var seen_species := {}
+	for c in here:
+		var sp: String = String(c.morph.species)
+		if not seen_species.has(sp):
+			seen_species[sp] = true
+			picked.append(c)
+	for c in here:
+		if picked.size() >= 3:
+			break
+		if not picked.has(c):
+			picked.append(c)
+	for idx in picked.size():
+		var c: Dictionary = picked[idx]
+		var at: Vector3 = c.pos
+		var species: String = String(c.morph.species)
+		print("[SWEEP] %s at %s (%s)" % [species, at, c.morph.morph])
+		for shot in [["gameplay", 1.05], ["close", 0.42], ["macro", 0.20]]:
+			var dist := float(shot[1])
+			var dir := _view_dir(at, c.up, dist)
+			_look_at_from(at + dir * dist + Vector3.UP * 0.02, at)
+			await get_tree().create_timer(0.35).timeout
+			await RenderingServer.frame_post_draw
+			await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(
+					_dir.path_join("C%d_%s_%s.png" % [idx, species, str(shot[0])]))
+			_frame += 1

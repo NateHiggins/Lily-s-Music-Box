@@ -33,6 +33,9 @@ const DreamTendrilScript := preload("res://scripts/dream/field/dream_surface_ten
 const DreamHeroScript := preload("res://scripts/dream/entity/dream_hero_tentacle.gd")
 const DreamMarginScript := preload("res://scripts/dream/margin/dream_margin_controller.gd")
 const DreamResidueScript := preload("res://scripts/dream/dream_residue.gd")
+const DreamCritterScript := preload("res://scripts/dream/critters/dream_critter_controller.gd")
+## Level 3: the animals that live on what the Dream has reached.
+var critters: DreamCritterController = null
 ## What the creature leaves on everything it touches (saliva direction).
 var residue: DreamResidue = null
 const DreamPalpRendererScript := preload("res://scripts/dream/margin/dream_palp_renderer.gd")
@@ -236,6 +239,13 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			palp_renderer = DreamPalpRendererScript.new()
 			add_child(palp_renderer)
 			palp_renderer.setup(margin)
+		# THE CRITTERS (§14). They use the margin as habitat, so they come
+		# after it.
+		if OS.get_environment("DREAM_CRITTERS") != "0":
+			critters = DreamCritterScript.new()
+			add_child(critters)
+			critters.setup(dream_field, "critters".hash())
+			critters.margin = margin
 		# THE MODELLED HERO. Until now the Blender creature was an asset
 		# nothing instantiated: one reference in the whole project, in the
 		# test that probes it. It stands in the case flat, wearing the shared

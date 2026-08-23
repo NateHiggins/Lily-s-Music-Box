@@ -95,7 +95,58 @@ func _run() -> void:
 			is_equal_approx(float(one.length), float(two.length))
 			and int(one.limbs) == int(two.limbs)
 			and is_equal_approx(float(one.gold), float(two.gold)))
+	await _in_world()
 	_finish()
+
+
+## They must actually live somewhere. §21: "This turns the wall into a
+## functioning biome" — which requires being on the wall.
+func _in_world() -> void:
+	OS.set_environment("DAYNIGHT", "0")
+	OS.set_environment("ENCROACH_FORCE", "mina:0.9")
+	OS.set_environment("LIVING_ALL", "1")
+	RealityState.persistence_enabled = false
+	RealityState.reset_campaign_for_tests()
+	for case_id in RealityCases.definitions:
+		RealityState.ensure_case(case_id,
+				str(RealityCases.definitions[case_id].get("resident_id", "")))
+	var root: Node3D = load("res://scenes/building/orison_root.tscn").instantiate()
+	add_child(root)
+	await get_tree().create_timer(12.0).timeout
+	var enc: Node = root.get("apartment_encroachment")
+	var ctrl = enc.get("critters") if enc != null else null
+	_check("the encroachment owns a critter controller", ctrl != null)
+	if ctrl == null:
+		return
+	var start: Dictionary = {}
+	for c in ctrl.critters:
+		start[int(c.id)] = c.pos
+	await get_tree().create_timer(9.0).timeout
+	var cen: Dictionary = ctrl.census()
+	print("[critter] in world: %s" % [cen])
+	_check("individuals are born on surfaces (%d live, %d born)"
+			% [int(cen.live), int(cen.born)], int(cen.born) >= 2)
+	_check("more than one species is present (%d)" % int(cen.species.size()),
+			int(cen.species.size()) >= 2)
+	# They must MOVE, and they must stay attached to architecture.
+	var moved := 0.0
+	var airborne := 0
+	var space := get_viewport().find_world_3d().direct_space_state
+	for c in ctrl.critters:
+		if start.has(int(c.id)):
+			moved = maxf(moved, (c.pos as Vector3).distance_to(start[int(c.id)]))
+		# A critter on a surface has that surface just beneath it.
+		var q := PhysicsRayQueryParameters3D.create(
+				(c.pos as Vector3) + (c.up as Vector3) * 0.05,
+				(c.pos as Vector3) - (c.up as Vector3) * 0.25)
+		if space.intersect_ray(q).is_empty():
+			airborne += 1
+	print("[critter] furthest travelled %.3f m, %d of %d airborne"
+			% [moved, airborne, ctrl.critters.size()])
+	_check("they walk (furthest %.3f m in 9 s)" % moved, moved > 0.02)
+	_check("they stay on the architecture (%d airborne)" % airborne, airborne == 0)
+	_check("the whole population draws in one mesh",
+			ctrl.get_node_or_null("Critters") != null)
 
 
 func _finish() -> void:

@@ -1,0 +1,193 @@
+shader_type spatial;
+render_mode cull_disabled, depth_draw_opaque, diffuse_burley, specular_schlick_ggx, sss_mode_skin;
+// THE DREAM CRITTERS (ecology architecture §14–§17, §25).
+//
+// Eight animals, three body plans, one mesh, one draw. Each critter owns a
+// slice of the buffer: a body, up to eight limbs and up to twelve feelers.
+// UV2.x is the critter index and UV2.y says which PART a vertex belongs to
+// (0 body, 1 limb, 2 feeler), so one vertex program builds three anatomies.
+//
+// The plans are deliberately not variations of one shape (§3): a flattened
+// crawler, a radial sensor and a multi-limbed walker have different masses in
+// different places, and that is decided here from the individual's own
+// proportions rather than by scaling a common blob.
+//
+// They wear the same shared material stack as the hero and the margin,
+// because they are the same biology at a third resolution.
+#include "res://shaders/dream_corruption_layers.gdshaderinc"
+#include "res://shaders/dream_entity_surface.gdshaderinc"
+
+const int MAX_CRITTERS = 8;
+
+// xyz position, w plan (0 crawler, 1 radial, 2 walker)
+uniform vec4 critter_pos[8];
+// The critter's frame: forward and up, packed.
+uniform vec4 critter_fwd[8];
+uniform vec4 critter_up[8];
+// x length, y wide, z tall, w seed
+uniform vec4 critter_size[8];
+// x gold, y crystal, z cilia, w gait phase
+uniform vec4 critter_matter[8];
+// x limbs, y feelers, z asymmetry, w alive
+uniform vec4 critter_counts[8];
+uniform int critter_count = 0;
+
+varying vec2 v_uv;
+varying vec3 v_world;
+varying float v_seed;
+varying float v_part;
+varying vec4 v_matter;
+varying float v_thickness;
+
+// A tube's cross-section must be perpendicular to the tube. Offsetting along
+// a fixed-plane normal -- which is what the ring normal is, before it is
+// oriented -- gives every limb a cross-section in the SAME plane, and
+// photographed the crab's legs came out as flat ribbons. This builds the
+// frame from the segment's own direction.
+vec3 ring_offset(vec3 tangent, vec3 ring_n, float thick) {
+	vec3 t = normalize(tangent + vec3(0.0, 1e-5, 0.0));
+	vec3 any = abs(t.y) < 0.9 ? vec3(0.0, 1.0, 0.0) : vec3(1.0, 0.0, 0.0);
+	vec3 sd = normalize(cross(any, t));
+	vec3 bn = cross(t, sd);
+	float a = atan(ring_n.y, ring_n.x);
+	return (sd * cos(a) + bn * sin(a)) * thick;
+}
+
+void vertex() {
+	int c = int(UV2.x + 0.5);
+	float part = UV2.y;
+	vec4 pos = critter_pos[c];
+	vec4 size = critter_size[c];
+	vec4 counts = critter_counts[c];
+	vec4 matter = critter_matter[c];
+	vec3 fwd = normalize(critter_fwd[c].xyz + vec3(1e-5, 0.0, 0.0));
+	vec3 up = normalize(critter_up[c].xyz + vec3(0.0, 1e-5, 0.0));
+	vec3 side = normalize(cross(up, fwd));
+	float seed = size.w;
+	float alive = counts.w;
+
+	// VERTEX arrives as a unit primitive; which one depends on the part.
+	vec3 local = VERTEX;
+	vec3 nrm = NORMAL;
+	float index = UV.x;          // which limb / which feeler
+	float along = UV.y;          // 0 root .. 1 tip, for limbs and feelers
+
+	if (part < 0.5) {
+		// ---- BODY -------------------------------------------------------
+		// A flattened crawler is long and low; a radial sensor is a squat
+		// dome; a walker is a compact box on legs. Same primitive, three
+		// masses, taken from the individual's own proportions.
+		vec3 s = vec3(size.y * 0.5, size.z * 0.5, size.x * 0.5);
+		if (pos.w > 1.5) {
+			// Walker: shorter and deeper, with a raised carapace.
+			s.y *= 1.15;
+			local.y += 0.18 * (1.0 - local.z * local.z);
+		} else if (pos.w > 0.5) {
+			// Radial: a dome, widest at its base.
+			s.z = s.x;
+			local.y = local.y * 0.75 + 0.2;
+		} else {
+			// Crawler: a lens, thinnest at its rim.
+			s.y *= mix(1.0, 0.35, clamp(length(local.xz), 0.0, 1.0));
+		}
+		// §17's asymmetrical defects: real animals are not mirrored.
+		s.x *= 1.0 + counts.z * sin(local.z * 3.1 + seed);
+		local *= s;
+		v_thickness = 0.85;
+	} else if (part < 1.5) {
+		// ---- LIMB -------------------------------------------------------
+		float n = max(1.0, counts.x);
+		if (index >= n) {
+			local = vec3(0.0);   // this individual has fewer limbs
+			alive = 0.0;
+		}
+		float t = (index + 0.5) / n;
+		// Down each flank, front to back.
+		float row = t < 0.5 ? -1.0 : 1.0;
+		float u = fract(t * 2.0) * 2.0 - 1.0;
+		float len = size.x * 0.55;
+		float lift = size.z;
+		// §20 — the gait: which limb leads and the stagger between them are
+		// per-individual, so two crabs of the same species walk differently.
+		float phase = matter.w + t * 6.2831853 * 1.7;
+		float step = sin(phase);
+		vec3 root = fwd * (u * size.x * 0.42) + side * (row * size.y * 0.45);
+		vec3 foot = root + side * row * size.y * 0.55
+				+ fwd * step * size.x * 0.22 - up * lift;
+		vec3 knee = mix(root, foot, 0.5) + up * (size.z * 0.9 + max(0.0, step) * size.z * 0.5);
+		// Two-segment leg: root to knee to foot.
+		vec3 p = along < 0.5
+				? mix(root, knee, along * 2.0)
+				: mix(knee, foot, (along - 0.5) * 2.0);
+		vec3 seg = along < 0.5 ? (knee - root) : (foot - knee);
+		float thick = size.y * 0.055 * (1.0 - 0.45 * along);
+		local = p + ring_offset(seg, nrm, thick);
+		v_thickness = 0.5;
+	} else {
+		// ---- FEELER -----------------------------------------------------
+		float n = max(1.0, counts.y);
+		if (index >= n) {
+			local = vec3(0.0);
+			alive = 0.0;
+		}
+		float t = (index + 0.5) / n;
+		float spread = (t - 0.5) * 2.4;
+		float len = size.x * (pos.w > 0.5 ? 1.15 : 0.55) * (0.5 + 0.5 * matter.z);
+		// A listener's cilia stand up and outward; a crawler's comb lies
+		// forward along the surface it is tasting.
+		vec3 dir = pos.w > 0.5
+				? normalize(up * 1.4 + side * spread + fwd * 0.3)
+				: normalize(fwd * 1.2 + side * spread * 0.8 - up * 0.15);
+		vec3 base = fwd * size.x * (pos.w > 0.5 ? 0.0 : 0.42) + side * spread * size.y * 0.3;
+		// They wave, slowly, and each on its own phase.
+		float wave = sin(TIME * (1.6 + matter.z * 2.0) + t * 9.0 + seed) * 0.16 * along;
+		vec3 p = base + dir * (len * along) + side * wave * len;
+		float thick = size.y * 0.014 * (1.0 - 0.7 * along);
+		local = p + ring_offset(dir, nrm, thick);
+		v_thickness = 0.12;
+	}
+
+	vec3 world = pos.xyz + side * local.x + up * local.y + fwd * local.z;
+	world = mix(pos.xyz, world, alive);
+	VERTEX = (inverse(MODEL_MATRIX) * vec4(world, 1.0)).xyz;
+	NORMAL = normalize(side * nrm.x + up * nrm.y + fwd * nrm.z);
+	v_uv = vec2(index, along);
+	v_world = world;
+	v_seed = seed;
+	v_part = part;
+	v_matter = matter;
+}
+
+void fragment() {
+	vec3 n = normalize(NORMAL);
+	vec3 view_dir = normalize(VIEW);
+	DeCtx ctx;
+	ctx.thickness = v_thickness;
+	ctx.vein = 0.45;
+	// §25 — the same three tissues, rebalanced per species. A fold crab is
+	// mostly mineral at its joints; a listener is mostly crystal; a grazer is
+	// nearly all flesh.
+	ctx.gold_root = v_matter.x * (v_part > 0.5 && v_part < 1.5 ? 1.35 : 0.7);
+	ctx.socket = v_matter.y * (v_part > 1.5 ? 1.2 : 0.5);
+	ctx.contact = v_part > 1.5 ? 0.8 : 0.2;
+	ctx.stretch = 0.35;
+	ctx.lod = 1.0 - smoothstep(1.2, 5.0, length(VERTEX));
+	DeMasks m = de_masks(v_world, v_uv, n, view_dir, TIME, v_seed, ctx);
+	DeOut o = de_shade(m, v_world, v_uv, n, view_dir, TIME, v_seed, ctx);
+	ALBEDO = o.albedo;
+	METALLIC = o.metallic;
+	ROUGHNESS = o.roughness;
+	SPECULAR = o.specular;
+	EMISSION = o.emission * (0.5 + 1.1 * v_matter.x);
+	BACKLIGHT = o.backlight;
+	AO = o.ao;
+	AO_LIGHT_AFFECT = 0.35;
+	SSS_STRENGTH = o.sss;
+	SSS_TRANSMITTANCE_COLOR = o.sss_transmit;
+	SSS_TRANSMITTANCE_DEPTH = o.sss_depth;
+	SSS_TRANSMITTANCE_BOOST = o.sss_boost;
+	CLEARCOAT = o.clearcoat;
+	CLEARCOAT_ROUGHNESS = o.clearcoat_roughness;
+	vec3 nm = o.normal_map;
+	NORMAL = normalize(NORMAL + TANGENT * nm.x * 0.5 + BINORMAL * nm.y * 0.5);
+}
