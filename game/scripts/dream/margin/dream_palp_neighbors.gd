@@ -26,6 +26,10 @@ extends RefCounted
 const PERSONAL_M := 0.16
 ## How far a palp can notice a neighbour's discovery from.
 const NOTICE_M := 0.85
+## §11 — the hero is a high-priority neighbour, and it is felt further off
+## than any palp. It is the largest thing in the ecology and the one every
+## other appendage has an opinion about.
+const HERO_NOTICE_M := 2.4
 
 
 ## Everyone's current broadcast. Rebuilt at the system's own cadence rather
@@ -60,6 +64,49 @@ static func neighbours(p: Dictionary, board: Array) -> Array:
 			found.append({"id": int(other.id), "d": d, "rec": other})
 	found.sort_custom(func(a, b): return float(a.d) < float(b.d))
 	return found
+
+
+## §11 — THE HERO PARTICIPATES.
+##
+##     "This makes the hero limb feel like a dominant member/organ of the same
+##      living system rather than a special effect dropped into it."
+##
+## It is not a neighbour like the others. It is felt from three times as far,
+## and what an appendage does about it is decided almost entirely by that
+## individual's `hero_affinity`: the bold collect around it and inspect what
+## it inspects, the timid get out of its way. Both are reactions; a palp with
+## no opinion about the hero is the one thing that would read as a prop.
+static func consider_hero(p: Dictionary, hero, rng: RandomNumberGenerator,
+		delta: float) -> Vector3:
+	if hero == null or not is_instance_valid(hero):
+		p.hero_near = 0.0
+		return Vector3.ZERO
+	var tip: Vector3 = p.tip
+	var hero_tip: Vector3 = hero.tip_world()
+	var d: float = tip.distance_to(hero_tip)
+	var to_root: float = tip.distance_to(hero.global_position)
+	var nearest: float = minf(d, to_root)
+	p.hero_near = clampf(1.0 - nearest / HERO_NOTICE_M, 0.0, 1.0)
+	if p.hero_near <= 0.0:
+		return Vector3.ZERO
+	var tr: Dictionary = p.traits
+	var affinity: float = float(tr.hero_affinity)
+	var push := Vector3.ZERO
+	if affinity > 0.55:
+		# Collect around it, and inspect what it inspects.
+		var toward: Vector3 = (hero.global_position - tip)
+		if toward.length() > 0.02:
+			push += toward.normalized() * p.hero_near * (affinity - 0.55) * 0.55
+		if hero.target != Vector3.INF and p.target == Vector3.INF:
+			if rng.randf() < affinity * delta * 1.6:
+				p.target = hero.target
+				p.joined = -2   # -2 reads as "joined the hero"
+	else:
+		# Make room. §11: margin tentacles make room when it emerges.
+		var away: Vector3 = (tip - hero_tip)
+		if away.length() > 0.02:
+			push += away.normalized() * p.hero_near * (0.55 - affinity) * 0.85
+	return push
 
 
 ## The social pass. Returns a steering offset for this palp's tip, and may

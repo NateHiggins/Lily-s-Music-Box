@@ -122,6 +122,18 @@ reads as dark flesh and a gold-jointed finger at 72% carries light.
   intertwining are unbuilt.
 - **Phase 8, branching.** `try_branch()` returns `false`. No recursive
   unfolding.
-- No interaction with the hero (§11) and no `DreamGlobalAttention` (§13).
+- **Phase 7 (§11) is done in its first form.** The hero is a member of this
+  society rather than a visitor to it: it is felt from 2.4 m — three times a
+  palp's reach, because it is the largest thing in the ecology — and what an
+  appendage does about it is decided almost entirely by its own
+  `hero_affinity`. The bold collect around it and inspect what it inspects;
+  the timid make room. Both are reactions, and a palp with *no* opinion about
+  the hero is the one thing that would read as a prop. Measured: 16
+  appendages feeling it at peak, 4 having adopted its target.
+
+  Not yet: grooming it, crawling across it, orienting toward its eye, bracing
+  against it, or receiving pulses from it. And the hero does not react back —
+  §11's `INTERACT_MARGIN` is one of the eight unbuilt hero states.
+- No `DreamGlobalAttention` (§13).
 - Palps do not leave residue, though the system now exists and would only need
   a contact hook.

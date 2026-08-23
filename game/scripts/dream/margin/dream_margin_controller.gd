@@ -54,6 +54,8 @@ signal palp_born(index: int, tier: int, kind: int)
 signal palp_died(index: int)
 
 var field: DreamFieldController = null
+## §11 — the hero is a participant in this society, not a visitor.
+var hero = null
 var enabled := true
 ## Every live appendage. Index is stable for its lifetime, and the seed is
 ## preserved across LOD promotion (§30) because identity must survive it.
@@ -234,6 +236,7 @@ func _birth(tier: int, at: Vector3, nrm: Vector3) -> void:
 		"last_tip": at + nrm * 0.02,
 		"neighbour_count": 0,
 		"joined": -1,
+		"hero_near": 0.0,
 	})
 	palp_born.emit(_next_id, tier, archetype)
 	_next_id += 1
@@ -252,6 +255,7 @@ func _think(delta: float) -> void:
 	for p in palps:
 		if socialise:
 			var push: Vector3 = NeighborScript.socialise(p, _board, _rng, _social_clock)
+			push += NeighborScript.consider_hero(p, hero, _rng, _social_clock)
 			if push.length_squared() > 0.0:
 				p.tip = (p.tip as Vector3) + push * _social_clock
 		p.act_clock += delta
@@ -435,12 +439,18 @@ func census() -> Dictionary:
 		by_act[a] = int(by_act.get(a, 0)) + 1
 	var social := 0
 	var joined := 0
+	var feel_hero := 0
+	var joined_hero := 0
 	var shared := {}
 	for p in palps:
 		if int(p.neighbour_count) > 0:
 			social += 1
 		if int(p.joined) >= 0:
 			joined += 1
+		if float(p.hero_near) > 0.01:
+			feel_hero += 1
+		if int(p.joined) == -2:
+			joined_hero += 1
 		if p.target != Vector3.INF:
 			var key := "%.2f_%.2f_%.2f" % [p.target.x, p.target.y, p.target.z]
 			shared[key] = int(shared.get(key, 0)) + 1
@@ -451,4 +461,5 @@ func census() -> Dictionary:
 	return {"live": palps.size(), "tiers": by_tier, "kinds": by_kind,
 			"born": _next_id, "acts": by_act,
 			"with_neighbours": social, "joined_a_neighbour": joined,
-			"cooperating": cooperating}
+			"cooperating": cooperating,
+			"feel_hero": feel_hero, "joined_hero": joined_hero}

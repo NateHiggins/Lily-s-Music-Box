@@ -274,6 +274,10 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			if residue != null:
 				hero.touched.connect(func(where: Vector3, nrm: Vector3):
 					residue.lay(where, nrm, 0.16, 1.0, 3.6))
+			# §11 — the hero joins the margin's society as a high-priority
+			# member, rather than being a special effect dropped into it.
+			if margin != null:
+				margin.hero = hero
 	if RealityState.has_signal("state_changed") and not RealityState.state_changed.is_connected(refresh):
 		RealityState.state_changed.connect(refresh)
 	refresh()

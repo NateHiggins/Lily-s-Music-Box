@@ -10,6 +10,8 @@ func _ready() -> void:
 	OS.set_environment("DAYNIGHT", "0")
 	OS.set_environment("ENCROACH_FORCE", "mina:0.9")
 	OS.set_environment("LIVING_ALL", "1")
+	# §11 needs the hero present to test whether the margin reacts to it.
+	OS.set_environment("DREAM_HERO", "1")
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	for case_id in RealityCases.definitions:
@@ -164,6 +166,26 @@ func _run() -> void:
 	print("[margin] closest pair of tips: %.4f m" % closest)
 	_check("tips keep out of each other (closest pair %.3f m)" % closest,
 			closest > 0.008)
+
+	# --- §11: THE HERO IS A MEMBER, NOT A VISITOR ------------------------
+	var hero = enc.get("hero")
+	_check("the hero exists and the margin knows about it",
+			hero != null and margin.hero != null)
+	if hero != null:
+		# Give the population time to drift into and out of its reach.
+		var peak_feel := 0
+		var peak_joined := 0
+		for probe in 20:
+			await get_tree().create_timer(0.5).timeout
+			var cc: Dictionary = margin.census()
+			peak_feel = maxi(peak_feel, int(cc.get("feel_hero", 0)))
+			peak_joined = maxi(peak_joined, int(cc.get("joined_hero", 0)))
+		print("[margin] peak feeling the hero %d, peak joined it %d"
+				% [peak_feel, peak_joined])
+		_check("appendages near the hero react to it (%d)" % peak_feel,
+				peak_feel >= 2)
+		_check("some inspect what the hero inspects (%d)" % peak_joined,
+				peak_joined >= 1)
 
 	# --- and it is actually drawn ----------------------------------------
 	var renderer: DreamPalpRenderer = enc.get("palp_renderer")
