@@ -549,6 +549,50 @@ same stimulus at once. That is when the player understands:
 
 ---
 
+## §35 PHASE STATUS (updated 2026-08-23)
+
+| phase | state |
+| --- | --- |
+| 1 Hero branch active, tasks documented | done — `design/HERO_TENTACLE_REMAINING.md` |
+| 2 `DreamMarginController` | done |
+| 3 Six palp archetypes | done — §37 sheet in `art/renders/dream_margin/` |
+| 4 Morphology variation | done |
+| 5 Personality and intent | done — 8 of 10 primitives running at once |
+| 6 Neighbour interaction | done for 4 of §10's 9 broadcasts |
+| 7 Hero as ecological participant | done |
+| 8 Recursive branching | done — folded, never scaled from zero |
+| 9 First three critter species | done |
+| 10 Critter morphology variation | done |
+| 11 Critter personality/behaviour | done — 7 of 7 movement properties vary |
+| 12 Hero/palp/critter cross-interaction | done |
+| 13 `DreamEcologyDirector` | done, biases consumed |
+| 14 Species hyperdimensional rules | done — enacted, not merely declared |
+| 15 Population LOD | done — nearest-first, identity preserved |
+| 16 Combined gameplay test | done — `art/renders/dream_ecology/` |
+
+Contracts: field 16/16, margin 31/31, critters 29/29, ecology 23/23.
+
+### The two things that need a decision rather than more code
+
+1. **The combined capture does not co-frame the three levels.** The camera is
+   tight on the hero because this wall has a partition about 2 m out. §34
+   names a radiator, a sofa, corners and seams — it wants a room chosen for
+   the shot. That is staging, not systems.
+2. **Nothing calls `seize_attention`.** The one-mind reveal is built, wired
+   through all three levels and measured, but which stimuli deserve the whole
+   ecology's notice is a design decision. §40 says it must stay rare enough to
+   remain meaningful, and picking those moments is authorship.
+
+### Known gaps inside completed phases
+
+- §10's other five broadcasts (contact, startle, branch state, and the two
+  proximity signals) need systems that do not exist.
+- §12's twelve-step branch sequence has its middle six; vascular congestion,
+  gold repositioning and the visible crease are shader work.
+- §21's habitat list has three of ten behaviours.
+- §22 has the critters' half; the hero looks but does not yet nudge.
+- The hero itself still owes albedo/normal bakes and eight of §2's states.
+
 ## Where this lands against existing work
 
 - `DreamSurfaceTendrils` (DF-13) is the **seed of level 2**, not a dead end.
