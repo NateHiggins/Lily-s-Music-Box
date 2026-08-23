@@ -99,7 +99,7 @@ func _run() -> void:
 	_look_at_from(ANCHOR + Vector3(1.4, -0.2, 0.5), ANCHOR)
 	await get_tree().create_timer(warm).timeout
 	_tentacle = _find_tentacle()
-	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled"]):
+	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled", "margin"]):
 		printerr("[SWEEP] no tentacle — nothing to photograph")
 		get_tree().quit(1)
 		return
@@ -124,6 +124,8 @@ func _run() -> void:
 		await _tendril_shots()
 	elif mode == "modelled":
 		await _modelled_hero_shots()
+	elif mode == "margin":
+		await _margin_shots()
 	else:
 		await _sweep()
 	print("[SWEEP] DONE %d frames -> %s" % [_frame, _dir])
@@ -488,3 +490,68 @@ func _modelled_hero_shots() -> void:
 
 func mid_of(lo: Vector3, hi: Vector3) -> Vector3:
 	return (lo + hi) * 0.5
+
+
+## §37 — at least six nearby appendages must be clearly different WITHOUT
+## relying on colour, and the edge must never look like repeated noodles.
+## Only a photograph can settle that.
+func _margin_shots() -> void:
+	var enc: Node = root.get("apartment_encroachment")
+	var margin = enc.get("margin") if enc != null else null
+	if margin == null:
+		printerr("[SWEEP] no margin — run with DREAM_MARGIN unset")
+		return
+	var lit_min := Vector3(-13.45, 3.45, 0.65)
+	var lit_max := Vector3(-5.75, 6.10, 6.05)
+	var here: Array = []
+	for attempt in 90:
+		await get_tree().create_timer(0.5).timeout
+		here.clear()
+		for p in margin.palps:
+			var q: Vector3 = p.anchor
+			if q.x >= lit_min.x and q.y >= lit_min.y and q.z >= lit_min.z 					and q.x <= lit_max.x and q.y <= lit_max.y and q.z <= lit_max.z 					and absf((p.normal as Vector3).y) < 0.6:
+				here.append(p)
+		if attempt % 8 == 0:
+			print("[SWEEP] waiting: %s, %d on lit walls" % [margin.census(), here.size()])
+		if here.size() >= 5:
+			break
+	if here.is_empty():
+		printerr("[SWEEP] no appendages on a lit wall")
+		return
+	# The densest cluster, so several archetypes are in one frame.
+	# Frame the most VARIED cluster, not the biggest. §37 is about difference,
+	# and the biggest cluster on the first run was six whiskers.
+	var best := 0
+	var best_score := -1.0
+	for i in here.size():
+		var near := {}
+		var n := 0
+		for j in here.size():
+			if (here[j].anchor as Vector3).distance_to(here[i].anchor) < 1.1:
+				near[here[j].morph.name_of_kind()] = true
+				n += 1
+		var score := float(near.size()) * 10.0 + float(n)
+		if score > best_score:
+			best_score = score
+			best = i
+	var best_n := 0
+	for j in here.size():
+		if (here[j].anchor as Vector3).distance_to(here[best].anchor) < 1.1:
+			best_n += 1
+	var kinds := {}
+	for p in here:
+		if (p.anchor as Vector3).distance_to(here[best].anchor) < 1.1:
+			kinds[p.morph.name_of_kind()] = true
+	var aim: Vector3 = here[best].anchor
+	print("[SWEEP] cluster of %d at %s, archetypes %s" % [best_n, aim, kinds.keys()])
+	for shot in [["M1_edge", 1.9], ["M2_gameplay", 1.1], ["M3_close", 0.42]]:
+		var dist := float(shot[1])
+		var dir := _view_dir(aim, here[best].normal, dist)
+		_look_at_from(aim + dir * dist + Vector3.UP * 0.04, aim)
+		await get_tree().create_timer(0.35).timeout
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(
+				_dir.path_join("%s.png" % str(shot[0])))
+		_frame += 1
+		print("[SWEEP] %s" % str(shot[0]))

@@ -31,6 +31,11 @@ const DreamTentacleDebugScript := preload("res://scripts/dream/entity/dream_tent
 const DreamFieldScript := preload("res://scripts/dream/field/dream_field_controller.gd")
 const DreamTendrilScript := preload("res://scripts/dream/field/dream_surface_tendrils.gd")
 const DreamHeroScript := preload("res://scripts/dream/entity/dream_hero_tentacle.gd")
+const DreamMarginScript := preload("res://scripts/dream/margin/dream_margin_controller.gd")
+const DreamPalpRendererScript := preload("res://scripts/dream/margin/dream_palp_renderer.gd")
+## Level 2 of the ecology: the field's distributed sensory edge.
+var margin: DreamMarginController = null
+var palp_renderer: DreamPalpRenderer = null
 ## The modelled Blender creature, once the owner's ruling made it the hero.
 var hero: DreamHeroTentacle = null
 ## DF-13: many small limbs where the field's cross-section meets matter.
@@ -214,6 +219,15 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			surface_tendrils = DreamTendrilScript.new()
 			add_child(surface_tendrils)
 			surface_tendrils.setup(dream_field, "tendrils".hash())
+		# THE MARGIN (ecology architecture §4): the Dream field does not end
+		# in a shader fade, it ends in appendages.
+		if OS.get_environment("DREAM_MARGIN") != "0":
+			margin = DreamMarginScript.new()
+			add_child(margin)
+			margin.setup(dream_field, "margin".hash())
+			palp_renderer = DreamPalpRendererScript.new()
+			add_child(palp_renderer)
+			palp_renderer.setup(margin)
 		# THE MODELLED HERO. Until now the Blender creature was an asset
 		# nothing instantiated: one reference in the whole project, in the
 		# test that probes it. It stands in the case flat, wearing the shared
