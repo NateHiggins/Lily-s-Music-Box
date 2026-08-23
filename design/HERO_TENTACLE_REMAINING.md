@@ -27,6 +27,41 @@ from the geometry and wired into the skin. Still owed: albedo, normal and
 detail normal, and the riders have no UVs so none of them are baked. See
 `art/renders/dream_tentacle/bake/README.md`.
 
+Three things came out of chasing "the texture is not great" that were not
+about baking at all, and all three were consequences of the same fact: **the
+cage is the only mesh with UVs.** Every one of the ninety-four riders exports
+with POSITION, NORMAL, JOINTS and WEIGHTS and nothing else.
+
+- **One seed for ninety-four riders.** Every gold plate carried identical
+  noise, every crystal the same fracture: one surface copied over a body.
+  Each rider now takes its phase from its own name. Keep the offset SMALL —
+  the shared stack's noise loses precision at large coordinates, and scaling
+  it to ~40 turned the creature into white and blue blocks.
+- **One heartbeat for the flesh and another for the metal.** The shared stack
+  reads the vascular clock off uv.y, so every rider read it as zero and the
+  whole mineral system pulsed in unison while the flesh had a wave travelling
+  along it. The creature now measures its own long axis and tells each rider
+  where it sits.
+- **glTF flips V.** Blender writes v = 0 at the root; the file carries 1
+  there. Emergence, skin tension and the pulse direction were all reading
+  backwards off it — the limb filled in from the tip, and the riders ignored
+  `grow` entirely, so the metal hung in the air along a limb that had not
+  arrived. Fixed and photographed; see the ladder below.
+
+**The instrument for all of this: `SHOT_MODE=emerge` on the staged room.**
+A limb filling in from the tip and a limb extruding from the root are the same
+picture in any single frame, and `grow` runs its whole range in 2.4 seconds.
+The ladder stops the state machine and drives `grow` by hand, nine rungs, from
+`side_stand` — perpendicular to the creature, because the stand composed to
+hold the hero *and* a palp cluster looks straight up the limb's axis and the
+whole ladder reads as one frame repeated. The apartment cannot take this
+picture at all: every flat puts a partition across the limb about a third of
+the way along.
+
+```bash
+SHOT_DIR=/tmp/ladder SHOT_MODE=emerge SHOT_WARM=8 godot --path game res://tests/DreamStageShot.tscn
+```
+
 ### H2. Behaviour states — DONE
 All fifteen of §2's states exist and run, plus the three the cross-sectional
 withdrawal needed. The eight added last:
