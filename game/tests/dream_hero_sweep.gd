@@ -424,6 +424,27 @@ func _modelled_hero_shots() -> void:
 		printerr("[SWEEP] no modelled hero — run with DREAM_HERO=1")
 		return
 	print("[SWEEP] hero census %s" % [hero.census()])
+	# H3 — DOES IT ACTUALLY TOUCH ANYTHING? A state machine that cycles
+	# through TOUCHING without a tip near a surface has not touched anything.
+	if OS.get_environment("SWEEP_CONTACT") == "1":
+		var seen := {}
+		# A GDScript lambda captures an int BY VALUE, so incrementing one
+		# inside the callback left the outer counter at zero and reported a
+		# working system as broken. Arrays are references.
+		var touches := [0]
+		var closest := 9.0
+		hero.touched.connect(func(_w, _n): touches[0] += 1)
+		for probe in 300:
+			await get_tree().create_timer(0.1).timeout
+			seen[hero.state_name()] = true
+			if hero.target != Vector3.INF:
+				closest = minf(closest, hero.tip_world().distance_to(hero.target))
+			if touches[0] >= 2 and seen.size() >= 4:
+				break
+		print("[SWEEP] CONTACT: %d touches, closest approach %.3f m, states %s"
+				% [touches[0], closest, seen.keys()])
+		print("[SWEEP] %s" % ["CONTACT WORKS" if touches[0] >= 1
+				else "NEVER TOUCHED — the reach does not arrive"])
 	# H1 A/B. The bake is either doing something visible or it is not, and the
 	# only way to know is to photograph the same frame with it off.
 	var ab: String = OS.get_environment("SWEEP_ANATOMY")

@@ -27,18 +27,25 @@ from the geometry and wired into the skin. Still owed: albedo, normal and
 detail normal, and the riders have no UVs so none of them are baked. See
 `art/renders/dream_tentacle/bake/README.md`.
 
-### H2. No behavior state machine — **blocking §2 and §11**
-§2 names fifteen states (`MEMBRANE_BULGE` … `WITHDRAW`). The hero currently
-has one continuous searching motion. Without states it cannot emerge, flinch,
-withdraw, watch the player, or participate in the margin's social system —
-which is most of what makes it "individually intelligent" rather than a
-moving prop.
+### H2. Behaviour states — PARTLY DONE
+Seven of §2's fifteen exist and run: `SEEKING`, `APPROACHING`,
+`HOVER_INSPECTION`, `TOUCHING`, `CARESSING`, `WITHDRAW`, `RESUME`. These are
+the ones contact makes meaningful. Still missing: `MEMBRANE_BULGE`,
+`EMERGING`, `ORIENTING`, `TASTING`, `WATCH_PLAYER`, `INTERACT_MARGIN`,
+`INTERACT_CRITTER`, `FLINCH` — the last three need the margin and critters to
+interact with (§11), and emergence needs the field's cross-sectional
+incarnation.
 
-### H3. No contact at all — **blocking §27, §28, and the saliva direction**
-Nothing detects a surface, nothing compresses against one, nothing tastes or
-caresses. The distal club and the suckers are geometry with no behavior. This
-also blocks `DREAM_SALIVA_DIRECTION.md` entirely, since residue needs contact
-events to exist.
+### H3. Contact — DONE (first pass)
+The creature picks a real point on real architecture, reaches for it with a
+CCD solve, touches it, traces along the surface, and withdraws. Measured: 2
+touches in one run at 25 mm closest approach, all seven states visited. It
+emits `touched(where, normal)` and `released()`, which is the hook
+`DREAM_SALIVA_DIRECTION.md` needs.
+
+Still owed here: the suckers and the distal club do not *compress* on contact
+(§10 wants contact to visibly compress, spread, deform, grip and release), and
+there is no `TASTING` behaviour distinct from `CARESSING`.
 
 ### H4. No secondary motion — **§12 of the menagerie brief**
 One layer moves: bones. There is no muscle lag, flesh settle, gold reseating,
@@ -83,7 +90,7 @@ for the shot and the fiction.
 
 ## Recommended order
 
-H1 and H5 are done. **H3 → H2 → H4** next: contact first, because §2's
+H1, H3 and H5 are done; H2 is partly done. **H4 → H6** next: contact first, because §2's
 interesting states (`TOUCHING`, `CARESSING`, `TASTING`) are meaningless
 without it and it is the hard prerequisite for
 `DREAM_SALIVA_DIRECTION.md`; then the state machine those states belong to;

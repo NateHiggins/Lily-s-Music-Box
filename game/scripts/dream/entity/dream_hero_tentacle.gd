@@ -56,6 +56,38 @@ var _nict_next := 1.7
 var _attend_clock := 0.0
 var _settle := 0.0
 
+## §2 — the hero's behaviour states. Not all fifteen yet; these are the ones
+## contact makes meaningful, and the rest have nothing to drive them.
+enum State { SEEKING, APPROACHING, HOVER_INSPECTION, TOUCHING, CARESSING,
+		WITHDRAW, RESUME }
+signal touched(where: Vector3, normal: Vector3)
+signal released()
+
+var state: int = State.SEEKING
+var state_clock := 0.0
+## What it is currently interested in: a real point on a real surface.
+var target := Vector3.INF
+var target_normal := Vector3.UP
+var contact_point := Vector3.INF
+var _space: PhysicsDirectSpaceState3D = null
+var _caress_dir := Vector3.ZERO
+var _last_tip := Vector3.INF
+## How near the tip must come before it counts as touching.
+const TOUCH_M := 0.09
+## HOW HARD IT IS CURRENTLY REACHING.
+##
+## The first version was open loop: a fixed bend amplitude chosen to look like
+## a search. Measured, it never arrived — 0 touches, closest approach 0.905 m
+## against a 0.09 m threshold — because a gentle sampling bend moves the tip
+## about 0.2 m and the targets were up to 1.3 m away. A creature that reaches
+## for something and always misses by an arm's length is not reaching.
+##
+## So the bend closes the loop on its own error: while approaching, it commits
+## harder until the tip is actually there, and relaxes when it is not
+## reaching for anything.
+var _reach_gain := 1.0
+const REACH_GAIN_MAX := 2.2
+
 
 func setup(seed_v: int, at: Vector3, aim: Vector3 = Vector3.FORWARD) -> void:
 	name = "DreamHeroTentacle"
@@ -79,6 +111,9 @@ func setup(seed_v: int, at: Vector3, aim: Vector3 = Vector3.FORWARD) -> void:
 	_collect(inst)
 	_dress()
 	_find_skeleton(inst)
+	var world := get_viewport().find_world_3d() if get_viewport() != null else null
+	if world != null:
+		_space = world.direct_space_state
 
 
 func _collect(node: Node) -> void:
@@ -175,13 +210,20 @@ func _animate(delta: float) -> void:
 	if skeleton == null or _bones.is_empty():
 		return
 	var n := _bones.size()
-	_attend_clock -= delta
-	if _attend_clock <= 0.0:
-		# Choose somewhere new to attend to, and take a moment over it.
-		_attend_clock = 2.6 + fmod(absf(sin(_clock * 12.7 + _seeded)) * 3.4, 3.4)
-		_attend = Vector3(sin(_clock * 1.7 + _seeded * 3.1),
-				sin(_clock * 0.9 + _seeded), cos(_clock * 1.3 + _seeded * 2.2))
-		_settle = 0.0
+	# The body now reaches for a REAL POINT rather than a direction out of a
+	# sine. `_attend` is derived from the target, so every pose the rig solves
+	# toward is something the creature actually chose to touch.
+	if target != Vector3.INF:
+		var toward := (target - global_position)
+		if toward.length() > 0.01:
+			_attend = (global_transform.basis.inverse() * toward.normalized())
+	else:
+		_attend_clock -= delta
+		if _attend_clock <= 0.0:
+			_attend_clock = 2.6 + fmod(absf(sin(_clock * 12.7 + _seeded)) * 3.4, 3.4)
+			_attend = Vector3(sin(_clock * 1.7 + _seeded * 3.1),
+					sin(_clock * 0.9 + _seeded), cos(_clock * 1.3 + _seeded * 2.2))
+			_settle = 0.0
 	_settle = minf(1.0, _settle + delta * 0.85)
 	# The reach eases in, then holds: committed, not oscillating.
 	var reach: float = smoothstep(0.0, 1.0, _settle)
@@ -195,9 +237,9 @@ func _animate(delta: float) -> void:
 		var wave: float = sin(t * 9.0 - _clock * 2.1 + _seeded) * 0.034
 		# The search: the distal third does the fine work, the shaft carries it.
 		var fine: float = smoothstep(0.55, 1.0, t)
-		var bend_x: float = (_attend.x * 0.115 * reach * (0.35 + fine)
+		var bend_x: float = (_attend.x * 0.115 * _reach_gain * reach * (0.35 + fine)
 				+ wave) * grip
-		var bend_z: float = (_attend.z * 0.115 * reach * (0.35 + fine)
+		var bend_z: float = (_attend.z * 0.115 * _reach_gain * reach * (0.35 + fine)
 				+ wave * 0.7) * grip
 		# Breathing: the whole body swells and settles under the search.
 		var breathe: float = sin(_clock * 0.8 + t * 2.0) * 0.006 * grip
@@ -220,6 +262,9 @@ func _animate_eye(delta: float) -> void:
 		_gaze_hold = 0.7 + fmod(absf(sin(_clock * 9.3 + _seeded * 5.0)) * 2.4, 2.4)
 		# It looks where it is reaching, and at whoever is watching it.
 		var want := _attend
+		# It watches its own hands: whatever it is reaching for gets looked at.
+		if target != Vector3.INF:
+			want = (target - global_position).normalized()
 		if watch != null and is_instance_valid(watch):
 			var to_watcher := (watch.global_position - global_position)
 			if to_watcher.length() < 4.5:
@@ -259,9 +304,189 @@ func _animate_eye(delta: float) -> void:
 				_eye_rest[i] * Quaternion(axis, close * 0.85))
 
 
+## REACHING IS A SOLVE, NOT A POSE (§11: "rig from function").
+##
+## Bending every bone toward a direction does not steer a tip anywhere in
+## particular -- it curls the limb, and the tip ends up somewhere on a spiral.
+## Measured: 0 touches, closest approach 0.905 m, and closing the loop on the
+## bend amplitude only improved that to 0.760. The creature was always going
+## to miss, because nothing in the loop knew where the tip actually was.
+##
+## Cyclic coordinate descent does. Working from the tip back toward the root,
+## each bone rotates by the angle that carries the tip closer to the target,
+## damped hard at the root -- the collar grips it, and a creature that swings
+## from its base to touch something reads as a boom arm rather than a limb.
+func _solve_reach(delta: float) -> void:
+	if skeleton == null or _bones.is_empty() or target == Vector3.INF:
+		return
+	var n := _bones.size()
+	var to_local := skeleton.global_transform.affine_inverse()
+	var goal: Vector3 = to_local * target
+	var before: Vector3 = skeleton.get_bone_global_pose(_bones[n - 1]).origin
+	# The search motion rewrites every bone from rest each frame, so the solve
+	# cannot accumulate across frames -- it has to converge inside one. Three
+	# iterations did not: closest approach went 0.905 to 0.760 to 0.626 m and
+	# stalled there.
+	for iteration in 14:
+		for k in range(n - 1, -1, -1):
+			var tip_l: Vector3 = skeleton.get_bone_global_pose(_bones[n - 1]).origin
+			if tip_l.distance_to(goal) < TOUCH_M * 0.5:
+				return
+			var joint := skeleton.get_bone_global_pose(_bones[k])
+			var a := tip_l - joint.origin
+			var b := goal - joint.origin
+			if a.length() < 0.001 or b.length() < 0.001:
+				continue
+			a = a.normalized()
+			b = b.normalized()
+			var axis := a.cross(b)
+			if axis.length() < 0.0001:
+				continue
+			axis = axis.normalized()
+			var ang: float = acos(clampf(a.dot(b), -1.0, 1.0))
+			# The root barely participates; the distal third does the work.
+			var t := float(k) / float(maxi(1, n - 1))
+			var authority: float = smoothstep(0.0, 0.30, t) * (0.25 + 0.75 * t)
+			ang = clampf(ang * authority * 0.85, -0.26, 0.26)
+			var local_axis: Vector3 = joint.basis.inverse() * axis
+			var q := Quaternion(local_axis.normalized(), ang)
+			skeleton.set_bone_pose_rotation(_bones[k],
+					skeleton.get_bone_pose_rotation(_bones[k]) * q)
+	if OS.get_environment("HERO_SOLVE_DEBUG") == "1":
+		var after: Vector3 = skeleton.get_bone_global_pose(_bones[n - 1]).origin
+		print("[solve] tip moved %.4f m in-frame; err %.3f -> %.3f"
+				% [before.distance_to(after), before.distance_to(goal),
+				after.distance_to(goal)])
+
+
+## The world position of the creature's distal club.
+func tip_world() -> Vector3:
+	if skeleton == null or _bones.is_empty():
+		return global_position
+	var b: int = _bones[_bones.size() - 1]
+	return skeleton.global_transform * skeleton.get_bone_global_pose(b).origin
+
+
+## §27 — find something worth touching. Cast from the tip into the room and
+## take a real surface, so the creature reaches for the architecture rather
+## than for a number.
+func _pick_target() -> bool:
+	if _space == null:
+		return false
+	# CAST FROM THE ROOT, NOT FROM THE TIP.
+	#
+	# Casting outward from the tip put every target BEYOND full extension: a
+	# limb anchored to a wall can curl, which brings its tip back toward the
+	# root, but it cannot lengthen. Instrumenting the solver showed it exactly
+	# — the tip moved 0.33 m in-frame and the error converged to 0.803 m and
+	# stopped, which is a solver doing its best against an impossible goal.
+	#
+	# The reachable set is a shell around the ROOT, so that is where the rays
+	# start and that is what bounds them.
+	var forward := (global_transform.basis * Vector3.FORWARD).normalized()
+	# From mid-limb, because the root sits 4 cm off a wall and most rays from
+	# there hit that wall inside the dead zone.
+	var from := global_position + forward * 0.55
+	var reach_m: float = 1.55
+	for attempt in 14:
+		var a := float(attempt) / 14.0 * TAU + _seeded
+		var swing := Vector3(cos(a), sin(a * 0.7 + _seeded) * 0.6, sin(a))
+		var dir := (forward * 1.1 + swing).normalized()
+		var q := PhysicsRayQueryParameters3D.create(from, from + dir * reach_m)
+		q.exclude = []
+		var hit: Dictionary = _space.intersect_ray(q)
+		if hit.is_empty():
+			continue
+		# Inside the shell it can actually work in: not against its own root,
+		# not at the very limit of extension.
+		var d: float = global_position.distance_to(hit.position)
+		if d < 0.35 or d > reach_m:
+			continue
+		target = hit.position
+		target_normal = (hit.normal as Vector3).normalized()
+		# Somewhere to slide to once it has made contact, along the surface.
+		var any := Vector3.UP if absf(target_normal.y) < 0.9 else Vector3.RIGHT
+		_caress_dir = any.cross(target_normal).normalized()
+		return true
+	return false
+
+
+## §2 — the state machine. Each state owns how long it lasts and what ends it.
+func _behave(delta: float) -> void:
+	state_clock += delta
+	var tip := tip_world()
+	match state:
+		State.SEEKING:
+			_reach_gain = move_toward(_reach_gain, 1.0, delta * 1.2)
+			# Look for something. If nothing is in reach, keep searching, and
+			# the body falls back to its own sampling motion.
+			if state_clock > 1.2:
+				state_clock = 0.0
+				if _pick_target():
+					_settle = 0.0
+					state = State.APPROACHING
+		State.APPROACHING:
+			var d := tip.distance_to(target)
+			# Commit harder while it is still short, and ease as it arrives —
+			# §9's "Touch": velocity decreases before contact.
+			var want: float = clampf(1.0 + d * 4.0, 1.0, REACH_GAIN_MAX)
+			var rate: float = 1.6 if d > TOUCH_M * 3.0 else 0.5
+			_reach_gain = move_toward(_reach_gain, want, delta * rate)
+			if d < TOUCH_M:
+				contact_point = tip
+				state = State.TOUCHING
+				state_clock = 0.0
+				touched.emit(contact_point, target_normal)
+			elif state_clock > 6.0:
+				state = State.HOVER_INSPECTION
+				state_clock = 0.0
+		State.HOVER_INSPECTION:
+			# It could not reach. Hold near, look at it, then give up.
+			if state_clock > 2.4:
+				state = State.WITHDRAW
+				state_clock = 0.0
+		State.TOUCHING:
+			contact_point = tip
+			if state_clock > 1.1:
+				state = State.CARESSING
+				state_clock = 0.0
+		State.CARESSING:
+			# Trace along the surface rather than pressing into it.
+			target += _caress_dir * delta * 0.09
+			contact_point = tip
+			if state_clock > 3.2:
+				state = State.WITHDRAW
+				state_clock = 0.0
+				released.emit()
+		State.WITHDRAW:
+			_reach_gain = move_toward(_reach_gain, 0.4, delta * 2.0)
+			target = Vector3.INF
+			contact_point = Vector3.INF
+			_settle = maxf(0.0, _settle - delta * 1.4)
+			if state_clock > 1.6:
+				state = State.RESUME
+				state_clock = 0.0
+		State.RESUME:
+			if state_clock > 0.8:
+				state = State.SEEKING
+				state_clock = 0.0
+	_last_tip = tip
+
+
+func state_name() -> String:
+	return ["SEEKING", "APPROACHING", "HOVER_INSPECTION", "TOUCHING",
+			"CARESSING", "WITHDRAW", "RESUME"][state]
+
+
 func _process(delta: float) -> void:
 	_clock += delta
+	_behave(delta)
 	_animate(delta)
+	# The search motion lays down a posture; the solve then steers the tip to
+	# what the creature actually decided to touch. Only while it is reaching:
+	# a limb that is not reaching for anything should not be solving.
+	if state == State.APPROACHING or state == State.TOUCHING 			or state == State.CARESSING:
+		_solve_reach(delta)
 	_animate_eye(delta)
 	for mat in materials:
 		mat.set_shader_parameter("grow", grow)
@@ -278,5 +503,8 @@ func census() -> Dictionary:
 	return {"meshes": meshes.size(), "skinned": skinned,
 			"materials": materials.size(), "grow": grow,
 			"deform_bones": _bones.size(), "eye_bone": _eye_bone,
-			"lid_bones": _lid_bones.size(),
+			"lid_bones": _lid_bones.size(), "state": state_name(),
+			"has_target": target != Vector3.INF,
+			"touching": contact_point != Vector3.INF,
+			"reach_gain": snappedf(_reach_gain, 0.01),
 			"skeleton": skeleton != null}
