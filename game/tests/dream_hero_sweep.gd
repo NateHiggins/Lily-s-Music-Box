@@ -445,6 +445,42 @@ func _modelled_hero_shots() -> void:
 				% [touches[0], closest, seen.keys()])
 		print("[SWEEP] %s" % ["CONTACT WORKS" if touches[0] >= 1
 				else "NEVER TOUCHED — the reach does not arrive"])
+	# THE SALIVA. Its whole point is that it plays a geological history in a
+	# couple of seconds, so one frame proves nothing: this waits for a real
+	# contact and then photographs the SAME patch at intervals across its
+	# life. If the decay reads as opacity going down, that is a failure.
+	if OS.get_environment("SWEEP_RESIDUE") == "1":
+		var res = enc.get("residue")
+		if res == null:
+			printerr("[SWEEP] no residue system")
+			return
+		# By value again — the same trap as the touch counter. Vectors are
+		# not reference types in GDScript either.
+		var caught: Array = []
+		hero.touched.connect(func(w: Vector3, n: Vector3):
+			if caught.is_empty():
+				caught.append(w)
+				caught.append(n))
+		for probe in 400:
+			await get_tree().create_timer(0.1).timeout
+			if not caught.is_empty():
+				break
+		var where: Vector3 = caught[0] if caught.size() > 0 else Vector3.INF
+		var nrm: Vector3 = caught[1] if caught.size() > 1 else Vector3.UP
+		if where == Vector3.INF:
+			printerr("[SWEEP] the hero never touched anything")
+			return
+		print("[SWEEP] residue at %s, census %s" % [where, res.census()])
+		var dir := _view_dir(where, nrm, 0.42)
+		_look_at_from(where + dir * 0.42, where)
+		for i in 8:
+			await get_tree().create_timer(0.45).timeout
+			await RenderingServer.frame_post_draw
+			await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(
+					_dir.path_join("R%d_t%.1f.png" % [i, float(i) * 0.45]))
+			_frame += 1
+		print("[SWEEP] residue life photographed; census %s" % [res.census()])
 	# H1 A/B. The bake is either doing something visible or it is not, and the
 	# only way to know is to photograph the same frame with it off.
 	var ab: String = OS.get_environment("SWEEP_ANATOMY")

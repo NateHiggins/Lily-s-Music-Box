@@ -65,5 +65,16 @@ lamp, at gameplay distance:
 
 ## Status
 
-**Not started.** Recorded here so the ruling is not lost. Depends on the
-modelled hero having contact events at all, which it does not yet.
+**Built, first pass.** `DreamResidue` + `dream_residue.gdshader`, fed by the
+hero's `touched` signal now that H3 gave it contact. Photographed across a
+patch's whole life in `art/renders/dream_saliva/`.
+
+Four of the five demands are served: it propagates as a warped front with a
+bright leading edge; the hue comes from view angle so it moves as you move;
+it is neon and metallic rather than pastel; and the decay is erosion — the
+structural colour dies first, then the substance pits and cracks, leaving a
+holed stain rather than a fade.
+
+**The fifth is barely started.** "Dimensional-breaking properties" currently
+amounts to `dream_w` nudging the hue. The surface it sits on should stop being
+reliably three-dimensional where the goo is thick, and it does not.

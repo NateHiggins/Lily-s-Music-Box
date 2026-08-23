@@ -19,6 +19,7 @@ const SHADER_PATHS := [
 	"res://shaders/dream_tendrils.gdshader",
 	"res://shaders/dream_hero_skin.gdshader",
 	"res://shaders/dream_palp.gdshader",
+	"res://shaders/dream_residue.gdshader",
 	"res://shaders/dream_crystal.gdshader",
 	"res://shaders/dream_cilia.gdshader",
 	"res://shaders/dream_eyelid.gdshader",

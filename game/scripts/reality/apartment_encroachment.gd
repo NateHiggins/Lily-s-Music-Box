@@ -32,6 +32,9 @@ const DreamFieldScript := preload("res://scripts/dream/field/dream_field_control
 const DreamTendrilScript := preload("res://scripts/dream/field/dream_surface_tendrils.gd")
 const DreamHeroScript := preload("res://scripts/dream/entity/dream_hero_tentacle.gd")
 const DreamMarginScript := preload("res://scripts/dream/margin/dream_margin_controller.gd")
+const DreamResidueScript := preload("res://scripts/dream/dream_residue.gd")
+## What the creature leaves on everything it touches (saliva direction).
+var residue: DreamResidue = null
 const DreamPalpRendererScript := preload("res://scripts/dream/margin/dream_palp_renderer.gd")
 ## Level 2 of the ecology: the field's distributed sensory edge.
 var margin: DreamMarginController = null
@@ -219,6 +222,11 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			surface_tendrils = DreamTendrilScript.new()
 			add_child(surface_tendrils)
 			surface_tendrils.setup(dream_field, "tendrils".hash())
+		# THE RESIDUE. Anything that touches a surface feeds this.
+		residue = DreamResidueScript.new()
+		add_child(residue)
+		residue.setup("residue".hash())
+		residue.field = dream_field
 		# THE MARGIN (ecology architecture §4): the Dream field does not end
 		# in a shader fade, it ends in appendages.
 		if OS.get_environment("DREAM_MARGIN") != "0":
@@ -262,6 +270,10 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			var rn := get_parent()
 			if rn != null and ("player" in rn):
 				hero.watch = rn.player
+			# §28: the hero gets the richest transformation.
+			if residue != null:
+				hero.touched.connect(func(where: Vector3, nrm: Vector3):
+					residue.lay(where, nrm, 0.16, 1.0, 3.6))
 	if RealityState.has_signal("state_changed") and not RealityState.state_changed.is_connected(refresh):
 		RealityState.state_changed.connect(refresh)
 	refresh()
