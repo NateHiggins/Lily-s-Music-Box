@@ -47,6 +47,8 @@ var watch: Node3D = null
 ## §22 — the ecology it belongs to. It notices what is near it.
 var critters = null
 var noticing := Vector3.INF
+## §13 — while the whole ecology is looking at one thing, so is it.
+var attention_override := Vector3.INF
 var _eye_bone := -1
 var _lid_bones: PackedInt32Array = PackedInt32Array()
 var _eye_rest: Array[Quaternion] = []
@@ -320,8 +322,13 @@ func _animate_eye(delta: float) -> void:
 		_gaze_hold = 0.7 + fmod(absf(sin(_clock * 9.3 + _seeded * 5.0)) * 2.4, 2.4)
 		# It looks where it is reaching, and at whoever is watching it.
 		var want := _attend
+		# §13 outranks everything, including its own errand.
+		if attention_override != Vector3.INF:
+			want = (attention_override - global_position).normalized()
+			_gaze = want
+			_gaze_hold = 0.25
 		# Something alive and close outranks whatever it was reaching for.
-		if noticing != Vector3.INF:
+		elif noticing != Vector3.INF:
 			want = (noticing - global_position).normalized()
 		# It watches its own hands: whatever it is reaching for gets looked at.
 		elif target != Vector3.INF:

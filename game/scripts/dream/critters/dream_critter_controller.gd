@@ -223,6 +223,7 @@ func _try_spawn() -> void:
 			# §22 — what it is doing about the hero, if anything.
 			"hero_near": 0.0,
 			"toward_hero": false,
+			"attend_override": Vector3.INF,
 		})
 		critter_born.emit(_next_id, String(m.species))
 		_next_id += 1
@@ -259,6 +260,15 @@ func _walk(delta: float) -> void:
 			c.pause = _rng.randf_range(0.6, 2.2) + still * float(m.pause_bias)
 			c.moving = _rng.randf() > (0.55 if int(m.kind)
 					== SpeciesScript.Kind.CRYSTAL_LISTENER else 0.25)
+		# §13 — everything turns toward one thing and stops.
+		if c.get("attend_override", Vector3.INF) != Vector3.INF:
+			var up0: Vector3 = c.up
+			var to_it: Vector3 = (c.attend_override as Vector3) - (c.pos as Vector3)
+			to_it = to_it - up0 * to_it.dot(up0)
+			if to_it.length() > 0.01:
+				c.fwd = (c.fwd as Vector3).lerp(to_it.normalized(),
+						delta * 8.0).normalized()
+			c.moving = false
 		if bool(c.get("moving", true)):
 			var turn: float = float(m.turn_bias) * delta * 0.6
 			var up: Vector3 = c.up

@@ -34,6 +34,9 @@ const DreamHeroScript := preload("res://scripts/dream/entity/dream_hero_tentacle
 const DreamMarginScript := preload("res://scripts/dream/margin/dream_margin_controller.gd")
 const DreamResidueScript := preload("res://scripts/dream/dream_residue.gd")
 const DreamCritterScript := preload("res://scripts/dream/critters/dream_critter_controller.gd")
+const DreamDirectorScript := preload("res://scripts/dream/dream_ecology_director.gd")
+## §31 — what keeps three independent systems from producing incoherent noise.
+var ecology: DreamEcologyDirector = null
 ## Level 3: the animals that live on what the Dream has reached.
 var critters: DreamCritterController = null
 ## What the creature leaves on everything it touches (saliva direction).
@@ -292,6 +295,14 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			if critters != null:
 				critters.hero = hero
 				hero.critters = critters
+		# §31 — the director sees all three levels, so it comes last.
+		ecology = DreamDirectorScript.new()
+		add_child(ecology)
+		ecology.setup("ecology".hash())
+		ecology.margin = margin
+		ecology.critters = critters
+		ecology.hero = hero
+		ecology.field = dream_field
 	if RealityState.has_signal("state_changed") and not RealityState.state_changed.is_connected(refresh):
 		RealityState.state_changed.connect(refresh)
 	refresh()

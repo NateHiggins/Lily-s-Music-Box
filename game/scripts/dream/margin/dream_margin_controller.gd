@@ -239,6 +239,8 @@ func _birth(tier: int, at: Vector3, nrm: Vector3) -> void:
 		"neighbour_count": 0,
 		"joined": -1,
 		"hero_near": 0.0,
+		# §13 — set only while the whole ecology is looking at one thing.
+		"attend_override": Vector3.INF,
 		# Phase 8. A branch is not a new thing: it is anatomy that was already
 		# there, lying folded along its parent. `unfold` 0 means perfectly
 		# coincident with the parent and therefore invisible inside it.
@@ -284,6 +286,12 @@ func _think(delta: float) -> void:
 		if int(p.parent) >= 0 and float(p.unfold) < 1.0:
 			p.unfold = minf(1.0, float(p.unfold) + delta * 0.75)
 		var want: Vector3 = BehaviorScript.desired_tip(p, _clock)
+		# §13 overrides local intent, which is the entire point of it: a
+		# margin that merely leaned toward the stimulus would read as weather.
+		if p.attend_override != Vector3.INF:
+			var to_it: Vector3 = (p.attend_override as Vector3) - (p.anchor as Vector3)
+			if to_it.length() > 0.01:
+				want = (p.anchor as Vector3) + to_it.normalized() 						* float(p.morph.length) * 0.9
 		# The tip eases toward what it wants rather than teleporting: the
 		# stiffer the organ, the more directly it gets there.
 		var rate: float = 4.0 + 9.0 * float(p.morph.stiffness)
@@ -479,6 +487,11 @@ func try_branch(id: int) -> bool:
 			"neighbour_count": 0, "joined": -1, "hero_near": 0.0,
 			"parent": id, "unfold": 0.0, "children": 0,
 			"spread": spread,
+			# Branches are built here rather than in _birth, so every field
+			# the rest of the system expects has to be repeated -- this one
+			# was not, and a branch that unfolded during a global attention
+			# event had no such key at all.
+			"attend_override": Vector3.INF,
 		})
 		_next_id += 1
 	parent.children = n
