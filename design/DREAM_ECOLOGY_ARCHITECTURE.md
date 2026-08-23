@@ -590,7 +590,12 @@ Contracts: field 16/16, margin 31/31, critters 29/29, ecology 23/23.
 - §12's twelve-step branch sequence has its middle six; vascular congestion,
   gold repositioning and the visible crease are shader work.
 - §21's habitat list has three of ten behaviours.
-- §22 has the critters' half; the hero looks but does not yet nudge.
+- §22 — DONE except for the last clause. The hero's club now reaches the
+  animal it is minding and pushes it for real, the animal answers by putting
+  its sensory structures out, and nearby palps turn to watch. What is not
+  built is "the hero allows it onto another section": a critter riding the
+  creature's body needs the critter to be seated on a moving surface, which
+  the surface-walk does not do.
 - The hero itself still owes albedo/normal bakes and eight of §2's states.
 
 ## Where this lands against existing work

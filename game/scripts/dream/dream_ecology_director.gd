@@ -183,6 +183,9 @@ func seize_attention(at: Vector3) -> void:
 
 func _take(p: Dictionary, at: Vector3) -> void:
 	p.attend_override = at
+	# The director owns this override now; §22's local look must not release
+	# it out from under the event.
+	p.local_look = false
 	p.act = 7        # WATCH
 	p.act_clock = 0.0
 	p.act_left = HOLD_S + 4.0

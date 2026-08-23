@@ -228,6 +228,10 @@ func _try_spawn() -> void:
 			# §22 — what it is doing about the hero, if anything.
 			"hero_near": 0.0,
 			"toward_hero": false,
+			# §22 — sensory structures put out toward the hero. This is the
+			# critter's HALF OF A CONVERSATION: the hero's club touches it and
+			# it answers by unfolding, which is the whole of the beat.
+			"unfold": 0.0,
 			"attend_override": Vector3.INF,
 			# Distance covered by its OWN locomotion, excluding being shoved
 			# or fleeing. §32's bias governs walking, so that is what has to
@@ -377,6 +381,47 @@ func _consider_the_hero(c: Dictionary, delta: float) -> void:
 			c.toward_hero = true
 
 
+## §22 — THE HERO'S CLUB TOUCHES AN ANIMAL, AND THE ANIMAL ANSWERS.
+##
+##     "A tiny critter clings to a hero gold plate; the hero eye notices it;
+##      the distal club nudges it; the critter unfolds sensory structures."
+##
+## THIS IS NOT THE PALP SHOVE WEARING A DIFFERENT NAME, and the difference is
+## the entire point of the beat. A primary palp is several times a critter's
+## size and does not notice it is there: that push is oblivious, and a jumpy
+## individual freezes at it. This one is deliberate. The creature looked at
+## this animal first and then reached for it, so what comes back is not alarm
+## but attention -- the critter puts its sensory structures OUT, toward the
+## thing that touched it. §22 asks for interactions that create character
+## without dialogue, and a startle and a greeting are the same displacement
+## with two different answers.
+##
+## Returns the critter it found, so the caller knows whether the beat happened.
+func nudged_by_hero(at: Vector3, from: Vector3, delta: float) -> Dictionary:
+	var best: Dictionary = {}
+	var best_d := 0.30
+	for c in critters:
+		var d: float = at.distance_to(c.pos)
+		if d < best_d:
+			best_d = d
+			best = c
+	if best.is_empty():
+		return {}
+	var away: Vector3 = (best.pos as Vector3) - from
+	away = away - (best.up as Vector3) * away.dot(best.up)
+	if away.length() > 0.001:
+		# Gentler than the palp's shove, and re-seated the same way -- an
+		# animal the hero can knock off the wall is not being minded.
+		_step_along_surface(best, away.normalized() * delta * 0.07)
+	best.unfold = 1.0
+	best.nudged = 0.5
+	# It stops to attend. A brave one holds its ground, which is §22's other
+	# example: the hero examines the individual that did not flee.
+	if float(best.morph.confidence) < 0.45:
+		best.moving = false
+	return best
+
+
 ## §21 — THE MARGIN IS HABITAT.
 ##
 ##     "Critters should use the Dream margin as habitat ... This turns the
@@ -389,6 +434,9 @@ func _consider_the_hero(c: Dictionary, delta: float) -> void:
 ## not exist.
 func _use_the_margin(c: Dictionary, delta: float) -> void:
 	c.nudged = maxf(0.0, float(c.nudged) - delta)
+	# Sensory structures fold back slowly. Faster than they came out would
+	# read as a flinch, and a flinch is what this deliberately is not.
+	c.unfold = maxf(0.0, float(c.unfold) - delta * 0.28)
 	c.feeding = false
 	var m: Dictionary = c.morph
 	var pos: Vector3 = c.pos
@@ -564,7 +612,8 @@ func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
 				float(m.get("perfusion", 0.6)), float(m.get("wetness", 0.6)),
 				float(m.get("iridescence", 0.3)))
 		_law[i] = Vector4(float(c.get("spin", 0.0)),
-				float(int(c.get("fold_leg", -1))), float(c.get("fold", 0.0)), 0.0)
+				float(int(c.get("fold_leg", -1))), float(c.get("fold", 0.0)),
+				float(c.get("unfold", 0.0)))
 		_size[i] = Vector4(float(m.length), float(m.wide), float(m.tall),
 				float(int(m.seed) % 97) * 0.041)
 		_matter[i] = Vector4(float(m.gold), float(m.crystal), float(m.cilia),
@@ -588,6 +637,10 @@ func census() -> Dictionary:
 			twinned += 1
 		if float(c.get("fold", 0.0)) > 0.05:
 			folding += 1
+	var unfolded := 0
+	for c in critters:
+		if float(c.get("unfold", 0.0)) > 0.05:
+			unfolded += 1
 	var nudged := 0
 	var following := 0
 	var feeding := 0
@@ -606,7 +659,8 @@ func census() -> Dictionary:
 			brave += 1
 	return {"live": critters.size(), "born": _next_id, "species": by_species,
 			"max": MAX_LIVE, "on_both_sides": twinned, "folding_a_leg": folding,
-			"nudged_by_a_palp": nudged, "following_a_palp": following,
+			"nudged_by_a_palp": nudged, "unfolding_at_the_hero": unfolded,
+			"following_a_palp": following,
 			"feeding_on_residue": feeding,
 			"feel_hero": feel_hero, "approaching_hero": brave}
 

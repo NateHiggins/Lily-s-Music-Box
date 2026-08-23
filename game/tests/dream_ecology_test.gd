@@ -193,7 +193,92 @@ func _run() -> void:
 	_check("the whole event ends and autonomy returns",
 			dir.attending == Vector3.INF)
 	print("[ecology] %s" % [dir.census()])
+	await _hero_touches_an_animal(margin, critters, hero)
 	_finish()
+
+
+## §22 — THE HERO'S CLUB TOUCHES AN ANIMAL AND THE ANIMAL ANSWERS.
+##
+## CONSTRUCTED, NOT WAITED FOR. The beat needs a critter within 18 cm of the
+## club at the moment the creature is minding it, which in an unforced run is
+## a coincidence of two independent wanderings -- an assertion that waits for
+## it is an assertion that fails on the days it does not happen. So the
+## situation is built: an animal is placed against the club and the state is
+## entered by hand. What is under test is what the systems then do, which is
+## the part that would be broken by a real defect.
+func _hero_touches_an_animal(margin, critters, hero) -> void:
+	if critters == null or hero == null or critters.critters.is_empty():
+		_check("§22 there is an animal and a hero to test with", false)
+		return
+	# --- THE PUSH ITSELF, ON AN ANIMAL THAT IS ACTUALLY STANDING SOMEWHERE ---
+	#
+	# Tested where the critter already is, rather than somewhere convenient.
+	# A nudge is re-seated by a ray cast down at the destination, so an animal
+	# moved into the middle of a room first has nothing to be nudged along --
+	# the first version of this test put one at the club, which is out in the
+	# air, and read a working push as a broken one. The push direction is
+	# taken tangent to the animal's own surface for the same reason.
+	var c: Dictionary = critters.critters[0]
+	c.unfold = 0.0
+	var before: Vector3 = c.pos
+	var found: Dictionary = critters.nudged_by_hero(
+			c.pos, (c.pos as Vector3) - (c.fwd as Vector3) * 0.12, 0.2)
+	_check("§22 the club finds the animal nearest what it is minding",
+			not found.is_empty())
+	_check("§22 and the animal answers by unfolding its sensory structures (%.2f)"
+			% float(c.get("unfold", 0.0)), float(c.get("unfold", 0.0)) > 0.5)
+	_check("§22 the nudge is a real displacement, not an animation (%.1f mm)"
+			% (before.distance_to(c.pos) * 1000.0),
+			before.distance_to(c.pos) > 0.0002)
+
+	# --- AND THE HERO ACTUALLY REACHES FOR IT --------------------------------
+	var club: Vector3 = hero.tip_world()
+	c.pos = club
+	hero._minding = c.pos
+	hero._nudged_one = false
+	hero.state = 16                       # INTERACT_CRITTER
+	hero.state_clock = 0.0
+	var was: int = int(hero.nudged_critters)
+	for _f in 30:
+		await get_tree().process_frame
+		if int(hero.nudged_critters) > was:
+			break
+	_check("§22 the hero's club actually nudges the animal it is minding",
+			int(hero.nudged_critters) > was)
+	# ONE PER MEETING. A club resting against an animal is not nudging it
+	# sixty times a second, and a counter that says it is would make the
+	# rarest interaction in the ecology look like a machine gun.
+	var after_first: int = int(hero.nudged_critters)
+	for _f in 20:
+		await get_tree().process_frame
+	_check("§22 and it happens once per meeting, not once per frame (%d)"
+			% (int(hero.nudged_critters) - after_first),
+			int(hero.nudged_critters) == after_first)
+	if margin != null and not margin.palps.is_empty():
+		# WHETHER THE NEIGHBOURS CAN TURN, tested at a palp that is definitely
+		# in range. The margin may legitimately have nobody within ninety
+		# centimetres of wherever the club happens to be, and an assertion
+		# about the club's actual surroundings would be an assertion about
+		# where two wanderings met.
+		var witness: Dictionary = margin.palps[0]
+		witness.attend_override = Vector3.INF
+		witness.local_look = false
+		var turned: int = margin.orient_nearby(witness.anchor, 0.9)
+		_check("§22 nearby palps orient toward the interaction (%d turned)"
+				% turned, turned >= 1
+				and witness.get("attend_override", Vector3.INF) != Vector3.INF)
+		for p in margin.palps:
+			if bool(p.get("local_look", false)):
+				p.act_left = 0.0
+		await get_tree().process_frame
+		await get_tree().process_frame
+		var stuck := 0
+		for p in margin.palps:
+			if bool(p.get("local_look", false)):
+				stuck += 1
+		_check("§22 a local look releases itself when the act ends (%d stuck)"
+				% stuck, stuck == 0)
+	print("[ecology] hero %s" % [hero.census()])
 
 
 func _finish() -> void:

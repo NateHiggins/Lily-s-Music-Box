@@ -96,6 +96,11 @@ var _startle := 0.0
 var margin = null
 var _palps_on_me := 0
 var _minding := Vector3.INF
+## Whether this particular encounter has already had its nudge. One per
+## meeting: a club resting against an animal is not nudging it repeatedly.
+var _nudged_one := false
+## How many animals it has actually touched, for the contract.
+var nudged_critters := 0
 ## Its own clock for noticing the margin. Gating this on `state_clock` meant
 ## gating it on how long the CURRENT state had run -- which resets on every
 ## transition, so a threshold of three seconds was almost never reached and
@@ -618,6 +623,7 @@ func _interrupt(delta: float) -> bool:
 				_minding = c.pos
 				state = State.INTERACT_CRITTER
 				state_clock = 0.0
+				_nudged_one = false
 				return true
 	if _player_near(2.2) and state != State.WATCH_PLAYER 			and state != State.INTERACT_CRITTER:
 		state = State.WATCH_PLAYER
@@ -693,11 +699,31 @@ func _behave(delta: float) -> void:
 				state = State.SEEKING
 				state_clock = 0.0
 		State.INTERACT_CRITTER:
-			# §22 — it minds the animal, and its club moves toward it. The
-			# nudge is a real displacement, not an animation: the critter
-			# controller feels this as a push.
+			# §22 — it minds the animal, and its club moves toward it. THE
+			# NUDGE IS A REAL DISPLACEMENT, NOT AN ANIMATION: the critter
+			# controller feels this as a push, and answers by putting its
+			# sensory structures out. This comment stood over an empty state
+			# for a while, describing a beat that never happened.
 			if _minding != Vector3.INF:
 				target = _minding
+				var club := tip_world()
+				# Only once the club has actually ARRIVED. Nudging from across
+				# the room would be the creature acting at a distance, which
+				# is the one thing this beat must not look like.
+				if club.distance_to(_minding) < 0.18 					and critters != null and is_instance_valid(critters):
+					var touched_c: Dictionary = critters.nudged_by_hero(
+							_minding, club, delta)
+					if not touched_c.is_empty():
+						# Follow it: a nudged animal moves, and a creature
+						# that kept reaching for where it used to be is not
+						# looking at it.
+						_minding = touched_c.pos
+						if not _nudged_one:
+							_nudged_one = true
+							nudged_critters += 1
+							# §22's last clause: the neighbours notice.
+							if margin != null and is_instance_valid(margin):
+								margin.orient_nearby(_minding, 0.9)
 			if state_clock > 2.4:
 				_minding = Vector3.INF
 				state = State.SEEKING
@@ -959,6 +985,7 @@ func census() -> Dictionary:
 			skinned += 1
 	return {"meshes": meshes.size(), "skinned": skinned,
 			"rider_motion": snappedf(rider_motion, 0.0001),
+			"nudged_critters": nudged_critters,
 			"materials": materials.size(), "grow": grow,
 			"deform_bones": _bones.size(), "eye_bone": _eye_bone,
 			"lid_bones": _lid_bones.size(), "state": state_name(),

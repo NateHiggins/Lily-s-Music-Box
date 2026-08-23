@@ -273,6 +273,14 @@ func _think(delta: float) -> void:
 		p.act_clock += delta
 		p.act_left -= delta
 		if p.act_left <= 0.0:
+			# A LOCAL LOOK ENDS BY ITSELF. §22's orientation borrows the same
+			# override the director uses, and the director clears it in its own
+			# release pass -- which only runs during an attention event. A palp
+			# that turned to watch the hero touch a critter would otherwise
+			# have stared at that spot for the rest of its life.
+			if bool(p.get("local_look", false)):
+				p.attend_override = Vector3.INF
+				p.local_look = false
 			# §32 — the area state biases how long things are done for and how
 			# readily attention is given, without commanding any of it.
 			var bias: Dictionary = director.bias() if director != null else {}
@@ -580,6 +588,31 @@ func _birth_specific(tier: int, at: Vector3, nrm: Vector3, archetype: int) -> vo
 
 
 ## Facts for the contract.
+## §22's last clause: NEARBY PALPS ORIENT TOWARD THE INTERACTION.
+##
+## Only the ones close enough to have felt it, and only by turning to look --
+## this is not the director's seizure, which takes the whole ecology at once
+## and is meant to be rare. A handful of appendages near a thing that just
+## happened, turning toward it, is what makes the margin read as aware of its
+## own neighbourhood rather than as scenery that occasionally animates.
+func orient_nearby(at: Vector3, radius: float = 0.9) -> int:
+	var turned := 0
+	for p in palps:
+		# Never override the director. If the whole ecology is already
+		# attending to something, a local event does not get to redirect it.
+		if p.get("attend_override", Vector3.INF) != Vector3.INF:
+			continue
+		if (p.anchor as Vector3).distance_to(at) > radius:
+			continue
+		p.attend_override = at
+		p.local_look = true
+		p.act = BehaviorScript.Act.WATCH
+		p.act_clock = 0.0
+		p.act_left = 1.4 + float(p.traits.curiosity) * 1.6
+		turned += 1
+	return turned
+
+
 func census() -> Dictionary:
 	var by_tier := [0, 0, 0]
 	var by_kind := {}

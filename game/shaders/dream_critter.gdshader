@@ -158,15 +158,29 @@ void vertex() {
 		}
 		float t = (index + 0.5) / n;
 		float spread = (t - 0.5) * 2.4;
-		float len = size.x * (pos.w > 0.5 ? 1.15 : 0.55) * (0.5 + 0.5 * matter.z);
+		// §22 — UNFOLDING AT THE HERO. law.w is how far this individual has
+		// put its sensory structures out toward the thing that just touched
+		// it. This is the critter's half of the conversation and the only
+		// part of it a player can see, so it is a real change of anatomy --
+		// the feelers lengthen by half again and rise off the surface -- and
+		// not a colour flash or a wobble.
+		float out_at = law.w;
+		float len = size.x * (pos.w > 0.5 ? 1.15 : 0.55) * (0.5 + 0.5 * matter.z)
+				* (1.0 + out_at * 0.55);
 		// A listener's cilia stand up and outward; a crawler's comb lies
-		// forward along the surface it is tasting.
+		// forward along the surface it is tasting. Unfolded, BOTH come up and
+		// fan wider -- a comb that stays flat on the wall has not answered.
 		vec3 dir = pos.w > 0.5
 				? normalize(up * 1.4 + side * spread + fwd * 0.3)
 				: normalize(fwd * 1.2 + side * spread * 0.8 - up * 0.15);
+		dir = normalize(mix(dir, normalize(up * 1.5 + side * spread * 1.5
+				+ fwd * 0.25), out_at));
 		vec3 base = fwd * size.x * (pos.w > 0.5 ? 0.0 : 0.42) + side * spread * size.y * 0.3;
 		// They wave, slowly, and each on its own phase.
-		float wave = sin(TIME * (1.6 + matter.z * 2.0) + t * 9.0 + seed) * 0.16 * along;
+		// And they go still while they are out. A structure held out to taste
+		// something does not wave about.
+		float wave = sin(TIME * (1.6 + matter.z * 2.0) + t * 9.0 + seed)
+				* 0.16 * along * (1.0 - out_at * 0.75);
 		vec3 p = base + dir * (len * along) + side * wave * len;
 		float thick = size.y * 0.014 * (1.0 - 0.7 * along);
 		local = p + ring_offset(dir, nrm, thick);
