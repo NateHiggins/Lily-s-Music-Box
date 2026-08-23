@@ -99,7 +99,7 @@ func _run() -> void:
 	_look_at_from(ANCHOR + Vector3(1.4, -0.2, 0.5), ANCHOR)
 	await get_tree().create_timer(warm).timeout
 	_tentacle = _find_tentacle()
-	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled", "margin", "archetypes", "critters"]):
+	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled", "margin", "archetypes", "critters", "ecology"]):
 		printerr("[SWEEP] no tentacle — nothing to photograph")
 		get_tree().quit(1)
 		return
@@ -130,6 +130,8 @@ func _run() -> void:
 		await _archetype_row()
 	elif mode == "critters":
 		await _critter_shots()
+	elif mode == "ecology":
+		await _ecology_capture()
 	else:
 		await _sweep()
 	print("[SWEEP] DONE %d frames -> %s" % [_frame, _dir])
@@ -704,7 +706,7 @@ func _archetype_row() -> void:
 		return
 	# A real wall in the lit flat, found rather than guessed.
 	var space := get_viewport().find_world_3d().direct_space_state
-	var from := Vector3(-9.6, 4.55, 3.4)
+	var from := Vector3(-9.6, 4.60, 3.9)   # inside 2A main
 	var found := {}
 	for step in 16:
 		var a := float(step) / 16.0 * TAU
@@ -831,3 +833,201 @@ func _critter_shots() -> void:
 			get_viewport().get_texture().get_image().save_png(
 					_dir.path_join("C%d_%s_%s.png" % [idx, species, str(shot[0])]))
 			_frame += 1
+
+
+## §34 — THE CANONICAL DREAM ECOLOGY CAPTURE.
+##
+## One encroached flat, all three levels at once, under the player's own lamp,
+## for twenty seconds. The point is not any single organism: it is that the
+## hero, the margin and the critters are visibly the same biology at three
+## resolutions, behaving independently -- and then, once, not independently.
+##
+## It logs a beat sheet of what actually happened rather than what was
+## intended, because a capture that claims sixteen behaviours and shows four
+## is worse than one that shows four and says so.
+func _ecology_capture() -> void:
+	var enc: Node = root.get("apartment_encroachment")
+	var margin = enc.get("margin")
+	var critters = enc.get("critters")
+	var hero = enc.get("hero")
+	var director = enc.get("ecology")
+	var residue = enc.get("residue")
+	if margin == null or critters == null or hero == null or director == null:
+		printerr("[SWEEP] the ecology is not fully present")
+		return
+	var fps := 24
+	var seconds := float(OS.get_environment("SWEEP_SECONDS").to_float())
+	if seconds < 1.0:
+		seconds = 20.0
+	var frames := int(fps * seconds)
+	# Frame the hero's own stretch of wall: it is the largest thing here and
+	# the margin grows thickest around it.
+	# PLACE THE HERO DELIBERATELY. Its own rule -- take the first vertical
+	# surface a ray finds -- is right for play and wrong for a review: it put
+	# the creature inside a glass door and behind panelling, and a canonical
+	# capture should not be a lottery. Choose the wall in this flat with the
+	# most clear room in front of it, exactly as §37's archetype row does.
+	var space := get_viewport().find_world_3d().direct_space_state
+	var from := Vector3(-9.6, 4.55, 3.4)
+	var best_wall := {}
+	var best_clear := 0.0
+	for step in 24:
+		var a := float(step) / 24.0 * TAU
+		var d := Vector3(cos(a), 0.0, sin(a))
+		var q := PhysicsRayQueryParameters3D.create(from, from + d * 6.0)
+		var hit: Dictionary = space.intersect_ray(q)
+		if hit.is_empty():
+			continue
+		var nrm2: Vector3 = (hit.normal as Vector3).normalized()
+		if absf(nrm2.y) > 0.35:
+			continue
+		# How much open room is in front of this wall -- and is that room
+		# INSIDE the flat? A boundary wall's outward normal points into the
+		# landing, which is four clear metres of somewhere else entirely, and
+		# that is where the camera kept ending up.
+		var out_from: Vector3 = (hit.position as Vector3) + nrm2 * 0.08
+		var probe_in: Vector3 = (hit.position as Vector3) + nrm2 * 1.2
+		if probe_in.x < -13.45 or probe_in.x > -5.75 				or probe_in.z < 0.65 or probe_in.z > 6.05:
+			continue
+		var q2 := PhysicsRayQueryParameters3D.create(out_from, out_from + nrm2 * 4.0)
+		var block: Dictionary = space.intersect_ray(q2)
+		var clear: float = 4.0 if block.is_empty() 				else out_from.distance_to(block.position)
+		if clear > best_clear:
+			best_clear = clear
+			best_wall = {"pos": hit.position, "nrm": nrm2}
+	if not best_wall.is_empty():
+		# MOVE it, do not set it up again: setup() instantiates a fresh glTF
+		# and appends to the mesh list, so calling it twice leaves two
+		# creatures in the room and a census that counts both.
+		var at: Vector3 = (best_wall.pos as Vector3) + (best_wall.nrm as Vector3) * 0.04
+		var aim: Vector3 = best_wall.nrm
+		var up_hint := Vector3.UP if absf(aim.y) < 0.9 else Vector3.RIGHT
+		hero.look_at_from_position(at, at + aim, up_hint)
+		# And make sure it is PRESENT. It cycles through cross-sectional
+		# withdrawal on every third departure, and while absent its shader
+		# discards every fragment -- a capture that began mid-withdrawal
+		# photographed an empty room with the camera 0.67 m from the creature.
+		hero.state = 0                # SEEKING
+		hero.state_clock = 0.0
+		hero.slice_close = 0.0
+		print("[SWEEP] hero moved to the clearest wall (%.2f m of room) at %s"
+				% [best_clear, at])
+		await get_tree().create_timer(2.0).timeout
+
+	# Frame the limb from the side it emerges INTO. Orbiting the root put the
+	# camera against the wall the hero comes out of, looking at bare panelling
+	# with the entire ecology behind it.
+	var outward: Vector3 = -(hero.global_transform.basis.z).normalized()
+	var focus: Vector3 = hero.global_position + outward * 0.55
+	var up_h := Vector3.UP
+	var across: Vector3 = outward.cross(up_h).normalized()
+	var seen := {"branch": false, "attention": false, "twin": false,
+			"fold": false, "residue": false, "brave": false, "shoved": false}
+	print("[SWEEP] ecology capture: %d frames at %d fps" % [frames, fps])
+	print("[SWEEP]   hero at %s, outward %s, focus %s"
+			% [hero.global_position, outward, focus])
+	var probe_eye: Vector3 = focus + outward * 2.25 + Vector3(0.0, 0.30, 0.0)
+	print("[SWEEP]   first eye would be %s" % probe_eye)
+	var glo := Vector3(1e9, 1e9, 1e9)
+	var ghi := Vector3(-1e9, -1e9, -1e9)
+	for mi in hero.meshes:
+		var b: AABB = (mi as MeshInstance3D).global_transform 				* (mi as MeshInstance3D).get_aabb()
+		glo = glo.min(b.position)
+		ghi = ghi.max(b.end)
+	print("[SWEEP]   hero GEOMETRY spans %s .. %s (%d meshes)"
+			% [glo, ghi, hero.meshes.size()])
+	for f in frames:
+		var t := float(f) / float(fps)
+		# A slow arc past the wall, ending closer than it began.
+		var swing := sin(t * 0.22) * 0.85
+		# 2.25 m put a partition between the camera and the creature: the
+		# archetype row photographs this same wall from about 1.5 m and the
+		# obstruction sits somewhere between. Stay inside it.
+		var dist := 1.75 - t * 0.020
+		# Ask for a direction that can actually SEE the creature. Computing a
+		# stand-off from the wall normal alone put the camera on the far side
+		# of a partition -- the arithmetic was right and the room was not.
+		# _view_dir raycasts, which is why the other capture modes work.
+		var want_dir: Vector3 = (outward + across * (swing / maxf(0.2, dist))
+				+ Vector3(0.0, 0.13, 0.0)).normalized()
+		# A stand that is INSIDE THE ROOM and can SEE the creature. _view_dir
+		# alone samples the whole sphere and will happily choose a clear line
+		# from outside the building, which is where the last attempt ended up.
+		var eye: Vector3 = _stand_in_room(focus, want_dir, dist)
+		# Something else takes the camera back during this mode -- the frames
+		# came out as the ordinary player view, nameplate and all, while the
+		# sweep camera sat exactly where it had been told to. Re-assert it.
+		if not cam.current:
+			cam.make_current()
+			root.view_override = cam
+		_look_at_from(eye, focus)
+		# §13 once, at the two-thirds mark, so there is an independent ecology
+		# to interrupt and time left to watch autonomy come back.
+		if f == int(frames * 0.62):
+			director.seize_attention(focus + Vector3(0.35, 0.1, 0.0))
+			print("[SWEEP] t=%.1f  GLOBAL ATTENTION" % t)
+		var mc: Dictionary = margin.census()
+		var cc: Dictionary = critters.census()
+		if int(mc.get("branches", 0)) > 0:
+			seen.branch = true
+		if director.attending != Vector3.INF:
+			seen.attention = true
+		if int(cc.get("on_both_sides", 0)) > 0:
+			seen.twin = true
+		if int(cc.get("folding_a_leg", 0)) > 0:
+			seen.fold = true
+		if int(cc.get("approaching_hero", 0)) > 0:
+			seen.brave = true
+		if int(cc.get("nudged_by_a_palp", 0)) > 0:
+			seen.shoved = true
+		if residue != null and int(residue.census().get("live", 0)) > 0:
+			seen.residue = true
+		await RenderingServer.frame_post_draw
+		if f == 12:
+			var active := get_viewport().get_camera_3d()
+			print("[SWEEP]   hero state %s slice %.2f"
+					% [hero.state_name(), hero.slice_close])
+			print("[SWEEP]   at frame 12 cam is at %s; the ACTIVE camera is "
+					% cam.global_position
+					+ "%s at %s" % [active.name if active != null else "<none>",
+					active.global_position if active != null else Vector3.ZERO])
+		get_viewport().get_texture().get_image().save_png(
+				_dir.path_join("eco_%04d.png" % f))
+		_frame += 1
+	print("[SWEEP] BEAT SHEET (what actually happened, not what was intended):")
+	for k in seen:
+		print("[SWEEP]   %-10s %s" % [k, "yes" if seen[k] else "NO"])
+	print("[SWEEP] margin %s" % [margin.census()])
+	print("[SWEEP] critters %s" % [critters.census()])
+
+
+## A camera position that satisfies both constraints at once: inside the
+## flat, and with an unobstructed line to what it is looking at. Neither on
+## its own is enough -- clear line of sight from the wrong side of a wall is
+## how three separate attempts at this shot ended up in a stairwell, in a
+## glass door, and outdoors at night.
+func _stand_in_room(target: Vector3, prefer: Vector3, dist: float) -> Vector3:
+	var lo := Vector3(-13.30, 3.60, 0.80)
+	var hi := Vector3(-5.90, 5.90, 5.90)
+	var space := get_viewport().find_world_3d().direct_space_state
+	var best := target + prefer * dist
+	var best_score := -1.0
+	for i in 40:
+		var cand: Vector3
+		if i == 0:
+			cand = target + prefer * dist
+		else:
+			var a := float(i) / 40.0 * TAU
+			var lift := 0.10 + 0.35 * float(i % 3) / 3.0
+			var d := (prefer + Vector3(cos(a), lift, sin(a)) * 0.9).normalized()
+			cand = target + d * dist
+		if cand.x < lo.x or cand.y < lo.y or cand.z < lo.z 				or cand.x > hi.x or cand.y > hi.y or cand.z > hi.z:
+			continue
+		var q := PhysicsRayQueryParameters3D.create(cand, target)
+		if not space.intersect_ray(q).is_empty():
+			continue
+		var score: float = prefer.dot((cand - target).normalized())
+		if score > best_score:
+			best_score = score
+			best = cand
+	return best

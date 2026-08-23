@@ -94,11 +94,18 @@ func _run() -> void:
 	# "At the same instant" is the whole beat, so it is measured on the very
 	# next frame rather than after a settling period.
 	var at := Vector3(-9.0, 4.5, 3.5)
-	var palps_before: int = margin.palps.size()
-	var critters_before: int = critters.critters.size()
+	# HOLD THE POPULATION STILL FOR THE MEASUREMENT. The margin spawns
+	# continuously, so comparing a seized count against a count taken a moment
+	# earlier is a race -- and waiting longer made it worse, because waiting
+	# is exactly what gives it time to spawn. The question is not "were the
+	# palps that existed a moment ago seized" but "is every palp alive right
+	# now attending", which is what the beat requires.
+	margin.frozen = true
+	await get_tree().physics_frame
 	dir.seize_attention(at)
 	await get_tree().process_frame
-	await get_tree().process_frame
+	var palps_before: int = margin.palps.size()
+	var critters_before: int = critters.critters.size()
 	var held_palps := 0
 	for p in margin.palps:
 		if p.attend_override != Vector3.INF:
@@ -117,6 +124,7 @@ func _run() -> void:
 	_check("and the hero", hero.attention_override != Vector3.INF)
 	_check("all of them are looking at the SAME point",
 			margin.palps.is_empty() or margin.palps[0].attend_override == at)
+	margin.frozen = false
 
 	# --- §13: AND THE RELEASE IS ASYNCHRONOUS ----------------------------
 	# A coordinated release would read as a machine switching off rather than
