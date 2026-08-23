@@ -426,6 +426,35 @@ func _modelled_hero_shots() -> void:
 		printerr("[SWEEP] no modelled hero — run with DREAM_HERO=1")
 		return
 	print("[SWEEP] hero census %s" % [hero.census()])
+	# H6 — CROSS-SECTIONAL WITHDRAWAL. Force it and photograph the whole
+	# event from one fixed camera, so the frames can be measured afterwards.
+	# The signature is that the limb's LENGTH does not change while its
+	# THICKNESS goes to nothing: it did not leave, it stopped having a cross
+	# section.
+	if OS.get_environment("SWEEP_SLICE") == "1":
+		var lo := Vector3(1e9, 1e9, 1e9)
+		var hi := Vector3(-1e9, -1e9, -1e9)
+		for mi in hero.meshes:
+			var box: AABB = (mi as MeshInstance3D).global_transform 					* (mi as MeshInstance3D).get_aabb()
+			lo = lo.min(box.position)
+			hi = hi.max(box.end)
+		var mid: Vector3 = (lo + hi) * 0.5
+		var span: float = (hi - lo).length()
+		var dir := _view_dir(mid, Vector3.FORWARD, span * 0.85)
+		_look_at_from(mid + dir * span * 0.85, mid)
+		await get_tree().create_timer(0.5).timeout
+		hero.state = 7   # CROSS_SECTION_WITHDRAW
+		hero.state_clock = 0.0
+		print("[SWEEP] forcing cross-sectional withdrawal")
+		for i in 12:
+			await get_tree().create_timer(0.22).timeout
+			await RenderingServer.frame_post_draw
+			await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(
+					_dir.path_join("S%02d_close%.2f.png" % [i, hero.slice_close]))
+			_frame += 1
+		print("[SWEEP] slice_close reached %.3f, state %s"
+				% [hero.slice_close, hero.state_name()])
 	# §12 — DOES THE FLESH LAG THE BONE? A creature whose every joint arrives
 	# at once has no mass in it. The distal third should run further behind
 	# the intent than the root, which is held by the collar.

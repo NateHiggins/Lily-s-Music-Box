@@ -70,10 +70,13 @@ lids run on separate clocks, the nictitating membrane faster than the other
 two, because three lids moving together are one lid. Measured across two runs
 at 0.73-0.93 rad of gaze and 0.75-0.83 rad of lid.
 
-### H6. No hyperdimensional event
-§1 lists "special hyperdimensional events" as hero-owned. It has none. The
-field's cross-sectional withdrawal exists in `DreamFieldState` and the hero
-does not use it.
+### H6. Hyperdimensional event — DONE
+**Cross-sectional withdrawal.** It does not retract, shrink toward its root or
+fade: its cross-section closes everywhere along its length at the same instant
+while its length does not change. `r_visible = sqrt(r² − w²)` — the field's own
+law applied to the hero's body. Fires on every third ordinary withdrawal, so
+most departures are unremarkable and this one is not. Measured and
+photographed in `art/renders/dream_tentacle/cross_section/`.
 
 ### H7. No corrective shape keys
 Extreme poses pass the clearance gate on penetration and collision, but
@@ -96,8 +99,11 @@ for the shot and the fiction.
 
 ## Recommended order
 
-H1, H3, H5 done; H2 and H4 partly. **H6** (a signature hyperdimensional
-event) is the only §26 test the hero still outright fails: contact first, because §2's
+H1, H3, H5, H6 done; H2 and H4 partly. The hero no longer outright fails any
+§26 test. What remains is depth rather than absence: **H4's** unfinished
+layers (gold reseating, cilia springs, sucker compression), **H2's** eight
+unbuilt states — most of which need the margin and critters to interact with
+— and **H1's** albedo/normal bakes: contact first, because §2's
 interesting states (`TOUCHING`, `CARESSING`, `TASTING`) are meaningless
 without it and it is the hard prerequisite for
 `DREAM_SALIVA_DIRECTION.md`; then the state machine those states belong to;
@@ -117,7 +123,8 @@ Against §26, updated as work lands:
 - **Materials** — partly. Geometry facts are baked (AO, curvature,
   thickness) and visibly separate the flesh from itself; albedo, normal and
   detail normal are still procedural, and no rider is baked at all.
-- **Hyperdimensionality** — still fails. No signature impossible event.
+- **Hyperdimensionality** — now passes. Cross-sectional withdrawal, used on
+  one departure in three.
 - **Sensory logic** — now passes behaviourally as well as structurally: the
   eye fixes, holds and jumps, and the lids run on their own clocks.
 

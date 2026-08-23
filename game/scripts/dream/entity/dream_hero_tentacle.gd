@@ -59,9 +59,12 @@ var _settle := 0.0
 ## §2 — the hero's behaviour states. Not all fifteen yet; these are the ones
 ## contact makes meaningful, and the rest have nothing to drive them.
 enum State { SEEKING, APPROACHING, HOVER_INSPECTION, TOUCHING, CARESSING,
-		WITHDRAW, RESUME }
+		WITHDRAW, RESUME, CROSS_SECTION_WITHDRAW, ABSENT, RETURNING }
 signal touched(where: Vector3, normal: Vector3)
 signal released()
+## H6 — it stopped having a cross-section. Not "it left".
+signal sliced_out()
+signal sliced_in()
 
 var state: int = State.SEEKING
 var state_clock := 0.0
@@ -72,6 +75,11 @@ var contact_point := Vector3.INF
 var _space: PhysicsDirectSpaceState3D = null
 var _caress_dir := Vector3.ZERO
 var _last_tip := Vector3.INF
+## 0 fully present, 1 no cross-section at all.
+var slice_close := 0.0
+## How many ordinary withdrawals happen before it leaves the impossible way.
+var _withdrawals := 0
+const SLICE_EVERY := 3
 ## How near the tip must come before it counts as touching.
 const TOUCH_M := 0.09
 ## HOW HARD IT IS CURRENTLY REACHING.
@@ -486,7 +494,37 @@ func _behave(delta: float) -> void:
 			contact_point = Vector3.INF
 			_settle = maxf(0.0, _settle - delta * 1.4)
 			if state_clock > 1.6:
-				state = State.RESUME
+				_withdrawals += 1
+				# Most departures are ordinary. Occasionally it leaves the way it
+				# actually can. §15 asks for restraint: one impossible rule, used
+				# rarely enough that it stays meaningful.
+				if _withdrawals % SLICE_EVERY == 0:
+					state = State.CROSS_SECTION_WITHDRAW
+				else:
+					state = State.RESUME
+				state_clock = 0.0
+		State.CROSS_SECTION_WITHDRAW:
+			# H6. The length does not change. The thickness goes to nothing,
+			# everywhere along it at the same instant. It is not retracting and it
+			# is not fading: our slice is moving past it.
+			slice_close = minf(1.0, state_clock / 2.2)
+			if slice_close >= 1.0:
+				state = State.ABSENT
+				state_clock = 0.0
+				sliced_out.emit()
+		State.ABSENT:
+			slice_close = 1.0
+			target = Vector3.INF
+			contact_point = Vector3.INF
+			if state_clock > 1.8:
+				state = State.RETURNING
+				state_clock = 0.0
+		State.RETURNING:
+			# And it returns the same way: no cross-section, then some.
+			slice_close = maxf(0.0, 1.0 - state_clock / 1.6)
+			if slice_close <= 0.0:
+				sliced_in.emit()
+				state = State.SEEKING
 				state_clock = 0.0
 		State.RESUME:
 			if state_clock > 0.8:
@@ -497,7 +535,8 @@ func _behave(delta: float) -> void:
 
 func state_name() -> String:
 	return ["SEEKING", "APPROACHING", "HOVER_INSPECTION", "TOUCHING",
-			"CARESSING", "WITHDRAW", "RESUME"][state]
+			"CARESSING", "WITHDRAW", "RESUME", "CROSS_SECTION_WITHDRAW",
+			"ABSENT", "RETURNING"][state]
 
 
 ## §12 — the flesh's answer to what the bones just decided.
@@ -551,6 +590,7 @@ func _process(delta: float) -> void:
 	_animate_eye(delta)
 	for mat in materials:
 		mat.set_shader_parameter("body_motion", motion)
+		mat.set_shader_parameter("slice_close", slice_close)
 	for mat in materials:
 		mat.set_shader_parameter("grow", grow)
 		if field != null and field.state != null:
@@ -571,6 +611,7 @@ func census() -> Dictionary:
 			"touching": contact_point != Vector3.INF,
 			"reach_gain": snappedf(_reach_gain, 0.01),
 			"motion": snappedf(motion, 0.001),
+			"slice_close": snappedf(slice_close, 0.001),
 			"lag_root": snappedf(lag_root, 0.0001),
 			"lag_tip": snappedf(lag_tip, 0.0001),
 			"skeleton": skeleton != null}

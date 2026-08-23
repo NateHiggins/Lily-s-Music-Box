@@ -44,6 +44,18 @@ uniform float anatomy_strength : hint_range(0.0, 2.0) = 1.0;
 // §12's last layer: the wet highlight stabilises AFTER the body stops. Fed
 // from the creature, which raises it instantly and lets it decay.
 uniform float body_motion : hint_range(0.0, 1.0) = 0.0;
+// H6 — THE HERO'S HYPERDIMENSIONAL LAW: CROSS-SECTIONAL WITHDRAWAL.
+//
+// It does not retract. It does not shrink toward its root, and it does not
+// fade. Its CROSS-SECTION closes — everywhere along its length at the same
+// instant — while its length does not change at all. The limb stays exactly
+// as long, and exactly where it is, and stops having a thickness.
+//
+// That is the field's own law (DREAM_FIELD_DIRECTION: r_visible =
+// sqrt(r^2 - w^2)) applied to the hero's body: nothing is travelling, our
+// slice is moving past it. A creature that leaves the way a 3-D animal leaves
+// is a 3-D animal.
+uniform float slice_close : hint_range(0.0, 1.0) = 0.0;
 group_uniforms;
 
 varying vec3 v_world;
@@ -57,6 +69,30 @@ void vertex() {
 	v_uv = UV;
 	v_mask = COLOR;
 	v_region = UV2;
+	// The collapse is radial, so it rides the surface normal — on a limb the
+	// normal IS the radial direction. Thick anatomy has further to go than
+	// thin, which is why it takes the baked thickness with it: the muscular
+	// root closes through more radius than an eyelid does, and they finish
+	// together.
+	if (slice_close > 0.0001) {
+		// RADIAL ONLY. Collapsing straight along the normal also pulls the
+		// end caps inward, because a cap's normal points ALONG the limb --
+		// measured, the silhouette's long axis lost 59% of its length, which
+		// would make this an ordinary retraction wearing a costume. On this
+		// mesh UV.y runs along the body, so BINORMAL is the axial direction;
+		// removing that component leaves the true radial one, and the caps
+		// barely move at all.
+		vec3 axial = normalize(BINORMAL + vec3(0.0, 1e-5, 0.0));
+		vec3 radial = NORMAL - axial * dot(NORMAL, axial);
+		float rl = length(radial);
+		radial = rl > 0.001 ? radial / rl : vec3(0.0);
+		float here = mix(0.035, 0.115, clamp(COLOR.r, 0.0, 1.0));
+		// sqrt(1 - w^2): the same cross-section curve the field uses, so the
+		// limb thins slowly at first and then vanishes suddenly.
+		float w = clamp(slice_close, 0.0, 1.0);
+		float remaining = sqrt(max(0.0, 1.0 - w * w));
+		VERTEX -= radial * here * (1.0 - remaining);
+	}
 	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 }
 
@@ -146,6 +182,10 @@ void fragment() {
 	NORMAL = normalize(NORMAL + TANGENT * nm.x * 0.6 + BINORMAL * nm.y * 0.6);
 	// Withdrawal dissolves the far end first, so the creature leaves along
 	// its own length instead of vanishing all at once.
+	// Fully closed: no cross-section left to draw.
+	if (slice_close > 0.985) {
+		discard;
+	}
 	if (grow < 0.999 && painted) {
 		float edge = smoothstep(grow, grow + 0.06, v_region.y);
 		if (edge > 0.5) {
