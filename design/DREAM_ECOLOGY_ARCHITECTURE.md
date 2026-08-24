@@ -594,8 +594,24 @@ Contracts: field 16/16, margin 31/31, critters 29/29, ecology 23/23.
   Superseded, kept for the record:
 - ~~§10's other five broadcasts (contact, startle, branch state, and the two
   proximity signals) need systems that do not exist.
-- §12's twelve-step branch sequence has its middle six; vascular congestion,
-  gold repositioning and the visible crease are shader work.
+- §12's branch sequence now has steps 1-6 IN ORDER AND WITH TIME BETWEEN
+  THEM. Steps 5 and 6 were built first and arrived out of nowhere: an organ
+  was simple, and on the next frame it was branched. Congestion, the gold
+  moving aside and the crease are the tell, they take about a second and a
+  half, and their whole purpose is that the wall shows you where it is about
+  to open before it opens. The roll no longer branches on the frame it
+  succeeds — it starts the swelling instead.
+
+  Two things the camera settled that the tests could not. The crease was a
+  hairline over five per cent of an organ's length, which on a three-centimetre
+  appendage across a room is less than a pixel; it runs over about a seventh
+  now. And the gold term meant to CLEAR metal from the line was multiplied by
+  the individual's own gold fraction and lost to the term adding it, so the
+  premonition photographed as a gold ring — an ornament, which is the one
+  thing it must not be.
+
+  Steps 7-12 (independent investigation, cilia deploying, the retraction and
+  refolding) are still owed.
 - §21's habitat list is COMPLETE — all ten. *"This turns the wall into a
   functioning biome."*
 

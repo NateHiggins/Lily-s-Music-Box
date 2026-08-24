@@ -31,6 +31,11 @@ const TIER_SECONDARY := 1
 const TIER_TERTIARY := 2
 const TIER_CAPS := [6, 20, 60]
 
+## How long §12's steps 2 to 4 take -- the congestion, the gold moving aside
+## and the crease. Long enough to be seen coming, short enough that a player
+## already looking at it does not lose interest before anything happens.
+const SWELL_S := 1.6
+
 ## §3's scale language, as multipliers on an archetype's authored length.
 ## The primaries run large: they are the ones the player walks up to, they
 ## carry the whole archetype library between them, and photographed at 1.0
@@ -320,11 +325,27 @@ func _think(delta: float) -> void:
 				p.act = BehaviorScript.Act.WATCH
 				p.act_left = BehaviorScript.duration(BehaviorScript.Act.WATCH,
 						p.traits, _rng)
-		# §12 step 1: interest rises, and occasionally that is enough for the
-		# folded anatomy to separate.
-		if int(p.parent) < 0 and int(p.children) == 0 and p.target != Vector3.INF:
-			if _rng.randf() < float(p.traits.branch_likelihood) * delta * 0.06:
+		# §12 STEPS 1-5, IN ORDER AND WITH TIME BETWEEN THEM.
+		#
+		# Step 1 is interest. Steps 2, 3 and 4 -- congestion, the gold moving
+		# aside, the crease -- are the tell, and they take about a second and a
+		# half, which is the whole point of them: the wall shows you where it
+		# is about to open before it opens. Only then does step 5 happen.
+		#
+		# Branching used to fire on the same frame it was rolled, so an organ
+		# was simple and then it was branched, with nothing in between. The
+		# roll now starts the swelling instead.
+		if float(p.get("swell", 0.0)) > 0.0:
+			p.swell = float(p.swell) + delta / SWELL_S
+			if float(p.swell) >= 1.0:
+				p.swell = 0.0
 				try_branch(int(p.id))
+		elif int(p.parent) < 0 and int(p.children) == 0 and p.target != Vector3.INF:
+			if _rng.randf() < float(p.traits.branch_likelihood) * delta * 0.06:
+				# It opens where it is thickest and best supplied, which is
+				# nearer the base than the tip.
+				p.swell_v = _rng.randf_range(0.42, 0.72)
+				p.swell = 0.0001
 		if int(p.parent) >= 0 and float(p.unfold) < 1.0:
 			p.unfold = minf(1.0, float(p.unfold) + delta * 0.75)
 		var want: Vector3 = BehaviorScript.desired_tip(p, _clock)
@@ -585,6 +606,10 @@ static func _shared_state() -> Dictionary:
 		"local_look": false,
 		"look_left": 0.0,
 		"attend_override": Vector3.INF,
+		# §12 steps 2-4: the swelling that precedes a branch, and where along
+		# the organ it is happening.
+		"swell": 0.0,
+		"swell_v": 0.6,
 	}
 
 

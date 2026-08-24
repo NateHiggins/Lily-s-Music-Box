@@ -956,6 +956,34 @@ func _archetype_row() -> void:
 				_dir.path_join("%s.png" % str(shot[0])))
 		_frame += 1
 		print("[SWEEP] %s" % str(shot[0]))
+	# §12 STEPS 2-4, SIDE BY SIDE WITH ORGANS NOT DOING THEM.
+	#
+	# The congestion, the gold moving aside and the crease are all surface, so
+	# only a camera settles whether they read -- and they only read if they
+	# read as DIFFERENT from an organ simply going about its business.
+	# Alternate appendages in the arranged row are held mid-swelling, so one
+	# frame carries both states of the same anatomy.
+	var swollen := 0
+	for idx in margin.palps.size():
+		var sp: Dictionary = margin.palps[idx]
+		sp.swell = 0.85 if idx % 2 == 0 else 0.0
+		sp.swell_v = 0.55
+		if idx % 2 == 0:
+			swollen += 1
+	print("[SWEEP] %d of %d appendages held mid-swelling"
+			% [swollen, margin.palps.size()])
+	for shot2 in [["B1_crease_row", 1.45, 0.28, 0.20],
+			["B2_crease_macro", 0.72, 0.14, 0.10]]:
+		var d2 := float(shot2[1])
+		_look_at_from(at + nrm * d2 + row_side * float(shot2[2])
+				+ Vector3.UP * float(shot2[3]), at)
+		await get_tree().create_timer(0.4).timeout
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(
+				_dir.path_join("%s.png" % str(shot2[0])))
+		_frame += 1
+		print("[SWEEP] %s" % str(shot2[0]))
 
 
 ## §25 — critters, on the actual architecture, under the player's own lamp.

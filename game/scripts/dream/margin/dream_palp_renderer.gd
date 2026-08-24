@@ -28,6 +28,7 @@ var _spine := PackedVector3Array()
 var _section := PackedVector4Array()
 var _params := PackedVector4Array()
 var _matter := PackedVector4Array()
+var _branch := PackedVector4Array()
 var _clock := 0.0
 
 
@@ -38,6 +39,7 @@ func setup(margin: DreamMarginController) -> void:
 	_section.resize(MAX_PALPS * 4)
 	_params.resize(MAX_PALPS)
 	_matter.resize(MAX_PALPS)
+	_branch.resize(MAX_PALPS)
 	material = ShaderMaterial.new()
 	material.shader = SHADER
 	mesh_instance = MeshInstance3D.new()
@@ -125,6 +127,7 @@ func _process(delta: float) -> void:
 	material.set_shader_parameter("palp_section", _section)
 	material.set_shader_parameter("palp_params", _params)
 	material.set_shader_parameter("palp_matter", _matter)
+	material.set_shader_parameter("palp_branch", _branch)
 	material.set_shader_parameter("palp_count", drawn)
 	if controller.field != null:
 		controller.field.apply_to(material)
@@ -166,6 +169,9 @@ func _lay(slot: int, p: Dictionary) -> void:
 			float(morph.tip_ratio), sd)
 	_matter[slot] = Vector4(float(morph.gold), float(morph.crystal),
 			float(morph.suckers), float(morph.cilia))
+	# §12 steps 2-4: how far the swelling has got, and where along the organ.
+	_branch[slot] = Vector4(float(p.get("swell", 0.0)),
+			float(p.get("swell_v", 0.6)), 0.0, 0.0)
 
 
 func census() -> Dictionary:

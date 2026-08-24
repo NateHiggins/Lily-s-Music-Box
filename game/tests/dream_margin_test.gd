@@ -175,6 +175,72 @@ func _run() -> void:
 		for j in range(i + 1, out.size()):
 			var d: float = (out[i].tip as Vector3).distance_to(out[j].tip)
 			closest = minf(closest, d)
+
+	# --- §12 STEPS 2-4: THE TELL BEFORE THE BRANCH -----------------------
+	#
+	# Steps 5 and 6 were built first and arrived out of nowhere: an organ was
+	# simple, and then on the next frame it was branched. The canonical
+	# sequence puts congestion, gold repositioning and a crease in front of
+	# that, and their whole purpose is to take time -- the wall shows you where
+	# it is about to open before it opens.
+	#
+	# CONSTRUCTED. Branching is a rare roll against an individual's own
+	# likelihood; waiting for one would be waiting on the weather.
+	var host: Dictionary = {}
+	for p in margin.palps:
+		if int(p.parent) < 0 and int(p.children) == 0:
+			host = p
+			break
+	if host.is_empty():
+		_check("§12 there is an unbranched appendage to test with", false)
+	else:
+		if host.target == Vector3.INF:
+			host.target = (host.tip as Vector3) + (host.normal as Vector3) * 0.03
+		while margin.palps.size() + 3 > 86 and margin.palps.size() > 6:
+			margin.palps.remove_at(margin.palps.size() - 1)
+		host.swell_v = 0.6
+		host.swell = 0.0001
+		var saw_swell := false
+		var swell_first := false
+		var peak_swell := 0.0
+		# DRIVEN BY HAND. Physics frames are a poor clock for this: the margin
+		# is one node in a loaded building and does not step on every one of
+		# them, so nine hundred frames delivered three quarters of a second of
+		# margin time and the swelling never finished. Stepping it directly
+		# also stops it repopulating underneath the test, which matters because
+		# branching is refused at capacity -- and a refused branch would leave
+		# the tell playing with nothing behind it.
+		for _step in 40:
+			margin._think(0.06)
+			peak_swell = maxf(peak_swell, float(host.get("swell", 0.0)))
+			if float(host.get("swell", 0.0)) > 0.25 and int(host.children) == 0:
+				saw_swell = true
+			if int(host.children) > 0:
+				swell_first = saw_swell
+				break
+		_check("§12 the tissue swells before anything separates (peak %.2f)"
+				% peak_swell, saw_swell)
+		_check("§12 and nothing separates until the swelling finishes",
+				swell_first and int(host.children) > 0)
+
+	# AND THE SWELLING REACHES THE RENDERER. A premonition the geometry never
+	# hears about is a number in a dictionary: every one of steps 2, 3 and 4 is
+	# surface, so if this array stays at zero none of them happens on screen.
+	var pr: DreamPalpRenderer = enc.get("palp_renderer")
+	if pr != null:
+		for p in margin.palps:
+			p.swell = 0.5
+			p.swell_v = 0.6
+		await get_tree().physics_frame
+		await get_tree().physics_frame
+		var published := 0.0
+		for v in pr._branch:
+			published = maxf(published, v.x)
+		_check("§12 the swelling reaches the geometry (%.2f)" % published,
+				published > 0.1)
+		for p in margin.palps:
+			p.swell = 0.0
+
 	print("[margin] closest pair of tips: %.4f m (%d out of %d unfolded)"
 			% [closest, out.size(), margin.palps.size()])
 	# WHICH PAIR, AND WHY. "0.000 m" on its own says two tips coincide and
