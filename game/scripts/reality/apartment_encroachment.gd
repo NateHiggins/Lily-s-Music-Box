@@ -250,6 +250,10 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			critters.setup(dream_field, "critters".hash())
 			critters.margin = margin
 			critters.residue = residue
+			# §10's ninth broadcast: the margin has to be able to feel them
+			# back, or "critter proximity" is a field nothing ever sets.
+			if margin != null:
+				margin.critters = critters
 		# THE MODELLED HERO. Until now the Blender creature was an asset
 		# nothing instantiated: one reference in the whole project, in the
 		# test that probes it. It stands in the case flat, wearing the shared

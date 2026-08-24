@@ -157,13 +157,45 @@ func _run() -> void:
 	# AVOIDANCE. Two organs do not occupy the same place. Measured as the
 	# closest pair of tips anywhere in the population — they may touch, but a
 	# margin where tips routinely coincide is soup.
+	#
+	# EXCEPT ANATOMY THAT IS STILL FOLDED. §12's whole point is that a branch
+	# is not spawned, it is UNFOLDED: at unfold 0 it lies perfectly coincident
+	# with its parent, because it has not come out of it yet. Two siblings
+	# branching from one parent in the same moment are therefore exactly 0.000
+	# m apart, and are supposed to be. Counting them measured the one thing
+	# the design guarantees and called it soup -- it read as a pass only for
+	# as long as nothing happened to branch while the sample was taken.
+	var out: Array = []
+	for p in margin.palps:
+		if int(p.parent) >= 0 and float(p.unfold) < 0.15:
+			continue
+		out.append(p)
 	var closest := 9.0
-	for i in margin.palps.size():
-		for j in range(i + 1, margin.palps.size()):
-			var d: float = (margin.palps[i].tip as Vector3).distance_to(
-					margin.palps[j].tip)
+	for i in out.size():
+		for j in range(i + 1, out.size()):
+			var d: float = (out[i].tip as Vector3).distance_to(out[j].tip)
 			closest = minf(closest, d)
-	print("[margin] closest pair of tips: %.4f m" % closest)
+	print("[margin] closest pair of tips: %.4f m (%d out of %d unfolded)"
+			% [closest, out.size(), margin.palps.size()])
+	# WHICH PAIR, AND WHY. "0.000 m" on its own says two tips coincide and
+	# nothing about whether that is soup or a branch that has not unfolded yet.
+	var ci := -1
+	var cj := -1
+	for i in out.size():
+		for j in range(i + 1, out.size()):
+			if is_equal_approx((out[i].tip as Vector3).distance_to(
+					out[j].tip), closest):
+				ci = i
+				cj = j
+				break
+		if ci >= 0:
+			break
+	if ci >= 0:
+		var pa: Dictionary = out[ci]
+		var pb: Dictionary = out[cj]
+		print("[margin]   %d(parent %d, unfold %.2f, act %d) vs %d(parent %d, unfold %.2f, act %d)"
+				% [int(pa.id), int(pa.parent), float(pa.unfold), int(pa.act),
+				int(pb.id), int(pb.parent), float(pb.unfold), int(pb.act)])
 	_check("tips keep out of each other (closest pair %.3f m)" % closest,
 			closest > 0.008)
 

@@ -254,30 +254,86 @@ func _hero_touches_an_animal(margin, critters, hero) -> void:
 	_check("§22 and it happens once per meeting, not once per frame (%d)"
 			% (int(hero.nudged_critters) - after_first),
 			int(hero.nudged_critters) == after_first)
+	# CUT THE HERO OFF FROM THE MARGIN BEFORE MEASURING WHAT IT LEFT THERE.
+	#
+	# What follows is a test of the margin's own timer, and the hero is the
+	# only thing that starts one. Left connected it goes on turning appendages
+	# throughout the measurement -- so the population being counted is not the
+	# population that was marked, and palps that had been looking for half a
+	# second were reported as palps that could not stop. Their look_left was
+	# counting down perfectly normally the whole time.
+	#
+	# This is the third form of this check. It began as "the field decrements
+	# within two frames", which measured a race and reported two identical
+	# appendages differently in the same frame. What a caller can depend on is
+	# that a look expires, so that is what is asserted, over a fixed batch
+	# that nothing is adding to.
+	hero.critters = null
+	hero._minding = Vector3.INF
+	hero.margin = null
 	if margin != null and not margin.palps.is_empty():
 		# WHETHER THE NEIGHBOURS CAN TURN, tested at a palp that is definitely
 		# in range. The margin may legitimately have nobody within ninety
 		# centimetres of wherever the club happens to be, and an assertion
 		# about the club's actual surroundings would be an assertion about
 		# where two wanderings met.
+		# From a clean slate, so what is counted afterwards is only what this
+		# call turned.
+		for p in margin.palps:
+			p.attend_override = Vector3.INF
+			p.local_look = false
+			p.look_left = 0.0
 		var witness: Dictionary = margin.palps[0]
-		witness.attend_override = Vector3.INF
-		witness.local_look = false
 		var turned: int = margin.orient_nearby(witness.anchor, 0.9)
 		_check("§22 nearby palps orient toward the interaction (%d turned)"
 				% turned, turned >= 1
 				and witness.get("attend_override", Vector3.INF) != Vector3.INF)
+		# LOOKS EXPIRE. That is the invariant worth holding, and it is the one
+		# stated as the reason the timer exists at all -- an appendage must not
+		# be left staring at an old event for the rest of its life.
+		#
+		# Asserted by waiting out the longest possible look rather than by
+		# watching a field decrement over two frames. The frame-level version
+		# was a measurement of a race and read as one: two identical
+		# appendages reported differently in the same frame, with nothing to
+		# distinguish them in either. What a caller can actually depend on is
+		# that the look is gone a moment later, and that is what a defect here
+		# would break.
+		var watched_ids := {}
 		for p in margin.palps:
 			if bool(p.get("local_look", false)):
-				p.act_left = 0.0
-		await get_tree().process_frame
-		await get_tree().process_frame
+				watched_ids[int(p.id)] = true
+		# WAITED IN THE CLOCK THE TIMER ACTUALLY RUNS ON. The look counts down
+		# in _physics_process, and this scene is heavy enough headless that
+		# physics falls behind the wall clock -- so a 3.6 second real-time
+		# wait delivered appreciably less than 3.6 seconds of margin time, and
+		# the appendages left looking were simply the ones that had drawn the
+		# longest looks. Their look_left was counting down correctly the whole
+		# time, which is why every earlier form of this check reported a
+		# different arbitrary subset.
+		#
+		# The longest look is 1.4 + curiosity * 1.6, so 3.0 s at most. The
+		# budget is far larger than that in frames, because the margin does not
+		# advance on every physics frame -- it is one node in a loaded building
+		# and its own step is gated -- so frames are an upper bound on elapsed
+		# margin time, not a measure of it. The loop stops the moment the batch
+		# is clear, so the budget only costs anything when something is
+		# genuinely wrong, which is the case it exists for.
+		for _f in 900:
+			await get_tree().physics_frame
+			var any := false
+			for p in margin.palps:
+				if watched_ids.has(int(p.id)) and bool(p.get("local_look", false)):
+					any = true
+					break
+			if not any:
+				break
 		var stuck := 0
 		for p in margin.palps:
-			if bool(p.get("local_look", false)):
+			if watched_ids.has(int(p.id)) and bool(p.get("local_look", false)):
 				stuck += 1
-		_check("§22 a local look releases itself when the act ends (%d stuck)"
-				% stuck, stuck == 0)
+		_check("§22 a local look expires instead of staring forever (%d of %d still looking)"
+				% [stuck, watched_ids.size()], stuck == 0)
 	print("[ecology] hero %s" % [hero.census()])
 
 

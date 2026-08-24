@@ -58,6 +58,9 @@ signal branched(parent_id: int, children: int)
 var field: DreamFieldController = null
 ## §11 — the hero is a participant in this society, not a visitor.
 var hero = null
+## §10's ninth broadcast needs something to be near. The margin does not own
+## the critters, it only has to be able to feel them.
+var critters = null
 ## §32 — the area's weather. Read, not obeyed: it scales probabilities.
 var director = null
 var enabled := true
@@ -241,6 +244,20 @@ func _birth(tier: int, at: Vector3, nrm: Vector3) -> void:
 		"neighbour_count": 0,
 		"joined": -1,
 		"hero_near": 0.0,
+		# §10's remaining broadcasts. Contact is how firmly this tip is on a
+		# surface; startle is how recently something frightened it, which
+		# spreads between neighbours; critter_near is the smallest thing in
+		# the ecology being close enough to matter.
+		"contact": 0.0,
+		"startle": 0.0,
+		"critter_near": 0.0,
+		"contested": false,
+		# §22's local look owns its own clock. Hanging it off `act_left` meant
+		# anything that started a new act -- an alarm spreading through the
+		# margin, an animal wandering into reach -- re-armed the look as a
+		# side effect, and an appendage could go on staring at an old event
+		# indefinitely through no decision of its own.
+		"look_left": 0.0,
 		# §13 — set only while the whole ecology is looking at one thing.
 		"attend_override": Vector3.INF,
 		# Phase 8. A branch is not a new thing: it is anatomy that was already
@@ -272,15 +289,17 @@ func _think(delta: float) -> void:
 				p.tip = (p.tip as Vector3) + push * _social_clock
 		p.act_clock += delta
 		p.act_left -= delta
-		if p.act_left <= 0.0:
-			# A LOCAL LOOK ENDS BY ITSELF. §22's orientation borrows the same
-			# override the director uses, and the director clears it in its own
-			# release pass -- which only runs during an attention event. A palp
-			# that turned to watch the hero touch a critter would otherwise
-			# have stared at that spot for the rest of its life.
-			if bool(p.get("local_look", false)):
+		# A LOCAL LOOK ENDS BY ITSELF, ON ITS OWN CLOCK. §22's orientation
+		# borrows the same override the director uses, and the director clears
+		# it in a release pass that only runs during an attention event -- so
+		# without this a palp that turned to watch the hero touch a critter
+		# would stare at that spot for the rest of its life.
+		if bool(p.get("local_look", false)):
+			p.look_left = float(p.look_left) - delta
+			if float(p.look_left) <= 0.0:
 				p.attend_override = Vector3.INF
 				p.local_look = false
+		if p.act_left <= 0.0:
 			# §32 — the area state biases how long things are done for and how
 			# readily attention is given, without commanding any of it.
 			var bias: Dictionary = director.bias() if director != null else {}
@@ -318,6 +337,24 @@ func _think(delta: float) -> void:
 		var rate: float = 4.0 + 9.0 * float(p.morph.stiffness)
 		p.last_tip = p.tip
 		p.tip = (p.tip as Vector3).lerp(want, 1.0 - exp(-rate * delta))
+		# §10 — CONTACT STATE. Not a flag on an act: a palp can be in the
+		# TOUCH act and still be reaching, and the difference between reaching
+		# for a thing and being on it is exactly what a neighbour needs to
+		# know before it braces against you or takes your target off you.
+		var on_it := 0.0
+		if p.target != Vector3.INF:
+			on_it = 1.0 - smoothstep(0.012, 0.055,
+					(p.tip as Vector3).distance_to(p.target))
+		p.contact = maxf(on_it, float(p.contact) - delta * 2.2)
+		# §10 — STARTLE STATE, which decays on the individual's own nerve.
+		p.startle = maxf(0.0, float(p.startle)
+				- delta * (0.35 + 0.9 * float(p.traits.startle_threshold)))
+		# §10 — CRITTER PROXIMITY.
+		if critters != null and is_instance_valid(critters):
+			var nearest := 9.0
+			for c in critters.critters:
+				nearest = minf(nearest, (p.tip as Vector3).distance_to(c.pos))
+			p.critter_near = clampf(1.0 - nearest / 0.45, 0.0, 1.0)
 		# The renderer lays the spine from anchor along `aim`, so intent
 		# reaches the geometry as a direction and a length.
 		if int(p.parent) >= 0:
@@ -453,10 +490,31 @@ func personality_of(id: int) -> Dictionary:
 			return p.traits
 	return {}
 
-## Phase 6 — DONE for the first four of §10's broadcasts: tip position,
-## occupancy (via tip proximity), target and interest level. Contact state,
-## startle state, branch state, hero proximity and critter proximity need
-## systems that do not exist yet and are NOT faked here.
+## SOMETHING FRIGHTENED THE MARGIN.
+##
+## Raises startle on everything close enough to have felt it, in proportion to
+## how close it was and inversely to each individual's own nerve. From there
+## §10's warning signals do the rest: the social pass spreads it outward, so a
+## bang in one corner runs across the wall as a wave rather than switching the
+## whole margin on at once.
+func alarm(at: Vector3, amount: float = 1.0, radius: float = 1.6) -> int:
+	var hit := 0
+	for p in palps:
+		var d: float = (p.tip as Vector3).distance_to(at)
+		if d > radius:
+			continue
+		var near: float = 1.0 - d / radius
+		# A jumpy individual has a LOW threshold, so it takes more from the
+		# same event.
+		var nerve: float = 1.4 - float(p.traits.startle_threshold)
+		p.startle = clampf(float(p.startle) + amount * near * nerve, 0.0, 1.0)
+		hit += 1
+	return hit
+
+
+## Phase 6 — DONE for all nine of §10's broadcasts: tip position, occupancy
+## (via tip proximity), target, interest level, contact state, startle state,
+## branch state, hero proximity and critter proximity.
 func neighbours_of(id: int) -> Array:
 	for p in palps:
 		if int(p.id) == id:
@@ -606,9 +664,10 @@ func orient_nearby(at: Vector3, radius: float = 0.9) -> int:
 			continue
 		p.attend_override = at
 		p.local_look = true
+		p.look_left = 1.4 + float(p.traits.curiosity) * 1.6
 		p.act = BehaviorScript.Act.WATCH
 		p.act_clock = 0.0
-		p.act_left = 1.4 + float(p.traits.curiosity) * 1.6
+		p.act_left = float(p.look_left)
 		turned += 1
 	return turned
 

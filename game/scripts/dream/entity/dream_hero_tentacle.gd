@@ -647,6 +647,12 @@ func _interrupt(delta: float) -> bool:
 ## own interactions are the obvious source.
 func startle(amount: float = 1.0) -> void:
 	_startle = clampf(_startle + amount, 0.0, 2.0)
+	# §10 — WARNING SIGNALS. The largest thing in the ecology flinching is the
+	# loudest event the margin ever gets, and it used to be silent to it: the
+	# hero jumped and forty appendages carried on probing skirting boards.
+	# The alarm is local, and the social pass carries it outward from there.
+	if margin != null and is_instance_valid(margin):
+		margin.alarm(tip_world(), amount * 0.9, 1.9)
 
 
 func _behave(delta: float) -> void:

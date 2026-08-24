@@ -558,7 +558,7 @@ same stimulus at once. That is when the player understands:
 | 3 Six palp archetypes | done — §37 sheet in `art/renders/dream_margin/` |
 | 4 Morphology variation | done |
 | 5 Personality and intent | done — 8 of 10 primitives running at once |
-| 6 Neighbour interaction | done for 4 of §10's 9 broadcasts |
+| 6 Neighbour interaction | done, all 9 of §10's broadcasts |
 | 7 Hero as ecological participant | done |
 | 8 Recursive branching | done — folded, never scaled from zero |
 | 9 First three critter species | done |
@@ -585,7 +585,14 @@ Contracts: field 16/16, margin 31/31, critters 29/29, ecology 23/23.
 
 ### Known gaps inside completed phases
 
-- §10's other five broadcasts (contact, startle, branch state, and the two
+- ~~§10's other five broadcasts~~ DONE. Contact state, startle state, branch
+  state, hero proximity and critter proximity are all broadcast now, and each
+  is consumed by a behaviour rather than merely published: warning signals
+  (startle spreads outward as a wave), competition (contact settles who keeps
+  a contested find), bracing (an appendage steadies against one that is
+  actually anchored), and investigation of a critter that comes within reach.
+  Superseded, kept for the record:
+- ~~§10's other five broadcasts (contact, startle, branch state, and the two
   proximity signals) need systems that do not exist.
 - §12's twelve-step branch sequence has its middle six; vascular congestion,
   gold repositioning and the visible crease are shader work.

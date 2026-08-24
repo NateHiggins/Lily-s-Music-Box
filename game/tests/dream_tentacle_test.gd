@@ -107,8 +107,34 @@ func _run() -> void:
 	var eye_l: OmniLight3D = t.get_node_or_null("EyeLight")
 	var gold_l: OmniLight3D = t.get_node_or_null("GoldLight")
 	var contact_l: OmniLight3D = t.get_node_or_null("ContactLight")
+	# THE RIMS CAST LIGHT -- SAMPLED, NOT SNAPPED.
+	#
+	# The eye lamp is (0.45 * openness + 0.1) * grow * slices, and `slices` is
+	# the creature's own hyperdimensional law: it dims as the limb goes out of
+	# the current cross-section and it is supposed to. Read at one arbitrary
+	# instant this asserted "the eye is bright" and got 0.257 against a
+	# threshold of 0.3 -- not because the lamp was broken but because the
+	# thing holding it was half out of the slice, which is the same trap that
+	# once photographed an empty room and called it a missing creature.
+	#
+	# So take the brightest moment over a couple of seconds. A lamp that is
+	# wired up reaches its value while the creature is present; one that is
+	# not stays dark for all of them.
+	var eye_peak := 0.0
+	var gold_peak := 0.0
+	var contact_seen := false
+	for _s in 60:
+		await get_tree().process_frame
+		if eye_l != null:
+			eye_peak = maxf(eye_peak, eye_l.light_energy)
+		if gold_l != null:
+			gold_peak = maxf(gold_peak, gold_l.light_energy)
+		if contact_l != null and contact_l.visible:
+			contact_seen = true
+	print("[tentacle] peak eye %.3f  gold %.3f  contact %s" % [eye_peak,
+			gold_peak, "seen" if contact_seen else "never visible"])
 	_check("its gold, eye and sucker rims cast light", eye_l != null and gold_l != null and contact_l != null
-			and eye_l.light_energy > 0.3 and gold_l.light_energy > 0.2 and contact_l.visible)
+			and eye_peak > 0.3 and gold_peak > 0.2 and contact_seen)
 	# The length holds: joints a segment apart, sides orthonormal.
 	var pos: PackedVector3Array = t.rig.pos
 	var side: PackedVector3Array = t.rig.side

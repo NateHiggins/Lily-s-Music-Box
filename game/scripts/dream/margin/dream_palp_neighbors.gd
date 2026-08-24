@@ -14,13 +14,19 @@ extends RefCounted
 ##
 ## §10 lists what each broadcasts: tip position, body occupancy, target,
 ## interest level, contact state, startle state, branch state, hero proximity,
-## critter proximity. The first four are here; the rest need systems that do
-## not exist yet, and are named in `neighbours_of` rather than faked.
+## critter proximity. ALL NINE are here now, and each of the last five earns
+## its place by being consumed by a behaviour -- a broadcast nothing listens to
+## is a field on a dictionary, not a society.
 ##
 ## The traits decide who does what. A territorial palp defends its space; a
 ## sociable one joins in; an incurious one ignores the whole thing. That is
 ## why §8 insisted personality be stable — a society of individuals who
 ## reshuffle their character every second is just noise with extra steps.
+
+## The act names are an enum, not numbers. Writing 7 and 8 inline works right
+## up until somebody inserts an act in the middle of the list, and then the
+## margin quietly starts watching when it means to withdraw.
+const BehaviorScript := preload("res://scripts/dream/margin/dream_palp_behavior.gd")
 
 ## How far apart two tips must be before they stop minding each other.
 const PERSONAL_M := 0.16
@@ -47,6 +53,18 @@ static func broadcast(palps: Array) -> Array:
 			"interest": (0.0 if p.target == Vector3.INF
 					else 0.35 + 0.65 * float(p.traits.object_interest)),
 			"tier": int(p.tier),
+			# How firmly it is on the thing, as opposed to reaching for it.
+			"contact": float(p.get("contact", 0.0)),
+			# How recently something frightened it.
+			"startle": float(p.get("startle", 0.0)),
+			# Branch state: whether this is folded anatomy, whose, and how far
+			# out of its parent it has come.
+			"parent": int(p.get("parent", -1)),
+			"children": int(p.get("children", 0)),
+			"unfold": float(p.get("unfold", 1.0)),
+			# What the two other levels of the ecology are doing to it.
+			"hero_near": float(p.get("hero_near", 0.0)),
+			"critter_near": float(p.get("critter_near", 0.0)),
 		})
 	return out
 
@@ -154,5 +172,72 @@ static func socialise(p: Dictionary, board: Array, rng: RandomNumberGenerator,
 	if rng.randf() < 0.04 * float(tr.social_affinity) * delta * 60.0 / 60.0:
 		p.act = int(near[0].rec.act)
 		p.act_clock = 0.0
+
+	# WARNING SIGNALS (§10). Startle SPREADS. This is the behaviour that makes
+	# the margin read as one animal rather than as forty: something frightens
+	# one appendage in a corner and the alarm runs outward across the wall,
+	# arriving late and weaker the further it goes, instead of the whole margin
+	# switching on together. A jumpy individual -- a LOW threshold -- catches
+	# it from further off and passes it on harder.
+	var caught := 0.0
+	for n in near:
+		var their: float = float(n.rec.get("startle", 0.0))
+		if their <= 0.05:
+			continue
+		# Falls off with distance, so the wave has a front.
+		var reach: float = 1.0 - float(n.d) / NOTICE_M
+		caught = maxf(caught, their * reach * (1.2 - float(tr.startle_threshold)))
+	if caught > float(p.startle):
+		# It only ever rises here. Coming down is the individual's own nerve,
+		# in the controller -- otherwise a calm neighbour would talk a
+		# frightened one down, and alarm does not work that way.
+		p.startle = minf(1.0, caught * 0.82)
+		if float(p.startle) > 0.55:
+			p.act = BehaviorScript.Act.WITHDRAW
+			p.act_clock = 0.0
+			p.act_left = 0.5 + float(p.startle) * 1.1
+
+	# COMPETITION (§10). Two appendages on the same find. Contact settles it:
+	# the one already ON the thing keeps it, and the one still reaching gives
+	# up -- unless it is the more territorial of the two, in which case it
+	# holds on and they work it together, which is how the mouthpart clusters
+	# form with something at stake instead of by agreement.
+	p.contested = false
+	if p.target != Vector3.INF and float(p.contact) < 0.5:
+		for n in near:
+			var rec: Dictionary = n.rec
+			if rec.target == Vector3.INF:
+				continue
+			if (rec.target as Vector3).distance_to(p.target) > 0.09:
+				continue
+			p.contested = true
+			if float(rec.get("contact", 0.0)) > 0.5 					and float(tr.territoriality) < 0.6:
+				p.target = Vector3.INF
+				p.joined = -1
+			break
+
+	# BRACING (§10). An appendage that IS on something is a fixed point, and a
+	# neighbour reaching past it steadies itself against it. Small, and only
+	# toward one that has actually made contact -- bracing against something
+	# that is itself waving about is not bracing.
+	for n in near:
+		var solid: float = float(n.rec.get("contact", 0.0))
+		if solid < 0.6 or float(n.d) > PERSONAL_M * 2.2:
+			continue
+		var toward: Vector3 = (n.rec.tip as Vector3) - tip
+		if toward.length() > 0.01:
+			push += toward.normalized() * solid * 0.18 * (1.0 - float(tr.territoriality))
+		break
+
+	# THE SMALLEST THING IN THE ECOLOGY, INVESTIGATED (§10's ninth broadcast,
+	# §21's biome). A curious appendage with nothing of its own to do turns
+	# toward an animal that has come within reach. A timid one does not, and
+	# neither does one already working on something.
+	if float(p.get("critter_near", 0.0)) > 0.35 and p.target == Vector3.INF:
+		if float(tr.object_interest) > 0.5 and float(p.startle) < 0.3:
+			if rng.randf() < float(tr.object_interest) * delta * 1.4:
+				p.act = BehaviorScript.Act.WATCH
+				p.act_clock = 0.0
+				p.act_left = 0.8 + float(tr.object_interest) * 1.4
 
 	return push
