@@ -596,7 +596,15 @@ Contracts: field 16/16, margin 31/31, critters 29/29, ecology 23/23.
   proximity signals) need systems that do not exist.
 - §12's twelve-step branch sequence has its middle six; vascular congestion,
   gold repositioning and the visible crease are shader work.
-- §21's habitat list has three of ten behaviours.
+- §21's habitat list has SEVEN of ten. Added: an animal grooms an appendage
+  that is holding still; a nervous one hides under the nearest appendage when
+  the alarm runs through the margin; one settling to feed on residue turns the
+  appendages around it; and a branch inspects an animal that comes within its
+  reach. The three still missing — crawling across an appendage, using a
+  stationary one as a bridge, riding an emerging one — all want the same thing
+  and none of them works without it: a critter has to be able to stand on a
+  PALP rather than on architecture, and the surface-walk re-seats by ray-cast
+  against physics, which appendages have no presence in.
 - §22 — DONE except for the last clause. The hero's club now reaches the
   animal it is minding and pushes it for real, the animal answers by putting
   its sensory structures out, and nearby palps turn to watch. What is not

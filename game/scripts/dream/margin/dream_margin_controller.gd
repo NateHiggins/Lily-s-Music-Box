@@ -251,6 +251,7 @@ func _birth(tier: int, at: Vector3, nrm: Vector3) -> void:
 		"contact": 0.0,
 		"startle": 0.0,
 		"critter_near": 0.0,
+		"critter_at": Vector3.INF,
 		"contested": false,
 		# §22's local look owns its own clock. Hanging it off `act_left` meant
 		# anything that started a new act -- an alarm spreading through the
@@ -267,6 +268,7 @@ func _birth(tier: int, at: Vector3, nrm: Vector3) -> void:
 		"unfold": 1.0,
 		"children": 0,
 	})
+	palps[palps.size() - 1].merge(_shared_state(), false)
 	palp_born.emit(_next_id, tier, archetype)
 	_next_id += 1
 
@@ -352,9 +354,27 @@ func _think(delta: float) -> void:
 		# §10 — CRITTER PROXIMITY.
 		if critters != null and is_instance_valid(critters):
 			var nearest := 9.0
+			var nearest_at := Vector3.INF
 			for c in critters.critters:
-				nearest = minf(nearest, (p.tip as Vector3).distance_to(c.pos))
+				var cd: float = (p.tip as Vector3).distance_to(c.pos)
+				if cd < nearest:
+					nearest = cd
+					nearest_at = c.pos
 			p.critter_near = clampf(1.0 - nearest / 0.45, 0.0, 1.0)
+			p.critter_at = nearest_at
+			# §21 — BE INSPECTED BY A BRANCH.
+			#
+			# A branch is anatomy that was folded inside its parent and has
+			# come out for a reason. An animal within reach of one is the most
+			# interesting thing on that stretch of wall, and a branch with
+			# nothing else to do goes and looks at it -- which reads very
+			# differently from the parent doing it, because the branch was not
+			# there a moment ago.
+			if int(p.parent) >= 0 and float(p.unfold) > 0.6 					and p.target == Vector3.INF and float(p.critter_near) > 0.4:
+				p.target = nearest_at
+				p.act = BehaviorScript.Act.TOUCH
+				p.act_clock = 0.0
+				p.act_left = 1.2 + float(p.traits.object_interest) * 2.0
 		# The renderer lays the spine from anchor along `aim`, so intent
 		# reaches the geometry as a direction and a length.
 		if int(p.parent) >= 0:
@@ -535,6 +555,39 @@ func neighbours_of(id: int) -> Array:
 ## crease, the separation, the independent investigation, and the fold back.
 ## Vascular congestion and gold repositioning are shader work that does not
 ## exist yet.
+## EVERY FIELD THE REST OF THE SYSTEM EXPECTS, IN ONE PLACE.
+##
+## Appendages are born in two places -- `_birth` for the ordinary ones and
+## `try_branch` for folded anatomy -- and for as long as those were two
+## independent dictionary literals they drifted apart. It has now happened
+## twice: first a branch reached a global attention event with no
+## `attend_override`, and then a branch reached §10's social pass with no
+## `contact`.
+##
+## The second one was much worse than it looks. Reading a missing key raises,
+## and the raise aborted the margin's ENTIRE update from that appendage
+## onward -- so palps earlier in the array went on moving normally while
+## everything after the branch silently stopped, including its own clocks. It
+## presented as "one palp is ignoring me" and the margin looked fine.
+##
+## Merged non-destructively into both, so a field added to the ordinary birth
+## reaches branches whether or not anyone remembers they exist.
+static func _shared_state() -> Dictionary:
+	return {
+		"neighbour_count": 0,
+		"joined": -1,
+		"hero_near": 0.0,
+		"contact": 0.0,
+		"startle": 0.0,
+		"critter_near": 0.0,
+		"critter_at": Vector3.INF,
+		"contested": false,
+		"local_look": false,
+		"look_left": 0.0,
+		"attend_override": Vector3.INF,
+	}
+
+
 func try_branch(id: int) -> bool:
 	var parent: Dictionary = {}
 	for p in palps:
@@ -577,12 +630,8 @@ func try_branch(id: int) -> bool:
 			"neighbour_count": 0, "joined": -1, "hero_near": 0.0,
 			"parent": id, "unfold": 0.0, "children": 0,
 			"spread": spread,
-			# Branches are built here rather than in _birth, so every field
-			# the rest of the system expects has to be repeated -- this one
-			# was not, and a branch that unfolded during a global attention
-			# event had no such key at all.
-			"attend_override": Vector3.INF,
 		})
+		palps[palps.size() - 1].merge(_shared_state(), false)
 		_next_id += 1
 	parent.children = n
 	branched.emit(id, n)

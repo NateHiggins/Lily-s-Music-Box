@@ -225,6 +225,12 @@ func _try_spawn() -> void:
 			"following": -1,
 			"nudged": 0.0,
 			"feeding": false,
+			# §21 — the rest of what the margin is to an animal that lives in
+			# it: something to work over, something to get under, and something
+			# whose attention it can attract.
+			"grooming": false,
+			"hiding": false,
+			"announced": 0.0,
 			# §22 — what it is doing about the hero, if anything.
 			"hero_near": 0.0,
 			"toward_hero": false,
@@ -381,6 +387,33 @@ func _consider_the_hero(c: Dictionary, delta: float) -> void:
 			c.toward_hero = true
 
 
+## TURNING, INCLUDING THE EXACTLY-BACKWARDS CASE.
+##
+## Lerping a heading toward its own negation is a FIXED POINT. At any blend
+## below a half the result still points the original way once it is
+## normalised -- `lerp(f, -f, 0.2)` is `f * 0.6` -- so an animal asked to turn
+## right round never turns at all, and one asked to turn nearly right round
+## takes an age about it. Found by a hiding critter that reported itself
+## hiding for eight steps while facing exactly the wrong way.
+##
+## Rotating about the animal's own up has no such hole. Where the turn is
+## exactly 180 degrees there is no unique axis, so it picks a side and
+## commits, which is what an animal does too.
+func _turn_toward(c: Dictionary, want: Vector3, amount: float) -> void:
+	var fwd: Vector3 = c.fwd
+	var up: Vector3 = c.up
+	var w: Vector3 = want - up * want.dot(up)
+	if w.length() < 0.0001:
+		return
+	w = w.normalized()
+	var ang: float = acos(clampf(fwd.dot(w), -1.0, 1.0))
+	if ang < 0.0001:
+		return
+	var axis: Vector3 = fwd.cross(w)
+	axis = axis.normalized() if axis.length() > 0.0001 else up
+	c.fwd = fwd.rotated(axis, minf(ang, amount)).normalized()
+
+
 ## §22 — THE HERO'S CLUB TOUCHES AN ANIMAL, AND THE ANIMAL ANSWERS.
 ##
 ##     "A tiny critter clings to a hero gold plate; the hero eye notices it;
@@ -438,6 +471,9 @@ func _use_the_margin(c: Dictionary, delta: float) -> void:
 	# read as a flinch, and a flinch is what this deliberately is not.
 	c.unfold = maxf(0.0, float(c.unfold) - delta * 0.28)
 	c.feeding = false
+	c.grooming = false
+	c.hiding = false
+	c.announced = maxf(0.0, float(c.announced) - delta)
 	var m: Dictionary = c.morph
 	var pos: Vector3 = c.pos
 	if margin != null:
@@ -466,6 +502,34 @@ func _use_the_margin(c: Dictionary, delta: float) -> void:
 					# Being shoved is startling, in proportion to temperament.
 					if float(m.startle) > 0.6:
 						c.moving = false
+			# §21 — HIDE BENEATH THEM. When the margin takes fright the alarm
+			# runs through it as a wave, and the smallest animals on the wall
+			# do what small animals do: get under the nearest big thing and
+			# stop moving. Under is the ANCHOR, where the appendage is thickest
+			# and rooted, not the tip that is waving about.
+			#
+			# Only the nervous ones. A bold individual carrying on as normal
+			# while its neighbours bolt is what makes them read as individuals
+			# rather than as a shoal.
+			elif float(closest_p.get("startle", 0.0)) > 0.45 					and float(m.startle) > 0.45 and closest < 0.7:
+				var to_under: Vector3 = (closest_p.anchor as Vector3) - pos
+				to_under = to_under - (c.up as Vector3) * to_under.dot(c.up)
+				if to_under.length() > 0.05:
+					_step_along_surface(c, to_under.normalized() * delta
+							* float(m.speed) * 1.6)
+					_turn_toward(c, to_under.normalized(), delta * 4.0)
+				else:
+					c.moving = false
+				c.hiding = true
+			# §21 — GROOM THEM. An appendage that is ON something is holding
+			# still, and a sociable animal that finds one holding still works
+			# over it: parked against it, sensory structures out and busy.
+			# This is the behaviour that makes the margin read as a body other
+			# things live on rather than as scenery.
+			elif closest < 0.22 and float(closest_p.get("contact", 0.0)) > 0.6 					and float(m.sociability) > 0.45:
+				c.moving = false
+				c.grooming = true
+				c.unfold = maxf(float(c.unfold), 0.75)
 			# FOLLOW IT TO WHAT IT FOUND. A curious individual treats a palp's
 			# discovery as worth investigating.
 			elif closest < 0.55 and closest_p.target != Vector3.INF:
@@ -475,8 +539,7 @@ func _use_the_margin(c: Dictionary, delta: float) -> void:
 					var to: Vector3 = (closest_p.target as Vector3) - pos
 					to = to - (c.up as Vector3) * to.dot(c.up)
 					if to.length() > 0.04:
-						c.fwd = (c.fwd as Vector3).lerp(to.normalized(),
-								delta * 1.5).normalized()
+						_turn_toward(c, to.normalized(), delta * 1.5)
 					else:
 						c.following = -1
 	# FEED ON WHAT THE DREAM LEFT. Residue is transformed matter, and a
@@ -486,6 +549,15 @@ func _use_the_margin(c: Dictionary, delta: float) -> void:
 		if not patch.is_empty():
 			c.feeding = true
 			c.moving = false
+			# §21 — TRIGGER COORDINATED LOCAL ATTENTION. An animal settling to
+			# feed on transformed matter is the most interesting thing to
+			# happen on that stretch of wall, and the appendages around it turn
+			# to watch. Announced ONCE and then not again for a while: a
+			# critter that spends six seconds eating must not hold the whole
+			# neighbourhood's attention for all six.
+			if float(c.announced) <= 0.0 and margin != null 					and margin.has_method("orient_nearby"):
+				c.announced = 9.0
+				margin.orient_nearby(pos, 0.7)
 
 
 
@@ -637,6 +709,13 @@ func census() -> Dictionary:
 			twinned += 1
 		if float(c.get("fold", 0.0)) > 0.05:
 			folding += 1
+	var grooming := 0
+	var hiding := 0
+	for c in critters:
+		if bool(c.get("grooming", false)):
+			grooming += 1
+		if bool(c.get("hiding", false)):
+			hiding += 1
 	var unfolded := 0
 	for c in critters:
 		if float(c.get("unfold", 0.0)) > 0.05:
@@ -660,6 +739,7 @@ func census() -> Dictionary:
 	return {"live": critters.size(), "born": _next_id, "species": by_species,
 			"max": MAX_LIVE, "on_both_sides": twinned, "folding_a_leg": folding,
 			"nudged_by_a_palp": nudged, "unfolding_at_the_hero": unfolded,
+			"grooming_a_palp": grooming, "hiding_under_a_palp": hiding,
 			"following_a_palp": following,
 			"feeding_on_residue": feeding,
 			"feel_hero": feel_hero, "approaching_hero": brave}
