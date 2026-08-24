@@ -114,6 +114,21 @@ comparison → boiler comparison → Dream interruption → repair → resident 
 7. Vertical expansion: dumbwaiter, elevator interlock, rooftop tank, mail-chute
    choke, fuse panel, watchman clock, sash weights and laundry mechanisms.
 
+## Landed production checkpoints
+
+- **M1 / radiator:** shared activity data, run, router and paper-strip
+  presenter; live one-pipe radiator consumer with preview/abort/commit proof.
+- **SR2 / lobby annunciator (2026-08-24):** the production porter board exposes
+  separate dispatch and call-hardware reaches. Its real call flags, contact
+  bridge and common reset enact the authored three-step chain; the older lift
+  game is unchanged. Headless proof boots the production building, and frozen
+  A/A plus worked-state Forward+ evidence is recorded at
+  `art/renders/maintenance_annunciator_sr2/README.md`.
+
+SR3 remains the boiler water column; SR4 remains the first resident-filed,
+travel-bearing work order. Neither may be collapsed into another isolated prop
+demonstration.
+
 ## Acceptance
 
 - Each micro-verb authors 3–12 seconds; failure recovers in under four seconds.

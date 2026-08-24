@@ -34,17 +34,17 @@ hashes, trims and tests are recorded in `game/docs/title_screen.md`.
 one third of active play as WarioWare-short hands-on maintenance, one third as
 resident communication / travel / search, and one third observing, avoiding
 and eventually communicating with the Dream organism. The binding design is
-`design/ORISON_SERVICE_ROUND_BRIEF.md`. M1 is landed locally: one strict
+`design/ORISON_SERVICE_ROUND_BRIEF.md`. M1 and SR2 are landed locally: one strict
 data-authored activity book, transient run, one-at-a-time presentation router,
-narrow in-world paper strip and the radiator as first live consumer. Three
-profiles exist (radiator vent, lobby annunciator, boiler water column), but
-only the radiator is wired into play. Preview moves its real wheel/vent without
-publishing heat state; abort restores; final completion alone reaches its
-existing setters. The activity layer cannot advance a job, case or Dream fact.
-Focused tests pass and paired Forward+ proof is in
-`art/renders/maintenance_service_round_m1/README.md`. Next is SR2, the lobby
-annunciator consumer—not a new elevator game—then SR3 boiler and SR4's first
-resident/travel service round.
+narrow in-world paper strip, and two live consumers. Radiator preview moves its
+real wheel/vent without publishing heat state. The production lobby's porter
+board now keeps its lift game on one ray target and services its physical call
+flags, contact bridge and common reset on another. Preview/abort restores;
+final completion alone emits a mechanism result. The activity layer cannot
+advance a job, case or Dream fact. Focused tests pass; Forward+ proof lives at
+`art/renders/maintenance_service_round_m1/README.md` and
+`art/renders/maintenance_annunciator_sr2/README.md`. Next is SR3 boiler, then
+SR4's first resident/travel service round.
 
 **Dream rendering checkpoint (2026-08-20):** R1–R6 of the production surface
 redesign are landed through `art/renders/dream_rendering_r6/README.md`. The

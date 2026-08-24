@@ -3304,10 +3304,15 @@ travel / search, and observing / avoiding / eventually communicating with the
 Dream organism. M1's shared activity contract and live radiator consumer are
 proved at `art/renders/maintenance_service_round_m1/README.md`.
 
-- **SR2 — Lobby annunciator consumer.** Connect the authored flag-armature,
-  contact-alignment and bank-reset sequence to the real Otis/porter board. Keep
-  the existing elevator game separate; this services its call hardware and may
-  only return a mechanism result.
+- **SR2 — Lobby annunciator consumer — COMPLETE 2026-08-24.** The real
+  `LobbyPorterBoard` now exposes separate lift-dispatch and call-hardware ray
+  targets. The authored flag-armature, contact-alignment and common-reset chain
+  moves the board's actual flags, silver bridge and spindle through the shared
+  activity presenter; preview/abort publishes nothing, and final commit emits
+  only one mechanism result. The elevator game remains separate. The focused
+  schema/run test passes 33 checks, the live test passes 12 including a boot of
+  `orison_root.tscn`, and frozen A/A plus worked-state Forward+ proof is at
+  `art/renders/maintenance_annunciator_sr2/README.md`.
 - **SR3 — Boiler water-column consumer.** Connect the authored isolate, prove,
   witness and guarded-return sequence to `BoilerProp`'s water-glass reach. The
   live preview must not publish a false boiler level before commit.
