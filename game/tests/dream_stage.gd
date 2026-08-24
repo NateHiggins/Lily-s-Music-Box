@@ -216,6 +216,7 @@ func _build_ecology() -> void:
 	hero.touched.connect(func(where: Vector3, nrm: Vector3):
 		residue.lay(where, nrm, 0.16, 1.0, 3.6))
 	margin.hero = hero
+	margin.critters = critters
 	critters.hero = hero
 	hero.margin = margin
 	# In this capture the camera IS the player's viewpoint -- it carries the
