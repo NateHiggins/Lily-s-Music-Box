@@ -8,6 +8,10 @@ covenant, not a brief and not a status ledger. Where it disagrees with
 Closes the classification half of **T4-1**. Recorded against `611e71c`
 ("Prove the organelle conversation in the production root").
 
+Integration refresh, 2026-08-24: DO-D1 and Juno's T4-2 temporal sensory proof
+landed after that audit base. Rows 5 and 18 and contradiction C1 are refreshed
+to current production status; the remaining findings retain their audit date.
+
 Binding doctrine, in precedence order:
 
 1. `design/ORISON_BIBLE.md` — the covenant, including §VIII.2's Rule of Signal
@@ -127,9 +131,9 @@ Physarum agent model in field 3 licenses no post-1927 waking prop whatsoever.
 | **Scale / era** | Neuronal arbors at µm; re-grown at 7–19 cm. Golgi-stain arborization imagery is 1870s onward. |
 | **Organelle function** | Adaptive recursion (§12): when a target is interesting enough, the organ grows more instrument rather than trying harder with the same instrument. |
 | **Her misreading** | **Attention is mistaken for anatomy.** She cannot concentrate, so she branches. Interest becomes surface area. |
-| **Owner / proof** | `dream_margin_controller.gd` `try_branch` and the §12 unfolding in `_think`; `art/renders/dream_ecology_step12_cilia/README.md`. `DreamMarginTest` 57/57 at integration. |
-| **Contradiction / missing receptor** | **DO-D1 is open and Codex is repairing it as this ledger is written.** `_age()` ramps a new branch's data `grow` 0→1 over 0.9 s after `try_branch` creates it at 1.0, which contradicts the locked folded-anatomy doctrine even though the rendered unfold preserves size. Not this document's to fix, and deliberately not touched here. |
-| **Field 8 — RECOMMENDATION** | None. This row is under active repair; adding a recommendation on top of an in-flight fix would be noise. |
+| **Owner / proof** | `dream_margin_controller.gd` `try_branch` and the §12 unfolding in `_think`; `art/renders/dream_ecology_step12_cilia/README.md`. DO-D1 keeps branch `grow` at 1.0 from birth through folded removal; `DreamMarginTest` passes 59/59. |
+| **Contradiction / missing receptor** | None outstanding. The audit-base scale-from-zero data defect closed in `ce4e53f`; angular `unfold` now carries all visible separation and return. |
+| **Field 8 — RECOMMENDATION** | None. |
 
 ### 6. Fine cilia — LANDED
 
@@ -238,9 +242,10 @@ than it looks.**
 ## Resolution 3b — the case incarnations
 
 > **Status warning.** All six incarnation **surfaces** are landed (INC-V3
-> through INC-V9, the ordered surface queue closed per `HANDOFF.md`). What is
-> open is the **temporal sensory grammar** — T4-2 for Juno. These are different
-> things and the distinction is load-bearing. See Contradiction C1.
+> through INC-V9, the ordered surface queue closed per `HANDOFF.md`). Juno's
+> **temporal sensory grammar** is also landed through T4-2; the other five rows
+> make no such claim. Surface and sensory grammar remain different things and
+> the distinction is load-bearing. See Contradiction C1.
 >
 > None of these six may state its case truth. `DREAM_TEMPORAL_BIOLOGY.md`
 > forbids unearned case truth outright, and each row below records the truth
@@ -272,19 +277,19 @@ than it looks.**
 | **Truth safety** | Truth is *"Uncertainty does not prevent action"*. The organ embodies the exact opposite and never argues it; the recursion is the pathos. |
 | **Field 8 — RECOMMENDATION** | None. |
 
-### 18. Juno incarnation — SURFACE LANDED, temporal grammar APPROVED-NOT-LANDED
+### 18. Juno incarnation — SURFACE AND TEMPORAL GRAMMAR LANDED
 
 | | |
 |---|---|
-| **Runtime status** | **INC-V5 surface is LANDED** — speaker cloth, paired send/return traces, oxidized brass, pressure tissue, a sub-Hz standing wave, one sustained band, a quiet node. **T4-2 is OPEN**: the delayed-feedback *sensory* grammar is approved and unbuilt. |
+| **Runtime status** | **INC-V5 surface and T4-2 sensory grammar are LANDED** — speaker cloth, paired send/return traces, oxidized brass, pressure tissue, a sub-Hz standing wave, one sustained band, a quiet node and one fixed 21-receptor listening bed in three spatial response groups. |
 | **Specimen** | Three specimens read as one organ, exactly as `DREAM_TEMPORAL_BIOLOGY.md` prescribes: tympanic membrane and cochlear travelling-wave delay; 1920s radio acoustic feedback; later phased/array sensing that answers in delayed groups. |
 | **Scale / era** | Tympanum ~1 cm and cochlear hair cells µm — Helmholtz/Békésy, 1860s–1930s; regenerative radio feedback is *contemporary with the setting*, 1910s–1920s; array sensing 1950s onward. **The 1920s feedback specimen is the only one in this ledger the waking Orison could legitimately contain**, which is precisely why Juno is the correct first temporal proof. |
 | **Organelle function** | One listening organ that separates frequency, pressure and delay — and answers. |
 | **Her misreading** | She mistakes **every received channel for a request to answer.** Receiving is indistinguishable from being asked. The feedback is not malfunction; it is her politeness. |
-| **Owner / proof** | Surface: `art/renders/dream_incarnation_juno_v5/README.md`. Delayed-neighbour conduction already exists generically in the margin (0.45 s, `art/renders/dream_organelle_production/README.md` frame `05`) but is **not** Juno's grammar and must not be claimed as it. |
-| **Contradiction / missing receptor** | The approved temporal grammar has no runtime. T4-2 names the gate: fixed-camera production render, frozen A/A, a named visible anatomical response, no screen, brand, future prop or new owner. |
-| **Truth safety** | Truth is *"Connection requires an open channel"*. An organ that answers everything is the counter-example, not the statement. Her topology, timing, pursuit, hazards and truth are all held by T4-2. |
-| **Field 8 — RECOMMENDATION** | The 0.45 s margin conduction and the 0.48 s cilia sample are two landed delays that already behave like her grammar at the wrong scale. Whoever builds T4-2 should check whether her partitions can reuse that timing vocabulary rather than inventing a third. **Recommendation only.** |
+| **Owner / proof** | Surface: `art/renders/dream_incarnation_juno_v5/README.md`. Temporal organ: `art/renders/dream_temporal_juno_t4/README.md`; frozen A/A 0.000000, partition/release ~0.09694 RMSE, `DreamProfileTest` 65/65 and `DreamIncarnationTest` 66/66. The existing profile delay and topology remain the only owners. |
+| **Contradiction / missing receptor** | None outstanding. T4-2 added no screen, brand, future prop, clock, topology, collision, navigation, pursuit, hazard, save fact or owner. |
+| **Truth safety** | Truth is *"Connection requires an open channel"*. An organ that answers everything remains the counter-example, not the statement; the landed organ does not adjudicate the truth. |
+| **Field 8 — RECOMMENDATION** | None. T4-2 is closed. |
 
 ### 19. Mae incarnation — LANDED (surface)
 
@@ -361,13 +366,12 @@ Reported as required, with no attempt to resolve them here.
 
 **C1 — "not yet landed" vs the closed surface queue.** T4-1's brief describes
 Juno's incarnation grammar as "approved but not-yet-landed" and Cal, Omar and
-Mae as "approved surface-language concepts". The repository disagrees:
+Mae as "approved surface-language concepts". The audit-base repository disagreed:
 INC-V5 (Juno), INC-V6 (Mae), INC-V7 (Cal) and INC-V8 (Omar) are all landed
 with production proofs, and `HANDOFF.md` records "the ordered INC-V3–V9 surface
-queue is closed". **Resolution recorded in rows 18–21:** the *surface* is
-landed for all six; what is open is the *temporal sensory grammar*, which is
-T4-2 and currently scoped to Juno alone. Both statuses are recorded separately
-in every affected row so neither reading can be taken for the other.
+queue is closed". **Current resolution recorded in rows 18–21:** the *surface*
+is landed for all six, and Juno's T4-2 temporal sensory grammar subsequently
+landed in `848d2be`. The other five rows make no temporal-sensory claim.
 
 **C2 — two owners named "fauna".** `DreamCritterController` (8 live,
 world-space, interacting, three species with impossible rules) and
@@ -407,7 +411,8 @@ densities. Row 15 records it.
 ## Recommendations requiring owner approval
 
 Every one of these is **mine, not approved**, and none is a mandate to change
-approved art. They are listed once here and marked RECOMMENDATION in place.
+approved art. Ten remain after the integration refresh; they are listed once
+here and marked RECOMMENDATION in place.
 
 1. A chemotactic *read* of the `LivingField` gradient (row 1).
 2. Hero acknowledgement of an inbound recognition (row 2).
@@ -420,9 +425,8 @@ approved art. They are listed once here and marked RECOMMENDATION in place.
 7. Whether density families should ever become addressable at all (rows 10–14).
 8. Whether DO-3's flora clause should be marked blocked rather than unstarted
    (row 15).
-9. Reuse of the landed 0.45 s / 0.48 s delay vocabulary for T4-2 (row 18).
-10. Omar as a `REPAIR` reader that must never succeed (row 21).
-11. Comment-level reframing of the three pursuit comments (row 22).
+9. Omar as a `REPAIR` reader that must never succeed (row 21).
+10. Comment-level reframing of the three pursuit comments (row 22).
 
 ## What this ledger deliberately does not do
 

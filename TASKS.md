@@ -2354,11 +2354,13 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   retroactive state or arbitrary future prop. Waking Orison remains 1927
   except for bounded encroachment evidence on existing historical objects.
   Binding doctrine: `design/DREAM_TEMPORAL_BIOLOGY.md`.
-- **T4-1 OPEN — SPECIMEN LEDGER.** Audit each landed Dream organ family and
-  record its real biological/technical specimen, scale/era, organelle function
-  and the being's specific misreading. This is classification first, not a
-  mandate to change approved art. Feed any genuine gaps into DO-3 after DO-4's
-  production proof is stable.
+- **T4-1 COMPLETE 2026-08-24 — SPECIMEN LEDGER.** Twenty-three landed Dream
+  organ families now record specimen, scale/era, whole-body function, specific
+  misreading, runtime/proof owner, truth safety and evidence gap in
+  `design/DREAM_TEMPORAL_SPECIMEN_LEDGER.md`. Its eight contradictions remain
+  audit findings, not silent redesign authority; ten future recipient ideas
+  remain explicitly unapproved. Integration refreshed DO-D1 and Juno T4-2 to
+  their current landed status. No code, art or runtime owner changed.
 - **T4-2 COMPLETE 2026-08-24 — FIRST TEMPORAL SENSORY PROOF.** Juno's existing
   delayed reciprocal partition now grows a fixed 21-receptor listening bed in
   three spatial response groups: tympanum, cochlear delay, period feedback and

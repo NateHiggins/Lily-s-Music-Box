@@ -385,6 +385,14 @@ the tag creates no Dream, case or save owner. This does not make the lobby and
 basement profiles live apparatus—the Service Round production order remains
 authoritative.
 
+Claude's isolated T4-1 audit was integrated as `7d87ebe` from `56d4061` and
+refreshed against current main. The 23-row specimen ledger is
+`design/DREAM_TEMPORAL_SPECIMEN_LEDGER.md`; it keeps landed/approved/proposed/
+recommendation evidence separate and closes classification only. DO-D1 and
+Juno T4-2 now read as landed. Its remaining ten recommendations are not owner
+approved; the load-bearing rulings are `dream_event`, density addressability
+and whether the flora recipient clause is blocked.
+
 The owner next ruled accelerated lifecycles for every visible Dream organelle,
 environment-selected asexual/sexual/pansexual reproduction, visit-persistent
 beautiful/disturbing death stains, an alien moss/fungus primary food and a
