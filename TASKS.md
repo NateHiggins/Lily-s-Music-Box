@@ -2250,6 +2250,10 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   `design/DREAM_ORGANELLE_COMMUNICATION.md`. No combat system contradicted the
   canon; the only vocabulary contradiction is the fauna density ledger's
   predator/consumed naming, ruled rename/reframe-only with balance and art held.
+  **Semantic correction landed 2026-08-24 in `280a998`:** allocation, uptake,
+  reclamation, reclaimable matter, signalling and inhibition now name the same
+  byte-stable density system. `DreamFaunaTest` passes 28/28 with identical
+  numeric output; no art or render behavior changed.
 - **DO-2 COMPLETE 2026-08-24 — SHARED SIGNAL SEAM.** Extend the existing LivingField/margin
   broadcast/hero-event/EcologyDirector boundary with one transient signal
   packet carrying source, stimulus/function, position, strength, chemical

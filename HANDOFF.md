@@ -332,6 +332,14 @@ route it and architecture does not yet consume it. `DreamEcologyTest` passes
 architecture, incarnation and hazard breadth open. DO-4 still requires the
 production-root sequence and rare global-attention beat.
 
+The isolated fauna vocabulary correction was integrated as `280a998`. Its
+former food-web names now read as allocation, uptake, reclamation, signalling
+and inhibition within one body. The pass was semantic only: all density
+numbers, behavior, art and render evidence stayed fixed, and
+`DreamFaunaTest` passes 28/28 in the integrated checkout. Reclamation's
+suppression of surplus uptake is ruled homeostatic pruning, not predation; any
+future removal of that numeric relationship is a separate balance change.
+
 Three top-level projects:
 
 | Path | What |

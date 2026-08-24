@@ -9,9 +9,10 @@ separate creature, faction or predator.
 
 ## Owner-order rulings
 
-1. Existing fauna trophic behaviour is preserved but predator/consumed naming
-   must be reframed as allocation, reclamation and transport. No numbers or art
-   change follows from the semantic correction alone.
+1. Existing fauna trophic behaviour is preserved, with its former
+   predator/consumed naming reframed as allocation, uptake, reclamation,
+   signalling and inhibition in `280a998`. No numbers or art changed with the
+   semantic correction.
 2. The first executable signal slice uses the already-wired Blender hero,
    margin and critter owners. The shelved procedural limb does not return by
    implication.
@@ -34,14 +35,17 @@ separate creature, faction or predator.
 | fauna hides at an alarmed root | inhibition and protective withdrawal |
 | fauna rides or crosses an appendage | transport through temporary anatomy |
 | hero deliberately nudges fauna; fauna unfolds | recognition and receptor presentation |
-| fauna feeds on residue | reclamation of transformed matter |
+| fauna reclaims residue | reclamation of transformed matter |
 | local fauna event turns nearby palps | delayed paracrine propagation |
 | EcologyDirector bias | local chemical/weather bias, never an animation command |
 | global-attention snap | rare whole-body regulation |
 
 The semantic audit found no landed combat system that needs removal. The one
-contradictory vocabulary seam is the fauna density ledger's predator/consumed
-language; its correction is a rename/reframe pass, not a balance pass.
+contradictory vocabulary seam was the fauna density ledger's predator/
+consumed language. `280a998` closed it as a rename/reframe pass while holding
+all density numbers, behavior, art and render proof fixed. Reclamation still
+suppresses surplus uptake as homeostatic pruning; removing that relationship
+would be a separate balance ruling.
 
 ## Transient packet contract
 
