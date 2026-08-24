@@ -529,8 +529,13 @@ errors:
 - **Only one Godot may touch the `.godot` cache at a time.** The user's
   editor often sits open for days (PID from the project root, no args) —
   do not kill it, but expect a concurrent headless run to behave
-  strangely rather than to say so. The `_console` build is the one that
-  prints to stdout; the plain exe silently writes nothing.
+  strangely rather than to say so. **Every agent and every isolated worktree
+  must launch through `tools/run_godot_serial.ps1`.** It holds the machine-wide
+  `Global\OrisonGodotSingleInstance` mutex, refuses an already-running editor
+  or test, enforces the 60-second ceiling, and releases ownership on failure.
+  A separate worktree does not create a separate engine lane. The `_console`
+  build is the one that prints to stdout; the plain exe silently writes
+  nothing.
 
 Conventions that bite if forgotten:
 - Meters, Blender axes (X east, Y north, Z up, street = −Y).
@@ -926,6 +931,10 @@ working tree, and as of 2026-08-13 they are not all Claude — Codex works
 here too. Before pushing: `git fetch`, and if both sides changed the
 same ground, keep the newest user-directed design, port the other side's
 features additively, regenerate artifacts, and prove it with WalkTest.
+The engine is a separately scheduled exclusive resource: source and document
+work may proceed in parallel, but an agent must acquire the shared runner above
+for import, tests, editor or renders. If the runner refuses, keep working
+without Godot or hand off the engine lane; never bypass the mutex.
 
 **Never `git add -A`.** It is banned outright, not merely discouraged:
 the tree usually carries somebody else's uncommitted generated data,
