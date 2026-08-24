@@ -138,7 +138,23 @@ Two things worth keeping:
   flat zero from an unfired mechanism looks exactly like a flat zero from a
   broken one.
 
-Still owed from §12's list: vascular pulses driving the geometry.
+**And every one of the organism's clocks was stopped.** The shared stack
+carries `attention`, `pulse_phase`, `breath_phase`, `startle` and
+`dream_phase`; the procedural limb has pushed all five every frame since it
+existed, and the modelled hero pushed none of them. It rendered at a fixed
+attention of 0.3, with a vascular wave standing still on its body and a breath
+that never came — the whole coupled-state layer inert on the creature it was
+written for. "Not animated at all" was true of the material as well as the rig.
+
+It now runs on the same periods as the procedural limb, because it is the same
+animal: pulse 1.47 s, breath 5.3 s, deliberately not sharing a period so
+nothing in the body beats with anything else. And the bolus MOVES the flesh —
+a pressure wave that tints the skin and leaves the silhouette alone is a
+texture effect; one that swells the body as it passes is circulation.
+
+A frozen clock is invisible in a still frame and very nearly invisible in
+motion, because the body is moving anyway, so the sweep reads the phases back
+off the material: pulse ranged 0.972 and breath 0.478 over 2.4 s.
 
 ### H5. ~~The eye does not perform~~ — DONE
 The rig had carried `CTL_EYE` and three lid controls since it was built and

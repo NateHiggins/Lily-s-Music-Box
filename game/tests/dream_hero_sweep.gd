@@ -623,6 +623,30 @@ func _modelled_hero_shots() -> void:
 		printerr("[SWEEP] the cilia are no springier than the gold — one spring for everything")
 	if float(peak[5]) < 0.0005:
 		printerr("[SWEEP] the riders are not moving at all")
+	# THE ORGANISM'S CLOCKS ARE ACTUALLY RUNNING.
+	#
+	# All five of the shared stack's coupled-state uniforms sat at their
+	# defaults on this creature for as long as it had existed -- a vascular
+	# wave standing still on its body, a breath that never came, a fixed
+	# attention of 0.3. A frozen clock is invisible in a still frame and very
+	# nearly invisible in motion, because the body is moving anyway. So read
+	# them back off the material, which is the only place the truth lives.
+	var probe_mat: ShaderMaterial = hero.materials[0]
+	var clock_lo := {}
+	var clock_hi := {}
+	for _c in 40:
+		await get_tree().create_timer(0.06).timeout
+		for key in ["pulse_phase", "breath_phase", "attention"]:
+			var v = probe_mat.get_shader_parameter(key)
+			if v == null:
+				continue
+			clock_lo[key] = minf(float(clock_lo.get(key, 9.0)), float(v))
+			clock_hi[key] = maxf(float(clock_hi.get(key, -9.0)), float(v))
+	for key in ["pulse_phase", "breath_phase"]:
+		var span: float = float(clock_hi.get(key, 0.0)) - float(clock_lo.get(key, 0.0))
+		print("[SWEEP] CLOCK %-13s ranged %.3f" % [key, span])
+		if span < 0.05:
+			printerr("[SWEEP] %s IS FROZEN — the material's clock is not running" % key)
 	# H4's second half: ROCKING AND PRESSING, which need a pivot.
 	#
 	# THE PIVOT IS THE PART THAT CAN BE SILENTLY WRONG. A rigid piece turns

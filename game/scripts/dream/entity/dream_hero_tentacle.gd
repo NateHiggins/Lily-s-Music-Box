@@ -95,6 +95,10 @@ var _startle := 0.0
 ## Margin appendages currently on it, and the critter it is minding.
 var margin = null
 var _palps_on_me := 0
+## The same periods the procedural limb runs on -- it is the same animal.
+const PULSE_S := 1.47
+const BREATH_S := 5.3
+
 var _minding := Vector3.INF
 ## Whether this particular encounter has already had its nudge. One per
 ## meeting: a club resting against an animal is not nudging it repeatedly.
@@ -1056,7 +1060,34 @@ func _process(delta: float) -> void:
 	_secondary(delta)
 	_micro(delta)
 	_animate_eye(delta)
+	# THE ORGANISM'S SEVERAL CLOCKS (DIRECTION_3 §D). None of these shares a
+	# period, so nothing in the body beats with anything else.
+	#
+	# EVERY ONE OF THEM WAS FROZEN. The shared stack carries attention,
+	# pulse_phase, breath_phase, startle and dream_phase, the procedural limb
+	# has pushed all five every frame since it existed, and the modelled hero
+	# pushed none of them -- so it rendered at a fixed attention of 0.3 with a
+	# vascular wave standing still on its body and a breath that never came.
+	# The whole coupled-state layer was inert on the creature it was written
+	# for. "Not animated at all" turned out to be true of the material as well
+	# as the rig.
+	var pulse_v: float = fmod(_clock / PULSE_S, 1.0)
+	var breath_v: float = fmod(_clock / BREATH_S, 1.0)
+	# What it is attending to, which is a fact the behaviour already knows.
+	var attend := 0.30
+	if state == State.WATCH_PLAYER or state == State.INTERACT_CRITTER 			or state == State.INTERACT_MARGIN:
+		attend = 1.0
+	elif target != Vector3.INF:
+		attend = 0.65
+	var dream_v := 0.0
+	if field != null and field.state != null:
+		dream_v = fmod(field.state.dream_w, 1.0)
 	for mat in materials:
+		mat.set_shader_parameter("attention", attend)
+		mat.set_shader_parameter("pulse_phase", pulse_v)
+		mat.set_shader_parameter("breath_phase", breath_v)
+		mat.set_shader_parameter("startle", clampf(_startle, 0.0, 1.0))
+		mat.set_shader_parameter("dream_phase", dream_v)
 		mat.set_shader_parameter("body_motion", motion)
 		mat.set_shader_parameter("slice_close", slice_close)
 	for mat in materials:

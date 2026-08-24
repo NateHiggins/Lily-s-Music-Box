@@ -117,6 +117,22 @@ void vertex() {
 	// thin, which is why it takes the baked thickness with it: the muscular
 	// root closes through more radius than an eyelid does, and they finish
 	// together.
+	// The radial direction on a limb: the surface normal with the along-body
+	// component removed. On this mesh UV.y runs along the body, so BINORMAL is
+	// the axial direction.
+	vec3 axial_d = normalize(BINORMAL + vec3(0.0, 1e-5, 0.0));
+	vec3 radial_d = NORMAL - axial_d * dot(NORMAL, axial_d);
+	float rlen = length(radial_d);
+	radial_d = rlen > 0.001 ? radial_d / rlen : vec3(0.0);
+	// §12 — THE BOLUS MOVES THE FLESH, not only its colour. A pressure wave
+	// that tints the skin and leaves the silhouette untouched is a texture
+	// effect; one that swells the body as it passes is circulation. Thick
+	// flesh swells more than a membrane does, and it travels root to tip.
+	if (rider_v < 0.0) {
+		float beat_v = clamp(1.0 - UV.y, 0.0, 1.0);
+		float beat = pow(0.5 + 0.5 * cos((beat_v - pulse_phase) * 6.2831853), 9.0);
+		VERTEX += radial_d * beat * (0.002 + 0.006 * clamp(COLOR.r, 0.0, 1.0));
+	}
 	if (slice_close > 0.0001) {
 		// RADIAL ONLY. Collapsing straight along the normal also pulls the
 		// end caps inward, because a cap's normal points ALONG the limb --
@@ -125,10 +141,7 @@ void vertex() {
 		// mesh UV.y runs along the body, so BINORMAL is the axial direction;
 		// removing that component leaves the true radial one, and the caps
 		// barely move at all.
-		vec3 axial = normalize(BINORMAL + vec3(0.0, 1e-5, 0.0));
-		vec3 radial = NORMAL - axial * dot(NORMAL, axial);
-		float rl = length(radial);
-		radial = rl > 0.001 ? radial / rl : vec3(0.0);
+		vec3 radial = radial_d;
 		float here = mix(0.035, 0.115, clamp(COLOR.r, 0.0, 1.0));
 		// sqrt(1 - w^2): the same cross-section curve the field uses, so the
 		// limb thins slowly at first and then vanishes suddenly.
