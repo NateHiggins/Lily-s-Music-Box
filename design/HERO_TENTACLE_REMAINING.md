@@ -62,7 +62,16 @@ exactly — undo the bone's current pose, reapply its rest one, one matrix does
 both. Measured: pieces travelled 850 mm through the room while their sampling
 position moved 0.0004 mm. **The flesh is NOT fixed this way and still swims:**
 it is weighted across twenty-eight bones and genuinely deforms, so there is no
-single transform that undoes its pose. That one is still owed.
+single transform that undoes its pose.
+
+Rebuilding a canonical cylinder from the cage's own UVs was tried and
+REVERTED. It does remove the swimming — nothing about such a coordinate refers
+to where the body is — but the noise gradient comes out directional in it, and
+a directional gradient drives a directional normal perturbation, so the wet
+highlight broke into stripes running the length of the animal. Trading organic
+blotching for streaks is a worse picture than the defect it fixes. It wants a
+second UV set carrying rest position, or a bake, and it is now the largest
+thing left on this creature's surface.
 
 **The instrument for all of this: `SHOT_MODE=emerge` on the staged room.**
 A limb filling in from the tip and a limb extruding from the root are the same

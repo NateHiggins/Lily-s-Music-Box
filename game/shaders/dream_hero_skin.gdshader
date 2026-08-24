@@ -201,6 +201,18 @@ void vertex() {
 	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	// The surface is sampled HERE rather than at v_world, so it belongs to the
 	// body instead of to the room.
+	// THE FLESH IS NOT FIXED HERE AND STILL SWIMS. It is weighted across
+	// twenty-eight bones and genuinely deforms, so no single transform puts it
+	// back the way a rider's does.
+	//
+	// Rebuilding a canonical cylinder from its UVs was tried and REVERTED. It
+	// removes the swimming -- nothing about such a coordinate refers to where
+	// the body is -- but the noise gradient comes out directional in it, and
+	// a directional gradient drives a directional normal perturbation, so the
+	// wet highlight broke into stripes running the length of the animal.
+	// Trading organic blotching for streaks is a worse picture than the
+	// defect it fixes. It wants a second UV set carrying rest position, or a
+	// bake, and it is the largest thing left on this creature's surface.
 	v_stable = rider_v >= 0.0
 			? (rider_unpose * vec4(VERTEX, 1.0)).xyz
 			: v_world;
