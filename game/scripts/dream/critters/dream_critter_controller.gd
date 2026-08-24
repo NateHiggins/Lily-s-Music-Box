@@ -231,6 +231,13 @@ func _try_spawn() -> void:
 			"grooming": false,
 			"hiding": false,
 			"announced": 0.0,
+			# §21's last three, which all need an animal to be able to stand
+			# on an APPENDAGE rather than on architecture.
+			"riding": -1,
+			"ride_t": 0.0,
+			"ride_cool": 0.0,
+			"bridged": false,
+			"rode_growing": false,
 			# §22 — what it is doing about the hero, if anything.
 			"hero_near": 0.0,
 			"toward_hero": false,
@@ -268,6 +275,125 @@ func _step_along_surface(c: Dictionary, step: Vector3) -> void:
 	c.fwd = (f - (c.up as Vector3) * f.dot(c.up)).normalized()
 
 
+## §21 — CRAWL ACROSS THEM, BRIDGE ON THEM, RIDE THEM AS THEY COME OUT.
+##
+## The last three of §21's list all need the same thing and none of them works
+## without it: an animal must be able to stand on an APPENDAGE rather than on
+## architecture. The surface-walk re-seats by casting a ray at whatever is
+## under its destination, and appendages have no presence in physics --
+## eighty colliders for organs that exist to be looked at is not a trade worth
+## making on a frame that is already submission-bound.
+##
+## So a rider is carried ANALYTICALLY: it holds an appendage's id and how far
+## along it it has got, and its position is read off that organ own line every
+## frame. Which makes the other two nearly free -- a rider whose organ is
+## still unfolding is riding an emerging one, and a rider that reaches the far
+## end while that end is resting on something has crossed a bridge.
+##
+## Returns whether the animal is being carried, because if it is, nothing else
+## may move it.
+func _ride(c: Dictionary, delta: float) -> bool:
+	c.ride_cool = maxf(0.0, float(c.get("ride_cool", 0.0)) - delta)
+	if margin == null or not is_instance_valid(margin):
+		c.riding = -1
+		return false
+	var m: Dictionary = c.morph
+	if int(c.riding) < 0:
+		# MOUNTING, at the base where the organ meets the wall -- the only
+		# part of it an animal standing on that wall can reach. Bold and
+		# curious individuals only: climbing onto something much larger and
+		# alive is not a thing every animal does.
+		if float(c.ride_cool) > 0.0:
+			return false
+		if float(m.confidence) < 0.5 or float(m.curiosity) < 0.45:
+			return false
+		for p in margin.palps:
+			if (c.pos as Vector3).distance_to(p.anchor) > 0.11:
+				continue
+			if float(p.grow) < 0.2:
+				continue
+			c.riding = int(p.id)
+			c.ride_t = 0.0
+			c.rode_growing = false
+			c.bridged = false
+			break
+		if int(c.riding) < 0:
+			return false
+	var host: Dictionary = {}
+	for p in margin.palps:
+		if int(p.id) == int(c.riding):
+			host = p
+			break
+	if host.is_empty():
+		# The organ went away from under the animal. It does not fall.
+		c.riding = -1
+		c.ride_cool = 3.0
+		_reseat_any(c, [c.up, Vector3.UP])
+		return false
+	var base: Vector3 = host.anchor
+	var tip: Vector3 = host.tip
+	var span: Vector3 = tip - base
+	var length: float = span.length()
+	if length < 0.03:
+		c.riding = -1
+		c.ride_cool = 3.0
+		return false
+	var along: Vector3 = span / length
+	# It walks the organ at its own pace, in organ-lengths per second.
+	c.ride_t = float(c.ride_t) + delta * float(m.speed) / maxf(0.05, length)
+	# Anatomy that has not finished coming out is anatomy being ridden out.
+	if float(host.get("unfold", 1.0)) < 0.999 or float(host.get("grow", 1.0)) < 0.999:
+		c.rode_growing = true
+	if float(c.ride_t) >= 1.0:
+		# THE FAR END. If the organ is resting on something the animal steps
+		# off onto it, which is the whole of what §21 means by a bridge. If it
+		# is waving in the air there is nowhere to go, so it gets off the way
+		# it came.
+		if float(host.get("contact", 0.0)) > 0.6:
+			c.bridged = true
+			c.pos = tip
+		c.riding = -1
+		c.ride_cool = 4.0 if bool(c.bridged) else 2.0
+		_reseat_any(c, [host.normal, c.up, Vector3.UP])
+		return false
+	# ON TOP OF THE ORGAN, not inside it. "Up" for a rider is the direction
+	# out of the organ own axis, which is what standing on a limb means.
+	var radial: Vector3 = (host.normal as Vector3) - along * (host.normal as Vector3).dot(along)
+	if radial.length() < 0.01:
+		var sd: Vector3 = host.side
+		radial = sd - along * sd.dot(along)
+	radial = radial.normalized() if radial.length() > 0.01 else Vector3.UP
+	c.pos = base + span * float(c.ride_t) + radial * float(m.tall) * 0.5
+	c.up = radial
+	c.fwd = along
+	c.moving = true
+	return true
+
+
+## Put an animal back on a real surface, trying several ideas of which way is
+## down. A rider stepping off an organ has no reason to believe the floor is
+## where it was when it climbed on.
+func _reseat_any(c: Dictionary, ups: Array) -> void:
+	if _space == null:
+		return
+	for u in ups:
+		var up: Vector3 = (u as Vector3)
+		if up.length() < 0.01:
+			continue
+		up = up.normalized()
+		var from: Vector3 = (c.pos as Vector3) + up * 0.10
+		var q := PhysicsRayQueryParameters3D.create(from, from - up * 0.45)
+		var hit: Dictionary = _space.intersect_ray(q)
+		if hit.is_empty():
+			continue
+		c.up = (hit.normal as Vector3).normalized()
+		c.pos = (hit.position as Vector3) + (c.up as Vector3) * float(c.morph.tall) * 0.5
+		var f: Vector3 = c.fwd
+		f = f - (c.up as Vector3) * f.dot(c.up)
+		c.fwd = f.normalized() if f.length() > 0.01 else (c.up as Vector3).cross(Vector3.RIGHT).normalized()
+		return
+
+
 ## §19 and §20 — species decides the style, the individual decides the detail.
 ## A listener barely moves and freezes often; a crab walks steadily; a grazer
 ## follows the surface. Two of the same species differ in pause length, which
@@ -298,8 +424,11 @@ func _walk(delta: float) -> void:
 			c.pause = _rng.randf_range(0.6, 2.2) + still * float(m.pause_bias)
 			c.moving = _rng.randf() > (0.55 if int(m.kind)
 					== SpeciesScript.Kind.CRYSTAL_LISTENER else 0.25)
+		# §21 — is it being carried? If so its position comes from the organ
+		# it is standing on and not from the floor.
+		var riding: bool = _ride(c, delta)
 		# §13 — everything turns toward one thing and stops.
-		if c.get("attend_override", Vector3.INF) != Vector3.INF:
+		if not riding and c.get("attend_override", Vector3.INF) != Vector3.INF:
 			var up0: Vector3 = c.up
 			var to_it: Vector3 = (c.attend_override as Vector3) - (c.pos as Vector3)
 			to_it = to_it - up0 * to_it.dot(up0)
@@ -307,7 +436,7 @@ func _walk(delta: float) -> void:
 				c.fwd = (c.fwd as Vector3).lerp(to_it.normalized(),
 						delta * 8.0).normalized()
 			c.moving = false
-		if bool(c.get("moving", true)):
+		if not riding and bool(c.get("moving", true)):
 			var turn: float = float(m.turn_bias) * delta * 0.6
 			var up: Vector3 = c.up
 			var fwd: Vector3 = (c.fwd as Vector3).rotated(up, turn).normalized()
@@ -334,7 +463,12 @@ func _walk(delta: float) -> void:
 				c.up = (hit.normal as Vector3).normalized()
 				c.fwd = (fwd - (c.up as Vector3) * fwd.dot(c.up)).normalized()
 		_apply_law(c, delta)
-		_use_the_margin(c, delta)
+		if not riding:
+			# An animal being carried along an organ is not using the margin
+			# as terrain: it IS on the margin. Letting the habitat pass run as
+			# well had appendages shoving a rider off the appendage it was
+			# standing on.
+			_use_the_margin(c, delta)
 		_consider_the_hero(c, delta)
 		i -= 1
 
@@ -711,11 +845,20 @@ func census() -> Dictionary:
 			folding += 1
 	var grooming := 0
 	var hiding := 0
+	var riding := 0
+	var bridged := 0
+	var rode_growing := 0
 	for c in critters:
 		if bool(c.get("grooming", false)):
 			grooming += 1
 		if bool(c.get("hiding", false)):
 			hiding += 1
+		if int(c.get("riding", -1)) >= 0:
+			riding += 1
+		if bool(c.get("bridged", false)):
+			bridged += 1
+		if bool(c.get("rode_growing", false)):
+			rode_growing += 1
 	var unfolded := 0
 	for c in critters:
 		if float(c.get("unfold", 0.0)) > 0.05:
@@ -740,6 +883,8 @@ func census() -> Dictionary:
 			"max": MAX_LIVE, "on_both_sides": twinned, "folding_a_leg": folding,
 			"nudged_by_a_palp": nudged, "unfolding_at_the_hero": unfolded,
 			"grooming_a_palp": grooming, "hiding_under_a_palp": hiding,
+			"riding_a_palp": riding, "used_one_as_a_bridge": bridged,
+			"rode_one_out": rode_growing,
 			"following_a_palp": following,
 			"feeding_on_residue": feeding,
 			"feel_hero": feel_hero, "approaching_hero": brave}

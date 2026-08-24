@@ -441,15 +441,93 @@ func _habitat(margin, ctrl) -> void:
 		_check("§21 and announces it once, not every frame (%d)" % again,
 				again == 0)
 
+
+	# CRAWL ACROSS THEM. An animal that reaches the base of an appendage and is
+	# bold enough to climb is carried along it -- position read off the organ,
+	# not off the floor, because the organ is not in physics at all.
+	near_p = all[0]
+	near_p.grow = 1.0
+	near_p.contact = 0.0
+	near_p.startle = 0.0
+	near_p.unfold = 1.0
+	c.morph.confidence = 0.9
+	c.morph.curiosity = 0.9
+	c.riding = -1
+	c.ride_cool = 0.0
+	c.bridged = false
+	c.rode_growing = false
+	c.pos = near_p.anchor
+	margin.palps = [near_p]
+	var mounted: bool = ctrl._ride(c, 0.016)
+	_check("§21 a bold animal climbs onto an appendage at its base", mounted
+			and int(c.riding) == int(near_p.id))
+	# And is CARRIED: its position comes from the organ, so moving the organ
+	# moves the animal without it walking anywhere.
+	#
+	# MEASURED HALFWAY ALONG, not at the base. A rider that has only just
+	# climbed on sits at the anchor, and the anchor does not move when the tip
+	# does -- so waving the far end about moved the animal a centimetre and
+	# the check read a working carry as a broken one.
+	c.ride_t = 0.5
+	ctrl._ride(c, 0.0)
+	var before_ride: Vector3 = c.pos
+	near_p.tip = (near_p.anchor as Vector3) + (near_p.normal as Vector3) * 0.45
+	ctrl._ride(c, 0.0)
+	_check("§21 and it is carried by the organ rather than by the floor (%.3f m)"
+			% before_ride.distance_to(c.pos), before_ride.distance_to(c.pos) > 0.05)
+
+	# RIDE ONE OUT. Anatomy that has not finished coming out is anatomy being
+	# ridden out -- §12's branches unfold rather than spawn, so there is
+	# something to be on while it happens.
+	near_p.unfold = 0.5
+	ctrl._ride(c, 0.05)
+	_check("§21 an animal on an appendage that is still emerging rides it out",
+			bool(c.rode_growing))
+
+	# USE ONE AS A BRIDGE. It reaches the far end while that end is resting on
+	# something, and steps off onto it.
+	near_p.unfold = 1.0
+	near_p.contact = 1.0
+	c.ride_t = 0.98
+	ctrl._ride(c, 0.5)
+	_check("§21 an animal that reaches a resting tip crosses to what it rests on",
+			bool(c.bridged) and int(c.riding) < 0)
+	# And a tip waving in the air is not a bridge.
+	c.riding = int(near_p.id)
+	c.ride_t = 0.98
+	c.bridged = false
+	c.ride_cool = 0.0
+	near_p.contact = 0.0
+	ctrl._ride(c, 0.5)
+	_check("§21 but a tip waving in the air is not a bridge",
+			not bool(c.bridged) and int(c.riding) < 0)
+	margin.palps = all
+	c.riding = -1
+	c.ride_cool = 0.0
+
 	# BE INSPECTED BY A BRANCH. A branch is anatomy that was not there a
 	# moment ago, and an animal within its reach is what it goes and looks at.
+	# try_branch refuses on three counts, and the test has to satisfy all
+	# three or it is testing whether a branch happened to be allowed rather
+	# than what a branch does. It will not branch from a branch, nor twice
+	# from the same parent, nor at all from an appendage that has not found
+	# anything -- §12 step 1 is that it branches BECAUSE it found something --
+	# and it will not exceed the wall's capacity. Left to chance this failed
+	# about one run in ten, on the setup rather than on the behaviour.
 	var host := -1
+	var host_p: Dictionary = {}
 	for p in margin.palps:
 		if int(p.parent) < 0 and int(p.children) == 0:
 			host = int(p.id)
+			host_p = p
 			break
 	if host >= 0:
-		margin.try_branch(host)
+		if host_p.target == Vector3.INF:
+			host_p.target = (host_p.tip as Vector3) + (host_p.normal as Vector3) * 0.03
+		while margin.palps.size() + 3 > 86 and margin.palps.size() > 6:
+			margin.palps.remove_at(margin.palps.size() - 1)
+		if not margin.try_branch(host):
+			_check("§21 a branch can be made to inspect an animal with", false)
 		var branch: Dictionary = {}
 		for p in margin.palps:
 			if int(p.parent) == host:
