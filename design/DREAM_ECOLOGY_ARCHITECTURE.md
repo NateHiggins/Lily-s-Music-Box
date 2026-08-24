@@ -5,6 +5,40 @@
 > it was shelved *as a hero*, and this places it where it belongs — the
 > margin.
 
+## Owner ruling — every entity is an organelle (2026-08-24)
+
+The title's "ecology" describes what the player can observe, not a collection
+of separate organisms. **Every Dream entity is an organelle, tissue or local
+expression of one larger hyperdimensional being.** This governs the hero,
+margin palps and their recursive branches/cilia, all flora and fauna families,
+living architecture, case incarnations, pursuers and hazards. "Species,"
+"critter," "social" and "individual" remain useful production classifications
+for anatomy and local regulation; they do not establish separate diegetic
+creatures or factions.
+
+Cross-entity behavior uses one biological communication grammar:
+
+1. detect a chemical/electrical/pressure gradient;
+2. make a fine local approach, pause, retract and reconsider rather than lunge;
+3. hold a narrow synapse-like cleft or establish cilia/sucker contact;
+4. pass an electrochemical pulse and/or secretion;
+5. answer through excitation, inhibition, recognition, repair, transport,
+   resource allocation or asynchronous propagation through the larger body.
+
+Mechanical grooming, bracing, carrying and making room remain valid organelle
+work. Apparent competition, avoidance or aggression must read as inhibitory
+signaling, immune rejection or incompatible local function — never generic
+predator/prey or faction combat. Harm to humans can still result from sincere
+communication or repair attempted with the wrong biology and dimensional
+model. Normal local autonomy makes the body functional; rare synchronized
+`DreamGlobalAttention` makes its single mind legible.
+
+Implementation must reuse the current shared owners — `LivingField`, margin
+broadcasts, hero `dream_event`, `DreamEcologyDirector` and
+`DreamGlobalAttention` — and add no pairwise creature director or persistence
+record. Visual and behavioral diversity stays: different organelle classes
+have different roles, responses and hyperdimensional rules.
+
 ## The model
 
 The Dream manifests at three connected levels. They are **not three unrelated
@@ -18,10 +52,10 @@ systems; they are three resolutions of the same biological reality.**
    behaving appendages around the encroachment edge, interacting with
    architecture, each other, and the hero limb. *Its distributed
    sensory/feeding edge.*
-3. **Procedurally Varied Dream Critters** — distinct species from authored
-   anatomical archetypes plus controlled morphological variation. *Semi-
-   autonomous organisms, organs, symbionts, offspring, fragments, or
-   ecological expressions produced by the same adjacent biology.*
+3. **Procedurally Varied Dream Critters** — distinct organelle classes from
+   authored anatomical archetypes plus controlled morphological variation.
+   *Semi-autonomous local organs and ecological expressions of the same
+   adjacent hyperdimensional being.*
 
 > *"The result should feel like a functioning impossible ecosystem rather
 > than one monster surrounded by VFX."*
@@ -166,10 +200,11 @@ solves toward it.
 Broadcast: tip position, body occupancy, target, interest level, contact
 state, startle state, branch state, hero proximity, critter proximity.
 
-Social behaviors: avoidance, investigation, grooming, bracing, competition,
-mimicry, pulse communication, touching, intertwining, cooperative object
-inspection. Clusters can form temporary arthropod-mouthpart-like
-arrangements. **They should look purposeful, not chaotic.**
+Regulatory behaviors: avoidance/inhibition, investigation, grooming, bracing,
+resource contention, mimicry, pulse communication, secretion transfer,
+touching, intertwining, cooperative object inspection. Clusters can form
+temporary arthropod-mouthpart-like arrangements. **They should look
+purposeful, not chaotic.**
 
 ## 11. THE HERO PARTICIPATES IN THIS SOCIAL SYSTEM
 

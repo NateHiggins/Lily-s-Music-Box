@@ -2218,6 +2218,51 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   DT-5 and DT-6 P8/P9, not DT-6's broader P7 hero-read evaluation and not a
   waking case loop.
 
+### DO — DREAM ORGANELLE COMMUNICATION (owner ruling 2026-08-24)
+
+- **DO-0 CANON LOCKED.** Every Dream entity — hero limb, margin palp/branch/
+  cilia, flora, fauna, living architecture, case incarnation, pursuer and
+  hazard — is an organelle or tissue expression of one larger
+  hyperdimensional being. Local agency is local regulation, not a separate
+  creature or faction. Cross-entity behavior is electrochemical signaling,
+  secretion transfer, recognition, excitation/inhibition, repair, transport
+  and resource allocation. Ban generic predator/prey and faction AI; apparent
+  aggression must have an immune/rejection/inhibitory biological reading.
+- **DO-1 — INTERACTION SEMANTIC AUDIT.** Inventory every currently landed
+  hero↔margin, margin↔margin, margin↔fauna, fauna↔fauna, hero↔fauna,
+  organism↔architecture and pursuer/hazard interaction. Re-label each as a
+  specific organelle function; identify any behavior that currently reads as
+  independent animal combat or social simulation without a whole-body role.
+- **DO-2 — SHARED SIGNAL SEAM.** Extend the existing LivingField/margin
+  broadcast/hero-event/EcologyDirector boundary with one transient signal
+  packet carrying source, stimulus/function, position, strength, chemical
+  family and excitation/inhibition sign. No pairwise director, agent owner or
+  save record. Producers and consumers remain independently testable.
+- **DO-3 — DIFFERENT ORGANS, DIFFERENT ANSWERS.** Route the same signal through
+  bounded class-specific responses: palps seek/brace, cilia sample, fauna
+  carry/groom/redistribute, flora open or secrete, architecture propagates,
+  hero acknowledges, hazards reject or inhibit. Preserve each family's
+  hyperdimensional rule and local autonomy; global synchronization remains the
+  rare `DreamGlobalAttention` reveal.
+- **DO-4 — PRODUCTION PROOF.** One production-root sequence must show at least
+  three organelle classes completing detect → local seek/reconsider → cleft
+  or contact → pulse/secretion → distinct recipient response, plus a delayed
+  third-party propagation and one rare whole-body attention event. Include
+  frozen A/A and prove no collision, hazard, pursuit, save or waking case owner
+  moved.
+- **DO-D1 — HIDDEN SCALE-FROM-ZERO DEBT.** The integrated §12 cilia pass left
+  `_age()` ramping a new branch's data `grow` 0→1 over 0.9 s after
+  `try_branch` creates it at 1.0. It is currently hidden inside the parent and
+  the rendered unfold preserves size, but the data contradicts the locked
+  folded-anatomy doctrine. Remove or reinterpret that ramp before any camera,
+  LOD or interaction can expose it; prove fixed arc/volume through birth.
+
+- **DE-§12 STEPS 8/9 INTEGRATED 2026-08-24.** Cherry-picked isolated commit
+  `2bb81cf` as `90377f0`: secondary-branch cilia deploy as fixed-length folded
+  anatomy, task completion owns a real beat, and retraction/folding follow it
+  in order. `DreamMarginTest` passes 57/57; production proof and measured price
+  are in `art/renders/dream_ecology_step12_cilia/README.md`.
+
 ### CT — CRITTER SKINS (owner direction 2026-08-21)
 
 - **CT-1 DONE 2026-08-21 — FAMILY SKIN ATLASES FROM THE PLATES.**

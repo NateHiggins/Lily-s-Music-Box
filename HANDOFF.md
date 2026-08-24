@@ -267,6 +267,24 @@ gripped retreat and a sealed wall. Its frozen sealed-state A/A floor is
 DT-6 P8/P9. DT-6 P7's broader hero-read evaluation remains open; none of this
 is a completed waking case loop.
 
+Claude's isolated §12 steps 8/9 cilia pass was integrated as `90377f0` from
+`2bb81cf`. Secondary-branch fine cilia are fixed-length anatomy that deploy by
+angle only after investigation begins; task completion now owns a timed beat,
+then cilia retract and the branch folds. `DreamMarginTest` passes 57/57 in the
+main checkout. Proof: `art/renders/dream_ecology_step12_cilia/README.md`. One
+debt is recorded as DO-D1: `_age()` still writes a hidden 0→1 branch `grow`
+ramp for 0.9 s even though visible unfolding preserves size.
+
+The owner then ruled that **all Dream entities are organelles of one larger
+hyperdimensional being**. The Bible and `design/DREAM_ECOLOGY_ARCHITECTURE.md`
+now govern all hero, margin, cilia, flora, fauna, architecture, incarnation,
+pursuer and hazard interactions as electrochemical/secretion communication
+and whole-body regulation. TASKS DO-1–DO-4 are the implementation ladder:
+audit the existing interaction semantics, establish one transient shared
+signal seam through current owners, give different organ classes different
+responses, and prove a multi-class propagation plus rare global-attention
+event in production. Do not build pairwise directors or new save facts.
+
 Three top-level projects:
 
 | Path | What |

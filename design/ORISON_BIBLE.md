@@ -357,6 +357,24 @@ chapter.**
   every unresolved case. Six is authorable where eighteen was not, and it makes
   the endgame reachable — close all six and only 4B's own is left in the pool.
 
+#### Dream biology — one being, many organelles
+
+**Owner ruling, 2026-08-24. All Dream entities are organelles of one larger
+hyperdimensional being.** Hero limbs, margin palps and branches, cilia, fauna,
+flora, living architecture, case incarnations, pursuers and hazards may have
+local agency and radically different anatomy, but they are not separate
+animals, factions or monsters. Their production names classify resolution and
+function; diegetically they are tissues and organelles of the same organism.
+
+They interact as parts of that organism communicate and regulate one another:
+seeking a synapse-like cleft, electrochemical signaling, secretion transfer,
+recognition, excitation/inhibition, grooming, repair, transport and resource
+allocation. Apparent avoidance or conflict is immune rejection, inhibition or
+competing local function — never generic predator AI. The being's attempts to
+communicate or help can remain dangerous because it does not understand human
+biology or three-dimensional limits. Local autonomy preserves the functioning
+ecology; rare global attention reveals the single mind behind it.
+
 **● carries a case (§IV.1). ○ sanctioned expansion. Everyone else is a tenant
 of this building without a chapter of their own — case-less, never absent.**
 
