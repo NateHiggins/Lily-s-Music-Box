@@ -17,35 +17,40 @@ extends RefCounted
 ## affected; the CPU owner keeps full precision. DreamWalk's F key shows both.
 
 const FLAG_HUSH := 1 << 0
-const FLAG_COURTSHIP := 1 << 1
+const FLAG_SIGNALLING := 1 << 1
 const FLAG_PEARL_COLONY := 1 << 2
 const FLAG_CAMERA_TRACKER := 1 << 3
 const FLAG_BIRTHING := 1 << 4
 const FLAG_REABSORBING := 1 << 5
 ## Bit order is the readable order. FA-V4 inspection prints these; nothing
 ## in the shader or the director reads them.
+##
+## DO-1: bit 1 was COURTSHIP, which described two separate animals displaying
+## to each other. It carries the same bit for the same instances; what it
+## names now is the organelle function -- a ribbonette signalling across the
+## body it belongs to.
 const FLAG_NAMES := [
-	[FLAG_HUSH, "HUSH"], [FLAG_COURTSHIP, "COURTSHIP"],
+	[FLAG_HUSH, "HUSH"], [FLAG_SIGNALLING, "SIGNALLING"],
 	[FLAG_PEARL_COLONY, "PEARL_COLONY"], [FLAG_CAMERA_TRACKER, "CAMERA_TRACKER"],
 	[FLAG_BIRTHING, "BIRTHING"], [FLAG_REABSORBING, "REABSORBING"],
 ]
 
-static func encode(identity_phase: float, nutrient: float, emergence: float,
-		flags: int, activity: float, hue_jitter: float,
+static func encode(identity_phase: float, allocation: float,
+		emergence: float, flags: int, activity: float, hue_jitter: float,
 		pattern_jitter: float) -> Color:
 	return Color(identity_phase,
-			pack_pair(_unit_byte(nutrient), _unit_byte(emergence)),
+			pack_pair(_unit_byte(allocation), _unit_byte(emergence)),
 			pack_pair(clampi(flags, 0, 255), _unit_byte(activity)),
 			pack_pair(_unit_byte(hue_jitter), _unit_byte(pattern_jitter)))
 
 static func decode(data: Color) -> Dictionary:
-	var feed_pair := unpack_pair(data.g)
+	var allocation_pair := unpack_pair(data.g)
 	var activity_pair := unpack_pair(data.b)
 	var genome_pair := unpack_pair(data.a)
 	return {
 		"identity_phase": data.r,
-		"nutrient": float(feed_pair.x) / 255.0,
-		"emergence": float(feed_pair.y) / 255.0,
+		"allocation": float(allocation_pair.x) / 255.0,
+		"emergence": float(allocation_pair.y) / 255.0,
 		"flags": activity_pair.x,
 		"activity": float(activity_pair.y) / 255.0,
 		"hue_jitter": float(genome_pair.x) / 255.0,

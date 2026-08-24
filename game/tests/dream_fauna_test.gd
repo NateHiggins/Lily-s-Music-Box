@@ -166,7 +166,7 @@ func _run()->void:
 	var recorded_rows:Dictionary=fauna.get("_records").get("Tessellates",{})
 	var recorded_raw:Color=(recorded_rows.custom as Array)[int(target_report.get("index",0))] \
 			if not recorded_rows.is_empty() else Color()
-	_check("F inspection selects the aimed grazer analytically",
+	_check("F inspection selects the aimed uptake instance analytically",
 			not target_report.is_empty() and not report.is_empty()
 			and str(report.batch)=="Tessellates"
 			and int(report.index)==int(target_report.index)
@@ -185,7 +185,7 @@ func _run()->void:
 			and DreamFaunaDirector.inspection_text(report).contains("compiled "))
 	_check("inspection is deterministic and names the live room and density",
 			report==again and not str(report.get("room_key","")).is_empty()
-			and (report.get("density",{}) as Dictionary).has("grazer")
+			and (report.get("density",{}) as Dictionary).has("uptake")
 			and str(fauna.nearest_to(target).batch)=="Tessellates"
 			and int(fauna.nearest_to(target).index)==int(target_report.index)
 			and report.has("gpu_custom"))
@@ -236,32 +236,32 @@ func _run()->void:
 	_check("lineage bodies publish real birth-frame anchors",birth_frames>0)
 	var densities:Dictionary=fauna.density_snapshot(); var four_values:=true
 	for state in densities.values():
-		four_values=four_values and state.has("nutrient") and state.has("grazer") \
-				and state.has("predator") and state.has("detritus") \
-				and float(state.predator)==0.0
+		four_values=four_values and state.has("allocation") and state.has("uptake") \
+				and state.has("reclamation") and state.has("reclaimable") \
+				and float(state.reclamation)==0.0
 	_check("the 3 Hz owner carries four bounded harmless densities",four_values)
-	var trophic_plan:=var_to_bytes(root.plan); var trophic_hazards:=_hazard_signature(root.hazards)
-	var feed_room:Dictionary=root.rooms.live_rooms()[0]; var fr:Array=feed_room.rect
+	var tick_plan:=var_to_bytes(root.plan); var tick_hazards:=_hazard_signature(root.hazards)
+	var allotted_room:Dictionary=root.rooms.live_rooms()[0]; var fr:Array=allotted_room.rect
 	root.player.global_position=Vector3((fr[0]+fr[2])*0.5,0.0,(fr[1]+fr[3])*0.5)
 	for _i in 14: fauna.advance_fixed()
-	fauna.refresh(); var trophic:Dictionary=fauna.census()
-	var predator_live:=false
-	for state in fauna.density_snapshot().values(): predator_live=predator_live or float(state.predator)>0.0
-	_check("crop, grazers, courtship, detritivores and one Loupe close the loop",
-			int(trophic.buttons)>0 and int(trophic.tessellates)>0
-			and int(trophic.anemones)>0 and int(trophic.ribbonettes)>0
-			and int(trophic.loupe)==1 and predator_live and _total(trophic)<=96)
-	_check("the harmless trophic tick cannot mutate plan or hazards",
-			trophic_plan==var_to_bytes(root.plan)
-			and trophic_hazards==_hazard_signature(root.hazards))
-	var fed_count:=int(fauna.census().tessellates); var old_pos:Vector3=root.player.global_position
+	fauna.refresh(); var counts:Dictionary=fauna.census()
+	var reclamation_live:=false
+	for state in fauna.density_snapshot().values(): reclamation_live=reclamation_live or float(state.reclamation)>0.0
+	_check("allocation, uptake, signalling, reclamation and one Loupe close the cycle",
+			int(counts.buttons)>0 and int(counts.tessellates)>0
+			and int(counts.anemones)>0 and int(counts.ribbonettes)>0
+			and int(counts.loupe)==1 and reclamation_live and _total(counts)<=96)
+	_check("the harmless density tick cannot mutate plan or hazards",
+			tick_plan==var_to_bytes(root.plan)
+			and tick_hazards==_hazard_signature(root.hazards))
+	var allotted_count:=int(fauna.census().tessellates); var old_pos:Vector3=root.player.global_position
 	root.player.global_position=Vector3(999.0,0.0,999.0)
 	for live_room in root.rooms.live_rooms():
 		root.exposure.clear_room(str(live_room.get("key","")))
 	for _i in 12: fauna.advance_fixed()
 	fauna.refresh(); root.player.global_position=old_pos
-	_check("unfed grazer density dies back into the bounded record",
-			int(fauna.census().tessellates)<fed_count)
+	_check("unallotted uptake density falls back into the bounded record",
+			int(fauna.census().tessellates)<allotted_count)
 	var architecture:=root.get("_architecture") as Node3D
 	var revisit:=PackedInt32Array([2,3,1,2,0,3])
 	var elsewhere:=PackedInt32Array([1,0,3,2,1,0,2])
@@ -281,7 +281,7 @@ func _run()->void:
 	var hush_room:Dictionary=root.rooms.live_rooms()[0]; var hr:Array=hush_room.rect
 	root.pursuer.global_position=Vector3((hr[0]+hr[2])*0.5,0.0,(hr[1]+hr[3])*0.5); fauna.refresh()
 	await get_tree().process_frame
-	_check("the Tenant hush submerges nearby grazers",
+	_check("the Tenant hush submerges nearby uptake tissue",
 			int(fauna.census().hushed)>0 and int(fauna.census().submerged)>0)
 	fauna.freeze_for_capture()
 	_check("capture freezes and hides the ecosystem", fauna.frozen and not tess.visible)

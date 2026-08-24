@@ -14,9 +14,16 @@ const LAPIS := Color(0.145, 0.216, 0.463)
 const FAUNA_DARK_GLOW := 0.10
 ## FA-V4 inspection. Index = `family_motif`, the same tag the molten collector
 ## reads; a label is presentation vocabulary, never a new owner.
-const FAMILY_LABELS := ["Gilder's Button (crop)", "Tessellate (grazer)",
-		"Wine Anemone (detritivore)", "Ribbonette (courtship)",
-		"The Loupe (predator)"]
+##
+## DO-1: these name the ORGANELLE FUNCTION each family performs for the one
+## body, not a species in a food web. The earlier set -- crop, grazer,
+## detritivore, courtship, predator -- described five independent animals
+## eating and mating with each other, which the organelle ruling
+## (`design/DREAM_ORGANELLE_COMMUNICATION.md`) forbids. The densities behind
+## them never modelled separate creatures; only the words did.
+const FAMILY_LABELS := ["Gilder's Button (allocation)", "Tessellate (uptake)",
+		"Wine Anemone (reclamation)", "Ribbonette (signalling)",
+		"The Loupe (inhibition)"]
 ## CT-1: atlas folder per family_motif, and how many times the atlas repeats
 ## along (body_t) and around (angle) the creature.
 const SKIN_DIRS := {0: "gilders_button", 1: "tessellate", 2: "wine_anemone",
@@ -99,16 +106,17 @@ func advance_fixed() -> void:
 				player.global_position.distance_to(centre),
 				player.global_position.distance_to(frame)) < 5.0 else 0.0
 		var target := clampf(0.12 + retained*0.62 + lamp_pool*0.35, 0.0, 1.0)
-		state.nutrient = move_toward(float(state.nutrient), target, 0.16)
-		var previous := float(state.grazer)
-		var births := maxf(0.0, float(state.nutrient)-0.28)*0.28
-		var deaths := 0.025 + maxf(0.0, 0.32-float(state.nutrient))*0.22
-		var predator_target := maxf(0.0, previous-0.42)*0.82
-		state.predator = move_toward(float(state.predator), predator_target, 0.075)
-		var consumed := float(state.predator)*0.028
-		state.grazer = clampf(previous+births-deaths-consumed, 0.0, 1.0)
-		state.detritus = clampf(float(state.detritus)*0.78
-				+ maxf(0.0, previous-float(state.grazer))+consumed*0.8, 0.0, 1.0)
+		state.allocation = move_toward(float(state.allocation), target, 0.16)
+		var previous := float(state.uptake)
+		var recruited := maxf(0.0, float(state.allocation)-0.28)*0.28
+		var shed := 0.025 + maxf(0.0, 0.32-float(state.allocation))*0.22
+		var reclamation_target := maxf(0.0, previous-0.42)*0.82
+		state.reclamation = move_toward(float(state.reclamation),
+				reclamation_target, 0.075)
+		var reclaimed := float(state.reclamation)*0.028
+		state.uptake = clampf(previous+recruited-shed-reclaimed, 0.0, 1.0)
+		state.reclaimable = clampf(float(state.reclaimable)*0.78
+				+ maxf(0.0, previous-float(state.uptake))+reclaimed*0.8, 0.0, 1.0)
 		_densities[key] = state
 
 func freeze_for_capture() -> void:
@@ -156,11 +164,12 @@ func refresh() -> void:
 		var lineage: Dictionary = room.get("lineage", {})
 		var phase := fposmod(float(lineage.get("phase", 0.0)), TAU) / TAU
 		var state: Dictionary = _densities[str(room.get("key", ""))]
-		var feed := float(state.nutrient)
-		var button_count := 1 + int(round(feed * 3.0))
-		var tess_count := 1 + int(round(float(state.grazer) * 4.0))
-		var anemone_count := 1 + int(round((1.0-feed+float(state.detritus))*1.4))
-		var ribbon_count := int(round(maxf(0.0,float(state.grazer)-0.28)*2.4))
+		var allotted := float(state.allocation)
+		var button_count := 1 + int(round(allotted * 3.0))
+		var tess_count := 1 + int(round(float(state.uptake) * 4.0))
+		var anemone_count := 1 + int(round(
+				(1.0-allotted+float(state.reclaimable))*1.4))
+		var ribbon_count := int(round(maxf(0.0,float(state.uptake)-0.28)*2.4))
 		if hush:
 			hushed_count += tess_count+ribbon_count+anemone_count
 		for i in button_count:
@@ -169,7 +178,8 @@ func refresh() -> void:
 			var at := centre + Vector3(cos(a)*0.72, 0.025, sin(a)*0.72)
 			button_xforms.append(Transform3D(Basis().scaled(
 					Vector3(0.20, 0.035, 0.20)), at))
-			button_custom.append(DreamFaunaChannels.encode(phase, feed, feed,
+			button_custom.append(DreamFaunaChannels.encode(phase, allotted,
+					allotted,
 					DreamFaunaChannels.FLAG_PEARL_COLONY, 0.0,
 					_genome(phase, i, 0.37), _genome(phase, i, 0.71)))
 		for i in tess_count:
@@ -177,12 +187,13 @@ func refresh() -> void:
 					ribbon_xforms,loupe_xforms) >= MAX_INSTANCES: break
 			var a := phase*TAU + float(i)*1.37
 			var radius := 0.20 if hush else 0.95 + float(i%2)*0.28
-			# Grazers are born at a real landed birth-frame, then spread toward
-			# the exposure crop. Hush reverses that path and submerges them into
-			# the frame-foot rather than inventing a second escape owner.
-			var graze_at := centre + Vector3(cos(a)*radius, 0.14, sin(a)*radius)
-			var emergence := clampf(feed * 1.35 - float(i) * 0.08, 0.0, 1.0)
-			var at := frame.lerp(graze_at, emergence)
+			# Uptake tissue appears at a real landed birth-frame, then spreads
+			# toward where the body has allotted most. Hush reverses that path
+			# and submerges it into the frame-foot rather than inventing a
+			# second escape owner.
+			var spread_at := centre + Vector3(cos(a)*radius, 0.14, sin(a)*radius)
+			var emergence := clampf(allotted * 1.35 - float(i) * 0.08, 0.0, 1.0)
+			var at := frame.lerp(spread_at, emergence)
 			if hush:
 				at = frame + Vector3(0.0, -0.18, 0.0)
 				submerged_count += 1
@@ -190,8 +201,8 @@ func refresh() -> void:
 			tess_xforms.append(Transform3D(Basis().scaled(
 					Vector3(size, size * 0.72, size)), at))
 			var tess_flags := DreamFaunaChannels.FLAG_HUSH if hush else 0
-			tess_custom.append(DreamFaunaChannels.encode(phase+float(i)*0.11, feed,
-					emergence, tess_flags, 0.0 if hush else 1.0,
+			tess_custom.append(DreamFaunaChannels.encode(phase+float(i)*0.11,
+					allotted, emergence, tess_flags, 0.0 if hush else 1.0,
 					_genome(phase, i, 1.13), _genome(phase, i, 1.79)))
 		for i in anemone_count:
 			if _total_instances(button_xforms,tess_xforms,anemone_xforms,
@@ -203,7 +214,7 @@ func refresh() -> void:
 			anemone_xforms.append(Transform3D(Basis().scaled(Vector3.ONE*1.12),at))
 			var anemone_flags := DreamFaunaChannels.FLAG_HUSH if hush else 0
 			anemone_custom.append(DreamFaunaChannels.encode(phase+float(i)*0.09,
-					1.0-feed, float(state.detritus), anemone_flags,
+					1.0-allotted, float(state.reclaimable), anemone_flags,
 					0.0 if hush else 1.0, _genome(phase, i, 2.11),
 					_genome(phase, i, 2.73)))
 		for i in ribbon_count:
@@ -214,14 +225,14 @@ func refresh() -> void:
 			if hush: at=frame+Vector3(0.0,-0.20,0.0); submerged_count+=1
 			ribbon_xforms.append(Transform3D(Basis(Vector3.UP,a).scaled(
 					Vector3.ONE*(1.18+float(i)*0.06)),at))
-			var ribbon_flags := DreamFaunaChannels.FLAG_COURTSHIP
+			var ribbon_flags := DreamFaunaChannels.FLAG_SIGNALLING
 			if hush: ribbon_flags |= DreamFaunaChannels.FLAG_HUSH
 			ribbon_custom.append(DreamFaunaChannels.encode(phase+float(i)*0.17,
-					float(state.grazer), feed, ribbon_flags,
+					float(state.uptake), allotted, ribbon_flags,
 					0.0 if hush else 1.0, _genome(phase, i, 3.17),
 					_genome(phase, i, 3.91)))
-		if float(state.predator)>loupe_strength:
-			loupe_strength=float(state.predator)
+		if float(state.reclamation)>loupe_strength:
+			loupe_strength=float(state.reclamation)
 			loupe_room={"centre":centre,"frame":frame,"phase":phase,"hush":hush}
 		var room_rows: Array[String] = []
 		for i in range(button_start, button_xforms.size()):
@@ -291,9 +302,9 @@ func _sync_densities(live: Array) -> void:
 		var lineage: Dictionary = room.get("lineage", {})
 		var phase := fposmod(float(lineage.get("phase", 0.0)), TAU)/TAU
 		var decay := clampf(float(room.get("decay", 0.0)), 0.0, 1.0)
-		_densities[key] = {"nutrient":clampf(0.20+phase*0.18-decay*0.08,0.0,1.0),
-				"grazer":clampf(0.34+phase*0.16,0.0,1.0),
-				"predator":0.0,"detritus":decay*0.10}
+		_densities[key] = {"allocation":clampf(0.20+phase*0.18-decay*0.08,0.0,1.0),
+				"uptake":clampf(0.34+phase*0.16,0.0,1.0),
+				"reclamation":0.0,"reclaimable":decay*0.10}
 	for key in _densities.keys():
 		if not keep.has(key): _densities.erase(key)
 
@@ -332,7 +343,7 @@ func _make_batch(label: String, mesh: Mesh, color: Color, jewel: Color,
 		material.set_shader_parameter("skin_repeat", SKIN_REPEAT.get(int(motif), Vector2.ONE))
 	# The existing root material collector uses this presentation-only tag to
 	# select one of five bounded costume records. It creates no fauna owner and
-	# does not enter instance custom data or trophic simulation.
+	# does not enter instance custom data or the density tick.
 	material.set_meta("dream_fauna_family_index", int(motif))
 	var node := MultiMeshInstance3D.new(); node.name = label
 	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
@@ -443,7 +454,7 @@ static func inspection_text(report: Dictionary) -> String:
 	return ("FAUNA %s  [%s #%d of %d]  room %s\n"
 			+ "  at %s  %.2f m  miss %.2f m  radius %.2f m  scale %s\n"
 			+ "  custom %s  gpu readback %s\n"
-			+ "  phase %.3f  nutrient %.3f  emergence %.3f  activity %.3f"
+			+ "  phase %.3f  allocation %.3f  emergence %.3f  activity %.3f"
 			+ "  hue %.3f  pattern %.3f  flags %s\n"
 			+ "  density %s\n"
 			+ "  material gait %.3f @ %.2f Hz  gold_gain %.2f  dark_glow %.3f"
@@ -455,7 +466,7 @@ static func inspection_text(report: Dictionary) -> String:
 			_num(report.miss), _num(report.radius),
 			fmt_vec3(report.scale),
 			str(report.custom_raw), str(report.get("gpu_custom", "-")),
-			_num(ch.get("identity_phase")), _num(ch.get("nutrient")),
+			_num(ch.get("identity_phase")), _num(ch.get("allocation")),
 			_num(ch.get("emergence")), _num(ch.get("activity")),
 			_num(ch.get("hue_jitter")), _num(ch.get("pattern_jitter")),
 			flag_text, str(report.density),
