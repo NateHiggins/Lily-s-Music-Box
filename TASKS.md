@@ -3170,6 +3170,35 @@ it.
   relevant case tests and WalkTest FULL x8/480. Document and commit the matrix,
   research ledger, data, code, captures and exact result before closing I.
 
+## SR — The Orison Service Round
+
+Owner direction and architecture: `design/ORISON_SERVICE_ROUND_BRIEF.md`.
+Target mix over rolling active play is 1:1:1 hands-on maintenance, people /
+travel / search, and observing / avoiding / eventually communicating with the
+Dream organism. M1's shared activity contract and live radiator consumer are
+proved at `art/renders/maintenance_service_round_m1/README.md`.
+
+- **SR2 — Lobby annunciator consumer.** Connect the authored flag-armature,
+  contact-alignment and bank-reset sequence to the real Otis/porter board. Keep
+  the existing elevator game separate; this services its call hardware and may
+  only return a mechanism result.
+- **SR3 — Boiler water-column consumer.** Connect the authored isolate, prove,
+  witness and guarded-return sequence to `BoilerProp`'s water-glass reach. The
+  live preview must not publish a false boiler level before commit.
+- **SR4 — First complete service round.** Author one resident-filed work order
+  through `MaintenanceJobLibrary` / `WorkOrders`: call, apartment radiator,
+  lobby comparison, basement comparison, repair, resident return. It must prove
+  travel/search and conversation rather than chaining three props in a shed.
+- **SR5 — Shared Dream answer.** Let the existing organism owners observe the
+  same pressure/sound rhythm and answer it. No maintenance-specific Dream
+  director, entity, hazard owner, pursuit owner or save record.
+- **SR6 — Rolling attention ledger.** Measure primary-attention seconds across
+  maintenance, people/search/travel and entity relationship; tune a complete
+  40–50 minute sample to 33/33/33 ±5% without scheduling each minute.
+- **SR7 — Vertical anatomy expansion.** Dumbwaiter brake, elevator landing
+  interlock, rooftop tank ballcock, mail-chute choke, fuse panel and watchman
+  clock, in that order unless playtest compulsion changes the ranking.
+
 ## H — Housekeeping
 
 - **H20 PRESENTER SWEEP AFTER THE TELEGRAM RESTYLE — DONE 2026-08-16, one

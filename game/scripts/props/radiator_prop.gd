@@ -8,6 +8,7 @@ extends FunctionalProp
 signal supply_changed(open: bool, position: float)
 signal vent_changed(grade: int)
 signal pitch_changed(toward_supply: float)
+signal maintenance_completed(result: Dictionary)
 
 ## The Dream finds this object interesting (design/DREAM_TENTACLE_DIRECTION
 ## §13, §17): the tentacle's first contact is the top rim, which it traces
@@ -62,6 +63,7 @@ var _whistle: AudioStreamPlayer3D
 var _shake := 0.0
 var _wheel_tween: Tween
 var _balance
+var _service_panel: MaintenanceActivityPanel
 
 
 func warehouse_variants() -> Array[Dictionary]:
@@ -232,15 +234,65 @@ func interact_prompt() -> String:
 	return "[E]  Service radiator fittings"
 
 
-func interact(_player: Node) -> void:
-	set_supply_open(supply_position < 0.98)
+func interact(player: Node) -> void:
+	_begin_vent_service(player)
 
 
 func interact_area(area: Area3D) -> void:
-	if area.name == "VentReach":
-		set_vent_grade((vent_grade + 1) % 5)
-	else:
-		set_supply_open(supply_position < 0.98)
+	var player := get_tree().get_first_node_in_group("player_controller")
+	_begin_vent_service(player)
+
+
+func _begin_vent_service(player: Node) -> bool:
+	if _service_panel and is_instance_valid(_service_panel):
+		return false
+	var script: GDScript = load("res://scripts/ui/maintenance_activity_panel.gd")
+	_service_panel = script.new()
+	get_tree().current_scene.add_child(_service_panel)
+	if not _service_panel.open(player, self, "radiator_vent_service"):
+		_service_panel = null
+		return false
+	return true
+
+
+func maintenance_snapshot() -> Dictionary:
+	return {"supply_position": supply_position, "vent_grade": vent_grade}
+
+
+## Preview animates the actual fittings but does not publish heat state. The
+## committed result below is the only route to the physical setters.
+func preview_maintenance_step(step: Dictionary, value: float) -> void:
+	match str(step.get("id", "")):
+		"shut_supply", "open_supply":
+			if _wheel:
+				_wheel.rotation.y = clampf(value, 0.0, 1.0) * TAU * 3.5
+				_wheel.position.y = 0.295 + clampf(value, 0.0, 1.0) * 0.016
+		"free_vent":
+			if _vent:
+				_vent.position.y = sin(value * PI) * 0.006
+		"seat_orifice":
+			if _vent:
+				_vent.rotation.x = deg_to_rad(clampf(value, 0.0, 1.0) * 44.0)
+
+
+func restore_maintenance_snapshot(snapshot: Dictionary) -> void:
+	if _vent:
+		_vent.position.y = 0.0
+	set_supply_position(float(snapshot.get("supply_position", supply_position)), 0.2)
+	set_vent_grade(int(snapshot.get("vent_grade", vent_grade)))
+
+
+func apply_maintenance_result(result: Dictionary) -> void:
+	var patch: Dictionary = result.get("mechanism_patch", {})
+	if _vent:
+		_vent.position.y = 0.0
+	set_vent_grade(int(patch.get("vent_grade", vent_grade)))
+	set_supply_position(float(patch.get("supply_position", supply_position)))
+	maintenance_completed.emit(result.duplicate(true))
+
+
+func maintenance_panel_closed() -> void:
+	_service_panel = null
 
 
 func set_supply_open(open: bool, seconds := 0.65) -> void:
