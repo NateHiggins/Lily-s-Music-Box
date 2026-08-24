@@ -52,6 +52,7 @@ func _run() -> void:
 	_stagger_and_stages(fauna)
 	_reproduction_modes(fauna)
 	await _stains(fauna, root)
+	_eviction_determinism()
 	_no_inherited_stains()
 	_ownership(fauna, root, plan_before, save_before, hazards_before,
 			nodes_before, scene_nodes_before)
@@ -355,6 +356,64 @@ func _no_inherited_stains() -> void:
 			and int(cohorts.lineages) == 0
 			and fresh.stains_in_room("anything").is_empty())
 	fresh.free()
+
+
+func _eviction_determinism() -> void:
+	# PER-ROOM CAP. Generations increase monotonically, so the total ordering
+	# must discard exactly 0..5 and retain 6..29 regardless of array details.
+	var room_limited := DreamFaunaDirector.new()
+	for i in 30:
+		room_limited._record_stain("overflow-room", i % 5, i,
+				Vector3(float(i), 0.0, 0.0), "parent-%d" % i,
+				Vector2(float(i) / 30.0, 0.5), 1, i)
+	var room_rows := room_limited.stains_in_room("overflow-room")
+	var room_census: Dictionary = room_limited.stain_census()
+	var retained_generations: Array[int] = []
+	for row in room_rows:
+		retained_generations.append(int(row.generation))
+	retained_generations.sort()
+	_check("per-room overflow evicts the six oldest impressions by total key",
+			room_rows.size() == DreamFaunaDirector.STAIN_PER_ROOM_CAP
+			and int(room_census.evicted) == 6
+			and retained_generations.front() == 6
+			and retained_generations.back() == 29)
+	room_limited.free()
+
+	# GLOBAL CAP. Drive two fresh directors with the same over-cap sequence and
+	# compare every retained room byte-for-byte. This exercises widest-room
+	# selection, lexical room ties and each room's oldest-impression selection.
+	var global_a := _overflow_stain_director()
+	var global_b := _overflow_stain_director()
+	var global_census: Dictionary = global_a.stain_census()
+	_check("global overflow is capped and byte-deterministic across fresh owners",
+			int(global_census.total) == DreamFaunaDirector.STAIN_TOTAL_CAP
+			and int(global_census.evicted) == 24
+			and _stain_ledger_bytes(global_a) == _stain_ledger_bytes(global_b))
+	global_a.free()
+	global_b.free()
+
+
+func _overflow_stain_director() -> DreamFaunaDirector:
+	var fauna := DreamFaunaDirector.new()
+	for room_i in 5:
+		var room_key := "overflow-%02d" % room_i
+		for slot in 24:
+			var generation := room_i * 100 + slot
+			fauna._record_stain(room_key, slot % 5, slot,
+					Vector3(float(slot), float(room_i), 0.0),
+					"%s/0/%d#%d" % [room_key, slot, generation],
+					Vector2(float(slot) / 24.0, float(room_i) / 5.0),
+					1, generation)
+	return fauna
+
+
+func _stain_ledger_bytes(fauna: DreamFaunaDirector) -> PackedByteArray:
+	var ledger := {}
+	var keys: Array = (fauna.stain_census().by_room as Dictionary).keys()
+	keys.sort()
+	for room_key in keys:
+		ledger[room_key] = fauna.stains_in_room(str(room_key))
+	return var_to_bytes(ledger)
 
 
 # --- ownership --------------------------------------------------------------

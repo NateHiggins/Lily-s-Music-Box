@@ -427,8 +427,9 @@ then independently proved under the shared engine mutex. Every realized slot
 has a derived transient cohort address and staggered eight-stage life; cosmetic
 reproduction cannot change function. Deaths coalesce into bounded room-local
 impressions that survive streaming but not a new director. The production-root
-`DreamFaunaLifecycleTest` passes 27/27 and baseline `DreamFaunaTest` passes
-29/29. This is mechanical closure only: LC-3B must make the stages visibly
+`DreamFaunaLifecycleTest` passes 29/29, including forced per-room and global
+overflow with deterministic victim ordering, and baseline `DreamFaunaTest`
+passes 29/29. This is mechanical closure only: LC-3B must make the stages visibly
 legible and LC-4B must render the first stain through the existing Gilder batch.
 
 Three top-level projects:

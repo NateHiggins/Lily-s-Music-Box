@@ -2337,7 +2337,7 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   the existing director. All eight stages are reachable; anatomy never scales
   from zero; reproduction changes only cosmetic genome salt and cannot change
   stage, family function, collision or hazards. `DreamFaunaLifecycleTest`
-  passes 27/27 and baseline `DreamFaunaTest` passes 29/29. The still-open LC-3B
+  passes 29/29 and baseline `DreamFaunaTest` passes 29/29. The still-open LC-3B
   must make those stages visibly legible through the existing packed channels;
   the mechanical flags alone are not visual proof.
 - **LC-4A COMPLETE 2026-08-24 / LC-4B VISUAL PASS OPEN — VISIT-PERSISTENT
@@ -2345,6 +2345,8 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   lineage into bounded room memories. Ninety-one exercised deaths remain seven
   impressions, survive streaming/revisit byte-identically, clear with a new
   director and never enter `RealityState`, nodes, collision or save ownership.
+  Forced overflow now proves the per-room oldest-first order and the global
+  widest-room/lexical-tie order byte-identical across fresh directors.
   LC-4B still must render the first beautiful/disturbing stain through the
   existing Gilder batch before pricing any extra draw.
 - **LC-5 OPEN — ETHERMOSS AND BREATH PROOF.** Make the moss/fungus mat the
