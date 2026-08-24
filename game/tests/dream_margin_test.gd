@@ -272,6 +272,9 @@ func _run() -> void:
 					% [had, int(host.children)],
 					margin.palps.has(host) and int(host.children) < had)
 
+	# --- §12 STEPS 7-11: WHAT A BRANCH DOES WHILE IT IS OUT ---------------
+	_step12_fine_anatomy(margin)
+
 	# AND THE SWELLING REACHES THE RENDERER. A premonition the geometry never
 	# hears about is a number in a dictionary: every one of steps 2, 3 and 4 is
 	# surface, so if this array stays at zero none of them happens on screen.
@@ -289,6 +292,37 @@ func _run() -> void:
 				published > 0.1)
 		for p in margin.palps:
 			p.swell = 0.0
+
+		# AND SO MUST THE FINE ANATOMY. Steps 8 and 9 are entirely surface and
+		# geometry -- there is no other way for a player to know they happened --
+		# so a deployment the renderer never publishes is a number in a
+		# dictionary, exactly as the swelling was.
+		# HELD STILL WHILE IT IS READ. The renderer publishes in `_process` and
+		# the margin lives in `_physics_process`, so between setting a value and
+		# reading it back the simulation gets a turn -- it retracts the cilia it
+		# is meant to be retracting, ages the palp out, and repopulates over the
+		# top. The first version of this read a beat of 0.00 off appendages that
+		# had been born after it was set.
+		margin.frozen = true
+		for p in margin.palps:
+			p.cilia_out = 0.9
+			p.cilia_band = 0.6
+			p.task_left = DreamMarginController.TASK_S * 0.5
+		await get_tree().process_frame
+		await get_tree().process_frame
+		var out_pub := 0.0
+		var beat_pub := 0.0
+		for v in pr._cilia:
+			out_pub = maxf(out_pub, v.x)
+			beat_pub = maxf(beat_pub, v.z)
+		_check("§12 the deployed cilia reach the geometry (%.2f)" % out_pub,
+				out_pub > 0.1)
+		_check("§12 and so does the completion beat (%.2f)" % beat_pub,
+				beat_pub > 0.1)
+		for p in margin.palps:
+			p.cilia_out = 0.0
+			p.task_left = 0.0
+		margin.frozen = false
 
 	print("[margin] closest pair of tips: %.4f m (%d out of %d unfolded)"
 			% [closest, out.size(), margin.palps.size()])
@@ -462,6 +496,249 @@ func _run() -> void:
 					% [drawn_far, skipped_near], drawn_far <= skipped_near + 0.01)
 		margin.frozen = false
 	_finish()
+
+
+## §12 STEPS 7 TO 11 — WHAT A BRANCH DOES WHILE IT IS OUT.
+##
+## Steps 5-7 and 11-12 were built first, so a branch came out, waved at
+## something, and went back in. Four of the twelve steps describe the middle of
+## that, and three of them are asserted here for the first time: the fine cilia
+## deploying AFTER independent investigation has begun (8), the task completing
+## as a beat of its own (9), and the fine anatomy retracting BEFORE the branch
+## folds (10).
+##
+## CONSTRUCTED, AND DRIVEN BY HAND, for the two reasons the steps 2-4 block
+## above already gives. Branching is a rare roll against an individual's own
+## likelihood, so an assertion that waits for one is an assertion about the
+## weather. And physics frames are a poor clock: the margin is one node in a
+## loaded building and does not step on every one of them, so nine hundred of
+## them delivered about three quarters of a second of margin time.
+##
+## AND IT WORKS ON COPIES. Twenty seconds of hand-driven margin time is twenty
+## seconds this population did not really live: run against the real palps it
+## ages most of them to death, and the §11 checks below -- which need an
+## established population near the hero -- then run against a margin that has
+## just been emptied. The real array is put back untouched at the end, and the
+## duplicates carry the same ids only while the originals are out of play.
+func _step12_fine_anatomy(margin: DreamMarginController) -> void:
+	var original: Array = margin.palps.duplicate()
+	var keep: Array = []
+	for p in original:
+		if int(p.parent) < 0 and keep.size() < 8:
+			var copy: Dictionary = p.duplicate()
+			# `try_branch` refuses a parent that already has children, and every
+			# host here has to outlive the branch it is about to put out or there
+			# is nothing left to hand the topology back to.
+			copy.children = 0
+			copy.life = float(copy.age) + 600.0
+			keep.append(copy)
+	if keep.size() < 2:
+		_check("§12 appendages to grow fine anatomy on", false)
+		return
+	margin.palps = keep
+	var dt := 0.04
+	var host: Dictionary = keep[0]
+	var idle_primary: Dictionary = keep[1]
+
+	# --- THE FULL SEQUENCE, ON ONE BRANCH --------------------------------
+	# §12 step 1: it branches BECAUSE it found something.
+	host.target = (host.tip as Vector3) + (host.normal as Vector3) * 0.03
+	_check("§12 a branch to carry the fine anatomy",
+			margin.try_branch(int(host.id)))
+	var kid: Dictionary = {}
+	for p in margin.palps:
+		if int(p.parent) == int(host.id):
+			kid = p
+			break
+	if kid.is_empty():
+		_check("§12 the branch exists to watch", false)
+		margin.palps = original
+		return
+	var kid_id: int = int(kid.id)
+	# Long enough that the whole sequence runs to completion rather than being
+	# cut short by the branch's own mortality -- which is the OTHER path into
+	# retraction and is not the one being measured here.
+	kid.life = 30.0
+	kid.age = 0.0
+
+	var t := 0.0
+	var t_investigate := -1.0     # first moment it is working on its own
+	var t_deploy := -1.0          # first moment any cilium has moved
+	var t_full := -1.0            # first moment they are all the way out
+	var t_beat := -1.0            # first moment of the completion beat
+	var t_done := -1.0            # the beat ended
+	var t_retract := -1.0         # first moment they are coming back in
+	var t_fold := -1.0            # first moment the branch itself folds
+	var beat_seconds := 0.0
+	var cilia_at_investigate := -1.0
+	var cilia_at_beat := -1.0
+	var cilia_at_fold := -1.0
+	var unfold_at_deploy := -1.0
+	var was_full := false
+	var gone := false
+	for _step in 500:
+		margin._think(dt)
+		margin._age(dt)
+		t += dt
+		var alive := false
+		for p in margin.palps:
+			if int(p.id) == kid_id:
+				alive = true
+				break
+		if not alive:
+			gone = true
+			break
+		var out_at: float = float(kid.cilia_out)
+		if t_investigate < 0.0 and float(kid.investigate) > 0.0:
+			t_investigate = t
+			cilia_at_investigate = out_at
+		if t_deploy < 0.0 and out_at > 0.001:
+			t_deploy = t
+			unfold_at_deploy = float(kid.unfold)
+		if t_full < 0.0 and out_at >= 0.999:
+			t_full = t
+			was_full = true
+		if float(kid.task_left) > 0.0:
+			if t_beat < 0.0:
+				t_beat = t
+				cilia_at_beat = out_at
+			beat_seconds += dt
+		if t_done < 0.0 and bool(kid.task_done):
+			t_done = t
+		if t_retract < 0.0 and was_full and out_at < 0.995:
+			t_retract = t
+		if t_fold < 0.0 and bool(kid.folding):
+			t_fold = t
+			cilia_at_fold = out_at
+	print("[margin] §12 branch %d: investigate %.2f s, cilia out %.2f s, "
+			% [kid_id, t_investigate, t_deploy]
+			+ "full %.2f s, beat %.2f s (%.2f s long), retract %.2f s, "
+			% [t_full, t_beat, beat_seconds, t_retract]
+			+ "fold %.2f s, gone %s" % [t_fold, gone])
+
+	# STEP 8 HAPPENS, AND IT HAPPENS AFTER STEP 7.
+	_check("§12 step 8: fine cilia deploy on an investigating branch "
+			+ "(at %.2f s)" % t_deploy, t_deploy > 0.0)
+	_check("§12 and not before the branch begins investigating "
+			+ "(investigating from %.2f s, cilia from %.2f s)"
+			% [t_investigate, t_deploy],
+			t_investigate > 0.0 and t_deploy > t_investigate)
+	_check("§12 with none out at the moment investigation began (%.3f)"
+			% cilia_at_investigate,
+			cilia_at_investigate >= 0.0 and cilia_at_investigate < 0.001)
+	_check("§12 and not until the branch has separated (unfold %.2f)"
+			% unfold_at_deploy,
+			unfold_at_deploy >= DreamMarginController.UNFOLD_INVESTIGATING)
+	# DEPLOYMENT IS A DURATION, NOT A STATE CHANGE. The renderer runs the
+	# ordered wave down the band against this one clock, so a clock that
+	# finished in a frame would put every cilium up in the same frame.
+	_check("§12 deployment takes visible time (%.2f s over %.2f s of clock)"
+			% [t_full - t_deploy, DreamMarginController.CILIA_DEPLOY_S],
+			t_full > 0.0
+			and t_full - t_deploy >= DreamMarginController.CILIA_DEPLOY_S * 0.75)
+
+	# STEP 9 IS A BEAT.
+	_check("§12 step 9: the task completes as its own beat (from %.2f s)"
+			% t_beat, t_beat > 0.0 and t_beat > t_full)
+	_check("§12 and the beat has real duration (%.2f s of %.2f s)"
+			% [beat_seconds, DreamMarginController.TASK_S],
+			beat_seconds >= DreamMarginController.TASK_S * 0.75)
+	_check("§12 with the fine anatomy still out while it runs (%.2f)"
+			% cilia_at_beat, cilia_at_beat > 0.95)
+
+	# STEP 10 FOLLOWS 9, AND 11 FOLLOWS 10. This is the ordering the whole
+	# block exists for: completion, then the fine anatomy in, then the branch.
+	_check("§12 step 10: retraction begins only after completion "
+			+ "(completed %.2f s, retracting %.2f s)" % [t_done, t_retract],
+			t_done > 0.0 and t_retract > 0.0 and t_retract >= t_done)
+	_check("§12 step 11: the branch folds only after the fine anatomy is in "
+			+ "(retracting %.2f s, folding %.2f s)" % [t_retract, t_fold],
+			t_fold > 0.0 and t_fold > t_retract)
+	_check("§12 and it is in by then (%.3f out when folding began)"
+			% cilia_at_fold, cilia_at_fold >= 0.0 and cilia_at_fold < 0.05)
+	_check("§12 the whole sequence runs in order: investigate %.2f < cilia "
+			% [t_investigate, ] + "%.2f < complete %.2f < retract %.2f < fold %.2f"
+			% [t_deploy, t_beat, t_retract, t_fold],
+			t_investigate < t_deploy and t_deploy < t_beat
+			and t_beat <= t_retract and t_retract < t_fold)
+	_check("§12 and the branch is gone by the end of it", gone)
+
+	# --- AND IT DOES NOT HAPPEN TO ANYTHING ELSE -------------------------
+	# A PRIMARY DOES NOT GROW CILIA, however busy it is. §12 puts the fine
+	# anatomy on the SECONDARY branches, and an appendage that bristled while
+	# doing its ordinary work would make the branch's own deployment mean
+	# nothing. The host has been working a target for twenty seconds.
+	_check("§12 no cilia on the parent appendage (%.3f)"
+			% float(host.cilia_out), float(host.cilia_out) < 0.001)
+
+	# AN IDLE ONE DOES NOT EITHER. Constructed: the idle state is HELD rather
+	# than waited for, because `next_act` hands an appendage a fresh target the
+	# moment it feels like probing, and a branch that is handed a target is no
+	# longer the thing being tested.
+	var orphans: Array = []
+	for p in margin.palps:
+		if int(p.parent) == int(idle_primary.id):
+			orphans.append(p)
+	for o in orphans:
+		margin.palps.erase(o)
+	idle_primary.children = 0
+	idle_primary.target = (idle_primary.tip as Vector3) \
+			+ (idle_primary.normal as Vector3) * 0.03
+	_check("§12 a second branch, to hold idle",
+			margin.try_branch(int(idle_primary.id)))
+	var loafer: Dictionary = {}
+	for p in margin.palps:
+		if int(p.parent) == int(idle_primary.id):
+			loafer = p
+			break
+	if loafer.is_empty():
+		_check("§12 an idle branch to test with", false)
+		margin.palps = original
+		return
+	loafer.life = 600.0
+	# Fully out, so the ONLY thing keeping it from deploying is that it has
+	# nothing to investigate.
+	loafer.unfold = 1.0
+
+	# IDLE HAS TO BE BUILT, NOT ASKED FOR, and it took two goes to learn how
+	# much of this ecology is working against the idea.
+	#
+	# The first version held only the branch idle, inside the live population,
+	# and watched it deploy anyway. That was §10 working exactly as written:
+	# the social pass hands a TARGETLESS appendage a neighbour's target and
+	# copies that neighbour's act, and the hero broadcast does the same. The
+	# second version took the branch and its parent out of the population and
+	# it deployed again -- because the PARENT was still running, its act
+	# expired, `_seek_target` found it something on the wall, and the social
+	# pass passed it straight down to the branch. A branch in a live margin
+	# does not stay idle; the society finds it something to do.
+	#
+	# So: the pair alone, no hero, no animals, and neither of them holding
+	# anything to find. That is what "an idle branch" means, and it is the only
+	# state in which the claim being tested is even the claim.
+	var was_hero = margin.hero
+	var was_critters = margin.critters
+	margin.hero = null
+	margin.critters = null
+	margin.palps = [idle_primary, loafer]
+	var loafer_peak := 0.0
+	for _step in 300:
+		for idler in [idle_primary, loafer]:
+			idler.target = Vector3.INF
+			idler.act = DreamPalpBehavior.Act.HOVER
+			idler.act_left = 9.0
+		margin._think(dt)
+		loafer_peak = maxf(loafer_peak, float(loafer.cilia_out))
+	margin.hero = was_hero
+	margin.critters = was_critters
+	_check("§12 no cilia on an idle branch, held idle for %.1f s (%.3f)"
+			% [300.0 * dt, loafer_peak], loafer_peak < 0.001)
+	_check("§12 and none on its idle parent either (%.3f)"
+			% float(idle_primary.cilia_out),
+			float(idle_primary.cilia_out) < 0.001)
+
+	# PUT THE MARGIN BACK EXACTLY AS IT WAS FOUND.
+	margin.palps = original
 
 
 func _finish() -> void:

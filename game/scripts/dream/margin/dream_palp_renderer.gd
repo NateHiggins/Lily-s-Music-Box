@@ -16,6 +16,28 @@ const JOINTS := 6
 const RINGS := 13
 const SEGS := 11
 
+## §12 STEP 8 — THE FINE CILIA, IN THE SAME BUFFER.
+##
+## `palp_matter.w` has carried an individual's cilia fraction since the
+## morphology existed, and until now it drove a four-millimetre tremor in
+## GDScript and nothing else: there was no cilia GEOMETRY anywhere on a palp.
+## That is why step 8 was the unbuilt one.
+##
+## They go in the SAME mesh. The frame is submission-bound, so the answer to
+## "where does new anatomy live" is never "another draw call" -- it is more
+## vertices in the buffer already being drawn, tagged so the vertex program
+## knows which anatomy it is building. `dream_critter.gdshader` builds bodies,
+## limbs and feelers out of one program tagged by UV2.y, and this is the same
+## move: UV2.y 0 is the shaft, 1 is a cilium.
+##
+## Ten per palp, four rings of five, is 200 vertices an individual. Every slot
+## carries them whether or not it is a branch, because slots are assigned by
+## distance every frame and any of them may hold a branch next frame. A slot
+## that is not using them collapses them to a point in the vertex stage.
+const CILIA := 10
+const CIL_RINGS := 4
+const CIL_SEGS := 5
+
 var controller: DreamMarginController = null
 var material: ShaderMaterial
 var mesh_instance: MeshInstance3D
@@ -29,6 +51,7 @@ var _section := PackedVector4Array()
 var _params := PackedVector4Array()
 var _matter := PackedVector4Array()
 var _branch := PackedVector4Array()
+var _cilia := PackedVector4Array()
 var _clock := 0.0
 
 
@@ -40,6 +63,7 @@ func setup(margin: DreamMarginController) -> void:
 	_params.resize(MAX_PALPS)
 	_matter.resize(MAX_PALPS)
 	_branch.resize(MAX_PALPS)
+	_cilia.resize(MAX_PALPS)
 	material = ShaderMaterial.new()
 	material.shader = SHADER
 	mesh_instance = MeshInstance3D.new()
@@ -76,6 +100,29 @@ func _build_mesh() -> ArrayMesh:
 				var a0 := base + r * SEGS + s
 				indices.append(a0); indices.append(a0 + SEGS); indices.append(a0 + 1)
 				indices.append(a0 + 1); indices.append(a0 + SEGS); indices.append(a0 + SEGS + 1)
+		# ---- THIS PALP'S CILIA, IN THE SAME SLICE OF THE SAME BUFFER ---
+		# UV2.y tags which anatomy a vertex belongs to; UV.x says which cilium
+		# and UV.y where along it. The ring's angle rides in NORMAL, exactly as
+		# a critter limb's does, because UV is spent on the other two.
+		for ci in CILIA:
+			var cbase := verts.size()
+			for r in CIL_RINGS:
+				var along := float(r) / float(CIL_RINGS - 1)
+				for s in CIL_SEGS:
+					var ca := float(s) / float(CIL_SEGS - 1) * TAU
+					verts.append(Vector3(cos(ca), sin(ca), along))
+					normals.append(Vector3(cos(ca), sin(ca), 0.0))
+					uvs.append(Vector2(float(ci), along))
+					uv2.append(Vector2(float(p), 1.0))
+			for r in CIL_RINGS - 1:
+				for s in CIL_SEGS - 1:
+					var b0 := cbase + r * CIL_SEGS + s
+					indices.append(b0)
+					indices.append(b0 + CIL_SEGS)
+					indices.append(b0 + 1)
+					indices.append(b0 + 1)
+					indices.append(b0 + CIL_SEGS)
+					indices.append(b0 + CIL_SEGS + 1)
 	var arrays := []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = verts
@@ -121,13 +168,17 @@ func _process(delta: float) -> void:
 		drawn_ids.append(int(p2.id))
 		drawn += 1
 	# Anything past the live population is collapsed rather than left stale.
+	# The fine anatomy goes with it: a slot whose last tenant was a branch
+	# with its cilia out must not keep publishing them.
 	for i in range(drawn, MAX_PALPS):
 		_params[i] = Vector4.ZERO
+		_cilia[i] = Vector4.ZERO
 	material.set_shader_parameter("palp_spine", _spine)
 	material.set_shader_parameter("palp_section", _section)
 	material.set_shader_parameter("palp_params", _params)
 	material.set_shader_parameter("palp_matter", _matter)
 	material.set_shader_parameter("palp_branch", _branch)
+	material.set_shader_parameter("palp_cilia", _cilia)
 	material.set_shader_parameter("palp_count", drawn)
 	if controller.field != null:
 		controller.field.apply_to(material)
@@ -172,10 +223,39 @@ func _lay(slot: int, p: Dictionary) -> void:
 	# §12 steps 2-4: how far the swelling has got, and where along the organ.
 	_branch[slot] = Vector4(float(p.get("swell", 0.0)),
 			float(p.get("swell_v", 0.6)), 0.0, 0.0)
+	# §12 STEPS 8-9: THE FINE ANATOMY, AND THE MOMENT THE JOB IS DONE.
+	#
+	# `cilia_out` is an ANGLE the shader turns the hairs through, never a
+	# length: at 0 they lie curled inside the shaft and at 1 they stand off
+	# it, the same size throughout. The beat is published as a rise and fall
+	# rather than as seconds remaining, because what the surface has to show
+	# is a beat and not a countdown.
+	#
+	# `.get` rather than a bare read: §37's arrangement row is built by a
+	# third birth and the renderer draws whatever the controller hands it.
+	var left: float = float(p.get("task_left", 0.0))
+	var beat: float = 0.0
+	if left > 0.0:
+		beat = sin(PI * clampf(1.0 - left / DreamMarginController.TASK_S,
+				0.0, 1.0))
+	_cilia[slot] = Vector4(float(p.get("cilia_out", 0.0)),
+			float(p.get("cilia_band", 0.62)), beat, float(morph.cilia))
 
 
 func census() -> Dictionary:
-	return {"drawn": drawn, "max": MAX_PALPS, "ids": drawn_ids.size()}
+	# The vertex count is here because §12's cilia are the first anatomy
+	# added to this buffer since it was written, and the claim being made
+	# about them is that they cost geometry and not SUBMISSIONS. That is a
+	# measurable claim and this is the number it rests on.
+	var verts := 0
+	var idx := 0
+	if mesh_instance != null and mesh_instance.mesh != null:
+		var arr: Array = mesh_instance.mesh.surface_get_arrays(0)
+		verts = (arr[Mesh.ARRAY_VERTEX] as PackedVector3Array).size()
+		idx = (arr[Mesh.ARRAY_INDEX] as PackedInt32Array).size()
+	return {"drawn": drawn, "max": MAX_PALPS, "ids": drawn_ids.size(),
+			"surfaces": 1, "vertices": verts, "indices": idx,
+			"cilia_per_palp": CILIA}
 
 
 ## Where the player is looking from. Falls back to the origin in headless

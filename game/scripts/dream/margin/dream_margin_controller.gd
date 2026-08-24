@@ -36,6 +36,45 @@ const TIER_CAPS := [6, 20, 60]
 ## already looking at it does not lose interest before anything happens.
 const SWELL_S := 1.6
 
+## §12 STEP 8 — THE FINE CILIA, AND WHY EACH OF THESE IS A DURATION.
+##
+## The canonical sequence puts the cilia at step 8, one whole step AFTER the
+## secondary branches begin investigating independently. That ordering is the
+## content: an appendage that arrived already bristling would read as a spawn
+## with more polygons on it. What §12 describes is an instrument being brought
+## out — the branch separates, it goes and looks at the thing, and only then
+## does the fine anatomy come out of it.
+##
+## So: how long a branch must be investigating something of its own before the
+## cilia begin,
+const CILIA_AFTER_S := 0.55
+## how long they take to come out -- long enough that the ordered wave down
+## the band is a thing you watch happen rather than a state change,
+const CILIA_DEPLOY_S := 0.85
+## how long they work once out, before the job is finished,
+const CILIA_WORK_S := 1.30
+## and how long step 10 takes to put them back.
+const CILIA_RETRACT_S := 0.70
+
+## §12 STEP 9 — TASK COMPLETION IS A BEAT, NOT AN EDGE.
+##
+## Nothing in the sequence is instantaneous and this least of all: it is the
+## one moment the branch stops investigating and reports. A boolean flipping
+## between two frames is not a step of an anatomical sequence, it is a
+## bookkeeping change, so it is given a real duration during which the branch
+## holds still on the thing it has finished and the fine anatomy closes on it.
+const TASK_S := 0.75
+
+## How far a branch must have separated from its parent before it counts as
+## investigating independently (§12 step 7). Below this it is still coming
+## out of the parent and is not yet its own organ.
+const UNFOLD_INVESTIGATING := 0.75
+
+## Where step 11 begins, measured back from the end of an appendage's life.
+## Named because steps 9 and 10 have to fit in FRONT of it: completion, then
+## the fine anatomy retracting, and only then the branch folding away.
+const LEAVE_S := 1.2
+
 ## §3's scale language, as multipliers on an archetype's authored length.
 ## The primaries run large: they are the ones the player walks up to, they
 ## carry the whole archetype library between them, and photographed at 1.0
@@ -350,6 +389,10 @@ func _think(delta: float) -> void:
 		# fight and the branch shivers in place at the end of its life.
 		if int(p.parent) >= 0 and float(p.unfold) < 1.0 				and not bool(p.get("folding", false)):
 			p.unfold = minf(1.0, float(p.unfold) + delta * 0.75)
+		# §12 STEPS 8, 9 AND 10 — but only on a branch, and only on one that
+		# is actually working. See `_fine_anatomy`.
+		if int(p.parent) >= 0:
+			_fine_anatomy(p, delta)
 		var want: Vector3 = BehaviorScript.desired_tip(p, _clock)
 		# §13 overrides local intent, which is the entire point of it: a
 		# margin that merely leaned toward the stimulus would read as weather.
@@ -446,6 +489,100 @@ func _think(delta: float) -> void:
 			p.extend = clampf(to_tip.length() / maxf(0.01, float(p.morph.length)), 0.05, 1.4)
 
 
+## §9's primitives, split by whether they are a relationship to a target.
+##
+## This is what "an INVESTIGATING branch" means in code. Probing, touching,
+## tracing, tasting, bracing and sampling are all ways of working a thing that
+## has been found. Hovering is what `next_act` returns when there is nothing
+## to work; watching is attention pointed elsewhere; withdrawing and freezing
+## are the opposite of investigation. A branch in one of those is IDLE, and an
+## idle branch does not bring its instruments out.
+static func _is_investigating_act(act: int) -> bool:
+	match act:
+		BehaviorScript.Act.PROBE, BehaviorScript.Act.TOUCH, 				BehaviorScript.Act.TRACE, BehaviorScript.Act.TASTE, 				BehaviorScript.Act.BRACE, BehaviorScript.Act.SAMPLE:
+			return true
+	return false
+
+
+## §12 STEPS 8, 9 AND 10 ON ONE BRANCH — THE FINE ANATOMY.
+##
+##   7. secondary branches independently investigate
+##   8. fine cilia deploy
+##   9. task completes
+##  10. fine anatomy retracts
+##
+## Steps 5-7 and 11-12 were built first, and between the branch arriving and
+## the branch leaving there was nothing: it came out, it waved at something,
+## it went back in. Four of the twelve steps are about what it does WHILE it
+## is out, and three of those four are this.
+##
+## The shape is deliberately the same as steps 2-4, which is the one part of
+## §12 that already reads correctly: a state is entered, a clock runs for a
+## named number of seconds, and only when the clock finishes does the next
+## thing become possible. Nothing here is allowed to happen on the frame that
+## permits it.
+##
+## AND NOTHING HERE IS A SIZE. `cilia_out` is an angle, not a scale: at 0 the
+## cilia are lying curled inside the shaft's own volume and at 1 they stand
+## off it, at exactly the same length throughout. "Never spawn a branch by
+## scaling a cylinder from zero" is the governing sentence of §12 and it does
+## not stop applying because the cylinder got smaller.
+func _fine_anatomy(p: Dictionary, delta: float) -> void:
+	# STEP 10 IS CHECKED FIRST, so that nothing can deploy after the branch
+	# has committed to going back in. Two ways in: the job finished, which is
+	# the one §12 describes, or the branch simply ran out of life with the
+	# instruments still out -- and even then the fine anatomy comes in before
+	# the branch folds, because step 10 precedes step 11 either way.
+	var retracting: bool = bool(p.task_done) 			or float(p.age) > float(p.life) - LEAVE_S - CILIA_RETRACT_S
+	if retracting:
+		p.cilia_out = maxf(0.0, float(p.cilia_out) - delta / CILIA_RETRACT_S)
+		p.investigate = 0.0
+		return
+	# STEP 7 IS A PRECONDITION, NOT A LABEL. A branch is investigating on its
+	# own account when it has separated far enough to be its own organ AND it
+	# is doing one of §9's target-directed things about something real.
+	if float(p.unfold) < UNFOLD_INVESTIGATING or p.target == Vector3.INF 			or not _is_investigating_act(int(p.act)):
+		# Idle. The instruments stay where they are -- they do not come out,
+		# and they do not go back in either, because a branch that pauses
+		# mid-job has not finished the job.
+		return
+	p.investigate = float(p.investigate) + delta
+	# STEP 9 — THE COMPLETION BEAT, once it is running. It holds the branch
+	# for TASK_S and nothing else about the fine anatomy moves during it.
+	if float(p.task_left) > 0.0:
+		p.task_left = float(p.task_left) - delta
+		if float(p.task_left) <= 0.0:
+			p.task_left = 0.0
+			p.task_done = true
+			# AND THE REST OF THE SEQUENCE FOLLOWS FROM IT, IN ORDER. The
+			# branch's remaining life is cut to exactly step 10 plus step 11,
+			# so retraction begins now and folding begins when retraction has
+			# finished. Before this the branch died on its own timer and the
+			# order of 9, 10 and 11 was a coincidence of two clocks.
+			p.life = minf(float(p.life),
+					float(p.age) + CILIA_RETRACT_S + LEAVE_S)
+		return
+	# STEP 8 — DEPLOYMENT. Not until the branch has been investigating for
+	# CILIA_AFTER_S, and then over CILIA_DEPLOY_S rather than at once. The
+	# ORDER along the band is the renderer's: this is the one clock the wave
+	# runs against.
+	if float(p.investigate) < CILIA_AFTER_S:
+		return
+	if float(p.cilia_out) < 1.0:
+		p.cilia_out = minf(1.0, float(p.cilia_out) + delta / CILIA_DEPLOY_S)
+		return
+	# Out, and working. When the work is done, step 9 begins: the branch
+	# plants on what it has finished and stops, which among a dozen moving
+	# things is the most readable thing it can do.
+	if float(p.investigate) >= CILIA_AFTER_S + CILIA_DEPLOY_S + CILIA_WORK_S:
+		p.task_left = TASK_S
+		p.act = BehaviorScript.Act.BRACE
+		p.act_clock = 0.0
+		# Enough that the general act timer cannot expire underneath the beat
+		# and hand it to `next_act` half way through.
+		p.act_left = TASK_S + 0.15
+
+
 ## Somewhere real to attend to, within this individual's preferred reach.
 func _seek_target(p: Dictionary) -> void:
 	if _space == null:
@@ -496,7 +633,8 @@ func _age(delta: float) -> void:
 		p.age += delta
 		# Emerge, hold, withdraw. Withdrawal propagates from the tip (§9).
 		var emerge := 0.9
-		var leave := 1.2
+		# Named, because §12 steps 9 and 10 have to fit in front of it.
+		var leave := LEAVE_S
 		var going: float = 0.0
 		if p.age > p.life - leave:
 			going = smoothstep(0.0, 1.0, (p.age - (p.life - leave)) / leave)
@@ -598,10 +736,10 @@ func neighbours_of(id: int) -> Array:
 ## volume, where it cannot be seen — and then separates. The geometry was
 ## always there; what changes is whether it is folded.
 ##
-## §12's sequence in full is twelve steps and this is the middle six: the
-## crease, the separation, the independent investigation, and the fold back.
-## Vascular congestion and gold repositioning are shader work that does not
-## exist yet.
+## §12's sequence in full is twelve steps. Steps 2-4 are the tell, driven by
+## `swell` and drawn by the shader; 5 to 7 are this function and the unfolding
+## in `_think`; 8 to 10 are `_fine_anatomy`; 11 and 12 are `_age` putting a
+## branch back down along its parent and handing the topology back.
 ## EVERY FIELD THE REST OF THE SYSTEM EXPECTS, IN ONE PLACE.
 ##
 ## Appendages are born in two places -- `_birth` for the ordinary ones and
@@ -638,6 +776,33 @@ static func _shared_state() -> Dictionary:
 		"swell_v": 0.6,
 		# §12 step 11: whether it is on its way back into its parent.
 		"folding": false,
+		# §12 step 7: how long this appendage has been investigating something
+		# of its OWN. Cilia are gated on this and not on the clock, because
+		# "after the branch appears" and "after it starts investigating" are
+		# different moments and §12 asks for the second one.
+		"investigate": 0.0,
+		# §12 step 8: how far the fine anatomy is out. 0 is not "absent" -- it
+		# is lying curled inside the shaft's own volume, which is the same
+		# claim §12 makes about a folded branch one level up. 1 is fully
+		# erect. Nothing between those is a size.
+		"cilia_out": 0.0,
+		# Where along the organ the ciliated band sits.
+		"cilia_band": 0.62,
+		# §12 step 9: seconds left of the completion beat, and whether it has
+		# already happened. `task_done` is what lets step 10 begin, so the two
+		# cannot get out of order.
+		"task_left": 0.0,
+		"task_done": false,
+		# THE TOPOLOGY, FOR THE APPENDAGES BORN THROUGH `_birth_specific`.
+		#
+		# The other two births set all three of these in their own literals,
+		# and merging non-destructively cannot disturb that. §37's arrangement
+		# row sets none of them, so an arrangement palp reaching `_think`
+		# raises on `p.parent` -- the exact failure this dictionary exists to
+		# prevent, one row further down the same list.
+		"parent": -1,
+		"unfold": 1.0,
+		"children": 0,
 	}
 
 
@@ -683,6 +848,10 @@ func try_branch(id: int) -> bool:
 			"neighbour_count": 0, "joined": -1, "hero_near": 0.0,
 			"parent": id, "unfold": 0.0, "children": 0,
 			"spread": spread,
+			# §12 step 8: where this individual's ciliated band sits. Toward
+			# the working end, because that is the end that is doing the work,
+			# but never ON the tip -- the tip is the thing they surround.
+			"cilia_band": _rng.randf_range(0.52, 0.76),
 		})
 		palps[palps.size() - 1].merge(_shared_state(), false)
 		_next_id += 1
@@ -744,6 +913,12 @@ func _birth_specific(tier: int, at: Vector3, nrm: Vector3, archetype: int) -> vo
 		"last_tip": at + nrm * float(morph.length),
 		"extend": 1.0,
 	})
+	# THE SAME MERGE AS THE OTHER TWO BIRTHS. This one was written for a
+	# review arrangement that is never stepped, so it got away with carrying
+	# none of the shared state -- but "never stepped" is a property of the one
+	# caller, not of the function, and the failure it invites is the silent
+	# one documented on `_shared_state`.
+	palps[palps.size() - 1].merge(_shared_state(), false)
 	_next_id += 1
 
 
@@ -792,7 +967,23 @@ func census() -> Dictionary:
 	var joined_hero := 0
 	var branches := 0
 	var unfolding := 0
+	# §12 steps 8-10, as four separate readings, because "some cilia exist"
+	# says nothing about whether the sequence is running in order.
+	var deploying := 0
+	var ciliated := 0
+	var completing := 0
+	var completed := 0
 	var shared := {}
+	for p in palps:
+		var out_at: float = float(p.get("cilia_out", 0.0))
+		if out_at > 0.02 and out_at < 0.98:
+			deploying += 1
+		if out_at >= 0.98:
+			ciliated += 1
+		if float(p.get("task_left", 0.0)) > 0.0:
+			completing += 1
+		if bool(p.get("task_done", false)):
+			completed += 1
 	for p in palps:
 		if int(p.neighbour_count) > 0:
 			social += 1
@@ -818,4 +1009,6 @@ func census() -> Dictionary:
 			"with_neighbours": social, "joined_a_neighbour": joined,
 			"cooperating": cooperating,
 			"feel_hero": feel_hero, "joined_hero": joined_hero,
-			"branches": branches, "unfolding": unfolding}
+			"branches": branches, "unfolding": unfolding,
+			"cilia_deploying": deploying, "ciliated": ciliated,
+			"completing": completing, "completed": completed}

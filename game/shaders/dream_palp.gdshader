@@ -40,7 +40,21 @@ uniform vec4 palp_matter[40];
 // gold structures slide aside to make room, and a crease forms. They are the
 // tell. With them the wall shows you where it is about to open.
 uniform vec4 palp_branch[40];
+// §12 STEPS 8-9, THE FINE ANATOMY AND THE MOMENT THE JOB IS DONE.
+//   x  how far the cilia are out. NOT A LENGTH -- it is the angle they are
+//      turned through. At 0 they lie along the shaft, seated in its own
+//      surface; at 1 they stand off it. Identical size at both ends, which is
+//      the governing sentence of §12 applied one level down from the branch.
+//   y  where along the organ the ciliated band sits.
+//   z  the completion beat, rising and falling across step 9.
+//   w  this individual's cilia density (§6: anatomy, not a constant).
+uniform vec4 palp_cilia[40];
 uniform int palp_count = 0;
+
+// How many cilium slots the mesh carries per palp. Matched to
+// DreamPalpRenderer.CILIA; an individual uses as many as its anatomy asks for
+// and collapses the rest, the way a critter with six limbs collapses two.
+const int CILIA = 10;
 
 varying vec2 v_uv;
 varying vec3 v_world;
@@ -48,6 +62,9 @@ varying float v_thickness;
 varying float v_seed;
 varying vec4 v_matter;
 varying vec2 v_branch;
+// x how erect this cilium is, y the completion beat, z which anatomy this
+// vertex belongs to (0 shaft, 1 cilium), w how near the ciliated band it is.
+varying vec4 v_cilia;
 
 vec3 spine_at(int p, float s) {
 	float x = clamp(s, 0.0, 1.0) * float(JOINTS - 1);
@@ -66,64 +83,253 @@ vec4 section_at(int p, float v) {
 	return mix(palp_section[base + i], palp_section[base + i + 1], f);
 }
 
-void vertex() {
-	int p = int(UV2.x + 0.5);
-	float v = UV.y;
-	float u = UV.x;
-	vec4 par = palp_params[p];
-	float grow = par.x;
-	float s = min(v, grow);
-	float alive = smoothstep(0.0, 0.06, grow - v * 0.9);
-
-	vec3 pos = spine_at(p, s);
-	vec3 tng = normalize(spine_at(p, min(s + 0.08, 1.0)) - spine_at(p, max(s - 0.08, 0.0))
-			+ vec3(0.0, 1e-5, 0.0));
-	vec3 any = abs(tng.y) < 0.9 ? vec3(0.0, 1.0, 0.0) : vec3(1.0, 0.0, 0.0);
-	vec3 sd = normalize(cross(any, tng));
-	vec3 bn = cross(tng, sd);
-
+// THE ORGAN'S OWN SURFACE, at v along it and a around it, as an offset from
+// the spine in the local frame -- plus the radius reached along that offset.
+//
+// §7 is the reason this is a function rather than four lines inline: the
+// SECTION CHANGES ALONG THE LENGTH, and a cilium is seated on that surface,
+// not on an idealised cylinder through it. A flat ribbon's hairs have to sit
+// on a ribbon. TIME arrives as an argument because built-ins do not reach into
+// user functions.
+vec3 palp_surface(int p, float v, float a, vec3 sd, vec3 bn, float t,
+		out float r_out) {
 	vec4 sec = section_at(p, v);
-	float a = u * 6.2831853 + par.w;
+	vec4 par = palp_params[p];
 	// The section: an ellipse that flattens, carrying longitudinal lobes and
 	// pushed off its own axis so nothing is symmetrical.
 	float ca = cos(a);
 	float sa = sin(a);
 	float ex = ca * (1.0 + sec.x);
 	float ez = sa * (1.0 - sec.x);
-	float norm = max(0.0001, length(vec2(ex, ez)));
-	ex /= norm;
-	ez /= norm;
+	float nl = max(0.0001, length(vec2(ex, ez)));
+	ex /= nl;
+	ez /= nl;
 	float lobe = 1.0 + sec.z * cos(sec.y * a + par.w * 2.0);
 	float asym = 1.0 + sec.w * cos(a + par.w);
-
 	float taper = mix(par.y, par.y * par.z, pow(v, 1.15));
 	float flare = 1.0 + 0.55 * exp(-v * 7.0);
-	float breathe = 1.0 + 0.04 * sin(TIME * 1.9 + par.w * 3.0);
-	float r = taper * flare * lobe * asym * breathe * alive;
-
-	vec3 radial = sd * ex + bn * ez;
-	VERTEX = pos + radial * r;
-	NORMAL = normalize(radial);
-	TANGENT = tng;
-	BINORMAL = cross(radial, tng);
-	v_uv = vec2(u, v);
-	v_world = VERTEX;
-	v_thickness = clamp(0.85 - 0.7 * v, 0.0, 1.0);
-	v_seed = par.w;
-	v_matter = palp_matter[p];
-	// How strongly this vertex is inside the swelling, and how close it is to
-	// the crease itself.
-	vec4 br = palp_branch[p];
-	float from_line = abs(v - br.y);
-	float near_crease = 1.0 - smoothstep(0.0, 0.20, from_line);
-	v_branch = vec2(br.x, near_crease);
-	// STEP 2, in the geometry as well as the colour: congested tissue is
-	// SWOLLEN. And STEP 4: the crease itself is a furrow, so the middle of
-	// the swelling goes back in further than the shoulders come out.
-	float furrow = 1.0 - smoothstep(0.0, 0.075, from_line);
-	VERTEX += normalize(radial) * br.x
-			* (near_crease * 0.024 - furrow * 0.040);
+	float breathe = 1.0 + 0.04 * sin(t * 1.9 + par.w * 3.0);
+	r_out = taper * flare * lobe * asym * breathe;
+	return sd * ex + bn * ez;
 }
+
+
+// The frame at a point along a palp's spine: where it is, which way it runs,
+// and two axes across it.
+void palp_frame(int p, float s, out vec3 pos, out vec3 tng, out vec3 sd,
+		out vec3 bn) {
+	pos = spine_at(p, s);
+	tng = normalize(spine_at(p, min(s + 0.08, 1.0)) - spine_at(p, max(s - 0.08, 0.0))
+			+ vec3(0.0, 1e-5, 0.0));
+	vec3 any = abs(tng.y) < 0.9 ? vec3(0.0, 1.0, 0.0) : vec3(1.0, 0.0, 0.0);
+	sd = normalize(cross(any, tng));
+	bn = cross(tng, sd);
+}
+
+
+// §12 STEP 8 -- ONE CILIUM, AS A HAIR THAT PIVOTS.
+//
+// This is why step 8 was the unbuilt one. A cilium that faded in, or grew out,
+// or was a puff of emissive noise on the shaft, would be the banned thing at a
+// smaller scale: "never spawn a branch by scaling a cylinder from zero" is a
+// statement about how anatomy arrives, and it does not stop applying because
+// the cylinder is a millimetre across.
+//
+// So the hair is FULL LENGTH THROUGHOUT. It is built as a circular arc of
+// fixed arc length whose launch direction and curvature are what `erect`
+// moves. Folded, it leaves its socket along the shaft and presses back into
+// the skin, and reads as fine longitudinal relief ON the organ -- which is the
+// point: a player can see the hairs lying down before they stand up, so the
+// deployment is unmistakably a pivot and not a growth. Erect, it stands off
+// the surface with a distal droop.
+//
+// The arc-length parameterisation is not decoration. Mixing between a folded
+// pose and an erect pose would shorten the hair through the middle of the
+// move, and a hair that is shorter halfway through is a hair that scaled.
+void cilium(int p, int ci, float along, vec3 ring_n, float grow, float t,
+		out vec3 out_pos, out vec3 out_nrm, out vec3 out_tng, out vec3 out_bin,
+		out float out_erect, out float out_alive) {
+	vec4 par = palp_params[p];
+	vec4 cil = palp_cilia[p];
+	float band = clamp(cil.y, 0.10, 0.92);
+	// HOW MANY, AND HOW LONG, ARE PER INDIVIDUAL (§6). A ciliated whisker is
+	// made of these; a gold finger has almost none. Six is the floor because
+	// below that a band reads as a few stray bristles rather than as a field.
+	float n = floor(6.0 + clamp(cil.w, 0.0, 1.0) * float(CILIA - 6));
+	float t_i = float(ci) / max(1.0, n - 1.0);
+	// Spread ALONG the band and spiralled around it, so it is a field of them
+	// and not a ring. A ring is jewellery, which is the mistake §12 step 3
+	// already had to be talked out of once.
+	float v_root = clamp(band + (t_i - 0.5) * 0.26, 0.06, 0.96);
+	float ang = par.w + t_i * 6.2831853 * 2.6;
+
+	out_alive = smoothstep(0.0, 0.05, grow - v_root)
+			* step(float(ci), n - 0.5) * step(0.00001, par.y);
+	if (out_alive <= 0.0) {
+		out_pos = spine_at(p, 0.0);
+		out_nrm = vec3(0.0, 1.0, 0.0);
+		out_tng = vec3(1.0, 0.0, 0.0);
+		out_bin = vec3(0.0, 0.0, 1.0);
+		out_erect = 0.0;
+		return;
+	}
+
+	vec3 pos;
+	vec3 tng;
+	vec3 sd;
+	vec3 bn;
+	palp_frame(p, v_root, pos, tng, sd, bn);
+	float r_band;
+	vec3 radial = normalize(palp_surface(p, v_root, ang, sd, bn, t, r_band));
+
+	// ORDERED TIMING. They do not all come up at once: deployment runs DOWN the
+	// band from the proximal end, so what is on screen is a wave passing along
+	// the organ rather than a switch being thrown. One clock in the controller,
+	// and the order in it comes from here.
+	float lead = 0.55;
+	float erect = clamp((cil.x - t_i * lead) / max(0.001, 1.0 - lead), 0.0, 1.0);
+	float beat = cil.z;
+	out_erect = erect;
+
+	float len = r_band * (3.5 + 4.0 * clamp(cil.w, 0.0, 1.0));
+	// Seated in a socket it rises very slightly out of as it erects. A
+	// translation, deliberately, and never a scale.
+	vec3 base = pos + radial * (r_band * mix(0.92, 1.0, erect));
+
+	vec3 out_dir = normalize(radial + tng * 0.30);
+	vec3 d0 = normalize(mix(tng, out_dir, erect));
+	// FOLDED MEANS LYING ALONG THE SURFACE, NOT BURIED IN IT.
+	//
+	// The first version curled a folded cilium back INTO the shaft, on the
+	// reasoning that §12's "folded inside simple anatomy" should apply to a
+	// hair the way it applies to a branch. Photographed, that is a disaster:
+	// the folded frame has no hairs in it at all, so what a player sees is
+	// nothing becoming something, which is indistinguishable from the spawn
+	// effect the whole section exists to ban. The proof of "these are the same
+	// hairs at the same length" is that you can SEE them lying down.
+	//
+	// A cylinder is developable, so a line running along the axis stays on the
+	// surface: a folded cilium is nearly straight and hugs the shaft, reading
+	// as fine longitudinal relief. Erect, it stands off with a distal droop.
+	float curl = mix(0.12, 0.45, erect);
+	// §12 STEP 9 -- THE CLOSE. The job is finished, so the whole band pitches
+	// forward onto the thing it was working and draws in together. One gesture
+	// of the fine anatomy, which is what makes completion a BEAT rather than a
+	// flag: the branch stops, the cilia close, the band under them floods.
+	d0 = normalize(mix(d0, normalize(tng * 1.25 + radial * 0.30), beat * 0.85));
+	curl += beat * 0.85;
+
+	vec3 d90 = -radial - d0 * dot(-radial, d0);
+	float d90l = length(d90);
+	d90 = d90l > 1e-5 ? d90 / d90l
+			: normalize(cross(d0, tng) + vec3(1e-5, 0.0, 0.0));
+
+	float th = curl * along;
+	// An arc of total turn `curl` over arc length `len`. Exact for any curl,
+	// and the degenerate case is the straight hair.
+	vec3 offset = curl < 0.0001
+			? d0 * (len * along)
+			: (d0 * sin(th) + d90 * (1.0 - cos(th))) * (len / curl);
+	vec3 seg = normalize(d0 * cos(th) + d90 * sin(th));
+
+	float thick = r_band * 0.26 * (1.0 - 0.70 * along);
+	vec3 any_c = abs(seg.y) < 0.9 ? vec3(0.0, 1.0, 0.0) : vec3(1.0, 0.0, 0.0);
+	vec3 cs = normalize(cross(any_c, seg));
+	vec3 cb = cross(seg, cs);
+	float ring_a = atan(ring_n.y, ring_n.x);
+	vec3 ring = cs * cos(ring_a) + cb * sin(ring_a);
+	out_pos = base + offset + ring * thick;
+	out_nrm = normalize(ring);
+	out_tng = seg;
+	out_bin = cross(ring, seg);
+}
+
+
+void vertex() {
+	int p = int(UV2.x + 0.5);
+	vec4 par = palp_params[p];
+	float grow = par.x;
+
+	// WHICH ANATOMY THIS VERTEX IS. UV2.y 0 is the shaft, 1 is one of the
+	// individual's cilia. One vertex program, two structures, one draw --
+	// dream_critter.gdshader does the same with bodies, limbs and feelers, and
+	// for the same reason: the frame is submission-bound, so new anatomy is
+	// paid for in vertices and never in submissions.
+	//
+	// An if/else and not an early return: Godot rejects `return` in a
+	// processor function outright, and it does so at shader COMPILE time --
+	// which the headless contract runs never reach, so the margin test passed
+	// green while nothing drew at all. `ShaderParseCheck.tscn` is the run that
+	// catches it.
+	if (UV2.y > 0.5) {
+		vec3 c_pos;
+		vec3 c_nrm;
+		vec3 c_tng;
+		vec3 c_bin;
+		float c_erect;
+		float c_alive;
+		cilium(p, int(UV.x + 0.5), UV.y, NORMAL, grow, TIME,
+				c_pos, c_nrm, c_tng, c_bin, c_erect, c_alive);
+		VERTEX = c_pos;
+		NORMAL = c_nrm;
+		TANGENT = c_tng;
+		BINORMAL = c_bin;
+		v_uv = vec2(UV.x, UV.y);
+		v_world = VERTEX;
+		// Fine anatomy is THIN, and thin dream tissue transmits: a cilium lit
+		// from behind should carry light through it, which a shaft should not.
+		v_thickness = 0.10;
+		v_seed = par.w;
+		v_matter = palp_matter[p];
+		v_branch = vec2(0.0, 0.0);
+		v_cilia = vec4(c_erect, palp_cilia[p].z, 1.0, 1.0);
+	} else {
+
+		float v = UV.y;
+		float u = UV.x;
+		float s = min(v, grow);
+		float alive = smoothstep(0.0, 0.06, grow - v * 0.9);
+
+		vec3 pos;
+		vec3 tng;
+		vec3 sd;
+		vec3 bn;
+		palp_frame(p, s, pos, tng, sd, bn);
+
+		float r;
+		vec3 radial = palp_surface(p, v, u * 6.2831853 + par.w, sd, bn, TIME, r);
+		r *= alive;
+
+		VERTEX = pos + radial * r;
+		NORMAL = normalize(radial);
+		TANGENT = tng;
+		BINORMAL = cross(radial, tng);
+		v_uv = vec2(u, v);
+		v_world = VERTEX;
+		v_thickness = clamp(0.85 - 0.7 * v, 0.0, 1.0);
+		v_seed = par.w;
+		v_matter = palp_matter[p];
+		// How strongly this vertex is inside the swelling, and how close it is to
+		// the crease itself.
+		vec4 br = palp_branch[p];
+		float from_line = abs(v - br.y);
+		float near_crease = 1.0 - smoothstep(0.0, 0.20, from_line);
+		v_branch = vec2(br.x, near_crease);
+		// And how close it is to the CILIATED BAND, which is where §12 step 9 puts
+		// its flush -- the same tissue signal as step 2's congestion, at the other
+		// end of the sequence.
+		float from_band = abs(v - palp_cilia[p].y);
+		v_cilia = vec4(0.0, palp_cilia[p].z, 0.0,
+				1.0 - smoothstep(0.0, 0.18, from_band));
+		// STEP 2, in the geometry as well as the colour: congested tissue is
+		// SWOLLEN. And STEP 4: the crease itself is a furrow, so the middle of
+		// the swelling goes back in further than the shoulders come out.
+		float furrow = 1.0 - smoothstep(0.0, 0.075, from_line);
+		VERTEX += normalize(radial) * br.x
+				* (near_crease * 0.024 - furrow * 0.040);
+	}
+}
+
 
 void fragment() {
 	vec3 n = normalize(NORMAL);
@@ -131,6 +337,16 @@ void fragment() {
 	DeCtx ctx;
 	ctx.thickness = v_thickness;
 	ctx.vein = 0.4;
+	// Which anatomy this fragment belongs to, and how far through §12 step 9
+	// the individual carrying it is.
+	float part = v_cilia.z;
+	float beat = v_cilia.y;
+	// §12 STEP 9 -- THE COMPLETION BEAT, ON THE SURFACE. The band under the
+	// fine anatomy floods while the job is being finished, exactly the way the
+	// crease floods before the branch opens at step 2. The same tissue doing
+	// the same thing at the other end of the sequence, so a player who has
+	// learned to read one reads the other.
+	ctx.vein = clamp(ctx.vein + beat * v_cilia.w * 0.75, 0.0, 1.0);
 	// §12 STEP 2 — LOCAL VASCULAR CONGESTION. Blood arrives before anatomy
 	// does, so the tissue about to open runs dark and full.
 	float swell = v_branch.x;
@@ -152,8 +368,12 @@ void fragment() {
 	ctx.gold_root = clamp(v_matter.x
 			+ swell * (shoulder * 0.70 - centre * (v_matter.x + 0.35) * 1.6),
 			0.0, 1.0);
-	ctx.contact = v_matter.z * smoothstep(0.55, 1.0, v_uv.y);
-	ctx.socket = v_matter.y * smoothstep(0.7, 1.0, v_uv.y);
+	// A cilium has no sucker pad and no mineral socket -- those are distal
+	// specialisations of the SHAFT, and painting them onto a hair would make
+	// the fine anatomy read as a scaled copy of the coarse anatomy.
+	ctx.contact = v_matter.z * smoothstep(0.55, 1.0, v_uv.y) * (1.0 - part);
+	ctx.socket = v_matter.y * smoothstep(0.7, 1.0, v_uv.y) * (1.0 - part);
+	ctx.gold_root *= mix(1.0, 0.30, part);
 	ctx.stretch = 0.3;
 	ctx.lod = 1.0 - smoothstep(1.5, 6.0, length(VERTEX));
 	DeMasks m = de_masks(v_world, v_uv, n, view_dir, TIME, v_seed, ctx);
