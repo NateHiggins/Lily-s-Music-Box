@@ -1,7 +1,9 @@
 class_name DreamSurfaceTransformer
 extends RefCounted
 ## Dream Contact / Material Conversion (DREAM_TENTACLE_DIRECTION §14–15):
-## where the limb touches, ordinary matter is invited into the Dream. The
+## where the limb touches, the creature attempts electrochemical/secretory
+## communication across a synapse-like cleft. Ordinary matter cannot answer
+## in its language and is instead invited into the Dream. The
 ## mask lives in the living field (body / trail / stain at the touch,
 ## attributed to the source) and every layered surface reads it: the
 ## `living_lux` state of `orison_surface` draws the touched matter as
@@ -23,7 +25,8 @@ func configure(living_field, src: int, p: DreamContactProfile) -> void:
 	profile = p if p != null else DreamContactProfile.new()
 
 
-## Called while the limb holds a surface; deposits on the profile's cadence.
+## Called while the limb holds a surface; secretion transfer deposits on the
+## profile's cadence. LivingField remains the sole downstream material owner.
 func touch(contact: Vector3, contact_normal: Vector3, strength: float, delta: float) -> bool:
 	last_event = ""
 	if field == null or strength <= 0.05:

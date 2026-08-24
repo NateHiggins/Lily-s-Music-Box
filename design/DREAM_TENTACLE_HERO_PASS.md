@@ -139,7 +139,19 @@ and releases progressively rather than popping; the limb follows with
 weight and delayed elasticity. *Something learning how to enter our
 dimensional slice.* **3 SEEK** the tip lifts, 5–7 Hz tremor at the sensory
 tip only, cilia sample, the eye begins opening, the gold settles, one
-vascular pulse moves forward — it studies the room, not the player.
+vascular pulse moves forward — it studies the room, not the player. **Owner
+ruling, 2026-08-24: this seeking is an attempt to communicate, with dendritic
+synapse formation as its movement inspiration.** The distal club makes local
+micro-protrusions toward several candidate sites, dwells, secretes/samples,
+then retracts and reconsiders before choosing contact; the massive proximal
+body follows late. It is not a predator lunge, a pathfinding sweep or generic
+search AI. At a chosen site it hovers across a narrow temporary "synaptic
+cleft," stabilizes sequentially with cilia and suckers, sends an
+electrochemical pulse and transfers a secretion. The ordinary surface cannot
+answer in the creature's language, so the existing living-field conversion is
+the material consequence of a sincere but dimensionally and biologically
+wrong communication attempt; it remains owned by the shared LivingField and
+creates no new gameplay or save owner.
 **4 CARESS** fast then slowing inside ~10 cm, a hover, first sucker
 compresses, neighbours engage sequentially, distal tissue flattens, the tip
 traces a slow figure-eight, the last third curls an edge, gold adapts, the

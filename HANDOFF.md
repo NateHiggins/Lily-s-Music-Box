@@ -242,6 +242,22 @@ releases progressively on a curve separate from visible length. The production
 suite is now 24/24 at 0.656 ms. One fixed-camera Forward+ run captures all ten
 landmarks plus a 0.00000913426-RMSE frozen A/A pair at
 `art/renders/dream_tentacle/dt5_bobbing/README.md`. Do not call DT-5 done: the
+next ruled slice was synaptic seeking. The owner wants dendritic synapse
+formation as the motion inspiration because SEEK is an attempt to communicate:
+distal micro-protrusions test several candidate sites, dwell and retract before
+one chosen narrow cleft; cilia/suckers stabilize sequentially, an
+electrochemical pulse passes, and secretion transfer follows. The heavy root
+lags. This must never read as predation or generic search AI. Reuse the current
+LivingField conversion as the biologically/dimensionally wrong material result
+of the attempt; add no new field, agent or save owner. **That focused slice is
+now landed:** three 0.9 s candidate-cleft cycles drive distal sampling, dwell
+and return goals before committed approach; contact aligns the current
+vascular bolus to the club, flashes the contact organ, and the unchanged
+transformer carries secretion into LivingField. `DreamTentacleTest` passes
+27/27 at 0.644 ms. A single fixed-camera Forward+ production run logged every
+landmark; the three dwell/reconsider pairs measure 0.0445907/0.0642438/
+0.0384303 RMSE against a 0.00000577702 frozen A/A floor. Proof is
+`art/renders/dream_tentacle/dt5_synaptic_seek/README.md`. The
 full BULGE -> EMERGENCE -> SEEK -> CARESS -> FLINCH -> WITHDRAW rendered
 sequence remains open.
 

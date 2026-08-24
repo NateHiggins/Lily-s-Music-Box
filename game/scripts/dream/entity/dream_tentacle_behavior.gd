@@ -49,6 +49,16 @@ var membrane_tension := 0.0
 var membrane_probe := Vector2.ZERO
 var membrane_probe_depth := 0.0
 var membrane_release := 0.0
+## SEEK is an attempted synapse, not a chase. The distal club tests three
+## nearby candidate clefts; these review outputs make the approach/dwell/
+## retraction grammar observable without giving it a new gameplay owner.
+const SYNAPTIC_PROBE_S := 0.90
+const SYNAPTIC_PROBE_COUNT := 3
+var synaptic_probe_index := -1
+var synaptic_probe_phase := 0.0
+var synaptic_attempts := 0
+var electrochemical_pulses := 0
+var secretion_transfers := 0
 var eye_mode := "closed"
 var interest := 0.3
 var events: Array[String] = []
@@ -58,6 +68,7 @@ var anchor_normal := Vector3.UP
 var tip := Vector3.ZERO
 var contact := Vector3.ZERO
 var contact_normal := Vector3.UP
+var contact_tangent := Vector3.RIGHT
 var player_pos := Vector3.ZERO
 var player_speed := 0.0
 var has_player := false
@@ -91,13 +102,20 @@ func _enter(s: int) -> void:
 			events.append("eye_opening")
 		S.SEEKING:
 			eye_mode = "watch_object"
+			synaptic_probe_index = 0
+			synaptic_probe_phase = 0.0
+			synaptic_attempts = 0
 		S.HOVER_INSPECTION:
 			eye_mode = "watch_object"
 		S.TOUCHING:
 			events.append("sucker_attach")
+			events.append("electrochemical_exchange")
+			electrochemical_pulses += 1
 			eye_mode = "watch_contact"
 		S.CARESSING:
 			events.append("surface_caress")
+			events.append("secretion_transfer")
+			secretion_transfers += 1
 			caress_passes += 1
 			eye_mode = "watch_contact"
 		S.TASTING:
@@ -176,7 +194,9 @@ func update(delta: float) -> void:
 			_enter(next)
 	match state:
 		S.SEEKING:
-			if tip.distance_to(contact) < 0.28:
+			var completed := int(floor(state_clock / SYNAPTIC_PROBE_S))
+			synaptic_attempts = mini(completed, SYNAPTIC_PROBE_COUNT)
+			if completed >= SYNAPTIC_PROBE_COUNT:
 				_enter(S.APPROACHING)
 		S.APPROACHING:
 			if tip.distance_to(contact) < profile.hover_off_m + 0.025:
@@ -202,6 +222,8 @@ func _drive(_delta: float) -> void:
 	membrane_probe = Vector2.ZERO
 	membrane_probe_depth = 0.0
 	membrane_release = 1.0
+	synaptic_probe_index = -1
+	synaptic_probe_phase = 0.0
 	match state:
 		S.DORMANT:
 			grow = 0.0
@@ -262,9 +284,35 @@ func _drive(_delta: float) -> void:
 		S.SEEKING:
 			grow = 1.0
 			membrane_tension = 0.45
-			tip_goal = contact + contact_normal * 0.22
-			speed = 0.85
-			curl_target = 0.2
+			# Dendritic inspiration, translated rather than literally simulated:
+			# a fine distal process approaches a possible cleft, dwells, secretes/
+			# samples, and fully reconsiders before the next local candidate.
+			var cycle := minf(state_clock / SYNAPTIC_PROBE_S,
+					float(SYNAPTIC_PROBE_COUNT) - 0.001)
+			var attempt := clampi(int(floor(cycle)), 0, SYNAPTIC_PROBE_COUNT - 1)
+			var local := fmod(cycle, 1.0)
+			var n := contact_normal.normalized()
+			var ta := contact_tangent - n * contact_tangent.dot(n)
+			if ta.length_squared() < 0.001:
+				var ref := Vector3.UP if absf(n.y) < 0.9 else Vector3.RIGHT
+				ta = ref.cross(n)
+			ta = ta.normalized()
+			var tb := n.cross(ta).normalized()
+			var sites: Array[Vector2] = [Vector2(-0.12, 0.055), Vector2(0.105, -0.075),
+					Vector2(0.018, 0.012)]
+			# The broad sine gives a real return stroke; its flattened crown is
+			# the attentive dwell rather than a ballistic touch.
+			var approach := sin(local * PI)
+			var dwell := smoothstep(0.0, 0.72, approach)
+			var retreat: Vector3 = contact + n * 0.38
+			var candidate: Vector3 = contact + n * 0.13 + ta * sites[attempt].x \
+					+ tb * sites[attempt].y
+			tip_goal = retreat.lerp(candidate, dwell)
+			synaptic_probe_index = attempt
+			synaptic_probe_phase = local
+			sampling = true
+			speed = 0.62
+			curl_target = 0.30 + 0.18 * dwell
 		S.APPROACHING:
 			grow = 1.0
 			var d := tip.distance_to(contact)

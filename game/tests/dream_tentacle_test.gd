@@ -112,6 +112,56 @@ func _run() -> void:
 			and hidden_while_searching)
 	_check("the chosen soft spot releases progressively", release_mid
 			and release_monotonic and last_release > 0.95)
+	# SEEK has its own owner-ruled grammar: three local synaptic candidates,
+	# each approached and abandoned before the committed contact approach.
+	var seek := DreamTentacleBehavior.new()
+	seek.anchor = Vector3.ZERO
+	seek.anchor_normal = Vector3.RIGHT
+	seek.contact = Vector3(1.0, 0.0, 0.0)
+	seek.contact_normal = Vector3.LEFT
+	seek.contact_tangent = Vector3.UP
+	seek.tip = Vector3(0.5, 0.0, 0.0)
+	seek.configure(t.behavior_profile, true)
+	var seek_sites: Array[Vector3] = []
+	var seek_retreated := [false, false, false]
+	var seek_sampling := true
+	for _frame in 760:
+		seek.update(1.0 / 60.0)
+		if seek.state == DreamTentacleBehavior.S.SEEKING:
+			seek_sampling = seek_sampling and seek.sampling
+			var phase: float = seek.synaptic_probe_phase
+			var which: int = seek.synaptic_probe_index
+			if phase > 0.47 and phase < 0.53 and seek_sites.size() == which:
+				seek_sites.append(seek.tip_goal)
+			if phase > 0.94 and which >= 0:
+				seek_retreated[which] = (seek.tip_goal - seek.contact).dot(
+						seek.contact_normal) > 0.32
+		elif seek.state == DreamTentacleBehavior.S.APPROACHING:
+			break
+	var distinct_seek := seek_sites.size() == 3
+	var all_retreated := true
+	for did_retreat in seek_retreated:
+		all_retreated = all_retreated and bool(did_retreat)
+	if distinct_seek:
+		for i in seek_sites.size():
+			for j in range(i + 1, seek_sites.size()):
+				distinct_seek = distinct_seek and seek_sites[i].distance_to(seek_sites[j]) > 0.08
+	_check("SEEK samples three distinct candidate clefts and fully reconsiders (%d)"
+			% seek_sites.size(), distinct_seek and all_retreated)
+	_check("SEEK keeps fine distal sampling on, then commits after three attempts",
+			seek_sampling and seek.synaptic_attempts == 3
+			and seek.state == DreamTentacleBehavior.S.APPROACHING)
+	# The contact events name the biological intent; the transformer remains the
+	# material owner downstream, so this creates no parallel conversion seam.
+	seek.take_events()
+	seek._enter(DreamTentacleBehavior.S.TOUCHING)
+	var touch_events := seek.take_events()
+	seek._enter(DreamTentacleBehavior.S.CARESSING)
+	var caress_events := seek.take_events()
+	_check("contact carries an electrochemical pulse and secretion transfer",
+			"electrochemical_exchange" in touch_events
+			and "secretion_transfer" in caress_events
+			and seek.electrochemical_pulses == 1 and seek.secretion_transfers == 1)
 	# The states, in order: membrane bulge, emergence, orienting, seeking...
 	var seen: Array[String] = [t.state_name()]
 	var waited := 0.0
@@ -125,6 +175,13 @@ func _run() -> void:
 			"EMERGING" in seen and "SEEKING" in seen and "APPROACHING" in seen
 			and "HOVER_INSPECTION" in seen and "TOUCHING" in seen and "CARESSING" in seen)
 	_check("it is through (grow %.2f)" % float(t.grow), float(t.grow) >= 0.95)
+	# State entry and a damped physical arrival are deliberately not the same
+	# instant. Give the distal spring a bounded settle window, then retain the
+	# original strict contact threshold.
+	var settle_s := 0.0
+	while settle_s < 0.8 and t.rig.tip().distance_to(t.sensor.contact) >= 0.13:
+		await get_tree().process_frame
+		settle_s += get_process_delta_time()
 	var c: Dictionary = t.census()
 	_check("emergence physically swells its existing field (peak %.2f, %d writes)"
 			% [float(c.emergence_pressure_peak), int(c.field_pressure_writes)],

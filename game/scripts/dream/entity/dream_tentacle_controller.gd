@@ -9,7 +9,8 @@ extends Node3D
 ##
 ## Sound hooks (§22): `dream_event(name, position)` for membrane_strain,
 ## emergence, eye_opening, vein_pulse, gold_phase_shift, halo_phase,
-## sucker_attach, sucker_release, surface_caress, dream_conversion,
+## sucker_attach, sucker_release, electrochemical_exchange,
+## secretion_transfer, surface_caress, dream_conversion,
 ## player_attention, flinch, impossible_space, withdrawal.
 
 signal dream_event(event_name: String, at: Vector3)
@@ -70,6 +71,9 @@ var emergence_pressure := 0.0
 var emergence_pressure_peak := 0.0
 var field_pressure_writes := 0
 var _field_pressure_clock := 0.0
+## A brief contact-organ flash makes the electrochemical handoff legible. It
+## is a presentation response to the behavior event, not another field owner.
+var exchange_flash := 0.0
 var _mesh: MeshInstance3D
 var _material: ShaderMaterial
 var _light_eye: OmniLight3D
@@ -321,6 +325,7 @@ func _tick(delta: float) -> void:
 	pulse_phase = fmod(clock / PULSE_S, 1.0)
 	breath_phase = fmod(clock / BREATH_S, 1.0)
 	startle = maxf(0.0, startle - delta * 0.7)
+	exchange_flash = maxf(0.0, exchange_flash - delta * 1.35)
 	if behavior.state == DreamTentacleBehavior.S.DONE:
 		queue_free()
 		return
@@ -346,6 +351,7 @@ func _tick(delta: float) -> void:
 	sensor.update(behavior.total_clock, mode, seed_phase)
 	behavior.contact = sensor.contact
 	behavior.contact_normal = sensor.contact_normal
+	behavior.contact_tangent = sensor.tangent_a
 	behavior.tip = rig.tip()
 	behavior.update(delta)
 	_pressurize_emergence(delta)
@@ -548,14 +554,20 @@ func _place_lights() -> void:
 	_light_gold.global_position = rig.point_at(0.42)
 	_light_gold.light_energy = 0.5 * grow * slices * material_profile.gold_emission if on else 0.0
 	_light_gold.visible = on and grow > 0.02
-	var contact_on := suckers.engaged_count > 0
+	var contact_on := suckers.engaged_count > 0 or exchange_flash > 0.01
 	_light_contact.global_position = sensor.contact + sensor.contact_normal * 0.05
-	_light_contact.light_energy = (0.3 * grip if contact_on else 0.0) if on else 0.0
+	_light_contact.light_energy = maxf(0.3 * grip, 0.85 * exchange_flash) \
+			if on and contact_on else 0.0
 	_light_contact.visible = on and contact_on
 
 
 func _relay_events() -> void:
 	for e in behavior.take_events():
+		if e == "electrochemical_exchange":
+			exchange_flash = 1.0
+			# The existing vascular bolus arrives at the sensory club; no new
+			# shader or animation clock is introduced for the exchange.
+			align_pulse_to(0.97)
 		_emit(str(e), rig.tip())
 	for e in suckers.last_events:
 		_emit(str(e), sensor.contact)
@@ -636,6 +648,12 @@ func census() -> Dictionary:
 			"target": target_name, "deposits": deposits, "tip": rig.tip(),
 			"contact": sensor.contact, "anchor": anchor, "eye_open": ocular.openness,
 			"suckers_engaged": suckers.engaged_count, "interest": behavior.interest,
+			"synaptic_probe_index": behavior.synaptic_probe_index,
+			"synaptic_probe_phase": behavior.synaptic_probe_phase,
+			"synaptic_attempts": behavior.synaptic_attempts,
+			"electrochemical_pulses": behavior.electrochemical_pulses,
+			"secretion_transfers": behavior.secretion_transfers,
+			"exchange_flash": exchange_flash,
 			"emergence_pressure": emergence_pressure,
 			"emergence_pressure_peak": emergence_pressure_peak,
 			"field_pressure_writes": field_pressure_writes}

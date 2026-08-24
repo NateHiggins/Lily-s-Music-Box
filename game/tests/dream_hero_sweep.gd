@@ -7,7 +7,7 @@ extends Node
 ##   → rigid mineral → crystal interior → wet cornea.
 ##
 ##     SWEEP_DIR=<abs dir>     where the frames go (required)
-##     SWEEP_MODE=video|set    the 10–15 s sweep, or the 15 stills
+##     SWEEP_MODE=video|set|bobbing|synapse
 ##     SWEEP_SECONDS=13        the sweep's length
 ##     SWEEP_FPS=30            frames a second
 ##     SWEEP_WARM=14           seconds to let the creature grow first
@@ -71,7 +71,7 @@ func _run() -> void:
 	# The emergence proof has to meet the creature before its 2.2-second bulge
 	# has elapsed. The production root is already assembled synchronously; one
 	# short settle is enough to let its first physics owner spawn the limb.
-	await get_tree().create_timer(0.15 if requested_mode == "bobbing" else 1.4).timeout
+	await get_tree().create_timer(0.15 if requested_mode in ["bobbing", "synapse"] else 1.4).timeout
 	if root.sanity:
 		root.sanity.stand_down()
 		root.sanity.enabled = false
@@ -95,10 +95,11 @@ func _run() -> void:
 	player.flashlight.transform = Transform3D(Basis(), Vector3(0.14, -0.16, -0.05))
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	# Let the organism grow and the limb come out.
-	var warm := 0.0 if requested_mode == "bobbing" else 14.0
+	var warm := 0.0 if requested_mode in ["bobbing", "synapse"] else 14.0
 	var w := OS.get_environment("SWEEP_WARM")
 	if not w.is_empty():
-		warm = maxf(0.0 if requested_mode == "bobbing" else 2.0, w.to_float())
+		warm = maxf(0.0 if requested_mode in ["bobbing", "synapse"] else 2.0,
+				w.to_float())
 	# The room's own fixtures, as in play: the torch is the REVEAL, not the
 	# only light in the world. Without this the whole flat is a void and the
 	# creature is a lit shape in blackness.
@@ -109,7 +110,7 @@ func _run() -> void:
 	if warm > 0.0:
 		await get_tree().create_timer(warm).timeout
 	_tentacle = _find_tentacle()
-	if requested_mode == "bobbing":
+	if requested_mode in ["bobbing", "synapse"]:
 		for _attempt in 180:
 			if _tentacle != null:
 				break
@@ -154,6 +155,8 @@ func _run() -> void:
 		await _field_pressure_triplet()
 	elif mode == "bobbing":
 		await _bobbing_emergence()
+	elif mode == "synapse":
+		await _synaptic_seeking()
 	else:
 		await _sweep()
 	print("[SWEEP] DONE %d frames -> %s" % [_frame, _dir])
@@ -462,6 +465,56 @@ func _bobbing_emergence() -> void:
 	await _named_capture("Z_control_b")
 	print("[SWEEP] bobbing landmarks presses=%s retreats=%s release=%s"
 			% [pressed, retreated, release_done])
+
+
+## DT-5 — SEEK IS AN ATTEMPTED SYNAPSE.
+## Three distal candidate clefts, three return strokes, then the committed
+## electrochemical flash and secretory material response. Named landmarks are
+## captured in one production room from one fixed gameplay camera.
+func _synaptic_seeking() -> void:
+	if _tentacle == null:
+		printerr("[SWEEP] no procedural tentacle for synaptic proof")
+		return
+	var aim: Vector3 = (ANCHOR + _tentacle.sensor.contact) * 0.5
+	var side := ANCHOR_N.cross(Vector3.UP).normalized()
+	_look_at_from(aim + ANCHOR_N * 1.55 + side * 0.72 + Vector3.UP * 0.34,
+			aim + Vector3.UP * 0.02)
+	var approached := [false, false, false]
+	var reconsidered := [false, false, false]
+	var exchange_done := false
+	var secretion_done := false
+	var elapsed := 0.0
+	while elapsed < 20.0 and not secretion_done:
+		await get_tree().process_frame
+		elapsed += get_process_delta_time()
+		var b = _tentacle.behavior
+		if b.state == DreamTentacleBehavior.S.SEEKING:
+			var which: int = b.synaptic_probe_index
+			if which >= 0 and b.synaptic_probe_phase >= 0.48 and not approached[which]:
+				approached[which] = true
+				await _named_capture("S%d_candidate_dwell" % (which + 1))
+			elif which >= 0 and b.synaptic_probe_phase >= 0.94 \
+					and not reconsidered[which]:
+				reconsidered[which] = true
+				await _named_capture("S%d_reconsider" % (which + 1))
+		elif b.state == DreamTentacleBehavior.S.TOUCHING and not exchange_done \
+				and _tentacle.exchange_flash > 0.72:
+			exchange_done = true
+			await _named_capture("E1_electrochemical_pulse")
+		elif b.state == DreamTentacleBehavior.S.CARESSING and not secretion_done \
+				and _tentacle.deposits >= 2:
+			secretion_done = true
+			await _named_capture("E2_secretion_transfer")
+	var enc: Node = root.get("apartment_encroachment")
+	if enc != null:
+		enc.set_physics_process(false)
+	_tentacle.set_process(false)
+	Engine.time_scale = 0.0
+	await RenderingServer.frame_post_draw
+	await _named_capture("Z_control_a")
+	await _named_capture("Z_control_b")
+	print("[SWEEP] synaptic landmarks approach=%s reconsider=%s exchange=%s secretion=%s"
+			% [approached, reconsidered, exchange_done, secretion_done])
 
 
 func _named_capture(label: String) -> void:

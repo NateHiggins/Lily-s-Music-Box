@@ -2192,7 +2192,24 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   length. `DreamTentacleTest` is 24/24 at 0.656 ms; one fixed-camera Forward+
   production run captures all three press/retreat pairs, release 0.19/0.45/
   0.68/0.94 and a 0.00000913426-RMSE frozen A/A control at
-  `art/renders/dream_tentacle/dt5_bobbing/README.md`. The full canonical
+  `art/renders/dream_tentacle/dt5_bobbing/README.md`. **SYNAPTIC SEEKING RULED
+  + LANDED 2026-08-24:** seeking is communicative sampling inspired by
+  dendrites trying to form a synapse: distal micro-protrusion, dwell,
+  secretion/sample, full local reconsideration, then a chosen narrow cleft,
+  sequential stabilization, electrochemical pulse and secretion transfer.
+  The root follows late; ban predator lunges and generic search sweeps. The
+  existing LivingField conversion is the surface's wrong-dimensional response
+  to that attempted communication, not a new transformer, agent or save
+  owner. The behavior now performs three 0.9 s candidate-cleft cycles with
+  distal sampling, dwell and full return goals before committing; contact
+  emits an electrochemical event, aligns the existing vascular bolus to the
+  club, briefly lights the contact organ, and CARESS emits secretion transfer
+  through the unchanged transformer/LivingField seam. `DreamTentacleTest`
+  passes 27/27 at 0.644 ms. One fixed-camera Forward+ run logged all six SEEK
+  landmarks and both exchange landmarks; its three dwell/reconsider RMSE
+  values are 0.0445907/0.0642438/0.0384303 against a 0.00000577702 frozen A/A
+  floor. Proof: `art/renders/dream_tentacle/dt5_synaptic_seek/README.md`.
+  The full canonical
   BULGE -> EMERGENCE -> SEEK -> CARESS -> FLINCH -> WITHDRAW production
   sequence remains DT-5 work.
 
