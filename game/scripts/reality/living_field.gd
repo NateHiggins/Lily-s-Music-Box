@@ -589,6 +589,41 @@ func emergence_front(min_body := 0.45, claimed: Array = []) -> Dictionary:
 	return {}
 
 
+## DT-5 — THE BODY LEANS INTO OUR SLICE AROUND AN EMERGENCE.
+##
+## This is deliberately not `deposit()`: emergence pressure is temporary
+## body volume, not contact conversion. It adds no stain, births no agents and
+## creates no new owner. Once the controller stops pressing, ordinary body
+## decay relaxes the swelling back into the field.
+func pressurize(p: Vector3, src: int, amount: float, radius_m := 0.70) -> int:
+	if src < 0 or src >= sources.size() or amount <= 0.0 or radius_m <= 0.0:
+		return 0
+	var centre := _cell_of(p)
+	var rv := maxi(1, int(ceil(radius_m / VOXEL_M)))
+	var touched := 0
+	for dz in range(-rv, rv + 1):
+		for dy in range(-rv, rv + 1):
+			for dx in range(-rv, rv + 1):
+				var x := centre.x + dx
+				var y := centre.y + dy
+				var z := centre.z + dz
+				if x < 0 or x >= nx or y < 0 or y >= ny or z < 0 or z >= nz:
+					continue
+				var at := origin + Vector3((float(x) + 0.5) * VOXEL_M,
+						(float(y) + 0.5) * VOXEL_M, (float(z) + 0.5) * VOXEL_M)
+				var unit := at.distance_to(p) / radius_m
+				if unit >= 1.0:
+					continue
+				var falloff := 1.0 - smoothstep(0.0, 1.0, unit)
+				var k := _index(x, y, z)
+				body[k] = maxf(body[k], clampf(amount, 0.0, 1.0) * falloff)
+				trail[k] = maxf(trail[k], amount * falloff * 0.35)
+				who[k] = src
+				touched += 1
+	_upload_due = true
+	return touched
+
+
 ## --- LF-3: the organism in someone else's flat ------------------------------
 ## (owner ruling 2026-08-22: "Juno will report it and it has the chance of
 ## making a fixable condition happen in the area.")

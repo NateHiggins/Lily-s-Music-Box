@@ -229,9 +229,15 @@ so only the focused H1 and tentacle suites may be claimed from this checkpoint.
 DT-5 has also begun at its ownership boundary: unforced procedural tentacles
 now select a cached live isosurface front from `LivingField`, not one of the
 three strongest interior nodes reserved for lights, and keep 2 m between
-claimed anchors before the unchanged surface raycast. Focused field proof is
-16/16 and the production tentacle suite remains 21/21. Do not call DT-5 done:
-the ruled local field swelling and six-beat rendered emergence are still open.
+claimed anchors before the unchanged surface raycast. Local emergence pressure
+now writes temporary body into that same source-attributed field during bulge,
+emergence and orientation, with no stain, agents or save owner; ordinary body
+decay relaxes it. `LivingFieldTest` is 18/18 and the production tentacle suite
+is 22/22 (peak 1.00, 36 writes, 0.647 ms). The frozen same-process Forward+
+A/A/treatment clears its noise floor by 10.81x; proof is at
+`art/renders/dream_tentacle/dt5_field_pressure/README.md`. Do not call DT-5
+done: behind-membrane search, progressive membrane release and the final
+six-beat rendered emergence remain open.
 
 Three top-level projects:
 

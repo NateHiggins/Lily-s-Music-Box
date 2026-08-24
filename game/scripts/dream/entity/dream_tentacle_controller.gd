@@ -64,6 +64,12 @@ var curl := 0.0
 var seed_phase := 0.0
 var target_name := ""
 var deposits := 0
+## DT-5: how hard the nth-dimensional body is leaning into the local field.
+## This is not contact conversion and leaves no stain or agents.
+var emergence_pressure := 0.0
+var emergence_pressure_peak := 0.0
+var field_pressure_writes := 0
+var _field_pressure_clock := 0.0
 var _mesh: MeshInstance3D
 var _material: ShaderMaterial
 var _light_eye: OmniLight3D
@@ -342,6 +348,7 @@ func _tick(delta: float) -> void:
 	behavior.contact_normal = sensor.contact_normal
 	behavior.tip = rig.tip()
 	behavior.update(delta)
+	_pressurize_emergence(delta)
 	# The rig carries it out.
 	grow = behavior.grow
 	rig.grow = grow
@@ -435,6 +442,40 @@ func _tick(delta: float) -> void:
 	_relay_events()
 	if toggles.show_bones:
 		_draw_bones()
+
+
+func _pressurize_emergence(delta: float) -> void:
+	# Proof harnesses may mute only this downstream write while retaining the
+	# production field, membrane, limb, room and lighting. Default play is on.
+	if OS.get_environment("TENTACLE_FIELD_PRESSURE") == "0":
+		emergence_pressure = move_toward(emergence_pressure, 0.0, delta * 1.15)
+		return
+	var want := 0.0
+	match behavior.state:
+		DreamTentacleBehavior.S.MEMBRANE_BULGE:
+			want = smoothstep(0.0, maxf(0.1, behavior_profile.membrane_bulge_s),
+					behavior.state_clock)
+		DreamTentacleBehavior.S.EMERGING:
+			var e := clampf(behavior.state_clock / maxf(0.1, behavior_profile.emerge_s),
+					0.0, 1.0)
+			want = 1.0 - 0.22 * smoothstep(0.0, 1.0, e)
+		DreamTentacleBehavior.S.ORIENTING:
+			want = 0.62 * (1.0 - smoothstep(0.0,
+					maxf(0.1, behavior_profile.orient_s), behavior.state_clock))
+	# It leans in quickly but relaxes more slowly: volume arrives with the body
+	# and ebbs after it, rather than switching at a state boundary.
+	var rate := 2.8 if want > emergence_pressure else 1.15
+	emergence_pressure = move_toward(emergence_pressure, want, delta * rate)
+	emergence_pressure_peak = maxf(emergence_pressure_peak, emergence_pressure)
+	_field_pressure_clock += delta
+	if emergence_pressure <= 0.02 or _field_pressure_clock < 0.18:
+		return
+	_field_pressure_clock = 0.0
+	if field != null and field.has_method("pressurize"):
+		var radius := 0.52 + emergence_pressure * 0.26
+		var amount := 0.30 + emergence_pressure * 0.62
+		field.pressurize(anchor + anchor_normal * 0.08, source_index, amount, radius)
+		field_pressure_writes += 1
 
 
 ## Phase slices (§9B): now and then a narrow band of the body belongs to
@@ -592,4 +633,7 @@ func census() -> Dictionary:
 	return {"state": state_name(), "grow": grow, "grip": grip, "curl": curl,
 			"target": target_name, "deposits": deposits, "tip": rig.tip(),
 			"contact": sensor.contact, "anchor": anchor, "eye_open": ocular.openness,
-			"suckers_engaged": suckers.engaged_count, "interest": behavior.interest}
+			"suckers_engaged": suckers.engaged_count, "interest": behavior.interest,
+			"emergence_pressure": emergence_pressure,
+			"emergence_pressure_peak": emergence_pressure_peak,
+			"field_pressure_writes": field_pressure_writes}

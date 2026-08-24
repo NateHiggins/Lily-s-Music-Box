@@ -53,6 +53,11 @@ func _ready() -> void:
 	OS.set_environment("LIVING_ALL", "1")
 	OS.set_environment("TENTACLE_FORCE", "1")
 	OS.set_environment("TENTACLE_HOLD", "1")
+	# DT-5 pressure proof begins from a field that has not already been swollen
+	# by the controller. The treatment is applied later in the same process,
+	# after two frozen control frames establish the live-render noise floor.
+	if OS.get_environment("SWEEP_MODE") == "pressure":
+		OS.set_environment("TENTACLE_FIELD_PRESSURE", "0")
 	OS.set_environment("TENTACLE_ANCHOR", "%f,%f,%f,%f,%f,%f" % [ANCHOR.x, ANCHOR.y, ANCHOR.z,
 			ANCHOR_N.x, ANCHOR_N.y, ANCHOR_N.z])
 	GameBoot.launch_mode = GameBoot.LaunchMode.DEBUG
@@ -99,7 +104,7 @@ func _run() -> void:
 	_look_at_from(ANCHOR + Vector3(1.4, -0.2, 0.5), ANCHOR)
 	await get_tree().create_timer(warm).timeout
 	_tentacle = _find_tentacle()
-	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled", "margin", "archetypes", "critters", "ecology", "emerge"]):
+	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled", "margin", "archetypes", "critters", "ecology", "emerge", "pressure"]):
 		printerr("[SWEEP] no tentacle — nothing to photograph")
 		get_tree().quit(1)
 		return
@@ -134,6 +139,8 @@ func _run() -> void:
 		await _ecology_capture()
 	elif mode == "emerge":
 		await _emergence_ladder()
+	elif mode == "pressure":
+		await _field_pressure_triplet()
 	else:
 		await _sweep()
 	print("[SWEEP] DONE %d frames -> %s" % [_frame, _dir])
@@ -332,6 +339,59 @@ func _capture_step() -> void:
 	var path := _dir.path_join("%04d.png" % _frame)
 	get_viewport().get_texture().get_image().save_png(path)
 	_frame += 1
+
+
+## DT-5 — LOCAL FIELD SWELLING AT THE EMERGENCE.
+##
+## One production instance, one fixed gameplay camera and the player's real
+## lamp. The organism and limb are frozen before control A/control B; the
+## treatment then uses LivingField.pressurize(), the same downstream seam as
+## play. This makes A/A the actual live-render noise floor, not a promise that
+## separately booted scenes happened to match.
+func _field_pressure_triplet() -> void:
+	if _tentacle == null:
+		printerr("[SWEEP] no procedural tentacle for pressure proof")
+		return
+	var enc: Node = root.get("apartment_encroachment")
+	if enc == null:
+		printerr("[SWEEP] no apartment encroachment for pressure proof")
+		return
+	var field = enc.fields.get("F02")
+	if field == null:
+		printerr("[SWEEP] no F02 living field for pressure proof")
+		return
+	enc.set_physics_process(false)
+	_tentacle.set_process(false)
+	# Freeze shader TIME and every unrelated animation only after the full
+	# production state exists. RenderingServer frames and explicit field.tick()
+	# calls below still advance the proof, while A/A becomes a real null test.
+	Engine.time_scale = 0.0
+	var aim := ANCHOR + ANCHOR_N * 0.04
+	var side := ANCHOR_N.cross(Vector3.UP).normalized()
+	var eye := aim + ANCHOR_N * 1.32 + side * 0.34 + Vector3.UP * 0.16
+	_look_at_from(eye, aim + Vector3.UP * 0.02)
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	for name in ["control_a", "control_b"]:
+		var control_path := _dir.path_join("%s.png" % name)
+		var control_err := get_viewport().get_texture().get_image().save_png(control_path)
+		_frame += 1
+		print("[SWEEP] %-26s %s" % [name,
+				"ok" if control_err == OK else "SAVE FAILED"])
+		await RenderingServer.frame_post_draw
+	# A full-strength production write, followed by one whole encoded volume
+	# pass so the already-bound ImageTexture3D sees every affected y slice.
+	var touched: int = field.pressurize(ANCHOR + ANCHOR_N * 0.08,
+			int(_tentacle.source_index), 0.92, 0.78)
+	for _slice in field.ny:
+		field.tick(0.0)
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	var pressure_path := _dir.path_join("pressure.png")
+	var pressure_err := get_viewport().get_texture().get_image().save_png(pressure_path)
+	_frame += 1
+	print("[SWEEP] pressure touched %d cells; %s" % [touched,
+			"ok" if pressure_err == OK else "SAVE FAILED"])
 
 
 func _hide_overlays(node: Node) -> void:

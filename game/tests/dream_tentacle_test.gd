@@ -81,6 +81,9 @@ func _run() -> void:
 			and "HOVER_INSPECTION" in seen and "TOUCHING" in seen and "CARESSING" in seen)
 	_check("it is through (grow %.2f)" % float(t.grow), float(t.grow) >= 0.95)
 	var c: Dictionary = t.census()
+	_check("emergence physically swells its existing field (peak %.2f, %d writes)"
+			% [float(c.emergence_pressure_peak), int(c.field_pressure_writes)],
+			float(c.emergence_pressure_peak) > 0.85 and int(c.field_pressure_writes) >= 4)
 	var sp0: Vector3 = t.rig.pos[0]
 	var sp15: Vector3 = t.rig.pos[15]
 	var mid: Vector3 = t.rig.pos[8]

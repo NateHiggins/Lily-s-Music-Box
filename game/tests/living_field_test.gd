@@ -32,6 +32,25 @@ func _ready() -> void:
 	var tex = field.texture()
 	_check("the field is a 3-D texture", tex is ImageTexture3D and tex.get_depth() == field.ny)
 
+	# DT-5's local emergence swelling is body, not conversion. Prove it can
+	# become substantial without birthing agents or leaving persistent stain,
+	# then recedes under the field's existing decay when the pressure stops.
+	var pressure_field = load("res://scripts/reality/living_field.gd").new()
+	pressure_field.configure(Vector4(-2.0, -2.0, 2.0, 2.0), 3.2, 19)
+	var pressure_src: int = pressure_field.add_source(Vector3.ZERO, 0)
+	var pressure_cells: int = pressure_field.pressurize(
+			Vector3(0.0, 3.7, 0.0), pressure_src, 0.92, 0.78)
+	var pressure_now: Dictionary = pressure_field.census()
+	_check("emergence pressure adds temporary body but no lineage or stain",
+			pressure_cells >= 4 and pressure_now.live_voxels >= 1
+			and pressure_now.agents == 0 and pressure_now.stained_voxels == 0)
+	for _i in 200:
+		pressure_field.tick(0.125)
+	var pressure_after: Dictionary = pressure_field.census()
+	_check("unfed emergence pressure relaxes (%d -> %d live voxels)"
+			% [pressure_now.live_voxels, pressure_after.live_voxels],
+			pressure_after.live_voxels == 0 and pressure_after.agents == 0)
+
 	# Nothing grows with no intensity.
 	field.set_source_intensity(src, 0.0)
 	for _i in 40:
