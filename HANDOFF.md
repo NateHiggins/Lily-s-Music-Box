@@ -326,11 +326,15 @@ critter presents receptors while a low-social control ignores it; nearby
 palps orient after 0.45 s. The first additional DO-3 interpretation is also
 landed: deployed cilia close across that recognition for 0.48 s, then return
 one `PULSE / VASCULAR` packet addressed to architecture. The director does not
-route it and architecture does not yet consume it. `DreamEcologyTest` passes
-54/54 and the staged Forward+ sequence plus measured A/A floor is at
+route it. Production `ApartmentEncroachment` independently consumes it once
+and its containing `LivingField` answers with temporary local body pressure,
+adding no agents, stain, collision or save fact. `DreamEcologyTest` passes
+56/56, `LivingFieldTest` passes 19/19, and the staged Forward+ sequence plus
+measured A/A floor is at
 `art/renders/dream_organelle_signal/README.md`. DO-3 still has flora,
-architecture, incarnation and hazard breadth open. DO-4 still requires the
-production-root sequence and rare global-attention beat.
+incarnation and hazard breadth open; architecture still needs its visible
+production-root proof. DO-4 still requires the complete production-root
+sequence and rare global-attention beat.
 
 The isolated fauna vocabulary correction was integrated as `280a998`. Its
 former food-web names now read as allocation, uptake, reclamation, signalling

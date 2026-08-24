@@ -97,14 +97,19 @@ owner decides that response; the director still only stores it. The fixed
 anatomy is present in the control frame, so the visual beat is closure and
 reopening rather than scale-from-zero growth.
 
-This establishes distinct interpretations across palp, fauna and cilia while
-leaving the next recipient honest: living architecture does not yet consume
-the returned pulse.
+This establishes distinct interpretations across palp, fauna and cilia. The
+production `ApartmentEncroachment` owner now also reads the architecture-
+addressed reply itself and asks the containing `LivingField` to express it as
+local temporary body pressure. The same packet is idempotent; the response
+adds no agents, stain, collision or persistence. `DreamEcologyTest` proves the
+whole owner chain at 56/56 and `LivingFieldTest` proves the field contract at
+19/19. A visible production-root architecture response remains DO-4 proof,
+not a claim made from the staged room.
 
 ## Still open
 
-DO-3 remains broader than this slice: flora, living architecture,
-incarnations and eventually co-present hazards need distinct interpretations
+DO-3 remains broader than this slice: flora, incarnations and eventually
+co-present hazards need distinct interpretations
 without pairwise directors. DO-4 still requires a production-root sequence
 including one rare whole-body event. The staged Dream room proves DO-2's
 visual responses; it is not that production-root closure and not a waking

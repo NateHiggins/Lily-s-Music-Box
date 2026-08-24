@@ -193,7 +193,7 @@ func _run() -> void:
 	_check("the whole event ends and autonomy returns",
 			dir.attending == Vector3.INF)
 	print("[ecology] %s" % [dir.census()])
-	_organelle_exchange(dir, margin, critters, hero)
+	_organelle_exchange(enc, dir, margin, critters, hero)
 	await _hero_touches_an_animal(margin, critters, hero)
 	_finish()
 
@@ -202,7 +202,7 @@ func _run() -> void:
 ## Constructed for the same reason as the hero/critter encounter below: this
 ## asserts the owners' responses, not the luck of three independent agents
 ## wandering into a half-metre volume during one test run.
-func _organelle_exchange(dir: DreamEcologyDirector, margin, critters, hero) -> void:
+func _organelle_exchange(enc, dir: DreamEcologyDirector, margin, critters, hero) -> void:
 	if margin.palps.size() < 2 or critters.critters.size() < 2 or hero == null:
 		_check("DO-2 has two palps, two fauna and a hero", false)
 		return
@@ -341,6 +341,17 @@ func _organelle_exchange(dir: DreamEcologyDirector, margin, critters, hero) -> v
 			vascular = true
 	_check("DO-3 the cilia pulse is typed for architecture without routing it",
 			vascular)
+	var architecture_before: Dictionary = enc.architecture_signal_census()
+	enc._receive_architecture_signals()
+	var architecture_after: Dictionary = enc.architecture_signal_census()
+	_check("DO-3 living architecture consumes the addressed vascular pulse",
+			int(architecture_after.received) == int(architecture_before.received) + 1
+			and int(architecture_after.cells_pressurized)
+			> int(architecture_before.cells_pressurized)
+			and (architecture_after.last_at as Vector3).distance_to(sampler.tip) < 0.01)
+	enc._receive_architecture_signals()
+	_check("DO-3 architecture cannot consume the same packet twice",
+			enc.architecture_signal_census() == architecture_after)
 	_check("DO-2 local exchange never seizes whole-body attention",
 			dir.attending == Vector3.INF)
 	var after_keys: Array = RealityState.data.keys()

@@ -69,6 +69,13 @@ var _accum := 0.0
 var _slice_cursor := 0
 var _images: Array[Image] = []
 var _upload_due := false
+## DO-3: vascular packets are interpreted by the architecture owner and arrive
+## here as plain pressure, not DreamEcologyDirector enums. These are transient
+## inspection facts only; the field still owns no save representation.
+var vascular_responses := 0
+var vascular_cells_pressurized := 0
+var vascular_last_at := Vector3.INF
+var vascular_last_strength := 0.0
 ## Up to three nodes where the body is strongest after each pass, for the
 ## lights the encroachment keeps on the organism.
 var nodes: PackedVector3Array = PackedVector3Array()
@@ -111,6 +118,10 @@ func configure(rect: Vector4, floor_y: float, rng_seed: int) -> void:
 	_rng.seed = rng_seed
 	_agents_pos.clear(); _agents_dir.clear(); _agents_starve.clear(); _agents_src.clear()
 	sources.clear()
+	vascular_responses = 0
+	vascular_cells_pressurized = 0
+	vascular_last_at = Vector3.INF
+	vascular_last_strength = 0.0
 	_gx = maxi(1, int(ceil(size_m.x / GRAVITY_CELL_M)))
 	_gy = maxi(1, int(ceil(size_m.y / GRAVITY_CELL_M)))
 	_gz = maxi(1, int(ceil(size_m.z / GRAVITY_CELL_M)))
@@ -564,7 +575,31 @@ func census() -> Dictionary:
 		body_max = maxf(body_max, body[k])
 	return {"agents": _agents_pos.size(), "live_voxels": live, "stained_voxels": stained,
 			"body_max": body_max, "voxels": n, "steps": steps, "floor_live": floor_live,
-			"nodes": nodes.size(), "sources": sources.size()}
+			"nodes": nodes.size(), "sources": sources.size(),
+			"vascular_responses": vascular_responses,
+			"vascular_cells_pressurized": vascular_cells_pressurized,
+			"vascular_last_at": vascular_last_at,
+			"vascular_last_strength": vascular_last_strength}
+
+
+## DO-3 — A VASCULAR SIGNAL BECOMES LOCAL ARCHITECTURAL PRESSURE.
+##
+## The caller owns packet interpretation; this field receives only a world
+## point, one of its existing source lineages and a normalized pressure. The
+## response reuses DT-5's temporary body swelling: no stain, agent, topology,
+## collision or persistence is created, and ordinary decay relaxes it.
+func receive_vascular_pulse(p: Vector3, src: int, strength: float) -> int:
+	if src < 0 or src >= sources.size() or strength <= 0.0:
+		return 0
+	var unit := clampf(strength, 0.0, 1.0)
+	var touched := pressurize(p, src, 0.30 + unit * 0.55, 0.50 + unit * 0.35)
+	if touched <= 0:
+		return 0
+	vascular_responses += 1
+	vascular_cells_pressurized += touched
+	vascular_last_at = p
+	vascular_last_strength = unit
+	return touched
 
 
 ## DT-5 — WHERE OUR SLICE FIRST MEETS THE BODY.

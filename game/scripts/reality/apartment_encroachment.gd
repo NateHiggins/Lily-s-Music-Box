@@ -37,6 +37,14 @@ const DreamCritterScript := preload("res://scripts/dream/critters/dream_critter_
 const DreamDirectorScript := preload("res://scripts/dream/dream_ecology_director.gd")
 ## §31 — what keeps three independent systems from producing incoherent noise.
 var ecology: DreamEcologyDirector = null
+## DO-3: the architecture reads its own addressed packets. The shared director
+## remains a bounded store and never routes or interprets them on its behalf.
+var _architecture_signal_near: Array = []
+var _architecture_seen: Dictionary = {}
+var architecture_signals_received := 0
+var architecture_cells_pressurized := 0
+var architecture_last_at := Vector3.INF
+var architecture_last_received_at := -1.0
 ## Level 3: the animals that live on what the Dream has reached.
 var critters: DreamCritterController = null
 ## What the creature leaves on everything it touches (saliva direction).
@@ -329,6 +337,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 ## its texture is shared by every material bound to it; only the pulse
 ## phase is pushed per tick.
 func _physics_process(delta: float) -> void:
+	_receive_architecture_signals()
 	for case_id in field_source:
 		var floor_id := _floor_of(case_id)
 		if fields.has(floor_id):
@@ -369,6 +378,71 @@ func _physics_process(delta: float) -> void:
 					contact = maxf(contact, float(t.grip))
 					instab = maxf(instab, 1.0 if t._slice_left > 0.0 else 0.0)
 		dream_field.couple(pulse, breath, attn, contact, instab)
+
+
+## DO-3 — LIVING ARCHITECTURE INTERPRETS THE CILIA'S VASCULAR ANSWER.
+##
+## Affinity remains receptor-side. A qualifying packet locally pressurizes the
+## one LivingField whose bounds contain it, through that field's nearest
+## existing source lineage. Re-reading the same packet is idempotent.
+func _receive_architecture_signals() -> void:
+	if ecology == null or fields.is_empty():
+		return
+	for floor_id in fields:
+		var field = fields[floor_id]
+		var centre: Vector3 = field.origin + field.size_m * 0.5
+		if ecology.signals_near(centre, field.size_m.length() * 0.5,
+				_architecture_signal_near) <= 0:
+			continue
+		for packet in _architecture_signal_near:
+			if int(packet.src_class) != DreamEcologyDirector.SrcClass.CILIA \
+					or int(packet.function) != DreamEcologyDirector.Fn.PULSE \
+					or int(packet.family) != DreamEcologyDirector.Chem.VASCULAR \
+					or int(packet.affinity) != DreamEcologyDirector.SrcClass.ARCHITECTURE:
+				continue
+			var at: Vector3 = packet.at
+			if not _field_contains(field, at):
+				continue
+			var src_id := int(packet.src_id)
+			var born := float(packet.born)
+			if born <= float(_architecture_seen.get(src_id, -1.0)):
+				continue
+			var source := _nearest_field_source(field, at)
+			var touched: int = field.receive_vascular_pulse(at, source,
+					float(packet.strength))
+			if touched <= 0:
+				continue
+			_architecture_seen[src_id] = born
+			architecture_signals_received += 1
+			architecture_cells_pressurized += touched
+			architecture_last_at = at
+			architecture_last_received_at = ecology.signal_time()
+
+
+static func _field_contains(field, at: Vector3) -> bool:
+	var hi: Vector3 = field.origin + field.size_m
+	return at.x >= field.origin.x and at.x <= hi.x \
+			and at.y >= field.origin.y and at.y <= hi.y \
+			and at.z >= field.origin.z and at.z <= hi.z
+
+
+static func _nearest_field_source(field, at: Vector3) -> int:
+	var nearest := -1
+	var best := INF
+	for i in field.sources.size():
+		var d: float = at.distance_squared_to(field.sources[i].position)
+		if d < best:
+			best = d
+			nearest = i
+	return nearest
+
+
+func architecture_signal_census() -> Dictionary:
+	return {"received": architecture_signals_received,
+			"cells_pressurized": architecture_cells_pressurized,
+			"last_at": architecture_last_at,
+			"last_received_at": architecture_last_received_at,
+			"sources_seen": _architecture_seen.size()}
 
 
 ## The storey the player stands on, by the floors the cases told us about.

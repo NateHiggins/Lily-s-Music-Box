@@ -2273,9 +2273,12 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   rare `DreamGlobalAttention` reveal. Deployed cilia now interpret the same
   recognition seen by fauna, close across it for 0.48 s, and return one typed
   `PULSE / VASCULAR` packet addressed to architecture. `DreamEcologyTest`
-  passes 54/54 and the staged Forward+ proof plus A/A is in
-  `art/renders/dream_organelle_signal/README.md`. Architecture consumption is
-  the next open recipient lane; do not claim it from packet emission alone.
+  passes 56/56 and the staged Forward+ proof plus A/A is in
+  `art/renders/dream_organelle_signal/README.md`. Production
+  `ApartmentEncroachment` now consumes the addressed reply exactly once and
+  expresses it as local temporary `LivingField` pressure; `LivingFieldTest`
+  passes 19/19 with no agents or stain added. Its visible production-root
+  response remains DO-4 proof; do not claim it from the staged frame.
 - **DO-4 — PRODUCTION PROOF.** One production-root sequence must show at least
   three organelle classes completing detect → local seek/reconsider → cleft
   or contact → pulse/secretion → distinct recipient response, plus a delayed

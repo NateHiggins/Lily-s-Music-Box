@@ -19,8 +19,9 @@ existing Dream ecology stage.
 - `06_cilia_samples.png` — a fixed, already-deployed ciliary band closes over
   the same recognition site for a real sampling interval.
 - `07_cilia_returns_vascular_pulse.png` — the same cilia reopen after returning
-  one `PULSE / VASCULAR` packet addressed to living architecture. No
-  architecture response is claimed in this slice.
+  one `PULSE / VASCULAR` packet addressed to living architecture. The later
+  headless owner contract proves receipt; no visible architecture response is
+  claimed from this staged frame.
 
 The signal is deliberately not drawn as a beam, particle or UI glyph. What is
 visible is each receiving organ's existing anatomy changing its work.
@@ -48,7 +49,7 @@ is frozen.
 
 ## Contract proof
 
-`DreamEcologyTest.tscn` passes 54/54. Its DO-2/DO-3 blocks prove:
+`DreamEcologyTest.tscn` passes 56/56. Its DO-2/DO-3 blocks prove:
 
 - the exact twelve-key packet shape;
 - secretion < adoption < recognition < fauna < neighbours;
@@ -62,6 +63,9 @@ is frozen.
   instantly;
 - exactly one cilia-authored `PULSE / VASCULAR` response with architecture
   affinity, while the shared director remains a store rather than a router.
+- `ApartmentEncroachment` consumes that addressed packet exactly once and
+  turns it into local temporary `LivingField` pressure. `LivingFieldTest`
+  passes 19/19 and proves the response adds no lineage agents or stain.
 
 Observed ordered clock in the acceptance run:
 
@@ -77,5 +81,5 @@ godot --path game --resolution 1280x720 res://tests/DreamOrganelleSignalShot.tsc
 
 This is staged production-owner proof for DO-2 and the first cilia slice of
 DO-3. It is not DO-4's required production-root sequence, does not yet prove
-an architecture consumer, does not add hazards/pursuit, and is not a completed
-waking case loop.
+a visible architecture response, does not add hazards/pursuit, and is not a
+completed waking case loop.

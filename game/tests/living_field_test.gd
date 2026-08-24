@@ -50,6 +50,18 @@ func _ready() -> void:
 	_check("unfed emergence pressure relaxes (%d -> %d live voxels)"
 			% [pressure_now.live_voxels, pressure_after.live_voxels],
 			pressure_after.live_voxels == 0 and pressure_after.agents == 0)
+	var vascular_before: Dictionary = pressure_field.census()
+	var vascular_cells: int = pressure_field.receive_vascular_pulse(
+			Vector3(0.0, 3.7, 0.0), pressure_src, 0.65)
+	var vascular_now: Dictionary = pressure_field.census()
+	_check("a vascular reply becomes local temporary architecture, not lineage or stain",
+			vascular_cells > 0 and int(vascular_now.vascular_responses) == 1
+			and int(vascular_now.vascular_cells_pressurized) == vascular_cells
+			and int(vascular_now.live_voxels) >= 1 and int(vascular_now.agents) == 0
+			and int(vascular_now.stained_voxels)
+			== int(vascular_before.stained_voxels)
+			and (vascular_now.vascular_last_at as Vector3).distance_to(
+					Vector3(0.0, 3.7, 0.0)) < 0.01)
 
 	# Nothing grows with no intensity.
 	field.set_source_intensity(src, 0.0)
