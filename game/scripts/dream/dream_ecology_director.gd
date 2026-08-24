@@ -31,6 +31,19 @@ extends Node
 enum State { DORMANT, CURIOUS, FORAGING, SOCIAL, WATCHING, STARTLED,
 		WITHDRAWING, HIGH_ATTENTION, INCARNATING }
 
+## Transient communication vocabulary shared by the ecology's organelles.
+## These are identity and chemistry, not instructions: the director stores
+## packets but never decides who understands them or what an answer means.
+enum SrcClass { HERO_LIMB, PROC_LIMB, PALP, BRANCH, CILIA, FAUNA,
+		ARCHITECTURE, INCARNATION, HAZARD }
+enum Fn { PROBE, RECOGNIZE, PULSE, SECRETE, REPAIR, TRANSPORT, ALLOCATE,
+		REJECT, INHIBIT }
+enum Chem { ELECTRIC, SECRETION, MINERAL, VASCULAR, ALARM }
+
+const FUNCTION_NAMES := ["probe", "recognize", "pulse", "secrete", "repair",
+		"transport", "allocate", "reject", "inhibit"]
+const SIGNAL_CAP := 32
+
 const STATE_NAMES := ["dormant", "curious", "foraging", "social", "watching",
 		"startled", "withdrawing", "high_attention", "incarnating"]
 
@@ -57,11 +70,30 @@ var _released := 0
 ## staring at something should be staring at it too -- a single palp going
 ## about its own business in the middle of the reveal breaks the entire beat.
 var _seized: Dictionary = {}
+var _signal_ring: Array[Dictionary] = []
+var _signal_head := 0
+var _signal_clock := 0.0
+var _signals_emitted := 0
+var _signals_evicted := 0
+var _signals_by_function: Dictionary = {}
 
 
 func setup(seed_v: int) -> void:
 	name = "DreamEcologyDirector"
 	_rng.seed = seed_v
+	_signal_ring.clear()
+	for _i in SIGNAL_CAP:
+		_signal_ring.append({
+			"live": false, "src_id": -1, "src_class": SrcClass.ARCHITECTURE,
+			"function": Fn.PROBE, "at": Vector3.ZERO, "radius": 0.0,
+			"strength": 0.0, "family": Chem.ELECTRIC, "sign": 1.0,
+			"born": 0.0, "life": 0.0, "affinity": -1,
+		})
+	_signal_head = 0
+	_signal_clock = 0.0
+	_signals_emitted = 0
+	_signals_evicted = 0
+	_signals_by_function.clear()
 
 
 ## §32 — states modify probabilities. This is the whole of their effect.
@@ -91,6 +123,7 @@ func state_name() -> String:
 
 
 func _process(delta: float) -> void:
+	_signal_clock += delta
 	state_clock += delta
 	_since_last += delta
 	if not _listening:
@@ -105,6 +138,78 @@ func _process(delta: float) -> void:
 		var options := [State.CURIOUS, State.FORAGING, State.SOCIAL,
 				State.WATCHING, State.DORMANT]
 		state = options[_rng.randi() % options.size()]
+
+
+## A FIXED, REUSED SIGNAL BED. No save record, no global attention, no route.
+## Expired slots are preferred; only a completely occupied bed overwrites its
+## oldest packet. The packet dictionaries themselves are never replaced.
+func emit_signal_packet(src_id: int, src_class: int, function: int, at: Vector3,
+		radius: float, strength: float, family: int, sign: float, life: float,
+		affinity: int = -1) -> void:
+	if _signal_ring.is_empty():
+		setup(int(_rng.seed))
+	var slot_i := -1
+	for offset in SIGNAL_CAP:
+		var candidate := (_signal_head + offset) % SIGNAL_CAP
+		var packet: Dictionary = _signal_ring[candidate]
+		if not bool(packet.live) or _signal_clock >= float(packet.born) + float(packet.life):
+			slot_i = candidate
+			break
+	if slot_i < 0:
+		# With insertions advancing the head, it is also the oldest live slot.
+		# Ties keep ring order instead of depending on a dictionary scan.
+		slot_i = _signal_head
+		_signals_evicted += 1
+	var slot: Dictionary = _signal_ring[slot_i]
+	slot.live = true
+	slot.src_id = src_id
+	slot.src_class = src_class
+	slot.function = function
+	slot.at = at
+	slot.radius = maxf(0.0, radius)
+	slot.strength = maxf(0.0, strength)
+	slot.family = family
+	slot.sign = signf(sign) if not is_zero_approx(sign) else 0.0
+	slot.born = _signal_clock
+	slot.life = maxf(0.001, life)
+	slot.affinity = affinity
+	_signal_head = (slot_i + 1) % SIGNAL_CAP
+	_signals_emitted += 1
+	_signals_by_function[function] = int(_signals_by_function.get(function, 0)) + 1
+
+
+## Fills storage supplied by the caller. Receptors own affinity and response;
+## this query knows only whether two spatial ranges overlap.
+func signals_near(at: Vector3, radius: float, out: Array) -> int:
+	out.clear()
+	for packet in _signal_ring:
+		if not bool(packet.live):
+			continue
+		if _signal_clock >= float(packet.born) + float(packet.life):
+			packet.live = false
+			continue
+		if at.distance_to(packet.at) <= maxf(0.0, radius) + float(packet.radius):
+			out.append(packet)
+	return out.size()
+
+
+func signal_time() -> float:
+	return _signal_clock
+
+
+func signal_census() -> Dictionary:
+	var live := 0
+	for packet in _signal_ring:
+		if bool(packet.live) and _signal_clock < float(packet.born) + float(packet.life):
+			live += 1
+	var named := {}
+	for key in _signals_by_function:
+		var idx := int(key)
+		var label: String = FUNCTION_NAMES[idx] \
+				if idx >= 0 and idx < FUNCTION_NAMES.size() else str(idx)
+		named[label] = int(_signals_by_function[key])
+	return {"live": live, "capacity": SIGNAL_CAP, "emitted": _signals_emitted,
+			"evicted": _signals_evicted, "by_function": named}
 
 
 ## WHAT THE PLAYER DID, AND WHETHER IT WAS WORTH NOTICING.
@@ -187,7 +292,7 @@ func _take(p: Dictionary, at: Vector3) -> void:
 	# it out from under the event.
 	p.local_look = false
 	p.look_left = 0.0
-	p.act = 7        # WATCH
+	p.act = DreamPalpBehavior.Act.WATCH
 	p.act_clock = 0.0
 	p.act_left = HOLD_S + 4.0
 	_seized["p%d" % int(p.id)] = true
@@ -265,4 +370,5 @@ func census() -> Dictionary:
 	return {"state": state_name(), "attending": attending != Vector3.INF,
 			"ready_to_seize": _since_last >= RESEIZE_GAP_S,
 			"still_held": held, "released": _released,
-			"attention_clock": snappedf(attention_clock, 0.01)}
+			"attention_clock": snappedf(attention_clock, 0.01),
+			"signals": signal_census()}

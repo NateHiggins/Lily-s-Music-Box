@@ -193,8 +193,148 @@ func _run() -> void:
 	_check("the whole event ends and autonomy returns",
 			dir.attending == Vector3.INF)
 	print("[ecology] %s" % [dir.census()])
+	_organelle_exchange(dir, margin, critters, hero)
 	await _hero_touches_an_animal(margin, critters, hero)
 	_finish()
+
+
+## DO-2 — CONTACT BECOMES A LOCAL, ORDERED CONVERSATION.
+## Constructed for the same reason as the hero/critter encounter below: this
+## asserts the owners' responses, not the luck of three independent agents
+## wandering into a half-metre volume during one test run.
+func _organelle_exchange(dir: DreamEcologyDirector, margin, critters, hero) -> void:
+	if margin.palps.size() < 2 or critters.critters.size() < 2 or hero == null:
+		_check("DO-2 has two palps, two fauna and a hero", false)
+		return
+	var before_keys: Array = RealityState.data.keys()
+	before_keys.sort()
+	var at := Vector3(-9.0, 4.2, 3.2)
+	var receptor: Dictionary = margin.palps[0]
+	var neighbour: Dictionary = margin.palps[1]
+	for p in margin.palps:
+		p.target = at + Vector3(4.0, 0.0, 0.0)
+		p.attend_override = Vector3.INF
+		p.local_look = false
+	receptor.target = Vector3.INF
+	receptor.signal_target = Vector3.INF
+	receptor.signal_recognized = false
+	receptor.contact = 0.0
+	receptor.tip = at + Vector3(0.02, 0.0, 0.0)
+	receptor.anchor = at - Vector3(0.15, 0.0, 0.0)
+	neighbour.anchor = at + Vector3(0.22, 0.0, 0.0)
+	neighbour.tip = neighbour.anchor + Vector3(0.1, 0.0, 0.0)
+
+	var social: Dictionary = critters.critters[0]
+	var solitary: Dictionary = critters.critters[1]
+	var social_restore := {"pos": social.pos, "up": social.up, "fwd": social.fwd,
+			"sociability": social.morph.sociability, "unfold": social.unfold}
+	var solitary_restore := {"pos": solitary.pos, "up": solitary.up, "fwd": solitary.fwd,
+			"sociability": solitary.morph.sociability, "unfold": solitary.unfold}
+	social.pos = at + Vector3(0.24, 0.0, 0.0)
+	social.up = Vector3.UP
+	social.fwd = Vector3.FORWARD
+	social.morph.sociability = 0.8
+	social.unfold = 0.0
+	social.signal_seen_born = -1.0
+	social.signal_seen_src = -2147483648
+	social.signal_presented_at = -1.0
+	solitary.pos = at + Vector3(-0.24, 0.0, 0.0)
+	solitary.up = Vector3.UP
+	solitary.fwd = Vector3.FORWARD
+	solitary.morph.sociability = 0.2
+	solitary.unfold = 0.0
+	solitary.signal_seen_born = -1.0
+	solitary.signal_seen_src = -2147483648
+	solitary.signal_presented_at = -1.0
+
+	var emitted_before: int = int(dir.signal_census().emitted)
+	var recognized_before: int = int(dir.signal_census().by_function.get("recognize", 0))
+	hero.margin = margin
+	hero._emit_contact_signal(at)
+	var packets: Array = []
+	dir.signals_near(at, 0.0, packets)
+	_check("DO-2 hero contact emits one local secretion",
+			int(dir.signal_census().emitted) == emitted_before + 1)
+	var exact_keys := ["affinity", "at", "born", "family", "function", "life",
+			"live", "radius", "sign", "src_class", "src_id", "strength"]
+	var actual_keys: Array = packets[0].keys() if not packets.is_empty() else []
+	actual_keys.sort()
+	_check("DO-2 packet contract is exact and bounded", actual_keys == exact_keys)
+	var secretion_at: float = float(packets[0].born) if not packets.is_empty() else -1.0
+
+	dir._process(0.05)
+	margin._receive_signal_packets()
+	_check("DO-2 an idle palp adopts the secretion as a probe target",
+			receptor.signal_target == at
+			and int(receptor.act) == DreamPalpBehavior.Act.PROBE)
+	var adopted_at: float = float(receptor.signal_adopted_at)
+
+	dir._process(0.05)
+	receptor.tip = at
+	receptor.target = at
+	receptor.contact = 0.75
+	margin._recognize_signal_target(receptor, 0.0)
+	_check("DO-2 contact emits recognition exactly once",
+			bool(receptor.signal_recognized)
+			and int(dir.signal_census().by_function.get("recognize", 0))
+			== recognized_before + 1)
+	var recognized_at: float = float(receptor.signal_recognized_at)
+	margin._recognize_signal_target(receptor, 0.0)
+	_check("DO-2 held contact cannot machine-gun recognition",
+			int(dir.signal_census().by_function.get("recognize", 0))
+			== recognized_before + 1)
+
+	dir._process(0.05)
+	critters._answer_recognition_signal(social, 0.1)
+	critters._answer_recognition_signal(solitary, 0.1)
+	_check("DO-2 sociable fauna presents receptors to recognition",
+			float(social.unfold) >= 0.9 and float(social.signal_presented_at) >= recognized_at)
+	_check("DO-2 low-social fauna genuinely ignores the same packet",
+			is_zero_approx(float(solitary.unfold))
+			and float(solitary.signal_presented_at) < 0.0)
+
+	margin._propagate_signal_answer(receptor)
+	_check("DO-2 neighbours do not orient before conduction arrives",
+			float(receptor.signal_oriented_at) < 0.0)
+	dir._process(0.46)
+	margin._propagate_signal_answer(receptor)
+	_check("DO-2 neighbouring tissue answers after at least 0.4 seconds",
+			float(receptor.signal_oriented_at) - recognized_at >= 0.4
+			and int(receptor.signal_neighbours) >= 1)
+	_check("DO-2 causal order is secretion < adoption < recognition < fauna < neighbours",
+			secretion_at < adopted_at and adopted_at < recognized_at
+			and recognized_at <= float(social.signal_presented_at)
+			and float(social.signal_presented_at) < float(receptor.signal_oriented_at))
+	_check("DO-2 local exchange never seizes whole-body attention",
+			dir.attending == Vector3.INF)
+	var after_keys: Array = RealityState.data.keys()
+	after_keys.sort()
+	_check("DO-2 creates no persistence seam", before_keys == after_keys)
+	# Leave the production ecology as we found it. The following §22 check
+	# needs its first animal seated on a real surface for its support ray.
+	for restore_pair in [[social, social_restore], [solitary, solitary_restore]]:
+		var animal: Dictionary = restore_pair[0]
+		var saved: Dictionary = restore_pair[1]
+		animal.pos = saved.pos
+		animal.up = saved.up
+		animal.fwd = saved.fwd
+		animal.morph.sociability = saved.sociability
+		animal.unfold = saved.unfold
+
+	var bounded := DreamEcologyDirector.new()
+	add_child(bounded)
+	bounded.setup(4702)
+	for i in 40:
+		bounded.emit_signal_packet(i, DreamEcologyDirector.SrcClass.ARCHITECTURE,
+				DreamEcologyDirector.Fn.PULSE, Vector3(float(i), 0.0, 0.0),
+				1.0, 1.0, DreamEcologyDirector.Chem.ELECTRIC, 1.0, 9.0)
+	var bed: Dictionary = bounded.signal_census()
+	_check("DO-2 signal bed stays at 32 and deterministically evicts eight",
+			int(bed.live) == 32 and int(bed.capacity) == 32 and int(bed.evicted) == 8)
+	bounded.queue_free()
+	print("[organelle] secretion %.2f adoption %.2f recognition %.2f fauna %.2f neighbours %.2f %s"
+			% [secretion_at, adopted_at, recognized_at, social.signal_presented_at,
+			receptor.signal_oriented_at, dir.signal_census()])
 
 
 ## §22 — THE HERO'S CLUB TOUCHES AN ANIMAL AND THE ANIMAL ANSWERS.

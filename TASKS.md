@@ -2241,17 +2241,27 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   secretion transfer, recognition, excitation/inhibition, repair, transport
   and resource allocation. Ban generic predator/prey and faction AI; apparent
   aggression must have an immune/rejection/inhibitory biological reading.
-- **DO-1 — INTERACTION SEMANTIC AUDIT.** Inventory every currently landed
+- **DO-1 COMPLETE 2026-08-24 — INTERACTION SEMANTIC AUDIT.** Every currently landed
   hero↔margin, margin↔margin, margin↔fauna, fauna↔fauna, hero↔fauna,
   organism↔architecture and pursuer/hazard interaction. Re-label each as a
   specific organelle function; identify any behavior that currently reads as
   independent animal combat or social simulation without a whole-body role.
-- **DO-2 — SHARED SIGNAL SEAM.** Extend the existing LivingField/margin
+  The map and owner-order rulings are now binding in
+  `design/DREAM_ORGANELLE_COMMUNICATION.md`. No combat system contradicted the
+  canon; the only vocabulary contradiction is the fauna density ledger's
+  predator/consumed naming, ruled rename/reframe-only with balance and art held.
+- **DO-2 COMPLETE 2026-08-24 — SHARED SIGNAL SEAM.** Extend the existing LivingField/margin
   broadcast/hero-event/EcologyDirector boundary with one transient signal
   packet carrying source, stimulus/function, position, strength, chemical
   family and excitation/inhibition sign. No pairwise director, agent owner or
-  save record. Producers and consumers remain independently testable.
-- **DO-3 — DIFFERENT ORGANS, DIFFERENT ANSWERS.** Route the same signal through
+  save record. Producers and consumers remain independently testable. The
+  landed seam is a 32-slot reused ring on `DreamEcologyDirector`; the director
+  stores/expires/queries only. Hero contact secretes, one idle palp probes,
+  real contact recognizes once, sociable fauna presents receptors while a
+  low-social individual ignores it, and neighbouring tissue answers after
+  0.45 s. `DreamEcologyTest` passes 50/50; staged Forward+ proof and A/A are at
+  `art/renders/dream_organelle_signal/README.md`. No attention or save seam moved.
+- **DO-3 — DIFFERENT ORGANS, DIFFERENT ANSWERS (FIRST THREE-CLASS SLICE LANDED).** Route the same signal through
   bounded class-specific responses: palps seek/brace, cilia sample, fauna
   carry/groom/redistribute, flora open or secrete, architecture propagates,
   hero acknowledges, hazards reject or inhibit. Preserve each family's

@@ -119,6 +119,11 @@ var _spawn_clock := 0.0
 var _clock := 0.0
 var _social_clock := 0.0
 var _board: Array = []
+## Reused receptor scratch. Signal storage belongs to the ecology director;
+## interpretation belongs here, at the organ that can actually answer it.
+var _signal_near: Array = []
+var _last_secretion_born := -INF
+var _last_secretion_src := -2147483648
 var _seed_base := 0
 
 
@@ -327,6 +332,7 @@ func _think(delta: float) -> void:
 	var socialise: bool = _social_clock >= 0.18
 	if socialise:
 		_board = NeighborScript.broadcast(palps)
+		_receive_signal_packets()
 	for p in palps:
 		if socialise:
 			var push: Vector3 = NeighborScript.socialise(p, _board, _rng, _social_clock)
@@ -409,11 +415,14 @@ func _think(delta: float) -> void:
 		# TOUCH act and still be reaching, and the difference between reaching
 		# for a thing and being on it is exactly what a neighbour needs to
 		# know before it braces against you or takes your target off you.
+		var before_contact: float = float(p.contact)
 		var on_it := 0.0
 		if p.target != Vector3.INF:
 			on_it = 1.0 - smoothstep(0.012, 0.055,
 					(p.tip as Vector3).distance_to(p.target))
 		p.contact = maxf(on_it, float(p.contact) - delta * 2.2)
+		_recognize_signal_target(p, before_contact)
+		_propagate_signal_answer(p)
 		# §10 — STARTLE STATE, which decays on the individual's own nerve.
 		p.startle = maxf(0.0, float(p.startle)
 				- delta * (0.35 + 0.9 * float(p.traits.startle_threshold)))
@@ -770,6 +779,15 @@ static func _shared_state() -> Dictionary:
 		"local_look": false,
 		"look_left": 0.0,
 		"attend_override": Vector3.INF,
+		# Local organelle communication. These clocks and flags last only for
+		# this appendage's life and never enter RealityState.
+		"signal_target": Vector3.INF,
+		"signal_adopted_at": -1.0,
+		"signal_recognized": false,
+		"signal_recognized_at": -1.0,
+		"signal_orient_due": -1.0,
+		"signal_oriented_at": -1.0,
+		"signal_neighbours": 0,
 		# §12 steps 2-4: the swelling that precedes a branch, and where along
 		# the organ it is happening.
 		"swell": 0.0,
@@ -804,6 +822,87 @@ static func _shared_state() -> Dictionary:
 		"unfold": 1.0,
 		"children": 0,
 	}
+
+
+## A secretion is an invitation, not a command. At the social cadence, the
+## nearest unoccupied palp whose body is inside it adopts the point as an
+## object of inquiry. One packet recruits one palp; the answer may recruit
+## others later, after actual contact establishes recognition.
+func _receive_signal_packets() -> void:
+	if director == null or palps.is_empty():
+		return
+	var chosen = null
+	var chosen_packet = null
+	var nearest := INF
+	for p in palps:
+		if p.target != Vector3.INF or p.get("attend_override", Vector3.INF) != Vector3.INF:
+			continue
+		if director.signals_near(p.tip, 0.0, _signal_near) <= 0:
+			continue
+		for packet in _signal_near:
+			if int(packet.function) != DreamEcologyDirector.Fn.SECRETE \
+					or int(packet.family) != DreamEcologyDirector.Chem.SECRETION \
+					or float(packet.sign) <= 0.0:
+				continue
+			var affinity: int = int(packet.affinity)
+			if affinity >= 0 and affinity != DreamEcologyDirector.SrcClass.PALP:
+				continue
+			if int(packet.src_id) == _last_secretion_src \
+					and float(packet.born) <= _last_secretion_born:
+				continue
+			var d: float = (p.tip as Vector3).distance_to(packet.at)
+			if d < nearest:
+				nearest = d
+				chosen = p
+				chosen_packet = packet
+	if chosen == null:
+		return
+	chosen.target = chosen_packet.at
+	chosen.signal_target = chosen_packet.at
+	chosen.signal_adopted_at = director.signal_time()
+	chosen.signal_recognized = false
+	chosen.signal_recognized_at = -1.0
+	chosen.signal_orient_due = -1.0
+	chosen.signal_oriented_at = -1.0
+	chosen.signal_neighbours = 0
+	_last_secretion_born = float(chosen_packet.born)
+	_last_secretion_src = int(chosen_packet.src_id)
+	chosen.act = BehaviorScript.Act.PROBE
+	chosen.act_clock = 0.0
+	chosen.act_left = BehaviorScript.duration(BehaviorScript.Act.PROBE,
+			chosen.traits, _rng)
+
+
+## Recognition is emitted once, on the contact threshold's rising edge. A
+## palp hovering near a secretion has not yet understood anything.
+func _recognize_signal_target(p: Dictionary, before_contact: float) -> void:
+	if director == null or bool(p.get("signal_recognized", false)):
+		return
+	if p.get("signal_target", Vector3.INF) == Vector3.INF:
+		return
+	if before_contact >= 0.5 or float(p.contact) < 0.5:
+		return
+	var source_class := DreamEcologyDirector.SrcClass.BRANCH \
+			if int(p.parent) >= 0 else DreamEcologyDirector.SrcClass.PALP
+	director.emit_signal_packet(int(p.id), source_class,
+			DreamEcologyDirector.Fn.RECOGNIZE, p.tip, 0.85, 1.0,
+			DreamEcologyDirector.Chem.ELECTRIC, 1.0, 1.2,
+			DreamEcologyDirector.SrcClass.FAUNA)
+	p.signal_recognized = true
+	p.signal_recognized_at = director.signal_time()
+	p.signal_orient_due = director.signal_time() + 0.45
+
+
+## The margin carries the answer outward on its own delay. This is local
+## tissue conduction, not the rare whole-body attention event.
+func _propagate_signal_answer(p: Dictionary) -> void:
+	if director == null or float(p.get("signal_orient_due", -1.0)) < 0.0:
+		return
+	if director.signal_time() < float(p.signal_orient_due):
+		return
+	p.signal_orient_due = -1.0
+	p.signal_oriented_at = director.signal_time()
+	p.signal_neighbours = orient_nearby(p.tip, 0.9, int(p.id))
 
 
 func try_branch(id: int) -> bool:
@@ -930,9 +1029,11 @@ func _birth_specific(tier: int, at: Vector3, nrm: Vector3, archetype: int) -> vo
 ## and is meant to be rare. A handful of appendages near a thing that just
 ## happened, turning toward it, is what makes the margin read as aware of its
 ## own neighbourhood rather than as scenery that occasionally animates.
-func orient_nearby(at: Vector3, radius: float = 0.9) -> int:
+func orient_nearby(at: Vector3, radius: float = 0.9, exclude_id: int = -1) -> int:
 	var turned := 0
 	for p in palps:
+		if int(p.id) == exclude_id:
+			continue
 		# Never override the director. If the whole ecology is already
 		# attending to something, a local event does not get to redirect it.
 		if p.get("attend_override", Vector3.INF) != Vector3.INF:

@@ -50,6 +50,8 @@ var _space: PhysicsDirectSpaceState3D = null
 var _next_id := 0
 var _clock := 0.0
 var _spawn_clock := 0.0
+## Reused receptor scratch; the fauna owns what recognition means to it.
+var _signal_near: Array = []
 
 var _pos := PackedVector4Array()
 var _fwd := PackedVector4Array()
@@ -246,6 +248,9 @@ func _try_spawn() -> void:
 			# it answers by unfolding, which is the whole of the beat.
 			"unfold": 0.0,
 			"attend_override": Vector3.INF,
+			"signal_seen_born": -1.0,
+			"signal_seen_src": -2147483648,
+			"signal_presented_at": -1.0,
 			# Distance covered by its OWN locomotion, excluding being shoved
 			# or fleeing. §32's bias governs walking, so that is what has to
 			# be measured against it.
@@ -692,6 +697,37 @@ func _use_the_margin(c: Dictionary, delta: float) -> void:
 			if float(c.announced) <= 0.0 and margin != null 					and margin.has_method("orient_nearby"):
 				c.announced = 9.0
 				margin.orient_nearby(pos, 0.7)
+	_answer_recognition_signal(c, delta)
+
+
+## Sociable fauna present their receptors to a local recognition pulse. The
+## pulse carries no behavioural command: this class chooses to turn and
+## unfold, while less-social individuals genuinely do nothing.
+func _answer_recognition_signal(c: Dictionary, delta: float) -> void:
+	if director == null or float(c.morph.sociability) <= 0.45:
+		return
+	if director.signals_near(c.pos, 0.0, _signal_near) <= 0:
+		return
+	for packet in _signal_near:
+		if int(packet.function) != DreamEcologyDirector.Fn.RECOGNIZE \
+				or int(packet.family) != DreamEcologyDirector.Chem.ELECTRIC \
+				or float(packet.sign) <= 0.0:
+			continue
+		var affinity: int = int(packet.affinity)
+		if affinity >= 0 and affinity != DreamEcologyDirector.SrcClass.FAUNA:
+			continue
+		if int(packet.src_id) == int(c.signal_seen_src) \
+				and float(packet.born) <= float(c.signal_seen_born):
+			continue
+		var toward: Vector3 = (packet.at as Vector3) - (c.pos as Vector3)
+		toward -= (c.up as Vector3) * toward.dot(c.up)
+		if toward.length() > 0.001:
+			_turn_toward(c, toward.normalized(), delta * 5.0)
+		c.unfold = maxf(float(c.unfold), 0.9)
+		c.signal_seen_born = float(packet.born)
+		c.signal_seen_src = int(packet.src_id)
+		c.signal_presented_at = director.signal_time()
+		break
 
 
 

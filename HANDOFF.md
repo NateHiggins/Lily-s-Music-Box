@@ -317,6 +317,18 @@ signal seam through current owners, give different organ classes different
 responses, and prove a multi-class propagation plus rare global-attention
 event in production. Do not build pairwise directors or new save facts.
 
+DO-1 and DO-2 closed 2026-08-24. The binding semantic map and owner rulings are
+in `design/DREAM_ORGANELLE_COMMUNICATION.md`. `DreamEcologyDirector` now owns
+only a 32-slot transient packet bed: no routing, persistence or meaning. The
+first exchange uses already-wired owners: hero contact secretes; one idle palp
+adopts the point; contact crossing 0.5 recognizes exactly once; a sociable
+critter presents receptors while a low-social control ignores it; nearby
+palps orient after 0.45 s. `DreamEcologyTest` passes 50/50 and the staged
+Forward+ sequence plus measured A/A floor is at
+`art/renders/dream_organelle_signal/README.md`. This begins DO-3 but does not
+close its flora/architecture/cilia/incarnation/hazard breadth. DO-4 still
+requires the production-root sequence and rare global-attention beat.
+
 Three top-level projects:
 
 | Path | What |

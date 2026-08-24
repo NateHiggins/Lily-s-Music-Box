@@ -771,6 +771,10 @@ func _behave(delta: float) -> void:
 				state = State.TOUCHING
 				state_clock = 0.0
 				touched.emit(contact_point, target_normal)
+				# Contact is an attempt to communicate, not merely a collision.
+				# The hero reaches the ecology through the margin it already
+				# belongs to; no parallel owner or case-specific wire is created.
+				_emit_contact_signal(contact_point)
 			elif state_clock > 6.0:
 				state = State.HOVER_INSPECTION
 				state_clock = 0.0
@@ -837,6 +841,16 @@ func _behave(delta: float) -> void:
 				state = State.SEEKING
 				state_clock = 0.0
 	_last_tip = tip
+
+
+func _emit_contact_signal(at: Vector3) -> void:
+	if margin == null or not is_instance_valid(margin) or margin.director == null:
+		return
+	margin.director.emit_signal_packet(-1,
+			DreamEcologyDirector.SrcClass.HERO_LIMB,
+			DreamEcologyDirector.Fn.SECRETE, at, 0.55, 1.0,
+			DreamEcologyDirector.Chem.SECRETION, 1.0, 1.2,
+			DreamEcologyDirector.SrcClass.PALP)
 
 
 func state_name() -> String:
