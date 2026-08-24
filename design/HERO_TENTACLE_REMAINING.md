@@ -93,11 +93,18 @@ touches in one run at 25 mm closest approach, all seven states visited. It
 emits `touched(where, normal)` and `released()`, which is the hook
 `DREAM_SALIVA_DIRECTION.md` needs.
 
-Still owed here: the suckers and the distal club do not *compress* on contact
-(§10 wants contact to visibly compress, spread, deform, grip and release), and
-there is no `TASTING` behaviour distinct from `CARESSING`.
+`TASTING` now exists as a state distinct from `CARESSING` — short repeated
+contact in one place rather than a sustained trace. And the suckers COMPRESS
+on contact (see H4): a pressed one flattens along its own axis by 0.42 while
+one two and a half centimetres away reaches 0.27, so the club reads as a row
+of organs meeting a surface rather than as one soft pad.
 
-### H4. Secondary motion — PARTLY DONE
+Still owed of §10's contact list: spread, grip and release. Compression is
+there; the rest need the sucker rims to move independently of the body they
+are seated on, which is the same per-piece articulation H4 built for the
+gold — a sucker has a rim and a cup and currently only the cup answers.
+
+### H4. Secondary motion — DONE
 The solve and the search now produce INTENT; a separate pass carries the
 flesh's answer to it, running behind with a time constant that lengthens
 distally and overshooting slightly before it settles. Measured: the root lags
