@@ -16,6 +16,8 @@ are facts about its geometry rather than about a noise field:
                            occlusion sampled INSIDE the mesh. Drives real
                            subsurface scattering instead of a guess from a
                            radius.
+    A  OCULAR REGION       the authored orbit bowl/brow/cushion mask carried
+                           by the Blender source as `bake_ocular`.
 
 All three land in one RGB image, so the shader pays for one texture fetch.
 Only the flesh cage is baked: it is the only mesh carrying UVs, and it is
@@ -120,7 +122,7 @@ def main():
         pass
 
     image = bpy.data.images.new("HERO_ANATOMY", width=SIZE, height=SIZE,
-                                alpha=False, float_buffer=False)
+                                alpha=True, float_buffer=False)
     mat = build_bake_material()
     tex = mat.node_tree.nodes.new("ShaderNodeTexImage")
     tex.image = image
@@ -161,6 +163,39 @@ def main():
     scene.render.bake.margin = 8
     log("baking %dx%d at %d samples — this is the slow part" % (SIZE, SIZE, SAMPLES))
     bpy.ops.object.bake(type="EMIT")
+
+    # Alpha: the orbit is authored anatomy, not something the runtime should
+    # rediscover from noise. Bake the source-only vertex attribute through the
+    # same UVs, then splice its grayscale result into the existing map's alpha.
+    ocular_attr = cage.data.color_attributes.get("bake_ocular")
+    if ocular_attr is None:
+        log("FAIL: source has no bake_ocular attribute")
+        sys.exit(1)
+    ocular_image = bpy.data.images.new("HERO_OCULAR", width=SIZE, height=SIZE,
+                                       alpha=False, float_buffer=False)
+    ocular_mat = bpy.data.materials.new("HERO_OCULAR_BAKE")
+    ocular_mat.use_nodes = True
+    ont = ocular_mat.node_tree
+    for node in list(ont.nodes):
+        ont.nodes.remove(node)
+    oout = ont.nodes.new("ShaderNodeOutputMaterial")
+    oemit = ont.nodes.new("ShaderNodeEmission")
+    oattr = ont.nodes.new("ShaderNodeVertexColor")
+    oattr.layer_name = "bake_ocular"
+    otex = ont.nodes.new("ShaderNodeTexImage")
+    otex.image = ocular_image
+    ont.nodes.active = otex
+    ont.links.new(oattr.outputs["Color"], oemit.inputs["Color"])
+    ont.links.new(oemit.outputs["Emission"], oout.inputs["Surface"])
+    cage.data.materials.clear()
+    cage.data.materials.append(ocular_mat)
+    log("baking ocular mask into anatomy alpha")
+    bpy.ops.object.bake(type="EMIT")
+    rgba = list(image.pixels)
+    ocular_px = list(ocular_image.pixels)
+    for i in range(len(rgba) // 4):
+        rgba[i * 4 + 3] = ocular_px[i * 4]
+    image.pixels[:] = rgba
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     image.filepath_raw = OUT

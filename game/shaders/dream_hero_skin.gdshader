@@ -16,10 +16,11 @@ render_mode cull_back, depth_draw_opaque, diffuse_burley, specular_schlick_ggx, 
 // It reads the anatomy from the masks the model carries, rather than
 // rediscovering it (§22):
 //
-//     COLOR.r  flesh_thickness     UV2.x  ocular_region
-//     COLOR.g  wetness             UV2.y  distal_region
+//     COLOR.r  flesh_thickness     UV2.x  normalised rest X
+//     COLOR.g  rest-Y correction   UV2.y  normalised rest Z
 //     COLOR.b  gold_root
 //     COLOR.a  sucker_region
+//     anatomy_map.a  ocular_region
 //
 // Blender knows where the eye is. It should not have to be guessed from a
 // noise field at forty metres per second.
@@ -125,20 +126,30 @@ uniform vec4 rider_grip = vec4(0.0);
 // One matrix does both. The flesh cannot be fixed this way -- it is weighted
 // across twenty-eight bones and genuinely deforms -- and is left alone.
 uniform mat4 rider_unpose = mat4(1.0);
+// Proof-only old-behaviour comparator. Production leaves this true; the
+// staged H1 capture can set false to show the world-space swimming it replaces.
+uniform bool flesh_rest_space = true;
+// Negative in production. The H1 paired capture pins it so A/A and A/B are
+// rendered from one pose without live shader clocks becoming the treatment.
+uniform float proof_time = -1.0;
 group_uniforms;
 
 varying vec3 v_world;
 varying vec3 v_stable;
 varying vec4 v_mask;
-varying vec2 v_region;
 varying vec2 v_uv;
+
+// Blender builds the cage along +Y. glTF converts that to Godot's -Z, and
+// flips the second component of every UV set. X/Z fit inside this asserted
+// envelope; primary strip V carries coarse Y and COLOR.g its small residual.
+const float FLESH_REST_XZ_EXTENT = 0.16;
+const float FLESH_REST_Y_CORRECTION_EXTENT = 0.012;
 
 void vertex() {
 	// Pass-through. The sculpt and the armature have already decided the
 	// shape; a material that moves vertices here would be arguing with them.
 	v_uv = UV;
 	v_mask = COLOR;
-	v_region = UV2;
 	// The collapse is radial, so it rides the surface normal — on a limb the
 	// normal IS the radial direction. Thick anatomy has further to go than
 	// thin, which is why it takes the baked thickness with it: the muscular
@@ -201,21 +212,21 @@ void vertex() {
 	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	// The surface is sampled HERE rather than at v_world, so it belongs to the
 	// body instead of to the room.
-	// THE FLESH IS NOT FIXED HERE AND STILL SWIMS. It is weighted across
-	// twenty-eight bones and genuinely deforms, so no single transform puts it
-	// back the way a rider's does.
-	//
-	// Rebuilding a canonical cylinder from its UVs was tried and REVERTED. It
-	// removes the swimming -- nothing about such a coordinate refers to where
-	// the body is -- but the noise gradient comes out directional in it, and
-	// a directional gradient drives a directional normal perturbation, so the
-	// wet highlight broke into stripes running the length of the animal.
-	// Trading organic blotching for streaks is a worse picture than the
-	// defect it fixes. It wants a second UV set carrying rest position, or a
-	// bake, and it is the largest thing left on this creature's surface.
-	v_stable = rider_v >= 0.0
-			? (rider_unpose * vec4(VERTEX, 1.0)).xyz
-			: v_world;
+	if (rider_v >= 0.0) {
+		v_stable = (rider_unpose * vec4(VERTEX, 1.0)).xyz;
+	} else if (!flesh_rest_space) {
+		v_stable = v_world;
+	} else {
+		// Exact undeformed cage coordinates, not the rejected canonical
+		// cylinder. The sculpt's asymmetric bundles, orbit bowl, gold sockets,
+		// folds and flattening are already present in these authored values.
+		float rest_x = (UV2.x - 0.5) * (2.0 * FLESH_REST_XZ_EXTENT);
+		float rest_z_blender = (0.5 - UV2.y) * (2.0 * FLESH_REST_XZ_EXTENT);
+		float rest_y_norm = clamp(1.0 - UV.y, 0.0, 1.0)
+				+ (COLOR.g - 0.5) * (2.0 * FLESH_REST_Y_CORRECTION_EXTENT);
+		float rest_y_blender = clamp(rest_y_norm, 0.0, 1.0) * 1.60;
+		v_stable = vec3(rest_x, rest_z_blender, -rest_y_blender);
+	}
 }
 
 void fragment() {
@@ -225,13 +236,13 @@ void fragment() {
 	DeCtx ctx;
 	// ONLY THE FLESH CARRIES MASKS. The cage is the mesh Blender paints; every
 	// rider is a single-material piece with no colour attribute, so its COLOR
-	// arrives as white — and read as masks that means thickness 1, wetness 1,
-	// gold_root 1, sucker 1 on every one of them. The first frame in a real
+	// arrives as white — and read as masks that means thickness 1, gold_root 1,
+	// sucker 1 on every one of them. The first frame in a real
 	// room showed exactly that: the membrane came out as a sheet of molten
 	// gold, because white means "maximum metal" to this stack.
 	bool painted = (system_kind == 0);
 	// Only the flesh has UVs and therefore a bake.
-	vec3 baked = painted ? texture(anatomy_map, v_uv).rgb : vec3(1.0, 0.75, 0.5);
+	vec4 baked = painted ? texture(anatomy_map, v_uv) : vec4(1.0, 0.75, 0.5, 0.0);
 	// The vertex mask is a coarse per-vertex guess at thickness; the bake
 	// measured it per texel by sampling occlusion INSIDE the mesh. Trust the
 	// measurement, and keep the mask as the low-frequency term.
@@ -240,14 +251,15 @@ void fragment() {
 			: 0.5;
 	ctx.gold_root = painted ? clamp(v_mask.b, 0.0, 1.0) : 0.0;
 	ctx.contact = painted ? clamp(v_mask.a, 0.0, 1.0) : 0.0;
-	ctx.socket = painted ? clamp(v_region.x, 0.0, 1.0) : 0.0;
+	ctx.socket = painted ? clamp(baked.a, 0.0, 1.0) : 0.0;
 	// Skin is under most tension where it is thin and where it is stretched
 	// over the distal third reaching for something.
-	// Same flip: UV2.y holds Blender's distal mask, which is 0 over the
-	// proximal 62% and ramps to 1 at the tip -- and arrives inverted. Read as
-	// it was, the skin was most stretched at the ROOT and slackest on the
-	// third of the body that is actually doing the reaching.
-	float distal = painted ? clamp(1.0 - v_region.y, 0.0, 1.0) : 0.3;
+	// Distal is a pure function of the authored longitudinal strip, so the old
+	// duplicate UV2 channel was unnecessary. `along` below is the same 0..1
+	// root-to-tip coordinate; spell it here because context is built first.
+	float distal = painted
+			? clamp((clamp(1.0 - v_uv.y, 0.0, 1.0) - 0.62) / 0.38, 0.0, 1.0)
+			: 0.3;
 	ctx.stretch = clamp(0.25 + 0.5 * distal + 0.4 * (1.0 - ctx.thickness), 0.0, 1.0);
 	ctx.vein = clamp(0.35 + 0.5 * ctx.thickness, 0.0, 1.0);
 	// Curvature drives where a body is worn and where it stays wet: crests
@@ -293,8 +305,9 @@ void fragment() {
 	// TIP -- outward, the way a body pushes blood into a limb -- rather than
 	// from the tip back into the wall.
 	vec2 cuv = vec2(suv.x, along);
-	DeMasks m = de_masks(v_stable, cuv, n, view_dir, TIME, hero_seed, ctx);
-	DeOut o = de_shade(m, v_stable, cuv, n, view_dir, TIME, hero_seed, ctx);
+	float de_time = proof_time >= 0.0 ? proof_time : TIME;
+	DeMasks m = de_masks(v_stable, cuv, n, view_dir, de_time, hero_seed, ctx);
+	DeOut o = de_shade(m, v_stable, cuv, n, view_dir, de_time, hero_seed, ctx);
 
 	ALBEDO = o.albedo;
 	METALLIC = o.metallic;

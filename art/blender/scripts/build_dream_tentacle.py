@@ -32,7 +32,8 @@ import random
 from mathutils import Vector, Matrix
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-BLEND_OUT = os.path.join(REPO, "art", "blender", "dream_tentacle.blend")
+BLEND_OUT = os.environ.get("TENTACLE_BLEND_OUT",
+                           os.path.join(REPO, "art", "blender", "dream_tentacle.blend"))
 GLB_DIR = os.path.join(REPO, "game", "assets", "dream", "tentacle")
 GLB_OUT = os.path.join(GLB_DIR, "dream_tentacle.glb")
 
@@ -40,6 +41,12 @@ LENGTH = 1.60
 RING_SEGMENTS = 28          # around the body on the cage
 EYE_V = 0.42
 GLOBE_R = 0.018
+# The flesh shader needs the cage's undeformed radial position.  UV2 is the
+# only two-component vertex channel that survives Blender -> glTF -> Godot
+# without adding a texture fetch.  X and Z are packed into 0..1 here; the
+# authored strip carries coarse Y and COLOR.g stores its bounded correction.
+REST_XZ_EXTENT = 0.16
+REST_Y_CORRECTION_EXTENT = 0.012
 
 # ---------------------------------------------------------------------------
 # THE PROFILE — §1. Authored cross-sections, not a taper. Each row is
@@ -926,7 +933,7 @@ def build_cage():
             quads.append((bm.faces.new((grid[i][j], grid[i][k],
                                         grid[i + 1][k], grid[i + 1][j])), i, j))
     # Cap the tip.
-    bm.faces.new([grid[rings - 1][j] for j in range(RING_SEGMENTS)])
+    tip_face = bm.faces.new([grid[rings - 1][j] for j in range(RING_SEGMENTS)])
     # AND CAP THE ROOT. It was left open "for the membrane to close", and the
     # membrane does not close it: photographed from under the socket you look
     # straight up a hollow pipe and see the inside of the creature's own
@@ -937,9 +944,10 @@ def build_cage():
     root_r0 = sample_profile(0.0)[0]
     plug = bm.verts.new((0.0, root_r0 * 0.55, 0.0))
     bm.verts.ensure_lookup_table()
+    root_faces = []
     for j in range(RING_SEGMENTS):
         k = (j + 1) % RING_SEGMENTS
-        bm.faces.new((grid[0][k], grid[0][j], plug))
+        root_faces.append(bm.faces.new((grid[0][k], grid[0][j], plug)))
     # THE WINDING WAS INSIDE OUT. Every ring quad was wound so the cage's
     # normals pointed at its own axis: signed volume negative, and the
     # outermost +X vertex carrying normal.x = -0.99. Blender never showed it
@@ -960,10 +968,16 @@ def build_cage():
         corners = ((j, i), (j + 1, i), (j + 1, i + 1), (j, i + 1))
         for loop, (uu, vv) in zip(face.loops, corners):
             loop[uv_layer].uv = (uu / float(RING_SEGMENTS), vv / float(rings - 1))
-    for face in bm.faces:
+    # The caps are not part of `quads`, so give them an honest longitudinal V
+    # too.  The old default happened to put the root plug at V=0 and the tip
+    # at V=1, but the plug is a shallow dome 48 mm into the body; reconstructing
+    # rest position from that default would move it back to the wall.
+    for face in [tip_face] + root_faces:
         for loop in face.loops:
-            if loop[uv_layer].uv.length == 0.0 and loop.vert.co.y > LENGTH * 0.5:
-                loop[uv_layer].uv = (0.5, 1.0)
+            p = loop.vert.co
+            a = math.atan2(p.z, p.x)
+            u = 0.5 if math.hypot(p.x, p.z) < 1e-6 else (a / (2.0 * math.pi)) % 1.0
+            loop[uv_layer].uv = (u, min(max(p.y / LENGTH, 0.0), 1.0))
     bm.normal_update()
     me = bpy.data.meshes.new("TENTACLE_BODY_CAGE")
     bm.to_mesh(me)
@@ -985,21 +999,35 @@ def add_vertex_masks(obj):
 
     So they are PACKED into the channels that survive:
 
-        COLOR.r  flesh_thickness     UV2.x  ocular_region
-        COLOR.g  wetness             UV2.y  distal_region
+        COLOR.r  flesh_thickness     UV2.x  rest X (normalised)
+        COLOR.g  rest-Y correction   UV2.y  rest Z (normalised)
         COLOR.b  gold_root
         COLOR.a  sucker_region
 
-    The four left over are the four a shader can honestly derive: papilla and
-    vascular are noise fields, phase_sensitive is a smooth function of length,
-    and contact_sensitive is the sucker field plus the club. A mask is worth
-    a channel when it encodes a PLACE that noise cannot guess -- where the eye
-    is, where the metal enters, where the suckers grip, how thick the meat is.
+    Distal is a pure function of the primary strip's V and never needed its
+    own channel.  The old COLOR.g wetness mask was never consumed; curvature
+    from the anatomy bake already owns crest/pit moisture. Rest Y starts from
+    strip V, then COLOR.g corrects its small disagreement with POSITION at
+    profile changes (measured error 10.7 mm). COLOR arrives as 8-bit, so an
+    absolute 1.6 m Y would lose 6.3 mm per step; the bounded residual retains
+    sub-millimetre precision. The ocular mask moves into the existing anatomy
+    map's alpha, so the shader still pays for one fetch.
     """
     me = obj.data
     # One RGBA colour attribute, not ten.
     colour = me.color_attributes.new(name="masks", type="FLOAT_COLOR", domain="POINT")
+    # Saved into the authored .blend for bake_dream_tentacle.py, then stripped
+    # from the in-memory scene before GLB export. Godot receives only COLOR_0.
+    ocular_bake = me.color_attributes.new(
+        name="bake_ocular", type="FLOAT_COLOR", domain="POINT")
     uv2 = me.uv_layers.new(name="masks_uv")
+    primary = me.uv_layers.get("UVMap")
+    uv_v = [0.0 for _ in me.vertices]
+    uv_n = [0 for _ in me.vertices]
+    for loop in me.loops:
+        vi = loop.vertex_index
+        uv_v[vi] += primary.data[loop.index].uv.y
+        uv_n[vi] += 1
     for i, vert in enumerate(me.vertices):
         p = vert.co
         v = min(max(p.y / LENGTH, 0.0), 1.0)
@@ -1014,20 +1042,61 @@ def add_vertex_masks(obj):
         distal = max(0.0, (v - 0.62) / 0.38)
         sucker = ventral * distal
         _press, _lip, near = gold_socket(ang, v)
-        wetness = min(1.0, 0.25 + 0.55 * bowl + 0.4 * sucker)
-        colour.data[i].color = (thick, wetness, near, sucker)
-    # UV2 is per-LOOP, so the two region masks are written per face corner.
+        ocular = min(1.0, bowl + mass)
+        strip_v = uv_v[i] / max(1, uv_n[i])
+        correction = v - strip_v
+        if abs(correction) > REST_Y_CORRECTION_EXTENT:
+            raise RuntimeError("cage rest-Y correction exceeds envelope: %.6f" % correction)
+        encoded_y = 0.5 + correction / (2.0 * REST_Y_CORRECTION_EXTENT)
+        colour.data[i].color = (thick, encoded_y, near, sucker)
+        ocular_bake.data[i].color = (ocular, ocular, ocular, 1.0)
+        if abs(p.x) > REST_XZ_EXTENT or abs(p.z) > REST_XZ_EXTENT:
+            raise RuntimeError("cage rest position exceeds UV2 envelope: %s" % p)
+    # UV2 is per-LOOP.  glTF flips the second texture coordinate on import;
+    # the shader deliberately reverses that one operation when decoding Z.
     for poly in me.polygons:
         for li in poly.loop_indices:
             vi = me.loops[li].vertex_index
             p = me.vertices[vi].co
-            v = min(max(p.y / LENGTH, 0.0), 1.0)
-            ang = math.atan2(p.z, p.x)
-            bowl, mass = orbit_shape(ang, v)
-            uv2.data[li].uv = (min(1.0, bowl + mass),
-                               max(0.0, (v - 0.62) / 0.38))
-    log("vertex masks packed: COLOR rgba = thickness/wetness/gold_root/sucker,"
-        " UV2 = ocular/distal")
+            uv2.data[li].uv = (0.5 + p.x / (2.0 * REST_XZ_EXTENT),
+                               0.5 + p.z / (2.0 * REST_XZ_EXTENT))
+    log("vertex channels packed: COLOR rgba = thickness/restY correction/gold_root/sucker,"
+        " UV2 = normalised rest X/Z; ocular retained for bake alpha; extents %.3f m / %.3f V"
+        % (REST_XZ_EXTENT, REST_Y_CORRECTION_EXTENT))
+
+
+def stabilize_primary_uv(obj):
+    """Weld Catmull-Clark's face-varying UV result back to vertex values.
+
+    Applying subdivision before channel packing is what makes rest position
+    exact, but Blender's evaluated UV strip otherwise gives every face corner
+    a slightly different coordinate. glTF must then split the 16.8k cage into
+    67.2k vertices. The strip is continuous everywhere except its deliberate
+    U=0/1 seam, so average per vertex while retaining those two seam islands.
+    """
+    me = obj.data
+    layer = me.uv_layers.get("UVMap")
+    if layer is None:
+        raise RuntimeError("subdivided cage lost its primary UV strip")
+    loops_by_vertex = [[] for _ in me.vertices]
+    for loop in me.loops:
+        loops_by_vertex[loop.vertex_index].append(loop.index)
+    for indices in loops_by_vertex:
+        if not indices:
+            continue
+        us = [layer.data[li].uv.x for li in indices]
+        vs = [layer.data[li].uv.y for li in indices]
+        av = sum(vs) / len(vs)
+        seam = max(us) - min(us) > 0.5
+        low = [u for u in us if u < 0.5]
+        high = [u for u in us if u >= 0.5]
+        au = sum(us) / len(us)
+        alo = sum(low) / len(low) if low else au
+        ahi = sum(high) / len(high) if high else au
+        for li in indices:
+            old_u = layer.data[li].uv.x
+            layer.data[li].uv = ((alo if old_u < 0.5 else ahi) if seam else au, av)
+    log("primary UV welded after subdivision; intentional U seam retained")
 
 
 def _set(layer, index, value):
@@ -1368,12 +1437,22 @@ def main():
     body_col = collection("BODY", root_col)
     cage = build_cage()
     body_col.objects.link(cage)
-    add_vertex_masks(cage)
-    # A subdivision for the render-time cage; the game mesh comes from the
-    # bake, not from this.
+    # The game has always received one subdivision level. Apply that delivered
+    # level before packing rest position so POSITION and its rest channels are
+    # authored on literally the same vertices.
     mod = cage.modifiers.new("Subdivision", "SUBSURF")
     mod.levels = 1
-    mod.render_levels = 2
+    mod.render_levels = 1
+    bpy.context.view_layer.objects.active = cage
+    cage.select_set(True)
+    bpy.ops.object.modifier_apply(modifier=mod.name)
+    # Applying the modifier otherwise leaves the evaluated quads flat shaded.
+    # glTF then has to split every face corner for its normal, turning 16.8k
+    # cage vertices into 67.2k without changing the silhouette.
+    for poly in cage.data.polygons:
+        poly.use_smooth = True
+    stabilize_primary_uv(cage)
+    add_vertex_masks(cage)
     log("cage: %d verts, %d faces" % (len(cage.data.vertices), len(cage.data.polygons)))
     # §24: modular collections, so Godot can treat each system differently.
     eye_col = collection("EYE", root_col)
@@ -1414,6 +1493,12 @@ def main():
     os.makedirs(os.path.dirname(BLEND_OUT), exist_ok=True)
     bpy.ops.wm.save_as_mainfile(filepath=BLEND_OUT)
     log("saved %s" % BLEND_OUT)
+    # `bake_ocular` belongs to the authoring/bake file, not the runtime. The
+    # glTF importer only maps COLOR_0 in any case, and shipping dead COLOR_1
+    # would spend bytes while pretending otherwise.
+    bake_attr = cage.data.color_attributes.get("bake_ocular")
+    if bake_attr is not None:
+        cage.data.color_attributes.remove(bake_attr)
     export_glb()
 
 

@@ -2127,6 +2127,16 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   (`art/renders/dream_tentacle/hero_review/`). Open: P7 (evaluate and fix
   what still does not read), P8 DT-5's six-beat emergence, P9 the full
   seek → caress → flinch → withdraw sequence.
+  **H1 DEFORMING-FLESH REST SPACE DONE 2026-08-24.** The shared surface no
+  longer swims through the skinned cage: UV2 carries exact rest X/Z, strip V
+  plus one bounded 8-bit residual carries Y, and the displaced ocular mask
+  uses the existing anatomy alpha. All 17,115 imported cage vertices decode
+  within 0.1374 mm while a distal bone moves 869.93 mm. Six production
+  old/old/rest triplets clear their A/A floor; the path adds no sampler,
+  material or draw and measures 1.552 ms versus the 1.553 ms control at the
+  same 119 draws / 93,947 primitives. H1 still owes albedo, normal,
+  detail-normal and rider UV/bakes. Proof:
+  `art/renders/dream_tentacle/h1_rest_space/README.md`.
 - **DT-3 IN PROGRESS — the hero material.** Real SSS (`sss_mode_skin`,
   thickness-driven transmittance), the film as clearcoat with its own
   normal, four colour frequencies, three normal scales, iridophores,

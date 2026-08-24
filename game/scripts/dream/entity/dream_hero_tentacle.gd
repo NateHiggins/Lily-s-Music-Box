@@ -266,6 +266,10 @@ func _dress() -> void:
 		# clock as zero and every plate on the body pulsed in unison, out of
 		# step with the flesh under it. Each rider is told its own seat.
 		mat.set_shader_parameter("rider_v", -1.0 if kind == 0 else _seat_of(mi))
+		# H1 production default is rest-space. The off switch exists only so the
+		# staged proof can reproduce the old room-fixed surface as its comparator.
+		mat.set_shader_parameter("flesh_rest_space",
+				OS.get_environment("HERO_FLESH_REST") != "0")
 		mat.set_shader_parameter("grow", grow)
 		mat.set_shader_parameter("anatomy_map", ANATOMY)
 		mat.set_shader_parameter("anatomy_strength", 1.0)

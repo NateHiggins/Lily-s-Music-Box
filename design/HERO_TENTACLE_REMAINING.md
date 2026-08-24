@@ -21,11 +21,11 @@ every other Dream organism will be measured against (`DREAM_MENAGERIE_REBUILD.md
 
 ## What it owes — ordered by how much it costs the bar
 
-### H1. ~~No baked maps at all~~ — PARTLY DONE
-`T_dream_hero_anatomy.png` now carries AO, curvature and thickness, baked
-from the geometry and wired into the skin. Still owed: albedo, normal and
-detail normal, and the riders have no UVs so none of them are baked. See
-`art/renders/dream_tentacle/bake/README.md`.
+### H1. ~~No baked maps at all~~ — PARTLY DONE; DEFORMING FLESH FIXED
+`T_dream_hero_anatomy.png` now carries AO, curvature, thickness and the ocular
+region, baked from geometry and wired into the skin. Still owed: albedo,
+normal and detail normal, and the riders have no UVs so none of them are
+baked. See `art/renders/dream_tentacle/bake/README.md`.
 
 Three things came out of chasing "the texture is not great" that were not
 about baking at all, and all three were consequences of the same fact: **the
@@ -60,18 +60,26 @@ survived every photograph taken of the creature.
 A rider is rigid and bound to one bone, so its rest position can be recovered
 exactly — undo the bone's current pose, reapply its rest one, one matrix does
 both. Measured: pieces travelled 850 mm through the room while their sampling
-position moved 0.0004 mm. **The flesh is NOT fixed this way and still swims:**
-it is weighted across twenty-eight bones and genuinely deforms, so there is no
-single transform that undoes its pose.
+position moved 0.0004 mm.
 
 Rebuilding a canonical cylinder from the cage's own UVs was tried and
-REVERTED. It does remove the swimming — nothing about such a coordinate refers
-to where the body is — but the noise gradient comes out directional in it, and
-a directional gradient drives a directional normal perturbation, so the wet
-highlight broke into stripes running the length of the animal. Trading organic
-blotching for streaks is a worse picture than the defect it fixes. It wants a
-second UV set carrying rest position, or a bake, and it is now the largest
-thing left on this creature's surface.
+REVERTED. It removed swimming but turned the wet highlight into longitudinal
+stripes. The landed solution carries the **actual undeformed sculpt** instead:
+UV2 stores normalized rest X/Z; primary V supplies coarse Y; COLOR.g stores a
+bounded Y residual so Godot's 8-bit vertex-colour import does not quantize the
+whole 1.6 m limb. The displaced ocular mask moved into the alpha of the
+already-bound anatomy texture, so this adds no sampler, material or draw.
+After the delivered subdivision is applied and the continuous strip welded,
+Godot imports 17,115 cage vertices and decodes every one within **0.1374 mm**.
+A distal flesh bone travels **869.93 mm** in the final focused run while that
+error remains unchanged.
+
+Six frozen production poses were rendered old/old/rest with procedural time
+pinned. A/A RMSE is 0–0.001998; treatment RMSE is 0.024376–0.034412, clearing
+the live-render floor in every pose and visibly removing room-fixed gold bands
+without removing the modeled gold anatomy. The same-scene median is 1.553 ms
+old versus 1.552 ms rest-space, with the same 119 draws and 93,947 primitives.
+Proof: `art/renders/dream_tentacle/h1_rest_space/README.md`.
 
 **The instrument for all of this: `SHOT_MODE=emerge` on the staged room.**
 A limb filling in from the tip and a limb extruding from the root are the same
@@ -235,15 +243,11 @@ for the shot and the fiction.
 
 ## Recommended order
 
-H1, H2, H3, H5, H6 done; H4 partly. The hero no longer outright fails any
-§26 test. What remains is depth rather than absence: **H4's** unfinished
-layers (gold reseating, cilia springs, sucker compression), **H2's** eight
-unbuilt states — most of which need the margin and critters to interact with
-— and **H1's** albedo/normal bakes: contact first, because §2's
-interesting states (`TOUCHING`, `CARESSING`, `TASTING`) are meaningless
-without it and it is the hard prerequisite for
-`DREAM_SALIVA_DIRECTION.md`; then the state machine those states belong to;
-then secondary motion. H6–H9 after.
+H2–H6 are done. H1's deforming-flesh sampling defect is closed; its remaining
+work is authored albedo/normal/detail-normal depth and rider UV/bakes. H7–H9
+remain as listed above. The hero no longer outright fails a §26 category, but
+those remaining material and corrective-deformation debts still set the bar
+for later organisms.
 
 ## The rule this document exists to enforce
 
@@ -254,8 +258,9 @@ say so rather than measuring others against a gap.
 
 Against §26, updated as work lands:
 
-- **Motion** — still fails. The body has one motion language and no secondary
-  motion, and there is no contact. The eye now performs, which is part of it.
+- **Motion** — passes the first production contract: contact, differentiated
+  behaviour and local secondary motion are present. Corrective bend shapes
+  remain H7 quality debt.
 - **Materials** — partly. Geometry facts are baked (AO, curvature,
   thickness) and visibly separate the flesh from itself; albedo, normal and
   detail normal are still procedural, and no rider is baked at all.

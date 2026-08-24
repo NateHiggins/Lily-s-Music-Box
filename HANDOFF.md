@@ -215,6 +215,18 @@ street proof are recorded in `art/renders/orison_commensals_c1/README.md`.
 There was no `gen_layout.py` edit. E15/C2 is unblocked but not silently begun;
 Room 0 exclusion and haunting-controlled animal behavior remain rejected.
 
+The hero tentacle's H1 deforming-flesh rest-space defect is closed. The cage
+now carries its exact undeformed sculpt through existing vertex channels and
+the ocular mask through the existing anatomy texture alpha; this adds no
+sampler, material or draw. The focused contract measures 0.1374 mm maximum
+decode error while a distal bone travels 869.93 mm. Six production
+old/old/rest triplets clear the A/A floor, and same-scene performance is
+1.552 ms versus 1.553 ms control at identical 119 draws / 93,947 primitives.
+Proof: `art/renders/dream_tentacle/h1_rest_space/README.md`. Do not overstate
+H1: albedo, normal, detail-normal and rider UV/bakes remain open. The full
+`DreamHeroSweep` attempt hit the mandatory 60-second limit before H1 assertions,
+so only the focused H1 and tentacle suites may be claimed from this checkpoint.
+
 Three top-level projects:
 
 | Path | What |

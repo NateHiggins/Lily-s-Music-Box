@@ -795,6 +795,44 @@ func _modelled_hero_shots() -> void:
 		printerr("[SWEEP] nothing moved — this proves nothing about swimming")
 	if sample_walk > 0.0005:
 		printerr("[SWEEP] THE SURFACE SWIMS — mesostructure is fixed to the room")
+	# THE FLESH USES A DIFFERENT FIX. It deforms across twenty-eight bones, so
+	# no one unpose matrix can return it to rest. The imported cage carries its
+	# exact rest X/Z in UV2 and the small rest-Y correction in COLOR.g. Prove
+	# both halves of the temporal claim: the skeleton genuinely moves, while
+	# every decoded surface coordinate remains the authored undeformed vertex.
+	var cage: MeshInstance3D = null
+	for mi in hero.meshes:
+		if mi.name == "TENTACLE_BODY_CAGE":
+			cage = mi
+			break
+	if cage == null:
+		printerr("[SWEEP] no flesh cage to audit for swimming")
+	else:
+		var arrays: Array = cage.mesh.surface_get_arrays(0)
+		var verts: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+		var cols: PackedColorArray = arrays[Mesh.ARRAY_COLOR]
+		var uvs: PackedVector2Array = arrays[Mesh.ARRAY_TEX_UV]
+		var uv2s: PackedVector2Array = arrays[Mesh.ARRAY_TEX_UV2]
+		var flesh_error := 0.0
+		for i in verts.size():
+			var rest_y := (1.0 - uvs[i].y) + (cols[i].g - 0.5) * 0.024
+			var stable := Vector3((uv2s[i].x - 0.5) * 0.32,
+					(0.5 - uv2s[i].y) * 0.32, -rest_y * 1.60)
+			flesh_error = maxf(flesh_error, stable.distance_to(verts[i]))
+		var flesh_bone_walk := 0.0
+		var flesh_bone_ref: Vector3 = hero.skeleton.get_bone_global_pose(
+				hero._bones[hero._bones.size() - 3]).origin
+		for _flesh_probe in 60:
+			await get_tree().create_timer(0.05).timeout
+			var here: Vector3 = hero.skeleton.get_bone_global_pose(
+					hero._bones[hero._bones.size() - 3]).origin
+			flesh_bone_walk = maxf(flesh_bone_walk, flesh_bone_ref.distance_to(here))
+		print("[SWEEP] flesh bone moved %.1f mm; rest channel error %.4f mm"
+				% [flesh_bone_walk * 1000.0, flesh_error * 1000.0])
+		if flesh_bone_walk < 0.005:
+			printerr("[SWEEP] flesh did not move — the anti-swim check proves nothing")
+		if flesh_error > 0.0005:
+			printerr("[SWEEP] THE FLESH SURFACE IS NOT ITS AUTHORED REST CAGE")
 	if pivot_drift > 0.0005:
 		printerr("[SWEEP] THE PIVOTS DRIFT — the pieces are being sheared, not turned")
 	if float(rock_peak[1]) < 0.002:

@@ -8,19 +8,21 @@ one. The owner's words were *"the texture is not great"*.
     blender -b art/blender/dream_tentacle.blend \
         -P art/blender/scripts/bake_dream_tentacle.py
 
-One RGB map, `T_dream_hero_anatomy.png`, carrying the three things a shader
-**cannot** know because they are facts about geometry rather than about a
-noise field:
+One RGBA map, `T_dream_hero_anatomy.png`, carrying facts the shader cannot
+recover from a noise field:
 
 | channel | what | measured range |
 | --- | --- | --- |
 | R | ambient occlusion | 0.000 – 1.000 |
-| G | curvature, from pointiness | 0.573 – 0.941 |
-| B | thickness, occlusion sampled *inside* the mesh | 0.345 – 1.000 |
+| G | curvature, from pointiness | 0.000 – 0.969 |
+| B | thickness, occlusion sampled *inside* the mesh | 0.000 – 1.000 |
+| A | authored ocular region | 0.000 – 0.980 after import |
 
 In the shader: thickness replaces the coarse per-vertex guess and drives real
 subsurface scattering; curvature makes crests polish and creases hold fluid;
 AO multiplies the procedural cavity term rather than replacing it.
+The ocular region moved here from UV2 when H1 assigned UV2 to exact rest X/Z;
+this preserves the semantic mask without adding a sampler or texture object.
 
 `01_bake_off.png` vs `02_bake_on.png` are the same frame at
 `anatomy_strength` 0 and 1. With the bake, the flesh separates into a dark
