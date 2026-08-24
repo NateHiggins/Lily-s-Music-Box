@@ -302,10 +302,13 @@ TL-3; both remain open.
 Claude's isolated §12 steps 8/9 cilia pass was integrated as `90377f0` from
 `2bb81cf`. Secondary-branch fine cilia are fixed-length anatomy that deploy by
 angle only after investigation begins; task completion now owns a timed beat,
-then cilia retract and the branch folds. `DreamMarginTest` passes 57/57 in the
-main checkout. Proof: `art/renders/dream_ecology_step12_cilia/README.md`. One
-debt is recorded as DO-D1: `_age()` still writes a hidden 0→1 branch `grow`
-ramp for 0.9 s even though visible unfolding preserves size.
+then cilia retract and the branch folds. Proof:
+`art/renders/dream_ecology_step12_cilia/README.md`. DO-D1 is now closed:
+`_age()` keeps every secondary branch's `grow` at 1.0
+from its birth frame through folded removal, with `unfold` carrying all visible
+separation. The constructed §12 test samples that invariant across the entire
+life while retaining the radius and folded-axis checks; `DreamMarginTest`
+passes 59/59.
 
 The owner then ruled that **all Dream entities are organelles of one larger
 hyperdimensional being**. The Bible and `design/DREAM_ECOLOGY_ARCHITECTURE.md`

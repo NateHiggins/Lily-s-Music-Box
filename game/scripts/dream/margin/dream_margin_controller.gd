@@ -659,7 +659,12 @@ func _age(delta: float) -> void:
 			# either. It lies back down along its parent, which is exactly
 			# where it came from, and is gone when it is indistinguishable
 			# from it.
-			p.grow = 1.0 if p.age >= emerge else smoothstep(0.0, 1.0, p.age / emerge)
+			#
+			# It was also BORN at full size in `try_branch`. Do not overwrite
+			# that fact with the primary appendage's emergence ramp: separation
+			# is carried exclusively by `unfold`, while `grow` stays an invariant
+			# statement about the branch's already-present anatomy.
+			p.grow = 1.0
 			p.folding = going > 0.0
 			if going > 0.0:
 				p.unfold = 1.0 - going

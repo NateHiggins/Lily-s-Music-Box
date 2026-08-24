@@ -555,6 +555,8 @@ func _step12_fine_anatomy(margin: DreamMarginController) -> void:
 		margin.palps = original
 		return
 	var kid_id: int = int(kid.id)
+	_check("§12 a branch is full-size data on its birth frame (grow %.2f)"
+			% float(kid.grow), is_equal_approx(float(kid.grow), 1.0))
 	# Long enough that the whole sequence runs to completion rather than being
 	# cut short by the branch's own mortality -- which is the OTHER path into
 	# retraction and is not the one being measured here.
@@ -576,10 +578,12 @@ func _step12_fine_anatomy(margin: DreamMarginController) -> void:
 	var unfold_at_deploy := -1.0
 	var was_full := false
 	var gone := false
+	var minimum_branch_grow := float(kid.grow)
 	for _step in 500:
 		margin._think(dt)
 		margin._age(dt)
 		t += dt
+		minimum_branch_grow = minf(minimum_branch_grow, float(kid.grow))
 		var alive := false
 		for p in margin.palps:
 			if int(p.id) == kid_id:
@@ -662,6 +666,9 @@ func _step12_fine_anatomy(margin: DreamMarginController) -> void:
 			t_investigate < t_deploy and t_deploy < t_beat
 			and t_beat <= t_retract and t_retract < t_fold)
 	_check("§12 and the branch is gone by the end of it", gone)
+	_check("§12 branch size data stays fixed through unfold and return "
+			+ "(minimum grow %.3f)" % minimum_branch_grow,
+			minimum_branch_grow >= 0.999)
 
 	# --- AND IT DOES NOT HAPPEN TO ANYTHING ELSE -------------------------
 	# A PRIMARY DOES NOT GROW CILIA, however busy it is. §12 puts the fine

@@ -2292,12 +2292,15 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   `art/renders/dream_organelle_production/README.md`. This closes the shared
   downstream production proof, not the broader DO-3 recipient roster and not
   a waking case loop.
-- **DO-D1 — HIDDEN SCALE-FROM-ZERO DEBT.** The integrated §12 cilia pass left
-  `_age()` ramping a new branch's data `grow` 0→1 over 0.9 s after
-  `try_branch` creates it at 1.0. It is currently hidden inside the parent and
-  the rendered unfold preserves size, but the data contradicts the locked
-  folded-anatomy doctrine. Remove or reinterpret that ramp before any camera,
-  LOD or interaction can expose it; prove fixed arc/volume through birth.
+- **DO-D1 COMPLETE 2026-08-24 — FIXED BRANCH ANATOMY.** `_age()` no longer
+  overwrites a newly created secondary branch with the primary appendage's
+  0→1 emergence ramp. Branch `grow` is now invariant at 1.0 from its birth
+  frame through unfolding, investigation, cilia work, retraction and folded
+  removal; separation remains angular `unfold` only. The §12 executable proof
+  asserts full-size birth data and a minimum `grow` of 1.000 across the entire
+  constructed life, while its existing radius/axis checks hold volume and the
+  folded arc. `DreamMarginTest` passes 59/59. No art, timing, topology or owner
+  changed.
 
 ### T4 — TEMPORAL BIOLOGY AND CONTROLLED ANACHRONISM (owner ruling 2026-08-24)
 

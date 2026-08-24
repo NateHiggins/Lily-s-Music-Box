@@ -134,4 +134,6 @@ maze/pursuer/hazard owners invariant. Proof:
 DO-3 remains broader than this slice: flora, incarnations and eventually
 co-present hazards need distinct interpretations without pairwise directors.
 DO-4 is closed by the production sequence above; it is still not a waking
-case loop. DO-D1's hidden branch `grow` ramp remains separate debt.
+case loop. DO-D1 is also closed: secondary-branch `grow` remains 1.0 for its
+whole life and `unfold` alone carries separation and return. The constructed
+§12 proof holds birth data, radius and folded-axis distance and passes 59/59.
