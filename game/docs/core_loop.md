@@ -202,6 +202,22 @@ authored evidence. A legacy close means the grille was found and opened, not
 that the new capsule repair happened. Migration never overwrites an authored
 job and retires the legacy record after a successful adoption.
 
+## Maintenance teaches the Dream's verbs
+
+The temporal-biology ruling does not change a maintenance job's historical
+owner or factual repair. Instead, period mechanisms teach a small transferable
+vocabulary—pressure, continuity, timing, regulation, contact and flow—that the
+Dream later reuses in microscopic and higher-dimensional organs. This supports
+the campaign rhythm of maintenance, people/travel and Dream observation/
+avoidance/communication without turning a repair into supernatural exposition.
+
+A new activity should record its historically grounded mechanism and one such
+verb. It must remain completable and intelligible without Dream knowledge. A
+later Dream response may echo the verb, but cannot close the work order,
+replace the resident conversation, reveal an unresolved case truth or add a
+second persistence fact. Full anachronism and specimen gates are in
+`design/DREAM_TEMPORAL_BIOLOGY.md`.
+
 ## Adding the second case
 
 Adding JSON alone is not sufficient. The current director is intentionally a

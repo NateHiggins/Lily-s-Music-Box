@@ -39,6 +39,24 @@ broadcasts, hero `dream_event`, `DreamEcologyDirector` and
 record. Visual and behavioral diversity stays: different organelle classes
 have different roles, responses and hyperdimensional rules.
 
+## Temporal specimen doctrine — owner ruling 2026-08-24
+
+The being observes time as another spatial extent and can sample biological
+and technological sensing across eras and scales. It is building this ecology
+to understand our reality. Its strongest references are microscopic: neural
+growth, cilia, immune synapses, secretion, vesicle transport, quorum sensing,
+biomineral shells and distributed fungal/slime-mould routing. Later sensors,
+circuits and signal systems may inform the same organs because their era is not
+a perceptual barrier to her.
+
+This changes the source library, not the owner architecture. Every borrowed
+mechanism must be re-grown as anatomy and interpreted locally through the
+existing owners. It may not arrive as a future prop, generic cybernetic skin,
+new director, time-loop system or save fact. Complete temporal access does not
+mean human comprehension: the being can see outcomes while misunderstanding
+choice, consent, causality and emotional sequence. Full rules and gates are in
+`design/DREAM_TEMPORAL_BIOLOGY.md`.
+
 ## The model
 
 The Dream manifests at three connected levels. They are **not three unrelated

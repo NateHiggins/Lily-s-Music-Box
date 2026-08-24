@@ -344,6 +344,22 @@ numbers, behavior, art and render evidence stayed fixed, and
 suppression of surplus uptake is ruled homeostatic pruning, not predation; any
 future removal of that numeric relationship is a separate balance change.
 
+The owner ruled temporal biology on 2026-08-24. The Dream being experiences
+time as a fourth-dimensional extent and can sample life and technology across
+eras and higher-dimensional space while trying to understand human reality.
+Her preferred source material is microscopic sensing and regulation. The
+guardrail is **complete access, incomplete interpretation**: observations are
+re-grown as organs through observation → misreading → embodiment, never placed
+as arbitrary future props or used to reveal unearned case truth, predict a
+choice, time-travel or rewrite save facts. Waking Orison remains historically
+strict; only bounded encroachment evidence may mistranslate a later specimen
+through an existing period object. Binding doctrine and per-case relevance:
+`design/DREAM_TEMPORAL_BIOLOGY.md`; implementation ladder: TASKS T4-0–T4-4.
+Juno is the first recommended proof because her approved feedback partitions
+already join tympanic/cochlear delay, period radio and later array sensing
+without changing her truth or any maze owner. Do not interrupt DO-4's
+production proof to rebuild approved topology.
+
 Three top-level projects:
 
 | Path | What |

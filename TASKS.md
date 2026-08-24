@@ -2292,6 +2292,40 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   folded-anatomy doctrine. Remove or reinterpret that ramp before any camera,
   LOD or interaction can expose it; prove fixed arc/volume through birth.
 
+### T4 — TEMPORAL BIOLOGY AND CONTROLLED ANACHRONISM (owner ruling 2026-08-24)
+
+- **T4-0 CANON LOCKED.** The Dream being perceives time as a fourth-dimensional
+  extent and can observe life and technology across eras and exotic higher
+  space. She grows sensory life from those specimens, leaning heavily on
+  microscopic mechanisms. The governing limitation is **complete access,
+  incomplete interpretation**: no unearned case truth, prophecy, time travel,
+  retroactive state or arbitrary future prop. Waking Orison remains 1927
+  except for bounded encroachment evidence on existing historical objects.
+  Binding doctrine: `design/DREAM_TEMPORAL_BIOLOGY.md`.
+- **T4-1 OPEN — SPECIMEN LEDGER.** Audit each landed Dream organ family and
+  record its real biological/technical specimen, scale/era, organelle function
+  and the being's specific misreading. This is classification first, not a
+  mandate to change approved art. Feed any genuine gaps into DO-3 after DO-4's
+  production proof is stable.
+- **T4-2 OPEN — FIRST TEMPORAL SENSORY PROOF.** Use Juno's already-approved
+  delayed feedback grammar as the first bounded example: tympanic/cochlear
+  delay, 1920s radio feedback and later array sensing re-grown as one organic
+  listening response. Preserve her topology, timing, pursuit, hazards and
+  truth (`connection requires an open channel`). No screen, brand, future prop
+  or new owner. Require fixed-camera production render, frozen A/A and a named
+  visible anatomical response.
+- **T4-3 OPEN — MAINTENANCE TEACHES THE VERBS.** For each maintenance activity,
+  tag the historically researched mechanism with one transferable verb such
+  as pressure, continuity, timing, regulation, contact or flow. Dream organs
+  may later reuse the verb at microscopic/impossible scale, but the waking
+  minigame remains factual and never explains the supernatural theory. This
+  supports the ruled one-third maintenance / one-third people-and-travel /
+  one-third Dream observation-avoidance-communication rhythm.
+- **T4-4 OPEN — TEMPORAL EVIDENCE GATE.** Any new anachronistic element must
+  document observation → misreading → embodiment, its existing runtime owner,
+  its case-truth safety and its no-save/no-time-loop boundary. Reject arbitrary
+  future silhouettes and decorative cybernetics even when visually attractive.
+
 - **DE-§12 STEPS 8/9 INTEGRATED 2026-08-24.** Cherry-picked isolated commit
   `2bb81cf` as `90377f0`: secondary-branch cilia deploy as fixed-length folded
   anatomy, task completion owns a real beat, and retraction/folding follow it

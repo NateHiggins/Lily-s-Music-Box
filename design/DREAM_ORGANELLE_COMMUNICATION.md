@@ -7,6 +7,14 @@ electrical excitation or inhibition, secretion across a cleft, transport,
 repair and resource allocation. Local agency is local regulation, not a
 separate creature, faction or predator.
 
+The being chooses these organs from observations made across the whole fourth
+dimension and higher-dimensional space. A dendrite, radio diaphragm, later
+antenna array and fungal front may be simultaneous specimens to her, but each
+must be re-grown as a biological sensing or communication function. This
+expands the visual/behavioral source library without changing the transient
+packet contract or granting omniscient case knowledge. See
+`design/DREAM_TEMPORAL_BIOLOGY.md`.
+
 ## Owner-order rulings
 
 1. Existing fauna trophic behaviour is preserved, with its former

@@ -375,6 +375,17 @@ communicate or help can remain dangerous because it does not understand human
 biology or three-dimensional limits. Local autonomy preserves the functioning
 ecology; rare global attention reveals the single mind behind it.
 
+**Temporal perception ruling, 2026-08-24.** The being can inspect time as a
+fourth-dimensional extent and exotic higher-dimensional space. She observes
+living and made systems across eras and scales, especially microscopic life,
+then grows sensory organs from imperfect analogies between them. This licenses
+careful Dream anachronism, not arbitrary future props: access is complete but
+interpretation is not. She cannot disclose unearned case truth, settle a
+future choice, rewrite history or alter committed facts. Waking Orison remains
+historically strict except for bounded encroachment evidence on existing
+objects. The binding translation and production gates are in
+`design/DREAM_TEMPORAL_BIOLOGY.md`.
+
 **● carries a case (§IV.1). ○ sanctioned expansion. Everyone else is a tenant
 of this building without a chapter of their own — case-less, never absent.**
 
@@ -398,6 +409,7 @@ and the desk fiction; she has no body in the building.
 | What to do next, in order | `design/next_session_plan.md` (sequences under the plan) |
 | Known defects | `design/walkthrough_punchlist.md` |
 | Canon: premise, cast identity, laws, disputes | **this bible** |
+| Dream temporal perception and anachronistic specimen gates | `design/DREAM_TEMPORAL_BIOLOGY.md` |
 | Who is bound to whom, and by what | `design/ORISON_RELATIONSHIP_WEB.md` (threads tentative until their case's gameplay review) |
 | The animation repertoire, by skeleton family | `game/data/move_repertoire.json` |
 | Faces and visual language | `art/concept/characters/CHARACTER_BIBLE.md` + the four boards |
@@ -910,6 +922,12 @@ record, but they cannot launder invented history into fact.
 signal is narrow on purpose. If an object is not carrying a signal, it
 is 1927, it is second-hand, and it is probably a bit broken. A jet
 engine is not permitted because somebody invented a good microphone.
+
+The Dream's temporal-perception ruling does not weaken this waking rule. It
+governs how the higher-dimensional being grows organs from observations across
+time; it does not place future consumer technology in Orison. Only bounded
+encroachment evidence may mistranslate those observations through an existing
+historical object, under `design/DREAM_TEMPORAL_BIOLOGY.md`.
 
 And per Accord 9, **ordinary decay still outranks spectacle**. A world
 forty years ahead in signal is not a world of gleaming devices — it is a

@@ -293,6 +293,14 @@ The dream does not buy a monster model.
 This realizes “wears the subject's shadow” literally while preventing a
 temporary graybox mesh from becoming a canonical true form.
 
+The Tenant's higher-dimensional access also includes time as an extent. Dream
+anachronism therefore comes from specimens she can observe across eras, not
+from random genre collage. Any later technology must be mistranslated into
+organic sensing, regulation or space—never placed as a clean future prop or
+used to reveal an unearned case truth. The waking 1927 baseline and approved
+maze/profile ownership remain unchanged. Binding rules:
+`design/DREAM_TEMPORAL_BIOLOGY.md`.
+
 **Who she is, ruled 2026-08-18: see `design/THE_TENANT.md`.** She is a
 higher-dimensional consciousness, she/her, wanted for public indecency,
 extremely dangerous, easily embarrassed. That characterisation is not colour
