@@ -228,7 +228,8 @@ func _run()->void:
 			str(button_report.get("batch",""))=="GildersButtons"
 			and button_text.begins_with("FAUNA Gilder's Button")
 			and button_text.contains("gold_gain ")
-			and button_text.contains("flags [PEARL_COLONY]")
+			and button_text.contains("PEARL_COLONY")
+			and button_text.contains("flags [")
 			and DreamFaunaDirector.inspection_text({})
 					=="fauna: none under the crosshair")
 	var birth_frames:=0

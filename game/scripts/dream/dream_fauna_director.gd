@@ -35,6 +35,42 @@ const SKIN_REPEAT := {0: Vector2(1.0, 1.0), 1: Vector2(1.0, 1.0),
 ## so a crosshair that brushes a creature still names it without a collider.
 const INSPECT_CONE_TAN := 0.06
 
+## LC-3A — ANALYTICAL COHORT ADDRESSES.
+##
+## A realized slot needs a name that later receptors can hold without anybody
+## instancing a node for it. The name is derived, not stored: room key, family
+## motif, slot index and cohort generation are all facts the director already
+## computes every refresh, so the same slot re-derives the same address for as
+## long as that cohort lives, and a genuinely new generation renames it.
+##
+## No Node, Object, collision body, agent, route or save identity is created by
+## any of this. `_cohorts` below holds one integer per realized slot purely to
+## notice the generation EDGE; it is not a second realization record.
+const ADDRESS_SEPARATOR := "/"
+const ADDRESS_GENERATION := "#"
+
+## Staggering. Two low-discrepancy strides -- the golden-ratio conjugate along
+## slots and sqrt(5)-2 across families -- so no two slots in a room share a
+## phase and no family pulses in lockstep with another. Irrational strides are
+## the point: any rational one puts slots back in step at a fixed period.
+const COHORT_SLOT_STRIDE := 0.6180339887498949
+const COHORT_FAMILY_STRIDE := 0.2360679774997897
+
+## LC-4A — VISIT-PERSISTENT STAIN MEMORY, BOUNDED.
+##
+## A stain is a mechanical impression, not geometry: room, position, motif, the
+## analytical address of the cohort that died, and a two-value genome trace.
+## Repeated deaths at one address COALESCE into that one impression rather than
+## growing a corpse list, so the record is bounded by realized slots and not by
+## elapsed time. Both caps evict deterministically (oldest generation first,
+## then motif, then slot) so two identical runs evict identically.
+##
+## They survive room streaming, they are keyed by room so a revisit returns the
+## same impressions, and they die with the director. They never reach
+## `RealityState`, the room plan, maze data or any Resource.
+const STAIN_PER_ROOM_CAP := 24
+const STAIN_TOTAL_CAP := 96
+
 var rooms: DreamRoomBuilder
 var player: Node3D
 var pursuer: Node3D
@@ -59,6 +95,17 @@ var _densities: Dictionary = {}
 ## identity/default for every instance). It is the director's own record of
 ## its own submission, at most MAX_INSTANCES rows, never a node.
 var _records: Dictionary = {}
+## LC-3A: `"<room>/<motif>/<slot>" -> last observed generation`. One integer per
+## realized slot, used only to notice that a cohort completed a life. Bounded by
+## MAX_INSTANCES; never a node, never saved.
+var _cohorts: Dictionary = {}
+## LC-4A: `room_key -> Array[Dictionary]` of coalesced stain impressions.
+## Deliberately NOT cleared by `_sync_densities`: a room leaving the live pocket
+## must not forget what died in it during this visit.
+var _stains: Dictionary = {}
+var _stain_total := 0
+var _stains_recorded := 0
+var _stains_evicted := 0
 
 func setup(room_owner: DreamRoomBuilder, body: Node3D, tenant: Node3D,
 		exposure_owner: DreamExposureField) -> void:
@@ -162,6 +209,19 @@ func refresh() -> void:
 	var anemone_custom: Array[Color] = []
 	var ribbon_custom: Array[Color] = []
 	var loupe_custom: Array[Color] = []
+	# LC-3A. One address per realized slot, in submission order, plus the
+	# derived life it was submitted with. Parallel to the arrays above and
+	# stored on the same record; not a second realization owner.
+	var button_addr: Array[String] = []
+	var tess_addr: Array[String] = []
+	var anemone_addr: Array[String] = []
+	var ribbon_addr: Array[String] = []
+	var loupe_addr: Array[String] = []
+	var button_life: Array[Dictionary] = []
+	var tess_life: Array[Dictionary] = []
+	var anemone_life: Array[Dictionary] = []
+	var ribbon_life: Array[Dictionary] = []
+	var loupe_life: Array[Dictionary] = []
 	var hushed_count := 0
 	var submerged_count := 0
 	var loupe_room: Dictionary = {}
@@ -187,7 +247,9 @@ func refresh() -> void:
 				pursuer.global_position.distance_to(frame)) < HUSH_RADIUS
 		var lineage: Dictionary = room.get("lineage", {})
 		var phase := fposmod(float(lineage.get("phase", 0.0)), TAU) / TAU
-		var state: Dictionary = _densities[str(room.get("key", ""))]
+		var room_key := str(room.get("key", ""))
+		var state: Dictionary = _densities[room_key]
+		var room_life: Dictionary = state.lifecycle
 		var allotted := float(state.allocation)
 		var button_count := 1 + int(round(allotted * 3.0))
 		var tess_count := 1 + int(round(float(state.uptake) * 4.0))
@@ -202,10 +264,18 @@ func refresh() -> void:
 			var at := centre + Vector3(cos(a)*0.72, 0.025, sin(a)*0.72)
 			button_xforms.append(Transform3D(Basis().scaled(
 					Vector3(0.20, 0.035, 0.20)), at))
+			var b_life := cohort_state(room_life, 0, i)
+			var b_hue := _genome(phase, i,
+					_genome_salt(0.37, int(b_life.reproduction)))
+			var b_pattern := _genome(phase, i,
+					_genome_salt(0.71, int(b_life.reproduction)))
+			button_life.append(b_life)
+			button_addr.append(_observe_cohort(room_key, 0, i, at,
+					int(b_life.generation), Vector2(b_hue, b_pattern)))
 			button_custom.append(DreamFaunaChannels.encode(phase, allotted,
 					allotted,
-					DreamFaunaChannels.FLAG_PEARL_COLONY, 0.0,
-					_genome(phase, i, 0.37), _genome(phase, i, 0.71)))
+					DreamFaunaChannels.FLAG_PEARL_COLONY | int(b_life.flags), 0.0,
+					b_hue, b_pattern))
 		for i in tess_count:
 			if _total_instances(button_xforms,tess_xforms,anemone_xforms,
 					ribbon_xforms,loupe_xforms) >= MAX_INSTANCES: break
@@ -224,10 +294,19 @@ func refresh() -> void:
 			var size := 0.82 + 0.08 * float(i % 3)
 			tess_xforms.append(Transform3D(Basis().scaled(
 					Vector3(size, size * 0.72, size)), at))
+			var t_life := cohort_state(room_life, 1, i)
 			var tess_flags := DreamFaunaChannels.FLAG_HUSH if hush else 0
+			tess_flags |= int(t_life.flags)
+			var t_hue := _genome(phase, i,
+					_genome_salt(1.13, int(t_life.reproduction)))
+			var t_pattern := _genome(phase, i,
+					_genome_salt(1.79, int(t_life.reproduction)))
+			tess_life.append(t_life)
+			tess_addr.append(_observe_cohort(room_key, 1, i, at,
+					int(t_life.generation), Vector2(t_hue, t_pattern)))
 			tess_custom.append(DreamFaunaChannels.encode(phase+float(i)*0.11,
 					allotted, emergence, tess_flags, 0.0 if hush else 1.0,
-					_genome(phase, i, 1.13), _genome(phase, i, 1.79)))
+					t_hue, t_pattern))
 		for i in anemone_count:
 			if _total_instances(button_xforms,tess_xforms,anemone_xforms,
 					ribbon_xforms,loupe_xforms) >= MAX_INSTANCES: break
@@ -236,11 +315,19 @@ func refresh() -> void:
 			at.y = -0.12 if hush else 0.10
 			if hush: submerged_count += 1
 			anemone_xforms.append(Transform3D(Basis().scaled(Vector3.ONE*1.12),at))
+			var a_life := cohort_state(room_life, 2, i)
 			var anemone_flags := DreamFaunaChannels.FLAG_HUSH if hush else 0
+			anemone_flags |= int(a_life.flags)
+			var a_hue := _genome(phase, i,
+					_genome_salt(2.11, int(a_life.reproduction)))
+			var a_pattern := _genome(phase, i,
+					_genome_salt(2.73, int(a_life.reproduction)))
+			anemone_life.append(a_life)
+			anemone_addr.append(_observe_cohort(room_key, 2, i, at,
+					int(a_life.generation), Vector2(a_hue, a_pattern)))
 			anemone_custom.append(DreamFaunaChannels.encode(phase+float(i)*0.09,
 					1.0-allotted, float(state.reclaimable), anemone_flags,
-					0.0 if hush else 1.0, _genome(phase, i, 2.11),
-					_genome(phase, i, 2.73)))
+					0.0 if hush else 1.0, a_hue, a_pattern))
 		for i in ribbon_count:
 			if _total_instances(button_xforms,tess_xforms,anemone_xforms,
 					ribbon_xforms,loupe_xforms) >= MAX_INSTANCES: break
@@ -249,15 +336,24 @@ func refresh() -> void:
 			if hush: at=frame+Vector3(0.0,-0.20,0.0); submerged_count+=1
 			ribbon_xforms.append(Transform3D(Basis(Vector3.UP,a).scaled(
 					Vector3.ONE*(1.18+float(i)*0.06)),at))
+			var r_life := cohort_state(room_life, 3, i)
 			var ribbon_flags := DreamFaunaChannels.FLAG_SIGNALLING
 			if hush: ribbon_flags |= DreamFaunaChannels.FLAG_HUSH
+			ribbon_flags |= int(r_life.flags)
+			var r_hue := _genome(phase, i,
+					_genome_salt(3.17, int(r_life.reproduction)))
+			var r_pattern := _genome(phase, i,
+					_genome_salt(3.91, int(r_life.reproduction)))
+			ribbon_life.append(r_life)
+			ribbon_addr.append(_observe_cohort(room_key, 3, i, at,
+					int(r_life.generation), Vector2(r_hue, r_pattern)))
 			ribbon_custom.append(DreamFaunaChannels.encode(phase+float(i)*0.17,
 					float(state.uptake), allotted, ribbon_flags,
-					0.0 if hush else 1.0, _genome(phase, i, 3.17),
-					_genome(phase, i, 3.91)))
+					0.0 if hush else 1.0, r_hue, r_pattern))
 		if float(state.reclamation)>loupe_strength:
 			loupe_strength=float(state.reclamation)
-			loupe_room={"centre":centre,"frame":frame,"phase":phase,"hush":hush}
+			loupe_room={"centre":centre,"frame":frame,"phase":phase,"hush":hush,
+					"key":room_key,"life":room_life}
 		var room_rows: Array[String] = []
 		for i in range(button_start, button_xforms.size()):
 			room_rows.append("b:%s:%s" % [button_xforms[i].origin, button_custom[i]])
@@ -273,18 +369,26 @@ func refresh() -> void:
 		var at:Vector3=loupe_room.frame.lerp(loupe_room.centre,0.68)
 		if bool(loupe_room.hush): at=loupe_room.frame+Vector3(0.0,-0.38,0.0); submerged_count+=1; hushed_count+=1
 		loupe_xforms.append(Transform3D(Basis(Vector3.UP,float(loupe_room.phase)*TAU),at))
+		var l_life := cohort_state(loupe_room.life, 4, 0)
 		var loupe_flags := DreamFaunaChannels.FLAG_CAMERA_TRACKER
 		if bool(loupe_room.hush): loupe_flags |= DreamFaunaChannels.FLAG_HUSH
+		loupe_flags |= int(l_life.flags)
+		var l_hue := _genome(float(loupe_room.phase), 0,
+				_genome_salt(4.19, int(l_life.reproduction)))
+		var l_pattern := _genome(float(loupe_room.phase), 0,
+				_genome_salt(4.83, int(l_life.reproduction)))
+		loupe_life.append(l_life)
+		loupe_addr.append(_observe_cohort(str(loupe_room.key), 4, 0, at,
+				int(l_life.generation), Vector2(l_hue, l_pattern)))
 		loupe_custom.append(DreamFaunaChannels.encode(float(loupe_room.phase),loupe_strength,
 				loupe_strength, loupe_flags,
 				0.0 if bool(loupe_room.hush) else 1.0,
-				_genome(float(loupe_room.phase), 0, 4.19),
-				_genome(float(loupe_room.phase), 0, 4.83)))
-	_apply(_buttons, button_xforms, button_custom)
-	_apply(_tessellates, tess_xforms, tess_custom)
-	_apply(_anemones,anemone_xforms,anemone_custom)
-	_apply(_ribbonettes,ribbon_xforms,ribbon_custom)
-	_apply(_loupe,loupe_xforms,loupe_custom)
+				l_hue, l_pattern))
+	_apply(_buttons, button_xforms, button_custom, button_addr, button_life)
+	_apply(_tessellates, tess_xforms, tess_custom, tess_addr, tess_life)
+	_apply(_anemones,anemone_xforms,anemone_custom,anemone_addr,anemone_life)
+	_apply(_ribbonettes,ribbon_xforms,ribbon_custom,ribbon_addr,ribbon_life)
+	_apply(_loupe,loupe_xforms,loupe_custom,loupe_addr,loupe_life)
 	_signature = _realization_signature(button_xforms, button_custom,
 			tess_xforms, tess_custom)+_realization_signature(anemone_xforms,
 			anemone_custom,ribbon_xforms,ribbon_custom)+str(loupe_xforms)+str(loupe_custom)
@@ -317,6 +421,297 @@ func realization_signature() -> String: return _signature
 
 func room_signature(room_key: String) -> String:
 	return str(_room_signatures.get(room_key, ""))
+
+## --- LC-3A: analytical identity -------------------------------------------
+
+## The address of one cohort. Pure formatting; it allocates nothing and looks
+## nothing up.
+static func cohort_address(room_key: String, motif: int, slot: int,
+		generation: int) -> String:
+	return "%s%s%d%s%d%s%d" % [room_key, ADDRESS_SEPARATOR, motif,
+			ADDRESS_SEPARATOR, slot, ADDRESS_GENERATION, generation]
+
+
+## The stable part of an address -- everything except the generation. Two
+## cohorts that occupied the same slot in the same room share this and differ
+## only after the "#".
+static func cohort_lineage(room_key: String, motif: int, slot: int) -> String:
+	return "%s%s%d%s%d" % [room_key, ADDRESS_SEPARATOR, motif,
+			ADDRESS_SEPARATOR, slot]
+
+
+static func parse_cohort_address(address: String) -> Dictionary:
+	var hash_at := address.rfind(ADDRESS_GENERATION)
+	if hash_at < 0:
+		return {}
+	var head := address.substr(0, hash_at)
+	var generation := address.substr(hash_at + 1)
+	if not generation.is_valid_int():
+		return {}
+	var slot_at := head.rfind(ADDRESS_SEPARATOR)
+	if slot_at < 0:
+		return {}
+	var motif_at := head.rfind(ADDRESS_SEPARATOR, slot_at - 1)
+	if motif_at < 0:
+		return {}
+	var motif := head.substr(motif_at + 1, slot_at - motif_at - 1)
+	var slot := head.substr(slot_at + 1)
+	if not motif.is_valid_int() or not slot.is_valid_int():
+		return {}
+	return {"room_key": head.substr(0, motif_at), "motif": int(motif),
+			"slot": int(slot), "generation": int(generation),
+			"lineage": head}
+
+
+## Where this slot sits in its own life relative to the room's. Deterministic
+## in (motif, slot) alone, so it is the same on every refresh and in every
+## process.
+static func slot_phase_offset(motif: int, slot: int) -> float:
+	return fposmod(float(motif) * COHORT_FAMILY_STRIDE
+			+ float(slot) * COHORT_SLOT_STRIDE, 1.0)
+
+
+## BUD and JUVENILE reuse the landed BIRTHING flag; SHED and STAIN reuse
+## REABSORBING. No new presentation channel is introduced, and a flag changing
+## is not by itself a claim that the stage reads on screen.
+static func stage_flags(stage: int) -> int:
+	if stage == LIFECYCLE.Stage.BUD or stage == LIFECYCLE.Stage.JUVENILE:
+		return DreamFaunaChannels.FLAG_BIRTHING
+	if stage == LIFECYCLE.Stage.SHED or stage == LIFECYCLE.Stage.STAIN:
+		return DreamFaunaChannels.FLAG_REABSORBING
+	return 0
+
+
+## One slot's life, derived from the room's. The offset can carry a slot past
+## the end of the room's current life, which is exactly the stagger: that slot
+## is already one generation ahead. The room's own wrap then keeps the slot's
+## progress and generation continuous rather than jumping.
+static func cohort_state(room_lifecycle: Dictionary, motif: int,
+		slot: int) -> Dictionary:
+	var progress := clampf(float(room_lifecycle.get("progress", 0.0)), 0.0, 1.0)
+	progress += slot_phase_offset(motif, slot)
+	var ahead := 0
+	while progress >= 1.0:
+		progress -= 1.0
+		ahead += 1
+	var stage: int = LIFECYCLE.stage_at(progress)
+	return {
+		"progress": progress,
+		"stage": stage,
+		"stage_name": LIFECYCLE.stage_name(stage),
+		"generation": int(room_lifecycle.get("generation", 0)) + ahead,
+		"reproduction": int(room_lifecycle.get("reproduction",
+				LIFECYCLE.Reproduction.QUIESCENT)),
+		"flags": stage_flags(stage),
+		"anatomy_scale": LIFECYCLE.anatomy_scale(stage),
+	}
+
+
+## Reproduction changes the pattern a cohort wears and nothing else. It is
+## folded into the genome salt only -- never into count, transform, scale,
+## flag, function or any gameplay fact.
+static func _genome_salt(base: float, reproduction: int) -> float:
+	return base + float(reproduction) * 0.0770
+
+
+## Notice this realized slot, and notice if the cohort that used to hold it has
+## since completed a life. Returns the current address.
+func _observe_cohort(room_key: String, motif: int, slot: int, at: Vector3,
+		generation: int, genome: Vector2) -> String:
+	var lineage := cohort_lineage(room_key, motif, slot)
+	var seen := int(_cohorts.get(lineage, -1))
+	if seen >= 0 and generation > seen:
+		_record_stain(room_key, motif, slot, at,
+				cohort_address(room_key, motif, slot, seen), genome,
+				generation - seen, generation - 1)
+	_cohorts[lineage] = generation
+	return cohort_address(room_key, motif, slot, generation)
+
+
+## --- LC-4A: visit-persistent stain memory ---------------------------------
+
+func _record_stain(room_key: String, motif: int, slot: int, at: Vector3,
+		parent: String, genome: Vector2, deaths: int,
+		generation: int) -> void:
+	var list: Array = _stains.get(room_key, [])
+	for impression in list:
+		if int(impression.motif) != motif or int(impression.slot) != slot:
+			continue
+		# Coalesce. One impression per lineage, however many lives end on it.
+		impression.deaths = int(impression.deaths) + maxi(1, deaths)
+		impression.at = at
+		impression.parent = parent
+		impression.genome = genome
+		impression.generation = generation
+		_stains_recorded += 1
+		return
+	list.append({
+		"room_key": room_key,
+		"motif": motif,
+		"slot": slot,
+		"at": at,
+		"parent": parent,
+		"genome": genome,
+		"deaths": maxi(1, deaths),
+		"generation": generation,
+	})
+	_stains[room_key] = list
+	_stain_total += 1
+	_stains_recorded += 1
+	_enforce_stain_caps(room_key)
+
+
+## Deterministic in every branch: the per-room cap drops this room's oldest, and
+## the global cap drops from the largest room (lowest key on a tie) so the same
+## run always evicts the same impressions in the same order.
+func _enforce_stain_caps(touched_room: String) -> void:
+	while int((_stains.get(touched_room, []) as Array).size()) > STAIN_PER_ROOM_CAP:
+		_drop_oldest_stain(touched_room)
+	while _stain_total > STAIN_TOTAL_CAP:
+		var widest := ""
+		var widest_size := -1
+		var keys: Array = _stains.keys()
+		keys.sort()
+		for key in keys:
+			var size: int = (_stains[key] as Array).size()
+			if size > widest_size:
+				widest_size = size
+				widest = str(key)
+		if widest.is_empty() or widest_size <= 0:
+			return
+		_drop_oldest_stain(widest)
+
+
+## Total order over impressions: oldest generation first, then motif, then
+## slot. Packed into one integer so the comparison cannot depend on Variant
+## array-compare semantics.
+static func _stain_order(impression: Dictionary) -> int:
+	return int(impression.generation) * 1000000 			+ int(impression.motif) * 1000 + int(impression.slot)
+
+
+func _drop_oldest_stain(room_key: String) -> void:
+	var list: Array = _stains.get(room_key, [])
+	if list.is_empty():
+		return
+	var victim := 0
+	for i in range(1, list.size()):
+		var a: Dictionary = list[i]
+		var b: Dictionary = list[victim]
+		if _stain_order(a) < _stain_order(b):
+			victim = i
+	list.remove_at(victim)
+	_stain_total -= 1
+	_stains_evicted += 1
+	if list.is_empty():
+		_stains.erase(room_key)
+	else:
+		_stains[room_key] = list
+
+
+## --- LC-3A/LC-4A read-only queries ----------------------------------------
+## Narrow, bounded and non-mutating. They exist so tests and later LC-5
+## receptors can hold an address without anybody instancing a body for it.
+
+## Every address the named batch was last handed, in submission order.
+func addresses_for_batch(batch_name: String) -> PackedStringArray:
+	var rows: Dictionary = _records.get(batch_name, {})
+	var out := PackedStringArray()
+	for address in (rows.get("addresses", []) as Array):
+		out.append(str(address))
+	return out
+
+
+## Resolve one address against the current submission. Empty when that cohort
+## is not currently realized -- an address is a name, not a guarantee.
+func cohort_at(address: String) -> Dictionary:
+	for batch_name in _records:
+		var rows: Dictionary = _records[batch_name]
+		var addresses: Array = rows.get("addresses", [])
+		var index := addresses.find(address)
+		if index < 0:
+			continue
+		var parsed := parse_cohort_address(address)
+		var xforms: Array = rows.get("xforms", [])
+		var custom: Array = rows.get("custom", [])
+		if index >= xforms.size() or index >= custom.size():
+			return {}
+		var lives: Array = rows.get("life", [])
+		var life: Dictionary = {}
+		if index < lives.size():
+			life = lives[index]
+		return {
+			"address": address,
+			"batch": batch_name,
+			"index": index,
+			"room_key": str(parsed.get("room_key", "")),
+			"motif": int(parsed.get("motif", -1)),
+			"slot": int(parsed.get("slot", -1)),
+			"generation": int(parsed.get("generation", -1)),
+			"position": (xforms[index] as Transform3D).origin,
+			"scale": (xforms[index] as Transform3D).basis.get_scale(),
+			"custom_raw": custom[index],
+			"channels": DreamFaunaChannels.decode(custom[index]),
+			"life": life,
+		}
+	return {}
+
+
+## Bounded enumeration. `limit` caps the answer; a non-positive limit means the
+## realized ceiling, never "unbounded".
+func cohorts_in_room(room_key: String, limit := 0) -> Array:
+	return _enumerate_cohorts(room_key, -1, limit)
+
+
+func cohorts_of_family(motif: int, limit := 0) -> Array:
+	return _enumerate_cohorts("", motif, limit)
+
+
+func _enumerate_cohorts(room_key: String, motif: int, limit: int) -> Array:
+	var ceiling := limit if limit > 0 else MAX_INSTANCES
+	var out: Array = []
+	var batch_names: Array = _records.keys()
+	batch_names.sort()
+	for batch_name in batch_names:
+		var rows: Dictionary = _records[batch_name]
+		for address in (rows.get("addresses", []) as Array):
+			if out.size() >= ceiling:
+				return out
+			var parsed := parse_cohort_address(str(address))
+			if parsed.is_empty():
+				continue
+			if not room_key.is_empty() 					and str(parsed.room_key) != room_key:
+				continue
+			if motif >= 0 and int(parsed.motif) != motif:
+				continue
+			out.append(cohort_at(str(address)))
+	return out
+
+
+## The impressions this visit remembers for one room. Survives that room
+## leaving the live pocket and returns identically on revisit.
+func stains_in_room(room_key: String) -> Array:
+	return (_stains.get(room_key, []) as Array).duplicate(true)
+
+
+func stain_census() -> Dictionary:
+	var by_room := {}
+	var keys: Array = _stains.keys()
+	keys.sort()
+	for key in keys:
+		by_room[key] = (_stains[key] as Array).size()
+	return {"total": _stain_total, "rooms": _stains.size(),
+			"recorded": _stains_recorded, "evicted": _stains_evicted,
+			"per_room_cap": STAIN_PER_ROOM_CAP, "total_cap": STAIN_TOTAL_CAP,
+			"by_room": by_room}
+
+
+func cohort_census() -> Dictionary:
+	var addressed := 0
+	for batch_name in _records:
+		addressed += ((_records[batch_name] as Dictionary).get(
+				"addresses", []) as Array).size()
+	return {"addressed": addressed, "lineages": _cohorts.size()}
+
 
 func _sync_densities(live: Array) -> void:
 	var keep := {}
@@ -397,8 +792,11 @@ func _genome(phase: float, index: int, salt: float) -> float:
 	return fposmod(sin(phase * 91.7 + float(index) * 17.31 + salt) * 43758.5453,
 			1.0)
 
-func _apply(node: MultiMeshInstance3D, xforms: Array[Transform3D], custom: Array[Color]) -> void:
-	_records[node.name] = {"xforms": xforms, "custom": custom}
+func _apply(node: MultiMeshInstance3D, xforms: Array[Transform3D],
+		custom: Array[Color], addresses: Array[String] = [],
+		life: Array[Dictionary] = []) -> void:
+	_records[node.name] = {"xforms": xforms, "custom": custom,
+			"addresses": addresses, "life": life}
 	node.multimesh.instance_count = xforms.size()
 	for i in xforms.size():
 		node.multimesh.set_instance_transform(i, xforms[i])
@@ -572,6 +970,10 @@ func _describe_instance(batch: MultiMeshInstance3D, index: int,
 			if value != null:
 				material_facts[key] = value
 	var room_key := _room_key_at(centre)
+	var addresses: Array = rows.get("addresses", [])
+	var lives: Array = rows.get("life", [])
+	var address: String = str(addresses[index]) if index < addresses.size() else ""
+	var life: Dictionary = lives[index] if index < lives.size() else {}
 	var family := "unknown"
 	if motif >= 0 and motif < FAMILY_LABELS.size():
 		family = str(FAMILY_LABELS[motif])
@@ -592,6 +994,8 @@ func _describe_instance(batch: MultiMeshInstance3D, index: int,
 		"channels": decoded,
 		"flags": DreamFaunaChannels.flag_names(int(decoded.flags)),
 		"room_key": room_key,
+		"address": address,
+		"life": life,
 		"density": (_densities.get(room_key, {}) as Dictionary).duplicate(true),
 		"material": material_facts,
 		"shader": shader.resource_path if shader != null else "NULL",
