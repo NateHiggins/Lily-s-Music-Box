@@ -7,8 +7,11 @@ extends RefCounted
 ## remain with WorkOrders, RealityCases and the shared Dream owners.
 
 const DEFAULT_PATH := "res://data/maintenance_activities.json"
-const SCHEMA_VERSION := 1
+const SCHEMA_VERSION := 2
 const VERBS: Array[String] = ["turn", "align", "hold_release"]
+const TRANSFERABLE_VERBS: Array[String] = [
+	"pressure", "continuity", "timing", "regulation", "contact", "flow",
+]
 
 var activities: Dictionary = {}
 var errors: Array[String] = []
@@ -81,6 +84,10 @@ func _validate_activity(activity_id: String, record: Dictionary) -> void:
 	for field in ["title", "apparatus", "location_lane", "historical_source"]:
 		if str(record.get(field, "")).strip_edges().is_empty():
 			errors.append("%s: %s must be a non-empty string" % [activity_id, field])
+	var transferable_verb := str(record.get("transferable_verb", ""))
+	if transferable_verb not in TRANSFERABLE_VERBS:
+		errors.append("%s: transferable_verb must be one of %s"
+				% [activity_id, ", ".join(TRANSFERABLE_VERBS)])
 	var story: Variant = record.get("story")
 	if story is not Dictionary:
 		errors.append("%s: story must be a dictionary" % activity_id)

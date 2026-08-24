@@ -377,6 +377,14 @@ and waking technology are unchanged. `DreamProfileTest` passes 65/65,
 are at `art/renders/dream_temporal_juno_t4/README.md`. This remains downstream
 Dream proof, not Juno's waking loop.
 
+T4-3 is also closed at the data boundary. Maintenance activity schema v2 gives
+each researched waking apparatus one controlled transferable principle:
+radiator `flow`, annunciator `contact`, boiler column `pressure`. The library
+rejects anything outside pressure/continuity/timing/regulation/contact/flow;
+the tag creates no Dream, case or save owner. This does not make the lobby and
+basement profiles live apparatus—the Service Round production order remains
+authoritative.
+
 Three top-level projects:
 
 | Path | What |

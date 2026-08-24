@@ -10,6 +10,12 @@ func _ready() -> void:
 	_check(library.activity_ids() == (["annunciator_flag_service",
 			"boiler_water_column_test", "radiator_vent_service"] as Array[String]),
 			"the first round is apartment, lobby and basement")
+	_check({
+		"radiator_vent_service": "flow",
+		"annunciator_flag_service": "contact",
+		"boiler_water_column_test": "pressure",
+	} == _transferable_verbs(library),
+			"each period mechanism names one transferable physical verb")
 	for activity_id in library.activity_ids():
 		var activity := library.activity(activity_id)
 		var steps: Array = activity.steps
@@ -22,11 +28,33 @@ func _ready() -> void:
 					% [activity_id, str(step.id)])
 
 	_prove_run_contract(library)
+	_prove_temporal_boundary(library)
 	_prove_accessibility(library)
 	_prove_director_boundary(library)
 	print("MAINTENANCE ACTIVITY TEST: %s" %
 			("PASS" if failures == 0 else "FAIL (%d)" % failures))
 	get_tree().quit(failures)
+
+
+func _transferable_verbs(library: MaintenanceActivityLibrary) -> Dictionary:
+	var mapped := {}
+	for activity_id in library.activity_ids():
+		mapped[activity_id] = str(library.activity(activity_id).get(
+				"transferable_verb", ""))
+	return mapped
+
+
+func _prove_temporal_boundary(library: MaintenanceActivityLibrary) -> void:
+	var invalid := MaintenanceActivityLibrary.new()
+	var record := library.activity("radiator_vent_service")
+	record.transferable_verb = "prophecy"
+	invalid._validate_activity("bad_future_reading", record)
+	_check(not invalid.is_valid(),
+			"arbitrary future readings cannot enter the maintenance vocabulary")
+	_check(not library.activity("radiator_vent_service").has("dream_owner")
+			and not library.activity("radiator_vent_service").has("case_truth")
+			and not library.activity("radiator_vent_service").has("save_fact"),
+			"the waking tag creates no Dream, case or persistence owner")
 
 
 func _prove_run_contract(library: MaintenanceActivityLibrary) -> void:

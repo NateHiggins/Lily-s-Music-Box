@@ -2329,13 +2329,16 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   and `DreamIncarnationTest` 66/66. Proof:
   `art/renders/dream_temporal_juno_t4/README.md`. This extends the downstream
   Dream seam only, not Juno's waking case loop.
-- **T4-3 OPEN — MAINTENANCE TEACHES THE VERBS.** For each maintenance activity,
-  tag the historically researched mechanism with one transferable verb such
-  as pressure, continuity, timing, regulation, contact or flow. Dream organs
-  may later reuse the verb at microscopic/impossible scale, but the waking
-  minigame remains factual and never explains the supernatural theory. This
-  supports the ruled one-third maintenance / one-third people-and-travel /
-  one-third Dream observation-avoidance-communication rhythm.
+- **T4-3 COMPLETE 2026-08-24 — MAINTENANCE TEACHES THE VERBS.** Every authored
+  maintenance activity now carries exactly one validated physical principle:
+  radiator venting = `flow`, annunciator faces = `contact`, communicating
+  boiler column = `pressure`. The schema admits only pressure, continuity,
+  timing, regulation, contact and flow. These are factual waking tags, not
+  input verbs or supernatural exposition, and create no Dream, case or save
+  owner. `MaintenanceActivityTest` proves the mapping and rejects an arbitrary
+  future reading. This supports the ruled one-third maintenance / one-third
+  people-and-travel / one-third Dream observation-avoidance-communication
+  rhythm without claiming the other two Service Round apparatus are live.
 - **T4-4 OPEN — TEMPORAL EVIDENCE GATE.** Any new anachronistic element must
   document observation → misreading → embodiment, its existing runtime owner,
   its case-truth safety and its no-save/no-time-loop boundary. Reject arbitrary

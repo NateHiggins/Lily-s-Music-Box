@@ -1,11 +1,12 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "activities": {
     "radiator_vent_service": {
       "title": "LET THE RADIATOR BREATHE",
       "apparatus": "one-pipe steam radiator",
       "location_lane": "apartment",
       "historical_source": "Hoffman Specialty Company one-pipe radiator air-valve advertisement, House & Garden, October 1920",
+      "transferable_verb": "flow",
       "story": {
         "material": "Air must leave the cast sections before steam can enter them.",
         "human": "A resident has learned the building's moods from which radiator wakes first.",
@@ -27,6 +28,7 @@
       "apparatus": "porter's electromagnetic annunciator",
       "location_lane": "lobby",
       "historical_source": "E. E. Berthold apartment annunciator fixture, US 1,149,973, 1915",
+      "transferable_verb": "contact",
       "story": {
         "material": "A battery pulse trips a flag, rings a bell and can release the street door.",
         "human": "The porter once knew every caller by the particular violence of their bell.",
@@ -47,6 +49,7 @@
       "apparatus": "steam-boiler water column and low-water alarm",
       "location_lane": "basement",
       "historical_source": "J. A. Leavitt low-water alarm for steam boilers, US 1,364,287, filed 1920",
+      "transferable_verb": "pressure",
       "story": {
         "material": "The glass is useful only when both passages communicate honestly with the boiler.",
         "human": "Every caretaker left a different pencil mark for the level they trusted.",

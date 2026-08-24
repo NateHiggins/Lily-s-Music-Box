@@ -77,6 +77,13 @@ The first shared vocabulary is `turn`, `align`, `hold_release`. Precision and
 hold assists widen access without changing the authored sequence or its story.
 No diagnosis may rely on sound alone.
 
+Each profile also carries exactly one controlled `transferable_verb`. This is
+the physical principle the hands-on job teaches, not another input verb or a
+supernatural explanation. The first round maps radiator venting to `flow`, the
+annunciator's squared electrical faces to `contact`, and the communicating
+boiler column to `pressure`. Validation admits only pressure, continuity,
+timing, regulation, contact and flow; the tag owns no Dream, case or save fact.
+
 ## First Service Round
 
 Three profiles are authored in `game/data/maintenance_activities.json`:
