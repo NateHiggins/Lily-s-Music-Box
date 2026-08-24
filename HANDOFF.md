@@ -385,6 +385,19 @@ the tag creates no Dream, case or save owner. This does not make the lobby and
 basement profiles live apparatus—the Service Round production order remains
 authoritative.
 
+The owner next ruled accelerated lifecycles for every visible Dream organelle,
+environment-selected asexual/sexual/pansexual reproduction, visit-persistent
+beautiful/disturbing death stains, an alien moss/fungus primary food and a
+closed cold-ether breath. The one-body reconciliation and LC-1–LC-6 rollout
+are binding in `design/DREAM_ACCELERATED_LIFECYCLES.md` and TASKS. “Pansexual”
+means cross-morph organelle compatibility; offspring retain the receiving
+owner's function. Stains survive room streaming only for the current Dream and
+never enter `RealityState`. Do not build a breeding director or oxygen meter.
+LC-1 is already executable: `DreamOrganelleLifecycle` provides the ownerless
+eight-stage and environmental reproduction vocabulary, and its 14/14 test
+proves complete anatomy, the 45–150 second band, every reproductive mode and
+death-before-new-cohort stain accounting.
+
 Three top-level projects:
 
 | Path | What |

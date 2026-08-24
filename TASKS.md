@@ -2302,6 +2302,43 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   folded arc. `DreamMarginTest` passes 59/59. No art, timing, topology or owner
   changed.
 
+### LC — ACCELERATED ORGANELLE LIFECYCLES (owner ruling 2026-08-24)
+
+- **LC-0 CANON LOCKED.** Every visible Dream organelle traverses accelerated
+  folded/spore, bud, juvenile, mature, exchange, senescent, shed and stain/
+  reclaim stages. Small lives target roughly 45–150 seconds; large encounter
+  organs may hold stages for fairness. Local death is tissue withdrawal from
+  our section of one being, not the death of a separate animal. Binding
+  doctrine: `design/DREAM_ACCELERATED_LIFECYCLES.md`.
+- **LC-1 COMPLETE 2026-08-24 — PURE LIFECYCLE CONTRACT.** The ownerless
+  `DreamOrganelleLifecycle` classifies folded, bud, juvenile, mature,
+  exchange, senescent, shed and stain stages; all retain complete anatomy.
+  Food, ether, density, diversity and same/cross-class compatibility select
+  asexual, sexual, pansexual or quiescent reproduction. Small-organ lives are
+  clamped to 45–150 seconds; completed lives always increment the caller-owned
+  stain record before a permitted new cohort begins. The helper owns no node,
+  clock, world fact or persistence. `DreamOrganelleLifecycleTest` passes 14/14.
+- **LC-2 OPEN — CLOSED ETHER LEDGER.** Extend each live fauna-room density with
+  conserved ethermoss → ether vapour → living tissue → death stain →
+  ethermoss transfers. Gilder's Buttons are the mat's fruiting bodies; Wine
+  Anemones are reclamation mouths. Prove conservation and bounded rates.
+- **LC-3 OPEN — ACCELERATED FAUNA COHORTS.** Drive all five landed families
+  through staggered visible stages using the existing packed lifecycle and
+  birthing/reabsorbing channels. Reproduction changes cosmetic genome and
+  affinity only; it cannot change family function, collision or hazards.
+- **LC-4 OPEN — VISIT-PERSISTENT DEATH STAINS.** Coalesce dead-organ genome,
+  position and motif into bounded room memories that survive streaming for
+  the Dream visit, clear at waking and never enter `RealityState`. Render the
+  first stain through the existing Gilder batch before pricing any extra draw.
+- **LC-5 OPEN — ETHERMOSS AND BREATH PROOF.** Make the moss/fungus mat the
+  primary visible food and show cold ether exhalation, inhalation and return
+  through bounded existing field/material owners. Require unchanged A/A,
+  unreliable-lamp states, lifecycle sequence and performance measurement.
+- **LC-6 OPEN — ALL-ORGANELLE ROLLOUT.** Apply the shared stages through each
+  existing owner in order: flora; palp/cilia; hero; architecture; incarnation;
+  co-present pursuer/hazard. A stage vocabulary is not permission to move
+  encounter timing, topology, case truth or save ownership.
+
 ### T4 — TEMPORAL BIOLOGY AND CONTROLLED ANACHRONISM (owner ruling 2026-08-24)
 
 - **T4-0 CANON LOCKED.** The Dream being perceives time as a fourth-dimensional
