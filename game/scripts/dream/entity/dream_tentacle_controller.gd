@@ -424,7 +424,9 @@ func _tick(delta: float) -> void:
 	halo.update(ocular.position, ocular.gaze, ocular.openness, cam_pos, behavior.interest, delta)
 	var holding := grip if toggles.suckers else 0.0
 	suckers.update(rig, sensor.contact, sensor.contact_normal, holding, grow, delta)
-	membrane.update(behavior.membrane_tension if toggles.membrane else 0.0, grow,
+	membrane.update(behavior.membrane_tension if toggles.membrane else 0.0,
+			behavior.membrane_release, behavior.membrane_probe,
+			behavior.membrane_probe_depth,
 			DreamTentacleRig.radius_at(0.0) * 1.05, delta)
 	if toggles.surface_conversion and suckers.engaged_count > 0:
 		if transformer.touch(sensor.contact, sensor.contact_normal, grip, delta):

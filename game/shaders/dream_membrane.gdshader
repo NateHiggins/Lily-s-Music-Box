@@ -14,6 +14,11 @@ uniform float tension : hint_range(0.0, 1.0) = 0.0;
 // The tip's progress through: 0 behind the wall, 1 through; and its
 // radius at the plane (the ring it clings to).
 uniform float through : hint_range(0.0, 1.0) = 0.0;
+// The still-hidden club tests three places before it finds the dimensional
+// soft spot. Offset is in normalized disc coordinates; depth rises and falls
+// for each palpation without opening the membrane.
+uniform vec2 probe_offset = vec2(0.0);
+uniform float probe_depth : hint_range(0.0, 1.0) = 0.0;
 uniform float root_radius_m = 0.08;
 uniform vec3 membrane_tint : source_color = vec3(0.33, 0.09, 0.34);
 uniform vec3 gold_hot : source_color = vec3(1.0, 0.62, 0.18);
@@ -26,10 +31,12 @@ varying vec3 v_world;
 
 float mb_bulge(vec2 c) {
 	float r = length(c) * radius_m;
+	float probe_r = length(c - probe_offset) * radius_m;
 	// The bulge: a dome under tension, and the tip's own press — a rounder,
 	// narrower dome that grows and then passes through.
 	float dome = tension * 0.06 * exp(-r * r / 0.06);
-	float press = tension * (0.05 + 0.1 * through) * exp(-r * r / (0.004 + 0.01 * through));
+	float press = tension * probe_depth * (0.05 + 0.1 * through)
+			* exp(-probe_r * probe_r / (0.004 + 0.01 * through));
 	// Through: the membrane clings to the root as a ring, the centre
 	// sitting on the body.
 	float cling = through * 0.035 * exp(-pow(r - root_radius_m, 2.0) / 0.002);
@@ -60,7 +67,9 @@ void fragment() {
 	// Where it stretches thin it goes translucent and the gold behind
 	// shows through — the light of the thing inside before the thing.
 	float thin = smoothstep(0.25, 0.9, v_stretch);
-	float behind = tension * exp(-r * r * radius_m * radius_m / (0.01 + 0.02 * through));
+	float probe_r = length(c - probe_offset);
+	float behind = tension * probe_depth
+			* exp(-probe_r * probe_r * radius_m * radius_m / (0.01 + 0.02 * through));
 	float ndv = clamp(dot(normalize(NORMAL), normalize(VIEW)), 0.0, 1.0);
 	float hole = through * (1.0 - smoothstep(root_radius_m * 0.85, root_radius_m * 1.15, r * radius_m));
 	ALBEDO = mix(tissue, tissue * 0.6 + gold_hot * 0.2, thin);

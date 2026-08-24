@@ -2185,8 +2185,16 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   `DreamTentacleTest` is 22/22 (peak 1.00, 36 writes, 0.647 ms). A frozen
   same-process Forward+ A/A/treatment proves the bound production surface at
   `art/renders/dream_tentacle/dt5_field_pressure/README.md`: treatment RMSE is
-  10.81x the live-render floor. Behind-membrane search, progressive release
-  and the final six-beat production capture remain DT-5 work.
+  10.81x the live-render floor. **BOBBING/RELEASE LANDED 2026-08-24:** the first
+  56% of the unchanged 3.4 s emergence interval now carries three distinct
+  behind-membrane presses with full retreats and zero visible limb, then the
+  chosen soft spot releases monotonically on a curve independent of visible
+  length. `DreamTentacleTest` is 24/24 at 0.656 ms; one fixed-camera Forward+
+  production run captures all three press/retreat pairs, release 0.19/0.45/
+  0.68/0.94 and a 0.00000913426-RMSE frozen A/A control at
+  `art/renders/dream_tentacle/dt5_bobbing/README.md`. The full canonical
+  BULGE -> EMERGENCE -> SEEK -> CARESS -> FLINCH -> WITHDRAW production
+  sequence remains DT-5 work.
 
 ### CT — CRITTER SKINS (owner direction 2026-08-21)
 

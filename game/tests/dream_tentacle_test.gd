@@ -67,6 +67,51 @@ func _run() -> void:
 		r_max = maxf(r_max, p.x)
 	_check("the silhouette profile varies along the length (flatten %.2f twist %.2f radius %.2f..%.2f)"
 			% [flat_max, twist_max, r_min, r_max], flat_max > 0.3 and twist_max > 1.0 and r_max - r_min > 0.3)
+	# DT-5's emergence canon is deterministic behavior, so inspect it without
+	# asking a 4 Hz production polling loop to catch every short palpation.
+	var canon := DreamTentacleBehavior.new()
+	canon.anchor = Vector3.ZERO
+	canon.anchor_normal = Vector3.RIGHT
+	canon.contact = Vector3(1.0, 0.0, 0.0)
+	canon.tip = Vector3.ZERO
+	canon.configure(t.behavior_profile, true)
+	var probe_sites: Array[Vector2] = []
+	var probe_was_high := false
+	var probe_retreated := false
+	var hidden_while_searching := true
+	var release_mid := false
+	var release_monotonic := true
+	var last_release := 0.0
+	for _frame in 380:
+		canon.update(1.0 / 60.0)
+		if canon.state != DreamTentacleBehavior.S.EMERGING:
+			continue
+		if canon.membrane_probe_depth > 0.75:
+			probe_was_high = true
+			var distinct := true
+			for site in probe_sites:
+				if site.distance_to(canon.membrane_probe) < 0.10:
+					distinct = false
+			if distinct:
+				probe_sites.append(canon.membrane_probe)
+		if probe_was_high and canon.membrane_probe_depth < 0.12 \
+				and canon.membrane_release < 0.01:
+			probe_retreated = true
+		var emergence_fraction := canon.state_clock \
+				/ maxf(0.1, canon.profile.emerge_s)
+		if emergence_fraction < 0.56:
+			hidden_while_searching = hidden_while_searching and canon.grow < 0.001
+		if canon.membrane_release >= 0.01:
+			release_mid = release_mid or (canon.membrane_release > 0.15 \
+					and canon.membrane_release < 0.85)
+			release_monotonic = release_monotonic \
+					and canon.membrane_release + 0.0001 >= last_release
+			last_release = canon.membrane_release
+	_check("the hidden club presses, retreats and tries three membrane sites (%d)"
+			% probe_sites.size(), probe_sites.size() == 3 and probe_retreated
+			and hidden_while_searching)
+	_check("the chosen soft spot releases progressively", release_mid
+			and release_monotonic and last_release > 0.95)
 	# The states, in order: membrane bulge, emergence, orienting, seeking...
 	var seen: Array[String] = [t.state_name()]
 	var waited := 0.0

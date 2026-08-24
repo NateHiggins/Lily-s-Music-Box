@@ -43,6 +43,12 @@ var curl_target := 0.2
 var grip_target := 0.0
 var grow := 0.0
 var membrane_tension := 0.0
+## Where and how hard the still-hidden club is testing the membrane. Offset is
+## in the membrane's normalized tangent plane; release is the progressive
+## passage, owned here rather than inferred from visible limb length.
+var membrane_probe := Vector2.ZERO
+var membrane_probe_depth := 0.0
+var membrane_release := 0.0
 var eye_mode := "closed"
 var interest := 0.3
 var events: Array[String] = []
@@ -193,22 +199,60 @@ func _drive(_delta: float) -> void:
 	sampling = false
 	grip_target = 0.0
 	speed = 1.0
+	membrane_probe = Vector2.ZERO
+	membrane_probe_depth = 0.0
+	membrane_release = 1.0
 	match state:
 		S.DORMANT:
 			grow = 0.0
 			membrane_tension = 0.0
+			membrane_release = 0.0
 			tip_goal = anchor + anchor_normal * 0.05
 		S.MEMBRANE_BULGE:
 			grow = 0.0
 			membrane_tension = smoothstep(0.0, 1.0, state_clock / maxf(0.1, profile.membrane_bulge_s))
+			membrane_release = 0.0
 			tip_goal = anchor + anchor_normal * 0.12
 		S.EMERGING:
 			var e := clampf(state_clock / maxf(0.1, profile.emerge_s), 0.0, 1.0)
-			grow = smoothstep(0.0, 1.0, e)
-			membrane_tension = 1.0 - 0.5 * e
-			tip_goal = anchor + anchor_normal * (0.15 + 0.45 * e) + Vector3.UP * 0.08 * e
-			speed = 1.4
-			curl_target = 0.45 * (1.0 - e)
+			const SEARCH_END := 0.56
+			if e < SEARCH_END:
+				# Three palpations behind intact tissue. Each press rises and
+				# recedes before the hidden club chooses another soft spot.
+				var search := e / SEARCH_END
+				var cycle := minf(search * 3.0, 2.999)
+				var attempt := clampi(int(floor(cycle)), 0, 2)
+				var local := fmod(cycle, 1.0)
+				var sites := [Vector2(-0.38, 0.22), Vector2(0.32, -0.30),
+						Vector2(0.10, 0.04)]
+				membrane_probe = sites[attempt]
+				membrane_probe_depth = sin(local * PI)
+				membrane_release = 0.0
+				grow = 0.0
+				membrane_tension = 0.82 + membrane_probe_depth * 0.18
+				var n := anchor_normal.normalized()
+				var up_ref := Vector3.UP if absf(n.y) < 0.9 else Vector3.RIGHT
+				var tangent_x := up_ref.cross(n).normalized()
+				var tangent_y := n.cross(tangent_x).normalized()
+				tip_goal = anchor - n * (0.06 - membrane_probe_depth * 0.035) \
+						+ tangent_x * membrane_probe.x * 0.22 \
+						+ tangent_y * membrane_probe.y * 0.22
+				speed = 0.55
+				curl_target = 0.55
+			else:
+				# The third place yields. Length, release and weight do not share
+				# a switch: tissue lets go continuously as the club crosses it.
+				var q := clampf((e - SEARCH_END) / (1.0 - SEARCH_END), 0.0, 1.0)
+				grow = smoothstep(0.0, 1.0, q)
+				membrane_release = smoothstep(0.08, 0.92, q)
+				membrane_probe = Vector2(0.10, 0.04).lerp(Vector2.ZERO,
+						smoothstep(0.0, 0.75, q))
+				membrane_probe_depth = 1.0 - smoothstep(0.15, 0.85, q)
+				membrane_tension = 1.0 - 0.5 * q
+				tip_goal = anchor + anchor_normal * (0.15 + 0.45 * q) \
+						+ Vector3.UP * 0.08 * q
+				speed = 1.4
+				curl_target = 0.45 * (1.0 - q)
 		S.ORIENTING:
 			grow = 1.0
 			membrane_tension = 0.5
@@ -284,6 +328,7 @@ func _drive(_delta: float) -> void:
 		S.WITHDRAW:
 			var w := clampf(state_clock / maxf(0.1, profile.withdraw_s), 0.0, 1.0)
 			grow = 1.0 - smoothstep(0.0, 1.0, w)
+			membrane_release = 1.0 - smoothstep(0.55, 1.0, w)
 			membrane_tension = 0.6 * (1.0 - w)
 			tip_goal = anchor + anchor_normal * (0.5 * (1.0 - w) + 0.05)
 			speed = 1.1
@@ -291,6 +336,7 @@ func _drive(_delta: float) -> void:
 		S.DONE:
 			grow = 0.0
 			membrane_tension = 0.0
+			membrane_release = 0.0
 	# The reach is bounded.
 	var off := tip_goal - anchor
 	if off.length() > profile.reach_m:

@@ -67,7 +67,11 @@ func _ready() -> void:
 
 
 func _run() -> void:
-	await get_tree().create_timer(1.4).timeout
+	var requested_mode := OS.get_environment("SWEEP_MODE")
+	# The emergence proof has to meet the creature before its 2.2-second bulge
+	# has elapsed. The production root is already assembled synchronously; one
+	# short settle is enough to let its first physics owner spawn the limb.
+	await get_tree().create_timer(0.15 if requested_mode == "bobbing" else 1.4).timeout
 	if root.sanity:
 		root.sanity.stand_down()
 		root.sanity.enabled = false
@@ -91,10 +95,10 @@ func _run() -> void:
 	player.flashlight.transform = Transform3D(Basis(), Vector3(0.14, -0.16, -0.05))
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	# Let the organism grow and the limb come out.
-	var warm := 14.0
+	var warm := 0.0 if requested_mode == "bobbing" else 14.0
 	var w := OS.get_environment("SWEEP_WARM")
 	if not w.is_empty():
-		warm = maxf(2.0, w.to_float())
+		warm = maxf(0.0 if requested_mode == "bobbing" else 2.0, w.to_float())
 	# The room's own fixtures, as in play: the torch is the REVEAL, not the
 	# only light in the world. Without this the whole flat is a void and the
 	# creature is a lit shape in blackness.
@@ -102,8 +106,15 @@ func _run() -> void:
 		if not root.switch_system.toggle_room("F02_A_MAIN"):
 			root.switch_system.toggle_room("F02_A_MAIN")
 	_look_at_from(ANCHOR + Vector3(1.4, -0.2, 0.5), ANCHOR)
-	await get_tree().create_timer(warm).timeout
+	if warm > 0.0:
+		await get_tree().create_timer(warm).timeout
 	_tentacle = _find_tentacle()
+	if requested_mode == "bobbing":
+		for _attempt in 180:
+			if _tentacle != null:
+				break
+			await get_tree().process_frame
+			_tentacle = _find_tentacle()
 	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled", "margin", "archetypes", "critters", "ecology", "emerge", "pressure"]):
 		printerr("[SWEEP] no tentacle — nothing to photograph")
 		get_tree().quit(1)
@@ -141,6 +152,8 @@ func _run() -> void:
 		await _emergence_ladder()
 	elif mode == "pressure":
 		await _field_pressure_triplet()
+	elif mode == "bobbing":
+		await _bobbing_emergence()
 	else:
 		await _sweep()
 	print("[SWEEP] DONE %d frames -> %s" % [_frame, _dir])
@@ -392,6 +405,71 @@ func _field_pressure_triplet() -> void:
 	_frame += 1
 	print("[SWEEP] pressure touched %d cells; %s" % [touched,
 			"ok" if pressure_err == OK else "SAVE FAILED"])
+
+
+## DT-5 — BOBBING FOR APPLES, THE EMERGENCE BEAT ITSELF.
+## Capture named physical landmarks rather than an arbitrary frame rate:
+## three presses, three full retreats, then four progressive release levels.
+## Every image is the production room, procedural limb, membrane and player
+## lamp from one fixed camera.
+func _bobbing_emergence() -> void:
+	if _tentacle == null:
+		printerr("[SWEEP] no procedural tentacle for bobbing proof")
+		return
+	var aim := ANCHOR + ANCHOR_N * 0.035
+	var side := ANCHOR_N.cross(Vector3.UP).normalized()
+	_look_at_from(aim + ANCHOR_N * 0.82 + side * 0.12 + Vector3.UP * 0.07,
+			aim + Vector3.UP * 0.01)
+	var pressed := [false, false, false]
+	var retreated := [false, false, false]
+	var release_marks := [0.18, 0.42, 0.68, 0.92]
+	var release_done := [false, false, false, false]
+	var deadline := 8.0
+	var elapsed := 0.0
+	while elapsed < deadline and _tentacle.behavior.state \
+			!= DreamTentacleBehavior.S.ORIENTING:
+		await get_tree().process_frame
+		elapsed += get_process_delta_time()
+		var b = _tentacle.behavior
+		if b.state != DreamTentacleBehavior.S.EMERGING:
+			continue
+		var e := clampf(b.state_clock / maxf(0.1,
+				_tentacle.behavior_profile.emerge_s), 0.0, 1.0)
+		var attempt := clampi(int(floor((e / 0.56) * 3.0)), 0, 2)
+		if b.membrane_release < 0.01:
+			if b.membrane_probe_depth > 0.92 and not pressed[attempt]:
+				pressed[attempt] = true
+				await _named_capture("P%d_press" % (attempt + 1))
+			elif pressed[attempt] and b.membrane_probe_depth < 0.12 \
+					and not retreated[attempt]:
+				retreated[attempt] = true
+				await _named_capture("P%d_retreat" % (attempt + 1))
+		else:
+			for i in release_marks.size():
+				if not release_done[i] and b.membrane_release >= release_marks[i]:
+					release_done[i] = true
+					await _named_capture("R%d_release_%.2f" % [i + 1,
+							b.membrane_release])
+	# One frozen null pair records the residual rendering floor for this live
+	# animation proof without pretending an animated treatment should be still.
+	var enc: Node = root.get("apartment_encroachment")
+	if enc != null:
+		enc.set_physics_process(false)
+	_tentacle.set_process(false)
+	Engine.time_scale = 0.0
+	await RenderingServer.frame_post_draw
+	await _named_capture("Z_control_a")
+	await _named_capture("Z_control_b")
+	print("[SWEEP] bobbing landmarks presses=%s retreats=%s release=%s"
+			% [pressed, retreated, release_done])
+
+
+func _named_capture(label: String) -> void:
+	await RenderingServer.frame_post_draw
+	var path := _dir.path_join("%s.png" % label)
+	var err := get_viewport().get_texture().get_image().save_png(path)
+	_frame += 1
+	print("[SWEEP] %-26s %s" % [label, "ok" if err == OK else "SAVE FAILED"])
 
 
 func _hide_overlays(node: Node) -> void:

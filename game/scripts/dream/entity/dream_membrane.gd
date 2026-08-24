@@ -37,11 +37,14 @@ func build(parent: Node3D, at: Vector3, normal: Vector3, seed_v: float) -> void:
 	parent.add_child(mesh)
 
 
-func update(want_tension: float, grow: float, root_radius: float, delta: float) -> void:
+func update(want_tension: float, want_release: float, probe: Vector2,
+		probe_depth: float, root_radius: float, delta: float) -> void:
 	tension = lerpf(tension, want_tension, clampf(delta * 2.2, 0.0, 1.0))
-	through = lerpf(through, smoothstep(0.02, 0.3, grow), clampf(delta * 3.0, 0.0, 1.0))
+	through = lerpf(through, clampf(want_release, 0.0, 1.0), clampf(delta * 3.0, 0.0, 1.0))
 	material.set_shader_parameter("tension", tension)
 	material.set_shader_parameter("through", through)
+	material.set_shader_parameter("probe_offset", probe)
+	material.set_shader_parameter("probe_depth", clampf(probe_depth, 0.0, 1.0))
 	material.set_shader_parameter("root_radius_m", root_radius)
 	mesh.visible = tension > 0.01 or through > 0.01
 

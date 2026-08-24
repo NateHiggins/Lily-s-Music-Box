@@ -235,9 +235,15 @@ emergence and orientation, with no stain, agents or save owner; ordinary body
 decay relaxes it. `LivingFieldTest` is 18/18 and the production tentacle suite
 is 22/22 (peak 1.00, 36 writes, 0.647 ms). The frozen same-process Forward+
 A/A/treatment clears its noise floor by 10.81x; proof is at
-`art/renders/dream_tentacle/dt5_field_pressure/README.md`. Do not call DT-5
-done: behind-membrane search, progressive membrane release and the final
-six-beat rendered emergence remain open.
+`art/renders/dream_tentacle/dt5_field_pressure/README.md`. The next DT-5 slice
+is landed too: the hidden club spends the first 56% of emergence pressing and
+fully retreating at three distinct membrane sites, then the chosen soft spot
+releases progressively on a curve separate from visible length. The production
+suite is now 24/24 at 0.656 ms. One fixed-camera Forward+ run captures all ten
+landmarks plus a 0.00000913426-RMSE frozen A/A pair at
+`art/renders/dream_tentacle/dt5_bobbing/README.md`. Do not call DT-5 done: the
+full BULGE -> EMERGENCE -> SEEK -> CARESS -> FLINCH -> WITHDRAW rendered
+sequence remains open.
 
 Three top-level projects:
 
