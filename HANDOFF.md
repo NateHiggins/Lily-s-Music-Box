@@ -397,6 +397,10 @@ LC-1 is already executable: `DreamOrganelleLifecycle` provides the ownerless
 eight-stage and environmental reproduction vocabulary, and its 14/14 test
 proves complete anatomy, the 45–150 second band, every reproductive mode and
 death-before-new-cohort stain accounting.
+LC-2 then places the closed ether cycle inside each existing fauna-room record:
+ethermoss exhales, active tissue inhales, senescence sheds and reclamation
+returns death stain to the mat. The four normalized compartments conserve mass;
+they add no node, save fact, gas hazard or oxygen mechanic.
 
 Three top-level projects:
 

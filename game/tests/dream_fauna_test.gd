@@ -11,6 +11,7 @@ const PRODUCTION_MESH_SHA256 := {
 	"Ribbonettes": "ddbfe1fee97a0f6d9aeb88672dd1795526db1baa009a90079ff6392ffc3b4513",
 	"TheLoupe": "1268785614f7998c9712d3ec202e64e23fa98b2a1ec7938aeaebda8c818ac201",
 }
+const Lifecycle = preload("res://scripts/dream/dream_organelle_lifecycle.gd")
 var checks:=0; var failures:=0
 func _ready()->void:
 	call_deferred("_run")
@@ -234,19 +235,35 @@ func _run()->void:
 	for body in get_tree().get_nodes_in_group("dream_lineage_bodies"):
 		birth_frames+=(body.get_meta("birth_frames",[]) as Array).size()
 	_check("lineage bodies publish real birth-frame anchors",birth_frames>0)
-	var densities:Dictionary=fauna.density_snapshot(); var four_values:=true
-	for state in densities.values():
-		four_values=four_values and state.has("allocation") and state.has("uptake") \
+	var densities:Dictionary=fauna.density_snapshot(); var room_cycle_ok:=true
+	var cycle_before := {}
+	for room_key in densities:
+		var state: Dictionary = densities[room_key]
+		room_cycle_ok=room_cycle_ok and state.has("allocation") and state.has("uptake") \
 				and state.has("reclamation") and state.has("reclaimable") \
+				and state.has("ether_cycle") and state.has("lifecycle") \
+				and absf(Lifecycle.cycle_total(
+						state.ether_cycle)-1.0)<0.00001 \
 				and float(state.reclamation)==0.0
-	_check("the 3 Hz owner carries four bounded harmless densities",four_values)
+		cycle_before[room_key] = (state.ether_cycle as Dictionary).duplicate(true)
+	_check("the 3 Hz owner carries harmless densities and a closed ether ledger",
+			room_cycle_ok)
 	var tick_plan:=var_to_bytes(root.plan); var tick_hazards:=_hazard_signature(root.hazards)
 	var allotted_room:Dictionary=root.rooms.live_rooms()[0]; var fr:Array=allotted_room.rect
 	root.player.global_position=Vector3((fr[0]+fr[2])*0.5,0.0,(fr[1]+fr[3])*0.5)
 	for _i in 14: fauna.advance_fixed()
 	fauna.refresh(); var counts:Dictionary=fauna.census()
 	var reclamation_live:=false
-	for state in fauna.density_snapshot().values(): reclamation_live=reclamation_live or float(state.reclamation)>0.0
+	var conserved:=true; var cycle_moved:=false
+	var advanced: Dictionary = fauna.density_snapshot()
+	for room_key in advanced:
+		var state: Dictionary = advanced[room_key]
+		reclamation_live=reclamation_live or float(state.reclamation)>0.0
+		conserved=conserved and absf(Lifecycle.cycle_total(
+				state.ether_cycle)-1.0)<0.00001
+		cycle_moved=cycle_moved or state.ether_cycle != cycle_before.get(room_key,{})
+	_check("ethermoss exhales, local tissue breathes and death returns without loss",
+			conserved and cycle_moved)
 	_check("allocation, uptake, signalling, reclamation and one Loupe close the cycle",
 			int(counts.buttons)>0 and int(counts.tessellates)>0
 			and int(counts.anemones)>0 and int(counts.ribbonettes)>0

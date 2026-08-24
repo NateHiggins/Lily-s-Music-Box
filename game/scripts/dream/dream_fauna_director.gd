@@ -6,6 +6,7 @@ const MAX_INSTANCES := 96
 const TICK_S := 1.0 / 3.0
 const HUSH_RADIUS := 4.0
 const FAUNA_SHADER := preload("res://shaders/dream_fauna.gdshader")
+const LIFECYCLE := preload("res://scripts/dream/dream_organelle_lifecycle.gd")
 const WINE := Color("55152f")
 const GOLD := Color(0.72, 0.40, 0.09)
 const EMERALD := Color(0.180, 0.404, 0.360)
@@ -117,6 +118,29 @@ func advance_fixed() -> void:
 		state.uptake = clampf(previous+recruited-shed-reclaimed, 0.0, 1.0)
 		state.reclaimable = clampf(float(state.reclaimable)*0.78
 				+ maxf(0.0, previous-float(state.uptake))+reclaimed*0.8, 0.0, 1.0)
+		var cycle: Dictionary = state.ether_cycle
+		var lifecycle: Dictionary = state.lifecycle
+		var diversity := fposmod(float(room.get("decay", 0.0))
+				+ float(lifecycle.get("generation", 0)) * 0.17, 1.0)
+		var environment := {
+			"food": float(cycle.ethermoss),
+			"ether": float(cycle.ether),
+			"density": float(state.uptake),
+			"diversity": diversity,
+			"same_compatibility": 1.0 - absf(
+					float(state.allocation) - float(state.uptake)),
+			"cross_compatibility": clampf(float(state.reclaimable)
+					+ diversity * 0.72, 0.0, 1.0),
+			"stress": 1.0 - retained,
+		}
+		state.lifecycle = LIFECYCLE.advance(lifecycle, environment, TICK_S)
+		var stage := int((state.lifecycle as Dictionary).stage)
+		state.ether_cycle = LIFECYCLE.advance_ether_cycle(cycle, {
+			"light": maxf(retained, lamp_pool),
+			"activity": float(state.uptake),
+			"senescence": 1.0 if stage >= LIFECYCLE.Stage.SENESCENT else 0.0,
+			"reclamation": float(state.reclamation),
+		}, TICK_S)
 		_densities[key] = state
 
 func freeze_for_capture() -> void:
@@ -304,7 +328,11 @@ func _sync_densities(live: Array) -> void:
 		var decay := clampf(float(room.get("decay", 0.0)), 0.0, 1.0)
 		_densities[key] = {"allocation":clampf(0.20+phase*0.18-decay*0.08,0.0,1.0),
 				"uptake":clampf(0.34+phase*0.16,0.0,1.0),
-				"reclamation":0.0,"reclaimable":decay*0.10}
+				"reclamation":0.0,"reclaimable":decay*0.10,
+				"ether_cycle":LIFECYCLE.new_ether_cycle(
+						0.42-decay*0.06, 0.18+phase*0.08,
+						0.30+decay*0.03, 0.10-phase*0.02+decay*0.03),
+				"lifecycle":LIFECYCLE.new_record(phase)}
 	for key in _densities.keys():
 		if not keep.has(key): _densities.erase(key)
 

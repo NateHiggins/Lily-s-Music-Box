@@ -11,6 +11,7 @@ func _ready() -> void:
 	_prove_stage_order()
 	_prove_environmental_reproduction()
 	_prove_accelerated_death()
+	_prove_closed_ether_cycle()
 	print("DREAM ORGANELLE LIFECYCLE TEST: %s (%d/%d)" % [
 			"PASS" if failures == 0 else "FAIL", checks - failures, checks])
 	get_tree().quit(failures)
@@ -72,6 +73,24 @@ func _prove_accelerated_death() -> void:
 			"a permitted exchange recruits the next cohort")
 	_check(before == Lifecycle.new_record(0.96),
 			"classification advances a copy, not the caller's record")
+
+
+func _prove_closed_ether_cycle() -> void:
+	var cycle := Lifecycle.new_ether_cycle(0.44, 0.18, 0.29, 0.09)
+	var original := cycle.duplicate(true)
+	var total := Lifecycle.cycle_total(cycle)
+	for _step in 900:
+		cycle = Lifecycle.advance_ether_cycle(cycle, {
+			"light": 0.72, "activity": 0.64,
+			"senescence": 0.38, "reclamation": 0.56,
+		}, 1.0 / 3.0)
+	_check(absf(Lifecycle.cycle_total(cycle) - total) < 0.00001,
+			"ethermoss, breath, tissue and stain conserve presentation mass")
+	_check(cycle != original and float(cycle.ethermoss) >= 0.0
+			and float(cycle.ether) >= 0.0
+			and float(cycle.living_tissue) >= 0.0
+			and float(cycle.death_stain) >= 0.0,
+			"the closed breath circulates without a negative compartment")
 
 
 func _check(ok: bool, label: String) -> void:

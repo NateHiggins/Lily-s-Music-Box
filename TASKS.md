@@ -2318,10 +2318,15 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   clamped to 45–150 seconds; completed lives always increment the caller-owned
   stain record before a permitted new cohort begins. The helper owns no node,
   clock, world fact or persistence. `DreamOrganelleLifecycleTest` passes 14/14.
-- **LC-2 OPEN — CLOSED ETHER LEDGER.** Extend each live fauna-room density with
-  conserved ethermoss → ether vapour → living tissue → death stain →
-  ethermoss transfers. Gilder's Buttons are the mat's fruiting bodies; Wine
-  Anemones are reclamation mouths. Prove conservation and bounded rates.
+- **LC-2 COMPLETE 2026-08-24 — CLOSED ETHER LEDGER.** Each live fauna-room
+  density now carries normalized `ethermoss`, `ether`, `living_tissue` and
+  `death_stain` compartments. Light makes the mat exhale; activity inhales;
+  senescence sheds; reclamation returns stain to moss. Transfers are bounded
+  by their source and conserve total presentation mass over long runs. The
+  same owner also advances one room cohort through LC-1 using this environment;
+  no new clock, node, gas hazard, save fact or oxygen mechanic exists.
+  `DreamOrganelleLifecycleTest` passes 16/16 and `DreamFaunaTest` proves the
+  production density integration.
 - **LC-3 OPEN — ACCELERATED FAUNA COHORTS.** Drive all five landed families
   through staggered visible stages using the existing packed lifecycle and
   birthing/reabsorbing channels. Reproduction changes cosmetic genome and

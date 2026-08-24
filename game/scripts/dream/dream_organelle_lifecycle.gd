@@ -104,3 +104,56 @@ static func advance(record: Dictionary, environment: Dictionary,
 ## angle, compression or burial, never manufacture anatomy from zero scale.
 static func anatomy_scale(_stage: int) -> float:
 	return 1.0
+
+
+## Four conservative compartments. Rates move matter clockwise through the
+## room; they never add or discard it. Values are presentation mass, not save
+## facts or player resources.
+static func new_ether_cycle(ethermoss := 0.40, ether := 0.20,
+		living_tissue := 0.30, death_stain := 0.10) -> Dictionary:
+	var cycle := {
+		"ethermoss": maxf(0.0, ethermoss),
+		"ether": maxf(0.0, ether),
+		"living_tissue": maxf(0.0, living_tissue),
+		"death_stain": maxf(0.0, death_stain),
+	}
+	var total := cycle_total(cycle)
+	if total <= 0.0:
+		return {"ethermoss": 0.40, "ether": 0.20,
+				"living_tissue": 0.30, "death_stain": 0.10}
+	for key in cycle:
+		cycle[key] = float(cycle[key]) / total
+	return cycle
+
+
+static func advance_ether_cycle(cycle: Dictionary, environment: Dictionary,
+		seconds: float) -> Dictionary:
+	var next := new_ether_cycle(float(cycle.get("ethermoss", 0.0)),
+			float(cycle.get("ether", 0.0)),
+			float(cycle.get("living_tissue", 0.0)),
+			float(cycle.get("death_stain", 0.0)))
+	var dt := maxf(0.0, seconds)
+	var light := clampf(float(environment.get("light", 0.0)), 0.0, 1.0)
+	var activity := clampf(float(environment.get("activity", 0.0)), 0.0, 1.0)
+	var senescence := clampf(float(environment.get(
+			"senescence", 0.0)), 0.0, 1.0)
+	var reclamation := clampf(float(environment.get(
+			"reclamation", 0.0)), 0.0, 1.0)
+	var exhaled := minf(float(next.ethermoss), (0.006 + light * 0.012) * dt)
+	var inhaled := minf(float(next.ether), (0.005 + activity * 0.015) * dt)
+	var shed := minf(float(next.living_tissue),
+			(0.002 + senescence * 0.020) * dt)
+	var reclaimed := minf(float(next.death_stain),
+			(0.001 + reclamation * 0.014) * dt)
+	next.ethermoss = float(next.ethermoss) - exhaled + reclaimed
+	next.ether = float(next.ether) + exhaled - inhaled
+	next.living_tissue = float(next.living_tissue) + inhaled - shed
+	next.death_stain = float(next.death_stain) + shed - reclaimed
+	return next
+
+
+static func cycle_total(cycle: Dictionary) -> float:
+	return float(cycle.get("ethermoss", 0.0)) \
+			+ float(cycle.get("ether", 0.0)) \
+			+ float(cycle.get("living_tissue", 0.0)) \
+			+ float(cycle.get("death_stain", 0.0))
