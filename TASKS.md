@@ -2172,6 +2172,17 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   resident, tries to help by the only means it has, and its help is
   dimensionally and biologically wrong. Feeds LF-3's incidents (the
   "fixable condition" is the creature TRYING to fix something).
+  **EDGE-OWNER SEAM LANDED 2026-08-24; DT-5 REMAINS OPEN.** Unforced
+  tentacles no longer borrow the three strongest interior nodes owned by the
+  field lights. `LivingField` now caches 48 ranked source-attributed
+  `body >= 0.45` isosurface fronts once per completed relaxation pass, and
+  the existing placement owner chooses an exposed front at least 2 m from a
+  claimed anchor before performing its unchanged real-surface raycast.
+  Forced test anchors remain deterministic. `LivingFieldTest` is 16/16 at
+  2.92 ms/tick and `DreamTentacleTest` is 21/21. This is a data/ownership
+  checkpoint, not rendered proof that the six-beat emergence reads; local
+  field swelling, behind-membrane search, progressive release and the final
+  production capture remain DT-5 work.
 
 ### CT — CRITTER SKINS (owner direction 2026-08-21)
 

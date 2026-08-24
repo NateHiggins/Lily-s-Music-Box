@@ -61,6 +61,22 @@ func _ready() -> void:
 	# Recession: drop the case to a residue; the body withdraws, the stain stays.
 	_check("it pools on the floor (%d live floor voxels)" % c2.floor_live, c2.floor_live > 10)
 	_check("it has nodes for the lights (%d)" % c2.nodes, c2.nodes >= 1)
+	# DT-5: a tentacle belongs on the body's cross-sectional FRONT, not on the
+	# strong interior nodes above. The result must be live, exposed to a cell
+	# below the isosurface, and respect the same two-metre anchor spacing the
+	# production placement owner uses.
+	var front: Dictionary = field.emergence_front(0.45)
+	_check("it exposes a live emergence front (%.2f body, %d outside neighbours)"
+			% [float(front.get("strength", 0.0)), int(front.get("outside_neighbours", 0))],
+			not front.is_empty() and float(front.strength) >= 0.45
+			and int(front.outside_neighbours) >= 1 and int(front.source) == src)
+	var next_front: Dictionary = {}
+	if not front.is_empty():
+		next_front = field.emergence_front(0.45, [front.position])
+	_check("a claimed front is spaced by two metres",
+			front.is_empty() or next_front.is_empty()
+			or (next_front.position as Vector3).distance_to(
+					front.position as Vector3) >= 2.0)
 	field.set_source_intensity(src, 0.0)
 	for _i in 400:         # 50 s: the body withdraws over a minute, not a second
 		field.tick(0.125)

@@ -74,6 +74,9 @@ var _upload_due := false
 var nodes: PackedVector3Array = PackedVector3Array()
 var node_strength: PackedFloat32Array = PackedFloat32Array()
 var node_source: PackedInt32Array = PackedInt32Array()
+## Cached isosurface candidates for DT-5 emergence placement. Rebuilt with
+## nodes once per completed relaxation pass; never rescanned every frame.
+var fronts: Array[Dictionary] = []
 ## The gravity varies over metres, not centimetres: it is sampled on a 2 m
 ## lattice once per pass and the agents read the nearest cell. Per agent per
 ## step it cost 18 ms a tick in GDScript; cached it is under a millisecond.
@@ -84,6 +87,11 @@ var _gz := 1
 var _gravity_cache := PackedVector4Array()
 var _gravity_cursor := 0
 const GRAVITY_CELLS_PER_TICK := 24
+const FRONT_NEIGHBOURS := [
+	Vector3i(-1, 0, 0), Vector3i(1, 0, 0),
+	Vector3i(0, -1, 0), Vector3i(0, 1, 0),
+	Vector3i(0, 0, -1), Vector3i(0, 0, 1),
+]
 
 
 ## `rect` is the storey in Godot xz (x0, z0, x1, z1), `floor_y` its floor.
@@ -488,6 +496,54 @@ func _find_nodes() -> void:
 				(float(yy) + 0.5) * VOXEL_M, (float(zz) + 0.5) * VOXEL_M))
 		node_strength.append(best_v)
 		node_source.append(int(who[best]))
+	_rebuild_fronts()
+
+
+func _rebuild_fronts() -> void:
+	fronts.clear()
+	const CACHE_MIN_BODY := 0.45
+	const CACHE_LIMIT := 48
+	var diagonal := maxf(size_m.length(), 0.001)
+	for y in ny:
+		for z in nz:
+			for x in nx:
+				var k := _index(x, y, z)
+				var strength := body[k]
+				if strength < CACHE_MIN_BODY:
+					continue
+				var src := int(who[k])
+				if src < 0 or src >= sources.size():
+					continue
+				var exposed := 0
+				var falloff := 0.0
+				for off in FRONT_NEIGHBOURS:
+					var q: Vector3i = Vector3i(x, y, z) + off
+					var neighbour := 0.0
+					if q.x >= 0 and q.x < nx and q.y >= 0 and q.y < ny \
+							and q.z >= 0 and q.z < nz:
+						var qk := _index(q.x, q.y, q.z)
+						if int(who[qk]) == src:
+							neighbour = body[qk]
+					if neighbour < CACHE_MIN_BODY:
+						exposed += 1
+						falloff += strength - neighbour
+				if exposed == 0:
+					continue
+				var p := origin + Vector3((float(x) + 0.5) * VOXEL_M,
+						(float(y) + 0.5) * VOXEL_M, (float(z) + 0.5) * VOXEL_M)
+				var from_source: float = p.distance_to(sources[src].position) / diagonal
+				var in_band := 1.0 - clampf(
+						absf(strength - CACHE_MIN_BODY) / (1.0 - CACHE_MIN_BODY), 0.0, 1.0)
+				var score := float(exposed) + falloff * 1.5 + from_source * 0.7 + in_band * 0.5
+				var record := {"position": p, "source": src, "strength": strength,
+						"outside_neighbours": exposed, "score": score}
+				var rank := 0
+				while rank < fronts.size() and float(fronts[rank].score) >= score:
+					rank += 1
+				if rank < CACHE_LIMIT:
+					fronts.insert(rank, record)
+					if fronts.size() > CACHE_LIMIT:
+						fronts.resize(CACHE_LIMIT)
 
 
 ## Facts for tests and the inspection HUD.
@@ -509,6 +565,28 @@ func census() -> Dictionary:
 	return {"agents": _agents_pos.size(), "live_voxels": live, "stained_voxels": stained,
 			"body_max": body_max, "voxels": n, "steps": steps, "floor_live": floor_live,
 			"nodes": nodes.size(), "sources": sources.size()}
+
+
+## DT-5 — WHERE OUR SLICE FIRST MEETS THE BODY.
+##
+## A light belongs at a strong interior node. An emergence does not: the owner
+## ruled that the visible field is the creature's body where it approaches our
+## dimensional slice, so a limb comes through the FIELD EDGE. This returns a
+## cell on the `min_body` isosurface, preferring a well-exposed outward front
+## and then distance from its own source. It never invents topology; it reads
+## the same body/source voxels the surface already presents.
+func emergence_front(min_body := 0.45, claimed: Array = []) -> Dictionary:
+	for candidate in fronts:
+		if float(candidate.strength) < min_body:
+			continue
+		var occupied := false
+		for anchor in claimed:
+			if (candidate.position as Vector3).distance_to(anchor as Vector3) < 2.0:
+				occupied = true
+				break
+		if not occupied:
+			return candidate.duplicate()
+	return {}
 
 
 ## --- LF-3: the organism in someone else's flat ------------------------------

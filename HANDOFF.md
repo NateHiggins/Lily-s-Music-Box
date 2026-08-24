@@ -226,6 +226,12 @@ Proof: `art/renders/dream_tentacle/h1_rest_space/README.md`. Do not overstate
 H1: albedo, normal, detail-normal and rider UV/bakes remain open. The full
 `DreamHeroSweep` attempt hit the mandatory 60-second limit before H1 assertions,
 so only the focused H1 and tentacle suites may be claimed from this checkpoint.
+DT-5 has also begun at its ownership boundary: unforced procedural tentacles
+now select a cached live isosurface front from `LivingField`, not one of the
+three strongest interior nodes reserved for lights, and keep 2 m between
+claimed anchors before the unchanged surface raycast. Focused field proof is
+16/16 and the production tentacle suite remains 21/21. Do not call DT-5 done:
+the ruled local field swelling and six-beat rendered emergence are still open.
 
 Three top-level projects:
 

@@ -773,10 +773,13 @@ func _tend_tentacles(floor_id: String, field, delta: float) -> void:
 	_tentacle_cooldown[floor_id] = cool
 	if live.size() >= TENTACLES_PER_STOREY or cool > 0.0:
 		return
-	# Where: the strongest node of the organism not already claimed; forced
-	# cases (TENTACLE_FORCE=1) come out at their source at once.
+	# Where: the visible body's OUTWARD FRONT, not a strong interior node. The
+	# node list remains the light owner's data; DT-5 rules that an emergence is
+	# where the nth-dimensional body first crosses our slice. Forced tests still
+	# come out at their named source so their authored setup remains deterministic.
 	var at := Vector3.ZERO
 	var src := -1
+	var front: Dictionary = {}
 	if OS.get_environment("TENTACLE_FORCE") == "1":
 		for case_id in field_source:
 			if _floor_of(case_id) != floor_id or not _forced.has(case_id):
@@ -792,19 +795,13 @@ func _tend_tentacles(floor_id: String, field, delta: float) -> void:
 			src = s_index
 			break
 	if src < 0:
-		for i in field.nodes.size():
-			if float(field.node_strength[i]) < TENTACLE_MIN_BODY:
-				continue
-			var p: Vector3 = field.nodes[i]
-			var near := false
-			for t in live:
-				if (t.anchor as Vector3).distance_to(p) < 2.0:
-					near = true
-			if near:
-				continue
-			at = p
-			src = int(field.node_source[i])
-			break
+		var claimed: Array = []
+		for t in live:
+			claimed.append(t.anchor)
+		front = field.emergence_front(TENTACLE_MIN_BODY, claimed)
+		if not front.is_empty():
+			at = front.position
+			src = int(front.source)
 	if src < 0:
 		return
 	var hit := _nearest_surface(at)
@@ -834,8 +831,10 @@ func _tend_tentacles(floor_id: String, field, delta: float) -> void:
 		_tentacle_debug.setup(self)
 	_tentacle_cooldown[floor_id] = TENTACLE_COOLDOWN_S
 	if OS.get_environment("ENCROACH_DEBUG") == "1":
-		print("[TENTACLE] %s: out of %s at %s (target %s)" % [floor_id, str(hit.collider_name),
-				hit.position, tentacle.target_name])
+		var seam := "forced source" if front.is_empty() else "field front %.2f/%d" % [
+				float(front.strength), int(front.outside_neighbours)]
+		print("[TENTACLE] %s: %s, out of %s at %s (target %s)" % [floor_id, seam,
+				str(hit.collider_name), hit.position, tentacle.target_name])
 
 
 ## The nearest surface to a field point: six short rays. The organism lives
