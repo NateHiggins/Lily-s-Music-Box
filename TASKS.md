@@ -2331,16 +2331,22 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   no new clock, node, gas hazard, save fact or oxygen mechanic exists.
   `DreamOrganelleLifecycleTest` passes 16/16 and `DreamFaunaTest` proves the
   production density integration.
-- **LC-3 OPEN — ACCELERATED FAUNA COHORTS.** Drive all five landed families
-  through staggered visible stages using the existing packed lifecycle and
-  birthing/reabsorbing channels. Reproduction changes cosmetic genome and
-  affinity only; it cannot change family function, collision or hazards.
-  Stable analytical slot addresses are approved for this work; they are
-  transient director-local handles, never persistent individual identities.
-- **LC-4 OPEN — VISIT-PERSISTENT DEATH STAINS.** Coalesce dead-organ genome,
-  position and motif into bounded room memories that survive streaming for
-  the Dream visit, clear at waking and never enter `RealityState`. Render the
-  first stain through the existing Gilder batch before pricing any extra draw.
+- **LC-3A COMPLETE 2026-08-24 / LC-3B VISUAL PASS OPEN — ACCELERATED FAUNA
+  COHORTS.** All five landed families now derive stable transient
+  `room/motif/slot#generation` addresses and staggered 45–150 second lives from
+  the existing director. All eight stages are reachable; anatomy never scales
+  from zero; reproduction changes only cosmetic genome salt and cannot change
+  stage, family function, collision or hazards. `DreamFaunaLifecycleTest`
+  passes 27/27 and baseline `DreamFaunaTest` passes 29/29. The still-open LC-3B
+  must make those stages visibly legible through the existing packed channels;
+  the mechanical flags alone are not visual proof.
+- **LC-4A COMPLETE 2026-08-24 / LC-4B VISUAL PASS OPEN — VISIT-PERSISTENT
+  DEATH STAINS.** The fauna owner now coalesces genome, position and motif by
+  lineage into bounded room memories. Ninety-one exercised deaths remain seven
+  impressions, survive streaming/revisit byte-identically, clear with a new
+  director and never enter `RealityState`, nodes, collision or save ownership.
+  LC-4B still must render the first beautiful/disturbing stain through the
+  existing Gilder batch before pricing any extra draw.
 - **LC-5 OPEN — ETHERMOSS AND BREATH PROOF.** Make the moss/fungus mat the
   primary visible food and show cold ether exhalation, inhalation and return
   through bounded existing field/material owners. Require unchanged A/A,
@@ -3313,9 +3319,14 @@ proved at `art/renders/maintenance_service_round_m1/README.md`.
   schema/run test passes 33 checks, the live test passes 12 including a boot of
   `orison_root.tscn`, and frozen A/A plus worked-state Forward+ proof is at
   `art/renders/maintenance_annunciator_sr2/README.md`.
-- **SR3 — Boiler water-column consumer.** Connect the authored isolate, prove,
-  witness and guarded-return sequence to `BoilerProp`'s water-glass reach. The
-  live preview must not publish a false boiler level before commit.
+- **SR3 — Boiler water-column consumer — COMPLETE 2026-08-24.** The production
+  basement's real `BoilerProp` water-glass reach now opens the shared isolate,
+  prove, witness and guarded-return chain. Preview moves two literal gauge
+  cocks, the blow-down lever, water and witness marker without emitting boiler
+  state; final commit alone proves the column and publishes its honest level.
+  The focused activity test passes 33 checks, the three-consumer live test
+  passes 18 including `orison_root.tscn`, and frozen A/A plus all four worked
+  states are proved at `art/renders/maintenance_boiler_sr3/README.md`.
 - **SR4 — First complete service round.** Author one resident-filed work order
   through `MaintenanceJobLibrary` / `WorkOrders`: call, apartment radiator,
   lobby comparison, basement comparison, repair, resident return. It must prove

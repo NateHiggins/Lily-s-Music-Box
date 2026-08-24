@@ -124,10 +124,15 @@ comparison → boiler comparison → Dream interruption → repair → resident 
   game is unchanged. Headless proof boots the production building, and frozen
   A/A plus worked-state Forward+ evidence is recorded at
   `art/renders/maintenance_annunciator_sr2/README.md`.
+- **SR3 / boiler water column (2026-08-24):** the production basement boiler's
+  real glass now owns the shared four-step service reach. Gauge cocks, blow-down
+  lever, visible water and witness marker preview isolate/prove/read/return
+  without publishing plant state. Completion alone sets the proved honest
+  level. Production-root tests and frozen A/A plus four worked Forward+ frames
+  are recorded at `art/renders/maintenance_boiler_sr3/README.md`.
 
-SR3 remains the boiler water column; SR4 remains the first resident-filed,
-travel-bearing work order. Neither may be collapsed into another isolated prop
-demonstration.
+SR4 remains the first resident-filed, travel-bearing work order. It may not be
+collapsed into another isolated prop demonstration.
 
 ## Acceptance
 

@@ -34,17 +34,22 @@ hashes, trims and tests are recorded in `game/docs/title_screen.md`.
 one third of active play as WarioWare-short hands-on maintenance, one third as
 resident communication / travel / search, and one third observing, avoiding
 and eventually communicating with the Dream organism. The binding design is
-`design/ORISON_SERVICE_ROUND_BRIEF.md`. M1 and SR2 are landed locally: one strict
+`design/ORISON_SERVICE_ROUND_BRIEF.md`. M1, SR2 and SR3 are landed: one strict
 data-authored activity book, transient run, one-at-a-time presentation router,
-narrow in-world paper strip, and two live consumers. Radiator preview moves its
+narrow in-world paper strip, and three live consumers. Radiator preview moves its
 real wheel/vent without publishing heat state. The production lobby's porter
 board now keeps its lift game on one ray target and services its physical call
 flags, contact bridge and common reset on another. Preview/abort restores;
-final completion alone emits a mechanism result. The activity layer cannot
-advance a job, case or Dream fact. Focused tests pass; Forward+ proof lives at
+final completion alone emits a mechanism result. The production basement's
+coal plant now adds the same ownership proof: two real gauge cocks isolate its
+water column, hold progress drains the visible glass, the returning level meets
+a witness marker, and the passages reopen without publishing boiler state
+until commit. The activity layer cannot advance a job, case or Dream fact.
+Focused tests pass; Forward+ proof lives at
 `art/renders/maintenance_service_round_m1/README.md` and
-`art/renders/maintenance_annunciator_sr2/README.md`. Next is SR3 boiler, then
-SR4's first resident/travel service round.
+`art/renders/maintenance_annunciator_sr2/README.md`, and
+`art/renders/maintenance_boiler_sr3/README.md`. Next is SR4's first complete
+resident-filed, travel/search-bearing service round.
 
 **Dream rendering checkpoint (2026-08-20):** R1–R6 of the production surface
 redesign are landed through `art/renders/dream_rendering_r6/README.md`. The
@@ -417,6 +422,14 @@ LC-2 then places the closed ether cycle inside each existing fauna-room record:
 ethermoss exhales, active tissue inhales, senescence sheds and reclamation
 returns death stain to the mat. The four normalized compartments conserve mass;
 they add no node, save fact, gas hazard or oxygen mechanic.
+Claude's isolated LC-3A/LC-4A implementation was integrated as `40825ce` and
+then independently proved under the shared engine mutex. Every realized slot
+has a derived transient cohort address and staggered eight-stage life; cosmetic
+reproduction cannot change function. Deaths coalesce into bounded room-local
+impressions that survive streaming but not a new director. The production-root
+`DreamFaunaLifecycleTest` passes 27/27 and baseline `DreamFaunaTest` passes
+29/29. This is mechanical closure only: LC-3B must make the stages visibly
+legible and LC-4B must render the first stain through the existing Gilder batch.
 
 Three top-level projects:
 

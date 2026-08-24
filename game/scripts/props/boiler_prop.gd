@@ -6,6 +6,9 @@ extends FunctionalProp
 ## must agree before twenty-three radiators receive one finite steam cycle.
 
 signal boiler_state_changed(state: Dictionary)
+signal maintenance_completed(result: Dictionary)
+
+const ControlArea = preload("res://scripts/props/prop_control_area.gd")
 
 const W := 1.16
 const D := 1.02
@@ -27,6 +30,8 @@ var firebed := 0.78
 var draft := 0.54
 var coal_charge := 0.66
 var ash_level := 0.24
+var column_isolated := false
+var column_proved := false
 
 var _carcass: Node3D
 var _fire_door: Node3D
@@ -34,6 +39,10 @@ var _ash_door: Node3D
 var _draft_damper: Node3D
 var _gauge_needle: Node3D
 var _water_fill: MeshInstance3D
+var _column_cocks: Array[Node3D] = []
+var _blowdown_lever: Node3D
+var _witness_marker: MeshInstance3D
+var _service_panel: MaintenanceActivityPanel
 var _firebed_mesh: MeshInstance3D
 var _fire_material: StandardMaterial3D
 var _fire_open := false
@@ -87,7 +96,8 @@ func _build_visual() -> void:
 			Vector3(0.80, 0.62, 0.46))
 	_service_area("AshDoorReach", Vector3(0, 0.43, -0.70),
 			Vector3(0.72, 0.40, 0.42))
-	_service_area("WaterGlassReach", Vector3(0.54, 1.05, -0.55),
+	_control_area("WaterGlassReach", "water_column",
+			Vector3(0.54, 1.05, -0.55),
 			Vector3(0.30, 0.62, 0.30))
 	_service_area("DraftReach", Vector3(-0.49, 1.28, -0.57),
 			Vector3(0.30, 0.42, 0.30))
@@ -194,9 +204,13 @@ func _build_water_column() -> void:
 	for y in [0.82, 1.34]:
 		_cyl(_carcass, 0.035, 0.035, 0.075,
 				Vector3(0.50, y, -D * 0.5 - 0.075), BRASS)
-		var cock := _cyl(_carcass, 0.010, 0.010, 0.12,
-				Vector3(0.56, y, -D * 0.5 - 0.075), BRASS)
+		var cock_root := Node3D.new()
+		cock_root.position = Vector3(0.50, y, -D * 0.5 - 0.075)
+		add_child(cock_root)
+		var cock := _cyl(cock_root, 0.010, 0.010, 0.12,
+				Vector3(0.06, 0.0, 0.0), BRASS)
 		cock.rotation_degrees.z = 90.0
+		_column_cocks.append(cock_root)
 	var fill_mat := StandardMaterial3D.new()
 	fill_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	fill_mat.albedo_color = WATER
@@ -208,6 +222,15 @@ func _build_water_column() -> void:
 	var blowdown := _cyl(_carcass, 0.016, 0.016, 0.24,
 			Vector3(0.50, 0.67, -D * 0.5 - 0.075), STEEL)
 	blowdown.rotation_degrees.x = 12.0
+	_blowdown_lever = Node3D.new()
+	_blowdown_lever.position = Vector3(0.50, 0.72, -D * 0.5 - 0.112)
+	add_child(_blowdown_lever)
+	_box(_blowdown_lever, Vector3(0.17, 0.014, 0.014),
+			Vector3(0.075, 0.0, 0.0), BRASS)
+	_witness_marker = _box(self, Vector3(0.095, 0.012, 0.010),
+			Vector3(0.43, _column_level_y(water_level),
+			-D * 0.5 - 0.116), PAPER)
+	_witness_marker.name = "WaterWitnessMarker"
 	# Mineral track begins at the packing gland and ends at the hearth.
 	_box(_carcass, Vector3(0.075, 0.34, 0.006),
 			Vector3(0.50, 0.54, -D * 0.5 - 0.105), PAPER)
@@ -317,8 +340,110 @@ func interact_area(area: Area3D) -> void:
 	match area.name:
 		"AshDoorReach": set_ash_door_open(not _ash_open)
 		"DraftReach": set_draft(wrapf(draft + 0.2, 0.15, 1.01))
-		"WaterGlassReach": blow_down_glass()
+		"WaterGlassReach": _begin_water_column_service(
+				get_tree().get_first_node_in_group("player_controller"))
 		_: set_fire_door_open(not _fire_open)
+
+
+func control_prompt(control_id: String) -> String:
+	return ("[E]  Prove the boiler water column" if control_id == "water_column"
+			else interact_prompt())
+
+
+func interact_control(control_id: String, player: Node) -> bool:
+	if control_id == "water_column":
+		return _begin_water_column_service(player)
+	return false
+
+
+func _begin_water_column_service(player: Node) -> bool:
+	if _service_panel and is_instance_valid(_service_panel):
+		return false
+	var script: GDScript = load("res://scripts/ui/maintenance_activity_panel.gd")
+	_service_panel = script.new()
+	get_tree().current_scene.add_child(_service_panel)
+	if not _service_panel.open(player, self, "boiler_water_column_test"):
+		_service_panel.queue_free()
+		_service_panel = null
+		return false
+	return true
+
+
+func maintenance_panel_closed() -> void:
+	_service_panel = null
+
+
+func maintenance_snapshot() -> Dictionary:
+	return {"water_level": water_level, "column_isolated": column_isolated,
+			"column_proved": column_proved}
+
+
+func preview_maintenance_step(step: Dictionary, value: float) -> void:
+	var worked := clampf(value, 0.0, 1.0)
+	match str(step.get("id", "")):
+		"isolate_column", "return_service":
+			_set_column_cocks(worked)
+		"read_level":
+			_set_water_visual(worked)
+			_set_witness_visual(worked)
+
+
+func preview_maintenance_hold(step: Dictionary, progress: float,
+		_value: float) -> void:
+	if str(step.get("id", "")) != "prove_drain":
+		return
+	var worked := clampf(progress, 0.0, 1.0)
+	_set_water_visual(lerpf(water_level, 0.02, worked))
+	if _blowdown_lever:
+		_blowdown_lever.rotation.z = deg_to_rad(lerpf(0.0, -34.0, worked))
+
+
+func restore_maintenance_snapshot(snapshot: Dictionary) -> void:
+	column_isolated = bool(snapshot.get("column_isolated", column_isolated))
+	column_proved = bool(snapshot.get("column_proved", column_proved))
+	water_level = clampf(float(snapshot.get("water_level", water_level)), 0.0, 1.0)
+	_set_water_visual(water_level)
+	_apply_column_service_pose()
+
+
+func apply_maintenance_result(result: Dictionary) -> void:
+	var patch: Dictionary = result.get("mechanism_patch", {})
+	water_level = clampf(float(patch.get("water_level", water_level)), 0.0, 1.0)
+	column_proved = bool(patch.get("column_proved", column_proved))
+	column_isolated = false
+	_apply_state()
+	_apply_column_service_pose()
+	maintenance_completed.emit(result.duplicate(true))
+
+
+func _apply_column_service_pose() -> void:
+	_set_column_cocks(0.0 if column_isolated else 1.0)
+	_set_witness_visual(water_level)
+	if _blowdown_lever:
+		_blowdown_lever.rotation.z = 0.0
+
+
+func _set_column_cocks(value: float) -> void:
+	for cock in _column_cocks:
+		cock.rotation.z = deg_to_rad(lerpf(-82.0, 0.0,
+				clampf(value, 0.0, 1.0)))
+
+
+func _set_water_visual(value: float) -> void:
+	if _water_fill == null:
+		return
+	var h := lerpf(0.018, 0.44, clampf(value, 0.0, 1.0))
+	_water_fill.scale.y = h / 0.28
+	_water_fill.position.y = 0.82 + h * 0.5
+
+
+func _set_witness_visual(value: float) -> void:
+	if _witness_marker:
+		_witness_marker.position.y = _column_level_y(value)
+
+
+func _column_level_y(value: float) -> float:
+	return 0.82 + lerpf(0.018, 0.44, clampf(value, 0.0, 1.0))
 
 
 func set_fire_door_open(open: bool, seconds := 0.55) -> void:
@@ -427,10 +552,7 @@ func set_service_pose() -> void:
 
 
 func _apply_state() -> void:
-	if _water_fill:
-		var h := lerpf(0.018, 0.44, water_level)
-		_water_fill.scale.y = h / 0.28
-		_water_fill.position.y = 0.82 + h * 0.5
+	_set_water_visual(water_level)
 	if _gauge_needle:
 		_gauge_needle.rotation.z = deg_to_rad(lerpf(-118.0, 118.0, pressure))
 	if _fire_material:
@@ -461,6 +583,20 @@ func _process(delta: float) -> void:
 func _service_area(area_name: String, at: Vector3, size: Vector3) -> void:
 	var area := Area3D.new()
 	area.name = area_name
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = size
+	shape.shape = box
+	shape.position = at
+	area.add_child(shape)
+	add_child(area)
+
+
+func _control_area(area_name: String, control_id: String,
+		at: Vector3, size: Vector3) -> void:
+	var area := ControlArea.new()
+	area.name = area_name
+	area.configure(control_id)
 	var shape := CollisionShape3D.new()
 	var box := BoxShape3D.new()
 	box.size = size

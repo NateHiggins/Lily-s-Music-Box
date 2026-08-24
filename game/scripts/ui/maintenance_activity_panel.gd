@@ -95,6 +95,20 @@ func _build() -> void:
 	stack.add_child(_feedback)
 
 
+func _process(_delta: float) -> void:
+	if not _holding or _closing or _director == null \
+			or _director.active_run == null:
+		return
+	if _mechanism == null or not _mechanism.has_method(
+			"preview_maintenance_hold"):
+		return
+	var step := _director.active_run.current_step()
+	var required := maxf(0.01, float(step.get("hold_min_seconds", 0.01)))
+	var held := float(Time.get_ticks_msec() - _hold_started_msec) / 1000.0
+	_mechanism.call("preview_maintenance_hold", step,
+			clampf(held / required, 0.0, 1.0), _value)
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if _closing or _director == null or _director.active_run == null:
 		return
@@ -170,6 +184,9 @@ func _show_step(step: Dictionary) -> void:
 	_cue.text = str(step.get("cue", ""))
 	_feedback.text = "A/D or mouse to work it  ·  E to commit  ·  ESC to leave"
 	_refresh_track()
+	if str(step.get("verb", "")) != "hold_release" and _mechanism \
+			and _mechanism.has_method("preview_maintenance_step"):
+		_mechanism.call("preview_maintenance_step", step, _value)
 
 
 func _refresh_track() -> void:
