@@ -55,6 +55,9 @@ const CILIA_DEPLOY_S := 0.85
 const CILIA_WORK_S := 1.30
 ## and how long step 10 takes to put them back.
 const CILIA_RETRACT_S := 0.70
+## Deployed cilia take a real interval to sample recognition before returning
+## a vascular pulse. This is separate from the branch's ordinary task clock.
+const CILIA_SIGNAL_SAMPLE_S := 0.48
 
 ## §12 STEP 9 — TASK COMPLETION IS A BEAT, NOT AN EDGE.
 ##
@@ -547,6 +550,7 @@ func _fine_anatomy(p: Dictionary, delta: float) -> void:
 		p.cilia_out = maxf(0.0, float(p.cilia_out) - delta / CILIA_RETRACT_S)
 		p.investigate = 0.0
 		return
+	_sample_signal_with_cilia(p, delta)
 	# STEP 7 IS A PRECONDITION, NOT A LABEL. A branch is investigating on its
 	# own account when it has separated far enough to be its own organ AND it
 	# is doing one of §9's target-directed things about something real.
@@ -788,6 +792,11 @@ static func _shared_state() -> Dictionary:
 		"signal_orient_due": -1.0,
 		"signal_oriented_at": -1.0,
 		"signal_neighbours": 0,
+		"cilia_signal_src": -2147483648,
+		"cilia_signal_born": -1.0,
+		"cilia_signal_clock": -1.0,
+		"cilia_signal_sampled_at": -1.0,
+		"cilia_signal_pulsed_at": -1.0,
 		# §12 steps 2-4: the swelling that precedes a branch, and where along
 		# the organ it is happening.
 		"swell": 0.0,
@@ -886,8 +895,7 @@ func _recognize_signal_target(p: Dictionary, before_contact: float) -> void:
 			if int(p.parent) >= 0 else DreamEcologyDirector.SrcClass.PALP
 	director.emit_signal_packet(int(p.id), source_class,
 			DreamEcologyDirector.Fn.RECOGNIZE, p.tip, 0.85, 1.0,
-			DreamEcologyDirector.Chem.ELECTRIC, 1.0, 1.2,
-			DreamEcologyDirector.SrcClass.FAUNA)
+			DreamEcologyDirector.Chem.ELECTRIC, 1.0, 1.2)
 	p.signal_recognized = true
 	p.signal_recognized_at = director.signal_time()
 	p.signal_orient_due = director.signal_time() + 0.45
@@ -903,6 +911,48 @@ func _propagate_signal_answer(p: Dictionary) -> void:
 	p.signal_orient_due = -1.0
 	p.signal_oriented_at = director.signal_time()
 	p.signal_neighbours = orient_nearby(p.tip, 0.9, int(p.id))
+
+
+## Fine cilia interpret recognition differently from fauna. They close across
+## the sampled site for a duration, then return a vascular pulse intended for
+## living architecture. The next recipient lane will decide what architecture
+## does with it; this owner does not route that answer on its behalf.
+func _sample_signal_with_cilia(p: Dictionary, delta: float) -> void:
+	if director == null or float(p.get("cilia_out", 0.0)) < 0.95 \
+			or bool(p.get("task_done", false)):
+		return
+	var clock: float = float(p.get("cilia_signal_clock", -1.0))
+	if clock >= 0.0:
+		clock += delta
+		p.cilia_signal_clock = clock
+		if clock < CILIA_SIGNAL_SAMPLE_S:
+			return
+		p.cilia_signal_clock = -1.0
+		p.cilia_signal_pulsed_at = director.signal_time()
+		director.emit_signal_packet(int(p.id), DreamEcologyDirector.SrcClass.CILIA,
+				DreamEcologyDirector.Fn.PULSE, p.tip, 1.1, 0.65,
+				DreamEcologyDirector.Chem.VASCULAR, 1.0, 1.0,
+				DreamEcologyDirector.SrcClass.ARCHITECTURE)
+		return
+	if director.signals_near(p.tip, 0.0, _signal_near) <= 0:
+		return
+	for packet in _signal_near:
+		if int(packet.function) != DreamEcologyDirector.Fn.RECOGNIZE \
+				or int(packet.family) != DreamEcologyDirector.Chem.ELECTRIC:
+			continue
+		if int(packet.src_id) == int(p.id):
+			continue
+		if int(packet.src_id) == int(p.get("cilia_signal_src", -2147483648)) \
+				and float(packet.born) <= float(p.get("cilia_signal_born", -1.0)):
+			continue
+		var affinity: int = int(packet.affinity)
+		if affinity >= 0 and affinity != DreamEcologyDirector.SrcClass.CILIA:
+			continue
+		p.cilia_signal_src = int(packet.src_id)
+		p.cilia_signal_born = float(packet.born)
+		p.cilia_signal_clock = 0.0
+		p.cilia_signal_sampled_at = director.signal_time()
+		break
 
 
 func try_branch(id: int) -> bool:

@@ -305,6 +305,42 @@ func _organelle_exchange(dir: DreamEcologyDirector, margin, critters, hero) -> v
 			secretion_at < adopted_at and adopted_at < recognized_at
 			and recognized_at <= float(social.signal_presented_at)
 			and float(social.signal_presented_at) < float(receptor.signal_oriented_at))
+
+	# --- DO-3: THE SAME RECOGNITION, A DIFFERENT ORGAN'S ANSWER ----------
+	var sampler: Dictionary = DreamMarginController._shared_state()
+	sampler.merge({"id": 987654, "parent": int(receptor.id),
+			"tip": at + Vector3(0.08, 0.0, 0.0), "cilia_out": 1.0,
+			"task_done": false}, true)
+	var pulse_before: int = int(dir.signal_census().by_function.get("pulse", 0))
+	margin._sample_signal_with_cilia(sampler, 0.0)
+	_check("DO-3 deployed cilia begin sampling the shared recognition",
+			float(sampler.cilia_signal_clock) == 0.0
+			and float(sampler.cilia_signal_sampled_at) >= recognized_at)
+	dir._process(DreamMarginController.CILIA_SIGNAL_SAMPLE_S * 0.5)
+	margin._sample_signal_with_cilia(sampler,
+			DreamMarginController.CILIA_SIGNAL_SAMPLE_S * 0.5)
+	_check("DO-3 cilia sampling is a duration, not an instant response",
+			float(sampler.cilia_signal_clock) > 0.0
+			and int(dir.signal_census().by_function.get("pulse", 0)) == pulse_before)
+	dir._process(DreamMarginController.CILIA_SIGNAL_SAMPLE_S * 0.55)
+	margin._sample_signal_with_cilia(sampler,
+			DreamMarginController.CILIA_SIGNAL_SAMPLE_S * 0.55)
+	_check("DO-3 sampled cilia return one vascular pulse",
+			int(dir.signal_census().by_function.get("pulse", 0)) == pulse_before + 1
+			and float(sampler.cilia_signal_pulsed_at)
+			- float(sampler.cilia_signal_sampled_at)
+			>= DreamMarginController.CILIA_SIGNAL_SAMPLE_S)
+	var cilia_packets: Array = []
+	dir.signals_near(sampler.tip, 0.0, cilia_packets)
+	var vascular := false
+	for packet in cilia_packets:
+		if int(packet.src_class) == DreamEcologyDirector.SrcClass.CILIA \
+				and int(packet.function) == DreamEcologyDirector.Fn.PULSE \
+				and int(packet.family) == DreamEcologyDirector.Chem.VASCULAR \
+				and int(packet.affinity) == DreamEcologyDirector.SrcClass.ARCHITECTURE:
+			vascular = true
+	_check("DO-3 the cilia pulse is typed for architecture without routing it",
+			vascular)
 	_check("DO-2 local exchange never seizes whole-body attention",
 			dir.attending == Vector3.INF)
 	var after_keys: Array = RealityState.data.keys()

@@ -65,6 +65,16 @@ func _run() -> void:
 		p.local_look = false
 		p.morph.length = 0.78
 		p.morph.base_radius = 0.055 if i == 0 else 0.040
+		if i == 2:
+			# Present from the control onward: the response is the same fixed
+			# cilia closing to sample, never new anatomy appearing for the beat.
+			p.parent = int(palps[0].id)
+			p.unfold = 1.0
+			p.cilia_out = 1.0
+			p.cilia_band = 0.62
+			p.morph.cilia = 1.0
+			p.task_done = false
+			p.cilia_signal_clock = -1.0
 	var social: Dictionary = stage.critters.critters[0]
 	for candidate in stage.critters.critters:
 		if int(candidate.morph.kind) == DreamCritterSpecies.Kind.CRYSTAL_LISTENER:
@@ -125,6 +135,17 @@ func _run() -> void:
 	receptor.signal_orient_due = stage.director.signal_time()
 	stage.margin._propagate_signal_answer(receptor)
 	await _capture("05_neighbours_answer")
+
+	var sampler: Dictionary = palps[2]
+	stage.margin._sample_signal_with_cilia(sampler, 0.0)
+	stage.director._process(DreamMarginController.CILIA_SIGNAL_SAMPLE_S * 0.5)
+	stage.margin._sample_signal_with_cilia(sampler,
+			DreamMarginController.CILIA_SIGNAL_SAMPLE_S * 0.5)
+	await _capture("06_cilia_samples")
+	stage.director._process(DreamMarginController.CILIA_SIGNAL_SAMPLE_S * 0.55)
+	stage.margin._sample_signal_with_cilia(sampler,
+			DreamMarginController.CILIA_SIGNAL_SAMPLE_S * 0.55)
+	await _capture("07_cilia_returns_vascular_pulse")
 
 	print("[organelle shot] DONE -> %s" % out_dir)
 	get_tree().quit(0)

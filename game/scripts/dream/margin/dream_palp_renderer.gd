@@ -238,6 +238,10 @@ func _lay(slot: int, p: Dictionary) -> void:
 	if left > 0.0:
 		beat = sin(PI * clampf(1.0 - left / DreamMarginController.TASK_S,
 				0.0, 1.0))
+	var sample_clock: float = float(p.get("cilia_signal_clock", -1.0))
+	if sample_clock >= 0.0:
+		beat = maxf(beat, sin(PI * clampf(sample_clock
+				/ DreamMarginController.CILIA_SIGNAL_SAMPLE_S, 0.0, 1.0)))
 	_cilia[slot] = Vector4(float(p.get("cilia_out", 0.0)),
 			float(p.get("cilia_band", 0.62)), beat, float(morph.cilia))
 

@@ -2261,12 +2261,17 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   low-social individual ignores it, and neighbouring tissue answers after
   0.45 s. `DreamEcologyTest` passes 50/50; staged Forward+ proof and A/A are at
   `art/renders/dream_organelle_signal/README.md`. No attention or save seam moved.
-- **DO-3 — DIFFERENT ORGANS, DIFFERENT ANSWERS (FIRST THREE-CLASS SLICE LANDED).** Route the same signal through
+- **DO-3 — DIFFERENT ORGANS, DIFFERENT ANSWERS (PALP / FAUNA / CILIA SLICE LANDED).** Route the same signal through
   bounded class-specific responses: palps seek/brace, cilia sample, fauna
   carry/groom/redistribute, flora open or secrete, architecture propagates,
   hero acknowledges, hazards reject or inhibit. Preserve each family's
   hyperdimensional rule and local autonomy; global synchronization remains the
-  rare `DreamGlobalAttention` reveal.
+  rare `DreamGlobalAttention` reveal. Deployed cilia now interpret the same
+  recognition seen by fauna, close across it for 0.48 s, and return one typed
+  `PULSE / VASCULAR` packet addressed to architecture. `DreamEcologyTest`
+  passes 54/54 and the staged Forward+ proof plus A/A is in
+  `art/renders/dream_organelle_signal/README.md`. Architecture consumption is
+  the next open recipient lane; do not claim it from packet emission alone.
 - **DO-4 — PRODUCTION PROOF.** One production-root sequence must show at least
   three organelle classes completing detect → local seek/reconsider → cleft
   or contact → pulse/secretion → distinct recipient response, plus a delayed

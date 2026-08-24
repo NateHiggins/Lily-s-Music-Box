@@ -83,9 +83,23 @@ eviction, low-social non-response, no attention seizure and no persistence
 keys. The staged Forward+ sequence is at
 `art/renders/dream_organelle_signal/README.md`.
 
+## DO-3 first cilia interpretation
+
+The same unicast-free `RECOGNIZE / ELECTRIC` packet can now be interpreted by
+deployed fine cilia as well as fauna. Cilia do not present receptors like the
+crystal listener: they close across the sampled site for 0.48 seconds, then
+return one `PULSE / VASCULAR` packet with architecture affinity. The cilia
+owner decides that response; the director still only stores it. The fixed
+anatomy is present in the control frame, so the visual beat is closure and
+reopening rather than scale-from-zero growth.
+
+This establishes distinct interpretations across palp, fauna and cilia while
+leaving the next recipient honest: living architecture does not yet consume
+the returned pulse.
+
 ## Still open
 
-DO-3 remains broader than this slice: cilia, flora, living architecture,
+DO-3 remains broader than this slice: flora, living architecture,
 incarnations and eventually co-present hazards need distinct interpretations
 without pairwise directors. DO-4 still requires a production-root sequence
 including one rare whole-body event. The staged Dream room proves DO-2's

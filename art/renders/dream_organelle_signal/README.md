@@ -1,4 +1,4 @@
-# DO-2 — local organelle signal proof
+# DO-2 / DO-3 — local organelle signal proof
 
 Captured 2026-08-24 in Forward+ through the production Dream hero, margin,
 palp renderer, critter controller and ecology director, composed in the
@@ -16,6 +16,11 @@ existing Dream ecology stage.
   not answer.
 - `05_neighbours_answer.png` — other margin tissue turns after the conduction
   delay, without a whole-body attention event.
+- `06_cilia_samples.png` — a fixed, already-deployed ciliary band closes over
+  the same recognition site for a real sampling interval.
+- `07_cilia_returns_vascular_pulse.png` — the same cilia reopen after returning
+  one `PULSE / VASCULAR` packet addressed to living architecture. No
+  architecture response is claimed in this slice.
 
 The signal is deliberately not drawn as a beam, particle or UI glyph. What is
 visible is each receiving organ's existing anatomy changing its work.
@@ -26,21 +31,24 @@ ImageMagick RMSE, normalized:
 
 | Pair | RMSE |
 |---|---:|
-| frozen A / frozen A repeat | 0.0024524 |
-| secretion / palp probe | 0.0250132 |
-| palp probe / contact recognition | 0.0143985 |
-| recognition / fauna receptor presentation | 0.00362865 |
-| fauna presentation / delayed neighbours | 0.0280836 |
+| frozen A / frozen A repeat | 0.00317577 |
+| frozen A repeat / secretion | 0.00275427 |
+| secretion / palp probe | 0.0250393 |
+| palp probe / contact recognition | 0.0145903 |
+| recognition / fauna receptor presentation | 0.00449727 |
+| fauna presentation / delayed neighbours | 0.0303479 |
+| deployed cilia / sampling closure | 0.0127607 |
+| sampling closure / reopened after pulse | 0.0127422 |
 
 The fauna response is localized to the listener on the pedestal and is
-visually inspectable in the paired frames; the other two anatomical changes
-are more than 5.8× and 11.4× the whole-frame live-material floor. The A/A pair
+visually inspectable in the paired frames. The cilia sampling closure and
+return are each about 4.0× the whole-frame live-material floor. The A/A pair
 is retained because Dream shaders use live `TIME` even while owner simulation
 is frozen.
 
 ## Contract proof
 
-`DreamEcologyTest.tscn` passes 50/50. Its DO-2 block proves:
+`DreamEcologyTest.tscn` passes 54/54. Its DO-2/DO-3 blocks prove:
 
 - the exact twelve-key packet shape;
 - secretion < adoption < recognition < fauna < neighbours;
@@ -50,6 +58,10 @@ is frozen.
 - no new `RealityState` key;
 - 32 live slots after 40 long-lived emissions, with eight deterministic
   evictions.
+- deployed cilia sample recognition for 0.48 seconds rather than answering
+  instantly;
+- exactly one cilia-authored `PULSE / VASCULAR` response with architecture
+  affinity, while the shared director remains a store rather than a router.
 
 Observed ordered clock in the acceptance run:
 
@@ -63,6 +75,7 @@ $env:SHOT_DIR='C:\PleaseRemainOnTheLine\art\renders\dream_organelle_signal'
 godot --path game --resolution 1280x720 res://tests/DreamOrganelleSignalShot.tscn
 ```
 
-This is staged production-owner proof for DO-2. It is not DO-4's required
-production-root sequence, does not add hazards/pursuit, and is not a completed
+This is staged production-owner proof for DO-2 and the first cilia slice of
+DO-3. It is not DO-4's required production-root sequence, does not yet prove
+an architecture consumer, does not add hazards/pursuit, and is not a completed
 waking case loop.
