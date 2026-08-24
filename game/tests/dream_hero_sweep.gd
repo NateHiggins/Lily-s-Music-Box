@@ -758,6 +758,43 @@ func _modelled_hero_shots() -> void:
 			printerr("[SWEEP] every sucker presses at once — the press is not local")
 		hero.set_process(true)
 	print("[SWEEP] pivot stays %.4f mm from its bone" % (pivot_drift * 1000.0))
+	# DOES THE SURFACE STAY ON THE BODY?
+	#
+	# The shared stack samples its mesostructure at the fragment's world
+	# position, so without undoing the pose a plate's grain slides across the
+	# plate as the limb sweeps -- and swimming is a TEMPORAL defect, invisible
+	# in every still frame ever taken of this creature. What can be checked is
+	# the transform that fixes it: run a point that is rigidly attached to a
+	# piece through the unpose, and it must land in the same place every frame
+	# no matter where the skeleton has put it.
+	var sample_walk := 0.0
+	var sample_ref := {}
+	var moved_in_room := 0.0
+	for _probe in 60:
+		await get_tree().create_timer(0.05).timeout
+		for i in hero.meshes.size():
+			var b: int = hero._rider_bone[i]
+			if b < 0:
+				continue
+			var seat: Transform3D = hero.skeleton.get_bone_global_pose(b)
+			var here: Vector3 = seat * hero._rider_seat[i]
+			var unposed: Vector3 = (hero._rider_rest[i] * seat.affine_inverse()) * here
+			if not sample_ref.has(i):
+				sample_ref[i] = unposed
+			else:
+				sample_walk = maxf(sample_walk,
+						(sample_ref[i] as Vector3).distance_to(unposed))
+			if not sample_ref.has("room%d" % i):
+				sample_ref["room%d" % i] = here
+			else:
+				moved_in_room = maxf(moved_in_room,
+						(sample_ref["room%d" % i] as Vector3).distance_to(here))
+	print("[SWEEP] pieces moved %.1f mm through the room; their surface moved %.4f mm"
+			% [moved_in_room * 1000.0, sample_walk * 1000.0])
+	if moved_in_room < 0.005:
+		printerr("[SWEEP] nothing moved — this proves nothing about swimming")
+	if sample_walk > 0.0005:
+		printerr("[SWEEP] THE SURFACE SWIMS — mesostructure is fixed to the room")
 	if pivot_drift > 0.0005:
 		printerr("[SWEEP] THE PIVOTS DRIFT — the pieces are being sheared, not turned")
 	if float(rock_peak[1]) < 0.002:

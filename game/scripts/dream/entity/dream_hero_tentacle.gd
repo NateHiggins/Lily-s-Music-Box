@@ -995,6 +995,13 @@ func _micro(delta: float) -> void:
 		var axis: Vector3 = (seat.basis * _rider_out[i]).normalized()
 		materials[i].set_shader_parameter("rider_pivot", pivot)
 		materials[i].set_shader_parameter("rider_axis", axis)
+		# UNDO THE POSE. The shared stack samples its mesostructure at the
+		# fragment's WORLD position, so without this the pattern belongs to the
+		# room and the creature moves through it -- a plate's grain slides
+		# across the plate as the limb sweeps. Sending the transform that puts
+		# this piece back where it started fixes the surface to the body.
+		materials[i].set_shader_parameter("rider_unpose",
+				_rider_rest[i] * seat.affine_inverse())
 		# ROCKING. Driven by how fast the SEAT is turning, not by how fast it
 		# is travelling: a plate on a limb that swings rigidly does not rock,
 		# and a plate on flesh that bends underneath it does.

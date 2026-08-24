@@ -48,6 +48,22 @@ with POSITION, NORMAL, JOINTS and WEIGHTS and nothing else.
   `grow` entirely, so the metal hung in the air along a limb that had not
   arrived. Fixed and photographed; see the ladder below.
 
+**And the surface was fixed to the ROOM, not to the creature.** The shared
+stack samples every one of its mesostructure fields — the vascular clouds, the
+pores, the gold's ridged field, the crystal fracture — at the fragment's world
+position. So the pattern belonged to the flat and the creature moved through
+it: a gold plate's grain slid across the plate as the limb swept, which is a
+thing no surface does. This is a large part of what "the texture is not great"
+was pointing at, and it is invisible in a still frame, which is exactly why it
+survived every photograph taken of the creature.
+
+A rider is rigid and bound to one bone, so its rest position can be recovered
+exactly — undo the bone's current pose, reapply its rest one, one matrix does
+both. Measured: pieces travelled 850 mm through the room while their sampling
+position moved 0.0004 mm. **The flesh is NOT fixed this way and still swims:**
+it is weighted across twenty-eight bones and genuinely deforms, so there is no
+single transform that undoes its pose. That one is still owed.
+
 **The instrument for all of this: `SHOT_MODE=emerge` on the staged room.**
 A limb filling in from the tip and a limb extruding from the root are the same
 picture in any single frame, and `grow` runs its whole range in 2.4 seconds.

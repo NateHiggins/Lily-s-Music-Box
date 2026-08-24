@@ -110,9 +110,25 @@ uniform float rider_squash = 0.0;
 // w the piece's own radius -- zero on anything that is not a sucker, which is
 // also what switches the whole thing off.
 uniform vec4 rider_grip = vec4(0.0);
+// WHERE THIS PIECE WOULD BE IF THE CREATURE WERE AT REST.
+//
+// The shared stack samples every one of its mesostructure fields -- the
+// vascular clouds, the pores, the gold's ridged field, the crystal fracture --
+// at the WORLD position of the fragment. Which means the pattern is fixed to
+// the room and the creature moves THROUGH it: a gold plate's grain slides
+// across the plate as the limb sweeps, a thing no surface does. It is a large
+// part of what "the texture is not great" was pointing at, and it is invisible
+// in a still frame, which is why it survived every photograph.
+//
+// A rider is rigid and bound to a single bone, so its rest position can be
+// recovered exactly: undo the bone's current pose and reapply its rest one.
+// One matrix does both. The flesh cannot be fixed this way -- it is weighted
+// across twenty-eight bones and genuinely deforms -- and is left alone.
+uniform mat4 rider_unpose = mat4(1.0);
 group_uniforms;
 
 varying vec3 v_world;
+varying vec3 v_stable;
 varying vec4 v_mask;
 varying vec2 v_region;
 varying vec2 v_uv;
@@ -183,6 +199,11 @@ void vertex() {
 	}
 	VERTEX += rider_push;
 	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	// The surface is sampled HERE rather than at v_world, so it belongs to the
+	// body instead of to the room.
+	v_stable = rider_v >= 0.0
+			? (rider_unpose * vec4(VERTEX, 1.0)).xyz
+			: v_world;
 }
 
 void fragment() {
@@ -260,8 +281,8 @@ void fragment() {
 	// TIP -- outward, the way a body pushes blood into a limb -- rather than
 	// from the tip back into the wall.
 	vec2 cuv = vec2(suv.x, along);
-	DeMasks m = de_masks(v_world, cuv, n, view_dir, TIME, hero_seed, ctx);
-	DeOut o = de_shade(m, v_world, cuv, n, view_dir, TIME, hero_seed, ctx);
+	DeMasks m = de_masks(v_stable, cuv, n, view_dir, TIME, hero_seed, ctx);
+	DeOut o = de_shade(m, v_stable, cuv, n, view_dir, TIME, hero_seed, ctx);
 
 	ALBEDO = o.albedo;
 	METALLIC = o.metallic;
