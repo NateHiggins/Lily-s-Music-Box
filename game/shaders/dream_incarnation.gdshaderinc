@@ -56,25 +56,28 @@ vec4 mina_surface(vec3 world, vec2 uv, float retained, float molten,
 		min(abs(box_uv.x - 0.39), abs(box_uv.y - 0.29)));
 	float empty_field = (1.0 - smoothstep(0.26, 0.38, box_uv.x))
 		* (1.0 - smoothstep(0.17, 0.28, box_uv.y));
-	float ink = clamp(max(baseline * 0.42, bracket * 0.58)
+	float caption_ink = clamp(max(baseline * 0.42, bracket * 0.58)
 		* (1.0 - empty_field), 0.0, 1.0);
 	float calm = smoothstep(incarnation_signature.x, 1.0, retained)
 		* incarnation_signature.y;
-	ink *= 1.0 - calm * empty_field;
+	caption_ink *= 1.0 - calm * empty_field;
 	vec3 blue_black = plate.rgb * vec3(0.18, 0.23, 0.34);
 	vec3 warm_stock = incarnation_substance(1, uv * 0.64 + 5.1).rgb
 		* vec3(0.20, 0.16, 0.12);
 	vec3 gilt = incarnation_substance(2, uv * 0.91 - 3.7).rgb
 		* vec3(0.74, 0.57, 0.28);
-	vec3 dark = mix(warm_stock, blue_black, 0.58 + ink * 0.32);
+	vec3 dark = mix(warm_stock, blue_black, 0.58 + caption_ink * 0.32);
 	dark *= 0.78 + relief.a * 0.34;
-	vec3 oblique = mix(dark, blue_black * 1.75, ink * clamp(awake * 1.4, 0.0, 1.0));
+	vec3 oblique = mix(dark, blue_black * 1.75,
+		caption_ink * clamp(awake * 1.4, 0.0, 1.0));
 	// Gold boils outward from the surviving ink rim; the centre is spared.
-	float spared = clamp(calm * empty_field + molten * (1.0 - ink) * 0.56, 0.0, 1.0);
-	vec3 colour = mix(oblique, gilt, molten * (0.28 + ink * 0.72));
+	float spared = clamp(calm * empty_field
+		+ molten * (1.0 - caption_ink) * 0.56, 0.0, 1.0);
+	vec3 colour = mix(oblique, gilt,
+		molten * (0.28 + caption_ink * 0.72));
 	colour = mix(colour, vec3(0.012, 0.018, 0.032),
-		ink * (0.76 - molten * 0.38));
-	colour += gilt * ink * molten * 0.24;
+		caption_ink * (0.76 - molten * 0.38));
+	colour += gilt * caption_ink * molten * 0.24;
 	colour = mix(colour, warm_stock * 0.045, spared * 0.94);
 	vec3 room_after = texture(reflected_world,
 		fract(uv * 0.035 + vec2(0.17, 0.43))).rgb;
@@ -88,7 +91,7 @@ vec4 mina_surface(vec3 world, vec2 uv, float retained, float molten,
 		length(palm_q / vec2(0.78, 1.0)));
 	float pressure = palm * calm
 		* incarnation_stillness * empty_field;
-	float roughness = mix(plate.a, 0.34, molten * ink);
+	float roughness = mix(plate.a, 0.34, molten * caption_ink);
 	roughness = mix(roughness, 0.16, pressure * 0.38);
 	return vec4(colour, roughness);
 }

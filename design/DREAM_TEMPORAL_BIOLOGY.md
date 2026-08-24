@@ -164,3 +164,18 @@ Visual claims require production render proof and a frozen A/A control. A
 future-looking silhouette without this account is rejected as arbitrary
 anachronism. A sound, shader or animation that merely decorates the scene
 without changing how the player reads an organ's sensing is not sufficient.
+
+## First landed specimen — Juno
+
+T4-2 embodies the first ruled temporal specimen through Juno's existing
+delayed-feedback partition. The observation set is tympanic membrane and
+cochlear grouping, 1920s radio feedback, and later phased-array sensing. The
+misreading is that every received channel requests an answer. The embodiment
+is a fixed twenty-one-receptor speaker-cloth/brass listening bed held in three
+spatial delay groups by the production room builder.
+
+The original delayed edge remains the only clock and the reciprocal partition
+the only topology. Sustained delivery still releases it. Juno's truth,
+pursuit, hazards and save context remain unchanged, and no future object is
+depicted. Frozen production proof and executable invariants:
+`art/renders/dream_temporal_juno_t4/README.md`.

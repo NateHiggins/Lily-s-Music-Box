@@ -333,6 +333,21 @@ func _grammar_contract(profiles: Dictionary) -> void:
 			not partition.is_empty() and juno_builder.channel_partition_count() == 1
 			and _joint_partitioned_both(juno_builder, str(partition.from),
 					str(partition.to)))
+	var temporal_receptors := juno_plot.find_child(
+			"ChannelTemporalReceptors", true, false) as MultiMeshInstance3D
+	var temporal_tips := juno_plot.find_child(
+			"ChannelTemporalTips", true, false) as MultiMeshInstance3D
+	_check("T4-2 delayed feedback grows one fixed twenty-one-receptor array",
+			temporal_receptors != null and temporal_receptors.multimesh != null
+			and temporal_receptors.multimesh.instance_count == 21
+			and temporal_tips != null and temporal_tips.multimesh != null
+			and temporal_tips.multimesh.instance_count == 21)
+	_check("T4-2 the array holds three delayed response groups without zero scale",
+			temporal_receptors != null
+			and float(temporal_receptors.get_meta(
+					"minimum_receptor_length", 0.0)) > 0.28
+			and float(temporal_receptors.get_meta(
+					"maximum_receptor_length", 0.0)) > 0.43)
 	juno_builder.advance(juno_plot, juno_builder.path_of(player_key))
 	_check("ordinary pocket advance cannot reopen load-bearing feedback",
 			_joint_partitioned_both(juno_builder, str(partition.get("from", "")),

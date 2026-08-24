@@ -367,6 +367,16 @@ already join tympanic/cochlear delay, period radio and later array sensing
 without changing her truth or any maze owner. Do not interrupt DO-4's
 production proof to rebuild approved topology.
 
+T4-2 is now closed. Juno's existing delayed reciprocal partition grows one
+fixed 21-receptor speaker-cloth/brass listening bed in three spatial response
+groups, reading tympanum, cochlear delay, period feedback and later phased
+arrays as one organ that mistakes reception for a request to answer. The same
+shared clock and topology congeal/release it; truth, pursuit, hazards, saves
+and waking technology are unchanged. `DreamProfileTest` passes 65/65,
+`DreamIncarnationTest` 66/66, and the frozen production A/A plus five frames
+are at `art/renders/dream_temporal_juno_t4/README.md`. This remains downstream
+Dream proof, not Juno's waking loop.
+
 Three top-level projects:
 
 | Path | What |

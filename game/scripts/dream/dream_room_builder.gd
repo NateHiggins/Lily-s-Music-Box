@@ -1847,6 +1847,8 @@ func _build_channel_partition_skin(parent: Node3D, room: Dictionary) -> void:
 	trace.roughness = 0.36
 	var panels: Array[Dictionary] = []
 	var traces: Array[Dictionary] = []
+	var receptors: Array[Dictionary] = []
+	var receptor_tips: Array[Dictionary] = []
 	for door in room.get("doors", []):
 		if not bool(door.get("partitioned", false)):
 			continue
@@ -1870,8 +1872,31 @@ func _build_channel_partition_skin(parent: Node3D, room: Dictionary) -> void:
 			traces.append({"size": trace_size,
 					"at": centre + inward * 0.016 + Vector3.UP * y
 							+ along * (0.025 if i % 2 == 0 else -0.025)})
+		# T4-2 — THE TEMPORAL LISTENING BED. A tympanum, cochlear delay,
+		# period feedback and a later phased array are not four props here.
+		# They are one fixed sensory organ which mistakes every received
+		# channel for a request to answer. Three rows hold progressively
+		# delayed response angles; nothing scales into existence or owns time.
+		for group in 3:
+			var answer: float = float([1.0, 0.62, 0.24][group])
+			for reed in 7:
+				var across := (float(reed) - 3.0) * door_w * 0.105
+				var root_at := centre + inward * 0.038 + along * across \
+						+ Vector3.UP * (0.38 + float(group) * 0.58)
+				var fan := (float(reed) - 3.0) * 0.11 \
+						+ (float(group) - 1.0) * 0.07
+				var direction: Vector3 = (inward * (0.18 + answer * 0.18)
+						+ along * fan + Vector3.UP * (0.58 - answer * 0.16)).normalized()
+				var length: float = 0.24 + answer * 0.20
+				receptors.append({"at": root_at + direction * length * 0.5,
+						"direction": direction, "length": length})
+				var tip_size := Vector3(0.034, 0.034, 0.034)
+				receptor_tips.append({"size": tip_size,
+						"at": root_at + direction * length})
 	_profile_stamp_instances(parent, "ChannelEchoCloth", cloth, panels)
 	_profile_stamp_instances(parent, "ChannelEchoTraces", trace, traces)
+	_profile_stamp_reeds(parent, "ChannelTemporalReceptors", trace, receptors)
+	_profile_stamp_instances(parent, "ChannelTemporalTips", trace, receptor_tips)
 
 
 ## Peter's duplicate is still an Orison corridor, so the evidence belongs to
@@ -2044,6 +2069,40 @@ static func _profile_stamp_instances(parent: Node3D, node_name: String,
 		batch.set_instance_transform(i, Transform3D(
 				basis.scaled(box.size as Vector3), box.at as Vector3))
 	mesh_instance.multimesh = batch
+	parent.add_child(mesh_instance)
+
+
+static func _profile_stamp_reeds(parent: Node3D, node_name: String,
+		material: Material, reeds: Array[Dictionary]) -> void:
+	if reeds.is_empty():
+		return
+	var mesh_instance := MultiMeshInstance3D.new()
+	mesh_instance.name = node_name
+	# BoxMesh keeps the reeds in the profile-stamp batching language and gives
+	# these fixed receptors an Art Deco tissue silhouette without another owner.
+	var mesh := BoxMesh.new()
+	mesh.size = Vector3.ONE
+	mesh.material = material
+	var batch := MultiMesh.new()
+	batch.transform_format = MultiMesh.TRANSFORM_3D
+	batch.mesh = mesh
+	batch.instance_count = reeds.size()
+	var minimum_length := INF
+	var maximum_length := 0.0
+	for i in reeds.size():
+		var reed: Dictionary = reeds[i]
+		var direction: Vector3 = (reed.direction as Vector3).normalized()
+		var length := float(reed.length)
+		minimum_length = minf(minimum_length, length)
+		maximum_length = maxf(maximum_length, length)
+		var basis := Basis(Quaternion(Vector3.UP, direction)) \
+				* Basis.from_scale(Vector3(0.018, length, 0.018))
+		batch.set_instance_transform(i, Transform3D(basis, reed.at as Vector3))
+	mesh_instance.multimesh = batch
+	# MultiMesh transforms are GPU-backed and read back as identities under the
+	# headless renderer. Preserve the exact constructed bounds for inspection.
+	mesh_instance.set_meta("minimum_receptor_length", minimum_length)
+	mesh_instance.set_meta("maximum_receptor_length", maximum_length)
 	parent.add_child(mesh_instance)
 
 

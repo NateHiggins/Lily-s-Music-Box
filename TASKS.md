@@ -2317,13 +2317,18 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   and the being's specific misreading. This is classification first, not a
   mandate to change approved art. Feed any genuine gaps into DO-3 after DO-4's
   production proof is stable.
-- **T4-2 OPEN — FIRST TEMPORAL SENSORY PROOF.** Use Juno's already-approved
-  delayed feedback grammar as the first bounded example: tympanic/cochlear
-  delay, 1920s radio feedback and later array sensing re-grown as one organic
-  listening response. Preserve her topology, timing, pursuit, hazards and
-  truth (`connection requires an open channel`). No screen, brand, future prop
-  or new owner. Require fixed-camera production render, frozen A/A and a named
-  visible anatomical response.
+- **T4-2 COMPLETE 2026-08-24 — FIRST TEMPORAL SENSORY PROOF.** Juno's existing
+  delayed reciprocal partition now grows a fixed 21-receptor listening bed in
+  three spatial response groups: tympanum, cochlear delay, period feedback and
+  later phased-array observation embodied as one speaker-cloth/brass organ.
+  The being mistakes every received channel for a request to answer. The same
+  shared delay congeals it and sustained delivery releases it; no new clock,
+  topology, collision, navigation, pursuit, hazard, save, screen, brand,
+  future prop or owner exists. Frozen production A/A is 0.000000; partition
+  and release both clear it at ~0.09694 RMSE. `DreamProfileTest` passes 65/65
+  and `DreamIncarnationTest` 66/66. Proof:
+  `art/renders/dream_temporal_juno_t4/README.md`. This extends the downstream
+  Dream seam only, not Juno's waking case loop.
 - **T4-3 OPEN — MAINTENANCE TEACHES THE VERBS.** For each maintenance activity,
   tag the historically researched mechanism with one transferable verb such
   as pressure, continuity, timing, regulation, contact or flow. Dream organs

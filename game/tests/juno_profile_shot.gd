@@ -30,6 +30,10 @@ func _ready() -> void:
 	var door: Dictionary = root.rooms.call("_door_to_any", from_key, to_key)
 	_stage_camera(from_key, door)
 	_settle_lamp(true)
+	# Acceptance stills compare topology and anatomy, not sixty frames of the
+	# molten body's TIME animation. Freeze only the capture clock and restore it
+	# before exit so A/A prices renderer noise rather than an intentional pulse.
+	Engine.time_scale = 0.0
 	await _capture("00_open_channel_before")
 	await _capture("00b_open_channel_control")
 	var event := root.rooms.congeal_channel_partition(
@@ -45,6 +49,7 @@ func _ready() -> void:
 	root.call("_refresh_profile_topology")
 	await _capture("03_sustained_channel_reopens")
 	print("[JUNO PROFILE SHOT] 5 frames, findings=%d" % failures)
+	Engine.time_scale = 1.0
 	get_tree().quit(failures)
 
 
